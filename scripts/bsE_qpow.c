@@ -79,7 +79,7 @@ int main(int argc,char**argv){
   int printed=0;
   for(int n=0;n<=NMAX;n++){ if(!cand[n]) continue; tot++;
     if(!FI[n]) zI++; if(!FII[n]) zII++;
-    if(!FI[n]&&!FII[n]){ zB++; if(printed<20){ printf("both-empty n=%d (n mod 24 = %d)\n",n,n%24); printed++; } }
+    if(!FI[n]&&!FII[n]){ zB++; if(printed<20 || argc>4){ printf("both-empty n=%d (n mod 24 = %d)\n",n,n%24); printed++; } }
     double L=log((double)n); double r=(FI[n]+FII[n])/(L*L); if(r<minr){ minr=r; argmin=n; }
     if(sI[n]>maxsI){maxsI=sI[n];amI=n;} if(sII[n]>maxsII){maxsII=sII[n];amII=n;}
     int sb = (sI[n]<0)?sII[n]:((sII[n]<0)?sI[n]:(sI[n]<sII[n]?sI[n]:sII[n]));

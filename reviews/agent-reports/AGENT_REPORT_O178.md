@@ -15,7 +15,7 @@ Branch side-agent/spark-depth-aspect (merged side-agent/ff-sterile-point first).
    ES_q(T^k, ·) has no finite linear covering.** A positive-measure part (≥ 97 %) of each c-slice is obstructed. This is the
    large-q theorem requested in the brief. It is new in char 3, where the class-1 obstruction is absent. It is at fixed q and
    all degrees, unlike O140 Thm 2.1. Proof: union bound with q-independent divisor constants; numbers from `scripts/bsE_largeq.py`.
-3. **Theorem 3.1 (transfer to ℤ; PROVED relative to ET Prop 1.7's proof for N-points and MORDELL17 Lemmas 1.1, 2.1–2.3,
+3. **Theorem 3.1 (transfer to ℤ; PROVED relative to ET Prop 1.7's proof for Type II N-points, Browning–Elsholtz f(n) ≪ n^{2/3+ε}, and MORDELL17 Lemmas 1.1, 2.1–2.3,
    Cor 4.2 for general r): for every sufficiently large prime r (effective r₀, astronomical), the r-generic line has a
    sterile point.** Hence no finite set of ET classes covers the primes p ≡ 1 (24) with least quadratic non-residue r.
    This is MORDELL17's measure criterion with ET's exponents 3/5 and 2/5 (margins 2/5 and 1/10), averaged over the (r − 1)/2
@@ -26,7 +26,7 @@ Branch side-agent/spark-depth-aspect (merged side-agent/ff-sterile-point first).
 ## Results (labels)
 * §1 (ℤ, prime-power moduli). Exact table of which ET moduli can be q^s (PROVED, elementary). Parity kill: q = 2 is impossible,
   and q ≡ 1 (4) never helps p ≡ 1 (4). Mass ≍ log²p/q^s per slice (Assessment), measured decay ≈ 1/3 per s at q = 3.
-  **EVIDENCE: the q = 3 family misses 1233 of the 78496 primes ≤ 10⁶** (q = 7: 3518). Two engines agree to 7400, all solutions
+  **EVIDENCE: the q = 3 family misses 1233 of the 78496 primes ≤ 10⁶** (q = 7: 3518; first failures 5, 13, 29, …). Two engines agree to 7400, all solutions
   rebuilt exactly, odd squares all empty (T1 control). Lemma 1.3 (PROVED): exponential-polynomial / q-adically analytic
   witnesses serve only bounded depth. Verdict: over ℤ, prime-power moduli give a thin H-A family dominated by bounded moduli,
   i.e. B2. Depth-aspect character sums have no entry point at fixed p, since there is no interval (Assessment).
@@ -52,3 +52,12 @@ Branch side-agent/spark-depth-aspect (merged side-agent/ff-sterile-point first).
   the forced T-adic digits of u = 1 + cT.
 * Large-r sterile points for the main (non-np) Mordell variant, and for the r = 13 two-prime cells (T = {11, 13}: T-generic
   boxes with two depths). Is there a "large T" analogue?
+
+## Self-review (deep reviewer subagent, after checkpoint) and repairs
+No FATAL. Case B (Lemmas 2.1–2.2), Case A (2.3–2.4), Thm 2.5's arithmetic and the general-r box reductions all pass.
+Three MAJOR issues, all repaired in DEPTH_ASPECT.md:
+(1) Thm 3.1 used ET's f(n) ≪ n^{3/5+o(1)}, which is stated for primes only. Now it uses Browning–Elsholtz with ε = 1/12, and the theorem is unchanged.
+(2) bsE_qpow.c truncated Type I at t ≤ n + 2, the a = 1 cutoff. `scripts/bsE_qpow_complete.py` re-checked all 1233 + 3518
+failures to the complete bound t ≤ 9n²/4 + 1: none was rescued, so the counts stand (the per-s means are truncated, as now noted).
+(3) Lemma 1.3's scope is now restricted to witnesses affine in q^s, and the periodicity formula is corrected.
+Minors were applied (R166 step (2) citation, monicity in Case A, floating-point caveat, table bars, cylinder vs family, script exit codes).

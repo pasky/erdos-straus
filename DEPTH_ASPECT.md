@@ -27,10 +27,10 @@ f ≡ f' ≡ −1 (mod 4cd), with f = 4acd − 1, f' = 4bcd − 1 (direct expans
 be a power of a fixed prime q, and the integer then moves with the modulus:
 | slice | integer N | modulus | event |
 |---|---|---|---|
-| (I-t) t = q^s | (q^s n + 1)/4 | q^s | ab | N, a ≡ −b (mod q^s) |
-| (II-e) e = q^s | (n + q^s)/4 | q^s | ab | N, a ≡ −b (mod q^s) |
-| (I-cd) c = q^u, d = q^v | n² + 4q^{2u+v} | 4q^{u+v} | f | N, f ≡ −n |
-| (II-cd) c = q^u, d = q^v | 4q^{2u+v} n + 1 | 4q^{u+v} | f | N, f ≡ −1 |
+| (I-t) t = q^s | (q^s n + 1)/4 | q^s | ab ∣ N, a ≡ −b (mod q^s) |
+| (II-e) e = q^s | (n + q^s)/4 | q^s | ab ∣ N, a ≡ −b (mod q^s) |
+| (I-cd) c = q^u, d = q^v | n² + 4q^{2u+v} | 4q^{u+v} | f ∣ N, f ≡ −n |
+| (II-cd) c = q^u, d = q^v | 4q^{2u+v} n + 1 | 4q^{u+v} | f ∣ N, f ≡ −1 |
 Parity: (I-t) needs q^s n ≡ 3 (mod 4) and (II-e) needs n + q^s ≡ 0 (mod 4). So q = 2 is impossible, and for
 n ≡ 1 (mod 4) a prime q ≡ 1 (mod 4) never contributes. For q ≡ 3 (mod 4) only odd s contribute.
 So for the hard primes the depth families are t, e ∈ {q, q³, q⁵, …} with q ≡ 3 (mod 4).
@@ -46,23 +46,27 @@ failure lists, every counted solution rebuilt and checked exactly).** Prime-powe
 s ≥ 0, primes 5 ≤ p ≤ 10⁶:
 * q = 3: **1233 primes have no solution in the family** (first: 241, 409, 769, 1249, 1321, …). Up to 2·10⁴ there are
   42 (1.9 %), up to 10⁶ 1233 (1.6 %). The largest least-s needed is 7.
-* q = 7: 3518 failures (first 1009, 1021, …); q = 11: 259 already below 2·10⁴.
+* q = 7: 3518 failures (first 5, 13, 29, 53, …); q = 11: 259 already below 2·10⁴.
 * T1 control: all 499 odd squares ≤ 10⁶ have empty families (as they must, T1).
 * q = 5: every p ≡ 1 (mod 4) fails (parity, §1.1).
+*(Review repair: bsE_qpow.c truncated Type I at t ≤ n + 2, which is the a = 1 cutoff, not the general one. The
+per-s means above are therefore truncated. `scripts/bsE_qpow_complete.py` re-checks every reported failure with t up to
+the complete bound 9n²/4 + 1 (ET Lemma 2.8): 0 of the 1233 (q = 3) and 0 of the 3518 (q = 7) failures are rescued, so the
+failure counts stand.)*
 So the depth family is far from sufficient. It behaves like the two slices t = 3, e = 3 plus a small tail.
 
-**Lemma 1.3 (q-adic structure gives only bounded depth; PROVED, elementary).** Fix q and n. Let a, b be fixed
+**Lemma 1.3 (affine-in-q^s witnesses give only bounded depth; PROVED, elementary; scope restricted by review).** Fix q and n. Let a, b be fixed
 integers (independent of s). Then a ≡ −b (mod q^s) holds only for s ≤ v_q(a + b). More generally, let a_s, b_s, d_s be
 exponential polynomials in s of the shape α·q^s + β with α, β ∈ ℚ (the only shapes compatible with
 4a_s b_s d_s = q^s n + 1 identically). If two of them are constant, the third is (q^s n + 1)/(4·const). Then
-a_s ≡ −b_s (mod q^s) holds identically only if v_q(1 + 4b²d) = ∞, which is impossible. So every "q-adically
-analytic" choice of witnesses serves only boundedly many s. Witnesses for large s must contain prime factors of
-q^s n + 1 that grow with s, and those are the lottery.
+a_s ≡ −b_s (mod q^s) holds identically only if v_q(1 + 4b²d) = ∞, which is impossible. So witnesses that are affine functions of q^s serve only boundedly many s. (Review repair: the proof is degree
+counting, so it covers only witnesses polynomial in q^s, not arbitrary "q-adically analytic" choices. The earlier sentence
+about large prime factors is withdrawn as a claim; a large divisor need not have a large prime factor.)
 *Proof.* If a_s = (q^s n + 1)/(4bd) with b, d fixed, then a_s + b ≡ 1/(4bd) + b (mod q^s), and this is ≡ 0 only for
 s ≤ v_q(1 + 4b²d) < ∞. The case where a or b is the only non-constant factor is symmetric (a_s + b with d fixed;
 a fixed, b_s varying). If d_s is the non-constant factor, a, b are fixed and the first sentence applies. A product
 of two non-constant factors would have degree 2 in q^s. ∎
-For each prime ℓ ∤ qn, ℓ | q^s n + 1 iff s ≡ −log_q(n) (mod ord_ℓ q). So the small-prime factorisation of N_s is
+For each prime ℓ ∤ qn, ℓ | q^s n + 1 iff s ≡ log_q(−n^{−1}) (mod ord_ℓ q), provided −n^{−1} ∈ ⟨q⟩ mod ℓ (otherwise never). So the small-prime factorisation of N_s is
 periodic in s (Sierpiński/covering-congruence structure). Periodic data are congruence data, so this is B1.
 
 **1.4 Barrier screen and verdict for the ℤ question.**
@@ -91,8 +95,8 @@ O173 bounded the Case B families at level N by q^{(N+1+γ)/2+o(N)}, i.e. square-
 **2.1 Case B tuples.** By O173 Lemma 2.1 a Case B family with parameter s = N + 1 + γ is a tuple (m', g', w, C)
 of monic polynomials with
   m'wC = T^s + v,  w + C = g'v,  T ∥ w, T ∥ C, T ∤ m'g', v ≠ 0,  (B)
-and L' = g'm', E = L'w − 1, E' = L'C − 1, EE' = 1 + T^s L'g'. The family (up to the choice of types, ≤ 4 choices,
-same cylinder) is determined by (N, γ, m', g', w, C). By O173 Lemma 3.1 the union of its cylinders over (N, γ) with
+and L' = g'm', E = L'w − 1, E' = L'C − 1, EE' = 1 + T^s L'g'. The cylinder (not necessarily the individual family: a0, b0 may split L·g differently) is determined by
+(N, γ, m', g', w, C), and families with the same data have the same cylinder (review repair). By O173 Lemma 3.1 the union of its cylinders over (N, γ) with
 N + 1 + γ = s is the single cylinder with j − γ ∈ {0, 1}, i.e. **N = N(s) := ⌈(s + k − 2)/2⌉**. Write 𝓕(s) for the
 set of tuples (B). Degrees: a = deg w, b = deg C, z = deg m', y = deg g', t = deg v; a, b ≥ 1, a + b + z = s,
 y + t ≤ max(a, b) (because g'v = w + C).
@@ -129,7 +133,8 @@ depth, and this bound plays no role in ES.)
 
 **2.2 Case A at generic slice points.** O173/O166 proved Case A impossible at the single point u = 1 + cT. At a general
 u ∈ 1 + cT + T²F_q[[T]], Case A families occur and must be counted. Notation (R166's proof in FUNCTIONFIELD_ES2 §0.2,
-steps (1)–(2), which use only E ≡ −u (mod T^{k+j}) with u ≡ 1 + cT mod T²): a0 = g·a1, b0 = g·b1, gcd(a1, b1) = 1,
+step (1) and the degree estimate opening step (2); these use only E ≡ −u (mod T^{k+j}) with u ≡ 1 + cT mod T².
+The rest of R166's step (2) uses the exact polynomial u = 1 + cT and does not generalise (review repair)): a0 = g·a1, b0 = g·b1, gcd(a1, b1) = 1,
 E | a1 + b1, E ≡ −1 (mod L'), L' = g'a1'b1' (′ = prime-to-T part). WLOG deg a1 ≥ deg b1. Then T^α ∥ a1 with
 α ≥ 1 + deg g' + deg b1', T ∤ b1, j = γ + α, and validity on the cylinder u ≡ −E (mod T^{k+γ+α}). The data (a1, b1, g, E)
 with γ = 0 give the largest cylinder (lc(a0 + b0) and lc(L/a0 + L/b0) do not change when g is multiplied by T^γ), so it
@@ -161,7 +166,8 @@ deg z ≤ max(f, β) − λ ≤ α − 1. In particular T^α + z ≠ 0 (and T^α
 * f < β. Then deg z ≤ β − λ, and (A3) gives ≤ 2q^{β−λ}δ₃(α). (A4) gives ≤ 4q^{λ+κ−1+f} = 4q^{λ+α−β−1} with nothing
   further to choose. min(β − λ, λ + α − β − 1) ≤ (α − 1)/2.
 g' is then a monic divisor of K/T: ≤ δ(α) choices. Patterns (λ, β, κ): ≤ (α + 1)^3. (Here δ(3α) ≤ δ(α)·… is absorbed
-by taking B_A with δ(3α) in place of δ(α) if preferred; the shape of the bound is what matters.) ∎
+is not needed: in the case f ≥ β, deg(T^α + b1²K) ≤ α because 2β + κ = α + β − f ≤ α, so δ(α) suffices there (review repair).
+Also α > β forces deg a1 > deg b1, so lc(s) = 1 and E, F, K are monic.) ∎
 
 **Theorem 2.5 (large q in characteristic 3: no finite linear covering of ES_q(T^k); PROVED, given O173 Lemmas 1.1, 2.1,
 3.1, R166's Case A steps (1)–(2) and the compactness criterion).** Let k ≥ 2 and let q be odd with q ≥ 1.3·10^16, or
@@ -175,7 +181,8 @@ Case B mass ≤ Σ_s Σ_patterns min(four bounds)·q^{1−⌈s/2⌉}, and per s 
 ⌊2(s−3)/5⌋ + 1 − ⌈s/2⌉ ≤ −max(1, s/10 + 1/5). Lemma 2.4 gives Case A mass ≤ Σ_α (α+1)^3 B_A q^{⌊(α−1)/2⌋−α}, exponent
 ≤ −(α+1)/2. With δ(n) ≤ 2^n and δ₃(n) ≤ 3^n (a degree-n polynomial has ≤ n irreducible factors), the crude closed
 form 4Σ_s(s+1)^4(16q^{−1/10})^s q^{−1/5} + 24Σ_α(α+1)^3(16q^{−1/2})^α q^{−1/2} is decreasing in q and is < 0.48 at
-q = 3^{34}; it is < 1 for q ≥ 1.3·10^16. For 3^27 ≤ q ≤ 3^33, `scripts/bsE_largeq.py` evaluates the pattern-wise
+q = 3^{34}; it is < 1 for q ≥ 1.3·10^16. For 3^27 ≤ q ≤ 3^33, `scripts/bsE_largeq.py` evaluates (in floating point; the margin
+is ≥ 38×, so rounding is irrelevant, but no outward-rounded certificate was made) the pattern-wise
 minimum exactly for s, α ≤ 100 and adds the crude tail beyond 100. The totals are 2.6·10^{−2} (r = 27),
 1.9·10^{−7} (r = 28), < 2·10^{−11} (r = 29..33). Any covered set has measure ≤ these sums, so the uncovered set has
 positive measure. Points of the uncovered set are in O(q, T^k) by definition, and O ≠ ∅ excludes a finite covering
@@ -201,15 +208,17 @@ N^{−1/2} (margin 1/10). This is the ℤ face of Lemma 2.2. At r = 17 the margi
 even constant 1 gives a tail of 0.84 > 0.677).
 
 **Theorem 3.1 (sterile points for all large Mordell primes r; PROVED relative to ET Prop 1.7's proof applied to
-N-points (as in MORDELL17 §2, R83-reviewed), ET's bound f(n) ≪ n^{3/5+O(1/log log n)} for all n (which covers the U-boxes too, since they are ≤ f(r^k)), and MORDELL17 Lemmas 1.1, 2.1–2.3,
+N-points (as in MORDELL17 §2, R83-reviewed), Browning–Elsholtz f(n) ≪_ε n^{2/3+ε} for all n (review repair: ET's f(n) ≪ n^{3/5+o(1)} is stated
+for prime n only, the same point as MORDELL17 R83 repair m1), and MORDELL17 Lemmas 1.1, 2.1–2.3,
 Cor 4.2 for general odd prime r).** There is an effectively computable r₀ such that for every prime r ≥ r₀ the
 r-generic line contains a sterile point x(u) with u a quadratic non-residue mod r. That is, x(u) lies in no class
 of any of the seven ET families. Consequently **no finite set of ET Prop 1.9 classes covers all sufficiently large
 primes p ≡ 1 (mod 24) whose least quadratic non-residue is r.** In fact the sterile set has measure
 ≥ (r − 1)/(2r) − S(r) → 1/2 in ℤ_r.
-*Proof.* ET's proof of Prop 1.7 gives f(n) ≤ n^{3/5 + C/log log n} and f_II^N(n) ≤ n^{2/5 + C/log log n} with an
+*Proof.* Browning–Elsholtz bound f(r^k), and ET's proof of Prop 1.7 gives f_II^N(n) ≤ n^{2/5 + C/log log n} with an
 absolute (effective) C (MORDELL17 §2 for the N-point version). With n = r^K ≥ r, the exponent loss is ≤ CK log r/log log r.
-Hence the Q/U part of S(r) is ≤ 6Σ_k r^{−k(2/5 − C/log log r)} + (the U-boxes are included in the 6f(r^k) term). The P part is
+Hence the Q/U part of S(r) is ≤ 6C_εΣ_k r^{−k(1/3−ε)} = O(Σ_k r^{−k/4}) with ε = 1/12 (all five
+non-P box types are ≤ f(r^k) by MORDELL17 Lemmas 2.1, 2.2). The P part is
 ≤ 2Σ_K r^{K(2/5 + C/log log r) − K/2} ≤ 2Σ_K r^{−K(1/10 − C/log log r)}. Once C/log log r < 1/20 every series is geometric with
 ratio ≤ r^{−1/20}, so S(r) → 0 as r → ∞. The non-residue cells have total measure (r − 1)/(2r). So for r ≥ r₀,
 S(r) < (r − 1)/(2r), and some u in a non-residue cell is in no box, i.e. x(u) is sterile. MORDELL17 Cor 4.2 (proof:
@@ -228,7 +237,8 @@ and heuristically they do (the lottery, B2).
 are: (i) MORDELL17 Lemmas 1.1, 2.1–2.3 for general r, including whether any parity or reciprocity step used 17 specifically.
 Lemma 1.3 is used only as an emptiness statement, which is not needed for an upper bound. (ii) The uniformity of ET's
 O(1/log log n) for N-points that are not Type I/II solutions (MORDELL17 R83 repair m1 asserts it from ET §3). (iii) That U-boxes ≤ f(r^k)
-(MORDELL17 Lemma 2.2) holds for general r.
+(MORDELL17 Lemma 2.2) holds for general r. *The O178 self-review (deep reviewer) re-checked (i)–(iii) and found that the
+transfer passes after the Browning–Elsholtz repair. This is internal; a hostile R-review is still needed.*
 
 ## 4. Numerics for §2 (EVIDENCE; validation of the enumerations)
 

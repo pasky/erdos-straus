@@ -103,5 +103,6 @@ if __name__ == "__main__":
         cyl = {E[:al + 2] for (_, _, E) in s4}
         mass = len(s4) * P ** (-al) / (P - 1)   # mean over the P-1 values of c
         tot += mass
+        if s4 != s1: print('MISMATCH'); sys.exit(1)
         print("q=%d alpha=%d: A4 tuples %d, A1 tuples %d, agree %s, distinct cylinders %d, bound q^floor((a-1)/2)=%d, mean rel. mass %.5f (cum %.5f)"
               % (P, al, len(s4), len(s1), s4 == s1, len(cyl), P ** ((al - 1) // 2), mass, tot), flush=True)

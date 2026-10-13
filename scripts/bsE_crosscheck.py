@@ -42,7 +42,7 @@ if __name__ == "__main__":
     for _ in range(npts):
         u = [1, rng.randrange(1, P)] + [rng.randrange(P) for _ in range(16)]
         out = subprocess.run([ff3, str(P), "2", "0", str(LMAX), str(JMAX)] + [str(x) for x in u],
-                             capture_output=True, text=True).stdout
+                             capture_output=True, text=True, check=True).stdout
         hits = set()
         for line in out.splitlines():
             if not line.startswith("HIT"): continue
@@ -66,4 +66,6 @@ if __name__ == "__main__":
             if all(((E[i] if i < len(E) else 0) + (u[i] if i < len(u) else 0)) % P == 0 for i in range(N + 1)):
                 nt += 1
                 if (s, tuple(w), tuple(C), tuple(m), tuple(g)) not in hits: bad += 1; print("famcount tuple missed by ff3:", s, w, C, m, g)
+    r_ = 0
     print("points %d, ff3 hits (s<=%d) %d, famcount tuples covering %d, mismatches %d" % (npts, SMAX, nh, nt, bad))
+    sys.exit(1 if bad else 0)
