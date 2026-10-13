@@ -177,3 +177,31 @@ normalisation should be fixed once: a cylinder mod T^{N+1} has mass q^{−N} rel
 F_q[[T]]. U(m) and T(m) must use the same normalisation. The criterion itself (union bound: uncovered mass
 ≥ U(m) − T(m) > 0 ⇒ some slice point is uncovered ⇒ O(3, T²) ≠ ∅) is correct. It needs Case A families on the
 slice in T(m) and in U(m), as the text says.
+
+## Control re-run (R173)
+
+`scripts/review_ff3_ctl.py` uses the R173 search on **the same 80 points** as `ff3_ctl.sh`: the same seeds and the
+same digit construction. It covers 1 ≤ deg L' ≤ 8, j ≤ 4l − 2 (deg L' = 9 was too slow in Python). Logs:
+`data/review_ff3_ctl_m{4,6}.txt`.
+* Agreement mod T⁴: **7/40 points with a family, mean 0.350**. This is identical to the author's table (which also
+  includes l = 9). All of these hits have l ≤ 8.
+* Agreement mod T⁶: **0/40** with l ≤ 8. The author's single hit has l = 9. R173 compiled the author's C code to
+  locate it and checked it with R173 arithmetic (`data/review_ff3_ctl_hitcheck.txt`). It is point 1:
+  L' = g' = T⁹ + 2T⁴ + 2T³ + T + 2, j = γ = 8, N = 9, E' | 1 + T^{18}L'². The congruences hold. It is a γ = j family,
+  the regime that §3 flags.
+So the control numbers are reproduced. The verdict on the control stands: the numbers are SOUND, and only the
+wording needed repair (D5). D6 asks the author to commit the control outputs. R173's own logs now cover this.
+
+## Summary for the orchestrator
+
+No FATAL defects. Lemmas 1.1, 1.2, 2.1–2.3 and 3.1 are correct; R173 re-derived each one, and Lemma 2.1 needed one
+missing step (D1). The completeness logic of the x*_c searches holds. The x*_c exclusion is independently
+reproduced for deg L' ≤ 11 (k = 2) and deg L' ≤ 10 (k = 3), with identical candidate counts. The covered-mass
+census independently reproduces R175/O175.
+On the heuristic: refuting FF2's divergence argument is SOUND. O173's replacement "poly(N) families per level" is
+unsupported (D3, MAJOR for the narrative). The exact counts cannot tell 3^{0.4N} from N^{1.6–3}. Under either
+growth law the expected count per level decays, at about 3^{−0.4N} to 3^{−0.6N}. Convergence, and hence the
+"lottery" picture of Conjecture 0.2, therefore survives, but only as EVIDENCE/Assessment; nothing is proved. The
+proved bound allows q^{N+o(N)} families per level, and at that rate the sum diverges. Suggested (J)12 wording: "FF2's
+divergence heuristic is invalid (Lemma 2.1, PROVED). Exact counts to s ≤ 17 suggest a convergent expected count
+(EVIDENCE). x*_c carries no linear family with deg L' ≤ 13 (level ≤ 8); deg L' ≤ 11 is CERTIFIED by two codes."
