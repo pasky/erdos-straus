@@ -5,7 +5,7 @@ data/ff3_* (merged from side-agent/ff-sterile-point). Background: FUNCTIONFIELD_
 R166 review, DISCOVERIES (J)4/(J)12.
 From-scratch scripts: `scripts/review_ff3_*.py` (own F_p[T] arithmetic, pure Python, 1 core). Logs `data/review_ff3_*`.
 
-(in progress)
+Repairs applied: D1, D2, D3, D4, D5, D9, D10 in FUNCTIONFIELD_ES3.md and D3, D4, D7, D8 in AGENT_REPORT_O173.md, each marked "(R173 repair)" (author quiet since 09:23). D6 (commit the missing logs) is left to the author; R173 re-ran the control itself (below).
 
 ## Re-derivations (paper)
 
