@@ -48,8 +48,8 @@ gcd(Q, p) = 1 holds whenever Q < p, and Q < r < p unless r > p, which happens on
 solution verified exactly (equation in ℚ, x, y ∈ ℤ_{>0}, z > 0 with odd square denominator prime to p, Type II shape);
 max r(p) = 79 (p = 141 157), max Q = 77 < r; r(p) = 3, 7, 11, 19, 23, … for 4505, 2254, 1130, 561, 283, … primes
 (geometric ratio ½, as for independent characters). n = 825: r = 7, odd roots < 14 are 3, 11 (both share a factor
-with 825), least admissible Q = 17 — the self-review counterexample is correct. (The author's 10⁶ figures were not
-re-run at 10⁶; the 2·10⁵ range requested by the brief agrees in shape.)
+with 825), least admissible Q = 17 — the self-review counterexample is correct. Re-run to 10⁶ (partA(10⁶), 2.7 s): 78 496 primes, max r(p) = 131 at p = 880 993, r-distribution
+19 611, 9 825, 4 948, 2 444, 1 191, 624, … — identical to the author's figures; max Q = 97 < r.
 
 **Quantitative remark (Assessment) — SOUND as labelled.** The least prime r with χ₋₄(r) = −1 and (n₀/r) = −1,
 r ∤ n, is ≪ (log n)² under GRH (Bach / Lagarias–Montgomery–Odlyzko-type bound for a prescribed Frobenius in the
@@ -139,3 +139,45 @@ first 2-primary unit multiple) my own divisor search reproduces 52/768; over all
 
 **§3 Reading — fair as Assessment**, with the m2-type caveat: "with a fixed finite S, it is an Artin problem (m = 3:
 … CONJECTURE)" is correctly labelled. "TES finiteness is OPEN" ✓.
+
+## §4 — ledger audit (X12)
+
+**(J)23 citation — SOUND (already applied upstream).** Section (A) of DISCOVERIES has 9 items; "(A)19" does not exist.
+(D)19 is the large-sieve cap (EXCEPTIONAL_LARGESIEVE, PROVED conditional on KARY2 Thm 5.1), (D)22 the prime-only
+majorants (EXCEPTIONAL_PRIMELAW, PROVED), (D)24 removes the (log log N)^{3/4} loss in (D)18–(D)20, (D)22 (KARY3,
+PROVED given K2/EK). The merged DISCOVERIES already carries the fix (commit 65f155f1, "citation corrected per O192").
+MINOR m6: the new ledger wording "((D)19/(D)22/(D)24, conditional on KARY2 Thm 5.1)" attaches the KARY2
+condition to all three; only (D)19 carries it in its own entry ((D)22: PROVED; (D)24: PROVED given K2/EK). Repair:
+"((D)19, conditional on KARY2 Thm 5.1; (D)22; (D)24 for the form without the log log factor)".
+
+**"W" clash — SOUND, and sharper than stated (MINOR m7).** Confirmed: (J)10 and (J)14 use W(n) for the signed
+single-slice count; (J)15 and (J)20 use (W) for the sign-free Lorenzini property; (H)19/(H)22 (and (A)8, (A)9,
+(C)16) use W(p) for the witness size. The audit misses that **(J)15 itself writes "W(n) is sign-free: n = xyz − x − z"**
+(DISCOVERIES l. 632). So the same symbol W(n), not only the parenthesised (W), carries two meanings in adjacent
+entries. Renaming (J)10/(J)14's count W_sl(n) and writing (W)(n) or Lor(n) in (J)15 would fix both.
+
+**"Consistent on overlaps" list — spot-checked, SOUND.** (J)19 (1, 2, 0) = my inv₂ = 1, inv_π = 2, inv_λ = 0 on
+1536 solutions (§3 above). (J)25 Cor 2.3 vs O188 §5 and (J)20 Prop 8.1 (p ≥ 13) read as stated in DISCOVERIES.
+The others were checked by reading only.
+
+## §1 — cross-combination screens (spot-check of the dead verdicts)
+
+All §1 verdicts are declared Assessments in the §1 preamble; read as such, none is an overreach that would be
+FATAL or MAJOR. Details:
+* **X1 — SOUND (scoped).** Re-derived the conversion criterion: in UNIT_ORBIT_ES Prop 2.1 with g = r prime,
+  v_q(z) = 2s − 2c for s = v_q(r + 1) < 2c and ≥ 0 otherwise, so z ∈ ℤ ⟺ s ≥ c for all q | Q ⟺ Q | (r + 1)/4
+  (Q odd) ⟺ r ≡ −1 (mod 4Q), = UNIT_ORBIT_ES Prop 6.1. "Other transformations are not excluded" is correctly stated.
+* **X5 — SOUND as Assessment.** disc[r, 4Q, (n + 4Q²)/r] = 16Q² − 4(n + 4Q²) = −4n ✓; (n/r) = −1 with r ≡ 3 (4)
+  ⟺ (−n/r) = +1 (Heegner) ✓; the T1 remark (no prime ≡ 3 (4) splits in ℚ(i)) ✓. The ES cube-point form
+  [h, 4cd, de] of discriminant −4dp encodes he − 4c²d = p; I did not re-derive its correspondence with (J)25's cube
+  points (read only). "A ≡ −1 (mod B)" is not an SL₂(ℤ)-class invariant at all, so "seen only through its genus
+  shadow" is if anything generous; "Dead" is fine as Assessment.
+* **X6 — SOUND after the author's self-review repair** (scope reduced to the five SQ₅ slices). "Not pursued".
+* **X9 — SOUND (scoped).** By the X1 computation the ES version of Q = 3^m needs 3^m | (r + 1)/4, a modulus growing
+  with m: B2 as claimed, within the orbit family.
+* **X10 — SOUND.** |Box(k)| ≤ #{(c, j) : cj | k} = τ₃(k) = k^{o(1)} ✓.
+* **X3 wording — MINOR m8.** "its lesson is negative for ES (T1 is never the difficulty; orbit size is)" is an
+  unqualified universal in a §1 headline; §3's own Reading has the scoped version ("in every mechanism of this shape
+  … my reading (Assessment)"). For ES the barrier ledger (B1, B5) says T1 is exactly what kills congruence-covering
+  proofs, so "never" contradicts established ledger content unless scoped to shot/character mechanisms. Repair:
+  "(in shot mechanisms of this shape the T1 step is one character value; the difficulty is orbit size — Assessment)".
