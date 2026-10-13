@@ -16,7 +16,7 @@ diag(2, ½) gives γ̃ = [[f, c²d],[4p, f']] ∈ Γ₀(4), with theta multiplie
 multiplier is the constant +i: ES Type II at p = "there is a γ̃ ∈ Γ₀(4) with c-entry 4p, multiplier i, and the
 moving congruence f ≡ f' ≡ −1 (mod 4cd), 4c²d = upper-right entry". Checked: `scripts/bsB_typeII_mult.py 400` —
 472 certificates at primes p ≡ 1 (4) < 400, 0 violations.
-Salié (Iwaniec, *Topics* Lemma 4.? ; Sarnak's notes): for odd prime c,
+Salié (classical; see Iwaniec, *Topics in classical automorphic forms*, Ch. 4, or Iwaniec–Kowalski §12.3): for odd prime c,
 `Σ_{x mod c} (x/c) e((ax + bx̄)/c) = ε_c √c (b/c) Σ_{y² ≡ ab (c)} e(2y/c)`.
 
 ## Construction attempt and where it breaks
