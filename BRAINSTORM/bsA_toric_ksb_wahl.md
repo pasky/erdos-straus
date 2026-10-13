@@ -13,7 +13,8 @@ ES sign is the isometry class of the class-group pairing, i.e. the Wu-square (bs
 (1988) 299; EuDML record verified) define the T-singularities as 1/(dm²)(1, dma − 1). Every ℚ-Gorenstein smoothable cyclic
 quotient singularity is of this type. At prime index p = dm² one has m = 1, d = p, so A ≡ −1: these are just the A_{p−1} = [[2,…,2]]
 singularities, with (−1/p) = +1 for p ≡ 1 (4). **So for p ≡ 1 (4) no ES certificate singularity is ℚ-Gorenstein
-smoothable**, and the certificates lie outside the KSB/Wahl world, which is the algebro-geometric home of squares
+smoothable** (R174 repair: this is a *length* statement — A_{p−1} has HJ length p − 1 ≠ 3, so no length-3 singularity of prime index p ≥ 5,
+QR or QNR, is ℚ-Gorenstein smoothable; the sign plays no role), and the certificates lie outside the KSB/Wahl world, which is the algebro-geometric home of squares
 (Wahl singularities 1/m²(1, ma − 1) have rational-ball Milnor fibres; Lisca's fillings, bsA_lens_homotopy_surgery P3).
 **K3 (deformations).** By Christophersen–Stevens, the components of the reduced versal deformation of 1/n(1,A)
 correspond to zero continued fractions [[k₁,…,k_e]] = 0 with k_i ≤ a_i, where n/(n−A) = [[a₁,…,a_e]] is the dual

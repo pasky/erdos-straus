@@ -44,6 +44,6 @@ theory of minus CFs).
 `scripts/bsA_fricke.py`: the cubic F1 holds for all 343 words with v,t,u ∈ [2,8], and γ has entries (n, A) as stated.
 
 ## Assessment
-Precise negative answer to the Markoff/Vieta/BGS question, PROVED as stated. Promise 0/5. By-product: the cyclically
+Precise negative answer to the Markoff/Vieta/BGS question for the boundary-trace (Fricke) embedding, PROVED as stated (R174 repair: other Markoff-type encodings are not excluded). Promise 0/5. By-product: the cyclically
 symmetric "trace cubic" T = tuv − t − u − v organises the three rotations of a word, with numerators T + t, T + u, T + v
 (F3).

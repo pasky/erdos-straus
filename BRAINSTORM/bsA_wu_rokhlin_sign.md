@@ -22,13 +22,16 @@ characteristic Gauss-sum formula, quoted from memory (the research subagent coul
 
 **Corollary W1 (ES in Wu language).** For p ≡ 1 (4): five-slice interior ES(p) ⟺ **some linear ternary plumbing of
 determinant p has w·w ≡ p + 6 (mod 8)** (i.e. ≡ 7 if p ≡ 1 (8), ≡ 3 if p ≡ 5 (8)). DK's five mod-4 conditions are this one
-congruence. In the ternary-lattice picture (bsA_selling_sandpile), the genus G⁻(p) is exactly {Λ : w·w ≡ p + 6 (8)}.
+congruence. In the ternary-lattice picture (bsA_selling_sandpile), the genus G⁻(p) is exactly {Λ : w·w ≡ p + 6 (8)} (R174 repair: this general-lattice sentence is EVIDENCE/classical-from-memory, not covered by the r ≤ 5 proof).
 **Corollary W2 (T1 in Wu language; PROVED for r ≤ 5).** If n = m² is an odd square, every linear plumbing of
 determinant n has w·w ≡ r (mod 8). So at squares the Wu-square is rigid, and no length-3 plumbing reaches the class p + 6.
 **Rokhlin reading (convention from memory).** For Y = ∂X with its unique spin structure (n odd), Kaplan's formula
-gives μ(Y) ≡ σ(X) − w·w (mod 16). Here σ = r, so **(A/n) = +1 ⟺ μ(L(n,A)) ≡ 1 − n (mod 8)**, independently of the
+gives μ(Y) ≡ σ(X) − w·w (mod 16) (R174 repair: up to a term 8·Arf of the characteristic sublink, which vanishes mod 8). Here σ = r, so **(A/n) = +1 ⟺ μ(L(n,A)) ≡ 1 − n (mod 8)**, independently of the
 plumbing chosen. The ES sign is the mod-8 Rokhlin invariant of the lens space, and five-slice ES(p) ⟺ a lens space of order p with
 μ ≡ 5 − p (mod 8) has a ≤ 3-sphere linear plumbing.
+(R174 repair, orientation.) σ = +r means Y = ∂(positive plumbing). With the common convention L(p,q) = −p/q surgery on the
+unknot (Gompf–Stipsicz), L(n,A) bounds the *negative* plumbing and the rule reads (A/n) = +1 ⟺ μ(L(n,A)) ≡ n − 1 (mod 8)
+(e.g. μ(L(3,1)) = 2). The two forms agree iff n ≡ 1 (mod 4), so the ES case is unaffected; for n ≡ 3 (4) state the convention.
 
 ## Literature
 van der Blij, *An invariant of quadratic forms mod 8* (Indag. Math. 1959; from memory). Milgram (1973; from memory).

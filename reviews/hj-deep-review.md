@@ -3,6 +3,11 @@
 Reviewer branch `side-agent/review-hj-deep`; author branch `side-agent/spark-hj-brainstorm` merged at start.
 From-scratch scripts: `scripts/review_hj_*` (none reuse author code).
 
+**Repairs applied** (author quiet at finish; all marked "(R174 repair)"/"R174"): HJ_DEEP §0, §2, §3, §4, §5 (D1, D2, D8–D13, D17);
+bsA_wu_rokhlin_sign (D3, D4); bsA_toric_ksb_wahl (D5); bsA_farey_graph_metric (D6); bsA_lens_homotopy_surgery (D7);
+bsA_selling_sandpile (D2, D14); bsA_fricke_vieta (D15); bsA_minkowski_stern (D16 garbled sentence; the reference request is left to the author);
+AGENT_REPORT_O174 (D1, D2). DISCOVERIES/README untouched (the parent should add the 10⁹ range and the D1 scoping when it records O174).
+
 ## Summary verdicts
 **Overall: no FATAL defect. One MAJOR (a quantifier error in the headline equivalence (W) ∧ (S) ⟺ interior SQ₅, trivially
 repairable) and ~16 MINOR.** Every numerical claim I re-ran from scratch reproduced exactly; (W)/(S) extended to 10⁹.

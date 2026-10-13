@@ -25,14 +25,14 @@ classifying the QR side is silent on the QNR side.
 
 **P3 (2-bridge knots).** L(p,A) = Σ₂(K(p/A)), and K(p/A) bounds the plumbing of three unknotted twisted bands (v, t, u
 half-twists). Its Goeritz matrix is the tridiagonal G of bsA_selling_sandpile. The class (A/p) is an invariant of
-K up to mirror (Schubert: K(p/A) ≅ K(p/A′) iff A′ ≡ A^{±1} (p), mirror A ↦ −A). So five-slice ES(p) ⟺ **some 2-bridge
+K up to mirror (R174 repair: for p ≡ 1 (4), since mirror is A ↦ −A) (Schubert: K(p/A) ≅ K(p/A′) iff A′ ≡ A^{±1} (p), mirror A ↦ −A). So five-slice ES(p) ⟺ **some 2-bridge
 knot of determinant p with non-square Goeritz class has a 3-band plumbing surface.** Lisca (G&T 11 (2007) 429,
 verified) classifies lens spaces bounding ℚHB⁴s and slice 2-bridge knots. These need p = m², a metabolic linking
 form. This is the topological home of squares, but its condition (metabolic) differs from Jacobi +1, so it is not T1.
 
 **P4 (Matveev complexity).** By memo bsA_farey_lnr_pigeonhole Lemma 2, r(p/A) + r(p/(p−A)) = S(p,A) := Σ a_i. Matveev's
 upper bound c(L(p,q)) ≤ S(p,q) − 3 is sharp in proven cases (Jaco–Rubinstein–Tillmann, J. Topology 2009, p even; from
-memory). So the HJ lengths of a lens space and of its orientation reverse L(p,−A) add up to complexity + 3. A short
+memory; R174: scope unverified — the 2009 paper treats L(2n,1); other even cases are later JRT work). So the HJ lengths of a lens space and of its orientation reverse L(p,−A) add up to complexity + 3. A short
 plumbing (r = 3) has r′ = c(L) + 0 when the conjectured equality holds. ES five-slice ⟺ a QNR lens space whose complexity is
 almost entirely carried by the reversed plumbing.
 

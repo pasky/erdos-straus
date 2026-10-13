@@ -7,7 +7,7 @@ Branch `side-agent/spark-hj-brainstorm`. Deliverables: 9 memos `BRAINSTORM/bsA_*
 1. **SQ₅ = (W) ∧ (S), and (W) is a published open question.** (HJ_DEEP §3.) For n ≡ 1 (4), the interior five-slice condition splits
    into two parts.
    * **(W)** says n = xyz − x − z for some x,y,z ≥ 2 (sign-free; n ≥ 2). This is *exactly* Lorenzini's question on the critical polynomial
-     of the path graph A₃ (*The critical polynomial of a graph*, preprint 4 Dec 2022, Example 6.2(a); text checked by me): is the
+     of the path graph A₃ (*The critical polynomial of a graph*, preprint 4 Dec 2022, published J. Number Theory 257 (2024) 215–248, arXiv:2311.06367 — R174, Example 6.2(a); text checked by me): is the
      complement of the value set {0,1,2,3,5,6,9,11,14,15,35,105,510}? He says "we have not been able to answer this question" and
      gives partial results (Prop 6.3).
    * **(S)** says: if n is not a square and L₃(n) ≠ ∅, then some length-3 word has Jacobi −1. This is "T1 is the only
@@ -25,6 +25,8 @@ Branch `side-agent/spark-hj-brainstorm`. Deliverables: 9 memos `BRAINSTORM/bsA_*
    p = s(2^k + m) (Stern's diatomic sequence), with popcount(m) ≤ 3 and (s(m)/p) = −1.
 5. **Farey least non-residue** (bsA_farey_lnr_pigeonhole): r(n/A) + r(n/(n−A)) = Σ a_i (exact), and λ(p) ≤ (6/π² + o(1)) ln²p
    unconditionally (rel. Yao–Knuth). That beats the GRH conversion λ ≤ n_p ≤ 2 ln²p, but it has no ES content (B3 gap).
+
+(R174 repair, D1: "SQ₅ = (W) ∧ (S)" is pointwise for n ≡ 1 (4). The global (W) also covers even n and n ≡ 3 (4) and is strictly stronger than what interior SQ₅ needs. Review: `reviews/hj-deep-review.md`; (W)/(S) independently reproduced to 10⁹.)
 
 ## What was done (one line each; labels in the files)
 * bsA_farey_lnr_pigeonhole: unconditional λ bounds; pigeonhole is T1-safe but needs radius ≍ ln p ln ln p. Promise 1.
