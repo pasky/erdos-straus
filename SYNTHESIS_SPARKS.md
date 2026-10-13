@@ -169,11 +169,11 @@ argument is vacuous there and B5 does not apply to it.
 
 **Prop 3.1 (PROVED, elementary; the reduction).** For p ≡ 1 (4) and 2 ≤ A < p with A odd:
 `A ∈ L₃(p) ⟺ c := (−p mod A) ≥ 2 and c | A + 1` (and then `p/A = [[⌈p/A⌉, (A+1)/c, c]]`), and for such A,
-`(A/p) = (−c/A)`, which depends only on (A mod 4, c mod 4), because A ≡ −1 (mod c).
+`(A/p) = (−c/A)`, which depends only on (A mod 8, c mod 8), because A ≡ −1 (mod c).
 *Proof.* The HJ step gives `r(p/A) = 1 + r(A/c)`, and `r(A/c) = 2` ⟺ `A/c = [[x,y]] = (xy−1)/y` ⟺ `c = y | A+1`
-(with y ≥ 2, x ≥ 2). Reciprocity gives `(A/p) = (p/A) = (−c/A)`. Since A ≡ −1 (mod c), the symbol `(−c/A)` is fixed
-by A mod 4 and c mod 4 (quadratic reciprocity for the odd part of c, plus the 2-part via A mod 8, which is
-determined because c | A+1 fixes A mod 8 once v₂(c) ≥ 3; the finite case split is checked in DK §8.1). ∎
+(with y ≥ 2, x ≥ 2). Jacobi reciprocity (A odd, p ≡ 1 (4)) gives `(A/p) = (p/A) = (−c/A)`. Write c = 2^j c′, c′ odd:
+`(−c/A) = (−1/A)(2/A)^j (c′/A)`, and `(c′/A) = ±(A/c′) = ±(−1/c′)` with the sign fixed by A, c′ mod 4 (A ≡ −1 mod c′).
+So the symbol is a function of (A mod 8, c mod 8). ∎
 (For even A use the same with the (2/p) = 1 convention when p ≡ 1 (8).)
 
 *Consequence (Assessment, precise).* Each candidate A carries a sign that is congruence data of the letters, and its
