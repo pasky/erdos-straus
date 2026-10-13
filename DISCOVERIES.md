@@ -732,6 +732,16 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * Example: positive ES over the one-real-place ring ℤ[∛2] is T1-bearing; EVIDENCE: all p < 3000 solved by the unit mechanism, squares not.
    * Assessment. Infinite unit orbits turn ES's lottery into an Artin-type problem; over ℤ the unit group is ±1. Whether a ℤ-analogue of a "mute place" with infinitely many shots exists is open (pursued by O186).
 
+22. **Spark relay K: exponent coverings — certified infinite ES families k·2^m + 1, and why B1 disappears on exponential families (EXPONENT_COVERING.md + BRAINSTORM/bsK_* (O185); two independent hostile reviews `reviews/exponent-covering-review.md` (R185) and `reviews/exponent-covering-review-2.md` (R189): both certify Thm 4.1 with from-scratch exact checkers; no FATAL; MAJOR D3 (square-sterility proof gap, repaired by the primitive-class argument) and D12 (Proth-negative scope); all repaired by the reviewers).**
+   * **Thm 4.1 (PROVED, computer-assisted; CERTIFIED independently twice).** ES holds for every n = k·2^m + 1, m ≥ 0, for k ∈ {1, 9, 21, 27, 57, 171, 231, 315, 393, 495, 15015}.
+     * Each certificate is a finite list of ET/divisor classes. On each class, x(n), y(n), z(n) are polynomial identities that are integral and positive. The classes cover every exponent class m mod L (L | 840).
+     * Examples: all 315·2^m + 1 (≡ 1 mod 2520), and all 15015·2^m + 1 (≡ 1 mod 120120, squares mod every prime ≤ 13). 27·2^m + 1 hits the Mordell-hard class 529 (mod 840) and contains primes, e.g. 27·2²⁶ + 1.
+     * Honest scope (Assessment): every member lies in a finite union of ES-solvable congruence classes. The novelty is the form (a covering *of the exponent*) and the obstruction theory, not new identities. No prior "ES for all k·2^m + 1" result was found (two literature checks, not exhaustive).
+   * Thm 1.2/1.4 (PROVED; R185 D3 repair). Fixed-slice coverability of n_m = k·2^m + 1 holds ⟺ the limit set Λ_k ⊂ Ẑ avoids the sterile set. The square part of the condition is a Skolem / Bertók–Hajdu-type Hasse principle for k·2^x + 1 = (unit)².
+   * Cor 1.5 (PROVED). The integer obstruction points are k = 4^j − 1 at μ = 0. Hence no finite set of ET / divisor (polynomial-solvable) classes proves ES for all Proth numbers 3·2^m + 1.
+   * Prop 2.1/2.2 (PROVED; the B1 reading is an Assessment). B1's square-mimicking points exist because a polynomial/progression family is parametrised by Ẑ = Π_q ℤ_q, so local squares glue. An exponent μ ∈ Ẑ couples the primes through ord_q(2), and local squares need not glue. B1 is the S → all-primes limit of an S-unit obstruction (Assessment).
+   * Assessment: B1 is not violated, only its hypothesis is absent. The hard core of ES (n a unit square modulo everything small) is untouched.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

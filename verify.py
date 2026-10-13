@@ -24450,5 +24450,31 @@ def check_fo():
 
 check_fo()
 
+def check_fp():
+    # (fp) EXPONENT_COVERING (O185/R185/R189): Thm 4.1 — ES holds for every n = k*2^m + 1 (all m >= 0) for
+    # k in {1, 9, 21, 27, 57, 171, 231, 315, 393, 495, 15015}: reviewer 2's from-scratch certificate checker
+    # (exact polynomial identities, integrality on each class, positivity, exponent-class coverage, small-m brute force).
+    from time import perf_counter
+    import glob
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    certs = sorted(glob.glob(os.path.join(root, "data", "ec", "cert_k*.json")))
+    assert len(certs) == 11, ("EXPONENT_COVERING certificates missing", certs)
+    r = subprocess.run([sys.executable, "review_ec2_check.py", *certs], capture_output=True, text=True, timeout=900,
+                       env=env, cwd=sdir)
+    assert r.returncode == 0, ("EXPONENT_COVERING R189 checker failed", r.stdout[-2000:], r.stderr[-2000:])
+    passed = [ln for ln in r.stdout.splitlines() if ln.startswith("PASS ")]
+    assert len(passed) == 11, ("EXPONENT_COVERING R189", r.stdout[-3000:])
+    print(f"== (fp) EXPONENT_COVERING R185/R189 Thm 4.1: ES for all n = k*2^m + 1, k in {{1,9,21,27,57,171,231,315,"
+          f"393,495,15015}} — 11/11 certificates pass the independent exact checker; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fp()
+
 
 print("\nall checks passed")
