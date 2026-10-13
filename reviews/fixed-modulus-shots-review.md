@@ -40,3 +40,35 @@ statement is max(y′, z′) = x(x + D_min)/(e·D_min) with D_min = min(D, D′)
 h ≤ (p+1)(p+5)/4 − 1. Type I: wf ≤ 2p/3, g ≤ p² + 4wf² ≤ 25p²/9 < 3p². Numerics: max h/((p+1)(p+5)/4) → 1, the
 bound (p+1)(p+5)/4 − 1 is **attained** at 217 of 428 primes ≤ 3000 (all p ≡ 3 mod 4: e = 1, D = 1); max g/p² = 1.33
 (p = 7), so the Type I constant 3 is loose but correct.
+
+## D. Thm 2.1 (affine shots) — SOUND; Cor 2.2 — SOUND; Cor 2.4 — SOUND
+
+Re-derived line by line. (a): the three cube points are correct (gcd(h, αβ) = 1 is what lets h pass from αp + β to
+the primitive line form). (b): from h | pj + c, h | αp + β: h | αc − βj; c, j ≤ (h+1)/4 ≤ h/3 (h ≥ 3) gives |m| ≤ μ/3.
+I re-expanded jX = m − αc (⟺ βj − αc = m(4cjt − 1)) and XY = 4m²t − αβ — both correct. Case 4m²t ≠ αβ: |X|, |Y| ≤
+4m²t + αβ, |Y| ≥ 4|m|tj − α, |X| ≥ 4|m|ct − β give c ≤ |m| + β(α+1)/4 ≤ μ/3 + μ(μ+1)/4 ≤ μ² (true for μ ≥ 1) and the
+same for j; |X| ≤ |m| + αc gives t ≤ (α + β + |m|)/4 ≤ 7μ/12 < μ; hence h < 4μ⁵. Cases X = 0 / Y = 0 (forced when
+4m²t = αβ) give exactly the D- and E-members of 𝓜. Quantifiers: the sporadic bound depends only on μ = max(α, β), so
+for each FIXED (α, β) there are finitely many sporadic h; nothing is uniform in α, β beyond that, and the text does not
+claim more (C2 caveat is correct). Note the D- and E-alternatives are mutually exclusive (16DE = 1), so |𝓜| ≤ 1 + τ(H)
+(the stated 1 + 2τ(H) is a harmless over-count).
+Numerics (`scripts/review_fms_affine.py 40 60000`, own 𝓜, certification computed from the definition αc ≡ βj (mod h),
+cj | (h+1)/4): 979 coprime pairs, all h ≡ 3 (mod 4) ≤ 6·10⁴ coprime to 2αβ: (a) never fails; 5766 (b)-exceptions,
+all < 4μ⁵, max h/μ² = 8.50 at (α, β, h) = (37, 38, 12275); none on the three lines (trivially: for 1 ∈ 𝓜 every
+h ≡ 3 mod 4 is covered by (a)). Pairs with 1 ∈ 𝓜: exactly (1,1), (1,4), (4,1). M ≥ √H/2 holds for all pairs.
+Cor 2.4: δ ≤ Σ_{M∈𝓜} 1/φ(4M) is legitimate (upper density of 𝒞 ∩ {r ≡ −1 mod 4M} ≤ 1/φ(4M); finitely many sporadic
+r and r | αβ discarded); H₀ depends on δ only (absolute constants in τ ≪ H^ε, φ(n) ≫ n/log log n). Sound.
+
+## E. Cor 2.3 (three modulus-4 shots) and its EVIDENCE — SOUND (scope wording: m4, m5)
+
+The Dirichlet construction (h prime, ≡ 3 mod 8, ≡ 1 mod every odd q | M, h > 4μ⁵) is correct, and 1 ∈ 𝓜 ⟺
+β/α ∈ {1, 4, ¼} (c²|D = c forces c = D = 1). Recount (`scripts/review_fms_three.py 1000000`, own sieve; each firing
+turned into an explicit cube solution and verified by 4xyz = p(xy + yz + zx)): 78 496 primes 5 ≤ p < 10⁶; failures
+p+1 / p+4 / 4p+1 = **10 438 / 9 841 / 18 992**; joint **942** (first 193, 673, 2377, 2473, 2521, 3217), all ≡ 1 (mod 4);
+all 499 odd squares 9 ≤ m² < 10⁶ fail all three. **Every figure reproduced exactly.**
+
+## F. Remark 2.5 (p/h) = −1 — SOUND
+
+Re-derived: h ≡ −1 (mod 4n) ⇒ (n/h) = 1 (for odd n′ | n, (n′/h) = (h/n′)(−1)^{(n′−1)/2} = (−1/n′)(−1)^{(n′−1)/2} = 1;
+(2/h) = 1 for even n as h ≡ 7 mod 8) and (−1/h) = −1. gcd(c, h) = gcd(j, h) = 1 since cj | (h+1)/4. Numerically
+every Box((r+1)/4), r < 10⁶ prime, consists of quadratic residues (`review_fms_box.py`: 0 exceptions).
