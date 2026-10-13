@@ -67,6 +67,7 @@ sufficient: among the 267 primes `p ≡ 1 (24)`, `p ≤ 20000`, 15 have no ES-fo
 `g ≥ 1` there is a form `[k, B, c]` of discriminant `−4gp` with `B > 0`, `4g | B`, `B | k+1`. Proof: write
 `B = 4gb`; then `c = ge`, `ke = p + 4gb²`, and `k ≡ −1 (mod 4gb)` gives `4bg | p + e`; with `N = (p+e)/4 = αβg`,
 `β = b`, `α = N/(bg)`, one has `e | α + β` (as `4N ≡ −4gb² (mod e)`), and Lemma 2.1's formula with `x = N`,
-`y = pN(α+β)/(eα)`, `z = pN(α+β)/(eβ)` works verbatim (α, β | N). ∎ So the windmill question for Type II is a
+`y = pN(α+β)/(eα)`, `z = pN(α+β)/(eβ)` works verbatim (α, β | N; `e | α+β` uses `gcd(e, bg) = 1`, which holds because a common prime divides
+`ke − 4gb² = p`, while `e ≥ 4bg − p` and `e ≤ (p+4gb²)/(4gb−1)` force `bg < p`). ∎ So the windmill question for Type II is a
 question about forms in the class groups `Cl(−4gp)`, g ≥ 1 (the Heegner discriminants of (I)4), and an "ES-form" is the
 non-genus condition `B | k+1` on (class, represented value k, root).
