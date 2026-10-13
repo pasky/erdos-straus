@@ -13,7 +13,7 @@ Status: COMPLETE (round 1). Repairs applied: none (author active at time of writ
 | Prop 1.2 (k-th power law) | SOUND (58 362 random symbol tests, 0 mismatches) |
 | Thm 1.3 (Kummer data never embed in D^{(k)}_{P,∞}) | SOUND |
 | Lemma 2.1 (Steinberg identity) | SOUND (checked place by place on > 9 000 points) |
-| **Thm 2.2** (odd part of α_ζ vanishes on monic integral points) | **SOUND-AFTER-REPAIRS**: proof correct, all counts reproduced; headline overclaims "odd-order part of Br" (p-part, D1); citation fix D2 |
+| **Thm 2.2** (odd part of α_ζ vanishes on monic integral points) | **SOUND-AFTER-REPAIRS**: proof correct, all counts reproduced; headline overclaims "odd-order part of Br" (p-part, D1); citation fix D2; solution total overstated (D15) |
 | BL transfer to F_q(T) | SOUND as Assessment for the prime-to-p part; independent proof that order-m classes are non-trivial via twisted points |
 | Cor 2.3 (inv_P α_ζ = (−f/P)_m) | SOUND (non-vacuous tests at m = 6, 2) |
 | Lemma 3.1, Lemma 3.2 | SOUND (Lemma 3.2 hypothesis is always satisfied, D3) |
@@ -38,7 +38,7 @@ No FATAL defects. One MAJOR (scope/label overclaim in the headline of Thm 2.2). 
   ε^{(1+deg f)(1+deg Ad)−1}. All quantities monic (deg A ≥ 1 forces deg E < deg Aabd, so P is monic). SOUND.
   From scratch: random Type II data (a, b, c, d, A) with c a random monic divisor of a + b, q ∈ {7, 13, 19, 31},
   every k | q − 1 (incl. even k with ε_k = −1): 58 362 symbol tests, 0 mismatches; a control with P replaced by a
-  random monic polynomial of the same degree gives uniformly distributed symbols (test is discriminating).
+  random monic polynomial of the same degree (`scripts/review_dr_kpow_control.py`) gives uniformly distributed symbols (test is discriminating).
 * Thm 1.3: (f/P)_k = ε^{n deg f}(P/f)_k = 1 for odd k; x^k − f then splits into distinct linear factors over F_P
   (p ∤ k, Hensel), so no place above P has local degree k and K = F(f^{1/k}) cannot embed in a degree-k division
   algebra with inv_P of exact order k (standard local–global embedding criterion; Reiner, *Maximal Orders*,
