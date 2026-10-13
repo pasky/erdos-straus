@@ -1,0 +1,3 @@
+primes r covered: 1101
+min L/sqrt r: 0.647 (r=239,L=10)  median 0.955  max 3.986 (r=33359,L=728)
+lower bound sqrt(1/2)=0.707; fraction with L/sqrt r <= 2: 0.930
