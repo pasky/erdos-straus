@@ -1,0 +1,1912 @@
+         INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT
+                         SINGULARITIES
+
+                                             DINO LORENZINI
+
+                                               12 October 2025
+
+       Abstract. Let k be an algebraically closed field of characteristic p > 0. Let Z/pZ acts on
+       A := k[[u, v]] by k-linear automorphisms and let AZ/pZ denote the ring of invariants. Let
+       π : X → Spec(AZ/pZ ) be a minimal resolution of this quotient singularity with an exceptional
+       divisor E consisting in n smooth irreducible components meeting with normal crossings. We
+       study in this article the properties of the intersection matrix N ∈ Mn (Z) associated with E.
+       We show for instance that for any prime p, and for any n ≥ p + 3, there exists a Z/pZ-quotient
+       singularity with intersection matrix of size n. We also show that for a large class of Z/pZ-
+       quotient singularities, the matrix N is such that N −1 has an integer coefficient on its diagonal,
+       and often even a full integer column. We exhibit two new classes of hypersurface quotient
+       singularities with AZ/pZ given by explicit weighted homogeneous equations.
+
+
+
+
+                                            1. Introduction
+   Let p be a prime. Let k be an algebraically closed field of characteristic p. Let A := k[[u, v]]
+denote the ring of formal power series in two variables. Assume that Z/pZ acts on A by k-linear
+automorphisms, and let AZ/pZ denote the ring of invariants. We will say that the closed point
+of Spec(AZ/pZ ) is a wild cyclic quotient singularity, where the term wild refers here to the fact
+that the group acting on A has order divisible by the characteristic p.
+   Let π : X → Spec(AZ/pZ ) be a resolution of the singularity, so that in particular X is a
+regular scheme. Let Ci , i = 1, . . . , n, denote the irreducible components of the exceptional
+divisor of π, and form the intersection matrix
+                                   N := ((Ci · Cj )X )1≤i,j≤n ∈ Mn (Z),
+where (Ci · Cj )X denotes the intersection number of Ci and Cj computed on the regular surface
+X. Attached to the resolution π is its dual graph ΓN , with vertices v1 , . . . , vn , where vi and vj
+are linked by (Ci · Cj )X distinct edges when i ̸= j. Let Ad(ΓN ) denote the adjacency matrix of
+the graph ΓN . The matrix N has the form Diag(c11 , . . . , cnn ) + Ad(ΓN ), where cii = (Ci · Ci )X
+is the self-intersection number of Ci . It is well-known that the matrix N is negative-definite.
+The following is also known about such matrices N :
+   (i) When the exceptional divisor of π has smooth components with normal crossings, the
+       components Ci are smooth projective lines and the graph ΓN is a tree ([20], Theorem 2.8).
+  (ii) The discriminant group ΦN := Zn /Im(N ) is an elementary abelian p-group ([20], Theorem
+       2.6), so that in particular |ΦN | = |det(N )| = ps for some integer s ≥ 0.
+ (iii) The fundamental cycle Z ∈ Zn>0 of N is the minimal positive vector such that N Z is a
+       non-positive vector. The self-intersection Z · Z := (tZ)N Z is such that |Z · Z| ≤ p ([20],
+       Theorem 2.4).
+  2000 Mathematics Subject Classification. 14B05, 14E15, 14J17, 14E20.
+                                                       1
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                         2
+
+   Let p be any prime. Motivated by the above theorems, we call an intersection matrix N ∈
+Mn (Z) p-suitable if it satisfies the following linear algebraic properties:
+(a) There exists a connected tree Γ on n vertices, and integers c1 , . . . , cn ≥ 2, such that N =
+     Diag(−c1 , . . . , −cn ) + Ad(Γ).
+(b) The matrix N is negative definite and the group ΦN is killed by p.
+(c) The fundamental cycle Z of N is such that |Z · Z| ≤ p.
+   We will say that a p-suitable intersection matrix N arises from a quotient singularity if
+there exists a Z/pZ-quotient singularity Spec(AZ/pZ ) with a resolution of singularities π : X →
+Spec(AZ/pZ ) such that all irreducible components Ci of the exceptional divisor E of π are
+smooth, and such that up to a choice of the ordering of the irreducible components Ci , the
+intersection matrix associated with E is equal to the given matrix N .
+   It is an open question to completely characterize the p-suitable intersection matrices which
+arise from a Z/pZ-quotient singularity. Recent works on this question include [14], [25], [26],
+[27], and [29]. In this article, we establish some general properties of p-suitable matrices, and
+suggest some properties which might possibly be enjoyed by the matrices which arise from a
+Z/pZ-quotient singularity but not necessarily by all p-suitable matrices.
+   Recall that the degree (or valency) of a vertex v of a graph Γ is the number of edges of Γ
+attached to v. A vertex v with degree at least three is called a node, and a vertex v with degree
+one is called terminal. A graph is called a chain or a path if it is connected and does not contain
+any node. The graph is called star-shaped if it is a connected tree with a unique node.
+   We present in this article several constructions of p-suitable intersection matrices. Our first
+two results in this introduction indicate that p-suitable matrices are abundant. In particular,
+given any large prime p, there exist many p-suitable matrices N of every size n ≥ 9.
+Theorem (see 4.1 for a more general statement). Given any connected tree Γ on n ≥ 9
+vertices which properly contains the graph of the Dynkin diagram E8 , and given any prime p,
+there exists a p-suitable intersection matrix N with associated graph Γ and |ΦN | = p.
+Theorem 5.5. For any prime p and any integer δ ≥ 2, there exists a p-suitable intersection
+matrix N whose associated graph has δ nodes and |ΦN | ≥ pδ .
+   Given a prime p and any integer δ > 1, it is natural to wonder whether there exists a Z/pZ-
+quotient singularity whose minimal resolution of singularities has a resolution graph which is a
+tree with δ distinct nodes. Our current record is δ = 5 when p = 2, found in 6.3.
+   The families of Z/pZ-quotient singularities whose resolution graphs are currently known
+have resolutions whose number of irreducible components increases with p. For instance, the
+intersection matrix Ap−1 on the path on n = p − 1 vertices arises as a Z/pZ-quotient singularity
+(see [26], 9.4). For trees which have at least one node, we can prove the following theorem.
+Theorem 8.1. Let p be any prime. Let n ≥ p + 3 be any integer. Then there exists a p-suitable
+intersection matrix of size n which arises from a Z/pZ-quotient singularity.
+   In view of Theorems 8.1 and 4.1, it is natural to ask whether there exist a lower bound n(p),
+with lim inf n(p) = ∞, such that if N is a p-suitable matrix of size n arising as a quotient
+singularity and whose graph is a tree with at least one node, then n ≥ n(p).
+   An ample supply of p-suitable intersection matrices with star-shaped graphs is provided
+by the resolutions of weighted homogeneous singularities of the form z p − xa y b (xc − y d ) = 0
+with a, b, c, d ≥ 1 subject to certain mild conditions (see [26], Proposition 4.9). Some of
+these hypersurface singularities are known to be quotient singularities, such as the Brieskorn
+               INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                                 3
+
+singularities z p + xpr+1 + y ps+1 = 0, and z p + xpr y − xy ps = 0 ([26], Theorem 5.3). We provide
+in this article two new classes of weighted homogeneous singularities which are Z/pZ-quotient
+singularities. In the classification of [30], page 61, the Brieskorn singularities are of Type I, and
+our next two singularities are of Type II and Type III, respectively.
+Theorem 7.6. Let k be an algebraically closed field of characteristic p. Let r, s ∈ Z>0 . Let
+f = z p + xpr+1 y + y ps+1 or f = z p + xpr+1 y + y ps x. Let B := k[[x, y]][z]/(f ). Then there exists
+a k-linear action of Z/pZ on A := k[[u, v]] such that B is isomorphic to AZ/pZ .
+  The Z/pZ-quotient singularities in Theorem 7.6 have resolutions which are star-shaped. They
+belong to a larger class of quotient singularities introduced in 7.2 which provides many examples
+whose resolutions have graphs with more than one node.
+  We prove in Theorem 9.2 that a certain class of resolutions of quotient singularities arising
+when constructing regular models of curves has associated intersection matrices N with the fol-
+lowing additional property: The matrix N −1 has at least one integer coefficient on its diagonal.
+This naturally leads us to ask the following question: Assume that N is a p-suitable matrix
+arising from a quotient singularity. Assume that the graph of N has at least one node. Is it
+possible for the matrix N −1 to have no integer coefficient?
+  Let p(Z) denote the arithmetic genus of the fundamental cycle Z of N (see 2.2). Proposition
+10.6 exhibits a large class of matrices N with p(Z) = 0 where N −1 does not have any integers
+on its diagonal. However, often enough, a p-suitable matrix N not only is such that N −1 has
+an integer coefficient, but N −1 also has an integer column, as in the following theorem.
+Theorem 10.1. Let p be prime. Let N be an intersection matrix such that ΦN is killed by p.
+Assume that the graph Γ associated with N is a star-shaped tree. If |ΦN | =  ̸ p, then N −1 has at
+least one integer column.
+   In many examples of p-suitable matrices N arising as quotient singularities presented in this
+article and in [24], the fundamental cycle Z ∈ Zn>0 of N is such that −Z is an integer column
+of N −1 . This is the case for instance if ΦN is trivial (see 11.1 (c)). When p = 2, we can show:
+Theorem 11.2. Let p = 2. Let N be a p-suitable intersection matrix with fundamental cycle
+Z. Then either −Z or −Z/p is a column of N −1 .
+  When Z is a multiple of a column of N −1 , we obtain the following sharp bound for |ΦN |.
+Theorem (see 11.4). Let N be a p-suitable intersection matrix.
+(a) Assume that −Z or −Z/p is a column of N −1 . Then ordp (|ΦN |) ≤ 2 + 2p(Z)
+                                                                          p−1
+                                                                               .
+                                    2p(Z)+2
+(b) Let p = 2. Then |ΦN | divides p         .
+  It is natural to wonder whether ΦN can always be generated by at most 2 + 2p(Z)
+                                                                             p−1
+                                                                                  elements
+when N is a p-suitable intersection matrix.
+
+                                              2. Notation
+   Let N ∈ Mn (Z) be a p-suitable intersection matrix whose associated graph is a connected
+tree Γ on n vertices v1 , . . . , vn . Thus by our definition, there exist integers c1 , . . . , cn ≥ 2, such
+that N = Diag(−c1 , . . . , −cn ) + Ad(Γ). In this article, we will describe N using its tree Γ, and
+adorn each vertex vi with the negative integer −ci . We follow the established custom and omit
+to adorn vi if the integer −ci is −2.
+               INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                                4
+
+Example 2.1. We use the decorated tree Γ on the left in (a) below to represent the 6×6-matrix
+N on the right after having made a choice of ordering of the vertices of the tree Γ.
+                                                           −2 1 1 1 1 0 
+                         −4                                                −2
+                                                                 11       0
+                                                                                    0
+                                                                                    −2   0
+                                                                                          0    0
+                                                                                               0
+                                                                                                   0
+                                                                                                    0 
+                                                                                                      
+        (a)                                                  N =
+                                                                 1        0         0   −4   0    0 
+                                                                       1   0         0   0    −2   1
+                                                                       0   0         0   0    1    −2
+
+   Let N be any intersection matrix. Let Z ∈ Zn>0 denote the fundamental cycle of N . We
+represent the vector Z with tZ := (z1 , . . . , zn ) by adorning the vertex vi of Γ with the positive
+integer zi . In the case of the above matrix N , we have tZ := (4, 2, 2, 1, 3, 2), which we record
+on the left below.
+   We found it efficient to record the vector N Z on the same drawing as we draw the vector Z.
+We use the following convention. Let t (N Z) = (s1 , . . . , sn ), with si ≤ 0 for all i = 1, . . . , n. For
+each index i such that si ̸= 0, add a white vertex to the graph of Γ, and link it with a dashed
+line to the vertex vi . Adorn the new white vertex with the coefficient |si |. In the example of
+the matrix N above, we find that t (N Z) = (0, . . . , 0, −1), which we record in (b) on the right
+below.
+                     2     1                                           2        1              1
+
+               Z                                               (b)
+                     2     4      3     2                              2        4        3     2
+Note that the information provided in the diagram (b) above, namely, the graph Γ, the vector
+Z, and the vector N Z, allows the recovery of the diagonal elements of the matrix N , and thus
+this data is sufficient to describe N itself. For the convenience of the reader, we will often
+include the information of the diagonal of N explicitly, and will provide a pair of diagrams as
+in (a) and (b) above to describe a matrix N , even if only one diagram would suffice.
+   The drawing of Z and N Z allows for a quick computation of the self-intersection |Z 2 | :=
+|(tZ)N Z| by simply multiplying the integers linked by dashed lines, and adding the results of
+the multiplications together. In the example above, we find that |Z 2 | = 1 · 2 = 2.
+   Note that in the given example, N Z is equal, up to a sign, to a standard vector of Zn .
+When such is the case and Γ is any tree, the drawing of tZ = (z1 , . . . , zn ) allows for a quick
+computation of |ΦN |. Indeed, let di denote the degree in Γ of the vertex vi . If N Z = −ej , then
+|ΦN | = zj ni=1 zidi −2 (use [20], Theorem 3.14). For instance, in the example above, we obtain
+           Q
+                42
+that |ΦN | = 2 2·2·2 = 4. When the order of ΦN is not prime, the precise group structure of ΦN
+needs to be determined using for instance the Smith Normal form of N .
+2.2. When describing an intersection matrix N with diagonal elements not all equal to −2,
+we also indicate whether N is numerically Gorenstein. Recall that this is a purely algebraic
+condition which can be expressed as follows. Write N = Ad(ΓN ) − Diag(c1 , . . . , cn ), with ci ≥ 2
+for i = 1, . . . , n. Let tH := (c1 − 2, . . . , cn − 2). Since N is invertible, the equation N K = H
+has a unique solution K ∈ Qn . The vector K is called the canonical cycle of N .
+   The n × n intersection matrix N is numerically Gorenstein if K ∈ Zn . If a p-suitable inter-
+section matrix arises from a hypersurface quotient singularity, then the matrix N is numerically
+Gorenstein (see [26], Lemma 10.3). In the explicit example introduced above, the matrix N is
+numerically Gorenstein because every 2-suitable intersection matrix is numerically Gorenstein
+([26], Proposition 10.5).
+                 INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                                            5
+                                                                        Pn
+  Given any vector R ∈ Zn with tR = (r1 , . . . , rn ), we have tRN K =  i=1 ri (ci − 2), and
+            t        t                                      1 t      t
+the integer RN R + RN K is even. The integer p(R) := 2 ( RN R + RN K) + 1 is called the
+arithmetical genus of R. For instance, in Example 2.1, p(Z) = 1.
+   In later sections, we will title each paragraph describing a p-suitable intersection matrix
+N by either Intersection Matrix or Quotient Singularity. By convention, we use the
+title Intersection Matrix when we do not know whether the p-suitable intersection matrix
+N described in that paragraph actually arises as a quotient singularity. This is the case in
+particular for the matrix N described in 2.1. When p = 2, this matrix N is the smallest 2-
+suitable intersection matrix for which we do not know if it arises from a quotient singularity1.
+When we know that a given p-suitable intersection matrix N arises as a quotient singularity, we
+use the title Quotient Singularity and we include a description of the quotient singularity.
+2.3. For later use in describing intersection matrices, we record here the following standard
+construction. Given an ordered pair of positive integers r and s with gcd(r, s) = 1 and r > s,
+we construct an associated intersection matrix N = N (r, s) with vector R = R(r, s) and such
+that (tR)N = (−r, 0, . . . , 0).
+  Indeed, we can find an integer m ≥ 1 and integers b1 , . . . , bm > 1 and s1 := s > s2 > · · · >
+sm = 1 such that r = b1 s − s2 , s1 = b2 s2 − s3 , and so on, until we get sm−1 = bm sm . These
+equations are best written in matrix form:
+                            −b1 1 . . .
+                                                       
+                                            0         s1           
+                                                                     −r
+                                                                         
+                                     .           .. 
+                       1 −b2 . .               .                0 
+                      
+                                ... ...             .. 
+                                                            =      . .
+                                                                    .. 
+                                           1         .
+                              0  ...   1 −bm         sm               0
+We let N denote the above square matrix, and let R be the first column matrix above. It is
+well-known that det(N ) = ±r (see, e.g, [19], 2.6). The matrix N is an intersection matrix
+whose associated graph is a path of length m:
+
+                                            −b1    −b2         −bm−1 −bm
+
+Similarly, starting with a matrix N represented by the above path with b1 , . . . , bm ≥ 2 and
+setting sm := 1, it is possible to sequentially solve for integers 1 < sm−1 < · · · < s1 such that
+the associated vector tR = (s1 , . . . , sm−1 , 1) is such that (tR)N = (−1)m−1 det(N )(1, 0, . . . , 0).
+   As usual, if X, Y ∈ Zn , we write X > 0 (resp., X ≥ 0) if all coefficients of X are positive
+(resp., if all coefficients are non-negative). We write X > Y if X − Y > 0, and we write X ≥ Y
+if X − Y ≥ 0. In particular, the fundamental cycle Z of an intersection matrix N is such that
+Z > 0 and N Z ≤ 0.
+                 3. Constructing new p-suitable matrices from old ones
+  In this section, starting with a p-suitable matrix N such that N −1 has an integer column, we
+construct in several instances a new p-suitable matrix of larger size. A similar result is obtained
+   1The matrix −N defines an indecomposable positive definite quadratic form on Z6 of determinant 4. Such
+forms are classified and there is only one isomorphism class over Z, represented by the lattice 46 on page 20 of
+[9], Table 1. The Dynkin diagram D6 also defines a quadratic form isomorphic to 46 , and in its case it is known
+that the intersection matrix N ′ of the Dynkin diagram D6 arises from a Z/2Z-quotient singularity (see 6.2 and
+9.7). The isomorphism between the quadratic forms defined by −N and −N ′ is easy to establish directly: If
+we denote by {e1 , . . . , e6 } the basis for −N , then the basis {e1 , e2 , e3 , e5 , e6 , −Z} produces the matrix −N ′ .
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                         6
+
+in 9.14 assuming the existence of a column of N −1 which is not an integer column, but such
+that the diagonal element on that column is an integer.
+3.1. Let N be any symmetric integer matrix with negative integers on the diagonal, and non-
+negative integers off the diagonal, and assume that its associated graph Γ is connected. In
+general, such a matrix need not be negative definite or semi-definite. However, as recalled in
+[20] 3.3, if there exists any integer vector W > 0 such that N W ≤ 0, then either N W = 0 and
+N is negative semi-definite, or N W < 0 and N is non-singular and negative definite.
+   Let N ∈ Mn (Z) be an intersection matrix with associated graph Γ. We let e1 , . . . , en denote
+the standard basis of Zn . When v is a vertex of Γ and no ordering of the vertices of Γ has been
+chosen, we let ev denote the standard basis vector of Zn associated with v. We let v denote the
+class of ev in the quotient ΦN := Zn /Im(N ).
+3.2. Let N ∈ Mn (Z) be an intersection matrix. Let (N −1 )i denote the i-th column of the
+matrix N −1 . Recall that each coefficient of the matrix N −1 is negative ([34], Corollaire p.
+387). Let pi ≥ 1 denote the smallest positive integer such that the vector Ri := −pi (N −1 )i
+has non-negative integer coefficients. By minimality of pi , the greatest common divisor of the
+coefficients of the integer vector Ri is 1. By construction, we have N Ri = −pi ei , showing that
+the order of the class of ei in ΦN is pi . By definition of the fundamental cycle Z, we also have
+Z ≤ Ri for each i = 1, . . . , n.
+Lemma 3.3. Let p be prime. Let N ∈ Mn (Z) be a p-suitable intersection matrix. Assume that
+for some i, the integer vector Ri (defined in 3.2) is such that (tRi )N Ri = −1. Let N ′ ∈ Mn (Z)
+denote the matrix which differs from N only at the (i, i)-entry, with Nii′ = Nii − (p − 1). Then
+(a) N ′ is p-suitable, and |ΦN ′ | = p|ΦN |.
+(b) Assume that the canonical vector of N is tK := (k1 , . . . , kn ). Then the canonical vector of
+    N ′ is K ′ := K + (ki +1)(p−1)
+                            p
+                                   Ri . In particular, if N is numerically Gorenstein, then N ′ is
+    numerically Gorenstein if and only if p divides ki + 1.
+Proof. (a) Let N ii denote the (n − 1) × (n − 1)-matrix obtained from N by removing its i-th row
+and i-th column. The hypothesis that (tRi )N Ri = −1 implies that N Ri = −ei and that the
+ith coefficient of Ri is 1. Without loss of generality, we can assume that i = 1. We now show
+that the same row and column operations produce the Smith Normal Form of both N and N ′ .
+       t
+Write
+Pn R1 = (1, r2 , . . . , rn ). Let Ni denote the i-th column of N . Add  Pnthe linear  combination
+                                                                                   ′
+      r  N
+   j=2 j j   to the column   N 1 . Similarly, add the linear combination      r  N
+                                                                           j=2 j j   to the column
+  ′
+N1 . Proceed similarly with adding the same linear combination of the rows of N to the first
+row of N , and do the same for N ′ . At the end of these operations, we find that N is similar to
+the matrix on the left below, and N ′ is similar to the matrix on the right:
+                           −1 0 · · · 0                   −p 0 · · · 0
+                                                                      
+                         0                             0              
+                         .                   ,         .              .
+                         ..         N 11               ..     N 11    
+                                     0               0
+It is clear then that ΦN ′ ∼        = Z/pZ × ΦN .
+   Let Z (resp. Z ) denote the fundamental cycle of N (resp. N ′ ). It follows from 11.1(b)
+                           ′
+
+that Ri = Z. Since N ′ Ri = N Ri − (p − 1)ei = −pei , we find that Z ′ ≤ Ri . In particular,
+|(tZ ′ )N ′ Z ′ | ≤ |(tRi )N ′ Ri | = p, as desired.
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                              7
+
+    (b) Recall that by definition, tKN = −(N11 + 2, . . . , Nnn + 2). Recall that K ′ := K +
+(ki +1)(p−1)
+      p
+             Ri . It is easy to check that (tK ′ )N ′ = (tK)N + (p − 1)ei , so that K ′ is the canonical
+cycle of N ′ . Since the i-th coefficient of Ri is equal to 1, we find that the vector K ′ has integer
+coefficients if and only if p divides ki + 1.                                                        □
+   Let N be a p-suitable intersection matrix of size n. Suppose that the matrix N −1 has an
+integer column. We use below this column to create a new p-suitable matrix N of size n + 1.
+Without loss of generality, we can assume that the first column of N −1 is an integer vector. In
+other words, the integer vector R1 ∈ Zn>0 is such that N R1 = −e1 . Let r1 ∈ Z>0 denote the
+first coefficient of R1 . Set
+                                      −(r1 + 1) 1 0 · · · 0
+                                                              
+                                         1                    
+                                          0         N
+                                                              
+                              N :=                            .
+                                   
+                                         .
+                                          ..
+                                                               
+                                                               
+                                          0
+Theorem 3.4. Let N be a p-suitable intersection matrix of size n. Suppose that the first column
+of N −1 is an integer vector. Then
+(a) The matrix N is p-suitable of size n + 1, with |ΦN | = |ΦN |. The vector R := t (1,tR1 ) is the
+    fundamental cycle of N and t R N R = −1.
+                   ′
+(b) The matrix N constructed in 3.3 using N and R is p-suitable of size n + 1, with |ΦN ′ | =
+    p|ΦN |.
+Proof. (a) Label the standard basis of Zn+1 as {e0 , e1 , . . . , en }. It is immediate to check that
+N · R = −e0 . Write tR1 := (r1 , . . . , rn ). To show that ΦN is isomorphicP  to ΦN , we proceed with
+the following row and column operations. Add the sum of columns nj=1 rj N j+1 to the first
+column of N . Similarly, add the same linear combination of the last rows to the first row of N .
+After these operations, we find that N is similar to
+                                               −1 0 · · · 0
+                                                            
+                                            0               
+                                            .               .
+                                            ..        N     
+                                                0
+It is clear then that Φ ∼
+                        N= ΦN .
+  Since N R = −e0 , we find that t RN R = −1. It follows from Proposition 11.1 (b) that R is
+the fundamental cycle of N . The statement of (b) follows immediately from Lemma 3.3 (a). □
+  We illustrate below the constructions in Theorem 3.4 when p = 3. An example when p = 2
+and the Dynkin diagram Dm is found in 6.2.
+Quotient Singularity 3.5. (n = 8) The following matrix is p-suitable for any prime p:
+                                                                   3            8     4     1
+
+         Diagonal of N                                       Z
+                                                    −4             6      9    12     7     2
+                 INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                                               8
+
+The associated group ΦN is trivial and Z 2 = −2, with K = −2Z and p(Z) = 2. This matrix
+arises from the resolution of the hypersurface singularity given by f = z 3 + x4 + y 7 = 0. It is
+shown to arise from a Z/3Z-quotient singularity in [26], Theorem 7.1, or Theorem 5.3.
+Quotient Singularity 3.6. (n = 9) Let p = 3. Using the matrix N in 3.5 and its fundamental
+                                                             ′
+cycle, Theorem 3.4 constructs the p-suitable matrices N and N below.
+
+                                                                         3                8       4               1(3)
+             ′                                                   ′
+   N (N )                             −4 −3(−5)         Z(Z )
+
+                                                                         6       9        12      7       2        1
+                                            2
+The associated group ΦN is trivial, and Z = −1 with p(Z) = 3. The matrix N arises from the
+resolution of the hypersurface singularity given by f = z 3 + x4 + y 19 = 0. It is shown to arise
+from a Z/3Z-quotient singularity in [26], Theorem 5.3.
+                                                ′                 ′
+   The associated group ΦN ′ has order 3, and (Z )2 = −3 with p(Z ) = 3. We do not know if the
+          ′                                                                  ′
+matrix N arises from a Z/3Z-quotient singularity. Note that the matrix N is not numerically
+Gorenstein, even though the matrix N is.
+Quotient Singularity 3.7. (n = 10) Given the matrix N in 3.6 and its fundamental cycle Z,
+                                                   ′′
+Theorem 3.8 below constructs the following matrix N .
+                                                                     3               8        4               1        1
+        ′′                                                  ′′
+    N                            −4    −4               Z
+                                                                     6       9   12           7       2       1        1
+                                                   ′′                                ′′
+The associated group ΦN ′′ has order 3 and (Z )2 = −2 with p(Z ) = 3. Note that in this
+                                   ′′                                     ′′
+example, the fundamental cycle Z is not a multiple of a column of (N )−1 .
+   The matrix N in 3.6 is associated with the resolution of f = z 3 + x4 + y 19 = 0. Perform the
+blow-up of the origin of the hypersurface f = 0. In the chart with coordinates z/y, x/y, y, the
+strict transform is given by (z/y)3 + (x/y)4 y + y 16 = 0. It turns out that the singularity given
+                                                                 ′′
+by g = z 3 + x4 y + y 16 = 0 has resolution matrix equal to N . Theorem 7.6 shows that the
+singularity g = 0 is a Z/3Z-quotient singularity. This blow-up construction of a new quotient
+singularity from an old one motivated our next theorem, which is purely linear algebraic.
+Theorem 3.8. Let p ≥ 3. Let N ∈ Mn (Z) be a p-suitable intersection matrix. Assume that
+for some i ∈ [1, n], the i-th column of N −1 is an integer column. Let r := |(N −1 )ii | and
+assume in addition that r ≤ (p − 1)/2. Then there exists a new p-suitable intersection matrix
+N ′′ ∈ Mn+p−r−1 (Z) with the following properties:
+(a) |ΦN ′′ | = p|ΦN |.
+(b) Let Z and Z ′′ denote the fundamental cycles of N and N ′′ . Then |Z 2 | ≤ r, and |Z ′′2 | ≤ 2r.
+(c) When p = 3, then r = 1, Z is a column of N −1 , |Z ′′2 | = 2, and Z ′′ is not a column of
+     (N ′′ )−1 .
+Proof. Let Ap−r−1 denote a chain of p − r − 1 consecutive vertices w1 , w2 , . . . , wp−r−1 , with w1
+being a vertex of degree 1 on the chain. Set all self-intersections of Ap−r−1 to be −2. Let ΓN ′′
+               INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                                    9
+
+denote the union of the graphs ΓN and Ap−r−1 with an additional edge linking vi ∈ ΓN to
+w1 ∈ Ap−r−1 . The diagonal element of the matrix N ′′ at vertices of ΓN are those of N , except
+at vi , where we set Nii′′ := Nii − 1. The diagonal elements of N ′′ at vertices of Ap−r−1 are all
+−2.
+   (a) Without loss of generality, we may assume that i = n and that the vertex v := vn is
+the last vertex in the chosen ordering of the graph ΓN and of the columns of N . We let N v
+denote the matrix obtained from N by deleting the row and the column of N corresponding to
+v. To show that |ΦN ′′ | = p|ΦN |, we compute det(N ′′ ) as a sum of two determinants, as follows.
+Write                                          ..                    
+                                       Nv        .
+                                      · · · Nnn − 1 1
+                                                                   
+                                                                    
+                                               1     −2     1
+                                                                   
+                              N ′′ =                               .
+                                                                   
+                                                    .    .   .
+                                                       .. .. ..     
+                                                                   
+                                                          1 −2 1 
+                                                               1 −2
+  Then
+                           ..                     v
+                                                     N     0
+                                                                          
+                     Nv      .
+                                                    · · · −1 1
+                    · · · Nnn 1
+                                                                        
+                                                                        
+          ′′
+                   
+                            0  −2 1
+                                                         1 −2 1         
+     det(N ) = det                          + det                        .
+                                                                       
+                               .. .. ..                     .. .. ..
+                   
+                                .  .   .  
+                                           
+                                                   
+                                                               .  .   .  
+                                                                          
+                                  1 −2 1                       1 −2 1 
+                                      1 −2                           1 −2
+Hence
+                    det(N ′′ ) = det(N )(−1)p−r−1 (p − r) + det(N v )(−1)p−r .
+By construction, (N −1 )nn = det(N v )/ det(N ) = −r. It follows that det(N v ) = − det(N )r.
+Therefore
+          det(N ′′ ) = (−1)p−r−1 p det(N ) − (−1)p−r−1 r det(N ) − (−1)p−r det(N )r
+                     = (−1)p−r−1 p det(N ),
+as desired.
+  (b) We continue to assume that i = n. Since the n-th column of N −1 is an integer column
+by hypothesis, the positive vector Rn introduced in 3.2 is such that N Rn = −en . Also by
+hypothesis, (tRn )N Rn = −r. It follows that |Z 2 | ≤ |Rn2 | = r (see proof of Proposition 11.1 (b)).
+By hypothesis, r ≤ p − 1 − r. Set t Z˜′′ := (tRn , r, . . . , r, r − 1, r − 2, . . . , 2, 1), to obtain
+                        (t Z˜′′ )N ′′ = (0, . . . , 0, −1, 0, . . . , 0, −1, 0, . . . , 0)
+and (t Z̃ ′′ )N ′′ Z̃ ′′ = −2r. It follows that N ′′ is negative definite (3.1), and that Z ′′ ≤ Z̃ ′′ , so that
+|(tZ ′′ )N ′′ Z ′′ | ≤ |(t Z̃ ′′ )N ′′ Z̃ ′′ | = 2r.
+   To finish the proof that N ′′ is p-suitable, it remains to show that ΦN ′′ is killed by p. For this,
+we will show that the class of every vertex of ΓN ′′ is killed by p. Let us start with the class of
+wp−r−1 . Consider the vector tRwp−r−1 := (tRn , r + 1, r + 2, . . . , p − 1). It is easy to check that
+                                         N ′′ Rwp−r−1 = −pewp−r−1 .
+Since r is a coefficient of Rn and gcd(r, r + 1) = 1, this equality shows that the class of wp−r−1
+in ΦN ′′ has order p. Using this fact and Lemma 10.2, we conclude that the classes of vn ,
+                INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                                     10
+
+w1 , . . . , wp−r−2 also have order p. Consider now a vertex vj of ΓN with j < n, with the relation
+N Rj = −pj ej and pj ∈ {1, p}. Let rj denote the coefficient of Rj at the vertex v = vn . Let
+                                              t
+                                               Sj = (tRj , rj , . . . , rj ).
+We have the relation
+(3.1)                          (tSj )N ′′ = (0, . . . , −pj , . . . , 0, 0, . . . , 0, −rj ).
+Since the matrix N −1 is symmetric and we assume that the n-th column has integer coefficients,
+we find that either (1) pj = p, in which case rj is divisible by p, or (2) pj = 1.
+   In case (1), the relation (3.1) shows that the order of ej in ΦN ′′ is equal to pj = p. In case
+(2), we have two possibilities. Either (2)(i): rj is divisible by p, in which case again (3.1) shows
+that the order of ej in ΦN ′′ is equal to pj = 1, or (2)(ii): rj is not divisible by p, in which case
+(3.1) shows that the order of ej in ΦN ′′ is equal to the order of ep−r−1 , which we showed above
+to be p.
+   (c) Let p = 3. Then tRn N Rn = −1 by hypothesis. It follows from Proposition 11.1 (b) that
+Z = Rn . Set t Z̃ ′′ := (tZ, 1). Then t (N ′′ Z̃ ′′ ) = (0, . . . , 0, −1, −1) and tZ̃ ′′ N ′′ Z̃ ′′ = −2. We claim
+that Z ′′ = Z̃ ′′ . Indeed, if Z ′′ < Z̃ ′′ , then it follows from the proof of Proposition 11.1 (b) that
+|Z ′′2 | < |Z̃ ′′2 |. This is not possible because the coefficients of Z̃ ′′ at vn and w are equal to 1,
+and this implies that the coefficients of Z ′′ at vn and w also have to equal 1. Then |Z ′′2 | ≥ 2,
+which is a contradiction.                                                                                         □
+Remark 3.9. It may happen that the initial matrix N in Theorem 3.8 is numerically Goren-
+stein, but the larger matrix N ′′ is not. Such an example occurs in [24], 6.16, where p = 5 and
+N is the intersection matrix of the resolution of z 5 + x2 + y 8 = 0.
+                     4. Existence of p-suitable matrices of small sizes
+  Fix a finite connected tree Γ on n vertices. For a given prime p, one may wonder whether
+there exists a p-suitable matrix N with associated graph Γ. We show in this section that such
+matrix might not exist when p is small (see Proposition 4.7). On the other hand, it is likely
+that for most graphs Γ, and for all primes p large enough (depending on Γ), such a p-suitable
+matrix does exist. We will not attempt in this article to exhibit evidence for this expectation
+beyond Theorem 4.1 (see, e.g., [23] Remark 1.4). We show then in Proposition 4.6(a) that for
+any given p, the number of p-suitable matrices N with graph Γ is always finite.
+Theorem 4.1. Let Γ0 be a finite connected tree such that for some prime ℓ, there exists an
+ℓ-suitable matrix N0 with associated graph Γ0 such that |ΦN0 | = 1. Let Γ be any finite connected
+tree which strictly contains Γ0 as an induced subgraph. Let p be any prime. Then there exists
+a p-suitable matrix N with associated graph Γ such that |ΦN | = p.
+Proof. Since both Γ0 and Γ are connected trees, our hypothesis implies that there exists at least
+one terminal vertex of Γ which is not contained in Γ0 . In fact, if Γ has s more vertices than Γ0 ,
+we can consider a sequence of connected trees
+                                       Γ0 ⊂ Γ1 ⊂ · · · ⊂ Γs−1 ⊂ Γs = Γ
+such that for each j = 1, . . . , s, Γj is obtained from Γj−1 by adding a single vertex to Γj−1 and
+linking it by a single edge to an already existing vertex of Γj−1 .
+   For each j = 1, . . . , s, use Theorem 3.4 (a) to produce an intersection matrix Nj with graph
+Γj such that |ΦNj | = 1. Then use Theorem 3.4 (b) to modify the matrix Ns to obtain a new
+p-suitable matrix with graph Γs = Γ such that |ΦN | = p.                                          □
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                            11
+
+Corollary 4.2. Given any connected tree Γ which properly contains the graph of the Dynkin di-
+agram E8 , and given any prime p, there exists a p-suitable intersection matrix N with associated
+graph Γ and |ΦN | = p.
+Proof. Corollary 4.2 follows immediately from the more precise Theorem 4.1, since it is known
+that the Dynkin diagram E8 has ΦE8 = (0).                                                   □
+Remark 4.3. Using [35], Corollary 3.11, we find that a graph as in Corollary 4.2 cannot be
+associated with the resolution of a rational singularity.
+Remark 4.4. For further information on the intersection matrices N such that |ΦN | = 1, we
+refer the reader to [5], [6], [7], and [8]. There are nine known such intersection matrices of
+minimal size n = 8, and they are listed in [24], Section 8. One such example is exhibited in 3.5.
+Intersection Matrix 4.5. The graph Γ displayed below on n = 9 vertices contains the graph
+of the Dynkin diagram E8 . The proof of Theorem 4.1 leads to the following explicit intersection
+matrix:
+                                       −(p + 4)                 2                 5     p     1
+
+       N                                                 Z′
+                                                                4     6     8    10     7     4
+
+The associated group ΦN has order p and |Z 2 | ≤ p since Z ′2 = −p. The case p = 1 gives the
+intersection matrix of the resolution of z 2 + x13 + y 5 = 0. The case p = 2 gives the matrix of the
+resolution of the blow-up z 2 + x9 + y 5 x = 0. Both of these matrices arise from Z/2Z-quotient
+singularities (see [26] Theorem 5.3 (i), and Theorem 7.6). When p ≥ 3, the matrix N is not
+numerically Gorenstein. When p ≥ 11, the matrix N −1 has no integer column.
+Proposition 4.6. Let Γ be a connected graph on n vertices.
+(a) Fix a prime p. Then there exist only finitely many intersection matrices of the form N =
+    Diag(−c1 , . . . , −cn ) + Ad(Γ) with c1 , . . . , cn ∈ Z≥1 and such that ΦN is killed by p.
+(b) Assume that Γ is a tree. Let t denote the length of the longest path in Γ. Let N =
+    Diag(−c1 , . . . , −cn ) + Ad(Γ), with c1 , . . . , cn ∈ Z. Then the group ΦN can be generated by
+    n − t + 1 elements.
+Proof. (a) It is proved in Theorem 1 of [17] that for a given integer d, there exist at most
+finitely many matrices −N = Diag(c1 , . . . , cn ) − Ad(Γ) which are positive definite and have
+det(−N ) = d.
+   In our case, the matrix N has size n, so that the group ΦN can be generated by n elements.
+Hence, when ΦN is killed by p, |ΦN | divides pn . It follows that for any given prime p, there are
+only finitely many possibilities for the values taken by det(N ).
+   (b) Suppose that the vertices v1 , . . . , vt are the consecutive vertices of Γ on a path of longest
+length in Γ. The top left t × t submatrix M of N is a tridiagonal matrix. Let M ′ denote
+the submatrix of M obtained by removing its first row and last column. Every coefficient of
+the diagonal of M ′ is equal to 1. Since Γ is a tree, every coefficient of M ′ below the diagonal
+of M ′ is 0. Hence, M has a (t − 1 × t − 1)-submatrix with determinant equal to 1. This
+shows that the Smith Normal Form D := Diag(d1 , . . . , dn ) of N (with d1 | . . . | dn ) must have
+d1 = · · · = dt−1 = 1. Thus ΦN , which is isomorphic to ΦD , can be generated by n − (t − 1)
+elements.                                                                                            □
+               INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                                 12
+
+Proposition 4.7. Consider the graphs
+
+                                                          v5
+                                           ′                                  ′′
+           Γ                          ,   Γ                           and    Γ
+                                                   v1 v4 v6 v7
+
+(a) There exist no 2-suitable intersection matrices with graph Γ.
+                                                                                    ′′
+(b) There exist no 2-suitable or 3-suitable intersection matrices with graph Γ′ or Γ .
+
+Proof. (a) Consider the matrix N := Diag(−x1 , . . . , −x6 )+Ad(Γ), where x1 , . . . , x6 are variables
+and Ad(Γ) is the adjacency matrix of Γ. Then det(N ) is a polynomial f (x1 , . . . , x6 ). The set
+of integer values taken by this polynomial when x1 , . . . , x6 ≥ 2 is discussed in [23], 5.3 (c). The
+smallest value is |f (−2, . . . , −2)| = 3. When exactly one of the variables is increased to 3 and
+the others are left at 2, we obtain the values |f (x1 , . . . , x6 )| = 7, 9, 13, Thus this polynomial
+does not take any value in {1, 2, 4} when x1 , . . . , x6 ≥ 2. This suffices to prove Part (a), since
+Γ has a path of length 5, so that when ΦN is killed by 2, we have |ΦN | ∈ {1, 2, 4} by 4.6 (b).
+   (b) Consider the matrix N (−x1 , . . . , −x7 ) := Diag(−x1 , . . . , −x7 ) + Ad(Γ′ ), where x1 , . . . , x7
+are variables. Then det(N ) is a polynomial f (x1 , . . . , x7 ). Since Γ′ has a path of length 5, we
+must have |ΦN | ∈ {1, 2, 3, 4, 8, 9, 27} by 4.6 (b).
+   For any x7 ≥ 2, the matrix N (−2, . . . , −2, −x7 ) is not positive definite since its determinant
+is constant, equal to −4. The tuple (x1 , . . . , x7 ) = (2, 2, 2, 2, 3, 2, 2) produces a matrix N of
+determinant 0 which is positive semi-definite of rank 6. The tuple (2, 3, 2, 2, 2, 2, 3) produces a
+positive definite matrix N with ΦN = Z/3Z. The tuple (2, 4, 2, 2, 2, 2, 2) produces a positive
+definite matrix N with ΦN = Z/2Z. This information suffices to produce an explicit effective
+bound B such that, if N (−x1 , . . . , −x7 ) is positive definite with determinant at most 27, then
+2 ≤ x1 , . . . , x7 ≤ B. We leave the details to the reader, using [23] 2.1(c). We also need in
+addition that ΦN is killed by p = 2 or 3. There are three examples of such N , with ΦN = Z/2Z
+and Z/3Z given above, and with (x1 , . . . , x7 ) = (2, 2, 2, 2, 3, 2, 3) producing a matrix N with
+ΦN = Z/2Z × Z/2Z. In each case, we leave it to the reader to check that we have |Z 2 | > p,
+where Z denotes the fundamental cycle of N . Thus these matrices are not p-suitable.
+   Consider now the matrix N := Diag(−x1 , . . . , −x6 ) + Ad(Γ′′ ), where x1 , . . . , x6 are variables.
+Then det(N ) is a polynomial f (x1 , . . . , x6 ). We leave it to the reader to show that this poly-
+nomial does not take any value in {1, 2, 3, 9, 27} when x1 , . . . , x6 ≥ 2. Since Γ has a path of
+length 4, we have |ΦN | ∈ {1, p, p2 , p3 } by 4.6 (b). The values |ΦN | = 4 or 8 both occur, but the
+reader will check that in all occurrences, the group ΦN has exponent 4. Hence, these matrices
+are not p-suitable.                                                                                         □
+
+
+               5. Gluing two graphs to obtain new p-suitable matrices
+  We show in this section how to start with two p-suitable intersection matrices and build a
+third one. This construction will let us build in Theorem 5.5 p-suitable matrices whose graphs
+have any number of nodes. Let us start with the following example.
+
+Quotient Singularity 5.1. (n = 14) We describe below the smallest known Z/3Z-quotient
+singularity to date having a graph with at least two nodes and a 3-suitable resolution matrix.
+(Because the matrix N has a unique coefficient on the diagonal which is smaller than −2, we
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                          13
+
+only give below the vectors Z and N Z.)
+                                     3       1       6     3              3     4      2
+
+                             Z
+                                     5       7       9     5 1(−11) 6           4      2
+
+The associated group ΦN has order 32 and Z 2 = −3. This intersection matrix is the resolution
+matrix of the singularity f := z p −(abxy)p−1 z−ap xy+bp x = 0 with a := y 3 +xy and b := x2 +y 3 x
+It follows from Theorem 7.5 that this is a Z/3Z-quotient singularity.
+   The graph above with two nodes is obtained by gluing together the graphs of the 3-suitable
+intersection matrices N1 and N2 below. The left matrix N1 arises from a Z/3Z-quotient sin-
+gularity ([24], 5.19(a2), z 3 + x4 y + y 4 = 0, blow up of 3.5). The right matrix arises from
+the desingularization of z 3 + x4 + y 14 = 0, which is not known to arise from a Z/3Z-quotient
+singularity.
+                         3       1       6       3                               1     3   4   2
+
+                Z1                                               and Z2
+                         5       7       9       5   1(−5)                     1(−7)   6   4   2
+
+Intersection Matrix 5.2. (n = 15 + m, m ≥ 0) Starting with the two intersection matrices
+N1 and N2 , one can construct the infinite family of 3-suitable matrices below. Theorem 5.4
+generalizes this construction.
+                             3       1       6       3                          3      4   2
+                                                                 2+m
+                     Z                                       z    }|    {
+
+                             5       7       9       5   1(−6)    1    1(−7)    6      4   2
+
+The associated group ΦN has order 32 and Z 2 = −3.
+5.3. To generalize the construction in 5.2, we need to introduce the following notation. Let N1
+be a p-suitable matrix of size n1 with fundamental cycle Z1 . Assume that
+   (i) There exists a vertex v of ΓN1 such that the coefficient of Z1 corresponding to v is 1.
+  (ii) The coefficient of the vector N1 Z1 corresponding to the vertex v is 0.
+Let N2 be a p-suitable matrix of size n2 with fundamental cycle Z2 . Assume that
+       (iii) (tZ2 )N2 Z2 = −1, so that in particular there exists a vertex w on the graph ΓN2 such
+             that the coefficient of Z2 corresponding to this vertex is 1, and such that −N2 Z2 is
+             the standard basis vector of Zn2 corresponding to w (see proof of 11.1 (a)).
+    Fix a positive integer m. We now describe a new intersection matrix N of size n1 + m + n2 .
+If m = 0, then the graph ΓN is simply the union of the graphs ΓN1 and ΓN2 joined by a single
+edge linking v and w. If m > 0, let u1 , . . . , um denote the consecutive vertices on the graph of
+a chain Am of length m. All the self-intersections of the matrix Am are equal to −2. Since the
+vertices are consecutive, we will assume that u1 and um have degree 1. Then the graph ΓN is
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                             14
+
+the union of the graphs ΓN1 , Am and ΓN2 with one added edge linking v to u1 and a second
+added edge linking um to v.
+   If −c = (N1 )vv denotes the diagonal element of N1 corresponding to the vertex v, then we
+set to −c − 1 the diagonal element of N corresponding to v in ΓN . All other diagonal elements
+of N are those found already in N1 , Am , or N2 .
+Theorem 5.4. Let p be prime. Let N1 and N2 be two p-suitable matrices satisfying the condi-
+tions 5.3 above. Then the matrix N introduced in 5.3 is p-suitable with ΦN = ΦN1 × ΦN2 . If Z
+denotes the fundamental cycle of N , then |(tZ)N Z| ≤ |(tZ1 )N1 Z1 |.
+Proof. Let Z ′ denote the vector in Zn>01 +m+n2 where Z ′ restricted to N1 is Z1 , where Z ′ restricted
+to N2 is Z2 , and where Z ′ restricted to Am is t (1, . . . , 1). The vector Z ′ has strictly positive
+coefficients. By our construction, the vector N Z ′ has non-zero coefficients exactly where the
+vector N1 Z1 has non-zero coefficients. In fact, the non-zero coefficients of N Z ′ equal the non-
+zero coefficients of N1 Z1 , so that (tZ ′ )N Z ′ = (tZ1 )N1 Z1 . It follows that N is negative definite
+(3.1), and that the fundamental cycle Z of N is such that Z ≤ Z ′ . Since |Z12 | ≤ p, we find that
+|Z 2 | ≤ p.
+   To show that N is p-suitable, it remains to show that ΦN is killed by p. Since both ΦN1 and
+ΦN2 are killed by p, it suffices to show that ΦN = ΦN1 × ΦN2 . For this we proceed with a row
+and column reduction of the matrix N .
+   Recall that the coefficient of Z2 is 1 at w by hypothesis. Moreover, −N Z2 is the standard
+basis vector corresponding to w. We use this fact and add the following linear combination
+of columns of N to its column corresponding to w: multiply each column of N corresponding
+to a vertex in ΓN2 by the corresponding coefficient of Z2 , and add everything to the column
+corresponding to w. This operation almost clears out that column, leaving a −1 at the w-row,
+and a 1 at the um -row. A similar linear combination of the rows will almost clear out the w-row,
+leaving on the w-row a coefficient −1 in the w-column, and a coefficient 1 in the um -column.
+After this operation, we find that the group ΦN is the product of two groups. It is easy to
+check one of them is ΦN2 , and the second one can be determined to be ΦN1 .                           □
+Theorem 5.5. Let p be prime. Let δ ∈ Z≥2 . Then there exists a p-suitable intersection matrix
+N whose associated graph is a tree with δ nodes and with |ΦN | ≥ pδ .
+Proof. There are many ways of obtaining a p-suitable matrix whose graph is a tree with δ nodes.
+We exhibit below one such convenient way. Let N1 and N2 be two p-suitable matrices with
+star-shaped graphs as in Lemma 5.6. Let m = δ − 2 and apply the construction of Theorem
+5.4 to the matrices N1 and N2 using this m. We obtain in this way a new graph ΓN with
+two nodes and a chain of m vertices u1 , . . . , um linking the graphs of N1 and N2 . It is easy to
+check that the matrix N satisfies Conditions (i) and (ii) at the vertex u1 . We can thus apply
+Theorem 5.4 to the pair (N, u1 ) and the matrix N2 to construct a new matrix N (1) whose graph
+has three nodes and is obtained as the union of the graphs of N and N2 linked by one edge.
+We can continue this process with the vertex u2 associated with the matrix N (1) to obtain a
+new matrix N (2) whose graph has four nodes. Repeating this process δ − 4 times, we obtain a
+matrix N (δ−2) whose graph has δ nodes. In each step in our process, Theorem 5.4 describe the
+associated finite group, and we find that since we chose |ΦN1 |, |ΦN2 | ≥ p, the group ΦN (δ−2) has
+order at least pδ .                                                                              □
+Lemma 5.6. Let p be prime. Then there exist a p-suitable matrix N1 satisfying Conditions (i)
+and (ii) in 5.3, and a p-suitable matrix N2 satisfying Condition (iii). Moreover, N1 and N2
+can be chosen so that their graphs are star-shaped and |ΦN1 |, |ΦN2 | ≥ p.
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                        15
+
+Proof. When p = 2, the matrix Nr (r ≥ 1) in 8.4 satisfies all three conditions. When p ≥ 3, the
+matrix N in Remark 8.6 satisfies Conditions (i) and (ii). The construction (a) in Theorem 3.4,
+applied to the pair (N, Z) in 8.6 produces a new matrix N which satisfies Condition (iii). □
+
+Remark 5.7. Using [35], Theorem 5.1, we find that a graph as in Theorem 5.5 cannot be
+associated with the resolution of a rational singularity as soon as δ > |Z 2 | − 2 when |Z 2 | ≥ 3.
+
+
+               6. Trees with more than one node in characteristic 2
+   In view of Theorem 5.5, it is natural to wonder, given a prime p and any integer δ > 1,
+whether there exists a Z/pZ-quotient singularity whose minimal resolution of singularities has
+a resolution graph which is a tree with δ distinct nodes. Our record below is a family of 2-
+suitable intersection matrices whose graphs are trees with 5 nodes, and which are likely to arise
+from a Z/2Z-quotient singularity. A family with 3 nodes is discussed in 9.10. The equations
+given for these singularities can be checked to arise from a Z/2Z-quotient singularity using 7.1
+and Theorem 7.5.
+
+Remark 6.1. We used Magma [4] to compute explicitly the resolutions in this section. We
+include a generic code below.
+  p := 2; k := F initeF ield(p60 ); A < x, y, z >:= Af f ineSpace(k, 3);
+  a := x2 ; b := y 3 ; f := z p − (abxy)p−1 z − ap xy + ybp ;
+  S := Surf ace(A, f ); P := Scheme(A, [x, y, z]);
+  R := ResolveSingByBlowU p(S, P );
+  D := IntersectionM atrix(R); a; b; f ; D; ElementaryDivisors(D);
+  nn := N umberOf BlowU pDivisors(R); nn; f or i := 1 to nn do
+  B := BlowU pDivisor(S, R, i); i, IsSingular(B); Genus(B); end f or;
+
+  When n = 6, there exists only one tree with two nodes, and it is not associated with any
+2-suitable intersection matrix (see Proposition 4.7(c)). When n = 7, there exist three trees
+with two nodes. One such tree is not associated with any 2-suitable intersection matrix (see
+Proposition 4.7(b)). The other two occur with 2-suitable intersection matrices in [24] 4.11 and
+in [24] 4.25. The matrix [24] 4.11 is known to arise from a Z/2Z-quotient singularity. When
+n = 8, there are already ten different connected trees with two nodes.
+
+Quotient Singularity 6.2. (n = 4ℓ + 1 ≥ 9 and two nodes) It is well-known that the
+Dynkin diagram Dm on m vertices is a 2-suitable intersection matrix only when m is even, in
+which case we have ΦDm = Z/2Z × Z/2Z. When m is odd, ΦDm = Z/4Z. We represent below
+Dm with its fundamental cycle.
+
+                                        1                       1
+                                                   m−5
+                           Dm                  z   }|    {
+
+                                  1     2     2           2     2    1
+
+  Let m = 2r. It is known that D2r arises as a Z/2Z-quotient singularity (see 9.7, [2], [31]).
+We represent below the two extensions of Dm obtained from Theorem 3.4 using its fundamental
+cycle. We let n := 2r + 1 denote the number of vertices of the two extensions. We denote these
+               INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                                            16
+
+                (3)        (4)
+matrices by Nn and Nn .
+
+                                                  −3(−4)                              1                          1   1(2)
+    (3 or 4)                      n−6                                                               n−6
+ Nn                         z     }|      {                        Z                           z        }|   {
+
+                                                                           1          2       2              2   2    1
+
+The group ΦNn(3) has order 22 and Z 2 = −1. The group ΦNn(4) has order 23 and Z 2 = −2. In
+both cases, K = −Z and p(Z) = 1. These graphs are denoted An,∗∗∗∗ , n ≥ 2, in Tables 1 and
+2 of [16], pages 1290-1291. Computations suggest that we always have the following quotient
+singularities when n = 4ℓ + 1 and ℓ ≥ 2:
+                          (3)
+        • The matrix Nn occurs as the resolution matrix of the Z/2Z-singularity given by the
+          equation f = 0, where f = z p − (ab)p−1 z − ap x − bp y with a = x and b = y ℓ+3 + xy.
+                        (4)
+        • The matrix Nn occurs as the resolution matrix of the Z/2Z-singularity given by the
+          equation g = 0, where g = z p − (abxy)p−1 z − ap xy − bp y with a = x and b = y ℓ+2 + xy.
+                                                                               (3)            (4)
+In the case ℓ = 1 and n = 5, the analogues of the matrices Nn and Nn have graphs with one
+node only, and occur in 8.4 (case r = 1) and in [24] 4.3.
+                                                                                              (3)
+   Surprisingly, we have not been able to provide evidence that the 2-suitable matrix Nn arises
+from a Z/2Z-quotient singularity when n = 2r + 1 and r ≥ 3 is odd. On the other hand,
+              (4)
+the matrix N7 is the intersection matrix associated with the resolution of the Z/2Z-quotient
+singularity f := z p − (abxy)p−1 z − ap xy − bp y = 0 with a := x3 + xy and b := y 3 + x2 y. Similarly,
+                                                  (4)
+when n = 11 (resp. n = 15), the matrix Nn is the intersection matrix associated with the
+resolution of f with a := x3 + xy and b := y 3 + xy 2 (resp. b := y 3 ).
+Quotient Singularity 6.3. (n = 18 + 8ℓ and five nodes)
+
+                            1      2          2      2     2   2(−3)   1
+
+                                              1                        1                  1
+                      Z                                        2
+                            1                      2+4ℓ                         2+4ℓ
+                                              z     }|     {           z         }|       {
+
+                                   1          2            2   2(−3)   2                  2         1
+
+The associated group ΦN has order 26 , and Z 2 = −2 with p(Z) = 2. This matrix occurs as
+the intersection matrix in the resolution of the hypersurface singularity f = 0, where f :=
+z p − (ab)p−1 z − ap y − bp x with a := x5+ℓ + y(x3 + xy) and b := y(x3 + xy + y 3 ) when ℓ = 0, 1, 2.
+
+                                 7. Explicit quotient singularities
+   We first recall in this section a family of Z/pZ-quotient hypersurface singularities introduced
+in [25], section 7. We then discuss a variation that allows for new parametrized families, as in
+[26], section 8.
+7.1. Let k be an algebraically closed field of characteristic p > 0. Fix a system of parameters
+a, b in k[[x, y]]. Let µ ∈ k[[x, y]], and consider the equation
+(7.1)                                  z p − (µab)p−1 z − ap y + bp x = 0,
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                          17
+
+and the associated ring
+                       Bµ = B := k[[x, y, z]]/(z p − (µab)p−1 z − ap y + bp x).
+
+   (a) Assume that µ is a unit in k[[x, y]]. It is shown in [25], 7.1, that B is isomorphic to the
+ring of invariants AZ/pZ of an explicit wild action of Z/pZ on A := k[[u, v]] ramified precisely
+at the origin. More precisely, after identifying A with the ring
+                      k[[x, y]][u, v]/(up − (µa)p−1 u − x, v p − (µb)p−1 v − y),
+the action is determined by the automorphism σ with σ(u) = u + µa and σ(v) = v + µb. The
+morphism Spec A → Spec AZ/pZ is ramified only at the maximal ideal m. Such actions are
+called moderately ramified in [25], and we refer the reader to [25] for further information on
+these actions.
+   (b) Assume that µ is not a unit in k[[x, y]], that µ ̸= 0, and that it is coprime to both a and
+b. Then B is again isomorphic to the ring of invariants AZ/pZ for the action on A := k[[u, v]]
+described above. However, in this case the morphism Spec A → Spec AZ/pZ is ramified in
+codimension 1
+7.2. Consider now the following variation. Assume that a, b, µ ∈ k[[x, y]] \ {0} and that xy
+divides µ. Set
+                A0 := k[[x, y]][U, V ]/(U p − (µa)p−1 U − x, V p − (µb)p−1 V − xy).
+Define τU : A0 → A0 with τU (U ) := U + µa and τU (V ) := V . Similarly, define τV : A0 → A0
+with τV (U ) := U and τV (V ) := V + µb.
+Proposition 7.3. Assume that a, b, µ ∈ k[[x, y]] \ {0} and that xy divides µ. Then the ring
+A0 is a domain. The maps τU and τV are k[[x, y]]-automorphisms of A0 generating a group H
+isomorphic to Z/pZ × Z/pZ. We have k[[x, y]] = AH  0 .
+
+Proof. The polynomial U p −(µa)p−1 U −x is irreducible in k[[x, y]][U ] because of our assumption
+that x divides µ and the Schönemann-Eisenstein Criterion applied to the prime ideal (x). The
+ring R := k[[x, y]][U ]/(U p − (µa)p−1 U − x) is then a domain, with a unique maximal ideal
+generated by y and U . Since R is finite of rank p over k[[x, y]], we find that its dimension is 2.
+Since the maximal ideal of R is generated by two elements, we find that the noetherian local
+ring R is regular.
+   Consider now V p − (µb)p−1 V − xy ∈ R[V ]. This polynomial is irreducible in R[V ] because of
+our assumption that y divides µ and the Schönemann-Eisenstein Criterion Theorem applied to
+the prime ideal (y). Hence A0 = R[V ]/(V p − (µb)p−1 V − xy) is a domain with maximal ideal
+(y, U, V ).
+   It is clear that when abµ ̸= 0, the maps τU and τV are automorphisms of order p of A0 which
+generate a subgroup H of automorphisms of A0 of order p2 . Let L denote the field of fractions of
+A0 and let K be the field of fractions of k[[x, y]]. Then the extension L/K is Galois with group
+H. Since A0 is integral over k[[x, y]], any element of A0 fixed by H is in K and is integral over
+k[[x, y]]. Since k[[x, y] is integrally closed because it is regular, we find that k[[x, y]] = AH
+                                                                                                0 . □
+
+  Let L denote the field of fractions of A0 . Let A′ denote the subring A0 [ VU ] of L.
+Proposition 7.4. Assume that a, b, µ ∈ k[[x, y]] \ {0} and that xy divides µ. The ring homo-
+morphism A′ → A := k[[u, v]], which sends U to u and V /U to v, is a k-isomorphism.
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                          18
+
+Proof. The equation U p − (µa)p−1 U − x = 0 first shows that x/U is in the maximal ideal of A0 ,
+and then that x/U p is in A0 and is a unit. The ring A0 is not integrally closed, since it is clear
+from the equation V p − (µb)p−1 V − xy = 0 that
+                              p  p−1  
+                               V         µb        V       x
+                                     −                 − py = 0
+                               U         U         U      U
+is an integral relation for VU over A0 since x divides µ and x/U is in A0 . The ring A′ := A0 [ VU ],
+viewed as a subring of L, is a local ring of dimension 2 with maximal ideal generated by
+(y, U, V, V /U ). Since y and V can be expressed in terms of U and V /U , we find that the maximal
+ideal can be generated by two elements and, hence, A′ is regular, and is thus isomorphic to the
+power series ring k[[u, v]], with u := U and v := V /U .                                          □
+  Consider the automorphism τU ◦ τV = σ : A0 → A0 of order p with
+                           σ(U ) := U + µa,      and    σ(V ) := V + µb.
+The group ⟨σ⟩ acts on A′ , since
+                             σ(V /U ) = (V /U + µb/U )(1 + µa/U )−1
+and 1 + µa/U is a unit in A0 .
+  Let z := aV − bU . Then σ(z) = z, and we find that
+(7.2)                           z p − (µab)p−1 z − ap xy + bp x = 0.
+  Consider the ring
+                        B ′ := k[[x, y]][Z]/(Z p − (µab)p−1 Z − ap xy + bp x),
+and let B denote the subring k[[x, y]][z] of A0 , image of the natural map φ : B ′ → B ⊆ A⟨σ⟩
+which sends Z to z.
+Theorem 7.5. Assume that a, b, µ ∈ k[[x, y]] \ {0} and that xy divides µ. Assume also that
+(x, y) is the radical of the ideal (a, b) in k[[x, y]]. Then the ring B ′ is a domain and the map φ
+is injective. This map induces an isomorphism between the field of fractions of B ′ and the field
+of fractions of A⟨σ⟩ . The homomorphism φ : B ′ → A⟨σ⟩ is an isomorphism if B ′ is regular in
+codimension 1. This latter condition is satisfied for instance if either a = xr and b = y s , or if
+a = y r and b = xs , for some integers r, s ≥ 1.
+Proof. The ring B ′ is a domain because the polynomial f := Z p − (µab)p−1 Z − ap xy + bp x is
+irreducible in k[[x, y]][Z]. Indeed, we assume that x divides µ, and it is easy to check that x
+cannot divide ap y + bp under our hypotheses. We can then apply the Schönemann-Eisenstein
+Criterion. One checks then that (f ) is the kernel of the map k[[x, y]][Z] → A′ , so that the
+homomorphism φ is injective. By degree considerations, we find that the field of fractions of B ′
+is isomorphic, under the natural extension of φ, to the field of fractions of A⟨σ⟩ . The ring B ′ is
+Cohen–Macaulay since it is free as a module over the regular ring k[[x, y]]. Thus B ′ is normal
+as soon as it is regular in codimension 1.
+   Because of the special forms of a and b in the Theorem, we can show that B ′ is regular in
+codimension 1 by using the Jacobian criterion of Nagata ([12], IV.22.7.3). We claim that if a
+prime ideal p of B ′ contains the classes of f and of the partial derivatives fx , fy , fZ , then p
+               INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                             19
+
+contains (x, y, Z). Let us assume first that p > 2. Then
+                                  ∂f
+                                  ∂Z
+                                     =    −(µab)p−1 .
+                                  ∂f
+                                  ∂x
+                                     =    Z(µab)p−2 ∂µab
+                                                     ∂x
+                                                         − ap y + b p .
+                                  ∂f
+                                  ∂y
+                                     =    Z(µab)p−2 ∂µab
+                                                     ∂y
+                                                         − ap x.
+We conclude that p contains a factor of µab, a factor of ap x and a factor of −ap y + bp .
+   If a = xr , then p contains x. If then b = y s , then p either contains y or a factor of −xrp +y ps−1 .
+But if it contains −xrp + y ps−1 and x, it always also must contain y, as desired.
+   If a = y r , then p contains x or y since it contains ap x. If then b = xs and p contains x, then
+since it contains −ap y + bp , it must contain y also. If b = xs and p contains y, then since it
+contains −ap y + bp it must contain x also. Once the ideal p contains x and y, the relation f = 0
+shows that it must contain Z.
+   We now consider the case where p = 2. We have in this case
+                             ∂f
+                             ∂x
+                                =    Z(ab ∂µ
+                                          ∂x
+                                                  ∂b
+                                             + aµ ∂x      ∂a
+                                                     + bµ ∂x ) − ap y + b p .
+                             ∂f
+                             ∂y
+                                =    Z(ab ∂µ
+                                          ∂y
+                                                  ∂b
+                                             + aµ ∂y + bµ ∂a
+                                                          ∂y
+                                                             ) − ap x.
+Since p contains at least one of a, b, µ, and since µ is divisible by xy by hypothesis, we find that
+we need only consider two cases, when x ∈ p and when y ∈ p. In both cases, we find that p
+contains a factor of −ap y + bp and a factor of −ap x. Suppose first that x ∈ p. Then p contains
+a factor of −ap y + bp . Then using the expression −ap y + bp , we find that either a = y r and
+y ∈ p, or a = xr , and again y ∈ p.
+   Suppose now that y ∈ p. Using the expression −ap y + bp , we find that p contains a factor of
+b, and thus contains x when b = xs . If a = xr , then the expression −ap x shows that x ∈ p, as
+desired.                                                                                          □
+  We provide now two new classes of weighted homogeneous singularities which are Z/pZ-
+quotient singularities. The method of proof of Theorem 7.6 below follows the same argument
+as in the proof of Theorem 5.3 in [26].
+Theorem 7.6. Let k be an algebraically closed field of characteristic p. Let r, s ∈ Z>0 . Let
+g = z p + xpr+1 y + y ps x or g = z p + y pr+1 x + xps+1 . Let B := k[[x, y]][z]/(g). Then there exists
+a k-linear action of Z/pZ on A := k[[u, v]] such that B is isomorphic to AZ/pZ .
+Proof. Fix a, b in k[[x, y]] such that either a = xr and b = y s , or a = y r and b = xs , for some
+integers r, s ≥ 1. Consider the family of hypersurface singularities Spec Bµ , µ ∈ (xy)k[[x, y]],
+with
+                              Bµ := k[[x, y, z]]/(z p − (µab)p−1 z − ap xy + bp x).
+Theorem 7.5 shows that when µ ̸= 0, the ring Bµ is isomorphic to the ring of invariants AZ/pZ
+of an explicit action of Z/pZ on A = k[[u, v]].
+   Set µ = 0 in z p −(µab)p−1 z−ap xy+bp x with a = xr and b = y s , to obtain f = z p −xpr+1 y+y ps x.
+Similarly, setting µ = 0 with a = y r and b = xs produces f = z p −y pr+1 x+xps+1 . We now claim
+that it is possible to find a polynomial µ of large enough degree such that B := k[[x, y, z]]/(f )
+is isomorphic over k to Bµ . To prove the existence of a k-isomorphism from B := k[[x, y, z]]/(f )
+to Bµ , we use the Lemma in [11], 2.6, page 345. For the details of the proof of this Lemma,
+the authors of [11] refer the reader to the paper [3]. Recall that the Tjurina ideal of f is
+j(f ) := (f, ∂f , ∂f , ∂f ), and that there exists an integer n > 0 such that (x, y, z)n ⊆ j(f ) if and
+             ∂x ∂y ∂z
+only if the Tjurina number τ := dimk (k[[x, y, z]]/j(f )) is finite. This is indeed the case for our
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                          20
+
+polynomials f . Then the Lemma in [11], 2.6, implies that if deg(µh) > 2τ (with h ∈ k[[x, y, z]]),
+then B := k[[x, y, z]]/(f ) is isomorphic over k to k[[x, y, z]]/(f + µh).
+    To conclude the proof, we√  note that since k is algebraically closed, we can make the change of
+variables (x, y, z) = (ζX, Y, p ζZ) to transform z p − xm y + y n x = 0 into Z p +√X m Y + Y n X = 0,
+with ζ m−1 = −1. Similarly, the change of variables (x, y, z) = (ζX, Y, p −ζZ) transforms
+z p − y m x + xn = 0 into Z p + Y m X + X n = 0 when ζ n−1 = −1.                                   □
+
+Remark 7.7. The triple groupings. Write c = pr + 1 and d = ps + 1 with r, s ≥ 1. The
+singularity z p + xc + y d = 0 is a Z/pZ-quotient singularity ([26], Theorem 5.3(i)).
+   Assume that p < c < d. The blow-up of the maximal ideal produces in the chart (z/y, x/y, y)
+the singularity (z/y)p + (x/y)c y c−p + y d−p = 0, which we normalize (with abuse of notation)
+to z p + xc y + y d−c+1 = 0. This is again a quotient singularity by Theorem 7.6 (use the case
+f = z p + y pr+1 x + xps+1 and change the role of x and y).
+   Assume now that p < c < d < 2c. Then we can perform the blowup of z p + xc y + y d−c+1 = 0
+at the origin to get z p + xc−(p−1) y + y d−c+1 xd−c+1−p = 0, which we normalize to z p + x2c−d+1 y +
+y d−c+1 x = 0. This hypersurface singularity is not known to be a Z/pZ-quotient singularity
+when p is odd since 2c − d + 1 is of the form pt + 2 for some t ≥ 0. But when p = 2, this is a
+Z/2Z-quotient singularity by Theorem 7.6 (use the case f = z p + xpr+1 y + y ps x and change the
+role of x and y).
+   Let p = 2. Starting this process with the E8 singularity z 2 + x3 + y 5 = 0 produces two new
+Z/2Z-quotient singularities (with equations z 2 + x3 y + y 3 = 0 and z 2 + x2 y + xy 3 = 0) whose
+associated graphs are the graphs of the Dynkin diagrams E7 and D6 , respectively (see [24] 4.8).
+
+
+
+
+     8. Existence of quotient singularities with resolutions of small size
+  It is known that the intersection matrix Ap−1 on the path on n = p − 1 vertices arises as a
+Z/pZ-quotient singularity (see [26], 9.4, for p > 2, and 8.7 below for p = 2). We exhibit in this
+section examples of families of p-suitable intersection matrices of size n where it is known that
+they arise from a quotient singularity and where the graph is star-shaped. As the next theorem
+shows, we have not been able to produce examples where n is small compared to p, suggesting
+the possibility that such examples might not exist.
+
+Theorem 8.1. Let p be any prime. Let n ≥ p + 3 be any integer. Then there exists a p-suitable
+intersection matrix of size n which arises from a Z/pZ-quotient singularity.
+
+Proof. We divide the proof into three cases, when (i) p ≥ 5, (ii) p = 3, and (iii) p = 2.
+
+    (i) Assume that p ≥ 5. We first establish the case n = p + 3 of the theorem with the
+following two claims. Recall that any Brieskorn singularity given by an equation of the form
+z p + xpr+1 + y ps+1 = 0 for some r, s ≥ 1 is a Z/pZ-quotient singularity ([26], Theorem 5.3).
+
+8.2. (a) Assume that p = 4k + 1. Let c := p + 1 and d := p(p + 1)/2 + 1. Then the Brieskorn
+    singularity z p + xc + y d = 0 has a resolution whose associated intersection matrix N is
+    p-suitable of size n = p + 3. The intersection matrix is represented below, with |ΦN | = p
+               INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                            21
+
+     and Z 2 = −2.
+
+
+                               (p−3)/2
+             −d/2                                              1   2      (p − 2)c/2       3c/2 c/2
+                          z      }|      {      −3
+
+ N                                                         Z
+                                                               p   2p    pc/2 (p − 2)c/2   3c/2 c/2
+         −(p + 3)/4                             −3
+
+
+
+(b) Assume that p = 4k + 3. Let c := 3p + 1 and d := p(3p + 1)/2 + 1. Then the Brieskorn
+    singularity z p + xc + y d = 0 has a resolution whose associated intersection matrix N is
+    p-suitable of size n = p + 3. The intersection matrix is represented below, with |ΦN | = p
+    and Z 2 = −2.
+
+
+                               (p−3)/2
+             −d/2                                              1    2      (p − 2)c/2      3c/2 c/2
+                           z      }|     {       −3
+
+ N      −6                                                 Z
+                                                               p   6p    pc/2 (p − 2)c/2   3c/2 c/2
+         −(p + 1)/4                              −3
+
+
+   In both case (a) and case (b), we exhibit a vector Z such that −Z is a column of N −1 . Our
+notation suggests that this vector is the fundamental cycle of N , but we will not need, or prove,
+this fact here. Recall that given N and Z, Theorem 3.4(a) exhibits a new p-suitable matrix N
+                                                    −1        2                                    −1
+with a vector Z such that −Z is a column of N and |Z | = 1. Since −Z is a column of N ,
+                                                                                          (2)
+we can apply Theorem 3.4(a) again to N and Z to obtain a p-suitable matrix N and vector
+  (2)              (2)                    (2)
+Z such that Z is a column of (N )−1 , and so on, leading for each i ≥ 2 to a p-suitable
+          (i)               (i)             (i)                  (i)
+matrix N and vector Z such that Z is a column of (N )−1 .
+   The key to finish the proof of Theorem 8.1 when p ≥ 5 is the following claim: if N is associated
+with the resolution of z p +xc +y d , then N is associated with the resolution of z p +xc +y d+pc = 0,
+                       (i)
+and for all i ≥ 2, N is associated with the resolution of z p + xc + y d+ipc = 0. Since d + ipc
+                                                                                      (i)
+is of the form pm + 1, Theorem 5.3 of [26] can be applied to show that N arises from a
+Z/pZ-quotient singularity, of size n = p + 3 + i.
+   We discuss case (a) below, and leave the details of the proof in case (b) to the reader. We
+will need to show that the resolution of z p + xc + y d+pc = 0 has the intersection matrix
+
+
+                                         −3     −d/2                −3
+
+(8.1)                           N
+
+                                              −(p + 3)/4            −3
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                             22
+
+and the resolution of z p + xc + y d+ipc = 0 has intersection matrix
+                                          i−1
+                                   z      }|         {   −3        −d/2                   −3
+                          (i)
+(8.2)                 N
+
+                                                              −(p + 3)/4                  −3
+
+  We use the notation introduced in [26], Theorem 5.1, to describe the intersection matrix of
+the resolution of the singularity of z p + xc + y d = 0. Let g := gcd(c, d), and
+                                       a1 := c/g,        a2 := d/g, and a0 := p.
+Set ℓ1 := dp/g, ℓ2 := cp/g and ℓ0 := cd/g, and define bj by bj ℓj +1 ≡ 0 mod aj and 0 ≤ bj < aj .
+The resolution is star-shaped, and each terminal chain is determined by a fraction aj /bj using
+the construction 2.3 with the pair (aj , bj ). The unique node of the graph has self-intersection
+−s0 , where
+                              s0 := g 2 /cdp + b1 /a1 + b2 /a2 + gb0 /p.
+   Since p = 4k + 1 in case (a), we find that d = p(p + 1)/2 + 1 is even. Thus g = 2. It is
+easy to check that b1 /a1 = 2/(c/g), b2 /a2 = 1/(d/g) and b0 /a0 = (p − 2)/p. One checks that
+the associated chains are of lengths 2, 1, and (p − 1)/2, respectively. Since g = 2, there are two
+chains of type (p − 2)/p. Thus the total number of components in the resolution is p + 3. Each
+self-intersection on each of the chains is at most −2. It is easy to check that s0 = 2.
+   Let us now describe the intersection matrix of the resolution of the singularity of z p + xc +
+  d+icp
+y       = 0. Note that we have g = gcd(c, d + icp). Let
+                                a′1 := c/g,          a′2 := (d + icp)/g, and a′0 := p.
+Set ℓ′1 := (d + icp)p/g, ℓ′2 := cp/g and ℓ′0 := c(d + icp)/g, and define b′j by b′j ℓ′j + 1 ≡ 0 mod a′j
+and 0 ≤ b′j < a′j . The resolution is star-shaped, and again each terminal chain is determined by
+a fraction a′j /b′j using the construction 2.3. The unique node of the graph has self-intersection
+−s′0 , where
+                            s′0 := g 2 /c(d + icp)p + b′1 /a′1 + b′2 /a′2 + gb′0 /p.
+It follows immediately from the definitions and from a1 = a′1 that b1 = b′1 . Similarly, it follows
+from a0 = a′0 that b0 = b′0 . Consider now the equality
+                                                    b2 (cp/g) + 1 = α(d/g)
+where 0 ≤ b2 < a2 . It follows that α ≤ cp/g. Then we can write
+                                   (b2 + αi)(cp/g) + 1 = α(d/g + icp/g)
+and we obtain b′2 := b2 + αi < d/g + αi ≤ d/g + icp/g.
+  We claim that s′0 = s0 . Indeed
+                                                     2         2
+                                         g
+                           s′0 − s0 = c(d+icp)p    g
+                                                − cdp + g(bd+icp
+                                                            2 +αi)
+                                                                   − gbd2
+                                                2
+                                          = gcp ( d+icp
+                                                    1
+                                                        − d1 ) + gb2 ( d+icp
+                                                                         1             gαi
+                                                                             − d1 ) + d+icp
+                                                 gi
+                                          = d(d+icp)  (−g − b2 cp + αd) = 0.
+  To complete the proof of the claim, it suffices to check that the terminal chain obtained from
+the fraction b′2 /a′2 using the construction 2.3 with the pair (a′2 , b′2 ) is the one depicted in (8.1)
+                INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                      23
+
+and (8.2). This is not hard using the values c = p + 1 and d = pc/2 + 1, and we leave the details
+to the reader.
+  (ii) We now address the case p = 3 of Theorem 8.1. Examples of Z/3Z-quotient singularities
+with 3-suitable intersection matrices are found in 8.6 with size n = 6, and in [24] 5.6 with size
+n = 7. For the cases where n ≥ 8, we proceed with the following family.
+Quotient Singularity 8.3. (n = 8 + r, r ≥ 0) The matrix Nr associated with the graph below
+has three diagonal coefficients smaller than −2. We give these coefficients below along with the
+coefficients of Zr and Nr Zr .
+                          2(−3)    3
+                                                                       r
+                     Zr                                            z   }|   {
+
+                          2(−3)    6       5   4    3     2   1(−3)          1       1
+
+The associated group ΦNr has order 3 and Zr2 = −2 if r = 0, and Zr2 = −1 if r > 0. The matrix
+Nr , r ≥ 0, arises as the resolution of a Z/3Z-quotient singularity in characteristic 3: It is the
+resolution of the hypersurface singularity f = z 3 + x4 + y 10+12r = 0 ([26], 8.3). The matrix Nr+1
+is obtained from Nr and Zr using Theorem 3.4 (a).
+  (iii) We now address the case p = 2 of Theorem 8.1.
+Quotient Singularity 8.4. (n = 4 + r, r ≥ 0)
+                                                         1     1
+                                       r                                    r
+           Nr                                      Zr
+                               z   }|      {                           z    }|   {
+                             −3                          1     2       1         1       1
+
+We have Zr2 = −2 when r = 0, and Zr2 = −1 when r > 0. The associated group ΦNr has
+order 22 . The matrix Nr , r ≥ 0, arises as the resolution of a Z/2Z-quotient singularity in
+characteristic 2: It is the resolution of the hypersurface singularity f = z 2 + x3 + y 3+6r = 0
+([26], 8.3). The matrix Nr+1 is obtained from Nr and Zr using Theorem 3.4 (a). The matrix
+Nr with r = 0 also appears in [15], Theorem C (iv).                                           □
+Corollary 8.5. For each prime p, there exist infinitely many p-suitable matrices with Z 2 = −1
+and arising from a Z/pZ-quotient singularity.
+Proof. The statement is immediate from the list of matrices exhibited in the proof of Theorem
+8.1.                                                                                        □
+
+   It would be interesting to prove that for each integer 1 < s ≤ p, there exist at least one (or
+better, infinitely many) p-suitable matrices with Z 2 = −s and arising from a Z/pZ-quotient
+singularity. When s ̸= 1, 2, (p + 1)/2, and p, examples of Z/pZ-quotient singularities with
+Z 2 = −s are not known in general.
+Remark 8.6. Fix a prime p ≥ 3. We remark here that in general, the graph Γ alone does
+not determine a Z/pZ-quotient singularity. Indeed, consider the following two Z/pZ-quotient
+                INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                           24
+
+singularities having the same graph on 2p vertices. Let
+                            − p+1                                              2     1
+                               2
+                                                                  p−1                     p−1
+     N      z
+                 p−1
+                 }|     {            z
+                                         p−1
+                                          }|    {     Z      z    }|    {             z    }|    {
+
+                                                             1          p−1    p   p−1            1
+
+with |ΦN | = p and Z 2 = −2. The matrix N is numerically Gorenstein and is shown to arise
+as a Z/pZ-quotient singularity in [26], Theorem 6.3. The matrix N exhibited in 9.16 has the
+same graph as above, is not numerically Gorenstein, and is shown to arise as a Z/pZ-quotient
+singularity in [21], Theorem 6.8, or [22] Theorem 1.1, or [29], Corollary 7.13.
+Quotient Singularity 8.7. The only known case so far where the matrix N = (−p) arises as
+a wild Z/pZ-quotient singularity is when p = 2. This is obtained with a := xi and b := y i+1 in
+the equation f := z p − (abxy)p−1 z − ap xy − bp y = 0 (see Theorem 7.5). Note that the matrix
+N = (−p) is not numerically Gorenstein when p > 2.
+                       9. Quotient singularities on models of curves
+  We review in this section how one can naturally generate interesting quotient singularities
+when constructing regular models of curves. As we will see in Theorem 9.2, the intersection
+matrices N associated with these singularities must be such that N −1 has at least one integer
+coefficient. Motivated by the setup of models of curves, we show in Theorem 9.5 how to start
+with the discrete data of the reduction of a curve and obtain infinitely many new p-suitable
+matrices which might arise as Z/pZ-quotient singularities.
+9.1. Let K be a complete discrete valuation field with valuation v, ring of integers OK , uni-
+formizer πK , and residue field k of characteristic p > 0, assumed to be algebraically closed. Let
+X/K be a smooth proper geometrically connected curve of genus g > 0. When g = 1, assume
+in addition that X(K) ̸= ∅. Assume that X/K does not have semi-stable reduction over OK ,
+and that it achieves good reduction after a cyclic extension L/K of degree p.
+   Let H denote the Galois group of L/K. Let Y/OL be the smooth model of XL /L. Let σ
+denote a generator of H. By minimality of the model Y, σ defines an automorphism of Y also
+denoted by σ (but note that σ : Y → Y is not a morphism of OL -schemes). We also denote by
+σ the automorphism of the special fiber Yk induced by the action of σ on Y. Let Z/OK denote
+the quotient Y/H, and let α : Y → Z denote the quotient map. The scheme Z is normal. The
+map α induces a natural map Yk → Zkred which factors as follows:
+                                          ρ
+                                    Yk −−−→ Yk / ⟨σ⟩ −−−→ Zkred .
+The map ρ is Galois of order |H|, and the second map is the normalization map of Zkred (see
+[21], 5.1).
+   Let P1 , . . . , Pd , be the ramification points of the map Yk → Yk / ⟨σ⟩. Let Q1 , . . . ,Qd be their
+images in Z. The normal scheme Z is singular exactly at Q1 , . . . , Qd (see [21], 5.2). We
+assume now that d ≥ 1. Consider the regular model X → Z obtained from Z by a minimal
+desingularization. After finitely many blow-ups X ′ → X , we can assume that the model X ′ is
+such that Xk′ has smooth components and normal crossings, and is minimal with this property.
+   Let f denote the composition X ′ → Z. Let C0 /k denote the strict transform in X ′ of the
+irreducible closed subscheme Zkred of Z. The curve C0 has multiplicity |H| in X ′ . Let Γi denote
+the graph attached to the exceptional divisor f −1 (Qi ) associated with the resolution of Qi . Let
+               INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                               25
+
+D1 , . . . , Dd denote the irreducible components of Xk′ that meet C0 and assume that Di is a
+component of f −1 (Qi ). Let ri denote the multiplicity of Di in X ′ , i = 1, . . . , d.
+Theorem 9.2. Let X/K be a smooth proper geometrically connected curve of genus g > 0 be
+as 9.1. Keep the above notation. Let Γ denote the graph associated with the special fiber Xk′ .
+Then, for all i = 1, . . . , d,
+(a) p divides ri , and ΓQi contains a node of Γ.
+(b) Let Ni denote the intersection matrix associated with an ordering of the vertices of ΓQi .
+    Then the diagonal coefficient of Ni−1 corresponding to the vertex Di is an integer.
+Proof. Part (a) is proved in Theorem 5.3 of [21]. We show now that Part (b) is a consequence
+of Part (a). Let ni denote the size of the matrix Ni . Without loss of generality, we can assume
+that the component Di corresponds to the first vertex of Γi . Let e1 denote the first standard
+vector in Zni . Removing the component C0 of multiplicity p disconnects the special fiber Xk′
+into the d connected curves f −1 (Qi ), i = 1, . . . , d. Each component of f −1 (Qi ) has a multiplicity
+in Xk′ , and we thus have a vector Ri ∈ Zn>0i such that Ni Ri = −pe1 , and such that tRi = (ri , . . . )
+because of our choice of ordering of the components of f −1 (Qi ). It follows from the equality
+Ni Ri = −pe1 that −Ri /p is the first column of the matrix Ni−1 . Since we know that p divides
+ri , we find that the top left coefficient of Ni−1 is an integer.                                      □
+9.3. Recall that to any regular model X /OK , one associates a linear algebraic object called
+an arithmetical graph which describes the combinatorics of the special fiber Xk . We recall
+below the definition of an arithmetical graph for the convenience of the reader. Let Γ be a
+finite connected graph on s vertices. An arithmetical structure (Γ, M, R) on Γ is a matrix
+M ∈ Ms (Z) of the form M = Diag(−c1 , . . . , −cs ) + Ad(Γ) with ci ∈ Z>0 for i = 1, . . . , s, and
+a vector R ∈ Zs>0 such that M is positive semidefinite of rank s − 1 and M R = 0. Writing
+t
+ R = (r1 , . . . , rs ), we always assume that gcd(r1 , . . . , rs ) = 1. Such triple (Γ, M, R) will also be
+called an arithmetical graph.
+   Theorem 9.5 below constructs infinitely many p-suitable matrices starting with an arithmeti-
+cal graph with some additional properties (specified below in 9.4). The quotient construction
+of models of curves used in Theorem 9.2 suggests that the p-suitable matrices constructed in
+Theorem 9.5 might arise in some cases from quotient singularities in models of curves. We
+                                                                                         ∗
+explain in more detail this motivation in the case of elliptic curves of reduction type Im in 9.12.
+9.4. Let v be a vertex of the arithmetical graph (Γ, M, R). Consider the submatrix M v obtained
+from M by removing the row and the column of M corresponding to the vertex v. Let Γv denote
+the induced subgraph of Γ obtained by removing from Γ the vertex v and all the edges of Γ
+attached to v. If Γv is a connected graph, then M v is an intersection matrix associated with
+Γv . The discussion below does not assume that Γv is connected.
+   Let m ∈ Z≥1 . Consider the following intersection matrix N on n := s + mp − 1 vertices with
+graph ΓN . The graph ΓN is obtained from the graph Γ by attaching to the vertex v a chain
+of mp − 1 new vertices. More precisely, consider the path Amp−1 with vertices w1 , . . . , wmp−1 ,
+labeled in such a way that w1 and wmp−1 are the terminal vertices of the path. The graph ΓN is
+obtained by linking with one edge the vertex v of Γ with the vertex w1 of Amp−1 . The diagonal
+elements of N are those of M for every vertex of Γ except for the vertex v. Denoting by −cv the
+diagonal element of M corresponding to v, we set the diagonal element of N for the vertex v to
+be −cv − 1. The diagonal element of the new vertex wi is set to be −2, for i = 1, . . . , pm − 1.
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                         26
+
+Theorem 9.5. Let p be prime. Let (Γ, M, R) be an arithmetical structure on a finite connected
+graph Γ on s vertices. Suppose that v is a vertex of Γ such that the coefficient of R corresponding
+to v is equal to p. Assume that the group Zs−1 /Im(M v ) is killed by p. Assume also that the
+coefficients on the diagonal of M are at most equal to −2, except possibly for the coefficient
+−cv corresponding to v, which could equal −1. Let m ≥ 1. Then
+(a) The matrix N ∈ Ms+mp−1 (Z) described in 9.4 is a p-suitable intersection matrix associated
+    with ΓN , and ΦN = Zs−1 /Im(M v ).
+(b) The column of N −1 corresponding to v (resp. wp(m−1)−1 ) is an integer column when m = 1
+    (resp. m > 1).
+Proof. Let us prove first the case m = 1. We choose an ordering of the vertices of Γ so that v
+is the last vertex in that ordering. The matrix N can be represented as follows:
+                               
+                                     v         ..                 
+                                  M             .
+                                . . . −c − 1 1        0 ... 0 
+                                         v                       
+                                                              .
+                                                               .. 
+                                                                  
+                                            1    −2   1
+                          N =                   ... ... ...
+                                                                  .
+                                                                  
+                                            0                 0 
+                                             ..                  
+                                              .       1 −2 1 
+                                                    0 ...        0     1     −2
+Let tZ ′ := ((tR), p − 1, p − 2, . . . , 2, 1). By construction, since M R = 0, we find that
+(9.1)                             (tZ ′ )N = (0, . . . , 0, −1, 0, . . . , 0),
+where the only non-zero entry is in the s-th column, the column corresponding to v. This fact
+follows in an essential way from the fact that we have added exactly p − 1 vertices to Γ. The
+equation (9.1) shows that the s-th column of N −1 is an integer vector. It follows from the
+minimality of the fundamental cycle Z of N that Z ≤ Z ′ , and |Z 2 | ≤ |Z ′2 | = p.
+   To compute the group ΦN , we explicitly describe a row and column reduction of the matrix
+N . First, add to the last column of N the sum of the other columns, weighted by the coefficient
+of the column in Z ′ . We obtain the matrix N ′ below:
+                                               ..
+                                                                     
+                                  Mv            .                   0
+                                 . . . −cv − 1 1         0 . . . −1 
+                                                                     
+                                              1   −2      1         0
+                                                                     
+                          N′ = 
+                                                                     
+                                                  .     .     .     . .
+                                
+                                             0     . .   . .   . . .
+                                                                    . 
+                                                                      
+                                             ..                      
+                                              .          1 −2 0 
+                                              0 ··· 0           1   0
+It is clear from the shape of N ′ that Zs+p−1 /Im(N ′ ) is isomorphic to Zs−1 /Im(M v ). We leave it
+to the reader to describe the row and column operations needed to establish this isomorphism.
+Since Zs−1 /Im(M v ) is killed by p by hypothesis, we find that N is p-suitable, and the case
+m = 1 is proved.
+   Given the matrix N obtained above in the case of m = 1, consider the following new arith-
+metical graph (Γ1 , M1 , R1 ). Recall that the vertices of the graph ΓN are the vertices of Γ and
+new vertices w1 , . . . , wp−1 , with wp−1 the terminal vertex on the new chain on ΓN . Let Γ1 be
+the graph ΓN along with a new vertex wp attached by one edge to wp−1 . Let R1 ∈ Zs+p be such
+that tR1 := (tR, p, . . . , p). Let M1 ∈ Ms+p (Z) be the matrix with associated graph Γ1 whose
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                           27
+
+coefficient on the diagonal corresponding to wp is −1, and whose other diagonal coefficients
+are as in N . Then M1 R1 = 0 and so (Γ1 , M1 , R1 ) is an arithmetical graph with a vertex wp of
+multiplicity p.
+            w                                   w
+  Since M1 p = N , we find that Zs+p−1 /Im(M1 p ) = Zs−1 /Im(M v ). We can thus prove the case
+m = 2 of the Theorem by applying the case m = 1 to the arithmetical graph (Γ1 , M1 , R1 ) with
+the vertex wp . It is clear that this process can be continued and that the general case can be
+obtained by a sequence of m applications of the case m = 1.                                   □
+
+
+Example 9.6. Let p be prime. We describe below a class of star-shaped arithmetical trees
+Γ(p, r1 , . . . , rt ) with a unique vertex v0 of multiplicity p to which the construction in Theorem
+9.5 can be applied.
+   Let t ≥ 2. Consider integers ri , i = 1, . . . , t, such that 1 ≤ ri < p. Assume that ti=1 ri = cp
+                                                                                          P
+for some integer c. Each pair (p, ri ) determines an intersection matrix Ni = N (p, ri ) as in 2.3
+whose graph ΓNi is a path, along with a vector Ri = R(p, ri ) such that (tRi )Ni = (−p, 0, . . . , 0).
+Note that this construction uses a chosen order of the vertices of ΓNi , and we denote by wi the
+first vertex of ΓNi in this ordering. In the construction, wi is then a vertex of degree 1 of ΓNi .
+   Let Γ := Γ(p, r1 , . . . , rt ) denote the graph with unique node v0 to which we attach each
+path ΓNi with one edge linking v0 to wi . Let s denote the total number of vertices of Γ. Let
+M ∈ Ms (Z) denote the matrix of the form M = Diag(−c1 , . . . , −cs ) + Ad(Γ) such that M
+restricted to the vertices on the path ΓNi is the matrix Ni , and such that the self-intersection
+of the central vertex v0 is −c. Let R ∈ Zs>0 denote the vector such that R restricted to the
+vertices on the path ΓNi is the vector Ri and such that the coefficient corresponding to v0 is p.
+Then we have M R = 0 by construction, and (Γ, M, R) is an arithmetical structure on Γ.
+   Removing from Γ the vertex v0 and the edges adjacent to v0 in Γ leaves us with the disjoint
+union of the graphs ΓNi . Since ΦNi = Z/pZ for each i = 1, . . . t, it follows that Zs−1 /Im(M v0 )
+is isomorphic to (Z/pZ)t . We can thus apply Theorem 9.5 to the arithmetical graph (Γ, M, R)
+at the vertex v0 . Choosing m ≥ 1, we obtain an intersection matrix N of size s + pm − 1 whose
+graph is star-shaped with t + 1 terminal chains, and with ΦN isomorphic to (Z/pZ)t .
+
+
+9.7. The p-suitable matrix N in 9.16 is obtained from Γ(p, 1, p − 1) using Theorem 9.5. This
+matrix is not numerically Gorenstein. It does arise from a quotient singularity.
+   Let now p = 2. The Dynkin diagrams D2d (see 6.2) are 2-suitable intersection matrices
+obtained from the arithmetical tree Γ(2, 1, 1) using Theorem 9.5. The Dynkin diagrams D2d
+are known to arise as Z/2Z-quotient singularities (see, e.g., [1], Examples on page 64, [2], [31]
+(2.6), or [20], Theorem 4.1, or [28], III.3.1.5.1. The earliest appearance of D4 and D8 as quotient
+singularities might be in [32], § 6). It is interesting to note that the Dynkin diagrams D2d arise
+in two different ways. Let Z/2Z act on A := k[[u, v]] such that Spec AZ/2Z has a resolution of
+type D2d . Consider the associated morphism φ : Spec A → Spec AZ/2Z . When d is even, the
+morphism φ is only ramified at the maximal ideal. When d is odd, φ is ramified in codimension
+1. In particular, only the case D2d with d even can arise in the context of regular models of
+elliptic curves. We present below an intersection matrix N (r, s, t), obtained from the Kodaira
+type I∗m with m = 2(r + s), which seems to arise in the context of elliptic curves only when
+r + s is even (see 9.12).
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                                          28
+
+Intersection Matrix 9.8. The Kodaira type I∗m is the arithmetical graph with m + 5 vertices
+described below. We fix a vertex v to apply the construction in Theorem 9.5.
+
+                                         1                                                1
+                          I∗m                                 v
+                                     1       2                2      2                2       1
+
+To the left of the vertex v is a Dynkin diagram Da (on a vertices, see 6.2) and to the right of v
+is a Dynkin diagram Db . Since the vertex v can a priori be any of the vertices of multiplicity
+2 on the graph, we slightly generalize the definition of the Dynkin diagram Da to include the
+cases a = 2 and a = 3. We set D2 to be the disjoint union of two vertices of self-intersection
+−2, so that ΦD2 = Z/2Z × Z/2Z. We set D3 to be the path on three vertices, each of self-
+intersection −2, so that ΦD3 = Z/4Z. In general, it is well-known that ΦDa = Z/4Z if a is odd,
+and ΦDa = Z/2Z × Z/2Z if a is even.
+   Let r, t ≥ 0 and s ≥ 1 be integers. Theorem 9.5 shows that the following intersection matrix
+N = N (r, s, t), constructed from the arithmetical graph I∗2r+2s , is always 2-suitable:
+
+                                                              2r+1                    2s
+                                                      z       }|     {            z   }|      {
+
+                    N = N (r, s, t)                                      −3
+
+                                                                         |    {z      }
+                                                                              1+2t
+
+
+
+The group ΦN has order 24 since it is isomorphic to ΦD2r+2 × ΦD2s+2 . The matrix N (r, s, t)
+is denoted (21)k,i,j in [36], page 437. It is also found in [38], page 121, (38), along with an
+equation for a singularity in characteristic 0 whose resolution produces N (r, s, t).
+
+Quotient Singularity 9.9. (n = 6 + 4ℓ and two nodes.) Set r = t = 0 in the above
+intersection matrix N (r, s, t) and let s = 2ℓ, with ℓ ≥ 1.
+
+                                                                                      1       1   1        1
+                                                 4ℓ                                                   4ℓ
+ N = N (0, 2ℓ, 0)                                                             Z
+                                         z       }|       {                                       z   }|   {
+                                −3                                                    1       2   2        2   1
+
+
+The group ΦN has order 24 and Z 2 = −2. We have K = −Z and p(Z) = 1. Computations
+indicate that this intersection matrix arises in the resolution of the singularity f := z p −
+(ab)p−1 z−ap y−bp x = 0 when a := x2 +xy and b := y 2+ℓ +xy with ℓ ≥ 1. The quotient singularity
+4.7 in [24] can be interpreted as the case ℓ = 0 in this construction. Our computations thus
+make it likely that, with the parameters r = t = 0 and s = 2ℓ, the 2-suitable matrix N in 9.8
+does arise from a Z/2Z-quotient singularity.
+  The matrix N (0, s, 0), of size 6 + 2s, is denoted A∗,o + A∗,o + A∗,o + A2s,∗∗,o in [16], Table 2, p.
+1291, and is associated with the resolution of z 2 + (y 3 + x3 )(x2 + y 2+2s ) = 0 in characteristic 0.
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                        29
+
+Quotient Singularity 9.10. (n = 6 + 4λ + 4ℓ and three nodes.) Set again t = 0 in the
+intersection matrix N in 9.8, and let r = 2λ and s = 2ℓ, with λ, ℓ ≥ 1.
+                                                4λ                     4ℓ
+                                           z    }|   {            z    }|    {
+              N = N (2λ, 2ℓ, 0)
+                                                           −3
+
+The group ΦN has order 24 and Z 2 = −2. We have K = −Z and p(Z) = 1. Computations
+indicate that this intersection matrix might arise in the resolution of the singularity f :=
+z p − (ab)p−1 z − ap y − bp x = 0 when a := x2+λ + xy and b := y 2+ℓ + xy with λ, ℓ ≥ 1. This
+intersection matrix is denoted A∗,o + An,∗∗,o + Am,∗∗,o at the bottom of page 1291 in [16].
+Remark 9.11. In the 2-suitable intersection matrices above in 9.8, 9.9, and 9.10, the diagonal
+elements are all equal to −2, except for one single coefficient equal to −3. Intersection matrices
+with this property have been completely classified in [39].
+Remark 9.12. Let us return to the set-up of Theorem 9.2. In particular, let OK be a discrete
+valuation ring with algebraically closed residue field k of characteristic p = 2. Let X/K be
+an elliptic curve. Assume that there exists a quadratic extension L/K such that XL /L has a
+smooth model Y/OL . Assume that the special fiber Yk is a supersingular curve. The normal
+quotient Z := Y/Gal(L/K) has then a unique singular point. Let X ′ → Z denote the minimal
+desingularization of Z, and let X0 denote the minimal regular model of X/K, with contraction
+morphism X ′ → X0 .
+                                                                       ∗
+   Assume that the Kodaira type of the special fiber of X0 is Im         for some m ≥ 1. Since
+[L : K] = 2, we can apply Theorem 1 in [10] to find that the component group of the Néron
+model of X/K must be killed by 2, so that m has to be even. We can thus write m = 2r + 2s
+for some r ≥ 0 and s ≥ 1 such that the intersection matrix of the desingularization X ′ is of the
+form N (r, s, t) in 9.8. Since we assume that the elliptic curve has potentially good supersingular
+reduction, we can further use [37], Theorem 1.4, to show that in fact m is divisible by 4.
+   Hence, using elliptic curves, we can only produce examples of Z/2Z-quotient singularities
+with intersection matrices N (r, s, t) as in 9.8 with the additional constraint that r + s is even.
+We do not know if the matrix N (r, s, t) also arises as a quotient singularity when r + s is odd.
+9.13. Let p be prime. Let N be a p-suitable intersection matrix of size n. Suppose that v is a
+vertex of ΓN such that the corresponding column (N −1 )v of the matrix N −1 is not an integer
+column, but the diagonal element (N −1 )vv is an integer. Let m ≥ 1. Consider the following
+matrix Nm of size n + pm. Let w1 , . . . , wpm be the ordered vertices of a chain of length pm.
+Consider the graph ΓNm obtained by attaching the vertex v of ΓN with the initial vertex w1 of
+the chain using a single edge. Set the matrix Nm associated with ΓNm to have the following
+diagonal elements: if w is a vertex of ΓN , use the diagonal element of N . Set the diagonal
+element corresponding to w1 to be (N −1 )vv − 1. Set all other diagonal elements corresponding
+to w2 , . . . , wpm to be −2. The matrix N is a submatrix of Nm in the top left corner.
+Corollary 9.14. Let p be prime. Let N be a p-suitable intersection matrix of size n. Suppose
+that v is a vertex of ΓN such that the corresponding column (N −1 )v of the matrix N −1 is not an
+integer column, but the diagonal element (N −1 )vv is an integer. Let m ≥ 1. Then the matrix
+Nm of size n + pm described in 9.13 is p-suitable. Its group ΦNm is isomorphic to ΦN .
+Proof. The corollary follows directly from Theorem 9.5 applied to the following arithmetical
+graph (G, M, R). Let G denote the graph obtained by linking the vertex v of ΓN to an additional
+               INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                         30
+
+vertex w1 by a single edge. The matrix M with graph G is set to have the matrix N in its
+top left corner. The bottom right diagonal element is set to be (N −1 )vv . Since all coefficients
+of the matrix N −1 are negative, the vector tR := (−p t(N −1 )v , p) has positive coefficients. It is
+easy to check that M R = 0. Since t(N −1 )v is not an integer column, the coefficients of R are
+coprime. The triple (G, M, R) is an arithmetical graph and the vertex w1 has multiplicity p.
+The top left minor of M has group killed by p since it is isomorphic to ΦN . Thus we can apply
+the construction of Theorem 9.5 to (G, M, R) and w1 .                                              □
+
+  Let us say that a matrix N can be extended if there exists a matrix N ′ that contains N and
+such that the diagonal coefficients of N are also on the diagonal of N ′ .
+Corollary 9.15. Let p be prime. Let N be a p-suitable intersection matrix of size n. Suppose
+that v is a vertex of ΓN such that the diagonal element (N −1 )vv is an integer. Then the matrix
+N can be extended to a larger p-suitable matrix N ′ .
+Proof. If the column (N −1 )v is not an integer column, then the matrix N ′ := Nm in Corollary
+9.14 is the desired extension of N . If the column (N −1 )v is an integer column, then the matrix
+N ′ := N in Theorem 3.4 (a) is an extension of N .                                             □
+Quotient Singularity 9.16. The following p-suitable matrix N and its vertex v on the left
+produce, using Corollary 9.14, new matrices Nm for every m ≥ 1. The matrix N and all the new
+matrices Nm all arise as Z/pZ-quotient singularities. We indicate on the right the coefficients
+of the vector R0 = −p(N −1 )v such that t R0 N = (−p, 0, . . . , 0). We have |ΦN | = p2 .
+
+                           −p                              p                 1
+                p−1                    p−1                      p−1                     p−1
+    N      z    }|    {            z    }|    {     R0      z    }|   {            z    }|    {
+
+          v                                                p           p     p   p−1           1
+
+The matrix N is not numerically Gorenstein, and is shown to arise as a Z/pZ-quotient sin-
+gularity in [21], Theorem 6.8, or [22] Theorem 1.1, or [29], Corollary 7.13. For Nm , use [22]
+Theorem 1.3 and 3.12.
+
+                      10. Existence of integer coefficients in N −1
+   We investigate in this section when a p-suitable matrix N has the property that N −1 has an
+integer coefficient, or an integer column. The geometric motivation for studying this question
+comes from Theorem 9.2(b).
+   Let N ∈ Mn (Z) be an intersection matrix with associated graph Γ. We let e1 , . . . , en denote
+the standard basis of Zn . When v is a vertex of Γ and no ordering of the vertices of Γ has been
+chosen, we let ev denote the standard basis vector of Zn associated with v. We let v denote the
+class of ev in the quotient ΦN := Zn /Im(N ).
+   Let (N −1 )v denote the column of N −1 corresponding to v, so that we have N (N −1 )v = ev .
+It follows that v is trivial in ΦN if and only if the column (N −1 )v is an integer vector.
+Theorem 10.1. Let p be a prime. Let N ∈ Mn (Z) be an intersection matrix such that ΦN is
+killed by p. Assume that the graph Γ associated with N is a star-shaped tree. If |ΦN | =
+                                                                                       ̸ p, then
+              −1
+the matrix N has at least one integer column.
+                INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                                   31
+
+Proof. Let v0 denote the unique node of Γ. Removing v0 from Γ as well as all the edges of Γ
+adjacent to v0 produces the disjoint union of m terminal chains Γ1 , . . . , Γm . Order the vertices
+of each terminal chain from the vertex connected to v0 to the terminal vertex of the chain.
+Let NΓi denote the intersection matrix of the chain with that ordering. Let ai > bi denote the
+coprime integers associated with NΓi in 2.3. In particular, there exists a vector tRi = (bi , . . . , 1)
+such that (tRi )NΓi = (−ai , 0, . . . , 0). Let −c denote the diagonal element of N associated with
+the vertex v0 . Then, as seen in [26], Proposition 1.3, we have
+                                     Qm                                        m
+                                                                                            !
+                                            a
+                                         i=1 i
+                                                                                X
+                |det(N )| =                           lcm(a1 , . . . , am )(c −     bi /ai ) .
+                              lcm(a1 , . . . , am )                             i=1
+
+  Assume that ΦN is killed by p and that for all vertices v of Γ, Qvm̸= 0. Then by Lemma 10.2
+                                                                              ai
+(b), we have ai coprime to p for i = 1, . . . , m. It follows that lcm(ai=1
+                                                                         1 ,...,am )
+                                                                                     can only be a power
+           Qm
+                a    i
+of p if lcm(ai=1
+              1 ,...,am )
+                          = 1. Hence,
+                                                                        m
+                                                                        X
+                                |det(N )| = lcm(a1 , . . . , am )(c −         bi /ai ).
+                                                                        i=1
+
+It follows from [26], Proposition 1.3, that lcm(a1 , . . . , am )(c − ni=1 bi /ai ) is the order of v0 in
+                                                                     P
+ΦN . By hypothesis, this order is p. Hence, we have shown that |det(N )| = p, as desired.              □
+Lemma 10.2. Let p be a prime. Let N ∈ Mn (Z) be an intersection matrix with associated graph
+Γ. Let v1 , . . . , vt denote the consecutive vertices of a terminal chain T of Γ. More precisely,
+assume that vt is a terminal vertex (and so has degree 1), and that when t > 1, vi is linked to
+vi+1 by exactly one edge for i = 1, . . . , t − 1, and v1 has degree 2. Let NT denote the matrix
+of this chain, and let s0 > s1 > · · · > st = 1 denote the integers associated with this terminal
+chain as in 2.3. Letting tS := (s1 , . . . , st ), we have tSNT = (−s0 , 0, . . . , 0). Let v0 be the vertex
+of Γ linked to v1 that is not on the given terminal chain. Then
+(a) We have v 0 = s0 v t . We also have s1 v 0 = s0 v 1 and, more generally, si+1 v i = si v i+1 .
+(b) Assume that the group ΦN is killed by p, and that v t ̸= 0 in ΦN . Then the elements
+    v 0 , . . . , v t−1 are not trivial in ΦN if and only if p does not divide s0 , s1 , . . . , st−1 .
+        Let −ci denote the coefficient corresponding to the vertex vi on the diagonal of N .
+    When p = 2, the condition p does not divide s0 , s1 , . . . , st−1 is equivalent to the condition
+    c1 , . . . , ct−1 are even and ct is odd.
+Proof. (a) Let us start by showing that v 0 − s0 v t = 0. For this, it suffices to show that the
+vector ev0 − s0 evt is in the image of N . Recall that | det(NT )| = s0 . Consider the sequence 1 =
+r1 < r2 < · · · < rt < s0 such that, letting tR := (1, r2 , . . . , rt ), we have (tR)NT = (0, . . . , 0, −s0 ).
+Let Nv denote the column of N corresponding to the vertex v. We obtain
+                                  ev0 − s0 evt = Nv1 + r2 Nv2 + · · · + rt Nvt ,
+as desired. Shortening the chain v1 , . . . , vi , . . . , vt to vi , . . . , vt and applying the above result to
+the new chain vi , . . . , vt shows that v i+1 − si+1 v t = 0. Using the relations v i − si v t = 0 and
+v i+1 − si+1 v t = 0 gives us si+1 v i = si v i+1 .
+   (b) Assume that v t has order p and that the group ΦN is killed by p. Suppose that there
+exists an index i in [0, t − 1] such that v i is trivial. The relation si v i+1 = si+1 v i shows then
+that either p divides si , as desired, or that v i+1 = 0. We can repeat the argument with v i+1 if
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                             32
+
+p does not divide si . Since we assume that v t is not trivial, we must have sj divisible by p for
+some j ∈ [i, t − 1].
+   Assume now that p divides si for some i ∈ [0, t − 1]. Then the relation si v i+1 = si+1 v i shows
+that either v i is trivial as desired, or that p divides si+1 . Repeating the process if v i is not
+trivial, we find that either one of the v j is trivial, as desired, or we have p dividing st = 1,
+which is a contradiction.                                                                         □
+Intersection Matrix 10.3. We exhibit below a 2-suitable matrix N of size n = 10 with
+|ΦN | = 2 and such that N −1 does not have any integer coefficient. Suppose that such N exists.
+Then the condition |Z 2 | ≤ 2 implies that N contains a principal square submatrix N ′ of size
+n − 1 such that | det(N ′ )| = 1. The terminal chains of the graph of N also have to satisfy the
+conditions of Lemma 10.2. It turns out that Graph (11) in Table I of [5] exhibits an 9 × 9
+intersection matrix N ′ satisfying the above conditions, and from which one can obtain the
+desired example N of size n = 10:
+
+                      −5     −3                                      1577515
+                                                          536355
+                                                          92475            2839527
+        N                                           Z                                    946509
+               −29                      −3
+                                                             2175
+                     −1233    −2366275                               2366273 1       2
+
+The group ΦN has order 2 and Z 2 = −2. The matrix N −1 has no integer coefficient. As the
+reader will have noted, one coefficient of N is very negative compared to the size of |ΦN |. The
+graph (5) in Table I of [5] is star-shaped on 9 vertices and leads to a similar example.
+Proposition 10.4. Let p be prime. Let N ∈ Mn (Z) be a p-suitable intersection matrix such
+that |ΦN | = p. If N −1 has an integer coefficient, then it has an integer column.
+Proof. Let us assume that N −1 has no integer columns. Let Nj−1 denote the j-th column of
+N −1 . Since ΦN is killed by p, we have pNj−1 ∈ Zn and N (pNj−1 ) = pej , showing that the class
+of ej has order dividing p. Since the vector Nj−1 has at least one non-integer coefficient by
+hypothesis, we find that the class of ej has order exactly p in ΦN := Zn /Im(N ).
+   Assume now that |ΦN | = p. If N = (−p), the proposition is true. Assume that n ≥ 2. Fix
+any k ≤ n. Since the matrix N is symmetric, for any k ≤ n, we can find j ≤ n such that the
+j-th coefficient of the k-th line is not an integer. Let i ̸= j. Since ΦN is cyclic of order p, and
+the classes of ei and of ej have exact order p, there exists an integer ai coprime to p such that
+the class of ai ei − ej is trivial in ΦN . Since we have N (ai Ni−1 − Nj−1 ) = ai ei − ej , we find that
+(ai Ni−1 − Nj−1 ) must be an integer vector. Thus, if the k-th coefficient of Nj−1 is not an integer,
+then the k-th coefficient of Ni−1 cannot be an integer. It follows that the matrix N −1 has a
+k-th row, none of whose coefficients are integers.                                                    □
+Proposition 10.5. Let N be a p-suitable intersection matrix such that its associated graph Γ
+is a chain. Then the matrix N −1 has no integer coefficient.
+Proof. First, since Γ is a chain, the group ΦN is always a non-trivial cyclic group ([20], Lemma
+3.13). Since N is p-suitable, we find that |ΦN | = p. It follows from 10.4 that to show that
+N −1 has no integer coefficient, it suffices to show that it has no integer column. For this, we
+               INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                                            33
+
+use 10.2 (a). Keeping the notation introduced in 10.2, let v0 , v1 , . . . , vt denote the consecutive
+vertices of Γ. We have p = det(−N ) > s0 > s1 > · · · > st . In particular, every integer si
+is coprime to p for i = 0, . . . , t − 1. Since si+1 v i = si v i+1 , we find that none of the classes v i
+can be trivial, because if one were trivial, all would be, and this would contradict the fact that
+det(−N ) > 1.                                                                                          □
+Proposition 10.6. Let Γ be a connected tree on n vertices v1 , . . . , vn . Let di denote the degree
+of the vertex vi . Let N := Diag(−c1 , . . . , −cn ) + Ad(Γ) with ci ∈ Z≥2 for all i = 1, . . . , n. Let e
+denote the exponent of ΦN .
+(a) Assume that ci ∈ Z≥di for all i = 1, . . . , n, and that for at least one index j, cj > dj . Then
+    N is negative definite with tZ = (1, . . . , 1) and |Z · Z| ≤ e. We have2 p(Z) = 0.
+(b) Assume that ci ∈ Z>di for all i = 1, . . . , n. Then the inverse N −1 does not have any integer
+    on its diagonal.
+Proof. (a) Since (1, . . . , 1)N < 0, we find that N is negative definite (3.1). In particular,
+t
+ Z = (1, . . . , 1). That |Z · Z| ≤ e follows immediately    from Lemma 3.7 in [20] since Z has a
+coefficient equal to 1. Since Γ is a tree, we have ni=1 (di − 2) = −2. Using this fact, it is easy
+                                                       P
+to check that p(Z) = 0.
+   (b) Our hypothesis on the diagonal of N shows that P := −N is strictly row diagonally
+dominant (see [13], p. 124). It follows then from Theorem 2.5.12 in [13] that P −1 is strictly
+diagonally dominant. This means that if we write P −1 = ((qij )), then for each i, and for all
+j ̸= i, qii > qij .
+   Without loss of generality, it suffices to prove that the diagonal element q11 on the first line
+Q1 of P −1 is not an integer. Let N1 denote the first column of N . Then
+                                                     − nj=2 q1j Ad(Γ)1j = 1
+                                                       P
+                                  Q1 (−N1 ) = q11 c1 P
+                       (1, . . . , 1)(−N1 ) = c1 − nj=2 Ad(Γ)1j = ci − di ≥ 1.
+It follows that nj=2 (q1j − q11 )Ad(Γ)1j ≥ q11 − 1. Because the graph is connected, we find that
+                    P
+the left hand side of the inequality is always strictly negative. On the other hand, if q11 is a
+(positive) integer, then q11 − 1 ≥ 0, which is not possible.                                     □
+Example 10.7. Given any prime p ≥ 11, there exists a p-suitable matrix N of size p + 2, with
+fundamental vector Z such that K = −Z and p(Z) = 1, and such that N −1 does not have any
+integer coefficient. Indeed, consider the following matrix N (p), with |ΦN (p) | = p and Z 2 = −3:
+                                          3                            1                    1      1
+                                                                                    p−8
+                    Z                                                         z     }|     {
+
+                            2      4      6      5      4      3    2(−3)     2             2   1(−3)
+
+We leave the details to the reader. This matrix is denoted by An,∗∗,o + E7,o on page 1294 in
+[16], and associated with the resolution of y(z 2 + x3 + y 5 ) + xa z b = 0 with 2a + 3b = p.
+
+                     11. Bound for the size of the discriminant group
+ Let N be an intersection matrix. The columns of N −1 provide upperbounds for the funda-
+mental cycle Z. We discuss below two cases where Z is related to a column of N −1 .
+  2When c
+           i ≥ di , the associated weighted graph Γ with weights (c1 , . . . , cn ) is called minimal in [33], 2.3.
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                             34
+
+Proposition 11.1. Let N ∈ Mn (Z) be an intersection matrix with fundamental cycle Z.
+(a) If (tZ)N Z = −1, then −Z is an integer column of the matrix N −1 .
+(b) Let Ri ∈ Zn be as in 3.2. If (tRi )N Ri = (tZ)N Z, then Ri = Z. In particular, if for some
+    i, (tRi )N Ri = −1, then Ri = Z.
+(c) Assume that |ΦN | = 1. Then the vector −Z is a column of N −1 . More precisely, let z
+    denote the minimum of the coefficients of the matrix −N −1 . Then there exists an index
+    j ∈ [1, n] such that z = (−N −1 )jj and the vector −Z is equal to the j-th column of N −1 .
+Proof. (a) Write tZ = (z1 , . . . , zn ). Recall that Z is a positive vector, and that N Z is a non-
+positive vector. It follows that when (tZ)N Z = −1, there exists an integer i ∈ [1, n] such that
+N Z = −ei and zi = 1. Hence, −Z is equal to the i-th column of N −1 .
+   (b) Since by construction, Ri has positive coefficients and N Ri is a non-positive vector, the
+minimality property of Z implies that Z ≤ Ri . Let us then write Ri = Z + X with X ≥ 0. It
+follows that
+                                        Ri2 = Z 2 + 2(tZ)N X + X 2 .
+Since N is negative definite, X 2 ≤ 0. Since N Z ≤ 0 and X ≥ 0, we have (tZ)N X ≤ 0. Hence,
+Ri2 ≤ Z 2 , and when Ri2 = Z 2 , we must have X 2 = 0 or, equivalently, Ri = Z.
+   Assume now that (tRi )N Ri = −1. Since Ri2 ≤ Z 2 ≤ −1, we find that in this case Ri2 = Z 2 ,
+so that Ri = Z.
+   (c) Write Ri = Z + Xi with Xi ≥ 0. It follows that
+                                    Z · Ri = −pi zi = Z 2 + Z · Xi .
+Since |ΦN | = 1, we find that pi = 1. Let j ∈ [1, n] be such that zj = mini (zi ). Since Z 2 is a
+linear combination (with negative coefficients) of z1 , . . . , zn , we find that the only possibility to
+have −zj = Z 2 + Z · Xj with Z · Xj ≤ 0 is to have N Z = −ej . Since N Rj = −ej , we must have
+Z = Rj , as desired. Now that we know that Z is a column of −N −1 , and that Ri ≥ Z for all i,
+we find that z must be a coefficient of Rj . Since the matrix N −1 is symmetric, z must be the
+diagonal element of the j-th column of −N −1 .                                                         □
+Theorem 11.2. Let N be a 2-suitable intersection matrix with fundamental cycle Z. Then
+there exists a column R of N −1 such that either Z = −R or Z = −2R.
+Proof. Proposition 11.1 (a) shows that if (tZ)N Z = −1, then −Z is an integer column of the
+matrix N −1 . Let tZ := (z1 , . . . , zn ). Suppose now that (tZ)N Z = −2. Then either
+(a) There exists i ∈ [1, n] such that N Z = −ei and zi = 2, or
+(b) There exists i ∈ [1, n] such that N Z = −2ei and zi = 1, or
+(c) There exist i, j ∈ [1, n], i ̸= j, such that N Z = −ei − ej and zi = zj = 1.
+In the first case, −Z is a column of N −1 . The second case can only happen when N is 2-suitable,
+and in this case −Z/2 is a column of N −1 .
+   Assume now that we are in the third case and that ΦN is killed by a prime p. Recall that
+N Ri = −pi ei and N Rj = −pj ej for some pi , pj ∈ {1, p}. It follows that Z = Ri /pi + Rj /pj .
+Since Z is an integer vector, such equality can only happen if pi = pj = 1 or pi = pj = p. Since
+Z is the fundamental cycle, we must have Z ≤ Ri and Z ≤ Rj , and therefore only the case
+pi = pj = p can happen, and we have pZ = Ri + Rj .
+   The hypothesis that N Z = −ei − ej shows that Z < Ri and Z < Rj . We obtain then that
+2Z < Ri + Rj = pZ. When p = 2, this inequality is impossible, and so (c) cannot happen. □
+              INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                          35
+
+Remark 11.3. When p > 2, it may happen that the fundamental cycle is not related only
+to a single column of N −1 . The construction in Theorem 3.8 for instance is likely to produce
+p-suitable intersection matrices N with fundamental cycle Z such that N Z has two non-zero
+coefficients (see 3.7 when p = 3). We do not know how to construct families of p-suitable
+intersection matrices N such that n ≥ p and N Z has at least three non-zero coefficients.
+   Let N be a p-suitable intersection matrix with associated graph Γ. When Z is a multiple
+of a column of N −1 , we produce below a tight upperbound for |ΦN |. Let di denote the degree
+of the vertex vi ∈ Γ. Write N = −Diag(c1 , . . . , cn ) + Ad(Γ) with c1 , . . . , cn ≥ 2. Let K be
+                                                               n       t
+t
+         Pn cycle of N (see 2.2). Given anyn vector R ∈ Z with R = (r1 , . . . , rn ), we have
+the canonical
+ RN K = i=1 ri (ci −2). Let now R = Rj ∈ Z be as in 3.2, with N Rj = −pj ej and pj ∈ {1, p}.
+Then                                           n                n
+                                               X               X
+                     (1, . . . , 1)N R = −pj =   (−ci + 2)ri +    (di − 2)ri ,
+                                                i=1               i=1
+and we find that
+                                                n
+                                                X
+                                   t
+(11.1)                              RN K = pj +   (di − 2)ri .
+                                                      i=1
+
+Assume in addition that R = Rj = Z. Then ( R)N R = −pj rj = Z 2 ≥ −p. Hence, pj rj ≤ p.
+                                                  t
+
+
+Theorem 11.4. Let N be a p-suitable intersection matrix.
+(a) Assume that −Z is a column of N −1 . Then ordp (|ΦN |)(p − 1) ≤ Z · K + p. In particular,
+    ordp (|ΦN |) ≤ 2 + 2p(Z)
+                        p−1
+                             .
+(b) Assume that −Z/p is a column of N −1 . Then ordp (|ΦN |)(p − 1) ≤ Z · K + 1.
+(c) Let p = 2. Then |ΦN | divides p2p(Z)+2 .
+Proof. Recall the expression for |ΦN | obtained in [20], Theorem 3.14, using the vector R := Rj :
+                                                       n
+                                                          (d −2)
+                                                       Y
+                                  | det(N )| = pj rj ·   ri i .
+                                                            i=1
+
+This expression is strikingly similar to the expression for tRN K found in (11.1). We are going
+to relate these two expressions using an arithmetical graph obtained from N , to which we will
+apply the following result on arithmetical graphs.
+  Let (G, M, R) be an arithmetical tree on s vertices, as in 9.3. Let t R := (r1 , . . . , rs ), with
+gcd(r1 , . . . , rs ) = 1. Let δi denote the degree of the vertex vi ∈ G. The main integer invariant
+associated with (G, M, R) is given by the formula
+                                                     Xs
+                                          2g0 − 2 :=    ri (δi − 2).
+                                                  i=1
+                                            s
+Let ΦM denote the torsion subgroup of Z /Im(M ). Then [18], Theorem 4.7, shows that
+                               X
+                                    ordq (|ΦM |)(q − 1) ≤ 2g0 .
+                                  q prime
+
+   (a) Let us assume now that −Z = Rj is a column of N −1 , so that pj = 1 and rj ≤ p. Using
+N , Γ, and Rj , we construct the following arithmetical graph (G, M, R). The tree G is obtained
+from Γ by attaching with a single edge one new vertex w to the vertex vj of Γ. The matrix M
+has then size s = n + 1. Assuming that the order of the vertices of G are v1 , . . . , vn , w, we set
+                INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                                        36
+
+the diagonal of M to be (−c1 , . . . , −cn , −rj ). Set t R := (r1 , . . . , rn , 1), and note that M R = 0.
+It is easy to check that |ΦM | = |ΦN | and that
+                      2g0 − 2 = si=1 ri (δi − 2) = ni=1 ri (di − 2) + rj − 1
+                                  P                     P
+                               = (tR)N K − pj + rj − 1.
+Hence, 2g0 = (tR)N K + rj . Since ΦN is a p-group by hypothesis, we find that
+                                     X
+               ordp (|ΦN |)(p − 1) =     ordq (|ΦM |)(q − 1) ≤ 2g0 ≤ Z · K + p.
+                                            q prime
+
+By definition, Z · K + p ≤ p + 2p(Z) − 2 − Z · Z ≤ 2(p − 1) + 2p(Z).
+  (b) Let us assume now that −Z = Rj is such that pj = p, so that rj = 1. Using N , Γ,
+and Rj , we again construct an associated arithmetical graph (G, M, R). Let w0 , w1 , . . . , wp−1
+denote the ordered vertices of a chain of length p. The tree G is obtained from Γ by attaching
+with a single edge the vertex w0 to the vertex vj of Γ. The matrix M has then size s = n + p.
+Assuming that the order of the vertices of G are v1 , . . . , vn , w0 , . . . , wp−1 , we set the diagonal of
+M to be (−c1 , . . . , −cn , −1, −2, . . . , −2). Set t R := (r1 , . . . , rn , p, p − 1, . . . , 2, 1), and note that
+M R = 0. Computing in two different ways the determinant of the matrix M n+1,n+1 obtained
+by removing the row and column of M corresponding to the vertex w0 gives
+                                    | det(M n+1,n+1 )| = |ΦM |p2 = |ΦN |p.
+Finally, we find that
+                         2g0 − 2 = si=1 ri (δi − 2) = ni=1 ri (di − 2) + rj − 1
+                                   P                 P
+                                 = (tR)N K − pj + rj − 1.
+Hence, 2g0 = (tR)N K − pj + 2. Since ΦN is a p-group by hypothesis, we find that
+                                   X
+           ordp (|ΦN |/p)(p − 1) =     ordq (|ΦM |)(q − 1) ≤ 2g0 = Z · K − p + 2.
+                                           q prime
+
+It follows that ordp (|ΦN |)(p − 1) ≤ Z · K + 1.
+   (c) Recall that when p = 2, Theorem 11.2 shows that either −Z or −Z/2 is a column of
+  −1
+N . We can thus apply (a) and (b) to obtain that ord2 (|ΦN |) ≤ Z · K + 2. Then 2p(Z) + 2 =
+Z · K + Z 2 + 4 ≥ Z · K + 2, since by hypothesis, a 2-suitable matrix satisfies Z 2 + 2 ≥ 0. □
+  The bound in (c) is achieved in Example 6.3. Note that this bound is much sharper in this
+example than the bound obtained using Proposition 4.6 (b). Note also that Example 10.7 shows
+that one cannot expect to bound |ΦN | only in terms of p(Z).
+
+                                                  References
+    [1] M. Artin, Wildly ramified Z/2 actions in dimension two, Proc. AMS 52 (1975), 60–64.
+    [2] M. Artin, Coverings of the rational double points in characteristic p, In: W. Baily, T. Shioda (eds.),
+        Complex analysis and algebraic geometry, pp. 11–22. Iwanami Shoten, Tokyo, 1977.
+    [3] J. Bochnak and S. Lojasiewicz, Remarks on finitely determined analytic germs, 1971 Proceedings of
+        Liverpool Singularities—Symposium, I (1969/70) pp. 262–270, LNM 192, Springer, Berlin.
+    [4] W. Bosma, J. Cannon, and C. Playoust, The Magma algebra system. I. The user language, J. Symbolic
+        Comput. 24 (1997), 235–265. http://magma.maths.usyd.edu.au/magma/
+    [5] L. Brenton and D. Drucker, Perfect graphs and complex surface singularities with perfect local funda-
+        mental group, Tohoku Math. J. (2) 41 (1989), no. 4, 507–525.
+                                                                   P            Q
+    [6] L. Brenton and R. Hill, On the Diophantine equation 1 = 1/ni + 1/ ni and a class of homologically
+        trivial complex surface singularities, Pacific J. Math. 133 (1988), no. 1, 41–67.
+             INTERSECTION MATRICES OF WILD CYCLIC QUOTIENT SINGULARITIES                                    37
+
+ [7] L. Brenton and L. Jaje, Perfectly weighted graphs, GraphsP Combin. 17 (2001), no. 3, 389–407.
+ [8] W. Butske, L. Jaje, and D. Mayernik, On the equation p|N (1/p) + (1/N ) = 1, pseudoperfect numbers,
+     and perfectly weighted graphs, Math. Comp. 69 (2000), no. 229, 407–420.
+ [9] J. H. Conway and N. J. A. Sloane, Low-dimensional lattices. I. Quadratic forms of small determinant,
+     Proc. Roy. Soc. London Ser. A 418 (1988), no. 1854, 17–41.
+[10] B. Edixhoven, Q. Liu, and D. Lorenzini, The p-part of the group of components of a Néron model, J.
+     Algebraic Geom. 5 (1996), no. 4, 801–813.
+[11] G.-M. Greuel and H. Kröning, Simple singularities in positive characteristic, Math. Z. 203 (1990),
+     339–354.
+[12] A. Grothendieck and J. Dieudonné, Éléments de géométrie algébrique, Publ. Math. IHÉS 4 (Chapter 0,
+     1–7, and I, 1–10), 8 (II, 1–8), 11 (Chapter 0, 8–13, and III, 1–5), 17 (III, 6–7), 20 (Chapter 0, 14–23,
+     and IV, 1), 24 (IV, 2–7), 28 (IV, 8–15), and 32 (IV, 16–21), 1960–1967.
+[13] Roger Horn and Charles Johnson, Topics in matrix analysis, Corrected reprint of the 1991 original.
+     Cambridge University Press, Cambridge, 1994.
+[14] H. Ito and S. Schröer, Wild quotient surface singularities whose dual graphs are not star-shaped, Asian
+     J. Math. 19 (2015), no. 5, 951–986.
+[15] T. Katsura, On Kummer surfaces in characteristic 2, Proc. of the Int. Symposium on Algebraic Geometry
+     (Kyoto Univ., Kyoto, 1977), pp. 525–542, Kinokuniya Book Store, Tokyo, 1978.
+[16] Henry Laufer, On minimally elliptic singularities, Amer. J. Math. 99 (1977), no. 6, 1257–1295.
+[17] F. Leighton and M. Newman, Positive definite matrices and Catalan numbers, Proc. Amer. Math. Soc.
+     79 (1980), no. 2, 177–181.
+[18] D. Lorenzini, Arithmetical graphs, Math. Ann. 285 (1989), no. 3, 481–501.
+[19] D. Lorenzini, Reduction of points in the group of components of the Néron model of a Jacobian, J. reine
+     angew. Math. 527 (2000), 117–150.
+[20] D. Lorenzini, Wild quotient singularities of surfaces, Math. Z. 275 (2013), 211–232.
+[21] D. Lorenzini, Wild models of curves, Alg. Number Theory 8 (2014), 331–367.
+[22] D. Lorenzini, Wild quotients of products of curves, Eur. J. Math. 4 (2018), no. 2, 525–554.
+[23] D. Lorenzini, The critical polynomial of a graph, J. Number Theory 257 (2024), 215–248.
+[24] D. Lorenzini, Compendium of known small resolutions of wild Z/pZ-quotient singularities of surfaces,
+     2024. https://dinolorenzini.franklinresearch.uga.edu/publications-and-preprints
+[25] D. Lorenzini and S. Schröer, Moderately ramified actions in positive characteristic, Math. Z. 295 (2020),
+     no. 3-4, 1095–1142.
+[26] D. Lorenzini and S. Schröer, Discriminant groups of wild cyclic quotient singularities, Alg. Numb. Theory
+     17 (2023), no. 5, 1017–1068.
+[27] K. Mitsui, Quotient singularities of products of two curves, Ann. Inst. Fourier (Grenoble) 71 (2021), no.
+     4, 1493-–1534.
+[28] M. Miyanishi and H. Ito, Algebraic surfaces in positive characteristics, World Scientific, 2021.
+[29] A. Obus and S. Wewers, Explicit resolution of weak wild quotient singularities on arithmetic surfaces,
+     J. Algebraic Geom. 29 (2020), no. 4, 691–728.
+[30] P. Orlik and P. Wagreich, Algebraic surfaces with k*-action, Acta Math. 138 (1977), no. 1-2, 43–81.
+[31] B. Peskin, Quotient-singularities in characteristic p, Thesis, MIT, 1980.
+[32] T. Shioda, Kummer surfaces in characteristic 2, Proc. Japan Acad. 50 (1974), 718–722.
+[33] Mark Spivakovsky, Sandwiched singularities and desingularization of surfaces by normalized Nash trans-
+     formations, Ann. of Math. (2) 131 (1990), no. 3, 411–491.
+[34] T. J. Stieltjes, Sur les racines de l’équation Xn = 0, Acta Math. 9 (1887), no. 1, 385–400.
+[35] L. Tráng, and M. Tosun, Combinatorics of rational singularities, Comment. Math. Helv. 79 (2004), no.
+     3, 582–604.
+[36] Philip Wagreich, Elliptic singularities of surfaces, Amer. J. Math. 92 (1970), 419–454.
+[37] Haiyang Wang, On the Kodaira types of elliptic curves with potentially good supersingular reduction, J.
+     Number Theory 271 (2025), 283–307.
+[38] Stephen Shing-Toung Yau, Normal two-dimensional elliptic singularities, Thesis (Ph.D.)–State Univer-
+     sity of New York at Stony Brook. 1976.
+[39] S. S.-T. Yau, Qiwei Zhu, and Huaiqing Zuo, Classification of weighted dual graphs consisting of −2-curves
+     and exactly one −3-curve, Izvestiya: Mathematics, 2023, 87, Issue 5, 1078–1116.
+
