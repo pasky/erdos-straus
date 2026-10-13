@@ -55,7 +55,7 @@ exists iff **`4h | gcd(h, G)²`** (take c = h/gcd(h,G)). In particular, for n = 
 **Type II(p) ⟺ some supersingular E/𝔽̄_p has trace-zero x, y ∈ End E with ⟨x,y⟩ = 1 whose Gram determinant
 ph = nrd(x)nrd(y) − 1 satisfies 4h | gcd(h, level)².**
 *Proof.* (⇒) ff' = 1 + 4c²dn (O131/(I)4), so h = 4c²d = cM, and M | f+1, f'+1, so M | G, i.e. h | cG. (⇐) put d := h/(4c²) ∈ ℤ and M := 4cd = h/c; then h | cG says M | G, so
-a = (f+1)/M, b = (f'+1)/M are positive integers; which is (I)4's Type II criterion. Minimal c: h | cG ⟺ (h/g) | c with
+a = (f+1)/M, b = (f'+1)/M are positive integers; ff' = 1 + nh = 1 + 4c²dn and f ≡ f' ≡ −1 (M), which is (I)4's Type II criterion. Minimal c: h | cG ⟺ (h/g) | c with
 g = gcd(h,G); 4c² | h is then weakest at c = h/g, giving 4h²/g² | h ⟺ 4h | g². Geometric form: Thm 1.1 applied to
 T = [[f,1],[1,f']], whose Diff is {p} by KUDLA_ES Thm 1.4. ∎
 *Check* (`scripts/bsC_level_det.py 300`, 13 s): for every prime and odd square n ≤ 300, brute-force enumeration of
