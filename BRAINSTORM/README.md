@@ -117,7 +117,7 @@ Index compiled by O160 from the memos, `reviews/triage-brainstorm-A.md` (O156, m
 ## Spark brainstorm A on the HJ/Farey reformulation (O174; memos bsA_*, deep file HJ_DEEP.md; not yet triaged)
 | file | angle | verdict (own) | label of main items |
 |---|---|---|---|
-| bsA_farey_lnr_pigeonhole | Farey least non-residue λ(p): unconditional bounds | no ES content (B3 gap from ≍ ln²p to 3) | Lemmas 1–2, Thm 3 PROVED (λ ≤ (6/π²)ln²p, rel. Yao–Knuth) |
+| bsA_farey_lnr_pigeonhole | Farey least non-residue λ(p): unconditional bounds | no ES content (B3 gap from ≍ ln²p to 3) | Lemmas 1–2, Thm 3 PROVED (λ ≤ (6/π²+o(1))ln²p, rel. Yao–Knuth) |
 | bsA_selling_sandpile | words = Selling-reduced ternary lattices = 4-vertex multigraphs; genus G⁻(p) | dictionary; class layer = B2 | D1–D3 PROVED; links to Lorenzini's critical polynomial |
 | bsA_lens_homotopy_surgery | lens spaces: homotopy type, Greene surgery, 2-bridge knots, Matveev | complement of classified (QR) world; no existence | P1–P2 PROVED rel. classical; T1 = "coarser than homotopy" |
 | bsA_farey_graph_metric | true Farey-graph (signed CF) metric | sign freedom adds nothing | λ_F = λ EVIDENCE p < 6000 |

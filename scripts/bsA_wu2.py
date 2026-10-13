@@ -18,7 +18,8 @@ for r in range(1, 6):
         if n % 2 == 0: continue
         A = K(b[1:]) if r > 1 else 1
         G = [[b[i] if i == j else (-1 if abs(i-j) == 1 else 0) for j in range(r)] for i in range(r)]
-        pred = 1 if (wu(G) - n - r + 1) % 8 == 0 else -1
+        res = (wu(G) - n - r + 1) % 8
+        pred = 1 if res == 0 else (-1 if res == 4 else 0)   # residue must be 0 (sign +1) or 4 (sign -1)
         tot += 1; bad += pred != jacobi_symbol(A, n)
 print("linear plumbings r<=5, letters 2..9: tested", tot, "failures", bad)
 random.seed(1); bad = tot = 0
@@ -29,6 +30,7 @@ while tot < 3000:
     if n < 3 or not isprime(n): continue
     adj = G.adjugate(); k = next(i for i in range(r) if adj[i, i] % n)
     cls = jacobi_symbol(int(adj[k, k]) % n, n)
-    pred = 1 if (wu(G.tolist()) - n - r + 1) % 8 == 0 else -1
+    res = (wu(G.tolist()) - n - r + 1) % 8
+    pred = 1 if res == 0 else (-1 if res == 4 else 0)
     tot += 1; bad += pred != cls
 print("random rank-3 lattices, prime det: tested", tot, "failures", bad)

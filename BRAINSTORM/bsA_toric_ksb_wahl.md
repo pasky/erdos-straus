@@ -26,8 +26,9 @@ KSB 1988 (verified record). Wahl, *Smoothings of normal surface singularities* (
 Christophersen (1991), Stevens (1991) (from memory). Lisca 2007 (verified). Riemenschneider duality (classical).
 
 ## Barrier screen
-* Same pattern as topology: classification theorems (KSB, Wahl, Lisca, Greene) describe the *square/QR* side
-  completely, and the ES certificates lie in their complement (K2). A complement statement gives no existence.
+* Same pattern as topology: classification theorems (KSB, Wahl, Lisca, Greene) describe special subsets of
+  the square/QR side (e.g. at prime index the only T-singularity is A_{p−1}; the QR singularity 1/17(1,4) is not a
+  T-singularity). The ES certificates lie in the complement of these subsets (K2). A complement statement gives no existence.
 * The sign is congruence data (B1). Short resolution = B2 divisor event.
 * T1: consistent. At n = m² the T/Wahl world is non-empty, but ES needs Jacobi −1, which is absent.
 

@@ -48,5 +48,5 @@ paper ties μ of lens spaces to Dedekind sums, consistent with DK (D2) + (R).
 
 ## Assessment
 PROVED clean reformulation (r ≤ 5 by finite check relative to DK Cor 4.1; general r and general lattices EVIDENCE plus
-classical). It is novel only as packaging. It is the most compact form of the ES sign I know: **sign = w·w − n − r + 1 mod 8**.
+classical). It is novel only as packaging. It is the most compact form of the ES sign I know: **(A/n) = (−1)^{(w·w − n − r + 1)/4}**, where w·w − n − r + 1 ≡ 0 or 4 (mod 8) always.
 Promise 1/5 as a route. As a dictionary item it is SHARP.

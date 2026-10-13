@@ -20,7 +20,7 @@ clothing: the slices are blind to the homotopy information at squares.
 homology sphere Y, the meridian generates H₁ with self-linking ±1/p. So A is ± a square (Greene's necessary
 condition; Greene, Ann. Math. 177 (2013) 449, arXiv:1010.6257). For p ≡ 1 (4) and (A/p) = −1, **L(p,A) is never
 p-surgery on a knot in any ℤHS³.** So the ES certificates are the short-plumbing lens spaces that lie *outside* the
-whole Berge/changemaker world (Greene's changemaker theorem classifies the QR side completely), and the theorem
+whole Berge/changemaker world (Greene's changemaker theorem classifies the lens spaces arising by integral surgery on knots in S³, a subset of the QR side), and the theorem
 classifying the QR side is silent on the QNR side.
 
 **P3 (2-bridge knots).** L(p,A) = Σ₂(K(p/A)), and K(p/A) bounds the plumbing of three unknotted twisted bands (v, t, u

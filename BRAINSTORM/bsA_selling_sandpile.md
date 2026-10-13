@@ -32,7 +32,7 @@ pairing of graphs (from memory). Clancy–Kaplan–Leake–Payne–Wood, J. Alge
 heuristics for sandpile groups *with pairing* of random graphs (from memory). None of these was checked from the source.
 
 ## Barrier screen
-* The genus G⁻(p) is never empty, but it has ≍ p classes (Siegel mass formula, from memory). Only ≍ log²p of them are
+* The genus G⁻(p) is never empty, but it has ≍ p classes (Siegel mass formula, from memory). Only |L₃(p)|/2 + O(1) of them, i.e. ≍ log²p *on average over p* (no pointwise bound known), are
   linear. "The genus contains a linear class" is therefore the polylog lottery (B3), not a genus statement.
 * Intrinsically: Λ is linear with middle vector e₂ iff e₂·Λ = ℤ and the binary lattice e₂^⊥ (determinant tp) has the
   gluing shape forced by e₁, e₃. This is a binary form of discriminant ≍ −4tp with a prescribed representation.

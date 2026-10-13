@@ -12,11 +12,12 @@ only heuristic, because at height y/p the Fourier series of f converges slowly; 
 theory of the twisted Hecke operator).** For smooth compactly supported f on SL₂(ℤ)\ℍ,
 Σ_{A} (A/p) f((z+A)/p) is G(χ_p)·Σ_m χ_p(m) c_m(y/p) e(mx/p), with f's Fourier coefficients c_m. This is o(p) uniformly
 on compacta (Weil/Deligne-type, or simply rapid decay of c_m), so each half equidistributes with a power saving.
-**H3 (the ES event is a large deviation; PROVED dictionary + standard CF fact).** r(p/A) − 1 is the number of right turns
+**H3 (the ES event is a large deviation; dictionary PROVED, size statement heuristic/average only).** r(p/A) − 1 is the number of right turns
 (R-blocks counted by length) of the cusp-to-cusp geodesic ∞ → A/p, i.e. the Series cutting sequence, equivalently the
 Stern–Brocot path. The geodesic has length ≈ 2 log p in the thick part. r(p/A) = 3 means it is made of at most three long
 cusp excursions of heights ≍ v, t, u with vtu ≍ p. Under the uniform measure on A this event has probability
-|L₃(p)|/p ≍ log²p/p.
+|L₃(p)|/p, which is ≍ log²p/p *on average over p* (DK; no pointwise asymptotic is known, and a pointwise lower
+bound |L₃(p)| ≥ 1 would already be the sign-free half (W) at primes, HJ_DEEP §3).
 
 ## Literature
 Hecke-point equidistribution: Clozel–Oh–Ullmo (Invent. 2001), Chiu (1995) (from memory). Series, *The modular surface

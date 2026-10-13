@@ -23,7 +23,7 @@ Branch `side-agent/spark-hj-brainstorm`. Deliverables: 9 memos `BRAINSTORM/bsA_*
    DK's five cells become the single congruence w·w ≡ p + 6 (mod 8). Rokhlin reading (conventions from memory): μ(L(n,A)) ≡ 1 − n (mod 8) iff +1.
 4. **HJ length = popcount ∘ Minkowski ?** (bsA_minkowski_stern M1; PROVED, exhaustive check n < 200). So five-slice ES(p) ⟺
    p = s(2^k + m) (Stern's diatomic sequence), with popcount(m) ≤ 3 and (s(m)/p) = −1.
-5. **Farey least non-residue** (bsA_farey_lnr_pigeonhole): r(n/A) + r(n/(n−A)) = Σ a_i (exact), and λ(p) ≤ (6/π²) ln²p
+5. **Farey least non-residue** (bsA_farey_lnr_pigeonhole): r(n/A) + r(n/(n−A)) = Σ a_i (exact), and λ(p) ≤ (6/π² + o(1)) ln²p
    unconditionally (rel. Yao–Knuth). That beats the GRH conversion λ ≤ n_p ≤ 2 ln²p, but it has no ES content (B3 gap).
 
 ## What was done (one line each; labels in the files)
