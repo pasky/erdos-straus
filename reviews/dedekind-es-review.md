@@ -107,3 +107,29 @@ about ES. Credit to redteam-automorphic Lemma 5.2 is correct: there `(d/p) = −
 * 8.4: "N₋ even (reversal pairs)": reversal fixes a word iff u = v, and then n = u(tu−2), which is composite. For
   composite n with u = v, a self-reversed −1 word would make N₋ odd. So "N₋ even" is **only true at primes**
   (MINOR, D3: either restrict it to primes or drop it).
+  Concrete counterexample: n = 21 = 3·7 has L₃(21) = {[[3,3,3]]}, A = 8, `(8/21) = −1`, so N₋(21) = 1.
+
+## 6. §9.2 lemma — SOUND (labels honest)
+
+Re-derived: the scaled word with u' = 1 is `[[av', t, a]]` with `m + 1 = v'(at−1)` and A = at − 1, so A | m+1,
+A ≡ −1 (a), and t ≥ 2 ⟺ A ≥ 2a−1. For `A = 2^k A'`: A' | m+1 gives `(m/A') = (−1/A')`, and with m ≡ 3 (4)
+reciprocity gives `(A'/m) = (−1/A')·(−1/A') = 1`. Hence `(A/n) = −(2/m)^k`, which is −1 under the stated hypothesis,
+and Thm 4.5 applies (n ≡ 1 (4)) ✓. Special family `n = a(at−2)` (A = m+1 ≡ 1 mod m) ✓. It implicitly needs
+t ≡ 3 (4); that is part of the hypothesis n ≡ 1 (4).
+From scratch (`review_dk_scale.py`): 8 290 lemma instances with a < 80, m < 4000, 0 failures. Coverage reproduced
+exactly: 31 143 n, 24 645 inherited (79.1 %). The "Why this is not a proof" paragraph is accurate.
+
+## 7. §4.4 / §9.1 EVIDENCE and CONJECTURE SQ₅ — EVIDENCE REPRODUCED; label correct
+
+Independent code (`review_dk_lambda.py 1000000 3000`; it enumerates words and length-2 pairs, uses a direct Jacobi
+symbol, and is cross-checked against full HJ expansion for n ≤ 3000):
+* Non-square n ≡ 1 (4), n ≤ 10⁶, with λ(n) > 3: **only n = 105**, and λ(105) = 4 by direct expansion. ✓ This covers
+  the full author range, not only a smaller one.
+* The boundary criterion of 4.2 (v = 1 search) ⟺ "(n+1)/2 has a prime factor ≡ 3 (4)" ⟺ a −1 word in L₂ holds for
+  every n ≡ 1 (4) ≤ 10⁶, composites included (0 mismatches).
+* §4.4: a₀ = 0 at 52 non-squares ≤ 2·10⁵ (largest 156 961) ✓. a₀ = a_T = 0 at exactly the 22 listed values ✓, and
+  **the same 22 values up to 10⁶** (a₀ = 0 at 61 non-squares ≤ 10⁶, largest 973 345). This extends the author's
+  EVIDENCE for the §4.4 CONJECTURE to 10⁶.
+* SQ₅ remarks: for n ≡ 5 (8) it is trivial (A = 2), so its content is n ≡ 1 (8) ✓. "Implies ES for all p ≡ 1 (4)" ✓.
+  "Strengthening of O146's SQ": strictly, SQ₅ says nothing at n = 105, where SQ must be checked separately
+  (MINOR, D4, wording).
