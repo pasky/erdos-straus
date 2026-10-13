@@ -33,7 +33,9 @@ multiplier), Ch. 4.
   words exist (B2). Prop 4.1's reciprocity *is* the multiplier's reciprocity, nothing new.
 * **Strongest testable structural consequence (Shimura propagation).** If W(n) behaved like a coefficient of a
   half-integral weight Hecke eigenform, zeros would propagate along square classes (c(t) = 0 ⇒ c(tk²) = 0 for
-  eigenforms, by the Shimura relation), with the square class of 1 as the visible instance. *Test:*
+  eigenforms, by the Shimura relation, for **squarefree t**; R175 repair, D13: in general c(tp²) also
+  involves c(t/p²); 17 of the 26 zeros below, 105 included, are squarefree, so the test stands), with the square
+  class of 1 as the visible instance. *Test:*
   `scripts/bsB_wcount.c 2000000` (exact W(n) for n ≤ 2·10⁶): W vanishes at all odd squares and at **26
   non-squares**, all ≡ 1 (mod 4), all composite (105, 465, 585, 801, 2641, …, 1618521); but W(105·k²) = 2, 4, 7,
   2, 5 for k = 3, 5, 7, 11, 13, and every other non-square zero r has W(rk²) > 0 for all tested k. **Zeros do not
@@ -48,6 +50,8 @@ multiplier), Ch. 4.
   c-slot (Type II).
 
 ## Assessment
-Dictionary PROVED (elementary). The Waldspurger/Shimura structural hope is **refuted numerically** (EVIDENCE: zero
+Dictionary PROVED (elementary). (R175 repair, D13: the test refutes only "W is an eigenform coefficient", a
+strawman-strength target; it does not touch mechanisms in which W is a sum over forms or periods.) The
+Waldspurger/Shimura structural hope is **refuted numerically** (EVIDENCE: zero
 propagation fails at r = 105 and all 25 other non-square zeros). Promise 1/5; the useful residue is the Type II
 version with p as the Kloosterman modulus (Salié sums), pursued separately.

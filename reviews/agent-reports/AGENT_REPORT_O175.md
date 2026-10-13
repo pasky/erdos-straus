@@ -11,10 +11,13 @@ Branch `side-agent/spark-signlayer`. **ES is not solved; no case of it is claime
    FUNCTIONFIELD_ES2 §0.2 (it summed over unbounded deg L'). Complete enumeration through K = 19 (CERTIFIED by exhaustive
    search, 1036 solutions; cross-validated against FF2's independent searcher): x*_{±1} uncovered; covered Haar
    measure of the slice 0.333 → 0.4906, increments shrinking (≈ 0.001/level); any family covering x* must be
-   degree-lopsided (Lemma 3.2, PROVED) — EVIDENCE that ≈ 50 % of the slice is never covered.
+   degree-lopsided (Lemma 3.2, PROVED). Separately, the covered measure is EVIDENCE that ≈ 50 % of the slice is never
+   covered (R175 repair, D19/D6: an extrapolation; convergence of the expected count rests on the observed growth
+   #sol(K) ≈ 3^{K/4}, not on Lemma 1.1; the certified range is all N ≤ 10 (j ≤ 9), not larger N for every g).
    Case A: 0 hits at 4 further slice points (FF2's checker, deg ≤ 3). If this holds, O(3, T²) has positive
    measure on the slice and "no finite linear covering for q = 3, A = T²" holds for a *convergent-lottery*
-   reason; x* is special only as a height-1 point (Lemma 3.1: covered set invariant under u ↦ u⁻¹,
+   reason; x* is special only as a height-1 point with u or 1/u a polynomial (R175 repair, D8: the other two height-1
+   points (1 ± T)/(1 ∓ T) are covered) (Lemma 3.1: covered set invariant under u ↦ u⁻¹,
    u(T) ↦ u(−T); x*-orbit = {1 ± T, 1/(1 ± T)}). A proof needs one explicit point excluded at all K — the
    suggested tool is the product formula (simultaneous approximation at 0 and ∞, §3). This is the item most
    worth a fresh agent.
@@ -23,7 +26,8 @@ Branch `side-agent/spark-signlayer`. **ES is not solved; no case of it is claime
    (b) the weight-½ theta multiplier of the certificate matrix, (c) the real orthant of one cubic
    (class +1 = negative orthant of cfg − c − f = n), (d) the genus character χ_p on the anti-invariant part
    G[1+σ] of the ray class group. Ray-class/Hecke inputs use only χ∘N (Eisenstein; L(χ)L(χχ_K)), so WR
-   Remark 10.4's ray-class "escape" is **pulled back from ℚ**. For prime t ≡ 3 (4), the 2-primary part of the
+   Remark 10.4's ray-class "escape" is **pulled back from ℚ** (R175 repair, D10: for fixed-(t, p) character/L-function/
+   Eisenstein detectors and for the target statement; varying-p ray-class Chebotarev arguments are only barrier-classified). For prime t ≡ 3 (4), the 2-primary part of the
    class condition is exactly the genus sign: Rédei/governing-field/spin (2-power) information is vacuous;
    the rest is an odd-order (cubic, …) spin condition (H-D residue).
 
@@ -33,10 +37,10 @@ Branch `side-agent/spark-signlayer`. **ES is not solved; no case of it is claime
 | bsB_zolotarev_transpose | sign = ℤ/n-half of an even transpose; class +1 generates only even perms | PROVED |
 | bsB_theta_multiplier | sign = theta multiplier; **Shimura zero-propagation refuted** (W(105·k²) > 0); W zeros ≤ 2·10⁶ = squares + 26 composites, no prime | PROVED; EVIDENCE |
 | bsB_rayclass_norm_pullback | only norm-pulled-back characters; sign = χ_p on G[1+σ] | PROVED |
-| bsB_redei_oddpart | 2-primary = genus for prime t; 2-visible slices t = 3·(Fermat products) finite; ES class is the *least* populated non-residue class | PROVED; EVIDENCE |
+| bsB_redei_oddpart | 2-primary = genus for prime t; 2-visible slices t = 3·(Fermat products) finite; ES class is among the least populated non-residue classes (R175 D12); composite-t claim corrected (R175 D11) | PROVED; EVIDENCE |
 | bsB_salie_duality | Type II as Γ₀(4) matrices with c = 4p, multiplier constant; Salié inapplicable (not Γ_∞-bi-invariant) | PROVED; Assessment |
 | bsB_sterile_pretentious | sterile = maximally pretentious (anti-Siegel); F_q[T] Mordell transfer → degree parity only; corr(log L_y(1,χ_p), W(p)/log²p) = −0.49 | PROVED; EVIDENCE |
-| bsB_orthant_sign | sign = real orthant; orthant-crossing maps barred | PROVED |
+| bsB_orthant_sign | sign = real orthant (= Bright–Loughran Thm 1.2/1.5 on the slice); orthant-crossing maps barred (Assessment, R175 D15) | PROVED; Assessment |
 | bsB_root_number_parity | BSD-parity template fails (rational points free; no fixed module); P(W(p) odd) ∈ [0.47, 0.52] over 32 local classes | Assessment; EVIDENCE |
 
 Barrier verdicts: every sign-layer route is the genus bit at n (B5/T1-consistent) and needs the class layer (B2/H-A).

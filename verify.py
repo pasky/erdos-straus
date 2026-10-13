@@ -24174,5 +24174,39 @@ def check_fg():
 
 check_fg()
 
+def check_fh():
+    # (fh) SIGNLAYER_DEEP (O175/R175): reviewer from-scratch F_3[T] Case B enumeration on the slice x = 1 off T
+    # (exact covered measures, x* uncovered), the single-slice W table (T1 control, non-square zeros), Zolotarev.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("SIGNLAYER subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_sl_caseB.py", "enum", "11")
+    for s in ["K<= 2: union measure 0.333333 = 1/3", "K<= 5: union measure 0.407407 = 11/27",
+              "K<= 8: union measure 0.456790 = 37/81", "K<= 10: union measure 0.465021 = 113/243",
+              "K<= 11: union measure 0.470508 = 343/729  x*_1,x*_2 covered [False, False]"]:
+        assert s in o, ("SIGNLAYER R175 Case B measures", s, o)
+    assert "covered [True" not in o, ("SIGNLAYER R175 x* covered?", o)
+    o = run("review_sl_wcount.py", "200000")
+    assert "odd squares with W != 0: []" in o and "prime zeros: []" in o and \
+        "non-square zeros n = 1 mod 4: 20 [105, 465, 585, 801," in o, ("SIGNLAYER R175 W table", o)
+    o = run("review_sl_zolo.py", "300")
+    assert "certificates 237 explicit transposes 170 violations 0" in o, ("SIGNLAYER R175 Zolotarev", o)
+    print(f"== (fh) SIGNLAYER_DEEP R175: F_3[T] Case B slice covered measure 1/3, 11/27, 37/81, 113/243, 343/729 "
+          f"(K <= 11), x* uncovered; W(n) = 0 at all odd squares, no prime zero, 20 non-square zeros <= 2e5; "
+          f"Zolotarev sign 0 violations; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fh()
+
 
 print("\nall checks passed")

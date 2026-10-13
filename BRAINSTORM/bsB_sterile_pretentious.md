@@ -17,7 +17,10 @@ q = 3, A = T²) as a function-field "Siegel zero / exceptional character". Make 
    trivial character: L(1, χ_p) large (Granville–Soundararajan extreme values). So sterile points ↔ the
    **opposite** extreme: "maximally pretentious to 1". The FF x* is the profinite limit of that extreme with one
    deformed place.
-3. **Mordell transfer in F_q[T] (PROVED relative to FF Lemma 6.2 and FF Prop 4.1).** Let x be a profinite square
+3. **Mordell transfer in F_q[T] (PROVED relative to FF Lemma 6.2 and FF Prop 4.1, modulo one unwritten step; R175
+   repair, D16: the map from a family valid at the reducible P = Q² to a coprime Prop 4.1 datum (a, b, c, d) is not
+   written. Lemma 6.2 does not use irreducibility, and f ⊥ P holds because f is coprime to Aa²d. On the slice the parity
+   also follows, for Case B, from FF2's QR parity (deg E, deg D even).)** Let x be a profinite square
    point and F a linear family valid at x. Every class mod W_F containing x contains squares Q² (Q monic, any large
    degree), and validity is a congruence condition on monic P of large degree, reducible or not (Lemma 6.2), so
    F yields Type II data for P = Q². There (P/f) = 1 (f ⊥ P: f ≡ −1 mod Ad and mod a), so FF Prop 4.1 forces the
@@ -37,7 +40,8 @@ adv_stacked_primes, hardness_law); the new point is the orientation of the analo
 ## Barrier screen
 * B5/T1: item 3 is T1 itself in profinite form; over ℤ it obstructs, over F_q[T] it leaves a parity constraint.
 * B1: "pretentiousness" is congruence data (χ_p(ℓ) for ℓ ≤ y), so it can only modulate the main term (B3), never
-  certify. The Granville–Soundararajan maximum log L(1, χ) ≤ log log p + O(1) bounds how pretentious a prime can be
+  certify. The Granville–Soundararajan maximum (R175 repair, D17: under GRH L(1, χ) ≤ (2e^γ + o(1)) log log p, i.e.
+  log L(1, χ) ≤ log log log p + O(1), essentially attained) bounds how pretentious a prime can be
   (under GRH) — this is the one place where a pretentious-character theorem says something at a single p. Under
   GRH the least QNR is ≤ 2 log²p (Bach), so p cannot be a square modulo all ℓ ≤ 2 log²p; unconditionally only
   ℓ ≤ p^{1/(4√e)+o(1)} (Burgess). That bounds the "squareness" of p at a polylog modulus — exactly the scale where
