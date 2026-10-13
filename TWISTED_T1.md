@@ -41,7 +41,9 @@ identity guarantee; the determinant form is manifestly antisymmetric under relab
 
 **Corollary 1.3 (exact scope of the function-field order-m T1; PROVED from DRINFELD_ES Thm 3.3).** At P = Q^m, every
 Type I/II-shaped solution satisfies det(1, w, d) ≡ 0 (mod m). This is a condition on the vector of degrees only;
-it is empty iff all w_i are equal (c_i/c_j ∈ F_q^{*m}), i.e. iff the twist is trivial mod m-th powers.
+it is vacuous iff all w_i are equal (c_i/c_j ∈ F_q^{*m}), i.e. iff the twist is trivial mod m-th powers.
+(R182 repair D8: "vacuous" = the linear form is identically 0; that the condition bites on *realised* degree
+vectors is DRINFELD_ES's EVIDENCE tables, not part of this proof.)
 *Proof.* Thm 3.3 + Lemma 3.1 + reciprocity give χ_∞(u) = 0; if the w_i are not all equal, the linear form
 d ↦ det(1, w, d) is non-zero on ℤ³ (e.g. d = (1,0,0) gives w₂ − w₃ or a permutation is ≠ 0). ∎
 
@@ -63,7 +65,9 @@ iff N̄_v is isotropic (⟨N̄_v, N̄_v⟩ = 0) and τ₁, τ₂ ∈ N̄_v^⊥. 
 (take X₃ = 1). By bilinearity inv_v = ⟨τ₁, τ₂⟩ + ⟨τ₁, s⟩ + ⟨r, τ₂⟩ + ⟨r, s⟩. Constancy with r = 1 (resp. s = 1)
 forces τ₁ ⊥ N̄ (resp. τ₂ ⊥ N̄), and then ⟨r, s⟩ = 0. Converse clear. For odd m, ⟨−x, y⟩ = ⟨x, y⟩ and
 ⟨c₃/c₁, c₃/c₂⟩ expands, by antisymmetry and ⟨c₃, c₃⟩ = 0, to the cyclic sum. ∎
-(This is the *normalisation-only* anchor; the equation itself may pin further invariants, see Lemma 2.4.)
+(This is the *normalisation-only* anchor; the equation itself may pin further invariants — e.g. the partner
+vanishing at λ in the proof of Thm 3.2 and Principle (β) below. R182 repair D6: formerly pointed to a
+non-existent "Lemma 2.4".)
 
 **Corollary 2.2 (catalogue of natural normalisations; PROVED).**
 (a) v real, m = 2, N_v = ℝ_{>0} (positivity): N̄ = 0, anchor ⟨τ₁, τ₂⟩_∞ = ½ iff τ₁, τ₂ < 0 (e.g. all c_i > 0).
@@ -80,6 +84,10 @@ a one-line structural fact.)
 (f) v = λ = (1 − ζ₃) over ℚ(ζ₃), m = 3, N_v = ±(1 + 3O_λ) ("x ≡ ±1 mod 3", the cubic-reciprocity *primary*
 normalisation up to the cube −1): N̄ = U^{(2)}K^{*3}/K^{*3} has order 9 in V_λ (order 3^{2+2} = 81) and is isotropic
 because ⟨U^{(i)}, U^{(j)}⟩ = 0 for i + j > pe/(p − 1) = 3; hence Lagrangian, anchor 0 or non-constant.
+(R182 repair D7: the general conductor bound is quoted from memory and was not checked against a source; the
+instance used here is verified by R182 from the norm-residue definition (`scripts/review_tw_zw.py`):
+⟨1+λ², 1+λ³⟩_λ = 0, hence ⟨U^{(2)}, U^{(2)}⟩ = 0; the bound is sharp, ⟨1+λ, 1+λ²⟩_λ ≠ 0. Hand proof of the
+instance: 1+λ³ ∈ U^{(3)} = U^{(pe/(p−1))} has an unramified Kummer extension, so it pairs trivially with units.)
 *Proof.* (a), (b) standard. (c) tame symbol: ⟨T, c⟩ = c^{±1}, ⟨c, c'⟩ = 0 for constants. (d) tame symbol of two
 units is 1; ⟨π, u⟩ = ū^{±1}, so units = units^⊥. (e) clear. (f) the bound on ⟨U^{(i)}, U^{(j)}⟩ is the standard
 conductor estimate for the p-th Hilbert symbol (Fesenko–Vostokov Ch. IV; Serre, *Local Fields*, XIV); orders from
@@ -110,7 +118,9 @@ and numerator 9.
 
 **Normalisation.** x ∈ O is *2-primary* if x ≡ 1 (mod 2O). Every x prime to 2 has exactly two 2-primary
 associates ±x (the units ±ω^j map onto F₄^* = {1, ω, ω²}): 2-primary is the Eisenstein analogue of positivity /
-monic — a choice of associate up to the cube −1.
+monic — a choice of associate up to the cube −1. (R182 repair D3: more precisely it is the kernel of reduction
+at the anchor, the analogue of the kernel of sign; unlike positivity/monic it also **excludes denominators
+divisible by the anchor prime 2**.)
 
 **Definition (TES).** For n ∈ O prime to 6: TES(n) is the equation
 `9/n = ω/x + ω²/y + 2/z,  x, y, z ∈ O 2-primary.`
@@ -124,7 +134,8 @@ n = m³, m prime to 2, satisfies it, since F₄^* has exponent 3.)
 
 **Theorem 3.2 (cubic reciprocity law and order-3 T1 for TES; PROVED).** Let n ∈ O, n ≡ 1 (mod 2), gcd(n, 6) = 1.
 (a) For every solution of TES(n): Σ_{π | n} inv_π α(u) = −⟨ω, 2⟩₂ ≠ 0 in (1/3)ℤ/ℤ.
-(b) **(T1₃.)** If n = π³ with π prime, π ∤ 6, then TES(n) has no solution of Type I or Type II shape at π.
+(b) **(T1₃.)** If n = π^{3k} (k ≥ 1; R182 repair D1: formerly only π³) with π prime, π ∤ 6, then TES(n) has no
+solution of Type I or Type II shape at π.
 (c) If n = π is prime, every solution has inv_π α(u) = −⟨ω, 2⟩₂ (a fixed non-trivial cubic residue value).
 *Proof.* Compute inv_v α(u) at every place.
 *v = (2) (anchor).* x, y, z ∈ 1 + 2O₂ = U^{(1)}, a pro-2 group, hence 3-divisible: u_i ≡ 1/c_i modulo cubes.
@@ -144,24 +155,29 @@ hence 0 in (1/3)ℤ/ℤ.
 Hilbert reciprocity (Σ_v inv_v = 0 for α(u) ∈ Br K) now gives (a), and (c) is (a) with one place. For (b):
 DRINFELD_ES Thm 3.3's proof (a tame valuation argument at Q, using only v_Q(λ) = −m, Q-integrality of the u_i and
 m-th powers in k(Q)^*) applies verbatim at π with m = 3, giving inv_π α(u) = 0 for Type I/II shapes,
-contradicting (a). ∎
+contradicting (a). (Same for π^{3k}: the symbols are y^{±3k}.) ∎
 
 **Numerics (EVIDENCE; `scripts/tw_eis_solve.py`, `scripts/tw_eis_scan.py`; every solution verified exactly;
 inv_λ obtained as −Σ_tame by reciprocity, the reciprocity code itself checked on 400 random pairs with a ∈ U^{(4)}:
 Σ_tame = 0 in all).** Search: all solutions having some denominator X with N(X − c_i n/9) ≤ 30 (the ES regime,
-E = 9X − c_i n small).
+E = 9X − c_i n small). (R182 repair D4: as implemented, X = round(c_i n/t) + δ with N(δ) ≤ B; R182's exact window
+N(tX − c_i n) ≤ N(t)B reproduces the TES and (9;1,1,1) rows identically and the t = 3 control as primes 658/301,
+cubes 308/164/1504, π⁶: 0 of 56. R182 repair D2: R182 computed inv_λ directly from the norm-residue definition —
+0 on every TES point — and cross-checked reciprocity on random pairs with non-trivial λ-symbol.)
 | target | n | #n | Type I | Type II | other | invariants (2, π, λ) |
 |---|---|---|---|---|---|---|
 | TES (9; ω, ω², 2) | split primes, N ∈ [307, 1471] | 8 | 117 | 44 | 0 | all (1, 2, 0) |
 | TES | π³, N(π) ∈ {7, 13, 19, 31, 37} | 5 | **0** | **0** | 87 | all (1, 2, 0) |
 | control: no anchor (9; 1, 1, 1) | primes / cubes | 8 / 5 | 51 / 42 | 9 / 6 | — / 96 | all 0 |
 | control: no partner (3; ω, ω², 2) | primes / cubes | 8 / 5 | 660 / 306 | 299 / 164 | — / 1493 | inv₂ = 1; (π, λ) vary |
-Every prime has Type I/II solutions; every cube has only "other"-shape solutions (e.g. those inherited from π:
+Every tabulated prime has Type I/II solutions (not every prime in a window: §5, R182 repair D5); every cube has
+only "other"-shape solutions (e.g. those inherited from π:
 9/π = Σ c_i/x_i ⇒ 9/π³ = Σ c_i/(π²x_i), shape (2, 2, 2)); in particular TES(π³) is globally, hence locally,
-solvable. Both hypotheses of Thm 3.2 are needed: dropping the anchor (c = 1) or the partner (numerator 3)
+solvable (R182 repair D5: PROVED whenever TES(π) is solvable — π 2-primary gives π² ≡ 1 (mod 2), so (π²x_i) is
+a solution; TES(π) itself is EVIDENCE). Both hypotheses of Thm 3.2 are needed: dropping the anchor (c = 1) or the partner (numerator 3)
 restores Type I/II solutions at cubes.
 *Exponent law (EVIDENCE, same search):* n = π² (N(π) = 7): Type I 2, II 1; n = π⁴: Type I 1; n = π⁶ (B = 20):
-Type I/II 0 of 57; inert cubes n = 5³, 11³: Type I/II 0 of 46, 0 of 192. As predicted by Thm 4.1(c) below
+Type I/II 0 of 57; inert cubes n = 5³, 11³: Type I/II 0 of 46, 0 of 192. As predicted by the Remark after Thm 4.1 below
 (T1₃ holds at π^e iff 3 | e — "iff" only in the sense that the proof's symbol y^{±e} is a cube iff 3 | e).
 
 ## 4. The general principle: T1_m = anchor + partner + tame vanishing (odd m)
@@ -176,7 +192,8 @@ x_i ∈ O_K, x_i ∈ N_v for v ∈ S. Assume:
 Put A_S := Σ_{v∈S} ⟨τ₁, τ₂⟩_v. Then:
 (a) every solution satisfies Σ_{v | n} inv_v α(u) = −A_S;
 (b) if A_S ≠ 0, n = π^e with π prime, π ∤ m, and m | e, TW(n) has no solution of Type I or Type II shape at π;
-(c) (for comparison) if m ∤ e, the proof's local symbol at π for Type I/II shapes is y^{±e}, unconstrained.
+*Remark (R182 repair D10: formerly item (c) under the PROVED label).* If m ∤ e, the proof's local symbol at π for
+Type I/II shapes is y^{±e}, which the argument does not constrain (observation, not a theorem).
 *Proof.* As Thm 3.2: v ∈ S by (A) and Lemma 2.1; v | m, v ∉ S by (P) (the u_i are v-integral, so choosing u₁ of
 maximal valuation, −x = 1 − (t/n)u₁ ∈ U^{(i_v)} is an m-th power, as is −1); tame v ∤ n by (U) and DRINFELD_ES
 Thm 2.2(i); archimedean v: Br ℂ = 0, and real places have Br ℝ[m] = 0 for odd m; reciprocity gives (a); at π the
@@ -189,7 +206,8 @@ twisted version of Thm 2.2 (no T1). (3) **Over a function field the template is 
 normalisation (monic) is Lagrangian with free degree. (4) The template does **not** cover ES itself (m = 2):
 there the anchor is ⟨−1, −1⟩_∞ (non-alternating), tame places only give inv ∈ ½ℤ/ℤ (no information for m = 2),
 and the vanishing at the wild partner 2 would need v₂(t) ≥ 3, whereas t = 4 has v₂ = 2; ES's T1 rests on the finer quadratic analysis (KUDLA_ES Thm 1.2 / BL). So ES's T1 is the m = 2
-member of a family whose odd members are *strictly easier* to prove.
+member of a family whose odd members are *strictly easier* to prove (Assessment; R182 repair D13: m = 2 is
+outside the template, so "family" is an analogy).
 
 **Corollary 4.2 (what an order-m T1 needs, in one line).** Odd m: a non-zero anchor needs a place where the
 normalisation is *not* Lagrangian (Cor 2.2: monic / unit / primary never qualify; congruence normalisations
@@ -197,10 +215,17 @@ normalisation is *not* Lagrangian (Cor 2.2: monic / unit / primary never qualify
 equation forces vanishing. m = 2 additionally allows the non-alternating real anchor — the ES case.
 
 **Proposition 4.3 (the partner must be wild; PROVED).** In the setting of Thm 4.1 with (A) and (U), if A_S ≠ 0
-then some place w ∉ S with w | m has ⟨τ₁, τ₂⟩_w ≠ 0. Consequently: (i) over a global function field of
-characteristic p ∤ m (and μ_m ⊄ K when m = p) **no** order-m T1 of this template exists, for any twists — the
-structural reason behind FUNCTIONFIELD_ES's "no odd-square obstruction over F_q[T]" and DRINFELD_ES §3's partial
-(degree-class) T1; (ii) over number fields the partner lies above m. ES (m = 2): anchor ∞ (real), partner 2
+then some place w ∉ S with w | m has ⟨τ₁, τ₂⟩_w ≠ 0. Consequently: (i) (R182 repair D11: the template is defined
+for number fields; this item needs its function-field version — integrality away from ∞, ∞ ∈ S with the monic
+normalisation, (A), (P), (U) as before — under which it reduces to Cor 2.2(c) plus "every place is tame") over a
+global function field of characteristic p ∤ m **no** order-m T1 of this template exists, for any twists (for
+m = p the template is vacuous: μ_p = 1 in characteristic p) — the *odd-m analogue* of FUNCTIONFIELD_ES's absence
+of an odd-square obstruction, and the reason DRINFELD_ES §3's T1 is only a degree-class one. (R182 repair D11: it
+is **not** the reason for the m = 2 statement of FUNCTIONFIELD_ES: m = 2 is outside the template (Remark 4.1(4)).
+For m = 2 the reason is on the anchor side: (−1, −1) is split over F_q(T) (Prop 2.3(i) works for every m), and for
+q ≡ 3 (mod 4) the monic normalisation is not even isotropic for m = 2 (⟨T, T⟩_∞ = ⟨T, −1⟩_∞ ≠ 0), which yields
+the degree-dependent sign of (J)4 / FUNCTIONFIELD_ES Prop 4.1, consistent with (J)18's "pinned degree".)
+(ii) over number fields the partner lies above m. ES (m = 2): anchor ∞ (real), partner 2
 (wild). TES (m = 3): anchor 2 (tame, congruence-normalised), partner λ (wild).
 *Proof.* Hilbert reciprocity for the constant algebra: A_S = −Σ_{w∉S} ⟨τ₁, τ₂⟩_w. For finite w ∉ S, w ∤ m
 (including w | n, as n is prime to c and m): τ₁, τ₂ are w-units by (U), and the tame symbol of two units is
@@ -216,8 +241,10 @@ reciprocity; otherwise inv_∞ is the degree character of Prop 1.2 — exactly t
 ## 5. Census of TES at primes (EVIDENCE) and the quadratic part
 
 **Census** (`scripts/tw_eis_census.py 60 6000`, log `logs/tw_census_60_6000.txt`): all 2-primary split primes π
-with 101 < N(π) ≤ 6000 and inert p ≤ 77 (746 primes): 5849 Type I + 1968 Type II solutions in the window
-N(X − c_i n/9) ≤ 60, **every one with invariants (inv₂, inv_π, inv_λ) = (1, 2, 0)** (Thm 3.2(c), and the partner
+with 101 < N(π) ≤ 6000 (746 primes; R182 repair D12: the script includes **no** inert primes, its inert branch
+is empty; R182 ran the 10 inert p ∈ [5, 71] separately: all solved, 117 I + 47 II, all (1, 2, 0)): 5849 Type I + 1968 Type II solutions in the window
+N(X − c_i n/9) ≤ 60, **every one with invariants (inv₂, inv_π, inv_λ) = (1, 2, 0)** (R182 reproduced this and the 18 failures exactly,
+inv_λ checked directly; Thm 3.2(c), and the partner
 vanishing, on 7817 points). 18 primes (9 conjugate pairs, N(π) ∈ {103, 151, 193, 211, 367, 409, 769, 2029, 2239})
 have no solution in the window; for N = 103, 151 none also with N(X − c_i n/9) ≤ 600 and with all X of
 N(X) ≤ 20000 (`run(..., wide=20000)`). The "wide" search adds **no** solution even for primes with many (N = 307,

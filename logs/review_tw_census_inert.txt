@@ -1,0 +1,2 @@
+primes 10 {('I', 1, 2, 0, 0): 117, ('II', 1, 2, 0, 0): 47}
+no Type I/II in window: 0 []

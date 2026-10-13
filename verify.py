@@ -24355,5 +24355,34 @@ def check_fl():
 
 check_fl()
 
+def check_fm():
+    # (fm) TWISTED_T1 (O182/R182): order-3 T1 over Z[omega]. TES: 9/n = w/x + w^2/y + 2/z (x,y,z = 1 mod 2):
+    # primes have Type I/II solutions with forced cubic invariants, cubes pi^3 have none (only 'other' shapes);
+    # control with the anchor removed (coefficients 1,1,1) restores Type I/II at cubes. Reviewer's own Z[omega] code.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("TWISTED subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_tw_tes.py", "table", "9:0", "0:1", "-1:-1", "2:0", "30")
+    summ = [ln.strip() for ln in o.splitlines() if ln.startswith("    ")]
+    assert summ == ["prime ('I', 1, 2, 0, 0) 117", "prime ('II', 1, 2, 0, 0) 44", "cube ('other', 1, 2, 0, 0) 87"], \
+        ("TWISTED R182 Thm 3.2 table", o)
+    o = run("review_tw_tes.py", "table", "9:0", "1:0", "1:0", "1:0", "30")
+    assert "cube ('I', 0, 0, 0, 0) 42" in o and "cube ('II', 0, 0, 0, 0) 6" in o, ("TWISTED R182 control", o)
+    print(f"== (fm) TWISTED_T1 R182 Thm 3.2: TES over Z[omega] — 161 Type I/II solutions at 8 primes, all with the "
+          f"forced cubic invariant; 0 Type I/II at 5 cubes pi^3 (87 other-shaped); untwisted control has 48 at cubes; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fm()
+
 
 print("\nall checks passed")
