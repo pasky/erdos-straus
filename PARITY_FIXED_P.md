@@ -124,8 +124,9 @@ the shifted primes p + j in a class modulo 4j* — a Titchmarsh-type divisor pro
 varying shift whose modulus is tied to the shift. Swapping, j = (−p mod f) must divide (f+1)/4: one Planck-scale
 event per b. Heuristic main term per dyadic block b ∼ B: M(B) ≈ Σ_{n∼B/4} τ(n)/(4n) ≈ (log 2/4)·log(B/4)
 (≈ 2.2 at B = 2²⁰) times local factors at small primes.
-EVIDENCE (`logs/pf_mass_h1.txt`, complete b-range, p ≡ 1 (840) and generic): R = 44, 52 at p ≈ 10⁸, 10⁹
-(p ≡ 1 mod 840); 62, 70 generic. Dyadic profiles: 0–6 successes per block across all 25–30 blocks, except
+EVIDENCE (`logs/pf_mass_h1.txt`, complete b-range, p ≡ 1 (840) and generic): R = 44, 52, 68 at p ≈ 10⁸, 10⁹, 10¹⁰
+(p ≡ 1 mod 840); 62, 70 generic (10⁸, 10⁹); at p = 1000000003801 (≡ 1 mod 840) the partial range b ≤ 2·10⁹ already
+gives 56. Dyadic profiles: 0–8 successes per block across all 25–34 blocks, except
 the top block at p = 10⁹+7 (16; small (B,C), i.e. forced classes of p modulo small 4BC−1). **No block's
 count grows with p.** Requirement on a Type I estimate over a block of length B: error ≤ 1/2 against trivial
 size B (or B log B counting divisor pairs) — a saving of B^{1−o(1)}.

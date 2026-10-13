@@ -10,3 +10,9 @@ p=1000000007 p%840=167 Bmax=2e+09  R_1(p; b<=Bmax) = 70
 p=1000002361 p%840=1 Bmax=2e+09  R_1(p; b<=Bmax) = 52
  dyadic profile log2(b):count  5:1 6:1 9:1 10:3 12:4 13:3 14:2 16:4 17:2 18:2 19:7 20:1 21:2 22:3 23:3 24:7 25:1 27:3 29:2
  sum lambda(b) over successes = -8 ; sum lambda(p+A) = 0 ; n = 52
+p=10000003441 p%840=1 Bmax=2e+10  R_1(p; b<=Bmax) = 68
+ dyadic profile log2(b):count  3:1 5:1 7:2 8:1 10:1 12:2 13:3 14:1 15:3 16:1 17:2 18:5 19:2 20:3 21:3 22:3 23:2 24:1 25:5 26:5 27:4 28:2 29:1 30:8 33:6
+ sum lambda(b) over successes = 2 ; sum lambda(p+A) = -2 ; n = 68
+p=1000000003801 p%840=1 Bmax=2e+09  R_1(p; b<=Bmax) = 56
+ dyadic profile log2(b):count  4:1 6:1 7:1 9:2 10:1 12:2 13:1 14:2 15:1 16:2 17:2 18:1 19:3 21:7 23:5 24:5 25:3 26:3 27:4 28:5 29:1 30:3
+ sum lambda(b) over successes = -6 ; sum lambda(p+A) = 8 ; n = 56
