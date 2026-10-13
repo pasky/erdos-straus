@@ -5,6 +5,7 @@
    (or both), and it equals the least CRT rep rho (resp. rho' for E' == -u^{-1}).  For each (L', j, branch)
    we compute v = -(T^(N+1) L')^{-1} mod rho and test t_gam = v T^{-gam} mod rho: need t monic, deg t <= deg L',
    t | L' (deg rho > deg L' is proved, so g' = t_gam exactly).
+   Domain: u(0) = 1 (Lemma 1.2; enforced).
    usage: ff3_caseB p k LMIN LMAX JMAX u0 u1 u2 ...   (u digits low->high, at least 1)
    JMAX = -1: j <= 4 deg L' - k (the complete range at u = 1 + cT by FUNCTIONFIELD_ES3 Lemma 2.3)
    prints each hit: branch, L', j, gam, g', E (rho or rho').  */
@@ -62,7 +63,10 @@ int main(int argc, char **argv){
   if(argc<7){ fprintf(stderr,"usage\n"); return 1; }
   P=atoi(argv[1]); int k=atoi(argv[2]), LMIN=atoi(argv[3]), LMAX=atoi(argv[4]), JMAX=atoi(argv[5]);
   for(int i=1;i<P;i++) for(int j=1;j<P;j++) if(i*j%P==1) inv_tab[i]=j;
+  if(P<3||P>=64){ fprintf(stderr,"need odd prime p < 64\n"); return 1; }
+  if(argc-6 > MX){ fprintf(stderr,"too many u digits\n"); return 1; }
   poly u; u.d=argc-7; for(int i=0;i<=u.d;i++) u.c[i]=((atoi(argv[6+i])%P)+P)%P; norm(&u);
+  if(u.d<0 || u.c[0]!=1){ fprintf(stderr,"Lemma 1.2 needs u(0)=1\n"); return 1; }
   int NMAX = k+(JMAX>=0?JMAX:4*LMAX); if(NMAX+2>MX/2-LMAX){fprintf(stderr,"MX too small\n");return 1;} /* need u to precision T^(NMAX+1) */
   poly U; U.d = NMAX; for(int i=0;i<=NMAX;i++) U.c[i] = i<=u.d? u.c[i]:0; norm(&U);
   poly Ui; sinv(&Ui,&U,NMAX+1);

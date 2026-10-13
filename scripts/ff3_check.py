@@ -59,6 +59,7 @@ if cmpf:  # compare with ff3_caseB HIT lines (E or E')
         else: E = D.exquo(P_([int(x) for x in w["E'"].strip('[]').split(',')]))
         if l <= LMAX and j <= JMAX: got.add((l, j, gam, tuple(L), tl(P_(g)), tl(E)))
     print("C-search families in range:", len(got), " equal sets:", got == fams, " missing in C:", len(fams - got), " extra in C:", len(got - fams))
+    if got != fams: sys.exit("FAIL: C search and checker disagree")
 # end-to-end: explicit P, then X, Y, Z for a few families (type 0 for a0 = T^gam g', type 2 for b0 = T^j L')
 random.seed(1); checked = 0
 def irreducible(P): return P.is_irreducible
@@ -81,5 +82,7 @@ for f in sorted(fams)[:6]:
         Y = kap * Pp * X.exquo(a); Z = kap * Pp * X.exquo(b)
         ok = (A * X * Y * Z - Pp * (X * Y + Y * Z + Z * X)).is_zero and all(is_monic(W) for W in (X, Y, Z)) \
              and min(X.degree(), Y.degree(), Z.degree()) >= Pp.degree() - k
-        print("E2E", f, "deg P", Pp.degree(), "identity+monic+NC:", ok); checked += 1; break
+        print("E2E", f, "deg P", Pp.degree(), "identity+monic+NC:", ok); checked += 1
+        if not ok: sys.exit("FAIL: end-to-end identity")
+        break
 print("end-to-end checked:", checked)

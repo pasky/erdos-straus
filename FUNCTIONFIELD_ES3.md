@@ -109,32 +109,33 @@ the complete range by Lemma 2.3; every γ ≤ j, both branches): **0 Case B fami
 (logs `data/ff3_caseB_xstar_c1.txt`, `_c2.txt`). With Lemma 2.3 this excludes every Case B family with
 deg L' ≤ 13 at any level N, and by Lemma 2.1 every family of level N ≤ 8 (j ≤ 7). With the Case A theorem
 (FUNCTIONFIELD_ES2 §0.2): **no linear family of level ≤ 8 and no family with deg L' ≤ 13 is valid at x*_c.** Earlier (I1): also 0 for
-deg L' ≤ 13, j ≤ 14. The deg L' = 13 layer alone tested 7.8·10⁷ monic residues ρ per c (about 25 min per c on one core).
+deg L' ≤ 13, j ≤ 14. Cumulatively 7.8·10⁷ monic residues ρ were tested per c (the deg L' = 13 layer: 5.4·10⁷; ≈ 25 min per c on one core). The program enforces its domain u(0) = 1 (Lemma 1.2).
 Cross-check: `scripts/ff3_check.py` (sympy factorisation of D, all monic divisors, no CRT shortcut) reproduces
 the family sets of ff3_caseB exactly on small ranges, at x*_c and at random slice points, and verifies the found
 families end to end (explicit irreducible P in the class, X, Y, Z monic with T²/P = 1/X + 1/Y + 1/Z and NC);
 log `data/ff3_check_log.txt`.
 
 **Control: x*_c is not visibly special (EVIDENCE; this settles R166 D6 in the negative direction).**
-Random slice points that agree with x*_1 to a given T-adic precision, searched with the same complete j-range
-and deg L' ≤ 9 (`scripts/ff3_ctl.sh m 40 9 0`, 40 points each):
+Random slice points that agree with x*_1 to a given T-adic precision, searched with the same j-range
+j ≤ 4 deg L' − 2 (complete only at u = 1 + cT exactly, so these counts are truncated) and 1 ≤ deg L' ≤ 9 (`scripts/ff3_ctl.sh m 40 9 0`, 40 points each):
 | agreement with 1 + T | points with ≥ 1 family | mean number of families |
 |---|---|---|
 | mod T^4 | 7/40 | 0.35 |
 | mod T^6 | 1/40 | 0.025 |
-So a point that merely shares x*'s first six T-adic digits is expected to carry ≈ 0.03 Case B families of size
-deg L' ≤ 9. The empty search at x*_c is exactly what a generic point of its T⁶-cylinder shows. There is no sign
-of a structural obstruction at x*_c. Conjecture 0.2 looks like a *lottery statement with a convergent expected
-count*: the expected number of Case B families of level N at a point is ≈ poly(N)·3^{−N}, and x*_c has none
-of small level.
+So points that merely share x*'s first six T-adic digits rarely carry a Case B family in this truncated range
+(1 hit in 40). The empty search at x*_c is therefore consistent with x*_c being a typical point of its
+T⁶-cylinder; the searches show no sign of a structural obstruction at x*_c (Assessment: this does not prove
+there is none). Heuristically Conjecture 0.2 is a *lottery statement*: the expected number of Case B families
+of level N at a random point is ≈ poly(N)·3^{−N} (heuristic, not proved), and x*_c has none of small level.
 
 **Assessment (the right target is O(3, T²) ≠ ∅, not x*_c).** By Lemma 2.1 each level N carries finitely many
 family-cylinders, each of Haar mass q^{−(N+1)} in the slice. Let U(m) be the slice mass not covered by
-families of level ≤ m (a finite computation) and T(m) := Σ_{N ≥ m} #cyl(N)·q^{−(N+1)}. If U(m) > T(m) for one m,
+families of level ≤ m (a finite computation) and T(m) := Σ_{N ≥ m} #cyl(N)·q^{−(N+1)}. If U(m) > T(m) for one m (T(m) must also include Case A families),
 some slice point is uncovered (the uncovered set is closed, and its mass is ≥ U(m) − T(m) > 0), so O(3, T²) ≠ ∅
-and no finite linear covering exists — the conclusion of Conjecture 0.2, without deciding x*_c itself. An
-explicit bound #cyl(N) ≤ K q^{(1−δ)N} gives T(m) ≤ K q^{−δm}/(q^{δ} − 1)·q^{δ−1}, so it suffices together with a
-census showing U(m) stays above that for one moderate m (heuristically U(m) tends to a positive limit). Case A families at
+and no finite linear covering exists — the conclusion of Conjecture 0.2, without deciding x*_c itself. Any
+explicit summable bound, e.g. #cyl(N) ≤ K q^{N}/N² or K q^{(1−δ)N}, makes T(m) → 0, so it suffices together with
+a census showing U(m) stays above T(m) for one moderate m (heuristically U(m) tends to a positive limit; also
+heuristic: finiteness per level alone does not give this). Case A families at
 generic slice points need the same bound.
 What the parametrisation of Lemma 2.1 gives (PROVED, elementary): with t := deg v, the family is determined by v
 and an ordered factorisation T^s + v = m'·w·C (all monic), so there are ≤ q^{t−1}·d₃(T^s + v) of them; and
@@ -150,12 +151,13 @@ one's. *Proof.* D = 1 + T^{k+j+γ}L'g' is unchanged, g = T^{γ+1}g' still divide
 of Lemma 1.1(i) only weaken. ∎
 So the union of the covered cylinders comes from families with s = k + j + γ ∈ {2N − k + 1, 2N − k + 2}: exactly
 the regime where the elementary count of §3 gives q^{s/2} ≈ q^{N + 1 − k/2} cylinders at level N, i.e. mass
-≈ q^{−k/2}·q^{o(N)} per level — no decay. **Dictionary (Assessment).** In this regime a family is a factorisation
+≈ q^{−k/2}·q^{o(N)} per level — no decay. **Dictionary (Assessment; an analogy, not an equivalence).** In this regime a family is a factorisation
 E·E' = 1 + T^s·L'g' with E ≡ E' ≡ −1 (mod L'), i.e. a point on the hyperbola EE' ≡ 1 (mod T^s) in a box
-(deg E + deg E' = s + l + deg g'). Counting such points is a Kloosterman problem modulo T^s, and the Weil/
-square-root bound q^{s/2} is exactly the bound above. Deciding whether ES₃(T², ·) has a finite linear covering
-(through the measure route) therefore needs a count that beats square root by q^{−δN} — the function-field
-face of barrier B3. For fixed q = 3 no beyond-square-root input for this shape is known to me.
+(deg E + deg E' = s + l + deg g'). Counting such points is a Kloosterman-type problem modulo T^s, and the elementary bound q^{s/2} has the
+square-root size (this is a matching of exponents, not a proved barrier). Proving *non-existence* of a finite
+linear covering of ES₃(T², ·) by the measure route therefore needs a count that beats this size by a summable
+factor (e.g. 1/N² or q^{−δN}) — the function-field face of barrier B3. For fixed q = 3 no such input for this
+shape is known to me.
 
 ## 4. Other k (q = 3)
 
