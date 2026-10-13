@@ -96,7 +96,11 @@ divisors g ≡ −1 (mod 4P) of the integers nA² + Q₁², A even, Q₁ | P, wi
 g ≤ 2nP²(n + P²) (EXPONENT_CAP Thm 2.1). Their number is ≤ Σ_{Q₁ | P} Σ_{A ≤ (n+1)(1+2Q₁²)} ω(nA² + Q₁²) (A = 2k and the k-bound in the proof of Thm 2.1),
 in any case finite, while the sieve supplies ≫ x/(φ(4P rad n) log x) primes g ≤ x in the progression.
 *Proof.* Prop 1.1(c) (B = Q₁ squarefree, A = 2k) and Thm 2.1. ∎
-*Consequence (Assessment).* Level of distribution (BV/BDH) and Chebotarev/Kummer inputs are irrelevant here: whether
+*Consequence (Assessment).* (R201 repair M2: the following holds for FIXED P only — the fixed-S case of EXPONENT_CAP
+Cor 2.2. In the construction (V4) P ≈ g^{1/4} grows with g, and then the bound g ≤ 2nP²(n + P²) ≈ 2n·g is vacuous: this is
+exactly R200 M1's open regime, and nothing here excludes a level-of-distribution argument with modulus 4P(g). What remains
+true: with P = P(g) the firing condition is hitting a g^{o(1)}-size box, and no Chebotarev field is fixed in advance, so
+standard BV/Chebotarev input does not DIRECTLY apply.) For fixed P, level of distribution (BV/BDH) and Chebotarev/Kummer inputs are irrelevant here: whether
 a prime g in the progression fires is not a Frobenius condition in any field fixed in advance — it is divisibility of
 one of finitely many explicit integers nA² + Q₁² by g, where A itself is tied to g by 2AQ₁ | g + 1. The ES^{(y)}
 proof (FROBENIUS_FIRING Thm 4.2) works because with FIXED S and unbounded exponents the firing condition
@@ -112,17 +116,21 @@ gcd(A, B) = gcd(B, n) = 1;
 **2D | C** and the side conditions of (ii).
 ES's own shot family (the d = 1 slice of the certificate cube) is the curve B = 1 of V_n, on which A ≤ 3(n+1)/2
 (Thm 2.1); on V_n with B free, every point with μ² − n non-square (μ = λD) lies on an infinite Pell orbit
-(Prop 1.2(b)). Necessarily D ≡ 3 (mod 4) (mod 4: B² + D ≡ 0).
+(Prop 1.2(b)) — of the version of V_n WITHOUT the squarefree condition (R201 repair M3: automorphs do not preserve B
+squarefree). (ii)/(iii) include λ even, i.e. Q = λB² even, so (i) refers to the widened shot family of the Notation
+(R201 repair M1). Necessarily D ≡ 3 (mod 4) (mod 4: B² + D ≡ 0).
 *Proof.* Prop 1.1(c), Prop 1.2(a), C := 2λD. D ≡ 3 (4): A even, B odd gives nA² + B² + D ≡ 1 + D ≡ 0 (mod 4). ∎
 *Reading (Assessment).* Write E_n(X) := #{points of V_n with A, B ≤ X}. The naive expectation
 Σ_{A,B ≤ X} τ(nA² + B²)/(2AB) ≍ (log X)³ diverges, so the e = 1 problem at a FIXED n is an infinite lottery — B3
 (main term ≤ p^{o(1)} within an archimedean range) and B6 (averages over p) do not apply, because the family is
-infinite at fixed n. But the condition 2DAB | nA² + B² + D is a *thin* divisibility (for each D the solution set is
-O(log X) Pell/Vieta orbits), not a positive-density congruence condition, so no equidistribution/sieve input
+infinite at fixed n. But the condition 2DAB | nA² + B² + D is a *thin* divisibility (for each (μ, D) the solution set is
+finitely many Pell orbits, each with O(log X) points in the box; R201 repair m6: for fixed D, μ = λD still ranges over
+≍ nX/D values), not a positive-density congruence condition, so no equidistribution/sieve input
 counts E_n(X): the count is a sum over D of integral points on Markoff-type surfaces, the setting of Ghosh–Sarnak
 (Invent. Math. 229 (2022), integral points on x² + y² + z² − xyz = k; their surfaces are different and fully
-Vieta-symmetric — citation from memory, not re-checked) where even the Hasse principle for integral points FAILS for
-a positive proportion of k (their result; I have not checked whether S_{n,D} behaves alike). Prop 1.2(c) shows our
+Vieta-symmetric — citation from memory, not re-checked) where the integral Hasse principle holds for almost all k but fails for
+infinitely many k (at least √K (log K)^{−1/2} up to K) (R201 repair M4: the earlier "fails for a positive proportion of k"
+was wrong; checked against arXiv:1706.06712; I have not checked whether S_{n,D} behaves alike). Prop 1.2(c) shows our
 surfaces have only ONE integral Vieta involution when n ≡ 1 (mod 4), so the orbit-descent tools used for Markoff
 surfaces (descent to a finite set of fundamental solutions) are unavailable.
 
