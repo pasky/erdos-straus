@@ -52,3 +52,14 @@ contradicting (−c)^α = −1.
 polynomial D := 1 + T^{N+1}L'g has a monic divisor E with E ≡ −(1+cT) (mod T^{N+1}), E ≡ −1 (mod L') and monic
 cofactor. Since deg D < 2·deg(T^{N+1}L'), E or its cofactor is the least CRT representative (ρ resp. ρ'). Search:
 `scripts/ff2_caseB.py`.
+Case B normal form (PROVED algebra, q odd, k = 2 written; general k: N = k + j − 1): writing
+E = T^{N+1}Z − (1 + cT) and E' = (T^{N+1}Z' − 1)/(1 + cT) (Z monic, lc Z' = c; Z, Z' ≠ 0 forced), Case B is
+equivalent to the identity
+  (1 + cT)·L'g = T^{N+1}ZZ' − Z − (1 + cT)Z'   (****)
+with T^N Z ≡ c, T^N Z' ≡ −c (mod L'), (1 + cT) | T^{N+1}Z' − 1, g | T^{N−1}L'. Consequences proved so far:
+j = 0 impossible; Z + Z' = 0 impossible; L' | Z + Z'; z ≠ z' and z + z' + 1 ≤ 2 deg L' ≤ 2 max(z, z');
+g = T·H'·Z − (Z + Z')/L' where E' = −1 + T L' H'. No contradiction in general yet.
+Search (`scripts/ff2_caseB.py`, sanity-checked: it re-finds the family E = T²+2T+2, a0 = 1, b0 = T² for
+u = 1+T+2T²): **no Case B family for u = 1 + cT, c = ±1, with deg L' ≤ 5, j ≤ 5** (EVIDENCE).
+Observation: the covered T²-digit is d = 2 = −c² in u ≡ 1 + cT + dT² (mod T³), via the single family
+E = −u mod T³ = T² − cT + 2... (a0 = b0 = T, j = 1), which covers the whole cylinder.
