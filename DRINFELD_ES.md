@@ -60,3 +60,62 @@ re-verified as an ES_q solution A·XYZ = P(XY + YZ + ZX)).** k = 3:
 irreducible P (q = 7, n = 3), 3.2 vs 1.12 (q = 13). Mechanism: Prop 1.2 imposes (P/f)₃ = 1, a condition of
 probability ≈ 1/3 for prime P and automatic for P = Q³, so k-th powers gain a factor ≈ k. Over ℚ the forced value is
 (p/f) = −1, so squares get factor 0 (T1). The sign of the effect is the order of the target −1 in F_q^*/F_q^{*k}.
+
+## 2. The ES_q surface carries Brauer classes of order q − 1 over the base — and they vanish on monic integral points
+
+Bright–Loughran (arXiv:1908.02526, Prop 2.5, 2.6; checked in `sources/`): for the surface
+U_λ : u₁u₂u₃ = λ^{−1}(u₁u₂ + u₁u₃ + u₂u₃), i.e. λ = 1/u₁ + 1/u₂ + 1/u₃, over any field k (their proof uses purity
+and Br G_m² ≅ ℚ/ℤ(−1); in characteristic p we only use the prime-to-p part, Assessment), Br Ũ/Br k is
+represented by α_ζ = (−u₁/u₃, −u₂/u₃)_ζ, ζ ∈ μ(k). Over ℚ, μ = ±1 and only the quaternion class exists; over
+ℚ(ζ_m) the order-m classes exist but corestrict to constants on ℚ-points (LDP_DEEP A.1). **Over F = F_q(T),
+μ(F) = F_q^* = μ_{q−1}: the ES_q surface (λ = A/P) has Brauer classes of order q − 1 defined over the base
+itself.** No corestriction is needed, so LDP A.1 does not apply. This is the most direct candidate for a
+"degree-k Diff-parity" on ES_q.
+
+**Lemma 2.1 (Steinberg decomposition; PROVED, valid over any field with μ_m ⊂ k).** For every point u of U_λ with
+u₁u₂u₃(u₂ + u₃) ≠ 0, put x := λu₁ − 1, y := −u₂/u₃. Then in Br k,
+`α_ζ(u) = (y, −1)_ζ + (x, y)_ζ.`
+*Proof.* With s = −u₁/u₃ = y·(u₁/u₂): (s, y) = (y, y) + (u₁/u₂, y) and (y, y) = (y, −1). Next
+u₁/u₂ = [u₃/(u₂ + u₃)]·[u₁(u₂ + u₃)/(u₂u₃)]. Since 1 − y = (u₂ + u₃)/u₃, the first factor is (1 − y)^{−1}, and
+((1 − y)^{−1}, y) = −(1 − y, y) = 0 (Steinberg). The second factor is u₁(1/u₂ + 1/u₃) = u₁(λ − 1/u₁) = x. ∎
+(Over ℚ, λ = 4/n: α(u) = (−u₂/u₃, −1) + (4u₁/n − 1, −u₂/u₃).)
+
+**Theorem 2.2 (integral vanishing of the odd part; PROVED).** Let q be odd, A monic, P = Q^e a power of a monic
+irreducible Q (e ≥ 1, Q ∤ A), and let u = (X, Y, Z) be a monic NC solution of A/P = 1/X + 1/Y + 1/Z. Then for every
+ζ ∈ μ_{q−1} and every place v of F, inv_v α_ζ(u) ∈ ½ℤ/ℤ. In particular, **for every odd m | q − 1 the class
+α_ζ(u) (ζ of order m) is zero in Br F**: the odd-order part of the Brauer group of the ES_q surface carries no
+information at all on monic integral points.
+*Proof.* α_ζ(u) does not depend on the labelling (BL Prop 2.6: α_ζ = (−u_i/u_k, −u_j/u_k)_ζ), so at each place we
+may relabel. The term (y, −1)_ζ is killed by 2. For β = (x, y)_ζ use the tame symbol
+{x, y}_v = (−1)^{v(x)v(y)} x^{v(y)} y^{−v(x)} mod 𝔪_v (inv_v is its image in k(v)^*/k(v)^{*m}).
+(i) Finite v = ℓ ≠ Q. Choose u₁ with v_ℓ(u₁) maximal. If v_ℓ(λu₁) ≥ 1 (true if v_ℓ(u₁) ≥ 1 or ℓ | A), then
+x ≡ −1 (mod ℓ) is a unit and {x, y} = (−1)^{v(y)}·(−1)^{0} = ±1. Otherwise all u_i are ℓ-units and ℓ ∤ A; y is a
+unit; if v(x) = 0 the symbol is 1, and if v(x) > 0 then λu₁ ≡ 1, so 1/u₂ + 1/u₃ = x/u₁ ≡ 0, u₂ ≡ −u₃ and y ≡ 1,
+symbol 1.
+(ii) v = ∞. By NC exactly one denominator has degree n − deg A (FUNCTIONFIELD_ES Lemma 1.2); take u₁ of larger
+degree. Then deg(λu₁) > 0, so x has sign 1 (λu₁ is monic) and y = −u₂/u₃ has sign −1; {x, y}_∞ = ±1.
+(iii) v = Q: Σ_v inv_v β = 0 and (i), (ii) give 2·inv_Q β = 0. ∎
+*Remarks.* (1) The places ℓ | A are not special: the ES "2-adic" place of ℚ has no odd-order analogue. (2) The
+two places where the proof uses ES specifically are exactly the target −1 (x ≡ −1 at (i)) and the sign
+normalisation (ii). With target λ' ∈ F_q^* of order m, (i) gives λ'^{v(y)}, a genuinely order-m local invariant —
+see §4. (3) P with several prime factors: (i), (ii) still hold; only the sum over v | P is forced to be 2-torsion.
+
+**Corollary 2.3 (Type II: the P-invariant is the Kudla symbol; PROVED).** For a Type II datum (X, Y, Z) =
+(abd, acdP, bcdP) of prime P, inv_P α_ζ(u) = (−f/P)_m (ζ of order m, value in μ_m), f = Aacd − 1.
+*Proof.* Lemma 2.1 with (u₁, u₂, u₃) = (Z, Y, X)... — direct: in the labelling (X, Y, Z),
+α = (−Y/Z, −1) + (E/P, −Y/Z) with E = AX − P (x = λX − 1 = E/P), y = −a/b. At P: v_P(E) = 0 (deg E < n, E ≠ 0),
+v_P(x) = −1, y a P-unit, so {x, y}_P = y = −a/b. From P | Aabd − E and E·f = P + Aa²d: b ≡ E(Aad)^{−1} and
+Aa²d ≡ Ef (mod P), so −a/b ≡ −Aa²d/E ≡ −f (mod P). ∎
+So **Theorem 1.3 (odd m) is the BL reciprocity law of the order-m class**, and FUNCTIONFIELD_ES Prop 4.1 (m = 2) is
+its quadratic part; over ℚ the same computation gives inv_p α = (−f/p) = −1, i.e. BL Thm 1.2 = KUDLA Diff = {p}.
+
+**Numerics (EVIDENCE; `scripts/bsH_bl_classes.py`: all solutions via the Lemma 1.3 divisor criterion, tame symbols at
+every place incl. ∞, normalised by norms to F_q; Weil reciprocity checked on every point).**
+| q, m, A, n, P | #P | #solutions | reciprocity failures | local invariants observed |
+|---|---|---|---|---|
+| 7, 3, T, 3, irreducible | 112 | 801 | 0 | all 0 at every place |
+| 7, 3, T², 4 / T²+1, 4 / T(T+1), 4 | 588 each | 672 / 883 / 899 | 0 | all 0 |
+| 13, 3, T, 3 | 728 | 2829 | 0 | all 0 |
+| 7, 3, T, 3, P = Q³ | 6 | 277 | 0 | all 0 |
+| 7, 6, T, 3 | 112 | 801 | 0 | only 0 and 3 (= ½), at ∞ and P only |
+| 13, 4, T, 3 | 728 | 2829 | 0 | only 0 and 2 (= ½), at ∞ and P only |
