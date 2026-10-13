@@ -72,3 +72,25 @@ move with L_{w′} ⊗ ℤ₂ similar to L_w ⊗ ℤ₂ preserves χ.
 ([[v, t, u]] ↦ [[t, u, v]], n′ = n + u − t), both numerators odd: χ(w′) = −χ(w) **iff t, u, v are all odd and t ≢ u (mod 4)**
 (then n ≢ n′ mod 4). Otherwise χ is preserved (in particular whenever n ≡ n′ (mod 4), recovering DK 8.2). The flip is not a
 function of (n, n′) mod 8. Since rotation changes n, it is not a move on X_n.
+
+**Proposition 1.6 (χ is the evaluation of an Azumaya algebra on X_n; T1 is its Brauer–Manin obstruction; PROVED
+except where labelled).** The ternary form Q_{t,u,v} has determinant tuv − u − v = n, a constant, on the whole surface
+X_n. Hence over X_n ⊗ ℤ[1/2n] it is a nondegenerate ternary form, and its even Clifford algebra 𝒞 = C₀(Q) is an Azumaya
+quaternion algebra on X_n ⊗ ℤ[1/2n] (standard: even Clifford algebra of a regular ternary form; Knus, *Quadratic and
+Hermitian forms over rings*, IV). Write β = [𝒞] ∈ Br(X_{n,ℚ}). For w ∈ X_n(ℤ), inv_ℓ β(w) = 0 for ℓ ∤ 2n (Azumaya over ℤ_ℓ),
+inv_∞ β(w) = ½ on the positive cone (positive definite), and Thm 1.1 is literally Σ_v inv_v β(w) = 0.
+* **T1 as Brauer–Manin.** At odd n = m², inv_ℓ β(w_ℓ) = 0 for *every* ℓ-adic integral point w_ℓ, ℓ | m (Thm 1.1's local
+  formula: ε_ℓ = (−A/ℓ)^{v_ℓ(n)} with v_ℓ(n) even). So on the positive real cone, BM reciprocity forces inv₂ β = ½: the 2-adic
+  "certificate region" Ω₂ := {w₂ ∈ X_n(ℤ₂) : inv₂ β(w₂) = 0} (= the 240 χ = −1 cells mod 8) carries a Brauer–Manin obstruction
+  to positive integral points. At non-square n some ℓ has v_ℓ(n) odd and inv_ℓ takes both values on X_n(ℤ_ℓ) (A ranges over
+  all units mod ℓ), so **there is no BM obstruction** (from β) to a positive integral point in Ω₂.
+* **SQ₅ in this language (CONJECTURE, = MODEL_SPECIFIC C1 restated):** for odd non-square n ∉ {5, 105} (plus the
+  n ≡ 3 (4) cases, which are trivial), *the Brauer–Manin obstruction from β is the only obstruction to positive integral
+  points of X_n lying in the 2-adic region Ω₂.* (n = 105: X_105 has no interior point at all, HJ_DEEP (W).)
+* *Assessment.* This is an integral strong-approximation-with-BM statement at the single place 2 for a Markoff-type
+  affine cubic (projective closure tuv = w²(u + v + nw), boundary triangle at w = 0). Statements of this exact shape are
+  known to **fail** in general for Markoff-type log K3 surfaces (Ghosh–Sarnak integral Hasse failures; Loughran–Mitankin,
+  failures not explained by BM — from memory, not re-checked here), and Bright–Loughran Thm 1.9 (LITERATURE_AUTOMORPHIC)
+  says BM does not control SA on the ES surfaces U_n. So no general theorem applies; SQ₅ would be a *specific* SA statement
+  with an exceptional set {5, 105} ∪ squares. The value of the reformulation is that it isolates the only obstruction
+  as Brauer–Manin, and makes "χ-flip" = "change of inv₂ β", a 2-adic local quantity.
