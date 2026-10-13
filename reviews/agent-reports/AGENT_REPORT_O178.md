@@ -12,7 +12,9 @@ Branch side-agent/spark-depth-aspect (merged side-agent/ff-sterile-point first).
    obstruction to O(3, T²) ≠ ∅ by the measure route is the explicit divisor constants, not exponents. This answers O173's
    and O179's "need 3^{(1/2−δ)K}" in exponent form: δ = 1/10, elementary. Constants are not explicit at q = 3.
 2. **Theorem 2.5 (PROVED, function field): for q = 3^r with r ≥ 27 (and every odd q ≥ 1.3·10^16), and every k ≥ 2,
-   ES_q(T^k, ·) has no finite linear covering.** A positive-measure part (≥ 97 %) of each c-slice is obstructed. This is the
+   ES_q(T^k, ·) has no finite linear covering.** A positive-measure part (≥ 97 %) of each c-slice is obstructed. ((R187 repair)
+   For r = 34, 35 the 97 % needs the pattern sums, not the crude form (0.130, 0.061); recomputed in R187. Suggestion only, not a
+   claim: the same lemmas very likely reach r ≥ 10 with a rigorous tail; see DEPTH_ASPECT §2 Remark.) This is the
    large-q theorem requested in the brief. It is new in char 3, where the class-1 obstruction is absent. It is at fixed q and
    all degrees, unlike O140 Thm 2.1. Proof: union bound with q-independent divisor constants; numbers from `scripts/bsE_largeq.py`.
 3. **Theorem 3.1 (transfer to ℤ; PROVED relative to ET Prop 1.7's proof for Type II N-points, Browning–Elsholtz f(n) ≪ n^{2/3+ε}, and MORDELL17 Lemmas 1.1, 2.1–2.3,
@@ -21,7 +23,8 @@ Branch side-agent/spark-depth-aspect (merged side-agent/ff-sterile-point first).
    This is MORDELL17's measure criterion with ET's exponents 3/5 and 2/5 (margins 2/5 and 1/10), averaged over the (r − 1)/2
    non-residue cells. Large r absorbs the n^{C/log log n} divisor loss that kills r = 17. If it survives review, it is the first
    proved sterile Mordell point other than the square points. **Caveat:** written in one pass at the end of the session.
-   DEPTH_ASPECT §3 Remark (5) lists the three steps to recheck.
+   DEPTH_ASPECT §3 Remark (5) lists the three steps to recheck. ((R187 repair) Rechecked: two independent hostile reviews
+   (R178, R187) find Thm 3.1 SOUND. "Sterile" means in no class of the seven ET families.)
 
 ## Results (labels)
 * §1 (ℤ, prime-power moduli). Exact table of which ET moduli can be q^s (PROVED, elementary). Parity kill: q = 2 is impossible,
@@ -31,8 +34,8 @@ Branch side-agent/spark-depth-aspect (merged side-agent/ff-sterile-point first).
   serve only bounded depth. Verdict: over ℤ, prime-power moduli give a thin H-A family dominated by bounded moduli,
   i.e. B2. Depth-aspect character sums have no entry point at fixed p, since there is no interval (Assessment).
 * §2 Lemmas 2.1–2.4 (PROVED), Thm 2.5 (PROVED, relative to O173 Lemmas 1.1/2.1/3.1, R166 Case A steps (1)–(2) and the ES2
-  compactness criterion).
-* §3 Thm 3.1 (PROVED relative to cited inputs; review needed).
+  compactness criterion). (R187 repair: the O173 parts used were re-derived in R187; Thm 2.5 SOUND in R178 and R187.)
+* §3 Thm 3.1 (PROVED relative to cited inputs; (R187 repair) SOUND in hostile reviews R178 and R187).
 * §4 EVIDENCE: exhaustive Case B counts (q = 3 to s = 15; q = 5, 7, 11), cross-validated against O173's ff3_caseB in both directions
   (0 mismatches). Case A by two independent routes (identical). The union bound at q = 3 is 1.74 (B) + 0.09 (A) > 1, so q = 3
   stays open.

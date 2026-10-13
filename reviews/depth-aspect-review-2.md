@@ -12,6 +12,11 @@ commit c1cf4de8. Did not read `reviews/depth-aspect-review.md`. From-scratch scr
 
 No FATAL and no MAJOR defects.
 
+**Repairs applied (by the reviewer, after merging main with R178's repairs; marked "(R187 repair)" in DEPTH_ASPECT.md and
+reviews/agent-reports/AGENT_REPORT_O178.md):** D2, D3, D4, D5, E1, E3, E4 applied; E5 recorded as a remark (suggestion, not a
+claim). Skipped because R178 had already fixed them: D1 (the effectivity paragraph "(R178 repair: effectivity.)") and E2 (the
+route-wise-constants note). I added only the r = 27 "entirely crude tail" and script-loop remarks next to R178's note.
+
 ## 1. Theorem 3.1 (integer side)
 
 ### 1.1 What I re-derived (independently)
