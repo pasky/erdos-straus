@@ -883,6 +883,23 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * §3.1 (PROVED; CERTIFIED to 10⁶). For q ∈ {3, 5, 7} a non-residue mod p, A = q gives a certificate word; this is Mordell's 840 again.
    * EVIDENCE: census of all odd n ≤ 10⁶. χ ≡ +1 only at n = 105 and at odd squares; χ ≡ −1 at 38 values n ≡ 3 (mod 4).
 
+34. **Spark relays Q and U: the gap between a theorem and ES is an exponent cap (FROBENIUS_FIRING.md (O196), review `reviews/frobenius-firing-review.md` (R196): no FATAL or MAJOR, ten minors repaired; EXPONENT_CAP.md (O200), review `reviews/exponent-cap-review.md` (R200): no FATAL, one MAJOR scope overclaim (M1) and minors, repaired).**
+   * **O196 Thm 4.2 (PROVED relative to the (J)23 sieve; R196 re-derived the class choice and the reciprocity step).** The self-mute variant ES^{(y)}: 4/n = 1/x + 1/y + 1/z, where z may have even-power denominators at primes ℓ | y (ℓ ∤ 2n), holds for every odd n > 1. It has Type II shape at every non-square and its shot mechanism is exact-T1.
+     * Thm 4.4 (CONDITIONAL on GRH; citation-level): one mute prime suffices.
+   * **O196 Cor 4.3 (PROVED; 0 mismatches on 10 527 shots).** In the shot family r | n + 4Q², the solution is ES^{(y)} iff rad(Q) | (r+1)/4, and ES iff Q | (r+1)/4. B2's "the modulus is part of the solution" is therefore harmless at the level of the radical. The entire gap is an EXPONENT CAP.
+   * O196 §1–§3 (Assessments / conditional results; scoped no-go).
+     * Fire(p) is finite, so no Galois extension gives a sufficient Frobenius condition.
+     * Range-restricted versions (Thm 1.3 over F_q[T], CONDITIONAL on the cited effective Chebotarev; Thm 1.4 over ℤ under GRH) are B2/B3 in Chebotarev language.
+     * Heegner dictionary (PROVED): certificates are degree-1 primes 𝔣 | 1 + 2c√−dp with N𝔣 ≡ −1 (mod 4cd).
+     * Over F_q[T], character expansion with Weil certifies firing only if the fixed set has size ≳ n·q^{d/2} ("how mute must a place be").
+   * O200 Prop 1.3 / Cor 1.4 (PROVED). Overflow ↔ growing-modulus duality: D·g = 4k²n + Q₁² with D ≡ −Q₁² (mod 4k). ES is the slice Q₁ = 1 and ES^□ is the slice k = 1.
+   * O200 Thm 2.1 (PROVED, sharp in Q₁⁴), the archimedean wall: g ≤ 2nQ₁²(n + Q₁²).
+     * For a FIXED mute set S and a bounded cap e, the search is finite, like ES (Cor 2.2).
+     * **R200 M1: for a GROWING S the wall does not exclude a sieve at bounded cap.** For e = 1 one only needs a squarefree Q₁ | (r+1)/4 with Q₁ ≥ (r/4n)^{1/4}, i.e. r ≡ −1 (mod 4P) with P ≈ r^{1/4}, a modulus inside the Bombieri–Vinogradov range. ES^{(y, bounded e)} with growing S ("hit −n/4", not "cover") is OPEN.
+   * O200 Prop 3.1 (PROVED). Covering arguments need e ≥ (log r)^{1−o(1)}. Choosing r ≡ −1 mod s^K only buys a divisor-function factor.
+   * O200 Thm 3.2 (PROVED relative to the sieve; ineffective). ES^{(y)} holds with exponent cap y^δ for every δ > 0.
+   * EVIDENCE (R196/R200 own code). ES^{(3)} and ES^{(y)} are solved at all primes < 10⁵ (O196: < 10⁶), with none at odd squares. With S = {3}, the least overflow is 0 for 94 % of primes < 10⁶.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

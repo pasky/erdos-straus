@@ -24744,5 +24744,35 @@ def check_fy():
 
 check_fy()
 
+def check_fz():
+    # (fz) FROBENIUS_FIRING (O196/R196) + EXPONENT_CAP (O200/R200): self-mute ES^(y) and one-mute ES^(3) solve every
+    # prime < 1e5 by shots, none at odd squares; Cor 4.3 (ES^(y) iff rad(Q) | (r+1)/4, ES iff Q | (r+1)/4) on 10527
+    # shots; the overflow/growing-modulus duality D*g = 4k^2 n + Q1^2 and the archimedean wall g <= 2nQ1^2(n+Q1^2).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("FROB/XC subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_frob_selfmute.py", "100000")
+    assert o.count("unsolved 0 []") == 3 and "odd squares m^2<100000, 3 nmid m: 104; hits with j<=15: 0" in o, \
+        ("FROB R196 self-mute", o)
+    o = run("review_frob_selfmute.py", "cor43", "20000")
+    assert "{(False, False): 9832, (True, False): 264, (True, True): 431} mismatches 0" in o, ("FROB R196 Cor 4.3", o)
+    o = run("review_xc_algebra.py")
+    assert "shots=20504 bad=0 evenQ_den_mismatch=0" in o and "converse: cases=3965 bad=0" in o, ("XC R200 duality", o)
+    print(f"== (fz) FROBENIUS_FIRING R196 / EXPONENT_CAP R200: ES^(3), ES^(y) at all 9590 primes < 1e5, 0 of 104 odd "
+          f"squares; Cor 4.3 0 mismatches on 10527 shots; duality + archimedean wall on 20504 shots; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fz()
+
 
 print("\nall checks passed")
