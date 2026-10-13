@@ -77,6 +77,34 @@ t ≤ (1 + √(4p + 1))/4 with a divisor ≡ −1 (mod 4t) of p + 4t², using th
 starting 13, 37, 97, 181, 193, 541, … ✓. Label: the equivalence is PROVED, its strategic reading is marked
 Assessment ✓.
 
+### §5 Prop 5.1 (Machin/arccot dictionary) — SOUND (minor m4, m5)
+(ii): (2cd + w)(2sd + w) = (4csd² − pd) + 2d(c + s)w, w² = −pd; proportional to 1 + 2jw with factor d(c + s)/j iff
+j(4csd − p) = c + s ⟺ (i) ✓. (iii): cot(θ₁ + θ₂) = (ab − 1)/(a + b) = (4csd − p)/(2(c + s)√(pd)); θ₁ + θ₂ ∈ (0, π)
+where cot is injective, so (iii) ⟺ (i) ✓. Egyptian identity = (i)/(pcdsj) ✓. Checked exactly (Fractions) for
+(ii)/Egyptian and at 60 digits for (iii) on all 214 cube points p ≤ 100, plus the converse ((i) false ⇒ (iii) false)
+on a box c, s ≤ 5, d, j ≤ 3 for every p ≤ 100 — 0 failures. Primality of p is not used (harmless). The identity
+is, as the author says, an equivalent restatement — no existence content. Todd 1949 remark is flagged “from
+memory, not re-checked”; I could not access it either (no source in sources/); it is not load-bearing.
+
+### §5 EVIDENCE (cp_cross) — SOUND as EVIDENCE (m6)
+Independent recount (`review_cp_cross.py`, own divisor test): X = 120: n = 59: 14 points, 123 admissible pair
+products, 0 hits; n = 101: 21 points, 199 admissible, 0 hits; X = 40 likewise 0. Matches. Triples not recounted.
+
+### Census (cp_census 5 1000) — SOUND (EVIDENCE), m7
+From-scratch recomputation (`review_cp_census.py 5 1000`, own CF code tracking convergents mod D only, own
+orientation test j·x + (2jμ − 1)·y ≡ 0 (mod d′)): **166 primes, 1736 ES points, D prime 690, composite 1046,
+decomposable 284, V-decomposable 41, primes with ≥ 1 decomposable 88; ES element at k = 3 (μ > 2n) / k = 1
+(μ ≤ 2n) in all 1046 composite cases** — every figure reproduced exactly (log `logs/review_cp_census_5_1000.txt`).
+n = 59, μ = 135: principal divisors exactly {9, 15} ✓. Lagrange is applicable: d′ < D ≤ μ < 2√f = √N for μ > n.
+The document does NOT use data/cp/census_1000_3000.txt (only the agent report mentions an unfinished run);
+however the directory data/cp/ does not exist in the branch at all (m7). R202's “two V-decomposable cases among
+odd n ≤ 301, μ ≤ 6n” not rechecked.
+
+### §6 barrier screen, §7 verdict, labels — SOUND-AFTER-REPAIRS (m8)
+§6(ii): O/η̄O ≅ ℤ/n via √f ↦ μ (η̄ primitive, index = |N η̄| = n) and α = B − Aη̄ ↦ B ✓; B = 1 ⟺ B ≡ 1 (mod n) and
+0 < B < n + 1 ✓. “Composition cannot help select μ” is labelled Assessment in Cor 1.4 (R-O203 #1), Prop 4.1(c),
+§7.5 and the report ✓. One unlabelled strategic claim remains (m8). ES is nowhere claimed solved ✓.
+
 ## Numbered defects
 
 **M1 (MAJOR — false statement as worded; substance survives). Cor 1.4(a)** (and the echo in §0 X2 “No operation
