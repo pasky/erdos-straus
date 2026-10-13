@@ -9,9 +9,9 @@ READ/SEC/RECALL there).
 ## 0. Plan and iteration log
 
 (L1) **Reduction.** In every unit-Type-II mechanism (T1_TEMPLATE Prop 1.2) the case p ≡ 3 (mod 4) is trivial
-(g = a_k itself, §3). For p ≡ 1 (mod 8) no Jacobi-symbol/reciprocity argument can produce the required prime,
-because the product formula sees p exactly as it sees m² (§3, Prop 3.2). So an analytic input (Chebotarev + an
-Artin-type sieve) is unavoidable; the target is an *unconditional* sieve.
+(g = a_k itself, §3). For p ≡ 1 (mod 8) the total Jacobi symbol of a shot is +1, as at m² (§3, Prop 3.2), so the global
+product formula alone cannot force the required prime (finer congruence arguments are not excluded by this; R-review).
+The target is an *unconditional* Chebotarev + Artin-type sieve.
 
 (L2) **First screen: number fields (V_φ, ES over r₁ = 1 fields).** The unconditional Artin-type sieves
 (Gupta–Murty, Heath-Brown, Harper–Murty) need (a) unit rank ≥ 4 (≥ 3 with level > ½) and (b) a level-½
@@ -47,7 +47,7 @@ x, y are q-integral and 1/z ≡ 0 (mod q^w). Use x as denominator: α = (a, b), 
 (ii) v(x) = V > 0: 1/x has valuation −V while 1/z ≡ 0 and 4/n is a unit, so v(y) = V and v(x + y) ≥ 2V > V,
 i.e. a = −y/x ≡ 1 (mod q): the tame symbol a^{−w−V} is trivial.
 (iii) v(x) = 0 < v(y): then 1/y is the only term of negative valuation — impossible. ∎
-(For w odd case (i) gives inv_q = ((−y/x)/q), which is unconstrained: the parity normalisation is exactly what
+(For w odd case (i) gives the Hilbert-symbol sign ((−y/x)/q), i.e. inv_q = ½ iff it is −1, which is unconstrained: the parity normalisation is exactly what
 mutes q. Without it — plain ES over ℤ[1/q] — the T1 dies; explicit example in §2.)
 
 **Corollary 1.2 (T1 for ES^{(S)}; PROVED).** For every solution of ES^{(S)}(n), Σ_{ℓ | n} inv_ℓ α = ½. Hence for
@@ -77,7 +77,7 @@ solution" is violated: the B2 condition "D | x(x + D)/e" is replaced by the auto
 **Without the parity normalisation the T1 dies (example, verified exactly).** Over ℤ[1/5] with no parity condition,
 n = 9, Q² replaced by 5⁵: 9 + 4·5⁵ = 12509 = 7·1787, and Prop 2.1's formulas give
 `4/9 = 1/449 + 1/18 + 3125/8082`, Type II shape at 3 (449 prime to 3; 9 | 18, 9 | 8082), with v₅(z) = −5 odd — a
-Type II solution at a square. Lemma 1.1 case (i) with w odd: inv₅ = ((−18/449)/5) = ½ absorbs the anchor.
+Type II solution at a square. Lemma 1.1 case (i) with w odd: the sign ((−18/449)/5) = −1, i.e. inv₅ = ½, absorbs the anchor.
 
 **Lemma 2.2 (shifted primes with rough (r−1)/2 in a progression; PROVED, standard).** Let 4 | M and let a mod M be a
 class with gcd(a, M) = 1, a ≡ 3 (mod 4), a ≢ 1 (mod ℓ) for every odd prime ℓ | M. For every ε > 0 there are
@@ -97,23 +97,22 @@ N_c := ∏_{c_i>0} q_i^{c_i} − ∏_{c_i<0} q_i^{−c_i} for some c ∈ ℤ^k �
 log|N_c| ≪_S B, so N_c has ≪ B prime factors; there are ≤ (2B+1)^k ≪ y vectors c. Total ≪ y·y^{1/k}. ∎
 
 **Theorem 2.4 (ES^{(S)} at every non-square, unconditionally; PROVED relative to Lemma 2.2's standard sieve).** Let S be
-a set of odd primes with 3 ∈ S and |S| ≥ 4. For every n > 1 with gcd(n, 2S) = 1:
+a set of odd primes with |S| ≥ 4. For every n > 1 with gcd(n, 2S) = 1:
 (a) if n is not a square, there are Q ∈ ⟨S⟩ and a prime r ≡ 3 (mod 4) with r | n + 4Q²; hence ES^{(S)}(n) holds, with a
 solution of Type II shape at every prime of n (Prop 2.1). In particular **ES^{(S)}(p) holds for every prime p ∉ S ∪ {2}.**
 (b) if n is a square, no such (Q, r) exists, and ES^{(S)}(n) has no solution of Type I/II shape at all (Cor 1.2).
-*Proof of (a).* If n ≡ 3 (mod 4), Q = 1: n + 4 ≡ 3 (mod 4) has a prime factor ≡ 3 (mod 4). Let n ≡ 1 (mod 4). Every
-prime ℓ | n is ≥ 5 (3 ∈ S). Pick ℓ₀ | n with v_{ℓ₀}(n) odd; choose residues a_ℓ ≢ 0, 1 (mod ℓ) for ℓ | n, ℓ ≠ ℓ₀,
+*Proof of (a).* If n ≡ 3 (mod 4), Q = 1: n + 4 ≡ 3 (mod 4) has a prime factor ≡ 3 (mod 4). Let n ≡ 1 (mod 4). Some
+prime ℓ₀ ≥ 5 has v_{ℓ₀}(n) odd (if 3 were the only prime of odd valuation, n = 3^{odd}·m² ≡ 3 (mod 4)). Pick it; choose residues a_ℓ ≢ 0, 1 (mod ℓ) for ℓ | n, ℓ ≠ ℓ₀ (a₃ = 2 if 3 | n),
 then a_{ℓ₀} ≢ 0, 1 (mod ℓ₀) such that the Jacobi symbol (a/n) = −1 (possible: there are residues and non-residues
 ≠ 1 mod ℓ₀ ≥ 5); with a ≡ 3 (mod 4) this defines a class a mod M = 4·rad(n) satisfying Lemma 2.2. For r ≡ a (M),
-(n/r) = (r/n) = −1 (reciprocity, n ≡ 1 (4)) and (−1/r) = −1, so −n/4 is a square mod r. Take x large, r ∈ [x/2, x]
-from Lemma 2.2. If [F_r^* : Γ_r] ∉ {1, 2} it has an odd prime factor, which divides (r−1)/2 and so is ≥ x^{1/4−ε},
+(n/r) = (r/n) = −1 (reciprocity, n ≡ 1 (4)) and (−1/r) = −1, so −n/4 is a square mod r. Fix 0 < ε < 1/20 and take x large; Lemma 2.2 gives ≫ x/log²x such r ≤ x, of which ≫ x/log²x lie in [x/2, x]
+(the sieve bound for x/2 is smaller by a constant factor in the main term; or run Lemma 2.2 on the dyadic interval), and r ∉ S. If [F_r^* : Γ_r] ∉ {1, 2} it has an odd prime factor, which divides (r−1)/2 and so is ≥ x^{1/4−ε},
 whence |Γ_r| ≤ x^{3/4+ε}; by Lemma 2.3 (k = |S| ≥ 4) there are ≪ x^{(3/4+ε)(5/4)} = o(x/log²x) such r. So some r has
 [F_r^* : Γ_r] ≤ 2, i.e. Γ_r ⊇ (F_r^*)² (r ≡ 3 (mod 4): F_r^* = {±1} × squares of odd order), hence
 {Q² : Q ∈ ⟨S⟩} ⊇ (Γ_r)² = (F_r^*)² ∋ −n/4 (exponents can be taken ≥ 0 as Γ_r is finite): r | n + 4Q². (b) is the
 mechanism T1 above plus Cor 1.2. ∎
 *Remarks.* (1) The theorem is "exact-T1": the mechanism succeeds at n iff n is not a square. (2) The only analytic
-inputs are Bombieri–Vinogradov and the linear sieve; no GRH. The condition 3 ∈ S only avoids n = 3m² (where 3 | r − 1
-for every admissible class); |S| = 3 should follow from Heath-Brown's sieve (Quart. J. Math. 37 (1986)), not checked.
+inputs are Bombieri–Vinogradov and the linear sieve; no GRH. |S| = 3 should follow from Heath-Brown's sieve (Quart. J. Math. 37 (1986)), not checked.
 (3) The variant is weaker than ES (more solutions); the point is the *mechanism*: a T1-respecting existence proof
 whose T1-sensitive step is the Chebotarev condition (n/r) = −1 and whose "infinitely many shots" come from the
 infinite S-orbit with fixed modulus.
@@ -142,9 +141,9 @@ the anchor): x = (n + 1)/4. (The ES analogue x = (p + 1)/4.)
 
 **Proposition 3.2 (no reciprocity proof for n ≡ 1 mod 8; PROVED).** Let K be any number field, n ≡ 1 (mod 8)
 a positive rational integer, η ∈ O_K^* (or η = Q² with Q an S-unit, S odd) and a = n + 4η, coprime to n. Then
-∏_{𝔮 | a} (n/𝔮)^{v_𝔮(a)} = 1, the value it has for n = m². So the existence of a prime 𝔮 | a with (n/𝔮) = −1
-can never be forced by Jacobi symbols / the product formula; every existence proof needs an input that sees
-individual primes (Chebotarev, sieve).
+∏_{𝔮 | a} (n/𝔮)^{v_𝔮(a)} = 1, the value it has for n = m². So the total Jacobi symbol / product formula alone cannot force a prime 𝔮 | a with
+(n/𝔮) = −1. (Only this identity is PROVED; it does not exclude congruence arguments on partial factorisations, e.g.
+n ≡ 17 (mod 24) forces 3 | n + 4.)
 *Proof.* Quadratic reciprocity in K: (n/a)(a/n) = ∏_{v | 2∞}(n, a)_v. n > 0 and n ∈ ℚ₂^{*2} (n ≡ 1 (8)), so all
 these symbols are 1. (a/n) = (4η/n) = ∏_{ℓ | n}(N_{K/ℚ}(η)/ℓ)^{v_ℓ(n)} = 1 (residue symbols of a unit at the primes
 over ℓ multiply to the Legendre symbol of its norm ±1, and (−1/ℓ) cancels as n ≡ 1 (4); for η = Q² it is a square). ∎
@@ -172,13 +171,14 @@ condition is a congruence — the reason Theorem 2.4 is unconditional.
 sources/uo/LITERATURE.md).** An Artin-type sieve for a number-field variant must count degree-1 primes of K with a
 non-norm Frobenius condition; then E ⊇ K and the known level is 1/η, η = max{[K:ℚ] − 2, 2}. The closing condition of
 the Gupta–Murty argument is 2η < r + 1 with r ≤ [K:ℚ] − 1 the unit rank: for [K:ℚ] ≤ 4 it needs r ≥ 4 > [K:ℚ] − 1,
-for [K:ℚ] ≥ 5 it needs 2[K:ℚ] − 4 < r + 1 ≤ [K:ℚ]. It never closes. Hypothesis responsible: the mute place is REAL,
+for [K:ℚ] ≥ 5 it needs 2[K:ℚ] − 4 < r + 1 ≤ [K:ℚ]. It never closes — for THIS method with the levels known to us (Jiang–Lü–Wang 2021's improved level was not
+checked); this is not an impossibility theorem. Hypothesis responsible: the mute place is REAL,
 which forces η < 0 there, so the orbit is a non-square coset ηU² and a non-norm quadratic character enters. Making the
 mute place FINITE (§1) removes exactly this hypothesis.
 
 *Galois case (R183 M2: Harper–Murty needs K/ℚ Galois, impossible for r₁ = 1).* The T1-bearing variants over Galois
-fields with rank ≥ 4 are totally positive ES over totally real Galois K of odd degree d ≥ 5 (P = all real places,
-|P| = d odd). There U_𝔪 = O_K^* and Prop 4.1 forces (u/𝔮) = sgn N(u) for every unit u: a Frobenius condition c in
+fields with rank ≥ 4 include totally positive ES over totally real Galois K of odd degree d ≥ 5 (P = all real places,
+|P| = d odd); other odd P (e.g. a singleton) in Galois totally real fields are not treated here. There U_𝔪 = O_K^* and Prop 4.1 forces (u/𝔮) = sgn N(u) for every unit u: a Frobenius condition c in
 N = Gal(K(√O_K^*)/K) ≅ (ℤ/2)^d. c is G-invariant (sgn N(u^σ) = sgn N(u)), hence central in Gal(K(√O_K^*)/ℚ), so it lies
 in every maximal abelian subgroup; but the largest abelian subgroups have index ≥ d (N itself; N^G is small since
 O_K^*/O_K^{*2} ≅ 𝔽₂ ⊕ (augmentation module)). Murty–Murty/Murty–Petersen then give η = d − 2 against the required
@@ -217,7 +217,7 @@ K(√n) ⊄ K(i, √φ) (as in O183's check; K(√φ)/ℚ is not abelian). ∎
 and they are exactly the 71 elements of T below 10⁴.
 *Remark (R183 m4).* For n with (n/5) = −1 (e.g. primes p ≡ ±2 mod 5) V_φ(n) is unconditional by a congruence:
 (√5) | a_k for a suitable parity of k (φ ≡ 3 mod √5, and −4·3^{2k+1} runs through {2, 3} mod 5). The GRH/large-sieve
-content of Theorems 5.1–5.2 is the case (n/5) = 1.
+content of Theorems 5.1–5.2 is the case (n/5) ∈ {0, 1}.
 
 ## 6. The ℤ-analogue question: what replaces the unit orbit over ℤ (S4)
 
@@ -231,10 +231,11 @@ every divisor g ≡ 3 (mod 4) of n + 4Q²), z ∈ ℤ in 3100 cases, and "g ≡ 
 
 **Theorem 6.2 (the three ways to an infinite orbit over ℚ; PROVED, scope: the unit-Type-II recipe x = (n+e)/4,
 y' = (x+D)/e, z' = x(x+D)/(eD) with D in a multiplicative orbit).**
-(i) Over ℤ the orbit is {1} (units ±1, positivity): one shot, n + 4. Allowing D ∈ ℤ_{>0} arbitrary turns the shot
-condition into "n + 4D has a divisor g ≡ −1 (mod 4·(D-part))" — for D = Q², exactly Prop 6.1, i.e. B2's "divisor in a
-residue class whose modulus is part of the solution"; the expected number of successful shots Σ_Q τ(n+4Q²)/φ(4Q) is the
-usual polylog lottery (B3).
+(i) Over ℤ the orbit is {1} (units ±1, positivity): one shot, n + 4. Keeping z ∈ ℤ along the orbit D = Q², Q ∈ ⟨S⟩,
+turns the shot condition into "n + 4Q² has a divisor g ≡ −1 (mod 4Q)" (Prop 6.1, PROVED), i.e. B2's "divisor in a
+residue class whose modulus is part of the solution". (Assessment) the heuristic expected number of successful
+ES-shots, Σ_{Q ∈ ⟨S⟩} τ(n+4Q²)/φ(4Q), CONVERGES (τ ≪ Q^ε, finite Euler product over S): along any S-orbit ES gets
+only a finite lottery; unrestricted Q ∈ ℤ gives the usual polylog lottery (B3).
 (ii) Over ℤ[1/S] with no normalisation the orbit is infinite with fixed modulus 4, but the T1 dies: inv_q is free
 (Lemma 1.1 (i), w odd) and Type II solutions at squares exist (§2 example; control run of `uo_mute_t1.py`).
 (iii) Over ℤ[1/S] with the parity normalisation (ES^{(S)}) the orbit is infinite ({Q²}), the modulus is fixed (4), the
@@ -243,5 +244,6 @@ g ≡ −1 (mod 4Q).
 So the precise ℤ-analogue of a mute place is a **finite prime muted by a parity normalisation**. It exists and
 behaves better than the real mute place of V_φ (no Kummer obstruction, §4). It is **not an opening for ES itself**
 (Assessment): passing from ES^{(S)} back to ES is exactly the growing-modulus condition of Prop 6.1, which is B2.
-What the construction isolates is that B2's growing modulus, and nothing else, separates ES from a T1-bearing equation
-that is provably solvable at every prime: **ES = ES^{(S)} + "g ≡ −1 (mod 4Q)"**.
+What the construction isolates (PROVED only within the orbit family; ES has other solutions, e.g.
+4/169 = 1/52 + 1/234 + 1/6084 at a square where no shot exists): **within the unit-orbit family, ES-solutions =
+ES^{(S)}-solutions + "g ≡ −1 (mod 4Q)"** — B2's growing modulus is what separates the two along the orbit.
