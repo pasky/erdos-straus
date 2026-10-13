@@ -11,12 +11,14 @@ Scripts `scripts/ec_*`. Builds on LORENZINI_W.md §9 (Sierpiński-type exponent 
   primes, so "a square at every q separately" glues to a profinite square point. For exponential families the exponent μ ∈ Ẑ couples the
   primes q through the orders ord_q(2), and local squares need not glue: this is a Sierpiński covering, but with quadratic characters.
 * (§1, Cor 1.5) Divisor classes kill non-unit squares; the only integer obstruction points of k·2^m + 1 are k = 4^j − 1 at μ = 0 (PROVED).
-  So ES for all Proth numbers 3·2^m + 1 is out of reach of fixed slices.
+  So ES for all Proth numbers 3·2^m + 1 is out of reach of finite coverings by ET/divisor classes (R185 repair: more generally by
+  congruence classes solvable by polynomials + divisor classes; nothing is claimed for other methods).
 * (§3, SHARP) Dictionary: coverability ⟺ a Skolem / Bertók–Hajdu-type exponential local–global principle for k·2^x + 1 = (unit)²
   plus absence of sterile non-square points.
-* (§4, PROVED computer-assisted, certified by an independent checker) ES holds for all n = k·2^m + 1 for k ∈ {9, 21, 27, 57, 171, 231, 315,
+* (§4, PROVED computer-assisted; checked by ec_cert.py and independently re-checked by R185, scripts/review_ec_cert.py) ES holds for all n = k·2^m + 1 for k ∈ {9, 21, 27, 57, 171, 231, 315,
   393, 495, 15015}; e.g. all 315·2^m + 1 (≡ 1 mod 2520) and all 15015·2^m + 1 (≡ 1 mod 120120, squares mod every prime ≤ 13).
-  27·2^m + 1 is ≡ 529 (mod 840) for m ≡ 2 (12) and contains the primes 109, 27·2²⁶ + 1, 27·2⁵⁰ + 1.
+  27·2^m + 1 is ≡ 529 (mod 840) for m ≡ 2 (12), m ≥ 14 (R185 repair: not m = 2, n = 109), and contains the primes 27·2²⁶ + 1,
+  27·2⁵⁰ + 1 in that class.
 * (§5) S-unit families: B1 is the S → all-primes limit of an S-unit obstruction (finitely many integer obstruction points for finite S).
 
 ## 1. Setup and the compactness criterion
@@ -38,23 +40,28 @@ classes mod some M = 2^s M′. For m ≥ s, n_m ≡ ν(m) (mod M) (odd component
 (a)⇒(b): given μ, pick m_j ≥ m₀, m_j → ∞, m_j → μ in Ẑ. Then n_{m_j} → ν(μ) in Ẑ (the 2-components k2^{m_j} + c → c). All n_{m_j} lie in the
 closed set C, hence ν(μ) ∈ C ⊂ U. Squares: if an ET class r (mod M) contained x ∈ Sq then r is a square mod every prime power of M, so
 r ≡ s² (mod M); r is odd when M is even (all ET residues are ≡ −f, −e or −e⁻¹ with f, e odd), so there are odd integers s′ ≡ s (mod M)
-with s′² in the class, s′ large. But no ET class contains an odd square: this is the Schinzel–Yamamoto quadratic-reciprocity fact behind
-ET Prop 1.6 (campaign T1; ET's f_I, f_II are defined with coprimality conditions, so for composite n we use the class-level form of the
-reciprocity argument rather than Prop 1.6 verbatim). Computational control: `scripts/ec_t1check.py 3000` — all 109121 ET classes of
+with s′² in the class, s′ large. But no ET class contains an odd square. (R185 repair) Proof: all seven ET families are *primitive*
+classes (side conditions f | 4a²d+1; (4ac,f) = 1; (4cd,f) = 1 with n² ≡ −4c²d a unit mod f; (e,4ab) = 1; 4ad | f+1; (4ad,e) = 1), so
+x_q is a unit for q | M and the class is a primitive class r ≡ s² (mod M), gcd(s, M) = 1, represented by the perfect square s². By
+Mordell (Diophantine Equations, 1969) / Schinzel (Funct. Approx. 2000), as quoted in ET p. 7–8, such a class is not solvable by
+polynomials, while every ET class is (ET Prop 1.9, converse). For Sq^× primitivity is automatic, so **Sq^× avoids every congruence
+class solvable by polynomials**, not only ET classes. (Mordell/Schinzel not accessed directly; reliance on ET's quotation.)
+Computational control (not part of the proof): `scripts/ec_t1check.py 3000` — all 109121 ET classes of
 modulus ≤ 3000 avoid odd squares; the certificate checker re-tests every class it uses. ∎
 
 **Divisor classes.** D_q := {n ≡ 0 (mod q)} for an odd prime q: ES(n) follows from an explicit ES(q) scaled by n/q, and the
-coordinates are again polynomials in n, integer-valued on the class. Put U′ := U ∪ ⋃_q D_q, S′ := Ẑ \ U′ (closed).
+coordinates are again polynomials in n, integer-valued on the class. (R185 repair) This uses ES(q) for the finitely many q actually
+used (explicit in every certificate); the topological equivalence of Thm 1.4 is unconditional. Put U′ := U ∪ ⋃_q D_q, S′ := Ẑ \ U′ (closed).
 
 **Theorem 1.4 (PROVED; same proof as 1.2).** A finite covering of {n_m : m ≥ m₀} by ET and divisor classes exists iff Λ_k ∩ S′ = ∅.
 S′ ⊇ Sq^× := {x : x_2 ≡ 1 (8), x_q ∈ (Z_q^×)² for all odd q} (profinite *unit* squares): D_q contains no point that is a unit at q, and the
 ET part is Theorem 1.2. So non-unit square points (e.g. ν(ℓ) = s² with an odd prime q | s) are NOT obstructions: they lie in D_q.
 
 **Corollary 1.5 (integer obstruction points; PROVED).** Let b = 2, c = +1, k odd. For ℓ ∈ Z, ν(ℓ) ∈ Sq^× iff ℓ = 0 and k = 4^j − 1 (j ≥ 1).
-*Proof.* ℓ ≥ 0: ν(ℓ) has odd components the integer N = k2^ℓ + 1 > 1; N is a square in every Z_q (q odd) iff N = s² (an integer that is a
-square modulo almost all primes is a square), and a unit at every odd q iff s is a power of 2. Then k2^ℓ = (s−1)(s+1) with s = 2^j forces
-ℓ = 0 (k2^ℓ is odd·2^ℓ, s ± 1 odd), k = 4^j − 1. ℓ < 0: components (k + 2^{|ℓ|})/2^{|ℓ|}; a square everywhere iff 2^{|ℓ|}(k + 2^{|ℓ|}) = □,
-so |ℓ| even and k + 2^{|ℓ|} = s² with s a power of 2: k = 4^j − 4^i odd forces i = 0, i.e. ℓ = 0. ∎
+*Proof (R185 repair: rewritten).* ℓ ≥ 0: ν(ℓ) has odd components the integer N = k2^ℓ + 1 > 1; N is a square in every Z_q (q odd) iff
+N = s² (an integer that is a square modulo almost all primes is a square), and a unit at every odd q iff s = 2^j. For ℓ ≥ 1, N is odd,
+so s = 1, impossible; for ℓ = 0, k + 1 = 4^j. ℓ = −a < 0: components (k + 2^a)/2^a; a square everywhere iff 2^a(k + 2^a) = □; as
+k + 2^a is odd, a is even and k + 2^a = s² with s odd and a unit at every odd prime, so s = 1, impossible. ∎
 So **3·2^m + 1, 15·2^m + 1, 63·2^m + 1, … (k = 4^j − 1) admit no finite exponent covering by ET/divisor classes**: along m ≡ 0 (mod L),
 n_m ≡ 4^j (mod 2^L − 1) mimics the even square 4^j (the "2²-mimicking" form of B5/T1; note T1 itself is about odd squares).
 
@@ -64,9 +71,10 @@ is eventually periodic (Lucas sequences etc.), with Ẑ replaced by the appropri
 ## 2. Why B1 does not apply: product vs. coupled parameter spaces (PROVED)
 **Proposition 2.1 (polynomial families).** Let f ∈ Z[t] be non-constant and F = {f(t) : t ∈ Z, t ≡ t₀ (mod T)}. The closure of F in Ẑ is
 f(t₀ + TẐ), computed componentwise: f(t)_q = f(t_q). Hence F̄ ∩ Sq^× ≠ ∅ iff for every prime q (q = 2 included, with "≡ 1 mod 8") there is
-t_q ∈ t₀ + TZ_q with f(t_q) a unit square in Z_q. Consequently a finite ET/divisor covering of F exists only if (i) some *single* prime power
-q^e makes f(t) a non-(unit square) mod q^e for all t ≡ t₀ (T) — a one-prime local obstruction — or (ii) F̄ avoids Sq^× because of (i) after all.
-Only finitely many q can do (i) (for q ∤ 2T·lc(f)·disc(f) large, y² = f(t) has a smooth F_q-point with y ≠ 0 by Weil, which lifts by Hensel).
+t_q ∈ t₀ + TZ_q with f(t_q) a unit square in Z_q. Consequently a finite ET/divisor covering of F exists only if some *single* prime q
+has f(t) ∈ {0} ∪ {non-residues} (mod q) (mod 8 for q = 2) for all t ≡ t₀ (T) — a one-prime local obstruction (R185 repair: the former
+clause (ii) was vacuous). Unless f is a constant times a square in Q[t] (R185 repair: then (i) holds at every q with (c/q) = −1),
+only finitely many q can do this (for q ∤ 2T·lc(f)·disc(f) large, y² = f(t) has a smooth F_q-point with y ≠ 0 by Weil, which lifts by Hensel).
 *Proof.* Ẑ = Π_q Z_q and f commutes with the projections, so independent local choices t_q glue to t̂ ∈ Ẑ; then f(t̂) ∈ Sq^× and
 Theorem 1.4 (whose proof is family-agnostic: any compact closure + clopen classes) excludes a covering. ∎
 This is the mechanism behind B1 (Mordell/Schinzel; POINTWISE_SIZE Thm C at the rational point q*_univ): the prime/integer family is
@@ -74,8 +82,8 @@ This is the mechanism behind B1 (Mordell/Schinzel; POINTWISE_SIZE Thm C at the r
 
 **Proposition 2.2 (exponential families: the coupling).** For n_m = k·2^m + c the q-component of ν(μ) depends on μ through
 μ mod ord_q(2)·q^∞ only, and these quotients of Ẑ are *not independent* as q varies (they share the prime factors of the orders).
-Let A_q := {μ ∈ Ẑ : ν(μ)_q ∈ (Z_q^×)²}, a clopen set (for q ∤ k: A_q ≠ ∅ iff ... it is a union of classes mod ord_q(2)·q^{e}).
-Then Λ_k ∩ Sq^× = ⋂_q A_q (the 2-component c = 1 is a square), and by compactness it is empty iff ⋂_{q ∈ Q} A_q = ∅ for a finite set Q.
+Let A_q := {μ ∈ Ẑ : ν(μ)_q ∈ (Z_q^×)²}, a clopen set (R185 repair: for odd q it is a union of classes mod ord_q(2)).
+Then Λ_k ∩ Sq^× = ν(⋂_q A_q) (the 2-component c = 1 is a square), and by compactness it is empty iff ⋂_{q ∈ Q} A_q = ∅ for a finite set Q.
 That finite emptiness statement is a **Sierpiński covering of the exponents by quadratic characters (and divisibilities)**: for every
 m mod L = lcm_{q∈Q} ord_q(2), some q ∈ Q has q | n_m or (n_m/q) = −1. Unlike the polynomial case, each A_q can be non-empty
 (every single prime is locally harmless) while the intersection is empty. So the hypothesis of B1 that fails is *product structure of
@@ -91,7 +99,9 @@ By Theorem 1.4 and Prop 2.2, the square half of the covering problem for n_m = k
 > (EH_k) *If the equation k·2^x + 1 = y² has no solution with x ∈ Z and y ∈ Z a unit at every odd prime (i.e. y = ±2^j), then it has
 > no solution modulo some M: there is M such that k·2^x + 1 ≢ (unit)² (mod M) for every x ≥ v₂(M).*
 Equivalently Λ_k ∩ Sq^× = ∅ for every k ≠ 4^j − 1 (Cor 1.5 identifies the global solutions). (EH_k) is an *exponential local–global
-principle* of exactly the type of Skolem's conjecture and of the Hasse-type principle of Bertók–Hajdu (arXiv:1407.6499, Math. Comp. 2016;
+principle* analogous to (R185 repair: not an instance of — the local condition "≡ some unit square mod M" is not the reduction of
+the global equation k2^x + 1 = 4^y, so (EH_k) is strictly stronger than the B–H principle for it) Skolem's conjecture and the
+Hasse-type principle of Bertók–Hajdu (arXiv:1407.6499, Math. Comp. 2016;
 extension Monatsh. Math. 2018, doi 10.1007/s00605-018-1169-8), with one twist: the unknown y ranges over a non-finitely-generated
 group of units, so it is a *mixed* (exponential + square) principle. Bertók–Hajdu prove their principle for "almost all" equations and
 find moduli via numbers m with small Carmichael λ(m) (Erdős–Pomerance–Schmutz); our moduli M | 2^L − 1 with L highly composite are the
@@ -114,7 +124,7 @@ k ∈ {1, 9, 21, 27, 57, 171, 231, 315, 393, 495, 15015}.
 | k | L | classes | note |
 |---|---|---|---|
 | 1 | 12 | 2 | 2^m + 1: trivial (3 \| n for m odd, n ≡ 2 mod 3 for m even); listed as a sanity check |
-| 27 | 12 | 6 | m ≡ 2 (12): n ≡ 529 (840), Mordell-hard; II2 class n ≡ 31 (mod 39). Contains the FFT prime 27·2²⁶+1 |
+| 27 | 12 | 6 | m ≡ 2 (12), m ≥ 14: n ≡ 529 (840), Mordell-hard (R185 repair: m ≥ 14); II2 class n ≡ 31 (mod 39). Contains the FFT prime 27·2²⁶+1 |
 | 9 | 72 | 9 | needs I1 (3, 38737, 287), M = 464844, for m ≡ 41 (72) (see §4.3) |
 | 315 | 420 | 25 | **n ≡ 1 (mod 2520) for all m ≥ 3** (Mordell's class 1 mod 840 throughout) |
 | 15015 | 840 | 24 | **n ≡ 1 (mod 120120) for all m ≥ 3** — a square modulo every prime ≤ 13, Salez/Terzi level |
@@ -122,7 +132,8 @@ k ∈ {1, 9, 21, 27, 57, 171, 231, 315, 393, 495, 15015}.
 
 **4.2 Survey** (`scripts/ec_survey2.py 3 600 300000`, k ≡ 3 (mod 6), k ≤ 600; EVIDENCE): 78 covered (mostly L ∈ {12, 24, 36, 60}),
 4 obstructed by Cor 1.5 (k = 3, 15, 63, 255 — the k = 4^j − 1 points), 18 "OPEN" at the search limits (L ≤ 3000 from a fixed list,
-M ≤ 3·10⁵). Every OPEN k has an integer square point k·2^ℓ + 1 = s² or k + 4^j = s² with an odd prime q | s of large ord_q(2)
+M ≤ 3·10⁵). Every OPEN k has an integer square point k·2^ℓ + 1 = s² or k + 4^j = s² (R185 repair: "of large ord_q(2)" removed — false for k = 225: 225 + 4³ = 17²; survey re-run by R185 reproduced 78/4/18 exactly,
+log data/ec/r185_rerun_survey2_k600.txt)
 (e.g. k = 33: 23²; 69: 47²; 105: 29², 41², 11², 13², 19²). k = 9 was OPEN at M ≤ 3·10⁵ and is covered at M = 464844, so OPEN means
 "search limits", not "obstructed". Other bases (`scripts/ec_bases.py`, k ≤ 40): b = 3, c = −1: all 14 covered; b = 3, c = +1: 11/14
 (k = 8 is the unit-square point 8 + 1 = 3²); b = 5: 15/16 (k = 24: 24 + 1 = 5²); b = 10: 32/36 (k = 3, 15, 24 are unit-square points;
@@ -144,7 +155,8 @@ the limit points are c). The *integer* unit-square points are exactly the soluti
 q ∉ S; same proof as Cor 1.5); by the S-unit equation theorem there are finitely many for each (k, S). Examples: S = {2}, c = 1: k = 4^j − 1;
 S = {2, 3}: k = 1 is obstructed (1·2³ + 1 = 3²), so "ES for all 2^a 3^b + 1 by fixed slices" is impossible although "all 2^a + 1" is trivial.
 As S grows to all primes, k·u + 1 = v² becomes solvable for every k and the coupling disappears (Ẑ^{|S|} → product structure):
-**B1 is the S → {all primes} limit of the S-unit obstruction.** (Assessment: this is the cleanest single sentence of this note.)
+**B1 is the S → {all primes} limit of the S-unit obstruction.** (Assessment, heuristic — R185 repair. Precise version: for S = all
+primes, F_S(k) = {n ≡ 1 (mod k), n > 1} is a progression and Prop 2.1 applies.)
 
 **5.2 Polynomial families (PROVED, Prop 2.1).** n = f(t) on an arithmetic progression is coverable by fixed slices only through a
 one-prime local obstruction. This is the hypothesis exponential families violate (product structure over target primes), not
@@ -154,8 +166,8 @@ polynomiality per se: e.g. f(2^m) (m varying) is an exponential family again, an
 More to the point, the method fails for infinitely many k (k = 4^j − 1, Cor 1.5), and for those k the failing exponents are m ≡ 0
 (mod L) for *every* L: along them n_m = 4^j + (4^j − 1)(2^m − 1) mimics 4^j modulo 2^L − 1. Writing m = 2t, n = (4^j − 1)X² + 1 with
 X = 2^t, and X → 1 profinitely: the family degenerates to the polynomial family (4^j − 1)X² + 1 near X = 1, where Prop 2.1 applies.
-So e.g. **ES for all Proth numbers 3·2^m + 1 is out of reach of every fixed-slice / congruence method** (PROVED for ET + divisor classes by
-Cor 1.5 + Thm 1.4; for general Theorem-M procedures it is the usual H-conditional transfer at the point X̂ = 1, not checked here).
+So e.g. **ES for all Proth numbers 3·2^m + 1 is out of reach of every finite covering by polynomial-solvable congruence classes and divisor
+classes** (R185 repair: scope stated precisely; PROVED by Cor 1.5 + Thm 1.4 + the Mordell/Schinzel step of Thm 1.2; for general Theorem-M procedures it is the usual H-conditional transfer at the point X̂ = 1, not checked here).
 For each fixed k ≠ 4^j − 1 the expected answer is "coverable" (CONJECTURE EC_k := (EH_k) + no sterile non-square point in Λ_k;
 EVIDENCE §4.2: no counterexample, all failures explained by search limits around non-unit square points).
 

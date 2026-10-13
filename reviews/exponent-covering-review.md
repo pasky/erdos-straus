@@ -1,6 +1,7 @@
 # R185 — hostile review of O185 EXPONENT_COVERING.md (reviewer 1 of 2, full document)
 
 Reviewer branch `side-agent/review-expcover-1`. From-scratch scripts `scripts/review_ec_*.py`.
+Repairs applied (author branch quiet): D1, D2, D3, D4, D5, D6, D7, D8, D9, D10 (wording + rerun log), D11, D12 — directly in EXPONENT_COVERING.md and the bsK memos, each marked "(R185 repair)".
 Status: round 1 complete. **No FATAL defects. The headline infinite result (Thm 4.1) is SOUND**: all 11 certificates pass a
 from-scratch exact checker. 2 MAJOR (D3 proof gap for "squares are sterile", repairable by citation; D12 overclaimed scope of the
 Proth negative), 9 MINOR.
@@ -158,7 +159,13 @@ conflates exponent space and target (should be ν(⋂_q A_q)). *Repair:* finish/
 ord_q(2)"); write ν(⋂ A_q).
 
 **D10 (MINOR; §4.2 survey).** Output not stored in data/ (only certificates for the 11 headline k), so 78/4/18 is reproducible only by a
-re-run. *Repair:* commit the survey log (data/ec/survey2_k600.txt). [R185 re-ran ec_survey2.py — see below.]
+re-run. *Repair:* commit the survey log. R185 re-ran `ec_survey2.py 3 600 300000` (~20 min; log committed as
+data/ec/r185_rerun_survey2_k600.txt): **78 COVER / 4 OBSTRUCTED / 18 OPEN reproduced exactly**; OPEN = {9, 33, 69, 105, 129, 147,
+195, 225, 273, 285, 291, 351, 435, 465, 513, 525, 561, 573} ⊇ my 11 square-survivors, and the 7 OPEN k that are square-clear in my
+screen (9, 105, 129, 147, 225, 525, 561) account exactly for 85 − 78. Every OPEN k does have an integer square point (own check),
+but "with an odd prime q | s of large ord_q(2)" is wrong for k = 225 (225 + 4³ = 17², ord₁₇(2) = 8) and k = 9 (17², 5²);
+*repair:* drop "of large ord_q(2)" or say "OPEN k are exactly near integer square points; the covering cost is set by the
+near-square level (§4.3), not by ord_q(2) of q | s".
 
 **D11 (MINOR; §5.1 bold sentence, bsK_sunit_limit).** "B1 is the S → all-primes limit of an S-unit obstruction" is a heuristic; the
 "(Assessment: …)" parenthesis comments on style. *Repair:* label it Assessment explicitly, and give the precise version: for S = all
