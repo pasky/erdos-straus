@@ -15,12 +15,11 @@ remark (forward it to O173/R173), and the DISCOVERIES ledger entry for D10 (pare
 | Claim | Verdict |
 |---|---|
 | SIGNLAYER Lemma 1.1 (Case B on the slice = finite search per level K; L'', r, g' forced by (h₁, h₁', K)) | SOUND (re-derived; brute-force verified against direct factorisation of D); MINOR wording defects D1–D3 |
-| §2 complete enumeration, CERTIFIED through K = 17 / 19 | SOUND-AFTER-REPAIRS: counts and exact measures reproduced independently through K = 13; the translation "K ≤ 17 ⇒ all N ≤ 18 (j ≤ 17), every L', g" is wrong (D4, MAJOR) |
-| Covered measure 0.333 → 0.4906, "≈ 50 % stays uncovered" | numbers SOUND (exact rationals through K = 13); labels EVIDENCE/Assessment acceptable after D5–D6 |
+| §2 complete enumeration, CERTIFIED through K = 17 / 19 | SOUND-AFTER-REPAIRS: counts and exact measures reproduced independently through K = 15; the translation "K ≤ 17 ⇒ all N ≤ 18 (j ≤ 17), every L', g" is wrong (D4, MAJOR) |
+| Covered measure 0.333 → 0.4906, "≈ 50 % stays uncovered" | numbers SOUND (exact rationals through K = 15); labels EVIDENCE/Assessment acceptable after D5–D6 |
 | Lemma 3.1 (symmetries u ↦ u⁻¹, u(T) ↦ u(−T)) | (i) SOUND; (ii) true but the written proof has a GAP (needs FF2's QR degree parity) (D7) |
 | "x* orbit = the four height-1 slice points" | FALSE as stated (six height-1 points; two are covered) (D8) |
 | Lemma 3.2 (degree imbalance at x*) | SOUND; "necessarily lopsided" slightly overclaimed (D9) |
-
 | bsB_rayclass_norm_pullback | items 1–3 SOUND; headline scope GAP (D10, MAJOR for the ledger): a theorem about fixed-(t, p) character/L-function/Eisenstein detectors and about the target, not about all ray-class proof mechanisms; iteration 2 cites the wrong proposition |
 | bsB_redei_oddpart | items 1, 2 SOUND; item 3 SOUND, but the composite-t Assessment is false (D11); "least populated" false (D12) |
 | bsB_zolotarev_transpose | SOUND |
