@@ -18,7 +18,9 @@ negative S-valuations. The orbit is {Q² : Q ∈ ⟨S⟩}, the modulus of the sh
 here (a fixed P, a fixed degree d of the modulus) the whole argument is a finite character-sum computation with
 Weil's bound: the small Kummer primes ℓ | q − 1 become Dirichlet characters mod s by reciprocity, the large ones
 (ℓ | q^d − 1, ℓ ∤ q − 1) are ≡ 1 (mod d) when d is prime, so their total weight is O(log d / d). (§3)
-(P3) The X8 framing "sterile points vs none" fails: the mute mechanism also has no finite covering (Prop 5.4). The real
+(P3) The X8 framing "sterile points vs none" fails for q odd: the mute mechanism also has no finite covering (Prop 5.4;
+in characteristic 2 it does have one, and its sterile set is Haar-null while that of DEPTH_ASPECT Thm 2.5 has positive
+measure — independent R195 repairs M1, M2). The real
 separation is Frobenius-firing (global character (f/P)) vs box-firing (divisors of f + 1). (§§5, 7)
 
 ## 1. The mute variant ES_q^{(S)}
@@ -53,7 +55,10 @@ If σ ≥ 2c then v_s(X) ≥ 2c and v_s(z) ≥ 0. *Shape:* gcd(f, P) = 1 (a prim
 g ∤ Q as s ∤ P), so Ef = P + AQ² gives E ≢ 0 (mod P), and
 AX = P + E gives P ∤ X; v_P(Y) ≥ 1 and v_P(z) ≥ 1 (both = 1 unless P | f + 1). ∎
 (Degree condition: if instead deg(AQ²) < n the same formulas work with deg E = n − d, X of degree n − k; the only
-excluded situation is deg E = n, where P + E has leading coefficient 2. Below we always take Q large.)
+excluded situation is deg E = n, where P + E has leading coefficient 2. Below we always take Q large.
+Independent R195 repair m1: precisely, the construction is valid iff deg(AQ²) ≠ n + d — also for deg(AQ²) = n (E then
+need not be monic, but P + E is) and for n < deg(AQ²) < n + d; in general deg X = max(n, deg E) − k and
+−v_∞(z) = n − k + (max(n, deg E) + d − deg(AQ²)) ≥ n − k. The §6 least-shot counts use all these regimes.)
 
 **Corollary 2.2 (ES_q-integrality of a shot; PROVED).** In Prop 2.1, z ∈ R (an ES_q solution) iff
 `f ≡ −1 (mod A·Q)` (i.e. v_s(f + 1) ≥ v_s(Q) for all s | Q).
@@ -79,7 +84,8 @@ irreducible of degree d with f ≡ −1 (mod A), f ∤ sP. Then
 and for a prime ℓ | q − 1: s is an ℓ-th power mod f ⇔ (f/s)_ℓ = ε_ℓ^{dh}, ε_ℓ := (−1)^{(q−1)/ℓ} (= 1 for odd ℓ).
 (For q even only the second statement is used; its sign is 1.)
 *Proof.* (ii) ⇔ (−PA/f) = 1. DRINFELD_ES Lemma 1.1: (−1/f) = ε^d. Reciprocity for monic coprime Jacobi symbols
-(Rosen, *Number Theory in Function Fields*, Thm 3.3; the same law as DRINFELD Prop 1.2): (P/f) = ε^{nd}(f/P),
+(Rosen, *Number Theory in Function Fields*, Thm 3.3 for monic irreducibles, extended multiplicatively to composite monic
+arguments — independent R195 repair m3; the same law as DRINFELD Prop 1.2): (P/f) = ε^{nd}(f/P),
 (A/f) = ε^{kd}(f/A) = ε^{kd}(−1/A) = ε^{kd+k}. Multiply. Second statement: (s/f)_ℓ = ε_ℓ^{hd}(f/s)_ℓ by the ℓ-th power
 law, and s is an ℓ-th power in the cyclic group (R/f)^* iff (s/f)_ℓ = s^{(q^d−1)/ℓ} mod f equals 1. ∎
 
@@ -130,7 +136,10 @@ character sums of Lemma 3.4. This is Bilharz's theorem (Artin's conjecture over 
 of the modulus and joined with two Dirichlet conditions; choosing d prime makes the Hooley tail trivial (Λ_d ⊂ 1 + 2dℤ).
 (2) Compare ℤ (UNIT_ORBIT Thm 2.4): there |S| ≥ 4 and the Gupta–Murty sieve were needed, and the result is ineffective.
 Over F the analogue of GRH is a theorem and |S| = 1 suffices, with an explicit degree bound for the certificate modulus.
-Over ℤ the same argument would give ES^{(S)} with |S| = 1 under GRH (Assessment; not checked in detail).
+Over ℤ the same argument would give ES^{(S)} with |S| = 1 under GRH (Assessment; not checked in detail. Independent
+R195 repair m4: over ℤ there is no prime-degree trick; one needs Hooley's full GRH argument for all Kummer fields
+ℚ(ζ_ℓ, s^{1/ℓ}) with Brun–Titchmarsh for the middle range, combined with a congruence and a quadratic-character
+condition — a Lenstra-type generalised Artin statement.)
 (3) The *shot* may be high: Lemma 3.1 takes the least j ≡ j₀ (mod q^d − 1) with j ≥ 1 and 2jh > n + d − k, so
 j < 2q^d + (n + d)/(2h) = O(q^d + n), i.e. deg Q = O(n⁴) (Bertrand) or n^{2+o(1)} (PNT), whereas the ES_q modulus has degree ≤ 2n − k (§5).
 Numerically a few shots suffice (§6).
@@ -182,7 +191,8 @@ ord_f(s²) — equal to (q^d − 1)/2 (q odd) when s is a primitive root mod f.
 −A·{a²d : a, d monic, ad | (f + 1)/A} mod f, a set of size ≤ τ₃((f + 1)/A) = q^{o(d)}
 (number of ordered monic factorisations (f + 1)/A = a·c·d).
 *Proof.* (a) Prop 2.1: P ≡ −AQ² (mod f), Q ∈ ⟨s⟩. (b) f = Aacd − 1 forces ad | (f + 1)/A, and P ≡ −Aa²d. ∎
-So a mute modulus fires on half of all classes, an ES_q modulus on a q^{−d+o(d)} fraction — FF form of (J)25's
+So a mute modulus fires on half of the unit classes (q odd; on all unit classes for q even, where squaring is bijective —
+independent R195 repair M1), an ES_q modulus on a q^{−d+o(d)} fraction — FF form of (J)25's
 "Box ⊆ ES^{(S)} coset".
 
 **Proposition 5.3 (the firing condition is Frobenius for mute, a divisor condition for ES; PROVED for (a)).**
@@ -205,15 +215,27 @@ P ≡ −AQ² (mod f) and let g_i | f. If g_i ∤ Q, then −PA ≡ (AQ)² is a 
 g_i = s and s | P + AQ² gives s | P, contradicting "−PA is a non-square mod s". The classes are unit classes,
 so they contain irreducibles of every large degree (Fact 5.2). ∎
 *Reading (scoped).* In the profinite-unit space R̂^* (FUNCTIONFIELD_ES2 §0.1, scoped to shot families), the points x with
-−xA a non-square mod every prime g ∤ As are sterile for every shot (prime or composite modulus: an admissible f has a
-prime divisor g ∤ As); this set is nonempty and Haar-null. Polynomials are not points of R̂^*; what matters is the
+−xA a unit non-square mod every prime g ∤ A, **including g = s**, are sterile for every shot (prime or composite
+modulus: every prime divisor g of an admissible f satisfies g ∤ A, and g = s is handled as in the proof above);
+this set is nonempty and Haar-null. (Independent R195 repair m6: the earlier "g ∤ As" was wrong — f = s^m with
+s^m ≡ −1 (mod A) is admissible with Q = 1, e.g. q = 3, A = T, s = T + 2, f = s³ = T³ − 1 fires on P ≡ −A (mod s³);
+`scripts/review_fm_sterile.py`.) Polynomials are not points of R̂^*; what matters is the
 actual inputs: **no admissible irreducible P fails the mechanism** (Thm 3.5), because f ↦ (−PA/f) = ±(f/P) is a
 nontrivial global character mod P and takes both values on primes f ≡ −1 (mod A) of every large degree. So the theorem
 is proved by a global argument (reciprocity + Weil) that **no finite covering by shot families can replace**; this is a
 statement about finite shot coverings only, not about congruence arguments in general (the proof itself uses
 congruence characters). In q ≡ 3 (mod 4), k odd, the squares M² are exactly the monic inputs at which this character is
 trivial, and they are exactly the non-shot-solved P (Thm 4.2). This is the FF version of B1 + B5 for the mute
-*mechanism*, with the theorem on the other side.
+*mechanism*, with the theorem on the other side. (Independent R195 repair M2: what is proved is that a mechanism with a
+nonempty but *Haar-null* sterile set and no finite covering can be a theorem at every admissible P; it says nothing
+about a sterile set of positive measure, which is the ES_q situation of DEPTH_ASPECT Thm 2.5.)
+
+*Remark 5.5 (characteristic 2 has a finite covering; independent R195 repair M1).* For q even, squaring is bijective on
+(R/f)^*, so if s is a primitive root mod a prime f ≡ −1 (mod A), f ≠ s, then −A⟨s² mod f⟩ = (R/f)^*: the ord_f(s)
+families (f, s^j) cover every P with f ∤ P once n > k + 2h(ord_f(s) − 1) (low-shot regime), and a second such prime
+f₂ covers P = f. So Prop 5.4 genuinely needs q odd; in characteristic 2 the mute mechanism has **no** sterile points
+and X8's "sterile vs none" is literally right. Example: q = 2, A = T, s = T + 1, f₁ = T² + T + 1, f₂ = T³ + T² + 1 —
+10 families cover every irreducible P of degree 14–17 (`scripts/review_fm_char2cover.py`, exact verification).
 
 ## 6. Numerics (EVIDENCE; all solutions verified exactly)
 
@@ -233,8 +255,9 @@ negative, NC degrees (min = n − k), Type II at P.
   d = 7; q = 3, A = T², d = 7; q = 5, A = T, d = 5; q = 3, A = T, s = T³ + 2T + 1, d = 9; several P each).
   **G(d) tracks δq^d/d**: e.g. q = 3, A = T, d = 7: G = 40, 33, 36, 40 against 39.1; q = 3, A = T², d = 7: 13, 15, 11
   against 13.0; q = 5, A = T, d = 5: 31, 37 against 39.1. (The explicit lower bound of Thm 3.5 is negative at these
-  small d — RH error terms dominate — so the small cases are covered by computation, not by the bound. For q = 3, A = T,
-  h = 1 the bound is positive at d = 17 for n ≤ ~300, at d = 23 for n ≤ ~9800, at d = 29 for n ≤ ~3·10⁵.)
+  small d — RH error terms dominate — so these counts are evidence for the main term only; the theorem itself covers
+  every n by the bound with a larger prime d. For q = 3, A = T, h = 1 the bound is positive at d = 11 for n ≤ 3, d = 13
+  for n ≤ 17, d = 17 for n ≤ 271, d = 23 for n ≤ 9862, d = 29 for n ≤ 307 381 — independent R195 repair m2.)
 * **Thm 4.2** (`fm_t1.py`, all monic P coprime to sA): q = 3, A = T (deg P ≤ 6, f-deg ≤ 7): 0/17 squares, 468/468
   non-squares shot-solved; q = 3, A = T³: same; q = 7, A = T (deg ≤ 4): 0/41 squares, 2016/2016 non-squares;
   q = 3, A = T² (k even): 17/17 squares, all via even d only; q = 5, A = T and A = T²: 19/19 squares, 480/480 non-squares.
@@ -244,6 +267,10 @@ negative, NC degrees (min = n − k), Type II at P.
   n = 9 (85% use j = 0, ES's own shot P + A); q = 3, A = T², n ≤ 8: max 15, mean 1.33 at n = 8 (60% j = 0); q = 5, A = T,
   n ≤ 6: max 13, mean 0.82 at n = 6 (65% j = 0). Thm 3.5's argument allows j up to O(q^d + n); the data say a few shots
   suffice (EVIDENCE, not a proof). Beyond j = 0, 2–5% of the least shots are ES_q-integral (Cor 2.2: f ≡ −1 mod A·s^j).
+  (Independent R195 repair m1: these least shots include the regimes deg AQ² = n and n < deg AQ² < n + d, valid since
+  Prop 2.1's construction works whenever deg AQ² ≠ n + d — see the Degree-condition remark; restricted to
+  deg AQ² > n + d or < n, q = 3, A = T², n = 8 gives max 18, mean 2.31. Reproduced independently in
+  `data/review_fm/minj_*.txt`.)
 * **Low degrees n < k** (`fm_mute.py … nmin = 1`, `data/fm/mute_lowdeg.txt`; R195 m1): the runs above start at n = k;
   the omitted n < k (q = 3, A = T², T² + 1; q = 5, A = T²; q = 2, A = T³, T⁴ + T + 1): all 11 P solved and verified.
 * The column "s-primitive-at-chosen-f" in `data/fm/mute_runs.txt` used a wrong test (R195 M4) and is not used here;
@@ -254,12 +281,15 @@ negative, NC degrees (min = n − k), Type II at P.
 PROVED: (Thm 3.5) for every q, A, and one mute prime s ∤ A, ES_q^{(s)}(A, P) holds for **every** monic irreducible
 P ∤ sA, unconditionally and effectively (certificate modulus of degree ≤ 4 log_q n + C(q, A, deg s), (2 + o(1)) log_q n by PNT); (Thm 4.2) for k odd the
 mechanism is exact-T1 iff ε = χ(−1) = −1 (k even, ε = −1: odd-degree moduli excluded at squares), no T1 for
-q ≡ 1 (mod 4); (Prop 5.4) the mechanism admits no finite covering by its shot families, yet is a theorem at every
-admissible irreducible P.
+q ≡ 1 (mod 4); (Prop 5.4, q odd) the mechanism admits no finite covering by its shot families, yet is a theorem at every
+admissible irreducible P (in characteristic 2 it does admit one, Remark 5.5 — independent R195 repair M1).
 
 **Correction to the X8 framing (Assessment).** X8 hoped for "sterile points (ES_q) vs none (mute)". That is not the
-separation: the mute mechanism *also* has profinite sterile points and no finite shot covering (Prop 5.4), and DEPTH_ASPECT Thm 2.5 is a statement
-about profinite points (no finite linear covering), not about actual failing P. The true separation is:
+separation: for q odd the mute mechanism *also* has profinite sterile points and no finite shot covering (Prop 5.4), and DEPTH_ASPECT Thm 2.5 is a statement
+about profinite points (no finite linear covering), not about actual failing P. (Independent R195 repairs M1, M2: in
+characteristic 2 the mute mechanism has no sterile points and a finite covering (Remark 5.5); and the mute sterile set
+is Haar-null whereas Thm 2.5's has positive measure, so a measure-theoretic version of X8 — positive-measure sterile set
+for ES_q vs null for mute — is not refuted by this example.) The true separation is:
 **mute: the firing condition at a modulus f is a Frobenius condition whose P-dependence is a global character
 ((f/P) by reciprocity), so Chebotarev + RH force firing at every global P; ES_q (S = ∅): the firing set of f is the
 box −A·{a²d : ad | (f+1)/A} (Prop 5.2(b)), a q^{−d+o(d)} fraction defined by the factorisation of f + 1, for which no
@@ -271,7 +301,8 @@ exactly as over ℤ (UNIT_ORBIT Prop 6.1). The FF model makes no claim about ES_
 
 **The reverse question (which instances lack every mute surrogate; PROVED from Thms 3.5, 4.2).** For prime P: none —
 every s ∤ AP works. Among all monic P coprime to A, for q ≡ 3 (mod 4) and k odd, the P lacking a mute *shot* for
-**every** choice of s (and every S, since the proof of Thm 4.2(b) uses only f ∤ Q) are exactly the squares; for
+**every** choice of s (and every S coprime to P — independent R195 repair m5 —, since the proof of Thm 4.2(b) uses only
+f ∤ Q and s ∤ P) are exactly the squares; for
 q ≡ 1 (mod 4) none. The certificate-size picture: ES_q Type II moduli have degree ≤ 2n − k (Prop 5.1; this bounds the modulus, not
 the denominators — e.g. the E = 1 solution has a denominator of degree 3n − 2k; R195 M7 repair); the mute proof uses
 modulus degree O(log n) but shot height O(q^d + n) (Thm 3.5 Remark 3), while numerically a few shots suffice (§6).

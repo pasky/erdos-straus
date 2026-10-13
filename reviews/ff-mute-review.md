@@ -8,7 +8,11 @@ symbols by direct exponentiation; nothing imported from `fm_*`).
 **Overall: no FATAL defect. Headline Thm 3.5 SOUND; Thm 4.2 SOUND; Props 2.1/5.1–5.4 SOUND; two MAJOR framing/scope
 defects (M1 char 2 has a finite covering; M2 measure asymmetry) and seven MINOR ones.**
 
-Repairs applied: (filled in below once applied)
+Repairs applied: the author had been quiet for > 1 h (last commit 2f212a84), so all defects M1, M2, m1–m7 were repaired
+directly in FF_MUTE.md, each marked "independent R195 repair …" (to distinguish them from the self-review's "R195 M1–M7"
+markers already in the file): §0 (P3), Degree-condition remark of Prop 2.1, Lemma 3.2 citation, Remark 3.5(2), Prop 5.2
+closing sentence, Prop 5.4 Reading + new Remark 5.5 (char 2), §6 bound bracket and least-shot note, §7 PROVED list,
+X8 correction, reverse question. No statement of Thm 3.5 or Thm 4.2 was changed.
 
 ## Summary verdicts
 
