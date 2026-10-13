@@ -91,3 +91,15 @@ Re-derivation notes (all steps of the author's proof verified; no gaps):
   (the author's route via u ≤ s+1 gives the same inequality s(ℓ^a−2ℓ+2) ≤ ℓ−2, false for ℓ ≥ 3). For a = 1, ℓ−1 | s+1 ⇒ s = ℓ−2, k = ℓ−1, m ≤ 2;
   m = 1 ⇒ v = 1, m = 2 ⇒ u = ℓ, contradicting ℓ ∤ u. ✓ (ℓ ≥ 3 is used at s = 0 and in the last inequality; at ℓ = 2 the point ν(2,1) is in fact covered.)
 * ν(ℓ, ℓ−1) → −1 in Ẑ: for every M, ν ≡ −1 (mod M) once ℓ ∤ M. ✓
+* Numerics (`scripts/review_lw_sterile.py 30000`). ν(ℓ, ℓ−1) is covered by no fixed-pair family of modulus ≤ 3·10⁴ for ℓ = 3, 5, 7, 11, 13, 17, 101.
+  ν(2,1) *is* covered, e.g. by (x,z) = (3,4). The controls ν(3,0) and ν(5,1) are covered. This is consistent with the theorem and its hypothesis ℓ ≥ 3.
+
+### Cor 4.4 — SOUND; the label can be UPGRADED (no dependence on the 10⁹ enumeration needed)
+`scripts/review_lw_cor44.c` is from scratch: 16 s, one core, 0.6 GB. It enumerates all 68 683 fixed-pair families whose modulus d divides
+M = 151 351 200 = 2⁵3³5²7²·11·13. It marks every n ∈ [0, 3M) that lies in a family class *and* is above that family's size threshold. The thresholds
+are 2d − x and 2xz − x − z, both < 2M. Results:
+* |U_M| = **11 550** (density 7.631·10⁻⁵). Its projection mod 12 is {3, 6, 9, 11}. Both match the text.
+* The unmarked n < 2M whose class lies *outside* U_M were each tested for (W) by direct search. The only non-values are
+  2, 3, 5, 6, 9, 11, 14, 15, 35. The other two members of E_W, 105 and 510, lie in U_M classes.
+So Cor 4.4 holds as stated, and its proof needs only the range n < 2M ≈ 3.03·10⁸ (not 10⁹). That range is closed by the same 16-second
+computation. See D2.
