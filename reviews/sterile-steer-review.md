@@ -14,8 +14,11 @@ reproduced qualitatively by an independent method on independent primes. Two MAJ
 mathematics: D3 (integers do not lie in any G_T, so "ES lives on the divergent side" compares different slices)
 and D9 ("every infinite pattern is divergent in V_φ" is false as stated; "exactly the signature" overclaims).
 13 MINOR defects (D1, D2, D4–D8, D10–D15).
-**Repairs applied: none.** The author's last commit is 13 minutes before this review was finished, so the author is not
-quiet. Every repair below is a wording or citation fix and can be applied verbatim.
+**Repairs applied (round 1, after the orchestrator reported the author parked):** D1–D15 applied by the reviewer to
+STERILE_STEER.md (status line, §1 Lemma 1.1(a), §2, Prop 3.1, Prop 3.2, Cor 3.3, §3 Reading, Lemmas 4.1/4.2,
+Prop 5.1(a), §5 Reading, §6), to bsM_borel_cantelli_patterns.md, bsM_shot_coverage.md, bsM_boundary_escape.md, and to
+AGENT_REPORT_O188.md, each marked "(R188 repair)". After repairs every claim is SOUND (framing items D3/D9 resolved by
+rewording; no mathematical content changed).
 
 ## Summary verdicts
 
