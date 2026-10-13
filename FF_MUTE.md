@@ -18,6 +18,8 @@ negative S-valuations. The orbit is {Q² : Q ∈ ⟨S⟩}, the modulus of the sh
 here (a fixed P, a fixed degree d of the modulus) the whole argument is a finite character-sum computation with
 Weil's bound: the small Kummer primes ℓ | q − 1 become Dirichlet characters mod s by reciprocity, the large ones
 (ℓ | q^d − 1, ℓ ∤ q − 1) are ≡ 1 (mod d) when d is prime, so their total weight is O(log d / d). (§3)
+(P3) The X8 framing "sterile points vs none" fails: the mute mechanism also has no finite covering (Prop 5.4). The real
+separation is Frobenius-firing (global character (f/P)) vs box-firing (divisors of f + 1). (§§5, 7)
 
 ## 1. The mute variant ES_q^{(S)}
 
