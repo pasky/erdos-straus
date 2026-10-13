@@ -17,7 +17,8 @@ for representations of quadratic forms*, Invent. 171 (2008) (binary-by-quaternar
 
 ## Barrier screen (construction log)
 1. *Degree existence.* Hom(E', E) (quaternary, det (p/4)²) represents every n ≥ C_ε p^{2+ε}. Type I needs a, b with
-   ab = m = (pe+1)/4d; taking e large (e ≥ p^{3+ε}) puts a, b in the deterministic range. **Target hypothesis of B3:**
+   ab = m = (pe+1)/4d; taking e large (e ≥ p^{3+ε}) puts a, b in the deterministic range. *(R176 repair D10: vacuous — Type I tuples have
+   e ≤ (p+1)² + 1 and ab ≪ p³, so a, b ≥ p^{2+ε} never occurs; the deterministic regime is never reached.)* **Target hypothesis of B3:**
    "bounded multiplicity". Outcome: the event `e | a + b` has probability ≍ τ-weighted 1/e per pair; the main term of the
    configurations at level e is ≍ (pairs (a,b) with ab = m) × (1/e) ≪ τ(m)/e: B3 (main term must be p^{o(1)}).
 2. *Orthogonal pairs (binary representations).* Siegel–Weil for the genus of Hom-lattices: Σ_{E,E'} r(Hom(E',E), diag(a,b))

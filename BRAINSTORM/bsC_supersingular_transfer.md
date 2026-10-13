@@ -26,12 +26,13 @@ Diff(T, 𝒞) = {p}.** *Proof.* ⇐: R_T ⊂ B_T ≅ B_{p,∞} is contained in a
 **Corollary 2 (the "∃ E" quantifier is vacuous; PROVED).** ES(p) holds iff the set S_p of certificate-shaped T is
 non-empty: every T ∈ S_p already has Diff(T) = {p} (O172 Thm 1.2(b)/1.4(b)), so by Theorem 1 it lives on some
 supersingular curve. The curves add *no* condition. (Same content as O172 Prop 2.1 and QUATERNION_ES Prop 2.2.)
-**Proposition 3 (Type I certificates live on p^{o(1)} curves; PROVED relative to ET's bound f_I(p) ≪ p^{o(1)}).**
+**Proposition 3 (Type I certificates live on ≪ p^{3/5+o(1)} = o(p) curves; PROVED relative to ET Prop 1.7,
+f_I(n) ≪ n^{3/5+O(1/log log n)}, and the divisor bound).** *(R176 repair D4: ET do not prove f_I(p) ≪ p^{o(1)}.)*
 For a Type I tuple, `Λ_{d,ab} ⊗ ℤ_ℓ` is an **Eichler order of level ℓ^{v_ℓ(e)}** for every ℓ | e (ℓ odd, ℓ ∤ d, and
 `−d ≡ (2a)^{−2}` is a unit square, so ℤ_ℓ[u] ≅ ℤ_ℓ × ℤ_ℓ contains the idempotents and the Peirce decomposition gives
 `[[ℤ_ℓ, ℓ^i],[ℓ^j, ℤ_ℓ]]`); it is maximal at all other ℓ (disc = pe, p ∤ e). Local–global for lattices: the maximal
 orders containing Λ number exactly `τ(e)`, so at most `2τ(e)` curves carry it. Also `e = (4a²d+1)/(4acd − p) ≤ 4(acd)² + 1 ≤ (p+1)² + 1` (using `2acd ≤ p + 1/e`).
-Hence ≤ `2 Σ τ(e) ≪ p^{o(1)}` curves carry Type I certificates: **"every supersingular curve carries one" is false
+Hence ≤ `2 Σ τ(e) ≪ p^{3/5+o(1)}` curves (p^{o(1)} conjecturally) carry Type I certificates: **"every supersingular curve carries one" is false
 for large p.** (Type II: R_{T'} is Eichler at odd ℓ | cd by the same argument since −f ≡ 1 (mod ℓ); the 2-part is not
 controlled; Type II version: Assessment.)
 
@@ -39,9 +40,9 @@ controlled; Type II version: Assessment.)
 * **B2 / Prop 2.4 of O172.** Theorem 1 is the class-level statement: deg Z(T) is a GL₂(ℤ)-class function; the
   certificate property is not. The curves are a *genus* object (one genus of maximal orders), so a statement "∃ E with
   config of shape S" equals "S ∩ {Diff = {p}} ≠ ∅".
-* **B3.** The ∀E strengthening (which would carry geometric content) is false: certificates are ≪ p^{o(1)} objects on
+* **B3.** The ∀E strengthening (which would carry geometric content) is false: certificates are ≪ p^{3/5+o(1)} objects (p^{o(1)} conjecturally; R176 D4) on
   ≈ p/12 curves (Prop 3). Any "for every curve / every maximal order" existence theorem must therefore allow
-  configurations of size ≫ (it must produce ≥ p/12 objects), i.e. main term ≫ p^{o(1)}, which B3 forbids.
+  configurations of size ≫ (it must produce ≥ p/12 objects), i.e. main term ≫ p^{3/5+o(1)}, which B3 forbids.
 * **Canonical E** (curves with CM by the least d with (−d/p) = −1; spine curves j ∈ 𝔽_p for Type II with d = 1): the
   Type I configurations on the CM curve are exactly QUATERNION_ES Prop 2.2 (all content is the divisor condition on
   `m = (pe+1)/4d`); the Type II ones are the Heegner forms of disc −4dp (Ibukiyama orders O(q,r): `i^⊥ ∩ O⁰` carries

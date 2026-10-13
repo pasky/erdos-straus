@@ -18,7 +18,8 @@ Ann. Math. 146 (1997); Kudla–Rapoport–Yang 2006, Ch. 5 (genus-2 generating s
 f' ≡ −1 (mod M). Then the Type II certificates of a prime p with this (f', c, d) exist iff f' | 1 + 4c²dp and
 (1 + 4c²dp)/f' ≡ −1 (mod M), i.e. iff **p lies in a fixed residue class mod f'·M** (when gcd(4c²d, f'M) allows), and
 the coefficient c_{f'}(f, 2) depends only on (4ff' − 4, 2 mod 2f') = (16c²dp, 2). *Proof.* Solve for p; Eichler–Zagier
-Thm 2.2. ∎ So any statement using finitely many Fourier–Jacobi indices is a finite congruence covering (B1: POINTWISE_SIZE
+Thm 2.2. ∎ *(R176 repair D9: EZ Thm 2.2 is for holomorphic level-1 Jacobi forms; for Kudla's incoherent-Eisenstein
+derivative use instead that a(T) depends only on the GL₂(ℤ)-class/genus of T (R172 D8).)* So any statement using finitely many Fourier–Jacobi indices is a finite congruence covering (B1: POINTWISE_SIZE
 Thm M/C), and twisted sums over f at fixed index range over **p** (B6), not over certificates of one p.
 **Prop 2 (fixed p = one coefficient per index; PROVED).** At fixed p and slice, each Jacobi index f' contributes at most
 the one coefficient n = (1 + 4c²dp)/f'. The "twisted Jacobi sum over f ≡ −1 (M)" at fixed p is therefore the

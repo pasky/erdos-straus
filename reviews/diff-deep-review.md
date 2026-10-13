@@ -3,6 +3,10 @@
 Reviewer: side-agent/review-diff-deep. Merged `side-agent/spark-diff-parity` at start. From-scratch scripts:
 `scripts/review_dd_*.{c,py}`. **ES is not solved anywhere; nothing below changes that.**
 
+**Repairs applied (author quiet at end of review):** D1–D11 applied directly to DIFF_DEEP.md, BRAINSTORM/bsC_{parity_quadratic_only,
+supersingular_transfer,valence_borcherds,eichler_orientation,fourier_jacobi,isogeny_ramanujan}.md and
+reviews/agent-reports/AGENT_REPORT_O176.md, each marked "(R176 repair …)". DISCOVERIES.md not touched (no O176 entry yet).
+
 No FATAL defects. Three MAJOR (D1 vacuous "level ≥ 2√h" gloss; D2 parity-theorem scope; D4 non-existent ET
 bound cited, conclusions survive with repairs) and eight MINOR. All numerical claims checked were reproduced exactly.
 
@@ -137,7 +141,7 @@ Assessment). Thm 2.1 ⇒ h ≤ g²/4 ≤ G²/4 ⇒ nrd y_⊥ ≤ pM²/(4f) ✓; 
   replacement Prop 1 is PROVED relative to Siegel (+ CM theory). (Using ET's actual f_II bound instead would weaken
   the conclusion to [L:ℚ] ≫ p^{1/10−ε}.)
 * "Bruinier's converse theorem closes the loophole": Bruinier's converse theorem (LNM 1780) is proved for lattices
-  splitting hyperbolic planes, signature (2, l) with l ≥ 2 in the original form; X₀(M) is l = 1. I could not
+  splitting hyperbolic planes (as I recall it; LNM 1780 not available in sources/); X₀(M) is l = 1. I could not
   verify a version covering l = 1 — cite one or drop the sentence (MINOR; the Prop does not use it).
 * EVIDENCE recomputed (`scripts/review_dd_orbit.py 3000`, own class-number count of reduced primitive forms):
   max (#certificate pairs)/h(−16c²dp) over (c,d) ∈ {(1,1),(1,2),(1,3)}, p < 3000, is 0.25 at p = 5 ✓.
@@ -204,7 +208,7 @@ by the divisor bound — cite that instead of ET; label "PROVED relative to Sieg
 (c) supersingular_transfer B3 bullet: "main term ≫ p^{o(1)}" → "≫ p^{3/5+o(1)} unconditionally".
 
 **D5 (MINOR) — notation O⁰.** Prop 2.3/2.4 use O⁰ = O ∩ B⁰ (trace-zero elements of O; the proof makes x trace-zero
-in O), §2.5 calls O⁰ "its Gross lattice" (standardly (ℤ + 2O) ∩ B⁰, index 4 sublattice). The script uses O ∩ B⁰.
+in O), §2.5 calls O⁰ "its Gross lattice" (standardly (ℤ + 2O) ∩ B⁰, a proper sublattice of O ∩ B⁰). The script uses O ∩ B⁰.
 *Repair:* define O⁰ := O ∩ B⁰ once and delete "Gross lattice" in §2.5 (or say "trace-zero part").
 
 **D6 (MINOR) — Prop 2.4 lottery bookkeeping.** "≍ F^{3/2}/M³ … per order" omits the covolume p of O⁰
@@ -226,7 +230,8 @@ exist, and DIFF_DEEP §2 has no test of Prop 2.3. *Repair:* remove the reference
 full Jacobi group; Kudla's genus-2 series is the derivative of an incoherent (non-holomorphic, level) Eisenstein
 series. The needed fact (a(T) depends only on the class/genus of T) is R172 D8 / Kudla's local-factor formula.
 *Repair:* cite that instead; also "Bruinier's converse theorem" in bsC_valence_borcherds B2 is stated for O(2,l) with
-lattices splitting hyperbolic planes (l ≥ 2 in LNM 1780); give an l = 1 reference or drop the sentence.
+lattices splitting hyperbolic planes; I could not confirm a version covering l = 1 (X₀(M)) — source not accessed here;
+give an l = 1 reference or drop the sentence.
 
 **D10 (MINOR) — bsC_isogeny_ramanujan step 1.** "taking e large (e ≥ p^{3+ε}) puts a, b in the deterministic range":
 Type I tuples have e ≤ (p+1)² + 1 (Prop 1.3) and ab = (pe+1)/4d ≪ p³, so a, b ≥ p^{2+ε} never occurs. The step is
