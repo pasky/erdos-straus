@@ -99,5 +99,36 @@ plus a numerical divisibility); here the extra condition is a **ring condition a
 i and j act on E[ℓ] as involutions (i² = −a ≡ 1) and (1 − i)(1 − j) ≡ 0 (mod ℓ) says that the −1-eigenline of j equals the
 +1-eigenline of i: i and j jointly preserve a cyclic subgroup C_ℓ, acting on it by +1 and −1. As always, the quantifier
 "∃ E" adds nothing (supersingular transfer): (iv) holds for some E iff a word with χ = −1 exists. The content is the
-**shape**: among the ≈ p/8 classes of 𝔊⁻_p (mass (p − 1)/8·(…); Thm 2.1), the path classes are the *near-orthogonal*
+**shape**: among the |𝔊⁻_p| ≈ p/12 classes (EVIDENCE: 15 at p = 193, 166 at p = 2521), the path classes are the *near-orthogonal*
 ones (off-diagonal entries −1, 0, −1), of which there are ≤ |X_p| ≍ log² p on average.
+
+## 3. The middle letter is a Frobenius distance; t = 1 is the spine (PROVED)
+
+**Proposition 3.1.** For an Eichler order E of level 2 in B_{p,∞} and L = L(E) = (E⁰)^#(p):
+p(E⁰)^# = {x ∈ E⁰ : p | nrd x}, hence r_L(m) = #{ε ∈ E⁰ : nrd ε = mp} for all m ≥ 1, i.e.
+θ_L(q) = Σ_{ε ∈ E⁰, p | nrd ε} q^{nrd(ε)/p}.
+*Proof.* Away from p, E⁰ is self-dual up to units (L is unimodular at ℓ ≠ p, including ℓ = 2, and E⁰ ≅ pL^# there). At p,
+L_p ≅ ⟨1, a, pb⟩, so E⁰_p ≅ ⟨p, pa, b⟩ (units a, b); there both sides equal {(x, y, z) : p | z}. ∎
+CERTIFIED (`scripts/ce_check_prop31.py`): r_L(m) = #{ε : nrd ε = mp} for m ≤ 12 on 456 path lattices, p < 400, 0 failures.
+
+**Corollary 3.2 (Frobenius distance).** A trace-zero ε ∈ End E with p | deg ε factors as ε = ψ ∘ π, π: E → E^{(p)}
+Frobenius, ψ: E^{(p)} → E of degree deg(ε)/p (every isogeny of p-divisible degree between supersingular curves factors
+through Frobenius). So min(L(E, C)) is the least m such that some isogeny E^{(p)} → E of degree m is compatible with C
+(the Frobenius distance of the edge, measured inside the Eichler order). For a certificate word w = (t, u, v):
+**ε := −(1 + ij) ∈ C₀(L_w)⁰ has nrd ε = AA* − 1 = tp** (it is the element dual to e₂, ε = −(i + j + tγ)); so the middle
+letter t is a Frobenius distance of the certificate edge. In particular **t = 1 ⟺ ε² = −p**: both ends are defined over
+𝔽_p (Z[√−p] ⊂ End E ⟺ j(E) ∈ 𝔽_p) and C is 𝔽_p-rational — the *spine* of the 2-isogeny graph — and then
+L ≅ ⟨1⟩ ⊥ M with M = [[v − 1, −1], [−1, u − 1]] a binary form of discriminant −4p.
+
+**Corollary 3.3 (the spine slice; PROVED, elementary).** For p ≡ 1 (mod 8), there is a certificate with t = 1 ⟺ p + 1 has a
+prime factor q ≡ 3 (mod 4). (Words (1, u, v) ⟺ (u − 1)(v − 1) = p + 1, χ = ((u − 1)/p); for an odd prime q | p + 1,
+(q/p) = (p/q) = (−1/q); (2/p) = 1.) For p ≡ 5 (8) (2/p) = −1 and a = 2 always works; p ≡ 3 (4) is trivial (a = 1).
+So the spine alone is Mordell-type congruence data plus one divisor event: it misses every p ≡ 1 (8) with
+(p + 1)/2 composed of primes ≡ 1 (mod 4) (a set of primes of relative density ≍ (log p)^{−1/2}, heuristically; e.g.
+p = 9 (p+1 = 10 = 2·5) is the square control, and p = 73: 74 = 2·37 fails at t = 1, while (2, 4, 11) certifies 73).
+
+*Reading (Assessment).* Certificate edges with small t sit at Frobenius distance t from the spine; those with small A or A*
+(e.g. Mordell's A = q ∈ {2, 3, 5, 7}, CHI_FLIP §3.1) sit at the CM points of discriminant −4q, i.e. at the "special
+extremal" orders O₀ ∋ √−q used as starting points by Pizer, Ibukiyama, Bröker and KLPT. A certificate is thus an edge
+that is simultaneously t-close to the spine and carries CM by −4A, −4A*, −4uv with AA* = tp + 1: three QNR-type
+discriminants coupled through one Diophantine identity (the (J)1 CM dictionary, now located on the 2-isogeny graph).
