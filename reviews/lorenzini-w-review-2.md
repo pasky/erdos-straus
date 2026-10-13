@@ -8,9 +8,9 @@ Source checked: `sources/lorenzini/CriticalPolynomialOfAGraph.txt` (arXiv:2311.0
 | claim | verdict |
 |---|---|
 | Thm 9.1 (even n ≥ 16, n ≠ 510, are values) | **SOUND** (proof re-derived end to end; minor presentational defects only) |
-| Novelty of Thm 9.1 | see §2 |
-| Prop 8.1 / Cor 8.2 | see §3 |
-| Prop 6.1 | see §4 |
+| Novelty of Thm 9.1 | not found in literature (§2) |
+| Prop 8.1 / Cor 8.2 | SOUND (§3) |
+| Prop 6.1 | SOUND-AFTER-REPAIRS (§4, D6–D7) |
 
 ## 1. Theorem 9.1 — re-derivation (SOUND)
 
@@ -81,3 +81,57 @@ mod-9 condition). "SHARP/deflationary" is fair; "new" would not be.
 **"What remains" (§9, last paragraph) re-derived.** Odd n: n ≡ 1 (3) ⇒ 3 | n + 2 (6.3(b)); n ≡ 5 (12) ⇒ Prop 8.1; left: n ≡ 3, 9, 11 (12) with n + 2
 prime (n + 2 odd, so never a 2-power). Odd exceptions 3, 9, 11, 15, 35, 105 all lie there (5 ≡ 5 (12) is in E_W). Even n: Thm 9.1. ✓ The density remark
 (Dirichlet for primes ≡ 1 (mod M) gives n ≡ −1 (mod M) with n + 2 prime) is correct.
+
+## 4. Prop 6.1 (density bound): SOUND at sketch level (complete modulo standard theorems); minor repairs
+Re-derived step by step:
+* **Avoided classes.** p prime ≤ Q = √N, x | p + 1, 2 ≤ x ≤ (p+1)/2: the word (x, (p+1)/x, (n+x)/p) has d = xy − 1 = p, y ≥ 2, and z ≥ 2 ⟺ n ≥ 2p − x,
+  true for n > N = Q² ≥ 2p (Q ≥ 2). The classes −x mod p are distinct (x < p), count ω(p) = τ(p+1) − 2 < p. ✓
+* **Large sieve.** S ⊂ (N, 2N] avoids ω(p) classes mod every p ≤ Q ⇒ |S| ≤ (N + Q²)/L (Montgomery / Montgomery–Vaughan). ✓
+* **L ≥ e_k.** Squarefree m = p₁⋯p_k with p_i ∈ I = (Q^{1/(2k)}, Q^{1/k}] has m ≤ Q, and ω/(p − ω) ≥ ω/p. ✓
+* **G.** Σ_{p ≤ y} τ(p+1) = C y + o(y), C = ζ(2)ζ(3)/ζ(6) ≈ 1.9436 (the shift a = +1 has no local correction factor). Partial summation over
+  I gives C·log(b/a) + o(log(b/a)) + O(1) = (C/2 + o(1)) log Q/k, valid because log a = log Q/(2k) → ∞ for k ≍ √log Q. ✓
+  Numerically (`scripts/review_lw2_titchmarsh.py 10⁷`, own code): Σ_{p≤y} τ(p+1)/y = 1.925, 1.933, 1.935 at y = 10⁵, 10⁶, 10⁷ (→ C, slow
+  log log y/log y convergence); G on (10⁵, 10⁷] = 8.24 vs the main-term formula 8.28. ✓
+* **e_k ≥ (G^k/k!)(1 − O(k²/G²)).** True with the explicit form k!e_k ≥ G^k − C(k,2)·S₂·G^{k−2}, S₂ = Σ_{p∈I} g(p)². **But** with k = ⌊ε√log Q⌋ one has
+  G ≍ √log Q/ε, so k/G → 2ε²/C is a *constant*, not o(1) (see D6). The argument still works: S₂(I) → 0 (tail of a convergent series) or take ε small so that
+  the correction is ≤ 1/2. Then e_k ≥ ½ (eG/k)^k/(e√k) ≥ exp(c′√log Q) with c′ ≈ ε log(eC/(2ε²)) > 0. ✓ Dyadic summation: ✓.
+**Labels.** The Titchmarsh divisor asymptotic is an unconditional theorem (Linnik 1961; Rodriquez 1965 and Halberstam 1967 via Bombieri–Vinogradov), and only
+the lower bound Σ_{p≤y} τ(p+1) ≫ y is needed. So "PROVED relative to the Titchmarsh divisor theorem" can simply be "PROVED (using the Titchmarsh
+divisor theorem)". Nothing is hidden: c is absolute, no parameter dependence.
+**Context remark (D7).** "Lorenzini/Wang give density 1 only" understates Lorenzini: his Prop 6.3(a,b) immediately gives #E ∩ [1, N] ≤ π(N + 2) + log₂ N ≪ N/log N.
+Prop 6.1 is still a genuine improvement (exp(−c√log N) vs 1/log N), but the comparison sentence should say so.
+
+## 5. Defects
+No FATAL or MAJOR defects found. All headline mathematical claims checked hold.
+
+**D1 (MINOR, §9 Thm 9.1 proof, sentence "It is ≥ 2 as soon as n ≥ 2·592, i.e. m ≥ 11").** "i.e." is not an equivalence (2·592 is a sufficient bound; the exact
+worst threshold is n ≥ 1102 from (8,74)). *Repair:* "It is ≥ 2 for n ≥ 2·592 − 82 = 1102, in particular for all odd m ≥ 11." Also note that m = 5, 7 are
+already caught by the (3,3) and (6,12) families, so only m = 1, 3, 9 are genuine exceptions.
+**D2 (MINOR, §9, "L = 36 is the least period among {12, 36, 60, …}").** The set {12, 36, 60, …} is an odd choice (24 is skipped). My own search
+(`scripts/review_lw2_period.py 3000 72`: all fixed-pair families with modulus ≤ 3000) finds that no even period L < 36 works (12 misses m ≡ 9; 18 misses 3, 9;
+24 misses 9, 21; 30 misses 3, 9, 21) and 36 works. *Repair:* "36 is the least even period L for which a covering exists using families of modulus ≤ 3000
+(checked all L ≤ 36)."
+**D3 (MINOR, header and §0 citation).** "T. Wang, EJC 33(3) #P80 (2026)" → **T. Wang and L. Lu, *The critical polynomials of simple connected graphs*, Electron.
+J. Combin. 33(3) (2026), #P3.80, doi:10.37236/13899.** Their "open problem" sentence concerns finiteness of the complement for general G (they prove density 1
+for V_G(2), all connected simple G); it is not A₃-specific. Phrase accordingly.
+**D4 (MINOR, Cor 8.2).** For p ≡ 5 (mod 12) the (3, (p+7)/12, 4) word has (A/p) = −1, so (S)(p) and interior-SQ₅(p) are PROVED there outright (this is the
+classical p ≡ 2 (3) ES identity). *Repair:* add "(S)(p) holds for p ≡ 5 (mod 12); Cor 8.2 has content only for p ≡ 1 (mod 12)" into the Cor statement.
+**D5 (MINOR, Prop 8.1 attribution).** (2,2,·) is the z = 2 slice of Lorenzini 6.3(b) and (3,·,4) is his z = 4 slice with divisor (n+4)/3 ≡ 3 (mod 4).
+Prop 8.1 is a two-line strengthening of Lorenzini 6.3(c) (dropping his mod-9 condition). *Repair:* say so; do not count it as new.
+**D6 (MINOR, Prop 6.1 proof, "e_k ≥ (G^k/k!)(1 − O(k²/G²))" with k = ⌊ε√log Q⌋).** k/G tends to the constant 2ε²/C, so O(k²/G²) is not o(1).
+*Repair:* "with the explicit bound k!e_k ≥ G^k(1 − k²S₂/(2G²)), S₂ = Σ_{p∈I} g(p)² → 0, the bracket is ≥ 1/2 for large Q".
+**D7 (MINOR, Prop 6.1 remarks and label).** (a) Lorenzini 6.3(b) already gives ≪ N/log N exceptions; "density 1 only" should be corrected. (b) Label
+"PROVED relative to the Titchmarsh divisor asymptotic" → "PROVED" (Titchmarsh–Linnik is unconditional; only the ≫ y lower bound is used).
+**D8 (MINOR, novelty phrasing in §0 item 0 / §9 title).** "settled" / "new as far as I can tell" is supported by my search (§2), but the search cannot exclude a
+private communication or an unindexed citer (Google Scholar shows 9 citers, Semantic Scholar 7, which I checked). *Repair:* keep "(new as far as we can tell;
+not in Lorenzini 2024, Wang–Lu 2026, or the citing papers [list])".
+
+## 6. Final verdicts
+| claim | verdict |
+|---|---|
+| **Thm 9.1** (every even n ≥ 16, n ≠ 510, is xyz − x − z, x,y,z ≥ 2) | **SOUND** (independently re-proved; brute force to 10⁸ agrees; D1, D2 cosmetic) |
+| Novelty of Thm 9.1 | **Not found in the literature** (Assessment, §2; D3, D8) |
+| Prop 8.1 | **SOUND** (D5 attribution) |
+| Cor 8.2 | **SOUND** (D4: strengthen statement for p ≡ 5 (12)) |
+| "What remains of (W)" (§9) | **SOUND** |
+| Prop 6.1 | **SOUND-AFTER-REPAIRS** (D6 proof wording, D7 label/context; no mathematical gap) |
