@@ -113,14 +113,14 @@ datum (S, B independent of α).**
 
 **Proposition 2.3 (the ES box is below the threshold at every modulus degree; PROVED).** For ES_q Type II,
 𝔉(f) = −A·{a²d : ad | (f + 1)/A} has |𝔉(f)| ≤ τ₃((f + 1)/A) (FF_MUTE Prop 5.2(b)), where τ₃(N) = #{ordered monic
-factorisations N = abc}. For deg N = D: τ₃(N) ≤ (D + 1)^{2}·3^{D/2}... (see below), and in all cases
-τ₃(N) ≤ q^{(log 3/log 2 + o(1))·D/log_q D} as D → ∞ (FF divisor bound). Hence |𝔉(f)| < (n + k)q^{d/2}·(1/2)
-for all d ≥ d₀(q) (d₀ independent of n), and the expansion method of Prop 2.2 cannot certify any ES_q firing,
-even for a single P, with S ⊆ 𝔉(f); a fortiori the box, which moreover varies with f (its generators are the
-prime factors of f + 1, not fixed polynomials), is not a Weil-countable datum.
-*Proof of the bound.* τ₃(N) = ∏_i C(e_i + 2, 2) over N = ∏ g_i^{e_i}. The factor for a prime power g^e is
-≤ 3^{e·deg g}·... ; the asymptotic form is the standard divisor bound τ(N) ≤ |N|^{(log 2 + o(1))/log_q D}, valid
-over F_q[T] by the same proof as over ℤ (group the primes by degree), and τ₃ ≤ τ². ∎
+factorisations N = abc}. For deg N = D: τ₃(N) ≤ 3^{Ω(N)} ≤ 3^D, and τ₃(N) ≤ τ(N)² ≤ q^{(2 log 2 + o(1))·D/log_q D}
+as D → ∞ (FF divisor bound). Hence |𝔉(f)| < (n + k − 1)q^{d/2}/2 for every d ≥ k when q ≥ 9 and n + k ≥ 3 (3^{d−k} ≤ q^{(d−k)/2} < q^{d/2}), and for every d ≥ d₀(q) when q < 9 (d₀ independent of n). So the expansion method of Prop 2.2
+cannot certify an ES_q firing at such d, even for a single P, with any fixed S ⊆ 𝔉(f); a fortiori the box, which
+moreover varies with f (its generators are the prime factors of f + 1, not fixed polynomials), is not a
+Weil-countable datum.
+*Proof of the bounds.* τ₃(N) = ∏_i C(e_i + 2, 2) over N = ∏ g_i^{e_i}, and C(e + 2, 2) ≤ 3^e. The asymptotic form is the
+divisor bound τ(N) ≤ |N|^{(log 2 + o(1))/log_q D} over F_q[T] (same proof as over ℤ: split primes by degree at
+log_q D) and τ₃(N) = Σ_{a|N} τ(N/a) ≤ τ(N)². ∎
 (Small d: the box has O(1) elements while the threshold is ≥ n√q^k; for n large the comparison holds at every d.)
 
 **Remark 2.4 (mute place as a Weil-countable datum; reading of FF_MUTE Thm 3.5).** In ES_q^{(s)} the firing set is
