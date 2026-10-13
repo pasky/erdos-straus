@@ -198,7 +198,9 @@ not apply to the varying base s(α))".
 * `review_frob_heegner.py 1000`: F1 dictionary vs brute-force Type II moduli, uniqueness of the dividing prime,
   (−d/f) = −1, CM point counts (d = 1, 2, 3, 7, 11), Type II modulus bound of Prop 1.2(a).
 * `review_frob_overflow.py`: §5.2 rows (q, A, s, n, D) = (5, T, T+2, 2, 3), (5, T, T+2, 3, 5), (7, T, T+1, 2, 3)
-  [further rows below if finished]: per-P least e identical to the author's; data/ffl failures solved with the stated e.
+  (3, T², T+1, 3, 4), (3, T², T+1, 4, 6) — 97 irreducible P in total: per-P least e identical to the author's in every
+  case, and every data/ffl full ES_q failure of these rows solved with the stated e. (The (7, T, T+1, 3, 5) row was
+  started but aborted after ~45 min: my divisor enumeration is brute force.)
 * Not checked: Lenstra 1977 itself (not in sources/; used Moree's survey §9.5 summary), Fried–Jarden/Murty–Scherk
   error-term shapes, Serre 1981 Thm 4 (standard; not re-read), FF overflow rows with q^{D−k} ≥ 7⁴ (too slow in pure
-  Python within budget).
+  Python within budget; 5 of the 14 table rows re-checked).
