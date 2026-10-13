@@ -221,14 +221,14 @@ negative, NC degrees (min = n − k), Type II at P.
   **G(d) tracks δq^d/d**: e.g. q = 3, A = T, d = 7: G = 40, 33, 36, 40 against 39.1; q = 3, A = T², d = 7: 13, 15, 11
   against 13.0; q = 5, A = T, d = 5: 31, 37 against 39.1. (The explicit lower bound of Thm 3.5 is negative at these
   small d — RH error terms dominate — so the small cases are covered by computation, not by the bound. For q = 3, A = T,
-  h = 1 the bound becomes positive at the prime d = 23 for every n ≤ ~9600.)
+  h = 1 the bound is positive at d = 17 for n ≤ ~300, at d = 23 for n ≤ ~9800, at d = 29 for n ≤ ~3·10⁵.)
 * **Thm 4.2** (`fm_t1.py`, all monic P coprime to sA): q = 3, A = T (deg P ≤ 6, f-deg ≤ 7): 0/17 squares, 468/468
   non-squares shot-solved; q = 3, A = T³: same; q = 7, A = T (deg ≤ 4): 0/41 squares, 2016/2016 non-squares;
   q = 3, A = T² (k even): 17/17 squares, all via even d only; q = 5, A = T and A = T²: 19/19 squares, 480/480 non-squares.
 * **Least shot height** (`fm_minq.py`): the least j with P + A s^{2j} giving a valid shot is small and does not grow
   with n: q = 3, A = T, n ≤ 9: max 7, mean 0.30 at n = 9 (85% use j = 0, ES's own shot P + A); q = 3, A = T², n ≤ 8:
   max 19, mean 3.8; q = 5, A = T, n ≤ 6: max 15, mean 1.45. Thm 3.5 needs j up to ≈ q^d ≈ n²; the data say a few
-  shots suffice (lottery with a large main term, not a proof). Of the least shots, 2–8% beyond j = 0 are ES_q-integral
+  shots suffice (lottery with a large main term, not a proof). Of the least shots, 2–11% beyond j = 0 are ES_q-integral
   (Cor 2.2: f ≡ −1 mod A·s^j).
 
 ## 7. Verdict (O195 checkpoint 1)
