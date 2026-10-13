@@ -85,8 +85,9 @@ irreducible Q (e ≥ 1, Q ∤ A), and let u = (X, Y, Z) be a monic NC solution o
 ζ ∈ μ_{q−1} and every place v of F, inv_v α_ζ(u) ∈ ½ℤ/ℤ. In particular, **for every odd m | q − 1 the class
 α_ζ(u) (ζ of order m) is zero in Br F**: the odd-order part of the Brauer group of the ES_q surface carries no
 information at all on monic integral points.
-*Proof.* α_ζ(u) does not depend on the labelling (BL Prop 2.6: α_ζ = (−u_i/u_k, −u_j/u_k)_ζ), so at each place we
-may relabel. The term (y, −1)_ζ is killed by 2. For β = (x, y)_ζ use the tame symbol
+*Proof.* Relabelling changes α_ζ(u) at most by a sign: the identity (a, b)_ζ = (−b/a, 1/a)_ζ (BL §2; it follows
+from (a, a) = (a, −1) and bilinearity) gives invariance under cyclic shifts, and (b, a) = −(a, b). Since only
+2-torsion is claimed, we may relabel at each place. The term (y, −1)_ζ is killed by 2. For β = (x, y)_ζ use the tame symbol
 {x, y}_v = (−1)^{v(x)v(y)} x^{v(y)} y^{−v(x)} mod 𝔪_v (inv_v is its image in k(v)^*/k(v)^{*m}).
 (i) Finite v = ℓ ≠ Q. Choose u₁ with v_ℓ(u₁) maximal. If v_ℓ(λu₁) ≥ 1 (true if v_ℓ(u₁) ≥ 1 or ℓ | A), then
 x ≡ −1 (mod ℓ) is a unit and {x, y} = (−1)^{v(y)}·(−1)^{0} = ±1. Otherwise all u_i are ℓ-units and ℓ ∤ A; y is a
@@ -102,8 +103,8 @@ see §4. (3) P with several prime factors: (i), (ii) still hold; only the sum ov
 
 **Corollary 2.3 (Type II: the P-invariant is the Kudla symbol; PROVED).** For a Type II datum (X, Y, Z) =
 (abd, acdP, bcdP) of prime P, inv_P α_ζ(u) = (−f/P)_m (ζ of order m, value in μ_m), f = Aacd − 1.
-*Proof.* Lemma 2.1 with (u₁, u₂, u₃) = (Z, Y, X)... — direct: in the labelling (X, Y, Z),
-α = (−Y/Z, −1) + (E/P, −Y/Z) with E = AX − P (x = λX − 1 = E/P), y = −a/b. At P: v_P(E) = 0 (deg E < n, E ≠ 0),
+*Proof.* Lemma 2.1 in the labelling (u₁, u₂, u₃) = (X, Y, Z): x = λX − 1 = (AX − P)/P = E/P (AX − P = Aabd − P =
+E), y = −Y/Z = −a/b. At P: v_P(E) = 0 (deg E < n, E ≠ 0),
 v_P(x) = −1, y a P-unit, so {x, y}_P = y = −a/b. From P | Aabd − E and E·f = P + Aa²d: b ≡ E(Aad)^{−1} and
 Aa²d ≡ Ef (mod P), so −a/b ≡ −Aa²d/E ≡ −f (mod P). ∎
 So **Theorem 1.3 (odd m) is the BL reciprocity law of the order-m class**, and FUNCTIONFIELD_ES Prop 4.1 (m = 2) is
