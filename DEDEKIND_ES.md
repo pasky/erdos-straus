@@ -68,6 +68,9 @@ shows the right side ≡ −2 (mod 8) whenever `tuv − u − v ≡ 1 (4)` and `
 Numerically (all primes < 2·10⁴): on L₃(p) the symbol `(A/p)` is −1 on both slices when p ≡ 1 (4), +1 when
 p ≡ 3 (4), and equidistributed (≈ 50:50) on the other residue classes of (A, t) mod 4.
 
+*Credit.* For the 4|A slice this is the same fact as reviews/redteam-automorphic.md Lemma 5.2 (`(d/p) = −1`,
+d = A/4, via notes Lemma 77.6); what is new here is the derivation from Dedekind sums and its extension in Thm 4.5.
+
 *Reading.* The exact Dedekind formula (D2) plus the mod-8 law (R) is precisely the genus obstruction: on
 the X-slices, a certificate lives in the quadratic-non-residue half of (ℤ/p)^*. That half exists at primes
 and is empty at squares. Everything that Dedekind sums know *mod a fixed modulus* is of this kind (by (R) and
@@ -228,3 +231,92 @@ point. Pointwise-in-n counts for it are fixed-denominator counts, so again B6 fo
   certificate. Any reciprocity-forced positivity would therefore have to produce a *non-residue at Farey
   distance ≤ 3*. I found no mechanism that does this. The nearest classical analogue, Smith's palindrome proof,
   produces fixed points only for r = r'.
+
+# Part II (parent follow-up: sign transfer, composites, complexity, statistics)
+
+## 8. Structure of the sign; which maps can transfer it
+
+**8.1 The sign is a mod-4 function (PROVED, `scripts/dk_sign.py`, finite check).** For n ≡ 1 (4) the Jacobi
+symbol of a length-3 word `[[v,t,u]]` depends only on `(t,u,v) mod 4`. It is **+1 exactly on the five classes
+`(t,u,v) ≡ (1,2,3), (1,3,2), (2,1,2), (2,2,1), (3,1,1) (mod 4)`** and −1 on the other 15 admissible classes. So
+"non-certificate" means one of these five patterns. At squares, every length-3 word lies in them.
+
+**8.2 Sign-preserving symmetries (PROVED).**
+* Klein group: `(A*/n) = (A/n)` because `AA* ≡ 1`, and `((n−A)/n) = (A/n)` because `(−1/n) = 1`. Reversal, duality
+  and their product preserve the sign.
+* Rotation `(v,t,u) ↦ (t,u,v)`, `n ↦ n' = n + u − t`, is conjugation of `γ = T^vST^tST^uS` (cyclic word). The
+  cell table (`dk_sign.py` (ii)) shows that **whenever n, n' ≡ 1 (4) the sign is preserved** (40 −1 cells → −1,
+  8 +1 cells → +1). So on n ≡ 1 (4) the sign behaves as a conjugacy-class (genus-type) invariant of γ, and rotations
+  cannot transfer it.
+* Within a fixed n, the only CF-compatible bijections I know are the Klein group. Every other bijection of
+  (ℤ/n)^* that preserves the Jacobi symbol (`A ↦ c²A`, inversion, negation) and moves A into L₃ is the problem itself.
+
+**8.3 A genuine sign-FLIPPING transfer: scaling (PROVED).** For integers a ≥ 2 and u', v' ≥ 1:
+`K(a v', t, a u') = a·K(v', a t, u')`, and both words have the same `A = a t u' − 1`. Hence, for odd a and odd
+`m = K(v', at, u')`, `n = am`:
+`(A/n) = (A/a)(A/m) = (−1/a)·(A/m)` (as A ≡ −1 mod a).
+So **a word of m whose middle entry is divisible by a ≡ 3 (mod 4) and whose sign is +1 becomes a certificate
+for n = am.** Degenerate m-words (u' = 1 or v' = 1) are allowed, because the scaled entries are ≥ a ≥ 3.
+(Brute-force check of the sign law: 191 520 cases with a < 40 odd, 0 failures, `scripts/dk_scale.py`.)
+This is consistent with T1. At n = m'² it forces every such inherited word to have sign +1 on the m-side,
+which is a constraint on m and not a contradiction. The transfer needs a *composite* n. It cannot help at
+primes, which have no factor a.
+
+**8.4 The signed sum.** `S(n) := Σ_{A∈L₃(n)} (A/n) = N₊ − N₋`. By 8.1 it is a weighted count of the cubic's
+solutions with weights ±1 given by the class mod 4. For fixed t this is a twisted divisor sum at `tn + 1` with
+a mod-8 weight, and the sum over t is the (★)-type family again. No closed form was found (Assessment; cf.
+STRONG_APPROX §9.1 for the analogous negative test on cubic counts). The only exact facts are that N₋ is even
+(reversal pairs) and N₋(m²) = 0.
+
+## 9. Composites, and the five-slice square conjecture
+
+**9.1 EVIDENCE (`scripts/dk_vanish5.py 1000000`).** Among all non-square n ≡ 1 (4) up to 10⁶ (primes and
+composites), the five slices together with the boundary case 4.2 vanish **only at n = 105**. They vanish at every
+odd square (Prop 3.1, 4.2).
+
+**Conjecture SQ₅ (CONJECTURE).** For n ≡ 1 (mod 4), n ≠ 105: `λ(n) ≤ 3 ⟺ n is not a square`, where
+`λ(n) = min{ r(n/A) : (A/n) = −1 }`. The boundary case is length 2. For n ≡ 5 (8), A = 2 gives λ ≤ 2, and
+(n+1)/2 ≡ 3 (4) always has a prime factor ≡ 3 (4). For n ≡ 1 (8), the QNR-in-L₂ criterion of Cor 4.6 holds verbatim
+for composite n, because `(b/n) = (−1/b)` for odd b | n+1. SQ₅ is a strengthening, on n ≡ 1 (4), of O146's
+CONJECTURE SQ (Type I/II empty ⟺ square): it uses only five explicit slices of Type I/II. It implies ES for all
+primes p ≡ 1 (4).
+
+**9.2 Composite case with a factor ≡ 3 (4): reduction, not proof (PROVED lemma).** Let `n = am ≡ 1 (4)` with
+a ≡ 3 (4), so m ≡ 3 (4). If `m + 1` has a divisor `A ≡ −1 (mod a)`, `A ≥ 2a − 1`, with `(2/m)^{v₂(A)} = 1`, then
+`[[a(m+1)/A, (A+1)/a, a]]` is a certificate for n. (Use 8.3 with u' = 1. For A | m+1, A = 2^k A', reciprocity
+gives `(A'/m) = 1`, so `(A/m) = (2/m)^k`.) Special family: `a | m + 2` gives the word `[[a, (m+2)/a, a]]`,
+`n = a(at − 2)`; this was checked for q < 200, t < 200 (`dk_scale.py` (b)).
+Coverage (`dk_scale.py 200000` (c)): of the 31 143 composite non-square n ≡ 1 (4) ≤ 2·10⁵ that have a divisor ≡ 3 (4),
+24 645 (79 %) have a certificate inherited this way (a | u, a | v for some a ≡ 3 (4), a | n).
+**Why this is not a proof.** The inherited certificate still needs a divisor of `m + 1` in the class −1 mod a. That
+is a B2 divisor event, with the extra freedom of choosing a among the divisors ≡ 3 (4) of n. The bare
+existence of the factor gives only the *sign* (8.3), never the *length-3 word*. I see no explicit construction
+covering all such n. Polynomial identities in (a, m) of the shapes "t constant, u and v linear in the two
+factors" and "u, v constant" are impossible (elementary coefficient comparison, done by hand; general shapes not
+excluded).
+
+## 10. Complexity reading and statistics
+
+**10.1 What λ(p) ≤ 3 says (Assessment).** Cor 4.6 is an exact *converse* to the T4 theme
+(redteam-automorphic Prop 2.5, Lemma 5.2: every solution exposes a non-residue). On the five slices,
+**certificate ⟺ a quadratic non-residue inside the explicit set `L_{≤3}(p)`**, and `|L_{≤3}(p)| ≍ log²p` on average.
+* Full ES on the slices only says that this set contains a QNR. Computing `L_{≤3}(p)` needs up to ≍ p factorisations,
+  so there is no algorithmic consequence. One can find a QNR in time p^{0.152+o(1)} anyway (Burgess search).
+* The **bounded-height** version `t_min(p) ≤ (log p)^C`, where t_min is the least middle entry of a −1 word, would
+  give a deterministic algorithm that finds a QNR mod p with `(log p)^C` calls to a factoring oracle (factor
+  tp+1 for t ≤ T, test the words). Deterministic polynomial-time QNR finding is a well-known open problem.
+  Unconditionally nothing better than `p^{1/(4√e)+o(1)}` search is known; under GRH the least QNR is ≤ 2 log²p
+  (Ankeny/Bach; from memory). I know of no result that makes it easier with a factoring oracle (from memory; not
+  checked). So a proof of the polylog-height version would be an unconditional derandomisation result of a
+  kind not currently available. That is a precise sense in which it is hard. Full ES (unbounded t) carries no
+  such complexity implication. Under H, CONDITIONAL_ES Thm C already shows that t_min is unbounded i.o. for the
+  4|A slice. EVIDENCE: for all primes p ≡ 1 (8) ≤ 10⁶, `t_min(p) ≤ 64` (records 2, 4, 6, 7, 15, 64 at p = 17, 41,
+  769, 1049, 2521, 21841; `scripts/dk_tmin.py`).
+
+**10.2 Coin heuristic (EVIDENCE, `dk_sign.py 300000`).** On the 6457 primes p ≡ 1 (8) ≤ 3·10⁵, a fraction
+q = 0.695 of all length-3 words are −1. That is well above 1/2, because 15 of the 20 admissible mod-4 classes are
+−1. Per prime, `N₋/|L₃|` has mean 0.697, sd 0.107 and minimum 0.19 (|L₃| ≥ 40). The independent-pair model
+`P(N₋ = 0) = (1−q)^{|L₃|/2}` predicts 0.67 failures in total, almost all at |L₃| < 8 (3 primes). Observed: 0.
+At odd squares N₋ = 0 always, with mean |L₃| = 34. So at primes the signs look like biased coins (≈ 70 % −1),
+while at squares they are all forced to +1. The model is consistent with SQ₅ holding beyond a small range,
+and with the single exception 105.
