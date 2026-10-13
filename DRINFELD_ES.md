@@ -138,7 +138,7 @@ integral). ∎
 has sign 1/c₁ and v_∞(x) = n − deg A − deg X₁ < 0; y = −(c₃/c₂)X₂/X₃. The odd part of inv_∞ α_ζ(u) is the class
 of `c₁^{deg X₂ − deg X₃}·(c₃/c₂)^{deg A + deg X₁ − n}` in F_q^*/F_q^{*m}.
 *Proof.* Tame symbol {x, y}_∞ = (−1)^{v(x)v(y)} sgn(x)^{v(y)} sgn(y)^{−v(x)}; drop the signs ±1 (odd part). ∎
-**Theorem 3.3 (order-m T1 on degree classes; PROVED).** Let m | q − 1, P = Q^m, and u a solution of ES_q^c whose
+**Theorem 3.3 (order-m T1 on degree classes; PROVED).** Let m | q − 1 be odd, P = Q^m, and u a solution of ES_q^c whose
 Q-shape is Type I (v_Q = (≥ m, 0, 0) up to order) or Type II ((0, ≥ m, ≥ m)). Then inv_Q α_ζ(u) = 0 for ζ of
 order m. Hence (Lemma 3.1, reciprocity) the odd part of inv_∞ α_ζ(u) vanishes: **primitive solutions at m-th powers
 lie in the degree classes where the character of Lemma 3.2 is trivial**. For prime P there is no such restriction.
