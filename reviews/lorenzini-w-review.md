@@ -14,7 +14,16 @@ NOT accessible: T. Wang, EJC 33(3) #P80 (2026). The "open problem" and "new as f
 | Lemma 3.1, Remark 3.2 | **SOUND** |
 | Prop 3.3 | **SOUND** |
 | Forms F0, F1, F3, F4 | **SOUND** |
-| Form F2 | **GAP (mis-stated; false at n = 3, 15, 35)**, D1 |
+| Form F2 | **SOUND-AFTER-REPAIRS** (as literally stated, false at n = 3, 15, 35), D1 |
+| Prop 4.1, Thm 4.2 (sterile set) | **SOUND** |
+| Cor 4.4 | **SOUND**; it can be upgraded to self-contained CERTIFIED (D2) |
+| Prop 6.1 | **SOUND-AFTER-REPAIRS** (D3, D4); label PROVED |
+| Prop 7.1 | **SOUND** |
+| §2, §5 EVIDENCE | reproduced exactly; §5 heuristic constant wrong (D5) |
+| Memos | spot-checked, no errors found |
+
+No FATAL or MAJOR defects. Six MINOR or cosmetic defects (D1–D6). Repairs were NOT applied: the author agent is still live, and its last commit was
+12 min before this review was finished.
 
 ## Claim-by-claim
 
@@ -32,7 +41,7 @@ NOT accessible: T. Wang, EJC 33(3) #P80 (2026). The "open problem" and "new as f
 * **Size.** The smallest third letter is y = (2^m + 80)/592 for (8,74). It is ≥ 2 iff 2^m ≥ 1104, i.e. m ≥ 11. Explicit solutions with
   min(x,y,z) ≥ 2 exist for every odd m ≤ 3001 except m = 1, 3, 9 (n = 0, 6, 510).
 * **Brute force.** Every even n < 3·10⁵ was enumerated. The even non-values are exactly {0, 2, 6, 14, 510}, so the "equivalently" clause is
-  right. All non-values < 3·10⁵ are exactly L_{A₃} minus {}; that is, {0,1,2,3,5,6,9,11,14,15,35,105,510}.
+  right. The full non-value set below 3·10⁵ is exactly Lorenzini's L_{A₃} = {0,1,2,3,5,6,9,11,14,15,35,105,510}.
 * **Novelty.** Lorenzini's own text says "We have not been able to answer this question beyond the following remarks", and Rem 6.4 lists
   2^{2m+1} − 2 as open. Nothing in the 2024 source anticipates the covering. I could not check Wang 2026.
 * Cosmetic: the table's "covers odd m (mod 36)" for (3,9) lists 15, 33. That is right; 15 is a double cover.
@@ -189,8 +198,7 @@ is real. The comparison should be stated against N/log N.
 δ_x = 1 − 2^{−v₂(φ(x))} holds only for cyclic (Z/x)^×. In general δ_x = 1 − 1/r_x, where r_x is the least order of an odd character mod x. If any
 prime p ≡ 3 (4) divides x, the quadratic character mod p gives r_x = 2 and δ_x = ½, and that holds for almost all x. Numerically,
 Σ_{x≤X} δ_x/X = 0.557 at X = 1000 (`scripts/review_lw_delta.py`). *Repair:* Σ_{x≤X} δ_x = (½ + o(1))X. The naive model then gives x*(n) ≤ (2 + o(1)) log n/log log n.
-Delete "constant 1 + o(1)". Conjecture 5.2 (with ≪) stands, but the remark that the observed exponent (≈ 2.9 at X = 4 vs 2) shows positive correlation
-"in the predicted direction" is unaffected only for X = 4. For X = 4 the δ-sum 1 + ½ + ½ = 2 is correct.
+Delete "constant 1 + o(1)". Conjecture 5.2 (with ≪) stands. The X = 4 comparison is unaffected: Σ_{x≤4} δ_x = 1 + ½ + ½ = 2 is correct.
 
 **D6 (cosmetic).**
 (a) Prop 8.1's first family proves the stronger statement "every n ≡ 1 (3), n ≥ 4, is a value", and §8/§9 use it. State it as such, and note it is
