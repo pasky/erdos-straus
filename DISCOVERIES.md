@@ -753,7 +753,7 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * Corollary (R186 m4): ES^{(S)}(n) holds for EVERY n > 1 coprime to 2S, squares included, by divisibility from a prime factor.
      * EVIDENCE (both reviewers, independent code; S = {3, 5, 7, 11}): all primes 13 ≤ p < 5·10⁴ and all non-squares < 2·10⁴ coprime to 2S are solved. The squares have no shot.
    * **Prop 6.1 (PROVED).** Within the orbit family, a shot solution is a genuine ES solution iff g ≡ −1 (mod 4Q). The growing modulus of B2 is *exactly* what separates ES from the provable ES^{(S)}. Along an S-orbit ES gets only a convergent lottery (Assessment).
-   * Thm 5.1 (PROVED, unconditional: large sieve + Chebotarev). For V_φ ((J)21), #{odd n ≤ X with no successful shot} ≪ X^{3/4} log²X: a power saving. CRT large sieves for ES are capped at a (log N)^{3/4} saving ((A)19). The squares {m², 5m²} saturate the large-sieve barrier X^{1/2}.
+   * Thm 5.1 (PROVED, unconditional: large sieve + Chebotarev). For V_φ ((J)21), #{odd n ≤ X with no successful shot} ≪ X^{3/4} log²X: a power saving. CRT large sieves for ES are capped at a (log N)^{3/4} saving ((D)19/(D)22/(D)24, conditional on KARY2 Thm 5.1; citation corrected per O192). The squares {m², 5m²} saturate the large-sieve barrier X^{1/2}.
      * Thm 5.2 (CONDITIONAL, GRH via Lenstra Cor 4.8): the V_φ failure set is exactly the T1 set.
    * Assessment (Thm 6.2 and the overall picture). This is the first unconditional proof, for every non-square, of an ES-type equation that keeps T1 exactly. The mechanism is infinitely many shots of FIXED modulus, which over ℤ requires the mute S-normalisation. Whether ES itself admits an infinite fixed-modulus shot family is the open question (pursued by O191).
 
