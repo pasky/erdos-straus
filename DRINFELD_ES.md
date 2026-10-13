@@ -133,12 +133,10 @@ the minimal-degree terms sum to 1.
 **Lemma 3.1 (finite places still trivial; PROVED).** For ES_q^c with P = Q^e and ℓ ≠ Q finite, inv_ℓ α_ζ(u) ∈ ½ℤ/ℤ.
 *Proof.* Theorem 2.2 (i) verbatim: it used only λ = Σ 1/u_i and integrality of u_i at ℓ (u_i = X_i/c_i is
 integral). ∎
-**Lemma 3.2 (the ∞-invariant is a degree character; PROVED).** Label u₁ to have degree > n − deg A (possible as at
-most... see below), so x = λu₁ − 1 has sign 1/c₁, v_∞(x) = n − deg A − deg X₁; y = −(c₃/c₂)X₂/X₃. The odd part of
-inv_∞ α_ζ(u) is the class of `c₁^{deg X₂ − deg X₃}·(c₃/c₂)^{deg A + deg X₁ − n}` in F_q^*/F_q^{*m}.
-(If all three denominators have degree n − deg A, take any labelling; then v(x) = 0 or x has sign (1 − c₁)/c₁·…;
-this case is excluded below by restricting to data where some denominator has larger degree — always true for
-P of degree n > deg A + … in the computed range; Assessment-level bookkeeping, checked numerically.)
+**Lemma 3.2 (the ∞-invariant is a degree character; PROVED).** Assume some denominator has degree > n − deg A
+(automatic unless c₁ + c₂ + c₃ = 1, which holds for no c in the table below) and label it u₁. Then x = λu₁ − 1
+has sign 1/c₁ and v_∞(x) = n − deg A − deg X₁ < 0; y = −(c₃/c₂)X₂/X₃. The odd part of inv_∞ α_ζ(u) is the class
+of `c₁^{deg X₂ − deg X₃}·(c₃/c₂)^{deg A + deg X₁ − n}` in F_q^*/F_q^{*m}.
 *Proof.* Tame symbol {x, y}_∞ = (−1)^{v(x)v(y)} sgn(x)^{v(y)} sgn(y)^{−v(x)}; drop the signs ±1 (odd part). ∎
 **Theorem 3.3 (order-m T1 on degree classes; PROVED).** Let m | q − 1, P = Q^m, and u a solution of ES_q^c whose
 Q-shape is Type I (v_Q = (≥ m, 0, 0) up to order) or Type II ((0, ≥ m, ≥ m)). Then inv_Q α_ζ(u) = 0 for ζ of
