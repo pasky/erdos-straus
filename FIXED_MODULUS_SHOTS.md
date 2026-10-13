@@ -13,6 +13,11 @@ family with the FIXED modulus 4 ("some prime factor ≡ 3 mod 4"). Does ES itsel
 ES(p) is a triple (c, d, j) with h := 4cdj − 1 dividing pj + c. The three coordinate lines of the cube are three
 families of "shots" (affine forms in p), each with modulus 4 × (product of the two fixed coordinates). Mordell's
 p + 4 is the (c, d) = (1, 1) line; the other two lines through (1, 1, 1) give p + 1 and 4p + 1.
+(N2) Hypothesis to violate: "the modulus is part of the solution" (B2). For fixed-coefficient affine shots it cannot
+be violated: Thm 2.1 classifies the certifying divisors exactly (modulus ≥ √height/2).
+(N3) Drop families altogether and look at one modulus h: the certified residues form a divisor box (Thm 3.1/4.2),
+the ES counterpart of O186's S-orbit coset (Cor 3.2). Size h^{o(1)} vs ≍ h.
+(N4) Construction attempts C1–C7 (§5); deep self-review R-O191 repairs folded in (marked).
 
 ## 1. The certificate cube (PROVED; elementary, a symmetric repackaging of the Type II parametrisation)
 
