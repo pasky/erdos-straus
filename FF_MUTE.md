@@ -249,3 +249,10 @@ generated group reduced mod f" (Kummer theory), and that is what converts the lo
 
 Not an opening for ES (Assessment): the passage back to ES_q is Cor 2.2's growing modulus f ≡ −1 (mod A·Q) — B2,
 exactly as over ℤ (UNIT_ORBIT Prop 6.1). The FF model makes no claim about ES_q(A, P) for actual P.
+
+**The reverse question (which instances lack every mute surrogate; PROVED from Thms 3.5, 4.2).** For prime P: none —
+every s ∤ AP works. Among all monic P coprime to A, for q ≡ 3 (mod 4) and k odd, the P lacking a mute *shot* for
+**every** choice of s (and every S, since the proof of Thm 4.2(b) uses only f ∤ Q) are exactly the squares; for
+q ≡ 1 (mod 4) none. The certificate-size picture: ES_q certificates have modulus degree ≤ 2n − k and height (deg of
+denominators) ≤ 2n − k + O(1) (Prop 5.1); the mute proof uses modulus degree ≍ 2 log_q n but shot height up to ≍ n²
+(Thm 3.5 Remark 3), while numerically a bounded number of shots suffices (§6).
