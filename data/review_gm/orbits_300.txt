@@ -1,0 +1,16 @@
+n=13 X=300: points 4 (B=1: 0, B squarefree: 4); (lam,D) groups 4, max pts/group 1; n|lam: 0; D!=3(4): 0; mu^2-n square: 0; automorph images checked 24 (sqfree B -> divisible by r^2, r<1000 prime: 3); B-involution ok 4
+    [(10, 3, 2, 11), (16, 5, 3, 7), (36, 5, 1, 47), (184, 19, 9, 7)]
+n=17 X=300: points 19 (B=1: 4, B squarefree: 16); (lam,D) groups 12, max pts/group 3; n|lam: 0; D!=3(4): 0; mu^2-n square: 0; automorph images checked 114 (sqfree B -> divisible by r^2, r<1000 prime: 14); B-involution ok 19
+n=29 X=300: points 20 (B=1: 6, B squarefree: 18); (lam,D) groups 14, max pts/group 4; n|lam: 0; D!=3(4): 0; mu^2-n square: 0; automorph images checked 120 (sqfree B -> divisible by r^2, r<1000 prime: 16); B-involution ok 20
+n=73 X=300: points 6 (B=1: 4, B squarefree: 6); (lam,D) groups 6, max pts/group 1; n|lam: 0; D!=3(4): 0; mu^2-n square: 0; automorph images checked 36 (sqfree B -> divisible by r^2, r<1000 prime: 3); B-involution ok 6
+    [(4, 1, 1, 167), (4, 1, 21, 7), (6, 1, 1, 239), (6, 1, 20, 11), (14, 11, 1, 47), (72, 5, 2, 263)]
+n=9 X=300: points 0 (B=1: 0, B squarefree: 0); (lam,D) groups 0, max pts/group 0; n|lam: 0; D!=3(4): 0; mu^2-n square: 0; automorph images checked 0 (sqfree B -> divisible by r^2, r<1000 prime: 0); B-involution ok 0
+    []
+n=25 X=300: points 0 (B=1: 0, B squarefree: 0); (lam,D) groups 0, max pts/group 0; n|lam: 0; D!=3(4): 0; mu^2-n square: 0; automorph images checked 0 (sqfree B -> divisible by r^2, r<1000 prime: 0); B-involution ok 0
+    []
+n=49 X=300: points 0 (B=1: 0, B squarefree: 0); (lam,D) groups 0, max pts/group 0; n|lam: 0; D!=3(4): 0; mu^2-n square: 0; automorph images checked 0 (sqfree B -> divisible by r^2, r<1000 prime: 0); B-involution ok 0
+    []
+n=37 X=300: points 3 (B=1: 0, B squarefree: 3); (lam,D) groups 1, max pts/group 3; n|lam: 0; D!=3(4): 0; mu^2-n square: 0; automorph images checked 18 (sqfree B -> divisible by r^2, r<1000 prime: 3); B-involution ok 3
+    [(6, 5, 1, 23), (6, 271, 1, 23), (116, 95, 1, 23)]
+n=97 X=300: points 9 (B=1: 0, B squarefree: 6); (lam,D) groups 7, max pts/group 2; n|lam: 0; D!=3(4): 0; mu^2-n square: 0; automorph images checked 54 (sqfree B -> divisible by r^2, r<1000 prime: 11); B-involution ok 9
+all odd n <= 401, A,B <= 60: 1912 points, n | lam in 0

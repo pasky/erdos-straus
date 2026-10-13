@@ -900,6 +900,18 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * O200 Thm 3.2 (PROVED relative to the sieve; ineffective). ES^{(y)} holds with exponent cap y^δ for every δ > 0.
    * EVIDENCE (R196/R200 own code). ES^{(3)} and ES^{(y)} are solved at all primes < 10⁵ (O196: < 10⁶), with none at odd squares. With S = {3}, the least overflow is 0 for 94 % of primes < 10⁶.
 
+35. **Spark relay T: five-slice certificates are path-shaped edges of the supersingular 2-isogeny graph (CONSTRUCTIVE_ES.md (O199); review `reviews/constructive-es-review.md` (R199): no FATAL; MAJOR D1 (a hidden hypothesis in the surjectivity of Thm 2.1, repaired), D2 (misread evidence: the 'certificates are not among the smallest orders' conclusion is false at 3 of 5 primes), D5 (complexity overclaim: p^{o(1)}, not poly(log p)); all repaired by the reviewer; literature checked from memory only).**
+   * Thm 1.2 (PROVED by local enumeration; independently re-checked). C₀(L_w), of discriminant 4p, has index 2 in a unique order E(L_w).
+     * χ = −1: E(L_w) is an Eichler order of level 2 in B_{p,∞}, and its two maximal overorders are the endpoint curves.
+     * χ = +1: E(L_w) is an Eichler order of level p in B_{2,∞}.
+   * Thm 2.1 (PROVED after R199 D1; relative to Gross–Lucianovic and Deuring; known in substance from Brzezinski, Lehman and Gross–Lucianovic — the ES identification is new). L ↦ E(L) is a bijection between ternary lattices of determinant p that are anisotropic at p and X₀(2)^{ss}/⟨Frob, w₂⟩. R199 re-certified the class counts for 35 primes.
+   * Cor 2.2 (PROVED). ES-five(p) ⟺ some supersingular E carries trace-zero endomorphisms i, j with ij + ji = −2, deg i · deg j = tp + 1 and (1 − i)(1 − j) ∈ t·End E.
+   * Prop 3.1 / Cor 3.3 (PROVED; counts reproduced). The middle letter t is a Frobenius distance. Spine (F_p-rational) certificates exist for p ≡ 1 (8) ⟺ p + 1 has a prime factor ≡ 3 (mod 4). This fails for 5013 of the 19 552 such primes < 10⁶.
+   * Prop 4.1 / 4.2 (PROVED after R199 D3/D5). A certificate yields explicit maximal orders and non-residues without factoring. A polylog-height ES-five certificate would give deterministic maximal orders / QNR in time p^{o(1)}.
+   * §5. Lattice operations preserve χ (PROVED).
+     * The neighbour-Hecke modules of the χ = ±1 sides share no cusp eigenvalue at 5 primes (EVIDENCE, reproduced). So Hecke-equivariant transfers from the χ = +1 side carry only the main term (B3/B6 in spectral form).
+     * Small-element theorems (Kaneko, Goren–Love) do not constrain the off-diagonal path pattern (Assessment).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
