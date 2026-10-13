@@ -70,3 +70,25 @@ The qualitative content (classes ±1 always appear together, relative sign (−1
 Hidden point worth stating: with weight min(d,d')^{k−1} the trivial divisor d = 1 has weight 1, while an ES
 divisor d ≡ −1 (q) has weight ≥ (q−1)^{k−1}; so for k ≥ 3 the "−2 per level" boundary is negligible inside A3.
 The "geometric reading" (cusps of X₁(q) fixed by T_N; P vs −P) is interpretation, not proved — label it (m5).
+
+### Proposition 2.2 — GAP (label overclaimed; headline factor "q²-fold" wrong by ≍ φ(q))
+What is actually proved is only the trivial bound: the ES-relevant part of A3 is ≤ (φ(q)/2)·Σ_{d|N} min^{k−1}
+≤ (φ(q)/2)·τ(N)N^{(k−1)/2}, and Deligne gives |Tr T_N | S_k(Γ₁(q))| ≤ dim S_k(Γ₁(q))·τ(N)N^{(k−1)/2}.
+(i) **"q²-fold" is off by a factor ≍ φ(q).** By Prop 2.1 the character-summed identity carries the factor
+φ(q)/2 on the ES side, so the cancellation below Deligne needed to see one unit of the ES class is
+dim S_k(Γ₁(q))/(φ(q)/2) ≍ (k−1)q·∏_{p|q}(1+1/p)/12 (equivalently: per character, dim S_k(q,χ) ≍ kq/12 against
+an A3 of size ≤ 2τ(N)N^{(k−1)/2}). Concretely dim S₃(Γ₁(20)) = 14 vs φ(20)/2 = 4 (ratio 3.5, not q² = 400);
+dim S₃(Γ₁(24)) = 20 vs 4. The qualitative conclusion (cancellation growing linearly with the level is needed)
+survives; the stated exponent does not. → M2.
+(ii) **"The ES term is the smallest term" is not proved and is false in general.** Whenever S_k(Γ₁(q)) = 0
+(k = 3, q = 4; k = 2, q ∈ {4,8,12}) and N is not a square, the identity reads A2 = −A3 (k = 3) resp.
+A2 + A4 = −A3 (k = 2) exactly, e.g. q = 4, k = 3, N = 4421: (A1,A2,A3,A4) = (0, 2, −2, 0). In my 20 sample cases
+(`review_gi_prop21.py`) A3 is the smallest of A2, A3, A4, but |Tr| < |A3| happens (q = 20, k = 2, N = 4821:
+|Tr| = 12, |A3| = 20). "Smallest" is a typical-size heuristic → Assessment.
+(iii) "There is no independent way to evaluate the cusp trace at a single N" is an Assessment, not a theorem.
+(iv) "At weight 1 the elliptic term vanishes formally": Cohen's formula (as transcribed) is valid only for k ≥ 2;
+there is no Eichler–Selberg formula computing traces on S₁ (dim S₁ is not given by any such closed formula), so
+setting k = 1 in it proves nothing. The weight-1 sentence is Assessment (m6).
+Repair: split Prop 2.2 into "Lemma (PROVED): trivial bounds above" + "Assessment: …", replace q² by
+dim S_k(Γ₁(q))/(φ(q)/2) ≍ kq, delete "smallest" or qualify it ("typically; equality |A2| = |A3| at genus-0
+levels"). Same fix in the Summary bullet and in AGENT_REPORT item 3.
