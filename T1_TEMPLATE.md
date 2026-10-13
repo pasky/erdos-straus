@@ -79,3 +79,17 @@ factor of g has χ = −1. For 𝔮 | a_k, 𝔮 ∤ 2: n ≡ −4φ^{2k+1} = −
 **EVIDENCE (`scripts/t1t_phi.py 2000 6`).** Every prime 3 ≤ p < 2000, p ≠ 5 (302 primes) has V_φ(p) solved by
 Prop 1.2 with min |k| = 0, 1, 2, 3 for 196, 87, 14, 4 primes; the squares 9, 49, 81, 121, 169 have no k
 (as Thm 1.3(a) proves).
+
+**EVIDENCE for the full T1 of V_φ (`scripts/t1t_phi_search.py B2 J n…`: all solutions whose σ₁-smallest denominator
+x has |σ₂(x)| ≤ B2, the second step complete up to units ±φ^j, |j| ≤ J; shapes per prime of n in O).**
+| n | primes of n in O | solutions | shapes (per prime: I, II, o = other) |
+|---|---|---|---|
+| 13 (inert) | 1 | 40 (B2 = 30, J = 4) | I 21, II 19 |
+| 29 (split) | 2 | 328 | I/II at both primes 248+…; all patterns occur |
+| 11 (split) | 2 | 661 (B2 = 20, J = 3) | I/II at both primes 608 |
+| 9 = 3² (inert) | 1 | 112 | **o 112** |
+| 49 = 7² (inert) | 1 | 142 | **o 142** |
+| 81 = 3⁴ | 1 | 199 | **o 199** |
+| 121 = 𝔮²𝔮'² (split) | 2 | 996 | o·o 381, one prime I/II and the other o: 615; **I/II at both primes: 0** |
+So at squares no solution is Type I/II-shaped at all primes of n simultaneously (the ES T1 pattern, per prime as in
+DRINFELD Thm 3.3), while V_φ is solvable there (by "other" shapes, e.g. inherited 4/m² from 4/m solutions).
