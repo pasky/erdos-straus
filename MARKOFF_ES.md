@@ -100,3 +100,44 @@ character of G_ℚ whose restriction to ℚ(√−D) cuts out ℚ((−D)^{1/4});
 ℚ(√−D) = ℚ(i), impossible for D ≡ 3 mod 4, and −D ≠ −4c⁴). So the lift does not exist. ∎
 *Contrast.* LM Prop 2.4 / CTWX: for Markoff surfaces (smooth cubic minus a triangle without Eckardt point)
 Br U_m/Br ℚ is generically (ℤ/2)³, and transcendental elements matter for special m.
+
+## 3. Integral model, local conditions, T1 and Brauer–Manin
+
+Integral model: 𝒮_{n,D} := Spec ℤ[A, B, λ]/(nA² + B² + D − 2DλAB) (S_{n,D} with C = 2Dλ, isomorphic over ℚ).
+Admissible local sets: W_ℓ ⊂ 𝒮(ℤ_ℓ) cut out by: not(ℓ | A and ℓ | B); ℓ | n ⇒ ℓ ∤ B; for ℓ = 2 also A even, B odd;
+W_∞ = {A, B, λ > 0}. Admissible integral points = 𝒮(ℤ) ∩ ∏_v W_v = the V_n-points with this D.
+
+**Lemma 3.1 (local solubility; PROVED).** ∏_v W_v ≠ ∅ ⟺ (i) D ≡ 3 (mod 4), (ii) gcd(D, n) = 1, and (iii) every
+prime ℓ | D has (−n/ℓ) = 1. Call such D *admissible*.
+*Proof.* ℓ = 2: A even, B odd forces nA² + B² + D ≡ 1 + D ≡ 0 (mod 4); conversely for D ≡ 3 (4), A = 2, B = 1,
+λ = (4n + 1 + D)/(4D) ∈ ℤ₂. ℓ | D odd: λ ∈ ℤ_ℓ needs v_ℓ(nA² + B² + D) ≥ v_ℓ(D) + v_ℓ(AB); if ℓ | A then ℓ ∤ B and
+the left side is a unit, if ℓ | B then ℓ ∤ A and ℓ | n (excluded by W_ℓ) or the left side is a unit; so ℓ ∤ AB,
+ℓ ∤ n and −n ≡ (B/A)² (mod ℓ); conversely Hensel. ℓ ∤ 2D: A = B = 1 (or any units) gives λ ∈ ℤ_ℓ. ∞: any A, B > 0. ∎
+
+**Corollary 3.2 (T1 is a fibrewise LOCAL obstruction; PROVED).** For n = m² no D is admissible: (−m²/ℓ) = (−1/ℓ),
+so (iii) forces D ≡ 1 (mod 4), contradicting (i). Hence for every D ≥ 1 the admissible adelic set of 𝒮_{m²,D} is
+empty — at ℓ = 2 if D ≢ 3 (4), otherwise at some prime ℓ ≡ 3 (4) dividing D to an odd power. The only global input
+is "an integer ≡ 3 (mod 4) has a prime factor ≡ 3 (mod 4) to an odd power", i.e. reciprocity for (−1/·) applied to
+the PARAMETER D. On the 3-fold V_n (D a coordinate) this is a Brauer–Manin obstruction:
+
+**Proposition 3.3 (family BM; PROVED).** On V_n (coordinates A, B, λ, D), β := (−1, D) is unramified along the
+divisor {D = 0} = {nA² + B² = 0} iff n is a square (that divisor is ℚ-irreducible with function field
+ℚ(√−n)(A, λ), D is a uniformiser there since ∂/∂B = 2B − 2λDA = 2B ≠ 0, and −1 is a square in ℚ(√−n) iff n ∈ ℚ^{*2}).
+For n = m² and every admissible adelic point (W_v as above, now with D ∈ ℤ_v free), Σ_v inv_v β = 1/2: inv₂ = 1/2
+(D ≡ 3 mod 4 at 2), inv_ℓ = 0 for odd ℓ (ℓ | D forces (−1/ℓ) = 1 by Lemma 3.1(iii)), inv_∞ = 0 (D > 0). So T1 for
+the whole ES^{[2]} family is the BM obstruction of the single quaternion algebra (−1, D) — the same algebra as
+CHI_FLIP Prop 1.6 in different coordinates. For non-square n the class is ramified and gives nothing.
+
+**Proposition 3.4 (no Brauer–Manin obstruction on any admissible fibre; PROVED).** Let D be admissible. Then
+(∏_v W_v)^{Br S_{n,D}} = ∏_v W_v ≠ ∅.
+*Proof.* By Prop 2.2 it suffices to show that some place realises all four values of (α₁, α₂) while the other
+places stay fixed. D ≡ 3 (4) has a prime ℓ ≡ 3 (4) with v := v_ℓ(D) odd; ℓ is admissible, so r² ≡ −n (mod ℓ) for
+some r. At P_ℓ = (A, B, λ) ∈ W_ℓ (A, B units, B ≡ ±rA mod ℓ^v): α₁(P_ℓ) = (A, −D)_ℓ = (A/ℓ)^v = (A/ℓ) and
+α₂(P_ℓ) = (B, −nD)_ℓ = (B/ℓ) = (±r/ℓ)(A/ℓ). Choosing (A/ℓ) and the sign ± freely ((−1/ℓ) = −1) realises all four
+pairs; Hensel lifts any such residue choice to a point of W_ℓ (λ is then determined and ℓ-integral). ∎
+*Reading.* The prime ℓ ≡ 3 (4), ℓ ∥_odd D, that T1 forbids at squares (Cor 3.2) is exactly the prime that kills
+every Brauer–Manin obstruction at non-squares. So for non-square n, nothing local or Brauer-theoretic stands in
+the way on any admissible fibre; existence is a pure "integral Hasse principle in the λ-direction" question.
+Note this is a statement about the FIBRE surfaces, whose integral points (if any) lie on infinitely many
+λ-conics; unlike GS Thm 1.1 there is no compact fundamental set, so emptiness of S_{n,D}^{adm}(ℤ) is not even
+known to be decidable for a single D.
