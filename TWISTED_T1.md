@@ -187,11 +187,27 @@ e = 2, i_λ = 4, i.e. 9 | t. (2) S may be empty: then A_S = 0 and (a) says Σ_{v
 twisted version of Thm 2.2 (no T1). (3) **Over a function field the template is void for constant twists**
 (Prop 2.3(i)) — and ∞ must be in S (the denominators are integral only away from ∞), where the only natural
 normalisation (monic) is Lagrangian with free degree. (4) The template does **not** cover ES itself (m = 2):
-there the anchor is ⟨−1, −1⟩_∞ (non-alternating) and the vanishing at the wild partner 2 needs v₂(t) ≥ 3, whereas
-t = 4 has v₂ = 2; ES's T1 rests on the finer quadratic analysis (KUDLA_ES Thm 1.2 / BL). So ES's T1 is the m = 2
+there the anchor is ⟨−1, −1⟩_∞ (non-alternating), tame places only give inv ∈ ½ℤ/ℤ (no information for m = 2),
+and the vanishing at the wild partner 2 would need v₂(t) ≥ 3, whereas t = 4 has v₂ = 2; ES's T1 rests on the finer quadratic analysis (KUDLA_ES Thm 1.2 / BL). So ES's T1 is the m = 2
 member of a family whose odd members are *strictly easier* to prove.
 
 **Corollary 4.2 (what an order-m T1 needs, in one line).** Odd m: a non-zero anchor needs a place where the
 normalisation is *not* Lagrangian (Cor 2.2: monic / unit / primary never qualify; congruence normalisations
 "≡ 1 mod v" at tame v do), plus a constant algebra (τ₁, τ₂) ramified there and at a partner place where the
 equation forces vanishing. m = 2 additionally allows the non-alternating real anchor — the ES case.
+
+**Proposition 4.3 (the partner must be wild; PROVED).** In the setting of Thm 4.1 with (A) and (U), if A_S ≠ 0
+then some place w ∉ S with w | m has ⟨τ₁, τ₂⟩_w ≠ 0. Consequently: (i) over a global function field of
+characteristic p ∤ m (and μ_m ⊄ K when m = p) **no** order-m T1 of this template exists, for any twists — the
+structural reason behind FUNCTIONFIELD_ES's "no odd-square obstruction over F_q[T]" and DRINFELD_ES §3's partial
+(degree-class) T1; (ii) over number fields the partner lies above m. ES (m = 2): anchor ∞ (real), partner 2
+(wild). TES (m = 3): anchor 2 (tame, congruence-normalised), partner λ (wild).
+*Proof.* Hilbert reciprocity for the constant algebra: A_S = −Σ_{w∉S} ⟨τ₁, τ₂⟩_w. For finite w ∉ S, w ∤ m
+(including w | n, as n is prime to c and m): τ₁, τ₂ are w-units by (U), and the tame symbol of two units is
+trivial. Archimedean w: Br ℂ = 0, and real places do not occur (μ_m ⊂ K, m ≥ 3 forces K totally complex; for
+m = 2 they may occur — the ES anchor). So the non-zero term is at some w | m. In a function field with p ∤ m
+every place is tame. ∎
+*Caveat (scope).* Prop 4.3 concerns the template (normalisation-only anchors + integral points with unit twists
+outside S). A T1 produced by a different mechanism (e.g. forced non-zero invariants at a place by the equation
+itself, as in ES at 2 for m = 2) is not excluded by it. In function fields, ∞ is never "tame with units": the
+denominators are not ∞-integral, and Lemma 1.2's degree character is exactly the non-template contribution.
