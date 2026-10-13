@@ -147,3 +147,45 @@ tables, reproduced) + Assessment. MINOR, see D7.
   (or "β totally positive"); the conclusion "descent goes the wrong way" is unaffected — it only gets stronger (D9).
 * FF remark (Carlitz real subfields): [K_M⁺ : F] = Φ(M)/(q − 1) with inertia at ∞ ≅ F_q^* (Hayes; Rosen Thm 12.14
   from memory) ✓; (q^d − 1)/(q − 1) ≡ d (mod 2) for q odd checked for q ≤ 13, d ≤ 8; M = T^e gives q^{e−1}. SOUND.
+
+### §5 Rank-k genus vacuity — SOUND as Assessment; the cited mass formula is the wrong tool and is not needed
+(a) = Thm 1.3 (SOUND). (b): Wei–Yu exists — F.-T. Wei, C.-F. Yu, *Mass formula of division algebras over global
+function fields*, J. Number Theory 132 (2012), arXiv:1102.5465 (verified by search; I did not read it) — but it is a
+**mass formula** (Denert–Van Geel) for the class set, not an optimal-embedding (Eichler trace) formula, so it does
+not support "total number of optimal embeddings over the genus = h(O) × ∏ local factors" for degree k ≥ 3 (that
+statement, with selectivity issues, is not classical for k ≥ 3). The conclusion the author needs is much more
+elementary: if K ↪ D and O ⊂ K is an R-order, then O ⊂ D is an R-order and **every order is contained in a maximal
+order**; so "∃ maximal order of D containing (a conjugate of) the datum" ⟺ "K embeds in D (local conditions at
+Ram(D)) + the datum is integral". Genus vacuity in rank k is thus a one-line PROVED statement for maximal orders;
+only congruence-level ("Eichler-type") orders would need more. Repair D10.
+(c) LSV: Lubotzky–Samuels–Vishne, *Ramanujan complexes of type Ã_d*, Israel J. Math. 149 (2005) — correct
+reference (from my memory too); the B3 scale argument is an Assessment, appropriately labelled.
+
+### §6 Kottwitz form — SOUND (classical), one explanatory sentence imprecise
+H¹(F_v, PGL_k) ↔ degree-k central simple algebras ↔ Br(F_v)[k] ≅ ℤ/k for local fields (period = index); global
+exactness of H¹(F, PGL_k) → ⊕_v ℤ/k → ℤ/k → 0 at the middle (pointed sets) uses ABHN + period = index for global
+fields. Ĝ = SL_k, Z(Ĝ) = μ_k with trivial Γ-action for an inner form of PGL_k. All correct. Imprecise (MINOR, D11):
+"Γ_∞ acts trivially on μ_k because ∞ is not archimedean". Γ acts trivially on Z(Ĝ) for **every** inner form of PGL_k
+over any field (ℚ included). The real difference: over ℝ, a form of PGL_k that is compact must be PU(k), an *outer*
+form for k ≥ 3 (−1 ∉ W(A_{k−1})), whence inversion on μ_k (R177's D2c); over the non-archimedean F_∞ there are
+anisotropic **inner** forms PGL₁(D_∞) for every k. Suggested wording: "because F_∞, unlike ℝ, carries anisotropic
+inner forms of PGL_k for every k". Kottwitz 1986 not re-checked by me either (no source).
+Diff_m(u) := {v : inv_v α_ζ(u) ≠ C_v} is the author's definition (flagged as such); given Thm 2.2,
+"Diff_m(u) = {∞}" is immediate. Fine.
+
+### Memos
+* bsH_bl_order_q1, bsH_kth_power_law, bsH_twisted_targets, bsH_infinity_coordinate, bsH_odd_descent,
+  bsH_carlitz_real: faithful summaries of §§1–4; inherit D1–D9 below. bsH_twisted_targets says "Lemma 3.2 formula
+  matches on 4 074 solutions": I could not reconstruct 4 074 from the tables (1750 + 316 + 898 + 114 = 3078; adding
+  (1,1,4): 5116); immaterial — my check covers 20 464 (point, labelling) pairs, 0 mismatches.
+* bsH_lubin_tate_sterile — SOUND (convention-dependent sign only). x*_c ∈ R̂^* is ≡ 1 at ℓ ≠ T and 1 + cT at T
+  (FUNCTIONFIELD_ES2 §0.2). Gal(F(Λ_∞)/F) ≅ lim (R/M)^* = R̂^* (Hayes); for T ∤ M, F(Λ_M) is unramified at T so
+  rec_T(unit) is trivial on Λ_M; on Λ_{T^e} the local Artin symbol of a unit u acts by u^{−1} (Lubin–Tate/Hayes
+  normalisation — with the opposite normalisation it is rec_T(1 + cT); the author should say "up to the
+  normalisation of the Artin map"). 1 + cT ∈ U¹_T, and rec_T(U¹_T) is the wild inertia group ✓. 1 + cT is a square in
+  F_q[[T]] (q odd, Hensel) and 1 is a square elsewhere, so x*_c is a square in R̂^*, and a limit of Q², Q ∈ R
+  (R dense in R̂) ✓. The ℚ-dictionary is Assessment, so labelled.
+* bsH_shtuka_theta: FYZ *Higher Siegel–Weil formula for unitary groups: the non-singular terms* is arXiv:2103.11514,
+  Invent. Math. (2024) ✓ (verified by search). Yun–Zhang Ann. of Math. 186 (2017) ✓ (my memory). Assessment only.
+* bsH_rank_k_genus: see §5 (D10). bsH_lsv_ramanujan, bsH_nagao_cf: Assessments/dictionaries, nothing to check
+  beyond Nagao's theorem SL₂(F_q[T]) = SL₂(F_q) *_{B(F_q)} B(F_q[T]) (correct, Serre *Trees* II.1.6).
