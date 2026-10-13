@@ -261,3 +261,63 @@ certificates there by Cor 3.3, because 2522 = 2·13·97.
 
 The data actually support this narrower statement: the CM(−n_p) edge is a certificate exactly when the Mordell-type
 congruence for q = n_p holds (t₀(q) | q + 1), which is a residue condition on p. That is what Prop 4.1 already says.
+
+## Numbered defects
+
+**D1 (MAJOR; repair is easy) — Thm 2.1, surjectivity step: a hidden hypothesis.**
+"E^{ev} ⊗ ℤ₂ ≅ C₀(L_w ⊗ ℤ₂) for any certificate word w" presupposes a certificate at p, i.e. ES-five(p). As written,
+the bijection, and the (iii) ⟹ (ii) direction of Cor 2.2 that relies on it, is proved only at primes that already have
+a certificate.
+*Repair:* use the purely local Thm 1.2(b). For any isotropic odd unimodular ℤ₂-lattice, e.g. ⟨1, 1, 3⟩, the order
+E(⟨1,1,3⟩) ⊗ ℤ₂ is Eichler of level 2, and C₀(⟨1,1,3⟩) ⊗ ℤ₂ is its even-trace part. All level-2 Eichler orders of
+M₂(ℚ₂) are conjugate, so E^{ev} ⊗ ℤ₂ ≅ C₀(⟨1,1,3⟩ ⊗ ℤ₂). The rest of the argument is unchanged.
+
+**D2 (MAJOR) — §5.5, the Summary point (4), the report's EVIDENCE line and Prop 4.1's EVIDENCE: misreading of own data.**
+* At 1009, 1129 and 1801 a certificate class attains min(E⁰) = n_p = 11, the smallest value present.
+* The ranks are 0-indexed.
+* "Certificates are not among the smallest orders at hard primes" holds only at 1201 and 2521.
+
+*Repair:* restate as follows. "At 3 of the 5 hard primes a certificate sits at a CM(−n_p) edge, namely when the
+Mordell-type congruence for q = n_p holds (e.g. 1009: word (4, 3, 92), A = 11). At 1201 and 2521 it does not, and there
+the first certificate class is 4th resp. 11th by min(E⁰). Whether a privileged order is a certificate is decided by the
+congruence data of its CM discriminant, not by its size." Also state that the ranks are 0-indexed, or convert them.
+
+**D3 (MINOR) — Prop 4.1(c), Prop 4.2 (lens space).**
+The non-residues are −A, −A*, −uv. They equal A, A*, uv only for p ≡ 1 (4).
+*Repair:* write "(−A/p) = (−A*/p) = (−uv/p) = −1", note p ∤ uv, and change "(A/p) = −1" to "(−A/p) = −1".
+
+**D4 (MINOR) — Cor 3.2 / reading after Cor 3.3.**
+* Add "trace-zero" to the description of min L, or add the remark that non-trace-zero x have nrd x / p ≥ p/4 > min L
+  for p ≥ 13.
+* Replace "Frobenius distance t" by "Frobenius distance ≤ t (t is the degree of one compatible Frobenius-factor)".
+  Counter-data: at p = 2521 the certificates have min L = 2 but t = 15 and t = 44.
+
+**D5 (MAJOR) — Prop 4.2: complexity overclaim.**
+Enumerating the divisors of tp + 1 is not poly(log p); d(n) can be exp(c log n / log log n).
+*Repair:* replace "poly(log p)" by "p^{o(1)} (more precisely (log p)^{O(1)}·max_{t ≤ (log p)^C} d(tp + 1))". Make the
+same change in the "Equivalence question" paragraph and in the Summary (2) / report wording.
+
+**D6 (MINOR) — "≈ p/12 classes" (§2 Reading, §5.3).**
+The correct size is ≈ p/16: there are ≈ p/4 points of X₀(2)^ss, in orbits of size ≤ 4. At p = 2521, |𝔊⁻| = 166.
+
+**D7 (MINOR) — Thm 1.2(b) wording.**
+* L⁺_i is integral only as a quadratic form: B(x_i/2, e_k) ∈ ½ℤ. Say "Q-integral (non-classical)".
+* State that C₀(L⁺₁) ≠ C₀(L⁺₂). I verified this on all 48 isotropic triples.
+
+**D8 (MINOR) — Cor 2.2 Reading (eigenlines).**
+Add "when i, j ≢ ±1 (mod ℓ End E)", or label the paragraph Assessment.
+
+**D9 (MINOR) — 5.1 "= the line graph of the supersingular 2-isogeny graph" (unproved; quotient issues) and 5.4 "empty at
+odd squares" (true only for the path-word dictionary).**
+*Repair:* label 5.1's claim as Assessment, and qualify 5.4.
+
+**D10 (MINOR) — Thm 2.1 attribution and range.**
+* The bijection is known in substance (Brzezinski; Lehman; Gross–Lucianovic; Ponomarev). The document should say so,
+  not only the report.
+* The certified class-count range can be extended: R199 checked all primes 5 ≤ p ≤ 139 plus the author's eight; the
+  restriction to p ≡ 1 (mod 12) is unnecessary with the Hauptmodul count.
+
+**D11 (MINOR) — 5.2 "Consequence".**
+Add the needed step: ℓ + 1 is a simple eigenvalue on both sides. This follows from Ramanujan–Deligne, or directly from
+the computed characteristic polynomials.
+Optionally add the full-Hecke version, which holds for all p modulo the JL/AL citation.
