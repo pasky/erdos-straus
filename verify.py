@@ -24803,5 +24803,31 @@ def check_fA():
 
 check_fA()
 
+def check_fB():
+    # (fB) GROWING_MUTE (O201/R201): capped-overflow hierarchy ES => ES^(y,1) => ES^[2] => ES^(y) on 30443 shots and
+    # 816 (A,B)-triples, no T1 violation; the B = 1 (ES shot family) complete criterion equals brute force, odd n <= 1201.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("GROWING_MUTE subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_gm_dict.py", "201", "301", "60")
+    assert "partA 201 301 {'shots': 30443, 'K2': 497, 'y1': 482, 'ES': 284, 'yy': 679}" in o and \
+        "'bad_adm': 0, 'bad_q': 0, 'y1': 782, 'sq_B': 782, 'T1viol': 0}" in o, ("GROWING_MUTE R201 dict", o)
+    o = run("review_gm_b1check.py", "1201")
+    assert "odd n <= 1201: brute == complete criterion" in o, ("GROWING_MUTE R201 B=1", o)
+    print(f"== (fB) GROWING_MUTE R201: cap hierarchy and (A,B) symmetric divisor form on 30443 shots / 816 triples, "
+          f"0 T1 violations; B = 1 criterion = brute force (odd n <= 1201); seconds = {perf_counter() - t0:.1f}")
+
+
+check_fB()
+
 
 print("\nall checks passed")

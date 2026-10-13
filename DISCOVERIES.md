@@ -912,6 +912,19 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * The neighbour-Hecke modules of the χ = ±1 sides share no cusp eigenvalue at 5 primes (EVIDENCE, reproduced). So Hecke-equivariant transfers from the χ = +1 side carry only the main term (B3/B6 in spectral form).
      * Small-element theorems (Kaneko, Goren–Love) do not constrain the off-diagonal path pattern (Assessment).
 
+36. **Spark relay V: bounded exponent cap with a growing mute set — ES^{(y,1)} is a Markoff-type integral-point problem (GROWING_MUTE.md (O201); review `reviews/growing-mute-review.md` (R201): no FATAL; four MAJOR (M1 parity convention, M2/M3 overclaimed readings — Pell orbits do not preserve B squarefree, M4 Ghosh–Sarnak misstated), ten minors; repaired by the reviewer).**
+   * Prop 1.1 (PROVED; 30 443 shots checked independently). Cap hierarchy: ES ⇒ ES^{(y,1)} ⇒ ES^{[2]} ("den z | y²") ⇒ ES^{(y)}.
+     * In the shot family, ES^{[2]} ⟺ nA² + B² has a divisor g ≡ −1 (mod 2AB), with A even and the overflow B coprime to A and n. ES^{(y,1)} is the case B squarefree, and ES's own shot family is B = 1.
+     * T1 holds because a sum of two coprime squares has no divisor ≡ 3 (mod 4).
+   * Prop 1.2 (PROVED). These are integral points on the Markoff-type surfaces S_{n,D}: nA² + B² + D = ABC (2D | C).
+     * Each point carries an infinite Pell orbit, so there is no archimedean wall once B is free (R200 M1 confirmed). The orbits do not preserve B squarefree (R201 M3).
+     * For every odd n > 1 only one Vieta involution is integral (R201 m2), so there is no Markoff-tree descent.
+   * Prop 2.1 / 3.1 (PROVED; R201 M2 corrected the readings). For a fixed modulus P the firing primes form a finite explicit divisor set, so Bombieri–Vinogradov is irrelevant. e = 0 (ES) and e = 1 differ archimedeanly: B = 1 caps A ≤ 3(n+1)/2.
+   * EVIDENCE (R201 reproduced exactly to 10⁶ with its own code).
+     * Every prime p ≡ 1 (4) < 10⁶ has ES^{(y,1)} shot solutions. Exactly 99 of them have no B = 1 (ES shot-family) solution; all 99 are solved with B ≤ 23 in the widened (any-parity) family.
+     * p = 13, 37, 97 provably have no shot-family ES solution but do have ES^{(y,1)} ones, e.g. 4/13 = 1/6 + 1/390 + 9/65.
+   * Assessment. At fixed n, ES^{(y,1)} is an infinite thin lottery of integral points with no equidistribution handle; it is not an opening for ES. Its integral-point theory is being examined by O202 (the Ghosh–Sarnak surfaces differ from S_{n,D}; Ghosh–Sarnak prove the integral Hasse principle for almost all k).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
