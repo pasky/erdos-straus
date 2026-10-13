@@ -24563,5 +24563,34 @@ def check_fs():
 
 check_fs()
 
+def check_ft():
+    # (ft) DEPTH_ASPECT (O178/R178/R187): Thm 2.5 union bound (q = 3^r, r >= 27: Case A + Case B + tail < 1, so
+    # ES_q(T^k) has no finite linear covering) recomputed by R178; R187's r-generic box check (r = 17, levels <= 2:
+    # every brute-force box lies in a predicted box) underlying Thm 3.1 (sterile Mordell points for large r).
+    from time import perf_counter
+    import os
+    import re
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("DEPTH subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_da_thm25.py", "100")
+    tot = {int(m.group(1)): float(m.group(2)) for m in re.finditer(r"r=(\d+) S=100 .*TOTAL=([0-9.e+-]+)", o)}
+    assert all(tot[r] < 1 for r in range(27, 35)) and "r=27 S=100 caseB=1.332e-03" in o, ("DEPTH R178 Thm 2.5", o)
+    o = run("review_da2_rgeneric.py", "17", "300", "2")
+    assert "NOT contained in a predicted box: 0" in o and "ordered solutions f(r^k): {1: 24, 2: 162}" in o, \
+        ("DEPTH R187 r-generic boxes", o)
+    print(f"== (ft) DEPTH_ASPECT R178/R187: Thm 2.5 union bound < 1 for q = 3^r, 27 <= r <= 34 (r = 27: "
+          f"{tot[27]:.2e}); r-generic boxes at r = 17 (levels <= 2) all predicted; seconds = {perf_counter() - t0:.1f}")
+
+
+check_ft()
+
 
 print("\nall checks passed")

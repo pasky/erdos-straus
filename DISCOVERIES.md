@@ -769,7 +769,7 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * O179 Lemma 2.1 (PROVED, genus parity; R179 notes it is FF2 §3's parity plus arithmetic). Every slice Case B solution has deg E, deg E′ even and λ ≡ deg r ≡ K (mod 2). This fills R175 D7.
    * O179 §4: the exact residual problem at x*_c is a divisor problem T^K + r = H·H′·L″ with H + H′ = Tg′r and a T-adic congruence. The measure route needs #sol(K) ≤ 3^{(1/2−δ)K}; the data show ≈ 3^{0.2K}.
      * EVIDENCE: the cyclotomic solutions for 15 ≤ K ≤ 149 (with honestly reported skips) never cover x*.
-   * Status (CONJECTURE 0.2): no explicit sterile point is proved for q = 3. For large q in characteristic 3 see (J)25 (O178).
+   * Status (CONJECTURE 0.2): no explicit sterile point is proved for q = 3. For large q in characteristic 3 see (J)26 (O178).
 
 25. **Spark relay N: ES itself has no infinite fixed-modulus shot family — scoped no-go (FIXED_MODULUS_SHOTS.md + BRAINSTORM/bsN_divisor_box.md (O191); review `reviews/fixed-modulus-shots-review.md` (R191): no FATAL; one MAJOR (M1: Cor 3.2's "incomparable" is false — in fact Box ⊆ the ES^{(S)} coset always) and minors, repaired by the reviewer).**
    * Lemma 1.1 / 4.1, the certificate cube (PROVED; brute-force bijection for all primes ≤ 3000 (II) and ≤ 1500 (I) by R191).
@@ -783,6 +783,26 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * So ES(p) is a FINITE search, whereas the ES^{(S)} sieve pushes r → ∞.
      * Assessment: this is the cleanest form of why ES resists the (J)23 mechanism. Infinitely many shots are impossible for ES at fixed p. Any proof must find one certificate among O(p²)-bounded candidates (B2/B3).
    * Thm 6.2 scope: p-dependent coefficients, polynomial shots of degree ≥ 2, Type I affine shots and multi-prime conditions are NOT covered.
+
+26. **Spark relay E: the depth aspect — sterile Mordell points for all large r, and no finite linear covering of ES_q(T^k) for large q in characteristic 3 (DEPTH_ASPECT.md + 9 memos BRAINSTORM/bsE_* (O178); two independent hostile reviews `reviews/depth-aspect-review.md` (R178) and `reviews/depth-aspect-review-2.md` (R187): both find Thms 2.5 and 3.1 SOUND; no FATAL or MAJOR; minors repaired by the reviewers).**
+   * **Thm 3.1 (PROVED, relative to ET Prop 1.7's proof for N-points, Browning–Elsholtz f(n) ≪ n^{2/3+ε}, and MORDELL17 Lemmas 1.1, 2.1–2.3 and Cor 4.2).** There is an effective r₀ such that for every prime r ≥ r₀ the r-generic line {x_q = 1 (q ≠ r), x_r = u} contains a sterile point (in no ET Prop 1.9 class). The sterile measure on the line tends to 1/2.
+     * Both reviewers re-derived the general-r transfer of MORDELL17. R178 also brute-force checked it for r ≤ 31 at levels ≤ 2.
+     * Consequence: no finite set of ET classes covers all large primes p ≡ 1 (24) whose least quadratic non-residue is r.
+     * These are the first proved sterile Mordell points other than the square points.
+     * r₀ is astronomically large (O188 estimates exp(exp(30–60))). r = 13, 17 stay open.
+   * **Thm 2.5 (PROVED, relative to O173 Lemmas 1.1/2.1, R166 Case A step (1) and the ES2 compactness criterion, all reviewed).** For q = 3^r with r ≥ 27, and for every odd q ≥ 1.3·10^16, and every k ≥ 2, ES_q(T^k, ·) has no finite linear covering.
+     * A positive-measure part of each c-slice is obstructed.
+     * Ingredients: Lemma 2.2, Case B families of parameter s number ≤ C^s q^{2(s−3)/5}, against the cylinder weight q^{−s/2}; Lemma 2.4, Case A. The union bound was recomputed independently.
+     * R187 E5 (suggestion, unproved): the same lemmas very likely reach r ≥ 10 with a rigorous tail. q = 3 itself stays open: the union bound there is 1.74 + 0.09 > 1.
+   * §1 over ℤ (EVIDENCE; reproduced exactly by R178). ET moduli restricted to prime powers q^s give a thin H-A family: the q = 3 family misses 1233 of the 78 496 primes ≤ 10⁶, and the q = 7 family misses 3518. Depth-aspect character sums have no entry point at fixed p (Assessment).
+   * By-product (PROVED): #{(c, f, g) : cfg − c − f = n} ≪ n^{1/3+o(1)}.
+
+27. **Spark relay M: steering by sterile points (STERILE_STEER.md + 3 memos BRAINSTORM/bsM_* (O188); review `reviews/sterile-steer-review.md` (R188): no FATAL; two MAJOR framing defects (D3, D9) and minors, repaired by the reviewer).**
+   * Prop 3.1 (PROVED). The sterile set S ⊂ Ẑ is closed, and ES(p) ⟺ p ∉ S (via Type I/II N-points). SQ ⟺ S ∩ ℕ_odd = odd squares.
+   * Prop 3.2 (PROVED). On T-generic non-square patterns with Σ_{q∈T, q≡3(4)} 1/q = ∞, almost every point is covered by the Mordell classes n ≡ −4 (mod q).
+   * EVIDENCE (r = 17, reproduced independently by R188). Primes near the sterile point x(5) and primes near the square point 1 behave identically: they escape at a single prime just beyond the depth B, with Mordell height about 2.5B. Neither r-depth nor large primes are needed. The sterile point is not where hardness sits.
+   * Lemmas 4.1/4.2 (PROVED for odd r). Exponential limit sets Λ_k never meet an r-generic line, and ET classes have pushed-forward measure 1/ord_{M′}(2) on them. So (J)26's measure mechanism does not transfer to (J)22's families.
+   * Prop 5.1 (PROVED relative to stated inputs). Per-prime level-1 coverage is ≪ q^{−2/5+o(1)} for ET classes and 1/i_𝔮 for V_φ unit shots. The "unique bounded-modulus shot" reading is refuted by (J)25 (three modulus-4 shots).
 
 ## Items to verify by the maintainer
 
