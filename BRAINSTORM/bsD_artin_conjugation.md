@@ -38,3 +38,12 @@ a given discriminant, and the CM points among them are a 2-torsion (genus) condi
 Dictionary (PROVED, elementary), negative as a route: the ES target class is the archimedean Frobenius, so every
 reciprocity anchored at ∞ sees only its quadratic shadow; the remaining order-φ(M)/2 part lives on a totally real
 field where nothing anchors it. Promise 1 (clarifying; explains *why* the R-part has no Siegel–Weil incarnation).
+
+## Correction / extension (written after a second pass; supersedes the "no archimedean anchor" sentence above)
+Over F = K⁺ = ℚ(ζ_M)⁺ itself the ray condition **does** have an archimedean anchor: η = η_{K/F} is a *quadratic* ray
+class character of F of conductor 𝔪·∞₁⋯∞_r (every real place of F ramifies in the CM field K), and for an ideal 𝔞
+of F prime to M, `Art_{K/F}(𝔞) = N_{F/ℚ}𝔞 mod M ∈ {±1}`. Hence **for divisors f that are norms of F-ideals
+(f = N_{F/ℚ}𝔞, e.g. all prime factors ≡ ±1 mod M), f ≡ −1 (M) ⟺ η(𝔞) = −1 — a quadratic, parity-visible
+condition over F.** bsC_parity_quadratic_only Prop 1 does not apply, because its data t are ℚ-rational; here the
+data are F-ideals. The cost moves to F-rationality: only the "split part" of N (prime factors ≡ ±1 mod M, density
+2/φ(M) among primes) can carry such 𝔞 with N𝔞 | N. Numerics and assessment: LDP_DEEP.md §A.4.
