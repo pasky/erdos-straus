@@ -1,5 +1,7 @@
 # R169 — hostile review of O169 `DEDEKIND_ES.md` (Parts I–II)
 
+**Repairs applied:** all D1–D10 in DEDEKIND_ES.md (+ matching lines of AGENT_REPORT_O169.md), marked "(R169 repair)".
+
 Reviewer: R169 (side-agent/review-dedekind). Author branch merged: side-agent/dedekind-sums.
 From-scratch scripts: `scripts/review_dk_*.py` (none of the author's `dk_*` code reused).
 
@@ -35,8 +37,9 @@ overclaimed at the level of the main labels. ES is not solved, and the document 
 * **D10** Thm 4.5: the 4|u, 4|v slices are asserted to give ES solutions without an explicit triple. One is
   `4/n = 1/(wf) + 1/(tnw) + 1/(tnwf)`, verified for all n ≤ 5000 (§3).
 
-**Repairs applied.** The author had made no commits since the checkpoint-2 report, so I applied D1, D2, D3, D5, D6,
-D7, D9 and D10 directly in `DEDEKIND_ES.md`, each marked "(R169 repair)". D4 and D8 are wording and left to the author.
+**Repairs applied.** All of D1–D10 are applied in `DEDEKIND_ES.md`, each marked "(R169 repair)". D10 now writes
+out explicit ES triples for both the 4|u and the 4|v slice. The matching lines of `AGENT_REPORT_O169.md` (D1, D2,
+D3, D4, D5, D6, D10) are repaired the same way. D7, D8 and D9 have no counterpart in the report.
 
 ## 1. Lemma 1.1, Cor 1.2, (D2), (D3) — SOUND (minor citation/wording repairs)
 

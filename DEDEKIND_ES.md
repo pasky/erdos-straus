@@ -49,8 +49,9 @@ n − A*, and s(n−A,n) = −s(A,n)), eliminate Σb'_j = (r − 1) + 2r'. ∎
 
 On a certificate `n/A = [[v,t,u]]`: `12 s(A,n) = t + u + v − 9 + (A+A*)/n` and `r' = t + u + v − 5`.
 So **the Dedekind sum s(A,n) determines r − r' (the alternating sum of regular partial quotients) but not r
-itself**; "r = 3" is the condition that the *odd-indexed* regular partial quotients of n/A are all 1 except in
-the pattern `[v−1; 1, t−2, 1, u−1]` (entries 2 in [[·]] merge into the 1-strings).
+itself**. (R169 repair of a garbled sentence:) for the regular CF `n/A = [a₀; a₁, a₂, …]` one has
+`r(n/A) = 1 + Σ_{i odd} a_i`, so "r = 3" is the condition that the odd-indexed regular partial quotients sum to 2.
+That is the pattern `[v−1; 1, t−2, 1, u−1]`, or `[v−1; 2, u−1]` when t = 2 (entries 2 in [[·]] merge into the 1-strings).
 
 ## 3. T1 in Dedekind clothing: the X-slices force a quadratic non-residue (PROVED)
 
@@ -122,7 +123,11 @@ finite set). The simplest objects with that property are counts of Jacobi −1 c
 `(A/n) = −1  ⟺  4 | tu−1 (Type I, a = 1)  or  4 | tv−1 (its reversal)  or  4 | t ((A)3)  or  4 | u  or  4 | v`.
 Each of the five conditions gives an ES solution of 4/n: the first three by Cor 1.2. For `4 | u = 4w`:
 `n + v = 4w(tv − 1)`, so `f = tv − 1 ≡ −1 (mod v)` divides `N = (n+v)/4`. This is the Type II e-slice
-`−1 ∈ Σ_e(N)` with `e = v`, `(a,b) = (f,1)`; `4 | v` is its reversal. Explicitly (R169 repair): `4/n = 1/(wf) + 1/(tnw) + 1/(tnwf)`.
+`−1 ∈ Σ_e(N)` with `e = v`, `(a,b) = (f,1)`; `4 | v` is its reversal. Explicit ES triples (R169 repair). For `4 | u = 4w`, `f = tv − 1`:
+`4/n = 1/(wf) + 1/(tnw) + 1/(tnwf)`. This comes from `4/n − 1/N = v/(nN)` with `N = wf`, and
+`v/(nN) = (f+1)/(tnN) = 1/(tnw) + 1/(tnwf)`. It is a Type II solution, since two denominators are divisible by n.
+For `4 | v = 4w'`, `f' = tu − 1`: `4/n = 1/(w'f') + 1/(tnw') + 1/(tnw'f')`.
+Both are verified in exact rationals for all n ≤ 5000 (`scripts/review_dk_core.py`).
 *Proof.* By Cor 4.1, `(A/n)` depends only on `(t,u,v) mod 8`. `scripts/dk_cells.py` enumerates all 512 cells: of
 those with `n ≡ 1 (4)`, the 120 cells with value −1 are exactly the cells satisfying one of the five conditions,
 and the 40 cells with value +1 satisfy none. ∎ (Brute-force check, `scripts/dk_thm45_check.py 1000000`: all
@@ -282,8 +287,9 @@ odd square (Prop 3.1, 4.2).
 **Conjecture SQ₅ (CONJECTURE).** For n ≡ 1 (mod 4), n ≠ 105: `λ(n) ≤ 3 ⟺ n is not a square`, where
 `λ(n) = min{ r(n/A) : (A/n) = −1 }`. The boundary case is length 2. For n ≡ 5 (8), A = 2 gives λ ≤ 2, and
 (n+1)/2 ≡ 3 (4) always has a prime factor ≡ 3 (4). For n ≡ 1 (8), the QNR-in-L₂ criterion of Cor 4.6 holds verbatim
-for composite n, because `(b/n) = (−1/b)` for odd b | n+1. SQ₅ is a strengthening, on n ≡ 1 (4), of O146's
-CONJECTURE SQ (Type I/II empty ⟺ square): it uses only five explicit slices of Type I/II. It implies ES for all
+for composite n, because `(b/n) = (−1/b)` for odd b | n+1. SQ₅ is a strengthening, on n ≡ 1 (4) with
+n ≠ 105, of O146's CONJECTURE SQ (Type I/II empty ⟺ square): it uses only five explicit slices of Type I/II.
+(R169 repair: SQ₅ says nothing at n = 105, where SQ must be checked separately.) It implies ES for all
 primes p ≡ 1 (4).
 
 **9.2 Composite case with a factor ≡ 3 (4): reduction, not proof (PROVED lemma).** Let `n = am ≡ 1 (4)` with

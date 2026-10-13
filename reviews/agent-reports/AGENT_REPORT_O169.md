@@ -13,9 +13,11 @@ Main file: `DEDEKIND_ES.md`. Scripts: `scripts/dk_*`. ES is not solved, and neit
    empty at squares.
 3. **Theorem 4.5 (PROVED: a finite cell check mod 8 relative to classical (R) and (D2); brute force to 10⁶).** For
    n ≡ 1 (4), a length-3 HJ fraction is an ES certificate of one of five slices (4 | tu−1, tv−1, t, u, v; the last
-   two are a Type II e-slice that I identified) **iff `(A/n) = −1`**. In HJ coordinates the moving moduli disappear
-   completely. Cor 4.6: for p ≡ 1 (8), these slices hold ⟺ `λ(p) ≤ 3`, where λ(p) is the least HJ length
-   (Farey left-turn distance from ∞) of a quadratic non-residue. That makes ES a "least non-residue in the Farey
+   two are a Type II e-slice that I identified; R169 repair: explicit triples `4/n = 1/(wf) + 1/(tnw) + 1/(tnwf)`
+   for 4 | u = 4w, f = tv−1, and the same with u↔v for 4 | v) **iff `(A/n) = −1`**. In HJ coordinates the moving
+   moduli disappear completely. Cor 4.6: for p ≡ 1 (8), these slices hold ⟺ `λ(p) ≤ 3` (R169 repair: slice
+   parameters ≥ 1 allowed; the degenerate cases give λ = 2), where λ(p) is the least HJ length (R169 repair: 1 + the
+   number of L-steps of the Stern–Brocot path, not "left turns") of a quadratic non-residue. That makes ES a "least non-residue in the Farey
    metric" problem.
 4. **EVIDENCE.** λ(p) ≤ 3 (in fact an interior r = 3 hit exists) for all 19 552 primes p ≡ 1 (8) ≤ 10⁶, and no odd
    square ≤ 10⁶ has a hit. Over all non-square n ≡ 1 (4) ≤ 2·10⁵ (composite n included), the two interior slices
@@ -59,12 +61,12 @@ certificate on the length-3 locus). I found no reciprocity-forced existence mech
      `K(av', t, au') = a·K(v', at, u')` keeps A, and `(A/am) = (−1/a)(A/m)`. A +1 word of m with a | middle
      becomes a certificate for am whenever a ≡ 3 (4). It needs composite n, so it is useless at primes.
    - Signed sum S(n) = N₊ − N₋: no closed form. It is a ±1-weighted (★)-type family; the exact facts are only
-     "N₋ even" and "N₋(m²) = 0".
+     "N₋ even" (R169 repair: at primes only; N₋(21) = 1 from [[3,3,3]]) and "N₋(m²) = 0".
 2. **Composites.**
    - EVIDENCE (`dk_vanish5.py 1000000`): among all non-square n ≡ 1 (4) ≤ 10⁶, the five slices plus the boundary
      case vanish **only at n = 105**.
    - This gives **CONJECTURE SQ₅**: for n ≡ 1 (4), n ≠ 105, λ(n) ≤ 3 ⟺ n is not a square. It strengthens O146's
-     SQ on n ≡ 1 (4), and implies ES for p ≡ 1 (4).
+     SQ on n ≡ 1 (4) with n ≠ 105 (R169 repair: at n = 105 SQ must be checked separately), and implies ES for p ≡ 1 (4).
    - The composite case with a factor a ≡ 3 (4) reduces (PROVED lemma, §9.2) to a divisor of m+1 that is
      ≡ −1 (mod a). This gives the explicit family `n = a(at−2)`, and the inherited certificates cover 79 % of
      such n ≤ 2·10⁵.
@@ -73,6 +75,9 @@ certificate on the length-3 locus). I found no reciprocity-forced existence mech
    - Cor 4.6 is the exact converse of T4 on the five slices.
    - Full ES has no algorithmic consequence. The polylog-height version (t_min ≤ (log p)^C) would give
      deterministic QNR-finding with a factoring oracle, which is not currently known (literature from memory).
+     (R169 repair: the algorithm tests the O(log p) prime factors of each tp+1, since a −1 word has a QNR prime
+     factor; enumerating divisor words would not be polylog. The H-conditional fixed-T failure is POINTWISE_SIZE
+     Thm C / Cor C1, not "CONDITIONAL_ES Thm C".)
    - EVIDENCE: t_min(p) ≤ 64 for all p ≡ 1 (8) ≤ 10⁶.
 4. **Coin statistics (§10.2).** At primes ≈ 70 % of words are −1 (15 of 20 mod-4 classes); the biased-coin model
    predicts < 1 failure to 3·10⁵, and 0 are observed. At squares all words are +1.
