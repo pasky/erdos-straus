@@ -89,3 +89,23 @@ was not needed.
   the very thing being encoded.
 * D6: "≈ p/12 classes" should be ≈ p/16, because the ≈ p/4 points of X₀(2)^ss fall into orbits of size ≤ 4.
   At p = 2521 the count is 166 against p/16 ≈ 158 and p/12 ≈ 210.
+
+### Explicit Gram (§2) — SOUND
+Checked symbolically by hand and numerically on 286 words (`review_ce_words.py`). The identities checked:
+* trd α = trd β = −2, trd γ = 0; nrd α = tv, nrd β = tu, nrd γ = uv; αβ = tγ;
+* i² = −A*, j² = −A, ij + ji = −2;
+* ε = −(1 + ij) = −(i + j + tγ), trd ε = 0, nrd ε = tp;
+* the trace-zero sublattice has basis (j, −γ, i), whose Gram matrix is exactly adj(G_w) = [[A,u,1],[u,uv,v],[1,v,A*]].
+A by-hand derivation: e₃e₂ = −e₂e₃ − 2 gives αβ̄ = −tγ − 2α, hence trd(iȷ̄) = 2, i.e. ⟨i, j⟩ = 1.
+
+### Cor 2.2 (four forms of ES-five) — SOUND (minor wording, D8)
+I re-derived every implication.
+* (i) ⟹ (iv): 1 − i = −α and 1 − j = −β, so (1 − i)(1 − j) = αβ = tγ; deg i = 1 + trd α + nrd α = tv − 1 = A*.
+* (iv) ⟹ (i), divisibility step: (1 + a) + (1 + b) ≡ (1 + a)(1 + b) ≡ 0 (mod t) because ab ≡ 1. Together with
+  v_ℓ((1 + a)(1 + b)) ≥ 2k this forces v_ℓ(1 + a), v_ℓ(1 + b) ≥ k, and the argument works for ℓ = 2 as well.
+  Brute-force check over t ≤ 60, a, b < 1500 (`scripts/review_ce_divlemma.py`): 0 counterexamples.
+* (iv) ⟹ (i), the rest: the embedding is well defined because ⟨i, j | i² = −a, j² = −b, ij + ji = −2⟩ presents a
+  quaternion algebra when ab ≠ 1. The images 1, i − 1, j − 1, (i − 1)(j − 1)/t of the ℤ-basis 1, α, β, γ lie in End E.
+* Only CHI_FLIP Cor 1.3 (R198: SOUND) is imported.
+* The "Reading" (eigenline interpretation for odd ℓ | t) is correct when i, j ≢ ±1 (mod ℓ End E). The degenerate case
+  should be mentioned or the claim softened to Assessment (D8).
