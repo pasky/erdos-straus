@@ -255,8 +255,8 @@ X_n: tuv − u − v = n (positive integral points; t-fibres are the hyperbolas 
 set of cells mod lcm(8, m) changes. For m = 4 the target is a full fibre of χ = (−A/n), which is a function of the
 cell mod 8 (DEDEKIND Cor 4.1); for m = 8 it is a 7/12 part of that fibre. At n = 131 the image of X_131(ℤ_{>0}) in
 the cells mod 8 meets {χ = −1} (29 words) but misses all 35 S_8-cells. Hence **"the positive points of X_p reach some
-S_8-cell" is false** at 27 primes ≤ 10⁷ (R197 repair D6: "reach every χ-allowed cell" fails for essentially every p by
-counting — 60 χ = −1 cells per class of n mod 8 vs ≍ log² p points), and an ES proof through X_p cannot be an
+S_8-cell" is false** at 27 primes ≤ 10⁷ (R197 repair D6; the further aside that "reach every χ-allowed cell" fails for essentially every p was removed
+after the O198 self-review: it inferred a pointwise statement from a log² p average), and an ES proof through X_p cannot be an
 equidistribution-mod-8 statement for its points without p-dependent error control (B3: the main term is only
 ≍ log² p points); it must use that the ES target is a whole χ-fibre. ES-five-slices(n) ⟺ χ is not identically +1
 on X_n(ℤ_{>0}), and (for n ≡ 1 mod 4, words with gcd(A, n) = 1) CONJECTURE SQ₅ ⟺ **χ is constant on X_n(ℤ_{>0}) only for n a
