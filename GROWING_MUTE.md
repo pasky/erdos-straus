@@ -82,7 +82,7 @@ primes, P ≈ g^{1/4} (inside the Bombieri–Vinogradov range), and hope −n/4 
 **Proposition 2.1 (for each fixed P the firing set is an explicit finite divisor set; PROVED).** Fix squarefree odd P
 prime to n. The primes g ≡ −1 (mod 4P) whose shot solution is ES^{(y,1)} with overflow Q₁ | P are exactly the prime
 divisors g ≡ −1 (mod 4P) of the integers nA² + Q₁², A even, Q₁ | P, with g ≡ −1 (mod 2AQ₁); all of them satisfy
-g ≤ 2nP²(n + P²) (EXPONENT_CAP Thm 2.1). Their number is ≤ Σ_{Q₁ | P} Σ_{A ≤ A_max} ω(nA² + Q₁²) = P^{O(1)}·0 + …,
+g ≤ 2nP²(n + P²) (EXPONENT_CAP Thm 2.1). Their number is ≤ Σ_{Q₁ | P} Σ_{A ≤ (n+1)(1+2Q₁²)} ω(nA² + Q₁²) (A = 2k and the k-bound in the proof of Thm 2.1),
 in any case finite, while the sieve supplies ≫ x/(φ(4P rad n) log x) primes g ≤ x in the progression.
 *Proof.* Prop 1.1(c) (B = Q₁ squarefree, A = 2k) and Thm 2.1. ∎
 *Consequence (Assessment).* Level of distribution (BV/BDH) and Chebotarev/Kummer inputs are irrelevant here: whether
@@ -143,3 +143,46 @@ relevant only at e ≍ log g with K primorial-like — the covering regime, whic
 overflow ≥ (g/4n)^{1/4} and is far from ES. For e = 0 the additional archimedean constraint g ≤ 2n(n+1) makes it the
 finite B3 lottery (expected count ≍ log³ n). Comparison with short-range smooth results: none of them restrict the
 support to the divisors of a prescribed integer, which is the actual constraint (it is B2).
+
+## 4. Numerics (EVIDENCE; every reported solution re-verified with exact rationals or exact divisibility)
+
+**4.1 Least overflow at primes (`scripts/gm_least.py 1000000 20 300 31`, `data/gm/least_1e6.txt`).** For the 39 175
+primes p ≡ 1 (mod 4), 5 ≤ p < 10⁶ (p ≡ 3 mod 4 is free), search the (A, B) family of Prop 1.1(c), A = 2k:
+* B = 1 (shot-family ES) with k ≤ 20: 38 705 primes (least-k histogram 1: 29 666, 2: 4 223, 3: 2 153, 4: 733, …).
+* Remaining 470: B = 1 with k ≤ 300 solves 354; **116 primes have no B = 1 solution with k ≤ 300**, and all of them
+  have an ES^{(y,1)} shot solution with B squarefree: B = 3 (105 primes), 5 (6), 7 (3), 11 (p = 2293), 23
+  (p = 12433: A = 26, g = 33487 = 2·26·23·28 − 1 | 12433·26² + 23²). Max k used ≤ 300 throughout.
+* Completeness: B = 1 needs k ≤ 3(p+1)/4 (Prop 3.1), so "no B = 1" is exact only for p < 400: **p = 13, 37, 97 have no
+  shot-family ES solution at all** (they have other ES solutions, outside the d = 1 slice), but have ES^{(y,1)}
+  shots: e.g. p = 13, (A, B, λ, D) = (10, 3, 2, 11), g = 119, Q = 18: **4/13 = 1/6 + 1/390 + 9/65**, 3 | 390.
+  For larger p the B > 1 entries are upper bounds for the least B (B = 1 might occur at k > 300).
+* Reading: the overflow is almost never needed and, when it is, the least squarefree B is tiny — consistent with a
+  divergent lottery in (A, B), not with any structure. Exact least-e statistics in the growing-S sense are not
+  meaningful here because e ∈ {0, 1} and P = B.
+
+**4.2 Orbit structure (`scripts/gm_orbits.py 300 13 17 29 73 9 25 49`, A, B ≤ 300).** Solutions of V_n (Prop 2.2):
+n = 13: 4 (all B > 1: (λ, D) = (2,11), (3,7), (9,7), (1,47)); 17: 19 (4 with B = 1); 29: 20; 73: 6. Every (λ, D)
+pair carries ≤ 3 points in the box (Pell orbits grow fast), so the count is dominated by NEW (λ, D) pairs — the
+lottery is over the surfaces S_{n,D}, not along orbits. **n | λ never occurs** (Prop 1.2(c)). D ≡ 3 (mod 4) always.
+T1 control: **n = 9, 25, 49: no solution** (as proved, Prop 1.1 T1).
+
+## 5. Verdict (O201 checkpoint 1)
+
+1. **Exact dictionary (Prop 1.1, 1.2; PROVED).** Bounded overflow in the shot family is the symmetric divisor
+   problem "nA² + B² has a divisor ≡ −1 (mod 2AB)" (B = overflow, A = 2k), equivalently integral points on
+   V_n : nA² + B² + D = 2λDAB, i.e. on Markoff-type cubic surfaces S_{n,D} : nA² + B² + D = ABC with 2D | C. ES's shot
+   family is B = 1; ES^{(y,1)} is B squarefree; ES^{[2]} ("den z | y²") is B free. T1 = "sum of two coprime squares".
+2. **The growing mute set removes the archimedean wall and nothing else (Prop 1.2(b), 2.1, 3.1).** Every
+   solution with B > 1 lies on an infinite Pell orbit (so no bound on g, confirming R200 M1), but the per-modulus box
+   is g^{o(1)} at every bounded e, so the problem is pure hitting; and for each fixed P the sieve's progression meets
+   the firing set only in an explicit finite divisor set — BV/BDH and Chebotarev contribute nothing.
+3. **No Markov tree (Prop 1.2(c); PROVED).** For n ≡ 1 (mod 4) only one Vieta involution is integral (reciprocity
+   forbids n | λ), so Markoff-style descent to finitely many fundamental solutions is unavailable.
+4. **e → 0 (Prop 3.1).** e = 0 and e = 1 have the same per-modulus box size (g^{o(1)}); they differ only in that
+   B = 1 bounds A ≤ 3(n+1)/2. Smooth-number results (GHS etc.) are irrelevant at every bounded e: the admissible
+   representatives are divisors of (g+1)/4 (times a cap), a g^{o(1)}-set (B2).
+5. **Status of ES^{(y,1)} for all non-squares: OPEN.** Heuristically an infinite (log³) lottery at fixed n, hence
+   immune to B3/B6; the missing input is a lower bound for integral points on V_n (a thin set), for which I know no
+   method. EVIDENCE: all primes < 10⁶ have ES^{(y,1)} shot solutions with B ≤ 23.
+Not an opening for ES (Assessment): the variant is closer to ES than ES^{(y)} only archimedeanly; its proof would need
+an integral-point theorem on a family of Markoff-type surfaces, which would be a new kind of input (see sparks).
