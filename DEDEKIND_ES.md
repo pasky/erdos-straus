@@ -140,3 +140,36 @@ centred at ∞. In that metric the ball of radius 3 is the sparse set `L_{≤3}(
 conjecture λ(p) ≤ 3 is ES on five slices. Every Jacobi value on the ball is a mod-8 polynomial in the letters
 (Cor 4.1), so "the ball contains a non-residue" is literally "the cubic `tuv − u − v = p` has a solution in one of
 120 residue cells mod 8". This dictionary is exact but is not by itself a route (B1/B2).
+
+## 5. Further dictionary items (each PROVED as stated, or labelled)
+
+**5.1 Lattice geometry (PROVED, standard toric geometry).** For the cone `σ_A = cone((0,1),(p,−A))`, the compact boundary of
+`conv(σ_A ∩ ℤ² ∖ 0)` has lattice points `w₀ = (0,1), w₁, …, w_r, w_{r+1} = (p,−A)` with `w_{i−1} + w_{i+1} = b_i w_i`.
+The region between the apex and this boundary is the fan of the r+1 unimodular triangles `(0, w_i, w_{i+1})`. Hence
+`r(p/A) = 2·Area(σ_A ∖ conv(σ_A ∩ ℤ²∖0)) − 1`. **ES X/e-slice(p) ⟺ some cone of determinant p whose second ray has
+non-residue slope (A/p) = −1 has a lattice-free apex region of area exactly 2** (area 3/2 is the boundary case 4.2).
+Dedekind sums are exact lattice counts in the *triangle* `conv(0, (p,0), (p,A))`. By (D3) they measure
+`r − r'`, the difference between the apex areas of σ_A and of the dual cone. They do not measure r itself.
+
+**5.2 Topology (PROVED dictionary; literature from memory).** `p/A = [[b₁..b_r]]` ⟺ the lens space L(p,A) bounds the
+negative-definite linear plumbing of r spheres with Euler numbers `−b_i`. (D2) is the signature-defect /
+Casson–Walker form of the Dedekind sum, and Cor 4.1 is van der Blij–Milgram–type for the linking form `A/p`.
+So: **X/e-slice ES(p) ⟺ some L(p,A) with non-residue linking form bounds a linear plumbing of ≤ 3 spheres.**
+By the Fintushel–Stern/Greene linking-form constraint (integral p-surgery on a knot in S³ gives L(p,q) only with
+±q a square mod p), these are exactly the short-plumbing lens spaces that are **not** integral surgeries on knots
+in S³. At n = m², T1 corresponds to the fact that the linking-form invariant that matters, the Jacobi symbol,
+is trivial. (Rational-homology-ball lens spaces, Lisca's classification, live at squares as well, e.g. the Wahl
+fraction 25/14 = [[2,5,3]], but with A ≢ 0 (4) and Jacobi +1.) Assessment: gauge/Floer theory gives
+*obstructions* to plumbings and surgeries, never existence of short plumbings, so I see no transferable theorem.
+
+**5.3 Thin-group / Zaremba view (Assessment).** `L₃(p) = {γ = T^vST^tST^uS : v,t,u ≥ 2, γ₁₁ = p}`. Bourgain–Kontorovich
+local–global theorems (Zaremba) need an orbit with growth exponent `2δ > 1` with room to spare, which gives about
+`n^{2δ−1}` representations per n. The length-3 set has `#{γ : ‖γ‖ ≤ X} ≍ X log²X`, i.e. `2δ = 1` exactly, with
+log² representations per n. This is B3 (scale constraint) in thin-group language: ES lies at the critical exponent,
+where circle-method/expander methods give only density-type averages (B6).
+
+**5.4 Euclid recursion (PROVED).** `A ∈ L_r(n) ⟺ (−n mod A) ∈ L_{r−1}(A)` and `⌈n/A⌉ ≥ 2`. So
+`a_r(n) = Σ_{A<n} 1_{L_{r−1}(A)}(−n mod A)`, with `L₁(A) = {1}` and `L₂(A) = {b | A+1, 2 ≤ b ≤ (A+1)/2}`. For r = 3 this is
+PARITY_FIXED_P (★). Dedekind reciprocity is the r-independent part of this recursion (it evaluates the
+alternating sum). The r-dependent part is the backward-CF (Rényi) transfer operator, which has an indifferent fixed
+point. Pointwise-in-n counts for it are fixed-denominator counts, so again B6 for averages and B2 for slices.
