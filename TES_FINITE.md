@@ -144,7 +144,7 @@ artefact of these, iterate on the hypothesis "T1-bearing" inside BL's own family
 x, y, z ∈ ℕ. BL Remark 1.10: these surfaces are ℚ-isomorphic to U_n (so Br U/Br ℚ = ℤ/2 = ⟨α⟩, α = (−u₁/u₃,
 −u₂/u₃), BL Thm 1.6) and every natural-number solution satisfies ∏_{p | 2nm} (α)_p = −1.
 
-**Proposition 5.1 (order-2 T1 for 8/n; PROVED modulo BL's p-local lemmas).** Let n be odd. Every solution of
+**Proposition 5.1 (order-2 T1 for 8/n; PROVED, using BL's p-local lemmas verbatim).** Let n be odd. Every solution of
 8/n = Σ 1/u_i in ℕ satisfies ∏_{p | n} inv_p α(u) = −1; hence for n = k² (k odd) no solution has Type I or Type II
 shape (in BL Lemma 3.9's sense, exponent v_p(n)) at every prime p of n; for n = q^{2j} a prime power: no Type I/II solution. For Type II the conclusion is elementary and in-campaign: POINTWISE_MN Lemma
 1.1(d) (m ≡ 0 mod 4 ⇒ the Type II event class −mD is a Jacobi non-residue mod M, so n ≡ −mD (mod M) is not a
@@ -153,8 +153,8 @@ square).
 DRINFELD_ES Lemma 2.1 gives α = (y, −1) + (x, y), and −x ∈ 1 + 8ℤ₂ ⊂ ℚ₂^{*2}, so (x, y) = (−1, y) and
 α = 2(−1, y) = 0 — **this is where v₂(8) = 3 is used** (for m = 4 BL need the finer Lemma 3.8). Odd p ∤ n: BL Lemma
 3.5 applied to U_{n/2} (8/n = 4/(n/2), n/2 ∈ ℤ_p^*). Squares: BL Lemma 3.9 applied to n/2 at each p | n.
-(*Caveat for the reviewer:* BL state Lemmas 3.5/3.9 for n ∈ ℕ; their proofs are p-local and, as far as I read,
-use only n ∈ ℤ_p^* resp. n = p^{2m}·unit. Numerical check below.) ∎
+(Checked by reading BL §3.3: the proofs of Lemmas 3.2, 3.4, 3.5, 3.9 are p-local for odd p and use the numerator 4
+only as a p-adic unit, via (1.2) and (2.5); they hold verbatim with 8 in place of 4. Numerical check below.) ∎
 EVIDENCE: `scripts/tf_schinzel_bm.py` Hilbert symbols (explicit formulas, reciprocity asserted at every point):
 on all 679 positive solutions of 8/n for n ∈ {127, 137, 239, 251, 1009, 1053, 105}, ∏_{p|n} = −1, inv₂ = +1,
 inv_∞ = −1; `scripts/tf_schinzel_t1.py 8 100`: n = q² (q ≤ 100 prime): 592 solutions, **0 Type I, 0 Type II**.

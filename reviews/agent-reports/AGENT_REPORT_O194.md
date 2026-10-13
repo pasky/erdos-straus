@@ -36,7 +36,7 @@ Branch `side-agent/tes-finite` (merged `side-agent/synthesis-two` first). Main f
   invariants (0, 0); cross-checked with O182's independent tame-symbol code.
 * §4 (CERTIFIED): complete sets at π³ (N(π) = 7, 13, 19, 31, 37, 43): only "other" shapes (T1₃ control);
   TES(π³) solvable even where TES(π) is not.
-* §5: Prop 5.1 (PROVED modulo BL p-local Lemmas 3.5, 3.9 transferred to n/2 — **please check this transfer**;
+* §5: Prop 5.1 (PROVED; BL's p-local Lemmas 3.2/3.4/3.5/3.9 use 4 only as a p-unit, so they hold verbatim for 8 — reviewer please re-read;
   Type II half elementary via POINTWISE_MN Lemma 1.1(d)); numerics: 0 Type I/II at q², q ≤ 100 (592 sols);
   controls m = 5, 6 have many. Thm 5.2 (CERTIFIED, divisor search + Fraction brute force). Thm 5.3 (certificates,
   modulo BL Thm 1.6 for the ℚ-isomorphic surface).
