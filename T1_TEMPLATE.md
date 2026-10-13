@@ -93,3 +93,47 @@ x has |σ₂(x)| ≤ B2, the second step complete up to units ±φ^j, |j| ≤ J;
 | 121 = 𝔮²𝔮'² (split) | 2 | 996 | o·o 381, one prime I/II and the other o: 615; **I/II at both primes: 0** |
 So at squares no solution is Type I/II-shaped at all primes of n simultaneously (the ES T1 pattern, per prime as in
 DRINFELD Thm 3.3), while V_φ is solvable there (by "other" shapes, e.g. inherited 4/m² from 4/m solutions).
+
+## 2. The full T1 of sign-pattern ES over any number field (PROVED)
+
+Setting: K a number field, n ∈ O_K, 2 ∤ n, and u = (u₁, u₂, u₃) ∈ O_K³ with 4/n = 1/u₁ + 1/u₂ + 1/u₃; α(u) =
+(−u₁/u₃, −u₂/u₃) ∈ Br K[2]. For m = 2 α is invariant under permutations of u (DRINFELD Thm 2.2 proof: cyclic
+shifts and (b, a) = −(a, b) = (a, b)), so we may relabel at each place.
+
+**Theorem 2.1 (local invariants on integral points; PROVED).**
+(a) v real: inv_v α(u) = ½ iff σ_v(u₁), σ_v(u₂), σ_v(u₃) all have the same sign.
+(b) v finite, v ∤ 2n: inv_v α(u) = 0.
+(c) v | 2 (any ramification): inv_v α(u) = 0.
+(d) v | n with v(n) = 2s even, and u of Type I or Type II shape at v (one u_i with v(u_i) ≥ 2s and the other two
+v-units, resp. one v-unit and two with v(u_i) ≥ 2s): inv_v α(u) = 0.
+*Proof.* (a) (a, b)_ℝ = ½ iff a, b < 0, i.e. iff u₁, u₂ have the sign of u₃.
+(b) Let v_i = v(u_i) ≥ 0. If all v_i = 0, α is a symbol of two units: 0. Otherwise the most negative of the
+valuations −v_i of 1/u_i must occur twice (the sum 4/n is a v-unit), say v₁ = v₂ = V > 0, v₃ = W ≤ V. With u₃
+as denominator, a = −u₁/u₃, b = −u₂/u₃ both have valuation V − W, and the tame symbol is (−a/b)^{V−W} = (−u₁/u₂)^{V−W}
+mod v. If W = V it is a symbol of units (0); if W < V, 1/u₁ + 1/u₂ = 4/n − 1/u₃ has valuation ≥ −W > −V, so
+u₂/u₁ ≡ −1, i.e. −u₁/u₂ ≡ 1 (mod v): symbol trivial.
+(c) Relabel so that v(u₁) is maximal. If u₂ + u₃ = 0 then u₁ = n/4 ∉ O_v: impossible. So DRINFELD Lemma 2.1 applies:
+α = (y, −1) + (x, y), x = 4u₁/n − 1, y = −u₂/u₃. Let e = v(2). If v(u₁) ≥ 1, then −x = 1 − 4u₁/n ∈ U^{(2e+1)} ⊂
+K_v^{*2}, so (x, y) = (−1, y) and α = (y, −1) + (−1, y) = 0. If v(u₁) = 0, all u_i are units, −x ∈ U^{(2e)}, and
+K_v(√−x)/K_v is unramified (or trivial), so (−x, y) = 0 for the unit y; again (x, y) = (−1, y) and α = 0.
+(d) Use the unit u_i as denominator (Type II: u₁ unit; v(u₂), v(u₃) ≥ 2s). From n/u₁ + n/u₂ + n/u₃ = 4, the terms
+n/u₂, n/u₃ have valuation 2s − v₂, 2s − v₃ ≤ 0 and their sum has valuation ≥ 0; so v₂ = v₃ =: V, and if V > 2s
+then u₃/u₂ ≡ −1 (mod v). The tame symbol of (−u₂/u₁, −u₃/u₁) is (−u₂/u₃)^V: trivial if V is even, and ≡ 1 if V
+is odd (then V > 2s). Type I (v(u₁) ≥ 2s, u₂, u₃ units): n/u₁ has valuation 2s − v₁ and the other two terms are
+non-negative, so v₁ = 2s; with u₁ as denominator the symbol is (−u₃/u₂)^{2s}: trivial. ∎
+*Check:* `scripts/t1t_phi_inv.py 20 3 13 11 29 9`: on all 1035 V_φ solutions found (n = 13, 11, 29, 9) the only
+non-zero invariants are σ₁ and the primes of n (sum ½), as (a)–(c) predict (tame symbols computed directly).
+*Remarks.* (c) is a two-line proof of the Bright–Loughran 2-adic vanishing for ES (K = ℚ), valid over every
+2-adic field: the numerator 4 = 2² is exactly enough because of the unit case (−x ∈ U^{(2e)} gives an *unramified*
+extension). (d) is the m = 2 analogue of DRINFELD Thm 3.3.
+
+**Corollary 2.2 (T1 for sign-pattern ES; PROVED).** Let K have real places split as P ⊔ M ⊔ F and consider
+`ES_{P,M}(n): 4/n = 1/x + 1/y + 1/z, x, y, z ∈ O_K, all σ_v-positive for v ∈ P, σ_v-signs mixed for v ∈ M`
+(no condition for v ∈ F). If F = ∅ and |P| is odd, then for every solution Σ_{v | n} inv_v α = ½, and hence for
+n = m² (m ∈ O_K odd) no solution has Type I/II shape at every prime of n. If |P| is even and F = ∅, the sum is 0
+and there is no such T1 (e.g. totally positive ES over a real quadratic field, BRAINSTORM/other_rings Prop 3.3,
+which is a theorem for all n).
+*Proof.* Hilbert reciprocity with Thm 2.1 (complex places contribute 0). ∎
+For K = ℚ(√5), P = {σ₁}, M = {σ₂}: ES_{P,M} = V_φ. So **V_φ is a T1-bearing ES variant (PROVED)**, matching the
+evidence table of §1. Anchor = σ₁ (positivity), partner = 2 (numerator 4, Thm 2.1(c)), and σ₂ is a *sign-pattern
+place pinned to 0* — a third role ("mute place") that costs nothing in the reciprocity sum but frees the unit group.
