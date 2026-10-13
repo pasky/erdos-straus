@@ -4,7 +4,7 @@ Reviewer: R197 (side-agent/review-model-specific). Author branch merged: side-ag
 From-scratch scripts: `scripts/review_ms_*`. ES is not solved; nothing below changes that.
 
 ## Summary verdicts
-**Overall: no FATAL, one MAJOR (wording of the headline reading of Thm 3.1), seven MINOR.** Every numerical claim I
+**Overall: no FATAL, two MAJOR (D1 wording of the headline reading of Thm 3.1; D9 inherited 8/n novelty — PW Table 1 + Bright–Loughran Rem 1.10), eight MINOR.** Every numerical claim I
 re-ran from scratch reproduced exactly.
 
 | claim | verdict |
@@ -16,7 +16,8 @@ re-ran from scratch reproduced exactly.
 | §3 "Reading" / report SHARP: "T1 is the only obstruction on the length-3 ball, as an identity" | SOUND-AFTER-REPAIRS (D1, MAJOR wording) |
 | §7 (C1) reformulation of SQ₅ | SOUND-AFTER-REPAIRS (D1, D6, D8 minor) |
 | Lemma 2.1 (parity; all-even ⟺ 8/n) | SOUND |
-| §1 censuses (CERTIFIED), PW Table 1 agreement, 2763601, 620929 | SOUND (D5 minor wording) |
+| §1 censuses (CERTIFIED), PW Table 1 agreement, 2763601, 620929 | SOUND; novelty SOUND-AFTER-REPAIRS (D5, D10) |
+| attribution of the 8/n failures / B7 (header, §2, §3, §6, report) | SOUND-AFTER-REPAIRS (D9, MAJOR) |
 | §4 coverings and cube shots | SOUND |
 | §5 count law / luck (EVIDENCE + Assessment) | SOUND-AFTER-REPAIRS (D2, D3, D4 minor) |
 | §6 B7 screen numbers | SOUND |
@@ -98,6 +99,7 @@ Own engine, primes ≤ 10⁶: 8/p one-odd part fails at {3, 11, 17, 59, 131, 241
 {3, 11, 17, 131, 241} ✓; 8/p Type II alone at 22 primes, last 35569 ✓; 4/p Type I alone and Type II alone: 0 failures ✓.
 S_m(p) = ∅ for primes ≤ 10⁵ (`review_ms_slices.c`, direct word enumeration): m = 4: 0, 5: 0, 6: 25 (last 35911),
 7: 10 (last 12601), 8: 23 (last 83449, list contains 3, 11, 17, 131, 241), 12: 156 ✓ — all as in Cor 3.2's EVIDENCE.
+To 10⁷: S_4(p) ≠ ∅ for all 664 578 primes; S_8(p) = ∅ at exactly 27 primes, last four 211681, 215297, 252001, 259201 ✓.
 
 ### §4 identities / cube shots — **SOUND** (spot-checked)
 * §4.1 (`review_ms_cover.py`, own atom enumeration): U_4(840) = {1, 121, 169, 289, 361, 529} exactly (Mordell);
@@ -168,5 +170,29 @@ No PROVED/CERTIFIED claim was found to be over-labelled.
    "χ = −1 somewhere" relies on it. Also note that for n ≡ 1 (mod 4) the word (n+2, 1, 1) always has χ = +1, so
    "χ constant" in (C1) can only mean "≡ +1" (the author's equivalence with SQ₅ is then correct; for n ≡ 3 (mod 4) the
    same word has χ = −1, so S_4(n) ≠ ∅ trivially).
+
+9. **MAJOR (inherited novelty / attribution, per R194 now on main).** MODEL_SPECIFIC presents the 8/n facts it builds on
+   as campaign findings: header l. 4–5 "Builds on TES_FINITE §5 (O194: Schinzel 8/n has the same ℚ-surface, real anchor
+   and order-2 T1 as ES, no BM obstruction at 131, 241, yet no solution there — barrier B7)"; §2 *Reading* "B7 says this
+   sub-lottery has non-T1 failures"; §3 *Reading* / §6 / §7 "B7 demands", "B7 sibling"; AGENT_REPORT SHARP "the B7
+   sibling". R194 (reviews/tes-finite-review.md D2–D4, merged on main) established: the 8/n failures 3, 11, 17, 131, 241
+   are **Pomerance–Weingartner Table 1** (row m = 8, complete to 10¹³ — I re-read the row in the PDF); the absence of a
+   BM obstruction for the Schinzel surfaces is **Bright–Loughran Remark 1.10** (the surfaces are ℚ-isomorphic to U_n);
+   B7 = TES_FINITE Cor 5.4 is an immediate consequence of these two citations. None of this is new in O194 or here.
+   *Repair:* in the header: "the failures of 8/n at 3, 11, 17, 131, 241 are PW Table 1; the absence of a BM obstruction
+   for these surfaces is Bright–Loughran Rem. 1.10; B7 (TES_FINITE Cor 5.4) is their immediate consequence"; at the
+   first B7 mention in §2: "PW Table 1 shows this sub-lottery has non-T1 failures". The report's SHARP should say
+   "the sibling 8/n (known failures, PW Table 1; not BM, BL Rem 1.10)". The genuinely new content of MODEL_SPECIFIC
+   (Thm 3.1, Lemma 2.1 framing, §6 screen) is unaffected.
+10. **MINOR (factual error in a novelty claim).** §1 "New here (to my knowledge; **PW stop at 15**): m = 16–24 lists"
+   and report Results 1 "new lists m = 16–24". PW §6 (p. 12) state that they verified by computer, for **all
+   m ∈ [16, 30000] except m = 19**, the existence of a prime p ∈ (m², 2m²) with m/p not a sum of 3 unit fractions
+   (their conjecture: every m ≥ 20). So failures for m = 16–18, 20–24 are known; PW publish no lists. What is new here is
+   only the *complete* lists to 10⁸/10⁷ and specific values such as 2763601 (m = 20) and 620929 (m = 24).
+   Cross-check (worth adding): the census is consistent with PW §6 — every m ∈ {16, 17, 18, 20, …, 24} has a failing
+   prime in (m², 2m²) (e.g. 16: 257, 421; 17: 421; 20: 401, …; 24: 577, …), and m = 19's failures all lie below
+   19² = 361 (last 353), matching PW's exception m = 19.
+   *Repair:* "PW §6 verify that every m ∈ [16, 30000] except 19 has a failing prime in (m², 2m²); the complete lists
+   below 10⁸ (m = 16–20, 24) / 10⁷ (21–23) are new here, to my knowledge."
 
 ## Work log
