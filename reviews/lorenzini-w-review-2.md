@@ -43,3 +43,23 @@ statement of Thm 9.1 including "the even part of the complement is exactly {0, 2
 
 **Verdict: SOUND.** The proof is complete and elementary; I found no quantifier or threshold error.
 Minor defects (presentation only) listed in §5 (D1–D2).
+
+## 2. Novelty of Thm 9.1 (searched 2026-10-13; Assessment: NOT FOUND in the literature → plausibly new)
+What I checked:
+* **Lorenzini's paper itself** (sources/…/CriticalPolynomialOfAGraph.txt = arXiv:2311.06367): Example 6.2(a) asks whether the complement of
+  V_{A₃}(2) is exactly L_{A₃}; p. 24: "We have not been able to answer this question beyond the following remarks" (Prop 6.3), and Remark 6.4 lists
+  2^{2m+1} − 2 = 0, 6, 30, 126, 510, 2046, … noting 0, 6, 510 fail and 30, 126 are attained exactly once. So the even case was open in the paper.
+* **Citing works** (Semantic Scholar citation list for arXiv:2311.06367, 7 entries): Wang–Lu EJC 2026; Behera–Chhetri–Yadav, *Arithmetical structures on
+  ladder graphs* (arXiv:2604.25671); Archer–Diaz-Lopez–Glass–Louwsma (arXiv:2505.05392); Archer–Melles (arXiv:2504.08539); Chhetri–Behera–Yadav, *Fan graphs*
+  (arXiv:2503.01913); Archer et al. EJC 2024 (2301.02114); Diaz-Lopez–Louwsma LAA 2022. I downloaded the four arXiv ones and grepped the text: none mentions
+  xyz − x − z, 510, or the values of d_{A₃}; they cite Lorenzini for arithmetical-structure background only.
+* **Wang & Lu**, *The critical polynomials of simple connected graphs*, EJC **33(3) (2026) #P3.80**, doi:10.37236/13899 (downloaded from combinatorics.org).
+  Main result: V_G(2) is *dense* in Z_{≥0} for every connected simple graph (Thm 5), via Dirichlet. Final section: "it remains an open problem whether the
+  complement of V_{d_G}(2) in Z_{≥0} is finite." No A₃-specific statement, no even-n result.
+* **Lorenzini's later preprints** in sources/ (*Intersection matrices of wild cyclic quotient singularities*, 2025-10-12; *Questions on wild Z/pZ-quotient
+  singularities*): cite [23] only for 5.3(c)/Remark 1.4/2.1(c); nothing about A₃ values.
+* Web searches (Jina) for "xyz − x − z", the exceptional list 0,1,2,3,5,6,9,11,14,15,35,105,510 (OEIS), MathOverflow, and "Lorenzini critical polynomial
+  2^m − 2": no hit settling the even case. The nearby Conrey–Shah arXiv:2112.15551 treats xyz + x + y + z (a different polynomial; Lorenzini cites it).
+Limits: I could not query MathSciNet/zbMATH/Google Scholar "cited by" directly (Google Scholar reports 9 citations, S2 lists 7; two unseen).
+**Assessment:** the even half appears new as far as an open-web search can tell. "Settles the even half of Lorenzini's question" is accurate in substance; the proof is
+so short (a 36-periodic covering) that I would phrase the novelty claim modestly ("we could not find this in the literature").
