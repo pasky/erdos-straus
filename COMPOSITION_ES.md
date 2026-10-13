@@ -137,9 +137,9 @@ some 4dj²p + 1 has a divisor ≡ −1 (mod 4dj) (cube (d, j)-line) — the movi
 to d = 1 (V_p itself) it is FALSE at exactly 99 primes p < 10⁶ (13, 37, 97, …; GROWING_MUTE R201).
 *Proof.* (a) Thm 1.3; the bound from j ≤ (n + 4t² + 1)/(4t) = t + (n + 1)/(4t), μ = nj + t convex in t, maximal at
 t = n. (b) For n' = pd, A = 2j: n'A² + 1 = 4dj²p + 1 = D·g with g = 2λA − 1 = 4λj − 1. A cube point is a divisor
-h ≡ −1 (mod 4dj) of 4dj²p + 1; take h = g, c = λ/d: g ≡ −1 (mod 4dj) ⟺ d | λ. Conversely from h put λ := cd,
-D := (4dj²p + 1)/h; then D ≡ −1 (mod 4j) (as Dh ≡ 1 mod 4dj), D | μ := (n'A² + 1 + D)/(2A)·… is GROWING_MUTE
-Prop 1.2(a) (g ≡ −1 mod 2A, g | n'A² + 1 ⟺ V_{n'} point). (c) (a), (b) and FIXED_MODULUS_SHOTS Lemma 1.1. ∎
+h ≡ −1 (mod 4dj) of 4dj²p + 1; take h = g, c = λ/d: g ≡ −1 (mod 4dj) ⟺ d | λ. Conversely from h put g := h,
+λ := (g + 1)/(2A) = cd ∈ ℤ, D := (n'A² + 1)/g; by GROWING_MUTE Prop 1.2(a) (g | n'A² + B², g ≡ −1 mod 2AB, B = 1)
+this is a V_{n'} point with μ = λD, and d | λ. (c) (a), (b) and FIXED_MODULUS_SHOTS Lemma 1.1. ∎
 *Check (`scripts/cp_law.py 401 12`):* for odd n ≤ 401 and μ ≤ 12n, brute-force B = 1 points (all even A) equal the
 Thm 1.3 prediction (804 points, 0 mismatches); Prop 1.2(a) product formula on 172 random pairs.
 *Check (`scripts/cp_typeii.py 200`):* for all primes 5 ≤ p ≤ 200, cube points = d-sliced ES points of V_{pd}
