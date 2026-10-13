@@ -4,7 +4,33 @@ Reviewer branch `side-agent/review-hj-deep`; author branch `side-agent/spark-hj-
 From-scratch scripts: `scripts/review_hj_*` (none reuse author code).
 
 ## Summary verdicts
-(filled at the end)
+**Overall: no FATAL defect. One MAJOR (a quantifier error in the headline equivalence (W) ∧ (S) ⟺ interior SQ₅, trivially
+repairable) and ~16 MINOR.** Every numerical claim I re-ran from scratch reproduced exactly; (W)/(S) extended to 10⁹.
+
+| Claim | Verdict |
+|---|---|
+| HJ_DEEP Lemma 1.1 (master identity) | SOUND |
+| Prop 2.1 (Type II = formal words K(a,4cd,b) = cn) | SOUND |
+| Prop 2.2 (sign law (A/p) = −(−1/p)) | SOUND (true for all odd n; = Yamamoto Lem. 4 / GEOMETRY_ES Prop 5.2 in HJ dress, as the note says) |
+| Lemma 2.3 (scaling = reparametrisation) | SOUND |
+| §3 split interior-SQ₅(n) ⟺ W(n) ∧ S(n) (pointwise) | SOUND (tautological given DK Thm 4.5) |
+| §5 "(W); (S) together are equivalent to interior SQ₅ on n ≡ 1 (4)" | **GAP → SOUND-AFTER-REPAIRS** (D1, MAJOR) |
+| EVIDENCE 3.1: E_W exact, (S) 0 violations, to 10⁸ | SOUND (reproduced with a different algorithm; extended to **10⁹**) |
+| "interior SQ₅ for all non-square n ≡ 1 (4) < 10⁸ except 5, 105" | SOUND (EVIDENCE; full λ ≤ 3 SQ₅ holds at 5 too) |
+| Small-|L₃| census, no-injection numbers | SOUND (all numbers reproduced) |
+| "(W) is exactly Lorenzini's open question" | SOUND-AFTER-REPAIRS (quotations verified on arXiv:2311.06367; cite the JNT 2024 version, D2) |
+| Lemma 3.2 (no finite fixed-pair covering) | SOUND (D11 minor) |
+| Prop 4.1 (exact reduction of (S)) | SOUND (a reformulation; D10) |
+| bsA_wu Thm W (r ≤ 5) | SOUND (reproduced; also random r ≤ 10) |
+| bsA_wu Rokhlin reading | GAP → SOUND-AFTER-REPAIRS (orientation sign wrong under the standard convention for n ≡ 3 (4); mod 16 drops Arf term; ES case n ≡ 1 (4) unaffected; D3) |
+| bsA_minkowski M1–M3 | SOUND (M1 re-checked to n < 2000: 1 215 787 pairs) |
+| bsA_farey Lemma 1, 2, Thm 3 | SOUND (Yao–Knuth statement verified) |
+| bsA_lens P1–P4 | SOUND-AFTER-REPAIRS (criterion ±k² correct; minor scope/citation points D7) |
+| bsA_toric_ksb_wahl K2 | SOUND but vacuous sign framing (D5) |
+| bsA_fricke_vieta F1–F3 | SOUND (F1 reproduced; F2 scope wording D15) |
+| bsA_selling_sandpile D1–D3 | SOUND (D14 minor) |
+| bsA_hecke H1–H3 | SOUND as labelled |
+| bsA_farey_graph_metric λ_F = λ | SOUND, but provable outright whenever λ ≤ 3 (D6) |
 
 ## Claim-by-claim checks
 
@@ -233,3 +259,82 @@ i.e. for every p ≡ 1 (8) where five-slice ES holds (all p < 10⁶ by DK). The 
 and "CONJECTURE λ_F = λ" is only open when λ(p) ≥ 4, which never happens in range. Repair: state this as a PROVED remark; the
 "my expectation was wrong / sign freedom does not trivialise anything" reading should be weakened accordingly (the distance-3
 signed words were never needed).
+
+## Defects (numbered; location → suggested repair)
+
+**D1 (MAJOR, quantifier error).** HJ_DEEP §5 CONJECTURE bullet: "(W); (S). Together they are equivalent to interior SQ₅ on
+n ≡ 1 (4)", and §0 item 2 / AGENT_REPORT "SQ₅ = (W) ∧ (S)". (W) as stated quantifies over **all** n ≥ 2 (even n, n ≡ 3 (4)),
+so the global conjunction (W) ∧ (S) is *strictly stronger* than interior SQ₅ on n ≡ 1 (4); only the pointwise statement
+interior-SQ₅(n) ⟺ W(n) ∧ S(n) (n ≡ 1 (4)) is an equivalence, and globally one must also exclude the (W)-exceptions 5, 105.
+Likewise "(W) is exactly Lorenzini's question" is true for the global (W), which is *more* than ES needs. Repair: write
+"interior SQ₅ on non-square n ≡ 1 (4), n ∉ {5, 105} ⟺ (W)|_{n ≡ 1 (4)} ∧ (S); Lorenzini's question is the global (W), a
+strengthening" (and for ES at primes only (W)|_{p ≡ 1 (4) prime} ∧ (S)|_{primes} is needed).
+
+**D2 (MINOR, citation).** HJ_DEEP §0 item 2 and §3 "Literature", bsA_selling_sandpile "Literature", AGENT_REPORT SHARP 1:
+"preprint dated 4 Dec 2022". The paper is published: D. Lorenzini, *The critical polynomial of a graph*, J. Number Theory 257
+(2024) 215–248, arXiv:2311.06367 (text saved in `sources/r174/`). All quotations agree with the arXiv text. Also, Lorenzini's
+Prop 6.3 proof uses the fixed pair (x,z) = (4,6) for 2^m − 2 besides the z = 2, 4 slices; and "achieved exactly once" in
+Remark 6.4 is up to x ↔ z. Add: Wang–Lu, EJC 33(3) (2026) #P3.80 still list cofiniteness as open (density only).
+
+**D3 (MINOR, bsA_wu "Rokhlin reading").** With L(p,q) = −p/q surgery on the unknot (Gompf–Stipsicz), L(n,A) bounds the
+negative-definite plumbing, μ ≡ εᵀGε − r (mod 8), and Thm W gives (A/n) = +1 ⟺ μ(L(n,A)) ≡ **n − 1** (mod 8) (sanity:
+μ(L(3,1)) = 2, computed both from the −3 disc bundle and from the even −A₂ plumbing of L(3,2) = −L(3,1)). The memo's 1 − n
+is for −L(n,A); the two agree iff n ≡ 1 (4), so ES is unaffected. Kaplan's mod-16 formula carries an extra 8·Arf(L′) term
+that the memo omits; it vanishes mod 8. Repair: state the orientation convention, "mod 8", and that the statement is
+convention-dependent for n ≡ 3 (4); keep "from memory" for Kaplan.
+
+**D4 (MINOR, bsA_wu Cor W1 label).** "the genus G⁻(p) is exactly {Λ : w·w ≡ p + 6 (8)}" for general ternary lattices is not
+covered by the r ≤ 5 proof (which is about linear plumbings); label EVIDENCE/classical-from-memory.
+
+**D5 (MINOR, bsA_toric_ksb_wahl K2).** At prime index the only T-singularity is A_{p−1} of HJ length p − 1, so *no* length-3
+singularity (QR or QNR) is ℚ-Gorenstein smoothable for p ≥ 5; the appeal to (−1/p) = +1 and the "certificates lie outside the
+QR world" reading is vacuous. Repair: state K2 as a length statement; drop the sign framing.
+
+**D6 (MINOR, bsA_farey_graph_metric).** The memo's own distance-2 analysis proves λ_F(p) = 2 ⟺ λ(p) = 2, hence λ_F = λ
+whenever λ ≤ 3 (all p ≡ 1 (8) < 10⁶ by DK). Replace "CONJECTURE λ_F = λ (EVIDENCE p < 6000)" by this PROVED remark and
+weaken the "sign freedom does not trivialise anything" reading (distance-3 signed words never enter).
+
+**D7 (MINOR, bsA_lens).** P3 "(A/p) is an invariant of K up to mirror" needs (−1/p) = 1 (mirror is A ↦ −A); say "for p ≡ 1 (4)".
+P4: the JRT attribution ("J. Topology 2009, p even") is from memory and likely too broad (the 2009 paper treats L(2n,1));
+mark scope unverified. Cosmetic: L(p,1) = S³_p(U) only up to orientation.
+
+**D8 (MINOR, HJ_DEEP §4 C5).** "product of signs over L₃(p) is +1 at primes (reversal pairs)" also needs "no palindromes u = v at
+primes" (A = A* forces A = p − 1, of HJ length p − 1). Add that half-line.
+
+**D9 (MINOR, HJ_DEEP §4 C6, Assessment).** "A finite list of shapes would have to exclude infinitely many prime constellations
+… not known unconditionally": under Schinzel's H one expects every fixed finite list of one-letter shapes to fail infinitely
+often, so such lists are conditionally refuted, not merely unproved. Worth recording the contrasting EVIDENCE found here:
+every n < 10⁹ outside E_W has a word with min(u,v) ≤ 12 (max 12, at n = 1379).
+
+**D10 (MINOR, Prop 4.1 label).** The displayed ⟺ is the definition of (S) rewritten via multiplicativity of (·/n); label
+"PROVED (reformulation)" and soften "sharpest form".
+
+**D11 (MINOR, Lemma 3.2).** "(t,u) fixed ⟺ n ≡ −u (mod tu − 1)" is only ⟹ (the converse needs v = (n+u)/(tu−1) ≥ 2). The
+proof uses only ⟹; fix the symbol.
+
+**D12 (MINOR, Prop 2.2 scope, improvement).** The proof never uses primality; the sign law holds for every odd n (checked for
+all odd non-square n < 3000, 55 532 oriented words). Say so; it is consistent with "Type II words do not exist at squares".
+
+**D13 (MINOR, Prop 2.2 EVIDENCE wording).** "the HJ expansion (cp)/A = [[v, 4cd, u]] (letters ≥ 2)" — the script checks it only
+when a, b ≥ 2 (correctly); write "(when a, b ≥ 2)".
+
+**D14 (MINOR, bsA_selling_sandpile D2).** The sandpile group of a linear chain is always cyclic (a 2×2 minor equals 1), not only
+"when n is prime".
+
+**D15 (MINOR, bsA_fricke_vieta F2).** "Precise negative answer to the Markoff/Vieta/BGS question" holds for the boundary-trace
+(Fricke) embedding only; say so.
+
+**D16 (MINOR, bsA_minkowski_stern).** Garbled sentence in the barrier screen ("… a heuristic guess only, with / with a bilinear
+continuant structure …"). M1's proof cites the Salem/Denjoy expansion and the CF→HJ conversion "from memory"; give a reference
+(e.g. Popescu-Pampu, *The geometry of continued fractions and the topology of surface singularities*, 2007) — the result itself
+is verified to n < 2000.
+
+**D17 (MINOR, HJ_DEEP §4 C1).** "there is no ES meaning for R ≥ 4: the divisor form is exactly length 3 (Lemma 1.1)" — Lemma 1.1
+shows length-3 words ⟺ Type-II-shape expansions; it does not show longer words have no Egyptian-fraction reading. Label the
+"Dead" verdict as Assessment.
+
+## Scripts (all from scratch, none reuse author code)
+`review_hj_ws.c` ((W)/(S) per-n divisor search, to 10⁹), `review_hj_census.c` (small-|L₃| census, N₊/N₋), `review_hj_cover.py`
+(Lemma 3.2 numerics), `review_hj_wu.py` (Thm W), `review_hj_minkowski.py` (M1, M2, Lemma 1–2, Thm 3 sanity),
+`review_hj_lens.py` (P1 scope), `review_hj_fricke.py` (F1, D1–D2, cyclicity), `review_hj_typeII.py` (Prop 2.1/2.2 recount).
+Sources fetched: `sources/r174/lorenzini-2311.06367.*`, `sources/r174/wang-ejc-v33i3p80.*`.
