@@ -1,0 +1,10 @@
+n=100004521 (d/n)=+1: slices 1986, pass chi_-4d test 767 = 0.386
+n=100004521 (d/n)=-1: slices 2014, pass chi_-4d test 2014 = 1.000
+n=1000002361 (d/n)=+1: slices 2000, pass chi_-4d test 1078 = 0.539
+n=1000002361 (d/n)=-1: slices 2000, pass chi_-4d test 2000 = 1.000
+n=10000003441 (d/n)=+1: slices 2043, pass chi_-4d test 921 = 0.451
+n=10000003441 (d/n)=-1: slices 1957, pass chi_-4d test 1957 = 1.000
+n=1000000003801 (d/n)=+1: slices 1952, pass chi_-4d test 1173 = 0.601
+n=1000000003801 (d/n)=-1: slices 2048, pass chi_-4d test 2048 = 1.000
+n=100020001 (d/n)=+1: slices 4000, pass chi_-4d test 0 = 0.000
+n=10000200001 (d/n)=+1: slices 4000, pass chi_-4d test 0 = 0.000
