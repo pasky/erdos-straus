@@ -414,6 +414,8 @@ found there factors through a slice of ET's varieties, i.e. a divisor-in-class e
 
 ## Housekeeping
 
+* **Standing rule (user, 2026-10-13): spark relay.** Whenever any agent discovers something interesting or "sharp" (new exact dictionary, unexpected equivalence, clean theorem, striking numerical pattern), the orchestrator proactively spawns a FRESH side agent to brainstorm further unexpected connections and new avenues building on it, in parallel with the main work, without asking. Also recorded in `/tmp/es-briefs/spark_pre.txt` (agents flag such findings under "SHARP:" in their reports).
+
 * Agents must work only in their own worktree. Two agents committed
   directly to the parent branch; nothing was lost.
 * Large data stays compressed under `data/`. Survey scratch files in
