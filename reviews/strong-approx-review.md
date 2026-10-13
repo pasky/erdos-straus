@@ -4,7 +4,16 @@ Reviewer: R167 (side-agent/review-strong-approx). Author branch merged: side-age
 ES is not solved; nothing in the reviewed document claims otherwise, and nothing here changes that.
 From-scratch scripts: `scripts/review_sa_*.py` (none reuse the author's code).
 
-## Summary verdicts (filled in progressively)
+## Overall
+
+**No FATAL defect.** The document's negative conclusions (bounded rational recipes are SA-idle; Thm 9.1's T1 kill of
+finite Eisenstein combinations; the double-coset form of Type II) are correct and I re-derived them. The main
+problems are (i) an unstated hypothesis `σ_p ≥ N^{−o(1)}` that is false in general (D4, numerical counterexample),
+(ii) Cor 3.2 ignores the box of Def 2.1 (D5), (iii) three overclaims (Cor 9.2 last sentence D12 — counterexample;
+Cor 9.3 Reading D14; Cor 4.2 label D8), and (iv) §7's "rank-4 dictionary" is wrong for odd characters (D11), which
+makes the negative reading *stronger*. §9.1's least-squares EVIDENCE was not reproduced (not load-bearing).
+
+## Summary verdicts
 
 | claim | verdict |
 |---|---|
@@ -18,7 +27,7 @@ From-scratch scripts: `scripts/review_sa_*.py` (none reuse the author's code).
 | Thm 4.1 | SOUND-AFTER-REPAIRS (D4: false as stated without a lower bound on σ_p; numerical counterexample) |
 | Cor 4.2 | SOUND-AFTER-REPAIRS (D8: label/contrapositive overclaimed) |
 | Prop 5.1 | SOUND-AFTER-REPAIRS (D3: "finitely many n with large v_ℓ(N_n)" is false; D10 Type I/II output) |
-| §5 EVIDENCE | SOUND (reproduced independently to n ≤ 3000) |
+| §5 EVIDENCE | SOUND (reproduced independently to n ≤ 6000, `review_sa_typeII.py 6000`) |
 | Prop 7.1 / Cor 7.2 | SOUND-AFTER-REPAIRS (D11: odd χ are not weight-2 Eisenstein coefficients; D13 label) |
 | Thm 9.1 | SOUND (re-derived; numerics `scripts/review_sa_eisen.py`) |
 | Cor 9.2 | SOUND-AFTER-REPAIRS (D12: last sentence false — counterexample n·μ²(n)) |
@@ -56,12 +65,12 @@ the arXiv record) — I downloaded the arXiv PDF and read Thm 1.2, Conj 1.3, Thm
   This is what Thm 2.3 uses.
 
 **§3 matrix dictionary and Lemma 10.1 (`scripts/review_sa_typeII.py 3000`).** Enumerates ET Type II quadruples
-directly from `c(4abd − n) = a + b` (independent of the author's matrix search). For all odd n ≤ 3000: γ =
-[[aM−1, M],[cn, bM−1]] (M = 4cd) has det 1; the 4/n identity holds in exact rationals; every prime 5 ≤ p ≤ 3000
+directly from `c(4abd − n) = a + b` (independent of the author's matrix search). For all odd n ≤ 6000 (also run at 3000): γ =
+[[aM−1, M],[cn, bM−1]] (M = 4cd) has det 1; the 4/n identity holds in exact rationals; every prime 5 ≤ p ≤ 6000
 has a quadruple; no odd square has one. The product formula of Lemma 10.1 holds symbolically, and the
 decomposition `S = ⊔_M U⁻γ_M U⁻` is a bijection `(a, b) ∈ ℤ²` ↔ elements (γ₁₁ = aM−1, γ₂₂ = bM−1 determine γ₂₁ via
 det). Converse (all SL₂ matrices with γ₁₂ = M, γ₁₁ ≡ γ₂₂ ≡ −1 (M), γ₂₁ = cn, c | M/4 ↔ quadruples) verified by
-brute force for odd n < 200. Prime n never divides M (n ≤ 3000) — see D9.
+brute force for odd n < 200. Prime n never divides M (n ≤ 6000; proof in D9) — see D9.
 
 ## Defects
 
