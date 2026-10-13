@@ -4,11 +4,25 @@ Reviewer: R183 side agent. Documents: T1_TEMPLATE.md (merged from side-agent/t1-
 reviews/agent-reports/AGENT_REPORT_O183.md. From-scratch scripts: `scripts/review_t1t_*.py` (own ℤ[φ] / ℤ[∛2] / ℤ[√d]
 arithmetic, own tame and 2-adic Hilbert symbols; none of the author's `t1t_*` code is used).
 
-Status: in progress.
+Status: round 1 complete.
 
 ## Summary verdicts
 
-(filled in claim by claim below)
+| Claim | Verdict |
+|---|---|
+| V_φ definition / normalisation | SOUND |
+| Lemma 1.1 (Cl_{4∞₁} ≅ ℤ/2, χ = χ_{−φ}) | SOUND |
+| Prop 1.2 (explicit unit Type II solutions) | SOUND-AFTER-REPAIRS (σ₂ step is a non-sequitur; claim true, M1) |
+| Thm 1.3 (criterion, T1 for the mechanism, ramified-prime scope) | SOUND (report's "⟺ unit-Type-II" too broad, m2) |
+| Thm 2.1 (local invariants, any K, incl. wild 2) | SOUND (reword "2 ∤ n", m5); (c) is a correct new proof of BL Lemma 3.8 |
+| Cor 2.2 (T1 iff |P| odd) | SOUND for "|P| odd ⇒ T1"; "only if"/"iff" overclaimed (m6); example misquoted (m7) |
+| Thm 3.1 (CONDITIONAL on GRH, Lenstra) | SOUND (CONDITIONAL); positivity follows rigorously from Lenstra Cor. 4.8 (m8); unconditional for p ≡ ±2 mod 5 (m4) |
+| Barrier screen | acceptable as Assessment (label it, m10) |
+| §1/§3 EVIDENCE (primes < 10⁶, squares m < 2000) | SOUND — reproduced from scratch with complete controls; histograms are of a restricted search (m3) |
+| §4 ℤ[∛2] EVIDENCE | SOUND (reproduced; Cl_{4∞} ≅ (ℤ/2)²) |
+| §4 unconditional plan | GAP — Harper–Murty needs K/ℚ Galois, impossible with r₁ = 1 (M2) |
+
+No FATAL defects. ES is not affected (nothing in O183 claims any case of ES over ℤ).
 
 ## Claim-by-claim
 
@@ -177,3 +191,38 @@ SHARP-2 "⟺ unit-Type-II solutions" and SHARP-3 "iff |P| odd": overstated (m2, 
 not supported (M2).
 
 ## Defects
+
+**MAJOR**
+* **M1 (Prop 1.2 proof, σ₂-signs).** "sgn z = −sgn x sgn y, so the three signs are not all equal" omits the case
+  sgn x = sgn y = −1 (then sgn z = −1: all equal). *Repair:* add "σ₂(x) < 0 and σ₂(y) < 0 would give σ₂(e) < −n and
+  σ₂(g) < −1, hence σ₂(a_k) = σ₂(e)σ₂(g) > n, contradicting σ₂(a_k) = n + 4σ₂(η) < n." (For n ∈ O, use σ₂(n) > 0.)
+* **M2 (§4 unconditional route; bsJ "Promise as a theorem 4/5").** Harper–Murty (Canad. J. Math. 56 (2004)) is for
+  K/ℚ **Galois** with unit rank ≥ 4; Galois fields have r₁ ∈ {0, [K:ℚ]}, so no field with r₁ = 1 (e.g. the proposed
+  r₁ = 1, r₂ = 4, degree 9) is covered. *Repair:* restate the plan for totally real Galois K with |P| odd and mute
+  places M (requires units of signature (+ on P, − on all of M), h_K = 1 or a ray-class version, and the per-place
+  analogue of M1), or flag that a non-Galois Gupta–Murty count is an open input; lower the promise accordingly.
+
+**MINOR**
+* m1 (Thm 1.3(a), Cor 2.2: "m ∈ O"): V_φ is defined for n ∈ ℤ; for n = m², m ∈ O, say "n ∈ O totally positive and
+  prime to 2" in the definition used by Prop 1.2/Thm 1.3.
+* m2 (AGENT_REPORT SHARP-2, brief): "unit-Type-II solutions ⟺ …" — only the Prop 1.2 family (η = φ^{2k+1}, the
+  normalisation σ₁(e), σ₁(g) > 0) is characterised; Type II solutions with d₁ = ey/n − x a unit of another signature
+  are not covered. Reword as in the document ("the hypothesis of Prop 1.2 holds iff …").
+* m3 (§1 EVIDENCE, §3 EVIDENCE, §4 EVIDENCE): the min|k| histograms come from `solve_unit_typeII`/the ℤ[∛2] analogue,
+  which skip 𝔮 = (√5), prime factors > 10⁵ (resp. restricted sub-products) and split ℓ with both primes dividing a_k.
+  True values (this review): ℚ(√5), p < 10⁶: 57082, 19143, 1859, 313, 78, 12, 6, 2 (|k| = 0…7), 1 (|k| = 10);
+  ℤ[∛2], p < 3000: 361, 48, 16, 2, 1, 1. The squares control in `t1t_phi_scan.py` skips 5 | m and factors > 10⁵, so as
+  a numerical check it is incomplete (the statement itself is proved by Thm 1.3(a); the complete control here agrees).
+* m4 (Thm 3.1 / Thm 1.3(b)): (√5) | a_k ⟺ n ≡ 3·(−1)^k (mod 5), so every odd n ≡ ±2 (mod 5) is solved by Prop 1.2
+  with k ∈ {0, −1}, unconditionally. State Thm 3.1 as "unconditional for p ≡ ±2 (mod 5); CONDITIONAL on GRH for
+  p ≡ ±1 (mod 5)".
+* m5 (Thm 2.1 setting, Cor 2.2): "2 ∤ n" / "m odd" must be "n (resp. m) prime to 2", i.e. v(n) = 0 for all v | 2
+  (in ℚ(√2), n = √2 is not divisible by 2). All uses in the document have n ∈ ℤ odd, so nothing breaks.
+* m6 (Cor 2.2 last sentence; AGENT_REPORT SHARP-3 "iff"): |P| even only shows α gives no obstruction; it does not
+  show Type I/II-shaped solutions exist at squares. Reword "there is no such T1" → "α gives no T1".
+* m7 (Cor 2.2 example): BRAINSTORM/other_rings Prop 3.3 needs N(ε) = −1 and n ∈ ℤ; add these hypotheses.
+* m8 (Thm 3.1 proof): replace the "Assessment-level" entanglement check by Lenstra (4.8) (W = ⟨φ⟩ satisfies (4.7);
+  L₂ = K(√φ) ⊄ F = K(i, √p) and L_l non-abelian for odd l, so the exceptional union is empty). Remove/repair the slip
+  "√p ∈ ℚ(ζ_p)" (false for p ≡ 3 mod 4). State GRH as Lenstra's: ζ-functions of K(ζ_n, φ^{1/n}), all squarefree n.
+* m9 (§4): "Cl_{4∞}(K) a 2-group" is not general for r₁ = 1 fields; true for ℚ(∛2) (≅ (ℤ/2)²).
+* m10 (§3 barrier screen): label the bullets Assessment.
