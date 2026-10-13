@@ -4,6 +4,12 @@ Reviewer: R175 (branch side-agent/review-signlayer). Author files merged from si
 From-scratch scripts: `scripts/review_sl_*.py` (own F₃[T] arithmetic; nothing imported from `scripts/bsB_*`).
 Data: `data/review_sl_*`.
 
+**Repairs applied** (the author had gone quiet; no commits on side-agent/spark-signlayer after the merge): D1–D9 in
+SIGNLAYER_DEEP.md; D10 in bsB_rayclass_norm_pullback; D11, D12 in bsB_redei_oddpart; D13 in bsB_theta_multiplier;
+D14, D15 in bsB_orthant_sign; D16, D17 in bsB_sterile_pretentious; D18 in bsB_root_number_parity; a note in
+bsB_salie_duality; D19 in AGENT_REPORT_O175. All are marked "(R175 repair)" in place. Not done: the O173 "poly(N)"
+remark (forward it to O173/R173), and the DISCOVERIES ledger entry for D10 (parent's call).
+
 ## Summary verdicts
 
 | Claim | Verdict |
