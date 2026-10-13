@@ -7,7 +7,9 @@ reviews/markoff-es-review.md (M2, `scripts/review_mk_compose.py`). Scripts `scri
 Notation. n > 1 odd; μ > √n an integer with f := μ² − n not a square; K = ℚ(√f), O := ℤ[√f], **O' := ℤ[2√f]**
 (discriminant 16f); η := μ + √f, η̄ := μ − √f, so η + η̄ = 2μ, ηη̄ = n, η̄² = 2μη̄ − n, ℤ[η̄] = O, ℤ[2η̄] = O'.
 V_n : nA² + B² + D = 2μAB, D | μ, A even, B odd, gcd(A, B) = gcd(B, n) = 1, A, B, D > 0 ("a V_n point at μ").
-ES ⟺ some V_n point has B = 1 (GROWING_MUTE Prop 1.1(c)).
+"ES point" := V_n point with B = 1 = a solution of ES's d = 1 Type II shot family ("4k²n + 1 has a divisor
+≡ −1 (mod 4k)", GROWING_MUTE Prop 1.1(c)). ES(n) itself can hold without any ES point (e.g. n = 13, 37, 97; exactly
+99 primes < 10⁶, GROWING_MUTE R201); all of Type II is covered by the slices V_{nd} (Prop 4.1(b)).
 
 ## 0. Iteration log
 
@@ -94,11 +96,11 @@ empty for every μ: no V_n point at all (the class-group form of MARKOFF_ES Cor 
 A → ∞ along the orbit by MARKOFF_ES Prop 7.1(b)/GROWING_MUTE Prop 1.2(b). (b) Prop 1.2. (c) N(ε_μ) = −(4tj − 1) < 0
 (Thm 1.3), ε_μ is primitive; Thm 1.3 for the equivalence. (d) (−m²/ℓ) = (−1/ℓ). ∎
 
-**Remark 2.2 (where B = 1 sits in the principal cycle).** In the regular CF of √(16f)/2 = √(4f), the principal
+**Remark 2.2 (where B = 1 sits in the principal cycle).** In the regular CF of √N, N = 4f, the principal
 cycle of reduced ideals of O' begins 1, (2η̄ − 1), (2η̄), (2jη̄ − 1) = 𝔢_μ, … with norms 4μ − 1 − 4n, 4n, 4tj − 1
 (MARKOFF_ES Thm 4.3: p₀ − q₀√N = 2η̄ − 1, p₁ − q₁√N = 2η̄, p₂ − q₂√N = 2jη̄ − 1 — the recursion
 p₂ = a₂p₁ + p₀ reads 2jη̄ − 1 = (j − 1)·2η̄ + (2η̄ − 1)). So ES is "the third reduced principal ideal has norm
-dividing μ". The second one is 2η̄, i.e. 2× the element of norm n that defines the family; ε_μ ≡ −1 (mod 2η̄O).
+dividing μ". The second one is 2η̄, i.e. 2× the element of norm n that defines the family; ε_μ ≡ 1 (mod 2η̄O).
 
 ## 3. Pigeonhole in Cl⁺(O'_μ) (modification 1: unbounded box, MARKOFF_ES spark 4)
 
@@ -109,7 +111,7 @@ condition. Even for ES^{[2]} it fails as a forced mechanism:
 **Proposition 3.1 (pigeonhole delivers the wrong sign; PROVED).** Let c₁, …, c_r ∈ G := Cl⁺(O') be the classes of
 the chosen primes over S(μ) (each may be replaced by its inverse = conjugate). (a) Davenport: if r ≥ D(G) (the
 Davenport constant) then some nonempty product ∏_{i∈I} 𝔩_i^{±1} is narrowly principal — but with a POSITIVE-norm
-generator, i.e. not a V_n point. (b) A V_n point at μ supported on squarefree part exists iff δ ∈ Σ^±(c₁, …, c_r)
+generator, i.e. not a V_n point. (b) A V_n point at μ using each prime of S(μ) at most once exists iff δ ∈ Σ^±(c₁, …, c_r)
 (signed subset sums), which no lower bound on r forces: e.g. if G ⊇ ⟨δ⟩ × ⟨g⟩ ≅ (ℤ/2)² and every 3-mod-4 prime has
 class δg and every 1-mod-4 prime class 1 or g, then Σ^± ⊂ {1, g, δg} for all r. (c) The necessary condition
 χ₋₄ = −1 forces an odd number of primes ≡ 3 (mod 4) in I (the genus layer of MARKOFF_ES §6); the remaining
@@ -120,3 +122,25 @@ Whether the example occurs in some O'_μ is not claimed; the point is that no co
 *Reading.* Pigeonhole in class groups naturally manufactures elements of norm +D (D ≡ 1 mod 4) — these are the
 "even products" that Prop 1.2(c) excludes. Reaching δ is a target-sum problem whose answer depends on the actual
 classes, i.e. on h(O'_μ) and its structure. Even a full solution would give ES^{[2]}(n), not ES(n).
+
+## 4. Scope: the B = 1 locus is a finite explicit set — no generator on V_n can do better than the divisor problem
+
+**Proposition 4.1 (PROVED, elementary).** (a) The ES points of V_n (all μ) are exactly
+{(A, B, D, μ) = (2j, 1, D, nj + t) : 1 ≤ t ≤ n, D | n + 4t², D ≡ −1 (mod 4t), j = (D + 1)/(4t)}, a finite set; all
+have μ ≤ n² + n + (n + 1)/4.
+(b) (All of Type II.) For a prime p, the Type II cube points (c, d, j) of FIXED_MODULUS_SHOTS Lemma 1.1 are in
+bijection with the pairs (d, P), d ≤ (p + 1)/3, P an ES point of V_{pd} whose λ = μ/D is divisible by d, via
+A = 2j, λ = cd (and then g = 2λA − 1 = 4cdj − 1 = h).
+(c) Consequently, any mechanism whatsoever acting on V_{pd} points (composition, units, Vieta moves, class-group
+pigeonhole, …) that outputs ES points outputs elements of this finite explicit set, and it succeeds at p iff
+some 4dj²p + 1 has a divisor ≡ −1 (mod 4dj) (cube (d, j)-line) — the moving-modulus divisor problem of B2. Confined
+to d = 1 (V_p itself) it is FALSE at exactly 99 primes p < 10⁶ (13, 37, 97, …; GROWING_MUTE R201).
+*Proof.* (a) Thm 1.3; the bound from j ≤ (n + 4t² + 1)/(4t) = t + (n + 1)/(4t), μ = nj + t convex in t, maximal at
+t = n. (b) For n' = pd, A = 2j: n'A² + 1 = 4dj²p + 1 = D·g with g = 2λA − 1 = 4λj − 1. A cube point is a divisor
+h ≡ −1 (mod 4dj) of 4dj²p + 1; take h = g, c = λ/d: g ≡ −1 (mod 4dj) ⟺ d | λ. Conversely from h put λ := cd,
+D := (4dj²p + 1)/h; then D ≡ −1 (mod 4j) (as Dh ≡ 1 mod 4dj), D | μ := (n'A² + 1 + D)/(2A)·… is GROWING_MUTE
+Prop 1.2(a) (g ≡ −1 mod 2A, g | n'A² + 1 ⟺ V_{n'} point). (c) (a), (b) and FIXED_MODULUS_SHOTS Lemma 1.1. ∎
+*Check (`scripts/cp_law.py 401 12`):* for odd n ≤ 401 and μ ≤ 12n, brute-force B = 1 points (all even A) equal the
+Thm 1.3 prediction (804 points, 0 mismatches); Prop 1.2(a) product formula on 172 random pairs.
+*Check (`scripts/cp_typeii.py 200`):* for all primes 5 ≤ p ≤ 200, cube points = d-sliced ES points of V_{pd}
+(602 points, 0 mismatching primes).
