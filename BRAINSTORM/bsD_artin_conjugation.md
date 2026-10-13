@@ -21,7 +21,8 @@ and σ_f|_K ≠ 1 (for M > 2). The ray condition splits into
 (bsC Prop 1 with F = K⁺, η = η_{K/K⁺}); and
 (ii) the **K⁺-part** σ_f|_{K⁺} = 1, i.e. f ≡ ±1 (M): a condition in the group (ℤ/M)^×/{±1} of order φ(M)/2, with
 **no archimedean anchor** (K⁺ is totally real; c acts trivially on it).
-So the order-≥3 content R of KUDLA_ES §2 is precisely "σ_f trivial on the totally real field K⁺". Reciprocity laws
+So the order-≥3 content R of KUDLA_ES §2 lies in "σ_f trivial on the totally real field K⁺" (R177 repair: the K⁺-part
+also contains the even quadratic characters — for M | 24 it is entirely quadratic — so it is not *precisely* R). Reciprocity laws
 anchor at ∞ through c; on K⁺, c is invisible — a second way of seeing bsD_frobenius_closure Thm 2(b).
 **Heegner/real-structure attempt (Assessment).** On X₀(M), the anti-holomorphic involutions c∘w_d act on Heegner points
 by [𝔞] ↦ [𝔞⁻¹𝔡]; their fixed points are governed by [𝔞]² = [𝔡] — genus theory (2-torsion of the class group).

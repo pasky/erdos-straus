@@ -21,18 +21,24 @@ uniformization by the inner form).
 order k and conductor q, f ∈ ℚ^×, A(χ, f) the cyclic algebra (L_χ/ℚ, σ, f). For ℓ ∤ q, exp(2πi·inv_ℓ A) =
 χ(ℓ)^{v_ℓ(f)} (normalised suitably); the places ℓ | q·∞ carry the local symbols of f. The ABHN law Σ_v inv_v = 0 is
 χ(f_{(q)}) = ∏_{ℓ∤q} χ(ℓ)^{v_ℓ(f)} — multiplicativity of χ. Consequently, for M fixed and gcd(f, M) = 1:
-`f ≡ −1 (mod M)` ⟺ for every χ mod M, the "finite Diff-sum" Σ_{ℓ ∤ M} inv_ℓ A(χ, f) equals that of A(χ, −1)
-(i.e. 0 for χ even, 1/2 for χ odd). **So the ES ray condition *is* a family of degree-k Diff-sum identities** — but
+`f ≡ −1 (mod M)` ⟺ for every χ mod M, the "finite Diff-sum" Σ_{ℓ ∤ M} inv_ℓ A(χ, f) equals inv_∞ A(χ, −1)
+(i.e. 0 for χ even, 1/2 for χ odd) (R177 repair: the finite sum Σ_{ℓ∤M} inv_ℓ A(χ, −1) itself is 0 for every χ, so
+"equals that of A(χ, −1)" would characterise f ≡ +1; include ∞, f > 0). **So the ES ray condition *is* a family of degree-k Diff-sum identities** — but
 the dictionary is tautological: it restates the class of f, it forces nothing.
 **Prop 2 (why only degree 2 has a forcing geometry; PROVED, classical inputs).** Over ℚ, Br ℝ = ℤ/2. Hence:
 (i) a central simple ℚ-algebra A of degree k ≥ 3, or of degree 2 split at ∞, satisfies Eichler's condition; by
 Eichler's theorem the locally free class set of a maximal order is in bijection with the narrow class group of ℚ,
 which is trivial, and the type set (conjugacy classes of maximal orders) is a single class. "Some order in the genus
-has property P" = "every order has P" and is decided by local data, i.e. congruences (B1).
+has property P" = "every order has P" and is decided by local data, i.e. congruences (B1). (R177 repair: this is for
+maximal orders; for a general order the locally free class set is the ray class group ℚ^×_{>0}\𝔸_f^×/nrd(Λ̂^×), which
+can be non-trivial — ℤ + ℓM₂(ℤ) has 2 classes — but is still congruence data.)
 (ii) The only ℚ-algebras violating Eichler's condition are the **definite quaternion algebras**; for them inv_∞ = 1/2
 forces |Ram_f| odd — this is exactly Kudla's Diff-parity, and the non-trivial class set (≈ p/12 supersingular curves)
-is exactly the failure of strong approximation. **Diff-parity and the supersingular geometry are the same
-phenomenon, and both are 2-torsion because Br ℝ = ℤ/2.**
+is possible only through the failure of strong approximation (R177 repair: necessary, not sufficient — class number 1
+for p = 2, 3, 5, 7, 13). **Diff-parity and the supersingular geometry are the same
+phenomenon, and both are 2-torsion because Br ℝ = ℤ/2.** (R177 repair: Assessment beyond inner forms of GL_k and
+unitary groups; compact-at-∞ groups exist in every rank. Candidate precise form: for semisimple G anisotropic at ∞,
+complex conjugation acts on Z(Ĝ) by inversion, so the Kottwitz incoherence group is 2-torsion — verify vs Kottwitz 1986.)
 (iii) Outer forms: definite unitary groups (any rank, over imaginary quadratic E) do have non-trivial class sets,
 but their incoherence law is Landherr's: local invariants ε_v ∈ {±1} with ∏ ε_v = 1 — quadratic again
 (bsC_parity_quadratic_only Prop 1 applies). For GU(D), D of degree k over E with an involution of the second kind,

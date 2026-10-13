@@ -27,7 +27,8 @@ binary T ↪ O⁰ corresponds to a primitive v ∈ (O⁰)^# (orthogonal compleme
 the isometry class of v^⊥ must be T. Duke–Schulze-Pillot controls only the first (representation of the number);
 the second is a "mixed" equidistribution problem (Aka–Einsiedler–Wieser, *Joint equidistribution of CM points*, Ann.
 Math. 195 (2022), and its sublattice versions): the ≍ h(−4 det T)·(local factors) vectors v spread their complements
-over ≍ h(−4 det T) binary classes, so a *given* T is represented O(1) times on average by a fixed O⁰. [First draft
+over ≍ h(−4 det T) binary classes, so a *given* T is represented O(1) times on average over the genus (R177 repair: the genus total is a divisor-type
+ρ(T) = p^{o(1)} spread over ≈ p/12 orders, so ≈ 12ρ(T)/p per fixed O⁰ — heuristic). [First draft
 claimed "every T is represented by every O⁰ for det T ≥ p^C" via Duke–Schulze-Pillot — **false**: DSP represents the
 number, not the binary form.] So "∀ O" and "a fixed O" are lotteries at all determinants (consistent with O176 §2.5).
 **Prop 3 (Minkowski/Siegel-lemma constructions miss by f^{3/2}; = DIFF_DEEP Prop 2.3–2.4).** Successive minima of
