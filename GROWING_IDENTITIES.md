@@ -57,3 +57,54 @@ n ≡ 1 (4), n ≤ 3000, `scripts/gi_spin_check.py`, 0 violations.)
 *Reading.* This is PARITY_FIXED_P Lemma 1.3 in slice a = 1. The only T1-respecting factor available is a
 genus character **at the place n** (the "main term with genus data at the place p" asked for in O167 §11);
 but here it is identically −1 on certificates, i.e. it carries no information beyond the class condition.
+
+## 2. Eichler–Selberg: where ES sits in a trace formula (dictionary PROVED relative to Cohen's formula)
+
+**Input.** Cohen's form of the Eichler–Selberg trace formula (Cohen–Strömberg, *Modular Forms*, Thm 12.4.11):
+for k ≥ 2, χ mod q with χ(−1) = (−1)^k, `Tr(T_N | S_k(Γ₀(q),χ)) = A₁ + A₂ + A₃ + A₄` with A₁ the identity term
+(only for N a square), A₂ the elliptic term `−½ Σ_{t² < 4N} (ρ^{k−1} − ρ̄^{k−1})/(ρ − ρ̄) Σ_f h_w((t²−4N)/f²) μ(t,f,N)`
+(Hurwitz class numbers of t² − 4N, twisted by `Σ_{x mod q, x² − tx + N ≡ 0} χ(x)`), A₃ the split-hyperbolic
+term `−½ Σ_{dd' = N} min(d,d')^{k−1} Σ_{τ | q, …} φ((τ, q/τ)) χ(y_τ)` (y_τ ≡ d mod τ, ≡ d' mod q/τ), and A₄ the
+k = 2, χ = 1 term. Implemented in `scripts/gi_trace.py`; transcription checked: dim S₂(Γ₀(N)) = genus X₀(N)
+for N ≤ 30, Σ_{χ even} dim S₂(q,χ) = genus X₁(q) for q ≤ 18, dim S₃(Γ₁(7)) = 1, Tr T₂|S₁₂(1) = −24,
+Tr T_n|S₂(11) = a_n(11a), n ≤ 10.
+
+**Proposition 2.1 (ES slice = odd part of the cusp-fixed-point term).** Let q ≥ 3 and N ≡ 1 (mod q) (Type II
+slice: q = 4ad, N = n + 4a²d ≡ n; or q = 4cd, N = 4c²dn + 1 in the divisor form). In A₃ the τ = q and τ = 1
+summands contribute `χ(d) + χ(d') = χ(d) + χ̄(d)`. Summing over the characters of parity (−1)^k with weight
+χ̄(−1) isolates, in these summands,
+`(φ(q)/2)·Σ_{dd'=N} min(d,d')^{k−1} ( [d ≡ −1 (q)] + (−1)^k [d ≡ +1 (q)] )`   (×2 for d ↔ d').
+So the ES class −1 appears **always together with the class +1**, with relative sign (−1)^k, and with the weight
+min(d,d')^{k−1}. The class +1 contains the trivial divisor d = 1 (O131 Prop 4.1's "−2 per level", = O128
+Prop 8.3's sign at ∞). Separating −1 from +1 needs both parities of k, i.e. two identities with different
+weights min^{k−1}. *Geometric reading:* A₃ is the contribution of the cusps of X₁(q) fixed by the Hecke
+correspondence T_N; the curve identifies P with −P, so it sees only the classes ±d. The sign — which is
+exactly the ES information (O128 Prop 8.3) — is invisible to the curve and visible only to odd-weight line
+bundles. *Proof.* Orthogonality of characters of fixed parity: `Σ_{χ(−1)=ε} χ(d) = (φ(q)/2)([d≡1] + ε[d≡−1])`. ∎
+
+**Proposition 2.2 (the ES term is subdominant; PROVED, trivial bounds).** In the identity
+`(ES-relevant part of A₃) = Tr(T_N⟨·⟩ | S_k(Γ₁(q))) − A₂ − (other τ in A₃) − A₄`, the left side is at most
+`τ(N)·N^{(k−1)/2}` per class, while Deligne's bound for the cusp trace is `dim S_k(Γ₁(q))·τ(N)N^{(k−1)/2} ≍
+k q² τ(N) N^{(k−1)/2}`. There is no independent way to evaluate the cusp trace at a single N (the trace formula
+*is* the evaluation), so a positivity proof for the ES class through this identity needs the cusp trace to
+better than **q²-fold cancellation below Deligne at one N**. At weight 1 the elliptic term vanishes formally
+(ρ⁰ − ρ̄⁰ = 0) and the identity degenerates to the weight-1 Eisenstein identities of O131 §3 (finite level,
+killed by STRONG_APPROX Thm 9.1). At fixed genus-0 level (S_k(Γ₁(q)) = 0: k = 2, q ≤ 10 or 12; k = 3, q ≤ 6)
+the identities are exact class-number relations, but a finite menu of levels (B2).
+*Assessment.* KH/Eichler–Selberg identities are exact with a growing *range* (t² < 4N) but at fixed level;
+ES enters them only as the boundary (split-hyperbolic) term, which is the smallest term, and carries the sign
+information only through odd weight. This is the trace-formula form of B3 (main term ≫ certificate).
+
+## 3. What made Kronecker–Hurwitz work, and why the ES sum over g lacks it
+
+KH: `Σ_t H(4N − t²) = 2σ(N) − λ(N)` re-sums a family of *shifted* arguments 4N − t² of growing length. It
+works because the shifts are the coefficients of a theta series in the **same** modular variable:
+`Σ_t H(4N−t²)` is the N-th coefficient of `ℋ(τ)·θ(τ)` (weight 3/2 mock × weight 1/2), and holomorphic projection
+lands in the finite-dimensional M₂(Γ₀(4)) (Zagier; Mertens 2014 for the twisted versions); λ is the shadow
+correction. The ES family `Σ_g σ(gN+1; −1, g)` has the shift entering **multiplicatively** (argument gN + 1,
+modulus g): extracting the coefficients ≡ 1 (mod g) of a level-g form and rescaling by g is a U_g-type
+operator, landing at level ≍ g². Summing over g ≤ N is therefore a sum over **unboundedly many levels**, not a
+product of two forms of fixed level: no finite-dimensional target space, hence no holomorphic-projection
+re-summation. (Sums over a growing *modulus* of level-g data are Poincaré-series/Kloosterman objects; in that
+language the ES set is the Bruhat cell `{γ ∈ SL₂(ℤ) : γ₂₁ = n}` with the self-referential condition
+`γ₁₁ ≡ γ₂₂ ≡ −1 (mod γ₁₂)` — O167 Lemma 10.1 — and the Kloosterman modulus is n itself, fixed.)
