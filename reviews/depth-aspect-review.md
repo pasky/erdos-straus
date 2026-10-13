@@ -130,6 +130,141 @@ elementary (the stated "cf ≤ 2n^{2/3}" needs the one-line justification above;
 
 ## §3 (transfer to ℤ)
 
+**Theorem 3.1 — SOUND (relative to the stated inputs; MINOR repairs m11–m13).** I checked the three steps of
+Remark (5) and the measure argument independently.
+
+*(i) MORDELL17 Lemmas 1.1, 2.1–2.3 for general r.* Re-read line by line with 17 ↦ r. The only arithmetic facts used
+are: r odd (so the factor 4 sits in the r-free part, and the T-generic table of POINTWISE_MORDELL §2.1 is stated for
+general T), the gcd conditions of I2/I3/II3 (which put r into exactly one modulus), and the algebra of Σ^I/Σ^II.
+No step uses 17 ≡ 1 (mod 8/16) or any reciprocity at 17. Reciprocity enters only in Lemma 1.3 (√Q empty, odd
+levels), which Thm 3.1 does not need, because √Q is simply counted: ≤ 2 roots per Q-datum, since r ∤ 4a²d for a
+Q-datum (f = Fg ≡ −1 (mod 4ad)). The count 6f(r^k) = Q + Q⁻¹ + 2·√Q + U + U⁻¹ is right. Lemma 2.3's half-level
+nesting (K = k + α, α ≤ K/2, union = level ⌈K/2⌉) is r-free. Cor 2.4 (no level-0 box) is r-free.
+*Machine check (`scripts/review_da_rgen.py`, from scratch).* I read the seven classes literally off the statement
+of ET Prop 1.9 (arXiv 1107.1010 p. 8) and imposed the r-generic condition: n = 1 modulo the r-free part of the
+modulus, n = u modulo the r-part, and all square roots for I3. All parameters were ≤ 400. I compared the result
+with a predicted superset built only from the objects the proof counts: −y/z, the roots of n² ≡ −y/z, −e and −1/e
+(e = x/y + x/z) for ordered solutions (x, y, z) of 4/r^k, and −f, −f* mod r^{⌈K/2⌉} for N-points of Σ^II_{r^K}
+(r ∤ cd, K ≤ 2k). For r ∈ {5, 7, 11, 13, 19, 23, 29, 31} at levels ≤ 2 there are **0 level-0 boxes and 0 brute-force
+boxes outside the predicted superset** (46–132 boxes per r, all eight sub-types occurring). Controls: deleting
+the Q/U part of the prediction leaves exactly the II2 / I2(r | f) / II3(r | e) boxes uncovered (the Q-types, 12 at
+r = 13). Deleting the P part leaves nothing uncovered at these levels (r = 13, L = 150): the U-boxes and the P-boxes
+found there lie in other predicted boxes. So the check is not vacuous, and the type assignment of Lemma 1.1 is confirmed for general r.
+
+*(ii) ET's O(1/log log n) for N-points.* ET Lemma 2.8 (Type II part, p. 15) uses only a ≤ b, (2.2) ce = a + b and
+(2.15) 4abcd = a + b + nc, so it holds for every N-point of Σ^II_n with y ≤ z. ET §3 (p. 18) then uses
+(acde)² ≤ n², the fact that one of e, ad, ac, cd is ≤ n^{2/5}, and the divisor bound on (2.13), (2.19)–(2.21), whose
+arguments are integers ≤ n^{O(1)}. All implied constants are absolute and effective (the divisor bound τ(m) ≤
+m^{O(1/log log m)} is effective). So f_II^N(n) ≤ n^{2/5 + C/log log n} for n ≥ n₀, with absolute C and n₀. With
+n = r^K: n^{C/log log n} = r^{CK/log log(r^K)} ≤ r^{CK/log log r}. Correct. (R83 m1 already made this point for
+r = 17; it is r-uniform.)
+
+*(iii) U-boxes ≤ f(r^k).* MORDELL17 Lemma 2.2 (U-datum ↦ the solution (iab, iac, ibc) of 4/F, box −(x/y + x/z))
+is r-free. The box is a function of the ordered solution, so #U-boxes ≤ f(r^k). Correct.
+
+*Browning–Elsholtz input.* The paper (Illinois J. Math. 55 (2011)) is not in `sources/`. I could only check ET's
+quotation (p. 6: "[8] … gives the bound f(n) ≪_ε n^{2/3+ε} for all n and all ε > 0"). The *effectivity* of the
+BE constant, which "effectively computable r₀" needs, is therefore unverified (m11). BE can be avoided. The Q, Q⁻¹
+and √Q boxes come from N-points of Σ^I_{r^k} (MORDELL17 Lemma 2.1), and ET's §3 proof counts these by
+n^{3/5+O(1/log log n)} (MORDELL17 §2 already uses this for D_Q). The U and U⁻¹ boxes that meet a non-residue cell
+lie inside P-boxes: this is MORDELL17 Lemma 5.2, whose proof is r-free, and U⁻¹ is covered too because P is
+inversion-closed. My r-generic brute force agrees: without the Q/U prediction no U-type box is left uncovered.
+This gives the theorem with ET-only inputs, with margins 2/5 (Q) and 1/10 (P).
+
+*Uniformity, measure, averaging.* S(r) ≤ 6C_ε Σ_k r^{−k(1/3−ε)} + 2Σ_K r^{−K(1/10 − C/log log r)}. Both series are
+geometric with ratio → 0 as r → ∞, so S(r) → 0. There is no hidden r-dependence in the constants (C_ε and C are
+absolute). Haar measure on ℤ_r has mass 1, the non-residue cells have total mass (r − 1)/(2r), and a level-k box
+has mass r^{−k}. The union of boxes is open, so its complement in the non-residue cells is compact, with measure
+≥ (r − 1)/(2r) − S(r) > 0 for r ≥ r₀, and every point of it is sterile. The "averaging over cells" is just this
+subtraction. It is needed because the K = 1 P-boxes (≤ 2f_II^N(r) ≪ r^{2/5+o(1)} of them) are whole cells.
+*Cor 4.2 for general r.* A finite union of classes is clopen. It misses {x ≡ u (mod r^L), x ≡ 1 (mod Q)} for some L,
+and we may take 840·∏_{q<r} q | Q. Primes in that class satisfy p ≡ 1 (8), p ≡ 1 (3), (q/p) = (p/q) = 1 for odd
+q < r (since p ≡ 1 (4)), (2/p) = 1 and (r/p) = (u/r) = −1. So their least QNR is r, and p ≡ 1 (24). Correct.
+*Novelty/labels.* "PROVED relative to …" is the right label. The statement concerns finite ET-class coverings
+only (Remark (4)), and the document says so.
+
 ## §4 (numerics)
 
+**§4 EVIDENCE — SOUND (cross-validated).** Case B counts at q = 3 (s ≤ 14), q = 5 (s ≤ 9), q = 7 (s ≤ 8), and Case A
+counts at q = 3 (α ≤ 6) and q = 5 (α ≤ 4), are reproduced exactly by my own enumerations, which take different routes
+from the author's (§2 above). Union-bound masses: from my counts, Σ_s |𝓕(s)|·3^{1−⌈s/2⌉} = 3.48 for s ≤ 15 (using the
+author's s = 15 count, 48), and divided by the q − 1 = 2 c-slices this is **1.74**, as stated. Case A: Σ 3^{−α}·#E = 0.176,
+i.e. **0.088** per slice. The words "mean … of a c-slice" are what make these numbers right. Thm 2.5 instead bounds
+each slice by the total over all c (see m6). The Case A ↔ Case B(α + 1) coincidence holds on my data *for the
+(a1', b1, E) count*. With g' included (the tuples of Lemma 2.4) the Case A counts are 0, 0, 2, 8, 16, 16, and the
+coincidence fails (m6).
+
+## BRAINSTORM memos (bsE_*)
+
+* bsE_sierpinski_moving_integer: still states "ℓ | N_s iff s ≡ −log_q p (mod ord_ℓ q)". The document's
+  corrected form is log_q(−p^{−1}). It also still states "Witnesses at depth s need a factor ≥ q^s/2, i.e. a large
+  prime factor of N_s". DEPTH_ASPECT §1.3 withdrew this (a large divisor need not have a large prime factor). And it
+  says "failures … no congruence pattern beyond p ≡ 1 (24) dominance". In fact **all** 1233 q = 3 failures are
+  ≡ 1 (mod 24) (my recount), so it is not just dominance. (m14)
+* bsE_qpower_moduli_Z / AGENT_REPORT: "1233 of the 78496 primes ≤ 10⁶". π(10⁶) = 78498, and the 78496 are the
+  primes 5 ≤ p ≤ 10⁶. (m2)
+* bsE_large_q_char3, bsE_et_casework_depth, bsE_large_r_sterile: the claims match the deep file and are sound as
+  reviewed above. bsE_padic_interpolation: "PROVED for the natural shapes" is correct in Lemma 1.3's repaired scope.
+  bsE_depth_characters, bsE_q3_explicit_constants: Assessment only, no defects.
+* AGENT_REPORT_O178, Results §1: "Lemma 1.3 (PROVED): exponential-polynomial / q-adically analytic witnesses". The
+  "q-adically analytic" scope was withdrawn in the document (review repair). The report should match it. (m3)
+
 ## Defects
+
+No FATAL. No MAJOR.
+
+**MINOR**
+* **m1** (§1.1, after the table). "So q = 2 is impossible" holds for the (I-t), (II-e) rows only. For the (I-cd),
+  (II-cd) rows, c = 2^u, d = 2^v is unobstructed. Also, "for q ≡ 3 (mod 4) only odd s contribute" is for n ≡ 1 (4).
+  *Repair:* "for the t- and e-rows, q = 2 is impossible …; for n ≡ 1 (mod 4) and q ≡ 3 (mod 4) only odd s contribute."
+* **m2** (§0 (I1), §1.3, report, bsE_qpower memo). "1233 of the 78496 primes below 10⁶". *Repair:* "of the 78496
+  primes 5 ≤ p ≤ 10⁶". Optionally add that all 1233 failures are ≡ 1 (mod 24).
+* **m3** (AGENT_REPORT_O178 Results §1). It says "q-adically analytic witnesses". *Repair:* "witnesses affine in q^s"
+  (Lemma 1.3's repaired scope). Lemma 1.3 could also add the Type II row (4abd = n + q^s; same proof).
+* **m4** (Lemma 2.4 proof, both cases). The z-count "≤ 2q^f" (resp. "2q^{β−λ}") is false as written when λ = 0:
+  polynomials of degree ≤ f − λ number q^{f−λ+1}. It is true because T | z (z = b1KF − T^α and T | K). *Repair:*
+  insert "Since T | K, (A3) gives T | z, so z has ≤ q^{max(f,β)−λ} choices."
+* **m5** (Lemma 2.4, last parenthesis). The sentence "(Here δ(3α) ≤ δ(α)·… is absorbed is not needed: …" is garbled.
+  *Repair:* "(In the case f ≥ β, deg(T^α + b1²K) ≤ α because 2β + κ = α + β − f ≤ α, so δ(α) suffices for E.)"
+* **m6** (§4 and bsE_caseAB_shift). The Case A "tuples" in §4 are triples (a1', b1, E), but Lemma 2.4 counts
+  (a1', b1, g', E). The CONJECTURE #A(α) = #B(α + 1) holds only in the first convention (with g': 0, 0, 2, 8, 16, 16).
+  Also, the §4 masses are per-slice means (total/(q − 1)), whereas Thm 2.5 uses totals. *Repair:* state the
+  convention in §4 and in the memo.
+* **m7** (Thm 2.5 hypotheses). The proof does not need O173 Lemma 3.1. γ ≤ j already gives N ≥ N(s), and nested
+  cylinders then lie in the level-N(s) one. *Repair:* drop Lemma 3.1 from the list of inputs (this shrinks the
+  dependence on R173), or keep it with "(only γ ≤ j is used)".
+* **m8** (Thm 2.5 proof, arithmetic). The text states B = max(2δ₃(s), δ(s)δ(3s), δ(2s)) ≤ 16^s, while
+  `bsE_largeq.py` uses route-specific constants with δ at the exact degree (2·3^s, 2^{y+z}·2^{s+2y+z}, 2^{s+y},
+  2^{max(s, z+2a)}). These are valid, but the printed totals (1.9·10⁻⁷ at r = 28, < 2·10⁻¹¹ for r = 29..33) come from
+  them, not from the stated constants. With the stated 16^s my totals are 7.7·10⁻³ (r = 27), 4.0·10⁻⁴ (r = 28),
+  1.3·10⁻⁴ (r = 29), 1.6·10⁻⁶ (r = 33). These are still ≪ 1, so the theorem and "≥ 97 %" are unaffected. *Repair:*
+  one sentence saying the script uses route-wise constants (δ at the actual degree), or quote both sets of numbers.
+* **m9** (Thm 2.5 range, optional). With the exact pattern sums to S = 300 and the stated 16^s constants, the bound is
+  1.05·10⁻² < 1 also at r = 26 (q = 3^26). The crude closed form is < 1 already for q > 1.37·10^15; the stated
+  1.3·10^16 is correct but not sharp. *Optional repair:* r ≥ 26 (after an independent re-run), or leave it as is.
+* **m10** (§2.1 Remark, by-product). "c ≤ f we have cf ≤ 2n^{2/3}" needs a line: cfg = n + c + f ≤ n + 2f gives
+  f(cg − 2) ≤ n, and since cg ≥ 4 once n ≥ 27, cf ≤ 2n/g < 2n^{2/3}. *Repair:* add it.
+* **m11** (Thm 3.1 inputs). "Effectively computable r₀" relies on the Browning–Elsholtz constant being effective,
+  which was not verified (paper not in sources/). *Repair:* replace BE by ET-only inputs. Q/Q⁻¹/√Q are counted by ET
+  §3 for N-points of Σ^I_{r^k} (n^{3/5+O(1/log log n)}). U/U⁻¹ boxes in non-residue cells are inside P-boxes
+  (MORDELL17 Lemma 5.2, r-free proof; P is inversion-closed). Alternatively, check BE's paper for effectivity and cite
+  it.
+* **m12** (§3, intro paragraph). "MORDELL17 Lemmas 1.1, 2.1–2.3 (stated for r = 17; the proofs use only that r is an
+  odd prime …)". This is confirmed. *Repair (clarity):* add "the √Q count uses r ∤ 4a²d (≤ 2 roots), which holds
+  because f ≡ −1 (mod 4ad); Lemma 1.3 is not needed". Also cite this review's brute force (r ≤ 31, levels ≤ 2) as
+  EVIDENCE for the general-r table.
+* **m13** (§2 Thm 2.5 "What this does…" paragraph). "At q = 3 the same union bound is > 1 (§3)" should point to §4.
+* **m14** (bsE_sierpinski_moving_integer). The memo was not updated with the §1.3 repairs (periodicity formula, the
+  withdrawn large-prime-factor claim) and understates the mod-24 pattern. *Repair:* copy the corrected sentences from
+  DEPTH_ASPECT §1.3.
+
+## Scripts and data of this review
+* `scripts/review_da_qpow.py q NMAX`: q-power ET families over ℤ, complete bounds derived independently (t < 9n²/2,
+  e ≤ (n + 4)/3), exact rebuild. Logs `data/review_da/q3_1e6.txt`, `q7_1e6.txt`, `q7_2e5.txt`, `q11_2e4.txt`.
+* `scripts/review_da_slices.py`: the slicing identities of table 1.1 on all Type I/II tuples of primes < 400.
+* `scripts/review_da_ff.py caseB|caseA|famcheck`: own F_q[T] arithmetic. 𝓕(s) via factorisation of T^s + v, Case A from
+  the definition, forward completeness of (B) against brute-force Lemma 1.1 families. Logs `data/review_da/ff*.txt`.
+* `scripts/review_da_thm25.py [S]`: the Thm 2.5 union bound with the stated constants and exact pattern sets, plus a
+  rigorous geometric tail. Logs `data/review_da/thm25_S100.txt`, `thm25_S300.txt`.
+* `scripts/review_da_rgen.py r L KMAX`: r-generic boxes from the literal ET Prop 1.9 classes vs the Thm 3.1 box
+  superset. Log `data/review_da/rgen.txt`.
