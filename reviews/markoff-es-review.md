@@ -141,3 +141,56 @@ depth k ≥ 5") is false even for μ > 2n: the ι_B-partner B = 4μj − 1 of ev
 For μ ≤ 2n, B > 1 points occur at depth 1 (172 non-partner) and 3 (546). Repair: "for μ > 2n, every point at depth
 k ≥ 5 has B > 1, and the only B > 1 points at depth ≤ 3 are the ι_B-partners B = 4μj − 1 of ES points".
 * §4 "Reading" (Euclid pattern) is correctly labelled Assessment; not checked further.
+
+## Thm 5.1 (no polynomial families at fixed D) — SOUND (two small rigor gaps)
+Re-derived. N(η) = μ² − f = n, N(α) = (B − μA)² − fA² = nA² + B² − 2μAB = −D ✔; rank R^* ≤ 1 (two ℚ-rational places
+at ∞ since deg f = 2 deg μ is even with square leading coefficient D² lc(λ)²) ✔; N(ε) ∈ ℚ[s]^* = ℚ^* ✔; parity
+argument ✔ (b < 0 harmless).
+* m8 (MINOR): "f has coprime non-constant factors, so f is not a constant times a square" is a non-sequitur as
+  written (coprime factors can each be squares). Correct argument: if μ − √n = c₁g₁², μ + √n = c₂g₂² then
+  c₂g₂² − c₁g₁² = 2√n factors as (√c₂g₂ − √c₁g₁)(√c₂g₂ + √c₁g₁) = const, forcing g₁, g₂ constant.
+* m9 (MINOR): R = ℚ[s, y]/(y² − f) may be non-normal (f can have repeated roots); say "R^* ⊂ O(C̃)^*, rank ≤ 1"
+  (units of R are units of the normalisation; geometric integrality from f ∉ ℚ̄·ℚ̄[s]²).
+
+## §6 EVIDENCE table — SOUND (3 cells + 2 spot checks + 1 depth reproduced exactly)
+Local criterion re-derived (odd p | μ² − n: p ∤ D automatically, x² ≡ −D (mod p^{v}) ⇔ (−D/p) = 1, z = 1 lifts;
+p = 2: 8 | N iff λ odd, then x² ≡ −D (mod 8) ⇔ D ≡ 7 (8); λ even: z ≡ D + 1 /4 (mod 2) works) ✔. The sign remark
+("principal ⇒ generator of norm −D automatically, D ≡ 3 mod 4") ✔ — note ℤ[√N] has no unit of norm −1, so this is a
+genuine narrow-class point that the author handled correctly.
+`scripts/review_mk_fibre.py` (own CF scan over 1–2 periods for D < √N, Nagell-bound search otherwise, factorisation
+for square N; sympy only for factoring μ² − n):
+| case | O202 | R202 |
+|---|---|---|
+| n = 13, D = 7, λ ∈ [1, 301) | 49/63 | 49/63 (one square-N λ, λ = 1, handled) |
+| n = 17, D = 3, λ ∈ [3000, 3300) | 58/87 | 58/87 |
+| n = 105, D = 19, λ ∈ [30000, 30300) | 34/45 | 34/45 |
+| n = 13, D = 7, λ ∈ [10⁵, 10⁵+100) | 11/15 | 11/15 |
+| n = 17, D = 3, λ ∈ [10⁵, 10⁵+100) | 11/25 | 11/25 |
+| n = 13, D = 7, λ = 10005: depth / period | 2329 / 21012 | 2329 / 21012 |
+"global ⇒ local" never failed. EVIDENCE label appropriate.
+
+## Prop 6.1 — labels OK (Assessment), two overstatements
+* m10 (MINOR): (a) "The local layer of this main term is a provable half-dimensional sieve statement" is asserted
+  without proof or precise citation; I could not check it here. Either cite the exact theorem (Iwaniec's
+  half-dimensional sieve, Acta Arith. 29 (1976), and verify that its hypotheses cover "all prime factors of
+  λ²D² − n lie outside a set of primes of relative density 1/2") or downgrade to "expected (Assessment)".
+* m11 (MINOR): (c) "No unconditional technique proves even that …" is a literature-negative claim with no search
+  record; phrase as "to our knowledge". The identification "RD subfamily = n | λ" is right up to finitely many μ
+  (d = μ² − n = m'² + r', r' | 4m', |r'| ≤ m' with m' = μ − c forces c² ≤ n), and n | λ is impossible for every odd
+  n (R201 m2; my brute force: 0 hits with n | λ in 1049 points).
+
+## Prop 7.1 — (a), (b) SOUND (scope as in M1); (c) OVERCLAIMED: composition CAN land exactly on ES points
+(a) A | 1 + D ✔. (b) multiplication by a norm-1 unit shifts the convergent index by the period (twice the period if
+it is odd) ✔; with Thm 4.3, μ > 2n ✔. After M1, add the μ ≤ 2n case (B = 1 only at k = 1, A = 2).
+**Defect M2 (MAJOR, label/claim).** (c) is labelled PROVED but only norm multiplicativity is proved; the operative
+claims "lands at depth 3 only by coincidence", "composition move[s] AWAY from depth 3", "O201 spark 3 (composition)
+does not give ES" (Reading, §8 item) are not proved, and the ideal-theoretic picture says the opposite: if the ES
+ideal of norm D = D₁D₂D₃ factors into ideals that carry V_n points at the same μ, then (choosing conjugates = ι_B
+partners) the ES element IS ±unit·α₁α₂α₃. Explicit instance found by `scripts/review_mk_compose.py 301 6`:
+n = 59, μ = 126 (t = 8, j = 2), ES point (A, B, D) = (4, 1, 63); the same order has V_n points with D = 3 (A ≈ 3.7·10¹⁰)
+and D = 7 (A ≈ 3.9·10²⁵), and the script verifies the ES element equals a unit times a product of the three
+(3·3·7, with conjugations). Second instance n = 185, μ = 378, D = 63. (Only 2 such cases for n ≤ 301, μ ≤ 6n, so
+composition is rare and, as the example shows, uses factors far deeper than the target — it is no route to ES.)
+Repair: label (c) as Assessment; replace "lands at depth 3 only by coincidence" by "the ES element is a product of
+V_n points of the same order iff its ideal factors into V_n-represented ideals (e.g. n = 59, μ = 126, D = 63 =
+3·3·7); the factors are much deeper than the product, so composition gives no constructive route to depth 3".
