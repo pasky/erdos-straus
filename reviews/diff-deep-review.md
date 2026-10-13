@@ -11,7 +11,9 @@ Reviewer: side-agent/review-diff-deep. Merged `side-agent/spark-diff-parity` at 
 |---|---|
 | DIFF_DEEP Thm 2.1 (algebraic bijection + `4h ∣ gcd(h,G)²`) | **SOUND** (re-derived; brute force exact for all odd n ≤ 2001) |
 | Thm 2.1 geometric reading | SOUND-AFTER-REPAIRS (see D-list) |
+| Thm 1.1 / Cor 1.2 (supersingular transfer; ∃E vacuous) | SOUND (Diff(T') = {p} re-checked from scratch) |
 | Prop 1.3 (∀E false; τ(e) maximal orders) | SOUND-AFTER-REPAIRS (τ(e) correct for all e; ET citation wrong) |
+| §4 / report gloss "level G ≥ 2√h" as the content of (LD_p) | **GAP (MAJOR)**: the relaxed condition is vacuous |
 
 ## Checks performed
 
@@ -37,3 +39,19 @@ existence of c, 0 disagreements, and no predicate-true pair beyond h ≤ (n+5)²
   Checked by brute force on the Bruhat–Tits tree (`scripts/review_dd_tree.py`: ℓ = 3, 5, n ≤ 4, all vertices within
   radius n+2: exactly n+1 stable lattices). The local argument (−d a unit square mod ℓ^{v} since e | 4a²d + 1, ℓ ∤ 2d;
   Hensel; idempotents ⇒ [[ℤ_ℓ, ℓ^i],[ℓ^j, ℤ_ℓ]] ⇒ Eichler of level ℓ^{i+j}) is standard and correct.
+
+### Thm 1.1 / Cor 1.2 and the geometric reading of Thm 2.1
+* Thm 1.1: ℤ⟨x,y⟩ with x² = −f, y² = −f', xy + yx = −2 is an order (yx = −2 − xy); it lies in a maximal order of
+  B_T; Deuring realises every maximal order type of B_{p,∞}. ⇒: positive-definite T ⇒ x, y do not commute ⇒ they
+  generate End⁰E. Correct. Its reduced discriminant is 4·det T, so p | det T is automatic on a curve (needed for the
+  "h = det/p" phrasing). Correct.
+* Diff(T') = {p} for every Type II pair: re-checked with my own Hilbert-symbol code on B_{T'} = (−f, −f·det T')
+  (`scripts/review_dd_hilbert.py 1500`): **4025 Type II pairs of primes p < 1500, finite ramification exactly {p} in
+  every case.**
+* **The relaxed reading "level G ≥ 2√h" is NOT equivalent and is in fact vacuous** (`scripts/review_dd_vacuous.py
+  3000 200`): for 437 of the 438 primes 5 < p < 3000 (all residues mod 24; the only miss is p = 5 at h ≤ 200) there is a
+  pair (f, f') with ff' = 1 + ph, B_{T} ramified exactly at p (so it lives on a supersingular curve by Thm 1.1),
+  G ≥ 2√h, and 4h ∤ gcd(h,G)², i.e. **not** a certificate. Examples: p = 73: (21, 153), h = 44, G = 22;
+  p = 97: (20, 34), h = 7, G = 7; p = 1201: (39, 154), h = 5, G = 5. Per-pair counterexamples with small p:
+  (f,f') = (4,9) at p = 7 (h = 5, G = 5). Thm 2.1's displayed condition is the correct one; the glosses are wrong
+  (see D1).
