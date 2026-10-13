@@ -132,5 +132,10 @@ exists in the form `W = (S − O)/2`, S = #D(n) a sign-blind (geometric, X₁(t)
 character sum with the **quadratic character mod n** over the sign-blind set — the level of O is n·t, growing
 with n, so STRONG_APPROX Thm 9.1 does not apply. But the positivity statement "O < S" is literally the
 H-B spin event of PARITY_FIXED_P Lemma 1.3 (a non-residue among the divisors of a sign-blind family), i.e.
-the Legendre-symbol-on-prime-factors problem. No cancellation in O is available: O ≈ S up to the ES count,
-which is ≍ log²n against S ≍ (#D(n)) — see the census below.
+the Legendre-symbol-on-prime-factors problem. D(n) is infinite (the trivial m'' = 1 lies in it for every t ≡ 3 (4) — the
+"−2 per level" boundary of O131 Prop 4.1); after removing it and truncating at t ≤ n + 2 the census
+(`scripts/gi_sign_census.py`, EVIDENCE) is: primes p ≡ 1 (24) in [10⁴, 1.06·10⁴]: (class +1, class −1) =
+(12,11), (26,10), (11,17), (18,19), (25,12), (20,8), (13,16), (21,15); odd squares 99², 101², 105², 107²:
+(33,0), (38,0), (24,0), (26,0). So the sign-blind total S is of the same size at primes and at squares, and
+at squares the whole of it sits in class +1. ES is the statement that the genus character at n is not
+constant on the sign-blind set — no exact identity tested evaluates O independently of the lottery.
