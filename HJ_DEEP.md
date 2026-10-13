@@ -167,7 +167,7 @@ Attempts. Each names the hypothesis it tried to violate, then the outcome.
 * **Assessment.** The HJ reformulation is now as clean as I can make it: **one shape (length 3, equivalently t/n has a Type-II-shape
   expansion) and one sign (the Wu/Jacobi class)**. The two halves are separately simple: (W) is T1-free with finitely many
   exceptions, and (S) is "T1 is the only obstruction". Their *conjunction* is ES's class layer, and every mechanism I tried
-  sees only one half at a time. No route to ES.
-* (R174 repair, D1.) Precisely: interior SQ₅ on non-square n ≡ 1 (4), n ∉ {5, 105} ⟺ (W)|_{n ≡ 1 (4)} ∧ (S). Lorenzini's question is
-  the global (W), a strengthening (it also covers even n and n ≡ 3 (4)); ES at primes p ≡ 1 (4) needs only both halves at primes. The most useful outputs for the campaign are the (W)/(S) split (which isolates a
+  sees only one half at a time. No route to ES. The most useful outputs for the campaign are the (W)/(S) split (which isolates a
   T1-free sub-problem with a sharp exceptional set) and the 10⁸ verification.
+* (R174 repair, D1.) Precisely: interior SQ₅ on non-square n ≡ 1 (4), n ∉ {5, 105} ⟺ (W)|_{n ≡ 1 (4)} ∧ (S). Lorenzini's question is
+  the global (W), a strengthening (it also covers even n and n ≡ 3 (4)); ES at primes p ≡ 1 (4) needs only both halves at primes.
