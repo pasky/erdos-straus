@@ -136,3 +136,62 @@ statements for every m ≥ 8 with failures as large as exp(m^{1/3+o(1)}). This i
 (d) BL Thm 1.9 already shows (for all n) that U_n(ℚ) is not dense in U_n(𝔸)^{Br}_•: BM is known not to be the only
 obstruction to strong approximation on these surfaces. Cor 5.4's increment over BL 1.9 is that the failing open set is
 the *specific* W of the 8/n problem (not some smaller open); worth saying explicitly.
+
+## 6. Other checks
+* §4 cubic characters at the 16 failures re-computed (own residue symbols): N = 19: (0, 1, 2), N = 13: (1, 2, 0),
+  N = 26893: (0, 0, 0) (26893 ≡ 1 mod 9, 2 and λ cubes mod π); the other 13 have χ_π(ω), χ_π(2) both ≠ 0 ✓.
+* Labels: Prop 1.1/Cor 1.2 PROVED ✓; Thm 2.1 CERTIFIED ✓; Thm 3.1 "PROVED by certificate modulo BL" ✓; Thm 5.2
+  CERTIFIED ✓ (but known, D2); Cor 5.4 PROVED ✓ (but known, D3); counts EVIDENCE ✓; lottery Assessment ✓.
+
+## Numbered defects
+
+**D1 (MINOR) — §0 (I1), Prop 1.1: missing attribution.** Over ℤ, Prop 1.1 including Remark (3) is BL Lemma 3.10
+(finiteness of {u ∈ U_n(ℤ): u₁u₂u₃ ≠ 0, u_i ≠ −u_j}, proved by the same "min |u_i| ≤ 3n/4, then two-term" argument,
+with the vanishing-subsum family u_i = −u_j as the only exception). "Positivity is not what makes ES(p) finite" is
+therefore already in BL. *Repair:* add "(over ℤ this is BL Lemma 3.10; the new content is the extension to imaginary
+quadratic O with coefficients c_i)".
+
+**D2 (MAJOR) — §5 Thm 5.2, AGENT_REPORT "Novelty" and SHARP #1: the 8/n failures are in the literature, in a source
+already in this repo.** Pomerance–Weingartner, arXiv 2511.16817 (Ramanujan J. 69 (2026) Paper 31;
+`sources/pomerance-weingartner-2511.16817/`), Table 1 row m = 8: all exceptions n ≤ 10¹³ are 1, 2, 3, 11, 17, 131, 241.
+PW Thm 3.1: for every m ≥ 8 more than exp(c φ(m)^{1/3}/(log m)^{2/3}) primes p have m/p not a sum of 3 unit fractions.
+The report's "may be in the literature … not searched further" is not acceptable for a SHARP claim when the campaign's
+own ledger cites PW ((D)31, EXCEPTIONAL_MN*). *Repair:* Thm 5.2 → "(CERTIFIED; reproduces PW Table 1, m = 8, which
+covers n ≤ 10¹³)"; drop "≤ 2·10⁵" as the headline range; in the counts paragraph and §4 Assessment cite PW Thm 3.1
+(the "lottery" failures for m ≥ 8 are a theorem, by an Elsholtz–Tao-type sieve) and the campaign's own density-transition
+results (EXCEPTIONAL_MN/MN2: transition at log n ≍ m^{1/3}).
+
+**D3 (MAJOR) — Cor 5.4 / B7 and SHARP #1/#3: overclaimed novelty and significance.** (a) Cor 5.4 is an immediate
+consequence of BL Remark 1.10 (Thm 1.8 version for m/n: W^{Br} ≠ ∅ for every n) and PW Table 1. (b) The universally
+quantified principle B7 refutes is already refuted at n = 3 (8/3: x = 1 forced, then y = 1, 1/z = 2/3; W^{Br} ≠ ∅ by
+the reviewer's own certificate P₀ = (1, 1, 3/2), T = {2}, P₁ = (−60, −60, 10/27)), so 131/241 are not needed for the
+PROVED part; their added value (failures not explained by m/n being close to 3) is an Assessment. (c) Nobody would
+posit the principle for all n: Schinzel's conjecture already carries n > n₀(m). The meaningful family statement —
+"BM is the only obstruction for n ≥ n₀ with n₀ uniform in m" — is refuted by PW Thm 3.1 + BL Rem 1.10 (failures up
+to exp(m^{1/3+o(1)})). (d) BL Thm 1.9 already shows that U_n(ℚ) is not dense in U_n(𝔸)^{Br}_• for every n.
+*Repair:* relabel Cor 5.4 "PROVED (immediate from BL Rem 1.10 + PW Table 1; already witnessed at n = 3)"; restate B7 as
+"(known) by BL Rem 1.10 + PW Thm 3.1, no 'BM is the only obstruction for n ≥ n₀' principle uniform in m holds for the
+Schinzel family; for fixed m = 8 the last failure is 241 ≤ 10¹³ (PW)"; put the BL Thm 1.9 contrast in one sentence;
+in SHARP #1 replace "is FALSE … already over ℚ" by a re-attributed statement. The TES half (§2–3) is unaffected and is
+the genuinely new part (no literature for TES).
+
+**D4 (MINOR) — Thm 5.3: missing citation and missing certificates.** BL Remark 1.10 states the Thm 1.8 version for
+m/n; cite it. The document claims certificates for n ∈ {3, 11, 17, 131, 241} but prints only 131, 241. *Repair:* cite
+BL Rem 1.10 and either print the three missing certificates (e.g. the reviewer's: n = 3 above; n = 11: P₀ = (2, 6, 33/2),
+T = {2}, P₁ = (−60, −60, 330/251); n = 17: P₀ = (3, 8, 408/5), T = {5}, P₁ = (−60, −60, 510/257); all invariants equal) or
+restrict the list.
+
+**D5 (MINOR) — Thm 3.1 statement and SHARP #2 wording.** "failures of the integral Hasse principle not explained by
+the Brauer–Manin obstruction" should carry the qualifier already in Scope (i): "…by the BM obstruction from
+Br U = Br K + ⟨α_ω, α_{−1}⟩ (BL's group of the affine surface; Br U° and étale-BM not considered)".
+
+**D6 (MINOR) — §5 Prop 5.1 EVIDENCE line: control ranges.** The control counts (m = 12: 124; m = 5: 351/135;
+m = 6: 147/63) are for q ≤ 60, not q ≤ 100 as the sentence suggests (reviewer: q ≤ 60 reproduces them exactly;
+q ≤ 100 gives m = 12: 271, 0/0; m = 5: 2374, 696/269; m = 6: 1214, 306/120). *Repair:* state "q ≤ 60" for the controls.
+
+**D7 (MINOR) — Thm 2.1 "every solution found at a prime has Type I or Type II shape" is a theorem, not an observation.**
+π | 9xyz forces π to divide some coordinate; π dividing all three gives 9 = ω/x′ + ω²/y′ + 2/z′, impossible as
+|9| > 1 + 1 + 2. So the 21042/7038 split is EVIDENCE only in its proportions. *Repair:* one-line proof.
+
+**D8 (MINOR, ledger) — DISCOVERIES line ~819 still says "the finiteness of TES is open (O194)".** Prop 1.1 settles it;
+update when the ledger entry is written.
