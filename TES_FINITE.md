@@ -141,8 +141,8 @@ x, y, z ∈ ℕ. BL Remark 1.10: these surfaces are ℚ-isomorphic to U_n (so Br
 −u₂/u₃), BL Thm 1.6) and every natural-number solution satisfies ∏_{p | 2nm} (α)_p = −1.
 
 **Proposition 5.1 (order-2 T1 for 8/n; PROVED modulo BL's p-local lemmas).** Let n be odd. Every solution of
-8/n = Σ 1/u_i in ℕ satisfies ∏_{p | n} inv_p α(u) = −1; hence for n = k² (k odd) there is no solution of Type I or
-Type II shape at any prime of n. For Type II the conclusion is elementary and in-campaign: POINTWISE_MN Lemma
+8/n = Σ 1/u_i in ℕ satisfies ∏_{p | n} inv_p α(u) = −1; hence for n = k² (k odd) no solution has Type I or Type II
+shape (in BL Lemma 3.9's sense, exponent v_p(n)) at every prime p of n; for n = q^{2j} a prime power: no Type I/II solution. For Type II the conclusion is elementary and in-campaign: POINTWISE_MN Lemma
 1.1(d) (m ≡ 0 mod 4 ⇒ the Type II event class −mD is a Jacobi non-residue mod M, so n ≡ −mD (mod M) is not a
 square).
 *Proof.* Hilbert reciprocity for α(u). ∞: −1 (u_i > 0; BL Lemma 3.1). p = 2: all u_i ∈ ℤ₂; with x := (8/n)u₁ − 1
@@ -158,7 +158,7 @@ Controls: m = 16, 12 likewise 0/0 (211, 124 solutions); m = 5, 6 (no T1): 351/13
 
 **Theorem 5.2 (non-T1 failures of 8/n; CERTIFIED).** 8/n = 1/x + 1/y + 1/z has **no** solution in positive
 integers for n ∈ {2, 3, 11, 17, 131, 241}; these are all such n with 2 ≤ n ≤ 299, and 3, 11, 17, 131, 241 are all such primes
-≤ 30000. Every odd square k² ≤ 20000 (k odd, k ≥ 3) is solvable (in "other" shapes).
+≤ 30000. Every odd square k² ≤ 20000 (k odd, k ≥ 3) is solvable.
 *Certification.* Positivity gives x ≤ y ≤ z, n/8 < x ≤ 3n/8 and the divisor equation (Ay − B)(Az − B) = B²
 (`scripts/tf_schinzel.py`, divisor enumeration) — the classical ES finiteness; independently
 `scripts/tf_schinzel_brute.py` (Fractions, y ≤ 2/r, no divisors): 0 solutions at 3, 11, 17, 131, 241, and the same
