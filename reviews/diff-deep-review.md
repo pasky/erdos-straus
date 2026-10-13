@@ -3,7 +3,8 @@
 Reviewer: side-agent/review-diff-deep. Merged `side-agent/spark-diff-parity` at start. From-scratch scripts:
 `scripts/review_dd_*.{c,py}`. **ES is not solved anywhere; nothing below changes that.**
 
-(in progress — sections are added claim by claim)
+No FATAL defects. Three MAJOR (D1 vacuous "level ≥ 2√h" gloss; D2 parity-theorem scope; D4 non-existent ET
+bound cited, conclusions survive with repairs) and eight MINOR. All numerical claims checked were reproduced exactly.
 
 ## Verdict per claim
 
@@ -22,6 +23,10 @@ Reviewer: side-agent/review-diff-deep. Merged `side-agent/spark-diff-parity` at 
 | EVIDENCE 71/9732 uncovered by the 9+9 slices | **SOUND** (reproduced exactly from scratch) |
 | bsC_valence_borcherds Prop 1 (Galois-orbit obstruction) | SOUND-AFTER-REPAIRS: the cited "ET f(p) ≪ p^{o(1)}" does not exist; the divisor bound suffices (D4) |
 | §2.5 canonical curve EVIDENCE (144/267; 47/76, 34/67, 30/57, 33/67) | **SOUND** (reproduced exactly; order O(q,r) verified maximal) |
+| §3 / bsC_eichler_orientation Props 1–2 | SOUND (re-derived; dangling script reference, D8) |
+| §4 (LD_p) as stated (exact divisibility) | SOUND (⟺ Type II(p) by Thm 1.1 + 2.1) |
+| bsC_fourier_jacobi records F*(p) | SOUND (reproduced exactly, `scripts/review_dd_jacobi.c`); EZ Thm 2.2 hypotheses (D9) |
+| bsC_isogeny_ramanujan, bsC_arithmetic_topology | Assessment memos; one internal inconsistency (D10) |
 | §4 / report gloss "level G ≥ 2√h" as the content of (LD_p) | **GAP (MAJOR)**: the relaxed condition is vacuous |
 
 ## Checks performed
@@ -142,3 +147,92 @@ For every p ≡ 1 (24) < 2·10⁴ I verified that Ibukiyama's O(q, r) is closed 
 constants) and has det(trd(e_a ē_b)) = p², i.e. it is a maximal order of (−p, −q). Searching O ∩ B⁰ for x, y with
 ⟨x,y⟩ = 1, f ≤ f' ≤ 4p and the Thm 2.1 condition: **47/76, 34/67, 30/57, 33/67 = 144/267**, identical to §2.5; every
 pair found has p | ff' − 1 (asserted). (Note O⁰ here is O ∩ B⁰, not the Gross lattice; see D5.)
+
+### Other memos (spot checks)
+* bsC_eichler_orientation Prop 1: level characters χ₁, χ₂ = trd − χ₁ give χ₂(v) = −χ₁(v), distinct mod each ℓ | e
+  (ℓ odd, gcd(m,e) = 1), so {χ(v)} = all 2^{ω(e)} roots of −m ✓; a² ≡ −m (e) ⟺ e | a + b ✓; (v − a)(v + a) = −ace,
+  C ⊆ ker(v − a), deg ψ = ac ✓. Prop 2 = DIFF_DEEP 2.2/2.3 ✓. Numerical sanity of Prop 2.3 on Ibukiyama orders
+  (`scripts/review_dd_lift.py 3000 12 40`): least nrd x ≡ −1 (M) in O ∩ B⁰ is ≤ 0.017·M²p for all p ≡ 1 (24) < 3000,
+  3 ≤ M ≤ 12; λ₁λ₂/p ≥ 1 (consistent with Kaneko's ≥ 1/4).
+* Prop 1.3's side facts: from-scratch Type I enumeration (`scripts/review_dd_typeI_e.py 600`, 3346 tuples, a ≤ b):
+  e ≤ (p+1)² + 1 always (max e/p² = 0.347), and p ∤ e in every case (the memo asserts p ∤ e without proof; harmless —
+  if p | e the count only drops, the maximal order at p being unique).
+* bsC_fourier_jacobi: least-index records (73, 7) … (954409, 335) reproduced exactly.
+* bsC_isogeny_ramanujan step 1 / bsC_arithmetic_topology: Assessment-only; see D10.
+
+## Defects
+
+**D1 (MAJOR) — the "level ≥ 2√h" gloss is a vacuous relaxation, presented as the content of (LD_p).**
+Locations: DIFF_DEEP §4 ("(LD_p) asks for **level G ≥ 2√h** … 'a pair … whose congruence level is at least twice the
+square root of their normalised covolume'"); report O176 SHARP bullet 1 ("ES Type II(p) ⟺ some supersingular E … whose
+Gram 'level' G is ≥ 2√h"); report Spark 1 ("some O has a pair with level ≥ c·√h") and Spark 2. Thm 2.1 needs
+4h | gcd(h, G)², which implies G ≥ 2√h but is far stronger: it needs g = gcd(h,G) with h/g | g/4. The relaxed
+condition holds for non-certificate pairs living on supersingular curves for 437/438 primes 5 < p < 3000 (examples
+above), so a theorem of the form "some O has a pair with level ≥ c√h" proves nothing. *Repair:* in §4 and the report
+replace "level G ≥ 2√h" by the exact condition "h = g·t with g = gcd(h, G) and 4t | g" (equivalently 4h | g²), state
+that G ≥ 2√h is necessary only and is satisfied by non-certificates for essentially every p (cite this review's
+examples), and drop the "⟺" in the SHARP bullet (keep the exact divisibility form, which is correct). Spark 1 must be
+rephrased in terms of the divisibility, not the size.
+
+**D2 (MAJOR) — bsC_parity_quadratic_only: the scope sentences exceed Prop 1.** Locations: Prop 1 "In particular the
+parity of any Diff-set built from local ±1 invariants … of data at a rational prime ℓ depends on ℓ only through one
+quadratic character"; Cor 2 "(over any base, any dimension)"; memo Assessment "PROVED obstruction with exact scope:
+parity/incoherence mechanisms over any base field carry only quadratic information"; DIFF_DEEP (H4) and §5 PROVED
+bullet "parity over any base is quadratic"; report SHARP bullet 3. Prop 1 needs the local data at all λ | ℓ to come
+from one t ∈ ℚ^× (Galois-invariant). For F-rational data the local Diff above ℓ sees non-quadratic information (F =
+ℚ(ζ₁₃)⁺, hermitian ⟨π⟩: detects whether ℓ is a 4th power mod 13; ℓ = 3 vs ℓ = 17). And "mechanism whose information
+about f comes from Diff-parities" is undefined, so the "can certify ES only through slices 4cd | 24" step is an
+Assessment. *Repair:* restate Prop 1's conclusion as "for Diff-sets whose local invariants above ℓ are η_λ(t) with
+t ∈ ℚ^× (in particular for any Diff built from ℚ-rational certificate data), the parity over {λ | ℓ} is χ(ℓ) for a
+quadratic Dirichlet character χ"; add the F-rational counterexample as a scope remark; relabel the mechanism sentence
+of Cor 2 and the memo/DIFF_DEEP/report slogans as Assessment.
+
+**D3 (MINOR) — DIFF_DEEP Prop 2.2, last sentence: wrong k.** With k := xy + 1 (k² = −4c²dp) as defined two lines
+earlier, "(2ad + k)(2bd + k) = de(1 + 2ck) in ℤ[√−dp]" is false (fails on all 27 788 tuples, n ≤ 3001). The memo's
+identity uses k = √(−dp) = (xy + 1)/(2c). *Repair:* "with κ := (xy + 1)/(2c), κ² = −dp: (2ad + κ)(2bd + κ) =
+de(1 + 2cκ) in ℤ[κ]".
+
+**D4 (MAJOR, citation; conclusions survive) — "ET's f_I(p) ≪ p^{o(1)}" / "ET's f(p) ≪ p^{o(1)}" does not exist.**
+Locations: DIFF_DEEP Prop 1.3 label and text, Answer paragraph ("p^{o(1)} curves"); bsC_supersingular_transfer Prop 3
+label/text and Barrier B3 ("≪ p^{o(1)} objects"); bsC_valence_borcherds Prop 1 label/text and Assessment
+("certificates number p^{o(1)}"); report §Results. ET Prop 1.7 gives only f_I(n) ≪ n^{3/5+O(1/log log n)},
+f_II(n) ≪ n^{2/5+O(1/log log n)}, and ET call f(n) ≪ n^ε difficult (text right after Prop 1.7). *Repairs:*
+(a) Prop 1.3: ≤ 2Στ(e) ≤ 2 f_I(p)·max τ(e) ≪ p^{3/5+o(1)} = o(p) by ET Prop 1.7 + divisor bound — "∀E false
+for Type I for large p" survives; replace "p^{o(1)} curves" by "p^{3/5+o(1)} curves (p^{o(1)} conjecturally)".
+(b) valence_borcherds: certificates on a fixed Z(D, r) (D = −16c²dp fixes c²d) number ≤ Σ τ(1 + 4c²dp) ≪ p^{o(1)}
+by the divisor bound — cite that instead of ET; label "PROVED relative to Siegel".
+(c) supersingular_transfer B3 bullet: "main term ≫ p^{o(1)}" → "≫ p^{3/5+o(1)} unconditionally".
+
+**D5 (MINOR) — notation O⁰.** Prop 2.3/2.4 use O⁰ = O ∩ B⁰ (trace-zero elements of O; the proof makes x trace-zero
+in O), §2.5 calls O⁰ "its Gross lattice" (standardly (ℤ + 2O) ∩ B⁰, index 4 sublattice). The script uses O ∩ B⁰.
+*Repair:* define O⁰ := O ∩ B⁰ once and delete "Gross lattice" in §2.5 (or say "trace-zero part").
+
+**D6 (MINOR) — Prop 2.4 lottery bookkeeping.** "≍ F^{3/2}/M³ … per order" omits the covolume p of O⁰
+(≍ F^{3/2}/(M³p) per order, then ×p/12 orders), and "Σ_{f ≡ −1 (M)} O(1/(Mf))" double-counts the congruence: the
+density already counts x in the coset, so the per-M total is Σ_{f ≤ F} O(1/(Mf)) over all f (≍ log F/M), giving
+log² F after Σ_M; summing only over f ≡ −1 (M) gives ≍ log F. Also note the index factor in det Λ_x can reach ≍ f,
+which would shrink the gap to f^{1/2}. *Repair:* fix the two expressions; keep Assessment label.
+
+**D7 (MINOR) — "∀E false" scope.** Answer paragraph of DIFF_DEEP: "the 'every curve' version is false (Type I
+certificates …)" reads as if "every curve carries an ES certificate" were refuted. Only Type I configurations are
+handled (memo: Type II version is Assessment, 2-part uncontrolled). *Repair:* "the 'every curve carries a Type I
+certificate' version is false for large p; the Type II/union version is open (Assessment)".
+
+**D8 (MINOR) — dangling script.** bsC_eichler_orientation "Cheap numerics": `scripts/bsC_involution_lift.py` does not
+exist, and DIFF_DEEP §2 has no test of Prop 2.3. *Repair:* remove the reference or point to
+`scripts/review_dd_lift.py` (this review).
+
+**D9 (MINOR) — bsC_fourier_jacobi Prop 1 citation.** Eichler–Zagier Thm 2.2 is for holomorphic Jacobi forms on the
+full Jacobi group; Kudla's genus-2 series is the derivative of an incoherent (non-holomorphic, level) Eisenstein
+series. The needed fact (a(T) depends only on the class/genus of T) is R172 D8 / Kudla's local-factor formula.
+*Repair:* cite that instead; also "Bruinier's converse theorem" in bsC_valence_borcherds B2 is stated for O(2,l) with
+lattices splitting hyperbolic planes (l ≥ 2 in LNM 1780); give an l = 1 reference or drop the sentence.
+
+**D10 (MINOR) — bsC_isogeny_ramanujan step 1.** "taking e large (e ≥ p^{3+ε}) puts a, b in the deterministic range":
+Type I tuples have e ≤ (p+1)² + 1 (Prop 1.3) and ab = (pe+1)/4d ≪ p³, so a, b ≥ p^{2+ε} never occurs. The step is
+vacuous rather than "B3". *Repair:* say so (the deterministic regime of Kane/Chevyrev–Galbraith is never reached by
+ES configurations).
+
+**D11 (MINOR, labels).** DIFF_DEEP §5 PROVED list must follow D2 (parity sentence → "PROVED for ℚ-rational data;
+the general slogan is Assessment") and D4 (relative-to citations). Thm 2.1's "Geometric form" also silently uses
+p | det T for x, y in a maximal order (true: the reduced discriminant of ℤ⟨x,y⟩ is 4 det T); add one line.
