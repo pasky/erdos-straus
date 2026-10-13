@@ -100,3 +100,63 @@ the anchor is ⟨−1, −1⟩, which is non-zero only because the m = 2 Hilbert
 order-m T1 needs (α) a pinned normalised place v₀ (Lagrangian normalisations — monic, unit, primary — never pin a
 non-zero value), and (β) a partner place w where the constant algebra (τ₁, τ₂) ramifies but the *equation*
 forces inv_w α(u) = 0 on all integral points (for ES: w = 2, forced by the numerator 4 — BL).
+
+## 3. A genuine order-3 T1 over the Eisenstein integers (anchor at 2, partner at λ)
+
+(I3) Prop 2.3 says what to build: a normalised tame place v₀ with N̄ = 0 (Cor 2.2(e)), twist constants with
+⟨τ₁, τ₂⟩_{v₀} ≠ 0, and a wild partner where the *numerator* kills the invariant (as 4 = 2² does for ES at 2).
+Over K = ℚ(ω), ω = ζ₃, O = ℤ[ω], λ = 1 − ω (v_λ(3) = 2, v_λ(9) = 4), take v₀ = (2) (inert, residue field F₄)
+and numerator 9.
+
+**Normalisation.** x ∈ O is *2-primary* if x ≡ 1 (mod 2O). Every x prime to 2 has exactly two 2-primary
+associates ±x (the units ±ω^j map onto F₄^* = {1, ω, ω²}): 2-primary is the Eisenstein analogue of positivity /
+monic — a choice of associate up to the cube −1.
+
+**Definition (TES).** For n ∈ O prime to 6: TES(n) is the equation
+`9/n = ω/x + ω²/y + 2/z,  x, y, z ∈ O 2-primary.`
+Here c = (ω, ω², 2), u = (x/ω, y/ω², z/2), α(u) = (−u₁/u₃, −u₂/u₃)_ω ∈ Br K[3]. For a prime π ∤ 6 and n = π^e,
+a solution has *Type I shape* if (v_π(x), v_π(y), v_π(z)) is a permutation of (≥ e, 0, 0), *Type II shape* if a
+permutation of (0, ≥ e, ≥ e) (the ES shapes).
+
+**Lemma 3.1 (local condition at 2; PROVED).** If TES(n) is solvable then n ≡ 1 (mod 2). *Proof.* Reduce mod 2:
+9/n ≡ 1/n, and ω/x + ω²/y + 2/z ≡ ω + ω² = −1 ≡ 1 (mod 2). ∎ (So the associate of n is fixed; every cube
+n = m³, m prime to 2, satisfies it, since F₄^* has exponent 3.)
+
+**Theorem 3.2 (cubic reciprocity law and order-3 T1 for TES; PROVED).** Let n ∈ O, n ≡ 1 (mod 2), gcd(n, 6) = 1.
+(a) For every solution of TES(n): Σ_{π | n} inv_π α(u) = −⟨ω, 2⟩₂ ≠ 0 in (1/3)ℤ/ℤ.
+(b) **(T1₃.)** If n = π³ with π prime, π ∤ 6, then TES(n) has no solution of Type I or Type II shape at π.
+(c) If n = π is prime, every solution has inv_π α(u) = −⟨ω, 2⟩₂ (a fixed non-trivial cubic residue value).
+*Proof.* Compute inv_v α(u) at every place.
+*v = (2) (anchor).* x, y, z ∈ 1 + 2O₂ = U^{(1)}, a pro-2 group, hence 3-divisible: u_i ≡ 1/c_i modulo cubes.
+By Lemma 2.1 (N̄ = 0), inv₂ α = ⟨c₁, c₂⟩ + ⟨c₂, c₃⟩ + ⟨c₃, c₁⟩ = ⟨ω, ω²⟩ + ⟨ω², 2⟩ + ⟨2, ω⟩ = 0 + 2⟨ω, 2⟩ −
+⟨ω, 2⟩ = ⟨ω, 2⟩₂ (units pair trivially at a tame place). The tame symbol {ω, 2}₂ = ω mod 2, whose cubic class in
+F₄^* is ω^{(4−1)/3} = ω ≠ 1. So inv₂ α ≠ 0.
+*v = λ (partner).* The c_i are λ-units and n is a λ-unit, so u_i ∈ O_λ. If u₂ + u₃ = 0 (any labelling), α(u) =
+(−u₁/u₃, 1) = 0. Otherwise relabel so that v_λ(u₁) is maximal (this changes α by a sign, DRINFELD_ES Thm 2.2 proof)
+and apply the Steinberg decomposition (DRINFELD_ES Lemma 2.1): α = (y, −1) + (x, y), x = (9/n)u₁ − 1. Since
+v_λ(9u₁/n) ≥ 4, −x ∈ U^{(4)} = (U^{(2)})³ (for i > e/(p − 1) = 1, the p-th power map U^{(i)} → U^{(i+e)} is
+bijective; Neukirch, ANT II (5.5)–(5.8)), so x = (−1)³·(−x) is a cube and (x, y) = 0; (y, −1) = 0 as −1 is a
+cube. So inv_λ α = 0. **This is where the numerator 9 = (unit)·λ⁴ is used** (3 = (unit)·λ² does not suffice).
+*v tame, v ∤ 6n.* The u_i are v-integral and 9/n is a v-unit: DRINFELD_ES Thm 2.2 (i) verbatim — either
+x ≡ −1 is a unit and the symbol is ±1, or all u_i are units and the symbol is 1 or y ≡ 1 — so inv_v α ∈ ½ℤ/ℤ,
+hence 0 in (1/3)ℤ/ℤ.
+*v complex.* Br ℂ = 0.
+Hilbert reciprocity (Σ_v inv_v = 0 for α(u) ∈ Br K) now gives (a), and (c) is (a) with one place. For (b):
+DRINFELD_ES Thm 3.3's proof (a tame valuation argument at Q, using only v_Q(λ) = −m, Q-integrality of the u_i and
+m-th powers in k(Q)^*) applies verbatim at π with m = 3, giving inv_π α(u) = 0 for Type I/II shapes,
+contradicting (a). ∎
+
+**Numerics (EVIDENCE; `scripts/tw_eis_solve.py`, `scripts/tw_eis_scan.py`; every solution verified exactly;
+inv_λ obtained as −Σ_tame by reciprocity, the reciprocity code itself checked on 400 random pairs with a ∈ U^{(4)}:
+Σ_tame = 0 in all).** Search: all solutions having some denominator X with N(X − c_i n/9) ≤ 30 (the ES regime,
+E = 9X − c_i n small).
+| target | n | #n | Type I | Type II | other | invariants (2, π, λ) |
+|---|---|---|---|---|---|---|
+| TES (9; ω, ω², 2) | split primes, N ∈ [307, 1471] | 8 | 117 | 44 | 0 | all (1, 2, 0) |
+| TES | π³, N(π) ∈ {7, 13, 19, 31, 37} | 5 | **0** | **0** | 87 | all (1, 2, 0) |
+| control: no anchor (9; 1, 1, 1) | primes / cubes | 8 / 5 | 51 / 42 | 9 / 6 | — / 96 | all 0 |
+| control: no partner (3; ω, ω², 2) | primes / cubes | 8 / 5 | 660 / 306 | 299 / 164 | — / 1493 | inv₂ = 1; (π, λ) vary |
+Every prime has Type I/II solutions; every cube has only "other"-shape solutions (e.g. those inherited from π:
+9/π = Σ c_i/x_i ⇒ 9/π³ = Σ c_i/(π²x_i), shape (2, 2, 2)); in particular TES(π³) is globally, hence locally,
+solvable. Both hypotheses of Thm 3.2 are needed: dropping the anchor (c = 1) or the partner (numerator 3)
+restores Type I/II solutions at cubes.
