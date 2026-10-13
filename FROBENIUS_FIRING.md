@@ -267,7 +267,8 @@ contain the full ES_q failures of `data/ffl/fail_*` (consistency check).
 | (7, T, T+1) | 2 / 3 / 4 / 5 | 3 / 5 / 7 / 7 | 21 / 112 / 588 / 3360 | {0:11,1:4,2:3,3:2,5:1} / {0:67,1:32,2:11,4:2} / {0:472,1:104,2:11,3:1} / {0:3069,1:280,2:11} | max 5 / max 4 / max 3 / all 1 |
 | (3, T², T+1) | 3 / 4 / 5 / 6 / 7 / 8 | 4 / 6 / 8 / 10 / 10 / 10 | 8 / 18 / 48 / 116 / 312 / 810 | {0:4,1:2,2:1,3:1} / {0:13,1:3,2:2} / {0:38,1:7,2:2,5:1} / {0:106,1:7,2:3} / {0:303,1:9} / {0:799,1:11} | 1,2,3 / 1,1 / 1,1 / — |
 
-(D = 2n − k is the full ES_q Type II modulus range; rows with smaller D are truncated searches, so their e-values are
+(Data `data/ff_frob/overflow2_*` = rerun after the R196 #4 fix — all witnesses per residue kept until verification;
+the histograms coincide with the first run, `data/ff_frob/old/`. D = 2n − k is the full ES_q Type II modulus range; rows with smaller D are truncated searches, so their e-values are
 upper bounds for the least overflow.) **0 unsolved P in every row; every full ES_q failure of data/ffl lies in the
 e = 0-unsolved set (consistency) and is solved with overflow e ≤ 5.** The maximal least overflow decreases with n
 (q = 7: 5, 4, 3, 2), the lottery effect: mean N_II ≍ n³/q^k (FUNCTIONFIELD_ES §7). Squares are not a T1 control
