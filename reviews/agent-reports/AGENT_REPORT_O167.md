@@ -34,3 +34,36 @@ n mod L" (needs bounded `v_ℓ(N_n)`), and the §1 literature statements (subage
   extra `c | M/4`". Horocycle/double-coset equidistribution (unipotent flows) at scale M ≍ p^{1/2}? Probably
   meets Thm 4.1 again, but the extra divisibility `c | M/4` is the only non-congruence piece left.
 * Exact (cusp-free) quaternary identities (Jacobi r₄ = 8σ) with q = 2, 4 as a source of H-E positive identities.
+
+## Checkpoint 2 (sparks: exact identities, double cosets, uncapped weights) — STRONG_APPROX_ES.md §§9–11
+
+1. **Thm 9.1 / Cor 9.3 (PROVED, elementary).** Every finite combination E of `σ_k(n; χ, ψ)` (conductors | L)
+   covers all rank-4 one-class genera via Siegel–Weil, Jacobi's r₄, and old-form shifts. Such an E is a
+   quasi-polynomial at primes. If E vanishes at infinitely many prime squares ℓ² ≡ 1 (L), then E(p) = 0 for
+   *all* primes p ≡ 1 (L). The minorant version holds too (E ≤ 0 at squares ⇒ E(p) ≤ 0), and so does the
+   counting version (an n-uniform error B·n^θ ⇒ no certification on p ≡ 1 (L)). So no H-E identity of this
+   kind exists for Type I/II certificate counts (which vanish at odd squares), whatever the weights. Proof:
+   compare top monomials of `P(ℓ) = Σ C_k(1+ℓ^k+ℓ^{2k})` and `E(p) = Σ C_k(1+p^k)`.
+   Scope: only the class p ≡ 1 (L) is claimed; for other square classes the induction is not clean (not needed).
+2. **EVIDENCE (`scripts/sa_exact_fit.py 10000`).** I tested 150 basis functions: σ_k at n, n+1, n+2 with
+   characters mod 3, 4, 8, plus quasi-polynomials mod 24. None fits the cubic certificate counts
+   `guv − u − v = n` (all / Type II / weighted by m; test residual ≈ mean). The Type II counts vanish on all odd
+   squares ≤ 10⁴.
+3. **Double cosets (Lemma 10.1, Prop 10.2; PROVED).** Type II = `⊔_M U⁻γ_M U⁻ ∩ {γ₂₁ = cp}`. After
+   conjugating by diag(1,c), the only non-congruence condition is `c = γ₁₂/M | M/4`. One level can absorb it only
+   for a fixed finite menu of c, and each M still needs its own level. The needed statement is the distribution
+   of the modular hyperbola mod Mp in hyperbolic shells, each with expected count `log p/M`, against the
+   divisor-indexed family `c' | M/4`. Summed over a dyadic range the main term is ≍ log²p, against Kloosterman
+   errors of size (Mp)^{1/2}. That is the polylog regime, beyond any known or standard-conjectural input.
+4. **Uncapped weights (§11).** FIBRED Lemma 1.3 is a tautology. Uncapped weights would allow a power main term,
+   but Cor 9.3 kills fixed-level Eisenstein main terms independently of the weights. Every rank-4 weight found
+   here is capped.
+
+**Verdict.** Spark (1) turned into a clean negative theorem (Thm 9.1), which is new as a formal statement in the
+campaign as far as I know. Spark (2) became a precise statement of the required equidistribution, which sits in
+the polylog regime. Spark (3) also turned out negative. No live route. ES is not proved.
+
+**Remaining sparks.** (a) A main term with genus data at the place p (not n-local) plus a valid encoding. This is
+FIBRED (E-b), and Cor 9.3 points there as the only exit. (b) Infinite shifted families `Σ_g σ(gn+1; −1, g)`
+with weights in g chosen so that the g-sum telescopes; the numerics only covered fixed shifts. (c) Thm 9.1 for
+general square classes r² mod L, which needs the B/A-coefficient induction.
