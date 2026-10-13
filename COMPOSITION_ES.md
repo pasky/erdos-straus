@@ -174,3 +174,15 @@ points with A, B ≤ X (14 resp. 21 points for X = 120) and 20 000 random triple
 products are V_n points (pair: 0/123, 0/199; triple: 0/6001, 0/2904), and 0 in the size-matched random baseline.
 Composition in ℤ[√−n] does not preserve V_n: the congruence modulus 2AB of the product is a new, multiplicatively
 larger modulus (B2's "modulus part of the solution").
+
+**Census (EVIDENCE; `scripts/cp_census.py lo hi cap [sq]`).** For every ES point (μ, D = N(ε_μ)) of every prime
+5 ≤ p ≤ 1000, one full period of the CF of √(4(μ² − p)) was run and every proper divisor of the ES ideal 𝔢_μ
+tested for principality in O' (Lagrange: all primitive representations of |norm| < √N are convergents; orientation
+by p_{k−1}j ≡ ±(1 − 2μj)q_{k−1} mod d'; the ES convergent itself is asserted at k = 3, never failed):
+`  166 primes, 1736 ES points: D prime 690; D composite 1046, of which 284 (27%) have a principal proper divisor`
+`  ("decomposable": ε_μ = u·α·β with N α = ∓d', N β = ±D/d'); 41 are V-decomposable (unit × product of three`
+`  V_n points at the same μ, the R202 shape); 88 of 166 primes have ≥ 1 decomposable ES point.`
+T1 control: odd squares 9 ≤ m² ≤ 1849: 0 ES points (Prop 2.1(d)). The "decomposable" share is the share of
+composite D whose prime-ideal factors happen to be principal in O'_μ (a wide-class-group statement, Cohen–Lenstra
+flavoured); it is consistent with R202's two V-decomposable cases among odd n ≤ 301, μ ≤ 6n (here: all μ, primes
+only). In every case the factorisation is a re-expression of an ES point that exists by Thm 1.3.
