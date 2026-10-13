@@ -718,6 +718,20 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * Stern coding: V_{A_k}(2) = {s(N) : popcount N = k+1}.
    * EVIDENCE: every n < 10⁸ outside the exceptional set has a solution with an outer letter ≤ 12.
 
+21. **Spark relay J: a T1-bearing ES variant solvable at every prime under GRH (T1_TEMPLATE.md + BRAINSTORM/bsJ_mute_place_unit_orbit.md (O183); review `reviews/t1-template-review.md` (R183): no FATAL; two MAJOR (M1: a non-sequitur in the Prop 1.2 σ₂ step, claim true; M2: the §4 unconditional plan needs K/ℚ Galois, impossible with r₁ = 1), minors; repaired by the reviewer).**
+   * V_φ: 4/n = 1/x + 1/y + 1/z over ℤ[φ], all σ₁ > 0, σ₂-signs not all equal. Its anchor is σ₁ (pinned ½) and its partner is the place 2.
+     * Lemma 1.1: Cl_{4∞₁} ≅ ℤ/2, with character χ_{−φ}.
+     * T1 at squares (PROVED, Cor 2.2).
+     * Thm 1.3 (PROVED): unit-Type-II solutions arise ⟺ some a_k = n + 4φ^{2k+1}, k ∈ ℤ, has a prime factor 𝔮 with (n/𝔮) = −1. ES's finite lottery becomes a problem with infinitely many shots along the unit orbit.
+   * **Thm 3.1.** V_φ(p) is solvable for every prime p ≠ 5.
+     * Unconditional for p ≡ ±2 (mod 5): a congruence, (√5) | a_k (R183 m4).
+     * CONDITIONAL on GRH for p ≡ ±1 (mod 5). This uses Lenstra 1977 Cor 4.8; R183 made the positivity of the density rigorous.
+     * EVIDENCE (R183, from scratch): all 78 496 primes < 10⁶ solved by the explicit unit-orbit formula; no odd square m², m < 2000, solved by it.
+   * Thm 2.1 (PROVED). Uniform local invariants of the BL class on integral points over any number field. Tame places give 0. Places above 2 give 0 for numerator 4, at any ramification — a new proof of BL Lemma 3.8. Real places give ½ iff the three signs agree.
+     * Hence |P| odd (positivity-pinned real places) ⇒ T1. The converse "iff" is overclaimed (R183 m6).
+     * Example: positive ES over the one-real-place ring ℤ[∛2] is T1-bearing; EVIDENCE: all p < 3000 solved by the unit mechanism, squares not.
+   * Assessment. Infinite unit orbits turn ES's lottery into an Artin-type problem; over ℤ the unit group is ±1. Whether a ℤ-analogue of a "mute place" with infinitely many shots exists is open (pursued by O186).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

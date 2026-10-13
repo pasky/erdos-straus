@@ -24426,5 +24426,29 @@ def check_fn():
 
 check_fn()
 
+def check_fo():
+    # (fo) T1_TEMPLATE (O183/R183): T1-bearing ES variant V_phi over Z[phi]: Cl_{4 inf_1} = Z/2; the explicit
+    # unit-orbit Type II solutions (Prop 1.2) solve every prime < 1e5, and no odd square m^2 (m < 300).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "review_t1t_zphi.py", "100000", "12", "300"], capture_output=True, text=True,
+                       timeout=900, env=env, cwd=sdir)
+    assert r.returncode == 0, ("T1_TEMPLATE subprocess", r.stderr[-2000:])
+    o = r.stdout
+    for s in ["(-1,+) not in image -> Cl_{4inf1} = Z/2, phi order 6 mod 4: OK",
+              "P12: primes tested 9590, solved 9590, failures []",
+              "SQ: odd m in [3,300), |k|<=12: squares solved by Prop 1.2: []"]:
+        assert s in o, ("T1_TEMPLATE R183", s, o)
+    print(f"== (fo) T1_TEMPLATE R183: V_phi over Z[phi] — unit-orbit Type II solutions for all 9590 primes < 1e5, "
+          f"none at odd squares m^2 (m < 300); Cl_(4 inf_1) = Z/2; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fo()
+
 
 print("\nall checks passed")
