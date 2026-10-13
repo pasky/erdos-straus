@@ -70,3 +70,46 @@ Everything checks. k = 3 fails here exactly ((3/4)(4/3) = 1), consistent with th
   progression with (r−1)/2 = P or P₁P₂, P_i > x^{1/4+δ}) gives index ∈ {1, 2} or ≥ x^{1/4+δ}, so |Γ_r| ≤ x^{3/4−δ} and
   Lemma 2.3 with k = 3 gives ≪ x^{1−4δ/3}. Needs the congruence-class version of Heath-Brown's lemma (not checked by
   me either). Keep "not checked", but the stated reason is right.
+
+## 2. T1 of ES^{(S)}: Lemma 1.1, Cor 1.2, Thm 2.4(b)
+
+**Re-derivation of Lemma 1.1.** Fix q ∈ S, q ∤ n, v_q(z) = −w < 0, w even (x, y ∈ ℤ so v_q(x), v_q(y) ≥ 0).
+(iii) v(x) = 0 < v(y): 1/y is the unique term of negative valuation — impossible. (ii) v(x) = V > 0: the minimum
+valuation −V must be attained twice, so v(y) = V; 1/x + 1/y = 4/n − 1/z is q-integral, so v(x+y) ≥ 2V, i.e.
+a = −y/x ≡ 1 (mod q^V); v(a) = 0, so the tame symbol is a^{v(b)} ≡ 1. (i) v(x) = v(y) = 0: v(a) = 0, v(b) = −w, tame
+symbol a^{−w}, a square for w even. In all cases (a,b)_q = 1. Case v_q(z) ≥ 0: Thm 2.1(b), whose proof is purely local
+(only q-integrality used) — correct. For w odd the symbol is the Legendre symbol (a/q), which is unconstrained —
+correct, and confirmed by the control run below.
+
+**Cor 1.2.** inv_∞ = ½ (all positive); inv_2 = 0 (z ∈ ℤ_{(2)}, n odd; Thm 2.1(c) is local); inv_q = 0 (Lemma 1.1);
+inv_ℓ = 0 for ℓ ∤ 2nS (Thm 2.1(b)); Hilbert reciprocity ⇒ Σ_{ℓ|n} inv_ℓ = ½; Thm 2.1(d) (re-derived: Type II gives
+symbol (−u₂/u₃)^V, a square if V even and ≡ 1 if V odd since then V > 2s; Type I forces v₁ = 2s, symbol a
+2s-th power) applies at ℓ | m because ℓ ∉ S makes all three variables ℓ-integral. SOUND.
+
+**Thm 2.4(b), first half** ("no such (Q, r)"): m² + (2Q)² with gcd(m, 2Q) = 1 is a sum of two coprime squares — SOUND.
+
+**From-scratch check** (`scripts/review_uo2_t1.py`, own Hilbert symbols at ∞, 2, q ∈ S, ℓ | n; box n/4 < x ≤ 3n,
+x ≤ y ≤ 300n; product formula asserted on every solution):
+| n | mode | solutions | Σ_{ℓ|n} inv | shapes at primes of n | some inv_q = ½ |
+|---|---|---|---|---|---|
+| 13 | mute | 121 | ½ always | I 62, II 59 | 0 |
+| 29 | mute | 186 | ½ always | I 101, II 85 | 0 |
+| 169 | mute | 491 | ½ always | **o 491** | 0 |
+| 289 | mute | 566 | ½ always | **o 566** | 0 |
+| 361 (box 2n, 100n) | mute | 497 | ½ always | **o 497** | 0 |
+| 221 = 13·17 (box 2n, 100n) | mute | 1405 | ½ always ((½,0) 766, (0,½) 639) | all patterns incl. o/I, II/o | 0 |
+| 169 | free (no parity) | 4002 | ½: 1264, 0: 2738 | I 1344, II 428, o 2230 | 3004 |
+| 289 | free | 4922 | ½: 1527, 0: 3395 | I 1860, II 527, o 2535 | 3710 |
+inv_2 = 0 on every solution of both modes. The author's counts (121/186/491/566, control 4002/4922, 1344+428,
+1860+527, 3004/3710) are reproduced exactly by independent code.
+
+### Defects for the T1 part
+* **m4 (MINOR, quantifier, Thm 2.4(b)).** "ES^{(S)}(n) has no solution of Type I/II shape at all (Cor 1.2)" overstates
+  Cor 1.2, which only excludes solutions that are Type I/II-shaped *at every prime of m simultaneously*. For a square
+  with ≥ 2 prime factors, solutions that are Type I/II at one prime and "other" at another are not excluded by the
+  invariant argument (they do occur for V_φ at 121 = 𝔮²𝔮'², T1_TEMPLATE §1 table: 615 such). I could not test a
+  two-prime square for ES^{(S)} (smallest coprime to 2S is (13·17)² = 48 841, box too large). *Repair:* "no solution
+  of Type I/II shape at every prime of n".
+* **m5 (MINOR, presentation, Cor 1.2 proof).** T1_TEMPLATE Thm 2.1 is stated for u ∈ O_K³, but here z ∉ ℤ in general.
+  The proofs of 2.1(b),(c),(d) are local and only use v-integrality, which holds at v = 2, ℓ ∉ S. Say so once
+  ("Thm 2.1(b)–(d) are local: they hold for u ∈ O_v³") instead of relying on the parenthetical remarks.
