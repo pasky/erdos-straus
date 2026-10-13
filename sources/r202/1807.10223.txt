@@ -1,0 +1,1358 @@
+                                                     INTEGRAL HASSE PRINCIPLE AND STRONG
+                                                     APPROXIMATION FOR MARKOFF SURFACES
+
+                                                            DANIEL LOUGHRAN AND VLADIMIR MITANKIN
+
+                                                  Abstract. We study the failure of the integral Hasse principle and strong
+                                                  approximation for Markoff surfaces, as studied by Ghosh and Sarnak, using
+                                                  the Brauer–Manin obstruction.
+arXiv:1807.10223v3 [math.NT] 29 Apr 2019
+
+
+
+
+                                                                                Contents
+                                             1. Introduction                                                                        1
+                                             2. Geometry of affine cubic surfaces                                                   4
+                                             3. Geometry of projective Markoff surfaces                                             8
+                                             4. Brauer group of affine Markoff surfaces                                             9
+                                             5. The Brauer–Manin obstruction                                                       13
+                                             References                                                                            27
+
+
+
+                                                                            1. Introduction
+                                             For each m ∈ Z, we consider the affine surfaces
+                                                                   Um :    u21 + u22 + u23 − u1 u2 u3 = m.                    (1.1)
+                                           We denote by Um the integral model of Um defined over Z by the same equation.
+                                           In a recent paper [GS17], Ghosh and Sarnak studied integral points and failures
+                                           of the integral Hasse principle for such surfaces. In our paper we extend their
+                                           analysis using the Brauer–Manin obstruction.
+                                              Here we say that Um failsQthe integral Hasse principle if Um (AZ ) 6= ∅ but
+                                           Um (Z) = ∅, where AZ = R× p Zp . We say that Um satisfies weak approximation
+                                                                     Q
+                                           if the image of Um (Q) in v Um (Qv ) is dense, where the product is over all places
+                                           of Q. Finally, we say that UmQsatisfies strong approximation if U(Z) is dense
+                                           in Um (AZ )• := π0 (Um (R)) × p Um (Zp ), where π0 (Um (R)) denotes the set of
+                                           connected components of Um (R). Note that we work with π0 (Um (R)) since U(Z)
+                                           is never dense in Um (R) for simple topological reasons.
+                                              We first note that the natural compactification of (1.1) in P3 is a smooth cubic
+                                           surface for m 6= 0, 4, and the hyperplane at infinity consists of three coplanar
+                                           lines. In particular, the rational points on Um are Zariski dense by [Kol02], so
+                                           that Um (Q) 6= ∅. On the other hand, by [GS17, Prop. 6.1] for every integer m
+                                           we have Um (AZ ) 6= ∅ unless m ≡ 3 mod 4 or m ≡ ±3 mod 9. In particular, a
+                                           positive proportion of these surfaces have an AZ -point.
+
+                                             2010 Mathematics Subject Classification. 14G05 (primary), 11D25, 14F22 (secondary).
+2                  DANIEL LOUGHRAN AND VLADIMIR MITANKIN
+
+ Our first theorem shows that these surfaces almost always fail weak approxi-
+mation.
+Theorem 1.1. We have
+         #{m ∈ Z : |m| ≤ B, Um satisfies weak approximation} ≪ B 1/2 .
+   Theorem 1.1 is sharp, since weak approximation holds when m − 4 is a square
+as such surfaces are rational (see Lemma 3.3).
+   Our method shows that for ≫ B 1/2 of m, there are elements of p|2(m−4) Um (Zp )
+                                                                   Q
+which cannot be approximated by a rational point, so that the failure of weak
+approximation yields a failure of strong approximation. More naively: for almost
+all m, there are solutions to the equation (1.1) modulo some integer (depending
+on m) which cannot be realised by a rational solution.
+   In fact, we are also able to show that there is almost always a failure of strong
+approximation which is not explained by a failure of weak Q     approximation. To
+make this precise: Let Um (Q) be the closure of Um (Q) in v Um (Qv ) and let
+                                                                        Q
+Um (Z) be the closure of Um (Z) in Um (AZ )• . We clearly have Um (Q) ⊆ v Um (Qv )
+and Um (Z) ⊆ Um (AZ )• ∩ Um (Q) (here we abuse notation slightly and consider
+                                          Q
+the image of Um (Q) inside π0 (Um (R)) × p Um (Qp )). Theorem 1.1 says that the
+former inclusion is strict for almost all Um ; our next theorem shows that the
+second inclusion is also strict for almost all Um .
+Theorem 1.2. We have
+    #{m ∈ Z : |m| ≤ B, Um (AZ ) 6= ∅ but Um (Z) = Um (AZ )• ∩ Um (Q)} ≪ B 1/2 .
+   Explicit examples illustrating these results can be found in §5.4. On the other
+hand, we show that if there is a Brauer–Manin obstruction to the integral Hasse
+principle, then there are only finitely many explicit possibilities for m−4 modulo
+squares. This result may be viewed as an analogue of the finiteness of excep-
+tional spinor classes in the study of the representation of an integer by a ternary
+quadratic form, as studied in [CTX09, §7].
+Theorem 1.3. Assume that m ∈ Z is such that Um has a Brauer–Manin ob-
+struction to the integral Hasse principle. Then
+                     m − 4 mod Q∗2 ∈ h±1, 2, 3, 5i ⊂ Q∗ /Q∗2 .
+   This qualitative statement shows that there is a Brauer–Manin obstruction to
+the integral Hasse principle for at most O(B 1/2 ) of the surfaces Um for m ∈ Z
+with |m| ≤ B. A more in-depth analysis of the Brauer–Manin obstruction allows
+us to prove that not only is m − 4 a product of small primes times a square, but
+all the prime divisors of m − 4 must satisfy very strong congruence conditions.
+This allows us to show the improved upper bound O(B 1/2 /(log B)1/2 ), which is
+sharp by the following theorem.
+Theorem 1.4. We have
+                                                                    B 1/2
+        #{m ∈ Z : |m| ≤ B, Um (AZ ) 6= ∅ but Um (AZ )Br = ∅} ≍              .
+                                                                 (log B)1/2
+                               MARKOFF SURFACES                                    3
+
+   Note that [GS17, Thm. 1.2.(i)] claims to obtain the lower bound B 1/2 /(log B)1/4
+for the number of Hasse failures. In fact we shall see in the proof of Theorem 1.4
+that their method only gives the lower bound B 1/2 /(log B)1/2 , which agrees with
+Theorem 1.4.
+   General methods were developed in [BBL16] and [Bri18] which, when they
+apply, show that almost all of the varieties in the family fail weak approximation
+and almost all also have no Brauer-Manin obstruction to the Hasse principle.
+These results do not apply here as they concern smooth projective varieties. But
+a similar method may be employed in our case to obtain bounds of the shape
+O(B/(log B)) in the setting of Theorems 1.1 and 1.4 (see [BBL16, Prop. 6.1]).
+In particular, our upper bounds are stronger than what these general methods
+would give.
+   In [GS17], Ghosh and Sarnak presented numerical evidence that at least B γ ,
+for some 1/2 < γ < 1, of the surfaces Um fail the integral Hasse principle for
+|m| ≤ B. In particular, Theorem 1.4 implies that almost all of these hypothetical
+Hasse failures are not explained by the Brauer–Manin obstruction. In our last
+result we make modest progress towards this by confirming the existence of
+infinitely many such surfaces.
+
+Theorem 1.5. We have
+                                                                    B 1/2
+         #{m ∈ Z : |m| ≤ B, Um (AZ )Br 6= ∅ but Um (Z) = ∅} ≫             .
+                                                                   log B
+   We prove our results by explicitly calculating the Brauer group of the surfaces
+Um for “general” m (namely, for all m outside an explicit thin set). We find
+that Br Um / Br Q ∼= (Z/2Z)3 , generated by explicit quaternion algebras. Once
+we know the Brauer group, we then perform a detailed analysis of the Brauer–
+Manin obstruction associated to these quaternion algebras. The Hasse failures
+which we use in Theorem 1.5 were already considered in [GS17], where reduction
+theory was used to show the failure of the Hasse principle. We show that there
+is no Brauer–Manin obstruction in this case using our knowledge of the Brauer
+group.
+   An interesting feature of our results is that the Brauer group of Um over Q̄ is
+isomorphic to Q/Z, with the Galois invariant part being Z/2Z. Nonetheless we
+will show that the non-trivial Galois invariant element does not descend to Q for
+general m, hence the transcendental Brauer group is in fact trivial. A similar
+phenomenon was observed by Colliot-Thélène and Wittenberg in their study of
+sums of three cubes [CTW12, Prop. 3.1].
+   The structure of the paper is as follows. In §2 we study affine cubic surfaces
+given by the complement of three coplanar lines and their transcendental and
+algebraic Brauer groups. In §3 we turn our attention to the natural smooth
+projective compactifictions of the surfaces (1.1), where we explicitly calculate the
+algebraic Brauer group of the compactification. In §4 we complete our analysis
+of the Brauer group by calcuating the Brauer group of the affine surface (1.1).
+We then use the Brauer group in §5 to give explicit examples of Brauer-Manin
+obstructions to the integral Hasse principle and strong approximation, and prove
+the results from the introduction.
+4                  DANIEL LOUGHRAN AND VLADIMIR MITANKIN
+
+   Whilst preparing our paper for publication, we learnt of the work of Colliot-
+Thélène, Wei and Xu [CTWX18], also studying Markoff surfaces, which appeared
+on arXiv very shortly after our work. There is an overlap between our papers con-
+cerning the calculations of the Brauer groups in §2,3,4 and some of the examples
+of the Brauer-Manin obstruction in §5.4. However, our methods for calculating
+the Brauer groups are on the whole quite different, with us opting for more geo-
+metric arguments whereas they use more algebraic approach. Our work contains
+a more detailed analysis of the possibilities for the local invariant maps in §5.3.
+This is crucial in the proofs of our main theorems on the Brauer–Manin obstruc-
+tion to the integral Hasse principle (Theorems 1.3 and 1.4), which do not follow
+from their work. In [CTWX18] they use reduction theory to show that strong
+approximation always fails, which improves on our Theorems 1.1 and 1.2. They
+also obtain an improvement over Theorem 1.5, by giving a lower bound with
+B 1/2 /(log B) replaced by B 1/2 /(log B)1/2 [CTWX18, Thm 5.8]. It would be in-
+teresting to find a lower bound here of the shape B 1/2 /(log B)γ for some γ < 1/2,
+which, combined with Theorem 1.4, would show that almost all counter-examples
+the integral Hasse principle are not explained by the Brauer-Manin obstruction.
+Notation. For a variety X over a field k, we denote by Br X = H2 (X, Gm ) its
+Brauer group. We let Br1 X = ker(Br X → Br Xk̄ ) denote the algebraic Brauer
+group of X. Elements of Br X which do not belong to Br1 X are called transcen-
+dental.
+Acknowledgements. We thank Tim Browning, Jean-Louis Colliot-Thélène,
+Dasheng Wei, Olivier Wittenberg, and Fei Xu for useful discussions, and Martin
+Bright and Damián Gvirtz for help with magma computations. The first-named
+author is supported by EPSRC grant EP/R021422/1. The second-named au-
+thor would like to thank CAPES for the financial support while working on this
+project.
+
+                   2. Geometry of affine cubic surfaces
+    By an affine cubic surface, we mean an affine surface of the form
+                               U : f (u1 , u2 , u3) = 0
+where f is a polynomial of degree of 3. The closure of U in P3 is a cubic surface
+S. The complement H = S \ U is a hyperplane section on S. Much of the
+geometry of U can be understood in terms of the geometry of S and H. We
+begin with some basic remarks.
+2.1. Basic geometry.
+Lemma 2.1. Let S be a smooth cubic surface over a field k, let H be a hyperplane
+section and set U = S \ H. Then O(U)∗ = k ∗ .
+Proof. To prove the result, we may assume that k is algebraically closed. Suppose
+that there is a non-constant function f ∈ O(U)∗ and consider D = div f . As
+f is invertible
+       P        on U, we see that D is supported on the boundary H. Write
+D =      i∈I i i as a sum of irreducible divisors, for some index set I, where
+            a D
+ai 6= 0. We shall consider the various possibilities for the Di .
+                                MARKOFF SURFACES                                     5
+
+   If #I = 1 then we find that either D or −D is a non-zero principal effective
+divisor; this is clearly a contradiction. If #I = 2, we have either
+    (1) D1 and D2 are both lines.
+    (2) D1 is a line and D2 is an irreducible conic.
+In the first case we have D12 = D22 = −1 and D1 · D2 = 1. As D is principal we
+find that
+    0 = D · D1 = −a1 + a2 ,     0 = D · D2 = a2 − a1 ,    0 = D · H = a1 + a2 .
+This is clearly a contradiction. In the second case we have D12 = −1, D22 = 0 and
+D1 · D2 = 2. We find that
+                  0 = D · D1 = −a1 + 2a2 ,      0 = D · D2 = 2a1 ,
+which again gives a contradiction.
+  If #I = 3 then the Di are all lines. A similar argument to the above also gives
+a contradiction. We deduce that I = ∅, so that D = 0 and so f ∈ k ∗ .          
+Lemma 2.2. Let S be a smooth surface over a field k of characteristic 0. Let
+π : S ′ → S be the blow-up of S in a rational point P with exceptional curve E.
+Then inclusion and pull-back via π induces isomorphisms
+                     Br(S ′ \ E) ∼        = Br S ∼
+                                 = Br S ′ ∼      = Br(S \ P ).
+Proof. Let π : S ′ → S be the blow-up map and E the exceptional curve of the
+blown-up point P . Then we have
+                    Br S ′ ⊂ Br(S ′ \ E) ∼
+                                         = Br(S \ P ) = Br S,
+by Grothendieck’s purity theorem. However pull-back clearly gives Br S ⊂ Br S ′ ,
+as required.                                                                 
+2.2. Cubic surfaces with 3 coplanar lines.
+2.2.1. The conic bundle. Let S be a smooth cubic surface over a field k with a
+line L. Let H be a hyperplane containing L. Then S ∩ H = L ∪ C, where C is
+a (possibly singular) plane conic. Varying H we obtain a conic bundle structure
+                                     π : S → P1
+on S. This is not an arbitrary conic bundle: the line L gives a degree 2 multi-
+section of π, i.e. the induced map πL : L → P1 has degree 2. Moreover π has 5
+singular fibres over k̄, each given as the union of 2 lines meeting in a single point.
+   Let P ∈ P1k be a closed point such that π −1 (P ) is singular; this consists of
+2 lines over the algebraic closure of the residue field κ(P ) of P . We define the
+residue of π at P to be the class in κ(P )∗2 /κ(P )∗ = H1 (k, Z/2Z) corresponding
+to the splitting field of these irreducible components.
+2.2.2. Brauer group. There has been much work already on the Brauer groups of
+affine cubic surfaces when the hyperplane section H is smooth; here the Brauer
+group is closely related to the torsion points on the Jacobian of H (see for example
+[CTW12] or [BL17]).
+   We shall be interested in the case where the hyperplane H is singular. We
+focus on the case where H is given by 3 coplanar lines, though similar results
+also hold when H is a union of a line and smooth plane conic.
+6                      DANIEL LOUGHRAN AND VLADIMIR MITANKIN
+
+  To help calculate the Brauer group of the surface, we will require the following
+version of the Gysin sequence (see [Mil80, Cor. VI.5.3] or [CT95, Thm.3.4.1]).
+Lemma 2.3 (Gysin sequence). Let X be a smooth variety over a field k of
+characteristic 0 and Z ⊂ X a smooth divisor. Let n ∈ N and U = X \ Z. Then
+there is an exact sequence
+                  0 → H1 (X, µn ) → H1 (U, µn ) → H0 (Z, Z/nZ) →
+                     → H2 (X, µn ) → H2 (U, µn ) → H1 (Z, Z/nZ) → · · ·
+   Our first result calculates the Brauer group over the algebraic closure as a
+module for the absolute Galois group Gk = Gal(k̄/k). In the statement, we let
+µ∞ = lim µn be the direct limit of all groups µn of nth roots of unity in C.
+       −→
+Moreover, recall that an Eckardt point on a cubic surface is a point where three
+lines meet.
+Proposition 2.4. Let S be a smooth cubic surface over a field k of characteristic
+0. Let H ⊂ S be a hyperplane section which is the union of 3 lines L1 , L2 , L3
+and let U = S \ H. Then as Gk -modules we have
+         (
+           0,                           if L1 , L2 , L3 meet in an Eckardt point,
+Br Uk̄ ∼
+       =
+           Q/Z(−1) := Hom(µ∞ , Q/Z), otherwise.
+In particular, if k contains no non-trivial roots of unity and L1 , L2 , L3 do not
+meet in an Eckardt point then
+                                      (Br Uk̄ )Gk ∼
+                                                  = Z/2Z.
+Proof. Blow down L3 to obtain a del Pezzo surface ψ : S → S ′ of degree 4 and
+let Ci = ψ(Li ). Then by Lemma 2.2 we have Br(S \ H) ∼    = Br(S ′ \ (C1 ∪C2 )). The
+                                             ′
+curves C1 and C2 are smooth conics on S . Moreover, we have −KS ′ = C1 + C2
+in Pic S ′ and
+                          (
+                            1, if L1 , L2 , L3 meet in an Eckardt point,
+            #(C1 ∩ C2 ) =
+                            2, otherwise.
+Let U1 = S ′ \C1 and U2 = U1 \C2 . We apply the Gysin sequence from Lemma 2.3
+to (S ′ , U1 ) to find the exact sequence
+                      H2 (Sk̄′ , µn ) → H2 (U1,k̄ , µn ) → H1 (C1,k̄ , Z/nZ).
+As C1 ∼= P1 we have H1 (C1,k̄ , Z/nZ) = 0, hence the map H2 (Sk̄′ , µn ) → H2 (U1,k̄ , µn )
+is surjective. Applying Gysin to (S ′ , U1 ) again we obtain
+    H3 (Sk̄′ , µn ) → H3 (U1,k̄ , µn ) → H2 (C1,k̄ , Z/nZ) → H4 (Sk̄′ , µn ) → H4 (U1,k̄ , µn ).
+As U1 is non-proper we have H4 (U1,k̄ , µn ) = 0. The map H2 (C1,k̄ , Z/nZ) →
+H4 (Sk̄′ , µn ) is therefore an isomorphism as both groups have the same cardinality.
+As H3 (Sk̄′ , µn ) = 0, it follows that H3 (U1,k̄ , µn ) = 0. We now apply the Gysin
+sequence to (U1 , U1 ∩ C2 ) to find
+    H2 (U1,k̄ , µn ) → H2 (U2,k̄ , µn ) → H1 (U1,k̄ ∩ C2,k̄ , Z/nZ) → H3 (U1,k̄ , Z/nZ) = 0.
+                                        MARKOFF SURFACES                                      7
+
+From the Kummer sequence we have the commutative diagram with exact rows
+
+          0       / (Pic S ′ )/n           / H2 (S ′ , µn )     / (Br S ′ )[n]     /0
+                             k̄                     k̄                        k̄
+
+                             f
+                                                                        
+          0      / (Pic U                 / H2 (U
+                             2,k̄ )/n             2,k̄ , µn )
+                                                                / (Br U
+                                                                       2,k̄ )[n]
+                                                                                   / 0.
+
+As S ′ is smooth the map f is surjective. Moreover, Br Sk̄′ = 0 as S ′ is a smooth
+projective geometrically rational surface. As the map H2 (Sk̄′ , µn ) → H2 (U1,k̄ , µn )
+is surjective, we therefore deduce the Galois equivariant isomorphism
+                        (Br U2,k̄ )[n] ∼
+                                       = H1 (U1,k̄ ∩ C2,k̄ , Z/nZ).
+We may now complete the proof. If L1 , L2 , L3 meet in an Eckardt point then
+U1 ∩ C2 ∼= A1 , thus H1 (U1,k̄ ∩ C2,k̄ , Z/nZ) = 0. Otherwise we have U1 ∩ C2 ∼
+                                                                              = Gm .
+                                                           1
+In this case Kummer theory yields the isomorphism H (Gm,k̄ , µn ) = Z/nZ, thus
+twisting coefficients shows that H1 (Gm,k̄ , Z/nZ) = Hom(µn , Z/nZ). The result
+now follows on applying this to all n, as the Brauer group is torsion.           
+Proposition 2.5. Let S be a smooth cubic surface over a field k of characteristic
+0. Let H ⊂ S be a hyperplane section which is the union of 3 lines L1 , L2 , L3
+and let U = S \ H. Then Pic Uk̄ is torsion free and Br1 U/ Br k ∼
+                                                                = H1 (k, Pic Uk̄ )
+is isomorphic to one of the following groups
+                  0, Z/4Z, Z/2Z × Z/4Z, (Z/2Z)r (r = 1, 2, 3, 4).
+Proof. The isomorphism Br1 U/ Br k ∼  = H1 (k, Pic Uk̄ ) is a well-known consequence
+of the fact that U(k) 6= ∅, O(Uk̄ )∗ = k̄ ∗ (Lemma 2.1) and the Hochshild–Serre
+spectral sequence (see e.g. [San81, Lem. 6.3(iii)]). We have the exact sequence
+                                           i
+                                  0 → Z3 → Pic S̄ → Pic Ū → 0                            (2.1)
+of Gk -modules, where i(n1 , n2 , n3 ) = n1 [L1 ] + n2 [L2 ] + n3 [L3 ]. Moreover, we have
+the exact sequence
+                        0 → PDiv S̄ → Lines S̄ → Pic S̄ → 0,
+where Lines S̄ is the free abelian group generated by the 27 lines of S̄ and PDiv S̄
+is the subgroup of principal divisors. These two sequences give an explicit descrip-
+tion of Pic Ū as a quotient of a permutation module by a submodule. Moreover,
+the absolute Galois group Gal(k̄/k) acts on Lines S̄ via a subgroup of the Weyl
+group W (E6 ), which is well-defined up to conjugacy.
+   This data can all be fed into magma. One enumerates all 350 conjugacy classes
+of subgroups of W (E6 ) together with the corresponding action on Z27 . One finds
+that 48 of these subgroups correspond to smooth cubic surfaces with 3 coplanar
+lines. One then constructs Pic Ū together with the action of the Galois group G
+using the above sequences and computes H1 (G, Pic Ū) with standard commands
+in magma. (Note that, by inflation-restriction H1 (k, Pic Ū) = H1 (G, Pic Ū), as
+one checks in magma that Pic Ū is a free Z-module). This gives the possible list
+of Brauer groups stated in the proposition.                                       
+8                    DANIEL LOUGHRAN AND VLADIMIR MITANKIN
+
+Remark 2.6. It is interesting to see the group Z/4Z occurring here. This
+occurs for a unique group action on the lines by a group of order 8. The group
+Z/2Z × Z/4Z occurs for a unique group action by a group of order 4.
+Remark 2.7. There is a direct proof, without magma, that every element of
+Br1 U/ Br k is 4-torsion. Consider the exact sequence (2.1) and define the map
+j : Pic S̄ → Z3 ,    j : [D] 7→ ([D] · ([L2 ] + [L3 ]), [D] · ([L1] + [L3 ]), [D] · ([L1] + [L2 ])).
+A simple calculation shows that j ◦ i is multiplication by 2 on Z3 . We now apply
+cohomology to obtain the exact sequence
+                                                                    i∗
+           0 → Br1 S/ Br k → Br1 U/ Br k → H2 (k, Z3 ) → H2 (k, Pic S̄),
+on using the vanishing H1 (k, Z3 ) = 0. As S is a conic bundle surface, it is
+well-known that Br1 S/ Br k is 2-torsion (this follows for example from [Lou18,
+Thm. 2.11]). However for b ∈ Br1 U/ Br k, its image in H2 (k, Z3 ) is easily seen to
+have order 2 since j ∗ ◦ i∗ is multiplication by 2 on H2 (k, Z3 ). The result follows.
+Remark 2.8. The complement of a smooth hyperplane section on a smooth cubic
+surface over an algebraically closed field always has non-trivial Brauer group (see
+e.g. [BL17, §2.2]). Proposition 2.4 shows however that this is not the case for
+the complement of a singular hyperplane section given by three lines meeting in
+an Eckardt point.
+
+              3. Geometry of projective Markoff surfaces
+  We now consider the geometry of the natural compactifications of the Markoff
+surfaces. We work over a field k of characteristic 0 and study the cubic surfaces
+with the equation
+                  Sm :    x0 (x21 + x22 + x23 ) − x1 x2 x3 = mx30         ⊂ P3 ,              (3.1)
+for m ∈ k. We assume throughout that Sm is smooth; this is equivalent to
+m 6= 0, 4. The surfaces Sm contain the three coplanar lines
+                                     Li : x0 = 0, xi = 0.
+In particular, each Sm comes equipped with 3 conic bundle structures. There is
+an obvious action of the symmetric group of order 3 on Sm which permutes these
+lines. We focus our attention on the line L3 and denote the associated conic
+bundle by π : Sm → P1 . Analysing the conic bundle structure, one finds that
+this is given by
+           Sm :     s(x2 + y 2) − txy + s(t2 − ms2 )z 2 = 0              ⊂ F(0, 0, 1)         (3.2)
+where F(0, 0, 1) := P(OP1 ⊕ OP1 ⊕ OP1 (1)) is viewed as the quotient ((A2 \ 0) ×
+(A3 \ 0))/G2m for the action
+                     (λ, µ) · (s, t; x, y, z) = (λs, λt; µx, µy, λ−1µz).
+(See [FLS18, §2] for more information about how to write down equations for
+conic bundle surfaces.) One sees that this surface is isomorphic to the original
+Sm via the map
+                    F(0, 0, 1) → P3 ,      (x, y, z; s, t) 7→ (sz, x, y, tz),                 (3.3)
+                                   MARKOFF SURFACES                                      9
+
+which also realises F(0, 0, 1) as the blow-up of P3 in the line L3 . The conic bundle
+map π is given by mapping to (s : t).
+Lemma 3.1. The following holds.
+  (1) The map π : Sm → P1 has 5 singular geometric fibres.
+  (2) The discriminant is given by
+                        ∆(s, t) = s(t − 2s)(t + 2s)(t2 − ms2 ).
+Assume that m ∈   / k ∗2 . Let P1 , P2 , P3 , P4 be the points corresponding the zero locus
+of ∆(s, t) in P1 . Let ki = κ(Pi ) be the residue fields of the Pi .
+   (3) The fibre over each Pi has the following residue in ki .
+                  P1 : 1,     P2 : m − 4,    P3 : m − 4,    P4 : m − 4.
+Proof. Follows immediately from the explicit equation (3.2) and a simple calcu-
+lation.                                                                      
+                              √    √
+Lemma 3.2. Assume that [k( m, m − 4) : k] = 4. Then
+                            Br Sm / Br k ∼
+                                         = (Z/2Z),
+with generator given by the quaternion algebra
+                               α = ((x3 /x0 )2 − 4, m − 4).
+                                                             √
+Proof. Note that our assumptions imply that (m − 4) ∈    / k( m)∗2 . Lemma 3.1
+and standard formulae for Brauer groups of conic bundle surfaces (e.g. [Lou18,
+Thm. 2.11]) show that Br Sm / Br k is generated by ((t/s)2 − 4, m − 4). With
+respect to the map (3.3), this gives the stated quaternion algebra.         
+  We finish with the following observation.
+                                                                       √
+Lemma 3.3. The surface Sm is rational if and only if m − 4 ∈ k( m)∗2 .
+                     √
+Proof. If m − 4 ∈/ k( m)∗2 , then one verifies in a similar manner to the proof
+of Lemma 3.2 that Br Sm√  / Br k is non-trivial, hence Sm is non-rational. On the
+other hand, if m − 4 ∈ k( m)∗2 and m ∈   / k ∗2 , then the fibre over P4 is split (see
+Lemma 3.1). A component in the fibre can therefore be blown-down. Blowing
+down a component over P1 , it follows that Sm is birational to a conic bundle
+surface with at most 2 singular fibres over k̄. Such surfaces are well-known to be
+rational once they have a rational point (see e.g [KM17, §1] and the references
+therein). A similar argument applies if m ∈ k ∗2 and m − 4 ∈ k ∗2 , and completes
+the proof.                                                                          
+
+              4. Brauer group of affine Markoff surfaces
+  We now calculate the Brauer groups of the affine surfaces
+                            Um :   u21 + u22 + u23 − u1 u2 u3 = m.
+It will be convenient to have an alternative shape for this equation, as in [GS17,
+§8]. Let i, j, k be distinct members of the set {1, 2, 3}. Then
+               Um :    (2ui − uj uk )2 − (m − 4)22 = (u2j − 4)(u2k − 4).             (4.1)
+10                 DANIEL LOUGHRAN AND VLADIMIR MITANKIN
+
+The change of variables w = 2ui −uj uk here corresponds to blowing down the line
+Li (as already used in Proposition 2.4). In particular, this shows the alternative
+formulae
+             α = (u21 − 4, m − 4) = (u22 − 4, m − 4) = (u23 − 4, m − 4)          (4.2)
+for the element α from Lemma 3.2.
+
+4.1. Transcendental Brauer group.
+Proposition 4.1. Let k be a field of characteristic 0 and let m ∈ k ∗ be such
+that m − 4 ∈ k ∗2 . Then the natural map Br Sm → Br1 Um is an isomor-
+phism. Moreover, if k contains no non-trivial roots of unity, then the natural
+map Br Sm → Br Um is an isomorphism.
+Proof. Our argument is inspired by the proof of [CTW12, Prop. 3.1]. Let b ∈
+Br Um . To show that b ∈ Br Sm , it suffices to show that b is unramified along the
+three lines Li on Sm . To do so, we are free to multiply b by constant algebra, so
+by Proposition 2.4 and Remark 2.7 we may assume that b has order dividing 4.
+   Let L = L3 and C = L1 ∪ L2 . Let UL = L \ C. Note that L meets C in two
+rational points, hence L is non-canonically isomorphic to Gm . We choose the
+point (0 : 1 : 1 : 0) ∈ UL to be the identity element of the group law. Then the
+isomorphism with Gm is realised via
+                           Gm → Sm ,     t 7→ (0 : 1 : t : 0).                   (4.3)
+The residue of b along L lies inside H1 (UL , Z/4Z). We will show by contradiction
+that it is trivial. So assume that the residue is non-trivial. Replacing b by 2b,
+if necessary, we may assume that the residue has order 2. This means that the
+residue corresponds to some irreducible degree 2 finite étale cover f : V → UL .
+   As m − 4 ∈ k ∗2 , the fibres C2 and C3 over P2 and P3 , respectively, are both
+split (i.e. a union of two lines over k). It turns out that L meets C2 and C3
+each in exactly one point with multiplicity two; i.e. these are Eckardt points
+on the surface. Let Q2 = (0 : 1 : 1 : 0) and Q3 = (0 : 1 : −1 : 0) be the
+corresponding rational points (note that Q2 is the identity element of UL ). Let
+F2 be an irreducible component of C2 and consider the restriction of b to F2 .
+This is well-defined outside of Q2 . However F2 \ Q2 ∼     = A1 has constant Brauer
+group, so b in fact extends to all of F2 . As F2 meets L transversely, we deduce
+from [LTBT18, Prop. 4.15] that the evaluation of the residue of b at Q2 is also
+trivial, so that f −1 (Q2 ) consists of exactly 2 rational points. This shows that V
+is geometrically irreducible, and hence V ∼    = Gm non-canonically.
+   If b ∈ Br1 Um , then the residue lies in H1 (k, Z/2Z), so if it is non-trivial then
+it corresponds to some quadratic extension of k. Hence if it is non-trivial then V
+must be geometrically irreducible, which contradicts the above. We deduce that
+b is unramified along L. However, running the same argument with the other 2
+lines shows that b is unramified hence b ∈ Br Sm as claimed.
+   Assume now that k contains no non-trivial roots of unity. Choosing a rational
+point over Q2 and using (4.3), we may therefore identity the cover V → UL with
+the map
+                            Gm → Sm , t 7→ (0 : 1 : t2 : 0).                      (4.4)
+                               MARKOFF SURFACES                                  11
+
+However, we may run the exact same argument with C3 to deduce that the fibre
+of f over Q3 = (0 : 1 : −1 : 0) contains a rational point. But our assumptions
+imply that −1 ∈ / k ∗2 , which is a contradiction. Thus the residue of b along L is
+trivial. Considering the other lines, as above, we conclude that b is everywhere
+unramified, hence b ∈ Br Sm .                                                    
+
+  In [CTWX18, §4], further cases are given where the transcendental Brauer
+group is trivial. For completeness we give our own proof of these results using
+our method.
+Proposition 4.2. Let k be a field of characteristic
+                                      √  √
+                                                    0 and let m ∈ k ∗ be such
+that m ∈ k ∗2 and m − 4 ∈ k ∗2 . If m+2 m−4 ∈   / k ∗2 , then the natural map
+Br Sm {2} → Br Um {2} is an isomorphism.
+Proof. The proof is a minor variant of the proof of Proposition 4.1. Let b have
+reside of order 2 along L3 . As in the proof of Proposition 4.1, we find that this
+residue corresponds to (4.4). Since m and m − 4 are both squares in k, each
+fibre of the conic bundle morphism is split. We consider the√lines in one of the
+fibres over P4 . They are√contained in the hyperplane x0 = mx23 and given by
+the equation x21 + x22 − mx1 x2 = 0. The components are
+                                    √     √
+                            2x1 = ( m ± m − 4)x2 .
+These meet the line L3 in the points
+                                √   √
+                                   m± m−4
+                                            
+                           0:1:           :0 .
+                                     2
+As in the proof of Proposition√
+                                 4.1,
+                                  √ we find that the fibres over these points
+                                m+ m−4
+contain a rational point. But     2
+                                        is not a square by assumption, which is
+a contradiction so b is unramified along L3 . Arguing with the lines L1 and L2
+shows that b is everywhere unramified, as required.                          
+Corollary 4.3. Let √m ∈√Q∗ with m 6= 0, 4. If −(m − 4) is a square in Q, then
+                                                 √ √
+assume further that m+2 m−4 is not a square in Q( m, m − 4). Then Um has
+trivial transcendental Brauer group.
+Proof. Let b ∈ Br Um be a transcendental Brauer group element. Modifying b
+by a constant algebra, we may assume that b has order √ 2 by Proposition 2.4.
+Assume first that −(m − 4) is not a square. Then Q( m − 4) contains no non-
+trivial root of unity of even order, hence
+                                      √    by (the proof of) Proposition 4.1 the
+element becomes unramified over Q( m − 4). But Sm has trivial Brauer group
+over Q̄, which is a contradiction.                                     √   √
+   On the other hand, if −(m−4) is a square in Q, then by assumption m+2 m−4
+                      √ √
+is not a square in Q( m, m − 4) . The result in this case now follows from a
+similar application of Proposition 4.2.                                       
+
+  It is shown in [CTWX18, §4] that if the assumptions of Corollary 4.3 fail,
+then the transcendental Brauer group can in fact be non-trivial. In particular,
+Corollary 4.3 is sharp.
+12                 DANIEL LOUGHRAN AND VLADIMIR MITANKIN
+
+Remark 4.4. Note that (Br Um,Q̄ )GQ = Z/2Z by Proposition 2.4. Nevertheless,
+in Corollary 4.3 the Galois invariant element of order 2 does not descend to a
+Brauer group element over Q.
+4.2. Algebraic Brauer group.
+Proposition
+   √ √         4.5. Let k be a field of characteristic 0 and m ∈ k ∗ such that
+[k( m, m − 4) : k] = 4. Then Br1 Um / Br k ∼      = (Z/2Z)3 . A complete set of
+representatives for the non-trivial elements are given by the quaterion algebras
+           αi,± = (ui ± 2, m − 4), i ∈ {1, 2, 3},     α = (u21 − 4, m − 4),
+which satisfy the following relations in Br1 Um :
+                              αi,− + αi,+ = α,      i ∈ {1, 2, 3},             (4.5)
+                      α1,+ + α2,+ + α3,+ = 0,                                  (4.6)
+                      α1,− + α2,− + α3,− = α.                                  (4.7)
+Moreover Br1 Um / Br k is generated by the quaternion algebras αi,− for i ∈ {1, 2, 3}.
+Proof. We first explain why αi,± ∈ Br1 Um . It suffices to show that αi,± is
+unramified along the divisor ui ± 2 = 0. However, this is one of the non-split
+singular fibres in the conic bundle, thus m − 4 is a square in the function field
+by Lemma 3.1 whence αi,± is indeed unramified along this divisor.
+   We now show that the αi,± give distinct elements of the Brauer group. One
+calculates that αi,± is unramified along the line Li , but has residue m − 4 along
+Lj for j 6= i, j ∈ {1, 2, 3}, on the compactification Sm (3.1). Thus αi,± 6= αj,±
+for i 6= j. Moreover the relation (4.5) is trivially verified, which shows that
+αi,− 6= αi,+ in Br1 Um . Next one uses the equation (1.1) to deduce that
+           (u1 + 2)(u2 + 2)(u3 + 2) = (u1 + u2 + u2 + 2)2 − (m − 4),
+whence (4.6) easily follows. Then (4.7) follows from (4.6) and (4.5). This shows
+that the αi,− generate a subgroup of Br1 Um isomorphic to (Z/2Z)3 .
+   To show that these also generate Br1 Um / Br k, one can just construct the group
+action in our list from Proposition 2.5 using magma, and see that Br1 Um / Br k ∼ =
+(Z/2Z)3 in this case.
+   For completeness, we also give a geometric argument that we have found all
+the elements. Let β√∈ Br1 Um / Br k. By Proposition 4.1, we find that β becomes
+unramified over k( m − 4). This implies that the residue of β along each line
+Li is killed after this extension, thus the residue is either 1 or m − 4. If β is
+unramified on all Li then β ∈ {0, α}. So assume β is ramified along some Li .
+First note that β cannot be ramified along just one of the Li by Lemma 2.2. It
+also follows that β cannot we ramified along all 3 lines; indeed then β+α1,− would
+be only ramified along L1 , which is impossible. Hence β is ramified along exactly
+2 lines; say L2 and L3 . But then β + α1,− is unramified, hence β + α1,− ∈ {0, α},
+whence β = α1,− or α1,+ by our above arguments. This shows that β is in the
+list of already found Brauer group elements, hence we are done.                   
+Corollary 4.6. Let m ∈ Q∗ be such that none of m, (m − 4), nor m(m√− 4)√ is a
+square in Q. Moreover, if −(m − 4) is a square in Q, then assume that m+2 m−4
+                               MARKOFF SURFACES                                    13
+                     √ √
+is not a square in Q( m, m − 4). Then Br Um / Br Q ∼
+                                                   = (Z/2Z)3 , generated by
+the quaternion algebras αi,− .
+                                       √ √
+Proof. Our assumptions imply that [Q( m, m − 4) : Q] = 4. The result then
+follows from Corollary 4.3 and Proposition 4.5.                          
+
+                    5. The Brauer–Manin obstruction
+  We now calculate the Brauer–Manin obstruction for Um for m ∈ Z.
+5.1. Set-up. Recall that Um is given by (1.1) and Um is its obvious integral
+model over Z. For convenience let u = (u1 , u2 , u3).
+   We make great use of the alternative equation (4.1). This gives us an alterna-
+tive expression of the model Um , at least away from 2.
+      Um ⊗ Z[1/2] :     (2ui − uj uk )2 − (m − 4)22 = (u2j − 4)(u2k − 4).       (5.1)
+   We assume throughout §5.2–5.3 that m ∈ Z satisfies the hypotheses of Corol-
+lary 4.6. Thus the group Br Um / Br Q is generated by the quaternion algebras
+αi,− from Proposition 4.5. We let A = hα1,− , α2,− , α3,− i be the subgroup of
+Br Um generated by these elements. We will also make use of the element α, its
+alternative representations (4.2) and the relations from Proposition 4.5.
+5.1.1. Assumptions of Corollary 4.6. Let us note that the assumptions of Corol-
+lary 4.6 are not very restrictive if one is interested in Brauer–Manin obstructions
+to the integral Hasse principle. Indeed, assume that these conditions fail. Then
+                   m − 4, m, m(m − 4), or − (m − 4) ∈ Q∗2 .
+In the first case we have Br Um = Br Q by Lemma 3.3 and Proposition 4.1. In
+the second case, there is no obstruction
+                              √          to the integral Hasse principle, as there
+is always the integral point ( m, 0, 0). The third case does not occur under the
+assumption that Um is smooth, as the following shows.
+Lemma 5.1. Let m ∈ Z be such that m(m − 4) is a square. Then m = 0, 4.
+Proof. Consider the Diophantine equation m(m − 4) = a2 . If this has an integral
+solution, then the discriminant, viewed as a polynomial in m, must be a square.
+This shows that 16 + 4a2 is a square, hence 4 + a2 = b2 for some b. But then this
+factorises as (b + a)(b − a) = 4, which is easily checked to imply that a = 0 and
+b ∈ {±2}, hence m(m − 4) = 0, as claimed.                                       
+  We calculate explicitly the conditions in Corollary 4.6 when −(m − 4) ∈ Q∗2 .
+                                                                        √   √
+Proposition 5.2. Let d be a positive integer and m = 4 − d2 . Then m+2 m−4 is
+               √ √
+a square in Q( m, m − 4) if and only if d = 2(n2 ± 1) for some positive n ∈ Z.
+                √                        √       √            √
+Proof. Let√ i = −1 and let K = Q m − 4, m = Q(i, 4 − d2 ). If d = 2,
+      √
+then m+2 m−4 = i ∈  / K 2 . So assume throughout that d 6= 2. One easily verifies
+(for example by taking 1, i as a basis for the Gaussian integers over Z) that 4 −d2
+is not a square in Q(i) as d 6= 2, and thus [K : Q] = 4. Our condition is
+                                    √
+                               di + 4 − d2
+                                              ∈ K ×2 .                         (5.2)
+                                      2
+14                 DANIEL LOUGHRAN AND VLADIMIR MITANKIN
+
+Observe that 2i = (1 + i)2 and                K ×2 . Multiplying
+                                  √ thus 2i ∈ ×2             √     (5.2)√by 2i shows
+that it is equivalent to −d + i 4 − d ∈ K . Since 1, i, 4 − d2 , i 4 − d2 are a
+                                        2
+
+basis for K as a Q-vector space we deduce that (5.2) holds if and only if
+                 √                        √              √       2
+        − d + i 4 − d2 = a0 + a1 i + a2 4 − d2 + a3 i 4 − d2 6= 0               (5.3)
+                                                                    √
+for some a0 , a1 , a2 , a3 ∈ Q. Comparing the coefficients of i and 4 − d2 we get
+                                a0 a1 + a2 a3 (4 − d2 ) = 0,
+                                                                               (5.4)
+                                         a0 a2 − a1 a3 = 0.
+Firstly, assume that a2 a3 6= 0. The bottom equation in (5.4) gives
+                                 a1   a0
+                                    =    = µ ∈ Q.
+                                 a2   a3
+Dividing through by a2 a3 in the top equation of (5.4) translates it into µ2 = d2 −4.
+The equation 4 + µ2 = d2 was analysed in the proof of Lemma 5.1 and it is
+insoluble as d 6= ±2. Hence (5.3) is not satisfied.
+  Therefore we may assume that a2 a3 = 0. We consider first the case a3 = 0, so
+that the equations (5.4) become a0 a1 = a0 a2 = 0. If a1 = a2 = 0, then (5.3) is
+not satisfied as K 6= Q. If a0 = 0, then (5.3) becomes
+                     √                                        √
+               −d + i 4 − d2 = −a21 + a22 (4 − d2 ) + 2a1 a2 i 4 − d2 .
+Comparing the terms shows that a2 = 1/2a1 , and yields the biquadratic equation
+                            4a41 − 4da21 − (4 − d2 ) = 0.
+It is soluble over Q and its solutions are of the shape a21 = ±1 + d/2. Since
+there are no half integers which are squares in Q we must have d even, and that
+d = 2(n2 ± 1) for some positive integer n.
+   The case a2 = 0 is completely analogous to a3 = 0, except one obtains the
+biquadratic equation 4a40 + 4da20 − (4 − d2 ) = 0. It has no real solutions as d 6= 2
+and thus (5.3) in soluble for a2 = 0. This completes the proof.                    
+5.2. Review of the Brauer–Manin obstruction. We briefly recall how the
+Brauer–Manin obstruction works in our setting, following [Poo17, §8.2] and
+[CTX09, §1]. For each place v of Q there is a pairing
+                                Um (Qv ) × Br Um → Q/Z
+coming from the local invariant map invv Br Qv → Q/Z from local class field
+theory (this is an isomorphism if v is a prime number). This pairing is locally
+constant on the left [Poo17, Prop. 8.2.9].
+  Any element β ∈ Br Sm pairs trivially on Um (Qv ) for almost all v, thus taking
+the sum of the local pairings gives a pairing
+                          Y
+                             Um (Qv ) × Br Sm → Q/Z.
+                            v
+
+This factors through the group BrQ
+                                 Sm / Br Q and pairs trivially with the elements
+of U(Q). For B ⊆ Br Sm , we let ( v Um (Qv ))B be the left kernel of this pairing
+with respect to B. By Corollary 4.6, the group Br Sm / Br Q is generated by the
+algebra α. Thus in our case it suffices to consider the sequence of inclusions
+                                MARKOFF SURFACES                                    15
+
+Um (Q) ⊂ ( v Um (Qv ))α ⊆ v Um (Qv ). In particular, if the latter inclusion is
+            Q                  Q
+strict, then α gives an obstruction to weak approximation on Um .
+   For integral points, any element β ∈ Br Um pairs trivially on Um (Zp ) for almost
+all p, so we obtain a pairing Um (AQ ) × Br Um → Q/Z. As the local pairings are
+locally constant, we obtain a well-defined pairing
+                            Um (AZ )• × Br Um → Q/Z.
+For B ⊆ Br Um we let Um (AZ )B• be the left kernel with respect to B, and let
+Um (AZ )Br
+        • = Um (AZ )•
+                       Br Um
+                             . By Corollary 4.6, the map A → Br Um / Br Q is an
+isomorphism, hence Um (AZ )Br                A
+                               • = Um (AZ )• . We have the inclusions Um (Z) ⊆
+        A
+Um (AZ )• ⊆ Um (AZ )• , so that A can obstruct the integral Hasse principle or
+strong approximation.
+   Let W be dense Zariski open in Um . As Um is smooth the set W (Qv ) is
+dense in Um (Qv ) for all places v. Moreover, Um (Zp ) is open in Um (Qp ), hence
+W (Qp ) ∩ Um (Zp ) is dense in Um (Zp ). As the local pairings are locally constant,
+to calculate the local invariants of a given element we may restrict our attention
+to W . We often take the open subset W given by (u21 − 4)(u22 − 4)(u23 − 4) 6= 0.
+5.3. Calculating the local invariants. We now calculate the possible values
+for the local invariants of the elements αi,− . We do this using the following
+formula for the local invariants
+                                       1 − (ui − 2, m − 4)p
+                       invp αi,− (u) =                      ,              (5.5)
+                                                4
+in terms of Hilbert symbols, which holds for all u ∈ Um (Zp ) with ui 6= 2. We
+begin with an elementary lemma.
+Lemma 5.3. Let p | (m − 4) be odd. Then the singular locus of Um mod p is
+given by the points (2, 2, 2), (−2, −2, 2), (2, −2, −2), (−2, 2, −2).
+   Moreover assume that vp (m − 4) = 1. Then for all u ∈ Um (Zp ), the reduction
+u mod p ∈ Um (Fp ) is a smooth Fp -point.
+Proof. The scheme Um mod p is isomorphic to (an open subset of) the Cayley
+cubic surface. This is well-known to have exactly 4 singular points which are all
+rational, and are easily verified to be the above 4 points.
+  For the second part, suppose that u ≡ (2, 2, 2) mod p (the other cases being
+similar). Then vp ((2u3 − u1 u2 )2 ) ≥ 2 and vp ((u21 − 4)(u22 − 4)) ≥ 2, but from the
+equation (5.1) this contradicts vp (m − 4) = 1.                                     
+  We first consider the trivial cases.
+Lemma 5.4. Let i ∈ {1, 2, 3}. Then invp αi,− (u) = 0 for all u ∈ Um (Zp ) if one
+of the following conditions holds:
+    (1) p ∤ 2(m − 4).
+    (2) m − 4 ∈ Q∗2p .
+    (3) p = ∞ and m > 4.
+Proof. In cases (2) and (3), the Hilbert symbol in (5.5) is trivial over Qp as m − 4
+is a square in Q∗p . Thus the invariant map is obviously zero in these cases.
+   So we can assume that p is an odd prime not dividing m − 4 and such that
+m−4 ∈  / Q∗2
+           p . Let u ∈ Um (Zp ) be such that (u1 −2)(u2 −2)(u3 −2) 6= 0. We claim
+16                      DANIEL LOUGHRAN AND VLADIMIR MITANKIN
+
+that the p-adic valuation of each uj − 2 is zero. Indeed, since p ∤ (m − 4) and
+m − 4 mod p is not a quadratic residue it follows that the left hand side of (5.1)
+is not divisible by p. Hence the right hand side has zero p-adic valuation. But
+uj − 2 divides the right hand side of (5.1) and hence has zero p-adic valuation as
+well. As p is odd, the Hilbert symbol is trivial (both entries being units).    
+     We next consider large primes which divide m − 4 to odd valuation.
+Proposition 5.5. Let p > 5 and let m be such that vp (m − 4) is odd. Let
+A = hαi,− i ⊂ Br Um . Then the map
+                    Um (Zp ) → Hom(A, Q/Z),            u 7→ (β 7→ invp β(u)),
+induced by the Brauer–Manin pairing, is surjective.
+Proof. It suffices to show that for all (ε1 , ε2 , ε3) ∈ (Z/2Z)3 , there exists u ∈
+Um (Zp ) such that
+                  (invp α1,− (u), invp α2,− (u), invp α3,− (u)) = (ε1 , ε2 , ε3 ).        (5.6)
+To prove (5.6), we claim that for all y1 , y2 , y3 ∈ F∗p it suffices to show the existence
+of an Fp -point on the variety
+     (2u1 − u2 u3 )2 = (u22 − 4)(u23 − 4), u1 − 2 = y1 z12 , u2 − 2 = y2 z22 , u3 − 2 = y3 z32
+which satisfies z1 z2 z3 6= 0. Indeed; firstly as (u1 − 2)(u2 − 2)(u3 − 2) 6= 0, we find
+from Lemma 5.3 that this gives rise to a smooth Fp -point of Um , hence a Zp -point
+with vp (ui − 2) = 0 by Hensel’s lemma. Moreover ui − 2 is a square in Qp if and
+only if yi is a quadratic residue. A simple Hilbert symbol calculation using (5.5)
+and the fact that vp (m − 4) is odd shows that we can obtain all possible choices
+for the invariants in (5.6) on taking all possible combinations for the yi .
+   To construct the given Fp -point, without loss of generality we may assume
+that y2 = y3 (since #F∗p /F∗2  p = 2). We restrict our attention to the subvariety
+given by u2 = u3 . Our equations then become
+                  (2u1 − u22 )2 = (u22 − 4)2 , u1 − 2 = y1 z12 , u2 − 2 = y2 z22 .
+Factoring the left hand side, it suffices to solve the equations
+                         u1 = u22 − 2, u1 − 2 = y1 z12 , u2 − 2 = y2 z22 .
+This then gives the equation
+                                     y1 z12 = y22 z24 + 4y2 z22 .
+This defines a curve with the unique singular point (z1 , z2 ) = 0. The compacti-
+fication of the normalisation is isomorphic to P1 , with at most 2 rational points
+at infinity and at most 2 rational points over the singular point, thus the affine
+curve has p − 2 many Fp -points. Of these points at most 3 satisfy z1 z2 = 0, hence
+providing p−5 > 0, there exists a rational point with the required properties. 
+     For even valuation, we have the following.
+Proposition 5.6. Let p > 5 and let m be such that p | (m − 4), with vp (m − 4)
+               / Q∗2
+even but m − 4 ∈  p . Then for all u ∈ Um (Zp ) we have
+
+{invp α1,− (u), invp α2,− (u), invp α3,− (u)} ∈ {{0, 0, 0}, {0, 0, 1/2}, {1/2, 1/2, 1/2}}
+as multisets, and every such element arises for some u ∈ Um (Zp ).
+                                 MARKOFF SURFACES                                    17
+
+Proof. We first show that the local invariants must take one of the stated values.
+As m − 4 ∈   / Q∗2
+                 p and vp (m − 4) is even, the left hand side of (5.1) has even p-adic
+valuation for any choice of i, j, k ∈ {1, 2, 3}. It follows that vp ((u2j − 4)(u2k − 4))
+is also even for all j, k.
+   If vp (u2j − 4) and vp (u2k − 4) are both even then a permutation of i, j, k implies
+that vp (u2i − 4) is even for all i. But one of ui − 2 or ui + 2 must be a p-adic unit
+as p is odd, hence vp (ui − 2) is even for all i. It follows that all local invariants
+are 0 in this case.
+   Assume next that vp (u2j − 4) and vp (u2k − 4) are both odd. Then invp α(u) =
+1/2. Moreover, exactly one of vp (ui ± 2) is odd for each i. If vp (u1 − 2) is odd,
+then invp α1,− (u) = 1/2, hence {invp α2,− (u), invp α3,− (u)} ∈ {{0, 0}, {1/2, 1/2}}
+by (4.7). If however vp (u1 + 2) is odd, then invp α1,+ (u) = 1/2 and without loss
+of generality we have invp α2,+ (u) = 1/2 and invp α3,+ (u) = 0 by (4.6). It follows
+that vp (u1 − 2) and vp (u2 − 2) are both even and that vp (u3 − 2) is odd, hence
+we obtain the local invariants 0, 0, 1/2, as claimed.
+   We now show that these possibilities for the local invariants can actually be
+realised. A similar argument to the proof of Proposition 5.5 shows the existence
+of u such that all the ui − 2 are units, hence the local invariants are all 0 in this
+case (this is the only point in the proof we use that p 6= 3, 5).
+   For the non-trivial local invariants, we will construct p-adic solutions with
+given valuations. Write m − 4 = pw z, where z ∈ Z∗p , and make the change of
+variables pv1 = u1 − 2 and pw−1v2 = u2 − 2. Then the equation (5.1) becomes
+     (2u3 − (pv1 + 2)(pw−1v2 + 2))2 − 4zpw = pw v1 v2 (pv1 + 4)(pw−1v2 + 4).
+We make the change of variables 2u3 − (pv1 + 2)(pw−1v2 + 2) = pw v3 and cancel
+pw to obtain
+                       pw v32 − 4z = v1 v2 (pv1 + 4)(pw−1v2 + 4).
+Modulo p, this becomes
+                                  z ≡ −4v1 v2 mod p.
+This clearly has the non-singular solution in units v1 ≡ 1 mod p and v2 ≡
+−4−1 z mod p. Thus we may apply Hensel’s lemma to show the existence of a
+p-adic solution with vp (u1 − 2) and vp (u2 − 2) both odd. For such a solution
+we have invp α1,− (u) = invp α2,− (u) = 1/2 as m − 4 ∈    / Q∗2
+                                                              p and w is even. This
+realises the possibilities {1/2, 1/2, 1/2} by the first part of the lemma.
+   A similar argument shows the existence of a p-adic solution with vp (u1 −2) and
+vp (u2 + 2) both odd. This is easily seen to realise the local invariants {1/2, 0, 0},
+as required.                                                                        
+  We now show that the conclusion of Proposition 5.5 does not hold for p = 3, 5,
+so that Proposition 5.5 is sharp.
+Proposition 5.7. Let p = 3, 5 and let m such that vp (m − 4) = 1. Let A =
+hαi,− i ⊂ Br Um .
+    (1) If p = 3, then for all u ∈ Um (Zp ) we have
+              {invp α1,− (u), invp α2,− (u), invp α3,− (u)} = {0, 0, 1/2}
+        as multisets.
+18                   DANIEL LOUGHRAN AND VLADIMIR MITANKIN
+
+     (2) If p = 5, then the image of map induced by the Brauer pairing
+                                 Um (Zp ) → Hom(A, Q/Z)
+         contains every element except the trivial homomorphism.
+Proof. By Lemma 5.3 the reduction modulo p of each Zp -point is smooth.
+   p = 3: One checks that up to the S3 -action, the only smooth rational points
+modulo 3 are (0, 0, 1) and (0, 0, 2). Let u be a 3-adic lift of one of these points. We
+first consider the element α = (u21 − 4, m − 4). As −4 is not a quadratic residue
+modulo 3, we find that inv3 α(u) = 1/2. Moreover as u1 − 2 and u2 − 2 are
+quadratic residues for both points, we find that inv3 α1,− (u) = inv3 α2,− (u) = 0.
+Combining this with the relation (4.7) shows that inv3 α3,− (u) = 1/2. Consider-
+ing permutations proves the result.
+   p = 5: Again, up to the S3 -action, the only smooth rational points modulo 5
+are (0, 0, 2), (0, 0, 3), (1, 1, 2), (1, 1, 4), (1, 3, 4), (2, 2, 4) and (4, 4, 4). One realises
+the invariants
+                inv5 α1,− (u) = 0, inv5 α2,− (u) = 0, inv5 α3,− (u) = 1/2,
+by considering 5-adic lifts of the point (1, 1, 4). The other non-trivial combina-
+tions are obtained by considering permutations of the points (0, 0, 3) and (4, 4, 4).
+To show that the trivial homomorphism is not realised, we can ignore those points
+where at least one of ui − 2 is not a square. This leaves the point (1, 1, 2). Here
+we have inv5 α(u) = 1/2 as u21 − 4 ≡ 2 mod 5 is a quadratic non-residue, whence
+inv5 α3,− (u) = 1/2 by (4.7). So the trivial homomorphism is not realised.         
+     We continue with the study of the local invariant map when p = 2.
+Lemma 5.8. Let m ∈ Z be such that m 6≡ 3 mod 4. If m 6≡ 1 mod 8, then there
+exists u ∈ Um (Z2 ) such that
+                                               (
+                                                (0, 0, 0)   if v2 (m − 4) ≡ 0 mod 2,
+(inv2 α1,− (u), inv2 α2,− (u) inv2 α3,− (u)) =
+                                                (0, 0, 1/2) if v2 (m − 4) ≡ 1 mod 2.
+Alternatively, if m ≡ 1 mod 8, then for every u ∈ Um (Z2 ) we have
+              {inv2 α1,− (u), inv2 α2,− (u), inv2 α3,− (u)} = {0, 1/2, 1/2}
+as multisets.
+Proof. As m 6≡ 3 mod 4 we have Um (Z2 ) 6= ∅ by [GS17, §6.3].
+  Firstly, assume that 2 | m. Then 2 ∤ (3 − m) and clearly (3, 3, 3 − m) satisfies
+the reduction of (1.1) mod 8. By Hensel’s lemma this lifts to a point u ∈ Um (Z2 ).
+Moreover, u2i − 4 ≡ 5 mod 8 and thus
+                             (u2i − 4, m − 4)2 = (−1)v2 (m−4) .
+By (4.2) and (5.5) we have inv2 α(u) = 1/2 if v2 (m) is odd or 0 otherwise.
+  On the other hand, (3 − 2, m − 4)2 = 1 and thus the local invariant maps for
+α1,− and α2,− are trivial. What is left is to take into account the relation (4.7)
+which implies that the local invariant map for α3,− is equal to 0 if v2 (m − 4) is
+even and 1/2 otherwise.
+  Assume now that 2 ∤ m, that is m ≡ 1 mod 4 by our assumption on m. If
+m ≡ 5 mod 8, then m − 4 ∈ Q∗2  2 and hence inv2 αi,− (u) = 0 by Lemma 5.4.
+                               MARKOFF SURFACES                                    19
+
+  Finally, if m ≡ 1 mod 8, then the right hand side of (1.1) is odd and thus for
+each u ∈ Um (Z2 ) exactly one its coordinates is a 2-adic unit, ui say. Moreover
+the other two coordinates uj and uk must be divisible by 4. Hence v2 (ui − 2) = 0
+while v2 (uj − 2) = v2 (uk − 2) = 1. Since m − 4 ≡ 5 mod 8, a simple Hilbert
+symbol calculation and (5.5) imply our claim. This concludes the proof.        
+   Lastly, we show that the local invariant for α at ∞ is trivial for most choices
+of m.
+Lemma 5.9. Let m ∈ R \ [−8, 4]. Then inv∞ α(u) = 0 for all u ∈ Um (R).
+Proof. If m − 4 > 0 then m − 4 ∈ R∗2 and the result follows from Lemma 5.4. If
+m−4 < 0 then the left hand side of (5.1) is positive. Hence ui ∈ (−2, 2), i = 1, 2, 3
+or each ui lies outside this interval. In the latter case we clearly have u21 − 4 > 0
+so the local invariant is trivial. It therefore suffices to show that the former case
+does not occur under our assumptions. But we have u21 + u22 + u23 − u1 u2 u3 ≥
+−u1 u2 u3 ≥ −8 in the box [−2, 2]3 . As m < −8, this therefore cannot equal m,
+thus there are no such real points, as required.                                   
+5.3.1. Consequences for the Brauer-Manin obstruction. We now use the above
+results on the possibilities for the local invariants to study the Brauer-Manin
+obstruction. We still assume that m satisfies the hypothesis of Corollary 4.6.
+  We first consider weak and strong approximation. (See the introduction for
+the notation Um (Z) and Um (Q).)
+Corollary 5.10. Assume there exists a prime p > 3 with vp (m − 4) odd. Then
+                                    Y
+                          Um (Q) 6=     Um (Qv ).                      (5.7)
+                                          v
+
+Moreover, if Um (AZ ) 6= ∅ then
+                           Um (Z) 6= Um (AZ )• ∩ Um (Q),                       (5.8)
+i.e. Um fails weak approximation and has a failure of strong approximation which
+is not explained by the failure of weak approximation.
+Proof. We only prove (5.8), as a similar argument shows that α gives an obstruc-
+tion to weak approximation in this case.
+   To prove (5.8), we note from [SS91] that the Brauer-Manin obstruction is the
+only one to weak approximation on Sm . But the Brauer group of Sm modulo
+constants is generated by α by Lemma 3.2. In particular, it follows that
+                                       Y
+                             Um (Q) = ( Um (Qv ))α .
+                                          v
+
+Hence to prove (5.8), it suffices to show that Um (AZ )A 6= Um (AZ )α . To show
+this, let u ∈ Um (AZ ). By Propositions 5.5 and 5.7 and (4.7), on Um (Zp ) the
+                                                                  2
+tuple (invp α, invp α1,− ) takes all possible values
+                                               P of (Z/2Z) . Hence there ex-
+ists up ∈ Um (Zp ) such that invp α(up ) = − v6=p invv α(u) but invp α1,− (up ) 6=
+− v6=p invv α1,− (u). Then the adele u′ given by replacing the pth part of u by
+   P
+
+up satisfies u′ ∈ Um (AZ )α but u′ ∈/ Um (AZ )α1,− , as required.               
+  We next consider the integral Hasse principle.
+20                  DANIEL LOUGHRAN AND VLADIMIR MITANKIN
+
+Corollary 5.11. Suppose that there exists a prime p > 5 with p | (m − 4) such
+that m − 4 ∈/ Q∗2
+                p . Then there is no Brauer–Manin obstruction to the integral
+Hasse principle for Um .
+
+Proof. We can assume that Um (AZ ) 6= ∅, otherwise there is nothing to prove.
+We begin with the case where vp (m − 4) is odd. There is a standard argument
+for deducing the result from Proposition 5.5, which we recall for completeness.
+It suffices to show that Um (AZ )A 6= ∅. Let u ∈ Um (AZ ). By Proposition
+                                                                     P            5.5, we
+find that there exists up ∈ Um (Zp ) such that invp β(up ) = − v6=p invv β(u) for
+all β ∈ A. Then the adele u′ given by replacing the pth part of u by up satisfies
+u′ ∈ Um (AZ )A , as required.
+   We now consider the case where vp (m − 4) is even and m − 4 ∈           / Q∗2p . Here
+the argument is more involved as we need to consider more than one prime. We
+may assume that we are not in the previous case, so that m = 4 ± nd2 for some
+positive n, d ∈ Z such that the prime divisors of n are ≤ 5 while those of d are
+> 5, and that m − 4 ∈     / Q∗2
+                              p for someP  p | d.
+   Let u ∈ Um (AZ ) and let εi =            v6=p invv αi,− (u). We use our information
+about the possibilities for the local invariants at p given in Proposition 5.6. A
+similar argument to the one above verifies that we can modify u at p so that
+u ∈ Um (AZ )A unless {ε1 , ε2, ε3 } = {0, 1/2, 1/2} as multisets. But, if there was a
+prime q | d with q 6= p and m − 4 ∈     / Q∗2
+                                            q , then by Proposition 5.6 we can modify
+u at q so that {ε1 , ε2 , ε3 } =
+                               6 {0, 1/2, 1/2}. We can thus assume that p is the only
+prime dividing d for which m − 4 ∈       / Q∗2p . To complete the proof, we will show
+that u can be modified at 2, 3 and 5 or at ∞ so that {ε1, ε2 , ε3 } =   6 {0, 1/2, 1/2}.
+   Firstly, we analyse the case m − 4 < 0. Without loss of generality assume
+that (ε1 , ε2 , ε3) = (0, 1/2, 1/2). Since p | d and p > 5 we have m ≤ 4 − 72 < −8
+and thus as in the proof of Lemma 5.9 we see that |ui | > 2, i = 1, 2, 3 for any
+real point (u1 , u2, u3 ) on Um . The relation (4.7) and Lemma 5.9 imply that the
+local invariant maps for αi,− (u) at infinity belong to {{0, 0, 0}, {0, 1/2, 1/2}}.
+Replacing the real component (u1, u2 , u3 ) of u by (u1 , −u2 , −u3 ), which is again
+a real point on Um , shows that both possibilities for the local invariant maps at
+∞ are realised. By doing so we modify u at ∞ so that (ε1 , ε2 , ε3 ) = (0, 0, 0), as
+required.
+   We can now assume that m − 4 = nd2 > 0. Since m − 4 ∈          / Q∗2
+                                                                     p then m 6= 4 + d
+                                                                                        2
+
+and hence n > 1. Thus at least one of 2, 3 or 5 must divide n. We will
+modify u at 2, 3 and 5 in a way such that ε1 = ε2 P            = 0. This clearly implies
+{ε1 , ε2 , ε3} =
+               6 {0, 1/2, 1/2}. By Lemma 5.4 we have v6=2,3,5,p invv αi,− (u) = 0
+for i = 1, 2. Therefore it suffices to show that
+                           X
+                                     invv αi,− (u) = 0,   i = 1, 2.                (5.9)
+                         v∈{2,3,5}
+
+
+   We keep the 3-adic component of u as is if 3 ∤ n. In this case inv3 αi,− (u) = 0
+for i = 1, 2 by Lemma 5.4. Alternatively, if 3 | n, then we replace the 3-
+adic component of u by a 3-adic lift of the smooth F3 -point (0, 0, 1). A simple
+calculation of Hilbert symbols and (5.5) show that inv3 αi,− (u) = 0 for i = 1, 2
+regardless of the parity of the 3-adic valuation of n. Thus no matter if 3 | n or
+                                MARKOFF SURFACES                                    21
+
+3 ∤ n we get
+                           inv3 αi,− (u) = 0, i = 1, 2.                    (5.10)
+For the primes 2 and 5 we follow different approaches depending on the residue
+of m mod 8.
+   If m 6≡ 1 mod 8 we do the following. We replace the 2-adic component of u
+with a point in Um (Z2 ) for which inv2 αi,− (u) = 0 for i = 1, 2. By Lemma 5.8
+there is such a 2-adic point. If 5 | n we replace the 5-adic component of u by a
+5-adic lift of the smooth F5 point (1, 1, 4). Once more a simple Hilbert symbol
+calculation shows that inv5 αi,− (u) = 0 for i = 1, 2 regardless of the parity of
+the 5-adic valuation of n. Lastly, if 5 ∤ n we keep the 5-adic component of u
+as is, in which case the local invariant maps for α1,− and α2,− at 5 are zero by
+Lemma 5.4. We conclude that our modifications in this case yield
+                    inv2 αi,− (u) = inv5 αi,− (u) = 0,   i = 1, 2.
+This and (5.10) clearly imply (5.9).
+   Assume now that m ≡ 1 mod 8. Here we replace the 2-adic component of u
+with a point in Um (Z2 ) for which the local invariant maps for αi,− at 2 are equal to
+(1/2, 1/2, 0). We can do so by Lemma 5.8. We have m = 4 + nd2 ≡ 4 + n mod 8,
+hence n must be congruent to 5 mod 8. Since the only primes which divide n
+in this case are 3 and 5 this is only possible if v5 (n) is odd while v3 (n) is even.
+We replace the 5-adic component of u by a 5-adic lift of the smooth F5 -point
+(0, 0, 3). Therefore
+                                                1
+                 inv2 αi,− (u) = inv5 αi,− (u) = , i = 1, 2.
+                                                2
+Once more the above and (5.10) imply (5.9). This concludes the proof.               
+5.4. Examples of Brauer–Manin obstruction. We now use the calculations
+from the previous section to give examples of a Brauer–Manin obstruction to the
+integral Hasse principle and strong approximation. For each prime p including
+∞ let αp (u) denote the Hilbert symbol corresponding to α(u). Our results are
+inspired by the results in [GS17, §8]; in particular we show how the counter-
+examples to the integral Hasse principle given in [GS17, Prop. 8.1(i), 8.2, 8.3]
+can be explained via the Brauer–Manin obstruction.
+Proposition 5.12. Let m = 4 ± 2d2 where d is a positive integer whose prime
+divisors are congruent to ±1 mod 8 if m−4 > 0 and to 1 or 3 mod 8 if m−4 < 0.
+If m = 4 + 2d2 assume that d mod 9 ∈ {0, ±3, ±4}. Then there is a Brauer–
+Manin obstruction to the integral Hasse principle for Um .
+Proof. In the case m = 4 + 2d2 the assumption on the residue of d mod 9 ensures
+that Um (AZ ) 6= ∅ while if m = 4 − 2d2 then Um (AZ ) 6= ∅ for any d, as is verified
+using [GS17, Prop. 6.1]. We will show that for each point u ∈ Um (Zp ) we have
+                                       (
+                                        1/2 if p = 2,
+                           invp α(u) =
+                                        0    otherwise.
+This shows that α gives rise to a Brauer–Manin obstruction to the integral Hasse
+principle.
+22                  DANIEL LOUGHRAN AND VLADIMIR MITANKIN
+
+     For each prime p ≤ ∞ and each u ∈ Um (Zp ) with u2i 6= 4, by (4.2) we have
+
+              αp (u) = (u2i − 4, ±2d2 )p = (u2i − 4, ±2)p ,   i ∈ {1, 2, 3}.
+We make use of the relation (4.7). If p ∤ 2d the correctness of our claim follows
+from case (1) of Lemma 5.4. On the other hand, if p | d, then the congruence
+restrictions modulo 8 on p imply that the second argument of the Hilbert symbol
+is a square in Q∗p . By case (2) of Lemma 5.4 we are done. If m − 4 > 0 our
+statement holds for p = ∞ by Lemma 5.9. Alternatively, if m − 4 < 0 then the
+assumption on the residue of d mod 9 implies that d > 1. Moreover, the least
+prime that can divide d is 3 and hence m ≤ −14. The result for p = ∞ now
+follows from Lemma 5.9.
+   We can now assume that p = 2. For each point u ∈ Um (Z2 ) we have 2 ∤ u.
+Indeed, if 2 | u, then the left hand side of (1.1) would have been congruent to
+0 or 4 mod 8, while the right hand is congruent to 2 or 6 mod 8 since d is odd
+and d2 ≡ 1 mod 8; contradiction. Let ui be the coordinate of u which is a 2-adic
+unit. Then u2i − 4 ≡ 5 mod 8 and since ±2d2 ≡ ±2 mod 8 we have
+                               α2 (u) = (5, ±2)2 = −1.
+By (5.5) this concludes the proof of Proposition 5.12.                             
+Remark 5.13. The Hasse principle need not fail if there is a prime divisor of
+d which does not satisfy the assumptions imposed in the statement of Proposi-
+tion 5.12. For m = 4 − 2 · 52 = −46, one easily checks that the equation (1.1)
+has the integer solution (3, 7, 8). Moreover, for m = 4 − 2 · 72 = −94 we have
+(5, 5, 9) ∈ Um (Z). Alternatively, for m = 4 + 2d2 we have (−1, 1, 4) ∈ U4+2·32 (Z)
+and (−3, 3, 3) ∈ U4+2·52 (Z).
+Proposition 5.14. Let m = 4 + 12d2 where d is an odd integer whose prime
+divisors are congruent to ±1 mod 12 and such that d2 ≡ 25 mod 32. Then there
+is a Brauer–Manin obstruction to the integral Hasse principle for Um .
+Proof. We will show that for each point u ∈ Um (Zp ) we have
+                                    (
+                                      1/2 if p = 3,
+                        invp α(u) =
+                                      0     otherwise,
+
+so that α again gives an obstruction to the Hasse principle.
+  Once more, the assumption m = 4 + 12d2 implies that Um (AZ ) 6= ∅ [GS17,
+Prop. 6.1]. For each p ≤ ∞ and each u ∈ Um (Zp ) with u2i 6= 4, by (4.2) we have
+
+                       αp (u) = (u2i − 4, 12d2)p ,   i ∈ {1, 2, 3}.            (5.11)
+   If p ∤ 6d2 our claim follows from case (1) of Lemma 5.4. If p | d, then p ≡
+±1 mod 12 and hence 3 ∈ Q∗p 2 . Thus 12d2 ∈ Q∗p 2 and case (2) of Lemma 5.4
+implies our claim. Finally, m − 4 > 0 and case (3) of Lemma 5.4 is applicable
+for p = ∞. It remains to examine p = 2, 3.
+   For p = 3, the relation (4.7) and Proposition 5.7 shows the claim inv3 (α(u)) =
+1/2 for all u ∈ Um (Zp ).
+                                MARKOFF SURFACES                                   23
+
+  Assume now that p = 2. Let ni = v2 (u2i − 4) and let ω(u2i − 4) be (u2i −
+4)/2ni mod 8. Since d is odd we have d2 ≡ 1 mod 8 and thus by (5.11) we have
+                                              (
+                                            ω u2   )
+                                               i −4 −1
+                                                       +ni
+                            α2 (u) = (−1)        2           .
+Let u ∈ Um (Z2 ) be a point having one of its coordinates a 2-adic unit, ui say.
+Then u2i ≡ 1 mod 8, hence ni = 0 and ω(u2i − 4) = 5. Therefore α2 (u) = 1.
+   Arguing in the same way as in the proof of [GS17, Prop. 8.2.] one easily verifies
+that there are no other points in Um (Z2 ). Indeed, let u ∈ Um (Z2 ) have all of
+its coordinates divisible by two. Then we can write u = 2y, in which case the
+equation defining Um takes the shape
+                        y12 + y22 + y32 − 2y1 y2 y3 = 1 + 3d2 ,               (5.12)
+or alternatively
+                      (y3 − y1 y2 )2 − 3d2 = (y22 − 1)(y32 − 1),
+   If one of y1 , y2, y3 was a unit in Z2 , then the last equation above would imply
+that 3 is a quadratic residue modulo 8, a contradiction. On the other hand the
+reduction of (5.12) modulo 8 implies that 4 cannot divide all of the yi ’s simulta-
+neously. Thus there are only three possibilities, 4 divides two of the coordinates
+of u, one of them or none of them. The reduction of (5.12) modulo 16 rules out
+the first two cases since the right hand side is 12 mod 16 by the assumption on
+d. At the same time the left hand side is 4 and 8 mod 16, respectively. In the
+remaining possibility we have y1 ≡ y2 ≡ y3 ≡ 2 mod 4. Then (5.12) becomes
+                                                      1 + 3d2
+                        z12 + z22 + z32 − 4z1 z2 z3 =         ,
+                                                          4
+with 2 ∤ z1 z2 z3 . It is clear that the left hand side is congruent to 7 mod 8 while
+the right hand side is 3 mod 8 since d2 ≡ 25 mod 32: a contradiction. This
+concludes the proof of Proposition 5.14.                                           
+  The following is a generalisation of [GS17, Prop. 8.3] (loc. cit. restricts to
+those d whose prime divisors are congruent to ±1 mod 20).
+Proposition 5.15. Let m = 4 + 20d2 where d ≡ ±4 mod 9 is an odd integer
+whose prime divisors are congruent to ±1 mod 5. Then there is a Brauer–Manin
+obstruction to the integral Hasse principle on Um .
+Proof. We have Um (AZ ) 6= ∅ [GS17, Prop. 6.1]. Our strategy this time requires
+a more detailed analysis on the local invariant maps for the αi,− . We first show
+that for each point u ∈ Um (Zp ) we have
+                            invp αi,− (u) = 0 if p 6= 5.                      (5.13)
+We explain at the end how to get a Brauer–Manin obstruction to the integral
+Hasse principle.
+   We once more restrict attention u ∈ Um (Zp ) with u2i 6= 4. As in Proposi-
+tion 5.14, we deal with primes p 6= 2, 5 with the help of cases (1), (2) and (3) of
+Lemma 5.4. On the other hand, for each i = 1, 2, 3 we have
+                   (ui − 2, 20d2)2 = (ui − 2, 5)2 = (−1)v2 (ui −2) .          (5.14)
+24                 DANIEL LOUGHRAN AND VLADIMIR MITANKIN
+
+Assume there is u ∈ Um (Z2 ) with 2 | u. Following the proof of [GS17, Prop. 8.3]
+we make the change of variables yi = ui /2 for all i = 1, 2, 3. Thus
+                        y12 + y22 + y32 − 2y1 y2 y3 = 1 + 5d2 .
+If 2 divided all yi then the left hand side of the last equation above would have
+been congruent to 0 mod 4 while the right hand side would have been congruent
+to 2 mod 4. A contradiction! Assume that 2 ∤ y1 which implies that y12 ≡
+1 mod 8. We can rewrite the equation defining Um in the new variables in the
+following way
+                       (y3 − y1 y2 )2 − 5d2 = (y12 − 1)(y22 − 1).
+The right hand side is congruent to 0 mod 8. This implies that either 5 is a
+square modulo 8 or 2 | d. Both are false.
+   Thus for all u ∈ Um (Z2 ) least one of the coordinates of u a 2-adic unit.
+However, m is even and then the reduction of (1.1) modulo 2 implies that at
+least two of the coordinates of u must be 2-adic units, u1 and u2 say. By (5.14)
+the Hilbert symbols for α1,− (u) and α2,− (u) are equal to 1. Moreover, u21 − 4 ≡
+5 mod 8 and thus by (4.2) we have
+                                α2 (u) = (5, 5)2 = 1.
+We conclude that the local invariant map for α(u) is zero. Since all local invariant
+maps except possibly the one for α3,− (u) vanish, then the relation (4.7) implies
+that invp α3,− (u) must be zero as well. This proves (5.13).
+  We now consider p = 5. Let u ∈ Um (Z5 ). Then by Proposition 5.7, there
+exists i (depending on u) such that inv5 αi,− (u) = 1/2. It follows from this and
+(5.13) that for every adelic point, there is some αi,− for which the sum of all local
+invariants is equal to 1/2. Hence Um (AZ )Br = ∅ as required.                      
+Remark 5.16. In Propositions 5.12 amd 5.14, we obtained a Brauer–Manin
+obstruction by considering the single element α, i.e. we showed Um (AZ )α = ∅.
+  In Proposition 5.15 however, the obstruction is more complicated. Namely, a
+simple application of Proposition 5.7 shows that Um (AZ )β 6= ∅ for all β ∈ Br Um ,
+so to obtain an obstruction one really needs to consider the whole Brauer group,
+as we have done.
+   We finish with an explicit example of a surface which fails weak approximation,
+but also has a failure of strong approximation which is not explained by the
+failure of weak approximation (many similar examples can be easily constructed
+using Corollary 5.10).
+Proposition 5.17. Let m = 4 + 41. Then Um (Z) is Zariski dense. But:
+  (1) For all u ∈ Um (Q) we have u mod 41 6≡ (1, 1, 2) ∈ Um (F41 ).
+  (2) There exists u ∈ Um (Q) with u mod 41 ≡ (0, 5, 15) ∈ Um (F41 ), but for
+      every integer point u ∈ Um (Z) we have u mod 41 6≡ (0, 5, 15).
+Proof. One verifies that Um (Z) 6= ∅, e.g. (0, 3, 6) ∈ Um (Z). Zariski density now
+follows from [GS17, (1.5)].
+   (1) A minor variant of Lemma 5.4 shows that for all u ∈ U(Qp ) we have
+                             invp α(u) = 0 if p 6= 41                         (5.15)
+                                MARKOFF SURFACES                                   25
+
+(for p = 2 we note that 41 ≡ 1 mod 8 is a square in Q∗2 ). At 41 one can
+use Corollary 5.10 to see that Um (Q) is not dense in Um (Q41 ). To make this
+explicit, following the proof of Proposition 5.5, it suffices find a point u ∈ U(F41 )
+such that u21 − 4 is a non-zero quadratic non-residue. One easily verifies that
+(1, 1, 2) ∈ U(F41 ) is such a point. Therefore the local invariant of α at 41 of the
+lift of such a point is 1/2, so by (5.15) the corresponding adelic point cannot be
+approximated by a rational point.
+   (2) The rational point u = (−41/9, −26/3, 4/3) satisfies u mod 41 ≡ (0, 5, 15) ∈
+Um (F41 ) (viewed as an element of Um (Z41 )).
+   To prove that there is no integral point with this property, we show that there
+is a Brauer-Manin obstruction coming from α2,− = (u2 − 2, m − 4). Lemma 5.4
+again implies that for all u ∈ Um (Zp ) we have
+                            invp α2,− (u) = 0 if p 6= 41.                     (5.16)
+At 41, one has 5 − 2 = 3 ∈ / F∗2
+                              41 , hence inv 41 α2,− (u) = 1/2 for any u ∈ Um (Z41 )
+with u ≡ (0, 5, 15) mod 41. Thus such a point cannot be approximated by an
+integer point, as claimed.                                                       
+   In fact, as explained in the proof of Corollary 5.10, it follows from [SS91] that
+the Brauer-Manin obstruction is the only one to weak approximation on Sm . So
+in Proposition 5.17, one knows the stronger claim that any 41-adic lift of (0, 5, 15)
+can be approximated arbitrarily well by a rational point.
+Remark 5.18. A family of failures of strongapproximation          was presented in
+                                                   4(m−4)
+[GS17, §8], under the assumption that n 7→            n
+                                                             is a primitive Dirichlet
+character modulo n. The example         in Proposition 5.17 is not covered by this
+family, as the character 4·41
+                               
+                            n
+                                 is induced  from a primitive character modulo 41,
+since 41 ≡ 1 mod 4
+   Moreover, the examples given in [GS17, §8] involve congruences on the u2i − 4.
+One easily verifies that these come from a Brauer-Manin obstruction associated
+to α, in particular, they are in fact explained by a failure of weak approximation.
+5.5. Proof of Theorem 1.1. We may assume that m satisfies    √ the hypotheses
+of Corollary 4.6, as the number of m which fail this are O( B). If m − 4 is
+divisible by a prime p > 3 to odd valuation, then Um fails weak approximation
+by Corollary 5.10. It is simple to see that the cardinality of m to which this
+result does not apply is O(B 1/2 ).                                         
+5.6. Proof of Theorem 1.2. Minor variant of the proof of Theorem 1.1.              
+5.7. Proof of Theorem 1.3. If m satisfies the conditions of Corollary 4.6, then
+it follows from Corollary 5.11 that any prime p | m − 4 with p > 5 must divide
+m − 4 to even multiplicity, thus the result holds in this case. Assume then that
+the conditions in Corollary 4.6 fail. Then one of the following holds
+                      m − 4, −(m − 4), m, m(m − 4) ∈ Q∗2 .
+The first two cases are included in the statement of the theorem. Moreover, as
+explained in §5.1.1, in the other cases either there is an integral point or the
+surface is singular. This completes the proof.                                
+26                   DANIEL LOUGHRAN AND VLADIMIR MITANKIN
+
+5.8. Proof of Theorem 1.4. We require the following well-known lemma.
+Lemma 5.19. Let n ∈ N and R ⊂ (Z/nZ)∗ be a non-empty set of units. Then
+        #{d ∈ N : d ≤ x, p | d =⇒ p mod n ∈ R} ∼ cR x(log x)|R|/ϕ(n)−1 ,
+as x → ∞, for some cR > 0.
+Proof. The associated Dirichlet series has the Euler product expansion
+                                    Y            −1
+                                                1
+                        F (s) =             1− s       .
+                                     p          p
+                                         p mod n∈R
+
+However for a ∈ (Z/nZ)∗ we have
+                                           (
+                        1        X          1, a ≡ 1 mod n,
+                                    χ(a) =
+                       ϕ(n) χ mod n         0, otherwise.
+It follows that
+                                                                            !−1
+                                                                     −1
+                                              P       P
+                                                r∈R      χ mod n χ(pr )
+                               Y
+                  F (s) =                1−
+                                 p                       ϕ(n)ps
+                            gcd(p,n)=1
+                                               Y            P
+                       = G(s)ζ(s)|R|/ϕ(n)            L(s, χ)(   r∈R χ(r))/ϕ(n)
+
+                                                χ
+
+where G is holomorphic and non-zero on Re > 1/2 and the product is over the
+non-principal Dirichlet characters modulo n. The Dirichlet L-functions L(s, χ)
+are holomorphic and non-zero on Re s ≥ 1, hence F (s) has a holomorphic con-
+tinuation to the line Re s = 1 away from s = 1, where there is a branch point
+singularity of the shape c′R /(s−1)|R|/ϕ(n) for some c′R 6= 0. The result now follows
+from a Tauberian theorem (e.g. [Ten15, Thm. II.7.28]).                             
+   For the lower bound, consider m with m − 4 < 0 in Proposition 5.12. We
+have R = {1, 3} and (Z/8Z)∗ = {1, 3, 5, 7} in Lemma 5.19. This gives N(B) ≫
+B 1/2 /(log B)1/2 (not B 1/2 /(log B)1/4 as claimed in [GS17, Thm. 1.2.(i)]).
+   Now for the upper bound. We first take care of those surfaces which do not
+satisfy the hypotheses of Corollary 4.6. For such surfaces, at least one of the
+following holds
+                          m − 4, m, m(m − 4), −(m − 4) ∈ Q∗2 .
+In the first case Br Um = Br Q, hence there is no Brauer–Manin obstruction. As
+explained in §5.1.1, in the second and third cases either there is an integral point
+or the surface is singular.   In the last case where −(m − 4) ∈ Q∗2 , Corollary 4.6 is
+                      √    √                      √ √
+applicable unless m+2 m−4 is a square in Q( m, m − 4). By Proposition 5.2
+this happens precisely when m = 4 − (2(n2 ± 1))2 , for some n ∈ Z>0 . The
+collection of such m with |m| ≤ B is O(B 1/4 ), which is clearly negligible in
+Theorem 1.4.
+   Let m now satisfy the hypotheses of Corollary 4.6. By Corollary 5.11, if there
+is a Brauer–Manin obstruction to the integral Hasse principle, then m − 4 =
+ε2a2 3a3 5a5 d2 is not a square in Z. Here ε ∈ {±1}, the ai are non-negative integers,
+                                  MARKOFF SURFACES                                         27
+
+d is a positive integer coprime to 30 and satisfying p | d =⇒ m − 4 ∈ Q∗2      p . The
+cardinality of such |m| ≤ B is
+                    |4 + ε2a2 3a3 5a5 d2 | ≤ B,
+                                                                                 
+  ≪ # ε, ai , d :                                                                   .
+                    ε2a2 3a3 5a5 ∈
+                                 / Q∗2 , (d, 30) = 1, p | d =⇒ ε2a2 3a3 5a5 ∈ Q∗2
+                                                                               p
+
+For p ∤ 30 the condition ε2a2 3a3 5a5 ∈ Q∗2
+                                          p is equivalent to a collection of con-
+                                       ∗
+gruence conditions on p in (Z/120Z) , of which there are only finitely many
+possibilities depending on ε and on the parities of the ai . Moreover, as m − 4 is
+not a square, exactly half of the elements of (Z/120Z)∗ arise.
+  We consider the case where all the ai are odd and ε = 1, the other cases being
+similar. We let R ⊂ (Z/120Z)∗ be the corresponding residues. Here the above is
+          ≪ #{ai odd, d : 2a2 3a3 5a5 d2 ≤ B, p | d =⇒ p mod 120 ∈ R}.
+The contribution from where one of the i satisfies iai > B 1/4 is easily seen to
+be O(B 3/8 ), which is negligible in Theorem 1.4. Hence we may assume that
+iai ≤ B 1/4 for each i, so that B/2a2 3a3 5a5 → ∞ as B → ∞. Thus we may apply
+Lemma 5.19 for the sum over d and see that the above cardinality is
+                         X (B/2a2 3a3 5a5 )1/2             B 1/2
+                     ≪                                ≪
+                         a
+                             (log(B/2a2 3a3 5a5 ))1/2   (log B)1/2
+                           i
+
+as the sum over the ai is convergent. This is sufficient for the upper bound in
+Theorem 1.4, and completes the proof.                                        
+
+5.9. Proof of Theorem 1.5. To prove the theorem, we consider the counter-
+examples to the Hasse principle given in [GS17, Prop. 8.1(ii)].
+Proposition 5.20. Let ℓ ≥ 13 be a prime with ℓ ≡ ±4 mod 9 and ℓ 6≡ ±1 mod 8.
+Let m = 4 + 2ℓ2 . Then Um (AZ )Br 6= ∅ but Um (Z) = ∅, i.e. Um is a counter-
+example to the integral Hasse principle which is not explained by the Brauer–
+Manin obstruction.
+Proof. That Um is a counter-example to the integral Hasse principle is shown
+in [GS17, Prop. 8.1(ii)]. So it suffices to show that there is no Brauer–Manin
+obstruction in this case. This follows from Corollary 5.11 since the assumptions
+on ℓ imply ℓ > 5 and m − 4 ∈ / Q∗2ℓ .                                         
+  This is clearly sufficient for Theorem 1.5.                                              
+
+                                      References
+[BBL16]    M. J. Bright, T. D. Browning, and D. Loughran, Failures of weak approximation
+           in families, Compos. Math. 152 (2016), no. 7, 1435–1475.
+[BL17]     M. Bright and J. Lyczak, A uniform bound on the Brauer groups of certain log k3
+           surfaces, Michigan Math. J., to appear.
+[Bri18]    M. J. Bright, Obstructions to the Hasse principle in families, Manuscripta Math.
+           157(3) (2018), 529–550.
+[CT95]     J.-L. Colliot-Thélène, Birational invariants, purity and the Gersten conjecture, K-
+           theory and algebraic geometry: connections with quadratic forms and division
+           algebras (Santa Barbara, CA, 1992), Proc. Sympos. Pure Math., vol. 58, Amer.
+           Math. Soc., Providence, RI, 1995, pp. 1–64.
+28                   DANIEL LOUGHRAN AND VLADIMIR MITANKIN
+
+[CTW12]  J.-L. Colliot-Thélène and O. Wittenberg, Groupe de Brauer et points entiers de
+         deux familles de surfaces cubiques affines, Amer. J. Math. 134 (2012), no. 5, 1303–
+         1327.
+[CTWX18] J.-L. Colliot-Thélène, D. Wei, and F. Xu, Brauer-Manin obstruction for Markoff
+         surfaces, arXiv:1808.01584 (2018).
+[CTX09]  J.-L. Colliot-Thélène and F. Xu, Brauer-Manin obstruction for integral points of
+         homogeneous spaces and representation by integral quadratic forms, Compos. Math.
+         145 (2009), no. 2, 309–363, with an appendix by D. Wei and F. Xu.
+[FLS18]  C. Frei, D. Loughran, and E. Sofos, Rational points of bounded height on general
+         conic bundle surfaces, Proc. London Math. Soc., (3) 117 (2018), no. 2, 407–440.
+[GS17]   A. Ghosh and P. Sarnak, Integral points on Markoff type cubic surfaces,
+         arXiv:1706.06712 (2017).
+[Kol02]  J. Kollár, Unirationality of cubic hypersurfaces, J. Inst. Math. Jussieu 1 (2002),
+         no. 3, 467–476.
+[KM17]   J. Kollár and M. Mella, Quadratic families of elliptic curves and unirationality of
+         degree 1 conic bundles, Amer. J. Math. 139 (2017), no. 4, 915–936.
+[Lou18]  D. Loughran, The number of varieties in a family which contain a rational point,
+         J. Eur. Math. Soc., 20(10) (2018), 2539–2588.
+[LTBT18] D. Loughran, R. Takloo-Bighash, and S. Tanimoto, Zero-loci of Brauer group ele-
+         ments on semi-simple algebraic groups, J. Inst. Math. Jussieu, to appear.
+[Mil80]  J. S. Milne, Étale cohomology, Princeton Mathematical Series, vol. 33, Princeton
+         University Press, Princeton, N.J., 1980.
+[Poo17]  B. Poonen, Rational points on varieties, Graduate Studies in Mathematics, vol.
+         186, American Mathematical Society, Providence, RI, 2017.
+[San81]  J.-J. Sansuc, Groupe de Brauer et arithmétique des groupes algébriques linéaires
+         sur un corps de nombres, J. reine angew. Math. 327 (1981), 12–80.
+[SS91]   P. Salberger and A. N. Skorobogatov, Weak approximation for surfaces defined by
+         two quadratic forms, Duke Math. J. 63 (1991), no. 2, 517–536.
+[Ten15]  G. Tenenbaum, Introduction to analytic and probabilistic number theory, third
+         ed., Graduate Studies in Mathematics, vol. 163, American Mathematical Society,
+         Providence, RI, 2015.
+
+  Department of Mathematical Sciences, University of Bath, Claverton Down,
+Bath, BA2 7AY, UK
+
+     Max Planck Institut für Mathematik, Vivatsgasse 7, 53111 Bonn, Germany
+     E-mail address: vmitankin@mpim-bonn.mpg.de
+
