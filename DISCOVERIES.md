@@ -660,6 +660,19 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * Galois-orbit obstruction for Heegner-point readings of Type II (PROVED relative to Siegel and the divisor bound; R176 D4 replaced a non-existent ET citation).
      * Ibukiyama's canonical curve carries a Type II configuration for 144/267 primes p ≡ 1 (24) < 2·10⁴ (EVIDENCE, reproduced). There is no privileged-curve effect.
 
+17. **Spark relay D: higher-order reciprocity is closed over number fields; the "degree-2 accident" (LDP_DEEP.md + 8 memos BRAINSTORM/bsD_* (O177); review `reviews/ldp-deep-review.md` (R177): no FATAL; one false-as-written statement (D1, intended content right), one sign-flipping wording error (D4a), and label/scope overreaches, all repaired by the reviewer).**
+   * bsD_brauer_cores Thm 1 (PROVED relative to Bright–Loughran Thm 1.6; citations checked in sources/). Order-m transcendental Brauer classes exist on the ES surface over ℚ(μ_m). On ℚ-points, every class over every number field corestricts to Br ℚ ⊕ ⟨α⟩, so the surface carries no cubic or quintic reciprocity law.
+   * bsD_frobenius_closure Thm 2 (PROVED; 19 934 closure tests). The primes that can divide a slice's N generate (ℤ/M)^× or an index-2 subgroup (ψ of ℚ(√−dn), resp. ℚ(√−d)). This recovers T1, the BL Type I level condition, and "no Type II level is obstructed at primes".
+   * Degree-2 accident (Prop A.3.1–2 PROVED for maximal orders; the global slogan is an Assessment, R177 D2c).
+     * Over ℚ only definite quaternion algebras violate Eichler's condition. Under Eichler's condition, class sets are ray class groups via nrd, so class invariants are functions of finitely many Dirichlet characters.
+     * Precise form offered by R177 (reviewer's derivation, to be checked against Kottwitz 1986 before it is labelled PROVED): for a semisimple ℚ-group compact at ∞, the Kottwitz incoherence group π₀(Z(Ĝ)^Γ)^D is 2-torsion. In this form, Diff-parity is 2-torsion because the archimedean place is.
+     * The loophole is F_q(T), where Br(F_∞) = ℚ/ℤ (pursued by O181).
+   * F-rational loophole, §A.4 (Prop A.4.1 PROVED; "closed" is an Assessment, R177 D4c). Over F = ℚ(ζ_M)⁺, f ≡ −1 (mod M) is a quadratic ray-class condition: β has an odd number of negative real conjugates. It does not descend, because N(−1) = +1 for every M = 4cd > 4.
+     * EVIDENCE (reproduced exactly): all but 5 of the 9732 primes p ≡ 1 (24) < 10⁶ have a cd ≤ 30 Type II certificate with f or f′ an F-norm.
+     * Caveat (R177 D5): 54% of certificates have a prime side, and a prime side is automatically an F-norm.
+   * EVIDENCE (reproduced). Of the primes p ≡ 1 (24) < 10⁶, the slice layers miss 71 (cd | 6), 2 (cd | 60), 12 (cd | 126) and 0 (cd | 16380). The misses are locally square (68% have (p/5) = (p/7) = 1, against 24% overall), and their cubic data are unbiased. There is no cubic layer; ordering by modulus size is a lottery.
+   * Assessment: direction (a) (higher-order Diff-parity over number fields) is closed by three scoped PROVED mechanisms. The function-field loophole remains open.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

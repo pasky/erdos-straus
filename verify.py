@@ -24292,5 +24292,36 @@ def check_fj():
 
 check_fj()
 
+def check_fk():
+    # (fk) LDP_DEEP (O177/R177): quadratic/quartic/sextic slice layers on primes p = 1 (24) < 1e6 (71 / 2 / 12 / 0
+    # missed), split-supported (F-norm) Type II certificates with cd <= 30 to 2e5, T1 control.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("LDP_DEEP subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_ld_missed.py", "1000000")
+    for s in ["primes 9732  Type I hits in cd|6 slices (should be 0, BM-blocked): 0", "missed by cd|6: 71",
+              "missed by cd|60: 2 [76441, 950401]", "missed by cd|126: 12 [3361, 62497,",
+              "missed by cd|16380 (checked on the cd|60 and cd|126 survivors; others are covered a fortiori): []"]:
+        assert s in o, ("LDP_DEEP R177 missed primes", s, o)
+    o = run("review_ld_split.py", "200000", "30")
+    for s in ["no Type II cert: 0 []", "no cert with f or f' in S2 (exact F-ideal norm): 3 [3361, 53089, 76441]",
+              "odd squares < 4e4: Type II divisor hits (cd <= 30 ): 0"]:
+        assert s in o, ("LDP_DEEP R177 split-supported", s, o)
+    print(f"== (fk) LDP_DEEP R177: p = 1 (24) < 1e6 missed by slices cd|6 / cd|60 / cd|126 / cd|16380: 71 / 2 / 12 / 0; "
+          f"F-norm Type II certificates (cd <= 30) for all but 3 primes p = 1 (24) < 2e5, 0 at odd squares; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fk()
+
 
 print("\nall checks passed")
