@@ -103,3 +103,23 @@ are 2d − x and 2xz − x − z, both < 2M. Results:
   2, 3, 5, 6, 9, 11, 14, 15, 35. The other two members of E_W, 105 and 510, lie in U_M classes.
 So Cor 4.4 holds as stated, and its proof needs only the range n < 2M ≈ 3.03·10⁸ (not 10⁹). That range is closed by the same 16-second
 computation. See D2.
+
+### Prop 6.1 (rate N exp(−c√log N)) — SOUND-AFTER-REPAIRS (minor; label should be plain PROVED with citation)
+Every step was re-derived.
+* **Avoided classes.** For p ≤ Q = √N and x | p + 1 with 2 ≤ x ≤ (p+1)/2, the word (x, (p+1)/x, (n+x)/p) needs n + x ≥ 2p, which holds since
+  n > N = Q² ≥ 2p. ω(p) = τ(p+1) − 2 counts distinct classes −x mod p (x < p), and ω(p) < p. ✓
+* **Large sieve.** Montgomery's form |S| ≤ (N + Q²)/L, with L ≥ e_k(g; I) obtained by restricting to m = products of k distinct primes of
+  I = (Q^{1/2k}, Q^{1/k}] (so m ≤ Q). The bound ω/(p−ω) ≥ ω/p is fine. ✓
+* **G.** Σ_{p ≤ y} τ(p+1) = Cy + o(y) with C = ζ(2)ζ(3)/ζ(6). The shift +1 has no local correction factor, so the constant is right. Partial summation over
+  I is uniform because the lower end a = Q^{1/2k} = exp(√log Q/(2ε)) → ∞. This gives G = (C/2 + o(1)) log Q / k − 2 log 2 + o(1). ✓
+* **e_k step.** Inclusion–exclusion gives exactly k!·e_k ≥ G^k − C(k,2)·T·G^{k−2} with T = Σ_{p∈I} g(p)². (Sanity-checked in exact rationals:
+  `scripts/review_lw_ek.py`.) With k = ε√log Q, k/G → 2ε²/C is a *constant*, not o(1). So "1 − O(k²/G²)" is only harmless because T → 0
+  (T ≤ Σ_{p>a} p^{−2+o(1)}) or because ε is small. The text's justification "Σ g² < ∞" is enough only with that remark. See D3.
+* **Conclusion.** e_k ≥ ½ G^k/k! ≥ ½ (eG/k)^k / (e√k), and eG/k ≈ eC/(2ε²) > e for small ε. So L ≥ exp(c′√log Q). With dyadic summation
+  the result is ≪ N exp(−c√log N), c absolute. ✓
+* **Label.** The input (Titchmarsh divisor problem for p + 1) is a theorem: Linnik 1963 (dispersion), and Rodriquez 1965 / Halberstam 1967 via
+  Bombieri–Vinogradov. "PROVED relative to the Titchmarsh divisor asymptotic" is over-cautious. It should be **PROVED** with that citation (D3).
+  The lower bound Σ_{p∈I} τ(p+1)/p ≫ log Q/k actually needs only BV, not the full asymptotic.
+* **Context.** Lorenzini's Prop 6.3(b) already trivially gives #E ≤ π(N+2) + O(log N) ≪ N/log N, and Lorenzini 6.3's z = 4 condition gives
+  N/(log N)^{3/2}. "Lorenzini/Wang give density 1 only" is literally true for Lorenzini's statement, but his (b) gives N/log N at once. The note
+  should say so, so that the improvement is stated against the right baseline (D4).
