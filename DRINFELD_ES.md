@@ -172,3 +172,44 @@ cannot be pinned** by any ES-type positivity — solutions need denominators of 
 at ∞ of sign-normalised data are therefore degree characters (Lemma 1.1, Lemma 3.2), and a k-th power obstruction
 can only remove degree classes, never all solutions. ES_q itself has target −1, whose order-m image is trivial
 for odd m (Thm 2.2), so for ES_q even the degree-class restriction is empty.
+
+## 4. Number-field side: odd-degree descent (O177 sparks 1, 3) — closed
+
+**Prop 4.1 (odd-degree subfields see only cosets; PROVED, elementary).** Let G = (ℤ/M)^* = Gal(ℚ(ζ_M)/ℚ),
+F' ⊂ ℚ(ζ_M) with H = Gal(ℚ(ζ_M)/F'), K' ⊃ F' quadratic inside ℚ(ζ_M) with H' = Gal(ℚ(ζ_M)/K') (index 2 in H), and
+η the character of K'/F'. If 𝔞 is an ideal of F' prime to M with N𝔞 = f, then f mod M ∈ H and η(𝔞) = −1 ⟺
+f mod M ∈ H ∖ H'. Hence "η(𝔞) = −1 ⟺ f ≡ −1 (mod M)" holds for all such 𝔞 iff H ∖ H' = {−1}, i.e. H = {±1},
+F' = ℚ(ζ_M)⁺, K' = ℚ(ζ_M), [F' : ℚ] = φ(M)/2 — even for every ES modulus M = 4cd > 4.
+*Proof.* Art_{ℚ(ζ_M)/ℚ}(N𝔞) = Art_{ℚ(ζ_M)/F'}(𝔞)|… ∈ H (norm compatibility of Artin maps), and η(𝔞) is the image
+of Art_{ℚ(ζ_M)/F'}(𝔞) in H/H'. ∎
+So an odd-degree F' (spark 1) sees f only modulo H' with |H ∖ H'| = φ(M)/(2[F':ℚ]) ≥ 2: a coset condition plus the
+splitting condition f ∈ H (which the certificate does not force). The full ray condition needs F' = ℚ(ζ_M)⁺.
+**Prop 4.2 (norm descent goes the wrong way; PROVED).** Let F be any number field of odd degree r with
+β, β' ∈ O_F, ββ' − 4c²dp = 1, β ≡ β' ≡ −1 (mod 4cd·O_F). Then N(β) ≡ N(β') ≡ −1 (mod 4cd) and
+N(β)N(β') = (1 + 4c²dp)^r = 1 + 4c²d·(p·R_r), R_r := ((1 + 4c²dp)^r − 1)/(4c²dp): a rational Type II certificate for
+n' = p·R_r, not for p. ES(n') follows from ES(p), not conversely. *Proof.* All conjugates of β are ≡ −1 mod 4cd.∎
+Moreover O_F-certificates are cheap when O_F has units of norm −1 ((J)1, other_rings Prop 3.3), so they carry no
+information about p. **Verdict: odd-degree descent is closed with proof** (Prop 4.1 for parity, Prop 4.2 for
+certificates). Function-field remark: for the Carlitz cyclotomic field K_M of F_q(T), the inertia group at ∞ is
+F_q^* ⊂ (R/M)^* (Hayes) and the real subfield K_M⁺ has degree Φ(M)/(q − 1), which is **odd** e.g. for M
+irreducible of odd degree d ((q^d − 1)/(q − 1) ≡ d mod 2). So the A.4.2 parity obstruction disappears over
+F_q(T), but Prop 4.2 applies verbatim (norms give certificates for P·R_r); and Gal(K_M/K_M⁺) ≅ F_q^* is cyclic of
+order q − 1 with −1 its element of order 2 — the target −1 again only touches the 2-part (§2).
+
+## 5. Forcing via rank-k supersingular class sets — genus-vacuous (Assessment with PROVED ingredients)
+
+Candidate mechanism: D = D_{P,∞}^{(k)} (inv_P = 1/k, inv_∞ = −1/k; End⁰ of supersingular rank-k Drinfeld modules
+over F̄_P, Gekeler 1991), non-trivial class set (mass ≈ ∏_{i<k}(|P|^i − 1)/…). A "forcing" statement would read:
+some maximal order of D contains an element with prescribed characteristic polynomial (encoding a certificate).
+(a) For degree-k CM data attached to ES_q certificates, Thm 1.3 shows the natural Kummer datum f^{1/k} is split at
+P, so it does not embed in D at all; the Type II quadratic datum embeds into the quaternion D^{(2)} only on the
+q ≡ 3 (4) degree-parity sub-families (FF Prop 4.1).
+(b) For data that do embed, the total number of optimal embeddings over the genus is (class number of the order)
+× (product of local embedding numbers) — Eichler's trace/mass formula, valid for definite orders over global
+function fields (Gekeler; Wei–Yu, "Mass formula of division algebras over global function fields", from memory,
+not checked). Its positivity is local. So "∃ maximal order containing the datum" is equivalent to the existence
+of the polynomial datum plus congruences: the genus vacuity of LDP_DEEP B.1 in rank k. The class layer (B2)
+is untouched.
+(c) Ramanujan complexes (Lubotzky–Samuels–Vishne 2005, built from exactly these D) give expansion on the
+supersingular rank-k isogeny complex: path-existence at length ≍ log of the number of vertices, i.e. data of
+size |P|^{O(1)} — barrier B3, as for Pizer graphs (bsC_isogeny_ramanujan).
