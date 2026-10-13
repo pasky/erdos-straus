@@ -67,3 +67,30 @@ the conic satisfies A ≤ μB/n and B ≤ μA, which bounds μ in terms of D (fi
 x² + y² + D = Cxy); with only the B-involution, reduction theory still gives finitely many orbits per (μ, D) but no
 bound on μ. Rephrase (c)'s reading as "no Vieta-jumping bound on C = 2λD in terms of D", for every odd n.
 
+### Prop 2.1 (firing set for fixed P is a finite divisor set) — statement SOUND (modulo M1); "Consequence" OVERCLAIMED (M2)
+
+Statement: for fixed squarefree P, overflow Q₁ | P is bounded, so Thm 2.1 gives g ≤ 2nQ₁²(n + Q₁²) ≤ 2nP²(n + P²);
+the A-range bound (A = 2k ≤ (n+1)/2 + (n+1)Q₁² from both cases of the Thm 2.1 proof) is ≤ (n+1)(1 + 2Q₁²). Correct.
+I also checked the bound g ≤ 2nB²(n + B²) directly on all (A, B, g) with odd n ≤ 301, A, B ≤ 80, INCLUDING the
+λ-even triples outside the shot convention: max ratio 0.292 (n = 3, A = 4, B = 1, g = 7); λ even: 0.205.
+The "Consequence (Assessment)" and §5 item 2 ("for each fixed P the sieve's progression meets the firing set only
+in an explicit finite divisor set — BV/BDH and Chebotarev contribute nothing") do not follow: the construction in
+(V4) has P ≈ g^{1/4} GROWING with g, and then the proposition's bound reads g ≲ 2nP⁴ ≈ 2n·g — vacuous. This is
+precisely the regime R200 M1 identified as NOT excluded by the wall. Finiteness "for each fixed P" is the fixed-S
+case already in EXPONENT_CAP Cor 2.2. See M2.
+
+### Prop 2.2 (equivalence with V_n / S_{n,D}) — SOUND-AFTER-REPAIRS (M1, M3, m6)
+
+(i) ⇔ (ii) ⇔ (iii) re-derived (C := 2λD; D ≡ 3 (mod 4) from 1 + D ≡ 0 (mod 4)). Caveats: (ii) contains points with
+λ even / gcd(λ, n) > 1, which are not shot data in the Notation (M1); and Q = λB² so (i) needs "λ odd, gcd(λ, n) = 1"
+or the shot convention must be widened. "On V_n with B free, every point with μ² − n non-square lies on an infinite
+Pell orbit" is correct but V_n was DEFINED in (ii) with B squarefree, which the orbit does not preserve (M3).
+"On the curve B = 1, A ≤ 3(n+1)/2" — correct (even A ≤ (n+5)/2: with D = 2Aκ − 1 the B = 1 slice is
+A(4λκ − n) = 2(λ + κ)); brute-force check `scripts/review_gm_b1check.py 1201`: max A/(3(n+1)/2) = 0.667,
+max g/(2n(n+1)) = 0.292 over all odd n ≤ 1201.
+Reading: the heuristic Σ τ(nA²+B²)/(2AB) ≍ log³X is a fair Assessment. "For each D the solution set is O(log X)
+Pell/Vieta orbits" is unsupported: for fixed D, μ = λD ranges over multiples of D up to ≍ nX, each with its own
+orbits (m6). **The Ghosh–Sarnak claim is WRONG** (M4): their abstract (arXiv:1706.06712, checked) says "for almost
+all k the Hasse Principle holds … and there are infinitely many k's for which it fails" — failures have density 0
+(lower bound ≫ K^{1/2}/(log K)^{1/4}), NOT "a positive proportion of k".
+
