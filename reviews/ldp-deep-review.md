@@ -214,3 +214,29 @@ O⁰ represents a given T about 12ρ(T)/p times on average, not O(1). This makes
 T (consistent with O176 §2.5 only because the number of certificate-shaped T with f′ ≤ 4p grows); the
 "O(1) expected hits per T" in LDP_DEEP B.2 should read "O(ρ(T)) over the genus, O(ρ(T)/p) per fixed order" (D8b, MINOR;
 Assessment-level text).
+
+### Claim 10 — spot checks of the other memos and of the global framing
+* **bsD_metaplectic_cubic** — GAP in labels. Props 1–2 are tagged "PROVED (from the explicit formula / from cubic
+  reciprocity)" while the Literature section says "All from memory; page-level details unverified". Prop 1's logic is
+  right (for fixed rational V, ε_ℓ, Legendre symbols of fixed unit parts and Hilbert symbols are quadratic characters
+  of ℓ by quadratic reciprocity), but it rests on the unverified form of Rao's formula ⇒ CONDITIONAL. Prop 2's
+  barrier bullet "n-fold covers (n ≥ 3) have no dual-pair theta correspondence with orthogonal groups" is a
+  literature claim stated as fact; there are theta-type constructions for higher covers via exceptional
+  representations (Kazhdan–Patterson; Bump–Friedberg–Ginzburg) — the weaker, defensible statement is "no Siegel–Weil
+  identity that ingests a quadratic Gram matrix is known" (D10a, MINOR).
+* **bsD_drinfeld_rank_k** — SOUND as Assessment. Gekeler's description (End ⊗ K = central division algebra of
+  dimension r² with invariants 1/r at 𝔭, −1/r at ∞, End a maximal order) is quoted correctly as far as I can check
+  from memory. The "unique setting" claim is robust for number fields for the reason the memo implies but does not
+  state: S always contains ∞, and for degree ≥ 3 SL₁(A ⊗ ℝ) is non-compact, so strong approximation holds for every
+  S-arithmetic variant too.
+* **bsD_artin_conjugation** — SOUND-AFTER-REPAIRS. Dictionary ✓ (f ≡ −1 ⟺ σ_f|_{K⁺} = 1, σ_f ≠ 1). But "the order-≥3
+  content R … is precisely 'σ_f trivial on K⁺'" is imprecise: (ℤ/M)^×/{±1} still carries the *even* quadratic
+  characters (for M | 24 it is (ℤ/2)², entirely quadratic). The K⁺-part is "everything χ(−1) = +1 sees", not "the
+  order-≥3 part" (D10b, MINOR). The superseding correction (η_{K/F} has conductor 𝔪·∞₁⋯∞_r) is right and is the
+  basis of A.4.
+* **LDP_DEEP framing.** The one-paragraph answer says "(a) No, over ℚ and over every number field, for three
+  independent structural reasons, each PROVED with exact scope". The three pieces are proved within their scopes,
+  but the "No" is an Assessment: A.1 is about unramified classes on U_n, A.2 about the Chebotarev-closure mechanism,
+  A.3 about inner forms of GL_k (+ unitary), and the A.4 door is closed only for norm-descent (D4c). §C already says
+  "Assessment" — the intro and AGENT_REPORT SHARP list should match (D10c, MINOR). A.6 (iii) depends on bsC Prop 1
+  and bsC Cor 2 (O176, under R176) — state the dependency.
