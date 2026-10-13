@@ -1,6 +1,7 @@
 # FUNCTIONFIELD_ES3 — the sterile point x*_c of ES₃(T²): structure of Case B, complete-range searches (O173)
 
-Status: in progress (O173). Builds on FUNCTIONFIELD_ES.md (linear families §6.2, Lemma 6.2) and FUNCTIONFIELD_ES2.md
+Status: in progress (O173). Hostile review R173 (`reviews/functionfield-es3-review.md`): no FATAL. Repairs D1–D10 applied
+in place, marked "(R173 repair)"; the main one is D3 (the "poly(N) families per level" heuristic is unsupported). Builds on FUNCTIONFIELD_ES.md (linear families §6.2, Lemma 6.2) and FUNCTIONFIELD_ES2.md
 (§0.1 compactness criterion, §0.2 Case A proof, Case B normal form (****), Conjecture 0.2; R166 repairs).
 Scripts `scripts/ff3_*`, data `data/ff3_*`. ES over Z is not touched; this is the F_q[T] model only.
 
@@ -39,7 +40,8 @@ types follow (P ≡ 1, X ≡ T^{−k}), and a0 b0 = Lg. The converse is Lemma 6.
 
 **Lemma 1.2 (the divisor and g' are forced; PROVED).** Assume moreover u(0) = 1 (true at x*_c). Let ρ, ρ' be the
 least residues mod T^{N+1}L' of the classes {≡ −u mod T^{N+1}, ≡ −1 mod L'} and {≡ −u^{−1}, ≡ −1}. In Case B,
-E = ρ or E' = ρ'. Moreover deg ρ, deg ρ' > deg L', so g' is the least residue of −(T^{N+1+γ}L')^{−1} modulo
+E = ρ or E' = ρ'. Moreover deg ρ, deg ρ' > deg L' whenever ρ (resp. ρ') is monic of positive degree (otherwise, i.e. if
+u ≡ 1 mod T^{N+1}, that branch is empty; R173 repair D2), so g' is the least residue of −(T^{N+1+γ}L')^{−1} modulo
 ρ (resp. ρ').
 *Proof.* E' ≡ D·E^{−1} ≡ −u^{−1} (mod T^{N+1}) and ≡ −1 (mod L'). deg D = N + 1 + γ + l + deg g' with
 l := deg L', γ ≤ j = N + 1 − k ≤ N − 1 and deg g' ≤ l, so deg D ≤ 2(N + 1 + l) − 2 and one of E, E' has degree
@@ -68,11 +70,18 @@ j = 0 is impossible, which proves the O166 claim).
 (mod T²) because s ≥ 2. If v = 0 then E + E' = −2, impossible for monic E, E' of positive degree (q odd: equal
 degrees give lc 2 ≠ 0, unequal degrees give positive degree). If deg(m'wC) ≠ s then
 deg v ≥ deg(m'wC) ≥ a + b > max(a, b) ≥ deg(w + C) = deg(g'v) ≥ deg v, a contradiction (a, b ≥ 1).
-(c) is degree bookkeeping from (a), (b) and deg v ≥ 2; γ ≤ j = N + 1 − k. ∎
+(c) is degree bookkeeping from (a), (b) and deg v ≥ 2; γ ≤ j = N + 1 − k. (c) gives l ≤ s − 3, i.e. N + γ ≥ 2.
+(R173 repair D1) N + γ = 2 (s = 3) is also impossible. (c) forces l = 0, min(a, b) = 1, a + b = 3, so L' = g' = m' = 1
+and v = λT². With a = 1 (b = 1 is symmetric): w = T, C = T(T + β), and w + C = λT² gives λ = 1, β = −1. Then wC = T³ − T² ≠ T³ + T² (q odd). ∎
 *Remark (corrects the O166 heuristic).* FUNCTIONFIELD_ES2 §0.2 argued that the expected number of covering
 families diverges over ℓ = deg L'. That sum treated ℓ as free at fixed N; Lemma 2.1 shows ℓ ≤ 2N − k − 1.
-With this, the same heuristic gives, at a random slice point, an expected number ≈ Σ_N poly(N)·q^{−N} of covering
-Case B families of level N: a convergent sum (Assessment; §3 gives the numbers).
+With this, the expected number of covering Case B families at a random slice point is Σ_N #fam(N)·q^{−N} with
+#fam(N) finite. (R173 repair D3: formerly "≈ Σ_N poly(N)·q^{−N}", with no derivation.) The sum converges iff #fam(N)
+grows slower than q^N (summably). Lemma 2.1 does not give this, and the elementary bound of §3 allows q^{N+o(N)}.
+Exact counts (R173 census `data/review_ff3_census_s15.txt`, agreeing with R175's O175 enumeration) give
+#fam(N) = 2, 16, 30, 54, 70, 202 for N = 2..7, i.e. per-level expected counts 0.22, 0.59, 0.37, 0.22, 0.096, 0.092.
+These decay, but far more slowly than poly(N)·3^{−N}. The data fit ≈ 3^{0.4–0.6N} or a power of N equally well.
+Convergence is EVIDENCE/Assessment.
 
 **Lemma 2.2 (Z + Z' ≠ 0; PROVED, q odd).** In the normal form (****) of FUNCTIONFIELD_ES2 at x*_c
 (E = T^{N+1}Z − (1 + cT), (1 + cT)E' = T^{N+1}Z' − 1, Z monic, lc Z' = c), Z, Z' ≠ 0, L' | Z + Z', and Z + Z' ≠ 0.
@@ -103,7 +112,11 @@ family with deg L' ≤ L0, whatever N; by Lemma 2.1 it then also excludes every 
 
 ## 3. Searches, controls, and what x*_c really is
 
-**Complete-range search at x*_c (EVIDENCE, computer search with independent cross-check).**
+**Complete-range search at x*_c (EVIDENCE, computer search with independent cross-check; R173 repair D9: the
+`ff3_check.py` cross-check covers deg L' ≤ 5, j ≤ 9 at x*. R173 reproduced the whole range deg L' ≤ 11 (k = 2) and
+deg L' ≤ 10 (k = 3), with a different program and identical candidate counts (`data/review_ff3_xstar_*.txt`). That part
+(all levels N ≤ 7) is CERTIFIED by two independent codes. The layers deg L' = 12, 13 (k = 2) and 11 (k = 3) rest on
+`ff3_caseB.c` alone).**
 `ff3_caseB 3 2 0 13 -1 1 c` (all monic L' with T ∤ L', deg L' ≤ 13; for each, every j ≤ 4 deg L' − 2, which is
 the complete range by Lemma 2.3; every γ ≤ j, both branches): **0 Case B families for c = 1 and c = 2**
 (logs `data/ff3_caseB_xstar_c1.txt`, `_c2.txt`). With Lemma 2.3 this excludes every Case B family with
@@ -115,7 +128,9 @@ the family sets of ff3_caseB exactly on small ranges, at x*_c and at random slic
 families end to end (explicit irreducible P in the class, X, Y, Z monic with T²/P = 1/X + 1/Y + 1/Z and NC);
 log `data/ff3_check_log.txt`.
 
-**Control: x*_c is not visibly special (EVIDENCE; this settles R166 D6 in the negative direction).**
+**Control: x*_c is not visibly special (EVIDENCE; consistent with R166 D6 — R173 repair D5, formerly "this settles R166 D6 in the negative direction").**
+(R173 repair D5: the control counts are lower bounds, since j ≤ 4l − 2 is complete only at x*. This biases them
+towards looking like x*, probably only slightly.)
 Random slice points that agree with x*_1 to a given T-adic precision, searched with the same j-range
 j ≤ 4 deg L' − 2 (complete only at u = 1 + cT exactly, so these counts are truncated) and 1 ≤ deg L' ≤ 9 (`scripts/ff3_ctl.sh m 40 9 0`, 40 points each):
 | agreement with 1 + T | points with ≥ 1 family | mean number of families |
@@ -126,11 +141,11 @@ So points that merely share x*'s first six T-adic digits rarely carry a Case B f
 (1 hit in 40). The empty search at x*_c is therefore consistent with x*_c being a typical point of its
 T⁶-cylinder; the searches show no sign of a structural obstruction at x*_c (Assessment: this does not prove
 there is none). Heuristically Conjecture 0.2 is a *lottery statement*: the expected number of Case B families
-of level N at a random point is ≈ poly(N)·3^{−N} (heuristic, not proved), and x*_c has none of small level.
+of level N at a random point is observed to decay with N (D3 data above; not proved), and x*_c has none of small level.
 
 **Assessment (the right target is O(3, T²) ≠ ∅, not x*_c).** By Lemma 2.1 each level N carries finitely many
 family-cylinders, each of Haar mass q^{−(N+1)} in the slice. Let U(m) be the slice mass not covered by
-families of level ≤ m (a finite computation) and T(m) := Σ_{N ≥ m} #cyl(N)·q^{−(N+1)}. If U(m) > T(m) for one m (T(m) must also include Case A families),
+families of level ≤ m (a finite computation) and T(m) := Σ_{N > m} #cyl(N)·q^{−(N+1)} (R173 repair D10: N > m; use the same Haar normalisation for U and T). If U(m) > T(m) for one m (T(m) must also include Case A families),
 some slice point is uncovered (the uncovered set is closed, and its mass is ≥ U(m) − T(m) > 0), so O(3, T²) ≠ ∅
 and no finite linear covering exists — the conclusion of Conjecture 0.2, without deciding x*_c itself. Any
 explicit summable bound, e.g. #cyl(N) ≤ K q^{N}/N² or K q^{(1−δ)N}, makes T(m) → 0, so it suffices together with
@@ -143,7 +158,8 @@ min(deg E, deg E') = s − t, so their cylinders number ≤ q^{s−t}. Hence the
 ≤ q^{(N+1+γ)/2 + o(N)}. This beats the needed q^{N} only for γ ≤ (1 − 2δ)N. **The whole difficulty sits in the
 regime γ ≈ j = N + 1 − k, i.e. a0 and b0 both divisible by almost the full power T^j**, where s ≈ 2N, deg v ≈ N
 and deg E ≈ N. A proof of Conjecture 0.2's conclusion needs a count of factorisations T^{2N} + v = m'wC with
-v | w + C, deg v ≈ N, beating q^{N} by q^{−δN}. (Heuristically the count is poly(N).)
+v | w + C, deg v ≈ N, beating q^{N} by q^{−δN}. (R173 repair D3: the claim "heuristically the count is poly(N)" was deleted. Exact counts to
+s ≤ 17 grow roughly like 3^{0.2s} or like a power of s; the data cannot tell which.)
 
 **Lemma 3.1 (only j − γ ∈ {0, 1} matters; PROVED).** If (L', j, γ, g', E) is a Case B family valid at x_u with
 γ ≤ j − 2, then (L', j − 1, γ + 1, g', E) is also one, and its cylinder (E ≡ −u mod T^{k+j−1}) contains the first
@@ -151,7 +167,8 @@ one's. *Proof.* D = 1 + T^{k+j+γ}L'g' is unchanged, g = T^{γ+1}g' still divide
 of Lemma 1.1(i) only weaken. ∎
 So the union of the covered cylinders comes from families with s = k + j + γ ∈ {2N − k + 1, 2N − k + 2}: exactly
 the regime where the elementary count of §3 gives q^{s/2} ≈ q^{N + 1 − k/2} cylinders at level N, i.e. mass
-≈ q^{−k/2}·q^{o(N)} per level — no decay. **Dictionary (Assessment; an analogy, not an equivalence).** In this regime a family is a factorisation
+≤ q^{−k/2}·q^{o(N)} per level. This upper bound does not decay (R173 repair D4: formerly "mass ≈ …"; the actual
+union-relevant mass per level does decay in the data). **Dictionary (Assessment; an analogy, not an equivalence).** In this regime a family is a factorisation
 E·E' = 1 + T^s·L'g' with E ≡ E' ≡ −1 (mod L'), i.e. a point on the hyperbola EE' ≡ 1 (mod T^s) in a box
 (deg E + deg E' = s + l + deg g'). Counting such points is a Kloosterman-type problem modulo T^s, and the elementary bound q^{s/2} has the
 square-root size (this is a matching of exponents, not a proved barrier). Proving *non-existence* of a finite

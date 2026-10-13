@@ -1,0 +1,4 @@
+q=5 alpha=1 CaseA tuples (a1',b1,g',E)=0  (a1',b1,E)=0  distinct E=0  mass(distinct E)*q^-alpha=0.0000
+q=5 alpha=2 CaseA tuples (a1',b1,g',E)=0  (a1',b1,E)=0  distinct E=0  mass(distinct E)*q^-alpha=0.0000
+q=5 alpha=3 CaseA tuples (a1',b1,g',E)=0  (a1',b1,E)=0  distinct E=0  mass(distinct E)*q^-alpha=0.0000
+q=5 alpha=4 CaseA tuples (a1',b1,g',E)=0  (a1',b1,E)=0  distinct E=0  mass(distinct E)*q^-alpha=0.0000

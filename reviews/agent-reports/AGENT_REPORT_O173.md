@@ -8,16 +8,18 @@ scripts/ff3_ctl.sh (control). Data data/ff3_*.txt (tiny).
 1. **Conjecture 0.2 looks like a lottery statement (heuristic), and the better target is O(3, T²) ≠ ∅.** The O166/R166 heuristic
    ("expected number of covering families diverges over deg L'") is wrong: Lemma 2.1 (PROVED) bounds
    deg L' ≤ 2N − k − 1 at level N, so each level carries finitely many families, and the corrected heuristic gives
-   a *convergent* expected count ≈ Σ_N poly(N)·3^{−N} at a random slice point. Heuristically O(3, T²) ∩ slice then
+   a *convergent* expected count ≈ Σ_N poly(N)·3^{−N} at a random slice point. (R173 repair D3: "poly(N)" is unsupported.
+   Exact counts give per-level expected counts 0.59, 0.37, 0.22, 0.096, 0.092 for N = 3..7, i.e. #fam(N) ≈ 3^{0.4–0.6N} or a
+   power of N. Convergence is EVIDENCE only, not a consequence of Lemma 2.1.) Heuristically O(3, T²) ∩ slice then
    has positive Haar measure (Assessment; finiteness per level alone does not imply it). Control data: random
    points agreeing with x*_1 mod T⁶ showed a family in 1 of 40 cases (truncated search, deg L' ≤ 9), so the
    empty search at x*_c is consistent with x*_c being typical; no structural obstruction was seen.
 2. **Dictionary (analogy): proving NON-existence of a finite covering of ES₃(T²) by the measure route needs
    a count of a Kloosterman-type hyperbola mod T^s that beats square-root size by a summable factor.** Lemma 3.1 (PROVED) shows only families with j − γ ∈ {0, 1} matter for the union,
-   and there a family is a point of EE' = 1 + T^s·L'g', E ≡ E' ≡ −1 (mod L'), in a degree box. Under T ↦ 1/T
+   and there a family is a point of EE' = 1 + T^s·L'g', E ≡ E' ≡ −1 (mod L'), in a degree box. Directly (R173 repair D7: no T ↦ 1/T needed)
    this becomes a factorisation T^{s} + v = m'·w·C with v | w + C (a short-interval divisor problem). The
    elementary count gives q^{s/2} ≈ q^N cylinders per level — square-root size (exponent match, not a
-   proved barrier), i.e. mass ≈ q^{−k/2} per level, no decay. Any summable saving (1/N², q^{−δN}) plus a finite
+   proved barrier), i.e. the bound only gives mass ≤ q^{−k/2+o(N)} per level, which does not decay (R173 repair D4). Any summable saving (1/N², q^{−δN}) plus a finite
    census and a Case A count would prove O(3, T²) ≠ ∅ (no finite linear covering). This is barrier B3 in function-field form, now in the depth aspect (modulus T^s) where
    special tools might exist.
 
@@ -33,9 +35,9 @@ scripts/ff3_ctl.sh (control). Data data/ff3_*.txt (tiny).
 * EVIDENCE (complete range, independently cross-checked on small ranges): **no linear family of level N ≤ 8
   and no family with deg L' ≤ 13 (any level) is valid at x*_c, c = 1, 2** (with the ES2 Case A theorem).
   A = T³ (k = 3): 0 Case B families at x*_c for deg L' ≤ 11, complete j-range (all levels N ≤ 7 excluded).
-* Elementary count (PROVED, sketched in §3): ≤ q^{(N+1+γ)/2 + o(N)} Case B cylinders at level N for given γ.
+* Elementary count (PROVED (sketch; standard divisor bound d₃(f) ≤ q^{O(deg f/log deg f)}), §3; R173 repair D8): ≤ q^{(N+1+γ)/2 + o(N)} Case B cylinders at level N for given γ.
 * Neither (A) a proof of Conjecture 0.2 nor (B) a covering family at x*_c was obtained. (B) looks unlikely at
-  x*_c on heuristic grounds (the poly(N)·3^{−N} heuristic leaves a small tail). For (A) no x*-specific
+  x*_c on heuristic grounds (the observed per-level expected counts decay, see R173 D3; not proved). For (A) no x*-specific
   obstruction was found beyond Lemma 2.3, and the control gives no sign of one (Assessment).
 
 ## What I did not do

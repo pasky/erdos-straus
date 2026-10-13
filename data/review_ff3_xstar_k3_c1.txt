@@ -1,0 +1,12 @@
+# review_ff3_search p=3 k=3 l=0..10 jmax=-1 mode=fast u=[1, 1]
+l=0 families_l=0 total=0 rho_tested=0 time=0.0s
+l=1 families_l=0 total=0 rho_tested=5 time=0.0s
+l=2 families_l=0 total=0 rho_tested=36 time=0.0s
+l=3 families_l=0 total=0 rho_tested=230 time=0.0s
+l=4 families_l=0 total=0 rho_tested=968 time=0.0s
+l=5 families_l=0 total=0 rho_tested=3941 time=0.3s
+l=6 families_l=0 total=0 rho_tested=14528 time=1.3s
+l=7 families_l=0 total=0 rho_tested=52794 time=6.5s
+l=8 families_l=0 total=0 rho_tested=183992 time=27.6s
+l=9 families_l=0 total=0 rho_tested=631534 time=126.7s
+l=10 families_l=0 total=0 rho_tested=2126602 time=551.5s

@@ -1,0 +1,7 @@
+L11: |(O/4)^* x {+-1}| = 24, unit image 12, (-1,+) not in image -> Cl_{4inf1} = Z/2, phi order 6 mod 4: OK
+P12: primes tested 78496, solved 78496, failures []
+P12: min|k| histogram (first k found in order 0,1,-1,2,-2,..): {0: 57082, 1: 19143, 2: 1859, 3: 313, 4: 78, 5: 12, 6: 6, 7: 2, 10: 1}
+P12: chi/normalisability/(p/l) consistency checks: 131902
+P12: sigma_2 (sgn x, sgn y) patterns: {(1, 1): 49418, (-1, 1): 9575, (1, -1): 19503}
+SQ: odd m in [3,2000), |k|<=12: squares solved by Prop 1.2: []
+exit 0

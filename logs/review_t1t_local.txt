@@ -1,0 +1,8 @@
+Q(sqrt5) random-pair reciprocity OK; inv_2 nonzero on 61 of 150 random pairs
+Q(sqrt5) {'sols': 508, 'two_nonzero': 0, 'tame_nonzero_off_n': 0, 'real_mismatch': 0, 'd_nonzero': 0, 'd_cases': 136, 'recip_fail': 0, 'two_cases': {'some u_i non-unit': 244, 'all units': 264}, 'control_even_n_inv2_nonzero': '57/120'}
+Q(sqrt2) random-pair reciprocity OK; inv_2 nonzero on 63 of 150 random pairs
+Q(sqrt2) {'sols': 548, 'two_nonzero': 0, 'tame_nonzero_off_n': 0, 'real_mismatch': 0, 'd_nonzero': 0, 'd_cases': 68, 'recip_fail': 0, 'two_cases': {'some u_i non-unit': 548}, 'control_even_n_inv2_nonzero': '28/120'}
+Q(sqrt3) random-pair reciprocity OK; inv_2 nonzero on 71 of 150 random pairs
+Q(sqrt3) {'sols': 524, 'two_nonzero': 0, 'tame_nonzero_off_n': 0, 'real_mismatch': 0, 'd_nonzero': 0, 'd_cases': 172, 'recip_fail': 0, 'two_cases': {'some u_i non-unit': 524}, 'control_even_n_inv2_nonzero': '36/120'}
+Q(cbrt2) random-pair reciprocity OK; inv_2 nonzero on 69 of 150 random pairs
+Q(cbrt2) {'sols': 398, 'two_nonzero': 0, 'tame_nonzero_off_n': 0, 'real_mismatch': 0, 'd_nonzero': 0, 'd_cases': 50, 'recip_fail': 0, 'two_cases': {'some u_i non-unit': 398}, 'control_even_n_inv2_nonzero': '46/120'}

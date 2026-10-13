@@ -24426,5 +24426,142 @@ def check_fn():
 
 check_fn()
 
+def check_fo():
+    # (fo) T1_TEMPLATE (O183/R183): T1-bearing ES variant V_phi over Z[phi]: Cl_{4 inf_1} = Z/2; the explicit
+    # unit-orbit Type II solutions (Prop 1.2) solve every prime < 1e5, and no odd square m^2 (m < 300).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "review_t1t_zphi.py", "100000", "12", "300"], capture_output=True, text=True,
+                       timeout=900, env=env, cwd=sdir)
+    assert r.returncode == 0, ("T1_TEMPLATE subprocess", r.stderr[-2000:])
+    o = r.stdout
+    for s in ["(-1,+) not in image -> Cl_{4inf1} = Z/2, phi order 6 mod 4: OK",
+              "P12: primes tested 9590, solved 9590, failures []",
+              "SQ: odd m in [3,300), |k|<=12: squares solved by Prop 1.2: []"]:
+        assert s in o, ("T1_TEMPLATE R183", s, o)
+    print(f"== (fo) T1_TEMPLATE R183: V_phi over Z[phi] — unit-orbit Type II solutions for all 9590 primes < 1e5, "
+          f"none at odd squares m^2 (m < 300); Cl_(4 inf_1) = Z/2; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fo()
+
+def check_fp():
+    # (fp) EXPONENT_COVERING (O185/R185/R189): Thm 4.1 — ES holds for every n = k*2^m + 1 (all m >= 0) for
+    # k in {1, 9, 21, 27, 57, 171, 231, 315, 393, 495, 15015}: reviewer 2's from-scratch certificate checker
+    # (exact polynomial identities, integrality on each class, positivity, exponent-class coverage, small-m brute force).
+    from time import perf_counter
+    import glob
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    certs = sorted(glob.glob(os.path.join(root, "data", "ec", "cert_k*.json")))
+    assert len(certs) == 11, ("EXPONENT_COVERING certificates missing", certs)
+    r = subprocess.run([sys.executable, "review_ec2_check.py", *certs], capture_output=True, text=True, timeout=900,
+                       env=env, cwd=sdir)
+    assert r.returncode == 0, ("EXPONENT_COVERING R189 checker failed", r.stdout[-2000:], r.stderr[-2000:])
+    passed = [ln for ln in r.stdout.splitlines() if ln.startswith("PASS ")]
+    assert len(passed) == 11, ("EXPONENT_COVERING R189", r.stdout[-3000:])
+    print(f"== (fp) EXPONENT_COVERING R185/R189 Thm 4.1: ES for all n = k*2^m + 1, k in {{1,9,21,27,57,171,231,315,"
+          f"393,495,15015}} — 11/11 certificates pass the independent exact checker; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fp()
+
+def check_fq():
+    # (fq) UNIT_ORBIT_ES (O186/R186/R190): the T1-bearing variant ES^(S): 4/n = 1/x + 1/y + Q^2/Z (Q in <S>,
+    # S = {3,5,7,11}, mute-prime parity normalisation): shots n + 4Q^2 solve every prime 13 <= p < 5e4 and every odd
+    # non-square n < 2e4 coprime to 2S; no shot at odd squares (T1 control). Two reviewers' independent scripts.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("UNIT_ORBIT subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_uo_evidence.py", "50000", "5000")
+    assert "Hilbert product formula OK" in o and "primes 13<=p<50000: 5128 solved" in o and \
+        "odd non-squares n<5000 coprime to 2S: 1024 solved" in o and "squares: no shot" in o, ("UNIT_ORBIT R186", o)
+    o = run("review_uo2_brute.py", "20000", "2000")
+    assert "non-squares coprime to 2S: 4127, failures: 0 []" in o and \
+        "squares coprime to 2S: 29, squares with a hit for Q <= 2000: 0" in o, ("UNIT_ORBIT R190", o)
+    print(f"== (fq) UNIT_ORBIT_ES R186/R190: ES^(S), S = {{3,5,7,11}} — all 5128 primes 13 <= p < 5e4 and all 4127 odd "
+          f"non-squares < 2e4 coprime to 2S solved by shots n + 4Q^2; 0 of 29 squares; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fq()
+
+def check_fr():
+    # (fr) FUNCTIONFIELD_ES3 (O173/R173) + FF_STERILE_PROOF (O179/R179): q = 3, A = T^2 sterile-point candidate x*_c:
+    # R173's independent Case B search (no family with deg L' <= 7 / 6 at c = 1 / 2); R179's one-sided enumeration
+    # of slice Case B solutions K <= 9 (genus parity lemma 2.1: 0 violations; none covers x*_c).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("FF3 subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_ff3_search.py", "3", "2", "0", "7", "-1", "fast", "1", "1")
+    assert "l=7 families_l=0 total=0" in o, ("FF3 R173 x*_1", o)
+    o = run("review_ff3_search.py", "3", "2", "0", "6", "-1", "fast", "1", "2")
+    assert "l=6 families_l=0 total=0" in o, ("FF3 R173 x*_2", o)
+    o = run("review_fsp_enum.py", "9")
+    assert "KMAX 9 solutions 72 per K [(2, 2), (3, 4), (4, 10), (5, 8), (6, 8), (7, 4), (8, 24), (9, 12)]" in o and \
+        "violations 0" in o and "covers of x*_c (N0 = max(2, ceil(K/2)+1)): []" in o, ("FF_STERILE R179", o)
+    print(f"== (fr) FUNCTIONFIELD_ES3 R173 / FF_STERILE_PROOF R179: q = 3, A = T^2 — x*_1, x*_2 carry no Case B family "
+          f"(deg L' <= 7 / 6); 72 slice solutions K <= 9, genus parity 0 violations, none covers x*; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fr()
+
+def check_fs():
+    # (fs) FIXED_MODULUS_SHOTS (O191/R191): certificate cube bijection (Type II p < 1000, Type I p < 500), Prop 6.1
+    # bounds (certifying moduli O(p^2)), and the exactly-three modulus-4 shots p+1, p+4, 4p+1 (942 joint failures < 1e6;
+    # all odd squares fail all three — T1 control).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("FMS subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_fms_three.py", "1000000")
+    assert "78496; fails p+1 / p+4 / 4p+1: [10438, 9841, 18992]; joint 942" in o and \
+        "odd squares 9..: 499, all-three-fail 499" in o, ("FMS R191 three shots", o)
+    o = run("review_fms_cube.py", "1000", "500")
+    assert "mismatches 0" in o and "max h/((p+1)(p+5)/4) = 0.999996" in o and "max g/p^2 = 1.326531" in o and \
+        "naive solver agrees" in o, ("FMS R191 cube / Prop 6.1", o)
+    print(f"== (fs) FIXED_MODULUS_SHOTS R191: certificate cube = ES Type I/II (0 mismatches), certifying moduli "
+          f"h <= (p+1)(p+5)/4, g < 3p^2; modulus-4 shots p+1, p+4, 4p+1 jointly fail at 942 primes < 1e6 and at all "
+          f"odd squares; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fs()
+
 
 print("\nall checks passed")

@@ -7,11 +7,11 @@ Could a covering of s (with p in a suitable class) force every N_s to have a div
 ## Literature
 Sierpiński, Elem. Math. 15 (1960); Erdős's covering systems; Filaseta et al. on Sierpiński/Riesel numbers.
 ## Barrier screen
-For a prime ℓ ∤ qp, ℓ | N_s iff s ≡ −log_q p (mod ord_ℓ q), so small-prime data are periodic in s. They are congruence data
-(B1). Fixed divisors a, b serve only s ≤ v_q(a + b) (DEPTH_ASPECT Lemma 1.3). Witnesses at depth s need a factor ≥ q^s/2, i.e.
-a large prime factor of N_s (the lottery). T1: n/a.
+For a prime ℓ ∤ qp, ℓ | N_s iff s ≡ log_q(−p^{−1}) (mod ord_ℓ q), provided −p^{−1} ∈ ⟨q⟩ mod ℓ (R178 repair: formula corrected as in DEPTH_ASPECT §1.3), so small-prime data are periodic in s. They are congruence data
+(B1). Fixed divisors a, b serve only s ≤ v_q(a + b) (DEPTH_ASPECT Lemma 1.3). Witnesses at depth s need a divisor ≥ q^s/2 of N_s (the lottery). (R178 repair: the earlier "i.e. a large prime factor" was
+withdrawn in DEPTH_ASPECT §1.3; a large divisor need not have a large prime factor.) T1: n/a.
 ## Cheap numerics
 Covered by `scripts/bsE_qpow.c`: the least successful s is ≤ 7 for every prime ≤ 10⁶ in the family, and failures are
-lottery failures with no congruence pattern beyond p ≡ 1 (24) dominance.
+lottery failures with no congruence pattern beyond p ≡ 1 (24) (R178 repair: all 1233 q = 3 failures ≤ 10⁶ are ≡ 1 mod 24).
 ## Assessment
 COLLAPSES (B1). Covering congruences produce compositeness, not divisors in a class modulo a growing power.

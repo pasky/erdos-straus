@@ -1,0 +1,14 @@
+r=26 S=100 caseB=6.024e-03 caseA=9.442e-12 tail=1.722e+03 TOTAL=1.722e+03
+r=27 S=100 caseB=1.332e-03 caseA=3.147e-12 tail=6.411e-03 TOTAL=7.743e-03
+r=28 S=100 caseB=3.991e-04 caseA=1.049e-12 tail=4.814e-08 TOTAL=3.991e-04
+r=29 S=100 caseB=1.287e-04 caseA=3.497e-13 tail=4.364e-13 TOTAL=1.287e-04
+r=30 S=100 caseB=4.244e-05 caseA=1.166e-13 tail=4.324e-18 TOTAL=4.244e-05
+r=31 S=100 caseB=1.410e-05 caseA=3.886e-14 tail=4.513e-23 TOTAL=1.410e-05
+r=32 S=100 caseB=4.693e-06 caseA=1.295e-14 tail=4.872e-28 TOTAL=4.693e-06
+r=33 S=100 caseB=1.564e-06 caseA=4.317e-15 tail=5.386e-33 TOTAL=1.564e-06
+r=34 S=100 caseB=5.212e-07 caseA=1.439e-15 tail=6.059e-38 TOTAL=5.212e-07
+crude closed form at q=3^34: 0.1709
+crude closed form at q=1.3e16: 0.2000
+crude closed form at q=1.2e16: 0.2106
+crude closed form at q=3^33: 0.3515
+crude form < 1 iff q > 1.3626e+15

@@ -620,7 +620,7 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
 14. **Sign-layer brainstorm B and the F₃[T] slice census (SIGNLAYER_DEEP.md + 8 memos BRAINSTORM/bsB_* (O175); review `reviews/signlayer-deep-review.md` (R175): no FATAL; 5 MAJOR (D4, D6, D10, D11, D16) and minors, repaired by the reviewer).**
    * Lemma 1.1 (PROVED, relative to the FF2 §0.2 Case B reduction; R175 verified it against direct factorisation). On the sub-slice u ≡ 1 (T), u ≢ 1 (T²) of points x ≡ 1 off T (q = 3, A = T²), Case B families of level K are the monic h₁, h₁′ with h₁ + h₁′ = T g′ r, h₁h₁′L″ = T^K + r, plus one T-adic congruence. Each level is therefore a finite search. This refutes the FF2 divergence heuristic, independently of O173.
    * CERTIFIED (exhaustive; exact rationals reproduced independently by R175 through K = 15): covered measure of the sub-slice (normalised Haar measure of the T-adic digit space of the slice, NOT Haar measure on R̂^*, where the whole slice is null — cf. O179 Thm 3.2) is 1/3, 11/27, 37/81, 113/243, 343/729, … → 0.4906 at K = 19. The search is complete for N + γ ≤ K + 1, i.e. all levels N ≤ 10 with every g (R175 D4 corrected an "N ≤ 18" overclaim). x*_{±1} = 1 ± T is uncovered throughout.
-   * Coverage near x* is far below average: zero inside u ≡ 1 + cT (mod T⁵) for K ≤ 13. Symmetries u ↦ u⁻¹ and u(T) ↦ u(−T) (PROVED; (ii) needs FF2's degree parity). Of the six height-1 slice points, (1 ± T)/(1 ∓ T) are covered (R175 D8), so height 1 alone does not explain sterility. EVIDENCE/Assessment: about half the sub-slice stays uncovered, so O(3, T²) ∩ slice would have positive slice measure (O(3, T²) itself is Haar-null in R̂^*: O179 Thm 3.2).
+   * Coverage near x* is far below average: zero inside u ≡ 1 + cT (mod T⁵) for K ≤ 13. Symmetries u ↦ u⁻¹ and u(T) ↦ u(−T) (PROVED; (ii) needs FF2's degree parity). Of the six height-1 slice points, (1 ± T)/(1 ∓ T) are covered (R175 D8), so height 1 alone does not explain sterility. EVIDENCE/Assessment: about half the sub-slice stays uncovered, so O(3, T²) ∩ slice would have positive slice measure (O(3, T²) itself is Haar-null in R̂^*: O179 Thm 3.2, (J)24).
    * Sign-layer dictionaries (PROVED, elementary). The ES sign is the ℤ/n-half of a Zolotarev transpose permutation, the weight-½ theta multiplier of the certificate matrix, the real orthant of one cubic (= Bright–Loughran Thm 1.2/1.5 on the slice), and the genus character on the anti-invariant part of the ray class group.
    * Ray-class pullback (bsB_rayclass_norm_pullback). Fixed-(t,p) Hecke-character / L-function / Eisenstein detectors use only χ∘N, so they see the ray-class condition only through characters pulled back from ℚ. Scope (R175 D10): this does not cover all ray-class proof mechanisms, so the (J)5 Remark 10.4 hatch is narrowed, not closed. For prime t ≡ 3 (4), the 2-primary (Rédei/governing-field) part of the class condition is exactly the genus sign; the remainder is odd-order (H-D residue).
    * EVIDENCE (R175 reproduced): single-slice W(n) ≥ 1 for all primes p ≡ 1 (4) ≤ 2·10⁶. The non-square zeros are 26 composites with small factors. W(105·k²) > 0, so a Shimura-type zero propagation fails.
@@ -717,6 +717,72 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * Prop 6.1 (PROVED, relative to the Titchmarsh divisor theorem, which is unconditional): #exceptions ≤ N is ≪ N exp(−c√log N). Lorenzini's Prop 6.3 already gives ≪ N/log N.
      * Stern coding: V_{A_k}(2) = {s(N) : popcount N = k+1}.
    * EVIDENCE: every n < 10⁸ outside the exceptional set has a solution with an outer letter ≤ 12.
+
+21. **Spark relay J: a T1-bearing ES variant solvable at every prime under GRH (T1_TEMPLATE.md + BRAINSTORM/bsJ_mute_place_unit_orbit.md (O183); review `reviews/t1-template-review.md` (R183): no FATAL; two MAJOR (M1: a non-sequitur in the Prop 1.2 σ₂ step, claim true; M2: the §4 unconditional plan needs K/ℚ Galois, impossible with r₁ = 1), minors; repaired by the reviewer).**
+   * V_φ: 4/n = 1/x + 1/y + 1/z over ℤ[φ], all σ₁ > 0, σ₂-signs not all equal. Its anchor is σ₁ (pinned ½) and its partner is the place 2.
+     * Lemma 1.1: Cl_{4∞₁} ≅ ℤ/2, with character χ_{−φ}.
+     * T1 at squares (PROVED, Cor 2.2).
+     * Thm 1.3 (PROVED): unit-Type-II solutions arise ⟺ some a_k = n + 4φ^{2k+1}, k ∈ ℤ, has a prime factor 𝔮 with (n/𝔮) = −1. ES's finite lottery becomes a problem with infinitely many shots along the unit orbit.
+   * **Thm 3.1.** V_φ(p) is solvable for every prime p ≠ 5.
+     * Unconditional for p ≡ ±2 (mod 5): a congruence, (√5) | a_k (R183 m4).
+     * CONDITIONAL on GRH for p ≡ ±1 (mod 5). This uses Lenstra 1977 Cor 4.8; R183 made the positivity of the density rigorous.
+     * EVIDENCE (R183, from scratch): all 78 496 primes < 10⁶ solved by the explicit unit-orbit formula; no odd square m², m < 2000, solved by it.
+   * Thm 2.1 (PROVED). Uniform local invariants of the BL class on integral points over any number field. Tame places give 0. Places above 2 give 0 for numerator 4, at any ramification — a new proof of BL Lemma 3.8. Real places give ½ iff the three signs agree.
+     * Hence |P| odd (positivity-pinned real places) ⇒ T1. The converse "iff" is overclaimed (R183 m6).
+     * Example: positive ES over the one-real-place ring ℤ[∛2] is T1-bearing; EVIDENCE: all p < 3000 solved by the unit mechanism, squares not.
+   * Assessment. Infinite unit orbits turn ES's lottery into an Artin-type problem; over ℤ the unit group is ±1. Whether a ℤ-analogue of a "mute place" with infinitely many shots exists is open (pursued by O186).
+
+22. **Spark relay K: exponent coverings — certified infinite ES families k·2^m + 1, and why B1 disappears on exponential families (EXPONENT_COVERING.md + BRAINSTORM/bsK_* (O185); two independent hostile reviews `reviews/exponent-covering-review.md` (R185) and `reviews/exponent-covering-review-2.md` (R189): both certify Thm 4.1 with from-scratch exact checkers; no FATAL; MAJOR D3 (square-sterility proof gap, repaired by the primitive-class argument) and D12 (Proth-negative scope); all repaired by the reviewers).**
+   * **Thm 4.1 (PROVED, computer-assisted; CERTIFIED independently twice).** ES holds for every n = k·2^m + 1, m ≥ 0, for k ∈ {1, 9, 21, 27, 57, 171, 231, 315, 393, 495, 15015}.
+     * Each certificate is a finite list of ET/divisor classes. On each class, x(n), y(n), z(n) are polynomial identities that are integral and positive. The classes cover every exponent class m mod L (L | 840).
+     * Examples: all 315·2^m + 1 (≡ 1 mod 2520), and all 15015·2^m + 1 (≡ 1 mod 120120, squares mod every prime ≤ 13). 27·2^m + 1 hits the Mordell-hard class 529 (mod 840) and contains primes, e.g. 27·2²⁶ + 1.
+     * Honest scope (Assessment): every member lies in a finite union of ES-solvable congruence classes. The novelty is the form (a covering *of the exponent*) and the obstruction theory, not new identities. No prior "ES for all k·2^m + 1" result was found (two literature checks, not exhaustive).
+   * Thm 1.2/1.4 (PROVED; R185 D3 repair). Fixed-slice coverability of n_m = k·2^m + 1 holds ⟺ the limit set Λ_k ⊂ Ẑ avoids the sterile set. The square part of the condition is a Skolem / Bertók–Hajdu-type Hasse principle for k·2^x + 1 = (unit)².
+   * Cor 1.5 (PROVED). The integer obstruction points are k = 4^j − 1 at μ = 0. Hence no finite set of ET / divisor (polynomial-solvable) classes proves ES for all Proth numbers 3·2^m + 1.
+   * Prop 2.1/2.2 (PROVED; the B1 reading is an Assessment). B1's square-mimicking points exist because a polynomial/progression family is parametrised by Ẑ = Π_q ℤ_q, so local squares glue. An exponent μ ∈ Ẑ couples the primes through ord_q(2), and local squares need not glue. B1 is the S → all-primes limit of an S-unit obstruction (Assessment).
+   * Assessment: B1 is not violated, only its hypothesis is absent. The hard core of ES (n a unit square modulo everything small) is untouched.
+
+23. **Spark relay L: an UNCONDITIONAL T1-bearing ES variant over ℤ, via infinitely many fixed-modulus shots (UNIT_ORBIT_ES.md + BRAINSTORM/bsL_* (O186); two independent hostile reviews `reviews/unit-orbit-review.md` (R186) and `reviews/unit-orbit-review-2.md` (R190): both find Thm 2.4 SOUND; no FATAL; one MAJOR (R186 M1: misdiagnosis in §4 — for V_φ the barrier is the unit rank, not "a real mute place"); minors; all repaired by the reviewers).**
+   * Variant ES^{(S)}: 4/n = 1/x + 1/y + Q²/Z with x, y, Z > 0, Q ∈ ⟨S⟩ and gcd(Z, Q) = 1. Each q ∈ S is a "mute prime": it may appear in only one denominator, and only to an even power. ES^{(S)} contains ES (Q = 1).
+     * Lemma 1.1 (PROVED): the mute normalisation forces inv_q = 0.
+     * Cor 1.2 (PROVED): T1 holds, i.e. no Type I/II-shaped solutions at odd squares.
+     * Control: without the parity normalisation, squares acquire Type I/II solutions.
+   * **Thm 2.4(a) (PROVED, unconditional; relative to Bombieri–Vinogradov and the Rosser–Iwaniec linear sieve, reconstructed in full by both reviewers).** For |S| ≥ 4, every non-square n coprime to 2S is solvable in ES^{(S)}.
+     * The proof is a Gupta–Murty argument. The sifted variable is the PRIME r ≡ 3 (mod 4) with (n/r) = −1 (a congruence mod 4·rad(n), so no n-uniformity is needed). For such r with [F_r^* : ⟨S⟩] ≤ 2, −n/4 ≡ Q² mod r for some Q ∈ ⟨S⟩, and the shot n + 4Q² has the prime factor r.
+     * T1 enters only through (n/r) = −1. The result is ineffective.
+     * Corollary (R186 m4): ES^{(S)}(n) holds for EVERY n > 1 coprime to 2S, squares included, by divisibility from a prime factor.
+     * EVIDENCE (both reviewers, independent code; S = {3, 5, 7, 11}): all primes 13 ≤ p < 5·10⁴ and all non-squares < 2·10⁴ coprime to 2S are solved. The squares have no shot.
+   * **Prop 6.1 (PROVED).** Within the orbit family, a shot solution is a genuine ES solution iff g ≡ −1 (mod 4Q). The growing modulus of B2 is *exactly* what separates ES from the provable ES^{(S)}. Along an S-orbit ES gets only a convergent lottery (Assessment).
+   * Thm 5.1 (PROVED, unconditional: large sieve + Chebotarev). For V_φ ((J)21), #{odd n ≤ X with no successful shot} ≪ X^{3/4} log²X: a power saving. CRT large sieves for ES are capped at a (log N)^{3/4} saving ((A)19). The squares {m², 5m²} saturate the large-sieve barrier X^{1/2}.
+     * Thm 5.2 (CONDITIONAL, GRH via Lenstra Cor 4.8): the V_φ failure set is exactly the T1 set.
+   * Assessment (Thm 6.2 and the overall picture). This is the first unconditional proof, for every non-square, of an ES-type equation that keeps T1 exactly. The mechanism is infinitely many shots of FIXED modulus, which over ℤ requires the mute S-normalisation. Whether ES itself admits an infinite fixed-modulus shot family is the open question (pursued by O191).
+
+24. **Function-field sterile point, round 2: x*_c in F₃[T] (FUNCTIONFIELD_ES3.md (O173), review `reviews/functionfield-es3-review.md` (R173); FF_STERILE_PROOF.md (O179), review `reviews/ff-sterile-proof-review.md` (R179); no FATAL in either; repaired by the reviewers).**
+   * O173 Lemmas 1.1, 1.2, 2.1–2.3, 3.1 (PROVED; R173 re-derived each and repaired one missing step, D1). The exact Case B reduction at slice points: E or E′ is the least CRT residue and g′ is forced.
+     * Per level, l = deg L′ ≤ N + γ − 2 ≤ 2N − k − 1. At x*_c, (N+1)/4 ≤ l. So searches are complete per deg L′. Only j − γ ∈ {0, 1} matters.
+     * Corrected heuristic: **FF2's divergence heuristic ((J)12) is invalid**. It summed over l beyond the proved bound. O175 found this independently ((J)14).
+     * O173's replacement "poly(N) families per level" is unsupported (R173 D3). The exact counts grow like 3^{0.2N}–3^{0.4N}, so the expected count still converges, but only as EVIDENCE/Assessment. The proved bound q^{N+o(N)} would diverge.
+   * x*_c is uncovered by any Case B family with deg L′ ≤ 13 (all levels ≤ 8), k = 2 (EVIDENCE). Up to deg L′ ≤ 11 this is CERTIFIED by two independent codes. For k = 3 the range is deg L′ ≤ 11, with ≤ 10 reproduced. Case A is excluded (R166).
+   * O179 Thm 3.2 (PROVED). O(q, A) is Haar-null in R̂^* for every q and monic A, by Borel–Cantelli II over prime families of types (0, 2).
+     * R179: SOUND, and essentially the classical almost-all mechanism (FUNCTIONFIELD_ES Thm 5.3) in profinite form.
+     * Consequences: the R166 D11 tree "plateau" is a truncation artefact, and sterile points lie in a null set. The slice x ≡ 1 off T is null in R̂^* yet has positive *slice* measure uncovered ((J)14).
+   * O179 Lemma 2.1 (PROVED, genus parity; R179 notes it is FF2 §3's parity plus arithmetic). Every slice Case B solution has deg E, deg E′ even and λ ≡ deg r ≡ K (mod 2). This fills R175 D7.
+   * O179 §4: the exact residual problem at x*_c is a divisor problem T^K + r = H·H′·L″ with H + H′ = Tg′r and a T-adic congruence. The measure route needs #sol(K) ≤ 3^{(1/2−δ)K}; the data show ≈ 3^{0.2K}.
+     * EVIDENCE: the cyclotomic solutions for 15 ≤ K ≤ 149 (with honestly reported skips) never cover x*.
+   * Status (CONJECTURE 0.2): no explicit sterile point is proved for q = 3. For large q in characteristic 3 see (J)25 (O178).
+
+25. **Spark relay N: ES itself has no infinite fixed-modulus shot family — scoped no-go (FIXED_MODULUS_SHOTS.md + BRAINSTORM/bsN_divisor_box.md (O191); review `reviews/fixed-modulus-shots-review.md` (R191): no FATAL; one MAJOR (M1: Cor 3.2's "incomparable" is false — in fact Box ⊆ the ES^{(S)} coset always) and minors, repaired by the reviewer).**
+   * Lemma 1.1 / 4.1, the certificate cube (PROVED; brute-force bijection for all primes ≤ 3000 (II) and ≤ 1500 (I) by R191).
+     * Type II solutions of ES(p) correspond to triples (c, d, j) with h = 4cdj − 1 dividing pj + c. Equivalently h divides p + 4c²d, or 4dj²p + 1. Explicitly x = (p+e)/4, y = pcdj, z = pxj/c.
+     * Type I is analogous, with g = 4vwf − p dividing pv + f.
+     * The three coordinate lines of the cube are the "shot" families.
+   * Thms 3.1/4.2, the box criterion (PROVED): ES(p) ⟺ −p ∈ Box((h+1)/4) mod h for some h (Type II), or the Type I analogue, where Box(k) = {c/j : cj | k}. Box ⊆ the ES^{(S)} parity coset (R191), so the ES box is tiny compared with (J)23's coset.
+   * Thm 2.1, Cor 2.2–2.4 (PROVED). For a fixed-coefficient affine Type II shot αp + β, a divisor h certifies iff h ≡ −1 (mod 4M) with M ∈ 𝓜(α, β), apart from sporadic h < 4μ⁵. Every M ≥ √height/2. Any fixed Chebotarev firing set admits only finitely many shots. This completes (J)23 Prop 6.1.
+   * Cor 2.3 (PROVED): there are exactly three modulus-4 Type II shots, p + 1, p + 4 and 4p + 1. This refutes O188's "p + 4 is unique". They fail jointly at 942 primes < 10⁶ and at every odd square.
+   * **Prop 6.1 (PROVED).** Every certifying modulus of ES(p) is O(p²): Type II h ≤ (p+1)(p+5)/4 (attained at every p ≡ 3 mod 4), Type I g < 3p².
+     * So ES(p) is a FINITE search, whereas the ES^{(S)} sieve pushes r → ∞.
+     * Assessment: this is the cleanest form of why ES resists the (J)23 mechanism. Infinitely many shots are impossible for ES at fixed p. Any proof must find one certificate among O(p²)-bounded candidates (B2/B3).
+   * Thm 6.2 scope: p-dependent coefficients, polynomial shots of degree ≥ 2, Type I affine shots and multi-prime conditions are NOT covered.
 
 ## Items to verify by the maintainer
 

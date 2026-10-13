@@ -1,0 +1,12 @@
+q=3 s=3 |F(s)|=0 patterns=0 max count/q^exponent=0.000
+q=3 s=4 |F(s)|=2 patterns=1 max count/q^exponent=2.000
+q=3 s=5 |F(s)|=4 patterns=1 max count/q^exponent=4.000
+q=3 s=6 |F(s)|=10 patterns=3 max count/q^exponent=4.000
+q=3 s=7 |F(s)|=8 patterns=2 max count/q^exponent=1.333
+q=3 s=8 |F(s)|=8 patterns=3 max count/q^exponent=4.000
+q=3 s=9 |F(s)|=4 patterns=1 max count/q^exponent=1.333
+q=3 s=10 |F(s)|=24 patterns=7 max count/q^exponent=4.000
+q=3 s=11 |F(s)|=12 patterns=3 max count/q^exponent=1.333
+q=3 s=12 |F(s)|=14 patterns=5 max count/q^exponent=4.000
+q=3 s=13 |F(s)|=36 patterns=9 max count/q^exponent=4.000
+q=3 s=14 |F(s)|=104 patterns=21 max count/q^exponent=12.000

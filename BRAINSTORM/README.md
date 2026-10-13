@@ -205,6 +205,7 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | bsG_lens_dinv | lens spaces / d-invariants / Dedekind sums | Floer invariants see Σ letters, not length | identity checked; Assessment |
 | bsG_modular_hyperbola | (W) on aā ≡ 1 (n), Kloosterman | B3 gap n^{1/2} | Assessment |
 | LORENZINI_W.md (deep) | forms F1–F4, shadow, sterile set, short blocks, rate, Stern, primes | (W) open; ES content of SQ₅ at primes is (S) alone | see file |
+
 ## Spark relay E (O178): depth aspect / prime-power moduli (memos bsE_*, deep file DEPTH_ASPECT.md; not yet triaged)
 
 | file | angle | own verdict | hatch / status |

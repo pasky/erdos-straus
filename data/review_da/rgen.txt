@@ -1,0 +1,16 @@
+r=5 L=400 KMAX=2: brute boxes 46 (types ['I1', 'I2', 'I2f', 'I3', 'I4', 'II1', 'II2', 'II3']), level-0 hits 0, NOT in predicted superset: 0 []
+  brute boxes meeting non-residue cells: 12 predicted boxes: 17
+r=7 L=400 KMAX=2: brute boxes 66 (types ['I1', 'I2', 'I2f', 'I3', 'I4', 'II1', 'II2', 'II3']), level-0 hits 0, NOT in predicted superset: 0 []
+  brute boxes meeting non-residue cells: 17 predicted boxes: 28
+r=11 L=400 KMAX=2: brute boxes 84 (types ['I1', 'I2', 'I2f', 'I3', 'I4', 'II1', 'II2', 'II3']), level-0 hits 0, NOT in predicted superset: 0 []
+  brute boxes meeting non-residue cells: 23 predicted boxes: 41
+r=13 L=400 KMAX=2: brute boxes 112 (types ['I1', 'I2', 'I2f', 'I3', 'I4', 'II1', 'II2', 'II3']), level-0 hits 0, NOT in predicted superset: 0 []
+  brute boxes meeting non-residue cells: 34 predicted boxes: 44
+r=19 L=400 KMAX=2: brute boxes 124 (types ['I1', 'I2', 'I2f', 'I3', 'I4', 'II1', 'II2', 'II3']), level-0 hits 0, NOT in predicted superset: 0 []
+  brute boxes meeting non-residue cells: 33 predicted boxes: 86
+r=23 L=400 KMAX=2: brute boxes 126 (types ['I1', 'I2', 'I2f', 'I3', 'I4', 'II1', 'II2', 'II3']), level-0 hits 0, NOT in predicted superset: 0 []
+  brute boxes meeting non-residue cells: 27 predicted boxes: 122
+r=29 L=400 KMAX=2: brute boxes 132 (types ['I1', 'I2', 'I2f', 'I3', 'I4', 'II1', 'II2', 'II3']), level-0 hits 0, NOT in predicted superset: 0 []
+  brute boxes meeting non-residue cells: 34 predicted boxes: 83
+r=31 L=400 KMAX=2: brute boxes 110 (types ['I1', 'I2', 'I2f', 'I3', 'I4', 'II1', 'II2', 'II3']), level-0 hits 0, NOT in predicted superset: 0 []
+  brute boxes meeting non-residue cells: 25 predicted boxes: 162
