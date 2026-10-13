@@ -57,3 +57,49 @@ g = gcd. Also, g' and L'' are functions of (h₁, h₁', K). Repair: "with the d
 the whole tuple is determined by (h₁, h₁', K)".
 **D2 (MINOR).** Proof: write the line "mod T, h' ≡ 0, so h' = Th₁'".
 **D3 (MINOR).** Replace "deg L' ≤ K + max deg h ≤ 2K" with the sharp bound deg L' ≤ K − 1 − min(a, b).
+
+## §2 complete enumeration (CERTIFIED through K = 17 / 19) — SOUND-AFTER-REPAIRS
+
+*Completeness per level.* By Lemma 1.1, every Case B family on the sub-slice at level K comes from a pair of monic
+(h₁, h₁') with h₁(0) = −h₁'(0) ≠ 0 and a + b ≤ K. The author's enumeration (`bsB_caseB.c`, read: it loops over
+exactly these pairs and then applies the forced L'', r, g') is therefore complete per level, **given FF2's Case B
+reduction**. CERTIFIED is an acceptable label for "no Case B family at x*_c with K ≤ 19", conditional on the
+correctness of one C implementation for K = 14..19.
+
+*Independent reproduction* (`scripts/review_sl_caseB.py enum 13`, Python, own arithmetic, 55 s; output
+`data/review_sl_caseB_K13.txt`). Solutions per K = 2..13: 2, 4, 10, 8, 8, 4, 24, 12, 14, 36, 104, 48. This is
+**identical** to the author's list. Exact union measures (Haar on v ∈ F₃[[T]]^*):
+1/3 (K ≤ 2..4), 11/27 = 0.4074 (K ≤ 5..7), 37/81 = 0.4568 (K ≤ 8, 9), 113/243 = 0.4650, 343/729 = 0.4705,
+349/729 = 0.4787, 1051/2187 = 0.4806 (K ≤ 10..13). These agree with the author's 0.333, 0.407, 0.457, 0.465, 0.471,
+0.479, 0.481. x*₁, x*₂ and ι(x*_c) = 1/(1 − cT) are uncovered for all K ≤ 13. (K ≤ 15 run: see the addendum below
+if it completed.) Sanity: the K = 2 pair is FF2's cylinder family, as the author says.
+
+**D4 (MAJOR, overclaimed certified range).** §2, bullet 3: "x*₁ and x*₂ are not covered by any Case B family with
+K ≤ 17, **i.e. with N ≤ 18 (j ≤ 17) and every admissible L', g**". This is false as a translation.
+K = N + γ − 1 and γ ranges over 0..N − 1. So K ≤ 17 contains a family with given N only if γ ≤ 18 − N. "Every
+admissible g" (γ up to N − 1) needs 2N − 2 ≤ 17, i.e. **N ≤ 9 (j ≤ 8)**. With K ≤ 19 it is N ≤ 10 (j ≤ 9), which
+the "Update" paragraph states correctly. The same slip is repeated in AGENT_REPORT_O175 if it quotes "N ≤ 18";
+check it. Repair: "complete for all families with N + γ ≤ 18; in particular for all N ≤ 9 (j ≤ 8) with every
+admissible L', g (deg L' ≤ K − 1 is automatic)". The comparison with FF2's range (deg L' ≤ 7, j ≤ 8) remains
+correct: K ≤ 17 contains it.
+
+**D5 (MINOR, scope of "the slice").** Lemma 1.1, the measures, and "random slice points" all refer to the sub-slice
+u = 1 + Tv with v(0) ≠ 0, i.e. u ≡ 1 + cT (mod T²), c ≠ 0. It is normalised to measure 1. The rest of FF2's slice
+x ≡ 1 off T (u(0) = 2, or u ≡ 1 mod T²) is not treated: the derivation uses h₁(0) ≠ 0. Repair: say "sub-slice" (or
+define "slice" this way in §1) wherever measures are quoted.
+
+**D6 (MINOR→MAJOR for the narrative; labels).**
+(a) §1 "Consequence for the heuristic": "the naive expected number of solutions at a fixed point is
+Σ_K poly(K)·3^{−K}-type, **convergent**". Lemma 1.1 refutes FF2's specific divergence argument: the sum over
+ℓ = deg L' is truncated at ℓ ≤ K − 1, and D does not depend on N. But Lemma 1.1 does **not** by itself give
+convergence. A level-K solution covers a cylinder of measure (1/2)·3^{−⌈K/2⌉}, not 3^{−K}. The only a priori bound
+on #sol(K) is the number of (h₁, h₁') pairs, ≈ K·3^{K}, and with that bound the expected-count sum diverges. The
+convergence rests on the **observed** growth #sol(K) ≈ 3^{K/4} (ratio ≈ 1.3–1.5 per two levels, versus the
+critical 3 per two levels). That is EVIDENCE, not a consequence of the lemma. Repair: state the expected-coverage
+sum as Σ_K #sol(K)·3^{−K/2}. Say it converges iff #sol(K) = o(3^{K/2}) (with summable excess), and note that the
+data (not Lemma 1.1) suggest this.
+(b) "Reading" §2: "O(3, T²) ∩ slice has positive measure" also needs Case A to be absent on the sub-slice. The
+support for that is four points with deg a0, b0 ≤ 3. It is labelled EVIDENCE, but it is very weak; say so. Also,
+the limit "≈ 0.5" is an extrapolation of a monotone sequence (0.4806 at K ≤ 13, 0.4906 at K ≤ 19) whose increments
+are not shown to be summable. Assessment is the right label, and "appears to converge to ≈ 0.5, not 1" should
+read "the increments are consistent with a limit well below 1".
