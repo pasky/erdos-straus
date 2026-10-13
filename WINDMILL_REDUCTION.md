@@ -57,7 +57,9 @@ If there are integers `b ≥ 1`, `e ≥ 1` with `e | p + 4b²` and `4b | p + e`,
 some `β` with `β² ≡ −p (mod a)`, `2 | β`, `2β | a+1` (then `[a, 2β, (β²+p)/a]` is such a form).
 Call such forms **ES-forms**. For each primitive representation `a = Q(v)` the middle coefficient with `|B| ≤ a`
 is unique (up to `B = ±a`), so the ES-condition is a property of (class, represented value, root of −p mod a).
-At `p = m²` there are no ES-forms (they would give a Type II solution; ET Prop 1.6) — T1 is built in.
+(R-self-check correction.) At odd squares `n = m²` ES-forms **do** exist, but only non-coprime ones: for odd `m < 80`,
+`g ≤ 4` there are 1539 solutions of `e | n + 4gb²`, `4bg | n + e`, all with `gcd(m, bge) > 1` and none coprime
+(EVIDENCE; at primes coprimality is automatic since `bg < p`). T1 applies to the coprime ES-forms (ET Prop 1.6).
 
 **Computation 2.3 (CERTIFIED, `scripts/wr_esforms.py`).** The slice of Cor 2.2 alone (discriminant −4p) is **not**
 sufficient: among the 267 primes `p ≡ 1 (24)`, `p ≤ 20000`, 15 have no ES-form at all (exhaustive, using the bound
@@ -67,7 +69,7 @@ sufficient: among the 267 primes `p ≡ 1 (24)`, `p ≤ 20000`, 15 have no ES-fo
 `g ≥ 1` there is a form `[k, B, c]` of discriminant `−4gp` with `B > 0`, `4g | B`, `B | k+1`. Proof: write
 `B = 4gb`; then `c = ge`, `ke = p + 4gb²`, and `k ≡ −1 (mod 4gb)` gives `4bg | p + e`; with `N = (p+e)/4 = αβg`,
 `β = b`, `α = N/(bg)`, one has `e | α + β` (as `4N ≡ −4gb² (mod e)`), and Lemma 2.1's formula with `x = N`,
-`y = pN(α+β)/(eα)`, `z = pN(α+β)/(eβ)` works verbatim (α, β | N; `e | α+β` uses `gcd(e, bg) = 1`, which holds because a common prime divides
+`y = pN(α+β)/(eα)`, `z = pN(α+β)/(eβ)` works verbatim (checked on 4360 instances, p < 3000, g ≤ 5; α, β | N; `e | α+β` uses `gcd(e, bg) = 1`, which holds because a common prime divides
 `ke − 4gb² = p`, while `e ≥ 4bg − p` and `e ≤ (p+4gb²)/(4gb−1)` force `bg < p`). ∎ So the windmill question for Type II is a
 question about forms in the class groups `Cl(−4gp)`, g ≥ 1 (the Heegner discriminants of (I)4), and an "ES-form" is the
 non-genus condition `B | k+1` on (class, represented value k, root).
@@ -120,8 +122,9 @@ other face −t divides T+2 (plus `4 | A`). Ambiguous rivers are exactly the ref
 precise sense in which ES certificates are "fixed points of a reflection", but on a discriminant chosen per
 certificate (T is part of the solution — B2 in reflection language).
 
-**5.3 Modular-hyperbola form (PROVED, elementary).** The per-level quadric `AB − pt = 1` has symmetry group
-`ℤ² ⋊ ⟨A↔B⟩` (translations `A += kp`, `B += lp`, t adjusted; abelian, so not hyperbolic like `O(x²+4yz)`), and in
+**5.3 Modular-hyperbola form (PROVED, elementary).** The per-level quadric `AB − pt = 1` has the integral unipotent
+symmetries `A += kp`, `B += lp` (t adjusted), which commute (a group ℤ², not hyperbolic like `O(x²+4yz)`; with the
+swap and the non-integral scalings of Prop 4.2(d)), and in
 each orbit only the representative with `A, B ≤ p + O(1)` can satisfy `t | A+1`, `t | B+1`. So X-slice ES(p) ⟺
 some `A ∈ [1, p)` with `4 | A`, `B = A⁻¹ mod p`, has `t = (AB−1)/p` dividing `A+1` and `B+1`: a *small-product
 point* of the modular hyperbola `AB ≡ 1 (p)`. Involutions of the hyperbola that are algebraic over 𝔽_p (Möbius)
