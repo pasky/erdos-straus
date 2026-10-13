@@ -113,4 +113,30 @@ the generation of Br U_n/Br K by α is not established in the document) — defe
 positive ES over a real quadratic field … a theorem for all n" misquotes BRAINSTORM/other_rings.md Prop 3.3, which
 requires N(ε) = −1 and n ∈ ℤ (defect m7).
 
+### C7. Theorem 3.1 (V_φ(p) for every odd prime p ≠ 5; CONDITIONAL on GRH via Lenstra 1977) — SOUND (CONDITIONAL); justification should be replaced by Lenstra's Cor. 4.8
+*Source check.* sources/ has no copy; I obtained the scan (GDZ Göttingen, Invent. Math. 42, LOG_0012) and OCR'd it
+(`/tmp/lenstra77_ocr.txt`, not committed). Lenstra §2: K global, F/K finite Galois, C ⊂ Gal(F/K) union of conjugacy
+classes, W ⊂ K^* finitely generated of rank ≥ 1, k ≥ 1; M = {𝔭 : (𝔭, F/K) ⊂ C, ord_𝔭 W = 0, [k_𝔭^* : ψ(W)] | k}.
+(3.1): for number fields, under GRH for the ζ-functions of L_n = K(ζ_n, W^{1/n}) for all squarefree n, d(M) exists
+and equals a. **(4.8) Corollary:** if W ⊄ K^{*q} for every q > 1 and GRH holds, then M is infinite (indeed d(M) > 0
+by (4.6)) iff C ⊄ ∪ Gal(F/L_l), the union over primes l with L_l ⊂ F.
+*Application.* K = ℚ(√5), W = ⟨φ⟩ (not a q-th power, so (4.7) holds), k = 1, F = K(i, √p), C = {σ: σ(i) = i,
+σ(√p) = −√p} (F/K biquadratic since −1, p, −p ∉ K^{*2} for p ≠ 5). L_2 = K(√φ) ⊄ F (φ ≢ −1, ±p mod K^{*2} by
+signatures (+,−) vs (−,−), (±,±)); for odd l, L_l = K(ζ_l, φ^{1/l}) is non-abelian over K (φ ∉ K^{*l}), so L_l ⊄ F
+(F abelian). Hence the union is empty and (4.8) gives d(M) > 0 under GRH. Degree-≥2 primes have density 0, so
+infinitely many degree-one 𝔮 ∤ 10p satisfy (i)–(iii), and the proof's algebra (re-derived: (t/𝔮) =
+(−1/ℓ)(p/ℓ)(φ/𝔮) = 1, squares = ⟨φ²⟩, so 𝔮 | a_k for some k ∈ [0, (ℓ−1)/2), χ(𝔮) = (p/ℓ) = −1) then gives the
+solution by Thm 1.3(b)/Prop 1.2. **The positivity question raised by the author's own Assessment is settled
+rigorously by (4.8)**; the author's ad-hoc entanglement discussion is unnecessary and contains a slip ("√p ∈ ℚ(ζ_p)"
+is false for p ≡ 3 mod 4; it is √(−p), and with i ∈ F the conclusion survives) — defect m8. The GRH hypothesis should be
+stated as GRH for ζ_{K(ζ_n, φ^{1/n})}, n squarefree (Lenstra 3.1), not only prime r.
+*Formalisation of "infinitely many shots".* Correct and pointwise in p: for each fixed p one application of Lenstra
+with a p-dependent F; no uniformity in p is needed or claimed. The k produced is ≤ (ℓ−1)/2 with ℓ the least prime in
+M (no explicit bound on k without effective Chebotarev/Artin; the document claims none).
+*Numerics* (`scripts/review_t1t_artin.py 300000 …`, log `logs/review_t1t_artin.txt`): for p ∈ {11, 19, 29, 31, 41, 59,
+61, 71, 79, 89, 1009, 999959} the proportion of degree-one 𝔮 (N𝔮 < 3·10⁵) satisfying (i)–(iii) is 0.088–0.093
+(≈ ¼ × an Artin-type constant), and for the first 300 such 𝔮 per p the k with 𝔮 | a_k was found explicitly.
+*Strengthening (see C4):* for p ≡ ±2 (mod 5) the theorem is unconditional (𝔮 = (√5), k ∈ {0, −1}); GRH is needed only
+for p ≡ ±1 (mod 5).
+
 ## Defects
