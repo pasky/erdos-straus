@@ -111,3 +111,32 @@ obstruction of Prop 3.1 is the *only* obstruction to the two interior HJ-length-
 well as for primes. An exact formula for `a₀ + a_T` would have to vanish exactly on the squares (and on a
 finite set). The simplest objects with that property are counts of Jacobi −1 classes, such as
 `#{A ∈ (ℤ/n)^* : (A/n) = −1} = φ(n)/2·[n ≠ □]`.
+
+**Theorem 4.5 (ES certificates of length 3 = quadratic non-residues; PROVED).** Let n ≡ 1 (mod 4) and
+`A ∈ L₃(n)`, `n/A = [[v,t,u]]`. Then
+`(A/n) = −1  ⟺  4 | tu−1 (Type I, a = 1)  or  4 | tv−1 (its reversal)  or  4 | t ((A)3)  or  4 | u  or  4 | v`.
+Each of the five conditions gives an ES solution of 4/n: the first three by Cor 1.2. For `4 | u = 4w`:
+`n + v = 4w(tv − 1)`, so `f = tv − 1 ≡ −1 (mod v)` divides `N = (n+v)/4`. This is the Type II e-slice
+`−1 ∈ Σ_e(N)` with `e = v`, `(a,b) = (f,1)`; `4 | v` is its reversal.
+*Proof.* By Cor 4.1, `(A/n)` depends only on `(t,u,v) mod 8`. `scripts/dk_cells.py` enumerates all 512 cells: of
+those with `n ≡ 1 (4)`, the 120 cells with value −1 are exactly the cells satisfying one of the five conditions,
+and the 40 cells with value +1 satisfy none. ∎ (Direct check on data, `scripts/dk_qnr.py`: all
+non-square n ≡ 1 (4) ≤ 5000, 0 failures.)
+
+**Corollary 4.6 (a "least non-residue in the Farey metric" form of ES; PROVED).** For a prime p ≡ 1 (mod 8) let
+`λ(p) := min{ r(p/A) : (A/p) = −1 }` (the HJ length is the number of left turns of the positive Farey path from ∞
+to p/A). Then `λ(p) ≥ 2` (L₁ = {1}), and
+* `λ(p) = 2` ⟺ some divisor b of p+1 is a QNR ⟺ (p+1)/2 has a prime factor ≡ 3 (4) (since `(b/p) = (−1/b)` for
+  odd b | p+1, and (2/p) = 1). This is exactly the boundary certificate of 4.2.
+* `λ(p) = 3` ⟹ an interior X/e-slice certificate (Thm 4.5).
+So **the five X/e-slices of ES(p) together hold ⟺ λ(p) ≤ 3**: *some quadratic non-residue mod p is reached
+from ∞ by at most three left turns in the Farey graph.* At n = m² there are no non-residues (Jacobi), which is
+the T1 obstruction in its barest form. EVIDENCE: λ(p) ∈ {2, 3} for all 556 primes p ≡ 1 (8), p ≤ 2·10⁴
+(395 with λ = 2, 161 with λ = 3; `dk_qnr.py 20000`).
+
+*Reading.* The classical least quadratic non-residue `n_p` measures non-residues in the archimedean order. The
+Burgess bound is `n_p ≪ p^{0.152}`, and n_p ≪ log²p under GRH. λ(p) measures them in the Farey/HJ word metric
+centred at ∞. In that metric the ball of radius 3 is the sparse set `L_{≤3}(p)`, of expected size ≍ log²p, and the
+conjecture λ(p) ≤ 3 is ES on five slices. Every Jacobi value on the ball is a mod-8 polynomial in the letters
+(Cor 4.1), so "the ball contains a non-residue" is literally "the cubic `tuv − u − v = p` has a solution in one of
+120 residue cells mod 8". This dictionary is exact but is not by itself a route (B1/B2).
