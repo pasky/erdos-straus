@@ -38,8 +38,12 @@ do not escape Cor 9.3.
   `N ≫_{F,ε} (m/r)^{4+ε}` when k ≥ 5 (optimal), and `N ≫ (m/r)^{6+ε}`, N odd, when **k = 4**.
   Exponent 4 for k = 4 is Sardari's Conjecture 1.3 (open). Count: main term
   `≍ σ_loc·(r/m)^{k−1} N^{(k−2)/2}`; for k = 4 the relative error is `O(((r/m)³√N)^{−1/2} N^ε)`.
-  Constants depend on F: **no uniformity in disc F** is claimed.
-* (BKS) Browning–Kumaraswamy–Steiner (Duke 2019, arXiv:1609.06097): covering exponent 4/3 for S³
+  Constants depend on F: **no uniformity in disc F** is claimed. *(R167 repair: Thm 1.6 is stated for local balls
+  with `gcd(a_p, p) = 1`, i.e. λ primitive at every p | m; imprimitive classes are reduced by dividing N by
+  `p^{2h_p}` (Sardari Remark 1.7). Below, (S4) is applied only to such λ, or after this rescaling. Sardari's
+  lower bound `S(N) ≥ c_ε N^{−ε}` for d = 4, N odd (Remark 1.7) needs the anisotropic part of N bounded: for
+  `x²+y²+3z²+3w²`, `r(9^k) = 4` for all k (R167, `scripts/review_sa_aniso.py`).)*
+* (BKS) Browning–Kumaraswamy–Steiner (IMRN, doi:10.1093/imrn/rnx116, arXiv:1609.06097; R167 repair: not Duke): covering exponent 4/3 for S³
   under their Twisted Linnik conjecture (CONDITIONAL; S³ = sums of four squares).
 * (LPS) Lubotzky–Phillips–Sarnak: paths in X^{ℓ,q} ↔ products of norm-ℓ quaternions mod q;
   diameter ≤ 2 log_ℓ|G| + O(1) (exact constant not re-verified); Sardari arXiv:1511.09340: diameter
@@ -93,8 +97,11 @@ degenerate piece is nonempty and its constant value `s_j(p)` is an ES solution. 
 `N_p ≥ q_p^{6+ε₀}` (ε₀ > 0 Sardari's fixed loss) one has `q^{3/2} ≤ N^{1/4−κ}`, `κ = ε₀/(24+4ε₀)`, so it holds as
 soon as `σ_p N_p^{κ−ε} ≫ f(p)`. *(Self-check repair: a first draft used `N/q²` for M and claimed exponent
 1/6; exactly at the boundary `N = q⁶` the two sides are of the same order `q³`, so the margin is only the
-fixed ε₀ of the range.)* With `σ_p ≥ N_p^{−o(1)}` (local densities of a quaternary form at a locally
-represented integer are `≫ N^{−ε}` away from anisotropic-prime blowups; not re-proved here) and Lemma 2.1 of
+fixed ε₀ of the range.)* Under the hypothesis
+**(A) `σ_p ≥ N_p^{−o(1)}`** *(R167 repair: (A) is a hypothesis, not a fact. It fails when N_p has a large
+anisotropic-prime part, e.g. `Q = x²+y²+3z²+3w²`, `N = 9^k u` has `r_Q(N) = r_Q(u)`, so σ ≍ N^{−1}. For fixed Q it
+holds when `Π_{ℓ anis.} ℓ^{v_ℓ(N_p)} ≤ N_p^{o(1)}`; otherwise replace N_p by its reduced part
+`N_p♭ = N_p/Π_{ℓ anis.} ℓ^{2⌊v_ℓ(N_p)/2⌋}` (Sardari's rescaling) and read everything below for N_p♭)* and Lemma 2.1 of
 CONDITIONAL_ES (`f(p) ≤ p^{δ}` outside `O(N^{1−δ}log³N)` primes), it holds whenever `N_p ≥ p^{2δ/κ}`, for all p
 outside that sparse set. **Gap:** an encoding using a *better* range (e.g. Sardari's conjectural `N ≫ q^{4+ε}`)
 near its boundary, `q⁴ ≤ N ≤ q⁶ f(p)⁴`, is not covered: there Pila's `H^{3/2}` per fibre is too weak.
@@ -131,8 +138,10 @@ with `det λ ≡ n (q)`. For every factorisation `n = g g'` there are infinitely
 with `N(β) = g` for **every** `g | n`, uniquely up to units (unique factorisation for primitive Hurwitz
 quaternions). So a factorisation is not a *property* that distinguishes points of a norm-n level set at all.
 
-**Corollary 3.2 (what a fixed modulus can and cannot see; PROVED from 3.1).** Let the data be as in Def 2.1 with
-`Q_p = det` (or the reduced norm of an Eichler order, by strong approximation for its norm-one group at the
+**Corollary 3.2 (what a fixed modulus can and cannot see; PROVED from 3.1 for UNBOXED classes; the boxed version
+is UNPROVED — see the R167 repair below).** Let the data be as in Def 2.1 with
+`Q_p = det` (or the reduced norm of an *indefinite* Eichler order (R167 repair: strong approximation fails for
+the norm-one group of a definite algebra, e.g. the ES algebras `(−d,−p)`, `B_{p,∞}`), by strong approximation for its norm-one group at the
 primes ∤ disc). Fix any rule `ψ` that reads off from `x ∈ R_p` a divisor `g(x)` of `N_p` coprime to q_p
 (content of a row/column, `gcd(L(x), N_p)` for a linear form L, the norm of the left ideal `Ox + gO`, …).
 Then the set `{g(x) : x ≡ λ (q_p)}` is **all** divisors of `N_p` (Prop 3.1, for every class λ). Hence a recipe
@@ -140,6 +149,17 @@ that is valid on every point of a congruence class must be valid for every divis
 `g = 1` and `g = N_p`: ES is then certified by the trivial factorisation alone, i.e. by congruence data
 (B1: POINTWISE_SIZE Thms M, C, F). Divisors sharing primes with q_p *are* seen, but they are divisors of
 `gcd(N_p, q_p^∞)`, which is known without any lattice point.
+*(R167 repair — scope.)* (i) **Box.** The statement above is about the *unboxed* class `{x ≡ λ (q_p), Q_p(x) = N_p}`;
+Prop 3.1 gives no size control on `γ = AδD`. Def 2.1's `R_p` carries `|x|_∞ ≤ B_p`, and a recipe need only be valid
+on `R_p`. Inside a box `B_p ≍ √N_p` the column content is `≤ B_p`, so `g = N_p` **never** occurs there, and for
+`√N_p < g < N_p` it need not occur. So Cor 3.2 is PROVED only for recipes required to be valid on the whole unboxed
+class. For boxed recipes (the SA setting) the needed input, "`R_p` contains a point of content g = 1", is
+**UNPROVED** here: it would follow from a Möbius sieve over Sardari's count on the sublattices `ℓ | g`, which needs
+SA uniform over those sublattices (not in the literature cited). (ii) **Factorisation through g.** "Valid for g = 1
+⇒ certified by the trivial factorisation" assumes the recipe's output depends on x only through `g(x)` and
+congruence data; a recipe `F(g(x), x)` reading other features of x is not covered. (iii) **Definite orders.** Only
+the pointwise Hurwitz statement above holds; a class mod q of a definite order need not contain every factorisation
+type.
 
 **Principle 3.3 (SA is a local statement; Assessment, with the proved pieces cited).** Every SA theorem has the
 form "local solubility in the class ⇒ a point exists". A certificate "SA ⇒ ES(p)" therefore needs a universal
@@ -157,12 +177,14 @@ Prop 2.3), which is exactly the fibre factor that cancels.
 
 Let `Q_p` have Gram determinant `D_p`. The Eisenstein (genus) main term for `#{Q_p(x) = N, x ≡ λ (q)}` is
 `M = σ·N/(√D_p · q³)` (σ = product of local densities, `N^{−o(1)} ≤ σ ≤ N^{o(1)}` away from anisotropic-prime
-blowups); for (S4), D fixed, this is Sardari's `σ (r/m)³ N`.
+blowups; the lower bound is hypothesis (A) of Cor 2.4, not automatic — R167 repair); for (S4), D fixed, this is Sardari's `σ (r/m)³ N`.
 
 **Theorem 4.1 (scale window; PROVED relative to CONDITIONAL_ES Prop 2.3, i.e. relative to ET).** Suppose an
 SA statement of *range exponent* `1 + η` is available: `R_p ≠ ∅` (indeed `#R_p ≥ M/2`) whenever local conditions
 hold and `N ≥ (√D_p q_p³)^{1+η}`. Let an SA-encoding use it with a map `R_p → Sol(p)` of multiplicity
-`μ(p) ≤ p^{o(1)}`. Then for all p outside a set of density 0, `√D_p q_p³ ≤ p^{o(1)}` and `N_p ≤ p^{o(1)}`.
+`μ(p) ≤ p^{o(1)}`, and assume (A) `σ_p ≥ N_p^{−o(1)}` (R167 repair: without (A) the statement is false — take a
+fixed Q anisotropic at ℓ and `N_p = ℓ^{2k(p)}u_p`, `k(p) → ∞`; then M stays bounded while N_p is unbounded; without
+(A), read the conclusion for the reduced part `N_p♭` of Cor 2.4). Then for all p outside a set of density 0, `√D_p q_p³ ≤ p^{o(1)}` and `N_p ≤ p^{o(1)}`.
 *Proof.* In range, `M ≥ σ (√D q³)^{η} ≥ (√D q³)^{η} N^{−o(1)}` and `M ≥ σ N^{η/(1+η)}`. Prop 2.3 gives
 `M ≤ 2μ f(p) ≤ p^{o(1)}` off a density-0 set. Both bounds then force `N^{η/(1+η) − o(1)} ≤ p^{o(1)}`. ∎
 
@@ -179,9 +201,12 @@ of `(−d,−p)` have norm `N = 4a²d + p` for the form `x₀² + dx₁² + px�
 Type I order of reduced discriminant `pe` (Prop 1.3 there). This is the quaternionic form of the scale constraint:
 the solution-carrying representations are the ones a representation theorem cannot see.
 
-**Corollary 4.2 (PROVED, combining 2.3, 3.1, 4.1).** A rank-4 SA certificate of ES(p) for almost all p must have
-multiplicity `μ(p) ≥ p^{η'}`, and its recipe must be neither rational of bounded degree (Thm 2.3) nor a function
-of factorisation data coprime to `q_p` (Prop 3.1/Cor 3.2), nor factor through a linear projection (Principle 3.3,
+**Corollary 4.2 (Assessment, assembling 2.3, 3.1/3.2, 4.1 and Principle 3.3 — R167 repair: was labelled PROVED).**
+*Proved part:* under (A), either `μ(p) ≤ p^{o(1)}` fails on a set of primes of positive upper density, or all data
+`√D_p q_p³, N_p` are `p^{o(1)}` off a density-0 set (the B2 bounded-slice case); Thm 4.1's contrapositive does **not**
+give `μ(p) ≥ p^{η'}` for a fixed η' > 0. *Assessment:* a rank-4 SA certificate of ES(p) for almost all p must have
+power multiplicity, and its recipe must be neither rational of bounded degree (Thm 2.3) nor a function
+of factorisation data coprime to `q_p` (Prop 3.1/Cor 3.2; for boxed recipes UNPROVED, see the R167 repair there), nor factor through a linear projection (Principle 3.3,
 fibre cancellation). *Scope:* Prop 2.3 needs nothing about the recipe; 2.3/3.1 are as stated there. Not covered:
 recipes of p-growing algebraic degree, and non-algebraic non-factorisation recipes (lattice reduction of an
 x-dependent lattice, continued fractions of ratios of coordinates, …), which are `POINTWISE_SIZE` Thm M's
@@ -191,10 +216,16 @@ x-dependent lattice, continued fractions of ratios of coordinates, …), which a
 
 **Proposition 5.1 (T1 for fixed data; PROVED relative to the SA input and ET Prop 1.6).** Let `Q, q, λ` be fixed
 and `N_n = κn + η`. Local solubility of `Q(x) = N_n, x ≡ λ (q)` at primes `ℓ ∤ 2q·disc Q` is automatic (rank 4,
-ℓ-unimodular), and at the finitely many `ℓ | 2q·disc Q` it depends only on `n mod L` for a fixed L (away from
-the finitely many n with large `v_ℓ(N_n)` at anisotropic ℓ). So for every odd `m` and every prime `p ≡ m² (L)`
+ℓ-unimodular), and at the finitely many `ℓ | 2q·disc Q` it depends only on `N_n mod ℓ^{K_ℓ}` as long as
+`v_ℓ(N_n) < K_ℓ − c_ℓ` (constants depending on Q, q, λ). *(R167 repair: the original "away from the finitely many n
+with large v_ℓ(N_n) at anisotropic ℓ" was false — `{n : v_ℓ(N_n) ≥ k}` is a full residue class, and at `n = m²` the
+valuation `v_ℓ(κm² + η)` is unbounded along m when `−η/κ` is a square mod ℓ.)* Put `L := q·Π_ℓ ℓ^{K_ℓ}`. So for every
+odd m with `v_ℓ(N_{m²}) < K_ℓ − c_ℓ` at all such ℓ (an infinite set: fix an odd r with `N_{r²} ≠ 0`, choose `K_ℓ > v_ℓ(N_{r²}) + c_ℓ`; then every
+odd `m ≡ r (L)` qualifies, since `N_{m²} ≡ N_{r²} (ℓ^{K_ℓ})`) and every prime `p ≡ m² (L)`
 the local conditions at `n = m²` and `n = p` coincide, and SA produces points of `R_{m²}` as soon as it produces
-points of `R_p`. Any recipe whose validity proof uses p only through `p mod L` would therefore give a Type I/II
+points of `R_p`. Any recipe whose output is a Type I/II certificate (ET parameters with n entering linearly — R167
+repair: not an arbitrary element of Sol(n), since `Sol(m²) ≠ ∅`) and whose validity proof uses p only through
+`p mod L` would therefore give a Type I/II
 solution of `4/m²`, which does not exist (ET Prop 1.6). *Which step fails at m²:* the **map** — the validity
 of Φ must use primality of p; the local conditions and the range do not fail. With Thm 2.3, a bounded rational
 recipe is valid only via identities on classes mod L, hence certifies no prime in a square class mod L.
@@ -264,7 +295,7 @@ congruence `n ≡ r (g)` (B1). The rank-4 reading thus re-expresses the lottery 
 |---|---|---|
 | Thm 2.3 (rational recipes idle) | recipe piecewise rational, degree ≤ D uniformly | recipes of degree growing with p, or non-algebraic |
 | Prop 3.1 (invisibility) | recipe reads factorisation data coprime to q_p | `q_p` sharing the *unknown* divisor — impossible for fixed q_p (only `gcd(N_p, q_p^∞)`, known, is seen) |
-| Thm 4.1 (scale window) | SA range exponent `1+η`, η > 0 | an SA statement at expected count `p^{o(1)}` (η = 0): ES-strength, not a known or conjectured SA |
+| Thm 4.1 (scale window) | SA range exponent `1+η`, η > 0; (A) `σ_p ≥ N_p^{−o(1)}` (R167 repair) | an SA statement at expected count `p^{o(1)}` (η = 0): ES-strength, not a known or conjectured SA |
 | Principle 3.3 / C4 | Φ factors through a projection whose image is an AP | an image that is *not* congruence-describable — then SA is not what supplies it |
 | Cor 7.2 | weights capped by the solution | uncapped weights (FIBRED (E-a)); none found |
 
