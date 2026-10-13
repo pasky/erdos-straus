@@ -15,7 +15,9 @@ length of a Jacobi non-residue.
    * (S) For non-square n ≡ 1 (4), L₃(n) ≠ ∅ ⟹ L₃(n) contains a Jacobi −1 word.
    Both hold for all n < 10⁸ (`scripts/bsA_ws.c`). So SQ₅ (interior five slices) holds for every non-square n ≡ 1 (4),
    n < 10⁸, n ∉ {5, 105}. That is 100× DK's range. (S) is exactly the statement that "T1 is the only obstruction".
-   (W) admits no finite-covering proof (Lemma 3.2, PROVED).
+   (W) admits no finite-covering proof (Lemma 3.2, PROVED). **(W) is exactly an open question of Lorenzini**
+   (*The critical polynomial of a graph*, 2022, Example 6.2(a)): xyz − x − z is the critical polynomial of the path A₃, and his
+   conjectural exceptional list is E_W ∪ {0, 1}.
 3. **One-line forms of the sign** (memos; PROVED for r ≤ 5): sign = (w·w − n − r + 1)/4 mod 2 with w the Wu vector of
    the plumbing (bsA_wu_rokhlin_sign). HJ length = popcount of Minkowski's ?(A/n) (bsA_minkowski_stern).
 4. Construction log (§4): six attempts, each steered by a named barrier hypothesis. None escapes. The final reduction of
