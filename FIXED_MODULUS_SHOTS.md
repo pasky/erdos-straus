@@ -136,10 +136,10 @@ prime with k = (r + 1)/4 an S-unit, k = ∏_{q∈S} q^{κ_q}. Write residues of 
 * ES (prime certificate h = r): p is certified iff −p ≡ ∏_{q∈S} q^{e_q} (mod r) with **|e_q| ≤ κ_q** for all q;
 * ES^{(S)} (O186 Prop 2.1 with g = r): p is certified iff −p ≡ 4Q² = ∏ q^{e_q} (mod r) with **e_q ≡ κ_q (mod 2)**,
   no bound (4 ≡ k^{−1} = ∏ q^{−κ_q} mod r, and 4Q² ≡ ∏ q^{2s_q − κ_q});
-* the intersection (e_q ≡ κ_q mod 2 and |e_q| ≤ κ_q, i.e. 0 ≤ s_q ≤ κ_q, i.e. Q | k) is exactly O186 Prop 6.1's
-  condition r ≡ −1 (mod 4Q).
+* a given ES^{(S)} certificate (Q, r), Q = ∏q^{s_q}, has vector e = 2s − κ; it is an ES certificate with the same
+  D = Q² iff also |e_q| ≤ κ_q, i.e. 0 ≤ s_q ≤ κ_q, i.e. Q | k, i.e. r ≡ −1 (mod 4Q) — O186 Prop 6.1.
 *Proof.* First bullet: c/j has exponent vector e = v(c) − v(j) with c j | k; conversely for |e_q| ≤ κ_q take
-c = ∏ q^{max(e_q,0)}, j = ∏ q^{max(−e_q,0)} (cj | k). Second: O186 Prop 2.1. Third: arithmetic. ∎
+c = ∏ q^{max(e_q,0)}, j = ∏ q^{max(−e_q,0)} (cj | k). Second: O186 Prop 2.1. Third: |2s_q − κ_q| ≤ κ_q ⟺ 0 ≤ s_q ≤ κ_q. ∎
 So at the same prime r, ES^{(S)} sees the whole coset ∏q^{κ_q}·⟨S⟩² (size ≍ r when ⟨S⟩ is large mod r), while ES
 sees a box of ∏(2κ_q + 1) ≤ (2 log r + 1)^{|S|} elements: **the ES certificate is the ES^{(S)} discrete-log condition
 with every exponent bounded by the valuation of (r + 1)/4.** For general r the box Box(k) is the "orbit" of the
@@ -152,4 +152,39 @@ never a coset of a large subgroup (it is a bounded box). The expected number of 
 p is Σ_r |A_r|/r ≍ (log R)³ — the polylog lottery (B3) — and restricted to r with S-smooth (r + 1)/4 it converges
 (there are ≪ (log R)^{|S|} such r ≤ R, each of mass ≤ (log r)^{|S|}/r): the convergent S-lottery of O186 Thm 6.2(i),
 now as an exact statement about each r.
+
+## 4. Type I: the same cube with residue −p, and the unified box criterion (PROVED)
+
+Type I := p divides exactly one of x, y, z.
+
+**Lemma 4.1 (Type I cube).** For v, w, f ≥ 1 put g := 4vwf − p. If g > 0 and g | pv + f, then with u = (pv + f)/g,
+`x = p·uvw,  y = wf·u,  z = wf·v`
+solve 4/p = 1/x + 1/y + 1/z (p | x); this is a Type I solution iff p ∤ uvwf. Conversely every Type I solution
+arises so. For Type I points gcd(g, 2pvwf) = 1, and
+`g | pv + f  ⟺  g | p² + 4wf²  ⟺  g | 4v²w + 1.`
+*Proof.* 1/y + 1/z = (u + v)/(wfuv) and 4/p − 1/x = (4uvw − 1)/(puvw); they agree iff p(u + v) = f(4uvw − 1) iff
+u(4vwf − p) = pv + f. Converse: x = px′, y = Gu, z = Gv, gcd(u, v) = 1; then px′(u + v) = (4x′ − 1)Guv, and
+gcd(uv, (u + v)p) = 1 (p ∤ yz) gives x′ = uvw; then pw(u + v) = (4x′ − 1)G with gcd(w, 4x′ − 1) = 1 gives G = wf, so
+p(u + v) = f(4uvw − 1): the point (v, w, f). p | uvwf would put p | y or p | z; so p ∤ g (else p | 4vwf), g odd, and
+gcd(g, vwf) | p forces gcd(g, vwf) = 1. With 4vwf ≡ p (mod g): 4wf(pv + f) ≡ p² + 4wf², 4vw(pv + f) ≡ p(4v²w + 1). ∎
+*Check (`scripts/fms_typeI.py 4000`):* for all primes 5 ≤ p ≤ 4000 the Type I cube (enumerated along the (w, f)
+line, wf ≤ p) reproduces the brute-force Type I solution sets exactly, and every brute-force Type I solution
+decomposes as in the converse.
+
+Lines (all with residue **−p**, not −1): (v, f) fixed: N = pv + f, divisor g ≡ −p (mod 4vf); (w, f) fixed:
+N = p² + 4wf² (the campaign's Type I form), g ≡ −p (mod 4wf); (v, w) fixed: N = 4v²w + 1 (independent of p),
+g ≡ −p (mod 4vw). Through (1,1,1): p + 1 (the same shot as Type II's (c, j) = (1,1) line), p² + 4 (never fires: a
+sum of two coprime squares has no divisor ≡ 3 mod 4), and the constant 5 (never fires for p ≡ 1 mod 4). So Type I
+adds no new modulus-4 shot, and every Type I line has modulus 4 × (product of the fixed pair).
+
+**Theorem 4.2 (unified box criterion).** For an odd prime p and Box(k) := {c·j^{−1} : c, j ≥ 1, cj | k}:
+* ES(p) has a Type II solution with divisor h ⟺ h ≡ 3 (mod 4) and −p ∈ Box((h + 1)/4) (mod h);
+* ES(p) has a Type I solution with divisor g ⟺ g ≡ −p (mod 4), gcd(g, p) = 1, and −p ∈ Box((g + p)/4) (mod g)
+  (realised by some (v, f) with p ∤ uvwf).
+*Proof.* Type II: Thm 3.1. Type I: g | pv + f ⟺ −p ≡ f/v (mod g) (gcd(g, v) = 1), and 4vwf = g + p ⟺ vf | (g+p)/4
+with w the cofactor. ∎ (The Type I bullet needs the side condition p ∤ uvwf of Lemma 4.1 for the solution to be of
+Type I; without it one still gets an ES solution.)
+So **every ES certificate of a prime is "−p lies in a divisor box modulo h"**, the box being that of (h + 1)/4
+(Type II) or (h + p)/4 (Type I). A box has ≤ τ₃ elements and no group structure; in ES^{(S)} the box is replaced by
+a coset of the group ⟨S⟩² (Cor 3.2). This is the precise form of B2 at the level of a single modulus.
 
