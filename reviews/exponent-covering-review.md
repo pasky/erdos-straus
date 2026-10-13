@@ -4,7 +4,7 @@ Reviewer branch `side-agent/review-expcover-1`. From-scratch scripts `scripts/re
 Repairs applied (author branch quiet): D1, D2, D3, D4, D5, D6, D7, D8, D9, D10 (wording + rerun log), D11, D12 — directly in EXPONENT_COVERING.md and the bsK memos, each marked "(R185 repair)".
 Status: round 1 complete. **No FATAL defects. The headline infinite result (Thm 4.1) is SOUND**: all 11 certificates pass a
 from-scratch exact checker. 2 MAJOR (D3 proof gap for "squares are sterile", repairable by citation; D12 overclaimed scope of the
-Proth negative), 9 MINOR.
+Proth negative), 10 MINOR (D1, D2, D4–D11).
 
 ## Summary verdicts
 | claim | verdict |
