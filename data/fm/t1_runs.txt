@@ -1,0 +1,6 @@
+q=3 A=10 s=11 deg P<=6 f-deg<=7: squares 17 shot-solved 0 (d parities used []); non-squares 468 shot-solved 468; verify failures 0
+q=3 A=100 s=11 deg P<=6 f-deg<=7: squares 17 shot-solved 17 (d parities used [0]); non-squares 468 shot-solved 468; verify failures 0
+q=7 A=10 s=11 deg P<=4 f-deg<=4: squares 41 shot-solved 0 (d parities used []); non-squares 2016 shot-solved 2016; verify failures 0
+q=5 A=10 s=12 deg P<=4 f-deg<=5: squares 19 shot-solved 19 (d parities used [0, 1]); non-squares 480 shot-solved 480; verify failures 0
+q=5 A=100 s=11 deg P<=4 f-deg<=5: squares 19 shot-solved 19 (d parities used [0, 1]); non-squares 480 shot-solved 480; verify failures 0
+q=3 A=1000 s=11 deg P<=6 f-deg<=7: squares 17 shot-solved 0 (d parities used []); non-squares 468 shot-solved 468; verify failures 0
