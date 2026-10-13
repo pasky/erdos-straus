@@ -157,3 +157,62 @@ E'_T and deg Z(T) are functions of the genus of T. (EVIDENCE) Genus does not det
 (p < 3000, cd ≤ 12) where the certificate genus also contains non-certificate indices T'_f. (Assessment) Hence Kudla's
 degrees only see G_{c,d}, and B2 is the passage from genus to ray class." Drop the GL₂(ℤ)-translate argument and the
 "must have w(T) depending on the representative" sentence (or label it Assessment and fix (ii)).
+
+## §3 (Lemma 3.1 and construction log)
+
+| Claim | Verdict |
+|---|---|
+| Lemma 3.1 (square discriminant ⇒ hyperbolic ⇒ coherent) | SOUND (folklore, trivial) |
+| Log 1 (genus-2 Kudla killed by B2 "via Prop 2.4") | SOUND-AFTER-REPAIRS (rebase on genus, D8) |
+| Log 2 (coset Schwartz functions → split-plane coset count) | SOUND (Assessment); but contradicts log 3 (D9) |
+| Log 3 decomposition ES = Q + R, Q formula, Q ≤ G, Q = 0 at squares | SOUND (exact part); "R has no orthogonal Siegel–Weil incarnation" FALSE as stated (D9); size claim off (D10) |
+| Log 4 base change to ℚ(ζ_M)⁺ | SOUND (Assessment) |
+| Log 5 T1 screen | SOUND (Assessment) |
+
+*Re-derivation.* Lemma 3.1: −det ∈ ℚ_v^{×2} ⇒ the binary form is isotropic ⇒ hyperbolic; all local spaces are the
+localisations of the global hyperbolic plane, ∏ε_v = 1 ✔. Log 3: gcd(N, M) = 1 since N ≡ 1 (M); orthogonality gives
+ES = φ(M)^{−1}Σ_χ χ(−1)S_χ(N) ✔; Σ_{χ²=1}χ(x) = [G:G²]·1[x ∈ G²] (G = (ℤ/M)^×), so the quadratic part is
+Q = #{f | N : −f ∈ G²}/|G²| ✔. Q ≤ G: −f ∈ G² ⇒ −f ≡ 1 (4), (−f/ℓ) = 1 for odd ℓ | d, and −f ≡ 1 (8) when 2 | cd, which
+kills every non-Odd(n) place in Prop 2.2(c) ✔ (numerically: #{f : −f ∈ G²} ≤ G in all 14980 slices). Log 4: for a
+rational prime f ≡ ±1 (M), a prime 𝔣 | f of F has degree 1 and Frob_𝔣 ∈ Gal(E/F) = {1, −1} is f mod M, so
+f ≡ −1 ⟺ η_{E/F}(𝔣) = −1 ✔; for the extended ideal (f)O_F the Artin map is the transfer, σ_f^{[F:ℚ]} ✔ (sign lost).
+
+**D9 (MAJOR, Assessment-level but load-bearing) — §3 log item 3: "Orthogonal Siegel–Weil/Kudla Eisenstein series live in
+I(s, χ_V) with χ_V quadratic; … the remainder (characters of order ≥ 3) has no orthogonal Siegel–Weil incarnation"; report
+bullet "(3) … R = characters of order ≥ 3 (no orthogonal Siegel–Weil incarnation)".** The character χ_V of the induced
+representation is quadratic, but the *Schwartz function* need not be K-invariant: log item 2 itself takes the coset
+function Φ = 1_{(−1,−1)+Mℤ²} on the split plane (ℚ², xy), and its Siegel–Weil Eisenstein series (in I(s, χ_V) with χ_V
+trivial) has N-th coefficient r_Φ(N) = #{f | N : f ≡ N/f ≡ −1 (M)} = ES_{c,d}(n) **exactly**, characters of all orders
+included (they arise from decomposing Φ under the torus action ω(m(a)), a ∈ (ℤ/M)^×). So R is Siegel–Weil-visible; what is
+true is that **K_ℓ-invariant (lattice-characteristic) Φ** — the Φ used in Kudla's arithmetic Siegel–Weil, which gives genus
+functions (D8) — sees only the quadratic/genus part. Items 2 and 3 as written contradict each other. *Repair:* replace the
+sentence by "with the lattice (K-invariant) Schwartz functions of Kudla's arithmetic Siegel–Weil formula, only genus
+(quadratic-character) information is visible; level-M coset functions see the full ray class but then the count is the
+split-plane coset representation number of item 2, i.e. B2 again." Adjust the report bullet likewise.
+
+**D10 (MINOR) — log item 3: "Per slice Q ≍ τ(N)·2^{ω(M)}/φ(M)".** Under equidistribution of divisors mod M, the f's with
+−f ∈ G² are a 1/[G:G²] fraction, so Q ≈ (τ(N)/[G:G²])/|G²| = τ(N)/φ(M), with no 2^{ω(M)}. Numerics
+(`scripts/review_kud_qomega.py`, cd ≤ 60, 5 ≤ p < 1500): ΣQ/Σ(τ(N)/φ(M)) = 0.68, 0.55, 0.46 for ω(M) = 1, 2, 3 — decreasing
+in ω(M), opposite to the claimed 2^{ω(M)} growth (for comparison ΣES/Σ(τ/φ) = 0.56, 0.34, 0.28). The conclusion
+"Q ≪ 1 per slice for large M" is unaffected (it is a heuristic in any case, since τ(N) is unbounded at fixed M).
+*Repair:* "Q ≈ κ·τ(N)/φ(M) with κ ∈ [0.4, 0.7] empirically".
+
+## Labels and overclaims (global)
+
+* No statement is labelled stronger than its proof except Prop 2.4 (D8: PROVED label covers an argument that proves
+  nothing beyond "Z(T) is GL₂(ℤ)-equivariant", plus a false "Consequence") and the "relative to Dirichlet" wording (D7,
+  which errs in the weak direction).
+* "ES is not solved here, nor any infinite case" — respected throughout. ✔
+* The author's §1 novelty caveat is honest; the report's SHARP bullet should carry D4's "sufficient, not exactly" and
+  D5's Type II caveat.
+* No circularity found; no constant secretly depending on parameters (all statements are exact identities per tuple);
+  the quantifiers in Thms 1.2/1.4 (all odd n, every tuple) were checked exhaustively up to 20000.
+
+## Overall verdict
+
+§1 (Thms 1.2, 1.4, Lemma 1.1, the e·T' remark): **SOUND** — the Diff formulas, the Kudla/Hasse convention and all numerics
+reproduce exactly from independent code; only wording repairs (D1–D6). §2: Props 2.1–2.3 **SOUND** (D7 cosmetic);
+Prop 2.4 **GAP** (D8: the correct, stronger obstruction is genus-invariance of Kudla data, and it is supported by new
+evidence: 582 mixed genera). §3: Lemma 3.1 SOUND; log item 3 contains a false assertion (D9) and a wrong growth rate (D10).
+No FATAL defects. The document's overall conclusion (Kudla's program sees exactly the genus layer G; ES is the ray-class
+upgrade, B2) stands — and is in fact better supported after D8/D9 than by the author's own arguments.
