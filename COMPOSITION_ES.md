@@ -69,3 +69,54 @@ So the census question of the brief has the exact answer: **a deterministic reci
 ↦ B = 1" is impossible at every μ with 4tj − 1 ∤ μ, and superfluous at every other μ.** Composition can only
 re-express an existing ES certificate (as in R202's n = 59, μ = 126 instance), never create one.
 *Proof.* Thm 1.3 and Prop 1.2. ∎
+
+## 2. Class-group dictionary at fixed μ
+
+Let S(μ) be the set of primes ℓ | μ with ℓ ∤ 2n and (−n/ℓ) = 1 (these split in O' as 𝔩𝔩̄, since f ≡ −n mod ℓ).
+The **box** 𝔅(μ) is the set of primitive ideals 𝔡 ⊂ O' with N𝔡 | μ and N𝔡 supported on S(μ) (equivalently
+𝔡 = ∏ 𝔩_i^{e_i} with one prime chosen above each ℓ_i and e_i ≤ v_{ℓ_i}(μ)); |𝔅(μ)| = ∏_{ℓ∈S(μ)} (2v_ℓ(μ) + 1).
+Let Cl⁺(O') be the narrow class group and **δ ∈ Cl⁺(O')** the class of principal ideals having a generator of
+negative norm. By Prop 1.2(c) O' has no unit of norm −1, so δ ≠ 1, δ² = 1, and δ ↦ 1 in the wide group Cl(O').
+χ₋₄ : 𝔞 ↦ (−4/N𝔞) is a character of Cl⁺(O') (on ideals prime to 2) with χ₋₄(δ) = −1 (Prop 1.2(c)).
+
+**Proposition 2.1 (V_n values are the δ-fibre of the box; PROVED).** (a) D is the D-value of a V_n point at μ iff
+some 𝔡 ∈ 𝔅(μ) with N𝔡 = D has [𝔡]⁺ = δ. The V_n points with α ∈ 𝔡 form, up to ι_B, one orbit of ε (fundamental
+unit of O'), whose members have unbounded A.
+(b) Composition (Prop 1.2) is ideal multiplication: [𝔡₁𝔡₂𝔡₃]⁺ = δ³ = δ, and the product is again in the box iff
+the norms multiply inside μ.
+(c) (**ES is not a class condition.**) For μ > n, ε_μ = 1 − 2jη̄ generates the ideal 𝔢_μ := (4tj − 1, 2jη̄ − 1),
+whose class is δ for EVERY μ. ES at μ ⟺ 𝔢_μ ∈ 𝔅(μ) ⟺ N𝔢_μ | μ: membership of one prescribed principal ideal in the
+box. Among the ideals of the δ-fibre, 𝔢_μ is singled out by its generator (B = 1), not by any class datum.
+(d) (**T1.**) If n = m² then every ℓ ∈ S(μ) has ℓ ≡ 1 (mod 4), so χ₋₄ ≡ 1 on 𝔅(μ) and the δ-fibre of the box is
+empty for every μ: no V_n point at all (the class-group form of MARKOFF_ES Cor 3.2).
+*Proof.* (a) Lemma 1.1: an element of O' of norm −D is a negative-norm generator of a primitive ideal of norm D
+(primitive ⟺ gcd(x, y) = 1 since D is odd); the generator is unique up to units of O', all of norm +1.
+A → ∞ along the orbit by MARKOFF_ES Prop 7.1(b)/GROWING_MUTE Prop 1.2(b). (b) Prop 1.2. (c) N(ε_μ) = −(4tj − 1) < 0
+(Thm 1.3), ε_μ is primitive; Thm 1.3 for the equivalence. (d) (−m²/ℓ) = (−1/ℓ). ∎
+
+**Remark 2.2 (where B = 1 sits in the principal cycle).** In the regular CF of √(16f)/2 = √(4f), the principal
+cycle of reduced ideals of O' begins 1, (2η̄ − 1), (2η̄), (2jη̄ − 1) = 𝔢_μ, … with norms 4μ − 1 − 4n, 4n, 4tj − 1
+(MARKOFF_ES Thm 4.3: p₀ − q₀√N = 2η̄ − 1, p₁ − q₁√N = 2η̄, p₂ − q₂√N = 2jη̄ − 1 — the recursion
+p₂ = a₂p₁ + p₀ reads 2jη̄ − 1 = (j − 1)·2η̄ + (2η̄ − 1)). So ES is "the third reduced principal ideal has norm
+dividing μ". The second one is 2η̄, i.e. 2× the element of norm n that defines the family; ε_μ ≡ −1 (mod 2η̄O).
+
+## 3. Pigeonhole in Cl⁺(O'_μ) (modification 1: unbounded box, MARKOFF_ES spark 4)
+
+Idea: make |S(μ)| large (μ highly composite in split primes) so that pigeonhole in Cl⁺(O'_μ) forces a δ-product.
+Barrier screen first: this can only ever give V_n points (ES^{[2]}), since by Prop 2.1(c) B = 1 is not a class
+condition. Even for ES^{[2]} it fails as a forced mechanism:
+
+**Proposition 3.1 (pigeonhole delivers the wrong sign; PROVED).** Let c₁, …, c_r ∈ G := Cl⁺(O') be the classes of
+the chosen primes over S(μ) (each may be replaced by its inverse = conjugate). (a) Davenport: if r ≥ D(G) (the
+Davenport constant) then some nonempty product ∏_{i∈I} 𝔩_i^{±1} is narrowly principal — but with a POSITIVE-norm
+generator, i.e. not a V_n point. (b) A V_n point at μ supported on squarefree part exists iff δ ∈ Σ^±(c₁, …, c_r)
+(signed subset sums), which no lower bound on r forces: e.g. if G ⊇ ⟨δ⟩ × ⟨g⟩ ≅ (ℤ/2)² and every 3-mod-4 prime has
+class δg and every 1-mod-4 prime class 1 or g, then Σ^± ⊂ {1, g, δg} for all r. (c) The necessary condition
+χ₋₄ = −1 forces an odd number of primes ≡ 3 (mod 4) in I (the genus layer of MARKOFF_ES §6); the remaining
+condition is the class layer, the same Cohen–Lenstra-type input as MARKOFF_ES Prop 6.1(c).
+*Proof.* (a) Davenport's definition; a narrowly principal ideal has a totally positive generator, norm > 0.
+(b) Prop 2.1(a); the example is a group computation (δg·δg = 1, and products of an odd number of δg's are δg).
+Whether the example occurs in some O'_μ is not claimed; the point is that no counting of S(μ) alone excludes it. ∎
+*Reading.* Pigeonhole in class groups naturally manufactures elements of norm +D (D ≡ 1 mod 4) — these are the
+"even products" that Prop 1.2(c) excludes. Reaching δ is a target-sum problem whose answer depends on the actual
+classes, i.e. on h(O'_μ) and its structure. Even a full solution would give ES^{[2]}(n), not ES(n).
