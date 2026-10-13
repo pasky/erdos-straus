@@ -1,0 +1,36 @@
+both-empty n=241 (n mod 24 = 1)
+both-empty n=409 (n mod 24 = 1)
+both-empty n=769 (n mod 24 = 1)
+both-empty n=1249 (n mod 24 = 1)
+both-empty n=1321 (n mod 24 = 1)
+both-empty n=1489 (n mod 24 = 1)
+both-empty n=2089 (n mod 24 = 1)
+both-empty n=2161 (n mod 24 = 1)
+both-empty n=2689 (n mod 24 = 1)
+both-empty n=3049 (n mod 24 = 1)
+both-empty n=3169 (n mod 24 = 1)
+both-empty n=3529 (n mod 24 = 1)
+both-empty n=3889 (n mod 24 = 1)
+both-empty n=4729 (n mod 24 = 1)
+both-empty n=4801 (n mod 24 = 1)
+both-empty n=5209 (n mod 24 = 1)
+both-empty n=5569 (n mod 24 = 1)
+both-empty n=6361 (n mod 24 = 1)
+both-empty n=7129 (n mod 24 = 1)
+both-empty n=7369 (n mod 24 = 1)
+q=3 NMAX=1000000 mode=primes: candidates 78496; F_I=0: 6478; F_II=0: 3552; both=0: 1233
+min (F_I+F_II)/log^2 n = 0.0000 at n=241 (F_I=0 F_II=0)
+max least-s: TypeI 7 (n=3257), TypeII 7 (n=592609), either 7 (n=764209)
+mean count per s (over candidates): s: TypeI TypeII
+  s=0 40.7010 58.4058
+  s=1 13.8959 13.3032
+  s=2 5.3558 4.2637
+  s=3 1.8355 1.3189
+  s=4 0.7450 0.4006
+  s=5 0.2039 0.1118
+  s=6 0.0687 0.0291
+  s=7 0.0284 0.0074
+  s=8 0.0110 0.0017
+  s=9 0.0061 0.0003
+  s=10 0.0009 0.0000
+  s=11 0.0001 0.0000

@@ -205,3 +205,16 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | bsG_lens_dinv | lens spaces / d-invariants / Dedekind sums | Floer invariants see Σ letters, not length | identity checked; Assessment |
 | bsG_modular_hyperbola | (W) on aā ≡ 1 (n), Kloosterman | B3 gap n^{1/2} | Assessment |
 | LORENZINI_W.md (deep) | forms F1–F4, shadow, sterile set, short blocks, rate, Stern, primes | (W) open; ES content of SQ₅ at primes is (S) alone | see file |
+## Spark relay E (O178): depth aspect / prime-power moduli (memos bsE_*, deep file DEPTH_ASPECT.md; not yet triaged)
+
+| file | angle | own verdict | hatch / status |
+|---|---|---|---|
+| bsE_qpower_moduli_Z | ET moduli restricted to q^s over ℤ | COLLAPSES (B2); 1233 explicit failures ≤ 10⁶ at q = 3 | none |
+| bsE_sierpinski_moving_integer | q^s p + 1 as a Sierpiński family | COLLAPSES (B1) | none |
+| bsE_padic_interpolation | Skolem–Mahler–Lech / exponential-polynomial witnesses | COLLAPSES (B1; Lemma 1.3 PROVED) | none |
+| bsE_depth_characters | Postnikov / Kloosterman mod T^r | PARTIAL: wrong tool; elementary casework wins | — |
+| bsE_et_casework_depth | ET casework at depth T^s: 2/5 beats O173's 1/2 | LIVE (FF, PROVED) | FF sterile points |
+| bsE_large_q_char3 | no finite linear covering of ES_q(T^k), q = 3^r ≥ 3^27 | PROVED (FF), under review | — |
+| bsE_large_r_sterile | sterile Mordell points for every large r | SHARP candidate, PROVED rel. cited, needs review | B1-side |
+| bsE_caseAB_shift | #Case A(α) = #Case B(α+1) | CONJECTURE (EVIDENCE) | — |
+| bsE_q3_explicit_constants | what is missing at q = 3, r = 13/17 | OPEN programme | — |
