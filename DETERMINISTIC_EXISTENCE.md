@@ -203,11 +203,18 @@ integral points that provably do not exist. (Elementary; the point of the statem
 Setting: p ≥ 5 prime, slice e < p with e ≡ −p (4), N_e = (p+e)/4, gcd(N_e, e) = 1, r_e := p·4⁻¹ mod e ≡ N_e.
 G_e := (ℤ/e)^×, N_e = ∏ ℓ_i^{k_i}.
 
+**Convention on "forcing" (R168 repair).** Data D *force* a property of N if it holds for every integer N (coprime to
+e) with data D. The converse directions below (Props 6.2, 6.3, 7.2, 8.1) exhibit such integers via Dirichlet (a prime N
+or prime cofactor P_e in the given class); they are PROVED in this **abstract-integer model** only and say nothing
+about whether N_e(p) for a prime p realises them (that would need a prime-pair/Dickson–Schinzel hypothesis on
+(p, (p+e)/(4s_e))). They are meta-statements about what residue/sharing data can certify, not statements that some
+slice fails for some prime p. Thm 7.3 is genuinely about primes p and is unaffected.
+
 **Prop 6.1 (box form; PROVED).** Σ_e(N) = {∏ ℓ_i^{γ_i} : |γ_i| ≤ k_i} ⊆ H_e(N) = ⟨ℓ_i⟩, and the slice solves iff
 −1 ∈ Σ_e(N). *Proof.* ab | N ⇔ exponents α_i + β_i ≤ k_i; ab⁻¹ = ∏ ℓ_i^{α_i−β_i}; every |γ| ≤ k is some α − β
 (take (γ,0) or (0,−γ)); a ≡ −b (e) ⇔ ab⁻¹ ≡ −1 as gcd(b, e) = 1. ∎
 
-**Prop 6.2 (group-level forcing is exactly −1 ∈ ⟨r_e⟩; PROVED rel. Dirichlet).** r_e ∈ H_e(N_e) always; hence
+**Prop 6.2 (group-level forcing is exactly −1 ∈ ⟨r_e⟩; PROVED; converse in the abstract-integer model via Dirichlet, R168 repair).** r_e ∈ H_e(N_e) always; hence
 −1 ∈ ⟨r_e⟩ ⇒ −1 ∈ H_e(N_e). Conversely if −1 ∉ ⟨r_e⟩ the residue datum does not force it (N prime ≡ r_e has
 H = ⟨r_e⟩). For odd e: −1 ∈ ⟨r⟩ ⇔ ord_{q^a}(r) is even with the **same 2-adic valuation** for all q^a ‖ e
 (r^k ≡ −1 (q^a) ⇔ k ≡ ord/2 (mod ord), so v₂(k) = v₂(ord_{q^a} r) − 1 for all components; CRT on odd parts). If
@@ -216,7 +223,9 @@ every prime factor of e is ≡ 3 (4) (forced when e is prime, e ≡ 3 (4)), this
 Prop 3.4 is the case e prime.
 
 **Prop 6.3 (Σ = H only for e | 24; PROVED).** Σ_e(N) = H_e(N) for every N coprime to e ⇔ G_e has exponent ≤ 2 ⇔
-e | 24. (⇐ Prop 3.3(b). ⇒ N = ℓ prime of order > 2 gives Σ = {1, ℓ^{±1}} ≠ ⟨ℓ⟩.) Consequently **residue data alone
+e | 24. (⇐ Prop 3.3(b). ⇒ N = ℓ prime of order equal to the exponent of G_e gives Σ = {1, ℓ^{±1}} ≠ ⟨ℓ⟩; this exponent is even (−1 has order 2)
+hence ≥ 4 once > 2, so |Σ| ≤ 3 < |⟨ℓ⟩| (R168 repair: "order > 2" fails for order 3, e.g. e = 7, ℓ ≡ 2, where
+{1, ℓ, ℓ⁻¹} = ⟨ℓ⟩).) Consequently **residue data alone
 force Σ-success at slice e iff r_e ≡ −1 (mod e)**, i.e. p ≡ −4 (mod e) (worst case N_e prime) — a single congruence
 class, the a = N, b = 1 witness. For p ≡ 1 (4) the only e | 24 slice is e = 3, where forcing ⇔ p ≡ 2 (3).
 
@@ -234,15 +243,16 @@ at most one N_e. ∎
 So the bipartite graph Γ_p(E) (slices e ≤ E vs primes ℓ | N_e) has a *congruence part* (small primes, adjacency and
 classes fixed by p mod Q_E) and a *private part* (each N_e's cofactor P_e, prime factors > (E+1)/4, one slice each).
 
-**Prop 7.2 (what joint data force = block witnesses; PROVED rel. Dirichlet).** Let s_e = ((E+1)/4)-smooth part of
+**Prop 7.2 (what joint data force = block witnesses; PROVED; "⇒" in the abstract-integer model via Dirichlet, R168 repair).** Let s_e = ((E+1)/4)-smooth part of
 N_e, P_e = N_e/s_e, c_e ≡ P_e (mod e). Given all congruence data (s_e, c_e)_{e ≤ E}, slice e is forced to solve iff
 −1 ∈ Σ_e(s_e)·{1, c_e^{±1}} ("block witness": P_e used as an indivisible block). *Proof.* ⇐: a block witness is a
 witness since P_e | N_e. ⇒: the data are consistent with P_e prime (Dirichlet: primes > E/4 in every class mod e),
-and then Σ_e(N_e) = Σ_e(s_e)·{1, P_e^{±1}} by Prop 6.1. ∎ Any pigeonhole/Hall/LP argument that uses only Γ_p(E)'s
-incidence structure and residue classes therefore proves at most "some slice e ≤ E has a block witness".
+and then Σ_e(N_e) = Σ_e(s_e)·{1, P_e^{±1}} by Prop 6.1. ∎ (Assessment; R168 repair) Any pigeonhole/Hall/LP argument that uses only the
+congruence part of Γ_p(E) together with the classes c_e of the private cofactors therefore proves at most "some slice
+e ≤ E has a block witness" (an argument using the classes of the individual private primes sees the full box Σ_e(N_e)).
 
 **Thm 7.3 (block witnesses miss a congruence class; PROVED, elementary).** For E ≥ 3 let
-M_E = lcm(1, …, E) · 2^{K₂+3} · ∏_{3 ≤ ℓ ≤ (E+1)/4} ℓ^{K_ℓ+1}, with K_ℓ minimal such that ℓ^{K_ℓ+1} > (E+1)/4.
+M_E = lcm(1, …, E) · 2^{K₂+3} · ∏_{3 ≤ ℓ ≤ (E+1)/4, ℓ prime} ℓ^{K_ℓ+1}, with K_ℓ minimal such that ℓ^{K_ℓ+1} > (E+1)/4.
 Every prime p ≡ 1 (mod M_E) has no block witness at any Type II slice e ≤ E.
 *Proof.* p ≡ 1 (mod 4ℓ^{K_ℓ+1}) gives N_e(p) ≡ (1+e)/4 (mod ℓ^{K_ℓ+1}) (and mod 2^{K₂+1}), and
 v_ℓ((1+e)/4) ≤ K_ℓ since (1+e)/4 ≤ (E+1)/4; so s_e(p) = (1+e)/4 exactly. p ≡ 1 (mod e) gives r_e ≡ 4⁻¹, hence
@@ -250,7 +260,9 @@ c_e ≡ r_e/s_e ≡ 1/(1+e) ≡ 1. A block witness then reduces (P_e ≡ 1) to a
 2 ≤ a'+b' ≤ a'b'+1 ≤ (1+e)/4 + 1 < e. ∎
 **Cor 7.4 (PROVED rel. Linnik's theorem).** log M_E ≤ (3/2 + o(1))E, so by Linnik (least prime ≡ 1 (mod M) is
 ≪ M^L) there are infinitely many primes p such that no Type II slice e ≤ c₀·log p (c₀ = 1/(1.5L) − ε) has a block
-witness; for fixed E the failing set has density ≥ 1/φ(M_E) among primes. ∎
+witness; for fixed E the failing set has density ≥ 1/φ(M_E) among primes. ∎ (R168 repair: "block witness" is relative to
+the smoothness bound E; here E = E(p) is the E for which p is the Linnik prime ≡ 1 (mod M_E). Since
+Σ_e(s'_e)·{1, c'^{±1}} ⊆ Σ_e(s_e)·{1, c^{±1}} for E' ≤ E, the conclusion also holds relative to E' = ⌊c₀ log p⌋.)
 So deterministic *joint* forcing over slices e ≤ c log p is impossible; joint forcing needs slices e ≫ log p *and*
 must still beat Thm 7.3's analogue at that scale (H-A). The genuinely non-deterministic input — splitting the
 private cofactors P_e — is exactly what every certificate in §§3–7 lacks.
