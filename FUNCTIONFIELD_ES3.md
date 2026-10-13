@@ -117,7 +117,7 @@ log `data/ff3_check_log.txt`.
 
 **Control: x*_c is not visibly special (EVIDENCE; this settles R166 D6 in the negative direction).**
 Random slice points that agree with x*_1 to a given T-adic precision, searched with the same complete j-range
-and deg L' ≤ 9 (`/tmp` driver, 40 points each):
+and deg L' ≤ 9 (`scripts/ff3_ctl.sh m 40 9 0`, 40 points each):
 | agreement with 1 + T | points with ≥ 1 family | mean number of families |
 |---|---|---|
 | mod T^4 | 7/40 | 0.35 |
