@@ -21,7 +21,9 @@ Main file: `STRONG_APPROX_ES.md`. Script: `scripts/sa_typeII_matrix.py`. ES is n
    by the solution, so the polylog scale returns (Cor 7.2).
 
 **Honest verdict.** Every rank-4 SA route found collapses to B1/B2/B6 via the map back to ES solutions. The
-fallback (scoped obstruction) is written; the "break-through" part produced no live route. Weakest points
+fallback (scoped obstruction) is written; the "break-through" part produced no live route. Self-check repair: Cor 2.4's margin is only Sardari's fixed ε₀
+(N ≥ q^{6+ε₀}); with a better (conjectural, exponent-4) range near its boundary, Thm 2.3 is too weak (gap
+recorded in §2). Weakest points
 for a hostile reviewer: Thm 2.3's use of σ_p ≥ N^{−o(1)} (anisotropic primes), Prop 5.1's "depends only on
 n mod L" (needs bounded `v_ℓ(N_n)`), and the §1 literature statements (subagent-verified only).
 
