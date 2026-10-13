@@ -327,3 +327,20 @@ corr(W, log L_y) = −0.484, mean W/log²p = 0.18 (bottom decile) vs 0.10 (top d
 (under GRH)". Under GRH the Littlewood bound is **L(1, χ) ≤ (2e^γ + o(1)) log log p**, i.e.
 log L(1, χ) ≤ log log log p + O(1), and G–S show that this is essentially attained. Fix the statement. Bach's
 2 log² p and Burgess' p^{1/(4√e)+ε} are quoted correctly.
+
+## Memo bsB_root_number_parity — SOUND as a screen; numerics reproduced; one overreach (D18)
+
+Item 1: the ES surface is rational over ℚ (z = nxy/(4xy − n(x + y))), so its rational points are dense in the real
+positive orthant. Correct. A rational-point mechanism therefore yields nothing, which is a fair reading.
+Item 2 numerics reproduced from scratch (`scripts/review_sl_parity.py`, my own W): 69633 primes p ≡ 1 (4) in
+[10⁵, 2·10⁶]. Over the 32 classes (p mod 8; (p/3), (p/5), (p/7), (p/11)), P(W(p) odd) ∈ [0.473, 0.520], overall
+0.499. This is identical to the author's figures.
+**D18 (MINOR).** "The parity of the certificate count is not locally determined" and "There is no involution with
+locally-counted fixed points" are stronger than the test. The test excludes dependence on these 32 classes only,
+i.e. local data at 2, 3, 5, 7, 11 to first order. Repair: "not determined by p mod 8 and the Legendre symbols at
+3, 5, 7, 11 (EVIDENCE); combined with WR §6 / DK C5, no local parity formula is visible". Make the involution
+sentence an Assessment.
+Items 3–4: Assessment, correctly labelled ("the general statement '2-Selmer conditions are Hilbert-symbol
+conditions' is standard"). In item 4 the inference "Hilbert-symbol conditions ⇒ never d ≡ −1 (mod t)" uses
+`bsB_redei_oddpart` item 1. It is valid for prime t only, and for composite t the A₂-part can be finer than genus
+(see D11). Add "for prime t".
