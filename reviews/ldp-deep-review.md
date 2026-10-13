@@ -130,10 +130,13 @@ Swan/Reiner §34–35; I could not access Reiner in `sources/`, theorem numbers 
 Λ-ideal classes ↔ ℚ^×_{>0}\𝔸_f^×/nrd(Λ̂^×) via nrd. For a **maximal** order nrd(Λ_ℓ^×) = ℤ_ℓ^× for all ℓ, so the set is
 trivial; maximal orders are everywhere locally conjugate, so the type number ≤ class number = 1. ✓ inv_∞ = 1/2 ⇒
 odd number of finite ramified places (Hilbert reciprocity). ✓
-**Defects.** (a) "'Some order in the genus has P' = 'every order has P'" is true for the genus of **maximal** (or
-Eichler) orders only. For general orders Λ (those that encode level structure — exactly what ES certificates
-produce) nrd(Λ_ℓ^×) can be a proper subgroup: e.g. Λ = ℤ + ℓM₂(ℤ) has nrd(Λ_ℓ^×) = ℤ_ℓ^{×2}(1 + ℓℤ_ℓ), index 2,
-so its locally free class number is 2 although A = M₂(ℚ) is indefinite. The correct precise form of "all local–global
+**Defects.** (a) "one type and one locally free class" (LDP_DEEP A.3.2) and "'some order in the genus has P' =
+'every order has P'" are proved only for **maximal** orders (type number ≤ class number = 1). For general orders Λ
+(those that encode level structure — exactly what ES certificates produce) nrd(Λ_ℓ^×) can be a proper subgroup:
+e.g. Λ = ℤ + ℓM₂(ℤ), ℓ odd, has det(a + ℓX) ≡ a² (mod ℓ), so nrd(Λ_ℓ^×) = ℤ_ℓ^{×2} (index 2) and its locally free
+class number is 2 although A = M₂(ℚ) is indefinite (its type number is still 1, so this is a counterexample to
+"one locally free class", not to the type statement; for non-maximal genera the type statement is simply not
+proved by the cited argument). The correct precise form of "all local–global
 content is congruence data" is: *under Eichler's condition, class sets of any order are ray class groups via nrd,
 so any class invariant is a function of finitely many Dirichlet characters.* State that instead (D2a, MINOR — the
 conclusion survives, the quantifier statement does not). (b) "Definiteness is *exactly* what makes … the supersingular
