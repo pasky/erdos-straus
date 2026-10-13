@@ -65,4 +65,69 @@ brute force for odd n < 200. Prime n never divides M (n ≤ 3000) — see D9.
 
 ## Defects
 
-(pending)
+No FATAL defect: every negative conclusion of the document survives, after the repairs below.
+
+**D1 (MINOR) §1 (BKS).** BKS is IMRN (DOI 10.1093/imrn/rnx116 on the arXiv record of 1609.06097), not Duke 2019.
+*Repair:* fix the citation.
+
+**D2 (MINOR) §1 (S4), Def 2.1.** Sardari Thm 1.6 is stated for global balls with `gcd(a_p, p) = 1` (the class λ is
+primitive at each p | m); imprimitive classes are reduced by dividing N by `p^{2h_p}` (Remark 1.7). §1 and the
+"model case" of Def 2.1 apply (S4) to arbitrary λ. *Repair:* add "λ primitive at every p | q (else rescale N)" to the
+(S4) bullet. Nothing downstream changes, because Thm 2.3/Cor 2.4 only use an abstract lower bound `M_p`.
+
+**D3 (MAJOR → repairable) Prop 5.1, "away from the finitely many n with large v_ℓ(N_n) at anisotropic ℓ".** False:
+for `N_n = κn + η`, `{n : v_ℓ(N_n) ≥ k}` is a full residue class mod ℓ^k (when ℓ ∤ κ), hence infinite for every k;
+and at `n = m²` the valuation `v_ℓ(κm² + η)` is unbounded along m whenever `−η/κ` is a square mod ℓ (e.g. κ = 1,
+η = −1, m ≡ ±1 (ℓ^k)). Then the local conditions at `n = m²` and at `p ≡ m² (L)` need not coincide for a *fixed* L.
+*Repair:* the T1 argument only needs infinitely many m. State: "for each anisotropic ℓ | 2q·disc Q fix K_ℓ; for every
+odd m with `v_ℓ(N_{m²}) < K_ℓ − c_ℓ` for all such ℓ (e.g. all m in a suitable fixed class mod L, which is an infinite
+set provided `N_{r²} ≠ 0` for some r) and every prime `p ≡ m² (L)`, `L := q·Π ℓ^{K_ℓ}`, the local conditions
+coincide." The conclusion of Prop 5.1 is unaffected.
+
+**D4 (MAJOR) Thm 4.1, Cor 2.4, §4: the lower bound `σ_p ≥ N_p^{−o(1)}` is used as a fact but is false in general.**
+Counterexample (`scripts/review_sa_aniso.py`): `Q = x²+y²+3z²+3w²` (norm form of (−1,−3), anisotropic at 3).
+Exactly `r_Q(9^k u) = r_Q(u)` for u ∈ {1,2,5,7}, k ≤ 5 (e.g. `r_Q(9^k) = 4` for all k, N up to 59049, N odd), so the
+3-adic density is `≍ N^{−1}` along `N = 9^k u`. Thus an encoding with fixed Q and `N_p = 9^{k(p)}u_p`, `k(p) → ∞`,
+has `M_p = σ_p N_p/q³` bounded although `N_p` is arbitrarily large, and Thm 4.1's conclusion "`N_p ≤ p^{o(1)}`"
+fails as stated (its proof uses `M ≥ σ N^{η/(1+η)} ≥ N^{η/(1+η)−o(1)}`). Note Sardari's own Remark 1.7 asserts
+`S(N) ≥ c_ε N^{−ε}` for d = 4 and N odd; the example shows that this needs the anisotropic part of N bounded
+(his constants depend on F, but N = 9^k is odd and unbounded). Cor 2.4 does flag the input ("not re-proved here"),
+but uses it to conclude "for all p outside that sparse set".
+*Repair:* add to Thm 4.1 and Cor 2.4 the explicit hypothesis
+`(A) σ_p ≥ N_p^{−o(1)}` (equivalently, for the forms at hand, `Π_{ℓ anisotropic} ℓ^{v_ℓ(N_p)} ≤ N_p^{o(1)}`),
+or replace `N_p` by its reduced part `N_p♭ = N_p/Π_{ℓ anis.} ℓ^{2⌊v_ℓ(N_p)/2⌋}` (Sardari's rescaling; points with
+`ℓ^h | x` correspond bijectively), and state the conclusion for `N_p♭`. With p-dependent `Q_p` the anisotropic primes
+may themselves grow with p, so (A) is a genuine restriction and should appear in §8's table.
+
+**D5 (MAJOR / GAP) Cor 3.2, box restriction.** Def 2.1's `R_p` contains `|x|_∞ ≤ B_p`, and a recipe only has to be
+valid on `R_p`. Prop 3.1 produces points `γ = AδD`, δ ∈ Γ(q), with no size control. Inside a box of radius
+`B_p ≍ √N_p` (the (S4) model) the first-column content g satisfies `g ≤ B_p`, so **`g = N_p` never occurs** (contrary to
+"in particular for g = 1 and g = N_p"), and for g between √N and N it need not occur; heuristically the number of
+content-g points in one class and box is ≍ `(B²/N)·(#Hermite cells of type g)/q³`, which can be < 1. So "the set
+{g(x) : x ≡ λ (q_p)} is all divisors" is true for the unbounded class but has not been shown for `R_p`.
+*Repair:* either (i) restrict Cor 3.2 to recipes valid on the whole (unboxed) class `{x ≡ λ (q_p), Q_p(x) = N_p}`, or
+(ii) prove the needed box statement for g = 1 only (existence of a point of `R_p` with primitive first column),
+e.g. by Möbius-sieving Sardari's count over sublattices `ℓ | g` — which needs SA uniform over these sublattices and
+is not in the literature cited; then drop "g = N_p". §8's row "Prop 3.1 (invisibility)" should carry the same scope.
+
+**D6 (MINOR) Cor 3.2, logic.** "A recipe valid on every point of a congruence class must be valid for every divisor
+… ES is then certified by the trivial factorisation alone" presupposes that the recipe's output depends on x only
+through g(x) and congruence data. A recipe `Φ(x) = F(g(x), x)` reading other features of x is not reduced to g = 1.
+*Repair:* state the factorisation-through-g hypothesis explicitly (it is implicit in "a rule ψ that reads off").
+
+**D7 (MINOR) Cor 3.2, "(or the reduced norm of an Eichler order, by strong approximation for its norm-one group)".**
+Strong approximation for the norm-one group fails for **definite** algebras (compact at ∞). The ES-relevant algebras
+`(−d,−p)`, `B_{p,∞}` are definite; for them the number of norm-N elements is finite and a class mod q need not contain
+every factorisation type. *Repair:* say "indefinite Eichler order"; for definite orders only the pointwise statement
+(the Hurwitz unique-factorisation paragraph) holds.
+
+**D8 (MAJOR, label) Cor 4.2 "PROVED, combining 2.3, 3.1, 4.1".** (i) It also invokes Principle 3.3, which is an
+Assessment. (ii) Thm 4.1 says "μ ≤ p^{o(1)} ⇒ data p^{o(1)} off density 0"; its contrapositive does not give
+"μ(p) ≥ p^{η'}" for a fixed η' > 0, and it omits the alternative "all data `p^{o(1)}`" (the B2 bounded-slice case).
+(iii) It inherits D4 and D5. *Repair:* relabel as Assessment (or PROVED for the precise disjunction: "either
+`μ(p) ≤ p^{o(1)}` fails on a set of positive upper density, or (under (A)) all data are `p^{o(1)}` off density 0").
+
+**D9 (MINOR) Lemma 10.1, "p ∤ M".** Used to deduce `M | γ'₁₂`, but not proved. `p ∤ d` is easy
+(`p | d ⇒ a+b = c(4abd−p) ≥ p(4ab−1) > a+b`); `p | c` is not excluded in the text. Numerically never happens for
+primes ≤ 3000 (`review_sa_typeII.py`). *Repair:* prove `p ∤ c` or add "(for M with p ∤ M)"; the equivalence
+itself does not need it because γ'₁₂ = cM by construction.
