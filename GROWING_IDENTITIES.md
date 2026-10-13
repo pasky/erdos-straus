@@ -180,3 +180,10 @@ constant on the sign-blind set — no exact identity tested evaluates O independ
    12s(m,n) = Σ(a_i − 3) + (m + m*)/n give r − s = (m+m*)/n − 1 − 12 s(m,n)), not the length, and their exact
    moments are of size ≍ √p (class numbers) — a main term a power larger than the certificate count with
    capped multiplicity (B3). (Both formulas checked for all coprime 1 ≤ m < n < 120, `scripts/gi_hj_check.py`.)
+
+**Census of the sign-blind total (EVIDENCE, `scripts/gi_sign_census.py` via /tmp driver; n ≡ 1 (24),
+4001 ≤ n ≤ 6000, t ≤ n + 2, trivial m'' = 1 removed).** Means (class +1, class −1, total; sd of total):
+29 primes (16.2, 11.2, 27.4; 4.2); 55 composites (15.2, 9.2, 24.4; 4.9); 8 odd squares 63²…77² (25.1, 0, 25.1;
+9.4). The sign-blind total is of the same size at primes and squares (it is governed by local densities that
+do not see the difference — cf. O128 Prop 8.3); at squares the class −1 mass reappears in class +1. No exact
+conservation law: the totals fluctuate (sd ≈ 4–9), so "S is local" is a heuristic, not an identity.

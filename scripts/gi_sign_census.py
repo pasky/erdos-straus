@@ -12,6 +12,7 @@ def census(n):
             if (mpp - 1) % t == 0: plus += 1
             elif (mpp + 1) % t == 0: minus += 1
     return plus, minus
-ps = [p for p in range(10001, 12000, 24) if isprime(p)][:8]
-for p in ps: print("prime", p, census(p))
-for k in (99, 101, 105, 107): print("square", k*k, census(k*k))
+if __name__ == "__main__":
+  ps = [p for p in range(10001, 12000, 24) if isprime(p)][:8]
+  for p in ps: print("prime", p, census(p))
+  for k in (99, 101, 105, 107): print("square", k*k, census(k*k))
