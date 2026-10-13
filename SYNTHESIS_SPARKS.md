@@ -220,3 +220,37 @@ splits. It does not make the problem "large". So at these sizes the hardest prim
 factorisation of p+3, p+7, p+11, …, i.e. exactly by hatch H-A. No structured family (single private prime in the
 class, Jacobi-forced slices) dominates: 87–100 % of first witnesses sit at Y-smooth slices, where Jacobi forcing
 carries no information beyond the Legendre symbols that local squareness has already set to +1.
+
+## 6. Verdict and ranking (Assessment)
+
+* **No combination escapes the size layer.** Every one of X1–X12 lands on the same point: a divisor of a specific
+  integer N_θ(p) in a class modulo a small parameter, with the sign layer already decided by one Legendre symbol (§0).
+  The combinations differ only in which slice family they use and in whether their failure is forced on square classes.
+* **Most informative outcome.** The two layers of §0 match the two halves of the campaign's barrier map exactly:
+  (1) *sign layer.* Everything here is congruence data, and on Y-smooth slices it is literally the data of the
+  locally-equal square m² ≡ p (Lemma 2.1 / Thm 2.3, an instance of (H)3/(H)9). It fails precisely when n_p > Y.
+  (2) *class layer.* Here the data are joint factorisations of p+3, p+7, … (H-A). §4 shows that, at the sizes
+  computed, this layer certifies even the locally-square primes at tiny slices.
+* **Repair recommended.** DE Cor 7.4 should cite (H)9: the scale is n_p (≫ log p·log₃p i.o.), not c₀ log p (§2.5, §5).
+* Ranking of the combinations by residual promise (0–5): X5/A1 1 (done; converse = Mordell sterile-point question);
+  X6/A2 0 (reduced); X3 0 (exact gap = DE's); X1 0 (closed by DK 8.2); X2 0; X8 1 (p-dependent non-congruence menu,
+  untested beyond WR §3's negative SQUFOF test); X10 1 (meta); X11 0; X4 0; X7 0 (meta); X9 0.
+
+## 7. Sparks (not pursued)
+
+1. **Square-mimic depth as a hardness coordinate.** Define d(p) = the largest Y such that p ≡ □ mod every prime power
+   ≤ Y (≈ n_p). §4 suggests e_min(p) grows only slowly in d(p). A precise law (e_min against d(p) and log p) would
+   calibrate the (J)1 hardness law mechanistically.
+2. **Rotation packets (DK 8.2).** The sign is constant on a length-3 cycle class across its rotations that are ≡ 1 (4).
+   So a square m² = s + b_i kills the certificate property of its cycle-mates s + b_j. Spark: count "square-poisoned"
+   cycles of a prime p. This is a fully explicit, T1-aware deficit term, possibly the exact correction between
+   sign-blind counts and certificate counts.
+3. **Char-2 reading of T1.** In F₂[T], squaring is bijective on every residue ring, so there is no quadratic
+   character and the sign layer is empty; this is why FF's coverings close. One could ask whether some other
+   characteristic-free ring (e.g. ℤ[1/3], where (J)1 has positive ES for all n) owes its success to the same
+   emptying of the sign layer.
+4. **Smith-path menu (X8).** Test whether HJ data along the Euclidean path of (p, √−1 mod p) are enriched for
+   five-slice certificates. Prior evidence (WR §3, SQUFOF) suggests not.
+5. **Composite inheritance in the "good" direction (DK 8.3).** ES(p) ⟸ some a ≡ 3 (4) and a word [[av′, t, au′]]
+   of ap with Jacobi symbol +1 mod ap. Check whether such non-certificate words of ap are forced (e.g. by a sign-blind
+   count at ap exceeding the certificate count).
