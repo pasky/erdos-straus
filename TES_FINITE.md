@@ -157,8 +157,8 @@ inv_∞ = −1; `scripts/tf_schinzel_t1.py 8 100`: n = q² (q ≤ 100 prime): 59
 Controls: m = 16, 12 likewise 0/0 (211, 124 solutions); m = 5, 6 (no T1): 351/135 resp. 147/63 Type I/II.
 
 **Theorem 5.2 (non-T1 failures of 8/n; CERTIFIED).** 8/n = 1/x + 1/y + 1/z has **no** solution in positive
-integers for n ∈ {2, 3, 11, 17, 131, 241}; these are all such n ≤ 300, and 3, 11, 17, 131, 241 are all such primes
-≤ 30000. Every odd square k² ≤ 20000 (3 ∤ k… all odd k) is solvable (in "other" shapes).
+integers for n ∈ {2, 3, 11, 17, 131, 241}; these are all such n with 2 ≤ n ≤ 299, and 3, 11, 17, 131, 241 are all such primes
+≤ 30000. Every odd square k² ≤ 20000 (k odd, k ≥ 3) is solvable (in "other" shapes).
 *Certification.* Positivity gives x ≤ y ≤ z, n/8 < x ≤ 3n/8 and the divisor equation (Ay − B)(Az − B) = B²
 (`scripts/tf_schinzel.py`, divisor enumeration) — the classical ES finiteness; independently
 `scripts/tf_schinzel_brute.py` (Fractions, y ≤ 2/r, no divisors): 0 solutions at 3, 11, 17, 131, 241, and the same
