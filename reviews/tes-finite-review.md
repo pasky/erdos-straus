@@ -23,3 +23,23 @@ No quantifier issue: the bound in (a) is uniform in the solution; the finite uni
 Count bound "Σ_i Σ_{x_i} 6·τ_O(...)" ✓ (6 units per ideal divisor).
 
 Defects: see D1 (attribution: over ℤ this is BL Lemma 3.10 verbatim, incl. the "u_i = −u_j" exception).
+
+## 2. Thm 2.1 (16 TES failures, N ≤ 30000) — SOUND (N ≤ 3000 and N = 26893 independently reproduced; full range: see below)
+
+Completeness logic re-derived. (i) Every solution has some coordinate in the Prop 1.1(a) disk; it is 2-primary,
+so enumerating only 2-primary x_i in the three disks is complete. (ii) Given x_i, (x_j, x_k) ↔ divisors d of
+M = (n x_i)² c_j c_k, all 6 unit multiples of every ideal divisor; the 2-primary and integrality conditions are then
+tested. (iii) Reduction to one 2-primary π per conjugate pair: Lemma 3.1 of TWISTED_T1 forces n ≡ 1 (mod 2), so
+only ±π matter; x_i ↦ −x_i maps TES(π) to TES(−π) (−1 ≡ 1 mod 2) and (x, y, z) ↦ (ȳ, x̄, z̄) maps TES(π) to
+TES(π̄) (ω̄ = ω²). ✓ Both symmetries also confirmed by brute force (all split π, N ≤ 400:
+`review_tf_zomega.py conjcheck 400`).
+
+From-scratch solver `scripts/review_tf_zomega.py` (own a + bω arithmetic, own Eisenstein factorisation via
+norms, own divisor enumeration — same mathematics as the author's method A, independent code; every solution is
+checked in the cleared equation 9xyz = n(ωyz + ω²xz + 2xy)):
+* `census 3000` (21 s): zeros exactly at N ∈ {7, 13, 19, 61, 79, 97, 103, 151, 193, 211, 367, 409, 769, 2029, 2239};
+  N ≤ 1000: 85 primes, 507 solutions, mean 5.96, 13 zeros; (1000, 3000]: 130 primes, 1244 solutions, mean 9.57,
+  2 zeros — identical to the author's numbers. All 1751 solutions have π dividing exactly 1 (1301) or 2 (450)
+  coordinates (Type I / II shapes) ✓.
+* `one 179 36` (N = 26893, 3 s): 0 solutions ✓. `one 11 2` (N = 103): 0 ✓. Disk count for N = 103, z-disk N ≤ 45.8:
+  162 non-zero lattice points, 42 of them 2-primary ✓.
