@@ -1,5 +1,10 @@
 # R166 — hostile review of FUNCTIONFIELD_ES2.md (O166, branch side-agent/ff-extinction)
 
+**Repairs applied (round 1, by R166 at the parent's request, author parked):** D1 to D13 are all applied in
+FUNCTIONFIELD_ES2.md, and the matching items (1, 2, 3, 4, 5, 7, plus a new item 0) in AGENT_REPORT_O166.md, each
+marked "(R166 repair)". D1 inserts the full Case A proof. D9 rescopes Prop 1.1 to a common modulus (lcm) and
+withdraws "B2/B3 proved". No mathematical claim was strengthened.
+
 Reviewer: R166. Reviewed commit: merge of side-agent/ff-extinction as of review start.
 From-scratch scripts: `scripts/review_ff2_*.py` (own F_q[T] arithmetic, no author code imported).
 

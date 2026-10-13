@@ -1,6 +1,7 @@
 # FUNCTIONFIELD_ES2 — function-field Erdős–Straus: extinction mechanisms, open cases q = 3, 4 (O166)
 
-Status: in progress (O166). Builds on FUNCTIONFIELD_ES.md (O161 + R161), notation and Lemma numbers from there
+Status: in progress (O166). Hostile review R166 (`reviews/functionfield-es2-review.md`): no FATAL defects. The
+repairs D1 to D13 are applied in place, marked "(R166 repair)". Builds on FUNCTIONFIELD_ES.md (O161 + R161), notation and Lemma numbers from there
 (ES_q(A,P), NC, Lemma 1.3 e-slice criterion, linear families §6.2, Lemma 6.2, Prop 4.1 of O140).
 Scripts `scripts/ff2_*`. ES is not solved anywhere; nothing here bears on ES over Z except as a model.
 
