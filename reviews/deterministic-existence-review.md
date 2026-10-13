@@ -129,7 +129,8 @@ says so; good).
 **D12 (MINOR) — §1 row 25 paraphrase.** Schur (1912)/M. R. Murty (1988): a "Euclidean proof" for primes ≡ a (mod k)
 exists iff a² ≡ 1 (mod k); the mechanism is a polynomial whose prime divisors lie (up to finitely many) in the
 classes 1, a. The "shape" cell ("if N ≡ a (k) with a² ≡ 1, some prime factor of N lies in a non-trivial class") is
-not that theorem (e.g. N ≡ a may have all prime factors ≡ a). Rows 1 (Thue's lemma; 0 < x²+y² < 2p), 4 (Legendre's
+not that theorem: for a ≢ 1 it is trivially true (if all prime factors were ≡ 1 then N ≡ 1), and it omits the
+polynomial construction that is the content of Schur–Murty. Rephrase the cell. Rows 1 (Thue's lemma; 0 < x²+y² < 2p), 4 (Legendre's
 three conditions; Holzer/Mordell bound |X| ≤ √(bc), |Y| ≤ √(ac), |Z| ≤ √(ab)), 9 (Legendre: negative Pell for
 p ≡ 1 (4); x² − py² = −2 for p ≡ 3 (8), +2 for p ≡ 7 (8)) and 23 (Croot 2003 colouring; Bloom 2021 positive upper
 density) checked: accurate. (Primary sources not in sources/; checked against standard statements.)
