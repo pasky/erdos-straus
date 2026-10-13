@@ -12,6 +12,8 @@ From-scratch scripts: `scripts/review_wr_*.py` (none of the author's `wr_*` code
 | §2 Lemma 2.1, Cor 2.2 | SOUND |
 | §2 Computation 2.3 (15 / 267; 78 no reduced) | SOUND (reproduced exactly, independent code) |
 | §2 Lemma 2.4 | SOUND-AFTER-REPAIRS (D3: positivity hypothesis missing; statement false as written) |
+| §3 (EVIDENCE, negative) | not re-run (spot-check budget spent on §4); labels appropriate |
+| §4 (EVIDENCE, negative) | SOUND — all six numbers reproduced exactly by independent method; extended to p ≤ 20000 (D4 minor) |
 
 (table extended below as the review proceeds)
 
@@ -53,6 +55,17 @@ verified exactly (Fractions) on 11575 positive ES-forms, p < 3000, g ≤ 5 (doc:
 
 Cor 2.2's equivalence `4b | p+e ⇔ 4b | k+1` (for `p ∤ b`): both directions force e odd and `gcd(e,b) | p`; correct.
 
+## §3–§4 — negative EVIDENCE (spot-check of §4)
+
+`scripts/review_wr_typeI.py 3000 6 6` decides membership of a factor pair in the class of `[c,p,−cd]` by **Gauss reduction**
+(no river walk): a pair `{f, g = D/f}` is "in the class" if one of its four ambiguous forms `[±f, f, ·]`, `[±g, g, ·]`
+reduces to the class of `[c,p,−cd]`. Result: 46 primes, 1655 (c,d) cases, 1244 ambiguous classes, **1941 / 5896** pairs in
+class, **20 / 82** certificate pairs in class — every number in §4 reproduced. (Using only `[f,f,·]`, f < √D, gives
+1316/5896 and 8/82: the four forms of one pair can lie in two different narrow classes, so §4's "ambiguous forms on a river
+↔ factor pairs" is not a bijection — D4.) Extension to all 267 primes p ≡ 1 (24) ≤ 20000, c, d ≤ 6: 11178/40443 = 27.6% of
+pairs vs 89/456 = 19.5% of certificate pairs; restricted to primitive pairs 31.4% vs 23.9%. The "no enrichment" EVIDENCE
+holds up (if anything mild depletion).
+
 ## Defects (numbered; FATAL / MAJOR / MINOR)
 
 **D1 (MINOR, §1 "Reading", line "The principal cycle has odd length L_1/2 (because |X(p)| = Σ_C L_C/2 …)").**
@@ -74,3 +87,9 @@ statement is false — it would prove ES for every p: `[−1, 4g, −g(p+4g)]` h
 `B | k+1 = 0` (script part (c)). The proof silently uses `k > 0` (positivity of e, N, y, z). Repair: insert
 "**positive definite** (i.e. k > 0)" in Lemma 2.4 and in the report's restatement; add the one-line reason
 `gcd(k, g) = 1 ⇒ g | c` for `c = ge`.
+
+**D4 (MINOR, §4 sentence "Ambiguous forms on a river ↔ factor pairs of D").** Not a bijection: a coprime pair `{f, D/f}`
+carries up to four ambiguous forms `[±f,f,·]`, `[±D/f, D/f, ·]` which can fall into two narrow classes; non-primitive pairs
+(gcd(f, D/f) > 1) lie on no primitive river yet are counted in the denominator 5896 (688 of them). The conclusion is unaffected
+(primitive-only baseline: 37.3% vs 30.8% at the doc's range). Repair: state the convention ("a pair is on the river if any of
+its ambiguous forms is") and report the primitive-only ratio too.
