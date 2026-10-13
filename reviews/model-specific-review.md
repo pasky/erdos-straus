@@ -84,6 +84,29 @@ Own engine, primes ≤ 10⁶: 8/p one-odd part fails at {3, 11, 17, 59, 131, 241
 S_m(p) = ∅ for primes ≤ 10⁵ (`review_ms_slices.c`, direct word enumeration): m = 4: 0, 5: 0, 6: 25 (last 35911),
 7: 10 (last 12601), 8: 23 (last 83449, list contains 3, 11, 17, 131, 241), 12: 156 ✓ — all as in Cor 3.2's EVIDENCE.
 
+### §4 identities / cube shots — **SOUND** (spot-checked)
+* §4.1 (`review_ms_cover.py`, own atom enumeration): U_4(840) = {1, 121, 169, 289, 361, 529} exactly (Mordell);
+  #U_4(9240) = 34 (30 squares); #U_8(840) = 35 (6 squares, 131 and 241 uncovered); #U_8(9240) = 243 (30 squares), 131 and
+  241 still uncovered; for m = 4, 131 and 241 are covered at 840 ✓. Level 120120 not re-run. Atom shapes checked against
+  PW Cor 2.2 (Type I: f | ma²d + 1, mad | p + f — read in the PDF); Type II atoms falsification-tested
+  (`review_ms_atoms.py`: no failing prime of m = 8, 12, 16, 20, 24 (≤ 10⁷) lies in any atom class with modulus ≤ 3000;
+  0 hits over 4.6k–21k atoms per m).
+* §4.2 (`review_ms_shots.py`): primes ≤ 10⁶ with all three shots dead: 942 (m = 4), 102 (m = 5; 104 if p = 2, 5 counted),
+  4308 (m = 8; 4309 incl. p = 2) ✓. The cube equivalences h | pj + c ⟺ h | p + mc²d ⟺ h | mdj²p + 1 (h = mcdj − 1;
+  multiply by mcd resp. mdj, both units mod h) re-derived ✓.
+
+### §7 construction notes — (C1) **SOUND-AFTER-REPAIRS** (D1, D6, D8), (C2)/(C3) Assessment, no defects found
+(C1)'s equivalences are correct: χ ∈ {±1} on X_n (gcd automatic), so S_4(n) ≠ ∅ ⟺ χ ≢ +1 by Thm 3.1(a); for
+n ≡ 1 (mod 4) χ is never ≡ −1 (word (n+2, 1, 1)), squares have χ ≡ +1 (T1), and λ(105) = 4, hence
+SQ₅ ⟺ [χ ≡ +1 on X_n ⇒ n square or 105] ✓. (C3)'s withdrawal of the length-r claim is correct (105 has λ = 4 and no
+five-slice certificate).
+
+### Labels — overall **SOUND**
+PROVED: Lemma 2.1, Lemma 3.0, Lemma 3.0′ (relative to Cor 4.1, stated), Thm 3.1 (relative, stated) — all re-derived.
+CERTIFIED: §1 censuses (re-run to 10⁷ for 8 m-values; exact match), §4.1 coverings (re-run at 840, 9240).
+EVIDENCE/Assessment: §2 tail, Cor 3.2 numbers, §5, §6 — numbers reproduced; the Assessment wording issues are D1–D3.
+No PROVED/CERTIFIED claim was found to be over-labelled.
+
 ## Defects
 (numbered; FATAL / MAJOR / MINOR). No FATAL defect found.
 
