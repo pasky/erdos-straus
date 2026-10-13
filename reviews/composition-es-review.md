@@ -45,6 +45,38 @@ gcd(D, f) = 1), primitive (divisors of a primitive ideal) and of norm | D | μ �
 is superfluous. The R-O203 #3 example (n = 29, μ = 60, D = 15) is correct: D has only two prime factors, so no
 chain is possible.
 
+### §2 Prop 2.1, Remark 2.2 — SOUND (minor wording, m2)
+δ is well defined (all units of O' have norm +1, Prop 1.2(c)), δ ≠ 1, δ² = 1, δ ↦ 1 in Cl(O') ✓. χ₋₄ is a genus
+character on Cl⁺(O') (re-derived: for 𝔞 = (β/γ)𝔟 with β, γ ∈ O' of odd norm, χ₋₄(Nβ) = sign Nβ, so χ₋₄(N𝔞) =
+χ₋₄(N𝔟)·sign N(β/γ)), χ₋₄(δ) = −1 ✓. |𝔅(μ)| = ∏(2v_ℓ + 1) ✓. (a) ✓ except wording (m2). (b) R-O203 #2 example
+checked: f = 2863, N(−107 + 2√2863) = 11449 − 11452 = −3, α(−ᾱ)α = −N(α)α = 3α ✓. (c) (ε_μ) = (D, ε_μ) has class δ for
+every μ ✓ — this is the real content of “B = 1 is not a class condition”. (d) (−m²/ℓ) = (−1/ℓ) ✓; also directly:
+D ≡ 3 (mod 4) cannot divide m² + 4t² with gcd(D, 2t) = 1; recount: 0 ES points at the 21 odd squares 9…1849.
+Remark 2.2: a₀ = 2μ − 1 for μ > n, and for μ > 2n the first convergent elements are 2η̄ − 1, 2η̄, 2jη̄ − 1 with norms
+4n − 4μ + 1, 4n, 1 − 4tj (`review_cp_law.py`, 557 values of μ incl. all n < μ ≤ 2n, 0 failures); consistent with
+MARKOFF Thm 4.3 (k = 3), depth-1 case μ ≤ 2n handled (j = 1, ε_μ = −(2η̄ − 1)).
+
+### §3 Prop 3.1 — SOUND (as an abstract group statement; label already says so in §7.3)
+(a) a zero-sum from Davenport is a narrowly principal ideal, all generators totally positive ✓ (one prime per ℓ ⇒
+primitive). (b) the (ℤ/2)² example: 3-mod-4 primes must have χ₋₄ = −1, i.e. class in δ·ker χ₋₄; choosing δg with
+χ₋₄(g) = 1 is consistent and signed subset products stay in {1, δg} ✓. It is a group-theoretic non-implication,
+not an arithmetic theorem — the text says this (“Whether the example occurs in some O'_μ is not claimed”). (c) ✓.
+
+### §4 Prop 4.1 — SOUND (nit m3)
+(a) from Thm 1.3 ✓; bound μ ≤ (n + 1)t + n(n + 1)/(4t), convex in t, endpoint t = n wins over t = 1
+((4n² + 5n + 1)/4 vs (n² + 5n + 4)/4) ✓ — the proof's “maximal at t = n” omits this comparison (m3). Brute force
+(all μ, odd n ≤ 81, even n ≤ 60): max μ/bound = 0.54, never exceeded. (b) re-derived: B = 1 at V_{n'} ⟺
+n'A² + 1 = D·g, g = 2λA − 1; with A = 2j, n' = pd: g ≡ −1 (mod 4dj) ⟺ d | λ, and h | 4dj²p + 1 ⟺ h | pj + c
+(FIXED_MODULUS_SHOTS Lemma 1.1, statement checked in the repo). The constraint d ≤ (p + 1)/3 is automatic (from
+(4dj − 1)² ≤ 4dj²p + 1 one even gets d ≤ (p + 2)/4). `review_cp_typeii.py 100`: for all primes 5 ≤ p ≤ 100, cube
+points from the definition (enumerated via (c, d, s), j = (c + s)/(4cds − p)) = d-sliced B = 1 points of V_{pd}
+computed by factoring n'A² + 1 for all j ≤ n' (214 = 214, 0 failures). Even n' = pd: Lemma 1.1/Thm 1.3 indeed never use
+the parity of n; the R-O203 #5 example (p = 13, (c, d, j) = (1, 2, 1) → V₂₆ point (2, 1, 15, 30)) checks.
+(c) the “99 primes < 10⁶” figure recomputed from scratch (`review_cp_typeii.py 5 1000000`: ES point at V_p ⟺ some
+t ≤ (1 + √(4p + 1))/4 with a divisor ≡ −1 (mod 4t) of p + 4t², using the c ↔ s symmetry of the cube): **99**,
+starting 13, 37, 97, 181, 193, 541, … ✓. Label: the equivalence is PROVED, its strategic reading is marked
+Assessment ✓.
+
 ## Numbered defects
 
 **M1 (MAJOR — false statement as worded; substance survives). Cor 1.4(a)** (and the echo in §0 X2 “No operation
