@@ -24105,4 +24105,47 @@ def check_fe():
 check_fe()
 
 
+def check_ff():
+    # (ff) Spark phase (J)5-(J)10: reviewer from-scratch checks R164 (Zagier/river cycles), R165 (dictionaries,
+    # spin lemma), R167 (Thm 9.1 Eisenstein quasi-polynomial), R168 (Props 3.4/6.2, Thm 7.3), R169 (Thm 4.5 cells),
+    # R170 (Prop 4.1 and the HJ/fibration identities).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("SPARK subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_wr_zagier.py", "5", "1300")
+    assert "1297 11 [11, 11, 11, 11, 13, 13, 17, 17, 21, 21, 37]" in o and "checked 104 primes in [5,1300], failures 0" in o, \
+        ("WINDMILL_REDUCTION R164 Comp 1.2", o)
+    o = run("review_pf_dict.py")
+    assert "Lemma 1.1 n<=120 failures: 0" in o and "spin lemma (instances, violations): (20302, 0)" in o, ("PARITY R165", o)
+    o = run("review_sa_eisen.py")
+    assert "(4) counting-version violations: 0/200" in o and "200/200" in o, ("STRONG_APPROX R167 Thm 9.1", o)
+    o = run("review_de_props.py")
+    assert "Prop6.2 2-adic criterion mismatches (odd e<400): 0" in o and "Prop3.4: fired 6816 violations 0" in o and \
+        "exponent<=2 moduli <=200: [1, 2, 3, 4, 6, 8, 12, 24]" in o, ("DETERMINISTIC R168 Props", o)
+    o = run("review_de_thm73.py")
+    assert o.count("block-witness violations 0") == 5 and "violations 1" not in o, ("DETERMINISTIC R168 Thm 7.3", o)
+    o = run("review_dk_cells.py", "20000")
+    assert "N=20000 words(n=1 mod 4)=192283 bad=0 slice-words-at-squares=0" in o and \
+        "mod-8 cells: theory admissible=160 observed=160  all -1:120  all +1:40 mixed:0" in o and \
+        "five-cond false exactly on PLUS: True" in o, ("DEDEKIND R169 Thm 4.5", o)
+    o = run("review_gi_identities.py")
+    assert "cubic/fibration/HJ/Prop4.1 checks to n=400: 0 failures; total W certs 1469" in o and \
+        "Hirzebruch 12s and r-s formulas, n<90: 0 failures" in o, ("GROWING R170 Prop 4.1", o)
+    print(f"(ff) spark phase: Zagier rivers (104 p), spin lemma, Eisenstein T1 kill, Jacobi forcing + block witnesses, "
+          f"HJ Thm 4.5 cells (192283 words), Prop 4.1 (1469 certs) — OK ({perf_counter() - t0:.0f}s)")
+
+
+check_ff()
+
+
 print("\nall checks passed")
