@@ -49,3 +49,43 @@ not depend on CHI_FLIP: anisotropy of L_w at p, read off as (−M/p) for a 2×2 
 * 0 failures.
 
 Wording issues → D7 (L⁺_i is not classical: B(x/2, e_i) ∈ ½ℤ; only Q is integral).
+
+### Thm 2.1 (bijection 𝔊⁻_p ⟷ level-2 Eichler types ⟷ X₀(2)^ss/⟨Frob, w₂⟩) — SOUND-AFTER-REPAIRS (D1, D6)
+**Independent recount** (`scripts/review_ce_classes.py`). Both sides are computed by methods different from the author's.
+* Lattice side: I enumerate every Gram matrix that satisfies the necessary Minkowski conditions
+  (a ≤ b ≤ c, 2|f|, 2|e| ≤ a, 2|d| ≤ b, abc ≤ 2p). The canonical form is the lexicographically least Gram over all bases
+  that realise the successive minima. Anisotropy at p is read off as (−M/p) for a principal 2×2 minor M ≢ 0 (mod p).
+* Curve side: no Vélu and no 2-torsion bookkeeping. I use the X₀(2) Hauptmodul s:
+  j(τ) = (s+256)³/s², j(2τ) = (s+16)³/s, w₂: s ↦ 4096/s, Frob: s ↦ s^p.
+  I checked these identities by hand: substituting s ↦ 4096/s turns (s+16)³/s into (s+256)³/s².
+  The supersingular j's are the roots of Deuring's Legendre polynomial Σ C(m,i)² λ^i, found by brute force over 𝔽_{p²}.
+  I then count the s ∈ 𝔽_{p²}^* lying over a supersingular j, and their orbits.
+
+| primes | result |
+|---|---|
+| all 8 of the author's primes 37, 61, 73, 97, 109, 157, 181, 193 | |𝔊⁻_p| = 4, 6, 7, 9, 9, 14, 15, 15 = #orbits, identical to the author's values |
+| **every** prime 5 ≤ p ≤ 139 not ≡ 1 (mod 12) (5, 7, 11, 13, …, 139; 24 primes) | |𝔊⁻_p| = #orbits in all cases, including p where j = 0 or 1728 is supersingular (X₀(2) has an elliptic point over 1728) |
+| p = 1201, 2521 (`scripts/review_ce_rank.py`) | |𝔊⁻_p| = 82, 166, matching §5.5 |
+
+So the class-count equality is CERTIFIED by me well beyond the author's range, and its restriction to p ≡ 1 (mod 12)
+was not needed.
+
+**Inputs.** Each input below was checked from memory (no source in sources/):
+* Gross–Lucianovic (Math. Ann. 2009): a discriminant-preserving bijection between twisted-GL₃(ℤ) classes of ternary
+  quadratic forms and isomorphism classes of quaternion rings, with Gorenstein ⟺ primitive form.
+  - For positive forms the twisted action reduces to isometry, because −g has det −det g in dimension 3 and q∘(−g) = q∘g.
+    The proof's phrase "isometry up to sign" is therefore fine.
+  - Their discriminant is N(q) = 4·det(B-Gram), and N(cq) = c³N(q). So "c³ | 4p ⟹ c = 1" is correct.
+* Deuring: level-N Eichler types ⟷ (E, C) up to the action of the two-sided ideal class group, which here is generated
+  by the ideals over p (↔ Frob) and over 2 (↔ w₂). This is standard (e.g. Voight ch. 42, from memory).
+  The author's phrase "End(E, C) ≅ End(E′, C′) iff in the ⟨Frob, w₂⟩-orbit" is the correct type-number statement.
+* "Known in substance (Brzezinski / Lehman / Gross–Lucianovic)": I agree. The ternary-form ↔ order dictionary for
+  Eichler / Gorenstein orders of level N is classical (Brzezinski 1983; Lehman 1992 for the ternary-form side;
+  Ponomarev). The theorem should be labelled "PROVED (known in substance; packaging new)", not presented as new → D10.
+  I could not access these sources.
+
+**Proof defects.**
+* D1: the surjectivity step uses "any certificate word w" to get the 2-adic local model. That presupposes ES-five(p),
+  the very thing being encoded.
+* D6: "≈ p/12 classes" should be ≈ p/16, because the ≈ p/4 points of X₀(2)^ss fall into orbits of size ≤ 4.
+  At p = 2521 the count is 166 against p/16 ≈ 158 and p/12 ≈ 210.
