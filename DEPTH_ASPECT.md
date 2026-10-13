@@ -166,7 +166,7 @@ by taking B_A with δ(3α) in place of δ(α) if preferred; the shape of the bou
 **Theorem 2.5 (large q in characteristic 3: no finite linear covering of ES_q(T^k); PROVED, given O173 Lemmas 1.1, 2.1,
 3.1, R166's Case A steps (1)–(2) and the compactness criterion).** Let k ≥ 2 and let q be odd with q ≥ 1.3·10^16, or
 q = 3^r with r ≥ 27. Then for every c ∈ F_q^* the set of u ∈ 1 + cT + T²F_q[[T]] such that x_u lies in no validity set
-has positive Haar measure (relative measure ≥ 0.97). Hence O(q, T^k) ≠ ∅, and **ES_q(T^k, ·) has no finite linear covering**.
+has positive Haar measure (relative measure ≥ 0.97 for q = 3^r, r ≥ 27). Hence O(q, T^k) ≠ ∅, and **ES_q(T^k, ·) has no finite linear covering**.
 For char q ≥ 5 this was known (O140 Prop 4.1: 1 ∈ O). For q = 3^r it is new; there the class-1 obstruction is absent
 (FUNCTIONFIELD_ES §6.1(a)).
 *Proof.* Relative to the c-slice (mass q^{−2}), a Case B tuple of parameter s covers q^{1−N(s)} and a Case A tuple of
@@ -201,7 +201,7 @@ N^{−1/2} (margin 1/10). This is the ℤ face of Lemma 2.2. At r = 17 the margi
 even constant 1 gives a tail of 0.84 > 0.677).
 
 **Theorem 3.1 (sterile points for all large Mordell primes r; PROVED relative to ET Prop 1.7's proof applied to
-N-points (as in MORDELL17 §2, R83-reviewed), Browning–Elsholtz f(n) ≪_ε n^{2/3+ε}, and MORDELL17 Lemmas 1.1, 2.1–2.3,
+N-points (as in MORDELL17 §2, R83-reviewed), ET's bound f(n) ≪ n^{3/5+O(1/log log n)} for all n (which covers the U-boxes too, since they are ≤ f(r^k)), and MORDELL17 Lemmas 1.1, 2.1–2.3,
 Cor 4.2 for general odd prime r).** There is an effectively computable r₀ such that for every prime r ≥ r₀ the
 r-generic line contains a sterile point x(u) with u a quadratic non-residue mod r. That is, x(u) lies in no class
 of any of the seven ET families. Consequently **no finite set of ET Prop 1.9 classes covers all sufficiently large
@@ -209,7 +209,7 @@ primes p ≡ 1 (mod 24) whose least quadratic non-residue is r.** In fact the st
 ≥ (r − 1)/(2r) − S(r) → 1/2 in ℤ_r.
 *Proof.* ET's proof of Prop 1.7 gives f(n) ≤ n^{3/5 + C/log log n} and f_II^N(n) ≤ n^{2/5 + C/log log n} with an
 absolute (effective) C (MORDELL17 §2 for the N-point version). With n = r^K ≥ r, the exponent loss is ≤ CK log r/log log r.
-Hence the Q/U part of S(r) is ≤ 6Σ_k r^{−k(2/5 − C/log log r)} + O_ε(Σ_k r^{−k(1/3−ε)}). The P part is
+Hence the Q/U part of S(r) is ≤ 6Σ_k r^{−k(2/5 − C/log log r)} + (the U-boxes are included in the 6f(r^k) term). The P part is
 ≤ 2Σ_K r^{K(2/5 + C/log log r) − K/2} ≤ 2Σ_K r^{−K(1/10 − C/log log r)}. Once C/log log r < 1/20 every series is geometric with
 ratio ≤ r^{−1/20}, so S(r) → 0 as r → ∞. The non-residue cells have total measure (r − 1)/(2r). So for r ≥ r₀,
 S(r) < (r − 1)/(2r), and some u in a non-residue cell is in no box, i.e. x(u) is sterile. MORDELL17 Cor 4.2 (proof:
@@ -227,5 +227,20 @@ and heuristically they do (the lottery, B2).
 (5) **Caveat for the reviewer:** this transfer was written in one pass at the end of the session. The steps to recheck
 are: (i) MORDELL17 Lemmas 1.1, 2.1–2.3 for general r, including whether any parity or reciprocity step used 17 specifically.
 Lemma 1.3 is used only as an emptiness statement, which is not needed for an upper bound. (ii) The uniformity of ET's
-O(1/log log n) for N-points that are not Type I/II solutions (MORDELL17 R83 repair m1 asserts it from ET §3). (iii) The
-U-family via Browning–Elsholtz (or MORDELL17 Lemma 5.2).
+O(1/log log n) for N-points that are not Type I/II solutions (MORDELL17 R83 repair m1 asserts it from ET §3). (iii) That U-boxes ≤ f(r^k)
+(MORDELL17 Lemma 2.2) holds for general r.
+
+## 4. Numerics for §2 (EVIDENCE; validation of the enumerations)
+
+* `scripts/bsE_famcount.c p k SMAX [print]` enumerates **all** Case B tuples of parameter s by (w, C), with v = (−T^s) mod wC.
+  It checks the identities of Lemma 2.1 on every tuple (0 failures: q = 3 to s = 15, q = 5 to s = 11, q = 7 to s = 9,
+  q = 11 to s = 8). Counts at q = 3 for s = 4..15: 2, 4, 10, 8, 8, 4, 24, 12, 14, 36, 104, 48 (logs `data/bsE/fc*.txt`). This is polynomial-looking
+  and far below both q^{s/2} and q^{2(s−3)/5}. Mean union-bound mass of a c-slice through SMAX: q = 3: 1.74; q = 5: 0.110; q = 7: 0.015;
+  q = 11: 0.031.
+* Cross-check with O173's independent engine (`scripts/bsE_crosscheck.py`, 300 random points of the c-slices, q = 3, deg L' ≤ 4,
+  j ≤ 5, s ≤ 12): every ff3_caseB hit is a famcount tuple, and every famcount tuple whose maximal cylinder contains the point is
+  found by ff3_caseB. 1064 hits, 446 covering tuples, 0 mismatches.
+* Case A (`scripts/bsE_caseA.py`): route (A4) (enumerate a1', K, F; Lemma 2.3) and route (A1) (sympy factorisation of
+  T^α a1' + b1) give identical tuple sets. q = 3, α = 1..6: 0, 0, 2, 4, 10, 8 tuples (union-bound mass 0.088); q = 5, α ≤ 4: 0.
+  Every identity of Lemma 2.3 was asserted on every tuple.
+* Observation (CONJECTURE, bsE_caseAB_shift): #Case A(α) = #Case B(α + 1) on all computed data.
