@@ -7,18 +7,25 @@ From-scratch scripts: `scripts/review_ff2_*.py` (own F_q[T] arithmetic, no autho
 
 | Claim | Verdict |
 |---|---|
-| §0.1 compactness criterion | (pending) |
-| §0.1 tree plateau "partly an artefact" | (pending) |
-| §0.2 Case A impossibility at x*_c | (pending) |
-| §0.2 Case B normal form + searches | (pending) |
-| Conjecture 0.2 labels | (pending) |
-| Prop 1.1 | (pending) |
-| Prop 3.1 | (pending) |
-| Novelty / labels | (pending) |
+| §0.1 compactness criterion | SOUND (D2, D3 minor wording) |
+| §0.1 tree plateau "partly an artefact" | SOUND as Assessment; label it (D4) |
+| §0.2 Case A impossibility at x*_c | SOUND-AFTER-REPAIRS: conclusion true, sketch has a false intermediate step; full proof supplied (D1) |
+| §0.2 Case B reduction / normal form (****) | SOUND; listed "consequences" unproved as written (D5) |
+| §0.2 Case B exact searches | SOUND, reproduced independently (0 families, deg L' ≤ 7, j ≤ 8, c = 1, 2) |
+| §3 quadratic-reciprocity parity (q = 3) | SOUND (re-derived) |
+| §3 covered-mass numbers | SOUND, reproduced exactly; scope caveat (D11) |
+| Conjecture 0.2 labels | SOUND (CONJECTURE + EVIDENCE); framing (D6) |
+| Prop 1.1 formal statement | SOUND-AFTER-REPAIRS (D8 minor; D7 citation) |
+| Prop 1.1 interpretation / headline | GAP — MAJOR overclaim (D9): bound is on a common modulus (lcm), not individual moduli; "B2/B3 proved" withdrawn |
+| Prop 3.1 | SOUND, tautological (D12) |
+| Novelty / labels | see last section; one MAJOR (D9), rest MINOR |
+
+No FATAL defects. One MAJOR (D9). D1 is MINOR in substance (conclusion holds), but the "PROVED" label needs the
+proof supplied here.
 
 ## Defects
 
-(numbered below as found)
+Defects D1–D13 are numbered in the per-claim sections below.
 
 ### Claim §0.2 Case A impossibility at x*_c (odd q, A = T^k, k ≥ 2) — SOUND-AFTER-REPAIRS
 
