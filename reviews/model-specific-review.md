@@ -43,6 +43,20 @@ the label "relative to Cor 4.1" is honest.
 Own enumeration: n = 131: 43 words, 29 with χ = −1 (all in S_4), 0 in S_8; n = 241: 31 words, 12 with χ = −1, 0 in S_8.
 (The repaired 29/12 are correct; the original 22/7 was indeed an undercount.)
 
+### §1 censuses — **SOUND** (CERTIFIED label justified for the ranges I re-ran; 10⁸ ranges not re-run)
+* Own engine `scripts/review_ms_census.c` (complete smallest-denominator search x ∈ (p/m, 3p/m], divisors of (px)²,
+  128-bit + three 61-bit-modulus exact re-verification of every solution; g = gcd(mx − p, px) = 1 for prime p, proved in
+  the header). Cross-checked against a naive `Fraction` counter (`review_ms_naive.py`) for m ∈ {4, 5, 8, 12},
+  primes ≤ 103: 0 mismatches. Reproduces 4/131 = 32, 4/241 = 8, 8/127 = 23, 8/239 = 58 solutions.
+* **Failing odd primes p ∤ m, p ≤ 10⁷, m = 8, 12, 16, 20: 5, 20, 37, 62 — lists identical to the author's
+  `prime_fail_1e8.txt` restricted to ≤ 10⁷.** (The author's 10⁸ tails add no failures for these m, so their 10⁸ claims
+  rest on their engine only; not re-run here.)
+* **2763601 (m = 20): prime (trial division), ≡ 1 (mod 840), complete count f_20 = 0** (`review_ms_census 20 2763601 count`,
+  all 414 540 x-values). Likewise f_24(620929) = 0.
+* PW Table 1 (sources/pomerance-weingartner-2511.16817v2.pdf, p. 13, read directly): the odd-prime, p ∤ m entries for
+  m = 8..15 are exactly the document's lists/counts (8: 5, 9: 3, 10: 7, 11: 2, 12: 20 up to 12241, 13: 9 up to 281,
+  14: 8 up to 353, 15: 23 up to 20521). PW's ranges (10¹²–10¹⁸) are as quoted.
+
 ## Defects
 (numbered; FATAL / MAJOR / MINOR)
 
