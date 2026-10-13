@@ -120,8 +120,8 @@ Each of the five conditions gives an ES solution of 4/n: the first three by Cor 
 `−1 ∈ Σ_e(N)` with `e = v`, `(a,b) = (f,1)`; `4 | v` is its reversal.
 *Proof.* By Cor 4.1, `(A/n)` depends only on `(t,u,v) mod 8`. `scripts/dk_cells.py` enumerates all 512 cells: of
 those with `n ≡ 1 (4)`, the 120 cells with value −1 are exactly the cells satisfying one of the five conditions,
-and the 40 cells with value +1 satisfy none. ∎ (Direct check on data, `scripts/dk_qnr.py`: all
-non-square n ≡ 1 (4) ≤ 5000, 0 failures.)
+and the 40 cells with value +1 satisfy none. ∎ (Brute-force check, `scripts/dk_thm45_check.py 1000000`: all
+21 430 357 length-3 words with n ≡ 1 (4), n ≤ 10⁶, 0 failures; 0 slice words at odd squares.)
 
 **Corollary 4.6 (a "least non-residue in the Farey metric" form of ES; PROVED).** For a prime p ≡ 1 (mod 8) let
 `λ(p) := min{ r(p/A) : (A/p) = −1 }` (the HJ length is the number of left turns of the positive Farey path from ∞
@@ -132,7 +132,9 @@ to p/A). Then `λ(p) ≥ 2` (L₁ = {1}), and
 So **the five X/e-slices of ES(p) together hold ⟺ λ(p) ≤ 3**: *some quadratic non-residue mod p is reached
 from ∞ by at most three left turns in the Farey graph.* At n = m² there are no non-residues (Jacobi), which is
 the T1 obstruction in its barest form. EVIDENCE: λ(p) ∈ {2, 3} for all 556 primes p ≡ 1 (8), p ≤ 2·10⁴
-(395 with λ = 2, 161 with λ = 3; `dk_qnr.py 20000`).
+(395 with λ = 2, 161 with λ = 3; `dk_qnr.py 20000`). Moreover all 19 552 primes p ≡ 1 (8), p ≤ 10⁶, have an
+*interior* five-slice hit (λ ≤ 3 already with r = 3), and no odd square ≤ 10⁶ has any hit, interior or boundary
+(`scripts/dk_lambda_big.py 1000000`).
 
 *Reading.* The classical least quadratic non-residue `n_p` measures non-residues in the archimedean order. The
 Burgess bound is `n_p ≪ p^{0.152}`, and n_p ≪ log²p under GRH. λ(p) measures them in the Farey/HJ word metric
@@ -213,7 +215,7 @@ point. Pointwise-in-n counts for it are fixed-denominator counts, so again B6 fo
   mod-8 law, relative to the classical (R) and (D2)); Cor 4.1; 4.2; **Theorem 4.5** (for n ≡ 1 (4), a length-3
   HJ fraction is an ES certificate of one of five slices ⟺ its Jacobi symbol is −1); Cor 4.6 (the five slices ⟺
   λ(p) ≤ 3); 5.1, 5.4.
-* **EVIDENCE:** λ(p) ≤ 3 for all primes p ≡ 1 (8) ≤ 2·10⁴. The two interior slices 4|A, 4|t vanish at only 22
+* **EVIDENCE:** λ(p) ≤ 3 for all primes p ≡ 1 (8) ≤ 10⁶ (interior r = 3 hit in every case); Thm 4.5 re-checked by brute force to 10⁶. The two interior slices 4|A, 4|t vanish at only 22
   non-square n ≡ 1 (4) ≤ 2·10⁵ (largest 28225). No size-literal parity law (C5).
 * **CONJECTURE:** for non-square n ≡ 1 (4), n > 28225, `a₀(n) + a_T(n) > 0`. Equivalently, the Jacobi symbol is
   the only obstruction to the interior length-3 slices for all n, composite included.
