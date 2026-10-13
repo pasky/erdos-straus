@@ -22,7 +22,7 @@ Scope reminder (R174 D1): ES needs only (W) at primes p ≡ 1 (4) (plus (S)); gl
 4. **SHARP/deflationary (§8, PROVED): (W) at primes p ≡ 1 (4) is trivial**, by two fixed-pair families, (2,2,·) and (3,·,4). So for ES
    the whole content of SQ₅ at primes is the sign half (S).
 5. Short-block law (§5, EVIDENCE): x*(n) ≤ 12 for every n < 10⁸ outside E_W. CONJECTURE: x*(n) ≪ log n / log log n.
-6. Unconditional rate #E ∩ [1,N] ≪ N exp(−c√log N) (§6, PROVED relative to the Titchmarsh divisor theorem). Stern coding
+6. Unconditional rate #E ∩ [1,N] ≪ N exp(−c√log N) (§6, PROVED; input: the Titchmarsh divisor theorem of Linnik / Halberstam–Rodriquez — R180 repair, D3). Stern coding
    V_{A_k}(2) = s(popcount k+1) (§7, PROVED).
 
 ## 1. Elementary equivalent forms (PROVED; `scripts/bsG_forms.py 700`: 0 mismatches against brute force)
@@ -31,7 +31,7 @@ For n ≥ 2 the following are equivalent to (W)(n) ("n = xyz − x − z, x, y, 
 * (F1) **∃ x, z ≥ 2 with xz | n + x + z** and (n + x + z)/(xz) ≥ 2. (Then y = (n+x+z)/(xz).) For coprime x, z this is
   "x | n + z and z | n + x": a pair of mutually n-shifted divisors.
 * (F2) **∃ z ≥ 2: with q = ⌈n/z⌉ and r = qz − n, r ≥ 2 and r | q + 1** (and (q+1)/r ≥ 2); or a diagonal solution x = z
-  (x | n, x | n/x + 2). *Proof.* n = qz − r with x = r, y = (q+1)/r gives xyz − x − z = (q+1)z − r − z = n. Conversely any
+  (x | n, x | n/x + 2 and n/x + 2 ≥ 2x, i.e. y ≥ 2; without the last condition n = x(x−2) such as 3, 15, 35 would be wrongly accepted — (R180 repair, D1)). *Proof.* n = qz − r with x = r, y = (q+1)/r gives xyz − x − z = (q+1)z − r − z = n. Conversely any
   solution with x < z has r = x, q = xy − 1. ∎ (A ceiling-function form: one division of n by each z.)
 * (F3) ∃ d ≥ 3: ρ := (−n mod d) is a divisor of d + 1 with 2 ≤ ρ ≤ (d+1)/2, and n + ρ ≥ 2d. (d = xy − 1, ρ = x.)
 * (F4) ∃ a ∈ [1, n−1] coprime to n, with ā = a⁻¹ mod n, b := (aā − 1)/n ≥ 2, b | a + 1, b | ā + 1, a, ā ≥ 2b − 1.
@@ -116,9 +116,12 @@ and ℓ^a u − 1 = vk. Then v(km − u) = (ℓ − 1)u − m =: vs, with 0 ≤ 
   R = 264 and 288 (block mean ≈ 300). Large-modulus families do the work.
 **Consequences (Assessment).** (a) Compactness cannot prove (W). Exceptions to every finite fixed-pair covering are integers near S, and S is
 infinite with −1 as an accumulation point. (b) A *finite-level computer-assisted* strengthening of Lorenzini's Prop 6.3 is available.
-**Cor 4.4 (CERTIFIED modulo the 10⁹ enumeration of R174).** Every n ∉ E_W whose class mod M = 151351200 lies outside U_M (11 550 classes,
-density 7.6·10⁻⁵) satisfies (W). *Proof.* Thresholds are ≤ 2M < 10⁹. Below 10⁹ use the exhaustive enumeration (`scripts/review_hj_ws.c`, R174).
-Above it use the covering family. ∎ This is a density statement only. Lorenzini/Wang already have density 1, so the novelty is the explicit
+**Cor 4.4 (CERTIFIED, self-contained — R180 repair, D2).** Every n ∉ E_W whose class mod M = 151351200 lies outside U_M (11 550 classes,
+density 7.6·10⁻⁵) satisfies (W). *Proof.* All size thresholds (2d − x, resp. 2xz − x − z) are < 2M, so every n ≥ 2M outside U_M is certified by a
+family. For n < 2M: `scripts/review_lw_cor44.c` (R180, 16 s, one core) marks every n < 3M lying in a family class above that family's threshold
+(68 683 families with modulus | M), recovers |U_M| = 11 550 from [2M, 3M), and checks every unmarked n < 2M outside U_M by direct search. The only
+non-values are 2, 3, 5, 6, 9, 11, 14, 15, 35 ∈ E_W (105 and 510 lie in U_M classes). ∎ (The earlier version leaned on R174's 10⁹ enumeration; that is
+no longer needed.) This is a density statement only. Lorenzini/Wang already have density 1, so the novelty is the explicit
 level and the explicit residual classes.
 
 ## 5. Short blocks: the least outer letter (EVIDENCE + heuristic CONJECTURE)
@@ -126,12 +129,14 @@ Let x*(n) := min{min(x,z) : xyz − x − z = n}. In the language of (F0), x*(n)
 range. So the brief's "consecutive block" n + 2, n + 3, … is exactly the search for x*(n).
 **EVIDENCE 5.1 (`scripts/bsG_xstar.c 10⁸`).** For every n < 10⁸, n ∉ E_W: **x*(n) ≤ 12**. Records: x* = 3 (n = 17), 4 (51), 6 (126), 12 (1379).
 The decade maxima from 10³ on are 12, 8, 7, 9, 11. The counts #{n in decade : x*(n) > X} for X = 2…10 at [10⁷, 10⁸) are
-5 096 879, 198 815, 17 577, 1 405, 169, 17, 8, 3, 1. The examples with x* = 10, 11 are n = 64 858 079 and its neighbours.
+5 096 879, 198 815, 17 577, 1 405, 169, 17, 8, 3, 1. The unique n in [10⁷, 10⁸) with x* = 11 is n = 64 858 079 (its immediate neighbours have x* = 2); two further n there have x* = 10 (R180 repair, D6b).
 **Heuristic.** For fixed x, the integers m with no divisor ≡ −1 (mod x) have density ≍ (log m)^{−δ_x}. Here δ_x = 1 − |H_x|/φ(x), and H_x is a
 largest subgroup of (Z/x)^× not containing −1. Hence δ₂ = 1 (m prime or 2^k), δ_x = 1/2 for x = 3, 4, 6, 7, 8, 9, 11, 12, …, δ₅ = δ₁₀ = 3/4,
-and generally δ_x = 1 − 2^{−v₂(φ(x))} for cyclic (Z/x)^×. Treating the x-events as independent,
-#{n ≤ N : x*(n) > X} ≈ N (log N)^{−Σ_{x≤X} δ_x}. Here Σ_{x ≤ X} δ_x ≥ X/2 − O(1), and in fact = (1 + o(1))X, because v₂(φ(x)) → ∞ for almost all x. This predicts
-**CONJECTURE 5.2 (short-block (W)).** x*(n) ≪ log n / log log n for n ∉ E_W. (The naive independence model gives the constant 1 + o(1); with δ_x ≥ 1/2 alone it gives ≤ 2 + o(1).)
+and δ_x = 1 − 2^{−v₂(φ(x))} for cyclic (Z/x)^×. In general δ_x = 1 − 1/r_x, where r_x is the least order of an odd Dirichlet character mod x. So
+δ_x = ½ whenever some prime p ≡ 3 (4) divides x, which is true for almost all x. Treating the x-events as independent,
+#{n ≤ N : x*(n) > X} ≈ N (log N)^{−Σ_{x≤X} δ_x}. Here **Σ_{x ≤ X} δ_x = (½ + o(1))X** (numerically 0.557·X at X = 1000, `scripts/review_lw_delta.py`).
+(R180 repair, D5: an earlier version claimed (1 + o(1))X via v₂(φ(x)) → ∞, which is valid only for cyclic groups.) This predicts
+**CONJECTURE 5.2 (short-block (W)).** x*(n) ≪ log n / log log n for n ∉ E_W. (The naive independence model gives x*(n) ≤ (2 + o(1)) log n / log log n — R180 repair, D5.)
 The observed decay of the X = 4 column (8.8, 4.9, 3.0, 1.95 ·10⁻⁴ per decade) gives an effective exponent ≈ 2.9 against the naive Σ_{x≤4} δ_x = 2.
 So the joint events are positively correlated, but in the predicted direction.
 **Why no deterministic block argument (PROVED, via §4).** Fix X and a divisor bound D. Every n in the clopen neighbourhood
@@ -142,16 +147,21 @@ simultaneously by polynomial families (consecutive sums of two squares exist inf
 condition, so it is a parity-type sieve problem. **Assessment:** the consecutive-integer route is a prime-k-tuple-type lower-bound problem
 (in the opposite direction from a sieve upper bound), with no known technology. It is attractive mainly as a sharp, testable numerical law.
 
-## 6. An unconditional quantitative density bound (PROVED relative to the Titchmarsh divisor asymptotic)
+## 6. An unconditional quantitative density bound (PROVED, using the Titchmarsh divisor theorem — a theorem: Linnik 1963; Rodriquez 1965 / Halberstam 1967 via Bombieri–Vinogradov. R180 repair, D3)
 **Prop 6.1.** #{n ≤ N : n ∉ V_{A₃}(2)} ≪ N·exp(−c √(log N)) for an absolute c > 0.
 *Proof.* Let S = E ∩ (N, 2N] be the set of exceptions there, and Q = √N. For a prime p ≤ Q and x | p + 1 with 2 ≤ x ≤ (p+1)/2, every n ≡ −x (mod p) with n > N
 is a value: take (x, (p+1)/x, (n+x)/p), where z = (n+x)/p ≥ 2 because n > Q² ≥ 2p. So S avoids ω(p) = τ(p+1) − 2 distinct classes mod p. By
 Montgomery's large sieve, |S| ≤ (N + Q²)/L with L = Σ_{m ≤ Q} μ²(m) Π_{p|m} ω(p)/(p − ω(p)) ≥ e_k(g; I), where e_k is the
 k-th elementary symmetric sum of g(p) = ω(p)/p over p ∈ I = (Q^{1/(2k)}, Q^{1/k}]. By the Titchmarsh divisor problem (Linnik; via Bombieri–Vinogradov),
 Σ_{p ≤ y} τ(p+1) = C y + o(y) with C = ζ(2)ζ(3)/ζ(6). Partial summation gives G := Σ_{p∈I} g(p) = (C/2 + o(1)) (log Q)/k − 2 log 2 + o(1).
-Since Σ_p g(p)² < ∞, e_k ≥ (G^k/k!)(1 − O(k²/G²)). Take k = ⌊ε √(log Q)⌋. Then L ≥ exp(c′ √(log Q)), and dyadic summation finishes. ∎
+By inclusion–exclusion, k!·e_k ≥ G^k − C(k,2)·T·G^{k−2} with T := Σ_{p∈I} g(p)² (R180 repair, D3). Take k = ⌊ε √(log Q)⌋. Then
+k/G → 2ε²/C is a constant (not o(1)), but T ≤ Σ_{p > min I} p^{−2+o(1)} → 0 because min I = Q^{1/2k} → ∞; so e_k ≥ ½ G^k/k! ≥ (eG/k)^k/(2e√k) for large Q,
+and eG/k ≈ eC/(2ε²) > e for ε small. Then L ≥ exp(c′ √(log Q)), and dyadic summation finishes. ∎ (Only the lower bound Σ_{p∈I} τ(p+1)/p ≫ log Q/k is
+needed, which Bombieri–Vinogradov gives directly.)
 *Remarks.* This is the (W)-analogue of the classical ES density bounds. Vaughan (1970) has N exp(−c log^{2/3} N) for ES. Using composite moduli
-(non-CRT avoided classes) is what would improve it, and is a spark. Lorenzini/Wang give density 1 only, as far as I can see. The bound is
+(non-CRT avoided classes) is what would improve it, and is a spark. Lorenzini/Wang state density 1. But the correct baseline is stronger. Lorenzini's
+Prop 6.3(b) already gives #E ∩ [1,N] ≤ π(N+2) + O(log N) ≪ N/log N, and his z = 4 condition gives ≪ N(log N)^{−3/2}. Prop 6.1 beats every power of log
+(R180 repair, D4). The bound is
 far from finiteness, as it must be (B6).
 
 ## 7. Stern / Minkowski coding (PROVED identity)
@@ -162,7 +172,7 @@ Hence **V_{A_k}(2) = {s(N) : popcount(N) = k + 1}**, and (W) says that every n �
 (u, w) ↦ ((a−1)u + w, (a−2)u + w). In p := u, q := u − w this reads (p, q) ↦ (ap − q, p), the negative-continuant recursion. The
 start N = 1 gives (p, q) = (1, 0). Trailing zeros do not change s. ∎ Checked exhaustively for a_i ≤ 26, k = 3 (/tmp check; `scripts/bsG_stern.py`).
 `scripts/bsG_Ak.c` reproduces Lorenzini's lists L_{A₃} (to 10⁸), L_{A₄} (to 10⁸), L_{A₅} and L_{A₆} (to 10⁷) exactly.
-*Reading.* s is 2-regular (Allouche–Shallit), and positions of popcount k + 1 form a sparse regular language of size ≍ (log)^k up to height N. So (W)
+*Reading.* s is 2-regular (Allouche–Shallit), and positions of popcount k + 1 form a sparse regular language: ≍ (log X)^k positions N < X (R180 repair, D6c; s is not monotone, so this counts positions, not values). So (W)
 asks that the image of a 2-regular sequence on the popcount-4 slice covers a cofinite set. I found no theorem about images of 2-regular sequences on fixed-popcount
 slices (Defant 2016 bounds max s on fixed popcount; Stanley–Wilf refine by number of parts). Assessment: a clean dictionary, no tool.
 
@@ -171,6 +181,8 @@ slices (Defant 2016 bounds max s on fixed popcount; Stanley–Wilf refine by num
 * n ≡ 1 (mod 3): (x, y, z) = (2, 2, (n+2)/3);
 * n ≡ 2 (mod 3), i.e. n ≡ 5 (mod 12): (x, y, z) = (3, (n+7)/12, 4). Check: 12(n+7)/12 − 7 = n.
 In particular **(W) holds at every prime p ≡ 1 (mod 4), p ≥ 13.** (The ES-relevant scope noted by R174 D1.) ∎
+(R180 repair, D6a.) The first family alone shows more: **every n ≡ 1 (mod 3), n ≥ 4, is a value** ((2, 2, (n+2)/3)). That is not stated in Lorenzini's Prop 6.3,
+whose (c) is weaker, and it is used in the residue computations below.
 **Cor 8.2.** For primes p ≡ 1 (4), p ≥ 13: interior-SQ₅(p) ⟺ (S)(p), i.e. *L₃(p) (which is non-empty) contains a Jacobi −1 word*.
 The (W) half of HJ_DEEP's split carries no ES content at primes.
 **Signs of the two families.** For p ≡ 5 (mod 12) the word (3, (p+7)/12, 4) has A = 3t − 1 = (p+3)/4 and (A/p) = (3/p) = (p/3) = −1. This

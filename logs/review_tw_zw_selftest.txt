@@ -1,0 +1,16 @@
+chi3 == brute-force cube test, multiplicative: OK
+cubic reciprocity on 12582 ordered pairs of primary primes: OK
+U^(4) mod lambda^8 (81 classes) all cubes: OK
+Hilbert reciprocity (tame sum vs brute-force lambda symbol) on 300 random pairs: OK (189 with nontrivial lambda symbol)
+   (1+l^2,1+l^3)_lambda trivial: True
+   (1+l,1+l^3)_lambda trivial: True
+   (w,1+l^3)_lambda trivial: True
+   (1+l,1+l^2)_lambda trivial: False
+   (lam,1+l^3)_lambda trivial: False
+   (w,1+l^2)_lambda trivial: False
+   (lam,1+l^2)_lambda trivial: True
+   (w,lam)_lambda trivial: True
+   (w,2)_lambda trivial: False
+   (w,w)_lambda trivial: True
+   (2,2)_lambda trivial: True
+   (w,-1)_lambda trivial: True

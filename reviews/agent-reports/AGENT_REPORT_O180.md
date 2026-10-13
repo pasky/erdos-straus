@@ -21,8 +21,8 @@ Branch `side-agent/lorenzini-w` (merged side-agent/spark-hj-brainstorm and main 
 ## Other results
 * Forms F1–F4 of (W) (PROVED, brute-force checked): xz | n + x + z; a ceiling-function form; −n mod d | d+1; a modular-hyperbola/SL₂ form.
 * Sterile set (§4): S ∩ Z = {−1}; S is infinite with −1 as an accumulation point (Thm 4.2, PROVED: ν(ℓ, ℓ−1) ∈ S for every prime ℓ ≥ 3).
-  So no compactness argument proves (W). Finite-level Cor 4.4: (W) for all n outside 11 550 classes mod 151351200. This relies on R174's 10⁹ enumeration below the thresholds.
-* Prop 6.1 (PROVED relative to the Titchmarsh divisor asymptotic): #{exceptions ≤ N} ≪ N exp(−c√log N), via the large sieve with growing dimension.
+  So no compactness argument proves (W). Finite-level Cor 4.4: (W) for all n outside 11 550 classes mod 151351200. (R180 repair, D2: now self-contained CERTIFIED by `scripts/review_lw_cor44.c`, 16 s; no dependence on R174's 10⁹ enumeration.)
+* Prop 6.1 (PROVED; the input is the Titchmarsh divisor theorem, which is a theorem (Linnik; Halberstam via BV) — R180 repair, D3. Baseline: Lorenzini 6.3(b) already gives ≪ N/log N, D4): #{exceptions ≤ N} ≪ N exp(−c√log N), via the large sieve with growing dimension.
 * Stern coding made exact (Prop 7.1, PROVED): V_{A_k}(2) = {s(N) : popcount N = k+1}. Lorenzini's lists L_{A₃}, L_{A₄} are reproduced to 10⁸ and L_{A₅}, L_{A₆} to 10⁷
   (`scripts/bsG_Ak.c`).
 * Lens/d-invariants: by Hirzebruch–Zagier/Myerson (checked on 4 353 pairs), 12 s(q,n) = (q+q*)/n + Σ(b_i − 3). Dedekind-sum and Floer invariants see the letter sum, not
@@ -34,9 +34,10 @@ Branch `side-agent/lorenzini-w` (merged side-agent/spark-hj-brainstorm and main 
 * Thm 9.1's novelty: I checked Lorenzini (2022 preprint = JNT 2024) and Wang (EJC 2026, which calls finiteness open). I did no wider citation search beyond
   two web searches. Prop 8.1's (3,·,4) family is in the fixed-pair menu that Lorenzini's (c) underuses (he covers only n ≡ 2, 8 (9) within n ≡ 1 (4)).
 * Prop 6.1 is a sketch at the standard level of rigour (Montgomery large sieve, elementary-symmetric lower bound, Titchmarsh–Linnik). A reviewer should check the
-  e_k ≥ (G^k/k!)(1 − O(k²/G²)) step and the constant bookkeeping.
+  e_k ≥ (G^k/k!)(1 − O(k²/G²)) step and the constant bookkeeping. (R180: checked SOUND. The step is now stated exactly, as k!e_k ≥ G^k − C(k,2)TG^{k−2} with T → 0, repair D3.)
 * Thm 4.2's case analysis is by hand. It is cross-checked by `scripts/bsG_dev.c` for ℓ ≤ 29 (moduli ≤ 10⁵).
-* Cor 4.4 depends on R174's `scripts/review_hj_ws.c` enumeration to 10⁹ (I did not rerun it; my own enumeration reached 10⁸).
+* ~~Cor 4.4 depends on R174's `scripts/review_hj_ws.c` enumeration to 10⁹~~ (R180 repair, D2: only n < 2M ≈ 3·10⁸ matters, and it is checked directly by `scripts/review_lw_cor44.c`).
+* (R180 repairs D1, D5, D6.) The F2 diagonal case needed y ≥ 2. The §5 heuristic sum is Σδ_x = (½ + o(1))X, not (1 + o(1))X. There are cosmetic fixes in §§5, 7, 8.
 
 ## Sparks (not pursued)
 * Transfer Vaughan's ES density method (non-CRT composite moduli) to (W), aiming at N exp(−c log^{2/3} N).

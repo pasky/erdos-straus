@@ -1,0 +1,16 @@
+    prime ('I', 0, 0, 0, 0) 51
+    prime ('II', 0, 0, 0, 0) 9
+    cube ('I', 0, 0, 0, 0) 42
+    cube ('II', 0, 0, 0, 0) 6
+    cube ('other', 0, 0, 0, 0) 96
+    prime ('I', 1, 0, 'nz', 0) 132
+    prime ('I', 1, 1, 'nz', 0) 124
+    prime ('I', 1, 2, 0, 0) 402
+    prime ('II', 1, 0, 'nz', 0) 63
+    prime ('II', 1, 1, 'nz', 0) 66
+    prime ('II', 1, 2, 0, 0) 172
+    cube ('I', 1, 0, 'nz', 0) 308
+    cube ('II', 1, 0, 'nz', 0) 164
+    cube ('other', 1, 0, 'nz', 0) 390
+    cube ('other', 1, 1, 'nz', 0) 458
+    cube ('other', 1, 2, 0, 0) 656
