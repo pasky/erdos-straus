@@ -192,3 +192,72 @@ Two caveats:
   the successive minima determine the order, and that this was later proved by Goren–Love. Either confirm the
   attribution or reword as "(Chevyrev–Galbraith; Goren–Love)".
 * None of these statements is used in a proof, so mis-recollection would not break any PROVED claim.
+
+### 5.1 (lattice operations preserve χ) — SOUND; one embedded claim GAP → D9
+* Sub/super-lattices, duals and rescalings preserve the rational similarity class of L ⊗ ℚ. Hence they preserve
+  C₀ ⊗ ℚ and with it the χ-side. This is trivial and correct.
+* The parenthetical "Kneser 2-neighbour graph on 𝔊⁻_p (= the line graph of the supersingular 2-isogeny graph, via Thm
+  2.1 …)" is asserted, not proved. Two problems:
+  - the vertices of 𝔊⁻_p are ⟨Frob, w₂⟩-*orbits* of edges, so at best this is a quotient of a line graph, and
+    quotients do not commute with taking line graphs in general (multiplicities, loops, Frobenius-fixed edges);
+  - the 2-neighbour notion for odd lattices is non-standard and has to be defined (it is, implicitly, via L⁺).
+* Label it Assessment, or prove it, including how multiplicities behave.
+
+### 5.2 (spectral disjointness) — EVIDENCE confirmed; explanation plausible (from memory); consequence SOUND-AFTER-REPAIRS (D11)
+**Independent recomputation** (`scripts/review_ce_hecke.py`): my own Kneser ℓ-neighbours on my own canonical classes,
+with exact characteristic polynomials (sympy).
+* At p = 97, 193, 241, 313, 409, the T₃ characteristic polynomials of 𝔊⁺ and 𝔊⁻ have gcd exactly X − 4.
+* At p = 97 and 193, the T₅ characteristic polynomials have gcd X − 6.
+* The root ℓ + 1 is simple on both sides. For example, at p = 97 the 𝔊⁻ polynomial factors as
+  (X−4)(X⁴−5X²−X+4)(X⁴−2X³−9X²+18X+1).
+* Every number in the claim is reproduced.
+
+**JL / Atkin–Lehner explanation.** This is consistent with my recollection, not re-derived. For B_{p,∞} the Brandt
+involution coming from the ideal over p is −w_p (Gross), while for an unramified level prime it is +w_ℓ. So
+* 𝔊⁻ sees newforms of level 2p with (w₂, w_p) = (+, −), plus level-p forms with w_p = −1;
+* 𝔊⁺ sees newforms with (w₂, w_p) = (−, +).
+
+Consistency check at p = 97:
+* dim S₂^new(194) = 9 and dim S₂(97) = 7;
+* the cuspidal dimensions are |𝔊⁺| − 1 = 5 and |𝔊⁻| − 1 = 8;
+* the 𝔊⁻ cuspidal factor splits into two quartics.
+All of this fits, although I did not verify the eigenform signs.
+
+**Suggested strengthening.** Given these JL facts, strong multiplicity one already shows that the two modules share no
+*full*-Hecke cusp eigen-system for **every** p, since newforms of level 2p with different AL signs, or of different
+levels, have different eigenvalue systems. So "every map equivariant for all T_ℓ, ℓ ∤ 2p, factors through the constants"
+is PROVED-modulo-JL-citation for all p. The single-T₃ statement needs the computed spectra.
+
+**Needed hypothesis in "Consequence (PROVED, given the computed spectra)".** The step requires that the eigenvalue ℓ + 1
+is simple on both sides. This is true: Ramanujan–Deligne gives |a_ℓ| ≤ 2√ℓ < ℓ + 1 for cusp forms, and my
+characteristic polynomials confirm it. But it has to be said; it is D11. With that added, the linear-algebra deduction
+is correct: T_ℓ is self-adjoint for the mass inner product, so constants map to constants and the cuspidal part maps to 0.
+
+### 5.3 (shape screen) — Assessment, correctly labelled; D6 (p/12 → p/16) applies.
+
+### 5.4 (T1 control) — SOUND
+* `scripts/review_ce_t1.py` uses exact 2-power overorder enumeration on all 49 words of n = 9, 25, 49. Every C₀(L_w)
+  has discrd 4n, a unique index-2 overorder of discrd 2n, and no larger 2-power overorder. 0 failures.
+* The "no 𝔊⁻_{m²}" sentence holds for path lattices: CHI_FLIP gives χ ≡ +1 at squares.
+* Note, though, that non-path lattices of determinant m² *can* have C₀ ramified at odd ℓ | m. Example: ⟨1, 3, 3⟩ at
+  n = 9, where C₀ ⊂ B_{3,∞}. The sentence "the whole supersingular/2-isogeny picture is empty at odd squares" is true
+  only for the χ-dictionary of path words. Reword (MINOR, folded into D9).
+
+### 5.5 (numerics) — counts reproduced; interpretation FATAL-to-the-claim as worded → D2
+`scripts/review_ce_rank.py` reproduces the counts:
+* |𝔊⁻_p| = 69, 76, 82, 122, 166 at the five hard primes, with 5, 8, 5, 8, 2 path classes;
+* 4–10 path classes out of 7–44 classes for p ≡ 1 (24) ≤ 601.
+
+The ranks are reported **0-indexed** ("number of classes strictly ahead", ties broken arbitrarily). By ordinary
+1-indexed rank, the first path class by min(E⁰) is at position 2, 2, 4, 2, 11. Moreover:
+* at p = 1009, 1129 and 1801 the first path class has min(E⁰) = 11 = n_p, tied for the *smallest possible* value;
+* at those three primes one of the two CM(−11) edges is a certificate.
+
+So the bold conclusion "certificates are not among the 'smallest' orders at hard primes" is false at 3 of the 5 hard
+primes. It holds only at 1201 (min(E⁰) values 11, 11, 13, then 17, which is the path class) and at 2521.
+
+The min(L) ranking is dominated by ties. For example, at 2521 eight classes have min L = 1, and they cannot be
+certificates there by Cor 3.3, because 2522 = 2·13·97.
+
+The data actually support this narrower statement: the CM(−n_p) edge is a certificate exactly when the Mordell-type
+congruence for q = n_p holds (t₀(q) | q + 1), which is a residue condition on p. That is what Prop 4.1 already says.
