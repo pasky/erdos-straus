@@ -140,3 +140,22 @@ m² ≡ p, as soon as p is a QR mod every ℓ ≤ Y. This is B5 made exact at th
 primes are QRs, the more of the witness space is square-equivalent. Every witness of such a p must either use a
 slice modulus with a prime factor > Y, or split the Y-rough part of N_θ(p). This is the precise answer to the brief's
 question (v) on the theory side.
+
+**2.4 Checks (CERTIFIED as stated, `scripts/syn_square_mimic.py`).** Lemma 2.2: all 18 348 pairs (m odd ≤ 301,
+e ≡ 3 (4) ≤ 600, gcd = 1): `−1 ∉ Σ_e((m²+e)/4)`, 0 violations. Thm 2.3: for primes p ≡ 1 (8), p < 10⁶, with
+n_p > Y (Y = 5, 7, 11, 13: 4817, 2370, 1147, 541 primes), every Y-smooth slice e ≡ 3 (4), e ≤ 4000 (12–66 slices per
+Y; 212 515 slice checks in total): 0 Y-block witnesses. **Control (EVIDENCE):** for primes p ≡ 1 (8) < 10⁶ with
+n_p ≤ Y (first 3000 per Y), a Y-block witness at some Y-smooth slice e ≤ 4000 exists for 94.3 % (Y = 5), 100 %
+(Y = 7), 99.5 % (Y = 11), 99.8 % (Y = 13). So in this range the presence of block witnesses at Y-smooth slices is
+almost exactly the Legendre condition n_p ≤ Y: a sharp dichotomy.
+
+**2.5 Novelty audit (Assessment; important).** Thm 2.3 is an instance of POINTWISE_SIZE Theorem C, unconditional
+part ("FAIL at every admissible q of a square-mimicking point", (H)3), and of the Type I frame (H)9 (Lemma 8.1:
+`ck_min(p) ≥ n_p`; Thm 8.5: `ck_min ≫ log p·log₃p` i.o., the Graham–Ringrose bound transported). What is new is
+only the *cross-document* observation: **DE Thm 7.3 / Cor 7.4 (O168) did not use (H)9**. Its block-witness notion is a
+congruence certificate in the sense of (H)3, so its Linnik scale `c₀ log p` (c₀ = 1/(1.5L), tiny) and density
+1/φ(M_E) improve at once to the n_p scale (≫ log p·log₃p i.o.) and to density 2^{−π(Y)}, for Type I, Type II and
+the five HJ slices together. This is a repair of DE's scope statement, not a new barrier. Its converse ("n_p ≤ Y ⇒ a
+Y-smooth block witness") is the Mordell-covering question for non-residue classes. POINTWISE_MORDELL13–17D
+studied it in depth: there is no finite covering of Σ_13 (open leaves at all computed depths), and sterile points are
+conjectured in Σ_17. So the 2.4 control rates are a finite-range effect, and I do not pursue the converse.
