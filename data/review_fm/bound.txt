@@ -1,0 +1,10 @@
+q=3 A=T s=T+1 | first primes d with bound>0 for some n: d=11: n<=3; d=13: n<=17; d=17: n<=271; d=19: n<=957
+q=3 A=T^2 | first primes d with bound>0 for some n: d=23: n<=273; d=29: n<=48494; d=31: n<=159447; d=37: n<=6473529
+q=5 A=T | first primes d with bound>0 for some n: d=29: n<=26719799; d=31: n<=100000000; d=37: n<=100000000; d=41: n<=100000000
+q=2 A=T | first primes d with bound>0 for some n: d=7: n<=4; d=11: n<=35; d=13: n<=78; d=17: n<=333
+q=2 A=T^3 | first primes d with bound>0 for some n: d=11: n<=2; d=13: n<=11; d=17: n<=62; d=19: n<=135
+q=7 A=T | first primes d with bound>0 for some n: 
+q=3 A=T s deg 3 | first primes d with bound>0 for some n: d=13: n<=11; d=17: n<=264; d=19: n<=950; d=23: n<=9854
+q=4 A=T | first primes d with bound>0 for some n: d=7: n<=1; d=11: n<=113; d=13: n<=495; d=17: n<=9179
+q=9 A=T | first primes d with bound>0 for some n: 
+Lambda_d checks (ell = 1 mod 2d, |Lambda_d| <= m_d, sum 1/ell <= L_d): failures 0
