@@ -5,7 +5,10 @@ Document reviewed: FF_MUTE.md at merge of side-agent/ff-mute (commit 2f212a84 + 
 From-scratch scripts: `scripts/review_fm_*.py` (own GF(q) incl. q = 4, 8, 9, own F_q[T] arithmetic, own power-residue
 symbols by direct exponentiation; nothing imported from `fm_*`).
 
-(in progress)
+**Overall: no FATAL defect. Headline Thm 3.5 SOUND; Thm 4.2 SOUND; Props 2.1/5.1–5.4 SOUND; two MAJOR framing/scope
+defects (M1 char 2 has a finite covering; M2 measure asymmetry) and seven MINOR ones.**
+
+Repairs applied: (filled in below once applied)
 
 ## Summary verdicts
 
@@ -143,7 +146,7 @@ correctly assumes q odd, but the conclusions drawn from it are stated for every 
 *Argument:* for q even, squaring is bijective on (R/f)^*, so if s is a primitive root mod a prime f ≡ −1 (mod A), f ≠ s,
 then −A⟨s² mod f⟩ = (R/f)^*: the ord_f(s) families (f, Q = s^j) cover every P with f ∤ P (low-shot regime
 deg AQ² < n, i.e. for n > k + 2h(ord_f(s) − 1)), and a second such prime f₂ covers P = f. Such f exist (Thm 3.5, or by
-direct search). Verified: q = 2, A = T, s = T + 1, f₁ = T² + T + 1, f₂ = T³ + T + 1 — 10 families cover all irreducible P of
+direct search). Verified: q = 2, A = T, s = T + 1, f₁ = T² + T + 1, f₂ = T³ + T² + 1 — 10 families cover all irreducible P of
 degree 14–17 (15 133 P, exact verification; `review_fm_char2cover.py`, `data/review_fm/char2cover.txt`). So in char 2
 X8's "sterile points vs none" is literally correct for the mute mechanism, and Thm 3.5 there reduces to an elementary
 finite covering plus the existence of one good f (plus finitely many small n).
@@ -209,4 +212,19 @@ set remains nonempty and Haar-null, and the g = s case is handled exactly as in 
 **m7 (MINOR) — labels.** §7 "(Prop 5.4) the mechanism admits no finite covering … PROVED": add "q odd" (M1). Everything
 else is labelled correctly: Thm 3.5/4.2 PROVED (I agree), §6 EVIDENCE, Prop 5.3(b) and the X8 correction Assessment.
 
-## Checks performed
+## Checks performed (all from scratch; `scripts/review_fm_*.py`, outputs `data/review_fm/`)
+
+* `review_fm_ff.py`: GF(q) for any prime power (tables; q = 4, 8 via irreducible moduli over F₂, q = 9 over F₃), F_q[T]
+  arithmetic, Rabin irreducibility test (counts match Gauss's formula for q ∈ {2,3,4,5,8,9}), power-residue symbols by
+  direct exponentiation, Jacobi symbols by factorisation.
+* `review_fm_signs.py`: Prop 2.1 / Cor 2.2 on random shots incl. composite P and composite f, both degree regimes;
+  Lemma 3.2 both statements and Lemma 4.1 (prime and composite f), q ∈ {2,3,4,5,7,8,9}: 0 failures.
+* `review_fm_bound.py`: Thm 3.5 bound evaluation; exact Λ_d checks by factoring q^d − 1.
+* `review_fm_count.py`: G(d) by brute force vs δq^d/d.
+* `review_fm_search.py`: coverage (bounded divisor search + unbounded discrete-log route), all ES_q failure lists,
+  Thm 4.2 on all monic P.
+* `review_fm_minj.py`: least shot height via sympy factorisation, full vs strict regimes.
+* `review_fm_sterile.py`: counterexample for m6. `review_fm_char2cover.py`: finite covering in char 2 (M1).
+* Read the author's self-review (reviews/synthesis-two-hostile-review.md) only after finishing my own checks: its
+  repairs M1 (4 log_q n), M3 (composite moduli in fm_minq), M4, M7, m1–m3, m7 are applied in FF_MUTE; its M2 repair
+  introduced the error m6 above.
