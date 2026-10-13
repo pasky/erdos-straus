@@ -53,9 +53,33 @@ enumerated *completely*. Result for N = 10⁸ (9 s):
   attained at n = 1379). So empirically eleven one-letter shapes u ∈ {2,…,12} (each a *moving-modulus* divisor condition:
   n + u has a divisor ≡ −1 (mod u) in [2u−1, (n+u)/2]) already cover (W). Lemma 3.2 says nothing about such one-letter
   families; this sharpens the C6 discussion.
-* N = 10⁹: see below (run in progress at time of writing).
+* **N = 10⁹** (same program, ~5 min, 4 GB spf table): (W) exceptions in [2, 10⁹) are again exactly E_W; (S) violations 0;
+  15 810 odd squares, none with a −1 word; least outer letter still ≤ 12 for every n ∉ E_W. So the note's 10⁸ claims are
+  confirmed and extend to 10⁹ (EVIDENCE).
 Small-|L₃| census (`scripts/review_hj_census.c 200000`, own enumeration n = d·v − u): 30 non-square n ≡ 1 (4) < 2·10⁵ with
 1 ≤ |L₃| ≤ 6, 18 of them all −1; |L₃| = 2 at 17, 29, 41, 69; |L₃| = 4 all −1 at 33, 45, 125, 189, 209 (also 13 has |L₃|=4 with
 N₋=2, and 1617 with |L₃|=4 all −1 — the note's "e.g." list is not exhaustive, fine). N₊ > N₋ at 1 385 n, first 97, 241, 265;
 min N₋/|L₃| = 1/12 at n = 111969. All ✓. Coin model q = 0.7: I get Σ 0.3^{#reversal classes} ≈ 2.8 (✓ "≈ 2–3");
 P(0 | Poisson 2.8) ≈ 0.06, so "not significant" is fair (borderline).
+
+### Lorenzini attribution ("(W) is exactly Lorenzini's open question") — SOUND-AFTER-REPAIRS (citation details)
+Source accessed: arXiv:2311.06367v1 (dated 14 Nov 2023), saved as `sources/r174/lorenzini-2311.06367.{pdf,txt}`; published
+as D. Lorenzini, *The critical polynomial of a graph*, **J. Number Theory 257 (2024) 215–248** (confirmed by the citation in
+Wang–Lu, EJC 33(3) (2026) #P3.80, `sources/r174/wang-ejc-v33i3p80.{pdf,txt}`). I did not access the 4 Dec 2022 website PDF the
+author used; the arXiv text agrees verbatim on every quoted point:
+* Example 6.2(a): "Computations indicate that the complement of V_{A₃}(2) in ℤ≥0 is contained in the following set
+  L_{A₃} := [0, 1, 2, 3, 5, 6, 9, 11, 14, 15, 35, 105, 510]." ✓ (also stated in the Introduction, p. 6).
+* "It is natural to wonder whether d_{A₃}(x,y,z) = xyz − x − z takes every non-negative value when x, y, z ≥ 2, except for
+  the values listed in L_{A₃}. We have not been able to answer this question beyond the following remarks." ✓
+* Prop 6.3 (a)(b)(c) as summarised ✓; Remark 6.4 (0, 6, 510 not achieved; 30, 126 achieved "exactly once", (3,4,3) and
+  (12,2,6)) ✓ — "exactly once" is up to the x ↔ z symmetry; 126 has the two ordered words (6,2,12), (12,2,6) (my check).
+* Identification: our tuv − u − v with middle t is d_{A₃}(x,y,z) with (x,y,z) = (u,t,v); "x,y,z ≥ 2" = letters ≥ 2; and
+  L_{A₃} = E_W ∪ {0,1}. ✓. Our computation shows every element of E_W is a genuine exception, so the question is exactly
+  "(W) ⟺ complement of V_{A₃}(2) equals L_{A₃}" (Lorenzini only asserts "contained in"; the equality of the finite part is
+  our computation). ✓
+* Status: Wang–Lu (2026) still describe cofiniteness of the complement as open for general G ("it remains an open problem
+  whether the complement of V_{d_G}(2) in ℤ≥0 is finite") and prove only density of a subset. A web search found no
+  resolution of the A₃ case. So "open" is accurate to the best of my search.
+* Small inaccuracy: Lorenzini's proof of 6.3(a) uses the fixed pair (x,z) = (4,6) (for 2^m − 2, m even ≥ 6) in addition to
+  the z = 2 and z = 4 slices; the note says "His proof uses the z = 2 and z = 4 slices". MINOR.
+* "His computational range is not stated" — correct for the arXiv text too.
