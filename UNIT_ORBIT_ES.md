@@ -105,8 +105,8 @@ solution of Type II shape at every prime of n (Prop 2.1). In particular **ES^{(S
 prime ℓ₀ ≥ 5 has v_{ℓ₀}(n) odd (if 3 were the only prime of odd valuation, n = 3^{odd}·m² ≡ 3 (mod 4)). Pick it; choose residues a_ℓ ≢ 0, 1 (mod ℓ) for ℓ | n, ℓ ≠ ℓ₀ (a₃ = 2 if 3 | n),
 then a_{ℓ₀} ≢ 0, 1 (mod ℓ₀) such that the Jacobi symbol (a/n) = −1 (possible: there are residues and non-residues
 ≠ 1 mod ℓ₀ ≥ 5); with a ≡ 3 (mod 4) this defines a class a mod M = 4·rad(n) satisfying Lemma 2.2. For r ≡ a (M),
-(n/r) = (r/n) = −1 (reciprocity, n ≡ 1 (4)) and (−1/r) = −1, so −n/4 is a square mod r. Fix 0 < ε < 1/20 and take x large; Lemma 2.2 gives ≫ x/log²x such r ≤ x, of which ≫ x/log²x lie in [x/2, x]
-(the sieve bound for x/2 is smaller by a constant factor in the main term; or run Lemma 2.2 on the dyadic interval), and r ∉ S. If [F_r^* : Γ_r] ∉ {1, 2} it has an odd prime factor, which divides (r−1)/2 and so is ≥ x^{1/4−ε},
+(n/r) = (r/n) = −1 (reciprocity, n ≡ 1 (4)) and (−1/r) = −1, so −n/4 is a square mod r. Fix 0 < ε < 1/20 and take x large; Lemma 2.2 gives ≫ x/log²x such r ≤ x (r ∉ S, r ∤ n). No dyadic restriction is
+needed: for every such r ≤ x, an index ≥ x^{1/4−ε} gives |Γ_r| ≤ r/x^{1/4−ε} ≤ x^{3/4+ε}. If [F_r^* : Γ_r] ∉ {1, 2} it has an odd prime factor, which divides (r−1)/2 and so is ≥ x^{1/4−ε},
 whence |Γ_r| ≤ x^{3/4+ε}; by Lemma 2.3 (k = |S| ≥ 4) there are ≪ x^{(3/4+ε)(5/4)} = o(x/log²x) such r. So some r has
 [F_r^* : Γ_r] ≤ 2, i.e. Γ_r ⊇ (F_r^*)² (r ≡ 3 (mod 4): F_r^* = {±1} × squares of odd order), hence
 {Q² : Q ∈ ⟨S⟩} ⊇ (Γ_r)² = (F_r^*)² ∋ −n/4 (exponents can be taken ≥ 0 as Γ_r is finite): r | n + 4Q². (b) is the
