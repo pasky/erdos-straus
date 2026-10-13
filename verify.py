@@ -24323,5 +24323,37 @@ def check_fk():
 
 check_fk()
 
+def check_fl():
+    # (fl) DRINFELD_ES (O181/R181): Thm 2.2 — the odd-order Bright–Loughran classes alpha_zeta on ES_q over F_q(T)
+    # have all local invariants 0 on monic integral points (reviewer's own F_p[T] arithmetic / tame symbols;
+    # Weil reciprocity asserted on every point), incl. P = Q^3 (T1-type points).
+    from time import perf_counter
+    import os
+    import re
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    tot = 0
+    for args, nsol in ((("7", "3", "0,1", "3", "irr"), 2403), (("7", "3", "0,1", "3", "pow:3"), 831)):
+        r = subprocess.run([sys.executable, "review_dr_bl.py", *args], capture_output=True, text=True, timeout=900,
+                           env=env, cwd=sdir)
+        assert r.returncode == 0, ("DRINFELD subprocess", args, r.stderr[-2000:])
+        o = r.stdout
+        assert f"#sol={nsol}" in o, ("DRINFELD R181 count", args, o)
+        assert not re.search(r"\('fin_other', [1-9]", o), ("DRINFELD R181 nonzero finite invariant", args, o)
+        for line in o.splitlines()[1:]:
+            m = re.match(r"\s*\('(I|II|other)', (\d+), (\d+)\)", line)
+            if m:
+                assert m.group(2) == "0" and m.group(3) == "0", ("DRINFELD R181 nonzero inv at P/inf", args, line)
+        tot += nsol
+    print(f"== (fl) DRINFELD_ES R181 Thm 2.2: order-3 BL class alpha_zeta on ES_7(T, P), deg P = 3 (irreducible and "
+          f"cubes): all local invariants 0 on {tot} positional solutions, Weil reciprocity holds; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fl()
+
 
 print("\nall checks passed")

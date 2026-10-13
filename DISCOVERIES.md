@@ -673,6 +673,21 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * EVIDENCE (reproduced). Of the primes p ≡ 1 (24) < 10⁶, the slice layers miss 71 (cd | 6), 2 (cd | 60), 12 (cd | 126) and 0 (cd | 16380). The misses are locally square (68% have (p/5) = (p/7) = 1, against 24% overall), and their cubic data are unbiased. There is no cubic layer; ordering by modulus size is a lottery.
    * Assessment: direction (a) (higher-order Diff-parity over number fields) is closed by three scoped PROVED mechanisms. The function-field loophole remains open.
 
+18. **Spark relay H: degree-k Diff-parity over F_q(T) (DRINFELD_ES.md + 11 memos BRAINSTORM/bsH_* (O181); review `reviews/drinfeld-es-review.md` (R181): no FATAL; one MAJOR scope overclaim in the Thm 2.2 headline (D1: the claim covers the prime-to-p odd part, not "the odd-order part of Br"), and minors, repaired by the reviewer).**
+   * **Thm 2.2 (PROVED).** Over F_q(T), the ES_q surface carries Bright–Loughran classes α_ζ of order m | q − 1 over the base field itself. There is no corestriction, so (J)17's corestriction argument does not apply. For odd m and P a prime power, every local invariant of α_ζ vanishes on every monic integral point.
+     * Proof: a characteristic-free Steinberg identity α_ζ(u) = (−u₂/u₃, −1)_ζ + (λu₁ − 1, −u₂/u₃)_ζ. The residue of λu₁ − 1 is the ES target −1, so finite invariants away from P are powers of −1. Sign normalisation handles ∞, and reciprocity handles P.
+     * The prime-power hypothesis is necessary: for composite P, R181 found inv_{Q₁} ≠ 0 on 3522 of 5754 points.
+     * EVIDENCE: 15 934 solutions at odd m (R181 corrected the report's "> 20 000"), plus R181's new cube rows, all with 0 nonzero odd invariants.
+   * Cor 2.3 (PROVED): on Type II points inv_P α_ζ = (−f/P)_m, i.e. the BL class is the order-m Kudla symbol.
+   * Further PROVED results.
+     * Prop 1.2, k-th power law: (P/f)_k = ε_k^{(1+deg f)(1+deg Ad)−1} (58 362 tests).
+     * Thm 1.3: Kummer CM data of Type II moduli never embed in the rank-k supersingular algebra D^{(k)}_{P,∞}.
+     * Thm 3.3: twisted targets A/P = c₁/X + c₂/Y + c₃/Z give an order-m reciprocity that, at m-th powers, confines all Type I/II solutions to the trivial degree class. "Never sterilises" is an Assessment (R181 D6).
+     * Props 4.1/4.2: odd-degree descent over number fields is closed. Parity over an odd-degree F′ ⊂ ℚ(ζ_M) sees f only as a coset, and odd-degree norm descent certifies p·R_r(p), not p.
+   * Assessment (anatomy of the degree-2 accident). F_∞^*/U₁ = F_q^* × ℤ. An order-k T1 needs a target of order k (ES has −1, of order 2) and a pinned degree, which explains FUNCTIONFIELD_ES's absence of an odd-square obstruction as the k = 2 case. Over F_q(T), PGL₁(D) with inv_∞ = 1/k has an incoherence group of order k, but ES_q never absorbs it at a finite place.
+   * Rank-k forcing is genus-vacuous, since every order lies in a maximal order (R181 D10). x*_c = rec_T((1 + cT)^{−1}) is a wild-inertia element and a profinite square: the FF analogue of a T1-obstructed point with T1 removed (bsH_lubin_tate_sterile).
+   * Open spark: the twisted case c₁ + c₂ + c₃ = 1, where the degree character degenerates (pursued by O182).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
