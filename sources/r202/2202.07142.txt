@@ -1,0 +1,1966 @@
+                                           Brauer–Manin obstruction for integral points on
+                                                   Markoff-type cubic surfaces
+arXiv:2202.07142v4 [math.NT] 15 Dec 2023
+
+
+
+
+                                                                              Quang-Duc DAO
+
+
+                                                                                      Abstract
+                                                    Following [GS22], [LM20] and [CWX20], we study the Brauer–Manin obstruction
+                                                for integral points on similar Markoff-type cubic surfaces. In particular, we construct
+                                                a family of counterexamples to strong approximation which can be explained by the
+                                                Brauer–Manin obstruction with some counting results of similar nature to those in
+                                                [LM20] and [CWX20]. We also give some counterexamples to the integral Hasse prin-
+                                                ciple which cannot be explained by the (algebraic) Brauer–Manin obstruction.
+
+
+                                           1    Introduction
+                                           Let X be an affine variety over Q, and X an integral model of X over Z, i.e. an affine scheme
+                                           of finite type
+                                                        Yover   Z whose generic fiber is isomorphic to U. Define the set of adelic points
+                                                           ′
+                                           X(AQ ) :=          X(Qp ), where p is a prime number or p = ∞ (with Q∞ = R). Similarly,
+                                                             p Q
+                                           define X (AZ ) := p X (Zp ) (with Z∞ = R). We say that X fails the Hasse principle if
+
+                                                                           X(AQ ) 6= ∅    but    X(Q) = ∅
+
+                                           We say that X fails the integral Hasse principle if
+
+                                                                           X (AZ ) 6= ∅   but    X (Z) = ∅.
+                                                                                                                  Q
+                                           We say that X satisfies weak approximation if the image of X(Q) in v X(Qv ) is dense,
+                                           where the product is taken over all places of Q Q. Finally, we say that X satisfies strong
+                                           approximation if X (Z) is dense in X (AZ )• := p X (Zp )×π0 (X(R)), where π0 (X(R)) denotes
+                                           the set of connected components of X(R). Note that we work with π0 (X(R)) since X (Z) is
+                                           never dense in X(R) for topological reasons (see [Con12, Example 2.2]).
+                                               In general, the Hasse principle for varieties does not hold. In his 1970 ICM address
+                                           [Man71], Manin introduced a natural cohomological obstruction to the Hasse principle,
+                                           namely the Brauer–Manin obstruction (which has been extended to its integral version
+                                           in [CX09]). If Br X denotes the cohomological Brauer group of X, i.e. Br X := H2ét (X, Gm ),
+                                           we have a natural pairing from class field theory:
+
+                                                                              X(AQ ) × Br X → Q/Z.
+
+
+                                                                                          1
+If we define X(AQ )Br to be the left kernel of this pairing, then the exact sequence of Albert–
+Brauer–Hasse–Noether gives us the relation:
+                                 X(Q) ⊆ X(AQ )Br ⊆ X(AQ ).
+Similarly, by defining the Brauer–Manin set X (AZ )Br
+                                                   • , we also have that
+
+                                 X (Z) ⊆ X (AZ )Br
+                                                • ⊆ X (AZ )• .
+
+This gives the so-called integral Brauer–Manin obstruction. We say that the Brauer–Manin
+obstruction to the (resp. integral) Hasse principle is the only one if
+
+                                X(AQ )Br 6= ∅ ⇐⇒ X(Q) 6= ∅.
+
+                               (X (AZ )Br
+                                       • 6= ∅ ⇐⇒ X (Z) 6= ∅.)
+
+If there is no confusion, we can omit the symbol • for the set of local integral points and the
+corresponding Brauer–Manin set. ˜
+    We are particularly interested in the case where X is a hypersurface, defined by a polyno-
+mial equation of degree d in an affine space. The case d = 1 is easy. The case d = 2 considers
+the arithmetic of quadratic forms: for rational points, the Hasse principle is always satisfied
+by the Hasse–Minkowski theorem, and for integral points, the Brauer–Manin obstruction to
+the integral Hasse principle is the only one (up to an isotropy assumption) due to work of
+Colliot-Thélène, Xu [CX09] and Harari [Har08]. However, the case d = 3 (of cubic hypersur-
+faces) is still largely open, especially for integral points. Overall, the arithmetic of integral
+points on the affine cubic surfaces over number fields is still little understood. For example,
+the question to determine which integers can be written as sums of three cubes of integers
+is still open. In this first problem, for the affine variety defined by the equation
+                                       x3 + y 3 + z 3 = a,
+where a is a fixed integer, Colliot-Thélène and Wittenberg in [CW12] proved that there is
+no Brauer–Manin obstruction to the integral Hasse principle (if a is not of the form 9n ± 4).
+However, the existence of such an integer a remains unknown in general, with the first
+example now being the case when a = 114. On the other hand, in a related problem, there
+is no Brauer–Manin obstruction to the existence of an integral point on the cubic surface
+defined by
+                                     x3 + y 3 + 2z 3 = a,
+for any a ∈ Z, also proven in [CW12].
+    Another interesting example of affine cubic surfaces that we consider is given by Markoff
+surfaces Um which are defined by
+                                   x2 + y 2 + z 2 − xyz = m,
+where m is an integer parameter. The very first (original) class of Markoff surfaces which
+was studied is the one given by this equation with m = 0 in a series of papers [BGS16a],
+[BGS16b], and recently [Che21]. They study strong approximation mod p for U0 for any
+prime p and present a Strong Approximation Conjecture ([BGS16b, Conjecture 1]):
+
+                                               2
+Conjecture 1.1. For any prime p, U0 (Z/pZ) consists of two Γ orbits, namely {(0, 0, 0)}
+and U0∗ (Z/pZ) = U0 (Z/pZ)\{(0, 0, 0)}. Here Γ is a group of affine integral morphisms of A3
+generated by the permutations of the coordinates and the Vieta involutions.
+
+    Combining the above three papers by Bourgain, Gamburd, Sarnak, and Chen, the Con-
+jecture is established for all but finitely many primes (see [Che21, Theorem 5.5.5]), which
+also implies that U0 satisfies strong approximation mod p for all by finitely many primes.
+    On the other hand, in [GS22], Ghosh and Sarnak study the integral points on those
+affine Markoff surfaces Um with general m, both from a theoretical point of view and by
+numerical evidence. They prove that for almost all m, the integral Hasse principle holds,
+and that there are infinitely many m’s for which it fails (Hasse failures). Furthermore, their
+numerical experiments suggest particularly a proportion of integers m satisfying |m| ≤ M
+of the power M 0,8875···+o(1) for which the integral Hasse principle is not satisfied.
+    Subsequently, Loughran and Mitankin [LM20] proved that asymptotically only a pro-
+portion of M 1/2 /(log M)1/2 of integers m such that −M ≤ m ≤ M presents an integral
+Brauer–Manin obstruction to the Hasse principle. They also obtained a lower bound, asymp-
+totically M 1/2 / log M, for the number of Hasse failures which cannot be explained by the
+Brauer–Manin obstruction. After Colliot-Thélène, Wei, and Xu [CWX20] obtained a slightly
+stronger lower bound than the one given in [LM20], no better result than their number
+M 1/2 /(log M)1/2 has been known until now. In other words, with all the current results,
+one does not have a satisfying comparison between the numbers of Hasse failures which can
+be explained by the Brauer–Manin obstruction and which cannot be explained by this ob-
+struction. Meanwhile, for strong approximation, it has been proven to almost never hold
+for Markoff surfaces in [LM20] and then absolutely never be the case in [CWX20]. Here we
+recall an important conjecture given by Ghosh and Sarnak.
+
+Conjecture 1.2. [GS22, Conjecture 10.2] The number of Hasse failures satisfies that
+
+              #{m ∈ Z : 0 ≤ m ≤ M, Um (AZ ) 6= ∅ but Um (Z) = ∅} ≈ C0 M θ ,
+
+for some C0 > 0 and some 12 < θ < 1.
+
+    The above conjecture also means that almost all counterexamples to the integral Hasse
+principle for Markoff surfaces cannot be explained by the Brauer–Manin obstruction, thanks
+to the result obtained by [LM20]. While the question of counting all counterexamples to the
+integral Hasse principle for Markoff surfaces remains largely open, we will focus on another
+family in this paper. More precisely, we are going to study the set of integral points of a
+different Markoff-type cubic surfaces whose origin is similar to that of the original Markoff
+surfaces Um , namely the relative character varieties which will be introduced in Section 2,
+using the Brauer–Manin obstruction as well. The surfaces are given by the cubic equation:
+
+                           x2 + y 2 + z 2 + xyz = ax + by + cz + d,
+where a, b, c, d ∈ Z are parameters that satisfy some specific relations to be discussed later.
+Due to the similar appearance as that of the original Markoff surfaces, one may expect to
+find some similarities in their arithmetic as well. One of the main results in our paper is
+the following, saying that a positive proportion of these relative character varieties have no
+
+                                              3
+(algebraic) Brauer–Manin obstruction to the integral Hasse principle as well as fail strong
+approximation, and those failures can be explained by the Brauer–Manin obstruction.
+
+Theorem 1.3. Let U be the affine scheme over Z defined by
+
+                           x2 + y 2 + z 2 + xyz = ax + by + cz + d,
+
+where                
+                      a = k1 k2 + k3 k4
+                                                           4
+                                                            X             4
+                                                                          Y
+                       b = k1 k4 + k2 k3    and     d=4−          ki2 −         ki ,
+                     
+                     
+                       c = k1 k3 + k2 k4                    i=1           i=1
+
+
+such that the projective closure X ⊂ P3Q of U = U ×Z Q is smooth. Then we have
+
+     #{k = (k1 , k2 , k3 , k4 ) ∈ Z4 , |ki | ≤ M ∀ 1 ≤ i ≤ 4 : ∅ =
+                                                                 6 U(AZ )Br1 6= U(AZ )} ≍ M 4
+
+as M → +∞.
+
+    The structure of the paper is as follows. In Section 2, we provide some background on
+character varieties and a natural origin of the Markoff-type cubic surfaces. In Section 3,
+we first review some important results on affine cubic surfaces given by the complement of
+three coplanar lines and their Brauer groups. After the general setting, we turn our atten-
+tion to the natural smooth projective compactifications of the Markoff-type cubic surfaces,
+where we explicitly calculate the (algebraic) Brauer group of the compactification, and then
+we complete the analysis of the Brauer group by calculating the Brauer group of the affine
+surfaces. In Section 4, we use the Brauer group to give explicit examples of Brauer–Manin
+obstructions to the integral Hasse principle, and give some counting results for the frequency
+of the obstructions. Finally, in Section 5, we make some important remarks to compare some
+results in this paper to those of Markoff surfaces in recent work that we follow, and We also
+give some counterexamples to the integral Hasse principle which cannot be explained by the
+Brauer–Manin obstruction.
+
+    Notation. Let k be a field and k a separable closure of k. We let Gk := Gal(k/k)
+be the absolute Galois group. A k-variety is a separated k-scheme of finite type. If X is a
+k-variety, we write X = X ×k k. Let k[X] = H0 (X, OX ) and k[X] = H0 (X, OX ). If X is an
+integral k-variety, let k(X) denote the function field of X. If X is a geometrically integral
+k-variety, let k(X) denote the function field of X.
+    Let Pic X = H1Zar (X, Gm ) = H1ét (X, Gm ) denote the Picard group of a scheme X. Let
+Br X = H2ét (X, Gm ) denote the Brauer group of X. Let
+
+                                 Br1 X := Ker[Br X → Br X]
+
+denote the algebraic Brauer group of a k-variety X and let Br0 X ⊂ Br1 X denote the
+image of Br k → Br X. The image of Br X → Br X is called the transcendental Brauer
+group of X.
+   Given a field F of characteristic zero containing a primitive n-th root of unity ζ = ζn , we
+have H2 (F, µ⊗2     2
+             n ) = H (F, µn ) ⊗ µn . The choice of ζn then defines an isomorphism Br(F )[n] =
+
+
+                                                4
+H2 (F, µn ) ∼
+            = H2 (F, µ⊗2                                ×
+                      n ). Given two elements f, g ∈ F , we have their classes (f ) and (g) in
+F × /F ×n = H1 (F, µn ). We denote by (f, g)ζ ∈ Br(F )[n] = H2 (F, µn ) the class corresponding
+to the cup-product (f ) ∪ (g) ∈ H2 (F, µ⊗2
+                                         n ). Suppose F/E is a finite Galois extension with
+Galois group G. Given σ ∈ G and f, g ∈ F × , we have σ((f, g)ζn ) = (σ(f ), σ(g))σ(ζn ) ∈ Br(F ).
+In particular, if ζn ∈ E, then σ((f, g)ζn ) = (σ(f ), σ(g))ζn . For all the details, see [GS17,
+Sections 4.6, 4.7].
+    Let R be a discrete valuation ring with fraction field F and residue field κ. Let v denote
+the valuation F × → Z. Let n > 1 be an integer invertible in R. Assume that F contains a
+primitive n-th root of unity ζ. For f, g ∈ F × , we have the residue map
+
+                    ∂R : H2 (F, µn ) → H1 (κ, Z/nZ) ∼
+                                                    = H1 (κ, µn ) = κ× /κ×n ,
+
+where H1 (κ, Z/nZ) ∼
+                   = H1 (κ, µn ) is induced by the isomorphism Z/nZ ≃ µn sending 1 to ζ.
+This map sends the class of (f, g)ζ ∈ Br(F )[n] = H2 (F, µn ) to
+
+                            (−1)v(f )v(g) class(g v(f ) /f v(g) ) ∈ κ/κ×n .
+
+    For a proof of these facts, see [GS17]. Here we recall some precise references. Residues in
+Galois cohomology with finite coefficients are defined in [GS17, Construction 6.8.5]. Com-
+parison of residues in Milnor K-Theory and Galois cohomology is given in [GS17, Proposition
+7.5.1]. The explicit formula for the residue in Milnor’s group K2 of a discretely valued field
+is given in [GS17, Example 7.1.5].
+
+   Acknowledgements. I thank Cyril Demarche for his help and supervision during my
+PhD study at the Institute of Mathematics of Jussieu. I thank Kevin Destagnol for his
+help with the computations in Section 4.3 using analytic number theory. I thank Vladimir
+Mitankin for his useful remarks and suggestions, especially regarding Section 5. I thank
+Jean-Louis Colliot-Thélène, Fei Xu, and Daniel Loughran for their helpful comments and
+encouragement. This project has received funding from the European Union’s Horizon 2020
+Research and Innovation Programme under the Marie Skłodowska-Curie grant agreement
+No. 754362 and from the Vietnam Academy of Science and Technology’s 2022 Support Pro-
+gramme for Junior Researchers. I thank the reviewers for their careful reading of my paper
+and their many insightful comments and suggestions which helped me improve considerably
+the manuscript.
+
+
+2     Background
+The main reference to look up notations that we use here is [Wha20], mostly Chapter 2.
+
+2.1    Character varieties
+First, we introduce an important origin of the Markoff-type cubic surfaces which comes from
+character varieties, as studied in [Wha20]. Throughout this section, an algebraic variety is
+a scheme of finite type over a field. Given an affine variety X over a field k, we denote by
+k[X] its coordinate ring over k. If moreover X is integral, then k(X) denotes its function
+
+                                                  5
+field over k. Given a commutative ring A with unity, the elements of A will be referred to
+as regular functions on the affine scheme Spec A.
+
+Definition 2.1. Let π be a finitely generated group. Its (SL2 ) representation variety Rep(π)
+is the affine scheme defined by the functor
+
+                                             A 7→ Hom(π, SL2 (A))
+
+for every commutative ring A. Assume that π has a sequence of generators of m elements,
+then we have a presentation of Rep(π) as a closed subscheme of SLm      2 defined by equations
+coming from relations among the generators. For each a ∈ π, let tra be the regular function
+on Rep(π) given by ρ 7→ tr ρ(a).
+    The (SL2 ) character variety of π over C is then defined to be the affine invariant theoretic
+quotient
+                       X(π) := Rep(π) SL2 = Spec C[Rep(π)]SL2 (C)
+                                                                        
+
+under the conjugation action of SL2 .
+
+   The regular function tra for each a ∈ π clearly descends to a regular function on X(π).
+Furthermore, from the fact that tr(I2 ) = 2 and tr(A)tr(B) = tr(AB) + tr(AB −1 ), for I2 ∈
+SL2 (C) being the identity matrix and for any A, B ∈ SL2 (C), we can deduce a natural model
+of X(π) over Z as the spectrum of
+
+                      R(π) := Z[tra : a ∈ π]/(tr1 − 2, tra trb − trab − trab−1 ).
+
+Given any integral domain A with fraction field F of characteristic zero, the A-points of X(π)
+parametrize the Jordan equivalence classes of SL2 (F )-representations of π having character
+valued in A.
+
+Example 2.2. Denote by Fm the free group on m ≥ 1 generators a1 , . . . , am . By Goldman’s
+results used in [Wha20], we have the following important examples:
+
+ (1) tra1 : X(F1 ) ≃ A1 .
+
+ (2) (tra1 , tra2 , tra3 ) : X(F2 ) ≃ A3 .
+
+ (3) The coordinate ring Q[X(F3 )] is the quotient of the polynomial ring
+
+                           Q[tra1 , tra2 , tra3 , tra1 a2 , tra2 a3 , tra1 a3 , tra1 a2 a3 , tra1 a3 a2 ]
+
+      by the ideal generated by two elements
+
+                 tra1 a2 a3 + tra1 a3 a2 − (tra1 a2 tra3 + tra1 a3 tra2 + tra2 a3 tra1 − tra1 tra2 tra3 )
+
+      and
+                  tra1 a2 a3 tra1 a3 a2 − {(tr2a1 + tr2a2 + tr2a3 ) + (tr2a1 a2 + tr2a2 a3 + tr2a1 a3 )
+                                            − (tra1 tra2 tra1 a2 + tra2 tra3 tra2 a3 + tra1 tra3 tra1 a3 )
+                                            + tra1 a2 tra2 a3 tra1 a3 − 4}.
+
+
+                                                            6
+    Now given a connected smooth compact manifold M, we consider the moduli of local
+systems on M which is the character variety X(M) := X(π1 (M)) of its fundamental group.
+More generally, given a smooth manifold M = M1 ⊔ · · · ⊔ Mm with finitely many connected
+components Mi for 1 ≤ i ≤ m, define
+
+                                X(M) := X(M1 ) × · · · × X(Mm ).
+
+The construction of the moduli space X(M) is functorial in the manifold M. More precisely,
+any smooth map f : M → N of manifolds induces a morphism f ∗ : X(N) → X(M),
+depending only on the homotopy class of f , given by pullback of local systems.
+    Let Σ be a surface. For each curve a ∈ Σ, there is a well-defined regular function
+tra : X(Σ) → X(a) ≃ A1 , which agrees with trα for any α ∈ π1 (Σ) freely homotopic to a
+parametrization of a. The boundary curves ∂Σ of Σ induce a natural morphism
+
+                                 tr∂Σ = (−)|∂Σ : X(Σ) → X(∂Σ).
+
+Now since we can write ∂Σ = c1 ⊔ · · · ⊔ cn , we have an identification
+
+                              X(∂Σ) = X(c1 ) × · · · × X(cn ) ≃ An
+
+given by taking a local system on the disjoint union ∂Σ of n circles to its sequence of
+traces along the curves. The morphism tr∂Σ above may be viewed as an assignment to each
+ρ ∈ X(Σ) its sequence of traces tr ρ(c1 ), . . . , tr ρ(cn ). The fibers of tr∂Σ for k ∈ An will be
+denoted Xk = Xk (Σ). Each Xk is often called a relative character variety in the literature.
+If Σ is a surface of type (g, n) satisfying 3g + n − 3 > 0, then the relative character variety
+Xk (Σ) is an irreducible algebraic variety of dimension 6g + 2n − 6.
+    Given a fixed surface Σ, a subset K ⊆ X(∂Σ, C), and a subset A ⊆ C, we shall denote
+by
+                               XK (A) = XK (Σ, A) := XK (Σ)(A)
+the set of all ρ ∈ X(Σ, C) such that tr∂Σ (ρ) ∈ K and tra (ρ) ∈ A for every essential curve
+a ⊂ Σ. By [Wha20, Lemma 2.5], there is no risk of ambiguity with this notation, i.e., Xk has
+a model over A and Xk (A) recovers the set of A-valued points of Xk in the sense of algebraic
+geometry.
+
+2.2    Markoff-type cubic surfaces
+Now we give a description of the moduli spaces Xk (Σ) for (g, n) = (1, 1) and (0, 4). These
+cases are special since each Xk is an affine cubic algebraic surface with an explicit equation.
+
+ (1) Let Σ be a surface of type (g, n) = (1, 1), i.e. a one holed torus. Let (α, β, γ) be
+     an optimal sequence of generators for π1 (Σ), as given in [Wha20, Definition 2.1]. By
+     Example 2.2, we have an identification X(Σ) ≃ A3 . From the trace relations in SL2 ,
+     we obtain that
+               trγ = trαβα−1 β −1 = trαβα−1 trβ −1 − trαβα−1 β
+                   = tr2β − trαβ trα−1 β + trαα = tr2β − trαβ (trα−1 trβ − trαβ ) + tr2α − tr1
+                   = tr2α + tr2β + tr2αβ − trα trβ trαβ − 2.
+
+                                                   7
+      Writing (x, y, z) = (trα , trβ , trαβ ) so that each of the variables x, y, and z corresponds to
+      an essential curve on Σ as depicted in [Wha20, Figure 2], the moduli space Xk ⊂ X has
+      an explicit presentation as an affine cubic algebraic surface in A3x,y,z with the equation
+
+                                      x2 + y 2 + z 2 − xyz − 2 = k.
+
+      These are exactly the Markoff surfaces as studied in the series of papers [GS22], [LM20],
+      and [CWX20] with m = k + 2.
+
+ (2) Let Σ be a surface of type (g, n) = (0, 4), i.e. a four holed sphere. Let (γ1 , γ2 , γ3, γ4 )
+     be an optimal sequence of generators for π1 (Σ). Set
+
+                                     (x, y, z) = (trγ1 γ2 , trγ2 γ3 , trγ1 γ3 )
+
+      so that each of the variables corresponds to an essential curve on Σ. By Example 2.2,
+      for k = (k1 , k2 , k3 , k4 ) ∈ A4 (C) the relative character variety Xk = Xk (Σ) is an affine
+      cubic algebraic surface in A3x,y,z given by the equation
+
+                                x2 + y 2 + z 2 + xyz = ax + by + cz + d,                            (1)
+
+      where              
+                          a = k1 k2 + k3 k4
+                                                                       4
+                                                                        X              4
+                                                                                       Y
+                           b = k1 k4 + k2 k3        and      d=4−              ki2 −         ki .   (2)
+                         
+                         
+                           c = k1 k3 + k2 k4                             i=1           i=1
+
+      These are the Markoff-type cubic surfaces that we are going to study in this paper.
+
+
+3    The Brauer group of Markoff-type cubic surfaces
+Our main interest is in the second Markoff-type cubic surfaces defined by (1). We are now
+going to give some explicit computations on the Brauer group of these surfaces. First of all,
+let us recall some basic definitions and results on the Brauer group of varieties over a field.
+    Let k be an arbitrary field. Recall that for a variety X over k there is a natural filtration
+on the Brauer group
+                                    Br0 X ⊂ Br1 X ⊂ Br X
+which is defined as follows.
+
+Definition 3.1. Let
+
+                  Br0 X = Im[Br k → Br X],               Br1 X = Ker[Br X → Br X].
+
+The subgroup Br1 X ⊂ Br X is the algebraic Brauer group of X and the quotient Br X/Br1 X
+is the transcendental Brauer group of X.
+
+    From the Hochschild–Serre spectral sequence, we have the following spectral sequence:
+
+                          E2pq = Hpét (k, Hqét (X, Gm )) =⇒ Hp+q
+                                                             ét (X, Gm ),
+
+
+                                                     8
+which is contravariantly functorial in the k-variety X. It gives rise to the functorial exact
+sequence of terms of low degree:
+                                                     G
+          0 −→ H1 (k, k[X]× ) −→ Pic X −→ Pic X k −→ H2 (k, k[X]× ) −→ Br1 X
+            −→ H1 (k, Pic X) −→ Ker[H3 (k, k[X]× ) → H3ét (X, Gm )].
+                                                          ×
+Let X be a variety over a field k such that k[X]× = k . By Hilbert’s Theorem 90 we have
+        ×
+H1 (k, k ) = 0, then by the above sequence there is an exact sequence
+                                          Gk
+                   0 −→ Pic X −→ Pic X         −→ Br k −→ Br1 X
+                                                          ×
+                     −→ H1 (k, Pic X) −→ Ker[H3 (k, k ) → H3ét (X, Gm )].
+
+This sequence is also contravariantly functorial in X.
+                                                                         ×
+Remark 3.2. Let X be a variety over a field k such that k[X]× = k . This assumption
+           ×
+k[X]× = k holds for any proper, geometrically connected and geometrically reduced k-
+variety X.
+
+ (1) If X has a k-point, which defined a section of the structure morphism X → Spec k,
+                                                       ×
+     then each of the maps Br k −→ Br1 X and H3 (k, k ) → H3ét (X, Gm ) has a retraction,
+                                               G
+     hence is injective. (Then Pic X −→ Pic X k is an isomorphism.) Therefore, we have
+     an isomorphism
+                                  Br1 X/Br k ∼
+                                             = H1 (k, Pic X).
+                                          ×
+ (2) If k is a number field, then H3 (k, k ) = 0 (see [CF67], Chapter VII, Section 11.4, p.
+                                                                            ×
+     199). Thus for a variety X over a number field k such that k[X]× = k , we have an
+     isomorphism
+                                  Br1 X/Br0 X ∼ = H1 (k, Pic X).
+
+3.1    Geometry of affine cubic surfaces
+In this section, we study the geometry of affine cubic surfaces with special regards to the
+Brauer group. By an affine cubic surface, we mean an affine surface of the form
+
+                                    U : f (u1 , u2, u3 ) = 0
+
+where f is a polynomial of degree of 3. The closure of U in P3 is a cubic surface X. The
+complement H = X \ U is a hyperplane section on S. Much of the geometry of U can be
+understood in terms of the geometry of X and H, especially in the case of Markoff-type
+cubic surfaces. There has been already much work on the Brauer groups of affine cubic
+surfaces when the hyperplane section H is smooth, for example see [CW12]. Here we shall be
+interested in the case where the hyperplane section H is singular ; in particular, we focus on
+the case where H is given by 3 coplanar lines. All results here are proven in either [CWX20]
+or [LM20].
+    We begin with an important result for cubic surfaces over an algebraically closed field.
+
+                                               9
+Proposition 3.1. [CWX20, Proposition 2.2] Let X ⊂ P3k be a smooth projective cubic surface
+over a field k of characteristic zero. Suppose a plane P2k ⊂ P3k cuts out on X three distinct
+lines L1 , L2 , L3 over k. Let U ⊂ X be the complement of this plane. Then the natural map
+  ×
+k → k[U]× is an isomorphism of Galois modules and the natural sequence
+                                 3
+                                 M
+                          0 −→         ZLi −→ Pic X −→ Pic U −→ 0
+                                 i=1
+
+is an exact sequence of Galois lattices.
+   As Pic U is torsion free, we have the following result for the algebraic Brauer group, using
+the computation by Magma.
+Proposition 3.2. [LM20, Proposition 2.5] Let X be a smooth projective cubic surface over
+a field k of characteristic 0. Let H ⊂ S be a hyperplane section which is the union of 3
+distinct lines L1 , L2 , L3 and let U = X \ H. Then Pic U is torsion free and Br1 U/Br0 U ∼
+                                                                                          =
+H1 (k, Pic U) is isomorphic to one of the following groups:
+                      0, Z/4Z, Z/2Z × Z/4Z, (Z/2Z)r       (r = 1, 2, 3, 4).
+   For the transcendental Brauer group, from the discussion on page 140 of [CS21], note
+                             Gk                               Gk
+that Br1 U = Ker(Br U → Br U ) so we have Br U/Br1 U ⊂ Br U .
+Proposition 3.3. [CWX20, Proposition 2.1] [LM20, Proposition 2.4] Let X be a smooth
+projective cubic surface over a field k of characteristic 0. Suppose that U is an open subset
+of X such that X \ U is the union of three distinct k-lines, by which we mean a smooth
+projective curve isomorphic to P1k . Suppose any two lines intersect each another transversely
+in one point, and that the three intersection points are distinct. Let L be one of the three
+lines and V ⊂ L be the complement of the 2 intersection points of L with the other two lines.
+Then the residue map
+                               ∂L : Br k(X) → H1 (k(L), Q/Z)
+induces a Gk -isomorphism
+                      Br U ≃ H1 (V , Q/Z) ≃ H1 (Gm , Q/Z) ≃ Q/Z(−1).
+In particular, if k contains no non-trivial roots of unity then
+                                             G
+                                         Br U k = Z/2Z.
+Lemma 3.4. [CWX20, Lemma 2.4] Let k be a field of characteristic 0. Let Gk = Gal(k/k).
+Then Q/Z(−1)Gk is (noncanonically) isomorphic to µ∞ (k), the group of roots of unity in k.
+   We end this section by the following result which applies to number fields and more
+generally to function fields of varieties over number fields.
+Corollary 3.5. [CWX20, Corollary 2.3] Let k be a field of characteristic 0 such that in any
+finite field extension there are only finitely many roots of unity. Let X ⊂ P3k be a smooth
+projective cubic surface over k. Suppose that a plane cuts out on X three nonconcurrent
+lines. Let U ⊂ X be the complement of the plane section. Then the quotient Br U/Br0 U is
+finite.
+
+                                                 10
+3.2    The geometric Picard group and algebraic Brauer group
+Using the equations, we can compute explicitly the algebraic Brauer group of the Markoff-
+type cubic surfaces in question. First, we have the following important result.
+Lemma 3.6. Let K be a number field and let X ⊂ P3K be a cubic surface defined by the
+equation
+                  t(x2 + y 2 + z 2 ) + xyz = t2 (ax + by + cz) + dt3 ,
+where a, b, c, d are defined by (2) for some k = (k1 , k2 , k3 , k4 ) ∈ A4 (K). Then X is singular
+if and only if we are in one of the following cases:
+   • ∆(k) = 0 where k = (k1 , k2, k3 , k4 ) ∈ A4 (K) and
+       ∆(k) = (2(k12 + k22 + k32 + k42 ) − k1 k2 k3 k4 − 16)2 − (4 − k12 )(4 − k22 )(4 − k32 )(4 − k42 ),
+
+   • at least one of the parameters k1 , k2 , k3 , k4 equals ±2.
+If k satisfies none of those two conditions and [E : K] = 16 where
+                                q         q        q        q
+                                   2
+                        E := K( k1 − 4, k2 − 4, k3 − 4, k42 − 4),
+                                             2        2
+
+
+then the 27 lines on the smooth cubic surface X are defined over E by the following equations
+                       L1 : x = t = 0;      L2 : y = t = 0;         L3 : z = t = 0
+and
+                                     p
+                            (k12 − 4)(k22 − 4))
+                       (k1 k2 + ǫδ
+  1. ℓ1 (ǫ, δ) : x =                            t,
+                              2                            √             √
+                 p
+                   2
+                                 p
+                                    2                (k1 +ǫ k12 −4)(k2 +δ k22 −4)
+          (k1 + ǫ k1 − 4)(k2 + δ k2 − 4)         c−b              4
+      y=−                                  z−           √           √             t;
+                        4                           δk1 k22 −4+ǫk2 k12 −4
+                                                                       2
+                                     p
+                            (k12 − 4)(k42 − 4))
+                       (k1 k4 + ǫδ
+  2. ℓ2 (ǫ, δ) : y =                            t,
+                              2                            √             √
+                 p
+                   2
+                                 p
+                                    2                (k1 +ǫ k12 −4)(k4 +δ k42 −4)
+          (k1 + ǫ k1 − 4)(k4 + δ k4 − 4)         a−c              4
+      z=−                                  x−           √           √             t;
+                        4                           δk1 k42 −4+ǫk4 k12 −4
+                                                                        2
+                                     p
+                            (k12 − 4)(k32 − 4))
+                       (k1 k3 + ǫδ
+  3. ℓ3 (ǫ, δ) : z =                            t,
+                              2                              √             √
+                 p
+                   2
+                                 p
+                                     2                 (k1 +ǫ k12 −4)(k3 +δ k32 −4)
+          (k1 + ǫ k1 − 4)(k3 + δ k3 − 4)         a − b              4
+      y=−                                   x−            √2          √             t;
+                        4                             δk1 k3 −4+ǫk3 k12 −4
+                                                                        2
+                                     p
+                            (k32 − 4)(k42 − 4))
+                       (k3 k4 + ǫδ
+  4. ℓ4 (ǫ, δ) : x =                            t,
+                              2                            √             √
+                 p
+                   2
+                                 p
+                                    2                (k3 +ǫ k32 −4)(k4 +δ k42 −4)
+          (k3 + ǫ k3 − 4)(k4 + δ k4 − 4)         c−b              4
+      y=−                                  z−           √           √             t;
+                        4                           δk3 k42 −4+ǫk4 k32 −4
+                                                                       2
+
+                                                   11
+                                     p
+                            (k22 − 4)(k32 − 4))
+                       (k2 k3 + ǫδ
+  5. ℓ5 (ǫ, δ) : y =                            t,
+                              2                            √             √
+                 p
+                   2
+                                 p
+                                    2                (k2 +ǫ k22 −4)(k3 +δ k32 −4)
+          (k2 + ǫ k2 − 4)(k3 + δ k3 − 4)         a−c              4
+      z=−                                  x−           √           √             t;
+                        4                           δk2 k32 −4+ǫk3 k22 −4
+                                                                    2
+                                     p
+                            (k22 − 4)(k42 − 4))
+                       (k2 k4 + ǫδ
+  6. ℓ6 (ǫ, δ) : z =                            t,
+                              2                            √             √
+                 p
+                   2
+                                 p
+                                     2               (k2 +ǫ k22 −4)(k4 +δ k42 −4)
+          (k2 + ǫ k2 − 4)(k4 + δ k4 − 4)         a−b              4
+      y=−                                   x−          √           √             t
+                        4                           δk2 k42 −4+ǫk4 k22 −4
+                                                                    2
+
+with ǫ = ±1 and δ = ±1. Furthermore, we have the intersection numbers
+
+                                          ℓi (ǫ, δ).ℓj (ǫ, δ) = 0
+
+for any pair (ǫ, δ), for all 1 ≤ i 6= j ≤ 6.
+Proof. The necessary and sufficient condition for the affine open surface U = X \ {t = 0} to
+be singular is proven in [CL09, Theorem 3.7]. It is easy to verify that there is no singular
+point at infinity on the projective surface X.
+   Now without loss of generality, we consider the system of equations
+                                       (
+                                         y = α1 x + α2 t
+                                         z = β1 x + β2 t
+
+and put them in the original equation of the cubic surfaces to solve αi , βi for i = 1, 2. We
+can work similarly for (z, x) and (x, y) to find all the given equations of the 27 lines.
+   Now given the data of the lines, we can compute directly the algebraic Brauer group of
+the Markoff-type cubic surfaces in question.
+Proposition 3.7. Let K be a number field. Let X ⊂ P3K be a cubic surface defined by the
+equation
+                    t(x2 + y 2 + z 2 ) + xyz = t2 (ax + by + cz) + dt3 ,            (3)
+where a, b, c, d are defined by (2) for some k = (k1 , k2 , k3, k4 ) ∈ A4 (K). Assume that X is
+smooth over K and [E : K] = 16, then
+
+                                Br X/Br0 X = Br1 X/Br0 X ∼
+                                                         = Z/2Z.
+
+Proof. Since X is geometrically rational, one has Br X = Br1 X. By taking x = t = 0 for
+instance, one clearly has X(K) 6= ∅, so Br0 X = Br K. Since K is a number field, by the
+Hochschild–Serre spectral sequence, we have an isomorphism
+
+                                     Br1 X/Br0 X ≃ H1 (K, Pic X).
+
+    By the above lemma, we can easily verify that the six lines ℓ1 (1, 1), ℓ1 (1, −1), ℓ3 (−1, 1),
+ℓ4 (−1, −1), ℓ4 (−1, 1), and L2 on the cubic surface X are skew to each other, hence they may
+
+                                                    12
+be simultaneously blown down to P2 by [Har77], Chapter V, Proposition 4.10. For the sake
+of simplicity, here we shall write these six lines respectively as ℓi for 1 ≤ i ≤ 6. The class ω
+of the canonical divisor on X is equal to −3ℓ + Σ6i=1 ℓi , where ℓ is the inverse image of the
+class of lines in P2 . By [Har77, Chapter V, Proposition 4.8], the classes ℓ, ℓi , i = 1, 6 form
+a basis of Pic X, and we have the following intersection properties: (ℓ.ℓ) = 1, (ℓ.ℓi ) = 0 for
+1 ≤ i ≤ 6.
+    Since (L1 .ℓ3 ) = 0, (L1 .ℓi ) = 1, i 6= 3; (L3 .ℓ3 ) = (L3 .ℓ6 ) = 1, (L3 .ℓi ) = 0, i 6= 3, 6; and
+L2 = ℓ6 , one concludes that
+
+                             L1 = 2ℓ − Σi6=3 ℓi ,        L3 = ℓ − ℓ3 − ℓ6                           (4)
+
+in Pic X by [Har77, Chapter V, Proposition 4.8 (e)].
+   Now we consider the action of the Galois group G := Gal(E/K) on Pic X. One clearly
+has G ∼= hσ1 i × hσ2 i × hσ3 i × hσ4 i, where
+             q               q                q         q
+         σi ( ki − 4) = − ki2 − 4 and σi ( kj2 − 4) = kj2 − 4, 1 ≤ i 6= j ≤ 4.
+                2
+
+
+
+We have the following intersection numbers, noting that σ2 (ℓ1 ) = ℓ2 , σ2 (ℓ2 ) = ℓ1 , σ4 (ℓ4 ) = ℓ5 ,
+and σ4 (ℓ5 ) = ℓ4 :
+                        
+                        
+                         (σ1 (ℓ1 ).ℓ1 ) = (ℓ1 (−1, 1).ℓ1 (1, 1)) = 0
+                        
+                          (σ1 (ℓ1 ).ℓ2 ) = (ℓ1 (−1, 1).ℓ1 (1, −1)) = 1
+                        
+                        
+                        
+                        
+                        
+                        (σ (ℓ ).ℓ ) = (ℓ (−1, 1).ℓ (−1, 1)) = 1
+                             1 1        3         1              3
+                                                                                                  (5)
+                        
+                        
+                         (σ1 (ℓ1 ).ℓ4 ) = (ℓ1 (−1, 1).ℓ4 (−1, −1)) = 0
+                          (σ1 (ℓ1 ).ℓ5 ) = (ℓ1 (−1, 1).ℓ4 (−1, 1)) = 0
+                        
+                        
+                        
+                        
+                        
+                          (σ1 (ℓ1 ).ℓ6 ) = (ℓ1 (−1, 1).L2 ) = 0,
+                        
+                       
+                       
+                        (σ1 (ℓ2 ).ℓ1 ) = (ℓ1 (−1, −1).ℓ1 (1, 1)) = 1
+                       
+                         (σ1 (ℓ2 ).ℓ2 ) = (ℓ1 (−1, −1).ℓ1 (1, −1)) = 0
+                       
+                       
+                       
+                       
+                       
+                       (σ (ℓ ).ℓ ) = (ℓ (−1, −1).ℓ (−1, 1)) = 1
+                           1 2        3         1                  3
+                                                                                                  (6)
+                       
+                       
+                        (σ1 (ℓ2 ).ℓ4 ) = (ℓ1 (−1, −1).ℓ4 (−1, −1)) = 0
+                         (σ1 (ℓ2 ).ℓ5 ) = (ℓ1 (−1, −1).ℓ4 (−1, 1)) = 0
+                       
+                       
+                       
+                       
+                       
+                         (σ1 (ℓ2 ).ℓ6 ) = (ℓ1 (−1, −1).L2 ) = 0,
+                       
+                         
+                         
+                          (σ1 (ℓ3 ).ℓ1 ) = (ℓ3 (1, 1).ℓ1 (1, 1)) = 1
+                         
+                           (σ1 (ℓ3 ).ℓ2 ) = (ℓ3 (1, 1).ℓ1 (1, −1)) = 1
+                         
+                         
+                         
+                         
+                         
+                         (σ (ℓ ).ℓ ) = (ℓ (1, 1).ℓ (−1, 1)) = 0
+                              1 3         3         3          3
+                                                                                                  (7)
+                         
+                         
+                          (σ 1 (ℓ 3 ).ℓ  4 ) = (ℓ  3 (1, 1).ℓ 4 (−1, −1)) = 0
+                           (σ1 (ℓ3 ).ℓ5 ) = (ℓ3 (1, 1).ℓ4 (−1, 1)) = 0
+                         
+                         
+                         
+                         
+                         
+                           (σ1 (ℓ3 ).ℓ6 ) = (ℓ3 (1, 1).L2 ) = 0;
+                         
+
+
+
+
+                                                    13
+and                    
+                       
+                        (σ3 (ℓ3 ).ℓ1 ) = (ℓ3 (−1, −1).ℓ1 (1, 1)) = 0
+                       
+                         (σ3 (ℓ3 ).ℓ2 ) = (ℓ3 (−1, −1).ℓ1 (1, −1)) = 0
+                       
+                       
+                       
+                       
+                       
+                       (σ (ℓ ).ℓ ) = (ℓ (−1, −1).ℓ (−1, 1)) = 0
+                           3 3      3       3               3
+                                                                           (8)
+                       
+                       
+                        (σ3 (ℓ3 ).ℓ4 ) = (ℓ3 (−1, −1).ℓ4 (−1, −1)) = 1
+                         (σ3 (ℓ3 ).ℓ5 ) = (ℓ3 (−1, −1).ℓ4 (−1, 1)) = 1
+                       
+                       
+                       
+                       
+                       
+                         (σ3 (ℓ3 ).ℓ6 ) = (ℓ3 (−1, −1).L2 ) = 0,
+                       
+                       
+                       
+                         (σ3 (ℓ4 ).ℓ1 ) = (ℓ4 (1, −1).ℓ1 (1, 1)) = 0
+                       
+                          (σ3 (ℓ4 ).ℓ2 ) = (ℓ4 (1, −1).ℓ1 (1, −1)) = 0
+                       
+                       
+                       
+                       
+                       
+                       (σ (ℓ ).ℓ ) = (ℓ (1, −1).ℓ (−1, 1)) = 1
+                             3 4      3       4           3
+                                                                           (9)
+                       
+                       
+                         (σ3 (ℓ4 ).ℓ4 ) = (ℓ4 (1, −1).ℓ4 (−1, −1)) = 0
+                          (σ3 (ℓ4 ).ℓ5 ) = (ℓ4 (1, −1).ℓ4 (−1, 1)) = 1
+                       
+                       
+                       
+                       
+                       
+                          (σ3 (ℓ4 ).ℓ6 ) = (ℓ4 (1, −1).L2 ) = 0,
+                       
+                        
+                        
+                          (σ3 (ℓ5 ).ℓ1 ) = (ℓ4 (1, 1).ℓ1 (1, 1)) = 0
+                        
+                           (σ3 (ℓ5 ).ℓ2 ) = (ℓ4 (1, 1).ℓ1 (1, −1)) = 0
+                        
+                        
+                        
+                        
+                        
+                        (σ (ℓ ).ℓ ) = (ℓ (1, 1).ℓ (−1, 1)) = 1
+                              3 5       3       4       3
+                                                                          (10)
+                        
+                        
+                          (σ3 (ℓ5 ).ℓ4 ) = (ℓ4 (1, 1).ℓ4 (−1, −1)) = 1
+                           (σ3 (ℓ5 ).ℓ5 ) = (ℓ4 (1, 1).ℓ4 (−1, 1)) = 0
+                        
+                        
+                        
+                        
+                        
+                           (σ3 (ℓ5 ).ℓ6 ) = (ℓ4 (1, 1).L2 ) = 0.
+                        
+
+   Hence, we obtain                
+                                   
+                                    σ1 (ℓ1 ) = ℓ − ℓ2 − ℓ3
+                                   
+                                     σ1 (ℓ2 ) = ℓ − ℓ1 − ℓ3
+                                   
+                                   
+                                   
+                                   
+                                   
+                                   σ (ℓ ) = ℓ − ℓ − ℓ
+                                      1 3            1    2
+                                                                          (11)
+                                   
+                                   
+                                    σ3 (ℓ3 ) = ℓ − ℓ4 − ℓ5
+                                     σ3 (ℓ4 ) = ℓ − ℓ3 − ℓ5
+                                   
+                                   
+                                   
+                                   
+                                   
+                                     σ3 (ℓ5 ) = ℓ − ℓ3 − ℓ4
+                                   
+
+in Pic X by [Har77, Chapter V, Proposition 4.9]. As a result, we have
+                             (
+                               σ1 (ℓ) = 2ℓ − ℓ1 − ℓ2 − ℓ3
+                                                                          (12)
+                               σ3 (ℓ) = 2ℓ − ℓ3 − ℓ4 − ℓ5 ,
+
+and clearly σ2 (ℓ) = σ4 (ℓ) = ℓ. Then
+                            
+                            
+                            Ker(1 + σ1 ) = hℓ − ℓ1 − ℓ2 − ℓ3 i
+                            
+                            Ker(1 + σ ) = hℓ − ℓ i
+                                      2       1    2
+                                                                          (13)
+                            
+                            
+                            Ker(1 + σ3 ) = hℓ − ℓ3 − ℓ4 − ℓ5 i
+                             Ker(1 + σ4 ) = hℓ4 − ℓ5 i,
+                            
+
+
+
+                                               14
+                           
+                           
+                            Ker(1 − σ1 ) = hℓ − ℓ1 , ℓ − ℓ2 , ℓ − ℓ3 , ℓ4 , ℓ5 , ℓ6 i
+                           
+                           Ker(1 − σ ) = hℓ, ℓ + ℓ , ℓ , ℓ , ℓ , ℓ i
+                                      2          1        2 3 4 5 6
+                                                                                                                                  (14)
+                           
+                           
+                            Ker(1 − σ3 ) = hℓ −   ℓ 3 , ℓ − ℓ4 , ℓ − ℓ5 , ℓ1 , ℓ2 , ℓ6 i
+                             Ker(1 − σ4 ) = hℓ, ℓ1 , ℓ2 , ℓ3 , ℓ4 + ℓ5 , ℓ6 i,
+                           
+
+and                                  
+                                     
+                                      (1 − σ1 )Pic X = hℓ − ℓ1 − ℓ2 − ℓ3 i
+                                     
+                                     (1 − σ )Pic X = hℓ − ℓ i
+                                             2            1    2
+                                                                                                                                  (15)
+                                     
+                                     
+                                      (1 − σ3 )Pic X = hℓ − ℓ3 − ℓ4 − ℓ5 i
+                                       (1 − σ4 )Pic X = hℓ4 − ℓ5 i.
+                                     
+
+   Given a finite cyclic group G = hσi and a G-module M, by [NSW15, Proposition 1.7.1],
+                                                  −1
+recall that we have isomorphisms H1 (G, M) ∼  = Ĥ (G, M), where the latter group is the
+quotient of NG M, the set of elements of M of norm 0, by its subgroup (1 − σ)M.
+   By [NSW15, Proposition 1.6.7], we have
+                                              H1 (K, Pic X) = H1 (G, Pic X),
+where G = hσi , 1 ≤ i ≤ 4i. Then one has the following (inflation-restriction) exact sequence
+                                                         hσ4 i
+             0 → H1 (hσ1 , σ2 , σ3 i, Pic X                      ) → H1 (G, Pic X) → H1 (hσ4 i, Pic X) = 0,
+                                                hσ4 i
+hence H1 (G, Pic X) ∼
+                    = H1 (hσ1 , σ2 , σ3 i, Pic X ). Continuing as above, we have
+                                    hσ2 ,σ4 i                                         hσ4 i                          hσ4 i
+      0 → H1 (hσ1 , σ3 i, Pic X                 ) → H1 (hσ1 , σ2 , σ3 i, Pic X                ) → H1 (hσ2 i, Pic X           ) = 0,
+                                      hσ4 i                                  hσ2 ,σ4 i
+hence H1 (hσ1 , σ2 , σ3 i, Pic X              )∼
+                                               = H1 (hσ1 , σ3 i, Pic X                   ). Now we are left with
+                              hσ2 ,σ3 ,σ4 i                                   hσ2 ,σ4 i                          hσ2 ,σ4 i
+      0 → H1 (hσ1 i, Pic X                    ) → H1 (hσ1 , σ3 i, Pic X                   ) → H1 (hσ3 i, Pic X               ) = 0,
+                            hσ2 ,σ4 i                      hσ2 ,σ3 ,σ4 i
+hence H1 (hσ1 , σ3 i, Pic X           ) ∼
+                                        = H1 (hσ1 i, Pic X               ) = Z/2Z. Indeed, the last group
+can be computed as follows. We have
+                                         hσ2 ,σ3 ,σ4 i
+                             Pic X                       = hℓ1 + ℓ2 , ℓ − ℓ3 , 2ℓ − ℓ4 − ℓ5 , ℓ6 i.
+Considering the action of σ1 on this invariant group, we have
+                           hσ2 ,σ3 ,σ4 i                                     hσ2 ,σ3 ,σ4 i
+               Nσ1 Pic X                   = Ker(1 + σ1 ) ∩ Pic X                            = hℓ − ℓ1 − ℓ2 − ℓ3 i.
+On the other hand,
+                         hσ2 ,σ3 ,σ4 i                                           hσ2 ,σ3 ,σ4 i
+        (1 − σ1 )Pic X                     = [(1 − σ1 )Pic X] ∩ Pic X                            = h2(ℓ − ℓ1 − ℓ2 − ℓ3 )i.
+Given these results, we conclude that
+                                     H1 (K, Pic X) = H1 (G, Pic X) ∼
+                                                                   = Z/2Z.
+
+
+
+                                                                      15
+                                                                                      4
+Theorem 3.8. Let K be a number field.   p With the same notations as before, let k ∈ A (K)
+such that [E : K] = 16 where E = K( ki2 − 4, 1 ≤ i ≤ 4) and X is smooth over K. Let U
+be the affine cubic surface defined by the equation
+
+                              x2 + y 2 + z 2 + xyz = ax + by + cz + d,
+
+where a, b, c, d are defined by (2) for some k = (k1 , k2 , k3 , k4 ) ∈ A4 (K). Then we have
+
+                                       Br1 U/Br0 U ∼
+                                                   = Z/2Z
+
+with a generator
+                                    p                                                !
+                                        2        2
+                             k1 k2 + (k1 − 4)(k2 − 4)
+                                                             q            q
+          A = CorFK1      x−                            , (k1 k22 − 4 + k2 k12 − 4)2
+                                         2
+                                    p                                                !
+                             k1 k4 + (k12 − 4)(k42 − 4)
+                                                             q            q
+               = CorFK3   y−                            , (k1 k42 − 4 + k4 k12 − 4)2
+                                         2
+                                    p                                                !
+                             k1 k3 + (k12 − 4)(k32 − 4)
+                                                             q            q
+               = CorFK2   z−                            , (k1 k32 − 4 + k3 k12 − 4)2 ,
+                                         2
+             p
+where Fi = K( (k12 − 4)(ki+1
+                         2
+                             − 4)) for 1 ≤ i ≤ 3. Furthermore, we also have
+
+                            Br X/Br0 X = Br1 X/Br0 X ∼
+                                                     = Br1 U/Br0 U
+
+with a generator
+                                      p                                              !
+                          x k1 k2 +  (k12 − 4)(k22 − 4)
+                                                             q            q
+         A0 = CorFK1        −                           , (k1 k22 − 4 + k2 k12 − 4)2
+                          t              2
+                                   p                                                 !
+                          y k1 k4 + (k12 − 4)(k42 − 4)
+                                                             q            q
+               = CorFK3     −                           , (k1 k42 − 4 + k4 k12 − 4)2
+                          t              2
+                                   p                                                 !
+                          z k1 k3 + (k12 − 4)(k32 − 4)
+                                                             q            q
+               = CorFK2     −                           , (k1 k32 − 4 + k3 k12 − 4)2
+                          t              2
+
+over t 6= 0.
+
+Proof. We keep the notation as in the previous proposition. Then Pic U is given by the
+following quotient group
+
+   Pic U ∼                    = (⊕6i=1 Zℓi ⊕ Zℓ)/h2ℓ − Σi6=3 ℓi , ℓ − ℓ3 − ℓ6 , ℓ6 )i ∼
+         = Pic X/(⊕3i=1 ZLi ) ∼                                                       = ⊕4i=1 Z[ℓi ]
+
+by Proposition 3.1 and formula (4). Here for any divisor D ∈ Pic X, denote by [D] its image
+                                              ×
+in Pic U . By Proposition 3.1, we also have K = K[U]× . By the Hochschild–Serre spectral
+sequence, we have the following injective homomorphism
+
+                                  Br1 U/Br0 U ֒→ H1 (K, Pic U ),
+
+                                                  16
+and in fact it is an isomorphism because over a number field K, we have H3 (K, Gm ) = 0
+from class field theory. Furthermore, the smooth compactification X of U has rational
+points, hence so does U, which comes from the fact that any smooth cubic surface over an
+infinite field k is unirational over k as soon as it has a k-point (see [Kol02]), so we also have
+Br0 U = Br K.
+    Since Pic U is free and Gal(K/E) acts on Pic U trivially, we obtain that H1 (K, Pic U ) ∼                            =
+H1 (G, Pic U) by [NSW15, Proposition 1.6.7]. Now in Pic U, as [ℓ6 ] = 0, [ℓ] = [ℓ3 ] and
+2[ℓ3 ] = [ℓ1 ] + [ℓ2 ] + [ℓ4 ] + [ℓ5 ], we have the following equalities
+
+
+ σ1 ([ℓ1 ]) = −[ℓ2 ], σ1 ([ℓ2 ]) = −[ℓ1 ], σ1 ([ℓ3 ]) = [ℓ3 ] − [ℓ1 ] − [ℓ2 ], σ1 ([ℓ4 ]) = [ℓ4 ];
+
+σ ([ℓ ]) = [ℓ ], σ ([ℓ ]) = [ℓ ], σ ([ℓ ]) = [ℓ ], σ ([ℓ ]) = [ℓ ];
+    2   1         2    2    2         1    2    3        3     2    4         4
+
+
+ σ3 ([ℓ1 ]) = [ℓ1 ], σ3 ([ℓ2 ]) = [ℓ2 ], σ3 ([ℓ3 ]) = [ℓ1 ] + [ℓ2 ] − [ℓ3 ], σ3 ([ℓ4 ]) = [ℓ1 ] + [ℓ2 ] + [ℓ4 ] − 2[ℓ3 ];
+  σ4 ([ℓ1 ]) = [ℓ1 ], σ4 ([ℓ2 ]) = [ℓ2 ], σ4 ([ℓ3 ]) = [ℓ3 ], σ4 ([ℓ4 ]) = 2[ℓ3 ] − [ℓ1 ] − [ℓ2 ] − [ℓ4 ].
+
+                                                                                                                     (16)
+    Using the inflation-restriction sequences similarly as in the previous proposition, with
+Pic X replaced by Pic U , we can compute that
+                                    hσ2 ,σ3 ,σ4 i                                        h[ℓ1 ] + [ℓ2 ]i ∼
+  H1 (G, Pic U ) ∼
+                 = H1 (hσ1 i, Pic U               ) = H1 (hσ1 i, h[ℓ1 ] + [ℓ2 ]i) =                        = Z/2Z.
+                                                                                        h2([ℓ1 ] + [ℓ2 ])i
+   Now we produce concrete generators in Br1 U for Br1 U/Br0 U. Then U is defined by the
+equation
+                        x2 + y 2 + z 2 + xyz = ax + by + cz + d.
+We will show that the following quaternion algebras in Br K(U) are non-constant elements
+of Br1 U, and hence they are equal in Br1 U/Br0 U.
+                                   √                                                    
+                      F1      k1 k2 + (k12 −4)(k22 −4)        p
+                                                                  2
+                                                                              p
+                                                                                  2     2
+             A1 = CorK x −                             , (k1 k2 − 4 + k2 k1 − 4) ,
+           
+           
+           
+                                        2
+           
+                                   √                                                    
+                              k1 k4 + (k12 −4)(k42 −4)
+           
+                      F3
+                                                              p               p
+                                                                  2               2     2
+             A2 = CorK y −              2
+                                                       , (k1 k4 − 4 + k4 k1 − 4) ,          (17)
+           
+                                   √                                                    
+                              k1 k3 + (k12 −4)(k32 −4)
+           
+                      F2
+                                                             p               p
+           A3 = CorK z −                              , (k     k 2
+                                                                    − 4 + k     k12 − 4)2 .
+           
+                                                            1               3
+           
+                                        2                         3
+
+
+Indeed, it suffices to prove the claim for A1 and we only need to show that p
+                                                                            A1 ∈ Br U,
+                                                                                    psince its
+formula implies that A1 becomes zero under the field extension K ⊂ K( k1 − 4, k22 − 4),
+                                                                               2
+
+i.e., it is algebraic. By Grothendieck’s purity theorem ([Poo17, Theorem 6.8.3]), for any
+smooth integral variety Y over a field L of characteristic 0, we have the exact sequence
+
+                            0 → Br Y → Br L(Y ) → ⊕D∈Y (1) H1 (L(D), Q/Z),
+
+where the last map is given by the residue along the codimension-one point D. Therefore, to
+prove that our algebras come from a class in Br U, it suffices to show that all their residues
+are trivial. We will show that
+                             p                                                !
+                                  2        2
+                     k  k  +   (k   − 4)(k   − 4)
+                                                       q            q
+                       1 2        1        2
+        A′1 = x −                                 , (k1 k22 − 4 + k2 k12 − 4)2 ∈ Br UF1
+                                   2
+
+                                                           17
+so that its corestriction is a well-defined element over K. From the data of the 27 lines
+in Lemma 3.6 and the formula of A′1 , any non-trivial residue of A′1 must occur along an
+irreducible component of the following divisor(s)
+                            p
+                    (k1 k2 + (k12 − 4)(k22 − 4))
+          D1 : x =                               ,
+                                 2                               √            √
+                            p
+                               2
+                                            p
+                                               2            (k1 ± k12 −4)(k2 ± k22 −4)
+                      (k1 ± k1 − 4)(k2 ± k2 − 4)        c−b              4
+               y=−                                  z−         √           √           .
+                                     4                       k1 k22 −4+k2 k12 −4
+                                                           ±           2
+                                                                                       p
+However,
+  p       clearly  in the function field   of any such irreducible component,     (k 1   k22 − 4 +
+k2 k12 − 4)2 is a square; standard formulae for residues in terms of the tame symbol [GS17,
+Example 7.1.5, Proposition 7.5.1] therefore show that A′1 is unramified, and hence A1 ∈ Br U.
+The residues of A1 at the lines L1 , L2 , L3 which form the complement of U in X are easily
+seen to be trivial. One thus also has A1 ∈ Br X. This element is non-constant by the
+                                                                              ′
+Faddeev exact sequence ([CS21, Theorem 1.5.2]), since the residue     of A1 regarded
+                                                                                  √ 2
+                                                                                             as an
+                                                                                             2
+                                                                           k1 k2 + (k1 −4)(k2 −4)
+                                1
+element of Br F1 (x) = Br F1 (P ) is nontrivial at the closed point x −                2
+
+of P1F1 . Alternatively, by [CS21, Corollary 11.3.5] on the Brauer group of conic bundles, the
+element A1 is indeed non-constant. Furthermore, it will contribute to the Brauer–Manin
+obstruction to strong approximation in the next section.
+    Finally, the fact that A1 = A2 = A3 = A viewed as an element of Br1 U/Br0 U ∼    = Z/2Z
+(by abuse of notation) and that U is the open subset of X defined by t 6= 0 give the desired
+generator A0 of Br X/Br0 X ∼   = Z/2Z.
+
+3.3    The transcendental Brauer group
+We begin with a specific assumption.
+                                                                     p
+Assumption 3.3. Let k = (k1 , k2 , k3 , k4 ) ∈ A4 (Z) and E := Q( ki2 − 4, 1 p  ≤ i ≤ 4) such
+that [E : Q] = 16. For all 1 ≤ i 6= j ≤ 4, assume that |ki | ≥ 3 such that (ki + ki2 − 4)(kj +
+q
+  kj2 − 4) is not a square in E.
+
+   Now we compute the transcendental Brauer group in our particular case.
+
+Proposition 3.9. Let k = (k1 , k2 , k3 , k4 ) ∈ A4 (Z) satisfy Assumption 3.3. Let U be the
+affine cubic surface over Q defined by
+
+                            x2 + y 2 + z 2 + xyz = ax + by + cz + d,
+
+where a, b, c, d are defined by (2). Assume that its natural compactification X ⊂ P3 is smooth
+over Q. Set XE := X ×Q E and UE := U ×Q E. Then the natural map Br XE → Br UE is
+an isomorphism. Moreover, U has trivial transcendental Brauer group over Q.
+
+Proof. The proof is inspired by that of [LM20, Proposition 4.1]. Let B ∈ Br UE be a non-
+constant Brauer element. Multiplying B by a constant algebra if necessary, by Proposition
+
+                                                18
+3.3 and Theorem 3.8, we may assume that B has order dividing 4 (note that under our
+assumption of k, the field extension E is totally real and thus contains no nontrivial roots of
+unity). In order to show that B ∈ Br XE , we only need to show that B is unramified along
+the three lines Li on X by Grothendieck’s purity theorem (see [CS21, Theorem 3.7.2]).
+    Let L = L1 and C = L2 ∪L3 . Let L′ = L \ C. Note that L meets C at two rational points,
+so L′ is non-canonically isomorphic to Gm . Let the point (x : y : z : t) = (0 : 1 : 1 : 0) ∈ L′
+be the identity element of the group law. Then an isomorphism with Gm is realized via the
+following homomorphism:
+
+                               Gm → X,         u 7→ (0 : u : 1 : 0).                         (18)
+
+The residue of B along L lies inside H1 (L′ , Z/2Z). Assume by contradiction that the residue
+is nontrivial. Since the order of B is a power of 2 dividing 4, then we can assume that the
+residue has order 2 (up to replacing B by 2B). This means that the residue corresponds to
+some irreducible degree 2 finite étale cover f : L′′ → L′ .                 p                 !
+                                                                  k1 k2 + (k12 − 4)(k22 − 4)
+    Over the field E, the conic fiber C over the coordinate x =                              t
+                                                                              2
+is split, i.e. a union of two lines over E. These lines meet L at the points
+                                         p              p
+                                   (k1 ± k12 − 4)(k2 ± k22 − 4)
+                        Q± = (0 :                                 : 1 : 0).
+                                                  4
+Let C+ be the irreducible component of C containing Q+ , i.e., C+ = ℓ1 (1, 1). Consider the
+restriction of B to C+ . This is well-defined outside of Q+ , and since C+ \ Q+ ≃ A1 has
+constant Brauer group, B actually extends to all of C+ . As C+ meets L transversely, by the
+functoriality of residues ([CS21, Section 3.7]) we deduce that the residue of B at Q+ is also
+trivial, so the fiber f −1 (Q+ ) consists of exactly two rational points. This implies that L′′ is
+geometrically irreducible, hence L′′ ∼  = Gm non-canonically.
+    Now by choosing a rational point over Q+ and using the above group homomorphism,
+we may therefore identify the degree 2 cover L′′ → L′ with the map
+
+                              Gm → X,       u 7→ (0 : u2 : 1 : 0).                     (19)
+                                                   p               p
+                                             (k1 + k12 − 4)(k2 + k22 − 4)
+However, our assumptions on k imply that                                    is not a square
+    ×
+                                                              4
+in E , which gives a contradiction. Thus the residue of B along L is trivial, and the same
+holds for the other lines. We conclude that B is everywhere unramified, hence B ∈ Br XE .
+
+    Now let B ∈ Br U be a non-constant element. Then over the field extension E, the
+corresponding image of B comes from Br XE by the above argument. As Br X = 0, it is
+clear that B is algebraic. The result follows.
+
+Remark 3.4. Note that (Br UQ )Gal(Q/Q) = Z/2Z by Proposition 3.3. However, in the above
+proposition, the Galois invariant element of order 2 does not descend to a Brauer group
+element over Q, which is also the case in [LM20, Proposition 4.1].
+
+
+
+                                               19
+4     The Brauer–Manin obstruction
+4.1     Review of the Brauer–Manin obstruction
+Here we briefly recall how the Brauer–Manin obstruction works in our setting, following
+[Poo17, Section 8.2] and [CX09, Section 1]. For each place v of Q there is a pairing
+
+                                        U(Qv ) × Br U → Q/Z
+
+coming from the local invariant map
+
+                                         invv : Br Qv → Q/Z
+
+from local class field theory (this is an isomorphism if v is a prime number). This pairing
+is locally constant on the left by [Poo17, Proposition 8.2.9]. For integral points, any
+element α ∈ Br U pairs trivially on U(Zp ) for almost all primes p, so we obtain a pairing
+U(AQ ) × Br U → Q/Z. As the local pairings are locally constant, we obtain a well-defined
+pairing
+                                   U(AZ )• × Br U → Q/Z.
+For B ⊆ Br U, let U(AZ )B                                                        Br
+                          • be the left kernel with respect to B, and let U(AZ )• = U(AZ )•
+                                                                                               Br U
+                                                                                                    .
+                                                                                       B
+By abuse of notation, from now on we write the reduced Brauer–Manin set U(AZ )• in the
+standard way as U(AZ )B . Note that the set U(AZ )B depends only on the image of B in the
+quotient Br U/Br0 U. By Theorem 3.8, the map hAi → Br1 U/Br Q is an isomorphism, hence
+U(AZ )Br1 = U(AZ )Br1 U = U(AZ )A . We have the inclusions U(Z) ⊆ U(AZ )A ⊆ U(AZ ), so
+that A can obstruct the integral Hasse principle or strong approximation on U.
+    Let V be dense Zariski open in U. As U is smooth, the set V (Qv ) is dense in U(Qv ) for all
+places v. Moreover, U(Zp ) is open in U(Qp ), hence V (Qp ) ∩ U(Zp ) is dense in U(Zp ). As the
+local pairings are locally constant, we may restrict our attention to V to calculate the local
+invariants of a given element in Br U. In particular, here we take the open subset V given by
+((k12 −4)(k22 −4)−(2x−k1k2 )2 )((k12 −4)(k42 −4)−(2y−k1k4 )2 )((k12 −4)(k32 −4)−(2z−k1k3 )2 ) 6= 0.
+
+4.2     Brauer–Manin obstruction from a quaternion algebra
+Now we consider the Markoff-type cubic surfaces U over Q and their integral models U over
+Z defined by the equation (1):
+
+                              x2 + y 2 + z 2 + xyz = ax + by + cz + d,
+
+where a, b, c, d ∈ Z are defined as in (2) with k ∈ Z4 . Set f := x2 + y 2 + z 2 + xyz − ax −
+by − cz − d ∈ Z[x, y, z]. First of all, we study the existence of local integral points on those
+affine cubic surfaces given by f = 0.
+Proposition 4.1 (Assumption A). If k = (k1 , k2 , k3, k4 ) ∈ (Z \ [−2, 2])4 satisfies k1 ≡ −1
+mod 16, ki ≡ 5 mod 16 and k1 ≡ 1 mod 9, ki ≡ 5 mod 9 for 2 ≤ i ≤ 4, such that (ki , kj ) = 1,
+(ki2 − 4, kj2 − 4) = 3 for 1 ≤ i 6= j ≤ 4, and (k12 − 2, k22 − 2, k32 − 2, k42 − 2) = 1, then U(AZ ) 6= ∅.
+
+Proof. With our specific choice of k in the assumption, we obtain:
+
+                                                   20
+(1) Prime powers of p = 2: The only solution modulo 2 is the singular (1, 0, 0) (up to
+    permutation). However, we find a solution (1, 0, 0) modulo 8 with 2x + yz ≡ 2 mod
+    8, so twice the order valuation at 2 of the partial derivative at x is less than the order
+    valuation at 2 of f (x, y, z). This solution then lifts to a 2-adic integer solution by
+    Hensel’s lemma (fixing the variables y, z).
+
+(2) Prime powers of p = 3: We find the non-singular solution (1, 0, 0), which lifts to a
+    3-adic integer solution by Hensel’s lemma (fixing the variables y, z).
+
+(3) Prime powers of p ≥ 5: We would like to find a non-singular solution modulo p of the
+    equations f = 0 which does not satisfy simultaneously
+
+                          df = 0 : 2x + yz = a, 2y + xz = b, 2z + xy = c.
+
+    For simplicity, we will find a sufficient condition for the existence of a non-singular
+    solution whose at least one coordinate is zero. First, it is clear that the equation f = 0
+    always has a solution whose one coordinate is 0: indeed, take z = 0, then f = 0 is
+    equivalent to (2x − a)2 + (2y − b)2 = (k12 + k32 − 4)(k22 + k42 − 4), and every element in Fp
+    can be expressed as a sum of two squares. Now assume that all such points in U(Fp )
+    with one coordinate equal to 0 are singular. Then modulo p, if z = 0 the required
+    equations become f = 0, (2x = a, 2y = b, xy = c), plus all the permutations for x = 0
+    and y = 0. For convenience, we drop the phrase “modulo p”. From these equations, we
+    get
+                        (k12 + k32 − 4)(k22 + k42 − 4) = 0, ab = 4c (= 4xy)                  (20)
+    plus all the permutations, respectively
+
+                              (k12 + k22 − 4)(k32 + k42 − 4) = 0, bc = 4a                        (21)
+
+    and
+                              (k12 + k42 − 4)(k22 + k32 − 4) = 0, ac = 4b.                       (22)
+    We will choose k which does not satisfy all of these equations simultaneously to get a
+    contradiction to our assumption at the beginning.
+
+    Now if k satisfies all the above equations, we first require that (ki2 − 4, kj2 − 4) = 3 for
+    any 1 ≤ i 6= j ≤ 4. Next, without loss of generality (WLOG), assume in (22) that
+    k12 + k42 − 4 = 0 with ac = 4b = (k12 + k42 )b, then putting the formulas of a, b, c in
+    ac − (k12 + k42 )b = 0 gives us k1 k4 (k22 + k32 − k12 − k42 ) = 0, hence either k22 + k32 − 4 = 0
+    or k1 k4 = 0. (We also have similar equations for all the other cases.)
+    If k22 +k32 −4 = 0, then 4i=1 ki2 −8 = 0, and so from (20), (21) we obtain ki2 +kj2 −4 = 0
+                                P
+    for any i 6= j, hence ki2 − 2 = 0 for all 1 ≤ i ≤ 4. Otherwise, if k22 + k32 − 4 6= 0 but
+    k1 k4 = 0, WLOG assume in (22) that k1 = 0, then k42 − 4 = 0 and so from (20), (21)
+    we have the following possibilities: k22 − 4 = k32 − 4 = 0, or k2 = k3 = 0. Therefore,
+    we immediately deduce a sufficient condition for the nonexistence of singular solutions
+    modulo p ≥ 5: (ki , kj ) = 1, (ki2 − 4, kj2 − 4) = 3 for any 1 ≤ i 6= j ≤ 4, and
+    (k12 − 2, k22 − 2, k32 − 2, k42 − 2) = 1.
+
+                                                21
+      As a result, assuming the hypothesis of the proposition, it is clear that U(Fp ) has
+      a smooth point, which then lifts to a p-adic integral point by Hensel’s lemma (with
+      respect to the variable at which the partial derivative is nonzero modulo p, fixing other
+      variables).
+
+
+    We keep Assumption A to ensure that U(AZ ) 6= ∅ and study the Brauer–Manin ob-
+struction to the existence of integral points. Note that our specific choice of k implies that
+[E : Q] = 16. Indeed, it is clear that with our assumption, ki2 − 4 > 0 is not a square in Q for
+1 ≤ i ≤ 4. Then [E : Q] < 16 if and only if there are some i 6= j such that (ki2 − 4)(kj2 − 4)
+is a square in Q; however, since (ki2 − 4, kj2 − 4) = 3 and ki2 − 4 = 3l2 does not have any
+solution modulo 8 with ki odd, that cannot happen.
+    Now let us calculate the local invariants of the following quaternion algebras as elements
+of the algebraic Brauer group Br1 U:
+                                       √                                            
+                        F1        k1 k2 + (k12 −4)(k22 −4)      p
+                                                                  2
+                                                                            p
+                                                                              2     2
+              A1 = CorQ x −                                , (k1 k2 − 4 + k2 k1 − 4) ,
+            
+            
+            
+                                            2
+            
+            
+                                       √                                            
+                                  k1 k4 + (k12 −4)(k44 −4)
+            
+                        F3
+                                                                p           p
+                                                                  2           2     2
+              A2 = CorQ y −                 2
+                                                           , (k1 k4 − 4 + k4 k1 − 4) ,
+            
+                                         √
+            
+                                                                                    
+            
+                       F2        k1 k3 + (k12 −4)(k32 −4)      p
+                                                                  2
+                                                                            p
+                                                                              2     2
+            A3 = CorQ z −                                 , (k1 k3 − 4 + k3 k1 − 4) ,
+            
+            
+                                            2
+                p
+where Fi = Q(       (k12 − 4)(ki+1
+                               2
+                                   − 4)) for 1 ≤ i ≤ 3. Now for each i, we have the local invariant
+map
+                          invp Ai : U(Qp ) → Z/2Z,         x 7→ invp Ai (x).
+
+Lemma 4.2 (Assumption B). Let k = (k1 , k2 , k3, k4 ) ∈ Z4 and p ≥ 11 be a prime such that
+(2, p)p = 1/2 and k1 −2 ≡ p mod p3 . Then there exist k2 , k3 , k4 such that k22 −4 is a quadratic
+nonresidue mod p, k3 ≡ k4 6≡ 0, 2 mod p, k2 − 2 6≡ 2k3 mod p, and k2 , k3 , k4 satisfy the cubic
+equation defining an affine Markoff surface S:
+
+                            k22 + k32 + k42 − k2 k3 k4 ≡ (p + 2)2 mod p2 .
+
+Furthermore, for any k satisfying all the above conditions (Assumption B) and Assumption
+A, the local invariant map of the quaternion algebra A1 at p is surjective.
+
+Proof. For convenience (and p by abuse of notation),
+                                            p         we will also write A1 (resp. F1 ) as
+A (resp. F ). We denote (k1 k22 − 4 + k2 k12 − 4) by α1 and write it simply as α. Set
+D := (k12 − 4)(k22 − 4).    √
+   First of all, over F = Q( D) the affine cubic equation of U can be rewritten equivalently
+
+
+
+
+                                                 22
+as
+                     f (x, y, z, k1, k2 , k3 , k4 ) =
+             √ !            √                       !                           √
+                                                                                !2
+     k1 k2 + D      k1 k2 − D                                         k1 k2 + b     D
+  x−             x−               − k3 k4 + yz +                   y+    z−
+           2              2                                                 4 2
+                                                                           √          !2
+                                                        α2      2b(k1 k2 + D) − 8c
+                                                    −        z−                           = 0,
+                                                        16                α2
+                                                                                          (23)
+                            4
+for all (k , k ,
+         √1 2 3 4k , k ) ∈ Z  satisfying our hypothesis.  Since v p (D) =  1, p  ramifies over
+F = Q( D), i.e., pOF = p2 where p is a nonzero prime ideal of OF . Therefore, we have
+Np = p and
+                                      OF /p ∼
+                                            = Fp = Z/pZ.
+Following the proof of [LM20, Proposition 5.5], for all u2 , u3 , u4 ∈ F∗p , there exists an Fp -point
+on the variety
+
+        (2k2 − k3 k4 )2 = (k32 − 4)(k42 − 4), k2 − 2 = u2 v22 , k3 − 2 = u3 v32 , k4 − 2 = u4 v42
+
+which satisfy v2 v3 v4 6= 0. As (k2 − 2)(k3 − 2)(k4 − 2) 6= 0, we know from [LM20, Lemma 5.3]
+that this gives rise to a smooth Fp -point of S, hence a Z/p2 Z-point with the same residue
+modulo p by Hensel’s lemma. Now to construct the given Fp -point, we restrict our attention
+to the subvariety given by k3 = k4 mod p then assume that u3 = u4 mod p and u2 is a
+quadratic nonresidue mod p. The above equations then become
+
+                    (2k2 − k3 k4 )2 = (k32 − 4)2 , k2 − 2 = u2 v22 , k3 − 2 = u3 v32 .
+
+Factoring the left hand side, it suffices to solve the equations
+
+                            k2 = k32 − 2, k2 − 2 = u2 v22 , k3 − 2 = u3 v32 .
+
+This then gives the equation of an affine curve
+
+                                        u2 v22 = u23 v34 + 4u3 v32 .
+
+By the argument in the proof of [LM20, Proposition 5.5], this affine curve has a unique
+singular point (v2 , v3 ) = (0, 0) and has p−2 many Fp -points. Of these points at most 3 satisfy
+v2 v3 = 0, and k3 = 0 gives only at most 4 points, hence providing p − 2 − 3 − 4 = p − 9 > 0,
+there exists an Fp -point (k2 , k3 , k4 ) with the properties:
+
+                            (k2 − 2)(k3 − 2)(k4 − 2) 6= 0, k3 = k4 6= 0.
+
+Since k3 6= 0, we have k2 = k32 − 2 6= −2, so k22 − 4 6= 0 in Fp . Moreover, as u2 is a quadratic
+nonresidue modulo p, so is k2 − 2 = k32 − 4. Since k2 + 2 = k32 is a nonzero square in Fp , we
+deduce that k22 − 4 is a quadratic nonresidue modulo p, as required.
+   Now after lifting from the smooth Fp -point to a Z/p2 Z-point (with the same residue
+modulo p), if k2 − 2 ≡ 2k3 mod p then we can take k2′ = k2 , k3′ = −k3 and k4′ = −k4 (which
+
+                                                    23
+still satisfy the cubic equation mod p2 ) to have k2′ − 2 6≡ 2k3′ mod p since k3 6≡ 0 mod p and
+p is odd. Therefore, there exist integers k2 , k3 , k4 satisfying the required properties by the
+Chinese Remainder Theorem.
+
+    Now assume that k = (k1 , k2 , k3 , k4 ) satisfies all the above congruence conditions and
+Assumption A. Since pOF = p2 and OF /p ∼      = Z/pZ, by Hensel’s lemma we deduce that when
+k22 − 4 is a quadratic nonresidue modulo p over Z, then k22 − 4 is a quadratic nonresidue
+modulo p over OF . Recalling that k1 − 2 ≡ p mod p3 , we can choose a Z/p3 Z-point (x, y, z)
+of U such that
+                             x − k2 = p, y − k4 = p, z − k3 = p,
+from which we have (in Z/p3 Z):
+                                                                       X
+f (x, y, z, k1, k2 , k3 , k4 ) = f (x, y, z, 2, k2, k3 , k4 ) −                pki (ki + p) + 4p + p2 + pk2 k3 k4
+                                                                   i∈{2,3,4}
+                                                   2
+                                                       k2 − 4
+                                   
+                                          k2 z   b
+= (x − k2 )(x − k2 + yz − k3 k4 ) + y +        −      − 2     (z − k3 )2
+                                            2    2        4
+   X
+−        pki (ki + p) + 4p + p2 + pk2 k3 k4
+   i∈{2,3,4}
+                                              2     2
+                                               k2 − 4
+                                                       
+               2                      2          k2           X
+                                                               2
+= p(p + p + p(k3 + k4 )) + p               −p 1+         −            pki (ki + p) + 4p + p2 + pk2 k3 k4
+                                                 24
+                                                            i∈{2,3,4}
+                                            X
+= p(p + p2 + p(k3 + k4 )) + p(2p + pk2 ) −      p(ki2 + pki ) + p(4 + p + k2 k3 k4 )
+                                                           i∈{2,3,4}
+
+= p(4 + 4p + p − (k22 + k32 + k42 ) + k2 k3 k4 )
+                    2
+
+= p((p + 2)2 − (k22 + k32 + k42 − k2 k3 k4 )) = 0,
+
+and
+
+fx′ (x, y, z) = 2x + yz − k1 k2 − k3 k4 = 2(x − k2 ) − pk2 + p2 + p(k3 + k4 ) = p(p + 2 − k2 + k3 + k4 ).
+
+Therefore vp (f ) ≥ 3 > 2 = 2vp (fx′ ), by Hensel’s lemma (fixing the variables y, z), this point
+lifts√to a Zp -point (x, y, z) (abuse of notation) with the same residue modulo p2 . Then since
+vp ( D) = vp (D) = 1, the local invariant at p of A at this point is equal to
+                                 √       !                   √         !
+                         k1 k2 + D 2                 k1 k2 + D 2
+                    x−               ,α     = x−               , k2 − 4 = 1/2
+                               2                           2
+                                                      p                                       p
+
+by the formulae in [Neu13, Proposition II.1.4 and Proposition III.3.3].
+    It is also clear that there exists a Zp -point such that x − k2 is not divisible by p, which
+gives the local invariant of A at p the value 0. Indeed, if every Zp -point satisfies that x − k2
+is divisible by p, then as k1 − 2 ≡ 0 mod p, the affine equation of U over Fp becomes
+                                                              2
+                                                                  k2 − 4
+                                                
+                                                     k2 z   b
+               (x − k2 )(x − k2 + yz − k3 k4 ) + y +      −      − 2     (z − k3 )2 = 0.
+                                                      2     2        4
+
+                                                              24
+From the fact that k22 − 4 is a quadratic nonresidue mod p, one must obtain that (in Fp ):
+
+                                       k2 z  b
+                                  y+        − = 0, z − k3 = 0,
+                                        2    2
+which gives y = k4 , z = k3 . Therefore, in Fp we have
+
+            2x + yz = k1 k2 + k3 k4 , 2y + xz = k1 k4 + k2 k3 , 2z + xy = k1 k3 + k2 k4 ,
+
+which implies that fx′ = fy′ = fz′ = 0. This cannot be true for every Zp -point (x, y, z) of
+U, since by Assumption A we have proved in Proposition 4.1 that there always exists a
+non-singular solution modulo p of the affine Markoff-type cubic equation (with at least one
+coordinate zero) which lifts to a Zp -point by Hensel’s lemma.
+   In conclusion, the local invariant map of A at the prime p satisfying our hypothesis is
+indeed surjective.
+
+Theorem 4.3. Let k ∈ (Z \ [−2, 2])4 satisfy the hypotheses of Assumptions A and B. Then
+we have a Brauer–Manin obstruction to strong approximation for U given by the class of
+A = A1 in Br1 U/Br Q (i.e. U(AZ ) 6= U(AZ )A = U(AZ )Br1 ) and no algebraic Brauer–
+Manin obstruction to the integral Hasse principle for U (i.e. U(AZ )Br1 6= ∅).
+
+Proof. By abuse of notation, we also denote the class of A by the Brauer group element
+itself. For any point u = (x, y, z) ∈ U(AZ ), from the above  Lemma we can find a local point
+up = (xp , yp , zp ) ∈ U(Zp ) such that invp A(up ) = − q6=p invq A(u) and u′p = (x′p , yp′ , zp′ ) ∈
+                                                       P
+
+U(Zp ) such that invp A(u′p ) = 1/2 − q6=p invq A(u). Then we obtain a point in U(AZ )A by
+                                        P
+
+replacing the p-part of u by up , and a point in U(AZ ) but not in U(AZ )A by replacing the
+p-part of u by u′p .
+    Therefore, we have a Brauer–Manin obstruction to strong approximation and no algebraic
+Brauer–Manin obstruction to the integral Hasse principle for U.
+
+Example 4.1. For p = 11: Take k1 = 113 .102 + 13 = 135775, k2 = 112 .112 + 111 =
+13663, k3 = 112 .119 + 6 = 14405, k4 = 112 .(119 + 144) + 6 = 31829.
+
+Remark 4.2. In addition, if k satisfies Assumption 3.3 from the previous section, then
+we can drop the term “algebraic” from the statement of Theorem 4.3, and we will have no
+Brauer–Manin obstruction to the integral Hasse principle.
+
+4.3    Some counting results
+In this part, we compute the number of examples of existence for local integral points as well
+as the number of counterexamples to strong approximation for the Markoff-type cubic sur-
+faces in question which can be explained by the Brauer–Manin obstruction. More precisely,
+we consider the natural density of k ∈ (Z \ [−2, 2])4 satisfying k1 ≡ −1 mod 16, ki ≡ 5 mod
+16 and k1 ≡ 1 mod 9, ki ≡ 5 mod 9 for 2 ≤ i ≤ 4, such that (ki , kj ) = 1, (ki2 − 4, kj2 − 4) = 3
+for 1 ≤ i 6= j ≤ 4, and (k12 − 2, k22 − 2, k32 − 2, k42 − 2) = 1 (then satisfying the additional
+hypothesis in Lemma 4.2). Note that the finite number of k ∈ [−2, 2]4 is negligible here.
+
+
+                                                 25
+    In fact, for now we can only give an asymptotic lower bound. To get a lower bound,
+it is enough to count the number of examples satisfying stronger conditions, namely the
+congruence conditions for the ki and the common divisor condition
+
+                         gcd(ki (ki2 − 2)(ki2 − 4), kj (kj2 − 2)(kj2 − 4)) = 3
+
+for 1 ≤ i 6= j ≤ 4. To do this, we make use of a natural generalization of Ekedahl–Poonen’s
+formula in [Poo03, Theorem 3.8] as follows.
+
+Proposition 4.4. Let fi ∈ Z[x1 , . . . , xn ], 1 ≤ i ≤ s for some s ∈ Z>1 , be s polynomials that
+are mutually relatively prime as elements of Q[x1 , . . . , xn ]. For each 1 ≤ i 6= j ≤ s, let
+
+                               Ri,j := {a ∈ Zn : gcd(fi (a), fj (a)) = 1}.
+
+Then µ( i6=j Ri,j ) = p (1−cp /pn ), where p ranges over all primes of Z, and cp is the number
+        T            Q
+of x ∈ (Z/pZ)n satisfying at least one of fi (x) = fj (x) = 0 in Z/pZ for 1 ≤ i 6= j ≤ s.
+
+Proof. We also have a generalization of [Poo03, Lemma 5.1] as follows.
+Lemma 4.5. Let fi ∈ Z[x1 , . . . , xn ], 1 ≤ i ≤ s for some s ∈ Z>1 , be s polynomials that are
+mutually relatively prime as elements of Q[x1 , . . . , xn ]. For each 1 ≤ i 6= j ≤ s, let
+
+                Qi,j,M := {a ∈ Zn : ∃ p such that p ≥ M and p | fi (a), fj (a)}.
+                 S
+Then limM →∞ µ( i6=j Qi,j,M ) = 0.
+                                                             S                   P
+Proof. The result immediately follows from the inequality µ( i6=j Qi,j,M ) ≤ i6=j µ(Qi,j,M )
+and the original result of [Poo03, Lemma 5.1].
+    Next, we proceed similarly as in the proof of [Poo03, Theorem 3.1]. Let PM denote the
+set of prime numbers of Z such that p < M. Approximate Ri,j by
+
+      Ri,j,M := {a ∈ Zn : fi (a) and fj (a) are not both divisible by any prime p ∈ PM }.
+
+Define the ideal I as the product ofTall (p) for p ∈ PM . Then Ri,j,M is a union of cosets
+of the subgroup I n ⊂ Zn . Hence µ( i6=j Ri,j,M ) is the fraction of residue classes in (Z/I)n
+in which for all p ∈ PM , for all 1 ≤ i 6= j ≤ s, at least one of fi (a) and fjT(a) is nonzero
+modulo   p. Applying the Chinese Remainder Theorem, we obtain that µ( i6=j Ri,j,M ) =
+                 n
+Q
+  p∈PM (1 − cp /p ). By the above lemma,
+                            \                        \                   Y
+                       µ(          Ri,j ) = lim µ(          Ri,j,M ) =       (1 − cp /pn ).      (24)
+                                          M →∞
+                            i6=j                     i6=j                p
+
+
+Since fi and fj are relatively prime as elements of Q[x1 , . . . , xn ] for any i 6= j, there exists a
+nonzero u ∈ Z such that every fi = fj = 0 defines a subscheme of AnZ[1/u] of codimension at
+least 2. Thus cp = O(pn−2 ) as p → ∞, and the product converges.
+
+
+
+
+                                                        26
+Theorem 4.6. Let U be the affine scheme over Z defined by
+
+                                    x2 + y 2 + z 2 + xyz = ax + by + cz + d,
+
+where                        
+                              a = k1 k2 + k3 k4
+                                                                         4
+                                                                          X             4
+                                                                                        Y
+                               b = k1 k4 + k2 k3       and         d=4−         ki2 −         ki ,
+                             
+                             
+                               c = k1 k3 + k2 k4                          i=1           i=1
+
+
+such that the projective closure X ⊂ P3Q of U = U ×Z Q is smooth. Then we have
+
+              #{k = (k1 , k2, k3 , k4 ) ∈ Z4 , |ki | ≤ M ∀ 1 ≤ i ≤ 4 : U(AZ ) 6= ∅} ≍ M 4                      (25)
+
+and also
+
+    #{k = (k1 , k2, k3 , k4 ) ∈ Z4 , |ki | ≤ M ∀ 1 ≤ i ≤ 4 : U(AZ ) 6= U(AZ )Br1 6= ∅} ≍ M 4                   (26)
+
+as M → +∞.
+Proof. Denote by S the set in question and M is the set of k such that |ki | ≤ M for 1 ≤ i ≤ 4.
+Hence, using the same notation as in Proposition 4.4, the density we are concerned with is
+given by
+
+                                              #(S ∩ M)       #(S ∩ M)
+                                µ(S) = lim             = lim          .
+                                         M →∞   #M      M →∞    M4
+    We apply Proposition 4.4 with the polynomials fi = xi (x2i −2)(x2i −4)/3 ∈ Z[x′1 , x′2 , x′3 , x′4 ]
+for 1 ≤ i ≤ 4 in which we write x1 = 144x′1 + 127, xj = 144x′j + 5 for 2 ≤ j ≤ 4 (resp.
+xi = 144.p30 x′i + ri where the xi is actually the ki and p0 ≥ 11 is the chosen prime in Lemma
+4.2 and the residues ri satisfy the hypotheses of the lemma), and using the inclusion-exclusion
+principle we can compute that c2 = 0, c3 = 0,
+
+cp,1 = C42 .32 .p2 − (3.C43 .33 .p + 3.34 ) + (4.33 .p + 16.34) − C64 .34 + C65 .34 − 34 = 27(2p2 − 8p + 9)
+
+if p > 3 and p ≡ ±3 (mod 8) and
+
+cp,2 = C42 .52 .p2 − (3.C43 .53 .p + 3.54 ) + (4.53 .p + 16.54 ) − C64 .54 + C65 .54 − 54 = 25(6p2 − 40p + 75)
+
+if p > 3 and p ≡ ±1 (mod 8) resp. except for p0 with p0 ≡ ±3 mod 8, since k2 ≡ k32 − 2 ≡
+k42 − 2, k3 ≡ k4 6≡ 0 and k22 − 4 6≡ 0 (mod p0 ), we have ki (ki2 − 2)(ki2 − 4) 6≡ 0 mod p0 for all
+2 ≤ i ≤ 4, and so cp0 = 0 . Applying (24) gives us a positive density in (25):
+                                                                                
+                   \            1        Y           cp,1       Y             cp,2
+               µ( Ri,j ) =         4
+                                                 1− 4                     1− 4 ,
+                   i6=j
+                               144       p>3
+                                                      p         p>3
+                                                                               p
+                                          p≡±3 (mod 8)                p≡±1 (mod 8)
+
+and also in (26):
+                                                                                                    
+                    \                  1           Y             cp,1           Y               cp,2
+               µ(          Ri,j ) =                            1− 4                           1− 4         .
+                                    1444.p12
+                                          0                       p          p>3
+                                                                                                 p
+                    i6=j                        p>3,p6=p0
+                                               p≡±3 (mod 8)               p≡±1 (mod 8)
+
+
+                                                              27
+     Finally, we need to consider the number of surfaces which are singular (see necessary
+and sufficient conditions given in Lemma 3.6). By Lemma 3.6, the total number of k with
+|ki | ≤ M for 1 ≤ i ≤ 4 such that the surfaces are singular
+                                                      T     is just O(M 3 ) as M → ∞, hence
+it is negligible. Therefore, we obtain that µ(S) ≥ µ( i6=j Ri,j ) > 0.
+
+Remark 4.3. Continuing from the previous remark, it would be interesting if one can find
+a way to include Assumption 3.3 into the counting result, which would help us consider the
+Brauer–Manin set with respect to the whole Brauer group instead of only its algebraic part.
+
+
+5     Further remarks
+In this section, we compare the results that we obtain in this paper with those in the previous
+papers studying Markoff surfaces, namely [GS22], [LM20] and [CWX20].
+    First of all, for Markoff surfaces, we see from [LM20] that given |m| ≤ M as M → +∞,
+the number of counterexamples to the integral Hasse principle which can be explained by the
+Brauer–Manin obstruction is M 1/2 /(log M)1/2 asymptotically. This implies that almost all
+Markoff surfaces with a nonempty set of local integral points have a nonempty Brauer–Manin
+set, and for the surfaces (relative character varieties) that we study in this chapter, a similar
+phenomenon is expected to occur (looking at the order of magnitude in the main counting
+result above). However, at present, we are not able to compute the number of these surfaces
+for which the Brauer–Manin obstruction can or cannot explain the integral Hasse principle
+in a similar way as in [LM20] and [CWX20]. If we can solve (partly) this problem, it will
+be really significant and then we may see a bigger picture of the arithmetic of Markoff-type
+cubic surfaces.
+
+5.1    Markoff descent and reduction theory
+Recall that, in order to show that the integral Hasse principle fails in [CWX20], the authors
+also make use of the fundamental set, or box, in [GS22] as a very useful tool to bound the
+set of integral points significantly and then use the Brauer group elements to finish the
+proofs. This mixed method has been the most effective way to prove counterexamples to the
+integral Hasse principle for Markoff surfaces which cannot be explained by the Brauer–Manin
+obstruction until now. However, in the case of Markoff-type cubic surfaces which we consider
+in this paper, the bounds do not prove themselves to be so effective when considered in a
+similar way. Indeed, let us recall the Markoff descent below for convenience; see [GS22]
+and [Wha20] for more details on the notation. Given k = (k1 , . . . , kn ) ∈ An (C), we write
+
+                                H(k) = max{1, |k1|, . . . , |kn |}.
+
+    Surfaces of type (1, 1). Let Σ be a surface of type (1, 1). By Section 2, we have an
+identification of the moduli space Xk = Xk (Σ) with the affine cubic algebraic surface in
+A3x,y,z given by the equation
+
+                                 x2 + y 2 + z 2 − xyz − 2 = k.
+
+
+
+                                                28
+The mapping class group Γ = Γ(Σ) acts on Xk via polynomial transformations. Up to finite
+index, it coincides with the group Σ′ of automorphisms of Xk generated by the transpositions
+and even sign changes of coordinates as well as the Vieta involutions of the form (x, y, z) 7→
+(x, y, xy − z).
+    The mapping class group dynamics on Xk (R) was analyzed in detail by Goldman as
+discussed in [Wha20], and the work of Ghosh–Sarnak [GS22] (Theorem 1.1) establishes a
+remarkable exact fundamental set for the action of Σ′ on the integral points Xk (Z) for
+admissible k. More generally, the results below establish Markoff descent for complex points.
+Lemma 5.1. [Wha20, Lemma 4.2] Let Σ be a surface of type (1, 1). There is a constant
+C > 0 independent of k ∈ C such that, given any ρ ∈ Xk (Σ, C), there exists some γ ∈ Γ
+such that γ ∗ ρ = (x, y, z) satisfies
+
+                                min{|x|, |y|, |z|} ≤ C · H(k)1/3 .
+
+    Surfaces of type (0, 4). Let Σ be a surface of type (0, 4). By Section 2, we have an
+identification of the moduli space Xk = Xk (Σ) with the affine cubic algebraic surface in
+A3x,y,z given by the equation
+
+                           x2 + y 2 + z 2 + xyz = ax + by + cz + d
+
+with a, b, c, d appropriately determined by k. The mapping class group Γ = Γ(Σ) acts on Xk
+via polynomial transformations. Let Σ′ be the group of automorphisms of Xk generated by
+the Vieta involutions
+                                τx∗ : (x, y, z) 7→ (a − yz − x, y, z),
+                                τy∗ : (x, y, z) 7→ (x, b − xz − y, z),
+                               τz∗ : (x, y, z) 7→ (x, y, c − xy − z).
+Two points ρ, ρ′ ∈ Xk (C) are Σ′ -equivalent if and only if they are Σ-equivalent or ρ is
+Σ-equivalent to all of τx∗ ρ′ , τy∗ ρ′ , and τz∗ ρ′ .
+Lemma 5.2. [Wha20, Lemma 4.4] Let Σ be a surface of type (0, 4). There is a constant
+C > 0 independent of k ∈ C4 such that, given any ρ ∈ Xk (C), there exists some γ ∈ k such
+that γ ∗ ρ = (x, y, z) satisfies one of the following conditions:
+ (1) min{|x|, |y|, |z|} ≤ C,
+
+ (2) |yz| ≤ C · H(a),
+
+ (3) |xz| ≤ C · H(b),
+
+ (4) |xy| ≤ C · H(c),
+
+ (5) |xyz| ≤ C · H(d).
+   Clearly, the restrictions in this lemma are weaker than those in the previous lemma,
+and so seems their effect. It would be interesting if one can find a way to apply these
+fundamental sets to produce some family of counterexamples to the integral Hasse principle
+which cannot be explained by the Brauer–Manin obstruction. A natural continuation from
+
+                                                29
+our work would be to find some sufficient hypothesis for k such that the Brauer–Manin set of
+the general Markoff-type surface is nonempty, as inspired by [LM20, Corollary 5.11], which
+we will discuss in some particular cases in the next part. Ultimately, similar to the case of
+Markoff surfaces, it is still reasonable for us to expect that the number of counterexamples
+which cannot be explained by the Brauer–Manin obstruction for these relative character
+varieties is asymptotically greater than the number of those which can be explained by this
+obstruction.
+Example 5.1. Take k1 = 127, k2 = 5, k3 = 5 + 144.5 = 725, k4 = 5 + 144.10 = 1445,
+then k = (k1 , k2 , k3, k4 ) satisfies Assumption A and we now have an explicit example of a
+Markoff-type cubic surface (where local integral points exist) given by the equation
+
+              x2 + y 2 + z 2 + xyz = 1048260x + 187140y + 99300z − 667871675.
+
+By using the box as discussed above, we will prove that this example gives no integral
+solution, i.e., it is a counterexample to the integral Hasse principle.
+    Indeed, from the proof of [Wha20, Lemma 4.4], we can find that the constant C inde-
+pendent of k ∈ C4 may take the value C = 48 in the condition (1) and C = 24 in all
+the other conditions (2), (3), (4), (5) (thus we may choose 48 to be the desired constant in
+the statement of the Lemma). With this information, we can run a program on SageMath
+[SJ05] to find integral points satisfying one of the restrictions (2), (3), (4), (5), along with the
+help of Dario Alpern’s website (Alpertron) [Alp] to find integral points whose one coordinate
+satisfies the restriction (1). More precisely, SageMath shows that there is no integral point
+in any of the boxes defined by (2), (3), (4), (5), while Alpertron deals with conic equations
+after fixing one variable bounded in (1) by transforming them into homogeneous quadratic
+equations and showing that some corresponding modular equations do not have solutions.
+As a result, we are able to prove that there is clearly no integral point in all those five cases,
+hence no integral point on the corresponding Markoff-type cubic surface.
+
+5.2    Some special cases of Markoff-type cubic surfaces
+Since a = b = c = 0 in (2) implies that either three of the ki are equal to 0 or k1 = k2 = k3 =
+−k4 or any other permutation of ki (with 1 ≤ i ≤ 4), the only cases that our Markoff-type
+cubic surfaces recover the original Markoff surfaces are given by equations of the form
+
+                                  x2 + y 2 + z 2 + xyz = 4 − k02 ,
+
+or
+                                 x2 + y 2 + z 2 + xyz = (2 − k02 )2
+for some k0 ∈ Z. For the former equation, it is an interesting Markoff surface which can be
+studied similarly as in previous work, with a remark that for any odd k0 the equation will not
+be everywhere locally solvable as the right hand side is congruent to 3 mod 4 (see [GS22]).
+For the latter equation, it always has the integral solutions (±(2 − k02 ), 0, 0). Although these
+special cases are only of magnitude M 1/4 compared to the total number of cases that we
+consider, it is clear that our family of examples do not recover these particular surfaces. We
+will discuss it here in a more general situation.
+
+                                                30
+    Naturally, one can find different hypotheses from that of Assumption A to work for more
+general cases, since Assumption A exists for technical reasons as well as specific counting
+results. More precisely, we will now consider the special case when k1 6= k2 = k3 = k4 are
+integers such that the total field extension [E : Q] = 4 and the set of local integral points on
+the Markoff-type cubic surface is nonempty. Interestingly, we are under the same framework
+as that of the general case in [CWX20, Section 3], to compute the algebraic Brauer group of
+the affine surface, which gives us
+
+                                      Br1 U/Br0 U ∼
+                                                  = (Z/2Z)3
+
+with three generators
+
+                        {(x − 2, k22 − 4), (y − 2, k22 − 4), (z − 2, k22 − 4)}.
+
+Following [LM20, Proposition 5.7 and Lemma 5.8] or [CWX20, Lemmas 5.4 and 5.5], we
+have
+            {(x − 2, k22 − 4)2 , (y − 2, k22 − 4)2 , (z − 2, k22 − 4)2 } = {0, 1/2, 1/2}
+and
+                {(x − 2, k22 − 4)3 , (y − 2, k22 − 4)3 , (z − 2, k22 − 4)3 } = {0, 0, −}
+as multisets. As k2 are odd, so k22 − 4 ≡ 5 mod 8, hence there is no way to describe this
+number by the form 3v 2 for v ∈ Z, which is favorable to give Hasse failures as in previous
+work. Due to the complexity of the integral values of the polynomial X 2 − 4 and their prime
+divisors, for now we can only deduce the vanishing of Brauer–Manin obstructions to the
+integral Hasse principle using a similar method as in [LM20].
+
+Proposition 5.3. Let k1 6= k2 = k3 = k4 are integers satisfying the congruence conditions
+k1 ≡ −k2 ≡ −5 mod 16 (resp. mod 9), and the divisibility conditions: (k1 , k2) = 1, (k1 , k22 −
+4) = (k12 − 4, k2 ) = 1, and (k12 − 2, k22 − 2) = 1, such that [E : Q] = 4. Moreover, assume that
+there is a prime p > 3 such that p divides k22 − 4 to an odd order and k1 ≡ −k2 mod p. Then
+there is no algebraic Brauer–Manin obstruction to the integral Hasse principle, but there is
+a Brauer–Manin obstruction to strong approximation for U.
+
+Proof. Following similar arguments as in the proof of Proposition 4.1, we can prove that the
+set of local integral points is indeed nonempty. Note that under our assumption, a = b =
+c ≡ 0 mod p and d = (2 − k22 )2 ≡ 4 mod p, so ax + by + cz + d ≡ 4 mod p in the defining
+equation (1) of U. Now for p > 5, we let B = h(x − 2, k22 − 4), (y − 2, k22 − 4), (z − 2, k22 − 4)i
+and follow the same arguments in the proof of [LM20, Proposition 5.5] to prove that the
+map
+                      U(Zp ) → Hom(B, Q/Z),       u 7→ (β 7→ invp β(u)),
+induced by the Brauer–Manin pairing, is surjective. Now we need to show that ∅ =          6
+U(AZ )Br1 6= U(AZ ). PLet u ∈ U(AZ ). Then by surjectivity, there exist up ∈ U(Zp ) such
+that invp β(up ) = − v6=p invv β(u) for all β ∈ B and u′p ∈ U(Zp ) such that invp β(u′p ) =
+1/2 − v6=p invv β(u) for some β ∈ B. Then we obtain a point in U(AZ )Br1 by replacing the
+        P
+
+p-part of u by up , and a point in U(AZ ) but not in U(AZ )Br1 by replacing the p-part of u
+by u′p , as required.
+
+                                                  31
+    We are left with the case p = 5. Using [LM20, Proposition 5.7] and [CWX20, Lemma 5.5],
+we know that the image of the above map induced by the Brauer–Manin pairing contains all
+                      P Let u ∈ U(AZ ). In fact, there alwaysP
+the nontrivial elements.                                                    exists u′p ∈ U(Zp ) such that
+         ′
+invp β(up ) = 1/2 − v6=p invv β(u) for some β ∈ B. Next, if Pv6=p invv β ′ (u) 6= 0 for some
+β ′ ∈ B,Pthere still exists up ∈ U(Zp ) such that invp β(up ) = − v6=p invv β(u) for all β ∈ B.
+Now if v6=p invv β(u) = 0 for all β ∈ B, we can consider another local point u′′ whose p-parts
+(p 6= 2) are the same as those of u and 2-part (x′′2 , y2′′, z2′′ ) is a permutation of u2 = (x2 , y2 , z2 )
+(note that the Markoff-type cubic equation here is symmetric in x, y, z) such that their images
+underP the local invariant map at 2 are different permutations of (0, 1/2, 1/2), hence we will
+get v6=p invv β(u) 6= 0 for some β ∈ B. The proof is now complete.
+   Again, the hypothesis of Proposition 5.3 can be modified or generalized to give the same
+results, which we hope to achieve in possible future work. For now, let us give some concrete
+examples from Proposition 5.3 using the help of SageMath [SJ05] and Alpertron [Alp] which
+have been mentioned in Example 5.1.
+
+Example 5.2. Consider k1 = 144.7.2 − 5 = 2011 and k2 = k3 = k4 = 5. Then there
+is no integral point on the corresponding Markoff-type cubic surface. By Proposition 5.3
+(with p = 7), we obtain a counterexample to the integral Hasse principle which cannot be
+explained by the algebraic Brauer–Manin obstruction.
+
+Example 5.3. Consider k1 = 144.7.3 − 5 = 3019 and k2 = k3 = k4 = 5. Then we find an
+integral point (x, y, z) = (24, 409, 672) on the corresponding Markoff-type cubic surface. By
+Proposition 5.3 (with p = 7), we get a counterexample to strong approximation which can
+be explained by the Brauer–Manin obstruction.
+
+   Finally, we end with a counterexample to the integral Hasse principle for which it is
+unclear whether the (algebraic) Brauer–Manin obstruction exists or not.
+
+Example 5.4. Consider k1 = 127 and k2 = k3 = k4 = 5. Since (1272 − 4, 52 − 4) = 3, this
+example does not completely satisfy any of our previous assumptions. However, by using
+the programs on SageMath and Alpertron as discussed above, we find that there is indeed
+no integral point on the corresponding Markoff-type cubic surface.
+
+
+
+References
+[Alp]        Dario Alpern. Dario Alpern’s Web site : Generic two integer variable equation
+             solver. url: https://www.alpertron.com/QUAD.HTM.
+[BGS16a]     J. Bourgain, A. Gamburd, and P. Sarnak. “Markoff surfaces and strong approx-
+             imation: 1”. In: arxiv:1607.01530 (2016).
+[BGS16b] J. Bourgain, A. Gamburd, and P. Sarnak. “Markoff triples and strong approxi-
+         mation”. In: Comptes Rendus Mathématique 354.2 (2016), pp. 131–135.
+[CF67]       J. Cassels and A. Fröhlich. Algebraic Number Theory. Proc. Instructional Conf.
+             Academic Press, 1967.
+
+                                                    32
+[Che21]   W. Y. Chen. “Nonabelian level structures, Nielsen equivalence, and Markoff
+          triples”. In: arxiv:2011.12940 (2021).
+[CL09]    S. Cantat and F. Loray. “Dynamics on Character Varieties and Malgrange irre-
+          ducibility of Painlevé VI equation”. In: Ann. Inst. Fourier 59.7 (2009), pp. 2927–
+          2978.
+[Con12]   B. Conrad. “Weil and Grothendieck approaches to adelic points”. In: Enseign.
+          Math. 58.2 (2012), pp. 61–97.
+[CS21]    J.-L. Colliot-Thélène and A. N. Skorobogatov. The Brauer–Grothendieck group.
+          Ergebnisse der Mathematik und ihrer Grenzgebiete, 3. Folge. Springer Cham,
+          2021.
+[CW12]    J.-L. Colliot-Thélène and O. Wittenberg. “Groupe de Brauer et points entiers
+          de deux familles de surfaces cubiques affines”. In: Am. J. Math. 134.5 (2012),
+          pp. 1303–1327.
+[CWX20]   J.-L. Colliot-Thélène, D. Wei, and F. Xu. “Brauer–Manin obstruction for Markoff
+          surfaces”. In: Annali della Scuola Normale Superiore di Pisa XXI.5 (2020),
+          pp. 1257–1313.
+[CX09]    J.-L. Colliot-Thélène and F. Xu. “Brauer–Manin obstruction for integral points
+          of homoheneous spaces and representation by integral quadratic forms”. In: Com-
+          pos. Math. 145 (2009), pp. 309–363.
+[GS17]    P. Gille and T. Szamuely. Central simple algebras and Galois cohomology. Cam-
+          bridge Studies in Advanced Mathematics 101. Second Edition. Cambridge Uni-
+          versity Press, 2017.
+[GS22]    A. Ghosh and P. Sarnak. “Integral points on Markoff type cubic surfaces”. In:
+          Invent. math. 229 (2022), pp. 689–749.
+[Har08]   D. Harari. “Le défaut d’approximation forte pour les groupes algébriques com-
+          mutatifs”. In: Algebra and Number Theory 2.5 (2008), pp. 595–611.
+[Har77]   R. Hartshorne. Algebraic Geometry. Graduate Texts in Mathematics. Springer-
+          Verlag New York, 1977.
+[Kol02]   J. Kollár. “Unirationality of cubic hypersurfaces”. In: J. Inst. Math. Jussieu 1.3
+          (2002), pp. 467–476.
+[LM20]    D. Loughran and V. Mitankin. “Integral Hasse Principle and Strong Approx-
+          imation for Markoff Surfaces”. In: International Mathematics Research Notices
+          2021.18 (2020), pp. 14086–14122.
+[Man71]   Yu. I. Manin. Le groupe de Brauer–Grothendieck en géométrie diophantienne.
+          Actes Congr. Int. Math. (Nice, 1970). Gauthier-Villars, 1971, pp. 14086–14122.
+[Neu13]   J. Neukirch. Class field theory. The Bonn lectures. Springer-Verlag Berlin Hei-
+          delberg New York, 2013.
+[NSW15]   J. Neukirch, A. Schmidt, and K. Wingberg. Cohomology of Number Fields.
+          Grundlehren der Math. 323. Second Edition. Springer-Verlag Berlin Heidelberg
+          New York, 2015.
+
+                                           33
+[Poo03]   B. Poonen. “Squarefree Values of Multivariate Polynomials”. In: Duke Math. J.
+          118.2 (2003), pp. 353–373.
+[Poo17]   B. Poonen. Rational points on varieties. Graduate Studies in Mathematics 186.
+          American Mathematical Society, 2017.
+[SJ05]    W. Stein and D. Joyner. “SAGE: System for Algebra and Geometry Experimentation”.
+          In: ACM SIGSAM Bulletin 39.2 (2005), pp. 61–64.
+[Wha20]   J. P. Whang. “Nonlinear descent on moduli of local systems”. In: Israel Journal
+          of Mathematics 240 (2020), pp. 935–1004.
+
+   Sorbonne Université and Université Paris Cité, CNRS, IMJ-PRG, F-75005
+Paris, France
+E-mail address: quang-duc.dao@imj-prg.fr
+
+   Institute of Mathematics, Vietnam Academy of Science and Technology,
+Cau Giay, 122300 Hanoi, Vietnam
+E-mail address: dqduc@math.ac.vn
+
+
+
+
+                                          34
+
