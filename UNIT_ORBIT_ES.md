@@ -163,7 +163,7 @@ condition in K(√−φ), which is not Galois over ℚ (σ₁(−φ) < 0 < σ₂
 ℓ = N𝔮 ≡ 3 (mod 4) and ⟨−1, φ⟩ of index ≤ 2 mod 𝔮 the shot condition is exactly "(−φ/𝔮) = −1 and (n/ℓ) = −1".
 (b) ES over K with r₁ = 1: U_𝔪 = O_K^*, and the forced condition is "every positive unit is a square mod 𝔮" —
 consistent with the T1 (if some positive unit were a non-square mod a c₀-prime, −m²/4 would be in the orbit).
-(c) ES^{(S)} over ℚ: Cl_{4∞}(ℤ) = 1-dimensional, c₀ = "r ≡ 3 (mod 4)", the orbit Q² lies in the squares, and every
+(c) ES^{(S)} over ℚ: Cl_{4∞}(ℚ) has order 2, c₀ = "r ≡ 3 (mod 4)", the orbit Q² lies in the squares, and every
 condition is a congruence — the reason Theorem 2.4 is unconditional.
 **Assessment 4.2 (sieve arithmetic; uses Murty–Petersen, Trans. AMS 365 (2013), Thm 0.2, as read in
 sources/uo/LITERATURE.md).** An Artin-type sieve for a number-field variant must count degree-1 primes of K with a
@@ -173,6 +173,13 @@ for [K:ℚ] ≥ 5 it needs 2[K:ℚ] − 4 < r + 1 ≤ [K:ℚ]. It never closes. 
 which forces η < 0 there, so the orbit is a non-square coset ηU² and a non-norm quadratic character enters. Making the
 mute place FINITE (§1) removes exactly this hypothesis.
 
+*Galois case (R183 M2: Harper–Murty needs K/ℚ Galois, impossible for r₁ = 1).* The T1-bearing variants over Galois
+fields with rank ≥ 4 are totally positive ES over totally real Galois K of odd degree d ≥ 5 (P = all real places,
+|P| = d odd). There U_𝔪 = O_K^* and Prop 4.1 forces (u/𝔮) = sgn N(u) for every unit u: a Frobenius condition c in
+N = Gal(K(√O_K^*)/K) ≅ (ℤ/2)^d. c is G-invariant (sgn N(u^σ) = sgn N(u)), hence central in Gal(K(√O_K^*)/ℚ), so it lies
+in every maximal abelian subgroup; but the largest abelian subgroups have index ≥ d (N itself; N^G is small since
+O_K^*/O_K^{*2} ≅ 𝔽₂ ⊕ (augmentation module)). Murty–Murty/Murty–Petersen then give η = d − 2 against the required
+2η < r + 1 = d: fails for every d ≥ 5 (Assessment, same caveats as 4.2).
 ## 5. What can be proved for V_φ itself: power-saving almost-all, and an exact-T1 failure set under GRH
 
 Notation of T1_TEMPLATE §1 (K = ℚ(√5), a_k = n + 4φ^{2k+1}). Call odd n > 1 *orbit-solved* if some a_k has a prime factor
