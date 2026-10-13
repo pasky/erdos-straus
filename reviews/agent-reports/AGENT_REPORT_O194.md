@@ -4,6 +4,10 @@ Branch `side-agent/tes-finite` (merged `side-agent/synthesis-two` first). Main f
 `scripts/tf_*`. ES is not solved; no infinite case of ES is claimed.
 
 ## SHARP:
+(R194 repair, D2/D3: item 1's insolubility at 131, 241 is Pomerance–Weingartner arXiv 2511.16817, Table 1
+(m = 8: all exceptions n ≤ 10^13 are 1, 2, 3, 11, 17, 131, 241), and the no-BM half is BL Remark 1.10; Cor 5.4 / B7
+is an immediate consequence of these, already witnessed at
+n = 3. The new content is the TES half, items 2 and 4.)
 1. **"Brauer–Manin + T1 is the only obstruction" is FALSE for Erdős–Straus-type integral models — already over ℚ,
    with positivity, order 2, and the same ℚ-surface as ES.** Schinzel's 8/n = 1/x + 1/y + 1/z (x, y, z ∈ ℕ) has
    the real anchor and an order-2 T1 at odd squares (Prop 5.1; inv₂ vanishes because v₂(8) = 3), the Brauer group
@@ -53,6 +57,8 @@ both solvers 0 at 26893, all 16 TES BM certificates (symbols cross-checked with 
 * Novelty: the 8/n failures are a trivial computation and may be in the Schinzel/Sierpiński literature (OEIS has
   no sequence 2,3,11,17,131,241 or 3,11,17,131,241; literature not searched further). The new content is the
   framing: T1-bearing + BM-unobstructed + insoluble.
+  (R194 repair, D2: they ARE in the literature — Pomerance–Weingartner 2511.16817 Table 1, m = 8, n ≤ 10^13; PW Thm 3.1
+  proves many failing primes for every m ≥ 8. OEIS indeed has no such sequence, re-checked by R194.)
 
 ## Not done / caveats
 * Obstructions beyond BM (étale BM / descent on covers of the open log-K3 surface; π₁^{ét}(Ū) not computed) are not

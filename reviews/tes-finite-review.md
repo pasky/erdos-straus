@@ -1,5 +1,9 @@
 # R194 — hostile review of TES_FINITE.md (O194)
 
+**Repairs applied** (author quiet, no commits on side-agent/tes-finite after e126ef48): D1–D7 applied directly to
+TES_FINITE.md and D2/D3 to reviews/agent-reports/AGENT_REPORT_O194.md, each marked "(R194 repair, Dk)". D8 is a ledger
+item for the parent (DISCOVERIES).
+
 Reviewer: side agent R194 (branch side-agent/review-tes-finite; author branch side-agent/tes-finite merged).
 From-scratch scripts: `scripts/review_tf_*.py` (own ℤ[ω] arithmetic, own solvers, own Hilbert / cubic symbols;
 no import of `tf_*`, `tw_*`). Source checked: Bright–Loughran arXiv 1908.02526 (sources/bright-loughran-1908.02526.pdf,
@@ -171,7 +175,7 @@ already in this repo.** Pomerance–Weingartner, arXiv 2511.16817 (Ramanujan J. 
 `sources/pomerance-weingartner-2511.16817/`), Table 1 row m = 8: all exceptions n ≤ 10¹³ are 1, 2, 3, 11, 17, 131, 241.
 PW Thm 3.1: for every m ≥ 8 more than exp(c φ(m)^{1/3}/(log m)^{2/3}) primes p have m/p not a sum of 3 unit fractions.
 The report's "may be in the literature … not searched further" is not acceptable for a SHARP claim when the campaign's
-own ledger cites PW ((D)31, EXCEPTIONAL_MN*). *Repair:* Thm 5.2 → "(CERTIFIED; reproduces PW Table 1, m = 8, which
+own ledger cites PW ((D)31, EXCEPTIONAL_MN*). (OEIS indeed has no sequence 3, 11, 17, 131, 241 — re-checked.) *Repair:* Thm 5.2 → "(CERTIFIED; reproduces PW Table 1, m = 8, which
 covers n ≤ 10¹³)"; drop "≤ 2·10⁵" as the headline range; in the counts paragraph and §4 Assessment cite PW Thm 3.1
 (the "lottery" failures for m ≥ 8 are a theorem, by an Elsholtz–Tao-type sieve) and the campaign's own density-transition
 results (EXCEPTIONAL_MN/MN2: transition at log n ≍ m^{1/3}).
