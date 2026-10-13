@@ -162,3 +162,26 @@ deg z ≤ max(f, β) − λ ≤ α − 1. In particular T^α + z ≠ 0 (and T^α
   further to choose. min(β − λ, λ + α − β − 1) ≤ (α − 1)/2.
 g' is then a monic divisor of K/T: ≤ δ(α) choices. Patterns (λ, β, κ): ≤ (α + 1)^3. (Here δ(3α) ≤ δ(α)·… is absorbed
 by taking B_A with δ(3α) in place of δ(α) if preferred; the shape of the bound is what matters.) ∎
+
+**Theorem 2.5 (large q in characteristic 3: no finite linear covering of ES_q(T^k); PROVED, given O173 Lemmas 1.1, 2.1,
+3.1, R166's Case A steps (1)–(2) and the compactness criterion).** Let k ≥ 2 and let q be odd with q ≥ 1.3·10^16, or
+q = 3^r with r ≥ 27. Then for every c ∈ F_q^* the set of u ∈ 1 + cT + T²F_q[[T]] such that x_u lies in no validity set
+has positive Haar measure (relative measure ≥ 0.97). Hence O(q, T^k) ≠ ∅, and **ES_q(T^k, ·) has no finite linear covering**.
+For char q ≥ 5 this was known (O140 Prop 4.1: 1 ∈ O). For q = 3^r it is new; there the class-1 obstruction is absent
+(FUNCTIONFIELD_ES §6.1(a)).
+*Proof.* Relative to the c-slice (mass q^{−2}), a Case B tuple of parameter s covers q^{1−N(s)} and a Case A tuple of
+depth α covers q^{2−k−α}. N(s) and the Case A exponent only improve with k, so take k = 2. Lemma 2.2 gives
+Case B mass ≤ Σ_s Σ_patterns min(four bounds)·q^{1−⌈s/2⌉}, and per s the exponent is
+⌊2(s−3)/5⌋ + 1 − ⌈s/2⌉ ≤ −max(1, s/10 + 1/5). Lemma 2.4 gives Case A mass ≤ Σ_α (α+1)^3 B_A q^{⌊(α−1)/2⌋−α}, exponent
+≤ −(α+1)/2. With δ(n) ≤ 2^n and δ₃(n) ≤ 3^n (a degree-n polynomial has ≤ n irreducible factors), the crude closed
+form 4Σ_s(s+1)^4(16q^{−1/10})^s q^{−1/5} + 24Σ_α(α+1)^3(16q^{−1/2})^α q^{−1/2} is decreasing in q and is < 0.48 at
+q = 3^{34}; it is < 1 for q ≥ 1.3·10^16. For 3^27 ≤ q ≤ 3^33, `scripts/bsE_largeq.py` evaluates the pattern-wise
+minimum exactly for s, α ≤ 100 and adds the crude tail beyond 100. The totals are 2.6·10^{−2} (r = 27),
+1.9·10^{−7} (r = 28), < 2·10^{−11} (r = 29..33). Any covered set has measure ≤ these sums, so the uncovered set has
+positive measure. Points of the uncovered set are in O(q, T^k) by definition, and O ≠ ∅ excludes a finite covering
+(FUNCTIONFIELD_ES2 §0.1). ∎
+*What this does and does not say.* Every truly large-q statement known before (O140 Thm 2.1) was at *fixed degree*
+n, with q → ∞. Theorem 2.5 is at *fixed q* and covers all degrees at once. It is the function-field analogue of
+"a sterile point exists" (over ℤ open for every Mordell r; MORDELL13E, MORDELL17C). The constant 16 comes from crude
+divisor bounds. **The exponents are not the obstacle; the constants are.** At q = 3 the same union bound is > 1
+(§3), exactly as over ℤ, where MORDELL17B needs ET's exponent 2/5 *with an explicit constant C ≤ 1.40*.
