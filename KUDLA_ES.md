@@ -5,6 +5,8 @@ DISCOVERIES.md. Scripts `scripts/kud_*`. Inputs: QUATERNION_ES.md (O130: Λ_{d,m
 (O170: Prop 4.1, the sign-blind set D*(n)), STRONG_APPROX_ES.md Thm 9.1, WINDMILL_REDUCTION.md Prop 10.3 / Rem 10.4,
 reviews/redteam-automorphic.md §4 (T1–T8).
 
+**Checkpoint 1 summary.** §1: T1 ⟺ oddness of Kudla's Diff(T) (Thms 1.2, 1.4; PROVED, elementary). §2: Kudla positivity is automatic at certificate indices and deterministic at the genus level; ES is the ray-class upgrade (B2). §3: construction log. Report: reviews/agent-reports/AGENT_REPORT_O172.md.
+
 Kudla notation used throughout. For a collection 𝒞 = (𝒞_v)_v of local quadratic spaces of dimension r over ℚ_v
 with the same discriminant, 𝒞 is *coherent* if ∏_v ε(𝒞_v) = 1 (then it comes from a global space), *incoherent*
 otherwise. For a symmetric matrix T, `Diff(T, 𝒞) := {v : 𝒞_v does not represent T}`. If 𝒞 is incoherent and T is
