@@ -174,3 +174,45 @@ CONJECTURE.
 **D10 (MINOR).** Over Z, the corresponding statement "would need primes ≡ 1 (mod m) below p with m ≈ √p
 (Linnik/GRH)". Linnik gives p ≪ m^L with L ≈ 5, far above m²; GRH gives roughly p ≪ m² log⁴ m. So m ≈ √p is
 reached only up to log factors under GRH and not at all unconditionally. Say "GRH (up to log factors)".
+
+### §3 covered-mass numbers (EVIDENCE) — reproduced
+
+`scripts/review_ff2_mass.py 3 2 1,1 4 5` (own factorisation by trial division and own union computation) gives
+union masses 0.037, 0.111, 0.185, 0.198 of C = {u ≡ 1 + T mod T³} for deg L' ≤ 1..4, j ≤ 5. These match the
+author's figures exactly (`data/review_ff2_mass_log.txt`). **D11 (MINOR).** The mass counts Case B only. For lifts
+u ≠ 1 + cT, Case A families are not excluded by the §0.2 proof, which uses u = 1 + cT exactly through
+T^{α+2} | E + 1 + cT. So 0.2 is a lower bound on the covered mass, even within the searched range. The author says
+this parenthetically, but report item 7 omits it. Also, the slice has measure 0 in R̂^*, so these masses do not
+bear on the ≈ 1 % tree plateau, which is a mass in R̂^*. Say so.
+
+### Prop 3.1 (PROVED) — SOUND, but tautological
+
+Given n-independence of V_F (see D3), a finite linear covering is a covering for every n ≥ max n_F at once, so
+no class can be covered for one parity and not for the other. The proof is correct. **D12 (MINOR, weight/novelty).**
+This restates the definition of a linear covering and should be a Remark, not a Proposition. Its scope is fixed
+(n-independent) linear families only. It says nothing about the actual failure set of ES_q(A, ·) or about
+n-dependent families (Prop 1.1's setting), where the Jacobi sign *can* depend on n. The sentence "O(q, A) is a
+subset of R̂^* with no degree data" is right by construction.
+
+### §1 non-linear assessment — mostly fine (Assessment)
+
+**D13 (MINOR, factual nit).** "Frobenius twists P^σ (q = p^r) ... cannot divide PX (degree n each, coprime to P)".
+This fails when P^σ = P, i.e. P has coefficients in a proper subfield (e.g. P ∈ F_p[T] ⊂ F_q[T]). Then P^σ = P
+divides PX trivially and gives nothing new. Repair: "P^σ ≠ P cannot divide PX". Its conclusion (no new divisors)
+is unchanged.
+
+### §0.1 / §0.3 slice tests for other (q, A), q = 4 — not independently re-run
+
+R166's arithmetic handles prime q only, so the q = 4 slice ("0/192 mod T⁴, fully covered") was not re-checked.
+The logic is right: families with W_F | T⁴W' are decided at slice points by u mod T⁴, so 0 uncovered classes
+mod T⁴ covers the whole slice. The numbers 28/72 and 35/54 (q = 3, A = T² + 1, T³) were also not re-run. They are
+upper bounds (D4) and are labelled EVIDENCE.
+
+### Novelty and labels
+
+* Compactness criterion: standard profinite compactness. Correct, useful framing, not deep.
+* Case A impossibility: new and correct (after the repair proof above). Restricted to the single point u = 1 + cT.
+* Case B: an honest reduction with an exact search. Conjecture 0.2 is correctly labelled.
+* Prop 1.1: an immediate corollary of O140 Prop 4.1 + Fact 5.2. Correct, but its interpretation is overclaimed (D9).
+* Prop 3.1: tautological (D12).
+* No claim in the document bears on ES over Z. The disclaimers are present and adequate.
