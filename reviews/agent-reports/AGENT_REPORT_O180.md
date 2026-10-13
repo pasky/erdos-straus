@@ -9,9 +9,11 @@ Branch `side-agent/lorenzini-w` (merged side-agent/spark-hj-brainstorm and main 
    Lorenzini (JNT 257 (2024), Prop 6.3(a)) left n = 2^m − 2, m odd, open. Six fixed-pair families with moduli 9, 72, 13, 27, 109, 592 cover all
    odd m mod 36 (a Sierpiński-type covering of the exponent). The proof is by hand from the table, and explicit solutions are checked for odd m ≤ 4001.
    (W) is now *exactly*: odd n ≡ 3, 9, 11 (mod 12) with n + 2 prime (minus the 6 known odd exceptions).
+   (R184: independently re-proved SOUND; brute force to 10⁸ agrees. Novelty: not found in the literature — R184 repair, D8, see the honesty note.)
 2. **Deflationary for ES (Prop 8.1, PROVED, trivial in hindsight):** (W) at primes p ≡ 1 (4), p ≥ 13 holds by (2,2,(p+2)/3) (p ≡ 1 (3)) or
    (3,(p+7)/12,4) (p ≡ 5 (12)). So **interior-SQ₅(p) ⟺ (S)(p)**: HJ_DEEP's sign-free half carries no ES content at primes. Future relays
    should attack (S) on p ≡ 1 (12) directly. The (3,·,4) word is the classical p ≡ 2 (3) identity (sign −1). The (2,2,·) word has sign +1.
+   (R184 repair, D4/D5: hence (S)(p) is PROVED for p ≡ 5 (12). Both words are Lorenzini's own z = 2 / z = 4 slices, so Prop 8.1 strengthens his 6.3(c); it is not new.)
 3. **Square shadow (Lemma 3.1, PROVED):** T1 acts *partially* on (W). At n = m² the middle letter is ≢ 0 (4) and ≢ 7 (8), and ≢ 3 (4) if m is even.
    At n = km², it is ≢ 0 (mod 4k). The record-low R(n) (number of solutions) are squares of smooth numbers (R(2310²) = 4 vs mean ≈ 104). Still,
    all squares except 1, 9 are values (Prop 3.3). HJ_DEEP's "(W) is T1-free" should read "(W)'s *existence* has no T1 obstruction".
@@ -31,8 +33,9 @@ Branch `side-agent/lorenzini-w` (merged side-agent/spark-hj-brainstorm and main 
   B3 gap; consecutive-block pigeonhole needs large prime factors, which is an H-B-type lower-bound problem.
 
 ## Honesty / scope notes
-* Thm 9.1's novelty: I checked Lorenzini (2022 preprint = JNT 2024) and Wang (EJC 2026, which calls finiteness open). I did no wider citation search beyond
-  two web searches. Prop 8.1's (3,·,4) family is in the fixed-pair menu that Lorenzini's (c) underuses (he covers only n ≡ 2, 8 (9) within n ≡ 1 (4)).
+* Thm 9.1's novelty: I checked Lorenzini (2022 preprint = JNT 2024) and Wang–Lu (EJC 33(3) (2026) #P3.80, which calls finiteness open for general G; R184 repair, D3).
+  (R184 repair, D8.) R184 did the wider search. It covered the 7 Semantic-Scholar citers of Lorenzini's paper (4 arXiv texts grepped), Lorenzini's 2025 preprints
+  and web/OEIS/MathOverflow searches, and found nothing on the even case. Google Scholar lists 9 citers, so 2 were not seen. Phrase it as "not found in the literature". Prop 8.1's (3,·,4) family is in the fixed-pair menu that Lorenzini's (c) underuses (he covers only n ≡ 2, 8 (9) within n ≡ 1 (4)).
 * Prop 6.1 is a sketch at the standard level of rigour (Montgomery large sieve, elementary-symmetric lower bound, Titchmarsh–Linnik). A reviewer should check the
   e_k ≥ (G^k/k!)(1 − O(k²/G²)) step and the constant bookkeeping. (R180: checked SOUND. The step is now stated exactly, as k!e_k ≥ G^k − C(k,2)TG^{k−2} with T → 0, repair D3.)
 * Thm 4.2's case analysis is by hand. It is cross-checked by `scripts/bsG_dev.c` for ℓ ≤ 29 (moduli ≤ 10⁵).
