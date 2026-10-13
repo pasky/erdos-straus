@@ -271,7 +271,7 @@ STRONG_APPROX §9.1 for the analogous negative test on cubic counts). The only e
 ## 9. Composites, and the five-slice square conjecture
 
 **9.1 EVIDENCE (`scripts/dk_vanish5.py 1000000`).** Among all non-square n ≡ 1 (4) up to 10⁶ (primes and
-composites), the five slices together with the boundary case 4.2 vanish **only at n = 105**. They vanish at every
+composites), the five slices together with the boundary case 4.2 vanish **only at n = 105** (direct check: λ(105) = 4). They vanish at every
 odd square (Prop 3.1, 4.2).
 
 **Conjecture SQ₅ (CONJECTURE).** For n ≡ 1 (mod 4), n ≠ 105: `λ(n) ≤ 3 ⟺ n is not a square`, where

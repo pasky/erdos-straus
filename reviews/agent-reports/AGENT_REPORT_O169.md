@@ -46,3 +46,38 @@ certificate on the length-3 locus). I found no reciprocity-forced existence mech
   would give a possible structural reason why QR length-3 points are "special". This is speculative.
 * **λ(p) statistics.** Compare `P(λ(p) > 3)` with the independent-coin heuristic `2^{−|L₃(p)|/2}` (reversal pairs
   share their Jacobi symbol). Do the Jacobi values on L₃(p) show any correlation beyond the cell structure?
+
+# Checkpoint 2 (parent follow-up; DEDEKIND_ES.md Part II, §§8–10)
+
+1. **Sign transfer.**
+   - The sign is a mod-4 function (PROVED, §8.1). It is +1 exactly on `(t,u,v) ≡ (1,2,3), (1,3,2), (2,1,2),
+     (2,2,1), (3,1,1) mod 4`, and these are the only classes occupied at squares.
+   - Three candidate maps preserve the sign (PROVED, §8.2): the Klein group (reversal, duality), and rotations
+     `(v,t,u) ↦ (t,u,v)` whenever n, n' ≡ 1 (4). Rotation is conjugation of γ, so the sign is a conjugacy-type
+     invariant.
+   - **One genuine sign-flipping transfer exists: scaling** (PROVED, §8.3).
+     `K(av', t, au') = a·K(v', at, u')` keeps A, and `(A/am) = (−1/a)(A/m)`. A +1 word of m with a | middle
+     becomes a certificate for am whenever a ≡ 3 (4). It needs composite n, so it is useless at primes.
+   - Signed sum S(n) = N₊ − N₋: no closed form. It is a ±1-weighted (★)-type family; the exact facts are only
+     "N₋ even" and "N₋(m²) = 0".
+2. **Composites.**
+   - EVIDENCE (`dk_vanish5.py 1000000`): among all non-square n ≡ 1 (4) ≤ 10⁶, the five slices plus the boundary
+     case vanish **only at n = 105**.
+   - This gives **CONJECTURE SQ₅**: for n ≡ 1 (4), n ≠ 105, λ(n) ≤ 3 ⟺ n is not a square. It strengthens O146's
+     SQ on n ≡ 1 (4), and implies ES for p ≡ 1 (4).
+   - The composite case with a factor a ≡ 3 (4) reduces (PROVED lemma, §9.2) to a divisor of m+1 that is
+     ≡ −1 (mod a). This gives the explicit family `n = a(at−2)`, and the inherited certificates cover 79 % of
+     such n ≤ 2·10⁵.
+   - **Not proved in general**: the factor supplies the sign but never the length-3 word (B2).
+3. **Complexity (§10.1).**
+   - Cor 4.6 is the exact converse of T4 on the five slices.
+   - Full ES has no algorithmic consequence. The polylog-height version (t_min ≤ (log p)^C) would give
+     deterministic QNR-finding with a factoring oracle, which is not currently known (literature from memory).
+   - EVIDENCE: t_min(p) ≤ 64 for all p ≡ 1 (8) ≤ 10⁶.
+4. **Coin statistics (§10.2).** At primes ≈ 70 % of words are −1 (15 of 20 mod-4 classes); the biased-coin model
+   predicts < 1 failure to 3·10⁵, and 0 are observed. At squares all words are +1.
+
+Sparks: (a) identify the sign as an explicit genus character of the conjugacy class of γ (disc (n−t)²−4), which
+could make rotation-invariance conceptual; (b) the scaling transfer combined with a "descent" n ↦ n/a might give
+SQ₅ for composites, conditionally on SQ₅ for smaller m with a | middle; (c) test SQ₅ beyond 10⁶ (≈10 min per 10⁶
+in pure Python; a C port would reach 10⁸).
