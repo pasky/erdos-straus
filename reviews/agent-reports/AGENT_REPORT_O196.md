@@ -24,8 +24,9 @@ scripts scripts/ff_frob_selfmute.py, scripts/ff_frob_overflow.py; data data/ff_f
    sub-structure of size ≥ √|(R/f)^*|·n.
 3. EVIDENCE: one mute place S = {3} solves all 78 496 primes < 10⁶ in ES^{(3)} (max shot 9^{18}) and in ES^{(y)}
    (3 | y forced; max shot 9^{21}); 0/332 odd squares (T1 control). Overflow scale ES_q^{(s,e)} (z-denominator
-   s^{2t}, t ≤ e): all P solved with small e (see §5.2 table, rerun after the R196 search-completeness fix), and
-   the needed e does not grow with n, while the only known proof (FF_MUTE Thm 3.5) uses overflow n^{2+o(1)}
+   s^{2t}, t ≤ e): 0 unsolved irreducible P over 13 (q, A, n) rows (q = 3, 5, 7; n ≤ 8), max least e = 5, every
+   full ES_q failure of data/ffl solved with e ≤ 5 (rerun after the R196 search fix: identical), and the needed e
+   does not grow with n (q = 7: max 5, 4, 3, 2 at n = 2..5), while the only known proof (FF_MUTE Thm 3.5) uses overflow n^{2+o(1)}
    (whether less is provable is open).
 
 ## Answer to the question (scoped no-go; §1, §3, §6)
