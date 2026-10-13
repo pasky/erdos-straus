@@ -130,3 +130,45 @@ shape**, (½, ½). On all 2283 solutions inv_q = 0 for q ∈ S (Lemma 1.1) and t
 *Control (`uo_mute_t1.py -3 300 169 289`: parity normalisation dropped):* 4002 / 4922 solutions, of which
 1344 + 428 / 1860 + 527 have Type I/II shape at the square, with inv_{13} resp. inv_{17} = 0 and some inv_q = ½
 (3004 / 3710 solutions have a nonzero q-invariant): the mute normalisation is exactly what keeps the T1.
+
+## 3. Two reductions valid for every unit-orbit variant
+
+**Proposition 3.1 (p ≡ 3 mod 4 is free; PROVED).** In V_φ, in ES over any K with one real place, and in ES^{(S)}, if
+n ≡ 3 (mod 4) then the shot a = n + 4η (any η in the orbit) works with g = a, e = 1 (a ≡ −1 (mod 4), positive at
+the anchor): x = (n + 1)/4. (The ES analogue x = (p + 1)/4.)
+
+**Proposition 3.2 (no reciprocity proof for n ≡ 1 mod 8; PROVED).** Let K be any number field, n ≡ 1 (mod 8)
+a positive rational integer, η ∈ O_K^* (or η = Q² with Q an S-unit, S odd) and a = n + 4η, coprime to n. Then
+∏_{𝔮 | a} (n/𝔮)^{v_𝔮(a)} = 1, the value it has for n = m². So the existence of a prime 𝔮 | a with (n/𝔮) = −1
+can never be forced by Jacobi symbols / the product formula; every existence proof needs an input that sees
+individual primes (Chebotarev, sieve).
+*Proof.* Quadratic reciprocity in K: (n/a)(a/n) = ∏_{v | 2∞}(n, a)_v. n > 0 and n ∈ ℚ₂^{*2} (n ≡ 1 (8)), so all
+these symbols are 1. (a/n) = (4η/n) = ∏_{ℓ | n}(N_{K/ℚ}(η)/ℓ)^{v_ℓ(n)} = 1 (residue symbols of a unit at the primes
+over ℓ multiply to the Legendre symbol of its norm ±1, and (−1/ℓ) cancels as n ≡ 1 (4); for η = Q² it is a square). ∎
+
+## 4. Why the number-field versions resist an unconditional proof (the Kummer obstruction)
+
+**Proposition 4.1 (the forced Kummer condition; PROVED).** Let ES_{P,M} be a T1-bearing sign-pattern variant over K
+(T1_TEMPLATE Cor 2.2: |P| odd, F = ∅), 𝔪 = 4∞_P, c₀ ∈ Cl_𝔪(K) the class of (g) with g ≡ −1 (mod 4), g ≫_P 0, and
+U_𝔪 = {u ∈ O_K^* : σ_v(u) > 0 for all real v ∉ P}. A unit-Type-II shot at a prime 𝔮 ∤ 2n (𝔮 | n + 4η with
+[𝔮] = c₀) forces, for every u ∈ U_𝔪,
+`(u/𝔮) = χ_u(c₀) = (−1)^{#{v ∈ P : σ_v(u) < 0}}.`
+*Proof.* K(√u)/K has conductor dividing 𝔪 (unit radicand: discriminant | 4; real ramification only at v ∈ P), so
+χ_u factors through Cl_𝔪 and (u/𝔮) = χ_u(c₀). By reciprocity χ_u((g)) = ∏_{v | 2∞}(u, g)_v. At real v ∉ P, u > 0;
+at v ∈ P, g > 0: archimedean factors are 1. At v | 2, (u, g)_v = (u, −1)_v (u, −g)_v and −g ≡ 1 (mod 4) makes
+K_v(√−g)/K_v unramified, so (u, −g)_v = 1 for the unit u. Finally ∏_{v|2}(u, −1)_v = ∏_{v real}(u, −1)_v by the
+product formula (odd places: two units). ∎
+*Consequences.* (a) V_φ (K = ℚ(√5), P = {σ₁}): U_𝔪 = ⟨−φ⟩U², the forced condition is (−φ/𝔮) = −1, a Frobenius
+condition in K(√−φ), which is not Galois over ℚ (σ₁(−φ) < 0 < σ₂(−φ)), hence not a condition on N𝔮. For
+ℓ = N𝔮 ≡ 3 (mod 4) and ⟨−1, φ⟩ of index ≤ 2 mod 𝔮 the shot condition is exactly "(−φ/𝔮) = −1 and (n/ℓ) = −1".
+(b) ES over K with r₁ = 1: U_𝔪 = O_K^*, and the forced condition is "every positive unit is a square mod 𝔮" —
+consistent with the T1 (if some positive unit were a non-square mod a c₀-prime, −m²/4 would be in the orbit).
+(c) ES^{(S)} over ℚ: Cl_{4∞}(ℤ) = 1-dimensional, c₀ = "r ≡ 3 (mod 4)", the orbit Q² lies in the squares, and every
+condition is a congruence — the reason Theorem 2.4 is unconditional.
+**Assessment 4.2 (sieve arithmetic; uses Murty–Petersen, Trans. AMS 365 (2013), Thm 0.2, as read in
+sources/uo/LITERATURE.md).** An Artin-type sieve for a number-field variant must count degree-1 primes of K with a
+non-norm Frobenius condition; then E ⊇ K and the known level is 1/η, η = max{[K:ℚ] − 2, 2}. The closing condition of
+the Gupta–Murty argument is 2η < r + 1 with r ≤ [K:ℚ] − 1 the unit rank: for [K:ℚ] ≤ 4 it needs r ≥ 4 > [K:ℚ] − 1,
+for [K:ℚ] ≥ 5 it needs 2[K:ℚ] − 4 < r + 1 ≤ [K:ℚ]. It never closes. Hypothesis responsible: the mute place is REAL,
+which forces η < 0 there, so the orbit is a non-square coset ηU² and a non-norm quadratic character enters. Making the
+mute place FINITE (§1) removes exactly this hypothesis.
