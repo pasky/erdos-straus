@@ -9,16 +9,26 @@ Branch `side-agent/tes-finite` (merged `side-agent/synthesis-two` first). Main f
    the real anchor and an order-2 T1 at odd squares (Prop 5.1; inv₂ vanishes because v₂(8) = 3), the Brauer group
    of BL (ℤ/2, ℚ-isomorphic surface), **no Brauer–Manin obstruction at n = 131, 241 (explicit adelic
    certificates, Thm 5.3), and no solution at n = 131, 241 (certified complete search, Thm 5.2)**. Failing n ≤ 299:
-   {2, 3, 11, 17, 131, 241}; failing primes ≤ 2·10⁵: {3, 11, 17, 131, 241}.
+   {2, 3, 11, 17, 131, 241}; failing odd primes ≤ 2·10⁵: {3, 11, 17, 131, 241}.
 2. **TES(π) is a finite search** (Prop 1.1: one archimedean place + triangle inequality + two-term divisor problem;
    positivity is NOT what makes ES(p) finite) and **TES fails at 16 primes** N(π) ∈ {7, 13, 19, 61, 79, 97, 103,
    151, 193, 211, 367, 409, 769, 2029, 2239, 26893} (complete census N ≤ 30000, two independent solvers), with
    **no Brauer–Manin obstruction from Br U = Br K + ⟨α_ω, α_{−1}⟩** at any of them (Thm 3.1, certificates).
-3. **Sibling barrier (B7).** Any ES strategy built only from local/congruence data, Brauer group + reciprocity
-   (incl. the T1 mechanism) and Chebotarev-type auxiliary primes transfers verbatim to 8/n (and to TES), where its
-   conclusion is false. What separates 4/n from 8/n is quantitative: mean positive-solution count over primes in
-   [100, 300): 32.8 (m = 4, min 6) vs 13.5 (m = 8, 2 zeros) vs 7.2 (m = 12). (Cor 5.4 precise; B7 wording
-   Assessment.)
+3. **Sibling barrier (B7).** PROVED part (Cor 5.4): no family-uniform "BM (incl. T1) is the only obstruction to
+   positive integral points" principle holds for BL's Erdős–Straus/Schinzel models, so ES cannot follow from one.
+   Assessment only: an ES proof must use something specific to the model 4/n (8/n is its all-even-denominator
+   sub-problem), e.g. a pointwise count lower bound; Cor 5.4 does not exclude "solvable for p > p₀" arguments.
+   Mean positive-solution count over primes in [100, 300): 32.8 (m = 4, min 6) vs 13.5 (m = 8, 2 zeros) vs 7.2 (m = 12).
+4. The late TES failure N = 26893 has (χ_π(ω), χ_π(2), χ_π(λ)) = (0, 0, 0): all small data are cubes mod π — the
+   analogue of ES's Mordell-hard class (O182's "failures need χ_π(ω), χ_π(2) ≠ 0" is refuted).
+
+## Self-review (hostile reviewer subagent, R-O194) — repairs applied
+B7 weakened to its proved content (above); false character-restriction removed; "open for N > 2239" corrected
+(26893 refutes it); BL injectivity now cited as Cor 2.9 (normality alone is insufficient, BL Rem 2.10); tf_brute
+int64 bounds now asserted a priori in Python ints (re-run: all 16 zeros and A = B on N ≤ 2500 reproduced); T1
+statement for TES phrased via Type I/II shapes; minor counts fixed. Reviewer reproduced: A/B agreement N ≤ 6000,
+both solvers 0 at 26893, all 16 TES BM certificates (symbols cross-checked with tw_eis), 8/n failures n ≤ 299,
+679 Hilbert-symbol controls, 0 Type I/II at q².
 
 ## Results (labels)
 * Prop 1.1 / Cor 1.2 (PROVED, elementary): t/n = Σ c_i/x_i over ℤ or an imaginary quadratic O with c_i n/t ∉ O
@@ -30,7 +40,7 @@ Branch `side-agent/tes-finite` (merged `side-agent/synthesis-two` first). Main f
   enumeration) and method B (`tf_brute.py`, numpy lattice brute force, no factorisation, memory-chunked) agree on
   all 394 solution sets N ≤ 6000 (4160 solutions) + 4 primes near 26893; B confirms 0 at all 16 failures; O182's
   window solutions are a subset (in fact equal) at 6 tested primes.
-* Thm 3.1 (PROVED per π by certificate, modulo Bright–Loughran §2 over k = ℚ(ω): Br U/Br K ≅ μ(K)^∨ = ℤ/6): the
+* Thm 3.1 (PROVED per π by certificate, modulo Bright–Loughran Prop 2.6 + Cor 2.9 over k = ℚ(ω): Br U/Br K ≅ μ(K)^∨ = ℤ/6): the
   integral BM set with the 2-primary condition is non-empty at all 16 failures; e.g. N = 103: base point
   (−7 − 14ω, 5 + 4ω, z), bad only at 𝔮 = (49 − 33ω) (N𝔮 = 5107), replaced by a 𝔮-integral point with the same
   invariants (0, 0); cross-checked with O182's independent tame-symbol code.
@@ -47,14 +57,15 @@ Branch `side-agent/tes-finite` (merged `side-agent/synthesis-two` first). Main f
 ## Not done / caveats
 * Obstructions beyond BM (étale BM / descent on covers of the open log-K3 surface; π₁^{ét}(Ū) not computed) are not
   excluded; Br U° (classes ramified along the lines) not considered (the integral BM set used is BL's).
-  Assessment: failures thin out with the mean count ("lottery"), but TES's isolated zero at N = 26893 (mean ≈ 20)
-  shows a heavy lower tail.
-* m = 8 census extended: failing primes ≤ 2·10⁵ are exactly {3, 11, 17, 131, 241} (`tf_schinzel.py 8 200000`).
+  Assessment: failures thin out with the mean count ("lottery"), but TES's isolated zero at N = 26893 (mean ≈ 20,
+  all cubic characters trivial) shows a heavy lower tail, concentrated (one example) in the hard class.
+* m = 8 census extended: failing odd primes ≤ 2·10⁵ are exactly {3, 11, 17, 131, 241} (`tf_schinzel.py 8 200000`).
 
 ## Suggested ledger entry
 (J)26 TES_FINITE (O194): Prop 1.1 finiteness (PROVED); TES insoluble at 16 primes N ≤ 30000 (CERTIFIED), not BM
-(PROVED by certificates mod BL); Schinzel 8/n: T1 at odd squares (PROVED mod BL local lemmas), insoluble at
-131, 241 (CERTIFIED), not BM (certificates) ⇒ "BM + T1 only obstruction" false for ES-type models; barrier B7.
+(PROVED by certificates mod BL); Schinzel 8/n: T1 at odd squares (PROVED, BL local lemmas verbatim), insoluble at
+131, 241 (CERTIFIED), not BM (certificates) ⇒ no family-uniform "BM is the only obstruction" principle for ES-type
+models (B7, proved part); the "ES needs model-specific/quantitative input" reading is Assessment.
 
 ## Sparks (not pursued)
 * Descent/étale-BM for ES-type log-K3 models: is there a finite étale cover of U° whose BM explains 8/131, 8/241?

@@ -55,6 +55,14 @@ def solve(n):
             for j in others:
                 k = [q for q in others if q != j][0]
                 R = 4 * nrm(CS[j]) * NB / NA
+                # a-priori int64 safety (R-O194 repair: checked BEFORE the vectorised products, in Python ints).
+                # |coords of x_j| <= X; |component of s*t| <= 3*max|s|*max|t| for s, t in Z[w] (pair form).
+                X = int(math.sqrt(4 * (R + 1) / 3)) + 3
+                mx = lambda e: max(abs(e[0]), abs(e[1]))
+                dmax = 3 * mx(Ael) * X + mx(m(Bel, CS[j]))
+                nmax = 3 * mx(m(CS[k], Bel)) * X
+                assert 3 * X * X < 2**62 and 3 * dmax * dmax < 2**62 and 3 * nmax * (2 * dmax) < 2**62, \
+                    "int64 range exceeded: use Python ints"
                 for ja, jb in lattice(R + 1e-9):
                     sel = (ja % 2 == 1) & (jb % 2 == 0)
                     ja, jb = ja[sel], jb[sel]
