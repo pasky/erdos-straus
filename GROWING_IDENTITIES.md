@@ -133,19 +133,20 @@ ES enters them only as the boundary (split-hyperbolic) term, which is typically 
 R170 repair), and carries the sign
 information only through odd weight. This is the trace-formula form of B3 (main term ≫ certificate).
 
-## 3. What made Kronecker–Hurwitz work, and why the ES sum over g lacks it
+## 3. What made Kronecker–Hurwitz work, and why the ES sum over g lacks it (Assessment; R170 repair: label)
 
-KH: `Σ_t H(4N − t²) = 2σ(N) − λ(N)` re-sums a family of *shifted* arguments 4N − t² of growing length. It
+KH: `Σ_{t² ≤ 4N} H(4N − t²) = 2σ(N) − λ(N)`, `λ(N) := Σ_{d|N} min(d, N/d)`, H(0) = −1/12 (re-checked N < 400 by
+R170, `scripts/review_gi_kh.py`; R170 repair: λ defined) re-sums a family of *shifted* arguments 4N − t² of growing length. It
 works because the shifts are the coefficients of a theta series in the **same** modular variable:
-`Σ_t H(4N−t²)` is the N-th coefficient of `ℋ(τ)·θ(τ)` (weight 3/2 mock × weight 1/2), and holomorphic projection
+`Σ_t H(4N−t²)` is the 4N-th coefficient (R170 repair: was "N-th") of `ℋ(τ)·θ(τ)` (weight 3/2 mock × weight 1/2), and holomorphic projection
 lands in the finite-dimensional M₂(Γ₀(4)) (Zagier; Mertens 2014 for the twisted versions); λ is the shadow
-correction. The ES family `Σ_g σ(gN+1; −1, g)` has the shift entering **multiplicatively** (argument gN + 1,
+correction. The ES family `Σ_g τ_{−1,g}(gN+1)` (R170 repair: notation of §0) has the shift entering **multiplicatively** (argument gN + 1,
 modulus g): extracting the coefficients ≡ 1 (mod g) of a level-g form and rescaling by g is a U_g-type
 operator, landing at level ≍ g². Summing over g ≤ N is therefore a sum over **unboundedly many levels**, not a
 product of two forms of fixed level: no finite-dimensional target space, hence no holomorphic-projection
 re-summation. (Sums over a growing *modulus* of level-g data are Poincaré-series/Kloosterman objects; in that
-language the ES set is the Bruhat cell `{γ ∈ SL₂(ℤ) : γ₂₁ = n}` with the self-referential condition
-`γ₁₁ ≡ γ₂₂ ≡ −1 (mod γ₁₂)` — O167 Lemma 10.1 — and the Kloosterman modulus is n itself, fixed.)
+language (O167 Lemma 10.1, second normalisation; R170 repair: c and c | M/4 restored) Type II(p) is the set of
+`γ' = [[f, cM],[p, f']] ∈ SL₂(ℤ)` with `f ≡ f' ≡ −1 (mod M)` and the non-congruence condition `c | M/4` — and the Kloosterman modulus is n itself, fixed.)
 
 ## 4. The sign at ∞ *is* the genus character at the place n (PROVED, elementary)
 
@@ -153,27 +154,33 @@ Props 2.1 (trace formula), O128 Prop 8.3 (Siegel–Weil / local+spinor), O131 Pr
 same wall: geometric counts see the classes ±1 (mod level) together; ES is the −1 class. The following makes
 the separating datum explicit in slice a = 1.
 
-**Proposition 4.1.** Let n ≡ 1 (4), t ≡ 3 (4), `tn + 1 = m·m''` with 4 | m, and `m'' ≡ ε (mod t)`, ε = ±1.
+**Proposition 4.1.** (R170 repair: identity restated over the finite set D*(n).) Let n ≡ 1 (4), t ≡ 3 (4), `tn + 1 = m·m''` with 4 | m, and `m'' ≡ ε (mod t)`, ε = ±1.
 Then the Jacobi symbol `(m''/n) = ε`. Consequently, with the sign-blind set
 `D(n) := {(t, m'') : t ≡ 3 (4), m'' | tn+1, 4 | (tn+1)/m'', m'' ≡ ±1 (mod t)}`,
-`W(n) = Σ_{(t,m'') ∈ D(n)} (1 − (m''/n))/2`,
-i.e. **ES (Type I, a = 1) at n ⟺ D(n) contains a quadratic non-residue mod n** (Jacobi sense), and the
+and `D*(n) := D(n) \ {m'' = 1}`,
+`W(n) = Σ_{(t,m'') ∈ D*(n)} (1 − (m''/n))/2`,
+i.e. **ES (Type I, a = 1) at n ⟺ D*(n) contains a quadratic non-residue mod n** (Jacobi sense), and the
 trivial elements (m'' = 1 etc., class +1) are automatically residues.
 *Proof.* As in Lemma 1.3 with −1 replaced by ε: m'' = 2^j u, u ≡ ε·2^{−j} (t), (u/t) = (ε/t)(2/t)^j; since
 t ≡ 3 (4), (−t/u) = (u/t); primes ℓ | u have (−t/ℓ) = (n/ℓ); so (m''/n) = (2/n)^j (n/u) = (ε/t)(2/(tn))^j = ε,
-using (−1/t) = −1 and tn ≡ 7 (8) when j ≥ 1. ∎ (`scripts/gi_sign_check.py`: n ≡ 1 (4), n ≤ 4000, all
+using (−1/t) = −1 and tn ≡ 7 (8) when j ≥ 1. *Finiteness (R170 repair):* D(n) is infinite (m'' = 1 ∈ D(n) for
+every t ≡ 3 (4); these terms contribute 0), but every (t, m'') ∈ D*(n) has t ≤ n + 2: m·m'' ≡ 1 (t) gives
+m ≡ m'' ≡ ε (t); 4 | m ⇒ m ≥ t − 1; m'' ≠ 1 ⇒ m'' ≥ t − 1; so (t − 1)² ≤ tn + 1. Hence D*(n) is finite. ∎ (`scripts/gi_sign_check.py`: n ≡ 1 (4), n ≤ 4000, all
 t ≡ 3 (4): 512464 class-(+1) pairs all with symbol +1, 7044 class-(−1) pairs all with symbol −1.)
 
-*Reading.* `|Σ_{D(n)} (m''/n)| ≤ #D(n)` with equality iff ES fails in this slice; at odd squares equality
+*Reading.* `|Σ_{D*(n)} (m''/n)| ≤ #D*(n)` with equality iff ES fails in this slice; at odd squares equality
 holds for the trivial reason (m''/k²) = 1. So the T1-respecting growing-level identity the brief asks for
-exists in the form `W = (S − O)/2`, S = #D(n) a sign-blind (geometric, X₁(t)-visible) count, O a
+exists in the form `W = (S − O)/2`, S = #D*(n) a sign-blind (geometric, X₁(t)-visible) count, O a
 character sum with the **quadratic character mod n** over the sign-blind set — the level of O is n·t, growing
 with n, so STRONG_APPROX Thm 9.1 does not apply. But the positivity statement "O < S" is literally the
 H-B spin event of PARITY_FIXED_P Lemma 1.3 (a non-residue among the divisors of a sign-blind family), i.e.
-the Legendre-symbol-on-prime-factors problem. D(n) is infinite (the trivial m'' = 1 lies in it for every t ≡ 3 (4) — the
-"−2 per level" boundary of O131 Prop 4.1); after removing it and truncating at t ≤ n + 2 the census
-(`scripts/gi_sign_census.py`, EVIDENCE) is: primes p ≡ 1 (24) in [10⁴, 1.06·10⁴]: (class +1, class −1) =
-(12,11), (26,10), (11,17), (18,19), (25,12), (20,8), (13,16), (21,15); odd squares 99², 101², 105², 107²:
+the Legendre-symbol-on-prime-factors problem. The removed trivial m'' = 1 (one per t ≡ 3 (4)) is the
+"−2 per level" boundary of O131 Prop 4.1; on D*(n) the bound t ≤ n + 2 is automatic (not a cutoff). Census of
+D*(n) (EVIDENCE; R170 repair — the earlier list was for primes p ≡ 17 (24), mislabelled ≡ 1 (24); corrected data
+from R170 `scripts/review_gi_census.py doc4`): primes p ≡ 1 (24) in [10⁴, 1.06·10⁴]: (class +1, class −1) =
+(19,13), (26,14), (21,11), (29,11), (40,7), (29,14) for p = 10009, 10177, 10273, 10321, 10369, 10513 (for comparison,
+the first 8 primes ≡ 17 (24) above 10⁴: (12,11), (26,10), (11,17), (18,19), (25,12), (20,8), (13,16), (21,15));
+odd squares 99², 101², 105², 107²:
 (33,0), (38,0), (24,0), (26,0). So the sign-blind total S is of the same size at primes and at squares, and
 at squares the whole of it sits in class +1. ES is the statement that the genus character at n is not
 constant on the sign-blind set — no exact identity tested evaluates O independently of the lottery.
