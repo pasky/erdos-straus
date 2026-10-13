@@ -157,3 +157,23 @@ start N = 1 gives (p, q) = (1, 0). Trailing zeros do not change s. ∎ Checked e
 *Reading.* s is 2-regular (Allouche–Shallit), and positions of popcount k + 1 form a sparse regular language of size ≍ (log)^k up to height N. So (W)
 asks that the image of a 2-regular sequence on the popcount-4 slice covers a cofinite set. I found no theorem about images of 2-regular sequences on fixed-popcount
 slices (Defant 2016 bounds max s on fixed popcount; Stanley–Wilf refine by number of parts). Assessment: a clean dictionary, no tool.
+
+## 8. (W) restricted to what ES needs is trivial: all the ES content of SQ₅ is the sign (S) (PROVED; SHARP)
+**Prop 8.1.** Every n ≡ 1 (mod 4) with 3 ∤ n and n ≥ 13 is a value of xyz − x − z (x, y, z ≥ 2). Explicitly:
+* n ≡ 1 (mod 3): (x, y, z) = (2, 2, (n+2)/3);
+* n ≡ 2 (mod 3), i.e. n ≡ 5 (mod 12): (x, y, z) = (3, (n+7)/12, 4). Check: 12(n+7)/12 − 7 = n.
+In particular **(W) holds at every prime p ≡ 1 (mod 4), p ≥ 13.** (The ES-relevant scope noted by R174 D1.) ∎
+**Cor 8.2.** For primes p ≡ 1 (4), p ≥ 13: interior-SQ₅(p) ⟺ (S)(p), i.e. *L₃(p) (which is non-empty) contains a Jacobi −1 word*.
+The (W) half of HJ_DEEP's split carries no ES content at primes.
+**Signs of the two families.** For p ≡ 5 (mod 12) the word (3, (p+7)/12, 4) has A = 3t − 1 = (p+3)/4 and (A/p) = (3/p) = (p/3) = −1. This
+is the classical p ≡ 2 (mod 3) ES identity in HJ form. For p ≡ 1 (mod 12) the word (2, 2, (p+2)/3) has both A-values 3 and (2p+1)/3 ≡ 3⁻¹,
+with sign (3/p) = +1. So it is useless for ES, and (S) must find another word. That is the hard residue (Mordell's classes) again.
+(`scripts/bsG_primes_W.py`: all 74 415 primes p ≡ 1 (4), 13 ≤ p < 2·10⁶, 0 failures. `scripts/bsG_primes.c 10⁸`: x*(p) ≤ 3 for all
+primes p ≡ 1 (4) below 10⁸, as Prop 8.1 forces; min R(p)/mean R(p) ≈ 0.26 at 10⁸.)
+**Where (W) is still open after Prop 8.1, Prop 3.3 and Lorenzini 6.3.** n ≡ 0 (4) is trivial ((2, n/4+1, 2)), n ≡ 1 (3) is trivial ((2,2,·)), and
+n ≡ 5 (12) is trivial ((3,·,4)). Lorenzini (b) handles n odd with n + 2 composite. The residue is therefore
+**n ≡ 3, 9, 11 (mod 12) with n + 2 prime, and n ≡ 2, 6 (mod 12) with n + 2 = 2^m** (Lorenzini (a): m odd). On these (W) is a genuine
+divisor-in-moving-class problem. It is ES-irrelevant except for n ≡ 9 (12) composites through SQ₅ (for which see HJ_DEEP's (S)).
+**Assessment.** This deflates the "(W) as an ES test bed" motivation: what ES needs from (W) is trivial. The interest of (W) is now as Lorenzini's
+problem in its own right. For ES, the spark relay should redirect to (S) at primes p ≡ 1 (mod 24) (where also p ≢ 5 (12) families fail),
+which is the familiar sign/genus layer: Prop 4.1 of HJ_DEEP.
