@@ -51,3 +51,37 @@ Check (`fsp_enum.py 14`): parity classes (a, b, λ, K mod 2) of the 312 solution
 F₃[[T]] are squares, the group 1 + TF₃[[T]] being pro-3), so quadratic characters see **no** T-adic digit of u
 beyond u(0). In particular no quadratic character (Legendre/genus) can split the slice into covered/uncovered
 halves; a "hidden character" explaining the 1/2 would have to be cubic (Artin–Schreier) or non-abelian.
+
+## 3. Where sterile points can live: π-weights, and O(q, A) is Haar-null (PROVED)
+
+Families F = (E; t_a, a₀; t_b, b₀) as in FUNCTIONFIELD_ES §6.2 (a = a₀, P a₀, X/a₀, P X/a₀ for t = 0, 1, 2, 3;
+X = (P + E)/A; valid iff A a₀, A b₀ | P + E, E | s := a + b, lc(s) = lc(E), s ≠ 0). For x ∈ R̂^* and a prime
+ℓ | E (ℓ ∤ AL automatically, since E ≡ −x mod AL is a unit there) put π := x mod ℓ^{v_ℓ(E)}. Mod E,
+P ≡ π, X ≡ π/A, so the four types are ≡ a₀·π^w / (A a₀)^{−1}·π^w with **π-weight w = 0, 1, 1, 2**.
+**Lemma 3.1 (π-free families; PROVED).** If w(t_a) = w(t_b) — types {0,0}, {1,1}, {2,2}, {3,3} (E | a₀ + b₀ or
+E | L/a₀ + L/b₀) and {1,2} (E | 1 + A a₀ b₀) — the condition E | s does not involve x mod E. In particular at
+**every** x ∈ R̂^* the families (E; 1, a₀; 2, b₀) with E monic, E | D = 1 + A a₀ b₀, E ≡ −x (mod A·L) are valid:
+the Case B system of the slice, with "E ≡ −1 mod L'" replaced by "E ≡ −x mod L'". If w(t_a) ≠ w(t_b) the
+condition is x ≡ ρ_F (mod E) for an explicit ρ_F (e.g. types (0,2): x ≡ −A a₀ b₀ mod E).
+*Proof.* Direct from the residues listed (for (1,2): π a₀ + π/(A b₀) = π(1 + A a₀ b₀)/(A b₀); for (0,2):
+a₀ + π/(A b₀)). lc(s) = 1 for distinct types, so E is monic. ∎
+On the slice (π = 1 at all ℓ) every family is π-free; this is why the slice makes validity deterministic.
+
+**Theorem 3.2 (O(q, A) is Haar-null; PROVED).** For every odd or even q and monic A of positive degree, the
+obstructed set O(q, A) = {x ∈ R̂^* : no linear family is valid at x} has Haar measure 0. In fact Haar-a.e. x is
+covered by infinitely many families of the single shape F_ℓ = (ℓ; 0, 1; 2, 1), ℓ irreducible.
+*Proof.* F_ℓ: a = 1, b = X, s = 1 + X. It is valid at x iff ℓ ≡ −x (mod A) and x ≡ −A (mod ℓ) (since
+ℓ | 1 + X ⟺ P ≡ −A mod ℓ; lc(s) = lc(X) = 1 = lc ℓ; s ≠ 0). Fix the class κ = x mod A. Under Haar measure the
+components of x at distinct primes are independent, so the events B_ℓ = {x ≡ −A mod ℓ}, ℓ ≡ −κ (mod A), ℓ ∤ A,
+are independent given κ, with μ(B_ℓ) = 1/(|ℓ| − 1). By the prime number theorem in arithmetic progressions of
+F_q[T], Σ_{deg ℓ = e, ℓ ≡ −κ (A)} 1/|ℓ| ~ 1/(Φ(A)·e), whose sum over e diverges. Borel–Cantelli II: a.s. infinitely
+many B_ℓ hold, and each gives a valid F_ℓ. ∎
+*Consequences.* (a) Settles the open alternative of FUNCTIONFIELD_ES2 §0.2 (R166 D11): O(3, T²) is null in R̂^*,
+so the ≈ 1 % plateau of the `ffl_tree` covering tree is a truncation artefact, not a positive-measure obstruction.
+(b) A sterile point must be **non-generic at almost all primes**: it must avoid x ≡ −A (mod ℓ) for all but
+finitely many ℓ ≡ −x (mod A) — and likewise for every π-dependent family. Global points x ≡ θ (θ ∈ F_q(T)^*) at all
+ℓ outside a finite set make every family π-free (conditions become E | a fixed polynomial); θ = 1 (the slice)
+collapses the most type pairs (θ ≠ 1 adds E | a₀ + θb₀, E | Aa₀b₀ + θ, E | Aa₀b₀ + θ², …). So the slice is
+the natural (not merely convenient) home of sterile points, and on it the problem is the deterministic
+divisor lottery of §1. This is the function-field shadow of the integer picture: a prime p is "generic" in this
+sense, ES holds for it by a small-E family, and the hard cases are the non-generic residue patterns.
