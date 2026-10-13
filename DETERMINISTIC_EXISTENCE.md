@@ -207,3 +207,64 @@ class, the a = N, b = 1 witness. For p ≡ 1 (4) the only e | 24 slice is e = 3,
 asks for −1 in the *box image* ∏[−k_i, k_i]. A Jacobi-forced prime ℓ (Prop 3.4) helps alone only if
 ℓ^{ord(ℓ)/2} | N_e; with ω prime factors the box has ≤ 3^ω classes out of φ(e). The upgrade H → Σ needs the classes
 of individual prime factors, which no character datum supplies beyond their product r_e.
+
+## 7. Joint forcing across slices; Hall-type structure
+
+**Prop 7.1 (sharing dichotomy; PROVED).** For odd ℓ, ℓ | N_e ⇔ e ≡ −p (mod ℓ); 2 | N_e ⇔ 8 | p + e. Hence a
+prime dividing N_e and N_{e'} for distinct slices e, e' ≤ E satisfies 4ℓ | e − e', so ℓ < E/4; its incidence with
+slices is {e ≤ E : e ≡ −p (mod 4ℓ)} and its exponents are fixed by p mod powers of ℓ. Every prime > (E+1)/4 divides
+at most one N_e. ∎
+So the bipartite graph Γ_p(E) (slices e ≤ E vs primes ℓ | N_e) has a *congruence part* (small primes, adjacency and
+classes fixed by p mod Q_E) and a *private part* (each N_e's cofactor P_e, prime factors > (E+1)/4, one slice each).
+
+**Prop 7.2 (what joint data force = block witnesses; PROVED rel. Dirichlet).** Let s_e = ((E+1)/4)-smooth part of
+N_e, P_e = N_e/s_e, c_e ≡ P_e (mod e). Given all congruence data (s_e, c_e)_{e ≤ E}, slice e is forced to solve iff
+−1 ∈ Σ_e(s_e)·{1, c_e^{±1}} ("block witness": P_e used as an indivisible block). *Proof.* ⇐: a block witness is a
+witness since P_e | N_e. ⇒: the data are consistent with P_e prime (Dirichlet: primes > E/4 in every class mod e),
+and then Σ_e(N_e) = Σ_e(s_e)·{1, P_e^{±1}} by Prop 6.1. ∎ Any pigeonhole/Hall/LP argument that uses only Γ_p(E)'s
+incidence structure and residue classes therefore proves at most "some slice e ≤ E has a block witness".
+
+**Thm 7.3 (block witnesses miss a congruence class; PROVED, elementary).** For E ≥ 3 let
+M_E = lcm(1, …, E) · 2^{K₂+3} · ∏_{3 ≤ ℓ ≤ (E+1)/4} ℓ^{K_ℓ+1}, with K_ℓ minimal such that ℓ^{K_ℓ+1} > (E+1)/4.
+Every prime p ≡ 1 (mod M_E) has no block witness at any Type II slice e ≤ E.
+*Proof.* p ≡ 1 (mod 4ℓ^{K_ℓ+1}) gives N_e(p) ≡ (1+e)/4 (mod ℓ^{K_ℓ+1}) (and mod 2^{K₂+1}), and
+v_ℓ((1+e)/4) ≤ K_ℓ since (1+e)/4 ≤ (E+1)/4; so s_e(p) = (1+e)/4 exactly. p ≡ 1 (mod e) gives r_e ≡ 4⁻¹, hence
+c_e ≡ r_e/s_e ≡ 1/(1+e) ≡ 1. A block witness then reduces (P_e ≡ 1) to a'b' | (1+e)/4 with e | a'+b'; but
+2 ≤ a'+b' ≤ a'b'+1 ≤ (1+e)/4 + 1 < e. ∎
+**Cor 7.4 (PROVED rel. Linnik's theorem).** log M_E ≤ (3/2 + o(1))E, so by Linnik (least prime ≡ 1 (mod M) is
+≪ M^L) there are infinitely many primes p such that no Type II slice e ≤ c₀·log p (c₀ = 1/(1.5L) − ε) has a block
+witness; for fixed E the failing set has density ≥ 1/φ(M_E) among primes. ∎
+So deterministic *joint* forcing over slices e ≤ c log p is impossible; joint forcing needs slices e ≫ log p *and*
+must still beat Thm 7.3's analogue at that scale (H-A). The genuinely non-deterministic input — splitting the
+private cofactors P_e — is exactly what every certificate in §§3–7 lacks.
+
+**EVIDENCE** (`scripts/de_joint_slices.py`; p ≡ 1 (24); slices e ≡ 3 (4), e ≤ E):
+
+| range, E | slice success | block-witness (forced) slice rate | primes solved | primes with a block witness |
+|---|---|---|---|---|
+| p < 2·10⁵, E = 120 (2212 p) | 0.299 | 0.273 | 1.0000 | 0.9995 |
+| p < 10⁶, E = 40 (9732 p) | 0.514 | 0.339 | 0.9989 | 0.9793 |
+
+At these sizes almost all primes have a block (congruence-forced) witness, as the Mordell/LONGSHOT coverings
+predict; Thm 7.3 says this cannot persist uniformly. The single prime < 10⁶ with no Type II success at e < 60 is
+solved (E = 120) only by private-prime witnesses.
+
+**Hall test.** On the forced graph (prime slices with (p/e) = −1 vs their non-residue prime factors) a saturating
+matching fails for 34.4% of primes (p < 2·10⁵, E = 120; mean deficiency 0.44) and never at E = 40 (2.5 forced slices
+per prime). Hall failures mean several forced slices share one small forced prime (Prop 7.1); they are unrelated to
+ES success (every prime in the sample is solved). Hall/Kőnig/LP duality certify *systems* of edges; ES needs one
+edge of the success graph, whose existence is a 0/1 question that these theorems reduce to counting (row 15).
+**Iteration record.** v1 "Hall on slices × forced primes" — matching irrelevant. v2 "edges = successes" — Hall's
+condition ⇐ counting. v3 "joint data over a slice family" — exactly block witnesses (Prop 7.2), which miss a
+congruence class for every E and all slices up to c log p infinitely often (Thm 7.3, Cor 7.4).
+
+## 8. The Type I forcing side is empty (PROVED)
+
+**Prop 8.1.** Let p ≡ 1 (4). (i) Type I at level (c, d), target f | N = p² + 4c²d with f ≡ −p (mod 4cd): residue
+data never force even group-level success. (ii) Type I e-slices N'_e = (pe+1)/4: the same.
+*Proof.* (i) The forced datum is N ≡ p² (mod 4cd), so the minimal consistent H is ⟨p²⟩ (N prime), all of whose
+elements are ≡ 1 (mod 4), while −p ≡ 3 (mod 4). (ii) N'_e ≡ 4⁻¹ = 2⁻² (mod e), so ⟨r⟩ consists of squares, and −1
+is a non-square mod e ≡ 3 (4). ∎
+The only residue constraint on Type I is the necessary condition χ_{−4d}(p) = −1 (Prop 3.2). So Jacobi-type forcing
+(Props 3.4, 6.2) is a purely Type II phenomenon; for Type I every success requires individual prime-factor classes
+of p² + 4c²d.
