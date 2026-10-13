@@ -267,9 +267,9 @@ class-number input.
 ## 7. Can the B = 1 locus (ES) be reached? (task 4)
 
 **Proposition 7.1 (PROVED).** (a) On a fixed fibre, the curve {B = 1} ∩ 𝒮_{n,D} : nA² + 1 + D = 2DλA has only
-the integral points with A | D + 1 (finitely many). (b) A Pell orbit (fixed λ, D) meets B = 1 in at most one
-ι_B-pair: along the orbit the convergent index grows and B ≈ nA/(2μ) grows geometrically, and B = 1 is the
-depth-3 convergent (Thm 4.3), so an orbit reaches ES iff its reduced point already is the ES point.
+the integral points with A | D + 1 (finitely many). (b) For μ > 2n, a Pell orbit (fixed λ, D) meets B = 1 in at most one
+ι_B-pair: multiplying by the fundamental unit shifts the convergent index by the period, and B = 1 occurs only at
+index k = 3 (Thm 4.3); so an orbit reaches ES iff its depth-3 member exists, i.e. iff it is the ES point's orbit.
 (c) Composition inside one order O_μ: if α_i = B_i − A_iη have norms −D_i (D_i | μ), then α₁α₂ has norm +D₁D₂
 (≡ 1 mod 4: wrong sign, not a V_n point) and α₁α₂α₃ has norm −D₁D₂D₃ (a V_n point if D₁D₂D₃ | μ), but it is a
 product of three depth-≥3 elements and lands at depth 3 only by coincidence; across different μ there is no
