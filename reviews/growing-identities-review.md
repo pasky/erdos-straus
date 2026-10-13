@@ -92,3 +92,36 @@ setting k = 1 in it proves nothing. The weight-1 sentence is Assessment (m6).
 Repair: split Prop 2.2 into "Lemma (PROVED): trivial bounds above" + "Assessment: …", replace q² by
 dim S_k(Γ₁(q))/(φ(q)/2) ≍ kq, delete "smallest" or qualify it ("typically; equality |A2| = |A3| at genus-0
 levels"). Same fix in the Summary bullet and in AGENT_REPORT item 3.
+
+### §3 Kronecker–Hurwitz discussion — SOUND as Assessment, but not labelled as such in the document
+From scratch (`scripts/review_gi_kh.py`): Σ_{t²≤4N} H(4N−t²) = 2σ(N) − Σ_{d|N} min(d,N/d) (H(0) = −1/12) for all
+N < 400 ✓. The mechanism description (ℋθ, holomorphic projection to M₂(Γ₀(4)), shadow correction) is the
+standard Zagier/Mertens picture; Mertens 2014 not in sources/ — not checked against the paper. Inaccuracies:
+Σ_t H(4N−t²) is the **4N-th** (not N-th) coefficient of ℋ(τ)θ(τ); λ(N) and σ(gN+1; −1, g) are undefined
+(the document's own notation is τ_{−1,g}). The "no finite-dimensional target ⇒ no re-summation" inference is a
+heuristic, not a proof (§3 has no label; the Summary places it inside a "PROVED relative to Cohen" bullet) — m7.
+The O167 Lemma 10.1 paraphrase is lossy: O167's set has γ₂₁ = cp and γ₁₂ = M (or, second normalisation,
+γ₂₁ = p, γ₁₂ = cM, congruences mod M) **plus the non-congruence condition c | M/4**; the doc's
+"{γ₂₁ = n, γ₁₁ ≡ γ₂₂ ≡ −1 (mod γ₁₂)}" drops both c and 4 | M (m8).
+
+### §0 controls — SOUND
+W(k²) = 0 is in fact PROVED by Prop 4.1 for every odd k. T2(k²) = 0 for all odd k ≤ 45 re-checked from scratch
+(`scripts/review_gi_t2.py`; sanity T2(5,7,13,17,73) = 2,3,2,4,6 > 0).
+
+### §4 census and §5 EVIDENCE — GAP (mislabelled residue class; numbers reproduce for the wrong class)
+`scripts/review_gi_census.py` (from scratch; independent W(n) cross-check: class −1 count = W(n) at
+10009, 10177, 10273, 9801 ✓; no non-trivial pair with n+2 < t ≤ 3n+2 ✓).
+* §4 says "primes p ≡ 1 (24) in [10⁴, 1.06·10⁴]: (12,11), (26,10), …". The author's `gi_sign_census.py` takes
+  `range(10001, 12000, 24)`, i.e. **p ≡ 17 (mod 24)**. I reproduce all 8 pairs exactly for p = 10169, 10193,
+  10289, 10313, 10337, 10433, 10457, 10529 (all ≡ 17 (24); the last two exceed 1.06·10⁴ too). The actual
+  primes p ≡ 1 (24) in [10⁴, 1.06·10⁴] are 10009, 10177, 10273, 10321, 10369, 10513 with (class +1, class −1) =
+  (19,13), (26,14), (21,11), (29,11), (40,7), (29,14). The square data (33,0), (38,0), (24,0), (26,0) reproduce.
+* §5 says "n ≡ 1 (24), 4001 ≤ n ≤ 6000 … 29 primes (16.2, 11.2, 27.4; 4.2); 55 composites (15.2, 9.2, 24.4; 4.9);
+  8 odd squares 63²…77² (25.1, 0, 25.1; 9.4)". I reproduce the prime/composite rows exactly **for n ≡ 17 (24)**.
+  For n ≡ 1 (24) the true figures are: 28 primes (22.8, 7.2, 30.0; sd 6.6), 50 composites (22.8, 6.2, 29.0; 8.0),
+  5 squares 65², 67², 71², 73², 77² (29.8, 0, 29.8; 8.7). The squares row of the doc reproduces for the 8 odd
+  squares 63²…77², but these are not ≡ 1 (24) (63², 69², 75² ≡ 9 (24)), 63² = 3969 < 4001, and no odd square
+  is ≡ 17 (24): the doc compares primes ≡ 17 (24) with squares from other classes.
+* The qualitative conclusion (sign-blind total of the same size at primes and squares) survives with the
+  correct class (30.0 vs 29.8); but at p ≡ 1 (24) — the class the brief is about — the class −1 share is
+  markedly lower (mean 7.2 of 30.0) than in the doc's (wrong-class) data (11.2 of 27.4). → M3.
