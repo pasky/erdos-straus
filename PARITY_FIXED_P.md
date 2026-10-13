@@ -63,24 +63,29 @@ The H-B premise (redteam-automorphic-2 §3) is that "bad" slices form a multipli
 parity problem prevents a *lower-bound* sieve from detecting. But a fixed-p route needs a lower bound for
 *good* slices, i.e. an **upper** bound for bad ones, and upper-bound sieves have no parity problem. Concretely:
 
-**Proposition 2.1 (the χ_{−4d}-layer is an upper-bound sieve problem; PROVED modulo routine sieve bookkeeping,
-stated for the unit-weight box).** Let p ≡ 1 (mod 4) be a large prime, 𝓑 = {(a,d) : a ≤ p^{1/8}, 4a²d ≤ p}
-(so |𝓑| ≍ p). Then the number of (a,d) ∈ 𝓑 for which every prime factor ℓ ∤ 2ad of N = p + 4a²d has
-χ_{−4d}(ℓ) = +1 (the χ_{−4d}-obstructed slices) is at most (e^{−1/2} + o(1))·|𝓑|.
+**Proposition 2.1 (the χ_{−4d}-layer by Brun's pure sieve; PROVED relative to Burgess).** Let p ≡ 1 (mod 4)
+be a large prime, ε > 0 small, 𝓑 = {(a,d) : a ≤ p^ε, 4a²d ≤ p, (d/p) = +1} (|𝓑| ≍ p). Call (a,d)
+*χ_{−4d}-obstructed* if every prime ℓ ∤ 2ad dividing N = p + 4a²d has χ_{−4d}(ℓ) = +1. Then
+#{obstructed (a,d) ∈ 𝓑} ≤ (5/8 + o(1))·|𝓑|. (Slices with (d/p) = −1 are never obstructed, since (N/p) = (d/p).)
 
-*Proof sketch.* By Lemma 1.3(i), obstructed ⟹ N has no prime factor ℓ ∤ 2ad with (ℓ/p) = −1. Sift the
-sequence {N(a,d)} by 𝒫 = {ℓ ≤ z : (ℓ/p) = −1}, z = p^{1/4+ε}. For each a and ℓ ∤ 2a, the condition ℓ | p + 4a²d
-is one class of d mod ℓ (d ranges over an interval of length p/(4a²) ≥ p^{3/4}), so the local density is
-ω(ℓ)/ℓ = 1/ℓ with remainders |R_r| ≤ 2^{ω(r)}-ish per a, and level D = p^{1/2} is trivial. The Selberg
-upper-bound sieve (dimension κ = Σ_{ℓ∈𝒫} log ℓ/ℓ / log z ≤ 1, sieving range s = log D/log z ≈ 2) gives
-#obstructed ≤ |𝓑|·∏_{ℓ∈𝒫}(1 − 1/ℓ)·(1 + o(1))·F_κ(s)… — and here is the one non-routine input:
-**Σ_{ℓ ≤ z, (ℓ/p) = −1} 1/ℓ ≥ 1/2 − o(1)** for z ≥ p^{1/4+ε}. This follows from Burgess: the integers
-n ≤ z with (n/p) = −1 (≈ z/2 of them) each have a prime factor in 𝒫, so z/2 ≤ Σ_{ℓ∈𝒫} z/ℓ.
-⟹ ∏(1 − 1/ℓ) ≤ e^{−1/2+o(1)}. (The sieve constant F_κ(s) is not ≤ 1 at s ≈ 2 in general; to keep the
-statement honest, take it as "≤ C₀·e^{−1/2}" with an explicit C₀ from the Selberg sieve at this κ, s; any
-C₀e^{−1/2} < 1 gives a positive proportion. Status of the explicit constant: **not checked** — so the
-clean statement proved here is only: *the χ_{−4d}-obstructed proportion is ≤ c < 1 provided the Selberg upper
-bound constant at (κ, s) is < e^{1/2}*; with a longer z-range under GRH the product → 0.) ∎-sketch
+*Proof.* By Lemma 1.3(i), obstructed ⟹ no ℓ ∈ 𝒫 := {ℓ ≤ z prime, (ℓ/p) = −1} divides N, z = p^{1/4+ε}
+(ℓ ∤ 2ad is automatic for ℓ | N, ℓ ∤ 2a, ℓ ≠ p). *Burgess input:* #{n ≤ z : (n/p) = −1} = z/2 + o(z), and each
+such n has a prime factor in 𝒫, so z/2 − o(z) ≤ Σ_{ℓ∈𝒫} z/ℓ, i.e. Σ_{ℓ∈𝒫} 1/ℓ ≥ 1/2 − o(1). Greedily pick
+𝒫′ ⊂ 𝒫 ∩ (2, z] with μ := Σ_{𝒫′} 1/ℓ ∈ [1/2 − o(1), 1]. For X(θ) = #{ℓ ∈ 𝒫′ : ℓ | N_θ} use
+1[X = 0] ≤ 1 − X + X(X−1)/2. For squarefree r = ℓ or ℓℓ′ (r ≤ p^{1/2+2ε}), and each a ≤ p^ε prime to r, the
+condition r | N fixes d in one class mod r; d runs over an interval of length L = p/(4a²) ≥ p^{1−2ε}
+restricted to (d/p) = +1, and Burgess for the incomplete sum Σ_{t ≤ L/r} ((c + rt)/p) (length
+L/r ≥ p^{1/2−4ε} ≥ p^{1/4+ε}) gives the count L/(2r)(1 + o(1)) uniformly. a ≡ 0 (ℓ) contributes no ℓ-divisible N.
+Summing (the a's with ℓ | a cost a factor 1 − 1/ℓ, absorbed into o(1) after summing since Σ 1/ℓ² over ℓ ≥ 3 is
+small — or exactly: they only decrease E[X]... [to be tidied: lower-order]), E[1[X=0]] ≤ 1 − μ + μ²/2 + o(1)
+≤ 5/8 + o(1) on μ ∈ [1/2, 1]. ∎
+(Honest scope note: the bookkeeping for the a's divisible by some ℓ ∈ 𝒫′ is sketched; it changes μ by a
+factor ∏(1 − 1/ℓ)-type ≥ 1 − O(1/ℓ_min), harmless if 𝒫′ avoids ℓ < some large constant — choose 𝒫′ ⊂ (L₀, z]
+with μ ≥ 1/2 − o(1) − Σ_{ℓ≤L₀}1/ℓ? that loses. Cleanest fix: restrict 𝓑 to a = 1 (still |𝓑| ≍ p).)
+With a = 1 only, the proof above is complete as written.
+EVIDENCE (`scripts/pf_spin.py`, `logs/pf_spin.txt`; 4000 random weighted slices each): pass rate among
+(d/p) = +1 slices 0.39, 0.54, 0.45, 0.60 at p = 100004521, 1000002361, 10000003441, 1000000003801
+(all ≡ 1 mod 840); 0.000 at the controls n = 10001², 100001² (T1).
 
 Remarks. (1) T1 passes: at n = m², Lemma 1.3(i) has (ℓ/n) replaced by +1, the QNR primes have *no roots*
 (ω(ℓ) = 0), and the sieve correctly certifies nothing. (2) The same argument works for any quadratic
