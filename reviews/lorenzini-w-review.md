@@ -149,3 +149,51 @@ The listed values for x ≤ 12 are right. But "δ_x = 1 − 2^{−v₂(φ(x))}" 
 p ≡ 3 (4), the Legendre symbol mod p is an odd quadratic character, so δ_x = 1/2. That is true for almost all x. `scripts/review_lw_delta.py` finds
 Σ_{x≤X} δ_x / X = 0.563, 0.557, 0.553 at X = 100, 1000, 3000, with 81–83 % of x having δ_x = ½. So **Σ_{x≤X} δ_x = (½ + o(1))X, not (1 + o(1))X**,
 and the naive model gives the constant 2 + o(1) in Conjecture 5.2, not 1 + o(1). The conjecture as stated with ≪ is unaffected. See D5.
+* The finite levels of EVIDENCE 4.3 were recomputed with the same program (`review_lw_cor44 M`). |U_M| = 1 158 (0.1607 %), 10 444 (0.0852 %),
+  16 523 (0.0225 %) and 11 550 (0.00763 %) for M = 720720, 12252240, 73513440, 151351200. The projection mod 12 is {3, 6, 9, 11} each time. All match.
+  The single- and multi-prime deviation tables were not re-run, beyond the ν(ℓ, ℓ−1) check above.
+
+### Memos (spot checks)
+* `bsG_even_half`, `bsG_primes_trivial`, `bsG_square_shadow`, `bsG_sterile_set`, `bsG_short_block` and `bsG_large_sieve_rate` are faithful summaries of
+  §§9, 8, 3, 4, 5, 6. They inherit D5 only in that `bsG_short_block` repeats the δ heuristic without the wrong constant.
+* `bsG_lens_dinv`: the Hirzebruch–Zagier/Myerson identity 12 s(q,n) = (q + q*)/n + Σ(b_i − 3) was checked from scratch on all 1 933 coprime pairs with
+  n < 80 (`scripts/review_lw_dedekind.py`): 0 failures. ✓
+* `bsG_ternary_weinberger`: "2n + 1 is prime for every element of E_W" is correct (5, 7, 11, 13, 19, 23, 29, 31, 71, 211, 1021). So are the idoneal
+  memberships (2, 3, 5, 6, 9, 15 and 105 are idoneal; 11, 14, 35 and 510 are not). The ideal dictionary 𝔞 = (x, 1 + √−d) has N𝔞 = x because x | d + 1. ✓
+* `bsG_sister_Ak_stern`: d_{A₄}(t,2,2,2) = 4t − 3 ✓, and 4 ∈ L_{A₄} with 4 = d_{A₃}(2,2,2) ✓.
+* `bsG_modular_hyperbola`: a screen at the level of a heuristic. No checkable claims beyond F4 (which is SOUND).
+
+### Labels
+All the PROVED labels are justified, with the minor repairs below. Two labels are *under*-claimed:
+* Cor 4.4 can be CERTIFIED outright (D2).
+* Prop 6.1 is PROVED, given a published theorem as input (D3).
+No overclaim was found. The headline "even half of Lorenzini's question settled" is correct.
+
+## Defects (continued)
+
+**D2 (MINOR, label/proof simplification, Cor 4.4).** The proof invokes R174's 10⁹ enumeration. That is not needed, and it makes the
+certificate depend on a separate run. Every threshold is < 2M, so only n < 2M ≈ 3.03·10⁸ needs a separate check. A 16-second sieve
+(`scripts/review_lw_cor44.c`) marks all family-certified n < 3M and checks the remaining n < 2M outside U_M directly. It finds exactly
+{2, 3, 5, 6, 9, 11, 14, 15, 35} ⊂ E_W. *Repair:* replace "Below 10⁹ use the exhaustive enumeration (R174)" with this self-contained check, and label it CERTIFIED.
+
+**D3 (MINOR, Prop 6.1 proof and label).** (a) The step "Since Σ_p g(p)² < ∞, e_k ≥ (G^k/k!)(1 − O(k²/G²))" should state the exact inequality
+k!e_k ≥ G^k − C(k,2) T G^{k−2}, with T = Σ_{p∈I} g(p)². It should also note that with k = ε√log Q one has k/G ≍ ε², a constant. So one needs T → 0
+(true, since min I → ∞) or ε small to get e_k ≥ ½ G^k/k!. (b) The label should be PROVED. The input is a theorem: Linnik 1963, or Rodriquez 1965 /
+Halberstam 1967 via Bombieri–Vinogradov. Only a lower bound Σ_{p∈I} τ(p+1)/p ≫ log Q/k is needed, and BV gives it directly.
+
+**D4 (MINOR, context, §6 Remarks).** "Lorenzini/Wang give density 1 only" understates the baseline. Lorenzini's Prop 6.3(b) gives
+#E ∩ [1,N] ≤ π(N+2) + O(log N) at once, and the z = 4 condition gives ≪ N(log N)^{−3/2}. Prop 6.1 beats every power of log, so the improvement
+is real. The comparison should be stated against N/log N.
+
+**D5 (MINOR, §5 heuristic).** The claim "Σ_{x ≤ X} δ_x = (1 + o(1))X, because v₂(φ(x)) → ∞ for almost all x" is wrong. The formula
+δ_x = 1 − 2^{−v₂(φ(x))} holds only for cyclic (Z/x)^×. In general δ_x = 1 − 1/r_x, where r_x is the least order of an odd character mod x. If any
+prime p ≡ 3 (4) divides x, the quadratic character mod p gives r_x = 2 and δ_x = ½, and that holds for almost all x. Numerically,
+Σ_{x≤X} δ_x/X = 0.557 at X = 1000 (`scripts/review_lw_delta.py`). *Repair:* Σ_{x≤X} δ_x = (½ + o(1))X. The naive model then gives x*(n) ≤ (2 + o(1)) log n/log log n.
+Delete "constant 1 + o(1)". Conjecture 5.2 (with ≪) stands, but the remark that the observed exponent (≈ 2.9 at X = 4 vs 2) shows positive correlation
+"in the predicted direction" is unaffected only for X = 4. For X = 4 the δ-sum 1 + ½ + ½ = 2 is correct.
+
+**D6 (cosmetic).**
+(a) Prop 8.1's first family proves the stronger statement "every n ≡ 1 (3), n ≥ 4, is a value", and §8/§9 use it. State it as such, and note it is
+not in Lorenzini 6.3.
+(b) §5: "n = 64 858 079 and its neighbours". The immediate neighbours have x* = 2, so say which n have x* = 10.
+(c) §7 "(log)^k up to height N": say "positions N < X".

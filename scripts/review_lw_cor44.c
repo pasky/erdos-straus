@@ -6,8 +6,8 @@
 #include <stdlib.h>
 #include <string.h>
 typedef long long ll;
-static const ll M = 151351200LL;
-int main(void){
+static ll M;
+int main(int ac,char**av){ M = ac>1?atoll(av[1]):151351200LL;
   ll L = 3*M; unsigned char *mk = calloc(L,1); if(!mk){puts("oom");return 1;}
   ll writes=0, nfam=0;
   for (ll d=3; d<=M; d++){ if (M%d) continue;
