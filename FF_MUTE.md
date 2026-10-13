@@ -146,12 +146,58 @@ polynomial of degree ≥ 1 coprime to sA. Call P *shot-solved* if some f, Q as i
 (e.g. the prime d of Thm 3.5) it is never shot-solved.
 (d) If q ≡ 1 (mod 4), squares are shot-solved (Thm 3.5's argument with condition (ii) automatic, main term 2δ).
 *Proof.* (a) Lemmas 3.1, 3.2 and Thm 3.5 used P prime only through: (·/P) is a nontrivial character mod P (true for the
-Jacobi symbol iff the monic P is not a square), Jacobi reciprocity (valid for monic coprime P, f), and f ≠ P, P ∤ X in
-Prop 2.1 (replace by gcd(f, P) = 1, which Prop 2.1's identity needs only for the Type II shape; the identity itself holds
-for any P coprime to f... in fact gcd(f, P) = 1 is forced as f | P + AQ² and gcd(f, AQ) = 1 would give f | P ⇒ f | AQ²).
+Jacobi symbol iff the monic P is not a square), Jacobi reciprocity (valid for monic coprime P, f), and "f ∤ P, P ∤ X" in
+Prop 2.1. For prime f ≠ s with f | P + AQ², f | P would give f | AQ², impossible (f ≡ −1 mod A); and for every prime
+ℓ | P, Ef ≡ AQ² ≢ 0 (mod ℓ), so ℓ ∤ E and ℓ ∤ X = (P + E)/A: Type II shape at every prime of P. The identity and the
+parity computation of Prop 2.1 do not use primality of P.
 (b), (c) If a prime f' | f divides M² + AQ² with f' ∤ Q (f' ∤ Q since f' | Q would give f' = s | M, excluded), then
 −A ≡ (M/Q)² (mod f'), so (−A/f') = 1 for every prime f' | f, hence (−A/f) = 1, contradicting Lemma 4.1 (= −1 when
 ε = −1 and d(1+k)+k odd, i.e. k odd, or k even and d odd). (d) For P = M², (ii) reads (f/M²) = 1 = τ (ε = 1). ∎
 Over ℤ the ES^{(S)} mechanism had exactly this dichotomy (UNIT_ORBIT Thm 2.4(a)/(b)); over F it holds with |S| = 1,
 effectively, and **the T1 exists iff the anchor is alive: ε = χ(−1) = −1**. For q ≡ 1 (mod 4) the monic normalisation
 at ∞ pins nothing (−1 is a square in F_q), consistent with FUNCTIONFIELD_ES §4 (no square-class obstruction).
+
+## 5. What exactly fails when S = ∅
+
+**Proposition 5.1 (ES_q is a bounded search; PROVED, elementary; FF form of (J)25 Prop 6.1).** Every Type II datum
+(a, b, c, d) of ES_q(A, P) (FUNCTIONFIELD_ES Prop 4.1: P = Aabd − E, Ec = a + b, X = abd) has modulus
+f = Aacd − 1 of degree ≤ 2n − k, and f | P + Aa²d.
+*Proof.* Ef = P + Aa²d (FF Prop 4.1). deg X = n − k (NC), so 2deg a + deg d ≤ 2(n − k), deg(Aa²d) ≤ 2n − k, and
+deg P = n ≤ 2n − k. ∎
+So at fixed P, ES_q is a search over finitely many shots P + Aa²d (deg(a²d) ≤ 2(n − k)), each with its own modulus
+condition f ≡ −1 (mod Aad). In the mute variant the shots P + AQ² are indexed by the infinite monoid ⟨s⟩ and the
+modulus condition is the fixed f ≡ −1 (mod A); Cor 2.2 says a mute shot is an ES_q solution iff f ≡ −1 (mod AQ).
+
+**Proposition 5.2 (coverage per modulus; PROVED).** Let f be monic irreducible of degree d, f ≡ −1 (mod A), f ≠ s.
+(a) (mute) The residues P mod f made solvable by a mute shot with modulus f form the coset −A·⟨s² mod f⟩, of size
+ord_f(s²) — equal to (q^d − 1)/2 (q odd) when s is a primitive root mod f.
+(b) (ES_q, Type II) The residues P mod f for which f is the modulus of some Type II datum lie in
+−A·{a²d : a, d monic, ad | (f + 1)/A} mod f, a set of size ≤ τ₂((f + 1)/A) ≤ τ₂-max(d − k) = q^{o(d)}
+(number of ordered pairs of monic divisors).
+*Proof.* (a) Prop 2.1: P ≡ −AQ² (mod f), Q ∈ ⟨s⟩. (b) f = Aacd − 1 forces ad | (f + 1)/A, and P ≡ −Aa²d. ∎
+So a mute modulus fires on half of all classes, an ES_q modulus on a q^{−d+o(d)} fraction — FF form of (J)25's
+"Box ⊆ ES^{(S)} coset".
+
+**Proposition 5.3 (the firing condition is Frobenius for mute, a divisor condition for ES; PROVED for (a)).**
+(a) For fixed P, "f fires" in the mute variant (with s primitive mod f) is the Chebotarev condition of Thm 3.5: a
+Dirichlet condition mod A·P·s plus Kummer non-splitting in F(μ_ℓ, s^{1/ℓ}). The P-dependence enters only through the
+quadratic character (f/P) — a global character of f, by reciprocity.
+(b) For ES_q the condition is P ≡ −Aa²d (mod f) for a factorisation (f + 1)/A = a·c·d: it depends on the factorisation
+of the shifted prime f + 1 and is not a condition on Frob_f in any fixed extension (Assessment: same mechanism as B2 —
+"the modulus is part of the solution"; the S = ∅ orbit {1} has only the single fixed-modulus shot P + A).
+
+**Proposition 5.4 (the mute shot mechanism has profinite sterile points, yet no global ones; PROVED).** Let 𝓕 be any
+finite set of pairs (f, Q) as in Prop 2.1 (each valid on the residue class P ≡ −AQ² mod f, for deg P large). Then for
+q odd the classes P mod ∏f with −PA a non-square mod every f ∈ 𝓕 are nonempty and contain irreducible P of every large
+degree; so **no finite set of mute shot families covers ES_q^{(s)}(A, ·)**, although Thm 3.5 proves it for every P.
+*Proof.* CRT gives a class mod F := ∏_{(f,Q)∈𝓕} f (distinct f) with −PA a non-square mod each f (q odd: each (R/f)^*
+has non-squares). In it no (f, Q) fires (−AQ² ≡ P would make −PA ≡ (AQ)² a square). The class is a unit class, so
+it contains irreducibles of every large degree (Fact 5.2). ∎
+*Reading.* In profinite language (FUNCTIONFIELD_ES2 §0.1 compactness criterion, scoped here to the shot families) the
+points x ∈ R̂^* with (−xA/f) = −1 for every prime f ≡ −1 (mod A) are sterile for the mechanism (a Haar-null, nonempty
+set). No polynomial P is such a point: for P non-square the character f ↦ (−PA/f) = ±(f/P) is a nontrivial
+character mod P and takes both values on primes f ≡ −1 (mod A) of every large degree (Thm 3.5). **The theorem is proved
+by a global argument (reciprocity + Weil) that is invisible to every congruence/covering/compactness argument**: the
+sterile profinite points are excluded only because a global P carries a global quadratic character. In q ≡ 3 (mod 4),
+k odd, the squares M² are exactly the global points at which this character is trivial — and they are exactly the
+non-shot-solved P (Thm 4.2). This is the FF version of B1 + B5 for the mute variant, with the theorem on the other side.
