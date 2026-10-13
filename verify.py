@@ -24384,5 +24384,71 @@ def check_fm():
 
 check_fm()
 
+def check_fn():
+    # (fn) LORENZINI_W (O180/R180/R184): Thm 9.1 — every even n >= 16, n != 510, is xyz - x - z (x,y,z >= 2):
+    # the six-family exponent covering of n = 2^m - 2 (m odd, all classes mod 36) and the brute-force value set
+    # to 1e7 (exceptions = Lorenzini's list); Prop 8.1 words at primes p = 1 (4).
+    from time import perf_counter
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("LORENZINI subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_lw2_cover.py", "4001")
+    assert "odd classes uncovered: []" in o and "odd m <= 4001 with no family solution: [1, 3, 9]" in o, \
+        ("LORENZINI R184 Thm 9.1 covering", o)
+    o = run("review_lw2_prop81.py", "1000000")
+    assert "words checked, bad = 0 ; primes 39174" in o, ("LORENZINI R184 Prop 8.1", o)
+    cc = shutil.which("gcc") or shutil.which("cc")
+    cmsg = "brute force skipped (no compiler)"
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            exe = os.path.join(td, "lw2b")
+            r = subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "review_lw2_brute.c")], capture_output=True,
+                               text=True, timeout=120)
+            assert r.returncode == 0, ("LORENZINI compile", r.stderr[-1000:])
+            r = subprocess.run([exe, str(10 ** 7)], capture_output=True, text=True, timeout=300)
+            assert r.returncode == 0, ("LORENZINI brute", r.stderr[-500:])
+            miss = [int(ln.split()[-1]) for ln in r.stdout.splitlines() if " miss " in ln]
+            assert miss == [0, 1, 2, 3, 5, 6, 9, 11, 14, 15, 35, 105, 510], ("LORENZINI R184 brute", r.stdout)
+            cmsg = "non-values <= 1e7 = {0,1,2,3,5,6,9,11,14,15,35,105,510}"
+    print(f"== (fn) LORENZINI_W R180/R184 Thm 9.1: 2^m - 2 (m odd) covered by 6 families mod 36, explicit for odd "
+          f"m <= 4001 except m = 1, 3, 9; {cmsg}; Prop 8.1 words at 39174 primes; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fn()
+
+def check_fo():
+    # (fo) T1_TEMPLATE (O183/R183): T1-bearing ES variant V_phi over Z[phi]: Cl_{4 inf_1} = Z/2; the explicit
+    # unit-orbit Type II solutions (Prop 1.2) solve every prime < 1e5, and no odd square m^2 (m < 300).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "review_t1t_zphi.py", "100000", "12", "300"], capture_output=True, text=True,
+                       timeout=900, env=env, cwd=sdir)
+    assert r.returncode == 0, ("T1_TEMPLATE subprocess", r.stderr[-2000:])
+    o = r.stdout
+    for s in ["(-1,+) not in image -> Cl_{4inf1} = Z/2, phi order 6 mod 4: OK",
+              "P12: primes tested 9590, solved 9590, failures []",
+              "SQ: odd m in [3,300), |k|<=12: squares solved by Prop 1.2: []"]:
+        assert s in o, ("T1_TEMPLATE R183", s, o)
+    print(f"== (fo) T1_TEMPLATE R183: V_phi over Z[phi] — unit-orbit Type II solutions for all 9590 primes < 1e5, "
+          f"none at odd squares m^2 (m < 300); Cl_(4 inf_1) = Z/2; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fo()
+
 
 print("\nall checks passed")

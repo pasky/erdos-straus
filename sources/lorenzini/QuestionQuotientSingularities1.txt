@@ -1,0 +1,93 @@
+      QUESTIONS ON WILD Z/pZ-QUOTIENT SINGULARITIES IN
+                       DIMENSION 2
+
+                                      DINO LORENZINI
+
+
+
+
+                                   1. Some questions
+   Let A denote a regular local ring of dimension 2 with maximal ideal MA . Let p be
+prime, and let H = Z/pZ act on A. Let Z := Spec(AH ). Assume that the action of H on
+Spec(A) is free off the closed point, and that MH   A is the only singular point of Z. When
+the residue characteristic of A/MA is equal to p, MH       A is called a wild cyclic quotient
+singularity.
+   Let f : X → Z be a resolution of the singularity, minimal with the property that
+the irreducible components of f −1 (MH   A ) are smooth with normal crossings. Attached to
+this resolution are two natural objects that we now describe, the intersection matrix N ,
+and the resolution graph G. The exceptional divisor f −1 (MH     A ) consists in n irreducible
+components Ci , i = 1, . . . , n. Denote by N := ((Ci · Cj )X ) the associated symmetric
+matrix. The matrix N is negative-definite and, in particular, det(N ) 6= 0. Let G denote
+the graph whose vertices are the n irreducible components of f −1 (MH     A ), and where two
+vertices C and D are linked by (C · D)X edges.
+   For future reference, recall that the degree of a vertex C in a graph G is the number
+of edges connected to C, and a vertex of degree at least 3 on a graph is called a node.
+A vertex of degree 1 is a terminal vertex. The closure in G of a connected component of
+G \ {all nodes of G} is called a chain of G. If the chain contains a terminal vertex, it is
+called a terminal chain.
+   Wild Z/pZ-quotient singularities of surfaces are expected to have resolution graphs
+which are trees, with associated intersection matrices N satisfying det(N ) = ps for some
+s ≥ 0. The Smith group ΦN := Zn /Im(N ) is expected to be killed by p ([1], 2.6). Finally,
+we should expect that the fundamental cycle Z of N has self-intersection |Z 2 | ≤ p. This
+latter combinatorial result follows from the algebraic result that the multiplicity of the
+singularity is expected to be at most p ([1], 2.3).
+Question 1.1 Classify the matrices N which can occur as intersection matrices associated
+with minimal resolutions of wild Z/pZ-quotient singularities in dimension 2. This question
+is probably too broad to be useful. Here are some more focused sub-questions.
+   Minimal resolutions with graphs having only one node are exhibited in [2], 6.6.
+a) Can you produce, for each p, examples of intersection matrices N associated with
+    resolutions of wild Z/pZ-quotient singularities in dimension 2 whose graphs G(N ) do
+    not have a node?
+b) Can you produce, for each p, examples of intersection matrices N associated with
+    minimal resolutions of wild Z/pZ-quotient singularities in dimension 2 whose graphs
+    G(N ) have more than one node? (One such example is exhibited in mixed characteristic
+    2 in [1], 4.10. See also question 1.2 (a)). Is there a bound on the possible number of
+    nodes that such a graph can have?
+
+  Date: February 6, 2017.
+                                              1
+           QUESTIONS ON WILD Z/pZ-QUOTIENT SINGULARITIES IN DIMENSION 2                                   2
+
+c) Can you produce, for each p and each s ≥ 0, examples of intersection matrices N
+    associated with minimal resolutions of wild Z/pZ-quotient singularities in dimension 2
+    with | det(N )| = ps (examples with s − 1 > 0 and coprime to p are given in [3], 3.12)?
+Question 1.2 Is there a difference between the set of intersection matrices associated
+with the minimal resolutions of wild Z/pZ-quotient singularities Spec AH in dimension 2
+when A is of equicharacteristic p, and the set of intersection matrices associated with the
+minimal resolutions of wild Z/pZ-quotient singularities Spec AH in dimension 2 when A
+is of mixed characteristic (0, p)? One related such difference is found in [1], 4.1. A second
+instance, related also to 1.1 (b), is in [1], 4.10, and prompts the following question:
+(a) Produce discrete valuations fields of residue characteristic p, and curves X/K with
+     potentially good reduction after an extension L/K of degree p, such that 1) the special
+     fiber of the smooth model of XL /L has p-rank 0, and 2) the graph of the special fiber
+     of the regular model of X/K has more than one node. The case of elliptic curves
+     E/K in equicharacteristic 2 with reduction of type In∗ with n > 0 is open.
+(b) Is it possible to exhibit the Dynkin diagrams Dn (having n vertices) with n ≡ 2
+     mod 4 as the resolution graphs of Z/2Z-quotients singularities in dimension 2 when
+     A is of equicharacteristic 2?
+Question 1.3 Is there a difference between the set of intersection matrices associated
+with the minimal resolutions of wild Z/pZ-quotient singularities in dimension 2, and the
+set of intersection matrices associated with the minimal resolutions of wild Z/pZ-quotient
+singularities occurring on the normal quotient Z, model of a curve X/K with potentially
+good reduction after a degree p extension, as in [2], 5.3.
+   We suggest in 6.2 of [2] some extra structure that one may be able to attach to the
+intersection matrix in the case of a model of a curve. In particular, can the intersection
+matrix exhibited in [2], 6.14, occur as the intersection matrix associated with the minimal
+resolution of a wild Z/5Z-quotient singularity in dimension 2.
+Question 1.4 Consider an intersection matrix N , and assume that for some prime p, it
+satisfies all known conditions that would have to be satisfied if this intersection matrix was
+associated with the resolution of a Z/pZ-singularity: its graph G(N ) is a tree, det(N ) is a
+power of p and the Smith group is killed by p, and the fundamental cycle Z has |Z 2 | ≤ p.
+   If det(N ) = 1 and G(N ) is a tree, then the above conditions are satisfied for every prime
+at least equal to |Z 2 |. In particular, when det(N ) = 1, the matrix N could potentially
+be associated with the resolution of a Z/pZ-singularity for infinitely many primes p. Can
+this actually happen? A related question: consider the existence of examples of such N
+occurring as Z/pZ-quotient singularities for more than one prime. See [2], 6.13, for a
+related discussion.
+                                           References
+    [1] D. Lorenzini, Wild quotient singularities of surfaces, Math. Zeit. 275 Issue 1 (2013), 211–232.
+    [2] D. Lorenzini, Wild models of curves, Algebra Number Theory 8 (2014), no 2, 331–367.
+    [3] D. Lorenzini, Wild quotients of products of curves, Preprint.
+
+  Department of mathematics, University of Georgia, Athens, GA 30602, USA
+

@@ -703,6 +703,35 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * EVIDENCE: census of 746 split primes, all solutions with invariants (1, 2, 0). 18 primes have no TES solution in the search window (N = 103 and 151 also none in much larger windows); the 10 inert primes ≤ 71 are all solved (R182 D12).
    * Assessment: T1/B5 sits in a family of anchor+partner obstructions whose order is the order of the anchor symbol. A provable T1-bearing variant would be a template for circumventing B5 (pursued by O183).
 
+20. **Spark relay G: the even half of Lorenzini's A₃ question (LORENZINI_W.md + 10 memos BRAINSTORM/bsG_* (O180); two independent hostile reviews `reviews/lorenzini-w-review.md` (R180) and `reviews/lorenzini-w-review-2.md` (R184): both SOUND on the headline, no FATAL or MAJOR defects; minors repaired by the reviewers).**
+   * **Thm 9.1 (PROVED; re-derived end to end by both reviewers).** Every even n ≥ 16 with n ≠ 510 has the form xyz − x − z with x, y, z ≥ 2.
+     * Lorenzini (JNT 257 (2024), Prop 6.3(a)) had left open n = 2^m − 2 with m odd.
+     * These are covered by six fixed-pair families with moduli 9, 72, 13, 27, 109, 592. Together they cover all odd exponents m mod 36: a Sierpiński-type covering *of the exponent*.
+     * Explicit solutions are verified for all odd m ≤ 4001. The non-values ≤ 10⁸ are exactly Lorenzini's list (R184 brute force).
+     * Novelty (Assessment, R184 literature search): not found in Lorenzini 2024, in Wang & Lu (EJC 33(3) #P3.80, 2026), or in the other citing works. This is the campaign's first result settling part of a published open question; it is not about ES.
+   * What remains of (W) (exact): the odd n ≡ 3, 9, 11 (mod 12) with n + 2 prime.
+   * Prop 8.1 (PROVED, trivial in hindsight). (W) holds at every prime p ≡ 1 (4), p ≥ 13, via the words (2, 2, (p+2)/3) and (3, (p+7)/12, 4). Hence interior-SQ₅(p) ⟺ (S)(p): the sign-free half of (J)15 carries no ES content at primes, and future work should target (S) at p ≡ 1 (12).
+   * Other results.
+     * Square shadow (Lemma 3.1, PROVED): T1 constrains the *middle letter* at squares but not existence.
+     * Sterile set (Thm 4.2, PROVED): infinite, accumulating at −1. Hence no compactness argument proves (W).
+     * Prop 6.1 (PROVED, relative to the Titchmarsh divisor theorem, which is unconditional): #exceptions ≤ N is ≪ N exp(−c√log N). Lorenzini's Prop 6.3 already gives ≪ N/log N.
+     * Stern coding: V_{A_k}(2) = {s(N) : popcount N = k+1}.
+   * EVIDENCE: every n < 10⁸ outside the exceptional set has a solution with an outer letter ≤ 12.
+
+21. **Spark relay J: a T1-bearing ES variant solvable at every prime under GRH (T1_TEMPLATE.md + BRAINSTORM/bsJ_mute_place_unit_orbit.md (O183); review `reviews/t1-template-review.md` (R183): no FATAL; two MAJOR (M1: a non-sequitur in the Prop 1.2 σ₂ step, claim true; M2: the §4 unconditional plan needs K/ℚ Galois, impossible with r₁ = 1), minors; repaired by the reviewer).**
+   * V_φ: 4/n = 1/x + 1/y + 1/z over ℤ[φ], all σ₁ > 0, σ₂-signs not all equal. Its anchor is σ₁ (pinned ½) and its partner is the place 2.
+     * Lemma 1.1: Cl_{4∞₁} ≅ ℤ/2, with character χ_{−φ}.
+     * T1 at squares (PROVED, Cor 2.2).
+     * Thm 1.3 (PROVED): unit-Type-II solutions arise ⟺ some a_k = n + 4φ^{2k+1}, k ∈ ℤ, has a prime factor 𝔮 with (n/𝔮) = −1. ES's finite lottery becomes a problem with infinitely many shots along the unit orbit.
+   * **Thm 3.1.** V_φ(p) is solvable for every prime p ≠ 5.
+     * Unconditional for p ≡ ±2 (mod 5): a congruence, (√5) | a_k (R183 m4).
+     * CONDITIONAL on GRH for p ≡ ±1 (mod 5). This uses Lenstra 1977 Cor 4.8; R183 made the positivity of the density rigorous.
+     * EVIDENCE (R183, from scratch): all 78 496 primes < 10⁶ solved by the explicit unit-orbit formula; no odd square m², m < 2000, solved by it.
+   * Thm 2.1 (PROVED). Uniform local invariants of the BL class on integral points over any number field. Tame places give 0. Places above 2 give 0 for numerator 4, at any ramification — a new proof of BL Lemma 3.8. Real places give ½ iff the three signs agree.
+     * Hence |P| odd (positivity-pinned real places) ⇒ T1. The converse "iff" is overclaimed (R183 m6).
+     * Example: positive ES over the one-real-place ring ℤ[∛2] is T1-bearing; EVIDENCE: all p < 3000 solved by the unit mechanism, squares not.
+   * Assessment. Infinite unit orbits turn ES's lottery into an Artin-type problem; over ℤ the unit group is ±1. Whether a ℤ-analogue of a "mute place" with infinitely many shots exists is open (pursued by O186).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

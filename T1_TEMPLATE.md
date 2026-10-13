@@ -58,7 +58,8 @@ lie in O and solve V_φ(n); the solution has Type II shape at every prime of n (
 *Proof.* e ≡ −n (mod 4) (as eg ≡ n, g ≡ −1), so x ∈ O; y, z ∈ O as 4 | g + 1. With x + η = (a_k + e)/4 =
 e(g + 1)/4: 4/n − 1/x = (4x − n)/(nx) = e/(nx), and 1/y + 1/z = (4/(n(g+1)))·(1 + η/x) = 4(x + η)/(n x (g + 1)) = e/(nx).
 Signs: σ₁(x) = (n + σ₁e)/4 > 0, σ₁(y) > 0, σ₁(z) > 0 (σ₁η > 0). At σ₂: sgn z = sgn x · sgn y · sgn σ₂(η) =
-−sgn x sgn y, so the three signs are not all equal. gcd(x, n) | gcd(e, n) and e | a_k ≡ 4η (mod n), so x is prime
+−sgn x sgn y, so the three signs are not all equal *(R183 repair: this needs the case sgn x = sgn y = −1 excluded: σ₂(x) < 0, σ₂(y) < 0 give
+σ₂(e) < −n, σ₂(g) < −1, hence σ₂(a_k) = σ₂(e)σ₂(g) > n, contradicting σ₂(a_k) = n + 4σ₂(η) < n)*. gcd(x, n) | gcd(e, n) and e | a_k ≡ 4η (mod n), so x is prime
 to n. ∎ (Example: n = 13, k = 0: x = 5 − φ, y = 39 + 52φ, z = 26 + 143φ.)
 
 **Theorem 1.3 (the mechanism is exactly a character condition on the unit orbit; PROVED).** For odd n > 0 and
@@ -68,6 +69,8 @@ k ∈ ℤ, the hypothesis of Prop 1.2 holds iff a_k = n + 4φ^{2k+1} has a prime
 (m²/𝔮) = 1 (𝔮 ∤ m, since 𝔮 | m would give 𝔮 | 4η).
 (b) V_φ(n) holds as soon as **some** a_k (k ∈ ℤ) has a prime factor 𝔮 with (n/𝔮) = −1; for n ∈ ℤ inert primes
 never qualify (n is a square in O/ℓ = F_{ℓ²}); split 𝔮 (N𝔮 = ℓ ≡ ±1 mod 5) qualify iff (n/ℓ) = −1, and 𝔮 = (√5) iff (n/5) = −1.
+*(R183 repair/addition: (√5) | a_k ⟺ n ≡ 3·(−1)^k (mod 5); so every odd n ≡ ±2 (mod 5) is solved with 𝔮 = (√5) and
+k = 0 (n ≡ 3) or k = −1 (n ≡ 2), unconditionally.)*
 *Proof.* χ is multiplicative on ideals prime to 2. If g | a_k has χ(g) = −1, normalise g by Lemma 1.1; then
 σ₁(e) = σ₁(a_k)/σ₁(g) > 0 as σ₁(a_k) = n + 4σ₁η > 0. Conversely such g has χ(g) = −1 by Lemma 1.1, so some prime
 factor of g has χ = −1. For 𝔮 | a_k, 𝔮 ∤ 2: n ≡ −4φ^{2k+1} = −φ·(2φ^k)² (mod 𝔮), so (n/𝔮) = (−φ/𝔮) = χ(𝔮)
@@ -96,7 +99,7 @@ DRINFELD Thm 3.3), while V_φ is solvable there (by "other" shapes, e.g. inherit
 
 ## 2. The full T1 of sign-pattern ES over any number field (PROVED)
 
-Setting: K a number field, n ∈ O_K, 2 ∤ n, and u = (u₁, u₂, u₃) ∈ O_K³ with 4/n = 1/u₁ + 1/u₂ + 1/u₃; α(u) =
+Setting: K a number field, n ∈ O_K prime to 2 (v(n) = 0 for all v | 2; R183 repair of "2 ∤ n"), and u = (u₁, u₂, u₃) ∈ O_K³ with 4/n = 1/u₁ + 1/u₂ + 1/u₃; α(u) =
 (−u₁/u₃, −u₂/u₃) ∈ Br K[2]. For m = 2 α is invariant under permutations of u (DRINFELD Thm 2.2 proof: cyclic
 shifts and (b, a) = −(a, b) = (a, b)), so we may relabel at each place.
 
@@ -131,8 +134,8 @@ extension). (d) is the m = 2 analogue of DRINFELD Thm 3.3.
 `ES_{P,M}(n): 4/n = 1/x + 1/y + 1/z, x, y, z ∈ O_K, all σ_v-positive for v ∈ P, σ_v-signs mixed for v ∈ M`
 (no condition for v ∈ F). If F = ∅ and |P| is odd, then for every solution Σ_{v | n} inv_v α = ½, and hence for
 n = m² (m ∈ O_K odd) no solution has Type I/II shape at every prime of n. If |P| is even and F = ∅, the sum is 0
-and there is no such T1 (e.g. totally positive ES over a real quadratic field, BRAINSTORM/other_rings Prop 3.3,
-which is a theorem for all n).
+and α gives no T1 *(R183 repair: this does not show that Type I/II-shaped solutions exist at squares)* (e.g. totally
+positive ES over a real quadratic field with N(ε) = −1, BRAINSTORM/other_rings Prop 3.3, a theorem for all n ∈ ℤ).
 *Proof.* Hilbert reciprocity with Thm 2.1 (complex places contribute 0). ∎
 For K = ℚ(√5), P = {σ₁}, M = {σ₂}: ES_{P,M} = V_φ. So **V_φ is a T1-bearing ES variant (PROVED)**, matching the
 evidence table of §1. Anchor = σ₁ (positivity), partner = 2 (numerator 4, Thm 2.1(c)), and σ₂ is a *sign-pattern
@@ -162,11 +165,16 @@ extensions (φ, −1, p independent in K^*/K^{*2}: signatures (+,−), (−,−)
 K(√φ)/ℚ is not Galois (x⁴ − x² − 1 has group D₄) so K(√φ) lies in no abelian extension; r = p is automatic
 (√p ∈ ℚ(ζ_p), and Frobenius moving √p moves ζ_p); odd r ≠ p impose Kummer conditions of degree r over K(ζ_r),
 independent of the 2-power conditions. Degree-1 primes have density 1. ∎
+*(R183 repair: the positivity is rigorous by Lenstra (1977) Cor. (4.8): W = ⟨φ⟩ is not a q-th power for q > 1, and no
+L_l = K(ζ_l, φ^{1/l}) lies in F = K(i, √p) (L₂ = K(√φ) is none of K(i), K(√±p); L_l is non-abelian for odd l), so
+under GRH for ζ_{K(ζ_n, φ^{1/n})}, n squarefree, d(M) > 0. The remark "√p ∈ ℚ(ζ_p)" above is false for p ≡ 3 mod 4
+(it is √−p) and is not needed. Moreover by Thm 1.3(b) (R183 addition) the theorem is UNCONDITIONAL for p ≡ ±2 (mod 5);
+GRH is needed only for p ≡ ±1 (mod 5).)*
 *Status note.* GRH enters only through Artin's conjecture for the single unit φ (with two quadratic Frobenius
 conditions); the T1-sensitive step is condition (ii), a Chebotarev condition in the p-dependent field K(√p) — the
 step that is false at p = m² (every 𝔮 has (m²/𝔮) = 1). Unconditional variant: see §4.
 
-**Barrier screen of the mechanism.**
+**Barrier screen of the mechanism (Assessment; R183 label).**
 * B5/T1: respected — the step false at m² is "some prime of the orbit has (n/𝔮) = −1" (Thm 1.3(a)).
 * B2 (divisor in a class whose modulus is part of the solution): **hypothesis violated.** For units D the condition
   D | x² is void, and the residue condition reduces to a *fixed* modulus 4∞₁ (Lemma 1.1). Over ℤ the only such D
@@ -179,7 +187,9 @@ step that is false at p = m² (every 𝔮 has (m²/𝔮) = 1). Unconditional var
 
 **EVIDENCE (`scripts/t1t_phi_scan.py 1000000 12 2000`, log `logs/t1t_phi_scan_1e6.txt`).** All 78 496 primes
 3 ≤ p < 10⁶, p ≠ 5, have V_φ(p) solved by Prop 1.2 (every solution verified exactly): min |k| = 0, 1, …, 8 for
-42589, 29024, 5727, 925, 180, 41, 8, 1, 1 primes. T1 control: no odd square m², m < 2000, 5 ∤ m, has a k with
+42589, 29024, 5727, 925, 180, 41, 8, 1, 1 primes *(R183 note: this is the min|k| of a restricted search that skips 𝔮 = (√5),
+prime factors > 10⁵ and the case where both primes above ℓ divide a_k; the true min|k| histogram is 57082, 19143,
+1859, 313, 78, 12, 6, 2 for |k| = 0…7 and 1 prime with |k| = 10 — reviews/t1-template-review.md C3)*. T1 control: no odd square m², m < 2000, 5 ∤ m, has a k with
 |k| ≤ 12 (as Thm 1.3(a) proves).
 
 ## 4. The natural version: ES over a ring with ONE real place and infinite units
@@ -193,7 +203,7 @@ needed), a_k = n + 4ε^k = e·g, g ≡ −1 (mod 4), g > 0, e > 0.
 for 332, 70, 23, 2, 1, 1 primes; e.g. p = 13, k = 2: x = 7 + 3θ + 2θ², y = 13(θ² − θ), z = 312 + 221θ + 182θ²);
 no odd square m², m < 200, has a unit solution with |k| ≤ 8 (T1 control).
 *Status:* the T1 for ES_{ℚ(∛2)} is PROVED (Cor 2.2); the unit mechanism's character criterion is the analogue of
-Thm 1.3 with Cl_{4∞}(K) (a 2-group, possibly larger than ℤ/2: a sub-product of prime factors of a_k must land in the
+Thm 1.3 with Cl_{4∞}(K) (for ℚ(∛2): ≅ (ℤ/2)², R183; not a 2-group for every r₁ = 1 field; a sub-product of prime factors of a_k must land in the
 class of (−1, +)) — not yet written out (spark S1).
 **Route to an UNCONDITIONAL theorem (Assessment / plan, not done).** Theorem 3.1's only GRH input is "the units
 generate (O/𝔮)^* (or at least contain −n/(4η₀)·U^{+2}) for some degree-1 prime 𝔮 satisfying two quadratic
@@ -205,3 +215,7 @@ sieve accepts the extra congruence condition (p/ℓ) = −1 (a condition on ℓ 
 inputs handle for fixed p), then **ES_K(p) would hold for every rational prime p unconditionally** for any field K
 with r₁ = 1 (or any |P| odd, M with a unit of the right signature), h_K = 1 (or a ray-class version) and unit rank
 ≥ 4 (e.g. r₁ = 1, r₂ = 4, degree 9) — a T1-bearing ES variant proved at all primes. This is the next step.
+*(R183 repair: Harper–Murty's Theorem 1 assumes K/ℚ GALOIS with unit rank ≥ 4. A Galois field has r₁ ∈ {0, [K:ℚ]}, so no
+r₁ = 1 field (e.g. the degree-9 example) is covered. The plan must use totally real Galois K with |P| odd and mute
+places M (units of signature + on P, − on all of M; per-place version of the σ₂ argument of Prop 1.2), or a
+non-Galois version of the Gupta–Murty count, which is an open input.)*

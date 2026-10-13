@@ -17,3 +17,6 @@ place and ℤ^* = ±1 (Assessment).
 
 **Promise for ES:** 1/5 (it is a template for a T1-bearing variant, not a route over ℤ). **Promise as a theorem:**
 4/5 (unconditional version via Gupta–Murty-type unit-rank-≥4 results looks within reach; see §4).
+*(R183 repair: Harper–Murty require K/ℚ Galois, which excludes every r₁ = 1 field; the route needs totally real Galois
+fields with mute places or a non-Galois count — promise not supported as stated. V_φ(p) is unconditional for
+p ≡ ±2 (mod 5) via 𝔮 = (√5); see reviews/t1-template-review.md.)*
