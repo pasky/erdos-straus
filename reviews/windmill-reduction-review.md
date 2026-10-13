@@ -14,6 +14,10 @@ From-scratch scripts: `scripts/review_wr_*.py` (none of the author's `wr_*` code
 | §2 Lemma 2.4 | SOUND-AFTER-REPAIRS (D3: positivity hypothesis missing; statement false as written) |
 | §3 (EVIDENCE, negative) | not re-run (spot-check budget spent on §4); labels appropriate |
 | §4 (EVIDENCE, negative) | SOUND — all six numbers reproduced exactly by independent method; extended to p ≤ 20000 (D4 minor) |
+| §5.1 | SOUND as Assessment; label over-reach (D6 minor) |
+| §5.2 | SOUND (t odd needed for "⇐"; automatic in the 4 | A slice — D7 minor) |
+| §5.3 | GAP → SOUND-AFTER-REPAIRS (D5 MAJOR: box bound false; equivalence fails at p = 241, 769, 20521, 21841) |
+| §6 (EVIDENCE) | SOUND — 211 odd / 174 even reproduced; congruence facts re-derived |
 
 (table extended below as the review proceeds)
 
@@ -66,6 +70,34 @@ class, **20 / 82** certificate pairs in class — every number in §4 reproduced
 pairs vs 89/456 = 19.5% of certificate pairs; restricted to primitive pairs 31.4% vs 23.9%. The "no enrichment" EVIDENCE
 holds up (if anything mild depletion).
 
+## §5 — structural items
+
+**5.2.** `AB − pt = 1` ⇒ disc of `[p, B−A, −t]` is `(B−A)² + 4(AB−1) = T² − 4`. "⇒" of `A ≡ B ≡ −1 (t) ⇔ T ≡ −2 (t), t | B−A`
+is clear; "⇐" gives `2A ≡ −2 (t)`, so needs t odd. In the slice `4 | A`, p ≡ 1 (4): `−pt ≡ 1 (4)` ⇒ `t ≡ 3 (4)`, odd. Fine (D7).
+
+**5.3 (defect found).** `A ↦ A + kp` (t ↦ t + kB) and `B ↦ B + lp` are commuting integral symmetries — correct. But the
+claim "in each orbit only the representative with `A, B ≤ p + O(1)` can satisfy `t | A+1, t | B+1`", and the resulting
+equivalence "X-slice ES(p) ⟺ some `A ∈ [1,p)`, `4 | A`, `B = A⁻¹ mod p` with `t | A+1, B+1`", are **false**. Derivation:
+if `B ≥ p` then `pt = AB − 1 ≥ pA − 1` ⇒ `t ≥ A`, and `t | A+1` forces `t = A+1`; symmetrically `A ≥ p` forces `t = B+1`,
+`A = p + (p+1)/B`. The correct bound is `max(A,B) ≤ p + (p+1)/min(A,B)`, not `p + O(1)`. For p ≡ 1 (24) the case `B ≥ p` is
+impossible (`4 | A | p+1` contradicts `p+1 ≡ 2 (8)`), but `A ≥ p` occurs: it is exactly the **v = 1 family**
+`u(t−1) = p+1`, `u ≡ 3 (4)` (exists iff `(p+1)/2` has a divisor ≡ 3 (4)). Example p = 97: `(t,u,v) = (15,7,1)`, `A = 104 > p`,
+`B = 14`, `AB − pt = 1456 − 1455 = 1`, `15 | 105`, `15 | 15`; its box representative `A mod p = 7` is not ≡ 0 (4).
+`scripts/review_wr_Eset.py 30000` (direct enumeration of E(p)): 447 of the 3473 certificates for the 385 primes p ≡ 1 (24)
+≤ 30000 lie outside the box, all in the v = 1 family; for **p = 241, 769, 20521, 21841 every certificate is outside the box**
+(p = 241: E = {(23,11,1)}, A = 252), so the stated equivalence fails there. See D5.
+
+**5.1.** The p ↦ −p algebra is fine. The rest (no cycles on the definite side, available involutions are class-group
+involutions, fixed points = genus data) is heuristic and should not sit under a PROVED header (D6).
+
+## §6 — parity of |E(p)|
+
+`scripts/review_wr_Eset.py 30000` reproduces: 385 primes, |E(p)| odd for **211**, even for **174**. `|E(m²)| = 0` checked
+for odd m < 300 (doc: odd squares). "|X(p)| always odd": the involution u ↔ v on `{tuv − u − v = p}` has fixed points
+`u(tu−2) = p` ⇒ only `(p+2,1,1)`; correct (but note the symbol clash: this X is not §1's Zagier set X(p) — D8). For
+p ≡ 1 (24), `4 | A` ⇒ `t ≡ u ≡ 3 (4)`, and `v ≡ 3 (4) ⇔ 4 | B`: re-derived, correct. The 283-sub-count search was not
+re-run (EVIDENCE, negative; low stakes).
+
 ## Defects (numbered; FATAL / MAJOR / MINOR)
 
 **D1 (MINOR, §1 "Reading", line "The principal cycle has odd length L_1/2 (because |X(p)| = Σ_C L_C/2 …)").**
@@ -93,3 +125,24 @@ carries up to four ambiguous forms `[±f,f,·]`, `[±D/f, D/f, ·]` which can fa
 (gcd(f, D/f) > 1) lie on no primitive river yet are counted in the denominator 5896 (688 of them). The conclusion is unaffected
 (primitive-only baseline: 37.3% vs 30.8% at the doc's range). Repair: state the convention ("a pair is on the river if any of
 its ambiguous forms is") and report the primitive-only ratio too.
+
+**D5 (MAJOR, §5.3 "only the representative with A, B ≤ p + O(1)" and "X-slice ES(p) ⟺ some A ∈ [1, p) …"; propagates to
+§9 first paragraph "unique box representative A, B ≤ p + O(1)" and `H_p = {(A, Ā) : 1 ≤ A < p}`).** False as stated: the
+v = 1 family `u(t−1) = p+1` has `A = p + (p+1)/B ≥ p`; 447/3473 certificates (p ≡ 1 (24), p ≤ 30000) are of this kind and
+p = 241, 769, 20521, 21841 have *only* such certificates. Repair: replace "p + O(1)" by `max(A,B) ≤ p + (p+1)/min(A,B)`, and
+state the equivalence as "X-slice ES(p) ⟺ [a box point with 1 ≤ A, B < p] **or** [(p+1)/2 has a divisor u ≡ 3 (mod 4)]
+(the v = 1 family, A = p + (p+1)/B)". In §9 either enlarge H_p by these boundary points or note that the v = 1 family is a
+trivially explicit divisor family of p+1 outside the hyperbola picture. The qualitative conclusions of §5.3/§9 survive.
+
+**D6 (MINOR, §5.1 header "PROVED for the Type II slices of Lemma 2.4").** Only the sign-flip algebra is proved. "A finite
+reduction-closed set of forms is a union of classes" is false or vacuous as written (definite classes are infinite; the set of
+reduced forms is reduction-closed and finite but not a union of classes), and "the reduction-type involutions available are
+class-group involutions" is an unproved heuristic. The parenthetical "(always available)" for signed solutions is also not
+proved from the formula given. Repair: split into "PROVED: sign flip p ↦ −p" and "Assessment: …", fix the union-of-classes
+sentence (e.g. "a finite set of reduced forms carries no SL₂(ℤ)-action, so reduction gives no rotation").
+
+**D7 (MINOR, §5.2 "equivalent to T ≡ −2 (mod t) and t | B − A").** The reverse implication needs t odd; add "(t is odd:
+4 | A and p ≡ 1 (4) force t ≡ 3 (4))".
+
+**D8 (MINOR, §6 "|X(p)| is always odd").** X(p) here means `{(t,u,v): tuv − u − v = p}`, not §1's Zagier set; rename
+(e.g. `X'(p)`) or define it.
