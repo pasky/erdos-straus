@@ -134,7 +134,7 @@ v ∈ F₃[[T]]^*; recomputed from a fresh `bsB_caseB 19` run, agreeing with O17
   Cubic (Artin–Schreier) characters would give thirds, not halves.
 * **No continuous involution swaps covered/uncovered unless C is clopen (PROVED, topology).** C is open, U closed;
   a homeomorphism τ with τ(C) = U makes both clopen, i.e. C = a finite union of cylinders. Since level-K
-  cylinders keep adding new measure through K = 19 (every increment > 0), such a τ would need C to stabilise at
+  cylinders keep adding new measure through K = 19 (every increment for 10 ≤ K ≤ 19 is > 0), such a τ would need C to stabilise at
   some finite level — which would itself make every point of U sterile in a whole neighbourhood (and solve (1)).
 * Near x*_c coverage is zero up to the depth at which x*_c is known uncovered: a level-N family meeting
   {u ≡ 1 + cT mod T^{N+1}} covers x*_c itself (ultrametric triviality). This is all R175's "far below 49 %" says.
@@ -142,11 +142,11 @@ v ∈ F₃[[T]]^*; recomputed from a fresh `bsB_caseB 19` run, agreeing with O17
 ## 6. Why goal (1) is not reached: the square-root barrier for the slice (PROVED bounds; Assessment of scope)
 
 A sterile point exists on the slice iff for some finite K₀ the uncovered measure U(K₀) exceeds the tail
-Σ_{K > K₀} #cyl(K)·3^{−N₀(K)}/2 (compactness + union bound). U(19) = 0.5094, so a bound #sol(K) ≤ 3^{(1/2−δ)K}
+Σ_{K > K₀} #cyl(K)·3^{−N₀(K)}/2 (compactness + union bound; Case A must also be excluded on the region used — proved only at x*_c, EVIDENCE elsewhere). U(19) = 0.5094, so a bound #sol(K) ≤ 3^{(1/2−δ)K}
 with any explicit constant would finish the existence proof (data: #sol(K) ≈ 3^{0.2K}, R175). Every elementary
 parametrisation gives exactly the square root: with ρ = deg r, a solution is fixed by r and a divisor triple of
 T^K + r (≤ 3^{ρ + o(K)}), or by (H', g', L'') through Lemma 1.1 (≤ 3^{K − 1 − ρ}), or by H alone when a ≥ b (r is then
 −(T^K mod H), ≤ 3^{a}, a ≥ K/2). min(3^ρ, 3^{K−ρ}) = 3^{K/2}: no decay against 3^{−K/2}. Beating it needs an
 equidistribution input for "T^K mod E' is a short polynomial" over the moving moduli E' = T H' L' − 1 — the
 function-field face of B3, matching O173 §3. The off-slice escape (choose x at the primes of L' to gain 1/Φ(L')
-rigorously) is closed by Theorem 3.2: off the slice the π-dependent families make the first moment diverge.
+rigorously) meets Theorem 3.2: at points that are random at the primes of L' the π-dependent families (whose E is unconstrained) make the first moment diverge (Assessment for partially random points; PROVED for Haar-random x).
