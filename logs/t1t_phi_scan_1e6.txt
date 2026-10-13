@@ -1,0 +1,2 @@
+primes < 1000000 min|k| hist [(0, 42589), (1, 29024), (2, 5727), (3, 925), (4, 180), (5, 41), (6, 8), (7, 1), (8, 1)] unsolved within |k|<= 12 : []
+odd squares m^2, m < 2000 with a unit-TypeII solution: []
