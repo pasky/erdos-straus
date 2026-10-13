@@ -867,6 +867,22 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * §5 count law (EVIDENCE + Assessment). Mean f_m ≈ c_m log³p/m. A pooled tail model predicts ≈ 1 ES failure among primes ≤ 10⁷; the observed 0 is mildly lucky. The 4-vs-8 difference in failures is consistent with mean counts alone; the 4-specificity of Thm 3.1 concerns *which* certificates exist.
    * Open (pursued by O198): χ-flipping moves on X_n. Any map between positive points flipping χ at prime n proves ES on the slices, and must fail at 105 and at squares.
 
+33. **Spark relay S: the ES sign is a 2-adic isotropy sign, and certificates are supersingular quaternion orders (CHI_FLIP.md (O198); review `reviews/chi-flip-review.md` (R198): no FATAL; one MAJOR (D1: the correction of "scaling is the only flip" was incomplete — rotations with n ≢ n′ (mod 4) also flip (A/n)), minors; repaired, ledger lines in (J)9, HJ_DEEP and MODEL_SPECIFIC corrected).**
+   * **Thm 1.1 (PROVED by Hilbert reciprocity alone; R198 re-derived every local invariant and checked all 50 008 words of odd n ≤ 2000, computing ε₂ two independent ways).** For every positive word w of every odd n, χ = (−A/n) = −ε₂(Q_w), where Q_w = vx² + ty² + uz² − 2xy − 2yz is the path form, of determinant n.
+   * Cor 1.3 (PROVED). For n = p, the following are equivalent:
+     * w is a five-slice ES certificate;
+     * Q_w is isotropic over ℚ₂;
+     * C₀(Q_w) ≅ B_{p,∞} ≅ (−A*, −vA*p), the supersingular quaternion algebra.
+     Non-certificates give the Hurwitz algebra B_{2,∞}. The certificate provides an explicit Gorenstein order of reduced discriminant 4p (Gross–Lucianovic).
+     * T1 reads: "a positive ternary lattice with cyclic discriminant group of square order cannot ramify at an odd prime".
+     * This gives a citation-free proof of the mod-8 sign law of (J)9 / (J)32.
+   * Cor 1.4 / Prop 1.5 (PROVED). χ depends on the word alone (it is n-free), and scaling preserves χ. A rotation flips χ iff all letters are odd and t ≢ u (mod 4), which changes n. No classical move flips the sign at fixed n.
+     * Algebraic and lattice moves (Kneser neighbours, similarity, Clifford) preserve the rational class, hence χ.
+     * A flip must change B_{2,∞} ↔ B_{p,∞}, i.e. it must produce a non-residue mod p.
+   * Prop 1.6 (PROVED; the reading is an Assessment). C₀(Q) is an Azumaya class β on X_n[1/2n]. T1 at squares is a Brauer–Manin obstruction to positive integral points in the 2-adic certificate region Ω₂. SQ₅ ⟺ "BM from β is the only obstruction to positive integral points of X_n in Ω₂" (non-square n ≠ 105).
+   * §3.1 (PROVED; CERTIFIED to 10⁶). For q ∈ {3, 5, 7} a non-residue mod p, A = q gives a certificate word; this is Mordell's 840 again.
+   * EVIDENCE: census of all odd n ≤ 10⁶. χ ≡ +1 only at n = 105 and at odd squares; χ ≡ −1 at 38 values n ≡ 3 (mod 4).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

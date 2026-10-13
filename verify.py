@@ -24723,5 +24723,26 @@ def check_fx():
 
 check_fx()
 
+def check_fy():
+    # (fy) CHI_FLIP (O198/R198): Thm 1.1 — for every positive word of odd n, chi = (-A/n) = -eps_2(Q_w) for the path
+    # form Q_w (det n); reviewer's from-scratch Hasse invariants (two independent 2-adic computations), all odd n <= 2000.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "review_cf_hasse.py", "2000"], capture_output=True, text=True, timeout=900,
+                       env=env, cwd=sdir)
+    assert r.returncode == 0, ("CHI_FLIP subprocess", r.stderr[-2000:])
+    assert "NMAX=2000: words=50008 (prime-n words 17503), failures=0, cells mod 8 seen=320" in r.stdout, \
+        ("CHI_FLIP R198 Thm 1.1", r.stdout)
+    print(f"== (fy) CHI_FLIP R198 Thm 1.1: chi = -eps_2(path form) on all 50008 words of odd n <= 2000, 0 failures; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fy()
+
 
 print("\nall checks passed")
