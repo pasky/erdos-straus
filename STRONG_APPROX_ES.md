@@ -300,3 +300,26 @@ primes these are not quasi-polynomial. But a *finite* set of shifts `(A_i, B_i)`
 slices (B2: POINTWISE_SIZE Thm C, fails i.o. under H), and Type II needs all g ≤ n. So an exact identity must
 involve an *unbounded* family of shifts, and its closed form would be a shifted-convolution identity. §9.1
 tests this numerically.
+
+**Corollary 9.3 (counting version; PROVED from the proof of 9.1).** Let `W ≥ 0` vanish at odd squares, and
+suppose an asymptotic `|W(n) − E(n)| ≤ B n^θ` holds for *all* large odd n (an n-uniform error, as every
+standard theorem provides), with E a finite Eisenstein combination. Then E does not certify `W(p) > 0`
+(i.e. `E(p) ≥ 2Bp^θ`) for any infinite set of primes `p ≡ 1 (mod L)`.
+*Proof.* With K, C_k as in 9.1: at `n = ℓ²`, ℓ ≡ 1 (L), `P(ℓ) ≤ Bℓ^{2θ}`. If K > θ then `C_K ≤ 0` (top monomial
+`x^{2K}`), and `C_K < 0` makes `E(p) < 0` eventually, while `C_K = 0` contradicts the choice of K. If K ≤ θ then
+`C_K ℓ^{2K} ≤ Bℓ^{2θ}(1+o(1))` gives `C_K ≤ B` when K = θ (and nothing to prove when K < θ, as then
+`E(p) = O(p^K) = o(p^θ)`); so `E(p) ≤ C_K p^θ + O(p^{θ−1}) < 2Bp^θ` for large p (when C_K ≤ 0, E(p) is
+`O(p^{K−1})` or negative). ∎
+*Reading.* A rank-4 representation count at fixed level, with its genus (Eisenstein) main term and an
+n-uniform power error, is T1-dead on the Mordell-hard classes, whatever map to certificates is used. The only
+ways out: an error bound that uses primality of n, or a main term that is *not* n-local in this sense (a
+genus character at the place p — LONGSHOT_FIBRED §5.3 — or shifted arguments).
+
+### 9.1 Numerical test of shifted closed forms (EVIDENCE; `scripts/sa_exact_fit.py`)
+Counts over the cubic `guv − u − v = n` (`⟺ (gu−1)(gv−1) = gn+1`, the divisor form of §3/§7): all certificates;
+Type II ones (g odd, `4 | gu−1`); weights 1 and `m = gu−1` (the rank-4 weight of §7); and `u > 1`. Basis
+(150 columns): `σ_k(n+s; χ, ψ)`, k ∈ {0,1}, s ∈ {0,1,2}, χ, ψ ∈ {1, χ₋₄, χ₋₃, χ₈}, plus `n^e·1[n ≡ r (24)]`,
+e ≤ 2 (quasi-polynomials). Least squares on odd n ≤ N/2, tested on N/2 < n ≤ N.
+N = 4000: no fit (test residual / mean: all 58.6/65.7; Type II 37.8/14.4; Type II weighted 1.0e4/1.36e4).
+Type II vanishes on every odd square (T1 control); the unrestricted count is ≥ 1 everywhere (trivial
+certificate g = 2, u = 1, v = n+1) and is not a closed form either.
