@@ -49,5 +49,6 @@ New precise dictionary (PROVED): ES five-slice ⟺ a sandpile/genus statement ab
 ternary lattices. It turns the HJ picture into lattice/graph language, where "random graph sandpile pairings"
 (CKLPW) supply the heuristic of DK §10.2. But the degenerate Selling type is a class-level condition. It reduces
 to Type II Heegner points (B2). Promise 1/5. Spark: ask whether other *degenerate Voronoi types* (other zero/one patterns
-of conorms) encode the remaining ES slices, and whether a Voronoi-cell "flip" (Selling reduction step) moves between
-types while preserving the genus. That would be a genuinely non-abelian move on certificates (H-D-like). Not checked.
+of conorms) encode the remaining ES slices. Selling flips do not help, since they change the superbase of a *fixed*
+lattice. Moves between classes of G⁻(p) are Kneser q-neighbours (Hecke operators), so "a neighbour walk from a
+known class reaches a linear class" is again a lottery on the ≍ p-vertex neighbour graph. Not checked.

@@ -20,9 +20,9 @@ the Klein group and the rotations with u = t. **BGS-type transitivity mod n ther
 **F3 (cyclic words = Zagier cycles; PROVED, classical reduction theory).** The cyclic word (v,t,u) is the minus-CF (Zagier)
 reduced cycle of the hyperbolic class [γ] of trace T, and its rotations have numerators T + t, T + u, T + v. So
 five-slice ES(n) ⟺ **some hyperbolic conjugacy class of SL₂(ℤ) with trace T = n − t has Zagier cycle of length exactly 3,
-containing t, with (tu−1 / n) = −1.** Length 3 is extreme for trace T: the class has discriminant T² − 4, and a
-typical class of that discriminant has a Zagier cycle of length ≍ T^{1/2+o(1)}. A length-3 cycle is a closed geodesic that makes
-only three cusp excursions.
+containing t, with (tu−1 / n) = −1.** Length 3 is extreme for trace T. The closed geodesic of [γ] has length
+2 log ε ≈ 2 log T, and a Zagier cycle of length 3 means it makes only three cusp excursions, so it spends almost all
+of that length high in the cusp. (I make no claim about the typical cycle length in the discriminant T² − 4.)
 
 ## Literature
 Goldman, *Trace coordinates on Fricke spaces* (Handbook of Teichmüller theory I, 2009; from memory). Bourgain–Gamburd–Sarnak,
