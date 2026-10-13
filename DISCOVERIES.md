@@ -771,6 +771,19 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * EVIDENCE: the cyclotomic solutions for 15 ≤ K ≤ 149 (with honestly reported skips) never cover x*.
    * Status (CONJECTURE 0.2): no explicit sterile point is proved for q = 3. For large q in characteristic 3 see (J)25 (O178).
 
+25. **Spark relay N: ES itself has no infinite fixed-modulus shot family — scoped no-go (FIXED_MODULUS_SHOTS.md + BRAINSTORM/bsN_divisor_box.md (O191); review `reviews/fixed-modulus-shots-review.md` (R191): no FATAL; one MAJOR (M1: Cor 3.2's "incomparable" is false — in fact Box ⊆ the ES^{(S)} coset always) and minors, repaired by the reviewer).**
+   * Lemma 1.1 / 4.1, the certificate cube (PROVED; brute-force bijection for all primes ≤ 3000 (II) and ≤ 1500 (I) by R191).
+     * Type II solutions of ES(p) correspond to triples (c, d, j) with h = 4cdj − 1 dividing pj + c. Equivalently h divides p + 4c²d, or 4dj²p + 1. Explicitly x = (p+e)/4, y = pcdj, z = pxj/c.
+     * Type I is analogous, with g = 4vwf − p dividing pv + f.
+     * The three coordinate lines of the cube are the "shot" families.
+   * Thms 3.1/4.2, the box criterion (PROVED): ES(p) ⟺ −p ∈ Box((h+1)/4) mod h for some h (Type II), or the Type I analogue, where Box(k) = {c/j : cj | k}. Box ⊆ the ES^{(S)} parity coset (R191), so the ES box is tiny compared with (J)23's coset.
+   * Thm 2.1, Cor 2.2–2.4 (PROVED). For a fixed-coefficient affine Type II shot αp + β, a divisor h certifies iff h ≡ −1 (mod 4M) with M ∈ 𝓜(α, β), apart from sporadic h < 4μ⁵. Every M ≥ √height/2. Any fixed Chebotarev firing set admits only finitely many shots. This completes (J)23 Prop 6.1.
+   * Cor 2.3 (PROVED): there are exactly three modulus-4 Type II shots, p + 1, p + 4 and 4p + 1. This refutes O188's "p + 4 is unique". They fail jointly at 942 primes < 10⁶ and at every odd square.
+   * **Prop 6.1 (PROVED).** Every certifying modulus of ES(p) is O(p²): Type II h ≤ (p+1)(p+5)/4 (attained at every p ≡ 3 mod 4), Type I g < 3p².
+     * So ES(p) is a FINITE search, whereas the ES^{(S)} sieve pushes r → ∞.
+     * Assessment: this is the cleanest form of why ES resists the (J)23 mechanism. Infinitely many shots are impossible for ES at fixed p. Any proof must find one certificate among O(p²)-bounded candidates (B2/B3).
+   * Thm 6.2 scope: p-dependent coefficients, polynomial shots of degree ≥ 2, Type I affine shots and multi-prime conditions are NOT covered.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

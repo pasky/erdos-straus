@@ -24534,5 +24534,34 @@ def check_fr():
 
 check_fr()
 
+def check_fs():
+    # (fs) FIXED_MODULUS_SHOTS (O191/R191): certificate cube bijection (Type II p < 1000, Type I p < 500), Prop 6.1
+    # bounds (certifying moduli O(p^2)), and the exactly-three modulus-4 shots p+1, p+4, 4p+1 (942 joint failures < 1e6;
+    # all odd squares fail all three — T1 control).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("FMS subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_fms_three.py", "1000000")
+    assert "78496; fails p+1 / p+4 / 4p+1: [10438, 9841, 18992]; joint 942" in o and \
+        "odd squares 9..: 499, all-three-fail 499" in o, ("FMS R191 three shots", o)
+    o = run("review_fms_cube.py", "1000", "500")
+    assert "mismatches 0" in o and "max h/((p+1)(p+5)/4) = 0.999996" in o and "max g/p^2 = 1.326531" in o and \
+        "naive solver agrees" in o, ("FMS R191 cube / Prop 6.1", o)
+    print(f"== (fs) FIXED_MODULUS_SHOTS R191: certificate cube = ES Type I/II (0 mismatches), certifying moduli "
+          f"h <= (p+1)(p+5)/4, g < 3p^2; modulus-4 shots p+1, p+4, 4p+1 jointly fail at 942 primes < 1e6 and at all "
+          f"odd squares; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fs()
+
 
 print("\nall checks passed")
