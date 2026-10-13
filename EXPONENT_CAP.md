@@ -69,8 +69,7 @@ of a square of primes dividing y**, ES^{(y,e)} caps the exponents of that invers
 *Proof.* 4Q₀k = h + 1 gives 4 ≡ (Q₀k)^{−1}, so h | n + 4Q² iff −n ≡ Q₀²Q₁²/(Q₀k) = Q₀Q₁²/k (mod h); and
 h | p + 4c²d with (c, d) = (Q₀Q₁², Q₁^{−2}) is h | p + 4Q². ∎ (Asserted on all 46 084 shots of `xc_rigidity.py`.)
 *Reading.* Covering by an exponent box at h needs |Box(K·Q₁²)| ≥ (h−1)/2, i.e. τ₃-size of K·Q₁² ≳ h, while
-Thm 2.1 below caps h ≤ 2nQ₁²(n + Q₁²): the overflow must inflate the box from h^{o(1)} to h, which forces
-log Q₁ ≳ (log h)^{2−o(1)}/… (Prop 3.1) — far above the archimedean minimum ¼ log(h/4n).
+Thm 2.1 below caps h ≤ 2nQ₁²(n + Q₁²): a covering argument needs the cap e ≥ (log h)^{1−o(1)} (Prop 3.1), whereas the archimedean wall (Cor 2.2) only asks e·log rad(Q₁) ≥ ¼ log(h/4n) − O(1).
 
 ## 2. Rigidity: every bounded cap is a finite search
 
@@ -161,3 +160,69 @@ of the primes ≤ c log r are not simultaneously close to 0 after multiplication
 y ≫ log⁴ r, and the best GRH generation bound (Bach: primes ≤ 2 log² r generate F_r^*) already needs a product of
 primes ≈ e^{2 log² r} ≫ r — which cannot divide (r+1)/4. The radical constraint rad(Q) | (r+1)/4 confines S to
 primes of total size ≤ r, i.e. to the range where no known (or GRH-conditional) character-sum input exists.
+
+## 4. The cap as a divisors-in-residue-classes problem (flip to fixed shot)
+
+**Proposition 4.1 (bounded multiplicity below overflow N^{1/4}; PROVED relative to the cited theorem).** For a shot
+Q (odd, prime to n), N := n + 4Q², the ES^{(y,e)} certificates with this Q are the divisors g ≡ −1 (mod q_e),
+q_e := 4Q^{(e)} ≥ 4Q/rad(Q)^e > 2√(N − n)/rad(Q)^e (Prop 1.2). If rad(Q)^e ≤ N^{1/4 − α}/C_n (α > 0), then q_e ≥ N^{1/4+α}
+and the number of such divisors is O(α^{−3/2}) (Coppersmith–Howgrave-Graham–Nagaraj, *Math. Comp.* 77 (2008),
+divisors in residue classes; Lenstra, *Math. Comp.* 42 (1984): ≤ 11 when q ≥ N^{1/3}; citation form not re-checked).
+*Reading (Assessment).* With overflow below N^{1/4}, each shot contributes O(1) certificates — the bounded-multiplicity
+hypothesis of B3 (CONDITIONAL_ES Prop 2.3) holds; the self-mute theorem lives at overflow ≫ N^{1/4} (Q = s^j with
+j ≫ log r, q_e = 4s), where a single N has unboundedly many admissible divisors and the problem is statistical.
+So in the shot coordinates the cap interpolates the modulus q_e from N^{1/2} (ES) to O(1) (ES^{(y)}), with the
+Lenstra–Coppersmith threshold N^{1/4} in between; nothing in this flip produces existence at a fixed n either
+(it is a statement about one integer N per shot, B6/B4-type).
+
+## 5. Numerics (EVIDENCE; every reported best solution verified with exact rationals)
+
+**5.1 Least overflow e, S = {3} (`scripts/xc_leaste.py 3 24 …`, `data/xc/leaste_s3_primes.txt.gz`; columns
+n, least e, its least j, g, κ = v₃((g+1)/4), least e over prime g, complete-up-to).** For every prime 5 ≤ p < 10⁶
+and j ≤ 24, all divisors g ≡ 3 (mod 4) of p + 4·9^j (GNU `factor`) are scanned; a shot is admissible if j = 0 or
+3 | (g+1)/4, with overflow e = max(0, j − κ). Completeness: by the proof of Thm 2.1, Q₀ ≤ Q₁²n/2 + Q₁²/2 + 1, so all
+shots with overflow ≤ t are seen when 3^{24−t} exceeds this bound — t = 4 for every p < 10⁶ (column 7); least e ≤ 4
+is exact, larger values are exact when ≤ column 7 and upper bounds otherwise (835 primes).
+* All 78 496 primes solved within j ≤ 24. Least-e histogram: 0: 73 910 (68 655 by p + 4 itself, 5 255 by Q = 3^j,
+  j ≥ 1, i.e. ES), 1: 1 539, 2: 1 118, 3: 708, 4: 365, 5: 263, 6: 210, 7: 118, 8: 91, 9: 76, 10: 33, 11: 29, 12: 15,
+  13: 11, 14: 4, 15: 3, 16: 2, 19: 1 (p = 598 537: j = 20, g = 473 027 prime, κ = 1). Prime g only: max 19.
+* The tail is geometric, P(e ≥ t+1 | e ≥ t) ≈ 0.65, and nearly p-independent (p ≡ 1 mod 4: P(e ≥ 1) = 0.149, 0.122,
+  0.113, 0.107 and P(e ≥ 6) = 0.019, 0.014, 0.016, 0.014 on [0, 10⁵), [10⁵, 3·10⁵), [3·10⁵, 6·10⁵), [6·10⁵, 10⁶)):
+  a lottery whose expected number of hits grows by a constant (≈ 0.4) per unit of cap — the "log log lottery" of a
+  fixed-S family (Σ_r |B_r(e)|/r over the rigidity range), much thinner than ES's own polylog lottery.
+* Least K: at the best solution with e ≥ 1, κ = 1, 2, 3, 4, 5, 6, 7, 8 for 2 542, 1 306, 495, 166, 50, 19, 6, 2 primes.
+  **Large K is never what helps**: the data use small κ and spend the overflow, as Prop 3.1 predicts (the box is
+  multiplicative in κ_i + 1, so κ buys only a divisor-function factor).
+* T1 control: all 332 odd squares m² < 10⁶ with 3 ∤ m, j ≤ 30: **no admissible shot at any e** (as proved, §1).
+
+**5.2 Coverage scale, k = 2 (`scripts/xc_cover.py 3 5 200000`, `data/xc/cover_3_5.txt`).** For the 1 126 primes
+r ≡ −1 (mod 60) below 2·10⁵, 1 121 have ⟨9, 25⟩ = (F_r^*)²; for 1 101 of them the least L with
+{9^a 25^b : 0 ≤ a, b ≤ L} = (F_r^*)² is ≤ 4√r + 10, with L/√r between 0.65 (the bound of Prop 3.1(c) is
+√((r−1)/2) − 1) and 3.99, median 0.955; the remaining 20 have L > 4√r + 10 (short multiplicative relations — the
+exceptional set of Thm 3.2's proof). So covering needs and typically achieves e ≍ r^{1/k}; Thm 3.2's proof guarantees
+r^{2/(k+1)+ε}.
+
+## 6. Verdict (O200 checkpoint 1)
+
+1. **Exact dictionary (Prop 1.3, Cor 1.4).** In the shot family r | n + 4Q², the overflow Q₁ = Q/gcd(Q, (r+1)/4) is
+   exactly √den(z), and (Q₁, k = (r+1)/(4Q₀)) satisfy Dr = 4k²n + Q₁², D ≡ −Q₁² (mod 4k). ES is the slice Q₁ = 1
+   (growing modulus 4k, fixed shot), ES^□ the slice k = 1 (fixed modulus 4, free shot); ES^{(y)} is the certificate cube
+   with d allowed to be Q₁^{−2}, rad(Q₁) | y; T1 is the mod-4 part of the congruence.
+2. **Archimedean wall (Thm 2.1, Cor 2.2; PROVED).** r ≤ 2nQ₁²(n + Q₁²), sharp in the Q₁⁴ term. Every bounded cap
+   e < ∞ (fixed S) is a finite search with polynomially bounded moduli, exactly like ES; any sieve producing r → ∞
+   certifies at best e·log rad(Q₁) ≥ ¼ log(r/4n) − O(1). The interpolation parameter does not reach ES continuously:
+   the sieve regime ends at e ≍ log r/log P, and below it there is nothing to sieve.
+3. **Coverage scale (Prop 3.1; PROVED).** The exponent box at r has ≤ τ((r+1)/4)(e+2)^{ω((r+1)/4)} elements; the KEY
+   OBSERVATION (large κ via r ≡ −1 mod s^K) only buys a divisor-function factor. Covering (F_r^*)² needs
+   e ≥ (log r)^{1−o(1)} (all small primes in (r+1)/4), or e ≥ r^{1/k}/2 with k fixed primes. (a)+(b) of the brief
+   are incompatible at e = 0 by the divisor bound, independently of the level of distribution.
+4. **Provable side (Thm 3.2; PROVED relative to the Thm 4.2 sieve).** ES^{(y)} with exponent cap y^δ, any δ > 0
+   (geometry of numbers on the relation lattice Λ_r + the Lemma 2.3 count of short relations).
+5. **Named open problem (Dictionary 3.3).** Coverage at e = polylog(r) ⇔ (up to constants) no nontrivial character
+   of (F_r^*)² is sup-angle-close to 1 on the primes dividing (r+1)/4 — a small-prime discrete-log
+   non-concentration statement on primes of total size ≤ r, a range where even GRH gives nothing. Even solving
+   it would prove ES^{(y, polylog)}, not ES (item 2).
+6. **Numerics (§5).** S = {3}: least overflow ≤ 4 for 99.0 % of primes < 10⁶, max ≤ 19, geometric tail, p-stable;
+   squares: never (T1). Large κ is never used.
+Not an opening for ES (Assessment): the exponent cap is B2/B3 seen from the self-mute side — at bounded cap the
+archimedean wall makes it a finite search; at sieve-able caps the box must be inflated from r^{o(1)} to r.
