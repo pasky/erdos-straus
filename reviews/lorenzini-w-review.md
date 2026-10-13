@@ -132,3 +132,20 @@ popcount k + 1 is, after stripping trailing zeros, of the stated shape with a_i 
 the A₃ value set there. The complement is {0,1,2,3,5,6,9,11,14,15,35,105}. ✓
 Minor: the phrase "positions of popcount k+1 … of size ≍ (log)^k up to height N" does not say whether "height" means the position or the value.
 Positions with N < X number ≍ (log X)^k. The value s(N) is not monotone in N, so this does not count anything about values (cosmetic).
+
+### §2 count landscape (EVIDENCE) — reproduced (spot checks)
+`scripts/review_lw_R.py` recounts R(n) from scratch (ordered triples, using a divisor enumeration with x ≤ z). It reproduces R = 4, 4, 3, 4, 5, 5, 6, 7, 5, 4, 9 at
+2079, 5580, 9090, 174², 186², 264², 570², 924², 1386², 2310², 4020², and R(30030²) = 37. For Lorenzini's family 2^{2k+1} − 2 (k = 1…8) it gives
+0, 1, 2, 0, 3, 7, 14, 25, as in the text. The record-low-per-block claim itself was not re-scanned.
+
+### §5 short blocks — EVIDENCE reproduced exactly; the heuristic constant is wrong (D5)
+`scripts/review_lw_xstar.c 10⁸` is a from-scratch sieve over (x, d ≡ −1 mod x, multiples), taking 9 s. It finds no n < 10⁸ outside E_W with x* > 16, and no E_W
+member has x* ≤ 16. The records are x* = 3, 4, 6, 12 at n = 17, 51, 126, 1379. On [10⁷, 10⁸) the tail counts for X = 2…10 are exactly
+5 096 879, 198 815, 17 577, 1 405, 169, 17, 8, 3, 1, and x*(64 858 079) = 11. (Its immediate neighbours have x* = 2. "and its neighbours" presumably means
+nearby n of the tail, which is a wording nit.)
+The "no deterministic block argument" paragraph is correct: d | n + x with n ≡ −1 (mod d) forces d | x − 1 < 2x − 1 ≤ d.
+**Heuristic.** δ_x = 1 − 1/r_x, where r_x is the least order of an *odd* character mod x (equivalently, the least 2^j such that −1 is not a 2^j-th power).
+The listed values for x ≤ 12 are right. But "δ_x = 1 − 2^{−v₂(φ(x))}" holds only for cyclic (Z/x)^×. For every x that has a prime factor
+p ≡ 3 (4), the Legendre symbol mod p is an odd quadratic character, so δ_x = 1/2. That is true for almost all x. `scripts/review_lw_delta.py` finds
+Σ_{x≤X} δ_x / X = 0.563, 0.557, 0.553 at X = 100, 1000, 3000, with 81–83 % of x having δ_x = ½. So **Σ_{x≤X} δ_x = (½ + o(1))X, not (1 + o(1))X**,
+and the naive model gives the constant 2 + o(1) in Conjecture 5.2, not 1 + o(1). The conjecture as stated with ≪ is unaffected. See D5.
