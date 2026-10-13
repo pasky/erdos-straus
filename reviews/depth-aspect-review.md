@@ -5,7 +5,23 @@ From-scratch scripts: `scripts/review_da_*.py`; outputs `data/review_da/`.
 
 ## Summary verdicts
 
-(filled in as the review proceeds)
+**No FATAL, no MAJOR; 14 MINOR.** All numerics were reproduced exactly by from-scratch code.
+
+| claim | verdict |
+|---|---|
+| §1.1 table of q-power moduli, parity kill | SOUND (m1 scope wording) |
+| §1.3 EVIDENCE: q = 3 misses 1233 primes ≤ 10⁶ (q = 7: 3518; q = 11: 259 ≤ 2·10⁴) | SOUND, reproduced exactly to 10⁶ with complete bounds (m2 wording) |
+| Lemma 1.3 (repaired scope) | SOUND (near-trivial) |
+| §1.2/1.4 Assessments | labels appropriate |
+| Lemma 2.1 (R1)–(R4) | SOUND |
+| **Lemma 2.2** (Case B ≤ C^s q^{2(s−3)/5}) | SOUND |
+| Lemma 2.3 (Case A identities) | SOUND |
+| Lemma 2.4 (Case A count) | SOUND-AFTER-REPAIRS (m4: z-count needs T ∣ z; m5 garbled sentence) |
+| **Theorem 2.5** (q = 3^r, r ≥ 27; odd q ≥ 1.3·10^16; ≥ 97 %) | SOUND relative to O173 Lemmas 1.1/2.1, R166 step (1) and ES2 §0.1 (Lemma 3.1 not needed, m7). The union bound was recomputed: < 1 for all r ≥ 27 (and r = 26) even with the cruder stated constants (m8, m9). Consistent with O179 Thm 3.2 (Haar-null in R̂^*, positive on a null slice). |
+| **Theorem 3.1** (sterile r-generic points for all large r) | SOUND relative to the cited inputs. The general-r transfer of MORDELL17 Lemmas 1.1, 2.1–2.3 and Cor 4.2 was re-derived, and brute-force checked for r ≤ 31 at levels ≤ 2. ET's O(1/log log n) is uniform for N-points. The BE input can and should be replaced by ET-only inputs for the effectivity claim (m11). |
+| §4 EVIDENCE (Case B/A counts, masses 1.74/0.088) | SOUND, reproduced (m6 convention) |
+| By-product #{cfg − c − f = n} ≪ n^{1/3+o(1)} | SOUND (m10 one line) |
+| Labels | appropriate throughout. Thm 2.5 inherits any R173 defect in O173 Lemmas 1.1/2.1. |
 
 ## §1 (ℤ, prime-power moduli)
 
