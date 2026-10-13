@@ -72,7 +72,7 @@ cite Burgess-type bounds; immaterial). |S| ≪ π(2r) ≪ (log p)²/log log p �
 which is false for a positive proportion of p by the usual least-non-residue statistics". (i) *False as stated:*
 heuristically and by the Chebotarev density of the independent characters, #{p : r(p) > y} / #{p} ≈ 2^{−π(y; 4, 3)},
 which → 0 when y = (log p)/2 → ∞; the exceptional set has density 0, not positive density. Numerics (part D):
-the fraction of p ≡ 1 (4) with r(p) > (log p)/2 is 0.50 near 10⁴–10⁶ (threshold between 3 and 7… i.e. "r(p) ≥ 7")
+the fraction of p ≡ 1 (4) with r(p) > (log p)/2 is 0.50 near 10⁴–10⁶ (there (log p)/2 ∈ (4.6, 6.9), so the event is "r(p) ≥ 7")
 and drops to 0.25 near 10⁸ (threshold 9.2, "r(p) ≥ 11"), exactly 2^{−#{3, 7}}. The correct statement is "for
 infinitely many p" (e.g. under GRH by a Linnik/CRT construction p ≡ square mod every r ≡ 3 (4) up to y with
 log p ≲ (1 + ε)y; unconditionally only with a smaller constant). (ii) *Mechanism-specific:* "would need r(p) ≤ log p/2"
