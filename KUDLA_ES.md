@@ -58,3 +58,30 @@ At n = m² no such prime exists — **T1 is the oddness of Diff(T) for the incoh
 squares the ES local conditions would make the collection {𝒞_ℓ} represent T everywhere, i.e. behave coherently,
 which a definite B_T cannot). Mathematically this is Hilbert reciprocity, i.e. the same content as ET Prop 1.6 /
 the Jacobi-symbol proofs (GROWING_IDENTITIES Lemma 1.3): a new *dictionary*, not new arithmetic.
+
+**Theorem 1.4 (Type II: the Heegner Gram matrix; PROVED, elementary).** Let n ≥ 3 be odd and (a, b, c, d) a Type II
+tuple, `4abd = n + e`, `a + b = ce`, `f = 4acd − 1`, `f' = 4bcd − 1`, so `ff' − 4c²dn = 1`, `f ≡ f' ≡ −1 (mod 4cd)`
+(O131 / (I)4). Put `T' := [[f, 1],[1, f']]` (positive definite, the Gram matrix of the Heegner form `[f, 2, f']` of
+discriminant −16c²dn). Its definite algebra is `B_{T'} ≅ (−f, −f(ff' − 1)) ≅ (−f, −f·dn)`, and
+`Diff(T', 𝒞) = Ram_fin(B_{T'}) = { ℓ | n : v_ℓ(n) odd, (−f/ℓ) = −1 }`, of odd cardinality.
+Hence (a) odd squares have no Type II tuples (T1 for Type II); (b) for n = p prime, `(−f/p) = −1` is **forced** (this is
+the Bright–Loughran/Yamamoto condition `(f/p) = −(−1/p)`, (I)7) and Diff(T') = {p}.
+*Proof.* `(−f, −f·X)_v = (−f, −1)_v(−f, X)_v`, `X = 4c²dn ≡ dn` mod squares. Odd ℓ ∤ f·dn: 1. Odd ℓ | f: `4c²dn = ff' − 1
+≡ −1 (mod ℓ)`, so `X ∈ −ℚ_ℓ^{×2}` and the product is `(−f, −1)_ℓ² = 1`. Odd ℓ | d, ℓ ∤ f: `−f ≡ 1 (mod ℓ)` is a square
+(f ≡ −1 mod d), so 1. Odd ℓ | n, ℓ ∤ d: `(−f/ℓ)^{v_ℓ(n)}` (if also ℓ | d the previous case gives 1 and then `(−f/ℓ) = 1`
+anyway). At 2: `−f ≡ 1 (mod 4)` gives `(−f, −1)_2 = 1` and `(−f, u)_2 = 1` for odd u; if 2 | dn then 2 | d (n odd), so
+`8 | 4cd` and `−f ≡ 1 (mod 8)`, giving `(−f, 2)_2 = 1`. At ∞: −1. Product formula. ∎
+*Check* (`scripts/kud_typeII_diff.py 20000`, 26 s): all 336357 Type II tuples (a ≤ b) of all odd n ≤ 20000: Ram_fin(B_{T'})
+= predicted set, 2 ∉ Ram, odd cardinality, 0 tuples at odd squares (1 odd non-square n ≤ 20000 has none).
+*Remark.* The ambient algebra `(−d, −n)` of QUATERNION_ES's Type II identity `(2ai + j)(2bi − j) = −e(1 + 2ck)` is the
+algebra of the pair (x, y) = (2ai + j, 2bi − j), whose Gram matrix is `e·T'`; it differs from B_{T'} (it agrees for only
+1460 of the first 3000 tuples in the check) — scaling a binary space changes its Hasse invariant. The T1-relevant Kudla
+index is T', not eT'.
+
+**Summary of §1 (the dictionary; answers brief item (1)).** Both certificate types are *Fourier indices of Kudla's
+incoherent genus-2 weight-3/2 Siegel Eisenstein series for the modular curve* (Type I: `T(d, ab)`, det(2T) = ne; Type
+II: `T' = [[f,1],[1,f']]`, det(2T') = 16c²dn), and the ES congruence conditions (`e | a + b`, resp. `f ≡ −1 (mod 4cd)`)
+are exactly what clears every place except the primes of n from Diff(T). Oddness of Diff (= incoherence) then forces a
+prime of n to odd exponent: **T1 ⟺ incoherence parity**. At n = p, Diff = {p}: certificates are supersingular points mod
+p of the special cycle Z(T), i.e. lie in the support of the T-th coefficient of E'(τ, 0, Φ_𝒞) (geometric reading via the
+cited Kudla/Gross–Keating/KRY identities).
