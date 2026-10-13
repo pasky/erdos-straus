@@ -819,6 +819,13 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * So "anchor + wild partner + mute places" holds at orders 2 and 3. It is elementary with infinitely many mute places and an Artin problem with finitely many; with none, ES is a finite search ((J)25), while the finiteness of TES is open (O194).
    * Ledger fixes: the (J)23 large-sieve citation, and the three meanings of "W" ((J)10/(J)14 signed count, (J)15/(J)20 Lorenzini property, (H)19/(H)22 W(p)).
 
+29. **Function-field landscape, final data (FUNCTIONFIELD_ES.md "Final data" (O161); EVIDENCE only, not separately reviewed; the PROVED scope of Thm 6.4 remains the R161-certified list of (J)4).**
+   * q = 2. All 14 A of degree ≤ 3 have no exceptions for n ≤ 11.
+     * Of the 16 degree-4 A, 12 trees completed. 7 of these have no exceptions; 5 fail at 1–2 irreducible P of degree 5. The other 4 trees timed out and have exceptions at n = 5–6.
+     * Every degree-5 A has exceptions, with the last failing degree 7–10.
+     * So exceptions appear at k = 4 and their last degree grows with k: the lottery threshold n₀ ≍ q^{k/2}, even where finite coverings exist.
+   * A = T, last failing degree (exhaustive). q = 8: n = 6, as predicted. q = 9: still 2 failures at n = 7, so the prediction 7 is exceeded. q = 11 and q = 13 are undetermined (extinction ≥ 7 and ≥ 6).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
