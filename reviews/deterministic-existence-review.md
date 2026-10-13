@@ -3,6 +3,21 @@
 Reviewer: R168. From-scratch scripts: `scripts/review_de_*.py`. ES is not solved anywhere; nothing here changes that.
 Every proof below was re-derived by hand; every finite claim was re-checked with independent code.
 
+**Overall.** No FATAL defect. All mathematics in Props 3.2–3.4, 5.1, 6.1–6.3, 7.1–7.2, Thm 7.3, Cor 7.4, Prop 8.1 is
+correct after small repairs. Two MAJOR issues are scope/quantifier overclaims, not errors in proofs: **D1** (Cor 5.2
+"with or without positivity" is false — C_{c,d,p} has non-positive integral points when χ_{−4d}(p) = +1) and **D7**
+("residue data force" converses are statements about abstract integers N via Dirichlet, not about primes p; the
+prime-level converse needs a prime-pair hypothesis). Labels otherwise appropriate; novelty is modest, as the author
+says. The conclusion "no route to ES; no case of ES claimed" stands.
+
+Scripts: `review_de_props.py` (slice identities Type I/II exact over ℚ; Prop 3.2 on 1491 triples; integral points on
+C_{c,d,p}; Prop 6.2 criterion for all odd e < 400; Prop 6.3 order-3 cases; Prop 3.4 on 6816 slices; Prop 8.1(ii)),
+`review_de_thm73.py` (M_E, log M_E/E, Thm 7.3 on 60 primes up to ~10¹⁶), `review_de_evidence.py` (§3.4, §4, §7 EVIDENCE).
+**Not checked:** the §7 Hall-test numbers (34.4 %, deficiency 0.44); the Bright–Loughran "(I)7" attribution in §3.3;
+internal cross-references beyond existence (TERNARY = POINTWISE_TERNARY Comp 6.1, LONGSHOT_PIGEONHOLE Thm 2.2 exist).
+**Repairs not applied:** the author's branch has no commits after the checkpoint-2 report, but nothing indicates the
+author has gone quiet, so no "(R168 repair)" edits were made; all repairs are one-sentence and listed below.
+
 ## Summary verdicts
 
 | claim | verdict | key defect |
