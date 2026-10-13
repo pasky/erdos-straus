@@ -42,3 +42,19 @@ The fixed points of reflections of ambiguous cycles are *ambiguous / symmetric f
 (sums of two squares) or `a | b` (factorisations of D; Gauss: `#ambiguous classes = 2^{μ−1}`).
 The ES question becomes: find D (built from p and a parameter) and a reflection whose fixed points on a
 forced-odd cycle are ES certificates. §2 onwards.
+
+## 2. A class-group formulation of a Type II slice (disc −4p)
+
+**Lemma 2.1 (PROVED, elementary; a repackaging of ET Type II with `(a,b) = (N/β', β')`).** Let p be an odd prime.
+If there are integers `b ≥ 1`, `e ≥ 1` with `e | p + 4b²` and `4b | p + e`, then ES(p): with `N = (p+e)/4`,
+`α = N/b`, `β = b` (so `e | α + β` because `e | N + b²`),
+`4/p = 1/N + 1/y + 1/z`, `y = pN(α+β)/(eα)`, `z = pN(α+β)/(eβ)`.
+*Proof.* `4/p − 1/N = e/(pN)` and `1/y + 1/z = e(α+β)/(pN(α+β)) = e/(pN)`; integrality: α, β | N and e | α+β. ∎
+
+**Corollary 2.2 (PROVED).** Put `k = (p+4b²)/e`. For `p ∤ b`, the condition `4b | p+e` is equivalent to
+`4b | k+1` (as `ke ≡ p (mod 4b)` and `gcd(e,4b) = 1`). Hence ES(p) holds as soon as some **positive definite form
+`[k, B, e]` of discriminant −4p has `B > 0`, `4 | B` and `B | k + 1`** (`B = 4b`). Equivalently: some odd `a` and
+some `β` with `β² ≡ −p (mod a)`, `2 | β`, `2β | a+1` (then `[a, 2β, (β²+p)/a]` is such a form).
+Call such forms **ES-forms**. For each primitive representation `a = Q(v)` the middle coefficient with `|B| ≤ a`
+is unique (up to `B = ±a`), so the ES-condition is a property of (class, represented value, root of −p mod a).
+At `p = m²` there are no ES-forms (they would give a Type II solution; ET Prop 1.6) — T1 is built in.
