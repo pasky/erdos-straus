@@ -55,3 +55,29 @@ factorisation and tame symbols at every place, Weil reciprocity asserted on ever
 Hypothesis "P a prime power" is **necessary** (confirms the author's Remark (3)): for P = Q₁Q₂ (q = 7, m = 3,
 n = 3, A = T, 60 such P, 5754 positional solutions) inv_{Q₁} α_ζ takes the values 0/1/2 on 2232/1761/1761
 points while inv_{Q₁} + inv_{Q₂} = 0 always (`scripts/review_dr_composite.py`).
+
+Reproduction table (`scripts/review_dr_bl.py`; I count *positional* triples (X₁, X₂, X₃), each ES_q solution of the
+author appearing 3 times — once per position of the minimal-degree denominator; author's counts × 3 in brackets):
+| q, m, A, n, P | #P | #positional sol. (author ×3) | Weil recip. failures | odd inv ≠ 0 (any place) |
+|---|---|---|---|---|
+| 7, 3, T, 3, irred. | 112 (21 unsolvable) | 2403 (801×3 ✓) | 0 | 0 |
+| 7, 3, T², 4 | 588 | 2016 (672×3 ✓) | 0 | 0 |
+| 7, 3, T²+1, 4 | 588 | 2649 (883×3 ✓) | 0 | 0 |
+| 7, 3, T(T+1), 4 | 588 | 2697 (899×3 ✓) | 0 | 0 |
+| 19, 9, T, 2 | 171 | 489 (163×3 ✓) | 0 | 0 |
+| 7, 3, T, 3, Q³ | 6 | 831 (277×3 ✓) | 0 | 0 |
+| 13, 3, T, 3, Q³ | 12 | 999 (new) | 0 | 0 |
+| 19, 9, T, 3, Q³ | 18 | 975 (new) | 0 | 0 |
+| 7, 6, T, 3 | 112 | 2403 | 0 | 2-part only: inv_∞ = inv_P ∈ {0, 3}; all other places 0 ✓ |
+(q = 13, n = 3 and q = 7, A = T, n = 4 rows: see addendum below once the runs finish.)
+The author's solution counts are reproduced exactly; every odd-order invariant is 0 at every place. EVIDENCE
+confirmed.
+
+### §2 Cor 2.3 (inv_P α_ζ = (−f/P)_m on Type II points) — SOUND
+Re-derived: X = abd, Y = acdP, Z = bcdP solves the equation (Y⁻¹ + Z⁻¹ = E/(abdP), P + E = Aabd); x = E/P,
+y = −a/b; deg E < n and P ∤ ab because deg abd = n − deg A < n; tame symbol y; −a/b ≡ −Aa²d/E ≡ −f using
+Aabd ≡ E and Ef = P + Aa²d (checked: Ef = Aad(a + b) − E = Aa²d + P). From scratch (check C, f computed as
+A·X₂/P − 1 directly from the solution, no datum reconstruction): q = 7, m = 6: 241 Type II points (= author's 241),
+inv_P = class of −f on all, values 0/3 on 60/181; q = 7, m = 2, A = T², n = 4: 192 points, values 0/1 on 96/96,
+0 mismatches. (With m odd the check is vacuous — both sides are 0 — so the even-m runs are the real test.)
+Remark (no defect): Cor 2.3 + Thm 2.2 give a second proof of Thm 1.3, as the author says; consistent.
