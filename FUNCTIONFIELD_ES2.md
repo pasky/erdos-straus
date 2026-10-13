@@ -174,7 +174,11 @@ small characteristics where O(q, A) = ∅ (§0).
 
 ## 3. (d) Degree parity for q ≡ 3 (mod 4)
 
-**Proposition 3.1 (PROVED).** No finite linear covering can distinguish degree parities: by Lemma 6.2 the
+**Proposition 3.1 (PROVED; R166 repair, D12: really a Remark that restates the definition of a linear covering).**
+(R166 repair, D3/D12: the argument needs the validity set V_F to be the same for all n at least n_F, not merely a function of P mod W (see the D3 note in §0.1). With that, a
+finite linear covering is a covering for every large n at once. The statement is restricted to fixed
+(n-independent) linear families and says nothing about n-dependent collections (Prop 1.1's setting).) No finite
+linear covering can distinguish degree parities: by Lemma 6.2 the
 validity of a linear family at P depends only on P mod W_F once n ≥ n_F. Hence "parity obstruction classes"
 (a class mod W covered for one parity of n and not the other) do not exist for linear coverings; O(q, A) is a
 subset of R̂^* with no degree data. The Jacobi sign of Prop 4.1 (FUNCTIONFIELD_ES) does depend on n, but it is
@@ -185,7 +189,8 @@ Independent brute-force check of Case A (`scripts/ff2_caseA_check.py`, all monic
 with the achievable leading coefficients): 0 Case A families at u = 1 + T and u = 1 + 2T; sanity: 6 hits at
 u = 2 + T (degree ≤ 3).
 Necessary condition from quadratic reciprocity (PROVED, q = 3): in Case B at x*, E(0) = E'(0) = −1 and
-T^{N+1+γ}L'g' ≡ −1 (mod E) give (deg E + 1)·deg D ≡ deg E (mod 2); hence deg D, deg E, deg E' are all even.
+T^{N+1+γ}L'g' ≡ −1 (mod E) give (deg E + 1)·deg D ≡ deg E (mod 2); hence deg D, deg E, deg E' are all even. (R166 repair: re-derived and SOUND. The argument uses only u(0) = 1 and
+E = -1 mod L', so it holds at every slice point x = 1 off T, not only at x*. It belongs logically to §0.2.)
 All further Jacobi-symbol relations I tried (e.g. ((1 + cT)/E) computed via reciprocity and via
 1 + cT ≡ T^{N+1}Z mod E) are automatically consistent, so quadratic symbols alone will not kill Case B.
 Control (EVIDENCE): two *generic* lifts in the same cylinders, u = 1 + T + T³ + 2T⁴ + ... (digits
