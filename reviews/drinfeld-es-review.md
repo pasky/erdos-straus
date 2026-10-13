@@ -29,3 +29,29 @@ Status: IN PROGRESS.
 * Rosen theorem numbering (Thm 3.5) not checkable here (book not in sources/); the reciprocity law used,
   (x/y)_k = ε_k^{deg x deg y}(y/x)_k for monic coprime x, y, is correct (Rosen Ch. 3, the d-th power reciprocity
   law) and is confirmed by the numerics above. Suggest "Rosen Ch. 3 (d-th power reciprocity law)" without number.
+
+### §2 Lemma 2.1 (Steinberg decomposition) — SOUND
+Re-derived: s = −u₁/u₃ = y·(u₁/u₂); (s, y) = (y, y) + (u₁/u₂, y), (y, y) = (y, −1); u₁/u₂ = (1 − y)^{−1}·x with
+1 − y = (u₂ + u₃)/u₃ and u₁(1/u₂ + 1/u₃) = λu₁ − 1 = x; Steinberg kills ((1 − y)^{−1}, y). Hypothesis
+u₂ + u₃ ≠ 0 is exactly x ≠ 0, automatic for monic u₂, u₃ in odd characteristic. From scratch
+(`scripts/review_dr_checks.py`, check S): the identity inv_v α = inv_v(y, −1) + inv_v(x, y) holds **at every place**
+on 2403 + 2403 + 2016 + 1750 points (q = 7; m = 3, 6, 2; A = T, T²; also the twisted c = (1,1,2) points). SOUND.
+
+### §2 Thm 2.2 (odd part of α_ζ vanishes on monic integral points) — SOUND-AFTER-REPAIRS (proof SOUND; headline overclaims)
+Proof re-derived step by step:
+* Relabelling: (−b/a, 1/a) = (a, b) + 2(a, −1) = (a, b) since (a, −1) is 2-torsion; with a = −u₁/u₃,
+  b = −u₂/u₃ this is the cyclic shift; transpositions give (b, a) = −(a, b). So α_ζ is S₃-invariant only up to
+  sign (BL Prop 2.6 / Thm 1.2 say "invariant under S₃", literally true only for ζ = −1); the author handles this
+  correctly — for 2-torsion/vanishing claims the sign is harmless.
+* (i) ℓ ≠ Q: v_ℓ(λ) = v_ℓ(A) ≥ 0. If v_ℓ(λu₁) ≥ 1, x ≡ −1 unit, tame symbol = (−1)^{v(y)}. Else all u_i are
+  ℓ-units (u₁ has maximal valuation 0) and ℓ ∤ A; v(x) = 0 ⇒ symbol 1; v(x) > 0 ⇒ (u₂ + u₃)/(u₂u₃) ≡ 0 ⇒ y ≡ 1 ⇒
+  symbol y^{−v(x)} ≡ 1. Correct.
+* (ii) ∞: λu₁ monic of positive degree ⇒ sgn x = 1, v_∞(x) < 0; sgn y = −1; symbol = ±1. Correct. (The tame
+  symbol at ∞ is computed with uniformiser 1/T; principal units contribute nothing since p ∤ m.)
+* (iii) Q: reciprocity (Σ_v inv_v = 0 for Br F_q(T), the function-field ABHN/Weil reciprocity). Correct.
+* For odd m, (y, −1)_ζ = 0 as −1 = (−1)^m, and an element of ½ℤ/ℤ ∩ (1/m)ℤ/ℤ is 0; Br F → ⊕_v Br F_v injective.
+Numerics (own enumeration of ALL monic NC solutions via (EY − N)(EZ − N) = N², own Cantor–Zassenhaus
+factorisation and tame symbols at every place, Weil reciprocity asserted on every point): see table below.
+Hypothesis "P a prime power" is **necessary** (confirms the author's Remark (3)): for P = Q₁Q₂ (q = 7, m = 3,
+n = 3, A = T, 60 such P, 5754 positional solutions) inv_{Q₁} α_ζ takes the values 0/1/2 on 2232/1761/1761
+points while inv_{Q₁} + inv_{Q₂} = 0 always (`scripts/review_dr_composite.py`).
