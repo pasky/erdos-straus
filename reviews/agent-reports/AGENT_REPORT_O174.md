@@ -6,7 +6,7 @@ Branch `side-agent/spark-hj-brainstorm`. Deliverables: 9 memos `BRAINSTORM/bsA_*
 ## SHARP:
 1. **SQ₅ = (W) ∧ (S), and (W) is a published open question.** (HJ_DEEP §3.) For n ≡ 1 (4), the interior five-slice condition splits
    into two parts.
-   * **(W)** says n = xyz − x − z for some x,y,z ≥ 2 (sign-free). This is *exactly* Lorenzini's question on the critical polynomial
+   * **(W)** says n = xyz − x − z for some x,y,z ≥ 2 (sign-free; n ≥ 2). This is *exactly* Lorenzini's question on the critical polynomial
      of the path graph A₃ (*The critical polynomial of a graph*, preprint 4 Dec 2022, Example 6.2(a); text checked by me): is the
      complement of the value set {0,1,2,3,5,6,9,11,14,15,35,105,510}? He says "we have not been able to answer this question" and
      gives partial results (Prop 6.3).
@@ -15,9 +15,9 @@ Branch `side-agent/spark-hj-brainstorm`. Deliverables: 9 memos `BRAINSTORM/bsA_*
    * **EVIDENCE to 10⁸** (`scripts/bsA_ws.c`, 54 s): (W)'s exceptions are exactly Lorenzini's list, and (S) has 0 violations. So
      interior SQ₅ holds for all non-square n ≡ 1 (4) < 10⁸ except 5 and 105 (DK had 10⁶). **DK's lone SQ₅ exception 105 is a
      (W)-exception**: it has no length-3 word at all, so the sign plays no role there.
-   * Lemma 3.2 (PROVED): no finite congruence covering proves (W), because the class n ≡ −1 (mod M) always escapes.
-2. **Master identity** (HJ_DEEP Lemma 1.1, PROVED): tuv − u − v = n ⟺ t/n = 1/(uv) + 1/(un) + 1/(vn). **All of Type II** = length-3
-   words of cp with middle ≡ 0 (mod 4c) (Prop 2.1), and the sign is automatic, (A/p) = −(−1/p) (Prop 2.2). This is the HJ form of (I)7.
+   * Lemma 3.2 (PROVED): no finite covering by fixed-pair congruence families proves (W), because the class n ≡ −1 (mod M) always escapes.
+2. **Master identity** (HJ_DEEP Lemma 1.1, PROVED): tuv − u − v = n ⟺ t/n = 1/(uv) + 1/(un) + 1/(vn). **All of Type II** = *formal* three-letter
+   words K(a, 4cd, b) = cp, with outer letters ≥ 1 and middle ≡ 0 (mod 4c) (Prop 2.1). Outer letter 1 is not a genuine HJ word., and the sign is automatic, (A/p) = −(−1/p) (Prop 2.2). This is the HJ form of (I)7.
 3. **ES sign = Wu-square** (bsA_wu_rokhlin_sign, Thm W; PROVED for HJ length r ≤ 5 by a finite mod-8 check relative to DK Cor 4.1;
    EVIDENCE for random lattices): (A/n) = +1 ⟺ w·w ≡ n + r − 1 (mod 8), with w the characteristic vector of the plumbing lattice.
    DK's five cells become the single congruence w·w ≡ p + 6 (mod 8). Rokhlin reading (conventions from memory): μ(L(n,A)) ≡ 1 − n (mod 8) iff +1.
@@ -52,6 +52,20 @@ No route to ES. The HJ picture reduces to **one shape** (Lorenzini's A₃ critic
 **one sign** (the Wu/Jacobi class). Each half alone is tame: (W) is T1-free with a finite exceptional list, and (S) is
 T1-sharp. Every mechanism I tried handles only one half. The best handle for the campaign: (W) is a published, T1-free, sign-free
 sub-problem with a clean exceptional set, on which H-A ideas can be tested without B5 interference.
+
+## Self-review (deep reviewer subagent, all findings repaired)
+Repairs made:
+* Prop 2.1 now concerns formal words (outer letters may be 1; counterexample 4/5 = 1/2 + 1/5 + 1/10), and "divided by d" was corrected.
+* Prop 4.1 now carries its hypotheses (n ≡ 1 (4) non-square, L₃(n) ≠ ∅; it was vacuous at 105).
+* The Lorenzini summary was corrected: Prop 6.3(a) also excludes m = 2, 4, and Remark 6.4 lists 0, 6, 510.
+* Pointwise "|L₃(p)| ≍ log²p" claims were downgraded to averages.
+* Fricke F3 now requires T ≥ 3 and reads "three-letter presentation", not primitive cycle.
+* The error term in Thm 3 was restored in the summaries.
+* The Greene/KSB scope was narrowed: they classify subsets of the QR side.
+* The Wu checker now tests residue 0/4 explicitly, and the M1 terminal block is spelled out and re-checked.
+
+The reviewer independently reproduced `bsA_ws.c` to 10⁸, `bsA_wu2.py`, `bsA_typeII_words.py`, M1 and Lemma 2, and it confirmed the
+proofs of Lemma 1.1, Prop 2.2, Lemma 2.3, Lemma 3.2, Thm 3 and M1.
 
 ## Checks run
 `bsA_hjlen.py check` (HJ via regular CF = direct, n < 400). Lemma 2 for n < 300. `bsA_selling.py 4`. `bsA_wu2.py` (24 692 words + 3 000
