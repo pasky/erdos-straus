@@ -23,7 +23,7 @@ scripts scripts/ff_frob_selfmute.py, scripts/ff_frob_overflow.py; data data/ff_f
    box has size q^{o(d)} and moving generators (Prop 2.3). This is "how mute must a place be": a fixed algebraic
    sub-structure of size ≥ √|(R/f)^*|·n.
 3. EVIDENCE: one mute place S = {3} solves all 78 496 primes < 10⁶ in ES^{(3)} (max shot 9^{18}) and in ES^{(y)}
-   (3 | y forced; max shot 9^{21}); 0/332 odd squares (T1 control). Overflow scale ES_q^{(s,e)} (z-denominator
+   (3 | y forced at every j, the stricter statistic; max shot 9^{21}; R196 m1: true ES^{(y)} has j = 0 for 68 655); 0/332 odd squares (T1 control). Overflow scale ES_q^{(s,e)} (z-denominator
    s^{2t}, t ≤ e): 0 unsolved irreducible P over 13 (q, A, n) rows (q = 3, 5, 7; n ≤ 8), max least e = 5, every
    full ES_q failure of data/ffl solved with e ≤ 5 (rerun after the R196 search fix: identical), and the needed e
    does not grow with n (q = 7: max 5, 4, 3, 2 at n = 2..5), while the only known proof (FF_MUTE Thm 3.5) uses overflow n^{2+o(1)}
@@ -32,7 +32,7 @@ scripts scripts/ff_frob_selfmute.py, scripts/ff_frob_overflow.py; data data/ff_f
 ## Answer to the question (scoped no-go; §1, §3, §6)
 * Literal form: Fire(p) is finite (O(p²) moduli), so no finite Galois extension (fixed or p-dependent) gives a
   sufficient Frobenius condition (Prop 1.2, trivial).
-* Range-restricted: Thm 1.3 (F_q[T], effective Chebotarev, unconditional): genus/degree·ramification ≥ q^{n−k/2}/c₀;
+* Range-restricted: Thm 1.3 (F_q[T], CONDITIONAL on the cited effective Chebotarev shape; R196 repair m5): genus/degree·ramification ≥ q^{n−k/2}/c₀;
   Thm 1.4 (ℤ, GRH): impossible with [L:ℚ], log d_L ≤ p^{1−ε}. Both are B2/B3 in Chebotarev language (Assessment).
 * Constructions F1–F5 (§3): Heegner/ideal dictionary (certificates = degree-1 primes 𝔣 | 1 + 2c√−dp with
   N𝔣 ≡ −1 mod 4cd, PROVED, exact), supersingular-torsion dictionary (every certificate prime is supersingular for

@@ -39,7 +39,7 @@ a nonempty union of conjugacy classes, such that every prime f unramified in L w
 Prop 6.1). For ES_q, every Type II modulus has degree ≤ 2n − k (FF_MUTE Prop 5.1).
 (b) Hence for every finite Galois L/K and nonempty C, infinitely many unramified primes f with Frob_f ∈ C do not
 fire. **No (L, C) is a sufficient Frobenius condition for ES(p) or ES_q(A, P)**, whatever L (fixed or depending on p).
-(c) In contrast, for ES_q^{(s)} the pair L = F(√(−PA)), C = {Frob restricted as in Lemma 3.2 of FF_MUTE}, joined with
+(c) (R196 repair m4: (c) is an Assessment, not part of the PROVED statement — it names no finite (L, C).) In contrast, for ES_q^{(s)} the pair L = F(√(−PA)), C = {Frob restricted as in Lemma 3.2 of FF_MUTE}, joined with
 the Dirichlet condition mod A, is sufficient *on the primes f at which s is a primitive root* — a condition on Frob_f
 in the infinite Kummer tower F(μ_∞, s^{1/∞}) (it is not a finite-level condition, but Thm 3.5 of FF_MUTE handles it
 by Weil sums at one prime degree d).
@@ -69,7 +69,10 @@ moduli of degree d ≈ 2 log_q n. (Caveat on scope: Thm 1.3 asks the condition t
 2n − k; a condition sufficient only at degrees ≤ 2n − k is not excluded by Thm 1.3 — see Thm 1.4 for that range.)
 
 **Theorem 1.4 (range-restricted no-go over ℤ; CONDITIONAL on GRH for Dedekind zeta functions).** Let p be a large
-prime and X ≥ 3p². Suppose (L, C) is such that every prime h ≤ X unramified in L with Frob_h ∈ C fires (Type I or II).
+prime and X ≥ 3p². Suppose (L, C) is such that every prime h ≤ X unramified in L with Frob_h ∈ C fires (Type I or II;
+(p, g) fires Type I iff g = 4vwf − p with g | pv + f, p ∤ uvwf, FIXED_MODULUS_SHOTS Lemma 4.1 — R196 repair m6: Def 1.1
+defines only Type II firing; note that for X ≥ 3p² the window (X/2, X] used below contains no Type II modulus, so only
+Type I moduli are counted there).
 Then, with G = Gal(L/ℚ) and an absolute c₁, **either** log d_L + |G| log X ≥ X^{1/2}/(6c₁ log X) **or**
 |G|·(p^{1+o(1)} + 2 log d_L) ≥ X/(6 log X). In particular the condition cannot hold with [L:ℚ] ≤ p^{1−ε} and
 log d_L ≤ p^{1−ε} (p ≫_ε 1).
@@ -115,11 +118,12 @@ existence of α only if `|S| > (‖ŝ‖₁ − ŝ(1))(n + b − 1)q^{d/2}`; the
 holds for every S with ‖ŝ‖₁ ≥ 2ŝ(1) (i.e. every S with |S| ≤ |G_d|/2, as ‖ŝ‖₁ ≥ 1 ≥ 2|S|/|G_d|).
 *Proof.* As in Thm 2.1, term by term. ∎
 Examples: S = coset of a subgroup of index m: ‖ŝ‖₁ = 1, threshold m < q^{d/2}/(n + b) (Thm 2.1). S = {s^{2j} :
-0 ≤ j < J} with s ∈ G_d a FIXED primitive root (an exponent interval): ‖ŝ‖₁ ≪ log q^d, so J ≫ d·(n + b)q^{d/2}
-suffices (an upper bound for ‖ŝ‖₁ gives a sufficient condition only). NB: in the mute variants the base is s(α),
+0 ≤ j < J} with s ∈ G_d a FIXED primitive root (an exponent interval): ‖ŝ‖₁ ≪ log q^d, so J ≫ d·log q·(n + b)q^{d/2}
+suffices (R196 m7: log q made explicit) (an upper bound for ‖ŝ‖₁ gives a sufficient condition only). NB: in the mute variants the base is s(α),
 which varies with α, so Prop 2.2 does NOT apply to {s(α)^{2j} : j < J} (R196 #3).
-S = a box {∏ g_i^{e_i} : |e_i| ≤ κ_i} in exponent coordinates (a generalised arithmetic progression of the
-discrete logs, fixed g_i ∈ G_d): ‖ŝ‖₁ ≪ ∏(1 + log(2κ_i + 1)), sufficient |S| ≫ (n + b)q^{d/2}·∏ log.
+S = a PROPER box {∏ g_i^{e_i} : |e_i| ≤ κ_i} in exponent coordinates (a generalised arithmetic progression of the
+discrete logs, fixed g_i ∈ G_d, injective on the box): ‖ŝ‖₁ ≪ ∏(1 + log(2κ_i + 1)) (R196 repair m7: asserted, not
+proved here; heuristic/Assessment, supported numerically for rank 2 by scripts/review_frob_weil.py), sufficient |S| ≫ (n + b)q^{d/2}·∏ log.
 **So, for this method, structure only buys a small Fourier norm and the binding constraint is size: certifying
 firing at modulus degree d through a FIXED set S (independent of α) needs |S| ≳ n·q^{d/2} (square root of |G_d|).**
 (Scope: a statement about the character-expansion + Weil method, not about every conceivable Frobenius argument.)
@@ -164,18 +168,20 @@ condition; here β = 2c√−dp ranges over a box (c | (f + 1)/4d), i.e. −1/(2
 Same box, new coordinates. Violates nothing.
 
 (F2) *Supersingular torsion ("divisors of f + 1" as torsion).* For a certificate (c, d) with prime f: (−d/f) = −1
-(FIXED_MODULUS_SHOTS Rem 2.5 with n = d), so f is inert in ℚ(√−d) and **every elliptic curve over ℚ with CM by an
+(FIXED_MODULUS_SHOTS Rem 2.5 with n = d), so f is inert in ℚ(√−d) and **every elliptic curve with CM by an
 order of ℚ(√−d) and GOOD reduction at f (f ≥ 5; R196 #7) is supersingular at f, with #E(F_f) = f + 1 and 4cd | #E(F_f)** (PROVED,
-standard: inert ⇒ a_f = 0). Over F_q[T] the same holds for rank-2 Drinfeld modules with CM by an imaginary
-quadratic F(√D) at inert f (characteristic polynomial X² + u·f, u ∈ F_q^*, Euler characteristic ∝ f + u). So
+standard: inert ⇒ a_f = 0; R196 repair m8: "over ℚ" is vacuous unless the CM order has class number one — read E over a
+number field, at a prime above f, with #E(F_f) = f + 1 when the reduction is defined over F_f). Over F_q[T] the same holds for rank-2 Drinfeld modules with CM by an imaginary
+quadratic F(√D) at inert f (characteristic polynomial X² + u·f, u ∈ F_q^*, Euler characteristic ∝ 1 + u·f ∝ f + u^{−1}; R196 m8: unreferenced, Assessment). So
 "divisors of f + 1" are the orders of F_f-rational torsion subgroups of a supersingular reduction, and "4cd | f + 1"
 is a Frobenius condition in ℚ(E[4cd]) — but it is equivalent to the cyclotomic condition f ≡ −1 (4cd) at these f,
 with the SAME moving level 4cd. The obstruction of §2 is the moving level / small box, not abelianness: a non-abelian
 torsion field of growing level is as useless as a cyclotomic one of growing level. (H-D hatch: no gain here.)
 
 (F3) *Thue/Minkowski with an auxiliary prime (Ankeny-type template).* For a fixed prime h, Type II through h ⟺ the
-lattice Λ_h = {(c, j) ∈ ℤ² : c + pj ≡ 0 (h)} (covolume h) has a point with cj | (h + 1)/4 (FIXED_MODULUS_SHOTS
-Lemma 1.1). Thue's lemma gives (c, j) ∈ Λ_h with 0 < |c|, |j| < √h — exactly the right size (cj < h) — but the
+lattice Λ_h = {(c, j) ∈ ℤ² : c + pj ≡ 0 (h)} (covolume h) has a point with c, j > 0 and cj | (h + 1)/4 (FIXED_MODULUS_SHOTS
+Lemma 1.1). Thue's lemma gives (c, j) ∈ Λ_h with 0 < |c|, |j| < √h — exactly the right size (cj < h), though not the
+sign (R196 repair m9: a mixed-sign point is useless) — but the
 remaining condition is exact divisibility cj | (h + 1)/4; Λ_h typically has ≍ log h points under the hyperbola cj ≤ h/4 (not uniformly: p ≡ −1 mod h gives ≍ √h diagonal points; R196 #7) and
 τ₃((h+1)/4) admissible pairs, so a hit has "probability" h^{−1+o(1)} per h (the lottery, B3). Choosing h with very
 smooth (h + 1)/4 keeps τ₃ ≤ h^{O(1/log log h)}. The deterministic step (Minkowski) produces size, not divisibility.
@@ -184,7 +190,9 @@ smooth (h + 1)/4 keeps τ₃ ≤ h^{O(1/log log h)}. The deterministic step (Min
 the exponent cap |e_ℓ| ≤ v_ℓ(k) (FIXED_MODULUS_SHOTS Cor 3.2). Dropping the cap but keeping the *moving* generators
 gives the self-referential variant ES^{(y)} of §4: the mute places are the primes of y (part of the solution, as in
 B2), and yet it is a theorem. **Outcome: B2's "the modulus is part of the solution" is not by itself the
-obstruction; the exponent cap is.** (§4, PROVED relative to UNIT_ORBIT Thm 2.4's sieve.)
+obstruction; the exponent cap is.** (§4: the theorem is PROVED relative to UNIT_ORBIT Thm 2.4's sieve; the "Outcome"
+reading is Assessment — R196 repair m2: in the proof the mute places do not move, S is a fixed set of four primes and
+"s_i | y" is enforced by the fixed congruence r ≡ −1 (mod s_i).)
 
 (F5) *Exponent intervals.* Keep one fixed mute place s and cap the s-exponent overflow at e (ES^{(s,e)}, §5).
 Firing set at f: the ES box times {s^{2i} : i ≤ σ + e}. The only known proof (FF_MUTE Thm 3.5) uses the full coset −A⟨s(α)²⟩,
@@ -192,7 +200,7 @@ i.e. shot height j < 2q^d + O(n), overflow e of size n^{2+o(1)} (PNT) at d ≈ 2
 Prop 2.2 does not apply to exponent intervals with the varying base s(α) (R196 #3), so whether a smaller overflow is
 provable is OPEN. Numerically e ≤ 5 suffices (§5.2): the known provable overflow is ≫ the observed one.
 
-## 4. The self-mute variant ES^{(y)}: moving mute places are harmless, the exponent cap is the obstruction
+## 4. The self-mute variant ES^{(y)}: solution-dependent mute places are harmless, the exponent cap is the obstruction (title: Assessment, R196 m2)
 
 **Definition 4.1.** For odd n > 1, ES^{(y)}(n): 4/n = 1/x + 1/y + 1/z with x, y ∈ ℤ_{>0}, z ∈ ℚ_{>0}, and every prime ℓ
 with v_ℓ(z) < 0 satisfies **ℓ | y**, ℓ ∤ 2n, and v_ℓ(z) even. (ES ⇒ ES^{(y)}; the allowed denominators depend on the
@@ -220,6 +228,8 @@ Prop 2.1 (r | n + 4Q², Q ∈ ⟨S⟩) the solution satisfies ES^{(y)} iff **rad
 (independent of the exponents of Q), and with it the firing condition "−n/4 ∈ ⟨S⟩² mod r" is a Kummer–Chebotarev
 condition; Q | (r + 1)/4 is a Dirichlet condition of modulus 4Q, which moves with the exponents. **The exponent cap
 v_s(Q) ≤ v_s((r + 1)/4) is exactly the B2 obstruction; the solution-dependence of the allowed primes is not.**
+(R196 repair m2: the two equivalences are what is PROVED; the "In Frobenius terms" reading and the bold sentence are
+Assessment. The exponent cap Q | (r + 1)/4 is the same condition as (J)25's growing modulus 4Q.)
 *Proof.* v_s(z) = 2σ − 2c for σ := v_s(r + 1) < 2c (c = v_s(Q)) and ≥ 0 otherwise (UNIT_ORBIT Prop 2.1). So
 z ∈ ℤ_{(s)} iff σ ≥ c; and v_s(z) < 0 is allowed in ES^{(y)} iff s | y = n(r + 1)/4, i.e. iff s | (r + 1)/4. ∎
 
@@ -230,8 +240,11 @@ but a ≢ 0, 1 mod s), and ask for primes r ≡ a (M) such that s is not an ℓ-
 ℓ | r − 1. Under GRH the set of such r has density
 `δ = (|D|/φ(M))·∏_{ℓ odd, ℓ ∤ M}(1 − 1/(ℓ(ℓ − 1))) > 0;`
 for every such r, ⟨s⟩ ⊇ (F_r^*)² (r ≡ 3 (4)), so as in Thm 4.2 r | n + 4·s^{2j} for some j, giving ES^{(s)}(n), resp.
-(with r ≡ −1 mod s) ES^{(y)}(n), with Type II shape.
-*Proof sketch.* Hooley's GRH argument in Lenstra's form (H. W. Lenstra, *Invent. Math.* 42 (1977) 201–224: density of
+(with r ≡ −1 mod s) ES^{(y)}(n), with Type II shape. (R196 repair m3: together with n ≡ 3 (4) (Q = 1) and the
+scaling of Thm 4.2(c) this gives ES^{(s)}(n) and ES^{(y)}(n) for every odd n > 1 with s ∤ n, under GRH. The set is
+Lenstra's M(ℚ, ℚ(ζ_M), D, ⟨s⟩, d = 2): r ≡ 3 (4) makes "no odd ℓ | r − 1 with s an ℓ-th power" equivalent to
+[F_r^* : ⟨s⟩] | 2. Density formula checked numerically by R196, scripts/review_frob_density.py.)
+*Proof sketch.* Hooley's GRH argument in Lenstra's form (H. W. Lenstra, *Invent. Math.* 42 (1977) 202–224 (pages per Moree's survey; R196): density of
 primes with prescribed Frobenius in a finite Galois field and prescribed Kummer behaviour of a fixed element) gives
 δ = Σ_{m odd squarefree} μ(m)·c_m/[ℚ(ζ_M, ζ_m, s^{1/m}) : ℚ], where c_m counts σ restricting to a ∈ D on ℚ(ζ_M) and
 to the identity on ℚ(ζ_m, s^{1/m}). For odd m the maximal abelian subfield of ℚ(ζ_m, s^{1/m}) is ℚ(ζ_m) (s prime,
@@ -248,7 +261,10 @@ For each n, least j ≥ 0 such that n + 4·9^j has a prime factor r ≡ 3 (4) [E
 also 3 | (r + 1)/4 | y [ES^{(y)}]; the UNIT_ORBIT Prop 2.1 solution is checked with exact rationals (equation,
 positivity, z-denominator a power 3^{2t}, 3 | y for ES^{(y)}).
 * All 78 496 primes 5 ≤ p < 10⁶, p ≠ 3: **0 unsolved** in both variants. ES^{(3)}: least j = 0 for 68 655 (ES's own
-  Mordell shot p + 4), max least j = 18. ES^{(y)}: least j = 0 for 34 972, max least j = 21.
+  Mordell shot p + 4), max least j = 18. ES^{(y)} *with 3 | y forced at every j* (the stricter rule r ≡ 11 (12) also
+  at j = 0): least j = 0 for 34 972, max least j = 21. (R196 repair m1: under Def 4.1 itself a j = 0 shot is an ES
+  solution for any r ≡ 3 (4), so the true ES^{(y)} least-j histogram is {0: 68 655, 1: 3053, 2: 2271, …, 21: 1},
+  max still 21; data/review_frob/selfmute_1e6.txt.)
 * T1 control: all 332 odd squares m² < 10⁶ with 3 ∤ m: **0 solved** in both variants up to j = 40 (as proved:
   m² + 4·9^j is a sum of two coprime squares).
 So one mute place suffices in practice (Thm 4.4 proves it under GRH), and forcing the mute place into y costs only a
@@ -273,8 +289,9 @@ upper bounds for the least overflow.) **0 unsolved P in every row; every full ES
 e = 0-unsolved set (consistency) and is solved with overflow e ≤ 5.** The maximal least overflow decreases with n
 (q = 7: 5, 4, 3, 2), the lottery effect: mean N_II ≍ n³/q^k (FUNCTIONFIELD_ES §7). Squares are not a T1 control
 here (FF ES_q has no square-class obstruction, FUNCTIONFIELD_ES §4; a run on the 8 squares M², deg M = 3, q = 3,
-A = T found all solved at e = 0). Contrast with Prop 2.2: the Weil-provable overflow is an exponent interval of
-length ≳ d·n·q^{d/2}, i.e. e ≈ n² at d ≈ 2 log_q n.
+A = T found all solved at e = 0). Contrast: the only known proof (FF_MUTE Thm 3.5) uses overflow n^{2+o(1)}; whether a
+smaller overflow is provable is open — Prop 2.2 does not apply to the varying base s(α) (R196 repair m10: the earlier
+sentence "Weil-provable overflow … e ≈ n²" restated the withdrawn threshold).
 
 ## 6. Verdict (O196 checkpoint 1)
 
@@ -301,7 +318,8 @@ reason is size, not abelianness:
    ES = ES^{(y)} + the exponent cap Q | (r + 1)/4 (Cor 4.3). So B2's "the modulus is part of the solution" is
    harmless as long as only the radical is constrained; the obstruction is the exponent cap, which confines the
    available s-exponents to ≤ log_s r, against the order of ⟨s mod r⟩, which is ≍ r for the r used by the
-   Kummer–Chebotarev firing.** (Assessment: this sharpens (J)25/(J)28's "growing modulus" into "growing exponent".)
+   Kummer–Chebotarev firing.** (Assessment: this rephrases (J)25/(J)28's "growing modulus" 4Q as "growing exponent";
+   R196 repair m2: a rephrasing, not a sharpening — the condition Q | (r + 1)/4 is literally the modulus-4Q condition.)
 6. (Task (3), §5.2.) Along the overflow scale ES_q^{(s,e)} the only known proof needs overflow e = n^{2+o(1)}
    (the full coset, FF_MUTE Thm 3.5 Rem 3; a smaller provable e is open — Prop 2.2 does not cover a varying base),
    while numerically e ≤ 5 suffices and the needed e does not grow with n (lottery with more tickets).
