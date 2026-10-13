@@ -51,3 +51,31 @@ solution.
 - **q-indexed (Euclid-type) menus on X(p):** Lemma 4.1 needs finitely many pieces. A uniform infinite menu whose
   non-symmetry pieces foliate the space (piece q acts only on its own leaf {P∘g_q = P}) is the one shape that escapes,
   and it has not been searched.
+
+---
+# Checkpoint 2 (sparks A–D)
+
+**ES is not solved. No candidate mechanism was found, so there is nothing to triple-check.** New sections: WINDMILL_REDUCTION §6–§9.
+
+- **(B) Parity, §6 (EVIDENCE, negative).** `|E(p)|` (X-slice certificates) is odd for 211 and even for 174 of the 385 primes
+  p ≡ 1 (24) below 30000. Its parity is not determined by p mod 16, 5 or 7, by h(−4p) mod 16, by the two-squares
+  coordinates, or by the quartic character of 2. Among 283 congruence-defined sub-counts (≤ 2 literals) **none is constantly
+  odd**. The constantly even ones all come from the swap on the locus `4|A, 4|B`. So a Zolotarev-type identity would have to
+  weight elements by size/lift data. I did not find such a weight.
+- **(A) Transport, §7 (PROVED algebra plus EVIDENCE).** Atkin–Lehner reflections σ_k of rivers have as fixed points exactly
+  `Δ = b² + 4ka²`, i.e. CM points of `x² + 4ky²`. Type I's `p² + 4dc²` *is* such a fixed edge. Its ES content is a second,
+  ambiguous fixed point, and §4 found that point not enriched for ES. The diagonal Type II transport `p = k² − 4gb²`,
+  `k ≡ −1 (4gb)` (p a face of the disc-16g principal river, g growing) misses 2093 of 2212 primes below 2·10⁵. As T1 control,
+  no odd square below 2·10⁵ has a coprime diagonal certificate. Assessment: reflections supply the CM half of a certificate,
+  never the residue-class divisor half.
+- **(C) §8 (PROVED algebra).** T²−4 rivers give no free joint factorisation. The factorisation actually used is `T+2 = tτ`
+  together with `uv = (p+τ)/t`, not `(T−2)(T+2)`.
+- **(D) §9 (reformulation only).** Windmills on X-certificates are self-maps of the box modular hyperbola. Infinite menus are
+  𝔽_p-automorphisms chosen by lift region. Their fixed points are square roots mod p, so certificates would need
+  `A² ≡ c` with small t. Not searched.
+
+**Updated sparks:** (1) a Gauss-lemma weight `w(A) = [lift condition]` on H_p whose sum mod 2 equals `|E(p)| + 1`.
+Search over weights built from ⌊AĀ/p⌋ and ⌊kA/p⌋ (Dedekind-sum-like quantities have known reciprocity laws mod 2).
+(2) Reflections whose fixed-point equation is bilinear, for example on pairs of forms (Bhargava cubes, where three forms of
+the same discriminant compose to 1). A cube-level involution could give "CM point + divisor" in one fixed-point equation.
+This is the most promising untested idea.
