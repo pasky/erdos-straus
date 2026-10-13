@@ -112,3 +112,44 @@ Dirichlet δ ≤ Σ_{M∈𝓜} 1/φ(4M) ≤ (1 + 2τ(H))·max_{M ≥ √H/2} 1/�
 divisor h**. At p = m² this is impossible — the cube is T1-tight, and so is every shot of §2 (B5).
 In this language the three modulus-4 shots are T1-tight because m² + 1, m² + 4, 4m² + 1 are sums of two squares.
 
+**EVIDENCE (`scripts/fms_three.py 1000000`).** Among the 78 496 primes 5 ≤ p < 10⁶ the shots p + 1, p + 4, 4p + 1
+fail at 10 438, 9 841, 18 992 primes; all three fail jointly at 942 primes (first: 193, 673, 2377, 2473, 2521,
+…); every fired shot gives an exactly verified ES solution through Thm 2.1(a) + Lemma 1.1. T1 control: all 499 odd
+squares < 10⁶ fail all three (as Remark 2.5 proves). So the three lines together are a finite set of shots that do
+not cover the primes (as expected: each fails with probability ≍ (log p)^{−1/2}).
+
+## 3. Per-modulus coverage: the ES "orbit" is a divisor box (PROVED) — the exact ES/ES^{(S)} dictionary
+
+The O186 mechanism (reviewed form): a Gupta–Murty sieve produces a prime r ≡ 3 (mod 4) with (n/r) = −1 and
+[F_r^* : ⟨S⟩] ≤ 2; then −n/4 ≡ Q² for some Q ∈ ⟨S⟩ (a discrete-log condition), and r | n + 4Q² certifies. The
+analogous object in ES is the set of residues of p that a FIXED modulus h can certify.
+
+**Theorem 3.1 (exact coverage).** Let h ≡ 3 (mod 4), k = (h + 1)/4, and p coprime to h. Then p has a cube point
+with divisor h iff
+`−p ≡ c·j^{−1} (mod h) for some c, j ≥ 1 with cj | k,`
+i.e. p mod h ∈ A_h := −Box(k), Box(k) := {c/j : cj | k} ⊂ (ℤ/h)^*. |A_h| ≤ τ₃(k) = #{(c, j, t) : cjt = k} =
+h^{O(1/log log h)}, and A_h lies in the Jacobi-symbol −1 class (Remark 2.5).
+*Proof.* Lemma 1.1 (with t = d) and h | pj + c ⟺ −p ≡ c/j (j is a unit mod h since j | k). ∎
+
+**Corollary 3.2 (ES = ES^{(S)} with bounded discrete logs; PROVED).** Let S be a finite set of odd primes and r a
+prime with k = (r + 1)/4 an S-unit, k = ∏_{q∈S} q^{κ_q}. Write residues of ⟨S⟩ mod r as ∏ q^{e_q}. Then
+* ES (prime certificate h = r): p is certified iff −p ≡ ∏_{q∈S} q^{e_q} (mod r) with **|e_q| ≤ κ_q** for all q;
+* ES^{(S)} (O186 Prop 2.1 with g = r): p is certified iff −p ≡ 4Q² = ∏ q^{e_q} (mod r) with **e_q ≡ κ_q (mod 2)**,
+  no bound (4 ≡ k^{−1} = ∏ q^{−κ_q} mod r, and 4Q² ≡ ∏ q^{2s_q − κ_q});
+* the intersection (e_q ≡ κ_q mod 2 and |e_q| ≤ κ_q, i.e. 0 ≤ s_q ≤ κ_q, i.e. Q | k) is exactly O186 Prop 6.1's
+  condition r ≡ −1 (mod 4Q).
+*Proof.* First bullet: c/j has exponent vector e = v(c) − v(j) with c j | k; conversely for |e_q| ≤ κ_q take
+c = ∏ q^{max(e_q,0)}, j = ∏ q^{max(−e_q,0)} (cj | k). Second: O186 Prop 2.1. Third: arithmetic. ∎
+So at the same prime r, ES^{(S)} sees the whole coset ∏q^{κ_q}·⟨S⟩² (size ≍ r when ⟨S⟩ is large mod r), while ES
+sees a box of ∏(2κ_q + 1) ≤ (2 log r + 1)^{|S|} elements: **the ES certificate is the ES^{(S)} discrete-log condition
+with every exponent bounded by the valuation of (r + 1)/4.** For general r the box Box(k) is the "orbit" of the
+divisors of k — never a group, size ≤ τ₃(k).
+
+**Assessment 3.3 (consequence for Artin-type sieves).** A Gupta–Murty/Heath-Brown argument certifies a fixed p by
+finding ONE prime r in a fixed Chebotarev set such that p mod r lies in a structured set of r-density ≫ 1 (a coset of
+a subgroup of bounded index). In ES the set at r is A_r, of r-density ≤ τ₃(k)/r = r^{−1+o(1)} (Thm 3.1), and it is
+never a coset of a large subgroup (it is a bounded box). The expected number of certifying primes r ≤ R for a given
+p is Σ_r |A_r|/r ≍ (log R)³ — the polylog lottery (B3) — and restricted to r with S-smooth (r + 1)/4 it converges
+(there are ≪ (log R)^{|S|} such r ≤ R, each of mass ≤ (log r)^{|S|}/r): the convergent S-lottery of O186 Thm 6.2(i),
+now as an exact statement about each r.
+
