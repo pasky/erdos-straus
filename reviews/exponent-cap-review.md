@@ -21,6 +21,14 @@ AGENT_REPORT_O200.md. From-scratch scripts: `scripts/review_xc_algebra.py`, `scr
 | Prop 4.1 | SOUND-AFTER-REPAIRS (m7: "> " should be "="; citations verified) |
 | §5.1 EVIDENCE (S = {3}) | SOUND — reproduced exactly to 10⁶ |
 | §5.2 EVIDENCE (k = 2 coverage) | SOUND (truncated statistic, m8) |
+| Labels / Verdict (Assessment) | FAIR AFTER REPAIRS — M1 (scope of the "wall"), m5, m6 |
+
+**Bottom line.** No FATAL defect. Every PROVED item re-derives; all identities, bounds and the §5.1 histogram
+reproduce exactly with from-scratch code. One MAJOR defect (M1): the "archimedean wall" is proved only for
+bounded *overflow* Q₁ (fixed S and bounded e), but the summary language ("every bounded cap is a finite search",
+"no sieve can push the cap to any bounded e") drops that qualifier; with S allowed to grow with r the wall
+demands only rad(Q₁)^e ≥ (r/4n)^{1/4}, which a sieve at level r^{1/4} could meet. The real obstruction to
+bounded e with growing S is Prop 3.1, and it only rules out *covering* arguments.
 
 ## Claim-by-claim
 
@@ -154,7 +162,7 @@ character-sum input, even under GRH, is known to suffice; averaged inputs over r
 ### Prop 4.1 — SOUND-AFTER-REPAIRS (m7)
 q_e = 4Q^{(e)} ≥ 4Q/rad(Q)^e ✓ (max(1, c−e) ≥ c − e). But "4Q/rad(Q)^e **>** 2√(N − n)/rad(Q)^e" is false as
 written: N − n = 4Q², so 2√(N − n) = 4Q exactly — it is an equality. Harmless (the next step only needs
-q_e ≥ N^{1/4+α}, which follows with C_n = √(n + 4)/2 or so, since N ≤ (n + 4)Q²); repair: "= 2√(N−n)/rad(Q)^e" and
+q_e ≥ N^{1/4+α}, which follows with C_n = √(n + 4)/4, since √N ≤ √(n + 4)·Q); repair: "= 2√(N−n)/rad(Q)^e" and
 state C_n explicitly. Citations verified against abstracts/first pages: Coppersmith–Howgrave-Graham–Nagaraj,
 *Divisors in residue classes, constructively*, Math. Comp. 77 (2008) 531–545: for s > N^α, α > 1/4,
 gcd(r, s) = 1, #{d | N : d ≡ r (s)} = O((α − 1/4)^{−3/2}) ✓ (so with s ≥ N^{1/4+α} the count is O(α^{−3/2}) ✓);
@@ -183,3 +191,53 @@ L > 4√r + 10, the rest L/√r ∈ [0.647, 3.986], median 0.955 — matches the
 skips (primerange starts at 60; off-by-one in all three counts, harmless). (m8) The reported min/median/max are of
 a *truncated* sample (the 20 exceptional r are dropped); uncapped, r < 4·10⁴ already has L/√r = 4.96. Say
 "among the 1 101 with L ≤ 4√r + 10".
+
+## Numbered defects
+
+**M1 (MAJOR) — scope of the archimedean wall overstated.** Locations: §0 (U2) "every bounded cap is a finite
+search like ES"; §2 heading "every bounded cap is a finite search"; §2 Reading "The exponent cap is not a parameter
+that a sieve can push down to 0"; §6 item 2 "The interpolation parameter does not reach ES continuously: the sieve
+regime ends at e ≍ log r/log P, and below it there is nothing to sieve"; §6 closing "at bounded cap the
+archimedean wall makes it a finite search"; AGENT_REPORT SHARP 2 "Every bounded cap is a finite search … no sieve
+can push the cap to any bounded e".
+Problem: Thm 2.1 bounds g by Q₁; Q₁ ≤ P^e is bounded only when P = rad(Q₁) is bounded, i.e. for *fixed S*.
+ES^{(y,e)} (Def 1.1) does not bound rad(den z), and Cor 2.2's own "every S" clause (P := rad(Q₁) ≤ g) gives no
+finiteness. Concretely, for e = 1 the wall only requires a squarefree Q₁ | (r+1)/4 with Q₁ ≥ (r/4n)^{1/4} — e.g.
+r ≡ −1 (mod 4P) with P ≈ r^{1/4}, a modulus inside the Bombieri–Vinogradov range. So "no sieve can reach bounded
+e" is not proved; what is proved is (i) fixed S + bounded e ⇒ finite search (Cor 2.2), and (ii) no *covering*
+argument works at e = (log r)^{o(1)}·… (Prop 3.1(c): needs e ≥ (log r)^{1−o(1)}). The ES^{(y,e)}-for-bounded-e,
+growing-S question (hit −n/4, not cover) is left open by the document.
+Repair: in all listed places say "every bounded overflow (fixed S and bounded e) is a finite search"; replace "no
+sieve can push the cap to any bounded e" by "with S fixed no sieve can …; with S growing, the wall only asks
+rad(Q₁)^e ≥ (r/4n)^{1/4} − O(1), and the obstruction is Prop 3.1, which excludes covering arguments only"; add the
+growing-S, bounded-e, non-covering case to the open questions (Assessment).
+
+**m1 (MINOR)** §1 Prop 1.3 Reading: for Q₁ = 1 both D and g are ≡ −1 (mod 4k); say which one plays FIXED_MODULUS_SHOTS
+Lemma 1.1's h (g ↔ h with c ↔ Q₀, j ↔ k).
+**m2 (MINOR)** Cor 1.4: "with overflow Q₁ … iff … Q₀ | K" — add gcd(Q₁, K/Q₀) = 1 (else the overflow is a proper divisor
+of Q₁) and gcd(Q, n) = 1.
+**m3 (MINOR)** Cor 1.4 reuses j for K/Q₀ (= Prop 1.3's k); rename.
+**m4 (MINOR)** Thm 2.1 sharpness family: the condition n ≡ −1/k (mod 3) is just n ≡ 2 (mod 3) (k ≡ 1 forced); add
+gcd(n, Q₁) = 1 (e.g. Q₁ = 5, n = 35 meets the stated conditions but is not a shot datum).
+**m5 (MINOR)** Prop 3.1 / Verdict 3 / report: "(a)+(b) of the brief are incompatible at e = 0 by the divisor bound,
+independently of the level of distribution" — true for *covering* arguments only; add the qualifier. Label the
+"sieve window" display (§3, after Prop 3.1) as Assessment (den z ≤ P^{2e} is an upper bound for the hit, not a
+consequence of coverage).
+**m6 (MINOR)** Dictionary 3.3(b): add "θ ∉ ℤ^k since |θ_i| < k/E ≤ 1, so χ is nontrivial (for k/E > 1/2 the criterion is
+vacuous)". 3.3(c)/Verdict 5/report SHARP 3 "even GRH gives nothing", "beyond GRH": soften to "no known pointwise
+character-sum input (even under GRH) suffices; averaged-over-r inputs not examined (Assessment)". Citation of
+Banaszczyk is correct; the "citation form not re-checked" caveat can be dropped.
+**m7 (MINOR)** Prop 4.1: "4Q/rad(Q)^e > 2√(N − n)/rad(Q)^e" is an equality (N − n = 4Q²); state C_n = √(n+4)/4.
+Citations (CHN 2008, Lenstra 1984) verified; drop the caveat. Title "below overflow N^{1/4}" → "below allowed
+overflow rad(Q)^e ≤ N^{1/4−α}/C_n".
+**m8 (MINOR)** §5.2: min/median/max of L/√r are over the 1 101 non-exceptional r only — say so; `xc_cover.py` skips
+r = 59 (primerange starts at 4·s₁s₂ = 60), so all three counts are one short. §5.1 "≈ 0.4 per unit of cap" is
+an interpretation, label (Assessment).
+
+## Labels and Verdict — fair after M1, m5, m6
+PROVED labels on Prop 1.2, 1.3, Cor 1.4, Thm 2.1, Cor 2.2, Prop 3.1, Thm 3.2 (relative to Lemma 2.2, ineffective),
+Dictionary 3.3(a)(b), Prop 4.1 (relative to CHN) are all justified. EVIDENCE labels on §5 are justified and the
+data reproduce exactly. The closing Verdict "Not an opening for ES (Assessment)" is fair and correctly labelled;
+it should, however, rest on "fixed-S bounded caps are finite searches (Cor 2.2) + covering needs inflated boxes
+(Prop 3.1)", not on a claim that *no* sieve can reach bounded e (M1). ES is not solved, and no infinite case of ES
+is claimed — ✓.
