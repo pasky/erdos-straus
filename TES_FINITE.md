@@ -132,3 +132,65 @@ mean grows (extended census to N ≤ 30000: §4a, when the run finishes). No con
 **Assessment.** The failures behave like the zero-count tail of a slowly growing count ("lottery" failures), the
 regime ES itself would be in were its counts smaller: no local, Brauer–Manin or T1 reason exists (§3). Whether
 TES(π) is solvable for all N(π) > 2239 is the TES-analogue of ES: open, EVIDENCE only.
+
+## 5. The same phenomenon over ℚ with positivity: Schinzel's 8/n (order-2 T1 at odd squares, real anchor)
+
+(I2) TES differs from ES in three ways (order 3, complex place, tame anchor). To see whether the failures are an
+artefact of these, iterate on the hypothesis "T1-bearing" inside BL's own family: Schinzel's m/n = 1/x + 1/y + 1/z,
+x, y, z ∈ ℕ. BL Remark 1.10: these surfaces are ℚ-isomorphic to U_n (so Br U/Br ℚ = ℤ/2 = ⟨α⟩, α = (−u₁/u₃,
+−u₂/u₃), BL Thm 1.6) and every natural-number solution satisfies ∏_{p | 2nm} (α)_p = −1.
+
+**Proposition 5.1 (order-2 T1 for 8/n; PROVED modulo BL's p-local lemmas).** Let n be odd. Every solution of
+8/n = Σ 1/u_i in ℕ satisfies ∏_{p | n} inv_p α(u) = −1; hence for n = k² (k odd) there is no solution of Type I or
+Type II shape at any prime of n. For Type II the conclusion is elementary and in-campaign: POINTWISE_MN Lemma
+1.1(d) (m ≡ 0 mod 4 ⇒ the Type II event class −mD is a Jacobi non-residue mod M, so n ≡ −mD (mod M) is not a
+square).
+*Proof.* Hilbert reciprocity for α(u). ∞: −1 (u_i > 0; BL Lemma 3.1). p = 2: all u_i ∈ ℤ₂; with x := (8/n)u₁ − 1
+DRINFELD_ES Lemma 2.1 gives α = (y, −1) + (x, y), and −x ∈ 1 + 8ℤ₂ ⊂ ℚ₂^{*2}, so (x, y) = (−1, y) and
+α = 2(−1, y) = 0 — **this is where v₂(8) = 3 is used** (for m = 4 BL need the finer Lemma 3.8). Odd p ∤ n: BL Lemma
+3.5 applied to U_{n/2} (8/n = 4/(n/2), n/2 ∈ ℤ_p^*). Squares: BL Lemma 3.9 applied to n/2 at each p | n.
+(*Caveat for the reviewer:* BL state Lemmas 3.5/3.9 for n ∈ ℕ; their proofs are p-local and, as far as I read,
+use only n ∈ ℤ_p^* resp. n = p^{2m}·unit. Numerical check below.) ∎
+EVIDENCE: `scripts/tf_schinzel_bm.py` Hilbert symbols (explicit formulas, reciprocity asserted at every point):
+on all 679 positive solutions of 8/n for n ∈ {127, 137, 239, 251, 1009, 1053, 105}, ∏_{p|n} = −1, inv₂ = +1,
+inv_∞ = −1; `scripts/tf_schinzel_t1.py 8 100`: n = q² (q ≤ 100 prime): 592 solutions, **0 Type I, 0 Type II**.
+Controls: m = 16, 12 likewise 0/0 (211, 124 solutions); m = 5, 6 (no T1): 351/135 resp. 147/63 Type I/II.
+
+**Theorem 5.2 (non-T1 failures of 8/n; CERTIFIED).** 8/n = 1/x + 1/y + 1/z has **no** solution in positive
+integers for n ∈ {2, 3, 11, 17, 131, 241}; these are all such n ≤ 300, and 3, 11, 17, 131, 241 are all such primes
+≤ 30000. Every odd square k² ≤ 20000 (3 ∤ k… all odd k) is solvable (in "other" shapes).
+*Certification.* Positivity gives x ≤ y ≤ z, n/8 < x ≤ 3n/8 and the divisor equation (Ay − B)(Az − B) = B²
+(`scripts/tf_schinzel.py`, divisor enumeration) — the classical ES finiteness; independently
+`scripts/tf_schinzel_brute.py` (Fractions, y ≤ 2/r, no divisors): 0 solutions at 3, 11, 17, 131, 241, and the same
+counts as method A at controls (e.g. 8/127: 23, 8/239: 58; 4/131: 32, 4/241: 8).
+
+**Theorem 5.3 (not Brauer–Manin; PROVED by certificate, modulo BL Thm 1.6).** For n ∈ {3, 11, 17, 131, 241},
+(U(ℝ)₊ × ∏_p 𝒰(ℤ_p))^{Br U} ≠ ∅ for the model 𝒰: 8xyz = n(xy + yz + zx). Certificates (`tf_schinzel_bm.py 8 …`):
+n = 131: P₀ = (23, 57, 171741/8) > 0, bad only at 2, P₁ = (30, 36, −23580) (2-integral), inv₂α = +1 for both;
+n = 241: P₀ = (36, 185, 1605060/19) > 0, bad only at 19, P₁ = (36, 180, −7230), inv₁₉ α = +1 for both.
+(Adelic point: P₀ at ∞ and p ≠ q, P₁ at q; its invariant sum equals that of the global P₀, i.e. 0.)
+
+**Corollary 5.4 (PROVED, modulo the BL citations above).** In BL's family of Erdős–Straus-type models of the *same*
+ℚ-surface, the member 8/n has (i) the same real anchor and an order-2 T1 at odd squares (Prop 5.1), (ii) no
+Brauer–Manin obstruction at n = 131, 241 (Thm 5.3), (iii) no positive integral point at n = 131, 241 (Thm 5.2).
+So **"Brauer–Manin + T1 is the only obstruction" is false for Erdős–Straus-type integral models**, already over ℚ
+with positivity and order 2; TES (§2–3) shows the same for order 3 over ℚ(ω).
+
+**Counts (EVIDENCE, complete enumeration, x ≤ y ≤ z).** Mean / min number of positive solutions over primes:
+| m | p ∈ [100, 300) | p ∈ [1000, 1300) |
+|---|---|---|
+| 4 (ES) | 32.8 / 6 | 62.2 / 11 |
+| 8 | 13.5 / 0 (2 zeros) | 27.4 / 3 |
+| 12 | 7.2 / 0 (1 zero) | 15.2 / 0 (1 zero) |
+Failures occur exactly where the mean count is ≲ 15; ES's counts are ≈ 2.4× those of 8/n and its minimum over
+small primes stays ≥ 6. **Assessment:** ES has no failures for the same reason 8/n has none above 241 — its
+counts are larger — and not because of any structure absent from 8/n.
+
+**Barrier (B7, "sibling barrier"; the precise content is Cor 5.4, the rest is Assessment).** Any ES proof strategy
+whose ingredients are (a) local solvability / congruence data, (b) the Brauer group and reciprocity (including the
+T1 mechanism), (c) Chebotarev/Dirichlet-type existence of auxiliary primes with prescribed symbols, applies verbatim
+to the 8/n model (and, with order 3, to TES), where its conclusion is false at n = 131, 241. A successful strategy
+must therefore use input that distinguishes 4 from 8 *quantitatively*: the size of the solution count, i.e. a
+pointwise lower bound for f(p) that is ≥ 1 already at small p (or an effective version plus computation).
+This is consistent with (B3)/(B6) and sharpens the campaign's reading that ES is a "lottery that is always won",
+not a local–global principle.
