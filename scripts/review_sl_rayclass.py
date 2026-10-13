@@ -25,20 +25,21 @@ def forms(D):  # reduced primitive forms disc D<0
                     out.append((a, b, c))
         a += 1
     return out
-viol = tested = pm = 0
-for t in [3, 7, 11, 15, 19, 23, 31, 35, 39, 43]:
-    if not sqfree(t): continue
-    for p in [5, 13, 17, 29, 37, 41, 53, 61]:
-        if t % p == 0: continue
-        D = -t * p
-        for (a, b, c) in forms(D):
-            for x in range(-30, 31):
-                for y in range(-30, 31):
-                    m = a*x*x + b*x*y + c*y*y
-                    if m <= 0 or gcd(m, t * p) != 1: continue
-                    tested += 1
-                    if jac(m, t) != jac(m, p): viol += 1
-                    if m % t in (1, t - 1):
-                        pm += 1
-                        if jac(m, p) != (1 if m % t == 1 else -1): viol += 1
-print("represented m tested", tested, "of which m=+-1 mod t:", pm, "violations", viol)
+if __name__ == '__main__':
+ viol = tested = pm = 0
+ for t in [3, 7, 11, 15, 19, 23, 31, 35, 39, 43]:
+     if not sqfree(t): continue
+     for p in [5, 13, 17, 29, 37, 41, 53, 61]:
+         if t % p == 0: continue
+         D = -t * p
+         for (a, b, c) in forms(D):
+             for x in range(-30, 31):
+                 for y in range(-30, 31):
+                     m = a*x*x + b*x*y + c*y*y
+                     if m <= 0 or gcd(m, t * p) != 1: continue
+                     tested += 1
+                     if jac(m, t) != jac(m, p): viol += 1
+                     if m % t in (1, t - 1):
+                         pm += 1
+                         if jac(m, p) != (1 if m % t == 1 else -1): viol += 1
+ print("represented m tested", tested, "of which m=+-1 mod t:", pm, "violations", viol)

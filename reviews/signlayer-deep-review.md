@@ -190,3 +190,35 @@ the push-forward argument; (3) in DISCOVERIES/ledger, record Remark 10.4's escap
 character/L-function/Eisenstein inputs; varying-p ray-class Chebotarev arguments remain classified under
 B6/H-A (barrier, not theorem)". "Promise 0/5" is acceptable as an Assessment.
 Minor: T1 bullet "at p = k²" is outside the memo's own hypothesis (p prime). Say "at n = k² in GI Prop 4.1".
+
+## Memo bsB_redei_oddpart — items 1, 2 SOUND; item 3 SOUND, but its Assessment mislabels the composite-t case (D11); numerics: one false claim (D12)
+
+*Item 1.* For prime ℓ ≡ 3 (4), (ℤ/ℓ)^* is cyclic of order 2·odd, so A₂ = {±1} and the 2-primary part of
+"m'' ≡ −1" is the Legendre sign. SOUND once "2-power object" is made precise. The precise version I verified: for a
+Galois extension L/ℚ with 2-group Galois group, Frob_q ∈ Gal(L/ℚ) determines q mod ℓ only through
+Gal(L ∩ ℚ(ζ_ℓ)/ℚ), a 2-power quotient of (ℤ/ℓ)^*, i.e. through A₂. This covers Rédei symbols, governing fields,
+2^k-rank data and FIMR spins (quadratic symbols in 2-extensions). The memo should state this formalisation.
+"PROVED" applies to it, not to an undefined class of "2-power objects" (MINOR).
+*Item 2.* For odd q | tn + 1: (−t/q)(n/q) = 1, (n/q) = (q/n) since n ≡ 1 (4), and (−t/q) = (q/t) since t ≡ 3 (4).
+For q = 2 (tn ≡ 7 mod 8), (2/n)(2/t) = (2/7) = 1. SOUND. Numerically reproduced from scratch
+(`scripts/review_sl_oddpart.py 100000 130000`: 0 violations for t = 7, 11, 19, 23, 31).
+*Item 3.* An odd squarefree t ≡ 3 (4) with (ℤ/t)^* a 2-group must be 3·F, F a product of distinct Fermat primes
+from {5, 17, 257, 65537}. That gives 2⁴ = 16 slices with the known Fermat primes. SOUND (assuming squarefree t,
+as everywhere in the campaign; t = 9 is not a 2-group anyway). The red-team Thm 2.2(iii) citation was not
+re-checked by me.
+**D11 (MINOR→MAJOR, overreach in item 3 and the Assessment).** "every Rédei/governing-field mechanism is, on Type I
+slices, a finite-slice mechanism **plus genus data**", and "for composite t it is a finite slice menu". This is
+false for composite t that is not of the form 3F. Example: t = 35 ≡ 3 (4) has (ℤ/35)^* ≅ C₄ × C₆, so A₂ ≅ C₄ × C₂
+has 8 elements, and 2-power theory sees a quartic component strictly finer than the genus sign. What is true:
+2-power theory sees exactly the A₂-component. That equals the genus sign iff A₂ = {±1} (e.g. t prime). It equals
+the full condition iff t = 3F. In between it is partial and non-genus. Repair: replace "plus genus data" by "plus
+A₂-data, which is genus data for prime t and strictly finer for most composite t". Make the closing Assessment
+"does not exist beyond genus for prime t" the main statement and drop the composite claim.
+**D12 (MINOR, false numerical reading).** "The ES class −1 is the *least* populated non-residue class". From my
+recomputation (shares identical to the author's to 3 decimals): t = 7: classes 5 and 6 tie at 0.302;
+t = 11: 8 and 10 tie at 0.164; t = 19: 14 and 18 tie at 0.079; **t = 23: classes 20, 21 (0.074) are below −1 = 22
+(0.076); t = 31: classes 27, 29 (0.048) are below −1 = 30 (0.049)**. The ties are the involution
+m'' ↦ (tn + 1)/(4m''), i.e. c ↦ (4c)⁻¹ mod t, which pairs −1 with −1/4. Repair: "among the least populated (size
+bias; tied with its partner −1/4 under m'' ↦ (tn + 1)/(4m''))".
+*Item 4* (cubic spins). Labelled Assessment, and acceptable as such. Note that for q ≡ 2 (mod 3) (inert) the
+symbol is (π_ℓ/q)_3 with q itself prime in ℤ[ω]; the memo's "𝔮 | q" covers both cases only implicitly.
