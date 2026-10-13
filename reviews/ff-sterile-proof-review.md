@@ -150,3 +150,77 @@ triples (this is the bound the reviewer's enumerator uses); a < b by the H ↔ H
 against cylinder mass 1/(2·3^{N₀−1}) ≈ 3^{−K/2}: no decay. The tail formula and the union-bound sufficient condition
 are correct, and the document correctly notes that Case A must also be excluded on the region used. SOUND as a
 statement about these two parametrisations (it is not a lower bound on #sol).
+
+## Defects (no FATAL, no MAJOR; 10 MINOR)
+
+**D1 (MINOR, attribution/overclaim) — §2 Lemma 2.1, report SHARP 2, §5 "this closes R175 D7".** The core of
+Lemma 2.1 (deg E, deg E′, deg D even, at every slice point with u(0) = 1) is FUNCTIONFIELD_ES2 §0.2
+"Necessary condition from quadratic reciprocity (PROVED, q = 3)", re-derived and checked by R166; R175's D7 repair,
+already applied in SIGNLAYER_DEEP Lemma 3.1, cites exactly that. So Lemma 2.1 does not "supply the missing step"
+of R175 D7: that step was supplied when D7 was repaired. The new content is a corollary: a ≡ b, l ≡ a + 1,
+λ ≡ K, deg r ≡ K (mod 2), hence cyclotomic solutions only at even K. *Repair:* state "Lemma 2.1 (FF2 §0.2's
+reciprocity parity, R166-checked, re-derived here, plus the corollaries λ ≡ K, deg r ≡ K)"; drop "closes R175 D7"
+(say "consistent with the R175 D7 repair"). Also note that the hypothesis u(0) = 1 is used only to identify
+solutions with families: E(0) = E′(0) = −1 holds for every solution of (I), (II).
+
+**D2 (MINOR, scope) — §3 Consequence (a), report SHARP 1 ("settles R166 D11").** What Thm 3.2 settles is the
+R̂^*-mass question raised in R166 D11 (the ≈ 1 % ffl_tree plateau cannot be a positive-measure obstruction; by
+inner regularity finitely many families cover mass ≥ 1 − ε for every ε). It does **not** settle FF2 §0.2's own
+alternative, which is about *slice* measure ("O(3, T²) has positive Haar measure inside this slice" vs "empty or
+null"): the slice is Haar-null. The theorem also gives no rate: F_ℓ alone leaves uncovered mass
+∏(1 − 1/(|ℓ| − 1)) ≍ e^{−1/6} at deg ℓ ≤ e (computed 0.35–0.79 per class at e = 11), so it says nothing about
+when the plateau must fall. *Repair:* "Settles R166 D11's R̂^* question: O(3, T²) is Haar-null, so the plateau
+is not a positive-measure obstruction (no rate is given). FF2 §0.2's slice-measure alternative remains open."
+
+**D3 (MINOR, novelty) — §3 Thm 3.2 framing, report SHARP 1.** The theorem is correct, but it is the
+measure-theoretic profinite form of FUNCTIONFIELD_ES Thm 5.3's mechanism: one prime in a progression mod A dividing a
+shift of P, plus a second-moment/Borel–Cantelli argument. Over Z the same 5-line argument shows that the
+linear-family obstructed set in Ẑ^* is Haar-null, which is weaker than Vaughan's "almost all n" theorem. *Repair:*
+add one sentence: "Profinite form of the classical almost-all mechanism (cf. FUNCTIONFIELD_ES Thm 5.3); new only
+as a statement about O(q, A)." Cite the prime polynomial theorem in progressions (Rosen Thm 4.8 / FUNCTIONFIELD_ES
+Fact 5.2) explicitly; Dirichlet's theorem in analytic form already suffices for divergence.
+
+**D4 (MINOR, unsupported dismissal) — §0, "so these are the only interesting slice points".** Slice points with
+u(0) = 2 are ignored. u ≡ 2 (mod T²) is covered by (1; 0, 1; 2, 1), but u = 2 + Tv with v(0) ≠ 0 is neither treated
+nor shown covered, and FF2 §0.1 listed such lifts (2 + T + T², 2 + 2T + T², 2 + 2T + 2T²) as uncovered candidates.
+Lemma 2.1 does not hold there as stated (E(0) = +1). *Repair:* "Here we treat the sub-slice u ≡ 1 (mod T); the
+points with u(0) = 2, u ≢ 2 (mod T²), are not treated."
+
+**D5 (MINOR, label) — §4 "What is proved at x*_c (all PROVED; the first two are O173/O175 results re-derived)".**
+(ii)'s window (N + 1)/4 ≤ l ≤ 2N − k − 1 is O173 Lemma 2.3. O173 is under parallel review (R173), and the document
+does not re-derive it. *Repair:* "(ii) … (O175 Lemma 3.2, R175-checked; O173 Lemma 2.3, CLAIMED pending R173)".
+
+**D6 (MINOR, label) — §4 residual problem, "exactly the integer divisor-class problem B2".** The reformulation is
+PROVED. The identification with B2 is an analogy (Assessment). *Repair:* add "(Assessment: analogue of B2)".
+
+**D7 (MINOR, EVIDENCE accounting) — §4 cyclotomic search and report.** (a) 10 of the 47 SKIPped (K, r₀) pairs are at
+odd K (91, 117, 121, 123, 143; both r₀). By Lemma 2.1 these have no cyclotomic solutions, so the genuinely
+unexamined set is **37 pairs at 29 even levels**. (b) The pattern "T^K + 1 has cyclotomic solutions at K = 4, 12,
+20, …, 136, 148 (mostly K ≡ 4 mod 8)" is read off an incomplete list: r₀ = 1 is SKIPped at the even levels
+K = 60, 84, 120, 122, 130, 132, 140, 146 (60, 84, 132, 140 are ≡ 4 mod 8). (c) "elsewhere ≤ 13 against needed ≥ 72"
+is garbled. The correct reading: apart from K = 26 (z = 12 vs 14), the best is z = 13 at K = 142 (needed 72), then
+z ≤ 9. *Repair:* reword (a)–(c) accordingly; optionally prune odd K by Lemma 2.1.
+
+**D8 (MINOR, overstated Assessment) — §5 "no sign of an exact 1/2", report SHARP 3.** The two-level increment
+ratios are 0.74, 0.45, 0.85, 0.41, which is erratic. A geometric tail at the largest observed ratio (0.85) gives
+0.4997, and 0.5–0.7 gives 0.492–0.494. The finite data cannot distinguish a limit ≈ 0.493 from 1/2. *Repair:*
+"extrapolations give 0.492–0.500 depending on the assumed ratio; the data neither support nor exclude an exact
+1/2". Keep the exact decomposition 1/3 + 2/27 + 4/81 + tail, which is correct.
+
+**D9 (MINOR, false dismissal) — §5 last bullet, "Near x*_c coverage is zero up to the depth at which x*_c is known
+uncovered … ultrametric triviality. This is all R175's 'far below 49 %' says."** Ultrametricity only forces this
+for cylinders of depth ≤ the neighbourhood depth. R175's statement (zero coverage inside u ≡ 1 + cT (mod T⁵) for
+K ≤ 13) includes all families with N₀ + 1 > 5 (K ≥ 8). Their cylinders could lie inside the neighbourhood without
+containing x*, so the emptiness is a genuine observation. Reviewer check: among the K ≤ 12 cylinders, those of
+depth 5 and 7 meet v ≡ c (mod T³) but none meets v ≡ c (mod T⁴). *Repair:* "for families of level N ≤ 3 this is
+ultrametric triviality; for deeper families (K ≥ 8) R175's observation is a genuine (EVIDENCE) local deficit near x*."
+
+**D10 (MINOR, wording/label) — §2 Remark and §5 "No quadratic group character produces it (PROVED)".** What is
+proved is narrow: (i) the pro-3 group 1 + TF₃[[T]] has no nontrivial continuous ±1-valued character; (ii) local
+quadratic (Hilbert) symbols at T see only u(0). Both are immediate. "The only such character of the slice is
+v(0) = c" is wrong as phrased. u ↦ v(0) is an F₃-valued homomorphism on 1 + TF₃[[T]], and the sign of c is a
+function on the sub-slice v(0) ≠ 0, which is not a group. "No quadratic character (Legendre/genus) can split the
+slice into covered/uncovered halves" goes beyond (i)–(ii). Global Jacobi symbols of u-dependent data, such as FF2's
+((1 + cT)/E), are not local characters at T. FF2 only *tried* some and found them consistent. *Repair:* keep (i)–(ii)
+as PROVED and label the broader "no genus mechanism" as Assessment. Replace "the only such character … is v(0) = c"
+with "the only ±1-valued invariant visible to quadratic symbols at T is the sign of v(0) = c".
