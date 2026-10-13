@@ -54,3 +54,43 @@ sterile point removes the r-boxes of level ≤ L and nothing else, and the prime
 first primes q at which p is locally non-trivial, with modest moduli (h ≈ 2.5B ≈ 2.5·log Q_B). No growing r-level
 (k ≥ 5) and no "large" prime is ever needed. (ii) So the r-adic part of Thm 3.1 is not where the difficulty sits:
 the escape is the ordinary H-A step "find the first prime where p is non-trivial and hit a covered cell there".
+
+## 3. The sterile set as a closed subset of Ẑ, and a Borel–Cantelli dichotomy for non-square patterns
+
+Let U ⊂ Ẑ be the union of all ET classes (open) and S := Ẑ \ U (closed). For x ∈ Ẑ^× let
+N(x) := {q odd prime : x_q is a non-square in ℤ_q^×} (the *non-square pattern*), and for a set T of odd primes let
+G_T := {x ∈ Ẑ^× : x_q = 1 (q ∉ T), x_q non-square (q ∈ T)} (the T-generic non-square set; T = {r} is the
+non-residue half of the r-generic line). ν_T := ⊗_{q∈T} (normalised Haar measure on the non-squares of ℤ_q^×) on G_T.
+
+**Prop 3.1 (PROVED, relative to ET Props 1.3/1.4 and §10).** (a) For a prime p: ES(p) ⟺ p ∉ S.
+(b) For odd n: n ∉ S ⟺ n has an ET N-point (a Type I or Type II parametrised solution). So CONJECTURE SQ
+(odd n: Type I/II empty ⟺ n square) is the statement S ∩ ℕ_odd = {odd squares}; T1 is "Sq ∩ ℕ ⊂ S".
+*Proof.* A class gives an N-point at every n ≥ 1 in it (POINTWISE_MORDELL §0). Conversely a Type II N-point (a,b,c,d)
+of n lies in the II2 class (a, d, f = 4acd − 1) (f + 1 = 4acd, ef = n + 4a²d), and a Type I N-point in the I1 class
+(a, d, f = 4acd − n) (f + n = 4acd, ef = 4a²d + 1); both conditions are exactly those of `mordell_lib`. For a prime p every
+solution of 4/p is Type I or II (p cannot divide all three denominators, since then 4 = Σ 1/x_i' ≤ 3). ∎
+
+**Prop 3.2 (divergent side; PROVED, elementary).** If Σ_{q ∈ T, q ≡ 3 (4)} 1/q = ∞, then ν_T-almost every point of G_T
+lies in an ET class.
+*Proof.* For q ≡ 3 (mod 4) the II2 class (a, d, f) = (1, 1, q) is {n ≡ −4 (mod q)} (4 | q + 1), and −4 is a non-residue
+mod q. Under ν_T the events {x_q ≡ −4 (mod q)}, q ∈ T, are independent with probabilities 2/(q − 1). Second
+Borel–Cantelli: a.s. infinitely many occur. ∎
+(This is Mordell's shot "p + 4 has a prime factor ≡ 3 (mod 4)", read on the T-generic set.)
+
+**Corollary 3.3.** For every odd non-square n, T(n) := N(n) \ {q | n} has Σ_{q∈T(n), q≡3(4)} 1/q = ∞ (Chebotarev: the
+q ≡ 3 (4) with (n/q) = −1 have density 1/4 among primes, n not a square), so the T(n)-generic non-square set is
+covered ν-almost everywhere. Integers are ν-null, so this says nothing about n itself (the profinite face of B6).
+
+**Sparse side (Assessment, sketch only).** O178 Thm 3.1 is the case T = {r}: ν_{r}(S ∩ G_{r}) > 0 for r ≥ r₀.
+The natural extension is: ν_T(S ∩ G_T) > 0 whenever min T ≥ r₀ and Σ_{q∈T} q^{−1/10+δ} is small; the union bound
+goes through T-units F with box weight ≈ 2^{ω(F)} F^{−1/2} against f_II(F) ≪ F^{2/5+o(1)}, and an Euler product over T.
+*Not proved here*: MORDELL17 Lemmas 1.1–2.3 are for one prime; with ≥ 2 primes in T the families I2, I3, II3 can split
+the T-part between two of their moduli (mixed box types), which needs a new dictionary to solutions of 4/F.
+With polylogarithmic counts (the truth, EVIDENCE: D_P, D_Q in MORDELL17B) the threshold would be
+Σ_{q∈T} log³q/q < ∞.
+*Reading (Assessment).* Non-square patterns split into a **convergent** regime (sterile points carry positive
+ν_T-measure: proved for |T| = 1, expected for sparse T) and a **divergent** regime (ν_T-a.e. covered, Prop 3.2). Every
+non-square integer sits in the divergent regime, and so do all primes. ES lives exactly on the divergent side of a
+Borel–Cantelli dichotomy, at a ν-null point. Whether G_T ∩ S = ∅ for divergent T (a *finite* covering of G_T by
+compactness) is open; the single-prime boxes alone never cover (their uncovered set is a product of non-empty sets),
+so any covering of a divergent G_T must use solutions of 4/F with ≥ 2 primes of T in F.
