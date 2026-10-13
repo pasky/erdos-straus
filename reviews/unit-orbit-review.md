@@ -155,3 +155,36 @@ identical totals to the author's.
 heuristic (Σ_{Q∈⟨S⟩} Q^{ε−1} = ∏_{q∈S}(1 − q^{ε−1})^{−1} < ∞). (ii) example verified. (iii) ✓. The equality "ES-solutions
 = ES^{(S)}-solutions + g ≡ −1 (4Q)" is correctly restricted to the orbit family; the ES solution
 4/169 = 1/52 + 1/234 + 1/6084 checks.
+
+## Defects
+
+### FATAL
+None.
+
+### MAJOR
+**M1 (§0 (L2), §4 Prop 4.1 Consequence (a), Assessment 4.2 "Hypothesis responsible", AGENT_REPORT SHARP 3: the
+Kummer condition is mis-identified as the barrier; for V_φ the barrier is the unit rank).**
+(i) *V_φ.* For a split ℓ = 𝔮𝔮' ≡ 3 (mod 4): (−φ/𝔮') = (σ(−φ)/𝔮) = (φ^{−1}/𝔮) = (φ/𝔮), so
+(−φ/𝔮)(−φ/𝔮') = (−φ²/𝔮) = (−1/ℓ) = −1: **exactly one prime above ℓ satisfies the forced Kummer condition**
+(verified for all split ℓ ≡ 3 (4) below 3000, `review_uo_misc.py` (d)). Hence the forced condition only *selects* 𝔮,
+and the full shot condition at ℓ ≡ 3 (mod 4) is a condition on ℓ alone: ℓ ≡ 3 (4), ℓ ≡ ±1 (5), (n/ℓ) = −1 (all
+congruences) and ⟨−1, φ⟩ = F_ℓ^* (i.e. ord_ℓ φ ≥ (ℓ−1)/2; independent of the choice of root of t² − t − 1, as the
+roots are t and −1/t). This is a **rank-1 Artin problem with congruence conditions** — open unconditionally because
+one generator is far below what Gupta–Murty (rank ≥ 4 at level ½) or Heath-Brown (3 independent generators, one of
+which works) can handle — and no non-norm Chebotarev condition is involved. So the statement in §0 (L2) "Hypothesis of the
+barrier that the variant satisfied: the orbit is a coset ηU² with η not a square (forced by a mute REAL place)", the
+sentence "Hypothesis responsible: the mute place is REAL …" of 4.2, and SHARP 3 of the report misattribute the
+obstruction for V_φ: what differs between V_φ and ES^{(S)} is the rank (1 vs |S| ≥ 4), not (only) the type of mute place.
+(ii) *Assessment 4.2, first step.* "An Artin-type sieve for a number-field variant must count degree-1 primes of K with
+a non-norm Frobenius condition; then E ⊇ K" is not justified: one may sieve the rational primes ℓ with the
+condition "some 𝔮 | ℓ has the prescribed Frobenius", a union of classes in Gal(K̃(√U_𝔪)/ℚ), and apply Murty–Murty /
+Murty–Petersen over the base ℚ; the level is then governed by abelian subgroups meeting *that* union, not by [K:ℚ].
+(i) is the extreme case (the union contains a pure congruence condition). sources/uo/LITERATURE.md Q1 itself says only
+that the Galois-closure route "does not help in general". The Galois paragraph (G-invariant central condition) is not
+affected by this (there the condition is the same at every 𝔮 | ℓ).
+*Repair.* (a) In §4(a) add: "for split ℓ ≡ 3 (mod 4) exactly one 𝔮 | ℓ has (−φ/𝔮) = −1, so the condition is free; the
+unconditional V_φ problem is the rank-1 Artin problem ⟨−1, φ⟩ = F_ℓ^* for ℓ ≡ 3 (4), ±1 (5), (n/ℓ) = −1". (b) In
+§0 (L2), 4.2 and SHARP 3 replace "the responsible hypothesis is the real mute place" by "the unit rank of the orbit (1
+for V_φ) and, for higher-rank r₁ = 1 fields, Kummer conditions when MP is applied over the base K; whether the
+Galois-closure/base-ℚ route avoids them is not checked". (c) Restate 4.2's conclusion as "with Murty–Petersen applied
+over base K".
