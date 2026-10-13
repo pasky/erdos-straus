@@ -23,8 +23,12 @@ fields) only see characters of 2-power order, i.e. (a).
 3. **Slices fully visible to 2-power theory**: (ℤ/t)^* is a 2-group and t ≡ 3 (4) ⟺ t = 3·F, F a product of
    distinct Fermat primes. With the known Fermat primes this is a finite set of 16 slices (t = 3, 15, 51, 255,
    771, …); finite slice menus fail i.o. under H (redteam-automorphic-2 Thm 2.2(iii)). So **every Rédei/
-   governing-field mechanism is, on Type I slices, a finite-slice mechanism plus genus data** (Assessment for
-   "every mechanism"; items 1–3 PROVED).
+   governing-field mechanism is, on Type I slices, a finite-slice mechanism plus genus data** (R175 repair, D11:
+   false for composite t not of the form 3F. For example t = 35 ≡ 3 (4) has (ℤ/35)^* ≅ C₄ × C₆, so A₂ ≅ C₄ × C₂ has
+   8 elements: 2-power theory sees a quartic component strictly finer than the genus sign. Correct statement:
+   2-power theory sees exactly the A₂-component, which is genus data for prime t, the full condition for t = 3F, and
+   partial non-genus data otherwise) (Assessment for "every mechanism"; items 1–3 PROVED. R175: "2-power object"
+   means Frobenius data in extensions with 2-group Galois group, which see q mod t only through a 2-power quotient).
 4. *Odd part via higher reciprocity (Assessment).* For ℓ ≡ 1 (3), the cubic character of m'' mod ℓ is
    ∏_{q|m''} (q/π_ℓ)_3 = ∏ (π_ℓ/𝔮)_3 (Eisenstein reciprocity, primary normalisations), where 𝔮 | q is the prime of
    ℤ[ω] — a cubic **spin**: it depends on π_ℓ mod 𝔮, not on ℓ mod q, so unlike the quadratic case it is not a
@@ -33,7 +37,9 @@ fields) only see characters of 2-power order, i.e. (a).
 ## Numerics (`scripts/bsB_oddpart.py 100000 130000`)
 Primes n ≡ 1 (4) in [10⁵, 1.3·10⁵], t = 7, 11, 19, 23, 31: 0 violations of (d/n) = (d/t) (item 2). Shares of
 the non-residue classes among sign-odd divisors: t = 7: {3: .40, 5: .30, **6: .30**}; t = 19: class 18 = **.079**
-vs max .146; t = 31: class 30 = **.049** vs max .117. The ES class −1 is the *least* populated non-residue class
+vs max .146; t = 31: class 30 = **.049** vs max .117. The ES class −1 is the *least* populated non-residue class (R175 repair, D12: false as stated. It ties with its
+partner −1/4 under m'' ↦ (tn + 1)/(4m'') at t = 7, 11, 19, and at t = 23 (classes 20, 21: .074 < .076) and t = 31
+(classes 27, 29: .048 < .049) other classes are smaller. Read "among the least populated".)
 (size bias: both m'' and m must be ≥ t − 1), so the odd-order condition costs more than its naive 1/(φ(t)/2).
 
 ## Barrier screen
@@ -50,5 +56,7 @@ Friedlander–Iwaniec–Mazur–Rubin, Invent. Math. 193 (2013); Koymans–Milov
 
 ## Assessment
 Items 1–3 PROVED (elementary). The brief's "Rédei-symbol form of the ray-class condition" does not exist beyond
-genus for prime t, and for composite t it is a finite slice menu. Promise 0/5 for 2-power theory; the odd part
+genus for prime t, and for composite t it is a finite slice menu (R175 repair, D11: for composite t only the
+slices t = 3F are fully visible; on the others 2-power theory sees the A₂-part, partial and generally finer than
+genus). Promise 0/5 for 2-power theory; the odd part
 becomes odd-order spins (H-D residue, no fixed-p technology): promise 1/5.

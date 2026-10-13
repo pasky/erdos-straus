@@ -43,9 +43,20 @@ L(s, χ)L(s, χχ_K) by induction); Cox, *Primes of the form x² + ny²*, §§3,
   detect the *ideal class* of 𝔪 in G/ker-ish directions orthogonal to the event, so by item 2 their
   contribution to the count is identically 0; a mechanism using them would have to be "class ⇒ norm", which
   WR Prop 10.3 shows is genus-shadow only. Dead.
-* T1: at p = k² (composite n) the genus character at n is trivial on norms — ν ≡ +1 (consistent).
+  (R175 repair, D10: Prop 10.3 is the wrong citation. It concerns Cl(O), where norms mod ℓ are class invariants only
+  up to squares; in G = Cl_(t)(K) the norm mod t *is* a class invariant (Remark 10.4). The correct reason is the
+  push-forward: the event depends only on the residues mod t of the prime factors of N, so anything a G-mechanism
+  proves about it at fixed (t, p) pushes forward along N to a statement about those residues.)
+* T1: at n = k² in GI Prop 4.1 (outside this memo's hypothesis p prime; R175 repair) the genus character at n is trivial on norms — ν ≡ +1 (consistent).
 
 ## Assessment
+(R175 repair, D10, scope.) What is PROVED: (a) at fixed (t, p) the hypercube event is a function of the residues mod t
+of the prime factors of N, so the *target* contains no ray-class information beyond N; (b) every *linear character
+detector* of the event (Fourier expansion on G, Hecke L-functions, theta series, Chebotarev densities of the event)
+uses only χ∘N. It is **not** a theorem about all ray-class *proof methods*. In particular, Chebotarev or
+equidistribution arguments in the ray class fields of the varying K_p, used to force families of N to have prime
+factors in prescribed classes, are only classified (B6/H-A, a barrier), not excluded. Read "pulled back from ℚ"
+below with this scope.
 PROVED (elementary/standard). Sharpens WR Remark 10.4 from "equivalent restatement" to "**pulled back from ℚ**:
 the ray-class picture adds exactly one K-datum, the genus character χ_p on G[1+σ], which is the sign layer".
 Promise 0/5 as a route; it closes the "Grössencharacter non-vanishing" sub-idea of the brief.
