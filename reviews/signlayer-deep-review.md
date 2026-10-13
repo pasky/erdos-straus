@@ -222,3 +222,29 @@ m'' ↦ (tn + 1)/(4m''), i.e. c ↦ (4c)⁻¹ mod t, which pairs −1 with −1/
 bias; tied with its partner −1/4 under m'' ↦ (tn + 1)/(4m''))".
 *Item 4* (cubic spins). Labelled Assessment, and acceptable as such. Note that for q ≡ 2 (mod 3) (inert) the
 symbol is (π_ℓ/q)_3 with q itself prime in ℤ[ω]; the memo's "𝔮 | q" covers both cases only implicitly.
+
+## Memo bsB_theta_multiplier — dictionary SOUND; numerics reproduced exactly; "refutation" SOUND but of a weak target (D13)
+
+*Dictionary.* With S_x = [[x, −1], [1, 0]]: S_cS_gS_f = [[cgf − f − c, −(cg − 1)], [gf − 1, −g]] = [[n, −m''], [m, −g]],
+and det = mm'' − gn = 1 because (cg − 1)(gf − 1) = gn + 1. So γ⁻¹ = [[−g, m''], [−m, n]] ∈ Γ₀(4) (4 | m). For d = n > 0,
+n ≡ 1 (4): ε_d = 1, Shimura's (c/d) = (−m/n) = (m/n), and (m/n) = (m''/n) since mm'' ≡ 1 (mod n). By GI Prop 4.1 this
+is the class sign. T1 (d = k² ⇒ ν_θ = 1) and ν_θ² = χ_{−4}(d) = 1 are standard. SOUND. One detail: W as defined
+in GI §0 (fg ≡ 1 mod 4, no condition on g) agrees with the (t ≡ 3 (4))-version only for n ≡ 1 (4), where
+f ≡ g ≡ 3 (4) is forced. The memo works only with n ≡ 1 (4), so this is fine.
+
+*Numerics, independent* (`scripts/review_sl_wcount.py 2000000`, numpy strided counting from the GI definition;
+`data/review_sl_wcount_2e6.txt`; 11 s). Through 2·10⁶: W = 0 at every odd square; **exactly 26 non-square zeros**
+with n ≡ 1 (4), namely 105, 465, 585, 801, 2641, 2929, 2961, 3705, 4785, 4945, 9529, 13041, 13465, 14841, 18825,
+25305, 35961, 60385, 111969, 156961, 248521, 698569, 1116801, 1126945, 1243089, 1618521. **None is prime**:
+W(p) ≥ 1 for every prime p ≡ 1 (4) ≤ 2·10⁶. 16 of the 26 are ≡ 9 (mod 24). W(105k²) = 2, 4, 7, 2, 5 for
+k = 3, 5, 7, 11, 13, as claimed. For all 26 zeros r and every odd k ≥ 3 with rk² ≤ 2·10⁶ (253 pairs), W(rk²) > 0.
+Mean of W on [a, 2a) for a = 10³…10⁶ is 6.9, 11.8, 18.0, 25.5, with growth ratios matching log² a. All claims
+reproduced.
+**D13 (MINOR, framing).** (a) The Shimura relation gives c(t) = 0 ⇒ c(tk²) = 0 only for **squarefree t** (in general
+c(tp²) also involves c(t/p²)). 9 of the 26 zeros are not squarefree (585, 801, 2961, …). The test is valid for the
+17 squarefree zeros, 105 included, so the conclusion stands. State the hypothesis. (b) What is refuted is "W(n) is
+the coefficient sequence of a half-integral-weight Hecke eigenform". Nobody seriously expected that: W is a
+divisor-type count that grows like log² n. "Refuted (EVIDENCE)" is an honest label, but the Assessment should say
+that this was a strawman-strength test. It refutes eigenform-like zero propagation, not a Waldspurger-type
+mechanism in which W is a *sum* over forms or periods. (c) The 26-zero list duplicates known data. "Consistent
+with DK §9" was not checked by me.
