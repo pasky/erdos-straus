@@ -80,8 +80,60 @@ def search(k, L, Mmax, b=2, c=1, verbose=True):
     return chosen
 
 
+def interp_poly(pts):
+    """Lagrange interpolation over Q; returns coefficient list (low->high) of Fractions."""
+    from fractions import Fraction as F
+    n = len(pts)
+    coeffs = [F(0)] * n
+    for i, (xi, yi) in enumerate(pts):
+        basis = [F(1)]
+        den = F(1)
+        for j, (xj, _) in enumerate(pts):
+            if j == i:
+                continue
+            basis = [F(0)] + basis
+            for t in range(len(basis) - 1):
+                basis[t] -= xj * basis[t + 1]
+            den *= (xi - xj)
+        for t in range(n):
+            coeffs[t] += F(yi) * basis[t] / den
+    while len(coeffs) > 1 and coeffs[-1] == 0:
+        coeffs.pop()
+    return coeffs
+
+
+def certificate(k, L, chosen, b=2, c=1):
+    """explicit polynomial certificate: for each class, x(n), y(n), z(n) as rational polynomials in n."""
+    out = {'k': k, 'b': b, 'c': c, 'L': L, 'classes': []}
+    for M, cls, s in chosen:
+        fam, P = cls
+        MM, R = ML.cls_modulus_residues(fam, P)
+        base = 10 * L + 64
+        mm = base + ((s[0] - base) % L)
+        r = (k * pow(b, mm, M) + c) % M
+        assert r in R
+        t0 = 10 ** 6
+        pts = []
+        for t in range(t0, t0 + 9):
+            n = r + M * t
+            sol = ML.solve(fam, P, n)
+            assert sol is not None
+            pts.append((n, sol))
+        polys = []
+        for i in range(3):
+            pc = interp_poly([(n, sol[i]) for n, sol in pts[:8]])
+            assert len(pc) <= 7, 'degree too high'
+            polys.append([str(x) for x in pc])
+        out['classes'].append({'M': M, 'r': r, 'fam': fam, 'params': list(P), 'exps': s, 'xyz': polys})
+    return out
+
+
 if __name__ == '__main__':
     k, L, Mmax = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3])
     b = int(sys.argv[4]) if len(sys.argv) > 4 else 2
     c = int(sys.argv[5]) if len(sys.argv) > 5 else 1
-    search(k, L, Mmax, b, c)
+    ch = search(k, L, Mmax, b, c)
+    if ch and len(sys.argv) > 6:
+        import json
+        json.dump(certificate(k, L, ch, b, c), open(sys.argv[6], "w"))
+
