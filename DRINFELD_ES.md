@@ -1,6 +1,7 @@
 # DRINFELD_ES — degree-k Diff-parity over F_q(T): rank-k Drinfeld modules, the ∞-coordinate, and odd-degree descent (task O181, spark relay H)
 
-Status: in progress (O181). **ES is not solved here, nor any infinite case of it.** Labels as in DISCOVERIES.md.
+Status: checkpoint 1 (O181) + hostile review R181 (`reviews/drinfeld-es-review.md`), whose repairs D1–D15 are applied
+in place and marked "(R181 repair)". **ES is not solved here, nor any infinite case of it.** Labels as in DISCOVERIES.md.
 Builds on LDP_DEEP.md (O177, CLAIMED, under review), KUDLA_ES.md (reviewed), FUNCTIONFIELD_ES.md / _ES2.md
 (reviewed), FUNCTIONFIELD_ES3.md (O173, branch side-agent/ff-sterile-point). Memos `BRAINSTORM/bsH_*.md`, scripts
 `scripts/bsH_*`.
@@ -29,7 +30,7 @@ Diff = ∅.
 For k = 2 this is FUNCTIONFIELD_ES Prop 4.1. **For k odd (q odd), ε_k = 1, so (P/f)_k = 1: P is a k-th power
 residue (Jacobi sense) modulo every Type II modulus.**
 *Proof.* gcd(f, Aad) = 1 since f ≡ −1 (mod Aad); E f = P + Aa²d gives P ≡ −Aa²d (mod f). Reciprocity for monic
-coprime x, y (Rosen Thm 3.5): (x/y)_k = ε_k^{deg x·deg y}(y/x)_k; Lemma 1.1 gives (−1/y)_k = ε_k^{deg y}. Then
+coprime x, y (Rosen Ch. 3, d-th power reciprocity law; R181 repair D12: theorem number not checked): (x/y)_k = ε_k^{deg x·deg y}(y/x)_k; Lemma 1.1 gives (−1/y)_k = ε_k^{deg y}. Then
 (−1/f)_k = ε_k^{deg f}; (Ad/f)_k = ε_k^{deg Ad·deg f}(f/Ad)_k = ε_k^{deg Ad·deg f}(−1/Ad)_k = ε_k^{deg Ad(1 + deg f)};
 (a/f)_k² = (ε_k^{deg a deg f}(−1/a)_k)² = 1. Multiply. ∎
 
@@ -38,9 +39,12 @@ f a Type II modulus of P (P ∤ f). Then (f/P)_k = 1, i.e. P splits completely i
 F(f^{1/k}) (whenever it has degree k) does **not** embed into the central division algebra D of degree k over F
 with Ram(D) = {P, ∞} (any invariants of exact order k): f^{1/k} is never a "supersingular endomorphism at P".
 *Proof.* (f/P)_k = ε_k^{deg f·n}(P/f)_k = 1 by Prop 1.2 (ε_k = 1). A degree-k field K embeds in a central division
-algebra of degree k iff K ⊗ F_v is a field at every v ∈ Ram(D) (Pierce §13.3 / Reiner Thm 32.15: local degree
+algebra of degree k iff K ⊗ F_v is a field at every v ∈ Ram(D) (standard local–global embedding criterion, e.g.
+Reiner, *Maximal Orders*, §32 — R181 repair D12: section numbers from memory: local degree
 [K_w : F_v] must be a multiple of the local index, here k). At P, (f/P)_k = 1 and P ∤ f mean that x^k − f splits
 over F_P, so K ⊗ F_P ≅ F_P^k. ∎
+(R181 repair D14.) If moreover k | deg f, then f (monic) is a k-th power in F_∞ (p ∤ k), so K also splits at ∞ —
+a second, independent reason for non-embedding.
 *Contrast (KUDLA_ES Thm 1.4, (J)13).* Over ℚ a Type II certificate gives (−f/p) = −1: p is inert in ℚ(√−f), the CM
 point is supersingular, Diff(T) = {p}. Over F_q[T] the degree-2 analogue is supersingular only on the
 degree-parity sub-families of q ≡ 3 (mod 4) (FF Prop 4.1), and the degree-k analogue (odd k) **never**.
@@ -56,10 +60,12 @@ re-verified as an ES_q solution A·XYZ = P(XY + YZ + ZX)).** k = 3:
 | 7, T, 3 | Q³ (Q ≠ T linear) | 6 | 0 | 42 | 0 | 42, 0, 0 | — |
 | 13, T, 3 | Q³ | 12 | 4 | 38 | 0 | 38, 0, 0 | — |
 | 7, T, 4 | Q² (control k = 2, q ≡ 3 mod 4) | 21 | 17 | 8 | 0 | — | — |
-**T1_k reversed (EVIDENCE + PROVED mechanism).** Cubes are *enriched*, not sterile: mean N_II = 7.0 at Q³ vs 2.15 at
+**T1_k reversed (EVIDENCE + heuristic mechanism; R181 repair D4: formerly "PROVED mechanism").** Cubes are *enriched*, not sterile: mean N_II = 7.0 at Q³ vs 2.15 at
 irreducible P (q = 7, n = 3), 3.2 vs 1.12 (q = 13). Mechanism: Prop 1.2 imposes (P/f)₃ = 1, a condition of
 probability ≈ 1/3 for prime P and automatic for P = Q³, so k-th powers gain a factor ≈ k. Over ℚ the forced value is
 (p/f) = −1, so squares get factor 0 (T1). The sign of the effect is the order of the target −1 in F_q^*/F_q^{*k}.
+(R181 repair D4: Prop 1.2 is proved, but the factor ≈ k is a heuristic — "probability ≈ 1/3" presumes
+equidistribution — and Q³ also admits non-primitive Type II data with Q | d.)
 
 ## 2. The ES_q surface carries Brauer classes of order q − 1 over the base — and they vanish on monic integral points
 
@@ -83,8 +89,11 @@ u₁/u₂ = [u₃/(u₂ + u₃)]·[u₁(u₂ + u₃)/(u₂u₃)]. Since 1 − y 
 **Theorem 2.2 (integral vanishing of the odd part; PROVED).** Let q be odd, A monic, P = Q^e a power of a monic
 irreducible Q (e ≥ 1, Q ∤ A), and let u = (X, Y, Z) be a monic NC solution of A/P = 1/X + 1/Y + 1/Z. Then for every
 ζ ∈ μ_{q−1} and every place v of F, inv_v α_ζ(u) ∈ ½ℤ/ℤ. In particular, **for every odd m | q − 1 the class
-α_ζ(u) (ζ of order m) is zero in Br F**: the odd-order part of the Brauer group of the ES_q surface carries no
-information at all on monic integral points.
+α_ζ(u) (ζ of order m) is zero in Br F**: the odd-order **prime-to-p** classes of the ES_q surface (all of
+Br Ũ{p′}[odd]/Br F, granting the BL transfer — Assessment) carry no information at all on monic integral points.
+(R181 repair D1: formerly "the odd-order part of the Brauer group". q is odd, so p-primary classes are also of
+odd order; BL's computation does not control Br Ũ{p} in characteristic p — H¹(A¹, ℚ_p/ℤ_p) ≠ 0 — and the p-primary
+part is not addressed here.)
 *Proof.* Relabelling changes α_ζ(u) at most by a sign: the identity (a, b)_ζ = (−b/a, 1/a)_ζ (BL §2; it follows
 from (a, a) = (a, −1) and bilinearity) gives invariance under cyclic shifts, and (b, a) = −(a, b). Since only
 2-torsion is claimed, we may relabel at each place. The term (y, −1)_ζ is killed by 2. For β = (x, y)_ζ use the tame symbol
@@ -93,8 +102,9 @@ from (a, a) = (a, −1) and bilinearity) gives invariance under cyclic shifts, a
 x ≡ −1 (mod ℓ) is a unit and {x, y} = (−1)^{v(y)}·(−1)^{0} = ±1. Otherwise all u_i are ℓ-units and ℓ ∤ A; y is a
 unit; if v(x) = 0 the symbol is 1, and if v(x) > 0 then λu₁ ≡ 1, so 1/u₂ + 1/u₃ = x/u₁ ≡ 0, u₂ ≡ −u₃ and y ≡ 1,
 symbol 1.
-(ii) v = ∞. By NC exactly one denominator has degree n − deg A (FUNCTIONFIELD_ES Lemma 1.2); take u₁ of larger
-degree. Then deg(λu₁) > 0, so x has sign 1 (λu₁ is monic) and y = −u₂/u₃ has sign −1; {x, y}_∞ = ±1.
+(ii) v = ∞. Exactly one denominator has degree n − deg A (R181 repair D2: FUNCTIONFIELD_ES Lemma 1.2 is stated for P
+prime; for P = Q^e, Q ∤ A: Q^e | lcm(u₁, u₂, u₃), so some denominator has degree ≥ n > n − deg A, and NC plus
+leading coefficients — 3 ≢ 1 mod p — leave exactly one of minimal degree); take u₁ of larger degree. Then deg(λu₁) > 0, so x has sign 1 (λu₁ is monic) and y = −u₂/u₃ has sign −1; {x, y}_∞ = ±1.
 (iii) v = Q: Σ_v inv_v β = 0 and (i), (ii) give 2·inv_Q β = 0. ∎
 *Remarks.* (1) The places ℓ | A are not special: the ES "2-adic" place of ℚ has no odd-order analogue. (2) The
 two places where the proof uses ES specifically are exactly the target −1 (x ≡ −1 at (i)) and the sign
@@ -110,6 +120,7 @@ Aa²d ≡ Ef (mod P), so −a/b ≡ −Aa²d/E ≡ −f (mod P). ∎
 So **Theorem 1.3 (odd m) is the BL reciprocity law of the order-m class**, and FUNCTIONFIELD_ES Prop 4.1 (m = 2) is
 its quadratic part; over ℚ the same computation gives inv_p α = (−f/p) = −1, i.e. BL Thm 1.2 = KUDLA Diff = {p}.
 
+(R181: independently reproduced by `scripts/review_dr_bl.py`, all counts identical; total 15 934 solutions at odd m.)
 **Numerics (EVIDENCE; `scripts/bsH_bl_classes.py`: all solutions via the Lemma 1.3 divisor criterion, tame symbols at
 every place incl. ∞, normalised by norms to F_q; Weil reciprocity checked on every point).**
 | q, m, A, n, P | #P | #solutions | reciprocity failures | local invariants observed |
@@ -135,21 +146,24 @@ the minimal-degree terms sum to 1.
 **Lemma 3.1 (finite places still trivial; PROVED).** For ES_q^c with P = Q^e and ℓ ≠ Q finite, inv_ℓ α_ζ(u) ∈ ½ℤ/ℤ.
 *Proof.* Theorem 2.2 (i) verbatim: it used only λ = Σ 1/u_i and integrality of u_i at ℓ (u_i = X_i/c_i is
 integral). ∎
-**Lemma 3.2 (the ∞-invariant is a degree character; PROVED).** Assume some denominator has degree > n − deg A
-(automatic unless c₁ + c₂ + c₃ = 1, which holds for no c in the table below) and label it u₁. Then x = λu₁ − 1
+**Lemma 3.2 (the ∞-invariant is a degree character; PROVED).** Some denominator has degree > n − deg A
+(R181 repair D3: this is always true — Q^e | lcm(X₁, X₂, X₃), so some X_i has degree ≥ n > n − deg A; the former
+caveat "automatic unless c₁ + c₂ + c₃ = 1" is unnecessary); label it u₁ (the formula below refers to this labelling;
+in a fixed labelling, α changes by sgn(π) under a permutation π). Then x = λu₁ − 1
 has sign 1/c₁ and v_∞(x) = n − deg A − deg X₁ < 0; y = −(c₃/c₂)X₂/X₃. The odd part of inv_∞ α_ζ(u) is the class
 of `c₁^{deg X₂ − deg X₃}·(c₃/c₂)^{deg A + deg X₁ − n}` in F_q^*/F_q^{*m}.
 *Proof.* Tame symbol {x, y}_∞ = (−1)^{v(x)v(y)} sgn(x)^{v(y)} sgn(y)^{−v(x)}; drop the signs ±1 (odd part). ∎
 **Theorem 3.3 (order-m T1 on degree classes; PROVED).** Let m | q − 1 be odd, P = Q^m, and u a solution of ES_q^c whose
 Q-shape is Type I (v_Q = (≥ m, 0, 0) up to order) or Type II ((0, ≥ m, ≥ m)). Then inv_Q α_ζ(u) = 0 for ζ of
 order m. Hence (Lemma 3.1, reciprocity) the odd part of inv_∞ α_ζ(u) vanishes: **primitive solutions at m-th powers
-lie in the degree classes where the character of Lemma 3.2 is trivial**. For prime P there is no such restriction.
+lie in the degree classes where the character of Lemma 3.2 is trivial**. For prime P no such restriction is observed (R181 repair D5: EVIDENCE, q = 7 tables below; not
+part of what is proved).
 *Proof.* Write v_i = v_Q(u_i). Type II, label u₁ = the Q-free one: v_Q(x) = −m. Since 1/u₂ + 1/u₃ = x/u₁ has
 valuation −m, and v₂, v₃ ≥ m: if v₂ ≠ v₃ the sum would have valuation −max(v₂, v₃) < −m. So v₂ = v₃, y is a
 Q-unit, and {x, y}_Q = ±y^m ∈ ±k(Q)^{*m}. Type I, label u₁ = the Q-divisible one (v₁ ≥ m, v₂ = v₃ = 0): y is a unit,
 v(λu₁) = v₁ − m ≥ 0. If v(x) = 0 the symbol is 1. If v(x) > 0, then x/u₁ = (u₂ + u₃)/(u₂u₃) has valuation
 v(x) − v₁ ≥ 0. If v(x) > v₁, u₂ ≡ −u₃ and y ≡ 1; if v(x) = v₁ then v(λu₁) = 0 forces v₁ = m and the symbol
-±y^{−m} is an m-th power up to sign. Odd part: 0 in both cases. ∎
+y^{−m} is an m-th power (R181 repair D5: no ± since v(y) = 0). Odd part: 0 in both cases. ∎
 For c = (1,1,1) the character of Lemma 3.2 is trivial on the odd part, so Theorem 3.3 is empty — consistent with
 Theorem 2.2.
 
@@ -172,7 +186,9 @@ at cubes it confines the Type I/II solutions to inv = 0, exactly as Theorem 3.3 
 Over F_q(T), F_∞^*/U₁ ≅ F_q^* × ℤ (sign × degree). Sign normalisation pins F_q^*, but the **degree coordinate
 cannot be pinned** by any ES-type positivity — solutions need denominators of many degrees. Order-m invariants
 at ∞ of sign-normalised data are therefore degree characters (Lemma 1.1, Lemma 3.2), and a k-th power obstruction
-can only remove degree classes, never all solutions. ES_q itself has target −1, whose order-m image is trivial
+can only remove degree classes (R181 repair D6: that it never removes *all* solutions is not proved — nothing
+shows the surviving degree classes are populated; EVIDENCE: 0 unsolvable cubes in the tables above, + Assessment).
+The case c₁ + c₂ + c₃ = 1 gives no exception (R181 repair D3: all three denominators can never be of minimal degree). ES_q itself has target −1, whose order-m image is trivial
 for odd m (Thm 2.2), so for ES_q even the degree-class restriction is empty.
 
 ## 4. Number-field side: odd-degree descent (O177 sparks 1, 3) — closed
@@ -183,13 +199,18 @@ F' ⊂ ℚ(ζ_M) with H = Gal(ℚ(ζ_M)/F'), K' ⊃ F' quadratic inside ℚ(ζ_M
 f mod M ∈ H ∖ H'. Hence "η(𝔞) = −1 ⟺ f ≡ −1 (mod M)" holds for all such 𝔞 iff H ∖ H' = {−1}, i.e. H = {±1},
 F' = ℚ(ζ_M)⁺, K' = ℚ(ζ_M), [F' : ℚ] = φ(M)/2 — even for every ES modulus M = 4cd > 4.
 *Proof.* Art_{ℚ(ζ_M)/ℚ}(N𝔞) = Art_{ℚ(ζ_M)/F'}(𝔞) ∈ H (norm compatibility of Artin maps), and η(𝔞) is the image
-of Art_{ℚ(ζ_M)/F'}(𝔞) in H/H'. ∎
+of Art_{ℚ(ζ_M)/F'}(𝔞) in H/H'. For the "iff": every element of H is Art_{ℚ(ζ_M)/F'}(𝔞) for some 𝔞 prime to M
+(Chebotarev; R181 repair D9). ∎
+Numerics (R181 repair D7): `scripts/bsH_descent.py` enumerated only ≤ 2-generated subgroups (81 pairs), which is
+not exhaustive ((ℤ/24)^*, (ℤ/120)^* need 3 generators). Complete enumeration (`scripts/review_dr_descent.py`):
+222 pairs (odd-degree F', quadratic K'/F') for 4 | M, 8 ≤ M ≤ 120, none with H ∖ H' = {−1}.
 So an odd-degree F' (spark 1) sees f only modulo H' with |H ∖ H'| = φ(M)/(2[F':ℚ]) ≥ 2: a coset condition plus the
 splitting condition f ∈ H (which the certificate does not force). The full ray condition needs F' = ℚ(ζ_M)⁺.
 **Prop 4.2 (norm descent goes the wrong way; PROVED).** Let F be any number field of odd degree r with
 β, β' ∈ O_F, ββ' − 4c²dp = 1, β ≡ β' ≡ −1 (mod 4cd·O_F). Then N(β) ≡ N(β') ≡ −1 (mod 4cd) and
-N(β)N(β') = (1 + 4c²dp)^r = 1 + 4c²d·(p·R_r), R_r := ((1 + 4c²dp)^r − 1)/(4c²dp): a rational Type II certificate for
-n' = p·R_r, not for p. ES(n') follows from ES(p), not conversely. *Proof.* All conjugates of β are ≡ −1 mod 4cd.∎
+N(β)N(β') = (1 + 4c²dp)^r = 1 + 4c²d·(p·R_r), R_r := ((1 + 4c²dp)^r − 1)/(4c²dp): if moreover N(β), N(β') > 0 (e.g. β
+totally positive; R181 repair D8 — a negative pair is no certificate, which only strengthens the conclusion), a
+rational Type II certificate for n' = p·R_r, not for p. ES(n') follows from ES(p), not conversely. *Proof.* All conjugates of β are ≡ −1 mod 4cd.∎
 Moreover O_F-certificates are cheap when O_F has units of norm −1 ((J)1, other_rings Prop 3.3), so they carry no
 information about p. **Verdict: odd-degree descent is closed with proof** (Prop 4.1 for parity, Prop 4.2 for
 certificates). Function-field remark: for the Carlitz cyclotomic field K_M of F_q(T), the inertia group at ∞ is
@@ -206,11 +227,12 @@ some maximal order of D contains an element with prescribed characteristic polyn
 (a) For degree-k CM data attached to ES_q certificates, Thm 1.3 shows the natural Kummer datum f^{1/k} is split at
 P, so it does not embed in D at all; the Type II quadratic datum embeds into the quaternion D^{(2)} only on the
 q ≡ 3 (4) degree-parity sub-families (FF Prop 4.1).
-(b) For data that do embed, the total number of optimal embeddings over the genus is (class number of the order)
-× (product of local embedding numbers) — Eichler's trace/mass formula, valid for definite orders over global
-function fields (Gekeler; Wei–Yu, "Mass formula of division algebras over global function fields", from memory,
-not checked). Its positivity is local. So "∃ maximal order containing the datum" is equivalent to the existence
-of the polynomial datum plus congruences: the genus vacuity of LDP_DEEP B.1 in rank k. The class layer (B2)
+(b) (R181 repair D10: formerly argued via an "Eichler trace/mass formula" citing Wei–Yu; Wei–Yu, J. Number Theory
+132 (2012), arXiv:1102.5465, is a *mass formula* for the class set, not an optimal-embedding formula, and the
+"h(O) × ∏ local factors" count is not classical in degree k ≥ 3.) PROVED, elementary: if K ↪ D and O ⊂ K is an
+R-order containing the datum, then O is an R-order of D, and every R-order lies in a maximal order. So "∃ maximal
+order containing (a conjugate of) the datum" ⟺ K embeds in D (local conditions at Ram(D)) and the datum is
+integral (plus congruences for Eichler-type orders, which would need more): the genus vacuity of LDP_DEEP B.1 in rank k. The class layer (B2)
 is untouched.
 (c) Ramanujan complexes (Lubotzky–Samuels–Vishne 2005, built from exactly these D) give expansion on the
 supersingular rank-k isogeny complex: path-existence at length ≍ log of the number of vertices, i.e. data of
@@ -225,8 +247,10 @@ R177 (reviews/ldp-deep-review.md, D2c) upgrades the "degree-2 accident" to: for 
 inv_∞ D = 1/k (anisotropic at ∞). G is an inner form of PGL_k, Ĝ = SL_k(ℂ), Z(Ĝ) = μ_k with trivial Galois
 action. Every place, including ∞, is non-archimedean, and H¹(F_v, PGL_k) = Br(F_v)[k] ≅ ℤ/k (local class field
 theory), so the sequence H¹(F, PGL_k) → ⊕_v ℤ/k → ℤ/k → 0 (sum of invariants; ABHN for Br[k]) is the Kottwitz
-sequence with an **incoherence group of order k**: the failure of D2c's mechanism is exactly that Γ_∞ acts
-trivially on μ_k because ∞ is not archimedean. So the object the orchestrator asked for is Br(F)[k] itself.
+sequence with an **incoherence group of order k**: the failure of D2c's mechanism is that F_∞, unlike ℝ, carries
+anisotropic *inner* forms PGL₁(D_∞) of PGL_k for every k (R181 repair D11: formerly "Γ_∞ acts trivially on μ_k because
+∞ is not archimedean"; Γ acts trivially on Z(Ĝ) for every inner form of PGL_k over any field — over ℝ the compact
+form PU(k) is an *outer* form for k ≥ 3, whence inversion on μ_k). So the object the orchestrator asked for is Br(F)[k] itself.
 **Coupling to ES_q.** An ES_q point u produces the coherent collection (inv_v α_ζ(u))_v (BL class, §2). Kudla's
 incoherent collection in order m is C = (split at finite v, invariant 1/m at ∞); define Diff_m(u) := {v : inv_v
 α_ζ(u) ≠ C_v}. Over ℚ (m = 2, Type II) Diff = {p} (KUDLA_ES Thm 1.4 ↔ Cor 2.3 above). Over F_q(T), m odd: by
@@ -237,16 +261,16 @@ language the ES_q data contribute only "archimedean" (here: ∞-adic, Drinfeld-u
 For twisted targets (§3) Diff_m(u) ∈ {{∞}, {∞, Q}} varies with the degree class (Lemma 3.2): the order-m Kottwitz
 incoherence does couple, but only to the degree coordinate.
 
-## 7. Verdict (O181 checkpoint 1)
+## 7. Verdict (O181 checkpoint 1; R181 repairs applied)
 * PROVED: Lemma 1.1, Prop 1.2, Thm 1.3 (Kummer CM data of Type II certificates split at P for odd k); Lemma 2.1
-  (Steinberg decomposition of the BL class); **Thm 2.2 (odd-order BL classes of the ES_q surface — which exist over
+  (Steinberg decomposition of the BL class); **Thm 2.2 (odd-order prime-to-p BL classes α_ζ of the ES_q surface (R181 repair D1) — which exist over
   F_q(T) itself — vanish identically on monic integral points; only places ∞ and P could carry the 2-part)**;
   Cor 2.3 (inv_P α = Kudla symbol (−f/P)_m); Lemmas 3.1–3.2, Thm 3.3 (twisted targets: order-m T1 on degree
   classes); Props 4.1–4.2 (odd-degree descent closed over number fields); §6 Kottwitz form (classical).
 * EVIDENCE: all checks in §§1–3 (0 mismatches; Weil reciprocity on every point; Lemma 3.2 formula on 4074 twisted
-  solutions; k-th powers enriched ×≈k for ES_q, primitive solutions at cubes confined to inv = 0 for twisted ES).
+  solutions, re-checked by R181 on 20 464 (point, labelling) pairs; k-th powers enriched ×≈k for ES_q (heuristic mechanism, R181 repair D4), primitive solutions at cubes confined to inv = 0 for twisted ES).
 * Assessment: the "degree-2 accident" has an exact function-field anatomy. F_∞^*/U₁ = F_q^* × ℤ (sign × degree).
   The order-k part of Br(F_∞) reaches sign-normalised data only through constants (sign) and degree. ES_q pins the
   sign and its target −1 has order 2, so for odd k the coupling is identically zero (Thm 2.2); twisting the target
   restores an order-k reciprocity, but it can only remove degree classes because no positivity can pin degree
-  (Thm 3.3). Forcing via rank-k class sets is genus-vacuous (§5). **No route to ES or ES_q; no obstruction either.**
+  (Thm 3.3; that some solutions always survive is EVIDENCE, R181 repair D6). Forcing via rank-k class sets is genus-vacuous (§5). **No route to ES or ES_q; no obstruction either.**

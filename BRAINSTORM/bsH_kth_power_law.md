@@ -8,9 +8,10 @@ needs ℤ[ζ₃]). Push FUNCTIONFIELD_ES Prop 4.1 (quadratic sign law) to order 
 f^{1/k} of a Type II modulus f is "supersingular" at P (embeds in D_{P,∞}^{(k)}), the order-k analogue of KUDLA's
 Diff = {p}.
 ## Literature
-Rosen, *Number Theory in Function Fields* (2002), Ch. 3 (k-th power reciprocity, Thm 3.5); Gekeler, *On finite
+Rosen, *Number Theory in Function Fields* (2002), Ch. 3 (k-th power reciprocity; R181 repair D12: theorem number not checked); Gekeler, *On finite
 Drinfeld modules*, J. Algebra 141 (1991) (supersingular rank-k modules, End⁰ = D_{P,∞}); embedding criterion for
-maximal subfields: Pierce, *Associative Algebras*, §13 and §18 (from memory).
+maximal subfields: Pierce, *Associative Algebras*, §13 and §18 (from memory; R181 repair D12: section numbers unchecked, criterion
+itself standard, e.g. Reiner, *Maximal Orders*, §32).
 ## Statement (PROVED)
 (P/f)_k = ε_k^{(1+deg f)(1+deg Ad)−1}, ε_k = (−1)^{(q−1)/k}; for odd k this is 1, so (f/P)_k = 1: P splits
 completely in F(f^{1/k}), which therefore never embeds in a degree-k division algebra ramified at P.
