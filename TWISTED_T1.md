@@ -160,3 +160,38 @@ Every prime has Type I/II solutions; every cube has only "other"-shape solutions
 9/π = Σ c_i/x_i ⇒ 9/π³ = Σ c_i/(π²x_i), shape (2, 2, 2)); in particular TES(π³) is globally, hence locally,
 solvable. Both hypotheses of Thm 3.2 are needed: dropping the anchor (c = 1) or the partner (numerator 3)
 restores Type I/II solutions at cubes.
+*Exponent law (EVIDENCE, same search):* n = π² (N(π) = 7): Type I 2, II 1; n = π⁴: Type I 1; n = π⁶ (B = 20):
+Type I/II 0 of 57; inert cubes n = 5³, 11³: Type I/II 0 of 46, 0 of 192. As predicted by Thm 4.1(c) below
+(T1₃ holds at π^e iff 3 | e — "iff" only in the sense that the proof's symbol y^{±e} is a cube iff 3 | e).
+
+## 4. The general principle: T1_m = anchor + partner + tame vanishing (odd m)
+
+**Theorem 4.1 (T1_m template; PROVED).** Let K be a number field, m ≥ 3 odd, μ_m ⊂ K, ζ ∈ μ_m primitive.
+Data: a numerator t ∈ O_K, twists c ∈ (O_K ∖ 0)³, a finite set S of finite places with normalisations
+N_v ⊂ K_v^* (v ∈ S), and n ∈ O_K prime to S, to m and to t·c₁c₂c₃. Equation TW(n): t/n = Σ c_i/x_i,
+x_i ∈ O_K, x_i ∈ N_v for v ∈ S. Assume:
+(A) [anchor] for v ∈ S, N̄_v is isotropic and τ₁ = −c₃/c₁, τ₂ = −c₃/c₂ lie in N̄_v^⊥ (Lemma 2.1);
+(P) [partner/wild] for every v | m with v ∉ S: c_i are v-units and v(t) ≥ i_v, where U_v^{(i_v)} ⊂ K_v^{*m};
+(U) [tame] for every finite v ∉ S, v ∤ mn: c_i are v-units.
+Put A_S := Σ_{v∈S} ⟨τ₁, τ₂⟩_v. Then:
+(a) every solution satisfies Σ_{v | n} inv_v α(u) = −A_S;
+(b) if A_S ≠ 0, n = π^e with π prime, π ∤ m, and m | e, TW(n) has no solution of Type I or Type II shape at π;
+(c) (for comparison) if m ∤ e, the proof's local symbol at π for Type I/II shapes is y^{±e}, unconstrained.
+*Proof.* As Thm 3.2: v ∈ S by (A) and Lemma 2.1; v | m, v ∉ S by (P) (the u_i are v-integral, so choosing u₁ of
+maximal valuation, −x = 1 − (t/n)u₁ ∈ U^{(i_v)} is an m-th power, as is −1); tame v ∤ n by (U) and DRINFELD_ES
+Thm 2.2(i); archimedean v: Br ℂ = 0, and real places have Br ℝ[m] = 0 for odd m; reciprocity gives (a); at π the
+Thm 3.3 computation gives symbols ±y^{e} or ±y^{−e} (Type II, resp. the only non-trivial Type I case), which are
+m-th powers when m | e (the sign is an m-th power since m is odd). ∎
+*Remarks.* (1) For m = p prime, i_v = ⌊p·e_v/(p − 1)⌋ + 1 suffices (Neukirch II (5.5)); for ℚ(ω), v = λ:
+e = 2, i_λ = 4, i.e. 9 | t. (2) S may be empty: then A_S = 0 and (a) says Σ_{v|n} inv_v α = 0 — the odd-order
+twisted version of Thm 2.2 (no T1). (3) **Over a function field the template is void for constant twists**
+(Prop 2.3(i)) — and ∞ must be in S (the denominators are integral only away from ∞), where the only natural
+normalisation (monic) is Lagrangian with free degree. (4) The template does **not** cover ES itself (m = 2):
+there the anchor is ⟨−1, −1⟩_∞ (non-alternating) and the vanishing at the wild partner 2 needs v₂(t) ≥ 3, whereas
+t = 4 has v₂ = 2; ES's T1 rests on the finer quadratic analysis (KUDLA_ES Thm 1.2 / BL). So ES's T1 is the m = 2
+member of a family whose odd members are *strictly easier* to prove.
+
+**Corollary 4.2 (what an order-m T1 needs, in one line).** Odd m: a non-zero anchor needs a place where the
+normalisation is *not* Lagrangian (Cor 2.2: monic / unit / primary never qualify; congruence normalisations
+"≡ 1 mod v" at tame v do), plus a constant algebra (τ₁, τ₂) ramified there and at a partner place where the
+equation forces vanishing. m = 2 additionally allows the non-alternating real anchor — the ES case.
