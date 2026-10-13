@@ -64,3 +64,41 @@ hypothesis of Prop 2.2. For D = c² it genuinely breaks along L: D = 1 gives ℚ
 (A, B) + (2, A) is unramified along L ([√−1] + [2] = [2i] = [(1+i)²] = 0). (The class is then still obstructed along
 M when n is not a square, so (c) is probably true for non-square n and all D, but that is a different argument.)
 Repair: add "D not a square (e.g. D ≡ 3 mod 4, the only case used)" to Prop 2.2(c), or add the M-divisor argument.
+
+## Lemma 3.1 (admissible D) — SOUND
+
+Re-derived (ℓ = 2: 1 + D ≡ 0 mod 4 and A = 2, B = 1 converse; ℓ | D odd: AB = 0 is excluded by W_ℓ, ℓ | A or ℓ | B
+makes the left side a unit, so ℓ ∤ ABn and −n ≡ (B/A)² mod ℓ^{v_ℓ(D)}; ℓ ∤ 2D: A = B = 1). Condition (ii) is
+implied by (iii) (Legendre symbol = 1 forces ℓ ∤ n) — harmless redundancy.
+Check `scripts/review_mk_local.py 150 13 17 21 29 9 25 45 49 105` (independent ℓ-adic integer search at every
+ℓ | 2nD): **0 mismatches** with the closed-form criterion over 9 × 150 = 1350 pairs (n, D); 76 admissible D.
+
+## Cor 3.2 — SOUND
+(−m²/ℓ) = (−1/ℓ) for ℓ ∤ m; an integer ≡ 3 (4) has a prime ℓ ≡ 3 (4) to an odd power; if ℓ | m it fails (iii)
+anyway ✔. Script: n = 9, 25, 45(non-square, control), 49: n = 9, 25, 49 have 0 admissible D ≤ 150 ✔.
+
+## Prop 3.3 (family BM via (−1, D)) — SOUND-AFTER-REPAIRS (archimedean condition)
+
+Re-derived: V_n : nA² + B² + D(1 − 2λAB) = 0 is smooth (∇ = 0 forces 2λAB = 1 and DAB = 0 ⇒ D = 0 ⇒ A = B = 0,
+contradiction); D is regular, its zero divisor is E = {D = 0, nA² + B² = 0}, ℚ-irreducible with κ(E) =
+ℚ(√−n)(A, λ), and ∂_B = 2B ≠ 0 on E, so D is a uniformiser; residue of (−1, D) is [−1] ∈ κ(E)^*/κ(E)^{*2}, trivial
+iff i ∈ ℚ(√−n) iff n ∈ ℚ^{*2} ✔. Local invariants for n = m²: ℓ = 2 forces D ≡ 3 (4) (D(2λAB − 1) ≡ 1 mod 4), odd
+ℓ: v_ℓ(D) ≥ 1 forces −n ≡ □ mod ℓ, so (−1/ℓ) = 1 ✔. `review_mk_local.py` also brute-checks these two facts at
+ℓ ∈ {2, 3, 5, 7, 11, 13} for n = 9, 25, 49: no violation.
+**Defect m3 (MINOR, but the proposition is false as written).** W_∞ = {A, B, λ > 0} (from §3) does NOT force D > 0
+on real points of the 3-fold: D = (nA² + B²)/(2λAB − 1) < 0 whenever 0 < λAB < 1/2. With D_∞ < 0 one has
+inv_∞ β = 1/2 and Σ_v inv_v β = 0, so with the stated W_∞ the BM set is non-empty and there is no obstruction.
+"inv_∞ = 0 (D > 0)" silently adds D > 0. Repair: put W_∞ := {A, B, λ, D > 0} (equivalently λAB > 1/2; integral
+points with λ, A, B ≥ 1 satisfy it). Also "for non-square n the class is ramified and gives nothing" should read
+"β ∉ Br V_n, so β gives nothing" (other classes of Br V_n are not examined — that is fine, Prop 3.4 is the fibre
+statement).
+
+## Prop 3.4 (no BM obstruction on admissible fibres) — SOUND-AFTER-REPAIRS (displayed equality is false)
+
+Evaluation re-derived: A, B ℓ-units, v = v_ℓ(D) odd: (A, −D)_ℓ = (A/ℓ), (B, −nD)_ℓ = (B/ℓ), B ≡ ±rA (mod ℓ^v)
+gives (B/ℓ) = ±(r/ℓ)(A/ℓ) and (−1/ℓ) = −1 ⇒ all four pairs ✔ (no Hensel needed: v_ℓ(nA² + B²) ≥ v already makes λ
+ℓ-integral). `review_mk_local.py`: for all 76 admissible (n, D) above, the prime ℓ realises all four pairs ✔.
+**Defect m4 (MINOR, false as written).** "(∏_v W_v)^{Br S_{n,D}} = ∏_v W_v" is false: since α₁ takes both values
+at ℓ, adelic points with Σ inv α₁ = 1/2 exist and are NOT in the BM set. What is proved (and all that is used) is
+(∏_v W_v)^{Br} ≠ ∅ (indeed it meets every fibre of the projection forgetting the ℓ-component). Repair: replace "="
+by "≠ ∅", also in §8 item 2 wording ("empty BM obstruction" is fine).
