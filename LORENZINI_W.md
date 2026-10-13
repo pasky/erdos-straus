@@ -18,7 +18,12 @@ Scope reminder (R174 D1): ES needs only (W) at primes p ≡ 1 (4) (plus (S)); gl
    values of R(n) = #solutions are squares of smooth numbers (5336100 = 2310², R = 4, against a mean ≈ 104 there).
    Yet squares are not exceptions: **every square except 1 and 9 is a value (Prop 3.3, PROVED; two families).**
 3. Profinite "sterile set" (§4): the closed set S ⊂ Ẑ of points that no fixed-pair family covers. It contains −1 (HJ_DEEP Lemma
-   3.2) and more (single-prime deviations ν(ℓ, c)). So compactness-type arguments cannot prove (W).
+   3.2) and more (single-prime deviations ν(ℓ, c), Thm 4.2 PROVED). So compactness-type arguments cannot prove (W).
+4. **SHARP/deflationary (§8, PROVED): (W) at primes p ≡ 1 (4) is trivial**, by two fixed-pair families, (2,2,·) and (3,·,4). So for ES
+   the whole content of SQ₅ at primes is the sign half (S).
+5. Short-block law (§5, EVIDENCE): x*(n) ≤ 12 for every n < 10⁸ outside E_W. CONJECTURE: x*(n) ≪ log n / log log n.
+6. Unconditional rate #E ∩ [1,N] ≪ N exp(−c√log N) (§6, PROVED relative to the Titchmarsh divisor theorem). Stern coding
+   V_{A_k}(2) = s(popcount k+1) (§7, PROVED).
 
 ## 1. Elementary equivalent forms (PROVED; `scripts/bsG_forms.py 700`: 0 mismatches against brute force)
 For n ≥ 2 the following are equivalent to (W)(n) ("n = xyz − x − z, x, y, z ≥ 2"):
