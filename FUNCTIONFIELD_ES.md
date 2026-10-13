@@ -271,10 +271,10 @@ n ≤ 11). Results in `data/ffl/q2_batch.txt`.
 **Theorem 6.4 (PROVED, computer-assisted).** ES_q(A, P) holds for **every** monic irreducible P of degree > deg A in
 the following cases:
 * q = 2, A = T or T + 1, and q = 3, A = T (Prop 1.4; no computation);
-* q = 2, every monic A of degree 2 or 3 (all 12 of them), and the degree-4 A completed so far (T⁴ and T⁴ + 1:
-  trees with 696 and 818 leaves, leaf moduli of degree ≤ 18). The batch over the remaining degree-4 and degree-5 A
-  was still running at the time of writing; `data/ffl/q2_batch.txt` is authoritative. The exhaustive
-  checks found no exception in degrees k < n ≤ 11;
+* q = 2, every monic A of degree 2 or 3 (all 12 of them), with no exceptions at all;
+* q = 2, the 12 degree-4 A with a complete tree and the degree-5 A = T⁵+T³+1 (430461 leaves, leaf moduli of
+  degree ≤ 35), for every P **outside an explicit finite exception list** (exhaustive, n ≤ 11; see the final-data
+  note below);
 * q = 4, A = T (Theorem 6.3).
 
 **Not covered (status OPEN, with EVIDENCE).**
@@ -328,3 +328,28 @@ For full failures, calibrating on q = 5 (last failure n = 4) and q = 7 (last fai
 n₀ ≈ 1.5·(q log q)^{1/2}.
 **Predictions recorded before the runs (A = T):** last failing degree n₀ ≈ 6 (q = 8), 7 (q = 9), 8 (q = 11),
 9 (q = 13). Char 2 and 3 may do better, as q = 4 (n₀ = 1, i.e. never) suggests.
+
+## Final data (O161 final data)
+
+**§7 predictions vs observed (A = T, exhaustive FAIL counts).**
+* q = 8: n = 4: 12, n = 5: 0, n = 6: 3, n = 7: 0, n = 8: 0. Last failure at n = 6, as predicted (6). The sequence
+  is non-monotone.
+* q = 9: n = 5: 68, n = 6: 32, n = 7: 2/4.78M. n ≥ 8 was not run (time cap), so extinction is ≥ 8. **Prediction 7
+  is already exceeded by at least 1.**
+* q = 11: n = 4: 305, n = 5: 433, n = 6: 319/295020. Extinction ≥ 7; prediction 8; undetermined.
+* q = 13: n = 4: 737, n = 5: 1333/74256 (n = 6 timed out). Extinction ≥ 6; prediction 9; undetermined.
+Assessment: one confirmation (q = 8), one miss by ≥ 1 (q = 9), two untested. The ±1-precision model is not
+validated beyond its calibration range.
+
+**Final F₂ batch (Thm 6.4 status; `data/ffl/q2_batch.txt`, NTH = 12, tree timeout 1800 s).**
+* Degree 1–3 (14 A): all trees complete and no exceptions for n ≤ 11, so ES₂(A, P) holds for every P.
+* Degree 4 (16 A):
+  * 12 trees complete. 7 of these A have no exceptions: T⁴, T⁴+1, T⁴+T²+1, T⁴+T²+T, T⁴+T²+T+1, T⁴+T³+1,
+    T⁴+T³+T²+T+1.
+  * The other 5 complete-tree A (T⁴+T+1, T⁴+T³+T, T⁴+T³+T+1, T⁴+T³+T², T⁴+T³+T²+1) hold except for 1–2
+    irreducible P of degree 5 each, all listed in the file.
+  * 4 trees timed out (T⁴+T, T⁴+T², T⁴+T³, T⁴+T³+T²+T); each has exceptions at n = 5–6.
+* Degree 5 (32 A): only T⁵+T³+1 has a complete tree; 31 timed out. **Every degree-5 A has exceptions**: the latest
+  failing degree is 7 (2 A), 8 (4 A), 9 (10 A), 10 (16 A), with exhaustive search to n = 11.
+So over F₂ the exceptions appear at k = 4 and their last degree grows with k. This matches the lottery
+threshold n₀ ≍ q^{k/2} even in a world where finite coverings exist.
