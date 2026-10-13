@@ -1,0 +1,2 @@
+Ep|D True E monic True
+E=-u mod T^10 True E=-1 mod L True
