@@ -24,6 +24,7 @@ for n in range(3, NMAX + 1, 2):
             assert D > 0 and 4 * Q0 * D == 4 * k * n + j and D * g == 4 * k * k * n + Q1 * Q1
             e = a // g; x = (n + e) // 4; y = n * (g + 1) // 4; z = F(n * x * (g + 1), 4 * Q * Q)
             assert F(4, n) == F(1, x) + F(1, y) + 1 / z and z.denominator == Q1 * Q1
+            K = (g + 1) // 4; c = Q0 * Q1 * Q1; assert c * k == K * Q1 * Q1 and (c - (-n) * k) % g == 0  # Cor 1.4
             cnt += 1
             # bound candidate: g <= n + 4 Q1^2 * Q0^2 ; record g / (n*(n+Q1^2)*Q1^2)
             r = g / (n * Q1 * Q1 * (n + Q1 * Q1))

@@ -60,6 +60,18 @@ while k stays free.** The self-mute condition (i) reads rad(Q₁) | Q₀k.
 *T1 in these coordinates.* At n = m² with gcd(Q₁, 2km) = 1, 4k²m² + Q₁² is a sum of two coprime squares, so all its
 divisors are ≡ 1 (mod 4), contradicting D ≡ −Q₁² ≡ 3 (mod 4): no shot datum at any e (the mod-4 part of (b) is the T1).
 
+**Corollary 1.4 (overflow = inflated box at the same modulus; PROVED).** Let h ≡ 3 (mod 4), K := (h+1)/4. A shot datum
+(Q, h) with overflow Q₁ exists iff −n ≡ c/j (mod h) for some c = Q₀Q₁², j with **c·j = K·Q₁²** and Q₀ | K (Q = Q₀Q₁,
+j = K/Q₀). So ES (Q₁ = 1) is the FIXED_MODULUS_SHOTS box criterion on Box(K) (d = 1 slice), and overflow Q₁ replaces
+Box(K) by (a slice of) **Box(K·Q₁²) at the same modulus h** — in the certificate cube (c, d, j) of FIXED_MODULUS_SHOTS
+Lemma 1.1 it is the point (Q₀Q₁², Q₁^{−2}, K/Q₀): **ES^{(y)} is the certificate cube with d allowed to be the inverse
+of a square of primes dividing y**, ES^{(y,e)} caps the exponents of that inverse square at e.
+*Proof.* 4Q₀k = h + 1 gives 4 ≡ (Q₀k)^{−1}, so h | n + 4Q² iff −n ≡ Q₀²Q₁²/(Q₀k) = Q₀Q₁²/k (mod h); and
+h | p + 4c²d with (c, d) = (Q₀Q₁², Q₁^{−2}) is h | p + 4Q². ∎ (Asserted on all 46 084 shots of `xc_rigidity.py`.)
+*Reading.* Covering by an exponent box at h needs |Box(K·Q₁²)| ≥ (h−1)/2, i.e. τ₃-size of K·Q₁² ≳ h, while
+Thm 2.1 below caps h ≤ 2nQ₁²(n + Q₁²): the overflow must inflate the box from h^{o(1)} to h, which forces
+log Q₁ ≳ (log h)^{2−o(1)}/… (Prop 3.1) — far above the archimedean minimum ¼ log(h/4n).
+
 ## 2. Rigidity: every bounded cap is a finite search
 
 **Theorem 2.1 (overflow rigidity; PROVED).** For every shot datum (Q, g) of n with overflow Q₁,
