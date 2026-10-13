@@ -99,6 +99,21 @@ Self-assessed (not yet triaged). Memo prefix `bsC_`; scripts `scripts/bsC_*`.
 | bsC_arithmetic_topology | Morishita knots-and-primes: T1 = mod-2 linking, ES = ℤ/φ(M) linking of a sub-link | dictionary only | 0 | none | none |
 | bsC_typeII_commutative | Type II as (2ad + k)(2bd + k) = de(1 + 2ck) in ℤ[√−dn] | PROVED identity, no mechanism | 1 | none | identity checked on 336357 tuples |
 
+## Spark relay D (O177, untriaged): higher-order reciprocity escape and (LD_p); deep file LDP_DEEP.md
+
+Self-assessed (not yet triaged). Memo prefix `bsD_`; scripts `scripts/bsD_*`.
+
+| file | angle | memo verdict | promise | hatch | by-products (labels) |
+|---|---|---|---|---|---|
+| bsD_brauer_cores | order-m Brauer classes (−u₁/u₃, −u₂/u₃)_ζ on the ES surface over ℚ(μ_m) | PROVED obstruction (corestriction collapse on ℚ-points) | 1 | none | Thm 1 PROVED rel. BL Thm 1.6; cubic symbols non-constant on solutions EVIDENCE |
+| bsD_frobenius_closure | Chebotarev closure of a slice; cubic reciprocity dictionary | PROVED obstruction (closure has index ≤ 2) | 1 | none | Thm 2 PROVED; no Kummer cubic/quartic signal EVIDENCE |
+| bsD_missed_primes | the 71 primes missed by quadratic slices; cubic/quartic layers | EVIDENCE, negative | 0–1 | H-A | misses are locally square; quartic layer misses 2, sextic 12, exponent-12 none |
+| bsD_eichler_degree_k | degree-k cyclic algebra "Diff-sum"; Eichler condition | PROVED structural negative | 1 (2 as FF spark) | none | ray condition = degree-k Diff-sums (tautology); forcing geometry only in degree 2 (Br ℝ = ℤ/2) |
+| bsD_metaplectic_cubic | Weil index μ₈; Kubota–Patterson cubic theta | negative | 0–1 | none | Weil-index parity is still quadratic in ℓ; cubic theta sees f only via Dirichlet data |
+| bsD_genus_vacuity_LDp | (LD_p) as reduction theory on Gross lattices | PROVED reduction (genus vacuous) | 1 | H-A | fixed order = lottery (Assessment; corrected DSP misuse) |
+| bsD_artin_conjugation | −1 = complex conjugation in ℚ(ζ_M); F-rational loophole over ℚ(ζ_M)⁺ | dictionary; loophole closed in LDP_DEEP §A.4 | 1 | H-A | ray condition quadratic over F for F-norm divisors; O_F-certificates do not descend |
+| bsD_drinfeld_rank_k | definite degree-k algebras over F_q(T), rank-k Drinfeld modules | spark (Assessment) | 1 | none | unique setting with order-k definite forcing; ES_q certificates quadratic |
+
 ## Cross-cutting notes
 * **Brief-template error (B2 wording).** The briefs' barrier text said "a lottery with only polylog(p) expected
   winners (Σ_{p≤N} f(p) ≍ N log³N)". Over **primes**, Elsholtz–Tao give N log²N ≪ Σ_{p≤N} f(p) ≪ N log²N log log N
