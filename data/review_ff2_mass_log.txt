@@ -1,0 +1,5 @@
+deg L' <= 0 families 0 union mass of C 0.0
+deg L' <= 1 families 2 union mass of C 0.037037037037037035
+deg L' <= 2 families 7 union mass of C 0.1111111111111111
+deg L' <= 3 families 12 union mass of C 0.18518518518518517
+deg L' <= 4 families 13 union mass of C 0.19753086419753085
