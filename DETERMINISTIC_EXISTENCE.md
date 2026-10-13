@@ -154,8 +154,8 @@ Pell pair solves the slice in **17.8%**, vs **14.3%** for a uniformly random cop
 So the Pell splitting is essentially a random splitting as far as residues mod e are concerned.
 
 **Why (Assessment, with a PROVED core).** The Pell splitting corresponds to the ambiguous principal ideal of
-ℚ(√D); the only arithmetic constraints it satisfies are the Rédei relations (D₂/ℓ) = 1 for ℓ | D₁ and
-(−D₁/ℓ) = 1 or (∓2D₁/ℓ) = 1 for ℓ | D₂ (PROVED: reduce D₂v² − D₁u² = 1, 2 mod ℓ). These are quadratic-character
+ℚ(√D); the only arithmetic constraints it satisfies are the Rédei relations (D₂/ℓ) = 1 (resp. (2D₂/ℓ) = 1) for ℓ | D₁ and
+(−D₁/ℓ) = 1 (resp. (−2D₁/ℓ) = 1) for ℓ | D₂, in the case D₂v² − D₁u² = 1 (resp. 2) (PROVED: reduce D₂v² − D₁u² = 1, 2 mod ℓ). These are quadratic-character
 conditions among the prime factors of D, i.e. relations *inside* the genus structure of D, and say nothing about
 the residue of D₁ modulo the unrelated modulus e. The e-slice condition for e ∤ 24 is not a quadratic-character
 condition (Prop 3.3(b) fails), so it is invisible to every genus/Rédei/ambiguous-class mechanism. For e | 24 the
@@ -165,3 +165,23 @@ the Type II equation ff' − 4c²dp = 1 (D₁ = dp, u = 2c, D₂v² = ff'): this
 lottery on the size-uncontrolled (u, v) of the fundamental unit. v3 D = tp+1 for the divisor form: the Pell
 splitting factors tp+1 but the class mod t is again uncontrolled. No forced hit. The mechanism survives T1
 (at D = m² Pell degenerates), but fails at the "right class" step (B2).
+
+## 5. Davenport–Cassels / Aubry descent (row 6) — not yet attacked
+
+Open item (triage errata to rational_to_integral M3: "a positivity-preserving descent with strictly decreasing
+denominator is not excluded"). Plan: on the hyperboloid X_d : ef − 4da² = 1 with the side condition 4ad | f + p
+(TERNARY §6), test whether an Aubry move (line through a rational point and a nearby lattice point) can be made to
+preserve the side condition by working in the sublattice where the side condition is linear (fix a, d first).
+Deferred to the next round.
+
+## 6. Summary (checkpoint 1)
+
+* Catalogue of 29 deterministic mechanisms with failure steps (§1). Only rows 4, 6, 9, 10 fail at a non-barrier
+  step; rows 1, 4, 9 use primality essentially.
+* Legendre/Holzer (§3): ES is **not** an isotropy problem in the useful direction. PROVED: Type I of level d lives
+  on anisotropic conics (Prop 3.2); the e | 24 slices fail exactly on norm-form representations (Prop 3.3); the
+  only deterministic T1-safe output is Jacobi forcing of the group-level test on prime slices with (p/e) = −1
+  (Prop 3.4; EVIDENCE: slice success 0.17 → 0.37). Novelty modest (genus/Yamamoto/BL in conic language).
+* Pell (§4): Legendre's unit-splitting factors N_θ(p) deterministically but behaves like a random splitting mod e
+  (EVIDENCE 17.8% vs 14.3%); its only constraints are Rédei relations (PROVED), invisible to the class mod e.
+* No route to ES; nothing here proves any case of ES.
