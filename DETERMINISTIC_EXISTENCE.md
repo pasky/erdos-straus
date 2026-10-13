@@ -268,3 +268,23 @@ is a non-square mod e ≡ 3 (4). ∎
 The only residue constraint on Type I is the necessary condition χ_{−4d}(p) = −1 (Prop 3.2). So Jacobi-type forcing
 (Props 3.4, 6.2) is a purely Type II phenomenon; for Type I every success requires individual prime-factor classes
 of p² + 4c²d.
+Check of Thm 7.3: `scripts/de_thm73_check.py 7 11 15 23 31` — the first 20 primes p ≡ 1 (mod M_E) for each E
+(up to p ≈ 2.4·10¹⁷ at E = 31) have no block witness at any slice e ≤ E (0 violations).
+
+## 9. Summary (checkpoint 2)
+
+* §1 catalogue: 29 mechanisms; after §5 the only rows not closed by a proved statement are 4 (now §3), 9–10 (§4),
+  11 (INVOLUTION_ES2, open for infinite/non-affine menus).
+* Legendre/Holzer (§3): ES uses isotropy only contrapositively (Props 3.1–3.3); T1-safe residue = Jacobi forcing
+  (Prop 3.4).
+* Pell (§4): deterministic factorisation, random-like mod e (EVIDENCE); constraints = Rédei relations (PROVED).
+* Davenport–Cassels/Aubry (§5): impossible on every quadric piece — positive rational points exist for all p
+  (Prop 5.1, Cor 5.2).
+* Forcing (§6): group-level success forced ⇔ −1 ∈ ⟨p·4⁻¹ mod e⟩ (Prop 6.2); Σ-level forced by residues ⇔
+  p ≡ −4 (e) (Prop 6.3; Σ = H ⇔ e | 24); gap = box image vs subgroup (Prop 6.1).
+* Joint forcing (§7): slice coupling only through primes < E/4 (Prop 7.1); joint data force exactly block witnesses
+  (Prop 7.2); block witnesses over e ≤ E miss the class 1 (mod M_E) (Thm 7.3), hence over e ≤ c₀ log p infinitely
+  often (Cor 7.4, Linnik). Hall/König add nothing (numerics + iteration record).
+* Type I (§8): no forcing side at all for p ≡ 1 (4) (Prop 8.1).
+* Net: the deterministic (residue + sharing) content of the slice structure is now characterised exactly; what lies
+  beyond it is the factorisation of the private cofactors P_e — the H-A/H-B hatches. No route to ES.
