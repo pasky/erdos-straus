@@ -1,11 +1,26 @@
 # R165 — hostile review of O165 `PARITY_FIXED_P.md` (branch side-agent/parity-fixed-p)
 
-Reviewer: R165. Status: IN PROGRESS. **ES is not solved anywhere; nothing here changes that.**
+Reviewer: R165. Status: round 1 complete. **ES is not solved anywhere; nothing here changes that.**
 From-scratch scripts: `scripts/review_pf_*.py` (none of the author's `pf_*` code reused).
 
 ## Summary verdicts
 
-(filled in claim by claim below)
+| Claim | Verdict |
+|---|---|
+| Lemma 1.1 (II{a,d} hits ↔ (h,k,d), (4dhk−1) \| hn+k; bijection) | **SOUND** (from-scratch bijection check n ≤ 120) |
+| Lemma 1.2 (Type I p-free up to one congruence) | **SOUND** (minor D1, D2) |
+| Lemma 1.3 spin lemma (i),(ii) + "Consequence" | **SOUND** (20302 instances, 0 violations) |
+| Prop 2.1 (≤ 5/8+o(1) χ_{−4d}-obstructed, relative to Burgess + Brun depth 2) | **SOUND-AFTER-REPAIRS** (minor D3, D4; Burgess-in-progressions step, ranges and uniformity all check) |
+| (★) and §3.4 modular-hyperbola dictionaries | **SOUND** (four independent counts agree, p < 80) |
+| §3.4 "Weil falls short by p^{1/2}" | **GAP** (heuristic exponent count; labelled Assessment, wording repair D6) |
+| §3.2 mass conservation consequence "polylog family" | **GAP** (relies on heuristic f(p) ≍ 𝓛³; D7) |
+| Main finding "H-B collapses into H-A" | **SOUND-AFTER-REPAIRS as Assessment** (correctly labelled mechanism-level; overclaims D5 MAJOR, D9) |
+| R(p) at p ≈ 10⁸ | **SOUND**: R(100004521) = 44, R(100000007) = 62 recomputed independently |
+
+No FATAL defects. One MAJOR (D5: the sign layer beyond χ_{−4d} is asserted to be sieve-bounded but is not
+proved, and needs a varying-modulus input). The rest are MINOR. The author's agent was alive, waiting at its
+checkpoint, when I finished (tmux window present, branch unchanged since b7840ad1), so I applied **no** R165
+repairs to `PARITY_FIXED_P.md`.
 
 ## Claim-by-claim
 
@@ -118,3 +133,73 @@ What is overclaimed:
   *requested* by the problem" are universal claims over all possible arguments. An argument that restricts to a
   structured sub-family (e.g. θ with N_θ = P₂ or y-smooth, to make the divisor layer tractable) would reintroduce a
   lower-bound sieve, and with it parity. Scope these to "the natural/unweighted formulation (★)".
+
+## Numbered defects
+
+**D5 (MAJOR) — §2 Assessment 2.2 ¶1 and §5 "Main finding" ¶1: sign-layer upper bounds overclaimed.** "The layers
+prime, Q, Q′ are multiplicative-class sets, bounded above by sieves without parity breaking" / "which sieves give
+without parity breaking". Only χ_{−4d} on a = 1 (≤ 5/8) and the prime class are proved. The full Q class (a union
+over ≤ 2^{ω(q)} characters, conductors up to ≈ p, d-dependent) and Q′ (higher order, no reciprocity) are not
+handled, and what is needed is ≤ (1−δ)·#slices with Q alone ≈ 63 % (corr memo table). *Repair:* replace with
+"…are bad classes for which only **upper** bounds are needed, so parity is not the obstacle. Proved here: χ_{−4d}
+on a = 1 (Prop 2.1) and the prime class. Bounding the full Q ∪ Q′ layer below 1 − δ needs a sieve whose sifting
+sets vary with the modulus q_θ — an open, parity-free uniformity problem." Change "collapses into H-A" to "collapses
+into H-A plus a parity-free varying-modulus sign-layer bound". Update the §0/report item 4 and I5/I7 to match.
+
+**D9 (MINOR) — §2 Assessment 2.2 ("No step of a fixed-p ES argument needs to distinguish λ(n) = +1 from −1") and §5
+("no Friedlander–Iwaniec Type II input is even *requested*").** These are universal over all arguments. *Repair:*
+"In the natural unweighted formulation (★) no step needs to …". Add a sentence noting that restricting to structured
+sub-families (N_θ = P₂, smooth N_θ) would reintroduce lower-bound sieves and parity.
+
+**D6 (MINOR) — §3.4 last four sentences and I4.** "falls short by p^{1/2}", "strip area ≈ block length", "O(1)
+expected 𝓗-points per curve-block" are not derived, and the success set is arithmetic, not a union of boxes.
+*Repair:* use the qualitative form in C7: Weil needs boxes of area ≫ p^{3/2+ε}, i.e. containing ≫ p^{1/2} points
+of 𝓗, while the target is an arithmetically defined subset with 𝓛^{O(1)} points. So box equidistribution, even
+with a better error term, does not see it. Keep it labelled Assessment.
+
+**D7 (MINOR) — §3.2 last two sentences.** "polylog-length family, with no power-length bilinear ranges" follows
+only from the heuristic f(p) ≍ 𝓛³. *Repair:* add "(heuristic; unconditionally ET only give X ≤ p^{3/5+o(1)}𝓛^{O(1)})"
+and label the consequence Assessment.
+
+**D3 (MINOR) — Prop 2.1 proof.** (a) The draft fragment "Σ 1/ℓ ≥ 1/2 − 1/2·[(2/p) = −1] − o(1)… — to avoid the
+prime 2, use odd n" should be cleaned up, and the union-bound step z/4 − o(z) ≤ Σ_ℓ (z/(2ℓ)+1) should be written
+out. (b) State ε < 1/16, which is what "p^{1/2−3ε} ≥ p^{1/4+ε}" needs; the actual length is ≥ p^{1/2−2ε}/4. (c)
+Mention that the O(1) rounding errors in #{d ≤ p/4 : d ≡ c_r (r)} sum to ≤ π(z)² = O(p^{1/2+2ε}) = o(p). (d) "PROVED
+relative to Burgess" can simply be PROVED, since Burgess is unconditional.
+
+**D4 (MINOR) — §2 EVIDENCE line after Prop 2.1.** The numerics (`pf_spin.py`) sample box-weighted slices over
+**all** a with 4a²d ≤ p, not the family a = 1, d ≤ p/4 of Prop 2.1. *Repair:* say so, or cite the exhaustive a = 1
+numbers: obstructed 0.589 / 0.567 at p = 1002121 / 10001881 (≡ 1 mod 840) and 0.284 / 0.311 at p = 1000037 /
+10000121 (`logs/review_pf_prop21.txt`). Note that at p ≡ 1 (mod 840) the 5/8 bound is nearly attained.
+
+**D10 (MINOR) — Remark (2) after Prop 2.1, and I7.** "the 'prime' class (≤ (2+o(1))|𝓑|/log p)": restricting to
+(d/p) = +1 means counting primes N ∈ (p, 2p] with (N/p) = +1, i.e. a prime-character sum of length ≍ the
+conductor. That is Siegel-zero sensitive and not available unconditionally (Brun–Titchmarsh mod p at x = 2p is
+useless). Provable: ≤ (4+o(1))|𝓑|/log p (all d, PNT mod 4), which equals (2+o(1))/𝓛 of *all* slices, as I7
+correctly says. Also "proportion → 0 like (log p)^{−1/2}" is only an upper bound O((log p)^{−1/2}) (Selberg), and
+the proof is not given. *Repair:* fix the constant, write "≪ (log p)^{−1/2}", and mark it "sketch".
+
+**D11 (MINOR) — §3.3 vs §3.4/§5 consistency.** The heuristic M(B) ≈ (log 2/4)·log(B/4) grows like log B.
+Summing over blocks gives ≈ (log p)²/8 ≈ 44 at p ≈ 10⁸, in good agreement with R = 44. So "O(1) expected events per
+dyadic block" (§3.4, §5) should read "≍ log B per block (single digits in practice)", and "no block's count grows with
+p" should say "for fixed B".
+
+**D8 (MINOR) — I2.** c′ = c + tN/2 is an integer only for even t, since N = p² + 4c²d is odd (checked:
+`scripts/review_pf_i2.py`). *Repair:* "t even".
+
+**D1 (MINOR) — Lemma 1.2, the "m-form" (Type I(p) ⟺ ∃ m, k | m, f | 4mk+1, p ≡ −f mod 4m).** The p ∤ f condition is
+silently dropped. (⇐) still yields a solution of the Type I equation, possibly non-primitive, and (⇒) is fine.
+*Repair:* add "(p ∤ f for primitive solutions)" or note that the forward map does not use it.
+
+**D2 (MINOR) — Lemma 1.2 proof, first sentence.** It is garbled ("as 4cd | f+p, resp. as 4dk | f+p and c = (f+p)/4dk...
+directly: …"). *Repair:* "a prime r | gcd(f, cd) divides 4cdk = f + p, so r = p, excluded; f ≡ −p (mod 4) is odd,
+so gcd(f, 4c²d) = 1."
+
+Cosmetic: in (★) the letter f denotes the Lemma 1.1 modulus m = 4dk − 1 (with (a,d,k) = (B,C,A)), not the row-II
+divisor f. State the identification (j,f) = (A, 4AC−1).
+
+## Scripts / logs (R165, from scratch)
+* `scripts/review_pf_dict.py` → `logs/review_pf_dict.txt`: Lemmas 1.1, 1.2, 1.3, (★), §3.4.
+* `scripts/review_pf_prop21.py` → `logs/review_pf_prop21.txt`: exhaustive a = 1 obstruction fractions.
+* `scripts/review_pf_R.py` → `logs/review_pf_R.txt`: R(p) at p ≈ 10⁸ plus dyadic profile.
+* `scripts/review_pf_i2.py`: the I2 composition identity.
