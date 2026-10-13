@@ -64,25 +64,21 @@ parity problem prevents a *lower-bound* sieve from detecting. But a fixed-p rout
 *good* slices, i.e. an **upper** bound for bad ones, and upper-bound sieves have no parity problem. Concretely:
 
 **Proposition 2.1 (the χ_{−4d}-layer by Brun's pure sieve; PROVED relative to Burgess).** Let p ≡ 1 (mod 4)
-be a large prime, ε > 0 small, 𝓑 = {(a,d) : a ≤ p^ε, 4a²d ≤ p, (d/p) = +1} (|𝓑| ≍ p). Call (a,d)
-*χ_{−4d}-obstructed* if every prime ℓ ∤ 2ad dividing N = p + 4a²d has χ_{−4d}(ℓ) = +1. Then
-#{obstructed (a,d) ∈ 𝓑} ≤ (5/8 + o(1))·|𝓑|. (Slices with (d/p) = −1 are never obstructed, since (N/p) = (d/p).)
+be a large prime and 𝓑 = {d ≤ p/4 : (d/p) = +1} (slices II{1,d}, N_d = p + 4d, |𝓑| ~ p/8). Call d
+*χ_{−4d}-obstructed* if every prime ℓ ∤ 2d dividing N_d has χ_{−4d}(ℓ) = +1. Then
+#{obstructed d ∈ 𝓑} ≤ (5/8 + o(1))·|𝓑|. (Slices with (d/p) = −1 are never obstructed, since (N_d/p) = (d/p).)
 
-*Proof.* By Lemma 1.3(i), obstructed ⟹ no ℓ ∈ 𝒫 := {ℓ ≤ z prime, (ℓ/p) = −1} divides N, z = p^{1/4+ε}
-(ℓ ∤ 2ad is automatic for ℓ | N, ℓ ∤ 2a, ℓ ≠ p). *Burgess input:* #{n ≤ z : (n/p) = −1} = z/2 + o(z), and each
-such n has a prime factor in 𝒫, so z/2 − o(z) ≤ Σ_{ℓ∈𝒫} z/ℓ, i.e. Σ_{ℓ∈𝒫} 1/ℓ ≥ 1/2 − o(1). Greedily pick
-𝒫′ ⊂ 𝒫 ∩ (2, z] with μ := Σ_{𝒫′} 1/ℓ ∈ [1/2 − o(1), 1]. For X(θ) = #{ℓ ∈ 𝒫′ : ℓ | N_θ} use
-1[X = 0] ≤ 1 − X + X(X−1)/2. For squarefree r = ℓ or ℓℓ′ (r ≤ p^{1/2+2ε}), and each a ≤ p^ε prime to r, the
-condition r | N fixes d in one class mod r; d runs over an interval of length L = p/(4a²) ≥ p^{1−2ε}
-restricted to (d/p) = +1, and Burgess for the incomplete sum Σ_{t ≤ L/r} ((c + rt)/p) (length
-L/r ≥ p^{1/2−4ε} ≥ p^{1/4+ε}) gives the count L/(2r)(1 + o(1)) uniformly. a ≡ 0 (ℓ) contributes no ℓ-divisible N.
-Summing (the a's with ℓ | a cost a factor 1 − 1/ℓ, absorbed into o(1) after summing since Σ 1/ℓ² over ℓ ≥ 3 is
-small — or exactly: they only decrease E[X]... [to be tidied: lower-order]), E[1[X=0]] ≤ 1 − μ + μ²/2 + o(1)
-≤ 5/8 + o(1) on μ ∈ [1/2, 1]. ∎
-(Honest scope note: the bookkeeping for the a's divisible by some ℓ ∈ 𝒫′ is sketched; it changes μ by a
-factor ∏(1 − 1/ℓ)-type ≥ 1 − O(1/ℓ_min), harmless if 𝒫′ avoids ℓ < some large constant — choose 𝒫′ ⊂ (L₀, z]
-with μ ≥ 1/2 − o(1) − Σ_{ℓ≤L₀}1/ℓ? that loses. Cleanest fix: restrict 𝓑 to a = 1 (still |𝓑| ≍ p).)
-With a = 1 only, the proof above is complete as written.
+*Proof.* An odd prime ℓ | N_d, ℓ ≠ p, never divides d. By Lemma 1.3(i), obstructed ⟹ no ℓ ∈ 𝒫 :=
+{2 < ℓ ≤ z prime, (ℓ/p) = −1} divides N_d, z = p^{1/4+ε}. *Burgess input:* #{n ≤ z : (n/p) = −1} = z/2 + o(z),
+each such n has a prime factor in 𝒫 ∪ {2}, so Σ_{ℓ∈𝒫} 1/ℓ ≥ 1/2 − 1/2·[(2/p) = −1] − o(1)… — to avoid the
+prime 2, use odd n: #{n ≤ z odd : (n/p) = −1} = z/4 + o(z) (Burgess for the character n ↦ (n/p) on the
+progression 1 mod 2), each with a prime factor in 𝒫, so Σ_{ℓ∈𝒫} 1/ℓ ≥ 1/2 − o(1). Pick 𝒫′ ⊂ 𝒫 greedily
+with μ := Σ_{𝒫′} 1/ℓ ∈ [1/2 − o(1), 1]. With X(d) = #{ℓ ∈ 𝒫′ : ℓ | N_d}, 1[X = 0] ≤ 1 − X + X(X−1)/2.
+For r = ℓ or ℓℓ′ (ℓ ≠ ℓ′ ∈ 𝒫′, r ≤ p^{1/2+2ε}), r | N_d fixes d ≡ c_r (mod r); Burgess for the incomplete sum
+Σ_{t ≤ p/(4r)} ((c_r + rt)/p) (length ≥ p^{1/2−3ε} ≥ p^{1/4+ε}) gives #{d ∈ 𝓑 : r | N_d} = |𝓑|/r·(1 + o(1))
+uniformly in r. Summing, #{obstructed}/|𝓑| ≤ 1 − μ + μ²/2 + o(1) ≤ 5/8 + o(1) for μ ∈ [1/2, 1]. ∎
+(The same proof works for a ≤ p^ε with routine bookkeeping for ℓ | a; not needed here.)
+
 EVIDENCE (`scripts/pf_spin.py`, `logs/pf_spin.txt`; 4000 random weighted slices each): pass rate among
 (d/p) = +1 slices 0.39, 0.54, 0.45, 0.60 at p = 100004521, 1000002361, 10000003441, 1000000003801
 (all ≡ 1 mod 840); 0.000 at the controls n = 10001², 100001² (T1).
