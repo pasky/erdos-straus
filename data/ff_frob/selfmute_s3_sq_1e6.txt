@@ -1,0 +1,3 @@
+s=3 inputs=odd squares < 1000000 (coprime to s): count=332 jmax=40
+  ES^(s)  least-j histogram {}  unsolved=332
+  ES^(y)  least-j histogram {}  unsolved=332
