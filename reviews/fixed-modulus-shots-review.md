@@ -72,3 +72,44 @@ all 499 odd squares 9 ≤ m² < 10⁶ fail all three. **Every figure reproduced 
 Re-derived: h ≡ −1 (mod 4n) ⇒ (n/h) = 1 (for odd n′ | n, (n′/h) = (h/n′)(−1)^{(n′−1)/2} = (−1/n′)(−1)^{(n′−1)/2} = 1;
 (2/h) = 1 for even n as h ≡ 7 mod 8) and (−1/h) = −1. gcd(c, h) = gcd(j, h) = 1 since cj | (h+1)/4. Numerically
 every Box((r+1)/4), r < 10⁶ prime, consists of quadratic residues (`review_fms_box.py`: 0 exceptions).
+
+## G. Thm 3.1, Thm 4.2 — SOUND (Thm 4.2 Type I bullet: m3); Cor 3.2 — GAP (MAJOR M1: false incomparability claim)
+
+Thm 3.1 is an immediate rewrite of Lemma 1.1 (h | pj + c ⟺ −p ≡ c/j, j a unit since j | k). Statistics recomputed
+(`scripts/review_fms_box.py 1000000`): for primes r ≡ 3 (mod 4), 7 ≤ r < 10⁶ (39 321 primes; the text's 39 319
+presumably starts at r = 19 — m6), mean |A_r| = 77.4, max 1977 at r = 942 479, max density 0.0646 (r > 10³),
+0.0081 (r > 10⁵): reproduced. The "14 to (median) 1092 times larger … on a sample" figure is not reproducible from the
+text (sample unspecified — m6).
+
+**Cor 3.2 / bsN / report SHARP 2 — the ES box is always INSIDE the ES^{(S)} residue set.** The first and third bullets
+are correct as statements about exponent vectors. But the text then claims "Neither set contains the other in general
+(R-O191: r = 11, S = {3}, … p = 43 has −p ≡ 1 certified by ES only)", bsN says "incomparable sets", and the report's
+SHARP 2 says "the sets are incomparable". As **residue sets** (which is what certification depends on) this is false:
+
+*Claim (PROVED here).* Let r ≡ 3 (mod 4) be prime, k = (r+1)/4 an S-unit, G = ⟨S⟩ mod r. Then Box(k) ⊆ 4G² (the
+ES^{(S)} set of O186 Prop 2.1), i.e. every p certified by ES at r is certified by ES^{(S)} at r.
+*Proof.* For cjt = k: c/j ≡ 4cjt·c/j = 4c²t (mod r). By Remark 2.5's computation (r ≡ −1 mod 4t) (t/r) = 1. Since
+r − 1 = 2·odd, G ∩ (F_r^*)² = G² (G² ⊆ G ∩ squares, and [G : G²] = 2 iff |G| even iff −1 ∈ G iff G ⊄ squares). t ∈ G
+(S-unit), so t = s², s ∈ G, and c/j ≡ 4(cs)² ∈ 4G². ∎ (Per certificate: ES point (c, t, j) ↦ ES^{(S)} Q ≡ cs.)
+This is also just O186's own remark "every ES solution is an ES^{(S)} solution", read at one prime.
+The document's own example refutes itself: at r = 11, S = {3}, G = ⟨3⟩ = {1, 3, 9, 5, 4} (odd order), 4G² =
+{1, 3, 4, 5, 9} ⊇ Box(3) = {1, 3, 4}; and p = 43 IS certified by ES^{(S)} at r = 11: Q = 27 ∈ ⟨3⟩, 43 + 4·27² =
+2959 = 11·269. The "only {3, 4}" in the text comes from imposing |e| ≤ 1 on the ES^{(S)} exponent — an artefact of the
+chosen representation (1 = 3⁰ ≡ 3⁵ has an odd-exponent representative), not a property of the residue set.
+Numerics: for all 1135 primes r ≡ 3 (mod 4), r < 2·10⁴, with S = primes of k, Box(k) ⊆ 4G² — 0 exceptions.
+Also: O186's ⟨S⟩ is the *monoid* (Q ∈ ℤ_{>0}), so the per-certificate ES^{(S)} vector satisfies e_q = 2s_q − κ_q ≥ −κ_q,
+not "no bound" (harmless at the residue level, where monoid and group images coincide).
+Consequence: the corrected dictionary is *strict inclusion* A_r ⊆ −4G², with |A_r| ≤ τ₃(k) vs |4G²| ≍ |G| —
+the size contrast (the actual point of §3) survives and is strengthened; only the "incomparable" sentences are wrong.
+
+Thm 4.2 (Type I bullet): the ⟸ direction produces an ES solution which is Type I only if p ∤ uvwf (otherwise it is a
+Type II solution); the text says so only in a parenthetical after "⟺" (m3).
+
+## H. Thm 6.2 (scope), §5 labels, Remark 2.5/Cor 2.3 wording — SOUND-AFTER-REPAIRS (minor)
+
+(i) is exactly Thm 2.1 + Cors 2.2–2.4 for Type II divisors of a fixed-coefficient affine form; (ii) Thm 3.1/4.2; (iii)
+Prop 6.1. The scope paragraph is accurate and honest (p-dependent coefficients, degree ≥ 2, Type I affine shots,
+multi-prime conditions excluded; (ii)–(iii) flagged as size statements, not impossibility). The "Reading" is labelled
+Assessment. §5 outcomes are declared Assessments unless citing a theorem; C1/C3/C4/C7 cite Thm 2.1/Cor 2.2/Cor 3.2/
+Prop 6.1 correctly; C2/C6 are honestly left open. C3's "needs ord_r(q) ≤ 2v_q + 1" holds for |S| = 1 (with more primes
+the box could contain ⟨q⟩ via mixed vectors; still O(polylog)), fine as an Assessment.
