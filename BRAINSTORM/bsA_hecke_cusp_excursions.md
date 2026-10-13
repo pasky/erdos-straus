@@ -7,7 +7,9 @@ conclusion lands in it.
 z ↦ (z + A)/p, A ∈ 𝔽_p, and pz) are permuted by the diagonal torus {diag(k, k⁻¹)} ⊂ SL₂(𝔽_p) acting on 𝔽_p via A ↦ k²A.
 On A ∈ 𝔽_p^* the orbits are exactly QR_p and QNR_p. So (A/p) = −1 picks out the non-identity orbit of the split torus
 on the Hecke points.
-**H2 (QNR Hecke points equidistribute; standard).** For smooth compactly supported f on SL₂(ℤ)\ℍ,
+**H2 (QNR Hecke points equidistribute; expected/standard, NOT proved here: the one-line Fourier computation below is
+only heuristic, because at height y/p the Fourier series of f converges slowly; a proof would go through the spectral
+theory of the twisted Hecke operator).** For smooth compactly supported f on SL₂(ℤ)\ℍ,
 Σ_{A} (A/p) f((z+A)/p) is G(χ_p)·Σ_m χ_p(m) c_m(y/p) e(mx/p), with f's Fourier coefficients c_m. This is o(p) uniformly
 on compacta (Weil/Deligne-type, or simply rapid decay of c_m), so each half equidistributes with a power saving.
 **H3 (the ES event is a large deviation; PROVED dictionary + standard CF fact).** r(p/A) − 1 is the number of right turns
