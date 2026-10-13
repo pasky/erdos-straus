@@ -41,3 +41,32 @@ direction of Thm 4.5 (on L₃, (A/n) = −1 ⇒ one of five slices), nor does it
 The identity `W = Σ_{D(n)}(1 − (m''/n))/2` is correct (only finitely many non-zero terms), but D(n) is infinite,
 so "S = #D(n)", "W = (S − O)/2" and "|Σ_{D(n)}(m''/n)| ≤ #D(n) with equality iff ES fails" are ill-defined as
 written. See defect M1 (repair is easy and makes the truncation t ≤ n+2 automatic).
+
+### Trace-formula transcription (§2 "Input") — SOUND (implementation); text summary slightly lossy
+I could not access Cohen–Strömberg (not in sources/); I implemented Cohen's formula from scratch for (n,N) = 1,
+k ≥ 2 (`scripts/review_gi_trace.py`: A1 with χ(√n)ψ(N)(k−1)/12; A2 with h_w and
+μ(t,f,n) = ψ(N)/ψ(N/N_f)·Σ_{x mod N, x²−tx+n ≡ 0 (N_f N)} χ(x); A3 with the condition
+(τ,N/τ) | gcd(N/𝔣_χ, n/d − d); A4 for k = 2, χ = 1) and validated it against **independent** references:
+(a) dim S_k(Γ₀(N)) = classical dimension formula (μ, ν₂, ν₃, cusps) for k ∈ {2,4,6}, N ≤ 40 — 0 failures;
+(b) Σ_{χ even} dim S₂(q,χ) = genus X₁(q) (formula 1 + q²/24∏(1−p⁻²) − ¼Σφ(d)φ(q/d)), q ≤ 25 — 0 failures;
+(c) Tr T_n | S₂(Γ₀(11)) = coefficients of η(z)²η(11z)², 14 values of n ≤ 31 — 0 failures;
+(d) **non-trivial character, n > 1:** Tr T_n | S₃(Γ₀(7), (·/7)) = coefficients of η(z)³η(7z)³ for 14 values
+n ≤ 29 incl. squares 1, 4, 9, 25 (tests A1 with χ(√n)) — 0 failures;
+(e) Tr T_p | S₁₂(1) = τ(p), p ≤ 11 — 0 failures.
+The author's `gi_trace.py` implements the same formula (read line by line: A1–A4, μ, the τ-condition, A4 —
+identical to mine). Note the author's own tests never exercise a non-trivial χ with n > 1 (only dimensions);
+my test (d) closes that gap. Also dim S₃(Γ₁(q)) = 0 for q ≤ 6 and = 1 at q = 7 ✓ (used in Prop 2.2).
+The prose transcription of A₂ omits the N_f·q modulus and the ψ(q)/ψ(q/N_f) factor in μ (m3).
+
+### Proposition 2.1 — SOUND-AFTER-REPAIRS (normalisation/sign)
+Re-derived: for N ≡ 1 (q) the τ = q, τ = 1 summands have y ≡ d resp. d' (mod q), (τ,q/τ) = 1, so contribute
+χ(d) + χ(d') = χ(d) + χ̄(d) ✓; orthogonality Σ_{χ(−1)=ε} χ(d) = (φ(q)/2)([d≡1] + ε[d≡−1]) for q ≥ 3 ✓.
+Including A3's prefactor −½ the exact value is
+`Σ_{χ(−1)=(−1)^k} χ̄(−1)·(τ∈{1,q} part of A3) = −(φ(q)/2)·Σ_{dd'=N} min(d,d')^{k−1}([d≡−1] + (−1)^k[d≡1])`.
+Checked numerically (`scripts/review_gi_prop21.py`, q ∈ {12,20,24}, k ∈ {2,3}, 20 cases, N = qn+1): exact
+agreement. The document's displayed expression lacks the sign −1 (the "−½ … ×2") — m4. The weight χ̄(−1) is a
+constant ((−1)^k) on the summed family, so it does not "isolate" anything; it only fixes a global sign (m4).
+The qualitative content (classes ±1 always appear together, relative sign (−1)^k, weight min^{k−1}) is correct.
+Hidden point worth stating: with weight min(d,d')^{k−1} the trivial divisor d = 1 has weight 1, while an ES
+divisor d ≡ −1 (q) has weight ≥ (q−1)^{k−1}; so for k ≥ 3 the "−2 per level" boundary is negligible inside A3.
+The "geometric reading" (cusps of X₁(q) fixed by T_N; P vs −P) is interpretation, not proved — label it (m5).
