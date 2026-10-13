@@ -9,6 +9,9 @@ E_W = {2, 3, 5, 6, 9, 11, 14, 15, 35, 105, 510} is n = xyz − x − z with x, y
 Scope reminder (R174 D1): ES needs only (W) at primes p ≡ 1 (4) (plus (S)); global (W) is stronger.
 
 ## 0. Summary (updated as the work proceeds)
+0. **New partial answer to Lorenzini's question (§9, PROVED): every even n ≥ 16 except 510 is a value.** Lorenzini left n = 2^m − 2 (m odd)
+   open. A Sierpiński-type covering of odd m mod 36 by six fixed-pair families settles it. (W) is now *exactly* the statement for odd n ≡ 3, 9, 11 (mod 12)
+   with n + 2 prime.
 1. Four further elementary equivalent forms of (W) (§1, PROVED, checked against brute force for n < 700).
 2. **(W) is not T1-free: odd/even squares carry a partial genus obstruction ("square shadow", §3, PROVED).** At n = m² the
    middle letter y satisfies y ≢ 0 (mod 4), y ≢ 7 (mod 8), and y ≢ 3 (mod 4) if m is even. The record-low
@@ -199,5 +202,5 @@ The orders used are ord₉(2) = 6, ord₁₃(2) = 12, ord₂₇(2) = 18, ord₁�
 family 2^m − 2 is a *one-parameter exponential* family: it is not dense in Ẑ, so the sterile set (§4) does not obstruct it.
 **What remains of (W) (exact).** By Lorenzini 6.3(b), Prop 8.1 and Thm 9.1, (W) is equivalent to: **every odd n ≡ 3, 9, 11 (mod 12) with n + 2 prime,
 n ∉ {3, 9, 11, 15, 35, 105}, is a value.** Here the residue is a prime-shift set, dense in every congruence class compatible with it (n ≡ −1 (mod M) is
-compatible). So no finite covering can finish it (HJ_DEEP Lemma 3.2 restricted to n + 2 prime: the classes n ≡ −1 mod M with M odd contain
-infinitely many n with n + 2 prime by Dirichlet).
+compatible). So no finite covering can finish it (HJ_DEEP Lemma 3.2 restricted to n + 2 prime: each class n ≡ −1 (mod M) contains
+infinitely many n with n + 2 prime, by Dirichlet applied to primes ≡ 1 (mod M)).

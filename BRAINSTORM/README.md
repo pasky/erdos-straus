@@ -146,6 +146,7 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 ## Spark relay G on Lorenzini's A₃ question (O180; memos bsG_*, deep file LORENZINI_W.md; not yet triaged)
 | file | angle | verdict (own) | label of main items |
 |---|---|---|---|
+| bsG_even_half | Lorenzini's 2^m − 2 (m odd) via a covering of the exponent mod 36 | **all even n ≥ 16 except 510 are values** | Thm 9.1 PROVED — SHARP |
 | bsG_primes_trivial | (W) where ES needs it (primes p ≡ 1 (4)) | trivial by (2,2,·), (3,·,4); interior SQ₅(p) ⟺ (S)(p) | PROVED — SHARP (deflationary) |
 | bsG_square_shadow | genus character at n = m² on the middle letter | T1 acts partially on (W); squares still all values except 1, 9 | Lemma 3.1, Prop 3.3 PROVED — SHARP |
 | bsG_sterile_set | profinite set missed by all fixed-pair families | infinite, accumulates at −1 → compactness route closed | Prop 4.1, Thm 4.2 PROVED; EVIDENCE |
