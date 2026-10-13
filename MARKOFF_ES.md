@@ -263,3 +263,41 @@ divisor-in-a-moving-class lottery for a class-group lottery: a different, famous
 (d) A pigeonhole variant (fix λ, let D run over divisors of a highly composite μ, Davenport constant of Cl(O_μ))
 needs h(O_μ) ≲ ω(μ) and a target (not zero-sum) element of the narrow class group, so it reduces to the same
 class-number input.
+
+## 7. Can the B = 1 locus (ES) be reached? (task 4)
+
+**Proposition 7.1 (PROVED).** (a) On a fixed fibre, the curve {B = 1} ∩ 𝒮_{n,D} : nA² + 1 + D = 2DλA has only
+the integral points with A | D + 1 (finitely many). (b) A Pell orbit (fixed λ, D) meets B = 1 in at most one
+ι_B-pair: along the orbit the convergent index grows and B ≈ nA/(2μ) grows geometrically, and B = 1 is the
+depth-3 convergent (Thm 4.3), so an orbit reaches ES iff its reduced point already is the ES point.
+(c) Composition inside one order O_μ: if α_i = B_i − A_iη have norms −D_i (D_i | μ), then α₁α₂ has norm +D₁D₂
+(≡ 1 mod 4: wrong sign, not a V_n point) and α₁α₂α₃ has norm −D₁D₂D₃ (a V_n point if D₁D₂D₃ | μ), but it is a
+product of three depth-≥3 elements and lands at depth 3 only by coincidence; across different μ there is no
+composition (different quadratic orders).
+*Proof.* (a) A | 1 + D from the equation mod A. (b) Thm 4.2–4.3 and the cone description of GROWING_MUTE
+Prop 1.2(b). (c) multiplicativity of the norm; the mod-4 sign rule of §5. ∎
+*Reading.* The ES locus is a thin curve on each fibre, so integral-point theory gives no help (Siegel-finite, and
+hitting it is the depth-3 divisibility (4tj − 1) | n + 4t², the classical lottery). Vieta/automorph moves and
+composition move AWAY from depth 3. O201 spark 3 (composition) does not give ES.
+
+## 8. Verdict (O202 checkpoint 1)
+
+1. **Literature (§1, checked against full texts).** GS prove the integral HP for almost all k and infinitely many
+   failures for x² + y² + z² − xyz = k; LM/CTWX compute the BM obstruction for those surfaces; Dao treats the
+   four-holed-sphere family. None applies directly: S_{n,D} is not Markoff-type (no C², A₂ singularity at infinity,
+   no Markoff mixing), and the ES content is the condition "level divides a coordinate" (2D | C), which GS-type
+   counting cannot see (B2). Erratum: the author of arXiv:2202.07142 is Quang-Duc Dao.
+2. **Brauer group and T1 (§2–3; PROVED).** Br S_{n,D}/Br ℚ = (ℤ/2)², ⟨(A, −D), (B, −nD)⟩, no transcendental part.
+   T1 is a *fibrewise local* obstruction (every D fails at 2 or at a prime ℓ ≡ 3 (4) ∥_odd D), and on the 3-fold
+   V_n it is the BM obstruction of (−1, D), unramified iff n is a square. For non-square n, every admissible fibre
+   has empty BM obstruction — killed by the very prime that T1 uses at squares.
+3. **CF dictionary (§4; PROVED).** ES^{[2]}(n) ⟺ some odd-index CF denominator Q_k of √(4μ² − 4n) divides μ;
+   **ES's shot family is exactly depth k = 3** (Q₃ = 4tj − 1, μ = t + nj), all overflow solutions are deeper.
+4. **λ-direction (§5–6).** No parametric families (Thm 5.1, PROVED). On a single admissible fibre, a locally
+   admissible λ is globally solvable with frequency ≈ 0.45–0.8 (EVIDENCE, 16 n × 3 D, λ to 3·10⁴, spot checks
+   at 10⁵): a polynomially large main term (≍ Λ/√log Λ), so B3 and B6 do not bite. The missing step is a
+   Cohen–Lenstra/Gauss-type principal-ideal statement in the family ℤ[2√(λ²D² − n)], a famous open problem; the
+   Richaud–Degert subfamily where class groups are controllable (n | λ) is exactly the one killed by reciprocity.
+5. **Status: ES^{[2]} / ES^{(y,1)} for all non-squares OPEN; ES untouched.** Positive outcome: an exact
+   translation of ES^{[2]} into a class-group question for real quadratic orders with a large heuristic main
+   term; ES itself is its depth-3 truncation.
