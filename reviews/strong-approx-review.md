@@ -4,6 +4,12 @@ Reviewer: R167 (side-agent/review-strong-approx). Author branch merged: side-age
 ES is not solved; nothing in the reviewed document claims otherwise, and nothing here changes that.
 From-scratch scripts: `scripts/review_sa_*.py` (none reuse the author's code).
 
+**Repairs applied (R167, at the parent's request; author parked):** D1–D14 are all applied directly in
+`STRONG_APPROX_ES.md` (25 places marked "(R167 repair)", incl. §0 summary and §8 table) and in the matching lines of
+`reviews/agent-reports/AGENT_REPORT_O167.md`. Cor 3.2 (D5) is rescoped: PROVED for recipes valid on the whole unboxed
+class, explicitly UNPROVED for boxed recipes (the SA setting). Thm 4.1/Cor 2.4 now carry hypothesis (A)
+`σ_p ≥ N_p^{−o(1)}`; Cor 4.2, Cor 7.2 relabelled Assessment; p ∤ M proved in §10.
+
 ## Overall
 
 **No FATAL defect.** The document's negative conclusions (bounded rational recipes are SA-idle; Thm 9.1's T1 kill of
