@@ -121,3 +121,37 @@ the ordinary ES lottery over an AP, and the fibre factor cancels exactly as in L
 Used as a *count* instead of an existence statement, SA meets the scale constraint: its main term is
 `σN/q³ ≥ N^{1/2−o(1)}` in the (S4) range, so the map to solutions must be `p^{η}`-to-one (CONDITIONAL_ES
 Prop 2.3), which is exactly the fibre factor that cancels.
+
+## 4. The scale window: even *optimal* strong approximation is a power too large
+
+Let `Q_p` have Gram determinant `D_p`. The Eisenstein (genus) main term for `#{Q_p(x) = N, x ≡ λ (q)}` is
+`M = σ·N/(√D_p · q³)` (σ = product of local densities, `N^{−o(1)} ≤ σ ≤ N^{o(1)}` away from anisotropic-prime
+blowups); for (S4), D fixed, this is Sardari's `σ (r/m)³ N`.
+
+**Theorem 4.1 (scale window; PROVED relative to CONDITIONAL_ES Prop 2.3, i.e. relative to ET).** Suppose an
+SA statement of *range exponent* `1 + η` is available: `R_p ≠ ∅` (indeed `#R_p ≥ M/2`) whenever local conditions
+hold and `N ≥ (√D_p q_p³)^{1+η}`. Let an SA-encoding use it with a map `R_p → Sol(p)` of multiplicity
+`μ(p) ≤ p^{o(1)}`. Then for all p outside a set of density 0, `√D_p q_p³ ≤ p^{o(1)}` and `N_p ≤ p^{o(1)}`.
+*Proof.* In range, `M ≥ σ (√D q³)^{η} ≥ (√D q³)^{η} N^{−o(1)}` and `M ≥ σ N^{η/(1+η)}`. Prop 2.3 gives
+`M ≤ 2μ f(p) ≤ p^{o(1)}` off a density-0 set. Both bounds then force `N^{η/(1+η) − o(1)} ≤ p^{o(1)}`. ∎
+
+*Calibration.* (S4) has `1 + η = 2` (`N ≫ q⁶`, D fixed). Sardari's Conjecture 1.3 (exponent 4) has
+`1 + η = 4/3`; BKS's covering exponent 4/3 for S³ (conditional on Twisted Linnik) is the same threshold. So
+**even the optimal conjectured strong approximation leaves a power main term `M ≥ q^{1−o(1)}`**, and a valid
+encoding through it needs `μ ≥ q^{1−o(1)}/f(p)`. The window `η = 0` (expected count p^{o(1)}) is where no SA
+statement is true in general: at expected count O(1) the representation numbers of a quaternary form fluctuate
+by the cusp-form part, which there is of the same size as the main term.
+
+*The ES-natural quaternary forms live exactly at η = 0.* QUATERNION_ES Lemma 3.1: Type II elements `α = 2ai + j`
+of `(−d,−p)` have norm `N = 4a²d + p` for the form `x₀² + dx₁² + px₂² + dpx₃²` (`√D = dp`), so
+`N/√D ≍ (4a²d + p)/(dp) = O(a²/p + 1/d)`, i.e. expected count O(1) — below every SA range. The same holds for the
+Type I order of reduced discriminant `pe` (Prop 1.3 there). This is the quaternionic form of the scale constraint:
+the solution-carrying representations are the ones a representation theorem cannot see.
+
+**Corollary 4.2 (PROVED, combining 2.3, 3.1, 4.1).** A rank-4 SA certificate of ES(p) for almost all p must have
+multiplicity `μ(p) ≥ p^{η'}`, and its recipe must be neither rational of bounded degree (Thm 2.3) nor a function
+of factorisation data coprime to `q_p` (Prop 3.1/Cor 3.2), nor factor through a linear projection (Principle 3.3,
+fibre cancellation). *Scope:* Prop 2.3 needs nothing about the recipe; 2.3/3.1 are as stated there. Not covered:
+recipes of p-growing algebraic degree, and non-algebraic non-factorisation recipes (lattice reduction of an
+x-dependent lattice, continued fractions of ratios of coordinates, …), which are `POINTWISE_SIZE` Thm M's
+"arbitrary search" territory.
