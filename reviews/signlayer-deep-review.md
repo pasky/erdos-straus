@@ -103,3 +103,44 @@ support for that is four points with deg a0, b0 ≤ 3. It is labelled EVIDENCE, 
 the limit "≈ 0.5" is an extrapolation of a monotone sequence (0.4806 at K ≤ 13, 0.4906 at K ≤ 19) whose increments
 are not shown to be summable. Assessment is the right label, and "appears to converge to ≈ 0.5, not 1" should
 read "the increments are consistent with a limit well below 1".
+
+## §3 Lemma 3.1, the x* orbit, Lemma 3.2
+
+### Lemma 3.1 — (i) SOUND; (ii) true, but the written proof has a GAP (D7)
+(i) Swapping h₁ and h₁' swaps E and E', and E' ≡ −u⁻¹ (mod T^{N+1}) because D ≡ 1. The swapped tuple satisfies
+(I)–(III) for v~ = (u⁻¹ − 1)/T, and v~(0) = −v(0) ≠ 0. Correct.
+(ii) **D7 (MINOR, proof gap).** "(I)–(II) are homogeneous under this [σ: T ↦ −T, then rescale each factor by
+(−1)^{deg}]." That is not automatic. Apply σ to (I) and rescale h₁, h₁' to monic: this gives
+h₁~ + ε_aε_b h₁'~ = (…)·T g~' r~ with ε_f = (−1)^{deg f}, so (I) survives only if **a ≡ b (mod 2)**. Matching the
+r~ forced by (II), (−1)^K σr, against the one forced by (I) then needs **deg E = 1 + a + deg L' even**. Both facts
+are true for q = 3: FF2's quadratic-reciprocity parity (proved, R166-checked) gives deg E, deg E', deg D all even.
+But they do not follow from the homogeneity that the proof invokes. A cleaner proof works on (E, E', D) directly:
+deg D even ⇒ σD = 1 + T^{K+2}(±σL')(±σg') with monic factors, and deg E, deg E' even ⇒ σE, σE' are monic. So σ
+maps families to families. Repair: cite FF2's parity in the proof, and note that the lemma is proved for q ≡ 3
+(mod 4) (q = 3), not "for odd q with the obvious changes". Machine check (`scripts/review_sl_sym.py 11`): every
+solution with K ≤ 11 has a ≡ b (mod 2) and deg E even. Invariance of the K ≤ 11 covered set under u ↦ u⁻¹ and
+u(T) ↦ u(−T) holds on all 1458 depth-7 test points.
+
+### "The x* orbit is {1 ± T, 1/(1 ± T)}: the four slice points whose u is a rational function of height 1" — FALSE (D8)
+**D8 (MINOR, but it is the only structural feature §3 names).** The degree-1 rational functions with u(0) = 1 and
+v(0) ≠ 0 are u = (1 + αT)/(1 + βT) with α ≠ β ∈ F₃. There are **six**, not four. The extra two,
+u = (1 ± T)/(1 ∓ T) (v = ∓(1 + T + T² + …), digit prefix (c, 2) with c = ∓1), lie in the cylinder of the K = 2
+family and are **covered** (`review_sl_sym.py` output). So "height 1" does not single out the x* orbit, and it does
+not by itself make a point sterile. The Assessment "the only visible special feature of x* is height 1" needs
+rewording: the orbit consists of the height-1 points with u or 1/u a *polynomial*, or equivalently the height-1
+points outside the K = 2 cylinder. The proposed "product formula" route has to explain why
+(1 ± T)/(1 ∓ T) is covered while 1 ± T is not.
+
+### Cross-validation (b) — confirmed independently
+At u = 1 + T + T² + 2T³ + T⁵ + T⁶ + 2T⁸ + T⁹ + 2T¹⁰ + T¹², my enumerator finds exactly the stated solution: K = 10,
+h₁ = T³ + T² + T + 2, h₁' = T⁵ + 2T⁴ + 2T³ + T + 1, g' = (T + 1)², L'' = T² + 1, r = T² + 2,
+L' = T⁴ + 2T³ + 2T² + 2T + 1. It covers at N = 6 (and also at N = 7, 8). I did not run FF2's searcher.
+
+### Lemma 3.2 — SOUND (D9 minor)
+Re-derived. (III) at v = c: h₁L' = −c + T^N y. Substituting into (*) gives −(1 + cT)h₁' − h₁ ≡ 0 (mod T^N), using
+K + 1 ≥ N. If the sum vanishes, then c = −1, h₁ = (T − 1)h₁', g'r = h₁', r | T^K, r = 1 (monic, since g' and h₁'
+are monic), and (T − 1)g'²L'' = T^K + 1. That fails at T = 1 because 2 ≠ 0. Otherwise
+N ≤ deg(h₁ + (1 + cT)h₁') ≤ max(a, b + 1), and K = a + b + deg L'' ≤ 2N − 2 gives the two alternatives. Correct.
+**D9 (MINOR).** "So a covering family at x* is necessarily lopsided (one of E, E' has much larger degree)". The
+second branch b ≥ a + deg L'' allows a = b when L'' = 1. In that case deg E = deg E'. Repair: "lopsided unless
+L'' = 1 and a = b".
