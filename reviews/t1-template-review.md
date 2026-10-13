@@ -37,6 +37,35 @@ n (a prime 𝔭 | (x, n) divides 4x − n = e | a_k ≡ 4η (mod n)); n | y, n |
 non-sequitur: sgn x = sgn y = −1 gives sgn z = −1, i.e. all three negative — which V_φ forbids. The claim is
 nevertheless true: σ₂(x) < 0 means σ₂(e) < −n and σ₂(y) < 0 means σ₂(g) < −1, whence σ₂(a_k) = σ₂(e)σ₂(g) > n;
 but σ₂(a_k) = n + 4σ₂(η) < n since σ₂(η) = σ₂(φ)^{2k+1} < 0. So (−, −) is impossible and the conclusion holds.
-Numerics (from scratch, exact ℤ[φ] arithmetic with exact sign tests of P + Q√5): see C3-numerics below.
+*C3-numerics* (`scripts/review_t1t_zphi.py 1000000 12 2000`, log `logs/review_t1t_zphi_1e6.txt`; exact ℤ[φ]
+arithmetic, exact sign tests of P + Q√5, own Euclidean gcd, full factorisation of N(a_k) when no prime < 4000
+qualifies). **All 78 496 odd primes p < 10⁶, p ≠ 5, are solved by Prop 1.2**; every solution verified exactly
+(4xyz = n(xy+yz+zx), σ₁ > 0, σ₂ mixed, N(x) prime to p, p | y, p | z). True min|k| histogram (k = 0, 1, …, 7, 10):
+57082, 19143, 1859, 313, 78, 12, 6, 2, 1 — this differs from the document's (42589, 29024, …, 8: 1 prime) because
+the author's scan (`t1t_phi_scan.py`, via `solve_unit_typeII`) ignores 𝔮 = (√5), prime factors > 10⁵, and the
+case where both primes above ℓ divide a_k (defect m3). σ₂-patterns (sgn x, sgn y) observed: (+,+) 49418,
+(+,−) 19503, (−,+) 9575, (−,−) never (as proved above). 131 902 prime-by-prime cross-checks
+"normalisable ⟺ (−φ/𝔮) = −1 ⟺ (p/ℓ) = −1" all agree. **T1 control (complete, stronger than the author's):** for
+every odd m < 2000 (including 5 | m) and |k| ≤ 12, every prime factor of a_k = m² + 4φ^{2k+1} (full factorisation;
+split, ramified and inert) lies in the trivial class of Cl_{4∞₁}: no square is solved by Prop 1.2. (The author's
+control skips 5 | m and prime factors > 10⁵.)
+
+### C4. Theorem 1.3 (criterion; T1 for the mechanism) — SOUND (statement in the report is broader than proved)
+Re-derived. (⇒) g ≡ −1 (4), σ₁ g > 0 is in the non-trivial class, χ is multiplicative on ideals prime to 2, so a
+prime factor of g (hence of a_k) has χ = −1. (⇐) a_k is odd (a_k ≡ n mod 2), so any 𝔮 | a_k is prime to 2; h = 1
+and Lemma 1.1 normalise its generator to g; σ₁(e) = σ₁(a_k)/σ₁(g) > 0 as σ₁(a_k) = n + 4σ₁(η) > 0. For 𝔮 | a_k:
+𝔮 ∤ n (else 𝔮 | 4η), and n ≡ −φ(2φ^k)² (mod 𝔮) gives (n/𝔮) = (−φ/𝔮) = χ(𝔮) — including the ramified
+𝔮 = (√5) (−φ is a 𝔮-unit and K(√−φ)/K is unramified at 𝔮; the "scope fix" is correct). (a) and (b) follow;
+inert ℓ: n ∈ F_ℓ is a square in F_{ℓ²} (and in fact inert ℓ | a_k forces ℓ ≡ 1 mod 4, since η mod ℓ ∈ F_ℓ gives
+η² = N(η) = −1). All confirmed numerically (C3).
+*Remark (strengthening, not a defect of correctness):* (√5) | a_k ⟺ n ≡ −4·3^{2k+1} ≡ 3·(−1)^k (mod 5). Hence for
+**every odd n ≡ ±2 (mod 5)** Prop 1.2 applies with 𝔮 = (√5) and k = 0 (n ≡ 3) or k = −1 (n ≡ 2) — checked for all
+such primes < 2·10⁵ and odd n < 2·10⁴. So V_φ(p) is **unconditional for p ≡ ±2 (mod 5)** by Prop 1.2 alone; GRH is
+needed in Thm 3.1 only for p ≡ ±1 (mod 5). The document misses this (defect m4).
+*Scope:* the document states Thm 1.3 for "the hypothesis of Prop 1.2" (correct). AGENT_REPORT SHARP-2 and the
+brief paraphrase it as "unit-Type-II solutions of V_φ(n) ⟺ …". That is broader than proved: Type II solutions with
+d₁ := e·y/n − x a unit of signature (+,+) (η = φ^{2k}) or with other signs are not covered (for η = φ^{2k} the
+relation sgn z = sgn x · sgn y at σ₂ does not exclude mixed patterns). Either define "unit-Type-II" as the Prop 1.2
+family or drop "⟺" (defect m2).
 
 ## Defects
