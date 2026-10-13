@@ -84,6 +84,21 @@ Index compiled by O160 from the memos, `reviews/triage-brainstorm-A.md` (O156, m
 | tropical_newton | O149 | tropical geometry / Newton polygons | COLLAPSES B1/B2 | PARTIAL | PARTIAL → H-F (single Newton polygon collapses) | 1 | H-F | T1 folklore; T2 elementary; "never residue classes" scoped to one polygon (see errata) | ✓ |
 | wildcard_list | O153 | wildcard pre-screens W1–W18 | pre-screens (Assessment) | PARTIAL | PARTIAL → H-A (W4/W15/W6/W7/W18 not excluded) | 2 | H-A | none; W1 premise false (see errata) | ✓ |
 
+## Spark relay C (O176, untriaged): building on the O172 "T1 = Diff-parity" dictionary; deep file DIFF_DEEP.md
+
+Self-assessed (not yet triaged). Memo prefix `bsC_`; scripts `scripts/bsC_*`.
+
+| file | angle | memo verdict | promise | hatch | by-products (labels) |
+|---|---|---|---|---|---|
+| bsC_supersingular_transfer | ES as "some supersingular curve mod p has a certificate configuration" | COLLAPSES (B2): ∃E is genus-vacuous | 1 | H-A | Thm 1 transfer PROVED; Type I on p^{o(1)} curves (∀E false) PROVED rel. ET; Kaneko near-extremality EVIDENCE |
+| bsC_eichler_orientation | ES congruence as level structure (Eichler orientation; involution on E[4cd]) | Type I COLLAPSES (B2); Type II → DIFF_DEEP | 2 | H-A | Eichler-order dictionary PROVED; deterministic lift nrd x ≡ −1 (M) on every curve PROVED |
+| bsC_parity_quadratic_only | unitary / big-CM Diff-parity over any base field (O172 spark 4) | PROVED obstruction | 1 | none | Prop 1 (parity over any base = one quadratic Dirichlet character) PROVED; M \| 24 slices miss 71/9732 p ≡ 1 (24) < 10⁶ EVIDENCE |
+| bsC_valence_borcherds | valence formula / Borcherds products as existence engine | COLLAPSES (B2/B3) | 0–1 | H-A | Galois-orbit obstruction PROVED rel. Siegel + ET; Type II certificate = Heegner point of Z(−4Mcp, 0) on X₀(M) |
+| bsC_fourier_jacobi | certificate indices as Jacobi coefficients (O172 spark 3) | COLLAPSES (B1/B6, B2) | 0 | none | least Jacobi index records to 10⁶ EVIDENCE |
+| bsC_isogeny_ramanujan | Pizer Ramanujan graphs / large-degree isogeny existence | COLLAPSES (B3, B2) | 0 | none | none new |
+| bsC_arithmetic_topology | Morishita knots-and-primes: T1 = mod-2 linking, ES = ℤ/φ(M) linking of a sub-link | dictionary only | 0 | none | none |
+| bsC_typeII_commutative | Type II as (2ad + k)(2bd + k) = de(1 + 2ck) in ℤ[√−dn] | PROVED identity, no mechanism | 1 | none | identity checked on 336357 tuples |
+
 ## Cross-cutting notes
 * **Brief-template error (B2 wording).** The briefs' barrier text said "a lottery with only polylog(p) expected
   winners (Σ_{p≤N} f(p) ≍ N log³N)". Over **primes**, Elsholtz–Tao give N log²N ≪ Σ_{p≤N} f(p) ≪ N log²N log log N
