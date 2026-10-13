@@ -208,3 +208,35 @@ has such a γ; no odd square has one (the matrix form of ET Prop 1.6). The split
   is det-p `[[e, 2a],[2ad, f]]` with `2a | 2ad`, `f ≡ −1 (mod 4ad)` — the variable modulus again. In the ES
   quaternion algebras `(−d,−p)`, `B_{p,∞}` the prime p is *ramified*, so there is no p-adic tree at all.
   Dead (B2 + wrong place).
+
+## 7. Weighting by the fibre: the weight-2 (rank-4) dictionary
+
+**Proposition 7.1 (PROVED, classical orthogonality).** For `(r, g) = 1` put
+`σ(n; r, g) := Σ_{m | n, m ≡ r (g)} m = φ(g)^{−1} Σ_{χ (g)} χ̄(r) σ_χ(n)`, `σ_χ(n) := Σ_{m|n} χ(m) m`.
+The `σ_χ(n)` are Fourier coefficients of weight-2 Eisenstein series (`E₂^{χ,1}`-type; up to normalisation and
+the χ ↔ χ̄ convention, which we did not recheck), i.e. exactly the objects that the Siegel–Weil formula
+attaches to genera of *quaternary* forms of level ≍ g². Since `σ(n; r, g) > 0 ⟺ n` has a divisor `≡ r (g)`,
+Type II (CONDITIONAL_ES (3.1), with `n_g = gp + 1`, `4 | m`, `m ≡ −1 (g)`) is a positivity statement for rank-4
+genus coefficients — the rank-4 counterpart of the weight-1 (binary-form) expansion (3.2) used there.
+
+**Corollary 7.2 (weighting does not escape; PROVED).** In `σ(n; r, g)` the divisor m carries weight m, a
+power-varying weight (LONGSHOT_FIBRED §5.5 (E-a)). But it is capped by the solution: every term is `≤ n`,
+while the main term is `σ(n)/φ(g) ≍ n/φ(g)` up to `n^{o(1)}`. The normalised main term is `≤ n^{o(1)}/φ(g)`,
+so FIBRED Lemma 1.3 (`M/w_max ≤ 2f`) returns the polylog scale. Equivalently: the weighted sum is
+`n·Σ_{m' | n, n/m' ≡ r (g)} 1/m'`, dominated by the *small* cofactors m', and the `m' = 1` term is the
+congruence `n ≡ r (g)` (B1). The rank-4 reading thus re-expresses the lottery on the small cofactor.
+
+## 8. Escape analysis: which hypothesis would have to fail
+
+| barrier used here | hypothesis | what violating it requires |
+|---|---|---|
+| Thm 2.3 (rational recipes idle) | recipe piecewise rational, degree ≤ D uniformly | recipes of degree growing with p, or non-algebraic |
+| Prop 3.1 (invisibility) | recipe reads factorisation data coprime to q_p | `q_p` sharing the *unknown* divisor — impossible for fixed q_p (only `gcd(N_p, q_p^∞)`, known, is seen) |
+| Thm 4.1 (scale window) | SA range exponent `1+η`, η > 0 | an SA statement at expected count `p^{o(1)}` (η = 0): ES-strength, not a known or conjectured SA |
+| Principle 3.3 / C4 | Φ factors through a projection whose image is an AP | an image that is *not* congruence-describable — then SA is not what supplies it |
+| Cor 7.2 | weights capped by the solution | uncapped weights (FIBRED (E-a)); none found |
+
+**Assessment.** The task's premise — power-size counts are not divisor-in-class lotteries — is right about the
+counts, but in every encoding found the *map back* to ES solutions turns the power-size count into either a
+finite menu (Thm 2.3), a factorisation-blind statement (Prop 3.1), or an AP lottery (C4/Cor 7.2). The quaternary
+objects that do carry ES solutions sit at expected count O(1) (§4), exactly where SA says nothing.
