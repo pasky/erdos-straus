@@ -130,12 +130,34 @@ prime with (q/p) = −1. The integer A = q is the A-value of a word of p iff t�
 t = t₀, u = (q + 1)/t₀, v = ((tp + 1)/q + 1)/t ≥ 1; A* = (tp+1)/q ≡ −1 (mod t) automatically since AA* ≡ 1). Such a word
 has χ = (−q/p) = −1, an ES certificate. Since (p/q) = −1, t₀ runs over the quadratic non-residues (q ≡ 1 mod 4) resp.
 residues (q ≡ 3 mod 4) of q. **Exactly for q ∈ {3, 5, 7} every such class divides q + 1** (q = 3: {1} | 4; q = 5: {2, 3} | 6;
-q = 7: {1, 2, 4} | 8); for q = 11 the class 5 fails, q = 13 fails, and for q ≥ 17, d(q + 1) ≤ 2√(q + 1) < (q − 1)/2.
+q = 7: {1, 2, 4} | 8); for q = 11 the classes t₀ = 5, 9 fail (p ≡ 2, 6 mod 11), q = 13 fails, and for q ≥ 17, d(q + 1) ≤ 2√(q + 1) < (q − 1)/2.
 So: *if 3, 5 or 7 is a non-residue mod p, the word (t₀, (q+1)/t₀, ·) is a certificate* — Mordell's 840 (= 8·3·5·7) in HJ form;
-the residual primes are p ≡ □ (mod 840), the T1 classes. No new content (B1), but it locates where a "Vinogradov-type"
+the residual primes are p ≡ □ (mod 840), the T1 classes. CERTIFIED (`scripts/cf_mordell_check.py`): all primes p ≡ 1 (mod 4) < 10⁶, q ∈ {3, 5, 7} non-residue ⟹ the word exists and has χ = −1 (0 failures). No new content (B1), but it locates where a "Vinogradov-type"
 argument would have to start: the least non-residue q_p ≥ 11 is the hard case.
 **3.2 Vinogradov's trick does not transfer (Assessment).** Vinogradov's q_p < √p + 1 uses that the set of "small" integers
 is closed under the operation m ↦ ⌈p/q⌉q − p and that χ is multiplicative on it. The A-set of X_p is L(p) = {A : t₀(A) | A + 1},
 t₀(A) = −p⁻¹ mod A; it is not closed under products or under any Euclid step (A ∈ L(p), A′ ∈ L(p) ⇏ AA′ mod p ∈ L(p)), and
 the only operations on it that are uniform in p are the Klein symmetries and the cell-preserving maps of §2. Given a
 non-residue q ≥ 11, a certificate with A = qk needs t₀(qk) | qk + 1, a divisor-in-class event (H-A).
+
+## 4. The signed sum Σχ over X_n, and the census to 10⁶
+
+**4.1 Census (CERTIFIED by exhaustive enumeration, `scripts/cf_census.c` + `cf_census_summary.py`; enumerator checked
+against the brute-force `cf_lib.words` for all odd n ≤ 300).** All positive words (boundary words included), all odd
+n ≤ 10⁶:
+* the **only** odd non-square n ≤ 10⁶ with χ ≡ +1 on X_n(ℤ_{>0}) is **n = 105** (|X_105| = 11, all boundary words, all +1);
+  in particular n = 5 is not exceptional once boundary words count ((4, 1, 2), χ = −1);
+* all 499 odd squares 9 ≤ m² ≤ 10⁶ have χ ≡ +1 (mean |X_{m²}| = 70.7) — T1 control;
+* 19 552 primes p ≡ 1 (8): mean N₋/|X_p| = 0.606, minimum 4/37 at p = 2521 (the ES "hardest small prime" of MODEL_SPECIFIC §5.2).
+So "χ non-constant on X_n ⟺ n non-square, n ≠ 105" holds for all odd n ≤ 10⁶ (= MODEL_SPECIFIC C1 with boundary words;
+HJ_DEEP has the interior version to 10⁸/10⁹).
+
+**4.2 Exact facts about S(n) = Σ_{X_n} χ = |X_n| − 2N₋ (PROVED).** (a) At primes p ≡ 1 (4), N₋ is even and |X_p| odd:
+reversal (t, u, v) ↔ (t, v, u) preserves χ and its only fixed point is (p + 2, 1, 1) (u = v forces u(tu − 2) = p), with
+A = p + 1, χ = (−1/p) = +1. (b) At n = m², S = |X_n|. (c) By Thm 1.1, S(n) = −Σ_{w ∈ X_n} ε₂(Q_w): a count of the
+integral points of X_n weighted by a 2-adic cell function, i.e. Σ over the 320 cells c mod 8 of ±#(X_n(ℤ_{>0}) ∩ c).
+*No closed formula found (Assessment).* For fixed t the t-fibre sum is a divisor sum of tn + 1 in classes mod 8t; the
+sum over t is the (★)-family. A Dedekind/HZ formula sees r − r′ (DK (D3)) and the residue of 12ns(A, n) — both
+cell/2-adic data — and Σ_A (A/n)s(A, n) = 0 for even characters; nothing in that toolbox singles out the length-3 ball.
+Parity is no help: N₋/2 is even for 1162 and odd for 1222 primes p ≡ 1 (8) < 10⁵. Size check (B3): even an exact
+formula would have to prove S(p) < |X_p| where |X_p| ≍ log² p on average with no pointwise lower bound beyond (W).
