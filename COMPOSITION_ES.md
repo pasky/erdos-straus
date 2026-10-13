@@ -113,11 +113,12 @@ the chosen primes over S(μ) (each may be replaced by its inverse = conjugate). 
 Davenport constant) then some nonempty product ∏_{i∈I} 𝔩_i^{±1} is narrowly principal — but with a POSITIVE-norm
 generator, i.e. not a V_n point. (b) A V_n point at μ using each prime of S(μ) at most once exists iff δ ∈ Σ^±(c₁, …, c_r)
 (signed subset sums), which no lower bound on r forces: e.g. if G ⊇ ⟨δ⟩ × ⟨g⟩ ≅ (ℤ/2)² and every 3-mod-4 prime has
-class δg and every 1-mod-4 prime class 1 or g, then Σ^± ⊂ {1, g, δg} for all r. (c) The necessary condition
+class δg and every 1-mod-4 prime has class 1, then Σ^± ⊂ {1, δg} for all r (R-self: with a
+1-mod-4 class g the product δg·g = δ would be reachable). (c) The necessary condition
 χ₋₄ = −1 forces an odd number of primes ≡ 3 (mod 4) in I (the genus layer of MARKOFF_ES §6); the remaining
 condition is the class layer, the same Cohen–Lenstra-type input as MARKOFF_ES Prop 6.1(c).
 *Proof.* (a) Davenport's definition; a narrowly principal ideal has a totally positive generator, norm > 0.
-(b) Prop 2.1(a); the example is a group computation (δg·δg = 1, and products of an odd number of δg's are δg).
+(b) Prop 2.1(a); the example is a group computation ((δg)^{±1} = δg, (δg)² = 1, so signed products are 1 or δg).
 Whether the example occurs in some O'_μ is not claimed; the point is that no counting of S(μ) alone excludes it. ∎
 *Reading.* Pigeonhole in class groups naturally manufactures elements of norm +D (D ≡ 1 mod 4) — these are the
 "even products" that Prop 1.2(c) excludes. Reaching δ is a target-sum problem whose answer depends on the actual
