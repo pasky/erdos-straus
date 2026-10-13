@@ -79,5 +79,5 @@ certificate on the length-3 locus). I found no reciprocity-forced existence mech
 
 Sparks: (a) identify the sign as an explicit genus character of the conjugacy class of γ (disc (n−t)²−4), which
 could make rotation-invariance conceptual; (b) the scaling transfer combined with a "descent" n ↦ n/a might give
-SQ₅ for composites, conditionally on SQ₅ for smaller m with a | middle; (c) test SQ₅ beyond 10⁶ (≈10 min per 10⁶
+SQ₅ for composites, conditionally on SQ₅ for smaller m with a | middle; (c) test SQ₅ beyond 10⁶ (the 10⁶ runs take minutes
 in pure Python; a C port would reach 10⁸).
