@@ -58,3 +58,15 @@ some `β` with `β² ≡ −p (mod a)`, `2 | β`, `2β | a+1` (then `[a, 2β, (�
 Call such forms **ES-forms**. For each primitive representation `a = Q(v)` the middle coefficient with `|B| ≤ a`
 is unique (up to `B = ±a`), so the ES-condition is a property of (class, represented value, root of −p mod a).
 At `p = m²` there are no ES-forms (they would give a Type II solution; ET Prop 1.6) — T1 is built in.
+
+**Computation 2.3 (CERTIFIED, `scripts/wr_esforms.py`).** The slice of Cor 2.2 alone (discriminant −4p) is **not**
+sufficient: among the 267 primes `p ≡ 1 (24)`, `p ≤ 20000`, 15 have no ES-form at all (exhaustive, using the bound
+`b ≤ (p+1)/3` forced by `k ≥ 4b−1`, `e ≥ 4b−p`), e.g. 97, 193, 673, 1033, 1297; 78 have no *reduced* ES-form.
+
+**Lemma 2.4 (PROVED; the full Type II e-slice as forms of discriminant −4gp, cf. STATUS (I)4).** ES(p) holds if for some
+`g ≥ 1` there is a form `[k, B, c]` of discriminant `−4gp` with `B > 0`, `4g | B`, `B | k+1`. Proof: write
+`B = 4gb`; then `c = ge`, `ke = p + 4gb²`, and `k ≡ −1 (mod 4gb)` gives `4bg | p + e`; with `N = (p+e)/4 = αβg`,
+`β = b`, `α = N/(bg)`, one has `e | α + β` (as `4N ≡ −4gb² (mod e)`), and Lemma 2.1's formula with `x = N`,
+`y = pN(α+β)/(eα)`, `z = pN(α+β)/(eβ)` works verbatim (α, β | N). ∎ So the windmill question for Type II is a
+question about forms in the class groups `Cl(−4gp)`, g ≥ 1 (the Heegner discriminants of (I)4), and an "ES-form" is the
+non-genus condition `B | k+1` on (class, represented value k, root).
