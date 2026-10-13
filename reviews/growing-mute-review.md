@@ -31,7 +31,7 @@ From-scratch check (`scripts/review_gm_dict.py 201 301 60`, exact rationals, sol
   Q = λB², these give Q even or gcd(Q, n) > 1 — NOT shot data in the paper's Notation (Q odd, gcd(Q, n) = 1).
   The solutions are nevertheless valid (den z = B², odd, prime to n). See M1.
 
-### Prop 1.2 (Markov-type equation, Pell automorphs, "no Markov tree") — (a), (b) SOUND; (c) SOUND but under-stated, its reading OVERCLAIMED (m2, m3, M3)
+### Prop 1.2 (Markov-type equation, Pell automorphs, "no Markov tree") — (a), (b) SOUND; (c) SOUND but under-stated, reading mis-worded (m2–m5)
 
 (a) g·D = nA² + B² with g = 2ABλ − 1 ⇔ nA² + B² + D = 2λD·AB; (B − μA)² − (μ² − n)A² = B² − 2μAB + nA² = −D. Correct.
 (b) For the form [n, −2μ, 1] (disc 4(μ² − n)) the automorph attached to T² − (μ² − n)u² = 1 is
@@ -59,9 +59,11 @@ all match. Every point: D ≡ 3 (mod 4); 3 automorph images forward and 3 backwa
   then the (λ, D)-fibre is finite. Prop 2.2 states the "μ² − n non-square" hypothesis, but §5 item 2 ("Every
   solution with B > 1 lies on an infinite Pell orbit") drops it (m3).
 
-Reading of (c) (Assessment) is off: on S_{n,D} both Vieta moves (in A and in B) fix C = 2μ, and their composite is a
-Pell automorph of the same conic f_μ = −D. So even if both involutions were integral one would only get the dihedral
-group of ONE conic — there is never a "Markoff tree" across different C (C enters linearly; no third involution), and
-"finitely many fundamental solutions per (μ, D)" holds anyway by reduction theory of indefinite binary forms. (c) is
-therefore true but does not carry the weight §2/§5 put on it ("orbit-descent tools … unavailable"). See M3.
+Reading of (c) (Assessment) — wording misleading, substance partly right (m5): on S_{n,D} both Vieta moves (in A
+and in B) fix C = 2μ, and their composite is a Pell automorph of the same conic f_μ = −D; C enters linearly, there
+is no third involution, so there is never a Markoff-type *tree* across different C, whatever (c) says. What the
+missing A-involution really costs is classical Vieta jumping: with both involutions integral, a minimal point of
+the conic satisfies A ≤ μB/n and B ≤ μA, which bounds μ in terms of D (finitely many C per D, as for
+x² + y² + D = Cxy); with only the B-involution, reduction theory still gives finitely many orbits per (μ, D) but no
+bound on μ. Rephrase (c)'s reading as "no Vieta-jumping bound on C = 2λD in terms of D", for every odd n.
 
