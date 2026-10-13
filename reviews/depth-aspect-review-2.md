@@ -5,12 +5,12 @@ commit c1cf4de8. Did not read `reviews/depth-aspect-review.md`. From-scratch scr
 
 ## Summary verdicts
 
-(filled in below, claim by claim)
-
 | claim | verdict |
 |---|---|
 | Thm 3.1 (ℤ: sterile points on the r-generic line for all large primes r) | **SOUND** (minor repairs D1–D5; none affects the conclusion) |
-| Thm 2.5 (F_q[T], q = 3^r, r ≥ 27 / q ≥ 1.3·10^16) | see §2 below |
+
+No FATAL and no MAJOR defects.
+| Thm 2.5 (F_q[T], q = 3^r, r ≥ 27 / q ≥ 1.3·10^16) | **SOUND** (minor repairs E1–E4; E1 = the side claim "relative measure ≥ 0.97" is unsupported as written for r = 34, 35 but true on recomputation). Suggestion E5: the method very likely reaches r ≥ 10. |
 
 ## 1. Theorem 3.1 (integer side)
 
