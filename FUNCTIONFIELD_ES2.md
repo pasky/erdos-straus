@@ -30,6 +30,12 @@ classes at depth 6 (`scripts/ff2_tree.c`, FFL_ALLUNC) concentrate on P ≡ 1 at 
 `scripts/ff2_point.c` test every u mod T^e against all linear families with W_F | T^e·W' (W' = (T+1)³(T+2)³
 (T²+1)(T²+T+2)(T²+2T+2)·four cubic primes, NTH = 20). For e = 5, **every** lift of u ≡ 1+T, 1+T+T², 1+2T,
 1+2T+T² (mod T³) is uncovered, as are most lifts of 2+T+T², 2+2T+T², 2+2T+2T². Candidate obstructed points.
+**Caveat (found later, §0.2):** this test, like ffl_tree, only uses families with E | W, i.e. E built from the
+primes of W. At points x ≡ 1 off T, families with E having large prime factors are valid deterministically
+(P ≡ 1 mod E), and they do cover many lifts (random search: Case B families with L' = T² − 1 cover e.g.
+u ≡ 1 + 2T + 2T³ + T⁴ + 2T⁵ + 2T⁶ mod T⁷). So the slice 'uncovered' counts and the tree plateau overstate the
+obstruction: **the plateau of the ffl_tree search is (at least partly) an artefact of E | W**, not evidence of an
+obstruction of positive measure.
 
 Slice tests for other (q, A) (same tool `scripts/ff2_slice.c`, x ≡ 1 off the A-primes): q = 3, A = T²+1: 28/72
 units u mod (T²+1)² uncovered; A = T³: 35/54 mod T⁴; A = T: 0/54 (consistent with Thm 6.4). q = 4, A = T²: 0/192
@@ -64,3 +70,14 @@ u = 1+T+2T²): **no Case B family for u = 1 + cT, c = ±1, with deg L' ≤ 5, j 
 Observation: the covered T²-digit is d = 2 = −c² in u ≡ 1 + cT + dT² (mod T³), via the single family
 E = T² − cT − 1 = −(1 + cT − T²) (a0 = b0 = T, j = 1, D = 1 + T⁴ = (T²+T−1)(T²−T−1)), which covers the whole
 cylinder.
+
+**Status of x* (CONJECTURE + EVIDENCE).** For the exact point u = 1 + cT, `ff2_caseB.py 3 2 c 7 8` finds **no**
+Case B family with deg L' ≤ 7, j ≤ 8 (both c = 1 and c = 2 to deg L' ≤ 5, j ≤ 5; c = 1 to 7/8). With Case A
+excluded (proved), this is evidence for **Conjecture 0.2: x*_c ∈ O(3, T²); hence ES₃(T², ·) has no finite linear
+covering** (char 3 would then share the "lottery" status of char ≥ 5 for k = 2, although its failures die out
+at n = 6 in the data). A proof needs: no monic E ≡ −(1 + cT) (mod T^{N+1}), E ≡ −1 (mod L') dividing
+D = 1 + T^{N+1+γ}L'g' (g' | L', 0 ≤ γ ≤ N − 1) with monic cofactor; equivalently (TL'H' − 1) | T^{N+γ}g' + H'
+with L'H'(1 + cT) ≡ c (mod T^N), lc H' = 1. Why u = 1 + cT is special: x ≡ 1 at every prime ≠ T makes
+validity of every family a deterministic (non-lottery) condition, and the T-adic class −(1 + cT) is "small"
+(as −1 is in O140 Prop 4.1); generic lifts u are heuristically covered (expected number of covering Case B
+families Σ_{N,ℓ} poly(N+ℓ)·q^{−N} diverges over ℓ).
