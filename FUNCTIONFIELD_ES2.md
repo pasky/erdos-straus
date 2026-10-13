@@ -13,12 +13,17 @@ at fixed q, n → ∞; (c) q = 3, A = T² and q = 4, A = T²; (d) degree-parity 
 
 *Framework (PROVED, compactness; makes "is there a finite linear covering" a pointwise question).* Let
 R̂ = lim R/W and R̂^* its unit group. A linear family F is valid at x ∈ R̂^* if x mod W_F lies in its validity set
-(Lemma 6.2; a congruence condition, independent of n ≥ n_F). The obstructed set
-O(q, A) := {x ∈ R̂^* : no linear family is valid at x} is closed. A finite covering (hence a proof of ES_q(A,·)
-by Lemma 6.2 + a finite check) exists iff O(q, A) = ∅: if O = ∅, the validity sets (open) cover the compact R̂^*,
+(Lemma 6.2; a congruence condition, independent of n ≥ n_F). (R166 repair, D3: Lemma 6.2 as stated only says
+"depends on P mod W". Independence of n follows from its proof. The congruences A·a0, A·b0 | P + E, the residue
+of s mod E (from P mod E and X mod a0E, b0E, LE), lc(s) (1 for distinct types, lc(a0 + b0) or lc(L/a0 + L/b0)
+for equal types) and "s ≠ 0" contain no n. So the validity set V_F ⊂ R̂^* is a well-defined clopen set.) The
+obstructed set
+O(q, A) := {x ∈ R̂^* : no linear family is valid at x} is closed. A finite covering exists iff O(q, A) = ∅: if O = ∅, the validity sets (open) cover the compact R̂^*,
 so finitely many do; conversely if x ∈ O, every class mod W containing x contains irreducible P of every large
 degree (Dirichlet, Fact 5.2) and no family of a finite covering is valid there. O140 Prop 4.1 is the statement
-1 ∈ O(q, A) for char ≥ 5.
+1 ∈ O(q, A) for char ≥ 5. (R166 repair, D2: a finite covering proves ES_q(A, P) for all P of degree ≥ max n_F
+by Lemma 6.2. The smaller degrees need a finite check, and that check can find failures: for q = 3, A = T², ES
+fails at n = 3, 4, 5.)
 
 *Tree data (EVIDENCE).* `ffl_tree 3 100 "100*11*12" refine T,T+1,T+2,T²+1,T²+T+2,T²+2T+2,T,T+1,T+2,T²+1`:
 uncovered density 0.0115 at depth 6 (NTH = 13) and 0.0106 at depth 8 (NTH = 17). Plateau. The 3829 uncovered
@@ -34,8 +39,10 @@ classes at depth 6 (`scripts/ff2_tree.c`, FFL_ALLUNC) concentrate on P ≡ 1 at 
 primes of W. At points x ≡ 1 off T, families with E having large prime factors are valid deterministically
 (P ≡ 1 mod E), and they do cover many lifts (random search: Case B families with L' = T² − 1 cover e.g.
 u ≡ 1 + 2T + 2T³ + T⁴ + 2T⁵ + 2T⁶ mod T⁷). So the slice 'uncovered' counts and the tree plateau overstate the
-obstruction: **the plateau of the ffl_tree search is (at least partly) an artefact of E | W**, not evidence of an
-obstruction of positive measure.
+obstruction. *Assessment* (R166 repair, D4: label added): **the plateau of the ffl_tree search is (at least partly)
+an artefact of E | W**. The tree data are therefore neither evidence for nor against O(3, T²) having positive
+measure. (R166 repair, D4) "Valid deterministically" holds only on the measure-0 slice x ≡ 1 off T. At a generic
+point of an uncovered leaf, a family with a new prime ℓ | E is valid only on a sub-class mod ℓ.
 
 Slice tests for other (q, A) (same tool `scripts/ff2_slice.c`, x ≡ 1 off the A-primes): q = 3, A = T²+1: 28/72
 units u mod (T²+1)² uncovered; A = T³: 35/54 mod T⁴; A = T: 0/54 (consistent with Thm 6.4). q = 4, A = T²: 0/192
@@ -49,11 +56,33 @@ k ≥ 2. A family F = (E; t_a, a0; t_b, b0) valid at x*, L = lcm(a0,b0) = T^j L'
 (F2) mod E: P ≡ 1, X ≡ T^{−k}; a ≡ a0 (types 0,1) or (T^k a0)^{−1} (types 2,3). So E | a0 + b0 (Case A, both
 types on the same side) or E | T^k a0 b0 + 1 (Case B, mixed; then lc(E) = 1 since the two terms have distinct
 degrees).
-**Case A is impossible (PROVED, sketch to be written out):** with g removed (a1 = a0/g, b1 = b0/g, E | a1 + b1),
+**Case A is impossible (PROVED; full proof below, R166 repair D1).** *Original sketch (superseded; its step
+"forces b1 = 1, L' = a1' = 1" is false before the leading-coefficient condition is used. For example q = 3,
+k = 2, c = 1, a0 = 1, b0 = T³ + T, E = −(T³ + T + 1) satisfies every congruence and is excluded only by lc. The
+original sketch read:) with g removed (a1 = a0/g, b1 = b0/g, E | a1 + b1),
 E + 1 = T·L'·H forces deg E ≥ 1 + deg a1' + deg b1' (primes-to-T parts), hence T^α ∥ a1 with α ≥ 1 (WLOG) and
 T ∤ b1; comparing EF = a1 + b1 with E ≡ −(1 + cT) (mod T^{α+2}) forces b1 = 1, L' = a1' = 1, E = −(1 + cT) and
 (−c)^α = −1; then lc(E) = −c while all Case A sums have two terms of distinct degree (lc 1), so c = −1,
-contradicting (−c)^α = −1.
+contradicting (−c)^α = −1.*
+*Proof (R166 repair D1; checked by R166).* Validity at x*_c forces T^{k+j} | u + E and L' | 1 + E. Hence T ∤ E,
+x ≡ 1 (mod E), gcd(E, L) = 1, and in Case A, E | a1 + b1 (a0 = g a1, b0 = g b1). Let s be the family sum.
+(1) E + 1 ≡ −cT (mod T^{k+j}) with k + j ≥ 2, so E + 1 = T·L'·H with T ∤ H ≠ 0. Hence
+deg E ≥ 1 + deg L' = 1 + deg g' + deg a1' + deg b1' (' = prime-to-T part). Take deg a1 ≥ deg b1 (WLOG) and
+T^α ∥ a1. Then deg E ≤ deg(a1 + b1) ≤ α + deg a1' gives α ≥ 1 + deg g' + deg b1' ≥ 1. So T ∤ b1,
+j = v_T(L) = γ + α, and k + j ≥ α + 2.
+(2) F := (a1 + b1)/E has deg F ≤ α − 1 − deg b1 − deg g'. Mod T^α we have −(1 + cT)F ≡ b1. So
+(1 + cT)F + b1 ≡ 0 (mod T^α) has degree ≤ α, i.e. (1 + cT)F + b1 = μT^α with μ ∈ F_q, and μ = 0 if deg b1 ≥ 1.
+(3) a1 = EF − b1 = F(E + 1 + cT) − μT^α with T^{α+2} | E + 1 + cT, so a1' ≡ −μ (mod T²). T ∤ a1' gives μ ≠ 0.
+Hence b1 = 1, (1 + cT) | μT^α − 1, μ = (−c)^α, F = (μT^α − 1)/(1 + cT), deg F = α − 1 and lc F = μ/c.
+(4) deg a1 ≥ 1 > deg b1, so lc(s) = 1 for every Case A type combination. Then lc(E) = 1, and
+lc(E)·lc(F) = lc(a1) = 1 gives μ = c. Also deg E = deg a1 − deg F = 1 + deg a1', so (1) forces g' = 1, deg H = 0
+and E = T a1' − 1.
+(5) a1 = EF − 1 gives a1'(T^α − TF) = −(F + 1). Using μ = c, (1 + cT)(T^α − TF) = T(T^{α−1} + 1) and
+(1 + cT)(F + 1) = cT(T^{α−1} + 1). So a1' = −c, and a1' monic forces c = −1. Then μ = (−c)^α = 1 ≠ −1 = c
+(q odd), a contradiction. ∎
+Independent check (R166, `scripts/review_ff2_caseA.py`, all divisors E of every leading coefficient,
+deg a0, deg b0 ≤ 4 / 3 / 2 for q = 3 / 5 / 7, k = 2, 3): congruence-valid Case A divisors occur, but none
+has an admissible lc (`data/review_ff2_caseA_log.txt`).
 **Case B** reduces to: for some L' (monic, T ∤ L'), j ≥ 0, g | T^j L' with T^γ ∥ g, γ ≤ j, N := k + j − 1, the
 polynomial D := 1 + T^{N+1}L'g has a monic divisor E with E ≡ −(1+cT) (mod T^{N+1}), E ≡ −1 (mod L') and monic
 cofactor. Since deg D < 2·deg(T^{N+1}L'), E or its cofactor is the least CRT representative (ρ resp. ρ'). Search:
@@ -62,7 +91,8 @@ Case B normal form (PROVED algebra, q odd, k = 2 written; general k: N = k + j �
 E = T^{N+1}Z − (1 + cT) and E' = (T^{N+1}Z' − 1)/(1 + cT) (Z monic, lc Z' = c; Z, Z' ≠ 0 forced), Case B is
 equivalent to the identity
   (1 + cT)·L'g = T^{N+1}ZZ' − Z − (1 + cT)Z'   (****)
-with T^N Z ≡ c, T^N Z' ≡ −c (mod L'), (1 + cT) | T^{N+1}Z' − 1, g | T^{N−1}L'. Consequences proved so far:
+with T^N Z ≡ c, T^N Z' ≡ −c (mod L'), (1 + cT) | T^{N+1}Z' − 1, g | T^{N−1}L'. Consequences (R166 repair, D5: claimed by O166; proofs not written, not re-derived by R166, and used
+nowhere below):
 j = 0 impossible; Z + Z' = 0 impossible; L' | Z + Z'; z ≠ z' and z + z' + 1 ≤ 2 deg L' ≤ 2 max(z, z');
 g = T·H'·Z − (Z + Z')/L' where E' = −1 + T L' H'. No contradiction in general yet.
 Search (`scripts/ff2_caseB.py`, sanity-checked: it re-finds the family E = T²+2T+2, a0 = 1, b0 = T² for
@@ -70,6 +100,10 @@ u = 1+T+2T²): **no Case B family for u = 1 + cT, c = ±1, with deg L' ≤ 5, j 
 Observation: the covered T²-digit is d = 2 = −c² in u ≡ 1 + cT + dT² (mod T³), via the single family
 E = T² − cT − 1 = −(1 + cT − T²) (a0 = b0 = T, j = 1, D = 1 + T⁴ = (T²+T−1)(T²−T−1)), which covers the whole
 cylinder.
+
+(R166 repair) Independently reproduced by `scripts/review_ff2_caseB.py`, which uses its own arithmetic, enumerates
+(L', j, g) directly, and brute-forces all divisors of D for small cases: 0 Case B families at u = 1 + T and
+u = 1 + 2T for deg L' ≤ 7, j ≤ 8 (`data/review_ff2_caseB_log.txt`).
 
 **Status of x* (CONJECTURE + EVIDENCE).** For the exact point u = 1 + cT, `ff2_caseB.py 3 2 c 7 8` finds **no**
 Case B family with deg L' ≤ 7, j ≤ 8, for both c = 1 and c = 2 (`ff2_caseB.py 3 2 c 7 8`). With Case A
@@ -81,6 +115,11 @@ with L'H'(1 + cT) ≡ c (mod T^N), lc H' = 1. Why u = 1 + cT is special: x ≡ 1
 validity of every family a deterministic (non-lottery) condition, and the T-adic class −(1 + cT) is "small"
 (as −1 is in O140 Prop 4.1); generic lifts u are heuristically covered (expected number of covering Case B
 families Σ_{N,ℓ} poly(N+ℓ)·q^{−N} diverges over ℓ).
+(R166 repair, D6) Strength of the evidence. Two generic lifts in the same cylinders also get 0 Case B families
+in the same search range (§3). The search therefore does not distinguish x* from generic points, and the EVIDENCE
+for Conjecture 0.2 amounts to "no counterexample in a range where generic points have none either". Since the
+divergence heuristic predicts that generic u *are* covered, Conjecture 0.2 asserts that x* is non-generic, and
+nothing proved here establishes that.
 
 ## 1. (a) Non-linear families in char ≥ 5: what they must look like
 
