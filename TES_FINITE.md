@@ -49,3 +49,32 @@ In particular for N(π) = 103 the first coordinate ranges over ≤ 40 lattice po
 *Contrast with SYNTHESIS_SPARKS2 Prop 3.1/Thm 3.5:* the shot family with D = Q³ has z = Z/Q³ ∉ O; it lives in
 TES^{□₃}, whose solution set at fixed n is infinite (the mute places q | Q supply the escape that (a) forbids for
 integral denominators). So TES and TES^{□₃} differ exactly as ES and ES^{(S)} do (FIXED_MODULUS_SHOTS Thm 6.2(iii)).
+
+## 2. Certified exhaustive search: TES fails at 15 primes outside its T1 set
+
+Implementation. `scripts/tf_core.py` (ℤ[ω] arithmetic and factorisation written from scratch, not importing
+`tw_eis.py`), `scripts/tf_exact.py` (**method A**: Cor 1.2 disk for x_i + complete divisor enumeration of
+B²c_jc_k, all six associates), `scripts/tf_brute.py` (**method B**, independent code path, numpy, *no factorisation*:
+Prop 1.1(a) disk for x_i, then Prop 1.1(b)'s disk N(x_j) ≤ 4N(c_j)N(B)/N(A) for the smaller of the two remaining
+weighted denominators — both choices of j — and x_k = c_kBx_j/(Ax_j − Bc_j) tested for integrality; int64 overflow
+guarded by assertions). Every reported solution is verified exactly in O (9x₁x₂x₃ = n(Σ c_i ∏_{k≠i} x_k)), all
+three coordinates 2-primary. `scripts/tf_compare.py 6000` (4 min): for all 394 primes π of O with N(π) ≤ 6000
+(one 2-primary π per conjugate pair of split primes — TES(π) ⟺ TES(−π) ⟺ TES(π̄) by x_i ↦ −x_i, resp. complex
+conjugation with x ↔ y — and the inert p ≤ 71) **methods A and B return identical solution sets** (4160 solutions
+in total). Cross-check with O182: for N(π) ∈ {307, 439, 601, 1009, 1213, 2011} the O182 window solutions
+(`tw_eis_solve.run`, B = 60) are a subset of — in fact equal to — the complete sets.
+
+**Theorem 2.1 (non-T1 failures of TES; CERTIFIED = PROVED Cor 1.2 + two independent exhaustive computations).**
+TES(π) has **no solution** for the 2-primary primes π with
+`N(π) ∈ {7, 13, 19, 61, 79, 97, 103, 151, 193, 211, 367, 409, 769, 2029, 2239}`
+(both conjugates, both signs), and for every other prime π of O with N(π) ≤ 6000, π ∤ 6 (split, or inert p ≤ 71),
+TES(π) has a solution. Every solution found at a prime has Type I or Type II shape (3126 Type I, 1034 Type II).
+Representatives: N = 103: π = 11 + 2ω; N = 151: −9 − 14ω; N = 7: −1 + 2ω.
+Since these n = π are primes, hence not cubes, and satisfy the necessary local condition n ≡ 1 (mod 2) of TWISTED_T1
+Lemma 3.1, **the TES-analogue of "T1 is the only obstruction" (the analogue of CONJECTURE SQ) is false**: TES is a
+T1-bearing ES analogue whose solvability set is not "everything except the T1 set (cubes)". This is the first
+T1-bearing ES-type equation in the campaign with a *proved* failure outside its T1 set.
+
+Count statistics (method A census, one π per pair): mean number of solutions 5.96 for N ≤ 1000 (13 zeros among 85
+primes), 9.57 on (1000, 3000] (2 zeros / 130), 13.46 on (3000, 6000] (0 / 179). The failures thin out exactly as a
+small-mean count would (lottery picture; analysed in §3–4).
