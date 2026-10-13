@@ -107,3 +107,53 @@ index is T' (chosen); the natural Gram e·T' is not T1-relevant in ≈ 37% of pr
 The author's own caveat ("Hilbert reciprocity … a new dictionary, not new arithmetic") is accurate, and no theorem claims
 more. Only the "⟺" in "T1 ⟺ incoherence parity" (§1 Summary) is rhetorical: one direction (oddness ⇒ no tuple at squares)
 is the theorem; the converse has no content. Acceptable as Assessment.
+
+## §2 (Props 2.1–2.4)
+
+| Claim | Verdict |
+|---|---|
+| Prop 2.1 (Diff(T'_f) ⊆ Odd(n) at certificates; positivity automatic) | SOUND (elementary part); geometric part cited, see D2/D5 |
+| Prop/Def 2.2 (a) ES ≤ G, (b) G(m²) = 0, (c) explicit Diff(T'_f) | SOUND |
+| Prop 2.3 (Diff = {p} indices at every prime) | SOUND; label should be plain PROVED (D7) |
+| Prop 2.4 (class functions vs certificate property) | GAP — argument vacuous on the actual index set, "Consequence" false as stated; the correct statement is a *genus* statement (D8) |
+
+*Independent numerics* (`scripts/review_kud_genus.py 3000 12`, ≈3 min; own Diff via the Gram route):
+primes 5 ≤ p < 3000, the 35 slices cd ≤ 12: ES = **5791**, G = **51591**, 0 slices with ES > G, slices with ES > 0:
+**2398**/14980, with G > 0: **10489** — all identical to the author's numbers. Prop 2.2(c) formula (incl. the 2-adic term)
+= Gram-route Diff for all 99633 pairs (slice, f | N). Odd squares m² ≤ 60000: ES = G = 0. Prop 2.3 construction verified for
+all 428 primes (Diff(T'_f) = {p}).
+
+*Re-derivation.* 2.2(a): f ≡ −1 (4cd), f | N ⇒ f' = N/f ≡ −1 (4cd) (N ≡ 1), and f = 4acd−1, f' = 4bcd−1 with
+ff' = N gives 4abcd − (a+b) = cn, so c | a+b, e := (a+b)/c, 4abd − e = n: the f-count is exactly the ordered Type II
+count of the slice ✔. 2.2(c): odd ℓ | f ⇒ X = N−1 ≡ −1 (ℓ), symbol 1; odd ℓ ∤ fX: 1; odd ℓ | X, ℓ ∤ f: (−f/ℓ)^{v_ℓ(X)},
+v_ℓ(X) ≡ v_ℓ(dn) ✔. 2.3: p ≡ 3 (4), f = 1: Ram(−1, −p) = {p} ✔; p ≡ 1 (4): (−p/q) = −(q/p) = 1 so 4c²p ≡ −1 (q) is
+solvable, and −q ≡ 1 (4) kills the 2-adic symbol; then Diff ⊆ {p} and oddness gives Diff = {p} ✔. Note the content of 2.3
+is just "1 + 4c²p has a divisor f ≡ 3 (mod 4) for some c" (for d = 1, Diff(T'_f) = {p} ⟺ 2 ∉ Diff ⟺ (−f, −fp)_2 = 1).
+
+**D7 (MINOR) — Prop 2.3 label "PROVED relative to Dirichlet".** Dirichlet's theorem on primes in progressions is a theorem;
+the label should be **PROVED** (the "relative to" phrasing suggests conditionality). *Repair:* "PROVED (uses Dirichlet's
+theorem)".
+
+**D8 (MAJOR) — Prop 2.4, the argument and its "Consequence", and §3 log item 1 ("Killed by B2 (Prop 2.4)").**
+(i) The argument shows only that GL₂(ℤ)-translates leave the *shape* [[f,1],[1,f']]. That is irrelevant: the ES question
+is posed on the finite candidate set {T'_f : f | N}, and on that set certificate-ness **is** (empirically) a class property.
+My check computes the GL₂(ℤ)-class (Gauss reduction) of every [f, 2, N/f], f | N, in all 14980 slices above: **no class
+contains two different swap-pairs {f, N/f}**, hence **0 classes mix certificate and non-certificate f** (certificate-ness
+is swap-invariant since N ≡ 1 (mod 4cd)). (ii) The "Consequence" is false as literally stated: w(𝒦) := #(certificate
+indices in class 𝒦)/E'_𝒦 is a class function (E'_𝒦 ≠ 0 on these classes by Prop 2.1) and gives ES = Σ_𝒦 w(𝒦)E'_𝒦; the
+true (tautological) content is only that w must carry the whole certificate count. (iii) "each class contains
+certificate-shaped and non-certificate-shaped matrices" is false for classes containing no certificate.
+(iv) The *correct* and stronger statement the author needs: the T-th coefficient of E'(τ,0,Φ_𝒞) for Diff(T) = {p} is
+W'_{T,p}(0)·∏_{v≠p}W_{T,v}(0); each finite local factor depends only on the ℤ_ℓ-class of T (Φ_ℓ is GL₂(ℤ_ℓ)-invariant)
+and the archimedean factor only on det T; so **Kudla's coefficient (and deg Z(T)) is a function of the genus of T**,
+not just of its class (reviewer's knowledge of the standard factorisation; not checked against the sources, which are
+not in the repo). And genera **do** mix: using Cox Thm 3.15 genus characters of the primitive form [f, 2, N/f]
+(disc −16c²dp, f coprime to 2D, so f is a represented value), in **582** of the 2398 slices with ES > 0 the unique
+genus containing the certificates also contains non-certificate divisor indices (in the other 1816 every divisor index
+of that genus is a certificate — small τ(N)). Note also that "Diff(T'_f) ⊆ Odd(n)" is a genus condition, so
+G_{c,d} = Σ over Kudla-supported genera: the right formulation of 2.4 is "Kudla data = genus data = Prop 2.2's G; ES is a
+sub-genus (ray-class) count", which is what §2's prose already says. *Repair:* restate Prop 2.4 as: "(PROVED, standard)
+E'_T and deg Z(T) are functions of the genus of T. (EVIDENCE) Genus does not determine certificate-ness: 582 slices
+(p < 3000, cd ≤ 12) where the certificate genus also contains non-certificate indices T'_f. (Assessment) Hence Kudla's
+degrees only see G_{c,d}, and B2 is the passage from genus to ray class." Drop the GL₂(ℤ)-translate argument and the
+"must have w(T) depending on the representative" sentence (or label it Assessment and fix (ii)).
