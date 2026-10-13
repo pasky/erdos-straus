@@ -108,5 +108,47 @@ rather than left implicit in "beyond constants, only α" (D3b). (b) Novelty: com
 with corestriction is textbook (CT–S §3.8 as cited; Skorobogatov, *Torsors and rational points*, §5.2); the
 memo's "the corestriction remark is ours" is fine as "ours to state for ES", not a new result. (c) Cubic
 symbol convention: (a,b)_ζ = −(b,a)_ζ, so for order 3 BL's representations (−u_i/u_k, −u_j/u_k)_ζ can only be
-cyclic in (i,j,k); the memo's "S₃-invariant" intuition from the quaternion case does not carry over — harmless for
-non-constancy, but class counts like 13/12/12 depend on the ordering convention (u₁ ≤ u₂ ≤ u₃) (D3c, MINOR).
+cyclic in (i,j,k) (BL's S₃-invariance remark is for the quaternion class only; the memo does not claim otherwise) —
+harmless for non-constancy, but class counts like 13/12/12 depend on the ordering convention (u₁ ≤ u₂ ≤ u₃) (D3c, MINOR).
+
+### Claim 1 — bsD_eichler_degree_k Prop 1 / LDP_DEEP Prop A.3.1 — SOUND-AFTER-REPAIRS (statement as written is false; the parenthetical is right)
+For ℓ ∤ q·f-denominators with L_χ unramified at ℓ, inv_ℓ (χ, a) = v_ℓ(a)·[χ(Frob_ℓ)] (Serre, *Local Fields* XIV).
+So Σ_{ℓ∤M} inv_ℓ A(χ, f) ↔ χ(|f|) (gcd(f, M) = 1), the multiplicativity statement — fine. But −1 is a unit at
+every ℓ ∤ M, so **Σ_{ℓ∤M} inv_ℓ A(χ, −1) = 0 for every χ.** The criterion as written ("Σ_{ℓ∤M} inv_ℓ A(χ, f) equals that
+of A(χ, −1)") therefore reads χ(f) = 1 ∀χ, i.e. f ≡ +1, not −1. Counterexample: M = 8, χ = χ₋₄, f = 7 ≡ −1:
+Σ_{ℓ∤8} inv_ℓ (χ₋₄, 7) = inv₇ = 1/2 ≠ 0 = Σ_{ℓ∤8} inv_ℓ (−1, −1) (Hamilton's quaternions ramify only at 2, ∞). The
+parenthetical "(i.e. 0 for χ even, 1/2 for χ odd)" is the *correct* right-hand side: it is inv_∞ A(χ, −1) = χ(−1)
+read additively. Repair: "Σ_{v ∤ M} inv_v A(χ, f) = Σ_{v ∤ M} inv_v A(χ, −1) with v running over primes ℓ ∤ M **and
+∞**" (f > 0, so inv_∞ A(χ, f) = 0), or simply "Σ_{ℓ∤M} inv_ℓ A(χ, f) = inv_∞ A(χ, −1)". Same error in LDP_DEEP A.3.1
+("equals that of (χ, −1)"). Defect D1 (MINOR: the tautology itself is right and is used only as a tautology).
+
+### Claim 2 — bsD_eichler_degree_k Prop 2 / LDP_DEEP Prop A.3.2 / "degree-2 accident of Br ℝ = ℤ/2" — SOUND for maximal orders; the slogan is SOUND-AFTER-REPAIRS (can be made a precise theorem, stronger than written)
+**(i)–(ii) re-derived.** A central simple ℚ-algebra A of degree k has A ⊗ ℝ ≅ M_k(ℝ) or M_{k/2}(ℍ); SL₁(A ⊗ ℝ) is
+compact only for ℍ (k = 2): SL_m(ℍ) is non-compact for m ≥ 2. So Eichler's condition (relative to S = {∞}) fails
+exactly for definite quaternion algebras. ✓ Under Eichler's condition, strong approximation for SL₁(A) (Kneser/
+Swan/Reiner §34–35; I could not access Reiner in `sources/`, theorem numbers unverified) gives: locally free right
+Λ-ideal classes ↔ ℚ^×_{>0}\𝔸_f^×/nrd(Λ̂^×) via nrd. For a **maximal** order nrd(Λ_ℓ^×) = ℤ_ℓ^× for all ℓ, so the set is
+trivial; maximal orders are everywhere locally conjugate, so the type number ≤ class number = 1. ✓ inv_∞ = 1/2 ⇒
+odd number of finite ramified places (Hilbert reciprocity). ✓
+**Defects.** (a) "'Some order in the genus has P' = 'every order has P'" is true for the genus of **maximal** (or
+Eichler) orders only. For general orders Λ (those that encode level structure — exactly what ES certificates
+produce) nrd(Λ_ℓ^×) can be a proper subgroup: e.g. Λ = ℤ + ℓM₂(ℤ) has nrd(Λ_ℓ^×) = ℤ_ℓ^{×2}(1 + ℓℤ_ℓ), index 2,
+so its locally free class number is 2 although A = M₂(ℚ) is indefinite. The correct precise form of "all local–global
+content is congruence data" is: *under Eichler's condition, class sets of any order are ray class groups via nrd,
+so any class invariant is a function of finitely many Dirichlet characters.* State that instead (D2a, MINOR — the
+conclusion survives, the quantifier statement does not). (b) "Definiteness is *exactly* what makes … the supersingular
+class set non-trivial": definiteness is necessary, not sufficient (class number 1 for p = 2, 3, 5, 7, 13); "failure of
+strong approximation" ≠ "non-trivial class set" (D2b, MINOR). (c) The slogan "Diff-parity and supersingular geometry
+are one phenomenon, 2-torsion because Br ℝ = ℤ/2" is labelled PROVED but (ii)–(iii) only treat inner forms of GL_k and
+unitary groups; compact-at-∞ ℚ-groups exist in every rank (definite SO(n), compact Sp(n), compact G₂, F₄, E₆, E₈
+forms), so "only degree 2" is not established by the listed cases. **It can be repaired into a precise and stronger
+statement** (reviewer's derivation, standard ingredients; please verify against Kottwitz, *Stable trace formula:
+elliptic singular terms*, Math. Ann. 275 (1986), §1–2, before labelling PROVED): if a semisimple ℚ-group G is
+anisotropic (compact) at ∞, complex conjugation acts on the based root datum of G by the opposition involution
+−w₀, hence on Z(Ĝ) by inversion; so Z(Ĝ)^Γ ⊂ Z(Ĝ)^{Γ_∞} ⊂ Z(Ĝ)[2], and the Kottwitz incoherence group
+π₀(Z(Ĝ)^Γ)^D (the target of Σ_v of local invariants) is 2-torsion. For G = PGL₁(A) this is "A ⊗ ℝ = ℍ ⇒ k = 2";
+for unitary groups it is Landherr's ±1. This is the precise content of "the forcing geometry is 2-torsion because
+the archimedean place is" and would cover all compact-at-∞ groups, not just GL_k-inner and unitary ones (D2c, MAJOR as
+a label/scope issue: replace "PROVED" on the slogan by the precise statement above or by "Assessment").
+(d) (iii) KMRT Thm 3.1 (Albert–Riehm–Scharlau: involution of the second kind ⟺ cores_{E/ℚ}[D] = 0) is correctly
+quoted from memory; at split ℓ = w w̄, inv_w + inv_w̄ = 0 and at non-split ℓ inv_w = 0. ✓
