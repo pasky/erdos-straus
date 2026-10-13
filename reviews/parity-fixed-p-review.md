@@ -74,3 +74,47 @@ sizes, so 5/8 is not a loose bound in practice. Note the author's EVIDENCE line 
 `scripts/review_pf_R.py` (b-form, complete range b ≤ (4p+1)/3, which suffices since j ≤ (p+1)/3; cross-checked against
 direct (A,C) enumeration for p = 101, 1009, 10007, 100003): **R(100004521) = 44, R(100000007) = 62**, identical to the
 author's log. Dyadic profiles have 0–8 hits per block, as stated (`logs/review_pf_R.txt`).
+
+### C7. §3.4 "Weil falls short by p^{1/2}" and §3.2 mass conservation — **GAP (heuristic, label repair)** (D6, D7)
+
+The hyperbola dictionary is PROVED (C4). The density of 𝓗 = {xy ≡ 1 mod 4p} is φ(4p)/(4p)² ≈ 1/(8p) ✔, and
+box counts with error O(p^{1/2+ε}) (Weil/Kloosterman) are standard ✔. But the quantitative "short by p^{1/2}" is a
+heuristic exponent count, not a derived statement: the success set {xy = 4Cp+1, 4C | x+1, 4C | y+1} is a subset of 𝓗
+cut out by an *arithmetic* condition depending on the point's height C = (xy−1)/4p, not a union of boxes or of
+smooth regions, so box-equidistribution — at any error level — does not count it at all. "Strip area ≈ block
+length" and "O(1) expected 𝓗-points per curve-block" are not defined or derived. The correct, defensible statement
+is qualitative: Weil asymptotics need boxes of area ≫ p^{3/2+ε} (≫ p^{1/2} points of 𝓗), whereas the target is an
+arithmetically defined subset with 𝓛^{O(1)} points; so Weil gives nothing, and no box-counting improvement alone
+would. Section 3.4 is tagged "PROVED dictionary + Assessment", so this is a wording/label issue, not a false theorem.
+
+§3.2: "number of certificates ≤ M·f(p)" is trivially PROVED; but the consequence "a polylog-length family, with no
+power-length bilinear ranges" uses the *heuristic* f(p) ≍ 𝓛³. Unconditionally (Elsholtz–Tao f(p) ≪ p^{3/5+o(1)})
+the argument only gives X ≤ p^{3/5+o(1)}𝓛^{O(1)}, which does not exclude power-length families. Label the
+consequence Assessment/heuristic (D7). (ET's bound is quoted correctly: f(n) ≪ n^{3/5+O(1/log log n)}.)
+
+Also checked I2 (`scripts/review_pf_i2.py`): the identity (p+2c√−d)(1+2cdt+pt√−d) = p + (2c+tN)√−d and N | N′ hold,
+but c′ = c + tN/2 is an integer **only for even t** (N odd); 441/441 odd-t cases give non-integral c′ (D8).
+
+### C8. "Main finding": H-B collapses into H-A — **SOUND-AFTER-REPAIRS as an Assessment; overclaimed in two places** (D5, D9)
+
+What is right: it is labelled Assessment and "mechanism-level, not a theorem" in §5, and the Remark 2.4 caveat is
+kept. The core observation — a fixed-p route needs *upper* bounds on bad classes, and upper-bound sieves carry no
+parity barrier; the hit count Σ_{fg=N_θ} 1[q_θ | f+1] has unit coefficients over the consecutive integers p+j, so no
+Möbius/Liouville-type Type II sum is requested — is correct and well argued. Prop 2.1 is a genuine T1-passing
+illustration.
+
+What is overclaimed:
+* §5 / Assessment 2.2 say the prime, Q, Q′ classes are "bounded above by sieves without parity breaking" and that
+  "sieves give" these bounds. Proved: only the χ_{−4d}-character, only on a = 1, only ≤ 5/8 (Prop 2.1), plus the
+  prime class. The Q class is a union over up to 2^{ω(4ad)} quadratic characters, most of which have conductor
+  r | d, r up to ≈ p — Lemma 1.3's reciprocity does not move those to the fixed modulus p, so the sieve has
+  d-dependent sifting sets (Remark (3) concedes the union bound fails). Q′ (higher-order characters mod a varying
+  q) has no reciprocity reduction at all. In the corr memo table, Q ≈ 63 % and Q′ ≈ 2 % of slices at p ≈ 10⁶, so
+  what is needed is #(prime ∪ Q ∪ Q′) ≤ (1 − δ)·#slices — a quantitative upper bound that is open. The obstacle there
+  is uniformity over varying moduli, not parity; the conclusion "parity is not the binding constraint" survives, but
+  "H-B collapses into H-A" should read "into H-A plus an open varying-modulus upper-bound sieve for the sign layer
+  (parity-free)".
+* "No step of a fixed-p ES argument needs to distinguish λ(n) = +1 from −1" and "no FI Type II input is even
+  *requested* by the problem" are universal claims over all possible arguments. An argument that restricts to a
+  structured sub-family (e.g. θ with N_θ = P₂ or y-smooth, to make the divisor layer tractable) would reintroduce a
+  lower-bound sieve, and with it parity. Scope these to "the natural/unweighted formulation (★)".
