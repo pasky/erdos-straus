@@ -112,3 +112,48 @@ infinite with −1 as an accumulation point. (b) A *finite-level computer-assist
 density 7.6·10⁻⁵) satisfies (W). *Proof.* Thresholds are ≤ 2M < 10⁹. Below 10⁹ use the exhaustive enumeration (`scripts/review_hj_ws.c`, R174).
 Above it use the covering family. ∎ This is a density statement only. Lorenzini/Wang already have density 1, so the novelty is the explicit
 level and the explicit residual classes.
+
+## 5. Short blocks: the least outer letter (EVIDENCE + heuristic CONJECTURE)
+Let x*(n) := min{min(x,z) : xyz − x − z = n}. In the language of (F0), x*(n) is the first x ≥ 2 for which n + x has a divisor ≡ −1 (mod x) in
+range. So the brief's "consecutive block" n + 2, n + 3, … is exactly the search for x*(n).
+**EVIDENCE 5.1 (`scripts/bsG_xstar.c 10⁸`).** For every n < 10⁸, n ∉ E_W: **x*(n) ≤ 12**. Records: x* = 3 (n = 17), 4 (51), 6 (126), 12 (1379).
+The decade maxima from 10³ on are 12, 8, 7, 9, 11. The counts #{n in decade : x*(n) > X} for X = 2…10 at [10⁷, 10⁸) are
+5 096 879, 198 815, 17 577, 1 405, 169, 17, 8, 3, 1. The examples with x* = 10, 11 are n = 64 858 079 and its neighbours.
+**Heuristic.** For fixed x, the integers m with no divisor ≡ −1 (mod x) have density ≍ (log m)^{−δ_x}. Here δ_x = 1 − |H_x|/φ(x), and H_x is a
+largest subgroup of (Z/x)^× not containing −1. Hence δ₂ = 1 (m prime or 2^k), δ_x = 1/2 for x = 3, 4, 6, 7, 8, 9, 11, 12, …, δ₅ = δ₁₀ = 3/4,
+and generally δ_x = 1 − 2^{−v₂(φ(x))} for cyclic (Z/x)^×. Treating the x-events as independent,
+#{n ≤ N : x*(n) > X} ≈ N (log N)^{−Σ_{x≤X} δ_x}, and Σ_{x ≤ X} δ_x ≈ X/2 + O(log X). This predicts
+**CONJECTURE 5.2 (short-block (W)).** x*(n) ≪ log n / log log n for n ∉ E_W. In particular all but finitely many n have x*(n) ≤ (2 + o(1)) log n / log log n.
+The observed decay of the X = 4 column (8.8, 4.9, 3.0, 1.95 ·10⁻⁴ per decade) gives an effective exponent ≈ 2.9 against the naive Σ_{x≤4} δ_x = 2.
+So the joint events are positively correlated, but in the predicted direction.
+**Why no deterministic block argument (PROVED, via §4).** Fix X and a divisor bound D. Every n in the clopen neighbourhood
+n ≡ −1 (mod lcm{d ≤ D}) has no divisor d ≤ D of n + x with d ≡ −1 (mod x) and d ≥ 2x − 1, for every x ≤ X. Indeed d | n + x forces d | x − 1 < d.
+So any block argument must use divisors larger than every fixed bound, i.e. the large prime factors of the n + x. Those are
+prime-constellation events ("n + 2 prime, n + 4 a sum of two squares, n + 3 of the form a² + 3b², …" all at once). The norm-form parts can be met
+simultaneously by polynomial families (consecutive sums of two squares exist infinitely often). The x = 2 part is a primality
+condition, so it is a parity-type sieve problem. **Assessment:** the consecutive-integer route is a prime-k-tuple-type lower-bound problem
+(in the opposite direction from a sieve upper bound), with no known technology. It is attractive mainly as a sharp, testable numerical law.
+
+## 6. An unconditional quantitative density bound (PROVED relative to the Titchmarsh divisor asymptotic)
+**Prop 6.1.** #{n ≤ N : n ∉ V_{A₃}(2)} ≪ N·exp(−c √(log N)) for an absolute c > 0.
+*Proof.* Let S = E ∩ (N, 2N] be the set of exceptions there, and Q = √N. For a prime p ≤ Q and x | p + 1 with 2 ≤ x ≤ (p+1)/2, every n ≡ −x (mod p) with n > N
+is a value: take (x, (p+1)/x, (n+x)/p), where z = (n+x)/p ≥ 2 because n > Q² ≥ 2p. So S avoids ω(p) = τ(p+1) − 2 distinct classes mod p. By
+Montgomery's large sieve, |S| ≤ (N + Q²)/L with L = Σ_{m ≤ Q} μ²(m) Π_{p|m} ω(p)/(p − ω(p)) ≥ e_k(g; I), where e_k is the
+k-th elementary symmetric sum of g(p) = ω(p)/p over p ∈ I = (Q^{1/(2k)}, Q^{1/k}]. By the Titchmarsh divisor problem (Linnik; via Bombieri–Vinogradov),
+Σ_{p ≤ y} τ(p+1) = C y + o(y) with C = ζ(2)ζ(3)/ζ(6). Partial summation gives G := Σ_{p∈I} g(p) = (C/2 + o(1)) (log Q)/k − 2 log 2 + o(1).
+Since Σ_p g(p)² < ∞, e_k ≥ (G^k/k!)(1 − O(k²/G²)). Take k = ⌊ε √(log Q)⌋. Then L ≥ exp(c′ √(log Q)), and dyadic summation finishes. ∎
+*Remarks.* This is the (W)-analogue of the classical ES density bounds. Vaughan (1970) has N exp(−c log^{2/3} N) for ES. Using composite moduli
+(non-CRT avoided classes) is what would improve it, and is a spark. Lorenzini/Wang give density 1 only, as far as I can see. The bound is
+far from finiteness, as it must be (B6).
+
+## 7. Stern / Minkowski coding (PROVED identity)
+**Prop 7.1.** For letters a₁, …, a_k ≥ 2, Stern's diatomic sequence satisfies
+s(1 0^{a₁−2} 1 0^{a₂−2} 1 ⋯ 1 0^{a_k−2} 1 (binary)) = K⁻(a₁, …, a_k) = d_{A_k}(a₁, …, a_k).
+Hence **V_{A_k}(2) = {s(N) : popcount(N) = k + 1}**, and (W) says that every n ∉ E_W is a Stern value at a position with exactly four 1-bits.
+*Proof.* Put u = s(N), w = s(N+1). Appending a bit 0 maps (u, w) ↦ (u, u + w), and appending 1 maps (u, w) ↦ (u + w, w). So the block 0^{a−2}1 maps
+(u, w) ↦ ((a−1)u + w, (a−2)u + w). In p := u, q := u − w this reads (p, q) ↦ (ap − q, p), the negative-continuant recursion. The
+start N = 1 gives (p, q) = (1, 0). Trailing zeros do not change s. ∎ Checked exhaustively for a_i ≤ 26, k = 3 (/tmp check; `scripts/bsG_stern.py`).
+`scripts/bsG_Ak.c` reproduces Lorenzini's lists L_{A₃} (to 10⁸), L_{A₄} (to 10⁸), L_{A₅} and L_{A₆} (to 10⁷) exactly.
+*Reading.* s is 2-regular (Allouche–Shallit), and positions of popcount k + 1 form a sparse regular language of size ≍ (log)^k up to height N. So (W)
+asks that the image of a 2-regular sequence on the popcount-4 slice covers a cofinite set. I found no theorem about images of 2-regular sequences on fixed-popcount
+slices (Defant 2016 bounds max s on fixed popcount; Stanley–Wilf refine by number of parts). Assessment: a clean dictionary, no tool.
