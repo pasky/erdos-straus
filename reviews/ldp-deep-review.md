@@ -40,3 +40,17 @@ Odd squares < 4·10⁴: 0 Type II divisor hits (T1 control) — reproduced. All 
 ≡ ±1, i.e. automatically an F-norm. So "F-norm certificates exist" is ≈ "a certificate with a prime side exists";
 the statistic carries essentially no information about the F-structure, which is consistent with (and actually
 strengthens) the author's own "tautology" reading in A.4.2.
+
+### Claim 7 — bsD_missed_primes numbers — SOUND (all reproduced exactly)
+From scratch (`scripts/review_ld_missed.py 1000000`, 20 s; every hit converted to an explicit ES solution, Type I as
+4/p = 1/(abdp) + 1/(acd) + 1/(bcd) with a = (f+p)/M, b = (f′+p)/M, Type II as in claim 5, checked in exact rationals):
+9732 primes p ≡ 1 (24) < 10⁶; **0** Type I hits in the nine cd | 6 slices (the BM-blocking remark, checked
+numerically as well as by (−1/p) = (2/p) = (3/p) = 1); **71** missed by cd | 6; cd | 60 (54 pairs (c,d)) misses
+**2** = {76441, 950401}; cd | 126 (54 pairs) misses **12** = {3361, 62497, 83449, 141121, 144817, 273001, 290761,
+298369, 401017, 733321, 806521, 849601}; cd | 16380 (972 pairs) misses **0** (checked on the 14 survivors; the rest
+a fortiori since 60, 126 | 16380). Statistics (control = all 9732 primes instead of the author's random 600): mean least
+QNR 11.96 vs 7.54; (p/5) = (p/7) = 1: 0.676 vs 0.244; 2 cubic residue 0.380 vs 0.330; 3: 0.352 vs 0.332; p cube mod 7:
+0.366 vs 0.335; mod 9: 0.352 vs 0.333 — all as claimed (the cubic deviations are ≤ 1σ at n = 71).
+Exponent bookkeeping checked by hand: 4cd | 240 ⇒ exp (ℤ/4cd)^× | 4; 4cd | 504 ⇒ exp | 6; 4cd | 65520 ⇒ exp | 12;
+Σ_{m|60} τ(m) = Σ_{m|126} τ(m) = 54. Only presentation defects (D9: the table in the memo is broken markdown — "cd | 6"
+inside a table cell splits the column; the layer counts are pairs (c,d), each carrying a Type I and a Type II slice).
