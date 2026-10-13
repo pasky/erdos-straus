@@ -117,3 +117,18 @@ along the lines are not considered (U°'s integral points are not the integral p
 solutions have π dividing two coordinates — so the standard integral BM set for this problem is the one above, as
 in BL Thm 1.1/1.8). (ii) Not excluded: obstructions beyond Brauer–Manin (finite descent / étale BM would need
 covers of U; U is geometrically rational with π₁^{ét}(Ū) to be checked), or none at all ("small count").
+
+## 4. T1 control at cubes (complete enumeration) and the count picture
+
+**Cubes (CERTIFIED, method A; `scripts/tf_exact.py a b 3`).** Complete solution sets of TES(π³):
+N(π) = 7: 14 solutions, 13: 18, 19: 19, 31: 31, 37: 22, 43: 39 — **all of "other" shape, none of Type I/II**
+(Thm 3.2(b), now checked on complete sets rather than windows). Note TES(π³) is solvable for N(π) ∈ {7, 13, 19}
+although TES(π) is not (the solutions are not inherited from π; TWISTED_T1's inheritance only goes π ⇒ π³).
+
+**Counts (EVIDENCE).** Mean number of solutions of TES(π) (one π per pair): 5.96 (N ≤ 1000), 9.57 (1000–3000),
+13.46 (3000–6000); minimum over (3000, 6000] is 1. The failures are concentrated at small N and thin out as the
+mean grows (extended census to N ≤ 30000: §4a, when the run finishes). No congruence class explains them
+(TWISTED_T1 §5: failures only for χ_π(ω), χ_π(2) ≠ 0, but most such π are solved).
+**Assessment.** The failures behave like the zero-count tail of a slowly growing count ("lottery" failures), the
+regime ES itself would be in were its counts smaller: no local, Brauer–Manin or T1 reason exists (§3). Whether
+TES(π) is solvable for all N(π) > 2239 is the TES-analogue of ES: open, EVIDENCE only.
