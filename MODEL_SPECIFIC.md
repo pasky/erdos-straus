@@ -143,3 +143,46 @@ lines through (1, 1, 1) are the shots p + 1, p + m, mp + 1, firing iff they have
 Primes ≤ 10⁶ at which all three fail: **942 (m = 4**, reproducing (J)25), **102 (m = 5)**, 4308 (m = 8; including 131
 and 241), 11386 (m = 12). So the three shots are not a candidate never-failing condition even for ES; they are a
 measure of "first-ticket" strength, and here m = 5 beats m = 4 by a factor 9 (no T1 for m = 5).
+
+## 5. The count law and the "luck" of m = 4 (EVIDENCE + Assessment)
+
+**5.1 Mean.** (`ms_stats.py`, `data/ms/stats.txt`; complete counts, all primes ≤ 2·10⁴, `data/ms/counts_m*.txt`.)
+m·mean f_m / (4·mean f_4) on primes in [10⁴, 2·10⁴): m = 5: 1.16, 6: 0.95, 7: 1.09, 8: 0.90, 9: 0.93, 10: 0.88,
+11: 1.02, 12: 0.80, 13: 0.95, 14: 0.86, 15: 0.92, 16: 0.74, 17: 0.90, 18: 0.70, 19: 0.92, 20: 0.77, 22: 0.73, 24: 0.71.
+So **mean f_m ≈ c_m (log p)³/m with c_m within ±30% of c_4** (PW's first-moment heuristic; ET for m = 4); c_m is
+largest for prime m (5, 7, 11) and smallest for m with many divisors (12, 16, 18, 20, 22, 24). The per-window ratio is
+stable from p ≈ 300 on. (mean f_4/log³p drifts 0.227 → 0.158 between [100, 300) and [10⁴, 2·10⁴): lower-order terms;
+the smooth fit used below is a log³p + b log²p, for m = 4: 0.0717 log³p + 0.818 log²p.)
+
+**5.2 Where the low counts sit** (`ms_classes.py`, `data/ms/classes.txt`; normalised count r = f/fit, p ∈ [10³, 2·10⁴)).
+Mean r on the class of one mod 840 / other square classes / non-squares: m = 4: 0.27 / 0.33 / 1.02; m = 8: 0.23 /
+0.26 / 1.02; m = 12: 0.18 / 0.22 / 1.02; m = 5: 0.41 / 0.75 / 1.01; m = 7: 0.32 / 0.62 / 1.01. Minimum r: 0.11 (m = 4,
+p = 2521, f = 9), 0.19 (m = 5), 0.11 (m = 7), **0.02 (m = 8**, p = 3361, f = 1), 0 (m = 12). By p mod 8 (m = 8): 0.47,
+0.64, 0.95, 1.94 for p ≡ 1, 3, 5, 7 — the order of the least admissible slice e₀ = 8 − (p mod 8) (both Type I and
+Type II e-slices need e ≡ −p mod 8). Correlations of r across numerators (`ms_corr.py`, `data/ms/corr.txt`) follow the
+divisor lattice: (4, 8) 0.88, (8, 16) 0.89, (4, 12) 0.83, (6, 12) 0.90, (5, 20) 0.67, but (4, 5) 0.41, (4, 7) 0.32 —
+hardness is inherited along m | m′ (4 | m: the square coset is T1-suppressed, POINTWISE_MN Lemma 1.1(d)).
+
+**5.3 A pooled failure-rate model and the "luck" of 4** (`ms_tail.py`, `data/ms/tail_1e7.txt`; Assessment).
+Bin all primes 100 ≤ p ≤ 10⁷ of every m ∈ {8, 12, 16, 20, 24} (pool 4 | m) resp. the 15 other m ≤ 23 by the fitted
+mean μ_m(p); the empirical failure rate F(μ) falls from 0.3–0.5 (μ < 4) to 2.5·10⁻² (μ ∈ [12, 15)), 2.5·10⁻³
+(μ ∈ [20, 25)), 2.6·10⁻⁴ (μ ∈ [30, 40)), and ≤ 10⁻⁵ beyond μ = 40 (4 | m; the 4 ∤ m pool is 2–5 times lower
+throughout). Leave-one-out validation predicts each sibling's number of failures (p ≥ 100) within a factor ≈ 1.3
+in the 4 | m pool (m = 8: 1.5 predicted / 2 observed; 12: 9.0/12; 16: 33.9/27; 20: 55.5/50; 24: 123/140) and within a
+factor ≈ 3–4 in the 4 ∤ m pool (e.g. 15: 4.5/15, 19: 19.1/5).
+Applied to m = 4 (μ₄(p) from 2.4 at p = 5 to 24 at p = 97, ≈ 330 at 10⁷): **expected number of failing primes
+5 ≤ p ≤ 10⁷: 0.95 (4 | m curve) or 0.54 (4 ∤ m curve), of which ≤ 0.02 above p = 100**. Same for m = 5: 1.35 / 0.76;
+m = 6: 2.5 / 1.35; m = 7: 3.0 / 1.6 (all observed: 0 failing primes).
+**Assessment.** (i) Above p ≈ 100 ES's mean count is already ≥ 24 and its failure-free record is the expected
+outcome (expected ≤ 0.02 failures, uniformly whichever pool is used). (ii) The whole "luck" of 4 is at p < 100, where
+the model expects ≈ 0.5–1 failure, i.e. P(no failure) ≈ 0.4–0.6 — not remarkable — and m = 5, 6, 7 are equally (or
+more) lucky there, so this small-p luck is not 4-specific (combined m = 4–7: 3.4–7.8 expected, 0 observed: the
+pooled curve, built from large-m data at p ≥ 100, overestimates failures at tiny p for small m). (iii) 8/n's failures
+at 131 and 241 are the expected outcome of its mean (≈ 13 at p ≈ 200) and its T1-suppressed square coset; m = 8 is the
+4 | m pool's best-predicted member. **So the count model explains why ES and 8/n differ empirically without any
+4-specific structure: B7's sibling fails because its lottery is ≈ 2.2× smaller, and ES passes because its lottery is
+large from p ≈ 100 on.** The structural 4-specificity of §3 is a different matter: it concerns which certificates
+exist, not how many.
+**Last-failure fits.** Inverting P(fail) ≈ exp(−K(log p)³/m) (PW's Poisson form) at the observed last failures gives
+K_eff ≈ 0.27 (m = 8), 0.135 (12), 0.125 (16), 0.09 (20), 0.136 (24) — not constant, so the pure (log p)³/m form
+does not predict last failures to better than a factor ≈ 2 in log L(m); the binned μ-model above is the usable form.
