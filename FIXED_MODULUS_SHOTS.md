@@ -188,3 +188,58 @@ So **every ES certificate of a prime is "−p lies in a divisor box modulo h"**,
 (Type II) or (h + p)/4 (Type I). A box has ≤ τ₃ elements and no group structure; in ES^{(S)} the box is replaced by
 a coset of the group ⟨S⟩² (Cor 3.2). This is the precise form of B2 at the level of a single modulus.
 
+## 5. Construction attempts (each: which hypothesis of §2–§4 it tried to violate, and the outcome)
+
+(C1) *Cyclotomic / Lucas forcing.* Primes dividing Φ_m(a) are ≡ 1 (mod m); primitive divisors of Lucas sequences
+are ≡ (Δ/r) (mod m). Idea: choose the shot so that its prime factors are forced ≡ −1 (mod 4M) by a fixed quadratic
+Frobenius condition (a T-adic-forcing analogue). Outcome: fails. In the cube the certifying divisor must divide the
+specific number N = p + 4c²d (or pj + c, 4dj²p + 1), whose factorisation is fixed by p; Thm 2.1 shows that whether a
+divisor h of an affine shot certifies depends only on (α, β, h), and is the congruence h ≡ −1 (mod 4M). A forced
+congruence would have to come from N itself being a cyclotomic-type value, but N = αp + β with p arbitrary has no
+such structure, and making D = c²d a cyclotomic value (N = Φ_m(t) needs 4D = Φ_m(t) − p) forces only r ≡ 1 (mod m)
+with m ≍ log N, against the needed modulus 4cd ≥ 2√D ≍ √N.
+(C2) *p-dependent shots* (D' | p ± 1, so that N ≡ ∓1 mod D'). Then "h ≡ −1 (mod 4D')" becomes "the cofactor
+≡ ±1 (mod D')" — the same growing modulus on the other divisor. No gain (Thm 2.1 applies to h = N/e).
+(C3) *S-smooth (r + 1)/4* (to make the box a long orbit segment). Cor 3.2: the ES box is the ES^{(S)} coset with
+exponents |e_q| ≤ v_q((r+1)/4) ≤ log_q r; its size is polylog(r). Even when the box contains a whole subgroup
+⟨q⟩ mod r (possible only if ord_r(q) ≤ 2v_q((r+1)/4) + 1 = O(log r)), the subgroup has O(log r) elements.
+(C4) *Composite certificates h = r·u with u from a structured infinite set* (u ∈ ⟨S⟩, to recover a discrete log).
+h must divide the fixed shot N, so u ranges over divisors of N: finitely many. Moving the shot with u moves the
+modulus (Thm 2.1/Cor 2.2).
+(C5) *Type I* (residue −p, box of (g + p)/4, p-dependent): §4. Same cube structure, no new modulus-4 shot; the box
+still has ≤ τ₃ elements.
+(C6) *Non-affine shots.* All cube lines are affine in p except the Type I line p² + 4wf². A uniform polynomial shot
+N(p) with the firing condition at a fixed h needs every root of N mod h to be −c/j with cj | (h + 1)/4; along each
+coordinate direction of the cube this forces N(−c/j) ≡ 0 identically, i.e. N has a cube-line affine factor
+(Assessment; the non-uniform case is not classified here).
+(C7) *The orchestrator's sharpening* ("prime r in a fixed class + a discrete-log condition, bounded modulus"):
+answered exactly by Cor 3.2 (the discrete log must lie in the box of (r + 1)/4) and by Prop 6.1 below (r ≤ p²/4 + 2p).
+
+## 6. The no-go theorem with exact scope
+
+**Proposition 6.1 (finiteness at fixed p; PROVED, elementary).** Every Type II certificate divisor of p satisfies
+h ≤ p + (p + 2)²/4, and every Type I divisor g ≤ (p + 2)²·... is bounded in terms of p (ES(p) has finitely many
+solutions and each determines its cube point). In contrast ES^{(S)}(p) has infinitely many solutions (Q unbounded) and
+the O186 sieve finds its certificate prime r in [X/2, X] with X → ∞.
+*Proof (Type II).* h | p + 4c²d and cd ≤ p/4 + 1/2 (Lemma 1.1), so h ≤ p + 4(cd)² ≤ p + (p + 2)²/4. ∎
+
+**Theorem 6.2 (no infinite fixed-modulus family for ES; PROVED, scope stated).** Let p be an odd prime.
+(i) (*Affine shots, any role of a single divisor.*) For every affine shot αp + β, the divisors h that certify Type II
+solutions through it are exactly the h ≡ −1 (mod 4M), M ∈ 𝓜(α, β), up to < 4μ⁵ sporadic ones; every M ≥ √H/2
+(Thm 2.1, Cor 2.2). Hence for a fixed modulus 4M₀ there are finitely many shots (height ≤ 4M₀²); for M₀ = 1 exactly
+p + 1, p + 4, 4p + 1 (Cor 2.3); for a fixed Chebotarev firing set of density δ there are finitely many (Cor 2.4).
+(ii) (*Per modulus, no family at all.*) For every h the set of residues p mod h certified by h (Type II) is the
+divisor box −Box((h + 1)/4), of size ≤ τ₃((h+1)/4) = h^{o(1)} and never a coset of a subgroup of index o(h^{1−ε});
+Type I uses the box of (h + p)/4 (Thms 3.1, 4.2).
+(iii) (*Finiteness.*) The certifying moduli of p form a finite set bounded by O(p²) (Prop 6.1).
+*Exact scope.* (i) covers certificates read off one divisor of one affine form (both the h-role and the cofactor
+role, since Thm 2.1 applies to any divisor coprime to 2αβ); (ii)–(iii) cover every Type I/II solution, i.e. every
+solution of ES(p) for p prime. Not covered: mechanisms whose certificate is a *joint* condition on several primes of
+one or several shots (B4 territory: e.g. "−1 ∈ Σ_e(N)" with ≥ 2 primes), and non-uniform polynomial shots (C6).
+*Reading (Assessment).* O186's ES^{(S)} works because (a) it has infinitely many solutions at fixed n, so the
+certifying prime can be pushed to infinity where Gupta–Murty counts beat the exceptions, and (b) at each prime r the
+certified residues form a coset of ⟨S⟩², of density ≍ 1. ES fails both: (iii) and (ii). The "growing modulus" of B2
+and O186 Prop 6.1 is, at the level of one modulus, the replacement of a group (the S-orbit) by a divisor box, and at
+the level of one p, the finiteness of ES(p). Any Artin-type route to ES must therefore use joint multi-prime
+conditions (B4) or a non-Type-I/II encoding — neither of which is an "infinitely many fixed-modulus shots" mechanism.
+
