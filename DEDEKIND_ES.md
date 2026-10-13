@@ -51,3 +51,26 @@ On a certificate `n/A = [[v,t,u]]`: `12 s(A,n) = t + u + v − 9 + (A+A*)/n` and
 So **the Dedekind sum s(A,n) determines r − r' (the alternating sum of regular partial quotients) but not r
 itself**; "r = 3" is the condition that the *odd-indexed* regular partial quotients of n/A are all 1 except in
 the pattern `[v−1; 1, t−2, 1, u−1]` (entries 2 in [[·]] merge into the 1-strings).
+
+## 3. T1 in Dedekind clothing: the X-slices force a quadratic non-residue (PROVED)
+
+**(R) Rademacher's congruence** (classical; Rademacher–Grosswald, *Dedekind Sums*, Ch. 3, from memory;
+checked for all odd c < 400 in `scripts/dk_t1mod8.py`): for odd c ≥ 3 and gcd(a,c) = 1,
+`12 c s(a,c) ≡ c + 1 − 2·(a/c)  (mod 8)` (Jacobi symbol).
+
+**Proposition 3.1 (PROVED).** Let n ≡ 1 (mod 4) be odd and `n/A = [[v,t,u]]` with `4 | A` (Type I slice) or
+`4 | t` (Type II (A)3 slice). Then the Jacobi symbol `(A/n) = −1`. In particular **no such A exists when n is
+an odd square** (then `(A/n) = 1` for every A coprime to n): this is ET Prop 1.6 / T1 for these slices.
+*Proof.* By (D2), `12 n s(A,n) = n(t+u+v−9) + A + A*` with `A = tu−1`, `A* = tv−1`. Insert into (R):
+`2(A/n) ≡ n + 1 − n(t+u+v−9) − (tu−1) − (tv−1) (mod 8)`, a polynomial in (t,u,v), so its residue depends
+only on (t,u,v) mod 8. The finite check over all 512 triples (`dk_t1mod8.py`: 32 admissible triples per slice)
+shows the right side ≡ −2 (mod 8) whenever `tuv − u − v ≡ 1 (4)` and `4 | tu−1` (resp. `4 | t`). ∎
+Numerically (all primes < 2·10⁴): on L₃(p) the symbol `(A/p)` is −1 on both slices when p ≡ 1 (4), +1 when
+p ≡ 3 (4), and equidistributed (≈ 50:50) on the other residue classes of (A, t) mod 4.
+
+*Reading.* The exact Dedekind formula (D2) plus the mod-8 law (R) is precisely the genus obstruction: on
+the X-slices, a certificate lives in the quadratic-non-residue half of (ℤ/p)^*. That half exists at primes
+and is empty at squares. Everything that Dedekind sums know *mod a fixed modulus* is of this kind (by (R) and
+`12 c s(a,c) ≡ a + a* (mod c)`, the residue of `12 c s(a,c)` mod `8c` is fixed by `c mod 8`, `(a/c)`, and
+`a + a* mod c`). By Prop S of BRAINSTORM/invol_sign_identities, such data cannot certify the square classes.
+A Dedekind route has to use the **real size** of s(A,p) (equivalently r − r', by (D3)), not its residues.
