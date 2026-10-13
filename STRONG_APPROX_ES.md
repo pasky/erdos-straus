@@ -80,3 +80,44 @@ and of the side conditions; definite or indefinite. This is the rank-4, explicit
 POINTWISE_TERNARY Thm 4.1 (which was rank 3, fixed Q). **Not covered:** recipes that are not piecewise rational
 of bounded degree — gcd/valuation/factorisation recipes ("arithmetic recipes"), lattice-reduction recipes,
 and recipes of degree growing with p. These are the only escape, and §3 hunts there.
+
+## 3. Arithmetic recipes: congruence data mod q cannot see a factorisation
+
+ES in every known chart asks for a *divisor of a p-dependent integer in a residue class whose modulus is part of
+the solution* (B2). Example used below (Type II, ET (2.18)/(2.19), proved in CONDITIONAL_ES §1): with
+`t = 4c²d`, `tp + 1 = f f'`, `f ≡ f' ≡ −1 (mod 4cd)`. In matrix form (PROVED, direct check of the
+determinant): **Type II(p) ⟺ ∃ γ = [[f, M],[cp, f']] ∈ SL₂(ℤ), M = 4cd, with γ₁₁ ≡ γ₂₂ ≡ −1 (mod γ₁₂)**, i.e.
+`−γ ∈ Γ^1(M) ∩ Γ₀(p)` with `|γ₁₂| = M` exactly (plus `4(γ₂₁/p) | γ₁₂` and positivity). The congruence modulus is
+again the entry γ₁₂ itself: the rank-4 split form `det` is present, but the level is a coordinate.
+
+**Proposition 3.1 (invisibility; PROVED, elementary).** Let `n, q ≥ 1`, `gcd(n, q) = 1`, and `λ ∈ M₂(ℤ/q)`
+with `det λ ≡ n (q)`. For every factorisation `n = g g'` there are infinitely many `γ ∈ M₂(ℤ)` with
+`det γ = n`, `γ ≡ λ (mod q)`, and first-column content `gcd(γ₁₁, γ₂₁) = g`.
+*Proof.* Put `D = diag(g, g')`, invertible mod q. `A₀ := λD^{−1}` has determinant 1 mod q; lift it to
+`A ∈ SL₂(ℤ)` (surjectivity of `SL₂(ℤ) → SL₂(ℤ/q)`). For every `δ ∈ Γ(q)`, `γ = AδD` works: `γ ≡ A₀D = λ`,
+`det γ = n`, and the first column is g·(first column of Aδ), which is primitive. ∎
+*Definite analogue (classical).* For n odd, every primitive Hurwitz quaternion α of norm n factors as `α = βγ`
+with `N(β) = g` for **every** `g | n`, uniquely up to units (unique factorisation for primitive Hurwitz
+quaternions). So a factorisation is not a *property* that distinguishes points of a norm-n level set at all.
+
+**Corollary 3.2 (what a fixed modulus can and cannot see; PROVED from 3.1).** Let the data be as in Def 2.1 with
+`Q_p = det` (or the reduced norm of an Eichler order, by strong approximation for its norm-one group at the
+primes ∤ disc). Fix any rule `ψ` that reads off from `x ∈ R_p` a divisor `g(x)` of `N_p` coprime to q_p
+(content of a row/column, `gcd(L(x), N_p)` for a linear form L, the norm of the left ideal `Ox + gO`, …).
+Then the set `{g(x) : x ≡ λ (q_p)}` is **all** divisors of `N_p` (Prop 3.1, for every class λ). Hence a recipe
+that is valid on every point of a congruence class must be valid for every divisor of `N_p`, in particular for
+`g = 1` and `g = N_p`: ES is then certified by the trivial factorisation alone, i.e. by congruence data
+(B1: POINTWISE_SIZE Thms M, C, F). Divisors sharing primes with q_p *are* seen, but they are divisors of
+`gcd(N_p, q_p^∞)`, which is known without any lattice point.
+
+**Principle 3.3 (SA is a local statement; Assessment, with the proved pieces cited).** Every SA theorem has the
+form "local solubility in the class ⇒ a point exists". A certificate "SA ⇒ ES(p)" therefore needs a universal
+statement *every point of R_p (in some class and box) yields an ES solution*. Thm 2.3 shows such universal
+statements are idle when the recipe is rational of bounded degree (they collapse to the finite menu of degenerate
+pieces). Prop 3.1 shows they are idle when the recipe reads factorisation data coprime to q_p (all types occur in
+every class). Projecting first (`Φ = ψ∘π` with π a coordinate or linear form) does not help: `π(R_p)` is,
+up to local conditions, an arithmetic progression (ternary fibres are locally soluble), so the certificate is
+the ordinary ES lottery over an AP, and the fibre factor cancels exactly as in LONGSHOT_FIBRED Thm 5.4.
+Used as a *count* instead of an existence statement, SA meets the scale constraint: its main term is
+`σN/q³ ≥ N^{1/2−o(1)}` in the (S4) range, so the map to solutions must be `p^{η}`-to-one (CONDITIONAL_ES
+Prop 2.3), which is exactly the fibre factor that cancels.
