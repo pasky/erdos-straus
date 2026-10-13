@@ -114,6 +114,24 @@ Self-assessed (not yet triaged). Memo prefix `bsD_`; scripts `scripts/bsD_*`.
 | bsD_artin_conjugation | −1 = complex conjugation in ℚ(ζ_M); F-rational loophole over ℚ(ζ_M)⁺ | dictionary; loophole closed in LDP_DEEP §A.4 | 1 | H-A | ray condition quadratic over F for F-norm divisors; O_F-certificates do not descend |
 | bsD_drinfeld_rank_k | definite degree-k algebras over F_q(T), rank-k Drinfeld modules | spark (Assessment) | 1 | none | unique setting with order-k definite forcing; ES_q certificates quadratic |
 
+## Spark relay H (O181, untriaged): degree-k Diff-parity over F_q(T), odd-degree descent; deep file DRINFELD_ES.md
+
+Self-assessed (not yet triaged). Memo prefix `bsH_`; scripts `scripts/bsH_*`.
+
+| file | angle | memo verdict | promise | hatch | by-products (labels) |
+|---|---|---|---|---|---|
+| bsH_kth_power_law | k-th power law of ES_q Type II moduli; Kummer CM data f^{1/k} at P | PROVED negative (always split at P, odd k) | 1 | none | k-th powers enriched ×≈k (EVIDENCE) |
+| bsH_bl_order_q1 | BL classes of order q − 1 on the ES_q surface over F_q(T) | PROVED: odd part vanishes on monic integral points | 1 | none | Steinberg decomposition; inv_P = Kudla symbol |
+| bsH_twisted_targets | A/P = c₁/X + c₂/Y + c₃/Z: order-m reciprocity restored | PROVED: order-m T1 on degree classes only | 1–2 | none | ∞-invariant = degree character (EVIDENCE 4 074 pts) |
+| bsH_infinity_coordinate | F_∞^*/U₁ = sign × degree; what T1 needs | dictionary (Assessment) | 2 as explanation | none | — |
+| bsH_odd_descent | odd-degree subfields of ℚ(ζ_M)⁺; N(−1) = −1 | PROVED closed (Props 4.1, 4.2) | 0 | none | — |
+| bsH_carlitz_real | Carlitz real subfields of odd degree | dictionary; closed | 0–1 | none | — |
+| bsH_rank_k_genus | rank-k supersingular class sets as forcing | COLLAPSES (B2, genus-vacuous) | 0–1 | none | — |
+| bsH_lsv_ramanujan | LSV Ramanujan complexes | COLLAPSES (B3, B2) | 0 | none | — |
+| bsH_lubin_tate_sterile | x*_c = rec_T((1+cT)^{−1}), wild inertia at T | dictionary ("T1 point with T1 removed") | 1 | none | — |
+| bsH_shtuka_theta | Yun–Zhang / Feng–Yun–Zhang higher theta series | COLLAPSES as route (parity quadratic) | 0–1 | none | — |
+| bsH_nagao_cf | Case B families as SL₂(F_q[T]) / unique CFs | dictionary | 0–1 | H-A | — |
+
 ## Cross-cutting notes
 * **Brief-template error (B2 wording).** The briefs' barrier text said "a lottery with only polylog(p) expected
   winners (Σ_{p≤N} f(p) ≍ N log³N)". Over **primes**, Elsholtz–Tao give N log²N ≪ Σ_{p≤N} f(p) ≪ N log²N log log N
