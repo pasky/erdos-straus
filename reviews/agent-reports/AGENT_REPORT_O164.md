@@ -1,0 +1,53 @@
+# AGENT REPORT O164 — windmills beyond finite menus (checkpoint 1)
+
+Branch `side-agent/windmill-reduction`. Main file `WINDMILL_REDUCTION.md`; scripts `scripts/wr_*`.
+**ES is not solved; no positive claim about ES is made.** No candidate mechanism survived, so there is nothing to
+triple-check at 10⁶. All negative findings are labelled EVIDENCE/Assessment.
+
+## Results
+
+1. **§1 Dictionary: Zagier's windmill is the dihedral symmetry of Conway rivers.** CERTIFIED for all primes
+   p ≡ 1 (4), p ≤ 1300 (`wr_zagier_river.py`). The rotation ζσ on X(p) has exactly h⁺(p) cycles, one per narrow class,
+   of length (river period)/2. ζ and σ swap C ↔ C⁻¹ and reflect the principal cycle, which has odd length. Hence each
+   has exactly one fixed point on that cycle: the principal form for ζ, and p = b² + 4a² for σ. This is Smith/Legendre in
+   topograph language (folklore; no novelty claimed). It isolates three ingredients: (W1) a rotation whose cycles are
+   classes; (W2) a class-inverting involution; (W3) an anchor that makes one ambiguous cycle odd.
+2. **§2 Class-group form of Type II (PROVED; explicit formula checked on 4360 instances).** ES(p) holds if some form
+   `[k, B, c]` of discriminant −4gp has `4g | B`, `B | k+1` (Lemma 2.4). This is the (I)4 Heegner dictionary made
+   explicit as a non-genus condition on (class, represented value, root). The slice g = 1 alone fails for 15 of the 267
+   primes p ≡ 1 (24) below 20000 (exhaustive). Self-check correction: at odd squares, non-coprime ES-forms exist (1539 for
+   m < 80); coprime ones do not, which is what T1 says.
+3. **§3 Legendre/SQUFOF midpoints (EVIDENCE, negative).** The forced second ambiguous form of the principal cycle of
+   √N is tested for N = tp+1 and N = (p+e)/4. It is an ES certificate at roughly (any-rate)/(number of factor pairs):
+   2.2% against 14.6%, and 1.7% against 7.4%. So there is no forcing and no bias.
+4. **§4 Type I σ-symmetric river (EVIDENCE, negative).** The river of `[c,p,−cd]` (discriminant p²+4c²d) holds 33% of all
+   factor pairs but only 24% of the ES ones. No enrichment.
+5. **§5 Structural items (PROVED algebra plus Assessment).**
+   - 5.1: positive ES lives on definite (CM) discriminants −4gp, and the p ↦ −p version is signed ES, which is
+     indefinite and easy. Definite discriminants have no rivers, so (W1) is unavailable on the Heegner side. A Zagier-type
+     windmill would have to live on an indefinite auxiliary discriminant and carry its fixed points over to CM data, the
+     way σ does in Zagier.
+   - 5.2: an X-slice certificate is exactly the face p next to an ambiguous edge `[−t, A−B, p]` of discriminant T²−4.
+     So it is a reflection fixed point, but on a discriminant that depends on the certificate (B2 in reflection language).
+   - 5.3: X-slice ES is equivalent to a small-product point of the modular hyperbola AB ≡ 1 (p). Involutions that are
+     algebraic over 𝔽_p see only square-root data, while the ES condition depends on the sizes of the lifts.
+
+## Honest assessment
+No finite set with a reduction-type involution whose fixed points are ES certificates was found. Every forced
+ambiguous object I tested (principal midpoints, σ-symmetric classes) behaves like a random divisor. The clearest
+structural reason is 5.1 together with 5.2. Reflection fixed points on a fixed discriminant are genus or two-squares data
+of that discriminant, while ES certificates need a discriminant (T, or g together with a residue modulus) chosen per
+solution.
+
+## Sparks (not pursued)
+- **Indefinite-to-definite transport.** Look for an indefinite discriminant Δ(p) whose σ-type fixed edges `[a,b,−a]`
+  (Δ = b²+4a²) map to coprime ES-forms of discriminant −4gp. This is the Zagier pattern (W1 to W3) with CM output.
+  Search Δ = p·k² + (small) and 4p+1-type shifts by computer.
+- **Mixing 𝔽_p-involutions with lift sizes** on the modular hyperbola (5.3), in the style of Gauss's lemma or
+  Zolotarev. Zolotarev's lemma turns the Legendre symbol into the sign of a permutation of [1,p). A permutation parity
+  whose fixed points are small-product points would be an H-B-type parity-breaker.
+- **Ambiguous rivers of discriminant T²−4 with T running through a p-dependent progression** (5.2): a growing family in
+  which the factorisation of T²−4 is known, (T−2)(T+2). Joint factorisation is free here, which might be an H-A foothold.
+- **q-indexed (Euclid-type) menus on X(p):** Lemma 4.1 needs finitely many pieces. A uniform infinite menu whose
+  non-symmetry pieces foliate the space (piece q acts only on its own leaf {P∘g_q = P}) is the one shape that escapes,
+  and it has not been searched.
