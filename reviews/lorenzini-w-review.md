@@ -123,3 +123,12 @@ Every step was re-derived.
 * **Context.** Lorenzini's Prop 6.3(b) already trivially gives #E ≤ π(N+2) + O(log N) ≪ N/log N, and Lorenzini 6.3's z = 4 condition gives
   N/(log N)^{3/2}. "Lorenzini/Wang give density 1 only" is literally true for Lorenzini's statement, but his (b) gives N/log N at once. The note
   should say so, so that the improvement is stated against the right baseline (D4).
+
+### Prop 7.1 (Stern coding) — SOUND
+Re-derived. Under N ↦ 2N the pair (u, w) = (s(N), s(N+1)) becomes (u, u+w). Under N ↦ 2N+1 it becomes (u+w, w). So the block 0^{a−2}1 gives
+((a−1)u + w, (a−2)u + w). With (p, q) = (u, u − w) this is (p, q) ↦ (ap − q, p). The start N = 1 has (p, q) = (1, 0). Conversely, every N with
+popcount k + 1 is, after stripping trailing zeros, of the stated shape with a_i = (gap) + 2 ≥ 2. ✓
+`scripts/review_lw_stern.py` finds 0 mismatches for k ≤ 4 (letters < 12, or < 8 for k = 4). It also checks that {s(N) : popcount 4} ∩ [0, 300) equals
+the A₃ value set there. The complement is {0,1,2,3,5,6,9,11,14,15,35,105}. ✓
+Minor: the phrase "positions of popcount k+1 … of size ≍ (log)^k up to height N" does not say whether "height" means the position or the value.
+Positions with N < X number ≍ (log X)^k. The value s(N) is not monotone in N, so this does not count anything about values (cosmetic).
