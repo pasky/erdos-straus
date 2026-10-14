@@ -13,6 +13,7 @@ All numerics re-done with from-scratch code `scripts/review_r224_*.py` (author s
 | SHARP 1 census numbers (lnr buckets 0.645 → 0.430; deciles 0.643–0.647; 2 402 violations) | **reproduced exactly** (independent C census) |
 | SHARP 1 / Summary 1 reading "continuity of T1 is adelic, NOT archimedean (corrects O209 §3.2)" | **GAP — overclaimed (MAJOR D5)**: a genuine archimedean (bounded p − m²) effect exists, z ≈ −6, with a PROVED T1-type mechanism the author missed |
 | §2 Assessment "each fixed level is clean with probability → 0 (GRH)" | **GAP (MAJOR D6)**: false along the families p = m² + k |
+| §2 clean-level law + coin model ("within ≈ 0.03 per lnr bucket") | **SOUND as EVIDENCE, weaker than presented (MINOR D7, D8)**: reproduced exactly on the author's sample and within 0.012 on an independent 1 500-prime sample; but 75–91 % of levels are decided by the exact part, and the coin part over-predicts by ≈ 0.03 (4–8σ) |
 | (further rows added below as checked) | |
 
 ## Claim-by-claim
@@ -83,6 +84,24 @@ t = (c² − 1)/k < 200: odd-clean 0 failures for k = 1, 4, 9, 16, 25; fully cle
 Removing all words on these levels (all t ≤ p + 2): k = 4: N₋/N 0.636 → 0.690 (stratum mean ≈ 0.686: deficit fully
 explained); k = 16: 0.572 → 0.616 (stratum ≈ 0.628: ≈ 3/4 explained). These levels carry ≈ 7.5 % of all words.
 
+### §2 clean-level law and coin model — SOUND as EVIDENCE, weaker than presented
+From scratch (`scripts/review_r224_model.py`, own prime selection, own model code; formula re-derived: given the exact
+small part is all-clean, k rough odd-exponent coins conditioned on product +1 give 2^{−(k−1)} for k ≥ 1, and s
+even-exponent rough coins are free, 2^{−s}; k = 0 is deterministic). Not fitted: the only free choice is the
+cutoff Y; Y ∈ {30, 100, 300} all fit (Y = 300 best), so no tuning on the same data.
+* On the author's sample (data/y8/y8_sample600.txt, t ≤ 30, Y = 100): all 7 buckets reproduced to the third decimal
+  (0.317/0.314, …, 0.602/0.636, 0.194/0.196).
+* Independent sample (1 500 random primes p ≡ 1 (4) in (2·10⁵, 10⁶), seed 2240, 45 000 levels), obs/model (Y = 100):
+  (1,3) 0.306/0.309, (1,5) 0.425/0.430, (1,7) 0.483/0.492, (1,11) 0.557/0.565, (1,13) 0.571/0.583, (1,≥17) 0.624/0.636,
+  (5,2) 0.192/0.194 — **max deviation 0.012**, always model > obs.
+* But the agreement is mostly exact bookkeeping: at Y = 100, **86 % of levels have model probability exactly 0 or 1**
+  (75–91 % per bucket; mostly 0 = a small prime ≤ 100 is unclean, or k = 1 forced clean). On the random part only
+  (6 144 levels) obs 0.466 vs model 0.495 (≈ 4.5σ); Y = 30: 0.425 vs 0.467 (10 485 levels, ≈ 8σ). By (k, s)
+  (`scripts/review_r224_model_k.py`): k = 2, s = 0: 5 965 levels, obs 0.471 vs 0.500; k = 0, s = 1: 0.42 vs 0.50 (33 levels).
+  The "fair coin" part is biased toward −1 by a few per cent; the bias is unexplained.
+* The unconstrained model is off by a factor ≈ 2.0 (0.157 vs 0.314 …) in every bucket on both samples, not "≈ 1.6"
+  (the factor 2 is forced: the constraint doubles every non-deterministic level with k ≥ 1).
+
 ## Defects
 D1 (MINOR) — Lemma 1.2(b) and Summary item 2: "Every prime r < lnr(p) is clean" mixes the level notion with primes.
 Repair: "(b) every prime r < lnr(p) has (r/p) = +1, so a level t with tp + 1 (lnr − 1)-smooth is clean."
@@ -119,3 +138,15 @@ The heuristic is about a *random* p. Repair: restrict to "for p outside the fami
 (heuristic, random p)", and record that these families have infinitely many deterministically clean levels
 (≍ √T of the t ≤ T, carrying ≈ 7.5 % of all words at p ≈ 10⁵–10⁶), i.e. near-square hardness is NOT purely
 pre-asymptotic there.
+
+D7 (MINOR) — §2 / Summary item 3 / AGENT_REPORT SHARP 1: the model's agreement is quoted as "within ≈ 0.035" (Summary),
+"within 0.04" (§7) and "within ≈ 0.03" (report) — make consistent; more importantly add that 86 % of the levels
+(t ≤ 30, Y = 100) are decided exactly (model ∈ {0, 1}), so the test of the coin hypothesis is on the remaining 14 %,
+where the model over-predicts (0.495 vs 0.466; k = 2: 0.500 vs 0.471). "Without the constraint off by ≈ 1.6" should be
+"≈ 2 (exactly 2 on every non-deterministic level with k ≥ 1)". Label stays EVIDENCE.
+
+D8 (MINOR) — §2 "Heuristically (Sathe–Selberg …) P ≍ (log B/log tp)^{1/2}": the relevant tool is Wirsing /
+Selberg–Delange (integers all of whose prime factors lie in a set of relative density 1/2 beyond B), and tp + 1 runs
+over shifted primes (needs Bombieri–Vinogradov-type input even heuristically); the table column is 15–40 % below the
+observed fractions (the ≍ constant, incl. the factor-2 constraint, is not modelled). Fine as Assessment; cite
+correctly and say "up to a constant".
