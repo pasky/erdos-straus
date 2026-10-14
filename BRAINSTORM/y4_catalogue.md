@@ -32,7 +32,7 @@ having only primes ≡ 1 (mod 3) (e.g. 10/67: N = 7). M = 20 has 0 of 62 failure
 | Mordell 840 = reach of universal one-slot χ-witnesses {2, 3, 5, 7, 8, 15, 20} | PROVED (y4_mordell_witness) | description of B1's ceiling |
 | U₄(840) = the 6 square classes; U₈(840) has 29 non-square classes | CERTIFIED (MODEL_SPECIFIC §4.1) | description (B1); not tight at 9240 either |
 | T1 in the shot family | PROVED for all M ≡ 0, 3 (4) (y4_t1_numerators) | **not 4-specific** (3, 7, 8, 11, …) |
-| |N ε_μ| = 4tj − 1, Ptolemy/pentagon relations ((J)38–(J)39) | PROVED | uniform: 4 enters as Mtj − 1 |
+| the norm N ε_μ of absolute value 4tj − 1, Ptolemy/pentagon relations ((J)38–(J)39) | PROVED | uniform: 4 enters as Mtj − 1 |
 | Type I alone never fails | EVIDENCE (4: ≤ 10⁸; 7: ≤ 10⁶; 8: only at the true failures) | not a discriminator (also robust for 7 and 8) |
 
 ## Literature
