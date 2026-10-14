@@ -18,8 +18,8 @@ contains primes, so universality ⟺ for each r ≡ 1 (4), gcd(r, A) = 1, (A/r) 
 This is a finite check per A (`scripts/y4_witness.py`, `exact_scan(3000)`: non-squares passing it = {2, 3, 5, 7, 8, 15, 20};
 squares pass vacuously). For A > 3000: the χ = −1 classes number φ(L)/4 (A non-square ⇒ (A/·) non-trivial on r ≡ 1 (4)),
 each residue a mod A has φ(L)/(2φ(A)) lifts, so the needed image has ≥ φ(A)/2 elements, while |D_A| ≤ τ(A+1) ≤ 2√(A+1).
-Rosser–Schoenfeld φ(A) > A/(e^γ log log A + 2.51/log log A) gives φ(A)/2 > 2√(A+1) for all A ≥ 3000 (at A = 3000:
-305 vs 110; the ratio increases). Coverage: A = 2, 8 ↔ p ≡ 5 (8); 3 ↔ (p/3) = −1; 5, 20 ↔ (p/5) = −1; 7 ↔ (p/7) = −1;
+Rosser–Schoenfeld φ(A) > A/(e^γ log log A + 3/log log A) (valid for all A ≥ 3) gives φ(A)/2 > 2√(A+1) for all A ≥ 3000 (at A = 3000:
+292 vs 110; the ratio increases). Coverage: A = 2, 8 ↔ p ≡ 5 (8); 3 ↔ (p/3) = −1; 5, 20 ↔ (p/5) = −1; 7 ↔ (p/7) = −1;
 15 ↔ (p/15) = −1, which is already covered by 3 or 5. ∎
 EVIDENCE cross-check (independent route: build the word, verify every slice solution in exact rationals) for all
 primes p < 10⁵: A ∈ {2, 3, 7, 15} never miss (all p); A = 5 misses 1206 primes, all ≡ 3 (mod 4) (handled by the
