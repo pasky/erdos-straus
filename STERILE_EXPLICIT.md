@@ -146,3 +146,26 @@ So at the exponent level the union bound now *closes q = 27* (O216's r = 3 gap),
 square-root line at the thirds corner (1/3, 1/3, 1/3, 0) (deg v₁ = o(s)), where O216's cyclotomic family shows the true
 count is exp(Ω(s/log s)) — so q = 3, 9 need a sub-exponential refinement there. Not certified (needs an fs_tail-type
 rigorous version with the FF Lemma 1.5 split); flagged as a spark.
+**3.4 Theorem (explicit r₀; PROVED, computer-assisted, relative to the same inputs as (J)26 Thm 3.1 minus Browning–Elsholtz
+and minus ET's non-explicit divisor bound: M17 Lemmas 1.1, 1.3, 2.1–2.3, 5.1, 5.2, M17B Lemma 1.1, M17C Lemma 2.1(iv), M17 Cor 4.2,
+all with r-free proofs (R83, R93, R187)).** **For every prime r ≥ 2³² ≈ 4.3·10⁹, (S) holds; hence the r-generic line contains
+a sterile point x(u), u a quadratic non-residue mod r, and no finite set of ET Prop 1.9 classes covers all sufficiently large
+primes whose least quadratic non-residue is r.** The uncovered measure in the non-residue cells is ≥ (r−1)/(2r) − 0.4851 > 0.0148
+(worst at r ≈ 2³²), and → 1/2 as r → ∞.
+*Proof (certificate).* `scripts/se_r0.py 32 600` (log `data/se/r0_certify.txt`): for every range r ∈ [2^b, 2^{b+1/4}),
+b = 32, 32.25, …, 600, it bounds each term of (S) by the certified table values (`data/se/P_q4.txt` (N ∈ [2^{31}, 2^{200}), quarter
+octaves), `P_q1.txt` + `P_q1_hi.txt` (2^{200}..2^{600}, octaves), `Q_q4.txt` (2^{31}..2^{100})) taken at the worst N-cell of the range
+and the largest weight, and by the §3.3 tail term lists (top of the N-range) for N ≥ 2^{600} (P), 2^{100} (Q); K, k odd; every tail term
+is increasing in N and, multiplied by its weight, decreasing in r (e < 1/2 resp. < 1 and p ≤ (h − e)·ln N₀), which also covers
+r ≥ 2^{600}. Result: max S = 0.48501 (b = 32), no failure; with b = 31 it fails (S = 0.58 at b = 31.5), so 2³² is where *this*
+certificate stops. Dominant terms at r ≈ 2³²: Q at level 1 (k = 1) 0.350, P at K = 1 0.023, P at K = 3 0.002, P tail (N ≥ 2^{600}) ≈ 0.1.
+Validation of the engine (EVIDENCE): `scripts/se_box_check.py` enumerates all P- resp. Q-data exactly for N = 17³, 3¹¹, 17⁵, 10⁶ + 3,
+999983, 2·10⁶ + 3 (P) and 17³, 17⁴, 17⁵, 10⁶ + 3 (Q), buckets them into se_box's boxes and rows, and finds every per-box and per-row
+bound ≥ the true count (0 violations; it reproduces D_P = 32, 121 and D_Q = 73, 245 of M17 at 17³, 17⁵). ∎
+*Before:* (J)26 gave "r ≥ r₀" with r₀ effectively a tower (log log r₀ ≈ 20C); R187 noted the level-1 term alone exceeds 1/2 for many
+r ≈ 10⁴. *Now:* r₀ = 2³². *What limits it:* the level-1 Q term 2D_Q(r)/r — Type I solutions of 4/r counted with exponent 0.6–0.65
+but with polylog many boxes; at r ≈ 10⁹ the bound is ~0.7r against a true count of a few hundred. r = 13, 17 are far out of reach:
+at r = 13 *all* non-residue cells are covered at level 1 (POINTWISE_MORDELL §1), so no 13-generic sterile point exists at all;
+at r = 17 two of eight cells survive level 1, and any union bound needs a P-count with constant ≲ 2.5 at θ = 0.4 (M17D §1).
+*Note (O220 "division trick", relayed by the orchestrator):* its ℤ analogue — a divisor 4a > e-window of N + e fixes e mod 4a — is
+exactly the divisibility averaging Σ_a ((E₁ − E₀)/(4a) + 1) already used by routes A, F, G, I, J and Q's fac/fca/fda.

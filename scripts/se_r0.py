@@ -33,9 +33,16 @@ def table_max(tabs, lo_bits, hi_bits):
         best = max(best, got[0]); x = got[1]
     return best
 
-def tailval(terms, bits):
+def agg(terms):
+    """merge terms with equal p, rounding e UP to a 1e-6 grid (valid: N^e increases with e for N >= 1)."""
+    A = {}
+    for (c, e, p) in terms:
+        k = (math.ceil(e * 1e6) / 1e6, p); A[k] = A.get(k, 0.0) + c
+    return [(c, e, p) for (e, p), c in A.items()]
+def tailw(terms, bits, wlog2):
+    """sum_t c N^e (ln N)^p * 2^{wlog2} at N = 2^bits, computed in log space."""
     L = bits * math.log(2)
-    return sum(c * math.exp(e * L) * L ** p for (c, e, p) in terms)
+    return sum(math.exp(math.log(c) + e * L + p * math.log(L) + wlog2 * math.log(2)) for (c, e, p) in terms)
 
 def main():
     B0 = float(sys.argv[1]); Bmax = float(sys.argv[2]) if len(sys.argv) > 2 else 600.0
@@ -46,6 +53,7 @@ def main():
     Q = [load('Q_q4.txt', 4)]
     LP, LQ = 600.0, 100.0                                  # tail thresholds (bits)
     tP, wP, _, _ = se_tail.tailP(32, LP); tQ, wQ, _, _ = se_tail.tailQ(16, LQ)
+    tP, tQ = agg(tP), agg(tQ)
     assert wP < 0.5 and wQ < 1.0
     LPn, LQn = LP * math.log(2), LQ * math.log(2)
     assert all(p <= (0.5 - e) * LPn for (c, e, p) in tP) and all(p <= (1 - e) * LQn for (c, e, p) in tQ)
@@ -55,26 +63,23 @@ def main():
         S = 0.0
         for K in range(1, 100001, 2):                    # P part
             lo, hi = K * b, K * bh
-            v = None
-            if hi <= LP: v = table_max(P, lo, hi)
-            elif lo >= LP: v = tailval(tP, hi)           # terms increasing in N: take the top of the range
-            else:
-                v1 = table_max(P, lo, LP); v = None if v1 is None else max(v1, tailval(tP, hi))
-            if v is None: print("missing P table", lo, hi); sys.exit(1)
-            term = 2 * v * 2 ** (-b * (K + 1) / 2)
+            wl = 1 - b * (K + 1) / 2                     # log2 of 2 * r^{-(K+1)/2}
+            v1 = table_max(P, lo, min(hi, LP)) if lo < LP else 0.0
+            if v1 is None: print("missing P table", lo, hi); sys.exit(1)
+            term = v1 * 2 ** wl if lo < LP else 0.0
+            if hi > LP: term = max(term, tailw(tP, hi, wl))   # terms increasing in N: top of the range
             S += term
             if lo >= LP and term < 1e-30: break
         for k in range(1, 100001, 2):                    # Q part
             lo, hi = k * b, k * bh
-            if hi <= LQ: v = table_max(Q, lo, hi)
-            elif lo >= LQ: v = tailval(tQ, hi)
-            else:
-                v1 = table_max(Q, lo, LQ); v = None if v1 is None else max(v1, tailval(tQ, hi))
-            if v is None: print("missing Q table", lo, hi); sys.exit(1)
-            term = 2 * v * 2 ** (-b * k)
+            wl = 1 - b * k
+            v1 = table_max(Q, lo, min(hi, LQ)) if lo < LQ else 0.0
+            if v1 is None: print("missing Q table", lo, hi); sys.exit(1)
+            term = v1 * 2 ** wl if lo < LQ else 0.0
+            if hi > LQ: term = max(term, tailw(tQ, hi, wl))
             S += term
             if lo >= LQ and term < 1e-30: break
-        S *= 1 + 1e-6
+        S = S * (1 + 1e-6) + 1e-20                     # 1e-20: geometric remainder after the break
         lim = 0.5 - 2 ** (-b - 1)                         # (r-1)/(2r) for r >= 2^b
         if S >= lim: bad += 1; print(f"FAIL b={b:.2f} S={S:.6f}")
         if S > worst[0]: worst = (S, b)
