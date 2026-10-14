@@ -69,11 +69,12 @@ the unmarked ℤ₂-lattice (Thm 2.3), no simple Jacobi feature separates it (§
 one-odd solution" would have to act on the marking, i.e. on the word itself. That is the χ-flip problem of (J)33 plus a
 2-adic refinement, so it is harder, not easier.
 
-## 3. The first lottery: 4 is the only numerator with a {±1}-slice at every prime (BRAINSTORM/y4_catalogue)
+## 3. The first lottery: 4 is the only numerator with an e ∈ {1, 3} slice at every prime (BRAINSTORM/y4_catalogue)
 **Prop 3.1 (PROVED).** Type II slices of M/p need e ≡ −p (mod M), and Type I slices need e ≡ −p⁻¹ (mod M). The only
 M ≥ 3 for which every prime p ∤ M has such a slice with e ∈ {1, 3} is **M = 4**. (At most the three classes −1, −3, −3⁻¹
 are covered, so φ(M) ≤ 3 and M ∈ {3, 4, 6}. For 3 and 6, e = 3 is not a unit.) Brute check M < 200: `scripts/y4_slice3.py`.
-**3.2 Meaning.** (ℤ/e)^* = {±1} for e ∈ {1, 2, 3, 4, 6}. On an e = 3 slice the event −1 ∈ Σ₃(N) is "N has a prime factor
+**3.2 Meaning.** (ℤ/e)^* = {±1} for e ∈ {1, 2, 3, 4, 6}. With all five allowed, a {±1}-slice exists at every prime exactly for
+M ∈ {3, 4, 5, 7} (check M < 200; R-O212), so only the literal e ∈ {1, 3} statement is 4-specific. On an e = 3 slice the event −1 ∈ Σ₃(N) is "N has a prime factor
 ≡ 2 (mod 3)", a non-triviality event and not a hitting event. For p ≡ 1 (mod 12), ES has two such slices,
 N_II = (p+3)/4 and N_I = (3p+1)/4. Both fail iff all their prime factors are ≡ 1 (mod 3). This happens for 1771 of the
 19564 primes p ≡ 1 (mod 12) below 10⁶ (9.1%; 10.7% below 10⁴), first at 241, 409, 769 (EVIDENCE). For p ≡ 1 (mod 8) the e = 3 Type I
