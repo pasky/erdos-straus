@@ -107,3 +107,55 @@ stated for general numerators in its source or its proof uses 4 only through "4 
 8. (α) is the cleanest: it is **numerator-free** ("some positive word of n has χ = −1", SQ₅/(S)), so it is not itself
 refuted by the 8/n failures, and it implies the five-slice part of ES. The barrier therefore *steers* (E1) to a single
 target: transport into SQ₅. §3 examines that target.
+
+## 3. Steering: the only admissible target, and a falsification harness
+
+**3.1 What the barrier leaves (Assessment, with PROVED components).** By Cor 2.1 an exit needs a 4-specific input.
+Among those known, (α) is numerator-free: SQ₅/(S) — "some positive word tuv − u − v = n has χ(w) = (−A/n) = −1" —
+implies the five-slice part of ES ((J)32 Thm 3.1(a)) and is *consistent* with the failure of 8/131 (29 such words
+exist at 131; S₈(131) = ∅). So the barrier funnels (E1)/(E2) into SQ₅. What the relaxed certificates can contribute
+to SQ₅ is then exactly one bit per modulus:
+* (PROVED, BRAINSTORM/s3_box_bit) for a prime g ≡ 3 (mod 4): a □-shot at g exists ⟺ (p/g) = −1, and every Type II ES
+  certificate at modulus g forces (p/g) = −1; numerically the box fires in 9.5% of the (p/g) = −1 pairs and in 0% of
+  the others. The □ relaxation is the sign layer of the prime-modulus certificate; the box is the class layer (B2).
+* (PROVED, BRAINSTORM/s3_eps_mu_sieve) the (J)23 sieve variable and the (J)38 ES slot are the same shot n + 4t² with
+  Q = t; the ES side forces Q ≤ (g+1)/4, the sieve side lets Q run through ⟨S⟩ (overflow).
+* (EVIDENCE, BRAINSTORM/s3_min_scale) both the relaxed and the exact search terminate at polylog scale in practice
+  (h_min ≤ 0.81 log³p for all p ≡ 1 (4) < 10⁷; Dirichlet g ≤ 1.46 log²p). Finiteness of the ES box is not the
+  operative difference; the type of firing condition (character vs box) is.
+So transporting relaxed certificates into SQ₅ means converting a character event into a divisor-box event — B2, the
+same core every earlier synthesis reached ((J)11 skeleton). No new hatch opens; the barrier sharpens the old one by
+removing every numerator-uniform tool from consideration.
+
+**3.2 Falsification harness (a practical by-product; Assessment).** Any proposed (E1)/(E2) mechanism should be run on:
+(i) 8/n at n = 131, 241 (and M = 12, …, 24 at the listed primes): a mechanism that "proves" these is wrong;
+(ii) TES at N(π) = 7, 13, 19, 61, … (16 primes): genuine non-T1, non-BM failures with TES^{□₃} true (BRAINSTORM/
+s3_order3_numerator) — a mechanism that transplants to ℤ[ω] is wrong;
+(iii) ES_q over F_q[T] at its known failures (q = 5, A = T, degree ≤ 4; q = 3^r, r ≥ 27, no finite covering) where
+ES_q^{(s)} is a theorem ((J)30);
+(iv) odd squares (T1) — the classical control.
+(i)–(iii) are controls *beyond* T1: places where every local, Brauer–Manin, sieve and relaxation input holds and the
+exact finite search fails. Every barrier of the campaign so far was tested against (iv) only.
+
+**3.3 Brief items screened and where they landed** (memos BRAINSTORM/s3_*; each combines ≥ 2 wave results):
+| memo | combination | outcome |
+|---|---|---|
+| s3_numerator_blind | (J)23/(J)28 × (J)31/(J)32 | **barrier, PROVED** (§1–§2) |
+| s3_order3_numerator | (J)19/(J)28 × (J)31 × (J)32 | order-3 blindness PROVED + EVIDENCE; SQ₅₃ consistency constraint |
+| s3_box_bit | (J)28 × (J)25 × (J)38 Prop 4.1 | □ = sign layer exactly (PROVED); slicing across n relabels the box |
+| s3_eps_mu_sieve | (J)23 × (J)38 | sieve variable = ES slot, Q = t forced small (PROVED); collapses to (J)25 |
+| s3_min_scale | (J)25 × (J)28 × (J)30 | box size is not the obstacle (EVIDENCE) |
+| s3_lll_lenstra | (J)25 × (J)38 × Lenstra/Coppersmith | LLL = ≤ 11 per line + decision; no existence (PROVED rel. Lenstra) |
+| s3_words_parity | (J)33 × (J)15 × involution parity | no parity law (EVIDENCE); σ forces nothing |
+| s3_isogeny_mixing | (J)35 × (J)16 × expander mixing | certificates spectrally invisible (PROVED, elementary) |
+| s3_vphi_ringmaps | (J)21 × (J)25 × (J)17 | algebraic transports out of ℤ[φ] give only local data (PROVED) |
+Not re-done: "(J)36 Pell orbits × (J)37 CF depth" is already MARKOFF_ES Prop 7.1(b) (an orbit reaches B = 1 iff it is
+the ES point's orbit) and COMPOSITION_ES Thm 1.3.
+
+## 4. Verdict (Assessment)
+No route to ES. The one new structural result is the **numerator-blindness barrier** (Thm 1.1, Cor 2.1): for every
+M ≡ 0 (mod 4) the □-relaxation (and empirically the fixed-S mute relaxation) is a theorem at all non-squares with T1
+exact, while M/p fails at 278 known (M, p) pairs; the same blindness holds over ℤ[ω] (TES) and F_q[T]. Hence the
+wave's two exits are both constrained to numerator-4-specific inputs, effectively to SQ₅ ((J)15/(J)32), and the
+relaxed certificates contribute exactly the sign bit toward it. The harness §3.2 gives three new failure controls
+beyond odd squares.
