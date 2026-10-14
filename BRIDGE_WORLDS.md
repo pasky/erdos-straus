@@ -89,13 +89,14 @@ dividing h + 1).
 **Prop 6.1 (unit-twisted firing; PROVED, elementary).** Put Fire^E(p, h) :⟺ ∃ c, d with 4cd | h + 1 and ε ∈ E_{K_{4cd}}
 with 𝔥 | p + 4c²d·ε for some 𝔥 | h. Then Fire^E(p, h) ⟺ −p ∈ ⋃_{(c,d)} 4c²d · ρ_𝔥(E): at fixed h the firing set is a
 union of cosets of the subgroup ρ_𝔥(E) ⊂ F_h^* (large for most h under Artin-type heuristics for units, cf. Roskam,
-Exp. Math. 2002). Taking norms, Fire^E ⟺ h | p² + t·p·X + N(ε)X² (X = 4c²d, t = Tr ε when K is quadratic; for
+Exp. Math. 2002; EVIDENCE for m = 8, K = ℚ(√2): over the 2399 primes h ≡ 7 (mod 8) below 10⁵ the index
+[F_h^* : ⟨ρ_𝔥(1 + √2)⟩] is 1 for 891 and 2 for 909 — scripts/y3_unit_index.py). Taking norms, Fire^E ⟺ h | p² + t·p·X + N(ε)X² (X = 4c²d, t = Tr ε when K is quadratic; for
 ε = 1 this is (p + X)², the Type II number squared). ES-firing is the sub-case ρ_𝔥(ε) = 1.
 *Proof.* ρ_𝔥 is a ring homomorphism; the norm identity is (p + Xε)(p + Xε′) for K quadratic. ∎
 **Assessment.** The unit-twisted variant is an FF_MUTE/ES^{(S)}-type statement inside K (large-coset firing sets,
 Chebotarev-countable), and its gap to ES is the condition ε ≡ 1 (mod 𝔥) — a Wieferich/exponent-cap condition, the
 same wall as EXPONENT_CAP ((J)34). No transport back to ε = 1 is known; the Galois-invariant (rational) section is
-exactly where the archimedean condition sits. Not pursued numerically beyond this (spark).
+exactly where the archimedean condition sits. Not pursued beyond the index check (spark).
 
 ## 7. Barrier table and verdict (O211 checkpoint 1)
 | object | bridge tier | what reaches p's world | barrier |
