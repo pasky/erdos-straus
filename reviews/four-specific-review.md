@@ -12,6 +12,8 @@ From-scratch scripts: `scripts/review_r212_*.{py,c}` (none of the author's `y4_*
 | 7/p failure-free to 10⁸, T1-bearing; S₇(p) = ∅ at 10 primes; Type II of 7 fails 9×; 11/37 | SOUND (independently re-verified to 10⁸) |
 | Thm 2.3 (χ = −1 ⇒ Q_w ⊗ ℤ₂ ≅ ⟨1, −1, −n⟩; parity split is marking data) | SOUND (citation verified; tested n ≤ 2001) |
 | Thm 4.2 (universal one-slot witnesses = {2,3,5,7,8,15,20}; reach = complement of Mordell's six classes; τ(A+1) ≥ φ(A)/4 necessary) | SOUND |
+| Prop 3.1 (4 unique with e ∈ {1,3} slice at every prime), 3.2 ({3,4,5,7} for e ∈ {1,2,3,4,6}), 3.3 statistics | SOUND (trivial; all numbers reproduced) |
+| §6 harness verdicts; §7 catalogue; labels | SOUND as Assessment; minor overstatements (D4–D6) |
 | Lemma 2.1 + census of §2 (S₄^{odd}, S₈, squares, composite list, one-odd halves) | SOUND (re-verified ≤ 10⁶ / 2·10⁵) |
 
 ---
@@ -167,6 +169,48 @@ covering with more complex witnesses goes further" (that is POINTWISE_SIZE/T1 te
 
 ---
 
+## C5. §3 — Prop 3.1, §3.2, §3.3
+
+**Slice identities re-derived.** Type II: M/p − 1/N = (MN − p)/(pN) = e/(pN) with MN = p + e, then e/N = 1/b + 1/c;
+Type I: M/p = (ep + 1)/(pN) = e/N + 1/(pN) with MN = ep + 1. So e ≡ −p resp. e ≡ −p⁻¹ (mod M), and e must be a unit mod M. ✓
+(For e = 3, N ≡ 1 (3): 3/N = 1/b + 1/c ⟺ some d | N², d ≡ 2 (3) ⟺ N has a prime factor ≡ 2 (3). ✓)
+
+**Prop 3.1.** Covered unit classes for e ∈ {1, 3}: ⊆ {−1, −3, −3⁻¹}, so φ(M) ≤ 3 ⇒ φ(M) ≤ 2 ⇒ M ∈ {3, 4, 6}; for 3, 6 the
+class p ≡ 1 is missed; for 4: p ≡ 3 → e = 1, p ≡ 1 → e = 3 (both types). ✓ PROVED (and elementary).
+**§3.2.** For E = {1, 2, 3, 4, 6}, |covered| ≤ 9 ⇒ φ(M) ≤ 9 ⇒ M ≤ 30, so the brute check M < 200 is a complete proof.
+Own check (`scripts/review_r212_slice3.py`): e ∈ {1, 3} → **{4}**; e ∈ {1, 2, 3, 4, 6} → **{3, 4, 5, 7}** ✓. For 7:
+p ≡ 1 → e = 6 (I, II), p ≡ 3 → e = 4 (II), 2 (I); p ≡ 5 → e = 2 (II), 4 (I); p ≡ 2, 4, 6 → e = 3, 3, 1 ✓ (matches §5).
+(Suggest adding "φ(M) ≤ 9 ⇒ M ≤ 30" so that "check M < 200" reads as a proof, not evidence — D7, MINOR.)
+**e = 3 statistics.** p ≡ 1 (12): both e = 3 slices empty for 1771/19564 = 9.1 % (< 10⁶) and 32/300 = 10.7 % (< 10⁴),
+first at 241, 409, 769 ✓.
+**§3.3** (own census lists M = 5–24, primes ≤ 3·10⁶, which reproduce the *entire* MODEL_SPECIFIC §1 table: counts and
+largest failures for every M = 5..24, e.g. M = 20: 62 failures, last 2 763 601; M = 24: 154, last 620 929): failures in an
+e = 3 class occur exactly for M = 10 (4/7: 3, 7, 43, 67), 16 (4/37: 5, 13, 37, 421), 22 (9/53), and in every case N has only
+prime factors ≡ 1 (mod 3) (vacuously N = 1 for 10/3); M = 8: 0/5, M = 20: 0/62 ✓. (11 fails at 3 and 37.)
+
+**Verdict C5: SOUND.** Content is a congruence observation; the author's own verdict "no input independent of the
+lottery" is fair. Unchecked: "whether every Type II e = 3 certificate is a five-slice word" (author says not checked).
+
+---
+
+## C6. §6 harness, §7 catalogue, labels, report
+
+* §6 verdicts are labelled Assessment and argued from stated mechanisms; I re-read the H-A/H-B/Rem 10.4 lines in the memo
+  against the R207-repaired threshold scope (n₀(M) ≤ M², PW Thm 1.2) — consistent. No overclaim found beyond what O208/R207
+  already accepted.
+* **11/37 as a harness entry (D5, MINOR).** FOUR_SPECIFIC §1 presents 11/37 as a "new harness entry" without the memo's
+  caveat that BM was not computed for 11/37 and that the PW-type threshold-robust form (O208/R207) is only known for
+  M ≡ 0 (4). So 11/37 only tests mechanisms at the shot/T1/relaxation layers, not BM-type mechanisms. Add the caveat in §1.
+* **§7 Verdict "sharpest new statements" (D4)** — see C3.
+* **§2 Census sentence (D6, MINOR)**: "The full one-odd ES half has no failing prime ≤ 10⁶" — the campaign (MODEL_SPECIFIC
+  §2) already records f₄^{odd}(p) ≥ 1 for all primes ≤ 10⁸; cite that (stronger) instead of the 10⁶ rerun, or say both.
+* Labels: §1 PROVED ✓; §2 Lemma 2.1 PROVED ✓ (hand proof in C3-pre), cells CERTIFIED ✓, census EVIDENCE ✓, Thm 2.3 PROVED
+  rel. AGM ✓; §3 PROVED/EVIDENCE ✓; §4 PROVED ✓; §5 EVIDENCE + Assessment ✓; §6, §7 Assessment ✓. ES is not claimed. ✓
+* Not re-checked (low stakes, labelled as finite tests): S₇ feature-class test (282/386), "98 % vs 86 % at t ≤ 4", "all three
+  parity classes occur within each oddity class", mean-count ratios in y4_seven_control.
+
+---
+
 ## C3-pre. §2 numerics and Lemma 2.1 (re-verified)
 
 **Lemma 2.1, by hand.** n odd. (T) t = 4c: n ≡ u + v (2) ⇒ one of u, v even (say u); denominators uvc, ucn (even),
@@ -176,7 +220,7 @@ those among A* = tv − 1, v, A*v that are odd; A* ≡ v + 1 (2) ⇒ exactly one
 u ↔ v. ✓ PROVED.
 
 **Census re-run** (`review_r212_slices`, `review_r212_census … odd`):
-* S₄^{odd}(p) ≠ ∅ for all 78 497 primes 3 ≤ p ≤ 10⁶ ✓ (10⁷ not re-run).
+* S₄^{odd}(p) ≠ ∅ for all 664 578 primes 3 ≤ p ≤ 10⁷ ✓ (own run, ~25 min single core).
 * S₈(p) = ∅ (and, identically, "S₄ with an all-even slice solution" = ∅) at exactly 27 primes ≤ 10⁶: 3, 11, 17, 113, 131,
   241, 257, 353, 593, 1249, 1489, 1601, 2081, 3169, 3361, 4481, 5281, 5521, 14177, 14401, 15233, 33601, 83449, 211681,
   215297, 252001, 259201 ✓ (so the 27 at ≤ 10⁷ all lie below 2.6·10⁵).
@@ -199,3 +243,8 @@ u ↔ v. ✓ PROVED.
 4. **D4 (MINOR)** FOUR_SPECIFIC §7 Verdict / report: Thm 2.3 is presented as one of "the sharpest new statements". It is the
    generic fact that an isotropic unimodular ternary ℤ₂-lattice of det n is ⟨1, −1, −n⟩ (AGM Thm 5.1); demote to
    "Remark (standard)" and keep only the marking-data conclusion.
+5. **D5 (MINOR)** FOUR_SPECIFIC §1 "New harness entry: 11/37": add "(shot/T1/relaxation layers only; BM not computed;
+   no threshold-robust PW form known for M ≡ 3 mod 4)".
+6. **D6 (MINOR)** FOUR_SPECIFIC §2 Census: cite MODEL_SPECIFIC §2 (one-odd ES half never fails to 10⁸) next to the 10⁶ rerun.
+7. **D7 (MINOR)** FOUR_SPECIFIC §3.2 / y4_catalogue: add "|covered| ≤ 9 ⇒ φ(M) ≤ 9 ⇒ M ≤ 30, so the M < 200 check is complete"
+   (turns the check into a proof).
