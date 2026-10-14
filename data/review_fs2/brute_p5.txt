@@ -1,0 +1,10 @@
+p=5 s=3: tuples(a<=b)=0 patterns_hit=0 max count/minbound=0.000
+p=5 s=4: tuples(a<=b)=0 patterns_hit=0 max count/minbound=0.000
+p=5 s=5: tuples(a<=b)=0 patterns_hit=0 max count/minbound=0.000
+p=5 s=6: tuples(a<=b)=2 patterns_hit=1 max count/minbound=0.500
+p=5 s=7: tuples(a<=b)=4 patterns_hit=2 max count/minbound=0.500
+p=5 s=8: tuples(a<=b)=10 patterns_hit=5 max count/minbound=0.500
+p=5 s=9: tuples(a<=b)=0 patterns_hit=0 max count/minbound=0.000
+violations: 0
+all tuples per s: {6: 4, 7: 8, 8: 20}
+census sum_s count(s) p^(1-ceil(s/2)) = 48/125
