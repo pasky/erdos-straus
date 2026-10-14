@@ -1,12 +1,16 @@
 # PHASE_DIAGRAM — the (k, Q₁) phase diagram between ES^□ / ES^{(y)} and ES (task O204, wave Y-a)
 
-Status: in progress (O204). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
+Status: checkpoint 1 reviewed by R209 (reviews/phase-diagram-review.md) and R210 (reviews/phase-diagram-review-2.md):
+no FATAL; all repairs applied, marked (R209 repair)/(R210 repair). (O204.) **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
 Builds on EXPONENT_CAP.md (O200: Prop 1.2, Prop 1.3 duality D·g = 4k²n + Q₁², Thm 2.1, Prop 3.1, Thm 3.2; R200 M1),
 GROWING_MUTE.md (O201: (A, B) form, V_n), MARKOFF_ES.md (O202), COMPOSITION_ES.md (O203), FROBENIUS_FIRING §4,
 UNIT_ORBIT_ES §2, SYNTHESIS_SPARKS2 §2 (ES^□). Scripts `scripts/pd_*`.
 
 Notation (as in GROWING_MUTE, widened shot family): n > 1 odd; shot datum (Q, g): Q ≥ 1, gcd(Q, n) = 1, g ≡ 3 (mod 4),
-g | n + 4Q²; K := (g+1)/4, Q₀ := gcd(Q, K), overflow Q₁ := Q/Q₀ (odd), k := K/Q₀; den(z) = Q₁², y = n(g+1)/4 = nQ₀k.
+g | n + 4Q²; K := (g+1)/4, Q₀ := gcd(Q, K), overflow Q₁ := Q/Q₀, k := K/Q₀; den(z) = Q₁², y = n(g+1)/4 = nQ₀k.
+Only shot data with Q₁ ODD are used (the variants require odd den z; Q₁ is odd iff v₂(Q) ≤ v₂(K), e.g.
+n = 5, Q = 2, g = 3 has Q₁ = 2) (R210 repair m1). den z = Q₁² holds for every such shot, Q₀ of either parity: the
+proof of EXPONENT_CAP Prop 1.2 is prime-by-prime over ℓ | Q₁ and never uses the parity of Q₀ (R209 repair m2).
 Variants: ES ⇒ ES^{(y,1)} ⇒ ES^{[2]} (Q₁ | Q₀, "den z | y²") ⇒ ES^{(y)} (rad Q₁ | Q₀k); ES^□: no mute condition.
 
 ## 0. Iteration log
@@ -20,8 +24,9 @@ Hypothesis to violate: "the per-r box is r^{o(1)}". Bounded cap cannot violate i
 (b) a different slicing in which the modulus is fixed.
 (Y2) Exact re-slicing (§1): ES^{[2]} ⟺ ∃ (t, j): n t² + 4 j² has a divisor ≡ −n (mod 4tj) (t ⊇ overflow; side
 conditions in §1), the "D-face" of the duality; ES is t = 1. The λ = 1 sub-family is the quartic family "n + 4t⁴ has a divisor ≡ −1
-(mod 4t)", and its j = 1 member is the FIXED-modulus test "64 + n³ has a divisor ≡ 3 (mod 4)" (e.g. n = 13:
-64 + 13³ = 7·17·19, D = 7, t = 5, g = 359 | 13 + 4·25² → an ES^{(y,1)} solution of 4/13 with overflow 5). Fixed modulus only for one number per j: no infinite fixed-modulus family.
+(mod 4t)", and its j = 1 member is the FIXED-modulus test "64 + n³ has a divisor m ≡ −n (mod 4) with t = (m + n)/4 odd
+and the gcd side conditions of §1" (≡ 3 (mod 4) when n ≡ 1 (mod 4)) (R209 repair m1) (e.g. n = 13:
+64 + 13³ = 7·17·19, m = 7 (the cofactor (n + 4Q²)/g of §1, not the duality cofactor D = 47 of Prop 1.3), t = 5, g = 359 | 13 + 4·25² → an ES^{(y,1)} solution of 4/13 with overflow 5). Fixed modulus only for one number per j: no infinite fixed-modulus family.
 (Y3) Screen of (Y2): every slicing is one number per fixed parameter; the infinite directions all have moving
 modulus. But the slicing exposes a structural fact that is new: with the self-mute cap Q₁ | Q₀ BOTH coordinate
 directions of the duality plane are walled (§2), while every weaker variant has an unwalled direction. The phase
@@ -55,6 +60,12 @@ ES is t = 1: 4λb − n | λ + b. The quartic family of (Y2) is λ = 1.
 (b) (Q₁-wall) g ≤ 2nQ₁²(n + Q₁²) (EXPONENT_CAP Thm 2.1); moreover if Q₁ > (n+1)/2 then k < Q₁²/2.
 Hence every ES^{[2]} shot with Q₁ > (n+1)/2 lies in the band **√(Q₁/(6n)) ≤ k < Q₁²/2**: both
 coordinates must grow together, every horizontal (fixed Q₁) and every vertical (fixed k) slice is a finite search.
+**Thm 2.1 does NOT make ES^{[2]} or ES^{(y,1)} a finite search (R210 repair m2; R209 repair m3).** It gives no bound on
+g, k or Q₁ in terms of n alone: the band is unbounded, and (GROWING_MUTE, R201 m3) every ES^{[2]} point with μ² − n
+non-square lies on an infinite Pell orbit inside it (fixed-n examples with growing (Q₁, k): n = 3 has (55, 2), (101, 232),
+(289, 2984), R210 `review_pd2_brute.py`). So the cell is an infinite union of finite slices; **R200 M1 (bounded e,
+growing S: OPEN, not a finite search) stands for e = 1**, narrowed only in that k and Q₁ must grow together
+(for Q₁ > (n+1)/2; equivalently the growing-S case needs Q₀ > (g+1)/(2Q₁²)).
 *Proof.* (a) Prop 1.3(b): Dg = 4k²n + Q₁² with D ≥ 1. As Q₁ | Q₀, g = 4kQ₀ − 1 ≡ −1 (mod 4kQ₁), so g ≥ 4kQ₁ − 1
 and, reducing Dg mod Q₁, D + 4k²n ≡ 0 (mod Q₁); hence D ≥ Q₁ − 4k²n. If Q₁ ≤ 4k²n, (a) holds because
 (16k³n + 1) − 4k²n(4k − 1) = 4k²n + 1 > 0. Otherwise 4k²n + Q₁² = Dg ≥ (Q₁ − 4k²n)(4kQ₁ − 1), which expands to
@@ -66,10 +77,10 @@ n ≡ 2 (mod 3) at k = 1 by the family Q₁ = W(1) = (16n + 1)/3, g = 4Q₁ − 
 (even ES^{(y,1)} when 16n + 1 is squarefree) with overflow ≈ 5.3n. (Also Q₁ = 4n + 3, D = 3 for n ≡ 2 (mod 3).) (b): k/Q₁² up to 0.436 is observed ((n, k, Q₁) = (29, 126, 17), g = 8567).
 *Check (`scripts/pd_band.py 101 6 1.3`, `scripts/pd_band2.py 41 41`; exact rationals):* all 348 shots (gcd(Q, n) = 1; 12 further
 solutions with gcd(Q, n) > 1 skipped) with odd n ≤ 101, k ≤ 6, Q₁ ≤ 1.3·W(k), and all 36 shots with n ≤ 41, (n+1)/2 < Q₁ ≤ 41, k ≤ 2Q₁²: identity (1.1), solution,
-den z = Q₁² (when gcd(Q₀, n) = 1), walls (a), (b) hold; max Q₁/W(k) = 1.000, max k/Q₁² = 0.436.
+den z = Q₁², walls (a), (b) hold; max Q₁/W(k) = 1.000, max k/Q₁² = 0.436.
 *Reading.* Without the self-mute cap the k = 1 slice is infinite and elementary (ES^□: "4n + Q₁² has a divisor
-≡ 3 (mod 4)", Dirichlet). The cap Q₁ | Q₀ converts the modulus 4 into 4Q₁ and the slice into a finite search: the
-k-wall is created exactly by the self-mute cap, as the Q₁-wall of EXPONENT_CAP is created by fixing Q₁.
+≡ 3 (mod 4)", Dirichlet). The cap Q₁ | Q₀ converts the modulus 4 into 4Q₁ and the k = 1 slice (each fixed-k slice) into a finite
+search — not the cell (see above): the k-wall is created exactly by the self-mute cap, as the Q₁-wall of EXPONENT_CAP is created by fixing Q₁.
 
 ## 3. One slice, the whole ladder: k = 1
 
@@ -77,13 +88,16 @@ The k = 1 slice is where the duality plane meets ES^□. By Prop 1.3's converse 
 Q₁ (odd, prime to n) are exactly the divisors g ≡ 3 (mod 4) of **4n + Q₁²** (cofactor D ≡ 3 (mod 4) automatically;
 Q₀ = (g+1)/4, Q = Q₀Q₁; we also need gcd(Q₀, n) = 1). The mute rungs become congruences on g alone:
 `  rung      condition on (Q₁, g)                                    modulus      status (k = 1 slice)`
-`  ES^□      none                                                     4            PROVED (one Dirichlet prime)`
-`  ES^{(y)}  Q₁ ∈ ⟨S⟩ (S fixed, |S| ≥ 4), g ≡ −1 (mod 4·rad Q₁)      4·∏S fixed   PROVED (FROBENIUS_FIRING Thm 4.2 sieve)`
+`  ES^□      none                                                     4            PROVED‡ (one Dirichlet prime; Cor 3.2)`
+`  ES^{(y)}  Q₁ ∈ ⟨S⟩ (S fixed, |S| ≥ 4), g ≡ −1 (mod 4·rad Q₁)      4·∏S fixed   PROVED† (FROBENIUS_FIRING Thm 4.2 sieve)`
 `  ES^{(y,2)} v_ℓ(Q₁) ≤ 2, g ≡ −1 (mod 4·rad Q₁)                     ≥ 4√Q₁       OPEN; no wall (EVIDENCE below)`
 `  ES^{(y,1)}, ES^{[2]}  g ≡ −1 (mod 4Q₁)                             4Q₁          FINITE: Q₁ ≤ (16n+1)/3 (Thm 2.1(a))`
 `  ES        Q₁ = 1                                                  4            one number, 4n + 1`
-**Proposition 3.1 (PROVED).** (a) For every odd non-square n > 1 with gcd(n, 15) = 1, the k = 1 slice of ES^{(y)}
-is non-empty: there are Q₁ ∈ ⟨S⟩ (S any four odd primes prime to n) and a prime g ≡ −1 (mod 4∏S) with g | 4n + Q₁².
+(‡ n odd non-square; † n odd non-square with 3 ∤ n, ineffective — R210 repair m3, R209 repair m4/m5. R210 m3 also
+notes that the convention gcd(Q₀, n) = 1 is not needed for the solution itself (den z stays prime to n); dropping it
+from the k = 1 slice would remove the 3 ∤ n condition. Not pursued here.)
+**Proposition 3.1 (PROVED; (a) ineffective, R209 repair m5).** (a) For every odd non-square n > 1 with 3 ∤ n
+(R209 repair m4; first version: gcd(n, 15) = 1), the k = 1 slice of ES^{(y)} is non-empty: there are Q₁ ∈ ⟨S⟩ (S any four odd primes prime to n) and a prime g ≡ −1 (mod 4∏S) with g | 4n + Q₁².
 (b) For ES^{(y,1)} and ES^{[2]} the k = 1 slice is contained in Q₁ ≤ (16n + 1)/3; for n ≡ 2 (mod 3) this bound is
 attained in ES^{[2]}, and in ES^{(y,1)} when (16n + 1)/3 is squarefree (not always: n = 59, W(1) = 315 = 3²·5·7).
 *Proof.* (a) Follow FROBENIUS_FIRING Thm 4.2(a) / UNIT_ORBIT Thm 2.4(a): M := 4 rad(n)∏S, a ≡ 3 (mod 4),
@@ -92,7 +106,10 @@ a ≡ −1 (mod s) for s ∈ S, and for ℓ | n residues a_ℓ chosen so that ev
 ℓ₀ exists since n is not a square, n ≡ 3 (mod 4) included). Additionally take a_ℓ ∉ {0, 1, −1} (mod ℓ): possible for
 every ℓ ≥ 7 with either prescribed quadratic character (outside {0, ±1} there remain (ℓ − 5)/2 ≥ 4 residues and
 (ℓ − 1)/2 non-residues if ℓ ≡ 1 (mod 4), and (ℓ − 3)/2 ≥ 2 of each if ℓ ≡ 3 (mod 4)); at ℓ = 3 nothing remains and
-at ℓ = 5 only non-residues, hence gcd(n, 15) = 1. Lemma 2.2 of UNIT_ORBIT only needs a ≢ 1 (mod ℓ), so the sieve of Thm 4.2
+at ℓ = 5 only non-residues {2, 3}. (R209 repair m4:) ℓ = 5 is harmless: if v₅(n) is even it does not enter the
+Jacobi symbol; otherwise adjust at another odd-exponent prime ℓ₀ ≥ 7 if one exists, and if 5 is the only one then
+n = 5m² ≡ 1 (mod 4) and the required (r/n) = (r/5) = −1 is exactly a₅ ∈ {2, 3}. Only ℓ = 3 | n is a genuine
+obstruction (it forces r ≡ 1 (mod 3), outside Lemma 2.2); hence 3 ∤ n. Lemma 2.2 of UNIT_ORBIT only needs a ≢ 1 (mod ℓ), so the sieve of Thm 4.2
 applies verbatim and gives a prime r ≡ a (mod M) with Γ_r := ⟨S mod r⟩ = (F_r^*)². Then
 (−4n/r) = (−1/r)(n/r) = 1, so −4n ≡ Q₁² (mod r) with Q₁ ∈ ⟨S⟩ (squaring is bijective on the odd-order group
 (F_r^*)²); put g := r. Q₀ = (r+1)/4 is prime to n (r ≢ −1 mod ℓ), and rad Q₁ | ∏S | Q₀. (b) is Thm 2.1(a) at
@@ -118,16 +135,25 @@ squares). On the k = 1 slice the overflow exponent is exactly a, so this is the 
 within the whole k = 1 slice: n = 13 needs a = 3 here, but Q₁ = 49, g = 223 is a k = 1 cap-2 shot).
 *Reading (Assessment).* Inside the single slice k = 1 the cap ladder shows every phase: fixed modulus (proved,
 Dirichlet/sieve), moving modulus ≥ 4√Q₁ ≈ (4n + Q₁²)^{1/4} with no archimedean bound (e = 2: an infinite lottery
-at the Lenstra–Coppersmith threshold; sparse hits up to the search limit, infinitude heuristic only), moving
-modulus 4Q₁ ≈ (4n + Q₁²)^{1/2} (e ≤ 1: finite search, the k-wall), and the single number of ES. So the transition
-"infinite lottery → finite search" happens between e = 2 and e = 1, and the transition "proved → lottery" between
+near the N^{1/4} threshold of Lenstra (1984) / CHN (2008); sparse hits up to the search limit, infinitude heuristic only), moving
+modulus 4Q₁ ≈ (4n + Q₁²)^{1/2} (e ≤ 1: finite search ON THE k = 1 SLICE, the k-wall; the e ≤ 1 cell as a whole is an
+infinite union of finite slices, R200 M1 stands — R210 repair m2), and the single number of ES. So, on the k = 1
+slice, the transition "infinite lottery → finite search" happens between e = 2 and e = 1, and the transition "proved → lottery" between
 e = ∞ (fixed S) and every bounded e.
 *Corollary 3.2 (k-direction dichotomy; PROVED).* Every fixed-Q₁ slice of every variant is finite (EXPONENT_CAP
 Thm 2.1). Every fixed-k slice of ES^{[2]} ⊇ ES^{(y,1)} ⊇ ES is finite (Thm 2.1(a)). For every odd NON-SQUARE n the k = 1 slice of ES^□ and,
-if also gcd(n, 15) = 1, of ES^{(y)} (fixed S, |S| ≥ 4) is INFINITE (at odd squares every shot slice is empty, T1;
-scaling produces general solutions there, not shots): the sieve of Prop 3.1(a) (resp. Dirichlet) gives
-infinitely many distinct primes g, and g ≤ 2nQ₁²(n + Q₁²) forces Q₁ → ∞. So the k-wall exists exactly at relative
-cap ≤ 1 among these variants; for bounded absolute cap e ≥ 2 its absence is EVIDENCE only (§3 table).
+if also 3 ∤ n, of ES^{(y)} (fixed S, |S| ≥ 4; ineffective) is INFINITE (at odd squares every shot slice is empty, T1;
+scaling produces general solutions there, not shots): the sieve of Prop 3.1(a) gives infinitely many distinct primes
+g, and g ≤ 2nQ₁²(n + Q₁²) forces Q₁ → ∞.
+*Proof for ES^□ (R209 repair M1).* Choose, by Dirichlet, infinitely many primes g ≡ 3 (mod 4) in a class mod 4 rad(n)
+with g ≢ 0, −1 (mod ℓ) for every ℓ | n and (n/g) = −1. This is possible for every odd non-square n: at ℓ = 3 the only
+allowed class is g ≡ 1 (a residue); at ℓ = 5 both characters remain; at ℓ ≥ 7 both remain (Prop 3.1); so adjust the
+character at an odd-exponent prime ℓ₀ ≥ 5 if one exists, and if 3 is the only odd-exponent prime then n = 3m² ≡ 3
+(mod 4) and the needed (g/n) = (g/3) = +1 is exactly g ≡ 1 (mod 3) (by reciprocity (n/g) = −(g/n) for n ≡ g ≡ 3
+mod 4; for n ≡ 1 (mod 4), (n/g) = (g/n)). Then (−4n/g) = 1, so −4n ≡ Q₁² (mod g) has a root, which can be taken odd
+and prime to n (shift by multiples of g, CRT); Q₀ = (g+1)/4 is prime to n, and Prop 1.3's converse with k = 1 gives
+a k = 1 shot of overflow Q₁. Distinct g give distinct shots, and Q₁ → ∞ as above. ∎ So the k-wall exists exactly at relative
+cap ≤ 1 among these variants (each fixed-k slice finite; the cell itself is not a finite search, §2); for bounded absolute cap e ≥ 2 its absence is EVIDENCE only (§3 table).
 
 ## 4. One family for all caps: "nX² + 1 has a divisor ≡ −1 (mod M)", M ≈ N^{1/(2e+2)}
 
