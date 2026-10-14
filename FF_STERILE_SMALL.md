@@ -40,3 +40,25 @@ v₁-sum replaced by the single determined v₁ (so in D1c the average Σ2^ω is
 with g' = (w₁ + C₁)/(Tv₁)). ∎
 These are the rows R9a, R10a, R5a, R5b without the factor N*(t − 2) — a gain of q^{t−2} whenever the condition holds.
 At the r = 3 critical point (1/3, 1/3, 1/6, 1/6): D1 has exponent z + (a + b)·log 2/log q = 1/3 + (2/3)(log 2/log 27) = 0.4736 < 1/2.
+
+**Lemma 1.3 (v₁ in a residue class; PROVED).** For every monic D ∣ m'w₁C₁: v₁ ≡ −T^{s−2} (mod D). Hence, for fixed D, the
+number of admissible v₁ (deg t − 2, fixed leading coefficient lc(w + C)) is ≤ max(1, q^{t−1−deg D}) =: V(D)
+(= 1 if deg D ≥ t − 1, Lemma 1.1). So in every route of FF_STERILE_PUSH Lemma 1.6 that fixes v₁ together with some of
+m', w₁, C₁, the factor N*(t − 2) may be replaced by V(product of the fixed factors): (m', v₁) costs ≤ N*(z)·V(z),
+(w₁, v₁) ≤ N*(a−1)·V(a−1), (C₁, v₁) ≤ N*(b−1)·V(b−1), (m', w₁, v₁) ≤ N*(z)N*(a−1)·V(z+a−1).
+*Proof.* m'w₁C₁ = T^{s−2} + v₁ ≡ 0 (mod D). The v₁ ≡ given class mod D with deg v₁ = t − 2 and fixed leading coefficient:
+if deg D ≤ t − 2 these are σ + D·h with deg h = t − 2 − deg D and fixed lc(h): q^{t−2−deg D} ≤ q^{t−1−deg D} choices. ∎
+Routes affected (exponent per unit s, continuum): R5a → max(a, t) + class, R5b → max(b, t) + class, R9a → max(z, t) + C(a+b, a),
+R10a → max(z, t) + class (with max 2^{ω*} instead of the average Σ2^ω), X1 → y + max(z, t), X2 → y + max(a, t),
+R4' → max(z + a, t). Lemma 1.2's D-routes are the special case deg D ≥ t − 1.
+
+**Lemma 1.4 (refined class bound below the Coppersmith threshold; PROVED).** In the setting of FF_STERILE_PUSH Lemmas 1.4/1.5
+(F of degree n, Q of degree ρ, σ a unit mod Q, divisors E of degree d with E ≡ σ (mod Q)), assume moreover T ∣ Q and
+T ∤ F. Then for every j ≥ 0 the number of such E is ≤ q^j·cls(n, d, ρ + j) (and ≤ q^j·cls with the cofactor version if F is
+prime to Q).
+*Proof.* Every such E is prime to T, so E mod QT^j is one of the ≤ q^j lifts of σ that are units mod QT^j (Q·T^j has the
+same prime factors as Q since T ∣ Q). Apply the class bound with modulus QT^j (degree ρ + j) to each lift; cofactor version:
+F prime to Q is prime to QT^j. ∎
+All moduli used in the class routes (Tv₁, TL', Tw₁g', Tm'w₁, Tm'C₁, …) contain T and all F there are prime to T, so the
+lemma applies to every class route. Continuum consequence: a class route with data (n, d, ρ) costs an extra exponent
+max(0, d(n − d)/n − ρ) (Coppersmith threshold), instead of failing outright below the threshold.
