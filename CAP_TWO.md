@@ -1,4 +1,4 @@
-# CAP_TWO — the e = 2 cell: where the ES ladder turns from finite to infinite (task O214, spark relay Y6)
+# CAP_TWO — the e = 2 cell at k = 1 and its relation to ES^{[2]} (task O214, spark relay Y6)
 
 Status: in progress (O214). **ES is not solved here, nor any infinite case of ES, nor ES^{(y,2)}.** Labels as in
 DISCOVERIES.md. Builds on EXPONENT_CAP.md (Def 1.1, Props 1.2/1.3), GROWING_MUTE.md (Prop 1.1(c) (A, B) form,
@@ -14,8 +14,8 @@ v_ℓ(Q₁) ≤ 2 for all ℓ.
 (Y6-1) Construction attempt as briefed: parametrise ALL k = 1 cap-2 shots (not only the pure-power family Q₁ = R²
 of PHASE_DIAGRAM Prop 4.1). Writing Q₁ = cB² (c, B squarefree, coprime) and g + 1 = c·A·B gives a Markoff-type
 equation (§1, Thm 1.1). Surprise: it is the SAME equation as GROWING_MUTE's ES^{[2]} (A, B) form; the two cells
-differ only in the residue of c mod 4 (Thm 1.2). Consequence: the "finite → infinite" transition of O204 between
-e = 1 and e = 2 at k = 1 is a slicing effect (§2): ES^{[2]} with k free and cap-2 at k = 1 are the two halves of one
+differ only in the residue of c mod 4 (Thm 1.2). Consequence: the per-slice contrast of O204 between
+e ≤ 1 and e = 2 on the slice k = 1 (finite vs no wall seen) is a slicing effect (§2): ES^{[2]} with k free and cap-2 at k = 1 are the two halves of one
 family of Pell-orbit fibrations.
 
 ## 1. The k = 1 cap-2 cell is the c-odd half of the ES^{[2]} equation
@@ -82,7 +82,9 @@ f_x(a, B) = −E with x odd. Squarefreeness of B is not a congruence condition. 
 *Reading (Assessment, built on Thm 1.2 + Prop 2.1).* O204 Cor 3.2 / §3 table: "k = 1: ES^{(y,1)}, ES^{[2]} finite;
 e = 2 no wall". In W_n-coordinates ES^{[2]}'s k is the coordinate a, while the k = 1 cap-2 cell has a free. So the
 k = 1 slice of ES^{[2]} is the line a = 1 of the c ≡ 0 half, but the k = 1 slice of the cap-2 cell is the WHOLE c-odd
-half. The apparent transition "finite at e = 1, infinite at e = 2" is "one line vs a whole half-surface". Taken with
+half. The per-slice contrast "k = 1 slice finite at e ≤ 1, no wall at e = 2" is "one line vs a whole half-surface".
+(Calibration, R210: no cap is shown to be a global finite search; ES^{(y,1)} and ES^{[2]} have finite slices but an
+unbounded band of (k, Q₁), and bounded cap with growing S remains OPEN, R200 M1.) Taken with
 k free, ES^{[2]} has the same structure: every slice is finite (O204 Thm 2.1) and the Pell orbits are infinite. So the
 two problems are of one kind: **does some fibre x of the conic bundle f_x(a, B) = −E (E | x) have a point,
 with x/E odd (cap-2, k = 1) or x/E ≡ 0 mod 4 (ES^{[2]})?** Neither is easier on structural grounds; for e = 2 the
