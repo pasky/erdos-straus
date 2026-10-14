@@ -63,6 +63,42 @@ gcd = 27). The §3 Assessment ("The only bridges … are therefore non-homomorph
 (f + 1)-world"; "the precise reason the task's 'finitely generated group of points reduced mod f' cannot play the
 role of ⟨s⟩") drop the supersingular hypothesis. See D3.
 
+### §3 Props 3.3–3.5 — 3.3 SOUND for D = 1, GAP in the D ≥ 2 application (D5); 3.4 SOUND; 3.5 SOUND (definitional)
+
+Prop 3.3 (core). Re-derived: if Q is non-torsion, Cheon–Hahn give for every large n a good prime 𝔭 with
+ord(Q mod 𝔭) = n exactly; n ≡ 1 (mod m) gives infinitely many 𝔭 with m ∤ ord — contradiction. Torsion Q has
+ord(Q mod 𝔭) = ord(Q) for almost all 𝔭, so m | ord(Q). Citation CHECKED against the paper (downloaded:
+sources/r206/cheon-hahn-aa8832.pdf, Acta Arith. 88 (1999) 219–222, Theorem on p. 219: "E/K number field, P ∈ E(K)
+of infinite order. Then for every sufficiently large n there exists a prime ℘ of good reduction so that the order of
+P … modulo ℘ is n"). The document's "citation from memory, not re-checked" can be upgraded. Mazur (orders 1–10, 12)
+and Kamienny–Kenku–Momose (D = 2: 1–16, 18) are quoted correctly (from memory; standard). Multiples of 4 in
+Mazur's list: {4, 8, 12} ✓.
+Application, D = 1 (B = 𝔸¹_t, the case behind "4cd ∈ {4, 8, 12}"): for almost every prime h pick a prime
+p ≡ t₀ = −4c²d (mod h) (Dirichlet); then h | p + 4c²d and R_p ≡ R_{t₀} (mod h) (granted good reduction and
+integrality of the family at t₀ mod h for almost all h, and E_{t₀} non-singular — a hidden hypothesis: if t₀ is a
+bad fibre the argument says nothing), so 4cd | ord(R_{t₀} mod h) for almost all h, and Prop 3.3 applies. SOUND.
+Application, D ≥ 2: GAP (D5).
+Prop 3.3 Scope (b): "[F : ℚ] ≫ φ(N)/log log N (Silverberg; Clark–Pollack)". The known CM bounds are stronger
+(Silverberg / Prasad–Yogananda: φ(N) ≪ w(O)·[F : ℚ]; Clark–Pollack: max CM torsion over degree D is ≍ D log log D),
+so the stated inequality is true but loose; not checked against sources (not in sources/). MINOR, no repair needed
+beyond "from memory".
+
+Prop 3.4. (a) Re-derived: int C is open and conjugation-stable; it contains gU and hence the whole preimage of the
+class of gU in Gal(L_U/ℚ); L_U is unramified outside the finite set, so finite Chebotarev gives natural density
+≥ 1/[L_U : ℚ] for primes with Frob in that class. C closed with empty interior means C = ∂C, so Jordan-measurable ⇒
+μ(C) = 0. The R-O207 finite-ramification repair is necessary and sufficient for (a). (b) Re-derived: a conjugacy
+class maps to a point of the infinite abelian quotient, so is Haar-null; G is second countable (L/ℚ countable), so
+μ(K_i V) ↓ 0 along a countable neighbourhood basis; ∪ K_i V_i is open and conjugation-stable; C is its complement.
+Note (b) does not need finite ramification. The measure-theoretic statement is correct as written. The
+anticyclotomic claim (ii) is correct (a reflection in ℤ_ℓ ⋊ {±1} has order 2, so inert h has residue degree 2 in
+K^{ac}/ℚ, i.e. splits completely in K^{ac}/K) and well known. SOUND.
+
+Prop 3.5. With "forcing by an identity" DEFINED as U_N(α_{t₀}, β_{t₀}) = 0 and U_n ≠ 0 for n < N, the conclusion is
+immediate: α_{t₀}/β_{t₀} (needs Q(t₀) ≠ 0 — implicit, MINOR) is a primitive N-th root of unity in a field of degree
+≤ D, so φ(N) ≤ D; D = 2 gives N ∈ {1, 2, 3, 4, 6}, and 4 | N gives N = 4. SOUND, but the label PROVED covers only
+this definitional statement; the claim that every deterministic coupling of primitive divisors to the shot is
+either this or a lottery is (correctly) labelled Assessment.
+
 ## Defects
 
 D1 (MINOR, §1 Lemma 1.1 vs Prop 1.2). Lemma 1.1 is stated for h ≥ 5, but Prop 1.2 (and Prop 5.1) quantify over
@@ -104,3 +140,15 @@ is listed among the PROVED dictionaries, but det ρ_{E,h}(Frob_p) = p for every 
 by definition a function of p mod h. The CM structure (π_p, the torus part) adds nothing. Repair: label Prop 2.3 as a
 remark/restatement ("firing is a function of det = p; the CM torus part π_p/π̄_p is invisible") and drop it from the
 §6.1 list of dictionaries, or state that it holds for every E.
+
+D5 (MAJOR → GAP, §3 Prop 3.3 "Application" for D ≥ 2). For a family over B with [ℚ(B) : ℚ(t)] = D ≥ 2, a fixed
+b₀ over t₀ = −4c²d only inherits the hypothesis at those primes 𝔥 of ℚ(b₀) that are the reduction of SOME b over a
+prime p (essentially: degree-1 primes of ℚ(b₀), via Hensel lifting of b₀ mod 𝔥 into the fibre over p), not at all but
+finitely many 𝔥 ("for a suitable b₀" — b₀ depends on 𝔥). Prop 3.3's hypothesis "for all but finitely many 𝔥" is then
+not met, and Cheon–Hahn primitive divisors are not known to be of degree 1. So "m ≤ B(D)" for D ≥ 2 (and the KKM
+"m ≤ 18" line) is not proved by the argument given. Repair options: (i) restrict the proved application to D = 1
+(which is all that the headline "4cd ∈ {4, 8, 12}" uses) and mark D ≥ 2 CONDITIONAL/Assessment; or (ii) strengthen
+Prop 3.3 to "m | ord(Q mod 𝔥) for all degree-1 primes 𝔥 outside a finite set" — this needs a different argument
+(e.g. an ℓ-adic Kummer/Chebotarev density argument for ℓ | m showing that the primes with v_ℓ(ord(Q mod 𝔥)) <
+v_ℓ(m) have positive density among degree-1 primes when Q is non-torsion; true in many cases but not proved here).
+Also state explicitly the hidden hypothesis that E_{b₀} is non-singular and R_{b₀} defined (t₀ not a bad fibre).
