@@ -33,9 +33,36 @@ for (n, t2, t3) in HR:
 def maxtau(X, k=2):
     """max tau_k(n) over 1 <= n <= X (exact: tau_k depends only on the exponent multiset, maximised on HR numbers)."""
     X = math.floor(X)
-    assert X <= LIM
+    if X > LIM: return env_tau(X, k)
     i = bisect.bisect_right(HRN, X) - 1
     return (PM2 if k == 2 else PM3)[i]
+import mpmath as _mp
+_mp.mp.dps = 40
+_LC = {}
+def _logC(k, eta):
+    """log C_k(eta), C_k(eta) = prod_p max_j binom(j+k-1,k-1) p^{-eta j}; primes p >= k^{1/eta} contribute 1
+    (binom(j+k-1,k-1) <= k^j <= p^{eta j}); the j-maximum is found exactly by scanning until the concave sequence drops."""
+    if (k, eta) in _LC: return _LC[(k, eta)]
+    eta_ = _mp.mpf(eta) ; tot = _mp.mpf(0)
+    pmax = int(_mp.ceil(_mp.mpf(k) ** (1 / eta_))) + 1
+    sieve = bytearray([1]) * (pmax + 1)
+    for p in range(2, pmax + 1):
+        if not sieve[p]: continue
+        for q in range(p * p, pmax + 1, p): sieve[q] = 0
+        best = _mp.mpf(0); j = 0; lp = _mp.log(p)
+        while True:
+            j += 1
+            v = _mp.log(math.comb(j + k - 1, k - 1)) - eta_ * j * lp
+            if v > best: best = v
+            elif v < best - 2 and j > 3 * k: break
+        tot += best
+    _LC[(k, eta)] = tot
+    return tot
+def env_tau(X, k):
+    """max tau_k(n), n <= X, bounded by min_eta C_k(eta) X^eta (envelope; used only when X > 2^130)."""
+    lX = _mp.log(X)
+    return min(int(_mp.floor(_mp.exp(_logC(k, eta) + eta * lX) * (1 + _mp.mpf('1e-30')))) for eta in
+               [_mp.mpf(i) / 100 for i in range(6, 51, 2)])
 ODDPRIM = []
 _pr = 1
 for p in PR[1:]:
