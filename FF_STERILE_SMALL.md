@@ -187,3 +187,46 @@ covered measure ≥ 0.95 … (the number of c with covered measure ≥ θ is ≤
 the script) and the route bounds of FF_STERILE_PUSH Lemma 1.6 + Lemmas 1.2–1.4, 4.1 for 22 ≤ s ≤ 80 — total 4.43364;
 tail s > 80 by `fz_tail.c` with Lemma 5.1: ≤ 0.079749 (242 053 boxes, none failed); Case A ≤ 0.17501 (α ≤ 40 exact) + 1.1·10⁻⁵
 (Lemma 2.1). Certified total (×1.01) 4.7353 < q − 1 = 8. ∎
+
+**5.3 q = 3 and Conjecture 0.2: an honest estimate of s₀ (Assessment, from CERTIFIED bound sums).** With all routes
+(Lemmas 1.2–1.4, 4.1), `fz_sum 1 200` gives at q = 3 per-level bound terms 26.1 (s = 10), 68.1 (s = 20), 52.9 (s = 30),
+26.3 (s = 40), 9.15 (s = 50), 2.43 (s = 60), 0.60 (s = 70), 0.15 (s = 80), 0.039 (s = 90), 0.011 (s = 100), 3·10⁻³ (s = 110);
+bound-sum to s = 200: 1466.7. So the bound tail Σ_{s>s₀} drops below 0.5 (the scale of the uncovered measure left by the exact
+union through s = 21, FF_STERILE_PROOF §5) only at **s₀ ≈ 80–85**. Since union bounds fail at q = 3 even with exact counts
+(94/27 > 2), a proof along these lines needs the exact *union* of all cylinders of levels s ≤ s₀ ≈ 85. The true tuple counts are
+≈ 3^{0.2s}–3^{0.4s} per level (FF_STERILE_PROOF §6, Cor. 4.2), i.e. up to ~10¹⁶ tuples at s ≈ 85, and the enumeration cost of
+fz_enum grows like ≈ 2.7^s at q = 9 (≈ 9^{s/2}); at q = 3 it would be ≈ 3^{s/2} ≈ 10²⁰ at s = 85. **Infeasible** (and it would
+give only the conclusion of Conjecture 0.2 — no finite linear covering — not x*_c ∈ O). Conjecture 0.2 needs sharper bounds
+at moderate s (where the routes overcount by factors 10³–10⁴, §5.2) or a structural argument.
+
+## 6. A = T (k = 1), q = 3^r ≥ 9: where the depth hypothesis fails, and that the other slices restore it
+
+Setting: k = 1, slice points x_u (x ≡ 1 off T, x ≡ u mod T^∞), u ∈ F_q[[T]]^*, u₀ := u(0). A linear family is valid at x_u iff
+(FUNCTIONFIELD_ES3 Lemma 1.1, stated for general k) E ≡ −u (mod T^{N+1}), E ≡ −1 (mod L'), plus the Case A / Case B
+divisibility, with N = k + j − 1 = j, j = v_T(L). So the validity set on the slice is the cylinder u ≡ −E (mod T^{N+1}); depth
+N + 1 = 1 means a whole class u₀ = −E(0).
+
+**Proposition 6.1 (depth-1 families; PROVED, elementary).** Let q be odd, k = 1. Every family with j = 0 (cylinder depth 1)
+has u₀ = −E(0) ∈ {−1, −2}. Precisely: Case A with j = 0 forces E constant, E ∈ {1, 2} (the families of FUNCTIONFIELD_ES
+Prop 1.4); Case B with j = 0 forces u₀ = −1, and there are exactly the tuples (m', g', w, C) = (T + 2, 1, 1, 1),
+(1, T + 2, T + 1, 1), (1, T + 2, 1, T + 1) (E = T + 1, T² + 3T + 1, T + 1, all with E(0) = 1).
+*Proof.* Case B (j = 0, so γ = 0, s = 1): writing E = L'w − 1, E' = L'C − 1 (E ≡ E' ≡ −1 mod L'), EE' = 1 + TL'g' gives
+m'wC = T + v, w + C = g'v (FUNCTIONFIELD_ES3 Lemma 2.1(a), pure algebra). If z + a + b ≥ 2 then deg v = z + a + b >
+max(a, b) ≥ deg(w + C) = deg(g'v) ≥ deg v (w + C ≠ 0: monic, q odd): impossible. So z + a + b ≤ 1. (z, a, b) = (1, 0, 0):
+w = C = 1, g'v = 2, g' = 1, v = 2, m' = T + 2, E = T + 1. (0, 1, 0): w = T + v with v constant, w + 1 = g'v, comparing leading
+coefficients v = 1, g' = T + 2, E = (T + 2)(T + 1) − 1 = T² + 3T + 1. (0, 0, 1) symmetric (E = L' − 1 = T + 1). (0, 0, 0):
+m' = 1 = T + v and 2 = g'v force deg v = 1 and deg v = 0: impossible. In all cases E(0) = 1, u₀ = −1.
+Case A (j = 0): a0 = ga1, b0 = gb1, gcd(a1, b1) = 1, E ∣ a1 + b1, E ≡ −1 mod a1b1 (T ∤ a1b1 as j = 0). If E is not
+constant, E + 1 ≠ 0 is divisible by a1b1, so deg E ≥ deg a1 + deg b1, while deg E ≤ deg(a1 + b1) ≤ max(deg a1, deg b1);
+so one of them, say b1, is 1 and deg E = deg a1, E + 1 = a1 (both monic), and E ∣ a1 + 1 = E + 2 gives E ∣ 2: contradiction.
+So E is constant, E = lc(s) ∈ {1, lc(a0 + b0), lc(L/a0 + L/b0)} ⊂ {1, 2}. ∎
+**Corollary 6.2.** For q = 3^r (so {−1, −2} = {2, 1} = F₃^*), on every slice with u₀ ∈ F_q^* ∖ F₃^* every valid family has
+cylinder depth ≥ 2 (N ≥ 1): hypothesis (H1) of FF_STERILE_PUSH §4 is restored on these q − 3 slices. For q = 3 there are no such
+slices (that is the (J)4 covering), for q = 9 there are 6.
+**What changes on these slices (PROVED by the same algebra).** u₀ ≠ 1 gives L'(0)w(0) = 1 − u₀ ≠ 0 and L'(0)C(0) = 1 − u₀^{−1} ≠ 0,
+so T ∤ w, C, v (v ≡ m'wC mod T): the Case B tuples are
+  m'wC = T^s + v,  w + C = g'v,  T ∤ m'g'wCv,  s = N + 1 + γ, 0 ≤ γ ≤ N,                         (B^{k=1})
+with relative cylinder mass q^{−N(s)}, N(s) = ⌈(s − 1)/2⌉, on the slice u₀ = −E(0). Compared with (B) (k ≥ 2, u₀ = 1), the
+T-adic constraints T ∥ w, T ∥ C, T² ∣ v are gone (counts grow by ≈ q^{3}·(1 − 1/q)³ per pattern), the slice weight improves by
+q^{1/2} on average (N(s) = ⌈(s−1)/2⌉ vs ⌈s/2⌉ − 1) and the averaging is over q − 3 slices. Case A changes too (T ∤ K now, since
+E(0) + 1 = 1 − u₀ ≠ 0); its count has to be redone. Status: the reduction is PROVED; the counting certificate for k = 1 is not done.
