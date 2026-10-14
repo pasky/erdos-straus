@@ -66,3 +66,42 @@ With the FIXED mute set S = {3, 5, 7, 11}: every failing pair with p ∉ S has a
 T1 control: odd squares k² (k < 120, gcd(k, M) = 1), Q < 40, M ∈ {4, 8, …, 24}: 0 shots g ≡ −1 (mod M) (as proved).
 Overflow profile: the least overflow Q₁ = Q/gcd(Q, (g+1)/M) over shots with Q ≤ 60 is ≥ 3 at every failing pair
 (necessarily: Q₁ = 1 would be an M/p solution); it equals 3 at 131 and 241 (M = 8).
+
+## 2. The barrier: relaxations are numerator-blind, the finite problem is not
+
+**Corollary 2.1 (numerator-blindness barrier for (E1) and (E2); PROVED given Thm 1.1 and the CERTIFIED census).**
+For M = 8 and p ∈ {131, 241} (likewise M = 12, 16, 20, 24 at the 20, 37, 62, 154 listed primes): M^□(p) and
+M^{(S)}(p), S = {3, 5, 7, 11}, hold, T1 holds for the M-shot family (Thm 1.1(b)), every Brauer–Manin / local
+condition of the M-problem is satisfied (no BM obstruction to 8/p at 131, 241: Bright–Loughran Rem 1.10), and M/p has
+no solution. Consequently, for any family of implications {"∀ prime p ∤ M: R_M(p) ⇒ M/p solvable"}_{M ∈ 4ℕ} with
+R_M ∈ {M^□, M^{(S)}}, the member M = 8 is false. A proof of ES that transports relaxed certificates (E1), or a
+finite-search existence mechanism (E2), must therefore use at least one input that is FALSE for M = 8 at p = 131 or
+241 — an input specific to the numerator 4.
+
+*Which campaign tools are numerator-uniform (hence cannot be that input)?* (Assessment, item by item; each is either
+stated for general numerators in its source or its proof uses 4 only through "4 | M".)
+* Shot identity, overflow ↔ growing-modulus duality ((J)34 Prop 1.3: replace 4 by M), the cap hierarchy, the archimedean
+  wall: uniform.
+* T1 / Diff-parity / Brauer–Manin ((J)13, (J)17, (J)21 Thm 2.1: the place 2 gives 0 for every numerator ≡ 0 mod 4 —
+  the BL local lemma; (J)31 Prop 5.1 for 8): uniform. BM is silent at 131, 241 (BL Rem 1.10).
+* Finiteness of the box ((J)25; (J)31 Prop 1.1 / BL Lemma 3.10 for any numerator): uniform.
+* Sieve / Dirichlet / Chebotarev existence of firing primes ((J)23, (J)28, Thm 1.1): uniform (the (J)23 transfer is an
+  Assessment, see Remark (ii)).
+* Composition, Vieta/Pell moves, class-group pigeonhole on V_n ((J)36–(J)38): the surfaces are those of the shot
+  family; replacing 4 by M changes only the congruence g ≡ −1 (mod M) — uniform in form.
+* Function-field and ℤ[ω] analogues: the same blindness holds there — FF: ES_q^{(s)} is a theorem at every P
+  ((J)30 Thm 3.5) while ES_q fails at some P (e.g. q = 5, A = T, degree ≤ 4; (J)4) and has no finite covering for
+  q = 3^r, r ≥ 27 ((J)26); ℤ[ω]: TES^{□₃} holds at every 2-primary non-cube ((J)28 Thm 3.5) while TES fails at 16
+  primes ((J)31; that these 16 are covered by Thm 3.5 in its normalisation is an Assessment, not re-checked here).
+
+*Numerator-specific inputs known in the campaign (the only admissible "missing lemmas"):*
+(α) **(J)32 Thm 3.1(a): the five slices S₄ = {χ = −1} on positive words — FALSE for 8** (at 131: 29 χ = −1 words,
+    S₈ = ∅); its geometric forms (J)33 (χ = −ε₂(Q_w), certificates ⟺ B_{p,∞}) and (J)35 (2-isogeny edges);
+    (J)9 Thm 4.5 (HJ length 3).
+(β) (J)32 Lemma 2.1: f₄ = f₈ + f₄^{odd}; ES at 131, 241 lives entirely in the one-odd half.
+(γ) The bare numerical fact "no failure ≤ 10⁸" (EVIDENCE; not an input).
+
+*Reading (Assessment).* Every exit must pass through (α) or (β) — through a statement that is true for 4 and false for
+8. (α) is the cleanest: it is **numerator-free** ("some positive word of n has χ = −1", SQ₅/(S)), so it is not itself
+refuted by the 8/n failures, and it implies the five-slice part of ES. The barrier therefore *steers* (E1) to a single
+target: transport into SQ₅. §3 examines that target.
