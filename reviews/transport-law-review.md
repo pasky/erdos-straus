@@ -113,7 +113,7 @@ N = cms − c − s ≤ X, N ≡ 1 (4), no divisor shortcuts; log `logs/review_r
 17 s):
 * primes p ≡ 1 (8) ≤ 10⁷: 165 976; SQ_H fails at **0** (formal and interior). ✔
 * primes p ≡ 1 (4) ≤ 10⁷ (332 180): formal SQ_H fails at 0 (so the memo's "to 10⁶ at primes ≡ 1 (4)" can be raised to
-  10⁷); **interior SQ_H fails at 5 primes**, all ≡ 5 (8) (5, 13, 29, 53, …). The CONJECTURE must therefore say "positive
+  10⁷); **interior SQ_H fails at 5 primes**, all ≡ 5 (8) (5, 13, 29, 53, 7589). The CONJECTURE must therefore say "positive
   (formal) letters" explicitly (D6).
 * class C fails at 10 (formal) / 21 (interior) primes ≡ 1 (8), class M at 147 / 394, the 4 | m slice at 9 primes
   ≤ 10⁶ (409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321) and 14 ≤ 10⁷. ✔ (all as claimed)
@@ -245,7 +245,7 @@ No FATAL. Two MAJOR (one is a ledger correction outside the reviewed document), 
   of narrow → wide" → "the slice condition asks Σ_e(N) to meet the non-trivial element (complex conjugation) of
   ker((ℤ/e)* → (ℤ/e)*/±1)"; and note that the e-slice "N" is (p + e)/4 resp. (pe + 1)/4, not the frieze N.
 * **D6 (MINOR; §6 and memo y5_even_middle).** (i) SQ_H must state "positive (formal) letters": interior SQ_H fails at 5
-  primes ≡ 5 (8) (5, 13, 29, 53, …). (ii) The "22 composite exceptions" are formal-word exceptions (interior: 114).
+  primes ≡ 5 (8) (5, 13, 29, 53, 7589). (ii) The "22 composite exceptions" are formal-word exceptions (interior: 114).
   (iii) Memo "Each … has a small factor (3, 5, 7, 13, …)" and report spark 3 "all have a small odd factor" are false:
   199 369 = 193·1033. (iv) Worth recording: all 22 are ≡ 1 (mod 8) (formal SQ_H never fails at N ≡ 5 (8) ≤ 10⁶).
   (v) The formal SQ_H range at p ≡ 1 (4) can be raised to 10⁷ (R211: 0 failures among 332 180 primes).
