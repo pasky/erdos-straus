@@ -3,7 +3,7 @@
 **SHARP:**
 1. **Theorem 3.1 (PROVED, computer-assisted, same inputs as (J)26 Thm 2.5): for q = 3^r with r ≥ 4 (q ≥ 81) and every k ≥ 2,
    O(q, T^k) ≠ ∅ — ES_q(T^k) has no finite linear covering.** Previously r ≥ 27 ((J)26); R187 E5 guessed r ≥ 10. For r ≥ 5 the
-   statement holds in every c-slice with uncovered relative measure ≥ 0.74 (r = 5), ≥ 0.99 (r ≥ 7).
+   statement holds in every c-slice, with uncovered relative measure ≥ 0.74 (r = 5), ≥ 0.62 (r = 6), ≥ 0.98 (r ≥ 7).
 2. **Function-field divisors in residue classes with absolute bounds** (Lemmas 1.4, 1.5, elementary): if 3 deg Q > deg F,
    F has ≤ 2 divisors of a given degree in a unit class mod Q (Lenstra over ℤ gives 11); and a Coppersmith–Howgrave-Graham
    bound with threshold deg Q > d(n − d)/n (≤ n/4), proved by pigeonhole (no LLL loss over F_q[T]). These replace the divisor
