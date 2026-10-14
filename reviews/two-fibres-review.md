@@ -48,3 +48,23 @@ det[[−1, 0], [t, −1]] = 1, so its Smith form is (1, 1, n)) ✓.
 **Numerics** (`review_r214_lift.c B`): every word of every odd square m² ≤ 141² = 19 881 (2 844 words): Diff = {2}
 (T1) and an explicit (a, b, c) ∈ (ℤ³)³ with Gram G_w found — **0 failures**.
 
+### Cor A1 — SOUND
+χ(w) = −1 ⟺ ¬(iii) ⟺ ¬(iv) by Thm A at n = p, and (iii) is literally "T_w is represented by I₃"; combined with the
+campaign's ES-five(p) ⟺ N₋(p) ≥ 1 (CONSTRUCTIVE/SIGN_IDENTITY, not restated in TWO_FIBRES — MINOR D4). Nothing beyond Thm A.
+
+### Prop A2 / H4 (χ = +1 genus = conic/S₄ image) — SOUND; CERTIFIED claim TRUE as stated but incomplete (D5)
+Re-derived: L(p) ⊗ ℚ has det p⁴ (square) and C₀ ≅ B_{2,∞}, so L(p) ↪ ℤ³ (as for Thm B) with index p². Totally
+isotropic image mod p has dim ≤ 1; [ℤ³ : M + pℤ³] = p^{3−d} ≤ [ℤ³ : M] = p² forces d = 1 **and M ⊇ pℤ³** (the text
+says "the index forces M = pℤ³ + ℤℓ̃" — correct, this is the one-line reason). Converse (integrality via ℓ·ℓ ≡ 0, det
+p⁴/p³ = p, isotropy at p from C₀) ✓. #C(𝔽_p) = p + 1 and −1 ∈ O(ℤ³) acts trivially on ℙ², so the effective group is S₄ ✓.
+
+**From-scratch certification** (`scripts/review_r214_conic.py`: orbits of signed permutations on C(𝔽_p); canonical
+isometry form = lexicographically minimal Gram over all bases realising the successive minima; the genus 𝔊⁺_p enumerated
+*independently* from all forms with a ≤ b ≤ c, abc ≤ 2p, 2|f| ≤ a, 2|e| ≤ a, 2|d| ≤ b, det p, filtered by isotropy at p
+via counting zeros mod p): for **all** primes 5 ≤ p ≤ 127, image of the L_ℓ = 𝔊⁺_p (onto ✓). #orbits vs #classes:
+equal for every p ≤ 67 and for 73, 83, 89, 97, 101, 103; **strictly fewer classes at p = 71 (3 → 2), 79 (4 → 3),
+107 (5 → 4), 109 (6 → 5), 113 (6 → 5), 127 (6 → 5)**. The author's list (13, 17, 29, …, 101, 109) contains only
+p ≡ 1 (4) and misses the first non-injective cases 71, 79; the statement "onto, not always injective" is right, the
+implied "p = 109 is the exception" is not. In every collapse two size-24 orbits merge (consistent with the second unimodular
+overlattice of pℤ³ + ℤℓ̃, i.e. the Atkin–Lehner w_p swap of the edge's two ends) — Assessment, not checked further.
+
