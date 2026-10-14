@@ -40,7 +40,7 @@ unclean levels is still ≍ (#levels); no main-term certificate.
   ∏_ℓ (ℓ/p)^{v_ℓ(tp+1)} = ((tp + 1)/p) = +1**: predicted vs observed clean fraction (600 primes, t ≤ 30):
   (1,3) 0.314/0.317, (1,5) 0.456/0.446, (1,7) 0.508/0.514, (1,11) 0.576/0.563, (1,13) 0.602/0.585,
   (1,≥17) 0.638/0.602, (5,2) 0.196/0.194. Without the constraint the model under-predicts by a factor ≈ 1.6; with
-  unconditioned coins from lnr upward it is off in the other direction. Consequence (PROVED): if tp + 1 = s·ℓ^e·(square)
+  unconditioned coins from lnr upward it is off in the other direction. Consequence (PROVED): if tp + 1 = s·ℓ^e (e odd)
   with s (lnr−1)-smooth and ℓ prime, level t is clean ("rank-one sterility").
 * Removing words with A or A* (lnr−1)-smooth (forced +, 0 exceptions) flattens the ratio: N₋/(N − S) ≈ 0.66 for
   every lnr bucket 3…13 (p ≡ 1 mod 8) — but NOT at the extreme primes (2521: N − S = 27, N₋ = 4): there the whole
