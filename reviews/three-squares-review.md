@@ -17,6 +17,7 @@ All numerics re-done with from-scratch code `scripts/review_r224_*.py` (author s
 | CONJECTURE 3SQ (0 exceptions ≤ 10⁶; 105 not an exception; elementary words; residual class) | **SOUND** (label CONJECTURE correct; all numerics reproduced) |
 | §4.1 (α₂, α_p vanish together on χ = −1; r/48 values; r vs r*; withdrawn weighting) | **SOUND** (MINOR D9: stale "built the exact weighting" text; Prop 4.3 is an Assessment, not PROVED) |
 | §4.2 conic height bound, boundary genus | **SOUND**; the "observed h = min letter" is in fact **PROVED** (D10, upgrade) |
+| §3 numerics "≈ 85 % lnr-level success, stable 10⁶–10¹¹"; translates "k ≤ 26 in 500/500" | **SOUND as EVIDENCE** (reproduced; it slowly *increases*, 0.84 → 0.86 → 0.91 up to 10¹⁵; MINOR D11 on the translate claim and sample sizes) |
 | (further rows added below as checked) | |
 
 ## Claim-by-claim
@@ -151,6 +152,21 @@ Boundary genus: u = 1 reduction ⟨1⟩ ⊥ [[v, −1], [−1, t − 1]], (t −
 checked that z^⊥ (z primitive, |z|² = p) represents only residues mod p, all p ≡ 1 (4) ≤ 300, 0 failures (consistent with
 the Gauss statement; not a full proof check of art. 291–292 — sources not accessed).
 
+### §3 numerics (lnr level) — SOUND as EVIDENCE
+How 10¹¹ was sampled (read `scripts/y8_lnr_level.py`): uniform random odd integers in (10¹⁰, 10¹¹), kept if prime
+≡ 1 (4); 3 000 such primes, of which only ≈ 100 per bucket q = 11 / q ≥ 13 (SE ≈ 0.03). Legitimate but thin.
+From scratch (`scripts/review_r224_lnr_level.py`): sample directly in the six classes mod 840 (⟺ lnr ≥ 11, verified
+above), 800 primes per range (seed 224; sampling with replacement — 2 duplicates in the lowest range, negligible):
+| range | q = 11 | q ≥ 13 | t₀ ∣ q + 1 (d = 1 works) | no success for k ≤ 60 |
+|---|---|---|---|---|
+| (10⁵, 10⁶) | 0.832 ± 0.018 | 0.841 ± 0.019 | 0.449 | 17/800 |
+| (10¹⁰, 10¹¹) | 0.860 ± 0.017 | 0.867 ± 0.017 | 0.461 | 1/800 |
+| (10¹⁴, 10¹⁵) | 0.897 ± 0.015 | 0.922 ± 0.014 | 0.486 | 0/800 |
+Author's 0.845/0.811 and 0.872/0.909 agree within their SE. "Not decaying" is right; the rate actually rises slowly
+(more divisors of t₀p + 1). Translates: at (10⁵, 10⁶), 17/800 primes (e.g. 132 721, 154 849, 229 849, 316 801) have
+NO successful translate t₀ + kq for k ≤ 60 (they still have N₋ ≥ 22 from other levels); at 10¹⁰–10¹¹ one of 800 needs
+k > 60. The author's "k ≤ 26 in 500/500, never > 40" is a sample property, not a stable bound.
+
 ## Defects
 D1 (MINOR) — Lemma 1.2(b) and Summary item 2: "Every prime r < lnr(p) is clean" mixes the level notion with primes.
 Repair: "(b) every prime r < lnr(p) has (r/p) = +1, so a level t with tp + 1 (lnr − 1)-smooth is clean."
@@ -210,3 +226,8 @@ script comment, label Prop 4.3 "Assessment (the lattice-point description itself
 D10 (MINOR, upgrade) — §4.2 / memo y8_conic_height / report: "observed h = min letter" can be stated as PROVED (proof
 above: h = min Q_w = min(t, u, v)); in particular h is independent of the compatible pair, and the B6 remark "the
 height reading" becomes exact. Repair: replace "observed" by the lemma; keep the p = 1009/61 numerics as a check.
+
+D11 (MINOR) — §3 numerics / memo y8_lnr_level: (a) state that the 10¹⁰–10¹¹ figures rest on ≈ 100 primes per bucket
+(SE ≈ 0.03); (b) "stable" → "not decaying (slowly rising: ≈ 0.91 at 10¹⁴–10¹⁵, R224)"; (c) the translate statistic
+"first success k ≤ 26 in 500/500; never > 40" must not be read as a bound: R224 finds primes with no success for k ≤ 60
+(2 % at 10⁵–10⁶, 1/800 at 10¹⁰–10¹¹). The B3/B4 reading in the memo ("union over k is the polylog lottery") is the right one.
