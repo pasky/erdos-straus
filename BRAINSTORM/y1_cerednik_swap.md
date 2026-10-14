@@ -5,8 +5,9 @@ O205: χ = −1 words live at singular points of X₀(2p)_{𝔽_p} (Eichler leve
 of X₀(2p)_{𝔽₂} (Eichler level p in B_{2,∞}). Is there an interchange/level-raising/JL transfer that *forces* a word into
 the char-p fibre unless n is a square?
 
-**Dictionary C1 (Assessment; standard Cerednik–Drinfeld + Ribet).** Let X^{2p} be the Shimura curve of the indefinite
-algebra of discriminant 2p (maximal order). Cerednik–Drinfeld: X^{2p} ⊗ ℚ_ℓ is a Mumford curve for ℓ ∈ {2, p}, with dual
+**Dictionary C1 (Assessment; standard Cerednik–Drinfeld + Ribet; R209: subgroup, orientation and whether "edges" mean ideal
+classes, order types or marked embeddings are not pinned down here — these matter for the A₄/S₄ and non-injectivity issues).** Let X^{2p} be the Shimura curve of the indefinite
+algebra of discriminant 2p (maximal order). Cerednik–Drinfeld: X^{2p} ⊗ ℚ_ℓ becomes a Mumford curve after an unramified quadratic extension (with descent twist) for ℓ ∈ {2, p}, with dual
 graph of the special fibre Γ_ℓ\𝒯_ℓ, where Γ₂ ⊂ (B_{p,∞} ⊗ ℤ[1/2])^× acts on the 3-regular tree 𝒯₂ and Γ_p ⊂
 (B_{2,∞} ⊗ ℤ[1/p])^× = (Hurwitz order)[1/p]^× acts on the (p + 1)-regular tree 𝒯_p (invariants at ℓ and ∞ swapped).
 Edges of Γ₂\𝒯₂ = Eichler orders of level 2 in B_{p,∞} = singular points of X₀(2p)_{𝔽_p}; edges of Γ_p\𝒯_p = Eichler orders

@@ -26,7 +26,6 @@ for q in map(int, sys.argv[1:]):
     for (t, u, v) in words(q * q):
         a, b, c = embed(t, u, v)
         f = cross(a, b)  # f.a = f.b = 0; need f.c = 0 mod q as well
-        assert dot(f, c) % q == 0 or True
         # functional killing M = <a,b,c>: solve f with f.a=f.b=f.c=0 mod q: f = cross(a,b) mod q works iff det = +-q
         g = [x % q for x in f]
         if dot(g, c) % q:

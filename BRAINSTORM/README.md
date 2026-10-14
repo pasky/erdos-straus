@@ -231,9 +231,9 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 ## Spark relay Y1 on O205's two bad fibres / hyperbolic words (O209; memos y1_*, deep file TWO_FIBRES.md; not yet triaged)
 | file | angle | verdict (own) | label of main items |
 |---|---|---|---|
-| y1_hurwitz_lift | χ = +1 fibre = Hurwitz order: n·G_w ↪ ℤ³ ⟺ Diff = {2}; square-det path lattices ⊂ ℤ³; 𝔊⁺_p = conic/S₄ | exact dictionary; ES-five = non-embeddability; B2 | H1–H4 PROVED (classical inputs); CERTIFIED n ≤ 3001 / 451 — SHARP |
-| y1_gamma8_trace | words as hyperbolic classes; twisted trace formulas | χ is a Γ(8)-class function, not an SL₂(ℤ) one; ES = length-3 extraction (B3) | G1–G3 PROVED |
-| y1_gl3_cuspidal | GL(m) cuspidal + GL(k) Eisenstein identities vs T1 | dead, incl. self-dual orthogonal (Sym²/Ad) class, under a one-prime genericity hypothesis | Props G, G′ PROVED rel. Jacquet–Shalika + BV — SHARP (steering) |
+| y1_hurwitz_lift | χ = +1 fibre = Hurwitz order: n·G_w ↪ ℤ³ ⟺ Diff = {2}; square-det path lattices ⊂ ℤ³; 𝔊⁺_p = image of conic/S₄ | exact dictionary; ES-five = non-embeddability; B2 | H1–H4 PROVED (classical inputs); CERTIFIED n ≤ 3001 / 451 — SHARP |
+| y1_gamma8_trace | words as hyperbolic classes; twisted trace formulas | χ is a function of M mod 8, not an SL₂(ℤ)-class function; ES = three-letter extraction (B3) | G1–G3 PROVED |
+| y1_gl3_cuspidal | GL(m) cuspidal + GL(k) Eisenstein identities vs T1 | dead (twisted d_k + unitary GL(m) cusp coefficients), incl. self-dual orthogonal (Sym²/Ad) class, under a common one-prime genericity hypothesis | Props G, G′ PROVED rel. Jacquet–Shalika + BV — SHARP (steering) |
 | y1_cerednik_swap | Cerednik–Drinfeld / Ribet: two fibres = two trees of X^{2p} | dictionary; forcing hope screened (B2/B6); fibre split not mass-equidistributed | Assessment; EVIDENCE (census ratios) |
-| y1_heegner_level_t | words = x = 4 GKZ terms of two root-2 Heegner points on X₀(t), index 4n | level-t condition = Heegner condition; B2 | K1 PROVED; collisions trivial without level (t ≤ 11, p < 2·10⁵) |
-| y1_reciprocal_parity | reciprocal geodesics / involutions → parity | only fixed point = (p+2,1,1); N₋ mod 8 equidistributed | R1, R3 PROVED; R2 EVIDENCE (10⁶) |
+| y1_heegner_level_t | words = x = 4 GKZ terms of two root-2 Heegner points on X₀(t), index 4n | level-t condition = Heegner condition; B2 | K1 PROVED (congruence/index only; Heegner reading Assessment, imprimitive caveat); collisions trivial without level (t ≤ 11, p < 2·10⁵) |
+| y1_reciprocal_parity | word reversal (involution) → parity | only fixed word (p ≥ 5) = (p+2,1,1), parabolic; N₋ mod 8 equidistributed | R1, R3 PROVED; R2 EVIDENCE (10⁶) |

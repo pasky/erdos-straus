@@ -10,18 +10,19 @@ G_w = [[v, −1, 0], [−1, t, −1], [0, −1, u]] (det n), L_w its lattice, T_
 * **Theorem A (PROVED; classical inputs).** The χ = +1 fibre is the cubic lattice: for every odd n and word w,
   Diff(T_w) = {2} ⟺ n·G_w is the Gram matrix of three vectors of ℤ³ ⟺ ∃ x, y ∈ ℤ³, |x|² = A*, |y|² = A, x·y = 1.
   For p prime the χ = +1 lattices of det p are exactly L_ℓ = {x ≡ λℓ (mod p)} (Q = |x|²/p), ℓ on the conic
-  x² + y² + z² ≡ 0 (mod p); 𝔊⁺_p is the image of P¹(𝔽_p)/S₄ — the Hurwitz/Cerednik–Drinfeld side made explicit.
+  x² + y² + z² ≡ 0 (mod p); 𝔊⁺_p is the image of P¹(𝔽_p)/S₄ (onto, not always injective) — the Hurwitz/Cerednik–Drinfeld side made explicit.
   **ES-five(p) ⟺ some p·G_w (w ∈ X_p) is not a Gram matrix of integer vectors** (non-embeddability).
 * **Theorem B (T1, integral form; PROVED).** Every path lattice of odd square determinant m² is an index-m sublattice of
   ℤ³; for m = q prime it is ker(f mod q) for a functional f **off** the conic f·f ≡ 0 (forced by cyclicity of the
   discriminant group).
 * **Proposition G′ (PROVED relative to Jacquet–Shalika + Bombieri–Vinogradov; memo y1_gl3_cuspidal).** No finite
-  combination of GL(k)-Eisenstein and GL(m)-cuspidal coefficients (any m, characters) equals N₋, under a genericity
-  hypothesis at one prime — **including the self-dual orthogonal (Sym²/Ad) class** O205 left open: orthogonality only lets
+  combination of exponent-zero twisted divisor convolutions d_k(n; ψ…) and coefficients λ_π(n)ψ(n) of unitary cuspidal π
+  on GL(m) equals N₋, under a common genericity hypothesis at one odd prime ℓ₀ ≡ 1 (L) — **including the self-dual orthogonal (Sym²/Ad) class** O205 left open: orthogonality only lets
   the cusp side absorb a constant at squares, and the constant is killed by the growth of N₋ on primes.
-* **Hyperbolic reading (memo y1_gamma8_trace, PROVED):** χ is a Γ(8)-class function of M_w and not an SL₂(ℤ)-class
-  function; the ES content of a trace-formula count is the extraction of three-letter Zagier cycles, a T^{−1+o(1)} fraction (B3).
-* **Constructions that failed (§3):** three-squares certificates are the 2-adic cells (nothing new); a sign-dominance
+* **Hyperbolic reading (memo y1_gamma8_trace; G1, G2 PROVED):** χ is a function of M_w mod 8 (Γ(8)-conjugation invariant)
+  and not an SL₂(ℤ)-class function; the ES content of a trace-formula count is the extraction of three-letter presentations,
+  at most a T^{−2/3+ε} fraction (B3; R209 repair of an unproved T^{−1+o(1)}).
+* **Constructions that failed (§3):** three-squares certificates give only a sufficient local condition (nothing beyond Hasse at p); a sign-dominance
   injection N₊(p) ≤ N₋(p) is **false** (2 402 primes p ≡ 1 (4) below 10⁶ violate it, the worst all near squares); parity
   gives only (p + 2, 1, 1); Cerednik–Drinfeld/Ribet/JL transfers act on edge sets, not on path data (B2).
 * Assessment: one new exact dictionary with a usable asymmetry (class number one on the χ = +1 side) and one steering
@@ -51,7 +52,7 @@ y1_heegner_level_t); involutions: y1_reciprocal_parity.
 *Proof.* (i)⟺(ii) is CHI_FLIP Thm 1.1 with SIGN_IDENTITY Prop 4.1(b). (ii)⇒(iii): C₀(L_w) = ℤ⟨1, α, β, αβ/t⟩
 (CONSTRUCTIVE) is an order of B_{2,∞}, contained in a maximal order; B_{2,∞} has one conjugacy class of maximal orders,
 the Hurwitz order H, whose trace-zero part is ℤi + ℤj + ℤk = ℤ³ with nrd = |·|² (the half-integral Hurwitz elements have
-real part ±½). So i = 1 + α, j = 1 + β (trace zero, nrd A*, A, ij + ji = −2) become x, y ∈ ℤ³ with x·y = 1. With
+half-integral real part). So i = 1 + α, j = 1 + β (trace zero, nrd A*, A, ij + ji = −2) become x, y ∈ ℤ³ with x·y = 1. With
 z = x × y, ij = −x·y + x × y = −1 + z, so (1 − i)(1 − j) = z − x − y = αβ = tγ (γ = e₁e₃ ∈ C₀) lies in tH and has real part
 0, hence lies in tℤ³. (iii)⇒(ii): x, y do not commute (det T_w = tn ≠ 0), so ℚ⟨x, y⟩ = H ⊗ ℚ = B_{2,∞}; its structure
 constants depend only on T_w, so it is ≅ C₀(L_w) ⊗ ℚ. (iii, with congruence) ⇒ (iv): γ := (z − x − y)/t ∈ ℤ³ satisfies
@@ -75,7 +76,7 @@ L(p) ⊗ ℚ ≅ I₃ ⊗ ℚ; L(p) lies in a maximal classical lattice on this 
 L(p) ↪ ℤ³ with index p² (determinants p⁴ vs 1). The image M has all inner products ≡ 0 (p), so M mod p is totally
 isotropic in 𝔽_p³, of dimension ≤ 1, and [ℤ³ : M] = p² forces M = pℤ³ + ℤℓ̃ with ℓ̃·ℓ̃ ≡ 0 (p). Conversely each L_ℓ is
 integral, positive, of det p⁴/p³ = p, and L_ℓ ⊗ ℚ ≅ I₃(1/p) ⊗ ℚ has C₀ ≅ B_{2,∞}, so it is isotropic at p. ∎
-So 𝔊⁺_p = image of C(𝔽_p)/O(ℤ³) ≅ P¹(𝔽_p)/S₄, ≈ (p + 1)/24 classes. CERTIFIED (`scripts/y1_conic_orbits.py`, against
+So 𝔊⁺_p = image of C(𝔽_p)/O(ℤ³) ≅ P¹(𝔽_p)/S₄, hence at most #orbits ≈ (p + 1)/24 classes. CERTIFIED (`scripts/y1_conic_orbits.py`, against
 `scripts/ce_classes.py`): equal counts for p = 13, 17, 29, 37, 41, 61, 73, 97, 101; p = 109: 6 orbits, 5 classes (onto, not
 always injective — two orbits can give isometric lattices since ℤ³ need not be the unique unimodular overlattice).
 *Reading.* This is Deligne–Rapoport + Cerednik–Drinfeld made concrete: the singular points of X₀(2p)_{𝔽₂} are
@@ -99,20 +100,22 @@ CHECKED: all 736 words of odd squares ≤ 2601 lift in the sense of (iii) and al
 f off the conic for every word of q² with q ∈ {3, 5, 7, 11, 13, 17, 19} (`scripts/y1_square_sublattice.py`, 155 words).
 *Reading.* T1 is the statement that **at square determinant the path lattices live inside the cubic lattice itself**,
 not only after scaling: a positive, geometric form of "every ε_ℓ = +1". Any proof of ES-five(p) must use a property of
-p·G_w ⊂ ℤ³ that fails for G_w ⊂ ℤ³ at squares; by Theorem A the only such property is the Hasse invariant at p — local,
-so B5-safe but bound by B2.
+p·G_w ⊂ ℤ³ that fails for G_w ⊂ ℤ³ at squares; Theorem A identifies p·G_w-embeddability with the Hasse invariant at p
+(local, so B5-safe but bound by B2); we do not claim every use of the integral model reduces to it.
 
 ## 3. Constructions on the asymmetric model (attempts)
 
-**3.1 Certificates from the three-squares theorem (PROVED; nothing new).** If A or A* is of the form 4^a(8b + 7), then
-T_w is not represented by I₃, so Diff(T_w) ≠ {2}; for n = p this gives χ(w) = −1. These words are exactly cells mod 8 of
-CHI_FLIP Cor 1.2 (A ≡ 7 (8) ⟺ tu ≡ 0 (8)); e.g. (8, 1, v), n = 7v − 1: χ = (−7/n) = (n/7) = −1. Gauss's genus
-conditions at odd ℓ | t are automatically satisfied (T_w ≡ −(x − y)² mod t), and at ℓ | n they *are* χ. So the
-χ = +1 side's integral structure yields no certificate beyond the 2-adic sign law: steering consequence — **the
-class-number-one asymmetry is invisible at the level of single words.**
+**3.1 Certificates from the three-squares theorem (PROVED sufficient condition; nothing new).** If A or A* is of the form
+4^a(8b + 7), then T_w is not represented by I₃, so Diff(T_w) ≠ {2}; for n = p this gives χ(w) = −1; e.g. (8, 1, v),
+n = 7v − 1: χ = (−7/n) = (n/7) = −1. (R209 repair: this is **not** a characterisation and not a cell condition: (29, 1, 3),
+p = 83, has A = 28 obstructed, while (5, 1, 3), p = 11, in the same cell mod 8, has A = 4, A* = 14 representable; and
+(1, 4, 7), p = 17, has χ = −1 with A = 3, A* = 6 both sums of three squares — the obstruction is to the *binary* T_w.) Gauss's genus
+conditions at odd ℓ | t are automatically satisfied (T_w ≡ −(x − y)² mod t), and at ℓ | n they *are* χ. So for a single word the
+χ = +1 side's integral structure certifies nothing beyond the local sign (Theorem A: embeddability ⟺ Hasse invariant):
+steering consequence — **the class-number-one asymmetry is invisible at the level of single words.**
 
 **3.2 Sign dominance (REFUTED, EVIDENCE).** An injection χ = +1 → χ = −1 inside X_p would prove ES-five(p) for p ≡ 1 (4)
-(the reciprocal word (p + 2, 1, 1) has χ = +1; y1_reciprocal_parity R1). The numbers forbid it: among the 39 174 primes
+(the reversal-fixed word (p + 2, 1, 1) has χ = +1; y1_reciprocal_parity R1). The numbers forbid it: among the 39 174 primes
 p ≡ 1 (4), 5 < p < 10⁶, **N₋(p) < N₊(p) for 2 402** (census `si_census.c`). The extreme cases are primes just above a
 square: p = 2521 (= 50² + 21; N₋ = 4, N₊ = 33), 9601 (98² − 3), 1249, 3361, 70 249 (265² + 24), 297 049 (545² + 24),
 871 249 (N₋ = 46, N₊ = 185). This matches (J)27 (primes near squares behave like squares): words with letters small
@@ -120,7 +123,7 @@ compared with √p see n mod small moduli, where p looks like m². So no fibre-s
 
 **3.3 Counting on both sides is genus-level (Assessment).** On the χ = +1 side the representation numbers r(T_w, I₃) are
 given exactly by Siegel's formula (one class), and on the χ = −1 side Σ_O r(T_w, O⁰)/|O^×| over maximal orders of B_{p,∞}
-is given by Siegel–Weil for the Gross-lattice genus. Both evaluate a *fixed* T_w; neither says which T in the level-t family
+is given by Siegel–Weil for the Gross-lattice genus. Both evaluate a *fixed* T_w (and note N₊(p) = #{w : r(T_w, I₃) > 0}, not Σ_w r(T_w, I₃)/48 — e.g. p = 5: 5 vs 6); neither says which T in the level-t family
 F_t(p) = {t·diag(v, u) − R} lies in which genus — the divisor-in-class event (B2). The family sum is a family extraction
 from the genus-2 theta series of I₃ (Thm 2.2 of O205 forbids a modular generating function in n).
 
@@ -133,15 +136,15 @@ p ≡ 1, 3, 5, 7 (8): the split is governed by 2-adic cells, not by fibre masses
 * B3/B6: trace formulas see the words only as a T^{−1+o(1)} fraction (y1_gamma8_trace); JL/Ribet/level raising act on
   edge sets uniformly in families (y1_cerednik_swap).
 * B5/T1: Theorem B is T1, now as an embedding into ℤ³; Theorem A at primes uses only the Hasse invariant at p.
-* Thm 2.2 / Prop 2.3 (O205) extended: Prop G′ excludes all GL(k)-Eisenstein + GL(m)-cuspidal identities (one-prime
-  genericity), so an exact identity for N₋, if any, is not a finite automorphic combination at all.
+* Thm 2.2 / Prop 2.3 (O205) extended: Prop G′ excludes finite combinations of twisted d_k's and unitary GL(m) cusp
+  coefficients (common one-prime genericity); an exact identity for N₋, if any, must lie outside that class.
 
 ## 5. Numerics (all tiny outputs)
 | check | script | range | result |
 |---|---|---|---|
 | (iii) ⟺ Diff = {2} | y1_three_squares.c | all odd n ≤ 3001 (81 857 words) | 0 mismatches |
-| (iii) ⟺ χ = +1, primes | y1_three_squares.c `p` | primes ≤ 3001 (27 413 words); 3001 < p ≤ 40 000 see report | 0 mismatches |
-| T1: all words lift | y1_three_squares.c `sq` | odd squares ≤ 2601 (736 words); ≤ 10⁵ see report | all lift |
+| (iii) ⟺ χ = +1, primes | y1_three_squares.c `p` | primes ≤ 3001 (27 413 words); 3001 < p ≤ 40 000: see report | 0 mismatches |
+| T1: all words lift | y1_three_squares.c `sq` | odd squares ≤ 10⁵ (8 073 words) | all lift |
 | (iv), Thm B | y1_z3_gram.py | n ≤ 451 (7 934 words) | 0 failures |
 | f off conic | y1_square_sublattice.py | q ≤ 19 | all off conic |
 | 𝔊⁺_p = conic/S₄ | y1_conic_orbits.py | 10 primes ≤ 109 | 9 equal, 1 onto (6 → 5) |

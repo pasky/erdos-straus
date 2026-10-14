@@ -30,9 +30,10 @@ a·b = b·c = −p, a·c = 0. Equivalently: some binary path form [[tv − 1, 1]
 x² + y² + z²** (Gauss's three-squares genus of determinant tp).
 **Proposition H4 (the χ = +1 genus is the conic; PROVED, with a CERTIFIED count).** For p prime, the χ = +1 lattices
 (det p, isotropic at p) are exactly L_ℓ = {x ∈ ℤ³ : x ≡ λℓ (mod p)} with Q = |x|²/p, for ℓ on the conic
-C: x² + y² + z² ≡ 0 over 𝔽_p. *Proof.* By H1(iv) L(p) is an index-p² sublattice M ⊂ ℤ³ with all inner products ≡ 0 (p);
+C: x² + y² + z² ≡ 0 over 𝔽_p. *Proof.* (R209 repair: H1 covers path lattices only; for general L use TWO_FIBRES Prop A2: C₀(L) ≅ B_{2,∞}, so L(p) lies
+in a maximal classical lattice ≅ I₃.) So L(p) is an index-p² sublattice M ⊂ ℤ³ with all inner products ≡ 0 (p);
 M mod p is totally isotropic in 𝔽_p³, so of dimension ≤ 1, and the index forces M = pℤ³ + ℤℓ̃. ∎ So 𝔊⁺_p is the image
-of C(𝔽_p)/O(ℤ³) ≅ P¹(𝔽_p)/S₄ (≈ (p + 1)/24 classes) — the octahedral quotient that Deligne–Rapoport/Cerednik–Drinfeld
+of C(𝔽_p)/O(ℤ³) ≅ P¹(𝔽_p)/S₄ (at most ≈ (p + 1)/24 classes; the map is onto, not always injective) — the octahedral quotient that Deligne–Rapoport/Cerednik–Drinfeld
 predict for the singular points of X₀(2p)_{𝔽₂} (X₀(p)^{ss}_{𝔽̄₂} = P¹(𝔽_p)/Aut(E_{j=0}), extended by w₂).
 CERTIFIED (`scripts/y1_conic_orbits.py`): #orbits = #𝔊⁺_p (ce_classes) for p = 13, 17, 29, 37, 41, 61, 73, 97, 101;
 at p = 109, 6 orbits vs 5 classes (two orbits give isometric lattices: the map is onto, not always injective).
@@ -42,18 +43,20 @@ Gauss, *Disquisitiones* art. 278–292 (binary forms represented by x² + y² + 
 Hurwitz order, class number 1 of B_{2,∞} (Vignéras, *Arithmétique des algèbres de quaternions*, LNM 800);
 O'Meara, *Introduction to Quadratic Forms*, §91 (maximal lattices form one genus), §102 (representations, one-class genus);
 Siegel's mass formula for I₃; Deligne–Rapoport for the bad fibres of X₀(2p). Novelty (Assessment): the χ = +1 ⟺ Hurwitz
-embedding is implicit in CONSTRUCTIVE Thm 1.2/CHI_FLIP Cor 1.3; the explicit ℤ³ forms H1(iii)/(iv), H2 and H4 are new
-to the campaign (no prior hit for "three squares"/"x·y = 1" in the repo).
+embedding is implicit in CONSTRUCTIVE Thm 1.2/CHI_FLIP Cor 1.3; the explicit word-level ℤ³ forms H1(iii)/(iv), H2 and H4
+appear new to the campaign ("three squares" occurs elsewhere in the repo, but not in this role). No external novelty claim.
 
 ## Barrier screen
 * **B2:** H3 is "the level-t family F_t(p) leaves Gauss's three-squares genus for some t" — a genus statement on a
   divisor-in-class family; the selection of the genus (sign) is easy, existence of a family member in it is the lottery.
 * **T1:** H2 *is* T1, now as a positive geometric statement (square-det path lattices sit in ℤ³). Any proof of ES must
   use a property of p·G_w ⊂ ℤ³ that fails for G_w ⊂ ℤ³ at squares — local (Hasse at p), hence B5-safe but B2-bound.
-* **B3/B6:** N₊(p) = (1/48)·#{(x, y) ∈ ℤ³ × ℤ³ : x·y = 1, |x × y|² = tp, x × y ≡ x + y (t)} (up to stabiliser
-  weights) is a lattice-point count on a split quadric in ℤ⁶ with moving congruence; its average is the main term only.
-* **Thm 2.2 (O205):** N₊ = Σ_{w∈X_p} r(T_w, I₃)/48 is a family-sum of Fourier coefficients of the genus-2 theta series of
-  I₃ (= Siegel Eisenstein series, one class) — a family extraction, not a modular generating function.
+* **B3/B6:** the lifted words are integral points (x, y) ∈ ℤ³ × ℤ³ with x·y = 1, |x × y|² = tp, x × y ≡ x + y (t) — a
+  lattice-point count on a split quadric in ℤ⁶ with moving congruence; its average is the main term only. (R209 repair:
+  N₊(p) is **not** Σ_w r(T_w, I₃)/48 — representation multiplicities are not word counts: p = 5 gives 6 vs N₊(5) = 5,
+  r(T_{(7,1,1)}, I₃) = 96; only N₊(p) = #{w : r(T_w, I₃) > 0} holds.)
+* **Thm 2.2 (O205):** the weighted sum Σ_{w∈X_p} r(T_w, I₃) is a family-sum of Fourier coefficients of the genus-2 theta
+  series of I₃ (one class, so = its Siegel Eisenstein series) — a family extraction, not a modular generating function.
 
 ## Cheap numerics
 * `scripts/y1_three_squares.c`: (iii) ⟺ Diff = {2} on all 81 857 words of odd n ≤ 3001 (0 mismatches); χ = −1 never

@@ -4,13 +4,16 @@
 O205 spark: certificates are the x = 4 terms of the Gross–Zagier factorisation of J(−4A, −4A*) with AA* = tp + 1, and
 "collisions without the level-t condition are plentiful". Make the level-t condition geometric.
 
-**Lemma K1 (PROVED, elementary).** For a word w = (t, u, v) of odd n, the discriminants D = −4A = 4 − 4tu and
+**Lemma K1 (PROVED, elementary — the congruence/index identity only; the Heegner reading is Assessment).** For a word w = (t, u, v) of odd n, the discriminants D = −4A = 4 − 4tu and
 D* = −4A* = 4 − 4tv are both ≡ 2² (mod 4t), i.e. both satisfy the **Heegner condition for X₀(t) with the same root
 r = 2 (mod 2t)**, with Heegner forms Q_u = [t, 2, u], Q_v = [t, 2, v] (more generally [ta, 2, c], ac = u resp. v), Heegner
 points τ_u = (−1 + i√A)/t, τ_v = (−1 + i√A*)/t. For x := r·r = 4 one has (D D* − x²)/(4t) = 4(AA* − 1)/t = **4n**.
-Conversely, any t ≥ 1 and two Heegner forms [t, 2, u], [t, 2, v] with (16AA* − 16)/(4t) = 4n give the word (t, u, v).
+Conversely, any t ≥ 1 and forms [t, 2, u], [t, 2, v] with (16AA* − 16)/(4t) = 4n give the word (t, u, v).
 *Proof.* 4 − 4tu ≡ 4 (mod 4t); the forms have discriminant 4 − 4t·u; AA* = tn + 1. ∎
-So X_n = {pairs of level-t Heegner points of root 2 and "Gross–Kohnen–Zagier index" m = 4n at x = 4}, t ≥ 1 varying.
+So each word gives a pair of level-t root-2 forms with "Gross–Kohnen–Zagier index" m = 4n at x = 4 (t ≥ 1 varying); not
+every same-root Heegner pair is of the special shape [t, 2, u], [t, 2, v]. R209 caveat: the forms need not be primitive —
+w = (2, 2, 3), n = 7: Q_u = [2, 2, 2] has formal discriminant −12 but its root has CM discriminant −3 — so the optimal
+Heegner-point interpretation needs an imprimitive/generalised Heegner-divisor convention, not checked here.
 **Reading (Assessment, standard GZ/GKZ local intersection theory).** For n = p, the x = 4 term contributes to the local
 height ⟨P_D, P_{D*}⟩_ℓ only at primes ℓ | m = 4p that are non-split in K = ℚ(√−A) (equivalently in ℚ(√−A*), as AA* ≡ 1
 mod p): ℓ = p contributes ⟺ (−A/p) = −1 ⟺ **χ(w) = −1**; otherwise the term lives at ℓ = 2. This is O205's
