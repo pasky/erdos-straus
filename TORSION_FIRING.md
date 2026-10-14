@@ -16,6 +16,10 @@ Type II fires at h ("(p, h) ∈ Fire_II") iff −p mod h ∈ Box(k) (FIXED_MODUL
 already FROBENIUS_FIRING (F2), dismissed there because "m | h + 1" is cyclotomic. §1 makes it exact and adds a
 p-twisted version in which p itself enters the curve (2-torsion x-coordinates); §2 proves the cyclotomic collapse
 for every curve (not only CM), and isolates what is NOT cyclotomic: point orders of a fixed global point (Kummer).
+(I2)–(I5) are in §3. (I6) Self-review (deep reviewer, `review` tool): one FATAL (Prop 3.4(a) needs finite
+ramification), three MAJOR (verdict labels overreaching; Prop 3.5 needed a common coefficient field;
+tf_primemod skipped x = (p+1)/4 for p ≡ 3 mod 4 — rerun, 10⁷ result unchanged), minors; all repaired in place
+(marked "R-O207 repair").
 
 ## 1. The exact dictionary (PROVED; checked numerically, §5)
 
