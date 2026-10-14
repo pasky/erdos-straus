@@ -7,11 +7,11 @@ spinor genus, or at worst the ℤ-isometry class) that decides S₇(w). Test the
 of the ℤ-isometry class of Q_w?
 
 ## Why the quadratic versions are dead a priori (PROVED, from CHI_FLIP Thm 1.1 and FOUR_SPECIFIC Thm 2.3)
-For prime n ∤ 2M, the ℚ-class of Q_w is fixed by det = n, ε_∞ = −1 and ε₂ = −χ(w) (ε_n = χ(w), ε_ℓ = 1 for
-ℓ ∤ 2n, including ℓ = 7: L_w ⊗ ℤ₇ is unimodular and isotropic). The genus adds the n-adic square class of A* (i.e.
+For prime n ∤ 2M, the ℚ-class of Q_w is fixed by det = n and the isotropy signs ε_∞ = −1, ε₂ = −χ(w) (CHI_FLIP's ε,
+not the classical Hasse invariant) (ε_n = χ(w), ε_ℓ = 1 for ℓ ∤ 2n, including ℓ = 7 when 7 ∤ n: L_w ⊗ ℤ₇ is unimodular and isotropic). The genus adds the n-adic square class of A* (i.e.
 (A/n)) and, on χ = −1, nothing at 2 (⟨1, −1, −n⟩). So a genus-level description of S₇ would make S₇ a function of
-(χ, (A/n)), which O212's y4_seven feature test already refutes (and (J)32 Thm 3.1(c): S₇ has χ = ±1 members). A 7-adic
-Hasse invariant of Q_w does not exist as a variable: it is identically 1.
+(χ, (A/n)), which O212's y4_seven feature test already refutes (and (J)32 Thm 3.1(c): S₇ has χ = ±1 members). The 7-adic
+isotropy sign of Q_w is not a variable: it is identically +1.
 
 ## Computation (`uv run --with cypari2 python scripts/y7_class_test.py 150 4 7 8 11 5`; PARI qfisom, theta series to 60
 as pre-filter; all words incl. boundary words, prime n ≤ 150)
@@ -29,7 +29,9 @@ isometric path forms.
 **Prop Y7.2 (PROVED by the explicit examples).** For M ∈ {5, 7, 8, 11}, S_M(w) is not a function of the ℤ-isometry class
 of Q_w; for M = 4 it is a function of the genus. So the 7-slices are pure *marking* data (which path basis of the
 lattice), in exactly the sense FOUR_SPECIFIC Thm 2.3 found for the one-odd/all-even split of 4. There is no
-"7-adic (J)33" on the length-3 slices, not even at class level.
+"7-adic (J)33" on the length-3 slices, not even at class level. (Not every M ≠ 4 is like this: for prime n ≠ 3, S₃ is
+all words — if 3 divides none of t, u, v, tu − 1, tv − 1 then u ≡ v ≡ −t mod 3 and n ≡ 0 mod 3 — a constant class
+function; R-O215 D10.)
 (The ℤ-class does see whether *some* marking of it is a 7-slice; that is the original existence question, rewritten.)
 
 ## Barrier screen

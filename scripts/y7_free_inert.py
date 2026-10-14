@@ -29,19 +29,15 @@ def classes(M):
         if (r+1)%M==0 or (r+2)%M==0 or (2*r+1)%M==0: free.add(r)
     return U,free
 def odd_quadratic_chars(M):
-    # all real primitive-or-not characters mod M given as Kronecker chi_D with D | ... : brute: functions on U
+    # exact: odd quadratic characters mod M are Kronecker chi_D with D<0 a fundamental discriminant, |D| | M
     U=[r for r in range(M) if gcd(r,M)==1]
     res=[]
-    for D in range(-4*M,0):
-        if D%4 not in (0,1): continue
-        ok=True; vals={}
-        # chi_D must be periodic mod M on units: check conductor |D| divides M or M*? just test periodicity on reps
-        for r in U:
-            v=set(kron(D,r+k*M) for k in range(1,9) if gcd(r+k*M,2*abs(D))==1 or True)
-            v.discard(0)
-            if len(v)!=1: ok=False;break
-            vals[r]=v.pop()
-        if ok and any(x==-1 for x in vals.values()): res.append((D,vals))
+    for D in range(-M,0):
+        fund = (D%4==1 and all(D%(q*q) for q in range(2,abs(D)+1))) or \
+               (D%4==0 and (D//4)%4 in (2,3) and all((D//4)%(q*q) for q in range(2,abs(D)+1)))
+        if not fund or M%abs(D): continue
+        vals={r:kron(D,r) for r in U}   # chi_D(r) depends only on r mod |D| for r coprime to D (r>0)
+        res.append((D,vals))
     return res
 if __name__=="__main__":
     print("M  #units  #free  uncovered(=hard)  exactly kernel of chi_D (odd D, periodic mod M)?")

@@ -22,7 +22,7 @@ Y=int(math.isqrt(X))+2
 for y in range(0,Y):
     for x in range(-Y,2*Y):
         n=x*x+x*y+2*y*y
-        if 0<n<=X and spf[n]==n and n not in rep: rep[n]=(x,y)
+        if 2<=n<=X and spf[n]==n and n not in rep: rep[n]=(x,y)
 def canon(x,y):
     c=[]
     for (a,b) in [(x,y),(-x,-y),(x+y,-y),(-x-y,y)]:
@@ -38,8 +38,11 @@ for (pm,c),(a,b) in tab.items(): byp[pm].append((c,a,b))
 chi2=0; dof=0
 for pm in sorted(byp):
     L=byp[pm]; A=sum(a for _,a,_ in L); B=sum(b for _,_,b in L); r=B/A
-    for c,a,b in L:
-        if a>=30 and 0<r<1:
-            chi2+=(b-a*r)**2/(a*r*(1-r)); dof+=1
+    used=[(c,a,b) for c,a,b in L if a>=30]
+    if len(used)>=2 and 0<r<1:
+        Au=sum(a for _,a,_ in used); Bu=sum(b for _,_,b in used); ru=Bu/Au
+        for c,a,b in used: chi2+=(b-a*ru)**2/(a*ru*(1-ru))
+        dof+=len(used)-1   # one fitted rate per tested stratum
     print(pm, f"n={A} rate={r:.3f}", " ".join(f"{c}:{b}/{a}" for c,a,b in sorted(L)))
-print(f"chi2={chi2:.1f} over {dof} cells (expect ≈ {dof - len(byp)} if no angle effect)")
+print(f"total primes {sum(a for v in tab.values() for a in [v[0]])}, double failures {sum(v[1] for v in tab.values())}")
+print(f"chi2={chi2:.1f} on {dof} degrees of freedom (strata with >=2 cells of >=30 primes and 0<rate<1)")
