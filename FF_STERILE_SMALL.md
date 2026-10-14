@@ -42,12 +42,17 @@ These are the rows R9a, R10a, R5a, R5b without the factor N*(t − 2) — a gain
 At the r = 3 critical point (1/3, 1/3, 1/6, 1/6): D1 has exponent z + (a + b)·log 2/log q = 1/3 + (2/3)(log 2/log 27) = 0.4736 < 1/2.
 
 **Lemma 1.3 (v₁ in a residue class; PROVED).** For every monic D ∣ m'w₁C₁: v₁ ≡ −T^{s−2} (mod D). Hence, for fixed D, the
-number of admissible v₁ (deg t − 2, fixed leading coefficient lc(w + C)) is ≤ max(1, q^{t−1−deg D}) =: V(D)
-(= 1 if deg D ≥ t − 1, Lemma 1.1). So in every route of FF_STERILE_PUSH Lemma 1.6 that fixes v₁ together with some of
+number of admissible v₁ (deg t − 2, fixed leading coefficient lc(w + C)) is ≤ V(D) := q^{t−2−deg D} if deg D ≤ t − 2, and 1
+otherwise (Lemma 1.1) (R220 repair m-1: formerly the weaker max(1, q^{t−1−deg D}); the certificate uses the sharp count). So in every route of FF_STERILE_PUSH Lemma 1.6 that fixes v₁ together with some of
 m', w₁, C₁, the factor N*(t − 2) may be replaced by V(product of the fixed factors): (m', v₁) costs ≤ N*(z)·V(z),
 (w₁, v₁) ≤ N*(a−1)·V(a−1), (C₁, v₁) ≤ N*(b−1)·V(b−1), (m', w₁, v₁) ≤ N*(z)N*(a−1)·V(z+a−1).
 *Proof.* m'w₁C₁ = T^{s−2} + v₁ ≡ 0 (mod D). The v₁ ≡ given class mod D with deg v₁ = t − 2 and fixed leading coefficient:
-if deg D ≤ t − 2 these are σ + D·h with deg h = t − 2 − deg D and fixed lc(h): q^{t−2−deg D} ≤ q^{t−1−deg D} choices. ∎
+if deg D ≤ t − 2 these are σ + D·h with deg h = t − 2 − deg D and fixed lc(h): exactly q^{t−2−deg D} choices. ∎
+(R220 repair m-2) *τ-bound used by the certificate in R10a3.* For D = m' (deg z), e = t − 2:
+Σ_{v₁ ≡ σ (m'), deg e, fixed lc} 2^{ω(v₁)} ≤ min(V(m')·2^{ω*(e)}, 2Σ_{j≤e/2} q^j·max(1, q^{e−z−j})), since 2^ω ≤ τ ≤ 2#{δ | v₁ : deg δ ≤ e/2},
+and δ | v₁ forces gcd(δ, m') = 1 (v₁ ≡ −T^{s−2} is a unit mod m'), so by CRT each δ of degree j lies in ≤ max(1, q^{e−z−j}) such v₁.
+Tail form (fz_tail): ≤ 2(s+1)q^{max(e/2, e−z)} for z ≤ e, and 2^{ω*(e)} ≤ 2^{(q−1)/2 + e/2} (at most q − 1 linear factors ≠ T,
+the others of degree ≥ 2).
 Routes affected (exponent per unit s, continuum): R5a → max(a, t) + class, R5b → max(b, t) + class, R9a → max(z, t) + C(a+b, a),
 R10a → max(z, t) + class (with max 2^{ω*} instead of the average Σ2^ω), X1 → y + max(z, t), X2 → y + max(a, t),
 R4' → max(z + a, t). Lemma 1.2's D-routes are the special case deg D ≥ t − 1.
@@ -63,11 +68,13 @@ All moduli used in the class routes (Tv₁, TL', Tw₁g', Tm'w₁, Tm'C₁, …)
 lemma applies to every class route. Continuum consequence: a class route with data (n, d, ρ) costs an extra exponent
 max(0, d(n − d)/n − ρ) (Coppersmith threshold), instead of failing outright below the threshold.
 (Repair of the hypothesis: Lemma 1.4 only needs every counted E to be prime to T, which holds when T ∣ Q (σ is a unit
-mod Q) or T ∤ F; the cofactor version needs F prime to Q, as before.)
+mod Q) or T ∤ F; the cofactor version needs F prime to QT^j (equivalently to Q when T ∣ Q; R220 repair m-3).)
 
 *Check (EVIDENCE):* `scripts/fz_check_bounds.c` compares the minimum of all routes as coded in `scripts/fz_sum.c` (Lemma 1.6 rows
 with the refined class bound, plus Lemma 1.2/1.3 rows) with the exact pattern counts of `bsE_famcount`: q = 3, s ≤ 19
 (146 patterns, 638 tuples); q = 5, s ≤ 13 (54 patterns); q = 7, s ≤ 11 (19 patterns): 0 violations, max count/bound 1.000.
+(R220 repair m-5: this tests only the minimum over routes; R220's `scripts/review_fz_brute.py` tests every route separately,
+q = 3 s ≤ 15, q = 5 s ≤ 11, q = 7 s ≤ 10: 0 violations.)
 
 **Steering (EVIDENCE, `scripts/fz_rate.py`, grid + local refinement).** Continuum per-s exponent max_p min_route φ − 1/2
 (units of log q):
@@ -85,7 +92,7 @@ So at r ≥ 3 the exponent becomes the "ET exponent" 2/5 (DEPTH_ASPECT Lemma 2.2
 *Proof.* Per pattern (λ, β, κ, f = α − β − κ, ζ = max(β, f) − λ ≥ 1) FF_STERILE_PUSH Lemma 2.2 gives route (i) ≤ q^{λ+β+κ−1},
 route (ii) ≤ q^{λ+κ+f−1}, so min ≤ q^{λ+κ−1+min(β,f)} = q^{α−ζ−1} (as λ = max(β, f) − ζ); and route (v) ≤ q^ζ·α!/(β!κ!f!) ≤ q^ζ 3^α.
 min(x, y) ≤ (xy)^{1/2} = q^{(α−1)/2} 3^{α/2}. Patterns: ≤ (α + 1)³. ∎
-So the Case A mass beyond α > 40 is ≤ Σ_{α>40} (α+1)³ q^{−(α+1)/2} 3^{α/2}, ratio ≤ (44/43)³(3/q)^{1/2} < 1 (`scripts/fz_caseA.py`).
+So the Case A mass beyond α > 40 is ≤ Σ_{α>40} (α+1)³ q^{−(α+1)/2} 3^{α/2}, ratio ≤ (43/42)³(3/q)^{1/2} < 1 (R220 repair m-9) (`scripts/fz_caseA.py`).
 (This replaces the 6^α of DEPTH_ASPECT Lemma 2.4, which made the O216 Case A tail diverge for q = 27.)
 
 ## 3. Theorem: q = 27
@@ -99,6 +106,8 @@ Lemmas 1.2–1.4 and 4.1 here. `scripts/fz_certify.sh "3 80"` (log `data/fz/cert
 (`fz_sum.c`, long double) 3.0180430695; tail s > 80 (`fz_tail.c`, adaptive boxes, all 42 096 boxes certified; class
 refinement j = ⌈θs⌉ with θ on a grid of step 1/256, cost q^{θs+1}) ≤ 2.922·10⁻⁴; Case A ≤ 0.0096590 (α ≤ 40 exact,
 `fs_caseA.py`) + 6.1·10⁻¹⁶ (Lemma 2.1). Certified total (×1.01, the O216 error budget) 3.0583 < q − 1 = 26. ∎
+(R220 repair m-4: Lemma 4.1 and the τ-bound of Lemma 1.3 are not needed: R220's independent certificate without them,
+`scripts/review_fz_sum.c`, `review_fz_tail.c`, gives ≤ 3.056 (≤ 4.44 even with the weaker V of the original Lemma 1.3).)
 *Cross-checks.* (i) `scripts/fz_sum_check.py 3 60` (exact integers/rationals, written from the text of the lemmas, own
 (m, k) search, no Lemma 4.1) gives 3.017899 ≤ fz_sum's 3.018046 (same routes without Lemma 4.1; the difference is the
 larger (m, k) search). (ii) Tail consistency: tail(60) ≤ 0.538 dominates fz_sum(61..80) + tail(80) = 3.6·10⁻⁸ + 2.9·10⁻⁴.
@@ -118,8 +127,10 @@ coefficients). log Π S_{e_i} = Σ_i Σ_{e ≤ e_i} gain(P_i, e) with Σ e_i deg
 (S_e/S_{e−1} = 1 + y^e/S_{e−1}(y) decreases for 0 < y ≤ 1), so the integer solution uses each chain as a prefix and its value is ≤ the
 fractional-knapsack optimum (all gains ≥ 0). ∎ Implemented in `fz_sum.c` (64 values of ρ; V_ρ by greedy fill, rounded
 outward; brute-force check `scripts/fz_rankin_check.py`: q = 3, n ≤ 11 and q = 5, n ≤ 7, all d: 0 violations, max/bound 0.985); used in every C(n, d) of the routes and in R1 as N_z(F)·N_{a−1}(F/m′) (and permutations).
-For fixed q, V_ρ(n) = o(n) (the knapsack fills n with ≍ n/log_q n items), so **all divisor counts are q^{o(n)}** and every
-entropy term of the continuum exponents disappears.
+For fixed q **all divisor counts are q^{o(n)}** (R220 repair m-7, elementary: with F = ΠP_i^{e_i} of degree n, primes of degree
+≥ J contribute Π(e_i + 1) ≤ 2^{Σe_i} ≤ 2^{n/J}; there are < q^J primes of degree < J, each with e_i + 1 ≤ n + 1; so
+τ(F) ≤ 2^{n/J}(n+1)^{q^J}, and J = ⌊log_q(n/log²(n+2))⌋ gives log τ(F) = O(n log q/log n); δ₃ ≤ δ²), and every entropy term
+of the continuum exponents disappears.
 
 **Corollary 4.2 (EVIDENCE for the value 2/5 (grid); the bound itself PROVED).** For every odd q the Case B tuples of
 parameter s number ≤ q^{(2/5)s + o(s)}. (Already from DEPTH_ASPECT Lemma 2.2 with δ, δ₃ = q^{o(n)} at fixed q, i.e. the
@@ -129,7 +140,8 @@ with rate q^{−s/10 + o(s)}; the obstruction at small q is entirely the finite 
 
 **q = 9 (CERTIFIED statement about the method; EVIDENCE for the shape).** With all routes (Lemmas 1.2–1.4, 4.1)
 `fz_sum 2 80` gives finite sum 41.87 > q − 1 = 8 (terms 10⁻⁶ at s = 80, so the tail is negligible), but already
-Σ_{s ≤ 8} = 9.22 > 8 and Σ_{s ≤ 20} = 37.6. So (Σ) at q = 9 needs **exact counts of Case B tuples for s up to ≈ 20–24**
+Σ_{s ≤ 8} = 9.22 > 8 and Σ_{s ≤ 20} = 37.6. (R220 repair m-6: "tail negligible" holds only with Lemma 4.1 in the
+routes — without it the term at s = 80 is 0.118 — and is EVIDENCE: no q = 9 tail certificate at this point; see §5.) So (Σ) at q = 9 needs **exact counts of Case B tuples for s up to ≈ 20–24**
 (or sharper small-s bounds); the bounds at s ≤ 12 are dominated by t ∈ {2, 3} (v₁ constant or linear: R1 counts
 triples of a *single* polynomial T^{s−2} + v₁, computable exactly by factoring) and by z = 0 patterns. Not attempted yet.
 At q = 3, (Σ) fails even with exact counts (FF_STERILE_PUSH §5: 94/27 > 2), so no union bound of this kind can work there.

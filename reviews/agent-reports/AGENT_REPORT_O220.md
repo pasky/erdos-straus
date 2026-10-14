@@ -32,8 +32,9 @@ purely the *finite* part of the union bound.
 * The division duality (short interval T^{s−2} + v₁ ↔ residue class mod a factor) is the F_q[T] face of "ab | N, N in a short
   interval ⇒ N determined mod a" — over ℤ: for the Type II slice, n = (p+e)/4 with e small is in a short interval; a divisor
   > e of 4n determines e mod it. Might sharpen the ℤ box bounds of MORDELL17 (the (J)26 r₀) the same way.
-* Corollary 4.2 at q = 3: the union bound tail beyond s₀ converges like 3^{−s/10}·exp(O(s/log s)); combined with the exact
-  union to s = 21 (FF_STERILE_PROOF §5, ≈ 0.49 covered per slice) this is a *finite* computation problem for Conjecture 0.2 —
-  but s₀ is probably several hundred; needs an estimate.
+* Corollary 4.2 at q = 3 (R220 repair m-8: rephrased): the union-bound tail beyond s₀ converges like 3^{−s/10}·exp(O(s/log s)),
+  but at q = 3 union bounds fail even with exact counts, so one would need the exact *union* of cylinders up to s₀ — finite in
+  principle, infeasible unless s₀ is small, and it would give the *conclusion* of Conjecture 0.2 (no finite linear covering),
+  not x*_c ∈ O. Estimate of s₀: see checkpoint 2.
 * q = 9: for t ∈ {2, 3}, R1 is the triple-factorisation count of the single polynomials T^{s−2} + v₁ (≤ 8 of them per s):
   exact via factoring, for all s — cheap partial improvement.
