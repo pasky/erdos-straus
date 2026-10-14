@@ -150,3 +150,30 @@ From scratch: `scripts/review_r208_polygon.py` (log `logs/review_r208_polygon.tx
   or three of each sign; up to dihedral symmetry that gives exactly the four patterns (1⁶), (0,1,1,0,1,1),
   4-even, (0⁶) ✓; for the pentagon Σε = ±3 forces one sign change pair, i.e. Lemma 1.1 again ✓.
 **Verdict: SOUND-AFTER-REPAIRS** (and the conjecture upgrades to PROVED).
+
+## Claim 7 — memos y2_parity_involution, y2_zamolodchikov_forcing, y2_coefficients_model
+Script `scripts/review_r208_parity.py 3000` (log `logs/review_r208_parity.txt`).
+* **Parity involution, Lemma 2.** Re-derived: c = s gives c(mc − 2) = p, so (c, m) = (1, p + 2) or (p, 3/p). Hence the
+  fixed point is unique for every prime **p ≠ 3**; at p = 3 there are two, (1,5,1) and (3,1,3) (my run confirms: p = 3 is
+  the only prime < 3000 with ≠ 1 fixed point). Harmless for the p ≡ 1 (4) conclusion, but the Lemma says "at a prime p"
+  (D12). For p ≡ 1 (4): fixed point has even edge {p+1, p+1}, ee′ ≡ 4 (8), sign +1 by Thm 1.2 ✓; the reflection
+  preserves the sign since (h/N) = (h′/N) ✓; so #F odd, #F₊ odd, #F₋ even ✓. EVIDENCE line re-checked exactly: 211 primes,
+  all #F odd, all #F₋ even, split 101/110 mod 4; #F₋ = 0 at all odd squares < 3000 ✓.
+  Lemma 1 is PROVED only in the narrow sense "no Vieta involutions (each variable appears linearly) and the only
+  dihedral symmetry fixing the N-side is the reflection"; the Iteration sentence "the only involutions are the dihedral
+  ones" is not proved (arbitrary bijections of the finite set F(N) exist) — Assessment (D12).
+* **Zamolodchikov.** Twisted Lyness relations in cycle order (c, h, m, h′, s) re-derived: (α, β) =
+  (1,1), (N,1), (1,1), (1,N), (1,N) for the centres h, m, h′, s, c ✓. Laurent claim ✓ (m = h/c + 1/c,
+  s = N/h + c/h, h′ = N/c + N/(ch) + 1/h). "Mod 4 non-forcing (PROVED)" is a meta-statement without a defined notion of
+  "dynamical statement … can force"; the correct precise content is: for every k, N ↦ (integral orbits at N mod 2^k)
+  cannot be a function of N mod 2^k with a forced 0-mod-4 term, because at N = M² no orbit has one (Cor 1.4) while N ≡ M²
+  (mod 2^k) contains primes with −1 words. Relabel as Assessment or state precisely (D13).
+  *Upgrade available:* the hexagon "(0⁶) ⇒ some quiddity ≡ 0 (4)" (EVIDENCE in the memo) is PROVED by the tree picture of
+  §2: all six quiddities even ⇒ the ends V₁, V₃, V₅ leave v₀ by one edge (to a vertex a), and a has only two further
+  neighbours, so two of the three ends share a second edge ⇒ their determinant (a quiddity q₂, q₄ or q₆) ≡ 0 (4).
+* **Coefficients model.** Count formula #F(N) = Σ_m #{h | mN+1 : h ≡ −1 (m), (mN+1)/h ≡ −1 (m)} re-derived
+  (h = cm − 1, h′ = ms − 1, hh′ = mN + 1) and the values at primes 5…37 (11, 13, 17, 15, 19, 21, 25, 25, 23, 19) reproduced
+  both by direct word count and by the divisor formula ✓. Props 1–2 are relabelling/dictionary (as the memo itself
+  says); Prop 3 is correctly labelled Assessment. Nothing overclaimed.
+**Verdicts:** parity involution SOUND-AFTER-REPAIRS (p = 3; Lemma 1 scope); Zamolodchikov SOUND-AFTER-REPAIRS (label);
+coefficients model SOUND.
