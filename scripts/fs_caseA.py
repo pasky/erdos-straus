@@ -55,4 +55,4 @@ if __name__ == '__main__':
     for r in [int(x) for x in sys.argv[1].split(',')]:
         q = 3**r
         tot, tail = caseA_mass(q, AMAX)
-        print(f"r={r} q={q}: Case A exact-pattern mass (alpha<={AMAX}) = {float(tot):.6e}  crude tail <= {tail:.3e}")
+        print(f"r={r} q={q}: Case A exact-pattern mass (alpha<={AMAX}) = {float(tot):.10e}  crude tail <= {tail:.10e}")

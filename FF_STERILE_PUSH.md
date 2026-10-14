@@ -67,7 +67,8 @@ Let S be the set of (x, y) with deg x ≤ X, deg y ≤ Y solving (L) (E ↦ (x, 
 S lie in Λ = {(u_x, u_y) : u_xτ₀ + u_yσ₀ ≡ 0 (Q)}. For u, u' ∈ Λ, σ₀(u_x u'_y − u_y u'_x) ≡ −τ₀u_x u'_x + τ₀u'_x u_x = 0,
 so Q | u_x u'_y − u_y u'_x; for differences of elements of S this determinant has degree ≤ X + Y < ρ, hence vanishes.
 So if |S| ≥ 2, S ⊂ {(x₀, y₀) + αb : α ∈ F_q[T]} for one (x₀, y₀) ∈ S and a primitive b ∈ F_q[T]². If b_x = 0 then
-Q | σ₀b_y·(multiple), so Q | b_y and some difference has deg u_y ≥ ρ > Y, impossible; so b_x ≠ 0. Substituting into (L)
+every nonzero difference u = (0, u_y) ∈ Λ has σ₀u_y ≡ 0, so Q | u_y (σ₀ a unit), i.e. deg u_y ≥ ρ > Y, impossible; so b_x ≠ 0
+(review repair R-O216 m8). Substituting into (L)
 gives a polynomial φ(α) over F_q[T] with α²-coefficient b_x b_y Q and, if b_y = 0, α-coefficient b_x(τ₀ + y₀Q) = b_x e₀ ≠ 0
 (e₀ ≠ 0 is the cofactor of the divisor σ₀ + x₀Q). Either way φ ≢ 0 has degree ≤ 2, so |S| ≤ 2. ∎
 (The ℤ original is Lenstra 1984, threshold Q > F^{1/3}, bound 11. Over F_q[T] the ultrametric degree makes the 2×2
@@ -112,7 +113,8 @@ pattern is at most each of:
 | R9a | m', v₁; w₁ ∣ (T^{s−2}+v₁)/m' | — | N*(z)N*(t−2)·C(a+b−2, a−1) |
 | R10a | m', v₁; w₁² ≡ −(T^{s−2}+v₁)/m' (Tv₁) | w₁ ∣ (T^{s−2}+v₁)/m' in one of ≤ 2^{ω(Tv₁)} classes | N*(z)·2Σ_{v₁}2^{ω(v₁)}·cls(a+b−2, a−1, t−1) |
 | R10b | v₁; m' ∣ T^{s−2}+v₁ | as R10a | 2Σ_{v₁}2^{ω(v₁)}·C(s−2, z)·cls(a+b−2, a−1, t−1) |
-with Σ_{v₁ monic, deg e} 2^{ω(v₁)} = q^e(2 + (e − 1)(1 − 1/q)) (e ≥ 1).
+with Σ_{v₁ admissible, deg e} 2^{ω(v₁)} ≤ Σ_{v monic, deg e} 2^{ω(v)} = q^e(2 + (e − 1)(1 − 1/q)) (e ≥ 1) (review repair m9: an
+inequality, since admissible v₁ have T ∤ v₁).
 *Proof.* Each row: the fixed data, then the divisibility/congruence displayed, determine the tuple (Lemma 1.2 and
 DEPTH_ASPECT Lemma 2.1). Congruences: E + 1 = L'w = Tw₁g'm', so E ≡ −1 modulo TL', Tw₁g' and Tm'w₁; E is prime to T
 (E(0) = −1), so E ∣ g'T^s + w = T(g'T^{s−1} + w₁) gives E ∣ g'T^{s−1} + w₁, and Ev = T^s + m'w² gives Ev₁ = T^{s−2} + m'w₁².
@@ -157,16 +159,18 @@ and deg z ≤ ζ. α = 1 forces β = f = 0, so ζ ≤ 0: impossible. α = 2: (β
 **Theorem 3.1 (no finite linear covering of ES_q(T^k) for q = 3^r, r ≥ 4; PROVED, computer-assisted, given the inputs of
 DEPTH_ASPECT Thm 2.5 (O173 Lemmas 1.1, 2.1 as re-derived by R187; R166 Case A steps; compactness criterion)).**
 Let q = 3^r with **r ≥ 4** (q ≥ 81) and k ≥ 2. Then O(q, T^k) ≠ ∅: ES_q(T^k, ·) has no finite linear covering. More precisely:
-(a) r = 4: the covered relative measure, summed over the 80 c-slices, is ≤ 2.16; so at least 75 of the 80 c-slices have
+(a) r = 4: the covered relative measure, summed over the 80 c-slices, is ≤ 2.18; so at least 75 of the 80 c-slices have
     more than half of their measure in O(81, T^k);
-(b) r ≥ 5: for **every** c ∈ F_q^*, the c-slice minus a set of relative measure ≤ 0.25 (r = 5), ≤ 0.37 (r = 6),
-    ≤ 0.012 (r = 7), ≤ 0.0033 (r = 8), decreasing beyond, lies in O(q, T^k).
+(b) r ≥ 5: for **every** c ∈ F_q^*, the c-slice minus a set of relative measure ≤ 0.26 (r = 5), ≤ 0.38 (r = 6),
+    ≤ 0.012 (r = 7), ≤ 0.0033 (r = 8), ≤ 0.0011 (r = 9), and below 10⁻³ for 10 ≤ r ≤ 30, lies in O(q, T^k).
 For char ≥ 5 this was known (O140 Prop 4.1); r ≥ 27 was DEPTH_ASPECT Thm 2.5. New: 4 ≤ r ≤ 26.
 *Proof.* Take k = 2 (N(s) and the Case A exponent only grow with k). By Lemma 2.1 it suffices to certify (Σ). Its Case B part
 is Σ_s q^{1−⌈s/2⌉}·Σ_patterns (mult)·(min of the Lemma 1.6 bounds), mult = 2 for a < b, 1 for a = b (w ↔ C symmetry);
 its Case A part is Σ_α q^{−α}·Σ_patterns (min of the Lemma 2.2 bounds) for α ≤ 40, plus DEPTH_ASPECT Lemma 2.4 for α > 40.
 (i) Finite Case B part, 3 ≤ s ≤ S (S = 200 for r = 4, 100 for r = 5, 60 for r ≥ 6): `scripts/fs_sum.c` (long double; every
-term is exp of a sum of ≤ 10⁴ logarithms of integers, relative error ≪ 10⁻¹², and the total is inflated by 10⁻⁹).
+term is exp of a sum of ≤ 10⁴ logarithms of integers, relative error ≪ 10⁻⁶; review repair M1: all components are printed
+with ≥ 10 significant digits and the certified total is (finite + tail + Case A)·1.01, which dominates serialisation and
+floating-point error; the script fails closed).
 Independent check: `scripts/fs_sum_check.py` re-implements the table of Lemma 1.6 in exact integer/rational arithmetic and
 agrees with fs_sum to 10 significant digits on every term s ≤ 40 (r = 4).
 (ii) Tail s > S: `scripts/fs_tail.c`. Normalise p = (a, z, y, t)/s. On each dyadic box of p-space (adaptive, minimal width 2⁻⁸),
@@ -181,8 +185,8 @@ by ((s+2)/(s+1))^{3 or 4}e^{φ⁺ − (log q)/2}) is < 0.999, then by a geometri
 certificate fail; for r ≥ 4 none occurs at minimal width 2⁻⁸.
 (iii) Case A: `scripts/fs_caseA.py` (exact rationals, α ≤ 40) plus the geometric majorant of DEPTH_ASPECT Lemma 2.4 for
 α > 40 (ratio ≤ (43/42)³·6/√q < 1 for q ≥ 81).
-Result (`scripts/fs_certify.sh`, log `data/fs/certify.txt`): left side of (Σ) ≤ 2.154 (r = 4; q − 1 = 80), 0.248 (r = 5),
-0.369 (r = 6), 0.0114 (r = 7), 0.0032 (r = 8), and < 10⁻³ for 9 ≤ r ≤ 30; for r ≥ 27 also DEPTH_ASPECT Thm 2.5. In every
+Result (`scripts/fs_certify.sh`, log `data/fs/certify.txt`, certified totals ×1.01): left side of (Σ) ≤ 2.176 (r = 4;
+q − 1 = 80), 0.2502 (r = 5), 0.3730 (r = 6), 0.01157 (r = 7), 0.003209 (r = 8), 0.001043 (r = 9), and < 10⁻³ for 10 ≤ r ≤ 30; for r ≥ 27 also DEPTH_ASPECT Thm 2.5. In every
 case (Σ) holds; for r ≥ 5 even the left side is < 1, which gives (b) for every c. ∎
 *What changed against Thm 2.5 (r ≥ 27):* (1) the exact degree identity (Lemma 1.1) and loss-free routes (Lemma 1.2);
 (2) divisor counts by degree (Lemma 1.3) instead of 2^n, 3^n; (3) divisors in residue classes with an absolute bound
@@ -190,21 +194,22 @@ case (Σ) holds; for r ≥ 5 even the left side is < 1, which gives (b) for ever
 average Σ2^{ω(v)} ≪ s·q^{deg v} instead of a maximal divisor bound; (5) averaging over c (factor q − 1, needed only at r = 4);
 (6) a rigorous adaptive tail instead of truncation + crude tail.
 
-**Where the method stops: r = 3 (EVIDENCE + Assessment).** At q = 27 the continuum exponent max_p min_route φ(p) equals
-(log q)/2 to grid precision (`scripts/fs_rate.py`, reproduced rigorously-negatively by fs_tail: 835 failing boxes, all near
+**Where the method stops: r = 3 (EVIDENCE + Assessment; review repair M3).** At q = 27 the continuum exponent
+max_p min_route φ(p) equals (log q)/2 on the grid of `scripts/fs_rate.py` (a finite grid, EVIDENCE), and fs_tail fails to
+certify 835 boxes (a failure to certify, not a negative result), all near
 p ≈ (a, z, y, t)/s ≈ (0.31, 0.325, 0.20, 0.168)). There two routes meet exactly at the exponent 1/2:
 R1 (v, then a triple factorisation of T^{s−2} + v₁: exponent τ + H(ζ, α, β)/log q) and R10 (v, m', then w₁ in a
 square-root class mod Tv₁ — valid only above the Coppersmith threshold τ > αβ/(α + β)). Below the threshold the class bound is
-lost; above it R1 is ≥ 1/2. The finite sums at r = 3 (s ≤ 150) also do not converge (per-s terms ≈ 2, decreasing only slowly).
-So r = 3 needs either a divisor-in-class bound beyond the Coppersmith range (for counting, not finding; over ℤ the analogous
+lost; above it R1 is ≥ 1/2. The finite sums at r = 3 (s ≤ 150) give per-s terms ≈ 2, decreasing only slowly (no
+convergence visible; not a proof of divergence). Assessment: to reach r = 3 *with this union bound* one needs either a divisor-in-class bound beyond the Coppersmith range (for counting, not finding; over ℤ the analogous
 1/4-barrier is open), or an *average* bound for triple factorisations of T^{s−2} + v₁ over short families of v₁ — a
-short-interval d₃ problem in F₃[T]. Both are exactly B3-type inputs.
+short-interval d₃ problem in F₂₇[T]. Both are B3-type inputs. (Other measure arguments are not excluded by this.)
 
 ## 4. Contrast: which hypothesis fails where coverings exist (goal 3)
 
 The sterility proof uses exactly three structural inputs: (H1) k ≥ 2 (every cylinder has depth ≥ 2, so validity on the
-c-slice forces T ∥ w, T ∥ C and the tuple form (B)); (H2) q odd, through E + E' = m'g'²v − 2 ≠ 0, i.e. **v ≠ 0** (O173
-Lemma 2.1(b)), and through ≤ 2 square roots modulo prime powers (route R10) and the leading coefficient 2 ≠ 0 (Lemma 1.1(ii));
+c-slice forces T ∥ w, T ∥ C and the tuple form (B)); (H2) q odd, through **v ≠ 0** (O173 Lemma 2.1(b): E + E' = m'g'²v − 2, so v = 0 would give
+E + E' = −2, impossible for monic E, E' of positive degree when q is odd), and through ≤ 2 square roots modulo prime powers (route R10) and the leading coefficient 2 ≠ 0 (Lemma 1.1(ii));
 (H3) a counting exponent < 1/2 (Theorem 3.1 needs r ≥ 4).
 * **q = 3, A = T (k = 1): (H1) fails.** FUNCTIONFIELD_ES Prop 1.4(i), (ii) are the constant families E = 1, E = 2; their
   cylinders have depth 1, i.e. each is a whole class P(0) = −E, of relative mass 1. For q = 3 the two classes are all of
@@ -217,10 +222,11 @@ Lemma 2.1(b)), and through ≤ 2 square roots modulo prime powers (route R10) an
   in odd characteristic — and: T²g' ∣ P + E because P + E ≡ u + E ≡ 0 (mod T²) (char 2) and P + E ≡ 1 + 1 = 0 (mod g');
   modulo E, P ≡ 1 and X ≡ T^{−2}, so s = g' + X/g' ≡ (T²g'² + 1)/(T²g') = E²/(T²g') ≡ 0; lc(s) = 1 = lc(E) for deg P large.
   (Sanity check `scripts/fs_char2.py`, over F₂.) More generally for
-  k = 2m, the families with E = 1 + T^m g' cover every slice point with u ≡ 1 (mod T^m), u ≢ 1 (mod T^{m+1}). So in
-  characteristic 2 the slice x ≡ 1 off T — the natural home of sterile points in odd characteristic (FF_STERILE_PROOF §3) —
-  is covered by depth-2 families in one stroke. This is consistent with the char-2 coverings of (J)4 and FF_MUTE M1, and it
-  locates the odd-characteristic input precisely: **E ≠ E', i.e. E + E' = −2 ≠ 0.**
+  k = 2m, the families with E = 1 + T^m g' (cylinder depth 2m) cover every slice point with u ≡ 1 (mod T^m),
+  u ≢ 1 (mod T^{m+1}). So in characteristic 2, for k = 2, every c-slice (u(0) = 1, c ≠ 0) — the region where odd-characteristic
+  sterility is proved — is covered by one depth-2 family per c (slice points with u(0) ≠ 1 are not addressed; review repair m7).
+  This is consistent with the char-2 coverings of (J)4 and FF_MUTE M1, and it locates the odd-characteristic input precisely:
+  **v ≠ 0 (E ≠ E'), which in odd characteristic follows from −2 ≠ 0.**
 * **ℤ (Assessment).** The ℤ analogues of (H1)–(H3) are: the r-generic line of a Mordell prime r (depth ≥ 1 at r), the
   Type II congruence f ≡ f' ≡ −1 (mod 4cd) (whose "E + E' ≡ −2" is the reason f = f' is rare — a square 1 + 4c²dn), and the
   ET exponent 2/5 < 1/2 with constants. (J)26 Thm 3.1 is the r → ∞ case; the present improvements that are *not* specific to
@@ -240,22 +246,26 @@ and, writing P := m'g'²v₁(1 + cT) + 1,
 w₁ ≡ −(1 + cT)C₁ (mod T^{n+1}); with w₁ + C₁ = Tg'v₁ and c² = 1: C₁ ≡ −cg'v₁, w₁ ≡ cg'v₁(1 + cT) (mod T^n), so
 w₁, C₁ have the displayed form with a common ω (their sum is exactly Tg'v₁). Then m'w₁C₁ = T^{s−2} + v₁ expands (2 = −1 in F₃) to
 −v₁P − cm'g'v₁T^nω(cT − 1) − m'T^{2n}ω² = T^{2n−2}; reducing mod T^n gives (S1) (T ∤ v₁), dividing by T^n gives
-v₁(P/T^n + cm'g'ω(cT − 1)) = −T^{n−2}(1 + m'T²ω²), whence (S2), (S3) as T ∤ v₁. Conversely, data satisfying (S1)–(S3) (with the monicity and degree side conditions) give a tuple whose E agrees with
-−(1 + cT) to precision T^n; covering needs one more T-adic digit. ∎
+v₁(P/T^n + cm'g'ω(cT − 1)) = −T^{n−2}(1 + m'T²ω²), whence (S2), (S3) as T ∤ v₁. Conversely (review repair m5: this is an equivalence), given (S1)–(S3) and the side conditions, w₁ + (1 + cT)C₁ = −cT^{n+1}ω
+and EC₁ = g'T^{2n−1} + w₁ give (E + 1 + cT)C₁ = g'T^{2n−1} − cT^{n+1}ω ≡ 0 (mod T^{n+1}) (n ≥ 2), and C₁ is a T-adic unit,
+so E ≡ −(1 + cT) (mod T^{n+1}): the tuple covers x*_c. ∎
 (S3) is the genus condition of FF_STERILE_PROOF Lemma 2.1 made explicit (−m' is a square modulo every prime of v₁); (S1) says
 the "small" product m'g'²v₁ is ≡ −(1 + cT)^{−1} to precision n, which by degree forces z + 2y + t ≥ n + 1: one of the four
 small polynomials carries about half the degree — the lopsidedness of O175 Lemma 3.2 in one line. I found no further
 structure: (S1)–(S3) is a system of two T-adic congruences of length ≈ n and one ∞-adic divisibility, with ≈ n + O(1) free
 coefficients — the lottery shape (B2) again.
 
-**Why the measure route cannot reach q = 3 or 9 (PROVED + EVIDENCE).** (a) At q = 3 even *exact* tuple counts make the
-averaged union bound (Σ) fail: the bsE_famcount census gives mean relative mass 1.74 per c-slice through s = 15, i.e. left side
-of (Σ) ≥ 3.48 > q − 1 = 2 (EVIDENCE, exact enumeration). So any measure proof at q = 3 must use overlaps (the exact union to
+**Limits of the union-bound route at q = 3 (CERTIFIED census + EVIDENCE/Assessment; review repair M3).** (a) At q = 3 even
+*exact* tuple counts make the averaged union bound (Σ) fail: the bsE_famcount census gives left side of (Σ) through s = 15
+exactly 94/27 > q − 1 = 2 (exact enumeration, re-derived by the O216 review). So a measure proof of this kind at q = 3 must use overlaps (the exact union to
 s = 21 is ≈ 0.49 per slice, FF_STERILE_PROOF §5) plus a tail Σ_{s>21} count(s)·3^{1−⌈s/2⌉} ≲ 1, i.e. an essentially sharp
-count of Case B tuples. (b) The provable exponent of Lemma 1.6 is far from that: fs_rate gives max_p min_route φ − 1/2 = +0.167
+count of Case B tuples. (b) The exponent of the Lemma 1.6 bounds is far from that: fs_rate (grid, EVIDENCE) gives max_p min_route φ − 1/2 = +0.167
 (r = 1), +0.096 (r = 2), 0.000 (r = 3), −0.027 (r = 4) in units of log q. At r = 1 the maximiser is the "thirds corner"
 a = z = y = s/3, t → 0 (v₁ of bounded degree, w, C, m' of degree s/3): there every route is ≥ 2/3, while the true count is
-polynomial (it is Σ_{v₁} #{m'w₁C₁ = T^{s−2} + v₁ into thirds with w₁ ≡ −C₁ (Tv₁)}). Beating it needs an average bound for d₃
+subexponential, q^{o(s)}, but **not** polynomial (review repair M2: over F₃, F = T^{3^h−1} − 1, s = 3^h + 1, v₁ = −1, grouping the
+(3^h − 3)/h degree-h factors by (f(0), f'(0)/f(0)) and distributing triples among m', w₁, C₁ gives 6^M = exp(Ω(s/log s)) genuine
+tuples at a ≈ b ≈ z ≈ y ≈ s/3, t = 2; e.g. ≥ 7.8·10¹⁰ at s = 244). The count is Σ_{v₁} #{m'w₁C₁ = T^{s−2} + v₁ into thirds
+with w₁ ≡ −C₁ (Tv₁)}. Beating it needs an average bound for d₃
 over the short family {T^{s−2} + v₁ : deg v₁ ≤ t − 2}, uniform in q = 3 — a short-interval divisor problem whose function-
 field results (Keating–Rodgers–Roditty-Gershon–Rudnick, Sawin) are large-q statements. This is the function-field face of
 B3, now located at a specific corner of pattern space.

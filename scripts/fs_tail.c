@@ -153,6 +153,6 @@ int main(int argc, char **argv) {
   int r = atoi(argv[1]); SMIN = atol(argv[2]); MINW = argc > 3 ? atoi(argv[3]) : 9; target = argc > 4 ? atof(argv[4]) : 1e-3;
   lq = r * log(3.0);
   for (int i = 0; i < 8; i++) for (int j = 0; j < 8; j++) for (int k = 0; k < 8; k++) rec(i / 8.0, j / 8.0, k / 8.0, 3);
-  printf("r=%d S=%ld boxes=%ld failed=%ld tail(s>S) <= %.6e\n", r, SMIN, nboxes, nfail, total);
-  return 0;
+  printf("r=%d S=%ld boxes=%ld failed=%ld tail(s>S) <= %.10e\n", r, SMIN, nboxes, nfail, total);
+  return (nfail > 0 || !isfinite(total)) ? 1 : 0;   /* fail closed */
 }

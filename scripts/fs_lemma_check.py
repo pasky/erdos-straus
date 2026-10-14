@@ -65,7 +65,10 @@ def run(p, trials, seed):
                     if c > b: viol += 1; print("VIOL", p, F, Q, d, c, b)
                     if c == b: tight += 1
     print(f"p={p}: tested {tested} (class, degree) groups with a lemma bound; violations {viol}; tight {tight}")
+    return viol
 
 if __name__ == '__main__':
+    bad = 0
     for p in [int(x) for x in sys.argv[1].split(',')]:
-        run(p, int(sys.argv[2]), 1)
+        bad += run(p, int(sys.argv[2]), 1)
+    sys.exit(1 if bad else 0)
