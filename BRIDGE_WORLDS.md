@@ -92,38 +92,42 @@ with cd ≤ 200 (y3_adversarial.py). Odd squares: 0 certificates throughout (T1 
 p ≡ 3 mod 4.) It is strictly stronger than Type II-ES, so B2/B3/B6 apply verbatim; no sieve handle (memo
 y3_primemod_census).
 
-## 6. Construction iteration on tier (c): unit twists give an FF_MUTE mechanism inside K = ℚ(ζ_m)⁺ (PROVED + Assessment)
-Hypothesis of Thm 2.1(b) to violate: "defined over ℚ". In tier (c) the reduction ρ_𝔥 : O_K → F_h is a ring map, so
-it maps the unit group E_K (cyclotomic units, rank φ(m)/2 − 1) *homomorphically into F_h^*, the world where p lives*
-— exactly FF_MUTE's "⟨s mod f⟩ lives in the same group as p", and not excluded by Thm 3.1 (E_K is not of exponent
-dividing h + 1).
+## 6. Construction iteration on tier (c): unit twists (PROVED + Assessment; R-O211 repaired)
+Hypothesis of Thm 2.1(b) to violate: "defined over ℚ". In tier (c), ρ_𝔥 maps the unit group E_K (K = ℚ(ζ_m)⁺)
+homomorphically into F_h^*, the group where p lives — FF_MUTE-like, and not excluded by Thm 3.1 (E_K does not have
+exponent dividing h + 1).
 **Prop 6.1 (unit-twisted firing; PROVED, elementary).** Put Fire^E(p, h) :⟺ ∃ c, d with 4cd | h + 1 and ε ∈ E_{K_{4cd}}
-with 𝔥 | p + 4c²d·ε for some 𝔥 | h. Then Fire^E(p, h) ⟺ −p ∈ ⋃_{(c,d)} 4c²d · ρ_𝔥(E): at fixed h the firing set is a
-union of cosets of the subgroup ρ_𝔥(E) ⊂ F_h^* (large for most h under Artin-type heuristics for units, cf. Roskam,
-Exp. Math. 2002; EVIDENCE for m = 8, K = ℚ(√2): over the 2399 primes h ≡ 7 (mod 8) below 10⁵ the index
-[F_h^* : ⟨ρ_𝔥(1 + √2)⟩] is 1 for 891 and 2 for 909 — scripts/y3_unit_index.py). Taking norms, Fire^E ⟺ h | p² + t·p·X + N(ε)X² (X = 4c²d, t = Tr ε when K is quadratic; for
-ε = 1 this is (p + X)², the Type II number squared). ES-firing is the sub-case ρ_𝔥(ε) = 1.
-*Proof.* ρ_𝔥 is a ring homomorphism; the norm identity is (p + Xε)(p + Xε′) for K quadratic. ∎
-**Assessment.** The unit-twisted variant is an FF_MUTE/ES^{(S)}-type statement inside K (large-coset firing sets,
-Chebotarev-countable), and its gap to ES is the condition ε ≡ 1 (mod 𝔥) — a Wieferich/exponent-cap condition, the
-same wall as EXPONENT_CAP ((J)34). No transport back to ε = 1 is known; the Galois-invariant (rational) section is
-exactly where the archimedean condition sits. Not pursued beyond the index check (spark).
+with 𝔥 | p + 4c²d·ε for some 𝔥 | h. Then Fire^E(p, h) ⟺ −p ∈ ⋃_{(c,d)} 4c²d·ρ_𝔥(E): at fixed h the firing set is a
+union of cosets of the subgroup ρ_𝔥(E) ⊂ F_h^*. In general Fire^E ⟺ h | N_{K/ℚ}(p + Xε) (X = 4c²d); for K quadratic
+this is h | p² + t·pX + N(ε)X² (t = Tr ε). ES-firing is the sub-case ρ_𝔥(ε) = 1.
+*Proof.* ρ_𝔥 is a ring homomorphism; the norm statement holds because h splits completely in K. ∎
+**Repair (R-O211): with all units the variant is TRIVIAL.** E always contains −1, and ε = −1 is the signed Type II
+h | p − 4c²d: for every prime p ≠ 3, h = 3, c = d = 1 fires (3 | p + 4 or 3 | p − 4); p = 3 fires with h = 7. So
+large unit images by themselves prove nothing about ES. The natural repair is to allow only *totally positive* units
+E⁺ (for K = ℚ: E⁺ = {1}, i.e. ES itself; for K = ℚ(√2), m = 8: E⁺ = ⟨3 + 2√2⟩) — and positivity at the real places is
+again an archimedean condition. Whether the E⁺-twisted variant is non-trivial yet provable is open (spark).
+EVIDENCE that ρ_𝔥(E) is large for m = 8: over the 2399 primes h ≡ 7 (mod 8) below 10⁵, [F_h^* : ⟨ρ_𝔥(1 + √2)⟩] is
+1 for 891 and 2 for 909 (scripts/y3_unit_index.py). The analogy of the missing condition ρ_𝔥(ε) = 1 with the
+exponent cap of (J)34 is an analogy, not a proved equivalence.
 
 ## 7. Barrier table and verdict (O211 checkpoint 1)
 | object | bridge tier | what reaches p's world | barrier |
 |---|---|---|---|
 | Thm 3.1 (O207): torsion, torus, Weil pairing | homomorphic | ±1 (genus layer, = |D_∞|) | B3 (2τ₃ ceiling) |
-| pure Gauss sums, uniform cyclotomy (§1) | symmetric algebraic | parity of j; rationals in m | B2 (box) |
-| Lucas / Dickson / Cayley / ∏(1 − ζ) (§2) | symmetric algebraic | the integers c, m (box) | B2 |
+| pure Gauss sums, uniform cyclotomy (§1) | outside Thm 2.1(b); Stickelberger / EVIDENCE | parity of j; residues 1, 1−m, 1−3m | B2 (box) |
+| Lucas / Dickson / Cayley / ∏(1 − ζ) (§2) | symmetric algebraic (Thm 2.1(b)) | the integers c, m (box) | B2 |
 | Salié angle (memo) | root of ν² ≡ −pd at 1/(2j) | exact Planck-scale hit | H-A / B3 |
-| Gross–Koblitz (memo) | Γ_h(1/m) ≡ residue j | box | B2 |
+| Gross–Koblitz (memo) | argument 1/m ≡ j (mod h) | box | B2 |
 | mixed torus Gauss sums (memo) | genuinely two-world | Weil-bounded character sum | B3 |
-| Euclid–Schur forcing (memo) | residue forcing | only |G| = 2 (trivial slice) | B1/B4 |
-| tier (c) + units (§6) | ring map O_K → F_h | large subgroup (mute-type) | exponent cap ((J)34) |
-| Type I overlap (§4) | gcd(p + 1, f − 1) | trivial case p ≡ 3 (4) | B1 |
-**Verdict.** ES is not solved; no infinite case. The bridge question has a precise negative answer for every algebraic
-mechanism (Thm 2.1): homomorphic bridges see ±1, Galois-invariant algebraic bridges see fixed rationals (the box), and
-the only bridges with large image (units of ℚ(ζ_m)⁺ via tier (c)) produce a mute-type variant separated from ES by an
-exponent-cap condition. Semi-primitivity = "Frob_h = Frob_∞" explains why the remaining content is archimedean.
-Positive by-products: PM-II (EVIDENCE), the uniform-cyclotomy residue law (EVIDENCE), the 2-group slice genus criterion
-(PROVED, folklore-level), refutation of O207 spark 1's CM claim.
+| Euclid–Schur forcing (memo) | residue forcing | |G| = 2 (trivial slice) or auxiliary primes (B1) | B1/B4 |
+| tier (c) + units (§6) | ring map O_K → F_h | large subgroup, but trivial (ε = −1); E⁺ repair open | archimedean (positivity) |
+| Type I overlap (§4) | gcd(p + 1, f − 1) | full: trivial case p ≡ 3 (4); partial: finite slice set | B1 |
+**Verdict (R-O211 repaired).** ES is not solved; no infinite case. Scoped negative result: within the three tiers of
+Thm 2.1 (homomorphisms; fixed symmetric rational expressions in μ_m; Frobenius-invariant expressions in one ζ),
+homomorphic bridges see ±1, ℚ-rational ones see fixed rationals (for Type II: the box), and the ring maps of tier (c)
+admit unit twists whose unrestricted version is trivial (signed ES) and whose totally-positive version is open. The
+other objects examined (Gauss sums, cyclotomic numbers, Γ_h, Salié, mixed torus sums, Euclid–Schur) were each checked
+to reduce to the box, a Planck-scale hit, a Weil-bounded sum or B1. That *every* useful bridge is archimedean is an
+Assessment suggested by "Frob_h = Frob_∞", not a theorem. By-products: PM-II (EVIDENCE), the uniform-cyclotomy
+residue law (EVIDENCE), the 2-group slice genus criterion (PROVED, folklore-level), O207 spark 1's CM suggestion
+refuted (no instance in 10 737).
