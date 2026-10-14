@@ -76,3 +76,25 @@ bound is ≤ the author's, never larger (harness `/tmp/r217_cmp.c`, reproducible
 values are never *below* what the lemmas give. Remark: the rewriting Δ(m, k) = [n·m(m+1) + X·j(j+1)]/2 with j = m + k
 (since m(m+1) + 2km + k(k+1) = j(j+1)) simplifies (C) and shows the bound depends on m and j only.
 
+### Lemma 2.1 (averaging over c, factor q − 1) — SOUND
+Each Case B tuple has the single largest cylinder u ≡ −E (mod T^{N(s)+1}) (from γ ≤ j: s = k + j + γ ≤ k + 2j gives
+N = k + j − 1 ≥ ⌈(s + k − 2)/2⌉, so every (N, γ)-cylinder of the tuple lies in that one — O173 Lemma 3.1 is not needed, as
+R178 noted), and each Case A datum the cylinder u ≡ −E (mod T^{k+α}); N(s) ≥ 1 and k + α ≥ 2 fix u mod T², i.e. c = the
+T-coefficient of −E. Hence Σ_c covered(c) ≤ left side of (Σ), and #{c : covered(c) ≥ θ} ≤ (left side)/θ. Correct, and it is
+genuinely a new (if simple) gain over Thm 2.5. The tuple sets do not depend on k and the masses decrease in k, so k = 2 is
+the worst case (checked against DEPTH_ASPECT §2.1/§2.2).
+Arithmetic of (a): 2.176/(1/2) = 4.35, so ≤ 4 slices have covered mass ≥ 1/2 and ≥ 76 (the document says 75 — conservative,
+fine) have more than half of their measure in O.
+
+### Lemma 2.2 (Case A routes; α ≤ 2 empty) — SOUND
+Normalisation checked against FUNCTIONFIELD_ES2 §0.2 (a0, b0 monic, so a1′, b1 monic) and DEPTH_ASPECT Lemma 2.4 (α > β
+⇒ E, F, K monic). Six routes re-derived from (A0)–(A4): (iii) E | T^α + b1²K of degree max(α, 2β + κ) (lc 2 if equal),
+E ≡ −1 (mod b1K); (iv) E | T^α a1′ + b1, E ≡ −1 (mod Ta1′b1); (v) z (T | z, 1 ≤ deg z ≤ ζ: ≤ q^ζ) then ordered monic
+(b1, K, F) of T^α + z, degrees summing to α; (vi) b1 + F = a1′z, b1F = (T^α + z)/K, ≤ 2. Dropping g′ is right: the
+cylinder depends only on (E, α). The α = 1, 2 argument re-done by hand (both surviving shapes force μ = 1 and μ + 1 = 0).
+The certification does not even use it (fs_caseA.py sums from α = 1). From scratch: `scripts/review_fs_caseA.py`
+reproduces the author's exact Case A sums to all 11 printed digits (r = 4: 8.4882704620e−4; r = 5: 8.7646411455e−5;
+r = 6: 9.5155829299e−6); its α > 40 majorant uses q^{⌊(α−1)/2⌋−α} ≤ q^{−(α+1)/2} with an exact-rational ratio bound.
+The author's tail (6.28·10⁻² at r = 4) is valid but a factor √q = 9 looser than necessary (it uses q^{−α/2}); this tail is
+in fact the *largest* part of the r = 4 Case A total (6.36·10⁻²) — harmless.
+
