@@ -22,12 +22,14 @@ Which of these sees "a divisor of h + 1 in a residue class" AND p?
 ## The unifying statement: Galois-descent collapse (PROVED)
 **Prop G.** Let m | h + 1, K = ℚ(ζ_m)⁺, and 𝔥 a prime of K above h. (i) h splits completely in K, so reduction gives
 φ(m)/2 ring homomorphisms ρ_𝔥 : O_K → F_h, and every algebraic quantity built from μ_m ⊂ T(F_h) by field operations
-that is invariant under ζ ↦ ζ^h = ζ⁻¹ is ρ_𝔥(α) for some α ∈ K (independent of h once the formula is fixed).
+that is invariant under ζ ↦ ζ^h = ζ⁻¹ is ρ_𝔥(α) for some α ∈ K regular at 𝔥 (independent of h once the characteristic-zero formula is fixed and
+invariant; R-O211 repair: not necessarily in O_K[1/m], e.g. 1/(3 + √2) for m = 8).
 (ii) If the quantity is defined over ℚ (invariant under all of Gal(ℚ(ζ_m)/ℚ), e.g. any symmetric function of a
-subgroup μ_c, a cardinality, a Gauss-sum modulus, a cyclotomic number), then α ∈ ℚ and its residue is that of a fixed
-rational number r(m): **the bridge transports exactly the box** (Type II: −p ≡ r = 4c²d).
+subgroup μ_c, a cardinality, ∏(1 − ζ), a cosecant sum — Gauss sums and cyclotomic numbers are NOT rational
+functions of μ_m and are not covered), then α ∈ ℚ and its residue is that of a fixed
+rational number r(m); for Type II the relevant rational is the box value (−p ≡ r = 4c²d).
 *Proof.* (i) Frob_𝔥 acts on ζ_m as ζ ↦ ζ^h = ζ⁻¹, i.e. complex conjugation, which is trivial on K; quantities
-fixed by ζ ↦ ζ⁻¹ lie in O_K[1/m] and reduction is a ring map. (ii) Galois-invariant elements of ℚ(ζ_m) are rational. ∎
+fixed by ζ ↦ ζ⁻¹ lie in K, and reduction on the local ring of K at 𝔥 is a ring map. (ii) Galois-invariant elements of ℚ(ζ_m) are rational. ∎
 **Iteration (violate "defined over ℚ").** Non-rational α ∈ O_K give conditions "−p ≡ ρ_𝔥(α)", i.e. h | N_{K/ℚ}(p + α)
 with h ≡ −1 (m): a *cyclotomic generalisation* of the Type II divisor form (α = 4c²d is the rational case). It does not
 imply ES (a certificate needs α rational of the form 4c²d) — but it is the natural home of a "Frobenius = complex
@@ -44,7 +46,7 @@ Covered by scripts/y3_gauss.py (check (4): ∏(1 − ζ) = c; 0 failures, h ≤ 
 polynomial identities over ℤ[1/6] and hold in F_h for h > 3.
 
 ## Assessment
-COLLAPSES to the box (PROVED, Prop G). Clean by-product: **two-sided classification of bridges between the (h+1)-
-and (h−1)-worlds** — homomorphisms: ±1 (Thm 3.1); algebraic Galois-equivariant maps: O_K → F_h with K = ℚ(ζ_m)⁺,
-whose ℚ-rational part is the box. Anything sharper must be non-algebraic in μ_m (archimedean: sizes) — the content
-of B2/B3.
+COLLAPSES to the box for the quantities Prop G covers (PROVED). By-product: three tiers of bridges (scope: these
+tiers only) — homomorphisms: ±1 (Thm 3.1); Frobenius-invariant algebraic maps: K → F_h on the local ring at 𝔥,
+K = ℚ(ζ_m)⁺; their ℚ-rational part gives fixed rationals (for Type II, the box). That anything sharper must be
+archimedean is an Assessment, not a theorem (BRIDGE_WORLDS Thm 2.1, R-O211 repair).
