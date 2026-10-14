@@ -18,6 +18,8 @@ All numerics re-done with from-scratch code `scripts/review_r224_*.py` (author s
 | §4.1 (α₂, α_p vanish together on χ = −1; r/48 values; r vs r*; withdrawn weighting) | **SOUND** (MINOR D9: stale "built the exact weighting" text; Prop 4.3 is an Assessment, not PROVED) |
 | §4.2 conic height bound, boundary genus | **SOUND**; the "observed h = min letter" is in fact **PROVED** (D10, upgrade) |
 | §3 numerics "≈ 85 % lnr-level success, stable 10⁶–10¹¹"; translates "k ≤ 26 in 500/500" | **SOUND as EVIDENCE** (reproduced; it slowly *increases*, 0.84 → 0.86 → 0.91 up to 10¹⁵; MINOR D11 on the translate claim and sample sizes) |
+| §2 "forced-word removal flattens N₋/(N − S) to ≈ 0.66 for every lnr bucket q ≤ 13; the average lnr effect is entirely the forced words" | **WRONG as stated (MAJOR D12)**: on all primes it removes only ≈ half of the lnr spread |
+| Summary 3 clean-level clusters (7.3 vs 5.8 vs 3.95) | **reproduced** (7.46 / 5.97 / 3.84); size-confounded, and 6 of the 13 worst primes are T1-type families p = m² + 24 etc. (MINOR D13) |
 | (further rows added below as checked) | |
 
 ## Claim-by-claim
@@ -169,6 +171,24 @@ Author's 0.845/0.811 and 0.872/0.909 agree within their SE. "Not decaying" is ri
 NO successful translate t₀ + kq for k ≤ 60 (they still have N₋ ≥ 22 from other levels); at 10¹⁰–10¹¹ one of 800 needs
 k > 60. The author's "k ≤ 26 in 500/500, never > 40" is a sample property, not a stable bound.
 
+### §2 "further evidence": forced-word removal and clean clusters
+Forced-+ words (A or A* (lnr − 1)-smooth): computed in the census (`review_r224_census.c N S`; per-prime N, N₋, S
+identical to the author's `y8_smooth.c` on 18 test primes — the committed y8_smooth.c terminates: A ≤ 0 is skipped,
+all loops bounded). Over ALL primes p ≡ 1 (4) in (2·10⁵, 10⁶) (not a 1 500 sample), 0 forced words with χ = −1
+(tautological), and ratio-of-sums N₋/(N − S) by bucket:
+(1,3) 0.671, (1,5) 0.666, (1,7) 0.649, (1,11) 0.625, (1,13) 0.601, (1,≥17) 0.599; (5,2) 0.698 (author: 0.698 ✓).
+Raw N₋/N (same aggregation): 0.640, 0.611, 0.570, 0.529, 0.492, 0.454. So removal shrinks the q = 3 → 13 spread from
+0.148 to 0.070 — **about half**, not "flattens to ≈ 0.66 for every bucket"; per-prime means are similar
+(0.683 → 0.602). The remaining half is presumably whole clean levels (rank-one levels, clusters), consistent with the
+author's own §2 picture — but the sentence as written is false.
+Clean clusters (`scripts/review_r224_clusters.py`): the 13 worst primes by N₋/N < 10⁶ (2521, 9601, 297 049, 3361, 1249,
+70 249, 225 289, 13 249, 925 369, 361 321, 3049, 29 401, 871 249) have 7.46 clean levels among t ≤ 10 (author 7.3);
+all p ≡ 1 (8) with lnr ≥ 11: 5.97 (author 5.8); all p ≡ 1 (8): 3.84 (author 3.95). But 8 of the 13 worst primes are
+< 10⁵, and the size-matched baseline (p ≡ 1 (8), lnr ≥ 11, p < 10⁵) is 6.34; and **5 of the 13 are p = m² + 24**
+(1249, 3049, 13 249, 70 249, 297 049), for which the levels 1, 2, 5, 7 (24t + 1 = 25, 49, 121, 169) are T1-type levels
+(D5 mechanism); 361 321 = 601² + 120 has T1-type levels 1, 3, 7, 8 and ALL ten levels clean. The memo's explanation of
+the m² + 24 coincidences ("the cheap way to get p ≡ □ mod 2, 3") misses this: the mechanism is tm² + c², i.e. T1 itself.
+
 ## Defects
 D1 (MINOR) — Lemma 1.2(b) and Summary item 2: "Every prime r < lnr(p) is clean" mixes the level notion with primes.
 Repair: "(b) every prime r < lnr(p) has (r/p) = +1, so a level t with tp + 1 (lnr − 1)-smooth is clean."
@@ -199,7 +219,7 @@ add the lemma (p = m² + k, tk + 1 = c², gcd(m, c) = 1 ⇒ level t odd-clean) a
 
 D6 (MAJOR) — §2 Assessment "Under GRH the clean probability of a fixed level tends to 0 as p → ∞, so the
 pre-asymptotic hardness of near-square primes is a small-p effect at each level" (also AGENT_REPORT Results). False
-along p = m² + k: level t with tk + 1 = □ is clean for every p in the family (Bunyakovsky-type families are
+along p = m² + k: level t with tk + 1 = c² is odd-clean for every p = m² + k in the family with gcd(m, c) = 1 (Bunyakovsky-type families are
 conjecturally infinite; no density statement makes them negligible for the question "which primes are hardest").
 The heuristic is about a *random* p. Repair: restrict to "for p outside the families p = m² + k with tk + 1 = □
 (heuristic, random p)", and record that these families have infinitely many deterministically clean levels
@@ -233,3 +253,13 @@ D11 (MINOR) — §3 numerics / memo y8_lnr_level: (a) state that the 10¹⁰–1
 (SE ≈ 0.03); (b) "stable" → "not decaying (slowly rising: ≈ 0.91 at 10¹⁴–10¹⁵, R224)"; (c) the translate statistic
 "first success k ≤ 26 in 500/500; never > 40" must not be read as a bound: R224 finds primes with no success for k ≤ 60
 (2 % at 10⁵–10⁶, 1/800 at 10¹⁰–10¹¹). The B3/B4 reading in the memo ("union over k is the polylog lottery") is the right one.
+
+D12 (MAJOR, false EVIDENCE sentence) — §2 "Further evidence: removing words with A or A* (lnr − 1)-smooth … flattens
+N₋/(N − S) to ≈ 0.66 for every lnr bucket q ≤ 13 … i.e. the average lnr effect is entirely the forced words" (also memo
+y8_adelic_continuity, §7 table "N₋/(N − S) ≈ 0.66"). On all primes in (2·10⁵, 10⁶): 0.671 → 0.601 over q = 3 … 13
+(raw 0.640 → 0.492): about half of the lnr effect is the forced words. Repair: replace with the R224 numbers and
+"about half; the rest is carried by whole clean levels".
+
+D13 (MINOR) — Summary item 3 / memo: (a) the clean-cluster comparison is size-confounded (8 of the 13 worst primes are
+< 10⁵; size-matched baseline 6.34, not 5.8); (b) state that 5 of the 13 worst primes are m² + 24 and one is m² + 120,
+whose clusters are explained by T1-type levels (D5), and replace the "p ≡ □ mod 2, 3" explanation.
