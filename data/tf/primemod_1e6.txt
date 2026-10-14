@@ -1,0 +1,6 @@
+no prime modulus: p=3361 (Type II solutions 4, status 1)
+P=1000000 H0=1000000 primes=78496 unmarked_after_stage1=1 no_prime_modulus=1 ; odd squares=499 with Type II solutions=0
+
+real	0m6.267s
+user	0m6.261s
+sys	0m0.006s

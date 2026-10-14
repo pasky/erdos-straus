@@ -222,3 +222,45 @@ bsD_artin_conjugation / LDP_DEEP §A, this gives h ≡ −1 (mod M) only when (�
 **Elkies + torsion (Assessment).** Elkies' mechanism gives supersingular h for a non-CM E (density zero!), and a
 rational N-torsion point then gives N | h + 1; but N ≤ 12 (Mazur), and h | p + 4c²d is again an identity (Prop 3.3)
 or a lottery. Over ℚ, Elkies + Mazur + Mordell's sign reproduce exactly the bounded-modulus shots.
+
+## 4. Scope of the prime-modulus dictionary, and a dictionary at p itself
+
+**4.1 Prime moduli do not always exist (EVIDENCE, exhaustive).** Prop 1.2 and every supersingular statement above
+concern a PRIME modulus h (for composite h, ℤ/h is not a field and E_0(ℤ/h) = ∏ E_0(F_{h_i}) has order
+∏(h_i + 1) only if every h_i ≡ 3 (mod 4)). `scripts/tf_primemod.c P H0` (stage 1: mark p ≡ −c/j (mod h) for all
+prime h ≤ H0 and cj | (h + 1)/4; stage 2: exhaustive enumeration of ALL Type II solutions of the unmarked p via
+x ∈ ((p+1)/4, p/2], e = 4x − p, δ | x², modulus h = 4y′ − 1):
+* **p = 3361 is the only prime 5 ≤ p ≤ 10⁷ with no Type II certificate of prime modulus.** It has exactly 4 Type
+  II solutions, with moduli 99 = 3²·11, 679 = 7·97, 1159 = 19·61, 33639 = 3·11213 (cross-checked by an independent
+  Python divisor search); 679 and 1159 have a prime factor ≡ 1 (mod 4), i.e. split in ℚ(i) (ordinary for E_0).
+  (data/tf/primemod_1e6.txt, primemod_1e7.txt; LDP_DEEP §A.4 met 3361 too, in the cd ≤ 30 window.)
+* T1 control: all 1580 odd squares ≤ 10⁷: 0 Type II solutions with gcd(x, n) = 1.
+* Torsion side, independent code (`scripts/tf_torsion_side.c 10⁶ 20000`): for 78 495 of the 78 496 primes
+  5 ≤ p ≤ 10⁶ a prime h ≤ 20 000 and a 2-torsion point (x_T, 0) of y² = x³ + pd·x over F_h with 2d | x_T,
+  2x_T | h + 1 was found, and the resulting ES solution (Lemma 1.1 of FIXED_MODULUS_SHOTS) verified exactly in
+  128-bit arithmetic; the exception is 3361 (searched to h ≤ 2·10⁵); 0 odd squares fire.
+So "ES via supersingular reduction at one prime" is, in the data, ES minus one prime; any theorem must also
+handle composite moduli or Type I (3361 has Type I solutions: ES holds there).
+
+**Proposition 4.2 (the Hasse-interval dictionary at p itself; PROVED, Deuring–Waterhouse).** Let p ≥ 5 be prime.
+(a) For c, d ≥ 1 with 4c²d − 1 ≤ 2√p there is an elliptic curve E/F_p with trace a_p(E) = 1 − 4c²d, hence
+#E(F_p) = p + 4c²d, and: (p has a Type II certificate on the slice (c, d)) ⟺ (E(F_p) has a subgroup of order
+h ≡ −1 (mod 4cd)).
+(b) For 1 ≤ c ≤ 2√p + 1 there is E/F_p with a_p(E) = 1 − c, #E(F_p) = p + c, and (p has a cube point (c, d, 1)
+for some d) ⟺ E(F_p) has a subgroup of order h ≡ −1 (mod 4c).
+(c) c = 1 in (b) is the supersingular spine: a_p = 0, #E(F_p) = p + 1 ((J)35, CONSTRUCTIVE_ES Cor 3.3).
+*Proof.* Deuring/Waterhouse: every integer a with |a| ≤ 2√p and p ∤ a is the trace of an (ordinary) curve over F_p,
+and a = 0 occurs (supersingular, p ≥ 5). A finite abelian group has subgroups of every order dividing its order.
+(a) is FIXED_MODULUS_SHOTS Lemma 1.1 on the (c, d) line (h | p + 4c²d, h ≡ −1 mod 4cd, any h); (b) the (c, j) line
+with j = 1: h | p + c, h = 4cd − 1. ∎
+**EVIDENCE (`scripts/tf_hasse.c`, all primes 5 ≤ p ≤ 10⁸, 6.8 s; data/tf/hasse_1e8.txt).** Every prime has a
+certificate of type (a) or (b): (a) fails only at p = 193, (b) at 22 primes (the first 17 below 10⁶: 7, 31, 79, 127,
+193?, …; see data/tf/hasse_1e6.txt), never both. The odd squares ≤ 10⁸ (4999): 0 of either kind (T1).
+So, empirically, **ES(p) is witnessed by an elliptic curve over F_p itself**: some E/F_p of trace a ≤ 0 (in the
+Hasse window) has a subgroup whose order is ≡ −1 modulo 4(1 − a) (b) or modulo 4cd with 1 − a = 4c²d (a).
+*Reading (Assessment).* By Lenstra's theorem E(F_p) ≅ End(E)/(π − 1) (ordinary E), the subgroups stable under
+End(E) are ideals above (π − 1), whose norms are the divisors of p + 1 − a split in ℚ(√(a² − 4p)); the condition
+"order ≡ −1 modulo a function of the trace" again couples a group order to an arithmetic progression of moving
+modulus. The window is a lottery over ≍ √p traces with ≍ log p tickets each (expected count ≍ log² p); it is
+not a mechanism, but it is a natural single-field home for the ES lottery (all tickets are point counts over the
+same F_p), which may be useful to the (J)35 isogeny-graph line.

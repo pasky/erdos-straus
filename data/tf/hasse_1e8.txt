@@ -1,0 +1,3 @@
+NMAX=100000000 primes=5761453  A(trace 1-4c^2d)=5761452  B(trace 1-c)=5761430  A|B=5761453  none=0  S(supersingular p+1)=5103821
+first primes with neither:
+odd squares=4999  A=0 B=0 S=0 (T1: all must be 0)
