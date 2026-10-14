@@ -1,13 +1,13 @@
 #!/bin/bash
 # R217 independent certification of (Sigma) for q = 3^r, r = 4..30, with R217's own codes:
 # review_fs_fin.c (finite Case B part), review_fs_tail.c (Case B tail s > S), review_fs_caseA.py (Case A, exact + majorant).
-# Fails closed (set -e; tail exits 1 on failure; python exits 1 unless total < q - 1). Output: data/fs/review_certify.txt
+# Fails closed (set -e; tail exits 1 on failure; python exits 1 unless total < q - 1). Output: data/fs/review_certify_<from>_<to>.txt
 set -euo pipefail
 cd "$(dirname "$0")/.."
 ulimit -v 8000000
 gcc -O2 -o /tmp/r217c_fin scripts/review_fs_fin.c -lm
 gcc -O2 -o /tmp/r217c_tail scripts/review_fs_tail.c -lm
-OUT=data/fs/review_certify.txt; : > $OUT
+OUT=data/fs/review_certify_${1:-4}_${2:-30}.txt; : > $OUT
 for r in $(seq ${1:-4} ${2:-30}); do
   if [ $r -eq 4 ]; then S=200; elif [ $r -eq 5 ]; then S=100; else S=60; fi
   FIN=$(timeout 3000 /tmp/r217c_fin $r $S | grep '^FINAL' | sed 's/.*finite_upper=//')

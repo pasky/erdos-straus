@@ -122,7 +122,7 @@ only replace *counting* steps. No circularity. The label "PROVED, computer-assis
 of `review_fs_exact.py` to 10⁻¹² at r = 4, s ≤ 30 when both use the same Coppersmith range) + `review_fs_tail.c` (a
 different box design: integer-coordinate cubes, linear forms maximised exactly at the 8 corners, integer shifts kept,
 geometric closure at ratio ≤ (1 + e^g)/2; validated like the author's by `review_fs_tailcheck.c`: 0 violations on
-3 × 20 000 patterns) + `review_fs_caseA.py`. Result (`logs/r217/certify.log`, all r = 4..30 pass, fails closed):
+3 × 20 000 patterns) + `review_fs_caseA.py`. Result (`data/fs/review_certify_4_30.txt`, all r = 4..30 pass, fails closed):
 
 | r | finite (S) | tail s > S | Case A | **total** (R217) | author's certified total |
 |---|---|---|---|---|---|
@@ -138,7 +138,7 @@ So every numerical claim of Theorem 3.1(a), (b) is confirmed; the author's figur
 author's slack is in the tail (0.41 at r = 4, 0.33 at r = 6, vs. my 1.4e−3, 7.4e−5): the exact per-s terms beyond S are tiny
 (r = 6: Σ_{60<s≤100} ≈ 3.6e−9; r = 4: Σ_{200<s≤300} ≈ 5.2e−8), so fs_tail's adaptive budget is simply generous. Consequence
 (optional strengthening, MINOR): Theorem 3.1(b) holds with ≤ 0.19 (r = 5) and ≤ 0.039 (r = 6) instead of 0.26 / 0.38.
-Also `review_fs_certify.sh 31 45` (log `logs/r217/certify_31_45.log`) extends the certificate to r ≤ 45; with the
+Also `review_fs_certify.sh 31 45` (log `data/fs/review_certify_31_45.txt`) extends the certificate to r ≤ 45; with the
 DEPTH_ASPECT crude form (decreasing in q; 2.2·10⁻³ at r = 40, recomputed) this gives covered mass ≤ 0.012 for every r ≥ 7.
 
 ### §3 end: "where the method stops: r = 3" (EVIDENCE + Assessment) — SOUND as labelled, two MINOR inaccuracies
