@@ -4,7 +4,29 @@ Reviewer branch `side-agent/review-synthesis-four` (merged `side-agent/synthesis
 `scripts/review_r219_*`. ES is not solved; nothing below changes that.
 
 ## Summary verdicts
-(in progress)
+| Claim | Verdict |
+|---|---|
+| L1 (positive ⟺ Q_w definite) | SOUND (re-derived; 0 violations on 77 658 words) |
+| L2 (D is one connected component) | SOUND (re-derived; side remark: X_n(ℝ) has exactly 2 components, D6) |
+| Meta-statement ES-five(n) ⟺ X_n(ℤ) ∩ (D × Ω₂) ≠ ∅ | SOUND; item (a) "R ⊄ D ⇒ true at squares" mis-quantified → SOUND-AFTER-REPAIRS (D6) |
+| Three-bit law for all words | SOUND and **PROVABLE now** — label CERTIFIED → PROVED (D5, reviewer proof); ∞-sign convention garbled (D5) |
+| §2.1 (R_n) keeps T1; finite |t| ≤ n + 3; Prop 2.1(c) | SOUND (re-derived) |
+| §2.2 no forcing χ(A)χ(B) = 1 | SOUND (prime 2 caveat, D4) |
+| §2.3 slot table |t| ∈ {1,2,3,4,6} | SOUND (4 900 n, 0 mismatches, own code); "positivity costs nothing" false at t = 6 (D2) |
+| §2.4 no finite t-set (cond. Schinzel H) | GAP as written → SOUND-AFTER-REPAIRS: reviewer gives a complete argument conditional only on Dickson (D3) |
+| CONJECTURE SQ_± + EVIDENCE | Existence: SOUND with either reading (0 failures ≤ 10⁷, 105 fine). "least |t| ≤ 18" and the 403/10 550, 8/996 comparisons are reproduced exactly **only** if "signed" includes positive words; under the document's own definition of "signed" the record is 54 (D1, MAJOR) |
+| Positive ES-five ≤ 10⁷ (fails only at 105, record 231 @ 702 585; 10 550 / 996) | SOUND (reproduced exactly, own code) |
+| s4_selling_voronoi_wall Lemma S | SOUND (algebra); conorm-multiset invariance SOUND (vonorm check, source not accessed); minor labels (D7) |
+| s4_kudla_green_infinity K1, K2 | SOUND; K2 becomes unconditional (D8) |
+| s4_maslov_inertia Lemma I + Cor | SOUND (D9) |
+| s4_minkowski_sail Lemma M | SOUND; "50.0 %" is a symmetry theorem (D10d) |
+| s4_two_and_infinity | SOUND-AFTER-REPAIRS (prime-only scope, D10c) |
+| s4_mute_infinity | SOUND-AFTER-REPAIRS ((R₂) is PROVED; Dickson, D10b) |
+| s4_real_analytic_tools | SOUND-AFTER-REPAIRS (unsupported p^{1/3}, D10e) |
+| §2.6 steering rule "try any mechanism on SQ_± first" | SOUND **only** with the inclusive definition (then ES-five(n) ⇒ (R_n) trivially); with "signed = not positive" there is no implication ES ⇒ SQ_± and the rule loses its logical basis (D1) |
+| Labels / novelty | Mostly honest; three-bit law under-labelled (D5), (R₂) under-labelled (D6, D10b), §1(a) over-labelled (D6). Novelty claims (SQ_± conjecture, Selling-wall reading) plausible; L1/L2/Lemma I classical, as the author says. |
+
+No FATAL defect. ES is not solved; no claim of the document says otherwise.
 
 ## Defects
 
@@ -165,6 +187,7 @@ the open quadrant pairs, so the split is exactly ½ by symmetry (PROVED). Tool 2
 p/(p − A)) matches the classical toric picture (Oda §1.6, not re-read). Tool 3 example correct (x + y ≡ 0 (p), x, y ≥ 1
 ⇒ xy ≥ p − 1).
 (e) **s4_real_analytic_tools** §1: "path basis is a thin extraction, ≪ p^{1/3+o(1)} of ≍ p classes" — the exponent 1/3
-is unsupported (no proof or citation; the selling memo says ≍ log²p on average; the known pointwise bound for ES
-solution counts is Elsholtz–Tao's n^{3/5+o(1)}). Repair: cite or replace by "p^{o(1)} on average (≍ log²p heuristically)".
+is unsupported (no proof or citation; the selling memo says ≍ log²p on average; the known pointwise bounds are
+Elsholtz–Tao (sources/elsholtz-tao-1107.1010.pdf, Prop. 1.7-type bounds) f_I(n) ≪ n^{3/5+O(1/log log n)},
+f_II(n) ≪ n^{2/5+O(1/log log n)}). Repair: cite or replace by "p^{o(1)} on average (≍ log²p heuristically)".
 "θ(−1/τ) *is* the product formula" is an Assessment, not an identity; label it. Verdicts (COLLAPSES) agree.
