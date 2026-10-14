@@ -123,10 +123,9 @@ E CM, Γ global, Heegner, or depending on p) reduced mod h, whose orders divide 
 group whose exponent divides h^s + 1 for some s ≥ 1 — e.g. any subquotient of E(F_{h^s})^r for E/F_h supersingular
 with a_{h^s} = 0 (s odd), of the norm-one torus T(F_{h^s})^r, or of E[h^s + 1]^r. Then for every odd t ≥ 1,
 every homomorphism ψ : A → F_{h^t}^* has image in {±1}; and every homomorphism F_{h^t}^* → A has image of order ≤ 2.
-*Proof.* The image is cyclic of order dividing g := gcd(h^s + 1, h^t − 1). Modulo g, h^t ≡ 1 and h^s ≡ −1, so
-h^{gcd(s,t)} ≡ ... : write e = gcd(s, t) (odd, since t is odd); s/e and t/e are coprime, and h^e has order dividing
-both 2s/e (from h^s ≡ −1, i.e. (h^e)^{s/e} ≡ −1) and t/e (from (h^e)^{t/e} ≡ 1) in (ℤ/g)^*; t/e is odd and coprime
-to s/e, so the order divides gcd(2s/e, t/e) = 1: h^e ≡ 1 (mod g), hence h^s ≡ 1, and with h^s ≡ −1: g | 2. ∎
+*Proof.* The image is cyclic of order dividing g := gcd(h^s + 1, h^t − 1). Let o be the order of h in (ℤ/g)^*:
+h^t ≡ 1 gives o | t, h^{2s} ≡ 1 gives o | 2s, so o | gcd(t, 2s) = gcd(t, s) (t odd), hence o | s and h^s ≡ 1;
+with h^s ≡ −1 this gives g | 2. ∎ (Numerically: gcd(h^s + 1, h^t − 1) = 2 for all odd h < 200, s ≤ 6, odd t ≤ 7.)
 **Corollary 3.2 (GL₂-mute rules collapse to a sign; PROVED).** Fix p and h (h ≡ 3 mod 4, h ∤ p) and let Γ_h ⊂ A be
 any subgroup (A as in Thm 3.1, t = 1), ψ : A → F_h^* any homomorphism and S ⊂ F_h^* any set. Then
 {−p ∈ ψ(Γ_h)·S} = {−p ∈ ±S} or {−p ∈ S}. So a firing rule built by transporting reduced global
@@ -142,3 +141,62 @@ the genus/quadratic layer (the (−p/h) = (d/h) = +1 sign of Prop 1.2(b)). The W
 multiplicative group, μ_{h+1} ⊂ F_{h²}^* — but that is T(F_h) again, which meets F_h^* (where −p lives) in {±1}.
 The only bridges from the (h + 1)-world to the (h − 1)-world are therefore non-homomorphic: "order ↦ integer ↦
 residue" (Box) or coordinates (Prop 1.2(b)). Both are size/integrality conditions, invisible to Galois data.
+
+(I3) Second construction: force "4cd | ord" by an algebraic identity (the GL₂ analogue of Mordell's polynomial
+identities): a family (E_b, R_b) over a curve B → 𝔸¹_t (t = p) whose point R_{b} reduced at every prime dividing the
+shot value p + 4c²d has order divisible by 4cd; at supersingular such primes this gives 4cd | h + 1 for free.
+
+**Proposition 3.3 (identity forcing is bounded by uniform boundedness; PROVED relative to Merel and to the
+existence of primitive divisors of elliptic divisibility sequences).** Let F be a number field of degree D, E/F an
+elliptic curve, Q ∈ E(F), m ≥ 2. Suppose m | ord(Q mod 𝔥) for all but finitely many primes 𝔥 of F (of good
+reduction, Q integral at 𝔥). Then Q is a torsion point whose order is divisible by m, so E(F) has a point of order
+m and m ≤ B(D) (Merel's bound); for D = 1, m ∈ {2, …, 10, 12} (Mazur), for D = 2, m ≤ 18 (Kamienny–Kenku–Momose).
+Application: if a family (E_b, R_b) over B (with [ℚ(B) : ℚ(t)] = D) forces 4cd | ord(R_b mod 𝔥) at all primes
+𝔥 | p + 4c²d (all p, b over t = p), then specialising at a point b₀ over t = −4c²d (where the shot value vanishes;
+any prime 𝔥 | p + 4c²d has b ≡ b₀ mod 𝔥 for a suitable b₀) gives Q = R_{b₀} ∈ E_{b₀}(ℚ(b₀)) satisfying the
+hypothesis (granted good reduction of the family at b₀), so 4cd ≤ B(D). **A fixed algebraic family forces only
+finitely many slices (c, d)**; with D = 1: 4cd ∈ {4, 8, 12}, the moduli of Mordell's classical identities.
+*Proof.* If Q has infinite order, the elliptic divisibility sequence of Q has a primitive prime divisor 𝔥_n in the
+denominator of nQ for all n ≥ n₀ (Silverman 1988 over ℚ; Cheon–Hahn 1999 over number fields — citation from
+memory, not re-checked); then ord(Q mod 𝔥_n) = n, and n ranging over integers prime to m gives infinitely many
+𝔥 with m ∤ ord: contradiction. So Q is torsion of order n₀, and ord(Q mod 𝔥) = n₀ for all 𝔥 ∤ n₀·(bad), so
+m | n₀ and (n₀/m)·Q has exact order m. Merel/Mazur/KKM. ∎
+*Scope / hypothesis that would have to fail (Assessment).* (a) A FIXED family: the slice set it serves is finite,
+so B2 (redteam-automorphic-2 Thm 2.2(iii), conditional on H) applies. (b) Families of degree D growing with the
+slice: a point of order N on a CM curve needs [F : ℚ] ≫ φ(N)/log log N (Silverberg; Clark–Pollack — from memory),
+and the family then is just ℚ(E[N])-level data, whose Frobenius at supersingular h is cyclotomic (Cor 2.2). So
+torsion forcing either serves finitely many slices or reduces to the cyclotomic condition with moving level.
+(c) Forcing at a SUBSET of the primes dividing the shot value (those with Frobenius in some class) is no longer an
+identity: it is a Kummer condition on a non-torsion point — positive-density but not forced, the lottery.
+
+(I4) Third construction: an infinite tower (Iwasawa ℤ_ℓ-towers, the torsion tower ℚ(E_tors), Kummer towers
+ℚ(E[∞], ∞⁻¹P)), where the (J)34 hypothesis "finite L" fails. What survives?
+
+**Proposition 3.4 (profinite extension of the (J)34 no-go; PROVED, elementary).** Let L/ℚ be Galois (possibly
+infinite), G = Gal(L/ℚ) with Haar probability μ, C ⊂ G closed and conjugation-stable, and
+P_C := {h unramified in L : Frob_h ⊂ C}.
+(a) If C has non-empty interior, P_C has positive lower Dirichlet density. Hence if P_C ⊆ Fire(p) (finite;
+FROBENIUS_FIRING Prop 1.2), then int C = ∅; if moreover C is Jordan-measurable (μ(∂C) = 0), then μ(C) = 0.
+(b) If L contains an infinite abelian extension of ℚ, there exist closed conjugation-stable C with μ(C) ≥ 1 − ε and
+P_C = ∅. So "positive measure" is NOT the right threshold: a sufficient tower condition can have positive measure,
+but then no equidistribution theorem (Chebotarev at finite level, Serre's ℓ-adic Chebotarev for Jordan-measurable
+sets, Hooley/Lenstra-type GRH theorems for Artin-type sets) can show P_C ≠ ∅ without showing P_C infinite.
+*Proof.* (a) int C ⊇ gU for an open normal U = Gal(L/L_U), L_U/ℚ finite Galois; being conjugation-stable, int C
+contains the full preimage of the conjugacy class of gU in Gal(L_U/ℚ), and finite Chebotarev gives density ≥
+1/[L_U : ℚ]. Finiteness of Fire(p) forces int C = ∅; then C = ∂C (C closed), so Jordan-measurability gives μ(C) = 0.
+(b) Every conjugacy class K maps to a single point of the infinite abelian quotient Gal(L^{ab'}/ℚ), whose fibres are
+Haar-null, so μ(K) = 0. Enumerate the countably many classes K_1, K_2, … of Frobenius elements; K_i is closed, so
+K_i = ∩_V K_i V over open normal V, and μ(K_i V) ↓ 0; choose V_i with μ(K_i V_i) < ε 2^{−i}. Then
+C := G \ ∪_i K_i V_i is closed, conjugation-stable (each K_i V_i is), μ(C) ≥ 1 − ε, and contains no Frobenius. ∎
+*Iwasawa towers specifically (PROVED).* (i) Cyclotomic ℤ_ℓ-tower: Frob_h = h ∈ 1 + ℓℤ_ℓ (ℓ odd), a cyclotomic
+condition. (ii) Anticyclotomic ℤ_ℓ-tower K^{ac} of an imaginary quadratic K (Gal(K^{ac}/ℚ) ≅ ℤ_ℓ ⋊ {±1},
+dihedral): for h inert in K, Frob_h restricts non-trivially to K, so its decomposition group is generated by a
+reflection, of order 2: **hO_K splits completely in K^{ac}** and the tower carries no information at inert h.
+(iii) Division towers ℚ(E[ℓ^∞]) of any E at supersingular h: Prop 2.1. So every ℤ_ℓ-tower attached to the CM
+structure sees an inert (= supersingular) certificate prime h only through h mod ℓ^∞ — i.e. exactly the ℓ-part
+of the ES modulus condition h ≡ −1 (mod 4cd), and nothing of the divisibility h | p + 4c²d.
+*Which (J)34 hypothesis is violated, and what replaces it (Assessment).* (J)34 Prop 1.2 needs L finite. In a tower
+the escape is int C = ∅ (necessary by (a)); then existence of a firing h must come from a DENSITY-ZERO existence
+mechanism, not from equidistribution. The known such mechanisms are: Elkies' supersingular primes (a CM value
+with a sign argument), primitive divisors (Zsigmondy, Bilu–Hanrot–Voutier for Lucas, Silverman for EDS), and
+sign/parity of a norm (Mordell's p + 4 ≡ 3 mod 4). §3.5 screens these.
