@@ -8,9 +8,21 @@ PHASE_DIAGRAM.md as merged from `side-agent/phase-diagram`. From-scratch scripts
 
 | Claim | Verdict |
 |---|---|
-| Prop 1.1 (normal form) + D-face | SOUND (one MINOR wording point, m1) |
-| Thm 2.1 (k-wall, band, sharpness) | SOUND |
-| Consequence "ES^{(y,1)} finite search?" | NOT claimed by the doc; R200 M1 stands (see §2 below; MINOR m2 on wording) |
+| Prop 1.1 (normal form) + D-face | SOUND (MINOR m1) |
+| Thm 2.1 (k-wall, band, sharpness, equality family) | SOUND — re-derived; 348 shots reproduced; 0 violations in 5.6·10⁶ shots |
+| Consequence "is ES^{(y,1)} now a finite search?" | NO — every slice finite, the band is unbounded; R200 M1 stands (m2: say so explicitly) |
+| Prop 3.1 (a), (b); Cor 3.2 | SOUND (MINOR m3, m4); e ≤ 1 / e = 2 EVIDENCE reproduced exactly |
+| Prop 4.1 identity | SOUND; θ readings SOUND-AFTER-REPAIRS (m5 attribution, m6 θ is an infimum) |
+| Thm 5.1 | SOUND-AFTER-REPAIRS (m7 quantifiers, m8 squares, m9 Step 4 shift, m13 Remark 2) — sieve uniformity, BV level, Siegel zeros all OK |
+| §6 B1 statement | SOUND, needlessly weak (m10); lead-in overclaims (m11) |
+| §6 class-layer conditional | SOUND |
+| T1 per cell | SOUND (m12 label) |
+| Labels overall | FAIR; no FATAL, no MAJOR |
+
+**Bottom line.** No FATAL and no MAJOR defect. The new theorem (Thm 2.1(a)) is correct, sharp and elementary; the
+sieve theorem (Thm 5.1) is correct relative to BV + Iwaniec, with presentation repairs. The main interpretive risk is
+reading "both slicings finite" as "ES^{(y,1)} is a finite search": it is not, and the document (to its credit) never
+says it is — but the §3 Reading and the verdict should say so in one sentence (m2).
 
 ## Claim-by-claim
 
@@ -170,3 +182,86 @@ prime to n and divides y², so they are ES^{[2]} solutions under GROWING_MUTE De
 (a) via FROBENIUS Thm 4.2(b)/UNIT_ORBIT Cor 1.2 ✓; shots at m²: m² + 4Q² coprime sum of two squares ✓ (brute
 force: no ES^{[2]} shot for n = 9, 25, 49 with Q ≤ 10⁵). (b) scaling ✓. "Any proof of a bounded-cap cell must use a
 non-square input" is a heuristic reading, not a theorem; label it Assessment.
+
+## Numbered defects (all MINOR; none FATAL/MAJOR)
+
+**m1** (Notation line 7–9 and Prop 1.1 statement). The shot datum allows any Q ≥ 1 but writes "overflow Q₁ (odd)";
+Q₁ is odd only if Q is odd or v₂(Q) ≤ v₂(K) (e.g. n = 5, Q = 2, g = 3: Q₁ = 2, den z = 4). The bijection holds with
+"Q₁ odd" as a restriction on the shot data. Repair: "shot data with Q₁ odd (the only ones relevant to the variants,
+whose den z is odd)".
+
+**m2** (§3 Reading "e ≤ 1: finite search, the k-wall" and "transition infinite lottery → finite search … between
+e = 2 and e = 1"; §6 table "FINITE"; Verdict 2/6). These are statements about slices; the ES^{[2]}/ES^{(y,1)} search
+for a single n is an unbounded union of finite slices (fixed-n examples with growing (k, Q₁): n = 3 has
+(Q₁, k) = (55, 2), (101, 232), (289, 2984); GROWING_MUTE R201 m3: infinite Pell orbits). Repair: add after Thm 2.1:
+"Thm 2.1 does not bound g in terms of n: the band is unbounded, and (GROWING_MUTE R201 m3) every ES^{[2]} point with
+μ² − n non-square lies on an infinite Pell orbit inside it. So ES^{(y,1)}(n) remains a non-finite search and R200 M1
+(bounded e, growing S: OPEN) stands; the k-wall only forces k and Q₁ to grow together." In §3 Reading say
+"(e ≤ 1: finite search on the k = 1 slice)".
+
+**m3** (§3 table, "status (k = 1 slice)" column). ES^□ "PROVED" and ES^{(y)} "PROVED" need "n non-square", and ES^{(y)}
+also "gcd(n, 15) = 1" (as in Cor 3.2/† of §6). Repair: add the qualifiers or a † footnote. Optional strengthening:
+the shot convention gcd(Q₀, n) = 1 is not needed for the solution (den z = Q₁² stays prime to n: for ℓ | n, ℓ | Q₀,
+ℓ ∤ Q₁ one has v_ℓ(xy) ≥ 2v_ℓ(Q₀); checked on 56 cases), so dropping it from the k = 1 slice removes the need for
+a_ℓ ≢ −1 and hence for gcd(n, 15) = 1 — if the author wants the slice defined without the convention.
+
+**m4** (§6 table row ES^{(S)}: "k-slices infinite … PROVED (sieve; UNIT_ORBIT 2.4)"). UNIT_ORBIT Thm 2.4 produces
+shots with k = (r+1)/(4Q₀) → ∞, not k = 1-slice points; the k = 1 infinitude for ES^{(S)} follows from Prop 3.1(a)
+(ES^{(y)} with Q₁ ∈ ⟨S⟩ ⊂ ES^{(S)}), hence carries the same † (non-square, gcd(n, 15) = 1). Repair: cite Prop 3.1 and add †.
+
+**m5** (§4 table "e = 1 … exactly the Coppersmith–Howgrave-Graham–Nagaraj threshold"; §4 Reading; Verdict 4;
+report SHARP 3). The CHN abstract (eprint 2004/339, accessed) states that **Lenstra** already proved
+#{d | N : d ≡ r (s)} = O((α − 1/4)^{−2}) for s ≥ N^α, α > 1/4; CHN improve to O((α − 1/4)^{−3/2}) and make it
+constructive. Repair: "the N^{1/4} threshold (Lenstra 1984; constructive, sharper count: CHN 2008)".
+
+**m6** (§4 "θ_e := 1/(2e+2)"; §6 table θ column; Verdict 4 "ES^{(y,1)} = θ ¼"; report SHARP 3). θ is not an
+invariant of a cell: on the Prop 4.1 face the e = 1 family has θ ranging over [1/4, 1/2) (k fixed, λ → ∞ gives
+θ → 1/2: log M/log N₁ = 0.486 at k = 1, λ = 10³⁰), and ES ⊂ ES^{[2]} (R = 1) sits at θ ≥ 1/2 on the same face;
+for the proved rows θ refers to the prime-face modulus 4∏S, a different face. Repair: define "θ(cell) := infimum
+of log M/log N over the face, attained along bounded λ" and say so in the table header; replace "ES^{(y,1)} = θ ¼"
+by "the e = 1 face reaches down to θ = ¼"; in §6 Reading note that the proved rows' θ is the prime-face modulus
+(consistent with θ_e → 0 as e → ∞).
+
+**m7** (Thm 5.1 statement). "ES^{(y,e)}(n) has a solution with e ≤ y^{(2+o(1))…}" — o(1) over a single solution is
+meaningless. Repair: "For every A ≥ 1, η > 0 and odd n > 1 there is x₀(A, η, n) such that for every x ≥ x₀ there is
+a solution of ES^{(y,e)}(n) with x/8 ≤ y ≤ nx and e ≤ y^{(2+η)log₃y/(A log₂y)}."
+
+**m8** (Thm 5.1 proof, first sentence: "squares follow from a non-square divisor by scaling"). S is defined as the
+first k odd primes not dividing n, where n is then the divisor p; a prime s ∈ S dividing m²/p can remain in den z
+after scaling, violating Def 4.1 (ℓ ∤ n). Repair: "run the argument for the divisor p with S the first k odd primes
+not dividing the original n" (FROBENIUS 4.2(c) already requires S prime to n).
+
+**m9** (Thm 5.1 Step 4: "Q := ∏ s_i^{a_i+L} with exponents in [0, 2L] satisfies Q² ≡ −n/4"). True only if the
+represented class is that of (−n/4)·∏ s_i^{−2L} (EXPONENT_CAP Thm 3.2 says this explicitly); as written it is false.
+Repair: copy the EXPONENT_CAP sentence. (Also Step 2: "·2 log P" should be "·3 log P" if the /log(x/2) factor is
+dropped — immaterial.)
+
+**m10** (§6 B1 statement, report "Results"). The proof never uses that u is a non-residue (g′ ≡ 1, r^a ≡ 1 (mod 4)
+already give g ≡ 1); the statement holds for EVERY reduced class u mod r (`review_pd2_b1.py`: uncovered primes found
+in all classes mod 5 and 13 for the g ≤ 60 shot classes, residues included; no x(u) in any class with g ≤ 400).
+More generally it holds for every modulus all of whose prime factors are ≡ 1 (mod 4). Repair: drop "non-residue",
+state the stronger form.
+
+**m11** (§6 T1 paragraph: "Covering proofs are excluded for every cell (B1; PROVED, elementary)"). The proof covers
+shot identities g | n + 4Q² only. Repair: "Covering by finitely many shot identities is excluded for every cell".
+
+**m12** (§6 T1: "any proof of a bounded-cap cell must use a non-square input such as (n/r) = −1"). Heuristic, not
+proved. Repair: mark "(Assessment)".
+
+**m13** (Thm 5.1 Remark (2) and report Spark 1: "the exceptional conductor avoided by the choice of S"). The
+exceptional modulus may divide 4 rad(n), which the choice of S cannot avoid. Repair: "provided the exceptional
+modulus, if any, does not divide 4 rad(n)" or keep purely as Assessment without the mechanism claim.
+
+## Scripts (all from scratch; none of `scripts/pd_*` reused)
+
+* `review_pd2_brute.py NMAX QMAX` — direct shot enumeration by Q, ES^{[2]} decided by den z | y² on the exact solution;
+  tests (1.1), duality, wall (a), band (b). Run: `61 100001` (5 617 435 shots, 231 ES^{[2]}, 0 violations).
+* `review_pd2_wall.py NMAX KMAX FAMMAX` — duality-face enumeration to 3·W(k); equality families. Run: `101 6 20000`.
+* `review_pd2_k1.py A|B …` — §3 k = 1 EVIDENCE (e ≤ 1, e = 2) and one-mute-prime histogram (p < 10⁵).
+* `review_pd2_theta.py 61 3 6 151` — Prop 4.1 equivalence, shots, examples, θ along λ → ∞.
+* `review_pd2_thm51.py` — Thm 5.1 exponent anatomy in log space.
+* `review_pd2_b1.py 400 60 3000000` — B1 core lemma for all units u; uncovered primes per class.
+
+Sources: CHN abstract accessed (IACR eprint 2004/339). Lenstra 1984, Iwaniec linear sieve, BV: not re-accessed;
+used in their standard forms (Halberstam–Richert Thm 8.4 / Friedlander–Iwaniec Opera de Cribro Thm 11.13 as cited
+in UNIT_ORBIT Lemma 2.2 R190 m6), consistent with R190/R200 checks.
