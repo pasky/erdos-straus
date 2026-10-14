@@ -1,0 +1,1 @@
+P=100000 primes=9590 B=9577 mismatches(B vs J)=0
