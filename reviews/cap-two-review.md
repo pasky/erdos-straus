@@ -2,7 +2,7 @@
 
 Reviewer: R213 (side agent, branch side-agent/review-cap-two). Reviewed commit: side-agent/cap-two as merged at start.
 From-scratch scripts: `scripts/review_r213_*.py` (none reuses `y6_*`).
-Repairs applied: (none yet — filled in at the end if the author is quiet).
+Repairs applied: none (author at checkpoint 1, last commit minutes before this review; all defects MINOR, forwarded for author repair).
 
 ## Summary verdict per claim
 
