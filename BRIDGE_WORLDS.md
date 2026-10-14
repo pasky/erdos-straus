@@ -69,3 +69,14 @@ Type I (fg = p² + 4c²d, f ≡ g ≡ −p mod 4cd): Frobenius at f acts on μ_{
 ⟹ p ≡ 3 (mod 4), where g = 1 (f = p² + 4c²d) is a certificate. The dual Hasse window (O207 spark 1) is exactly the
 g ∈ {1, 3, 5} family (p ≥ 17), i.e. g = 3 for p ≡ 1 (4): the greedy x = (p + 3)/4 congruence family (B1); the
 suggested CM by ℚ(√−d) never occurs (0/10 737, y3_typeI_hasse.py). Memo y3_typeI_hasse_window.
+
+## 5. Prime-modulus Type II (O207 spark 2): census and CONJECTURE PM-II (EVIDENCE)
+Exhaustive census of all Type II certificates (no range cut on h) via (4cdt − p)j = c + t (scripts/y3_census.c):
+mean N_II^pr(p) ≈ (0.27–0.33)·log²p and mean N_II ≈ (0.10–0.12)·log³p for 10³ ≤ p ≤ 10⁸ (dyadic blocks to 2¹⁹, full
+[10⁵, 10⁶], samples at 10⁷, 10⁸). Primes with N_II^pr ≤ 1: 13, 193, **3361 (0)**, 76441; min over [10⁵, 10⁶] is 5.
+All low cases have p − 1 divisible by many small primes (stacked QRs: by reciprocity no small prime h can fire, since
+(pd/h) = −1 is necessary). Adversarial p ≡ 1 (mod 4∏_{q≤29} q) up to 1.3·10¹¹ still have 14–20 prime-firing slices
+with cd ≤ 200 (y3_adversarial.py). Odd squares: 0 certificates throughout (T1 control).
+**CONJECTURE PM-II.** Every prime p ≥ 5 except p = 3361 has a prime-modulus Type II certificate. (Trivial for
+p ≡ 3 mod 4.) It is strictly stronger than Type II-ES, so B2/B3/B6 apply verbatim; no sieve handle (memo
+y3_primemod_census).
