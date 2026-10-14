@@ -141,3 +141,61 @@ most (left side of (Σ))/θ.
 both fix u mod T², i.e. c. Summing the covered masses of the q − 1 slices gives at most the left side of (Σ). ∎
 *Remark.* DEPTH_ASPECT Thm 2.5 bounded the left side of (Σ) (its counts are over all tuples, all c) by < 1 and concluded
 for every c. For the no-covering conclusion, the averaged form (Σ) suffices; it gains the factor q − 1.
+
+**Lemma 2.2 (Case A at small depth; PROVED).** Case A data (DEPTH_ASPECT §2.2) have depth α ≥ 3. Their number per pattern
+(α; λ, β, κ) (f = α − β − κ ≥ 0, ζ := max(β, f) − λ ≥ 1) is at most each of the six bounds listed in
+`scripts/fs_caseA.py`: (a1', b1, K) ↦ E = a1'b1K − 1; (a1', K, F) ↦ b1 by (A4); (b1, K) with E ∣ T^α + b1²K, E ≡ −1 (b1K)
+(Lemma 1.4); (a1', b1) with E ∣ T^α a1' + b1, E ≡ −1 (Ta1'b1) (Lemma 1.4); z then (b1, K, F) by (A3) (Lemma 1.3); (a1', z, K)
+with b1 + F = a1'z, b1F = (T^α + z)/K (≤ 2). Only E and α determine the cylinder, so g' is not counted.
+*Proof.* The routes are DEPTH_ASPECT Lemma 2.3 (A1)–(A4) with Lemmas 1.3, 1.4. Small depth: T | z and z ≠ 0 give deg z ≥ 1,
+and deg z ≤ ζ. α = 1 forces β = f = 0, so ζ ≤ 0: impossible. α = 2: (β, κ, f) ∈ {(0,2,0), (0,1,1), (1,1,0)}; the first has
+ζ ≤ 0; in the others λ = 0 (so a1' = 1), z = μT, and (A3), (A0) give b1KF = T(T + μ), F + b1 = μT with K = T, {b1, F} = {1, T + μ}
+(monic), so T + μ + 1 = μT, i.e. μ = 1 and μ + 1 = 0: impossible (q odd). ∎
+
+## 3. The theorem
+
+**Theorem 3.1 (no finite linear covering of ES_q(T^k) for q = 3^r, r ≥ 4; PROVED, computer-assisted, given the inputs of
+DEPTH_ASPECT Thm 2.5 (O173 Lemmas 1.1, 2.1 as re-derived by R187; R166 Case A steps; compactness criterion)).**
+Let q = 3^r with **r ≥ 4** (q ≥ 81) and k ≥ 2. Then O(q, T^k) ≠ ∅: ES_q(T^k, ·) has no finite linear covering. More precisely:
+(a) r = 4: the covered relative measure, summed over the 80 c-slices, is ≤ 2.16; so at least 75 of the 80 c-slices have
+    more than half of their measure in O(81, T^k);
+(b) r ≥ 5: for **every** c ∈ F_q^*, the c-slice minus a set of relative measure ≤ 0.25 (r = 5), ≤ 0.37 (r = 6),
+    ≤ 0.012 (r = 7), ≤ 0.0033 (r = 8), decreasing beyond, lies in O(q, T^k).
+For char ≥ 5 this was known (O140 Prop 4.1); r ≥ 27 was DEPTH_ASPECT Thm 2.5. New: 4 ≤ r ≤ 26.
+*Proof.* Take k = 2 (N(s) and the Case A exponent only grow with k). By Lemma 2.1 it suffices to certify (Σ). Its Case B part
+is Σ_s q^{1−⌈s/2⌉}·Σ_patterns (mult)·(min of the Lemma 1.6 bounds), mult = 2 for a < b, 1 for a = b (w ↔ C symmetry);
+its Case A part is Σ_α q^{−α}·Σ_patterns (min of the Lemma 2.2 bounds) for α ≤ 40, plus DEPTH_ASPECT Lemma 2.4 for α > 40.
+(i) Finite Case B part, 3 ≤ s ≤ S (S = 200 for r = 4, 100 for r = 5, 60 for r ≥ 6): `scripts/fs_sum.c` (long double; every
+term is exp of a sum of ≤ 10⁴ logarithms of integers, relative error ≪ 10⁻¹², and the total is inflated by 10⁻⁹).
+Independent check: `scripts/fs_sum_check.py` re-implements the table of Lemma 1.6 in exact integer/rational arithmetic and
+agrees with fs_sum to 10 significant digits on every term s ≤ 40 (r = 4).
+(ii) Tail s > S: `scripts/fs_tail.c`. Normalise p = (a, z, y, t)/s. On each dyadic box of p-space (adaptive, ≤ 2³⁰ boxes),
+every route is bounded by exp(s·φ⁺ + const)·(s + 1)^{0 or 1} with φ⁺ an upper bound over the box: N*(d) ≤ q^d,
+C(n, d) ≤ exp(n H(d/n)) and multinomials ≤ exp(n H(·)), whose continuum versions B(d, e) = (d + e)log(d + e) − d log d − e log e
+are increasing in d and e, so they are bounded at the box's upper corner; binomials with shifted arguments are first
+enlarged (C(s−2, a−1) ≤ C(s, a), etc.). The class-count conditions of Lemmas 1.4/1.5 are linear in (n, d, ρ) for fixed
+(m, k) (homogeneous of degree 1), so they are checked on the box including the integer shifts of n, d, ρ, uniformly for all
+s ≥ S. The number of integer patterns of level s in a box of width w is ≤ (sw + 1)³. Each box contributes
+Σ_{s > S} 2(sw + 1)³·min_route[e^{sφ⁺ + const}(s + 1)^{0/1}]·q^{1 − s/2}, summed explicitly until the term ratio (bounded
+by ((s+2)/(s+1))^{3 or 4}e^{φ⁺ − (log q)/2}) is < 0.999, then by a geometric series. Boxes with φ⁺ ≥ (log q)/2 would make the
+certificate fail; for r ≥ 4 none occurs at minimal width 2⁻⁸.
+(iii) Case A: `scripts/fs_caseA.py` (exact rationals, α ≤ 40) plus the geometric majorant of DEPTH_ASPECT Lemma 2.4 for
+α > 40 (ratio ≤ (43/42)³·6/√q < 1 for q ≥ 81).
+Result (`scripts/fs_certify.sh`, log `data/fs/certify.txt`): left side of (Σ) ≤ 2.154 (r = 4; q − 1 = 80), 0.248 (r = 5),
+0.369 (r = 6), 0.0114 (r = 7), 0.0032 (r = 8), and < 10⁻³ for 9 ≤ r ≤ 30; for r ≥ 27 also DEPTH_ASPECT Thm 2.5. In every
+case (Σ) holds; for r ≥ 5 even the left side is < 1, which gives (b) for every c. ∎
+*What changed against Thm 2.5 (r ≥ 27):* (1) the exact degree identity (Lemma 1.1) and loss-free routes (Lemma 1.2);
+(2) divisor counts by degree (Lemma 1.3) instead of 2^n, 3^n; (3) divisors in residue classes with an absolute bound
+(Lemmas 1.4, 1.5) — no divisor function at all on the routes that bind; (4) the square-root-class route R10 with the
+average Σ2^{ω(v)} ≪ s·q^{deg v} instead of a maximal divisor bound; (5) averaging over c (factor q − 1, needed only at r = 4);
+(6) a rigorous adaptive tail instead of truncation + crude tail.
+
+**Where the method stops: r = 3 (EVIDENCE + Assessment).** At q = 27 the continuum exponent max_p min_route φ(p) equals
+(log q)/2 to grid precision (`/tmp`-style optimiser, reproduced by fs_tail: 835 failing boxes, all near
+p ≈ (a, z, y, t)/s ≈ (0.31, 0.325, 0.20, 0.168)). There two routes meet exactly at the exponent 1/2:
+R1 (v, then a triple factorisation of T^{s−2} + v₁: exponent τ + H(ζ, α, β)/log q) and R10 (v, m', then w₁ in a
+square-root class mod Tv₁ — valid only above the Coppersmith threshold τ > αβ/(α + β)). Below the threshold the class bound is
+lost; above it R1 is ≥ 1/2. The finite sums at r = 3 (s ≤ 150) also do not converge (per-s terms ≈ 2, decreasing only slowly).
+So r = 3 needs either a divisor-in-class bound beyond the Coppersmith range (for counting, not finding; over ℤ the analogous
+1/4-barrier is open), or an *average* bound for triple factorisations of T^{s−2} + v₁ over short families of v₁ — a
+short-interval d₃ problem in F₃[T]. Both are exactly B3-type inputs.
