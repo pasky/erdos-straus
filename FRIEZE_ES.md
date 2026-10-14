@@ -116,7 +116,7 @@ polygon size whose zero locus is a character fibre (for r ≤ 12 and r ≡ 0 (4)
 | Hexagon + ear (ES = hexagon with a mergeable pair) | "bounded multiplicity" (B3): hexagons are plentiful and N-free | merging two arcs = an ear = a divisor condition, so it returns to the pentagon |
 | Windmill on F(N) | H-B parity | multilinear surface, only the reflection; #F₋(p) even (y2_parity_involution) |
 | Zamolodchikov forcing | "no deterministic input" | forces an even edge (mod 2) only; mod 4 is impossible by T1 |
-| Positivity (CC ear-lemma analogue) | §3 says a proof must use positivity | positivity forces *sizes* (some letter ≤ N^{1/3}), not residues. A size-forced word has its sign fixed by congruences of N (B1), which T1 kills |
+| Positivity (CC ear-lemma analogue) | §3 says a proof must use positivity | positivity forces *sizes* (for interior words some letter is ≲ (2N)^{1/3}), not residues. A size-forced word has its sign fixed by congruences of N (B1), which T1 kills |
 
 ## 6. Verdict (O210 checkpoint 1)
 * **PROVED (new as statements; elementary):**
@@ -135,3 +135,12 @@ polygon size whose zero locus is a character fibre (for r ≤ 12 and r ≡ 0 (4)
   one 2-adic bit at a unique even edge, transportable to a small modulus o, and enforced at squares only through
   positivity. Every existence attempt still needs a word with a prescribed small datum, which is B2/H-A.
 * **ES is not solved; no infinite case of ES is claimed.**
+
+## 7. Literature used
+* SVZ: Short–Van Son–Zabolotskii, arXiv:2312.12953 (Thm 1.6 and the definitions read in the PDF).
+* Böhmler–Cuntz, arXiv:2407.12596.
+* Cuntz–Holm–Jørgensen, arXiv:1909.02332 (authors verified via the arXiv API).
+* Morier-Genoud–Ovsienko, arXiv:1811.01229 (continuants = frieze entries; per R205).
+* Ventas, arXiv:2605.04551 (sources/lit2026). Per R205 it has the V₁ row and the boundary-word shots of LENGTH_THREE;
+  nothing in §§1–4 depends on it.
+* In-campaign precursor: BRAINSTORM/farey_chain_frieze.md (O144).
