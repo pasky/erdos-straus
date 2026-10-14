@@ -71,3 +71,27 @@ n = 7 665, 29 505, 202 545 have all |tn + 1| (|t| ≤ 3) of the form 2^a·prime 
 "the sign is a genus character ψ_t(q) = (−t/q) of the prime factors" omits q = 2: for odd t, 2 | tn + 1 and
 χ(2) = (2/n), which is −1 for n ≡ 5 (8). Harmless (n ≡ 5 (8) is settled by Prop 2.1(c)) but state "for n ≡ 1 (8)" or
 add the factor (2/n)^{v₂(tn+1)}.
+
+### D5 (MAJOR, upgrade) — the three-bit law for signed words is PROVABLE now; label CERTIFIED undersells it, and the ε_∞ sign convention is garbled
+*Location:* SYNTHESIS_SPARKS4 §1 "Three-bit law (… CERTIFIED for all signed …)", s4_three_bits_meta "Three bits",
+s4_kudla_green_infinity K2 (relies on it), AGENT_REPORT "Points for the reviewer".
+*Proof (reviewer; all steps positivity-free).* Let w ∈ X_n(ℤ), n odd > 0, t u v ≠ 0; ε_v = +1 iff Q_w is ℚ_v-isotropic.
+1. For odd ℓ, CHI_FLIP Thm 1.1's local computation ε_ℓ = (−A/ℓ)^{v_ℓ(n)} uses only that B = tv − 1 (the 2×2 leading
+   minor) is an ℓ-unit when ℓ | n (B | tn + 1) and unimodularity when ℓ ∤ 2n — no positivity. So ∏_{ℓ odd} ε_ℓ = χ(w).
+2. Hilbert reciprocity for C₀(Q_w): χ = ε₂·ε_∞.  3. L1: ε_∞ = −1 ⟺ w positive.
+4. ε₂ is a function of (t, u, v) mod 8 (CHI_FLIP Cor 1.2, R198 Hensel lemma, positivity-free); the certificate is a
+   function of w mod 4.
+5. On positive words certificate ⟺ χ = −1 ⟺ ε₂ = +1 (MODEL_SPECIFIC 3.1(a) = the 240 χ = −1 cells). Every one of the
+   320 odd-n cells mod 8 contains positive words (letters in [9, 16]), so certificate ⟺ ε₂ = +1 is a **cell identity**,
+   valid for all words.
+6. Signed w: ε_∞ = +1, so χ = ε₂, i.e. certificate ⟺ χ = +1 ⟺ χ·s_∞ = −1. ∎
+(The route via TRANSPORT Thm 3.1 is the same: its 2-adic factor is ε₂ up to (−1, −n)₂, a function of n mod 4.)
+*From-scratch check* `scripts/review_r219_threebit.py 1001` (own Hilbert symbols at 2, ∞ and odd ℓ on ⟨v, vB, nB⟩, all
+words with |t| ≤ n + 3): 77 658 words (56 260 signed), 320 cells; 0 violations of each of (a) χ = ε₂ε_∞, (b) certificate
+⟺ ε₂ = +1, (c) certificate ⟺ χ·s_∞ = −1, (d) ε_∞ = −1 ⟺ positive, (e) ε₂ constant on cells mod 8, (l) ε_ℓ =
+(−A/ℓ)^{v_ℓ(n)} for all ℓ | n.
+*Convention defect:* §1 writes "ε_∞ε₂ε_n = 1 … the ∞-factor is (−1)^{ind_−(Q_w)/2}". With ε = isotropy signs, ε_∞ = −1
+iff ind_− = 0, whereas (−1)^{ind_−/2} = +1 iff ind_− = 0: the two differ by a global sign (−(−1)^{ind_−/2} = ε_∞;
+TRANSPORT's s_∞-factor is the Hilbert-symbol-product normalisation, not the isotropy one).
+*Repair:* label the three-bit law PROVED (all words), cite the 6-step proof; write ε_∞ = −(−1)^{ind_−/2} = −s_∞;
+K2 of s4_kudla_green_infinity then becomes PROVED unconditionally.
