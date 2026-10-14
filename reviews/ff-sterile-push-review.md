@@ -3,10 +3,28 @@
 Reviewer: R217 (side agent, branch side-agent/review-ff-push). Document reviewed at merge of side-agent/ff-sterile-push
 (commit as merged at review start). From-scratch scripts: `scripts/review_fs_*`.
 
-Status: IN PROGRESS (written claim by claim).
+Status: COMPLETE (round 1). **No FATAL, no MAJOR defects.** 5 MINOR + 4 optional.
+Repairs applied: m1–m5 applied directly to FF_STERILE_PUSH.md, each marked "(R217 repair)" (author idle since the O216
+checkpoint commit; optional m6–m9 left to the author).
 
 ## Summary verdicts
-(filled in at the end)
+| claim | verdict |
+|---|---|
+| Lemma 1.1 (Ev = T^s + m′w², y + t = max(a, b)) | SOUND |
+| Lemma 1.2 (loss-free routes) | SOUND |
+| Lemma 1.3 (divisors by degree) | SOUND |
+| Lemma 1.4 (FF Lenstra, ≤ 2 if 3ρ > n) | SOUND (proved from scratch; brute force F₃, F₅, F₇: 0 violations, sharp) |
+| Lemma 1.5 (FF Coppersmith, threshold ρ > d(n − d)/n) | SOUND (proved from scratch; brute force: 0 violations, bounds 3 and 5 attained) |
+| Lemma 1.6 (19-route table, R10 with Σ2^ω) | SOUND |
+| Lemma 2.1 (averaging over c) | SOUND |
+| Lemma 2.2 (Case A routes, α ≤ 2 empty) | SOUND |
+| **Theorem 3.1** (r ≥ 4, all k ≥ 2; r ≥ 5 every slice) | **SOUND** — reduction re-derived; certificate audited and *independently reproduced* (own finite sum, own rigorous tail, own Case A) for r = 4..45: total 1.68 (r = 4, need < 80), 0.18 (r = 5), 0.039 (r = 6); minor wording repair m5 |
+| fs_certify.sh / fs_sum.c / fs_tail.c / fs_caseA.py | SOUND (correct, fail closed; tail very loose but valid) |
+| §3 end: r = 3 barrier (EVIDENCE/Assessment) | SOUND-AFTER-REPAIRS (m1–m3: stronger negative; second critical region; exponent −0.027 is a grid artefact, ≈ −0.021) |
+| §4 char 2 Frobenius (PROVED) | SOUND (verified over F₂ for k = 2, 4, 6) |
+| §5 reformulation (S1)–(S3) (PROVED) | SOUND (m4 presentation) |
+| §5 census 94/27 > 2 (CERTIFIED) | SOUND (independent exact counts s ≤ 11 already give 780/243 > 2) |
+| Labels (Conj. 0.2 not proved; r = 3 EVIDENCE) | SOUND |
 
 ## Claim-by-claim
 
@@ -39,7 +57,7 @@ Nothing hidden: no hypothesis gcd(F, Q) = 1 is needed, and "monic or not" is har
 From scratch: `scripts/review_fs_lenstra_bf.py` (own polynomial arithmetic; divisors from a known factorisation, all scalar
 multiples included; every monic Q with deg Q ≤ 5 (p = 3) / ≤ 3 (p = 5); random highly-factorable F with n ≤ 14 (p = 3),
 n ≤ 12 (p = 5) plus F = ∏ of all monic irreducibles of degree ≤ 2 and variants with repeated linear factors):
-p = 3: 848 429 + 565 594 (degree, Q) groups; p = 5: 246 073 + 127 398 groups; **0 violations** of "≤ 1 if d < ρ or n − d < ρ"
+p = 3: 848 429 + 565 594 (degree, Q) groups; p = 5: 246 073 + 127 398 groups; p = 7 (n ≤ 9, deg Q ≤ 3): 156 190 groups; **0 violations** of "≤ 1 if d < ρ or n − d < ρ"
 and "≤ 2 if 3ρ > n"; the bound 2 is attained thousands of times (so it is sharp).
 
 ### Lemma 1.5 (FF Coppersmith–Howgrave-Graham by pigeonhole) — SOUND
@@ -52,7 +70,8 @@ Note: the proof needs deg x₀ ≤ X, i.e. ρ ≤ d; for d < ρ the count is ≤
 (both scripts rely on this; fine).
 From scratch (same script): in every group with 3ρ ≤ n (Lenstra not applicable), d ≥ ρ, n − d ≥ ρ, the least m + k over
 m ≤ 12, k ≤ 40 satisfying (C) was compared with the true maximal class size: 0 violations; the Coppersmith bound is
-attained with value 3 (p = 3: 6 groups; p = 5: 75 groups), so the test reaches the regime beyond Lenstra.
+attained with value 3 (p = 3: 6 groups; p = 5: 75 groups) and even with value 5 (p = 7: 4 groups), so the test reaches
+the regime beyond Lenstra and the lemma is sharp there.
 
 ### Lemma 1.6 (19-route table) — SOUND
 Every row re-derived (n, d, ρ, coprimality):
@@ -197,7 +216,7 @@ by the DEPTH_ASPECT crude form, 5.9·10⁻⁵ at r = 46, decreasing) — MINOR m
 ## Numerics (all from scratch, R217)
 | script | what | result |
 |---|---|---|
-| `review_fs_lenstra_bf.py` | Lemmas 1.4/1.5 vs. true max class sizes, all monic Q, all scalar multiples | F₃: 1 414 023 groups, F₅: 373 471 groups, 0 violations; bound 2 and Coppersmith 3 attained |
+| `review_fs_lenstra_bf.py` | Lemmas 1.4/1.5 vs. true max class sizes, all monic Q, all scalar multiples | F₃: 1 414 023 groups, F₅: 373 471, F₇: 156 190 (n ≤ 9, deg Q ≤ 3), 0 violations; bound 2 and Coppersmith bounds 3 (F₃, F₅, F₇) and 5 (F₇) attained |
 | `review_fs_tuples.py`, `review_fs_count.c` | exact Case B tuples; Lemma 1.1 asserted on each | q = 3 (s ≤ 11): 72 tuples; q = 5 (s ≤ 9): 32; q = 7 (s ≤ 8): 28; 0 identity failures; per-s counts = bsE_famcount |
 | `review_fs_cmpcounts.py` | exact pattern counts ≤ Lemma 1.6 minimum | q = 3, 5, 7: 0 violations (max ratio 1.0 / 0.5 / 0.67) |
 | `review_fs_exact.py` | exact-integer route values; exact rational finite sum | r = 4, s ≤ 30: 750856592445423068283984511/523347633027360537213511521 ≈ 1.4347186173, = C code to 10⁻¹² |
