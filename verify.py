@@ -24880,4 +24880,36 @@ def check_fD():
 check_fD()
 
 
+def check_fE():
+    # (fE) SIGN_IDENTITY (O205/R204): R204 from-scratch checks of Lemma 1.1 ((u,v)-form, chi = (-uv/n0)), Lemma 1.2,
+    # the 240/80 cell split, Prop 4.1 Gram/Diff dichotomy on all 50 008 words of odd n <= 2000, and the exact-rank
+    # certificate (no Q-linear relation, sign counts vs 48-column dictionary) on 150 rows per class mod 8.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "review_si_lemmas.py", "2000"], capture_output=True, text=True, timeout=600,
+                       env=env, cwd=sdir)
+    assert r.returncode == 0, ("SIGN_IDENTITY lemmas subprocess", r.stderr[-2000:])
+    for s in ("cells mod 8 with K odd: 320 chi=-1: 240 chi=+1: 80", "Lemma 1.2 certificate failures: 0",
+              "odd n<=2000: words=50008 chi/n0 mismatches=0 bound violations=0 gram/injectivity mismatches=0 "
+              "Diff mismatches=0"):
+        assert s in r.stdout, ("SIGN_IDENTITY R204 lemmas", s, r.stdout[-2000:])
+    r = subprocess.run([sys.executable, "review_si_rank.py", "150"], capture_output=True, text=True, timeout=600,
+                       env=env, cwd=sdir)
+    assert r.returncode == 0, ("SIGN_IDENTITY rank subprocess", r.stderr[-2000:])
+    for c, rk in ((1, 37), (3, 32), (5, 32), (7, 34)):
+        s = (f"class {c} rows=150 rank_Q(C)={rk}  Np:CERT Nm:CERT S:CERT X:CERT NpI:CERT NmI:CERT SpT:CERT SmT:CERT")
+        assert s in r.stdout, ("SIGN_IDENTITY R204 rank", s, r.stdout[-2000:])
+    assert "sanity OK" in r.stdout
+    print(f"== (fE) SIGN_IDENTITY R204: 50 008 words n <= 2000 (chi = (-uv/n0), Diff dichotomy), 240/80 cells, "
+          f"no linear identity with 48 classical columns; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fE()
+
+
 print("\nall checks passed")
