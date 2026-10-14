@@ -12,10 +12,16 @@ From-scratch scripts: `scripts/review_r215_thm31.py` (Thm 3.1 symbolic + n ≤ 1
 | "uncovered unit set is exactly {1} at levels 14, 42, 70, 210; {1, 211, 421, 631} at 840" | SOUND (well-posed; see m1 for a sharper/simpler statement) |
 | level-L harness (Mordell's six for 4; 8, 11, 5, 6, 12 counts; §3.2 table) | SOUND (all reproduced independently) |
 | novelty of Thm 3.1 | not claimed by author; reviewer could not locate the exact 7/n statement in accessible sources (see §1.4) |
-| SHARP 2: full T1 for all 4 ∣ M (PROVED), fails for 5, 6, 7, 11 (CERTIFIED) | (pending) |
-| SHARP 3: no lattice invariant sees S₇ | (pending) |
-| §1 free slices = inert primes for M ∈ {4, 6, 7} | (pending) |
-| §4 lottery calibration, §5 order 3 | (pending) |
+| SHARP 2: full T1 for all 4 ∣ M (PROVED) | SOUND (cite the ℕ-point form of ET §4, m4) |
+| SHARP 2: fails for 5, 6, 7, 11 (CERTIFIED); 7/9, 7/25 witnesses | SOUND-AFTER-REPAIRS (counts are ET-shaped tuples, not Type I/II solutions, m5) |
+| (J)46 "7 is a T1-bearing numerator" | must be corrected — exact wording in §2.4 |
+| SHARP 3: S₇ not a function of the ℤ-isometry class (n = 5 example) | SOUND (headline wording m7) |
+| §1 free slices = inert primes for M ∈ {4, 6, 7} | SOUND |
+| §4 lottery calibration (c) | SOUND-AFTER-REPAIRS (false "min f₄ = 6", m9; caveats m10) |
+| §5 order 3 (d) | SOUND |
+| §3.3 per-ℓ core coverage counts | SOUND (6, 5, 5 for 7 at ℓ = 11, 13, 17 and 3, 4 for 4 at ℓ = 11, 13 reproduced with my menu) |
+
+**Overall: no FATAL, no MAJOR. Minor repairs m1–m11 below.**
 
 ## 1. Thm 3.1 and the menu (§3)
 
@@ -158,7 +164,7 @@ class number plays no role in the proof — m8).
 * Near misses re-verified: f₇(p) ≤ 1 for 11 ≤ p ≤ 1500 exactly at 43, 127, 211 (own Python divisor counter, unordered
   x ≤ y ≤ z); the three single solutions 7/43 = 1/10 + 1/16 + 1/3440, 7/127 = 1/20 + 1/196 + 1/62230,
   7/211 = 1/32 + 1/520 + 1/438880 check exactly; 7/43, 7/127 are I-c (5, 2, 13), (5, 2, 27) (b = 8, 49; c = 1, 2). The
-  author's C engine (`ms_census.c`, compiled by me) to 3·10⁵ gives the same f ≤ 1 list (run status in §8).
+  author's C engine (`ms_census.c`, compiled by me) to 3·10⁵ gives the same f ≤ 1 list (f₇ ≤ 1 exactly at 43, 127, 211 to 3·10⁵; §9).
   f₈ = 0 at 11, 17, 131, 241 confirmed.
 * **Defect (m9): "For 4, min f = 6 on 11 ≤ p ≤ 3·10⁵" is false.** f₄(13) = 4 (1/4 + 1/18 + 1/468, 1/4 + 1/20 + 1/130,
   1/4 + 1/26 + 1/52, 1/5 + 1/10 + 1/130 — complete list, own brute force) and f₄(17) = 4; ms_census agrees
@@ -180,3 +186,53 @@ correct (also brute-checked for all p ≤ 10⁶). Rates recomputed from scratch 
 1771/19564 = 9.05 %; M = 7, p ≡ 1 (21): 1817/6530 = 27.83 % — **exact match**. I did not re-run the 8-cell cube-indicator
 split; the author's "no detected association" (EVIDENCE, Boolean indicators only, explicitly not the full cubic
 characters) is appropriately weak. **Verdict: SOUND as labelled.**
+
+## 7. Not re-checked
+y7_split_norm (I2; residue classes of π mod 5, 9) and the 8-cell cube-indicator table of §5 were not recomputed; both are
+negative EVIDENCE with appropriately narrow labels. The PARI class count "59 mixed classes for n ≤ 150" was not
+reproduced at that range (mine: n ≤ 40, same picture). Literature on 7/n coverings beyond PW/ET: not accessible (§1.4).
+
+## 8. Defects
+No FATAL. No MAJOR.
+* **m1 (MINOR, §3 Thm 3.1 last paragraph / memo y7_mordell_levels "Reading").** The exactness "{1} at 14, 42, 70, 210"
+  needs only the trivial size argument (every family has positivity for all n ≥ 1 in its class, and 7/1 > 3), not
+  ident_numerators Lemma 3.1's case analysis; and it is menu-independent, while the 840 statement is menu-specific.
+  Repair: add "(lower bound: a covered class 1 mod q would solve 7/1; upper bound: the nine Thm 3.1 families)".
+* **m2 (MINOR, Thm 3.1(a)).** State that repeated denominators are allowed (n ≡ 6, 5, 3 use 1/(2dn) twice, 1/(dn)
+  twice, 1/d twice), as in PW's ℕ³ convention.
+* **m3 (MINOR, §3 "Novelty not claimed").** Cite PW Prop 2.1/2.3 (m-general parametrisation, sources/pw.txt
+  l. 115–245) as the source of the five family shapes; keep "classical type".
+* **m4 (MINOR, §2 and memo y7_full_t1).** "ET Prop 1.6 excludes" → "the proof of ET Prop 1.6 (§4) excludes every
+  ℕ-point of Σ^I_n, Σ^II_n at odd squares (Type II: 'almost identical', proved in-repo in POINTWISE_MN)"; the *statement*
+  of Prop 1.6 is about f_I, f_II only, and the d ↦ hd reduction produces ℕ-points, not (div) solutions.
+* **m5 (MINOR, §2 table/text, memo y7_full_t1 table, AGENT_REPORT SHARP 2).** "Type I/II solutions exist at 41–42 of 42
+  odd squares" counts ET-shaped tuples without the PW coprimality condition. Genuine (div) counts: Type I 41/42, Type II
+  32/42 for M = 7; 39/39, 37/39 (M = 5); 32/32, 30/32 (6); 40/44, 35/44 (11). Repair: relabel the column "ET-shaped
+  tuples" or add the (div) counts; conclusion unchanged (7/9 and 7/25 are genuine).
+* **m6 (MINOR, memo y7_lattice_invariants).** "Smallest example for 7: n = 5" — n = 3 already gives one ((2, 1, 4) ∈ S₇,
+  (1, 2, 5) ∉ S₇, isometric). Say "an example" or fix.
+* **m7 (MINOR, AGENT_REPORT SHARP 3 headline "No lattice invariant sees S₇").** Overbroad: S₇ is a function of the marked
+  form (divisibility of v, t, u, A, A*). Repair: "S₇ is not a function of the ℤ-isometry class of the unmarked path form".
+* **m8 (MINOR, §1 title).** "class-number-one field" plays no role; harmless decoration — drop or mark as remark.
+* **m9 (MINOR but a false statement; §4 last sentence, memo y7_near_misses l. 13 and l. 33, AGENT_REPORT (c)).**
+  "min f₄ = 6 on 11 ≤ p ≤ 3·10⁵" is false: f₄(13) = f₄(17) = 4 (complete lists by brute force; ms_census agrees).
+  Repair: "min f₄ = 4 (p = 13, 17); f₄ ≥ 6 for 100 < p ≤ 3·10⁵ (min 6 at p = 193)".
+* **m10 (MINOR, §4 / memo luck estimate).** Say why M = 12 is excluded from the pool (its inclusion would lower the
+  0.28) and that 7 was selected post hoc as the failure-free sibling, so the 0.28 is a consistency check, not a test.
+* **m11 (MINOR, AGENT_REPORT SHARP 1, and the brief's paraphrase).** "for n ≢ 1 (mod 5) by three level-70 families"
+  should read "n ≡ 2, 3, 4 (mod 5)" (n ≡ 0 mod 5, n ≡ 1 mod 7 is not covered; e.g. 85). SEVEN_SIBLING Thm 3.1(c) itself is
+  stated correctly.
+
+## 9. Reproduction
+```
+PYTHONPATH=scripts uv run --with sympy python scripts/review_r215_thm31.py 100000
+cd scripts; python3 review_r215_menu.py 7 14 42 70 210 840 2520 9240 27720; python3 review_r215_menu.py 4 840 2520 9240 27720
+python3 review_r215_menu.py 5 840; python3 review_r215_menu.py 6 840; python3 review_r215_menu.py 8 840
+python3 review_r215_menu.py 12 840; python3 review_r215_menu.py 11 9240
+python3 review_r215_t1.py 99 3 4 5 6 7 8 11 12 19
+uv run --with sympy python review_r215_isom.py 40
+uv run --with sympy python review_r215_misc.py 1000000 1500
+python3 review_r215_core_ell.py 7 840 105 11 13 17; python3 review_r215_core_ell.py 4 840 840 11 13
+gcc -O2 -o /tmp/ms ms_census.c && /tmp/ms 4 11 c 300000 | awk '$2<=6'; /tmp/ms 7 11 c 300000 | awk '$2<=1'
+```
+ms_census 7 to 3·10⁵ (author's engine, compiled by reviewer): f₇ ≤ 1 exactly at 43, 127, 211; no f₇ = 0. Agrees with §4.
