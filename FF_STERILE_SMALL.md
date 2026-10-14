@@ -218,7 +218,9 @@ coefficients v = 1, g' = T + 2, E = (T + 2)(T + 1) − 1 = T² + 3T + 1. (0, 0, 
 m' = 1 = T + v and 2 = g'v force deg v = 1 and deg v = 0: impossible. In all cases E(0) = 1, u₀ = −1.
 Case A (j = 0): a0 = ga1, b0 = gb1, gcd(a1, b1) = 1, E ∣ a1 + b1, E ≡ −1 mod a1b1 (T ∤ a1b1 as j = 0). If E is not
 constant, E + 1 ≠ 0 is divisible by a1b1, so deg E ≥ deg a1 + deg b1, while deg E ≤ deg(a1 + b1) ≤ max(deg a1, deg b1);
-so one of them, say b1, is 1 and deg E = deg a1, E + 1 = a1 (both monic), and E ∣ a1 + 1 = E + 2 gives E ∣ 2: contradiction.
+so one of them, say b1, is 1, and deg E = deg a1 ≥ 1. Then deg a0 > deg b0, so lc(a0 + b0) = lc(L/a0 + L/b0) = 1 and E is
+monic (lc(E) = lc(s) ∈ {1, lc(a0 + b0), lc(L/a0 + L/b0)}, DEPTH_ASPECT Lemma 2.4). Hence E + 1 = a1 and E ∣ a1 + 1 = E + 2 gives
+E ∣ 2: contradiction. (Monicity matters in characteristic 3: with lc(E) = 2 one would get E + 1 = 2a1 and E ∣ a1 + 1 ⟺ E ∣ 3 = 0.)
 So E is constant, E = lc(s) ∈ {1, lc(a0 + b0), lc(L/a0 + L/b0)} ⊂ {1, 2}. ∎
 **Corollary 6.2.** For q = 3^r (so {−1, −2} = {2, 1} = F₃^*), on every slice with u₀ ∈ F_q^* ∖ F₃^* every valid family has
 cylinder depth ≥ 2 (N ≥ 1): hypothesis (H1) of FF_STERILE_PUSH §4 is restored on these q − 3 slices. For q = 3 there are no such
