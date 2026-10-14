@@ -75,3 +75,42 @@ a lone end V_{i+3} = the vertex carrying o ✓. "Sign ⟺ depth sum ≥ 3" and "
 restatements of Thm 1.2 / Cor 1.4; "depth ≥ 2 ⟺ the two ends agree mod 4 up to sign" ✓ (units mod 4 are ±1).
 Small point: the depth-1 (k = 1) colour argument needs only that the three classes of P¹(F₂) are distinct, ✓.
 **Verdict: SOUND** (a correct restatement; no new content beyond Thm 1.2).
+
+## Claim 5 — §0 (I1) / §3 / memo y2_farey_complex_lifting: SVZ citation, F₄, "T1 lives in positivity"
+* **SVZ citation.** Fetched arXiv:2312.12953 (Short–Van Son–Zabolotskii, *Frieze patterns and Farey complexes*) and read
+  §1. Thm 1.6 verbatim: "A tame semiregular frieze F over ℤ/Nℤ lifts to a tame frieze over ℤ of the same width if and
+  only if any path γ in F_N corresponding to F is a strongly contractible closed path." Strong contractibility = reducible
+  to a point by spur removals ⟨v,u,v⟩ → ⟨v⟩ and triangle shortcuts ⟨u,v,w⟩ → ⟨u,w⟩ (u, v, w mutually adjacent). The paper's
+  own example, the non-contractible 4-path 0/1 → 1/1 → 2/1 → 3/1 → 0/1 in F₄, is as quoted. Citation **correct**. Minor
+  precision: Thm 1.6 is for *semiregular* friezes (second row all 1); the mod-4 pentagon at N ≡ 3 (4) has a boundary
+  entry −1 and must first be normalised (SVZ §1, R^×\FR_n ≅ FR*_n) — harmless, but the memo should say so (D7).
+* **F₄ = octahedron, odd closed walks strongly contractible.** From scratch (`scripts/review_r208_f4.py`,
+  `logs/review_r208_f4.txt`): F₄ has 6 vertices, 12 edges, 8 triangles, and the 8 triangles are exactly the images of
+  Farey triangles {u, v, u ± v}, so every triangle is a face. Closed walks of length 3…7: 48, 288, 960, 4 224, 16 128
+  (= tr A^L, eigenvalues 4, 0³, (−2)²); strongly contractible: 48, 264, **960, 4 080, 16 128**, identically under a based
+  and a cyclic reading of the moves. Matches the memo (960/960, 16 128/16 128, 264/288). Spur/antipode dictionary
+  (q_i ≡ 0 (4) ⟺ spur, ≡ 2 ⟺ antipodal neighbours, odd ⟺ adjacent) holds on all 6 805 odd-N words N ≤ 400; it is also
+  immediate from det(V_{i−1}, V_{i+1}) = q_i for primitive vectors. **SOUND.**
+* **Signed friezes at odd squares.** The memo/§3 cite only a box search (EVIDENCE). It is in fact PROVED by an explicit
+  family: for every odd M ≥ 3 the signed word (c, m, s) = (4, −(M² + 3)/4, −1) has N = M² and quiddity c = 4 (all five
+  Ptolemy relations are polynomial identities; checked M < 2000 in `scripts/review_r208_signed.py`). Suggest upgrading
+  (D6). So positivity is genuinely necessary for Thm 1.2/Cor 1.4. **SOUND (and can be strengthened).**
+* **"T1 = the archimedean factor of Hilbert reciprocity" (§3).** As an interpretation this is right, but it is not new:
+  CHI_FLIP Thm 1.1 already proves χ = −ε₂(Q_w) with ε_∞ = −1 *because G_w is positive definite*, and CHI_FLIP §2 says
+  "inv_∞ β(w) = ½ on the positive cone" / "T1 as Brauer–Manin"; DISCOVERIES (J)13 likewise. §3 should cite CHI_FLIP for
+  this and present the frieze version as a restatement (D5).
+* **Label overclaim (D5).** §3's header "PROVED by inspection" covers three different things: (a) "positivity is
+  needed" — PROVED (by the explicit family above); (b) "positivity is used only in the reciprocity steps" — true by
+  inspection of *this* proof, but says nothing about other proofs; (c) "**Any frieze-theoretic ES proof must use the
+  positivity of the frieze archimedeanly**" and "SVZ / finite-ring frieze theory is T1-blind" — these are Assessments
+  (heuristic barrier statements; e.g. "frieze-theoretic proof" is undefined). Moreover (c) is close to tautological:
+  the ES output must be a *positive* word, and signed 4-quiddity words exist at every odd square, so any argument
+  that never distinguishes signs proves nothing about ES. The precise, provable statement is the B1-type one: a
+  criterion depending on N only through N mod n (any n) cannot separate odd squares M² from primes p ≡ M² (mod n),
+  hence cannot yield a −1 word at all such primes while respecting Cor 1.4. "Finite-ring frieze theory is N-blind
+  beyond N mod 8" (§3 bullet 2, memo) is literally false — a frieze over ℤ/n sees N mod n — and should be replaced by
+  that statement.
+* SVZ "T1-blind": correct but for a trivial reason — SVZ Thm 1.6 is about lifting to *unit*-boundary tame (signed)
+  friezes of the same width, a different lifting problem from "lift to a positive frieze with boundary (1,1,1,1,N)".
+  The memo itself says so (iteration 1). Fine as Assessment.
+**Verdict: SOUND-AFTER-REPAIRS** (relabel (c) as Assessment; cite CHI_FLIP; fix the "N mod 8" sentence).
