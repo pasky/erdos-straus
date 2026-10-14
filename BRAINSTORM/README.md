@@ -287,3 +287,14 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | y1_cerednik_swap | Cerednik–Drinfeld / Ribet: two fibres = two trees of X^{2p} | dictionary; forcing hope screened (B2/B6); fibre split not mass-equidistributed | Assessment; EVIDENCE (census ratios) |
 | y1_heegner_level_t | words = x = 4 GKZ terms of two root-2 Heegner points on X₀(t), index 4n | level-t condition = Heegner condition; B2 | K1 PROVED (congruence/index only; Heegner reading Assessment, imprimitive caveat); collisions trivial without level (t ≤ 11, p < 2·10⁵) |
 | y1_reciprocal_parity | word reversal (involution) → parity | only fixed word (p ≥ 5) = (p+2,1,1), parabolic; N₋ mod 8 equidistributed | R1, R3 PROVED; R2 EVIDENCE (10⁶) |
+
+## Spark relay Y7 (O215): the sibling numerator 7 (memos y7_*, deep file SEVEN_SIBLING.md; not yet triaged)
+| memo | idea | outcome | label |
+|---|---|---|---|
+| y7_mordell_levels | shape of the identity-hard core per numerator | 4: square coset; **7: only the residue 1 survives at levels 14, 42, 70, 210: 7/p for all odd p ≢ 1 (mod 105)**; 8, 11, 12 have extra classes | PROVED + CERTIFIED — SHARP (dictionary) |
+| y7_full_t1 | is 7's T1 full? | no: Type I/II solutions at 41–42 of 42 odd squares; full T1 for all 4 ∣ M (PROVED), fails for 5, 6, 7, 11 | PROVED + CERTIFIED |
+| y7_free_inert | free slices (e = 1, 2) vs inert primes | exact iff M ∈ {4, 6, 7} (ℚ(i), ℚ(√−3), ℚ(√−7)) | PROVED (description) |
+| y7_lattice_invariants | 7-adic analogue of (J)33 | S_M is not a function of the ℤ-isometry class of Q_w for M = 5, 7, 8, 11 (marking data) | PROVED by example (negative) |
+| y7_near_misses | is 7 lottery-lucky? | f₇ = 1 at 43, 127, 211; consistent with a crude lottery model (≈ 0.28) | EVIDENCE + Assessment |
+| y7_order3 | e = 3 / e = 6 double failures vs cubic residues | no detected association with cube indicators; 7 can doubly fail only at p ≡ 1 (21), 27.8 % do | EVIDENCE (negative) |
+| y7_split_norm | residue class of π mod q in ℚ(√−7) | no detected association beyond p mod q (q = 5, 9) | EVIDENCE (negative) |
