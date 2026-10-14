@@ -11,6 +11,7 @@ From-scratch scripts: `scripts/review_r212_*.{py,c}` (none of the author's `y4_*
 | Prop 1.1 / Cor 1.2 (T1 ⟺ M ≡ 0, 3 mod 4; M^□ at non-squares for all M) | SOUND (one sign typo in memo, D1) |
 | 7/p failure-free to 10⁸, T1-bearing; S₇(p) = ∅ at 10 primes; Type II of 7 fails 9×; 11/37 | SOUND (independently re-verified to 10⁸) |
 | Thm 2.3 (χ = −1 ⇒ Q_w ⊗ ℤ₂ ≅ ⟨1, −1, −n⟩; parity split is marking data) | SOUND (citation verified; tested n ≤ 2001) |
+| Thm 4.2 (universal one-slot witnesses = {2,3,5,7,8,15,20}; reach = complement of Mordell's six classes; τ(A+1) ≥ φ(A)/4 necessary) | SOUND |
 | Lemma 2.1 + census of §2 (S₄^{odd}, S₈, squares, composite list, one-odd halves) | SOUND (re-verified ≤ 10⁶ / 2·10⁵) |
 
 ---
@@ -125,6 +126,44 @@ is immediate. The text calls it one of "the sharpest new statements" (§7 Verdic
 it should be presented as a one-line remark (a standard consequence of the 2-adic classification), not a theorem
 of the programme. The interpretive conclusion (the split is marking data, i.e. depends on which pentagon quantity
 carries the 4) is right. Label PROVED (relative to AGM Thm 5.1) is right.
+
+---
+
+## C4. Lemma 4.1 / Thm 4.2 — Mordell's 840 as the reach of universal one-slot witnesses
+
+**Lemma 4.1 re-derived.** Given A, the words with tu − 1 = A are t | A + 1, u = (A + 1)/t; a word exists iff A | p + u.
+tu ≡ 1 (A) ⇒ u ≡ t⁻¹, so A | p + u ⟺ tp ≡ −1 (mod A); v = (p + u)/A ≥ 1 automatically. Certificate ⟺ (−A/p) = −1 by
+(J)32 Thm 3.1(a). ✓ ("slot A" in §4 means the first slot A = tu − 1; by u ↔ v the A* slot gives nothing new. The other
+three slots t, u, v are not part of the definition — fine, but say "first slot" in Thm 4.2 as the memo does; trivial.)
+
+**Thm 4.2 re-derived.** For p ≡ 1 (4): (−A/p) = (A/p) = (2/p)^a (p/A′) depends on p mod L = lcm(8, A); Dirichlet ⇒
+universality ⟺ every unit class r ≡ 1 (4) mod L with (A/r) = −1 has −r⁻¹ mod A ∈ D_A = {t mod A : t | A + 1}
+(necessity by a prime in a bad class; sufficiency trivially). (A/·) is non-trivial on {r ≡ 1 (4)} for non-square A
+(either A = 2□, then (2/5) = −1, or the odd squarefree kernel gives a non-trivial character mod A″ realised with r ≡ 1 (8)),
+so there are φ(L)/4 χ = −1 classes; every unit a mod A has φ(L)/φ(A) lifts ⇒ the needed image has ≥ φ(A)/4 elements;
+|D_A| ≤ τ(A + 1) (even ≤ τ(A + 1) − 1, since t = 1 and t = A + 1 coincide mod A). Hence τ(A + 1) ≥ φ(A)/4 is necessary ✓, and
+the "covers at most 4τ(A + 1)/φ(A) of its classes" statement ✓ (repaired form). Reach: A = 2, 8 ↔ (2/p) = −1; 3 ↔ (p/3) = −1;
+5, 20 ↔ (p/5) = −1; 7 ↔ (p/7) = −1; 15 adds nothing; the complement in p ≡ 1 (4) is p ≡ 1 (8), (p/3) = (p/5) = (p/7) = 1,
+i.e. 1·1·2·3 = 6 classes mod 840 = {1, 121, 169, 289, 361, 529} = {1², 11², 13², 17², 19², 23²} ✓ (Mordell's list).
+
+**Rosser–Schoenfeld tail.** The source is not in `sources/`; I could not access the paper. The standard statement
+(Rosser–Schoenfeld 1962, Illinois J. Math. 6, Thm 15 / (3.42)) is n/φ(n) < e^γ log log n + 2.50637/log log n for all
+n ≥ 3 except n = 223 092 870 = 2·3·…·23, where it holds with 2.51 in place of 2.50637. The author's version with 3 in
+place of 2.50637 is therefore a valid (weaker) consequence for all A ≥ 3. I verified it independently: with exact φ, the
+RS(3) bound holds for every 3 ≤ A ≤ 10⁶ (0 violations), and τ(A + 1) < φ(A)/4 holds for every 3000 ≤ A ≤ 10⁶ with true τ
+and φ; at A = 3000 the bound gives φ/4 > 145.71 vs 2√3001 = 109.56 ✓; the ratio (RS bound/4)/(2√(A + 1)) has minimum 1.33
+on a 1 %-grid of [3000, 10¹²] and is increasing (d log/dA = (1/A)(½ − O(1/(log A·log log A))) > 0). ✓
+*Remark:* the necessary condition τ(A + 1) ≥ φ(A)/4 already fails for every A ∈ [45, 3000) (largest passing A below
+3000 is 44), so the exact scan could stop at 44; the 3000 cut-off is wasteful but harmless.
+
+**Finite check from scratch** (`scripts/review_r212_witness.py 3000 1000000 1000000`, 2.6 s): exact class scan over all
+non-square 2 ≤ A ≤ 3000 → universal set **{2, 3, 5, 7, 8, 15, 20}** ✓. Prime cross-check: all 39 175 primes p ≡ 1 (4),
+p < 10⁶: the seven witnesses give a word (t, (A + 1)/t, (p + u)/A) whose 4-slice solution is verified in exact rationals
+**iff** p mod 840 ∉ Mordell's six classes; 0 mismatches ✓.
+
+**Verdict C4: SOUND.** Label PROVED (Dirichlet + finite check + RS) is right. The interpretation ("Mordell's 840 is
+exactly where one-slot witnesses stop") is accurate *for this witness family*; it should not be read as "no congruence
+covering with more complex witnesses goes further" (that is POINTWISE_SIZE/T1 territory, correctly cited as B1).
 
 ---
 
