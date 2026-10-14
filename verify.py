@@ -25291,4 +25291,29 @@ def check_fP():
 check_fP()
 
 
+def check_fQ():
+    # (fQ) FF_STERILE_PUSH (O216; reviews R217, R218): R218's independent fail-closed certification of the inequality
+    # (Sigma) behind Theorem 3.1 (ES_q(T^k) has no finite linear covering for q = 3^r, r >= 4): totals for r = 4, 5, 6
+    # (need < q - 1; r >= 5 per c-slice < 1).
+    from time import perf_counter
+    import os
+    import re
+    import subprocess
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    env = dict(os.environ, RS="4 5 6", S6="60", OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run(["bash", "scripts/review_fs2_certify.sh"], capture_output=True, text=True, timeout=1800,
+                       env=env, cwd=root)
+    assert r.returncode == 0, ("FF_STERILE_PUSH certify", r.stdout[-2000:], r.stderr[-2000:])
+    tot = {int(m.group(1)): float(m.group(2)) for m in re.finditer(r"r=(\d+) S=\d+ .*? total=([0-9.e+-]+)", r.stdout)}
+    assert set(tot) == {4, 5, 6}, r.stdout
+    assert tot[4] < 1.84 and tot[5] < 0.26 and tot[6] < 0.44, tot
+    assert "r=5 S=100" in r.stdout and "per-c(<1)=True" in r.stdout
+    print(f"== (fQ) FF_STERILE_PUSH R218: no finite linear covering of ES_q(T^k) for q = 3^r, r >= 4 — certified "
+          f"totals r=4 {tot[4]:.3f} (< 80), r=5 {tot[5]:.3f}, r=6 {tot[6]:.3f}; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fQ()
+
+
 print("\nall checks passed")

@@ -1139,6 +1139,19 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Ordinary reductions (after R216's GAP repair). The image of a single homomorphism E(F_h) → F_h^* has size ≤ gcd(a_h − 2, h − 1). The m-part (m | h + 1) still maps into ±1. The trichotomy a_h = 0 / 2 / other gives the (h+1)-world, the (h−1)-world, or a Hasse-bounded mixture.
    * Other memos (SOUND). O207's Type I dual-Hasse spark collapses to the g ∈ {1, 3, 5} certificates; the CM suggestion holds in none of 10 737 cases. Euclid–Schur forcing reduces to B1. Salié angles: Type II ⟺ a root of ν² ≡ −pd (mod h) sits exactly at (h+1)/(2j) (Planck scale).
 
+51. **Wave Y-e: function-field sterility pushed from q ≥ 3²⁷ to q ≥ 3⁴ (FF_STERILE_PUSH.md (O216); two independent hostile reviews `reviews/ff-sterile-push-review.md` (R217) and `reviews/ff-sterile-push-review-2.md` (R218): both SOUND, no FATAL, no MAJOR; minor repairs applied by both reviewers; both independently re-certified the main inequality with their own code).**
+   * **Theorem 3.1 (PROVED, computer-assisted; same inputs as (J)26 Thm 2.5).** For q = 3^r with r ≥ 4 (q ≥ 81) and every k ≥ 2, O(q, T^k) ≠ ∅, i.e. **ES_q(T^k) has no finite linear covering.**
+     * Previously r ≥ 27 ((J)26); R187 E5 had guessed r ≥ 10.
+     * For r ≥ 5 this holds in every c-slice.
+     * The certified left side of (Σ): ≤ 1.83 at r = 4 (needs < 80), ≤ 0.251 at r = 5, ≤ 0.039–0.44 at r = 6 (depending on truncation), < 0.012 for r ≥ 7 (R218's own certification, fail-closed).
+   * Lemmas 1.4 / 1.5 (PROVED, elementary; both reviewers proved them from scratch and brute-forced them over F₃, F₅, F₇, bounds attained). These replace the divisor function on every binding route.
+     * Function-field Lenstra: if 3 deg Q > deg F, then F has at most 2 divisors of a given degree in a unit class mod Q. Over ℤ, Lenstra's bound is 11.
+     * Function-field Coppersmith–Howgrave-Graham, by pigeonhole, with threshold deg Q > d(n − d)/n.
+   * Lemma 1.1 (PROVED). Exact identities for Case B tuples: E·v = T^s + m′w² and y + t = max(a, b).
+   * §4 (PROVED). Characteristic 2 is non-sterile by Frobenius: (1 + Tg′)² = 1 + T²g′², so one family covers a whole c-slice. The odd-characteristic input is exactly −2 ≠ 0.
+   * §5 (PROVED, equivalence). At q = 3, "a Case B family covers x*_c" is the explicit system (S1)–(S3). There the union bound is dead (exact Σ ≥ 94/27 > 2), so **CONJECTURE 0.2 (q = 3) remains open**. q = 9 and q = 27 are also open; the r = 3 barrier is EVIDENCE/Assessment.
+   * Relay O219 (transplant Lemmas 1.4–1.6 to ℤ to make the sterile-Mordell threshold r₀ of (J)26 explicit) was spawned.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
