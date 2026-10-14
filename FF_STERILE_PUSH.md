@@ -91,3 +91,53 @@ E ↦ x₀ is injective. Asymptotics: with k = τm, (C)/m² → (n + X)/2 + τX 
 gives the condition √(nX) < d. ∎
 (m = 1, k = 0 is the trivial "n − d < ρ" case. Over ℤ this is Coppersmith/Howgrave-Graham/Nagaraj 2008, threshold n^{1/4};
 over F_q[T] the LLL loss disappears because (a) is exact.)
+
+**Lemma 1.6 (route bounds; PROVED from Lemmas 1.1–1.5).** Fix a pattern (s; a, z, y, t), a ≤ b = y + t. Write
+w = Tw₁, C = TC₁, v = T²v₁ (Lemma 1.1(iii)), N*(d) as in Lemma 1.2, and cls(n, d, ρ) for the class-divisor bound:
+1 if d < ρ (or n − d < ρ when the cofactor version is allowed), else the least of 2 (if 3ρ > n, Lemma 1.4) and m + k over
+(m, k) satisfying (C) for (n, d, ρ) (or, cofactor version, for (n, n − d, ρ)), and C(n, d) (Lemma 1.3). The cofactor
+version is allowed when F is prime to Q (then the cofactor's class F σ^{−1} is a unit). The number of tuples with the
+pattern is at most each of:
+| route | data fixed (choices) | then | bound |
+|---|---|---|---|
+| T0, R4', X1, X2 | Lemma 1.2 | — | as in Lemma 1.2 |
+| R1 | v₁: N*(t−2) | m'w₁C₁ = T^{s−2} + v₁ | N*(t−2)·(s−2)!/(z!(a−1)!(b−1)!) |
+| R2 | m', g' | E ∣ 1 + T^s m'g'² (deg s + 2y + z), E ≡ −1 (TL') | N*(z)N*(y)·cls(s+2y+z, a+y+z, y+z+1) |
+| R3 | w₁, g' | E ∣ g'T^{s−1} + w₁, E ≡ −1 (Tw₁g'); E-version only | N*(a−1)N*(y)·cls(s−1+y, a+y+z, a+y) |
+| R4 | m', w₁ | E ∣ T^{s−2} + m'w₁² (= Ev₁), E ≡ −1 (Tm'w₁) | N*(z)N*(a−1)·cls(s−2, a+y+z, a+z) |
+| R3C, R4C | same with C₁, E' | E' ∣ g'T^{s−1} + C₁; E' ∣ T^{s−2} + m'C₁² | N*(b−1)N*(y)·cls(s−1+y, b+y+z, b+y); N*(z)N*(b−1)·cls(z+2b−2, b+y+z, b+z) |
+| R5a (R5b) | v₁, w₁ (C₁) | C₁ ∣ (T^{s−2}+v₁)/w₁ = m'C₁, C₁ ≡ −w₁ (Tv₁) | N*(t−2)N*(a−1)·cls(s−1−a, b−1, t−1) |
+| R6a (R6b) | v₁; w₁ ∣ T^{s−2}+v₁ | as R5a | N*(t−2)·C(s−2, a−1)·cls(s−1−a, b−1, t−1) |
+| R8a (R8b) | g', v₁; w₁ ∣ T^{s−2}+v₁ | C₁ = Tg'v₁ − w₁ | N*(y)N*(t−2)·C(s−2, a−1) |
+| R9a | m', v₁; w₁ ∣ (T^{s−2}+v₁)/m' | — | N*(z)N*(t−2)·C(a+b−2, a−1) |
+| R10a | m', v₁; w₁² ≡ −(T^{s−2}+v₁)/m' (Tv₁) | w₁ ∣ (T^{s−2}+v₁)/m' in one of ≤ 2^{ω(Tv₁)} classes | N*(z)·2Σ_{v₁}2^{ω(v₁)}·cls(a+b−2, a−1, t−1) |
+| R10b | v₁; m' ∣ T^{s−2}+v₁ | as R10a | 2Σ_{v₁}2^{ω(v₁)}·C(s−2, z)·cls(a+b−2, a−1, t−1) |
+with Σ_{v₁ monic, deg e} 2^{ω(v₁)} = q^e(2 + (e − 1)(1 − 1/q)) (e ≥ 1).
+*Proof.* Each row: the fixed data, then the divisibility/congruence displayed, determine the tuple (Lemma 1.2 and
+DEPTH_ASPECT Lemma 2.1). Congruences: E + 1 = L'w = Tw₁g'm', so E ≡ −1 modulo TL', Tw₁g' and Tm'w₁; E is prime to T
+(E(0) = −1), so E ∣ g'T^s + w = T(g'T^{s−1} + w₁) gives E ∣ g'T^{s−1} + w₁, and Ev = T^s + m'w² gives Ev₁ = T^{s−2} + m'w₁².
+From w₁ + C₁ = Tg'v₁: C₁ ≡ −w₁ (mod Tv₁), a unit by Lemma 1.1(iii). Coprimality for the cofactor version:
+1 + T^s m'g'² ≡ 1 (mod TL'); T^{s−2} + m'w₁² is prime to Tm'w₁ (a common prime divides T^{s−2} and does not divide
+m'w₁); (T^{s−2}+v₁)/w₁ = m'C₁ and (T^{s−2}+v₁)/m' = w₁C₁ are prime to Tv₁ (Lemma 1.1(iii) and T ∤ m'). For R3/R3C,
+gcd(g', w₁) may be nontrivial, so only the E-version is used. R10: w₁C₁ = G₂ := (T^{s−2}+v₁)/m' and C₁ ≡ −w₁ give
+w₁² ≡ −G₂ (mod Tv₁); a unit has ≤ 2 square roots modulo each prime power (q odd), hence ≤ 2^{ω(Tv₁)} = 2·2^{ω(v₁)}
+classes, and in each class w₁ is a divisor of G₂ of degree a − 1, G₂ prime to Tv₁. v₁ has fixed leading coefficient
+lc(w + C) and Σ over such v₁ of 2^{ω(v₁)} is the monic sum: Σ_{deg v = e} 2^{ω(v)} = Σ_{d squarefree, deg d ≤ e} q^{e − deg d}
+= q^e(1 + 1 + Σ_{j=2}^{e}(1 − 1/q)). ∎
+*Check (EVIDENCE):* `scripts/fs_check_bounds.c` compares the minimum of all rows (as coded in `scripts/fs_sum.c`) with the
+exact pattern counts of `bsE_famcount` (q = 3, s ≤ 15; q = 5, s ≤ 11; q = 7, s ≤ 9): 0 violations, max count/bound
+1.000. `scripts/fs_lemma_check.py` tests Lemmas 1.4/1.5 by brute force on random highly factorable F over F₃, F₅
+(32 591 (degree, class) groups): 0 violations.
+
+## 2. Averaging over c: a free factor q − 1
+
+**Lemma 2.1 (PROVED).** Let 𝓤 = ⋃_{c ∈ F_q^*} (c-slice) (relative mass q − 1 in units of one c-slice). Every Case B tuple
+and every Case A datum (a1', b1, E) has its maximal cylinder in exactly one c-slice. Hence if
+  Σ_{all Case B tuples} q^{1−N(s)} + Σ_{all Case A data} q^{2−k−α} < q − 1,                                   (Σ)
+some c-slice contains a positive-measure set of points in no validity set, so O(q, T^k) ≠ ∅ and ES_q(T^k, ·) has no
+finite linear covering (FUNCTIONFIELD_ES2 §0.1). More precisely, the number of c with covered relative mass ≥ θ is at
+most (left side of (Σ))/θ.
+*Proof.* The cylinder of a Case B tuple is u ≡ −E (mod T^{N+1}) with N ≥ 1, and of a Case A datum u ≡ −E (mod T^{k+α});
+both fix u mod T², i.e. c. Summing the covered masses of the q − 1 slices gives at most the left side of (Σ). ∎
+*Remark.* DEPTH_ASPECT Thm 2.5 bounded the left side of (Σ) (its counts are over all tuples, all c) by < 1 and concluded
+for every c. For the no-covering conclusion, the averaged form (Σ) suffices; it gains the factor q − 1.
