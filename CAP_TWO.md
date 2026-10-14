@@ -58,3 +58,32 @@ Prop 1.2(b) for c ≡ 0; same proof for c odd), infinite as soon as one exists a
 (odd n ≤ 61, odd Q₁ ≤ 401, all divisors) map to W_n points with 4 | a, E ≡ 3 (mod 4); conversely all W_n points with
 a, B ≤ 40 give exact solutions: 121 with c odd (den z = c²B⁴, cap ≤ 2) and 179 with c ≡ 0 (mod 4) (ES^{[2]}, den z = B²);
 no violation of "E ≡ 3 ⟺ 4 | a" among c-odd points.
+
+## 2. Slices are finite, orbits are infinite: the O204 "transition" is k fixed vs k free
+
+**Proposition 2.1 (PROVED).** Let n > 1 be odd and consider W_n with c odd (all side conditions of Thm 1.1 except
+squarefreeness are irrelevant here).
+(a) (fixed a) If 4 | a then every point has B ≤ 8na², E ≤ 4na² + B², c ≤ (4na² + B² + E)/(aBE): finitely many.
+(b) (fixed B) Every point has c ≤ (4n + 1)(B² + 1)/B, and for fixed B there are finitely many points.
+(c) (fixed (c, E), i.e. fixed x = cE) If Δ_x = x² − 16n is not a square, the points form finitely many orbits of the
+automorph group of f_x; if one point satisfies the conditions of Thm 1.1 then infinitely many points of its orbit
+satisfy all of them **except possibly "B squarefree"** (a, B → ∞ along the orbit).
+*Proof.* (a) B-Vieta: B' := caE − B = (4na² + E)/B is a positive integer, B + B' = caE ≥ 4E, BB' = 4na² + E.
+If B ≥ B' then B ≥ caE/2, so E ≤ 2B/(ca) and B ≤ BB' ≤ 4na² + 2B/(ca), i.e. B ≤ 4na²/(1 − 2/(ca)) ≤ 8na² (ca ≥ 4);
+if B < B' then 2E·B ≤ (B + B')B... precisely B² < BB' = 4na² + E and B' ≥ caE/2 ≥ 2E give B ≤ (4na² + E)/(2E) ≤ 2na² + 1.
+The rest is read off W_n (E·g = 4na² + B² with g ≥ 1). (b) a-Vieta: t := cBE − 4na = (B² + E)/a is a positive
+integer (product of roots (B² + E)/(4n) > 0 and sum cBE/(4n) > 0, so cBE − 4na = 4n·(other root) > 0), with
+a·t = B² + E. Put m := E = at − B² ≥ 1; then c = (4na + t)/(Bm) ≤ (4n + 1)(B² + m)/(Bm) ≤ (4n + 1)(B² + 1)/B, using
+a, t ≤ B² + m. For fixed (B, c): substituting E = at − B² gives a(cBt − 4n) = t + cB³, so cBt > 4n and
+t(cB − 1) ≤ cB³ + 4n (from a ≥ 1) bound t (if cB = 1: t − 4n | 4n + 1), hence a and E. (c) As GROWING_MUTE Prop 1.2(b):
+f_x has automorphs of infinite order; those ≡ identity modulo 4cn (a finite-index subgroup) preserve a mod 4,
+B mod c, gcd(caB, n) = 1 and (squaring if needed) the positive branch; E ≡ 3 (mod 4) and B odd are forced by
+f_x(a, B) = −E with x odd. Squarefreeness of B is not a congruence condition. ∎
+*Reading (Assessment, built on Thm 1.2 + Prop 2.1).* O204 Cor 3.2 / §3 table: "k = 1: ES^{(y,1)}, ES^{[2]} finite;
+e = 2 no wall". In W_n-coordinates ES^{[2]}'s k is the coordinate a, while the k = 1 cap-2 cell has a free. So the
+k = 1 slice of ES^{[2]} is the line a = 1 of the c ≡ 0 half, but the k = 1 slice of the cap-2 cell is the WHOLE c-odd
+half. The apparent transition "finite at e = 1, infinite at e = 2" is "one line vs a whole half-surface". Taken with
+k free, ES^{[2]} has the same structure: every slice is finite (O204 Thm 2.1) and the Pell orbits are infinite. So the
+two problems are of one kind: **does some fibre x of the conic bundle f_x(a, B) = −E (E | x) have a point,
+with x/E odd (cap-2, k = 1) or x/E ≡ 0 mod 4 (ES^{[2]})?** Neither is easier on structural grounds; for e = 2 the
+squarefreeness of B along an orbit is an extra problem that ES^{[2]} does not have.
