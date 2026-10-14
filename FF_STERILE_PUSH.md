@@ -23,7 +23,8 @@ By the w ↔ C symmetry of (B) we write statements for a ≤ b.
   (Lenstra only) resp. r = 5 (Coppersmith), against r ≥ 26 (stated constants) / r ≥ 10 (R187 E5).
 * (I4) Barrier as steering wheel: the r = 4 obstacle was the hypothesis "all c at once". Each cylinder lives in one c-slice,
   so averaging over c gains q − 1 (Lemma 2.1). With the square-root-class route R10 (average of 2^ω instead of a maximal
-  divisor bound) the exponent at r = 4 is −0.027 and Theorem 3.1 holds for **all r ≥ 4** (certified, §3).
+  divisor bound) the exponent at r = 4 is −0.027 on the fs_rate grid (R217 repair, m3: a grid maximum under-estimates the sup;
+  exact per-level maxima are −0.0262/−0.0236/−0.0224 at s = 300/600/1200, so the continuum value is ≈ −0.021; EVIDENCE) and Theorem 3.1 holds for **all r ≥ 4** (certified, §3).
 * (I5) r = 3 and q = 3: the binding hypothesis is located (§3 end, §5): the Coppersmith threshold of route R10 meets the
   multinomial bound of R1; at q = 3 even exact counts violate (Σ) (94/27 > 2). Char 2 and k = 1: §4.
 * (I6) Hostile self-review (codex deep reviewer, 2026-10-14): no FATAL; 4 MAJOR (certification rounding/fail-open scripts,
@@ -194,7 +195,10 @@ certificate fail; for r ≥ 4 none occurs at minimal width 2⁻⁸.
 α > 40 (ratio ≤ (43/42)³·6/√q < 1 for q ≥ 81).
 Result (`scripts/fs_certify.sh`, log `data/fs/certify.txt`, certified totals ×1.01): left side of (Σ) ≤ 2.176 (r = 4;
 q − 1 = 80), 0.2502 (r = 5), 0.3730 (r = 6), 0.01157 (r = 7), 0.003209 (r = 8), 0.001043 (r = 9), and < 10⁻³ for 10 ≤ r ≤ 30; for r ≥ 27 also DEPTH_ASPECT Thm 2.5. In every
-case (Σ) holds; for r ≥ 5 even the left side is < 1, which gives (b) for every c. ∎
+case (Σ) holds; for r ≥ 5 even the left side is < 1, which gives (b) for every c. (R217 repair, m5: for r ≥ 31 the
+document's own certificate does not apply; R217's independent certificate `scripts/review_fs_certify.sh` covers r = 4..45
+(`data/fs/review_certify_*.txt`; left side ≤ 1.69 at r = 4, ≤ 0.19 at r = 5, ≤ 0.039 at r = 6, < 4·10⁻¹⁴ for 31 ≤ r ≤ 45), and the
+DEPTH_ASPECT crude form, decreasing in q, is 5.9·10⁻⁵ at r = 46; so the covered relative measure is ≤ 0.012 for every r ≥ 7.) ∎
 *What changed against Thm 2.5 (r ≥ 27):* (1) the exact degree identity (Lemma 1.1) and loss-free routes (Lemma 1.2);
 (2) divisor counts by degree (Lemma 1.3) instead of 2^n, 3^n; (3) divisors in residue classes with an absolute bound
 (Lemmas 1.4, 1.5) — no divisor function at all on the routes that bind; (4) the square-root-class route R10 with the
@@ -203,8 +207,13 @@ average Σ2^{ω(v)} ≪ s·q^{deg v} instead of a maximal divisor bound; (5) ave
 
 **Where the method stops: r = 3 (EVIDENCE + Assessment; review repair M3).** At q = 27 the continuum exponent
 max_p min_route φ(p) equals (log q)/2 on the grid of `scripts/fs_rate.py` (a finite grid, EVIDENCE), and fs_tail fails to
-certify 835 boxes (a failure to certify, not a negative result), all near
-p ≈ (a, z, y, t)/s ≈ (0.31, 0.325, 0.20, 0.168)). There two routes meet exactly at the exponent 1/2:
+certify 835 boxes (a failure to certify, not a negative result), mostly near
+p ≈ (a, z, y, t)/s ≈ (0.31, 0.325, 0.20, 0.168)). (R217 repair, m1/m2: (i) the method fails at r = 3 already at finite level:
+the Lemma 1.6 bound-sum through s = 150 is ≈ 194.6 > q − 1 = 26 (per-s terms 2–2.5; CERTIFIED for the bounds, a statement
+about the method, not about the true counts). (ii) There is a second near-critical region p ≈ (0.39, 0.11, 0.10, 0.40) (29 of
+the 615 failed boxes of `fs_tail 3 150 8`), where R3, R10b, R4, R2 meet; the per-level maximum of min-route sits there
+(−0.0034·log q below (log q)/2 at s = 1200, increasing with s). Reaching r = 3 therefore also needs a class-divisor bound beyond
+the Coppersmith range for R2/R3/R4.) In the first region two routes meet exactly at the exponent 1/2:
 R1 (v, then a triple factorisation of T^{s−2} + v₁: exponent τ + H(ζ, α, β)/log q) and R10 (v, m', then w₁ in a
 square-root class mod Tv₁ — valid only above the Coppersmith threshold τ > αβ/(α + β)). Below the threshold the class bound is
 lost; above it R1 is ≥ 1/2. The finite sums at r = 3 (s ≤ 150) give per-s terms ≈ 2, decreasing only slowly (no
@@ -244,7 +253,8 @@ E + E' = −2, impossible for monic E, E' of positive degree when q is odd), and
 
 ## 5. Conjecture 0.2 at q = 3 (goal 2): what the method can and cannot do
 
-**Reformulation at x*_c (PROVED, elementary).** Let s = 2n be even, N = n (the largest cylinder) and q = 3. A Case B tuple
+**Reformulation at x*_c (PROVED, elementary).** Let s = 2n be even with n ≥ 2 (R217 repair, m4: used in both directions;
+odd s is analogous but not written), N = n (the largest cylinder) and q = 3. A Case B tuple
 covers x*_c iff, with v = T²v₁, there is ω ∈ F₃[T] with
   w₁ = c·g'v₁(1 + cT) + T^n ω,  C₁ = −c·g'v₁ − T^n ω,
 and, writing P := m'g'²v₁(1 + cT) + 1,
@@ -255,7 +265,9 @@ w₁, C₁ have the displayed form with a common ω (their sum is exactly Tg'v�
 −v₁P − cm'g'v₁T^nω(cT − 1) − m'T^{2n}ω² = T^{2n−2}; reducing mod T^n gives (S1) (T ∤ v₁), dividing by T^n gives
 v₁(P/T^n + cm'g'ω(cT − 1)) = −T^{n−2}(1 + m'T²ω²), whence (S2), (S3) as T ∤ v₁. Conversely (review repair m5: this is an equivalence), given (S1)–(S3) and the side conditions, w₁ + (1 + cT)C₁ = −cT^{n+1}ω
 and EC₁ = g'T^{2n−1} + w₁ give (E + 1 + cT)C₁ = g'T^{2n−1} − cT^{n+1}ω ≡ 0 (mod T^{n+1}) (n ≥ 2), and C₁ is a T-adic unit,
-so E ≡ −(1 + cT) (mod T^{n+1}): the tuple covers x*_c. ∎
+so E ≡ −(1 + cT) (mod T^{n+1}): the tuple covers x*_c. ∎ (R217 repair, m4: the converse uses only the displayed form of
+w₁, C₁ and the tuple identities; so for a tuple (B): covers x*_c ⇔ T^n | w₁ − cg′v₁(1 + cT), and given that form,
+(S1)–(S3) ⇔ m′w₁C₁ = T^{s−2} + v₁.)
 (S3) is the genus condition of FF_STERILE_PROOF Lemma 2.1 made explicit (−m' is a square modulo every prime of v₁); (S1) says
 the "small" product m'g'²v₁ is ≡ −(1 + cT)^{−1} to precision n, which by degree forces z + 2y + t ≥ n + 1: one of the four
 small polynomials carries about half the degree — the lopsidedness of O175 Lemma 3.2 in one line. I found no further
@@ -267,7 +279,8 @@ coefficients — the lottery shape (B2) again.
 exactly 94/27 > q − 1 = 2 (exact enumeration, re-derived by the O216 review). So a measure proof of this kind at q = 3 must use overlaps (the exact union to
 s = 21 is ≈ 0.49 per slice, FF_STERILE_PROOF §5) plus a tail Σ_{s>21} count(s)·3^{1−⌈s/2⌉} ≲ 1, i.e. an essentially sharp
 count of Case B tuples. (b) The exponent of the Lemma 1.6 bounds is far from that: fs_rate (grid, EVIDENCE) gives max_p min_route φ − 1/2 = +0.167
-(r = 1), +0.096 (r = 2), 0.000 (r = 3), −0.027 (r = 4) in units of log q. At r = 1 the maximiser is the "thirds corner"
+(r = 1), +0.096 (r = 2), 0.000 (r = 3), −0.027 (r = 4) in units of log q (R217 repair, m3: grid values; R217's exact per-level
+maxima at s = 1200 are −0.0034 (r = 3), −0.0224 (r = 4), increasing in s, so r = 4 is ≈ −0.021 in the limit). At r = 1 the maximiser is the "thirds corner"
 a = z = y = s/3, t → 0 (v₁ of bounded degree, w, C, m' of degree s/3): there every route is ≥ 2/3, while the true count is
 subexponential, q^{o(s)}, but **not** polynomial (review repair M2: over F₃, F = T^{3^h−1} − 1, s = 3^h + 1, v₁ = −1, grouping the
 (3^h − 3)/h degree-h factors by (f(0), f'(0)/f(0)) and distributing triples among m', w₁, C₁ gives 6^M = exp(Ω(s/log s)) genuine

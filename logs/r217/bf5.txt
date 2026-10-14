@@ -1,0 +1,1 @@
+p=5 trials=200 groups=246073 violations=0 attained(>=2)={'L14': 1949, 'L15': 2071}
