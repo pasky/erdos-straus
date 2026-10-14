@@ -17,7 +17,11 @@ None of the author's `pd_*` scripts were used or imported. **ES is not solved; n
 | §3 EVIDENCE (pd_k1, pd_k1s) | SOUND — reproduced exactly from scratch |
 | Prop 4.1 (one axis, θ = 1/(2e+2)) | SOUND (algebra); θ-reading and citations SOUND-AFTER-REPAIRS (m6, m7) |
 | Thm 5.1 (ES^{(y,e)}, e ≤ y^{(2+o(1))log₃y/(A log₂y)}) | SOUND-AFTER-REPAIRS (quantifier form M2; m8, m9) |
-| (rest: in progress) | |
+| §6 B1 (no finite set of shot classes covers p ≡ u (mod r)) | SOUND (hypothesis "u non-residue" unused, m10) |
+| §6 class-layer conditional | SOUND (tautological from genus theory; hypotheses to state, m11) |
+| §6 "where the single-n requirement bites" | Assessment, unlabelled (m12) |
+| T1 claims per cell | SOUND |
+| §6 table / Verdict labels | SOUND-AFTER-REPAIRS (M1, M2, m3, m4, m7, m12) |
 
 ## Claim-by-claim
 
@@ -121,7 +125,7 @@ in the §4 table should read "no bound known".
 ### Thm 5.1 — SOUND-AFTER-REPAIRS (the mathematics is right; the statement's quantifiers are not, M2)
 Checked line by line.
 * *Choice of S for a single n.* n is fixed; x → ∞ is the free variable; S = S(x, n) = first k odd primes ∤ n with
-  P ≤ (log x)^A, so log P = A log₂x − O(log n + log₂x/… ) and k = π(≈A log₂x) − O_n(1) ~ A log₂x/log₃x (A fixed) ✓.
+  P ≤ (log x)^A, so A log₂x − log p_{k+1} < log P ≤ A log₂x and k = π(≈A log₂x) − O_n(1) ~ A log₂x/log₃x (A fixed) ✓.
   The class a mod M = 4 rad(n)P is UNIT_ORBIT Thm 2.4's (ℓ₀ ≥ 5 of odd exponent exists for n ≡ 1 (4) non-square)
   plus a ≡ −1 (mod s) — admissible for Lemma 2.2's conditions (gcd(a, M) = 1, a ≡ 3 (4), a ≢ 1 mod odd ℓ | M) ✓.
 * *Step 1 (sieve uniform in M).* Main term: #{r ∈ (x/2, x] : r ≡ a (M), r ≡ 1 (d)} has expectation X/φ(d),
@@ -155,6 +159,39 @@ Checked line by line.
 * *Squares / n ≡ 3 (4).* n ≡ 3 (4): e = 0 ✓. Squares: run the argument at a prime p | m with S chosen prime to n
   (the proof allows any S prime to the input, so choose S ∤ n), scale by n/p: the mute primes stay ∤ 2n and | y; the
   bound y^{f(y)} is increasing for large y ✓.
+
+### §6 B1 statement — SOUND, with a superfluous hypothesis (m10)
+Re-derived: x(u) lies in the class {n : g | n + 4Q²} iff x_ℓ ≡ −4Q² (mod ℓ^{v_ℓ(g)}) for all ℓ | g; for ℓ ≠ r this is
+ℓ^{v} | 1 + 4Q², so g′ | 1 + (2Q)², a sum of two coprime squares, hence g′ ≡ 1 (mod 4); r^a ≡ 1 (mod 4); so g ≡ 1,
+contradicting g ≡ 3 (mod 4). Taking M := r·lcm(g) over the finite set, {n ≡ x(u) mod M} is a unit class containing
+infinitely many primes p ≡ u (mod r), none covered ✓. The argument never uses that u is a non-residue (for r ≡ 1 (4)
+every u ≢ 0 works; for r ≡ 3 (4) it works for residues u: r | g would need u ≡ −4Q², a non-residue). The bold
+statement is true as stated; it is the classical Mordell-type obstruction (identities cannot cover the class n ≡ 1)
+transported to shot classes. "Covering proofs are excluded for every cell" should read "proofs by finitely many
+shot-class identities".
+
+### §6 class-layer conditional — SOUND
+MARKOFF Thm 4.1 (checked): points with (λ, D) ⟷ primitive x² − Nz² = −D, N = 4(λ²D² − n); the principal form
+x² − Ny² has discriminant 4N = 16(λ²D² − n) ✓. If −D is primitively represented by some form of the principal genus
+and the principal genus is a single (proper) class, the principal form represents −D primitively ✓. This is a
+restatement of MARKOFF Prop 6.1(c) under a sufficient hypothesis; PROVED is fair for the implication. Hypotheses to
+state (m11): N > 0 non-square (λ²D² − n not a square: e.g. n = 35, λD = 6 gives N = 4), D odd, gcd(D, n) = 1, D | μ;
+"class group" = form class group of the non-maximal order (proper equivalence = narrow sense). The local layer
+I re-derived from scratch: 2-adic: D ≡ 7 (mod 8), or λ even (then D ≡ 3, 7 (mod 8) both fine); odd p | λ²D² − n,
+p ∤ D: (−D/p) = 1; odd p | D: (−n/p) = 1 (MARKOFF §6 lists only the first two; the third is presumably in its
+admissibility Lemma 3.1 — the conditional inherits it through "genus-admissible"). Not numerically tested (would
+test genus theory, not the document).
+
+### T1 claims — SOUND
+(a) FROBENIUS Thm 4.2(b) is stated for ES^{(y)} ⊇ ES^{(y,e)} and only for shape at EVERY prime of m — the document
+uses exactly that form (matching UNIT_ORBIT R186 repair m2) ✓; shot solutions at m² are impossible
+(m² + (2Q)² coprime) ✓; for ES^□ this is SYNTHESIS_SPARKS2 Lemma 2.1 ✓. (b) scaling with mute primes prime to m
+keeps den z, ℓ | ty ✓. Controls: n = 9, 25 empty and 332 squares empty in my runs ✓.
+
+### Labels
+Prop 1.1, Thm 2.1, Prop 3.1, Prop 4.1, B1, class-layer conditional: PROVED is justified. Thm 5.1: PROVED (ineffective,
+via BV + linear sieve) justified for the M2-repaired statement. EVIDENCE labels in §3 justified. Readings are marked
+Assessment except the "single-n requirement" paragraph (m12). Nothing claims ES or any bounded-cap variant.
 
 ## Numbered defects
 
@@ -210,6 +247,19 @@ follows (A > 3/ε). Optional: note the absurdly slow onset (A = 1 needs log x �
 
 **m9 (MINOR) — Thm 5.1 Step 4: the shift.** Say "let a represent the class of (−n/4)·∏s_i^{−2L}"; as written
 ("Q := ∏ s_i^{a_i+L} … satisfies Q² ≡ −n/4") it is false for a representing −n/4.
+
+**m10 (MINOR) — §6 B1.** Drop "u a non-residue" (unused; the proof works for every u ≢ 0 when r ≡ 1 (4)), or explain
+why it is kept; replace "Covering proofs are excluded for every cell" by "proofs by finitely many shot-class
+identities are excluded for every cell", and cite the classical Mordell obstruction it mirrors.
+
+**m11 (MINOR) — §6 class-layer conditional: hypotheses.** Add: λ²D² − n > 0 and not a square, D odd with D | λD
+trivially, gcd(D, n) = 1, (−n/p) = 1 for p | D (part of genus admissibility), "form class group of discriminant
+16(λ²D² − n), proper equivalence".
+
+**m12 (MINOR) — §6 "Where the single-n requirement bites": unlabelled heuristics.** "its expected count per q is ≍
+τ(N)/q, invisible to any level-of-distribution statement" and "Chen-type switching only moves between the three
+faces" are heuristics; label the paragraph (Assessment). Same for the ES^{(S)} row of the §6 table: it needs the †
+qualifier (non-square n, gcd(n, 15) = 1 — or 3 ∤ n after m4), since its "infinite" k-slice is Prop 3.1(a)'s.
 
 **m5 (MINOR) — Prop 3.1(a), Cor 3.2: say "ineffective"** (inherited from BV/Siegel–Walfisz, as UNIT_ORBIT Thm 2.4 and
 FROBENIUS Thm 4.2 state).
