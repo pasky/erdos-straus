@@ -6,8 +6,7 @@ Nothing here proves ES or any case of it. Sterility = "in no class of the seven 
 **SHARP:**
 1. **Theorem 3.4 (PROVED, computer-assisted): for every prime r ≥ 2³² ≈ 4.3·10⁹ the r-generic line has sterile points in the
    non-residue cells, so no finite ET covering handles all large primes with least quadratic non-residue r.** (J)26 had this only
-   for an ineffective/tower r₀. Certificate: measure criterion (S) with max S = see `data/se/r0_certify.txt` (old tables 0.4850,
-   limit 0.49999), `scripts/se_certify.sh` replays everything (~3.5 h, 2 cores).
+   for an ineffective/tower r₀. Certificate: measure criterion (S) with max S = 0.48670 < 0.49999 (`data/se/r0_certify.txt`, regenerated tables), `scripts/se_certify.sh` replays everything (~3.5 h, 2 cores).
 2. **Coppersmith interpolation (Cor 1.4, PROVED, elementary via Minkowski):** divisors of n of size n^β in a unit class mod n^ρ
    number ≤ n^{max(0, β(1−β)−ρ)+o(1)} with explicit lattice constants (cut the size window into J pieces). Below the
    Coppersmith threshold it replaces the divisor function.

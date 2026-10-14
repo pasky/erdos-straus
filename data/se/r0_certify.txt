@@ -1,1 +1,1 @@
-B0=32.0 Bmax=600.0: max S = 0.485006 at b = 32.0; failures 0
+B0=32.0 Bmax=600.0: max S = 0.486702 at b = 32.0; failures 0
