@@ -105,3 +105,33 @@ The hexagon escapes because K(2, 2, 2) = 4 is an interior length-3 word at 4. In
 2. the absence of an N-free sub-word at 4 of length 2.
 This parallels (J)32 (m = 4 is the unique numerator whose slices form a character fibre). Here r = 3 is the unique
 polygon size whose zero locus is a character fibre (for r ≤ 12 and r ≡ 0 (4); CONJECTURE beyond).
+
+## 5. Constructive attempts (barrier as steering wheel)
+
+| attempt | hypothesis of the barrier it tries to violate | outcome |
+|---|---|---|
+| SVZ lifting ⟹ sign is topological (I1) | "congruence-only data" (B1): uses homotopy instead | killed: all odd closed walks on F₄ are strongly contractible; signed theory is T1-blind (§3) |
+| Lift spur-walks mod 8 to positive friezes at N | "fixed finite slice set" (B2): all 80 classes at once | no hidden local obstruction (EVIDENCE N ≤ 2·10⁴); lifting = SQ₅ lottery (~100 words, 80 classes) |
+| Transport (h′/N) = −(2/o), choose o small | "moving modulus" (B2): modulus becomes the small o | the sign moves to o, but a word with prescribed o is a divisor event (fixed o: B2; growing o: H-A) |
+| Hexagon + ear (ES = hexagon with a mergeable pair) | "bounded multiplicity" (B3): hexagons are plentiful and N-free | merging two arcs = an ear = a divisor condition, so it returns to the pentagon |
+| Windmill on F(N) | H-B parity | multilinear surface, only the reflection; #F₋(p) even (y2_parity_involution) |
+| Zamolodchikov forcing | "no deterministic input" | forces an even edge (mod 2) only; mod 4 is impossible by T1 |
+| Positivity (CC ear-lemma analogue) | §3 says a proof must use positivity | positivity forces *sizes* (some letter ≤ N^{1/3}), not residues. A size-forced word has its sign fixed by congruences of N (B1), which T1 kills |
+
+## 6. Verdict (O210 checkpoint 1)
+* **PROVED (new as statements; elementary):**
+  * Even-edge theorem (Thm 1.2): for every positive formal pentagon frieze at odd N,
+    (h′/N) = (−1/N)(−1)^{[8 | ee′]}. This gives a 3-case proof of DK Thm 4.5 and extends it to formal words and to
+    N ≡ 3 (4).
+  * The transport law (h′/N) = −(2/o) for N ≡ 1 (8) (§2).
+  * T1 enters through positivity (§3); SVZ/finite-ring frieze theory is T1-blind.
+  * Pentagon degeneration of the hexagon proof (Thm 4.1). r = 3 is the unique polygon size with a Jacobi-fibre zero
+    locus for r ≤ 12 and r ≡ 0 (4); CONJECTURE for all r.
+* **CERTIFIED:**
+  * 5 115 860 words (all odd N ≤ 10⁵);
+  * 2·10⁶ random words with N up to ~10¹²;
+  * square controls: 8 068 + 20 406 words, 0 zero-mod-4.
+* **Assessment:** no deterministic existence mechanism. The frieze language makes the barrier map sharper. The sign is
+  one 2-adic bit at a unique even edge, transportable to a small modulus o, and enforced at squares only through
+  positivity. Every existence attempt still needs a word with a prescribed small datum, which is B2/H-A.
+* **ES is not solved; no infinite case of ES is claimed.**
