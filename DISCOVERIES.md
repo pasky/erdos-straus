@@ -1009,6 +1009,25 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * s3_words_parity: #χ=−1 words is even at p ≡ 1 (4).
    * Relay O212 (hunting 4-specific inputs) was spawned.
 
+42. **Spark relay Y2: friezes — the even edge and the transport law (FRIEZE_ES.md + BRAINSTORM/y2_*.md (O210); review `reviews/frieze-es-review.md` (R208): no FATAL; MAJOR D1 (novelty: the extension to all words and all odd N is already MODEL_SPECIFIC Thm 3.1(a)), D5 (a steering rule labelled PROVED), and a positive MAJOR D8 (the polygon-size conjecture is a theorem); minors; repaired by the reviewer).**
+   * Lemma 1.1 (PROVED; CERTIFIED by R208 on all 5 115 860 odd-N formal words N ≤ 10⁵ and 10⁶ random large words). For every positive word (c, m, s) at odd N, exactly two of the five cluster variables (h′, c, m, s, h) are even, and they are adjacent (mod-2 rigidity of the A₂ frieze; positivity is not used).
+   * Thm 1.2 (PROVED, 3-case proof). With e, e′ the even pair, (h′/N) = (−1/N)·(−1)^{[8 | ee′]}. This is a short, computation-free proof of MODEL_SPECIFIC Thm 3.1(a) / DK Thm 4.5; new are the even edge and the proof (R208 D1). Consequence (R208 D15): χ is a function of (c, m, s) mod 4.
+   * **Transport law (PROVED; CERTIFIED).** For N ≡ 1 (8), (h′/N) = −(2/o), where o is the odd cluster variable opposite the even edge.
+     * So a five-slice certificate at N ≡ 1 (8) ⟺ some word has o ≡ ±1 (mod 8). At an odd square every word has o ≡ ±3 (mod 8) (T1).
+     * It is Hilbert reciprocity localised: a cherry-depth reading in the 2-adic Bruhat–Tits tree.
+   * §3 (split by R208 D5).
+     * PROVED: positivity is necessary — an explicit signed family at odd squares has a quiddity ≡ 0 (mod 4).
+     * The Short–Van Son–Zabolotskii lifting theory of tame friezes is T1-blind: every closed odd walk on the Farey complex F₄ is strongly contractible.
+     * Assessment: a frieze-theoretic ES proof must use positivity, i.e. the archimedean Hilbert factor (CHI_FLIP Thm 1.1).
+   * §4 (PROVED).
+     * The 4-term analogue has the uniform frieze proof 4/N = 1/k + 1/(k(2k−1)) + 1/((2k−1)(3k−2)) + 1/(N(3k−2)) at N = 4k − 3. In the pentagon the same cut needs a length-2 word at 4w, which is B2 (Assessment).
+     * **Polygon-size uniqueness (PROVED after R208 D8).** r = 3 is the only HJ length whose zero-mod-4 locus is the Jacobi fibre. For r ≥ 5 the word (2, 2, 2, 4, 2^{r−5}, k) at N = (2Q + 3)², with Q = 9(r − 5) + 13, is a witness at an odd square; r = 2 and r = 4 are handled directly. This parallels (J)32's "m = 4 unique".
+   * Memos (negative).
+     * Parity involution: the only dihedral symmetry fixing the N-side is the reflection, and #F₋(p) is even.
+     * Zamolodchikov period 5 forces an even edge mod 2, never a zero mod 4.
+     * The Cuntz–Holm–Jørgensen coefficient model is a relabelling.
+   * Relay O213 (the transport law in the o-aspect) was spawned.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
