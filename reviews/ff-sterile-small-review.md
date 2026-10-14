@@ -162,7 +162,8 @@ Lemma 4.1: without it my per-s term at s = 80 is still 0.118 and the sum through
 exact Case B mass Σ_s #tuples(s)·q^{1−⌈s/2⌉} is 0.2222, 0.0494, 0.1975, 0.0274, 0.0549, 0.0018 for s = 4..9 (none at
 s = 3), cumulative **0.5533 through s = 9**, against the bound-sum 10.675 through s = 9. So the exact small-s masses are
 ~19× below the bounds, and the q = 9 programme "exact counts up to s ≈ 20–24, then route bounds" looks plausible
-(Assessment; the counts above are CERTIFIED by exhaustive enumeration, cross-validated at q = 3 against R218's enumerator).
+(Assessment; the counts above are CERTIFIED by exhaustive enumeration, cross-validated at q = 3 against R218's enumerator; the per-s tuple totals 0, 2, 4, 16, 20, 40, 12 (s = 3..9) agree exactly with the author's new, differently built
+enumerator `fz_enum 9 3 9` (commit 94fd7703, M2/M3/M5 reconstructions), so both enumerators are cross-validated at q = 9).
 
 ## 5. Labels
 
