@@ -178,8 +178,8 @@ restatement of MARKOFF Prop 6.1(c) under a sufficient hypothesis; PROVED is fair
 state (m11): N > 0 non-square (λ²D² − n not a square: e.g. n = 35, λD = 6 gives N = 4), D odd, gcd(D, n) = 1, D | μ;
 "class group" = form class group of the non-maximal order (proper equivalence = narrow sense). The local layer
 I re-derived from scratch: 2-adic: D ≡ 7 (mod 8), or λ even (then D ≡ 3, 7 (mod 8) both fine); odd p | λ²D² − n,
-p ∤ D: (−D/p) = 1; odd p | D: (−n/p) = 1 (MARKOFF §6 lists only the first two; the third is presumably in its
-admissibility Lemma 3.1 — the conditional inherits it through "genus-admissible"). Not numerically tested (would
+p ∤ D: (−D/p) = 1; odd p | D: (−n/p) = 1 (MARKOFF §6 lists the first two; the third is MARKOFF Lemma 3.1(iii), checked —
+the conditional inherits it through "admissible D"). Not numerically tested (would
 test genus theory, not the document).
 
 ### T1 claims — SOUND
@@ -252,8 +252,8 @@ follows (A > 3/ε). Optional: note the absurdly slow onset (A = 1 needs log x �
 why it is kept; replace "Covering proofs are excluded for every cell" by "proofs by finitely many shot-class
 identities are excluded for every cell", and cite the classical Mordell obstruction it mirrors.
 
-**m11 (MINOR) — §6 class-layer conditional: hypotheses.** Add: λ²D² − n > 0 and not a square, D odd with D | λD
-trivially, gcd(D, n) = 1, (−n/p) = 1 for p | D (part of genus admissibility), "form class group of discriminant
+**m11 (MINOR) — §6 class-layer conditional: hypotheses.** Add: λ²D² − n > 0 and not a square, D admissible in the
+sense of MARKOFF Lemma 3.1 (D ≡ 3 (4), gcd(D, n) = 1, (−n/p) = 1 for p | D), and "form class group of discriminant
 16(λ²D² − n), proper equivalence".
 
 **m12 (MINOR) — §6 "Where the single-n requirement bites": unlabelled heuristics.** "its expected count per q is ≍
