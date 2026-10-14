@@ -37,7 +37,7 @@ Since K_{r−1}·K(a₂..a_r) ≡ 1 (mod N), the other end quiddity has the same
   (−1)^{#(sign changes − → + in K₁, …, K_r)}, a Maslov-type count of the continuant sign sequence. Positivity of the
   frieze (all K_i > 0) is exactly "the ∞-factor is 1". This is O210 §3, now with an explicit formula valid for all r.
 
-**Theorem 2 (r-uniqueness; PROVED, closes FRIEZE §4 CONJECTURE).** For every r ≥ 4 there are words of HJ length r
+**Theorem 2 (r-uniqueness; PROVED. Duplicate: R208 found the same word independently and repaired FRIEZE §4 with it, merged into main while O213 was running. Kept here as an independent re-derivation.)** For every r ≥ 4 there are words of HJ length r
 (letters ≥ 2) with N an odd square and some quiddity ≡ 0 (mod 4). So the zero-mod-4 locus Z_r meets the squares, where
 every Jacobi symbol (A/N) with gcd(A, N) = 1 is +1. Hence Z_r is not contained in a Jacobi fibre {(A/N) = −1}.
 
@@ -76,6 +76,6 @@ T1 = "s₂ = 1 at squares" is the r = 3 instance of Thm 1. For r ≥ 4 no zero-m
 * the Thm 2 family for r = 5 … 200, 0 failures.
 
 ## Assessment
-PROVED: Thm 1 (an elementary generalisation of CHI_FLIP Thm 1.1 to rank r with an explicit per-step formula) and
-Thm 2 (closes the O210 polygon-size CONJECTURE). Neither gives existence. They are clean and close spark 1 and the
+PROVED: Thm 1 (an elementary generalisation of CHI_FLIP Thm 1.1 (r = 3; cf. MODEL_SPECIFIC Thm 3.1(a) for all words/odd N) to rank r with an explicit per-step formula) and
+Thm 2 (= R208's repair of the O210 polygon-size CONJECTURE, found independently with the same word (2,2,2,4,2^{r−5},k)). Neither gives existence. They are clean and close spark 1 and the
 formula half of spark 5.
