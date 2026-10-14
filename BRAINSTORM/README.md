@@ -254,3 +254,16 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | y2_zamolodchikov_forcing | twisted period-5 dynamics | mod 2 forced, mod 4 never (T1) | PROVED (negative) |
 | y2_coefficients_model | CHJ subpolygons / snake graphs | model exists, it is a relabelling | dictionary |
 | y2_positivity_is_T1 | signed friezes / Farey distance | T1 = archimedean factor = positivity; signed friezes have no T1 | PROVED by inspection + EVIDENCE — steering |
+
+## Spark relay Y5 (O213): the transport law (memos y5_*, deep file TRANSPORT_LAW.md; not yet triaged)
+
+| file | angle | own verdict | labels |
+|---|---|---|---|
+| y5_transport_is_ptolemy | what (h′/N) = −(2/o) really is | Ptolemy relation through the even edge mod 8: ee′ ∈ {1+o, N+o, 1+No}; "(2/o)" = o mod 8 = slice condition | PROVED (negative reading); CERTIFIED 784 732 words |
+| y5_five_positions | free o in each of the 5 positions (spark 2) | o-progression family exists (P_h: N ≡ −c mod o, c ∣ o+1) but density τ(o+1)/o, not 1/2; P_c = Type II, P_m = Type I | PROVED dictionary; negative |
+| y5_ocensus_hard_primes | least certificate vertex o*(p), p ≡ 1 (8) ≤ 10⁷ | o* = 7 for 94 %; max 2431 at p = 21841 (unique interior certificate pair); hard primes ≡ 1 (120) | EVIDENCE |
+| y5_mod16_shadow | second-order T1 shadow mod 16/32 (spark 4) | none; T1 is one bit | EVIDENCE (negative) |
+| y5_general_r_jacobi | general-r frieze Jacobi law (spark 1) | (K_{r−1}/N) = ∏(K_i, −K_{i+1})₂ · ∏(K_i, −K_{i+1})_∞; ∞-factor = Maslov count of continuant signs; r-uniqueness (= R208) | PROVED; CERTIFIED |
+| y5_narrow_wide | positivity as complex conjugation | ES slice condition = kernel of narrow → wide ray class mod e (−1 = c_∞); signed factorisations land in +1 | PROVED dictionary (relabelling) |
+| y5_siegel_weil_chamber | Siegel–Weil with the sign at ∞ (spark 5) | full-rank SW = genus indicator; sign is the 2-adic genus label; path bases are p^{−2/3}-thin | PROVED (triviality) + Assessment (negative) |
+| y5_even_middle | Mordell position alone (m even, 8 ∣ m·e) | SQ_H holds at all primes ≡ 1 (8) ≤ 10⁷; 22 composite exceptions ≤ 10⁶ | CONJECTURE / EVIDENCE |
