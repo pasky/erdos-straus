@@ -5,35 +5,44 @@ Branch `side-agent/bridge-worlds` (merged side-agent/torsion-firing first); deep
 case.** Outcome: a precise negative classification of bridges, one clean sub-conjecture (PM-II), and a refutation.
 
 ## SHARP:
-1. **Three-tier bridge classification (BRIDGE_WORLDS Thm 2.1, PROVED, elementary).** For m | h + 1 (semi-primitive),
-   anything that carries μ_m ⊂ T(F_h) into F_h (where −p lives) is one of: (a) a homomorphism → image ±1 (O207 Thm 3.1);
-   (b) a symmetric algebraic function of a subgroup (cardinalities, ∏(1 − ζ) = c, Gauss-sum moduli and signs,
-   uniform cyclotomic numbers, Gross–Koblitz Γ_h(1/m) ≡ j, Dickson/Chebyshev/cosecant identities) → the residue of a
-   FIXED RATIONAL s(m): this is exactly the box −p ≡ c/j; (c) Frobenius-invariant functions of one ζ → ring maps
-   O_{ℚ(ζ_m)⁺} → F_h (h splits completely in ℚ(ζ_m)⁺). ES Type II is the ℚ-rational section of (c).
-2. **Tier (c) has a mute mechanism (Prop 6.1).** The units of ℚ(ζ_{4cd})⁺ reduce homomorphically into F_h^* — the
-   same group as p (FF_MUTE-style), with large image (m = 8: index ≤ 2 for 75% of h < 10⁵). The unit-twisted Type II
-   "𝔥 | p + 4c²d·ε" has large-coset firing sets; its gap to ES is ε ≡ 1 (mod 𝔥), i.e. the exponent-cap wall of (J)34.
-   A spark agent could test whether this is a genuinely new provable cousin of ES (and whether anything transports).
-3. **Semi-primitivity = "h imitates ∞"** (memo y3_frob_infinity): h ≡ −1 (mod m) ⟺ Frob_h = c_∞ in ℚ(ζ_m); O207's gcd = 2
-   is |D_∞|. Type II on (c, d) ⟺ a sub-product of the prime factors of p + 4c²d has Artin symbol c_∞. For cd | 6 this is
-   pure genus theory: the slice fails ⟺ some odd quadratic character mod 4cd is 1 on every prime factor (0 mismatches
-   in 72 905 slice instances). Explains why every non-homomorphic bridge is archimedean.
-4. **CONJECTURE PM-II (EVIDENCE):** every prime p ≥ 5 except 3361 has a prime-modulus Type II certificate. Exhaustive
-   to 10⁷ (O207), [10⁸: see below]; full census of all certificates to 10⁶ (min N_II^pr = 5 on [10⁵, 10⁶]); only
-   13, 193, 76441 have N_II^pr = 1; mean N_II^pr ≈ 0.3·log²p; stacked-QR adversaries to 1.3·10¹¹ still fire.
+1. **Three tiers of bridges (BRIDGE_WORLDS Thm 2.1, PROVED, elementary; scope = these tiers only).** For m | h + 1
+   (semi-primitive), a rule carrying μ_m ⊂ T(F_h) into F_h (where −p lives) that is (a) a homomorphism has image ±1
+   (O207 Thm 3.1); (b) a fixed symmetric rational expression in a subgroup (cardinalities, ∏(1 − ζ) = c, cosecant
+   sums) gives the residue of a FIXED RATIONAL (for Type II: the box −p ≡ c/j); (c) a Frobenius-invariant expression in
+   one ζ gives ρ_𝔥(α), α ∈ ℚ(ζ_m)⁺ (h splits completely there). Separately checked: pure Gauss sums (sign (−1)^j),
+   uniform cyclotomic numbers (EVIDENCE: m²(a,b) ≡ 1, 1 − m, 1 − 3m mod h), Γ_h (argument 1/m ≡ j), Salié angles —
+   all end at the box, a Planck-scale hit, or a Weil-bounded sum. "Every useful bridge is archimedean" is Assessment.
+2. **Semi-primitivity = "h imitates ∞"** (memo y3_frob_infinity, PROVED dictionary): h ≡ −1 (mod m) ⟺ Frob_h = c_∞ in
+   ℚ(ζ_m); O207's gcd = 2 is |D_∞|. Type II on (c, d) ⟺ a sub-product of the prime factors of p + 4c²d has Artin
+   symbol c_∞. For cd | 6 this is genus theory: the slice fails ⟺ some odd quadratic character mod 4cd is 1 on every
+   prime factor (0 mismatches in 86 310 prime slice instances p < 10⁵). Folklore-level, but a clean dictionary.
+3. **CONJECTURE PM-II (EVIDENCE):** every prime p ≥ 5 except 3361 has a prime-modulus Type II certificate. Exhaustive
+   to 10⁷ (O207) [10⁸ run: see "10⁸ status" below]; full census of all certificates to 10⁶ (min N_II^pr = 5 on
+   [10⁵, 10⁶]); only 13, 193, 76441 have N_II^pr = 1; mean N_II^pr ≈ 0.3·log²p; stacked-QR adversaries up to 1.3·10¹¹
+   still have ≥ 14 prime-firing slices with cd ≤ 200.
+4. **Tier-(c) unit twists (Prop 6.1) — spark, with a caveat.** Units of ℚ(ζ_{4cd})⁺ reduce into F_h^* (p's group) with
+   large image, but with all units the twisted variant is TRIVIAL (ε = −1 is signed ES: 3 | p ± 4). The open question
+   is the totally-positive-unit variant (positivity = archimedean again).
 
 ## Other results
 * Uniform cyclotomy residue law (EVIDENCE): m²·(a,b)_m over F_{h²} ≡ 1, 1 − m or 1 − 3m (mod h) for m ∈
   {4,6,8,10,12,16,20,24}, h ≤ 199. Stickelberger: g(χ_{4cd}) = (−1)^j h.
 * Scaling collapse (Prop 1.2, PROVED): weighted-homogeneous cyclotomic counts see p only via p mod F_h^{*e}.
-* O207 spark 1 REFUTED/COLLAPSED (PROVED + EVIDENCE): the Type I dual Hasse window is exactly the g ∈ {1,3,5} family
-  (g = 3, the greedy x = (p+3)/4 family, for p ≡ 1 mod 4); the trace-(1−p) curve never has CM by ℚ(√−d) (0/10 737).
-  Type I overlap |Hom(μ_{f+p}, F_f^*)| = gcd(p+1, f−1); full overlap at level 4cd ⟺ p ≡ 3 (4) trivial case.
-* Euclid–Schur: ES firing classes are exactly Schur–Murty "Euclidean" classes (a² ≡ 1); residue-only forcing of a
-  prime factor ≡ −1 exists only for |(ℤ/m)^*| = 2 (trivial slice).
+* O207 spark 1 COLLAPSES (PROVED + EVIDENCE): the Type I dual Hasse window consists of the g ∈ {1,3,5} certificates
+  (p ≥ 17); for p ≡ 1 mod 4 that is g = 3 with f prime, a sub-family of the greedy x = (p+3)/4 family; the CM-by-ℚ(√−d)
+  suggestion holds in none of 10 737 window certificates. Type I overlap |Hom(μ_{f+p}, F_f^*)| = gcd(p+1, f−1); full
+  overlap at level 4cd ⟹ p ≡ 3 (4) (trivial case); partial overlaps exist for p ≡ 1 (4) on finitely many slices.
+* Euclid–Schur: the ES class −1 is one of the Schur–Murty "Euclidean" classes (a² ≡ 1); forcing a prime factor ≡ −1
+  of a single integer from its residue exists only for |(ℤ/m)^*| = 2 (trivial slice); forcing via auxiliary primes is B1.
 * Salié angle dictionary: Type II at prime h ⟺ a root ν of ν² ≡ −pd (mod h) sits exactly at (h+1)/(2j) (Planck scale).
 * Mixed Gauss sums (χ∘N)·ψ decompose into torus character sums (checked); Weil-bounded (B3).
+
+## Self-review (deep reviewer, R-O211)
+1 FATAL (universal "no algebraic bridge" verdict overreached: rescoped to the three tiers, Assessment otherwise),
+6 MAJOR (Euclid–Schur E3 false → withdrawn as remark; unit-twist variant trivial via ε = −1 → caveat; Gross–Koblitz
+sign and value/argument confusion → fixed; Box(k) can be a subgroup (h = 7) → withdrawn; Type I overlap overstated →
+fixed; Prop G integrality → "regular at 𝔥"), minors (Type I window proof completed via c ≤ 2p/3 ⇒ g < 13, f-prime
+condition kept; genus criterion hypothesis and counts fixed; label wording). All repaired in place ("R-O211 repair").
 
 ## Barrier screen summary
 All eight memos COLLAPSE (B1/B2/B3/B4 as tabulated in BRIDGE_WORLDS §7); T1 control (odd squares) gave 0 throughout.
