@@ -103,3 +103,33 @@ the analogous routes give 0.65 (grid; `/tmp`-prototype, to be committed), margin
 1.2·10⁷, 2.5·10⁸ at N = 17, 17³, 17⁵, 17⁷, 17⁹ (true: 2, 32, 121, 258, 604) and 2.2·10¹⁰, 3.8·10¹² at N = 10¹⁵, 10²⁰;
 bound/√N peaks ≈ 7·10² near N ≈ 10¹⁵ and then decays (local exponent 0.45 between 10¹⁵ and 10²⁰). Since each P-box of
 level (K+1)/2 weighs N^{−1/2}r^{−1/2}, this predicts an explicit r₀ around 10⁸–10⁹ once certified (§3).
+
+## 3. The certificate: an explicit r₀
+
+**3.1 Measure criterion (PROVED from M17 and (J)26's inputs, r-free).** For an odd prime r, the boxes of the seven ET
+families meeting the non-residue cells are P-boxes (level (K+1)/2, K odd) and Q-boxes (level k, k odd): √Q = ∅, Q⁻¹ = Q
+as sets, U ⊂ P (M17 Lemmas 1.1, 1.3, 5.1, 5.2; their proofs use only that r is an odd prime — R187's general-r re-derivation
+and brute force for r ≤ 23, DEPTH_ASPECT §3). Each P-datum (a ≤ b) gives ≤ 2 boxes, each Q-datum ≤ 2 (M17B Lemma 1.1). Hence if
+  S(r) := Σ_{k odd} 2D_Q(r^k) r^{−k} + Σ_{K odd} 2D_P(r^K) r^{−(K+1)/2} < (r − 1)/(2r),                         (S)
+some non-residue u is in no box, x(u) is sterile, and (M17 Cor 4.2 with 17 ↦ r) **no finite set of ET Prop 1.9 classes covers
+all sufficiently large primes whose least quadratic non-residue is r**. Here D_Q(F) = #{N-points of Σ^I_F, a ≤ b, r ∤ abcde}
+and D_P(N) as in §1 (in-cell data are primitive; M17 §6, Lemma 5.1).
+
+**3.2 Explicit tables (`scripts/se_box.c`; CERTIFIED by fail-closed outward-rounded computation).** For every odd N in a
+range [2^{j/q}, 2^{(j+1)/q}), se_box bounds D_P(N) (mode P) and D_Q(N) (mode Q) by a sum over boxes of ratio 2^t of the minimum
+of the route bounds of Table 2 (P) resp. Table 3.2Q (below), with cop() = min(trivial, Cor 1.4 with (Cop) re-verified for the
+chosen J, explicit τ(n) ≤ C₂(η)n^η), plus *row aggregation*: for a whole row of boxes with the same (a, d) (P) resp. (c, d) (Q)
+the data are divisors of one integer N + 4a²d resp. F² + 4c²d, so the row is also bounded by #pairs·τ (taken when smaller).
+Q-routes (Q-datum: 4abcd = F(a+b) + c, e = (a+b)/c, f = 4acd − F, ef = 4a²d + 1, 4abd = eF + 1, fb = aF + c,
+f(4bcd − F) = F² + 4c²d; boxes in (c, d, f), a = (f + F)/(4cd)): (AD) ≤ 2 data per (a, d) (M17C Lemma 2.1(iv));
+(fa) (a, f) then d ≡ −(4a²)^{−1} (mod f); (AC) f ∣ aF + c, f ≡ −F (4ac); (CD) f ∣ F² + 4c²d, f ≡ −F (4cd); (Ea), (Ed), (τ₃) as
+F, G, τ₃ of Table 2 with N ↦ eF; and three new **f-routes**: from 4acd ≡ F and 4a²d ≡ −1 (mod f) one gets
+**c ≡ −aF, d ≡ −(4a²)^{−1}, a ≡ −cF^{−1} (mod f)** (gcd(f, F) = 1 in-cell, as r ∤ c), so (fac) pairs (f, a) with 4a ∣ f + F,
+then c or d in one class mod f; (fca) pairs (f, c) with 4c ∣ f + F, then a in one class mod f; (fda) pairs (f, d), 2^{ω(f)}
+square-root classes for a.
+
+**3.3 Tails (`scripts/se_tail.py`; PROVED by an exact-in-structure computation).** On boxes a ∈ [N^{x_a}, N^{x_a+1/M}) etc.
+(capped by 2a²d ≤ N, acd ≤ N), every route bound is a finite sum Σ c N^e (ln N)^p valid for all N ≥ N₀ (the Coppersmith
+condition is linear in L = ln N: slope ≤ 0 and value < 0 at ln N₀ are checked). P (M = 32, N₀ = 2^{600}, routes H, A, C, D,
+E, F, G, τ₃ (η = 0.3), I; 2^{ω(e)} ≤ C_ω(0.1)e^{0.1}): every chosen term has e ≤ 0.4797 < 1/2 and is decreasing relative to
+√N for N ≥ N₀. Q (M = 16, N₀ = 2^{100}, routes AD, AC, CD, fac, fca): every term has e ≤ 0.75 < 1, decreasing relative to N.

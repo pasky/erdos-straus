@@ -1,0 +1,82 @@
+"""se_r0.py -- O219 (STERILE_EXPLICIT.md §3.4). Combine the certified tables of se_box.c and the tails of se_tail.py
+into the measure criterion
+   S(r) = sum_{k odd} 2 D_Q(r^k) r^{-k} + sum_{K odd} 2 D_P(r^K) r^{-(K+1)/2}  <  (r-1)/(2r)
+for every prime r >= 2^B0.  r is treated in ranges [2^b, 2^{b+1/4}), b = B0, B0+1/4, ..., < 2^Bmax; for r >= 2^Bmax all
+N = r^K lie in the tail range and every term is decreasing in r (checked), so S(r) <= S(2^Bmax-range).
+Tables: lines "j F ..." meaning D(N) <= F for all N in [2^{j/q}, 2^{(j+1)/q}).
+Tails: se_tail.py term lists (c, e, p): D(N) <= sum c N^e (ln N)^p for N >= 2^{L0}.
+Usage: python3 se_r0.py B0 [Bmax]      (fails closed: exit 1 if any range violates the criterion or a table is missing)."""
+import sys, math
+sys.path.insert(0, __file__.rsplit('/', 1)[0])
+import se_tail
+D = __file__.rsplit('/', 2)[0] + '/data/se/'
+
+def load(fn, q):
+    T = {}
+    for line in open(D + fn):
+        f = line.split()
+        if len(f) >= 2 and f[0].lstrip('-').isdigit(): T[int(f[0])] = (float(f[1]) * (1 + 1e-9), q)
+    return T
+
+def table_max(tabs, lo_bits, hi_bits):
+    """max of certified F over quarter/full-octave cells covering [lo_bits, hi_bits); None if not fully covered."""
+    best = 0.0
+    x = lo_bits
+    while x < hi_bits - 1e-12:
+        got = None
+        for T in tabs:                                   # prefer the finest table that has the cell
+            q = next(iter(T.values()))[1]
+            j = math.floor(x * q + 1e-12)
+            if j in T: got = (T[j][0], (j + 1) / q); break
+        if got is None: return None
+        best = max(best, got[0]); x = got[1]
+    return best
+
+def tailval(terms, bits):
+    L = bits * math.log(2)
+    return sum(c * math.exp(e * L) * L ** p for (c, e, p) in terms)
+
+def main():
+    B0 = float(sys.argv[1]); Bmax = float(sys.argv[2]) if len(sys.argv) > 2 else 600.0
+    P = [load('P_q4.txt', 4), load('P_q1.txt', 1)]
+    Q = [load('Q_q4.txt', 4)]
+    LP, LQ = 600.0, 100.0                                  # tail thresholds (bits)
+    tP, wP, _, _ = se_tail.tailP(32, LP); tQ, wQ, _, _ = se_tail.tailQ(16, LQ)
+    assert wP < 0.5 and wQ < 1.0
+    LPn, LQn = LP * math.log(2), LQ * math.log(2)
+    assert all(p <= (0.5 - e) * LPn for (c, e, p) in tP) and all(p <= (1 - e) * LQn for (c, e, p) in tQ)
+    worst = (0, None); b = B0; bad = 0
+    while b <= Bmax + 1e-9:
+        bh = b + 0.25
+        S = 0.0
+        for K in range(1, 100001, 2):                    # P part
+            lo, hi = K * b, K * bh
+            v = None
+            if hi <= LP: v = table_max(P, lo, hi)
+            elif lo >= LP: v = tailval(tP, hi)           # terms increasing in N: take the top of the range
+            else:
+                v1 = table_max(P, lo, LP); v = None if v1 is None else max(v1, tailval(tP, hi))
+            if v is None: print("missing P table", lo, hi); sys.exit(1)
+            term = 2 * v * 2 ** (-b * (K + 1) / 2)
+            S += term
+            if lo >= LP and term < 1e-30: break
+        for k in range(1, 100001, 2):                    # Q part
+            lo, hi = k * b, k * bh
+            if hi <= LQ: v = table_max(Q, lo, hi)
+            elif lo >= LQ: v = tailval(tQ, hi)
+            else:
+                v1 = table_max(Q, lo, LQ); v = None if v1 is None else max(v1, tailval(tQ, hi))
+            if v is None: print("missing Q table", lo, hi); sys.exit(1)
+            term = 2 * v * 2 ** (-b * k)
+            S += term
+            if lo >= LQ and term < 1e-30: break
+        S *= 1 + 1e-6
+        lim = 0.5 - 2 ** (-b - 1)                         # (r-1)/(2r) for r >= 2^b
+        if S >= lim: bad += 1; print(f"FAIL b={b:.2f} S={S:.6f}")
+        if S > worst[0]: worst = (S, b)
+        b += 0.25
+    print(f"B0={B0} Bmax={Bmax}: max S = {worst[0]:.6f} at b = {worst[1]}; failures {bad}")
+    sys.exit(1 if bad else 0)
+
+if __name__ == '__main__':
+    main()
