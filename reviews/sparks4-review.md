@@ -188,6 +188,6 @@ p/(p − A)) matches the classical toric picture (Oda §1.6, not re-read). Tool 
 ⇒ xy ≥ p − 1).
 (e) **s4_real_analytic_tools** §1: "path basis is a thin extraction, ≪ p^{1/3+o(1)} of ≍ p classes" — the exponent 1/3
 is unsupported (no proof or citation; the selling memo says ≍ log²p on average; the known pointwise bounds are
-Elsholtz–Tao (sources/elsholtz-tao-1107.1010.pdf, Prop. 1.7-type bounds) f_I(n) ≪ n^{3/5+O(1/log log n)},
+Elsholtz–Tao (sources/elsholtz-tao-1107.1010.pdf, Prop. 1.7) f_I(n) ≪ n^{3/5+O(1/log log n)},
 f_II(n) ≪ n^{2/5+O(1/log log n)}). Repair: cite or replace by "p^{o(1)} on average (≍ log²p heuristically)".
 "θ(−1/τ) *is* the product formula" is an Assessment, not an identity; label it. Verdicts (COLLAPSES) agree.
