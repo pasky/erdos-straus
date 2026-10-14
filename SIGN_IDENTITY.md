@@ -83,3 +83,17 @@ K ≥ 2, inductively C_k = 0 for k ≥ 2, and C₀ + C₁ = 0. Then E ≡ C₀ +
 *Reading.* d₃-size objects (Thm 2.2's only survivors among divisor-type functions) are exactly the rank-3 terms, and
 T1 at all squares couples the ranks completely (prime squares alone do **not**: 3 − d(n) is 1 at primes and 0 at ℓ²;
 ℓ⁴, ℓ²ℓ′² are needed). A d₃-Eisenstein identity is GL(3)-Eisenstein; T1 kills it as in Thm 9.1.
+
+**Proposition 2.4 (hook (3): a Waldspurger/Θ zero-set equivalence is impossible for eigenforms; PROVED relative to
+Waldspurger 1981 and the root-number formula for quadratic twists).** Thm 2.2 excludes equality; the softer hope is
+"N₋(n) > 0 ⟺ a_g(n) ≠ 0" for a weight-3/2 eigenform g (T1 would then be a(1) = 0 propagated by a(m²) = a(1)·(multiplicative
+in m), and 105 a sporadic central zero). Let g be a weight-3/2 Hecke eigenform of level 4N with Shimura lift F (weight 2).
+For squarefree t prime to 4N, Waldspurger gives a(t)² = c(t)·L(F ⊗ χ_t, 1) with c(t) depending only on the classes of t in
+ℚ_v^*/ℚ_v^{*2}, v | 4N∞. The root number ε(F ⊗ χ_t) = ε(F)·χ_t(−N) takes the value −1 on a non-empty union Z of invertible
+classes mod 4N (χ_·(−N) is a non-trivial character since −N is not a square), so a(t) = 0 for all squarefree t ∈ Z.
+But every invertible class mod 4N contains n with N₋(n) ≥ 1: all n ≡ 3 (4) and n ≡ 5 (8) (Lemma 1.2), and for a class
+≡ 1 (8), infinitely many primes (Lemma 1.2 with M = 8N). Hence {a_g = 0} ≠ {N₋ = 0} on squarefree odd n. ∎
+*Reading.* Both T1 and root-number vanishing are Hilbert reciprocity; but a twist family's reciprocity sign is a
+**character of n** (vanishes on whole classes), whereas ES's T1 is the **square condition on n** itself. A Θ-type
+mechanism inherits the former; the fingerprint "only squares (and 105)" rules it out. (Kohnen's plus space is even
+easier: a(n) = 0 for all n ≡ 1, 2 (mod 4).) Combinations of eigenforms are not covered (no zero-set control).
