@@ -14,6 +14,7 @@ All numerics re-done with from-scratch code `scripts/review_r224_*.py` (author s
 | SHARP 1 / Summary 1 reading "continuity of T1 is adelic, NOT archimedean (corrects O209 §3.2)" | **GAP — overclaimed (MAJOR D5)**: a genuine archimedean (bounded p − m²) effect exists, z ≈ −6, with a PROVED T1-type mechanism the author missed |
 | §2 Assessment "each fixed level is clean with probability → 0 (GRH)" | **GAP (MAJOR D6)**: false along the families p = m² + k |
 | §2 clean-level law + coin model ("within ≈ 0.03 per lnr bucket") | **SOUND as EVIDENCE, weaker than presented (MINOR D7, D8)**: reproduced exactly on the author's sample and within 0.012 on an independent 1 500-prime sample; but 75–91 % of levels are decided by the exact part, and the coin part over-predicts by ≈ 0.03 (4–8σ) |
+| CONJECTURE 3SQ (0 exceptions ≤ 10⁶; 105 not an exception; elementary words; residual class) | **SOUND** (label CONJECTURE correct; all numerics reproduced) |
 | (further rows added below as checked) | |
 
 ## Claim-by-claim
@@ -101,6 +102,23 @@ cutoff Y; Y ∈ {30, 100, 300} all fit (Y = 300 best), so no tuning on the same 
   The "fair coin" part is biased toward −1 by a few per cent; the bias is unexplained.
 * The unconstrained model is off by a factor ≈ 2.0 (0.157 vs 0.314 …) in every bucket on both samples, not "≈ 1.6"
   (the factor 2 is forced: the constraint doubles every non-deterministic level with k ≥ 1).
+
+### CONJECTURE 3SQ (§5, memo y8_three_squares_sq) — SOUND
+* Criterion check to 10⁶ (`scripts/review_r224_3sq.c`, own word enumeration, Thm A (i): w embeddable ⟺ (−A/ℓ) = +1
+  for every odd ℓ with v_ℓ(n) odd): all 499 500 odd non-squares n ≤ 10⁶ have a non-embeddable word; no odd square
+  ≤ 10⁶ has one. **0 exceptions** (runs in < 1 s, early exit; terminates — all loops bounded).
+* Independent of Thm A, for small n (`scripts/review_r224_direct_embed.py`): direct search for a, b, c ∈ ℤ³ with Gram
+  n·G_w, G_w = [[v, −1, 0], [−1, t, −1], [0, −1, u]]: all 11 007 unordered words of all odd n ≤ 1001 — direct result
+  = criterion, 0 mismatches; 3SQ holds for every odd n ≤ 1001 by direct embedding.
+* 105: 11 ordered words (6 unordered: (107,1,1), (54,1,2), (3,1,53), (2,1,106), (1,2,107), (1,3,54)), each with
+  (−A/105) = +1 and exactly two of (−A/3), (−A/5), (−A/7) equal to −1, namely {3, 7} or {5, 7}: confirmed. 525: 27 ordered
+  words, 23 non-embeddable: confirmed.
+* Elementary words: (1, 2, n + 2) has A = 1, (1, 3, (n + 3)/2) has A = 2 (both valid words for every odd n — checked
+  algebraically); they kill every n with an odd-exponent prime ℓ ≢ 1 (8). Residual (all odd-exponent primes ≡ 1 (8)):
+  32 050 of the 499 500 odd non-squares ≤ 10⁶ — all covered numerically. The R-O217 caveat (no reduction to a single
+  prime) is correct and needed.
+* ⇐ is Thm B (R214 SOUND); at n = p ≡ 1 (4) 3SQ(p) ⟺ ES-five(p) (Thm A (i) with n = p is χ = +1): so 3SQ contains the
+  open part of ES-five; CONJECTURE is the right label. "Exception-free formulation of SQ" is a fair SHARP (language).
 
 ## Defects
 D1 (MINOR) — Lemma 1.2(b) and Summary item 2: "Every prime r < lnr(p) is clean" mixes the level notion with primes.
