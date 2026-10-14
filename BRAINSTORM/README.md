@@ -267,3 +267,13 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | y5_narrow_wide | positivity as complex conjugation | ES slice condition = kernel of narrow → wide ray class mod e (−1 = c_∞); signed factorisations land in +1 | PROVED dictionary (relabelling) |
 | y5_siegel_weil_chamber | Siegel–Weil with the sign at ∞ (spark 5) | full-rank SW = genus indicator; sign is the 2-adic genus label; path bases are p^{−2/3}-thin | PROVED (triviality) + Assessment (negative) |
 | y5_even_middle | Mordell position alone (m even, 8 ∣ m·e) | SQ_H holds at all primes ≡ 1 (8) ≤ 10⁷; 22 composite exceptions ≤ 10⁶ | CONJECTURE / EVIDENCE |
+
+## Spark relay Y4 (O212): hunting 4-specific inputs after the numerator-blindness barrier (`y4_*`, deep file FOUR_SPECIFIC.md; not yet triaged)
+| memo | idea | outcome | label |
+|---|---|---|---|
+| y4_t1_numerators | which M carry T1 / blind relaxations | T1 in the M-shot family ⟺ M ≡ 0, 3 (mod 4) (−M a discriminant); M^□ a theorem for all M; failure-free T1 numerators: 3, 4, 7; new harness entry 11/37 | PROVED; CERTIFIED checks |
+| y4_oneodd_slices | one-odd half on the five slices | parity = v₂ of the slot (2 ↔ one-odd, ≥ 3 ↔ 8/n); cells 100/100/40; S₄^{odd}(p) ≠ ∅ to 10⁷ but empty at composites 321, …; certificates of fixed n are ℤ₂-isometric (FOUR_SPECIFIC Thm 2.3) | PROVED; EVIDENCE |
+| y4_harness_hatches | O208 harness on H-A/B/D/E/F, Rem 10.4, SQ₅ | all hatches are uniform skeletons + lottery; only SQ₅/χ-fibre passes as a stated 4-specific input | Assessment |
+| y4_mordell_witness | universal one-slot χ-witnesses | exactly A ∈ {2, 3, 5, 7, 8, 15, 20}; their reach is exactly Mordell's 840 | PROVED (Dirichlet + finite check + RS bound); checked to 10⁶ |
+| y4_catalogue | 4-vs-8 structural catalogue | 4 is the unique M ≥ 3 with an e ∈ {1, 3} slice at every prime; most facts are descriptions | PROVED; Assessment |
+| y4_seven_control | 7/n as T1-bearing failure-free control | 7 has none of 4's slice/character structure yet no failure ≤ 10⁸ | EVIDENCE + Assessment |
