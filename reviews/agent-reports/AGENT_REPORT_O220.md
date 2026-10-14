@@ -1,3 +1,43 @@
+# AGENT_REPORT_O220 — checkpoint 2 (q = 9 decided: CLOSED)
+
+**SHARP:** exact small-level enumeration is cheap once the class-divisor routes are made *exact by factoring*: factor F
+(1 + T^s m'g'², g'T^{s−1} + w₁, T^{s−2} + m'w₁², m'C₁, w₁C₁) over F_q and run over all its divisors of the required degree. This
+speeds up the enumeration about 1000× compared with candidate search (q = 9, s = 12: 90 s → 0.06 s). At q = 9 the route bounds
+overcount the true tuple counts by factors 10³–10⁴ at s ≈ 12–18.
+
+## New results (checkpoint 2)
+1. **Theorem 5.2 (PROVED, computer-assisted):** q = 9, k ≥ 2: O(9, T^k) ≠ ∅, no finite linear covering of ES₉(T^k). Covered measure
+   summed over the 8 c-slices ≤ 3.58 (exact counts s ≤ 22: 0.5922; route bounds 23 ≤ s ≤ 80: 2.695; tail s > 80 ≤ 0.080, with
+   Lemma 4.1 linearised (Lemma 5.1); Case A ≤ 0.175). `scripts/fz_certify9.sh` (fail-closed), log `data/fz/certify9.txt`.
+   **With (J)51 and Thm 3.1: all q = 3^r, r ≥ 2, k ≥ 2.** Only q = 3 remains (Conjecture 0.2).
+   Validation of `fz_enum.c`: all 8 routes forced separately reproduce bsE_famcount (q = 3, 5, 7); at q = 9 factoring vs
+   candidate-search routes agree (all s ≤ 13; 1053 patterns 14 ≤ s ≤ 17); factorisations self-checked fail-closed (product +
+   Rabin irreducibility); R220's independent q = 9 enumeration through s = 9 matches.
+   Exact q = 9 per-level masses decay fast (1.8·10⁻⁵ at s = 22), so the true sum is probably ≈ 0.59 < 1 (EVIDENCE; that would give
+   every c-slice).
+2. **q = 3, s₀ estimate (§5.3, Assessment):** the bound tail drops below 0.5 only at s₀ ≈ 80–85. An exact union of cylinders up to
+   s₀ is infeasible (~10²⁰ enumeration work). Conjecture 0.2 is **not** a feasible finite computation with these tools.
+3. **Goal (2) A = T (§6):** Prop 6.1 (PROVED): for k = 1, depth-1 families (whole classes u₀) occur only for u₀ ∈ {−1, −2}
+   (the constant families of FUNCTIONFIELD_ES Prop 1.4, plus three Case B tuples, all in class −1). So for q = 3^r ≥ 9 the q − 3
+   slices u₀ ∉ F₃^* have all cylinders of depth ≥ 2, i.e. (H1) is restored. On them the tuples are (B^{k=1}): m'wC = T^s + v,
+   w + C = g'v, T ∤ m'g'wCv, mass q^{−⌈(s−1)/2⌉}. The k = 1 counting certificate (Case B routes without the T-adic constraints;
+   Case A redone with T ∤ K) is **not done**.
+4. R220 review merged, repairs m-1..m-9 applied ("(R220 repair)").
+
+## For the parent
+* Please review §5 (Thm 5.2) — the new trust points are `fz_enum.c` (factoring routes), `fz_hybrid.c`, and the linearised Rankin
+  tail in `fz_tail.c` (RANK = 1; the q = 27 certificate pins RANK = 0, so §3 is unchanged).
+* Next (if wanted): the k = 1 certificate on the q − 3 slices for q = 3^r ≥ 9 (adapt fz_sum/fz_tail/fz_enum to (B^{k=1}), redo Case A),
+  then goal (3).
+
+## Sparks (new)
+* At q = 3, exact counts could replace the bounds up to s ≈ 35–40 (fz_enum at q = 3 is about √3^s ≈ 3^{s/2}); that still leaves the bound
+  tail of §5.3 (≈ 500 at s ≈ 40), so the union-bound-free route needs a structural idea, not compute.
+* The overcount factor 10³–10⁴ at moderate s suggests the route bounds lose mostly in the class-divisor step. An *average* version
+  of Lemma 1.5 (over the data fixed before the class step) might give the missing constant factor at q = 3.
+
+---
+
 # AGENT_REPORT_O220 — small-q function-field sterility (wave Y-f), checkpoint 1
 
 Main file: `FF_STERILE_SMALL.md`. Scripts `scripts/fz_*`. Log `data/fz/certify.txt`.

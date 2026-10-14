@@ -164,7 +164,7 @@ Rabin's test; exit on failure).
 *Validation (EVIDENCE):* every one of the eight routes, forced on all patterns, reproduces the independent bsE_famcount census
 exactly (q = 3, s ≤ 15; q = 5, s ≤ 12; q = 7, s ≤ 10; 0 mismatches; auto mode also q = 3 s ≤ 19, q = 5 s ≤ 13, q = 7 s ≤ 11).
 At q = 9: F₉ table axioms checked; the factoring routes agree with the candidate-search routes on all patterns of s ≤ 13 and
-on the 1053 patterns of 14 ≤ s ≤ 17 with search cost ≤ 9⁶; the self-checked binary reproduces s ≤ 18 byte for byte.
+on the 1053 patterns of 14 ≤ s ≤ 17 with search cost ≤ 9⁶; the self-checked binary reproduces the unchecked runs for all s ≤ 22 byte for byte.
 R220 independently enumerated q = 9 through s = 9 (covered mass 0.553), matching.
 
 **5.2 Exact masses at q = 9 (CERTIFIED by exhaustive computation).** Σ_{s≤18} (tuples weighted by mult·9^{1−⌈s/2⌉}) = 0.592177;
