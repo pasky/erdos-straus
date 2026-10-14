@@ -3,15 +3,72 @@
 Reviewer: R218 (side agent, branch side-agent/review-ff-push-2). Round 1. Written without reading R217.
 Scripts: `scripts/review_fs2_*` (from scratch; none of the author's `fs_*` code reused).
 
-Status: IN PROGRESS.
+Status: round 1 complete. **No FATAL, no MAJOR.** 8 MINOR.
 
 ## Summary verdicts
 
-(filled in at the end)
+| claim | verdict |
+|---|---|
+| **Theorem 3.1** (q = 3^r, r ≥ 4, k ≥ 2: O(q, T^k) ≠ ∅; (a) r = 4 sum ≤ 2.18; (b) r ≥ 5 per-c bounds) | **SOUND** (independently re-certified with own code: r = 4 ≤ 1.831; r = 5 ≤ 0.251; r = 6 ≤ 0.039 with S = 100; r = 7 ≤ 0.0117; r = 8 ≤ 0.0032; r = 9 ≤ 0.00103; 10 ≤ r ≤ 30 ≤ 3.5·10⁻⁴) |
+| reduction to (Σ) / inherited inputs (O173 1.1, 2.1 via R187; R166 Case A; compactness) | SOUND (no input beyond Thm 2.5's) |
+| Lemma 1.1 (E·v = T^s + m'w², y + t = max(a, b)) | SOUND (m-1: simpler proof available) |
+| Lemma 1.2 (loss-free routes) | SOUND |
+| Lemma 1.3 | SOUND |
+| **Lemma 1.4** (FF Lenstra, ≤ 2 if 3ρ > n) | **SOUND** (proof re-derived; adversarial brute force F₃, F₅, F₇: 0 violations, bound attained) |
+| **Lemma 1.5** (FF Coppersmith, (C) ⇒ ≤ m + k; threshold ρ > d(n − d)/n) | **SOUND** (m-2: asymptotic sentence garbled; unused) |
+| Lemma 1.6 (19 routes, R10 with Σ2^ω) | SOUND (every row re-derived; Σ2^ω closed form brute-forced; per-pattern brute force 0 violations) |
+| Lemma 2.1 (averaging over c) | SOUND |
+| Lemma 2.2 (Case A routes, α ≥ 3) | SOUND (small-depth part unused, m-6) |
+| certification fs_certify.sh / fs_sum.c / fs_tail.c / fs_caseA.py | SOUND (audited line by line; fails closed; rounding margin ample; values reproduced or beaten by an independent implementation, exact-rational cross-check to 16 digits) |
+| §3 r = 3 barrier | SOUND as EVIDENCE/Assessment; understated (m-4: a CERTIFIED negative statement is available) |
+| §4 char 2 Frobenius family covers each u(0) = 1 c-slice (k = 2) | SOUND |
+| §5 (S1)–(S3) equivalence at q = 3 | SOUND (PROVED; numerical check vacuous, algebra re-derived) |
+| §5 census 94/27, M2 count | SOUND (94/27 reproduced exactly; v₁ = −1 count 5.6·10²¹ at s = 244 ≥ claimed 7.8·10¹⁰) |
+| labels (Conjecture 0.2 not proved; r = 3 barrier EVIDENCE/Assessment) | SOUND (m-5 hygiene) |
 
-## Defects
+## Defects (all MINOR)
 
-(numbered as found)
+**m-1 (MINOR, Lemma 1.1(ii) proof).** The identity y + t = max(a, b) is immediate from g'v = w + C (w, C monic, q odd ⇒
+deg(w + C) = max(a, b)); the route via E·v and deg(T^s + m'w²) is correct but roundabout, and DEPTH_ASPECT §2.1 only had
+"≤". *Repair:* add the one-line proof; keep (i) since E·v = T^s + m'w² is used by R4/R4'.
+
+**m-2 (MINOR, Lemma 1.5 last sentence of proof).** "minimising over 1 + τ = X^{−1/2}·… gives the condition √(nX) < d" is
+garbled. *Repair:* "f(τ) = (1 + τ)d − (n + X)/2 − τX − τ²X/2 is maximised at τ = ρ/X (1 + τ = d/X), where
+f = d²/(2X) − n/2; so (C) holds for large m iff X < d²/n." (I verified this algebra.) Add that only explicit (m, k) are
+used by the certificate.
+
+**m-3 (MINOR, Thm 3.1(b) constants, optional).** The r = 5, 6 constants are artefacts of the small cutoff S: with S = 160
+(r = 5) and S = 100 (r = 6) my certified totals are ≤ 0.1746 and ≤ 0.0386 (uncovered ≥ 0.82 and ≥ 0.96 per slice) instead
+of 0.26 and 0.38; similarly the non-monotone tails at r = 17, 19, 20 in data/fs/certify.txt are box overhead. Not an error;
+*repair (optional):* raise S for r = 5, 6 or add a sentence that the constants are not optimised.
+
+**m-4 (MINOR, §3 "Where the method stops", and §5(b)).** The text says fs_tail "fails to certify 835 boxes (a failure to
+certify, not a negative result)" and the r = 3 finite sums are "not a proof of divergence". But the *finite* part of (Σ)
+computed with the Lemma 1.6 bounds already exceeds q − 1 = 26 at s = 36 (27.68; 195.06 at s ≤ 150; fs_sum gives
+195.60). So "the union bound (Σ) with the Lemma 1.6 route bounds fails at r = 3" is CERTIFIED (finite exact computation),
+independent of any tail. *Repair:* state this (with the s = 36 crossing), keeping "no proof that every union bound
+fails" as Assessment. Also note the exact critical point: at (a, z, y, t)/s = (1/3, 1/3, 1/6, 1/6), R1 = 1/6 + log 3/log 27
+= 1/2 and the R10 Coppersmith threshold ab/(a + b) = 1/6 = t, both exactly — cleaner than the grid point quoted.
+
+**m-5 (MINOR, label hygiene).** Header says "Theorem 3.1 (r ≥ 4) certified", the theorem says "PROVED, computer-assisted".
+The computation is floating point with a ×1.01 safety factor and an informal error estimate, not interval arithmetic.
+I find the margin ample (my exact-rational evaluation agrees with long-double sums to 16 digits for r = 4, s ≤ 60), so
+"PROVED (computer-assisted)" is acceptable, but use one label consistently and cite an exact cross-check (e.g. this
+review's `review_fs2_exact.py`) in the proof text.
+
+**m-6 (MINOR, Lemma 2.2).** The small-depth statement (Case A has α ≥ 3) is not used by the certificate (fs_caseA sums
+from α = 1). *Repair:* say so, or start the sum at α = 3 and cite the lemma. Its proof also silently assumes b1, F monic
+(true by DEPTH_ASPECT Lemma 2.4's "E, F, K monic" since α > β); cite that.
+
+**m-7 (MINOR, accuracy of the description of cls).** Lemma 1.6 says cls uses "the least ... m + k over (m, k) satisfying
+(C)"; fs_sum.c / fs_sum_check.py search only m ≤ 60, k ≤ 200 (with a correct early break). Any valid (m, k) gives a valid
+bound, so this is conservative (my unrestricted search over m + k ≤ 200 finds smaller values for 22 344 of 10.7M triples
+(n ≤ 400) and never a larger one; e.g. at r = 4 the total drops from 1.67692 to 1.67548). *Repair:* say "least over
+m ≤ 60, k ≤ 200". Note also that fs_sum_check.py copies this search, so its agreement with fs_sum is not fully
+independent on this point (it is independent on the arithmetic).
+
+**m-8 (MINOR, fs_caseA.py tail).** The α > 40 majorant is computed in floats and uses q^{−a0/2} where q^{−(a0+1)/2} is
+available (conservative); the unused variable `first` is computed in exact arithmetic and discarded. Harmless; tidy up.
 
 ## Per-claim notes
 
