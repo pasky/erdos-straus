@@ -14,6 +14,7 @@ Artin symbol of the ideal (M)). Type II on slice (c, d) ⟺ **some sub-product o
 symbol c_∞** (h = that sub-product; prime-modulus Type II: a single prime factor with σ_q = c_∞). Thus:
 * (h+1)-world = primes imitating ∞ (decomposition group = {1, c_∞}); (h−1)-world = F_h^* where −p must equal a box
   value; TORSION_FIRING Thm 3.1's gcd = 2 is |D_∞| = 2.
+* (checked: scripts/y3_span.py 10⁵, 72 905 slice instances, 0 mismatches; odd squares: 0 firing slices.)
 * When (ℤ/m)^* is an elementary 2-group (m | 24, i.e. cd | 6), "−1 is a sub-product" ⟺ −1 ∈ F_2-span of the classes
   ⟺ **no odd quadratic character χ mod m has χ(q) = 1 for every q | M** ⟺ M is not composed solely of primes split in
   one imaginary quadratic field ℚ(√D), D | m, D < 0 (genus theory; folklore-level, cf. the zero-sum memos
