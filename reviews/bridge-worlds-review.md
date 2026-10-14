@@ -226,3 +226,13 @@ say "on slices with gcd(cd, (p+1)/2) > 1".
 is 1 − m(δ_{a0} + δ_{b0} + δ_{ab})); spark 2 is thereby closed.
 **m9 (§3 / memo / report).** The cd | 6 criterion is F_2-linear duality (subset sums = span); "genus theory" is
 acceptable as a name but the 86 310-instance check is only a coding check — say so.
+
+### C4b. Census to 10⁸ (complete, from scratch; data/r216/census_1e8.txt, ~35 min, 1 core)
+Complete census of all Type II certificates for all n ≤ 10⁸ + 1000: the primes with N_II^pr ≤ 1 are exactly
+**13, 193, 3361 (0), 76441** — independently confirming the author's tf_primemod rerun and extending the full census
+(N_II and N_II^pr for every p, not just existence) from 10⁶ to 10⁸. Odd squares ≤ 10⁸: 4999, none with a Type II
+certificate. Full-block minima keep growing (min N_II^pr = 16 on [2²⁵, 2²⁶), at 40238641). Normalised block means
+continue to drift down: N_II^pr/log²p = 0.262, 0.262, 0.261 and N_II/log³p = 0.094, 0.094, 0.093 on the blocks
+[2²³, 2²⁶). The author's window [10⁸, 10⁸ + 1000] is reproduced exactly (54 primes, 680.83 / 113.06, min 38), but it is
+an outlier against the block trend (expected ≈ 0.261·log²(10⁸) ≈ 88.5 vs 113.06), so the "0.33" upper end of the
+quoted range comes from one short window (m4).
