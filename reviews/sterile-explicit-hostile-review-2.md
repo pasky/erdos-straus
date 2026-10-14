@@ -46,7 +46,8 @@ Verdict A.1: **SOUND** (relative to M17 Lemma 1.1 for general r, which rests on 
    checked condition p ≤ (1/2 − e)·600 ln 2 implies it for all K ≥ 1, N ≥ 2^{600}. Likewise for Q (p ≤ (1 − e)·100 ln 2). So each term
    of S(r) is ≤ its value at b = 600, while (r−1)/(2r) increases. ✓
 4. The per-range series in K: the loop stops when a tail term is < 10^{−30} and adds 10^{−20} "geometric remainder" without proof.
-   True (successive odd-K tail terms decay by a factor ≤ 2^{2(b+1/4)·0.4797 − b}·((K+2)/K)^{p} ≤ 0.7 for b ≥ 32), but unstated: minor m-A1.
+   True (max p = 2 after aggregation; successive odd-K tail terms decay by ≈ 2^{2(b+1/4)·0.4797 − b} ≤ 0.48 at b = 32, measured 0.155
+   at K = 19 and 0.4796 at K = 101, 201; smaller for larger b), so the remainder is < 10^{−30}; but the bound is unstated: minor m-A1.
 Verdict A.2: **SOUND** (minor m-A1). The quantifier is handled by a finite grid in log r plus a monotone tail, not by scaling.
 
 **A.3 What the certificate actually depends on numerically at r ≈ 2³²** (decomposition with the author's own tables/tails,
@@ -68,7 +69,8 @@ counted (upper bound, harmless). Asymptotics: with w = τm, logs/ln n: 1/2 + τ�
 β − ρ − j < β², i.e. ρ + j > β(1 − β). ✓ (the o(1) is an ε with w = w(ε); the J(w−1) count is n^{max(0, β(1−β)−ρ)+ε}.)
 From-scratch test (`scripts/review_se2_cop.py`): exact integer (Cop) with the least J per (m, k) by bisection (Cop is monotone in J),
 w ≤ 14, against brute-force divisor counts; half the trials adversarial (n = lcm of several class-mates inside the window).
-300 trials: **0 violations**, 10 tight, Coppersmith beats the trivial bound in 126.
+300 trials (seed 223): **0 violations**, 10 tight, Coppersmith beats the trivial bound in 126; 3000 trials (seed 7): **0 violations**,
+138 tight, Coppersmith beats trivial in 1312.
 Verdict: **Lemma 1.3 SOUND, Cor 1.4 SOUND** (PROVED is the right label). Minor m-B1: Cor 1.4 says "≤ J(w−1) as soon as (Cop) holds
 with X replaced by X_J" — the hypotheses gcd(σ, s) = 1, D₀ ≤ D₁ are inherited; fine. Minor m-B2: "for ρ ≤ 1/4 it is new to the
 campaign" is a priority claim I cannot check; it is the standard "split the search interval" trick of Coppersmith/Howgrave-Graham
@@ -97,8 +99,68 @@ Scripts written without reusing the author's code paths (only the route *list* i
 
 The P(j=128) gap (6.6 %) was traced box by box (se_box SE_DUMP vs my values): it comes entirely from se_box's conservative
 modulus se = 1 instead of 2 at boxes with N₀/(32ACD) = 1 exactly (trivial count Δ/s + 1 doubles); no box of mine exceeds the
-author's except by rounding. So the author's numbers are reproduced from independent code, and in the safe direction.
+author's by more than the 7-digit precision of the SE_DUMP printout (0 of 4760 boxes at relative tolerance 10⁻⁶). So the author's numbers are reproduced from independent code, and in the safe direction.
 Independent S(b = 32) ≤ 0.35036 + 0.02298 + 0.10930 + (author's remaining terms 0.00235) ≈ 0.4850 < 1/2.
 Verdict C: the dominant terms are **CONFIRMED** (independent exact/interval recomputation). I did not rerun the 3.5 h certificate;
 the remaining ~1350 table cells are trusted on the author's engine (whose rounding was repaired after R-self-review M1; I found no
 rounding-direction bug in the current se_box.c, see §D.3).
+
+## D. Route tables, code audit, other claims and labels
+
+**D.1 Table 2 (P routes) and Table 3.2Q (Q routes).** Each row re-derived: H (b = (Nc + a)/f); A (e ≡ −N mod 4ad, then b, c);
+C (f | N + 4a²d, f ≡ −1 mod 4ad, n ≤ 3N); D (f | 4c²dN + 1, f ≡ −1 mod 4cd); E (f | Nc + a, f ≡ −1 mod 4ac, cofactor b);
+F ((e, a) with 4a | N + e; b | (N+e)/(4a), b ≡ −a (e); or d ≡ (N+e)/(4a)·(−a)^{−1} (e), a unit by 1.1(iv)); G (a² ≡ −N(4d)^{−1}
+≡ −(N+e)/(4d) mod e, ≤ 2^{ω(e)} roots, e odd); τ₃ (abd = (N+e)/4, ordered triples); I (b = ce − a); J (a, b roots of
+t² − ce·t + (N+e)/(4d): in fact ≤ 2 without the 2^{ω} factor se_box multiplies in — harmless over-count). Q: AD (≤ 2 per (a, d),
+M17C 2.1(iv) re-proved: f ≤ √t is the least residue of its class mod 4ad > √t, f > √t has cofactor < √t in a fixed class);
+fa, AC, CD, Ea, Ed, τ₃ and the f-routes fac, fca, fda (c ≡ −aF, d ≡ −(4a²)^{−1}, a ≡ −cF^{−1} mod f; 4a, 4c, 4d | f + F;
+gcd(f, F) = 1 in-cell) ✓; f ≤ F + 2 (from ef = 4a²d + 1 ≤ eF + 2) ✓. Lemma 1.2's sizes ✓ (incl. the strict e > N/(4acd)).
+All brute-force checked (§A.1). Verdict: **SOUND**.
+
+**D.2 se_box.c numerics (outward rounding, 1e-15 padding, long double, dyadic boxes).** Line-by-line: box corners are exact powers
+of two (`ldexpl`), counts n_A etc. are exact (or within 1 ulp ≈ 10⁻¹⁹ relative once ≥ 2^{64}, absorbed by the final 10⁻⁹ pad);
+every lower bound (N₀, E₀, b₀, a₀, D₀, s_min) is DN-padded and every upper bound (N₁, E₁, b₁, a₁, D₁, ln n) UP-padded by 10⁻¹⁵
+before any floor/ceil/comparison; pruning tests compare exact powers of two against the UP-padded N₁ (prunes only provably empty
+boxes); where 4ACD − 1 is not representable (≥ 2^{64}) the D₀ := DN(4ACD) < 4ACD − 1 holds because 4ACD·10⁻¹⁵ > 1; τ envelopes carry
+UP + 10⁻¹² absolute padding in log space (≫ x87 libm error); the (Cop) test is re-verified for the final J with a 10⁻¹²-relative
+margin; table values are printed with 11 digits and re-inflated by 10⁻⁹ in se_r0. I found **no rounding in the unsafe direction**.
+Residual assumptions (glibc x87 `logl/expl/powl` accurate to a few ulp; 64-bit mantissa, checked at runtime) are documented in the
+header. My exact/interval recomputation (§C) is the stronger evidence. Verdict: **SOUND** for the cells I recomputed; the others
+inherit the same code path.
+
+**D.3 se_tail.py.** Re-derived every route bound in normalised form (P: H, A, C, D, E, F, G, τ₃, I; Q: AD, AC, CD, fac, fca with the
+caps a ≤ (N/(2d))^{1/2}, acd < N, resp. cd ≤ (F+1)/2, f ≤ F + 2, a ≤ (F+1)/(2cd)); the e lower bound N^{1−σ⁺}/4 (σ⁺ capped at 1 is
+still valid as e ≥ 1); the J = ⌈N^κ⌉ handling and the +1/2 of X_J (m-C1). Exponents are multiples of 1/320 except κ (padded 10⁻⁷),
+and the combiner rounds up to a 10⁻⁶ grid that contains all multiples of 1/320, so the float exponents cannot round below the
+intended ones. The independent exact-exponent re-implementation reproduces the P tail to 5 digits (§C). Verdict: **SOUND**.
+
+**D.4 Prop 2.1 / (I3): "θ* = 2/5 exactly … tolerated up to η = 0.3".** Labelled grid EVIDENCE / Assessment — correctly *not* used in
+Theorem 3.4 (whose tail is certified at exponent 0.4797, not 2/5). Independent continuum optimiser (`scripts/review_se2_rate.py`:
+my own route exponents incl. the trivial window/modulus bound, 1/120 grid + 240 Nelder–Mead refinements): θ*(0.25) = θ*(0.3) = 0.4000,
+θ*(0.4) = 0.4500, θ*(0.5) = 0.5000 (agree), but **θ*(0.35) = 0.4250, not 0.417** — the author's 1/60 grid misses the corner
+(α, γ, δ, ε) = (1/3, 0.2583, 1/3, 0.075) (confirmed with the author's own `se_rate2.routes`: min = 0.425 there; `se_rate2.theta(0.35, n=120)`
+also gives 0.425). Near the threshold θ*(η) = 0.4 + (η − 0.3)/2 for η ∈ [0.3, 0.4], i.e. η = 0.3 is exactly the break point (two-corner tie:
+ET's point and (1/3, 0.233, 1/3, 0.1) with the τ₃ route = ε + η = 0.4). So "tolerated up to η = 0.3" survives refinement, but "exactly"
+is not grid-provable (the objective is not piecewise linear: Cor 1.4 contributes β(1 − β)), and one tabulated value is wrong (m-D1).
+Also (I3) says "no divisor bound at all except τ₃": route G (and the certificate) also uses 2^{ω(e)} ≤ C_ω e^{0.1}; exponent-free in
+the continuum, but a divisor-type bound nonetheless (m-D2).
+
+**D.5 (I1) dictionary.** The *equations* match under (m', g', w, C, v, T^s, L', E) ↔ (4d, c, a, b, e, N, 4cd, f): m'wC = T^s + v ↔
+4abd = N + e, w + C = g'v ↔ a + b = ce, Ev = T^s + m'w² ↔ ef = N + 4a²d ✓. But O216's Case B has side conditions T ∥ w, T ∥ C
+(FF_STERILE_PUSH (B)), whereas the in-cell ℤ data have r ∤ ab; T ∤ m'g' ↔ r ∤ cd matches. "Literally the ℤ P-data" overstates (m-D3).
+The dictionary is not used in any proof.
+
+**D.6 r = 13 and r = 17 statements.** From-scratch level-1 coverage (`scripts/review_se2_level1.py`: P-data of N = r and Σ^I_r points,
+in-cell): r = 13: all six non-residue cells {2, 5, 6, 7, 8, 11} covered at level 1 ✓ (POINTWISE_MORDELL §1); r = 17: survivors {5, 7}
+of eight ✓. "Any union bound needs a P-count with constant ≲ 2.5 at θ = 0.4 (M17D §1)" abbreviates M17D's precise statement
+(no log loss, from K = 15 on, *given* the exact data through K = 13, pointwise 2.48 / cumulative 2.64); acceptable as a pointer,
+better quoted with its conditions (m-D4).
+
+**D.7 Labels and presentation.** Theorem 3.4 "PROVED, computer-assisted" — acceptable (it is PROVED relative to the listed lemmas +
+CERTIFIED tables). But: (i) the header says "relative to the same inputs as (J)26 Thm 3.1 minus …" — it actually uses *more* M17 inputs
+(Lemma 1.3, 5.1, 5.2, M17B 1.1, M17C 2.1(iv)); DEPTH_ASPECT §3 states Lemma 1.3 is *not* used there and Lemma 5.2 is optional, so the
+general-r versions of 1.3/5.1/5.2 had not been reviewed before (R187 covered 1.1, 2.1–2.3). They are r-free (re-derived and brute-forced
+here, §A.1), so this is a citation repair (m-D5). (ii) "→ 1/2 as r → ∞" is not an output of se_r0; it follows from the tail lists
+(each term × weight ≤ c·r^{−1/2−0.02K}·polylog, and the Q terms ≤ c r^{−1/4}) — add the sentence (m-D6). (iii) Section order: "## 5.
+Feedback to F_q[T]" sits between §3.3 and §3.4 (Theorem 3.4 appears under §5; there is no §4) (m-D7). (iv) Prop 2.1: "Q … 0.65 (grid;
+`/tmp`-prototype, to be committed)" — se_rateQ.py is committed; stale (m-D8). (v) §5 FF claims ("closes q = 27") are labelled EVIDENCE ✓.
