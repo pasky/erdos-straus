@@ -25,7 +25,7 @@ homogeneous of degree e depends on p only through p·F_h^{*e}, i.e. through char
 ∏_{ζ ∈ μ_c, ζ ≠ 1}(1 − ζ) = c (derivative of X^c − 1 at 1), so
 `Type II fires at (c, d, h) ⟺ −p ≡ ∏_{μ_{4cd}∖1}(1 − ζ) · ∏_{μ_c∖1}(1 − ζ)  (mod h).`
 Uniform cyclotomic numbers are of the same nature: numerically m²(a,b)_m ≡ 1, 1 − m, 1 − 3m (mod h) for every
-m | h + 1 tested (m ∈ {4, 8, 12}, h ≤ 127; EVIDENCE, consistent with the Baumert–Mills–Ward closed forms
+m | h + 1 tested (m ∈ {4, 6, 8, 10, 12, 16, 20, 24}, h ≤ 199; EVIDENCE, consistent with the Baumert–Mills–Ward closed forms
 [Baumert, Mills, Ward, *Uniform cyclotomy*, J. Number Theory 14 (1982) 67–82]: m²(a,b) is an integer polynomial in
 h, η, m). So the residue content of semi-primitive cyclotomy is "the integer m reduced mod h" — exactly the box
 Box(k) = {c/j} (FIXED_MODULUS_SHOTS Thm 3.1), i.e. archimedean size data. A non-homomorphic algebraic bridge

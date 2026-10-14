@@ -30,7 +30,7 @@ u ∈ F_h^*; (ii) with e = 2 the only p-information is the Legendre symbol (p/h)
 **Proposition 1.3 (the additive bridge).** In F_{h²}, ∏_{ζ ∈ μ_c ∖ {1}} (1 − ζ) = c for every c | h + 1. Hence Type
 II fires at (c, d, h) iff −p ≡ P(μ_{4cd}) · P(μ_c) (mod h), P(μ) := ∏_{ζ∈μ∖1}(1 − ζ). Pure Gauss sums of order m
 equal (−1)^{(h+1)/m} h (Stickelberger; BEW Thm 11.6.3), so g(χ_{4cd}) = (−1)^j h: they carry only the parity of j.
-Uniform cyclotomic numbers reduce mod h to integer polynomials in m (EVIDENCE: m²(a,b) ≡ 1, 1 − m, 1 − 3m).
+Uniform cyclotomic numbers reduce mod h to integer polynomials in m (EVIDENCE: m²(a,b) ≡ 1, 1 − m, 1 − 3m for m ∈ {4,6,8,10,12,16,20,24}, h ≤ 199).
 *Proof.* (X^c − 1)/(X − 1) = ∏(X − ζ) at X = 1. ∎ **Assessment:** the non-homomorphic bridge between the two
 worlds that semi-primitivity supplies is cardinality (the integer m read in F_h); it is the box, not new input.
 
