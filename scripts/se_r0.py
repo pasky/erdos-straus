@@ -39,7 +39,10 @@ def tailval(terms, bits):
 
 def main():
     B0 = float(sys.argv[1]); Bmax = float(sys.argv[2]) if len(sys.argv) > 2 else 600.0
-    P = [load('P_q4.txt', 4), load('P_q1.txt', 1)]
+    P1 = load('P_q1.txt', 1)
+    try: P1.update({k: v for k, v in load('P_q1_hi.txt', 1).items() if k not in P1})
+    except FileNotFoundError: pass
+    P = [load('P_q4.txt', 4), P1]
     Q = [load('Q_q4.txt', 4)]
     LP, LQ = 600.0, 100.0                                  # tail thresholds (bits)
     tP, wP, _, _ = se_tail.tailP(32, LP); tQ, wQ, _, _ = se_tail.tailQ(16, LQ)
