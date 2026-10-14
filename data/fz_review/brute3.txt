@@ -11,3 +11,4 @@ p=3 s=12: tuples(a<=b)=10 patterns=5
 p=3 s=13: tuples(a<=b)=18 patterns=9
 p=3 s=14: tuples(a<=b)=74 patterns=21
 p=3 s=15: tuples(a<=b)=24 patterns=12
+p=3 s=16: tuples(a<=b)=22 patterns=11

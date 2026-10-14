@@ -131,4 +131,43 @@ term against a margin factor > 8.5; floating error is irrelevant.
 **Bound ≥ exact counts.** Every route (old and new, separately) dominates the exact counts at q = 3, 5, 7 (§1). At
 q = 27 exact counts are out of reach for nontrivial s; the routes are proved uniformly in q, so this is as intended.
 
-(sections below)
+## 4. Lemma 4.1, Cor 4.2, q = 9
+
+**Lemma 4.1.** Re-derived: [x^{d'}]Π S_{e_i}(x^{deg P_i}) ≤ ρ^{−d'}Π S_{e_i}(ρ^{deg P_i}) for 0 < ρ ≤ 1 (nonnegative
+coefficients); log Π S_{e_i} = Σ_i Σ_{e ≤ e_i} gain(P_i, e) with weights summing to n; the fractional knapsack over all
+items (P, e) (at most I'(j) irreducibles per degree) dominates every integer selection, prefix-closed or not, since all
+gains are ≥ 0. Degree-d ↔ degree-(n−d) symmetry is right. (Decreasing gains are not even needed for the upper bound.)
+*Check (`review_fz_rankin.py`):* exhaustive over **factorisation types** (so exact maxima over ALL F of degree n with
+T ∤ F, not samples): q = 3 (n ≤ 14), 5 (n ≤ 12), 7 (n ≤ 11), 27 (n ≤ 9), every d, 68 values of ρ: 0 violations of the
+lemma; and the author's implementation `lRk` of `fz_sum.c` (64-point ρ grid, greedy fill) dominates the exact maxima
+in all these cases (0 violations, max ratio 0.985). SOUND. Note: at q = 27 and the degrees that matter, Lemma 4.1 is
+weaker than C(n, d) (e.g. n = 14, d = 7: 16384 vs 3432), and the q = 27 certificate does not need it (§3).
+
+**Cor 4.2.** The bound q^{(2/5)s+o(s)} is PROVED: DEPTH_ASPECT Lemma 2.2 gives |𝓕(s)| ≤ (s+1)⁴·B·q^{⌊2(s−3)/5⌋} with
+B = max(2δ₃(s), δ(s)δ(3s), δ(2s)), and δ, δ₃ ≤ δ² are q^{o(n)} at fixed q. The document's justification of the last
+step ("the knapsack fills n with ≍ n/log_q n items") is a sketch (m-7). The value 2/5 being the maximum for the
+*extended* route set is EVIDENCE (grid), correctly labelled. My own box-wise upper bound of the continuum exponent
+(`RATE=1 review_fz_tail r 80 lev`, max over boxes of min-route φ⁺/log q − 1/2, φ⁺ an upper bound on the box, no
+Lemma 4.1): r = 3: −0.078 (width 1/64), −0.094 (width 1/128), maximiser near (0.21, 0.21, 0.18) → the ET point
+(1/5, 1/5, 1/5, 2/5) and −0.100 in the limit, consistent with the §1 table; r = 2: +0.019 (1/64), −0.006 (1/128),
+consistent with the table's −0.044; old routes only, r = 3: +0.040 (1/64). At the ET point I re-derived by hand that
+every route is ≥ 2/5 (R1 = t, R4'' = z + a, D1 = t, R2 = y + z, R3 = a + y, R4 = z + a with all Coppersmith thresholds
+met: 6/25, 3/8, 3/10 < 2/5), so 2/5 cannot be improved by these routes there.
+
+**q = 9 statement.** The CERTIFIED negative statement is about the bound-sum: Σ_{s≤8} = 9.2235939643 > 8 is reproduced
+digit for digit by my independent `review_fz_sum 2` (Lemma 4.1 is inactive at s ≤ 8), so the failure of (Σ) *with these
+bounds* is certified independently of any tail. The remark "terms 10⁻⁶ at s = 80, so the tail is negligible" depends on
+Lemma 4.1: without it my per-s term at s = 80 is still 0.118 and the sum through s = 80 is 79.95 (m-6; label EVIDENCE).
+**Additional data for the author's next step (`review_fz_q9.py`, exact enumeration over F₉ via python-flint):** the
+exact Case B mass Σ_s #tuples(s)·q^{1−⌈s/2⌉} is 0.2222, 0.0494, 0.1975, 0.0274, 0.0549, 0.0018 for s = 4..9 (none at
+s = 3), cumulative **0.5533 through s = 9**, against the bound-sum 9.39 through s = 9. So the exact small-s masses are
+~17× below the bounds, and the q = 9 programme "exact counts up to s ≈ 20–24, then route bounds" looks plausible
+(Assessment; the counts above are CERTIFIED by exhaustive enumeration, cross-validated at q = 3 against R218's enumerator).
+
+## 5. Labels
+
+Document status line, Theorem 3.1 (PROVED, computer-assisted, same standard as (J)51), Lemma labels, the steering table
+(EVIDENCE) and the q = 9 statement are correctly labelled; ES, ES_q, and Conjecture 0.2 (q = 3) are not claimed. The
+report's spark "this is a *finite* computation problem for Conjecture 0.2" (q = 3) overstates (m-8).
+
+(defects below)
