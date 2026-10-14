@@ -51,3 +51,14 @@ ideal (m + √−k), which does **not** factor through N(π) = n.
 Reading: T1 (k = 0) is the degenerate case where √−k = 0 and every polynomial witness is rational. For k ≠ 0 the
 T1 obstruction (a fixed character of n) disappears for families whose witness D is non-constant: the witness can
 use the "imaginary direction" of ℚ(√−k), which no congruence condition on n sees.
+
+## 2. Classification of polynomial families on n = m² + k (ET §10 in the variable m)
+
+Definition. A *Type I (II) polynomial family* for n = m² + k on the class C is (a, …, f) ∈ ℚ[m]⁶ lying on Σᴵ_{n(m)}
+(Σᴵᴵ_{n(m)}) identically, with positive integer values at all large m ∈ C. (ET's reduction from (x, y, z) ∈ ℚ[m]³
+to such parameters needs n(m) prime for infinitely many m ∈ C — Bunyakovsky — so we take the parametrised form as the
+definition.) Its *witness* is D = d (Type I) or D = de (Type II); by Lemmas 1.1/1.3, (D(m)/n(m)) = −1 on C.
+The family *escapes* if D mod (m² + k) has a non-zero m-coefficient, i.e. D(−√−k) ∉ ℚ (Prop 1.4); otherwise
+(D(m)/n) is a fixed character ψ(n) and C avoids Z_k^□ := {m ∈ Ẑ : m² + k ∈ (Ẑ^odd)²}.
+Degrees: by ET Lemma 2.8, deg a + deg c + deg d = 2 (Type I), deg a + deg c + deg d + deg e = 2 (Type II).
+Charts: Type I: f = 4acd − n, b = (na + c)/f, e = (4a²d + 1)/f; Type II: f = 4acd − 1, e = (n + 4a²d)/f, b = ce − a.
