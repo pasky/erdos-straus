@@ -4,6 +4,7 @@
 import sys
 from sympy import factorint, legendre_symbol as L, isprime, divisors
 lo, hi, T = map(int, sys.argv[1:4])
+lo += (1 - lo) % 4   # R-O217: start at a number = 1 (mod 4); usage: y8_admissible.py 100001 120001 30
 tot=uncl=adm=0; lnrlev=lnrhit=0; firstk={}
 for p in range(lo, hi, 4):
     if not isprime(p): continue

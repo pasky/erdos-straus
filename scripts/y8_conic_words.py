@@ -49,6 +49,7 @@ def perp_gram(z):
 def egcd(a, b):
     if b == 0: return (1 if a >= 0 else -1, 0)
     q, r = divmod(a, b); s, t = egcd(b, r); return (t, s - q*t)
+def cross(x, y): return (x[1]*y[2]-x[2]*y[1], x[2]*y[0]-x[0]*y[2], x[0]*y[1]-x[1]*y[0])
 def canon(l, p):
     best = None
     for perm in permutations(range(3)):
@@ -71,12 +72,16 @@ orb = Counter(); rows = []
 for t, u, v in words(p):
     A, As = t*u-1, t*v-1
     if L(A % p, p) != 1 or t > TMAX or u > v: continue
-    target = red2(As, 1, A); found = None
-    for z in vecs(t*p):
-        if gcd(gcd(*z[:2]), z[2]) != 1: continue
-        G = perp_gram(z)
-        if G[0][0]*G[1][1]-G[0][1]**2 != t*p: continue
-        if red2(G[0][0], G[0][1], G[1][1]) == target: found = z; break
+    # R-O217 repair: use a COMPATIBLE embedding (TWO_FIBRES Thm A(iii)): x, y with |x|^2 = A*, |y|^2 = A, x.y = 1
+    # and z = x × y = x + y (mod t); an arbitrary z with z^perp ~ T_w need not come from p*G_w (counterexample p=61, (63,1,1)).
+    found = None
+    VY = list(vecs(A)); VY += [tuple(-c for c in y) for y in VY]
+    for x in vecs(As):
+        for y in VY:
+            if x[0]*y[0]+x[1]*y[1]+x[2]*y[2] != 1: continue
+            z = cross(x, y)
+            if all((z[i]-x[i]-y[i]) % t == 0 for i in range(3)): found = z; break
+        if found: break
     l = canon(found, p) if found else None
     h = height(found, p, t) if found else None
     orb[l] += 1; rows.append((t, u, v, l, h))

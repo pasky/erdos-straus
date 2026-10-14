@@ -1,8 +1,8 @@
 # y8_square_test_gap — "n is a square ⟺ every level is clean", and ES-five as the admissible version of this square test (O217)
 
 ## Idea
-**Prop 1 (PROVED, elementary).** For odd n ≥ 1 call level t *clean* if (n/r) = +1 (Jacobi) for every prime r | tn + 1
-(r odd, r ∤ n automatically). Then n is a perfect square ⟺ every level t ≥ 1 is clean.
+**Prop 1 (PROVED, elementary).** For odd n ≥ 1 call level t *clean* if (n/r) = +1 (Legendre) for every ODD prime
+r | tn + 1 (r ∤ n automatically; the prime 2 is excluded by convention — e.g. 3·1² + 1 = 4 with 2 inert in ℚ(√−3)). Then n is a perfect square ⟺ every level t ≥ 1 is clean.
 *Proof.* ⇒: (m²/r) = 1. ⇐: if n is not a square, (n/·) is a non-principal character, so some odd prime r has
 (n/r) = −1 (Dirichlet, or elementary: a non-square is a non-residue mod some prime); with t ≡ −n⁻¹ (mod r),
 t ∈ [1, r − 1], r | tn + 1. ∎ (For p prime, r | tp + 1 ⇒ (p/r) = (−t/r), so "clean" = "all primes of tp + 1 split in

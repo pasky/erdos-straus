@@ -19,8 +19,9 @@ campaign: HJ_DEEP (J)15, TWO_FIBRES Thm A/B, DIFF_DEEP (J)13.
 
 ## Barrier screen
 T1: built in (⇐ is Thm B). B2: at primes it IS ES-five, so it inherits the full lottery; for composite n it is a
-union over the odd-exponent primes ℓ of divisor-in-class events, so strictly easier. B1: the reduction to
-n = ℓm² with one odd-exponent prime ℓ ≡ 1 (4) is where a covering argument must work; Mordell-type congruence data
+union over the odd-exponent primes ℓ of divisor-in-class events, so strictly easier. B1: after the elementary words (A = 1 kills odd-exponent primes ≡ 3 (4); A = 2, i.e. (1, 3, (n+3)/2), kills
+≡ 5 (8)), what remains is n all of whose odd-exponent primes are ≡ 1 (8) — possibly several (R-O217: no reduction
+to a single prime ℓ is proved); Mordell-type congruence data
 cannot cover it (same as ES). Not a route to ES, but the correct exception-free formulation of SQ on all odd n.
 
 ## Cheap numerics (`scripts/y8_embed_sq.c`)

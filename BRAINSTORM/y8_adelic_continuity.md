@@ -27,7 +27,7 @@ unclean levels is still ≍ (#levels); no main-term certificate.
 
 ## Cheap numerics (`scripts/y8_census_features.py`, `scripts/y8_smooth.c`, `scripts/y8_levels.py`)
 * All 39 174 primes p ≡ 1 (4), 5 < p < 10⁶ (si_census): mean N₋/N by decile of dist(p, ℤ²)/√p is 0.643–0.647 in
-  every decile (archimedean distance irrelevant); by (p mod 8, lnr): (1,3) 0.645, (1,5) 0.604, (1,7) 0.565,
+  every decile (no association with archimedean distance detected in these bins); by (p mod 8, lnr): (1,3) 0.645, (1,5) 0.604, (1,7) 0.565,
   (1,11) 0.516, (1,13) 0.481, (1,17) 0.452, (1,19) 0.442, (1,≥23) 0.430; p ≡ 5 (8): 0.685.
 * Worst primes: 2521 (lnr 11), 9601 (13), 297 049 (19), 3361 (11), 1249 (7), 70 249 (17), 225 289 (17), …; the
   archimedean m² + 24 coincidences are the cheap way to get p ≡ □ mod 2, 3 (q | 24).
@@ -41,7 +41,10 @@ unclean levels is still ≍ (#levels); no main-term certificate.
   (1,3) 0.314/0.317, (1,5) 0.456/0.446, (1,7) 0.508/0.514, (1,11) 0.576/0.563, (1,13) 0.602/0.585,
   (1,≥17) 0.638/0.602, (5,2) 0.196/0.194. Without the constraint the model under-predicts by a factor ≈ 1.6; with
   unconditioned coins from lnr upward it is off in the other direction. Consequence (PROVED): if tp + 1 = s·ℓ^e (e odd)
-  with s (lnr−1)-smooth and ℓ prime, level t is clean ("rank-one sterility").
+  with s (lnr−1)-smooth and ℓ prime, level t is clean ("rank-one sterility"). R-O217 repair: rough primes with EVEN
+  exponent are unconstrained coins (p = 200 881, t = 14: tp + 1 = 3·5·433², (433/p) = −1, unclean); model
+  P = 2^{−s−(k−1)⁺} (s even-exponent, k odd-exponent rough primes); recalibrated numbers: (1,3) 0.314, (1,5) 0.455,
+  (1,7) 0.506, (1,11) 0.575, (1,13) 0.602, (1,≥17) 0.636, (5,2) 0.196 — essentially unchanged.
 * Removing words with A or A* (lnr−1)-smooth (forced +, 0 exceptions) flattens the ratio: N₋/(N − S) ≈ 0.66 for
   every lnr bucket 3…13 (p ≡ 1 mod 8) — but NOT at the extreme primes (2521: N − S = 27, N₋ = 4): there the whole
   level t = 1 (p + 1 = 2·13·97) and t = 2 (2p + 1 = 3·41²) are clean. The extremes are clean-level clusters.
@@ -49,7 +52,7 @@ unclean levels is still ≍ (#levels); no main-term certificate.
   29 is the only rough prime with (29/2521) = −1 that lands in an admissible divisor.
 
 ## Assessment
-EVIDENCE (law) + PROVED (L1–L4, elementary). Answers goal (b): F is a function of the non-square pattern, through
+EVIDENCE (law) + PROVED (L1–L4, elementary). Answers goal (b) (as a heuristic/EVIDENCE statement): the sign ratio tracks the non-square pattern, through
 the clean-level probability; T1 = all levels clean; continuity = Sathe–Selberg interpolation (log B/log p)^{1/2} → 1.
 Steering: the hard primes are those where a few consecutive small levels are clean; any ES-five proof must show that
 not all levels can be clean (a joint-factorisation statement on {tp + 1}_t: H-A).
