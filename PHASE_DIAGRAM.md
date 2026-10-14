@@ -47,21 +47,61 @@ gcd(m, 2bn) = 1). ES is t = 1: 4λb − n | λ + b. The quartic family of (Y2) i
 ## 2. The double wall of ES^{[2]}
 
 **Theorem 2.1 (PROVED).** Let (Q, g) be an ES^{[2]} shot of odd n > 1 (overflow Q₁ odd, Q₁ | Q₀), k = (g+1)/(4Q₀).
-(a) (**k-wall, new**) Q₁ ≤ (16k³n + 1)/(4k − 1) (< 4k²n + k n + 1).
+(a) (**k-wall, new**) Q₁ ≤ W(k) := (16k³n + 1)/(4k − 1) = 4k²n + kn + (kn + 1)/(4k − 1) ≤ 6k²n.
 (b) (Q₁-wall) g ≤ 2nQ₁²(n + Q₁²) (EXPONENT_CAP Thm 2.1); moreover if Q₁ > (n+1)/2 then k < Q₁²/2.
-Hence every ES^{[2]} shot with Q₁ > (n+1)/2 lies in the band **√(Q₁/(4n+n/k))·(1 − o(1)) < k < Q₁²/2**: both
+Hence every ES^{[2]} shot with Q₁ > (n+1)/2 lies in the band **√(Q₁/(6n)) ≤ k < Q₁²/2**: both
 coordinates must grow together, every horizontal (fixed Q₁) and every vertical (fixed k) slice is a finite search.
 *Proof.* (a) Prop 1.3(b): Dg = 4k²n + Q₁² with D ≥ 1. As Q₁ | Q₀, g = 4kQ₀ − 1 ≡ −1 (mod 4kQ₁), so g ≥ 4kQ₁ − 1
 and, reducing Dg mod Q₁, D + 4k²n ≡ 0 (mod Q₁); hence D ≥ Q₁ − 4k²n. If Q₁ ≤ 4k²n, (a) holds because
 (16k³n + 1) − 4k²n(4k − 1) = 4k²n + 1 > 0. Otherwise 4k²n + Q₁² = Dg ≥ (Q₁ − 4k²n)(4kQ₁ − 1), which expands to
 (4k − 1)Q₁² ≤ (16k³n + 1)Q₁. (b) In the proof of EXPONENT_CAP Thm 2.1, the case kj' ≥ 2Q₁² gives Q₀ ≤ (n+1)/2, and
 Q₁ | Q₀ then gives Q₁ ≤ (n+1)/2; so Q₁ > (n+1)/2 forces the case kj' < 2Q₁² with j' ≥ 4, i.e. k < Q₁²/2. ∎
-*Sharpness.* (a) is attained: (n, k, Q₁) = (3, 2, 55), g = 439 (W = 385/7 = 55). Family: for every n ≡ 2 (mod 3),
-k = 1, Q₁ = 4n + 3, D = 3, g = (16n² + 28n + 9)/3, Q₀ = (4n+3)(n+1)/3 is an ES^{[2]} shot (Q₁ | Q₀, gcd(Q, n) = 1)
-with Q₁/W(1) → 3/4. (b): k/Q₁² up to 0.436 is observed ((n, k, Q₁) = (29, 126, 17), g = 8567).
+*Sharpness.* (a) is attained exactly: (n, k, Q₁) = (3, 2, 55), g = 439 (W(2) = 385/7 = 55), and for EVERY
+n ≡ 2 (mod 3) at k = 1 by the family Q₁ = W(1) = (16n + 1)/3, g = 4Q₁ − 1 = (64n + 1)/3, D = (4n + 1)/3, Q = Q₁²
+(check: Dg = (4n+1)(64n+1)/9 = 4n + Q₁²; D ≡ 3 (mod 4) iff n ≡ 2 (mod 3); gcd(Q₁, n) = 1), an ES^{[2]} shot
+(even ES^{(y,1)} when 16n + 1 is squarefree) with overflow ≈ 5.3n. (Also Q₁ = 4n + 3, D = 3 for n ≡ 2 (mod 3).) (b): k/Q₁² up to 0.436 is observed ((n, k, Q₁) = (29, 126, 17), g = 8567).
 *Check (`scripts/pd_band.py 101 6 1.3`, `scripts/pd_band2.py 41 41`; exact rationals):* all 360 shots with odd
 n ≤ 101, k ≤ 6, Q₁ ≤ 1.3·W(k), and all 36 shots with n ≤ 41, (n+1)/2 < Q₁ ≤ 41, k ≤ 2Q₁²: identity (1.1), solution,
 den z = Q₁² (when gcd(Q₀, n) = 1), walls (a), (b) hold; max Q₁/W(k) = 1.000, max k/Q₁² = 0.436.
 *Reading.* Without the self-mute cap the k = 1 slice is infinite and elementary (ES^□: "4n + Q₁² has a divisor
 ≡ 3 (mod 4)", Dirichlet). The cap Q₁ | Q₀ converts the modulus 4 into 4Q₁ and the slice into a finite search: the
 k-wall is created exactly by the self-mute cap, as the Q₁-wall of EXPONENT_CAP is created by fixing Q₁.
+
+## 3. One slice, the whole ladder: k = 1
+
+The k = 1 slice is where the duality plane meets ES^□. By Prop 1.3's converse with k = 1, k = 1 shots of overflow
+Q₁ (odd, prime to n) are exactly the divisors g ≡ 3 (mod 4) of **4n + Q₁²** (cofactor D ≡ 3 (mod 4) automatically;
+Q₀ = (g+1)/4, Q = Q₀Q₁; we also need gcd(Q₀, n) = 1). The mute rungs become congruences on g alone:
+`  rung      condition on (Q₁, g)                                    modulus      status (k = 1 slice)`
+`  ES^□      none                                                     4            PROVED (one Dirichlet prime)`
+`  ES^{(y)}  Q₁ ∈ ⟨S⟩ (S fixed, |S| ≥ 4), g ≡ −1 (mod 4·rad Q₁)      4·∏S fixed   PROVED (FROBENIUS_FIRING Thm 4.2 sieve)`
+`  ES^{(y,2)} v_ℓ(Q₁) ≤ 2, g ≡ −1 (mod 4·rad Q₁)                     ≥ 4√Q₁       OPEN; no wall (EVIDENCE below)`
+`  ES^{(y,1)}, ES^{[2]}  g ≡ −1 (mod 4Q₁)                             4Q₁          FINITE: Q₁ ≤ (16n+1)/3 (Thm 2.1(a))`
+`  ES        Q₁ = 1                                                  4            one number, 4n + 1`
+**Proposition 3.1 (PROVED).** (a) For every odd non-square n > 1 with gcd(n, 15) = 1, the k = 1 slice of ES^{(y)}
+is non-empty: there are Q₁ ∈ ⟨S⟩ (S any four odd primes prime to n) and a prime g ≡ −1 (mod 4∏S) with g | 4n + Q₁².
+(b) For ES^{(y,1)} and ES^{[2]} the k = 1 slice is contained in Q₁ ≤ (16n + 1)/3, and for n ≡ 2 (mod 3) this
+bound is attained.
+*Proof.* (a) n ≡ 3 (mod 4): Q₁ = 1 and a prime factor g ≡ 3 (mod 4) of 4n + 1 ≡ ... — not needed: take the sieve
+for all n as follows. Run FROBENIUS_FIRING Thm 4.2(a) with the class a mod M = 4 rad(n)∏S chosen there, but with
+a_ℓ ∉ {0, 1, −1} (mod ℓ) for ℓ | n (possible for ℓ ≥ 7 with either quadratic character, since there are
+(ℓ−3)/2 ≥ 2 residues and non-residues ∉ {0, ±1}; this is where gcd(n, 15) = 1 is used — at ℓ = 3, 5 the only
+non-zero residues ≢ ±1 are of one character). For n ≡ 3 (mod 4) the class must give (n/r) = −1 with r ≡ 3 (mod 4)
+directly; for n ≡ 1 (mod 4) as in UNIT_ORBIT Thm 2.4. Then (−4n/r) = (−1/r)(n/r) = 1, Γ_r = ⟨S⟩ = (F_r^*)² for some
+sieved r (as in Thm 4.2), so −4n ≡ Q₁² (mod r) with Q₁ ∈ ⟨S⟩; g := r. Q₀ = (r+1)/4 is prime to n (r ≢ −1 mod ℓ),
+rad Q₁ | ∏S | Q₀. (b) is Thm 2.1(a) at k = 1 and its sharpness family. ∎
+(R-note for the reviewer: (a) is a re-run of a reviewed sieve with one more excluded residue per ℓ | n; the
+proof of Thm 4.2 uses Lemma 2.2, which allows any class a with a ≢ 1 (mod ℓ), so excluding −1 as well is free.)
+**EVIDENCE (`scripts/pd_k1.py 200000 13 17 29 37 97 101 9 25`, every shot verified with exact rationals,
+den z = Q₁², rad Q₁ | y).** k = 1 shots with Q₁ ≤ 2·10⁵:
+* e ≤ 1 (squarefree Q₁): n = 13: 0; 17: 5 (max Q₁ = 91 = W(1)); 29: 6 (max 155 = W(1)); 37: 0; 97: 2 (max 79);
+  101: 13 (max 431 < W = 539). All below the wall, as proved.
+* e = 2, non-squarefree Q₁ (beyond ES^{(y,1)}): hits in every dyadic range up to the search limit, 1–7 per octave,
+  max Q₁ = 185 761, 120 409, 152 881, 194 271, 165 649, 192 721 for n = 13, 17, 29, 37, 97, 101 — no sign of a wall,
+  and n = 13, 37 (no e ≤ 1 shot at k = 1) have e = 2 shots. T1: n = 9, 25: no shot on any rung.
+*Reading (Assessment).* Inside the single slice k = 1 the cap ladder shows every phase: fixed modulus (proved,
+Dirichlet/sieve), moving modulus ≥ 4√Q₁ ≈ (4n + Q₁²)^{1/4} with no archimedean bound (e = 2: an infinite lottery
+at the Lenstra–Coppersmith threshold, roughly constant hit-rate per octave, i.e. a log-divergent lottery), moving
+modulus 4Q₁ ≈ (4n + Q₁²)^{1/2} (e ≤ 1: finite search, the k-wall), and the single number of ES. So the transition
+"infinite lottery → finite search" happens between e = 2 and e = 1, and the transition "proved → lottery" between
+e = ∞ (fixed S) and every bounded e.
