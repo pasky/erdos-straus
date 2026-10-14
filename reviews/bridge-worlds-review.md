@@ -51,3 +51,39 @@ rationality ≠ box membership (3 ∉ {1,2,4} at h = 7: Box(2) = {c/j : cj | 2} 
 Scope/labels: "every useful bridge is archimedean" is labelled Assessment in §2, §7 and the report — correct. But the
 §2 heading "Classification of bridges between the two worlds (PROVED)" still reads as a classification; what is proved
 is three elementary facts about three hand-picked classes. → m3 (relabel heading).
+
+### C3. §3 / memo y3_frob_infinity (h imitates ∞; Artin-symbol dictionary; cd | 6 genus criterion) — SOUND (minor wording)
+Re-derived. h ≡ −1 (mod m) ⟺ σ_h = σ_{−1} = c_∞ in Gal(ℚ(ζ_m)/ℚ) ≅ (ℤ/m)^* — a tautology of the identification.
+Type II on (c,d) ⟺ some divisor h > 1 of M = p + 4c²d has h ≡ −1 (mod 4cd) (h ≥ 4cd − 1 is then automatic); with
+gcd(M, m) = 1 the Artin symbol is multiplicative, so this is "a sub-product *with multiplicity* (= a divisor) of the
+prime factors of M has symbol c_∞"; total symbol σ_M = σ_p as M ≡ p (mod m). Correct.
+cd | 6 criterion: m | 24 ⟺ cd | 6, and (ℤ/m)^* is then elementary 2-abelian. In an F_2-vector space the set of
+subset sums of a finite family is its span, and −1 ∉ span{σ_q} ⟺ some character (necessarily ±1-valued) kills every σ_q
+but not −1, i.e. an odd quadratic character χ mod m with χ(q) = 1 ∀ q | M (⟺ every q | M splits in ℚ(√D), D ∈
+{−3, −4, −8, −24} with D | m). This is pure linear duality — so the numerical check can only catch coding errors, and
+"genus theory" is a generous name (MINOR, wording). From scratch (`scripts/review_r216_genus.py 100000`, all 9 slices
+with cd | 6, all primes 5 ≤ p < 10⁵): 86 310 instances, 45 418 firing, **0 mismatches**; a deliberately wrong criterion
+gives 1 948 mismatches on p < 3000 (the check is sensitive). The author's count 86 310 matches exactly.
+"Thm 3.1's gcd = 2 is |D_∞|" and "the size conditions are what imitating ∞ costs" are numerology/heuristics and are
+labelled as such (Assessment) — fine. Construction (1) (Carlitz D_∞ = F_q^*) is flagged "not checked against
+FUNCTIONFIELD_ES" — fine as Assessment.
+
+### C4. CONJECTURE PM-II and the census (§5, memo y3_primemod_census) — SOUND (EVIDENCE confirmed; two minor numerical-statement defects)
+From-scratch exhaustive census `scripts/review_r216_census.c` (different algorithm from the author's): parametrise a
+certificate (c,d,h), h = 4cdj − 1 | n + 4c²d, by (c,d,t,j) with t = (nj + c)/h; then **n = 4cdt − (c+t)/j with
+j | c + t**, a bijection onto all c,d,t ≥ 1, j | c + t (proof in the file header). Enumerating all c,d,t with
+4cdt − c − t ≤ N and the divisors j of c + t lists every certificate of every n ≤ N; h-primality by deterministic
+64-bit Miller–Rabin. Validated against a naive divisor brute force (`review_r216_census_brute.py`, factor
+n + 4c²d over all slices with c(4d − 1) ≤ n + 1): identical (N_II, N_II^pr) for all 454 primes and odd squares ≤ 3000.
+Results (data/r216/census_1e6.txt, census_1e7.txt — **complete census to 10⁷**, 10× the brief's floor):
+* Primes p ≥ 5, p ≤ 10⁷ with N_II^pr ≤ 1: exactly **13 (1), 193 (1), 3361 (0), 76441 (1)** — as claimed.
+* min N_II^pr on [10⁵, 10⁶] = 5 at 152461; mean N_II = 222.85, mean N_II^pr = 45.35 (author 222.9 / 45.4 ✓); all
+  dyadic rows of the memo's table reproduced (e.g. [2¹⁶, 2¹⁷]: 5709 primes, 157.2, 35.44, min 1 at 76441 ✓);
+  window [10⁷, 10⁷ + 2000]: 121 primes, 401.96 / 70.17, min 34 ✓ (exact match).
+* Odd squares ≤ 10⁷: 1580, none with any Type II certificate (T1 control ✓).
+* Growth: mean N_II^pr/log²p over full dyadic blocks *decreases monotonically*: 0.289 ([2¹⁰,2¹¹)), 0.271, 0.267, …,
+  0.265 ([2¹⁹,2²⁰)), 0.264, 0.264, 0.263 ([2²²,2²³)); mean N_II/log³p: 0.124 → 0.096. The author's "0.10–0.12·log³p
+  for 10³ ≤ p ≤ 10⁸" is contradicted by the author's own 10⁷ sample (401.96/log³(10⁷) = 0.096) and by every full
+  block above 2²⁰; "(0.27–0.33)·log²p" holds only because of the 54-prime window at 10⁸ (113.1/log² = 0.333), which
+  is out of line with the block trend (see the 10⁸ run below). → m4.
+(1e8 rerun: see C4b below.)
