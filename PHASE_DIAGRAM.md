@@ -191,3 +191,54 @@ conductor avoided by the choice of S) should give e = exp(O(√(log y)·log₂y)
 covering lower bound (EXPONENT_CAP Prop 3.1(c)) is e ≥ (log y)^{1−o(1)} for any covering argument; the gap
 (log y)^{1−o(1)} ↔ y^{o(1)} is the Dictionary 3.3(c) discrete-log problem, and below it every bounded cap is a
 pure hitting problem (§4: θ = 1/(2e+2) > 0).
+
+## 6. The phase diagram (cells, status, the wall that bounds each)
+
+Columns: k-direction (fixed k: finite?), Q₁-direction (fixed Q₁: finite? — always yes, EXPONENT_CAP Thm 2.1), the
+divisor modulus exponent θ of §4, and the status for every odd n.
+`  variant (mute condition on den z = Q₁²)      k-slices     θ            status`
+`  ES^□       none                              k=1 infinite  0 (mod 4)    PROVED (Dirichlet; SYNTHESIS_SPARKS2 2.2)`
+`  ES^{(S)}   rad Q₁ ⊆ S fixed, |S| ≥ 4          infinite     0            PROVED (sieve; UNIT_ORBIT 2.4)`
+`  ES^{(y)}   rad Q₁ | y                         k=1 infinite  0 (S fixed)  PROVED (sieve; FROBENIUS 4.2, Prop 3.1)`
+`  ES^{(y,y^{o(1)})} cap e(y) = y^{o(1)}          —            → 0          PROVED (Thm 5.1; was y^δ, EXPONENT_CAP 3.2)`
+`  ES^{(y,polylog)}  cap (log y)^C                —            → 0          OPEN: covering threshold; Dictionary 3.3(c)`
+`  ES^{(y,e)}, e ≥ 2 fixed                        no wall seen 1/(2e+2)     OPEN: hitting at θ < 1/4 (§3 EVIDENCE)`
+`  ES^{[2]} = den z | y²; ES^{(y,1)} (e = 1)     FINITE       1/4          OPEN: doubly walled (Thm 2.1), Pell-orbit`
+`                                                                         lottery (GROWING_MUTE, MARKOFF 6.1)`
+`  ES         Q₁ = 1                             finite       1/2          OPEN (finite search, B2/B3)`
+Reading of the table (Assessment, every entry referenced): the provable region is exactly θ → 0, i.e. the
+certifying modulus fixed or growing slower than any power of the number it must divide; this is what lets a fixed
+Kummer/Dirichlet field decide firing. Every bounded cap has θ ≥ 1/(2e+2) > 0 and is a hitting problem; the
+self-mute cap e ≤ 1 adds the k-wall (both slicings finite), ES adds Q₁ = 1 (one slice).
+
+**T1 (the brief's question: is ES^{(y,1)} T1-bearing?).** Yes, in the same sense as ES: (a) no ES^{(y,e)} solution
+for any e ≤ ∞ at n = m² has Type I/II shape at every prime of m (FROBENIUS_FIRING Thm 4.2(b): an ES^{(y,e)} solution
+is an ES^{(S′)} solution with S′ its mute primes; UNIT_ORBIT Cor 1.2), in particular no shot solution (sum of two
+coprime squares, §1 of GROWING_MUTE); (b) as a statement it nevertheless holds at m² whenever it holds at a prime
+p | m with mute primes prime to m (scaling 4/(pt) = 1/(tx) + 1/(ty) + 1/(tz)). So every cell of the table has the
+T1 of ES (checked: all T1 controls in §2–§3 and pd_k1s are empty), and any proof of a bounded-cap cell must use a
+non-square input such as (n/r) = −1. Covering proofs are excluded for every cell (B1): profinite points x with
+x_ℓ = 1 for ℓ ≠ r and x_r a non-residue, r ≡ 1 (mod 4), lie in no shot class of ANY variant down to ES^□ (a shot
+class needs g ≡ 3 (mod 4) with g | x + 4Q², but every prime power dividing 1 + 4Q² is ≡ 1 (mod 4) and so is r)
+— so no finite set of shot identities covers the primes p ≡ 1 (mod 8·∏_{ℓ<r}ℓ… ) whose least non-residue is such an
+r; the proved cells escape this only because their proofs use arbitrarily large primes (non-covering).
+
+**Where the single-n requirement bites (the brief's sieve question).** Not at B6: n is fixed and r (or (k, λ)) is
+the summation variable, exactly as in the proved ES^{(y)}. It bites at the per-certificate box: after switching
+(sum over the shot first) the count is Σ_{k,λ} #{g | N_e(k, λ) : g ≡ −1 (mod 4kλ)} with N_e = n(2k(4kλ)^e)² + 1
+(Prop 4.1): divisors of ONE number per parameter in a class whose modulus is a parameter of that number. BFI /
+Fouvry / Drappeau-type estimates (Titchmarsh divisor problem, primes in a fixed class −1 mod q averaged over
+well-factorable q ≤ x^{1/2+δ}) equidistribute MANY primes r in classes of a modulus q chosen independently of r; here,
+for the modulus q = 4Q₀ of a shot, at most ω(n + 4Q²) primes r ≡ −1 (mod q) qualify — the joint condition
+"r ≡ −1 (mod 4Q₀) and r | n + 4Q₀²Q₁²" has the shot parameter on both sides, so its expected count per q is
+≍ τ(N)/q, invisible to any level-of-distribution statement (whose main terms are ≍ x/φ(q)). Chen-type switching
+only moves between the three faces (prime g, cofactor D, nX² + 1) — each a one-number-per-parameter divisor problem
+with θ = 1/(2e+2). The Pell-orbit freedom of S_{n,D} (no archimedean wall once B = Q₁ is free, (J)36) multiplies
+ONE point into infinitely many but does not create the first (MARKOFF 6.1(c): class-group layer) and does not keep
+Q₁ squarefree (R201 M3), so it serves ES^{[2]} only, and only after existence.
+**Exact conditional form of the class layer (PROVED, from MARKOFF Thm 4.1 + Gauss's genus theory).** If for some
+genus-admissible (λ, D) (MARKOFF §6 local layer: −D primitively represented by the principal genus of
+discriminant 16(λ²D² − n)) the form class group of that discriminant has one class per genus, then ES^{[2]}(n)
+holds. (One class per genus makes "represented by the principal genus" equal "represented by the principal form".)
+This trades the problem for a Gauss/Cohen–Lenstra statement about the family 16(λ²D² − n): open, not a standard
+hypothesis.
