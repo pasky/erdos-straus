@@ -200,3 +200,26 @@ the escape is int C = ∅ (necessary by (a)); then existence of a firing h must 
 mechanism, not from equidistribution. The known such mechanisms are: Elkies' supersingular primes (a CM value
 with a sign argument), primitive divisors (Zsigmondy, Bilu–Hanrot–Voutier for Lucas, Silverman for EDS), and
 sign/parity of a norm (Mordell's p + 4 ≡ 3 mod 4). §3.5 screens these.
+
+(I5) Fourth construction: the density-zero existence mechanisms named in Prop 3.4.
+
+**Proposition 3.5 (torus version of Prop 3.3: primitive divisors couple to the shot only through roots of
+unity; PROVED, Kronecker).** Let α, β be the roots of x² − P(t)x + Q(t), P, Q ∈ ℚ(t) (or algebraic of degree D over
+ℚ(t)), and suppose that for all p in an infinite set and all primes h | p + 4c²d (h ∤ 2Q(p)Δ(p)), the class of
+α/β mod h has order dividing N := 4cd and exactly N... more precisely suppose U_N(α, β) ≡ 0 identically modulo the
+shot (i.e. (t + 4c²d) | U_N(α_t, β_t) in the relevant ring) with α/β not a root of unity of order < N at
+t₀ = −4c²d. Then α_{t₀}/β_{t₀} is a primitive N-th root of unity in a field of degree ≤ 2D, so φ(N) ≤ 2D; for
+D = 1, N ∈ {3, 4, 6} and 4cd = 4 (Mordell's p + 4).
+*Proof.* U_N(α, β) = (α^N − β^N)/(α − β) vanishes at t₀ iff (α/β)^N = 1 (α ≠ β); minimality gives primitive order N;
+[ℚ(ζ_N) : ℚ] = φ(N) ≤ [ℚ(α_{t₀}, β_{t₀}) : ℚ] ≤ 2D. ∎
+So the Lucas / Bilu–Hanrot–Voutier supply of primes h ≡ ±1 (mod N) (primitive divisors of U_N, with sign
+(Δ/h)), and its elliptic analogue (primitive divisors of division-polynomial values Ψ_N(a) of a CM curve, which at
+inert h satisfy N | h + 1 up to the 2-part — the reason Prop 3.3 applies), are deterministic sources of primes in
+the moving class −1 (mod N), **but the coupling to the shot value p + 4c²d is either an identity (Props 3.3/3.5:
+bounded N) or a coincidence (a lottery, B3)**. The sign mechanism (Mordell; Elkies' supersingular-prime argument is
+of the same kind: a norm value whose sign forces an inert prime factor) forces one quadratic character: as in
+bsD_artin_conjugation / LDP_DEEP §A, this gives h ≡ −1 (mod M) only when (ℤ/M)^* is {±1} (M ∈ {3, 4, 6}), or over
+ℚ(ζ_M)⁺ for data that are already F-rational (LDP_DEEP Prop A.4.1, the "split part" lottery).
+**Elkies + torsion (Assessment).** Elkies' mechanism gives supersingular h for a non-CM E (density zero!), and a
+rational N-torsion point then gives N | h + 1; but N ≤ 12 (Mazur), and h | p + 4c²d is again an identity (Prop 3.3)
+or a lottery. Over ℚ, Elkies + Mazur + Mordell's sign reproduce exactly the bounded-modulus shots.
