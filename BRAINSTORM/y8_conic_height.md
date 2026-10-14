@@ -1,5 +1,7 @@
 # y8_conic_height — where the χ = +1 words sit on the conic: small-height points, and the boundary slice = principal genus (O217)
 
+> **R224:** "observed h = min letter" is PROVED (THREE_SQUARES Lemma 4.2): h = min Q_w = min(t, u, v).
+
 ## Idea (goal c)
 For χ = +1, Thm A(iii) gives a *compatible* pair x, y ∈ ℤ³ (x·y = 1, |x|² = A*, |y|² = A, x × y ≡ x + y mod t);
 z = x × y has |z|² = tp and is the image of the middle basis vector e₂ under the embedding p·G_w ⊂ ℤ³ (z·x = z·y = 0,

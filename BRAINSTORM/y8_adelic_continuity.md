@@ -1,5 +1,11 @@
 # y8_adelic_continuity — "continuity of T1" is adelic: clean levels and the √(log B / log tp) law (O217)
 
+> **R224 review note (reviews/three-squares-review.md; no FATAL).** (D5) the "not archimedean" reading holds only at the
+> √p scale: at bounded p − m² there is a 6–7σ deficit of χ = −1 words, explained by T1-type levels (p = m² + k,
+> tk + 1 = c² ⇒ tp + 1 = tm² + c², level odd-clean when gcd(m, c) = 1; THREE_SQUARES Lemma 1.4); (D6) so the GRH
+> "→ 0 per level" Assessment is for random p only; (D12) forced-word removal explains about half of the lnr effect,
+> not all (N₋/(N − S) = 0.671 → 0.601 over q = 3 … 13 on all primes in (2·10⁵, 10⁶)); h = min letter is PROVED (Lemma 4.2).
+
 ## Idea
 O209 (§3.2) observed sign-dominance failures N₊(p) > N₋(p) "near squares". Correction (R214, and independently here):
 the relevant proximity is **small-prime-adic**, not archimedean. Mechanism: for p prime, p ≡ 1 (4), and a word w ∈ X_p

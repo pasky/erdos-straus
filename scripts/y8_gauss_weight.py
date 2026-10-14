@@ -1,7 +1,6 @@
 # y8: exact weighting of words by representation numbers of T_w = [[A*,1],[1,A]] by I_3 (sum of three squares).
-# For each word of prime p: r(T), r*(T) (primitive: x×y primitive), chi; checks
-#   r*(T_w,I3)/|SO(T_w)| == chi_plus * C(tp)  with C(D) = r3*(D)/(#proper classes in Gauss's three-squares genus)
-# computed directly as the number of primitive z, |z|^2 = D, with z^perp properly equivalent to T_w.
+# For each word of prime p: r(T), r*(T) (primitive: x×y primitive), chi; checks r(T) > 0 <=> chi = +1 (Thm A (iii))
+# and prints sum r/48 vs N+ (the checkpoint-1 weighting by chi_plus*C(tp) was withdrawn, R-O217; comment fixed R224).
 import sys, math
 from math import gcd, isqrt
 from sympy import isprime, legendre_symbol as L

@@ -1,6 +1,6 @@
 # THREE_SQUARES — the three-squares side of the ES sign and the adelic "continuity of T1" (task O217, spark relay Y8)
 
-Status: checkpoint 1 (O217), repaired after self-review R-O217 (deep reviewer; repairs marked "R-O217"). **ES is not solved here, nor any infinite case of it.** Labels as in DISCOVERIES.md.
+Status: checkpoint 1 (O217), repaired after self-review R-O217 (deep reviewer; repairs marked "R-O217"). Hostile review R224 (reviews/three-squares-review.md): no FATAL; repairs marked "R224". **ES is not solved here, nor any infinite case of it.** Labels as in DISCOVERIES.md.
 Builds on TWO_FIBRES.md (O209: Thm A, Thm B), SIGN_IDENTITY.md ((J)39), CHI_FLIP.md ((J)33), STERILE_STEER.md ((J)27).
 Memos BRAINSTORM/y8_*.md (6); scripts `scripts/y8_*`.
 Notation: p ≡ 1 (4) prime (p ≡ 3 (4) is trivial: (p + 2, 1, 1) has χ = −1); word w = (t, u, v), tuv − u − v = p,

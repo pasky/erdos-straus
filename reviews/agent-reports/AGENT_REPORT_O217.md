@@ -1,5 +1,11 @@
 # AGENT_REPORT_O217 — spark relay Y8: the three-squares side of the ES sign and the adelic "continuity of T1" (checkpoint 1)
 
+> **R224 review note (reviews/three-squares-review.md; no FATAL).** (D5) the "not archimedean" reading holds only at the
+> √p scale: at bounded p − m² there is a 6–7σ deficit of χ = −1 words, explained by T1-type levels (p = m² + k,
+> tk + 1 = c² ⇒ tp + 1 = tm² + c², level odd-clean when gcd(m, c) = 1; THREE_SQUARES Lemma 1.4); (D6) so the GRH
+> "→ 0 per level" Assessment is for random p only; (D12) forced-word removal explains about half of the lnr effect,
+> not all (N₋/(N − S) = 0.671 → 0.601 over q = 3 … 13 on all primes in (2·10⁵, 10⁶)); h = min letter is PROVED (Lemma 4.2).
+
 Branch side-agent/three-squares (merged side-agent/two-fibres first; README conflict resolved by keeping both sides).
 Deep file THREE_SQUARES.md; memos BRAINSTORM/y8_*.md (6, indexed); scripts `scripts/y8_*`. **ES is not solved, nor any
 infinite case of it.**
