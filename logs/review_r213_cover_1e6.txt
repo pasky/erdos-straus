@@ -1,0 +1,17 @@
+primes 3..1000000: 78497, uncovered: 0 []
+max least g over primes: 955979 at p = [379]
+least g of p=379: 955979 Q1: 38307
+primes whose least shot needs B>1 (no cap-1 shot at least g): 13401
+p = 1 mod 4: 39175; least shot ES: 26858, B=1<c: 5618, B>1: 6699
+  decade 10^0: max least g 247
+  decade 10^1: max least g 2435
+  decade 10^2: max least g 955979
+  decade 10^3: max least g 17539
+  decade 10^4: max least g 35711
+  decade 10^5: max least g 125203
+odd squares covered: 0 of 499
+odd non-squares uncovered: 8703  of which 3|n: 8535
+exact re-verification failures: 0
+least-g decade histogram (primes): {0: 45812, 1: 25462, 2: 6179, 3: 962, 4: 79, 5: 3, 6: 0}
+primes with NO cap-1 (B = 1) k=1 shot at any g <= G: 783
+primes with a B=1 AND a B>1 shot at the least g (tie): 1 [837379] [6995]
