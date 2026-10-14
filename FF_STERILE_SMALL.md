@@ -62,3 +62,40 @@ F prime to Q is prime to QT^j. ∎
 All moduli used in the class routes (Tv₁, TL', Tw₁g', Tm'w₁, Tm'C₁, …) contain T and all F there are prime to T, so the
 lemma applies to every class route. Continuum consequence: a class route with data (n, d, ρ) costs an extra exponent
 max(0, d(n − d)/n − ρ) (Coppersmith threshold), instead of failing outright below the threshold.
+(Repair of the hypothesis: Lemma 1.4 only needs every counted E to be prime to T, which holds when T ∣ Q (σ is a unit
+mod Q) or T ∤ F; the cofactor version needs F prime to Q, as before.)
+
+*Check (EVIDENCE):* `scripts/fz_check_bounds.c` compares the minimum of all routes as coded in `scripts/fz_sum.c` (Lemma 1.6 rows
+with the refined class bound, plus Lemma 1.2/1.3 rows) with the exact pattern counts of `bsE_famcount`: q = 3, s ≤ 19
+(146 patterns, 638 tuples); q = 5, s ≤ 13 (54 patterns); q = 7, s ≤ 11 (19 patterns): 0 violations, max count/bound 1.000.
+
+**Steering (EVIDENCE, `scripts/fz_rate.py`, grid + local refinement).** Continuum per-s exponent max_p min_route φ − 1/2
+(units of log q):
+| r | Lemma 1.6 only | + Lemmas 1.2/1.3 | + Lemma 1.4 | maximiser (last column) |
+|---|---|---|---|---|
+| 1 | +0.167 | +0.167 | **0.000** | thirds corner (1/3, 1/3, 1/3, 0) |
+| 2 | +0.096 | +0.066 | **−0.044** | (1/3, 1/3, 1/3 − t, t), t ∈ [0, 0.02] (flat) |
+| 3 | 0.000 | −0.010 | **−0.100** | (1/5, 1/5, 1/5, 2/5): the Elsholtz–Tao point, all routes = 2/5 |
+| 4 | −0.021 | −0.058 | −0.100 | (1/5, 1/5, 1/5, 2/5) |
+So at r ≥ 3 the exponent becomes the "ET exponent" 2/5 (DEPTH_ASPECT Lemma 2.2's 2(s − 3)/5 point), with a margin 1/10.
+
+## 2. Case A tail for q ≥ 9
+
+**Lemma 2.1 (PROVED).** For q ≥ 9 the number of Case A data of depth α valid somewhere on the slices is ≤ (α + 1)³·q^{(α−1)/2}·3^{α/2}.
+*Proof.* Per pattern (λ, β, κ, f = α − β − κ, ζ = max(β, f) − λ ≥ 1) FF_STERILE_PUSH Lemma 2.2 gives route (i) ≤ q^{λ+β+κ−1},
+route (ii) ≤ q^{λ+κ+f−1}, so min ≤ q^{λ+κ−1+min(β,f)} = q^{α−ζ−1} (as λ = max(β, f) − ζ); and route (v) ≤ q^ζ·α!/(β!κ!f!) ≤ q^ζ 3^α.
+min(x, y) ≤ (xy)^{1/2} = q^{(α−1)/2} 3^{α/2}. Patterns: ≤ (α + 1)³. ∎
+So the Case A mass beyond α > 40 is ≤ Σ_{α>40} (α+1)³ q^{−(α+1)/2} 3^{α/2}, ratio ≤ (44/43)³(3/q)^{1/2} < 1 (`scripts/fz_caseA.py`).
+(This replaces the 6^α of DEPTH_ASPECT Lemma 2.4, which made the O216 Case A tail diverge for q = 27.)
+
+## 3. Theorem: q = 27
+
+**Theorem 3.1 (no finite linear covering of ES₂₇(T^k), k ≥ 2; PROVED, computer-assisted, same inputs and same certification
+standard as FF_STERILE_PUSH Thm 3.1).** Let q = 27 and k ≥ 2. Then O(27, T^k) ≠ ∅, so ES₂₇(T^k, ·) has no finite linear
+covering. More precisely the covered relative measure, summed over the 26 c-slices, is ≤ 3.61; hence at most 7 of the 26
+c-slices have covered measure ≥ 1/2, and at least 19 have more than half of their measure in O(27, T^k).
+*Proof.* As FF_STERILE_PUSH Thm 3.1 (take k = 2; Lemma 2.1 there), with the route minimum of Lemma 1.6 there extended by
+Lemmas 1.2–1.4 here. `scripts/fz_certify.sh "3 60"` (log `data/fz/certify.txt`): finite Case B part 3 ≤ s ≤ 60
+(`fz_sum.c`, long double) 3.0180463717; tail s > 60 (`fz_tail.c`, adaptive boxes, all 212 505 boxes certified, class
+refinement j = ⌈θs⌉ with θ on a grid of step 1/256, cost q^{θs+1}) ≤ 0.53798; Case A ≤ 0.0096590 (α ≤ 40 exact) +
+6.1·10⁻¹⁶ (Lemma 2.1). Certified total (×1.01) 3.6013 < q − 1 = 26. ∎

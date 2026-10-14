@@ -1,0 +1,2 @@
+r=3 q=27 S=60 finite=3.0180463717e+00 tail=5.3798e-01 caseA=9.6590e-03 certified_total(x1.01)=3.601339e+00 q-1=26 ratio=1.385e-01 every-c=no
+ALL OK
