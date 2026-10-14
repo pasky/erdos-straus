@@ -10,3 +10,7 @@ p=3 s=11: tuples(a<=b)=6 patterns_hit=3 max count/minbound=1.000
 p=3 s=12: tuples(a<=b)=10 patterns_hit=5 max count/minbound=1.000
 p=3 s=13: tuples(a<=b)=18 patterns_hit=9 max count/minbound=1.000
 p=3 s=14: tuples(a<=b)=74 patterns_hit=21 max count/minbound=1.000
+p=3 s=15: tuples(a<=b)=24 patterns_hit=12 max count/minbound=1.000
+violations: 0
+all tuples per s: {4: 2, 5: 4, 6: 10, 7: 8, 8: 8, 9: 4, 10: 24, 11: 12, 12: 14, 13: 36, 14: 104, 15: 48}
+census sum_s count(s) p^(1-ceil(s/2)) = 94/27
