@@ -327,3 +327,14 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | s4_mute_infinity | c_∞-imitation × mute place × relaxations | steering table: PROVED variants = fixed c_∞-modulus + infinite shots | Assessment |
 | s4_maslov_inertia | (J)45 Maslov × HJ length 3 | Maslov count = ind_−/2; at length 3 all-or-nothing | PROVED; CERTIFIED (75 097 words) |
 | SYNTHESIS_SPARKS4.md (deep) | R_n / SQ_±: finiteness, no forcing, unit-slot genus table, no finite t-set (H), numerics; Selling wall | no route; steering rule "test on SQ_± first" | see file |
+
+## Spark relay Y8 (O217): the three-squares side and adelic "continuity of T1" (memos y8_*, deep file THREE_SQUARES.md; not yet triaged)
+
+| file | angle | outcome | labels |
+|---|---|---|---|
+| y8_adelic_continuity | sign balance vs distance to squares | archimedean distance irrelevant at the √p scale (R224: NOT at bounded p − m²: T1-type levels tm² + c², THREE_SQUARES Lemma 1.4); clean levels (all primes of tp+1 QR mod p); T1 = all levels clean; calibrated reciprocity-constrained coin model fits clean-level rates | PROVED (L1–L4) + EVIDENCE — SHARP |
+| y8_siegel_weil_sign | exact Siegel–Weil weighting of words | α₂ and α_p vanish together on χ=−1, so no weighting beyond the indicator (checkpoint formula withdrawn, R-O217); comparison with \|X_p\| circular | PROVED; negative |
+| y8_lnr_level | least-non-residue level t₀ = −p⁻¹ mod q | Mordell (840) = "lnr ≤ 7 ⇒ lnr level admissible with A = q"; q ≥ 11: ≈ 0.85 success per translate, stable in p | PROVED + EVIDENCE |
+| y8_three_squares_sq | SQ for composite n via ℤ³-embeddability | 3SQ: all words embed ⟺ n square; no exceptions to 10⁶ (105 is not one) | CONJECTURE/EVIDENCE — SHARP (formulation) |
+| y8_conic_height | conic points carrying words | height(ℓ(w)) ≤ min letter; boundary words = principal-genus ideals dividing (1+√−p) | PROVED + EVIDENCE |
+| y8_square_test_gap | n square ⟺ every level clean; ES-five = admissible version | the ES content is exactly the admissibility gap (A ≡ −1 mod t) | PROVED; steering |
