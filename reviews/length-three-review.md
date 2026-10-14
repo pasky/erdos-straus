@@ -15,6 +15,8 @@ From-scratch scripts: `scripts/review_l3_*.py` (none import or copy scripts/l3_*
 | Cor 2.2 (sharp dictionary) | SOUND |
 | Thm 3.1 (Machin = CM rotation; K_c(s) = 1/m ⟺ K = N; Type II r² = p/4d) | SOUND |
 | Thm 4.1 / Cor 4.2 (m²Norm_μ = hh′ − mμ; (J)38 ε_μ; (J)37 depth 3/1) | SOUND |
+| §6 (Q²-side pentagons ↔ divisors h ≡ 3 (4) of 4n + Q²; 4/n identity; torus) | SOUND-AFTER-REPAIRS (D4) |
+| §7.6 (Farey-chain census) | SOUND-AFTER-REPAIRS (D5: definition omits coprimality) |
 
 ## Checks performed
 
@@ -59,6 +61,21 @@ K_c∘K_s = K_{1/m} ⟸ K_c(s) = 1/m because both fix z*, are orientation-preser
 of z* acts simply transitively on ∂ℍ; the arccot identity holds exactly (not only mod π) since both sides lie in (0, π)
 and (c + ir)(s + ir) = (c + s)(1/m + ir) with c + s > 0.
 
+**§6** (`scripts/review_l3_side.py 3001 15`, 11 s). All positive-integer solutions (c, s, h, h′) of the five Ptolemy
+relations found by brute force over c (no divisor parametrisation): for odd n ≤ 3001, odd Q ≤ 15 they are exactly the
+divisors h ≡ 3 (4) of 4n + Q² — 23 510 pentagons, matching the author; the identity 4/n = 1/(sn) + 1/(sc) + Q²/(cn) holds
+exactly on all. When gcd(n, Q) = 1, gcd(cn, Q) = 1 always (q | Q, q | c ⇒ q | h ⇒ q | hh′ − Q² = 4n), so it is an
+ES^{(S)} point. Even Q: the bijection fails (as it must, h ≡ −Q² ≡ 0 (4)); the doc correctly restricts to Q odd.
+Symbolically (`review_l3_symbolic.py`) all five §6 Ptolemy relations and the identity hold in ℚ(n, Q, h); the torus
+element (α, α⁻¹, α, α⁻¹, α) fixes the four unit sides, h, h′, and scales (c, m, s, N) by (α², α⁻², α², α²) — DK 8.3 with
+α² = a (which is HJ_DEEP Lemma 2.3's map); the Q-side-tangent torus has λ₁₄ ↦ h/Q², N ↦ f₁²Q²n as stated.
+
+**§7.6** (`uv run --with sympy python scripts/review_l3_chain.py 400`, < 1 s). My own enumeration of all ES solutions of
+primes 5 ≤ p < 400 gives 1 615 Type I and 641 Type II (unordered), matching. *With the definition as printed*
+(b_i | b_{i−1} + b_{i+1} only) I get 498/1615 and 298/641 chains and failures only at 13, 37, 97, 181, 193. Adding
+gcd(b₀, b₁) = 1 (needed for a unimodular Farey chain) reproduces the author's 358/1615, 242/641 and failure list
+13, 37, 97, 181, 193, 277, 373 exactly. See D5.
+
 ## Defects
 
 (numbered as found)
@@ -80,3 +97,20 @@ displayed identity gives the divisibility; the cofactor needs the extra line p +
 j(4cds − p) = (h + 1)s − pj = c + s. (ii) Cube words need not be interior: s = 1 or c = 1 occurs (the doc's own §4 example
 (7, 2, 1, 3, 1) has s = 1), so "the cube is the pentagon (c, 4dj, s)" is a statement about formal words/friezes, not
 about HJ length-3 fractions. Neither affects correctness. *Repair:* add the line and the remark "(possibly formal)".
+
+**D4 (MINOR, attribution; §6 "This is the fixed-modulus-4 shot", and "the ES^{(S)} shape of UNIT_ORBIT_ES").** The §6
+family is "4n + Q² has a divisor ≡ 3 (mod 4)", the Q-twist of FMS's 4p + 1 shot (Q = 1: m = 4, d = j = 1). UNIT_ORBIT_ES
+Prop 2.1's ES^{(S)} family is a *different* one, "n + 4Q² has a prime factor ≡ 3 (mod 4)" (at Q = 1 the p + 4 shot,
+c = d = 1). Both have fixed modulus 4 and both are T1-tight at n = M² (4M² + Q² and M² + 4Q² are sums of two coprime
+squares), but "the" fixed-modulus-4 shot reads as if §6 recovered UNIT_ORBIT's mechanism. Also, ES^{(S)} membership
+needs gcd(n, 2Q) = 1 (UNIT_ORBIT's definition), which §6 does not state; given it, gcd(cn, Q) = 1 follows (q | Q, q | c ⇒
+q | h ⇒ q | 4n). *Repair:* say "a fixed-modulus-4 ES^{(S)} family (the Q-twist of the 4p + 1 shot; UNIT_ORBIT Prop 2.1's
+n + 4Q² family is a different one)", and add the hypothesis gcd(n, 2Q) = 1 with the one-line gcd argument.
+
+**D5 (MINOR, definition does not match the census; §7.6).** The printed definition of a Farey-chain certificate,
+"4/p = Σ 1/(b_ib_{i+1}) with b_i | b_{i−1} + b_{i+1}", omits coprimality. With it literally, 277 and 373 *do* have
+chains, e.g. 4/277 = 1/72 + 1/2216 + 1/9972 with (b₀, b₁, b₂, b₃) = (554, 18, 4, 554) (18 | 558, 4 | 572), and the census
+becomes 498/1615, 298/641 with failures only 13, 37, 97, 181, 193. The author's numbers are reproduced exactly with
+gcd(b₀, b₁) = 1 added (which is what "Farey chain" needs; then gcd(b₁, b₂) = gcd(b₂, b₃) = 1 follow from the
+divisibilities). Also, the "/tmp probe recorded here" is not reproducible from the repo. *Repair:* add "gcd(b₀, b₁) = 1
+(a unimodular Farey chain)" to the definition and point to `scripts/review_l3_chain.py` (or commit the probe).
