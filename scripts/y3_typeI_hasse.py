@@ -2,6 +2,7 @@
 Type I certificate: f*g = p^2 + 4c^2 d with f = g = -p (mod 4cd) (the two cofactors are symmetric).
 Hasse window for f prime: |1 - p| <= 2 sqrt f  <=>  g <= 4(p^2+4c^2 d)/(p-1)^2, i.e. g is tiny; then 4cd | p + g.
 So window certificates = (g odd small, 4cd | p + g, g | p^2 + 4c^2 d, f = (p^2+4c^2d)/g prime).
+The early break in window() is justified for n >= 17 by the bound g < 13 (memo y3_typeI_hasse_window (1)).
 Reports: #primes with a window certificate; does the trace-(1-p) curve over F_f have CM by Q(sqrt(-d))
 (i.e. (1-p)^2 - 4f = -d * square)?  Odd squares n (T1): window-type solutions (should be none).
 Usage: PYTHONPATH=scripts uv run python scripts/y3_typeI_hasse.py P"""
