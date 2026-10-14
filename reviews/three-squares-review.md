@@ -136,7 +136,7 @@ remain (D9).
 For a compatible pair the proof of Thm A (iii)⇒(iv) gives M = ℤx + ℤy + ℤγ with z·x = z·y = 0, z·γ = |z|²/t = p, so
 z/p is the dual vector of γ and pM^# = pℤ³ + ℤz = L_ℓ (z ≢ 0 (p): a word with p | t would need t = p and then
 p(kj − 1) = k + j for A = kp − 1, A* = jp − 1, impossible for p ≥ 5). Hence (L_ℓ, |·|²/p) ≅ (ℤ³, Q_w) and
-h(ℓ(w)) = min Q_w ≥ … ≤ min(t, u, v): correct. Bound (3p + 4)^{1/3}: if all letters ≥ 2 then u + v ≤ uv ≤ tuv/2, so
+h(ℓ(w)) = min Q_w ≤ min(t, u, v): correct. Bound (3p + 4)^{1/3}: if all letters ≥ 2 then u + v ≤ uv ≤ tuv/2, so
 tuv ≤ 2p; correct (and m³ ≤ 2p is the sharper form).
 **Upgrade (PROVED here): h(ℓ(w)) = min(t, u, v) for every compatible embedding**, so the "observed" 15/15, 5/5 is a
 theorem and h is independent of the compatible pair. Proof: h = min Q_w, Q_w = vx² + ty² + uz² − 2xy − 2yz. With
