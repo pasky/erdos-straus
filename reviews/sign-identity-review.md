@@ -11,6 +11,7 @@ None reuse `scripts/si_*`.
 | Lemma 1.1 ((u,v)-form, χ = (−uv/n₀), size bound) | SOUND |
 | Lemma 1.2 (trivial certificates; Dirichlet/Chebotarev form) | SOUND (classical; novelty nil — see D1) |
 | Lemma 2.1 (averages, 240/512, 80/512) | SOUND |
+| Thm 2.2 (no holomorphic modular generating function) | SOUND-AFTER-REPAIRS (minor: D2, D3) |
 
 ## Claim-by-claim
 
@@ -40,3 +41,32 @@ O(X log X); t ≥ 3 ⇒ K ≥ tuv/3; boundary layer X < tuv ≤ X + u + v contri
 is correct. Numerical fit (`review_si_avg.py 200000`, exact counts, fit aX log²X + bX log X + cX on X/16…X):
 a(N₋) = 0.23433 vs 15/64 = 0.234375; a(N₊) = 0.07820 vs 5/64 = 0.078125. Ratio ΣN₋/ΣN₊ = 2.43 at 2·10⁵,
 consistent with the author's 2.40 (10⁵) / 2.50 (10⁶).
+
+### Thm 2.2 — SOUND-AFTER-REPAIRS (mathematics correct; projection step and scope sentence need fixing)
+*Short proof (cusp 0), re-derived.* For a holomorphic modular form f_k of weight k ∈ ½ℤ_{>0} on a finite-index
+subgroup with any multiplier, f_k|S is holomorphic modular for S⁻¹ΓS, with expansion Σ_{m≥0} c_m q^{(m+κ)/h}; at
+z = i/y every term but the κ = 0 constant decays like e^{−2π/(hy)}. Hence f(iy) = Σ_k b_k(iy)^{−k} + O(y^{−K}e^{−c/y}),
+a finite sum of distinct powers: either ≍ y^{−k₀} or exponentially small. With Σ_{n≤X} a(n) ~ c·X log²X/2, c ≠ 0 for all
+four a (c(S) = −5/16), Abel summation gives Σ a(n)e^{−2πny} ~ (c/2)(2πy)^{−1}log²(1/y). Contradiction. Correct.
+The same computation along x = a/c (z = a/c + iy, γ(∞) = a/c, j(γ, γ⁻¹z) = i/(cy)) gives
+f(a/c + iy) = Σ_k (i/(cy))^k (b_{k,γ} + exp. small), which is what step (i) of the long proof needs: cusp components of
+*higher* weight are exponentially small on that ray (the sup-norm bound y^{−K/2} would NOT suffice if K > 2k — the
+parenthetical "slash by γ" must be read this way; D3).
+*Brief's specific worries.*
+* E₂: quasi-modular, not a modular form, so outside the hypothesis; its cusp-0 expansion does carry an extra
+  6/(πy) term (`review_si_cusp.py`: E₂(iy) + y⁻² = 6/(πy) to 8 digits). The holomorphic weight-2 Eisenstein series
+  E₂(z) − NE₂(Nz) have the y⁻¹ terms cancel exactly (checked: y²(E₂(iy) − 2E₂(2iy)) = −1/2 to 8 digits, no y⁻¹ term).
+  Even if a y⁻¹ term occurred it would be y⁻¹, not y⁻¹log²(1/y).
+* Weight 1 Eisenstein: coefficients Σ_{d|n}χ₁(d)χ₂(n/d) with χ₁χ₂ odd, so not both trivial; Dirichlet series
+  L(s,χ₁)L(s,χ₂) has at most a simple pole: average c·X, no log; expansions at every cusp are genuine q-expansions
+  with constant terms (L-values), no log terms. Logs (d(n), X log X) arise only from the *non-holomorphic* weight-0
+  Eisenstein series, outside the theorem.
+* Weight ½: Serre–Stark (unary theta series), ≍ y^{−1/2} or exp. small at each cusp. Half-integral-weight Eisenstein
+  series of weight ≥ 3/2: constant terms at cusps, covered by the same expansion.
+* Oldforms, all cusps: the short proof needs only cusp 0 applied to each slash; level-raising f(dz) is again a modular
+  form, nothing changes.
+* Long proof (iii): Rankin–Selberg Σ_{n≤X}|a_g(n)|² ~ c_g X^K (c_g ∝ Petersson norm > 0) holds for cusp forms of
+  half-integral weight with multiplier; the lower-weight mean squares (cusp X^{k′}, weight-1 Eisenstein X log³X,
+  weight-½ X^{1/2}) are O(X^{K−1/2}); the triangle inequality in ℓ² finishes; the bound Σ|a(n)|² ≪ X^{3/2+ε} is correct
+  (|a(n)| ≤ |X_n| ≪ n^{1/2+ε}). Correct, but redundant given the short proof.
+*Defects:* D2 (projection to odd n), D3 (step (i) wording), D4 (scope sentence about Thm 9.1 and "log¹" is wrong).
