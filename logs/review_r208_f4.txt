@@ -1,0 +1,7 @@
+F4: vertices 6 edges 12 triangles 8 Farey faces 8 equal True
+L 3 closed walks 48 strongly contractible: based 48 cyclic 48
+L 4 closed walks 288 strongly contractible: based 264 cyclic 264
+L 5 closed walks 960 strongly contractible: based 960 cyclic 960
+L 6 closed walks 4224 strongly contractible: based 4080 cyclic 4080
+L 7 closed walks 16128 strongly contractible: based 16128 cyclic 16128
+words N<= 400 6805 spur/antipode dictionary failures 0

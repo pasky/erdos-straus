@@ -6,6 +6,10 @@ three exact dictionaries, and two numerical facts. Self-reviewed by a deep revie
 minors — all repaired in place, marked "R-O207 repair"; no numerical headline refuted, reviewer reproduced them).
 
 ## SHARP:
+(R206 repair note: hostile review reviews/torsion-firing-review.md — no FATAL; SHARP 1 holds only for
+supersingular-at-f data and the "≤ |Box(k)|" bound is FMS Thm 3.1 for any rule, so it is not a no-go for a GL₂ mute
+analogue (D3); SHARP 2 reproduced independently and extended to 10⁸; SHARP 3 is a restatement of divisor conditions
+on p + 1 − a — the elliptic curve enters only through its order (D7); Prop 3.3 proved for D = 1 only (D5).)
 1. **Torsion–residue orthogonality (Thm 3.1, PROVED, elementary).** Every homomorphism from a group of exponent
    dividing h^s + 1 (supersingular points E(F_{h^s}), the non-split torus, Weil-pairing values) into F_{h^t}^*
    (t odd) has image ⊆ {±1}. The ES divisors live in the (h+1)-world (orders in E(F_h) / T(F_h)), p lives in the

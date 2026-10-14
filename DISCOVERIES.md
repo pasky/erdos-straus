@@ -593,7 +593,7 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
 
 9. **Spark phase V: Hirzebruch–Jung / Dedekind-sum dictionary (DEDEKIND_ES.md (O169); review `reviews/dedekind-es-review.md` (R169): no FATAL/MAJOR; D1–D10 minor, repaired by the reviewer).**
    * Lemma 1.1 (PROVED): X-slice certificates tuv − u − v = n are exactly the fractions n/A with Hirzebruch–Jung continued fraction [[v,t,u]] of length 3 (A = tu − 1), i.e. the matrices T^vST^tST^uS with top-left entry n; on them 12 s(A,n) = t+u+v−9 + (A+A*)/n (Hirzebruch–Zagier). Dedekind sums determine only the difference of HJ lengths of A and n − A.
-   * **Thm 4.5 (PROVED: finite mod-8 cell check relative to Rademacher–Grosswald and (D2); brute force over 21 430 357 words to 10⁶ by R169): for n ≡ 1 (4), a length-3 HJ fraction n/A is an ES certificate of one of five slices iff (A/n) = −1.** In HJ coordinates the moving moduli disappear. Cor 4.6: for p ≡ 1 (8), these slices hold ⟺ λ(p) ≤ 3, where λ(p) is the least HJ length of a quadratic non-residue ("least non-residue in the Farey metric"). This is the exact converse of the T4 test on these slices (the 4 | A case is redteam-automorphic Lemma 5.2).
+   * **Thm 4.5 (PROVED: finite mod-8 cell check relative to Rademacher–Grosswald and (D2); brute force over 21 430 357 words to 10⁶ by R169): for n ≡ 1 (4), a length-3 HJ fraction n/A is an ES certificate of one of five slices iff (A/n) = −1.** In HJ coordinates the moving moduli disappear. Cor 4.6: for p ≡ 1 (8), these slices hold ⟺ λ(p) ≤ 3, where λ(p) is the least HJ length of a quadratic non-residue ("least non-residue in the Farey metric"). This is the exact converse of the T4 test on these slices (the 4 | A case is redteam-automorphic Lemma 5.2). *Attribution (added after R205 D9):* the Type I slice (a three-term ceiling/HJ continued fraction of p/(4k) gives 4k/p = 1/p₀ + 1/(p₀p₁) + 1/(p₁p₂) by convergent telescoping) is already in Ventas, arXiv:2605.04551 (2026), eq. (3), Thm 2.1, Prop 2.2. The other four slices and the Jacobi-symbol criterion are not there.
    * The sign is a mod-4 function of (t,u,v), +1 exactly on 5 of the 20 occupied classes (§8.1); the Klein group preserves it. (Corrected per R198 D1: "rotations preserve it" and "scaling is the only flip" hold only within n ≡ 1 (4). In the uniform normalisation χ = (−A/n) of (J)33, scaling preserves χ, and a rotation flips χ iff all letters are odd and t ≢ u (mod 4), which changes n. No classical move changes the sign at fixed n.) So the reformulation is congruence data plus the length-3 lottery (B2).
    * EVIDENCE: λ(p) ≤ 3 for all 19 552 primes p ≡ 1 (8) ≤ 10⁶; t_min(p) ≤ 64; no odd square ≤ 10⁶ has a hit. CONJECTURE SQ₅: for n ≡ 1 (4), n ≠ 105, the five slices are non-empty ⟺ n is not a square (EVIDENCE to 10⁶, reproduced by R169; strengthens O146's SQ).
    * Complexity reading (Assessment): a polylog-height version (t_min ≤ (log p)^C) would give deterministic QNR-finding with a factoring oracle, which is not known.
@@ -966,6 +966,99 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * §3 (CERTIFIED; R204 reproduced all 32 exact rank certificates). No ℚ-linear relation exists between 8 weighted sign counts and a 48-column dictionary (Hurwitz class numbers, Kronecker–Hurwitz sums, twisted divisor sums, ternary theta series) on odd n ≤ 12 000, per class mod 8.
    * Prop 4.1 (PROVED; largely CHI_FLIP Thm 1.1 + CONSTRUCTIVE Thm 1.2 restated). Each word gives Gram T_w = t·diag(v, u) − [[1,−1],[−1,1]] of determinant tp. For n = p, χ = −1 ⟺ Diff = {p} (Eichler level 2 in B_{p,∞}) and χ = +1 ⟺ Diff = {2}. So the two signs are the two bad fibres of X₀(2p). The "log-separation" reading N₋ log p + N₊ log 2 is a tautological reformulation (R204 D10).
    * Assessment. The family of Gram matrices is a level-t projection with t unbounded (B2), so this dictionary relocates the lottery rather than resolving it. Relay O209 (two fibres, hyperbolic-matrix reading) was spawned.
+
+40. **Wave Y-c: one object behind every "length 3" — the five ES slices are the vertices of a Farey pentagon / A₂ frieze (LENGTH_THREE.md (O206); review `reviews/length-three-review.md` (R205): no FATAL, no mathematical error; one MAJOR-presentational leftover (D6, a retracted cutting-sequence claim restated in §5) and minors; repaired by the reviewer; prior art found, see below).**
+   * Prop 1.1 / Cor 1.2 (PROVED; R205 re-checked all 1 194 085 words with N ≤ 2·10⁴). A length-3 HJ word [[c, m, s]] = N/h′ is the Farey pentagon (0, ∞, c, c − 1/m, N/h′), equivalently a positive integral frieze with coefficients with boundary (1,1,1,1,N). The five continuants are the five cluster variables, and DK Thm 4.5's five slices say "the diagonal at vertex V_i is ≡ 0 (mod 4)".
+     * So (J)9 reads: **(A/N) = −1 ⟺ some cluster variable of the pentagon frieze is ≡ 0 (mod 4).**
+     * Prop 1.1 itself is classical in substance: continuants = λ-lengths = frieze entries (Conway–Coxeter, Penner, Morier-Genoud–Ovsienko "Farey boat"; friezes with coefficients after Cuntz–Holm–Jørgensen, arXiv:1909.02332, Forum Math. Sigma 2020; R205 had written "Pagano").
+   * Thm 2.1 (PROVED, checked symbolically). Each of the five ES triples is the fan decomposition of a Ford horocycle at one vertex (Farey telescoping).
+     * Prior art (R205 D9): the V₁ row (the Type I slice) is Ventas, arXiv:2605.04551 (2026). The in-campaign precursor is BRAINSTORM/farey_chain_frieze.md (O144).
+     * New as statements: the five-vertex/Jacobi form (Cor 2.2) and the Ptolemy readings below.
+   * Thm 3.1 / Thm 4.1 / Cor 4.2 (PROVED; R205 re-derived them).
+     * The Machin relation of (J)38 is the rotation about the CM point z* = i√(N/m) on the side (0, ∞). For Type II, r² = p/(4d) is independent of j.
+     * m²Norm_μ(z + 1/m) = hh′ − mμ. So (J)38's "|N ε_μ| divides μ" and (J)37's depth-3/depth-1 split are one Ptolemy relation of the pentagon, read on the orthogonal pencil of a geodesic. The certificate cube's divisibilities are Ptolemy relations too (Cor 1.3).
+   * §6 (PROVED after R205 D4, with gcd(n, 2Q) = 1). Pentagons with frozen values (Q², 1, 1, 1, n) and middle diagonal 4 correspond to divisors h ≡ 3 (mod 4) of 4n + Q². They give 4/n = 1/(sn) + 1/(sc) + Q²/(cn), the fixed-modulus-4 shot. ES^□-type relaxations are the pentagon with ONE non-tangent side, and the decoration torus cannot move between the two.
+   * §7 constructive screens (Assessments, except §7.4).
+     * Ear lemma: fails with a non-unit boundary value.
+     * Moving pencil: eliminates back to the (d, j)-line (reduction PROVED).
+     * §7.4 (PROVED, classical): genus theory kills every cube point at odd squares.
+     * No equidistribution route.
+     * Farey-chain slice: fails at 13, 37, 97, 181, 193, 277, 373.
+   * Assessment. The four "length 3" phenomena are algebraically equivalent restatements of the single continuant equation K(c, m, s) = N. No deterministic existence mechanism appears; the unknown λ-length h is B2's "modulus that is part of the solution". Relay O210 (friezes over ℤ/4, ℤ/8; ear-adding; cluster periodicity) was spawned.
+
+41. **Synthesis III: the numerator-blindness barrier — the □-relaxation is a theorem for every numerator M ≡ 0 (4), including those where M/p fails (SYNTHESIS_SPARKS3.md + BRAINSTORM/s3_*.md (O208); review `reviews/synthesis-three-review.md` (R207): no FATAL; MAJOR D1 (the "must be 4-specific" reading ignores thresholds and was labelled PROVED; now split into a formal statement and an Assessment, with a threshold-robust strengthening) and D2 (novelty relative to (J)31/(J)32); minors; repaired by the reviewer).**
+   * Lemma 1.0 / Thm 1.1 (PROVED, elementary; R207 re-derived them by valuations and brute force).
+     * For M ≡ 0 (4): if g | n + MQ² and g ≡ −1 (mod M), then M/n = 1/x + 1/y + 1/z where den z = (Q/gcd(Q, (g+1)/M))² is an odd square.
+     * (∗): (−M/g) = −1 for every odd g ≡ −1 (mod M).
+     * (a) Hence M^□(n) holds at every odd non-square n prime to M (one Dirichlet prime).
+     * (b) There is no M-shot at an odd square, so the shot mechanism keeps T1 exactly.
+   * **Cor 2.1 (formal part CERTIFIED; R207 re-solved the failing pairs from scratch).**
+     * M/p fails at 278 known pairs (M ∈ {8, 12, 16, 20, 24}). Every one of them has an exact M^□ certificate with a prime g ≤ 239.
+     * The 264 pairs with p ∉ S also have M^{(S)} certificates for S = {3, 5, 7, 11}. Example: **8/131 = 1/20 + 1/131 + 9/2620**, while 8/131 has no unit-fraction solution.
+     * Threshold-robust strengthening (R207 D1; relative to Pomerance–Weingartner Thm 1.2): for every M ≡ 0 (4) with M ≥ 6.52·10⁹, some prime p ∈ (M², 2M²) has M^□(p) and not M/p.
+   * Assessment (R207: fair item by item, but the conclusion is an Assessment).
+     * Shot identities, overflow duality, T1/BM/Diff-parity, box finiteness, sieves, composition and class-group pigeonhole all work uniformly in the numerator. So any ES proof that uses only such tools, uniformly in M without a threshold, would also prove false statements.
+     * An ES proof therefore needs an input specific to 4 (consistent with (J)31). The cleanest known one is the χ-fibre S₄ = {χ = −1} of (J)32.
+     * New relative to (J)31: the relaxations are theorems for every M, and the failures 8/131, 8/241, TES and ES_q serve as a falsification harness for mechanisms, not only for Brauer–Manin.
+   * Memos (R207: SOUND, or SOUND-AFTER-REPAIRS).
+     * s3_box_bit (PROVED): for a prime g ≡ 3 (4), a □-shot at g exists ⟺ (p/g) = −1. So the □ relaxation is exactly the sign layer.
+     * s3_eps_mu_sieve (PROVED): 4tj − 1 | nj + t ⟺ 4tj − 1 | n + 4t², i.e. (J)38's ES slot is the (J)23 sieve shot with Q = t.
+     * s3_min_scale (EVIDENCE to 10⁷): the least certifying modulus is h_min ≤ 0.82 log³p.
+     * s3_lll_lenstra: LLL decides, it does not produce existence.
+     * s3_isogeny_mixing (Assessment): certificate edges are o(N), so expander mixing cannot force one.
+     * s3_words_parity: #χ=−1 words is even at p ≡ 1 (4).
+   * Relay O212 (hunting 4-specific inputs) was spawned.
+
+42. **Spark relay Y2: friezes — the even edge and the transport law (FRIEZE_ES.md + BRAINSTORM/y2_*.md (O210); review `reviews/frieze-es-review.md` (R208): no FATAL; MAJOR D1 (novelty: the extension to all words and all odd N is already MODEL_SPECIFIC Thm 3.1(a)), D5 (a steering rule labelled PROVED), and a positive MAJOR D8 (the polygon-size conjecture is a theorem); minors; repaired by the reviewer).**
+   * Lemma 1.1 (PROVED; CERTIFIED by R208 on all 5 115 860 odd-N formal words N ≤ 10⁵ and 10⁶ random large words). For every positive word (c, m, s) at odd N, exactly two of the five cluster variables (h′, c, m, s, h) are even, and they are adjacent (mod-2 rigidity of the A₂ frieze; positivity is not used).
+   * Thm 1.2 (PROVED, 3-case proof). With e, e′ the even pair, (h′/N) = (−1/N)·(−1)^{[8 | ee′]}. This is a short, computation-free proof of MODEL_SPECIFIC Thm 3.1(a) / DK Thm 4.5; new are the even edge and the proof (R208 D1). Consequence (R208 D15): χ is a function of (c, m, s) mod 4.
+   * **Transport law (PROVED; CERTIFIED).** For N ≡ 1 (8), (h′/N) = −(2/o), where o is the odd cluster variable opposite the even edge.
+     * So a five-slice certificate at N ≡ 1 (8) ⟺ some word has o ≡ ±1 (mod 8). At an odd square every word has o ≡ ±3 (mod 8) (T1).
+     * It is Hilbert reciprocity localised: a cherry-depth reading in the 2-adic Bruhat–Tits tree.
+   * §3 (split by R208 D5).
+     * PROVED: positivity is necessary — an explicit signed family at odd squares has a quiddity ≡ 0 (mod 4).
+     * The Short–Van Son–Zabolotskii lifting theory of tame friezes is T1-blind: every closed odd walk on the Farey complex F₄ is strongly contractible.
+     * Assessment: a frieze-theoretic ES proof must use positivity, i.e. the archimedean Hilbert factor (CHI_FLIP Thm 1.1).
+   * §4 (PROVED).
+     * The 4-term analogue has the uniform frieze proof 4/N = 1/k + 1/(k(2k−1)) + 1/((2k−1)(3k−2)) + 1/(N(3k−2)) at N = 4k − 3. In the pentagon the same cut needs a length-2 word at 4w, which is B2 (Assessment).
+     * **Polygon-size uniqueness (PROVED after R208 D8).** r = 3 is the only HJ length whose zero-mod-4 locus is the Jacobi fibre. For r ≥ 5 the word (2, 2, 2, 4, 2^{r−5}, k) at N = (2Q + 3)², with Q = 9(r − 5) + 13, is a witness at an odd square; r = 2 and r = 4 are handled directly. This parallels (J)32's "m = 4 unique".
+   * Memos (negative).
+     * Parity involution: the only dihedral symmetry fixing the N-side is the reflection, and #F₋(p) is even.
+     * Zamolodchikov period 5 forces an even edge mod 2, never a zero mod 4.
+     * The Cuntz–Holm–Jørgensen coefficient model is a relabelling.
+   * Relay O213 (the transport law in the o-aspect) was spawned.
+
+43. **Wave Y-a: the (k, Q₁) phase diagram of ES-variants — a second archimedean wall, and the cap pushed to sub-polynomial (PHASE_DIAGRAM.md (O204); two independent hostile reviews `reviews/phase-diagram-review.md` (R209) and `reviews/phase-diagram-review-2.md` (R210): no FATAL; R209 MAJOR M1 (Cor 3.2's ES^□ k = 1 infinitude was asserted without proof; proof supplied) and M2 (quantifier form of Thm 5.1); minors; repairs applied by the author).**
+   * Prop 1.1 (PROVED; both reviewers re-derived it). Normal form: every shot is k(4ab − n) = b + aQ₁². The overflow is a Q₁²-weight in ES's own Type II equation; ES is the line Q₁ = 1.
+   * **Thm 2.1 (PROVED, sharp; R209 and R210 searched to 2–3× the wall, 0 violations).** For ES^{[2]} (den z | y², which contains ES^{(y,1)}), Q₁ ≤ (16k³n + 1)/(4k − 1). Equality holds for every n ≡ 2 (mod 3) via Q₁ = (16n+1)/3, g = (64n+1)/3, D = (4n+1)/3.
+     * With EXPONENT_CAP Thm 2.1, every slice of the duality plane D·g = 4k²n + Q₁² (fixed k or fixed Q₁) is finite. Solutions live in the band √(Q₁/6n) ≤ k < Q₁²/2.
+     * **The band is unbounded, so ES^{(y,1)} is NOT shown to be a finite search. R200 M1 ("bounded cap with growing S is open") stands** (both reviewers; the orchestrator's first reading was wrong).
+   * Prop 3.1 / Cor 3.2 (PROVED after R209 M1; (a) relative to FROBENIUS_FIRING Thm 4.2, needs only 3 ∤ n). On the single slice k = 1 the cap ladder reads "4n + Q₁² has a divisor g ≡ −1 (mod 4M)":
+     * M = 1 (ES^□): infinite;
+     * M = rad Q₁ with S fixed: infinite (sieve);
+     * M = Q₁ (cap 1): finite;
+     * ES: one number.
+     * EVIDENCE: no wall seen for e = 2. With the one mute prime 3, every prime p < 10⁶ has a k = 1 shot 4p + 9^a.
+   * Prop 4.1 (PROVED). One axis for all caps: ES^{(y,e)} ⟸ n(2k(4kλ)^e)² + 1 has a divisor ≡ −1 (mod 4kλ) with (g+1)/(4kλ) squarefree. The modulus exponent infimum is θ = 1/(2e+2), and it depends on the parametrisation (R209 m6/m7). ES sits at θ = ½ and the e = 1 face at the N^{1/4} Lenstra / Coppersmith–Howgrave-Graham–Nagaraj threshold.
+   * **Thm 5.1 (PROVED relative to Bombieri–Vinogradov + Iwaniec's linear sieve; ineffective; both reviewers checked uniformity, level and Siegel zeros).** For every A, η > 0 and n, and all x ≥ x₀(n, A, η), there is an ES^{(y,e)}(n) solution with x/8 ≤ y ≤ nx and e ≤ y^{(2+η)log₃y/(A log₂y)}. This improves EXPONENT_CAP Thm 3.2 (y^δ).
+   * §6. B1 holds (PROVED, for every unit class u mod a prime r ≡ 1 (4)): no finite set of shot classes covers p ≡ u (mod r). A class-layer conditional (one form class per genus) is also PROVED, but it is tautological from genus theory.
+   * Assessment.
+     * A single-n sieve is blocked not by B6 but by the per-certificate box of size g^{o(1)}. After switching, it is a divisor problem whose modulus is a parameter of the number. Level-of-distribution results (BFI, Fouvry) do not see it.
+     * Pell orbits multiply ES^{[2]} points but do not create them.
+     * Between Thm 5.1's sub-polynomial cap and the covering threshold (log y)^{1−o(1)}, nothing is known.
+     * Relay O214 (the e = 2 cell) was spawned.
+
+44. **Wave Y-d: torsion firing — ES divisors live in the (h+1)-world, p in the (h−1)-world (TORSION_FIRING.md (O207); review `reviews/torsion-firing-review.md` (R206): no FATAL; MAJOR D3 (Thm 3.1 needs supersingular/torus input — ordinary curves at h have large Hom into F_h^*), D5 (Prop 3.3 for families of degree D ≥ 2 is only CONDITIONAL), D7 (the Hasse-window dictionary is a relabelling of a divisor statement); minors; repaired by the reviewer).**
+   * §1 (PROVED; R206 brute-forced it end to end). Group structures of y² = x³ + Dx at h ≡ 3 (4) and of y² = x³ + B at h ≡ 2 (3). Type II at a prime modulus h ⟺ y² = x³ + pd·x has a 2-torsion point (2cd, 0) with 2cd | (h+1)/2 ⟺ cd | #2E₀(F_h) and h | p + 4c²d. R206 D2: tautological in content.
+   * §2 (PROVED). At a supersingular h, ρ_{ℓ^∞}(Frob_h) is the companion matrix of x² + h for every odd ℓ ≠ h. So every GL₂-invariant torsion condition there is cyclotomic, and firing reads only a determinant (true for every E: R206 D4).
+   * **Thm 3.1 / Cor 3.2 (PROVED; scope after R206 D3).** gcd(h^s + 1, h^t − 1) = 2 for t odd. So every homomorphism from a group of exponent dividing h^s + 1 (supersingular points, the non-split torus) into F_{h^t}^* lands in {±1}.
+     * The ES divisors (orders in the (h+1)-world) and the residue of p (in F_h^*) meet only in the genus bit.
+     * The GL₂ analogue of the (J)30 mute place gains at most a factor 2 from supersingular or torus input. An ordinary group reduced mod h is not covered.
+   * Prop 3.3 (PROVED for D = 1; CONDITIONAL for D ≥ 2 after R206 D5). Merel/Mazur: identity-forced point orders over ℚ(t) serve only 4cd ∈ {4, 8, 12}.
+   * Prop 3.4 (PROVED). In towers unramified outside a finite set, the (J)34 no-go extends: sufficient Frobenius conditions have empty interior.
+   * **§4.1 (CERTIFIED; R206 reproduced it and extended it to 10⁸).** p = 3361 is the unique prime ≤ 10⁸ with no prime-modulus Type II certificate. Its four ordered certificates have moduli 99, 679, 1159 and 33639.
+   * Props 4.2/4.3 (PROVED via Deuring–Waterhouse; EVIDENCE to 10⁸, R206 reproduced to 10⁷). Every j = 1 Type II ticket is a curve over F_p of trace 1 − c with a subgroup of order ≡ −1 (mod 4c). R206 D7: this is a relabelling of "p + c has a divisor ≡ −1 (mod 4c)", and the curve plays no role.
+   * Assessment. No GL₂/point-order mechanism forces firing. The only bridges between the two worlds found are non-homomorphic (the integer box, coordinates). Relay O211 (bridges via F_{h²}: semi-primitive / uniform cyclotomy, Lucas sequences, Salié sums) was spawned.
 
 ## Items to verify by the maintainer
 

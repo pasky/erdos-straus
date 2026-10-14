@@ -24912,4 +24912,169 @@ def check_fE():
 check_fE()
 
 
+def check_fF():
+    # (fF) LENGTH_THREE (O206/R205): R205 from-scratch checks — pentagon/frieze dictionary on all 124 009 words with
+    # N <= 3000 (Ptolemy, fan identities, five slices), the odd-square / 105 controls, symbolic Ptolemy + Q-side
+    # identity, and the certificate cube as pentagons (4638 cube points p <= 1000, 0 at odd squares <= 2000).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=600, env=env, cwd=sdir)
+        assert r.returncode == 0, ("LENGTH_THREE subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_l3_words.py", "3000", "500"])
+    for s in ("words=124009 interior=53518 slice(N=1 mod 4)=12112 fails=0 []", "L3 set identity N<= 500: mismatches=0",
+              "odd squares 9..3000: 26, with interior word: 25, with slice word: 0",
+              "N without interior word: [2, 3, 5, 6, 9, 11, 14, 15, 35, 105, 510]"):
+        assert s in out, ("LENGTH_THREE R205 words", s, out[-2000:])
+    out = run(["review_l3_symbolic.py"])
+    assert out.count("True") == 23 and "False" not in out and "§6 identity: True" in out, ("LENGTH_THREE R205 symbolic", out[-2000:])
+    out = run(["review_l3_cube.py", "1000", "2000"])
+    for s in ("cube points p<=1000: 4638 (d=1: 1736); fails=0 []", "cube points at odd squares 9..2000: 0"):
+        assert s in out, ("LENGTH_THREE R205 cube", s, out[-2000:])
+    print(f"== (fF) LENGTH_THREE R205: 124 009 words N <= 3000 are Farey pentagons (Ptolemy/fan/five slices), "
+          f"no slice word at odd squares, 4638 cube points = pentagons; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fF()
+
+
+def check_fG():
+    # (fG) SYNTHESIS_SPARKS3 (O208/R207): numerator-blindness. R207 from-scratch: shot identity den z = (Q/gcd)^2 on
+    # 172 591 shots, (*) (-M/g) = -1, M^box at every odd non-square < 2000 for M = 4..24, no M-shot at odd squares,
+    # and an exact census of M/p failures (p < 2*10^5) reproducing the Pomerance–Weingartner / MODEL_SPECIFIC lists.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=600, env=env, cwd=sdir)
+        assert r.returncode == 0, ("SPARKS3 subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_s3_thm11.py", "2000", "24", "300", "30"])
+    assert "(1) Lemma 1.0: 172591 shots tested, den-formula failures: 0" in out, out[-2000:]
+    assert "(2) (*): 182 (M,g) pairs, failures 0" in out, out[-2000:]
+    assert out.count("shots found: 0") == 10 and "shots found: 1" not in out, out[-2000:]
+    for M, c in ((4, 978), (8, 978), (12, 652), (16, 978), (20, 782), (24, 652)):
+        assert f"(3) Thm1.1(a) M={M}: {c} odd non-squares < 2000 certified" in out, (M, out[-2000:])
+    out = run(["review_s3_exact.py", "200000", "8", "12", "16", "20", "24"])
+    for M, c in ((8, 5), (12, 20), (16, 37), (20, 61), (24, 150)):
+        assert f"M={M} N=200000 fails({c}):" in out, (M, out[-2000:])
+    assert "M=8 N=200000 fails(5): 3 11 17 131 241" in out
+    print(f"== (fG) SYNTHESIS_SPARKS3 R207: M^box theorem checks (M = 4..24), no M-shots at odd squares, M/p failures "
+          f"p < 2e5 (8: 3 11 17 131 241) reproduced; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fG()
+
+
+def check_fH():
+    # (fH) FRIEZE_ES (O210/R208): even-edge lemma + sign law on all 784 732 odd-N formal words N <= 2*10^4 and 10^5
+    # random large words (R208 from scratch); hexagon identity; polygon-size uniqueness witnesses at odd squares.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=600, env=env, cwd=sdir)
+        assert r.returncode == 0, ("FRIEZE subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r208_even_edge.py", "20000", "100000", "1000000"])
+    assert "X 20000 odd-N formal words 784732" in out and out.count("fails {}") == 2, out[-2000:]
+    out = run(["review_r208_polygon.py"])
+    for s in ("hexagon identity + (2,2,2,k) quiddity 4 at V6: OK for k < 3000",
+              "r 2 first odd-square witness: None", "r 3 first odd-square witness: None",
+              "r 4 first odd-square witness: (9, (2, 2, 2, 3)",
+              "family (2,2,2,4,2^{r-5},k) at N=(2Q+3)^2: odd-square Z_r witness OK for 5 <= r <= 60"):
+        assert s in out, ("FRIEZE R208 polygon", s, out[-2000:])
+    print(f"== (fH) FRIEZE_ES R208: even edge + (h'/N) law on 784 732 words N <= 2e4 + 1e5 random; hexagon identity; "
+          f"r = 3 unique (odd-square witnesses r >= 4); seconds = {perf_counter() - t0:.1f}")
+
+
+check_fH()
+
+
+def check_fI():
+    # (fI) PHASE_DIAGRAM (O204; reviews R209, R210): R210 from-scratch check of Thm 2.1 (the k-wall
+    # Q1 <= (16k^3 n + 1)/(4k - 1) for ES^[2] shots, odd n <= 101, k <= 6, Q1 searched to 3x the wall: 348 shots,
+    # 0 violations; equality family for 3333 n) and the one-mute-prime k = 1 evidence (4p + 9^a, all p < 10^5).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("PHASE_DIAGRAM subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_pd2_wall.py", "101", "6", "20000"])
+    for s in ("part1: ES2 shots (Q1<=3W)=348, of which Q1<=1.3W: 348; gcd(Q,n)>1 skipped: 46 (46); violations=0",
+              "part2: equality family verified for 3333 n (squarefree Q1: 2698); Q1=4n+3 family: 3333"):
+        assert s in out, ("PHASE_DIAGRAM R210 wall", s, out[-2000:])
+    out = run(["review_pd2_k1.py", "B", "100000", "30"])
+    assert ("least-a histogram: {0: 7125, 1: 781, 2: 603, 3: 333, 4: 303, 5: 120, 6: 72, 7: 81, 8: 68, 9: 30, "
+            "10: 32, 11: 16, 12: 8, 13: 10, 14: 6, 15: 1, 17: 1}") in out, out[-2000:]
+    assert "cases where only convention-violating g existed at some a: [] 0" in out
+    print(f"== (fI) PHASE_DIAGRAM R210: k-wall for ES^[2] (348 shots, 0 violations, sharp for 3333 n); one mute prime: "
+          f"every p < 1e5 has a k = 1 shot 4p + 9^a, a <= 17; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fI()
+
+
+def check_fJ():
+    # (fJ) TORSION_FIRING (O207/R206): R206 from-scratch checks — torsion–residue orthogonality gcd(h^s+1, h^t-1) = 2
+    # (t odd), group structures / Type II = 2-torsion dictionary (end-to-end), T1 control at odd squares, and
+    # p = 3361 the unique prime <= 10^7 without a prime-modulus Type II certificate (C sieve + direct enumeration).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run(args, capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("TORSION subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run([sys.executable, "review_tf_thm31.py"])
+    assert "(1) odd h<400, s<=8, odd t<=9: gcd != 2 count: 0" in out and "(2) primes h=3 mod 4 < 200: violations 0" in out, out
+    out = run([sys.executable, "review_tf_sec1.py"])
+    for s in ("lemma 1.1: cases 706 fail 0", "prop 1.2 end-to-end: primes <= 120 mismatches 0",
+              "odd squares 9..625: torsion-firing (h,n) count 0"):
+        assert s in out, ("TORSION R206 sec1", s, out[-2000:])
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "rtfp")
+        run(["gcc", "-O2", "-o", exe, "review_tf_primemod.c", "-lm"])
+        out = run([exe, "check", "3361"])
+        assert "check: 472 primes 5..3361, mismatches 0, without prime cert 1" in out, out
+        out = run([exe, "run", "10000000", "20000"])
+        assert "NO prime-modulus Type II certificate: p=3361" in out, out[-2000:]
+        assert "run: 664577 primes 5..10000000, unmarked after stage 1 (H0=20000): 2, without prime cert: 1" in out, out[-2000:]
+    print(f"== (fJ) TORSION_FIRING R206: gcd(h^s+1, h^t-1) = 2 (t odd); Type II = 2-torsion dictionary; p = 3361 unique "
+          f"prime <= 1e7 without prime-modulus Type II certificate; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fJ()
+
+
 print("\nall checks passed")

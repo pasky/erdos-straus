@@ -241,3 +241,30 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | y3_gross_koblitz_box | Gross–Koblitz at semi-primitive level; mixed torus Gauss sums | COLLAPSES: Γ_h argument 1/m ≡ j (box); mixed sum Weil-bounded (B3) | PROVED (classical); numerics |
 | y3_primemod_census | O207 spark 2: prime-modulus Type II census, growth, sieve screen | CONJECTURE PM-II (3361 only exception); no handle | EVIDENCE |
 | BRIDGE_WORLDS.md (deep) | three tiers of bridges (homomorphic ±1 / fixed symmetric rational expressions = rationals / Frobenius-invariant = K⁺ → F_h); unit twists (trivial unless totally positive) | no route; scoped negative + PM-II | see file |
+
+## Synthesis III (O208): cross-combinations of (J)13–(J)38 aimed at the exits (E1)/(E2) (`s3_*`, deep file SYNTHESIS_SPARKS3.md; not yet triaged)
+
+| file | combination | own verdict | labels |
+|---|---|---|---|
+| s3_numerator_blind | (J)23/(J)28 relaxations × (J)31/(J)32 numerator failures | **barrier: M^□ is a theorem for every M ≡ 0 (4) at all non-squares (shot mechanism T1-exact), while M/p fails at 278 known pairs (8/131 = 1/20 + 1/131 + 9/2620)** — SHARP | Thm 1.1 PROVED (Dirichlet); EVIDENCE (fixed S) |
+| s3_order3_numerator | (J)19/(J)28 × (J)31 × (J)32 | TES^{□₃} true at all 16 TES failures; an order-3 SQ₅ and a χ₃-fibre theorem cannot both hold | PROVED (combination, logic); EVIDENCE to N ≤ 27000 |
+| s3_box_bit | (J)28 × (J)25 box × (J)38 slicing | □-shot at prime g ⟺ (p/g) = −1 = the sign layer of the certificate at g; slicing relabels the box | PROVED; EVIDENCE (0/85939 box hits when (p/g) = +1) |
+| s3_eps_mu_sieve | (J)23 sieve × (J)38 ε_μ | same shot n + 4t², Q = t forced small on the ES side | PROVED (identity); collapses to (J)25 |
+| s3_min_scale | (J)25 × (J)28 × (J)30 | both searches end at polylog scale; box size is not the obstacle | EVIDENCE to 10⁷ |
+| s3_lll_lenstra | (J)25 × (J)38 × Lenstra/Coppersmith | ≤ 11 certificates per Lenstra line, decision not existence | PROVED rel. Lenstra; EVIDENCE |
+| s3_words_parity | (J)33 × (J)15 × involution parity | σ forces nothing; no parity law | PROVED (σ); EVIDENCE (negative) |
+| s3_isogeny_mixing | (J)35 × (J)16 × expander mixing | mixing cannot robustly force a certificate edge | Assessment (counts PROVED/EVIDENCE) |
+| s3_vphi_ringmaps | (J)21 × (J)25 × (J)17 | ring maps, Galois averaging, norms out of ℤ[φ] give only local / B2 data | PROVED for these operations |
+
+## Spark relay Y2 (O210): A₂ friezes of the five ES slices (memos y2_*, deep file FRIEZE_ES.md; not yet triaged)
+
+| file | angle | own verdict | labels |
+|---|---|---|---|
+| y2_even_edge | mod-2 rigidity + 2-adic weight of the unique even edge ⇒ DK Thm 4.5 in 3 cases, all formal words, all odd N | **(h′/N) = (−1/N)(−1)^{[8∣ee′]}** | PROVED; CERTIFIED (5.1 M words N ≤ 10⁵ + 2 M random) — SHARP |
+| y2_farey_complex_lifting | SVZ Farey complexes mod 4/8; lifting with coefficient N | F₄ blind (all odd closed walks strongly contractible); mod-8 lifting = SQ₅ lottery | PROVED / EVIDENCE (negative) |
+| y2_hexagon_degeneration | hexagon (4 terms) proof and where it degenerates at the pentagon | hexagon via (2,2,2,k); pentagon needs a length-2 word at 4w = B2 | PROVED — SHARP (statement) |
+| y2_twoadic_tree_transport | 2-adic tree / tropical frieze | cherry depths; **(h′/N) = −(2/o) for N ≡ 1 (8)** | PROVED; CERTIFIED |
+| y2_parity_involution | windmill/parity on frieze set | surface is multilinear, so only the reflection; #F₋(p) even | PROVED (negative) |
+| y2_zamolodchikov_forcing | twisted period-5 dynamics | mod 2 forced, mod 4 never (T1) | PROVED (negative) |
+| y2_coefficients_model | CHJ subpolygons / snake graphs | model exists, it is a relabelling | dictionary |
+| y2_positivity_is_T1 | signed friezes / Farey distance | T1 = archimedean factor = positivity; signed friezes have no T1 | PROVED by inspection + EVIDENCE — steering |
