@@ -25157,4 +25157,35 @@ def check_fL():
 check_fL()
 
 
+def check_fM():
+    # (fM) CAP_TWO (O214/R213): R213 from-scratch — Thm 1.1/1.2 dictionary (k = 1 cap-2 shots = c-odd points of
+    # 4na^2 + B^2 + E = caBE; 876 points, n <= 200, g <= 10^5, both directions) and k = 1 cap-<=2 coverage of primes
+    # < 10^5 with g <= 10^5 (only p = 379 uncovered there; its least g is 955 979), none at odd squares.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run(args, capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("CAP_TWO subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run([sys.executable, "review_r213_dict.py", "200", "100000"])
+    for s in ("side A: ES^{(y,2)} k=1 shots: 876", "side B: canonical W_n points: 876  all c-odd points: 4484  "
+              "violations of E=3(4)<=>4|a: 0  D-face failures: 0", "A(ES^(y,2)) == B ? True  defcell(odd Q1) == B ? True"):
+        assert s in out, ("CAP_TWO R213 dict", s, out[-2000:])
+    out = run([sys.executable, "review_r213_cover.py", "100000", "100000"])
+    for s in ("primes 3..100000: 9591, uncovered: 1 [379]", "odd squares covered: 0 of 157",
+              "exact re-verification failures: 0"):
+        assert s in out, ("CAP_TWO R213 cover", s, out[-2000:])
+    print(f"== (fM) CAP_TWO R213: k = 1 cap-2 shots = c-odd points of 4na^2 + B^2 + E = caBE (876, both directions); "
+          f"primes < 1e5 covered with g <= 1e5 except 379; no odd square; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fM()
+
+
 print("\nall checks passed")

@@ -1087,6 +1087,19 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Prop 3.1/3.2 (PROVED, elementary). 4 is the unique M ≥ 3 with a slice e ∈ {1, 3} at every prime; the {±1}-unit-group slices (e ∈ {1, 2, 3, 4, 6}) hold exactly for M ∈ {3, 4, 5, 7}.
    * Assessment. The only 4-specific fact with the character of an input is still the χ-fibre / 2-adic isotropy ((J)32/(J)33, SQ₅). Hatch harness: all PARTIAL hatches are mixed (a uniform skeleton plus a lottery). Relay O215 (what 4 and 7 share) was spawned.
 
+47. **Spark relay Y6: the e = 2 cap cell — one Markoff-type equation, two cells (CAP_TWO.md (O214); review `reviews/cap-two-review.md` (R213): no FATAL, no MAJOR; minors m1–m8 repaired by the author).**
+   * **Thm 1.1 / 1.2 (PROVED, with Q₁ odd; R213 brute-forced both directions: 876 points, n ≤ 200, g ≤ 10⁵).** The k = 1 shots with exponent cap 2 are exactly the solutions of 4n·a² + B² + E = c·a·B·E with c odd (Q₁ = cB², g = caB − 1, 4 | a ⟺ E ≡ 3 (4)).
+     * The same equation with 4 | c is GROWING_MUTE's ES^{[2]} form. Unified statement: "4na² + B² has a divisor ≡ −1 (mod aB)", and the cell is the residue of the quotient c mod 4.
+     * Fibrewise (x = cE), a necessary condition: the principal form of discriminant x² − 16n represents −E for some E | x. ES is {B = 1, 4 | c}.
+   * Prop 2.1 / 5.1 (PROVED). Slices with fixed a or fixed B are finite (c ≤ (4n+1)(B²+1)/B), while Pell orbits are infinite. On k = 1, a finite exponent-2 budget keeps the slice finite. The per-slice contrast of (J)43 (e ≤ 1 versus e = 2) is a slicing effect (Assessment).
+   * Thm 4.1 (PROVED). D-face: a(cBw − 4n) = w + cB³ with D = cBw − 4n ≡ 3 (mod 4), i.e. ES's Type II normal form with n ↦ 4n and one summand cubed. Example (c, w) = (1, 1), with gcd(a, n) = 1: any D ≡ 3 (mod 4) dividing 64n³ + 1 = (4n + 1)(16n² − 4n + 1) gives Q₁ = (4n + D)² when 4n + D is squarefree.
+   * §6 (PROVED; the MARKOFF Thm 5.1 transfer is verbatim after μ ↦ x/2, N(η) = 4n). There are no polynomial families at fixed E.
+   * EVIDENCE (R213 reproduced it with an independent method). Every prime 3 ≤ p < 10⁶ has a k = 1 shot with cap ≤ 2 and g ≤ 10⁶. The largest least g is 955 979, at p = 379. No odd square ≤ 10⁶ has one (T1).
+   * Assessment. ES^{(y,2)} at k = 1 is not easier than ES^{[2]}. Existence requires two things, both open:
+     * a class-group event in the family of discriminants x² − 16n;
+     * squarefreeness of B along a Pell orbit (Wieferich-type).
+     No relay was spawned, because the bottleneck is the already-explored MARKOFF_ES class layer ((J)37).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
