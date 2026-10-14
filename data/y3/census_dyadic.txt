@@ -1,0 +1,17 @@
+range [8,16] primes=2 meanN_all=3.50 meanN_prime=2.00 minN_prime=1 at p=13
+range [16,32] primes=5 meanN_all=8.00 meanN_prime=4.20 minN_prime=3 at p=17
+range [32,64] primes=7 meanN_all=10.57 meanN_prime=5.14 minN_prime=2 at p=37
+range [64,128] primes=13 meanN_all=13.54 meanN_prime=5.31 minN_prime=2 at p=97
+range [128,256] primes=23 meanN_all=21.83 meanN_prime=8.74 minN_prime=1 at p=193
+range [256,512] primes=43 meanN_all=30.26 meanN_prime=11.28 minN_prime=3 at p=409
+range [512,1024] primes=75 meanN_all=35.47 meanN_prime=12.47 minN_prime=3 at p=1013
+range [1024,2048] primes=137 meanN_all=48.65 meanN_prime=15.47 minN_prime=2 at p=1093
+range [2048,4096] primes=255 meanN_all=61.18 meanN_prime=17.99 minN_prime=0 at p=3361
+range [4096,8192] primes=464 meanN_all=75.06 meanN_prime=21.02 minN_prime=4 at p=6733
+range [8192,16384] primes=872 meanN_all=91.68 meanN_prime=23.95 minN_prime=3 at p=8581
+range [16384,32768] primes=1612 meanN_all=109.19 meanN_prime=27.22 minN_prime=3 at p=31081
+range [32768,65536] primes=3030 meanN_all=133.11 meanN_prime=31.55 minN_prime=3 at p=53089
+range [65536,131072] primes=5709 meanN_all=157.20 meanN_prime=35.44 minN_prime=1 at p=76441
+range [131072,262144] primes=10749 meanN_all=184.58 meanN_prime=39.95 minN_prime=5 at p=152461
+range [262144,524288] primes=20390 meanN_all=212.90 meanN_prime=43.90 minN_prime=6 at p=291481
+range [524288,1048576] primes=38635 meanN_all=246.50 meanN_prime=48.72 minN_prime=7 at p=957889

@@ -92,7 +92,8 @@ mean N_II^pr(p) ≈ (0.27–0.33)·log²p and mean N_II ≈ (0.10–0.12)·log³
 All low cases have p − 1 divisible by many small primes (stacked QRs: by reciprocity no small prime h can fire, since
 (pd/h) = −1 is necessary). Adversarial p ≡ 1 (mod 4∏_{q≤29} q) up to 1.3·10¹¹ still have 14–20 prime-firing slices
 with cd ≤ 200 (y3_adversarial.py). Odd squares: 0 certificates throughout (T1 control).
-**CONJECTURE PM-II.** Every prime p ≥ 5 except p = 3361 has a prime-modulus Type II certificate. (Trivial for
+**CONJECTURE PM-II.** Every prime p ≥ 5 except p = 3361 has a prime-modulus Type II certificate (EVIDENCE:
+exhaustive to 10⁸, tf_primemod rerun here, data/y3/primemod_1e8.txt; odd squares ≤ 10⁸: 0 Type II solutions). (Trivial for
 p ≡ 3 mod 4.) It is strictly stronger than Type II-ES, so B2/B3/B6 apply verbatim; no sieve handle (memo
 y3_primemod_census).
 

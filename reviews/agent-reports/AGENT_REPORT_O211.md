@@ -17,7 +17,7 @@ case.** Outcome: a precise negative classification of bridges, one clean sub-con
    symbol c_∞. For cd | 6 this is genus theory: the slice fails ⟺ some odd quadratic character mod 4cd is 1 on every
    prime factor (0 mismatches in 86 310 prime slice instances p < 10⁵). Folklore-level, but a clean dictionary.
 3. **CONJECTURE PM-II (EVIDENCE):** every prime p ≥ 5 except 3361 has a prime-modulus Type II certificate. Exhaustive
-   to 10⁷ (O207) and to 10⁸ (orchestrator, R206; this agent's independent 10⁸ rerun of tf_primemod: see end); full census of all certificates to 10⁶ (min N_II^pr = 5 on
+   to 10⁷ (O207) and to 10⁸ (R206, and independently rerun here: see end); full census of all certificates to 10⁶ (min N_II^pr = 5 on
    [10⁵, 10⁶]); only 13, 193, 76441 have N_II^pr = 1; mean N_II^pr ≈ 0.3·log²p; stacked-QR adversaries up to 1.3·10¹¹
    still have ≥ 14 prime-firing slices with cd ≤ 200.
 4. **Tier-(c) unit twists erase the box, leaving exactly the genus layer (Prop 6.1/6.2, PROVED + EVIDENCE).** Units of
@@ -72,5 +72,6 @@ All eight memos COLLAPSE (B1/B2/B3/B4 as tabulated in BRIDGE_WORLDS §7); T1 con
 4. Composite-modulus Type II as a zero-sum problem with target c_∞ in (ℤ/4cd)^* beyond 2-groups (cf. W15).
 
 ## 10⁸ status
-Orchestrator reports 3361 unique to 10⁸ (R206). This agent's independent rerun (`tf_primemod 10⁸ 10⁸`) is appended
-below when it finishes.
+Orchestrator reports 3361 unique to 10⁸ (R206). Independently confirmed here: `tf_primemod 10⁸ 10⁸` (≈ 2.8 h, 1 core):
+5 761 453 primes, 1 unmarked after stage 1, no prime modulus only for p = 3361; 4999 odd squares, 0 Type II solutions
+(data/y3/primemod_1e8.txt).

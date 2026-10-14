@@ -22,13 +22,13 @@ the unique prime ≤ 10⁷ without one. Is it the last? What is the growth law o
 Every p with N_II^pr ≤ 1: 13, 193, 3361 (0), 76441 — all with p − 1 divisible by many small primes (3360 = 2⁵·3·5·7,
 76440 = 2³·3·5·7²·13, 192 = 2⁶·3): stacked quadratic residues, so (h/p) = 1 for every small prime h, and by
 reciprocity no small prime can fire ((pd/h) = −1 is necessary). Growth: mean N_II^pr / log²p ≈ 0.27–0.33 across
-10³–10⁸; mean N_II / log³p ≈ 0.10–0.12. Exhaustive (tf_primemod.c, O207 code): 3361 unique ≤ 10⁷; 10⁸: see §Result.
+10³–10⁸; mean N_II / log³p ≈ 0.10–0.12. Exhaustive (tf_primemod.c, O207 code): 3361 unique ≤ 10⁸ (≈ 2.8 h run; 5 761 453 primes).
 Adversarial (scripts/y3_adversarial.py 200): p ≡ 1 (mod 4·∏_{q≤Q} q), Q ∈ {13, …, 29}, p up to 1.3·10¹¹: 4–20
 slices with cd ≤ 200 carry a prime-modulus certificate (min 4 at p = 600601). Odd squares (T1): 0 throughout.
 
 ## Sub-conjecture
 **CONJECTURE PM-II.** Every prime p ≥ 5, p ≠ 3361, has a Type II certificate with prime modulus h; moreover
-N_II^pr(p) ≫ log²p / (something tending to ∞ slowly) — EVIDENCE: exhaustive to 10⁷ (O207) [10⁸ pending], census above.
+N_II^pr(p) ≫ log²p / (something tending to ∞ slowly) — EVIDENCE: exhaustive to 10⁸ (tf_primemod rerun, data/y3/primemod_1e8.txt), census above.
 For p ≡ 3 (mod 4) it is trivial (p + 4 ≡ 3 mod 4 has a prime factor ≡ 3 mod 4; y3_euclid_schur_forcing Prop E1).
 
 ## Sieve screen (Chen-type handle at a single p)
