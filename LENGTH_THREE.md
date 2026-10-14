@@ -43,15 +43,16 @@ N-side is reversal (c ↔ s, h ↔ h′, m fixed).
 `  (h′/N) = −1  ⟺  one of the five cluster variables c, m, s, h, h′ is ≡ 0 (mod 4).`
 DK Thm 4.5's five conditions 4 | tu−1, tv−1, t, u, v are exactly 4 | h′, h, m, s, c. Each gives an ES solution (DK
 Cor 1.2, Thm 4.5). The symmetric formulation is new as a statement (content is DK's).
-CERTIFIED (`scripts/l3_dict.py 20000`): all 610 533 words with N ≤ 2·10⁴: pentagon determinants, (P), and Cor 1.2
-(139 915 "some variable ≡ 0 mod 4" words with N ≡ 1 mod 4), 0 failures; no such word at odd squares.
+CERTIFIED (`scripts/l3_dict.py 100000 5000`, 72 s): all 4 411 125 words with N ≤ 10⁵: pentagon determinants, (P),
+Cor 1.2 (1 016 788 "some variable ≡ 0 mod 4" words with N ≡ 1 mod 4), 0 failures. Controls: all 156 odd squares
+25 ≤ N ≤ 10⁵ have words, none with a variable ≡ 0 (mod 4); N = 105 has no interior word (HJ_DEEP (W)).
 
 **Corollary 1.3 (the certificate cube is the pentagon with m = 4dj, N = pj; PROVED).** A Type II cube point (c, d, j)
 is the word (c, 4dj, s) at N = pj (HJ_DEEP Prop 2.1 / FMS Lemma 1.1 rewritten), and FMS's three equivalent
 divisibilities are Ptolemy relations of its pentagon: h | pj + c is hs = N + c; h | 4dj²p + 1 is hh′ = mN + 1; and
 h | p + 4c²d with cofactor e = (c + s)/j follows from 4cd·(hs) = p(h + 1) + 4c²d. So the cube is the pentagon with
 the middle diagonal ≡ 0 (mod 4) and the moving divisibility j | gcd(N/p, m/4) attached.
-CERTIFIED (`l3_dict.py … 1000`): all 4 638 cube points of primes 5 ≤ p ≤ 1000, 0 failures.
+CERTIFIED (`l3_dict.py 100000 5000`): all 34 303 cube points of primes 5 ≤ p ≤ 5000, 0 failures.
 
 Reading. The "3" of HJ length is the three short diagonals (c, m, s) of the pentagon. The cube's coordinates (c, d, j)
 are one short diagonal c, and the factorisations m = 4dj (middle short diagonal) and N = pj (closing side).
@@ -77,7 +78,7 @@ DK Cor 1.2 / Thm 4.5 (e.g. at V₁, DK's b = (N + c)/s equals h by the Ptolemy r
 *Proof.* Each identity is a fan decomposition. For example at V₁ the fan is (V₁V₂V₃), (V₁V₃V₄), (V₁V₄V₅) with arcs
 1/(1·c), 1/(c·h), 1/(h·N), and the total is λ₂₅/(λ₁₂λ₁₅) = h′/N. Algebraically each identity is one relation of (P).
 For the three vertices whose fan contains the N-side, that arc is N/(⋯), and dividing by N makes it a unit fraction. ∎
-CERTIFIED (`l3_dict.py 20000`): all five identities in exact rationals on all 610 533 words, 0 failures.
+CERTIFIED (`l3_dict.py 100000`): all five identities in exact rationals on all 4 411 125 words N ≤ 10⁵, 0 failures.
 
 **Corollary 2.2 (SHARP dictionary).** For N ≡ 1 (mod 4): *ES five-slice certificate at N ⟺ a Farey pentagon with four
 unit sides and closing side N in which some vertex has opposite diagonal ≡ 0 (mod 4) ⟺ (DK Thm 4.5) the Jacobi symbol
@@ -102,7 +103,7 @@ scaled by 1/r. So the Machin "3" is the HJ "3".
 *Relation to §2.* Machin is the arctan (elliptic) form of the V₃ identity: tan-addition gives
 (r/c + r/s)/(1 − r²/cs) = rm, which is m = 1/c + 1/s + N/(cs). The horocyclic (parabolic) form of §2 keeps the cross
 term N/(cs) as a third arc.
-CERTIFIED (`l3_dict.py`): cs − (c + s)/m = N/m on all words; = p/(4d) on all 4 638 cube points (p ≤ 1000).
+CERTIFIED (`l3_dict.py`): cs − (c + s)/m = N/m on all words N ≤ 10⁵; = p/(4d) on all 34 303 cube points (p ≤ 5000).
 
 ## 4. CF depth 3 is the same pentagon on a geodesic of the orthogonal pencil of C (PROVED, elementary)
 
@@ -129,8 +130,9 @@ So **"the B = 1 slot ε_μ has norm dividing μ" is a Ptolemy relation of the pe
 orthogonal pencil of C. "Depth 3" is the position of the cusp −1/m (the Ford horocycle of ε) in the cutting sequence of
 g_{μ_c}. A cusp v is a convergent of an indefinite form f when |f(v)| < √disc/2, i.e. when its Ford horocycle meets the
 geodesic (signed distance δ: |f(v)| = (√disc/2)e^{−δ}).
-CERTIFIED (`l3_dict.py … 1000`): for all 1 736 d = 1 cube points with p ≤ 1000, Norm = −h, h | μ_c, and the CF of
-√(4μ² − 4p) has Q₃ = h (μ > 2p) resp. Q₁ = h (μ ≤ 2p). 0 failures. The count 1 736 matches the COMPOSITION census.
+CERTIFIED (`l3_dict.py … 5000`): for all 10 646 d = 1 cube points with p ≤ 5000, Norm = −h, h | μ_c, and the CF of
+√(4μ² − 4p) has Q₃ = h (μ > 2p) resp. Q₁ = h (μ ≤ 2p), 0 failures. (For p ≤ 1000 the count is 1 736, matching the
+COMPOSITION census.)
 
 ## 5. The unified object and the dictionary (summary)
 

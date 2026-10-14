@@ -138,8 +138,30 @@ def check_typeII(PMAX):
     return npts, nd1, bad
 
 
+def check_controls(NMAX):
+    """n = 105 and odd squares: interior words and whether any has a cluster variable = 0 mod 4."""
+    from collections import Counter
+    cnt = Counter(); four = Counter()
+    for m in range(2, NMAX + 1):
+        for c in range(2, NMAX + 1):
+            if 2 * m * c - c - 2 > NMAX:
+                break
+            for s in range(2, NMAX + 1):
+                N = m * c * s - c - s
+                if N > NMAX:
+                    break
+                r = isqrt(N)
+                if N == 105 or (N % 2 and r * r == N):
+                    cnt[N] += 1
+                    if any(x % 4 == 0 for x in (c, m, s, c * m - 1, m * s - 1)):
+                        four[N] += 1
+    return cnt.get(105, 0), sum(1 for k in cnt if k != 105), sum(four.values())
+
+
 if __name__ == '__main__':
     NMAX = int(sys.argv[1]) if len(sys.argv) > 1 else 3000
     PMAX = int(sys.argv[2]) if len(sys.argv) > 2 else 500
     print('words', check_words(NMAX))
-    print('typeII', check_typeII(PMAX))
+    print("typeII", check_typeII(PMAX))
+    print("controls (words at 105, #odd squares with words, #slice words at controls)", check_controls(NMAX))
+
