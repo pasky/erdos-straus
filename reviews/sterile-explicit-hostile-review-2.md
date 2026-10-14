@@ -54,3 +54,51 @@ Verdict A.2: **SOUND** (minor m-A1). The quantifier is handled by a finite grid 
 0.0924, K = 21 0.0143] + P(K=1) 0.02460 + P(K=3) 0.00232 + P(K=5..17) 3·10⁻⁵ + Q(k≥3) 1.4·10⁻⁸. Margin to 1/2: 0.0133.
 Remark (not a defect): the tail is extremely lossy against the tables — the *table* term at K = 17 (N ≈ 2^{544}) is < 10⁻⁶ while the
 *tail* term at K = 19 is 0.092. Extending P_q1 to 2^{700} would remove ≈ 0.1 from S and is the cheapest way to lower r₀.
+
+## B. Lemma 1.3 and Corollary 1.4 (Coppersmith interpolation via Minkowski)
+
+Re-proved from scratch. Lemma 1.3: every E is prime to s, so E | n₁ (s-free part of n); with st ≡ 1 (n₁) and
+E = σ₀ + s(x̂ + y), sF(y) ≡ E (mod n₁), so E | F(y) (gcd(E, s) = 1); E^m divides every element of 𝓛 = ⟨n₁^{m−i}F^i, y^jF^m⟩; the basis is
+triangular in degree with leading coefficients n₁^{m−i}, 1, so det of the X-scaled coefficient lattice is n₁^{m(m+1)/2}X^{w(w−1)/2};
+Minkowski's convex body theorem for the closed cube of volume 2^w·det gives g ≠ 0 with all |g_l|X^l ≤ det^{1/w}, hence
+|g(y)| ≤ w·det^{1/w} < D₀^m ≤ E^m on |y| ≤ X; g(y) ∈ ℤ is divisible by E^m, so g(y) = 0, ≤ w − 1 roots, E ↦ y injective. |y| ≤ X with
+X = (D₁ − D₀)/(2s) + 1/2 is right (window length (D₁−D₀)/s in x, x̂ nearest integer to the midpoint). D₀ ≥ 1 is not even needed.
+Cor 1.4: sub-windows of length (D₁−D₀)/J have lower ends ≥ D₀, so (Cop) with D₀ and X_J covers each; endpoints may be double
+counted (upper bound, harmless). Asymptotics: with w = τm, logs/ln n: 1/2 + τ²(β − ρ − j)/2 < τβ, optimum τ = β/(β−ρ−j) gives
+β − ρ − j < β², i.e. ρ + j > β(1 − β). ✓ (the o(1) is an ε with w = w(ε); the J(w−1) count is n^{max(0, β(1−β)−ρ)+ε}.)
+From-scratch test (`scripts/review_se2_cop.py`): exact integer (Cop) with the least J per (m, k) by bisection (Cop is monotone in J),
+w ≤ 14, against brute-force divisor counts; half the trials adversarial (n = lcm of several class-mates inside the window).
+300 trials: **0 violations**, 10 tight, Coppersmith beats the trivial bound in 126.
+Verdict: **Lemma 1.3 SOUND, Cor 1.4 SOUND** (PROVED is the right label). Minor m-B1: Cor 1.4 says "≤ J(w−1) as soon as (Cop) holds
+with X replaced by X_J" — the hypotheses gcd(σ, s) = 1, D₀ ≤ D₁ are inherited; fine. Minor m-B2: "for ρ ≤ 1/4 it is new to the
+campaign" is a priority claim I cannot check; it is the standard "split the search interval" trick of Coppersmith/Howgrave-Graham
+(e.g. the exhaustive-search-on-high-bits step), so it should be called elementary/standard, not new.
+
+## C. Independent re-implementation of the dominant terms (task focus (b))
+
+Scripts written without reusing the author's code paths (only the route *list* is shared, each route re-derived in §D):
+* `scripts/review_se2_boxbound.py P|Q j` — the dyadic box bound for every integer N ∈ [2^{j/4}, 2^{(j+1)/4}), in exact
+  Fractions; N-range enclosed by exact integer 4th roots; all logs/exps (ln 2, ln(a₁/a₀), divisor envelopes C_k(η)n^η, 2^{ω})
+  in mpmath interval arithmetic rounded outward; every Coppersmith condition used is verified **exactly in big integers**
+  (least J found by a float pre-screen, then checked/raised exactly). The e-modulus lower bound uses the exact strict inequality
+  e > N/(4acd) > N₀/(32ACD) (se_box uses floor(DN(E₀)) + 1, one less at exact powers of two — conservative).
+* `scripts/review_se2_tail.py` — the all-N ≥ 2^{600} P tail with **exact rational exponents**; (Cop) checked as a linear function
+  of L = ln N (slope ≤ 0 exactly, value < 0 at the interval lower end of 600 ln 2), using X_J ≤ max(1, c₁N^{x₁−x_s−κ}/c_s) (this
+  absorbs the +1/2 of X_J — se_tail.py silently relies on the same fact via its use of c₁/c_s instead of c₁/(2c_s); it is correct
+  but undocumented: minor m-C1).
+
+| quantity | author (tables / se_tail) | R223 independent | |
+|---|---|---|---|
+| D_Q bound, N ∈ [2^{32}, 2^{32.25}) (j = 128) | 7.5256·10⁸ | 7.5239·10⁸ | Q level-1 term 2D/r at r = 2^{32}: **0.35044 vs 0.35036** |
+| D_P bound, j = 128 | 5.2821·10⁷ | 4.9348·10⁷ | P K = 1 term: **0.02460 vs 0.02298** |
+| D_Q bound, j = 192 (r ≈ 2^{48}) | 6.4816·10¹¹ | 6.4695·10¹¹ | Q level-1 term at 2^{48}: 0.004605 vs 0.004597 |
+| P tail: max exponent, #terms, G = bound/√N at 2^{600} | 0.4797, 13393, 873.57 | 0.47969, 13393, 873.58 | all terms e ∈ [0, 1/2), p ≤ (1/2 − e)·L₀ ✓ |
+| P tail contribution to S, r ∈ [2^{32}, 2^{32.25}) | 0.10932 | **0.10930** | summed to K = 233 (last term 8·10⁻⁴¹) |
+
+The P(j=128) gap (6.6 %) was traced box by box (se_box SE_DUMP vs my values): it comes entirely from se_box's conservative
+modulus se = 1 instead of 2 at boxes with N₀/(32ACD) = 1 exactly (trivial count Δ/s + 1 doubles); no box of mine exceeds the
+author's except by rounding. So the author's numbers are reproduced from independent code, and in the safe direction.
+Independent S(b = 32) ≤ 0.35036 + 0.02298 + 0.10930 + (author's remaining terms 0.00235) ≈ 0.4850 < 1/2.
+Verdict C: the dominant terms are **CONFIRMED** (independent exact/interval recomputation). I did not rerun the 3.5 h certificate;
+the remaining ~1350 table cells are trusted on the author's engine (whose rounding was repaired after R-self-review M1; I found no
+rounding-direction bug in the current se_box.c, see §D.3).
