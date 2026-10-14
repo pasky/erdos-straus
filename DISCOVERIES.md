@@ -1012,9 +1012,9 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
 42. **Spark relay Y2: friezes — the even edge and the transport law (FRIEZE_ES.md + BRAINSTORM/y2_*.md (O210); review `reviews/frieze-es-review.md` (R208): no FATAL; MAJOR D1 (novelty: the extension to all words and all odd N is already MODEL_SPECIFIC Thm 3.1(a)), D5 (a steering rule labelled PROVED), and a positive MAJOR D8 (the polygon-size conjecture is a theorem); minors; repaired by the reviewer).**
    * Lemma 1.1 (PROVED; CERTIFIED by R208 on all 5 115 860 odd-N formal words N ≤ 10⁵ and 10⁶ random large words). For every positive word (c, m, s) at odd N, exactly two of the five cluster variables (h′, c, m, s, h) are even, and they are adjacent (mod-2 rigidity of the A₂ frieze; positivity is not used).
    * Thm 1.2 (PROVED, 3-case proof). With e, e′ the even pair, (h′/N) = (−1/N)·(−1)^{[8 | ee′]}. This is a short, computation-free proof of MODEL_SPECIFIC Thm 3.1(a) / DK Thm 4.5; new are the even edge and the proof (R208 D1). Consequence (R208 D15): χ is a function of (c, m, s) mod 4.
-   * **Transport law (PROVED; CERTIFIED).** For N ≡ 1 (8), (h′/N) = −(2/o), where o is the odd cluster variable opposite the even edge.
-     * So a five-slice certificate at N ≡ 1 (8) ⟺ some word has o ≡ ±1 (mod 8). At an odd square every word has o ≡ ±3 (mod 8) (T1).
-     * It is Hilbert reciprocity localised: a cherry-depth reading in the 2-adic Bruhat–Tits tree.
+   * Transport law (PROVED; CERTIFIED; **deflated by O213/R211, see (J)45**). For N ≡ 1 (8), (h′/N) = −(2/o), where o is the odd cluster variable opposite the even edge.
+     * It is Thm 1.2 plus one Ptolemy relation through the even edge. For N ≡ 1 (8) every word has o ≡ 3 (mod 4), and a certificate ⟺ o ≡ 7 (mod 8). So −(2/o) just reads o mod 8, i.e. the slice condition itself; the sign does not move to a better-behaved small modulus.
+     * Cherry-depth reading in the 2-adic Bruhat–Tits tree (a restatement).
    * §3 (split by R208 D5).
      * PROVED: positivity is necessary — an explicit signed family at odd squares has a quiddity ≡ 0 (mod 4).
      * The Short–Van Son–Zabolotskii lifting theory of tame friezes is T1-blind: every closed odd walk on the Farey complex F₄ is strongly contractible.
@@ -1059,6 +1059,21 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * **§4.1 (CERTIFIED; R206 reproduced it and extended it to 10⁸).** p = 3361 is the unique prime ≤ 10⁸ with no prime-modulus Type II certificate. Its four ordered certificates have moduli 99, 679, 1159 and 33639.
    * Props 4.2/4.3 (PROVED via Deuring–Waterhouse; EVIDENCE to 10⁸, R206 reproduced to 10⁷). Every j = 1 Type II ticket is a curve over F_p of trace 1 − c with a subgroup of order ≡ −1 (mod 4c). R206 D7: this is a relabelling of "p + c has a divisor ≡ −1 (mod 4c)", and the curve plays no role.
    * Assessment. No GL₂/point-order mechanism forces firing. The only bridges between the two worlds found are non-homomorphic (the integer box, coordinates). Relay O211 (bridges via F_{h²}: semi-primitive / uniform cyclotomy, Lucas sequences, Salié sums) was spawned.
+
+45. **Spark relay Y5: the transport law is the Ptolemy relation mod 8 (TRANSPORT_LAW.md + BRAINSTORM/y5_*.md (O213); review `reviews/transport-law-review.md` (R211): no FATAL; MAJOR D1 (the (J)42 wording, corrected above) and D5 (misdescribed hard-prime evidence); minors; repaired by the reviewer; all census numbers reproduced from scratch to 10⁷).**
+   * SHARP 1 (PROVED, a sharp negative). The relation through the even edge is ee′ ∈ {1 + o, N + o, 1 + No}. So for N ≡ 1 (8), o ≡ 3 (4) for every word, and a certificate ⟺ o ≡ 7 (8). The O210 transport law carries no information beyond the slice condition.
+   * SHARP 2 (PROVED; classical in substance — the Jacobi symbol along a continued fraction). For an integer word with N = K_r > 0 odd and all K_i ≠ 0,
+     (K_{r−1}/N) = ∏(K_i, −K_{i+1})₂ · (−1)^{#{i : K_i < 0 < K_{i+1}}}.
+     The proof uses leading-minor Hasse invariants and the product formula. The sign changes form an explicit archimedean (Maslov) count.
+   * SHARP 3 (a relabelling, after R211 D4). Positivity is the narrow-minus-wide ray class element c_∞. Objects that see only wide or unsigned data are ES-blind (Assessment).
+   * **CONJECTURE SQ_H (EVIDENCE; R211 reproduced it).** Certificates with an even middle letter m and 8 | m·e exist at all 165 976 primes p ≡ 1 (8) ≤ 10⁷, and in formal form at all 332 180 primes p ≡ 1 (4) ≤ 10⁷. They fail at exactly 22 composite non-squares N ≡ 1 (4) ≤ 10⁶ (105, 1465, 3865, …, 392505). The mean count is about 27, so this is a sub-lottery (Assessment).
+   * Census (CERTIFIED to 10⁷; corrected by R211 D5).
+     * o* = 7 for 94 % of p ≡ 1 (8).
+     * The 17 hard primes with interior o* ≥ 119 are all quadratic residues mod 840 (p mod 840 ∈ {1, 121, 169, 361}), with least non-residue in {11, …, 29}.
+     * p = 21841 has a unique interior certificate pair, (9, 64, 38) and its mirror; its least certificate vertex is o* = 2431 = 11·13·17.
+   * No mod-16/32 shadow of T1 at squares (EVIDENCE): T1 is one bit.
+   * Siegel–Weil on full-rank data is the genus indicator. SQ₅(p) asks that the χ = −1 genus (≍ p classes) contain a path-basis lattice (≪ p^{1/3+o(1)} of them): a thin-set lottery (Assessment).
+   * The frieze relay chain ((J)40, (J)42, (J)45) ends here. No further relay was spawned, because every SHARP item is either negative or classical.
 
 ## Items to verify by the maintainer
 

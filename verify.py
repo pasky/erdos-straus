@@ -25077,4 +25077,44 @@ def check_fJ():
 check_fJ()
 
 
+def check_fK():
+    # (fK) TRANSPORT_LAW (O213/R211): R211 from-scratch — transport law = Ptolemy mod 8 on 81 784 words N <= 3000,
+    # general-r Jacobi law on 2*10^5 random signed words, and the o*-census to 10^6 (SQ5 / SQ_H fingerprints, 21841).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run(args, capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("TRANSPORT subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run([sys.executable, "review_r211_identities.py"])
+    for s in ("SHARP1: X=3000 words=81784", "SHARP2: tested=200000 failures=0", "SHARP3: odd N<= 301: failures=0",
+              "item(a): o<= 4000, N<2000: failures=0"):
+        assert s in out, ("TRANSPORT R211 identities", s, out[-2000:])
+    assert out.count("failures=0") == 4, out[-2000:]
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "r211census")
+        run(["gcc", "-O2", "-o", exe, "review_r211_census.c", "-lm"])
+        out = run([exe, "1000000"])
+    for s in ("max o* = 2431 at p=21841",
+              "primes ==1(8): 19552; SQ_H fails formal 0 interior 0",
+              "  SQ5 interior fails: 5 105",
+              "  SQ_H formal fails: 105 1465 3865 4545 5481 10305 12145 34489 36841 39361 40425 51129 67425 95505 115465 "
+              "147609 179361 196065 199369 210105 341145 392505",
+              "odd squares ==1(4) in [5,1000000]: 499, with any certificate: 0"):
+        assert s in out, ("TRANSPORT R211 census", s, out[-2000:])
+    print(f"== (fK) TRANSPORT_LAW R211: transport law = Ptolemy mod 8; general-r Jacobi law (2e5 words); census to 1e6 "
+          f"(SQ_H: 0 prime failures, 22 composite; o* = 2431 at 21841; no certificate at odd squares); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fK()
+
+
 print("\nall checks passed")
