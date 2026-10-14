@@ -116,5 +116,6 @@ pre-asymptotic hardness of near-square primes is a small-p effect at each level"
 along p = m² + k: level t with tk + 1 = □ is clean for every p in the family (Bunyakovsky-type families are
 conjecturally infinite; no density statement makes them negligible for the question "which primes are hardest").
 The heuristic is about a *random* p. Repair: restrict to "for p outside the families p = m² + k with tk + 1 = □
-(heuristic, random p)", and record that these families have a positive proportion of deterministically clean levels
-(≈ √(T/k)·… of t ≤ T), i.e. near-square hardness is NOT purely pre-asymptotic there.
+(heuristic, random p)", and record that these families have infinitely many deterministically clean levels
+(≍ √T of the t ≤ T, carrying ≈ 7.5 % of all words at p ≈ 10⁵–10⁶), i.e. near-square hardness is NOT purely
+pre-asymptotic there.
