@@ -277,3 +277,13 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | y4_mordell_witness | universal one-slot χ-witnesses | exactly A ∈ {2, 3, 5, 7, 8, 15, 20}; their reach is exactly Mordell's 840 | PROVED (Dirichlet + finite check + RS bound); checked to 10⁶ |
 | y4_catalogue | 4-vs-8 structural catalogue | 4 is the unique M ≥ 3 with an e ∈ {1, 3} slice at every prime; most facts are descriptions | PROVED; Assessment |
 | y4_seven_control | 7/n as T1-bearing failure-free control | 7 has none of 4's slice/character structure yet no failure ≤ 10⁸ | EVIDENCE + Assessment |
+
+## Spark relay Y1 on O205's two bad fibres / hyperbolic words (O209; memos y1_*, deep file TWO_FIBRES.md; not yet triaged)
+| file | angle | verdict (own) | label of main items |
+|---|---|---|---|
+| y1_hurwitz_lift | χ = +1 fibre = Hurwitz order: n·G_w ↪ ℤ³ ⟺ Diff = {2}; square-det path lattices ⊂ ℤ³; 𝔊⁺_p = image of conic/S₄ (non-injective at p = 71, 79, …) | exact dictionary; ES-five = non-embeddability; B2 | H1–H4 PROVED (classical inputs); CERTIFIED n ≤ 3001 / 451 — SHARP |
+| y1_gamma8_trace | words as hyperbolic classes; twisted trace formulas | χ is a function of M mod 8, not an SL₂(ℤ)-class function; ES = three-letter extraction (B3) | G1–G3 PROVED |
+| y1_gl3_cuspidal | GL(m) cuspidal + GL(k) Eisenstein identities vs T1 | dead (twisted d_k + unitary GL(m) cusp coefficients, all finite families, incl. self-dual orthogonal), **by size at primes, T1 not used** (R214) | Prop G″ PROVED rel. PNT for GL(m) cusp forms; T1 Remark G conditional (fails for Ad(tetrahedral)) — SHARP (steering) |
+| y1_cerednik_swap | Cerednik–Drinfeld / Ribet: two fibres = two trees of X^{2p} | dictionary; forcing hope screened (B2/B6); fibre split not mass-equidistributed | Assessment; EVIDENCE (census ratios) |
+| y1_heegner_level_t | words = x = 4 GKZ terms of two root-2 Heegner points on X₀(t), index 4n | level-t condition = Heegner condition; B2 | K1 PROVED (congruence/index only; Heegner reading Assessment, imprimitive caveat); collisions trivial without level (t ≤ 11, p < 2·10⁵) |
+| y1_reciprocal_parity | word reversal (involution) → parity | only fixed word (p ≥ 5) = (p+2,1,1), parabolic; N₋ mod 8 equidistributed | R1, R3 PROVED; R2 EVIDENCE (10⁶) |
