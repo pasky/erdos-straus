@@ -162,3 +162,70 @@ Nothing beyond the formal implication failure is claimed as PROVED in the list i
   unformalised "SQ₅₃" / "χ₃-fibre" statements (m8).
 * **s3_numerator_blind** — same verdicts as Thm 1.1 / Cor 2.1 (D1, D2 apply; "(J)32 complete failure lists" means
   complete to 10⁸, m9).
+
+## Numbered defects
+
+**No FATAL defects.** All PROVED mathematics (Lemma 1.0, (∗), Thm 1.1(a)(b), s3_box_bit, s3_eps_mu_sieve) is correct
+and was re-derived and brute-forced; all numerical claims checked were reproduced from scratch.
+
+**D1 (MAJOR) — the barrier's reading ignores thresholds; the "Consequently" sentence is labelled PROVED.**
+Location: SPARKS3 §2 Cor 2.1 (label and the sentence "Consequently, … an input specific to the numerator 4"), §2
+"Reading", §3.1 last paragraph ("removing every numerator-uniform tool from consideration"), §4; report SHARP bullet
+"Consequence". Problem: the implication family has no threshold; a numerator-uniform input "p > n₀(M)" is false at
+(8,131), and Schinzel's conjecture / the PW lottery heuristic are themselves threshold statements, so "false at (8,131)"
+≠ "4-specific". Repair: (i) label Cor 2.1 = the formal implication failure (PROVED/CERTIFIED); move the rest to an
+explicit Assessment stating the hidden hypothesis "the argument is valid for all p ∤ M, uniformly in M, with no
+threshold". (ii) Add the threshold-robust strengthening: by Thm 1.1(a) + PW Thm 1.2, for every M ≡ 0 (4),
+M ≥ 6.52·10⁹, some prime p ∈ (M², 2M²) has M^□(p) ∧ ¬(M/p); hence an M-uniform transport R_M ⇒ M/p needs a threshold
+n₀(M) > M² (and > exp(M^{1/3−ε}) by the proof of PW Thm 1.1). (iii) Replace "an input specific to the numerator 4" by
+"an input that is either specific to 4 or carries a threshold n₀(M) growing at least like M² (resp. exp(M^{1/3−ε}))";
+correspondingly soften §3.1/§4.
+
+**D2 (MAJOR) — novelty / attribution.** Location: §0 (I1) "This is the main finding", §3.2 last sentence ("8/131, 8/241
+appeared before only as Brauer–Manin controls …, not as a test for proof mechanisms"), §4. (J)31 already concludes
+"An ES proof must use something specific to the numerator 4", in the threshold-correct form (no principle uniform in m
+for n ≥ n₀), and (J)32 already uses 8/131 to refute a mechanism (χ-fibre, S₈(131) = ∅). Thm 1.1 is (J)28 Prop 2.2 with
+4 → M. Repair: cite (J)31/(J)32 at Cor 2.1; state the increment precisely: (∗) + Thm 1.1 for all M, and "□/mute
+relaxations with exact-T1 shot mechanisms and Dirichlet/sieve existence are also blind", extending B7's list "BM + T1";
+delete the §3.2 "not as a test for proof mechanisms" claim.
+
+**D3 (MINOR) — Remark (ii) "should transfer verbatim".** Location: §1 Remarks (ii); report caveat. The transfer is
+routine when n has a prime ℓ₀ ≥ 5 of odd valuation (in particular every prime p ≥ 5), but not at n = 3k², 3 ∤ M, M ≠ 4:
+(3/r) = −1 with r ≡ 3 (4) forces 3 | (r−1)/2, so the index-3 case cannot be sifted, and Thm 2.4's Q = 1 shortcut for
+n ≡ 3 (4) has no M-analogue. Repair: state the Assessment for n with an odd-valuation prime ≥ 5 (enough for Cor 2.1),
+and flag n₀ = 3 as needing a Kummer-Chebotarev condition in the sieve (EVIDENCE: no counterexample, M ∈ {8,16,20,28},
+k < 80).
+
+**D4 (MINOR) — BM attribution and scope.** Location: §2 Cor 2.1 ("no BM obstruction … BL Rem 1.10", and "likewise
+M = 12, …, 24"), §3.2(i)/(closing paragraph). BL Rem 1.10 does not compute anything at 131, 241; cite TES_FINITE Thm 5.3
+(certificates; rel. BL Thm 1.6/Rem 1.10). No BM computation exists for M = 12–24, and (16,3), (16,5), (20,3), (24,5),
+(24,7) are trivial size failures (M/p > 3). Repair: restrict the BM clause to M = 8 (n = 3, 11, 17, 131, 241), and in §3.2(i)
+say "M = 12, …, 24: failures of the exact problem with M^□ true; BM status not computed".
+
+Minor items:
+* m1 — Thm 1.1(a) proof: k denotes both √(square part of n) and (g+1)/M ("den(z) = (Q/gcd(Q,k))²"). Rename one.
+* m2 — §4 "a theorem at all non-squares" drops gcd(n, M) = 1, which is necessary for the shot mechanism (M = 12, n = 3k²:
+  no shot at all; M = 20, n = 5k² likewise — own check). Add "prime to M".
+* m3 — §1 should repeat the report's scope note: Thm 1.1(b) is about shots; M^□ ⊇ (M/n) holds at most odd squares
+  (8/9 = 1/2 + 1/3 + 1/18; 4/9 = 1/3 + 1/18 + 1/18).
+* m4 — overflow profile: say "odd Q ≤ 60"; 8 pairs have no odd-Q shot with Q ≤ 60; with even Q, Q₁ = 2 occurs.
+* m5 — FF / ℤ[ω] bullet: "the analogous relaxation-vs-exact blindness (same numerator)", not "the same blindness".
+* m6 — §2 bullet "N(π) ≤ 6000, which include 15 of the 16" vs memo/report "to 27000, all 16": harmonise (27000 re-run OK).
+* m7 — s3_box_bit item 1: the n ↦ nQ₁² move has gcd(Q, n) > 1; Lemma 1.0's den formula does not apply; drop "the overflow
+  grows" or prove it.
+* m8 — s3_order3_numerator (b): "precise sense" → Assessment; the logic does not use numerator-freeness.
+* m9 — s3_numerator_blind: "(J)32 (complete failure lists for M ≤ 24)" → "complete to 10⁸".
+* m10 — Lemma 1.0: the double parenthetical "(For M = 4 this is EXPONENT_CAP Prop 1.2.) (For M = 4 this is UNIT_ORBIT_ES
+  Prop 2.1.)" — merge: identity = UNIT_ORBIT_ES Prop 2.1, den formula = EXPONENT_CAP Prop 1.2.
+* m11 — §1 EVIDENCE: for M^□ the 278-pair check is implied by Thm 1.1(a) (all p ≥ 5 there, p ∤ M; p = 3 pairs also have
+  n₀ = 3 > 1); say "illustration", the independent content is the M^{(S)} data.
+
+## Answers to the brief's specific questions
+* Lemma 1.0 by valuations: confirmed (incl. ℓ = 2 and composite g). Dirichlet/reciprocity step: correct for every
+  M ≡ 0 (4), including M = 4·square and M with several odd primes; when the odd part of M shares a prime with n the
+  theorem's hypothesis fails and the mechanism genuinely dies (m2). Brute force M ∈ {4,…,24}, n < 10⁵: all certified.
+* Failing pairs: recomputed from scratch, identical to the census up to 10⁶ (and 2763601 for M = 20 to 3·10⁶); every
+  certificate verified; 14 excluded pairs with p ∈ S; S-certificates Q ≤ 385; 8/131 example ✓.
+* Fixed-S transfer: routine for primes ≥ 5; GAP at n = 3k² (D3); (r−1)/2 parity and 4th powers are fine.
+* "Numerator-uniform tools" Assessment: fair item by item; the conclusion overreaches (thresholds, D1); novelty over
+  (J)31 is modest (D2).
