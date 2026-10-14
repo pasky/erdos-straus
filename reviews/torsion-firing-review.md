@@ -135,6 +135,15 @@ curve enters only through its order (Deuring–Waterhouse is used solely to have
 the cyclic group ℤ/(p + 1 − a) would do equally well); no group structure, Frobenius, endomorphism ring or isogeny
 datum is used, and my check reproduces the EVIDENCE without any curve. See D7.
 
+### §5 Prop 5.1, barrier table, §6 labels — Prop 5.1 SOUND; table/labels need the repairs D3, D5, D7, D8
+
+Prop 5.1 re-derived ((d/h) = +1 for h ≡ −1 mod 4d by reciprocity; (−1/h) = −1; Lemma 1.1(a)) and brute-forced
+(`scripts/review_tf_sec5.py`: primes h ≡ 3 (4) < 3000, all d with 4d | h + 1, n odd < 60 and odd squares < 900:
+73 371 cases, 0 failures). The attribution to the known genus/T1 obstruction is correct and honest.
+Table and §6: see D8 (inconsistencies) and the label consequences of D3 (row "Thm 3.1/Cor 3.2" and §6.3 need the
+supersingular scope), D5 (§6.4: PROVED only for D = 1 families), D7 (§6.1, §6.6: the Hasse "dictionary" is a
+divisor restatement).
+
 ## Defects
 
 D1 (MINOR, §1 Lemma 1.1 vs Prop 1.2). Lemma 1.1 is stated for h ≥ 5, but Prop 1.2 (and Prop 5.1) quantify over
@@ -207,3 +216,11 @@ numerical fact "(a) or (b) holds for every prime ≤ 10⁸" — both pure diviso
 curve matter would need e.g. a statement about the E-structure (Lenstra's End-module) of the h-part, which the
 document does not have); remove "Hasse-window dictionary" from SHARP in the agent report or relabel it
 "EVIDENCE (divisor statement), curve language optional".
+
+D8 (MINOR, §5 table and cross-references). (i) Row "Thm 3.1/Cor 3.2": "firing set ≤ 2τ₃(k)" but Cor 3.2 says a
+sufficient rule fires on ≤ |Box(k)| ≤ τ₃(k) residues (the factor 2 is the amplification of a seed set, not of the
+box); make them agree. (ii) "§3.5 screens these" (Prop 3.4 Assessment) and the table row "§3.5 (sign/primitive
+divisors)": there is no §3.5; it is the (I5) paragraph after Prop 3.5. (iii) Header still says "Status: in progress"
+while §6 / the report present a finished checkpoint. (iv) §1 Check line: "1994 (h, curve) cases" — fine, but the
+end-to-end comparison against actual Type II solutions (rather than box vs torsion) is what makes the dictionary
+convincing; the R206 check `scripts/review_tf_sec1.py` does that (p ≤ 400) and could be cited.
