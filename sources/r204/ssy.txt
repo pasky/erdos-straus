@@ -1,0 +1,5529 @@
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+arXiv:2206.05823v1 [math.NT] 12 Jun 2022
+
+SIDDARTH SANKARAN, YOUSHENG SHI, TONGHAI YANG
+
+Abstract. We define a family of arithmetic zero cycles in the arithmetic Chow group of a
+modular curve X0 (N ), for N > 3 odd and squarefree, and identify the arithmetic degrees of these
+cycles as q-coefficients of the central derivative of a Siegel Eisenstein series of genus two. This
+parallels work of Kudla-Rapoport-Yang for Shimura curves.
+
+Contents
+1. Introduction
+2. Arithmetic special cycles on modular curves
+2.1. Modular curves
+2.2. Special cycles
+2.3. Classes in arithmetic Chow groups
+2.4. Special divisors
+2.5. Special cycles in codimension two
+2.6. The main theorem
+3. Local special cycles and Whittaker functionals
+3.1. Degrees of local special cycles
+3.2. Local Whittaker functionals and special cycles
+4. Proof of the main theorem
+4.1. Positive definite T
+4.2. T of signature (1, 1) or (0, 2)
+4.3. T of rank one
+4.4. T = 0
+5. Comparison of two Eisenstein series
+References
+
+1
+2
+2
+3
+6
+8
+9
+12
+14
+14
+15
+19
+19
+24
+26
+32
+35
+43
+
+1. Introduction
+In a series of work culminating in the book [KRY06], Kudla, Rapoport and the third named
+author studied certain families of arithmetic “special” cycles that live on arithmetic models of
+Shimura curves. Among their results are arithmetic Siegel-Weil formulas in genus one and two,
+which identify generating series of heights of arithmetic cycles with derivatives of Eisenstein series.
+The results of [KRY06] comprise the most fully-developed example in Kudla’s program, which seeks
+2010 Mathematics Subject Classification. 11G18, 11F46, 14G40, 14G35.
+SS was partially supported by an NSERC Discovery grant. TY was partially supported by Van Vleck Research
+grant and Dorothy Gollmar chair fund.
+1
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+2
+
+to establish systematic relations between arithmetic cycles on Shimura varieties and automorphic
+forms; while a substantial body of work has arisen in support of these conjectures, the case of
+modular curves has been largely overlooked.
+In this note, we fill this gap in the literature and prove the arithmetic Siegel-Weil formula for
+arithmetic zero cycles on X0 (N ) for odd, squarefree N with N > 3. More precisely, we construct a
+b v), viewed in the arithmetic Chow group CH
+d2 (X0 (N )). Our
+family of arithmetic zero cycles Z(T,
+main result, explicated in more detail in Section 2.5 and Section 2.6 below, is the identity
+X
+d Z(T,
+b v) q T = C · E ′ (τ, 0, ΦL );
+deg
+(1)
+T ∈Sym2 (Z)
+
+here
+
+• τ ∈ H2 , the Siegel upper half space of genus 2 and v = Im(τ );
+T)
+• q T = e2πitr(τ
+;
+Q
+1
+(p
++ 1);
+• C = 24
+p|N
+d is the arithmetic degree; and
+• deg
+• E ′ (τ, 0, ΦL ) is the derivative of the Siegel Eisenstein series, evaluated at the centre of
+symmetry s = 0, associated to the quadratic lattice L given by
+
+
+
+
+a b/N
+L= x=
+: a, b, c ∈ Z , QL (x) = N det(x) = −N a2 − bc.
+(2)
+c −a
+
+Our proof of the main result, which proceeds by matching the q-coefficients term-by-term, is
+closely modelled on the arguments in [KRY06]. For positive definite T , it turns out that the cycle
+b v) is concentrated in a special fibre at a prime p, and the geometric side of the theorem factors
+Z(T,
+as the product of a local intersection number, determined by Gross and Keating [GK93], and a
+point count; we then relate this computation to the corresponding coefficient of the Eisenstein
+series using explicit formulas due to the third named author. An important step is to prove a local
+arithmetic Siegel-Weil formula ( Proposition 3.3), which identifies the local intersection number
+with the central derivative of a local Whittaker function. For non-degenerate T of signature (1, 1)
+or (0, 2), the special cycles are purely archimedean, and the result is essentially a special case of
+[GS19, Theorem 5.1]. Finally, for degenerate T ’s, the identity can be reduced to the genus one case
+of the Siegel-Weil formula, as considered in [DY19].
+Finally, we note that there is another quadratic lattice L that is naturally associated to X0 (N ),
+which is given by
+
+
+
+
+a
+b
+L= x=
+: a, b, c ∈ Z , QL (x) = det(x) = −a2 − N bc.
+(3)
+N c −a
+The precise relation between E ′ (τ, 0, ΦL ) and E ′ (τ, 0, ΦL ) is given by Proposition 5.3 and (325).
+For the purposes of the computations in the present paper, it seems that the lattice L is more
+convenient.
+2. Arithmetic special cycles on modular curves
+2.1. Modular curves. Throughout, we fix N > 3 odd and squarefree. Let
+X = X0 (N )
+
+(4)
+
+denote the integral model, over Spec(Z) of the modular curve of level Γ0 (N ), as in [KM85]. More
+precisely, X denotes the Deligne-Mumford stack over Spec(Z) whose S points, for a scheme S over
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+3
+
+Spec(Z), parametrize diagrams
+ϕ: E → E′
+(5)
+′
+where E and E are generalized elliptic curves over S, and ϕ is a cyclic isogeny of degree N . As
+usual, we let Y = Y0 (N ) denote the open modular curve Y = X \ {cusps}.
+For later use, we recall the following description of the complex points Y0 (N ) = Y(C) as an
+O(1, 2) Shimura variety. Consider the quadratic space
+of signature (1, 2), and let
+
+V := M2 (Q)tr=0 ,
+
+Q(x) = N det(x)
+
+(6)
+
+
+D = D(V) = {z ∈ V ⊗Q C | hz, zi = 0, hz, zi < 0} C×
+
+(7)
+
+tr=0
+
+denote the symmetric space attached to V ⊗ C = M2 (C)
+; here hx, yi = −N tr(xy) is the
+complex bilinear form with hx, xi = 2Q(x) = 2N det x. The space D decomposes into two connected
+components
+a
+D = D+
+D− ,
+(8)
+where
+
+
+D+ := z =
+
+a b
+c −a
+
+
+
+∈ V ⊗ C | hz, zi = 0, hz, zi < 0, Im(a/c) > 0
+−1
+
+
+
+C× .
+
+(9)
+
+The group GL2 (R) acts on V ⊗ C by γ · v = γvγ , which descends to an action on D. A straightforward computation shows that D+ is invariant under the action of SL2 (R), and the matrix diag(1, −1)
+interchanges the components.
+Moreover, we have a SL2 (R)-equivariant identification
+∼
+
+H −→ D+ ,
+
+where
+
+z(τ ) =
+This construction gives rise to identifications
+
+τ 7→ spanC z(τ )
+
+τ
+1
+
+
+−τ 2
+.
+−τ
+
+
+
+Y(C) ≃ [Γ0 (N ) H] ≃ [Γ0 (N ) D+ ].
+
+(10)
+(11)
+
+(12)
+
+Note here we are viewing the quotients as orbifolds.
+
+2.2. Special cycles. We begin by recalling the construction of special cycles, following [DY19] or
+[BY09]. For a point (ϕ : E → E ′ ) ∈ X0 (N )(S), for some base scheme S, let
+and define
+
+End(ϕ) = {x ∈ End(E) | ϕ ◦ x ◦ ϕ−1 ∈ End(E ′ )}
+Lϕ :=
+
+†
+
+
+α ∈ End(ϕ) | α + α† = 0 ,
+
+(13)
+
+(14)
+
+where α is the Rosati dual. We may equip Lϕ with the positive definite quadratic form
+Qϕ (α) = deg(α) = −α2 .
+
+(15)
+
+Definition 2.1. For m ∈ Z, let Z(m) denote the moduli stack whose S points, for a base scheme
+S, are given by
+Z(m)(S) := {(ϕ : E → E ′ , α)}
+(16)
+where α ∈ Lϕ satisfies the following conditions:
+(a) Qϕ (α) = mN ; and
+(b) the quasi-isogeny α ◦ ϕ−1 is in fact an isogeny from E ′ to E.
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+4
+
+Remark 2.2. (i) More generally, in [DY19, BY09] one finds a definition for cycles Z(m, µr )
+1
+Z and r ∈ Z/2N Z satisfying r2 ≡ −4N m (mod 4N ); for m ∈ Z, the
+parametrized by m ∈ 4N
+moduli problem for Z(m) described above coincides with Z(m, µ0 ) in the notation of loc. cit.
+(ii) If α ∈ Lϕ satisfies condition (b) above, then Qϕ (α) is divisible by N . Moreover, if one omits
+this condition, the resulting moduli problem does not define a divisor on X0 (N ).
+There is a natural forgetful map Z(m) → X0 (N ), which allows us to view Z(m) as a cycle on
+X0 (N ) (which, abusing notation, we denote by the same symbol).
+Lemma 2.3. The cycle Z(m) is a divisor on X0 (N ). Moreover, it is equal to the flat closure of its
+generic fibre Z(m) = Z(m)/Q .
+Proof. We begin by showing that Z(m) is a divisor. This is clear on the generic fibre, so it will
+suffice to verify this claim in an étale neighbourhood of a point in characteristic p. To this end, let
+z ∈ Z(m)(F̄p ), lying above the point x ∈ X0 (N )(F̄p ), and let Rz (resp. Rx ) denote the complete
+étale local rings of z and x respectively. Thus we have a surjection
+Rx → Rz = Rx /J
+
+(17)
+
+for some ideal J that we would like to show is principal. By Nakayama’s lemma, it will suffice to
+show that I = J/mJ is principal, where m is the maximal ideal of Rx . Note that I 2 = 0, so that
+the surjection
+A := Rx /mJ → Rz
+(18)
+is a square-zero infinitesimal extension.
+′
+′
+Let ϕ
+e : E → E ′ denote the universal diagram over Rx , and ϕ
+eA : EA → EA
+(resp. ϕ
+ez : ERz → ER
+)
+z
+its base change to A (resp. Rz ).
+By assumption, we have an action αz ∈ End(ϕ
+ez ) such that
+δ := αz ◦ ϕ
+e−1
+z
+
+(19)
+
+′
+is an isogeny ER
+→ ERz . Moreover, the ideal I ⊂ A is, by definition, the largest ideal such that δ
+z
+′
+, EA/I ).
+deforms to a homomorphism in Hom(EA/I
+Now we apply Grothendieck-Messing theory. Consider the Hodge exact sequences
+′
+1
+′
+′
+0 → F (EA
+) → HdR
+(EA
+) → Lie(EA
+)→0
+
+and
+
+1
+0 → F (EA ) → HdR
+(EA ) → Lie(EA ) → 0 (20)
+
+′
+for EA
+and EA respectively. Since the map A → Rz is a square-zero thickening, the homomorphism
+′
+δ : ERz → ERz induces a canonical A-linear map
+1
+′
+1
+HdR
+(EA
+) → HdR
+(EA );
+
+(21)
+
+′
+δb: F (EA
+) → Lie(EA ).
+
+(22)
+
+composing this with the maps in the Hodge exact sequences above, we obtain a map
+Then Grothendieck-Messing theory implies that for any intermediate ring B with
+A → B → Rz
+
+(23)
+
+′
+the homomorphism δ lifts to an element of Hom(EB
+, EB ) if and only if δb ⊗ B = 0. This immediately
+b and since F (E ′ ) and Lie(EA ) are free
+implies that the ideal I is given by the vanishing locus of δ,
+A
+A-modules of rank 1, it follows that I is principal, as required.
+It remains to show that Z(m) is horizontal, i.e. does not contain any irreducible components in
+finite characteristic. Let p be a prime, and suppose z ∈ Z(m)(F̄p ) corresponds to (ϕ : E → E ′ , α)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+5
+
+√
+as before. If p splits in Q(α) = Q( −mN ), then E and E ′ are necessarily ordinary; if p is nonsplit, then E and E ′ are both supersingular. However, every irreducible component of X0 (N )(F̄p )
+contains both ordinary and supersingular points, hence such a component cannot be contained in
+the support of Z(m).
+
+We will also require a description of the complex points Z(m)(C). Consider the quadratic lattice
+
+
+
+a b/N
+L :=
+a, b, c ∈ Z ⊂ V
+(24)
+c −a
+
+where V = M2 (Q)tr=0
+ , with
+ quadratic form Q(x) = N det x.
+a b/N
+Now given x = c −a ∈ L with x 6= 0, let
+If Q(x) ≤ 0, then D+
+x is empty.
+
+τx ∈ H is the root of the equation
+
++
+D+
+x := {z ∈ D | hz, xi = 0}.
+
+(25)
+
+cτ 2 + 2aτ − b/N
+
+(26)
+
+Otherwise, D+
+x
+
+with positive imaginary part.
+
+= {z(τx )} consists of exactly one point, where
+
+Lemma 2.4. We have identifications
+
+Z(m)(C)
+
+Proof. Given x =
+the diagram
+
+
+
+a b/N
+c −a
+
+
+
+
+
+
+
+Γ0 (N )
+
+
+∼
+
+Y0 (N )(C)
+
+
+
+∼
+
+a
+
+x∈L
+Q(x)=m
+
+
+
+
+
+D+
+x
+
+(27)
+
+ 
+Γ0 (N ) H
+
+∈ L, let τ = τx as above. Then the corresponding point of Y0 (N )(C) is
+×N
+
+(28)
+ϕτ : Eτ = C/Λτ −→ Eτ′ = C/ΛN τ
+where ϕτ is multiplication by N , and Λτ = Z+Zτ for τ ∈ H. Define an endomorphism α ∈ End(ϕτ )
+by
+α(z + Λτ ) = z(N a + N cτ ) + Λτ .
+(29)
+It is straightforward to check that α satisfies the conditions in Definition 2.1, and every such
+endomorphism arises in this way.
+
+
+
+a b/2
+Next, we turn our attention to 0-cycles. Let Sym2 (Z)∨ = { b/2 c |a, b, c ∈ Z}, suppose
+
+
+t
+∗
+∈ Sym2 (Z)∨
+(30)
+T = 11
+∗ t22
+and assume for the moment that det T 6= 0.
+
+Definition 2.5. Let Z(T ) denote the moduli stack whose S points parametrize tuples
+where
+
+Z(T )(S) := {(ϕ : E → E ′ , α1 , α2 )}
+
+(31)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+(a) αi ∈ Lϕ for i = 1, 2;
+(b) the moment matrix
+1
+Tϕ (α1 , α2 ) = ( (αi , αj )) =
+2
+satisfies
+
+
+
+−α21
+1
+− 2 (α1 α2 + α2 α1 )
+
+− 21 (α1 α2 + α2 α1 )
+−α22
+
+6
+
+
+
+Tϕ (α1 , α2 ) = N T,
+(c) and finally, that αi ◦ ϕ−1 ∈ Hom(E ′ , E) for i = 1, 2.
+To describe the geometric points of this stack, we first recall the following representability criteria.
+Let V /Qℓ be a quadratic space of dimension m = 3. Define the character
+χV,ℓ (x) = (x, (−1)m(m−1)/2 det V )ℓ = (x, − det V )ℓ .
+
+(32)
+
+ǫ(V ) = ǫ(T ) χV (det T )
+
+(33)
+
+×,2
+For a given choice of determinant det(V ) ∈ Q×
+ℓ /Qℓ , there are exactly two non-isomorphic
+±
+quadratic spaces Vℓ , distinguished by their Hasse invariants.
+Now if T ∈ Sym2 (Qℓ ) is non-degenerate, we have that T is represented by Vℓ if and only if
+
+[Kud97, Prop. 1.3].
+Returning to the quadratic space V as in (6), define the difference set Diff(T, V) to be
+Diff(T, V) = {ℓ finite prime | T is not represented by Vℓ }
+= {ℓ | ǫℓ (T ) = −(−1, N )ℓ · (det(T ), −N )ℓ }.
+
+(34)
+(35)
+
+Lemma 2.6. Suppose T is non-degenerate.
+(1) If T is not positive definite, or if T > 0 and #Diff(T, V) ≥ 2, then Z(T ) = ∅.
+(2) If T > 0 and Diff(T, V) = {p}, then Z(T ) is supported in the supersingular locus in the
+special fibre X0 (N )/Fp . In particular, Z(T ) → X0 (N ) determines a zero cycle.
+Proof. Suppose we have a geometric point z ∈ Z(T )(F) for an algebraically closed field F, corresponding to a tuple ϕ : E → E ′ . Let Vϕ = End(ϕ)tr=0 ⊗ Q, equipped with the quadratic form
+x 7→ N −1 deg x. By assumption, we have that Vϕ represents T . However, Vϕ is positive definite, so
+if T is not positive definite, we obtain a contradiction; thus Z(T ) = ∅ if T is not positive definite.
+Assuming that T > 0 and continuing, we note that dim Vϕ ≥ 3, so the characteristic of F is nonzero and E, E ′ are supersingular elliptic curves. Setting p = char(F), we may identify Vϕ = B tr=0 ,
+where B is the rational quaternion algebra ramified at p and ∞, equipped with the quadratic form
+N −1 nm, where nm(x) is the reduced norm. It follows that for ℓ 6= p, the space Vϕ,ℓ is isometric to
+Vℓ , and so Diff(T, V) ⊂ {p}.
+Finally, note that det(Vϕ,p ) = det(Vp ) and ǫp (Vϕ,p ) = −ǫp (Vp ). Hence, applying the representability criterion (33), we conclude that p ∈ Diff(T, V). As we have already seen that any geometric point of Z(T ) is in the supersingular locus, we have concluded the proof of the lemma. 
+2.3. Classes in arithmetic Chow groups. Let
+d•R (X ) =
+CH
+
+2
+M
+n=0
+
+dnR (X )
+CH
+
+(36)
+
+denote the arithmetic Chow ring, as originally constructed by Gillet and Soulé, see e.g. [Sou92]. A
+discussion extending the construction to the case of Deligne-Mumford stacks of dimension two can
+be found in [KRY06, §2].
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+7
+
+dn (X ) is represented by an arithmetic cycle (Z, g), where Z is a codimension
+Roughly, a class in CH
+R
+n cycle on X , with R-coefficients, and gZ is a Green current for Z(C), i.e. gZ is a current on X (C)
+of degree (n − 1, n − 1) for which there exists a smooth form ω such that
+ddc gZ + δZ(C) = [ω],
+
+(37)
+
+holds; here [ω] is the current defined by integration against ω. The rational arithmetic cycles are
+c ) = (divf, i∗ [− log |f |2 ]), where f ∈ Q(W )× for a codimension n − 1 integral
+those of the form div(f
+subscheme ι : W ֒→ X , together with classes of the form (0, ∂η + ∂η ′ ); by definition, the arithmetic
+dn (X ) is the quotient of the space of arithmetic cycles by the R-subspace spanned
+Chow group CH
+R
+by the rational cycles.
+Note that if n = 2, for dimension reasons Z(C) = 0 and Green’s equation (37) is devoid of
+content; in particular, there is nothing linking Z and g in this case.
+We will also require a generalization of these Chow groups due to Kühn and Burgos-KramerP
+Kühn. For a cusp P of X0 (N ), let P denote its flat closure in X0 (N ), and let S =
+P denote the
+cuspidal divisor. In [BGKK07], the authors present an abstract framework that allows for more
+general kinds of Green objects in the the theory of arithmetic Chow groups. One of the examples
+they present utilizes “pre-log-log forms” relative to a fixed normal crossing divisor. In our case, we
+take this fixed divisor to be the cuspidal divisor S, and denote by
+M
+d• (X , Dpre ) =
+dn (X , Dpre )
+CH
+CH
+(38)
+R
+R
+n
+
+the corresponding Chow ring. In particular, there is a natural map
+
+an intersection product
+
+dn (X ) → CH
+dn (X , Dpre ),
+CH
+
+d1 (X , Dpre ) → CH
+d2 (X , Dpre )
+d1 (X , Dpre ) × CH
+CH
+R
+R
+R
+
+and a degree map
+
+d : CH
+d2 (X , Dpre ) → R.
+deg
+R
+
+For convenience, we will often abbreviate
+
+
+d Zb1 · Zb2 ,
+hZb1 , Zb2 i = deg
+
+(39)
+
+b1 , Z
+b2 ) 7→ Zb1 · Z
+b2 ,
+(Z
+
+d1 (X , Dpre )
+Zb1 , Zb2 ∈ CH
+
+(40)
+
+(41)
+
+(42)
+
+for the intersection pairing, which recovers the intersection pairing defined in [Küh01]. We will not
+require precise formulas for any of the aforementioned structures; the interested reader may consult
+[BGKK07, §7] for a complete discussion.
+Remark 2.7. Strictly speaking, the constructions in [BGKK07] and [Küh01] only apply to schemes,
+and not Deligne-Mumford stacks. In our case, this technicality is essentially immaterial. Indeed,
+we have identifications
+X (C) ≃ [Γ0 (N )\H] ≃ [{±1}\X0(N )]
+
+(43)
+
+as orbifolds, where X0 (N ) is the Riemann surface Γ0 (N )\H, and {±1} acts trivially on X0 (N ).
+Hence the analytic constructions of [BGKK07] can be carried out on X0 (N ); the only difference is
+that in numerical formulas, we include a factor of 1/2 to reflect the presence of the group {±1}.
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+8
+
+2.4. Special divisors. Here we recall the special divisors defined in [DY19], which include certain
+additional boundary components. For v ∈ R>0 and m ∈ Z, let
+ √N
+√ β
+(−4πmv), if m < 0 and − N m is a square
+
+
+2π v 3/2
+
+
+ √
+N
+g(m, v) = 2π√
+(44)
+,
+if m = 0
+v
+
+
+
+
+
+0,
+otherwise,
+
+where, for s ∈ R,
+
+βs (r) =
+
+Z ∞
+
+e−rt t−s dt.
+
+(45)
+
+1
+
+The modified special cycle is defined to be
+
+where S =
+let
+
+P
+
+P cusps
+
+Z ∗ (m, v) := Z(m) + g(m, v)S.
+
+(46)
+
+P is the cuspidal divisor.
+
+We now describe Green functions for these cycles, following [Kud97]. First, for x ∈ V and z ∈ D,
+
+|hx, ζi|2
+(47)
+hζ, ζi
+where ζ ∈ z is any non-zero vector; note that the definition is clearly independent of ζ. For v ∈ R>0 ,
+and m =
+6 0, we define Kudla’s Green function
+X Z ∞
+dt
+(48)
+ξ(m, v) :=
+e−2πR(x,z)vt ,
+t
+1
+R(x, z) := −
+
+x∈L
+Q(x)=m
+
+which is a smooth function on Y0 (N )(C) − Z(m)(C). The behaviour of these functions near the
+cusps was determined by Du and Yang. In particular, [DY19, Theorem 5.1] implies that ξ(m, v) is
+a Green function for Z ∗ (m, v), and so we obtain a class
+b
+d1R (X )
+Z(m,
+v) := (Z ∗ (m, v), ξ(m, v)) ∈ CH
+
+(49)
+
+′
+The case m = 0 requires a bit more notation. First, let ϕun : Eun → Eun
+, denote the universal
+diagram over X = X0 (N ), where π : Eun → X is a generalized elliptic curve, and let
+
+
+(50)
+ωN = π∗ Ω1Eun /X
+
+denote the Hodge bundle; sections of this bundle correspond to modular forms of weight one. This
+bundle can be metrized on Y0 (N ) = Y0 (N )(C) as follows: at a point τ ∈ H± ≃ D, corresponding
+to the diagram ϕτ : Eτ → Eτ′ as in (28), the metric k · kτ at τ is determined by the formula
+√
+τ = u + iv
+(51)
+kdzk2τ = (2 πe−γ/2 ) v,
+where dz is the coordinate differential with respect to the uniformization Eτ = C/(Z + Zτ ), and
+γ = −Γ′ (1) is the Euler-Mascheroni constant. This metric is logarithmically singular at the cusps;
+this metrized line bundle induces a class in the generalized arithmetic Chow group, which we also
+denote by
+d1 (X , Dpre ).
+ω
+bN ∈ CH
+(52)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+9
+
+Following [DY19], we will need a slight modification to this bundle. Recall that for a prime p|N ,
+the fibre Xp at p decomposes into two irreducible components Xp0 and Xp∞ , where Xp0 (resp. Xp∞ )
+is the component that contains the reduction of the cusp P0 (resp. P∞ ) mod p. We then define
+X
+Xbp0 + (0, log N ),
+(53)
+ω
+b := −2b
+ωN −
+p|N
+
+d1 (X ) is the corresponding class.
+where Xbp0 = (Xp0 , 0) ∈ CH
+
+Remark 2.8. The class ω
+b can be identified as (the class of) the dual of the Hodge bundle of the
+′
+product Eun × Eun
+over X0 (N ) with an appropriately scaled metric; see [How20, §2.2] for details.
+Next, define
+
+ξ(0, v) =
+
+X Z ∞
+
+x∈L
+Q(x)=0
+x6=0
+
+e−2πvR(x,z)t
+
+1
+
+dt
+t
+
+(54)
+
+which is a smooth function on Y0 (N ). As shown in [DY19], it is a Green function for the divisor
+g(0, v)S, with log − log singularities at the boundaries, which therefore determines a class
+d1 (X , Dpre ).
+(g(0, v)S, ξ(0, v)) ∈ CH
+R
+
+(55)
+
+b v) := ω
+d1 (X )
+Z(0,
+b + (g(0, v)S, ξ(0, v)) − (0, log v) ∈ CH
+R
+
+(56)
+
+b v) := (Z(T ), 0) ∈ CH
+d2R (X );
+Z(T,
+
+(57)
+
+ν(x) ∈ S(VR2 ) ⊗ A1,1 (H)
+
+(58)
+
+d1 (X ), the usual
+It turns out that the linear combination ω
+b + (g(0, v)S, ξ(0, v)), in fact lands in CH
+R
+Gillet-Soulé Chow group, see [DY19, Proposition 6.6].
+Finally, we set
+
+2.5. Special cycles in codimension two. In this section, we will attach an arithmetic cycle
+b v) for every T ∈ Sym (Z) and v ∈ Sym (R)>0 .
+Z(T,
+2
+2
+We begin with the case that T is positive definite. As in Lemma 2.6, if the cycle Z(T ) is non-zero,
+it is supported in the fibre Xp for a prime p. We may then define
+note that this class is independent of v.
+Next, suppose T is non-degenerate and of signature (1, 1) or (0, 2), so that Z(T ) = ∅. In this
+case, we define a purely archimedean class via the construction of [GS19]. We briefly recall the
+construction in the case at hand. Suppose x = (x1 , x2 ) ∈ VR⊕2 is a linearly independent pair of
+vectors, and consider the Schwartz form
+defined in [GS19]. Explicitly, we have
+ν(x) := ν o (x)e−2π(Q(x1 )+Q(x2 ))
+
+(59)
+
+ν o (x) = ψ o (x) dµ
+
+(60)
+
+where
+with
+ψ o (x, τ ) =
+
+!
+2
+X
+1
+(R(xi , τ ) + 2Q(xi )) e−2π(R(x1 ,τ )+R(x2 ,τ )) ,
+− +2
+π
+i=1
+
+x = (x1 , x2 )
+
+(61)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+10
+
+and
+
+du ∧ dv
+(62)
+v2
+for τ = u + iv ∈ H; here we are abusing notation and writing R(x, τ ) = R(x, [zτ ]) under the
+identification H± ≃ D as in (10).
+Next, we set
+Z ∞
+√
+dt
+(63)
+Ψ(x, τ ) =
+ψ o ( tx, τ ) .
+t
+1
+If the components of x span a space of signature (1, 1) or (0, 2), then Ψ(x, ·) is a smooth function
+on H.
+Finally, for T ∈ Sym2 (Q) of signature (1, 1) or (0, 2), and v ∈ Sym2 (R)>0 , we choose a ∈ GL2 (R)
+with v = a · t a and set
+X
+Ψ(xa, τ )
+(64)
+Ψ(T, v, τ ) =
+dµ =
+
+x∈L2
+T (x)=T
+
+and
+Ξ(T, v) := Ψ(T, v, τ )dµ(τ ).
+(65)
+The sum converges absolutely to a Γ0 (N )-invariant function on H, and Ξ(T, v) defines a smooth
+form on Y0 (N ).
+Lemma 2.9. The form Ξ(T, v) is absolutely integrable on X0 (N ), i.e.
+Z
+|Ψ(T, v, τ )|dµ(τ ) < ∞.
+X0 (N )
+
+Proof. We first claim that it suffices to prove that for any x = (x1 , x2 ) ∈ Ω(T ), the form Ψ(xa, τ )dµ(τ )
+is absolutely integrable on H; indeed, if this is the case, we would have
+
+
+Z
+Z
+X Z
+ X
+
+
+ dµ(τ ) =
+Ψ(T, v, τ )dµ(τ ) =
+Ψ(xa,
+τ
+)
+Ψ(xa, τ ) dµ(τ ), (66)
+
+
+X0 (N )
+
+Γ0 (N )\H
+
+x∈L2
+T (x)=T
+
+x∈Ω(T )
+mod Γ0 (N )
+
+H
+
+where we use the fact that the stabilizer of x in Γ0 (N ) is {±1}, which acts trivially on H; since
+there are finitely many Γ0 (N ) orbits, the lemma would follow by Fubini.
+To show the integrability of Ψ(xa, τ ), fix a matrix k ∈ SO(2) such that
+xak = (x1 , x2 )ak = (y1 , y2 )
+
+for a tuple y = (y1 , y2 ) ∈ VR2 such that
+T (y) =
+
+
+δ1
+
+δ2
+
+
+
+,
+
+(67)
+
+(68)
+
+with δ1 , δ2 ∈ R× and δ1 < 0. It follows from [GS19] that Ψ(xa, τ ) = Ψ(y, τ ). Furthermore, we have
+Ψ(γy, τ ) = Ψ(y, γ · τ )
+
+acting diagonally on VR2 .
+
+(69)
+
+for γ ∈ GL2 (R),
+Hence, in the integral over H, we may act by an
+appropriate choice of γ and assume without loss of generality that
+
+
+
+
+1
+1
+1
+1
+y1 = |δ1 | 2
+,
+y2 = |δ2 | 2
+(70)
+−1
+±1
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+11
+
+where the sign in the matrix defining y2 is − if T is of signature (1, 1), and + if T is of signature
+(0, 2).
+First, suppose T has signature (0, 2). In this case, we have
+R1 := R(y1 , τ ) =
+
+|δ1 |
+· |τ |2 ,
+4v 2
+
+R2 := R(y2 , τ ) =
+
+|δ2 |
+· |1 − τ 2 |2 .
+4v 2
+
+(71)
+
+Setting c = π2 min(|δ1 |, |δ2 |) and writing τ = u + iv, we then have
+
+c
+2π(R1 + R2 ) ≥ 2 |τ |2 + |1 − τ 2 |2
+v
+
+c
+= 2 u2 + v 2 + (1 − u2 )2 + 2v 2 (1 + u2 ) + v 4
+v
+
+c
+= 2 v 2 + (1/2 − u2 )2 + 3/4 + 2v 2 (1 + u2 ) + v 4
+v
+
+> c 3/4 · v −2 + v 2 + 2u2 .
+
+This estimate easily implies that the integrals
+Z
+Z Z ∞
+1
+dt
+e−2π(R1 +R2 ) dµ(τ )
+e−2πt(R1 +R2 ) dµ(τ ) <
+t
+H 2π(R1 + R2 )
+H 1
+and
+
+Z Z ∞
+H
+
+1
+
+(tRi ) · e−2πt(R1 +R2 )
+
+dt
+dµ(τ ) =
+t
+
+Z
+
+Ri
+e−2π(R1 +R2 ) dµ(τ )
+H 2π(R1 + R2 )
+
+(72)
+
+(73)
+
+are finite. So the integral (66) is absolutely convergent, which in turn implies the statement of the
+lemma. The case of signature (1, 1) is analogous.
+
+The preceding lemma implies that Ξ(T, v) defines a current on X0 (N ) so in this case we obtain
+a class
+b v) = (0, Ξ(T, v)) ∈ CH
+d2 (X ).
+Z(T,
+(74)
+R
+
+Next, we suppose T has rank 1. We begin with the following simple observation:
+
+Lemma 2.10. Suppose rank(T ) = 1. Then there exists t ∈ Z and an element γ ∈ GL2 (Z) such
+that
+T = t γ ( 0 t ) γ.
+
+(75)
+
+Moreover, the integer t is uniquely determined by T , and is invariant upon replacing T by t σT σ
+with σ ∈ GL2 (Z).
+
+2
+Proof. For the existence, write T = tm1 m
+t2 , so that m = t1 t2 . If t1 = 0, then we may take γ = Id
+and t = t2 . Otherwise, write −m/t
+ 1 = a/c where a and c are relatively prime, and choose b, d such
+that ad − bc = 1; then γ = ac db satisfies t γT γ = ( 0 t ) for some t, as required.
+To show that t is uniquely determined, suppose that we have γ ∈ GL2 (Z) with
+
+t
+(76)
+γ ( 0 t ) γ = 0 t′
+
+
+Then γ is of the form a0 db ∈ GL2 (Z), hence d = ±1, which in turn implies that t′ = t.
+Following [KRY06], we make the following definition.
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+12
+
+Definition 2.11. Suppose T is of rank 1, and let v ∈ Sym2 (R)>0 . Let t be as in Lemma 2.10.
+Define
+
+
+
+
+det v
+b v) := Z(t,
+b v0 ) · ω
+d2 (X , Dpre ),
+Z(T,
+b − 0, log
+δZ ∗ (t,v0 )(C) ∈ CH
+(77)
+v0
+where
+v0 := t−1 tr(T v) ∈ R>0 ,
+(78)
+b is the class defined in
+the cycle Z ∗ (t, v0 )(C) is the complex points of the modified cycle (46), and ω
+(53)
+We observe two invariance properties, which both follow immediately from definitions: the first
+is the identity
+b t γT γ, v) = Z(T,
+b γv t γ),
+Z(
+γ ∈ GL2 (Z).
+(79)
+1
+∗
+For the second invariance property, suppose θ = ( 1 ) ∈ SL2 (R); then
+
+Zb ( 0 t ) , θv t θ = Zb (( 0 t ) , v)
+(80)
+for any t ∈ Z and v ∈ Sym2 (R)>0 .
+It remains to define the constant term.
+
+Definition 2.12. When T = 0, we set
+b v) = ω
+d2 (X , Dpre ),
+Z(0,
+b·ω
+b + (0, log det v · [Ω]) ∈ CH
+
+(81)
+
+where Ω = dx∧dy
+2πy 2 , and [Ω] is the current given by integration against Ω.
+
+2.6. The main theorem. We begin by briefly reviewing the theory of Siegel Eisenstein series,
+mostly to fix notation; for details, see [KRY06, §8], for example. Let
+
+
+
+
+
+1r
+1r
+t
+(82)
+g=
+Spr = g ∈ GL2r | g
+−1r
+−1r
+
+viewed as an algebraic group over Q.
+For a place v ≤ ∞, let Gr,v denote the metaplectic cover of Spr (Qv ); as a set, we have
+Gr,v = Spr (Qv ) × C1 with multiplication given by the normalized Leray cocycle (see [KRY06,
+§8.5]). Similarly, Gr,A = Mpr (A) denote the metaplectic cover of Spr (A), which can be realized as
+a restricted direct product of the Gr,v . There is a unique splitting Spr (Q) → Gr,A whose image we
+denote by Gr,Q . Let Pr = Mr Nr denote the standard Siegel parabolic of Spr ; here
+
+
+
+
+
+
+
+
+a
+1 b
+Mr = m(a) =
+and
+Nr = n(b) =
+a ∈ GLr
+b ∈ Symr . (83)
+t −1
+a
+1
+We denote by P̃r,A , M̃r,A and Ñr,A , the inverse images of Pr (A), Mr (A), and Nr (A) under the
+covering map Gr,A → Spr (A).
+Given the quadratic space V as in (6), we may define a character χV on P̃A by the formula
+χV ([m(a)n(b), ǫ])) = ǫ (det(a), − det V)A = ǫ (det a, −N )A ,
+
+(84)
+
+where (·, ·)A is the global Hilbert symbol. Similarly, for s ∈ C, we define a character | · | on PeA by
+s
+
+s
+
+|p| = | det(a)|sA ,
+
+p = [m(a)n(b), ǫ].
+
+(85)
+
+Consider the degenerate principal series representation
+
+Ir (s, χV ) := {Φ : Gr,A → C smooth | Φ(pg, s) = χV (p)|p|s+ρ Φ(g, s) for all g ∈ Gr,A , p ∈ P̃r,A }, (86)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+13
+
+with Gr,A acting by right translation; here ρ = r+1
+2 . This representation factors as a restriced direct
+product
+O′
+Ir (s, χV ) =
+Ir,v (s, χV,v ).
+(87)
+v≤∞
+
+where
+
+Ir,v (s, χV,v ) := {Φ : Gr,v → C smooth | Φ(pg, s) = χV,v (p)|p|s+ρ
+Φ(g, s) for all g ∈ Gr,v , p ∈ P̃r,v },
+v
+
+is the local analogue of Ir (s, χV ).
+For each finite prime p, let Kp = Spr (Zp ) and let K̃p denote its inverse image in Gr,p . Similarly,
+let K∞ ≃ U (r) denote the standard maximal compact subgroup of Spr (R), let K̃∞ denote its
+Q
+inverse image in Gr,∞ , and set K̃ ⊂ Gr,A to be the inverse image of K∞ p Kp .
+We say that a section Φ ∈ Ir (s, χV ) (resp. Φv ∈ Ir,v (s, χV,v )) is standard if its restriction to
+K̃ (resp. K̃v ) is independent of s. Note that by the Cartan decomposition, a standard section is
+determined by its value at any fixed s ∈ C.
+In this paper, we will primarily be concerned with following standard sections for r = 1, 2.
+Definition 2.13. Let L be the lattice described in (24). We define a standard section
+as follows:
+
+L
+ΦL
+r (s) = ⊗v≤∞ Φr,v (s) ∈ Ir (s, χV )
+
+(88)
+
+3/2
+
+3/2
+• At the place ∞, we set ΦL
+.
+r,∞ (s) = Φr,∞ (s), the standard section of scalar K̃∞ -type det
+More precisely, there exists a character ξ 21 of K̃∞ whose square descends to the determinant
+map on U (r), cf. [KRY06, §8.5.6]. Then ΦL
+r,∞ (s) is the standard section determined by the
+3
+L
+relation Φr,∞ (k, s) = ξ 12 (k) for all k ∈ K̃∞ .
+⊕r
+• For v < ∞, let ΦL
+via the
+r,v (g, s) be the local standard section attached to the lattice Lv
+L
+Rallis map; more precisely, Φr,v is determined by the relation
+
+3−r−1
+L
+ΦL
+s0 =
+(89)
+r,v (g, s0 ) = ωV,v (g)ϕv (0),
+2
+where ωV,v is the Weil representation acting on S(Vvr ), and ϕL
+v is the characteristic function
+of Lrv .
+
+Our primary interest is in the case r = 2, though we will have some need to consider the case
+r = 1 as well. For Re(s) > 3/2 and g ∈ G2,A , let
+X
+E(g, s, ΦL
+ΦL
+(90)
+2 (γg, s)
+2) =
+γ∈P2,Q \G2,Q
+
+denote the corresponding Eisenstein series; by the general theory of Eisenstein series, this series
+admits a meromorphic continuation to s ∈ C. Moreover, E(g, s, ΦL
+2 ) is incoherent in the sense of
+[Kud97], and hence E(g, 0, ΦL
+)
+=
+0.
+2
+It will be convenient to introduce “classical” coordinates as follows. Let
+H2 = {τ = u + iv ∈ Sym2 (C) | v > 0}
+
+(91)
+
+denote the Siegel upper half-space; for τ = u + iv ∈ H2 , choose any matrix a ∈ GL2 (R) with
+det(a) > 0 and v = a · t a, and write
+gτ,∞ = [n(u)m(a), 1] ∈ G2,∞ ,
+
+gτ = (gτ,∞ , 1, . . . ) ∈ G2,A .
+
+(92)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+14
+
+Define
+−3/4
+E(τ, s, ΦL
+E(gτ , s, ΦL
+(93)
+2 ) = det(v)
+2 ),
+which is a (non-holomorphic) Siegel modular form of scalar weight 3/2. We write its q-expansion
+as
+X
+T
+CT (v, s, ΦL
+(94)
+E(τ, s, ΦL
+2 )q
+2) =
+T ∈Sym2 (Q)
+
+T
+
+with q = e
+
+2πitr(T v)
+
+.
+
+Theorem 2.14. For every T ∈ Sym2 (Q), we have
+!
+Q
+(p + 1) d
+p|N
+d Z(T,
+b v) =
+deg
+CT (v, s, ΦL
+.
+2)
+24
+ds
+s=0
+
+In particular, we have an identity of q-expansions
+!
+Q
+X
+(p + 1)
+p|N
+T
+d Z(T,
+b v)q =
+E ′ (τ, 0, ΦL
+deg
+2 ).
+24
+
+(95)
+
+(96)
+
+T
+
+This theorem will be proved in Section 4.
+
+3. Local special cycles and Whittaker functionals
+In this section, we study local analogues of the special cycles, defined in terms of deformations of
+p-divisible groups. A result of Gross-Keating computes the degrees of these cycles, which we relate
+to derivatives of Whittaker functionals.
+3.1. Degrees of local special cycles. Fix a prime p, let F = Fp be an algebraic closure of Fp ,
+W = W (F) the ring of Witt vectors and WQ = W ⊗Z Q its field of fractions. Denote by Nilpp the
+category of local W -algebras such that p is nilpotent.
+Let X denote the (unique, up to isomorphism) supersingular p-divisible group of height 2 and
+dimension 1 over F. Then End(X) is the maximal order in the division quaternion algebra over Qp ;
+we denote the main involution by x 7→ xι , and the reduced norm by nm(x).
+Fix a uniformizer ̟. Let ϕ ∈ End(X) be an isogeny of degree N . By composing with an
+automorphism of X, we may assume without loss of generality that
+(
+id, p ∤ N
+ϕ=
+(97)
+̟, p|N.
+With this setup in place, we recall the relevant Rapoport-Zink space: let M = MΓ0 (N ) denote
+the moduli space (over Nilpp ) of diagrams (ϕ̃ : X → X ′ ) where X and X ′ are deformations of X
+and ϕ̃ is an isogeny lifting ϕ ∈ End(X).
+If p ∤ N , then ϕ = id, and MΓ0 (N ) is isomorphic to the moduli space M0 of deformations of X,
+which in turn is isomorphic to Spf(W JtK).
+Definition 3.1 (Local special cycles). (i) For y ∈ End(X)tr=0 , let Z(y) denote the moduli problem (over Nilpp ) parametrizing tuples {(φ : X1 → X2 , δ)} where
+• X1 and X2 are deformations of X;
+• φ is an isogeny lifting ϕ;
+• δ ∈ Hom(X2 , X1 ) is an isogeny lifting y ◦ ϕ−1 .
+Note that if the last condition holds, then δ ◦ φ is an element of End(φ) lifting y.
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+15
+
+(ii) If y = (y1 , y2 ) is a linearly independent pair of elements in End(X)tr=0 , then we set
+to be the intersection.
+
+Z(y) = Z(y1 ) ×M Z(y2 )
+
+(98)
+
+For a pair of vectors f1 , f2 ∈ End(X), let hf1 , f2 i = f1 · f2ι + f2 · f1ι denote the bilinear form
+attached to the quadratic form Q(f ) = nm(x), where nm(x) is the reduced norm. We set
+
+
+1 hf1 , f1 i hf1 , f2 i
+.
+(99)
+T (f1 , f2 ) :=
+2 hf1 , f2 i hf2 , f2 i
+Proposition 3.2 (Gross-Keating). Suppose y1 , y2 ∈ End(X)tr=0 is a linearly independent pair of
+vectors , and let δi = yi ◦ ϕ−1 for i = 1, 2. Let
+T = T (δ1 , δ2 )
+
+(100)
+
+and let 0 ≤ a1 ≤ a2 ≤ a3 denote the Gross-Keating invariants of the matrix diag(N, T ). Then
+νp (T ) := deg Z(y)
+
+(101)
+
+only depends on T , and is given by the following explicit formulas.
+If a1 ≡ a2 (mod 2), then
+νp (T ) =
+
+aX
+1 −1
+
+i
+
+(i + 1)(a1 + a2 + a3 − 3i)p +
+
+i=0
+
+(a1 +a2 −2)/2
+
+X
+
+(a1 + 1)(2a1 + a2 + a3 − 4i)pi
+
+i=a1
+
+a1 + 1
+(a3 − a2 + 1)p(a1 +a2 )/2
+2
+and if a1 ≡
+6 a2 (mod 2), then
+
+(103)
+
++
+
+νp (T ) =
+
+aX
+1 −1
+i=0
+
+(i + 1)(a1 + a2 + a3 − 3i)pi +
+
+(a1 +a2 −1)/2
+
+X
+
+i=a1
+
+(102)
+
+(a1 + 1)(2a1 + a2 + a3 − 4i)pi .
+
+(104)
+
+Proof. Given any f ∈ End(X), let Z(f )GK denote the locus on M0 × M0 on which f deforms to
+an isogeny f : X1 → X2 where X1 and X2 are deformations of X. Then the deformation locus Z(y)
+coincides with the triple intersection Z(ϕ)GK · Z(δ1 )GK · Z(δ2 )GK on M0 × M0 .
+Note that for i = 1, 2,
+hδi , ϕi = δi · ϕι + ϕ · (δi )ι = (y1 ϕ−1 ) · (−ϕ) + ϕ(−ϕ−1 · yiι ) = −tr(yi ) = 0
+
+(105)
+
+Therefore, the restriction of the quadratic form Q(x) = deg(x) to span{ϕ, δ1 , δ2 } is represented by
+the matrix diag(N, T ) with respect to the basis {ϕ, δ1 , δ2 }. The desired formula is then [GK93,
+Proposition 5.4].
+
+3.2. Local Whittaker functionals and special cycles. The main point of this section is to
+express the local intersection number, in the previous section, in terms of Whittaker functionals.
+Recall that for a standard section Φp ∈ I2,p (s, χV,p ) and T ∈ Sym2 (Qp ), the Whittaker functional
+is defined to be
+Z
+Φ(wp−1 n(b)g, s) ψp (−tr(T b)) db
+(106)
+WT,p (g, s, Φp ) :=
+Sym2 (Qp )
+
+where
+ 
+
+• wp = 12 −12 , 1 ∈ Gp ;
+• for b ∈ Sym2 (Qp ), we write n(b) = [( 1 1b ) , 1];
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+16
+
+• ψp : Qp → C is the standard additive character that is trivial on Zp
+• and db is the additive Haar measure on Sym2 (Qp ) that is self-dual with respect to the
+pairing (b1 , b2 ) 7→ ψp (tr(b1 b2 )).
+L
+In addition to the section ΦL
+p = Φ2,p as in Definition 2.13, we also need the following auxilliary
+section. Let
+Vpra := (Bp )tr=0
+(107)
+denote the space of traceless elements of the division quaternion algebra Bp over Qp . We equip Vpra
+with the quadratic form Qra (x) = nm(x)-reduced norm of x. Note that the quadratic character
+χ′p := χV ra ,p associated to Vpra is given by
+χ′p (x) = (x, −1)p .
+
+(108)
+
+′
+Φra
+p (s) ∈ I2,p (s, χ )
+
+(109)
+
+ra
+Let Lra
+p = Op ∩ Vp , where Op is the maximal orde r; finally, we define the local section
+⊕2
+to be the standard section attached to (Lra
+. The main result of this section is:
+p )
+
+Proposition 3.3. Suppose y1 , y2 ∈ End(X)tr=0 are linearly independent vectors, and let δi =
+yi ◦ ϕ−1 and
+T := T (δ1 , δ2 ) = N −1 T (y1 , y2 )
+(110)
+as in (99). Then
+2
+
+′
+WT,p
+(e, 0, ΦL
+γp (Vpra )
+p)
+(111)
+deg Z(y) · log p = νp (T ) log p = 2cp
+γp (V)
+WN T,p (e, 0, Φra
+p )
+where
+cp =
+
+
+
+1
+p−1
+
+
+
+×
+
+(
+
+p + 1,
+1,
+
+if p|N
+if p ∤ N.
+
+(112)
+
+and γp (Vpra ) and γp (V) are the local Weil indices, cf. e.g. [KRY06, §8.5.3].
+Remark 3.4. If p is odd, it follows from [RR93, Appendix A] that γp (Vpra )2 = 1 and γp (Vp )2 =
+(−1, p)p .
+Proof for p ∤ N . First, we observe the following general fact: for a lattice L over Zℓ , let ΦL
+ℓ ∈
+Iℓ (s, χL ) denote the section corresponding to (the characteristic function of) the lattice L⊕2 . Then,
+for T ∈ Sym2 (Zℓ ), we have
+1
+
+2
+∨
+−1
+WT,ℓ (e, s, ΦL
+· |2|ℓ2 · αℓ (X, T, L)|X=p−s
+ℓ ) = γ(Vℓ ) · [L : L]
+
+(113)
+
+αp (X, T, L) = αp (X, N T, L0p )
+
+(114)
+
+∨
+
+where V = LQℓ , and L is the dual lattice, cf. [KRY06, Lemma 5.7.1]. Here αℓ (L, T, X) is the
+representation density polynomial, as in [Yan98, Yan04].
+Now we return our situation, and consider the case p ∤ N . In this case, the result is contained in
+[Yan04]. Indeed, note that if 0 ≤ a1 ≤ a2 ≤ a3 are the Gross-Keating invariants of diag(N, N T ),
+which are also the Gross-Keating invariants of diag(1, T ), then a1 = 0, cf. [Yan04, Appendix B].
+Since N is a p-adic unit, carefully tracing through the contructions in [Yan04] shows that
+where
+L0p =
+
+
+a
+c
+
+
+
+b
+: a, b, c ∈ Zp ,
+−a
+
+Q(x) = det(x).
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+Thus, [Yan04, Proposition 5.7] gives
+(P
+
+α′p (1, T, Lp )|X=1 = −(1 − p−2 ) P0≤i≤
+
+a2 −1
+2
+
+(a2 + a3 − 4i)pi ,
+
+0≤i≤ 22 −1 (a2 + a3 − 4i)p
+a
+
+i
+
+= −(1 − p−2 )νp (T ).
+
+a2
+− a2 −a2 3 +1 p 2 ,
+
+if a2 ≡ 0
+
+if a2 ≡ 1
+
+17
+
+(mod 2),
+(mod 2)
+(115)
+
+On the other hand, [Yan04, Proposition 5.7] gives
+αp (1, N T, Lra
+p ) = 2(p + 1);
+
+(116)
+
+combining these propositions with (113) yields the proposition for p ∤ N . The case p|N will be dealt
+at the end of this section after some preparation.
+
+In the remainder of the section, we suppose p|N ; in particular, p is odd. We have
+
+
+
+a p−1 b
+Lp =
+Q(x) = N det(x).
+a, b, c ∈ Zp ,
+c −a
+ 1 
+−1 
+−1
+, −1 } is
+The Gram matrix of Lp , with respect to the Zp -basis { −1 N
+, 1N
+
+
+1
+
+S :=  −1
+−N
+In particular, [L∨ : L]−1 = p−1 and hence
+
+2
+−1
+WT,p (e, s, ΦL
+αℓ (X, T, L) X=p−s .
+p ) = γ(Vp ) · p
+
+(117)
+
+(118)
+
+(119)
+
+Our first step is an formula for the representation density αp (X, T, L), using the explicit formulas in [Yan98]. Recall that for a general T ∈ Sym2 (Zp ) and lattice L, Yang decomposes the
+representation density as
+αp (X, T, L) = 1 + R1 (X, T, L) + R2 (X, T, L)
+
+(120)
+
+for some explicit polynomials R1 (X, T, L) and R2 (X, T, L), defined in [Yan98, §7].
+In our case, we compute αp (X, T, L) via comparison to the representation density αp (X, T, L0 ),
+where L0 = M2 (Zp )tr=0 with quadratic form Q(x) = det x.
+Lemma 3.5. Suppose p|N and let T ∈ Sym2 (Zp ). Then
+
+
+
+X +p
+,
+αp (X, T, L) = X −2 pα(X, N T, L0 ) + (X − p) R1 (X, N T, L0 ) +
+p
+
+(121)
+
+where R1 (X, N T, L0) is the polynomial defined in [Yan98, Theorem 7.1]
+
+Sketch of proof. In [Yan98, §7], the representation density is expressed in terms of polynomials R1 (X, T, L) and R2 (X, T, L), which are further decomposed in terms of explicit polynomials
+Ii,j (X, T, L) with i = 1, 2 and j = 1, . . . , 8. Unwinding the definitions of these polynomials, one can
+verify explicitly that
+I1,j (X, T, S) = X −1 I1,j (X, N T, S0 )
+
+I2,j (X, T, S) = pX −2 I2,j (X, N T, S0 ),
+
+I2,8 (X, T, S) = pX
+
+−2
+
+j = 1, . . . 7
+
+I2,8 (X, N T, S0 ) − 1.
+
+The lemma then follows from [Yan98, Theorem 7.1].
+
+
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+18
+
+Explicit formulas for α(X, N T, L0 ) and R1 (X, N T, L0 ) are as follows:
+Proposition 3.6 ([Kit83], [Yan98, §8]). Suppose p|N and T is GL2 (Zp )-equivalent to
+Let M = N/p ∈ Z×
+p and define
+v0+ = (−M ǫ1 , p)p
+(i) If a is odd, then
+αp (X, N T, L0 ) = (1 − p−2 X 2 )
+and
+
+
+
+
+
+v1+ =
+
+(
+
+(−M ǫ2 , p)p ,
+(−ǫ1 ǫ2 , p)p ,
+
+X
+
+pk (X 2k + (v0+ X)a+b+2−2k ) + p
+
+X
+
+pk X 2k + p 2 (1 − p−1 v0+ X)
+
+0<k≤ a+1
+2
+
+ǫ2 pb
+
+a+1
+2
+
+X
+
+(v0+ X)k
+
+a+1≤k≤b+1
+
+(ii) If a is even, then
+αp (X, N T, L0 ) = (1 − p−2 X 2 )
+and
+
+ǫ1 pa
+
+a+1
+
+
+ X
+
+
+0≤0≤a/2
+
+R1 (X, T, L0 ) = −1 + (1 − p−1 X 2 )
+
+
+
+.
+
+if b is odd
+if b is even.
+
+0≤k< a+1
+2
+
+R1 (X, N T, L0 ) = (1 − p−2 )
+
+
+
+X
+
+
+
+
+
+(v0+ X)k .
+
+a+1<k≤b+1
+
+
+
+pk (X 2k + v1+ X a+b+2−2k )
+
+
+X
+
+pk X 2k + v1 pa/2 X b+2 .
+
+0≤k≤a/2
+
+
+Proposition 3.7. Suppose that p|N and p ∈ Diff(T, V), i.e. T is not represented by Vp . Then
+p
+· α′ (1, T, L) = νp (T ).
+1−p p
+
+Here νp (T ) = deg(Z(y)) is the intersection multiplicity given explicitly in Proposition 3.2, for any
+tuple y = (y1 , y2 ) with T (y1 , y2 ) = N T .
+Proof. This follows from a straightforward, though tedious, computation using Lemma 3.5 and
+
+Proposition 3.6.
+We can now conclude the proof of Proposition 3.3:
+Proof of Proposition 3.3 for p|N : Using (113) and [Yan98, Proposition 8.7], one has the formula
+ra 2
+−2
+WN T,p (e, 0, Φra
+· 2(p + 1) = 2p−2 (p + 1).
+p ) = γp (Vp ) · p
+
+(122)
+
+On the other hand, combining (113) and Proposition 3.7, we have
+′
+2
+−1
+WT,p
+(e, s, ΦL
+· α′ (1, T, L) · (− log p) = γp (Vp )2
+p ) = γ(Vp ) · p
+
+From this, the proposition follows.
+
+
+
+p−1
+p2
+
+
+
+νp (T ) · log p.
+
+(123)
+
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+19
+
+4. Proof of the main theorem
+4.1. Positive definite T . Suppose T is positive definite. Our strategy in this case closely mirrors
+that of [KRY06]. We begin by recalling the following well-known facts about the Fourier coefficients
+of Siegel Eisenstein series, see e.g. [Kud97, §1]:
+Proposition 4.1. Suppose T ∈ Symr (Q) is non-degenerate, that V is a quadratic space over Q of
+dimension r + 1, and Φ = ⊗v Φv ∈ Ir (s, χV ) is factorizable section. Then:
+Q
+(i) ET (g, s, Φ) = v≤∞ WT,v (gv , s, Φv ).
+(ii) Suppose Φv is in the image of the Rallis map and that Vv does not represent T at some place
+v. Then WT,v (e, 0, Φv ) = 0.
+
+For our purposes, we will also require certain auxiliary sections. Fix a prime p, let B (p) denote
+the rational quaternion algebra ramified exactly at p and ∞, and let V (p) ⊂ B (p) denote the subset
+of traceless elements. We equip V (p) with the quadratic form Q(x) = nm(x), the reduced norm.
+We fix an order O(p) ⊂ B (p) as follows: if p ∤ N , then we take O(p) to be an Eichler order of level
+N . If p|N , we take O(p) to be an Eichler order of level N/p. In any case, let
+denote the set of trace-zero elements.
+Finally, we set
+
+L(p) := O(p) ∩ V (p)
+
+(124)
+
+Φ(p) (s) ∈ I2 (s, χ′ )
+(125)
+(p) ⊕2
+′
+′
+to be the global standard section associated to (L ) ; here χ = χV (p) is the character χ (x) =
+(−1, x)A .
+Lemma 4.2. Suppose T ∈ Sym2 (Z)∨ , fix a prime p as above, and let q 6= p.
+(i) If q ∤ N , then
+!2
+(p)
+γq (Vq )
+(p)
+WT,q (e, s, ΦL
+WN T,q (e, s, Φq ) =
+q ).
+γq (Vq )
+(ii) Suppose q|N . Then at s = 0, we have
+(p)
+
+WN T,q (e, 0, Φ(p)
+q )
+
+=
+
+γq (Vq )
+γq (Vq )
+
+!2
+
+WT,q (e, 0, ΦL
+q ).
+
+Proof. Recall that
+2
+WT,q (e, s, ΦL
+q ) = γq (Vq ) · | det Lq |q · αq (X, T, Lq )|X=p−s
+
+(126)
+
+(p)
+
+and similarly for WN T,q (e, s, Φq ).
+(p)
+If q ∤ N , then we have identifications Lq ≃ (M2 (Zq )tr=0 , N det(x)), and Lq ≃ (M2 (Zq )tr=0 , det(x))
+as quadratic spaces. By [Yan98, Proposition 8.6], we have
+αq (X, T, Lq ) = αq (X, N −1 T, L(p) ) = αq (X, N T, L(p)
+q )
+
+(127)
+
+Q(x) = det(x).
+
+(128)
+
+from which the first part of the lemma follows.
+When q|N , we have that
+
+
+
+a
+b
+L(p)
+=
+|
+a,
+b,
+c
+∈
+Z
+q ,
+q
+qc −a
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+20
+
+By [Yan98, Corollary 8.5], we have
+α(X, N T, Lq(p) ) = q 2 α(X, N T, L0 ) + (q − q 2 )R1 (X, N T, L0 ) + 1 − q 2 ,
+
+(129)
+
+and so, comparing with Lemma 3.5, taking X = 1 in both formulas gives
+α(1, N T, L(p)
+q ) = qα(1, T, Lq ).
+
+(130)
+
+(p)
+
+Observing that | det Lq |q = q −1 and | det Lq |q = q −2 , the second part of the lemma follows
+immediately.
+
+Corollary 4.3. Suppose Diff(T ) = {p}. Then
+ET′ (gτ , 0, ΦL ) · q −T =
+
+νp (N T ) · log p
+· EN T (gτ , 0, Φ(p) ) · q −N T
+2cp
+
+Proof. By Proposition 4.1, we have
+WT,p (e, 0, ΦL
+p ) = 0,
+and so
+′
+L
+ET′ (gτ , 0, ΦL ) = WT,p
+(e, 0, ΦL
+p ) · WT,∞ (gτ , 0, Φ∞ ) ·
+3/2
+
+(131)
+Y
+
+WT,v (e, 0, ΦL
+v ).
+
+(132)
+
+v<∞
+v6=p
+
+(p)
+
+At the infinite place, we have that ΦL
+∞ = Φ∞ = Φ∞ . The corresponding Whittaker functionals
+are given explicitly by the formula
+√
+2
+3/4 T
+q ,
+(133)
+WT,∞ (gτ , 0, Φ3/2
+∞ ) = −2 2(2π) det(v)
+cf. [KRY06, Theorem 5.2.7(i)], for any non-degenerate T ∈ Sym2 (Q). Thus, in our case we find
+WT,∞ (gτ , 0, ΦL
+∞)
+
+(p)
+
+WN T,∞ (gτ , 0, Φ∞ )
+
+=
+
+qT
+.
+qN T
+
+Combining this identity with Lemma 4.2 and Proposition 3.3, we find
+!
+Y γv (V)2
+Y
+ν
+(N
+T
+)
+log
+p
+p
+·
+ET′ (gτ , 0, ΦL )q −T =
+·
+WN T,v (gτ , 0, Φ(p) ) · q −N T
+(p) )2
+2cp
+γ
+(V
+v
+v<∞
+v≤∞
+!
+2
+Y
+νp (N T ) log p
+γv (V)
+=
+EN T (gτ , 0, Φ(p) ) q −N T .
+2cp
+γ
+(V (p) )2
+v<∞ v
+
+(134)
+
+(135)
+
+(136)
+
+It remains to show that
+Q the product involving Weil indices equals 1. For any quadratic space V ,
+the product formula v≤∞ γv (V ) = 1 holds; thus
+Y
+
+γ∞ (V)2
+γv (V)2
+=
+.
+γ (V (p) )2
+γ∞ (V (p) )2
+v<∞ v
+
+(137)
+
+By [KRY06, p. 330], we have γ∞ (V)2 = −1 = γ∞ (V (p) )2 , so the ratio above is one, and the corollary
+is proved.
+
+The next step in our proof is to apply the Siegel-Weil formula for the positive definite space V (p) .
+Let H (p) = O(V (p) ), viewed as an algebraic group over Q. If
+ϕ(p) ∈ S((V (p) ⊗Q Af )⊕2 )
+
+(138)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+21
+
+b ⊕2 , we define the theta integral
+is the characteristic function of (L(p) ⊗Z Z)
+Z
+Θ(g, h, ϕ(p) ) dh,
+g ∈ GA
+I(g, ϕ(p) ) =
+
+(139)
+
+[H (p) ]
+
+here Θ(g, h, ϕ(p) ) is the usual theta function, and dh is the left Haar measure on [H (p) ] = H (p) (Q)\H (p) (A)
+normalized so the total volume is 1.
+Then the Siegel-Weil formula implies that for any non-degenerate T , we have
+ET (g, 0, Φ(p) ) = 2 IT (g, ϕ(p) ).
+
+(140)
+
+The computation of IT (g, ϕ(p) ) is given in [KRY06, §5.3]; we review the computation here. Note
+that O(V (p) ) ≃ SO(V (p) ) × µ2 , and since ϕ(p) is the characteristic function of a lattice, it is µ2 (Af )invariant. The measure dh decomposes as dh1 × dc where the volume of µ2 (Q)\µ2 (A) with respect
+to dc is equal to 1/2;Qfixing a gauge form ω on SO(V (p) ) as in [KRY06, p. 126], we obtain a
+decomposition dh1 = v≤∞ dh1,v .
+There is a surjective map B (p) → SO(V (p) ), where an element of B (p) acts by conjugation on
+d
+(p) )× under this map, and write
+V (p) . Let K (p) ⊂ SO(V (p) )(Af ) denote the image of (O
+a
+SO(V (p) )(Q) · hj · K (p) .
+(141)
+SO(V (p) )(Af ) =
+j
+
+SO(V (p) )(Q) ∩ hj K (p) h−1
+j .
+
+Then [KRY06, Proposition 5.3.6] implies that for g =
+
+Let Γj =
+(g∞ , e, . . . ),
+
+IT (g, ϕ(p) ) =
+
+where
+
+
+
+ X
+
+1
+
+(p)
+OT,∞ (g∞ , ϕ(p)
+)
+vol
+K
+,
+dh
+
+1,f
+∞
+ j
+2
+OT,∞ (g∞ , ϕ′∞ ) =
+
+Z
+
+SO(V (p) )(R)
+
+X
+
+
+
+
+
+ϕ(p) (h−1
+y)
+
+j
+
+(p)
+
+y∈Ω(T,V
+mod Γj
+
+(142)
+
+)
+
+ω(g∞ )ϕ′∞ (h−1
+1,∞ · x0 ) dh1,∞
+
+(143)
+
+and x0 ∈ Ω(T, V (p) ) is fixed.
+The volume appearing in (142) can be computed following [KRY06, Lemma 5.3.9]; we sketch the
+argument here.
+Lemma 4.4. Suppose Diff(T ) = {p}. Then
+(p)
+OT,∞ (gτ , ϕ(p)
+, dh1,f ) =
+∞ ) vol(K
+
+(q)
+
+
+
+
+
+Y
+
+24 
+3/4 T
+·
+(1 + q)−1 
+ · det(v) q .
+
+p−1
+
+(144)
+
+q|N
+q6=p
+
+Proof. Suppose v ≤ ∞ and ϕv ∈ S((Vv )2 ) is any Schwartz function, and define the local orbital
+integral
+Z
+ω(gv )ϕv (h−1 x0 ) dh1,v
+
+OT,v (gv , ϕv ) :=
+
+(145)
+
+SO(V (q) )(Qv )
+(q) 2
+
+where x0 ∈ Ω(T, V (q) ) is a fixed tuple in (V
+dv = dv (V (q) , dh1,v ) such that
+
+) with T (x0 ) = T . Then there is a non-zero constant
+
+OT,v (gv , ϕv ) = dv WT,v (gv , 0, Φ(ϕv )).
+
+(146)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+22
+
+By [KRY06, Proposition 5.3.3], this constant only depends on the local measure dh1,v , and not on
+T , and moreover
+Y
+dv = 1.
+(147)
+v≤∞
+
+Now arguing as in [KRY06, Lemma 5.3.9], we have that for a finite prime q,
+
+−2
+
+q ∤ Np
+(1 − q ),
+(p)
+(p) 2
+3/2
+vol(Kq , dh1,q ) = dq · γq (V ) · |2|q · (1 + q)−1 (1 − q −2 ), q|N, q 6= p
+
+ −2
+p (p + 1),
+q = p.
+
+(148)
+
+Thus, we have
+
+(p)
+OT,∞ (gτ,∞ , ϕ(p)
+, dh1,f )
+∞ ) · vol(K
+
+= WT,∞ (gτ,∞ , 0, Φ3/2
+∞ )
+
+Y
+
+γv (V
+
+(p) 2
+
+v<∞
+
+) |2|3/2
+v
+
+
+
+ −2
+ Y
+
+p (p + 1) 
+ (q + 1)−1 
+×
+
+
+1 − p−2
+
+!
+
+Y
+
+q<∞
+
+(1 − q
+
+q|N
+q6=p
+
+
+
+(p) −2 −3/2
+ζ(2)−1
+= WT,∞ (gτ,∞ , 0, Φ3/2
+) 2
+∞ ) · γ∞ (V
+
+−2
+
+!
+
+)
+
+
+
+
+
+Y
+
+1 
+ (q + 1)−1  .
+
+p−1 
+q|N
+q6=p
+
+Finally, we recall that γ∞ (V (q) )2 = −1, see [KRY06, eqn. (5.3.71)] and ζ(2) = π 2 /6, and
+√
+2
+3/4 T
+WT,∞ (gτ , 0, Φ3/2
+q ,
+∞ ) = −2 2(2π) det(v)
+cf. [KRY06, Theorem 5.2.7(i)]; this proves the desired formula.
+
+Recall that we had written the Fourier expansion of the Eisenstein series E(τ, s, ΦL ) as
+X
+E(τ, s, ΦL ) =
+CT (v, s, ΦL )q T .
+
+(149)
+
+
+(150)
+
+T
+
+Combining Corollary 4.3 and Lemma 4.4 (replacing T by N T in the latter lemma) we obtain
+the following result.
+Corollary 4.5. Suppose T > 0 and Diff(T ) = {p}.Then CT′ (0, ΦL ) = CT′ (0, v, ΦL ) is independent
+of v, and is given by the formula
+
+
+
+
+X
+
+X
+Y
+
+
+(1 + q)−1  · 
+ϕ(p) (h−1
+x)
+(151)
+CT′ (0, ΦL ) = νp (N T ) log p · 12
+
+j
+ j
+
+(p)
+q|N
+
+x∈Ω(N T,V
+mod Γj
+
+)
+
+Finally, we prove the main identity in the positive definite case:
+
+Theorem 4.6. Suppose T > 0. Then
+d Z(T ) =
+deg
+
+Q
+
+q|N (q + 1)
+
+24
+
+· CT′ (0, ΦL )
+
+(152)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+23
+
+Proof. First, suppose #Diff(T ) > 1. By Lemma 2.6, the left hand side vanishes, and by Proposition 4.1, the right hand side vanishes, establishing the result in this case.
+We may therefore suppose Diff(T ) = {p} for some prime p. Recall that there is an identification1
+i
+/
+.
+h
+d
+(p) ×
+.
+(153)
+B (p),× (Af ) O
+X (F̄p )ss ≃ B (p),×
+
+d
+(p) ×
+Now suppose ϕ : E → E ′ ∈ X (Fp )ss is a geometric point corresponding to the coset [b] = b O
+as above. Then the lattice L(ϕ), defined in (14), is identified with the lattice
+
+
+d
+(p) b−1 ∩ V (p)
+(154)
+b · L(p) := b L
+where L(p) = V (p) ∩ O(p) as above.
+Tracing through definitions, we have an identification
+/
+i
+h
+Z(T )(Fp ) ≃ B (p),× C(T )
+where
+
+(155)
+
+n
+.
+o
+d
+(p) × y ∈ (b · L(p) )2 , T (y) = N T .
+C(T ) = (y, [b]) ∈ (V (p) )2 × B (p),× (Af ) O
+
+(156)
+
+As described in Section 3, the (arithmetic) degree of the local ring of Z(T ) at each geometric point
+is the same, and is given by νp (T ) log p. Hence
+X
+log |OZ(T ),z |
+d Z(T ) =
+deg
+(157)
+| Aut(z)|
+z∈Z(T )(F̄p )
+h
+i
+
+= νp (T ) log p · # B (p),× C(T ) ,
+(158)
+
+where on the right hand side, we have the “stacky” cardinality, i.e. the number of orbits, with each
+orbit weighted by the reciprocal of the order of the corresponding stabilizer group.
+To determine this cardinality, let H (p) = SO(V (p) ), and recall that there is an exact sequence
+
+c
+(159)
+1 −−−−→ Z −−−−→ B (p),× −−−−→ H (p) −−−−→ 1
+where
+b ∈ B (p),× 
+acts on V (p) by conjugation, and Z ≃ Gm is the centre. Since Z(Af ) = Z(Q) ·
+
+d
+×
+Z(A ) ∩ (O(p) ) , we have a bijection
+f
+
+/
+.
+/
+.
+d
+(p) × ←→ H (p) (Q) H (p) (A ) K (p)
+B (p),× B (p),× (Af ) O
+f
+
+(160)
+
+[
+(p) )× in H (p) (A ). As in (141), we choose reprewhere K (p) was, by definition, the image of (O
+f
+sentatives {hk } for this double coset space, and set Γj = H (p) (Q) ∩ hj K (p) h−1
+j . Moreover, since
+(p)
+the components of y span a two dimensional subspace of V , it follows that the stablilizer of any
+d
+(p) × = {±1}. Thus
+point (y, [b]) is equal to Z(Q) ∩ O
+i
+h
+X
+
+1X X
+1X
+# B (p),× C(T ) =
+1 =
+ϕ(p) (h−1
+(161)
+j y)
+2 j
+2 j
+(p)
+(p)
+y∈hj ·L
+T (y)=N T
+modΓj
+
+y∈Ω(N T,V
+mod Γj
+
+)
+
+1Briefly, the right hand side is interpreted as the set of invertible right O (p) -modules. This latter set is in bijection
+with X (Fp )ss as follows. Fix a base point (π0 : E0 → E0′ ) ∈ X (Fp )ss . Then, given a point π : E → E ′ ∈ X (Fp )ss ,
+the corresponding O (p) module is Hom(π0 , π). See e.g. [Rib90, §3] for details.
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+24
+
+d
+(p) )2 . The theorem follows from a
+where ϕ(p) ∈ S(V (p) (Af )2 ) is the characteristic function of (L
+
+comparison with Corollary 4.5.
+
+4.2. T of signature (1, 1) or (0, 2). Recall that when T is non-degenerate but not positive definite,
+b v) is purely archimedean:
+the class Z(T,
+
+b v) := (0, Ξ(T, v)) ∈ CH
+d2 (X0 (N ))
+Z(T,
+C
+where Ξ(T, v) is defined in (65). In this case, the arithmetic degree is given by
+Z
+d Z(T,
+b v) = 1
+deg
+Ξ(T, v).
+2 X (C)
+
+(162)
+
+(163)
+
+The computation of this integral was carried out in [GS19] in the case of compact Shimura varieties.
+A crucial step in the argument is the application of the Siegel-Weil formula to relate the integral of
+a certain theta function (attached to the Schwartz form denoted by ν(x) in loc. cit.) to a special
+value of the corresponding Eisenstein series.
+In our case, the fact that V contains isotropic vectors implies that the relevant theta integrals do
+not necessarily converge for arbitrary Schwartz functions; however, as we prove below, the particular
+Schwartz form relevant to our setting does lead to a convergent theta integral, and work of Kudla
+and Rallis [KR94] implies that the Siegel-Weil formula holds for this Schwartz form. With this
+fact established, the arguments of [GS19] carry through verbatim and yield a computation of the
+integral (163).
+To state things more precisely, recall the explicit expression
+ν(λ) = ψ(λ) dµ
+where
+ψ(λ, z) =
+and
+
+!
+2
+X
+P
+1
+− +2
+(R(λi , z) + 2Q(λi )) e−2π R(λi ,z)+Q(λi ) ,
+π
+i=1
+dµ =
+
+dx ∧ dy
+y2
+
+with z = x + iy ∈ H± .
+For future use, we fix the basepoint i ∈ H and abbreviate
+φ(λ) = ψ(λ, i)
+
+(164)
+
+λ = (λ1 , λ2 ) ∈ VR2 ,
+
+(165)
+
+(166)
+
+(167)
+
+so that φ ∈ S(VR2 ) is a Schwartz function.
+This Schwartz function gives rise to a theta function that, at least for the moment, is best
+described adelically. Let H = O(V), and let ω denote the action of G2,A × H(A) on S(V 2 (A)) via
+the Weil representation. Recall that the action of H(A) is the linear action; more precisely, for
+h ∈ H(A) , λ = (λ1 , λ2 ) ∈ V(A)2 and ϕ ∈ S(V(A)2 ), we have
+
+ω(1, h)ϕ(λ) = ϕ(h−1 · λ) = ϕ h−1 · λ1 , h−1 · λ2 .
+(168)
+
+Returning to our Schwartz function φ, we consider the adelic Schwartz function φA = φ ⊗ 1ωb ,
+b 2 . Then the corresponding
+where 1ωb ∈ S(V(Af )2 ) is the characteristic function of Lb2 = (L ⊗Z Z)
+theta series is
+X
+Θ(g ′ , h, φA ) :=
+ω(g ′ , h)φA (λ).
+(169)
+λ∈V 2
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+25
+
+Lemma 4.7. As a function of h, the theta function Θ(g ′ , h, φ) is left H(Q) invariant, is absolutely
+convergent, and descends to a rapidly decreasing function on H(Q)\H(A).
+Proof. The left invariance is immediate from definitions. To prove the convergence and rapid
+decrease, we make use of the “mixed model” of the Weil representation. In general, suppose V is a
+quadratic space of Witt rank r, decomposed as
+⊥
+
+V = Van ⊕ Vr,r
+
+(170)
+
+where Van is anisotropic and Vr,r is isomorphic to r copies of the hyperbolic plane. Fix a standard
+basis
+v1′ , . . . , vr′ , v1′′ , . . . , vr′′
+(171)
+where hvi′ , vi′′ i = 1 for i = 1, . . . , r, and all other inner products are zero. Setting V ′ = span{v1′ , . . . , vr′ },
+the given basis yields an identification (V ′ )k ≃ Mk,r (Q) for any positive integer k by the map
+!
+r
+r
+X
+X
+′
+′
+aki vi .
+(172)
+a1i vi , · · ·
+A = (aij ) ∈ Mk,r (Q) ←→
+i=1
+
+i=1
+
+We may also identify (V ′′ )k ≃ Mk,r (Q) in a similar way.
+For G′ = Mp4 , the mixed model of the Weil representation ω
+b is an action G′A × O(V )(A) on
+S(V (A)2 ) ≃ S(Van (A)2 )⊗S(M2,r (A))⊗S(M2,r (A)). The two models are related by an intertwining
+map
+∼
+S(V (A)2 ) −→ S(Van (A)2 ) ⊗ S(M2,r (A)) ⊗ S(M2,r (A)),
+ϕ 7→ ϕ,
+b
+(173)
+
+where, by definition,
+
+ϕ(λ,
+b A, B) :=
+
+Z
+
+ϕ(λ + X + B)ψ(trAt X)dX,
+
+(174)
+
+M2,r (A)
+
+b and we identify
+where ψ : A → C is the standard additive character that is trivial on Q and Z,
+′
+2
+′′
+2
+V (A) ≃ M2,r (A) ≃ V (A) as above.
+With this setup in place, we have the following criterion due to Kudla-Rallis: let ϕ ∈ V (A)2 and
+suppose that
+ϕ(x,
+b A, B) = 0
+whenever rank([A B]) < r.
+(175)
+
+Then the proof of [KR94, Proposition 5.3.1] implies that Θ(g ′ , h, ϕ) is absolutely convergent and
+rapidly decreasing as a function of h ∈ H(Q)\H(A).
+Returning to the case at hand, note that the Witt rank of V is r = 1, and we have an orthogonal
+basis
+
+
+e = 1 −1 , f1 = ( 01 00 ) , f2 = 00 1/N
+(176)
+0
+with Van = Qe and V ′ = Qf1 , and V ′′ = Qf2 . Applying the criterion above, it will suffice to show
+that
+Z
+b
+φ(a1 e + x1 f1 , a2 e + x2 f1 ) dx1 dx2
+(177)
+φ(λan , 0, 0) =
+(x1 ,x2 )∈R2
+
+vanishes for all λan = (a1 e, a2 e) ∈ Van (R)2 , for the Schwartz function φ defined in (167).
+We compute
+
+ 
+N (x2 + 4a2 )
+a
+R (ae + xf1 , i) = R
+, i =
+x −a
+2
+
+(178)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+and Q(ae + xf1 ) = −N a2 . Unwinding definitions, we find that
+
+Z 
+2
+2
+1
+b an , 0, 0) = e−2πN (a21 +a22 )
+φ(λ
+− + N (x21 + x22 ) e−πN (x1 +x2 ) dx1 dx2 ,
+π
+2
+R
+
+and a straightforward calculus exercise shows that the integral vanishes, as required.
+
+26
+
+(179)
+
+
+Corollary 4.8 ([KR94]). Let Φφ ∈ I2 (s, χV ) denote the standard section attached to φA , and let
+E(g, s, Φφ ) denote the corresponding Siegel Eisenstein series. Then
+Z
+Θ(g, h, φA )dh = E(g, 0, Φφ )
+(180)
+2
+[H]
+
+where dh is the Haar measure on [H] = H(Q)\H(A) giving total volume 1.
+
+
+
+Remark 4.9. Strictly speaking, [KR94] asserts that the two sides are proportional; the constant of
+proportionality is shown to be 2 in [GQT14, Theorem 7.3(ii)], see also the references therein.
+Theorem 4.10. Suppose T is of signature (1, 1) or (0, 2). Then
+Q
+(q + 1) ′
+d Z(T,
+b v) = q|N
+CT (v, 0, ΦL ).
+deg
+24
+Proof. By definition, the degree is
+Z
+d Z(T,
+b v) = 1
+deg
+Ξ(T, v).
+2 X (C)
+
+(181)
+
+With the Siegel-Weil formula for the Schwartz function φA , Corollary 4.8, in hand, the proof of
+[GS19, Theorem 5.10] goes through verbatim; in our setting, this formula reads:
+Z
+Ξ(T, v) = vol(X (C), dΩ) CT′ (v, 0, ΦL )
+(182)
+X (C)
+
+1
+dudv/v 2 . The volume is given explicitly by the well-known formula
+where dΩ = 2π
+
+1
+vol(X (C), dΩ) =
+2
+
+Z
+
+1
+du dv
+= ·
+2
+2
+Γ0 (N )\H 2πv
+
+Q
+
+q|N (q + 1)
+
+6
+
+,
+
+(183)
+
+where the factor 12 emerges from the action of the group {±1}, cf. Remark 2.7. The theorem follows
+immediately.
+
+4.3. T of rank one. Here, we follow [KRY06, §5.8]; see also [GS19, §5.2] for a more general
+discussion. We will make use of Eisenstein series in genus one and two, see Section 2.6 for the
+notation.
+We begin with the observation that there is an embedding
+
+ 
+1
+0
+
+ 
+ a
+
+a b
+b
+
+ , z
+η : G1,A → G2,A ,
+, z 7→ 
+(184)
+
+
+
+
+c d
+0
+1
+c
+d
+which induces a map
+
+(185)
+η ∗ : I2 (s, χV ) → I1 (s + 21 , χV )
+via pullback. By the same formula, we have an embedding ηv : G1,v → G2,v at each place v, inducing
+a pullback ηv∗ : I2,v (s, χV ) → I1,v (s + 21 , χV ).
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+Lemma 4.11 ([GS19, Lemma 5.4]). Suppose
+T =
+
+
+0
+
+t
+
+
+
+.
+
+27
+
+(186)
+
+with t 6= 0. Then for any Φ ∈ I2 (χ, s) and g ∈ G2,A , we have
+
+ET (g, s, Φ) = Wt (e, s + 21 , (η ∗ ◦ r(g)) Φ) + WT (g, s, Φ)
+
+(187)
+
+
+Let’s compute these Whittaker functionals more explicitly, in the case that
+Φ = ΦL
+2 ∈ I2 (χ, s)
+
+(188)
+
+is the incoherent section from Definition 2.13 above. We begin with a simple lemma:
+Lemma 4.12. Suppose Vv is a local quadratic space of dimension m, and ϕ1 , ϕ′1 ∈ S(Vv ). Let
+ϕ2 = ϕ1 ⊗ ϕ′1 ∈ S(Vv⊕2 ), and let Φ2 (s) ∈ I2,v (s, χV ) and Φ′1 (s) ∈ I1,v (s, χV ) denote the standard
+sections corresponding to ϕ2 and ϕ′1 respectively. Then
+η ∗ Φ2 (s) = ϕ1 (0) · Φ′1 (s + 21 )
+
+(189)
+
+Proof. Let ωi denote the Weil representation on S(V ⊕i ) for i = 1, 2. A direct calculation, using the
+explicit formulas in e.g. [KRY06, Lemma 8.6.5], yields the identity
+[ω2 (η(g))ϕ2 ] (v) = ϕ1 (v) · [ω1 (g)ϕ′1 ] (v ′ ),
+
+v = (v1 , v1′ ) ∈ V ⊕2
+
+(190)
+
+for every g ∈ G1,v .
+On the other hand, if g2 = n(B)m(A)k ∈ G2,v , then by definition,
+Φ2 (g2 , s) = | det(A)|s−
+
+m−3
+2
+
+Φ′1 (g1 , s) = | det(a)|s−
+
+m−2
+2
+
+and for g1 = n(b)m(a)k, we have
+The lemma follows easily.
+
+· [ω2 (g2 )ϕ2 ] (0)
+
+(191)
+
+· [ω1 (g1 )ϕ′1 ] (0)
+
+(192)
+
+
+Turning to the archimedean place, suppose
+v = ( v1 v2 ) ∈ Sym2 (R)>0 ,
+and let gv,∞ ∈ G2,∞ denote the corresponding group element as in (92).
+3/2
+
+(193)
+3/2
+Let Φ2,∞ ∈ I2,∞ (s, χV )
+
+and Φ1,∞ ∈ I1,∞ (s, χV ) denote the weight 3/2 sections in genus 2 and 1, respectively. Then a
+straightforward computation, cf. [GS19, p. 956], yields
+
+
+3/2
+s/2+3/4
+3/2
+(194)
+· r(gv2 ,∞ )Φ1,∞ (s + 1/2) .
+(η ∗ ◦ r(gv,∞ )) Φ2,∞ (s) = v1
+
+L
+Now consider the global standard sections ΦL
+1 ∈ I1 (s, χV ) and Φ2 ∈ I2 (s, χV ) as in Definition 2.13.
+Then the above discussion implies that for v = diag(v1 , v2 ) as above, and setting
+
+we have
+
+gv2 = (gv2 ,∞ , e, . . . ) ∈ G1,A
+
+gv = (gv,∞ , e, . . . ) ∈ G2,A ,
+
+s/2+3/4
+
+η ∗ ΦL
+2 (gv , s) = v1
+and hence
+
+′
+1
+ΦL
+1 (gv2 , s + 2 )
+
+
+
+s/2+3/4
+Wt gv2 , s + 12 , ΦL
+Wt e, s + 12 , [η ∗ ◦ r(gv )] ΦL
+2 = v1
+1 .
+
+(195)
+(196)
+(197)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+28
+
+We now turn to the second term in (187); to this end, recall the identities
+1
+
+2
+∨
+−1
+WT,p (e, s, ΦL
+· |2|p2 · αp (X, T, L)|X=p−s
+2 ) = γp (V) · [Lp : Lp ]
+
+and
+
+1
+
+(198)
+
+−
+∨
+Wt,p (e, s + 12 , ΦL
+1 ) = χV,p (−1) · γp (V) · [Lp : Lp ] 2 · αp (X, t, L)|X=p−s ,
+
+(199)
+
+L∨
+p = {x ∈ Vp | hx, yi ∈ Zp for all y ∈ Lp }
+
+(200)
+
+cf. [KRY06, Lemma 5.7.1]. Here
+
+is the dual lattice with respect to the bilinear form hx, yi with hx, xi = 2Q(x) = 2N det(x), so,
+recalling that N is odd and squarefree, we have
+(
+p, if p|2N
+∨
+[Lp : Lp ] =
+(201)
+1, otherwise.
+For our fixed integer t 6= 0, write
+
+4N t = c2 d
+
+(202)
+
+where −d is a fundamental
+discriminant. Let χ−d denote the quadratic Dirichlet character attached
+√
+to the field kd := Q( −d).
+Lemma 4.13. Suppose T = ( 0 t ).
+(i) If p ∤ N , then
+WT,p (e, s, ΦL
+2,p )
+
+= γp (V) χV,p (−1) |2|p
+Wt,p (e, −s + 21 , ΦL
+1,p )
+
+Lp (s, χ−d )
+ζp (−2s + 2)
+·
+· |c|2s−1
+·
+p
+ζp (2s + 2) Lp (1 − s, χ−d )
+
+(203)
+
+where ζp (s) = (1 − p−s )−1 and Lp (s, χ−d ) = (1 − χ−d (p)p−s )−1 as usual.
+(ii) If p|N , then
+WT,p (e, s, ΦL
+2,p )
+Wt,p (e, −s + 21 , ΦL
+1,p )
+
+= −γp (V)χV,p (−1)
+
+1
+s− 2
+ζp (s − 1) Lp (s, χ−d )
+|c|2s−1
+|N
+|
+p
+ζp (s + 1) Lp (1 − s, χ−d ) p
+
+(204)
+
+Proof. Suppose p ∤ N , and let (0, a) denote the Gross-Keating invariants of the matrix diag(−N, t) ∈
+Sym2 (Qp ), cf. [Yan04, Appendix B]; note that if p 6= 2, then a = ordp (t). Using [Yan04, Proposition
+B4], one can check that
+(
+a−1
+, a odd,
+(205)
+ordp (c) = a 2
+,
+a even.
+2
+In light of (113), it suffices to prove the identity
+αp (X, T, L)
+Lp (s, χ−d )
+? ζp (−2s + 2)
+·
+· |c|2s−1
+,
+=
+p
+αp (X −1 , t, L) X=p−s
+ζp (2s + 2) Lp (1 − s, χ−d )
+
+(206)
+
+which amounts to an explicit computation using formulas of Yang. Indeed, by [Yan04, Proposition
+C2], we have
+P a−1
+
+2
+ k=0
+p−k X 2k ,
+a odd,
+αp (X, t, L)
+=
+(207)
+−2
+2
+(1 − p X ) 
+P a2 p−k X 2k + (χ (p) − p−1 X)−1 p− a2 −1 X a+1 , a even.
+−d
+k=0
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+On the other hand, taking the limit a3 → ∞ in [Yan04, Theorem 5.7], we have
+P a−1
+2
+
+ k=0
+pk X 2k ,
+a odd,
+αp (X, T, L)
+=
+1 − p−2 X −2 
+P a2 −1 pk X 2k + p a2 X a (1 − χ (p)X)−1 , a even.
+−d
+k=0
+
+The desired relation follows easily from an explicit computation.
+For (ii), suppose that p|N , so that in particular p 6= 2.
+Write a = ordp (t). Then a direct computation using [Yan98, Proposition 3.1] gives
+!
+a+1
+a+1
+p− 2 X a+1 − 1
+−1
+αp (X, t, L) = 1 + (1 − p )X
++ χ−d (p)p− 2 X a+1
+p−1 X 2 − 1
+
+29
+
+(208)
+
+(209)
+
+when a is odd, and
+αp (X, t, L) = 1 + (1 − p−1 )X
+
+
+ −a a
+a
+p 2X −1
+− p− 2 −1 X a+1
+p−1 X 2 − 1
+
+(210)
+
+when a is even.
+Consider the case that a is odd, which in turn implies that ordp (c) = a+1
+2 . Then taking b → ∞
+in the formulas in Proposition 3.6 and applying Lemma 3.5 gives
+!
+a+1
+
+X2
+p 2 X a+1 − 1
+(p − p−1 )X 2 − p−1 X − 1
+α(X, T, L) =
+2
+X −p
+pX − 1
+a+1
+
++
+
+ X +p
+p 2 X a+1
+−p−1 X 2 + (χ−d (p) − p−1 )X − 1 +
+; (211)
+1 − χ−d (p)X
+p
+
+note that in this case, χ−d (p) = (−N t, p)p = v0+ in the notation of Lemma 3.5.
+From this, a straightforward computation shows that
+ 
+
+
+a+3
+1 − χ−d (p)p−1 X −1
+1 − p−1 X
+α(X, T, L)
+·
+p 2 X a+2 ,
+=−
+αp (X −1 , t, L)
+1 − pX
+1 − χ−d (p)X
+and the lemma follows. A similar computation establishes the case of even a.
+
+(212)
+
+
+Finally, we have the archimidean counterpart to the previous lemma:
+Lemma 4.14. Suppose T = ( 0 t ) and v = ( v1 v2 ). Let
+( s+1
+π − 2 Γ( s+1
+s
+2 ),
+2
+L∞ (s, χ−d ) := |d| ·
+s
+− s2
+π Γ( 2 ),
+
+if d > 0,
+if d < 0.
+
+(213)
+
+Then
+
+
+
+3
+
+
+2
+WT,∞ gv , s, Φ2,∞
+L∞ (s, χ−d )
+ζ∞ (−2s + 2)
+1−s
+−s/2+3/4k
+
+
+·
+·
+=
+v
+(−2i)
+3
+1
+1+s
+L∞ (1 − s, χ−d ) ζ∞ (2s + 2)
+2
+Wt,∞ gv2 , −s + 21 , Φ1,∞
+1
+
+× c2s−1 N −s+ 2 .
+
+Recall here we are writing 4N t = c2 d, where d is a fundamental discriminant.
+
+(214)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+30
+
+Proof. By [KRY06, Proposition 5.7.7], we have2
+
+
+3
+2
+WT,∞ gv , s, Φ2,∞
+2
+ = v1−s/2+3/4 (−i)
+
+;
+3
+1
+s
++
+1
+2
+Wt,∞ gv2 , s − 2 , Φ1,∞
+
+(215)
+
+On the other hand, we may apply [KRY04, Proposition 14.1] to see
+
+
+ −s+3
+3
+s
+−1
+2
+, t>0
+Wt,∞ gv2 , s − 21 , Φ1,∞
+1 Γ( 2 )Γ( 2 + 1)
+s− 2
+
+
+=
+(π|t|)
+·
+3
+
+2
+−1
+Wt,∞ gv2 , −s + 12 , Φ1,∞
+,
+t < 0.
+Γ(− 2s )Γ( s−1
+2 )
+
+The lemma follows from a little algebra.
+
+Corollary 4.15. Suppose T = ( 0 t ) and v = ( v1 v2 ). Then
+
+
+
+
+Y
+s
+3
+Λ(−2s
++
+2)
+s
+−
+1
+−2+4
+
+βp (s)
+WT (gv , s, ΦL
+N −2s+1
+2 ) = v1
+s+1
+Λ(2s + 2)
+p|N
+
+where Λ(s) =
+
+Q
+
+v≤∞ ζv (s) and
+
+(216)
+
+
+(217)
+
+× Wt (gv2 , −s + 12 , ΦL
+1)
+
+ζp (s − 1)ζp (2s + 2)
+.
+ζp (s + 1)ζp (−2s + 2)
+
+βp (s) = −
+
+(218)
+
+Proof. Combining Lemma 4.13 and Lemma 4.14, we have
+s
+WT (gv , s, ΦL
+1 Λ(−2s + 2)
++3
+2)
+= v12 4 (−2i)N −s+ 2
+1
+L
+Λ(2s + 2)
+Wt (gv2 , −s + 2 , Φ1 )
+
+×
+
+Y
+
+p<∞
+
+1
+s−
+γp (V)χV,p (−1)|2|p |N |p 2
+
+!
+
+·
+
+Y
+
+(219)
+βp (s);
+
+p|N
+
+here we usedQ the functional equation Λ(s, χ−d ) = Λ(1 − s, χ−d ) for the completed L-function
+Λ(s, χ−d ) = v≤∞ Lv (s, χ−d ).
+On the other hand, the product formula gives
+Y
+γp (V)χV,p (−1) = γ∞ (V)−1 · (−1, −N )R = −γ∞ (V)−1 .
+(220)
+p<∞
+
+By [KRY06, p. 330], we have γ∞ (V) = −i, and the corollary follows easily.
+
+Corollary 4.16. Suppose T = ( 0 t ) and v = (
+−3/4
+
+v1
+
+′
+L
+1
+ET′ (gv , 0, ΦL
+2 ) = 2 Wt (gv2 , 2 , Φ1 )
+
+
+v1
+
+
+
+v2 ). Then
+
+
+′
+X p−1
+4Λ
+(2)
++ log v1 + 2 +
++
+log p Wt (gv2 , 21 , ΦL
+1 ).
+Λ(2)
+p+1
+
+(221)
+
+p|N
+
+Proof. This follows immediately from the previous corollary, and equations (187) and (197).
+
+2Note that there is an error in the statement of [KRY06, Proposition 5.7.7]: the factor
+of the equation in that proposition should be 2.
+
+√
+
+2 on the right hand side
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+31
+
+Our next step is to compare this expression with the arithmetic heights of special divisors, as
+computed in [DY19]. Recall that we have written the Eisenstein in “classical” coordinates as
+X
+T
+− 34
+E(gτ , s, ΦL
+CT (v, s, ΦL
+(222)
+E(τ, s, ΦL
+2) =
+2)q .
+2 ) = det(v)
+T
+
+Proposition 4.17. Suppose T = ( 0
+
+t ) and v = (
+
+v1
+
+v2 ). Then
+
+b v2 ), ω
+4hZ(t,
+bN i + log v1 deg Z(t) = −
+
+Q
+
+p|N (p + 1)
+
+12
+
+CT′ (v, 0, ΦL
+2 ),
+
+(223)
+
+b v2 ), ω
+d
+where hZ(t,
+bN i = deg(Z(t,
+v2 ) · ω
+bN ) is the intersection pairing, as in Section 2.3
+
+Proof. This follows from combining Corollary 4.16 with [DY19, Theorem 1.3]. Let
+
+
+Y
+3
+1
+s
+EDY (τ, s) = A1 (s)E(τ, s − 12 , ΦL
+A1 (s) := − Λ(2s)  (1 − p−2s ) N 2 + 2 s
+1 ),
+4π
+
+(224)
+
+p|N
+
+denote the normalized genus 1 Eisenstein series in [DY19] (note that the variable s is shifted by
+1/2 here, as compared to loc. cit.). Then for τ2 = u2 + iv2 ∈ H, Theorem 1.3 of loc. cit. states
+X p
+′
+b v2 ), ω
+log p · EDY,t (τ2 , 1)
+(225)
+ϕ(N ) · hZ(t,
+bN iq2t = EDY,t
+(τ2 , 1) −
+p−1
+p|N
+
+
+
+
+
+ A′ (1) X p
+1
+
+−
+log p Et (τ2 , 21 , ΦL
+= A1 (1) Et′ (τ2 , 12 , ΦL
+1)+
+1) .
+
+ A1 (1)
+p−1
+p|N
+
+(226)
+
+Now
+
+A1 (1) = −
+and
+
+Y
+1 Y 2
+1
+(1 − p−2 ) = −
+(p − 1)
+Λ(2)N 2
+4π
+24
+p|N
+
+X
+A′1 (1) X p
+2Λ′ (2) 3
+−
+log p = 1 +
++ log N +
+A1 (1)
+p−1
+Λ(2)
+2
+p|N
+
+p|N
+
+=1+
+
+(227)
+
+p|N
+
+
+
+2p−2
+p
+−
+1 − p−2
+p−1
+
+
+
+log p
+
+2Λ′ (2) X p − 1
++
+log p.
+Λ(2)
+2(p + 1)
+
+(228)
+(229)
+
+p|N
+
+Thus for τ = ( τ1 τ2 ), we have qτt 2 = q T and, comparing with Corollary 4.16, we find
+3
+
+2(v2 ) 4 ·
+
+ϕ(N ) b
+·hZ(t, v2 ), ω
+bN i q T
+A1 (1)
+
+(230)
+
+
+
+
+
+′
+X p−1
+2Λ
+(2)
++
+log
+p
+Wt (gτ2 , 12 , ΦL
+)
++
+2
+1
++
+= 2Wt′ (gτ2 , 12 , ΦL
+1
+1)
+
+
+Λ(2)
+2(p + 1)
+
+(231)
+
+p|N
+
+−3
+
+L
+1
+= v1 4 ET′ (gτ , 0, ΦL
+2 ) − log v · Wt (gτ2 , 2 , Φ1 ).
+
+(232)
+
+Finally, [DY19, Theorem 1.3] asserts that
+
+1
+A1 (1) − 34
+1
+· Wt (gv2 , 12 , ΦL
+deg(Z(t))qτt 2 =
+EDY,t (τ2 , 1) =
+·v
+1 ).
+2
+ϕ(N )
+ϕ(N ) 2
+
+(233)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+32
+
+
+We arrive at the main theorem for T of rank 1.
+Theorem 4.18. Suppose rank(T ) = 1. Then
+Q
+p|N p + 1 ′
+d
+CT (v, 0, ΦL )
+degZ(T,
+v) =
+24
+
+(234)
+
+Proof. It follows from definitions that for any γ ∈ GL2 (Z), we have
+CγT t γ (v, s, ΦL ) = CT (γ t vγ, s, ΦL ).
+
+(235)
+
+b v) satisfies the same invariance, cf. (79), we may use Lemma 2.10 to assume that T = ( 0 ).
+As Z(T,
+t
+Furthermore, given any v ∈ Sym2 (R), one can find a matrix θ = ( 1 ∗1 ) ∈ GL2 (R) such that θv t θ is
+diagonal, and we have
+C( 0 ) (θv t θ, s, ΦL ) = C( 0 ) (v, s, ΦL )
+t
+t
+
+and
+
+b 0 ) , θv t θ) = Z((
+b 0 ) , v).
+Z((
+t
+t
+
+Thus we may assume T = ( 0 t ) and v = ( v1 v2 ). In this case, we have, by definition,
+
+b v) = −2Z(t,
+b v2 ) · ω
+Z(T,
+bN + 0, log v1 δZ(t) ,
+
+(236)
+
+(237)
+
+cf. Definition 2.11. The theorem follows from the previous proposition.
+
+
+
+4.4. T = 0. Our first task is computing the constant term E0 (g, s, ΦL
+2 ). To this end, for g ∈ G2,A ,
+we abbreviate
+
+
+Bv (g, s) := W0,v e, s + 21 , (η ∗ ◦ r(g))ΦL
+(238)
+B(g, s) := W0 e, s + 21 , (η ∗ ◦ r(g))ΦL
+2 ,
+2,v
+
+where W0 (...) is the Whittaker functional in genus 1, and η ∗ is the map defined in (185). Arguing
+as in [KRY06, §5.9], for g ∈ G2,A , we have
+X
+L
+B(m(γ)g, s) + ΦL
+(239)
+E0 (g, s, ΦL
+2 (g, s).
+2 ) = W0 (g, s, Φ2 ) +
+γ∈Γ∞ \SL2 (Z)
+
+For v ∈ Sym2 (R)>0 , take g = gz ∈ G2,A as in (92).
+For the first term, [KRY06, (5.9.3)] gives3
+3/2
+W0,∞ (gv , s, ΦL
+2,∞ ) = −2
+
+(s − 1)ζ∞ (2s − 1)
+det(v)−s/2+3/4
+(s + 1)ζ∞ (2s + 2)
+
+(240)
+
+where ζ∞ (s) = π −s/2 Γ(s/2), and
+3/2
+W0,p (e, s, ΦL
+2,p ) = |2|p
+
+ζp (2s − 1)
+γ(Vp )2
+ζp (2s + 2)
+
+(241)
+
+for p ∤ N .
+When p|N , we may take a, b → ∞ in Proposition 3.6, apply Lemma 3.5 and simplify to find
+W0,p (e, s, ΦL
+2,p ) =
+
+ζp (2s − 1) p−1 (1 + p−s+1 )
+γ(Vp )2 .
+·
+ζp (2s + 2)
+1 + p−s−1
+
+3Note that the power of 2 appearing on the right hand side of [KRY06, (5.9.3)] is misstated.
+
+(242)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+33
+
+Combining these identities with the fact that γ∞ (V)2 = −1, and applying the product formula
+Q
+v≤∞ γv (V) = 1, we have
+(s − 1)Λ(2s − 1)
+· A(s),
+(s + 1)Λ(2s + 2)
+
+(243)
+
+1 + p−s+1
+.
+1 + p−s−1
+
+(244)
+
+−s/2+3/4
+W0 (gv , s, ΦL
+2 ) = det(v)
+
+where
+A(s) :=
+
+Y
+
+p−1
+
+p|N
+
+Note that A(0) = 1 and
+
+A′ (0) =
+
+X 1−p
+p|N
+
+and so
+
+
+
+1+p
+
+log p,
+
+(245)
+
+′
+
+Λ (−1)
+3/4  1
+log det v + 2 − 4
+−
+W0′ (gv , 0, ΦL
+·
+2 ) = (det v)
+2
+Λ(−1)
+
+X 1−p
+p|N
+
+1+p
+
+
+
+log p .
+
+Next, we consider the middle term in (239). For any γ ∈ SL2 (Z) and prime p, we have
+L
+r(m(γ))ΦL
+2,p = Φ2,p ;
+
+(246)
+
+(247)
+
+hence Lemma 4.12 gives
+
+
+
+L
+1
+η ∗ r(m(γ))ΦL
+(248)
+2,p (s) = Φ1,p s + 2 ,
+which is in particular independent of γ. Thus we have
+1
+),
+γ ∈ SL2 (Z).
+(249)
+Bp (m(γ), s) = W0,p (e, s + , ΦL
+2 1
+Applying (199) and taking a → ∞ in (207) for p ∤ N , or (209) and (210) for p|N , a short computation
+gives
+(
+ζp (2s + 2)−1 ,
+p∤N
+Bp (m(γ), s) = χV,p (−1)γp (V)|2|1/2
+(250)
+p ζp (2s + 1)
+−s−3/2
+−1
+p
+ζp (s) , p|N
+for all γ ∈ SL2 (Z).
+At the infinite place, the proof of [KRY06, Proposition 5.9.2] gives
+√
+1
+sζ∞ (2s + 1)
+B∞ (m(γ)gv , s) = 2 γ∞ (V) det(v)s/2+3/4 Qv (c, d)− 2 −s
+(s + 1)ζ∞ (2s + 2)
+
+t
+a
+b
+where γ = c d and Qv (c, d) = (c, d) · v · (c, d). Consider the series
+X
+Qv (c, d)−s
+G(s, v) :=
+( ∗c ∗d )∈Γ∞ \SL2 (Z)
+
+for Re(s) ≫ 0. Note that
+
+(251)
+
+(252)
+
+ζ(2s)G(s, v) = Z(s, v)
+
+(253)
+
+X
+
+(254)
+
+where
+Z(s, v) :=
+
+Qv (m, n)−s
+
+m,n∈Z
+(m,n)6=(0,0)
+
+is the Epstein zeta function attached to the positive definite quadratic form determined by v. By
+[Sie80, §1.5], the series Z(s, v) extends meromorphically to s ∈ C, with only a simple pole at s = 1;
+in particular, Z(s, v) is regular at s = 1/2. It follows that G(s, v) vanishes at s = 21 .
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+The preceding discussion implies that
+X
+B(m(γ)gv , s) = det(v)s/2+3/4 ·
+γ∈Γ∞ \SL2 (Z)
+
+where
+
+B(s) =
+
+Y
+
+sΛ(2s + 1)
+· G(s + 21 , v) · B(s)
+(s + 1)Λ(2s + 2)
+
+p−s−3/2
+
+p|N
+
+Notice that
+
+ζp (2s + 2)
+.
+ζp (s)
+
+ord B(s) = o(N )
+
+34
+
+(255)
+
+(256)
+
+(257)
+
+s=0
+
+where o(N ) is the number of prime divisors of N , and hence the sum (255) vanishes at s = 0 to
+order at least o(N ) + 1.
+Finally, by definition we have that
+s/2+3/4
+ΦL
+.
+2 (gv , s) = det(v)
+
+(258)
+
+To summarize the discussion, we obtain:
+−3/4
+Proposition 4.19. Let C0 (v, s, ΦL
+E0 (gv , s, ΦL
+2 ) = det(v)
+2 ). Then
+′
+Λ (−1) X 1 − p
+C0′ (v, 0, ΦL
+−
+log p.
+2 ) = log det v + 2 − 4
+Λ(−1)
+1+p
+
+(259)
+
+p|N
+
+
+Corollary 4.20.
+d Z(0,
+b v) =
+deg
+
+Q
+
+p|N (p + 1)
+
+24
+
+!
+
+· C0′ (v, 0, ΦL
+2 ).
+
+(260)
+
+Proof. Recall that by definition,
+
+b v) = ω
+Z(0,
+b·ω
+b + (0, log det v · [Ω]) ,
+
+where
+
+cf. (53), and we set Ω = dx∧dy
+2πy 2 .
+
+ω
+b = −2b
+ωN −
+
+X
+p|N
+
+Xbp0 + (0, log N ),
+
+(261)
+(262)
+
+dω
+The arithmetic degree hb
+ωN , ω
+bN i = deg
+bN · ω
+bN was computed independently by Kühn [Küh01]
+and Bost; adjusting for the normalization of the metric (51), which differs by a multiplicative
+constant from the normalization of [Küh01], and a factor of 2 because our degree is ‘stacky’, the
+result is
+Q
+
+
+1 Λ′ (−1)
+p|N (p + 1)
+.
+(263)
+hb
+ωN , ω
+bN i =
+−
+24
+2
+Λ(−1)
+Next, let WN denote the Atkin-Lehner involution on X0 (N ), and note that WN∗ (b
+ωN ) = ω
+bN and
+∗ b0
+WN (Xp ) = Xbp∞ , so that
+
+1
+ωN , Xbp0 + Xbp∞ i
+hb
+ωN · Xbp0 i = hWN∗ ω
+bN , WN∗ Xbp0 i = hb
+ωN · Xbp∞ i = hb
+2
+On the other hand, we have
+c
+d1 (X );
++ (0, 2 log p) = (0, 2 log p) ∈ CH
+Xb0 + Xb∞ = (X0 (N )Fp , 0) = div(p)
+p
+
+p
+
+(264)
+
+(265)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+35
+
+c
+here we view p as a rational function on X0 (N ), and so its arithmetic divisor div(p)
+= (X/Fp , − log p2 )
+d1 (X ).
+vanishes in CH
+Thus
+X
+X
+hb
+ωN , Xp0 − (0, log p)i = 0.
+(266)
+Xbp0 − (0, log n)i =
+hb
+ωN ,
+p|N
+
+p|N
+
+Finally, we note that
+
+hXbp0 , (0, log N )i = h(0, log N ), (0, log N )i = 0
+
+(267)
+
+and hXbp0 , Xq0 i = 0 if p 6= q. Moreover, by [DY19, Lemma 7.2], we have
+Q
+q|N (q + 1) p − 1
+0 b0
+b
+log p;
+(268)
+hXp , Xp i = −
+24
+p+1
+again, this formula differs from loc. cit. by a factor of 2, because we are using the ‘stacky’ degree.
+Putting everything together, we find that
+
+
+Q
+′
+X
+X
+(1
++
+q)
+1−p
+q|N
+2 − 4 Λ (−1) −
+hXbp0 , Xbp0 i =
+hb
+ω, ω
+b i = 4hb
+ωN , ω
+bN i +
+log p .
+(269)
+24
+Λ(−1)
+1+p
+p|N
+
+p|N
+
+Finally, we observe that
+
+d log det v · [Ω]) = log det v
+deg(0,
+2
+
+Z
+
+dx ∧ dy
+= log det v ·
+2
+[Γ0 (N )\H] 2πy
+
+and the theorem follows.
+
+Q
+
+q|N (q + 1)
+
+24
+
+,
+
+(270)
+
+
+5. Comparison of two Eisenstein series
+In addition to the lattice L, there is another lattice which naturally parameterizes the modular
+curve X0 (N ) over C. It is
+
+
+a
+b
+L = {A =
+: a, b, c ∈ Z}, Q(A) = det A = −a2 − N bc.
+N c −a
+
+We set V = L ⊗Z Q. Our aim in this section is to compare the incoherent Eisenstein series attached
+to L with the Eisenstein series E(τ, s, ΦL
+2 ) appearing in our main theorem.
+L
+′
+For r = 1, 2, let ΦL
+(s)
+=
+⊗
+Φ
+v≤∞
+r
+r,v (s) be the incoherent standard section in Ir (s, χ ) with
+3/2
+
+L
+ΦL
+r,∞ = Φr,∞ and, for v < ∞, the component Φr,v is the standard section attached to Lv via the
+Rallis map, cf. Definition 2.13; here the character χ′ is given by χ′ (x) = (−1, x)A .
+We will also require some auxilliary sections. For each prime ℓ dividing N let L(ℓ) denote the
+quadratic lattice defined in (124); recall that by definition, L(ℓ) is the set of traceless elements in
+an Eichler order of level N/ℓ contained in the definite quaternion algebra ramified exactly at ℓ and
+∞, and the quadratic form is the reduced norm.
+(ℓ)
+(ℓ)
+3/2
+For r = 1, 2, let Φr (s) ∈ Ir (s, χ′ ) denote the section with Φr,∞ (s) = Φr,∞ (s), and for v < ∞,
+(ℓ)
+(ℓ)
+the local section Φr,v (s) is the standard section associated to Lv . Note that this section is coherent,
+in the sense of [Kud97].
+Finally, for ℓ|N , we set
+
+
+a
+b
+Lsp,(ℓ) = {A =
+: a, b, c ∈ Z}, Q(A) = det A = −a2 − (N/ℓ)bc.
+(271)
+(N/ℓ)c −a
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+36
+sp,(ℓ)
+
+sp,(ℓ)
+
+with Φr,∞
+In the same manner as above, we obtain an incoherent section Φr
+sp,(ℓ)
+sp,(ℓ)
+.
+where at finite places, Φr,v is the standard section associated to Lv
+For convenience, we write
+V = L ⊗Z Q,
+
+V = L ⊗Z Q,
+
+V (ℓ) = L(ℓ) ⊗Z Q
+
+and
+
+3/2
+
+= Φr,∞ and
+
+V sp,(ℓ) = Lsp,(ℓ) ⊗Z Q.
+
+(272)
+
+Our first step is a comparison of Whittaker functionals in genus two.
+Proposition 5.1. Suppose T ∈ Sym2 (Z)∨ .
+(i) If q ∤ N , then
+(ℓ)
+
+WN T,q (e, s, Φ2,q )
+WT,q (e, s, ΦL
+WN T,q (e, s, ΦL
+2,q )
+2,q )
+=
+=
+2
+2
+γq (V)
+γq (V )
+γq (V (ℓ) )2
+with the last identity holding for any ℓ|N .
+(ii) If q|N , then
+(ℓ)
+
+WN T,q (e, 0, Φ2,q )
+WT,q (e, 0, ΦL
+WN T,q (e, 0, ΦL
+2,q )
+2,q )
+=
+=
+2
+2
+γq (V)
+γq (V )
+γq (V (ℓ) )2
+with the last identity holding for ℓ 6= q.
+(iii) If q|N , then
+′
+WN′ T,q (e, 0, ΦL
+WT,q
+(e, 0, ΦL
+2,q )
+2,q )
+−
+2
+2
+γq (V)
+γq (V )
+
+=
+
+sp,(q)
+(q)
+)
+q−1
+2 WN T,q (e, 0, Φq
+WN T,q (e, 0, Φq )
+3q − 1 WN T,q (e, 0, ΦL
+q)
+−
+·
++
+2(q + 1)
+2(q − 1)
+γq (V )2
+q2 − 1
+γq (V (q) )2
+γq (V sp,(q) )2
+
+!
+
+log q
+
+(iv) Let τ ∈ H2 and gτ,∞ ∈ G2,∞ as in (92). Then for any Φ ∈ I2,∞ (s, χ′∞ ), we have
+3
+
+WT,∞ (gN τ,∞ , s, Φ) = N −s+ 2 WN T,∞ (gτ,∞ , s, Φ).
+
+(v) Globally, we have
+N
+
+− 32
+
+
+X ℓ+1
+′
+L
+
+log ℓ WN T (gτ , 0, ΦL
+WT′ (gN τ , 0, ΦL
+2)
+2 ) = WN T (gτ , 0, Φ2 ) +
+2(ℓ − 1)
+ℓ|N
+
+X ℓ − 1
+2
+(ℓ)
+sp,(ℓ)
++
+WN T (gτ , 0, Φ2 ) − 2
+WN T (gτ , 0, Φ2
+) log ℓ
+2(ℓ + 1)
+ℓ −1
+
+
+ℓ|N
+
+(ℓ)
+
+Proof. For any primes ℓ, q with q 6= ℓ, the lattices Lq and Lq are isometric. Hence parts (i) and
+(ii) of the proposition follow immediately from Lemma 4.2.
+To prove (iii), we work at the level of representation densities. First, a direct computation using
+Lemma 3.5 and (129) gives
+
+
+(X − q)α(X, N T, Lq ) + (q 2 − q)X 2 α(X, T, Lq ) = (X − 1) q 2 α(X, N T, L0q ) + (q − 1)(X − q) (273)
+where, changing notation slightly, we let L0q = M2 (Zq )tr=0 with quadratic form Q(x) = det x. On
+the other hand, [Yan98, Corollary 8.4] implies that
+
+
+
+
+1−q
+1+q
+q 2 αq (X, N T, L0q ) =
+αq (X, N T, Lq(q) ) +
+αq (X, N T, Lq ) + q 2 − 1.
+(274)
+2
+2
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+Substituting this into (273) and rearranging gives
+
+
+
+
+i
+X −1 h
+X +1
+2
+αq (X, N T, Lq ) − qX αq (X, T, Lq ) =
+αq (X, N T, Lq(q) ) − 2(X + 1) .
+2
+2
+
+37
+
+(275)
+
+Differentiating with respect to X and substituting X = 1, we have
+(q)
+
+α′q (1, N T, Lq ) − qα′q (1, T, Lq ) =
+
+αq (1, N T, Lq ) − αq (1, N T, Lq )
++ 2qαq (1, T, Lq ) − 2.
+2
+
+(276)
+
+To manipulate this expression further, we take X = 1 in (273) and (274), which yields the relations
+αq (1, N T, Lq ) = qαq (1, T, Lq )
+
+(277)
+
+and
+2=
+
+2
+q2 − 1
+
+(q 2 − 1)
+
+(278)
+
+q2
+=2 2
+αq (1, N T, L0q ) +
+q −1
+
+
+
+1
+q+1
+
+
+
+αq (1, N T, Lq(q) ) −
+
+
+
+1
+q−1
+
+
+
+αq (1, N T, Lq ).
+
+(279)
+
+Substituting these identities back into (276) gives
+α′q (1, N T, Lq ) − qα′q (1, T, Lq ) =
+
+q−1
+3q − 1
+αq (1, N T, Lq(q) ) +
+αq (1, N T, Lq )
+2(q + 1)
+2(q − 1)
+2q 2
+− 2
+αq (1, N T, L0q ).
+q −1
+
+Finally, applying (113), we obtain (iii).
+To prove (iv), we first observe that for any b ∈ Sym2 (R), we have
+√
+√
+√
+w n(b) gN τ = w n(b) m( N )gτ = w m( N ) n(N −1 b)gτ = m( N −1 ) w n(N −1 b)gτ ,
+where the notation is as in (83). Thus, for any Φ ∈ I2,∞ (s, χ′∞ ), we have
+Z
+Φ(wn(b)gN τ , s)e−2πitrT b db
+WT,∞ (gN τ , s, Φ) =
+b∈Sym2 (R)
+Z
+√
+Φ(m( N −1 ) w n(N −1 b)gτ , , s) e−2πitrT b db
+=
+b∈Sym2 (R)
+
+3
+
+= χV,∞ (N −1 )N −s− 2
+Z
+−s− 32
+3
+=N
+·N
+
+Z
+
+Φ(wn(N −1 b)gτ , s) e−2πitrT b db
+
+(280)
+(281)
+
+(282)
+
+(283)
+(284)
+(285)
+
+b∈Sym2 (R)
+
+Φ(wn(b)gτ , s) e−2πN trT b db
+
+(286)
+
+Sym2 (R)
+
+3
+
+= N −s+ 2 WN T,∞ (gτ , s, Φ),
+
+(287)
+
+√
+√
+where in the second-to-last line, we used the fact that χV,∞ ( N −1 ) = ( N −1 , −N )∞ = 1, and
+applied the change of variables b 7→ N b.
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+38
+
+To prove (v), Q
+recall that the local Weil indices, for any quadratic space W over Q, satisfy the
+product formula q≤∞ γq (W ) = 1. Thus, applying part (i) – (iv) of the proposition, we have
+3
+
+N − 2 WT′ (gN τ , 0, ΦL
+2)
+
+
+
+
+
+  γ (V ) 2
+X ℓ+1
+∞
+L
+
+
+log
+ℓ
+= WN′ T (gτ , 0, ΦL
+W
+(g
+,
+0,
+Φ
+)
+)
++
+NT τ
+2
+2
+
+ γ∞ (V)
+2(ℓ − 1)
+ℓ|N
+
++
+
+X
+ℓ|N
+
+ℓ−1
+(ℓ)
+WN T (gτ , 0, Φ2 )
+2(ℓ + 1)
+
+sp,(ℓ)
+
+
+
+γ∞ (V (ℓ) )
+γ∞ (V)
+
+2
+
+2
+sp,(ℓ)
+WN T (gτ , 0, Φ2
+)
+−
+ℓ(ℓ2 − 1)
+
+
+
+γ∞ (V
+γ∞ (V)
+
+2 !
+
+log ℓ
+
+(288)
+
+Note that V∞ ≃ V∞ ≃ V∞
+
+, and by [KRY06, p. 330], we have γ∞ (V ) = −i = −γ∞ (V (ℓ) ). Thus
+2 
+2
+
+γ∞ (V (ℓ) )
+γ∞ (V )
+=
+=1
+(289)
+γ∞ (V)
+γ∞ (V)
+
+and the proposition follows.
+
+
+
+To investigate the degenerate terms, we require the genus one analogue of Proposition 5.1.
+Proposition 5.2. For the lattice L, let V = L ⊗ Q, and for a prime q ≤ ∞, define
+cq (V) = χV,q (−1)γq (V).
+We define cq (V ), cq (V (ℓ) ) and cq (V sp,(ℓ) ) in a similar way.
+Let t ∈ Z. Then
+(i) Suppose q ∤ N and q < ∞. Then
+
+(ℓ)
+
+WN t,q (e, s, Φ1,q )
+WN t,q (e, s, ΦL
+Wt,q (e, s, ΦL
+1,q )
+1,q )
+=
+=
+cq (V)
+cq (V )
+cq (V (ℓ) )
+with the last identity holding for any ℓ|N .
+(ii) Suppose q|N . Then
+(ℓ)
+
+1
+1
+L
+Wt,q (e, 12 , ΦL
+1 WN t,q (e,
+1 WN t,q (e, 2 , Φ1,q )
+1,q )
+2 , Φ1,q )
+= q2
+= q2
+cq (V)
+cq (V )
+cq (V (ℓ) )
+
+with the last identity holding for all ℓ 6= q.
+(iii) Suppose q|N . Then
+1
+
+q− 2
+
+′
+WN′ t,q (e, 12 , ΦL
+Wt,q
+(e, 12 , ΦL
+1,q )
+1,q )
+=
+cq (V)
+cq (V )
+
+!
+(q)
+sp,(q)
+1
+1
+2 WN t,q (e, 2 , Φ1,q )
+q + 1 WN t,q (e, 12 , ΦL
+q − 1 WN t,q (e, 2 , Φ1,q )
+1,q )
+log q
+− 2
++
+−
+2(q − 1)
+cq (V )
+2(q + 1)
+q −1
+cq (V (q) )
+cq (V sp,(q) )
+√
+(iv) Let τ = u + iv ∈ H and gτ,∞ = [n(u)m( v), 1] ∈ G1,∞ denote the corresponding group
+element. Then for any Φ ∈ I1,∞ (s, χ′∞ ), we have
+s
+
+1
+
+Wt,∞ (gN τ,∞ , s, Φ) = N − 2 + 2 WN t,∞ (gτ,∞ , s, Φ).
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+39
+
+(v) Globally,
+
+
+′
+L
+1
+
+N −3/4 Wt′ (gN τ , 21 , ΦL
+1 ) = WN t (gτ , 2 , Φ1 ) +
+
+X log ℓ
+ℓ|N
+
+ℓ−1
+
+
+
+ WN t (gτ , 1 , ΦL
+)
+2 1
+
+
+X ℓ − 1
+2
+(ℓ)
+sp,(ℓ)
+WN t (gτ , 12 , Φ1 ) − 2
+WN t (gτ , 12 , Φ1
+) log ℓ
++
+2(ℓ + 1)
+ℓ −1
+ℓ|N
+
+Proof. First, suppose that q ∤ N . The representation density αq (X, t, Lq ) was computed previously,
+(ℓ)
+cf. (207). On the other hand, we have that for any ℓ|N , the quadratic spaces Lq and Lq are both
+tr=0
+isometric to (M2 (Zq )
+, det). Applying [Yan98, Proposition 8.3], a short computation reveals
+αq (X, t, Lq ) = αq (X, N t, Lq ) = αq (X, N t, Lq(ℓ) ).
+
+(290)
+
+Finally, applying the identity (199), which relates the representation densities to Whittaker functionals, yields (i).
+When q|N , the representation density αq (X, t, Lq ) can be computed explicitly using [Yan98,
+Theorem 3.1]; the result is recorded in equations (209) and (210) above. Comparing these formulas
+with the explicit formulas in Corollary 8.2 and Proposition 8.3 of [Yan98], we find
+αq (X, t, Lq ) = 1 − X −1 + X −1 αq (X, N t, Lq )
+
+(291)
+
+αq (1, t, Lq ) = αq (1, N t, Lq ) = αq (1, N t, L(ℓ)
+q )
+
+(292)
+
+Evaluating at X = 1 gives
+
+for ℓ 6= q, and hence, applying (199) again gives part (ii) of the proposition.
+To prove (iii) we differentiate (291) and evaluate at X = 1, which yields
+α′q (1, t, Lq ) = α′q (1, N t, Lq ) − αq (1, N t, Lq ) + 1.
+
+(293)
+
+(q)
+
+By [Yan98, Corollary 8.2], we have αq (X, N t, Lq )+αq (X, N t, Lq ) = 2; substituting this identity
+above, we conclude that
+1
+1
+α′q (1, t, Lq ) = α′q (1, N t, Lq ) − αq (1, N t, Lq ) + αq (1, N t, Lq(q) ).
+2
+2
+
+(294)
+
+On the other hand, the same corollary implies that
+(q)
+
+αq (1, N t, Lq ) αq (1, N t, Lq )
+2q
+αq (1, N t, L0q ) −
+−
+= 0.
+q2 − 1
+q−1
+q+1
+
+(295)
+
+Thus
+α′q (1, t, Lq ) − α′q (1, N t, L) = −
+
+q+1
+q−1
+αq (1, N t, Lq ) +
+αq (1, N t, Lq(q) )
+2(q − 1)
+2(q + 1)
+2q
++ 2
+αq (1, N t, L0q ).
+q −1
+
+Another appeal to (199) gives part (iii) of the proposition.
+Part (iv) follows in the same way as the proof of Proposition 5.1(iv).
+
+(296)
+(297)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+40
+
+Finally,
+Q we observe that for any quadratic space W , the constants cq (W ) satisfy the product
+formula q≤∞ cq (W ) = 1. Combining this observation with the preceding parts of the proposition,
+a short computation yields
+
+
+
+
+X log ℓ
+1
+1
+3
+ WN t (gτ , , ΦL
+ c∞ (V )
+
+N − 2 Wt′ (gτ , , ΦL ) = WN′ t (gτ , 12 , ΦL
+1)
+1)+
+2
+ℓ−1
+2
+c∞ (V)
+ℓ|N
+
+
+(ℓ)
+X
+)
+ℓ−1
+(ℓ) c∞ (V
+−
++
+log ℓ
+WN t (gτ , 12 , Φ1 )
+2(ℓ + 1)
+c∞ (V)
+ℓ|N
+
+
+sp,ℓ
+)
+2
+sp,(ℓ) c∞ (V
+)
++ − 2
+log ℓ
+(298)
+WN t (gτ , 12 , Φ1
+ℓ −1
+c∞ (V)
+sp,(ℓ)
+
+Since V∞ ≃ V∞ ≃ V∞
+
+, we havec∞ (V) = c∞ (V )c∞ (V sp,(ℓ) ). Moreover, we have
+
+χV,∞ (−1) = (−1, −1)∞ = −1 = χV (ℓ) ,∞ (−1)
+
+and
+
+γ∞ (V) = −γ∞ (V (ℓ) )
+
+cf. [KRY06, p. 330]. Thus c∞ (V ℓ ) = −c∞ (V), and the proposition follows.
+
+(299)
+
+
+P
+
+′
+
+For a section Φ ∈ I2 (s, χ ), let E(g, s, Φ) = T ET (g, s, Φ) denote the Fourier expansion of the
+corresponding Eisenstein series, as in Section 2.6.
+Proposition 5.3. Let τ ∈ H2 . Then for any T ∈ Sym2 (Z)∨ we have
+X ℓ−1
+3
+(ℓ)
+L
+′
+EN T (gτ 0, Φ2 ) log ℓ.
+N − 2 ET′ (gN τ , 0, ΦL
+2 ) = EN T (gτ , 0, Φ2 ) +
+2(ℓ + 1)
+
+(300)
+
+ℓ|N
+
+Proof. We note that in general, if τ = u + iv ∈ H2 , we have
+
+ET (gτ , s, Φ) = e2πitr(T u) ET (gv , s, Φ).
+
+(301)
+
+Thus, we may assume that τ = iv for v ∈ Sym2 (R)>0 , and write gτ = gv in the remainder of the
+proof.
+Now suppose T is non-degenerate. Then for any section Φ ∈ I2 (s, χ′ ), we have
+ET (g, s, Φ) = WT (g, s, Φ),
+
+(302)
+
+sp,(ℓ)
+cf. Proposition 4.1. On the other hand, recall that Eisenstein series E(g, s, ΦL
+)
+2 ) and E(g, s, Φ2
+
+are incoherent, in the sense of [Kud97], and so they vanish at s = 0. In particular,
+WN T (gv , 0, ΦL ) = 0
+
+and
+
+WN T (gv , 0, Φsp,(ℓ) ) = 0.
+
+(303)
+
+Thus, the proposition follows from Proposition 5.1(v) in this case.
+Next, suppose that T has rank 1. By Lemma 2.10, we may choose γ ∈ GL2 (Z) that T = t γ ( 0 t ) γ
+for some t 6= 0. Since
+ET (g, s, Φ) = Et γ ( 0 )γ (g, s, Φ) = E( 0 ) (m(γ)g, s, Φ)
+t
+t
+
+(304)
+
+for any section Φ ∈ I2 (s, χ′ ), we may assume without loss of generality that T = ( 0 t ). Similarly,
+replacing v with θv t θ for an appropriate choice of θ = ( 1 ∗1 ) ∈ GL2 (R), we may further assume that
+v = ( v1 v2 )
+
+is diagonal.
+
+(305)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+(ℓ)
+
+L
+For r = 1 or 2, let Φ∗r denote any one of the sections ΦL
+r , Φr , Φr
+
+sp,(ℓ)
+
+or Φr
+
+41
+
+. Note that in all
+
+3
+2
+
+cases, Φ∗r,∞ = Φr,∞ . In this case, combining Lemma 4.11, Lemma 4.12 and (194), we find
+ET (gv , s, Φ∗2 ) = v12
+
++ 43
+
+
+
+
+
+s
+
+In particular,
+3
+
+3
+
+4
+N − 2 ET′ (gN v , 0, ΦL
+2 ) = v1
+
+log(N v1 )
+2
+
+
+Wt gv2 , s + 12 , Φ∗1 + WT (gv , s, Φ∗2 ).
+3
+
+3
+
+(306)
+
+3
+
+−4
+4
+Wt′ (gN v2 , 12 , ΦL
+N − 4 Wt (gN v2 , 12 , ΦL
+1 ) + v1 N
+1)
+3
+
++ N − 2 WT′ (gv , 0, ΦL
+2 ). (307)
+
+Applying (306), Proposition 5.1 and Proposition 5.2, a short computation gives
+X ℓ−1
+3
+(ℓ)
+′
+L
+N − 2 ET′ (gN v , 0, ΦL
+EN T (gv , 0, Φ2 ) log ℓ
+2 ) − EN T (gv , 0, Φ2 ) −
+2(ℓ + 1)
+ℓ|N
+
+
+n 3
+o
+X ℓ+1
+L
+log ℓ v14 WN t (gv2 , 21 , ΦL
+=
+)
++
+W
+(g
+,
+0,
+Φ
+)
+N
+T
+v
+1
+2
+2(ℓ − 1)
+ℓ|N
+o
+X 2 n 3
+sp,(ℓ)
+sp,(ℓ)
+1
+4
+,
+Φ
+)
++
+W
+(g
+,
+0,
+Φ
+)
+log ℓ
+,
+W
+(g
+v
+−
+NT v
+N t v2 2
+1
+2
+ℓ2 − 1 1
+ℓ|N
+
+
+o
+X ℓ+1
+X 2 n
+
+sp,(ℓ)
+=
+E
+(g
+,
+0,
+Φ
+)
+log ℓ
+log ℓ EN T (gv , 0, ΦL
+)
+−
+N
+T
+v
+2
+2
+2(ℓ − 1)
+ℓ2 − 1
+ℓ|N
+
+ℓ|N
+
+=0
+
+sp,(ℓ)
+
+are incoherent, so the Eisenstein series
+where the last line follows since the sections ΦL
+2 and Φ2
+sp,(ℓ)
+)
+and
+E(g,
+s,
+Φ
+)
+vanish
+at
+s
+=
+0.
+This
+proves
+the proposition in the case that T has
+E(g, s, ΦL
+2
+2
+rank 1.
+Finally, suppose T = 0. Recall that for any section Φ2 ∈ I2 (s, χ), an argument along the lines of
+[KRY06, §5.9] (see also [KR88, Lemma 2.4]) gives
+E0 (g, s, Φ) = Φ(g, s) + B(g, s, Φ) + W0 (g, s, Φ)
+
+(308)
+
+X
+
+(309)
+
+where
+B(g, s, Φ) =
+
+B(m(γ)g, s, Φ)
+
+γ∈Γ∞ \SL2 (Z)
+
+with
+
+
+B(g, s, Φ) = W0 e, s + 12 , (η ∗ ◦ r(g)) Φ .
+
+(310)
+
+A similar argument to the proof of the Proposition 4.19 shows that
+B(gv , 0, Φ(ℓ) ) = B(gv , 0, Φsp,(ℓ) ) = 0
+
+(311)
+
+ords=0 B(gv , s, ΦL ) ≥ 2.
+
+(312)
+
+and
+(ℓ)
+sp,(ℓ)
+L
+Moreover, if Φ∗2 is any of the sections ΦL
+, the definitions imply the formula
+2 , Φ2 , Φ2 or Φ2
+s
+
+3
+
+Φ∗2 (gv , s) = det(v) 2 + 4 .
+
+(313)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+Thus, we find
+3
+3
+2
+4
+E0′ (gN v , 0, ΦL
+2 ) = N det(v)
+
+
+
+and
+3
+4
+E0′ (gv , 0, ΦL
+2 ) = det(v)
+
+42
+
+
+1
+log N + log det v + W0′ (gN v , 0, ΦL
+2 ),
+2
+
+(314)
+
+
+
+(315)
+
+
+1
+log det v + W0′ (gv , 0, ΦL
+2 );
+2
+
+sp,(ℓ)
+in addition, since ΦL
+are incoherent, we have
+2 and Φ
+
+sp,(ℓ)
+
+E0 (gv , 0, ΦL
+2 ) = E0 (gv , 0, Φ2
+
+)=0
+
+(316)
+
+so
+3
+
+W0 (gv , 0, ΦL ) = W0 (gv , 0, Φsp,(ℓ) ) = − det(v) 4 .
+
+(317)
+
+Thus, Proposition 5.1 implies that
+3
+
+′
+L
+N − 2 E0′ (gN v , 0, ΦL
+2 ) − E0 (gv , 0, Φ2 ) −
+
+X ℓ−1
+(ℓ)
+E0 (gv , 0, Φ2 ) log ℓ
+2(ℓ + 1)
+ℓ|N
+
+
+
+X ℓ+1
+3
+log ℓ W0 (gv , 0, ΦL
+= det(v) 4 log N + 
+2)
+2(ℓ − 1)
+ℓ|N
+
+X
+
+X ℓ−1
+3
+2
+sp,(ℓ)
+W
+(g
+,
+0,
+Φ
+)
+log
+ℓ
+−
+log ℓ · det(v) 4
+0
+v
+2
+ℓ2 − 1
+2(ℓ + 1)
+ℓ
+ℓ
+!
+X
+3
+ℓ+1
+2
+ℓ−1
+= det(v) 4
+1−
+log ℓ
++
+−
+2(ℓ − 1) ℓ2 − 1 2(ℓ + 1)
+−
+
+(318)
+
+(319)
+(320)
+
+ℓ
+
+= 0.
+
+This implies the proposition for the case T = 0.
+
+
+
+Remark 5.4. The preceding proposition can be phrased in more classical language, as follows, cf.
+(ℓ)
+L
+Section 2.6. If Φ∗2 is one of the sections ΦL
+2 , Φ2 or Φ2 , and τ ∈ H2 , we set
+3
+
+E(τ, s, Φ∗2 ) = det(v)− 4 E(gτ , s, Φ∗2 ).
+
+(321)
+
+
+
+(322)
+
+Let
+Γ0 (4N ) =
+
+A
+C
+
+B
+D
+
+
+
+∈ Spr (Z) | C ≡ 0
+
+
+(mod 4N )
+
+denote the usual congruence subgroup. Then it can be verified that E(τ, s, Φ∗2 ) transforms like a
+Siegel modular form of scalar weight 3/2 and level Γ0 (4N ) with character χ(γ) = sgn det(d), see
+[KRY06, §8.5.6] for a more precise formulation.
+Let M 32 (Γ0 (4N )) denote the space of (non-holomorphic) Siegel modular forms of scalar weight
+3/2 and level Γ0 (4N ) and character χ, and consider the Hecke operator
+UN : M 23 (Γ0 (4N )) → M 23 (Γ0 (4N ))
+given by
+UN (F )(τ ) =
+
+X
+
+u∈Sym2 (Z/N Z)
+
+3
+
+u )= N2
+F |3/2 ( 1 N
+
+X
+u
+
+F (N −1 τ + N −1 u)
+
+(323)
+(324)
+
+A GENUS TWO ARITHMETIC SIEGEL-WEIL FORMULA ON X0 (N )
+
+Then the previous proposition can be rewritten in classical terms as the identity
+
+
+X ℓ−1
+E ′ (τ, 0, ΦL
+E(τ, 0, Φ(ℓ) ) log ℓ .
+E ′ (τ, 0, ΦL
+2 ) = UN
+2)+
+2(ℓ + 1)
+
+43
+
+(325)
+
+ℓ|N
+
+References
+
+[BGKK07] J. I. Burgos Gil, J. Kramer, and U. Kühn. Cohomological arithmetic Chow rings. J. Inst. Math. Jussieu,
+6(1):1–172, 2007.
+[BY09]
+Jan Hendrik Bruinier and Tonghai Yang. Faltings heights of CM cycles and derivatives of L-functions.
+Invent. Math., 177(3):631–681, 2009.
+[DY19]
+Tuoping Du and Tonghai Yang. Arithmetic Siegel-Weil formula on X0 (N ). Adv. Math., 345:702–755,
+2019.
+[GK93]
+Benedict H Gross and Kevin Keating. On the intersection of modular correspondences. Inventiones
+mathematicae, 112(1):225–245, 1993.
+[GQT14] Wee Teck Gan, Yannan Qiu, and Shuichiro Takeda. The regularized Siegel-Weil formula (the second term
+identity) and the Rallis inner product formula. Invent. Math., 198(3):739–831, 2014.
+[GS19]
+Luis E. Garcia and Siddarth Sankaran. Green forms and the arithmetic Siegel-Weil formula. Invent.
+Math., 215(3):863–975, 2019.
+[How20]
+Benjamin Howard. Arithmetic volumes of unitary Shimura curves. arXiv e-prints, page arXiv:2010.07362,
+October 2020.
+[Kit83]
+Yoshiyuki Kitaoka. A note on local densities of quadratic forms. Nagoya Math. J., 92:145–152, 1983.
+[KM85]
+Nicholas M. Katz and Barry Mazur. Arithmetic moduli of elliptic curves, volume 108 of Annals of
+Mathematics Studies. Princeton University Press, Princeton, NJ, 1985.
+[KR88]
+Stephen S. Kudla and Stephen Rallis. On the Weil-Siegel formula. J. Reine Angew. Math., 387:1–68,
+1988.
+[KR94]
+Stephen S. Kudla and Stephen Rallis. A regularized Siegel-Weil formula: the first term identity. Ann. of
+Math. (2), 140(1):1–80, 1994.
+[KRY04] Stephen S. Kudla, Michael Rapoport, and Tonghai Yang. Derivatives of Eisenstein series and Faltings
+heights. Compos. Math., 140(4):887–951, 2004.
+[KRY06] Stephen S. Kudla, Michael Rapoport, and Tonghai Yang. Modular forms and special cycles on Shimura
+curves, volume 161 of Annals of Mathematics Studies. Princeton University Press, Princeton, NJ, 2006.
+[Kud97]
+Stephen S. Kudla. Central derivatives of Eisenstein series and height pairings. Ann. of Math. (2),
+146(3):545–646, 1997.
+[Küh01]
+Ulf Kühn. Generalized arithmetic intersection numbers. J. Reine Angew. Math., 534:209–236, 2001.
+[Rib90]
+K. A. Ribet. On modular representations of Gal(Q/Q) arising from modular forms. Invent. Math.,
+100(2):431–476, 1990.
+[RR93]
+R. Ranga Rao. On some explicit formulas in the theory of Weil representation. Pacific J. Math.,
+157(2):335–371, 1993.
+[Sie80]
+Carl Ludwig Siegel. Advanced analytic number theory, volume 9 of Tata Institute of Fundamental Research Studies in Mathematics. Tata Institute of Fundamental Research, Bombay, second edition, 1980.
+[Sou92]
+C. Soulé. Lectures on Arakelov geometry, volume 33 of Cambridge Studies in Advanced Mathematics.
+Cambridge University Press, Cambridge, 1992. With the collaboration of D. Abramovich, J.-F. Burnol
+and J. Kramer.
+[Yan98]
+Tonghai Yang. An explicit formula for local densities of quadratic forms. J. Number Theory, 72(2):309–
+356, 1998.
+[Yan04]
+Tonghai Yang. Local densities of 2-adic quadratic forms. J. Number Theory, 108(2):287–345, 2004.
+
+Department of Mathematics, University of Manitoba
+E-mail address: siddarth.sankaran@umanitoba.ca
+Department of Mathematics, University of Wisconsin, Madison
+E-mail address: shi58@wisc.edu
+Department of Mathematics, University of Wisconsin, Madison
+E-mail address: thyang@math.wisc.edu
+
+

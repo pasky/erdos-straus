@@ -18,7 +18,7 @@ could live, plus one exact dictionary.
 * *Dictionary (Prop 4.1, PROVED; moduli reading Assessment).* For n = p **every** word, of either sign, gives a pair of
   special endomorphisms with Gram T_w = t·diag(v,u) − [[1,−1],[−1,1]] and |Diff(T_w)| = 1: Diff = {p} (χ = −1, char p,
   Eichler level 2 in B_{p,∞}) or {2} (χ = +1, char 2, Eichler level p in B_{2,∞}) — the two bad fibres of X₀(2p). With
-  the cycles Z(2p·T_w) on X₀(2p) (R204 repair: not Z(T_w); see §4) and Zhu's arithmetic Siegel–Weil formula the family sum is N₋^μ log p + N₊^μ log 2 (CONDITIONAL): SQ₅(p) ⟺ the family sum is
+  the cycles Z(2p·T_w) on X₀(2p) (R204 repair: not Z(T_w); see §4) and Zhu's arithmetic Siegel–Weil formula, the family sum is N₋^μ log p + N₊^μ log 2 (CONDITIONAL): SQ₅(p) ⟺ the family sum is
   not in ℚ·log 2. The family, not the Eisenstein series, carries the lottery (moving level t, hyperbola extraction; B2).
 * *Numerics (§3, CERTIFIED finite statement).* No linear relation with 48 classical columns (class numbers, KH sums,
   twisted divisor sums, ternary theta coefficients) for any of 8 weightings, n ≤ 12 000, per class mod 8 (exact
