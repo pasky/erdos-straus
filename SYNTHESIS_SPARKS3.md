@@ -63,6 +63,9 @@ problem M/p has NO solution there — MODEL_SPECIFIC §1, CERTIFIED, reproduced 
 certificate exists with g ≤ 239. Smallest example:
 `8/131 = 1/20 + 1/131 + 9/2620`   (g = 7, Q = 3; 8/131 itself has no solution in unit fractions).
 With the FIXED mute set S = {3, 5, 7, 11}: every failing pair with p ∉ S has an M^{(S)} shot solution, Q ≤ 385.
+Triple-check of Thm 1.1(a) (`scripts/s3_mbox_check.py 1000000 100000`, 12 s): for each M ∈ {4, 8, 12, 16, 20, 24},
+every prime 3 ≤ p < 10⁶ with p ∤ M and every odd non-square n < 10⁵ prime to M gets an exactly verified M^□ solution
+(max Dirichlet g over the primes: 131, 271, 251, 863, 659, 839).
 T1 control: odd squares k² (k < 120, gcd(k, M) = 1), Q < 40, M ∈ {4, 8, …, 24}: 0 shots g ≡ −1 (mod M) (as proved).
 Overflow profile: the least overflow Q₁ = Q/gcd(Q, (g+1)/M) over shots with Q ≤ 60 is ≥ 3 at every failing pair
 (necessarily: Q₁ = 1 would be an M/p solution); it equals 3 at 131 and 241 (M = 8).
