@@ -24,7 +24,41 @@ static I lf(double c0, double ca, double cz, double cy, double ct) {
 }
 static double xlx(double x) { return x <= 0 ? 0 : x * log(x); }
 /* upper bound of B(d,e) = (d+e)log(d+e) - d log d - e log e, increasing in d and e */
-static double Bup(I d, I e) { double D = d.hi > 0 ? d.hi : 0, E = e.hi > 0 ? e.hi : 0; return xlx(D + E) - xlx(D) - xlx(E) + 1e-12; }
+/* FF_STERILE_SMALL Lemma 4.1 in linearised form (§5): for each rho and n0, V_rho(n) <= V_rho(n0) + lam (n - n0) for all n
+   (V concave, lam = right derivative at n0), so #div(n, d) <= exp(-d' log rho + lam n + c), c = V(n0) - lam n0, and for
+   s >= SMIN: exp(s (-D log rho + lam N) + c) <= exp(s (-D log rho + lam N + max(c, 0)/SMIN)). */
+#define NRK 24
+#define NN0 4
+static int RANK = 1; static double RKl[NRK][NN0], RKc[NRK][NN0], RKlr[NRK];
+typedef struct { double ratio; int j; double cnt; } RKI;
+static int rkcmp(const void *x, const void *y) { double a = ((RKI *)x)->ratio, b = ((RKI *)y)->ratio; return a < b ? 1 : a > b ? -1 : 0; }
+static void init_rankin(int q, long S) {
+  int NM = 8 * S + 8; double *Ip = calloc(NM + 1, sizeof(double));
+  for (int j = 1; j <= NM; j++) { long double sum = 0;
+    for (int i = 1; i <= j; i++) if (j % i == 0) { int m = i, mu = 1, p; for (p = 2; p * p <= m; p++) if (m % p == 0) { m /= p; if (m % p == 0) { mu = 0; break; } mu = -mu; }
+      if (mu && m > 1) mu = -mu; long double tt = (j / i) * logl((long double)q) > 11000 ? 1e4000L : powl((long double)q, (long double)(j / i)); sum += mu * tt; }
+    Ip[j] = (double)fminl(sum / j, 1e300L); if (j == 1) Ip[j] -= 1; }
+  RKI *it = malloc(sizeof(RKI) * 2000000); long n0s[NN0] = {S / 2, S, 2 * S, 4 * S};
+  for (int k = 0; k < NRK; k++) {
+    double rho = (k + 1.0) / NRK; RKlr[k] = -log(rho); int ni = 0;
+    for (int j = 1; j <= NM; j++) { double y = pow(rho, j); if (y < 1e-300) break; double Sp = 1;
+      for (int e = 1; e * j <= NM; e++) { double Se = Sp + pow(y, e), g = log(Se / Sp); Sp = Se; if (g < 1e-18) break;
+        it[ni].ratio = g / j; it[ni].j = j; it[ni].cnt = Ip[j]; ni++; if (ni >= 2000000) { fprintf(stderr, "rk overflow\n"); exit(2); } } }
+    qsort(it, ni, sizeof(RKI), rkcmp);
+    for (int u = 0; u < NN0; u++) {     /* fill capacity n0 greedily; right derivative = ratio of the next unit */
+      double need = n0s[u], val = 0; int idx = 0; double left = ni ? it[0].cnt : 0;
+      while (need > 1e-12 && idx < ni) { double cap = left * it[idx].j, take = cap < need ? cap : need;
+        val += take * it[idx].ratio; need -= take; left -= take / it[idx].j; if (left <= 1e-12) { idx++; if (idx < ni) left = it[idx].cnt; } }
+      double lam = idx < ni ? it[idx].ratio : 1e-18;      /* omitted items have ratio < 1e-18 */
+      lam = lam * (1 + 1e-9) + 1e-15; val = val * (1 + 1e-9) + 1e-9 + 1e-12 * n0s[u];   /* outward */
+      RKl[k][u] = lam; RKc[k][u] = val - lam * n0s[u]; }
+  }
+  free(it); free(Ip);
+}
+static double Bup(I d, I e) { double D = d.hi > 0 ? d.hi : 0, E = e.hi > 0 ? e.hi : 0; double b = xlx(D + E) - xlx(D) - xlx(E) + 1e-12;
+  if (RANK) { double dp = D < E ? D : E;
+    for (int k = 0; k < NRK; k++) for (int u = 0; u < NN0; u++) { double v = RKlr[k] * dp + RKl[k][u] * (D + E) + (RKc[k][u] > 0 ? RKc[k][u] : 0) / SMIN; if (v < b) b = v; } }
+  return b; }
 static double Gup(I x, I y, I z) { double X = x.hi > 0 ? x.hi : 0, Y = y.hi > 0 ? y.hi : 0, Z = z.hi > 0 ? z.hi : 0;
   return xlx(X + Y + Z) - xlx(X) - xlx(Y) - xlx(Z) + 1e-12; }
 /* class-count bound valid on the whole box for all s >= SMIN.
@@ -89,6 +123,7 @@ static void routes(void) {
   add(Y + V + Wa, 0, 0);                 /* X2 */
   I bb = lf(0, 0, 0, 1, 1);              /* be */
   add(V + Gup(ze, al, bb), 0, 0);        /* R1 */
+  add(V + Bup(ze, lf(1, 0, -1, 0, 0)) + Bup(al, bb), 0, 0);   /* R1 via m' | F, then w1 | F/m' (Lemma 4.1) */
   /* R2: n = s+2y+z, d = a+y+z, rho = y+z+1 ; binom C(n,d): B(d, n-d) with n - d = s + y - a */
   classroute(Z + Y, lf(1, 0, 1, 2, 0), 0, lf(0, 1, 1, 1, 0), 0, lf(0, 0, 1, 1, 0), 1, 1,
              Bup(lf(0, 1, 1, 1, 0), lf(1, -1, 0, 1, 0)), 0, 0);
@@ -179,6 +214,8 @@ static void rec(double a0, double z0, double y0, int lev) {
 int main(int argc, char **argv) {
   int r = atoi(argv[1]); SMIN = atol(argv[2]); MINW = argc > 3 ? atoi(argv[3]) : 9; target = argc > 4 ? atof(argv[4]) : 1e-3;
   if (argc > 5) NEWR = REF = atoi(argv[5]);
+  if (argc > 6) RANK = atoi(argv[6]);
+  if (RANK) init_rankin((int)lround(pow(3.0, r)), SMIN);
   lq = r * log(3.0);
   for (int i = 0; i < 8; i++) for (int j = 0; j < 8; j++) for (int k = 0; k < 8; k++) rec(i / 8.0, j / 8.0, k / 8.0, 3);
   printf("r=%d S=%ld boxes=%ld failed=%ld tail(s>S) <= %.10e\n", r, SMIN, nboxes, nfail, total);
