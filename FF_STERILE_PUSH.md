@@ -199,3 +199,63 @@ lost; above it R1 is ≥ 1/2. The finite sums at r = 3 (s ≤ 150) also do not c
 So r = 3 needs either a divisor-in-class bound beyond the Coppersmith range (for counting, not finding; over ℤ the analogous
 1/4-barrier is open), or an *average* bound for triple factorisations of T^{s−2} + v₁ over short families of v₁ — a
 short-interval d₃ problem in F₃[T]. Both are exactly B3-type inputs.
+
+## 4. Contrast: which hypothesis fails where coverings exist (goal 3)
+
+The sterility proof uses exactly three structural inputs: (H1) k ≥ 2 (every cylinder has depth ≥ 2, so validity on the
+c-slice forces T ∥ w, T ∥ C and the tuple form (B)); (H2) q odd, through E + E' = m'g'²v − 2 ≠ 0, i.e. **v ≠ 0** (O173
+Lemma 2.1(b)), and through ≤ 2 square roots modulo prime powers (route R10) and the leading coefficient 2 ≠ 0 (Lemma 1.1(ii));
+(H3) a counting exponent < 1/2 (Theorem 3.1 needs r ≥ 4).
+* **q = 3, A = T (k = 1): (H1) fails.** FUNCTIONFIELD_ES Prop 1.4(i), (ii) are the constant families E = 1, E = 2; their
+  cylinders have depth 1, i.e. each is a whole class P(0) = −E, of relative mass 1. For q = 3 the two classes are all of
+  F₃^*, so two families cover R̂^* (that is the (J)4 covering). For k = 1 a single family can carry full mass, and (Σ) fails at
+  its first term. (For q = 3^r, r ≥ 2, k = 1, the classes P(0) ∉ {1, 2} are not reached by constants; the slice analysis
+  there needs Case B at u(0) ≠ 1, not done.)
+* **Characteristic 2: (H2) fails, by Frobenius (PROVED).** For q even, k = 2 and every c ∈ F_q^*, the single family
+  F_c = (E; 0, g'; 2, g') with g' = T + c, E = 1 + Tg' = T² + cT + 1 is valid at every point of the c-slice
+  (x ≡ 1 off T, u ≡ 1 + cT mod T²). Indeed D = 1 + T²g'² = (1 + Tg')² = E² — a "v = 0" tuple, E = E', s = 2, impossible
+  in odd characteristic — and: T²g' ∣ P + E because P + E ≡ u + E ≡ 0 (mod T²) (char 2) and P + E ≡ 1 + 1 = 0 (mod g');
+  modulo E, P ≡ 1 and X ≡ T^{−2}, so s = g' + X/g' ≡ (T²g'² + 1)/(T²g') = E²/(T²g') ≡ 0; lc(s) = 1 = lc(E) for deg P large.
+  (Check: E² = D verified symbolically for several g' over F₂, `/tmp`-free one-liner in §6 replay.) More generally for
+  k = 2m, the families with E = 1 + T^m g' cover every slice point with u ≡ 1 (mod T^m), u ≢ 1 (mod T^{m+1}). So in
+  characteristic 2 the slice x ≡ 1 off T — the natural home of sterile points in odd characteristic (FF_STERILE_PROOF §3) —
+  is covered by depth-2 families in one stroke. This is consistent with the char-2 coverings of (J)4 and FF_MUTE M1, and it
+  locates the odd-characteristic input precisely: **E ≠ E', i.e. E + E' = −2 ≠ 0.**
+* **ℤ (Assessment).** The ℤ analogues of (H1)–(H3) are: the r-generic line of a Mordell prime r (depth ≥ 1 at r), the
+  Type II congruence f ≡ f' ≡ −1 (mod 4cd) (whose "E + E' ≡ −2" is the reason f = f' is rare — a square 1 + 4c²dn), and the
+  ET exponent 2/5 < 1/2 with constants. (J)26 Thm 3.1 is the r → ∞ case; the present improvements that are *not* specific to
+  F_q[T] are the c-averaging (over ℤ: averaging over the non-residue cells, already used there) and the residue-class divisor
+  bounds (Lenstra's theorem holds over ℤ with bound 11; Coppersmith with n^{1/4+ε}). Transplanting Lemmas 1.4–1.6 to the
+  ℤ box bounds of MORDELL17 could lower the effective r₀ of (J)26 Thm 3.1 substantially; it cannot reach r = 13, 17, whose
+  level-1 term alone is > 1/2 (DEPTH_ASPECT Remark (2)). Not pursued here.
+
+## 5. Conjecture 0.2 at q = 3 (goal 2): what the method can and cannot do
+
+**Reformulation at x*_c (PROVED, elementary).** Let s = 2n be even, N = n (the largest cylinder) and q = 3. A Case B tuple
+covers x*_c iff, with v = T²v₁, there is ω ∈ F₃[T] with
+  w₁ = c·g'v₁(1 + cT) + T^n ω,  C₁ = −c·g'v₁ − T^n ω,
+and, writing P := m'g'²v₁(1 + cT) + 1,
+  (S1) T^n ∣ P,  (S2) T^{n−2} ∣ P/T^n + c m'g'ω(cT − 1) =: T^{n−2}Ψ,  (S3) v₁Ψ = −(1 + m'(Tω)²).
+*Proof.* Covering means E ≡ −(1 + cT) (mod T^{n+1}). From EC₁ = g'T^{s−1} + w₁ (Lemma 1.6, R3 row) this gives
+w₁ ≡ −(1 + cT)C₁ (mod T^{n+1}); with w₁ + C₁ = Tg'v₁ and c² = 1: C₁ ≡ −cg'v₁, w₁ ≡ cg'v₁(1 + cT) (mod T^n), so
+w₁, C₁ have the displayed form with a common ω (their sum is exactly Tg'v₁). Then m'w₁C₁ = T^{s−2} + v₁ expands (2 = −1 in F₃) to
+−v₁P − cm'g'v₁T^nω(cT − 1) − m'T^{2n}ω² = T^{2n−2}; reducing mod T^n gives (S1) (T ∤ v₁), dividing by T^n gives
+v₁(P/T^n + cm'g'ω(cT − 1)) = −T^{n−2}(1 + m'T²ω²), whence (S2), (S3) as T ∤ v₁. Conversely (S1)–(S3) give the tuple
+identities; the extra condition at precision T^{n+1} (Lemma 1.2 of FF_STERILE_PROOF, [K + 1 = N] term) is one more digit. ∎
+(S3) is the genus condition of FF_STERILE_PROOF Lemma 2.1 made explicit (−m' is a square modulo every prime of v₁); (S1) says
+the "small" product m'g'²v₁ is ≡ −(1 + cT)^{−1} to precision n, which by degree forces z + 2y + t ≥ n + 1: one of the four
+small polynomials carries about half the degree — the lopsidedness of O175 Lemma 3.2 in one line. I found no further
+structure: (S1)–(S3) is a system of two T-adic congruences of length ≈ n and one ∞-adic divisibility, with ≈ n + O(1) free
+coefficients — the lottery shape (B2) again.
+
+**Why the measure route cannot reach q = 3 or 9 (PROVED + EVIDENCE).** (a) At q = 3 even *exact* tuple counts make the
+averaged union bound (Σ) fail: the bsE_famcount census gives mean relative mass 1.74 per c-slice through s = 15, i.e. left side
+of (Σ) ≥ 3.48 > q − 1 = 2 (EVIDENCE, exact enumeration). So any measure proof at q = 3 must use overlaps (the exact union to
+s = 21 is ≈ 0.49 per slice, FF_STERILE_PROOF §5) plus a tail Σ_{s>21} count(s)·3^{1−⌈s/2⌉} ≲ 1, i.e. an essentially sharp
+count of Case B tuples. (b) The provable exponent of Lemma 1.6 is far from that: fs_rate gives max_p min_route φ − 1/2 = +0.167
+(r = 1), +0.096 (r = 2), 0.000 (r = 3), −0.027 (r = 4) in units of log q. At r = 1 the maximiser is the "thirds corner"
+a = z = y = s/3, t → 0 (v₁ of bounded degree, w, C, m' of degree s/3): there every route is ≥ 2/3, while the true count is
+polynomial (it is Σ_{v₁} #{m'w₁C₁ = T^{s−2} + v₁ into thirds with w₁ ≡ −C₁ (Tv₁)}). Beating it needs an average bound for d₃
+over the short family {T^{s−2} + v₁ : deg v₁ ≤ t − 2}, uniform in q = 3 — a short-interval divisor problem whose function-
+field results (Keating–Rodgers–Roditty-Gershon–Rudnick, Sawin) are large-q statements. This is the function-field face of
+B3, now located at a specific corner of pattern space.
