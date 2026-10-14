@@ -31,7 +31,7 @@ No FATAL defect. Two MAJOR (M1, M2), nine MINOR.
 
 ### C1. §1 Lemma 1.1 / Prop 1.2 / Prop 1.3 (scaling collapse, additive bridge) — SOUND (one label understated)
 Re-derived. Lemma 1.1: F_h^* = ⟨g^{h+1}⟩ ⊂ ⟨g^m⟩ since m | h + 1. Prop 1.2: x ↦ (λ^{w_i}x_i) preserves each C_{a_i}
-(λ^{w_i} ∈ F_h^* ⊂ C_0) and maps F = u to F = λ^e u. Prop 1.3: Φ-free identity (X^c − 1)/(X − 1) at X = 1; then
+(λ^{w_i} ∈ F_h^* ⊂ C_0) and maps F = u to F = λ^e u. Prop 1.3: the identity ∏_{ζ≠1}(X − ζ) = (X^c − 1)/(X − 1) at X = 1; then
 4cd·c = 4c²d. Stickelberger (BEW Thm 11.6.3 — book not accessible here; statement as recalled: h^t ≡ −1 (mod m),
 t minimal, q = h^{2tγ}, g(χ) = (−1)^{γ−1+γ(h^t+1)/m}√q) gives (−1)^j h with t = γ = 1, m = 4cd.
 From scratch (`scripts/review_r216_gauss.py 60`, F_{h²} = F_h[i], all h ≡ 3 (4) in [7, 59], all m | h + 1, m ≥ 3):
@@ -182,7 +182,7 @@ Gross–Koblitz: a/(q−1) = i/m; ⟨h·i/m⟩ = 1 − i/m (h·i/m = ij − i/m)
 Γ_h(x)Γ_h(1 − x) = (−1)^{ℓ(x)}, ℓ(x) ∈ {1..h}, x ≡ ℓ (mod h): checked by hand at x = 1 (Γ(1)Γ(0) = −1·1) and x = 2
 (Γ_7(2) = 1, Γ_7(−1) = Γ_7(0) = 1 from Γ(x + 1) = −xΓ(x)); so g = (−1)^{ℓ(i/m)}h, ℓ(1/m) = j ✓ consistent with
 Stickelberger. Robert/GK texts not accessed; sign conventions for the Teichmüller exponent were not re-derived (they
-only affect i ↔ −i, which leaves (−1)^j unchanged since ℓ((m−1)/m) = h + 1 − j… ≡ (−1)^{j} as h + 1 even ✓).
+only swap i ↔ m − i; for i = m − 1, ℓ((m−1)/m) = h + 1 − j and (−1)^{h+1−j} = (−1)^j since h + 1 is even ✓).
 Euclid–Schur: Prop E1 correct (a subgroup of index 2 or more has ≤ |G|/2 < |G| − 1 elements when |G| ≥ 3); E2
 correct; Remark E3 correct (7 | p + 8 for p ≡ 6 (7), 7 ≡ −1 (8)). Schur/Murty statement (Euclidean proof exists iff
 a² ≡ 1) recalled correctly; sources not accessed.
