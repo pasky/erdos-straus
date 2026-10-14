@@ -156,9 +156,9 @@ Thm 4.2(c); the bound is monotone in y). Let n ≡ 1 (mod 4) be a non-square, x 
 first k odd primes not dividing n with P := ∏S ≤ (log x)^A maximal; by the prime number theorem k log k ~ A log₂x,
 so k ~ A log₂x/log₃x. M := 4 rad(n)P ≤ 4n(log x)^A; the class a mod M is that of Thm 4.2(a).
 *Step 1 (sieve, uniform in M).* Sift 𝒜 = {(r−1)/2 : x/2 < r ≤ x, r ≡ a (M)} by primes ℓ ∤ M, ℓ < z = x^{1/4−ε},
-level D = x^{1/2}/(M log^{A+5}x). Remainders: distinct d give distinct moduli Md ≤ x^{1/2}/log^{A+5}x, so
-Σ_d |r_d| ≤ Σ_{q ≤ x^{1/2}/log^{A+5}x} max_a |E(x; q, a)| ≪_A x/log^{2A+10}x (Bombieri–Vinogradov, max form;
-uniform in M). Main term X·V(z)·(f(s) − o(1)) with X ≍ x/(φ(M) log x), V(z) ≫ 1/log z (the density 1/(ℓ−1) on
+level D = x^{1/2}/(M log^{β}x) with β = β(A) the Bombieri–Vinogradov exponent for saving log^{2A+10}. Remainders:
+distinct d give distinct moduli Md ≤ x^{1/2}/log^{β}x, so Σ_d |r_d| ≤ Σ_{q ≤ x^{1/2}/log^{β}x} max_a |E(x; q, a)|
+≪_A x/log^{2A+10}x (Bombieri–Vinogradov, max form, for π(x) − π(x/2); uniform in M). Main term X·V(z)·(f(s) − o(1)) with X ≍ x/(φ(M) log x), V(z) ≫ 1/log z (the density 1/(ℓ−1) on
 ℓ ∤ M, dimension 1, constants absolute; ∏_{ℓ|M}(1 − 1/(ℓ−1))^{−1} only helps), s = log D/log z → 2/(1 − 4ε) > 2.
 So ≫ x/(φ(M) log²x) ≥ x/log^{A+3}x primes r ∈ (x/2, x] in the class with every prime factor of (r−1)/2 ≥ z.
 *Step 2 (index).* As in Thm 4.2, Γ_r := ⟨S mod r⟩ ⊆ (F_r^*)², and a nontrivial index is ≥ z, so |Γ_r| ≤ x^{3/4+ε}.
@@ -175,7 +175,8 @@ large x, since log x/(k+1) → ∞): this is ≤ x log P/log^{A+5}x = o(x/log^{A
 representative of sup-norm ≤ Σλ_i ≤ kλ_k =: L (EXPONENT_CAP Thm 3.2, step "Covering"). As there, Q := ∏ s_i^{a_i+L}
 with exponents in [0, 2L] satisfies Q² ≡ −n/4 (mod r); UNIT_ORBIT Prop 2.1 gives an ES^{(y)} solution
 (s_i | (r+1)/4 | y, Type II shape at every prime of n) with overflow exponents ≤ v_s(Q) ≤ 2L. Finally
-2L ≤ 2k·x/B^{k−1} ≤ 2k·3^{k}·log^{A+5}x·x^{2/(k+1)} = x^{(2+o(1))log₃x/(A log₂x)}, because 3^k log^{A+5}x =
+2L ≤ 2k·x/B^{k−1} ≤ 2k·6^{k}·log^{A+5}x·x^{2/(k+1)} (using B ≥ x^{1/(k+1)}/(6 log^{(A+5)/(k+1)}x)) =
+x^{(2+o(1))log₃x/(A log₂x)}, because 6^k log^{A+5}x =
 exp(O(A log₂x)) is of lower order; and y = n(r+1)/4 ≥ x/8. ∎
 *Remarks.* (1) The only change from Thm 3.2 is that S grows with x, which Bombieri–Vinogradov tolerates up to
 P = (log x)^A because its error term saves an arbitrary power of log (not more: Siegel–Walfisz range). (2) Allowing
