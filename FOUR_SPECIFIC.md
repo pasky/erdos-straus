@@ -30,3 +30,38 @@ has T1 exactly when M ≡ 0, 3 (mod 4) (even g sneak in iff M ≡ 3 mod 8); for 
 squares too. Checked for M = 3..24 (odd squares k ≤ 99, Q ≤ 40) and at every census failure (exact certificates).
 New harness entry: **11/37** (non-trivial: 11/37 < 3), `11/37 = 1/8 + 1/148 + 49/296`.
 T1-bearing and failure-free to 10⁸: **3 (trivial), 4, 7**.
+
+## 2. The one-odd half on the five slices (BRAINSTORM/y4_oneodd_slices)
+**Lemma 2.1 (PROVED).** For a word w = (t, u, v) of odd n and a slot X ∈ {A, A*, t, u, v} with 4 | X, the (J)32 slice
+solution has exactly one odd denominator iff v₂(X) = 2, and is all-even (an 8/n solution, (J)32 Lemma 2.1(b)) iff
+v₂(X) ≥ 3. So S₄ = S₄^{odd} ∪ S₈. 0 violations on 16 242 words (n ≤ 801), exact check.
+**Pentagon dictionary.** With Gram G_w = [[v, −1, 0], [−1, t, −1], [0, −1, u]] (basis e₁, e₂, e₃), the five slots are
+the norms Q(e₁) = v, Q(e₂) = t, Q(e₃) = u and the determinants of the two adjacent planes, det⟨e₂, e₃⟩ = A,
+det⟨e₁, e₂⟩ = A*. (J)32 + (J)33: Q_w is ℚ₂-isotropic ⟺ one of the five pentagon quantities is ≡ 0 (mod 4). Lemma 2.1:
+the certificate is one-odd ⟺ that quantity is ≡ 4 (mod 8).
+**Cells (CERTIFIED).** The 240 χ = −1 cells mod 8 split 100 / 100 / 40 (one-odd only / S₈ only / both). S₄^{odd} and S₈
+each fill 140/240.
+**Theorem 2.3 (PROVED relative to the classification of ℤ₂-lattices by 2-adic symbols, Conway–Sloane SPLAG Ch. 15
+§7 / O'Meara §93).** For odd n and every word w with χ(w) = −1, Q_w ⊗ ℤ₂ ≅ ⟨1, −1, −n⟩. Hence all certificate
+lattices of a fixed n are ℤ₂-isometric, and **no invariant of the ℤ₂-lattice separates one-odd from all-even
+certificates**. The distinction is a property of the marking (which pentagon quantity carries the 4).
+*Proof.* det G_w = n is odd, so L = Q_w ⊗ ℤ₂ is unimodular. χ = −1 ⟺ L ⊗ ℚ₂ is isotropic ((J)33 Thm 1.1); take a primitive
+isotropic x ∈ L. Unimodularity gives y with B(x, y) = 1, so P = ⟨x, y⟩ is a unimodular plane of determinant −1 (Gram
+[[0, 1], [1, Q(y)]]), either H or ≅ ⟨1, −1⟩, both of oddity 0. Then L = P ⊥ ⟨−n·s²⟩ with s a 2-adic unit, so L has
+determinant n and oddity ≡ −n (mod 8), the same 2-adic symbol as ⟨1, −1, −n⟩ (L is odd, since rank 3 with odd
+determinant). Same symbol ⇒ isometric. ∎
+(Cross-check, `scripts/y4_oddity.py`: on all χ = −1 words of n ≤ 401 the computed oddity is 7, 5, 3, 1 for n ≡ 1, 3, 5, 7 (8),
+i.e. −n mod 8, and all three parity classes occur within each oddity class.)
+**Census (EVIDENCE; `scripts/y4_oddslice.c`, every hit verified in 128-bit with its parity).** S₄^{odd}(p) ≠ ∅ for every
+prime 3 ≤ p ≤ 10⁷. S₈(p) = ∅ at 27 primes (reproduces (J)32). Odd squares ≤ 10⁶: S₄^{odd} = S₈ = ∅ (T1). The full
+one-odd ES half has no failing prime ≤ 10⁶ (`ms_census 4 10⁶ p 1`). The one-odd half of 8/p fails at 3, 11, 17, 59, 131,
+241, 449. Composite odd non-squares n ≤ 2·10⁵ with S₄ ≠ ∅ but S₄^{odd} = ∅: 321, 4545, 5481, 8745, 9121, 13041, 25305,
+57481, 169425.
+**Where 8/n's failures sit.** At 131, 241 every ES solution is one-odd (32 and 8 solutions; MODEL_SPECIFIC §2). All five
+8/p failures are p ≡ 1, 3 (mod 8): exactly the classes where 8 has no slice with e ∈ {1, 3} (§3). For p ≡ 1 (mod 8)
+and odd t, v₂(tp + 1) = v₂(t + 1), so I-slices at t ≡ 3 (mod 8) (e.g. t = 3) are always one-odd. This small-t bias makes
+S₄^{odd} fire at t ≤ 4 for 98% of p ≡ 1 (mod 8), against 86% for S₈ (first 3000 such primes).
+**Verdict on goal (b) (Assessment).** The one-odd half is 4-specific, but it is a description: it has no character or
+ℤ₂-lattice meaning (Thm 2.3), it is strictly harder than SQ₅, and it is false at composites. A "parity mechanism forcing a
+one-odd solution" would have to act on the marking, i.e. on the word itself. That is the χ-flip problem of (J)33 plus a
+2-adic refinement, so it is harder, not easier.
