@@ -2,7 +2,7 @@
 // For each word w=(t,u,v) of odd n (tuv-u-v=n), A=tu-1, A*=tv-1, chi=(-A/n) (Jacobi; CHI_FLIP normalisation, with
 // the n0 convention of SIGN_IDENTITY Lemma 1.1 handled by computing Prod_{l|n}(-A/l)^{v_l} via jacobi(-A mod n, n)
 // which is the same since gcd(A,n)=1).  LIFT(w) := exists x,y in Z^3 with x.x=A*, y.y=A, x.y=1.
-// Claim tested: chi(w)=+1 <=> LIFT(w).   Usage: y1_three_squares NMAX [only_squares]
+// Claim tested: chi(w)=+1 <=> LIFT(w).   Usage: y1_three_squares NMAX [sq|p [NMIN]]  (sq: odd squares only; p: primes only)
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -54,12 +54,13 @@ static int lift(ll A, ll As){
     for(int s=-1;s<=1;s+=2){ if(y3==0&&s==1) continue; if(solve_x(y1,y2,s*y3,b)) return 1; } }
   return 0;
 }
-static ll hist[20],histc[20],dbad=0;
+static ll NMIN=0; static ll hist[20],histc[20],dbad=0;
 int main(int argc,char**argv){
-  ll N=atoll(argv[1]); int sq=argc>2;
+  ll N=atoll(argv[1]); int sq=argc>2?(argv[2][0]=='p'?2:1):0; NMIN=argc>3?atoll(argv[3]):0;
   ll words=0,bad=0,np=0,nm=0,liftm=0,nolift_p=0;
   for(ll n=1;n<=N;n+=2){
-    if(sq){ ll r=isq(n); if(r*r!=n) continue; }
+    if(sq==1){ ll r=isq(n); if(r*r!=n) continue; }
+    if(sq==2){ int pr=n>2; for(ll d=3;d*d<=n;d+=2) if(n%d==0){pr=0;break;} if(!pr) continue; if(n<NMIN) continue; }
     for(ll t=1;t<=n+2;t++){ ll M=t*n+1;
       for(ll A=t-1;A*A<=M || 1;A+=t){ if(A<1) continue; if(A>M) break; if(M%A) continue; ll As=M/A; if((As+1)%t) continue;
         ll u=(A+1)/t, v=(As+1)/t; if(t*u*v-u-v!=n) continue;
