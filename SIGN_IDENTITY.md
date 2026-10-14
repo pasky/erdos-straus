@@ -1,6 +1,26 @@
 # SIGN_IDENTITY — exact identities for the ES sign N₋(n) (task O205, wave Y-b)
 
-Status: in progress (O205). **ES is not solved here, nor any infinite case of it.** Labels as in DISCOVERIES.md.
+Status: checkpoint 1 (O205). **ES is not solved here, nor any infinite case of it.** Labels as in DISCOVERIES.md.
+
+**Summary (checkpoint 1).** No exact positive identity for N₋ was found; the outcome is a sharpened map of where one
+could live, plus one exact dictionary.
+* *Size class (Thm 2.2, PROVED).* N₋, N₊, S, |X_n| have d₃-size averages (~c·X log²X, Lemma 2.1), so **no finite sum of
+  holomorphic modular forms of any weight (½ℤ_{>0}), level or character** has them as coefficients — theta series,
+  Hecke eigenforms, Eisenstein series, Kronecker–Hurwitz sums all excluded, by size and independently of T1.
+* *T1 at all square shapes (Prop 2.3, PROVED).* Finite combinations of twisted k-fold divisor functions d_k (any rank k,
+  i.e. GL(k)-Eisenstein type of exponent 0) vanishing at all odd squares vanish on the semigroup of primes ≡ 1 (mod L);
+  with Lemma 1.2 (N₋(p) ≥ 1 for infinitely many p in every class ≡ 1 mod 4) they cannot equal N₋. Extends Thm 9.1.
+* *Waldspurger/Θ route (Prop 2.4, PROVED relative to Waldspurger).* A weight-3/2 eigenform's zero set contains whole
+  root-number classes; ES's zero set is {squares, 105}: no zero-set equivalence.
+* *Dictionary (Prop 4.1, PROVED; moduli reading Assessment).* For n = p **every** word, of either sign, gives a pair of
+  special endomorphisms with Gram T_w = t·diag(v,u) − [[1,−1],[−1,1]] and |Diff(T_w)| = 1: Diff = {p} (χ = −1, char p,
+  Eichler level 2 in B_{p,∞}) or {2} (χ = +1, char 2, Eichler level p in B_{2,∞}) — the two bad fibres of X₀(2p). Under
+  an arithmetic Siegel–Weil formula the family sum is N₋^μ log p + N₊^μ log 2 (CONDITIONAL): SQ₅(p) ⟺ the family sum is
+  not in ℚ·log 2. The family, not the Eisenstein series, carries the lottery (moving level t, hyperbola extraction; B2).
+* *Numerics (§3, EVIDENCE).* No linear relation with 48 classical columns (class numbers, KH sums, twisted divisor sums,
+  ternary theta coefficients) for any of 8 weightings, n ≤ 12 000, per class mod 8.
+* *Small exact facts (Lemma 1.1).* X_n ≅ {(u,v) : uv | n + u + v}, and χ(w) = (−uv/n) depends only on m = uv;
+  |X_n| ≪ n^{1/2+ε}.
 Builds on CHI_FLIP.md (χ = −ε₂(Q_w)), CONSTRUCTIVE_ES.md (Eichler orders of level 2), MODEL_SPECIFIC.md Thm 3.1,
 KUDLA_ES/DIFF_DEEP/LDP_DEEP ((J)13, (J)16–18), GROWING_IDENTITIES (J)10, EXACT_FORMULA (I)5, STRONG_APPROX_ES Thm 9.1.
 Scripts `scripts/si_*`.
@@ -11,7 +31,7 @@ N_±(n) = #{w ∈ X_n : χ(w) = ±1}, S(n) = N₊ − N₋. SQ₅ (CONJECTURE): 
 Fingerprints: N₋(m²) = 0; N₋(105) = 0; N₊(n) = 0 at 38 values n ≡ 3 (4) ≤ 10⁶ (15, 311, 455, 495, …).
 
 ## 0. Iteration log
-(I1) Setup: enumerator `scripts/si_census.c` with several weightings (§1).
+(I1) Setup: enumerator `scripts/si_census.c` with several weightings (§3).
 (I2) Barrier targeted: Thm 9.1's "finite Eisenstein combination". Tried: (a) linear relations with 48 classical columns incl.
 Kronecker–Hurwitz sums (§3, no relation); (b) *all* holomorphic modular forms — killed by size (d₃-type averages), not by
 T1 (Thm 2.2); (c) zero-set equivalence with a weight-3/2 eigenform (Waldspurger route, hook (3)) — killed because the
