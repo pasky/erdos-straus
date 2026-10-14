@@ -1,6 +1,6 @@
 # FF_STERILE_PUSH — pushing the large-q no-covering theorem down, and the q = 3 sterile point (O216, wave Y-e)
 
-Status: checkpoint 1 (O216): Theorem 3.1 (r ≥ 4) certified; self-reviewed, repairs applied; awaiting parent review. **ES is not solved here, nor any infinite case of ES or ES_q.** Labels as in DISCOVERIES.md.
+Status: checkpoint 2 (O216): Theorem 3.1 (r ≥ 4) PROVED (computer-assisted; R218 repair m-5: one label throughout — floating point with a ×1.01 margin, cross-checked in exact rationals by R218 `scripts/review_fs2_exact.py`); self-reviewed, repairs applied; hostile reviews R217 (`reviews/ff-sterile-push-review.md`) and R218 (`reviews/ff-sterile-push-review-2.md`): no FATAL/MAJOR, minors repaired. **ES is not solved here, nor any infinite case of ES or ES_q.** Labels as in DISCOVERIES.md.
 Builds on DEPTH_ASPECT.md §2 (Thm 2.5 = (J)26; reviews R178, R187), FUNCTIONFIELD_ES3.md (O173 Lemmas 1.1, 2.1, 2.3),
 FUNCTIONFIELD_ES2.md (§0.1 compactness criterion, §0.2 Case A), FF_STERILE_PROOF.md (O179). Scripts `scripts/fs_*`.
 
@@ -41,7 +41,8 @@ gcd(C₁, T v₁) = 1.
 E(T^s + v) = (E + 1)T^s + m'w², i.e. Ev = T^s + m'w². The second is the same with w ↔ C.
 (ii) z + 2a ≤ z + a + b = s. If z + 2a < s the degree is s. If z + 2a = s (a = b), both T^s and m'w² are monic of
 degree s and the sum has leading coefficient 2 ≠ 0 (q odd). So deg E + t = s, and deg E = a + deg L' = a + y + z gives
-t = s − a − y − z = b − y.
+t = s − a − y − z = b − y. (R218 repair m-1: more directly, g'v = w + C with w, C monic and q odd gives deg(w + C) = max(a, b),
+hence y + t = max(a, b); the argument above is kept because (i) is used by R4, R4'.)
 (iii) T² | v and T ∥ w, T ∥ C are O173 Lemma 2.1(b). Dividing (B) by T²: m'w₁C₁ = T^{s−2} + v₁ and w₁ + C₁ = Tg'v₁. As
 T ∤ m'w₁C₁ and s ≥ 3, v₁(0) ≠ 0. A common prime of w₁ and v₁ divides T^{s−2}, i.e. is T, which does not divide w₁. ∎
 *Check (EVIDENCE):* y + t = max(a, b) on all 182 tuples of `bsE_famcount` (q = 3, s ≤ 13; q = 5, s ≤ 9; q = 7, s ≤ 8).
@@ -96,15 +97,18 @@ E | f(x₀). Every P in the F_q[T]-span of g_i = f^i F₁^{m−i} (0 ≤ i ≤ m
 Map P = Σ_l p_l x^l to (p_l T^{lX})_{0 ≤ l ≤ m+k}. The images of g_i, h_j form a triangular basis with diagonal degrees
 (m − i)deg F₁ + iX and (m + j)X, so deg det ≤ Δ(m, k). By (a) and (C) there is P ≠ 0 with deg p_l + lX < md for all l.
 For deg x₀ = X this gives deg P(x₀) < md = deg E^m, so P(x₀) = 0. P has x-degree ≤ m + k, hence ≤ m + k roots, and
-E ↦ x₀ is injective. Asymptotics: with k = τm, (C)/m² → (n + X)/2 + τX + τ²X/2 < (1 + τ)d; minimising over 1 + τ = X^{−1/2}·…
-gives the condition √(nX) < d. ∎
+E ↦ x₀ is injective. Asymptotics: with k = τm, (C)/m² → (n + X)/2 + τX + τ²X/2 < (1 + τ)d; the gap
+f(τ) = (1 + τ)d − (n + X)/2 − τX − τ²X/2 is maximised at τ = ρ/X (1 + τ = d/X), where f = d²/(2X) − n/2; so (C) holds for
+large m iff X < d²/n, i.e. nX < d² (R218 repair m-2: sentence was garbled). Only explicit (m, k) are used by the certificate. ∎
 (m = 1, k = 0 is the trivial "n − d < ρ" case. Over ℤ this is Coppersmith/Howgrave-Graham/Nagaraj 2008, threshold n^{1/4};
 over F_q[T] the LLL loss disappears because (a) is exact.)
 
 **Lemma 1.6 (route bounds; PROVED from Lemmas 1.1–1.5).** Fix a pattern (s; a, z, y, t), a ≤ b = y + t. Write
 w = Tw₁, C = TC₁, v = T²v₁ (Lemma 1.1(iii)), N*(d) as in Lemma 1.2, and cls(n, d, ρ) for the class-divisor bound:
 1 if d < ρ (or n − d < ρ when the cofactor version is allowed), else the least of 2 (if 3ρ > n, Lemma 1.4) and m + k over
-(m, k) satisfying (C) for (n, d, ρ) (or, cofactor version, for (n, n − d, ρ)), and C(n, d) (Lemma 1.3). The cofactor
+(m, k) satisfying (C) for (n, d, ρ) (or, cofactor version, for (n, n − d, ρ)), and C(n, d) (Lemma 1.3) (R218 repair m-7: the scripts
+search m ≤ 60, k ≤ 200 only; any valid (m, k) gives a valid bound, so this is conservative — an unrestricted search over
+m + k ≤ 200 never gives a larger value and lowers the r = 4 finite sum from 1.67692 to 1.67548). The cofactor
 version is allowed when F is prime to Q (then the cofactor's class F σ^{−1} is a unit). The number of tuples with the
 pattern is at most each of:
 | route | data fixed (choices) | then | bound |
@@ -160,7 +164,9 @@ with b1 + F = a1'z, b1F = (T^α + z)/K (≤ 2). Only E and α determine the cyli
 *Proof.* The routes are DEPTH_ASPECT Lemma 2.3 (A1)–(A4) with Lemmas 1.3, 1.4. Small depth: T | z and z ≠ 0 give deg z ≥ 1,
 and deg z ≤ ζ. α = 1 forces β = f = 0, so ζ ≤ 0: impossible. α = 2: (β, κ, f) ∈ {(0,2,0), (0,1,1), (1,1,0)}; the first has
 ζ ≤ 0; in the others λ = 0 (so a1' = 1), z = μT, and (A3), (A0) give b1KF = T(T + μ), F + b1 = μT with K = T, {b1, F} = {1, T + μ}
-(monic), so T + μ + 1 = μT, i.e. μ = 1 and μ + 1 = 0: impossible (q odd). ∎
+(monic, as E, F, K are monic by DEPTH_ASPECT Lemma 2.4 since α > β), so T + μ + 1 = μT, i.e. μ = 1 and μ + 1 = 0: impossible
+(q odd). ∎ (R218 repair m-6: the small-depth statement α ≥ 3 is not used by the certificate — `fs_caseA.py` sums from α = 1,
+which is conservative.)
 
 ## 3. The theorem
 
@@ -169,7 +175,9 @@ DEPTH_ASPECT Thm 2.5 (O173 Lemmas 1.1, 2.1 as re-derived by R187; R166 Case A st
 Let q = 3^r with **r ≥ 4** (q ≥ 81) and k ≥ 2. Then O(q, T^k) ≠ ∅: ES_q(T^k, ·) has no finite linear covering. More precisely:
 (a) r = 4: the covered relative measure, summed over the 80 c-slices, is ≤ 2.18; so at least 75 of the 80 c-slices have
     more than half of their measure in O(81, T^k);
-(b) r ≥ 5: for **every** c ∈ F_q^*, the c-slice minus a set of relative measure ≤ 0.26 (r = 5), ≤ 0.38 (r = 6),
+(b) r ≥ 5: for **every** c ∈ F_q^*, the c-slice minus a set of relative measure ≤ 0.26 (r = 5), ≤ 0.38 (r = 6) (R218 repair m-3, consolidated with R217 m5:
+    these two constants are artefacts of the cutoff S; with larger S, R218 certifies ≤ 0.175 (r = 5, S = 160) and ≤ 0.039
+    (r = 6, S = 100), R217 ≤ 0.19 and ≤ 0.039),
     ≤ 0.012 (r = 7), ≤ 0.0033 (r = 8), ≤ 0.0011 (r = 9), and below 10⁻³ for 10 ≤ r ≤ 30, lies in O(q, T^k).
 For char ≥ 5 this was known (O140 Prop 4.1); r ≥ 27 was DEPTH_ASPECT Thm 2.5. New: 4 ≤ r ≤ 26.
 *Proof.* Take k = 2 (N(s) and the Case A exponent only grow with k). By Lemma 2.1 it suffices to certify (Σ). Its Case B part
@@ -180,7 +188,9 @@ term is exp of a sum of ≤ 10⁴ logarithms of integers, relative error ≪ 10�
 with ≥ 10 significant digits and the certified total is (finite + tail + Case A)·1.01, which dominates serialisation and
 floating-point error; the script fails closed).
 Independent check: `scripts/fs_sum_check.py` re-implements the table of Lemma 1.6 in exact integer/rational arithmetic and
-agrees with fs_sum to 10 significant digits on every term s ≤ 40 (r = 4).
+agrees with fs_sum to 10 significant digits on every term s ≤ 40 (r = 4). (R218 repair m-7/m-5: fs_sum_check copies fs_sum's restricted
+(m, k) search, so it is independent in the arithmetic but not on that point; R218's from-scratch `scripts/review_fs2_sum.c` and
+exact-rational `scripts/review_fs2_exact.py` agree with each other to 16 digits (r = 4, s ≤ 60) and give values ≤ fs_sum's.)
 (ii) Tail s > S: `scripts/fs_tail.c`. Normalise p = (a, z, y, t)/s. On each dyadic box of p-space (adaptive, minimal width 2⁻⁸),
 every route is bounded by exp(s·φ⁺ + const)·(s + 1)^{0 or 1} with φ⁺ an upper bound over the box: N*(d) ≤ q^d,
 C(n, d) ≤ exp(n H(d/n)) and multinomials ≤ exp(n H(·)), whose continuum versions B(d, e) = (d + e)log(d + e) − d log d − e log e
@@ -212,12 +222,16 @@ p ≈ (a, z, y, t)/s ≈ (0.31, 0.325, 0.20, 0.168)). (R217 repair, m1/m2: (i) t
 the Lemma 1.6 bound-sum through s = 150 is ≈ 194.6 > q − 1 = 26 (per-s terms 2–2.5; CERTIFIED for the bounds, a statement
 about the method, not about the true counts). (ii) There is a second near-critical region p ≈ (0.39, 0.11, 0.10, 0.40) (29 of
 the 615 failed boxes of `fs_tail 3 150 8`), where R3, R10b, R4, R2 meet; the per-level maximum of min-route sits there
-(−0.0034·log q below (log q)/2 at s = 1200, increasing with s). Reaching r = 3 therefore also needs a class-divisor bound beyond
+(−0.0034·log q below (log q)/2 at s = 1200, increasing with s). (R218 repair m-4, consolidating with R217 m1: the bound-sum
+already exceeds q − 1 = 26 at s = 36 (27.68; R218's independent code gives 195.06 through s = 150), so the failure of (Σ) with
+the Lemma 1.6 bounds at r = 3 is CERTIFIED independently of any tail; that every union bound fails stays Assessment. The
+first region has an exact critical point: at (a, z, y, t)/s = (1/3, 1/3, 1/6, 1/6), R1 = 1/6 + log 3/log 27 = 1/2 and the R10
+Coppersmith threshold ab/(a + b) = 1/6 = t, both with equality; the quoted grid point approximates it.) Reaching r = 3 therefore also needs a class-divisor bound beyond
 the Coppersmith range for R2/R3/R4.) In the first region two routes meet exactly at the exponent 1/2:
 R1 (v, then a triple factorisation of T^{s−2} + v₁: exponent τ + H(ζ, α, β)/log q) and R10 (v, m', then w₁ in a
 square-root class mod Tv₁ — valid only above the Coppersmith threshold τ > αβ/(α + β)). Below the threshold the class bound is
 lost; above it R1 is ≥ 1/2. The finite sums at r = 3 (s ≤ 150) give per-s terms ≈ 2, decreasing only slowly (no
-convergence visible; not a proof of divergence). Assessment: to reach r = 3 *with this union bound* one needs either a divisor-in-class bound beyond the Coppersmith range (for counting, not finding; over ℤ the analogous
+convergence visible; not a proof of divergence of the true sums — but the bound-sum itself already violates (Σ), see above). Assessment: to reach r = 3 *with this union bound* one needs either a divisor-in-class bound beyond the Coppersmith range (for counting, not finding; over ℤ the analogous
 1/4-barrier is open), or an *average* bound for triple factorisations of T^{s−2} + v₁ over short families of v₁ — a
 short-interval d₃ problem in F₂₇[T]. Both are B3-type inputs. (Other measure arguments are not excluded by this.)
 

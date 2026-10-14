@@ -41,7 +41,7 @@ def caseA_mass(q, AMAX=40):
         tot += Fr(acc, q**al)
     # crude tail (Lemma 2.4): term(α) = (α+1)^3 4 6^α q^{floor((α−1)/2) − α} <= (α+1)^3 4 6^α q^{−(α+1)/2}
     a0 = AMAX + 1
-    first = Fr((a0 + 1)**3 * 4 * 6**a0) * Fr(q)**((a0 - 1) // 2 - a0)
+    # (R218 repair m-8: unused exact 'first' term removed; M0 below uses q^{-a0/2} >= q^{-(a0+1)/2}, conservative)
     import math
     rho = ((a0 + 2) / (a0 + 1))**3 * 6 / math.sqrt(q)
     if rho >= 1: return tot, float("inf")

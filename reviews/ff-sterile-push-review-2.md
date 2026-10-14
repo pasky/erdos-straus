@@ -5,6 +5,8 @@ Scripts: `scripts/review_fs2_*` (from scratch; none of the author's `fs_*` code 
 
 Status: round 1 complete. **No FATAL, no MAJOR.** 8 MINOR.
 
+**Repairs applied (round 2):** m-1..m-8 applied to FF_STERILE_PUSH.md (marked "(R218 repair m-…)"), m-8 in `scripts/fs_caseA.py`, report line in `reviews/agent-reports/AGENT_REPORT_O216.md`; consolidated with R217: m-3 with R217 m5 (constants at r = 5, 6), m-4 with R217 m1/m2 (certified finite-level failure at r = 3; added the s = 36 crossing and the exact critical point (1/3, 1/3, 1/6, 1/6)), m-5 into the status line together with both reviews.
+
 ## Summary verdicts
 
 | claim | verdict |

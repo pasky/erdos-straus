@@ -32,7 +32,7 @@
 
 ## Honest negatives / labels
 * Conjecture 0.2 (q = 3) is **not** proved, nor any sterile point at q = 3, 9, 27. Theorem 3.1 is about q ≥ 81.
-* The r = 3 "barrier" is EVIDENCE/Assessment (failure to certify ≠ negative result).
+* The r = 3 "barrier" is EVIDENCE/Assessment (failure to certify ≠ negative result). (R217/R218 repair: but the Lemma 1.6 bound-sum itself exceeds q − 1 = 26 already at s = 36, so the failure of *this* union bound at r = 3 is CERTIFIED; only "every union bound fails" is Assessment.)
 * Theorem 3.1 inherits the inputs of (J)26 Thm 2.5 (O173 Lemmas 1.1/2.1 as re-derived by R187, R166 Case A, compactness).
 * Self-review: codex deep reviewer (no FATAL; MAJOR: rounding/fail-open certification, false "polynomial count" claim at the
   thirds corner — actually exp(Ω(s/log s)) genuine tuples exist there, reviewer's cyclotomic construction —, overstated barrier
@@ -47,3 +47,5 @@
 * The reviewer's cyclotomic family (T^{3^h−1} − 1, exp(Ω(s/log s)) tuples at the thirds corner): test whether any covers x*_c —
   it is the richest explicit source of high-level Case B families at q = 3.
 * Char 2, large q, A = T²: are there sterile points off the slice u(0) = 1?
+
+* Hostile reviews: R217 (`reviews/ff-sterile-push-review.md`) and R218 (`reviews/ff-sterile-push-review-2.md`, independent recertification r = 4..30 with own code): no FATAL/MAJOR; minors repaired in FF_STERILE_PUSH.md, marked (R217 repair) / (R218 repair).
