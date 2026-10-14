@@ -293,7 +293,7 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | file | angle | outcome | labels |
 |---|---|---|---|
 | y8_adelic_continuity | sign balance vs distance to squares | archimedean distance irrelevant; clean levels (all primes of tp+1 QR mod p); T1 = all levels clean; calibrated reciprocity-constrained coin model fits clean-level rates | PROVED (L1–L4) + EVIDENCE — SHARP |
-| y8_siegel_weil_sign | exact Siegel–Weil weighting of words | r(T_w,I₃) = (p-adic factor 0 iff χ=−1)·ρ₊(w); N₊ = Σ r/ρ₊; comparison with \|X_p\| circular | PROVED; negative |
+| y8_siegel_weil_sign | exact Siegel–Weil weighting of words | α₂ and α_p vanish together on χ=−1, so no weighting beyond the indicator (checkpoint formula withdrawn, R-O217); comparison with \|X_p\| circular | PROVED; negative |
 | y8_lnr_level | least-non-residue level t₀ = −p⁻¹ mod q | Mordell (840) = "lnr ≤ 7 ⇒ lnr level admissible with A = q"; q ≥ 11: ≈ 0.85 success per translate, stable in p | PROVED + EVIDENCE |
 | y8_three_squares_sq | SQ for composite n via ℤ³-embeddability | 3SQ: all words embed ⟺ n square; no exceptions to 10⁶ (105 is not one) | CONJECTURE/EVIDENCE — SHARP (formulation) |
 | y8_conic_height | conic points carrying words | height(ℓ(w)) ≤ min letter; boundary words = principal-genus ideals dividing (1+√−p) | PROVED + EVIDENCE |
