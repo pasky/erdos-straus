@@ -58,3 +58,24 @@ re-run (M = 8, 12 lists also agree with PW Table 1, `sources/pw.txt` l. 868–88
 the least prime g per M is 23, 59, 191, 199, 239 (claim "g ≤ 239" ✓). M^{(S)}, S = {3,5,7,11}: the 14 pairs with
 p ∈ S (8:3,11; 12:5,7; 16:3,5,7,11; 20:3,7,11; 24:5,7,11) are excluded; all 264 others have a certificate, max least
 Q = 385 ✓; none has den z = 1 (consistent with M/p failing). 8/131 = 1/20 + 1/131 + 9/2620 ✓ (g = 7, Q = 3).
+
+### Overflow profile (§1 last paragraph) — SOUND-AFTER-REPAIRS (m4)
+With Q restricted to ODD Q ≤ 60 (as the M^□ definition requires) the least Q₁ is ≥ 3 at every pair where a shot
+exists and equals 3 at (8,131) (Q = 3, g = 7) and (8,241) (Q = 51, g = 679) ✓. But (a) 8 pairs have NO odd-Q shot with
+Q ≤ 60 at all — (16,97), (16,1489), (20,761), (20,5641), (24,1657), (24,2281), (24,3433), (24,97777) — so "≥ 3 at every
+failing pair" is vacuous there; (b) if even Q is allowed, Q₁ = 2 occurs (e.g. (8,241): Q = 2, g = 7; also (8,3),
+(8,11), (8,17), (16,131), …), so the parenthetical "necessarily" only forces Q₁ ≠ 1, not Q₁ ≥ 3.
+
+### Remark (ii): Gupta–Murty transfer to r ≡ −1 (mod M) — GAP (as an Assessment; harmless for primes ≥ 5)
+Checked against UNIT_ORBIT_ES Lemma 2.2 / Thm 2.4. What transfers: Lemma 2.2's class condition (a ≡ 3 (4),
+a ≢ 1 mod every odd ℓ | M′) holds for a ≡ −1 (mod M) (ℓ ≥ 3); (r−1)/2 is odd for r ≡ 7 (8) (indeed for every r ≡ 3 (4)),
+so 2 is never sifted; for r ≡ 3 (4) index ≤ 2 ⇒ Γ_r ⊇ (F_r^*)² and Γ_r² = (F_r^*)² (squares = 4th powers, the square
+group having odd order); |S| = 4 for S = {3,5,7,11}; the needed sign (n/r) = −1 comes from (∗) exactly as in Thm 1.1(a).
+What does NOT transfer verbatim: Thm 2.4 needs a prime ℓ₀ ≥ 5 of odd valuation in n so that a residue a ≢ 0, 1 (mod ℓ₀)
+with either character value exists; it handles the remaining case n ≡ 3 (4) by the Q = 1 shot (n + 4 has a prime
+factor ≡ 3 (4)). For M ≠ 4 the Q = 1 shortcut is unavailable (n + M need not have a divisor ≡ −1 mod M), and when the
+squarefree kernel is n₀ = 3 (n = 3k², 3 ∤ M, e.g. M = 8, 16, 20, 28) the two requirements collide: (n/r) = (3/r) = −1
+with r ≡ 3 (4) forces r ≡ 1 (mod 3), so 3 | (r−1)/2 and the index-3 case cannot be sifted out. A Kummer/Chebotarev
+condition (some q ∈ S a non-cube mod r) inside the sieve would be needed — not routine. EVIDENCE that the statement is
+still true there: M ∈ {8,16,20,28}, n = 3k² (k < 80), S = {5,7,11,13}: a prime-g shot with Q ∈ ⟨S⟩ exists in every
+case. For n = p prime ≥ 5 (all that Cor 2.1 uses) the transfer is routine. See D3.
