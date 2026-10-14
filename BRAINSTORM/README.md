@@ -241,3 +241,16 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | s3_words_parity | (J)33 × (J)15 × involution parity | σ forces nothing; no parity law | PROVED (σ); EVIDENCE (negative) |
 | s3_isogeny_mixing | (J)35 × (J)16 × expander mixing | mixing cannot robustly force a certificate edge | Assessment (counts PROVED/EVIDENCE) |
 | s3_vphi_ringmaps | (J)21 × (J)25 × (J)17 | ring maps, Galois averaging, norms out of ℤ[φ] give only local / B2 data | PROVED for these operations |
+
+## Spark relay Y2 (O210): A₂ friezes of the five ES slices (memos y2_*, deep file FRIEZE_ES.md; not yet triaged)
+
+| file | angle | own verdict | labels |
+|---|---|---|---|
+| y2_even_edge | mod-2 rigidity + 2-adic weight of the unique even edge ⇒ DK Thm 4.5 in 3 cases, all formal words, all odd N | **(h′/N) = (−1/N)(−1)^{[8∣ee′]}** | PROVED; CERTIFIED (5.1 M words N ≤ 10⁵ + 2 M random) — SHARP |
+| y2_farey_complex_lifting | SVZ Farey complexes mod 4/8; lifting with coefficient N | F₄ blind (all odd closed walks strongly contractible); mod-8 lifting = SQ₅ lottery | PROVED / EVIDENCE (negative) |
+| y2_hexagon_degeneration | hexagon (4 terms) proof and where it degenerates at the pentagon | hexagon via (2,2,2,k); pentagon needs a length-2 word at 4w = B2 | PROVED — SHARP (statement) |
+| y2_twoadic_tree_transport | 2-adic tree / tropical frieze | cherry depths; **(h′/N) = −(2/o) for N ≡ 1 (8)** | PROVED; CERTIFIED |
+| y2_parity_involution | windmill/parity on frieze set | surface is multilinear, so only the reflection; #F₋(p) even | PROVED (negative) |
+| y2_zamolodchikov_forcing | twisted period-5 dynamics | mod 2 forced, mod 4 never (T1) | PROVED (negative) |
+| y2_coefficients_model | CHJ subpolygons / snake graphs | model exists, it is a relabelling | dictionary |
+| y2_positivity_is_T1 | signed friezes / Farey distance | T1 = archimedean factor = positivity; signed friezes have no T1 | PROVED by inspection + EVIDENCE — steering |
