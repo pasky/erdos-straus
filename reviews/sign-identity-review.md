@@ -15,6 +15,9 @@ None reuse `scripts/si_*`.
 | Prop 2.3 (T1 kills finite twisted d_k combinations) | SOUND (minor D5; elementary) |
 | Prop 2.4 (Waldspurger zero-set, non-square conductor) | SOUND-AFTER-REPAIRS (MAJOR D6 hidden trivial-character hypothesis; D7 citation form) |
 | §3 rank screen (CERTIFIED) | SOUND — reproduced from scratch, all 32 certificates, same column ranks |
+| Prop 4.1 (a)–(d) (Gram T_w, Diff formula, n = p dichotomy, squares) | SOUND (novelty: (b)/(c) are CHI_FLIP Thm 1.1 + CONSTRUCTIVE Thm 1.2(c) restated; D9) |
+| §4 log-separation (CONDITIONAL) | GAP — mis-normalized index (Z(T_w) ≠ the cycle meant; need 2p·T_w), wrong/missing citation (SSY needs N odd; Zhu 2023 covers N = 2p), label misplaced; content tautological (MAJOR D10) |
+| §4 moduli reading, GK genus-3 reading (Assessment) | SOUND as Assessment |
 
 ## Claim-by-claim
 
@@ -115,3 +118,45 @@ Kronecker symbols, ternary counts, words) without using si_*; exact Fraction eli
 pairs are certified not in the ℚ-span** (8 targets: N₊, N₋, S, |X|, interior N_±, t-weighted N_±). Sanity: Hurwitz table
 checked at 10 values; a planted in-span target is correctly not certified. The label "CERTIFIED finite statement" is
 right; the AGENT_REPORT still says "(exact rank mod 2⁶¹−1)" in the CERTIFIED bullet — stale wording (D8).
+
+### Prop 4.1 — SOUND (a)–(d); novelty modest
+Re-derived. (a) t·diag(v,u) − R = [[tv−1, 1], [1, tu−1]] = [[A*, 1], [1, A]], det = AA* − 1 = tn; injective for fixed n.
+Clifford check by hand: with e_i² = G_ii, e_ie_j + e_je_i = 2G_ij, x = e₁e₂ satisfies x² = −2x − vt, so i = 1 + x has
+trd 0, i² = 1 − tv = −A*; similarly j² = −A; and ij + ji = −2 (expand; the e₁e₃ terms cancel because G₁₃ = 0). Hence
+(i, i)/2 = A*, (i, j)/2 = −(ij + ji)/2 = 1: Gram T_w. (b) Orthogonalising, ℚ⟨i, j⟩ = (−A*, −A*·det T_w) = (−A*, −tnA*). Local
+computation: ℓ | t, ℓ ∤ n ⇒ −A* ≡ 1 square; ℓ | A* ⇒ (−A*, tn)(−A*, −1) = (−1/ℓ)^{2v} = 1; ℓ | n ⇒ (−A*/ℓ)^{v_ℓ(tn)} =
+(−A/ℓ)^{v_ℓ(n)} (also when ℓ | t, both sides 1); 2 by the product formula with ∞ ramified. From-scratch check
+(`review_si_lemmas.py 2000`, own Hilbert-symbol routine incl. ℓ = 2): ramification of (−A*, −tnA*) equals the formula,
+odd size, on all 50 008 words of odd n ≤ 2000 (= author's 50 003 + the 5 words of n = 1), 0 mismatches.
+(c) is (b) at n = p plus CONSTRUCTIVE Thm 1.2(c) (E(L_w) Eichler of level 2 in B_{p,∞} if χ = −1, level p in B_{2,∞}
+if χ = +1) — that theorem already contains the full dichotomy, and CHI_FLIP Thm 1.1 is (b) in quadratic-form language
+(Ram C₀(Q_w) = anisotropic places). KUDLA_ES Thm 1.2/1.4 already has "certificate ⇒ Diff(T) = {p}" for its indices.
+(d) trivial ((x/m²) = 1). So Prop 4.1 is correct; what is new is the explicit Gram T_w = tD − R and the uniform
+"both signs are |Diff| = 1" packaging. D9: say so and cite.
+
+### §4 log-separation — GAP (MAJOR D10)
+I fetched the arithmetic Siegel–Weil literature (`sources/r204/`: Zhu arXiv 2304.10696, SSY arXiv 2206.05823;
+abstracts of Du–Yang 1702.07917 and Zhu 2401.06368). Findings:
+1. **Citations.** SSY treat X₀(N) for **N > 3 odd** squarefree — X₀(2p) is not covered. Du–Yang (N squarefree) is the
+   genus-1/divisor statement. KRY is Shimura curves (D(B) > 1). **Zhu, "Arithmetic Siegel–Weil formula on 𝒳₀(N)"
+   (arXiv 2304.10696), Thm 1.2.1, covers arbitrary N**, incl. N = 2p and the bad fibres — the doc's "not verified for
+   the bad fibres here" hypothesis is, modulo normalization, a published-preprint theorem it does not cite.
+2. **Normalization.** Zhu's special cycles Z(T, ϕ) parametrize pairs x₁, x₂ ∈ Hom(E, E′) ⊥ π with T = ½((x_i, x_j)), in
+   the lattice ∆(N) = {[[−Na, b], [c, a]]}, Q = det; ∆(N) ⊗ ℚ_ℓ ≅ N·(M₂(ℚ_ℓ)^{tr=0}, det), so
+   Diff(T, ∆(N)) = Ram(algebra of Gram T/N). The pair (i, j) are *endomorphisms* of E (elements of the Eichler order),
+   not elements of Hom(E, E′); the matching special-cycle data are (πi, πj) with Gram **2p·T_w**, and indeed
+   Diff(2pT_w, ∆(2p)) = Ram(T_w). Using T_w itself is wrong: `review_si_scale.py` finds Diff(T_w, ∆(2p)) ≠ Ram(T_w) on
+   1604 of 2958 words of primes p < 400 (e.g. (3,1,2) ∈ X₃: Ram(T_w) = {2} but Diff(T_w, ∆(6)) = {3}). So "ĉ(T_w)"
+   on X₀(2p) as written is either undefined (no lattice specified) or, in the standard normalization, a different cycle
+   whose Diff does not follow χ.
+3. **Label / content.** For T positive definite with Diff(T) = {ℓ}, Ẑ(T) is a 0-cycle supported on the supersingular
+   locus in characteristic ℓ, and its arithmetic degree is Σ (lengths/|Aut|)·log ℓ — rational·log ℓ, ≥ 0, > 0 iff
+   Z(T) ≠ ∅ — *without any Siegel–Weil formula*. So the displayed decomposition N₋^μ log p + N₊^μ log 2 is
+   unconditional geometry (given Z(2pT_w) ∋ (E→E′, πi, πj), which is Prop 4.1(c) + the moduli reading); Siegel–Weil
+   (Zhu) only adds that the same number is a derivative of an Eisenstein coefficient. And the "⟺" is tautological:
+   N₋(p) > 0 ⟺ some χ = −1 word ⟺ some term carries log p. It adds no information beyond Prop 4.1(c).
+*Repair.* Replace T_w by 2p·T_w (state the lattice ∆(2p) and ϕ = 1_{∆(2p)²}), cite Zhu 2304.10696 Thm 1.2.1 (SSY only
+for odd N), relabel: the geometric decomposition as PROVED-modulo-moduli-reading (Assessment for the identification of
+points), the Eisenstein-derivative form as CONDITIONAL on Zhu's theorem (preprint; local identity not re-checked
+here), and call the "⟺" a reformulation (tautological), not a "transcendence-separated form" with content.
+The barrier screen (i)–(iii) after it is fine and matches GROWING_IDENTITIES/DIFF_DEEP.
