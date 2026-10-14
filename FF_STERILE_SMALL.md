@@ -145,3 +145,45 @@ routes — without it the term at s = 80 is 0.118 — and is EVIDENCE: no q = 9 
 (or sharper small-s bounds); the bounds at s ≤ 12 are dominated by t ∈ {2, 3} (v₁ constant or linear: R1 counts
 triples of a *single* polynomial T^{s−2} + v₁, computable exactly by factoring) and by z = 0 patterns. Not attempted yet.
 At q = 3, (Σ) fails even with exact counts (FF_STERILE_PUSH §5: 94/27 > 2), so no union bound of this kind can work there.
+
+## 5. q = 9: exact small-level counts close (Σ) (O220 checkpoint 2)
+
+**5.1 Exact enumeration (`scripts/fz_enum.c`).** For each pattern (s; a, z, y, t), a ≤ b, all Case B tuples are listed by one
+of eight loss-free reconstructions and every candidate is checked against the full definition (B) (m', w₁, C₁, g' monic with
+nonzero constant terms and exact degrees, m'w₁C₁ = T^{s−2} + v₁, w₁ + C₁ = Tg'v₁, deg v₁ = t − 2, lc(v₁) = lc(w + C)); so the
+output is exact provided the route lists every tuple. Routes (each complete by the cited identity):
+* candidate search: M2 (C₁; v₁, m'w₁ by Lemma 1.1; then w₁ ≡ −C₁ mod Tv₁ or m' ∣ m'w₁), M3 (w₁; v₁ in its class mod w₁,
+  Lemma 1.3; then C₁ ≡ −w₁ mod Tv₁ or m' ∣ m'C₁), M5 ((m', g', v₁ in its class mod m'); w₁, C₁ = roots of
+  X² − Tg'v₁X + (T^{s−2} + v₁)/m', FF_STERILE_PUSH Lemma 1.2 X1);
+* factoring (the class-divisor routes made exact: factor F completely over F_q — squarefree decomposition, distinct-degree
+  factorisation, Cantor–Zassenhaus — and run over *all* its monic divisors of the required degree): M11 ((m', v₁) → w₁ ∣ w₁C₁),
+  M12 ((m', g') → E ∣ 1 + T^s m'g'², R2), M13 ((w₁, g') → E ∣ g'T^{s−1} + w₁, R3), M14 ((m', w₁) → E ∣ T^{s−2} + m'w₁², R4),
+  M16 ((w₁, v₁) → C₁ ∣ m'C₁, R5a).
+Each factorisation is checked fail-closed (product of the factors = F; each factor monic, pairwise distinct, irreducible by
+Rabin's test; exit on failure).
+*Validation (EVIDENCE):* every one of the eight routes, forced on all patterns, reproduces the independent bsE_famcount census
+exactly (q = 3, s ≤ 15; q = 5, s ≤ 12; q = 7, s ≤ 10; 0 mismatches; auto mode also q = 3 s ≤ 19, q = 5 s ≤ 13, q = 7 s ≤ 11).
+At q = 9: F₉ table axioms checked; the factoring routes agree with the candidate-search routes on all patterns of s ≤ 13 and
+on the 1053 patterns of 14 ≤ s ≤ 17 with search cost ≤ 9⁶; the self-checked binary reproduces s ≤ 18 byte for byte.
+R220 independently enumerated q = 9 through s = 9 (covered mass 0.553), matching.
+
+**5.2 Exact masses at q = 9 (CERTIFIED by exhaustive computation).** Σ_{s≤18} (tuples weighted by mult·9^{1−⌈s/2⌉}) = 0.592177;
+per-level terms: 0.222 (s = 4), 0.049, 0.198, 0.027, 0.055, 0.0018, 0.029, 0.0020, 0.0045, 1.8·10⁻⁴, 2.6·10⁻³, 5.2·10⁻⁵,
+8.3·10⁻⁵, 3.6·10⁻⁶, 1.5·10⁻⁴ (s = 18), against route bounds 0.22, 0.89, 0.68, 2.47, …, 4.6 (s = 12) — the bounds overcount
+by factors 10³–10⁴ at s ≈ 12–18.
+
+**Lemma 5.1 (Lemma 4.1 linearised for the tail; PROVED).** V_ρ is concave and piecewise linear, so for any n₀,
+V_ρ(n) ≤ V_ρ(n₀) + λ(n − n₀) for all n, λ the right derivative at n₀ (the ratio of the knapsack class that supplies the next
+unit). Hence for s ≥ S every divisor count in a tail box is ≤ exp(s(−D log ρ + λN + c⁺/S)), c = V_ρ(n₀) − λn₀, with D, N the
+box upper bounds of d'/s, n/s (the bound is increasing in d' and n). `fz_tail.c` (RANK = 1) uses 24 values of ρ and
+n₀ ∈ {S/2, S, 2S, 4S}, outward rounded; brute-force check of the linearised bound (q = 3, 4 ≤ n ≤ 11): 0 violations.
+
+**Theorem 5.2 (no finite linear covering of ES₉(T^k), k ≥ 2; PROVED, computer-assisted, O216 certification standard plus
+exhaustive enumeration).** O(9, T^k) ≠ ∅ for every k ≥ 2. The covered relative measure summed over the 8 c-slices is
+≤ 4.74 < 8; so the average uncovered fraction of a c-slice is ≥ 1 − 4.74/8 > 0.40, and at most 4 of the 8 c-slices have
+covered measure ≥ 0.95 … (the number of c with covered measure ≥ θ is ≤ 4.74/θ).
+*Proof.* (Σ) with k = 2 (FF_STERILE_PUSH Lemma 2.1). `scripts/fz_certify9.sh 80` (log `data/fz/certify9.txt`): finite part
+3 ≤ s ≤ 80 by `fz_hybrid.c` — exact counts for s ≤ 21 (files `data/fz/enum9/e_<s>.txt.gz`, every pattern listed, checked by
+the script) and the route bounds of FF_STERILE_PUSH Lemma 1.6 + Lemmas 1.2–1.4, 4.1 for 22 ≤ s ≤ 80 — total 4.43364;
+tail s > 80 by `fz_tail.c` with Lemma 5.1: ≤ 0.079749 (242 053 boxes, none failed); Case A ≤ 0.17501 (α ≤ 40 exact) + 1.1·10⁻⁵
+(Lemma 2.1). Certified total (×1.01) 4.7353 < q − 1 = 8. ∎
