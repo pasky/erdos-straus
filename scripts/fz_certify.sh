@@ -11,7 +11,7 @@ OUT=data/fz/certify.txt; : > $OUT
 for RS in "$@"; do
   set -- $RS; r=$1; S=$2
   FIN=$(/tmp/fz_sum_bin $r $S 1 1000 1 | grep "^r=$r " | sed 's/.*=//')
-  TAILLINE=$(/tmp/fz_tail_bin $r $S 8 1e-3 1)
+  TAILLINE=$(/tmp/fz_tail_bin $r $S 8 1e-3 1 0)   # RANK = 0: the reviewed q = 27 certificate (Lemma 4.1 not used in the tail)
   TAIL=$(echo "$TAILLINE" | sed 's/.*<= //')
   CA=$(uv run python scripts/fz_caseA.py $r 40 | sed 's/.*= \([^ ]*\) .*<= \(.*\)/\1 \2/')
   LINE=$(python3 -c "

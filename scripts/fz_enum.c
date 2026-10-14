@@ -237,7 +237,25 @@ static void sqf(fact *F, const poly *f0, int mult) {   /* f0 monic */
   }
   if (c.d > 0) { poly g; g.d = c.d / PCH; for (int k = 0; k <= g.d; k++) g.c[k] = PROOT[c.c[k * PCH]]; sqf(F, &g, mult * PCH); }
 }
-static void factor(fact *F, const poly *f) { F->n = 0; poly g = *f; pmonic(&g); sqf(F, &g, 1); }
+static int SELFCHECK = 1;
+/* Rabin irreducibility test: f monic of degree d >= 1 */
+static int irreducible(const poly *f) {
+  int d = f->d; if (d == 1) return 1;
+  poly X, h; X.d = 1; X.c[0] = 0; X.c[1] = 1;
+  for (int p = 2; p <= d; p++) if (d % p == 0) { int isp = 1; for (int u = 2; u * u <= p; u++) if (p % u == 0) isp = 0; if (!isp) continue;
+    h = X; for (int i = 0; i < d / p; i++) ppowmod(&h, &h, Q, f); poly hx, g; psub(&hx, &h, &X); pgcd(&g, &hx, f); if (g.d != 0) return 0; }
+  h = X; for (int i = 0; i < d; i++) ppowmod(&h, &h, Q, f); poly hx; psub(&hx, &h, &X); pdivmod(NULL, &hx, &hx, f); return hx.d < 0;
+}
+static void factor(fact *F, const poly *f) {
+  F->n = 0; poly g = *f; pmonic(&g); sqf(F, &g, 1);
+  if (SELFCHECK) {   /* fail closed: product must reproduce f, every factor irreducible and monic, factors distinct */
+    poly p; p.d = 0; p.c[0] = 1;
+    for (int i = 0; i < F->n; i++) { if (F->f[i].c[F->f[i].d] != 1 || !irreducible(&F->f[i])) { fprintf(stderr, "FACTOR CHECK FAILED (irreducible)\n"); exit(4); }
+      for (int j = 0; j < i; j++) if (peq(&F->f[i], &F->f[j])) { fprintf(stderr, "FACTOR CHECK FAILED (dup)\n"); exit(4); }
+      for (int k = 0; k < F->e[i]; k++) pmul(&p, &p, &F->f[i]); }
+    if (!peq(&p, &g)) { fprintf(stderr, "FACTOR CHECK FAILED (product)\n"); exit(4); }
+  }
+}
 /* enumerate divisors of degree D (monic) of the factored poly, with optional exponent caps; callback */
 typedef void (*dcb)(const poly *);
 static fact *DF; static int DEX[MAXF]; static dcb DCB; static int DTARGET; static int DREM[MAXF + 1];
