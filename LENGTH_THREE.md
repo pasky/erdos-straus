@@ -157,3 +157,83 @@ factor of λ₁₅). All of them are the single relation K(c, m, s) = N, i.e. th
 λ-lengths = frieze entries (Conway–Coxeter, Penner), Farey telescoping = h-lengths, Machin = regular representation. New
 here: the identification of DK's five ES slices with the five vertices (Cor 2.2, with the five ES triples as fan decompositions),
 and of the (J)37/(J)38 divisibility N(ε_μ) | μ with a Ptolemy relation, on one geodesic pencil.
+
+## 6. The ES / ES^{(S)} gap in pentagon language: one side stops being tangent (PROVED, elementary)
+
+Penner's identities hold for any decoration, so pentagons with non-unit sides give Egyptian identities with non-unit
+numerators. For the frozen values (λ₁₂, λ₂₃, λ₃₄, λ₄₅, λ₅₁) = (Q², 1, 1, 1, n) and middle diagonal λ₂₄ = 4, the V₃ fan
+gives
+`  4/n = 1/(sn) + 1/(sc) + Q²/(cn),`
+the ES^{(S)} shape of UNIT_ORBIT_ES (third numerator Q²). The Ptolemy system is 4c = Q² + h, hs = n + c, 4s = h′ + 1,
+hh′ = Q² + 4n, ch′ = Q²s + n. **For Q odd these pentagons are in bijection with the divisors h ≡ 3 (mod 4) of 4n + Q²**
+(c = (h + Q²)/4, s = (n + c)/h, using 4(n + c) = 4n + Q² + h). This is the fixed-modulus-4 shot. Geometrically the
+Ford horocycles at 0 and ∞ are pulled apart to λ-length Q² (distance 4 log Q). ES is the case where all four
+sides are tangent (Q = 1, or the general cube pentagon (c, 4dj, s)), and there the modulus 4cd·… returns.
+CERTIFIED (`scripts/l3_mute_side.py 3001 15`): 23 510 such pentagons (odd n ≤ 3001, odd Q ≤ 15), Ptolemy + identity
+exact, 0 failures.
+*What does not work.* The decoration torus (rescaling horocycles, λ_ik ↦ f_if_kλ_ik) cannot make the Q²-side tangent
+while keeping the closing side a multiple of a prime n and the other sides unit. Solving f₁f₂Q² = f₂f₃ = f₃f₄ = f₄f₅ = 1
+forces λ₁₄ ↦ h/Q² and N ↦ f₁²Q²n, and integrality then needs Q² | h and Q²·(…) | n. So the torus does not transport
+ES^{(S)} certificates into the O(p²) box (consistent with the exponent cap of (J)34). DK 8.3 scaling is the torus element
+f = (α, α⁻¹, α, α⁻¹, α) (PROVED: it sends (c, m, s, N) ↦ (α²c, m/α², α²s, α²N) and fixes the sides and h, h′), so it is
+HJ_DEEP Lemma 2.3's reparametrisation.
+
+## 7. Constructive use of the unified object (task part 2): candidates and screens
+
+Each item names the barrier hypothesis it tries to violate, then gives the outcome.
+
+**7.1 Conway–Coxeter positivity (frieze side; violates "no deterministic input").** For all-unit frozen values, every
+positive integral frieze has a quiddity equal to 1 (an ear). This is the deterministic engine behind "friezes =
+triangulations". Here the quiddity at V_i is exactly the opposite diagonal (the ES slice variable of Thm 2.1). With one
+frozen value N > 1, interior words have all five quiddities ≥ 2, and an ear exists only for boundary words (a letter 1).
+Those are the divisor-of-N + 1 certificates of DK §4.2, which at p ≡ 1 (4) need (p + 1)/2 to have a prime factor
+≡ 3 (mod 4): a fixed shot, not a theorem. Positivity plus integrality forces nothing mod 4. **Dead** (no analogue of
+the ear lemma with a non-unit boundary value: L₃(N) = ∅ for N ∈ E_W, HJ_DEEP (W)).
+
+**7.2 Exact identities over the whole decorated family (H-E; candidate (a) of the brief).** Penner/Farey telescoping
+is exact over full Farey sequences (Σ 1/(bb′) = 1 over adjacent pairs) and over full fans. The ES object is a fan of
+exactly three pieces with a congruence on the opposite diagonal. Summing over all A ∈ (ℤ/N)^× gives the classical
+exact sums: Heilbronn's sum of partial quotients, and Dedekind sums (DK (D3), which only see r − r′). The length-3
+count itself is the (★) divisor convolution. A signed count Σ χ is a 2-adic cell sum (CHI_FLIP 4.2), and
+Eichler–Selberg places ES in the split-hyperbolic term (GROWING_IDENTITIES Prop 2.1). The pentagon adds no new
+summation: its Ptolemy system is homogeneous of degree 2 in the λ's, so every identity it generates is a relation
+among the same five divisor-type quantities. **No positive identity found (Assessment).**
+
+**7.3 The moving pencil (candidate (b); violates B2's fixed-level hypothesis).** For Type II with fixed d, r² = p/(4d)
+does not depend on j (Thm 3.1). So *all* cube points (·, d, ·) live on the orthogonal pencil of the single geodesic
+C_d, and μ is part of the object. This is a genuine "moving geodesic family" in which the level is not fixed. But the
+ES condition on it is Thm 4.1: m²Norm_μ(ℓ_{1/m}) = −D with D | μ. Eliminating μ = λD gives back
+D(4djλ − 1) = 4dj²p + 1, the (d, j)-line. The modulus D is still part of the solution. **Reduces to B2/H-A** (PROVED
+reduction; the pencil makes the level move, but the divisibility is still a Ptolemy relation with an unknown divisor).
+
+**7.4 T1 as geometry (candidate (c)).** On the Type II slices the reason is visible in the Machin/CM picture (PROVED,
+classical in substance — ET Prop 1.6 / Yamamoto): at n = M² the Machin field is ℚ(√−dM²) = ℚ(√−d). The target
+1 + 2jM√−d is a *primitive* element of ℤ[√−d] of norm 1 + d(2jM)². So every odd prime q | 1 + 4dj²M² has (−d/q) = 1,
+while h ≡ −1 (mod 4dj) forces the Jacobi symbol (−d/h) = −1. Proof of the last step: (−1/h) = −1; for d = 2^a d′ one
+has (d′/h) = (−1/d′)(−1)^{(d′−1)/2} = 1, and (2/h) = 1 when a ≥ 1 since h ≡ −1 (mod 8). So no cube point exists at any
+odd square. For d = e² the geodesic C_d has rational endpoints ±M/2e and this is Fermat's "1 + x² has no divisor
+≡ 3 (mod 4)" in ℤ[i]. At a prime p the field ℚ(√−pd) carries the extra genus character (·/p), which is what lets h
+exist. Geometrically: at squares the CM point z* = iM/√m is the M-dilate (a Hecke translate) of i/√m, and the dilation
+loses the genus character at N. This is the (J)13 "geometry sees only genus" statement in Machin form. It is not new
+and gives no existence at primes.
+
+**7.5 Equidistribution (candidate (d); screen against B3).** The CM points z*_d (discriminants −16pd·(…)) and the
+pencil geodesics equidistribute in SL₂(ℤ)\ℍ (Duke). The ES event is an exact coincidence of rational cusps:
+K_c(s) = 1/m, i.e. a rotation about z*_d maps the cusp pair (∞, s) to (c, 1/m) with prescribed λ-lengths. This is a
+measure-zero target (shrinking target of size ≍ 1/p² for p-height cusps). Equidistribution controls sets of fixed
+positive measure, so it gives at most the average count ≍ log³ p over p (B6), and nothing pointwise. **Dead (B3/B6)**
+(Assessment).
+
+**7.6 Farey-chain slice (EVIDENCE, negative).** The cleanest fully "geometric" certificates are those where 4/p itself
+is the h-length of a three-edge Farey chain seen from one cusp: 4/p = Σ 1/(b_ib_{i+1}) with b_i | b_{i−1} + b_{i+1}.
+Among all ES solutions of primes < 400, 358/1615 Type I and 242/641 Type II solutions are such chains. The primes
+13, 37, 97, 181, 193, 277, 373 have none (`/tmp` probe recorded here). This is another fixed slice set that fails
+infinitely often (B2/(J)2). **Dead.**
+
+**7.7 What the unified language does buy (Assessment).** (i) The five slices are cyclically arranged (vertex ↔
+opposite diagonal), so DK Thm 4.5 reads "the pentagon's mod-4 frieze has a zero quiddity ⟺ (A/N) = −1". The sign is
+a property of the ℤ/8-frieze. (ii) (J)37/(J)38's "norm divides μ" and the cube's divisibilities are *Ptolemy
+relations*, and Machin is the same relation at a CM point. So the four "length 3" phenomena carry no independent
+information: any mechanism that sees one sees all, and B2 is the statement that the Ptolemy system contains an unknown
+divisor (the λ-length h). (iii) ES^{(S)} versus ES is "one side non-tangent" (§6). A proof would have to produce
+pentagons with tangent sides. No geometric move does that while keeping N = p (§6).
