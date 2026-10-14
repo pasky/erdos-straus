@@ -49,8 +49,9 @@ Maslov count). On D: certificate ⟺ χ = −1 (MODEL_SPECIFIC 3.1(a)). **For al
       t up to 231 already below 2·10⁶ (record n = 702 585) and fails at 105. At primes ≤ 1001: ≈ 75.5 signed
       χ = −1 words on average versus ≈ 33.7 positive ones.
   (d) no finite t-set suffices (CONDITIONAL on Schinzel's H): for t = ±1, ±2 the only words with tn + 1 = ±prime·(unit)
-      are the trivial ones, χ = (−1/n) = +1 for n ≡ 1 (4); for |t| ≥ 3 a prime |tn + 1| (resp. 2·prime) has no
-      factorisation with A, B ≢ … ≠ −1 except A or B = ±1, excluded or of the wrong class. So H gives infinitely many
+      are the trivial ones, χ = (−1/n) = +1 for n ≡ 1 (4); for |t| ≥ 3 a prime |tn + 1| (resp. 2·prime) admits only
+      factorisations with A or B ∈ {±1, ±2}, which are excluded (= −1), of the wrong class mod t, or give finitely
+      many congruence-determined signs (to be checked per t). So H gives infinitely many
       n ≡ 1 (8) where every |t| ≤ T fails (sketch; admissibility of the prime tuple to be checked per T).
   Mechanism of the quantitative gain: with A, B < 0 the factors a = |A|, b = |B| satisfy a ≡ b ≡ +1 (mod t) (the
   *wide/trivial* class), and for prime t ≡ 1 (4), n ≡ 1 (4), χ = (−t/a) = (−1/a): the c_∞-condition moves from
@@ -82,7 +83,7 @@ it converts the 2-adic certificate condition into the n-adic condition χ = −1
 2-adic form trivialises ES and loses T1; dropping it in the n-adic form keeps T1 and stays qualitatively the same
 (finite, no forcing, a sub-product lottery, no finite t-set under H) but becomes quantitatively far easier (|t| ≤ 18
 to 10⁷ versus 231 by 2·10⁶), because the c_∞-requirement then lives at the fixed modulus 4 instead of the moving
-modulus t. **New CONJECTURE SQ_± (EVIDENCE to 10⁷): for odd n, χ is non-constant on the signed points of X_n iff n is
-not a square** — the exception 105 of SQ₅ disappears. So "ES must use positivity archimedeanly" is true for T1, but a
+modulus t. **New CONJECTURE SQ_± (EVIDENCE to 10⁷): for odd n > 1, some signed point of X_n (t u v ≠ 0) has χ = −1 iff
+n is not a square** — the exception 105 of SQ₅ disappears. So "ES must use positivity archimedeanly" is true for T1, but a
 positivity-respecting tool is not thereby a lottery-breaker: the lottery is n-adic. Label: L1, L2, P3(a,b) PROVED
 (elementary); P3(c) EVIDENCE; the reading is an Assessment.
