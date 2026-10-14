@@ -30,15 +30,16 @@ Hom(μ_{f+p}, F_f^*) has image of order gcd(f + p, f − 1) = gcd(p + 1, f − 1
 Thm 3.1), the overlap is p-dependent; full overlap at level 4cd (4cd | gcd) forces 4cd | p + 1, hence
 p ≡ 3 (4) (one-way), and then f = p² + 4c²d (g = 1) is trivially a certificate. (R-O211 repair: the window does not
 require full overlap — (p,c,d,f,g) = (7,3,1,17,5) is a window certificate with 12 ∤ 8.) For p ≡ 1 (mod 4) PARTIAL
-overlaps exist: at level 4cd the overlap divides 2·gcd(cd, (p+1)/2) (e.g. (17,1,3,43,7): gcd(18,42) = 6); they occur
-only on slices whose cd shares odd factors with p + 1 — a fixed finite slice set per p (B1 type).
+overlaps exist: the level-4cd overlap is gcd(4cd, p + 1) = 2·gcd(cd, (p+1)/2) (e.g. (17,1,3,43,7): gcd(18,42) = 6); it is
+non-trivial on slices whose cd shares odd factors with p + 1 (this neither bounds cd nor gives cd | p + 1; no
+barrier classification is claimed — the partial bridge is simply not exploited here).
 
 ## Barrier screen
-B1 (window = one congruence family; overlap = slices dividing p + 1), B2 (outside the window f is a moving modulus
+B1 (window = one congruence family), B2 (outside the window f is a moving modulus
 with no point-count meaning), T1 (odd squares: 0 non-degenerate window solutions, as Type I must).
 
 ## Assessment
 Spark 1 COLLAPSES (PROVED): the dual Hasse window captures only the g = 3 greedy family for p ≡ 1 (4), and the CM
 link is false. By-product (3): the Type I analogue of torsion–residue orthogonality has p-dependent overlap
 gcd(p + 1, f − 1); full overlap at level 4cd happens only in the trivial case p ≡ 3 (mod 4), while for p ≡ 1 (4)
-partial homomorphic bridges exist on the finitely many slices with gcd(cd, p + 1) > 1 (not exploited here).
+partial homomorphic bridges exist on slices with gcd(cd, (p + 1)/2) > 1 (not exploited here).

@@ -4,7 +4,7 @@ Fire+(n, h): h prime, h = 7 (mod 8), exists c, d >= 1 with 8 | 4cd | h + 1 and k
    the other root gives the inverse unit, same subgroup).
 Reports, for 5 <= n < P (primes, and odd squares as the T1 control), the least firing h (search h < Hmax), and the
 distribution of least h for primes; for squares, any firing at all (expected: never, since (-d/h) = -1).
-Also: does ES Type II itself (k = 0) fire at the same h?  Usage: PYTHONPATH=scripts uv run python scripts/y3_unit_twist.py P Hmax"""
+Also: does genuine ES Type II (any slice, untwisted) fire at the least E+-firing h?  Usage: PYTHONPATH=scripts uv run python scripts/y3_unit_twist.py P Hmax"""
 import sys
 from sympy import primerange, sqrt_mod, divisors, isprime
 
@@ -23,7 +23,9 @@ def data(Hmax):
         fire = set(); fire0 = set()
         for c, d in sl:
             X = 4*c*c*d % h
-            fire |= {(-X*s) % h for s in sub}; fire0.add((-X) % h)
+            fire |= {(-X*s) % h for s in sub}
+        for cd in divisors(k):  # genuine ES Type II at h: ALL slices 4cd | h+1 (not only even cd)
+            for c in divisors(cd): fire0.add((-4*c*c*(cd//c)) % h)
         out.append((h, fire, fire0))
     return out
 

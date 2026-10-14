@@ -1,4 +1,4 @@
-# y3_euclid_schur_forcing — ES firing classes are exactly the "Euclidean" classes (Schur–Murty) (O211 (b)/(c))
+# y3_euclid_schur_forcing — the ES class −1 is a Schur–Murty "Euclidean" class (O211 (b)/(c))
 
 **ES is not solved here.** Labels as in DISCOVERIES.md.
 

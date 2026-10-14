@@ -31,8 +31,8 @@ non-square (F_h^*·T has index 2 in F_{h²}^*; checked numerically, scripts/y3_g
 (Katz), no closed form for general χ: the only place p could enter (via χ) is a square-root-cancelling sum: B3.
 
 ## Barrier screen
-B2/B3 as in y3_semiprimitive_collapse; Thm 2.1 of BRIDGE_WORLDS (case (b): Γ-values at i/m reduce to residues of
-rationals); T1 not reached.
+B2/B3 as in y3_semiprimitive_collapse; Γ-values are NOT covered by BRIDGE_WORLDS Thm 2.1(b) (not rational functions of μ_m); the computation above shows
+directly that only the residue of the argument i/m enters; T1 not reached.
 
 ## Assessment
 COLLAPSES (PROVED): Gross–Koblitz at semi-primitive level only uses the residue of its argument 1/m, i.e. j — the box. The mixed

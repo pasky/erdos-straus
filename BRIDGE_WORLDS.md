@@ -11,8 +11,11 @@ N_II^pr(p) the same with h prime.
 
 ## 0. Iteration log
 (I1) Task (a): semi-primitive (uniform) cyclotomy over F_{h²}. Result: a scaling-collapse proposition (§1) — every
-cyclotomic statistic at level m | h + 1 sees p only through F_h^*/F_h^{*e}; the only non-homomorphic bridge is
-the additive shift ζ ↦ 1 − ζ, which transports exactly the INTEGER m (cardinality), i.e. the box. Memo
+weighted-homogeneous cyclotomic count at level m | h + 1 sees p only through F_h^*/F_h^{*e}; among the bridges
+examined, the additive shift ζ ↦ 1 − ζ transports the INTEGER m (cardinality), which is how the box arises.
+(I2) Bridges: three tiers (§2), "h imitates ∞" (§3), Type I overlap (§4), PM-II census (§5). (I3) Self-review R-O211
+(two deep passes): scope repairs throughout. (I4) Unit twists (§6): unrestricted = trivial; totally positive over
+ℚ(√2) = T1-keeping, box-erasing at good h. (I5) Ordinary reductions (R206 D3 scope note): §8. Memo
 `y3_semiprimitive_collapse`.
 
 ## 1. Semi-primitive cyclotomy is p-blind except through the integer m (PROVED)
@@ -57,8 +60,9 @@ fixed by all of Gal(ℚ(ζ_m)/ℚ) are rational, as in (b).
 are the coefficients of X^m − 1 (0 or ±1) both in ℂ and in F_{h²} (h ∤ m). (c) Frob_𝔥 restricted to ℚ(ζ_m) is
 ζ ↦ ζ^h = ζ⁻¹ = complex conjugation, trivial on K; reduction from the local ring of K at 𝔥 to O_K/𝔥 = F_h is a ring map. ∎
 **Corollary 2.2.** Type II firing on slice (c, d) at h is the case (b) statement −p ≡ s(m) with s = 4c²d (=|μ_{4cd}|·|μ_c|).
-Within the three tiers, the only room beyond "the box" is (c) with α ∉ ℚ — which tests p ≡ −α (mod 𝔥), a
-*cyclotomic generalisation* of Type II that does not imply ES. Whether every useful bridge must be archimedean is an
+Thm 2.1(b) gives rationality, NOT membership in the box (a constant S = 3 is rational but 3 ∉ Box(2) = {1, 2, 4}
+at h = 7); the box is the specific rational family 4c²d that ES singles out. Tier (c) with α ∉ ℚ tests p ≡ −α
+(mod 𝔥), a *cyclotomic generalisation* of Type II that does not imply ES. Whether every useful bridge must be archimedean is an
 Assessment, not a theorem (other constructions — e.g. Gauss sums mixing in characters of F_h^* — are outside the tiers).
 
 ## 3. Interpretation: h imitates the infinite place (PROVED dictionary; heuristic reading is Assessment)
@@ -74,8 +78,8 @@ y3_frob_infinity; Assessment).
 ## 4. Type I: the overlap is p-dependent; full overlap only in the trivial case (PROVED)
 Type I (fg = p² + 4c²d, f ≡ g ≡ −p mod 4cd): Frobenius at f acts on μ_{4cd} by ζ ↦ ζ^{−p}; the divisor world is
 μ_{f+p}, p's world F_f^*, overlap |Hom(μ_{f+p}, F_f^*)| = gcd(p + 1, f − 1). Full overlap at level 4cd ⟺ 4cd | p + 1
-⟹ p ≡ 3 (mod 4) (one-way), where g = 1 (f = p² + 4c²d) is a certificate. For p ≡ 1 (4) partial overlaps exist on
-the finitely many slices with gcd(cd, p + 1) > 1 (e.g. (p,c,d,f) = (17,1,3,43): overlap 6) — not exploited. The dual
+⟹ p ≡ 3 (mod 4) (one-way), where g = 1 (f = p² + 4c²d) is a certificate. For p ≡ 1 (4) partial overlaps gcd(4cd, p + 1) =
+2·gcd(cd, (p+1)/2) exist (e.g. (p,c,d,f) = (17,1,3,43): overlap 6) — not exploited, no barrier claim. The dual
 Hasse window (O207 spark 1) consists of the g ∈ {1, 3, 5} certificates (p ≥ 17; complete proof in the memo), i.e.
 for p ≡ 1 (4) of g = 3 with f prime: a sub-family of the greedy x = (p + 3)/4 congruence family (B1); the suggested
 CM by ℚ(√−d) occurs in none of the 10 737 window certificates p < 20000 (y3_typeI_hasse.py). Memo
@@ -117,8 +121,13 @@ if a ≥ 1 then h ≡ 7 (mod 8) and (2/h) = 1; so (d/h) = 1 and (−d/h) = (−1
 consists of squares, and −n/(4c²d) has character (−d/h) = −1 for n a square. (ii) −p/(4c²d) is a square iff
 (−pd/h) = 1 iff (p/h) = −1 by (i); at good h the subgroup is all squares (|F_h^{*2}| = (h − 1)/2 is odd). ∎
 Numerics (scripts/y3_unit_twist.py 10⁵ 2000): every prime 5 ≤ p < 10⁵ fires at some h < 2000; least firing h is 7 for
-4812, 23 for 2415, 31 for 1198, 47 for 609, … (geometric, as (p/h) = −1 coin flips at good h predict); odd squares:
-none. **Reading:** the totally positive units erase the box and leave exactly the genus layer — so the E⁺-twisted
+4812, 23 for 2415, 31 for 1198, 47 for 609, … (geometric, as (p/h) = −1 coin flips at good h predict); at the least
+E⁺-firing h, genuine (untwisted, any slice) Type II also fires for 7705 of the 9590 primes; odd squares: none.
+Novelty is modest: the square-subgroup enlargement mechanism is that of (J)21/(J)23. **Reading:** at good h, the totally positive units erase the box and leave exactly the genus layer (at other h
+they need not: h = 103, p = 5 has (5/103) = −1 but the order-17 unit subgroup misses −5/(4c²d) for every permitted
+slice). For n = r² with h | n the target is 0, outside the subgroup. The T1 argument uses E⁺ ⊂ squares, i.e.
+N(ε₀) = −1; it FAILS for fields whose totally positive units are not squares (ℚ(√3): n = 9, c = 1, d = 3, h = 11,
+√3 ↦ 5, ε = (2+√3)³ ↦ 2 gives 9 + 12·2 ≡ 0) — a higher-rank extension needs a new T1 argument — so the E⁺-twisted
 Type II is a V_φ/ES^{(S)}-type T1-keeping cousin ((J)21/(J)23), whose provability for every p is an Artin-type
 statement about ε₀ at primes h ≡ 7 (8) with (p/h) = −1 (GRH à la Hooley; unconditional status not checked — with
 higher-rank units of ℚ(ζ_m)⁺ a Gupta–Murty/Heath-Brown argument may apply: spark). By (J)28's recalibration this is
@@ -138,7 +147,7 @@ exponent cap of (J)34 is an analogy, not a proved equivalence.
 | mixed torus Gauss sums (memo) | genuinely two-world | Weil-bounded character sum | B3 |
 | Euclid–Schur forcing (memo) | residue forcing | |G| = 2 (trivial slice) or auxiliary primes (B1) | B1/B4 |
 | tier (c) + units (§6) | ring map O_K → F_h | large subgroup, but trivial (ε = −1); E⁺ repair open | archimedean (positivity) |
-| Type I overlap (§4) | gcd(p + 1, f − 1) | full: trivial case p ≡ 3 (4); partial: finite slice set | B1 |
+| Type I overlap (§4) | gcd(p + 1, f − 1) | full: trivial case p ≡ 3 (4); partial: unexploited | — |
 **Verdict (R-O211 repaired).** ES is not solved; no infinite case. Scoped negative result: within the three tiers of
 Thm 2.1 (homomorphisms; fixed symmetric rational expressions in μ_m; Frobenius-invariant expressions in one ζ),
 homomorphic bridges see ±1, ℚ-rational ones see fixed rationals (for Type II: the box), and the ring maps of tier (c)
