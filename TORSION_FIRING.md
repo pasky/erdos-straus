@@ -259,6 +259,15 @@ certificate of type (a) or (b): (a) fails only at p = 193; (b) fails at exactly 
 6266527, 8813281 (none in (8.9·10⁶, 10⁸]); never both. The odd squares ≤ 10⁸ (4999): 0 of either kind (T1).
 So, empirically, **ES(p) is witnessed by an elliptic curve over F_p itself**: some E/F_p of trace a ≤ 0 (in the
 Hasse window) has a subgroup whose order is ≡ −1 modulo 4(1 − a) (b) or modulo 4cd with 1 − a = 4c²d (a).
+**Proposition 4.3 (the window (b) is the whole j = 1 face; PROVED).** For a prime p ≥ 5 the following are
+equivalent: (i) (b) of Prop 4.2 holds for some c ≤ 2√p + 1; (ii) the cube has a point (c, d, 1) (any size);
+(iii) for some d ≥ 1, 4dp + 1 has a divisor h ≡ −1 (mod 4d).
+*Proof.* (i) ⇒ (ii) is Lemma 1.1 with j = 1, and (ii) ⇔ (iii) is Lemma 1.1's h | pj + c ⟺ h | 4dj²p + 1 with
+h = 4cd − 1. (iii) ⇒ (i): N := 4dp + 1 ≡ 1 (mod 4d), so the cofactor N/h ≡ −1 (mod 4d) as well; let h₀ be the
+smaller of h, N/h, so h₀ ≤ √N. Put c := (h₀ + 1)/(4d) ∈ ℤ_{≥1}: h₀ = 4cd − 1 | 4dp + 1, hence h₀ | p + c, and
+c ≤ (√(4dp + 1) + 1)/(4d) < 2√p + 1. ∎ (`scripts/tf_jface.c 10⁵`: (i) and (iii) agree on all 9590 primes
+5 ≤ p ≤ 10⁵, data/tf/jface_1e5.txt.) So the Hasse-window restriction in (b) costs nothing: every j = 1
+certificate pairs with one inside the window — the Hasse bound |a| ≤ 2√p is the divisor-pairing bound h₀ ≤ √N.
 *Reading (Assessment).* By Lenstra's theorem E(F_p) ≅ End(E)/(π − 1) (ordinary E), the subgroups stable under
 End(E) are ideals above (π − 1), whose norms are the divisors of p + 1 − a split in ℚ(√(a² − 4p)); the condition
 "order ≡ −1 modulo a function of the trace" again couples a group order to an arithmetic progression of moving
