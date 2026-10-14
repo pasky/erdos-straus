@@ -227,3 +227,13 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | bsM_boundary_escape | which classes certify primes near a sterile point | escape at the first primes beyond the trivial range; sterile ≡ square point | Lemma PROVED; EVIDENCE |
 | bsM_borel_cantelli_patterns | S closed, ES ⟺ ℙ ∩ S = ∅; non-square patterns | divergent patterns ν-a.e. covered, sparse ones carry sterile points; integers are on the divergent side | Props PROVED; sparse side Assessment — SHARP (language) |
 | bsM_shot_coverage | per-prime coverage, ℤ vs V_φ | sterile points = signature of finitely many shots | PROVED rel. ET; Assessment |
+
+## Spark relay Y1 on O205's two bad fibres / hyperbolic words (O209; memos y1_*, deep file TWO_FIBRES.md; not yet triaged)
+| file | angle | verdict (own) | label of main items |
+|---|---|---|---|
+| y1_hurwitz_lift | χ = +1 fibre = Hurwitz order: n·G_w ↪ ℤ³ ⟺ Diff = {2}; square-det path lattices ⊂ ℤ³; 𝔊⁺_p = conic/S₄ | exact dictionary; ES-five = non-embeddability; B2 | H1–H4 PROVED (classical inputs); CERTIFIED n ≤ 3001 / 451 — SHARP |
+| y1_gamma8_trace | words as hyperbolic classes; twisted trace formulas | χ is a Γ(8)-class function, not an SL₂(ℤ) one; ES = length-3 extraction (B3) | G1–G3 PROVED |
+| y1_gl3_cuspidal | GL(m) cuspidal + GL(k) Eisenstein identities vs T1 | dead, incl. self-dual orthogonal (Sym²/Ad) class, under a one-prime genericity hypothesis | Props G, G′ PROVED rel. Jacquet–Shalika + BV — SHARP (steering) |
+| y1_cerednik_swap | Cerednik–Drinfeld / Ribet: two fibres = two trees of X^{2p} | dictionary; forcing hope screened (B2/B6); fibre split not mass-equidistributed | Assessment; EVIDENCE (census ratios) |
+| y1_heegner_level_t | words = x = 4 GKZ terms of two root-2 Heegner points on X₀(t), index 4n | level-t condition = Heegner condition; B2 | K1 PROVED; collisions trivial without level (t ≤ 11, p < 2·10⁵) |
+| y1_reciprocal_parity | reciprocal geodesics / involutions → parity | only fixed point = (p+2,1,1); N₋ mod 8 equidistributed | R1, R3 PROVED; R2 EVIDENCE (10⁶) |
