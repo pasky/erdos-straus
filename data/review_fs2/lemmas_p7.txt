@@ -1,0 +1,1 @@
+p=7 trials=120 (Q,d)-groups=347056 violations=0 max count/bound per lemma={'triv': 1.0, 'L14': 1.0, 'L15': 1.0}
