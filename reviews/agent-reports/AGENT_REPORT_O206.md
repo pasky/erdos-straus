@@ -7,7 +7,8 @@ Branch side-agent/length-three. Main file `LENGTH_THREE.md`. Scripts `scripts/l3
 1. **The five ES slices are the five vertices of a Farey pentagon (Thm 2.1 / Cor 2.2).** A length-3 HJ word
    [[c, m, s]] = N/h′ is the Ford-decorated Farey pentagon (0, ∞, c, c − 1/m, N/h′): four unit sides, closing side N,
    diagonals c, m, s, h = cm − 1, h′ = ms − 1. Equivalently it is a positive integral A₂ frieze with frozen values
-   (1,1,1,1,N), and the five continuants are the five cluster variables. DK Thm 4.5's five slices
+   (1,1,1,1,N) whose letters are all ≥ 2 (with a letter 1 it is a formal word, not HJ length 3), and the five
+   continuants are the five cluster variables. DK Thm 4.5's five slices
    (4 | A, A*, t, u, v) are "the diagonal opposite vertex V_i is ≡ 0 (mod 4)". The ES triple is Penner's horocycle at
    V_i cut by the fan from V_i (Farey telescoping), divided by N where needed.
    So (J)9 reads: **(A/N) = −1 ⟺ some quiddity of the pentagon frieze is ≡ 0 (mod 4).**
@@ -45,9 +46,28 @@ No deterministic existence mechanism. Every candidate reduces to the Ptolemy sys
 * (7.3) Moving pencil: the level moves, but μ eliminates back to the (d, j)-line.
 * (7.4) T1: Machin field ℚ(√−dM²) = ℚ(√−d), so genus theory kills every cube point at squares (classical; PROVED
   three-line version). It gives nothing at primes.
-* (7.5) Duke equidistribution: the target has measure zero (B3/B6).
-* (7.6) Farey-chain slice: fails at 13, 37, 97, 181, 193, 277, 373.
-The value of the result is the dictionary: the four "length 3" phenomena carry no independent information.
+* (7.5) Equidistribution: no route. The points z*_d are purely imaginary and do not themselves equidistribute; the ES
+  event is an exact coincidence at one representative (Assessment).
+* (7.6) Farey-chain slice: fails at 13, 37, 97, 181, 193, 277, 373. Infinitely many failures are NOT shown.
+The value of the result is the dictionary: the four "length 3" phenomena are algebraically equivalent restatements of
+K(c, m, s) = N. That every mechanism seeing one sees all is an Assessment, not a theorem.
+
+## Self-review (deep reviewer subagent, after checkpoint commit) and repairs
+All marked "R-self repair" in LENGTH_THREE.md:
+* N > 0 domain; formal vs interior words separated (Prop 1.1, Cor 1.2).
+* Rotation sign: K_x rotates clockwise.
+* Table: m²Norm, not Norm.
+* Pencil: R_μ is an algebra only for μ ∈ ℚ; the integral lattice is a choice (O vs O′).
+* **A false claim was removed:** "depth 3 = position of the Ford horocycle at −1/m on g_{μ_c}". The frame change is not
+  unimodular; counterexample p = 7, (c, d, j) = (2, 1, 3).
+* **A false claim was removed:** "the z*_d equidistribute (Duke)".
+* §7.4 genus overclaim corrected: at primes the condition becomes (p/h) = −1; the CM point at M² is iM/(2√d).
+* Downgraded: Farey-chain "infinitely often", "no geometric move" (now: the decoration torus cannot), and
+  "any mechanism sees all".
+* Scripts now exit nonzero on failure.
+
+Confirmed correct by the reviewer: Ptolemy/determinants, DK slice assignment, all five vertex identities and labels,
+Machin algebra and r² = p/4d, Thm 4.1, the COMPOSITION/MARKOFF mappings, the §6 bijection, the §7.4 square obstruction.
 
 ## Novelty / honesty
 Each identity is elementary and most are classical in disguise:
