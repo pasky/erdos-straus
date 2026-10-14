@@ -112,7 +112,7 @@ only replace *counting* steps. No circularity. The label "PROVED, computer-assis
   to unshifted arguments (C(s−2, a−1) ≤ C(s, a), C(z + 2b − 2, t − 2) ≤ C(z + 2b, t), (s−2; z, a−1, b−1) ≤ (s; z, a, b), all
   correct) and bounded by exp(B(·)) with B increasing; class-count conditions are linear in (n, d, ρ) for fixed (m, k) and are
   checked with independent interval maximisation (conservative) at s = S and with non-positive slope (so for all s > S);
-  ((sw + 1)/(s′w + 1) ratio ≤ (s + 2)/(s + 1) holds for w ≤ 1, so the geometric closure is valid; boxes pruned only where
+  the ratio ((s + 1)w + 1)/(sw + 1) ≤ (s + 2)/(s + 1) holds for w ≤ 1, so the geometric closure is valid; boxes pruned only where
   t < 0 or b < a on the whole box; overlapping box boundaries only over-count. Floating-point decisions are on dyadic
   rationals × small integers (exact in double). Fails closed (exit 1, `set -euo pipefail`). I found no bug.
 * Empirical validation of the box bounds (`scripts/review_fs_tailcheck_author.c`): for 20 000 random integer patterns per
@@ -140,4 +140,57 @@ author's slack is in the tail (0.41 at r = 4, 0.33 at r = 6, vs. my 1.4e−3, 7.
 (optional strengthening, MINOR): Theorem 3.1(b) holds with ≤ 0.19 (r = 5) and ≤ 0.039 (r = 6) instead of 0.26 / 0.38.
 Also `review_fs_certify.sh 31 45` (log `logs/r217/certify_31_45.log`) extends the certificate to r ≤ 45; with the
 DEPTH_ASPECT crude form (decreasing in q; 2.2·10⁻³ at r = 40, recomputed) this gives covered mass ≤ 0.012 for every r ≥ 7.
+
+### §3 end: "where the method stops: r = 3" (EVIDENCE + Assessment) — SOUND as labelled, two MINOR inaccuracies
+* The label is right, but the situation is *stronger* than "fs_tail fails to certify": the Lemma 1.6 bound-sum itself
+  already exceeds q − 1 = 26 at finite level — `review_fs_fin 3 150` gives Σ_{s ≤ 150} = 194.6, with per-s terms 2.33 (s = 50),
+  2.48 (s = 100), 2.01 (s = 150). So "(Σ) with the Lemma 1.6 bounds" is *false* at r = 3 (a CERTIFIED statement about the
+  bounds, not about the true counts), independent of any tail argument; c-averaging cannot rescue it. (MINOR m1.)
+* "835 boxes, all near p ≈ (0.31, 0.325, 0.20, 0.168)": re-running fs_tail 3 150 8 gives 615 failed boxes (the count depends
+  on S), and **29 of them lie in a second region p ≈ (0.39, 0.11, 0.10, 0.40)**; my independent tail fails in the same two
+  regions (448 cubes, 29 with a/s > 0.35). In the second region the binding routes are R3, R10b, R4, R2 (at s = 600,
+  pattern (232, 67, 66, 235): exponents −0.0047, −0.0040, −0.0034, −0.0016 relative to 1/2; per-level maxima of
+  min-route − 1/2 over all patterns: −0.0067 (s = 300), −0.0047 (600), −0.0034 (1200), all attained at (0.39, 0.11, 0.11, 0.39)),
+  i.e. the class-divisor routes at their Coppersmith thresholds, not R1/R10a. The Assessment "one needs a divisor-in-class
+  bound beyond Coppersmith or an average d₃ bound" should mention that the second region needs the former for R2/R3/R4 too.
+  (MINOR m2.)
+* Exponent table (I3)/(I4)/§5(b) "−0.027 (r = 4)": this is the max on fs_rate's finite grid, which can only *under*-estimate
+  the continuum sup. Exact per-level maxima (`scripts/review_fs_rate.c`): −0.0262 (s = 300), −0.0236 (600), −0.0224 (1200),
+  increasing like −0.021 − O(1/s); so the r = 4 continuum exponent is ≈ −0.021 (EVIDENCE), not −0.027. Harmless for the
+  theorem (the certificate does not use it), but the stated margin is overstated by ~25 %. (MINOR m3.)
+
+### §4 (k = 1; char 2 Frobenius; ℤ Assessment) — SOUND
+* Char 2 (PROVED): re-derived. With A = T², a = g′ (type 0), b = X/g′ (type 2), E = 1 + Tg′, g′ = T + c: T² | P + E since
+  u + E ≡ 2(1 + cT) = 0; g′ | P + E since both are ≡ 1; mod E, s ≡ g′ + 1/(T²g′) = (1 + Tg′)²/(T²g′) ≡ 0; lc(s) = 1. The
+  general k = 2m version (one family per class of u mod T^{2m} with u ≡ 1 (T^m), u ≢ 1 (T^{m+1})) also checks. From scratch:
+  `scripts/review_fs_char2.py` (F₂ bit-polynomials) builds, for k = 2, 4, 6 and every admissible class u, the family and 20
+  random P per class with P ≡ u (T^k), P ≡ 1 (Eg′), and verifies all divisibilities and the cross-multiplied identity
+  T^k·XYZ = P(YZ + XZ + XY): 140/140 valid.
+* (H2) "v ≠ 0 from −2 ≠ 0": E + E′ = L′(w + C) − 2 = m′g′²v − 2; v = 0 would force two monic positive-degree polynomials to sum
+  to −2, impossible in odd characteristic (equal degrees: lc 2 ≠ 0). Correct.
+* k = 1 bullet and ℤ bullet: Assessment-level, labelled as such; nothing overclaimed.
+
+### §5 Reformulation (S1)–(S3) at q = 3 (PROVED) — SOUND (MINOR m4 on presentation)
+Re-derived both directions by hand: EC₁ = g′T^{2n−1} + w₁ and E ≡ −(1 + cT) (T^{n+1}) give C₁ ≡ −cg′v₁, w₁ ≡ cg′v₁(1 + cT)
+(mod T^n) (c² = 1); the expansion of m′w₁C₁ (2 + cT = cT − 1 in F₃) is exactly as displayed; (S1)–(S3) follow because T ∤ v₁.
+`scripts/review_fs_s5.py` checks the three polynomial identities used (expansion of m′w₁C₁ − v₁, w₁ + C₁ = Tg′v₁,
+w₁ + (1 + cT)C₁ = −cT^{n+1}ω) on 3000 random instances over F₃ (both c): all hold. Presentation: (i) both directions need
+n ≥ 2 (T^{2n−2} ≡ 0 mod T^n; 2n − 1 ≥ n + 1) — not stated; (ii) the converse uses only the displayed *form* of w₁, C₁ and the
+tuple identity, not (S1)–(S3): the clean statement is "a tuple (B) covers x*_c ⇔ T^n | w₁ − cg′v₁(1 + cT), and then (S1)–(S3)
+⇔ m′w₁C₁ = T^{s−2} + v₁"; (iii) only even s is treated (odd s, N = (s − 1)/2, analogous but not written). The consequence
+z + 2y + t ≥ n + 1 is right (P ≠ 0 because deg(1 + cT) = 1).
+**Census claim (a), 94/27 > 2 (CERTIFIED):** my independent C enumerator `scripts/review_fs_count.c` (enumeration by (m′, g′, w),
+(B) re-checked literally, Lemma 1.1 asserted on every tuple) gives per-s counts 0, 2, 4, 10, 8, 8, 4, 24, 12 for s = 3..11 —
+identical to bsE_famcount — and Σ_{s ≤ 11} = 780/243 ≈ 3.21 > 2 already; bsE_famcount's s = 12..15 counts (14, 36, 104, 48)
+then give exactly 94/27. Confirmed. Exact counts vs. my route minima: 21 nonempty patterns (q = 3, s ≤ 11), 0 violations,
+bound attained on 10 (see also q = 5, 7 in Numerics).
+**Cyclotomic family (M2 repair) spot check:** for h = 3 (F = T²⁶ − 1 over F₃, s = 28, v₁ = −1) an exhaustive search over the
+3¹⁰ ordered distributions of the 10 irreducible factors gives **1116 genuine Case B tuples** at one level, 218 of them at the
+thirds pattern (a, z, y) = (10, 8, 8): consistent with "not polynomial".
+
+### Labels — SOUND
+Conjecture 0.2 is explicitly not proved; Theorem 3.1 is about q ≥ 81; r = 3 is EVIDENCE/Assessment; computer-assisted parts
+are identified; inherited inputs are named. No overclaim found in FF_STERILE_PUSH.md or AGENT_REPORT_O216.md, except the
+report's "≥ 0.98 (r ≥ 7)" which for r ≥ 31 is not covered by the document's certificate (31..45 now certified by R217; r ≥ 46
+by the DEPTH_ASPECT crude form, 5.9·10⁻⁵ at r = 46, decreasing) — MINOR m5.
 
