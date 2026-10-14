@@ -95,3 +95,30 @@ iff ind_− = 0, whereas (−1)^{ind_−/2} = +1 iff ind_− = 0: the two differ
 TRANSPORT's s_∞-factor is the Hilbert-symbol-product normalisation, not the isotropy one).
 *Repair:* label the three-bit law PROVED (all words), cite the 6-step proof; write ε_∞ = −(−1)^{ind_−/2} = −s_∞;
 K2 of s4_kudla_green_infinity then becomes PROVED unconditionally.
+
+### D6 (MINOR) — §1 meta-statement (a) is not "PROVED as stated"; (R₂) at odd squares is provable in one line
+*Location:* SYNTHESIS_SPARKS4 §1 "Meta-statement (PROVED as stated …)" item (a); §5 first bullet; s4_three_bits_meta P3 (R₂).
+(i) "R ⊄ D ⇒ the conclusion is true at every odd square" is false for arbitrary R (take R = D ∪ a small disc in the
+other part of X_n(ℝ) avoiding all integral points). What is true: X_n(ℝ) ∖ D is where signed words live, and *if* the
+argument's conclusion is insensitive to replacing D by X_n(ℝ) ∖ D (or R ⊇ X_n(ℝ) ∖ D) it proves a statement true at odd
+squares. Reviewer's side remark: X_n(ℝ) has exactly two components (D and the rest — the graph u = (n + v)/(tv − 1) over
+{tv < 1} and over {t, v < 0, tv > 1} are glued along the smooth line {t = −1/n, v = −n}), so "R meets a component other
+than D" and "R ⊇ X_n(ℝ) ∖ D" differ only by this quantifier. Repair: state (a) with "R ⊇ X_n(ℝ) ∖ D" and label (a) an
+Assessment/heuristic, keeping only "ES-five(n) ⟺ X_n(ℤ) ∩ (D × Ω₂) ≠ ∅" as PROVED.
+(ii) "signed certificates exist at odd squares: CERTIFIED at all 24 odd squares ≤ 2501" can be PROVED for all odd
+n ≡ 1 (8): w = (−1, 1, −(n + 1)/2) has A = −2, B = (n − 1)/2 ≡ 0 (mod 4) — a certificate (and χ = (2/n) = +1, consistent
+with D5). Repair: replace CERTIFIED by this one-liner.
+
+### D7 (MINOR) — s4_selling_voronoi_wall: algebra SOUND, citation unverified, a heuristic count mislabelled
+*Checks.* Lemma S identity and its converse re-derived by hand (Gram of (e₁, e₂, e₃) with conorms p₁₂ = p₂₃ = 1,
+p₁₃ = 0 has off-diagonals (−1, 0, −1) and diagonals (p₀₁ + 1, p₀₂ + 2, p₀₃ + 1)) — SOUND. Lattice invariance: I could
+not access Conway–Sloane, *Low-dimensional lattices VI* (Proc. R. Soc. A 436 (1992) 55–68; not in sources/). Instead
+I checked its key lemma independently (`scripts/review_r219_vonorm.py`): for 400 random positive words the 7 coset
+minima of L/2L (brute force over a box, no superbase used) equal the 7 superbase vonorms predicted from the conorms
+{1, 1, 0, v − 1, t − 2, u − 1}; 0 mismatches. Since conorms are a GL₃(𝔽₂)-equivariant linear function of the vonorm
+function, the conorm *multiset* is a lattice invariant, as claimed (the labelling — which face carries (1, 1, 0) — is
+not, when a conorm vanishes: then the obtuse superbase is non-unique; the memo's construction 2 acknowledges this).
+The Voronoi-cell name (one of the six conorms zero ⇒ hexa-rhombic dodecahedron) matches my memory of CS VI / Fedorov
+but is likewise unverified. *Defect:* "the wall-with-unit-conorms lattices of det p are the ≍ log²p positive words"
+is a heuristic average (Σ_t d(tp + 1)/φ(t)), not a pointwise bound; label it so. Also say explicitly that ES-five
+here means interior (t ≥ 2) and that "two zero conorms" counts CS's always-zero seventh conorm.
