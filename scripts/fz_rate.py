@@ -54,7 +54,11 @@ def opt(lq, G=80, seed=1):
       if it % 500 == 499: st /= 2
     out.append((v, p))
   out.sort(reverse=True); return out
+HSCALE = 1.0   # 0.0 = fixed-q asymptotics: divisor counts are q^{o(n)} (FF_STERILE_SMALL Lemma 4.x), entropy terms vanish
+_H = F.H; _Hm = F.Hm
+F.H = lambda p: HSCALE * _H(p); F.Hm = lambda *ps: HSCALE * _Hm(*ps)
 if __name__ == '__main__':
+  if len(sys.argv) > 4: HSCALE = float(sys.argv[4])
   G = int(sys.argv[2]) if len(sys.argv) > 2 else 80
   if len(sys.argv) > 3: NEW = int(sys.argv[3])
   for r in [int(x) for x in sys.argv[1].split(',')]:
