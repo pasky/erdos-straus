@@ -109,29 +109,39 @@ worst sign-dominance primes below 10⁶ are m² + 24. This is an archimedean (bo
 (600 random primes p ≡ 1 (4) in (2·10⁵, 10⁶), data/y8/y8_sample600.txt; column 2 counts levels;
 `scripts/y8_levels.py data/y8/y8_sample600.txt 30 100`.) Model: exact (r/p) for r ≤ 100, fair coins for r > 100,
 conditioned on Lemma 1.2(c): P(clean) = 1[small primes clean]·2^{−s−(k−1)⁺}, k = #{r > 100 : v_r(tp + 1) odd},
-s = #{r > 100 : v_r(tp + 1) even} (R-O217 repair; values moved ≤ 0.002). Heuristically (Sathe–Selberg; Assessment) P(level t clean | lnr = B) ≍
+s = #{r > 100 : v_r(tp + 1) even} (R-O217 repair; values moved ≤ 0.002). R224 repair: at Y = 100, 86 % of the levels have model
+probability exactly 0 or 1 (decided by the exact signs); on the remaining 14 % the coins over-predict (independent
+1 500-prime sample: 0.495 vs 0.466; k = 2: 0.500 vs 0.471), and the unconstrained model is off by a factor ≈ 2, not
+1.6. Heuristically (Wirsing / Selberg–Delange, for shifted primes tp + 1; Assessment, up to a constant — R224 repair)
+P(level t clean | lnr = B) ≍
 (log B / log tp)^{1/2}, which → 1 as B → p (the square limit) — the quantitative "continuity of T1". Under GRH
-(lnr ≪ log²p) the clean probability of a fixed level tends to 0 as p → ∞, so the pre-asymptotic hardness of
-near-square primes is a small-p effect at each level (Assessment).
+(lnr ≪ log²p) the clean probability of a fixed level tends to 0 as p → ∞ for a *random* p, so for such p the
+pre-asymptotic hardness of near-square primes is a small-p effect at each level (Assessment). R224 repair: this fails
+along p = m² + k, where the T1-type levels of Lemma 1.4 are clean for every m with gcd(m, c) = 1.
 
-Further evidence: removing words with A or A* (lnr − 1)-smooth (forced +; 0 exceptions in 1 500 primes) flattens
-N₋/(N − S) to ≈ 0.66 for every lnr bucket q ≤ 13 (p ≡ 1 mod 8; 0.698 for p ≡ 5 mod 8), i.e. the average lnr effect is
-entirely the forced words; the extremes are clean-level clusters (Summary item 3; `scripts/y8_clean_clusters.py`).
+Further evidence: removing words with A or A* (lnr − 1)-smooth (forced +; 0 exceptions) reduces the lnr effect
+by about half (R224 repair, all primes in (2·10⁵, 10⁶), ratio of sums: N₋/(N − S) = 0.671, 0.666, 0.649, 0.625, 0.601,
+0.599 for q = 3, 5, 7, 11, 13, ≥ 17 vs N₋/N = 0.640 … 0.454; 0.698 for p ≡ 5 mod 8; the checkpoint's "flat ≈ 0.66,
+entirely the forced words" was a small-sample artefact); the rest is carried by whole clean levels; the extremes are clean-level clusters (Summary item 3; `scripts/y8_clean_clusters.py`).
 
 ## 3. Admissibility: ES-five as the admissible square test (PROVED)
 
 **Prop 3.1.** ES-five(p) ⟺ ∃ t ≥ 1 and A | tp + 1 with A ≡ −1 (mod t) and (A/p) = −1. For t ∈ {1, 2} the congruence is
-void; for t | 24 it is one residue class. (CHI_FLIP + TWO_FIBRES Thm A; AA* ≡ 1 mod t gives A* ≡ −1.)
+void; for t | 24 it is one residue class. (p ≡ 1 (4) prime. ES-five ⟺ N₋ ≥ 1 is MODEL_SPECIFIC Thm 3.1(a) with CHI_FLIP Cor 1.3 (R224 repair: citation);
+words ↔ (t, A) is elementary: AA* ≡ 1 mod t gives A* ≡ −1.)
 So, comparing with Prop 1.3: uncleanness of some level is automatic at every non-square, and ES-five is the
 statement that some unclean prime (or product) can be placed in an admissible divisor.
 
 **Lemma 3.2 (Mordell's theorem as the lnr level).** Let q = lnr(p), t₀ = (−p⁻¹ mod q) ∈ [1, q − 1]. If t₀ | q + 1 then
 (t₀, (q + 1)/t₀, ((t₀p + 1)/q + 1)/t₀) is a χ = −1 word (A = q). If q ≤ 7, t₀ | q + 1 always (q = 2, 3: t₀ = 1;
-q = 5: t₀ ∈ {2, 3}; q = 7: t₀ ∈ {1, 2, 4}). Since lnr(p) ≥ 11 ⟺ p ≡ 1, 121, 169, 289, 361, 529 (mod 840), this is
-exactly Mordell's congruence theorem on ES-five. For q ≥ 11 and t₀ ∤ q + 1 one needs d | (t₀p + 1)/q with
+q = 5: t₀ ∈ {2, 3}; q = 7: t₀ ∈ {1, 2, 4}). Since lnr(p) ≥ 11 ⟺ p ≡ 1, 121, 169, 289, 361, 529 (mod 840), this
+recovers, at primes, exactly the covering set of Mordell's congruence theorem (with one-word certificates; R224 wording). For q ≥ 11 and t₀ ∤ q + 1 one needs d | (t₀p + 1)/q with
 qd ≡ −1 (mod t₀) and (d/p) = +1 (B2). ∎
 Numerics (`scripts/y8_lnr_level.py`): success of the lnr level 0.845/0.811 (q = 11/≥ 13) for p ∈ (10⁵, 10⁶) and
 0.872/0.909 for p ∈ (10¹⁰, 10¹¹); over translates t₀ + kq the first success has k ≤ 26 in 500/500 cases near 10¹⁰.
+R224 repair: these rest on ≈ 100 primes per bucket (SE ≈ 0.03); R224's 800-prime samples per range give 0.83/0.84
+(10⁵–10⁶), 0.86/0.87 (10¹⁰–10¹¹), 0.90/0.92 (10¹⁴–10¹⁵): not decaying, slowly rising. The translate bound is a sample
+property: 17/800 primes in (10⁵, 10⁶) and 1/800 in (10¹⁰, 10¹¹) have no success for k ≤ 60.
 
 ## 4. The three-squares side
 
