@@ -1,0 +1,2 @@
+unfired prime 3361
+NMAX=1000000 HMAX=20000 primes=78496 fired(torsion criterion, verified)=78495 verify_failures=0 max least h=15439 (at n=254741); odd squares=499 fired=0
