@@ -113,3 +113,38 @@ k ∈ {1, 3, 4, 8, 12, 16, 24}; Kronecker–Hurwitz sums Σ_s H(kn − js²) for
 Scope: this dictionary and range only; it complements EXACT_FORMULA (I)5 (Type I/II counts, 54 columns) with the X_n
 sign counts. Thm 2.2 explains the outcome for the modular part of the dictionary (wrong size class); the τ(n + s)
 columns are shifted d₂-objects, still of size log¹.
+
+## 4. Hook (1): the Gross–Keating/Kudla dictionary — both signs are |Diff| = 1 cycles, at the two bad fibres of X₀(2p)
+
+**Proposition 4.1 (PROVED, from CHI_FLIP Thm 1.1 and CONSTRUCTIVE Thm 1.2/Prop 4.1).** For a word w ∈ X_n let
+i = 1 + e₁e₂, j = 1 + e₂e₃ ∈ C₀(L_w) (trace zero, i² = −A*, j² = −A, ij + ji = −2) and T_w := [[A*, 1], [1, A]] their
+Gram matrix (Q = nrd). Then
+(a) **T_w = t·diag(v, u) − R, R := [[1, −1], [−1, 1]], det T_w = tn**, and w ↦ T_w is injective;
+(b) ℚ⟨i, j⟩ = C₀(L_w) ⊗ ℚ ≅ (−A*, −tnA*), and its finite ramification set (Kudla's Diff(T_w) for the incoherent
+collection ramified only at ∞) is **Diff(T_w) = {2 : χ(w) = +1} ∪ {ℓ | n : (−A/ℓ)^{v_ℓ(n)} = −1}**, of odd size;
+(c) for n = p prime: |Diff(T_w)| = 1 for **every** word: Diff = {p} ⟺ χ = −1 (i, j ∈ Eichler order of level 2 in B_{p,∞},
+i.e. a 2-isogeny of supersingular curves in characteristic p) and Diff = {2} ⟺ χ = +1 (i, j ∈ Eichler order of level p
+in B_{2,∞}, i.e. a supersingular curve in characteristic 2 with a cyclic p-subgroup);
+(d) at n = m² (odd): Diff(T_w) = {2} for every word (T1).
+CHECKED (`scripts/si_diff.py 2000`): Hilbert-symbol ramification of (−A*, −tnA*) equals the formula in (b), with odd size,
+on all 50 003 words of odd n ≤ 2000, 0 mismatches.
+*Moduli reading (Assessment; standard Deligne–Rapoport/Ribet).* The supersingular points of X₀(2)_{𝔽_p} are the singular
+points of the special fibre X₀(2p)_{𝔽_p}; those of X₀(p)_{𝔽₂} are the singular points of X₀(2p)_{𝔽₂}. So the words of X_p
+are path-shaped pairs of special endomorphisms at the singular points of the **two bad fibres of one arithmetic surface
+X₀(2p)/ℤ**, and χ records **which residue characteristic** carries the cycle Z(T_w): p (certificate) or 2 (non-certificate).
+*Log-separation (CONDITIONAL on an arithmetic Siegel–Weil formula of the KRY / Du–Yang / Sankaran–Shi–Yang shape on
+X₀(2p), i.e. ĉ(T) = Σ_ℓ μ_ℓ(T) log ℓ with μ_ℓ(T) ∈ ℚ_{>0} iff Diff(T) = {ℓ} and Z(T) ≠ ∅ — not verified for the bad
+fibres here).* Σ_{w ∈ X_p} ĉ(T_w) = N₋^μ(p)·log p + N₊^μ(p)·log 2, so by ℚ-independence of log 2, log p,
+**ES-five(p) ⟺ the family sum Σ_{w∈X_p} ĉ(T_w) ∉ ℚ·log 2**; at odd squares the family sum is a rational multiple of log 2.
+This is an exact "transcendence-separated" form of SQ₅.
+*Why it does not open the door (barrier screen).* (i) The family F_p = {tD − R : D = diag(v,u) ≥ 1, det = tp} is, for
+fixed t, a Fourier projection at level t (T₁₂ = 1, T_ii ≡ −1 mod t) followed by a **hyperbola restriction**
+(T₁₁T₂₂ = tp + 1), and t is unbounded: unboundedly many levels and a non-linear extraction (B2; GROWING_IDENTITIES §3),
+so no modular evaluation of the family sum exists (no pullback/Fourier–Jacobi identity sees det T). (ii) Each ĉ(T)
+depends on T only through local data (that is the content of any Siegel–Weil formula): the family sum is
+Σ_t Σ_{a | tp+1, a ≡ −1 (t)} (local weight) — the divisor-in-class count again. (iii) Geometric counts of Z(T) over all
+curves are genus data (DIFF_DEEP: "∃ curve" is vacuous). So the dictionary converts SQ₅ into a statement about a
+non-modular family of coefficients of a modular object; the family, not the object, carries the lottery.
+*Same with GK genus 3 (Assessment).* For p prime, χ(w) = −1 ⟺ the ternary G_w (det p) has C₀(G_w) ≅ B_{p,∞}; this is
+Gross–Keating's Diff(G_w) = {p} for T_v·T_t·T_u on X(1)×X(1) (diagonal of G_w = (v, t, u)). GK's triple intersection
+sums over **all** off-diagonals; the path shape (−1, 0, −1) with det = p is again a non-linear extraction.
