@@ -15,7 +15,7 @@ def make(q):
         return 2 * q**e + (e - 1) * (q**e - q**(e - 1))
 
     @lru_cache(maxsize=None)
-    def cop(n, d, rho, KMAX=120):
+    def cop(n, d, rho, KMAX=200):
         """least m+k (m>=1,k>=0, m+k<=KMAX) with Delta(m,k) < (m+k+1) m d, X = d - rho >= 0; 0 if none."""
         X = d - rho
         if X < 0:
