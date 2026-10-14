@@ -32,6 +32,7 @@ b = (ne + 1)/(Mad) > 0). So a class covered at level L is solved for **every** n
 | 11 | 9240 | 1920 | 28 | 1 square + 27 others, contains 37 (the failure) |
 | 12 | 840 | 192 | 44 | all 6 squares + 38 others |
 | 3 | 840 | 192 | 0 | — |
+**Sharper (SEVEN_SIBLING Thm 3.1):** the core is exactly the class of one already at levels 14 (n ≢ 1 mod 7), 42 (+ n ≢ 1 mod 3) and 70 (+ n ≢ 1 mod 5); explicit families there. Near misses 7/43, 7/127 have exactly one solution each, the level-70 identity.
 **Theorem Y7.1 (PROVED).** For every n ≥ 1 with gcd(n, 210) = 1 and n ≢ 1 (mod 105), 7/n = 1/x + 1/y + 1/z has a
 solution, given explicitly by one of the five families with modulus dividing 840.
 Verification (CERTIFIED): every prime 11 ≤ p ≤ 10⁶ with p ≢ 1 (mod 105) gets an exact certificate (Fraction check),
@@ -44,8 +45,8 @@ replaced by m"; covering results of this kind for m/n are classical — Sierpiń
   quadratic, "Hilbert-symbol" obstruction. Its size at level L is 2^{−ω(L)}-ish.
 * For 7 the hard core at 840 is **exactly the class of one** mod 105, i.e. the obstruction of ident_numerators
   Lemma 3.1 (n ≡ 1 is in no ET-shaped family for any m ≥ 4), and nothing else. Its size is 1/φ(105) = 1/48.
-* So: P(M) := "at level 840 the identity-hard core of M/n is exactly the PROVED-forced set (squares for 4 | M, the
-  class of one otherwise)". P(4) ∧ P(7) ∧ P(5) ∧ P(3) and ¬P(6), ¬P(8), ¬P(12); for 11 not at 9240.
+* So: P(M) := "at level 840 the identity-hard core of M/n is the full square coset or a class of one {n ≡ 1 mod L′}, L′ | 840 (7: L′ = 105; 5: 420); the
+  latter being the obstruction of Lemma 3.1)". P(4) ∧ P(7) ∧ P(5) ∧ P(3) and ¬P(6), ¬P(8), ¬P(12); for 11 not at 9240.
   This is the cleanest property found with P(4) ∧ P(7) ∧ ¬P(8) ∧ ¬P(11) ∧ ¬P(12). It is a **description** (a finite
   computation at a fixed level), not an input: covering a residue class is B1, and the hard cores are infinite.
 * The near-miss primes of 7 live there: S₇(p) = ∅ at 43, 127, 211, 421, 463, 631, 967, 4201, 9661, 12601 — all

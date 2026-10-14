@@ -63,9 +63,12 @@ PW sift with the ET Prop 1.9 congruences adapted to m).
 | M = 8 | 23/192 (6 squares + 17, incl. 11, 17, 131, 241) | 48/576 | | |
 | M = 11 | | | 28/1920 (incl. 37) | |
 | M = 5 | 2/192 (≡ 1 mod 420) | 2/576 | | |
-**Prop 3.2 (property P).** "The level-840 (for 11: 9240) identity core equals the PROVED-forced set (the squares when
-4 | M, the class of one otherwise)" holds for M = 3, 4, 5, 7 and fails for 6, 8, 11, 12. So P(4) ∧ P(7) ∧ ¬P(8) ∧ ¬P(11) ∧
-¬P(12), with 6 the only failure-free numerator outside P. P is a **description** (finite covering), not an input.
+**Prop 3.2 (property P; finite computation).** P(M) := "the identity core at level 840 (for 11: 9240) is either the full
+unit-square coset, or a class of one {n ≡ 1 (mod L′)} for a sublevel L′ | 840". It holds for 3 (∅), 4 (squares), 5
+(L′ = 420), 7 (L′ = 105) and fails for 6, 8 (squares + 17), 11 (28 classes containing 37, not of that form) and 12. So
+P(4) ∧ P(7) ∧ ¬P(8) ∧ ¬P(11) ∧ ¬P(12); 6 is the only failure-free numerator outside P. P is a **description** (a finite
+covering at one level), not an input. (Curiosity: 7's core puts no condition mod 8, all four odd classes survive;
+4's core is n ≡ 1 mod 8 and 5's is n ≡ 1, 5 mod 8. 2 splits in ℚ(√−7). Not pursued.)
 **3.3 The core is still a lottery (B1).** Per prime ℓ beyond 7, lifting the core n ≡ 1 (mod 105) to level 840ℓ covers whole
 residue classes mod ℓ for only 6, 5, 5, 5, 6, 2, 9 of the ℓ − 1 non-trivial classes (ℓ = 11 … 31; `scripts/y7_core_ell.py`).
 For 4 (class 1 mod 840 lifted): 3, 4, 6, 5, 9 (ℓ = 11 … 23). Both are O(1) per prime, so the Haar-CRT survival of the core
