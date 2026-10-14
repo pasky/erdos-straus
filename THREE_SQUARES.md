@@ -1,6 +1,6 @@
 # THREE_SQUARES — the three-squares side of the ES sign and the adelic "continuity of T1" (task O217, spark relay Y8)
 
-Status: checkpoint 1 (O217). **ES is not solved here, nor any infinite case of it.** Labels as in DISCOVERIES.md.
+Status: checkpoint 1 (O217), repaired after self-review R-O217 (deep reviewer; repairs marked "R-O217"). **ES is not solved here, nor any infinite case of it.** Labels as in DISCOVERIES.md.
 Builds on TWO_FIBRES.md (O209: Thm A, Thm B), SIGN_IDENTITY.md ((J)39), CHI_FLIP.md ((J)33), STERILE_STEER.md ((J)27).
 Memos BRAINSTORM/y8_*.md (6); scripts `scripts/y8_*`.
 Notation: p ≡ 1 (4) prime (p ≡ 3 (4) is trivial: (p + 2, 1, 1) has χ = −1); word w = (t, u, v), tuv − u − v = p,
@@ -8,31 +8,34 @@ A = tu − 1, A* = tv − 1, AA* = tp + 1; χ(w) = (−A/p) = (A/p); level of w 
 
 ## Summary
 1. **The continuity of T1 is adelic, not archimedean (EVIDENCE + PROVED mechanism; corrects O209 §3.2).** Over all
-   39 174 primes p ≡ 1 (4) below 10⁶, the mean of N₋/N is 0.643–0.647 in every decile of dist(p, ℤ²)/√p, but falls
+   39 174 primes p ≡ 1 (4) below 10⁶, the mean of N₋/N is 0.643–0.647 in every decile of dist(p, ℤ²)/√p (no association
+   detected in these bins), but falls
    monotonically with lnr(p): 0.645 (q = 3), 0.604, 0.565, 0.516, 0.481, 0.452, 0.442, 0.430 (q ≥ 23), p ≡ 1 (8).
    (Agrees with R214's correction: the worst primes are p ≡ 1 (24) with (p/5) = (p/7) = +1.)
 2. **Clean levels (PROVED, §1).** χ(w) = ∏_{r | A} (r/p)^{v_r(A)}; call level t clean if every prime r | tp + 1 has
    (r/p) = +1. Clean ⇒ all level-t words have χ = +1. T1 is "every level clean" (tm² + 1 = 1² + t·m²), and
    conversely **an odd n is a square ⟺ every level is clean** (Prop 1.3). Primes r < lnr(p) are always clean, and the
-   exact reciprocity constraint ∏_r (r/p)^{v_r(tp+1)} = +1 forces cleanliness when tp + 1 has at most one
-   lnr-rough prime with odd exponent ("rank-one sterility").
+   exact reciprocity constraint ∏_r (r/p)^{v_r(tp+1)} = +1 forces cleanliness when tp + 1 = s·ℓ^e with s
+   (lnr − 1)-smooth, ℓ prime, e odd ("rank-one sterility"; R-O217: rough primes with even exponent stay free).
 3. **A calibrated law (EVIDENCE, §2).** Model: exact Legendre signs for r ≤ 100, fair coins above, conditioned on the
-   reciprocity constraint. Predicted/observed clean-level fractions agree within ≈ 0.03 in every lnr bucket (e.g.
-   0.314/0.317 at q = 3, 0.576/0.563 at q = 11; 0.196/0.194 for p ≡ 5 (8)). Without the constraint the model is off by a
+   reciprocity constraint. Predicted/observed clean-level fractions agree within ≈ 0.035 in every lnr bucket (e.g.
+   0.314/0.317 at q = 3, 0.575/0.563 at q = 11; 0.196/0.194 for p ≡ 5 (8)). Without the constraint the model is off by a
    factor ≈ 1.6. The worst sign-dominance primes are **clean-level clusters**: 7.3 of the levels t ≤ 10 clean on
    average (13 worst primes) vs 5.8 (random p with lnr ≥ 11) and 3.95 (random p ≡ 1 mod 8).
 4. **ES-five = the admissible version of the square test (PROVED, §3).** ES-five(p) ⟺ some level has an admissible
    divisor (A ≡ −1 mod t) with (A/p) = −1. Uncleanness is free at every non-square (level t₀ = −p⁻¹ mod q); the
    entire ES content is the admissibility gap. Mordell's 840 theorem = "lnr(p) ≤ 7 ⇒ the lnr level is admissible with
    A = q" (Lemma 3.2); for q ≥ 11 the lnr level succeeds ≈ 85 % of the time, not decaying from 10⁶ to 10¹¹.
-5. **Three-squares side (§4).** Exact Siegel–Weil weighting N₊ = Σ_w r(T_w, I₃)/ρ₊(w) (PROVED; the comparison with
-   |X_p| is circular); conic point ℓ(w) = (x × y) mod p with height ≤ min(t, u, v); boundary words = ideals dividing
+5. **Three-squares side (§4).** No exact Siegel–Weil weighting beyond the indicator: on χ = −1 words α₂ and α_p
+   vanish together (R-O217: the checkpoint-1 weighting was 0/0 and is withdrawn); conic point ℓ(w) = (x × y) mod p
+   for a compatible pair, height ≤ min(t, u, v); boundary words = ideals dividing
    (1 + √−p) in the principal (= three-squares) genus.
 6. **3SQ (CONJECTURE, EVIDENCE to 10⁶, no exceptions; §5).** For odd n: every path lattice of X_n embeds in ℤ³
    (n·G_w ∈ Gram(ℤ³)) ⟺ n is a square. Equals ES-five at primes and T1 at squares; **105 is not an exception**
    (all its 11 words have χ = +1 but are ramified at two odd primes).
 * Assessment: the three-squares side gives clean dictionaries and one exception-free conjecture, and the "continuity of
-  T1" is fully explained by Legendre symbols of the prime factors of tp + 1 plus one reciprocity constraint. No
+  T1" is well described (EVIDENCE; a fitted heuristic, not a proof) by Legendre symbols of the prime factors of
+  tp + 1 plus one exact reciprocity constraint. No
   mechanism closes the admissibility gap (B2).
 
 ## 0. Iteration log (construction first; barrier as steering wheel)
@@ -62,10 +65,13 @@ r | tp + 1: (r/p) = (p/r) = (−t/r).
 
 **Lemma 1.2.** (a) If level t is clean, every word of level t has χ = +1. (b) Every prime r < lnr(p) is clean.
 (c) (Reciprocity constraint) ∏_{r} (r/p)^{v_r(tp+1)} = ((tp + 1)/p) = (1/p) = +1. Hence if tp + 1 = s·ℓ^e with s
-(lnr − 1)-smooth, ℓ prime and e odd, level t is clean.
+(lnr − 1)-smooth, ℓ prime and e odd, level t is clean. (Only this exact form: a rough prime with even exponent is
+unconstrained, e.g. p = 200 881, t = 14, tp + 1 = 3·5·433², (433/p) = −1. Some fixed levels are never clean:
+t = 1 for p ≡ 5 (8), since 2 | p + 1.)
 *Proof.* (a) Lemma 1.1. (b) definition of lnr. (c) multiplicativity of the Legendre symbol; then (ℓ/p)^e = (s/p) = 1. ∎
 
-**Prop 1.3 (square test).** For odd n, put level t clean if (n/r) = +1 for all primes r | tn + 1. Then n is a
+**Prop 1.3 (square test).** For odd n, put level t clean if (n/r) = +1 for all ODD primes r | tn + 1 (prime 2
+excluded by convention). Then n is a
 perfect square ⟺ every level is clean. (Proof in BRAINSTORM/y8_square_test_gap.md: ⇒ trivial; ⇐ take r with
 (n/r) = −1 and t ≡ −n⁻¹ mod r.) At p = m² this is T1 in its most primitive form: tm² + 1 = 1² + t·m² is a norm
 from ℤ[√−t], so all its prime factors split in ℚ(√−t).
@@ -75,15 +81,16 @@ from ℤ[√−t], so all its prime factors split in ℚ(√−t).
 | p mod 8, lnr | primes | clean fraction (t ≤ 30) | model | √(log q / log tp) |
 |---|---|---|---|---|
 | 1, 3 | 4 500 levels | 0.317 | 0.314 | 0.269 |
-| 1, 5 | 1 860 | 0.446 | 0.456 | 0.325 |
-| 1, 7 | 1 110 | 0.514 | 0.508 | 0.358 |
-| 1, 11 | 630 | 0.563 | 0.576 | 0.397 |
+| 1, 5 | 1 860 | 0.446 | 0.455 | 0.325 |
+| 1, 7 | 1 110 | 0.514 | 0.506 | 0.358 |
+| 1, 11 | 630 | 0.563 | 0.575 | 0.397 |
 | 1, 13 | 270 | 0.585 | 0.602 | 0.411 |
-| 1, ≥ 17 | 450 | 0.602 | 0.638 | 0.439 |
+| 1, ≥ 17 | 450 | 0.602 | 0.636 | 0.439 |
 | 5, 2 | 9 180 | 0.194 | 0.196 | 0.214 |
-(600 random primes p ≡ 1 (4) in (2·10⁵, 10⁶); `scripts/y8_levels.py s600.txt 30 100`.) Model: exact (r/p) for r ≤ 100,
-fair coins for r > 100 with odd exponent, conditioned on Lemma 1.2(c): P(clean) = 1[small primes clean]·2^{−(k−1)⁺},
-k = #{r > 100 : v_r(tp + 1) odd}. Asymptotically (Sathe–Selberg heuristic) P(level t clean | lnr = B) ≍
+(600 random primes p ≡ 1 (4) in (2·10⁵, 10⁶), data/y8/y8_sample600.txt; column 2 counts levels;
+`scripts/y8_levels.py data/y8/y8_sample600.txt 30 100`.) Model: exact (r/p) for r ≤ 100, fair coins for r > 100,
+conditioned on Lemma 1.2(c): P(clean) = 1[small primes clean]·2^{−s−(k−1)⁺}, k = #{r > 100 : v_r(tp + 1) odd},
+s = #{r > 100 : v_r(tp + 1) even} (R-O217 repair; values moved ≤ 0.002). Heuristically (Sathe–Selberg; Assessment) P(level t clean | lnr = B) ≍
 (log B / log tp)^{1/2}, which → 1 as B → p (the square limit) — the quantitative "continuity of T1". Under GRH
 (lnr ≪ log²p) the clean probability of a fixed level tends to 0 as p → ∞, so the pre-asymptotic hardness of
 near-square primes is a small-p effect at each level (Assessment).
@@ -109,20 +116,24 @@ Numerics (`scripts/y8_lnr_level.py`): success of the lnr level 0.845/0.811 (q = 
 
 ## 4. The three-squares side
 
-**4.1 Siegel–Weil weighting (PROVED, memo y8_siegel_weil_sign).** r(T_w, I₃) = c_∞ ∏_ℓ α_ℓ(T_w, I₃) (one class);
-α_p = 0 ⟺ χ(w) = −1. So N₊(p) = Σ_w r(T_w, I₃)/ρ₊(w) with an explicit non-constant ρ₊ (r/48 ∈ {1, 2, 3, 4} already
-for p ≤ 157 — the source of O209's 5-vs-6 mismatch). Brute-force check of Thm A: 166 words of primes ≤ 61, 0 mismatches.
-**Prop 4.3 (circularity).** An independent evaluation of Σ_w r/ρ₊ is the count of (x, y, t) with x·y = 1,
+**4.1 Siegel–Weil (PROVED, memo y8_siegel_weil_sign; R-O217 repaired).** r(T_w, I₃) = c_∞ ∏_ℓ α_ℓ(T_w, I₃) (one
+class); on χ = −1 words both α_p and α₂ vanish (Hilbert reciprocity; p = 5, (1,3,4) has no solution mod 4), so no
+positive "χ = +1 extension" of the weight exists; the checkpoint-1 formula N₊ = Σ r/ρ₊ (0/0 on negative words) is
+withdrawn. Exact: N₊ = #{w : r(T_w, I₃) > 0}; r/48 ∈ {1, 2, 3, 4, 6} for p ≤ 157 (source of O209's 5-vs-6); r ≠ r*
+in general (p = 61, (63,1,1): 288 vs 192). Brute-force check of Thm A: 166 words of primes ≤ 61, 0 mismatches.
+**Prop 4.3 (circularity).** An independent evaluation of Σ_w r(T_w, I₃) is the count of (x, y, t) with x·y = 1,
 |x × y|² = tp, t | |x|² + 1, |y|² + 1 — the level t is a modulus inside the conditions; not an arithmetic-group orbit.
-**4.2 Conic (memo y8_conic_height).** ℓ(w) = (x × y) mod p, height h(ℓ) = min L_ℓ ≤ min(t, u, v) ≤ (3p + 4)^{1/3};
-observed h = min letter (p = 1009, 15/15). Boundary words u = 1 ↔ ideals (v, 1 + √−p) | (1 + √−p) in the principal
+**4.2 Conic (memo y8_conic_height).** For a compatible pair (x × y ≡ x + y mod t; an arbitrary z with z^⊥ ≅ T_w
+does not suffice — R-O217 counterexample p = 61, (63,1,1), height 2), ℓ(w) = (x × y) mod p, height h(ℓ) = min L_ℓ ≤ min(t, u, v) ≤ (3p + 4)^{1/3};
+observed h = min letter (p = 1009, 15/15; p = 61, 5/5; repaired script). Boundary words u = 1 ↔ ideals (v, 1 + √−p) | (1 + √−p) in the principal
 genus of discriminant −4p, which is the three-squares genus; at most τ(p + 1) of its ≈ h(−4p)/2 classes.
 
 ## 5. 3SQ — the exception-free three-squares SQ (CONJECTURE; memo y8_three_squares_sq)
 For odd n: every word w ∈ X_n has n·G_w ∈ Gram(ℤ³) ⟺ n is a square. ⇐ = Thm B; at primes = ES-five; trivial for
 n with an odd-exponent prime ≡ 3 (4) (word (1, 2, n + 2), A = 1). `scripts/y8_embed_sq.c`: all odd n ≤ 10⁶ —
 0 non-square n with every word embeddable, 0 squares with a non-embeddable word. 105: 11 words, all χ = +1, all
-ramified at {3, 7} or {5, 7}. The residual hard case is n = ℓ·m² with a single odd-exponent prime ℓ ≡ 1 (8).
+ramified at {3, 7} or {5, 7}. After the elementary words (A = 1, A = 2) the residual case is n all of whose
+odd-exponent primes are ≡ 1 (8) (possibly several; no reduction to a single prime is proved).
 
 ## 6. Barrier summary
 * B2: §3 is the precise location of ES: admissibility (A ≡ −1 mod t) of an unclean divisor. §4 restates it as ideal
