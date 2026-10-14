@@ -18,8 +18,19 @@ scripts named below. No author script was reused.
 | Remark (ii): Gupta–Murty transfer "verbatim" | GAP (D3: fails as stated at n = 3k², 3 ∤ M; harmless for primes) |
 | Cor 2.1 formal part (R_8(131) ∧ ¬8/131) | SOUND |
 | Cor 2.1 "must use a 4-specific input" + label PROVED | SOUND-AFTER-REPAIRS (D1: meta-statement, Assessment; D2: novelty vs (J)31) |
-| item-by-item numerator-uniform Assessment | (filled below) |
-| memos | (filled below) |
+| item-by-item numerator-uniform Assessment | fair item by item; conclusion overreaches (D1) |
+| §3.2 harness | SOUND-AFTER-REPAIRS (D2, D4) |
+| s3_box_bit (incl. d \| λ hypothesis) | SOUND (m7) |
+| s3_eps_mu_sieve | SOUND |
+| s3_min_scale (rechecked to 10⁷) | SOUND |
+| s3_lll_lenstra | SOUND as Assessment; Lenstra/CHN not accessible |
+| s3_isogeny_mixing | SOUND as Assessment |
+| s3_words_parity | SOUND |
+| s3_vphi_ringmaps | SOUND |
+| s3_order3_numerator | SOUND-AFTER-REPAIRS (m8) |
+
+**Overall: no FATAL; 2 MAJOR (D1 thresholds / overclaimed label of the barrier's reading; D2 novelty vs (J)31/(J)32),
+2 MINOR-numbered (D3 Gupta–Murty transfer gap at n = 3k²; D4 BM attribution/scope), 11 small items.**
 
 ## Claim-by-claim
 
