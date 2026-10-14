@@ -274,3 +274,54 @@ End(E) are ideals above (π − 1), whose norms are the divisors of p + 1 − a 
 modulus. The window is a lottery over ≍ √p traces with ≍ log p tickets each (expected count ≍ log² p); it is
 not a mechanism, but it is a natural single-field home for the ES lottery (all tickets are point counts over the
 same F_p), which may be useful to the (J)35 isogeny-graph line.
+
+## 5. Barrier screen: where each dictionary fails at odd squares, and which barrier it meets
+
+**Proposition 5.1 (T1 inside the torsion dictionary; PROVED).** Let n be odd, d ≥ 1, h prime with
+h ≡ −1 (mod 4d), h ∤ nd. Then E_{nd}(F_h) is non-cyclic (has full 2-torsion) iff (n/h) = −1. In particular for
+n = m² every candidate curve E_{m²d} is cyclic at every candidate modulus, so the object of Prop 1.2(b) (a
+2-torsion point T ≠ (0, 0)) does not exist: the dictionary fails at squares at the GROUP-STRUCTURE step.
+*Proof.* (d/h) = +1 for h ≡ −1 (mod 4d) (the Kronecker character (d/·), d > 0, has period dividing 4d and value +1
+at −1), and (−1/h) = −1. Lemma 1.1(a): non-cyclic iff (nd/h) = −1 iff (n/h) = −1; (m²/h) = +1. ∎
+So the quadratic (genus) layer is exactly the 2-torsion of the supersingular group; it is the only part of the
+firing condition that Galois data at h see (Thm 3.1: the overlap of the (h + 1)- and (h − 1)-worlds is {±1}), and it
+is the part that kills squares. The rest (x_T read as an integer, 2x_T | h + 1) is B2.
+
+| step / dictionary | Galois-visible content | barrier met |
+|---|---|---|
+| Prop 1.2 (2-torsion of E_{pd} at prime h) | (pd/h) = −1 (non-cyclicity) | T1 at the group-structure step (Prop 5.1); the integer x_T ∣ (h+1)/2 is B2 |
+| Prop 2.1/Cor 2.2 (division fields, any curve) | h mod ℓ^∞ only | moving cyclotomic level (FROBENIUS_FIRING §2, Rem 2.5) |
+| Thm 3.1/Cor 3.2 (Kummer / mute transport) | a sign | firing set ≤ 2τ₃(k): below every Weil/Chebotarev threshold (B3) |
+| Prop 3.3/3.5 (identities) | torsion/root of unity at the shot zero | Merel/Mazur/Kronecker: finite slice set (B1/B2(iii)) |
+| Prop 3.4 (towers) | int C = ∅ needed | density-zero existence only; equidistribution gives B6-type averages |
+| §3.5 (sign/primitive divisors) | one quadratic character | bsD_artin_conjugation, LDP_DEEP §A (genus, T1-exact) |
+| Prop 4.2/4.3 (curves over F_p) | none (a lottery over ≍ √p traces) | B3 (expected count ≍ log² p) |
+
+## 6. Verdict (O207 checkpoint 1)
+
+ES is not proved here, nor any infinite case. Outcome: the fallback — a scoped no-go for the GL₂ point-order
+class — plus three exact dictionaries and two new numerical facts.
+1. (PROVED) Exact dictionaries: Type II firing at a prime h ⟺ a 2-torsion point of y² = x³ + pd·x over F_h with
+   x-coordinate 2cd and 2x_T | h + 1 (Prop 1.2); ⟺ cd | #2E_0(F_h) with h | p + 4c²d; per-modulus, firing reads
+   only det = N(π_p) of the CM Frobenius of p on E_0[h] (Prop 2.3); at p itself, small-slice and j = 1 certificates
+   are subgroups of order ≡ −1 (mod 4(1−a)) resp. (mod (1−a)/c) in E(F_p) for curves of trace a ≤ 0 in the Hasse window
+   (Props 4.2, 4.3).
+2. (PROVED) Cyclotomic collapse: at a supersingular prime the ℓ-adic Frobenius (ℓ odd) of ANY elliptic curve is the
+   companion matrix of x² + h, so every torsion/group-structure condition is cyclotomic (Prop 2.1, Cor 2.2);
+   ℤ_ℓ-towers attached to the CM structure (cyclotomic, anticyclotomic — inert primes split completely —, division
+   towers) see a certificate prime only through h mod ℓ^∞.
+3. (PROVED) Torsion–residue orthogonality (Thm 3.1): groups of exponent dividing h^s + 1 (supersingular points,
+   the non-split torus, Weil-pairing values) map to F_{h^t}^* (t odd) only through {±1}. Hence the GL₂ analogue of
+   the FF_MUTE mute place amplifies a firing set by at most a factor 2 (Cor 3.2). This is the precise reason the
+   task's "finitely generated group of points reduced mod f" cannot play the role of ⟨s⟩: ⟨s mod f⟩ lives in the
+   (f − 1)-world with p, points live in the (f + 1)-world with the divisors.
+4. (PROVED rel. Merel / primitive divisors / Kronecker) Identity forcing of point orders serves finitely many slices
+   (Props 3.3, 3.5); with D = 1 exactly Mordell's moduli 4cd ∈ {4, 8, 12} (resp. 4).
+5. (PROVED, elementary) Profinite extension of (J)34 (Prop 3.4): in an infinite tower a sufficient Frobenius
+   condition must have empty interior (and measure zero if Jordan-measurable); positive-measure sufficient
+   conditions exist but are useless (no equidistribution theorem can produce a hit without producing infinitely
+   many). The violated (J)34 hypothesis (finite L) only moves the problem to density-zero existence mechanisms,
+   which (§3.5) are identities (bounded) or one quadratic sign (genus/T1).
+6. (EVIDENCE) p = 3361 is the unique prime ≤ 10⁷ with no prime-modulus Type II certificate (so any
+   "supersingular reduction at one prime" route must also handle composite moduli or Type I); every prime
+   5 ≤ p ≤ 10⁸ has a Hasse-window certificate (Prop 4.2 (a) or (b)); odd squares: none (T1).
