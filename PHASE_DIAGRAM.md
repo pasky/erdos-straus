@@ -244,3 +244,26 @@ discriminant 16(λ²D² − n)) the form class group of that discriminant has on
 holds. (One class per genus makes "represented by the principal genus" equal "represented by the principal form".)
 This trades the problem for a Gauss/Cohen–Lenstra statement about the family 16(λ²D² − n): open, not a standard
 hypothesis.
+
+## 7. Verdict (O204 checkpoint 1)
+
+1. **Normal form (Prop 1.1, PROVED).** Shots ⟺ k(4ab − n) = b + aQ₁²: the overflow is a Q₁²-weight on a in ES's
+   Type II equation (d = 1 slice); ES: Q₁ = 1; ES^{[2]}: Q₁ | a; ES^{(y)}: rad Q₁ | a. D-face: ES^{[2]} ⟺
+   4λtb − n | b + λt³.
+2. **Double wall (Thm 2.1, PROVED, sharp).** Under the self-mute cap Q₁ | Q₀ (ES^{[2]} ⊇ ES^{(y,1)}): Q₁ ≤
+   (16k³n + 1)/(4k − 1), attained exactly (all n ≡ 2 mod 3 at k = 1). With Q₁ > (n+1)/2: √(Q₁/6n) ≤ k < Q₁²/2. Every
+   fixed-k and fixed-Q₁ slice is finite; solutions live in a band of slopes ½…2 in log coordinates.
+3. **k-direction dichotomy (Cor 3.2, Prop 3.1, PROVED).** The k = 1 slice is infinite for ES^□ and ES^{(y)}
+   (fixed S, sieve; gcd(n, 15) = 1), finite for ES^{[2]}/ES^{(y,1)}/ES. EVIDENCE: e = 2 has no visible wall at k = 1
+   (hits in every octave to Q₁ = 2·10⁵); one mute prime (S = {3}) gives k = 1 shots for all primes < 10⁶.
+4. **One axis for all caps (Prop 4.1, PROVED).** ES^{(y,e)} ⟸ n(2k(4kλ)^e)² + 1 has a divisor ≡ −1 (mod 4kλ) with
+   (g+1)/(4kλ) squarefree: modulus exponent θ = 1/(2e+2). ES = θ ½ (Lenstra), ES^{(y,1)} = θ ¼ (exactly the
+   Coppersmith–Howgrave-Graham–Nagaraj threshold, where the k-wall lives), e ≥ 2 below it, proofs only at θ → 0.
+5. **Proved side pushed (Thm 5.1, PROVED rel. BV + linear sieve).** ES^{(y,e)} with e ≤ y^{(2+o(1))log₃y/(A log₂y)}
+   for every A (previously y^δ).
+6. **Boundary (Assessment with PROVED pieces).** No method that decides firing in a field (or progression) fixed
+   independently of the shot can reach any bounded cap: bounded e means θ ≥ 1/(2e+2) > 0, a per-certificate hit of
+   probability N^{−θ+o(1)}; the k-wall makes e ≤ 1 a union of finite searches in both directions; B1 is excluded in
+   every cell (§6). The polylog cap is the covering threshold (Dictionary 3.3(c)); between y^{o(1)} (proved) and
+   (log y)^{1−o(1)} (necessary for covering) nothing is known.
+Not a proof of ES or of any bounded-cap variant; no infinite case of ES is claimed.
