@@ -74,12 +74,12 @@ for n in range(3, N + 1, 2):
         if c4: cert2 += 1
         if chi == -1: sgn += 1
         # relation: for definite words cert <=> chi=-1 (MODEL_SPECIFIC 3.1a); record failures of naive transfer
-        if definite and (c4 != (chi == -1)): bad_rel += 1
+        if c4 != ((chi == -1) == definite): bad_rel += 1   # cert <=> chi * s_inf = -1, s_inf = +1 iff definite
     if cls == 'prime': TOT[0] += pos; TOT[1] += sgn; TOT[2] += 1
     s = stats.setdefault(cls, [0, 0, 0, 0, []])
     s[0] += 1; s[1] += pos > 0; s[2] += cert2 > 0; s[3] += sgn > 0
     if sgn == 0 and cls != 'square': s[4].append(n)
 for k, (cnt, p, c, g, fails) in stats.items():
     print(f"{k:7s} n={cnt:5d}  POS>0:{p:5d}  CERT2>0:{c:5d}  SGNn>0:{g:5d}  SGNn-failures(non-square): {fails[:20]}")
-print("positivity != definiteness:", bad_def, "| definite words violating cert<=>chi=-1:", bad_rel)
+print("positivity != definiteness:", bad_def, "| words violating cert <=> (chi=-1 xor signed):", bad_rel)
 print("primes: mean #positive chi=-1 words %.2f, mean #signed chi=-1 words %.2f" % (TOT[0]/TOT[2], TOT[1]/TOT[2]))

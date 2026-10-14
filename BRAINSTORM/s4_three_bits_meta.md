@@ -29,7 +29,9 @@ Brauer–Manin obstruction whose real invariant is *non-constant on X_n(ℝ)*: �
 
 **Three bits.** For every w (signed or not) with gcd(A, n) = 1 the product formula reads ε_∞(w)·ε₂(w)·ε_n(w) = 1,
 where ε_∞ = −1 ⟺ w positive (L1), ε₂ ↔ certificate, ε_n ↔ χ (TRANSPORT_LAW Thm 3.1 with r = 3; the ∞-factor is the
-Maslov count). On D: certificate ⟺ χ = −1 (MODEL_SPECIFIC 3.1(a)).
+Maslov count). On D: certificate ⟺ χ = −1 (MODEL_SPECIFIC 3.1(a)). **For all words, signed included: certificate ⟺
+χ·s_∞ = −1 with s_∞ = +1 iff w is positive** (CERTIFIED: every signed and positive word of every odd n ≤ 1001,
+0 violations, `s4_signed_nadic.py`; it is the 2-adic cell law, which only sees w mod 8, plus L1).
 
 **P3 (two relaxations; PROVED parts as marked).**
 * (R₂) *signed, 2-adic form*: ∃ w ∈ X_n(ℤ), t u v ≠ 0, certificate. **No T1**: holds at every odd square (FRIEZE §3's
@@ -42,8 +44,17 @@ Maslov count). On D: certificate ⟺ χ = −1 (MODEL_SPECIFIC 3.1(a)).
       factorisation is always +1 and the sign must come from choosing a sub-product (B2/B4 shape) (PROVED; at the
       level of single primes q | tn + 1 one has χ(±q) = (−t/q) for n ≡ 1 (4) — a genus character of q whose product
       over the factorisation is trivial);
-  (c) EVIDENCE: (R_n) holds at every odd non-square ≤ 2501, including **n = 105, where ES-five fails**; at primes
-      ≤ 1001 it has ≈ 75.5 χ = −1 words on average versus ≈ 33.7 positive ones (ordered pairs).
+  (c) EVIDENCE: **(R_n) holds at every odd non-square n ≤ 10⁷, including n = 105, where ES-five fails**
+      (`scripts/s4_sqpm.c`), always with |t| ≤ 18 (record at n = 4 884 441); the positive version (ES-five) needs
+      t up to 231 already below 2·10⁶ (record n = 702 585) and fails at 105. At primes ≤ 1001: ≈ 75.5 signed
+      χ = −1 words on average versus ≈ 33.7 positive ones.
+  (d) no finite t-set suffices (CONDITIONAL on Schinzel's H): for t = ±1, ±2 the only words with tn + 1 = ±prime·(unit)
+      are the trivial ones, χ = (−1/n) = +1 for n ≡ 1 (4); for |t| ≥ 3 a prime |tn + 1| (resp. 2·prime) has no
+      factorisation with A, B ≢ … ≠ −1 except A or B = ±1, excluded or of the wrong class. So H gives infinitely many
+      n ≡ 1 (8) where every |t| ≤ T fails (sketch; admissibility of the prime tuple to be checked per T).
+  Mechanism of the quantitative gain: with A, B < 0 the factors a = |A|, b = |B| satisfy a ≡ b ≡ +1 (mod t) (the
+  *wide/trivial* class), and for prime t ≡ 1 (4), n ≡ 1 (4), χ = (−t/a) = (−1/a): the c_∞-condition moves from
+  "≡ −1 mod t" to "≡ −1 mod 4" — a fixed modulus. So positivity is what makes the c_∞ modulus grow with t.
 
 ## Literature
 CHI_FLIP Thm 1.1 / Prop 1.6 ((J)33), TRANSPORT_LAW Thm 3.1 ((J)45), FRIEZE_ES §3 ((J)42), MODEL_SPECIFIC Thm 3.1
@@ -63,12 +74,15 @@ components phenomenon is standard (Skorobogatov, *Torsors and rational points*, 
 ## Cheap numerics
 `scripts/s4_signed_nadic.py N` (N = 2501: 15 s). Output N = 2501: primes 366/366 POS, CERT2, SGN_n; odd squares 24:
 POS 0, CERT2 24, SGN_n 0; other 860: POS 859 (105 fails), SGN_n 860; positivity ≠ definiteness: 0; definite words
-violating "certificate ⟺ χ = −1": 0.
+violating "certificate ⟺ (χ = −1 xor signed)": 0 (N = 1001 run).
 
 ## Assessment
 The precise meta-statement: **positivity enters ES exactly as the single bit ε_∞ = −1 on the single real component D;
 it converts the 2-adic certificate condition into the n-adic condition χ = −1, and nothing else.** Dropping it in the
-2-adic form trivialises ES and loses T1; dropping it in the n-adic form keeps T1 and changes nothing essential
-(finite, no forcing, a sub-product lottery). So "ES must use positivity archimedeanly" is true for T1, but a
+2-adic form trivialises ES and loses T1; dropping it in the n-adic form keeps T1 and stays qualitatively the same
+(finite, no forcing, a sub-product lottery, no finite t-set under H) but becomes quantitatively far easier (|t| ≤ 18
+to 10⁷ versus 231 by 2·10⁶), because the c_∞-requirement then lives at the fixed modulus 4 instead of the moving
+modulus t. **New CONJECTURE SQ_± (EVIDENCE to 10⁷): for odd n, χ is non-constant on the signed points of X_n iff n is
+not a square** — the exception 105 of SQ₅ disappears. So "ES must use positivity archimedeanly" is true for T1, but a
 positivity-respecting tool is not thereby a lottery-breaker: the lottery is n-adic. Label: L1, L2, P3(a,b) PROVED
 (elementary); P3(c) EVIDENCE; the reading is an Assessment.
