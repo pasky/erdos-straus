@@ -204,12 +204,11 @@ sign/parity of a norm (Mordell's p + 4 ≡ 3 mod 4). §3.5 screens these.
 (I5) Fourth construction: the density-zero existence mechanisms named in Prop 3.4.
 
 **Proposition 3.5 (torus version of Prop 3.3: primitive divisors couple to the shot only through roots of
-unity; PROVED, Kronecker).** Let α, β be the roots of x² − P(t)x + Q(t), P, Q ∈ ℚ(t) (or algebraic of degree D over
-ℚ(t)), and suppose that for all p in an infinite set and all primes h | p + 4c²d (h ∤ 2Q(p)Δ(p)), the class of
-α/β mod h has order dividing N := 4cd and exactly N... more precisely suppose U_N(α, β) ≡ 0 identically modulo the
-shot (i.e. (t + 4c²d) | U_N(α_t, β_t) in the relevant ring) with α/β not a root of unity of order < N at
-t₀ = −4c²d. Then α_{t₀}/β_{t₀} is a primitive N-th root of unity in a field of degree ≤ 2D, so φ(N) ≤ 2D; for
-D = 1, N ∈ {3, 4, 6} and 4cd = 4 (Mordell's p + 4).
+unity; PROVED, Kronecker).** Let α_t, β_t be the roots of x² − P(t)x + Q(t),
+P, Q algebraic functions of t of degree ≤ D over ℚ(t), and N := 4cd. Suppose the family forces "ord(α/β mod h) = N"
+at the primes h | p + 4c²d by an identity, i.e. U_N(α_t, β_t) vanishes at t₀ = −4c²d while U_n(α_{t₀}, β_{t₀}) ≠ 0
+for n < N (α_{t₀} ≠ β_{t₀}). Then α_{t₀}/β_{t₀} is a primitive N-th root of unity in a field of degree ≤ 2D, so
+φ(N) ≤ 2D; for D = 1, N ∈ {3, 4, 6}, so 4cd = 4 (Mordell's p + 4).
 *Proof.* U_N(α, β) = (α^N − β^N)/(α − β) vanishes at t₀ iff (α/β)^N = 1 (α ≠ β); minimality gives primitive order N;
 [ℚ(ζ_N) : ℚ] = φ(N) ≤ [ℚ(α_{t₀}, β_{t₀}) : ℚ] ≤ 2D. ∎
 So the Lucas / Bilu–Hanrot–Voutier supply of primes h ≡ ±1 (mod N) (primitive divisors of U_N, with sign
