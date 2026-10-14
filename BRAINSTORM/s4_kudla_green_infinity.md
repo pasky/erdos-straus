@@ -17,7 +17,7 @@ function, i.e. the Green-function/height contribution; Kudla, Ann. of Math. 146 
 then u > 0 as in L1. For signed w: t < 0 gives det < 0 (indefinite); t > 0 with tv < 1 gives negative definite.)
 So **∞ ∈ Diff(T_w) ⟺ w is signed.**
 
-**K2 (PROVED relative to (J)13's finite Diff formula, *given* the three-bit law for signed words, which is CERTIFIED for all words of odd n ≤ 1001 and should follow from TRANSPORT Thm 3.1 plus a finite 2-adic cell check not redone here).** At an odd
+**K2 (R219 repair D8: now PROVED unconditionally relative to (J)13/TWO_FIBRES (J)39 Prop 4.1, since the three-bit law is PROVED, SYNTHESIS_SPARKS4 §1; for ℓ | t, ℓ ∤ 2n: −B ≡ 1 (mod t) is a square, so ℓ ∉ Diff; B_T = (−B, −tn) ≅ C₀(Q_w) checked at all places, `scripts/review_r219_kudla.py`) (originally: PROVED relative to (J)13's finite Diff formula, *given* the three-bit law for signed words, which is CERTIFIED for all words of odd n ≤ 1001 and should follow from TRANSPORT Thm 3.1 plus a finite 2-adic cell check not redone here).** At an odd
 square n = m², for every word w with gcd(A, n) = 1: no ℓ | n lies in Diff (all v_ℓ(n) even, (J)13), no ℓ ∤ 2n does,
 and 2 ∉ Diff ⟺ w is a certificate (the 2-adic condition sees w only through its ℤ₂-class, and the cell law is a
 statement about w mod 8). |Diff| is odd. Hence:

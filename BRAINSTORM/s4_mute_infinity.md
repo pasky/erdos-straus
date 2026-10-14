@@ -12,8 +12,8 @@ compare with muting a finite r? Classify each relaxation by (which bit is droppe
 ## The table (statuses are those of the ledger; new rows marked ★)
 | variant | condition dropped / relaxed | shots at fixed n | c_∞ modulus | T1 | status |
 |---|---|---|---|---|---|
-| signed ES, 2-adic form (R₂) ★ | ε_∞ (positivity), keep 2-adic certificate | finite (|t| ≤ n+3) | moving | **no** | trivial (signed solutions everywhere) |
-| signed ES, n-adic form (R_n) ★ | ε_∞, keep χ = −1 | finite (|t| ≤ n+3) | moving (t), slots doubled | yes (automatic) | lottery; CONJECTURE SQ_±, EVIDENCE to 10⁷, no finite t-set under H |
+| signed ES, 2-adic form (R₂) ★ | ε_∞ (positivity), keep 2-adic certificate | finite (|t| ≤ n+3) | moving | **no** | trivial — PROVED for all odd n ≥ 5 at t = −1 (R219 D10b) |
+| signed ES, n-adic form (R_n) ★ | ε_∞, keep χ = −1 | finite (|t| ≤ n+3) | moving (t), slots doubled | yes (automatic) | lottery; CONJECTURE SQ_±, EVIDENCE to 10⁷, no finite t-set under Dickson (R219 D3) |
 | ES^□ / M^□ ((J)28, (J)41) | den z may carry an odd square | infinite (Q free) | fixed (4 or M) | yes (shots) | PROVED (one Dirichlet prime) |
 | ES^{(S)} ((J)23) | finite mute set S at fixed primes | infinite | fixed (4) | yes | PROVED (sieve) |
 | ES^{(y)} ((J)34) | self-mute: primes of y | infinite | fixed | yes | PROVED |

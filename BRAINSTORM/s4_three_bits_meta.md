@@ -31,12 +31,15 @@ Brauer–Manin obstruction whose real invariant is *non-constant on X_n(ℝ)*: �
 where ε_∞ = −1 ⟺ w positive (L1), ε₂ ↔ certificate, ε_n ↔ χ (TRANSPORT_LAW Thm 3.1 with r = 3; the ∞-factor is the
 Maslov count). On D: certificate ⟺ χ = −1 (MODEL_SPECIFIC 3.1(a)). **For all words, signed included: certificate ⟺
 χ·s_∞ = −1 with s_∞ = +1 iff w is positive** (CERTIFIED: every signed and positive word of every odd n ≤ 1001,
-0 violations, `s4_signed_nadic.py`; it is the 2-adic cell law, which only sees w mod 8, plus L1).
+0 violations, `s4_signed_nadic.py`; it is the 2-adic cell law, which only sees w mod 8, plus L1). (R219 repair D5:
+now PROVED — see SYNTHESIS_SPARKS4 §1 for the proof; and ε_∞ (isotropy sign) = −(−1)^{ind_−/2}, so "the ∞-factor is the
+Maslov count" holds in TRANSPORT's Hilbert-product normalisation, not for ε_∞.)
 
 **P3 (two relaxations; PROVED parts as marked).**
 * (R₂) *signed, 2-adic form*: ∃ w ∈ X_n(ℤ), t u v ≠ 0, certificate. **No T1**: holds at every odd square (FRIEZE §3's
-  explicit family; CERTIFIED here at all 15 odd squares ≤ 1001, script below). The bit that broke: ε_∞ = +1.
-* (R_n) *signed, n-adic form*: ∃ w ∈ X_n(ℤ), t u v ≠ 0, χ(w) = −1. **Keeps T1 automatically** (Jacobi symbols mod an
+  explicit family; CERTIFIED here at all 15 odd squares ≤ 1001, script below; R219: PROVED for all odd n ≥ 5 at t = −1,
+  e.g. (−1, 1, −(n + 1)/2) at n ≡ 1 (8), B = (n − 1)/2 ≡ 0 (mod 4)). The bit that broke: ε_∞ = +1.
+* (R_n) *signed, n-adic form*: ∃ w ∈ X_n(ℤ), t u v ≠ 0 (positive words allowed — R219 D1), χ(w) = −1. **Keeps T1 automatically** (Jacobi symbols mod an
   odd square are +1; PROVED). But:
   (a) it is a **finite search**: A ≡ B ≡ −1 (mod t), A, B ≠ −1 give |A|, |B| ≥ |t| − 1, so (|t| − 1)² ≤ |t|n + 1 and
       |t| ≤ n + 3 (PROVED);
@@ -45,10 +48,12 @@ Maslov count). On D: certificate ⟺ χ = −1 (MODEL_SPECIFIC 3.1(a)). **For al
       level of single primes q | tn + 1 one has χ(±q) = (−t/q) for n ≡ 1 (4) — a genus character of q whose product
       over the factorisation is trivial);
   (c) EVIDENCE: **(R_n) holds at every odd non-square n ≤ 10⁷, including n = 105, where ES-five fails**
-      (`scripts/s4_sqpm.c`), always with |t| ≤ 18 (record at n = 4 884 441); the positive version (ES-five) needs
-      t up to 231 already below 2·10⁶ (record n = 702 585) and fails at 105. At primes ≤ 1001: ≈ 75.5 signed
-      χ = −1 words on average versus ≈ 33.7 positive ones.
-  (d) no finite t-set suffices (CONDITIONAL on Schinzel's H): for t = ±1, ±2 the only words with tn + 1 = ±prime·(unit)
+      (`scripts/s4_sqpm.c`), always with |t| ≤ 18 (record at n = 4 884 441; R219 D1: strictly signed words alone need
+      |t| up to 54, record n = 9 817 305, still 0 failures); the positive version (ES-five) needs
+      t up to 231 already below 2·10⁶ (record n = 702 585) and fails at 105. At primes ≤ 1001: ≈ 75.5 χ = −1
+      words with t u v ≠ 0 on average (R219 D10a: ≈ 42 strictly signed + ≈ 34 positive) versus ≈ 33.7 positive ones.
+  (d) no finite t-set suffices (R219 repair D3: CONDITIONAL on Dickson, complete proof in SYNTHESIS_SPARKS4 §2.4; the
+      original sketch follows) (CONDITIONAL on Schinzel's H): for t = ±1, ±2 the only words with tn + 1 = ±prime·(unit)
       are the trivial ones, χ = (−1/n) = +1 for n ≡ 1 (4); for |t| ≥ 3 a prime |tn + 1| (resp. 2·prime) admits only
       factorisations with A or B ∈ {±1, ±2}, which are excluded (= −1), of the wrong class mod t, or give finitely
       many congruence-determined signs (to be checked per t). So H gives infinitely many
@@ -84,8 +89,8 @@ violating "certificate ⟺ (χ = −1 xor signed)": 0 (N = 1001 run).
 The precise meta-statement: **positivity enters ES exactly as the single bit ε_∞ = −1 on the single real component D;
 it converts the 2-adic certificate condition into the n-adic condition χ = −1, and nothing else.** Dropping it in the
 2-adic form trivialises ES and loses T1; dropping it in the n-adic form keeps T1 and stays qualitatively the same
-(finite, no forcing, a sub-product lottery, no finite t-set under H) but becomes quantitatively far easier (|t| ≤ 18
-to 10⁷ versus 231 by 2·10⁶), because it has twice the slots (the numbers sn − 1 join sn + 1). **New CONJECTURE SQ_± (EVIDENCE to 10⁷): for odd n > 1, some signed point of X_n (t u v ≠ 0) has χ = −1 iff
+(finite, no forcing, a sub-product lottery, no finite t-set under Dickson) but becomes quantitatively far easier (|t| ≤ 18; strictly signed alone ≤ 54
+to 10⁷ versus 231 by 2·10⁶), because it has twice the slots (the numbers sn − 1 join sn + 1). **New CONJECTURE SQ_± (EVIDENCE to 10⁷): for odd n > 1, some point of X_n with t u v ≠ 0 (positive allowed, R219 D1) has χ = −1 iff
 n is not a square** — the exception 105 of SQ₅ disappears. So "ES must use positivity archimedeanly" is true for T1, but a
 positivity-respecting tool is not thereby a lottery-breaker: the lottery is n-adic. Label: L1, L2, P3(a,b) PROVED
 (elementary); P3(c) EVIDENCE; the reading is an Assessment.

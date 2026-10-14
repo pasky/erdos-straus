@@ -1,4 +1,4 @@
-/* s4_sqpm: for odd n in [3,N], is there a SIGNED word (t,u,v nonzero, tuv-u-v=n) with chi=(-A/n)=-1, A=tu-1?
+/* s4_sqpm: for odd n in [3,N], is there a word with t,u,v nonzero (positive words INCLUDED -- R219 D1), tuv-u-v=n, with chi=(-A/n)=-1, A=tu-1?
    (the n-adic signed relaxation R_n).  Search t by increasing |t| (t = 1,-1,2,-2,...), early exit.
    Reports non-square failures and the record of the least |t| needed.  usage: s4_sqpm N [POS [TMAX]]   (POS=1: positive words only, i.e. ES-five) */
 #include <stdio.h>

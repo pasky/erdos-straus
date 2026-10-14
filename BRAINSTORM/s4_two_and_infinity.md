@@ -18,9 +18,10 @@ CERTIFIED there); (c) for 4 ∤ M the M-slices are not contained in Ω₂^{(4)} 
 on M); all numerator-specificity is 2-adic. "4-specific" ((J)41) and "archimedean" (this wave) are therefore two
 different places, and an input that is both must *couple 2 and ∞*. Over ℚ the coupling of exactly {2, ∞} is the
 Hilbert symbol (−1, −1)₂ = (−1, −1)_∞ = −1, i.e. **the Hamilton quaternions B_{2,∞}** — which is precisely the C₀ of
-every non-certificate positive word (CHI_FLIP Cor 1.3) and the ℤ³ model of (J)48.
-So: **ES-five(p) ⟺ not every positive path lattice of det p is "Hamiltonian"** (C₀ ≅ B_{2,∞} ⟺ embeds as a Gram
-of integer vectors, TWO_FIBRES Thm A) — the 4-specific archimedean input is exactly the Hurwitz order's class
+every non-certificate positive word *at n = p prime* (CHI_FLIP Cor 1.3; R219 D10c: for composite n the extra ℓ | n with
+ε_ℓ = −1 also ramify, e.g. (1, 2, 23) ∈ X₂₁) and the ℤ³ model of (J)48.
+So: **ES-five(p) ⟺ not every positive path lattice of det p is "Hamiltonian"** (C₀ ≅ B_{2,∞} ⟺ p·G_w is a Gram
+of integer vectors, TWO_FIBRES Thm A(iv); R219 D10c: this is TWO_FIBRES Cor A1 restated) — the 4-specific archimedean input is exactly the Hurwitz order's class
 number one, already exploited by (J)48.
 
 ## Construction attempts

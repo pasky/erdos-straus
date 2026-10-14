@@ -9,7 +9,7 @@ main term r(gen L, T) > 0 whenever T is locally represented ((J)13, (J)45 §5). 
 one class (TWO_FIBRES Thm A), so θ-positivity is exact there and says "non-certificates exist when the local
 conditions allow" — the wrong side. On the χ = −1 side it gives the genus average, whose positivity is the
 local/genus layer, true at odd squares' neighbours and blind to path bases (B2: the path basis is a thin
-extraction, ≪ p^{1/3+o(1)} of ≍ p classes). The modular transformation θ(−1/τ) — the archimedean proof of quadratic
+extraction, p^{o(1)} words on average — R219 D10e: the earlier "≪ p^{1/3+o(1)}" was unsupported; pointwise only Elsholtz–Tao f_II ≪ p^{2/5+o(1)} — of ≍ p classes). The modular transformation θ(−1/τ) — the archimedean proof of quadratic
 reciprocity (Hecke) — *is* the product formula ε_∞ε₂ε_n = 1; so θ supplies T1, not existence. **Verdict:
 COLLAPSES (B6 + B2); positivity of θ is the genus layer.** Harness: numerator-blind (θ never sees 4 vs 8).
 

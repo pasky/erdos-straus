@@ -3,6 +3,14 @@
 Reviewer branch `side-agent/review-synthesis-four` (merged `side-agent/synthesis-four`). From-scratch scripts:
 `scripts/review_r219_*`. ES is not solved; nothing below changes that.
 
+**Repairs applied** (author idle since checkpoint 1; each marked "R219" in place): SYNTHESIS_SPARKS4.md —
+D1 (inclusive definition of (R_n)/SQ_±, strictly-signed numbers added), D2 (t = 6), D3 (§2.4 replaced by the
+Dickson proof), D4 (prime 2), D5 (three-bit law PROVED + sign convention), D6 (meta (a) quantifier, (R₂) PROVED at
+squares); memos s4_three_bits_meta (D1, D3, D5, D6, D10a), s4_kudla_green_infinity (D8), s4_mute_infinity (D10b, D3),
+s4_two_and_infinity (D10c), s4_minkowski_sail (D10d), s4_real_analytic_tools (D10e), s4_selling_voronoi_wall (D7
+count label); `scripts/s4_sqpm.c` header comment (D1). Not changed: AGENT_REPORT_O218 (read SHARP 1's "signed" as
+"t u v ≠ 0, positive allowed" and "Schinzel H" as "Dickson").
+
 ## Summary verdicts
 | Claim | Verdict |
 |---|---|

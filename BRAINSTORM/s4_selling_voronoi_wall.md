@@ -28,7 +28,7 @@ with two further conorms pinned to 1.
 
 ## Construction attempts (barrier as steering wheel)
 1. *Force a genus member onto the wall.* The genus G₋(p) has ≍ p classes (mass formula); the wall-with-unit-conorms
-   lattices of det p are the ≍ log²p positive words. Tools that move inside a genus: ℓ-neighbours (Kneser). The
+   lattices of det p are the positive words (≍ log²p on average, heuristic — R219 D7). Tools that move inside a genus: ℓ-neighbours (Kneser). The
    ℓ-neighbour graph is connected because Spin is *non-compact at ℓ* — the auxiliary finite place replaces the
    compact ∞ (this is the c_∞-imitation of y3_frob_infinity in lattice form). It is a Ramanujan-type expander, so it
    reaches every class in O(log p) steps, but expander mixing does not force hitting a set of relative size

@@ -13,7 +13,7 @@ exact divisibility cs | p + c + s.
 ## Tools
 1. **Minkowski / Thue / Siegel's lemma are sign-blind.** They produce v ∈ Λ_A ∖ 0 with |x|, |y| ≤ √p, but the body is
    centrally symmetric, so they cannot choose the quadrant: the reduced (Gauss–Lagrange) shortest vector lies in the
-   positive quadrant for exactly 50.0 % of the 261 032 pairs (p ≡ 1 (8) < 6000, A a QNR) — the c_∞ involution
+   positive quadrant for exactly 50.0 % of the 261 032 pairs (R219 D10d: exactly ½ is PROVED by the symmetry below) (p ≡ 1 (8) < 6000, A a QNR) — the c_∞ involution
    A ↦ −A (Λ_{−A} = reflection of Λ_A) swaps quadrants. Thue's lemma gives sums of two squares because x² + y² is
    sign-blind; ES needs a sign-sensitive product (s4_three_bits_meta).
 2. **One-quadrant geometry = Klein sail = HJ.** The convex hull of Λ_A ∩ ℝ²_{>0} has boundary vertices given by the
