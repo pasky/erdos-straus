@@ -60,6 +60,14 @@ def check_words(NMAX):
                 # Machin-CM: (c+z)(s+z) - (c+s)(1/m+z) = z^2 + cs - (c+s)/m  must equal z^2 + N/m
                 if F(c * s) - F(c + s, m) != F(N, m):
                     bad += 1
+                # Penner h-length (Farey-telescoping) identities at the five vertices, divided by N
+                hv = [F(hp, N) == F(1, c) + F(1, c * h) + F(1, h * N),          # V1, opp. diag h'
+                      F(c, N) == F(1, hp) + F(1, hp * m * N) + F(1, m * N),     # V2, opp. diag c
+                      F(m, N) == F(1, c * s) + F(1, c * N) + F(1, s * N),       # V3, opp. diag m
+                      F(s, N) == F(1, h) + F(1, h * m * N) + F(1, m * N),       # V4, opp. diag s
+                      F(h, N) == F(1, s) + F(1, s * hp) + F(1, hp * N)]         # V5, opp. diag h
+                if not all(hv):
+                    bad += 1
                 if N % 2 == 1 and N % 4 == 1:
                     j = jacobi(hp, N)
                     four = any(x % 4 == 0 for x in (c, m, s, h, hp))
