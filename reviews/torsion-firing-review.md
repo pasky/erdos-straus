@@ -117,6 +117,24 @@ x = (p+1)/4, the case the author's first version skipped) and y′ ∈ (x/e, 2x/
 * torsion-side bullet: with h ≤ 20000 only 3361 is unmarked among the 78 496 primes 5 ≤ p ≤ 10⁶ (matches); up to
   10⁸ eleven primes need h > 20000 (e.g. 89802703, 93896401), all but 3361 have one.
 
+### Props 4.2 / 4.3 — mathematically SOUND; EVIDENCE REPRODUCED; significance OVERCLAIMED (D7, MAJOR)
+
+Re-derived. 4.2(a): |a| = 4c²d − 1 ≤ 2√p, p ∤ a, so Deuring–Waterhouse gives E/F_p with #E(F_p) = p + 4c²d; any
+finite abelian group has subgroups of every order dividing its order; Lemma 1.1 on the (c, d)-line accepts ANY
+h ≡ −1 (mod 4cd) dividing p + 4c²d. (b): same with a = 1 − c, c = 1 the supersingular case (p ≥ 5). 4.3: the cofactor
+of h in 4dp + 1 is ≡ −1 (mod 4d), the smaller one h₀ ≤ √(4dp+1), c = (h₀+1)/(4d) ≤ (√(4p+1)+1)/4 (much smaller
+than the stated 2√p + 1 — the window is not tight, only sufficient); h₀ | 4dp + 1 ⟺ h₀ | p + c. Correct.
+From scratch (`scripts/review_tf_hasse.c`, written as pure divisor tests, no curves):
+* primes 5 ≤ p ≤ 10⁷ (664 577): (a) fails only at 193; (b) fails at exactly the 23 primes listed (7 … 8813281,
+  identical list); never both. Odd squares ≤ 10⁷ (1580): neither (a) nor (b) ever holds. (author: to 10⁸; I stopped
+  at 10⁷, 3.3 s, more than the requested 10⁶.)
+* Prop 4.3: (iii) [d ≤ (p+1)/3, any size] vs (b) [window] agree on all 2260 primes 5 ≤ p ≤ 2·10⁴.
+Answer to the brief's question: YES — Prop 4.2 is literally a restatement. (b) ⟺ "for some c ≤ 2√p + 1, p + c has
+a divisor ≡ −1 (mod 4c)"; (a) ⟺ "for some 4c²d ≤ 2√p + 1, p + 4c²d has a divisor ≡ −1 (mod 4cd)". The elliptic
+curve enters only through its order (Deuring–Waterhouse is used solely to have SOME group of order p + 1 − a, and
+the cyclic group ℤ/(p + 1 − a) would do equally well); no group structure, Frobenius, endomorphism ring or isogeny
+datum is used, and my check reproduces the EVIDENCE without any curve. See D7.
+
 ## Defects
 
 D1 (MINOR, §1 Lemma 1.1 vs Prop 1.2). Lemma 1.1 is stated for h ≥ 5, but Prop 1.2 (and Prop 5.1) quantify over
@@ -174,3 +192,18 @@ Also state explicitly the hidden hypothesis that E_{b₀} is non-singular and R_
 D6 (MINOR, §4.1 bullet 1). "679 and 1159 have a prime factor ≡ 1 (mod 4)" — so does 33639 = 3·11213
 (11213 ≡ 1 mod 4); only 99 = 3²·11 is built from primes ≡ 3 (mod 4). Repair: "three of the four moduli (all but 99)
 have a prime factor ≡ 1 (mod 4)".
+
+D7 (MAJOR, overclaimed significance: §4 Prop 4.2 header "PROVED, Deuring–Waterhouse", the bold sentence "ES(p) is
+witnessed by an elliptic curve over F_p itself", §6.1, §6.6, AGENT_REPORT SHARP 3 "Hasse-window dictionary at p
+itself"). The dictionary is a relabelling of the integer statement "p + c (resp. p + 4c²d) has a divisor
+≡ −1 (mod 4c) (resp. mod 4cd)" — the curve is used only as a container of order p + 1 − a, and "has a subgroup of order
+h" is equivalent to h | p + 1 − a for ANY finite abelian group. Nothing about E (cyclicity, End(E), isogeny class,
+Frobenius) is used, so "witnessed by an elliptic curve" carries no information beyond FMS Lemma 1.1 restricted to
+the windows; the EVIDENCE (193; the 23 j = 1 failures) is a divisor statement (reproduced here with no curves). The
+genuinely new mathematical content is Prop 4.3 (window costs nothing on the j = 1 face — divisor pairing) and the
+numerical fact "(a) or (b) holds for every prime ≤ 10⁸" — both pure divisor statements. Repair: retitle Prop 4.2 as
+"(restatement) ES tickets as point counts", say explicitly that only #E is used and ℤ/(p + 1 − a) would serve; move the
+"natural home for the (J)35 isogeny-graph line" remark to Assessment/Spark (it is a spark, not a finding: making the
+curve matter would need e.g. a statement about the E-structure (Lenstra's End-module) of the h-part, which the
+document does not have); remove "Hasse-window dictionary" from SHARP in the agent report or relabel it
+"EVIDENCE (divisor statement), curve language optional".
