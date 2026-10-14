@@ -37,3 +37,14 @@ then exact solution of the quadratic for y on the plane x·y = 1; cross-checked 
 | (iv) n·G_w ∈ Gram(ℤ³) ⟺ Diff = {2}, direct search for (a, b, c) | odd n ≤ 451 | 7 939 | 2 088 / 2 088, **0 mismatches** |
 Word counts agree with the author's (7 934 for 3 ≤ n ≤ 451; mine include n = 1's 5 words).
 
+### Thm B (TWO_FIBRES §2; memo H2) — SOUND (citation wording D3)
+Re-derived: L_w ⊗ ℚ has square determinant, is positive, and C₀ ≅ B_{2,∞} (Prop 4.1(d)); a ternary ℚ-space is
+determined by signature, discriminant and C₀, so L_w ⊗ ℚ ≅ I₃ ⊗ ℚ ✓. Every lattice with integral norms lies in a
+norm-maximal lattice; all norm-maximal lattices on a space form one genus (O'Meara 91:2); ℤ³ is norm-maximal in I₃ ⊗ ℚ
+(an index-2 overlattice would need x/2, x ∈ ℤ³ ∖ 2ℤ³ with |x|² ≡ 0 (4), impossible), so that genus is gen(I₃), which has
+one class ✓. Index = √det = m ✓. Prime m = q: M = ker(f mod q); if f·f ≡ 0 (q) then f ∈ M, f/q ∈ M^# ∖ ℤ³, and
+M^#/M ⊇ ⟨ℤ³/M, f/q⟩ ≅ (ℤ/q)², contradicting cyclicity of M^#/M (G_w has the 2×2 minor
+det[[−1, 0], [t, −1]] = 1, so its Smith form is (1, 1, n)) ✓.
+**Numerics** (`review_r214_lift.c B`): every word of every odd square m² ≤ 141² = 19 881 (2 844 words): Diff = {2}
+(T1) and an explicit (a, b, c) ∈ (ℤ³)³ with Gram G_w found — **0 failures**.
+
