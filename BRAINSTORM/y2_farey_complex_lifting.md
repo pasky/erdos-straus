@@ -40,12 +40,13 @@ the walk is a 5-cycle of the octahedron with two consecutive antipodal corners (
      have to land in 80 classes, a coupon-collector lottery.
 3. **Conclusion.** "Lift a spur-walk mod 4 to a positive frieze at N" is exactly SQ₅/(S) ((J)15). The finite-ring
    theory supplies the classes and their local admissibility, and nothing forces a lift. Counts of tame friezes
-   over ℤ/p^r (Böhmler–Cuntz) count classes, i.e. A₈. Every such count is N-independent apart from N mod 8, so it
-   cannot see T1 (B5).
+   over ℤ/p^r (Böhmler–Cuntz) count classes, i.e. A₈. (R208 repair: such a count sees N only through N mod n; it cannot separate odd squares from primes ≡ M² (mod n), so it
+   cannot see T1 (B5).)
 
 ## Literature
 * I. Short, M. Van Son, A. Zabolotskii, *Frieze patterns and Farey complexes*, arXiv:2312.12953 (Adv. Math. 2025).
-  Thm 1.6 (lifting ⟺ strongly contractible) and the definitions were read in the PDF (§1, lines on F₄'s
+  Thm 1.6 (lifting ⟺ strongly contractible; stated for *semiregular* friezes — at N ≡ 3 (4) normalise the −1 boundary
+  entry first, SVZ §1; R208) and the definitions were read in the PDF (§1, lines on F₄'s
   non-contractible 4-path 0/1 → 1/1 → 2/1 → 3/1 → 0/1).
 * B. Böhmler, M. Cuntz, *Frieze patterns over finite commutative local rings*, arXiv:2407.12596 (counts over ℤ/p^r;
   abstract verified).

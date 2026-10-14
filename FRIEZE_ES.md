@@ -1,6 +1,6 @@
 # FRIEZE_ES — the A₂ frieze dictionary of the five ES slices, deepened (task O210, spark relay Y2)
 
-Status: in progress (O210). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
+Status: in progress (O210); hostile-reviewed by R208 (reviews/frieze-es-review.md; R208 repairs marked). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
 Builds on LENGTH_THREE.md (O206), DEDEKIND_ES ((J)9), CHI_FLIP, MODEL_SPECIFIC ((J)32). Memos BRAINSTORM/y2_*,
 scripts scripts/y2_*.
 
@@ -13,7 +13,9 @@ Notation. Word (c, m, s) ∈ ℤ³_{≥1}, N = mcs − c − s > 0, h = cm − 1
 (I1) SVZ lifting (Short–Van Son–Zabolotskii, arXiv:2312.12953, Thm 1.6: a tame frieze mod n lifts to ℤ iff its
 Farey-complex path is strongly contractible). Guess: the ES sign is the mod-4 homotopy class. **Killed**: every
 closed 5-walk on F₄ (the octahedron) is strongly contractible (`y2_f4_walks.py`; §2). Modification: the
-obstruction cannot be topological mod 4; it must be 2-adic of depth 3. This led to (I2).
+obstruction cannot be topological mod 4; it must be 2-adic of depth 3. (R208 repair: more precisely, the sign is the
+mod-4 *spur* property of the walk — a mod-4 function of the frieze that is not a homotopy invariant; "depth 3" is the
+cherry-depth *sum* of §2.) This led to (I2).
 (I2) Mod 2 the pentagon frieze is rigid, and the sign is a 2-adic bit of the unique even edge (§1, PROVED).
 
 ## 1. The even-edge theorem (PROVED; CERTIFIED for all 5 115 860 formal words, odd N ≤ 10⁵)
@@ -42,7 +44,7 @@ So (h′/N) = −(−1/N)·(−1)^{[cm ≡ 4 (8)]} = (−1/N)(−1)^{[8 | cm]}.
 6. Hence (h′/N) = (2/(Ns))^b (−1/s), with (−1/s) = −(−1/N).
 7. Ns = −N² + N h′c ≡ −1 + h′c (mod 8).
    * If 8 | h′c: Ns ≡ 7 and the factor is 1.
-   * Otherwise b = v₂(c) = 1: Ns ≡ 3 (8) and the factor is −1.
+   * Otherwise v₂(h′) = v₂(c) = 1, so b = 1 (R208 repair of "b = v₂(c) = 1"): Ns ≡ 3 (8) and the factor is −1.
 
 *Case C (e, e′) = (h, h′)* (the frozen side N). Here c, m, s are odd, and hh′ = 1 + Nm gives m ≡ −N (4).
 1. As in B: (h′/N) = (2/N)^b (N/h″) ε₁.
@@ -55,28 +57,41 @@ So (h′/N) = −(−1/N)·(−1)^{[cm ≡ 4 (8)]} = (−1/N)(−1)^{[8 | cm]}.
 
 **Corollary 1.3 (DK Thm 4.5 extended).** For N ≡ 1 (4) and every formal word: (h′/N) = −1 ⟺ 8 | ee′ ⟺ some q_i ≡ 0 (mod 4).
 **Corollary 1.4 (T1).** At odd squares every positive pentagon frieze has ee′ ≡ 4 (mod 8).
-CERTIFIED: `scripts/y2_even_edge.py 100000`, 0 failures, 8 068 square-control words (`logs/y2_even_edge_1e5.txt`).
+CERTIFIED: `scripts/y2_even_edge.py 100000`, 0 failures, 8 068 square-control words (`logs/y2_even_edge_1e5.txt`; N = 1 excluded — with its 5 words, 8 073; R208).
 
 *Remark (what this replaces).* DK proved Thm 4.5 by a 512-cell check mod 8. CHI_FLIP gave a 2-adic Hasse-invariant
 proof. Here the proof is three Jacobi computations, one per position of the even edge, each using two Ptolemy relations:
 the one through the even edge and one through the odd opposite vertex.
+(R208 repair, novelty: the statement of Thm 1.2 for all formal words and all odd N is MODEL_SPECIFIC Thm 3.1(a) ((J)32),
+which already covers boundary words and N ≡ 3 (4); CHI_FLIP ((J)33) proves it via Hilbert reciprocity plus a 320-cell
+enumeration. New here are Lemma 1.1 (the even edge) and the short computation-free proof.)
+(R208 addition: since 8 | ee′ ⟺ some q_i ≡ 0 (4), Thm 1.2 shows that χ = (−h′/N) is a function of (c, m, s) **mod 4**:
+40 odd-N cells, 30 with χ = −1 (checked, letters < 80). So 8 is a period of the DK/CHI_FLIP cell law, but 4 is the
+minimal one.)
 
 ## 2. The 2-adic transport and the tree picture (PROVED; memo y2_twoadic_tree_transport)
 
 From the case proofs: if o is the odd cluster variable opposite the even edge, then
 `(h′/N) = −(−1/N)(2/o)` (even edge {c,m} or {m,s}), and `(h′/N) = −(−2/N)(2/o)` (the relation through o contains N).
 **For N ≡ 1 (8): (h′/N) = −(2/o).** CERTIFIED: `scripts/y2_transport.py 2000`, all cells.
+*Proof (R208 repair: written out).* o = h, h′, s, c, m for the even edge {c,m}, {m,s}, {h′,c}, {s,h}, {h,h′}. Case A:
+(h′/N) = −(−1/N)(c/h) and (c/h) = (2/h)^a = (2/h), since a ≥ 2 forces h ≡ 7 (8). Cases B, C: (h′/N) =
+(2/(No))^b(−1/o) = −(−2/N)(2/o)·(2/(No))^{b−1}, and b ≥ 2 forces 8 | ee′, hence No ≡ 7 (8). ∎ (o need not be small: o = h
+or h′ can be ≍ N.)
 In the Bruhat–Tits tree T₂ the five ends form two cherries plus a lone end o. The sign is "the cherry depths sum to
 ≥ 3", and T1 is "both cherries have depth exactly 1".
 
-## 3. Where T1 lives: positivity (PROVED by inspection; memo y2_positivity_is_T1)
+## 3. Where T1 lives: positivity (memo y2_positivity_is_T1; R208 repair of labels)
 
-The proof of Thm 1.2 uses positivity only in the reciprocity steps. Signed (tame) friezes at odd squares do have
-zero-mod-4 quiddities (`scripts/y2_signed.py 40`). So T1 is the archimedean factor of Hilbert reciprocity, entering
-through the positivity of the frieze. Consequences:
-* SVZ's lifting theory (tame, signed) is T1-blind. Every closed 5-walk on F₄ is strongly contractible (§0, I1).
-* Finite-ring frieze theory is N-blind beyond N mod 8.
-* **Any frieze-theoretic ES proof must use the positivity of the frieze archimedeanly.**
+PROVED: positivity is necessary for Thm 1.2 / Cor 1.4. For every odd M ≥ 3 the signed word (4, −(M² + 3)/4, −1) has
+N = M² and quiddity c = 4 (R208; the box search `scripts/y2_signed.py 40` is now only a check).
+By inspection: the proof of Thm 1.2 uses positivity only in the reciprocity steps. The reading "T1 is the archimedean
+factor of Hilbert reciprocity, entering through positivity" is CHI_FLIP Thm 1.1 (ε_∞ = −1 because the path form is
+positive definite; (J)13, (J)33) in frieze language. Consequences (Assessment):
+* SVZ's lifting theory (tame, signed, unit boundary) is T1-blind. Every closed 5-walk on F₄ is strongly contractible (§0, I1).
+* A criterion that depends on N only through N mod n cannot separate odd squares M² from primes ≡ M² (mod n), so it
+  cannot force a −1 word (Cor 1.4). (R208 repair of "finite-ring frieze theory is N-blind beyond N mod 8".)
+* **Any frieze-theoretic ES proof must use the positivity of the frieze archimedeanly** (Assessment, steering rule).
 
 ## 4. Polygon size: the pentagon is the unique size where the zero locus is a Jacobi fibre (memo y2_hexagon_degeneration)
 
@@ -90,13 +105,19 @@ gives 4/N as r unit fractions (vertex fan).
   contains odd squares (PROVED).
 * 5 ≤ r ≤ 12: explicit odd-square witnesses (`scripts/y2_witness.py 12 40`): r = 5: 25 = K(2,3,2,2,3); r = 6:
   49 = K(2,2,3,2,2,4); r = 7: 81; r = 9: 49; r = 10: 81; r = 11: 225 (CERTIFIED).
-So for r ∈ {4, …, 12} the zero locus meets the squares, where (A/N) = +1, and it is not contained in a Jacobi
-fibre. CONJECTURE: the same holds for all r ≥ 4 (EVIDENCE: r ≤ 12).
+* **All r ≥ 5 (PROVED, R208 repair of the former CONJECTURE).** w = (2, 2, 2, 4, 2^{r−5}, k). With p = (2,2,2,4,2^{r−5}),
+  K(2^j, 4, 2^l) = 2jl + 3j + 3l + 4 gives Q := K(p) = 9(r − 5) + 13 and K(p⁻) = Q − 9, so K(w) = kQ − Q + 9 ≡ 9 (mod Q).
+  Take N = (2Q + 3)² and k = (N + Q − 9)/Q ≥ 2. The letter 4 is a quiddity. (Checked r ≤ 60, `scripts/review_r208_polygon.py`.)
+So for every r ≥ 4 the zero locus meets the squares, where (A/N) = +1, so it is not contained in the fibre
+{(A/N) = −1}. (Definition, R208: "the zero locus of length r is a Jacobi fibre" means: among interior length-r words at
+N ≡ 1 (4), {some q_i ≡ 0 (4)} = {(A/N) = −1}. For r = 2 the zero locus is empty while the −1 fibre is not, e.g. N = 5,
+(2, 3).)
 
 **Theorem 4.1 (degeneration; PROVED).** In the pentagon every 4w-diagonal cut leaves a divisor event.
 * If the cut-off triangle contains the N-side, the other piece is a length-2 word at 4w, which needs 4w + 1 = xy
   with y ≡ −N (mod 4w) (Type I a = 1). For w = 1 the only option is the formal (1, 5)/(5, 1), which gives N ≡ 3 (4).
-* Otherwise the quadrilateral containing N has hs = N + 4w.
+* Otherwise the quadrilateral containing N gives hs = N + 4w (c = 4w), hh′ = 1 + 4wN (m = 4w) or ch′ = N + 4w (s = 4w)
+  (R208 repair). PROVED content: the piece identification; "divisor event" (B2) is the Assessment reading.
 The hexagon escapes because K(2, 2, 2) = 4 is an interior length-3 word at 4. Interior words at 4 are exactly (4) and
 (2, 2, 2), and there is no length-2 interior word at 4 because 5 is prime.
 
@@ -104,7 +125,7 @@ The hexagon escapes because K(2, 2, 2) = 4 is an interior length-3 word at 4. In
 1. mod-2 rigidity (one quiddity pattern, so the sign is one bit);
 2. the absence of an N-free sub-word at 4 of length 2.
 This parallels (J)32 (m = 4 is the unique numerator whose slices form a character fibre). Here r = 3 is the unique
-polygon size whose zero locus is a character fibre (for r ≤ 12 and r ≡ 0 (4); CONJECTURE beyond).
+polygon size whose zero locus is a character fibre (PROVED for all r ≥ 2; R208 repair).
 
 ## 5. Constructive attempts (barrier as steering wheel)
 
@@ -121,12 +142,13 @@ polygon size whose zero locus is a character fibre (for r ≤ 12 and r ≡ 0 (4)
 ## 6. Verdict (O210 checkpoint 1)
 * **PROVED (new as statements; elementary):**
   * Even-edge theorem (Thm 1.2): for every positive formal pentagon frieze at odd N,
-    (h′/N) = (−1/N)(−1)^{[8 | ee′]}. This gives a 3-case proof of DK Thm 4.5 and extends it to formal words and to
-    N ≡ 3 (4).
+    (h′/N) = (−1/N)(−1)^{[8 | ee′]}. This gives a 3-case, computation-free proof of DK Thm 4.5 and of its extension to
+    formal words and N ≡ 3 (4), which is MODEL_SPECIFIC Thm 3.1(a) (R208 repair: the extension is not new).
   * The transport law (h′/N) = −(2/o) for N ≡ 1 (8) (§2).
-  * T1 enters through positivity (§3); SVZ/finite-ring frieze theory is T1-blind.
+  * Positivity is necessary for the sign law (§3, explicit signed family); "SVZ/finite-ring frieze theory is T1-blind"
+    is Assessment (R208 repair).
   * Pentagon degeneration of the hexagon proof (Thm 4.1). r = 3 is the unique polygon size with a Jacobi-fibre zero
-    locus for r ≤ 12 and r ≡ 0 (4); CONJECTURE for all r.
+    locus (all r; R208 repair of the former CONJECTURE).
 * **CERTIFIED:**
   * 5 115 860 words (all odd N ≤ 10⁵);
   * 2·10⁶ random words with N up to ~10¹²;

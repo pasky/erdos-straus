@@ -21,7 +21,8 @@ must wind ±3, so it has exactly two backtracks, and they are consecutive.)
 **Theorem 2 (even-edge sign law; PROVED for all positive formal words, all odd N).** Let e, e′ be the even edge. Then
 `  (h′/N) = (−1/N) · (−1)^{[8 | ee′]}.`
 For N ≡ 1 (4): (h′/N) = −1 ⟺ 8 | ee′ ⟺ one of the five cluster variables is ≡ 0 (mod 4). This recovers DK Thm 4.5 /
-LENGTH_THREE Cor 1.2 and extends it to formal words.
+LENGTH_THREE Cor 1.2 and extends it to formal words. (R208 repair: the extension to formal words and N ≡ 3 (4) is
+MODEL_SPECIFIC Thm 3.1(a); new here are Lemma 1 and the computation-free proof.)
 *Proof.* Only three cases up to the reversal (c ↔ s, h ↔ h′). Write v₂ for 2-adic valuations.
 * **A: even edge {c, m}** (mirror {m, s}). Here h ≡ −1 (mod 2^{v₂(c)+v₂(m)}) and h ≡ 3 (4). So (h′/N) = (h/N), because
   hh′ ≡ 1 (N). Reciprocity gives (h/N) = (−1/N)(N/h). From hs = N + c we get (N/h) = (−c/h) = −(c/h). Write c = 2^a c′.
@@ -60,7 +61,7 @@ and Theorem 2, including the N ≡ 3 (4) law; 0 failures (`logs/y2_even_edge_1e5
 ee′ ≡ 4 (8).
 
 ## Assessment
-PROVED and CERTIFIED. It is a cleaner proof of a known equivalence, and it extends that equivalence to formal words
+PROVED and CERTIFIED. It is a cleaner proof of a known equivalence (R208: incl. the formal-word / N ≡ 3 (4) form, MODEL_SPECIFIC Thm 3.1(a)), and it covers formal words
 and to N ≡ 3 (4). The structure is new as a statement: the sign is a single 2-adic bit carried by the unique even
-edge. It also points to a natural object, the 2-adic tropical frieze (memo y2_tropical_2adic). Promise as a route:
+edge. It also points to a natural object, the 2-adic tropical frieze (memo y2_twoadic_tree_transport; R208 repair of a dangling memo name). Promise as a route:
 1/5. As a tool it is useful, since it reduces "find a −1 word" to "find a word whose even edge has 2-adic weight ≥ 3".

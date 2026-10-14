@@ -4,6 +4,11 @@ Reviewer: R208 (side-agent/review-frieze). Reviewed at merge of side-agent/friez
 From-scratch scripts: `scripts/review_r208_*.py`; logs `logs/review_r208_*.txt`.
 **ES is not solved; nothing below changes that.**
 
+**Repairs applied (author quiet):** D1–D15 applied directly to FRIEZE_ES.md, BRAINSTORM/y2_{even_edge,
+twoadic_tree_transport, positivity_is_T1, farey_complex_lifting, hexagon_degeneration, parity_involution,
+zamolodchikov_forcing}.md and AGENT_REPORT_O210.md, each marked '(R208 repair)' / 'R208'. D8 upgrades the §4
+CONJECTURE to PROVED.
+
 ## Summary verdicts (filled in claim by claim)
 
 | # | claim | verdict |

@@ -9,7 +9,8 @@ side (0, ∞) (geodesic integer continued fractions: Beardon–Hockman–Short, 
 The vertex-fan identities still hold, with signs, so a quiddity 4w gives 4/N = ±1/x ± 1/y ± 1/z.
 
 ## Results
-* **Signed friezes have no T1 (EVIDENCE + trivial).** `scripts/y2_signed.py 40`: among 159 836 signed words (letters
+* **Signed friezes have no T1 (PROVED, R208: the signed word (4, −(M² + 3)/4, −1) has N = M² and quiddity 4 for every
+  odd M ≥ 3; the box search below is a check).** `scripts/y2_signed.py 40`: among 159 836 signed words (letters
   in [−40, 40], N odd), every odd square 9, 25, 49, …, 625, … has a signed pentagon frieze with a quiddity ≡ 0 (mod 4).
   Signed Egyptian representations of 4/M² exist trivially, so this is expected.
 * **Where the proof of the even-edge law uses positivity (PROVED by inspection of FRIEZE_ES Thm 1.2).** Positivity is
