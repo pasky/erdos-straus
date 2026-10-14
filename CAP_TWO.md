@@ -46,14 +46,15 @@ g = caB − 1, E = (4na² + B²)/g). Then, by the residue of c mod 4:
 * **c odd: k = 1 shots with overflow Q₁ = cB²** (Thm 1.1); cap 2 iff c, B squarefree and coprime. On {B = 1}:
   k = 1 ES^{(y,1)} shots with Q₁ = c (the walled cell, PHASE_DIAGRAM Thm 2.1(a)); on {c = 1}: the pure-power family
   Q₁ = B² (PHASE_DIAGRAM Prop 4.1, e = 2, k = 1).
-* c ≡ 2 (mod 4): forces 2 | a, and the same computation gives overflow 2c'B² (c = 2c'), i.e. a 2-adic denominator,
-  excluded from every ES^{(·)} variant.
+* c ≡ 2 (mod 4): forces 2 | a (g ≡ 3 mod 4); not used here.
 *Proof.* c ≡ 0: GROWING_MUTE Prop 1.1(c) is "g | nA_GM² + B², g ≡ −1 (mod 2A_GM B)" with A_GM even; put A_GM = 2a,
-then 2A_GM B = 4aB and g + 1 = 4λ·aB. c odd: Thm 1.1. c = 2c': g = 2c'aB − 1 ≡ 3 (mod 4) needs 2 | a; then
-1/(2a) ≡ c'B (mod g), so the shot index Q with 4Q² ≡ −n, i.e. 2Q ≡ ±B/(2a)... (2Q)² ≡ B²/(4a²) ≡ (c'B²)²: Q ≡ ±c'B²/2,
-whose gcd with K = c'aB/2 leaves the even part 2c'B² as overflow (the same computation as Thm 1.1 with 1/4 ↦ 1/2). ∎
+then 2A_GM B = 4aB and g + 1 = 4λ·aB. c odd: Thm 1.1. c = 2c': g ≡ 3 (mod 4) needs 4 | 2c'aB. ∎
 *The fibre picture (both cells).* Put x := c·E. Then W_n is **f_x(a, B) := 4na² − x·aB + B² = −E**, a value of the
 principal form of discriminant Δ_x = x² − 16n. So every cell of {ES, ES^{(y,1)}, ES^{[2]}, k = 1 cap-2} is:
 "for some x, the principal form of discriminant x² − 16n represents −E for a divisor E | x", the cell being read off
 from x/E mod 4 and from B. For fixed (c, E) the solutions are finitely many orbits of SO(f_x)(ℤ) (GROWING_MUTE
 Prop 1.2(b) for c ≡ 0; same proof for c odd), infinite as soon as one exists and Δ_x is not a square.
+*Check (`scripts/y6_dict.py 61 401 40`, exact rationals, Def 1.1 checked prime by prime):* all 120 k = 1 cap-≤2 shots
+(odd n ≤ 61, odd Q₁ ≤ 401, all divisors) map to W_n points with 4 | a, E ≡ 3 (mod 4); conversely all W_n points with
+a, B ≤ 40 give exact solutions: 121 with c odd (den z = c²B⁴, cap ≤ 2) and 179 with c ≡ 0 (mod 4) (ES^{[2]}, den z = B²);
+no violation of "E ≡ 3 ⟺ 4 | a" among c-odd points.
