@@ -117,7 +117,7 @@ log(S_e(ρ^j)/S_{e−1}(ρ^j)), S_e(y) = 1 + y + … + y^e.
 coefficients). log Π S_{e_i} = Σ_i Σ_{e ≤ e_i} gain(P_i, e) with Σ e_i deg P_i = n. For fixed P the gains decrease in e
 (S_e/S_{e−1} = 1 + y^e/S_{e−1}(y) decreases for 0 < y ≤ 1), so the integer solution uses each chain as a prefix and its value is ≤ the
 fractional-knapsack optimum (all gains ≥ 0). ∎ Implemented in `fz_sum.c` (64 values of ρ; V_ρ by greedy fill, rounded
-outward); used in every C(n, d) of the routes and in R1 as N_z(F)·N_{a−1}(F/m′) (and permutations).
+outward; brute-force check `scripts/fz_rankin_check.py`: q = 3, n ≤ 11 and q = 5, n ≤ 7, all d: 0 violations, max/bound 0.985); used in every C(n, d) of the routes and in R1 as N_z(F)·N_{a−1}(F/m′) (and permutations).
 For fixed q, V_ρ(n) = o(n) (the knapsack fills n with ≍ n/log_q n items), so **all divisor counts are q^{o(n)}** and every
 entropy term of the continuum exponents disappears.
 
