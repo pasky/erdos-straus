@@ -12,11 +12,21 @@ From-scratch scripts: `scripts/review_l3_*.py` (none import or copy scripts/l3_*
 | Cor 1.2 (five slices = five cluster variables ≡ 0 mod 4) | SOUND |
 | Cor 1.3 (cube = pentagon (c, 4dj, s) at pj; FMS divisibilities = Ptolemy) | SOUND (minor wording, D3) |
 | Thm 2.1 (five ES triples = Ford-horocycle fan decompositions) | SOUND (normalisation/terminology, D1, D2) |
-| Cor 2.2 (sharp dictionary) | SOUND |
+| Cor 2.2 (sharp dictionary) | SOUND-AFTER-REPAIRS (D10: quantifiers / interior domain) |
 | Thm 3.1 (Machin = CM rotation; K_c(s) = 1/m ⟺ K = N; Type II r² = p/4d) | SOUND |
 | Thm 4.1 / Cor 4.2 (m²Norm_μ = hh′ − mμ; (J)38 ε_μ; (J)37 depth 3/1) | SOUND |
 | §6 (Q²-side pentagons ↔ divisors h ≡ 3 (4) of 4n + Q²; 4/n identity; torus) | SOUND-AFTER-REPAIRS (D4) |
 | §7.6 (Farey-chain census) | SOUND-AFTER-REPAIRS (D5: definition omits coprimality) |
+| §5 summary / four "3"s | SOUND-AFTER-REPAIRS (D6: re-asserts the retracted cutting-sequence claim; D7) |
+| §7.1 ear lemma screen | SOUND (formal-word claim checked: p ≡ 1 (4) ≤ 2000, 0 mismatches) |
+| §7.3 moving pencil reduction (PROVED reduction) | SOUND (D(4djλ − 1) = 4dj²p + 1 re-derived) |
+| §7.4 genus argument at squares | SOUND (proof re-derived; (−d/h) = (p/h) = −1 at all 11 143 cube points p ≤ 2000; 0 cube points at odd squares ≤ 40 000) |
+| §7.2, §7.5, §7.7 | Assessments, correctly labelled; 7.5's repaired statement (reduced z*_d lie on Re z = 0) is right |
+| Labels / scope / novelty (§5, §8) | SOUND-AFTER-REPAIRS (D9: prior art Ventas 2026 for the V₁ row; O144 precursor) |
+
+**Overall.** No FATAL defect and no mathematical error in any theorem. All identities, bijections and censuses
+reproduce with independent code. Defects are one MAJOR-presentational leftover (D6) and minor wording, domain,
+attribution and definition issues (D1–D5, D7–D10). ES is not claimed solved, and no infinite case is claimed.
 
 ## Checks performed
 
