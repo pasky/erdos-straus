@@ -1,0 +1,34 @@
+odd squares 9..N: 499, with any Type II cert: 0
+primes p>=5 with N_II^pr<=1:
+  p=13 N_II=2 N_II^pr=1
+  p=193 N_II=4 N_II^pr=1
+  p=3361 N_II=4 N_II^pr=0
+  p=76441 N_II=18 N_II^pr=1
+[1024,2048): primes 137 mean N_II 48.6 mean N_pr 15.5  N_pr/log^2 0.289 N_II/log^3 0.124 min N_pr 2 at 1093
+[2048,4096): primes 255 mean N_II 61.2 mean N_pr 18.0  N_pr/log^2 0.280 N_II/log^3 0.119 min N_pr 0 at 3361
+[4096,8192): primes 464 mean N_II 75.1 mean N_pr 21.0  N_pr/log^2 0.278 N_II/log^3 0.114 min N_pr 4 at 6733
+[8192,16384): primes 872 mean N_II 91.7 mean N_pr 24.0  N_pr/log^2 0.271 N_II/log^3 0.110 min N_pr 3 at 8581
+[16384,32768): primes 1612 mean N_II 109.2 mean N_pr 27.2  N_pr/log^2 0.267 N_II/log^3 0.106 min N_pr 3 at 31081
+[32768,65536): primes 3030 mean N_II 133.1 mean N_pr 31.6  N_pr/log^2 0.271 N_II/log^3 0.106 min N_pr 3 at 53089
+[65536,131072): primes 5709 mean N_II 157.2 mean N_pr 35.4  N_pr/log^2 0.269 N_II/log^3 0.104 min N_pr 1 at 76441
+[131072,262144): primes 10749 mean N_II 184.6 mean N_pr 39.9  N_pr/log^2 0.270 N_II/log^3 0.102 min N_pr 5 at 152461
+[262144,524288): primes 20390 mean N_II 212.9 mean N_pr 43.9  N_pr/log^2 0.265 N_II/log^3 0.100 min N_pr 6 at 291481
+[1e5,1e6]: primes 68906 mean N_II 222.9 mean N_pr 45.3 min N_pr 5 at 152461
+p=5 N_II=2 N_pr=2
+p=7 N_II=3 N_pr=2
+p=9 N_II=0 N_pr=0
+p=11 N_II=5 N_pr=3
+p=13 N_II=2 N_pr=1
+p=17 N_II=4 N_pr=3
+p=19 N_II=5 N_pr=3
+p=23 N_II=11 N_pr=7
+p=25 N_II=0 N_pr=0
+p=29 N_II=8 N_pr=4
+p=31 N_II=12 N_pr=4
+p=37 N_II=4 N_pr=2
+p=41 N_II=8 N_pr=4
+p=43 N_II=7 N_pr=4
+p=47 N_II=22 N_pr=9
+p=49 N_II=0 N_pr=0
+p=53 N_II=8 N_pr=5
+p=59 N_II=17 N_pr=7

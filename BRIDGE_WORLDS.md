@@ -33,11 +33,14 @@ u ∈ F_h^*; (ii) with e = 2 the only p-information is the Legendre symbol (p/h)
 **Proposition 1.3 (the additive bridge).** In F_{h²}, ∏_{ζ ∈ μ_c ∖ {1}} (1 − ζ) = c for every c | h + 1. Hence Type
 II fires at (c, d, h) iff −p ≡ P(μ_{4cd}) · P(μ_c) (mod h), P(μ) := ∏_{ζ∈μ∖1}(1 − ζ). Pure Gauss sums of order m
 equal (−1)^{(h+1)/m} h (Stickelberger; BEW Thm 11.6.3), so g(χ_{4cd}) = (−1)^j h: they carry only the parity of j.
-Uniform cyclotomic numbers reduce mod h to integer polynomials in m (EVIDENCE: m²(a,b) ≡ 1, 1 − m, 1 − 3m for m ∈ {4,6,8,10,12,16,20,24}, h ≤ 199).
+Uniform cyclotomic numbers reduce mod h to integer polynomials in m: **m²(a,b) ≡ 1 − m(δ_{a,0} + δ_{b,0} + δ_{a,b})
+(mod h)** (R216 repair: PROVED, not only EVIDENCE — expand m²(a,b) = Σ_{s,t} ζ_m^{−as−bt} J'(χ^s, χ^t); the Jacobi sums with
+s, t, s + t ≢ 0 are ±h (pure Gauss sums), the degenerate ones are q − 2 ≡ −2 and −1 (χ(−1) = 1); see
+reviews/bridge-worlds-review.md C1; numerically m ∈ {4,…,24}, h ≤ 199 (O211) and all m | h + 1, h ≤ 59 (R216)).
 *Proof.* (X^c − 1)/(X − 1) = ∏(X − ζ) at X = 1. ∎ **Assessment:** the non-homomorphic bridge between the two
 worlds that semi-primitivity supplies is cardinality (the integer m read in F_h); it is the box, not new input.
 
-## 2. Classification of bridges between the two worlds (PROVED)
+## 2. Three elementary bridge tiers between the two worlds (PROVED; scope: these classes only — R216 repair of the heading)
 
 Fix h ≡ 3 (mod 4) prime and m | h + 1, so μ_m ⊂ T(F_h) = ker(N : F_{h²}^* → F_h^*). A "bridge" is a rule that
 attaches to μ_m (or to its elements) an element of F_h, where −p lives.
@@ -47,12 +50,18 @@ R-O211 repair).**
 (a) (homomorphic; TORSION_FIRING Thm 3.1) every homomorphism μ_m → F_h^* has image in {±1}.
 (b) (symmetric algebraic) if S ∈ ℚ(x_1, …, x_m) is symmetric and defined at μ_m, then S(μ_m ⊂ F_{h²}) ≡ s(m) (mod h)
 for the fixed rational number s(m) := S(μ_m ⊂ ℂ), for every h for which S has good reduction at μ_m (h ∤ m and
-the denominator of the fixed formula does not vanish mod h). Examples: |μ_c| = c, ∏_{ζ≠1}(1 − ζ) = c,
+the denominator of the fixed formula does not vanish mod h; R216 repair: "the fixed formula" means a representation
+S = A(e)/B(e) in the elementary symmetric functions with B(e(μ_m)) ≠ 0, which exists because S is regular on the whole
+S_m-orbit of μ_m; good reduction = A, B h-integral and B(ē) ≢ 0 mod h). Examples (R216 repair: these are symmetric in the
+roots of a fixed monic F ∈ ℤ[X], here (X^c − 1)/(X − 1), rather than in μ_m; the proof is identical; |μ_c| = c is a
+cardinality, not a rational function): ∏_{ζ≠1}(1 − ζ) = c,
 Σ csc²(πk/c) = (c² − 1)/3 (cot(πk/c) = i(ζ + 1)/(ζ − 1) is rational in ζ). NOT covered by (b): Gauss sums,
 cyclotomic numbers and Γ_h-values, which are not rational functions of μ_m; for those the analogous statements are
 separate (Stickelberger: g(χ_{4cd}) = (−1)^j h, PROVED, classical; m²(a,b) ≡ 1, 1 − m, 1 − 3m mod h: EVIDENCE,
 y3_gauss.py; Gross–Koblitz: the argument 1/m reduces to j, memo y3_gross_koblitz_box).
-(c) (Frobenius-invariant algebraic) quantities built from a single ζ ∈ μ_m and fixed by ζ ↦ ζ^h = ζ⁻¹ are values
+(c) (Frobenius-invariant algebraic) quantities f(ζ), f ∈ ℚ(X) a characteristic-zero formula FIXED independently of h
+and p (R216 repair: without this quantifier the tier is vacuous, since the prime field of F_{h²} is F_h), built from
+a single ζ ∈ μ_m and fixed by ζ ↦ ζ^h = ζ⁻¹ are values
 ρ_𝔥(α), α ∈ K = ℚ(ζ_m)⁺ regular (integral) at 𝔥, at a prime 𝔥 | h (h splits completely in K); here "fixed by
 ζ ↦ ζ⁻¹" means the characteristic-zero formula is invariant (invariance only after reduction is not covered). Those
 fixed by all of Gal(ℚ(ζ_m)/ℚ) are rational, as in (b).
@@ -88,12 +97,17 @@ y3_typeI_hasse_window.
 ## 5. Prime-modulus Type II (O207 spark 2): census and CONJECTURE PM-II (EVIDENCE)
 Exhaustive census of all Type II certificates (no range cut on h) via (4cdt − p)j = c + t (scripts/y3_census.c):
 mean N_II^pr(p) ≈ (0.27–0.33)·log²p and mean N_II ≈ (0.10–0.12)·log³p for 10³ ≤ p ≤ 10⁸ (dyadic blocks to 2¹⁹, full
-[10⁵, 10⁶], samples at 10⁷, 10⁸). Primes with N_II^pr ≤ 1: 13, 193, **3361 (0)**, 76441; min over [10⁵, 10⁶] is 5.
+[10⁵, 10⁶], samples at 10⁷, 10⁸). (R216 repair: R216's independent complete census to 10⁸ gives full-block
+means N_II^pr/log²p drifting down 0.289 → 0.261 and N_II/log³p 0.124 → 0.093 over [2¹⁰, 2²⁶); the 0.33 and 0.10–0.12
+ends come from short windows (the 10⁸ window is an outlier); the growth law is not established — Assessment.) Primes with N_II^pr ≤ 1: 13, 193, **3361 (0)**, 76441; min over [10⁵, 10⁶] is 5.
 All low cases have p − 1 divisible by many small primes (stacked QRs: by reciprocity no small prime h can fire, since
-(pd/h) = −1 is necessary). Adversarial p ≡ 1 (mod 4∏_{q≤29} q) up to 1.3·10¹¹ still have 14–20 prime-firing slices
+(pd/h) = −1 is necessary). Adversarial p ≡ 1 (mod 4∏_{q≤Q} q), Q ≤ 29, up to 1.3·10¹¹ still have 4–20 (min 4 at p = 600601; R216 repair of
+"14–20") prime-firing slices
 with cd ≤ 200 (y3_adversarial.py). Odd squares: 0 certificates throughout (T1 control).
 **CONJECTURE PM-II.** Every prime p ≥ 5 except p = 3361 has a prime-modulus Type II certificate (EVIDENCE:
-exhaustive to 10⁸, tf_primemod rerun here, data/y3/primemod_1e8.txt; odd squares ≤ 10⁸: 0 Type II solutions). (Trivial for
+exhaustive to 10⁸, tf_primemod rerun here, data/y3/primemod_1e8.txt; odd squares ≤ 10⁸: 0 Type II solutions;
+independently R216: complete census of all certificates to 10⁸, N_II^pr ≤ 1 exactly for 13, 193, 3361 (0), 76441,
+data/r216/census_1e8.txt). (Trivial for
 p ≡ 3 mod 4.) It is strictly stronger than Type II-ES, so B2/B3/B6 apply verbatim; no sieve handle (memo
 y3_primemod_census).
 
@@ -111,6 +125,12 @@ h | p − 4c²d: for every prime p ≠ 3, h = 3, c = d = 1 fires (3 | p + 4 or 3
 large unit images by themselves prove nothing about ES. The natural repair is to allow only *totally positive* units
 E⁺ (for K = ℚ: E⁺ = {1}, i.e. ES itself; for K = ℚ(√2), m = 8: E⁺ = ⟨3 + 2√2⟩) — and positivity at the real places is
 again an archimedean condition.
+**Definition (R216 repair).** For a prime h ≡ 7 (mod 8) let U_h := ⟨ρ_𝔥(3 + 2√2)⟩ ⊂ F_h^* (independent of 𝔥 | h).
+**Fire⁺(n, h)** :⟺ ∃ c, d ≥ 1 with cd EVEN and 4cd | h + 1 such that −n/(4c²d) ∈ U_h, i.e. h | N_{ℚ(√2)/ℚ}(n + 4c²d·ε₀^{2k})
+for some k ∈ ℤ (ε₀ = 1 + √2). This is a firing predicate, not an Egyptian-fraction equation; it is neither weaker nor
+stronger than Type II (cd-odd slices are excluded; k = 0 is Type II on cd-even slices). The proved statements below
+concern Fire⁺ only. The K_{4cd}-wide reading "ε ∈ E⁺(ℚ(ζ_{4cd})⁺)" is NOT T1-keeping: at (c,d) = (1,3), K_12 = ℚ(√3),
+E⁺ = ⟨2 + √3⟩, n = 9 fires at h = 11 (example below).
 **Prop 6.2 (the E⁺ twist fills the box up to the genus class; PROVED + EVIDENCE).** Let K = ℚ(√2) ⊂ ℚ(ζ_{4cd})⁺ (8 | 4cd),
 ε₀ = 1 + √2, E⁺ = ⟨ε₀²⟩, h ≡ 7 (mod 8) prime with 4cd | h + 1. Then:
 (i) for every d ≥ 1 and h ≡ −1 (mod 4d): (−d/h) = −1. Hence for an odd square n the E⁺-twisted condition
@@ -124,13 +144,16 @@ consists of squares, and −n/(4c²d) has character (−d/h) = −1 for n a squa
 Numerics (scripts/y3_unit_twist.py 10⁵ 2000): every prime 5 ≤ p < 10⁵ fires at some h < 2000; least firing h is 7 for
 4812, 23 for 2415, 31 for 1198, 47 for 609, … (geometric, as (p/h) = −1 coin flips at good h predict); at the least
 E⁺-firing h, genuine (untwisted, any slice) Type II also fires for 7705 of the 9590 primes; odd squares: none.
+(All reproduced from scratch by R216, scripts/review_r216_units.py.)
 Novelty is modest: the square-subgroup enlargement mechanism is that of (J)21/(J)23. **Reading:** at good h, the totally positive units erase the box and leave exactly the genus layer (at other h
 they need not: h = 103, p = 5 has (5/103) = −1 but the order-17 unit subgroup misses −5/(4c²d) for every permitted
 slice). For n = r² with h | n the target is 0, outside the subgroup. The T1 argument uses E⁺ ⊂ squares, i.e.
 N(ε₀) = −1; it FAILS for fields whose totally positive units are not squares (ℚ(√3): n = 9, c = 1, d = 3, h = 11,
 √3 ↦ 5, ε = (2+√3)³ ↦ 2 gives 9 + 12·2 ≡ 0) — a higher-rank extension needs a new T1 argument — so the E⁺-twisted
 Type II is a V_φ/ES^{(S)}-type T1-keeping cousin ((J)21/(J)23), whose provability for every p is an Artin-type
-statement about ε₀ at primes h ≡ 7 (8) with (p/h) = −1 (GRH à la Hooley; unconditional status not checked — with
+statement about ε₀ at primes h ≡ 7 (8) with (p/h) = −1 (Assessment, R216 repair of the label: the mechanism is
+(J)23 Thm 2.4's with ⟨S⟩ ⊂ ℚ^* replaced by the rank-1 group ⟨ρ_𝔥(ε₀)⟩, so Gupta–Murty does not apply and the expected
+route is GRH via a Lenstra-type density argument, not written out; NOT an unconditional ES-cousin — with
 higher-rank units of ℚ(ζ_m)⁺ a Gupta–Murty/Heath-Brown argument may apply: spark). By (J)28's recalibration this is
 weak evidence about ES: the gap to ES is ρ_𝔥(ε) = 1, i.e. the box itself.
 EVIDENCE that ρ_𝔥(E) is large for m = 8: over the 2399 primes h ≡ 7 (mod 8) below 10⁵, [F_h^* : ⟨ρ_𝔥(1 + √2)⟩] is
@@ -141,13 +164,13 @@ exponent cap of (J)34 is an analogy, not a proved equivalence.
 | object | bridge tier | what reaches p's world | barrier |
 |---|---|---|---|
 | Thm 3.1 (O207): torsion, torus, Weil pairing | homomorphic | ±1 (genus layer, = |D_∞|) | B3 (2τ₃ ceiling) |
-| pure Gauss sums, uniform cyclotomy (§1) | outside Thm 2.1(b); Stickelberger / EVIDENCE | parity of j; residues 1, 1−m, 1−3m | B2 (box) |
+| pure Gauss sums, uniform cyclotomy (§1) | outside Thm 2.1(b); Stickelberger / Jacobi sums (PROVED, R216) | parity of j; residues 1, 1−m, 1−3m | B2 (box) |
 | Lucas / Dickson / Cayley / ∏(1 − ζ) (§2) | symmetric algebraic (Thm 2.1(b)) | the integers c, m (box) | B2 |
 | Salié angle (memo) | root of ν² ≡ −pd at 1/(2j) | exact Planck-scale hit | H-A / B3 |
 | Gross–Koblitz (memo) | argument 1/m ≡ j (mod h) | box | B2 |
 | mixed torus Gauss sums (memo) | genuinely two-world | Weil-bounded character sum | B3 |
 | Euclid–Schur forcing (memo) | residue forcing | |G| = 2 (trivial slice) or auxiliary primes (B1) | B1/B4 |
-| tier (c) + units (§6) | ring map O_K → F_h | large subgroup, but trivial (ε = −1); E⁺ repair open | archimedean (positivity) |
+| tier (c) + units (§6) | ring map O_K → F_h | large subgroup, but trivial (ε = −1); Fire⁺ over ℚ(√2) T1-keeping, GRH-type (R216: K_{4cd}-wide E⁺ breaks T1) | archimedean (positivity) |
 | Type I overlap (§4) | gcd(p + 1, f − 1) | full: trivial case p ≡ 3 (4); partial: unexploited | — |
 **Verdict (R-O211 repaired).** ES is not solved; no infinite case. Scoped negative result: within the three tiers of
 Thm 2.1 (homomorphisms; fixed symmetric rational expressions in μ_m; Frobenius-invariant expressions in one ζ),
@@ -156,12 +179,13 @@ admit unit twists whose unrestricted version is trivial (signed ES) and whose to
 other objects examined (Gauss sums, cyclotomic numbers, Γ_h, Salié, mixed torus sums, Euclid–Schur) were each checked
 to reduce to the box, a Planck-scale hit, a Weil-bounded sum or B1. That *every* useful bridge is archimedean is an
 Assessment suggested by "Frob_h = Frob_∞", not a theorem. By-products: PM-II (EVIDENCE), the uniform-cyclotomy
-residue law (EVIDENCE), the 2-group slice genus criterion (PROVED, folklore-level), O207 spark 1's CM suggestion
+residue law (PROVED — R216 repair; was EVIDENCE), the 2-group slice genus criterion (PROVED, folklore-level), O207 spark 1's CM suggestion
 refuted (no instance in 10 737).
 
 ## 8. Ordinary reductions (R206 D3 scope note; memo y3_ordinary_bridge) (PROVED + EVIDENCE)
-Thm 3.1 needs supersingular input; ordinary reductions are genuine bridges, but: (i) |Hom(E(F_h), F_h^*)| ≤
-gcd(a_h − 2, h − 1) ≤ 2√h + 2 unless a_h = 2 (Lang–Trotter primes, density zero); (ii) the m-part (m | h + 1, m > 2) of
+Thm 3.1 needs supersingular input; ordinary reductions are genuine bridges, but: (i) every homomorphism E(F_h) → F_h^* has
+image of order ≤ gcd(a_h − 2, h − 1) ≤ 2√h + 2 unless a_h = 2 (R216 repair: the earlier "|Hom(E(F_h), F_h^*)| ≤ …" is false,
+e.g. y² = x³ − x over F_7 has |Hom| = 4 > 2; |Hom| = n₁·gcd(n₂, h − 1) ≤ gcd(a_h − 2, h − 1)² for E(F_h) ≅ ℤ/n₁ × ℤ/n₂) (Lang–Trotter primes, density zero); (ii) the m-part (m | h + 1, m > 2) of
 ANY finite abelian group maps into {±1}; (iii) canonical (global Tate-pairing) maps have image ≤ 12 (Mazur); (iv) the
 box is trace-0 data: with trace a the analogue of Type II is h | pj + (1 − a)c, a different equation. Trichotomy:
 a_h = 0 ↔ (h+1)-world, a_h = 2 ↔ (h−1)-world, otherwise a Hasse-bounded mixture. Imaginary-quadratic CM gives the

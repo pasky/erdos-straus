@@ -1123,6 +1123,22 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * The lottery calibration says 7's record is consistent with luck (f₇(p) = 1 at 43, 127, 211). Assessment.
    * Verdict. No input-type property true for both 4 and 7 and false for 8 and 11 was found. The numerator-4-specific input is still the χ-fibre / full T1 ((J)32/(J)33). The relay chain (J)41 → (J)46 → (J)49 ends here.
 
+50. **Spark relay Y3: bridging the (h+1)- and (h−1)-worlds — an ES modulus "imitates ∞" (BRIDGE_WORLDS.md + BRAINSTORM/y3_*.md (O211); review `reviews/bridge-worlds-review.md` (R216): no FATAL; MAJOR M1 (the unit-twist variant of Prop 6.2 was never defined; the natural reading fails T1 over ℚ(√3); it is GRH/Artin-type, not unconditional) and M2; minors (one GAP in the ordinary-bridge bound, true for a single homomorphism); repaired by the reviewer).**
+   * Thm 2.1 (PROVED, elementary; scope: these three tiers only). For m | h + 1, consider rules carrying μ_m ⊂ T(F_h) into F_h, where −p lives.
+     * (a) Homomorphisms land in ±1 ((J)44).
+     * (b) Fixed symmetric rational expressions give the residue of a fixed rational; for Type II this is the box −p ≡ c/j.
+     * (c) Frobenius-invariant expressions in one ζ give ρ_𝔥(α) with α ∈ ℚ(ζ_m)⁺.
+     * Pure Gauss sums ((−1)^j h), uniform cyclotomic numbers, Γ_h and Salié angles all end at the box, a Planck-scale hit or a Weil-bounded sum. "Every useful bridge is archimedean" is an Assessment.
+     * R216 upgrade: the uniform-cyclotomy residue law m²·(a,b)_m ≡ 1, 1 − m, 1 − 3m (mod h) is PROVED by a two-line Jacobi-sum argument.
+   * **Semi-primitivity = "h imitates ∞" (PROVED dictionary; folklore level).** h ≡ −1 (mod m) ⟺ Frob_h = complex conjugation c_∞ in ℚ(ζ_m).
+     * Type II on (c, d) ⟺ some sub-product of the prime factors of p + 4c²d has Artin symbol c_∞ in ℚ(ζ_{4cd}).
+     * For cd | 6 this is genus theory: R216 re-checked 86 310 instances with 0 mismatches. It is linear duality.
+     * The same theme recurs elsewhere: positivity = c_∞ ((J)45), the real place as T1's anchor ((J)13), frieze positivity ((J)42).
+   * **CONJECTURE PM-II (EVIDENCE; R216 ran an independent complete census to 10⁸ with a different algorithm).** Every prime p ≥ 5 except 3361 has a prime-modulus Type II certificate. Only 13, 193 and 76441 have exactly one. The mean count of prime-modulus certificates per prime decreases slowly relative to log²p (0.29 → 0.26 over dyadic blocks to 2²³). No odd square has a Type II certificate (T1).
+   * Prop 6.1/6.2 (PROVED, after R216 M1 defined the variant). A unit twist by totally positive units of ℚ(√2) gives a T1-keeping Artin-type cousin of ES; at "good" h ≡ 7 (8) a prime fires iff (p/h) = −1. Provability is GRH/Artin-type, and the mechanism is that of (J)23 at rank 1. The gap to ES is exactly the box.
+   * Ordinary reductions (after R216's GAP repair). The image of a single homomorphism E(F_h) → F_h^* has size ≤ gcd(a_h − 2, h − 1). The m-part (m | h + 1) still maps into ±1. The trichotomy a_h = 0 / 2 / other gives the (h+1)-world, the (h−1)-world, or a Hasse-bounded mixture.
+   * Other memos (SOUND). O207's Type I dual-Hasse spark collapses to the g ∈ {1, 3, 5} certificates; the CM suggestion holds in none of 10 737 cases. Euclid–Schur forcing reduces to B1. Salié angles: Type II ⟺ a root of ν² ≡ −pd (mod h) sits exactly at (h+1)/(2j) (Planck scale).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

@@ -25253,4 +25253,42 @@ def check_fO():
 check_fO()
 
 
+def check_fP():
+    # (fP) BRIDGE_WORLDS (O211/R216): R216 from-scratch — complete Type II census to 10^6 via the (c,d,t,j)
+    # parametrisation (PM-II: only 13, 193, 76441 have one prime-modulus certificate, 3361 none; no Type II
+    # certificate at odd squares), the cd | 6 genus criterion (86 310 instances, 0 mismatches), and the pure Gauss sum
+    # / cyclotomy checks over F_{h^2}.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run(args, capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("BRIDGE subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "r216c")
+        run(["gcc", "-O2", "-o", exe, "review_r216_census.c", "-lm"])
+        out = run([exe, "1000000"])
+    for s in ("odd squares 9..N: 499, with any Type II cert: 0", "  p=13 N_II=2 N_II^pr=1", "  p=193 N_II=4 N_II^pr=1",
+              "  p=3361 N_II=4 N_II^pr=0", "  p=76441 N_II=18 N_II^pr=1",
+              "[1e5,1e6]: primes 68906 mean N_II 222.85 mean N_pr 45.35 min N_pr 5 at 152461"):
+        assert s in out, ("BRIDGE R216 census", s, out[:3000])
+    assert out.count("N_II^pr=") == 4, out[:3000]
+    out = run([sys.executable, "review_r216_genus.py", "100000"])
+    assert "instances 86310, firing 45418, mismatches 0" in out, out[-2000:]
+    out = run([sys.executable, "review_r216_gauss.py", "60"])
+    assert "failures: 0" in out, out[:2000]
+    print(f"== (fP) BRIDGE_WORLDS R216: Type II census to 1e6 (PM-II exceptions 13, 193, 3361, 76441; none at odd "
+          f"squares); cd | 6 genus criterion 86 310/0; Gauss/cyclotomy over F_(h^2); seconds = {perf_counter() - t0:.1f}")
+
+
+check_fP()
+
+
 print("\nall checks passed")
