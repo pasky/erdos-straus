@@ -15,6 +15,8 @@ All numerics re-done with from-scratch code `scripts/review_r224_*.py` (author s
 | §2 Assessment "each fixed level is clean with probability → 0 (GRH)" | **GAP (MAJOR D6)**: false along the families p = m² + k |
 | §2 clean-level law + coin model ("within ≈ 0.03 per lnr bucket") | **SOUND as EVIDENCE, weaker than presented (MINOR D7, D8)**: reproduced exactly on the author's sample and within 0.012 on an independent 1 500-prime sample; but 75–91 % of levels are decided by the exact part, and the coin part over-predicts by ≈ 0.03 (4–8σ) |
 | CONJECTURE 3SQ (0 exceptions ≤ 10⁶; 105 not an exception; elementary words; residual class) | **SOUND** (label CONJECTURE correct; all numerics reproduced) |
+| §4.1 (α₂, α_p vanish together on χ = −1; r/48 values; r vs r*; withdrawn weighting) | **SOUND** (MINOR D9: stale "built the exact weighting" text; Prop 4.3 is an Assessment, not PROVED) |
+| §4.2 conic height bound, boundary genus | **SOUND**; the "observed h = min letter" is in fact **PROVED** (D10, upgrade) |
 | (further rows added below as checked) | |
 
 ## Claim-by-claim
@@ -120,6 +122,35 @@ cutoff Y; Y ∈ {30, 100, 300} all fit (Y = 300 best), so no tuning on the same 
 * ⇐ is Thm B (R214 SOUND); at n = p ≡ 1 (4) 3SQ(p) ⟺ ES-five(p) (Thm A (i) with n = p is χ = +1): so 3SQ contains the
   open part of ES-five; CONJECTURE is the right label. "Exception-free formulation of SQ" is a fair SHARP (language).
 
+### §4.1 Siegel–Weil — SOUND (labels: D9)
+Re-derived: rationally T_w ⊥ ⟨1/(tp)⟩ ≅ I₃ ⊗ ℚ_ℓ iff the even Clifford algebras agree at ℓ; for χ = −1, C₀(L_w) ≅
+B_{p,∞} vs B_{2,∞} for I₃, so the local rational representation fails at exactly {2, p} (Hilbert reciprocity forces
+an even set), hence α₂ = α_p = 0. The p = 5, (1, 3, 4) mod-4 argument (norm 3 ⇒ three odd coordinates, norm 2 ⇒ two,
+dot product even) is correct. Numerics (`scripts/review_r224_sec4.py r 157`, own vector enumeration): all 463 ordered
+words of primes p ≡ 1 (4) ≤ 157: r(T_w, I₃) > 0 ⟺ χ = +1 (Thm A (iii)), 0 mismatches; r/48 ∈ {1, 2, 3, 4, 6} exactly;
+Σ r/48 vs N₊ = (5: 6/5), (13: 10/7), (17: 16/11), (29: 16/11), (53: 22/13), (61: 16/9) — all as stated; p = 61, (63, 1, 1):
+r = 288, r* = 192 — confirmed. Withdrawn weighting: no remaining text *uses* N₊ = Σ r/ρ₊; only stale descriptions
+remain (D9).
+
+### §4.2 conic — SOUND, and the observed equality is a theorem (D10)
+For a compatible pair the proof of Thm A (iii)⇒(iv) gives M = ℤx + ℤy + ℤγ with z·x = z·y = 0, z·γ = |z|²/t = p, so
+z/p is the dual vector of γ and pM^# = pℤ³ + ℤz = L_ℓ (z ≢ 0 (p): a word with p | t would need t = p and then
+p(kj − 1) = k + j for A = kp − 1, A* = jp − 1, impossible for p ≥ 5). Hence (L_ℓ, |·|²/p) ≅ (ℤ³, Q_w) and
+h(ℓ(w)) = min Q_w ≥ … ≤ min(t, u, v): correct. Bound (3p + 4)^{1/3}: if all letters ≥ 2 then u + v ≤ uv ≤ tuv/2, so
+tuv ≤ 2p; correct (and m³ ≤ 2p is the sharper form).
+**Upgrade (PROVED here): h(ℓ(w)) = min(t, u, v) for every compatible embedding**, so the "observed" 15/15, 5/5 is a
+theorem and h is independent of the compatible pair. Proof: h = min Q_w, Q_w = vx² + ty² + uz² − 2xy − 2yz. With
+m = min letter: m = 1 trivial (Q integral, ≥ 1). m ≥ 3: Q ≥ (v−1)x² + (t−2)y² + (u−1)z² (AM–GM on the cross terms); one
+non-zero coordinate gives a letter ≥ m, two or more give ≥ (m − 2) + (m − 1) ≥ m. m = 2: Q − (2x² + 2y² + 2z² − 2xy − 2yz)
+= (v−2)x² + (t−2)y² + (u−2)z² ≥ 0 and the A₃-type form 2x² + 2y² + 2z² − 2xy − 2yz is even positive definite, so Q ≥ 2.
+∎ Numerics (`review_r224_sec4.py h`): p = 61, all 5 χ = +1 words (u ≤ v); p = 1009, all 17 χ = +1 words with
+max(A, A*) ≤ 3·10⁴: h = min letter for every compatible pair; non-compatible pairs give other heights (e.g. p = 1009,
+(102, 1, 10): 9; (169, 2, 3): 1), confirming that the R-O217 compatibility caveat is needed.
+Boundary genus: u = 1 reduction ⟨1⟩ ⊥ [[v, −1], [−1, t − 1]], (t − 1)v = p + 1, form (v, 2, t − 1) of disc −4p ↔ ideal
+(v, 1 + √−p) (1 ≡ −p mod v), genus character (v/p) = ((t−1)/p) = χ: correct. "Principal genus = three-squares genus":
+checked that z^⊥ (z primitive, |z|² = p) represents only residues mod p, all p ≡ 1 (4) ≤ 300, 0 failures (consistent with
+the Gauss statement; not a full proof check of art. 291–292 — sources not accessed).
+
 ## Defects
 D1 (MINOR) — Lemma 1.2(b) and Summary item 2: "Every prime r < lnr(p) is clean" mixes the level notion with primes.
 Repair: "(b) every prime r < lnr(p) has (r/p) = +1, so a level t with tp + 1 (lnr − 1)-smooth is clean."
@@ -168,3 +199,14 @@ Selberg–Delange (integers all of whose prime factors lie in a set of relative 
 over shifted primes (needs Bombieri–Vinogradov-type input even heuristically); the table column is 15–40 % below the
 observed fractions (the ≍ constant, incl. the factor-2 constraint, is not modelled). Fine as Assessment; cite
 correctly and say "up to a constant".
+
+D9 (MINOR) — stale text about the withdrawn weighting: §0 (I1) "Built the exact weighting (§4.1)"; header comment of
+`scripts/y8_gauss_weight.py` ("checks r*/|SO| == chi_plus * C(tp)", which the code no longer does). Nothing uses the
+weighting any more. Also Prop 4.3 ("not an arithmetic-group orbit; Siegel–Weil does not apply to the family") and the
+memo's "nothing can be compared with |X_p| without B2 information" are Assessments, but the AGENT_REPORT lists
+"§4.1 (… circularity)" under PROVED. Repair: reword (I1) to "tried an exact weighting (withdrawn, §4.1)", fix the
+script comment, label Prop 4.3 "Assessment (the lattice-point description itself is PROVED, trivially)".
+
+D10 (MINOR, upgrade) — §4.2 / memo y8_conic_height / report: "observed h = min letter" can be stated as PROVED (proof
+above: h = min Q_w = min(t, u, v)); in particular h is independent of the compatible pair, and the B6 remark "the
+height reading" becomes exact. Repair: replace "observed" by the lemma; keep the p = 1009/61 numerics as a check.
