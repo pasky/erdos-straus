@@ -160,8 +160,8 @@ cap ≤ 1 among these variants (each fixed-k slice finite; the cell itself is no
 **Proposition 4.1 (PROVED).** Let n be odd, e ≥ 0, k, λ, R ≥ 1 with R odd, gcd(R, 2kn) = 1, M := 4kλ, g := MR − 1,
 X_e := 2k·M^e, N_e := nX_e² + 1. Then g | 4k²n + R^{2e} ⟺ g | N_e, and in that case (Q, g) with Q = λR^{e+1} is a
 shot with Q₀ = λR, overflow exactly R^e, den z = R^{2e} (if gcd(λR, n) = 1). Consequently
-`  ES^{(y,e)}(n) ⟸ ∃ k, λ ≥ 1: N_e = n(2k(4kλ)^e)² + 1 has a divisor g ≡ −1 (mod 4kλ) with R = (g+1)/(4kλ)`
-`                   odd, squarefree, prime to kn,`
+`  ES^{(y,e)}(n) ⟸ ∃ k, λ ≥ 1, gcd(λ, n) = 1: N_e = n(2k(4kλ)^e)² + 1 has a divisor g ≡ −1 (mod 4kλ) with`
+`                   R = (g+1)/(4kλ) odd, squarefree, prime to kn   (gcd(λ, n) = 1: R209 repair m7),`
 and for e = 0 this is exactly ES's shot family (λ = 1: "4k²n + 1 has a divisor ≡ −1 (mod 4k)"); for e = 1 it is
 the general ES^{[2]} shot (GROWING_MUTE (A, B) form with A = 2k, B = R, Q₀ = λB) with X₁ = 8k²λ.
 *Proof.* MR ≡ 1 (mod g) and gcd(M, g) = 1, so multiplying 4k²n + R^{2e} by M^{2e} gives 4k²nM^{2e} + 1 = N_e
@@ -170,18 +170,24 @@ gives Q₀ = (g+1)/(4k) = λR and Q = Q₀Q₁ = λR^{e+1}; gcd(Q, Q₀k) = λR�
 *Check (`scripts/pd_theta.py 201 8 300`):* for odd n ≤ 201, k, λ ≤ 8, e ≤ 2: 349 / 670 / 1172 shots (e = 0/1/2; plus 19 / 40 / 104
 exact solutions with gcd(Q, n) > 1, not shots) found via N_e, each exact with den z = R^{2e}; the equivalence g | 4k²n + R^{2e} ⟺ g | N_e checked on
 2 802 432 (n, e, k, λ, R) with e ≤ 3, R ≤ 300.
-*The modulus exponent.* log M/log N_e → θ_e := 1/(2e + 2) for bounded λ (exactly:
-M^{e+1} = 2λX_e, so M = (2λX_e)^{1/(e+1)} ≈ (2λ)^{1/(e+1)}(N_e/n)^{1/(2e+2)}):
-`  e = 0 (ES):            θ = 1/2   — Lenstra's regime (≤ 11 divisors in a class mod > N^{1/3}; bounded count)`
-`  e = 1 (ES^{(y,1)}, ES^{[2]}): θ = 1/4 — exactly the Coppersmith–Howgrave-Graham–Nagaraj threshold`
-`  e = 2:                 θ = 1/6   — below CHN's range: no O(1) bound on divisors of N in one class`
+*The modulus exponent (R209 repair m7, R210 repair m6: θ belongs to a parametrisation, not to a cell).* Define
+θ_e := inf log M/log N_e over the Prop 4.1 face; it is approached along bounded λ, where log M/log N_e → 1/(2e+2)
+(exactly M^{e+1} = 2λX_e, so M = (2λX_e)^{1/(e+1)} ≈ (2λ)^{1/(e+1)}(N_e/n)^{1/(2e+2)}); with k fixed and λ → ∞ the same
+family has log M/log N_e → 1/(2e) (e ≥ 1; for e = 1 the face ranges over [1/4, 1/2), R210 measured 0.486 at k = 1,
+λ = 10³⁰), and for e = 0, M = 4kλ ranges up to g, θ ∈ [½, 1). ES ⊂ ES^{[2]} (R = 1) sits at θ ≥ 1/2 on the e = 1 face.
+For the proved rows below, θ refers to the prime-face modulus 4∏S (a different face), consistent with θ_e → 0.
+`  e = 0 (ES):            θ_0 = 1/2  — Lenstra's regime (≤ 11 divisors in a class mod > N^{1/3}; bounded count)`
+`  e = 1 (ES^{(y,1)}, ES^{[2]}): θ_1 = 1/4 — the N^{1/4} threshold of Lenstra (1984: O((α−¼)^{−2}) divisors in a class`
+`                         mod s ≥ N^α, α > ¼) and CHN (2008: O((α−¼)^{−3/2}), constructive) (R209 m6, R210 m5 repairs);`
+`                         on the e = 1 line M ≍ (2λ)^{1/2}n^{−1/4}N_1^{1/4}: no margin α > 0, neither theorem applies`
+`  e = 2:                 θ_2 = 1/6  — below the threshold: no bound on divisors in one class is known (Lenstra's question)`
 `  e = ∞, S fixed (ES^{(y)}): M fixed (θ → 0) — Kummer/Chebotarev firing, sieve-provable (Thm 4.2)`
 `  no mute (ES^□):        M = 4                 — Dirichlet`
 *Scope (R-self-review).* For e ≥ 2 Prop 4.1 is a SUFFICIENT sub-family (pure-power overflow R^e); general
 ES^{(y,e)} shots have mixed exponents (e.g. n = 113, k = 1, Q₀ = 15, Q₁ = 75, g = 59 is ES^{(y,2)} with Q₁ not a
 square). θ = 1/(2e+2) holds for bounded λ; with k fixed and λ → ∞ the same family has θ → 1/(2e).
-*Reading (Assessment).* On this axis ES is θ = 1/2, the e = 1 cells sit at CHN's threshold θ = 1/4 (CHN bound the
-number of divisors in a class mod s ≥ N^{1/4+α} by O(α^{−3/2}); at θ = 1/4 itself no uniform bound follows), and the
+*Reading (Assessment).* On this axis ES is θ_0 = 1/2, the e = 1 face reaches down to θ = 1/4 (the Lenstra/CHN
+threshold; at θ = 1/4 itself no uniform bound follows), and the
 proved cells are at θ → 0. The k-wall of Thm 2.1 is an elementary consequence of the duality cofactor
 D = (4k²n + Q₁²)/g being < Q₁ (it is NOT the cofactor N_e/g of this face, which can be large: n = 13, e = 1, k = 5,
 λ = 2, R = 3 gives N_e/g = 17 479 while D = 11); I do not claim a derivation of the wall from CHN. The brief's hook
@@ -192,13 +198,19 @@ D = (4k²n + Q₁²)/g being < Q₁ (it is NOT the cofactor N_e/g of this face, 
 EXPONENT_CAP Thm 3.2 gives cap e ≤ y^δ with a FIXED set S of k ≥ 2/δ + 1 primes; its Remark (2) (Assessment) says
 letting k grow is limited by the sieve modulus. Making that remark a theorem:
 
-**Theorem 5.1 (ES^{(y,e)} with e = y^{o(1)}; PROVED relative to Bombieri–Vinogradov and Iwaniec's linear sieve, as
-UNIT_ORBIT Lemma 2.2; ineffective).** For every A ≥ 1 and every odd n > 1, ES^{(y,e)}(n) has a solution with
-`  e ≤ y^{(2 + o(1))·log₃y / (A·log₂y)}`   (log₂ = log log, log₃ = log log log; o(1) as y → ∞ for fixed n, A),
-of Type II shape at every prime of n when n is not a square. In particular for every ε > 0 there is a solution with
-e ≤ y^{ε·log₃ y/log₂ y}.
-*Proof.* n ≡ 3 (mod 4) is ES with Q = 1; squares follow from a non-square divisor by scaling (FROBENIUS_FIRING
-Thm 4.2(c); the bound is monotone in y). Let n ≡ 1 (mod 4) be a non-square, x large, and S = {s₁ < … < s_k} the
+**Theorem 5.1 (ES^{(y,e)} with sub-polynomial cap; PROVED relative to Bombieri–Vinogradov and Iwaniec's linear
+sieve, as UNIT_ORBIT Lemma 2.2; ineffective).** (R209 repair M2, R210 repair m7: family form, not an o(1) on one
+solution.) For every A ≥ 1, η > 0 and odd non-square n ≡ 1 (mod 4) there is x₀ = x₀(n, A, η) (ineffective) such that
+for every x ≥ x₀ there is a solution of ES^{(y,e)}(n) with x/8 ≤ y ≤ nx and
+`  e ≤ y^{(2 + η)·log₃y / (A·log₂y)}`   (log₂ = log log, log₃ = log log log),
+of Type II shape at every prime of n. For n ≡ 3 (mod 4) there is an ES solution (e = 0); for odd squares and the
+remaining n the same family bound holds with y-window scaled by the cofactor (scaling, see proof). In particular
+for every ε > 0 and odd n > 1 there is a solution with e ≤ y^{ε·log₃ y/log₂ y} (take A > 3/ε).
+(R209 m8: the onset is astronomically late — A = 1 needs log x ≳ 10⁴ merely to have k ≥ 4, R209
+`review_pd_thm51.py`; the theorem concerns enormous certifying primes.)
+*Proof.* n ≡ 3 (mod 4) is ES with Q = 1; squares (and other n ≡ 1 mod 4 via a divisor) follow from a non-square
+divisor p | n by scaling (FROBENIUS_FIRING Thm 4.2(c); the bound is monotone in y), running the argument for p with
+S the first k odd primes not dividing the ORIGINAL n, so that no mute prime divides n (R210 repair m8). Let n ≡ 1 (mod 4) be a non-square, x large, and S = {s₁ < … < s_k} the
 first k odd primes not dividing n with P := ∏S ≤ (log x)^A maximal; by the prime number theorem k log k ~ A log₂x,
 so k ~ A log₂x/log₃x. M := 4 rad(n)P ≤ 4n(log x)^A; the class a mod M is that of Thm 4.2(a).
 *Step 1 (sieve, uniform in M).* Fix ε = 1/100. Sift 𝒜 = {(r−1)/2 : x/2 < r ≤ x, r ≡ a (M)} by primes ℓ ∤ M, ℓ < z = x^{1/4−ε},
@@ -211,26 +223,27 @@ So ≫ x/(φ(M) log²x) ≥ x/log^{A+3}x primes r ∈ (x/2, x] in the class with
 Lemma 2.3's count made explicit: if |Γ_r| ≤ Y, the (B'+1)^k > Y products ∏ s_i^{a_i} (0 ≤ a_i ≤ B' := ⌈Y^{1/k}⌉)
 collide, so r | N_c := ∏_{c_i>0} s_i^{c_i} − ∏_{c_i<0} s_i^{−c_i} ≠ 0 for some 0 < |c|_∞ ≤ B'; N_c has
 ≤ B' log P/log(x/2) + 1 prime factors > x/2. Hence #{r ∈ (x/2, x] : |Γ_r| ≤ Y} ≤ (2B'+1)^k(B' log P + 1)
-≤ 6^k·Y^{1+1/k}·2 log P, which for Y = x^{3/4+ε}, k ≥ 4 is ≤ x^{15/16+2ε}(log x)^{O(A)} = o(x/log^{A+3}x).
+≤ 6^k·Y^{1+1/k}·3 log P (R210 m9), which for Y = x^{3/4+ε}, k ≥ 4 is ≤ x^{15/16+2ε}(log x)^{O(A)} = o(x/log^{A+3}x).
 *Step 3 (short relations).* Λ_r := {c ∈ ℤ^k : ∏ s_i^{2c_i} ≡ 1 (mod r)}; for the surviving r, ℤ^k/Λ_r ≅ (F_r^*)²,
 det Λ_r = (r−1)/2. If λ₁(Λ_r) ≤ B (sup-norm) then r | N_{2c} for some 0 < |c|_∞ ≤ B, and as above
 #{r : λ₁ ≤ B} ≤ (2B+1)^k(2B log P + 1) ≤ (3B)^{k+1} log P. Take B := ⌊x^{1/(k+1)}/(3 log^{(A+5)/(k+1)}x)⌋ (≥ 1 for
 large x, since log x/(k+1) → ∞): this is ≤ x log P/log^{A+5}x = o(x/log^{A+3}x). So some sieved r has
 Γ_r = (F_r^*)² and λ₁(Λ_r) > B.
 *Step 4 (covering, Minkowski II).* λ₁⋯λ_k ≤ det Λ_r < x gives λ_k < x/B^{k−1}, and every class of ℤ^k/Λ_r has a
-representative of sup-norm ≤ Σλ_i ≤ kλ_k =: L (EXPONENT_CAP Thm 3.2, step "Covering"). As there, Q := ∏ s_i^{a_i+L}
-with exponents in [0, 2L] satisfies Q² ≡ −n/4 (mod r); UNIT_ORBIT Prop 2.1 gives an ES^{(y)} solution
+representative of sup-norm ≤ Σλ_i ≤ kλ_k =: L (EXPONENT_CAP Thm 3.2, step "Covering"). As there (R209 repair m9, R210 repair m9), let a ∈ ℤ^k with |a|_∞ ≤ L
+represent the class of (−n/4)·∏ s_i^{−2L} in ℤ^k/Λ_r ≅ (F_r^*)² (i.e. ∏ s_i^{2a_i} ≡ (−n/4)∏ s_i^{−2L} mod r); then
+Q := ∏ s_i^{a_i+L} has exponents in [0, 2L] and satisfies Q² ≡ −n/4 (mod r); UNIT_ORBIT Prop 2.1 gives an ES^{(y)} solution
 (s_i | (r+1)/4 | y, Type II shape at every prime of n) with overflow exponents ≤ v_s(Q) ≤ 2L. Finally
 2L ≤ 2k·x/B^{k−1} ≤ 2k·6^{k}·log^{A+5}x·x^{2/(k+1)} (using B ≥ x^{1/(k+1)}/(6 log^{(A+5)/(k+1)}x)) =
 x^{(2+o(1))log₃x/(A log₂x)}, because 6^k log^{A+5}x =
 exp(O(A log₂x)) is of lower order; and y = n(r+1)/4 ≥ x/8. ∎
 *Remarks.* (1) The only change from Thm 3.2 is that S grows with x, which Bombieri–Vinogradov tolerates up to
 P = (log x)^A because its error term saves an arbitrary power of log (not more: Siegel–Walfisz range). (2) Allowing
-P up to exp(c√log x) (Gallagher's prime number theorem for moduli without exceptional zero, the exceptional
-conductor avoided by the choice of S) should give e = exp(O(√(log y)·log₂y)); not carried out (Assessment). (3) The
+P up to exp(c√log x) (Gallagher's prime number theorem for moduli without exceptional zero, provided the exceptional
+modulus, if any, does not divide 4 rad(n) — the choice of S cannot avoid that case, R210 repair m13) should give e = exp(O(√(log y)·log₂y)); not carried out (Assessment). (3) The
 covering lower bound (EXPONENT_CAP Prop 3.1(c)) is e ≥ (log y)^{1−o(1)} for any covering argument; the gap
 (log y)^{1−o(1)} ↔ y^{o(1)} is the Dictionary 3.3(c) discrete-log problem, and below it every bounded cap is a
-pure hitting problem (§4: θ = 1/(2e+2) > 0).
+pure hitting problem for the arguments analysed (§4: θ_e = 1/(2e+2) > 0).
 
 ## 6. The phase diagram (cells, status, the wall that bounds each)
 
