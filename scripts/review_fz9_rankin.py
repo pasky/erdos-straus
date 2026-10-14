@@ -50,6 +50,8 @@ for line in open(dump):
         tailr = min(rho ** (J + 1), math.log(2)) / (J + 1)
         if tailr < lt / 2: break
         J *= 2
+    # items cut by e*j > 4S + j have ratio <= min(1/(e j), rho^(e j)/j) <= min(1/(4S), rho^(4S)); they must lie below lt
+    if not min(1 / (4 * S), rho ** (4 * S)) < lt: bad += 1; print('E-CUT NOT JUSTIFIED', k, n0, lt)
     ok = (c >= V - lt * n0 - 1e-12) and (lam >= lt)
     if not ok: bad += 1; print('VIOLATION', k, n0, 'V', V, 'lt', lt, 'their lam', lam, 'c', c, 'need c>=', V - lt * n0)
     consts.append((float(lr), lam, c))
