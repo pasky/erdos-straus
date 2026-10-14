@@ -97,3 +97,19 @@ But every invertible class mod 4N contains n with N₋(n) ≥ 1: all n ≡ 3 (4)
 **character of n** (vanishes on whole classes), whereas ES's T1 is the **square condition on n** itself. A Θ-type
 mechanism inherits the former; the fingerprint "only squares (and 105)" rules it out. (Kohnen's plus space is even
 easier: a(n) = 0 for all n ≡ 1, 2 (mod 4).) Combinations of eigenforms are not covered (no zero-set control).
+
+## 3. Numerical identity screen (EVIDENCE; `scripts/si_census.c`, `scripts/si_fit.py`)
+
+Census (`si_census N`, cross-checked against CHI_FLIP's `cf_census.c` for all odd n ≤ 10⁵, 0 differences): per odd n,
+N₊, N₋, interior N₊/N₋, Σt over each sign. Fingerprints reproduced: N₋(105) = 0 (|X₁₀₅| = 11), N₋(m²) = 0, N₊(15) =
+N₊(311) = 0.
+**Linear-relation test.** Targets N₊, N₋, S, |X|, interior N_±, t-weighted N_± on odd n ≤ 12 000, separately in each
+class n mod 8 (≈ 1500 rows, rank computed exactly mod 2⁶¹ − 1). Dictionary (48 columns): 1, n; 12H(kn) for
+k ∈ {1, 3, 4, 8, 12, 16, 24}; Kronecker–Hurwitz sums Σ_s H(kn − js²) for (k, j) ∈ {(1,1), (4,1), (8,1), (4,2), (8,2),
+(4,8), (16,1), (3,1), (12,1)} and the alternating (4,1), (8,1); σ₀, σ₁ twisted by (D/·), D ∈ {1, −4, ±8, −3, 12, 5, −7};
+Σ_{d|n} min(d, n/d); τ(n + 1), τ(n + 2), τ(n + 3), τ(2n + 1); r_Q(n) for Q = ⟨1,1,1⟩, ⟨1,1,2⟩, ⟨1,2,2⟩, ⟨1,1,3⟩,
+⟨1,2,3⟩, ⟨1,3,5⟩; [n = □]. **Result: no target lies in the span in any class** (relative least-squares residual
+0.09–0.69; best: N₋ and S for n ≡ 7 (8), residual 0.11/0.14, i.e. a correlation with H(n) through L(1, χ₋ₙ), not an identity).
+Scope: this dictionary and range only; it complements EXACT_FORMULA (I)5 (Type I/II counts, 54 columns) with the X_n
+sign counts. Thm 2.2 explains the outcome for the modular part of the dictionary (wrong size class); the τ(n + s)
+columns are shifted d₂-objects, still of size log¹.
