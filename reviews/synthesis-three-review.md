@@ -125,3 +125,40 @@ blindness" should read "the analogous relaxation-vs-exact blindness" (m5). Also 
 `scripts/syn2_tes_shots.py 27000 50` (campaign script, not independent): 5856/5856 solved, incl. N = 26893 (m6).
 Nothing beyond the formal implication failure is claimed as PROVED in the list itself; the overreach is in §2's
 "Consequently", §3.1 and §4.
+
+## Memos
+
+* **s3_box_bit — SOUND (item 2), item 1 SOUND with the d | λ hypothesis.** Item 2 re-derived: −p ≡ 4c²d (mod g),
+  cd | (g+1)/4 ⇒ g ≡ −1 (mod 4d) ⇒ (d/g) = 1 by (∗) with M = 4d, c prime to g ⇒ (−p/g) = 1 ⇒ (p/g) = −1; □-shot at prime
+  g ≡ 3 (4) ⟺ (−p/g) = 1 ⟺ (p/g) = −1. `review_s3_boxbit.py 5000 1000`: box hits 0/13 911 when (p/g) = +1, 2090/14 712
+  when −1; shot ⟺ (p/g) = −1, 0 mismatches. The R-O208 #1 counterexample (A,B,D,μ) = (2,1,35,35) on V₂₆ verified
+  (equation, D | μ, g = 3, −13 ∉ Box(1) mod 3). Minor: the "n ↦ nQ₁²" move gives a shot of pQ₁² with gcd(Q, n) > 1, where
+  Lemma 1.0's den formula does not apply and n is no longer prime — "the overflow grows" is unproved as stated (m7).
+* **s3_eps_mu_sieve — SOUND.** 4t(nj + t) = n(4tj − 1) + (n + 4t²), gcd(4t, 4tj − 1) = 1 ⇒ equivalence; 0 mismatches,
+  odd n < 400, t, j < 40 (own check). Q = t ≤ (g+1)/4 since g = 4tj − 1.
+* **s3_min_scale — SOUND (EVIDENCE reproduced to 10⁷).** `review_s3_minscale.py`: to 10⁶ max h_min = 419 (p = 22621),
+  max h_min/log³p = 0.72 (at p = 5); to 10⁷ max h_min = 2495 at p = 2 031 121, ratio 0.8143 ✓, median 3, mean 8.83, 99% 71
+  ✓; max g_box/log²p = 1.457 (p = 37) ✓. The "h_min ≤ g_box for 91.8%" figure not rechecked. The CONJECTURE-level remark
+  h_min ≪ log³p is unsupported beyond the data (the lottery model gives a tail, not a uniform bound); keep it as a remark.
+* **s3_lll_lenstra — SOUND as an Assessment; citations not accessible.** Lenstra, Math. Comp. 42 (1984) 331–340 (≤ 11
+  divisors ≡ r mod s when s > N^{1/3}, gcd(r,s) = 1) and Coppersmith–Howgrave-Graham–Nagaraj, Math. Comp. 77 (2008)
+  531–545, match my recollection; no PDF in sources/ — NOT checked against the papers. Regime algebra ((4dj)³ > 4dj²p + 1
+  ⟺ 16d²j ≳ p) ✓; certificates on a line come in pairs h·h* = N, both ≡ −1 (mod 4dj), so "≤ 11 per line" means ≤ 5 pairs.
+  Own count (`review_s3_lenstra.py 200`, lines dj ≤ p): max 2 divisors (= 1 pair) per Lenstra-regime line ✓.
+  "PROVED (relative to Lenstra)" for "f_II(p) ≤ 11·#lines + rest" is fine but contentless; OK.
+* **s3_isogeny_mixing — SOUND as Assessment.** Centered mixing lemma form and threshold s > λ/(d+λ) = 0.485 (d = 3,
+  λ = 2√2) ✓; the count input #words ≪ n^{1/3+o(1)} is DEPTH_ASPECT's by-product (DISCOVERIES l. 798) ✓. Not recomputed.
+* **s3_words_parity — SOUND.** Unique σ-fixed word (p+2,1,1) for p > 3, |X(p)| odd, χ σ-invariant (AA* = tn + 1): own
+  enumerator `review_s3_words.py 2500` (via (tu−1)(tv−1) = tn + 1), 0 defects; parity counts of χ = −1 orbits by p mod 8
+  agree exactly with the author's script at 2500 ([even, odd]: 1: 42/42, 3: 43/50, 5: 42/54, 7: 57/35); 0 χ = −1 words at
+  odd squares (trivial: χ is a square Jacobi symbol). Small-sample imbalance (7 mod 8) at 2500 disappears at 20000 per
+  the memo; "no parity law" is EVIDENCE, correctly labelled.
+* **s3_vphi_ringmaps — SOUND** (x² − x − 1 has no root in ℤ or F₂; 8/n = Σ Tr x_i / N x_i is an identity). Scope
+  correctly limited after R-O208 #7.
+* **s3_order3_numerator — SOUND-AFTER-REPAIRS.** (a) the 16 failures are 2-primary split primes prime to 6, hence
+  non-cubes, so (J)28 Thm 3.5 applies ✓; EVIDENCE reproduced by re-running the campaign script (not independent).
+  (b) is pure logic ("anything implying TES is false where TES fails"); "numerator-free" plays no role, and calling it "a
+  precise sense in which 4 over ℤ is special while 9 over ℤ[ω] is not" overstates a definitional remark about
+  unformalised "SQ₅₃" / "χ₃-fibre" statements (m8).
+* **s3_numerator_blind** — same verdicts as Thm 1.1 / Cor 2.1 (D1, D2 apply; "(J)32 complete failure lists" means
+  complete to 10⁸, m9).
