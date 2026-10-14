@@ -3,8 +3,10 @@
 Targets (from data/si/census_*.txt, produced by si_census): Np, Nm, S = Np - Nm, |X|, interior Np/Nm, t-weighted.
 Columns: Hurwitz class numbers H(kn) and Kronecker-Hurwitz-type sums sum_s H(kn - j s^2), twisted divisor sums,
 shifted divisor sums, representation numbers of small ternary forms, quasi-polynomials.
-Test: for each residue class n mod M (M = 8 or 24), rank of [columns | target] vs rank [columns] modulo a large
-prime (exact over F_P; an exact Q-relation forces equal rank), plus float least-squares relative residual.
+Test: for each residue class n mod M (M = 8 or 24): (a) CERTIFICATE: exact rational ranks (Fractions) of [columns]
+and [columns | target] on the first SUB rows of the class; if the rank increases, target is not in the Q-span of the
+columns on that row subset, hence not on all rows (restriction of a relation is a relation); (b) rank mod a large
+prime on all rows (heuristic only: a Q-relation need not survive reduction mod P); (c) float least-squares residual.
 usage: PYTHONPATH=scripts uv run python scripts/si_fit.py census.txt H12.bin NMAX [M]
 """
 import sys
@@ -33,6 +35,23 @@ def rank_mod(Mat):
             if i != r and M[i][c]:
                 f = M[i][c]
                 M[i] = [(a - f * b) % P for a, b in zip(M[i], M[r])]
+        r += 1
+    return r
+
+
+def rank_Q(Mat):
+    from fractions import Fraction
+    M = [[Fraction(int(x)) for x in row] for row in Mat]
+    r = 0
+    for c in range(len(M[0])):
+        piv = next((i for i in range(r, len(M)) if M[i][c] != 0), None)
+        if piv is None:
+            continue
+        M[r], M[piv] = M[piv], M[r]
+        for i in range(r + 1, len(M)):
+            if M[i][c] != 0:
+                f = M[i][c] / M[r][c]
+                M[i] = [a - f * b for a, b in zip(M[i], M[r])]
         r += 1
     return r
 
@@ -142,15 +161,18 @@ def main():
             continue
         C = np.array([r[0] for r in rs], dtype=float)
         rC = rank_mod([r[0] for r in rs])
+        SUB = 120
+        rQ = rank_Q([r[0] for r in rs[:SUB]])
         out = []
         for tname in targets:
             y = np.array([float(r[1][tname]) for r in rs])
             rCy = rank_mod([r[0] + [int(r[1][tname])] for r in rs])
+            rQy = rank_Q([r[0] + [int(r[1][tname])] for r in rs[:SUB]])
             coef, *_ = np.linalg.lstsq(C, y, rcond=None)
             res = y - C @ coef
             rel = np.sqrt(np.mean(res ** 2)) / max(1e-9, np.sqrt(np.mean((y - y.mean()) ** 2)))
-            out.append(f"{tname}: {'IN-SPAN' if rCy == rC else 'no'} rel={rel:.3f}")
-        print(f"n≡{cls} (mod {MOD}): rows={len(rs)} rank(cols)={rC} | " + "; ".join(out))
+            out.append(f"{tname}: {'CERT-NOT-IN-SPAN' if rQy > rQ else 'undecided'}/{'modP-in' if rCy == rC else 'modP-no'} rel={rel:.3f}")
+        print(f"n≡{cls} (mod {MOD}): rows={len(rs)} rankP(cols)={rC} rankQ(first {SUB})={rQ} | " + "; ".join(out))
 
 
 if __name__ == "__main__":
