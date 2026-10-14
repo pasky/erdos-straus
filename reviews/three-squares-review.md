@@ -3,6 +3,13 @@
 Reviewer: R224 (side-agent/review-three-squares). Merged side-agent/three-squares at its tip (README conflict: kept both).
 All numerics re-done with from-scratch code `scripts/review_r224_*.py` (author scripts not reused).
 
+**Overall: no FATAL. All PROVED statements re-derived and SOUND (one upgrade: h = min letter is a theorem). All
+headline numbers reproduced with independent code (census, 3SQ to 10⁶ + direct embedding to 1001, model, lnr level to
+10¹⁵). Three MAJOR defects, all interpretive: (D5) the "continuity of T1 is adelic, not archimedean" headline is wrong at
+bounded p − m², where a 6–7σ deficit of χ = −1 words exists with a PROVED T1-type mechanism (tp + 1 = tm² + c² when
+p = m² + k, tk + 1 = c²); (D6) the GRH "→ 0 per level" Assessment fails on those families; (D12) the "forced words
+explain the whole lnr effect" sentence is false (about half).**
+
 ## Summary verdicts
 | claim | verdict |
 |---|---|
@@ -20,7 +27,8 @@ All numerics re-done with from-scratch code `scripts/review_r224_*.py` (author s
 | §3 numerics "≈ 85 % lnr-level success, stable 10⁶–10¹¹"; translates "k ≤ 26 in 500/500" | **SOUND as EVIDENCE** (reproduced; it slowly *increases*, 0.84 → 0.86 → 0.91 up to 10¹⁵; MINOR D11 on the translate claim and sample sizes) |
 | §2 "forced-word removal flattens N₋/(N − S) to ≈ 0.66 for every lnr bucket q ≤ 13; the average lnr effect is entirely the forced words" | **WRONG as stated (MAJOR D12)**: on all primes it removes only ≈ half of the lnr spread |
 | Summary 3 clean-level clusters (7.3 vs 5.8 vs 3.95) | **reproduced** (7.46 / 5.97 / 3.84); size-confounded, and 6 of the 13 worst primes are T1-type families p = m² + 24 etc. (MINOR D13) |
-| (further rows added below as checked) | |
+| §3 admissibility numerics (69.2 % unclean, 31.6 % carrying χ = −1, ratio 0.456) | **reproduced exactly** (`scripts/review_r224_admissible.py`; also checked: χ = −1 level ⇒ unclean, 0 failures) |
+| Labels / Assessments | mostly correct; overclaims in D5, D6, D9, D12, D14 |
 
 ## Claim-by-claim
 
@@ -189,6 +197,12 @@ all p ≡ 1 (8) with lnr ≥ 11: 5.97 (author 5.8); all p ≡ 1 (8): 3.84 (autho
 (D5 mechanism); 361 321 = 601² + 120 has T1-type levels 1, 3, 7, 8 and ALL ten levels clean. The memo's explanation of
 the m² + 24 coincidences ("the cheap way to get p ≡ □ mod 2, 3") misses this: the mechanism is tm² + c², i.e. T1 itself.
 
+### Labels and Assessments
+PROVED items (Lemma 1.1/1.2, Prop 1.3, Prop 3.1, Lemma 3.2, §4.1 vanishing, §4.2 bound/dictionary, 3SQ ⇐ and the
+elementary cases) are proved. CONJECTURE 3SQ correctly labelled. EVIDENCE items reproduced, with the wording problems
+above. Assessments: the Sathe–Selberg/GRH reading (D6, D8) and Prop 4.3 (D9) overreach; §6 B4 (D14). No circularity
+found; no hidden dependence of constants on parameters (the model has one cutoff Y, not tuned). No FATAL defect.
+
 ## Defects
 D1 (MINOR) — Lemma 1.2(b) and Summary item 2: "Every prime r < lnr(p) is clean" mixes the level notion with primes.
 Repair: "(b) every prime r < lnr(p) has (r/p) = +1, so a level t with tp + 1 (lnr − 1)-smooth is clean."
@@ -263,3 +277,8 @@ y8_adelic_continuity, §7 table "N₋/(N − S) ≈ 0.66"). On all primes in (2�
 D13 (MINOR) — Summary item 3 / memo: (a) the clean-cluster comparison is size-confounded (8 of the 13 worst primes are
 < 10⁵; size-matched baseline 6.34, not 5.8); (b) state that 5 of the 13 worst primes are m² + 24 and one is m² + 120,
 whose clusters are explained by T1-type levels (D5), and replace the "p ≡ □ mod 2, 3" explanation.
+
+D14 (MINOR) — §6 B4 "clean-level clusters arise exactly when tp + 1 has few rough prime factors": not exactly — T1-type
+levels (tp + 1 = tm² + c², D5) are clean with any number of rough prime factors (all split in ℚ(√−t)). Repair:
+"arise when tp + 1 has few rough prime factors (rank-one sterility) or is a norm tm² + c² from ℚ(√−t) (T1-type levels,
+R224)".
