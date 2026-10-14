@@ -144,3 +144,27 @@ positive, by L1) is correct; my three-bit script confirms ε_∞ = −1 ⟺ posi
 75 097-word certificate is acceptable: it is a direct corollary of Sylvester/Jacobi. Only defect: the convention
 clash noted in D5 (the "∞-factor" (−1)^{ind_−/2} is s_∞, not the isotropy sign ε_∞ = −s_∞). Label "PROVED, classical"
 is right; promise 0/5 is honest.
+
+### D10 (MINOR) — remaining memos
+(a) **s4_three_bits_meta P3(c)** "≈ 75.5 signed χ = −1 words on average versus ≈ 33.7 positive ones (primes ≤ 1001)":
+same confusion as D1. `scripts/review_r219_counts.py 1001` (primes 5…997): strictly signed 42.1, positive 33.8,
+all 75.9 per prime. So "signed" there = all words. Repair: "≈ 42 strictly signed + ≈ 34 positive".
+(b) **s4_mute_infinity** row (R₂) "trivial": it is in fact PROVED for every odd n ≥ 5 at t = −1 (AB = 1 − n): n ≡ 1 (4):
+A = 1, w = (−1, −2, n − 2); n ≡ 7 (8): A = −2; n ≡ 3 (8): A = 2 (χ = +1 in each case, so a certificate by the three-bit
+law; brute-force confirmation that a t = −1 signed certificate exists for all odd n ∈ [5, 1001], same script). Say so.
+The (R_n) row's "no finite t-set under H" → "under Dickson" (D3); "slots doubled" fine.
+(c) **s4_two_and_infinity**: "B_{2,∞} … is precisely the C₀ of every non-certificate positive word" holds at n = p
+prime only; for composite n a non-certificate positive word has C₀ ramified at {2, ∞} ∪ {ℓ | n : ε_ℓ = −1}, an even
+number of extra ℓ's (e.g. TWO_FIBRES' (1, 2, 23) ∈ X₂₁). Also "(C₀ ≅ B_{2,∞} ⟺ embeds as a Gram of integer vectors)"
+must read "n·G_w is a Gram of integer vectors" (TWO_FIBRES Thm A(iv)) or "T_w is" (A(iii)). The "ES-five(p) ⟺ not every
+positive path lattice is Hamiltonian" is TWO_FIBRES Cor A1 verbatim — mark as a restatement, not a new consequence.
+(T1-place lemma (a) re-derived: trivial and correct.)
+(d) **s4_minkowski_sail**: Lemma M re-derived ((cm − 1)s = p + c ≡ c; χ = (−cs/p)) — SOUND. Tool 1's "50.0 %" is not
+an empirical finding: for p ≡ 1 (4), A ↦ −A preserves the QNR class and Λ_{−A} is the reflection of Λ_A, which swaps
+the open quadrant pairs, so the split is exactly ½ by symmetry (PROVED). Tool 2 (sail ↔ HJ of p/A, other quadrant ↔
+p/(p − A)) matches the classical toric picture (Oda §1.6, not re-read). Tool 3 example correct (x + y ≡ 0 (p), x, y ≥ 1
+⇒ xy ≥ p − 1).
+(e) **s4_real_analytic_tools** §1: "path basis is a thin extraction, ≪ p^{1/3+o(1)} of ≍ p classes" — the exponent 1/3
+is unsupported (no proof or citation; the selling memo says ≍ log²p on average; the known pointwise bound for ES
+solution counts is Elsholtz–Tao's n^{3/5+o(1)}). Repair: cite or replace by "p^{o(1)} on average (≍ log²p heuristically)".
+"θ(−1/τ) *is* the product formula" is an Assessment, not an identity; label it. Verdicts (COLLAPSES) agree.
