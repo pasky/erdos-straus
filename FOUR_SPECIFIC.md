@@ -73,9 +73,10 @@ are covered, so φ(M) ≤ 3 and M ∈ {3, 4, 6}. For 3 and 6, e = 3 is not a uni
 **3.2 Meaning.** (ℤ/e)^* = {±1} for e ∈ {1, 2, 3, 4, 6}. On an e = 3 slice the event −1 ∈ Σ₃(N) is "N has a prime factor
 ≡ 2 (mod 3)", a non-triviality event and not a hitting event. For p ≡ 1 (mod 12), ES has two such slices,
 N_II = (p+3)/4 and N_I = (3p+1)/4. Both fail iff all their prime factors are ≡ 1 (mod 3). This happens for 1771 of the
-19564 primes p ≡ 1 (mod 12) below 10⁶ (9.1%; 10.7% below 10⁴), first at 241, 409, 769 (EVIDENCE). The e = 3 Type I slice
-is the t = 3 word family and the e = 3 Type II slice is a t = 1 family (MODEL_SPECIFIC §7 C2), so both lie inside the
-χ-fibre: Prop 3.1 refines the χ-fibre at small t and is not an independent input.
+19564 primes p ≡ 1 (mod 12) below 10⁶ (9.1%; 10.7% below 10⁴), first at 241, 409, 769 (EVIDENCE). For p ≡ 1 (mod 8) the e = 3 Type I
+slice is realised by the t = 3 words (MODEL_SPECIFIC §7 C2), so that part lies inside the χ-fibre. Whether every Type II
+e = 3 certificate is a five-slice word was not checked. Either way Prop 3.1 is a congruence statement about which
+slices exist, so it gives no input independent of the lottery.
 **3.3 Failures of other numerators avoid such slices (EVIDENCE).** Across all census failures (M = 5–24), failures in a
 class with an e = 3 slice occur only for M = 10 (4 of 7), 16 (4/37) and 22 (9/53), and then always with N having only
 primes ≡ 1 (mod 3) (e.g. 10/67: N = 7). M = 8: 0/5; M = 20: 0/62 (its e = 3 classes are 2/8 of the units). e = 1 is the
