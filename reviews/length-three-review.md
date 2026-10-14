@@ -152,3 +152,12 @@ search (Jina web search + the archived `sources/lit2026/arxiv-2605.04551v2.pdf`,
 *Repair:* in §5 replace "no literature search was done" by the three bullets above (Ventas for the V₁ row; Farey boat /
 CHP for Prop 1.1 terminology; O144 for chains) and narrow "new" to Cor 2.2's five-vertex/Jacobi statement and Thm 4.1/Cor
 4.2's Ptolemy reading. Forward to the DK/(J)9 owner: (J)9's Type I slice should cite Ventas 2026.
+
+**D10 (MINOR, quantifiers/domain; Cor 2.2).** "ES five-slice certificate at N ⟺ a Farey pentagon with four unit sides and
+closing side N in which some vertex has opposite diagonal ≡ 0 (mod 4) ⟺ (DK Thm 4.5) the Jacobi symbol (A/N) = −1."
+(i) A is unbound; (ii) the middle set includes *formal* pentagons (a letter 1), whose ≡ 0 (mod 4) quiddities also give ES
+triples by Thm 2.1 (Thm 2.1 holds for all words — verified) but are not DK five-slice certificates and are not covered by
+DK Thm 4.5 (which is for A ∈ L₃(N)). *Repair:* "For N ≡ 1 (4) and an interior word (c, m, s) at N (all letters ≥ 2): some
+quiddity of its pentagon is ≡ 0 (4) ⟺ (h′/N) = −1; existentially over interior words this is the five-slice certificate
+set. Formal pentagons with a quiddity ≡ 0 (4) give further (boundary, DK §4.2) ES triples." The Type II sentence of Cor 2.2
+is correct as stated (I checked dcs = (p + e)/4 = FMS's x and dspj = FMS's z: both reduce to hs = pj + c).
