@@ -15,6 +15,7 @@ None of the author's `pd_*` scripts were used or imported. **ES is not solved; n
 | Prop 3.1(a) k = 1 slice of ES^{(y)} non-empty (gcd(n,15) = 1) | SOUND (hypothesis can be weakened to 3 ∤ n, m4) |
 | Prop 3.1(b), Cor 3.2 (k-direction dichotomy) | SOUND-AFTER-REPAIRS (ES^□ half of Cor 3.2 is unproved as written, M1) |
 | §3 EVIDENCE (pd_k1, pd_k1s) | SOUND — reproduced exactly from scratch |
+| Prop 4.1 (one axis, θ = 1/(2e+2)) | SOUND (algebra); θ-reading and citations SOUND-AFTER-REPAIRS (m6, m7) |
 | (rest: in progress) | |
 
 ## Claim-by-claim
@@ -70,7 +71,7 @@ directions"), but the table cell "FINITE" and the ES row "OPEN (finite search, B
 
 ### Prop 3.1(a) — SOUND (re-derived)
 k = 1 slice derived independently: g ≡ 3 (mod 4), g | 4n + Q₁², Q₀ := (g+1)/4, Q := Q₀Q₁ ⇒ 4Q₀ ≡ 1 (mod g) ⇒
-16Q₀²(n + 4Q²)... more simply 4(n + 4Q₀²Q₁²) ≡ 4n + Q₁² ≡ 0 (mod g), so g | n + 4Q²; gcd(Q, K) = Q₀, overflow Q₁, k = 1.
+4(n + 4Q₀²Q₁²) ≡ 4n + Q₁² ≡ 0 (mod g), so g | n + 4Q²; gcd(Q, K) = Q₀, overflow Q₁, k = 1.
 Proof checked against the actual statements of UNIT_ORBIT Lemma 2.2 (needs gcd(a, M) = 1, a ≡ 3 (mod 4), a ≢ 1 mod every
 odd ℓ | M — so excluding the extra residue −1 at ℓ | n is indeed free) and FROBENIUS Thm 4.2(a) (Γ_r ⊆ (F_r^*)² from
 a ≡ −1 (mod s) and (r−1)/2 odd; index argument + UNIT_ORBIT Lemma 2.3 with k = 4). The changes relative to Thm 4.2 are
@@ -96,6 +97,25 @@ n = 9, 25 empty. The n = 13 cap-2 shot (Q₁ = 49, g = 223) confirmed. `review_p
 least-a histogram over primes 5 ≤ p < 10⁶ identical to the document's (0: 59 504 … 21: 1, none unresolved), and
 the 332-square control has no hit for any a ≤ 40 (as T1 forces: 4m² + 9^a is a sum of two coprime squares).
 Labels (EVIDENCE; "infinitude heuristic only") are appropriate. Higher caps (3–11) also show hits up to 2·10⁵.
+
+### Prop 4.1 — SOUND (algebra); the θ-column needs care (m6, m7)
+Re-derived: MR ≡ 1 (mod g), gcd(M, g) = 1, so M^{2e}(4k²n + R^{2e}) ≡ 4k²nM^{2e} + 1 = N_e (mod g); g ≡ −1 (mod 4k)
+gives D ≡ −R^{2e} (mod 4k); Prop 1.3's converse (needs gcd(R^e, k) = 1 ✓) gives Q₀ = MR/(4k) = λR; overflow
+λR^{e+1}/gcd(λR^{e+1}, λRk) = R^e. M^{e+1} = 4kλM^e = 2λX_e ✓. `review_pd_axis.py 101 6 301 3`: 781 464 equivalence
+tests (odd n ≤ 101, k, λ ≤ 6, odd R ≤ 301 prime to kn, e ≤ 3), no failure; 752 resulting shots verified as exact
+solutions with Q₀ = λR, overflow R^e, den z = R^{2e}, R | y. Quoted example (n, e, k, λ, R) = (13, 1, 5, 2, 3):
+g = 119, N_e/g = 17 479, D = 11 ✓. Numerically log M/log N_e at k = 10⁶, λ = 1 is 0.481 / 0.245 / 0.165 / 0.124 for
+e = 0…3 → 1/(2e+2) ✓. The displayed "⟸" omits gcd(λ, n) = 1 (stated in the body; m7). Scope remark (e ≥ 2 is a
+sub-family; n = 113 mixed-exponent example re-verified: Q₀ = 15, Q₁ = 75, k = 1, den z = 75²) is correct.
+**Citations, checked against the source.** Lenstra, *Divisors in residue classes*, Math. Comp. 42 (1984) 331–340
+(scanned copy from cr.yp.to/bib/1984/lenstra.pdf, OCR'd p. 1): main theorem ≤ 11 divisors for s > N^{1/3};
+**and, "more generally", for every α > 1/4 a bound c(α) for s ≥ N^α**; "I do not know whether the same result holds
+for any positive α". CHN 2008 (abstract, as verified in R200): the same 1/4 threshold with c(α) = O((α − 1/4)^{−3/2})
+(improving Lenstra's dependence) and a constructive algorithm. So the 1/4 threshold is Lenstra's; CHN improved the
+constant and made it constructive (m6). Both are UPPER bounds on the number of divisors of ONE integer in ONE class;
+neither says anything about existence, and neither applies at θ = 1/4 exactly (M ≍ (2λ)^{1/2}(N_e/n)^{1/4}, i.e.
+no α > 0 margin; the document says so). For θ < 1/4 no bound is KNOWN (Lenstra's open question) — "no O(1) bound"
+in the §4 table should read "no bound known".
 
 ## Numbered defects
 
@@ -124,6 +144,17 @@ a₅ ∈ {2, 3} is a non-residue; if 5 has even exponent it does not affect the 
 ℓ₀ ≥ 7 exists adjust there, and if 5 is the only odd-exponent prime then n = 5m² ≡ 1 (mod 4) and the required
 (r/n) = −1 is exactly a₅ ∈ {2, 3}. Only ℓ = 3 is a genuine obstruction for this proof (then g ≡ 1 (mod 3) is forced,
 outside Lemma 2.2). Optional repair (the stated theorem is correct as is); update the † footnote of the §6 table.
+
+**m6 (MINOR) — §4 table and Verdict 4: attribution of the 1/4 threshold.** "θ = 1/4 — exactly the Coppersmith–
+Howgrave-Graham–Nagaraj threshold" / "e = 2 … below CHN's range: no O(1) bound": Lenstra 1984 already proves the
+bound c(α) for every α > 1/4 (CHN: O((α − ¼)^{−3/2}) and constructive). Repair: "the Lenstra (1984) / CHN (2008)
+threshold α > 1/4"; "below it no bound is known (Lenstra's question)". Also say "θ = 1/4 on a log scale: M ≍
+(2λ)^{1/2}n^{−1/4}N_e^{1/4}, so no α > 0 margin and neither theorem applies on the e = 1 line".
+
+**m7 (MINOR) — §4 θ is a property of a parametrisation, not of a cell.** For e = 1 with k fixed, λ → ∞, θ → 1/2
+(the document's Scope says 1/(2e)); for e = 0, M = 4kλ ranges up to g ≤ N₀, θ ∈ [½, 1). So the §6 table's θ column
+(1/4 for ES^{[2]}, 1/2 for ES) is the minimum over the pure-power family, not an invariant. Repair: label the
+column "θ_min of the Prop 4.1 family (bounded λ)" and add gcd(λ, n) = 1 to the displayed "⟸" of Prop 4.1.
 
 **m5 (MINOR) — Prop 3.1(a), Cor 3.2: say "ineffective"** (inherited from BV/Siegel–Walfisz, as UNIT_ORBIT Thm 2.4 and
 FROBENIUS Thm 4.2 state).
