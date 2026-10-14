@@ -1,5 +1,10 @@
 # R211 — hostile review of O213 TRANSPORT_LAW.md (+ BRAINSTORM/y5_*.md)
 
+**Repairs applied (author quiet after checkpoint 1):** D2–D11 applied by R211 in TRANSPORT_LAW.md, memos
+y5_ocensus_hard_primes, y5_siegel_weil_chamber, y5_five_positions, y5_narrow_wide, y5_even_middle, y5_general_r_jacobi
+and AGENT_REPORT_O213.md, each marked "(R211 repair)". D1 (DISCOVERIES (J)42 on main) is left to the maintainer.
+`scripts/y5_words_at.py` (D7) was not edited; its numbers were corrected in the memo.
+
 Reviewer: R211 (side agent). Scope: TRANSPORT_LAW.md, the eight memos BRAINSTORM/y5_*.md, logs/y5_*, the
 O213 report. All numerics below were redone with from-scratch code (`scripts/review_r211_*`); the author's
 scripts were not run or reused.
