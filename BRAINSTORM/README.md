@@ -228,6 +228,20 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | bsM_borel_cantelli_patterns | S closed, ES ⟺ ℙ ∩ S = ∅; non-square patterns | divergent patterns ν-a.e. covered, sparse ones carry sterile points; integers are on the divergent side | Props PROVED; sparse side Assessment — SHARP (language) |
 | bsM_shot_coverage | per-prime coverage, ℤ vs V_φ | sterile points = signature of finitely many shots | PROVED rel. ET; Assessment |
 
+## Synthesis III (O208): cross-combinations of (J)13–(J)38 aimed at the exits (E1)/(E2) (`s3_*`, deep file SYNTHESIS_SPARKS3.md; not yet triaged)
+
+| file | combination | own verdict | labels |
+|---|---|---|---|
+| s3_numerator_blind | (J)23/(J)28 relaxations × (J)31/(J)32 numerator failures | **barrier: M^□ is a theorem for every M ≡ 0 (4) at all non-squares (shot mechanism T1-exact), while M/p fails at 278 known pairs (8/131 = 1/20 + 1/131 + 9/2620)** — SHARP | Thm 1.1 PROVED (Dirichlet); EVIDENCE (fixed S) |
+| s3_order3_numerator | (J)19/(J)28 × (J)31 × (J)32 | TES^{□₃} true at all 16 TES failures; an order-3 SQ₅ and a χ₃-fibre theorem cannot both hold | PROVED (combination, logic); EVIDENCE to N ≤ 27000 |
+| s3_box_bit | (J)28 × (J)25 box × (J)38 slicing | □-shot at prime g ⟺ (p/g) = −1 = the sign layer of the certificate at g; slicing relabels the box | PROVED; EVIDENCE (0/85939 box hits when (p/g) = +1) |
+| s3_eps_mu_sieve | (J)23 sieve × (J)38 ε_μ | same shot n + 4t², Q = t forced small on the ES side | PROVED (identity); collapses to (J)25 |
+| s3_min_scale | (J)25 × (J)28 × (J)30 | both searches end at polylog scale; box size is not the obstacle | EVIDENCE to 10⁷ |
+| s3_lll_lenstra | (J)25 × (J)38 × Lenstra/Coppersmith | ≤ 11 certificates per Lenstra line, decision not existence | PROVED rel. Lenstra; EVIDENCE |
+| s3_words_parity | (J)33 × (J)15 × involution parity | σ forces nothing; no parity law | PROVED (σ); EVIDENCE (negative) |
+| s3_isogeny_mixing | (J)35 × (J)16 × expander mixing | mixing cannot robustly force a certificate edge | Assessment (counts PROVED/EVIDENCE) |
+| s3_vphi_ringmaps | (J)21 × (J)25 × (J)17 | ring maps, Galois averaging, norms out of ℤ[φ] give only local / B2 data | PROVED for these operations |
+
 ## Spark relay Y2 (O210): A₂ friezes of the five ES slices (memos y2_*, deep file FRIEZE_ES.md; not yet triaged)
 
 | file | angle | own verdict | labels |

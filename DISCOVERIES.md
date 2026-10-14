@@ -986,6 +986,48 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * Farey-chain slice: fails at 13, 37, 97, 181, 193, 277, 373.
    * Assessment. The four "length 3" phenomena are algebraically equivalent restatements of the single continuant equation K(c, m, s) = N. No deterministic existence mechanism appears; the unknown λ-length h is B2's "modulus that is part of the solution". Relay O210 (friezes over ℤ/4, ℤ/8; ear-adding; cluster periodicity) was spawned.
 
+41. **Synthesis III: the numerator-blindness barrier — the □-relaxation is a theorem for every numerator M ≡ 0 (4), including those where M/p fails (SYNTHESIS_SPARKS3.md + BRAINSTORM/s3_*.md (O208); review `reviews/synthesis-three-review.md` (R207): no FATAL; MAJOR D1 (the "must be 4-specific" reading ignores thresholds and was labelled PROVED; now split into a formal statement and an Assessment, with a threshold-robust strengthening) and D2 (novelty relative to (J)31/(J)32); minors; repaired by the reviewer).**
+   * Lemma 1.0 / Thm 1.1 (PROVED, elementary; R207 re-derived them by valuations and brute force).
+     * For M ≡ 0 (4): if g | n + MQ² and g ≡ −1 (mod M), then M/n = 1/x + 1/y + 1/z where den z = (Q/gcd(Q, (g+1)/M))² is an odd square.
+     * (∗): (−M/g) = −1 for every odd g ≡ −1 (mod M).
+     * (a) Hence M^□(n) holds at every odd non-square n prime to M (one Dirichlet prime).
+     * (b) There is no M-shot at an odd square, so the shot mechanism keeps T1 exactly.
+   * **Cor 2.1 (formal part CERTIFIED; R207 re-solved the failing pairs from scratch).**
+     * M/p fails at 278 known pairs (M ∈ {8, 12, 16, 20, 24}). Every one of them has an exact M^□ certificate with a prime g ≤ 239.
+     * The 264 pairs with p ∉ S also have M^{(S)} certificates for S = {3, 5, 7, 11}. Example: **8/131 = 1/20 + 1/131 + 9/2620**, while 8/131 has no unit-fraction solution.
+     * Threshold-robust strengthening (R207 D1; relative to Pomerance–Weingartner Thm 1.2): for every M ≡ 0 (4) with M ≥ 6.52·10⁹, some prime p ∈ (M², 2M²) has M^□(p) and not M/p.
+   * Assessment (R207: fair item by item, but the conclusion is an Assessment).
+     * Shot identities, overflow duality, T1/BM/Diff-parity, box finiteness, sieves, composition and class-group pigeonhole all work uniformly in the numerator. So any ES proof that uses only such tools, uniformly in M without a threshold, would also prove false statements.
+     * An ES proof therefore needs an input specific to 4 (consistent with (J)31). The cleanest known one is the χ-fibre S₄ = {χ = −1} of (J)32.
+     * New relative to (J)31: the relaxations are theorems for every M, and the failures 8/131, 8/241, TES and ES_q serve as a falsification harness for mechanisms, not only for Brauer–Manin.
+   * Memos (R207: SOUND, or SOUND-AFTER-REPAIRS).
+     * s3_box_bit (PROVED): for a prime g ≡ 3 (4), a □-shot at g exists ⟺ (p/g) = −1. So the □ relaxation is exactly the sign layer.
+     * s3_eps_mu_sieve (PROVED): 4tj − 1 | nj + t ⟺ 4tj − 1 | n + 4t², i.e. (J)38's ES slot is the (J)23 sieve shot with Q = t.
+     * s3_min_scale (EVIDENCE to 10⁷): the least certifying modulus is h_min ≤ 0.82 log³p.
+     * s3_lll_lenstra: LLL decides, it does not produce existence.
+     * s3_isogeny_mixing (Assessment): certificate edges are o(N), so expander mixing cannot force one.
+     * s3_words_parity: #χ=−1 words is even at p ≡ 1 (4).
+   * Relay O212 (hunting 4-specific inputs) was spawned.
+
+42. **Spark relay Y2: friezes — the even edge and the transport law (FRIEZE_ES.md + BRAINSTORM/y2_*.md (O210); review `reviews/frieze-es-review.md` (R208): no FATAL; MAJOR D1 (novelty: the extension to all words and all odd N is already MODEL_SPECIFIC Thm 3.1(a)), D5 (a steering rule labelled PROVED), and a positive MAJOR D8 (the polygon-size conjecture is a theorem); minors; repaired by the reviewer).**
+   * Lemma 1.1 (PROVED; CERTIFIED by R208 on all 5 115 860 odd-N formal words N ≤ 10⁵ and 10⁶ random large words). For every positive word (c, m, s) at odd N, exactly two of the five cluster variables (h′, c, m, s, h) are even, and they are adjacent (mod-2 rigidity of the A₂ frieze; positivity is not used).
+   * Thm 1.2 (PROVED, 3-case proof). With e, e′ the even pair, (h′/N) = (−1/N)·(−1)^{[8 | ee′]}. This is a short, computation-free proof of MODEL_SPECIFIC Thm 3.1(a) / DK Thm 4.5; new are the even edge and the proof (R208 D1). Consequence (R208 D15): χ is a function of (c, m, s) mod 4.
+   * **Transport law (PROVED; CERTIFIED).** For N ≡ 1 (8), (h′/N) = −(2/o), where o is the odd cluster variable opposite the even edge.
+     * So a five-slice certificate at N ≡ 1 (8) ⟺ some word has o ≡ ±1 (mod 8). At an odd square every word has o ≡ ±3 (mod 8) (T1).
+     * It is Hilbert reciprocity localised: a cherry-depth reading in the 2-adic Bruhat–Tits tree.
+   * §3 (split by R208 D5).
+     * PROVED: positivity is necessary — an explicit signed family at odd squares has a quiddity ≡ 0 (mod 4).
+     * The Short–Van Son–Zabolotskii lifting theory of tame friezes is T1-blind: every closed odd walk on the Farey complex F₄ is strongly contractible.
+     * Assessment: a frieze-theoretic ES proof must use positivity, i.e. the archimedean Hilbert factor (CHI_FLIP Thm 1.1).
+   * §4 (PROVED).
+     * The 4-term analogue has the uniform frieze proof 4/N = 1/k + 1/(k(2k−1)) + 1/((2k−1)(3k−2)) + 1/(N(3k−2)) at N = 4k − 3. In the pentagon the same cut needs a length-2 word at 4w, which is B2 (Assessment).
+     * **Polygon-size uniqueness (PROVED after R208 D8).** r = 3 is the only HJ length whose zero-mod-4 locus is the Jacobi fibre. For r ≥ 5 the word (2, 2, 2, 4, 2^{r−5}, k) at N = (2Q + 3)², with Q = 9(r − 5) + 13, is a witness at an odd square; r = 2 and r = 4 are handled directly. This parallels (J)32's "m = 4 unique".
+   * Memos (negative).
+     * Parity involution: the only dihedral symmetry fixing the N-side is the reflection, and #F₋(p) is even.
+     * Zamolodchikov period 5 forces an even edge mod 2, never a zero mod 4.
+     * The Cuntz–Holm–Jørgensen coefficient model is a relabelling.
+   * Relay O213 (the transport law in the o-aspect) was spawned.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

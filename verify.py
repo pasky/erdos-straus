@@ -24945,4 +24945,67 @@ def check_fF():
 check_fF()
 
 
+def check_fG():
+    # (fG) SYNTHESIS_SPARKS3 (O208/R207): numerator-blindness. R207 from-scratch: shot identity den z = (Q/gcd)^2 on
+    # 172 591 shots, (*) (-M/g) = -1, M^box at every odd non-square < 2000 for M = 4..24, no M-shot at odd squares,
+    # and an exact census of M/p failures (p < 2*10^5) reproducing the Pomerance–Weingartner / MODEL_SPECIFIC lists.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=600, env=env, cwd=sdir)
+        assert r.returncode == 0, ("SPARKS3 subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_s3_thm11.py", "2000", "24", "300", "30"])
+    assert "(1) Lemma 1.0: 172591 shots tested, den-formula failures: 0" in out, out[-2000:]
+    assert "(2) (*): 182 (M,g) pairs, failures 0" in out, out[-2000:]
+    assert out.count("shots found: 0") == 10 and "shots found: 1" not in out, out[-2000:]
+    for M, c in ((4, 978), (8, 978), (12, 652), (16, 978), (20, 782), (24, 652)):
+        assert f"(3) Thm1.1(a) M={M}: {c} odd non-squares < 2000 certified" in out, (M, out[-2000:])
+    out = run(["review_s3_exact.py", "200000", "8", "12", "16", "20", "24"])
+    for M, c in ((8, 5), (12, 20), (16, 37), (20, 61), (24, 150)):
+        assert f"M={M} N=200000 fails({c}):" in out, (M, out[-2000:])
+    assert "M=8 N=200000 fails(5): 3 11 17 131 241" in out
+    print(f"== (fG) SYNTHESIS_SPARKS3 R207: M^box theorem checks (M = 4..24), no M-shots at odd squares, M/p failures "
+          f"p < 2e5 (8: 3 11 17 131 241) reproduced; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fG()
+
+
+def check_fH():
+    # (fH) FRIEZE_ES (O210/R208): even-edge lemma + sign law on all 784 732 odd-N formal words N <= 2*10^4 and 10^5
+    # random large words (R208 from scratch); hexagon identity; polygon-size uniqueness witnesses at odd squares.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=600, env=env, cwd=sdir)
+        assert r.returncode == 0, ("FRIEZE subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r208_even_edge.py", "20000", "100000", "1000000"])
+    assert "X 20000 odd-N formal words 784732" in out and out.count("fails {}") == 2, out[-2000:]
+    out = run(["review_r208_polygon.py"])
+    for s in ("hexagon identity + (2,2,2,k) quiddity 4 at V6: OK for k < 3000",
+              "r 2 first odd-square witness: None", "r 3 first odd-square witness: None",
+              "r 4 first odd-square witness: (9, (2, 2, 2, 3)",
+              "family (2,2,2,4,2^{r-5},k) at N=(2Q+3)^2: odd-square Z_r witness OK for 5 <= r <= 60"):
+        assert s in out, ("FRIEZE R208 polygon", s, out[-2000:])
+    print(f"== (fH) FRIEZE_ES R208: even edge + (h'/N) law on 784 732 words N <= 2e4 + 1e5 random; hexagon identity; "
+          f"r = 3 unique (odd-square witnesses r >= 4); seconds = {perf_counter() - t0:.1f}")
+
+
+check_fH()
+
+
 print("\nall checks passed")

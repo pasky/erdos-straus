@@ -27,6 +27,8 @@ In particular, **for N ≡ 1 (mod 8): (h′/N) = −(2/o).** The quadratic chara
 character of 2 at the *small* modulus o. Here o is h, s, c or m, i.e. a letter in four of the five positions.
 *Proof.* In the proof of Thm 1.2, ee′ ≡ 0 (8) ⟺ the odd quantity σ + τo ≡ 0 (8). Since o ≡ −στ⁻¹ (4) is ≡ 3 (4),
 this is the statement o ≡ −στ⁻¹ (8). Then compare (2/o) with (2/−στ⁻¹) for σ, τ ∈ {1, N}. ∎
+(R208 repair, explicit: Case A (c/h) = (2/h)^a = (2/h) since a ≥ 2 forces h ≡ 7 (8); Cases B, C (h′/N) =
+(2/(No))^b(−1/o) = −(−2/N)(2/o)(2/(No))^{b−1}, and b ≥ 2 forces No ≡ 7 (8). o need not be small: o = h, h′ can be ≍ N.)
 CERTIFIED: `scripts/y2_transport.py 2000`, all formal words with odd N ≤ 2000, every (N mod 8, edge) cell consistent.
 
 ## Constructive iteration

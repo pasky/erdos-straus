@@ -27,7 +27,8 @@ frozen (1, 1, 1, h), i.e. a length-2 word with K(x, y) = xy − 1 = h.
 * For h = 4 (no N-independent piece is left) the only quadrilaterals are the formal (1, 5) and (5, 1), which give
   N = 4s − 1 ≡ 3 (mod 4), exactly the class where ES is already trivial.
 Diagonals that cut off a triangle *not* containing N (c, m, s = 4w) leave a quadrilateral that contains the N-side.
-Its Ptolemy relation is a product = N + const, again a divisor event (e.g. c = 4w: hs = N + 4w).
+Its Ptolemy relation is hs = N + 4w (c = 4w), hh′ = 1 + 4wN (m = 4w) or ch′ = N + 4w (s = 4w), again a divisor event
+(R208 repair of "a product = N + const").
 
 **The violated hypothesis, in one sentence.** The hexagon proof needs an **interior frieze on the sub-polygon with
 frozen (1, …, 1, 4)**. For the hexagon that sub-polygon is a pentagon, and K(2, 2, 2) = 4 exists. For the pentagon it is
@@ -36,7 +37,8 @@ the free-triangle cut of an (r+2)-gon needs an interior word at 4 (or at 4w) of 
 length ℓ have K ≥ ℓ + 1, so the interior words at 4 are exactly (4) and (2, 2, 2) (lengths 1 and 3). A length-2 word at 4w
 is a factorisation 4w + 1 = xy, i.e. B2. So **among the polygon sizes, the pentagon (r = 3) is the one where the
 "4-diagonal + free triangle" decomposition needs a divisor of a moving integer**. For r = 4 it is N-free via
-(2, 2, 2). For r ≥ 5 one uses 4w-words of length r − 1, or simply (2, 2, 2) plus extra letters on the N-side. The obstruction is
+(2, 2, 2). For r ≥ 5 one uses 4w-words of length r − 1, or simply (2, 2, 2) plus extra letters on the N-side (R208: e.g.
+(2, 2, 2, 4, 2^{r−5}, k) at N = (2Q + 3)², Q = 9(r − 5) + 13, has the quiddity 4 — so Z_r meets the squares for all r ≥ 4). The obstruction is
 the arithmetic of the number 4 itself, which parallels (J)32 (m = 4 is the unique numerator whose five slices form a
 character fibre).
 
@@ -72,7 +74,7 @@ ES with distinct terms is classical and easy; this memo only gives the frieze re
 * r = 4: every odd N ≤ 5000 except 3, 7, 15 has an interior hexagon word with a zero-mod-4 quiddity, including all
   odd squares.
 * r = 3: there are 34 odd-square failures (all odd squares from 25 to 4761, plus 9) and 13 non-square failures
-  (N ≡ 3 (4) cases and 105).
+  (N ≡ 3 (4) cases, 5 and 105; R208 repair: the list is 3, 5, 7, 11, 15, 23, 27, 35, 39, 55, 99, 105, 119).
 
 ## Assessment
 PROVED dictionary/obstruction (elementary). It answers (b) precisely: the hexagon proof uses an interior frieze on a

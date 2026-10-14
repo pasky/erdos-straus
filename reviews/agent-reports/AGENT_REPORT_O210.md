@@ -9,7 +9,8 @@ of ES is claimed.**
    A₂ frieze). If e, e′ are those two, then
    `(h′/N) = (−1/N)·(−1)^{[8 | ee′]}`.
    * For N ≡ 1 (4): sign −1 ⟺ 8 | ee′ ⟺ some cluster variable is ≡ 0 (4). This is DK Thm 4.5 without the 512-cell
-     check, extended to formal words and to N ≡ 3 (4).
+     check, extended to formal words and to N ≡ 3 (4) (R208: that extension is MODEL_SPECIFIC Thm 3.1(a); new are the
+     even edge and the computation-free proof).
    * At odd squares, every frieze has ee′ ≡ 4 (8) (T1).
    * CERTIFIED on all 5 115 860 formal words with odd N ≤ 10⁵, plus 2·10⁶ random words with N up to ~10¹², plus 28 474
      square-control words.
@@ -23,7 +24,7 @@ of ES is claimed.**
    * Hence the Short–Van Son–Zabolotskii lifting theory, which is about tame integral friezes, is T1-blind. Indeed every
      closed odd walk (lengths 3, 5, 7) on F₄ (the octahedron) is strongly contractible.
    * Finite-ring frieze counts are N-blind beyond N mod 8.
-   * Steering rule: *a frieze-theoretic ES proof must use the positivity of the frieze archimedeanly.*
+   * Steering rule (Assessment, R208 relabel): *a frieze-theoretic ES proof must use the positivity of the frieze archimedeanly.*
 4. **Hexagon vs pentagon (PROVED).**
    * The 4-term analogue has the uniform frieze proof (2, 2, 2, k) at N = 4k − 3: the diagonal K(2,2,2) = 4 cuts off
      a free triangle containing the N-side. The identity is
@@ -31,7 +32,8 @@ of ES is claimed.**
    * In the pentagon the same cut needs a length-2 word at 4w, i.e. 4w + 1 = xy with y ≡ −N (mod 4w): B2. For w = 1 it
      needs 5 = xy, which has only the formal factorisations, and those give N ≡ 3 (4).
    * Polygon-size uniqueness: r = 3 is the only HJ length whose zero-mod-4 locus is a Jacobi fibre, PROVED for r = 2, 4
-     and r ≡ 0 (4), witnesses for r ≤ 12; CONJECTURE for all r. This parallels (J)32's "m = 4 unique".
+     and r ≡ 0 (4), witnesses for r ≤ 12; CONJECTURE for all r. (R208: PROVED for all r ≥ 4 by
+     (2, 2, 2, 4, 2^{r−5}, k) at N = (2Q + 3)², Q = 9(r − 5) + 13; see FRIEZE_ES §4.) This parallels (J)32's "m = 4 unique".
 
 ## Brief items
 * (a) Frieze proof: SHARP 1.

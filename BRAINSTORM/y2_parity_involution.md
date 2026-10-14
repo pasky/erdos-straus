@@ -12,7 +12,7 @@ would then force F₋(N) ≠ ∅.
 Vieta-jump involutions on the cubic surface. The only symmetry of the frieze fixing the frozen side N is the reflection
 (c, m, s) ↦ (s, m, c). It preserves the sign, because (h/N) = (h′/N) by hh′ ≡ 1 (N).
 
-**Lemma 2 (PROVED).** At a prime p the reflection has exactly one fixed point, (1, p + 2, 1), since c = s gives
+**Lemma 2 (PROVED).** At a prime p ≠ 3 (R208 repair: p = 3 also has (3, 1, 3)) the reflection has exactly one fixed point, (1, p + 2, 1), since c = s gives
 c(mc − 2) = p. That fixed point has even edge {h, h′} = {p + 1, p + 1} with ee′ = (p + 1)² ≡ 4 (8) for p ≡ 1 (4), so it
 has sign +1. **Hence #F(p) is odd, #F₊(p) is odd, and #F₋(p) is even.** No parity forcing: F₋(p) = ∅ is
 parity-consistent.
@@ -22,7 +22,8 @@ EVIDENCE (`/tmp` probe recorded here, all N ≡ 1 (4), 5 ≤ N < 3000): at all 2
 
 ## Iteration
 * Hypothesis violated by windmills: Zagier's involution lives on a *quadratic* surface (x² + 4yz = p), which has a
-  Vieta structure. The ES frieze surface is multilinear, so the only involutions are the dihedral ones (Lemma 1).
+  Vieta structure. The ES frieze surface is multilinear, so there are no Vieta involutions and the only dihedral one is the reflection (Lemma 1; that no other involution of
+  F(N) is useful is an Assessment — R208 repair).
 * Modification: pass to the *hexagon* (y2_hexagon_degeneration), where the frieze surface at N has many more
   symmetries. But ES is the subset of hexagons with an ear, which is not involution-stable (ears break the dihedral
   action except the reflection).
