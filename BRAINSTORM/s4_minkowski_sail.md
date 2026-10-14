@@ -6,7 +6,7 @@
 Geometry of numbers at a single p, with positivity. For A ∈ (ℤ/p)^*, Λ_A = {(x, y) ∈ ℤ² : x ≡ A y (mod p)}, covolume p.
 **Lemma M (PROVED; the lattice form of (J)39 Lemma 1.1).** Positive vectors (c, s) ∈ Λ_A with cs | p + c + s are exactly
 the length-3 words (c, m, s), m = (p + c + s)/(cs), with s·K(c, m) ≡ c, i.e. A ≡ c·s⁻¹ (mod p); the ES sign is
-(cs/p)·(−1/p)-type, a function of A. *(From cms − c − s = p: (cm − 1)s ≡ c.)* So ES-five(p) ⟺ some Λ_A of the
+χ = (−cs/p) ((J)39 Lemma 1.1), a function of A (cs ≡ A s² mod p). *(From cms − c − s = p: (cm − 1)s ≡ c.)* So ES-five(p) ⟺ some Λ_A of the
 right quadratic class has a vector in the open positive quadrant, under the hyperbola xy ≤ p + x + y, satisfying the
 exact divisibility cs | p + c + s.
 
