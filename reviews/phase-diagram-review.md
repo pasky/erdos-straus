@@ -1,7 +1,8 @@
 # R209 — hostile review #1 of PHASE_DIAGRAM.md (O204, checkpoint 1)
 
 Reviewer worktree branch `side-agent/review-phase-diagram-2`, merged `side-agent/phase-diagram` at 0e608b96.
-From-scratch scripts: `scripts/review_pd_wall.py`, `scripts/review_pd_family.py` (+ further `review_pd_*` below).
+From-scratch scripts: `scripts/review_pd_wall.py` (Thm 2.1, Prop 1.1), `review_pd_family.py` (families/examples),
+`review_pd_k1.py` (§3 evidence), `review_pd_axis.py` (Prop 4.1), `review_pd_thm51.py` (Thm 5.1 arithmetic).
 None of the author's `pd_*` scripts were used or imported. **ES is not solved; nothing below changes that.**
 
 **Repairs applied: none.** The author's branch was at its checkpoint-1 commit (0e608b96, 24 min old, waiting for
