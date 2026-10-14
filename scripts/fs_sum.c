@@ -106,7 +106,7 @@ int main(int argc, char **argv) {
       }
     }
     tot += acc;
-    if (s <= 12 || s % every == 0) { printf("s=%d term=%.4Le cum=%.6Le  maxpattern(a,z,y,t)=(%d,%d,%d,%d)\n", s, acc, tot, mxp[0], mxp[1], mxp[2], mxp[3]); fflush(stdout); }
+    if (s <= 12 || s % every == 0) { printf("s=%d term=%.10Le cum=%.10Le  maxpattern(a,z,y,t)=(%d,%d,%d,%d)\n", s, acc, tot, mxp[0], mxp[1], mxp[2], mxp[3]); fflush(stdout); }
   }
   printf("r=%d cop=%d total(3<=s<=%d)=%.6Le\nroute argmin counts:", r, COP, S, tot);
   for (int i = 0; i < 19; i++) printf(" %s:%ld", rname[i], cnt[i]);
