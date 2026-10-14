@@ -1,6 +1,6 @@
 # LENGTH_THREE — one object behind every "length 3" (task O206, wave Y-c)
 
-Status: in progress (O206). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
+Status: checkpoint 1 (O206), hostile-reviewed by R205 (reviews/length-three-review.md; R205 repairs marked). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
 Builds on DEDEKIND_ES (DK, (J)9), HJ_DEEP ((J)15), MARKOFF_ES ((J)37), COMPOSITION_ES ((J)38), FIXED_MODULUS_SHOTS
 ((J)25), CHI_FLIP. Scripts `scripts/l3_*`.
 
@@ -55,7 +55,9 @@ Cor 1.2 (1 016 788 "some variable ≡ 0 mod 4" words with N ≡ 1 mod 4), 0 fail
 **Corollary 1.3 (the certificate cube is the pentagon with m = 4dj, N = pj; PROVED).** A Type II cube point (c, d, j)
 is the word (c, 4dj, s) at N = pj (HJ_DEEP Prop 2.1 / FMS Lemma 1.1 rewritten), and FMS's three equivalent
 divisibilities are Ptolemy relations of its pentagon: h | pj + c is hs = N + c; h | 4dj²p + 1 is hh′ = mN + 1; and
-h | p + 4c²d with cofactor e = (c + s)/j follows from 4cd·(hs) = p(h + 1) + 4c²d. So the cube is the pentagon with
+h | p + 4c²d with cofactor e = (c + s)/j follows from 4cd·(hs) = p(h + 1) + 4c²d (R205 repair: the cofactor needs one more line, p + 4c²d = h(4cds − p) and
+j(4cds − p) = (h + 1)s − pj = c + s). The cube word may be formal (c = 1 or s = 1 occurs, e.g. (7, 2, 1, 3, 1) in §4),
+so this is a statement about friezes, not about HJ length-3 fractions (R205 repair). So the cube is the pentagon with
 the middle diagonal ≡ 0 (mod 4) and the moving divisibility j | gcd(N/p, m/4) attached.
 CERTIFIED (`l3_dict.py 100000 5000`): all 34 303 cube points of primes 5 ≤ p ≤ 5000, 0 failures.
 
@@ -65,7 +67,11 @@ are one short diagonal c, and the factorisations m = 4dj (middle short diagonal)
 ## 2. The five slices are the five vertices: Ford-horocycle (Penner h-length) identities (PROVED, elementary)
 
 For a decorated ideal triangle with λ-lengths, the horocyclic arc at vertex V of triangle (V, X, Y) has length
-λ_XY/(λ_VX λ_VY) (Penner). Arcs add over a fan. In the Ford decoration, moving V to ∞ makes this the Farey telescoping
+λ_XY/(λ_VX λ_VY) (Penner), with the normalisation λ := e^{δ/2}, δ the signed distance between horocycles; Ford
+horocycles then give λ = |det| (R205 repair: Penner's own λ = √(2e^δ) changes these formulas by factors of √2 and 2; the
+identities below are convention-free rational identities). The "opposite diagonal" of V_i means throughout the short
+diagonal V_{i−1}V_{i+1} cutting off V_i, i.e. the frieze quiddity at V_i (R205 repair; three diagonals avoid V_i).
+Arcs add over a fan. In the Ford decoration, moving V to ∞ makes this the Farey telescoping
 x_{i+1} − x_i = 1/(b_i b_{i+1}) (classical; cf. Farey-based Egyptian algorithms, e.g. Bleicher 1972 — from memory).
 
 **Theorem 2.1 (vertex identities).** For every word (c, m, s) at N, the arc of the Ford horocycle at V_i between the two
@@ -85,9 +91,10 @@ DK Cor 1.2 / Thm 4.5 (e.g. at V₁, DK's b = (N + c)/s equals h by the Ptolemy r
 For the three vertices whose fan contains the N-side, that arc is N/(⋯), and dividing by N makes it a unit fraction. ∎
 CERTIFIED (`l3_dict.py 100000`): all five identities in exact rationals on all 4 411 125 words N ≤ 10⁵, 0 failures.
 
-**Corollary 2.2 (SHARP dictionary).** For N ≡ 1 (mod 4): *ES five-slice certificate at N ⟺ a Farey pentagon with four
-unit sides and closing side N in which some vertex has opposite diagonal ≡ 0 (mod 4) ⟺ (DK Thm 4.5) the Jacobi symbol
-(A/N) = −1.* The ES triple is the vertex's horocycle, cut into three arcs by the diagonals from that vertex. All of Type II
+**Corollary 2.2 (SHARP dictionary).** For N ≡ 1 (mod 4) and an *interior* word (c, m, s) at N (all letters ≥ 2): *some
+vertex of its pentagon has opposite diagonal ≡ 0 (mod 4) ⟺ (DK Thm 4.5) (h′/N) = −1.* Existentially over interior words
+this is the ES five-slice certificate set at N. Formal pentagons (a letter 1) with a quiddity ≡ 0 (4) give further
+boundary ES triples (DK §4.2) by the same Thm 2.1 and are not covered by DK Thm 4.5 (R205 repair of the quantifiers). The ES triple is the vertex's horocycle, cut into three arcs by the diagonals from that vertex. All of Type II
 (cube point (c, d, j)) is the V₃ identity of the pentagon (c, 4dj, s) at pj, divided by d:
 4/p = 1/(dcs) + 1/(dcpj) + 1/(dspj).
 
@@ -149,8 +156,8 @@ COMPOSITION census.)
 
 **The object 𝒫(c, m, s; N):** the Ford-decorated Farey pentagon (0, ∞, c, c − 1/m, N/h′) with four unit sides and closing
 side N. Equivalently: a positive integral A₂ frieze with frozen values (1, 1, 1, 1, N) (a formal word; the HJ word [[c, m, s]] when all letters ≥ 2); the
-tridiagonal path form with diagonal (c, m, s), whose leading/trailing principal minors are the five cluster variables
-and N (CHI_FLIP's Q_w). It comes with the geodesic C : |z|² = N/m, orthogonal to the side V₁V₂, and with the
+tridiagonal path form with diagonal (c, m, s), whose contiguous principal minors are c, m, s, h, h′ and N (leading c, h, N;
+trailing s, h′, N; central m — R205 repair) (CHI_FLIP's Q_w). It comes with the geodesic C : |z|² = N/m, orthogonal to the side V₁V₂, and with the
 orthogonal pencil of C.
 
 | "length 3" statement | what it says about 𝒫 | where in ℍ |
@@ -162,11 +169,17 @@ orthogonal pencil of C.
 | HJ path itself | the side V₁V₂ and the Farey path V₂…V₅ | μ = ∞ member |
 
 The four "3"s: the three short diagonals (HJ letters = Machin arguments), the three arcs of a vertex horocycle (ES triple),
-the three CF steps before the cusp −1/m (a Farey path on g_{μ_c}), and the cube coordinates (c, d, j) = (λ₁₃, factor of λ₂₄,
+the three CF steps (p₀/q₀, p₁/q₁, p₂/q₂) of √(4μ_c² − 4p) in MARKOFF's coordinates ending at the convergent ε_μ (depth 3
+for j ≥ 2, depth 1 for j = 1; R205 repair: NOT a Farey path on g_{μ_c} through the cusp −1/m, which §4 refutes), and the cube coordinates (c, d, j) = (λ₁₃, factor of λ₂₄,
 factor of λ₁₅). All of them are the single relation K(c, m, s) = N, i.e. the pentagon's Ptolemy system (P).
-*Scope/novelty (Assessment; "new" means new in this campaign — no literature search was done, R-self repair).* Every individual identity is elementary and most are classical in disguise: continuants =
+*Scope/novelty (Assessment).* R205 literature check: Ventas, arXiv:2605.04551 (2026), eq. (3)/Thm 2.1/Prop 2.2, already
+has the V₁ row (a three-term ceiling = HJ continued fraction of p/4k gives 4k/p = 1/p₀ + 1/(p₀p₁) + 1/(p₁p₂) via the
+convergents), i.e. DK Cor 1.2's Type I slice. Prop 1.1 is classical (Conway–Coxeter, Penner; Morier-Genoud–Ovsienko
+"Farey boat I", arXiv:1811.01229); friezes with non-unit boundary values are "frieze patterns with coefficients"
+(Cuntz–Holm–Pagano, Forum Math. Sigma 2020). In-campaign precursor: BRAINSTORM/farey_chain_frieze.md (O144, ES solutions
+as 3-step Farey/frieze chains). No source found linking friezes/Ptolemy to ES. (R205 repair.) Every individual identity is elementary and most are classical in disguise: continuants =
 λ-lengths = frieze entries (Conway–Coxeter, Penner), Farey telescoping = h-lengths, Machin = regular representation. New
-here: the identification of DK's five ES slices with the five vertices (Cor 2.2, with the five ES triples as fan decompositions),
+here (no source found): the identification of DK's five ES slices with the five vertices (Cor 2.2, with the five ES triples as fan decompositions),
 and of the (J)37/(J)38 divisibility N(ε_μ) | μ with a Ptolemy relation, on one geodesic pencil.
 
 ## 6. The ES / ES^{(S)} gap in pentagon language: one side stops being tangent (PROVED, elementary)
@@ -175,9 +188,11 @@ Penner's identities hold for any decoration, so pentagons with non-unit sides gi
 numerators. For the frozen values (λ₁₂, λ₂₃, λ₃₄, λ₄₅, λ₅₁) = (Q², 1, 1, 1, n) and middle diagonal λ₂₄ = 4, the V₃ fan
 gives
 `  4/n = 1/(sn) + 1/(sc) + Q²/(cn),`
-the ES^{(S)} shape of UNIT_ORBIT_ES (third numerator Q²). The Ptolemy system is 4c = Q² + h, hs = n + c, 4s = h′ + 1,
+the ES^{(S)} shape of UNIT_ORBIT_ES (third numerator Q²; an ES^{(S)} point when gcd(n, 2Q) = 1, since q | Q, q | c ⇒ q | h ⇒
+q | hh′ − Q² = 4n; R205 repair). The Ptolemy system is 4c = Q² + h, hs = n + c, 4s = h′ + 1,
 hh′ = Q² + 4n, ch′ = Q²s + n. **For Q odd these pentagons are in bijection with the divisors h ≡ 3 (mod 4) of 4n + Q²**
-(c = (h + Q²)/4, s = (n + c)/h, using 4(n + c) = 4n + Q² + h). This is the fixed-modulus-4 shot. Geometrically the
+(c = (h + Q²)/4, s = (n + c)/h, using 4(n + c) = 4n + Q² + h). This is a fixed-modulus-4 family: the Q-twist of FMS's 4p + 1 shot (Q = 1). It is NOT UNIT_ORBIT Prop 2.1's family
+"n + 4Q² has a prime factor ≡ 3 (4)" (the Q-twist of the p + 4 shot); both are T1-tight at n = M² (R205 repair). Geometrically the
 Ford horocycles at 0 and ∞ are pulled apart to λ-length Q² (distance 4 log Q). ES is the case where all four
 sides are tangent (Q = 1, or the general cube pentagon (c, 4dj, s)), and there the modulus 4cd·… returns.
 CERTIFIED (`scripts/l3_mute_side.py 3001 15`): 23 510 such pentagons (odd n ≤ 3001, odd Q ≤ 15), Ptolemy + identity
@@ -239,9 +254,11 @@ measure. I see no way to make it say anything about a single exact coincidence a
 no scale or average claim is made.
 
 **7.6 Farey-chain slice (EVIDENCE, negative).** The cleanest fully "geometric" certificates are those where 4/p itself
-is the h-length of a three-edge Farey chain seen from one cusp: 4/p = Σ 1/(b_ib_{i+1}) with b_i | b_{i−1} + b_{i+1}.
+is the h-length of a three-edge Farey chain seen from one cusp: 4/p = Σ 1/(b_ib_{i+1}) with b_i | b_{i−1} + b_{i+1} and gcd(b₀, b₁) = 1
+(a unimodular Farey chain; R205 repair: without the gcd condition 277 and 373 do have chains, e.g. 4/277 = 1/72 + 1/2216 +
+1/9972 with (b₀, …, b₃) = (554, 18, 4, 554)). Cf. BRAINSTORM/farey_chain_frieze.md (O144) Prop C.1/C.2.
 Among all ES solutions of primes < 400, 358/1615 Type I and 242/641 Type II solutions are such chains. The primes
-13, 37, 97, 181, 193, 277, 373 have none (`/tmp` probe recorded here). It is another restricted slice set with failures.
+13, 37, 97, 181, 193, 277, 373 have none (reproduced by `scripts/review_l3_chain.py 400`, R205). It is another restricted slice set with failures.
 That it fails infinitely often is expected by analogy with (J)2/B2 but NOT shown (R-self repair). **Not pursued.**
 
 **7.7 What the unified language does buy (Assessment).** (i) The five slices are cyclically arranged (vertex ↔

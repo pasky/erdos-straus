@@ -4,6 +4,10 @@ Reviewer: R205 side agent. Reviewed: LENGTH_THREE.md as merged from side-agent/l
 From-scratch scripts: `scripts/review_l3_*.py` (none import or copy scripts/l3_*).
 **ES is not solved here; nothing below changes that.**
 
+**Repairs applied** (author quiet at review end; all marked "(R205 repair)" in LENGTH_THREE.md): D1, D2 (§2 preamble),
+D3 (Cor 1.3), D4 (§6), D5 (§7.6), D6 and D7 (§5), D8 (status line), D9 (§5 scope/novelty, §7.6 O144 cite), D10 (Cor 2.2).
+No mathematical content changed. Not done: the (J)9/DK attribution to Ventas 2026 (outside this document; forwarded).
+
 ## Summary verdicts (filled in claim by claim)
 
 | claim | verdict |
