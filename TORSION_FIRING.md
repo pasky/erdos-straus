@@ -304,7 +304,7 @@ class — plus three exact dictionaries and two new numerical facts.
 1. (PROVED) Exact dictionaries: Type II firing at a prime h ⟺ a 2-torsion point of y² = x³ + pd·x over F_h with
    x-coordinate 2cd and 2x_T | h + 1 (Prop 1.2); ⟺ cd | #2E_0(F_h) with h | p + 4c²d; per-modulus, firing reads
    only det = N(π_p) of the CM Frobenius of p on E_0[h] (Prop 2.3); at p itself, small-slice and j = 1 certificates
-   are subgroups of order ≡ −1 (mod 4(1−a)) resp. (mod (1−a)/c) in E(F_p) for curves of trace a ≤ 0 in the Hasse window
+   are subgroups of order ≡ −1 (mod (1−a)/c) resp. (mod 4(1−a)) in E(F_p) for curves of trace a ≤ 0 in the Hasse window
    (Props 4.2, 4.3).
 2. (PROVED) Cyclotomic collapse: at a supersingular prime the ℓ-adic Frobenius (ℓ odd) of ANY elliptic curve is the
    companion matrix of x² + h, so every torsion/group-structure condition is cyclotomic (Prop 2.1, Cor 2.2);
