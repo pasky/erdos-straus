@@ -240,6 +240,7 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | y3_frob_infinity | h ≡ −1 ⟺ Frob_h = c_∞: "h imitates ∞"; 2-group slices = genus theory | language; COLLAPSES B2/B4 | PROVED dictionary; check 0/72 905 mismatches |
 | y3_gross_koblitz_box | Gross–Koblitz at semi-primitive level; mixed torus Gauss sums | COLLAPSES: Γ_h argument 1/m ≡ j (box); mixed sum Weil-bounded (B3) | PROVED (classical); numerics |
 | y3_primemod_census | O207 spark 2: prime-modulus Type II census, growth, sieve screen | CONJECTURE PM-II (3361 only exception); no handle | EVIDENCE |
+| y3_ordinary_bridge | R206 D3: ordinary reductions as bridges | COLLAPSES: Hom ≤ gcd(a_h−2, h−1) ≤ 2√h+2 unless a_h = 2; m-part orthogonal; Mazur-bounded canonical maps; box is trace-0 | PROVED; EVIDENCE |
 | BRIDGE_WORLDS.md (deep) | three tiers of bridges (homomorphic ±1 / fixed symmetric rational expressions = rationals / Frobenius-invariant = K⁺ → F_h); unit twists (trivial unless totally positive) | no route; scoped negative + PM-II | see file |
 
 ## Synthesis III (O208): cross-combinations of (J)13–(J)38 aimed at the exits (E1)/(E2) (`s3_*`, deep file SYNTHESIS_SPARKS3.md; not yet triaged)

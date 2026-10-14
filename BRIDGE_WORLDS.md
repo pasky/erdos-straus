@@ -157,3 +157,11 @@ to reduce to the box, a Planck-scale hit, a Weil-bounded sum or B1. That *every*
 Assessment suggested by "Frob_h = Frob_∞", not a theorem. By-products: PM-II (EVIDENCE), the uniform-cyclotomy
 residue law (EVIDENCE), the 2-group slice genus criterion (PROVED, folklore-level), O207 spark 1's CM suggestion
 refuted (no instance in 10 737).
+
+## 8. Ordinary reductions (R206 D3 scope note; memo y3_ordinary_bridge) (PROVED + EVIDENCE)
+Thm 3.1 needs supersingular input; ordinary reductions are genuine bridges, but: (i) |Hom(E(F_h), F_h^*)| ≤
+gcd(a_h − 2, h − 1) ≤ 2√h + 2 unless a_h = 2 (Lang–Trotter primes, density zero); (ii) the m-part (m | h + 1, m > 2) of
+ANY finite abelian group maps into {±1}; (iii) canonical (global Tate-pairing) maps have image ≤ 12 (Mazur); (iv) the
+box is trace-0 data: with trace a the analogue of Type II is h | pj + (1 − a)c, a different equation. Trichotomy:
+a_h = 0 ↔ (h+1)-world, a_h = 2 ↔ (h−1)-world, otherwise a Hasse-bounded mixture. Imaginary-quadratic CM gives the
+finite-unit analogue of tier (c), and its non-unit instance h | N(p + 2c√−d) = p² + 4c²d is the Type I number.
