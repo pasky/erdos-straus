@@ -107,3 +107,36 @@ at the Lenstra–Coppersmith threshold, roughly constant hit-rate per octave, i.
 modulus 4Q₁ ≈ (4n + Q₁²)^{1/2} (e ≤ 1: finite search, the k-wall), and the single number of ES. So the transition
 "infinite lottery → finite search" happens between e = 2 and e = 1, and the transition "proved → lottery" between
 e = ∞ (fixed S) and every bounded e.
+*Corollary 3.2 (k-direction dichotomy; PROVED).* Every fixed-Q₁ slice of every variant is finite (EXPONENT_CAP
+Thm 2.1). Every fixed-k slice of ES^{[2]} ⊇ ES^{(y,1)} ⊇ ES is finite (Thm 2.1(a)). The k = 1 slice of ES^□ and,
+for gcd(n, 15) = 1, of ES^{(y)} (fixed S, |S| ≥ 4) is INFINITE: the sieve of Prop 3.1(a) (resp. Dirichlet) gives
+infinitely many distinct primes g, and g ≤ 2nQ₁²(n + Q₁²) forces Q₁ → ∞. So the k-wall exists exactly at relative
+cap ≤ 1 among these variants; for bounded absolute cap e ≥ 2 its absence is EVIDENCE only (§3 table).
+
+## 4. One family for all caps: "nX² + 1 has a divisor ≡ −1 (mod M)", M ≈ N^{1/(2e+2)}
+
+**Proposition 4.1 (PROVED).** Let n be odd, e ≥ 0, k, λ, R ≥ 1 with R odd, gcd(R, 2kn) = 1, M := 4kλ, g := MR − 1,
+X_e := 2k·M^e, N_e := nX_e² + 1. Then g | 4k²n + R^{2e} ⟺ g | N_e, and in that case (Q, g) with Q = λR^{e+1} is a
+shot with Q₀ = λR, overflow exactly R^e, den z = R^{2e} (if gcd(λR, n) = 1). Consequently
+`  ES^{(y,e)}(n) ⟸ ∃ k, λ ≥ 1: N_e = n(2k(4kλ)^e)² + 1 has a divisor g ≡ −1 (mod 4kλ) with R = (g+1)/(4kλ)`
+`                   odd, squarefree, prime to kn,`
+and for e = 0 this is exactly ES's shot family (λ = 1: "4k²n + 1 has a divisor ≡ −1 (mod 4k)"); for e = 1 it is
+the general ES^{[2]} shot (GROWING_MUTE (A, B) form with A = 2k, B = R, Q₀ = λB) with X₁ = 8k²λ.
+*Proof.* MR ≡ 1 (mod g) and gcd(M, g) = 1, so multiplying 4k²n + R^{2e} by M^{2e} gives 4k²nM^{2e} + 1 = N_e
+(mod g). Then D := (4k²n + R^{2e})/g ≡ −R^{2e} (mod 4k) (as g ≡ −1), and Prop 1.3's converse with (k, Q₁ = R^e)
+gives Q₀ = (g+1)/(4k) = λR and Q = Q₀Q₁ = λR^{e+1}; gcd(Q, Q₀k) = λR·gcd(R^e, k) = λR, so the overflow is R^e. ∎
+*Check (`scripts/pd_theta.py 201 8 300`):* for odd n ≤ 201, k, λ ≤ 8, e ≤ 2: 368 / 710 / 1276 shots (e = 0/1/2) found
+via N_e, each an exact solution with den z = R^{2e}; the equivalence g | 4k²n + R^{2e} ⟺ g | N_e checked on
+2 802 432 (n, e, k, λ, R) with e ≤ 3, R ≤ 300.
+*The modulus exponent.* log M/log N_e → θ_e := 1/(2e + 2) when k, λ are of comparable size (M^{e+1} = 2λ^{?}…: precisely
+M^{e+1} = 2λX_e, so M = (2λX_e)^{1/(e+1)} ≈ (2λ)^{1/(e+1)}(N_e/n)^{1/(2e+2)}):
+`  e = 0 (ES):            θ = 1/2   — Lenstra's regime (≤ 11 divisors in a class mod > N^{1/3}; bounded count)`
+`  e = 1 (ES^{(y,1)}, ES^{[2]}): θ = 1/4 — exactly the Coppersmith–Howgrave-Graham–Nagaraj threshold`
+`  e = 2:                 θ = 1/6   — below it: one N may have unboundedly many divisors in the class`
+`  e = ∞, S fixed (ES^{(y)}): M fixed (θ → 0) — Kummer/Chebotarev firing, sieve-provable (Thm 4.2)`
+`  no mute (ES^□):        M = 4                 — Dirichlet`
+*Reading.* This is the brief's phase diagram on one axis. The two archimedean facts of §2–§3 are its shadows:
+θ ≥ 1/4 (e ≤ 1) is where the cofactor D = N/g is smaller than the modulus, which is what powers the k-wall
+(proof of Thm 2.1(a): D < Q₁ forces D = Q₁ − 4k²n) — exactly CHN's "at most O(1) divisors in a class above N^{1/4}";
+θ < 1/4 is where the k = 1 slice becomes an infinite lottery (§3 EVIDENCE). And θ → 0 is the only regime with a
+proof. The brief's hook (R200 M1: P ≈ r^{1/4}) is the e = 1 line read from the prime-g side.
