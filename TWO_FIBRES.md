@@ -15,18 +15,21 @@ G_w = [[v, −1, 0], [−1, t, −1], [0, −1, u]] (det n), L_w its lattice, T_
 * **Theorem B (T1, integral form; PROVED).** Every path lattice of odd square determinant m² is an index-m sublattice of
   ℤ³; for m = q prime it is ker(f mod q) for a functional f **off** the conic f·f ≡ 0 (forced by cyclicity of the
   discriminant group).
-* **Proposition G′ (PROVED relative to Jacquet–Shalika + Bombieri–Vinogradov; memo y1_gl3_cuspidal).** No finite
-  combination of exponent-zero twisted divisor convolutions d_k(n; ψ…) and coefficients λ_π(n)ψ(n) of unitary cuspidal π
-  on GL(m) equals N₋, under a common genericity hypothesis at one odd prime ℓ₀ ≡ 1 (L) — **including the self-dual orthogonal (Sym²/Ad) class** O205 left open: orthogonality only lets
-  the cusp side absorb a constant at squares, and the constant is killed by the growth of N₋ on primes.
+* **Proposition G″ (PROVED relative to the PNT for cuspidal GL(m) L-functions; memo y1_gl3_cuspidal; R214 repair D6).**
+  No finite combination of exponent-zero twisted divisor convolutions d_k(n; ψ…) and coefficients λ_π(n)ψ(n) of unitary
+  cuspidal π on GL(m) (any m ≥ 2, any characters) equals N₋ — **unconditionally**, including all self-dual orthogonal
+  (Sym²/Ad) π that O205 left open. The mechanism is **size at primes, not T1**: on primes ℓ ≡ 1 (L) every d_k(ℓ; ψ…) = k, so
+  E is constant there, the cusp part has mean o(1), and N₋ ≥ ω₃(p + 1) has divergent mean. (The earlier Prop G′ used T1
+  plus a one-prime genericity hypothesis, which fails e.g. for Ad of a tetrahedral weight-one form — R214 D7; that analysis
+  survives only as Remark G in the memo.)
 * **Hyperbolic reading (memo y1_gamma8_trace; G1, G2 PROVED):** χ is a function of M_w mod 8 (Γ(8)-conjugation invariant)
   and not an SL₂(ℤ)-class function; the ES content of a trace-formula count is the extraction of three-letter presentations,
   at most a T^{−2/3+ε} fraction (B3; R209 repair of an unproved T^{−1+o(1)}).
 * **Constructions that failed (§3):** three-squares certificates give only a sufficient local condition (nothing beyond Hasse at p); a sign-dominance
-  injection N₊(p) ≤ N₋(p) is **false** (2 402 primes p ≡ 1 (4) below 10⁶ violate it, the worst all near squares); parity
+  injection N₊(p) ≤ N₋(p) is **false** (2 402 primes p ≡ 1 (4) below 10⁶ violate it; the worst are p ≡ 1 (24) with (p/5) = +1 — R214 repair D9: *not* archimedeanly near squares); parity
   gives only (p + 2, 1, 1); Cerednik–Drinfeld/Ribet/JL transfers act on edge sets, not on path data (B2).
 * Assessment: one new exact dictionary with a usable asymmetry (class number one on the χ = +1 side) and one steering
-  theorem (G′). No route to ES; the content stays the level-t divisor-in-class lottery (B2).
+  theorem (G″). No route to ES; the content stays the level-t divisor-in-class lottery (B2).
 
 ## 0. Iteration log (construction first; barrier as steering wheel)
 (I1) O205's two fibres are asymmetric: the char-2 side is B_{2,∞}, class number one. Construct the explicit model →
@@ -35,7 +38,7 @@ Theorem A (§1). Barrier hit: H3 is a genus statement on a divisor-in-class fami
 at squares this gives Theorem B (T1 as a positive embedding), at primes only local certificates (§3.1).
 (I3) Violate "bounded multiplicity / main-term certificates" (B3): look for a structural injection χ = +1 → χ = −1 at
 fixed p (it would prove ES-five, since (p + 2, 1, 1) has χ = +1 for p ≡ 1 (4)). Refuted numerically (§3.2).
-(I4) Violate "finite fixed-level Eisenstein" (Thm 9.1/Prop 2.3) by cuspidal GL(3) terms (O205 spark (c)) → Prop G/G′:
+(I4) Violate "finite fixed-level Eisenstein" (Thm 9.1/Prop 2.3) by cuspidal GL(3) terms (O205 spark (c)) → Prop G″ (R214 repair: killed by size at primes, T1 not needed):
 dead, including the orthogonal class (memo y1_gl3_cuspidal).
 (I5) Violate "class function" (trace formulas): χ is a Γ(8)-class function (G1) but the words are a non-spectral
 extraction (memo y1_gamma8_trace).
@@ -47,7 +50,8 @@ y1_heegner_level_t); involutions: y1_reciprocal_parity.
 **Theorem A.** Let n be odd and w ∈ X_n. TFAE:
 (i) Diff(T_w) = {2}, i.e. (−A/ℓ)^{v_ℓ(n)} = +1 for every odd prime ℓ (for n = p prime: χ(w) = +1);
 (ii) C₀(L_w) ⊗ ℚ ≅ B_{2,∞};
-(iii) ∃ x, y ∈ ℤ³ with |x|² = A*, |y|² = A, x·y = 1; moreover x, y can be chosen with x × y ≡ x + y (mod t);
+(iii) ∃ x, y ∈ ℤ³ with |x|² = A*, |y|² = A, x·y = 1; moreover x, y can be chosen with x × y ≡ x + y (mod t) (after composing with a reflection if necessary: an improper
+signed permutation turns it into x × y ≡ −(x + y); R214 repair D1);
 (iv) L_w(n) embeds isometrically in I₃ = ℤ³, i.e. n·G_w is a Gram matrix of three integer vectors.
 *Proof.* (i)⟺(ii) is CHI_FLIP Thm 1.1 with SIGN_IDENTITY Prop 4.1(b). (ii)⇒(iii): C₀(L_w) = ℤ⟨1, α, β, αβ/t⟩
 (CONSTRUCTIVE) is an order of B_{2,∞}, contained in a maximal order; B_{2,∞} has one conjugacy class of maximal orders,
@@ -66,19 +70,28 @@ CHECKED. (iii) ⟺ (i): all 81 857 words of odd n ≤ 3001 (`scripts/y1_three_sq
 The congruence in (iii) is attained for every lifting word with n ≤ 151.
 
 **Corollary A1 (ES-five as non-embeddability).** For p prime, ES-five(p) ⟺ ∃ w ∈ X_p with p·G_w ∉ Gram(ℤ³) ⟺ ∃ w whose
-binary T_w is not represented by x² + y² + z² (Gauss's three-squares genus of det tp, Disq. art. 278–292).
+binary T_w is not represented by x² + y² + z² (Gauss's three-squares genus of det tp, Disq. art. 278–292). Here ES-five(p)
+⟺ N₋(p) ≥ 1 is MODEL_SPECIFIC Thm 3.1(a) with CHI_FLIP Cor 1.3 / CONSTRUCTIVE Cor 2.2 (R214 repair D4).
+*Classical content (R214 repair D2).* (i) ⟺ (iii) is the classical local–global principle for binary forms represented by the
+one-class genus of x² + y² + z² (Gauss, *Disq.* art. 288–292; Mordell 1930; Ko 1937; Siegel), specialised to T_w; Thm B and
+Prop A2 are standard maximal-lattice/one-class-genus arguments (A2 ≈ Eichler orders of level p in the Hurwitz order ↔ P¹(𝔽_p)
+mod units, as in the LPS/Brandt-matrix literature). Only the word-level packaging is new to the campaign.
 
 **Proposition A2 (the χ = +1 genus is the conic).** For p prime, the positive ternary lattices L of det p isotropic at p
 are exactly the L_ℓ := ({x ∈ ℤ³ : x ≡ λℓ (mod p), λ ∈ ℤ}, |x|²/p) with ℓ ∈ C(𝔽_p), C: x² + y² + z² = 0.
 *Proof.* Such L is unimodular at odd ℓ ≠ p and isotropic at p, so C₀(L) ⊗ ℚ is ramified exactly at {2, ∞}: C₀ ≅ B_{2,∞},
 and L ⊗ ℚ ≅ I₃(p) ⊗ ℚ (a ternary space is determined up to similarity by C₀; the scale is fixed by det). Hence
-L(p) ⊗ ℚ ≅ I₃ ⊗ ℚ; L(p) lies in a maximal classical lattice on this space, which is ≅ I₃ (one genus, one class), so
+L(p) ⊗ ℚ ≅ I₃ ⊗ ℚ; L(p) lies in a norm-maximal lattice on this space; these form one genus (O'Meara 91:2), and ℤ³ is
+norm-maximal (an index-2 overlattice would need x/2 with x ∈ ℤ³ ∖ 2ℤ³, |x|² ≡ 0 (4), impossible), so that genus is gen(I₃),
+which has one class (R214 repair D3); so
 L(p) ↪ ℤ³ with index p² (determinants p⁴ vs 1). The image M has all inner products ≡ 0 (p), so M mod p is totally
 isotropic in 𝔽_p³, of dimension ≤ 1, and [ℤ³ : M] = p² forces M = pℤ³ + ℤℓ̃ with ℓ̃·ℓ̃ ≡ 0 (p). Conversely each L_ℓ is
 integral, positive, of det p⁴/p³ = p, and L_ℓ ⊗ ℚ ≅ I₃(1/p) ⊗ ℚ has C₀ ≅ B_{2,∞}, so it is isotropic at p. ∎
 So 𝔊⁺_p = image of C(𝔽_p)/O(ℤ³) ≅ P¹(𝔽_p)/S₄, hence at most #orbits ≈ (p + 1)/24 classes. CERTIFIED (`scripts/y1_conic_orbits.py`, against
-`scripts/ce_classes.py`): equal counts for p = 13, 17, 29, 37, 41, 61, 73, 97, 101; p = 109: 6 orbits, 5 classes (onto, not
-always injective — two orbits can give isometric lattices since ℤ³ need not be the unique unimodular overlattice).
+`scripts/ce_classes.py`): equal counts for p = 13, 17, 29, 37, 41, 61, 73, 97, 101; p = 109: 6 orbits, 5 classes. R214 repair
+D5 (independent enumeration, `scripts/review_r214_conic.py`): for **all** primes 5 ≤ p ≤ 127 the map is onto; it is injective
+except at **p = 71 (3 → 2), 79 (4 → 3), 107, 109, 113, 127** (each time two size-24 orbits merge — two orbits can give
+isometric lattices since ℤ³ need not be the unique unimodular overlattice; Assessment: the w_p swap of an edge's ends).
 *Reading.* This is Deligne–Rapoport + Cerednik–Drinfeld made concrete: the singular points of X₀(2p)_{𝔽₂} are
 X₀(p)^{ss}_{𝔽̄₂} = P¹(𝔽_p)/Aut(E_{j=0}) (A₄ = Hurwitz units mod ±1), and the cube group S₄ adds w₂. A χ = +1 word is a
 point ℓ of the conic **together with a path basis of L_ℓ**; a χ = −1 word is an edge of the supersingular 2-isogeny graph
@@ -91,7 +104,8 @@ together with a path basis (CONSTRUCTIVE (J)35), and that side has no class-numb
 there are a, b, c ∈ ℤ³ with |a|² = v, |b|² = t, |c|² = u, a·b = b·c = −1, a·c = 0. If m = q is prime, L_w = ker(f mod q)
 for a primitive f ∈ ℤ³ with f·f ≢ 0 (mod q).
 *Proof.* L_w ⊗ ℚ has square determinant and C₀ ≅ B_{2,∞} (SIGN_IDENTITY Prop 4.1(d)), so L_w ⊗ ℚ ≅ I₃ ⊗ ℚ. L_w lies in
-a maximal classical integral lattice on this space; these form one genus (Eichler; O'Meara §91), containing I₃, and the
+a norm-maximal lattice on this space; these form one genus (Eichler; O'Meara 91:2), and ℤ³ is norm-maximal (R214 repair
+D3: an index-2 overlattice would need x/2, x ∈ ℤ³ ∖ 2ℤ³, |x|² ≡ 0 (4)), so it contains I₃, and the
 genus of I₃ has one class. Index: √(det L_w) = m. For m = q prime an index-q sublattice is ker(f mod q) for a primitive f;
 if f·f ≡ 0 (mod q), then f ∈ M := ker f and f/q ∈ M^#, giving an element of order q in M^#/M outside the subgroup ℤ³/M ≅
 ℤ/q, so M^#/M ≅ (ℤ/q)²; but the discriminant group of a path lattice is cyclic (the 2×2 minor of G_w equal to 1;
@@ -114,12 +128,16 @@ conditions at odd ℓ | t are automatically satisfied (T_w ≡ −(x − y)² mo
 χ = +1 side's integral structure certifies nothing beyond the local sign (Theorem A: embeddability ⟺ Hasse invariant):
 steering consequence — **the class-number-one asymmetry is invisible at the level of single words.**
 
-**3.2 Sign dominance (REFUTED, EVIDENCE).** An injection χ = +1 → χ = −1 inside X_p would prove ES-five(p) for p ≡ 1 (4)
+**3.2 Sign dominance (REFUTED; CERTIFIED finite computation, reproduced from scratch by R214).** An injection χ = +1 → χ = −1 inside X_p would prove ES-five(p) for p ≡ 1 (4)
 (the reversal-fixed word (p + 2, 1, 1) has χ = +1; y1_reciprocal_parity R1). The numbers forbid it: among the 39 174 primes
-p ≡ 1 (4), 5 < p < 10⁶, **N₋(p) < N₊(p) for 2 402** (census `si_census.c`). The extreme cases are primes just above a
-square: p = 2521 (= 50² + 21; N₋ = 4, N₊ = 33), 9601 (98² − 3), 1249, 3361, 70 249 (265² + 24), 297 049 (545² + 24),
-871 249 (N₋ = 46, N₊ = 185). This matches (J)27 (primes near squares behave like squares): words with letters small
-compared with √p see n mod small moduli, where p looks like m². So no fibre-swapping injection exists.
+p ≡ 1 (4), 5 < p < 10⁶, **N₋(p) < N₊(p) for 2 402** (census `si_census.c`). (R214 repair D9 — the earlier
+"primes just above a square" description was wrong.) The 13 primes < 10⁶ with N₊ ≥ 4N₋ are 1249, 2521, 3049, 3361, 9601,
+13 249, 29 401, 70 249, 225 289, 297 049, 361 321, 871 249, 925 369 (e.g. 2521: N₋ = 4, N₊ = 33; 871 249: N₋ = 46, N₊ = 185).
+Several are **not** archimedeanly near a square (29 401 = 171² + 160, 225 289 = 474² + 613, 871 249 = 933² + 760, gaps to the
+next square 183, 336, 1 107). What all 13 share is arithmetic: **p ≡ 1 (24) and (p/5) = +1** (11 of 13 also (p/7) = +1) —
+p is a quadratic residue modulo the small moduli that short words see, which is the (J)27 reading ("p looks like a square
+to the small moduli"), not "p is close to m²". Some are also m² + 24 or m² − 3, or values of other small forms
+(29 401 = 6·70² + 1, 871 249 = 2·660² + 7²). So no fibre-swapping injection exists.
 
 **3.3 Counting on both sides is genus-level (Assessment).** On the χ = +1 side the representation numbers r(T_w, I₃) are
 given exactly by Siegel's formula (one class), and on the χ = −1 side Σ_O r(T_w, O⁰)/|O^×| over maximal orders of B_{p,∞}
@@ -133,11 +151,12 @@ p ≡ 1, 3, 5, 7 (8): the split is governed by 2-adic cells, not by fibre masses
 
 ## 4. Barrier summary
 * B2: every statement here (A1, 3.1–3.3) is "the level-t family meets the χ = −1 genus" — the moving modulus is t.
-* B3/B6: trace formulas see the words only as a T^{−1+o(1)} fraction (y1_gamma8_trace); JL/Ribet/level raising act on
+* B3/B6: trace formulas see the words only as at most a T^{−2/3+ε} fraction (R214 repair D11) (y1_gamma8_trace); JL/Ribet/level raising act on
   edge sets uniformly in families (y1_cerednik_swap).
 * B5/T1: Theorem B is T1, now as an embedding into ℤ³; Theorem A at primes uses only the Hasse invariant at p.
-* Thm 2.2 / Prop 2.3 (O205) extended: Prop G′ excludes finite combinations of twisted d_k's and unitary GL(m) cusp
-  coefficients (common one-prime genericity); an exact identity for N₋, if any, must lie outside that class.
+* Thm 2.2 / Prop 2.3 (O205) extended: Prop G″ excludes all finite combinations of twisted d_k's and unitary GL(m) cusp
+  coefficients, unconditionally, by size at primes (not T1); an exact identity for N₋, if any, must have a non-constant
+  main term on primes ≡ 1 (L), i.e. lie outside that class.
 
 ## 5. Numerics (all tiny outputs)
 | check | script | range | result |
@@ -147,5 +166,5 @@ p ≡ 1, 3, 5, 7 (8): the split is governed by 2-adic cells, not by fibre masses
 | T1: all words lift | y1_three_squares.c `sq` | odd squares ≤ 10⁵ (8 073 words) | all lift |
 | (iv), Thm B | y1_z3_gram.py | n ≤ 451 (7 934 words) | 0 failures |
 | f off conic | y1_square_sublattice.py | q ≤ 19 | all off conic |
-| 𝔊⁺_p = conic/S₄ | y1_conic_orbits.py | 10 primes ≤ 109 | 9 equal, 1 onto (6 → 5) |
+| 𝔊⁺_p = image of conic/S₄ | y1_conic_orbits.py; R214 review_r214_conic.py | 10 primes ≤ 109; R214: all 5 ≤ p ≤ 127 | onto; non-injective at 71, 79, 107, 109, 113, 127 |
 | sign dominance | si_census.c | primes ≤ 10⁶ | false at 2 402 primes |

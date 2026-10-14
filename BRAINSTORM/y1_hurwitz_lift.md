@@ -9,7 +9,8 @@ squares). So the χ = +1 side should have an explicit *cubic-lattice model*, and
 theorem).** Let n be odd, w ∈ X_n, A = tu − 1, A* = tv − 1, G_w the path Gram. TFAE:
 (i) Diff(T_w) = {2}, i.e. ε_ℓ(Q_w) = (−A/ℓ)^{v_ℓ(n)} = +1 for every odd ℓ (for n = p prime: χ(w) = +1);
 (ii) C₀(L_w) ⊗ ℚ ≅ B_{2,∞};
-(iii) ∃ x, y ∈ ℤ³ with x·x = A*, y·y = A, x·y = 1 (and then one can choose them with x × y ≡ x + y (mod t));
+(iii) ∃ x, y ∈ ℤ³ with x·x = A*, y·y = A, x·y = 1 (and then one can choose them with x × y ≡ x + y (mod t), after composing with a reflection if
+necessary — R214 repair D1);
 (iv) **n·G_w is the Gram matrix of three vectors of ℤ³**, i.e. L_w(n) ↪ I₃.
 *Proof.* (i)⟺(ii): CHI_FLIP Thm 1.1 / SIGN_IDENTITY Prop 4.1(b). (ii)⇒(iii): C₀(L_w) is an order of B_{2,∞}, hence lies in
 a maximal order, conjugate to H; i = 1 + e₁e₂, j = 1 + e₂e₃ go to pure quaternions of H, i.e. vectors x, y ∈ ℤ³ with
@@ -22,8 +23,9 @@ n-multiples of the dual basis have Gram n·G_w. (iv)⇒(ii): L_w ⊗ ℚ is then
 invariant. ∎
 **Corollary H2 (T1, integral form; PROVED).** If n = m² (odd), **every path lattice L_w of X_n is an index-m sublattice
 of ℤ³**: there are a, b, c ∈ ℤ³ with |a|² = v, |b|² = t, |c|² = u, a·b = b·c = −1, a·c = 0.
-*Proof.* L_w ⊗ ℚ ≅ I₃ ⊗ ℚ (det a square, C₀ = B_{2,∞}, Prop 4.1(d)); L_w lies in a maximal classical lattice; those
-form one genus (Eichler; O'Meara §91), which contains I₃ and has one class. ∎
+*Proof.* L_w ⊗ ℚ ≅ I₃ ⊗ ℚ (det a square, C₀ = B_{2,∞}, Prop 4.1(d)); L_w lies in a norm-maximal lattice; those
+form one genus (Eichler; O'Meara 91:2), and ℤ³ is norm-maximal (an index-2 overlattice would need x/2 with x ∈ ℤ³ ∖ 2ℤ³,
+|x|² ≡ 0 (4), impossible), so the genus is gen(I₃), which has one class (R214 repair D3). ∎
 **Corollary H3 (ES-five as non-embeddability; PROVED).** For p prime: ES-five(p) ⟺ **some word w ∈ X_p has p·G_w not
 realisable as a Gram matrix of integer vectors**, i.e. no a, b, c ∈ ℤ³ with |a|² = pv, |b|² = pt, |c|² = pu,
 a·b = b·c = −p, a·c = 0. Equivalently: some binary path form [[tv − 1, 1], [1, tu − 1]] is **not represented by
@@ -36,13 +38,15 @@ M mod p is totally isotropic in 𝔽_p³, so of dimension ≤ 1, and the index f
 of C(𝔽_p)/O(ℤ³) ≅ P¹(𝔽_p)/S₄ (at most ≈ (p + 1)/24 classes; the map is onto, not always injective) — the octahedral quotient that Deligne–Rapoport/Cerednik–Drinfeld
 predict for the singular points of X₀(2p)_{𝔽₂} (X₀(p)^{ss}_{𝔽̄₂} = P¹(𝔽_p)/Aut(E_{j=0}), extended by w₂).
 CERTIFIED (`scripts/y1_conic_orbits.py`): #orbits = #𝔊⁺_p (ce_classes) for p = 13, 17, 29, 37, 41, 61, 73, 97, 101;
-at p = 109, 6 orbits vs 5 classes (two orbits give isometric lattices: the map is onto, not always injective).
+at p = 109, 6 orbits vs 5 classes. R214 repair D5: for all primes 5 ≤ p ≤ 127 the map is onto, and non-injective exactly at
+p = 71, 79, 107, 109, 113, 127 (two orbits give isometric lattices).
 
 ## Literature
 Gauss, *Disquisitiones* art. 278–292 (binary forms represented by x² + y² + z²; z^⊥ correspondence); Venkov (1931);
 Hurwitz order, class number 1 of B_{2,∞} (Vignéras, *Arithmétique des algèbres de quaternions*, LNM 800);
 O'Meara, *Introduction to Quadratic Forms*, §91 (maximal lattices form one genus), §102 (representations, one-class genus);
-Siegel's mass formula for I₃; Deligne–Rapoport for the bad fibres of X₀(2p). Novelty (Assessment): the χ = +1 ⟺ Hurwitz
+Siegel's mass formula for I₃; Deligne–Rapoport for the bad fibres of X₀(2p). Classical content (R214 repair D2): (i) ⟺ (iii) is the local–global principle for binary forms represented by the
+one-class genus of x² + y² + z² (Gauss art. 288–292; Mordell 1930; Ko 1937; Siegel) specialised to T_w. Novelty (Assessment): the χ = +1 ⟺ Hurwitz
 embedding is implicit in CONSTRUCTIVE Thm 1.2/CHI_FLIP Cor 1.3; the explicit word-level ℤ³ forms H1(iii)/(iv), H2 and H4
 appear new to the campaign ("three squares" occurs elsewhere in the repo, but not in this role). No external novelty claim.
 

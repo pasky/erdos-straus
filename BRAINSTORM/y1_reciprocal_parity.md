@@ -15,8 +15,10 @@ and **N₋(p) ≡ [p ≡ 3 (mod 4)] (mod 2)** (also at p = 3). (R209 repair: (p 
 reciprocal closed geodesic; we only use the word reversal.) The fixed word is exactly the trivial certificate for p ≡ 3 (4) (SIGN_IDENTITY Lemma 1.2), and for p ≡ 1 (4) parity gives nothing.
 **Fact R2 (EVIDENCE).** No finer congruence: for primes p ≡ 1 (4) below 10⁶, N₋(p) mod 8 is equidistributed over
 {0, 2, 4, 6} (counts 4780/5021/4873/4949 for p ≡ 5 (8); 4896/4805/4835/5016 for p ≡ 1 (8); census `si_census.c`).
-**Fact R3 (PROVED).** The other "Klein" symmetry of the cubic (rotation with u = t, bsA_fricke_vieta F2) changes n except
-on a thin set, and rotation flips χ on whole cells (CHI_FLIP rotation law), so it does not act on X_p with a fixed sign.
+**Fact R3 (PROVED, trivial; R214 repair D12).** The rotation (t, u, v) ↦ (u, v, t) changes n by u − t, so it preserves n iff
+u = t, and then (t, t, v) ↦ (t, v, t) **is the reversal** of R1 (likewise (t, u, v) ↦ (v, t, u) needs v = t and gives the
+reversal (t, u, t) ↦ (t, t, u)). So on X_p rotations give no new symmetry, and there they preserve χ; the χ-flips of the
+CHI_FLIP rotation law concern n-changing rotations and are irrelevant to X_p.
 
 ## Literature
 Sarnak, *Reciprocal geodesics*, Clay Math. Proc. 7 (2007); Zagier reduction; PARITY_FIXED_P.md (O165) for the general

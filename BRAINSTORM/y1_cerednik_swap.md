@@ -16,6 +16,9 @@ J^{2p} at 2 are built on the same edge set, and symmetrically). So:
 * **χ = −1 words = path-shaped edges of the 2-adic tree quotient (the supersingular 2-isogeny graph, CONSTRUCTIVE (J)35);**
 * **χ = +1 words = path-shaped edges of the p-adic tree quotient by the Hurwitz group**, a quotient with 2 vertices
   (class number one) and ≈ (p + 1)/12 edges = P¹(𝔽_p)/A₄ — made explicit in y1_hurwitz_lift H4 (conic over 𝔽_p mod the cube group).
+  (R214 repair D13: different objects are counted — ≈ (p + 1)/12 counts edges of Γ_p\𝒯_p, i.e. P¹(𝔽_p) mod the Hurwitz
+  units A₄; H4/Prop A2's ≈ (p + 1)/24 counts *lattice classes* in 𝔊⁺_p, i.e. the image of P¹(𝔽_p)/S₄ (the extra factor 2 is
+  w₂ = the cube-group element outside A₄), with further identifications at some p (TWO_FIBRES A2: 71, 79, 107, …).)
 The swap X₀(2p) ↔ X^{2p} exchanges "which fibre is the tree of which algebra", so the two signs of ES are the two
 **p-adic/2-adic uniformisations** of one Shimura curve. T1 (n = m²): no prime fibre at all; every word is a Hurwitz edge.
 

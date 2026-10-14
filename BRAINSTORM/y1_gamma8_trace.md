@@ -15,12 +15,13 @@ trace formula would need correspondence/coset traces f(γ mod 8) on SL₂(ℤ), 
 γ ≡ I; R209). *Proof.* χ is a cell function of (t, u, v) mod 8 (CHI_FLIP Cor 1.2); the map cell ↦ M mod 8 is
 finite, and `scripts/y1_matrix_mod.py` checks that cells with equal M mod 8 have equal χ (all cells occur for letters < 48;
 236 keys, 0 clashes). Mod 4 is not enough (6 480 clashes).
-**Fact G2 (PROVED, explicit).** χ is **not** an SL₂(ℤ)-class function: M_{(1,3,3)} (n = 3, χ = +1) and M_{(3,3,1)} (n = 5,
-χ = −1) are conjugate (rotation of the cyclic word); 88 such pairs with non-square n among letters ≤ 11 (CHI_FLIP's rotation
+**Fact G2 (PROVED, explicit).** χ is **not** an SL₂(ℤ)-class function: M_{(3,5,3)} (n = 37, χ = −1) and M_{(5,3,3)} (n = 39,
+χ = +1) are conjugate (rotation of the cyclic word) and **hyperbolic** (trace T = 34) (R214 repair D10: the earlier pair
+(1, 3, 3)/(3, 3, 1) has trace 2, i.e. is parabolic); 88 such pairs with non-square n among letters ≤ 11 (CHI_FLIP's rotation
 law). So no character/representation of SL₂(ℤ) and no function of the SL₂(ℤ)-class (trace, length, genus of f_w, linking
 number with the trefoil), in particular no character or trace of a representation of SL₂(ℤ), can be the sign (matrix
 coefficients are not excluded; R209). Γ(8) is the coarsest natural level.
-**Fact G3 (the sign is the genus character at n of the *definite* partner; PROVED).** With T_w = [[A*, 1], [1, A]] (disc
+**Fact G3 (reformulation; PROVED but content-free — it is multiplicativity of the Jacobi symbol (−A/n); R214 D10).** With T_w = [[A*, 1], [1, A]] (disc
 −4tn), for each odd prime ℓ | n the assigned character χ_ℓ(T_w) = (A/ℓ) (T_w represents A, ℓ ∤ A) is a genus character of
 T_w, and χ(w) = (−1/n)·Π_{ℓ | n} χ_ℓ(T_w)^{v_ℓ(n)} (for n squarefree the product is the genus character χ_{n*}(T_w), n* = (−1)^{(n−1)/2}n, so χ(w) = (−1/n)·χ_{n*}(T_w); e.g.
 (2, 1, 4) ∈ X₃: χ = −1, χ_{−3}(T_w) = +1, (−1/3) = −1).
