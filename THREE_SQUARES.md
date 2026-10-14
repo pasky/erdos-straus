@@ -150,11 +150,16 @@ class); on χ = −1 words both α_p and α₂ vanish (Hilbert reciprocity; p = 
 positive "χ = +1 extension" of the weight exists; the checkpoint-1 formula N₊ = Σ r/ρ₊ (0/0 on negative words) is
 withdrawn. Exact: N₊ = #{w : r(T_w, I₃) > 0}; r/48 ∈ {1, 2, 3, 4, 6} for p ≤ 157 (source of O209's 5-vs-6); r ≠ r*
 in general (p = 61, (63,1,1): 288 vs 192). Brute-force check of Thm A: 166 words of primes ≤ 61, 0 mismatches.
-**Prop 4.3 (circularity).** An independent evaluation of Σ_w r(T_w, I₃) is the count of (x, y, t) with x·y = 1,
+**Prop 4.3 (circularity; the lattice-point description is PROVED, the "not an orbit, Siegel–Weil does not apply"
+reading is an Assessment; R224 repair).** An independent evaluation of Σ_w r(T_w, I₃) is the count of (x, y, t) with x·y = 1,
 |x × y|² = tp, t | |x|² + 1, |y|² + 1 — the level t is a modulus inside the conditions; not an arithmetic-group orbit.
 **4.2 Conic (memo y8_conic_height).** For a compatible pair (x × y ≡ x + y mod t; an arbitrary z with z^⊥ ≅ T_w
 does not suffice — R-O217 counterexample p = 61, (63,1,1), height 2), ℓ(w) = (x × y) mod p, height h(ℓ) = min L_ℓ ≤ min(t, u, v) ≤ (3p + 4)^{1/3};
-observed h = min letter (p = 1009, 15/15; p = 61, 5/5; repaired script). Boundary words u = 1 ↔ ideals (v, 1 + √−p) | (1 + √−p) in the principal
+**Lemma 4.2 (R224 repair: PROVED, was "observed").** h(ℓ(w)) = min(t, u, v) for every compatible pair. *Proof.*
+(L_ℓ, |·|²/p) ≅ (ℤ³, Q_w), so h = min Q_w. If m = min letter ≥ 3: Q_w ≥ (v−1)x² + (t−2)y² + (u−1)z², and two non-zero
+coordinates give ≥ 2m − 3 ≥ m. If m = 2: Q_w − (2x² + 2y² + 2z² − 2xy − 2yz) ≥ 0 and the latter form is even positive
+definite, so Q_w ≥ 2. m = 1 trivial. ∎ (Checks: p = 1009, 15/15; p = 61, 5/5; R224: 17/17 and 5/5. h is therefore
+independent of the compatible pair.) Boundary words u = 1 ↔ ideals (v, 1 + √−p) | (1 + √−p) in the principal
 genus of discriminant −4p, which is the three-squares genus; at most τ(p + 1) of its ≈ h(−4p)/2 classes.
 
 ## 5. 3SQ — the exception-free three-squares SQ (CONJECTURE; memo y8_three_squares_sq)
@@ -170,15 +175,16 @@ odd-exponent primes are ≡ 1 (8) (possibly several; no reduction to a single pr
 * B1: Lemma 3.2 is Mordell's covering; for lnr ≥ 11 no congruence covering (y4_mordell_witness).
 * B3/B6: the §2 law and the conic/Siegel–Weil statements are averages; at a single p the lnr pattern only predicts
   probabilities.
-* B4: clean-level clusters arise exactly when tp + 1 has few rough prime factors — the pigeonhole over divisor
+* B4: clean-level clusters arise when tp + 1 has few rough prime factors, or is a norm tm² + c² (T1-type levels,
+  Lemma 1.4; R224 repair: not "exactly") — the pigeonhole over divisor
   classes has nothing to work with (the near-profinite-square primes are the B4-hard ones, quantitatively).
 * T1: every statement is checked against squares: all levels clean (Prop 1.3), 3SQ ⇐ is Thm B.
 
 ## 7. Numerics index (tiny outputs; heavy files in /tmp only)
 | check | script | range | result |
 |---|---|---|---|
-| sign ratio vs lnr / vs dist to squares | y8_census_features.py on si_census | primes ≡ 1 (4) < 10⁶ | flat in distance, monotone in lnr |
-| forced-+ words | y8_smooth.c | 1 500 primes in (2·10⁵, 10⁶) | 0 exceptions; N₋/(N − S) ≈ 0.66 |
+| sign ratio vs lnr / vs dist to squares | y8_census_features.py on si_census | primes ≡ 1 (4) < 10⁶ | flat at the √p scale, monotone in lnr; deficit at bounded p − m² (R224, Lemma 1.4) |
+| forced-+ words | y8_smooth.c | 1 500 primes in (2·10⁵, 10⁶) | 0 exceptions; N₋/(N − S) 0.67 → 0.60 (R224, all primes; was "≈ 0.66") |
 | clean-level law | y8_levels.py | 600 primes, t ≤ 30 | model within 0.04 |
 | clean clusters | y8_clean_clusters.py | 13 worst primes | 7.3/10 clean vs 3.95 |
 | admissibility gap | y8_admissible.py | p ∈ (10⁵, 1.2·10⁵), t ≤ 30 | 0.692 unclean, 0.316 χ = −1 |
