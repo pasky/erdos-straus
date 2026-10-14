@@ -64,8 +64,8 @@ Q₁ | Q₀ then gives Q₁ ≤ (n+1)/2; so Q₁ > (n+1)/2 forces the case kj' <
 n ≡ 2 (mod 3) at k = 1 by the family Q₁ = W(1) = (16n + 1)/3, g = 4Q₁ − 1 = (64n + 1)/3, D = (4n + 1)/3, Q = Q₁²
 (check: Dg = (4n+1)(64n+1)/9 = 4n + Q₁²; D ≡ 3 (mod 4) iff n ≡ 2 (mod 3); gcd(Q₁, n) = 1), an ES^{[2]} shot
 (even ES^{(y,1)} when 16n + 1 is squarefree) with overflow ≈ 5.3n. (Also Q₁ = 4n + 3, D = 3 for n ≡ 2 (mod 3).) (b): k/Q₁² up to 0.436 is observed ((n, k, Q₁) = (29, 126, 17), g = 8567).
-*Check (`scripts/pd_band.py 101 6 1.3`, `scripts/pd_band2.py 41 41`; exact rationals):* all 360 shots with odd
-n ≤ 101, k ≤ 6, Q₁ ≤ 1.3·W(k), and all 36 shots with n ≤ 41, (n+1)/2 < Q₁ ≤ 41, k ≤ 2Q₁²: identity (1.1), solution,
+*Check (`scripts/pd_band.py 101 6 1.3`, `scripts/pd_band2.py 41 41`; exact rationals):* all 348 shots (gcd(Q, n) = 1; 12 further
+solutions with gcd(Q, n) > 1 skipped) with odd n ≤ 101, k ≤ 6, Q₁ ≤ 1.3·W(k), and all 36 shots with n ≤ 41, (n+1)/2 < Q₁ ≤ 41, k ≤ 2Q₁²: identity (1.1), solution,
 den z = Q₁² (when gcd(Q₀, n) = 1), walls (a), (b) hold; max Q₁/W(k) = 1.000, max k/Q₁² = 0.436.
 *Reading.* Without the self-mute cap the k = 1 slice is infinite and elementary (ES^□: "4n + Q₁² has a divisor
 ≡ 3 (mod 4)", Dirichlet). The cap Q₁ | Q₀ converts the modulus 4 into 4Q₁ and the slice into a finite search: the
@@ -140,8 +140,8 @@ the general ES^{[2]} shot (GROWING_MUTE (A, B) form with A = 2k, B = R, Q₀ = �
 *Proof.* MR ≡ 1 (mod g) and gcd(M, g) = 1, so multiplying 4k²n + R^{2e} by M^{2e} gives 4k²nM^{2e} + 1 = N_e
 (mod g). Then D := (4k²n + R^{2e})/g ≡ −R^{2e} (mod 4k) (as g ≡ −1), and Prop 1.3's converse with (k, Q₁ = R^e)
 gives Q₀ = (g+1)/(4k) = λR and Q = Q₀Q₁ = λR^{e+1}; gcd(Q, Q₀k) = λR·gcd(R^e, k) = λR, so the overflow is R^e. ∎
-*Check (`scripts/pd_theta.py 201 8 300`):* for odd n ≤ 201, k, λ ≤ 8, e ≤ 2: 368 / 710 / 1276 shots (e = 0/1/2) found
-via N_e, each an exact solution with den z = R^{2e}; the equivalence g | 4k²n + R^{2e} ⟺ g | N_e checked on
+*Check (`scripts/pd_theta.py 201 8 300`):* for odd n ≤ 201, k, λ ≤ 8, e ≤ 2: 349 / 670 / 1172 shots (e = 0/1/2; plus 19 / 40 / 104
+exact solutions with gcd(Q, n) > 1, not shots) found via N_e, each exact with den z = R^{2e}; the equivalence g | 4k²n + R^{2e} ⟺ g | N_e checked on
 2 802 432 (n, e, k, λ, R) with e ≤ 3, R ≤ 300.
 *The modulus exponent.* log M/log N_e → θ_e := 1/(2e + 2) for bounded λ (exactly:
 M^{e+1} = 2λX_e, so M = (2λX_e)^{1/(e+1)} ≈ (2λ)^{1/(e+1)}(N_e/n)^{1/(2e+2)}):
