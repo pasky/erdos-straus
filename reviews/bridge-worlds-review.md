@@ -169,3 +169,10 @@ a² ≡ 1) recalled correctly; sources not accessed.
 Lucas/Dickson (Prop G): D_c'(2) = c² ✓ (T_c'(1) = c², D_c(x) = 2T_c(x/2)); Σ_{k<c} csc²(πk/c) = (c² − 1)/3 ✓
 (classical) — note this is an identity in ℤ[1/3] ⊂ F_h only for h ≠ 3 (fine, h ≥ 7). "Primitive prime divisors of
 U_{4cd} with (D/h) = −1 are ≡ −1 (mod 4cd)" ✓ (rank of apparition = 4cd divides h − (D/h) = h + 1).
+
+### C4a. Adversarial stacked-QR primes (§5 / memo) — numbers inconsistent between documents
+From scratch (`scripts/review_r216_adversarial.py`, first 4 primes p ≡ 1 (mod 4∏_{q≤Q} q) for Q = 13, …, 29, up to
+1.8·10¹¹; slices cd ≤ 200 with a prime h ≡ −1 (mod 4cd) dividing p + 4c²d): Q = 13: 11, **4 (p = 600601)**, 13, 11;
+Q = 17: 18, 11, 8, 11; Q = 19: 18, 14, 15, 19; Q = 23: 19, 12, 16, 16; Q = 29: 20, 14, 14, 14. The memo's "4–20 (min 4
+at p = 600601)" is right; BRIDGE_WORLDS §5 ("still have 14–20 prime-firing slices") and the report ("≥ 14") are
+wrong. → m7.
