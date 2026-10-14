@@ -10,6 +10,9 @@ All numerics re-done with from-scratch code `scripts/review_r224_*.py` (author s
 | Prop 1.3 (square test) | **SOUND** (MINOR D2) |
 | Prop 3.1 | **SOUND** (MINOR D3 citation/hypothesis) |
 | Lemma 3.2 (Mordell 840 = lnr level) | **SOUND** (MINOR D4 "exactly Mordell") |
+| SHARP 1 census numbers (lnr buckets 0.645 → 0.430; deciles 0.643–0.647; 2 402 violations) | **reproduced exactly** (independent C census) |
+| SHARP 1 / Summary 1 reading "continuity of T1 is adelic, NOT archimedean (corrects O209 §3.2)" | **GAP — overclaimed (MAJOR D5)**: a genuine archimedean (bounded p − m²) effect exists, z ≈ −6, with a PROVED T1-type mechanism the author missed |
+| §2 Assessment "each fixed level is clean with probability → 0 (GRH)" | **GAP (MAJOR D6)**: false along the families p = m² + k |
 | (further rows added below as checked) | |
 
 ## Claim-by-claim
@@ -44,6 +47,42 @@ squares coprime to 105 mod 840 (computed). Check over all 36 805 primes p ≡ 1 
 a valid χ = −1 word in every case; lnr ≥ 11 ⟺ p mod 840 ∈ {1, 121, 169, 289, 361, 529}: 0 mismatches over all
 p ≡ 1 (4) < 10⁶.
 
+### SHARP 1 census (Summary item 1, §2 first half) — numbers reproduced; reading overclaimed
+Independent census `scripts/review_r224_census.c` (all ordered positive words via uv | p + u + v; cross-checked against
+the (t, A) enumeration of review_r224_lemmas.py at 17 primes), aggregated by `scripts/review_r224_census_agg.py`:
+39 174 primes p ≡ 1 (4), 5 < p < 10⁶; 2 402 sign-dominance violations; by (p mod 8, lnr): 0.645 (1,3), 0.604, 0.565,
+0.516, 0.481, 0.452, 0.442, 0.430 (1, ≥ 23), 0.685 (5, 2) — **identical to the author's**. Value bins of dist(p, ℤ²)/√p:
+0.6432–0.6473 (author: 0.643–0.647), and the same for true quantile deciles and within the homogeneous bucket
+(p ≡ 1 (8), q = 3). The author's bins were *value* bins of width 0.1 (≈ 3 900 primes each), not quantile deciles — harmless.
+"How was the model fitted": the lnr buckets and deciles are raw means, no fit; fine.
+
+**But the archimedean null is an artefact of bin width** (`scripts/review_r224_near_sq.py`). Residual of N₋/N after
+subtracting the mean of its stratum (p mod 8, lnr bucket, p-size bin of width 10⁵; with FULL=1 additionally p mod 16
+and the signs (r/p), r = 3, 5, 7, 11, 13), p ∈ (10⁵, 10⁶), z against the global residual s.d.:
+| subset | n | residual (FULL strata) | z |
+|---|---|---|---|
+| dist(p, ℤ²) ≤ 4 | 207 | −0.029 | −6.1 |
+| dist ≤ 20 | 1 011 | −0.014 | −6.6 |
+| dist/√p < 0.01 | 288 | −0.021 | −5.3 |
+| dist/√p < 0.05 | 1 636 | −0.011 | −6.4 |
+| p − m² = 4 | 72 | −0.049 | −6.3 |
+| p − m² = 16 | 78 | −0.057 | −7.5 |
+| p − m² = 1, 9, 25, 49 | 61, 48, 100, 66 | −0.014, −0.016, +0.003, −0.006 | n.s. |
+So primes *very* near squares (bounded p − m²) have markedly fewer χ = −1 words than adelically identical primes, and
+the effect is concentrated on specific offsets k = p − m².
+
+**Mechanism (PROVED here, elementary; the deformation of T1 the document says does not exist).** Let p = m² + k and t ≥ 1
+with tk + 1 = c². Then tp + 1 = t·m² + c². gcd(t, c) = 1, and an odd prime r | tm² + c² with r | c would give r | m,
+hence r | k, contradicting c² = tk + 1; so every odd r | tp + 1 has −t ≡ (c/m)² (mod r), i.e. (−t/r) = +1, i.e.
+(r/p) = +1 by Lemma 1.1: **level t is odd-clean for every such t** (clean, if also 2 ∤ tp + 1 or (2/p) = +1).
+This is literally T1's identity tm² + 1 = 1² + t·m² with 1 replaced by c. For k = 4 the levels are t = 2, 6, 12, 20, …
+(t even ⇒ tp + 1 odd ⇒ clean); for k = 16, t = 3, 5, 14, 18, … (p ≡ 1 (8) ⇒ clean); for k = 1, 9, 25 the small
+levels (3, 8; 7, 11; 23, 27) are odd-clean but can fail at r = 2 (p ≡ 5 (8)) or are large — matching the weaker
+residuals. Check (`scripts/review_r224_poly_levels.py`): 40 primes each p = m² + k ∈ (10⁵, 10⁶), all levels
+t = (c² − 1)/k < 200: odd-clean 0 failures for k = 1, 4, 9, 16, 25; fully clean 520/520 for k = 4 and k = 16.
+Removing all words on these levels (all t ≤ p + 2): k = 4: N₋/N 0.636 → 0.690 (stratum mean ≈ 0.686: deficit fully
+explained); k = 16: 0.572 → 0.616 (stratum ≈ 0.628: ≈ 3/4 explained). These levels carry ≈ 7.5 % of all words.
+
 ## Defects
 D1 (MINOR) — Lemma 1.2(b) and Summary item 2: "Every prime r < lnr(p) is clean" mixes the level notion with primes.
 Repair: "(b) every prime r < lnr(p) has (r/p) = +1, so a level t with tp + 1 (lnr − 1)-smooth is clean."
@@ -61,3 +100,21 @@ bijection is elementary. Also state the hypothesis p ≡ 1 (4) prime in the Prop
 D4 (MINOR) — Lemma 3.2 "this is exactly Mordell's congruence theorem on ES-five": it recovers the prime case of Mordell's
 covering set (same exceptional classes), via different (one-word) certificates; Mordell's theorem is a statement about
 polynomial identities for all n. Repair: "recovers, at primes, the covering set of Mordell's theorem".
+
+D5 (MAJOR) — Summary item 1 title "The continuity of T1 is adelic, not archimedean (… corrects O209 §3.2)", §0 (I2)
+"tested the O209 hypothesis directly — refuted", AGENT_REPORT SHARP 1 / answer (b) "no dependence on p − m²". The test
+(ten bins of width 0.1 in dist/√p) cannot see an effect confined to dist ≪ √p. At bounded p − m² there is a 6–7σ
+deficit of χ = −1 words, with a proved mechanism (T1-type clean levels tk + 1 = c², see above). The correct statement:
+*generic* archimedean proximity (dist ≍ √p scale) shows no association; *polynomial* proximity p = m² + k carries
+infinitely many deterministically clean levels — an archimedean continuity of T1, realised through the same
+norm-form identity. Repair: retitle item 1 ("adelic at the √p scale; at bounded p − m² T1 deforms to tm² + c²"),
+add the lemma (p = m² + k, tk + 1 = c² ⇒ level t odd-clean) as PROVED, add the residual table as EVIDENCE, and drop
+"refuted"/"corrects O209" or restrict it to the √p scale.
+
+D6 (MAJOR) — §2 Assessment "Under GRH the clean probability of a fixed level tends to 0 as p → ∞, so the
+pre-asymptotic hardness of near-square primes is a small-p effect at each level" (also AGENT_REPORT Results). False
+along p = m² + k: level t with tk + 1 = □ is clean for every p in the family (Bunyakovsky-type families are
+conjecturally infinite; no density statement makes them negligible for the question "which primes are hardest").
+The heuristic is about a *random* p. Repair: restrict to "for p outside the families p = m² + k with tk + 1 = □
+(heuristic, random p)", and record that these families have a positive proportion of deterministically clean levels
+(≈ √(T/k)·… of t ≤ T), i.e. near-square hardness is NOT purely pre-asymptotic there.
