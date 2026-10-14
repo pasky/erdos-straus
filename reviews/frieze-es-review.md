@@ -9,8 +9,17 @@ From-scratch scripts: `scripts/review_r208_*.py`; logs `logs/review_r208_*.txt`.
 | # | claim | verdict |
 |---|---|---|
 | 1 | Lemma 1.1 (parity rigidity: exactly two adjacent even cluster variables) | SOUND |
-| 2 | Thm 1.2 (even-edge sign law), 3-case proof | SOUND (minor typo, see D2) |
-| 2′ | Novelty: "extends DK Thm 4.5 to formal words and N ≡ 3 (4)" | GAP (overclaim: already MODEL_SPECIFIC Thm 3.1(a); see D1) |
+| 2 | Thm 1.2 (even-edge sign law), 3-case proof; Cor 1.3, 1.4 | SOUND (typo D2) |
+| 2′ | Novelty: "extends DK Thm 4.5 to formal words and N ≡ 3 (4)" | GAP — already MODEL_SPECIFIC Thm 3.1(a) (D1) |
+| 3 | Transport law (h′/N) = −(2/o) for N ≡ 1 (8) (and the general two-branch law) | SOUND (proof text D3, wording D4) |
+| 4 | 2-adic Bruhat–Tits cherry-depth reading | SOUND (restatement) |
+| 5 | §0/§3: SVZ citation, F₄ odd walks strongly contractible, "T1 lives in positivity" | SOUND-AFTER-REPAIRS (D5–D7) |
+| 6 | §4 hexagon identity, r = 2/4/≡0 (4), witnesses r ≤ 12, Thm 4.1 | SOUND-AFTER-REPAIRS (D8–D11); r ≥ 4 CONJECTURE is PROVED (D8) |
+| 7 | memos: parity involution / Zamolodchikov / coefficients model | SOUND-AFTER-REPAIRS / SOUND-AFTER-REPAIRS / SOUND (D12, D13) |
+| 8 | Literature (CHJ, SVZ, Böhmler–Cuntz, MGO, Guo, BHS, MSW) | SOUND with minor fixes (D14) |
+
+No FATAL. Two MAJOR (D1 novelty, D5 label), one MAJOR-positive upgrade (D8). ES is not solved; nothing claimed here
+changes that.
 
 ## Claim 1 — Lemma 1.1 (re-derived)
 Ptolemy relations (P) re-derived from N = mcs − c − s, h = cm − 1, h′ = ms − 1 (all five are polynomial identities).
@@ -207,3 +216,70 @@ coefficients model SOUND.
   "it must be 2-adic of depth 3" is misleading — the sign is the mod-4 spur property (depth 2 on one cherry), cf. y2_farey
   "(h′/N) = −1 ⟺ the mod-4 walk has a spur". The 80 classes per N mod 8 of y2_lift8 are correct (my count: 80 each).
 **Verdict: GAP on novelty (D1), citations otherwise SOUND with minor fixes (D14).**
+
+## Numbered defects
+
+**No FATAL defects.** Every mathematical theorem labelled PROVED re-derives; every numerical claim I re-ran from scratch
+reproduces exactly.
+
+**D1 (MAJOR, novelty overclaim).** FRIEZE_ES §1 Remark ("this gives a 3-case proof of DK Thm 4.5 and extends it to formal
+words and to N ≡ 3 (4)"), §6 verdict bullet 1, memo y2_even_edge Theorem 2 / Assessment ("extends that equivalence to formal
+words and to N ≡ 3 (4)"), AGENT_REPORT SHARP 1. The extension is MODEL_SPECIFIC Thm 3.1(a) ((J)32), which already covers
+all words incl. boundary words and all odd n, and CHI_FLIP gives an enumeration-light proof ((J)33: "citation-free proof
+of the mod-8 sign law of (J)9 / (J)32"). *Repair:* say "a short, computation-free proof of MODEL_SPECIFIC Thm 3.1(a)
+(= DK Thm 4.5 for interior words, N ≡ 1 (4)); new are Lemma 1.1 (the even edge) and the proof".
+
+**D2 (MINOR, typo).** §1 Case B step 7: "Otherwise b = v₂(c) = 1" → "Otherwise v₂(h′) = v₂(c) = 1, so b = 1".
+
+**D3 (MINOR, proof presentation).** §2 / memo y2_twoadic_tree_transport Thm 2 "Proof": σ, τ undefined. Replace by the
+two-line derivation in Claim 3 above (Case A: (c/h) = (2/h); Cases B, C: (2/(No))^{b−1} = 1 because b ≥ 2 forces
+No ≡ 7 (8)).
+
+**D4 (MINOR, wording).** §2 / AGENT_REPORT SHARP 2: "the character of 2 at the *small* modulus o" — o can be h or h′,
+of size ≍ N. Say "at the opposite vertex o".
+
+**D5 (MAJOR, label).** §3 header "PROVED by inspection" and the bolded "Any frieze-theoretic ES proof must use the
+positivity of the frieze archimedeanly" (also AGENT_REPORT SHARP 3 "Steering rule"). The last is an Assessment (undefined
+notion of "frieze-theoretic proof"), and the archimedean reading is CHI_FLIP Thm 1.1's (ε_∞ = −1 by positive definiteness;
+(J)13, (J)33). *Repair:* split into (a) PROVED: positivity is necessary — explicit signed family (D6); (b) inspection:
+this proof uses positivity only in reciprocity steps; (c) Assessment: the steering rule; cite CHI_FLIP Thm 1.1.
+
+**D6 (MINOR, upgrade).** §3 / memo y2_positivity_is_T1: "signed friezes at odd squares have zero-mod-4 quiddities"
+is EVIDENCE (box search) but PROVED by the family (4, −(M² + 3)/4, −1) at N = M².
+
+**D7 (MINOR, precision).** y2_farey_complex_lifting: SVZ Thm 1.6 is for *semiregular* friezes; at N ≡ 3 (4) the mod-4
+pentagon has boundary entry −1 and must be normalised first (SVZ §1). Also §3 bullet 2 / memo "finite-ring frieze theory
+is N-blind beyond N mod 8" is literally false (it sees N mod n); replace by "a criterion depending on N only through
+N mod n cannot separate odd squares from primes ≡ M² (mod n) (Dirichlet), hence cannot force a −1 word (Cor 1.4)".
+
+**D8 (MAJOR-positive, conjecture is a theorem).** §4 "CONJECTURE: the same holds for all r ≥ 4 (EVIDENCE: r ≤ 12)",
+"(for r ≤ 12 and r ≡ 0 (4); CONJECTURE beyond)", AGENT_REPORT SHARP 4 and Spark 1. PROVED for all r ≥ 5 by the word
+(2, 2, 2, 4, 2^{r−5}, k) at N = (2Q + 3)², Q = 9(r − 5) + 13 (Claim 6). Replace the CONJECTURE by this family.
+
+**D9 (MINOR, definition).** §4: define "the zero locus is a Jacobi fibre" (suggest: among interior length-r words at
+N ≡ 1 (4), {some q_i ≡ 0 (4)} = {(A/N) = −1}); note that witnesses at squares refute "⊆ {−1}"; r = 2 is "≠" because
+its zero locus is empty while the −1 fibre is not.
+
+**D10 (MINOR, label/accuracy).** Thm 4.1: "hs = N + 4w" holds only for c = 4w (m = 4w: hh′ = 1 + 4wN; s = 4w: ch′ = N + 4w);
+memo's "product = N + const" likewise. "Leaves a divisor event" is not a mathematical predicate: PROVED part = piece
+identification + "(4), (2,2,2) are the only interior words at 4"; the B2 reading is Assessment.
+
+**D11 (MINOR, numerics text).** y2_hexagon_degeneration Cheap numerics: r = 3 non-square failures are
+3, 5, 7, 11, 15, 23, 27, 35, 39, 55, 99, 105, 119 — "N ≡ 3 (4) cases and 105" omits N = 5.
+
+**D12 (MINOR).** y2_parity_involution Lemma 2: the fixed point is unique for primes p ≠ 3 (p = 3 has (1,5,1) and (3,1,3)).
+Lemma 1's PROVED content is "no Vieta involution; the only dihedral symmetry fixing the N-side is the reflection"; the
+Iteration's "the only involutions are the dihedral ones" / AGENT_REPORT "the only involution is the reflection" is not
+proved (Assessment).
+
+**D13 (MINOR, label).** y2_zamolodchikov_forcing "Mod 4 non-forcing (PROVED)" — a meta-statement; state precisely or
+label Assessment. Optional upgrade: hexagon pattern (0⁶) ⇒ a quiddity ≡ 0 (4) is PROVED by the Bruhat–Tits pigeonhole
+(Claim 7; checked on 11 575 words N ≤ 3000, `scripts/review_r208_hex06.py`).
+
+**D14 (MINOR, citations).** CHJ glide symmetry is Theorem 2.11; Guo's tropical friezes are "cf." (the 2-adic valuation
+pattern is not a tropical frieze); y2_even_edge cites a non-existent memo "y2_tropical_2adic"; Cor 1.4 square-control count
+8 068 excludes N = 1 (5 words) — say so.
+
+**D15 (MINOR, missed sharpening).** Thm 1.2 implies χ is a function of (c, m, s) mod 4 (40 odd-N cells, 30 with χ = −1); the
+§0 (I1) "must be 2-adic of depth 3" should read "a mod-4 (spur) property that is not a homotopy invariant". Worth one
+sentence in §1 (and a pointer for CHI_FLIP Cor 1.2's "the period is 8": 4 is the minimal period).
