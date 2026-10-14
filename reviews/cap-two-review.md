@@ -102,3 +102,54 @@ automatic, and the definition of "k = 1 cap-2 shot" omits it; in the widened (Q-
 (617 such k = 1 shots with rad Q₁ | Q₀, v_ℓ(Q₁) ≤ 2 for n ≤ 200, g ≤ 10⁵). The (⇒) proof silently uses c, B odd.
 *Repair:* define "k = 1 cap-2 shot" with "Q₁ odd" explicitly (it is exactly what ES^{(y,2)} membership requires:
 q odd), and in (⇒) say "c, B odd since Q₁ is odd".
+(b) Thm 1.2, third bullet ("Other solutions (c ≡ 2 mod 4, or c odd with 4 ∤ a) give g ≢ 3 (mod 4) or fractional
+Q₀") is FALSE for c ≡ 2 (mod 4) with a even: then 4 | caB, g ≡ 3 (mod 4), Q₀ = caB/4 ∈ ℤ and the (⇐) computation
+gives a genuine k = 1 shot datum with EVEN overflow Q₁ = cB² (n = 11, (4, 3, 2, 31): g = 23, Q₁ = 18). *Repair:*
+"c ≡ 2 (mod 4) with a even gives k = 1 shots with even overflow (not in any ES^{(y,e)}, q must be odd); c ≡ 2 with a
+odd, or c odd with 4 ∤ a, give g ≢ 3 (mod 4) or fractional Q₀."
+
+**m2 (MINOR; §4 Example after Thm 4.1).** "a k = 1 cap-2 shot iff B = 4n + D is squarefree and prime to n" omits
+gcd(a, n) = 1 (Thm 1.1 needs gcd(caB, n) = 1), and "prime to n" is automatic (B ≡ D (mod n), D | 64n³ + 1).
+Counterexample: n = 21, D = 19 | 64·21³ + 1, B = 103 squarefree, a = (1 + 103³)/19 = 57 512 ≡ 0 (mod 7) — 304 such
+cases for odd n ≤ 400, none at prime n ≤ 400 (unexplained; not claimed). *Repair:* "iff 4n + D is squarefree and
+gcd((1 + (4n + D)³)/D, n) = 1 (automatic in all prime cases n ≤ 400 tested)". Same caveat in AGENT_REPORT SHARP 3.
+
+**m3 (MINOR; §3 bullet 1, §7.4, AGENT_REPORT "13 402 need exponent exactly 2").** The correct count of primes whose
+least-g shot has no cap-≤1 alternative at the same g is 13 401; 13 402 counts p = 837 379 (g = 6 995 carries both a B = 1
+and a B > 1 shot) because the script records the first triple in (g, a, B, c) order. Moreover "need exponent exactly
+2" overstates: only 783 primes < 10⁶ have no cap-≤1 k = 1 shot at ANY g ≤ 10⁶. *Repair:* "for 13 401 primes the least
+k = 1 shot has B > 1 (no cap-≤1 shot at that g); 783 primes have no cap-≤1 k = 1 shot with g ≤ 10⁶".
+
+**m4 (MINOR; Prop 5.1(c)).** "for non-square n with gcd(n, 15) = 1 (O204 Prop 3.1(a), |S| ≥ 4)": O204 Prop 3.1(a) was
+repaired (R209 m4) to "3 ∤ n". *Repair:* replace gcd(n, 15) = 1 by 3 ∤ n.
+
+**m5 (MINOR; §6 EVIDENCE line "So a positive proportion (≈ 5–15%) of fibres carry points" and AGENT_REPORT SHARP 4).**
+A finite-range fraction is not a "positive proportion"; the paper's own heuristic (MARKOFF_ES §6, and Spark 3 here)
+predicts density ≍ (log X)^{−1/2} → 0 from the half-dimensional genus sieve. *Repair:* "≈ 5–15% of the odd fibres
+x ≤ 3000 carry points (heuristically a fraction ≍ (log X)^{−1/2}, MARKOFF_ES §6)".
+
+**m6 (MINOR; Thm 1.2, §2 Reading, §7.1–7.2, AGENT_REPORT SHARP 1–2).** The two halves are disjoint as sets of POINTS
+but not as sets of SHOTS: a k = 1 shot with Q₁ | Q₀ (odd, cap ≤ 2) is both a c-odd point (4 | a) and the c ≡ 0 point
+a = 1, B_GM = Q₁ (351 such c-odd points for n ≤ 200, g ≤ 2·10⁴; every k = 1 ES^{(y,1)} shot is in both halves, and the
+k = 1 ES shots are both (c, B) = (1, 1) and (4λ, 1) with a = 1). Also: the O204 contrast "k = 1: e ≤ 1 finite, e = 2 no
+wall" lives INSIDE the c-odd half — e ≤ 1 at k = 1 is its line B = 1 — so its honest content is Prop 5.1 ("B fixed vs
+B free"), and "one line (a = 1 of the c ≡ 0 half) vs a whole half-surface" is the comparison with ES^{[2]}, not with
+ES^{(y,1)}. *Repair:* add one sentence to §2 Reading: "the e ≤ 1 part of the k = 1 slice is the line B = 1 of the same
+c-odd half (and the line a = 1, B squarefree of the c ≡ 0 half); the halves overlap as shot sets along a = 1".
+
+**m7 (MINOR; Thm 1.2 "fibre picture", §7.1).** "every cell … is: for some x, the principal form of discriminant
+x² − 16n represents −E for a divisor E | x" is a NECESSARY condition; the cells also need the side conditions (c ≡ 0:
+gcd(a, B) = 1, gcd(λB, n) = 1; c odd: 4 | a, gcd(caB, n) = 1, c, B squarefree coprime; ES^{(y,1)} / ES: B squarefree /
+B = 1). *Repair:* "is contained in … ; the cell is cut out by x/E mod 4, B, and the side conditions of Thm 1.1/1.2".
+Related, §3 T1 control: "E ≡ 3 (mod 4) divides 4m²a² + B²" needs one more step when gcd(a, B) = h > 1 (allowed in the
+c-odd half): h is prime to g, so g ≡ 3 (mod 4) divides the coprime sum ((2ma)/h)² + (B/h)² — say so.
+
+**m8 (MINOR, cosmetic; §4 Comparison and §7.3).** "ES's Type II normal form k(4ab − n) = a + b with n ↦ 4n and one
+summand cubed" — the substitution is (k, 4ab, n, a + b) ↦ (a, Bw, 4n, w + B³) (the factor 4 moves off the product), an
+analogy rather than a specialisation. *Repair:* spell out the substitution or write "ES-shaped".
+
+## Things that are fine and worth keeping
+* Thm 1.1 is an exact bijection (C1: 876 = 876 sets equal for n ≤ 200, g ≤ 10⁵, computed from the definition of
+  ES^{(y,2)} rather than from the dictionary).
+* Prop 5.1(a) is the clean, correct statement: any finite exponent-2 budget keeps the k = 1 slice finite.
+* §6 numbers and explicit 10¹⁶-size points are genuine.
