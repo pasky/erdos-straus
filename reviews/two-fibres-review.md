@@ -98,8 +98,7 @@ hypothesis") mis-attribute the mechanism and understate the result; the "Not cov
 is in fact covered. What steps (1)–(3) *do* prove is a different, T1-specific fact: under the ℓ₀ hypothesis, any
 E + C vanishing on odd squares has E ≡ K on the semigroup S_L — keep it as a lemma if wanted, but it is not what kills the
 identity. (Same remark applies to O205 Prop 2.3's "In particular E ≠ N₋", which also follows from E(ℓ) = const on
-primes ≡ 1 (L) plus divergence of the mean of N₋ — or even from N₋(p) ≥ 1 on a positive-density set only when combined
-with E(p) constant ≠ … ; flag to the O205 owner, not a defect of O209.)
+primes ≡ 1 (L) plus divergence of the mean of N₋ over those primes; flag to the O205 owner, not a defect of O209.)
 
 **The ℓ₀ hypothesis is not satisfiable in general (D7, MAJOR as a statement about scope).** The memo says "we do not know
 whether cuspidal such π exist". They do, inside the very class G′ advertises (self-dual orthogonal GL(3)): let σ be a
@@ -116,4 +115,52 @@ equals N₋, because on primes ℓ ≡ 1 (L) E is constant, C has mean o(1), and
 ℓ₀ analysis to a remark about S_L; change the memo title/steering reading to "size at primes kills it; T1 is not used";
 delete the "Not covered (no common ℓ₀)" item; keep "not covered: infinite sums, shifted/derivative/non-standard
 normalisations, growing level, non-automorphic objects".
+
+### EVIDENCE items (§3.2, §3.4, R2) — reproduced exactly; one description overstated (D9)
+From-scratch census (`scripts/review_r214_census.c`, words enumerated by t and divisor pairs A·A* = tp + 1 with
+A ≡ A* ≡ −1 (t), χ = (−A/p); checks χ(t, u, v) = χ(t, v, u) on every word), **full range p < 10⁶** (90 s):
+* primes p ≡ 1 (4), 5 < p < 10⁶: **39 174; N₋ < N₊ at 2 402** — exactly the author's numbers. Spot values 2521 (4, 33),
+  9601 (8, 45), 1249 (10, 43), 3361 (8, 39), 70 249 (20, 85), 297 049 (24, 125), 871 249 (46, 185) all reproduced; N₊(5) = 5,
+  Σ_w r(T_w, I₃)/48 = 6 at p = 5 and r(T_{(7,1,1)}, I₃) = 96 reproduced (§3.3 repair confirmed).
+* N₋(p) mod 8 for p ≡ 1 (8): 4896/4805/4835/5016; p ≡ 5 (8): 4780/5021/4873/4949 — identical to R2. (χ² = 5.4 resp. 6.5
+  on 3 d.o.f., p ≈ 0.15 / 0.09: "equidistributed" is a fair EVIDENCE description.)
+* Σ N₋/Σ N₊ per p mod 8 = 1.547, 2.246, 2.123, 5.424 — matches §3.4. Mean N₋ over p ≡ 1 (8) = 91.96 at 10⁶ ✓.
+* Parity R1: N₋(p) ≡ [p ≡ 3 (4)] (mod 2) at every prime 3 ≤ p < 10⁶ (0 failures).
+* **"The worst all near squares" (D9):** the 13 primes < 10⁶ with N₊ ≥ 4N₋ are 1249, 2521, 3049, 3361, 9601, 13 249,
+  29 401, 70 249, 225 289, 297 049, 361 321, 871 249, 925 369. Several are *not* archimedeanly near a square:
+  29 401 = 171² + 160 (gap to 172² is 183), 225 289 = 474² + 613 (gap 336), 871 249 = 933² + 760 (gap 1 107) — the last is
+  even quoted in §3.2 as "just above a square". What all 13 share is arithmetic: **p ≡ 1 (24) and (p/5) = +1** (and
+  mostly (p/7) = +1), i.e. p is a quadratic residue modulo the small moduli the short words see — which is the (J)27
+  reading, not "near m²". Several are values of other small forms (29 401 = 6·70² + 1, 871 249 = 2·660² + 7²).
+
+### G1–G3 (y1_gamma8_trace) — SOUND (G3 is a tautology, D10)
+* G1: from-scratch (`scripts/review_r214_small_facts.py`, letters < 48, M_w recomputed and checked = [[n, −A*], [A, −t]]):
+  mod 4: 30 keys / 6 480 clashes; mod 8: 236 keys / 0 clashes; mod 16: 1 880 / 0 — matches. The proof rests on CHI_FLIP
+  Cor 1.2 (χ a cell function mod 8, previously reviewed) + this finite check; "PROVED (finite cell check)" is fair.
+* G2: (1, 3, 3) n = 3 χ = +1 and (3, 3, 1) n = 5 χ = −1, conjugate by cyclic rotation ✓ — but both have **trace 2, i.e.
+  are parabolic**, not hyperbolic (MINOR: pick a hyperbolic pair for the "hyperbolic classes" story; the 88 pairs presumably
+  contain some).
+* G3: χ(w) = (−1/n)·Π_ℓ (A/ℓ)^{v_ℓ(n)} is just multiplicativity of the Jacobi symbol (−A/n); calling (A/ℓ) a genus
+  character of T_w is correct (T_w represents A, ℓ ∤ A). PROVED but content-free; fine as a dictionary.
+* B3 bound: #{(a, b, c) : abc − a − b − c = T} ≪ T^{1/3+ε} via (ab − 1)(ac − 1) = aT + a² + 1 ✓. **TWO_FIBRES §4 still says
+  "T^{−1+o(1)} fraction"** while the Summary/memo carry the R209 repair T^{−2/3+ε} (D11).
+
+### K1 (y1_heegner_level_t) — SOUND (elementary)
+4 − 4tu ≡ 2² (mod 4t) ✓; [t, 2, u] has discriminant −4A ✓; τ = (−1 + i√A)/t ✓; (DD* − 16)/(4t) = 4(AA* − 1)/t = 4n ✓;
+(−A/p) = (−A*/p) since AA* ≡ 1 (p) ✓. The local-height reading is correctly labelled Assessment, imprimitive caveat
+((2, 2, 3): [2, 2, 2]) correct. Collision numerics re-done from scratch: 2 212 primes p ≡ 1 (24) < 2·10⁵, max least
+t = 11 (at p = 14 281) ✓.
+
+### R1, R3 (y1_reciprocal_parity) — R1 SOUND; R3 GAP in label (D12)
+R1: u = v ⇒ n = u(tu − 2) ⇒ u ∈ {1, p} ⇒ (p + 2, 1, 1) or (p = 3) (1, 3, 3) ✓; χ(t, u, v)χ(t, v, u) = (AA*/n) =
+((tn + 1)/n) = 1 ✓; parity verified to 10⁶ (above). (p + 2, 1, 1) trace = (p + 2) − (p + 4) = −2 ✓ parabolic.
+R3 ("rotation changes n except on a thin set, … does not act on X_p with a fixed sign") is a qualitative remark with no
+precise statement or proof; it should be Assessment (or stated precisely: rotation (t, u, v) ↦ (u, v, t) preserves n iff
+(t − u)(…)=0, …).
+
+### Cerednik–Drinfeld reading (y1_cerednik_swap, TWO_FIBRES §1 "Reading") — Assessment label correct; internal count inconsistency (D13)
+The memo says the χ = +1 side has "≈ (p + 1)/12 edges = P¹(𝔽_p)/A₄", while Prop A2 (and my count) give ≈ (p + 1)/24
+classes = image of P¹/S₄, with further identifications (D5). Both can be right only with different meanings of "edge"
+(oriented/unoriented, Γ_p vs its normaliser, w_p) — the R209 caveat says this is not pinned down; the two documents should
+at least not state different numbers without saying so. F3 masses: (p − 1)/4 and (p + 1)/12 (units mod ±1) ✓, ratio → 3 ✓.
 

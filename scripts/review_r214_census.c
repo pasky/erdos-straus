@@ -21,9 +21,9 @@ int main(int argc,char**argv){
   if(argc>=2 && !strcmp(argv[1],"list")){ for(int i=2;i<argc;i++){ ll p=atoll(argv[i]),a,b; count(p,&a,&b); printf("p=%lld N-=%lld N+=%lld\n",p,a,b);} return 0; }
   ll lo=atoll(argv[1]), hi=atoll(argv[2]);
   char*sv=calloc(hi+1,1); for(ll i=2;i<=hi;i++) sv[i]=1; for(ll i=2;i*i<=hi;i++) if(sv[i]) for(ll j=i*i;j<=hi;j+=i) sv[j]=0;
-  ll n14=0, viol=0, mod8[2][8]={{0}}, cnt18=0; double sum18=0; ll om_fail=0, par_fail=0;
+  ll n14=0, viol=0, mod8[2][8]={{0}}, cnt18=0; double sum18=0; ll om_fail=0, par_fail=0; double SM[8]={0},SP[8]={0};
   for(ll p=(lo<3?3:lo); p<=hi; p++){ if(!sv[p]) continue; ll Nm,Np; count(p,&Nm,&Np);
-    if((Nm%2) != (p%4==3)) par_fail++;
+    if((Nm%2) != (p%4==3)) par_fail++; SM[p%8]+=Nm; SP[p%8]+=Np;
     if(p%4==1){ if(Nm<omega3(p+1)) om_fail++;
       if(p>5){ n14++; if(Nm<Np){ viol++; if(Nm*4<=Np) printf("  strong violation p=%lld N-=%lld N+=%lld\n",p,Nm,Np);} }
       mod8[p%8==1?0:1][Nm%8]++; }
@@ -32,5 +32,6 @@ int main(int argc,char**argv){
   printf("range [%lld,%lld]: primes p=1(4),p>5: %lld; N-<N+ at %lld; parity failures %lld; N-<omega3(p+1) failures %lld\n",lo,hi,n14,viol,par_fail,om_fail);
   printf("N- mod 8 (p=1 mod 8): "); for(int r=0;r<8;r++) printf("%lld ",mod8[0][r]); printf("\nN- mod 8 (p=5 mod 8): "); for(int r=0;r<8;r++) printf("%lld ",mod8[1][r]);
   printf("\nmean N- over p=1(8): %.2f (%lld primes)\n", cnt18?sum18/cnt18:0, cnt18);
+  printf("sum N-/sum N+ by p mod 8: 1:%.3f 3:%.3f 5:%.3f 7:%.3f\n",SM[1]/SP[1],SM[3]/SP[3],SM[5]/SP[5],SM[7]/SP[7]);
   return 0;
 }
