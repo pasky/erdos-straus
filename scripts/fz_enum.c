@@ -7,7 +7,7 @@
    Every candidate is checked against the full definition: m', w1, C1, g' monic, nonzero constant terms, exact degrees,
    m' w1 C1 = T^{s-2} + v1, w1 + C1 = T g' v1, deg v1 = t - 2, lc(v1) = lc(w + C).
    Counts ordered tuples with deg w = a <= b = deg C (a = b: both orders).
-   usage: fz_enum q SMIN SMAX logq_cap [method=0 auto|2|3|5]   prints "s a z y t count method" or "s a z y t SKIP cost" */
+   usage: fz_enum q SMIN SMAX logq_cap [method=0 auto|2|3|5|11|12|13|14|16] [usefactor=1] [FOV=3]   prints "s a z y t count method" or "s a z y t SKIP cost" */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -85,7 +85,7 @@ static int check(const poly *m, const poly *w1, const poly *C1, const poly *v1) 
   if (rm.d >= 0 || g.d != Y_ || g.c[g.d] != 1 || !g.c[0]) return 0;
   return 1;
 }
-static double lgq;
+static double lgq; static int USEF = 1;
 static double cost2(void) { return (B_ - 1) + fmin(Z_, fmax(0, A_ - T_)); }
 static double cost3(void) { return (A_ - 1) + fmax(0, T_ - 1 - A_) + fmin(Y_, Z_); }
 static double cost5(void) { return Z_ + Y_ + fmax(0, T_ - 2 - Z_); }
@@ -177,20 +177,191 @@ static long run5(void) {
   } while (Z_ > 0 && odo(m.c, 0, Z_, 1));
   return cnt;
 }
+/* ---------- factoring over F_q (squarefree + distinct-degree + Cantor-Zassenhaus), FF_STERILE_SMALL §5 ---------- */
+static void pmonic(poly *a) { if (a->d >= 0 && a->c[a->d] != 1) pscal(a, a, INV[a->c[a->d]]); }
+static void pgcd(poly *r, const poly *a, const poly *b) {
+  poly x = *a, y = *b;
+  while (y.d >= 0) { poly rr; pdivmod(NULL, &rr, &x, &y); x = y; y = rr; }
+  pmonic(&x); *r = x;
+}
+static void pderiv(poly *r, const poly *a) {
+  poly t; t.d = a->d - 1; if (t.d < 0) { r->d = -1; return; }
+  for (int i = 1; i <= a->d; i++) { int c = 0; for (int k = 0; k < i % PCH; k++) c = ADD[c][a->c[i]]; t.c[i - 1] = c; }
+  norm(&t); *r = t;
+}
+static void pmulmod(poly *r, const poly *a, const poly *b, const poly *m) { poly t; pmul(&t, a, b); pdivmod(NULL, r, &t, m); }
+static void ppowmod(poly *r, const poly *a, unsigned long e, const poly *m) {
+  poly res, base; res.d = 0; res.c[0] = 1; pdivmod(NULL, &base, a, m);
+  while (e) { if (e & 1) pmulmod(&res, &res, &base, m); e >>= 1; if (e) pmulmod(&base, &base, &base, m); }
+  pdivmod(NULL, r, &res, m);
+}
+static int PROOT[9];   /* p-th root in F_q: x^{q/p} */
+#define MAXF 128
+typedef struct { poly f[MAXF]; int e[MAXF]; int n; } fact;
+static unsigned long long rng = 88172645463325252ULL;
+static unsigned long long xr(void) { rng ^= rng << 13; rng ^= rng >> 7; rng ^= rng << 17; return rng; }
+static void addfac(fact *F, const poly *p, int e) {
+  for (int i = 0; i < F->n; i++) if (peq(&F->f[i], p)) { F->e[i] += e; return; }
+  if (F->n >= MAXF) { fprintf(stderr, "MAXF\n"); exit(3); }
+  F->f[F->n] = *p; F->e[F->n] = e; F->n++;
+}
+static void edf(fact *F, const poly *g, int d, int e) {
+  if (g->d <= d) { if (g->d > 0) addfac(F, g, e); return; }
+  for (;;) {
+    poly a; a.d = g->d - 1; for (int i = 0; i <= a.d; i++) a.c[i] = xr() % Q; norm(&a); if (a.d < 1) continue;
+    poly c, x, pr; ppowmod(&c, &a, (Q - 1) / 2, g); x = c; pr = c;
+    for (int i = 1; i < d; i++) { ppowmod(&x, &x, Q, g); pmulmod(&pr, &pr, &x, g); }
+    poly one; one.d = 0; one.c[0] = 1; psub(&pr, &pr, &one); poly h; pgcd(&h, &pr, g);
+    if (h.d > 0 && h.d < g->d) { poly h2; pdivmod(&h2, NULL, g, &h); pmonic(&h2); edf(F, &h, d, e); edf(F, &h2, d, e); return; }
+  }
+}
+static void ddf(fact *F, const poly *g0, int e) {
+  poly g = *g0, h, X; X.d = 1; X.c[0] = 0; X.c[1] = 1; h = X;
+  for (int d = 1; 2 * d <= g.d; d++) {
+    ppowmod(&h, &h, Q, &g); poly hx, gd; psub(&hx, &h, &X); pgcd(&gd, &hx, &g);
+    if (gd.d > 0) { edf(F, &gd, d, e); poly t; pdivmod(&t, NULL, &g, &gd); g = t; pmonic(&g); pdivmod(NULL, &h, &h, &g); }
+  }
+  if (g.d > 0) addfac(F, &g, e);
+}
+static void sqf(fact *F, const poly *f0, int mult) {   /* f0 monic */
+  poly f = *f0; if (f.d <= 0) return;
+  poly df; pderiv(&df, &f);
+  if (df.d < 0) {    /* f = g^p */
+    poly g; g.d = f.d / PCH; for (int i = 0; i <= g.d; i++) g.c[i] = PROOT[f.c[i * PCH]]; sqf(F, &g, mult * PCH); return;
+  }
+  poly c, w; pgcd(&c, &f, &df); pdivmod(&w, NULL, &f, &c); int i = 1;
+  while (w.d > 0) {
+    poly y, fac; pgcd(&y, &w, &c); pdivmod(&fac, NULL, &w, &y);
+    if (fac.d > 0) ddf(F, &fac, i * mult);
+    w = y; poly t; pdivmod(&t, NULL, &c, &y); c = t; i++;
+  }
+  if (c.d > 0) { poly g; g.d = c.d / PCH; for (int k = 0; k <= g.d; k++) g.c[k] = PROOT[c.c[k * PCH]]; sqf(F, &g, mult * PCH); }
+}
+static void factor(fact *F, const poly *f) { F->n = 0; poly g = *f; pmonic(&g); sqf(F, &g, 1); }
+/* enumerate divisors of degree D (monic) of the factored poly, with optional exponent caps; callback */
+typedef void (*dcb)(const poly *);
+static fact *DF; static int DEX[MAXF]; static dcb DCB; static int DTARGET; static int DREM[MAXF + 1];
+static void dfs(int i, const poly *cur) {
+  if (cur->d == DTARGET) { DCB(cur); return; }
+  if (i >= DF->n || cur->d + DREM[i] < DTARGET) return;
+  poly p = *cur; int dd = DF->f[i].d;
+  for (int k = 0; k <= DF->e[i] && p.d <= DTARGET; k++) {
+    DEX[i] = k; dfs(i + 1, &p);
+    if (p.d + dd > DTARGET) break;
+    pmul(&p, &p, &DF->f[i]);
+  }
+  DEX[i] = 0;
+}
+static void divisors(fact *F, int D, dcb cb) {
+  DF = F; DCB = cb; DTARGET = D; DREM[F->n] = 0;
+  for (int i = F->n - 1; i >= 0; i--) DREM[i] = DREM[i + 1] + F->f[i].d * F->e[i];
+  poly one; one.d = 0; one.c[0] = 1; dfs(0, &one);
+}
+/* ---- factoring routes ---- */
+static long FCNT; static poly G_m, G_w1, G_v1, G_g, G_F, G_mod; static int G_mode;
+static int congr(const poly *E, const poly *M, int val) {   /* E == val (mod M) ? */
+  poly r, cst; pdivmod(NULL, &r, E, M); cst.d = 0; cst.c[0] = val; norm(&cst); return peq(&r, &cst);
+}
+static void cb_E(const poly *E) {   /* E candidate: E == -1 mod G_mod, reconstruct by mode */
+  if (!congr(E, &G_mod, NEG[1])) return;
+  poly one, Ep1, rr; one.d = 0; one.c[0] = 1; padd(&Ep1, E, &one);
+  if (G_mode == 2) {            /* (m', g'): L' = m'g', w = (E+1)/L', C = (g'T^s + w)/E */
+    poly L, w, w1, C, C1, gts, num, v1, prod, TS2v;
+    pmul(&L, &G_m, &G_g); pdivmod(&w, &rr, &Ep1, &L); if (rr.d >= 0 || w.d < 1 || w.c[0]) return;
+    poly T1; T1.d = 1; T1.c[0] = 0; T1.c[1] = 1; pdivmod(&w1, &rr, &w, &T1);
+    pshift(&gts, &G_g, S_); padd(&num, &gts, &w); pdivmod(&C, &rr, &num, E); if (rr.d >= 0 || C.d < 1 || C.c[0]) return;
+    pdivmod(&C1, &rr, &C, &T1);
+    pmul(&prod, &G_m, &w1); pmul(&prod, &prod, &C1); psub(&v1, &prod, &TS2); (void)TS2v;
+    FCNT += check(&G_m, &w1, &C1, &v1);
+  } else if (G_mode == 3) {     /* (w1, g'): L' = (E+1)/(T w1), m' = L'/g', C1 = F/E */
+    poly Tw, L, m, C1, v1, prod; pshift(&Tw, &G_w1, 1); pdivmod(&L, &rr, &Ep1, &Tw); if (rr.d >= 0) return;
+    pdivmod(&m, &rr, &L, &G_g); if (rr.d >= 0) return; pdivmod(&C1, &rr, &G_F, E); if (rr.d >= 0) return;
+    pmul(&prod, &m, &G_w1); pmul(&prod, &prod, &C1); psub(&v1, &prod, &TS2);
+    FCNT += check(&m, &G_w1, &C1, &v1);
+  } else if (G_mode == 4) {     /* (m', w1): v1 = F/E, C1 = (T^{s-2}+v1)/(m'w1) */
+    poly v1, f2, mw, C1; pdivmod(&v1, &rr, &G_F, E); if (rr.d >= 0) return;
+    padd(&f2, &TS2, &v1); pmul(&mw, &G_m, &G_w1); pdivmod(&C1, &rr, &f2, &mw); if (rr.d >= 0) return;
+    FCNT += check(&G_m, &G_w1, &C1, &v1);
+  }
+}
+static void cb_w1(const poly *w1) {   /* mode 1: G_F = w1 C1 (given m', v1) */
+  poly C1, rr; pdivmod(&C1, &rr, &G_F, w1); if (rr.d >= 0) return; FCNT += check(&G_m, w1, &C1, &G_v1);
+}
+static void cb_C1(const poly *C1) {   /* mode 5: G_F = m' C1 (given w1, v1) */
+  { poly sm, r; padd(&sm, C1, &G_w1); pdivmod(NULL, &r, &sm, &G_mod); if (r.d >= 0) return; }   /* C1 == -w1 mod T v1 */
+  poly m, rr; pdivmod(&m, &rr, &G_F, C1); if (rr.d >= 0) return; FCNT += check(&m, &G_w1, C1, &G_v1);
+}
+/* iterate monic polys of degree d with nonzero constant term */
+#define FOR_MONIC(P, D) for (int _f = (P.d = (D), memset(P.c, 0, MAXD), P.c[D] = 1, (D) > 0 ? (P.c[0] = 1) : 0, 1); _f; _f = ((D) > 0 && odo(P.c, 0, (D), 1)))
+static long runF(int mode) {
+  FCNT = 0; fact F; G_mode = mode;
+  if (mode == 2) {            /* (m', g'): E | 1 + T^s m' g'^2, deg a+y+z, E == -1 mod T L' */
+    poly m, g; FOR_MONIC(m, Z_) FOR_MONIC(g, Y_) {
+      poly gg, D, one, L; pmul(&gg, &g, &g); pmul(&gg, &gg, &m); pshift(&D, &gg, S_); one.d = 0; one.c[0] = 1; padd(&D, &D, &one);
+      G_m = m; G_g = g; pmul(&L, &m, &g); pshift(&G_mod, &L, 1); factor(&F, &D); divisors(&F, A_ + Y_ + Z_, cb_E);
+    }
+  } else if (mode == 3) {     /* (w1, g'): E | g' T^{s-1} + w1, E == -1 mod T w1 g' */
+    poly w1, g; FOR_MONIC(w1, A_ - 1) FOR_MONIC(g, Y_) {
+      poly D, L; pshift(&D, &g, S_ - 1); padd(&D, &D, &w1); G_w1 = w1; G_g = g; G_F = D;
+      pmul(&L, &w1, &g); pshift(&G_mod, &L, 1); factor(&F, &D); divisors(&F, A_ + Y_ + Z_, cb_E);
+    }
+  } else if (mode == 4) {     /* (m', w1): E | T^{s-2} + m' w1^2, E == -1 mod T m' w1 */
+    poly m, w1; FOR_MONIC(m, Z_) FOR_MONIC(w1, A_ - 1) {
+      poly D, L; pmul(&D, &w1, &w1); pmul(&D, &D, &m); padd(&D, &D, &TS2); G_m = m; G_w1 = w1; G_F = D;
+      pmul(&L, &m, &w1); pshift(&G_mod, &L, 1); factor(&F, &D); divisors(&F, A_ + Y_ + Z_, cb_E);
+    }
+  } else if (mode == 1) {     /* (m', v1 in class mod m'): G = w1 C1 = (T^{s-2}+v1)/m', w1 | G */
+    poly m; FOR_MONIC(m, Z_) {
+      poly R, r0; pdivmod(NULL, &R, &TS2, &m); pscal(&r0, &R, NEG[1]);
+      int hd = T_ - 2 - Z_; poly h; if (hd >= 0) { h.d = hd; memset(h.c, 0, MAXD); h.c[hd] = LC; }
+      do {
+        poly v1; if (hd >= 0) { poly mh; pmul(&mh, &m, &h); padd(&v1, &r0, &mh); } else v1 = r0;
+        if (v1.d != T_ - 2 || v1.c[v1.d] != LC || !v1.c[0]) continue;
+        poly Fp, G, rr; padd(&Fp, &TS2, &v1); pdivmod(&G, &rr, &Fp, &m); if (rr.d >= 0) continue;
+        G_m = m; G_v1 = v1; G_F = G; factor(&F, &G); divisors(&F, A_ - 1, cb_w1);
+      } while (hd > 0 && odo(h.c, 0, hd, 0));
+    }
+  } else if (mode == 6) {     /* (w1, v1 in class mod w1): K' = m' C1, C1 | K', C1 == -w1 mod T v1 */
+    poly w1; FOR_MONIC(w1, A_ - 1) {
+      poly R, r0; pdivmod(NULL, &R, &TS2, &w1); pscal(&r0, &R, NEG[1]);
+      int hd = T_ - 2 - (A_ - 1); poly h; if (hd >= 0) { h.d = hd; memset(h.c, 0, MAXD); h.c[hd] = LC; }
+      do {
+        poly v1; if (hd >= 0) { poly wh; pmul(&wh, &w1, &h); padd(&v1, &r0, &wh); } else v1 = r0;
+        if (v1.d != T_ - 2 || v1.c[v1.d] != LC || !v1.c[0]) continue;
+        poly Fp, K, rr; padd(&Fp, &TS2, &v1); pdivmod(&K, &rr, &Fp, &w1); if (rr.d >= 0) continue;
+        G_w1 = w1; G_v1 = v1; G_F = K; pshift(&G_mod, &v1, 1); factor(&F, &K); divisors(&F, B_ - 1, cb_C1);
+      } while (hd > 0 && odo(h.c, 0, hd, 0));
+    }
+  }
+  return FCNT;
+}
+static double FOV = 3.0;   /* factoring overhead, log_q units */
+static double costF(int mode) {
+  switch (mode) {
+    case 1: return Z_ + fmax(0, T_ - 2 - Z_) + FOV;
+    case 2: return Y_ + Z_ + FOV;
+    case 3: return A_ - 1 + Y_ + FOV;
+    case 4: return Z_ + A_ - 1 + FOV;
+    case 6: return A_ - 1 + fmax(0, T_ - 1 - A_) + FOV;
+  }
+  return 1e9;
+}
 int main(int argc, char **argv) {
-  int q = atoi(argv[1]), s0 = atoi(argv[2]), s1 = atoi(argv[3]); double cap = atof(argv[4]); int meth = argc > 5 ? atoi(argv[5]) : 0;
+  int q = atoi(argv[1]), s0 = atoi(argv[2]), s1 = atoi(argv[3]); double cap = atof(argv[4]); int meth = argc > 5 ? atoi(argv[5]) : 0; USEF = argc > 6 ? atoi(argv[6]) : 1; if (argc > 7) FOV = atof(argv[7]);
   field_init(q); lgq = log(q);
+  for (int x = 0; x < q; x++) for (int y = 0; y < q; y++) { int p = 1; for (int k = 0; k < PCH; k++) p = MUL[p][y]; if (p == x) PROOT[x] = y; }
   for (int s = s0; s <= s1; s++) {
     S_ = s; TS2.d = s - 2; memset(TS2.c, 0, MAXD); TS2.c[s - 2] = 1;
     for (int a = 1; a < s; a++) for (int z = 0; a + z < s; z++) {
       int b = s - a - z; if (b < a) continue;
       for (int y = 0; y <= b - 2; y++) {
         int t = b - y; A_ = a; Z_ = z; Y_ = y; T_ = t; B_ = b; LC = (a < b) ? 1 : ADD[1][1];
-        double c2 = cost2(), c3 = cost3(), c5 = cost5(); int m = meth;
-        if (!m) { m = 2; double c = c2; if (c3 < c) { c = c3; m = 3; } if (c5 < c) { c = c5; m = 5; } }
-        double c = m == 2 ? c2 : m == 3 ? c3 : c5;
+        /* methods: 2, 3, 5 (candidate search); 11, 12, 13, 14, 16 (factoring: modes 1, 2, 3, 4, 6) */
+        int ms[8] = {2, 3, 5, 11, 12, 13, 14, 16}; double cs[8] = {cost2(), cost3(), cost5(), costF(1), costF(2), costF(3), costF(4), costF(6)};
+        int m = meth; double c = 1e9;
+        for (int i = 0; i < 8; i++) { if (meth && ms[i] != meth) continue; if (!meth && !USEF && ms[i] > 10) continue; if (cs[i] < c) { c = cs[i]; m = ms[i]; } }
         if (c > cap) { printf("%d %d %d %d %d SKIP %.1f\n", s, a, z, y, t, c); continue; }
-        long n = m == 2 ? run2() : m == 3 ? run3() : run5();
+        long n = m == 2 ? run2() : m == 3 ? run3() : m == 5 ? run5() : runF(m - 10);
         printf("%d %d %d %d %d %ld M%d\n", s, a, z, y, t, n, m); fflush(stdout);
       }
     }
