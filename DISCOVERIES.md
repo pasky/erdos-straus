@@ -1012,9 +1012,9 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
 42. **Spark relay Y2: friezes — the even edge and the transport law (FRIEZE_ES.md + BRAINSTORM/y2_*.md (O210); review `reviews/frieze-es-review.md` (R208): no FATAL; MAJOR D1 (novelty: the extension to all words and all odd N is already MODEL_SPECIFIC Thm 3.1(a)), D5 (a steering rule labelled PROVED), and a positive MAJOR D8 (the polygon-size conjecture is a theorem); minors; repaired by the reviewer).**
    * Lemma 1.1 (PROVED; CERTIFIED by R208 on all 5 115 860 odd-N formal words N ≤ 10⁵ and 10⁶ random large words). For every positive word (c, m, s) at odd N, exactly two of the five cluster variables (h′, c, m, s, h) are even, and they are adjacent (mod-2 rigidity of the A₂ frieze; positivity is not used).
    * Thm 1.2 (PROVED, 3-case proof). With e, e′ the even pair, (h′/N) = (−1/N)·(−1)^{[8 | ee′]}. This is a short, computation-free proof of MODEL_SPECIFIC Thm 3.1(a) / DK Thm 4.5; new are the even edge and the proof (R208 D1). Consequence (R208 D15): χ is a function of (c, m, s) mod 4.
-   * **Transport law (PROVED; CERTIFIED).** For N ≡ 1 (8), (h′/N) = −(2/o), where o is the odd cluster variable opposite the even edge.
-     * So a five-slice certificate at N ≡ 1 (8) ⟺ some word has o ≡ ±1 (mod 8). At an odd square every word has o ≡ ±3 (mod 8) (T1).
-     * It is Hilbert reciprocity localised: a cherry-depth reading in the 2-adic Bruhat–Tits tree.
+   * Transport law (PROVED; CERTIFIED; **deflated by O213/R211, see (J)45**). For N ≡ 1 (8), (h′/N) = −(2/o), where o is the odd cluster variable opposite the even edge.
+     * It is Thm 1.2 plus one Ptolemy relation through the even edge. For N ≡ 1 (8) every word has o ≡ 3 (mod 4), and a certificate ⟺ o ≡ 7 (mod 8). So −(2/o) just reads o mod 8, i.e. the slice condition itself; the sign does not move to a better-behaved small modulus.
+     * Cherry-depth reading in the 2-adic Bruhat–Tits tree (a restatement).
    * §3 (split by R208 D5).
      * PROVED: positivity is necessary — an explicit signed family at odd squares has a quiddity ≡ 0 (mod 4).
      * The Short–Van Son–Zabolotskii lifting theory of tame friezes is T1-blind: every closed odd walk on the Farey complex F₄ is strongly contractible.
@@ -1027,6 +1027,78 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * Zamolodchikov period 5 forces an even edge mod 2, never a zero mod 4.
      * The Cuntz–Holm–Jørgensen coefficient model is a relabelling.
    * Relay O213 (the transport law in the o-aspect) was spawned.
+
+43. **Wave Y-a: the (k, Q₁) phase diagram of ES-variants — a second archimedean wall, and the cap pushed to sub-polynomial (PHASE_DIAGRAM.md (O204); two independent hostile reviews `reviews/phase-diagram-review.md` (R209) and `reviews/phase-diagram-review-2.md` (R210): no FATAL; R209 MAJOR M1 (Cor 3.2's ES^□ k = 1 infinitude was asserted without proof; proof supplied) and M2 (quantifier form of Thm 5.1); minors; repairs applied by the author).**
+   * Prop 1.1 (PROVED; both reviewers re-derived it). Normal form: every shot is k(4ab − n) = b + aQ₁². The overflow is a Q₁²-weight in ES's own Type II equation; ES is the line Q₁ = 1.
+   * **Thm 2.1 (PROVED, sharp; R209 and R210 searched to 2–3× the wall, 0 violations).** For ES^{[2]} (den z | y², which contains ES^{(y,1)}), Q₁ ≤ (16k³n + 1)/(4k − 1). Equality holds for every n ≡ 2 (mod 3) via Q₁ = (16n+1)/3, g = (64n+1)/3, D = (4n+1)/3.
+     * With EXPONENT_CAP Thm 2.1, every slice of the duality plane D·g = 4k²n + Q₁² (fixed k or fixed Q₁) is finite. Solutions live in the band √(Q₁/6n) ≤ k < Q₁²/2.
+     * **The band is unbounded, so ES^{(y,1)} is NOT shown to be a finite search. R200 M1 ("bounded cap with growing S is open") stands** (both reviewers; the orchestrator's first reading was wrong).
+   * Prop 3.1 / Cor 3.2 (PROVED after R209 M1; (a) relative to FROBENIUS_FIRING Thm 4.2, needs only 3 ∤ n). On the single slice k = 1 the cap ladder reads "4n + Q₁² has a divisor g ≡ −1 (mod 4M)":
+     * M = 1 (ES^□): infinite;
+     * M = rad Q₁ with S fixed: infinite (sieve);
+     * M = Q₁ (cap 1): finite;
+     * ES: one number.
+     * EVIDENCE: no wall seen for e = 2. With the one mute prime 3, every prime p < 10⁶ has a k = 1 shot 4p + 9^a.
+   * Prop 4.1 (PROVED). One axis for all caps: ES^{(y,e)} ⟸ n(2k(4kλ)^e)² + 1 has a divisor ≡ −1 (mod 4kλ) with (g+1)/(4kλ) squarefree. The modulus exponent infimum is θ = 1/(2e+2), and it depends on the parametrisation (R209 m6/m7). ES sits at θ = ½ and the e = 1 face at the N^{1/4} Lenstra / Coppersmith–Howgrave-Graham–Nagaraj threshold.
+   * **Thm 5.1 (PROVED relative to Bombieri–Vinogradov + Iwaniec's linear sieve; ineffective; both reviewers checked uniformity, level and Siegel zeros).** For every A, η > 0 and n, and all x ≥ x₀(n, A, η), there is an ES^{(y,e)}(n) solution with x/8 ≤ y ≤ nx and e ≤ y^{(2+η)log₃y/(A log₂y)}. This improves EXPONENT_CAP Thm 3.2 (y^δ).
+   * §6. B1 holds (PROVED, for every unit class u mod a prime r ≡ 1 (4)): no finite set of shot classes covers p ≡ u (mod r). A class-layer conditional (one form class per genus) is also PROVED, but it is tautological from genus theory.
+   * Assessment.
+     * A single-n sieve is blocked not by B6 but by the per-certificate box of size g^{o(1)}. After switching, it is a divisor problem whose modulus is a parameter of the number. Level-of-distribution results (BFI, Fouvry) do not see it.
+     * Pell orbits multiply ES^{[2]} points but do not create them.
+     * Between Thm 5.1's sub-polynomial cap and the covering threshold (log y)^{1−o(1)}, nothing is known.
+     * Relay O214 (the e = 2 cell) was spawned.
+
+44. **Wave Y-d: torsion firing — ES divisors live in the (h+1)-world, p in the (h−1)-world (TORSION_FIRING.md (O207); review `reviews/torsion-firing-review.md` (R206): no FATAL; MAJOR D3 (Thm 3.1 needs supersingular/torus input — ordinary curves at h have large Hom into F_h^*), D5 (Prop 3.3 for families of degree D ≥ 2 is only CONDITIONAL), D7 (the Hasse-window dictionary is a relabelling of a divisor statement); minors; repaired by the reviewer).**
+   * §1 (PROVED; R206 brute-forced it end to end). Group structures of y² = x³ + Dx at h ≡ 3 (4) and of y² = x³ + B at h ≡ 2 (3). Type II at a prime modulus h ⟺ y² = x³ + pd·x has a 2-torsion point (2cd, 0) with 2cd | (h+1)/2 ⟺ cd | #2E₀(F_h) and h | p + 4c²d. R206 D2: tautological in content.
+   * §2 (PROVED). At a supersingular h, ρ_{ℓ^∞}(Frob_h) is the companion matrix of x² + h for every odd ℓ ≠ h. So every GL₂-invariant torsion condition there is cyclotomic, and firing reads only a determinant (true for every E: R206 D4).
+   * **Thm 3.1 / Cor 3.2 (PROVED; scope after R206 D3).** gcd(h^s + 1, h^t − 1) = 2 for t odd. So every homomorphism from a group of exponent dividing h^s + 1 (supersingular points, the non-split torus) into F_{h^t}^* lands in {±1}.
+     * The ES divisors (orders in the (h+1)-world) and the residue of p (in F_h^*) meet only in the genus bit.
+     * The GL₂ analogue of the (J)30 mute place gains at most a factor 2 from supersingular or torus input. An ordinary group reduced mod h is not covered.
+   * Prop 3.3 (PROVED for D = 1; CONDITIONAL for D ≥ 2 after R206 D5). Merel/Mazur: identity-forced point orders over ℚ(t) serve only 4cd ∈ {4, 8, 12}.
+   * Prop 3.4 (PROVED). In towers unramified outside a finite set, the (J)34 no-go extends: sufficient Frobenius conditions have empty interior.
+   * **§4.1 (CERTIFIED; R206 reproduced it and extended it to 10⁸).** p = 3361 is the unique prime ≤ 10⁸ with no prime-modulus Type II certificate. Its four ordered certificates have moduli 99, 679, 1159 and 33639.
+   * Props 4.2/4.3 (PROVED via Deuring–Waterhouse; EVIDENCE to 10⁸, R206 reproduced to 10⁷). Every j = 1 Type II ticket is a curve over F_p of trace 1 − c with a subgroup of order ≡ −1 (mod 4c). R206 D7: this is a relabelling of "p + c has a divisor ≡ −1 (mod 4c)", and the curve plays no role.
+   * Assessment. No GL₂/point-order mechanism forces firing. The only bridges between the two worlds found are non-homomorphic (the integer box, coordinates). Relay O211 (bridges via F_{h²}: semi-primitive / uniform cyclotomy, Lucas sequences, Salié sums) was spawned.
+
+45. **Spark relay Y5: the transport law is the Ptolemy relation mod 8 (TRANSPORT_LAW.md + BRAINSTORM/y5_*.md (O213); review `reviews/transport-law-review.md` (R211): no FATAL; MAJOR D1 (the (J)42 wording, corrected above) and D5 (misdescribed hard-prime evidence); minors; repaired by the reviewer; all census numbers reproduced from scratch to 10⁷).**
+   * SHARP 1 (PROVED, a sharp negative). The relation through the even edge is ee′ ∈ {1 + o, N + o, 1 + No}. So for N ≡ 1 (8), o ≡ 3 (4) for every word, and a certificate ⟺ o ≡ 7 (8). The O210 transport law carries no information beyond the slice condition.
+   * SHARP 2 (PROVED; classical in substance — the Jacobi symbol along a continued fraction). For an integer word with N = K_r > 0 odd and all K_i ≠ 0,
+     (K_{r−1}/N) = ∏(K_i, −K_{i+1})₂ · (−1)^{#{i : K_i < 0 < K_{i+1}}}.
+     The proof uses leading-minor Hasse invariants and the product formula. The sign changes form an explicit archimedean (Maslov) count.
+   * SHARP 3 (a relabelling, after R211 D4). Positivity is the narrow-minus-wide ray class element c_∞. Objects that see only wide or unsigned data are ES-blind (Assessment).
+   * **CONJECTURE SQ_H (EVIDENCE; R211 reproduced it).** Certificates with an even middle letter m and 8 | m·e exist at all 165 976 primes p ≡ 1 (8) ≤ 10⁷, and in formal form at all 332 180 primes p ≡ 1 (4) ≤ 10⁷. They fail at exactly 22 composite non-squares N ≡ 1 (4) ≤ 10⁶ (105, 1465, 3865, …, 392505). The mean count is about 27, so this is a sub-lottery (Assessment).
+   * Census (CERTIFIED to 10⁷; corrected by R211 D5).
+     * o* = 7 for 94 % of p ≡ 1 (8).
+     * The 17 hard primes with interior o* ≥ 119 are all quadratic residues mod 840 (p mod 840 ∈ {1, 121, 169, 361}), with least non-residue in {11, …, 29}.
+     * p = 21841 has a unique interior certificate pair, (9, 64, 38) and its mirror; its least certificate vertex is o* = 2431 = 11·13·17.
+   * No mod-16/32 shadow of T1 at squares (EVIDENCE): T1 is one bit.
+   * Siegel–Weil on full-rank data is the genus indicator. SQ₅(p) asks that the χ = −1 genus (≍ p classes) contain a path-basis lattice (≪ p^{1/3+o(1)} of them): a thin-set lottery (Assessment).
+   * The frieze relay chain ((J)40, (J)42, (J)45) ends here. No further relay was spawned, because every SHARP item is either negative or classical.
+
+46. **Spark relay Y4: hunting 4-specific inputs — T1-bearing numerators are discriminants, and 7 is the failure-free sibling of 4 (FOUR_SPECIFIC.md + BRAINSTORM/y4_*.md (O212); review `reviews/four-specific-review.md` (R212): SOUND, no FATAL or MAJOR; minor repairs (incl. novelty wording: Thm 2.3 and Prop 3.1 are elementary/standard); every numerical claim re-verified, the 7/p census to 10⁸).**
+   * **Prop 1.1 / Cor 1.2 (PROVED; R212 re-derived all four residue cases).** The M-shot family (g | n + MQ², g ≡ −1 (mod M), g odd) carries T1 exactly when M ≡ 0, 3 (mod 4), i.e. when −M is a discriminant. M^□ is a theorem at all non-squares for every M ((J)41).
+   * **7 is a T1-bearing numerator with no failure: 7/p is solvable at every prime p ≤ 10⁸ (CERTIFIED; R212's own solver).** Type I of 7 never fails; Type II of 7 fails exactly at 3, 31, 43, 127, 211, 421, 463, 631, 12601. Among M ≤ 30000 (Pomerance–Weingartner §6), the T1-bearing failure-free numerators are 3, 4 and 7.
+     * 7 does not share 4's simple χ-fibre structure: S₇(p) = ∅ at exactly 10 primes ≤ 10⁵, seven of which are the 7/p Type II failures.
+     * Harness entry: 11/37 = 1/8 + 1/148 + 49/296 (11/37 has no unit-fraction solution; BM was not computed for it).
+     * Consequence (Assessment): every proposed "4-specific input" must now also be tested against 7 (true) as well as against 8 and 11 (false).
+   * Thm 2.3 (PROVED relative to the 2-adic symbol classification, Allcock–Gal–Mark Thm 5.1; R212 tested all 50 063 words with n ≤ 2001). Every χ = −1 path form has Q_w ⊗ ℤ₂ ≅ ⟨1, −1, −n⟩. So the one-odd versus all-even (= 8/n) split of the certificates is marking data, not lattice data.
+     * S₄^{odd}(p) ≠ ∅ at all primes ≤ 10⁷, while S₈ fails 27 times.
+   * **Thm 4.2 (PROVED; finite part re-checked by R212, with the Rosser–Schoenfeld tail).** The non-square A for which "(−A/p) = −1 ⇒ p has a word with slot A" holds for all p ≡ 1 (4) are exactly {2, 3, 5, 7, 8, 15, 20}, because τ(A+1) ≥ φ(A)/4 is necessary. Their joint reach is the complement of Mordell's six square classes: **Mordell's 840 is exactly the reach of universal one-slot χ-witnesses.**
+   * Prop 3.1/3.2 (PROVED, elementary). 4 is the unique M ≥ 3 with a slice e ∈ {1, 3} at every prime; the {±1}-unit-group slices (e ∈ {1, 2, 3, 4, 6}) hold exactly for M ∈ {3, 4, 5, 7}.
+   * Assessment. The only 4-specific fact with the character of an input is still the χ-fibre / 2-adic isotropy ((J)32/(J)33, SQ₅). Hatch harness: all PARTIAL hatches are mixed (a uniform skeleton plus a lottery). Relay O215 (what 4 and 7 share) was spawned.
+
+47. **Spark relay Y6: the e = 2 cap cell — one Markoff-type equation, two cells (CAP_TWO.md (O214); review `reviews/cap-two-review.md` (R213): no FATAL, no MAJOR; minors m1–m8 repaired by the author).**
+   * **Thm 1.1 / 1.2 (PROVED, with Q₁ odd; R213 brute-forced both directions: 876 points, n ≤ 200, g ≤ 10⁵).** The k = 1 shots with exponent cap 2 are exactly the solutions of 4n·a² + B² + E = c·a·B·E with c odd (Q₁ = cB², g = caB − 1, 4 | a ⟺ E ≡ 3 (4)).
+     * The same equation with 4 | c is GROWING_MUTE's ES^{[2]} form. Unified statement: "4na² + B² has a divisor ≡ −1 (mod aB)", and the cell is the residue of the quotient c mod 4.
+     * Fibrewise (x = cE), a necessary condition: the principal form of discriminant x² − 16n represents −E for some E | x. ES is {B = 1, 4 | c}.
+   * Prop 2.1 / 5.1 (PROVED). Slices with fixed a or fixed B are finite (c ≤ (4n+1)(B²+1)/B), while Pell orbits are infinite. On k = 1, a finite exponent-2 budget keeps the slice finite. The per-slice contrast of (J)43 (e ≤ 1 versus e = 2) is a slicing effect (Assessment).
+   * Thm 4.1 (PROVED). D-face: a(cBw − 4n) = w + cB³ with D = cBw − 4n ≡ 3 (mod 4), i.e. ES's Type II normal form with n ↦ 4n and one summand cubed. Example (c, w) = (1, 1), with gcd(a, n) = 1: any D ≡ 3 (mod 4) dividing 64n³ + 1 = (4n + 1)(16n² − 4n + 1) gives Q₁ = (4n + D)² when 4n + D is squarefree.
+   * §6 (PROVED; the MARKOFF Thm 5.1 transfer is verbatim after μ ↦ x/2, N(η) = 4n). There are no polynomial families at fixed E.
+   * EVIDENCE (R213 reproduced it with an independent method). Every prime 3 ≤ p < 10⁶ has a k = 1 shot with cap ≤ 2 and g ≤ 10⁶. The largest least g is 955 979, at p = 379. No odd square ≤ 10⁶ has one (T1).
+   * Assessment. ES^{(y,2)} at k = 1 is not easier than ES^{[2]}. Existence requires two things, both open:
+     * a class-group event in the family of discriminants x² − 16n;
+     * squarefreeness of B along a Pell orbit (Wieferich-type).
+     No relay was spawned, because the bottleneck is the already-explored MARKOFF_ES class layer ((J)37).
 
 ## Items to verify by the maintainer
 

@@ -25008,4 +25008,184 @@ def check_fH():
 check_fH()
 
 
+def check_fI():
+    # (fI) PHASE_DIAGRAM (O204; reviews R209, R210): R210 from-scratch check of Thm 2.1 (the k-wall
+    # Q1 <= (16k^3 n + 1)/(4k - 1) for ES^[2] shots, odd n <= 101, k <= 6, Q1 searched to 3x the wall: 348 shots,
+    # 0 violations; equality family for 3333 n) and the one-mute-prime k = 1 evidence (4p + 9^a, all p < 10^5).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("PHASE_DIAGRAM subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_pd2_wall.py", "101", "6", "20000"])
+    for s in ("part1: ES2 shots (Q1<=3W)=348, of which Q1<=1.3W: 348; gcd(Q,n)>1 skipped: 46 (46); violations=0",
+              "part2: equality family verified for 3333 n (squarefree Q1: 2698); Q1=4n+3 family: 3333"):
+        assert s in out, ("PHASE_DIAGRAM R210 wall", s, out[-2000:])
+    out = run(["review_pd2_k1.py", "B", "100000", "30"])
+    assert ("least-a histogram: {0: 7125, 1: 781, 2: 603, 3: 333, 4: 303, 5: 120, 6: 72, 7: 81, 8: 68, 9: 30, "
+            "10: 32, 11: 16, 12: 8, 13: 10, 14: 6, 15: 1, 17: 1}") in out, out[-2000:]
+    assert "cases where only convention-violating g existed at some a: [] 0" in out
+    print(f"== (fI) PHASE_DIAGRAM R210: k-wall for ES^[2] (348 shots, 0 violations, sharp for 3333 n); one mute prime: "
+          f"every p < 1e5 has a k = 1 shot 4p + 9^a, a <= 17; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fI()
+
+
+def check_fJ():
+    # (fJ) TORSION_FIRING (O207/R206): R206 from-scratch checks — torsion–residue orthogonality gcd(h^s+1, h^t-1) = 2
+    # (t odd), group structures / Type II = 2-torsion dictionary (end-to-end), T1 control at odd squares, and
+    # p = 3361 the unique prime <= 10^7 without a prime-modulus Type II certificate (C sieve + direct enumeration).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run(args, capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("TORSION subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run([sys.executable, "review_tf_thm31.py"])
+    assert "(1) odd h<400, s<=8, odd t<=9: gcd != 2 count: 0" in out and "(2) primes h=3 mod 4 < 200: violations 0" in out, out
+    out = run([sys.executable, "review_tf_sec1.py"])
+    for s in ("lemma 1.1: cases 706 fail 0", "prop 1.2 end-to-end: primes <= 120 mismatches 0",
+              "odd squares 9..625: torsion-firing (h,n) count 0"):
+        assert s in out, ("TORSION R206 sec1", s, out[-2000:])
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "rtfp")
+        run(["gcc", "-O2", "-o", exe, "review_tf_primemod.c", "-lm"])
+        out = run([exe, "check", "3361"])
+        assert "check: 472 primes 5..3361, mismatches 0, without prime cert 1" in out, out
+        out = run([exe, "run", "10000000", "20000"])
+        assert "NO prime-modulus Type II certificate: p=3361" in out, out[-2000:]
+        assert "run: 664577 primes 5..10000000, unmarked after stage 1 (H0=20000): 2, without prime cert: 1" in out, out[-2000:]
+    print(f"== (fJ) TORSION_FIRING R206: gcd(h^s+1, h^t-1) = 2 (t odd); Type II = 2-torsion dictionary; p = 3361 unique "
+          f"prime <= 1e7 without prime-modulus Type II certificate; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fJ()
+
+
+def check_fK():
+    # (fK) TRANSPORT_LAW (O213/R211): R211 from-scratch — transport law = Ptolemy mod 8 on 81 784 words N <= 3000,
+    # general-r Jacobi law on 2*10^5 random signed words, and the o*-census to 10^6 (SQ5 / SQ_H fingerprints, 21841).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run(args, capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("TRANSPORT subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run([sys.executable, "review_r211_identities.py"])
+    for s in ("SHARP1: X=3000 words=81784", "SHARP2: tested=200000 failures=0", "SHARP3: odd N<= 301: failures=0",
+              "item(a): o<= 4000, N<2000: failures=0"):
+        assert s in out, ("TRANSPORT R211 identities", s, out[-2000:])
+    assert out.count("failures=0") == 4, out[-2000:]
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "r211census")
+        run(["gcc", "-O2", "-o", exe, "review_r211_census.c", "-lm"])
+        out = run([exe, "1000000"])
+    for s in ("max o* = 2431 at p=21841",
+              "primes ==1(8): 19552; SQ_H fails formal 0 interior 0",
+              "  SQ5 interior fails: 5 105",
+              "  SQ_H formal fails: 105 1465 3865 4545 5481 10305 12145 34489 36841 39361 40425 51129 67425 95505 115465 "
+              "147609 179361 196065 199369 210105 341145 392505",
+              "odd squares ==1(4) in [5,1000000]: 499, with any certificate: 0"):
+        assert s in out, ("TRANSPORT R211 census", s, out[-2000:])
+    print(f"== (fK) TRANSPORT_LAW R211: transport law = Ptolemy mod 8; general-r Jacobi law (2e5 words); census to 1e6 "
+          f"(SQ_H: 0 prime failures, 22 composite; o* = 2431 at 21841; no certificate at odd squares); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fK()
+
+
+def check_fL():
+    # (fL) FOUR_SPECIFIC (O212/R212): R212 from-scratch — T1-bearing numerators (M = 0, 3 mod 4), 11/37 harness entry,
+    # 7/p failure-free to 10^7 (Type II fails exactly 9 times), 8/p failures to 10^6, Thm 2.3 2-adic class of chi = -1
+    # path forms (n <= 2001), Thm 4.2 universal one-slot witnesses {2,3,5,7,8,15,20} = Mordell's reach.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run(args, capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("FOUR_SPECIFIC subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run([sys.executable, "review_r212_t1.py"])
+    assert "TOTAL mismatches 0" in out and "(5) 11/37 == 1/8+1/148+49/296: True" in out, out[-2000:]
+    out = run([sys.executable, "review_r212_twoadic.py", "2001"])
+    assert "violations: 0 []" in out and "(-1, True, True) 34042" in out and "(1, False, False) 16021" in out, out[-2000:]
+    out = run([sys.executable, "review_r212_witness.py", "3000", "1000000", "1000000"])
+    for s in ("(1) universal non-square A <= 3000 : [2, 3, 5, 7, 8, 15, 20]",
+              "(3) primes p=1 mod 4 < 1000000: 39175, mismatches vs Mordell's classes: 0"):
+        assert s in out, ("FOUR_SPECIFIC R212 witness", s, out[-2000:])
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "r212c")
+        run(["gcc", "-O2", "-o", exe, "review_r212_census.c", "-lm"])
+        out = run([exe, "7", "10000000"])
+        assert "M=7 PMAX=10000000 primes=664577 fails=0 noTypeI=0 noTypeII=9" in out, out[-2000:]
+        out = run([exe, "8", "1000000"])
+        assert "M=8 PMAX=1000000 primes=78497 fails=5 noTypeI=5 noTypeII=22" in out, out[-2000:]
+    print(f"== (fL) FOUR_SPECIFIC R212: T1 numerators M = 0,3 mod 4; 7/p failure-free to 1e7 (T1-bearing sibling of 4); "
+          f"8/p 5 failures to 1e6; chi = -1 path forms 2-adically <1,-1,-n>; Mordell reach = {{2,3,5,7,8,15,20}}; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fL()
+
+
+def check_fM():
+    # (fM) CAP_TWO (O214/R213): R213 from-scratch — Thm 1.1/1.2 dictionary (k = 1 cap-2 shots = c-odd points of
+    # 4na^2 + B^2 + E = caBE; 876 points, n <= 200, g <= 10^5, both directions) and k = 1 cap-<=2 coverage of primes
+    # < 10^5 with g <= 10^5 (only p = 379 uncovered there; its least g is 955 979), none at odd squares.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run(args, capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("CAP_TWO subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run([sys.executable, "review_r213_dict.py", "200", "100000"])
+    for s in ("side A: ES^{(y,2)} k=1 shots: 876", "side B: canonical W_n points: 876  all c-odd points: 4484  "
+              "violations of E=3(4)<=>4|a: 0  D-face failures: 0", "A(ES^(y,2)) == B ? True  defcell(odd Q1) == B ? True"):
+        assert s in out, ("CAP_TWO R213 dict", s, out[-2000:])
+    out = run([sys.executable, "review_r213_cover.py", "100000", "100000"])
+    for s in ("primes 3..100000: 9591, uncovered: 1 [379]", "odd squares covered: 0 of 157",
+              "exact re-verification failures: 0"):
+        assert s in out, ("CAP_TWO R213 cover", s, out[-2000:])
+    print(f"== (fM) CAP_TWO R213: k = 1 cap-2 shots = c-odd points of 4na^2 + B^2 + E = caBE (876, both directions); "
+          f"primes < 1e5 covered with g <= 1e5 except 379; no odd square; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fM()
+
+
 print("\nall checks passed")
