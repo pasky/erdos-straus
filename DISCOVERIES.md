@@ -593,7 +593,7 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
 
 9. **Spark phase V: Hirzebruch–Jung / Dedekind-sum dictionary (DEDEKIND_ES.md (O169); review `reviews/dedekind-es-review.md` (R169): no FATAL/MAJOR; D1–D10 minor, repaired by the reviewer).**
    * Lemma 1.1 (PROVED): X-slice certificates tuv − u − v = n are exactly the fractions n/A with Hirzebruch–Jung continued fraction [[v,t,u]] of length 3 (A = tu − 1), i.e. the matrices T^vST^tST^uS with top-left entry n; on them 12 s(A,n) = t+u+v−9 + (A+A*)/n (Hirzebruch–Zagier). Dedekind sums determine only the difference of HJ lengths of A and n − A.
-   * **Thm 4.5 (PROVED: finite mod-8 cell check relative to Rademacher–Grosswald and (D2); brute force over 21 430 357 words to 10⁶ by R169): for n ≡ 1 (4), a length-3 HJ fraction n/A is an ES certificate of one of five slices iff (A/n) = −1.** In HJ coordinates the moving moduli disappear. Cor 4.6: for p ≡ 1 (8), these slices hold ⟺ λ(p) ≤ 3, where λ(p) is the least HJ length of a quadratic non-residue ("least non-residue in the Farey metric"). This is the exact converse of the T4 test on these slices (the 4 | A case is redteam-automorphic Lemma 5.2).
+   * **Thm 4.5 (PROVED: finite mod-8 cell check relative to Rademacher–Grosswald and (D2); brute force over 21 430 357 words to 10⁶ by R169): for n ≡ 1 (4), a length-3 HJ fraction n/A is an ES certificate of one of five slices iff (A/n) = −1.** In HJ coordinates the moving moduli disappear. Cor 4.6: for p ≡ 1 (8), these slices hold ⟺ λ(p) ≤ 3, where λ(p) is the least HJ length of a quadratic non-residue ("least non-residue in the Farey metric"). This is the exact converse of the T4 test on these slices (the 4 | A case is redteam-automorphic Lemma 5.2). *Attribution (added after R205 D9):* the Type I slice (a three-term ceiling/HJ continued fraction of p/(4k) gives 4k/p = 1/p₀ + 1/(p₀p₁) + 1/(p₁p₂) by convergent telescoping) is already in Ventas, arXiv:2605.04551 (2026), eq. (3), Thm 2.1, Prop 2.2. The other four slices and the Jacobi-symbol criterion are not there.
    * The sign is a mod-4 function of (t,u,v), +1 exactly on 5 of the 20 occupied classes (§8.1); the Klein group preserves it. (Corrected per R198 D1: "rotations preserve it" and "scaling is the only flip" hold only within n ≡ 1 (4). In the uniform normalisation χ = (−A/n) of (J)33, scaling preserves χ, and a rotation flips χ iff all letters are odd and t ≢ u (mod 4), which changes n. No classical move changes the sign at fixed n.) So the reformulation is congruence data plus the length-3 lottery (B2).
    * EVIDENCE: λ(p) ≤ 3 for all 19 552 primes p ≡ 1 (8) ≤ 10⁶; t_min(p) ≤ 64; no odd square ≤ 10⁶ has a hit. CONJECTURE SQ₅: for n ≡ 1 (4), n ≠ 105, the five slices are non-empty ⟺ n is not a square (EVIDENCE to 10⁶, reproduced by R169; strengthens O146's SQ).
    * Complexity reading (Assessment): a polylog-height version (t_min ≤ (log p)^C) would give deterministic QNR-finding with a factoring oracle, which is not known.
@@ -966,6 +966,48 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * §3 (CERTIFIED; R204 reproduced all 32 exact rank certificates). No ℚ-linear relation exists between 8 weighted sign counts and a 48-column dictionary (Hurwitz class numbers, Kronecker–Hurwitz sums, twisted divisor sums, ternary theta series) on odd n ≤ 12 000, per class mod 8.
    * Prop 4.1 (PROVED; largely CHI_FLIP Thm 1.1 + CONSTRUCTIVE Thm 1.2 restated). Each word gives Gram T_w = t·diag(v, u) − [[1,−1],[−1,1]] of determinant tp. For n = p, χ = −1 ⟺ Diff = {p} (Eichler level 2 in B_{p,∞}) and χ = +1 ⟺ Diff = {2}. So the two signs are the two bad fibres of X₀(2p). The "log-separation" reading N₋ log p + N₊ log 2 is a tautological reformulation (R204 D10).
    * Assessment. The family of Gram matrices is a level-t projection with t unbounded (B2), so this dictionary relocates the lottery rather than resolving it. Relay O209 (two fibres, hyperbolic-matrix reading) was spawned.
+
+40. **Wave Y-c: one object behind every "length 3" — the five ES slices are the vertices of a Farey pentagon / A₂ frieze (LENGTH_THREE.md (O206); review `reviews/length-three-review.md` (R205): no FATAL, no mathematical error; one MAJOR-presentational leftover (D6, a retracted cutting-sequence claim restated in §5) and minors; repaired by the reviewer; prior art found, see below).**
+   * Prop 1.1 / Cor 1.2 (PROVED; R205 re-checked all 1 194 085 words with N ≤ 2·10⁴). A length-3 HJ word [[c, m, s]] = N/h′ is the Farey pentagon (0, ∞, c, c − 1/m, N/h′), equivalently a positive integral frieze with coefficients with boundary (1,1,1,1,N). The five continuants are the five cluster variables, and DK Thm 4.5's five slices say "the diagonal at vertex V_i is ≡ 0 (mod 4)".
+     * So (J)9 reads: **(A/N) = −1 ⟺ some cluster variable of the pentagon frieze is ≡ 0 (mod 4).**
+     * Prop 1.1 itself is classical in substance: continuants = λ-lengths = frieze entries (Conway–Coxeter, Penner, Morier-Genoud–Ovsienko "Farey boat"; friezes with coefficients after Cuntz–Holm–Jørgensen, arXiv:1909.02332, Forum Math. Sigma 2020; R205 had written "Pagano").
+   * Thm 2.1 (PROVED, checked symbolically). Each of the five ES triples is the fan decomposition of a Ford horocycle at one vertex (Farey telescoping).
+     * Prior art (R205 D9): the V₁ row (the Type I slice) is Ventas, arXiv:2605.04551 (2026). The in-campaign precursor is BRAINSTORM/farey_chain_frieze.md (O144).
+     * New as statements: the five-vertex/Jacobi form (Cor 2.2) and the Ptolemy readings below.
+   * Thm 3.1 / Thm 4.1 / Cor 4.2 (PROVED; R205 re-derived them).
+     * The Machin relation of (J)38 is the rotation about the CM point z* = i√(N/m) on the side (0, ∞). For Type II, r² = p/(4d) is independent of j.
+     * m²Norm_μ(z + 1/m) = hh′ − mμ. So (J)38's "|N ε_μ| divides μ" and (J)37's depth-3/depth-1 split are one Ptolemy relation of the pentagon, read on the orthogonal pencil of a geodesic. The certificate cube's divisibilities are Ptolemy relations too (Cor 1.3).
+   * §6 (PROVED after R205 D4, with gcd(n, 2Q) = 1). Pentagons with frozen values (Q², 1, 1, 1, n) and middle diagonal 4 correspond to divisors h ≡ 3 (mod 4) of 4n + Q². They give 4/n = 1/(sn) + 1/(sc) + Q²/(cn), the fixed-modulus-4 shot. ES^□-type relaxations are the pentagon with ONE non-tangent side, and the decoration torus cannot move between the two.
+   * §7 constructive screens (Assessments, except §7.4).
+     * Ear lemma: fails with a non-unit boundary value.
+     * Moving pencil: eliminates back to the (d, j)-line (reduction PROVED).
+     * §7.4 (PROVED, classical): genus theory kills every cube point at odd squares.
+     * No equidistribution route.
+     * Farey-chain slice: fails at 13, 37, 97, 181, 193, 277, 373.
+   * Assessment. The four "length 3" phenomena are algebraically equivalent restatements of the single continuant equation K(c, m, s) = N. No deterministic existence mechanism appears; the unknown λ-length h is B2's "modulus that is part of the solution". Relay O210 (friezes over ℤ/4, ℤ/8; ear-adding; cluster periodicity) was spawned.
+
+41. **Synthesis III: the numerator-blindness barrier — the □-relaxation is a theorem for every numerator M ≡ 0 (4), including those where M/p fails (SYNTHESIS_SPARKS3.md + BRAINSTORM/s3_*.md (O208); review `reviews/synthesis-three-review.md` (R207): no FATAL; MAJOR D1 (the "must be 4-specific" reading ignores thresholds and was labelled PROVED; now split into a formal statement and an Assessment, with a threshold-robust strengthening) and D2 (novelty relative to (J)31/(J)32); minors; repaired by the reviewer).**
+   * Lemma 1.0 / Thm 1.1 (PROVED, elementary; R207 re-derived them by valuations and brute force).
+     * For M ≡ 0 (4): if g | n + MQ² and g ≡ −1 (mod M), then M/n = 1/x + 1/y + 1/z where den z = (Q/gcd(Q, (g+1)/M))² is an odd square.
+     * (∗): (−M/g) = −1 for every odd g ≡ −1 (mod M).
+     * (a) Hence M^□(n) holds at every odd non-square n prime to M (one Dirichlet prime).
+     * (b) There is no M-shot at an odd square, so the shot mechanism keeps T1 exactly.
+   * **Cor 2.1 (formal part CERTIFIED; R207 re-solved the failing pairs from scratch).**
+     * M/p fails at 278 known pairs (M ∈ {8, 12, 16, 20, 24}). Every one of them has an exact M^□ certificate with a prime g ≤ 239.
+     * The 264 pairs with p ∉ S also have M^{(S)} certificates for S = {3, 5, 7, 11}. Example: **8/131 = 1/20 + 1/131 + 9/2620**, while 8/131 has no unit-fraction solution.
+     * Threshold-robust strengthening (R207 D1; relative to Pomerance–Weingartner Thm 1.2): for every M ≡ 0 (4) with M ≥ 6.52·10⁹, some prime p ∈ (M², 2M²) has M^□(p) and not M/p.
+   * Assessment (R207: fair item by item, but the conclusion is an Assessment).
+     * Shot identities, overflow duality, T1/BM/Diff-parity, box finiteness, sieves, composition and class-group pigeonhole all work uniformly in the numerator. So any ES proof that uses only such tools, uniformly in M without a threshold, would also prove false statements.
+     * An ES proof therefore needs an input specific to 4 (consistent with (J)31). The cleanest known one is the χ-fibre S₄ = {χ = −1} of (J)32.
+     * New relative to (J)31: the relaxations are theorems for every M, and the failures 8/131, 8/241, TES and ES_q serve as a falsification harness for mechanisms, not only for Brauer–Manin.
+   * Memos (R207: SOUND, or SOUND-AFTER-REPAIRS).
+     * s3_box_bit (PROVED): for a prime g ≡ 3 (4), a □-shot at g exists ⟺ (p/g) = −1. So the □ relaxation is exactly the sign layer.
+     * s3_eps_mu_sieve (PROVED): 4tj − 1 | nj + t ⟺ 4tj − 1 | n + 4t², i.e. (J)38's ES slot is the (J)23 sieve shot with Q = t.
+     * s3_min_scale (EVIDENCE to 10⁷): the least certifying modulus is h_min ≤ 0.82 log³p.
+     * s3_lll_lenstra: LLL decides, it does not produce existence.
+     * s3_isogeny_mixing (Assessment): certificate edges are o(N), so expander mixing cannot force one.
+     * s3_words_parity: #χ=−1 words is even at p ≡ 1 (4).
+   * Relay O212 (hunting 4-specific inputs) was spawned.
 
 ## Items to verify by the maintainer
 

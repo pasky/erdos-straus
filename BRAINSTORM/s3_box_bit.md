@@ -14,7 +14,8 @@ or by re-reading the same modulus g.
    p = 13, d = 2, (A, B, D, μ) = (2, 1, 35, 35) is an ES point of V₂₆ with g = 3 although −13 ∉ Box(1) mod 3; R-O208 #1);
    so "some d-sliced point (d | λ) at modulus g" ⟺ −p ∈ Box((g+1)/4) mod g, independent of Q.
    Multiplying n by Q₁² turns (g, Q₀Q₁) into the shot (g, Q₀Q₁²) of pQ₁² (as pQ₁² + 4Q₀²Q₁⁴ = Q₁²(p + 4Q²)): the
-   overflow grows. Neither move uses the □ data beyond g.
+   overflow grows (R207 repair m7: here gcd(Q, n) > 1 and n is no longer prime, so Lemma 1.0's den formula does not apply;
+"grows" is unproved). Neither move uses the □ data beyond g.
 2. *The one bit.* For a prime g ≡ 3 (mod 4), g ∤ p: [a □-shot at g exists] ⟺ (p/g) = −1. And [ES certificate at
    modulus g] ⇒ (p/g) = −1: if −p ≡ 4c²d with cd | (g+1)/4 then g ≡ −1 (mod 4d), so (d/g) = 1 by the (∗)-computation
    of SYNTHESIS_SPARKS3 Thm 1.1, whence (−p/g) = 1. So **the □ relaxation at a prime modulus is exactly the sign layer

@@ -18,7 +18,8 @@ both associates; T1₃ control: 0 shots at cubes. So the order-3 relaxation is b
 that is (i) numerator-free and (ii) implies TES(π) must be FALSE at the 16 failures — although they are non-cubes, where
 an order-3 analogue of SQ₅ would predict truth. So in the TES normalisation, an "SQ₅₃" (non-cube ⇒ character
 non-constant on words) and a "χ₃-fibre slice theorem" cannot both hold. Over ℤ the pair (SQ₅, S₄ = {χ = −1}) is
-consistent with all data to 10⁸ ((J)15, (J)32). This is a precise sense in which **the numerator 4 over ℤ is special
+consistent with all data to 10⁸ ((J)15, (J)32). (R207 repair m8: the logic does not use numerator-freeness, and "SQ₅₃" / "χ₃-fibre" are unformalised; the following is an
+Assessment.) This is a sense in which **the numerator 4 over ℤ is special
 while 9 over ℤ[ω] is not**: the order-3 world has genuine non-T1, non-BM failures, so any T1-plus-character mechanism
 transplanted from ℤ must break there.
 
