@@ -1,0 +1,19 @@
+X=10000000 words(N==1 mod 4)=430944882
+[formal] primes p==1(8): 165976, no certificate: 0; o*=7:157186 (94.70%) 15:5513 23:2290 >=31:987
+   first-success pos (ties H>C>M): H 56289 C 94254 M 15433; at o*=7 firing: H 55432 C 144147 M 127629
+   max o* = 239 at p=6154009; second 199 at p=1749001; #o*>=119: 15, of which not ==1 (120): 2
+   hard primes (o*>=119): 21841:135 238681:143 691681:143 944329:167 981481:119 1249921:191 1749001:199 3191281:119 3975721:199 4362121:199 6154009:239 7183201:127 7940521:119 8586481:135 8984641:119
+[interior] primes p==1(8): 165976, no certificate: 0; o*=7:156416 (94.24%) 15:6240 23:2262 >=31:1058
+   first-success pos (ties H>C>M): H 56696 C 91590 M 17690; at o*=7 firing: H 55432 C 141236 M 109333
+   max o* = 2431 at p=21841; second 335 at p=691681; #o*>=119: 17, of which not ==1 (120): 2
+   hard primes (o*>=119): 21841:2431 238681:143 372121:199 501841:119 691681:335 944329:167 981481:119 1249921:191 1749001:199 3191281:119 3975721:199 4362121:199 6154009:239 7183201:127 7940521:119 8586481:135 8984641:119
+4|m-slice failures at primes ==1(8) <= 1000000: 409 577 5569 9601 23929 83449 102001 329617 712321  (total to X: 14)
+primes ==1(8): 165976; SQ_H fails formal 0 interior 0; class C fails formal 10 interior 21; class M fails formal 147 interior 394
+primes ==1(4): 332180; SQ_H fails formal 0 interior 5
+mean counts (formal, c<=s): H 26.83 C 23.68 M 13.51; at p==1(840) (3426 primes): 19.41 15.90 7.92; mean interior H 22.27
+min formal H count 1 at 2521 53881; min interior H count 1 at 17
+non-square N==1(4) <= 1000000: SQ5 formal fails: 105
+  SQ5 interior fails: 5 105
+  SQ_H formal fails: 105 1465 3865 4545 5481 10305 12145 34489 36841 39361 40425 51129 67425 95505 115465 147609 179361 196065 199369 210105 341145 392505
+  count 249500 non-squares; SQ5 fails F 1 I 2; SQ_H fails formal 22 interior 114
+odd squares ==1(4) in [5,1000000]: 499, with any certificate: 0

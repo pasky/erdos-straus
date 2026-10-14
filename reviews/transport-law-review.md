@@ -53,7 +53,7 @@ Hilbert reciprocity localised: a cherry-depth reading in the 2-adic Bruhat–Tit
 Re-derivation. (i) The path matrix (a_i on the diagonal, −1 off) has leading minors K_i (negative-continuant
 recursion K_i = a_iK_{i−1} − K_{i−2}); with all K_i ≠ 0, LDLᵀ gives Q ≅ ⟨d_i⟩, d_i = K_i/K_{i−1}. With D_i = K_i
 (K_0 = 1), ∏_{i<j}(d_i, d_j) = ∏_{i=1}^{r−1}(D_i, d_{i+1}) and (D_i, D_{i+1}/D_i) = (D_i, D_iD_{i+1}) =
-(D_i, −1)(D_i, D_{i+1})·... = (D_i, −D_{i+1}), using (a, a) = (a, −1). (ii) At odd ℓ ∤ N the ℤ_ℓ-lattice is
+(D_i, D_i)(D_i, D_{i+1}) = (D_i, −1)(D_i, D_{i+1}) = (D_i, −D_{i+1}), using (a, a) = (a, −1). (ii) At odd ℓ ∤ N the ℤ_ℓ-lattice is
 unimodular, hence diagonal with unit entries, s_ℓ = 1 (intermediate ℓ | K_i are irrelevant — s_ℓ is a ℚ_ℓ-invariant).
 (iii) At ℓ | N: gcd(K_{r−1}, K_r) = 1, so the span M of e_1..e_{r−1} is ℓ-unimodular and splits off;
 L ≅ M ⊥ ⟨N/K_{r−1}⟩ over ℤ_ℓ, M ≅ ⟨u_1..u_{r−1}⟩ units with ∏u_i ≡ K_{r−1} mod squares, so
@@ -69,7 +69,7 @@ From-scratch check (own 2-adic Hilbert symbol after Serre III.1.2, sanity-checke
 
 Novelty. The leading-minor formula for the Hasse invariant and "product formula ⇒ reciprocity" are textbook
 (Cassels, *Rational Quadratic Forms*, Ch. 4/6 — not re-accessed here; the derivation above is self-contained). The shape
-"Jacobi symbol (K_{r−1}/K_r) = product of local symbols at 2 and ∞ along the continued fraction" is the classical
+"Jacobi symbol (K_{r−1}/K_r) = product of local symbols at 2 and ∞ along the continued fraction" is, in R211's Assessment (not verified line by line against Kubota), the classical
 Kubota splitting of the metaplectic cocycle on Γ(4)-type groups (Kubota 1969: for γ ∈ Γ₁(4) the Jacobi symbol (c/d) is
 the coboundary of ∏_v σ_v, σ_v the local Kubota cocycles, whose real component is a sign-change count) evaluated on the
 word's factorisation into T^{a_i}S; Jacobi symbols of continued-fraction convergents also have an explicit literature
@@ -97,6 +97,51 @@ class group mod e (no infinite place) of ℚ is (ℤ/e)*/±1. So in the wide gro
 Correct, but a tautology: the boldface "**the whole ES slice condition is the kernel of narrow → wide**" is imprecise —
 the kernel is {±1}, and the condition is that Σ_e(N) meets the non-trivial kernel element. Also the "N" of the e-slice
 form is (p + e)/4 or (pe + 1)/4, not the frieze N; §3.2 juxtaposes them without saying so (D4).
+
+### SHARP 4 — CONJECTURE SQ_H (§6, memo y5_even_middle). Verdict: **SOUND** as EVIDENCE/CONJECTURE (scope wording to fix).
+
+Equivalence re-derived: by mod-2 rigidity o ∈ {h, h′} ⟺ the even edge is {c, m} or {m, s} ⟺ m even (then c + s odd, so
+exactly one outer letter e is even); the even pair is {m, e}, and the word is a certificate ⟺ 8 | ee′ = m·e
+(FRIEZE Cor 1.3, N ≡ 1 (4)). Correct.
+
+From-scratch census (`scripts/review_r211_census.c`: plain enumeration of all (c, m, s) ≥ 1 with
+N = cms − c − s ≤ X, N ≡ 1 (4), no divisor shortcuts; log `logs/review_r211_census_1e7.txt`, X = 10⁷, 4.3·10⁸ words,
+17 s):
+* primes p ≡ 1 (8) ≤ 10⁷: 165 976; SQ_H fails at **0** (formal and interior). ✔
+* primes p ≡ 1 (4) ≤ 10⁷ (332 180): formal SQ_H fails at 0 (so the memo's "to 10⁶ at primes ≡ 1 (4)" can be raised to
+  10⁷); **interior SQ_H fails at 5 primes**, all ≡ 5 (8) (5, 13, 29, 53, …). The CONJECTURE must therefore say "positive
+  (formal) letters" explicitly (D6).
+* class C fails at 10 (formal) / 21 (interior) primes ≡ 1 (8), class M at 147 / 394, the 4 | m slice at 9 primes
+  ≤ 10⁶ (409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321) and 14 ≤ 10⁷. ✔ (all as claimed)
+* non-square N ≡ 1 (4) ≤ 10⁶ (249 500): **formal** SQ_H fails at exactly the 22 listed N (105, 1465, …, 392505), none
+  prime ✔. Interior SQ_H fails at 114 such N — §6 does not say that the 22 refer to formal words (D6).
+* SQ₅ fails formally only at 105 and in the interior only at {5, 105} ✔. Odd squares 9 ≤ n² ≤ 10⁶ (499): no certificate
+  at all ✔ (T1 control; this is a theorem, so it is a code check, not evidence).
+* Mean certificate counts (formal, c ≤ s) at p ≡ 1 (8) ≤ 10⁷: H 26.83, C 23.68, M 13.51; at p ≡ 1 (840): 19.41 / 15.90 /
+  7.92; min formal H count 1 at 2521 and 53 881 ✔ (exact agreement). The interior H mean is 22.27.
+The label CONJECTURE (EVIDENCE) and the Assessment "with mean count ~27 no failure is the lottery's prediction" are
+appropriate.
+
+### SHARP 5 + (b) — p = 21841 and the o* census (§2, memo y5_ocensus_hard_primes). Verdict: **SOUND-AFTER-REPAIRS**.
+
+* p = 21841, exhaustive (`scripts/review_r211_p21841.py`, brute force over all c, m ≤ N + 2): 42 formal words,
+  14 with χ = −1 (all certificates), 20 interior words; the interior certificates are exactly (9, 64, 38) and
+  (38, 64, 9), o = h′ = 64·38 − 1 = 2431 = 11·13·17 ✔. Formal o* = 135 via (1, 135, 163) ✔.
+  Factorisation 21841 = 1 + 2⁴·3·5·7·13 ✔.
+* Census reproduced **exactly** at 10⁷ (both modes): o* = 7 for 156 416 (94.24 %, interior) / 157 186 (94.70 %,
+  formal); 15: 6240/5513; 23: 2262/2290; first-success positions H 56 696, C 91 590, M 17 690 (interior), and
+  the o* = 7 firing counts 55 432 / 141 236 / 109 333 ✔. Max interior o* = 2431 at 21841, unique; next 335 at 691 681;
+  max formal o* = 239 at 6 154 009 ✔. "o* = 7 for 94 %" ✔.
+* **Defect (D5).** The memo's hard-prime list "(interior, o* ≥ 119)" has 10 entries; there are **17** (missing
+  372 121 (199), 501 841 (119), 944 329 (167), 1 749 001 (199), 3 975 721 (199), 7 183 201 (127), 8 586 481 (135)).
+  The claim "Every one of them is ≡ 1 (mod 120)" (memo) / "the other hard primes are all ≡ 1 (120)" (§2) is **false**:
+  6 154 009 (in the author's own list) and 944 329 are ≡ 49 (mod 120). The correct (and stronger) statement: all 17 are
+  quadratic residues mod 840, p mod 840 ∈ {1, 121, 169, 361} = {1, 11², 13², 19²}. Also "least QNR prime ≡ 7 (8) between
+  23 and 127" fails for the full list (8 586 481: 191). n_p ∈ {11, 13, 17, 19, 23, 29} holds for all 17.
+* **Defect (D7).** memo y5_siegel_weil_chamber "Cheap numerics": "N = 21 841 has 34 formal words (12 with χ = −1, 2
+  interior). N = 1 000 033 has 133 words (91 with χ = −1)". True counts: 42 / 14 (and 2 interior certificates; 20
+  interior words) and 174 / 116. Cause: `y5_words_at.py` stops at c² > 4N + 10 although c can be as large as N + 1
+  (e.g. (327, 1, 68), (326, 68, 1) at 21841). The conclusion (words are a vanishing fraction of ≍ p classes) is unaffected.
 
 ## Defects
 (numbered list follows)
