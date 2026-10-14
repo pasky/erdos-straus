@@ -103,3 +103,55 @@ scaled by 1/r. So the Machin "3" is the HJ "3".
 (r/c + r/s)/(1 − r²/cs) = rm, which is m = 1/c + 1/s + N/(cs). The horocyclic (parabolic) form of §2 keeps the cross
 term N/(cs) as a third arc.
 CERTIFIED (`l3_dict.py`): cs − (c + s)/m = N/m on all words; = p/(4d) on all 4 638 cube points (p ≤ 1000).
+
+## 4. CF depth 3 is the same pentagon on a geodesic of the orthogonal pencil of C (PROVED, elementary)
+
+Let (c, m, s) be a word at N, r² = N/m, and consider the pencil of quadratic algebras / binary forms
+`  R_μ := ℚ[z]/(z² + μz + r²),   Norm_μ(X + Yz) = X² − μXY + r²Y²   (μ ∈ ℝ ∪ {∞}).`
+Geometrically (roots of z² + μz + r²) this is the **orthogonal pencil of the geodesic C : |z| = r**. For |μ| < 2r it gives
+the points of C (μ = 0 is z*), for |μ| > 2r the geodesics orthogonal to C (the product of their endpoints is r²), and for
+μ = ∞ the pentagon side V₁V₂ = (0, ∞). Put ℓ_x := z + x (so ℓ_c, ℓ_s, ℓ_{1/m} are the three Machin elements).
+
+**Theorem 4.1.** For every μ: m²·Norm_μ(ℓ_{1/m}) = hh′ − mμ (an arithmetic progression in μ, by hh′ = mN + 1). At the two
+pencil members
+`  μ_c := N + c = hs,   μ_s := N + s = ch′   (Ptolemy relations λ₁₄λ₃₅ = λ₁₅ + λ₁₃,  λ₁₃λ₂₅ = λ₁₅ + λ₃₅)`
+it equals −h resp. −h′, and that value divides μ.
+*Proof.* m²(1/m² − μ/m + N/m) = 1 − mμ + mN; at μ = N + c this is 1 − mc = −h. ∎
+
+**Corollary 4.2 ((J)37/(J)38 are Thm 4.1 for Type II words).** Let (c, d, j) be a cube point of a prime p, i.e. the
+word (c, 4dj, s) at pj, and put ω := 2dz. Then R_μ becomes ℤ[ω]/(ω² + 2dμ·ω + pd), m·ℓ_{1/m} = 1 + 2jω, and:
+* d = 1, μ = μ_c = pj + c: R_μ is COMPOSITION's order with ω = −η̄, and 1 + 2jω is ε_μ = 1 − 2jη̄ of (J)38 Thm 1.3
+  (t = c). Its norm −h = −(4cj − 1) divides μ because of the Ptolemy relation hs = N + c. In the regular CF of
+  √(4μ² − 4p) it is the convergent of index 2 (depth 3) when j ≥ 2 (μ > 2p), resp. index 0 (depth 1) when j = 1
+  ((J)37 Thm 4.3 + R202 M1). The mirror point (s, d, j) gives μ_s.
+* general d, μ = μ_s: V_{pd} at μ_V = dμ_s = cd·h′ with λ = cd, D = h′ (COMPOSITION Prop 4.1(b)).
+So **"the B = 1 slot ε_μ has norm dividing μ" is a Ptolemy relation of the pentagon**, read on the geodesic g_{μ_c} of the
+orthogonal pencil of C. "Depth 3" is the position of the cusp −1/m (the Ford horocycle of ε) in the cutting sequence of
+g_{μ_c}. A cusp v is a convergent of an indefinite form f when |f(v)| < √disc/2, i.e. when its Ford horocycle meets the
+geodesic (signed distance δ: |f(v)| = (√disc/2)e^{−δ}).
+CERTIFIED (`l3_dict.py … 1000`): for all 1 736 d = 1 cube points with p ≤ 1000, Norm = −h, h | μ_c, and the CF of
+√(4μ² − 4p) has Q₃ = h (μ > 2p) resp. Q₁ = h (μ ≤ 2p). 0 failures. The count 1 736 matches the COMPOSITION census.
+
+## 5. The unified object and the dictionary (summary)
+
+**The object 𝒫(c, m, s; N):** the Ford-decorated Farey pentagon (0, ∞, c, c − 1/m, N/h′) with four unit sides and closing
+side N. Equivalently: a positive integral A₂ frieze with frozen values (1, 1, 1, 1, N); the HJ word [[c, m, s]]; the
+tridiagonal path form with diagonal (c, m, s), whose leading/trailing principal minors are the five cluster variables
+and N (CHI_FLIP's Q_w). It comes with the geodesic C : |z|² = N/m, orthogonal to the side V₁V₂, and with the
+orthogonal pencil of C.
+
+| "length 3" statement | what it says about 𝒫 | where in ℍ |
+|---|---|---|
+| (J)9/(J)15 HJ length 3, five slices, (A/N) = −1 | some vertex's opposite diagonal ≡ 0 (4); the ES triple is that vertex's Ford horocycle cut by the fan (Thm 2.1, Cor 2.2) | the five cusps |
+| (J)25 certificate cube (c, d, j) | 𝒫(c, 4dj, s; pj); the three divisibilities are Ptolemy relations (Cor 1.3) | λ-lengths |
+| COMPOSITION Prop 5.1 Machin | rotation about z* = top of C: K_c(s) = 1/m (Thm 3.1); r² = p/4d independent of j | μ = 0 member |
+| (J)37 CF depth 3 / (J)38 ε_μ | Norm(ℓ_{1/m}) = −h on g_{μ_c}, divisibility = Ptolemy hs = N + c (Thm 4.1, Cor 4.2) | μ = μ_c member |
+| HJ path itself | the side V₁V₂ and the Farey path V₂…V₅ | μ = ∞ member |
+
+The four "3"s: the three short diagonals (HJ letters = Machin arguments), the three arcs of a vertex horocycle (ES triple),
+the three CF steps before the cusp −1/m (a Farey path on g_{μ_c}), and the cube coordinates (c, d, j) = (λ₁₃, factor of λ₂₄,
+factor of λ₁₅). All of them are the single relation K(c, m, s) = N, i.e. the pentagon's Ptolemy system (P).
+*Scope/novelty (Assessment).* Every individual identity is elementary and most are classical in disguise: continuants =
+λ-lengths = frieze entries (Conway–Coxeter, Penner), Farey telescoping = h-lengths, Machin = regular representation. New
+here: the identification of DK's five ES slices with the five vertices (Cor 2.2, with the five ES triples as fan decompositions),
+and of the (J)37/(J)38 divisibility N(ε_μ) | μ with a Ptolemy relation, on one geodesic pencil.
