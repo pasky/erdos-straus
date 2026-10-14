@@ -42,8 +42,8 @@ m := 4ab − n > 0 with k m = b + aQ₁²; put g := 4ak − 1; then g·m = 16a²
 = n + 4a²Q₁², so g | n + 4Q² with Q = aQ₁, and gcd(Q, (g+1)/4) = a·gcd(Q₁, k) = a. ∎
 *D-face (ES^{[2]}).* Writing a = λt, Q₁ = t: k(4λtb − n) = b + λt³; equivalently (eliminating k)
 **ES^{[2]} shots with overflow exactly t (odd) ⟺ (λ, t, b) with m := 4λtb − n > 0, gcd(λtb, n) = 1,
-m | b + λt³ and gcd(t, k) = 1 for k := (b + λt³)/m.** Under gcd(m, 2bn) = 1 (true when gcd(λtb, n) = 1 and
-gcd(b, n) = 1… precisely gcd(m, n) = gcd(4λtb, n), gcd(m, b) = gcd(n, b)), m | b + λt³ ⟺ m | nt² + 4b² (as
+m | b + λt³ and gcd(t, k) = 1 for k := (b + λt³)/m.** Under gcd(m, 2bn) = 1 (equivalently gcd(λtb, n) = 1, since
+m is odd, gcd(m, n) = gcd(4λtb, n) and gcd(m, b) = gcd(n, b)), m | b + λt³ ⟺ m | nt² + 4b² (as
 4b(b + λt³) ≡ nt² + 4b² mod m). Without these side conditions both equivalences fail (R-self-review: n = 9,
 λ = t = 1, b = 3: m = 3 | 45 but m ∤ 4; n = 61, λ = 1, t = 3, b = 6: m = 11, k = 3, true overflow 1, not 3).
 ES is t = 1: 4λb − n | λ + b. The quartic family of (Y2) is λ = 1.
