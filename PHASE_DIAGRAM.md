@@ -140,3 +140,47 @@ M^{e+1} = 2λX_e, so M = (2λX_e)^{1/(e+1)} ≈ (2λ)^{1/(e+1)}(N_e/n)^{1/(2e+2)
 (proof of Thm 2.1(a): D < Q₁ forces D = Q₁ − 4k²n) — exactly CHN's "at most O(1) divisors in a class above N^{1/4}";
 θ < 1/4 is where the k = 1 slice becomes an infinite lottery (§3 EVIDENCE). And θ → 0 is the only regime with a
 proof. The brief's hook (R200 M1: P ≈ r^{1/4}) is the e = 1 line read from the prime-g side.
+
+## 5. Pushing the proved side down: ES^{(y)} with a sub-polynomial exponent cap
+
+EXPONENT_CAP Thm 3.2 gives cap e ≤ y^δ with a FIXED set S of k ≥ 2/δ + 1 primes; its Remark (2) (Assessment) says
+letting k grow is limited by the sieve modulus. Making that remark a theorem:
+
+**Theorem 5.1 (ES^{(y,e)} with e = y^{o(1)}; PROVED relative to Bombieri–Vinogradov and Iwaniec's linear sieve, as
+UNIT_ORBIT Lemma 2.2; ineffective).** For every A ≥ 1 and every odd n > 1, ES^{(y,e)}(n) has a solution with
+`  e ≤ y^{(2 + o(1))·log₃y / (A·log₂y)}`   (log₂ = log log, log₃ = log log log; o(1) as y → ∞ for fixed n, A),
+of Type II shape at every prime of n when n is not a square. In particular for every ε > 0 there is a solution with
+e ≤ y^{ε·log₃ y/log₂ y}.
+*Proof.* n ≡ 3 (mod 4) is ES with Q = 1; squares follow from a non-square divisor by scaling (FROBENIUS_FIRING
+Thm 4.2(c); the bound is monotone in y). Let n ≡ 1 (mod 4) be a non-square, x large, and S = {s₁ < … < s_k} the
+first k odd primes not dividing n with P := ∏S ≤ (log x)^A maximal; by the prime number theorem k log k ~ A log₂x,
+so k ~ A log₂x/log₃x. M := 4 rad(n)P ≤ 4n(log x)^A; the class a mod M is that of Thm 4.2(a).
+*Step 1 (sieve, uniform in M).* Sift 𝒜 = {(r−1)/2 : x/2 < r ≤ x, r ≡ a (M)} by primes ℓ ∤ M, ℓ < z = x^{1/4−ε},
+level D = x^{1/2}/(M log^{A+5}x). Remainders: distinct d give distinct moduli Md ≤ x^{1/2}/log^{A+5}x, so
+Σ_d |r_d| ≤ Σ_{q ≤ x^{1/2}/log^{A+5}x} max_a |E(x; q, a)| ≪_A x/log^{2A+10}x (Bombieri–Vinogradov, max form;
+uniform in M). Main term X·V(z)·(f(s) − o(1)) with X ≍ x/(φ(M) log x), V(z) ≫ 1/log z (the density 1/(ℓ−1) on
+ℓ ∤ M, dimension 1, constants absolute; ∏_{ℓ|M}(1 − 1/(ℓ−1))^{−1} only helps), s = log D/log z → 2/(1 − 4ε) > 2.
+So ≫ x/(φ(M) log²x) ≥ x/log^{A+3}x primes r ∈ (x/2, x] in the class with every prime factor of (r−1)/2 ≥ z.
+*Step 2 (index).* As in Thm 4.2, Γ_r := ⟨S mod r⟩ ⊆ (F_r^*)², and a nontrivial index is ≥ z, so |Γ_r| ≤ x^{3/4+ε}.
+Lemma 2.3's count made explicit: if |Γ_r| ≤ Y, the (B'+1)^k > Y products ∏ s_i^{a_i} (0 ≤ a_i ≤ B' := ⌈Y^{1/k}⌉)
+collide, so r | N_c := ∏_{c_i>0} s_i^{c_i} − ∏_{c_i<0} s_i^{−c_i} ≠ 0 for some 0 < |c|_∞ ≤ B'; N_c has
+≤ B' log P/log(x/2) + 1 prime factors > x/2. Hence #{r ∈ (x/2, x] : |Γ_r| ≤ Y} ≤ (2B'+1)^k(B' log P + 1)
+≤ 6^k·Y^{1+1/k}·2 log P, which for Y = x^{3/4+ε}, k ≥ 4 is ≤ x^{15/16+2ε}(log x)^{O(A)} = o(x/log^{A+3}x).
+*Step 3 (short relations).* Λ_r := {c ∈ ℤ^k : ∏ s_i^{2c_i} ≡ 1 (mod r)}; for the surviving r, ℤ^k/Λ_r ≅ (F_r^*)²,
+det Λ_r = (r−1)/2. If λ₁(Λ_r) ≤ B (sup-norm) then r | N_{2c} for some 0 < |c|_∞ ≤ B, and as above
+#{r : λ₁ ≤ B} ≤ (2B+1)^k(2B log P + 1) ≤ (3B)^{k+1} log P. Take B := ⌊x^{1/(k+1)}/(3 log^{(A+5)/(k+1)}x)⌋ (≥ 1 for
+large x, since log x/(k+1) → ∞): this is ≤ x log P/log^{A+5}x = o(x/log^{A+3}x). So some sieved r has
+Γ_r = (F_r^*)² and λ₁(Λ_r) > B.
+*Step 4 (covering, Minkowski II).* λ₁⋯λ_k ≤ det Λ_r < x gives λ_k < x/B^{k−1}, and every class of ℤ^k/Λ_r has a
+representative of sup-norm ≤ Σλ_i ≤ kλ_k =: L (EXPONENT_CAP Thm 3.2, step "Covering"). As there, Q := ∏ s_i^{a_i+L}
+with exponents in [0, 2L] satisfies Q² ≡ −n/4 (mod r); UNIT_ORBIT Prop 2.1 gives an ES^{(y)} solution
+(s_i | (r+1)/4 | y, Type II shape at every prime of n) with overflow exponents ≤ v_s(Q) ≤ 2L. Finally
+2L ≤ 2k·x/B^{k−1} ≤ 2k·3^{k}·log^{A+5}x·x^{2/(k+1)} = x^{(2+o(1))log₃x/(A log₂x)}, because 3^k log^{A+5}x =
+exp(O(A log₂x)) is of lower order; and y = n(r+1)/4 ≥ x/8. ∎
+*Remarks.* (1) The only change from Thm 3.2 is that S grows with x, which Bombieri–Vinogradov tolerates up to
+P = (log x)^A because its error term saves an arbitrary power of log (not more: Siegel–Walfisz range). (2) Allowing
+P up to exp(c√log x) (Gallagher's prime number theorem for moduli without exceptional zero, the exceptional
+conductor avoided by the choice of S) should give e = exp(O(√(log y)·log₂y)); not carried out (Assessment). (3) The
+covering lower bound (EXPONENT_CAP Prop 3.1(c)) is e ≥ (log y)^{1−o(1)} for any covering argument; the gap
+(log y)^{1−o(1)} ↔ y^{o(1)} is the Dictionary 3.3(c) discrete-log problem, and below it every bounded cap is a
+pure hitting problem (§4: θ = 1/(2e+2) > 0).
