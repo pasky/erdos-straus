@@ -157,3 +157,34 @@ primes**; any finite exponent-2 budget keeps the slice finite. "e = 1 + ε" vari
 or on primes ≤ a fixed bound) are therefore still finite on this slice. Bounded cap with unbounded exponent-2 support is
 the first point where the slice is infinite — conditionally on (b)'s squarefree hypothesis, which is a Wieferich-type
 statement about a binary recurrence and is open.
+
+## 6. The real layer: class groups of x² − 16n (same as MARKOFF_ES §6 for ES^{[2]})
+
+**EVIDENCE (`scripts/y6_fibres.py 3000 13 379 1009 9 25`; every reported fibre comes with an explicit point
+f_x(ha, hB) = −E found as a CF convergent value, exact integers).** Odd fibres x ≤ 3000 (gcd(x, n) = 1, c = x/E ≥ 3)
+carrying a c-odd W_n point (side conditions on (a, B) not imposed):
+`  n = 13: 197 fibres   (per octave of x, bits 5..12: 1, 4, 2, 10, 16, 26, 73, 65)`
+`  n = 379: 90 fibres   (bits 8..12: 3, 6, 14, 33, 34)`
+`  n = 1009: 165 fibres (bits 8..12: 10, 14, 27, 58, 56)`
+`  n = 9, 25 (T1): 0`
+So a positive proportion (≈ 5–15%) of fibres carry points, while the shot search of §3 sees only a handful of shots per
+n (n = 13: 4 shots with g ≤ 10⁶, n = 379: 1, `scripts/y6_count.py`). The reason: the points are deep in long CF
+periods, e.g. n = 379, x = 161, E = 23: (a, B) = (8 207 552, 1 238 990 989), g ≈ 7·10¹⁶ (B squarefree, a valid
+shot); n = 13, x = 33, E = 11: (267 468, 443 777), g ≈ 3.6·10¹¹. Fixing E and varying c (`/tmp`-style check,
+reproduced inside y6_fibres logic): n = 13, E = 7: 18 of 118 admissible c ≤ 301 carry a point, all with 3 | c — the
+genus layer: p = 3 has (13/3) = 1, (−7/3) = −1, so the prime 3 must not divide Δ = 49c² − 208 to first order, forcing
+c ≡ 0 (mod 3); E = 11: 61 of 125; E = 19: 23 of 131 (again 3 | c).
+*Assessment.* The c-odd half has exactly the two-layer structure MARKOFF_ES §6 found for ES^{[2]} (c ≡ 0 mod 4):
+a local (genus) layer, a half-dimensional sieve condition on x, and a global layer "the ideal of norm E is in the
+narrow class of negative-norm principal ideals of ℤ[(x + √(x² − 16n))/2]", which holds with probability bounded
+below (Cohen–Lenstra; large regulators). So the e = 2, k = 1 cell is NOT a polylog lottery: like ES^{[2]} (O202
+Prop 6.1(a)) it has a polynomially large heuristic main term in the fibre count, and solutions of size exp(x^{1−o(1)}).
+The residual statement, **"for some odd x and some E ≡ 3 (mod 4), E | x, the split ideal of norm E is narrowly
+principal with a negative-norm generator in the order of discriminant x² − 16n"**, is a class-group statement in a
+quadratic family of real quadratic orders: no unconditional technique proves it (MARKOFF_ES Prop 6.1(c)). On top of
+it the cap-2 cell needs B squarefree at some orbit point (Prop 2.1(c)), which ES^{[2]} does not need.
+Families x ≡ 0 (mod 4n) would be Richaud–Degert (explicit short CF) but are excluded: x odd here (and the RD
+subfamily of ES^{[2]} is killed by reciprocity, GROWING_MUTE Prop 1.2(c)). By Schinzel's criterion the CF period of
+√(x² − 16n) is unbounded along every progression of odd x, so no bounded-depth (explicit) family exists; and the
+proof of MARKOFF_ES Thm 5.1 (units of y² = μ² − n over ℚ[s]) applies verbatim with μ = x/2 to rule out polynomial
+families (a(s), B(s), c(s)) with c non-constant at fixed E.
