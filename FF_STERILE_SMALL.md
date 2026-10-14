@@ -1,6 +1,6 @@
 # FF_STERILE_SMALL — the small-q sterility cases: q = 27 (r = 3), q = 9, and A = T (k = 1) (O220, wave Y-f)
 
-Status: work in progress (O220). **ES is not solved here, nor any infinite case of ES or ES_q.** Labels as in DISCOVERIES.md.
+Status: checkpoint 1 (O220): Theorem 3.1 (q = 27) PROVED (computer-assisted, certified as O216); q = 9 and A = T open. **ES is not solved here, nor any infinite case of ES or ES_q.** Labels as in DISCOVERIES.md.
 Builds on FF_STERILE_PUSH.md ((J)51; notation (B), Lemmas 1.1–1.6, 2.1, 2.2, Thm 3.1), DEPTH_ASPECT.md §2, FUNCTIONFIELD_ES*.md.
 Scripts `scripts/fz_*`.
 
@@ -92,10 +92,44 @@ So the Case A mass beyond α > 40 is ≤ Σ_{α>40} (α+1)³ q^{−(α+1)/2} 3^{
 
 **Theorem 3.1 (no finite linear covering of ES₂₇(T^k), k ≥ 2; PROVED, computer-assisted, same inputs and same certification
 standard as FF_STERILE_PUSH Thm 3.1).** Let q = 27 and k ≥ 2. Then O(27, T^k) ≠ ∅, so ES₂₇(T^k, ·) has no finite linear
-covering. More precisely the covered relative measure, summed over the 26 c-slices, is ≤ 3.61; hence at most 7 of the 26
-c-slices have covered measure ≥ 1/2, and at least 19 have more than half of their measure in O(27, T^k).
+covering. More precisely the covered relative measure, summed over the 26 c-slices, is ≤ 3.06; hence at most 6 of the 26
+c-slices have covered measure ≥ 1/2, and at least 20 have more than half of their measure in O(27, T^k).
 *Proof.* As FF_STERILE_PUSH Thm 3.1 (take k = 2; Lemma 2.1 there), with the route minimum of Lemma 1.6 there extended by
-Lemmas 1.2–1.4 here. `scripts/fz_certify.sh "3 60"` (log `data/fz/certify.txt`): finite Case B part 3 ≤ s ≤ 60
-(`fz_sum.c`, long double) 3.0180463717; tail s > 60 (`fz_tail.c`, adaptive boxes, all 212 505 boxes certified, class
-refinement j = ⌈θs⌉ with θ on a grid of step 1/256, cost q^{θs+1}) ≤ 0.53798; Case A ≤ 0.0096590 (α ≤ 40 exact) +
-6.1·10⁻¹⁶ (Lemma 2.1). Certified total (×1.01) 3.6013 < q − 1 = 26. ∎
+Lemmas 1.2–1.4 and 4.1 here. `scripts/fz_certify.sh "3 80"` (log `data/fz/certify.txt`): finite Case B part 3 ≤ s ≤ 80
+(`fz_sum.c`, long double) 3.0180430695; tail s > 80 (`fz_tail.c`, adaptive boxes, all 42 096 boxes certified; class
+refinement j = ⌈θs⌉ with θ on a grid of step 1/256, cost q^{θs+1}) ≤ 2.922·10⁻⁴; Case A ≤ 0.0096590 (α ≤ 40 exact,
+`fs_caseA.py`) + 6.1·10⁻¹⁶ (Lemma 2.1). Certified total (×1.01, the O216 error budget) 3.0583 < q − 1 = 26. ∎
+*Cross-checks.* (i) `scripts/fz_sum_check.py 3 60` (exact integers/rationals, written from the text of the lemmas, own
+(m, k) search, no Lemma 4.1) gives 3.017899 ≤ fz_sum's 3.018046 (same routes without Lemma 4.1; the difference is the
+larger (m, k) search). (ii) Tail consistency: tail(60) ≤ 0.538 dominates fz_sum(61..80) + tail(80) = 3.6·10⁻⁸ + 2.9·10⁻⁴.
+(iii) `fz_tail r S 8 1e-3 0` (new routes off) reproduces fs_tail exactly (r = 4, S = 60: 4.5833·10⁴ both).
+(iv) Bound-vs-exact-count check of §1 (q = 3, 5, 7). Exact counts at q = 27 are out of reach; the routes are q-uniform.
+
+## 4. Fixed-q divisor bounds: exponent 2/5 for every odd q, and the q = 9 status
+
+**Lemma 4.1 (fixed-q divisor bound; PROVED).** Let F ∈ F_q[T] have exact degree n, T ∤ F, and let I'(j) be the number of
+monic irreducibles of degree j other than T. For every ρ ∈ (0, 1], the number of monic divisors of F of degree d is
+≤ ρ^{−d'}·exp(V_ρ(n)), d' = min(d, n − d), where V_ρ(n) is the value of the fractional knapsack with capacity n whose items
+are the pairs (P, e) (P irreducible ≠ T of degree j, at most I'(j) of each degree, e ≥ 1), of weight j and gain
+log(S_e(ρ^j)/S_{e−1}(ρ^j)), S_e(y) = 1 + y + … + y^e.
+*Proof.* Divisors of degree d ↔ divisors of degree n − d (cofactor), so take d' ≤ n/2. With F = ΠP_i^{e_i},
+#{D ∣ F monic, deg D = d'} = [x^{d'}] Π_i S_{e_i}(x^{deg P_i}) ≤ ρ^{−d'} Π_i S_{e_i}(ρ^{deg P_i}) (Rankin; nonnegative
+coefficients). log Π S_{e_i} = Σ_i Σ_{e ≤ e_i} gain(P_i, e) with Σ e_i deg P_i = n. For fixed P the gains decrease in e
+(S_e/S_{e−1} = 1 + y^e/S_{e−1}(y) decreases for 0 < y ≤ 1), so the integer solution uses each chain as a prefix and its value is ≤ the
+fractional-knapsack optimum (all gains ≥ 0). ∎ Implemented in `fz_sum.c` (64 values of ρ; V_ρ by greedy fill, rounded
+outward); used in every C(n, d) of the routes and in R1 as N_z(F)·N_{a−1}(F/m′) (and permutations).
+For fixed q, V_ρ(n) = o(n) (the knapsack fills n with ≍ n/log_q n items), so **all divisor counts are q^{o(n)}** and every
+entropy term of the continuum exponents disappears.
+
+**Corollary 4.2 (EVIDENCE for the value 2/5 (grid); the bound itself PROVED).** For every odd q the Case B tuples of
+parameter s number ≤ q^{(2/5)s + o(s)}. (Already from DEPTH_ASPECT Lemma 2.2 with δ, δ₃ = q^{o(n)} at fixed q, i.e. the
+routes R1–R4 with sharp divisor bounds; `fz_rate.py r 40 3 0` confirms that the extended route set has the same maximum
+2/5, attained only at (1/5, 1/5, 1/5, 2/5), for q = 3, 9, 27.) So at every odd q the tail of (Σ) converges geometrically
+with rate q^{−s/10 + o(s)}; the obstruction at small q is entirely the finite part.
+
+**q = 9 (CERTIFIED statement about the method; EVIDENCE for the shape).** With all routes (Lemmas 1.2–1.4, 4.1)
+`fz_sum 2 80` gives finite sum 41.87 > q − 1 = 8 (terms 10⁻⁶ at s = 80, so the tail is negligible), but already
+Σ_{s ≤ 8} = 9.22 > 8 and Σ_{s ≤ 20} = 37.6. So (Σ) at q = 9 needs **exact counts of Case B tuples for s up to ≈ 20–24**
+(or sharper small-s bounds); the bounds at s ≤ 12 are dominated by t ∈ {2, 3} (v₁ constant or linear: R1 counts
+triples of a *single* polynomial T^{s−2} + v₁, computable exactly by factoring) and by z = 0 patterns. Not attempted yet.
+At q = 3, (Σ) fails even with exact counts (FF_STERILE_PUSH §5: 94/27 > 2), so no union bound of this kind can work there.
