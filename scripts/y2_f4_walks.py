@@ -122,3 +122,23 @@ if __name__ == "__main__":
         stats[key] = stats.get(key, 0) + 1
     for k in sorted(stats):
         print(k, stats[k])
+
+
+def all_closed_walks(L):
+    """enumerate all closed walks of length L on F_n (n = n_mod); return counts (total, strongly contractible)."""
+    verts = sorted({canon((a, b)) for a in range(n_mod) for b in range(n_mod) if gcd(gcd(a, b), n_mod) == 1})
+    tot = sc = 0
+
+    def rec(w):
+        nonlocal tot, sc
+        if len(w) == L:
+            if adj(w[-1], w[0]):
+                tot += 1
+                sc += strongly_contractible(rot_canon(tuple(w)))
+            return
+        for v in verts:
+            if adj(w[-1], v):
+                rec(w + [v])
+    for v in verts:
+        rec([v])
+    return len(verts), tot, sc
