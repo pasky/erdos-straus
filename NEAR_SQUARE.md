@@ -32,3 +32,22 @@ This is ET Prop 1.6's mechanism in its bare form (for a square n, χ(n) = +1: co
   in particular it is disjoint from {m : m² + k ∈ (Ẑ^odd)²}.
 * The only escape is a *growing* d (H-A: moving modulus): (−4d(m)/n(m)) is then a "polynomial Jacobi symbol", which
   by reciprocity becomes a character *of m* (not of n), e.g. d = (m − r)/g gives (n(r)/·)-type characters of m.
+
+**Lemma 1.3 (Type II analogue; PROVED).** Let n ≡ 1 (mod 4) and (a, …, f) an N-point of Σᴵᴵ_n with gcd(f, 2dn) = 1
+(automatic for n = p prime). Then (de / n) = −1.
+*Proof.* (2.21): 4c²dn + 1 = f(4bcd − 1), so for q | f, −dn ≡ (2c)⁻² is a square: (−dn / f) = 1. f = 4acd − 1 ≡ −1
+(mod 4d), so (−d/f) = (−4d/f) = χ_{−4d}(−1) = −1, hence (n/f) = −1. Reciprocity with f ≡ 3 (4), n ≡ 1 (4):
+(f/n) = −1. From ef = n + 4a²d, f ≡ 4a²d·e⁻¹ (mod n) (gcd(e, n) = 1 as e | n + 4a²d and gcd(n, 2ad) = 1), so
+(de/n) = (f/n) = −1. ∎
+So every Type I/II solution of an n ≡ 1 (4) carries a *witness* D (D = d for Type I, D = de for Type II) with
+(D/n) = −1 — the analogue of χ = −1 for five-slice words. (Check: `scripts/ns_witness_check.py`.)
+
+**Prop 1.4 (Hecke-character reading of polynomial witnesses; PROVED, elementary).** Let n = m² + k be a prime with
+k > 0, K = ℚ(√−k), π = m + √−k (so n = N(π) and ℤ/n ≅ O_K/π when π is a prime of degree one). For D ∈ ℤ[m],
+(D(m)/n) = (D(−√−k) / π)_K, the quadratic residue symbol of K. If D is constant this factors through the norm
+(it is (D/n)); if D(−√−k) ∉ ℚ·K^{×2} it is (by quadratic reciprocity in K) a ray-class character of the principal
+ideal (m + √−k), which does **not** factor through N(π) = n.
+*Proof.* m ≡ −√−k (mod π). ∎
+Reading: T1 (k = 0) is the degenerate case where √−k = 0 and every polynomial witness is rational. For k ≠ 0 the
+T1 obstruction (a fixed character of n) disappears for families whose witness D is non-constant: the witness can
+use the "imaginary direction" of ℚ(√−k), which no congruence condition on n sees.
