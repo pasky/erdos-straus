@@ -82,14 +82,16 @@ Q₀ = (g+1)/4, Q = Q₀Q₁; we also need gcd(Q₀, n) = 1). The mute rungs bec
 is non-empty: there are Q₁ ∈ ⟨S⟩ (S any four odd primes prime to n) and a prime g ≡ −1 (mod 4∏S) with g | 4n + Q₁².
 (b) For ES^{(y,1)} and ES^{[2]} the k = 1 slice is contained in Q₁ ≤ (16n + 1)/3, and for n ≡ 2 (mod 3) this
 bound is attained.
-*Proof.* (a) n ≡ 3 (mod 4): Q₁ = 1 and a prime factor g ≡ 3 (mod 4) of 4n + 1 ≡ ... — not needed: take the sieve
-for all n as follows. Run FROBENIUS_FIRING Thm 4.2(a) with the class a mod M = 4 rad(n)∏S chosen there, but with
-a_ℓ ∉ {0, 1, −1} (mod ℓ) for ℓ | n (possible for ℓ ≥ 7 with either quadratic character, since there are
-(ℓ−3)/2 ≥ 2 residues and non-residues ∉ {0, ±1}; this is where gcd(n, 15) = 1 is used — at ℓ = 3, 5 the only
-non-zero residues ≢ ±1 are of one character). For n ≡ 3 (mod 4) the class must give (n/r) = −1 with r ≡ 3 (mod 4)
-directly; for n ≡ 1 (mod 4) as in UNIT_ORBIT Thm 2.4. Then (−4n/r) = (−1/r)(n/r) = 1, Γ_r = ⟨S⟩ = (F_r^*)² for some
-sieved r (as in Thm 4.2), so −4n ≡ Q₁² (mod r) with Q₁ ∈ ⟨S⟩; g := r. Q₀ = (r+1)/4 is prime to n (r ≢ −1 mod ℓ),
-rad Q₁ | ∏S | Q₀. (b) is Thm 2.1(a) at k = 1 and its sharpness family. ∎
+*Proof.* (a) Follow FROBENIUS_FIRING Thm 4.2(a) / UNIT_ORBIT Thm 2.4(a): M := 4 rad(n)∏S, a ≡ 3 (mod 4),
+a ≡ −1 (mod s) for s ∈ S, and for ℓ | n residues a_ℓ chosen so that every prime r ≡ a (mod M) has (n/r) = −1
+(by reciprocity this is a condition on the Jacobi symbol (r/n), adjusted at one prime ℓ₀ | n of odd exponent; such
+ℓ₀ exists since n is not a square, n ≡ 3 (mod 4) included). Additionally take a_ℓ ∉ {0, 1, −1} (mod ℓ): possible for
+every ℓ ≥ 7 with either prescribed quadratic character ((ℓ − 3)/2 ≥ 2 residues and non-residues ∉ {0, ±1}); at
+ℓ = 3, 5 it is not, hence gcd(n, 15) = 1. Lemma 2.2 of UNIT_ORBIT only needs a ≢ 1 (mod ℓ), so the sieve of Thm 4.2
+applies verbatim and gives a prime r ≡ a (mod M) with Γ_r := ⟨S mod r⟩ = (F_r^*)². Then
+(−4n/r) = (−1/r)(n/r) = 1, so −4n ≡ Q₁² (mod r) with Q₁ ∈ ⟨S⟩ (squaring is bijective on the odd-order group
+(F_r^*)²); put g := r. Q₀ = (r+1)/4 is prime to n (r ≢ −1 mod ℓ), and rad Q₁ | ∏S | Q₀. (b) is Thm 2.1(a) at
+k = 1 together with its sharpness family. ∎
 (R-note for the reviewer: (a) is a re-run of a reviewed sieve with one more excluded residue per ℓ | n; the
 proof of Thm 4.2 uses Lemma 2.2, which allows any class a with a ≢ 1 (mod ℓ), so excluding −1 as well is free.)
 **EVIDENCE (`scripts/pd_k1.py 200000 13 17 29 37 97 101 9 25`, every shot verified with exact rationals,
