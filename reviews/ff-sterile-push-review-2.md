@@ -101,7 +101,9 @@ Re-derived: E | F₁ since E is prime to Q; Q f(x₀) ≡ E (mod E) and Q is a u
 the coefficient embedding P ↦ (p_l T^{lX}) is triangular with diagonal degrees (m − i)deg F₁ + iX and (m + j)X, so
 deg det ≤ Δ(m, k); exact Siegel pigeonhole gives deg p_l + lX ≤ ⌊Δ/N⌋ < md, so P(x₀) = 0, ≤ m + k roots. Correct.
 The asymptotic sentence ("minimising over 1 + τ = X^{−1/2}·… gives √(nX) < d") is garbled (m-2) but is **not used**:
-the certification uses only explicit (m, k) pairs. Brute force: 0 violations of the m + k bound (ratio 1.0 attained).
+the certification uses only explicit (m, k) pairs. Brute force (`scripts/review_fs2_lemmas.py`): p = 3: 400 random highly factorable F (deg 6–13), 323 468 (Q, d)-groups;
+p = 5: 200 F, 368 129 groups; p = 7: 120 F, 347 056 groups — **0 violations** of the trivial bound, of Lemma 1.4's 2 and of
+Lemma 1.5's m + k; each bound is attained (max count/bound = 1.0), so the adversarial moduli reach the extremal cases.
 
 ### Lemma 1.6 (route table) — SOUND
 Every row re-derived from Lemmas 1.1–1.5 and DEPTH_ASPECT Lemma 2.1: polynomial degrees (s + 2y + z; s − 1 + y; s − 2
@@ -213,3 +215,18 @@ corner). Growth ≈ 3^{#factors} = exp(Θ(s/log s)) as claimed.
 ### Labels — mostly SOUND
 Conjecture 0.2 is nowhere claimed proved; "ES not solved" is stated; the r = 3 barrier is labelled EVIDENCE + Assessment;
 §4 ℤ-paragraph is Assessment. Minor inconsistencies: m-5, m-6.
+
+## Replay (reviewer scripts)
+```
+uv run --with python-flint python scripts/review_fs2_brute.py 3 15     # also 5 9, 7 8: Lemma 1.1 + route bounds + census 94/27
+uv run --with python-flint python scripts/review_fs2_lemmas.py 3 400 7 # also 5 200 8, 7 120 9: Lemmas 1.4/1.5
+gcc -O2 -o /tmp/rfs2_sum scripts/review_fs2_sum.c -lm && /tmp/rfs2_sum 4 200 20
+uv run python scripts/review_fs2_exact.py 4 60                         # exact rationals, cross-check of review_fs2_sum
+gcc -O2 -o /tmp/rfs2_tail scripts/review_fs2_tail.c -lm && /tmp/rfs2_tail 4 200 9 0.001
+uv run python scripts/review_fs2_caseA.py 4,5,6 40
+./scripts/review_fs2_certify.sh                                        # r = 4..30 -> data/review_fs2/certify.txt
+uv run python scripts/review_fs2_rate.py 150 1,2,3,4,5,6               # continuum exponents (EVIDENCE)
+uv run --with python-flint python scripts/review_fs2_char2.py
+uv run --with python-flint python scripts/review_fs2_s5.py 14
+uv run --with python-flint python scripts/review_fs2_m2.py
+```
