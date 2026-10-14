@@ -98,3 +98,46 @@ r = 6: 9.5155829299e−6); its α > 40 majorant uses q^{⌊(α−1)/2⌋−α} �
 The author's tail (6.28·10⁻² at r = 4) is valid but a factor √q = 9 looser than necessary (it uses q^{−α/2}); this tail is
 in fact the *largest* part of the r = 4 Case A total (6.36·10⁻²) — harmless.
 
+### Theorem 3.1 (q = 3^r, r ≥ 4, every k ≥ 2: O(q, T^k) ≠ ∅; r ≥ 5 every c-slice) — SOUND (minor repairs only)
+**Reduction.** Re-derived from DEPTH_ASPECT §2 / (J)26: on a c-slice every validity set of a family valid somewhere on it is a
+Case A cylinder (R166 steps (1)–(2), only E ≡ −u (mod T^{k+j}) and u ≡ 1 + cT (mod T²) used) or a Case B cylinder of a tuple (B)
+(O173 Lemma 2.1(a), (b), re-derived by R187 §2.1); the per-tuple mass is ≤ q^{1−N(s)} by γ ≤ j alone (see Lemma 2.1 above);
+the union bound + Lemma 2.1 + the compactness criterion give the theorem. Every inherited input is used exactly within
+the hypotheses under which R178/R187 accepted it for Thm 2.5 (q odd, k ≥ 2, slice points u(0) = 1, c ≠ 0); the new lemmas
+only replace *counting* steps. No circularity. The label "PROVED, computer-assisted, given the inputs of Thm 2.5" is right.
+**Certification, author's code.** I audited `fs_sum.c`, `fs_tail.c`, `fs_certify.sh` line by line:
+* fs_sum: every route = my derivation; the Coppersmith pruning `X(m+k+1) ≥ mD ⇒ break` is valid (the k-increment of Δ is
+  X(m + k + 1), increasing in k; the right side grows by mD); m ≤ 60, k ≤ 200 caps only weaken the bound; long-double logs.
+* fs_tail: all 19 routes bounded correctly on a box: q-powers at the box's upper corner, every binomial/multinomial enlarged
+  to unshifted arguments (C(s−2, a−1) ≤ C(s, a), C(z + 2b − 2, t − 2) ≤ C(z + 2b, t), (s−2; z, a−1, b−1) ≤ (s; z, a, b), all
+  correct) and bounded by exp(B(·)) with B increasing; class-count conditions are linear in (n, d, ρ) for fixed (m, k) and are
+  checked with independent interval maximisation (conservative) at s = S and with non-positive slope (so for all s > S);
+  ((sw + 1)/(s′w + 1) ratio ≤ (s + 2)/(s + 1) holds for w ≤ 1, so the geometric closure is valid; boxes pruned only where
+  t < 0 or b < a on the whole box; overlapping box boundaries only over-count. Floating-point decisions are on dyadic
+  rationals × small integers (exact in double). Fails closed (exit 1, `set -euo pipefail`). I found no bug.
+* Empirical validation of the box bounds (`scripts/review_fs_tailcheck_author.c`): for 20 000 random integer patterns per
+  r ∈ {3, 4, 5, 6}, 20 ≤ s ≤ 420, and every level 3–9, the fs_tail box containing the pattern (with SMIN = s − 1) gives a
+  bound ≥ my exact per-pattern bound: 0 violations (min slack 0.26–1.48 nats).
+**Certification, from scratch.** `scripts/review_fs_certify.sh` = `review_fs_fin.c` (finite part; matches exact rationals
+of `review_fs_exact.py` to 10⁻¹² at r = 4, s ≤ 30 when both use the same Coppersmith range) + `review_fs_tail.c` (a
+different box design: integer-coordinate cubes, linear forms maximised exactly at the 8 corners, integer shifts kept,
+geometric closure at ratio ≤ (1 + e^g)/2; validated like the author's by `review_fs_tailcheck.c`: 0 violations on
+3 × 20 000 patterns) + `review_fs_caseA.py`. Result (`logs/r217/certify.log`, all r = 4..30 pass, fails closed):
+
+| r | finite (S) | tail s > S | Case A | **total** (R217) | author's certified total |
+|---|---|---|---|---|---|
+| 4 | 1.67237 (200) | 1.36e−3 | 7.83e−3 | **1.6816** (< 80) | 2.1754 |
+| 5 | 0.174377 (100) | 5.8e−5 | 7.06e−3 | **0.18150** | 0.2502 |
+| 6 | 0.0385937 (60) | 7.4e−5 | 9.5e−6 | **0.038678** | 0.3730 |
+| 7 | 0.0103173 (60) | 1.0e−7 | 1.0e−6 | **0.010319** | 0.01157 |
+| 8 | 3.16726e−3 | 7.9e−9 | 1.2e−7 | **3.1674e−3** | 3.209e−3 |
+| 9 | 1.02888e−3 | 2.7e−9 | 1.3e−8 | **1.0289e−3** | 1.043e−3 |
+| 10–30 | | | | ≤ 3.41e−4 | ≤ 3.48e−4 |
+
+So every numerical claim of Theorem 3.1(a), (b) is confirmed; the author's figures are valid upper bounds. Most of the
+author's slack is in the tail (0.41 at r = 4, 0.33 at r = 6, vs. my 1.4e−3, 7.4e−5): the exact per-s terms beyond S are tiny
+(r = 6: Σ_{60<s≤100} ≈ 3.6e−9; r = 4: Σ_{200<s≤300} ≈ 5.2e−8), so fs_tail's adaptive budget is simply generous. Consequence
+(optional strengthening, MINOR): Theorem 3.1(b) holds with ≤ 0.19 (r = 5) and ≤ 0.039 (r = 6) instead of 0.26 / 0.38.
+Also `review_fs_certify.sh 31 45` (log `logs/r217/certify_31_45.log`) extends the certificate to r ≤ 45; with the
+DEPTH_ASPECT crude form (decreasing in q; 2.2·10⁻³ at r = 40, recomputed) this gives covered mass ≤ 0.012 for every r ≥ 7.
+
