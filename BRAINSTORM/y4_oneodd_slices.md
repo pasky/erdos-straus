@@ -36,8 +36,8 @@ So there is no "one-odd" analogue of (J)33's isotropy description: the 2-adic lo
 * **Composite exceptions:** odd non-squares n ≤ 2·10⁵ with S₄(n) ≠ ∅ but S₄^{odd}(n) = ∅: 321 = 3·107, 4545, 5481,
   8745, 9121 = 7·1303, 13041, 25305, 57481, 169425 (9 values; S₄(n) = ∅ only at 105). So "S₄^{odd} ≠ ∅ ⟺ S₄ ≠ ∅" is
   FALSE in general; at primes both hold to 10⁷.
-* Why one-odd wins at small t (PROVED for the I-slices): for p ≡ 1 (mod 8) and odd t, v₂(tp + 1) = v₂(t + 1); for
-  t ≡ 3 (mod 8) this is 2, so every I-slice at t ≡ 3 (8) (in particular t = 3) is one-odd; S₈ via I needs t ≡ 7 (8).
+* Why one-odd wins at small t (PROVED for the I-slices): for p ≡ 1 (mod 8) and t ≡ 3 (mod 8), tp + 1 ≡ 4 (mod 8), so v₂(tp + 1) = 2
+  (R-O212: not v₂(t+1) for general odd t; p = 41, t = 7 gives 5 vs 3), so every I-slice at t ≡ 3 (8) (in particular t = 3) is one-odd; S₈ via I needs t ≡ 7 (8).
   Least t of a one-odd hit is ≤ 4 for 98% of the first 3000 primes ≡ 1 (mod 8), versus 86% for S₈ (tail to t ≥ 20:
   4 vs 43). The asymmetry between two equal-size cell sets is a small-t effect, not a congruence obstruction.
 

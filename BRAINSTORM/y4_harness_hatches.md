@@ -6,8 +6,8 @@ partial hatches H-A, H-B, H-D, H-E, H-F, WINDMILL_REDUCTION Remark 10.4, and SQ�
 *stated* mechanism is numerator-uniform, since its 8-version would then wrongly prove 8/131.
 (Calibration after R207 D1: a uniform mechanism with an explicit threshold n > n₀(M) is not refuted by finitely many
 failures. Threshold-robust form: Pomerance–Weingartner Thm 1.2 gives, for every M ≡ 0 (4), M ≥ 6.52·10⁹, a prime
-p ∈ (M², 2M²) with M^□(p) ∧ ¬(M/p). The test below therefore applies to mechanisms uniform in M with thresholds
-polynomial in M, which covers all items here.)
+p ∈ (M², 2M²) with M^□(p) ∧ ¬(M/p). The test below therefore applies to mechanisms uniform in M with no threshold or with n₀(M) ≤ M²; a larger
+(e.g. polynomial M³) threshold is NOT excluded by this argument (R-O212 repair).)
 
 ## Literature / sources inspected
 STATUS.md §Escape hatches; PARITY_FIXED_P §2 (Assessment 2.2); GROWING_IDENTITIES Summary; GROWING_MUTE;
@@ -32,6 +32,7 @@ logical classifications of stated mechanisms.
 
 ## Assessment
 All the partial hatches are **uniform skeletons whose missing content is a lottery input**. The harness does not kill
-them, because none of them states an existence theorem. It shows what the missing input must be: an event that is false
-for 8 at 131/241, so not T1, not BM, not the sign/□ layer and not ray-class encodings. Among known objects only the χ-fibre
+them, because none of them states an existence theorem. For a mechanism uniform in M without threshold (or with n₀(M) ≤ M²),
+it shows what the missing input must be: an event that is false for some (M, p) with M^□(p) ∧ ¬(M/p) (8/131, 8/241 if
+there is no threshold), so not T1, not BM, not the sign/□ layer and not ray-class encodings. Among known objects only the χ-fibre
 (SQ₅, (J)32/(J)33) passes. This sharpens O208's reading and adds no new route.

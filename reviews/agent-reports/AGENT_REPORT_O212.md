@@ -15,9 +15,11 @@ Deliverables: `FOUR_SPECIFIC.md` (deep file), 6 memos `BRAINSTORM/y4_*.md` (inde
    data, not lattice data. S₄^{odd}(p) ≠ ∅ for all primes ≤ 10⁷ while S₈ fails 27 times (same 140/240 cell size).
 3. **Mordell's 840 is exactly the reach of universal one-slot χ-witnesses (Thm 4.2, PROVED).** The non-square A for
    which "(−A/p) = −1 ⇒ p has a word with slot A" (p ≡ 1 mod 4) are exactly {2, 3, 5, 7, 8, 15, 20}, because
-   τ(A+1) ≥ φ(A)/2 is needed. Their reach is the complement of Mordell's six square classes. Checked to 10⁶.
-4. **4 is the unique M ≥ 3 with a slice e ∈ {1, 3} ((ℤ/e)^* = {±1}) at every prime (Prop 3.1, PROVED).** For ES the
-   e = 3 slices are non-triviality events, not hitting events. Both e = 3 slices are still empty for 9.1% of p ≡ 1 (12) < 10⁶.
+   τ(A+1) ≥ φ(A)/4 is necessary. Their reach is the complement of Mordell's six square classes. Checked to 10⁶.
+4. (minor) 4 is the unique M ≥ 3 with a slice e ∈ {1, 3} at every prime (Prop 3.1, PROVED). The broader
+   "{±1}-unit-group slice at every prime" (e ∈ {1, 2, 3, 4, 6}) holds exactly for M ∈ {3, 4, 5, 7} (M < 200), which are the
+   failure-free numerators ≤ 10⁸ except 6. A curiosity, not 4-specific. Both e = 3 slices of ES are still empty for 9.1%
+   of p ≡ 1 (12) < 10⁶.
 
 ## Results by goal
 (a) Catalogue (y4_catalogue, FOUR_SPECIFIC §7): the only 4-specific fact with input character is still the χ-fibre /
@@ -26,6 +28,11 @@ Deliverables: `FOUR_SPECIFIC.md` (deep file), 6 memos `BRAINSTORM/y4_*.md` (inde
 composites 321, 4545, 5481, 8745, 9121, 13041, 25305, 57481, 169425 (≤ 2·10⁵). One-odd ES to 10⁶ reproduced. The 8/p
 failures all sit in p ≡ 1, 3 (mod 8), where 8 has no e ≤ 3 slice. Verdict: description, strictly harder than SQ₅.
 (c) Numerators: Prop 1.1 / Cor 1.2 and the 7-control (y4_t1_numerators, y4_seven_control).
+
+## Self-review R-O212 (deep reviewer): all 8 findings accepted and repaired (FOUR_SPECIFIC §8)
+P1 image size φ(A)/4 (Thm 4.2 still holds); P1 the {±1}-slice reading is not 4-specific (M = 3, 4, 5, 7); P2 v₂ identity
+restricted to t ≡ 3 (8); threshold scope (PW Thm 1.2 covers only n₀ ≤ M²); unsupported t ∈ {1, 3} embedding claim removed
+(4/97 counterexample); "on average" restored; §§5–7 restored after an edit race; Thm 2.3 citation Allcock–Gal–Mark Thm 5.1.
 (d) Harness on hatches (y4_harness_hatches): all MIXED (uniform skeleton + lottery). Uniform H-F ("BM-only for all
 m/n") is false. Only SQ₅/χ-flip passes as a stated 4-specific input.
 
@@ -34,7 +41,7 @@ m/n") is false. Only SQ₅/χ-flip passes as a stated 4-specific input.
   (an isotropic unimodular ternary splits a unimodular plane of oddity 0) should be checked. Numerical oddity
   cross-check: n ≤ 401.
 * Thm 4.2's tail bound uses Rosser–Schoenfeld φ(n) > n/(e^γ log log n + 3/log log n) (n ≥ 3), quoted from memory, and the
-  image-size count (≥ φ(A)/2 residues) for even A. The finite part is the exact class check A ≤ 3000.
+  image-size count (≥ φ(A)/4 residues; repaired from φ(A)/2 after self-review). The finite part is the exact class check A ≤ 3000.
 * The S₇ "no simple Jacobi refinement" is a finite feature test (n ≤ 601), not a theorem.
 * "Failures avoid e = 3 classes" (FOUR_SPECIFIC §3.3) is EVIDENCE with an independence-based Assessment only.
 * After the orchestrator's FYI, 11/3 was dropped as a harness entry (11/3 > 3 is trivial). BM was not computed for 11/37.
@@ -44,9 +51,9 @@ m/n") is false. Only SQ₅/χ-flip passes as a stated 4-specific input.
 ## Sparks (not pursued)
 1. **7/n's own input.** Find any structure that is true for 7 and false for 11 (both T1-bearing), e.g. a 7-adic analogue
    of (J)33 (is some slice set of 7/n a 7-adic isotropy fibre of a twisted form?).
-2. **Marked 2-adic flip.** By Thm 2.3 a χ-flip cannot be detected 2-adically on the lattice. Look for flips on *marked*
-   lattices: moves that change which pentagon quantity carries the factor 4, e.g. via the Gauss pentagram recurrence on
-   (v, A*, t, A, u).
+2. **Marked parity refinement.** A χ-flip changes 2-adic isotropy, so it IS visible on the lattice. Only the
+   one-odd/all-even split inside χ = −1 is invisible (Thm 2.3). Study moves that change which pentagon quantity carries
+   the 4 (e.g. the Gauss pentagram recurrence on (v, A*, t, A, u)).
 3. **e = 3 double-failure primes** (241, 409, 769, …, 9%): characterise which slice then fires first (t ≤ 7?), and test
    whether the double failure is exactly "p is a cube residue pattern" (both N ≡ 1 mod 3 with only primes ≡ 1 mod 3: a
    condition in ℚ(ω)). That could link to the TES order-3 picture.

@@ -14,7 +14,7 @@ numerator failure-free. (It can still be what a *proof* of ES uses.)
   S₇ is NOT a function of (n mod 56, (A/n), (A*/n), (t/n), (u/n), (v/n)); 282 of 386 feature classes are mixed. So
   no simple Jacobi refinement of χ makes S₇ a fibre.
 * Prop 1 of y4_catalogue fails for 7: the e ∈ {1, 3} slices cover only p ≡ 2, 4, 6 (mod 7); for p ≡ 1, 3, 5 (mod 7)
-  the first slice has e ≥ 5 (a "hit −1 in (ℤ/e)^*" event).
+  there are still {±1}-unit-group slices (e = 6, 2, 2), so 7 shares the broader {±1} reading (R-O212 repair).
 * Type I alone never fails for 7 (all primes ≤ 10⁶); Type II alone fails at 3, 31, 43, 127, 211, 421, 463, 631, 12601
   (`ms_census 7 10⁶ p −1 {1,2}`). For 4 both never fail; for 8 Type I fails exactly at the true failures.
 * Mean count: m·mean f_m/(4·mean f_4) = 1.09 for m = 7 (MODEL_SPECIFIC §5.1), so mean f_7 ≈ 0.62·mean f_4, against
