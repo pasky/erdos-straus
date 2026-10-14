@@ -16,7 +16,10 @@ def load(fn, q):
     T = {}
     for line in open(D + fn):
         f = line.split()
-        if len(f) >= 2 and f[0].lstrip('-').isdigit(): T[int(f[0])] = (float(f[1]) * (1 + 1e-9), q)
+        if len(f) >= 2 and f[0].lstrip('-').isdigit():
+            j, v = int(f[0]), float(f[1])
+            if not (math.isfinite(v) and v >= 0) or j in T: sys.exit(f"bad/duplicate table row {fn}: {line.strip()}")
+            T[j] = (v * (1 + 1e-9), q)
     return T
 
 def table_max(tabs, lo_bits, hi_bits):
@@ -37,7 +40,8 @@ def agg(terms):
     """merge terms with equal p, rounding e UP to a 1e-6 grid (valid: N^e increases with e for N >= 1)."""
     A = {}
     for (c, e, p) in terms:
-        k = (math.ceil(e * 1e6) / 1e6, p); A[k] = A.get(k, 0.0) + c
+        # negative exponents are capped at 0 (c N^e <= c for N >= 1), so every merged term is nondecreasing in N
+        k = (max(0.0, math.ceil(e * 1e6) / 1e6), p); A[k] = A.get(k, 0.0) + c
     return [(c, e, p) for (e, p), c in A.items()]
 def tailw(terms, bits, wlog2):
     """sum_t c N^e (ln N)^p * 2^{wlog2} at N = 2^bits, computed in log space."""
@@ -46,6 +50,7 @@ def tailw(terms, bits, wlog2):
 
 def main():
     B0 = float(sys.argv[1]); Bmax = float(sys.argv[2]) if len(sys.argv) > 2 else 600.0
+    if not (B0 <= Bmax and Bmax >= 600.0): sys.exit("need B0 <= Bmax and Bmax >= 600 (all N in the tails beyond Bmax)")
     P1 = load('P_q1.txt', 1)
     try: P1.update({k: v for k, v in load('P_q1_hi.txt', 1).items() if k not in P1})
     except FileNotFoundError: pass
@@ -54,9 +59,10 @@ def main():
     LP, LQ = 600.0, 100.0                                  # tail thresholds (bits)
     tP, wP, _, _ = se_tail.tailP(32, LP); tQ, wQ, _, _ = se_tail.tailQ(16, LQ)
     tP, tQ = agg(tP), agg(tQ)
-    assert wP < 0.5 and wQ < 1.0
+    if not (wP < 0.5 and wQ < 1.0): sys.exit("tail exponents too large")
     LPn, LQn = LP * math.log(2), LQ * math.log(2)
-    assert all(p <= (0.5 - e) * LPn for (c, e, p) in tP) and all(p <= (1 - e) * LQn for (c, e, p) in tQ)
+    if not (all(e < 0.5 and p <= (0.5 - e) * LPn for (c, e, p) in tP) and all(e < 1 and p <= (1 - e) * LQn for (c, e, p) in tQ)):
+        sys.exit("tail terms not decreasing relative to the weights")
     worst = (0, None); b = B0; bad = 0
     while b <= Bmax + 1e-9:
         bh = b + 0.25
@@ -69,7 +75,9 @@ def main():
             term = v1 * 2 ** wl if lo < LP else 0.0
             if hi > LP: term = max(term, tailw(tP, hi, wl))   # terms increasing in N: top of the range
             S += term
+            if not math.isfinite(term): sys.exit("non-finite P term")
             if lo >= LP and term < 1e-30: break
+        else: sys.exit("P series did not reach the cutoff")
         for k in range(1, 100001, 2):                    # Q part
             lo, hi = k * b, k * bh
             wl = 1 - b * k
@@ -78,10 +86,12 @@ def main():
             term = v1 * 2 ** wl if lo < LQ else 0.0
             if hi > LQ: term = max(term, tailw(tQ, hi, wl))
             S += term
+            if not math.isfinite(term): sys.exit("non-finite Q term")
             if lo >= LQ and term < 1e-30: break
+        else: sys.exit("Q series did not reach the cutoff")
         S = S * (1 + 1e-6) + 1e-20                     # 1e-20: geometric remainder after the break
         lim = 0.5 - 2 ** (-b - 1)                         # (r-1)/(2r) for r >= 2^b
-        if S >= lim: bad += 1; print(f"FAIL b={b:.2f} S={S:.6f}")
+        if not (S < lim): bad += 1; print(f"FAIL b={b:.2f} S={S:.6f}")
         if S > worst[0]: worst = (S, b)
         b += 0.25
     print(f"B0={B0} Bmax={Bmax}: max S = {worst[0]:.6f} at b = {worst[1]}; failures {bad}")

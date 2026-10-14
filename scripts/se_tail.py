@@ -6,7 +6,9 @@ Boxes: a in [N^{x_a}, N^{x_a+u}) etc., u = 1/M.  Prints the term list summary an
   G = sum_t c_t N0^{e_t - h} L0^{p_t}   (h = 1/2 for P, 1 for Q),
 which bounds D/N^h for every N >= N0 provided every term is decreasing there (checked: e_t < h, p_t <= (h - e_t) L0).
 Usage: python3 se_tail.py P|Q M L0bits.   Fails (exit 1) if some box has no route with all exponents < h.
-Floating point: all exponents/constants are rounded upward by 1e-9 (the conditions are checked with margin 1e-9)."""
+Floating point (double): the Coppersmith conditions are checked with margin EPS=1e-9 (relative) and kappa is padded by 1e-7;
+the tau-constants are padded by 1e-9; the combiner se_r0.py rounds every exponent up to a 1e-6 grid. All decisions have
+margins >= 1e-9 against double rounding errors of order 1e-13 for the O(10^3)-sized logarithms involved."""
 import sys, math
 EPS = 1e-9
 def lC(eta, kk, pmax=10**6):
