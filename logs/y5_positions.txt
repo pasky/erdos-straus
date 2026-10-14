@@ -1,0 +1,46 @@
+primes p=1(8) <= 10000000: 165976
+mean #certificate words (formal, c<=s half) per prime: H 26.83 C 23.68 M 13.51; min H count 1 at: 2521 53881
+p = 1 (mod 840): 3426 primes; mean H 19.41 C 15.90 M 7.92; #zero (formal): H 0 C 4 M 15
+slice 4|m alone (classical p = 4kcs-c-s): primes with none 14; first: 409 577 5569 9601 23929 83449 102001 329617 712321 1134241
+mean # H-words with m = 2 (mod 4): 8.23
+no certificate in positions H   : formal 0 (first 0)  interior 0
+no certificate in positions C   : formal 10 (first 457)  interior 21
+no certificate in positions H+C : formal 0 (first 0)  interior 0
+no certificate in positions M   : formal 147 (first 73)  interior 394
+no certificate in positions H+M : formal 0 (first 0)  interior 0
+no certificate in positions C+M : formal 0 (first 0)  interior 5
+no certificate in positions all : formal 0 (first 0)  interior 0
+  no H-certificate (formal) at N = 105
+  no H-certificate (formal) at N = 1465
+  no H-certificate (formal) at N = 3865
+  no H-certificate (formal) at N = 4545
+  no H-certificate (formal) at N = 5481
+  no H-certificate (formal) at N = 10305
+  no H-certificate (formal) at N = 12145
+  no H-certificate (formal) at N = 34489
+  no H-certificate (formal) at N = 36841
+  no H-certificate (formal) at N = 39361
+  no H-certificate (formal) at N = 40425
+  no H-certificate (formal) at N = 51129
+  no H-certificate (formal) at N = 67425
+  no H-certificate (formal) at N = 95505
+  no H-certificate (formal) at N = 115465
+  no H-certificate (formal) at N = 147609
+  no H-certificate (formal) at N = 179361
+  no H-certificate (formal) at N = 196065
+  no H-certificate (formal) at N = 199369
+  no H-certificate (formal) at N = 210105
+  no H-certificate (formal) at N = 341145
+  no H-certificate (formal) at N = 392505
+non-square N=1(4) <= 1000000: 249500
+mean #certificate words (formal, c<=s half) per prime: H 15.94 C 16.09 M 9.48; min H count 0 at: 105 1465 3865 4545 5481 10305 12145 34489 36841 39361 40425 51129
+p = 1 (mod 840): 1154 primes; mean H 12.76 C 10.21 M 5.22; #zero (formal): H 0 C 6 M 19
+slice 4|m alone (classical p = 4kcs-c-s): primes with none 197; first: 57 105 177 249 345 409 465 577 777 801
+mean # H-words with m = 2 (mod 4): 4.79
+no certificate in positions H   : formal 22 (first 105)  interior 114
+no certificate in positions C   : formal 124 (first 57)  interior 229
+no certificate in positions H+C : formal 1 (first 105)  interior 4
+no certificate in positions M   : formal 982 (first 33)  interior 2440
+no certificate in positions H+M : formal 8 (first 105)  interior 22
+no certificate in positions C+M : formal 8 (first 105)  interior 26
+no certificate in positions all : formal 1 (first 105)  interior 2
