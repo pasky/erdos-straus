@@ -104,3 +104,69 @@ uses them only as regime labels (Assessment) ✓, and correctly disclaims derivi
 θ: numerically log M/log N_e = 0.245/0.165 at k = 10⁶, λ = 1 (e = 1/2), but 0.486/0.247 at k = 1, λ = 10³⁰ —
 i.e. the e-cell is not "at" θ = 1/(2e+2): that is the infimum over the face, and ES ⊂ ES^{[2]} itself sits at θ = ½
 on the same face (m6).
+
+### Thm 5.1 (ES^{(y,e)} with e ≤ y^{(2+o(1))log₃y/(A log₂y)}) — SOUND-AFTER-REPAIRS (m7 quantifiers, m8 squares, m9 Step 4)
+
+Checked line by line; no FATAL or MAJOR gap found.
+* **Choice of S, k.** log P = Σ_{s ≤ s_k} log s ~ s_k ~ k log k, so P ≤ (log x)^A maximal gives k log k ~ A log₂x,
+  k ~ A log₂x/log₃x ✓ (fixed A; n removes O_n(1) primes). k ≥ 4 for x ≥ x₀(A) (A = 1 needs log x ≥ 1155, i.e.
+  x ≳ 10^{502}; `review_pd2_thm51.py`). M = 4 rad(n)P ≤ 4n(log x)^A ✓.
+* **Step 1, uniformity in M.** d | (r−1)/2 with d odd squarefree, gcd(d, M) = 1, plus r ≡ a (M), is ONE class mod Md
+  (CRT; r odd automatic) ✓; distinct d ⇒ distinct moduli Md ≤ x^{1/2}/log^β x ✓, so Σ_d|r_d| is bounded by the
+  BV sum over all q in that range, applied at x and x/2 ✓. BV is a statement summed over all moduli, so it is
+  automatically uniform in M; the d = 1 term (modulus M itself) is inside the sum, so no separate Siegel–Walfisz
+  input is needed for the main term ✓. Exceptional zeros: BV is unconditional (ineffective via Siegel) and the
+  total error x/log^{2A+10}x is far below the main term x/(φ(M) log²x) ≥ x/(4n log^{A+2}x) — this comparison, not
+  BV's level, is what caps P at (log x)^{O(1)}, as Remark (1) says ✓. Iwaniec's lower bound needs only the
+  dimension-1 axiom ∏_{w≤ℓ<z}(1 − g(ℓ))^{−1} ≤ (log z/log w)(1 + K/log w); setting g(ℓ) = 0 for ℓ | M only
+  decreases the product, so K is absolute ✓, and V(z) ≥ ∏_{3≤ℓ<z}(1 − 1/(ℓ−1)) ≫ 1/log z absolutely ✓.
+  s = log D/log z = (½ log x − O(A log₂x))/((¼ − ε)log x) → 2/(1−4ε) ≈ 2.083, f(s) ≈ 0.137 > 0 ✓. Primes of M
+  never divide (r−1)/2 (r ≡ 3 (4); a_ℓ ≢ 1; a ≡ −1 ≢ 1 mod s) ✓.
+* **Step 2.** (s/r) = 1 for r ≡ −1 (s), r ≡ 3 (4) (incl. s = 3) ✓; nontrivial index of Γ_r in the odd-order group
+  (F_r^*)² has a prime factor ≥ z ✓. Pigeonhole count explicit in k: (2B'+1)^k(B' log P/log(x/2) + 1) ≤ 6^k Y^{1+1/k}·2 log P
+  for large x (as written without the /log(x/2) the "2" should be "3" — immaterial) ✓; 6^k = (log x)^{o(1)} ✓.
+* **Step 3.** ℤ^k/Λ_r ≅ ⟨s_i²⟩ = (F_r^*)² (squaring bijective on odd order), det = (r−1)/2 ✓; (2B+1)^k(2B log P + 1)
+  ≤ (3B)^{k+1} log P for B log P ≥ 1 ✓; with the stated B this is ≤ x log P/log^{A+5}x = o(x/log^{A+3}x) ✓
+  (numerically the margin is exactly log²x, as designed).
+* **Step 4.** Minkowski II for the cube: λ₁⋯λ_k ≤ det ✓; λ_k ≤ x/B^{k−1} ✓; covering radius ≤ ½Σλ_i ≤ kλ_k ✓.
+  The text "Q := ∏ s_i^{a_i+L} … satisfies Q² ≡ −n/4" is only right if the class represented is that of
+  (−n/4)·P^{−2L}, as EXPONENT_CAP Thm 3.2 does explicitly ("As there" hides it) — m9. Overflow exponent
+  ≤ v_s(Q) ≤ 2L ✓; s | (r+1)/4 | y ✓; den z = Q₁² with Q odd ✓.
+* **Final arithmetic.** 2L ≤ 2k·6^{k}·log^{A+5}x·x^{2/(k+1)} ✓ (B ≥ half its unfloored value); log of the prefactor
+  is O(A log₂x) = o(log x·log₃x/log₂x) ✓; y ∈ [x/8, nx/2] and the exponent function is slowly varying, so the
+  conversion x → y costs only the o(1) ✓. `review_pd2_thm51.py` confirms log e/log x ≈ 2/(k+1) → 0 along
+  x = 10^{10^4} … 10^{10^{64}} (e.g. A = 2: 0.225, 0.143, 0.087, 0.053, 0.031), i.e. the theorem is a genuine but
+  very slow improvement over y^δ.
+* **Quantifiers (m7).** "has a solution with e ≤ y^{(2+o(1))…}" is not a meaningful statement about one solution.
+  What the proof gives: for all A ≥ 1, η > 0, odd n there is x₀ such that for every x ≥ x₀ some solution has
+  x/8 ≤ y ≤ nx and e ≤ y^{(2+η)log₃y/(A log₂y)}. The "In particular" clause (fixed ε) is meaningful as stated.
+* **Squares (m8).** The scaling reduction for n = m² must run the prime-divisor case with S prime to the WHOLE n
+  (FROBENIUS 4.2(c) says so), but Thm 5.1 defines S as "the first k odd primes not dividing n" with n then being the
+  divisor; if some s ∈ S divides n/p, scaling by t = n/p can leave s | den z with s | n, violating Def 4.1. Repair:
+  "S = first k odd primes not dividing the original n" (the proof needs nothing more).
+* Remark (2) (Gallagher range, "exceptional conductor avoided by the choice of S"): Assessment; note the exceptional
+  conductor may divide 4 rad(n), which S cannot avoid — soften to "if the exceptional modulus can be avoided".
+
+### §6 B1 statement — SOUND but needlessly weak (m10); lead-in overclaims (m11)
+
+The argument is correct, and it never uses that u is a non-residue: g′ | 1 + 4Q² ⇒ g′ ≡ 1 (4), r^a ≡ 1 (4) ⇒ g ≡ 1 (4)
+for every unit u. `review_pd2_b1.py 400 60 3000000`: no point x(u), r ∈ {5, 13, 17, 29}, ANY unit u, lies in any shot
+class with g ≤ 400; the shot classes with g ≤ 60 leave uncovered primes in every reduced class mod 5 and mod 13,
+residues included (e.g. least uncovered p ≡ 1 (5) is 57 271; p ≡ 4 (5): 10 399). Lead-in "Covering proofs are
+excluded for every cell" is broader than the bold statement, which concerns shot identities only (Type I or
+other parametric identities are not covered by the argument).
+
+### §6 class-layer conditional — SOUND
+
+x² − Nz² has discriminant 4N = 16(λ²D² − n) ✓; gcd(D, 4N) = 1 (gcd(D, n) = 1, D odd) so the genus-character
+criterion applies to −D ✓; one class per genus ⇒ principal genus = principal class ✓; MARKOFF Thm 4.1 turns the
+primitive solution into an admissible V_n point ✓. Possible hidden hypothesis gcd(λ, n) = 1 checked and NOT
+needed: for the 56 ES^{[2]} data with odd n ≤ 201, k ≤ 6, gcd(Q₁, n) = 1 but gcd(Q₀, n) > 1, den z = Q₁² is
+prime to n and divides y², so they are ES^{[2]} solutions under GROWING_MUTE Def 1.0 (direct proof: for ℓ | n,
+ℓ | Q₀, ℓ ∤ Q₁, v_ℓ(xy) ≥ 2v_ℓ(Q₀)). Labels (conditional; "not a standard hypothesis") are honest.
+
+### T1 claims per cell — SOUND (one MINOR, m12)
+
+(a) via FROBENIUS Thm 4.2(b)/UNIT_ORBIT Cor 1.2 ✓; shots at m²: m² + 4Q² coprime sum of two squares ✓ (brute
+force: no ES^{[2]} shot for n = 9, 25, 49 with Q ≤ 10⁵). (b) scaling ✓. "Any proof of a bounded-cap cell must use a
+non-square input" is a heuristic reading, not a theorem; label it Assessment.
