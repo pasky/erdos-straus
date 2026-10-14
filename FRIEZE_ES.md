@@ -60,3 +60,48 @@ CERTIFIED: `scripts/y2_even_edge.py 100000`, 0 failures, 8 068 square-control wo
 *Remark (what this replaces).* DK proved Thm 4.5 by a 512-cell check mod 8. CHI_FLIP gave a 2-adic Hasse-invariant
 proof. Here the proof is three Jacobi computations, one per position of the even edge, each using two Ptolemy relations:
 the one through the even edge and one through the odd opposite vertex.
+
+## 2. The 2-adic transport and the tree picture (PROVED; memo y2_twoadic_tree_transport)
+
+From the case proofs: if o is the odd cluster variable opposite the even edge, then
+`(h′/N) = −(−1/N)(2/o)` (even edge {c,m} or {m,s}), and `(h′/N) = −(−2/N)(2/o)` (the relation through o contains N).
+**For N ≡ 1 (8): (h′/N) = −(2/o).** CERTIFIED: `scripts/y2_transport.py 2000`, all cells.
+In the Bruhat–Tits tree T₂ the five ends form two cherries plus a lone end o. The sign is "the cherry depths sum to
+≥ 3", and T1 is "both cherries have depth exactly 1".
+
+## 3. Where T1 lives: positivity (PROVED by inspection; memo y2_positivity_is_T1)
+
+The proof of Thm 1.2 uses positivity only in the reciprocity steps. Signed (tame) friezes at odd squares do have
+zero-mod-4 quiddities (`scripts/y2_signed.py 40`). So T1 is the archimedean factor of Hilbert reciprocity, entering
+through the positivity of the frieze. Consequences:
+* SVZ's lifting theory (tame, signed) is T1-blind. Every closed 5-walk on F₄ is strongly contractible (§0, I1).
+* Finite-ring frieze theory is N-blind beyond N mod 8.
+* **Any frieze-theoretic ES proof must use the positivity of the frieze archimedeanly.**
+
+## 4. Polygon size: the pentagon is the unique size where the zero locus is a Jacobi fibre (memo y2_hexagon_degeneration)
+
+Let Z_r(N) be "some interior word of HJ length r at N has a short diagonal (quiddity) ≡ 0 (mod 4)". Each such vertex
+gives 4/N as r unit fractions (vertex fan).
+* r = 2: for N ≡ 1 (4), Z₂ is empty, because xy = N + 1 ≡ 2 (4) (PROVED).
+* r = 3: Z₃ ⟺ some word has (h′/N) = −1 (Thm 1.2). This is a Jacobi fibre, empty at squares (T1).
+* r = 4: **Z₄(N) holds for every N ≡ 1 (4), N ≥ 9**, via the word (2, 2, 2, (N+3)/4). Its 4-diagonal K(2,2,2) = 4 cuts
+  off a free triangle that contains the N-side (PROVED, explicit identity). In particular Z₄ holds at all odd squares.
+* r ≡ 0 (4): (2^{r−1}, k) has K = rk − r + 1 and end quiddity K(2^{r−1}) = r ≡ 0 (4). Its N-class is 1 (mod r), which
+  contains odd squares (PROVED).
+* 5 ≤ r ≤ 12: explicit odd-square witnesses (`scripts/y2_witness.py 12 40`): r = 5: 25 = K(2,3,2,2,3); r = 6:
+  49 = K(2,2,3,2,2,4); r = 7: 81; r = 9: 49; r = 10: 81; r = 11: 225 (CERTIFIED).
+So for r ∈ {4, …, 12} the zero locus meets the squares, where (A/N) = +1, and it is not contained in a Jacobi
+fibre. CONJECTURE: the same holds for all r ≥ 4 (EVIDENCE: r ≤ 12).
+
+**Theorem 4.1 (degeneration; PROVED).** In the pentagon every 4w-diagonal cut leaves a divisor event.
+* If the cut-off triangle contains the N-side, the other piece is a length-2 word at 4w, which needs 4w + 1 = xy
+  with y ≡ −N (mod 4w) (Type I a = 1). For w = 1 the only option is the formal (1, 5)/(5, 1), which gives N ≡ 3 (4).
+* Otherwise the quadrilateral containing N has hs = N + 4w.
+The hexagon escapes because K(2, 2, 2) = 4 is an interior length-3 word at 4. Interior words at 4 are exactly (4) and
+(2, 2, 2), and there is no length-2 interior word at 4 because 5 is prime.
+
+**Reading.** Two independent facts single out the pentagon:
+1. mod-2 rigidity (one quiddity pattern, so the sign is one bit);
+2. the absence of an N-free sub-word at 4 of length 2.
+This parallels (J)32 (m = 4 is the unique numerator whose slices form a character fibre). Here r = 3 is the unique
+polygon size whose zero locus is a character fibre (for r ≤ 12 and r ≡ 0 (4); CONJECTURE beyond).
