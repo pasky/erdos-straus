@@ -248,7 +248,7 @@ No FATAL. No MAJOR.
 * **m4 (MINOR, §5 reformulation).** State n ≥ 2; note the converse uses only the form of w₁, C₁ (clean form: covers ⇔
   T^n | w₁ − cg′v₁(1 + cT)); note only even s is treated.
 * **m5 (MINOR, Theorem 3.1(b) and AGENT_REPORT "≥ 0.98 (r ≥ 7)").** The document's certificate stops at r = 30; for r ≥ 31 it
-  only cites Thm 2.5, whose stated measure is ≥ 0.97. *Repair:* cite R217's independent certificate r = 31..45 (covered ≤ 10⁻¹⁴)
+  only cites Thm 2.5, whose stated measure is ≥ 0.97. *Repair:* cite R217's independent certificate r = 31..45 (covered < 4·10⁻¹⁴)
   and the DEPTH_ASPECT crude form (decreasing in q, 5.9·10⁻⁵ at r = 46) for r ≥ 46.
 * m6 (optional) Theorem 3.1(b) can be sharpened to ≤ 0.19 (r = 5), ≤ 0.039 (r = 6) (R217 totals); fs_tail's budget is the slack.
 * m7 (optional, Lemma 1.4 proof) define τ₀ ≡ Fσ₀^{−1} (mod Q) directly; it always exists.
