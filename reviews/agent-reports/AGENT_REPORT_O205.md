@@ -4,7 +4,7 @@ Main file: SIGN_IDENTITY.md. Scripts: scripts/si_census.c (weighted N± census),
 si_uvform.py, si_cells.py, si_diff.py. Branch side-agent/sign-identity. **ES is not solved, nor any infinite case.**
 
 ## SHARP:
-1. **Size class: the ES sign counts are d₃-objects, so no GL(2) modular generating function exists (Thm 2.2, PROVED).**
+1. **Size class: the ES sign counts are d₃-objects, so no *holomorphic* modular generating function exists (Thm 2.2, PROVED; R204 repair: not "GL(2)" — Maass/non-holomorphic objects are not covered).**
    Σ_{n≤X} N₋(n) ~ (15/32)·X log²X/2 (240 of 512 cells mod 8; N₊: 80/512), while |X_n| ≪ n^{1/2+ε}. Growth at cusps
    (non-cuspidal weight > 1), sup-norm bounds (weights ≤ 2) and Rankin–Selberg (cusp weight ≥ 5/2) then exclude every
    finite sum of holomorphic modular forms of any weight in ½ℤ_{>0}, any level/character, as generating function of
@@ -17,18 +17,20 @@ si_uvform.py, si_cells.py, si_diff.py. Branch side-agent/sign-identity. **ES is 
    Assessment).** Every word of X_p gives pure i, j with Gram T_w = t·diag(v, u) − [[1,−1],[−1,1]] (det tp); Diff(T_w) = {p}
    iff χ = −1 (Eichler level 2 in B_{p,∞}, char p) and = {2} iff χ = +1 (Eichler level p in B_{2,∞}, char 2). With an
    arithmetic Siegel–Weil formula on X₀(2p) (CONDITIONAL), the family sum is N₋^μ log p + N₊^μ log 2: SQ₅(p) ⟺ "not in ℚ·log 2"
-   (transcendence-separated form). Screen: the family is a level-t Fourier projection + hyperbola restriction with t
+   (transcendence-separated form; R204 repair: a tautological reformulation, cycles Z(2p·T_w), see §4). Screen: the family is a level-t Fourier projection + hyperbola restriction with t
    unbounded (B2), so the dictionary relocates the lottery to the family. Novelty modest (cf. (I)6 GZ "x = 2" shape, DIFF_DEEP).
 
 ## Results (labels)
 * PROVED: Lemma 1.1 (X_n ≅ {(u,v): uv | n+u+v}; χ = (−uv/n₀), n₀ = part of n prime to uv; |X_n| ≪ n^{1/2+ε}); Lemma 1.2 (N₋ ≥ 1 for
   n ≡ 3 (4), 5 (8); Chebotarev/Dirichlet-uniform prime certificates via q ≡ 3 (4), p ≡ −1 (q)); Lemma 2.1 (averages);
   Thm 2.2; Prop 2.3; Prop 4.1(a)–(d).
-* PROVED relative to Waldspurger + twist root numbers: Prop 2.4 (no weight-3/2 cuspidal eigenform whose Shimura lift has
+* PROVED relative to Waldspurger + twist root numbers: Prop 2.4 (no weight-3/2 cuspidal eigenform with trivial character (R204 repair) whose Shimura lift has
   **non-square** conductor has zero set {N₋ = 0}; uses only the proved N₋ ≥ 1 on n ≡ 3 (4); square conductors open).
 * CONDITIONAL: log-separation (§4), on an arithmetic Siegel–Weil formula at the bad fibres of X₀(2p) of KRY/SSY shape.
+  (R204 repair: the right cycles are Z(2p·T_w) in Zhu's normalization; SSY needs N odd, Zhu arXiv 2304.10696 covers
+  N = 2p; the log-decomposition itself is geometry, and the "⟺" is a tautological reformulation of Prop 4.1(c).)
 * CERTIFIED (finite): §3 — no ℚ-linear relation (exact rational ranks on row subsets) of 8 weighted sign counts with a 48-column dictionary (H(kn), KH sums Σ_s H(kn − js²),
-  twisted σ₀/σ₁, shifted τ, six ternary theta series) on odd n ≤ 12 000 per class mod 8 (exact rank mod 2⁶¹−1);
+  twisted σ₀/σ₁, shifted τ, six ternary theta series) on odd n ≤ 12 000 per class mod 8 (exact rational rank on 120-row subsets; R204 reproduced from scratch);
   census cross-checked against cf_census for n ≤ 10⁵; Lemma 1.1 on all 35 184 words n ≤ 1500; Prop 4.1(b) on all 50 003
   words n ≤ 2000.
 * Assessment: mock (harmonic Maass) extension of Thm 2.2 not proved; GK genus-3 reading of path lattices (2-adic

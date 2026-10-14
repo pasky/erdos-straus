@@ -1,5 +1,8 @@
 # R204 — hostile review of SIGN_IDENTITY.md (O205, checkpoint 1)
 
+**Repairs applied (author quiet since 16:51):** D2–D10 applied directly in SIGN_IDENTITY.md and AGENT_REPORT_O205.md, each
+marked '(R204 repair)'; no mathematical content of the author's proofs changed beyond the stated hypotheses/normalization.
+
 Reviewer branch side-agent/review-sign-identity (merged side-agent/sign-identity at review start).
 From-scratch scripts: `scripts/review_si_lemmas.py`, `scripts/review_si_avg.py` (+ further `review_si_*` below).
 None reuse `scripts/si_*`.

@@ -17,8 +17,8 @@ could live, plus one exact dictionary.
   n ≡ 3 (4), where N₋ ≥ 1 is proved: no zero-set equivalence. Square conductors (e.g. 121) are not covered.
 * *Dictionary (Prop 4.1, PROVED; moduli reading Assessment).* For n = p **every** word, of either sign, gives a pair of
   special endomorphisms with Gram T_w = t·diag(v,u) − [[1,−1],[−1,1]] and |Diff(T_w)| = 1: Diff = {p} (χ = −1, char p,
-  Eichler level 2 in B_{p,∞}) or {2} (χ = +1, char 2, Eichler level p in B_{2,∞}) — the two bad fibres of X₀(2p). Under
-  an arithmetic Siegel–Weil formula the family sum is N₋^μ log p + N₊^μ log 2 (CONDITIONAL): SQ₅(p) ⟺ the family sum is
+  Eichler level 2 in B_{p,∞}) or {2} (χ = +1, char 2, Eichler level p in B_{2,∞}) — the two bad fibres of X₀(2p). With
+  the cycles Z(2p·T_w) on X₀(2p) (R204 repair: not Z(T_w); see §4) and Zhu's arithmetic Siegel–Weil formula the family sum is N₋^μ log p + N₊^μ log 2 (CONDITIONAL): SQ₅(p) ⟺ the family sum is
   not in ℚ·log 2. The family, not the Eisenstein series, carries the lottery (moving level t, hyperbola extraction; B2).
 * *Numerics (§3, CERTIFIED finite statement).* No linear relation with 48 classical columns (class numbers, KH sums,
   twisted divisor sums, ternary theta coefficients) for any of 8 weightings, n ≤ 12 000, per class mod 8 (exact
@@ -83,11 +83,14 @@ both counts and are O(X log X) in number.)
 **Theorem 2.2 (no holomorphic modular generating function).** Let a ∈ {N₋, N₊, S, |X|}. There is no finite sum f of
 holomorphic modular forms (weights k ∈ ½ℤ_{>0}, any congruence subgroup, any character/multiplier) whose n-th
 coefficient equals a(n) for every odd n.
-*Proof.* Replacing f by ½(f(z) − f(z + ½)) we may assume f is supported on odd n. By Lemma 2.1 and Abel summation,
+*Proof.* Replacing f by ½(f(z) − f(z + ½)) we may assume f is supported on odd n (R204 repair: this presumes integral
+exponents; for expansions in q^{(m+κ)/h} use instead the character average of the translates f(z + j/2), j mod 2h, which
+keeps exactly the exponents ≡ 1 (mod 2) and is again a finite sum of holomorphic modular forms). By Lemma 2.1 and Abel summation,
 F(y) := Σ_{n odd} |a(n)| e^{−2πny} ≍ y^{−1} log²(1/y), and |f(x + iy)| ≤ F(y); also Σ a(n) e^{−2πny} ≍ y^{−1}log²(1/y).
 Write f = Σ_k (E_k + g_k) (Eisenstein + cusp part in weight k). (i) If some E_k ≠ 0 with k > 1, take the largest such k
-and a cusp a/c where E_k has non-zero constant term; then |f(a/c + iy)| ≍ y^{−k} (slash by γ ∈ SL₂(ℤ), γ(∞) = a/c;
-distinct weights give distinct powers of y; cusp parts and weights k′ < k are o(y^{−k})), contradicting ≤ F(y). (ii) So
+and a cusp a/c where E_k has non-zero constant term; then |f(a/c + iy)| ≍ y^{−k} (slash by γ ∈ SL₂(ℤ), γ(∞) = a/c:
+f(a/c + iy) = Σ_{k′} (i/(cy))^{k′}(b_{k′,γ} + O(e^{−c′/y})), so cusp components of any weight are exponentially small on
+this ray — R204 repair: the generic bound y^{−K/2} would not suffice — and weights k′ < k are o(y^{−k})), contradicting ≤ F(y). (ii) So
 all components of weight > 1 are cuspidal. If moreover all weights are ≤ 2, then |f(iy)| ≪ y^{−1} (weight ≤ 1 forms:
 ≪ y^{−k}; cusp forms of weight k: ≪ y^{−k/2}), contradicting Σ a(n)e^{−2πny} ≍ y^{−1}log²(1/y). (iii) If a cusp
 component of weight K ≥ 5/2 is present (K maximal), Rankin–Selberg gives Σ_{n≤X}|a_{g_K}(n)|² ≍ X^K, hence
@@ -98,12 +101,13 @@ f_k(iy) = (iy)^{−k}(f_k|S)(i/y) = b_k (iy)^{−k} + O(y^{−k}e^{−c/y}) (the
 possibly 0, and otherwise exponentially decaying terms, also with a multiplier shift). So f(iy) = Σ_k b_k (iy)^{−k} +
 O(y^{−K}e^{−c/y}): either ≍ y^{−k₀} for some k₀ or exponentially small, never ≍ y^{−1}log²(1/y) as Lemma 2.1 forces. ∎
 *Scope.* Covers every theta series of every lattice (positive definite or with harmonic polynomial), every Hecke
-eigenform of any weight and level, holomorphic Eisenstein series of every weight (Thm 9.1's class is the special case of
-weight-1 Eisenstein + exponent-0 divisor sums), and finite combinations of all of these. It does **not** cover: holomorphic parts
+eigenform of any weight and level, holomorphic Eisenstein series of every weight, and finite combinations of all of these (R204 repair: Thm 9.1's class
+is *not* a sub-case — it contains d(n) and other parity-mismatched twisted σ_k, coefficients of non-holomorphic
+Eisenstein series). It does **not** cover: holomorphic parts
 of harmonic Maass forms (mock forms; but Zagier's ℋ has y^{−3/2} growth and is excluded by the same size argument
 once its completion is used — Assessment), derivatives in s of Eisenstein series, GL(3) objects, sums over unboundedly
 many levels. The mechanism is **size, not T1**: X_n is a cubic surface with three free letters; every holomorphic modular form has
-the wrong average (log¹ or a power). This is the first screen any identity must pass: *its natural home has d₃-size.*
+the wrong average (a power of X, no logarithm; R204 repair: log¹ averages such as d(n) are non-holomorphic). This is the first screen any identity must pass: *its natural home has d₃-size.*
 
 **Proposition 2.3 (T1 kills finite divisor-rank combinations, any rank; generalises STRONG_APPROX Thm 9.1 along the
 rank axis — exponent 0, any rank — whereas Thm 9.1 allows divisor exponents).** Let
@@ -117,7 +121,7 @@ polynomial in a in which the k-th term has degree k − 1 and leading coefficien
 K ≥ 2, inductively C_k = 0 for k ≥ 2, and C₀ + C₁ = 0. Then E ≡ C₀ + C₁ = 0 on the semigroup. ∎
 *Reading.* The d₃-size average needs terms of rank ≥ 3 (R205-self repair: not "exactly rank 3"), and
 T1 at all squares couples the ranks completely (prime squares alone do **not**: 3 − d(n) is 1 at primes and 0 at ℓ²;
-ℓ⁴, ℓ²ℓ′² are needed). Finite GL(k)-Eisenstein-type identities (exponent 0) die by T1 as in Thm 9.1; GL(3) cuspidal
+the even powers ℓ^{2a}, a ≤ K, of a single prime suffice — R204 repair: ℓ²ℓ′² is never used). Finite GL(k)-Eisenstein-type identities (exponent 0) die by T1 as in Thm 9.1; GL(3) cuspidal
 contributions are not covered (their averages over ℓ^{2a} need Sym^{2a} information).
 
 **Proposition 2.4 (hook (3): a Waldspurger/Θ zero-set equivalence fails for eigenforms whose lift has non-square
@@ -125,9 +129,12 @@ conductor; PROVED relative to Waldspurger 1981 and the root-number formula for q
 the first version claimed all eigenforms — false for square conductors, e.g. 121b1, where ε(F ⊗ χ_D) = −χ_D(−121) = +1
 for every negative fundamental D prime to 11).** Thm 2.2 excludes equality; the softer hope is "N₋(n) > 0 ⟺ a_g(n) ≠ 0"
 for a weight-3/2 eigenform g (T1 would be a(1) = 0 propagated by a(m²) = a(1)·(multiplicative in m)). Let g be a
-weight-3/2 Hecke eigenform (cuspidal, non-unary) with Shimura lift F of weight 2 and conductor N, and suppose **N is not
+weight-3/2 Hecke eigenform (cuspidal, non-unary) **with trivial character** on Γ₀(4M) (R204 repair: with a nebentypus ψ,
+ψ² ≠ 1, there is no self-dual root-number vanishing, and for quadratic ψ the twist is ψχ_{−n}; not covered) with Shimura lift F of weight 2 and conductor N, and suppose **N is not
 a square**. For squarefree n ≡ 3 (mod 4) with gcd(n, N) = 1, D := −n is a negative fundamental discriminant prime to N,
-and Waldspurger gives a(n)² = c(n)·L(F ⊗ χ_D, 1), c(n) depending only on the classes of n in ℚ_v^*/ℚ_v^{*2}, v | 4N∞.
+and Waldspurger gives a(n)² = c(n)·L(F ⊗ χ_D, 1), c(n) depending only on the classes of n in ℚ_v^*/ℚ_v^{*2}, v | 4N∞
+(R204 repair: this is the Cor. 2 / ε-dichotomy form — Waldspurger 1981 Thm 1 + Cor. 2, or the explicit Baruch–Mao formula;
+the ratio form of Thm 1 alone is vacuous on a class where all central values vanish, which is the class Z used below).
 Here ε(F ⊗ χ_D) = ε(F)·χ_D(−N) = −ε(F)·(D/N) (Kronecker), and D ↦ (D/N) is non-constant on {D ≡ 1 (4), gcd(D, N) = 1}
 because N is not a square (odd part non-square: CRT mod the odd part; odd part square, 2-part 2^odd: (D/2) separates
 D ≡ 1, 5 (8)). So there is an invertible class Z mod 4N, inside n ≡ 3 (4), on which ε(F ⊗ χ_{−n}) = −1 and hence
@@ -172,7 +179,10 @@ i.e. a 2-isogeny of supersingular curves in characteristic p) and Diff = {2} ⟺
 in B_{2,∞}, i.e. a supersingular curve in characteristic 2 with a cyclic p-subgroup);
 (d) at n = m² (odd): Diff(T_w) = {2} for every word (T1).
 CHECKED (`scripts/si_diff.py 2000`): Hilbert-symbol ramification of (−A*, −tnA*) equals the formula in (b), with odd size,
-on all 50 003 words of odd n ≤ 2000, 0 mismatches.
+on all 50 003 words of odd n ≤ 2000, 0 mismatches. (R204: = 3 ≤ n ≤ 2000; reproduced from scratch on all 50 008 words
+incl. n = 1, `scripts/review_si_lemmas.py`. Attribution: (b) is CHI_FLIP Thm 1.1 in Clifford language, (c) is
+CONSTRUCTIVE Thm 1.2(c), KUDLA_ES Thms 1.2/1.4 give Diff = {p} at certificate indices; new here are T_w = tD − R and the
+uniform packaging.)
 *Moduli reading (Assessment; standard Deligne–Rapoport/Ribet).* The supersingular points of X₀(2)_{𝔽_p} are the singular
 points of the special fibre X₀(2p)_{𝔽_p}; those of X₀(p)_{𝔽₂} are the singular points of X₀(2p)_{𝔽₂}. So the words of X_p
 are path-shaped pairs of special endomorphisms at the singular points of the **two bad fibres of one arithmetic surface
@@ -182,6 +192,17 @@ X₀(2p), i.e. ĉ(T) = Σ_ℓ μ_ℓ(T) log ℓ with μ_ℓ(T) ∈ ℚ_{>0} iff 
 fibres here).* Σ_{w ∈ X_p} ĉ(T_w) = N₋^μ(p)·log p + N₊^μ(p)·log 2, so by ℚ-independence of log 2, log p,
 **ES-five(p) ⟺ the family sum Σ_{w∈X_p} ĉ(T_w) ∉ ℚ·log 2**; at odd squares the family sum is a rational multiple of log 2.
 This is an exact "transcendence-separated" form of SQ₅.
+*(R204 repair — normalization, citation, label.)* In the standard X₀(N) normalization (Zhu, arXiv 2304.10696, lattice
+∆(N) = {[[−Na, b], [c, a]]}, Q = det; cycles Z(T, ϕ) = pairs x₁, x₂ ∈ Hom(E, E′) ⊥ π) one has ∆(N) ⊗ ℚ_ℓ ≅ N·(M₂^{tr=0}, det),
+so Diff(T, ∆(N)) = Ram(algebra of T/N). The cycle meant above is therefore **Z(2p·T_w)** (data (πi, πj)), for which
+Diff = Ram(T_w) as in (b); with T_w itself Diff(T_w, ∆(2p)) ≠ Ram(T_w) on 1604 of 2958 words of primes p < 400
+(`scripts/review_si_scale.py`). Sankaran–Shi–Yang treat only odd squarefree N > 3 and do not cover X₀(2p); Zhu's
+Thm 1.2.1 (arbitrary N; preprint, not re-checked here) does. For positive definite T with Diff(T) = {ℓ} the arithmetic
+degree of Ẑ(T) is already (rational ≥ 0)·log ℓ, > 0 iff Z(T) ≠ ∅, by geometry alone (0-cycle in the supersingular
+locus at ℓ); Siegel–Weil only identifies it with an Eisenstein-derivative coefficient. So the decomposition with
+ĉ(2pT_w) needs no Siegel–Weil input beyond the moduli reading (Assessment), the Eisenstein form is CONDITIONAL on Zhu's
+theorem, and the "⟺" is a tautological reformulation of Prop 4.1(c) (N₋(p) > 0 ⟺ some term carries log p), not new
+information.
 *Why it does not open the door (barrier screen).* (i) The family F_p = {tD − R : D = diag(v,u) ≥ 1, det = tp} is, for
 fixed t, a Fourier projection at level t (T₁₂ = 1, T_ii ≡ −1 mod t) followed by a **hyperbola restriction**
 (T₁₁T₂₂ = tp + 1); for fixed p, t ≤ p + 2, but across p the levels are unbounded — a level-t projection per t plus a
