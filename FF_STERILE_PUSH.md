@@ -169,7 +169,7 @@ its Case A part is Σ_α q^{−α}·Σ_patterns (min of the Lemma 2.2 bounds) fo
 term is exp of a sum of ≤ 10⁴ logarithms of integers, relative error ≪ 10⁻¹², and the total is inflated by 10⁻⁹).
 Independent check: `scripts/fs_sum_check.py` re-implements the table of Lemma 1.6 in exact integer/rational arithmetic and
 agrees with fs_sum to 10 significant digits on every term s ≤ 40 (r = 4).
-(ii) Tail s > S: `scripts/fs_tail.c`. Normalise p = (a, z, y, t)/s. On each dyadic box of p-space (adaptive, ≤ 2³⁰ boxes),
+(ii) Tail s > S: `scripts/fs_tail.c`. Normalise p = (a, z, y, t)/s. On each dyadic box of p-space (adaptive, minimal width 2⁻⁸),
 every route is bounded by exp(s·φ⁺ + const)·(s + 1)^{0 or 1} with φ⁺ an upper bound over the box: N*(d) ≤ q^d,
 C(n, d) ≤ exp(n H(d/n)) and multinomials ≤ exp(n H(·)), whose continuum versions B(d, e) = (d + e)log(d + e) − d log d − e log e
 are increasing in d and e, so they are bounded at the box's upper corner; binomials with shifted arguments are first
@@ -191,7 +191,7 @@ average Σ2^{ω(v)} ≪ s·q^{deg v} instead of a maximal divisor bound; (5) ave
 (6) a rigorous adaptive tail instead of truncation + crude tail.
 
 **Where the method stops: r = 3 (EVIDENCE + Assessment).** At q = 27 the continuum exponent max_p min_route φ(p) equals
-(log q)/2 to grid precision (`/tmp`-style optimiser, reproduced by fs_tail: 835 failing boxes, all near
+(log q)/2 to grid precision (`scripts/fs_rate.py`, reproduced rigorously-negatively by fs_tail: 835 failing boxes, all near
 p ≈ (a, z, y, t)/s ≈ (0.31, 0.325, 0.20, 0.168)). There two routes meet exactly at the exponent 1/2:
 R1 (v, then a triple factorisation of T^{s−2} + v₁: exponent τ + H(ζ, α, β)/log q) and R10 (v, m', then w₁ in a
 square-root class mod Tv₁ — valid only above the Coppersmith threshold τ > αβ/(α + β)). Below the threshold the class bound is
