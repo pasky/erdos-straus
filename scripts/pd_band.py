@@ -14,7 +14,7 @@ from math import gcd
 from sympy import divisors
 
 NMAX, KMAX, BFAC = int(sys.argv[1]), int(sys.argv[2]), float(sys.argv[3])
-cnt = 0; worst_wall = (0, None); worst_k = (0, None)
+cnt = 0; nonshot = 0; worst_wall = (0, None); worst_k = (0, None)
 for n in range(3, NMAX + 1, 2):
     for k in range(1, KMAX + 1):
         W = (16 * k**3 * n + 1) / (4 * k - 1)
@@ -27,9 +27,11 @@ for n in range(3, NMAX + 1, 2):
             for g in divisors(N):
                 if (g + 1) % M:
                     continue
-                cnt += 1
                 Q0 = (g + 1) // (4 * k)
                 Q = Q0 * B
+                if gcd(Q, n) != 1:
+                    nonshot += 1; continue
+                cnt += 1
                 assert Q0 % B == 0 and (n + 4 * Q * Q) % g == 0
                 m = (n + 4 * Q * Q) // g
                 x = (n + m) // 4; y = n * (g + 1) // 4
@@ -51,6 +53,6 @@ for n in range(3, NMAX + 1, 2):
                     rk = k / B**2
                     if rk > worst_k[0]:
                         worst_k = (rk, (n, k, B, g))
-print("shots", cnt)
+print("shots (gcd(Q,n)=1)", cnt, "skipped gcd(Q,n)>1:", nonshot)
 print("max B/W(k)", worst_wall)
 print("max k/B^2 (B>(n+1)/2)", worst_k)

@@ -8,7 +8,7 @@ from fractions import Fraction
 from math import gcd
 from sympy import divisors
 NMAX, KL, RMAX = map(int, sys.argv[1:4])
-cnt = {0: 0, 1: 0, 2: 0, 3: 0}; conv = 0
+cnt = {0: 0, 1: 0, 2: 0, 3: 0}; bad = {0: 0, 1: 0, 2: 0, 3: 0}; conv = 0
 for n in range(3, NMAX + 1, 2):
     for e in range(4):
         for k in range(1, KL + 1):
@@ -28,10 +28,11 @@ for n in range(3, NMAX + 1, 2):
                         z = Fraction(n * x * (g + 1), 4 * Q * Q)
                         assert (n + m) % 4 == 0 and Fraction(4, n) == Fraction(1, x) + Fraction(1, y) + 1 / z
                         if gcd(Q, n) == 1: assert z.denominator == R**(2 * e), (n, e, k, lam, g)
-                        cnt[e] += 1
+                        if gcd(Q, n) == 1: cnt[e] += 1
+                        else: bad[e] += 1
                 for R in range(1, RMAX + 1, 2):
                     if gcd(R, 2 * k * n) != 1: continue
                     g = M * R - 1
                     assert ((4 * k * k * n + R**(2 * e)) % g == 0) == (N % g == 0)
                     conv += 1
-print("shots by e:", cnt, " converse checks:", conv)
+print("shots (gcd(Q,n)=1) by e:", cnt, " solutions with gcd(Q,n)>1 (not shots):", bad, " converse checks:", conv)

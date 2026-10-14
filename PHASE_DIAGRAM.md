@@ -18,8 +18,8 @@ class of modulus 4Q₀ ≥ 4√Q ≈ (n + 4Q²)^{1/4} — the Lenstra/Coppersmit
 Hypothesis to violate: "the per-r box is r^{o(1)}". Bounded cap cannot violate it (Prop 3.1), so look for
 (a) a deterministic mechanism (Pell / genus / units: T1-exact facts that hold exactly at non-squares), or
 (b) a different slicing in which the modulus is fixed.
-(Y2) Exact re-slicing (§1): ES^{[2]} ⟺ ∃ (t, j): n t² + 4 j² has a divisor ≡ −n (mod 4tj) (t = overflow), the
-"D-face" of the duality; ES is t = 1. The λ = 1 sub-family is the quartic family "n + 4t⁴ has a divisor ≡ −1
+(Y2) Exact re-slicing (§1): ES^{[2]} ⟺ ∃ (t, j): n t² + 4 j² has a divisor ≡ −n (mod 4tj) (t ⊇ overflow; side
+conditions in §1), the "D-face" of the duality; ES is t = 1. The λ = 1 sub-family is the quartic family "n + 4t⁴ has a divisor ≡ −1
 (mod 4t)", and its j = 1 member is the FIXED-modulus test "64 + n³ has a divisor ≡ 3 (mod 4)" (e.g. n = 13:
 64 + 13³ = 7·17·19, D = 7, t = 5, g = 359 | 13 + 4·25² → an ES^{(y,1)} solution of 4/13 with overflow 5). Fixed modulus only for one number per j: no infinite fixed-modulus family.
 (Y3) Screen of (Y2): every slicing is one number per fixed parameter; the infinite directions all have moving
@@ -41,8 +41,12 @@ via a = Q₀, b = (m + n)/(4Q₀) (m := (n + 4Q²)/g), k = (g+1)/(4Q₀), Q = aQ
 m := 4ab − n > 0 with k m = b + aQ₁²; put g := 4ak − 1; then g·m = 16a²bk − 4akn − 4ab + n = 4a(b + aQ₁²) − 4ab + n
 = n + 4a²Q₁², so g | n + 4Q² with Q = aQ₁, and gcd(Q, (g+1)/4) = a·gcd(Q₁, k) = a. ∎
 *D-face (ES^{[2]}).* Writing a = λt, Q₁ = t: k(4λtb − n) = b + λt³; equivalently (eliminating k)
-**ES^{[2]} shot ⟺ m := 4λtb − n > 0 divides b + λt³** ⟺ m | nt² + 4b² (as 4b(b + λt³) ≡ nt² + 4b² mod m and
-gcd(m, 2bn) = 1). ES is t = 1: 4λb − n | λ + b. The quartic family of (Y2) is λ = 1.
+**ES^{[2]} shots with overflow exactly t (odd) ⟺ (λ, t, b) with m := 4λtb − n > 0, gcd(λtb, n) = 1,
+m | b + λt³ and gcd(t, k) = 1 for k := (b + λt³)/m.** Under gcd(m, 2bn) = 1 (true when gcd(λtb, n) = 1 and
+gcd(b, n) = 1… precisely gcd(m, n) = gcd(4λtb, n), gcd(m, b) = gcd(n, b)), m | b + λt³ ⟺ m | nt² + 4b² (as
+4b(b + λt³) ≡ nt² + 4b² mod m). Without these side conditions both equivalences fail (R-self-review: n = 9,
+λ = t = 1, b = 3: m = 3 | 45 but m ∤ 4; n = 61, λ = 1, t = 3, b = 6: m = 11, k = 3, true overflow 1, not 3).
+ES is t = 1: 4λb − n | λ + b. The quartic family of (Y2) is λ = 1.
 
 ## 2. The double wall of ES^{[2]}
 
@@ -80,14 +84,15 @@ Q₀ = (g+1)/4, Q = Q₀Q₁; we also need gcd(Q₀, n) = 1). The mute rungs bec
 `  ES        Q₁ = 1                                                  4            one number, 4n + 1`
 **Proposition 3.1 (PROVED).** (a) For every odd non-square n > 1 with gcd(n, 15) = 1, the k = 1 slice of ES^{(y)}
 is non-empty: there are Q₁ ∈ ⟨S⟩ (S any four odd primes prime to n) and a prime g ≡ −1 (mod 4∏S) with g | 4n + Q₁².
-(b) For ES^{(y,1)} and ES^{[2]} the k = 1 slice is contained in Q₁ ≤ (16n + 1)/3, and for n ≡ 2 (mod 3) this
-bound is attained.
+(b) For ES^{(y,1)} and ES^{[2]} the k = 1 slice is contained in Q₁ ≤ (16n + 1)/3; for n ≡ 2 (mod 3) this bound is
+attained in ES^{[2]}, and in ES^{(y,1)} when (16n + 1)/3 is squarefree (not always: n = 59, W(1) = 315 = 3²·5·7).
 *Proof.* (a) Follow FROBENIUS_FIRING Thm 4.2(a) / UNIT_ORBIT Thm 2.4(a): M := 4 rad(n)∏S, a ≡ 3 (mod 4),
 a ≡ −1 (mod s) for s ∈ S, and for ℓ | n residues a_ℓ chosen so that every prime r ≡ a (mod M) has (n/r) = −1
 (by reciprocity this is a condition on the Jacobi symbol (r/n), adjusted at one prime ℓ₀ | n of odd exponent; such
 ℓ₀ exists since n is not a square, n ≡ 3 (mod 4) included). Additionally take a_ℓ ∉ {0, 1, −1} (mod ℓ): possible for
-every ℓ ≥ 7 with either prescribed quadratic character ((ℓ − 3)/2 ≥ 2 residues and non-residues ∉ {0, ±1}); at
-ℓ = 3, 5 it is not, hence gcd(n, 15) = 1. Lemma 2.2 of UNIT_ORBIT only needs a ≢ 1 (mod ℓ), so the sieve of Thm 4.2
+every ℓ ≥ 7 with either prescribed quadratic character (outside {0, ±1} there remain (ℓ − 5)/2 ≥ 4 residues and
+(ℓ − 1)/2 non-residues if ℓ ≡ 1 (mod 4), and (ℓ − 3)/2 ≥ 2 of each if ℓ ≡ 3 (mod 4)); at ℓ = 3 nothing remains and
+at ℓ = 5 only non-residues, hence gcd(n, 15) = 1. Lemma 2.2 of UNIT_ORBIT only needs a ≢ 1 (mod ℓ), so the sieve of Thm 4.2
 applies verbatim and gives a prime r ≡ a (mod M) with Γ_r := ⟨S mod r⟩ = (F_r^*)². Then
 (−4n/r) = (−1/r)(n/r) = 1, so −4n ≡ Q₁² (mod r) with Q₁ ∈ ⟨S⟩ (squaring is bijective on the odd-order group
 (F_r^*)²); put g := r. Q₀ = (r+1)/4 is prime to n (r ≢ −1 mod ℓ), and rad Q₁ | ∏S | Q₀. (b) is Thm 2.1(a) at
@@ -98,24 +103,28 @@ proof of Thm 4.2 uses Lemma 2.2, which allows any class a with a ≢ 1 (mod ℓ)
 den z = Q₁², rad Q₁ | y).** k = 1 shots with Q₁ ≤ 2·10⁵:
 * e ≤ 1 (squarefree Q₁): n = 13: 0; 17: 5 (max Q₁ = 91 = W(1)); 29: 6 (max 155 = W(1)); 37: 0; 97: 2 (max 79);
   101: 13 (max 431 < W = 539). All below the wall, as proved.
-* e = 2, non-squarefree Q₁ (beyond ES^{(y,1)}): hits in every dyadic range up to the search limit, 1–7 per octave,
-  max Q₁ = 185 761, 120 409, 152 881, 194 271, 165 649, 192 721 for n = 13, 17, 29, 37, 97, 101 — no sign of a wall,
-  and n = 13, 37 (no e ≤ 1 shot at k = 1) have e = 2 shots. T1: n = 9, 25: no shot on any rung.
+* e = 2, non-squarefree Q₁ (beyond ES^{(y,1)}): occupied bit-lengths of Q₁ — n = 13: {6, 11, 12, 15, 16, 18};
+  17: {5, 6, 9, 12–17}; 29: {5, 6, 8–11, 14–16, 18}; 37: {9, 12, 13, 18}; 97: {7, 11, 13, 14, 17, 18};
+  101: {6, 7, 9–18} (1–7 hits per occupied octave; sparse, with gaps of up to 4 octaves); max Q₁ = 185 761,
+  120 409, 152 881, 194 271, 165 649, 192 721, i.e. hits up to the search limit 2·10⁵ ≫ W(1) — no wall seen, and
+  n = 13, 37 (no e ≤ 1 shot at k = 1) have e = 2 shots. Whether there are infinitely many is open. T1: n = 9, 25: no shot on any rung.
 **EVIDENCE for Prop 3.1(a) with ONE mute prime (`scripts/pd_k1s.py 1000000 40`, GNU factor, exact rationals).**
 For every prime 5 ≤ p < 10⁶ there is a ≤ 21 such that 4p + 9^a has a divisor g ≡ −1 (mod 12) (a = 0: g ≡ 3 mod 4),
-i.e. a k = 1 ES^{(y)} shot with Q₁ = 3^a, den z = 9^a, 3 | y. Least-a histogram: 0: 59 504, 1: 6 911, 2: 4 726,
+i.e. a k = 1 ES^{(y)} shot with Q₁ = 3^a, den z = 9^a, 3 | y (a ≥ 1; a = 0 is an ES shot). Least-a histogram: 0: 59 504, 1: 6 911, 2: 4 726,
 3: 2 548, 4: 2 040, 5: 799, 6: 524, 7: 426, 8: 339, 9: 236, 10: 183, 11: 91, 12: 66, 13: 43, 14: 25, 15: 17, 16: 10,
 17: 4, 18: 1, 19: 2, 21: 1. T1 control: none of the 332 odd squares m² < 10⁶ (3 ∤ m) has one (sum of two coprime
-squares). On the k = 1 slice the overflow exponent is exactly a, so this is also the least cap there.
+squares). On the k = 1 slice the overflow exponent is exactly a, so this is the least cap within the family Q₁ = 3^a (not
+within the whole k = 1 slice: n = 13 needs a = 3 here, but Q₁ = 49, g = 223 is a k = 1 cap-2 shot).
 *Reading (Assessment).* Inside the single slice k = 1 the cap ladder shows every phase: fixed modulus (proved,
 Dirichlet/sieve), moving modulus ≥ 4√Q₁ ≈ (4n + Q₁²)^{1/4} with no archimedean bound (e = 2: an infinite lottery
-at the Lenstra–Coppersmith threshold, roughly constant hit-rate per octave, i.e. a log-divergent lottery), moving
+at the Lenstra–Coppersmith threshold; sparse hits up to the search limit, infinitude heuristic only), moving
 modulus 4Q₁ ≈ (4n + Q₁²)^{1/2} (e ≤ 1: finite search, the k-wall), and the single number of ES. So the transition
 "infinite lottery → finite search" happens between e = 2 and e = 1, and the transition "proved → lottery" between
 e = ∞ (fixed S) and every bounded e.
 *Corollary 3.2 (k-direction dichotomy; PROVED).* Every fixed-Q₁ slice of every variant is finite (EXPONENT_CAP
-Thm 2.1). Every fixed-k slice of ES^{[2]} ⊇ ES^{(y,1)} ⊇ ES is finite (Thm 2.1(a)). The k = 1 slice of ES^□ and,
-for gcd(n, 15) = 1, of ES^{(y)} (fixed S, |S| ≥ 4) is INFINITE: the sieve of Prop 3.1(a) (resp. Dirichlet) gives
+Thm 2.1). Every fixed-k slice of ES^{[2]} ⊇ ES^{(y,1)} ⊇ ES is finite (Thm 2.1(a)). For every odd NON-SQUARE n the k = 1 slice of ES^□ and,
+if also gcd(n, 15) = 1, of ES^{(y)} (fixed S, |S| ≥ 4) is INFINITE (at odd squares every shot slice is empty, T1;
+scaling produces general solutions there, not shots): the sieve of Prop 3.1(a) (resp. Dirichlet) gives
 infinitely many distinct primes g, and g ≤ 2nQ₁²(n + Q₁²) forces Q₁ → ∞. So the k-wall exists exactly at relative
 cap ≤ 1 among these variants; for bounded absolute cap e ≥ 2 its absence is EVIDENCE only (§3 table).
 
@@ -141,11 +150,15 @@ M^{e+1} = 2λX_e, so M = (2λX_e)^{1/(e+1)} ≈ (2λ)^{1/(e+1)}(N_e/n)^{1/(2e+2)
 `  e = 2:                 θ = 1/6   — below CHN's range: no O(1) bound on divisors of N in one class`
 `  e = ∞, S fixed (ES^{(y)}): M fixed (θ → 0) — Kummer/Chebotarev firing, sieve-provable (Thm 4.2)`
 `  no mute (ES^□):        M = 4                 — Dirichlet`
-*Reading.* This is the brief's phase diagram on one axis. The two archimedean facts of §2–§3 are its shadows:
-θ ≥ 1/4 (e ≤ 1) is where the cofactor D = N/g is smaller than the modulus, which is what powers the k-wall
-(proof of Thm 2.1(a): D < Q₁ forces D = Q₁ − 4k²n) — exactly CHN's "at most O(1) divisors in a class above N^{1/4}";
-θ < 1/4 is where the k = 1 slice becomes an infinite lottery (§3 EVIDENCE). And θ → 0 is the only regime with a
-proof. The brief's hook (R200 M1: P ≈ r^{1/4}) is the e = 1 line read from the prime-g side.
+*Scope (R-self-review).* For e ≥ 2 Prop 4.1 is a SUFFICIENT sub-family (pure-power overflow R^e); general
+ES^{(y,e)} shots have mixed exponents (e.g. n = 113, k = 1, Q₀ = 15, Q₁ = 75, g = 59 is ES^{(y,2)} with Q₁ not a
+square). θ = 1/(2e+2) holds for bounded λ; with k fixed and λ → ∞ the same family has θ → 1/(2e).
+*Reading (Assessment).* On this axis ES is θ = 1/2, the e = 1 cells sit at CHN's threshold θ = 1/4 (CHN bound the
+number of divisors in a class mod s ≥ N^{1/4+α} by O(α^{−3/2}); at θ = 1/4 itself no uniform bound follows), and the
+proved cells are at θ → 0. The k-wall of Thm 2.1 is an elementary consequence of the duality cofactor
+D = (4k²n + Q₁²)/g being < Q₁ (it is NOT the cofactor N_e/g of this face, which can be large: n = 13, e = 1, k = 5,
+λ = 2, R = 3 gives N_e/g = 17 479 while D = 11); I do not claim a derivation of the wall from CHN. The brief's hook
+(R200 M1: P ≈ r^{1/4}) is the e = 1 line read from the prime-g side.
 
 ## 5. Pushing the proved side down: ES^{(y)} with a sub-polynomial exponent cap
 
@@ -161,7 +174,7 @@ e ≤ y^{ε·log₃ y/log₂ y}.
 Thm 4.2(c); the bound is monotone in y). Let n ≡ 1 (mod 4) be a non-square, x large, and S = {s₁ < … < s_k} the
 first k odd primes not dividing n with P := ∏S ≤ (log x)^A maximal; by the prime number theorem k log k ~ A log₂x,
 so k ~ A log₂x/log₃x. M := 4 rad(n)P ≤ 4n(log x)^A; the class a mod M is that of Thm 4.2(a).
-*Step 1 (sieve, uniform in M).* Sift 𝒜 = {(r−1)/2 : x/2 < r ≤ x, r ≡ a (M)} by primes ℓ ∤ M, ℓ < z = x^{1/4−ε},
+*Step 1 (sieve, uniform in M).* Fix ε = 1/100. Sift 𝒜 = {(r−1)/2 : x/2 < r ≤ x, r ≡ a (M)} by primes ℓ ∤ M, ℓ < z = x^{1/4−ε},
 level D = x^{1/2}/(M log^{β}x) with β = β(A) the Bombieri–Vinogradov exponent for saving log^{2A+10}. Remainders:
 distinct d give distinct moduli Md ≤ x^{1/2}/log^{β}x, so Σ_d |r_d| ≤ Σ_{q ≤ x^{1/2}/log^{β}x} max_a |E(x; q, a)|
 ≪_A x/log^{2A+10}x (Bombieri–Vinogradov, max form, for π(x) − π(x/2); uniform in M). Main term X·V(z)·(f(s) − o(1)) with X ≍ x/(φ(M) log x), V(z) ≫ 1/log z (the density 1/(ℓ−1) on
@@ -199,17 +212,19 @@ divisor modulus exponent θ of §4, and the status for every odd n.
 `  variant (mute condition on den z = Q₁²)      k-slices     θ            status`
 `  ES^□       none                              k=1 infinite  0 (mod 4)    PROVED (Dirichlet; SYNTHESIS_SPARKS2 2.2)`
 `  ES^{(S)}   rad Q₁ ⊆ S fixed, |S| ≥ 4          infinite     0            PROVED (sieve; UNIT_ORBIT 2.4)`
-`  ES^{(y)}   rad Q₁ | y                         k=1 infinite  0 (S fixed)  PROVED (sieve; FROBENIUS 4.2, Prop 3.1)`
+`  ES^{(y)}   rad Q₁ | y                         k=1 infinite† 0 (S fixed)  PROVED (sieve; FROBENIUS 4.2, Prop 3.1)`
 `  ES^{(y,y^{o(1)})} cap e(y) = y^{o(1)}          —            → 0          PROVED (Thm 5.1; was y^δ, EXPONENT_CAP 3.2)`
 `  ES^{(y,polylog)}  cap (log y)^C                —            → 0          OPEN: covering threshold; Dictionary 3.3(c)`
-`  ES^{(y,e)}, e ≥ 2 fixed                        no wall seen 1/(2e+2)     OPEN: hitting at θ < 1/4 (§3 EVIDENCE)`
+`  ES^{(y,e)}, e ≥ 2 fixed                        no wall seen ≤1/(2e)*     OPEN: hitting below θ = 1/4 (§3 EVIDENCE)`
 `  ES^{[2]} = den z | y²; ES^{(y,1)} (e = 1)     FINITE       1/4          OPEN: doubly walled (Thm 2.1), Pell-orbit`
 `                                                                         lottery (GROWING_MUTE, MARKOFF 6.1)`
 `  ES         Q₁ = 1                             finite       1/2          OPEN (finite search, B2/B3)`
-Reading of the table (Assessment, every entry referenced): the provable region is exactly θ → 0, i.e. the
-certifying modulus fixed or growing slower than any power of the number it must divide; this is what lets a fixed
-Kummer/Dirichlet field decide firing. Every bounded cap has θ ≥ 1/(2e+2) > 0 and is a hitting problem; the
-self-mute cap e ≤ 1 adds the k-wall (both slicings finite), ES adds Q₁ = 1 (one slice).
+(† for non-square n with gcd(n, 15) = 1; ES^□ row: non-square n. * θ of the pure-power sub-family of Prop 4.1, 1/(2e+2) for bounded λ.) Reading of the table (Assessment, every
+entry referenced): every PROVED cell has θ → 0 (certifying modulus fixed, or ≤ polylog of the number it divides),
+which is what lets a Kummer/Dirichlet field fixed in advance decide firing in the arguments analysed; θ → 0 is not
+sufficient (the polylog-cap row is open). For the arguments analysed here (fixed-field firing, covering of the
+per-certificate box) every bounded cap is a hitting problem at θ > 0 — this is a limitation of those arguments, not
+a classification theorem. The self-mute cap e ≤ 1 adds the k-wall (both slicings finite), ES adds Q₁ = 1.
 
 **T1 (the brief's question: is ES^{(y,1)} T1-bearing?).** Yes, in the same sense as ES: (a) no ES^{(y,e)} solution
 for any e ≤ ∞ at n = m² has Type I/II shape at every prime of m (FROBENIUS_FIRING Thm 4.2(b): an ES^{(y,e)} solution
@@ -254,16 +269,18 @@ hypothesis.
    (16k³n + 1)/(4k − 1), attained exactly (all n ≡ 2 mod 3 at k = 1). With Q₁ > (n+1)/2: √(Q₁/6n) ≤ k < Q₁²/2. Every
    fixed-k and fixed-Q₁ slice is finite; solutions live in a band of slopes ½…2 in log coordinates.
 3. **k-direction dichotomy (Cor 3.2, Prop 3.1, PROVED).** The k = 1 slice is infinite for ES^□ and ES^{(y)}
-   (fixed S, sieve; gcd(n, 15) = 1), finite for ES^{[2]}/ES^{(y,1)}/ES. EVIDENCE: e = 2 has no visible wall at k = 1
-   (hits in every octave to Q₁ = 2·10⁵); one mute prime (S = {3}) gives k = 1 shots for all primes < 10⁶.
+   (non-square n; for ES^{(y)} also gcd(n, 15) = 1), finite for ES^{[2]}/ES^{(y,1)}/ES. EVIDENCE: e = 2 has no visible
+   wall at k = 1 (sparse hits up to Q₁ = 2·10⁵); one mute prime (S = {3}) gives k = 1 shots for all primes < 10⁶.
 4. **One axis for all caps (Prop 4.1, PROVED).** ES^{(y,e)} ⟸ n(2k(4kλ)^e)² + 1 has a divisor ≡ −1 (mod 4kλ) with
-   (g+1)/(4kλ) squarefree: modulus exponent θ = 1/(2e+2). ES = θ ½ (Lenstra), ES^{(y,1)} = θ ¼ (exactly the
-   Coppersmith–Howgrave-Graham–Nagaraj threshold, where the k-wall lives), e ≥ 2 below it, proofs only at θ → 0.
+   (g+1)/(4kλ) squarefree (exact for e ≤ 1; a sufficient pure-power sub-family for e ≥ 2): modulus exponent
+   θ = 1/(2e+2) for bounded λ. ES = θ ½ (Lenstra), ES^{(y,1)} = θ ¼ (the Coppersmith–Howgrave-Graham–Nagaraj
+   threshold), e ≥ 2 below it; every proved cell has θ → 0.
 5. **Proved side pushed (Thm 5.1, PROVED rel. BV + linear sieve).** ES^{(y,e)} with e ≤ y^{(2+o(1))log₃y/(A log₂y)}
    for every A (previously y^δ).
-6. **Boundary (Assessment with PROVED pieces).** No method that decides firing in a field (or progression) fixed
-   independently of the shot can reach any bounded cap: bounded e means θ ≥ 1/(2e+2) > 0, a per-certificate hit of
-   probability N^{−θ+o(1)}; the k-wall makes e ≤ 1 a union of finite searches in both directions; B1 is excluded in
-   every cell (§6). The polylog cap is the covering threshold (Dictionary 3.3(c)); between y^{o(1)} (proved) and
+6. **Boundary (Assessment with PROVED pieces).** For the arguments analysed (firing decided in a field or
+   progression fixed in advance; covering of the per-certificate box), bounded e is out of reach: the per-certificate
+   box is g^{o(1)} (EXPONENT_CAP Prop 3.1) and the pure-power sub-family has θ > 0; this does not exclude other
+   (deterministic) methods. The k-wall makes e ≤ 1 a union of finite searches in both directions; finitely many fixed
+   shot classes never cover a non-residue class mod a prime r ≡ 1 (mod 4) (§6, B1). The polylog cap is the covering threshold (Dictionary 3.3(c)); between y^{o(1)} (proved) and
    (log y)^{1−o(1)} (necessary for covering) nothing is known.
 Not a proof of ES or of any bounded-cap variant; no infinite case of ES is claimed.

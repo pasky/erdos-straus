@@ -1,7 +1,7 @@
 """pd_k1s.py — EVIDENCE for the k = 1 slice of ES^{(y)} with S = {3} (PHASE_DIAGRAM.md §3, Prop 3.1):
 for every prime 5 <= p < PMAX (and odd squares m^2 < PMAX, 3 ∤ m, as T1 control) find the least a <= AMAX such that
 4p + 9^a has a divisor g ≡ -1 (mod 12) (a >= 1; a = 0: divisor ≡ 3 mod 4 of 4p+1, i.e. ES's k = 1 shot).
-k = 1 shot: Q1 = 3^a, Q0 = (g+1)/4, Q = Q0*Q1; solution verified exactly (den z = 9^a, 3 | y). GNU factor.
+k = 1 shot: Q1 = 3^a, Q0 = (g+1)/4, Q = Q0*Q1; solution verified exactly (den z = 9^a; 3 | y when a >= 1). GNU factor.
 Usage: pd_k1s.py PMAX AMAX"""
 import sys, subprocess
 from fractions import Fraction
@@ -10,13 +10,14 @@ from math import gcd
 from sympy import primerange
 PMAX, AMAX = int(sys.argv[1]), int(sys.argv[2])
 def factor_many(nums):
-    out = subprocess.run(["factor"], input="\n".join(map(str, nums)), capture_output=True, text=True).stdout
+    out = subprocess.run(["factor"], input="\n".join(map(str, nums)), capture_output=True, text=True, check=True).stdout
     res = []
     for line in out.strip().split("\n"):
         ps = list(map(int, line.split(":")[1].split()))
         d = {}
         for q in ps: d[q] = d.get(q, 0) + 1
         res.append(d)
+    assert len(res) == len(nums) and all(int(l.split(':')[0]) == v for l, v in zip(out.strip().split('\n'), nums))
     return res
 def divs(f):
     ds = [1]
