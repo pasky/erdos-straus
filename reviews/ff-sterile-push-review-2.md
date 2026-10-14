@@ -57,3 +57,51 @@ Lemma 1.1(iii)); R3/R3C correctly E-version only. R10: ≤ 2 square roots of a u
 *Brute force*: for every pattern hit by a real tuple (p = 3, s ≤ 15; p = 5, s ≤ 9; p = 7, s ≤ 8) the exact count is
 ≤ the minimum of my own implementation of the 19 rows (`scripts/review_fs2_bounds.py`); 0 violations, max ratio 1.000.
 (Caveat: at these tiny p, s most rows are not binding; this is a sanity check, the proof is the derivation above.)
+
+### Lemma 2.1 (averaging over c) and Lemma 2.2 (Case A) — SOUND
+Lemma 2.1: a Case B cylinder u ≡ −E (mod T^{N+1}), N ≥ 1, and a Case A cylinder (mod T^{k+α}) both fix u mod T², i.e. c;
+summing covered masses over the q − 1 slices is ≤ LHS(Σ); then #{c : covered ≥ θ} ≤ LHS/θ. Correct; no new hypothesis.
+(a) of Thm 3.1: #{c : covered ≥ 1/2} ≤ 2.176/0.5 < 5, so ≥ 76 (claimed ≥ 75) slices have > 1/2 uncovered. Correct.
+Lemma 2.2: all six routes re-derived from DEPTH_ASPECT (A0)–(A4): (A1) EF = T^α a1' + b1, E ≡ −1 (Ta1'b1) [gcd(a1', b1) = 1,
+T | K], deg = α + λ; (A2) zE = T^α + b1²K, E ≡ −1 (b1K), deg = max(α, 2β + κ) (no cancellation: both monic); (A3) multinomial
+for the monic degree-α polynomial T^α + z, z ∈ T·F_q[T] of degree ≤ ζ: q^ζ choices; (A4) and the quadratic. The trivial
+"n − d < ρ ⇒ 1" class bound used in fs_caseA for route (iii) is legitimate although T^α + b1²K need not be prime to b1K
+(both are divisible by T): Lemma 1.4's trivial case needs only σ = −1 a unit. Dropping g' from the count is right
+(cylinder depends on (E, α) only). The small-depth claim (α ≥ 3) is correct but **unused**: fs_caseA sums from α = 1.
+Independent recomputation (`scripts/review_fs2_caseA.py`, exact rationals, own code; tail α > 40 from DEPTH_ASPECT Lemma 2.4
+as an exact rational geometric majorant): exact part 8.4882704620e-4 (r = 4), 8.7646411455e-5 (r = 5), 9.5155829299e-6
+(r = 6) — identical to fs_caseA to 11 digits; my α > 40 tail is smaller (fs_caseA uses q^{−α/2} where q^{−(α+1)/2} is
+available — conservative, fine). Without any class bound the totals change by < 3 %: Case A is negligible everywhere.
+
+### Certification of (Σ) (fs_certify.sh / fs_sum.c / fs_tail.c) — SOUND (independently re-certified)
+**Code audit of fs_tail.c (the rigour-critical part).** Checked every route against Lemma 1.6: the per-unit-s exponents
+use N*(d) ≤ q^d at the box's upper corner; every binomial is first enlarged to an unshifted one (C(s−1+y, a+y+z) ≤
+C(s+y, a+y+z); C(s−2, t−2) ≤ C(s, t); C(z+2b−2, t−2) ≤ C(z+2b, t); C(s−1−a, b−1) ≤ C(s−a, b); C(a+b−2, a−1) ≤ C(a+b, a);
+multinomial with (z, a−1, b−1) ≤ G(z, a, b)) — all correct; B and G are increasing and 1-homogeneous, so the upper corner
+bounds them. R10: Σ2^ω ≤ (t − 1)q^{t−2} ≤ (s + 1)q^t, factor 2 for 2^{ω(T)}, polys = 1 — correct. Class conditions are
+checked as linear inequalities with integer shifts, for all s ≥ S, in exact dyadic arithmetic (all box corners are
+dyadic with ≤ 10 bits, coefficients small integers, so no rounding occurs in these tests). Pattern count per box
+(sw + 1)³ ≥ #integer points; boundary double counting only overcounts; pruning (a0 + z0 + y0 > 1, 2a0 + z0 > 1) is correct.
+Geometric tail: P(s+1)/P(s) ≤ ((s+2)/(s+1))³ holds for w ≤ 1 (cross-multiplication gives w ≤ 1), and the bound is
+decreasing in s, so term·ρ/(1 − ρ) dominates the remainder. q^{1−⌈s/2⌉} ≤ q^{1−s/2}. Fails closed (failed box or non-finite
+total ⇒ exit 1; set -euo pipefail in fs_certify.sh; Python exits 1 if total ≥ q − 1). Floating point: the only
+non-exact operations are log/exp/pow in double on moderate arguments; with the 1.01 factor the margin is ≫ the rounding.
+No defect found in the tail logic.
+**Independent recomputation (own code, different implementation choices).**
+* Finite part: `scripts/review_fs2_sum.c` (long double, minimal Coppersmith m + k over all m + k ≤ 200 found by exact
+  integer search, Kahan summation, ×(1 + 10⁻⁸)), cross-checked by `scripts/review_fs2_exact.py` (exact rationals,
+  Python big integers) — **agreement to 16 digits** for r = 4, s ≤ 30 (1.435880509176952) and s ≤ 60 (1.656037212202324).
+  Values: r = 4, s ≤ 200: **1.675485** (fs_sum: 1.676921; mine is smaller because fs_sum's Coppersmith search is
+  restricted to m ≤ 60 and stops early — conservative, harmless); r = 5, s ≤ 100: 0.1744531 (fs_sum 0.1745084);
+  r = 6, s ≤ 60: 0.0385984 (fs_sum 0.0386052); r = 7: 0.0103174 (0.0103182). Per-s terms agree with fs_sum to 10 digits
+  for s ≤ 12 and differ by < 0.2 % later, always in the conservative direction for fs_sum.
+* Tail: `scripts/review_fs2_tail.c` — own adaptive octree, a different summation (closed-form unimodal sum + integral
+  bound of Σ (s+1)^{3+p}e^{gs}, using sh + 1 ≤ (s+1)(h + 1/(S+1))), class conditions combined into a single linear form
+  before taking the sup, a node's bound = min(own, sum of children). r = 4 (S = 200): ≤ 0.148; r = 5 (S = 100): ≤ 0.0763;
+  r = 6 (S = 60): ≤ 0.399; r = 7: ≤ 1.35·10⁻³.
+* Case A: as above.
+* Totals (`scripts/review_fs2_certify.sh`, log `data/review_fs2/certify.txt`): **r = 4: ≤ 1.831 < 80; r = 5: ≤ 0.2509;
+  r = 6: ≤ 0.4373; r = 7: ≤ 0.01167; r = 8: ≤ 0.003176; r = 9: ≤ 0.001029; 10 ≤ r ≤ 30: ≤ 3.42·10⁻⁴.** Every claimed
+  constant of Thm 3.1(a)/(b) is confirmed except that my S = 60 bound at r = 6 (0.437) is weaker than the claimed 0.38;
+  with S = 100 at r = 6 my bound is **0.0386 + 4.7·10⁻⁶ + 10⁻⁵ ≤ 0.039**, so the claim "≤ 0.38" holds (and is
+  very loose: m-3). Likewise r = 5 with S = 160: ≤ 0.1746 (claimed 0.26). The tail at S = 60 is pure box overhead.
