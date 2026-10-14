@@ -50,12 +50,15 @@ All words are the single relation sh = N + c with h = cm − 1. The parity of (c
   * The family with o in a progression independent of N exists. It is P_h: o ≡ 7 (8), and the condition on N is
     N mod o ∈ C(o) = {−c : c ∣ o + 1, c and (o+1)/c even}.
   * C(o) lies in the Jacobi non-residues mod o, because (N/o) = (h/N) = (h′/N).
-  * Its density is |C(o)|/o ≤ τ(o+1)/o, not 1/2. The "(2/o) = +1" half is automatic, and what remains is the thin
+  * (R211 repair) At most one P_h word has h = o at a given N, and it needs s = (N + c)/o ≥ 1 (≥ 2 interior).
+  * Its density is |C(o)|/o = τ((o+1)/4)/o ≤ τ(o+1)/o (exact value: R211 repair), not 1/2. The "(2/o) = +1" half is automatic, and what remains is the thin
     divisor image −D(o+1).
   * Bounded o gives a finite congruence covering, killed by B1. By (J)26 Thm 3.1, no finite set of ET classes covers
-    the large primes ≡ 1 (24) with prescribed least QNR r (r ≥ r₀). So assuming the P_h classes are ET Prop 1.9 classes
-    (they are polynomial families N = o·s − c; identification at the level of an Assessment), there is no bound
-    o_h*(p) ≤ f(n_p).
+    the large primes ≡ 1 (24) with prescribed least QNR r (r ≥ r₀). (R211 repair: the identification is not merely an
+    Assessment. Each P_h class N ≡ −c (mod o) is primitive and solvable by polynomials (the vertex-fan identity, with
+    s = (N + c)/o), so by ET Prop 1.9 its large primes lie in finitely many ET classes.) Hence, PROVED relative to (J)26
+    Thm 3.1: for every prime r ≥ r₀ there is no bound o_h*(p) ≤ F(r) valid for all large primes p ≡ 1 (24) with n_p = r.
+    This concerns P_h only; for P_c, P_m bounded o is not a finite congruence family.
   * Growing o is H-A.
 * **T1** shows up as one Jacobi symbol in every position. In P_h it is (N/o) = −1, which is impossible at N = n²
   because gcd(n, o) = 1. So no position escapes T1, as required by B5.
@@ -63,7 +66,8 @@ All words are the single relation sh = N + c with h = cm − 1. The parity of (c
   * o* = 7 for 94 %;
   * max o* = 2431 = 11·13·17 at **p = 21841 = 1 + 2⁴·3·5·7·13**, which has a single interior certificate pair,
     (9, 64, 38) and its mirror;
-  * the other hard primes are all ≡ 1 (120).
+  * (R211 repair of "all ≡ 1 (120)", false for 944 329 and 6 154 009 ≡ 49 (120)) all 17 hard primes (interior
+    o* ≥ 119) are quadratic residues mod 840: p mod 840 ∈ {1, 121, 169, 361}.
   * o* is a divisor-event statistic, not a residue-symbol one. Only P_h is QNR-shaped.
 
 ## 3. The general-r law and the archimedean factor (PROVED; memo y5_general_r_jacobi)
@@ -80,22 +84,28 @@ All words are the single relation sh = N + c with h = cm − 1. The parity of (c
 
 CERTIFIED: 131 467 positive and 65 589 signed random words, 0 failures.
 
-* r = 3 recovers FRIEZE Thm 1.2 / CHI_FLIP Thm 1.1 / MODEL_SPECIFIC Thm 3.1(a).
+* r = 3 is CHI_FLIP Thm 1.1; it implies FRIEZE Thm 1.2 / MODEL_SPECIFIC Thm 3.1(a) after a finite mod-8 evaluation of
+  (c, −h)₂(h, −N)₂ (R211 repair of "recovers").
 * The closed form O210 spark 1 asked for is a product of 2-adic Hilbert symbols of consecutive continuants (one factor
   per step of the walk). It is not a product over backtrack runs.
 * r-uniqueness for r ≥ 5: the word (2, 2, 2, 4, 2^{r−5}, k) at N = (2Q+3)². This was found independently here and in
   R208, whose version is in FRIEZE §4.
 * (Assessment.) Thm 3.1 is classical in substance: the Jacobi symbol computed along a continued fraction, as in
-  Zolotarev/Jenkins-style algorithms. What it adds is the explicit ∞-factor.
+  Zolotarev/Jenkins-style algorithms. What it adds is the explicit ∞-factor. (R211 repair: the ∞-factor
+  ∏(K_i, −K_{i+1})_∞ is the real place of the same classical leading-minor formula, so it is equally classical; new is
+  only the frieze-notation reading — one 2-adic factor per continuant step, s_∞ as a sign-change count.)
 
 ### 3.2 Positivity = complex conjugation (PROVED dictionary; memo y5_narrow_wide)
 
 Fix m. Positive words ↔ factorisations 1 + Nm = ab with a ≡ b ≡ −1 (mod m). Negative-pair words (c, s < 0) ↔
-a ≡ b ≡ +1 (mod m). These have s_∞ = −1. The trivial factorisation always lies in the +1 class.
+a ≡ b ≡ +1 (mod m). These have s_∞ = −1. (R211 repair: the trivial factorisation (1, 1 + Nm) is c = 0 and gives no word;
+negative-pair words nevertheless exist for every odd N ≥ 3, e.g. (−1, 1, (1 − N)/2). The ±1 dichotomy is only
+meaningful for m ≥ 3.)
 
 In the e-slice form −1 ∈ Σ_e(N), the element −1 is complex conjugation in Gal(ℚ(ζ_e)/ℚ). In the wide ray class group
-(ℤ/e)*/±1 the condition is trivially satisfied. **The whole ES slice condition is the kernel of narrow → wide at the
-real place.** This unifies O210 §3 (positivity), Thm 3.1's ∞-factor, and the "≡ −1" in Type I/II.
+(ℤ/e)*/±1 the condition is trivially satisfied. **The ES slice condition asks Σ_e(N) to meet the non-trivial element (complex conjugation) of
+ker((ℤ/e)* → (ℤ/e)*/±1), the kernel of narrow → wide** (R211 wording repair; here N is the e-slice number (p + e)/4 or
+(pe + 1)/4, not the frieze N). This unifies O210 §3 (positivity), Thm 3.1's ∞-factor, and the "≡ −1" in Type I/II.
 
 ## 4. No second-order T1 shadow (EVIDENCE; memo y5_mod16_shadow)
 
@@ -114,16 +124,19 @@ N ≡ 1 (8) is a 2-adic square, and the only global link is the one product-form
 
 SQ_H(N): there is a word with m even and 8 | m·e, where e is the even outer letter. Equivalently, the even edge
 avoids h and h′, so o ∈ {h, h′} is N-free.
+* (R211 repair) SQ_H is a statement about positive (formal) letters: interior SQ_H fails at the primes 5, 13, 29, 53,
+  7589 (all ≡ 5 (8)); formal SQ_H holds at all 332 180 primes p ≡ 1 (4) ≤ 10⁷ (R211).
 * All 165 976 primes p ≡ 1 (8) ≤ 10⁷ satisfy SQ_H, for formal and for interior words. Position class C fails at
   10 primes, position class M at 147, and the classical 4 | m slice at 9 primes ≤ 10⁶.
-* Among non-square N ≡ 1 (4) ≤ 10⁶, SQ_H fails at exactly 22 composites: 105, 1465, 3865, …, 392505.
+* Among non-square N ≡ 1 (4) ≤ 10⁶, formal SQ_H fails at exactly 22 composites: 105, 1465, 3865, …, 392505
+  (all ≡ 1 (8); not all have a small factor: 199 369 = 193·1033; interior SQ_H fails at 114 such N; R211).
 * Mean count ≈ 27 words per prime at 10⁷, so no failure is the lottery's prediction (Assessment).
 
 ## 7. Verdict (checkpoint 1)
 * **PROVED:**
   * transport = Ptolemy mod 8 (§1);
   * the five-position dictionary and the answer to spark 2: the o-progression family exists (P_h) with density
-    τ(o+1)/o, and T1 is one Jacobi symbol in every position (§2);
+    τ((o+1)/4)/o, and no bound o_h*(p) ≤ F(n_p) (relative to (J)26 Thm 3.1; R211), and T1 is one Jacobi symbol in every position (§2);
   * the general-r Jacobi law with explicit ∞-factor (§3);
   * the narrow/wide dictionary (§3.2);
   * Siegel–Weil triviality (§5).
@@ -131,7 +144,7 @@ avoids h and h′, so o ∈ {h, h′} is N-free.
   * o* census to 10⁷ (fingerprint 21841);
   * no mod-32 shadow;
   * SQ_H to 10⁷ with 22 composite exceptions ≤ 10⁶;
-  * T1 controls (499 odd squares) clean.
+  * T1 controls (499 odd squares) clean — a code check of FRIEZE Cor 1.4 (a theorem), not evidence (R211).
 * **Assessment:** the transport law does not move the sign to a better-behaved quantity. It is the slice condition
   read through a Ptolemy relation. The genuinely structural output is the explicit archimedean factor:
   * positivity = s_∞ = 1 = Maslov count 0;

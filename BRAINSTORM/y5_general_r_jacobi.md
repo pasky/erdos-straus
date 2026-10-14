@@ -28,7 +28,7 @@ The ∞-factor equals (−1)^{#{i : K_i < 0 < K_{i+1}}}. For positive words (let
 
 Since K_{r−1}·K(a₂..a_r) ≡ 1 (mod N), the other end quiddity has the same symbol.
 
-* **r = 3** is FRIEZE Thm 1.2 and CHI_FLIP Thm 1.1 (rank-3 case).
+* **r = 3** is CHI_FLIP Thm 1.1 (rank-3 case); FRIEZE Thm 1.2 follows after a finite mod-8 evaluation (R211 repair).
 * **The closed form spark 1 asked for** is a product of 2-adic Hilbert symbols of *consecutive leading continuants*:
   one local factor per step of the SL₂ walk. It is not a product over backtrack runs. The shape resembles a 2-adic
   Kubota-cocycle product along the walk, as in the theta-multiplier dictionary of (J)15. That identification is NOT

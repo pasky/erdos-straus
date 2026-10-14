@@ -19,6 +19,8 @@ Throughout, N ≡ 1 (8) and o ≡ 3 (4) (memo y5_transport_is_ptolemy), and the 
 * The factorisation event is on the SMALL number o + 1. N enters only through the congruence N ≡ −c (mod o).
 * Prop 1 (PROVED). For fixed odd o, the words in P_h at N are in bijection with
   C(o) ∩ {N mod o}, where C(o) = {−c mod o : c | o + 1, c and (o+1)/c even}.
+  (R211 repair: so there is at most one such word per o, and it also needs s = (N + c)/o ≥ 1 (≥ 2 interior);
+  |C(o)| = τ((o+1)/4) when 4 | o + 1.)
   All of them are certificates iff o ≡ 7 (8).
 * Moreover (N/o) = (h/N) = (h′/N) for N ≡ 1 (4): Jacobi reciprocity and hh′ ≡ 1 (N).
   So C(o) ⊂ {Jacobi non-residues mod o} when o ≡ 7 (8). Directly: (−c/o) = −(2/o)^{v₂(c)}(c′/o) and
@@ -26,8 +28,9 @@ Throughout, N ≡ 1 (8) and o ≡ 3 (4) (memo y5_transport_is_ptolemy), and the 
 * **This is the family spark 2 asked for:** o runs over a progression independent of N and the condition on N is a
   congruence mod o. But its density is |C(o)|/o ≤ τ(o+1)/o, not 1/2. The (2/o) factor is automatic in it, and the
   missing factor is "N mod o lands in the divisor image −D(o+1)".
-* For o = q prime: |C(q)| ≤ τ(q+1), against (q−1)/2 non-residues. Equality holds only for q = 7 (C(7) = {3, 5}; with
-  formal c = 1 or c = q + 1 one also gets 6). Then C(7) ∪ {6} is Mordell's 7-class, which is (J)33 §3.1.
+* For o = q prime: |C(q)| ≤ τ(q+1), against (q−1)/2 non-residues. (R211 repair of "Equality holds only for q = 7": there is no
+  equality — C(7) = {3, 5} has 2 of the 3 non-residues; the class 6 comes from the words (1, 8, s) and (8, 1, s), whose
+  o is h′ = 8s − 1 resp. s, not 7.) Then C(7) ∪ {6} is Mordell's 7-class, which is (J)33 §3.1.
 
 **P_c (o = c, the Type II position).** c = o, sh = N + o, h = om − 1, h and s even.
 * With o free and small, the condition is "N + o has a divisor h ≡ −1 (mod o) with h and (N+o)/h even". That is the

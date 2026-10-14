@@ -11,8 +11,9 @@ s_∞ = (−1)^{#(K_i < 0 < K_{i+1})}. Here we locate the same archimedean bit i
   * **negative-pair words** (c, s ≤ −1): a = −h, b = −h′ > 1, and **a ≡ b ≡ +1 (mod m)**.
 * For a negative-pair word K₁ = c < 0, K₂ = h < 0 < K₃ = N, so s_∞ = −1 and the ES sign flips:
   (h′/N) = −s₂.
-* A trivial factorisation (a, b) = (1, 1 + Nm) is always in the +1 class. So negative-pair-type data exist for every N,
-  apart from the degenerate c = 0. Positivity is exactly the demand that the factor lie in the class −1 instead of +1.
+* (R211 repair) The trivial factorisation (a, b) = (1, 1 + Nm) is in the +1 class but *is* the degenerate c = 0, so it
+  gives no word. Negative-pair words nevertheless exist for every odd N ≥ 3: m = 1, (a, b) = (2, (N + 1)/2), i.e.
+  (−1, 1, (1 − N)/2). For m ≤ 2 the classes ±1 mod m coincide. Positivity is exactly the demand that the factor lie in the class −1 instead of +1.
 
 *Proof.* hh′ = 1 + Nm (Ptolemy); h ≡ −1 (mod m), and c = (h + 1)/m < 0 ⟺ h ≤ −1 − m. The ∞-factor is
 y5_general_r_jacobi Thm 1. ∎

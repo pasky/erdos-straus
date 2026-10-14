@@ -42,10 +42,12 @@ So SQ_H is a sub-lottery, like "Type I alone" and "Type II alone" (MODEL_SPECIFI
 * T1 control: no certificate at the 499 odd squares ≤ 10⁶ (y5_ocensus; holds for every position class by T1).
 
 ## Assessment
-CONJECTURE SQ_H (EVIDENCE to 10⁷ at primes ≡ 1 (8), to 10⁶ at primes ≡ 1 (4)): every prime p ≡ 1 (4) is
-cms − c − s with m even and 8 | m·e.
+CONJECTURE SQ_H (EVIDENCE to 10⁷ at primes ≡ 1 (8), to 10⁶ at primes ≡ 1 (4); R211: to 10⁷ at primes ≡ 1 (4)): every
+prime p ≡ 1 (4) is cms − c − s with **positive** c, m, s, m even and 8 | m·e. (R211 repair: with letters ≥ 2 it fails at
+5, 13, 29, 53, 7589.)
 * This is a 2-of-5-slice sub-conjecture of SQ₅, structurally singled out as the position where o is N-free.
 * With mean count ~27 at 10⁷, never failing is what the lottery heuristics predict, so this is not deep evidence.
-* The 22 composite exceptions are a new fingerprint list. Each is ≡ 1 (mod 4) and has a small factor
-  (3, 5, 7, 13, …): 105 = 3·5·7, 1465 = 5·293, 3865 = 5·773, 34489 = 7·13·379, …
+* The 22 composite exceptions are a new fingerprint list. Each is ≡ 1 (mod 8) (R211), and most
+  have a small factor (3, 5, 7, 13, …): 105 = 3·5·7, 1465 = 5·293, 3865 = 5·773, 34489 = 7·13·379, … — but not all
+  (R211 repair: 199 369 = 193·1033). These are formal-word exceptions; with letters ≥ 2 there are 114.
 * Promise 1/5: it shrinks the target but does not change its nature.

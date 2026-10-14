@@ -24,8 +24,11 @@ T1 control: none of the 499 odd squares ≤ 10⁶ has a certificate with o ≤ 3
 
 Hard primes (interior, o* ≥ 119): 7 940 521, 21 841, 238 681, 981 481, 8 984 641, 3 191 281, 4 362 121, 1 249 921,
 691 681, 6 154 009.
-* Every one of them is ≡ 1 (mod 120), i.e. a quadratic residue mod 8, 3 and 5.
-* Their least QNR is n_p ∈ {11, 13, 17, 19, 23, 29}, and their least QNR prime ≡ 7 (8) is between 23 and 127.
+(R211 repair: the list is incomplete — the full interior list o* ≥ 119 has 17 primes, adding 372 121, 501 841, 944 329,
+1 749 001, 3 975 721, 7 183 201, 8 586 481; "≡ 1 (mod 120)" was false for 6 154 009 and 944 329, both ≡ 49 (mod 120).)
+* All 17 are quadratic residues mod 840 (mod 8, 3, 5 and 7): p mod 840 ∈ {1, 121, 169, 361} (R211 repair).
+* Their least QNR is n_p ∈ {11, 13, 17, 19, 23, 29}, and their least QNR prime ≡ 7 (8) is between 23 and 191 (R211
+  repair; 191 at 8 586 481).
 * The outlier p = 21841 = 1 + 2⁴·3·5·7·13 is ≡ 1 mod 3, 5, 7, 8 and 13 (n_p = 11), with o* = 2431 = 11·13·17
   (P_h position).
 
@@ -36,7 +39,8 @@ Hard primes (interior, o* ≥ 119): 7 940 521, 21 841, 238 681, 981 481, 8 984 6
 * The tail of o* is governed by locally square primes, as the ET/Mordell picture predicts. (J)26/(J)27 showed that
   primes near sterile points behave like primes near squares. o* is just another coordinate on the same lottery.
 * Burgess-free? A bound o* ≤ (log p)^C would give, through P_c/P_m/P_h, a certificate found in time polylog × factoring.
-  This is the polylog-height question of (J)9/(J)35, the same complexity barrier: it would yield QNRs.
+  This is the polylog-height question of (J)9/(J)35, the same complexity barrier: it would yield QNRs (R211 repair: only for o_h*; a P_h certificate forces (p/o) = −1, while small o in P_c/P_m forces no small
+  non-residue).
 
 ## Barrier screen
 B6 (pointwise), B2 (divisor events in P_c/P_m), B1 (P_h is a congruence covering). T1 respected.

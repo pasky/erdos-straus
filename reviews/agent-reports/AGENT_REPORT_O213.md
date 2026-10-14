@@ -23,7 +23,7 @@ Branch side-agent/transport-law. Merged: side-agent/frieze-es and main (incl. th
    * Classical in substance (the Jacobi symbol along a continued fraction).
 3. **Positivity = complex conjugation (PROVED dictionary).**
    * At fixed m, positive words are factorisations 1 + Nm = ab with a ≡ b ≡ −1 (mod m). Negative-pair words are the
-     +1 class (which always contains the trivial factorisation) and have s_∞ = −1.
+     +1 class and have s_∞ = −1 (R211 repair: the trivial factorisation is c = 0, not a word).
    * In the e-slice form, −1 ∈ Σ_e(N) is the narrow-minus-wide ray class element c_∞. In the wide group the condition
      is trivial.
    * Steering: any object that sees only wide or unsigned data is ES-blind (Assessment).
@@ -45,7 +45,7 @@ Branch side-agent/transport-law. Merged: side-agent/frieze-es and main (incl. th
     bound o_h* ≤ f(n_p).
 * (b) Census:
   * o* = 7 for 94 % of p ≡ 1 (8) ≤ 10⁷; max 2431 interior and 239 formal;
-  * the hard primes are ≡ 1 (120) with least QNR 11–29;
+  * the hard primes are quadratic residues mod 840 (R211 repair of "≡ 1 (120)") with least QNR 11–29;
   * o* is a divisor-event statistic, not a residue symbol (only P_h is QNR-shaped);
   * no Burgess-type gain.
 * (c) Spark 4: no mod-16/32 shadow at squares (EVIDENCE to 10⁵), so T1 is one bit. Spark 1: SHARP 2. The
@@ -75,7 +75,7 @@ Branch side-agent/transport-law. Merged: side-agent/frieze-es and main (incl. th
    defect)" would turn SQ₅ into a statement about signed words.
 2. **21841 and the C(o)-covering.** Characterise the primes whose only interior certificates have huge o. Are they
    exactly the primes ≡ 1 mod (8·3·5·7·13…) near sterile points of (J)26?
-3. **SQ_H exceptions.** The 22 composite failures ≤ 10⁶ all have a small odd factor. Is there a genus/local explanation
+3. **SQ_H exceptions.** The 22 composite failures ≤ 10⁶ mostly have a small odd factor (R211: not 199 369 = 193·1033). Is there a genus/local explanation
    (as for 105), or is it the lottery?
 4. **Narrow/wide over other fields.** In ℤ[ω] (the order-3 T1 of (J)19), the analogue of c_∞ is absent (complex
    place). Where does the TES obstruction sit in the narrow/wide picture?

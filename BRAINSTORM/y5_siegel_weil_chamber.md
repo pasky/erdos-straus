@@ -40,8 +40,9 @@ connect to KUDLA_ES (J)13.
   "positivity" enters a Siegel-type statement.
 
 ## Cheap numerics
-`scripts/y5_words_at.py N`: N = 21 841 has 34 formal words (12 with χ = −1, 2 interior). N = 1 000 033 has 133 words
-(91 with χ = −1). Compare ≍ p classes in G₋(p): words are a vanishing fraction.
+`scripts/y5_words_at.py N`: N = 21 841 has 42 formal words (14 with χ = −1; 20 interior words, 2 interior
+certificates). N = 1 000 033 has 174 words (116 with χ = −1). (R211 repair: the original 34/12 and 133/91 came from a
+truncation c² ≤ 4N + 10 in `y5_words_at.py`; c can be as large as N + 1; recounted by `scripts/review_r211_p21841.py`.) Compare ≍ p classes in G₋(p): words are a vanishing fraction.
 
 ## Assessment
 Negative (PROVED for the Siegel–Weil triviality, Assessment for the reading). The positive chamber's integral-point
