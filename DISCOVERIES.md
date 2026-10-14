@@ -956,6 +956,17 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * **Prop 5.1 (PROVED; a new dictionary, equivalent to the Type II cube).** Type II ⟺ the two-term Machin/arccot relation arccot(2c√(d/p)) + arccot(2s√(d/p)) = arccot(1/(2j√(pd))) ⟺ 4csdj = pj + c + s. No existence theorem from Størmer theory transfers: two-term relations correspond to divisors of 1 + c², which is B2.
    * EVIDENCE (R203 reproduced all figures; extended to p ≤ 3000). Among primes p ≤ 1000: 1736 ES points, 284 of the 1046 composite-D ES ideals have a principal proper divisor, and 41 are a unit times three V_p points at the same μ. T1: no ES points at odd squares.
 
+39. **Wave Y-b: exact identities for the ES sign — the sign counts are d₃-size objects (SIGN_IDENTITY.md (O205); review `reviews/sign-identity-review.md` (R204): no FATAL; MAJOR D6 (Prop 2.4 needs trivial character) and D10 (§4 log-separation mis-normalised, wrong citation; now a tautological reformulation, CONDITIONAL on Zhu arXiv 2304.10696), minors; repaired by the reviewer).**
+   * Lemma 1.1 (PROVED). X_n ≅ {(u,v) : uv | n + u + v}, with χ = (−uv/n₀), where n₀ is the part of n prime to uv, and |X_n| ≪ n^{1/2+ε}. Lemma 1.2 (classical: Mordell families) gives N₋ ≥ 1 for n ≡ 3 (4) and n ≡ 5 (8).
+   * Lemma 2.1 (PROVED; R204 refit the constants). Σ_{n≤X} N₋(n) ~ (15/64)·X log²X and Σ N₊ ~ (5/64)·X log²X (240 resp. 80 of the 320 odd cells mod 8).
+   * **Thm 2.2 (PROVED; R204 re-derived the cusp argument).** No finite sum of holomorphic modular forms (any weight in ½ℤ_{>0}, any level, any multiplier) has N₋, N₊, N₊ − N₋ or |X_n| as its coefficients: at a cusp such a sum grows like a power of y⁻¹, never like y⁻¹log²(1/y).
+     * Prop 2.3 (PROVED, elementary): T1 at all square shapes kills every finite twisted d_k-Eisenstein combination, for any k.
+     * Prop 2.4 (PROVED relative to Waldspurger, for trivial character only): no weight-3/2 cuspidal eigenform whose Shimura lift has non-square conductor has zero set {N₋ = 0}.
+     * Steering consequence (Assessment). An exact identity for the sign counts needs divisor rank ≥ 3, unboundedly many levels, derivatives or non-holomorphic objects. GL(3) cuspidal contributions are not excluded.
+   * §3 (CERTIFIED; R204 reproduced all 32 exact rank certificates). No ℚ-linear relation exists between 8 weighted sign counts and a 48-column dictionary (Hurwitz class numbers, Kronecker–Hurwitz sums, twisted divisor sums, ternary theta series) on odd n ≤ 12 000, per class mod 8.
+   * Prop 4.1 (PROVED; largely CHI_FLIP Thm 1.1 + CONSTRUCTIVE Thm 1.2 restated). Each word gives Gram T_w = t·diag(v, u) − [[1,−1],[−1,1]] of determinant tp. For n = p, χ = −1 ⟺ Diff = {p} (Eichler level 2 in B_{p,∞}) and χ = +1 ⟺ Diff = {2}. So the two signs are the two bad fibres of X₀(2p). The "log-separation" reading N₋ log p + N₊ log 2 is a tautological reformulation (R204 D10).
+   * Assessment. The family of Gram matrices is a level-t projection with t unbounded (B2), so this dictionary relocates the lottery rather than resolving it. Relay O209 (two fibres, hyperbolic-matrix reading) was spawned.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
