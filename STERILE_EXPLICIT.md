@@ -90,7 +90,9 @@ L(A) = Σ_{A≤a<2A} 1/a ≤ ln 2 + 1/(2A). The number of P-data in the box is a
 | G | (e, d), 4d ∣ N + e | a² ≡ −(N+e)/(4d) (e): ≤ 2^{ω(e)} classes; a ∣ (N+e)/(4d) | ((E₁−E₀)L(D)/4 + D)·2^{ω}·cop(…) | R10a |
 | τ₃ | e ≡ −N (4) | (a, d) with ad ∣ (N+e)/4 | ((E₁−E₀)/4 + 1)·τ₃((N+E₁)/4) | R1 |
 | I, J | c, then (e, a) resp. (e, d) as in F, G | loss-free | C·(pairs of F), 2C·(pairs of G) | R8a, X1 |
-Here cop(n, s, window) is the least of: window/s + 1, J(w − 1) over admissible (m, k, J) of Cor 1.4, and τ(n).
+Here cop(n, s, window) is the least of: window/s + 1, J(w − 1) over admissible (m, k, J) of Cor 1.4, and the monotone envelope
+min_η C₂(η)n^η ≥ τ(n') for every integer n' ≤ n (review repair m2: τ and τ₃ themselves are not monotone; the τ₃ row means the
+envelope min_η C₃(η)((N+E₁)/4)^η, and n is always an upper bound for the integer actually factored).
 Units: the classes −1 (mod 4ad), (4cd), (4ac) and −a (mod e) are units (Lemma 1.1(iv)); the cofactor class of d in
 route F is (N+e)/(4a)·(−a)^{−1} mod e, a unit. *Proof:* each row's data and the displayed divisibility determine the
 datum (Lemma 1.1); the pair counts are Σ_a #{e ∈ (E₀, E₁] : e ≡ −N (mod 4a)} ≤ Σ_a ((E₁ − E₀)/(4a) + 1). ∎
@@ -132,7 +134,7 @@ square-root classes for a.
 (capped by 2a²d ≤ N, acd ≤ N), every route bound is a finite sum Σ c N^e (ln N)^p valid for all N ≥ N₀ (the Coppersmith
 condition is linear in L = ln N: slope ≤ 0 and value < 0 at ln N₀ are checked). P (M = 32, N₀ = 2^{600}, routes H, A, C, D,
 E, F, G, τ₃ (η = 0.3), I; 2^{ω(e)} ≤ C_ω(0.1)e^{0.1}): every chosen term has e ≤ 0.4797 < 1/2 and is decreasing relative to
-√N for N ≥ N₀. Q (M = 16, N₀ = 2^{100}, routes AD, AC, CD, fac, fca): every term has e ≤ 0.75 < 1, decreasing relative to N.
+√N for N ≥ N₀. Q (M = 16, N₀ = 2^{100}, routes AD, AC, CD, fac, fca): every term has e ≤ 0.7500001 < 1, decreasing relative to N.
 
 ## 5. Feedback to F_q[T] (O216's open q = 27; EVIDENCE, grid steering only)
 
@@ -156,7 +158,7 @@ primes whose least quadratic non-residue is r.** The uncovered measure in the no
 b = 32, 32.25, …, 600, it bounds each term of (S) by the certified table values (`data/se/P_q4.txt` (N ∈ [2^{31}, 2^{200}), quarter
 octaves), `P_q1.txt` + `P_q1_hi.txt` (2^{200}..2^{600}, octaves), `Q_q4.txt` (2^{31}..2^{100})) taken at the worst N-cell of the range
 and the largest weight, and by the §3.3 tail term lists (top of the N-range) for N ≥ 2^{600} (P), 2^{100} (Q); K, k odd; every tail term
-is increasing in N and, multiplied by its weight, decreasing in r (e < 1/2 resp. < 1 and p ≤ (h − e)·ln N₀), which also covers
+is increasing in N (review repair m1: seven Q terms have negative exponents; the combiner caps them at 0, c·N^e ≤ c) and, multiplied by its weight, decreasing in r (e < 1/2 resp. < 1 and p ≤ (h − e)·ln N₀), which also covers
 r ≥ 2^{600}. Result: max S = 0.48501 (b = 32), no failure; with b = 31 it fails (S = 0.58 at b = 31.5), so 2³² is where *this*
 certificate stops. Dominant terms at r ≈ 2³²: Q at level 1 (k = 1) 0.350, P at K = 1 0.023, P at K = 3 0.002, P tail (N ≥ 2^{600}) ≈ 0.1.
 Validation of the engine (EVIDENCE): `scripts/se_box_check.py` enumerates all P- resp. Q-data exactly for N = 17³, 3¹¹, 17⁵, 10⁶ + 3,
@@ -165,7 +167,7 @@ bound ≥ the true count (0 violations; it reproduces D_P = 32, 121 and D_Q = 73
 *Before:* (J)26 gave "r ≥ r₀" with r₀ effectively a tower (log log r₀ ≈ 20C); R187 noted the level-1 term alone exceeds 1/2 for many
 r ≈ 10⁴. *Now:* r₀ = 2³². *What limits it:* the level-1 Q term 2D_Q(r)/r — Type I solutions of 4/r counted with exponent 0.6–0.65
 but with polylog many boxes; at r ≈ 10⁹ the bound is ~0.7r against a true count of a few hundred. r = 13, 17 are far out of reach:
-at r = 13 *all* non-residue cells are covered at level 1 (POINTWISE_MORDELL §1), so no 13-generic sterile point exists at all;
+at r = 13 *all* non-residue cells are covered at level 1 (POINTWISE_MORDELL §1), so no 13-generic point in a non-residue cell is sterile;
 at r = 17 two of eight cells survive level 1, and any union bound needs a P-count with constant ≲ 2.5 at θ = 0.4 (M17D §1).
 *Note (O220 "division trick", relayed by the orchestrator):* its ℤ analogue — a divisor 4a > e-window of N + e fixes e mod 4a — is
 exactly the divisibility averaging Σ_a ((E₁ − E₀)/(4a) + 1) already used by routes A, F, G, I, J and Q's fac/fca/fda.
