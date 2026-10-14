@@ -25039,4 +25039,42 @@ def check_fI():
 check_fI()
 
 
+def check_fJ():
+    # (fJ) TORSION_FIRING (O207/R206): R206 from-scratch checks — torsion–residue orthogonality gcd(h^s+1, h^t-1) = 2
+    # (t odd), group structures / Type II = 2-torsion dictionary (end-to-end), T1 control at odd squares, and
+    # p = 3361 the unique prime <= 10^7 without a prime-modulus Type II certificate (C sieve + direct enumeration).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run(args, capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("TORSION subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run([sys.executable, "review_tf_thm31.py"])
+    assert "(1) odd h<400, s<=8, odd t<=9: gcd != 2 count: 0" in out and "(2) primes h=3 mod 4 < 200: violations 0" in out, out
+    out = run([sys.executable, "review_tf_sec1.py"])
+    for s in ("lemma 1.1: cases 706 fail 0", "prop 1.2 end-to-end: primes <= 120 mismatches 0",
+              "odd squares 9..625: torsion-firing (h,n) count 0"):
+        assert s in out, ("TORSION R206 sec1", s, out[-2000:])
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "rtfp")
+        run(["gcc", "-O2", "-o", exe, "review_tf_primemod.c", "-lm"])
+        out = run([exe, "check", "3361"])
+        assert "check: 472 primes 5..3361, mismatches 0, without prime cert 1" in out, out
+        out = run([exe, "run", "10000000", "20000"])
+        assert "NO prime-modulus Type II certificate: p=3361" in out, out[-2000:]
+        assert "run: 664577 primes 5..10000000, unmarked after stage 1 (H0=20000): 2, without prime cert: 1" in out, out[-2000:]
+    print(f"== (fJ) TORSION_FIRING R206: gcd(h^s+1, h^t-1) = 2 (t odd); Type II = 2-torsion dictionary; p = 3361 unique "
+          f"prime <= 1e7 without prime-modulus Type II certificate; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fJ()
+
+
 print("\nall checks passed")

@@ -1048,6 +1048,18 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * Between Thm 5.1's sub-polynomial cap and the covering threshold (log y)^{1−o(1)}, nothing is known.
      * Relay O214 (the e = 2 cell) was spawned.
 
+44. **Wave Y-d: torsion firing — ES divisors live in the (h+1)-world, p in the (h−1)-world (TORSION_FIRING.md (O207); review `reviews/torsion-firing-review.md` (R206): no FATAL; MAJOR D3 (Thm 3.1 needs supersingular/torus input — ordinary curves at h have large Hom into F_h^*), D5 (Prop 3.3 for families of degree D ≥ 2 is only CONDITIONAL), D7 (the Hasse-window dictionary is a relabelling of a divisor statement); minors; repaired by the reviewer).**
+   * §1 (PROVED; R206 brute-forced it end to end). Group structures of y² = x³ + Dx at h ≡ 3 (4) and of y² = x³ + B at h ≡ 2 (3). Type II at a prime modulus h ⟺ y² = x³ + pd·x has a 2-torsion point (2cd, 0) with 2cd | (h+1)/2 ⟺ cd | #2E₀(F_h) and h | p + 4c²d. R206 D2: tautological in content.
+   * §2 (PROVED). At a supersingular h, ρ_{ℓ^∞}(Frob_h) is the companion matrix of x² + h for every odd ℓ ≠ h. So every GL₂-invariant torsion condition there is cyclotomic, and firing reads only a determinant (true for every E: R206 D4).
+   * **Thm 3.1 / Cor 3.2 (PROVED; scope after R206 D3).** gcd(h^s + 1, h^t − 1) = 2 for t odd. So every homomorphism from a group of exponent dividing h^s + 1 (supersingular points, the non-split torus) into F_{h^t}^* lands in {±1}.
+     * The ES divisors (orders in the (h+1)-world) and the residue of p (in F_h^*) meet only in the genus bit.
+     * The GL₂ analogue of the (J)30 mute place gains at most a factor 2 from supersingular or torus input. An ordinary group reduced mod h is not covered.
+   * Prop 3.3 (PROVED for D = 1; CONDITIONAL for D ≥ 2 after R206 D5). Merel/Mazur: identity-forced point orders over ℚ(t) serve only 4cd ∈ {4, 8, 12}.
+   * Prop 3.4 (PROVED). In towers unramified outside a finite set, the (J)34 no-go extends: sufficient Frobenius conditions have empty interior.
+   * **§4.1 (CERTIFIED; R206 reproduced it and extended it to 10⁸).** p = 3361 is the unique prime ≤ 10⁸ with no prime-modulus Type II certificate. Its four ordered certificates have moduli 99, 679, 1159 and 33639.
+   * Props 4.2/4.3 (PROVED via Deuring–Waterhouse; EVIDENCE to 10⁸, R206 reproduced to 10⁷). Every j = 1 Type II ticket is a curve over F_p of trace 1 − c with a subgroup of order ≡ −1 (mod 4c). R206 D7: this is a relabelling of "p + c has a divisor ≡ −1 (mod 4c)", and the curve plays no role.
+   * Assessment. No GL₂/point-order mechanism forces firing. The only bridges between the two worlds found are non-homomorphic (the integer box, coordinates). Relay O211 (bridges via F_{h²}: semi-primitive / uniform cyclotomy, Lucas sequences, Salié sums) was spawned.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
