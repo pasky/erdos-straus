@@ -1176,6 +1176,24 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * Real-analytic tools (θ > 0 on iℝ, degree, SOS, Hodge index) collapse to the real/genus layer.
    * No relay was spawned: SHARP 1 is steering, and the conjecture is a lottery statement.
 
+53. **Spark relay Y8: the three-squares side — clean levels, an exception-free 3SQ, and T1 deforming to p = m² + k (THREE_SQUARES.md + BRAINSTORM/y8_*.md (O217); review `reviews/three-squares-review.md` (R224): no FATAL; MAJOR D5 (the claim "continuity of T1 is adelic, not archimedean" is wrong at bounded p − m²; R224 PROVED the missing mechanism), D6, D12 (interpretive); minors; repaired by the reviewer).**
+   * Lemmas 1.1/1.2, Prop 1.3 (PROVED; R224 re-derived them).
+     * Write χ(w) = (A/p) = ∏(r/p)^{v_r(A)}. Level t is *clean* if every prime r | tp + 1 has (r/p) = +1; then every level-t word has χ = +1.
+     * The reciprocity constraint is ∏(r/p)^{v_r(tp+1)} = +1.
+     * An odd n is a square ⟺ every level is clean. This is T1 as tm² + 1 = 1² + t·m².
+   * Lemma 3.2 (PROVED; R224 checked 36 805 primes). Mordell's 840 theorem is exactly "the least-non-residue level t₀ admits A = q when lnr ≤ 7". For lnr ≥ 11 that level succeeds in ≈ 85–91 % of cases (EVIDENCE, sampled to 10¹⁵).
+   * **T1 deforms to polynomially-near squares (PROVED by R224, elementary).** If p = m² + k and tk + 1 = c² with gcd(m, c) = 1, then tp + 1 = t·m² + c², so level t is odd-clean (all its words have χ = +1).
+     * For k = 4 the levels are t = 2, 6, 12, 20, … and they are fully clean.
+     * EVIDENCE: primes with bounded p − m² show a 6–7σ deficit of χ = −1 words relative to adelically identical primes (k = 4: z = −6.3; k = 16: z = −7.5). Removing these levels explains the deficit fully for k = 4 and about 3/4 of it for k = 16.
+     * At the √p scale there is no archimedean association; the near-square effect is polynomial, not generic. O209's "near squares" (corrected in (J)48) was thus partly right, in this precise sense.
+   * Clean-level coin model (EVIDENCE, weaker than first presented). It needs the exact reciprocity constraint; without it the model is off by a factor of about 2.
+   * **CONJECTURE 3SQ (EVIDENCE; R224 re-checked to 10⁶ and by direct embedding to 1001).** For odd n, every path lattice of X_n embeds in ℤ³ ⟺ n is a square.
+     * At primes this is ES-five. The direction ⇐ is (J)48 Thm B.
+     * 105 is not an exception: its 11 words have χ = +1 but are ramified at two odd primes. There are 0 exceptions ≤ 10⁶.
+     * It is an exception-free companion of SQ₅, alongside SQ_± ((J)52).
+   * §4. On χ = −1 words α₂ and α_p vanish together, so no Siegel–Weil weighting beyond the indicator exists (the earlier N₊ formula was 0/0 and is withdrawn). Comparing r-weighted counts with |X_p| is circular (Assessment).
+   * Assessment. Near-square hardness is explained structurally, but no mechanism closes the admissibility gap ("an unclean divisor ≡ −1 (mod t)", B2).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

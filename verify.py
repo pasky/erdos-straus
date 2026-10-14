@@ -25348,4 +25348,39 @@ def check_fR():
 check_fR()
 
 
+def check_fS():
+    # (fS) THREE_SQUARES (O217/R224): R224 from-scratch — clean-level lemmas, Prop 1.3 square test, Lemma 3.2 (Mordell's
+    # 840 = the least-non-residue level), CONJECTURE 3SQ to 10^6 (0 exceptions), and the PROVED polynomial deformation
+    # of T1: p = m^2 + k, tk + 1 = c^2, gcd(m, c) = 1 => level t is odd-clean (all words chi = +1).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run(args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("THREE_SQUARES subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run([sys.executable, "review_r224_lemmas.py"])
+    for s in ("Lemma1.1/1.2/Prop3.1 small-p failures: 0", "rank-one levels 667 clean 667", "Prop 1.3 fails n<3000: 0",
+              "Lemma 3.2 failures 0 of 36805 ; 840 mismatches 0"):
+        assert s in out, ("THREE_SQUARES R224 lemmas", s, out[-2000:])
+    out = run([sys.executable, "review_r224_poly_levels.py"])
+    assert out.count("odd-clean failures 0 []") == 5 and "clean 520/520" in out, out[-2000:]
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "r224")
+        run(["gcc", "-O2", "-o", exe, "review_r224_3sq.c", "-lm"])
+        out = run([exe, "1000001"])
+    assert "N=1000001 odd non-squares 499501, exceptions 0, squares failing 0" in out, out[-2000:]
+    print(f"== (fS) THREE_SQUARES R224: clean-level lemmas, Mordell 840 = lnr level, 3SQ to 1e6 (0 exceptions), "
+          f"T1 deforms to p = m^2 + k (tk + 1 = c^2 levels clean); seconds = {perf_counter() - t0:.1f}")
+
+
+check_fS()
+
+
 print("\nall checks passed")
