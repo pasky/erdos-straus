@@ -22,7 +22,7 @@ of its "new" results (Thm 2.3, Prop 3.1) are elementary or standard, which the r
 | Thm 4.2 (universal one-slot witnesses = {2,3,5,7,8,15,20}; reach = complement of Mordell's six classes; τ(A+1) ≥ φ(A)/4 necessary) | SOUND |
 | Prop 3.1 (4 unique with e ∈ {1,3} slice at every prime), 3.2 ({3,4,5,7} for e ∈ {1,2,3,4,6}), 3.3 statistics | SOUND (trivial; all numbers reproduced) |
 | §6 harness verdicts; §7 catalogue; labels | SOUND as Assessment; minor overstatements (D4–D6) |
-| Lemma 2.1 + census of §2 (S₄^{odd}, S₈, squares, composite list, one-odd halves) | SOUND (re-verified ≤ 10⁶ / 2·10⁵) |
+| Lemma 2.1 + census of §2 (S₄^{odd}, S₈, squares, composite list, one-odd halves) | SOUND (re-verified: S₄^{odd} ≤ 10⁷, rest ≤ 10⁶ / 2·10⁵) |
 
 ---
 
