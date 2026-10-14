@@ -89,3 +89,19 @@ k free, ES^{[2]} has the same structure: every slice is finite (O204 Thm 2.1) an
 two problems are of one kind: **does some fibre x of the conic bundle f_x(a, B) = −E (E | x) have a point,
 with x/E odd (cap-2, k = 1) or x/E ≡ 0 mod 4 (ES^{[2]})?** Neither is easier on structural grounds; for e = 2 the
 squarefreeness of B along an orbit is an extra problem that ES^{[2]} does not have.
+
+## 3. Numerics (EVIDENCE)
+
+`scripts/y6_cover.py 1000000 1000000 primes` (AP marking: for each admissible (a, B, c) with g = caB − 1 ≤ 10⁶, W_n
+holds iff n ≡ −B²(4a²)^{−1} (mod g); 4 614 210 triples; 47 s, 0.7 GB) and the independent exact re-check
+`scripts/y6_verify.py 1000000` (exact rationals, Def 1.1 prime by prime):
+* **every prime 3 ≤ p < 10⁶ has a k = 1 cap-≤2 shot with g ≤ 10⁶** (78 497 verified). Least g by decade
+  (1–9, 10–99, …): 45 812 / 25 462 / 6 179 / 962 / 79 / 3; the largest least g is 955 979 at p = 379 (4·379 + 1 =
+  37·41 has no factor ≡ 3 mod 4, so no ES k = 1 shot). The least shot needs B > 1 (exponent exactly 2) for 13 402
+  primes; for p ≡ 1 (mod 4): 26 858 ES k = 1 shots (c = B = 1), 5 618 with B = 1 < c, 6 699 with B > 1.
+* T1 control: none of the 499 odd squares ≤ 10⁶ is covered (as forced: E ≡ 3 mod 4 divides 4m²a² + B²).
+* Composites: 8 703 odd non-squares ≤ 10⁶ are not covered within g ≤ 10⁶, 8 535 of them divisible by 3 (gcd(caB, n) = 1
+  excludes 3 from the parameters and forces g ≡ E ≡ 1 mod 3); not pursued (composites are not the target; reduction to
+  a prime factor needs the mute primes prime to the cofactor).
+*Caution.* The least-g of p = 379 being within 5% of the search limit shows the k = 1 cap-2 lottery has a long tail even
+for small p; nothing here bounds g in terms of p.
