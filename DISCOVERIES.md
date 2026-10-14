@@ -1028,6 +1028,26 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * The Cuntz–Holm–Jørgensen coefficient model is a relabelling.
    * Relay O213 (the transport law in the o-aspect) was spawned.
 
+43. **Wave Y-a: the (k, Q₁) phase diagram of ES-variants — a second archimedean wall, and the cap pushed to sub-polynomial (PHASE_DIAGRAM.md (O204); two independent hostile reviews `reviews/phase-diagram-review.md` (R209) and `reviews/phase-diagram-review-2.md` (R210): no FATAL; R209 MAJOR M1 (Cor 3.2's ES^□ k = 1 infinitude was asserted without proof; proof supplied) and M2 (quantifier form of Thm 5.1); minors; repairs applied by the author).**
+   * Prop 1.1 (PROVED; both reviewers re-derived it). Normal form: every shot is k(4ab − n) = b + aQ₁². The overflow is a Q₁²-weight in ES's own Type II equation; ES is the line Q₁ = 1.
+   * **Thm 2.1 (PROVED, sharp; R209 and R210 searched to 2–3× the wall, 0 violations).** For ES^{[2]} (den z | y², which contains ES^{(y,1)}), Q₁ ≤ (16k³n + 1)/(4k − 1). Equality holds for every n ≡ 2 (mod 3) via Q₁ = (16n+1)/3, g = (64n+1)/3, D = (4n+1)/3.
+     * With EXPONENT_CAP Thm 2.1, every slice of the duality plane D·g = 4k²n + Q₁² (fixed k or fixed Q₁) is finite. Solutions live in the band √(Q₁/6n) ≤ k < Q₁²/2.
+     * **The band is unbounded, so ES^{(y,1)} is NOT shown to be a finite search. R200 M1 ("bounded cap with growing S is open") stands** (both reviewers; the orchestrator's first reading was wrong).
+   * Prop 3.1 / Cor 3.2 (PROVED after R209 M1; (a) relative to FROBENIUS_FIRING Thm 4.2, needs only 3 ∤ n). On the single slice k = 1 the cap ladder reads "4n + Q₁² has a divisor g ≡ −1 (mod 4M)":
+     * M = 1 (ES^□): infinite;
+     * M = rad Q₁ with S fixed: infinite (sieve);
+     * M = Q₁ (cap 1): finite;
+     * ES: one number.
+     * EVIDENCE: no wall seen for e = 2. With the one mute prime 3, every prime p < 10⁶ has a k = 1 shot 4p + 9^a.
+   * Prop 4.1 (PROVED). One axis for all caps: ES^{(y,e)} ⟸ n(2k(4kλ)^e)² + 1 has a divisor ≡ −1 (mod 4kλ) with (g+1)/(4kλ) squarefree. The modulus exponent infimum is θ = 1/(2e+2), and it depends on the parametrisation (R209 m6/m7). ES sits at θ = ½ and the e = 1 face at the N^{1/4} Lenstra / Coppersmith–Howgrave-Graham–Nagaraj threshold.
+   * **Thm 5.1 (PROVED relative to Bombieri–Vinogradov + Iwaniec's linear sieve; ineffective; both reviewers checked uniformity, level and Siegel zeros).** For every A, η > 0 and n, and all x ≥ x₀(n, A, η), there is an ES^{(y,e)}(n) solution with x/8 ≤ y ≤ nx and e ≤ y^{(2+η)log₃y/(A log₂y)}. This improves EXPONENT_CAP Thm 3.2 (y^δ).
+   * §6. B1 holds (PROVED, for every unit class u mod a prime r ≡ 1 (4)): no finite set of shot classes covers p ≡ u (mod r). A class-layer conditional (one form class per genus) is also PROVED, but it is tautological from genus theory.
+   * Assessment.
+     * A single-n sieve is blocked not by B6 but by the per-certificate box of size g^{o(1)}. After switching, it is a divisor problem whose modulus is a parameter of the number. Level-of-distribution results (BFI, Fouvry) do not see it.
+     * Pell orbits multiply ES^{[2]} points but do not create them.
+     * Between Thm 5.1's sub-polynomial cap and the covering threshold (log y)^{1−o(1)}, nothing is known.
+     * Relay O214 (the e = 2 cell) was spawned.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
