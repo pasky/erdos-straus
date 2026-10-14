@@ -14,7 +14,7 @@ Branch side-agent/two-fibres (merged side-agent/sign-identity first). Deep file 
    81 857 words of odd n ≤ 3001, all 121 815 words of primes ≤ 12 000 and all 12 053 words of primes in (99 000, 10⁵] (Thm A is PROVED; these are consistency checks — the per-word lift search is
    too slow for primes near 10⁶), all 8 073 words of odd squares ≤ 10⁵, 0 mismatches.
    Why it matters: it is the first explicit *asymmetry* between the two signs (exact class-number-one world on one side).
-   Honest limit: at the level of single words it gives only the 2-adic cell law (TWO_FIBRES §3.1), and the sign-dominance
+   Honest limit: at the level of single words it certifies nothing beyond the local sign at p (TWO_FIBRES §3.1), and the sign-dominance
    injection it suggested is false (§3.2).
 2. **No Eisenstein + cuspidal identity — by size at primes, not T1 (Prop G″, PROVED relative to the PNT for cuspidal
    GL(m) L-functions; memo y1_gl3_cuspidal; (R214 repair) of D6/D7).** No finite combination of exponent-zero twisted
