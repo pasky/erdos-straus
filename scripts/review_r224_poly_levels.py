@@ -1,5 +1,5 @@
 # R224: "polynomial clean levels" for p = m^2 + k: if t*k + 1 = c^2 then tp + 1 = t*m^2 + c^2 is a norm from Q(sqrt(-t)),
-# so every odd prime r | tp+1 with r ∤ c has (-t/r) = +1, i.e. (r/p) = +1 (Lemma 1.1). Check cleanliness (all primes incl. 2)
+# so every odd prime r | tp+1 with r ∤ c has (-t/r) = +1, i.e. (r/p) = +1 (Lemma 1.1); primes r | c must divide m. Check cleanliness (all primes incl. 2)
 # and measure the share of the N-/N deficit carried by these levels.
 import sys, math
 from sympy import factorint, isprime

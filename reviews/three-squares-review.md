@@ -77,14 +77,16 @@ So primes *very* near squares (bounded p − m²) have markedly fewer χ = −1 
 the effect is concentrated on specific offsets k = p − m².
 
 **Mechanism (PROVED here, elementary; the deformation of T1 the document says does not exist).** Let p = m² + k and t ≥ 1
-with tk + 1 = c². Then tp + 1 = t·m² + c². gcd(t, c) = 1, and an odd prime r | tm² + c² with r | c would give r | m,
-hence r | k, contradicting c² = tk + 1; so every odd r | tp + 1 has −t ≡ (c/m)² (mod r), i.e. (−t/r) = +1, i.e.
-(r/p) = +1 by Lemma 1.1: **level t is odd-clean for every such t** (clean, if also 2 ∤ tp + 1 or (2/p) = +1).
+with tk + 1 = c². Then tp + 1 = t·m² + c². gcd(t, c) = 1, so an odd prime r | tm² + c² with r ∤ c has r ∤ m and −t ≡ (c/m)² (mod r), i.e. (−t/r) = +1,
+i.e. (r/p) = +1 by Lemma 1.1; an odd prime r | c dividing tp + 1 must divide m (and then r² | tp + 1). Hence
+**level t is odd-clean whenever gcd(m, c) = 1** (clean, if also 2 ∤ tp + 1 or (2/p) = +1); when gcd(m, c) > 1 only the
+primes of gcd(m, c) — which divide tp + 1 to exponent ≥ 2 — escape (e.g. p = 1249 = 35² + 24, t = 2, c = 7:
+2p + 1 = 3·7²·17 and (7/p) = −1).
 This is literally T1's identity tm² + 1 = 1² + t·m² with 1 replaced by c. For k = 4 the levels are t = 2, 6, 12, 20, …
 (t even ⇒ tp + 1 odd ⇒ clean); for k = 16, t = 3, 5, 14, 18, … (p ≡ 1 (8) ⇒ clean); for k = 1, 9, 25 the small
 levels (3, 8; 7, 11; 23, 27) are odd-clean but can fail at r = 2 (p ≡ 5 (8)) or are large — matching the weaker
 residuals. Check (`scripts/review_r224_poly_levels.py`): 40 primes each p = m² + k ∈ (10⁵, 10⁶), all levels
-t = (c² − 1)/k < 200: odd-clean 0 failures for k = 1, 4, 9, 16, 25; fully clean 520/520 for k = 4 and k = 16.
+t = (c² − 1)/k < 200: odd-clean 0 failures (no gcd(m, c) > 1 case occurred there) for k = 1, 4, 9, 16, 25; fully clean 520/520 for k = 4 and k = 16.
 Removing all words on these levels (all t ≤ p + 2): k = 4: N₋/N 0.636 → 0.690 (stratum mean ≈ 0.686: deficit fully
 explained); k = 16: 0.572 → 0.616 (stratum ≈ 0.628: ≈ 3/4 explained). These levels carry ≈ 7.5 % of all words.
 
@@ -192,7 +194,7 @@ deficit of χ = −1 words, with a proved mechanism (T1-type clean levels tk + 1
 *generic* archimedean proximity (dist ≍ √p scale) shows no association; *polynomial* proximity p = m² + k carries
 infinitely many deterministically clean levels — an archimedean continuity of T1, realised through the same
 norm-form identity. Repair: retitle item 1 ("adelic at the √p scale; at bounded p − m² T1 deforms to tm² + c²"),
-add the lemma (p = m² + k, tk + 1 = c² ⇒ level t odd-clean) as PROVED, add the residual table as EVIDENCE, and drop
+add the lemma (p = m² + k, tk + 1 = c², gcd(m, c) = 1 ⇒ level t odd-clean) as PROVED, add the residual table as EVIDENCE, and drop
 "refuted"/"corrects O209" or restrict it to the √p scale.
 
 D6 (MAJOR) — §2 Assessment "Under GRH the clean probability of a fixed level tends to 0 as p → ∞, so the
