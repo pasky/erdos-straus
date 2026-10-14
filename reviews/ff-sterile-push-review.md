@@ -194,3 +194,44 @@ are identified; inherited inputs are named. No overclaim found in FF_STERILE_PUS
 report's "≥ 0.98 (r ≥ 7)" which for r ≥ 31 is not covered by the document's certificate (31..45 now certified by R217; r ≥ 46
 by the DEPTH_ASPECT crude form, 5.9·10⁻⁵ at r = 46, decreasing) — MINOR m5.
 
+## Numerics (all from scratch, R217)
+| script | what | result |
+|---|---|---|
+| `review_fs_lenstra_bf.py` | Lemmas 1.4/1.5 vs. true max class sizes, all monic Q, all scalar multiples | F₃: 1 414 023 groups, F₅: 373 471 groups, 0 violations; bound 2 and Coppersmith 3 attained |
+| `review_fs_tuples.py`, `review_fs_count.c` | exact Case B tuples; Lemma 1.1 asserted on each | q = 3 (s ≤ 11): 72 tuples; q = 5 (s ≤ 9): 32; q = 7 (s ≤ 8): 28; 0 identity failures; per-s counts = bsE_famcount |
+| `review_fs_cmpcounts.py` | exact pattern counts ≤ Lemma 1.6 minimum | q = 3, 5, 7: 0 violations (max ratio 1.0 / 0.5 / 0.67) |
+| `review_fs_exact.py` | exact-integer route values; exact rational finite sum | r = 4, s ≤ 30: 750856592445423068283984511/523347633027360537213511521 ≈ 1.4347186173, = C code to 10⁻¹² |
+| `review_fs_fin.c` | finite Case B part (long double, ×(1 + 10⁻⁹)) | see Theorem 3.1 table |
+| `review_fs_tail.c` | rigorous tail, own box design, fails closed | r = 4..45 pass; r = 3 fails (as expected) |
+| `review_fs_tailcheck.c`, `review_fs_tailcheck_author.c` | box bounds ≥ exact pattern bounds (mine / author's fs_tail) | 0 violations on 60 000 / 80 000 random patterns × 7–8 levels |
+| `review_fs_cmp_author.c` | pattern-wise author fs_sum vs. mine | mine ≤ author's everywhere (author's narrower Coppersmith search) |
+| `review_fs_caseA.py` | Case A exact + majorant | equals fs_caseA.py exact part to 11 digits |
+| `review_fs_certify.sh` | full independent certificate | `data/fs/review_certify_4_30.txt`, `…_31_45.txt`: ALL OK |
+| `review_fs_rate.c` | per-level exponent maxima | r = 1: +0.162, r = 2: +0.093, r = 3: −0.0034, r = 4: −0.0224, r = 5: −0.037 (largest s run) |
+| `review_fs_char2.py` | char-2 Frobenius families over F₂, k = 2, 4, 6 | 140/140 valid |
+| `review_fs_s5.py` | §5 identities; cyclotomic family h = 3 | 3000/3000; 1116 tuples at s = 28 |
+Sources: no external paper is used in a load-bearing way. Lenstra 1984 / Coppersmith–Howgrave-Graham–Nagaraj 2008 are cited only as ℤ
+analogues; the F_q[T] lemmas are proved from scratch in the document (and re-proved here), so I did not need the PDFs. KRRG/Sawin
+in §5 are cited as context only (Assessment).
+
+## Defects
+No FATAL. No MAJOR.
+* **m1 (MINOR, §3 end "Where the method stops").** The r = 3 failure is presented as a tail-certification failure only. In fact the
+  Lemma 1.6 bound-sum through s = 150 is ≈ 194.6 > q − 1 = 26 (per-s terms ≈ 2–2.5), so the route-bound version of (Σ) is false
+  at r = 3 at finite level. *Repair:* add one sentence saying so (CERTIFIED for the bounds; nothing about true counts).
+* **m2 (MINOR, §3 end).** "835 boxes, all near p ≈ (0.31, 0.325, 0.20, 0.168)" — there is a second near-critical region near
+  (0.39, 0.11, 0.10, 0.40) (29 of the 615 failed boxes at S = 150; same in my independent tail), with binding routes R3, R10b, R4,
+  R2; it is also where the per-level maximum sits. *Repair:* mention it, and that a class-divisor bound beyond Coppersmith would
+  be needed there for R2/R3/R4.
+* **m3 (MINOR, (I3)/(I4), §5(b)).** "−0.027 (r = 4)" is a finite-grid maximum (≤ the true sup). Exact per-level maxima are
+  −0.0262/−0.0236/−0.0224 at s = 300/600/1200, i.e. the continuum value is ≈ −0.021 (r = 3: −0.0034 at s = 1200, ≈ 0⁻).
+  *Repair:* say "grid value; per-level maxima approach ≈ −0.02 (EVIDENCE)".
+* **m4 (MINOR, §5 reformulation).** State n ≥ 2; note the converse uses only the form of w₁, C₁ (clean form: covers ⇔
+  T^n | w₁ − cg′v₁(1 + cT)); note only even s is treated.
+* **m5 (MINOR, Theorem 3.1(b) and AGENT_REPORT "≥ 0.98 (r ≥ 7)").** The document's certificate stops at r = 30; for r ≥ 31 it
+  only cites Thm 2.5, whose stated measure is ≥ 0.97. *Repair:* cite R217's independent certificate r = 31..45 (covered ≤ 10⁻¹⁴)
+  and the DEPTH_ASPECT crude form (decreasing in q, 5.9·10⁻⁵ at r = 46) for r ≥ 46.
+* m6 (optional) Theorem 3.1(b) can be sharpened to ≤ 0.19 (r = 5), ≤ 0.039 (r = 6) (R217 totals); fs_tail's budget is the slack.
+* m7 (optional, Lemma 1.4 proof) define τ₀ ≡ Fσ₀^{−1} (mod Q) directly; it always exists.
+* m8 (optional, fs_caseA.py) the α > 40 majorant can use q^{−(α+1)/2}; at r = 4 it is currently 99 % of the Case A total.
+* m9 (optional, Theorem 3.1(a)) "at least 75" can be "at least 76" (2.176/0.5 < 5).
