@@ -1,6 +1,6 @@
 # R213 — hostile review of CAP_TWO.md (O214, spark relay Y6)
 
-Reviewer: R213 (side agent, branch side-agent/review-cap-two). Reviewed commit: side-agent/cap-two as merged at start.
+Reviewer: R213 (side agent, branch side-agent/review-cap-two). Reviewed commit: side-agent/cap-two @ 86f43428.
 From-scratch scripts: `scripts/review_r213_*.py` (none reuses `y6_*`).
 Repairs applied: none (author at checkpoint 1, last commit minutes before this review; all defects MINOR, forwarded for author repair).
 
