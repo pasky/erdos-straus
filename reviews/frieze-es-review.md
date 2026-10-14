@@ -114,3 +114,39 @@ Small point: the depth-1 (k = 1) colour argument needs only that the three class
   friezes of the same width, a different lifting problem from "lift to a positive frieze with boundary (1,1,1,1,N)".
   The memo itself says so (iteration 1). Fine as Assessment.
 **Verdict: SOUND-AFTER-REPAIRS** (relabel (c) as Assessment; cite CHI_FLIP; fix the "N mod 8" sentence).
+
+## Claim 6 — §4 polygon size, hexagon identity, Thm 4.1 (memo y2_hexagon_degeneration)
+From scratch: `scripts/review_r208_polygon.py` (log `logs/review_r208_polygon.txt`), `scripts/review_r208_hexnum.py`.
+* **Hexagon identity** 4/N = 1/k + 1/(k(2k−1)) + 1/((2k−1)(3k−2)) + 1/(N(3k−2)), N = 4k − 3: re-derived by telescoping
+  (partial sums 2/(2k−1), 3/(3k−2), then (3N + 1)/(N(3k−2)) = 4/N), and checked in exact rationals for 2 ≤ k < 3000.
+  K(2,2,2,k) = 4k − 3 and the quiddity at V₆ is 4 (my polygon code). **SOUND.**
+* **r = 2** (xy = N + 1 ≡ 2 (4); the four quiddities are x, y, x, y) **SOUND**. **r = 4** **SOUND**.
+  **r ≡ 0 (4)** family (2^{r−1}, k): K = rk − r + 1, quiddity r at V_{r+2} (checked r ≤ 20); N ≡ 1 (mod r) contains
+  (r+1)² with k = r + 3 ≥ 2. **SOUND.**
+* **Witnesses r ≤ 12:** my independent search finds exactly the author's first odd-square witnesses (r = 5: 25;
+  6: 49; 7: 81; 8: 9; 9: 49; 10: 81; 11: 225; 12: 25) and none for r = 2, 3 up to N = 49². **CERTIFIED.**
+* **The CONJECTURE "for all r ≥ 4" is in fact PROVED (R208).** For r ≥ 5 take the interior word
+  w = (2, 2, 2, 4, 2^l, k), l = r − 5. With the prefix p = (2,2,2,4,2^l): K(2^j, 4, 2^l) = 2jl + 3j + 3l + 4, so
+  Q := K(p) = 9l + 13 and K(p⁻) = Q − 9 (j = 3). Then K(w) = kQ − (Q − 9) ≡ 9 (mod Q), so with M = 2Q + 3 (odd),
+  N = M² ≡ 9 (mod Q) and k = (N + Q − 9)/Q ≥ 2 is an integer. The letter 4 is a quiddity (b_i = λ_{i,i+2}).
+  So Z_r(M²) holds for every r ≥ 4. Checked for 5 ≤ r ≤ 60 (`family_all_r` in my script). Suggest replacing the
+  CONJECTURE/EVIDENCE line and the "(for r ≤ 12 and r ≡ 0 (4); CONJECTURE beyond)" qualifier (D8).
+* **Definition gap (D9).** "The zero locus is (not) a Jacobi fibre" is never defined. The intended meaning is surely:
+  among interior length-r words at N ≡ 1 (4), {some quiddity ≡ 0 (4)} = {(A/N) = −1}. A witness at an odd square
+  only shows the zero locus ⊄ {(A/N) = −1}; that suffices for "≠", but the statement "not contained in a Jacobi fibre"
+  needs also ⊄ {+1}, which is only EVIDENCE (r = 4, both signs, memo). r = 2 must be handled separately: its zero
+  locus is empty, which differs from the non-empty −1 fibre (e.g. N = 5, (x,y) = (2,3), A = 3) — fine, but say so.
+* **Thm 4.1.** Geometry re-derived: triangles containing the N-side are cut by h = λ₁₄ and h′ = λ₂₅, leaving the
+  quadrilateral (1,1,1,h) i.e. cm = h + 1, and N = hs − c ✓; h = 4: cm = 5 ⇒ (1,5)/(5,1), N = 4s − 1 or 4s − 5 ≡ 3 (4) ✓.
+  Interior words at 4 are exactly (4), (2,2,2) ✓ (length 2: xy = 5; length 3: m = 2 forces (2c−1)(2s−1) = 9; m ≥ 3 gives
+  K ≥ 8; length ≥ 4 gives K ≥ 5). Two inaccuracies: the "otherwise" bullet "hs = N + 4w" is right only for c = 4w; for
+  m = 4w the relation is hh′ = 1 + 4wN and for s = 4w it is ch′ = N + 4w (memo says "product = N + const", also wrong
+  for m). And "leaves a divisor event" is not a mathematical predicate — Thm 4.1's PROVED content is the piece
+  identification; "divisor event / B2" is Assessment (D10).
+* **Numerics** (`review_r208_hexnum.py`, N ≤ 5000): r = 4 fails only at 3, 7, 15 ✓; r = 3 fails at 34 odd squares and 13
+  non-squares ✓, but the non-squares are 3, 5, 7, 11, 15, 23, 27, 35, 39, 55, 99, 105, 119 — the memo's description
+  "N ≡ 3 (4) cases and 105" omits N = 5 (≡ 1 (4), L₃(5) = ∅) (D11).
+* Mod-2 patterns: re-derived — closed 6-walks on K₃ = P¹(F₂) are step sequences ε ∈ {±1}⁶ with Σε ≡ 0 (3), i.e. all equal
+  or three of each sign; up to dihedral symmetry that gives exactly the four patterns (1⁶), (0,1,1,0,1,1),
+  4-even, (0⁶) ✓; for the pentagon Σε = ±3 forces one sign change pair, i.e. Lemma 1.1 again ✓.
+**Verdict: SOUND-AFTER-REPAIRS** (and the conjecture upgrades to PROVED).
