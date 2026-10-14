@@ -6,7 +6,24 @@ scripts/review_tf_*.{py,c}. Status: IN PROGRESS.
 
 ## Summary verdicts
 
-(filled in claim by claim below)
+No FATAL defects. Three MAJOR (D3 scope/attribution of Thm 3.1–Cor 3.2 in the Assessment and verdict; D5 gap in
+Prop 3.3 for families of degree D ≥ 2; D7 Prop 4.2 is a divisor restatement presented as an elliptic-curve
+finding), five MINOR. All numerical headlines reproduced from scratch (3361 extended to 10⁸).
+
+| claim | verdict |
+|---|---|
+| §1 Lemma 1.1 (group structures) | SOUND (D1: h = 3 also fine, state it) |
+| §1 Prop 1.2 (Type II ⟺ 2-torsion of y² = x³ + pd·x ⟺ cd \| #2E₀, h \| p + 4c²d) | SOUND; end-to-end brute force vs actual Type II solutions, p ≤ 400, 0 mismatches (D2: tautological, wording) |
+| §2 Prop 2.1 / Cor 2.2 (cyclotomic collapse) | SOUND (h = 2, 3 excluded correctly; j = 0, 1728 irrelevant) |
+| §2 Prop 2.3 (firing reads only det) | SOUND but trivial: holds for every E (D4) |
+| Thm 3.1 (gcd(h^s+1, h^t−1) = 2, t odd) | SOUND (re-derived; brute force; t odd necessary) |
+| Cor 3.2 ("amplifies by ≤ 2") | SOUND as stated; SOUND-AFTER-REPAIRS for its use in §3 Assessment / §6.3 / report (D3, MAJOR) |
+| Prop 3.3 (Merel/Mazur; 4cd ∈ {4, 8, 12}) | SOUND for D = 1 (the headline); GAP for D ≥ 2 (D5, MAJOR); Cheon–Hahn citation checked |
+| Prop 3.4 (profinite (J)34; empty interior; measure) | SOUND |
+| Prop 3.5 (Kronecker) | SOUND (definitional) |
+| §4.1 (3361 unique ≤ 10⁷ without prime-modulus cert.) | SOUND; reproduced independently and extended to 10⁸; certificate list exact (D6 minor) |
+| Props 4.2 / 4.3 + EVIDENCE | math SOUND, EVIDENCE reproduced to 10⁷; Prop 4.2 is a pure restatement of "p + c has a divisor ≡ −1 (mod 4c)" (D7, MAJOR overclaim) |
+| §5 Prop 5.1, barrier table, §6 labels | SOUND-AFTER-REPAIRS (D3, D5, D7, D8) |
 
 ## Claim-by-claim
 
