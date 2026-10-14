@@ -105,3 +105,54 @@ No defect found in the tail logic.
   constant of Thm 3.1(a)/(b) is confirmed except that my S = 60 bound at r = 6 (0.437) is weaker than the claimed 0.38;
   with S = 100 at r = 6 my bound is **0.0386 + 4.7·10⁻⁶ + 10⁻⁵ ≤ 0.039**, so the claim "≤ 0.38" holds (and is
   very loose: m-3). Likewise r = 5 with S = 160: ≤ 0.1746 (claimed 0.26). The tail at S = 60 is pure box overhead.
+
+### Theorem 3.1 as a whole — SOUND (PROVED, computer-assisted, relative to the stated Thm 2.5 inputs)
+Reduction re-derived: (Σ) ⇒ (Lemma 2.1) some c-slice has positive uncovered measure ⇒ O(q, T^k) ≠ ∅ ⇒ no finite linear
+covering (FUNCTIONFIELD_ES2 §0.1). The inherited inputs are used within their hypotheses and **no input beyond those of
+Thm 2.5 is used**: the Case A/B split and cylinder form (O173 Lemma 1.1, re-derived in R187 §2.1 item 8); (B) with T² | v,
+T ∥ w, T ∥ C (O173 Lemma 2.1(a),(b), R187); nested cylinders N ≥ N(s) (γ ≤ j); R166 Case A steps (1)–(2) (only
+E ≡ −u (mod T^{k+α}) with u ≡ 1 + cT (mod T²) is used, as in DEPTH_ASPECT §2.2); k-monotonicity (N(s) and the Case A
+exponent increase with k, the tuple sets do not depend on k). Uniformity: the route bounds are uniform in c and the
+counts are over all tuples; no constant depends on s beyond what is summed. w ↔ C symmetry is a bijection of (B)
+preserving s and swapping (a, b), so the multiplicities 2/1 are right. r ≥ 31 rests on Thm 2.5 (r ≥ 27), so the two
+ranges overlap. All stated constants (a), (b) are confirmed by my independent certificate (section above).
+
+### §3 "Where the method stops: r = 3" — SOUND as EVIDENCE/Assessment, but understated (m-4)
+My continuum computation (`scripts/review_fs2_rate.py`, own code, grid + local search) confirms the critical point: at
+(a, z, y, t)/s = (1/3, 1/3, 1/6, 1/6) the R1 exponent is t + G(1/3, 1/3, 1/3)/log q = 1/6 + log 3/log 27 = **1/2 exactly**
+at q = 27, and the R10 Coppersmith threshold ab/(a + b) = 1/6 = t is met with equality there; nearby the sup of min-route
+is −8·10⁻⁵ → 0⁻. So r = 3 is exactly critical for these route bounds (author: "0.000", "R1 and R10 meet exactly" — confirmed;
+the author's quoted location (0.31, 0.325, 0.20, 0.168) is a grid point near this exact point). At r = 4 my grid gives
+−0.024 (author −0.027): both negative; EVIDENCE only, and the certificate does not depend on it.
+**But:** the finite part of (Σ) with the Lemma 1.6 bounds at r = 3 already exceeds q − 1 = 26 at **s = 36 (27.68)** and is
+195.06 at s ≤ 150 (my code; fs_sum gives 195.60). So this union bound *provably* cannot give (Σ) at r = 3 — independent
+of any tail — which is a CERTIFIED negative statement the document misses; it currently says only that fs_tail "fails to
+certify" and that per-s terms are ≈ 2 "not a proof of divergence".
+
+### §4 characteristic 2 (Frobenius family) — SOUND
+Re-derived with the linear-family definition of FUNCTIONFIELD_ES §6.2: family (E; 0, g'; 2, g'), A = T², a = g',
+b = X/g', X = (P + E)/T². At a c-slice point: T² | P + E (u ≡ 1 + cT ≡ E, char 2); P + E ≡ 1 + 1 = 0 (mod g') and
+gcd(g', T) = 1, so g' | X; gcd(g', E) = gcd(T + c, 1) = 1, X ≡ T⁻² (mod E), so s ≡ (T²g'² + 1)/(T²g') = E²/(T²g') ≡ 0;
+s, E monic. The NC identity A/P = 1/X + 1/Y + 1/Z with κ = s/E then holds formally. The k = 2m generalisation is also
+right (E = 1 + T^m g', g' ≡ h (mod T^m)). Scope correctly limited to u(0) = 1 (repair m7).
+*Check* (`scripts/review_fs2_char2.py`, own code, F₂ and F₄ via python-flint): 180 random instances per field (m = 1, 2, 3;
+random g', random large-degree monic P in the slice with P ≡ 1 mod g'E), all valid, identity verified.
+
+### §5 reformulation (S1)–(S3) at q = 3 — SOUND (PROVED)
+Both directions re-derived: forward: from C₁E = g'T^{2n−1} + w₁ and E ≡ −u (mod T^{n+1}), w₁ ≡ −uC₁ (mod T^{n+1}) (needs
+2n − 1 ≥ n + 1, i.e. n ≥ 2), then with w₁ + C₁ = Tg'v₁: w₁(1 − u) ≡ −uTg'v₁, i.e. w₁ ≡ c u g'v₁ (mod T^n); the expansion
+m'w₁C₁ = −m'g'²v₁²u − cm'g'v₁T^nω(cT − 1) − m'T^{2n}ω² (uses u + 1 = cT − 1 in F₃, c² = 1) is right, and (S1)–(S3)
+follow as stated. Converse: (E + u)C₁ = g'T^{2n−1} − cT^{n+1}ω, as stated. (S1) ⇒ z + 2y + t ≥ n + 1 since P ≠ 0.
+*Brute force* (`scripts/review_fs2_s5.py`): all tuples with s = 2n ≤ 14, c ∈ {1, 2}: LHS ⟺ RHS on every tuple —
+**but the test is vacuous** (no tuple covers x*_c in that range, consistent with FF_STERILE_PROOF), so the equivalence rests
+on the algebra above (which I checked). The doc does not claim a numerical check; fine.
+§5(a) census 94/27: **reproduced exactly** by my enumerator (q = 3, s ≤ 15; tuple counts per s 2, 4, 10, 8, 8, 4, 24, 12,
+14, 36, 104, 48 for s = 4..15, identical through s = 13 to R187's list).
+§5(b) M2 repair (count at v₁ = −1, s = 3^h + 1, not polynomial): checked by exact DP over the factorisation of T^{3^h−1} − 1
+(`scripts/review_fs2_m2.py`, cross-checked by direct enumeration at h = 2, 3: 12 and 1116 tuples). Exact counts of tuples
+with v₁ = −1: 9.63·10⁸ (s = 82), **5.60·10²¹ (s = 244)** ≥ the claimed 7.8·10¹⁰ (which is a sub-count at the thirds
+corner). Growth ≈ 3^{#factors} = exp(Θ(s/log s)) as claimed.
+
+### Labels — mostly SOUND
+Conjecture 0.2 is nowhere claimed proved; "ES not solved" is stated; the r = 3 barrier is labelled EVIDENCE + Assessment;
+§4 ℤ-paragraph is Assessment. Minor inconsistencies: m-5, m-6.
