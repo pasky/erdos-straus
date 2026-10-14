@@ -5,7 +5,23 @@ Reviewer: R216 (side agent). Branch `side-agent/review-bridge-worlds`, merged `s
 From-scratch scripts: `scripts/review_r216_*.{c,py}` (none of the author's `scripts/y3_*` were reused).
 
 ## Summary verdicts
-(filled in progressively; see sections below)
+| claim | verdict |
+|---|---|
+| §1 Lemma 1.1, Prop 1.2 (scaling collapse), Prop 1.3 (additive bridge), Stickelberger sign (−1)^j | SOUND |
+| Uniform-cyclotomy residue law m²(a,b) ≡ 1, 1 − m, 1 − 3m (labelled EVIDENCE) | SOUND, and in fact PROVED (two-line Jacobi-sum proof, C1) — relabel |
+| Thm 2.1 (a)/(b)/(c), Cor 2.2 | SOUND-AFTER-REPAIRS (minor: (b) regularity step & examples outside the definition; (c) "fixed formula" quantifier missing; heading overclaims "classification") |
+| "every useful bridge is archimedean" | correctly labelled Assessment everywhere ✓ |
+| §3 / y3_frob_infinity dictionary + cd \| 6 criterion (0 mismatches in 86 310) | SOUND (re-checked from scratch: 86 310 / 0 mismatches; it is linear duality) |
+| §4 Type I overlap + dual Hasse window (g ∈ {1,3,5}, CM refuted) | SOUND |
+| §5 CONJECTURE PM-II + census | SOUND as EVIDENCE (independent census complete to 10⁷ [10⁸: C4b]: exceptions 13, 193, 3361 (0), 76441 exactly); minor: growth constants, adversarial numbers |
+| Prop 6.1 | SOUND |
+| Prop 6.2 (T1 kept; (p/h) = −1 ⟺ firing at good h; numerics) | SOUND-AFTER-REPAIRS (MAJOR: the variant is never defined, and the natural reading "E⁺ of K_{4cd}" FAILS T1 by the author's own ℚ(√3) example; provability is GRH/Artin-type, not unconditional; novelty = (J)23 mechanism at rank 1) |
+| §8 / y3_ordinary_bridge (1): \|Hom(E(F_h),F_h^*)\| ≤ gcd(a_h − 2, h − 1) | GAP — false as stated (counterexamples), true for the image of a single homomorphism; repair trivial, conclusions unaffected |
+| §8 (2)–(4), Mazur, trace-a equation | SOUND |
+| memos Salié / Gross–Koblitz / Euclid–Schur / Lucas–Dickson | SOUND |
+| Labels overall | no FATAL overclaim; ES and "no infinite case" disclaimers present throughout |
+
+No FATAL defect. Two MAJOR (M1, M2), nine MINOR.
 
 ## Checks, claim by claim
 
@@ -176,3 +192,37 @@ From scratch (`scripts/review_r216_adversarial.py`, first 4 primes p ≡ 1 (mod 
 Q = 17: 18, 11, 8, 11; Q = 19: 18, 14, 15, 19; Q = 23: 19, 12, 16, 16; Q = 29: 20, 14, 14, 14. The memo's "4–20 (min 4
 at p = 600601)" is right; BRIDGE_WORLDS §5 ("still have 14–20 prime-firing slices") and the report ("≥ 14") are
 wrong. → m7.
+
+## Defects
+**M1 (MAJOR; BRIDGE_WORLDS §8(i), memo y3_ordinary_bridge Finding (1), report SHARP 5).** "|Hom(E(F_h), F_h^*)| ≤
+gcd(a_h − 2, h − 1)" is false (y² = x³ − x / F_7: 4 > 2; y² = x³ + 1 / F_7: 12 > 6). Repair: state the bound for the
+image of any one homomorphism (≤ gcd(n₂, h − 1) ≤ gcd(a_h − 2, h − 1)); if a count is wanted, |Hom| = n₁·gcd(n₂, h − 1)
+≤ gcd(a_h − 2, h − 1)².
+**M2 (MAJOR; §6 Prop 6.1/6.2, §7 table, report SHARP 4).** The E⁺-twisted variant is never defined, and the text
+suggests the general repair "allow only totally positive units E⁺" of K_{4cd} = ℚ(ζ_{4cd})⁺. Under that reading T1
+FAILS: at the slice (c,d) = (1,3), K_12 = ℚ(√3), E⁺ = ⟨2 + √3⟩, n = 9 fires at h = 11 (the author's own example). The
+proved statements hold only for the restricted predicate Fire⁺ (C5): units ⟨ε₀²⟩ ⊂ ℚ(√2) on slices with cd even.
+Repair: insert the definition of Fire⁺ (C5) before Prop 6.2, say explicitly that it is neither weaker nor stronger
+than Type II (cd-odd slices excluded) and is a firing predicate (not an Egyptian-fraction equation), and that the
+K_{4cd}-wide E⁺ variant is NOT T1-keeping (n = 9, h = 11).
+**m1 (Thm 2.1(b)).** Add the regularity step (S regular at μ_m ⟹ S = A(e)/B(e), B(e(μ_m)) ≠ 0) and define "good
+reduction" via that representation; reword the examples: |μ_c| is not a rational function, ∏(1 − ζ) and Σ csc² are
+symmetric in μ_c ∖ {1} (cover them by "symmetric functions of the roots of a fixed monic F ∈ ℤ[X]").
+**m2 (Thm 2.1(c)).** Add "for a characteristic-zero formula fixed independently of h (and p)"; without it the tier
+is vacuous (the prime field of F_{h²} is F_h). Prop G in y3_lucas_dickson_trace already says this.
+**m3 (§2 heading).** "Classification of bridges … (PROVED)" → "Three elementary bridge tiers (PROVED; scope: these
+classes only)".
+**m4 (§5, memo census, report).** Growth constants: over full dyadic blocks mean N_II^pr/log²p decreases 0.289 → 0.263
+and mean N_II/log³p 0.124 → 0.096 (to 2²³); "(0.10–0.12)·log³p for 10³ ≤ p ≤ 10⁸" is contradicted by the author's own
+10⁷ window (0.096). Repair: quote the block values and say the normalised means drift slowly downward (the growth
+law is not established; Assessment).
+**m5 (§6 provability sentence).** Label it: Assessment (E⁺-solvability of every p is an Artin-type statement for the
+single unit 1 + √2 on a Chebotarev set; expected under GRH via a Lenstra-type density argument not written out; not
+unconditional — rank 1, unlike (J)23's |S| ≥ 4).
+**m6 (report "Other results").** "partial overlaps exist for p ≡ 1 (4) on finitely many slices" — vacuous qualifier;
+say "on slices with gcd(cd, (p+1)/2) > 1".
+**m7 (§5, report SHARP 3).** Adversarial counts: "14–20" / "≥ 14" → "4–20 (min 4 at p = 600601)", as in the memo.
+**m8 (§1, §7, report).** Uniform-cyclotomy residue law: EVIDENCE → PROVED, with the two-line proof of C1 (the pattern
+is 1 − m(δ_{a0} + δ_{b0} + δ_{ab})); spark 2 is thereby closed.
+**m9 (§3 / memo / report).** The cd | 6 criterion is F_2-linear duality (subset sums = span); "genus theory" is
+acceptable as a name but the 86 310-instance check is only a coding check — say so.
