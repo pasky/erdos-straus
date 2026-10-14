@@ -3,8 +3,16 @@
 Reviewer worktree branch `side-agent/review-four-specific`, merged `side-agent/four-specific` at c82ebf63.
 From-scratch scripts: `scripts/review_r212_*.{py,c}` (none of the author's `y4_*` code reused).
 
+**Repairs applied** (author quiet since 17:54, no new pushes; all defects MINOR): D1 in `BRAINSTORM/y4_t1_numerators.md`;
+D2, D3, D4, D5, D6, D7 in `FOUR_SPECIFIC.md` (§1, §2 Thm 2.3 header + census line, §3.2, §7 Verdict), each marked
+"(R212 repair)". No FATAL or MAJOR defect found.
+
+**Overall verdict: SOUND.** Every key lemma re-derived; every numerical claim I targeted reproduced with independent code
+(7/p failure-free to 10⁸; S₄^{odd} to 10⁷; full MODEL_SPECIFIC failure table M = 5–24; Thm 4.2 finite check; Thm 2.3 on all
+50 063 words of n ≤ 2001). The document's conclusions are modest and correctly labelled; the main weakness is that two
+of its "new" results (Thm 2.3, Prop 3.1) are elementary or standard, which the repaired wording now says.
+
 ## Summary verdicts
-(filled in as the review proceeds; see per-claim sections)
 
 | claim | verdict |
 |---|---|

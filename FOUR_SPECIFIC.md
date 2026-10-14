@@ -27,10 +27,13 @@ stated 4-specific input.
 ## 1. T1-bearing numerators (PROVED; BRAINSTORM/y4_t1_numerators, `scripts/y4_t1_numerators.py`)
 **Prop 1.1.** For M ≥ 3, (−M/g) = −1 for all odd g ≡ −1 (mod M) ⟺ M ≡ 0, 3 (mod 4). Hence (Cor 1.2): the
 M-shot relaxation M^□ is a theorem at every odd non-square prime to M for every M ≥ 3 (Dirichlet); its odd-g shot family
-has T1 exactly when M ≡ 0, 3 (mod 4) (even g sneak in iff M ≡ 3 mod 8); for M ≡ 1, 2 (mod 4) the relaxation holds at
-squares too. Checked for M = 3..24 (odd squares k ≤ 99, Q ≤ 40) and at every census failure (exact certificates).
-New harness entry: **11/37** (non-trivial: 11/37 < 3), `11/37 = 1/8 + 1/148 + 49/296`.
-T1-bearing and failure-free to 10⁸: **3 (trivial), 4, 7**.
+has T1 exactly when M ≡ 0, 3 (mod 4) (even g sneak in iff M ≡ 3 mod 8); for M ≡ 1, 2 (mod 4) the shot family reaches
+every odd square prime to M (R212 repair: M^□ itself holds at most odd squares for every M via non-shot solutions,
+e.g. 8/9 = 1/2 + 1/3 + 1/18; the point is that the *shot mechanism* has no T1 there). Checked for M = 3..24 (odd squares k ≤ 99, Q ≤ 40) and at every census failure (exact certificates).
+New harness entry: **11/37** (non-trivial: 11/37 < 3), `11/37 = 1/8 + 1/148 + 49/296` (R212 repair: an entry for the
+shot/T1/relaxation layers only; BM was not computed for 11/37, and no threshold-robust PW-type form is known for M ≡ 3 mod 4).
+T1-bearing and failure-free to 10⁸: **3 (trivial), 4, 7** (R212 repair: among M ≤ 30000 — census for M ≤ 24, PW §6 for
+16 ≤ M ≤ 30000; independently re-verified for 7 to 10⁸ by R212).
 
 ## 2. The one-odd half on the five slices (BRAINSTORM/y4_oneodd_slices)
 **Lemma 2.1 (PROVED).** For a word w = (t, u, v) of odd n and a slot X ∈ {A, A*, t, u, v} with 4 | X, the (J)32 slice
@@ -42,7 +45,8 @@ det⟨e₁, e₂⟩ = A*. (J)32 + (J)33: Q_w is ℚ₂-isotropic ⟺ one of the 
 the certificate is one-odd ⟺ that quantity is ≡ 4 (mod 8).
 **Cells (CERTIFIED).** The 240 χ = −1 cells mod 8 split 100 / 100 / 40 (one-odd only / S₈ only / both). S₄^{odd} and S₈
 each fill 140/240.
-**Theorem 2.3 (PROVED relative to the classification of ℤ₂-lattices by 2-adic symbols, e.g. Allcock–Gal–Mark,
+**Theorem 2.3 (R212 repair: this is the standard fact that an isotropic unimodular ternary ℤ₂-lattice of determinant n is
+⟨1, −1, −n⟩, applied to path forms; it is a remark, not a new structural result) (PROVED relative to the classification of ℤ₂-lattices by 2-adic symbols, e.g. Allcock–Gal–Mark,
 arXiv:1511.04614, Thm 5.1: unimodular ℤ₂-lattices are classified by dimension, type, sign and oddity; cf. Conway–Sloane
 SPLAG Ch. 15).** For odd n and every word w with χ(w) = −1, Q_w ⊗ ℤ₂ ≅ ⟨1, −1, −n⟩. Hence all certificate
 lattices of a fixed n are ℤ₂-isometric, and **no invariant of the ℤ₂-lattice separates one-odd from all-even
@@ -56,7 +60,7 @@ determinant). Same symbol ⇒ isometric. ∎
 i.e. −n mod 8, and all three parity classes occur within each oddity class.)
 **Census (EVIDENCE; `scripts/y4_oddslice.c`, every hit verified in 128-bit with its parity).** S₄^{odd}(p) ≠ ∅ for every
 prime 3 ≤ p ≤ 10⁷. S₈(p) = ∅ at 27 primes (reproduces (J)32). Odd squares ≤ 10⁶: S₄^{odd} = S₈ = ∅ (T1). The full
-one-odd ES half has no failing prime ≤ 10⁶ (`ms_census 4 10⁶ p 1`). The one-odd half of 8/p fails at 3, 11, 17, 59, 131,
+one-odd ES half has no failing prime ≤ 10⁶ (`ms_census 4 10⁶ p 1`; R212 repair: MODEL_SPECIFIC §2 already has this to 10⁸). The one-odd half of 8/p fails at 3, 11, 17, 59, 131,
 241, 449. Composite odd non-squares n ≤ 2·10⁵ with S₄ ≠ ∅ but S₄^{odd} = ∅: 321, 4545, 5481, 8745, 9121, 13041, 25305,
 57481, 169425.
 **Where 8/n's failures sit.** At 131, 241 every ES solution is one-odd (32 and 8 solutions; MODEL_SPECIFIC §2). All five
@@ -74,7 +78,7 @@ one-odd solution" would have to act on the marking, i.e. on the word itself. Tha
 M ≥ 3 for which every prime p ∤ M has such a slice with e ∈ {1, 3} is **M = 4**. (At most the three classes −1, −3, −3⁻¹
 are covered, so φ(M) ≤ 3 and M ∈ {3, 4, 6}. For 3 and 6, e = 3 is not a unit.) Brute check M < 200: `scripts/y4_slice3.py`.
 **3.2 Meaning.** (ℤ/e)^* = {±1} for e ∈ {1, 2, 3, 4, 6}. With all five allowed, a {±1}-slice exists at every prime exactly for
-M ∈ {3, 4, 5, 7} (check M < 200; R-O212), so only the literal e ∈ {1, 3} statement is 4-specific. On an e = 3 slice the event −1 ∈ Σ₃(N) is "N has a prime factor
+M ∈ {3, 4, 5, 7} (check M < 200; R-O212; R212 repair: at most 9 classes are covered, so φ(M) ≤ 9 ⇒ M ≤ 30 and the check is a proof), so only the literal e ∈ {1, 3} statement is 4-specific. On an e = 3 slice the event −1 ∈ Σ₃(N) is "N has a prime factor
 ≡ 2 (mod 3)", a non-triviality event and not a hitting event. For p ≡ 1 (mod 12), ES has two such slices,
 N_II = (p+3)/4 and N_I = (3p+1)/4. Both fail iff all their prime factors are ≡ 1 (mod 3). This happens for 1771 of the
 19564 primes p ≡ 1 (mod 12) below 10⁶ (9.1%; 10.7% below 10⁴), first at 241, 409, 769 (EVIDENCE). For p ≡ 1 (mod 8) the e = 3 Type I
@@ -130,8 +134,8 @@ excluded by this argument. "BM-only for all m/n surfaces" (uniform H-F) is false
 | (ℤ/4)^* = {±1}: the two-term class is the whole non-T1 class | trivial | no |
 **Verdict.** No route to ES. The structural 4-specific inputs reduce to one: the χ-fibre / 2-adic isotropy of (J)32–(J)33.
 Every other 4-specific fact found here is a congruence refinement (§3, §4), strictly harder (§2), or not
-4-specific (§1). The sharpest new statements are Thm 2.3 (certificates of fixed n are ℤ₂-isometric as unmarked lattices,
-so the one-odd/all-even split is marking data) and Thm 4.2 (Mordell's 840 is exactly where one-slot witnesses stop).
+4-specific (§1). The new statements are Thm 2.3 (a standard 2-adic remark, R212 repair: certificates of fixed n are
+ℤ₂-isometric as unmarked lattices, so the one-odd/all-even split is marking data) and Thm 4.2 (Mordell's 840 is exactly where one-slot witnesses stop).
 Both are descriptions and open no door. The 7-control shows the failure-free record does not need the χ-fibre.
 
 ## 8. Repair log (self-review R-O212, deep reviewer; all findings accepted)

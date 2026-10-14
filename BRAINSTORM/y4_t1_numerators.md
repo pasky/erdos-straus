@@ -15,7 +15,7 @@ free subject to g ≡ −1 (M′); (−2/g) differs between g ≡ 1 and g ≡ 5 
 is not constant. ∎
 
 **Cor 2 (PROVED; Dirichlet + Lemma 1.0).** For odd n prime to M:
-(a) n not a square ⇒ M^□(n) holds for every M ≥ 3 (choose a prime g ≡ −1 (mod M) with (n/g) = −(−M/g) — possible
+(a) n not a square ⇒ M^□(n) holds for every M ≥ 3 (choose a prime g ≡ −1 (mod M) with (n/g) = (−M/g) [R212 repair: sign was flipped] — possible
 because (n₀/g) varies with g mod n₀ (or mod 8 if 2 | n₀) independently of g mod M; then −n/M is a square mod g).
 (b) **T1 (odd g):** for M ≡ 0, 3 (mod 4) no odd g > 1, g ≡ −1 (mod M), divides k² + MQ² (gcd(Q, k) = 1, gcd(k, M) = 1):
 every odd prime ℓ of k² + MQ² has (−M/ℓ) = 1, contradicting Prop 1. For M ≡ 3 (mod 8) EVEN g can occur
