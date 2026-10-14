@@ -128,11 +128,11 @@ gives Q₀ = (g+1)/(4k) = λR and Q = Q₀Q₁ = λR^{e+1}; gcd(Q, Q₀k) = λR�
 *Check (`scripts/pd_theta.py 201 8 300`):* for odd n ≤ 201, k, λ ≤ 8, e ≤ 2: 368 / 710 / 1276 shots (e = 0/1/2) found
 via N_e, each an exact solution with den z = R^{2e}; the equivalence g | 4k²n + R^{2e} ⟺ g | N_e checked on
 2 802 432 (n, e, k, λ, R) with e ≤ 3, R ≤ 300.
-*The modulus exponent.* log M/log N_e → θ_e := 1/(2e + 2) when k, λ are of comparable size (M^{e+1} = 2λ^{?}…: precisely
+*The modulus exponent.* log M/log N_e → θ_e := 1/(2e + 2) for bounded λ (exactly:
 M^{e+1} = 2λX_e, so M = (2λX_e)^{1/(e+1)} ≈ (2λ)^{1/(e+1)}(N_e/n)^{1/(2e+2)}):
 `  e = 0 (ES):            θ = 1/2   — Lenstra's regime (≤ 11 divisors in a class mod > N^{1/3}; bounded count)`
 `  e = 1 (ES^{(y,1)}, ES^{[2]}): θ = 1/4 — exactly the Coppersmith–Howgrave-Graham–Nagaraj threshold`
-`  e = 2:                 θ = 1/6   — below it: one N may have unboundedly many divisors in the class`
+`  e = 2:                 θ = 1/6   — below CHN's range: no O(1) bound on divisors of N in one class`
 `  e = ∞, S fixed (ES^{(y)}): M fixed (θ → 0) — Kummer/Chebotarev firing, sieve-provable (Thm 4.2)`
 `  no mute (ES^□):        M = 4                 — Dirichlet`
 *Reading.* This is the brief's phase diagram on one axis. The two archimedean facts of §2–§3 are its shadows:
