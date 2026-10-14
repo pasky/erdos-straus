@@ -4,7 +4,7 @@ in s3_numerator_blind.py. Usage: s3_mbox_check.py PMAX NMAX"""
 import sys
 from math import isqrt
 from sympy import primerange
-sys.argv, args = sys.argv[:1] + ['1'], sys.argv[1:]
+args = sys.argv[1:]
 from s3_numerator_blind import dirichlet_cert   # noqa: E402  (dirichlet_cert verifies the identity and den(z))
 PMAX = int(args[0]) if args else 10**6
 NMAX = int(args[1]) if len(args) > 1 else 10**5

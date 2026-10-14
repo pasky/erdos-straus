@@ -19,7 +19,7 @@ certificates with h ≤ H is ≈ log³H-type, so small h are expected to fire).
 |---|---|---|---|---|
 | h_min (ES) | 8.8 | 3 | 71 | 2495 (p = 2 031 121) |
 | g_box (ES^□) | 7.8 | 3 | 43 | 139 (p = 9 665 041) |
-max h_min / log³p = 0.81, max g_box / log²p = 1.46; h_min ≤ g_box for 91.8% of primes (to 10⁶: max h_min = 419).
+max h_min / log³p = 0.814 (≤ 0.82), max g_box / log²p = 1.46; h_min ≤ g_box for 91.8% of primes (to 10⁶: max h_min = 419).
 
 ## Assessment
 EVIDENCE: both searches end at polylog scale in practice; the O(p²) bound (J)25 is a worst-case bound, never

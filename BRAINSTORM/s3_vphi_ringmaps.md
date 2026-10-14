@@ -21,13 +21,14 @@ corestricts to Br ℚ ⊕ ⟨α⟩).
 T1_TEMPLATE (O183); LDP_DEEP bsD_brauer_cores (corestriction).
 
 ## Barrier screen
-The ℤ-shadow of any Galois-equivariant construction is a corestriction/norm, which (J)17 shows carries only Br ℚ ⊕ ⟨α⟩
-(the T1/genus layer). B2 for item 2.
+Items 1–3 constrain only the operations examined. (J)17's corestriction theorem concerns Brauer classes evaluated on
+local points; reading it as a statement about arbitrary Galois-equivariant transports of solutions would be an
+extrapolation (Assessment only; R-O208 #7). B2 for item 2.
 
 ## Cheap numerics
 None needed (statements are identities); the script-free check: x² − x − 1 has no root mod 2 (1, −1 both ≠ 0), so even
 the reduction to ℤ/2 — where the numerator 4 and the wild partner live — does not exist.
 
 ## Assessment
-PROVED negative for algebraic transports; ℤ[φ] is "not reducible to ℤ" at the prime 2, which is exactly where the
+PROVED negative for ring maps, Galois averaging and norms (not for all conceivable algebraic transports); ℤ[φ] is "not reducible to ℤ" at the prime 2, which is exactly where the
 anchor/partner structure of (J)19 sits. Promise 0.

@@ -26,17 +26,22 @@ def orbits(n):
     return out
 
 
-from collections import Counter
-stat = Counter()
-for p in primerange(5, N):
-    ob = orbits(p)
-    neg = sum(1 for c, s in ob if c == -1)
-    tot = len(ob)
-    stat[(p % 8, neg % 2, tot % 2)] += 1
-for k in sorted(stat):
-    print('p mod 8 = %d, #chi=-1 orbits parity %d, #orbits parity %d : %d primes' % (k[0], k[1], k[2], stat[k]))
-sq = Counter()
-for m in range(3, int(N ** 0.5) + 1, 2):
-    ob = orbits(m * m)
-    sq[(sum(1 for c, s in ob if c == -1), len(ob) % 2)] += 1
-print('odd squares: (#chi=-1 orbits, #orbits parity) ->', dict(sq))
+def main():
+    from collections import Counter
+    stat = Counter()
+    for p in primerange(5, N):
+        ob = orbits(p)
+        neg = sum(1 for c, s in ob if c == -1)
+        tot = len(ob)
+        stat[(p % 8, neg % 2, tot % 2)] += 1
+    for k in sorted(stat):
+        print('p mod 8 = %d, #chi=-1 orbits parity %d, #orbits parity %d : %d primes' % (k[0], k[1], k[2], stat[k]))
+    sq = Counter()
+    for m in range(3, int(N ** 0.5) + 1, 2):
+        ob = orbits(m * m)
+        sq[(sum(1 for c, s in ob if c == -1), len(ob) % 2)] += 1
+    print('odd squares: (#chi=-1 orbits, #orbits parity) ->', dict(sq))
+
+
+if __name__ == '__main__':
+    main()

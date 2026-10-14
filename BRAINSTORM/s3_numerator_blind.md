@@ -12,7 +12,7 @@ and every transport (E1) or finite mechanism (E2) must use an input that is fals
 ## Result
 * Lemma 1.0 (PROVED): g | n + MQ², g ≡ −1 (mod M) ⇒ M/n = 1/x + 1/y + 1/z with x, y ∈ ℤ_{>0}, den z | Q².
 * **Thm 1.1 (PROVED, Dirichlet only): for every M ≡ 0 (mod 4), M^□(n) holds at every odd non-square n prime to M; at
-  odd squares no M-shot exists (T1).** Key fact: (−M/g) = −1 for every odd g ≡ −1 (mod M).
+  odd squares no M-shot exists (T1 for the shot mechanism — not for all M^□ solutions: 4/9 = 1/3 + 1/18 + 1/18).** Key fact: (−M/g) = −1 for every odd g ≡ −1 (mod M).
 * Example: **8/131 = 1/20 + 1/131 + 9/2620**, while 8/131 has no unit-fraction solution.
 * Cor 2.1: any family of implications "R_M(p) ⇒ M/p" (R_M = M^□ or M^{(S)}) is false at M = 8.
 
@@ -22,14 +22,14 @@ UNIT_ORBIT_ES Prop 2.1. No source found that states the □/mute relaxation for 
 search only).
 
 ## Barrier screen
-It IS a barrier (relativisation-type). B1–B6 untouched; T1 is preserved by the relaxation (Thm 1.1(b)), so the
-relaxation is "T1-correct and still blind". It does not bar numerator-free targets (SQ₅/(S), (J)15/(J)32).
+It IS a barrier (relativisation-type). B1–B6 untouched; the relaxation's shot mechanism keeps T1 (Thm 1.1(b)), so
+it is "T1-correct as a mechanism and still blind". It does not bar numerator-free targets (SQ₅/(S), (J)15/(J)32).
 
 ## Cheap numerics
 `scripts/s3_numerator_blind.py 60` (< 1 s): all 278 failing pairs (M, p), M ∈ {8,12,16,20,24}, p ≤ 10⁸, have exact M^□
-certificates (g ≤ 239); T1 control 0 shots at odd squares. `scripts/s3_mute_S.py 100000`: same with fixed S = {3,5,7,11},
-Q ≤ 385.
+certificates (g ≤ 239); T1 control 0 shots at odd squares. `scripts/s3_mute_S.py 100000`: same with fixed S = {3,5,7,11}
+for the 264 pairs with p ∉ S, Q ≤ 385.
 
 ## Assessment
-PROVED barrier with exact scope; SHARP (strategic): it funnels both exits into numerator-4-specific inputs, of which
-the only clean one is the numerator-free χ-fibre (SQ₅). Promise as a route: 0; as steering: high.
+PROVED barrier with exact scope (the formal content is R₈(131) ∧ ¬(8/131)); SHARP (strategic): both exits need some
+numerator-4-specific input; the cleanest known one is the numerator-free χ-fibre (SQ₅). Promise as a route: 0; as steering: high.

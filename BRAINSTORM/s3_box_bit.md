@@ -9,8 +9,10 @@ Transport a □-shot (g, Q) with overflow Q₁ > 1 into an ES certificate by cha
 or by re-reading the same modulus g.
 
 ## Results (PROVED, elementary)
-1. *Slicing re-parametrises the box at fixed g.* An ES point of V_{pd} at modulus g is a cube point (c, d, j) of p
-   with 4cdj = g + 1 (Prop 4.1(b)); so "some slice d at modulus g" ⟺ −p ∈ Box((g+1)/4) mod g, independent of Q.
+1. *Slicing re-parametrises the box at fixed g.* An ES point of V_{pd} at modulus g **whose λ = μ/D is divisible by d**
+   is a cube point (c, d, j) of p with 4cdj = g + 1 (Prop 4.1(b); the hypothesis d | λ is essential — without it, e.g.
+   p = 13, d = 2, (A, B, D, μ) = (2, 1, 35, 35) is an ES point of V₂₆ with g = 3 although −13 ∉ Box(1) mod 3; R-O208 #1);
+   so "some d-sliced point (d | λ) at modulus g" ⟺ −p ∈ Box((g+1)/4) mod g, independent of Q.
    Multiplying n by Q₁² turns (g, Q₀Q₁) into the shot (g, Q₀Q₁²) of pQ₁² (as pQ₁² + 4Q₀²Q₁⁴ = Q₁²(p + 4Q²)): the
    overflow grows. Neither move uses the □ data beyond g.
 2. *The one bit.* For a prime g ≡ 3 (mod 4), g ∤ p: [a □-shot at g exists] ⟺ (p/g) = −1. And [ES certificate at

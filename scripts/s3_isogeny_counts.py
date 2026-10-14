@@ -1,7 +1,6 @@
 """O208 memo s3_isogeny_mixing: number of chi = -1 words (five-slice certificates, (J)32/(J)35: certificate edges of the
 supersingular 2-isogeny graph) versus the number of vertices N ~ p/12. Usage: s3_isogeny_counts.py"""
 import sys
-sys.argv = [sys.argv[0], '5']           # keep s3_words_parity's own run trivial on import
 from s3_words_parity import orbits      # noqa: E402
 from sympy import nextprime              # noqa: E402
 for p0 in (10**3, 10**4, 10**5, 10**6):

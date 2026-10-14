@@ -14,7 +14,7 @@ from fractions import Fraction
 from math import gcd, isqrt
 from sympy import isprime, sqrt_mod, factorint, divisors
 
-QMAX = int(sys.argv[1]) if len(sys.argv) > 1 else 60
+QMAX = 60
 
 
 def fails(M):
@@ -94,39 +94,46 @@ def best_overflow(M, p):
     return best_q1, best_e
 
 
-tot = 0
-for M in (8, 12, 16, 20, 24):
-    F = [p for p in fails(M) if M % p]
-    rows = []
-    for p in F:
-        g, Q, x, y, z = dirichlet_cert(M, p)
-        q1, e = best_overflow(M, p)
-        assert q1 is None or q1 > 1, ('shot gives an M-solution at a failing prime?!', M, p)
-        rows.append((p, g, Q, q1, e))
-        tot += 1
-    gmax = max(r[1] for r in rows)
-    print(f'M={M}: {len(F)} failing primes, all have explicit M^box certificates; max Dirichlet g = {gmax}')
-    print('   min overflow Q1 over shots Q<=%d: ' % QMAX + ' '.join(f'{r[0]}:{r[3]}' for r in rows[:12]),
-          '...' if len(rows) > 12 else '')
-    print('   min self-mute cap e:  ' + ' '.join(f'{r[0]}:{r[4]}' for r in rows[:12]), '...' if len(rows) > 12 else '')
-    hist = {}
-    for r in rows:
-        hist[r[4]] = hist.get(r[4], 0) + 1
-    print('   histogram of min cap e (None = no self-mute shot with Q<=QMAX):', dict(sorted(hist.items(), key=str)))
-ex = dirichlet_cert(8, 131)
-print('example 8/131:', ex)
-# T1 control: odd squares k^2 coprime to M have no shot g | k^2 + M Q^2 with g = -1 (mod M), g prime
-bad = 0
-for M in (4, 8, 12, 16, 20, 24):
-    for k in range(3, 120, 2):
-        if gcd(k, M) > 1:
-            continue
-        n = k * k
-        for Q in range(1, 40):
-            if gcd(Q, k) > 1:
+def main():
+    global QMAX
+    QMAX = int(sys.argv[1]) if len(sys.argv) > 1 else 60
+    tot = 0
+    for M in (8, 12, 16, 20, 24):
+        F = [p for p in fails(M) if M % p]
+        rows = []
+        for p in F:
+            g, Q, x, y, z = dirichlet_cert(M, p)
+            q1, e = best_overflow(M, p)
+            assert q1 is None or q1 > 1, ('shot gives an M-solution at a failing prime?!', M, p)
+            rows.append((p, g, Q, q1, e))
+            tot += 1
+        gmax = max(r[1] for r in rows)
+        print(f'M={M}: {len(F)} failing primes, all have explicit M^box certificates; max Dirichlet g = {gmax}')
+        print('   min overflow Q1 over shots Q<=%d: ' % QMAX + ' '.join(f'{r[0]}:{r[3]}' for r in rows[:12]),
+              '...' if len(rows) > 12 else '')
+        print('   min self-mute cap e:  ' + ' '.join(f'{r[0]}:{r[4]}' for r in rows[:12]), '...' if len(rows) > 12 else '')
+        hist = {}
+        for r in rows:
+            hist[r[4]] = hist.get(r[4], 0) + 1
+        print('   histogram of min cap e (None = no self-mute shot with Q<=QMAX):', dict(sorted(hist.items(), key=str)))
+    ex = dirichlet_cert(8, 131)
+    print('example 8/131:', ex)
+    # T1 control: odd squares k^2 coprime to M have no shot g | k^2 + M Q^2 with g = -1 (mod M), g prime
+    bad = 0
+    for M in (4, 8, 12, 16, 20, 24):
+        for k in range(3, 120, 2):
+            if gcd(k, M) > 1:
                 continue
-            for g in divisors(n + M * Q * Q):
-                if (g + 1) % M == 0 and g > 1:
-                    bad += 1
-print('T1 control (odd squares k<120, Q<40, all M): shots with g = -1 (mod M):', bad)
-print('total failing (M,p) certified in M^box:', tot)
+            n = k * k
+            for Q in range(1, 40):
+                if gcd(Q, k) > 1:
+                    continue
+                for g in divisors(n + M * Q * Q):
+                    if (g + 1) % M == 0 and g > 1:
+                        bad += 1
+    print('T1 control (odd squares k<120, Q<40, all M): shots with g = -1 (mod M):', bad)
+    print('total failing (M,p) certified in M^box:', tot)
+
+
+if __name__ == '__main__':
+    main()

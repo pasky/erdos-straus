@@ -4,8 +4,9 @@
 move flips it), and the parity/involution mechanism (Zagier's one-sentence proof) as an (E2) candidate.
 
 ## Idea
-X(n) = positive words. σ: (t,u,v) ↦ (t,v,u) has the unique fixed point (n+2, 1, 1) (u = v forces u | n, u = 1), so
-|X(n)| is odd for n > 3 (PROVED). χ is σ-invariant (AA* = tn + 1 ≡ 1 mod n). If a second involution existed whose
+X(n) = positive words. For a PRIME p > 3, σ: (t,u,v) ↦ (t,v,u) has the unique fixed point (p+2, 1, 1) (u = v gives
+u(tu − 2) = p, so u ∈ {1, p}, and u = p is impossible), so |X(p)| is odd (PROVED). For composite n this fails: at n = 21
+σ fixes (23,1,1) and (3,3,3) (R-O208 #9). χ is σ-invariant (AA* = tn + 1 ≡ 1 mod n). If a second involution existed whose
 fixed points are controlled, parity could force a χ = −1 word (a finite-search existence mechanism).
 
 ## Literature
