@@ -7,42 +7,49 @@ Notation: p ≡ 1 (4) prime (p ≡ 3 (4) is trivial: (p + 2, 1, 1) has χ = −1
 A = tu − 1, A* = tv − 1, AA* = tp + 1; χ(w) = (−A/p) = (A/p); level of w := t; q = lnr(p) (least non-residue).
 
 ## Summary
-1. **The continuity of T1 is adelic, not archimedean (EVIDENCE + PROVED mechanism; corrects O209 §3.2).** Over all
-   39 174 primes p ≡ 1 (4) below 10⁶, the mean of N₋/N is 0.643–0.647 in every decile of dist(p, ℤ²)/√p (no association
-   detected in these bins), but falls
+1. **The continuity of T1 is adelic at the √p scale, and archimedean only through T1-type levels (EVIDENCE + PROVED
+   mechanisms; R224 repair: the checkpoint said "not archimedean").** Over all
+   39 174 primes p ≡ 1 (4) below 10⁶, the mean of N₋/N is 0.643–0.647 in every bin of width 0.1 of dist(p, ℤ²)/√p (no
+   association detected at that scale), but at bounded p − m² there is a 6–7σ deficit of χ = −1 words (R224: p − m² = 4
+   or 16: −0.05 against adelically identical primes), explained by Lemma 1.4: if p = m² + k and tk + 1 = c² then
+   tp + 1 = tm² + c² and level t is (odd-)clean — T1's identity tm² + 1 with 1 replaced by c². By lnr the mean falls
    monotonically with lnr(p): 0.645 (q = 3), 0.604, 0.565, 0.516, 0.481, 0.452, 0.442, 0.430 (q ≥ 23), p ≡ 1 (8).
    (Agrees with R214's correction: the worst primes are p ≡ 1 (24) with (p/5) = (p/7) = +1.)
 2. **Clean levels (PROVED, §1).** χ(w) = ∏_{r | A} (r/p)^{v_r(A)}; call level t clean if every prime r | tp + 1 has
    (r/p) = +1. Clean ⇒ all level-t words have χ = +1. T1 is "every level clean" (tm² + 1 = 1² + t·m²), and
-   conversely **an odd n is a square ⟺ every level is clean** (Prop 1.3). Primes r < lnr(p) are always clean, and the
+   conversely **an odd n is a square ⟺ every (odd-)level is clean** (Prop 1.3). Primes r < lnr(p) have (r/p) = +1 (R224 repair), and the
    exact reciprocity constraint ∏_r (r/p)^{v_r(tp+1)} = +1 forces cleanliness when tp + 1 = s·ℓ^e with s
    (lnr − 1)-smooth, ℓ prime, e odd ("rank-one sterility"; R-O217: rough primes with even exponent stay free).
 3. **A calibrated law (EVIDENCE, §2).** Model: exact Legendre signs for r ≤ 100, fair coins above, conditioned on the
    reciprocity constraint. Predicted/observed clean-level fractions agree within ≈ 0.035 in every lnr bucket (e.g.
-   0.314/0.317 at q = 3, 0.575/0.563 at q = 11; 0.196/0.194 for p ≡ 5 (8)). Without the constraint the model is off by a
-   factor ≈ 1.6. The worst sign-dominance primes are **clean-level clusters**: 7.3 of the levels t ≤ 10 clean on
-   average (13 worst primes) vs 5.8 (random p with lnr ≥ 11) and 3.95 (random p ≡ 1 mod 8).
+   0.314/0.317 at q = 3, 0.575/0.563 at q = 11; 0.196/0.194 for p ≡ 5 (8); R224, independent 1 500 primes: within 0.012).
+   R224 repair: 86 % of the levels are decided exactly by the signs of primes ≤ 100; on the remaining levels the coins
+   over-predict (0.495 vs 0.466). Without the constraint the model is off by a factor ≈ 2. The worst sign-dominance
+   primes are **clean-level clusters**: 7.3 of the levels t ≤ 10 clean on average (13 worst primes) vs 5.8 (random p
+   with lnr ≥ 11; 6.3 size-matched, R224) and 3.95 (random p ≡ 1 mod 8); 5 of the 13 are m² + 24 (T1-type levels 1, 2, 5, 7).
 4. **ES-five = the admissible version of the square test (PROVED, §3).** ES-five(p) ⟺ some level has an admissible
    divisor (A ≡ −1 mod t) with (A/p) = −1. Uncleanness is free at every non-square (level t₀ = −p⁻¹ mod q); the
    entire ES content is the admissibility gap. Mordell's 840 theorem = "lnr(p) ≤ 7 ⇒ the lnr level is admissible with
-   A = q" (Lemma 3.2); for q ≥ 11 the lnr level succeeds ≈ 85 % of the time, not decaying from 10⁶ to 10¹¹.
+   A = q" (Lemma 3.2); for q ≥ 11 the lnr level succeeds ≈ 85 % of the time, not decaying from 10⁶ to 10¹¹ (R224: ≈ 0.91 at
+   10¹⁴–10¹⁵).
 5. **Three-squares side (§4).** No exact Siegel–Weil weighting beyond the indicator: on χ = −1 words α₂ and α_p
    vanish together (R-O217: the checkpoint-1 weighting was 0/0 and is withdrawn); conic point ℓ(w) = (x × y) mod p
-   for a compatible pair, height ≤ min(t, u, v); boundary words = ideals dividing
+   for a compatible pair, height = min(t, u, v) (R224 repair: PROVED, Lemma 4.2); boundary words = ideals dividing
    (1 + √−p) in the principal (= three-squares) genus.
 6. **3SQ (CONJECTURE, EVIDENCE to 10⁶, no exceptions; §5).** For odd n: every path lattice of X_n embeds in ℤ³
    (n·G_w ∈ Gram(ℤ³)) ⟺ n is a square. Equals ES-five at primes and T1 at squares; **105 is not an exception**
    (all its 11 words have χ = +1 but are ramified at two odd primes).
 * Assessment: the three-squares side gives clean dictionaries and one exception-free conjecture, and the "continuity of
   T1" is well described (EVIDENCE; a fitted heuristic, not a proof) by Legendre symbols of the prime factors of
-  tp + 1 plus one exact reciprocity constraint. No
+  tp + 1 plus one exact reciprocity constraint, plus the T1-type levels tm² + c² at p = m² + k (R224). No
   mechanism closes the admissibility gap (B2).
 
 ## 0. Iteration log (construction first; barrier as steering wheel)
-(I1) Goal (a): Siegel–Weil for the one-class genus I₃. Built the exact weighting (§4.1). Barrier: term-by-term; the
+(I1) Goal (a): Siegel–Weil for the one-class genus I₃. Tried an exact weighting (withdrawn, R-O217; §4.1). Barrier: term-by-term; the
 family {T_w} is not an orbit (B2/B6). Violate "term by term": sum over the family as a lattice count of (x, y, t) —
 the level t is a modulus inside the conditions (Prop 4.3); dead.
-(I2) Goal (b), archimedean version: tested the O209 hypothesis directly — refuted (deciles flat). Pivot to the
+(I2) Goal (b), archimedean version: tested the O209 hypothesis at the √p scale — no association (bins flat); R224
+repair: at bounded p − m² the hypothesis is TRUE, via T1-type levels (Lemma 1.4). Pivot to the
 adelic version: χ = Legendre over prime factors of A ⇒ smooth A forced +.
 (I3) Smooth-word removal explains the averages but not the extremes (2521: 27 unforced words, only 4 negative).
 Inspection: the extremes have whole levels clean (p + 1 = 2·13·97, 2p + 1 = 3·41²). Built the level-cleanliness
@@ -63,18 +70,30 @@ r | tp + 1: (r/p) = (p/r) = (−t/r).
 
 **Definition.** Level t is *clean* (for p) if (r/p) = +1 for all primes r | tp + 1.
 
-**Lemma 1.2.** (a) If level t is clean, every word of level t has χ = +1. (b) Every prime r < lnr(p) is clean.
+**Lemma 1.2.** (a) If level t is clean, every word of level t has χ = +1. (b) Every prime r < lnr(p) has (r/p) = +1, so a level
+with tp + 1 (lnr − 1)-smooth is clean (R224 repair: wording).
 (c) (Reciprocity constraint) ∏_{r} (r/p)^{v_r(tp+1)} = ((tp + 1)/p) = (1/p) = +1. Hence if tp + 1 = s·ℓ^e with s
 (lnr − 1)-smooth, ℓ prime and e odd, level t is clean. (Only this exact form: a rough prime with even exponent is
 unconstrained, e.g. p = 200 881, t = 14, tp + 1 = 3·5·433², (433/p) = −1. Some fixed levels are never clean:
 t = 1 for p ≡ 5 (8), since 2 | p + 1.)
 *Proof.* (a) Lemma 1.1. (b) definition of lnr. (c) multiplicativity of the Legendre symbol; then (ℓ/p)^e = (s/p) = 1. ∎
 
-**Prop 1.3 (square test).** For odd n, put level t clean if (n/r) = +1 for all ODD primes r | tn + 1 (prime 2
-excluded by convention). Then n is a
+**Prop 1.3 (square test).** For odd n, put level t *odd-clean* if (n/r) = +1 for all ODD primes r | tn + 1 (prime 2
+excluded by convention; R224 repair: for n = p ≡ 1 (4) this differs from the Definition above only at r = 2, e.g. odd t
+for p ≡ 5 (8); §2 uses the Definition, including r = 2). Then n is a
 perfect square ⟺ every level is clean. (Proof in BRAINSTORM/y8_square_test_gap.md: ⇒ trivial; ⇐ take r with
 (n/r) = −1 and t ≡ −n⁻¹ mod r.) At p = m² this is T1 in its most primitive form: tm² + 1 = 1² + t·m² is a norm
 from ℤ[√−t], so all its prime factors split in ℚ(√−t).
+
+**Lemma 1.4 (T1-type levels; PROVED, R224).** Let p = m² + k (k ≥ 1) and t ≥ 1 with tk + 1 = c². Then tp + 1 = tm² + c²;
+every odd prime r | tp + 1 with r ∤ c has (−t/r) = +1, i.e. (r/p) = +1; a prime r | c dividing tp + 1 divides m (and
+r² | tp + 1). So level t is odd-clean if gcd(m, c) = 1 (clean if moreover 2 ∤ tp + 1 or (2/p) = +1).
+*Proof.* gcd(t, c) = 1 since c² − tk = 1; if r ∤ c then r ∤ tm and −t ≡ (c/m)² (mod r); Lemma 1.1. If r | c, then
+r | tm², r ∤ t, so r | m. ∎ (k = 4: levels 2, 6, 12, 20, …; k = 16: 3, 5, 14, 18, …; k = 24: 1, 2, 5, 7, 12, ….)
+EVIDENCE (R224, reviews/three-squares-review.md): for p ∈ (10⁵, 10⁶) the residual of N₋/N against primes with the same
+p mod 16, lnr bucket, signs (r/p) (r ≤ 13) and size is −0.049 (p − m² = 4, 72 primes) and −0.057 (p − m² = 16, 78 primes),
+6–7σ; removing the words on the T1-type levels removes the deficit (fully for k = 4, ≈ 3/4 for k = 16). 5 of the 13
+worst sign-dominance primes below 10⁶ are m² + 24. This is an archimedean (bounded p − m²) continuity of T1.
 
 ## 2. The adelic law (EVIDENCE)
 
