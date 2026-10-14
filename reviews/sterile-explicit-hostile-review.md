@@ -62,3 +62,36 @@ separately — the self-review's m4 point, still not repaired in the text).** At
 divisors-in-residue-classes bound is in Coppersmith–Howgrave-Graham–Nagaraj (Math. Comp. 77 (2008)), and cutting the
 window into pieces below the threshold is standard there/Lenstra; "new to the campaign" is fine, but the text should cite CHN
 rather than suggest novelty (not in sources/; I could not check the exact CHN statement).
+
+## 4. Numerics of Theorem 3.4
+
+### 4.1 se_box.c route bounds (code audit, every line of boxP/boxQ/cop/lC/Omega/main)
+Re-derived each route from the identities (not from the author's comments):
+* **P** (box a∈[A,λA), c∈[C,λC), d∈[D,λD), λ = 2^s exact): pruning 2A²D > N₁ or ACD > N₁ (valid: 2a²d ≤ N, acd ≤ (N+e)/(2e) ≤ N);
+  E₀ = N₀/(4λ³ACD) < e (e ≥ b/c > N/(4acd)), e ≤ N/(acd) ≤ E₁, b ∈ (N₀/(4λ²AD), N₁/(2AD)], f ∈ [4ACD−1, 4λ³ACD); se = ⌊E₀⌋+1.
+  H (triples), A (e ≡ −N mod 4ad, Σ1/a ≤ 1/A + ln λ), C (f | N+4a²d ≤ 3N, class −1 mod 4ad), D (f | 4c²dN+1 ≤ 4λ³C²DN₁+1),
+  E (f | Nc+a), F (pairs (e,a) with 4a | N+e; b or d in a unit class mod e of m = (N+e)/(4a) ≤ (N₁+E₁)/(4A)), G (pairs (e,d);
+  a² ≡ −m mod odd e, ≤ 2^{ω(e)} unit roots; Omega(E) = 2^{#odd primes with primorial ≤ E} ≥ max 2^{ω(e)} over odd e ≤ E),
+  τ₃ (e ≡ −N mod 4, ordered abd = (N+e)/4), I (c, e, a ⇒ b, d), J (c, e, d ⇒ a root of x² − cex + m: ≤ 2; the extra Omega
+  factor is harmless) — **all valid**. Row aggregation (fixed (a,d): datum ↦ f | N+4a²d injective) valid.
+* **Q** (box c, d, f; a = (f+F)/(4cd)): cd ≤ F (2abcd ≤ c(4abd−1) = F(a+b) ≤ 2Fb), f ≤ F+2 (f = (aF+c)/b, c ≤ 2b); windows a₀,a₁,
+  E₀ = 4a₀²D/(λP) < e, E₁, b₀ = max(a₀, E₀F₀/(4a₁λD)), b_max; AD (M17C 2.1(iv): s = 4ad, s² > 4a²d+1, one divisor below √t and one
+  cofactor below √t, both in fixed classes — re-proved), fa, AC (class −F mod 4ac, unit since r∤ac), CD, Ea, Ed (e odd since
+  eF+1 = 4abd), τ₃, fac/fca/fda (c ≡ −aF, d ≡ −(4a²)⁻¹, a ≡ −cF⁻¹ mod f; f odd, gcd(f, F) = 1) — **all valid**; row (c,d) valid.
+* **cop()**: trivial ⌊Δ/s_min⌋+1; τ envelope C₂(η)n^η (lC: primes p > k^{1/η} contribute 1 because binom(j+k−1,k−1) ≤ k^j; the
+  j-scan stops correctly because j ↦ log binom − ηj log p is concave); Cor 1.4 with J chosen from X_max and **(Cop) re-checked for
+  that J** with relative margin 1e−12 and s_min ≤ s (monotone). Valid.
+* **Floating point.** Box corners and λ are exact powers of 2 (g = 1 enforced, s integer); all window ends are padded outward by
+  a relative 1e−15 ≫ the ~1e−19 relative error of a few long-double ops; floor/ceil only of padded quantities; the τ constant
+  has +1e−12 in the log. Integers > 2⁶⁴ never need to be exact except powers of two. I find the error budget in the header
+  adequate (MAJOR M1 of the self-review is repaired). Residual MINOR: the glibc x87 `powl/logl/expl` accuracy is an assumption
+  (documented); N₀ = DN(powl(2, j/q)) is the only non-dyadic corner and is padded.
+* **Coverage.** imax = ⌈(log₂N₁+2)/s⌉+1 covers a, c, d ≤ N (P) and c, d ≤ F, f ≤ F+2 (Q); the early `break`s fire only on boxes
+  that are empty for every larger index. Half-open dyadic boxes partition the data. ✓
+
+### 4.2 Independent re-certification of cells (from scratch, `scripts/review_se_cell.py`)
+My own engine (Python, dyadic λ = 2 boxes, integer windows, rational arithmetic, **exact** max τ(n), max τ₃(n) over n ≤ X via
+Hardy–Ramanujan exponent patterns up to 2¹³⁰ (my own C_k(η) envelope beyond), Coppersmith candidates verified in exact integer
+arithmetic, routes as re-derived in 4.1) bounds D_P(N) / D_Q(F) for **every** integer in the cell. If my (valid) bound ≤ the
+author's table value, the author's value is independently certified. Results (author / reviewer):
+RESULTS_PLACEHOLDER
