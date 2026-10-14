@@ -1,0 +1,256 @@
+# R217 — hostile review #1 of O216 FF_STERILE_PUSH.md
+
+Reviewer: R217 (side agent, branch side-agent/review-ff-push). Document reviewed at merge of side-agent/ff-sterile-push
+(commit as merged at review start). From-scratch scripts: `scripts/review_fs_*`.
+
+Status: COMPLETE (round 1). **No FATAL, no MAJOR defects.** 5 MINOR + 4 optional.
+Repairs applied: m1–m5 applied directly to FF_STERILE_PUSH.md, each marked "(R217 repair)" (author idle since the O216
+checkpoint commit; optional m6–m9 left to the author).
+
+## Summary verdicts
+| claim | verdict |
+|---|---|
+| Lemma 1.1 (Ev = T^s + m′w², y + t = max(a, b)) | SOUND |
+| Lemma 1.2 (loss-free routes) | SOUND |
+| Lemma 1.3 (divisors by degree) | SOUND |
+| Lemma 1.4 (FF Lenstra, ≤ 2 if 3ρ > n) | SOUND (proved from scratch; brute force F₃, F₅, F₇: 0 violations, sharp) |
+| Lemma 1.5 (FF Coppersmith, threshold ρ > d(n − d)/n) | SOUND (proved from scratch; brute force: 0 violations, bounds 3 and 5 attained) |
+| Lemma 1.6 (19-route table, R10 with Σ2^ω) | SOUND |
+| Lemma 2.1 (averaging over c) | SOUND |
+| Lemma 2.2 (Case A routes, α ≤ 2 empty) | SOUND |
+| **Theorem 3.1** (r ≥ 4, all k ≥ 2; r ≥ 5 every slice) | **SOUND** — reduction re-derived; certificate audited and *independently reproduced* (own finite sum, own rigorous tail, own Case A) for r = 4..45: total 1.68 (r = 4, need < 80), 0.18 (r = 5), 0.039 (r = 6); minor wording repair m5 |
+| fs_certify.sh / fs_sum.c / fs_tail.c / fs_caseA.py | SOUND (correct, fail closed; tail very loose but valid) |
+| §3 end: r = 3 barrier (EVIDENCE/Assessment) | SOUND-AFTER-REPAIRS (m1–m3: stronger negative; second critical region; exponent −0.027 is a grid artefact, ≈ −0.021) |
+| §4 char 2 Frobenius (PROVED) | SOUND (verified over F₂ for k = 2, 4, 6) |
+| §5 reformulation (S1)–(S3) (PROVED) | SOUND (m4 presentation) |
+| §5 census 94/27 > 2 (CERTIFIED) | SOUND (independent exact counts s ≤ 11 already give 780/243 > 2) |
+| Labels (Conj. 0.2 not proved; r = 3 EVIDENCE) | SOUND |
+
+## Claim-by-claim
+
+### Lemma 1.1 (E·v = T^s + m′w², y + t = max(a, b), T² ∥ v) — SOUND
+Re-derived: (R3) of DEPTH_ASPECT Lemma 2.1 is C·E = g′T^s + w; times m′w and m′wC = T^s + v gives
+(T^s + v)E = (E + 1)T^s + m′w², i.e. Ev = T^s + m′w². Degrees: z + 2a ≤ z + a + b = s, with equality iff a = b, and then
+the sum of two monic degree-s polynomials has leading coefficient 2 ≠ 0 (q odd). deg E = deg(L′w) = a + y + z, so
+t = s − a − y − z = b − y. (iii): v_T(m′wC) = 2 < s forces v_T(v) = 2 exactly; a common prime of w₁ and v₁ divides
+T^{s−2}. All correct; note (ii) uses q odd (H2), which §4 correctly lists.
+From scratch: `scripts/review_fs_tuples.py` enumerates all tuples (B) by (m′, g′, w) ↦ C = (g′T^s + w)/E, re-checks (B)
+literally and asserts Ev = T^s + m′w², y + t = max(a, b), T² ∥ v on every tuple (q = 3, s ≤ 13; q = 5, s ≤ 9): 0 failures
+(see log in the "Numerics" section below).
+
+### Lemma 1.2 (loss-free reconstructions T0, R4′, X1, X2) — SOUND
+Each reconstruction re-derived (X1: w, C are the two roots of X² − g′vX + (T^s + v)/m′, so ≤ 2 ordered pairs).
+Counts: N*(d) = q^d − q^{d−1} is the number of monic f of degree d ≥ 1 with T ∤ f; for v = T²v₁ the leading coefficient
+is fixed per pattern (1 if a < b, 2 if a = b) and v₁(0) ≠ 0, which gives the same count N*(t − 2). Correct.
+
+### Lemma 1.3 (C(n, d), multinomial) — SOUND
+Standard (sub-multisets of the root multiset in F̄_q).
+
+### Lemma 1.4 (FF Lenstra: 3ρ > n ⇒ ≤ 2 divisors of degree d in a unit class mod Q) — SOUND
+Re-derived line by line. Points I checked specifically: (1) τ₀ is well defined even if gcd(F, Q) ≠ 1, because
+σ₀e ≡ F (mod Q) with σ₀ a unit determines e mod Q — the document's wording ("when such τ₀ exists … τ₀ := e mod Q") is
+correct but would read better as "τ₀ ≡ Fσ₀^{−1}"; (2) Λ-determinant: σ₀(u_x u′_y − u_y u′_x) ≡ 0 and deg ≤ X + Y = n − 2ρ < ρ,
+so all differences are F_q(T)-collinear, hence multiples of one primitive b ∈ F_q[T]² (F_q[T] is a PID); (3) φ(α) =
+α·(αb_xb_yQ + b_xτ₀ + b_yσ₀ + Q(x₀b_y + y₀b_x)) — constant term 0, so if b_xb_y ≠ 0 the second root is unique (|S| ≤ 2), and if
+b_y = 0 the linear coefficient is b_x e₀ ≠ 0 (|S| = 1); b_x = 0 is impossible as stated (m8 repair is correct).
+Nothing hidden: no hypothesis gcd(F, Q) = 1 is needed, and "monic or not" is harmless (λE ≡ λσ ≢ σ for λ ≠ 1).
+From scratch: `scripts/review_fs_lenstra_bf.py` (own polynomial arithmetic; divisors from a known factorisation, all scalar
+multiples included; every monic Q with deg Q ≤ 5 (p = 3) / ≤ 3 (p = 5); random highly-factorable F with n ≤ 14 (p = 3),
+n ≤ 12 (p = 5) plus F = ∏ of all monic irreducibles of degree ≤ 2 and variants with repeated linear factors):
+p = 3: 848 429 + 565 594 (degree, Q) groups; p = 5: 246 073 + 127 398 groups; p = 7 (n ≤ 9, deg Q ≤ 3): 156 190 groups; **0 violations** of "≤ 1 if d < ρ or n − d < ρ"
+and "≤ 2 if 3ρ > n"; the bound 2 is attained thousands of times (so it is sharp).
+
+### Lemma 1.5 (FF Coppersmith–Howgrave-Graham by pigeonhole) — SOUND
+Re-derived: (a) |F_q[T]^N/Λ| = q^{deg det Λ} and q^{N(μ+1)} > q^Δ for μ = ⌊Δ/N⌋ — exact Siegel lemma, no loss. (b) E prime to
+Q, hence E | F₁; Q·f(x₀) ≡ Qx₀ + σ₀ = E ≡ 0 (mod E) and gcd(E, Q) = 1 give E | f(x₀); the scaled coefficient lattice of
+{f^iF₁^{m−i}} ∪ {x^jf^m} is triangular with diagonal degrees (m − i)deg F₁ + iX, (m + j)X, so deg det ≤ Δ(m, k);
+⌊Δ/N⌋ < md ⇔ Δ < N·md, which is (C); then deg P(x₀) < md = deg E^m forces P(x₀) = 0, and P ≠ 0 has ≤ m + k roots.
+Asymptotics: (C)/m² → n/(2u) + Xu/2 < d with u = 1 + τ, optimum u = √(n/X) ≥ 1, i.e. nX < d² ⇔ ρ > d(n − d)/n. Correct.
+Note: the proof needs deg x₀ ≤ X, i.e. ρ ≤ d; for d < ρ the count is ≤ 1 anyway, so using m + k ≥ 1 there is harmless
+(both scripts rely on this; fine).
+From scratch (same script): in every group with 3ρ ≤ n (Lenstra not applicable), d ≥ ρ, n − d ≥ ρ, the least m + k over
+m ≤ 12, k ≤ 40 satisfying (C) was compared with the true maximal class size: 0 violations; the Coppersmith bound is
+attained with value 3 (p = 3: 6 groups; p = 5: 75 groups) and even with value 5 (p = 7: 4 groups), so the test reaches
+the regime beyond Lenstra and the lemma is sharp there.
+
+### Lemma 1.6 (19-route table) — SOUND
+Every row re-derived (n, d, ρ, coprimality):
+* R2: E | D = 1 + T^s m′g′² (= EE′), deg D = s + 2y + z, E + 1 = L′Tw₁ so E ≡ −1 (mod TL′), ρ = 1 + y + z; D ≡ 1 (mod TL′), so the
+  cofactor version is legitimate. R3: E | T(g′T^{s−1} + w₁) and E(0) = −1 ⇒ E | g′T^{s−1} + w₁; ρ = deg(Tw₁g′) = a + y; E-version
+  only (correct: gcd(g′, w₁) can be ≠ 1). R4: Ev₁ = T^{s−2} + m′w₁² (Lemma 1.1(i)/T²), degree exactly s − 2 (lc 2 if a = b),
+  prime to Tm′w₁. R3C/R4C: n = z + 2b − 2 for R4C is right (z + 2b ≥ s since b ≥ a; lc 2 when a = b).
+* R5a/b, R6a/b: C₁ | (T^{s−2} + v₁)/w₁ = m′C₁, C₁ ≡ −w₁ (mod Tv₁) a unit by Lemma 1.1(iii); cofactor m′ (or w₁) prime to Tv₁. R8, R9: fine.
+* R10: w₁C₁ = G₂ and C₁ ≡ −w₁ give w₁² ≡ −G₂ (mod Tv₁), G₂ a unit; in odd characteristic x² ≡ y² (mod P^e) with x, y units
+  forces P^e | x − y or P^e | x + y (P cannot divide both), so ≤ 2 roots per prime power and ≤ 2^{ω(Tv₁)} = 2·2^{ω(v₁)} classes.
+  Σ_{deg v = e, monic} 2^{ω(v)} = Σ_{d sqfree, deg d ≤ e} q^{e−deg d} = q^e(2 + (e − 1)(1 − 1/q)) (e ≥ 1) re-derived; v₁ with the
+  fixed leading coefficient 2 is a scalar multiple of a monic one, so the monic sum is the right majorant. e = 0 gives 1 (both
+  codes handle it).
+* All divisors counted by C(n, d) are monic (E = L′w − 1, E′, w₁, C₁, m′ monic), as Lemma 1.3 requires.
+From scratch: (1) `scripts/review_fs_tuples.py` gives exact pattern counts for q = 3 (s ≤ 13) and q = 5 (s ≤ 9); every count
+is ≤ the minimum of my own implementation of the table (`scripts/review_fs_exact.py`) — see Numerics. (2) My C implementation
+(`scripts/review_fs_fin.c`) and the author's `fs_sum.c` agree on every pattern up to the Coppersmith search range: the author
+caps m ≤ 60, k ≤ 200; I search j = m + k ≤ 3000 exactly (convex in m) with the necessary condition nX < d² (proved by AM–GM:
+n m(m+1) + X j(j+1) ≥ 2√(nX)·m(j+1) for m ≤ j) as prefilter. On all patterns s ≤ 70 (r = 4) and s ≤ 50 (r = 5, 6) my
+bound is ≤ the author's, never larger (harness `/tmp/r217_cmp.c`, reproducible from the two sources), so the author's
+values are never *below* what the lemmas give. Remark: the rewriting Δ(m, k) = [n·m(m+1) + X·j(j+1)]/2 with j = m + k
+(since m(m+1) + 2km + k(k+1) = j(j+1)) simplifies (C) and shows the bound depends on m and j only.
+
+### Lemma 2.1 (averaging over c, factor q − 1) — SOUND
+Each Case B tuple has the single largest cylinder u ≡ −E (mod T^{N(s)+1}) (from γ ≤ j: s = k + j + γ ≤ k + 2j gives
+N = k + j − 1 ≥ ⌈(s + k − 2)/2⌉, so every (N, γ)-cylinder of the tuple lies in that one — O173 Lemma 3.1 is not needed, as
+R178 noted), and each Case A datum the cylinder u ≡ −E (mod T^{k+α}); N(s) ≥ 1 and k + α ≥ 2 fix u mod T², i.e. c = the
+T-coefficient of −E. Hence Σ_c covered(c) ≤ left side of (Σ), and #{c : covered(c) ≥ θ} ≤ (left side)/θ. Correct, and it is
+genuinely a new (if simple) gain over Thm 2.5. The tuple sets do not depend on k and the masses decrease in k, so k = 2 is
+the worst case (checked against DEPTH_ASPECT §2.1/§2.2).
+Arithmetic of (a): 2.176/(1/2) = 4.35, so ≤ 4 slices have covered mass ≥ 1/2 and ≥ 76 (the document says 75 — conservative,
+fine) have more than half of their measure in O.
+
+### Lemma 2.2 (Case A routes; α ≤ 2 empty) — SOUND
+Normalisation checked against FUNCTIONFIELD_ES2 §0.2 (a0, b0 monic, so a1′, b1 monic) and DEPTH_ASPECT Lemma 2.4 (α > β
+⇒ E, F, K monic). Six routes re-derived from (A0)–(A4): (iii) E | T^α + b1²K of degree max(α, 2β + κ) (lc 2 if equal),
+E ≡ −1 (mod b1K); (iv) E | T^α a1′ + b1, E ≡ −1 (mod Ta1′b1); (v) z (T | z, 1 ≤ deg z ≤ ζ: ≤ q^ζ) then ordered monic
+(b1, K, F) of T^α + z, degrees summing to α; (vi) b1 + F = a1′z, b1F = (T^α + z)/K, ≤ 2. Dropping g′ is right: the
+cylinder depends only on (E, α). The α = 1, 2 argument re-done by hand (both surviving shapes force μ = 1 and μ + 1 = 0).
+The certification does not even use it (fs_caseA.py sums from α = 1). From scratch: `scripts/review_fs_caseA.py`
+reproduces the author's exact Case A sums to all 11 printed digits (r = 4: 8.4882704620e−4; r = 5: 8.7646411455e−5;
+r = 6: 9.5155829299e−6); its α > 40 majorant uses q^{⌊(α−1)/2⌋−α} ≤ q^{−(α+1)/2} with an exact-rational ratio bound.
+The author's tail (6.28·10⁻² at r = 4) is valid but a factor √q = 9 looser than necessary (it uses q^{−α/2}); this tail is
+in fact the *largest* part of the r = 4 Case A total (6.36·10⁻²) — harmless.
+
+### Theorem 3.1 (q = 3^r, r ≥ 4, every k ≥ 2: O(q, T^k) ≠ ∅; r ≥ 5 every c-slice) — SOUND (minor repairs only)
+**Reduction.** Re-derived from DEPTH_ASPECT §2 / (J)26: on a c-slice every validity set of a family valid somewhere on it is a
+Case A cylinder (R166 steps (1)–(2), only E ≡ −u (mod T^{k+j}) and u ≡ 1 + cT (mod T²) used) or a Case B cylinder of a tuple (B)
+(O173 Lemma 2.1(a), (b), re-derived by R187 §2.1); the per-tuple mass is ≤ q^{1−N(s)} by γ ≤ j alone (see Lemma 2.1 above);
+the union bound + Lemma 2.1 + the compactness criterion give the theorem. Every inherited input is used exactly within
+the hypotheses under which R178/R187 accepted it for Thm 2.5 (q odd, k ≥ 2, slice points u(0) = 1, c ≠ 0); the new lemmas
+only replace *counting* steps. No circularity. The label "PROVED, computer-assisted, given the inputs of Thm 2.5" is right.
+**Certification, author's code.** I audited `fs_sum.c`, `fs_tail.c`, `fs_certify.sh` line by line:
+* fs_sum: every route = my derivation; the Coppersmith pruning `X(m+k+1) ≥ mD ⇒ break` is valid (the k-increment of Δ is
+  X(m + k + 1), increasing in k; the right side grows by mD); m ≤ 60, k ≤ 200 caps only weaken the bound; long-double logs.
+* fs_tail: all 19 routes bounded correctly on a box: q-powers at the box's upper corner, every binomial/multinomial enlarged
+  to unshifted arguments (C(s−2, a−1) ≤ C(s, a), C(z + 2b − 2, t − 2) ≤ C(z + 2b, t), (s−2; z, a−1, b−1) ≤ (s; z, a, b), all
+  correct) and bounded by exp(B(·)) with B increasing; class-count conditions are linear in (n, d, ρ) for fixed (m, k) and are
+  checked with independent interval maximisation (conservative) at s = S and with non-positive slope (so for all s > S);
+  the ratio ((s + 1)w + 1)/(sw + 1) ≤ (s + 2)/(s + 1) holds for w ≤ 1, so the geometric closure is valid; boxes pruned only where
+  t < 0 or b < a on the whole box; overlapping box boundaries only over-count. Floating-point decisions are on dyadic
+  rationals × small integers (exact in double). Fails closed (exit 1, `set -euo pipefail`). I found no bug.
+* Empirical validation of the box bounds (`scripts/review_fs_tailcheck_author.c`): for 20 000 random integer patterns per
+  r ∈ {3, 4, 5, 6}, 20 ≤ s ≤ 420, and every level 3–9, the fs_tail box containing the pattern (with SMIN = s − 1) gives a
+  bound ≥ my exact per-pattern bound: 0 violations (min slack 0.26–1.48 nats).
+**Certification, from scratch.** `scripts/review_fs_certify.sh` = `review_fs_fin.c` (finite part; matches exact rationals
+of `review_fs_exact.py` to 10⁻¹² at r = 4, s ≤ 30 when both use the same Coppersmith range) + `review_fs_tail.c` (a
+different box design: integer-coordinate cubes, linear forms maximised exactly at the 8 corners, integer shifts kept,
+geometric closure at ratio ≤ (1 + e^g)/2; validated like the author's by `review_fs_tailcheck.c`: 0 violations on
+3 × 20 000 patterns) + `review_fs_caseA.py`. Result (`data/fs/review_certify_4_30.txt`, all r = 4..30 pass, fails closed):
+
+| r | finite (S) | tail s > S | Case A | **total** (R217) | author's certified total |
+|---|---|---|---|---|---|
+| 4 | 1.67237 (200) | 1.36e−3 | 7.83e−3 | **1.6816** (< 80) | 2.1754 |
+| 5 | 0.174377 (100) | 5.8e−5 | 7.06e−3 | **0.18150** | 0.2502 |
+| 6 | 0.0385937 (60) | 7.4e−5 | 9.5e−6 | **0.038678** | 0.3730 |
+| 7 | 0.0103173 (60) | 1.0e−7 | 1.0e−6 | **0.010319** | 0.01157 |
+| 8 | 3.16726e−3 | 7.9e−9 | 1.2e−7 | **3.1674e−3** | 3.209e−3 |
+| 9 | 1.02888e−3 | 2.7e−9 | 1.3e−8 | **1.0289e−3** | 1.043e−3 |
+| 10–30 | | | | ≤ 3.41e−4 | ≤ 3.48e−4 |
+
+So every numerical claim of Theorem 3.1(a), (b) is confirmed; the author's figures are valid upper bounds. Most of the
+author's slack is in the tail (0.41 at r = 4, 0.33 at r = 6, vs. my 1.4e−3, 7.4e−5): the exact per-s terms beyond S are tiny
+(r = 6: Σ_{60<s≤100} ≈ 3.6e−9; r = 4: Σ_{200<s≤300} ≈ 5.2e−8), so fs_tail's adaptive budget is simply generous. Consequence
+(optional strengthening, MINOR): Theorem 3.1(b) holds with ≤ 0.19 (r = 5) and ≤ 0.039 (r = 6) instead of 0.26 / 0.38.
+Also `review_fs_certify.sh 31 45` (log `data/fs/review_certify_31_45.txt`) extends the certificate to r ≤ 45; with the
+DEPTH_ASPECT crude form (decreasing in q; 2.2·10⁻³ at r = 40, recomputed) this gives covered mass ≤ 0.012 for every r ≥ 7.
+
+### §3 end: "where the method stops: r = 3" (EVIDENCE + Assessment) — SOUND as labelled, two MINOR inaccuracies
+* The label is right, but the situation is *stronger* than "fs_tail fails to certify": the Lemma 1.6 bound-sum itself
+  already exceeds q − 1 = 26 at finite level — `review_fs_fin 3 150` gives Σ_{s ≤ 150} = 194.6, with per-s terms 2.33 (s = 50),
+  2.48 (s = 100), 2.01 (s = 150). So "(Σ) with the Lemma 1.6 bounds" is *false* at r = 3 (a CERTIFIED statement about the
+  bounds, not about the true counts), independent of any tail argument; c-averaging cannot rescue it. (MINOR m1.)
+* "835 boxes, all near p ≈ (0.31, 0.325, 0.20, 0.168)": re-running fs_tail 3 150 8 gives 615 failed boxes (the count depends
+  on S), and **29 of them lie in a second region p ≈ (0.39, 0.11, 0.10, 0.40)**; my independent tail fails in the same two
+  regions (448 cubes, 29 with a/s > 0.35). In the second region the binding routes are R3, R10b, R4, R2 (at s = 600,
+  pattern (232, 67, 66, 235): exponents −0.0047, −0.0040, −0.0034, −0.0016 relative to 1/2; per-level maxima of
+  min-route − 1/2 over all patterns: −0.0067 (s = 300), −0.0047 (600), −0.0034 (1200), all attained at (0.39, 0.11, 0.11, 0.39)),
+  i.e. the class-divisor routes at their Coppersmith thresholds, not R1/R10a. The Assessment "one needs a divisor-in-class
+  bound beyond Coppersmith or an average d₃ bound" should mention that the second region needs the former for R2/R3/R4 too.
+  (MINOR m2.)
+* Exponent table (I3)/(I4)/§5(b) "−0.027 (r = 4)": this is the max on fs_rate's finite grid, which can only *under*-estimate
+  the continuum sup. Exact per-level maxima (`scripts/review_fs_rate.c`): −0.0262 (s = 300), −0.0236 (600), −0.0224 (1200),
+  increasing like −0.021 − O(1/s); so the r = 4 continuum exponent is ≈ −0.021 (EVIDENCE), not −0.027. Harmless for the
+  theorem (the certificate does not use it), but the stated margin is overstated by ~25 %. (MINOR m3.)
+
+### §4 (k = 1; char 2 Frobenius; ℤ Assessment) — SOUND
+* Char 2 (PROVED): re-derived. With A = T², a = g′ (type 0), b = X/g′ (type 2), E = 1 + Tg′, g′ = T + c: T² | P + E since
+  u + E ≡ 2(1 + cT) = 0; g′ | P + E since both are ≡ 1; mod E, s ≡ g′ + 1/(T²g′) = (1 + Tg′)²/(T²g′) ≡ 0; lc(s) = 1. The
+  general k = 2m version (one family per class of u mod T^{2m} with u ≡ 1 (T^m), u ≢ 1 (T^{m+1})) also checks. From scratch:
+  `scripts/review_fs_char2.py` (F₂ bit-polynomials) builds, for k = 2, 4, 6 and every admissible class u, the family and 20
+  random P per class with P ≡ u (T^k), P ≡ 1 (Eg′), and verifies all divisibilities and the cross-multiplied identity
+  T^k·XYZ = P(YZ + XZ + XY): 140/140 valid.
+* (H2) "v ≠ 0 from −2 ≠ 0": E + E′ = L′(w + C) − 2 = m′g′²v − 2; v = 0 would force two monic positive-degree polynomials to sum
+  to −2, impossible in odd characteristic (equal degrees: lc 2 ≠ 0). Correct.
+* k = 1 bullet and ℤ bullet: Assessment-level, labelled as such; nothing overclaimed.
+
+### §5 Reformulation (S1)–(S3) at q = 3 (PROVED) — SOUND (MINOR m4 on presentation)
+Re-derived both directions by hand: EC₁ = g′T^{2n−1} + w₁ and E ≡ −(1 + cT) (T^{n+1}) give C₁ ≡ −cg′v₁, w₁ ≡ cg′v₁(1 + cT)
+(mod T^n) (c² = 1); the expansion of m′w₁C₁ (2 + cT = cT − 1 in F₃) is exactly as displayed; (S1)–(S3) follow because T ∤ v₁.
+`scripts/review_fs_s5.py` checks the three polynomial identities used (expansion of m′w₁C₁ − v₁, w₁ + C₁ = Tg′v₁,
+w₁ + (1 + cT)C₁ = −cT^{n+1}ω) on 3000 random instances over F₃ (both c): all hold. Presentation: (i) both directions need
+n ≥ 2 (T^{2n−2} ≡ 0 mod T^n; 2n − 1 ≥ n + 1) — not stated; (ii) the converse uses only the displayed *form* of w₁, C₁ and the
+tuple identity, not (S1)–(S3): the clean statement is "a tuple (B) covers x*_c ⇔ T^n | w₁ − cg′v₁(1 + cT), and then (S1)–(S3)
+⇔ m′w₁C₁ = T^{s−2} + v₁"; (iii) only even s is treated (odd s, N = (s − 1)/2, analogous but not written). The consequence
+z + 2y + t ≥ n + 1 is right (P ≠ 0 because deg(1 + cT) = 1).
+**Census claim (a), 94/27 > 2 (CERTIFIED):** my independent C enumerator `scripts/review_fs_count.c` (enumeration by (m′, g′, w),
+(B) re-checked literally, Lemma 1.1 asserted on every tuple) gives per-s counts 0, 2, 4, 10, 8, 8, 4, 24, 12 for s = 3..11 —
+identical to bsE_famcount — and Σ_{s ≤ 11} = 780/243 ≈ 3.21 > 2 already; bsE_famcount's s = 12..15 counts (14, 36, 104, 48)
+then give exactly 94/27. Confirmed. Exact counts vs. my route minima: 21 nonempty patterns (q = 3, s ≤ 11), 0 violations,
+bound attained on 10 (see also q = 5, 7 in Numerics).
+**Cyclotomic family (M2 repair) spot check:** for h = 3 (F = T²⁶ − 1 over F₃, s = 28, v₁ = −1) an exhaustive search over the
+3¹⁰ ordered distributions of the 10 irreducible factors gives **1116 genuine Case B tuples** at one level, 218 of them at the
+thirds pattern (a, z, y) = (10, 8, 8): consistent with "not polynomial".
+
+### Labels — SOUND
+Conjecture 0.2 is explicitly not proved; Theorem 3.1 is about q ≥ 81; r = 3 is EVIDENCE/Assessment; computer-assisted parts
+are identified; inherited inputs are named. No overclaim found in FF_STERILE_PUSH.md or AGENT_REPORT_O216.md, except the
+report's "≥ 0.98 (r ≥ 7)" which for r ≥ 31 is not covered by the document's certificate (31..45 now certified by R217; r ≥ 46
+by the DEPTH_ASPECT crude form, 5.9·10⁻⁵ at r = 46, decreasing) — MINOR m5.
+
+## Numerics (all from scratch, R217)
+| script | what | result |
+|---|---|---|
+| `review_fs_lenstra_bf.py` | Lemmas 1.4/1.5 vs. true max class sizes, all monic Q, all scalar multiples | F₃: 1 414 023 groups, F₅: 373 471, F₇: 156 190 (n ≤ 9, deg Q ≤ 3), 0 violations; bound 2 and Coppersmith bounds 3 (F₃, F₅, F₇) and 5 (F₇) attained |
+| `review_fs_tuples.py`, `review_fs_count.c` | exact Case B tuples; Lemma 1.1 asserted on each | q = 3 (s ≤ 11): 72 tuples; q = 5 (s ≤ 9): 32; q = 7 (s ≤ 8): 28; 0 identity failures; per-s counts = bsE_famcount |
+| `review_fs_cmpcounts.py` | exact pattern counts ≤ Lemma 1.6 minimum | q = 3, 5, 7: 0 violations (max ratio 1.0 / 0.5 / 0.67) |
+| `review_fs_exact.py` | exact-integer route values; exact rational finite sum | r = 4, s ≤ 30: 750856592445423068283984511/523347633027360537213511521 ≈ 1.4347186173, = C code to 10⁻¹² |
+| `review_fs_fin.c` | finite Case B part (long double, ×(1 + 10⁻⁹)) | see Theorem 3.1 table |
+| `review_fs_tail.c` | rigorous tail, own box design, fails closed | r = 4..45 pass; r = 3 fails (as expected) |
+| `review_fs_tailcheck.c`, `review_fs_tailcheck_author.c` | box bounds ≥ exact pattern bounds (mine / author's fs_tail) | 0 violations on 60 000 / 80 000 random patterns × 7–8 levels |
+| `review_fs_cmp_author.c` | pattern-wise author fs_sum vs. mine | mine ≤ author's everywhere (author's narrower Coppersmith search) |
+| `review_fs_caseA.py` | Case A exact + majorant | equals fs_caseA.py exact part to 11 digits |
+| `review_fs_certify.sh` | full independent certificate | `data/fs/review_certify_4_30.txt`, `…_31_45.txt`: ALL OK |
+| `review_fs_rate.c` | per-level exponent maxima | r = 1: +0.162, r = 2: +0.093, r = 3: −0.0034, r = 4: −0.0224, r = 5: −0.037 (largest s run) |
+| `review_fs_char2.py` | char-2 Frobenius families over F₂, k = 2, 4, 6 | 140/140 valid |
+| `review_fs_s5.py` | §5 identities; cyclotomic family h = 3 | 3000/3000; 1116 tuples at s = 28 |
+Sources: no external paper is used in a load-bearing way. Lenstra 1984 / Coppersmith–Howgrave-Graham–Nagaraj 2008 are cited only as ℤ
+analogues; the F_q[T] lemmas are proved from scratch in the document (and re-proved here), so I did not need the PDFs. KRRG/Sawin
+in §5 are cited as context only (Assessment).
+
+## Defects
+No FATAL. No MAJOR.
+* **m1 (MINOR, §3 end "Where the method stops").** The r = 3 failure is presented as a tail-certification failure only. In fact the
+  Lemma 1.6 bound-sum through s = 150 is ≈ 194.6 > q − 1 = 26 (per-s terms ≈ 2–2.5), so the route-bound version of (Σ) is false
+  at r = 3 at finite level. *Repair:* add one sentence saying so (CERTIFIED for the bounds; nothing about true counts).
+* **m2 (MINOR, §3 end).** "835 boxes, all near p ≈ (0.31, 0.325, 0.20, 0.168)" — there is a second near-critical region near
+  (0.39, 0.11, 0.10, 0.40) (29 of the 615 failed boxes at S = 150; same in my independent tail), with binding routes R3, R10b, R4,
+  R2; it is also where the per-level maximum sits. *Repair:* mention it, and that a class-divisor bound beyond Coppersmith would
+  be needed there for R2/R3/R4.
+* **m3 (MINOR, (I3)/(I4), §5(b)).** "−0.027 (r = 4)" is a finite-grid maximum (≤ the true sup). Exact per-level maxima are
+  −0.0262/−0.0236/−0.0224 at s = 300/600/1200, i.e. the continuum value is ≈ −0.021 (r = 3: −0.0034 at s = 1200, ≈ 0⁻).
+  *Repair:* say "grid value; per-level maxima approach ≈ −0.02 (EVIDENCE)".
+* **m4 (MINOR, §5 reformulation).** State n ≥ 2; note the converse uses only the form of w₁, C₁ (clean form: covers ⇔
+  T^n | w₁ − cg′v₁(1 + cT)); note only even s is treated.
+* **m5 (MINOR, Theorem 3.1(b) and AGENT_REPORT "≥ 0.98 (r ≥ 7)").** The document's certificate stops at r = 30; for r ≥ 31 it
+  only cites Thm 2.5, whose stated measure is ≥ 0.97. *Repair:* cite R217's independent certificate r = 31..45 (covered < 4·10⁻¹⁴)
+  and the DEPTH_ASPECT crude form (decreasing in q, 5.9·10⁻⁵ at r = 46) for r ≥ 46.
+* m6 (optional) Theorem 3.1(b) can be sharpened to ≤ 0.19 (r = 5), ≤ 0.039 (r = 6) (R217 totals); fs_tail's budget is the slack.
+* m7 (optional, Lemma 1.4 proof) define τ₀ ≡ Fσ₀^{−1} (mod Q) directly; it always exists.
+* m8 (optional, fs_caseA.py) the α > 40 majorant can use q^{−(α+1)/2}; at r = 4 it is currently 99 % of the Case A total.
+* m9 (optional, Theorem 3.1(a)) "at least 75" can be "at least 76" (2.176/0.5 < 5).
