@@ -91,8 +91,10 @@ stated for general numerators in its source or its proof uses 4 only through "4 
   family; replacing 4 by M changes only the congruence g ≡ −1 (mod M) — uniform in form.
 * Function-field and ℤ[ω] analogues: the same blindness holds there — FF: ES_q^{(s)} is a theorem at every P
   ((J)30 Thm 3.5) while ES_q fails at some P (e.g. q = 5, A = T, degree ≤ 4; (J)4) and has no finite covering for
-  q = 3^r, r ≥ 27 ((J)26); ℤ[ω]: TES^{□₃} holds at every 2-primary non-cube ((J)28 Thm 3.5) while TES fails at 16
-  primes ((J)31; that these 16 are covered by Thm 3.5 in its normalisation is an Assessment, not re-checked here).
+  q = 3^r, r ≥ 27 ((J)26); ℤ[ω]: TES^{□₃} holds at every 2-primary non-cube prime to 6 ((J)28 Thm 3.5, relative to Chebotarev) while TES
+  fails at 16 2-primary split primes ((J)31 Thm 2.1, stated for 2-primary π); these are non-cubes prime to 6, so Thm 3.5
+  covers them (PROVED by combination), and (J)28's EVIDENCE (2) explicitly solved TES^{□₃} at all 2-primary split
+  primes with N(π) ≤ 6000, which include 15 of the 16.
 
 *Numerator-specific inputs known in the campaign (the only admissible "missing lemmas"):*
 (α) **(J)32 Thm 3.1(a): the five slices S₄ = {χ = −1} on positive words — FALSE for 8** (at 131: 29 χ = −1 words,
