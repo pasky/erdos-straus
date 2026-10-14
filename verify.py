@@ -24912,4 +24912,37 @@ def check_fE():
 check_fE()
 
 
+def check_fF():
+    # (fF) LENGTH_THREE (O206/R205): R205 from-scratch checks — pentagon/frieze dictionary on all 124 009 words with
+    # N <= 3000 (Ptolemy, fan identities, five slices), the odd-square / 105 controls, symbolic Ptolemy + Q-side
+    # identity, and the certificate cube as pentagons (4638 cube points p <= 1000, 0 at odd squares <= 2000).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=600, env=env, cwd=sdir)
+        assert r.returncode == 0, ("LENGTH_THREE subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_l3_words.py", "3000", "500"])
+    for s in ("words=124009 interior=53518 slice(N=1 mod 4)=12112 fails=0 []", "L3 set identity N<= 500: mismatches=0",
+              "odd squares 9..3000: 26, with interior word: 25, with slice word: 0",
+              "N without interior word: [2, 3, 5, 6, 9, 11, 14, 15, 35, 105, 510]"):
+        assert s in out, ("LENGTH_THREE R205 words", s, out[-2000:])
+    out = run(["review_l3_symbolic.py"])
+    assert out.count("True") == 23 and "False" not in out and "§6 identity: True" in out, ("LENGTH_THREE R205 symbolic", out[-2000:])
+    out = run(["review_l3_cube.py", "1000", "2000"])
+    for s in ("cube points p<=1000: 4638 (d=1: 1736); fails=0 []", "cube points at odd squares 9..2000: 0"):
+        assert s in out, ("LENGTH_THREE R205 cube", s, out[-2000:])
+    print(f"== (fF) LENGTH_THREE R205: 124 009 words N <= 3000 are Farey pentagons (Ptolemy/fan/five slices), "
+          f"no slice word at odd squares, 4638 cube points = pentagons; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fF()
+
+
 print("\nall checks passed")
