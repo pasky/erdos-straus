@@ -123,3 +123,49 @@ density argument; at present Assessment. → m5. On the higher-rank spark: for �
 unit is a square (Weber's units of independent signs — recalled, not checked here), so the T1 argument of (i)
 would survive on 2-power slices; this is the natural repair of the ℚ(√3) failure the author notes and worth a line in
 the spark list (no claim made).
+
+### C6. §8 / memo y3_ordinary_bridge — GAP (finding (1) is FALSE as stated; the intended statement is true)
+(1) claims **|Hom(E(F_h), F_h^*)| ≤ gcd(a_h − 2, h − 1)**. The proof bounds the *image of one homomorphism*
+(cyclic, order | exp E(F_h) and h − 1), not the number of homomorphisms. With E(F_h) ≅ ℤ/n₁ × ℤ/n₂ (n₁ | n₂,
+n₁ | h − 1), |Hom| = gcd(n₁, h − 1)·gcd(n₂, h − 1) = n₁·gcd(n₂, h − 1). Counterexamples (from scratch,
+`scripts/review_r216_misc.py`, brute-force group structure): y² = x³ − x over F_7 (supersingular): E ≅ ℤ/2 × ℤ/4,
+|Hom| = 4 > gcd(−2, 6) = 2; y² = x³ + 1 over F_7 (ordinary, a = −4): ℤ/2 × ℤ/6, |Hom| = 12 > gcd(−6, 6) = 6;
+38 counterexamples for h ≤ 13 alone. The image bound gcd(n₂, h − 1) ≤ gcd(a_h − 2, h − 1) held in every case
+(asserted for all curves, h < 60). → M1. Repair: "every homomorphism E(F_h) → F_h^* has image of order
+≤ gcd(n₂, h − 1) ≤ gcd(a_h − 2, h − 1)"; and |Hom| = n₁·gcd(n₂, h − 1) ≤ gcd(a_h − 2, h − 1)² (n₁ | gcd(N, h − 1)).
+The downstream conclusions (Hasse-bounded images unless a_h = 2) are unaffected — they only use the image bound.
+(2) correct (gcd(m, h − 1) | 2). (3) Mazur: E(ℚ)_tors is ℤ/n (n ≤ 10, 12) or ℤ/2 × ℤ/2n (n ≤ 4); a point Q has order
+≤ 12, so t_n(Q, ·) has image ⊂ μ_{ord Q}, ≤ 12 elements. Correct (also needs μ_{ord Q} ⊂ F_h, i.e. ord Q | h − 1, else
+the reduced pairing lands in an extension — harmless). Lang–Trotter attributions: a_h = 2 density zero unconditionally
+is Serre 1981 (correct as recalled; not re-read). (4) re-derived: 4cdj = h + 1 − a ⇒ 4c²dj ≡ (1 − a)c, so
+h | p + 4c²d ⟺ h | pj + (1 − a)c (gcd(j, h) = 1). Correct. "Type I is the imaginary-quadratic tier (c)":
+N(p + 2c√−d) = p² + 4c²d — correct as an identity; the analogy is Assessment.
+Numerics: the author's example y² = x³ + x + 1 at h = 127 has E ≅ ℤ/126 (cyclic) ✓.
+
+### C7. §4 / memo y3_typeI_hasse_window (Type I overlap, dual Hasse window) — SOUND
+Re-derived the window proof line by line: with f + p = 4cd·a, g + p = 4cd·b, fg = p² + 4c²d ⟺ c(4abd − 1) = p(a + b);
+cd ≤ p(a+b)/(4ab − 1) ≤ 2p/3 (uses d(4ab − 1) ≤ 4abd − 1), c ≤ 2p/3, so c²d ≤ 4p²/9, g ≤ (100/9)p²/(p − 1)² < 13 for
+p ≥ 17 (12.54 at p = 17); g odd; g ∈ {7, 9, 11} excluded via c²d ≤ (cd)² ≤ ((p+g)/4)² (g = 7: p² − 14p − 21 ≤ 0 ⟹
+p ≤ 15.4). g = 3 ⟹ p ≡ 1 (4), 3 ∤ c, d ≡ 2 (3); f ≡ −p (mod 4cd) automatic from fg ≡ p², g ≡ −p. Correct.
+From scratch (Type I window certificates with f prime, 17 ≤ p < 3000): 1621 certificates, g ∈ {1: 1251, 3: 320, 5: 50},
+none outside {1,3,5}; CM field ℚ(√((p − 1)² − 4f)) = ℚ(√−d) in 0 cases ✓ (smaller range than the author's 20000).
+Overlap: Frob_f acts on μ_{4cd} ⊂ μ_{f+p} by ζ ↦ ζ^f = ζ^{−p}; |Hom(μ_{f+p}, F_f^*)| = gcd(f + p, f − 1) =
+gcd(p + 1, f − 1); 4cd | f − 1 ⟺ 4cd | p + 1 ⟹ p ≡ 3 (4); then g = 1, f = p² + 4c²d ≡ −p ✓. Example (17,1,3,43,7):
+301 = 7·43, 43 ≡ 7 ≡ −17 (mod 12), gcd(18, 42) = 6 ✓. Minor: the report's "partial overlaps exist for p ≡ 1 (4) on
+finitely many slices" — for fixed p there are finitely many slices anyway; the phrase adds nothing (m6).
+
+### C8. Memos y3_salie_angle, y3_gross_koblitz_box, y3_euclid_schur_forcing, y3_lucas_dickson_trace — SOUND (minor)
+Salié: S(a,b;h) = i√h (b/h) Σ_{y² ≡ ab} e(2y/h) for h ≡ 3 (4) — verified from scratch on 6522 cases (h < 200, a ∈
+{1,2,5}, all b), 0 failures. Dictionary re-derived: y₀ = 2cd, y₀² = 4c²d² ≡ −pd, 2y₀j = h + 1; converse needs h ∤ d
+(automatic). Correct; "plausibly new in this form" is a fair Assessment.
+Gross–Koblitz: a/(q−1) = i/m; ⟨h·i/m⟩ = 1 − i/m (h·i/m = ij − i/m); π^{h−1} = −h; reflection
+Γ_h(x)Γ_h(1 − x) = (−1)^{ℓ(x)}, ℓ(x) ∈ {1..h}, x ≡ ℓ (mod h): checked by hand at x = 1 (Γ(1)Γ(0) = −1·1) and x = 2
+(Γ_7(2) = 1, Γ_7(−1) = Γ_7(0) = 1 from Γ(x + 1) = −xΓ(x)); so g = (−1)^{ℓ(i/m)}h, ℓ(1/m) = j ✓ consistent with
+Stickelberger. Robert/GK texts not accessed; sign conventions for the Teichmüller exponent were not re-derived (they
+only affect i ↔ −i, which leaves (−1)^j unchanged since ℓ((m−1)/m) = h + 1 − j… ≡ (−1)^{j} as h + 1 even ✓).
+Euclid–Schur: Prop E1 correct (a subgroup of index 2 or more has ≤ |G|/2 < |G| − 1 elements when |G| ≥ 3); E2
+correct; Remark E3 correct (7 | p + 8 for p ≡ 6 (7), 7 ≡ −1 (8)). Schur/Murty statement (Euclidean proof exists iff
+a² ≡ 1) recalled correctly; sources not accessed.
+Lucas/Dickson (Prop G): D_c'(2) = c² ✓ (T_c'(1) = c², D_c(x) = 2T_c(x/2)); Σ_{k<c} csc²(πk/c) = (c² − 1)/3 ✓
+(classical) — note this is an identity in ℤ[1/3] ⊂ F_h only for h ≠ 3 (fine, h ≥ 7). "Primitive prime divisors of
+U_{4cd} with (D/h) = −1 are ≡ −1 (mod 4cd)" ✓ (rank of apparition = 4cd divides h − (D/h) = h + 1).
