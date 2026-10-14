@@ -14,7 +14,8 @@ Artin symbol of the ideal (M)). Type II on slice (c, d) ⟺ **some sub-product o
 symbol c_∞** (h = that sub-product; prime-modulus Type II: a single prime factor with σ_q = c_∞). Thus:
 * (h+1)-world = primes imitating ∞ (decomposition group = {1, c_∞}); (h−1)-world = F_h^* where −p must equal a box
   value; TORSION_FIRING Thm 3.1's gcd = 2 is |D_∞| = 2.
-* (checked: scripts/y3_span.py 10⁵, 72 905 slice instances, 0 mismatches; odd squares: 0 firing slices.)
+* (checked: scripts/y3_span.py 10⁵, 87 405 slice instances with gcd(M, 4cd) = 1, of which 86 310 at primes, 0
+  mismatches; odd squares: 0 firing slices. Hypothesis gcd(p, 4cd) = 1, automatic for primes p ≥ 5.)
 * When (ℤ/m)^* is an elementary 2-group (m | 24, i.e. cd | 6), "−1 is a sub-product" ⟺ −1 ∈ F_2-span of the classes
   ⟺ **no odd quadratic character χ mod m has χ(q) = 1 for every q | M** ⟺ M is not composed solely of primes split in
   one imaginary quadratic field ℚ(√D), D | m, D < 0 (genus theory; folklore-level, cf. the zero-sum memos
@@ -38,5 +39,6 @@ restrictions on M's prime factors), T1: at n = m², M ≡ n is a square class: f
 the genus obstruction (consistent).
 
 ## Assessment
-Language, not a route: COLLAPSES to B2/B4. But it is the cleanest explanation found here of *why* every bridge between
-the two worlds is archimedean: the (h+1)-world is "being like ∞", and the only place genuinely like ∞ is ∞.
+Language, not a route: COLLAPSES to B2/B4. Heuristic reading (Assessment, not a theorem): the (h+1)-world is "being
+like ∞", which suggests why the bridges examined here end in size (archimedean) conditions; it does not prove that
+every bridge must.

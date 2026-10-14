@@ -27,21 +27,24 @@ factor ≡ 3 mod 4).
 So Euclidean forcing produces primes ≡ −1 (mod 4cd) as divisors of Ψ_{4cd}(n), but to fire they must also divide the
 prescribed M = p + 4c²d: h | gcd(Ψ_m(n), M) — a common-divisor condition, i.e. B2 (the modulus is part of the
 solution). Choosing n with M | Ψ_m(n) requires M's prime factors to be ≡ ±1 already (circular).
-**Prop E3 (joint forcing across slices; PROVED in the residue-only class).** For a finite slice set S and residue
-data only (each M_s known mod m_s and mod finitely many auxiliary primes), there is no forcing: by CRT plus Dirichlet one
-can realise M_s with all prime factors ≢ −1 (mod m_s) simultaneously, unless some |G_s| = 2. (This is POINTWISE_SIZE
-Thm M / B1 in the language of prime-factor classes.)
+**Remark E3 (joint/auxiliary forcing; R-O211 repair — the earlier "Prop E3" was FALSE as stated).** Residue data of
+p modulo auxiliary primes CAN force firing: for (c, d) = (1, 2), m = 8, if p ≡ 6 (mod 7) then 7 | p + 8 and 7 ≡ −1
+(mod 8), so the slice fires (e.g. p = 13). In general a fixed prime q ≡ −1 (mod 4cd) with q | p + 4c²d is forced by
+p mod q: these are exactly congruence-covering (Mordell-type) certificates, i.e. B1, and POINTWISE_SIZE Thm M
+excludes covering all primes this way. (Constructing the correlated values M_s = p + 4c_s²d_s simultaneously with
+prescribed prime-factor classes is a simultaneous-factorisation statement, CONDITIONAL in POINTWISE_SIZE; no claim
+is made here.)
 
 ## Barrier screen
-B1 (E3), B2 (E2), T1: at n = m², E1's trivial slice is unavailable (m² + 4 ≡ 1 mod 4), consistent. B4: Euclidean
+B1 (Remark E3), B2 (E2), T1: at n = m², E1's trivial slice is unavailable (m² + 4 ≡ 1 mod 4), consistent. B4: Euclidean
 forcing is a pigeonhole on prime-factor classes and inherits LONGSHOT_PIGEONHOLE Thm 2.2.
 
 ## Cheap numerics
 Not needed beyond y3_census (E1 is a group-theory statement; E2 is checked implicitly by y3_gauss check (2)/(4)).
 
 ## Assessment
-COLLAPSES (PROVED): residue forcing lives only in |G| = 2 (the genus layer, again gcd = 2 as in TORSION_FIRING
-Thm 3.1). By-product (Assessment, plausibly new as phrasing): **ES firing classes are exactly Schur–Murty
-Euclidean classes**; Type I's class is Euclidean iff 4cd | p² − 1. This explains why semi-primitivity is the
-natural ES condition (Euclidean = self-inverse class = Frobenius is complex conjugation on ℚ(ζ_m)), but Euclid's
-argument produces primes, not divisors of a prescribed integer.
+COLLAPSES: single-integer residue forcing lives only in |G| = 2 (Prop E1, PROVED); forcing via auxiliary
+primes is B1 (Remark E3). By-product (Assessment, phrasing only): the ES Type II class −1 mod 4cd is *one of* the
+Schur–Murty Euclidean classes (a² ≡ 1, i.e. involutions in (ℤ/m)^*; −1 is the one that is complex conjugation;
+e.g. 3 mod 8 is Euclidean but is not −1); Type I's class −p is Euclidean iff 4cd | p² − 1. Euclid's argument
+produces primes, not divisors of a prescribed integer.

@@ -18,14 +18,14 @@ def check(N):
     global bad, n, fires
     for c, d in slices:
         m = 4*c*d; M = N + 4*c*c*d
-        if any(M % q == 0 for q in (2, 3)): continue
+        if math.gcd(M, m) != 1: continue
         direct = any(h % m == m - 1 for h in divisors(M))
         qs = [q % m for q in factorint(M)]
         killer = any(ch[m - 1] == -1 and all(ch[q] == 1 for q in qs) for ch in CH[m])
         if direct == killer: bad += 1
         n += 1; fires += direct
 for p in primerange(5, P): check(p)
-sqf = 0
+sqf = 0; nprime = n
 for r in range(3, int(P**.5) + 1, 2):
     nb = n; f0 = fires; check(r*r); sqf += fires - f0
-print(f"P={P}: slice checks={n}, criterion mismatches={bad}, firing slices={fires}; odd-square firing slices={sqf}")
+print(f"P={P}: slice checks={n} (primes: {nprime}), criterion mismatches={bad}, firing slices={fires}; odd-square firing slices={sqf}")

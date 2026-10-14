@@ -28,13 +28,14 @@ Uniform cyclotomic numbers are of the same nature: numerically m²(a,b)_m ≡ 1,
 m | h + 1 tested (m ∈ {4, 6, 8, 10, 12, 16, 20, 24}, h ≤ 199; EVIDENCE, consistent with the Baumert–Mills–Ward closed forms
 [Baumert, Mills, Ward, *Uniform cyclotomy*, J. Number Theory 14 (1982) 67–82]: m²(a,b) is an integer polynomial in
 h, η, m). So the residue content of semi-primitive cyclotomy is "the integer m reduced mod h" — exactly the box
-Box(k) = {c/j} (FIXED_MODULUS_SHOTS Thm 3.1), i.e. archimedean size data. A non-homomorphic algebraic bridge
-exists, but it carries no information beyond the box restatement.
+Box(k) = {c/j} (FIXED_MODULUS_SHOTS Thm 3.1), i.e. archimedean size data. For the objects listed (cardinalities, pure Gauss
+sums, uniform cyclotomic numbers) the residue information is the box restatement; this is not a claim about all
+conceivable algebraic constructions (R-O211 repair).
 
 **(4) Counting identity?** The number of firing (c,d) at (p,h) is #{(c,j) : cj | k, c ≡ −pj (mod h)}. Box(k) has
-≤ τ(k)² elements and is not a union of cosets of any non-trivial subgroup of F_h^* (it contains 1 and k, and a
-union of cosets of H would need |H| | each fibre count); so no character expansion of the indicator of Box(k) with
-few terms exists and no cyclotomic-number identity counts firing pairs beyond the definition. (Assessment.)
+≤ τ(k)² elements. It *can* be a subgroup for small k (R-O211 repair: h = 7, k = 2 gives Box = {1, 2, 4}, the
+subgroup of order 3, whose indicator has a two-term character expansion). No general coset structure is known and
+no cyclotomic-number identity counting firing pairs beyond the definition was found. (Assessment, not a theorem.)
 
 ## Barrier screen
 B2: the firing modulus h is part of the solution; nothing here fixes it. B3/B6: (1)–(3) are per-h identities, any
@@ -45,6 +46,7 @@ p-count needs Σ_h (ET). T1: invisible at the level of (1)–(3) (p-independent)
 `scripts/y3_gauss.py`: (1),(2),(4) for all m | h + 1, h ∈ {7,…,83}: 0 failures; (3) table for m ∈ {4, 8, 12}.
 
 ## Assessment
-COLLAPSES to the box (B2), as a PROVED reformulation: semi-primitive cyclotomy is p-blind (scaling collapse) except
-through the additive shift ζ ↦ 1 − ζ, whose content is the integer m. Iteration (violate "single h"): see
+COLLAPSES to the box (B2) for the objects examined: weighted-homogeneous cyclotomic counts are p-blind beyond
+p mod F_h^{*e} (PROVED), and the additive shift ζ ↦ 1 − ζ / pure Gauss sums / uniform cyclotomic numbers carry
+the integer m resp. the parity of j (PROVED resp. EVIDENCE). Iteration (violate "single h"): see
 y3_lucas_rank (vary h with p through a recurrence) and y3_typeI_galois (in Type I, p acts as Frobenius on μ_m).

@@ -1,4 +1,4 @@
-# y3_gross_koblitz_box — Gross–Koblitz at semi-primitive level: the Morita Γ reads the box coordinate j (O211 (a))
+# y3_gross_koblitz_box — Gross–Koblitz at semi-primitive level: the Morita Γ argument 1/m reduces to j (O211 (a))
 
 **ES is not solved here.** Labels as in DISCOVERIES.md.
 
@@ -9,16 +9,16 @@ factorial congruence that carries p-information when the fraction is p-dependent
 
 ## Literature
 Gross–Koblitz, Ann. Math. 109 (1979) 569–581; A. M. Robert, *A Course in p-adic Analysis*, §VII.2 (reflection
-formula Γ_h(x)Γ_h(1 − x) = −(−1)^{ℓ(x)}, ℓ(x) ∈ {1..h} the residue of x mod h); Berndt–Evans–Williams ch. 11;
+formula Γ_h(x)Γ_h(1 − x) = (−1)^{ℓ(x)} (R-O211 repair: sign corrected; check h = 7, x = 2: Γ_7(2)Γ_7(−1) = 1), ℓ(x) ∈ {1..h} the residue of x mod h); Berndt–Evans–Williams ch. 11;
 Cosgrave–Dilcher, "Gauss factorials" (Integers 2011 / Acta Arith.), where the h ≡ ±1 (mod m) cases of
 ((h ∓ 1)/m)!-type products are evaluated via Jacobi sums.
 
 ## Computation (PROVED, classical)
 q = h², m | h + 1, j = (h + 1)/m, a = i(q − 1)/m = i·j(h − 1) = (ij − 1)h + (h − ij): base-h digits (h − ij, ij − 1),
 digit sum h − 1. Gross–Koblitz: g(ω^{−a}) = −π^{h−1} Γ_h(i/m) Γ_h(⟨h·i/m⟩), and ⟨h·i/m⟩ = 1 − i/m (since
-h·i/m = ij − i/m). With π^{h−1} = −h and the reflection formula, g = (−1)^{ℓ(i/m)+1}·h·(−1), where ℓ(i/m) ≡ i/m ≡ ij
-(mod h) because mj = h + 1 ≡ 1. For i = 1: **the sign is (−1)^j and the Morita argument 1/m has h-adic residue
-exactly j** — the box coordinate (−p ≡ c/j). Consistent with Stickelberger's pure sign (y3_semiprimitive_collapse (1)).
+h·i/m = ij − i/m). With π^{h−1} = −h and the reflection formula, g = −(−h)(−1)^{ℓ(i/m)} = (−1)^{ℓ(i/m)} h, where ℓ(i/m) ≡ i/m ≡ ij
+(mod h) because mj = h + 1 ≡ 1. For i = 1: **the sign is (−1)^j, and the ARGUMENT 1/m of Γ_h reduces to j mod h**
+(the value Γ_h(1/m) is a different thing: h = 7, m = 4, j = 2 gives Γ_7(1/4) ≡ Γ_7(2) = 1 mod 7) — the box coordinate (−p ≡ c/j). Consistent with Stickelberger's pure sign (y3_semiprimitive_collapse (1)).
 
 ## Construction attempts
 (1) Make the fraction p-dependent: Gauss sums of characters χ with χ ∘ (F_h^* ↪ F_{h²}^*) ≠ 1 have order not dividing
@@ -35,5 +35,5 @@ B2/B3 as in y3_semiprimitive_collapse; Thm 2.1 of BRIDGE_WORLDS (case (b): Γ-va
 rationals); T1 not reached.
 
 ## Assessment
-COLLAPSES (PROVED): Gross–Koblitz at semi-primitive level computes the residue of 1/m, i.e. j — the box. The mixed
+COLLAPSES (PROVED): Gross–Koblitz at semi-primitive level only uses the residue of its argument 1/m, i.e. j — the box. The mixed
 torus sum in (2) is the one genuinely two-world object found, but it is a Weil-bounded character sum (B3).
