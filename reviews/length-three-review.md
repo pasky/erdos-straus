@@ -114,3 +114,18 @@ becomes 498/1615, 298/641 with failures only 13, 37, 97, 181, 193. The author's 
 gcd(b₀, b₁) = 1 added (which is what "Farey chain" needs; then gcd(b₁, b₂) = gcd(b₂, b₃) = 1 follow from the
 divisibilities). Also, the "/tmp probe recorded here" is not reproducible from the repo. *Repair:* add "gcd(b₀, b₁) = 1
 (a unimodular Farey chain)" to the definition and point to `scripts/review_l3_chain.py` (or commit the probe).
+
+**D6 (MAJOR-presentational, stale retracted claim; §5 paragraph "The four '3's", line ≈165).** It still lists "the three CF
+steps before the cusp −1/m (a Farey path on g_{μ_c})" as one of the four "3"s. §4's own R-self repair says exactly this
+placement (cutting sequence of g_{μ_c} in the z-frame, through the Ford horocycle at −1/m) is FALSE (the frame change is
+not unimodular; (7, 2, 1, 3, 1) is a counterexample, which I confirmed: the Ford disc at −1/12 lies strictly inside the
+semicircle of [4, 92, 7]). The summary therefore re-asserts a refuted geometric statement as part of the headline
+unification. *Repair:* replace with "the three CF steps (p₀/q₀, p₁/q₁, p₂/q₂) of √(4μ_c² − 4p) in MARKOFF's coordinates
+(x, z_M), ending at the convergent ε_μ (depth 3; depth 1 when j = 1)", and drop "a Farey path on g_{μ_c}" and "before the
+cusp −1/m". Also note the "3" is only "3" for j ≥ 2.
+
+**D7 (MINOR; §5 "the tridiagonal path form with diagonal (c, m, s), whose leading/trailing principal minors are the five
+cluster variables and N").** The leading minors are c, h, N and the trailing ones s, h′, N; m is the *central* 1×1 minor,
+not leading or trailing. *Repair:* "whose contiguous principal minors are c, m, s, h, h′ and N".
+
+**D8 (MINOR; header).** "Status: in progress (O206)" while §8 is a checkpoint verdict. *Repair:* update the status line.
