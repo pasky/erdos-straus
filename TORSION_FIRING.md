@@ -254,8 +254,9 @@ and a = 0 occurs (supersingular, p ≥ 5). A finite abelian group has subgroups 
 (a) is FIXED_MODULUS_SHOTS Lemma 1.1 on the (c, d) line (h | p + 4c²d, h ≡ −1 mod 4cd, any h); (b) the (c, j) line
 with j = 1: h | p + c, h = 4cd − 1. ∎
 **EVIDENCE (`scripts/tf_hasse.c`, all primes 5 ≤ p ≤ 10⁸, 6.8 s; data/tf/hasse_1e8.txt).** Every prime has a
-certificate of type (a) or (b): (a) fails only at p = 193, (b) at 22 primes (the first 17 below 10⁶: 7, 31, 79, 127,
-193?, …; see data/tf/hasse_1e6.txt), never both. The odd squares ≤ 10⁸ (4999): 0 of either kind (T1).
+certificate of type (a) or (b): (a) fails only at p = 193; (b) fails at exactly 23 primes, 7, 31, 79, 127, 199, 409,
+577, 2719, 5569, 8191, 9601, 23929, 83449, 102001, 329617, 712321, 861199, 1134241, 1724209, 1726201, 5212561,
+6266527, 8813281 (none in (8.9·10⁶, 10⁸]); never both. The odd squares ≤ 10⁸ (4999): 0 of either kind (T1).
 So, empirically, **ES(p) is witnessed by an elliptic curve over F_p itself**: some E/F_p of trace a ≤ 0 (in the
 Hasse window) has a subgroup whose order is ≡ −1 modulo 4(1 − a) (b) or modulo 4cd with 1 − a = 4c²d (a).
 *Reading (Assessment).* By Lenstra's theorem E(F_p) ≅ End(E)/(π − 1) (ordinary E), the subgroups stable under

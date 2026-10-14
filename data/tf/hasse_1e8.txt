@@ -1,3 +1,27 @@
+miss n=7 A=1 B=0
+miss n=31 A=1 B=0
+miss n=79 A=1 B=0
+miss n=127 A=1 B=0
+miss n=193 A=0 B=1
+miss n=199 A=1 B=0
+miss n=409 A=1 B=0
+miss n=577 A=1 B=0
+miss n=2719 A=1 B=0
+miss n=5569 A=1 B=0
+miss n=8191 A=1 B=0
+miss n=9601 A=1 B=0
+miss n=23929 A=1 B=0
+miss n=83449 A=1 B=0
+miss n=102001 A=1 B=0
+miss n=329617 A=1 B=0
+miss n=712321 A=1 B=0
+miss n=861199 A=1 B=0
+miss n=1134241 A=1 B=0
+miss n=1724209 A=1 B=0
+miss n=1726201 A=1 B=0
+miss n=5212561 A=1 B=0
+miss n=6266527 A=1 B=0
+miss n=8813281 A=1 B=0
 NMAX=100000000 primes=5761453  A(trace 1-4c^2d)=5761452  B(trace 1-c)=5761430  A|B=5761453  none=0  S(supersingular p+1)=5103821
 first primes with neither:
 odd squares=4999  A=0 B=0 S=0 (T1: all must be 0)

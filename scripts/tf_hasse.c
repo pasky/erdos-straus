@@ -30,7 +30,7 @@ int main(int argc,char**argv){
     for(long c=1; 4*c*c-1<=w && !A; c++) for(long d=1; 4*c*c*d-1<=w && !A; d++) if(hasdiv(n+4*c*c*d,4*c*d)) A=1;
     for(long c=1; c-1<=w && !B; c++) if(hasdiv(n+c,4*c)) B=1;
     S=hasdiv(n+1,4);
-    if(isp && (!A || !B) && n<2000000) printf("miss n=%ld A=%d B=%d\n",n,A,B);
+    if(isp && (!A || !B) && n<200000000) printf("miss n=%ld A=%d B=%d\n",n,A,B);
     if(isp){ np++; nA+=A; nB+=B; nAB+=(A||B); nS+=S; if(!A&&!B){ noneAB++; if(nf<20) firstnone[nf++]=n; } }
     else { nsq++; sqA+=A; sqB+=B; sqS+=S; }
   }
