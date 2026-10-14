@@ -4,6 +4,17 @@ Reviewer worktree branch `side-agent/review-phase-diagram-2`, merged `side-agent
 From-scratch scripts: `scripts/review_pd_wall.py`, `scripts/review_pd_family.py` (+ further `review_pd_*` below).
 None of the author's `pd_*` scripts were used or imported. **ES is not solved; nothing below changes that.**
 
+**Repairs applied: none.** The author's branch was at its checkpoint-1 commit (0e608b96, 24 min old, waiting for
+review) and a second reviewer works on the same document, so I did not edit PHASE_DIAGRAM.md; the parent should
+forward M1, M2 and m1–m12.
+
+**Overall.** No FATAL defect. Every PROVED mathematical claim re-derived and, where numerical, reproduced exactly by
+independent code (Thm 2.1 searched to 2·W(k) and to k = Q₁², twice the claimed band; all §3 evidence reproduced
+digit-for-digit). Two MAJOR defects: M1 (Cor 3.2's ES^□ k = 1 infinitude asserted without proof — true, repair
+given) and M2 (Thm 5.1's statement attaches an o(1) to a single solution; must be stated as a family / for every
+η > 0). The R200 M1 status question: Thm 2.1 does NOT make ES^{(y,1)} a finite search — it narrows M1's growing-S
+case (Q₀ > (g+1)/(2Q₁²), Q₁ ≲ n^{1/3}g^{2/3}) but leaves it open.
+
 ## Summary verdicts
 
 | Claim | Verdict |
@@ -71,6 +82,9 @@ is OPEN; the wall only asks rad(Q₁)^e ≳ (r/4n)^{1/4}" — stands. What Thm 2
 large-Q₁ ES^{[2]} shot (Q₁ > (n+1)/2) one also has k < Q₁²/2, i.e. **Q₀ > (g+1)/(2Q₁²)**; so the R200 M1 scenario
 "r ≡ −1 (mod 4P), P ≈ r^{1/4}, Q₁ | P" is admissible only with Q₀ ≫ r^{1/2} (Q₀ = gcd(Q, (r+1)/4) must carry a
 cofactor λ ≫ r^{1/4} besides Q₁), and Q₁ ≤ ((3n/8)r²)^{1/3}. This narrows, but does not close, M1's open case.
+Consistency with GROWING_MUTE (R201 M3, "no archimedean wall for ES^{[2]}"): with A = 2k, B = Q₁ (Prop 4.1), a Pell
+orbit at fixed (λ, D) keeps B/A between μ ± √(μ² − n), so Q₁ ≍ k along the orbit — slope 1, inside the band; no
+contradiction (the walls bound slices, the orbits run diagonally).
 The document itself does not claim global finiteness (Verdict 6 says "a union of finite searches in both
 directions"), but the table cell "FINITE" and the ES row "OPEN (finite search, B2/B3)" can be misread (m3).
 
