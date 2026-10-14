@@ -217,11 +217,13 @@ is an ES^{(S′)} solution with S′ its mute primes; UNIT_ORBIT Cor 1.2), in pa
 coprime squares, §1 of GROWING_MUTE); (b) as a statement it nevertheless holds at m² whenever it holds at a prime
 p | m with mute primes prime to m (scaling 4/(pt) = 1/(tx) + 1/(ty) + 1/(tz)). So every cell of the table has the
 T1 of ES (checked: all T1 controls in §2–§3 and pd_k1s are empty), and any proof of a bounded-cap cell must use a
-non-square input such as (n/r) = −1. Covering proofs are excluded for every cell (B1): profinite points x with
-x_ℓ = 1 for ℓ ≠ r and x_r a non-residue, r ≡ 1 (mod 4), lie in no shot class of ANY variant down to ES^□ (a shot
-class needs g ≡ 3 (mod 4) with g | x + 4Q², but every prime power dividing 1 + 4Q² is ≡ 1 (mod 4) and so is r)
-— so no finite set of shot identities covers the primes p ≡ 1 (mod 8·∏_{ℓ<r}ℓ… ) whose least non-residue is such an
-r; the proved cells escape this only because their proofs use arbitrarily large primes (non-covering).
+non-square input such as (n/r) = −1. Covering proofs are excluded for every cell (B1; PROVED, elementary): let r ≡ 1 (mod 4) be prime, u a non-residue
+mod r, and x(u) ∈ Ẑ the point with x_ℓ = 1 (ℓ ≠ r), x_r = u. A shot class {n : g | n + 4Q²} (g ≡ 3 mod 4) of ANY
+variant down to ES^□ cannot contain x(u): writing g = r^a g′, g′ | 1 + 4Q² forces g′ ≡ 1 (mod 4), and r^a ≡ 1, so
+g ≡ 1 (mod 4). Finitely many classes therefore miss a whole neighbourhood {n ≡ x(u) mod M} of x(u), which contains
+infinitely many primes (Dirichlet): **for every prime r ≡ 1 (mod 4) and non-residue u mod r, no finite set of shot
+identities of any of these variants covers the primes p ≡ u (mod r).** The proved cells escape this only by using
+arbitrarily large primes (non-covering proofs).
 
 **Where the single-n requirement bites (the brief's sieve question).** Not at B6: n is fixed and r (or (k, λ)) is
 the summation variable, exactly as in the proved ES^{(y)}. It bites at the per-certificate box: after switching
