@@ -211,7 +211,7 @@ classical in substance — ET Prop 1.6 / Yamamoto): at n = M² the Machin field 
 1 + 2jM√−d is a *primitive* element of ℤ[√−d] of norm 1 + d(2jM)². So every odd prime q | 1 + 4dj²M² has (−d/q) = 1,
 while h ≡ −1 (mod 4dj) forces the Jacobi symbol (−d/h) = −1. Proof of the last step: (−1/h) = −1; for d = 2^a d′ one
 has (d′/h) = (−1/d′)(−1)^{(d′−1)/2} = 1, and (2/h) = 1 when a ≥ 1 since h ≡ −1 (mod 8). So no cube point exists at any
-odd square. For d = e² the geodesic C_d has rational endpoints ±M/2e and this is Fermat's "1 + x² has no divisor
+odd square (check: 0 cube points at all odd squares 9 ≤ M² ≤ 9801, inline probe). For d = e² the geodesic C_d has rational endpoints ±M/2e and this is Fermat's "1 + x² has no divisor
 ≡ 3 (mod 4)" in ℤ[i]. At a prime p the field ℚ(√−pd) carries the extra genus character (·/p), which is what lets h
 exist. Geometrically: at squares the CM point z* = iM/√m is the M-dilate (a Hecke translate) of i/√m, and the dilation
 loses the genus character at N. This is the (J)13 "geometry sees only genus" statement in Machin form. It is not new
@@ -237,3 +237,22 @@ relations*, and Machin is the same relation at a CM point. So the four "length 3
 information: any mechanism that sees one sees all, and B2 is the statement that the Ptolemy system contains an unknown
 divisor (the λ-length h). (iii) ES^{(S)} versus ES is "one side non-tangent" (§6). A proof would have to produce
 pentagons with tangent sides. No geometric move does that while keeping N = p (§6).
+
+## 8. Verdict (O206 checkpoint 1)
+
+* **PROVED (elementary; CERTIFIED to N ≤ 10⁵ / p ≤ 5000 with controls).** One object carries all four "length 3"
+  statements: the Ford-decorated Farey pentagon 𝒫(c, m, s; N), i.e. the positive integral A₂ frieze with frozen values
+  (1, 1, 1, 1, N), together with the geodesic C : |z|² = N/m and its orthogonal pencil.
+  * HJ length 3 = the pentagon's three short diagonals.
+  * The five ES slices = the five vertices: each ES triple is a Ford horocycle cut by the vertex fan, and the slice
+    condition is "opposite diagonal ≡ 0 (4)" (Thm 2.1, Cor 2.2).
+  * The cube = the Ptolemy system with m = 4dj, N = pj (Cor 1.3).
+  * Machin = rotation about the CM point z* = top of C (Thm 3.1). For Type II, z* depends on (p, d) only.
+  * CF depth 3 / ε_μ = the pencil member μ_c = N + c, where "N(ε_μ) | μ" is the Ptolemy relation hs = N + c
+    (Thm 4.1, Cor 4.2).
+  * ES^{(S)} = the same pentagon with one side of λ-length Q² (§6).
+* **Constructive (Assessment, §7).** No deterministic existence mechanism appears in the unified language. Every
+  candidate reduces to the Ptolemy system, which contains the unknown divisor h, i.e. B2/H-A. This covers ear lemmas,
+  exact identities, the moving pencil, T1 geometry and equidistribution. The pencil does make the level move (7.3),
+  but the divisibility survives elimination.
+* **ES is not solved; no infinite case of ES is claimed.**
