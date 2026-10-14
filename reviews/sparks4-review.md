@@ -122,3 +122,25 @@ The Voronoi-cell name (one of the six conorms zero ⇒ hexa-rhombic dodecahedron
 but is likewise unverified. *Defect:* "the wall-with-unit-conorms lattices of det p are the ≍ log²p positive words"
 is a heuristic average (Σ_t d(tp + 1)/φ(t)), not a pointwise bound; label it so. Also say explicitly that ES-five
 here means interior (t ≥ 2) and that "two zero conorms" counts CS's always-zero seventh conorm.
+
+### D8 (MINOR) — s4_kudla_green_infinity: K1 SOUND; K2 SOUND and now unconditional, but its stated dependencies are off
+*Checks.* K1 re-derived: T_w = [[B, 1], [1, A]], det tn; t < 0 ⇒ indefinite; t > 0, w signed ⇒ v < 0 (tv = 1 forces
+n = −1) ⇒ B < 0, det > 0 ⇒ negative definite. SOUND. For K2 the clean route is: the algebra of T_w is B_T = (−B, −tn),
+and **B_T ≅ C₀(Q_w) place by place** — checked from scratch (`scripts/review_r219_kudla.py 1001`: inv_v(−B, −tn) =
+ε_v(Q_w) at v = 2, ∞, every ℓ | n and every odd ℓ | t, on all 77 658 words of odd n ≤ 1001; 0 failures; T_w pos. def.
+⟺ w positive, 0 failures; at odd squares |Diff| odd and Diff = {∞} ⟺ certificate on all 2 281 square-n words, 0
+failures). Then K2 follows from D5 (three-bit law, now PROVED) plus the (J)13 identification Diff(T) = Ram_fin(B_T)
+∪ ({∞} if T is not positive definite), which is local at each finite place and hence sign-blind.
+*Defects.* (i) The K2 label "given the three-bit law … CERTIFIED" — upgrade to PROVED (D5). (ii) "no ℓ ∤ 2n lies in
+Diff" needs one line for ℓ | t (T_w is not ℓ-unimodular there): −B ≡ 1 (mod t) is an ℓ-adic square, so (−B, −tn)_ℓ = 1.
+(iii) The memo cites "(J)13" for 2 ∉ Diff ⟺ certificate; (J)13 concerns the modular-curve collection where ES
+tuples clear 2 by their congruences; the Eichler-level-2 dictionary at n = p is TWO_FIBRES/(J)39 Prop 4.1. Cite both
+and state which incoherent collection is meant (C_∞ definite, C_ℓ split for ℓ < ∞). Novelty: a re-reading (agreed).
+
+### D9 (none) — s4_maslov_inertia: SOUND
+Lemma I is Jacobi's signature rule (inertia = number of sign changes in 1, K₁, …, K_r when no K_i = 0); with K₀ = 1 > 0
+and K_r > 0 the up-changes are exactly half, so μ = ind_−/2. The r = 3 corollary (ind_− ∈ {0, 2}, μ even ⟺ definite ⟺
+positive, by L1) is correct; my three-bit script confirms ε_∞ = −1 ⟺ positive on 77 658 words. Not re-running the
+75 097-word certificate is acceptable: it is a direct corollary of Sylvester/Jacobi. Only defect: the convention
+clash noted in D5 (the "∞-factor" (−1)^{ind_−/2} is s_∞, not the isotropy sign ε_∞ = −s_∞). Label "PROVED, classical"
+is right; promise 0/5 is honest.

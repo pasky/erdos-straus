@@ -29,26 +29,27 @@ def eps(diag,place):
     a1,a2,a3=diag; H=(lambda x,y:hilb2(x,y)) if place==2 else (hilbinf if place=='inf' else (lambda x,y:hilbp(x,y,place)))
     c=H(a1,a2)*H(a1,a3)*H(a2,a3); d=a1*a2*a3
     return 1 if c==H(-1,-d) else -1
-N=int(sys.argv[1]); cnt=nsg=0; bad={k:0 for k in 'abcdel'}; cell={}
-for n in range(3,N+1,2):
-    for t in [x for s in range(1,n+4) for x in (s,-s)]:
-        M=t*n+1
-        for d in divisors(fac(abs(M))):
-            for A in (d,-d):
-                if A==-1 or (A+1)%t: continue
-                B=M//A
-                if B==-1: continue
-                u=(A+1)//t; v=(B+1)//t
-                assert u and v and t*u*v-u-v==n
-                cnt+=1; pos=t>0 and u>0 and v>0; nsg+= not pos
-                chi=jac(-A,n); diag=(v,v*B,n*B)
-                e2=eps(diag,2); ei=eps(diag,'inf')
-                cert=any(x%4==0 for x in (A,B,t,u,v)); sinf=1 if pos else -1
-                bad['a']+= chi!=e2*ei; bad['b']+= cert!=(e2==1); bad['c']+= cert!=(chi*sinf==-1); bad['d']+=(ei==-1)!=pos
-                key=(t%8,u%8,v%8)
-                if cell.setdefault(key,e2)!=e2: bad['e']+=1
-                for l in fac(n):
-                    vl=0; m=n
-                    while m%l==0: m//=l; vl+=1
-                    if eps(diag,l)!=jac(-A,l)**vl: bad['l']+=1
-print("odd n<=",N,"words",cnt,"signed",nsg,"cells",len(cell),"violations",bad)
+if __name__=="__main__":
+    N=int(sys.argv[1]); cnt=nsg=0; bad={k:0 for k in 'abcdel'}; cell={}
+    for n in range(3,N+1,2):
+        for t in [x for s in range(1,n+4) for x in (s,-s)]:
+            M=t*n+1
+            for d in divisors(fac(abs(M))):
+                for A in (d,-d):
+                    if A==-1 or (A+1)%t: continue
+                    B=M//A
+                    if B==-1: continue
+                    u=(A+1)//t; v=(B+1)//t
+                    assert u and v and t*u*v-u-v==n
+                    cnt+=1; pos=t>0 and u>0 and v>0; nsg+= not pos
+                    chi=jac(-A,n); diag=(v,v*B,n*B)
+                    e2=eps(diag,2); ei=eps(diag,'inf')
+                    cert=any(x%4==0 for x in (A,B,t,u,v)); sinf=1 if pos else -1
+                    bad['a']+= chi!=e2*ei; bad['b']+= cert!=(e2==1); bad['c']+= cert!=(chi*sinf==-1); bad['d']+=(ei==-1)!=pos
+                    key=(t%8,u%8,v%8)
+                    if cell.setdefault(key,e2)!=e2: bad['e']+=1
+                    for l in fac(n):
+                        vl=0; m=n
+                        while m%l==0: m//=l; vl+=1
+                        if eps(diag,l)!=jac(-A,l)**vl: bad['l']+=1
+    print("odd n<=",N,"words",cnt,"signed",nsg,"cells",len(cell),"violations",bad)
