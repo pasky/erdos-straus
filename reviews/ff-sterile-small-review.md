@@ -160,8 +160,8 @@ bounds* is certified independently of any tail. The remark "terms 10⁻⁶ at s 
 Lemma 4.1: without it my per-s term at s = 80 is still 0.118 and the sum through s = 80 is 79.95 (m-6; label EVIDENCE).
 **Additional data for the author's next step (`review_fz_q9.py`, exact enumeration over F₉ via python-flint):** the
 exact Case B mass Σ_s #tuples(s)·q^{1−⌈s/2⌉} is 0.2222, 0.0494, 0.1975, 0.0274, 0.0549, 0.0018 for s = 4..9 (none at
-s = 3), cumulative **0.5533 through s = 9**, against the bound-sum 9.39 through s = 9. So the exact small-s masses are
-~17× below the bounds, and the q = 9 programme "exact counts up to s ≈ 20–24, then route bounds" looks plausible
+s = 3), cumulative **0.5533 through s = 9**, against the bound-sum 10.675 through s = 9. So the exact small-s masses are
+~19× below the bounds, and the q = 9 programme "exact counts up to s ≈ 20–24, then route bounds" looks plausible
 (Assessment; the counts above are CERTIFIED by exhaustive enumeration, cross-validated at q = 3 against R218's enumerator).
 
 ## 5. Labels
@@ -170,4 +170,61 @@ Document status line, Theorem 3.1 (PROVED, computer-assisted, same standard as (
 (EVIDENCE) and the q = 9 statement are correctly labelled; ES, ES_q, and Conjecture 0.2 (q = 3) are not claimed. The
 report's spark "this is a *finite* computation problem for Conjecture 0.2" (q = 3) overstates (m-8).
 
-(defects below)
+## 6. Defects
+
+No FATAL. No MAJOR.
+
+**m-1 (MINOR; Lemma 1.3, statement of V(D)).** The text gives V(D) = max(1, q^{t−1−deg D}); the proof already shows the
+sharp count q^{t−2−deg D} (deg D ≤ t − 2), and `fz_sum.c` (`logV`) and `fz_tail.c` (`Vc` with the shift dropped) use the
+sharp count — so the certificate uses a bound stronger than the one stated. It is true (re-derived, brute-forced in
+`review_fz_brute.py`), and the theorem also holds with the stated weaker bound (my total 4.44 < 26), but the document
+must state what the certificate uses. *Repair:* "V(D) := q^{t−2−deg D} if deg D ≤ t − 2, and 1 otherwise"; adjust the
+proof's last sentence ("exactly q^{t−2−deg D} choices").
+
+**m-2 (MINOR; undocumented route in the certificate).** `fz_sum.c` `logSomClass` and `fz_tail.c` R10a3 use, besides
+V(D)·2^{ω*(t−2)}, the bound Σ_{v₁ ≡ σ (D), deg e, fixed lc} 2^{ω(v₁)} ≤ 2Σ_{j ≤ e/2} q^j max(1, q^{e−d−j}) (and in the
+tail ≤ 2(s+1)q^{max(e/2, e−d)}, resp. 2^{(q−1)/2 + e/2} for d > e via ω*(e) ≤ (q−1)/2 + e/2). Lemma 1.2/1.3 mention only
+the maximum 2^{ω*}. Valid (proof in §3 of this review; brute-forced as route R10a'tau) but absent from the text, and
+Theorem 3.1's proof says "Lemmas 1.2–1.4 and 4.1". *Repair:* add to Lemma 1.3: "(R10a with v₁ in a class mod m')
+Σ_{v₁} 2^{ω(v₁)} ≤ min(V(m')·2^{ω*(t−2)}, 2Σ_{j≤(t−2)/2} q^j·max(1, q^{t−2−z−j})), since 2^ω ≤ τ ≤ 2#{δ | v₁ : deg δ ≤ e/2}
+and δ | v₁ forces gcd(δ, m') = 1 (v₁ ≡ −T^{s−2} is a unit mod m'); tail form: ≤ 2(s+1)q^{max(e/2, e−z)} for z ≤ e, and
+ω*(e) ≤ (q−1)/2 + e/2." (Not needed for the theorem: my certificate omits it.)
+
+**m-3 (MINOR; Lemma 1.4, hypothesis paragraph).** "(Repair of the hypothesis: … the cofactor version needs F prime to Q,
+as before.)" — if T ∤ Q, the cofactor version applied with modulus QT^j needs F prime to QT^j, i.e. also T ∤ F. Harmless
+(all applications have T | Q). *Repair:* "…the cofactor version needs F prime to QT^j (equivalently to Q when T | Q)."
+
+**m-4 (MINOR; Thm 3.1 proof, dependency claim).** The proof cites Lemma 4.1 (§4, later in the document). My
+re-certification shows neither Lemma 4.1 nor the τ-bound is needed (3.0556 < 26 without both; 4.44 with the stated
+weaker V). *Repair (optional, strengthens the result):* add "(Lemma 4.1 and the τ-bound of Lemma 1.3 are not needed:
+R220's independent certificate without them gives ≤ 3.056)".
+
+**m-5 (MINOR; §1 Check paragraph).** `fz_check_bounds.c` compares exact counts with the minimum over routes only; an
+invalid route that is never the argmin on small cases would pass. *Repair:* cite R220's per-route check
+(`review_fz_brute.py`: every route separately, q = 3 s ≤ 15, q = 5 s ≤ 12, q = 7 s ≤ 10, 0 violations).
+
+**m-6 (MINOR; §4 q = 9, tail remark).** "terms 10⁻⁶ at s = 80, so the tail is negligible" holds only with Lemma 4.1 in the
+routes (without: term 0.118 at s = 80, sum to 80 = 79.95) and is not certified (no q = 9 tail run). *Repair:* "(with
+Lemma 4.1; EVIDENCE, no tail certificate at q = 9)". The CERTIFIED part (Σ_{s≤8} of the bounds = 9.22 > 8) is fine.
+
+**m-7 (MINOR; §4, "V_ρ(n) = o(n)").** Only sketched. *Repair:* give the elementary bound: with F = ΠP_i^{e_i} of degree
+n, primes of degree ≥ J contribute Π(e_i + 1) ≤ 2^{Σ e_i} ≤ 2^{n/J}, and there are < q^J primes of degree < J, each with
+e_i + 1 ≤ n + 1; so τ(F) ≤ 2^{n/J}(n+1)^{q^J}, and J = ⌊log_q(n/log²(n+2))⌋ gives log τ(F) = O(n log q/log n) = o(n)·log q.
+This makes Cor 4.2's "PROVED" self-contained (δ₃ ≤ δ²).
+
+**m-8 (MINOR; AGENT_REPORT_O220 spark on Conjecture 0.2).** "combined with the exact union to s = 21 … this is a finite
+computation problem for Conjecture 0.2 — but s₀ is probably several hundred". With union bounds failing at q = 3 even for
+exact counts (94/27 > 2, §4 end), one would need the exact *union* of cylinders up to s₀, i.e. enumerating ≈ 3^{2s/5}
+tuples per level up to s₀ ~ hundreds — finite in principle, infeasible in practice, and it would give the conclusion of
+Conjecture 0.2 (no finite linear covering) rather than x*_c ∈ O. *Repair:* rephrase as "finite in principle; s₀ ≈ ?;
+infeasible unless s₀ is small", and say "conclusion of Conjecture 0.2".
+
+**m-9 (MINOR, cosmetic; Lemma 2.1).** The text's ratio constant (44/43)³ differs from the script's (43/42)³ (both valid;
+the script's is the tight one for α ≥ 41). *Repair:* use (43/42)³ in the text.
+
+## 7. Recommendation
+
+Theorem 3.1 (q = 27) is SOUND-AFTER-REPAIRS with documentation-only repairs (m-1, m-2 needed so that the text states
+every bound the certificate uses; m-3…m-9 optional). Independently re-certified: covered relative measure summed over
+the 26 c-slices ≤ 3.056 (stated routes, sharp V) / ≤ 4.442 (stated weaker V), both far below 26. Together with (J)51 this
+gives no finite linear covering of ES_q(T^k), k ≥ 2, for all q = 3^r, r ≥ 3.
