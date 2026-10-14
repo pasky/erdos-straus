@@ -1,7 +1,7 @@
 # s3_numerator_blind — (J)23/(J)28 relaxations × (J)31/(J)32 numerator data: the relaxations cannot see failures
 
 **Combines:** (J)23 ES^{(S)}, (J)28 ES^□, (J)31 (8/n fails at 131, 241: Pomerance–Weingartner; no BM obstruction:
-Bright–Loughran Rem 1.10), (J)32 (complete failure lists for M ≤ 24; m = 4 unique χ-fibre). Deep version:
+Bright–Loughran Rem 1.10), (J)32 (failure lists for M ≤ 24, complete to 10⁸ — R207 repair m9; m = 4 unique χ-fibre). Deep version:
 SYNTHESIS_SPARKS3.md §1–§2.
 
 ## Idea
@@ -31,5 +31,6 @@ certificates (g ≤ 239); T1 control 0 shots at odd squares. `scripts/s3_mute_S.
 for the 264 pairs with p ∉ S, Q ≤ 385.
 
 ## Assessment
-PROVED barrier with exact scope (the formal content is R₈(131) ∧ ¬(8/131)); SHARP (strategic): both exits need some
-numerator-4-specific input; the cleanest known one is the numerator-free χ-fibre (SQ₅). Promise as a route: 0; as steering: high.
+PROVED barrier with exact scope (the formal content is R₈(131) ∧ ¬(8/131)); SHARP (strategic, Assessment): both exits need some
+numerator-4-specific input or an M-dependent threshold n₀(M) > M² (R207 repair D1; PW Thm 1.2 + Thm 1.1(a)), and (J)31 already
+drew the threshold-correct form of this conclusion (R207 repair D2); the cleanest known one is the numerator-free χ-fibre (SQ₅). Promise as a route: 0; as steering: high.
