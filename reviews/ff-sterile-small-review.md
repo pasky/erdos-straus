@@ -64,4 +64,71 @@ independent `review_fs2_brute.py` tuple counts for q = 3, s ≤ 10) compares eve
 undocumented τ-bound route of m-2): q = 3 (s ≤ 15), q = 5 (s ≤ 12), q = 7 (s ≤ 10): **0 violations**; several new routes
 are attained with equality (D1, D2, D3, R4'', X2': max count/route = 1.000 at q = 3).
 
+## 2. Lemma 2.1 (Case A tail)
+
+Re-derived. Patterns at depth α: β ∈ [0, α−1], κ ∈ [1, α−β], λ ∈ [0, max(β, f) − 1]: fewer than (α+1)³. Routes of PUSH
+Lemma 2.2: (i) N*(λ)N*(β)q^{κ−1} ≤ q^{λ+β+κ−1}, (ii) N*(λ)q^{κ−1+f} ≤ q^{λ+κ+f−1}; min ≤ q^{λ+κ−1+min(β,f)} and
+λ + min(β, f) = β + f − ζ, so min(i, ii) ≤ q^{α−ζ−1}; (v) q^ζ·α!/(β!κ!f!) ≤ q^ζ 3^α; geometric mean q^{(α−1)/2}3^{α/2}.
+Correct, no hidden q-dependence; the ratio of consecutive mass terms ((α+2)/(α+1))³(3/q)^{1/2} is decreasing in α, so the
+geometric majorant from α = 41 is valid (the text's (44/43)³ is a valid, slightly weaker constant than the script's
+(43/42)³; both fine). *Checks (`review_fz_caseA.py`):* per pattern, min(i, ii, v)² ≤ q^{α−1}3^α in exact integers and
+#patterns ≤ (α+1)³, for α ≤ 60 at q = 9 and q = 27: 0 violations. Exact Case A part α ≤ 40 (R218's author-independent
+`review_fs2_caseA.mass`): 9.6590343463·10⁻³ at q = 27 (agrees with `fz_caseA.py` to all printed digits); Lemma 2.1 tail in
+exact rationals (√q, √(3/q) replaced by rational lower/upper bounds): ≤ 6.087·10⁻¹⁶ (author: 6.086·10⁻¹⁶). SOUND.
+
+## 3. Theorem 3.1 (q = 27)
+
+**Logic.** Same skeleton as FF_STERILE_PUSH Thm 3.1 ((J)51; inputs: DEPTH_ASPECT Case B normal form, PUSH Lemma 2.1
+averaging criterion (Σ), PUSH Lemma 2.2 Case A routes, compactness criterion) — those inputs were reviewed in R217/R218
+and are not re-litigated here. New: the route minimum is extended by Lemmas 1.2–1.4 (and Lemma 4.1 in R1/divisor
+counts), and the Case A tail by Lemma 2.1 (needed: the old 6^α majorant diverges at q = 27, 6/√27 > 1 — confirmed, R218's
+`review_fs2_caseA.py 3` returns no tail). "At most 6 slices with covered measure ≥ 1/2": 3.0583/(1/2) = 6.12 ⇒ ≤ 6; ≥ 20
+slices more than half uncovered. Correct.
+
+**Audit of `fz_sum.c`.** Every row re-derived against the text: e[0]–e[18] are the O216 rows (unchanged except `divc` =
+Lemma 1.4 min_j q^j cls and `lD` = min(C(n,d), Lemma 4.1)); e[4] alternatives (m' | F then w₁ | F/m', etc.; F = T^{s−2} + v₁
+and F/m' prime to T, as Lemma 4.1 requires); e[19] D1/R9a with V; e[20] D1c/R10a with Σ_{v₁ in class} 2^{ω(v₁)} ≤
+min(V·2^{ω*}, τ-bound); e[21], e[22] D2, D3; e[23]–e[25] X1', X2', R4''. `logV(e, d) = (e − d)·log q` for d ≤ e is the
+sharp count of Lemma 1.3 (not the stated q^{t−1−d}, m-1). `omstar` (greedy by degree) is the correct maximum of ω
+(exchange argument: replacing a factor of degree j by an unused one of smaller degree keeps the degree budget). The
+τ-bound inside `logSomClass` — Σ_{v₁ ≡ σ (D)} 2^{ω(v₁)} ≤ Σ τ(v₁) ≤ 2Σ_{j ≤ e/2} Σ_{δ monic, deg j} #{v₁ ≡ σ (D), δ | v₁}
+≤ 2Σ_{j≤e/2} q^j max(1, q^{e−d−j}) (δ is automatically prime to D since σ = −T^{s−2} is a unit mod D = m'; CRT modulus
+deg d + j) — is **valid but not stated anywhere in the document** (m-2). Mass weight q^{1−⌈s/2⌉} ((s+1)/2 integer
+division), multiplicity 2 for a < b, pattern loop (a ≥ 1, b ≥ a, y ≤ b − 2): correct. The Lemma 4.1 implementation
+(`init_rankin`) drops items of gain < 10⁻¹⁸ (total effect < 2048·10⁻¹⁸) and rounds V outward by 10⁻¹² — adequate; verified
+against exact maxima over all factorisation types (§4 below): 0 violations.
+
+**Audit of `fz_tail.c`.** New routes R9a3, R10a3, R5a3, R5b3, X1_3, X2_3, R4p3: the linear forms for t − deg D
+(t − z = 1 − a − 2z − y, etc.) are right and the integer offsets are dropped in the safe direction. R10a3's constant:
+case d ≤ e: 2·(⌊e/2⌋ + 1)·q^{max(e/2, e−d)} ≤ 2(s+1)q^{...}, times 2 for Tv₁; case d > e: 2·2^{ω*(e)} with
+ω*(e) ≤ (q−1)/2 + e/2 (at most q − 1 linear factors ≠ T, every other factor costs ≥ 2) — both covered by
+logk = log 2 + ((q−1)/2) log 2 and polys = 1. Lemma 1.4 in boxes: j = ⌈θs⌉ ≤ θs + 1 digits, cost q^{θs+1}, class
+conditions tested at ρ_eff = s(R + θ) + r0 ≤ ρ + j; all four conditions (d < ρ, n − d < ρ, 3ρ > n, Coppersmith
+An + (B−M)d − Bρ < 0 with B > 0) are monotone in ρ, and the bisection result is re-checked, so validity does not depend
+on the bisection. τ is treated as an independent interval [1 − Σhi, 1 − Σlo] (conservative). Box pruning keeps every
+box that can contain a valid pattern; pattern count (sw+1)³, geometric tail with the ratio bound
+((s+2)/(s+1))^{3+p}e^{φ−(log q)/2} — correct since w/(sw+1) ≤ 1/(s+1) for w ≤ 1. Fails closed (non-finite total or failed
+box ⇒ exit 1; `fz_certify.sh` uses `set -euo pipefail` and checks finiteness). No defect found.
+
+**Independent re-certification (`review_fz_certify.sh 3 80`, log `data/fz_review/certify.txt`).** Own finite sum
+`review_fz_sum.c` (R218's author-independent harness + the Lemma 1.3 routes D1, D1c (ω* only), D2, D3, X1', X2', R4''
+and Lemma 1.4 on all class rows; **without** Lemma 4.1 and **without** the undocumented τ-bound), own tail
+`review_fz_tail.c` (R218's tail, exact substitution τ = 1 − α − ζ − η, + the same new routes, Lemma 1.4 by θ-bisection),
+own Case A:
+| component | R220 | author |
+|---|---|---|
+| finite 3 ≤ s ≤ 80 | 3.0457472488 (×(1+10⁻⁸)) | 3.0180430695 |
+| tail s > 80 | 1.647·10⁻⁴ (×1.001; 58 880 boxes, all certified at depth ≤ 8) | 2.922·10⁻⁴ |
+| Case A | 9.659034·10⁻³ (exact + rational tail) | 9.6590·10⁻³ + 6.1·10⁻¹⁶ |
+| total | **3.0556 < 26** | 3.0583 (×1.01) |
+Mine is larger in the finite part because it uses a strict subset of the routes (no Lemma 4.1, no τ-bound) — so the
+theorem does not depend on either. With the document's weaker V(D) = max(1, q^{t−1−d}) (VMODE=1) the finite part is
+4.4317 and the total 4.4416 < 26: **the theorem holds with the lemmas exactly as stated**, the sharp count only improves
+the constant. Sanity: with the new routes switched off, my tail fails (infinite, as at O216), with them on it certifies
+— the improvement is real and not an artefact of the harness. Rounding: long double logs with ≤ 10⁻¹¹ relative error per
+term against a margin factor > 8.5; floating error is irrelevant.
+
+**Bound ≥ exact counts.** Every route (old and new, separately) dominates the exact counts at q = 3, 5, 7 (§1). At
+q = 27 exact counts are out of reach for nontrivial s; the routes are proved uniformly in q, so this is as intended.
+
 (sections below)
