@@ -8,6 +8,7 @@ Tails: se_tail.py term lists (c, e, p): D(N) <= sum c N^e (ln N)^p for N >= 2^{L
 Usage: python3 se_r0.py B0 [Bmax]      (fails closed: exit 1 if any range violates the criterion or a table is missing)."""
 import sys, math
 sys.path.insert(0, __file__.rsplit('/', 1)[0])
+import os; os.environ.setdefault("SE_W", "40")
 import se_tail
 D = __file__.rsplit('/', 2)[0] + '/data/se/'
 
