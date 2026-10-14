@@ -58,8 +58,8 @@ n ≡ 3: 1/(dn) + 1/d + 1/d, 7d = 2n + 1; n ≡ 2: 1/(2dn) + 1/d + 1/(2d), 14d =
 I-c (a, d, e) = (5, 2, 13) and (5, 2, 27) (n ≡ 43, 57 mod 70).
 Hence **7/p holds for every odd prime p ≢ 1 (mod 105)** (p = 3, 5, 7 directly; p = 2 fails by size). The uncovered unit
 residue set of the menu is exactly {1} at each of the levels 14, 42, 70, 210, and {1, 211, 421, 631} at 840.
-CERTIFIED: all n ≤ 3·10⁵ coprime to 7L (composites included) at L = 14 and 210 (uncertified residues exactly {1}; inline
-loop over `y7_cover_verify.families/cert`, command in y7_mordell_levels), and all primes ≤ 10⁶ not dividing 840 at L = 840
+CERTIFIED: all n ≤ 3·10⁵ coprime to 7L (composites included) at L = 14 and 210 (uncertified residues exactly {1};
+`scripts/y7_cover_verify.py 7 L 300000 all`), and all primes ≤ 10⁶ not dividing 840 at L = 840
 (uncertified residues exactly the four above; `scripts/y7_cover_verify.py 7 840 1000000`; the M = 4 run reproduces Mordell's six classes). Novelty not claimed (classical type;
 PW sift with the ET Prop 1.9 congruences adapted to m).
 **3.2 Comparison** (unit classes uncovered / total, `scripts/y7_mordell_cover.py`):

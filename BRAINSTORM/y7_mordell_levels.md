@@ -63,5 +63,5 @@ full T1 (y7_full_t1). B6: n/a. Nothing escapes B2.
 ## Assessment
 PROVED (Thm Y7.1) + CERTIFIED (10⁶). **SHARP as a dictionary**: the identity-hard core is quadratic (squares) for 4 and
 multiplicative-trivial (class of one) for 7, for this menu. Not an existence mechanism.
-All-integer check (R-O215 D10): `cd scripts; python3 -c` loop over `y7_cover_verify.families(7, L)` / `cert` for all n ≤ 3·10⁵
-coprime to 7L, L ∈ {14, 210}: uncertified residues exactly {1} (as run in the O215 session; inline code in the report).
+All-integer check (R-O215 D10): `cd scripts; python3 y7_cover_verify.py 7 L 300000 all` for L ∈ {14, 210}: every n ≤ 3·10⁵
+coprime to 7L is certified except exactly the residue class 1 mod L (107 142 resp. 67 142 certified).

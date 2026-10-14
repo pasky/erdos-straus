@@ -1,5 +1,6 @@
 # y7 (O215): turn the level-L covering into explicit certificates and verify them exactly on all primes <= X.
-# usage: y7_cover_verify.py M L X   (prints primes p<=X, p∤L, NOT certified, and their residues)
+# usage: y7_cover_verify.py M L X [all]   (primes p<=X, p∤L — or with 'all': every n<=X coprime to M*L —
+#        NOT certified, and their residues mod L)
 import sys
 from math import gcd
 from fractions import Fraction
@@ -59,8 +60,9 @@ if __name__=="__main__":
         q,r=fam[0],fam[1]
         for R in range(r,L,q): byclass.setdefault(R,[]).append(fam)
     bad=[];ok=0
-    for p in primes(X):
-        if L%p==0 or M%p==0: continue
+    ALL=len(sys.argv)>4 and sys.argv[4]=='all'
+    pop=[n for n in range(3,X+1) if gcd(n,M*L)==1] if ALL else [p for p in primes(X) if L%p and M%p]
+    for p in pop:
         got=False
         for fam in byclass.get(p%L,[]):
             den=cert(M,p,fam)
