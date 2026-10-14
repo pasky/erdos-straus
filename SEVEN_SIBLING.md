@@ -19,7 +19,7 @@ events are factorisation events of p + e, which has no factorisation in ℤ[θ].
 (I3) *Mordell levels.* Compare the shape of the identity-hard core. **Find: 7's core is exactly the class of one at
 levels 14, 42, 70, 210** (Thm 3.1), while 4's is the square coset. This is the cleanest 4-vs-7 separation of the finite menus (§3). Kill as a mechanism: B1 (class of one never covered;
 observed per-prime coverage 2–9 classes for 11 ≤ ℓ ≤ 31, §3.3).
-(I4) *Full T1.* O212 called 7 T1-bearing. Only its square-shot subfamily is: Type I/II solutions exist at 41–42 of 42
+(I4) *Full T1.* O212 called 7 T1-bearing. Only its square-shot subfamily is: ET-shaped Type I/II tuples exist at 41–42 of 42 (genuine PW-sense Type I/II: 41 resp. 32; R215 repair m5)
 odd squares (§2). Full T1 holds for all 4 | M (PROVED by reduction to 4) and fails for M = 5, 6, 7, 11 (CERTIFIED). This corrects the framing of spark 1.
 (I5) *Luck.* f₇(p) = 1 at 43, 127, 211: consistent with a crude lottery model (§4). (I6) *Order 3:* no detected
 association with cubic-residuosity indicators (§5).
@@ -34,7 +34,7 @@ so −2 and −2⁻¹ are squares mod 11 and four inert classes stay hard. Descr
 
 ## 2. 7 does not have full T1 (CERTIFIED / PROVED; y7_full_t1)
 ET-shaped Type II (M·abd = n + e, e | a + b) and Type I (M·abd = ne + 1) solutions at odd squares k² ≤ 99²:
-4, 8, 12: none. Theorem for every M = 4h: replacing d by hd turns an M-tuple into a 4-tuple, which ET Prop 1.6 excludes at
+4, 8, 12: none. Theorem for every M = 4h: replacing d by hd turns an M-tuple into a 4-tuple, which the proof of ET Prop 1.6 (§4, valid for every ℕ-point of Σ^I_n, Σ^II_n; R215 repair m4) excludes at
 odd squares (R-O215 D8). 7: Type II at 41/42, Type I at
 42/42 (7/9 = 1/2 + 1/4 + 1/36). 11: 36 and 42 of 44. O212 Prop 1.1 is correct, but its T1 lives only on the square-shot
 subfamily g | n + MQ² (II-e of §3 with d a perfect square). General II-e is NOT sterile: 7/25 = 1/4 + 1/50 + 1/100 is II-e
@@ -52,12 +52,12 @@ Mabd = ne + 1, a + b = ce.
 **Theorem 3.1.** (a) For every odd n with 7 ∤ n and n ≢ 1 (mod 7), 7/n is a sum of three unit fractions:
 n ≡ 6: 7/n = 1/d + 1/(2dn) + 1/(2dn), 7d = n + 1; n ≡ 5: 1/d + 2/(dn) (split as 1/(dn) + 1/(dn)), 7d = n + 2;
 n ≡ 3: 1/(dn) + 1/d + 1/d, 7d = 2n + 1; n ≡ 2: 1/(2dn) + 1/d + 1/(2d), 14d = 3n + 1; n ≡ 4: 1/(2d) + 1/(dn) + 1/(2dn),
-14d = n + 3 (each a one-line check; n odd makes d an integer in the last two).
+14d = n + 3 (each a one-line check; n odd makes d an integer in the last two; repeated denominators allowed, ℕ³ convention as in PW — R215 m2).
 (b) n ≡ 2 (mod 3), n odd: 7/n = 1/n + 1/b + 1/(bn), b = (n + 1)/6 (II-e with a = c = d = 1, g = 6).
 (c) n odd, n ≡ 1 (mod 7) and n ≡ 4, 3, 2 (mod 5): II-d (a, b, e) = (1, 5, 6), 35d = n + 6, 7/n = 1/(5d) + 1/(dn) + 1/(5dn);
 I-c (a, d, e) = (5, 2, 13) and (5, 2, 27) (n ≡ 43, 57 mod 70).
 Hence **7/p holds for every odd prime p ≢ 1 (mod 105)** (p = 3, 5, 7 directly; p = 2 fails by size). The uncovered unit
-residue set of the menu is exactly {1} at each of the levels 14, 42, 70, 210, and {1, 211, 421, 631} at 840.
+residue set of the menu is exactly {1} at each of the levels 14, 42, 70, 210 (lower bound: positivity holds for all n ≥ 1 in every class, so a covered class 1 mod q would solve 7/1 > 3; this part is menu-independent — R215 m1), and {1, 211, 421, 631} at 840.
 CERTIFIED: all n ≤ 3·10⁵ coprime to 7L (composites included) at L = 14 and 210 (uncertified residues exactly {1};
 `scripts/y7_cover_verify.py 7 L 300000 all`), and all primes ≤ 10⁶ not dividing 840 at L = 840
 (uncertified residues exactly the four above; `scripts/y7_cover_verify.py 7 840 1000000`; the M = 4 run reproduces Mordell's six classes). Novelty not claimed (classical type;
@@ -96,7 +96,7 @@ menus (moving parameters, analytic or arithmetic input); it is not forced to bre
 ## 4. Luck (EVIDENCE + Assessment; y7_near_misses)
 Primes 11 ≤ p ≤ X with f = 0 / f = 1 (X = 3·10⁵ for M = 4–7, ≈ 2.2·10⁵ for 8, 3·10⁴ for 9–13): M = 7: none / 43, 127, 211;
 8: 4 / 3; 9: 2 / 7; 10: 5 / 9; 11: 1 / 7; 13: 6 / 8. Pooled 18/52 ≈ 0.35, and a crude exchangeable model gives
-(34/52)³ ≈ 0.28 for "no zero among 7's three f ≤ 1 primes". For 4, min f = 6 on 11 ≤ p ≤ 3·10⁵. **Answer to goal (c):
+(34/52)³ ≈ 0.28 for "no zero among 7's three f ≤ 1 primes". For 4, min f = 4 (p = 13, 17) and f ≥ 6 on 100 < p ≤ 3·10⁵ (R215 repair m9). (M = 12 is not in the pool; including it would lower the 0.28. 7 was selected post hoc, so this is a consistency check, not a test; R215 m10.) **Answer to goal (c):
 7's record is consistent with a crude lottery model; f₇ = 1 at three primes rules out a mechanism giving f₇ ≥ 2, not a
 mechanism giving f₇ ≥ 1** (R-O215 D7: the pooled model is not calibrated).
 

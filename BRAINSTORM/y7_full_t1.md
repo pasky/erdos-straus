@@ -17,7 +17,7 @@ M·abd = ne + 1, e | a + b (e ≤ 200).
 | 11 | 44 | 36 | 42 |
 | 5 | 39 | 39 | 39 |
 | 6 | 32 | 30 | 32 |
-For 4 | M the zero rows are theorems: an M-tuple (a, b, c, d, e) with M = 4h is a 4-tuple (a, b, c, hd, e), and ET Prop 1.6
+For 4 | M the zero rows are theorems: an M-tuple (a, b, c, d, e) with M = 4h is a 4-tuple (a, b, c, hd, e), and the proof of ET Prop 1.6 (§4, which excludes every ℕ-point of Σ^I_n / Σ^II_n at odd squares; R215 repair m4)
 excludes Type I/II at odd squares for 4 (R-O215 D8). For 5, 6, 7, 11 the non-zero rows are explicit certificates
 (CERTIFIED; Type II complete in e since (M − 1)e ≤ n + M; Type I searched for e ≤ 200 only).
 

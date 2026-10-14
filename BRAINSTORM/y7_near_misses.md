@@ -10,7 +10,7 @@ be visible this way (R-O215 D7). If it is luck, f₇ should drop to 1 at a few p
 Primes p ≥ 11 with f_M(p) ∈ {0, 1} (p = 3, 5, 7 excluded: size-trivial failures):
 | M | f = 0 | f = 1 |
 |---|---|---|
-| 4 | — | — (min f = 6 on 11 ≤ p ≤ 3·10⁵; f(5) = 2) |
+| 4 | — | — (min f = 4 at p = 13, 17; f ≥ 6 on 100 < p ≤ 3·10⁵; f(5) = 2; R215 repair m9) |
 | 5 | — | — (f(11) = 3) |
 | 6 | — | 13 |
 | **7** | **—** | **43, 127, 211** (f = 2 at 11, 29, 631) |
@@ -30,7 +30,7 @@ Pooled over M = 8–11, 13 (p ≥ 11): 18 primes with f = 0 and 34 with f = 1, s
 primes with f ≤ 1; a crude exchangeable model gives (34/52)³ ≈ 0.28 for none of them being a 0. 11 (one zero, seven ones) is the same
 lottery with a worse draw. So **7's failure-free record is consistent with a crude lottery model** (about a 1-in-4 event
 given its near misses; pooling different M and ranges as independent is not a calibrated model), matching MODEL_SPECIFIC §5.3 (expected 1.6–3.0 failures, almost all at p < 100). For 4 the counts are
-larger at every small p (min f = 6 on 11 ≤ p ≤ 3·10⁵, no f ≤ 5 on 100 < p ≤ 3·10⁵), so 4's record needs less luck than 7's; MODEL_SPECIFIC
+larger at every small p (min f = 4 at 13, 17 (R215 repair m9), no f ≤ 5 on 100 < p ≤ 3·10⁵), so 4's record needs less luck than 7's; MODEL_SPECIFIC
 §5.3 already put 4's at P ≈ 0.23–0.43 on its own curve.
 Caveat: the conditional ratio ignores the dependence of f on p and M; it is a calibration, not a fit.
 

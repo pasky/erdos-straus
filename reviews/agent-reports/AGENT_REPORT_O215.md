@@ -6,19 +6,19 @@ Deliverables: `SEVEN_SIBLING.md` (deep file), 7 memos (all committed) `BRAINSTOR
 ## SHARP:
 1. **The identity-hard core of 7/n is exactly the class of one; for 4/n it is the square coset** (SEVEN_SIBLING Thm 3.1,
    PROVED with explicit families, CERTIFIED on all n ≤ 3·10⁵ and on primes ≤ 10⁶). 7/n holds for every odd n ≢ 0, 1 (mod 7)
-   by five level-14 identities, for n ≡ 2 (mod 3) by 7/n = 1/n + 1/b + 1/(bn), b = (n+1)/6, and for n ≢ 1 (mod 5) by three
+   by five level-14 identities, for n ≡ 2 (mod 3) by 7/n = 1/n + 1/b + 1/(bn), b = (n+1)/6, and for n ≡ 2, 3, 4 (mod 5) (R215 repair m11) by three
    level-70 families. So **7/p holds for every odd prime p ≢ 1 (mod 105)**. At levels 14, 42, 70, 210 the menu's survivor set is exactly
    the residue 1, i.e. only what ident_numerators Lemma 3.1 forces; at 840 it is the fibre n ≡ 1 (mod 105) (a feature of the
    menu, not forced). At level 840 the same harness reproduces Mordell's six square
    classes for 4, finds the squares plus 17 more classes (containing the failures 11, 17, 131, 241) for 8, and for 11 at 9240
    finds 28 classes containing 37. The near misses 7/43 and 7/127 have exactly one solution each, and it is the level-70
    identity. Novelty not claimed (classical covering type).
-2. **7 does not have full T1** (y7_full_t1). ET-shaped Type I/II solutions exist at 41–42 of 42 odd squares
+2. **7 does not have full T1** (y7_full_t1). ET-shaped Type I/II tuples exist at 41–42 of 42 odd squares (genuine Type I 41, Type II 32; R215 repair m5)
    (7/9 = 1/2 + 1/4 + 1/36). Only the square-shot subfamily g | n + 7Q² is sterile (O212 Prop 1.1); the wider II-e family
    is not (7/25 = 1/4 + 1/50 + 1/100). Full T1 holds for every 4 | M (PROVED: d ↦ hd reduces to 4) and fails for
    M = 5, 6, 7, 11 (CERTIFIED). This corrects the framing of O212 spark 1. In the barrier sense 7/n is a weaker model of
    ES: no Type I/II route for 7 has to break a step at squares. Its only "T1 control" is n = 1, which is a size obstruction.
-3. **No lattice invariant sees S₇** (y7_lattice_invariants, PROVED by example with PARI qfisom). For M = 5, 7, 8, 11 the
+3. **S₇ is not a function of the ℤ-isometry class of the unmarked path form** (R215 repair m7; it is trivially a function of the marked form) (y7_lattice_invariants, PROVED by example with PARI qfisom). For M = 5, 7, 8, 11 the
    slice membership is not a function of the ℤ-isometry class of the path form (n = 5: (1,2,7) ∈ S₇, (2,1,6) ∉ S₇,
    isometric forms). For M = 4 it is a genus function. So a 7-adic (J)33 on the HJ slices cannot exist: it is marking data.
 
@@ -31,7 +31,7 @@ full square set, or a fibre n ≡ 1 mod L′") holds for 3, 4, 5, 7 and fails fo
 property was found that is true for 7 and false for 8, 11.
 (c) Lottery: f₇(p) = 1 at 43, 127, 211. P(f = 0 | f ≤ 1) ≈ 0.35 pooled over the siblings; a crude exchangeable model gives
 ≈ 0.28 for 7's record. Consistent with luck; it rules out a mechanism giving f₇ ≥ 2, not one giving f₇ ≥ 1. 4 has larger
-small-p counts (min f₄ = 6 on 11 ≤ p ≤ 3·10⁵).
+small-p counts (min f₄ = 4 at p = 13, 17; f₄ ≥ 6 on 100 < p ≤ 3·10⁵; R215 repair m9).
 (d) Order 3: 7's e = 6 slices can doubly fail only at p ≡ 1 (21), and do so for 27.8 % of them (≤ 10⁶). Boolean
 cube-residuosity indicators of 2, 3, 7 show no detected association (full cubic characters not tested). The near misses 43, 127, 211 are such double failures.
 

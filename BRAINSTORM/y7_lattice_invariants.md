@@ -22,7 +22,7 @@ as pre-filter; all words incl. boundary words, prime n ≤ 150)
 | 7 | 235 | 59 |
 | 8 | 238 | 22 |
 | 11 | 235 | 33 |
-Smallest example for 7: n = 5, the words (1, 2, 7) ∈ S₇ (7 | v) and (2, 1, 6) ∉ S₇ (2, 1, 6, A = 1, A* = 11) have
+Example for 7 (R215 repair m6: n = 3 already has one, (2, 1, 4) ∈ S₇ vs (1, 2, 5)): n = 5, the words (1, 2, 7) ∈ S₇ (7 | v) and (2, 1, 6) ∉ S₇ (2, 1, 6, A = 1, A* = 11) have
 isometric path forms.
 
 ## Reading

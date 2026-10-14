@@ -1,5 +1,7 @@
 # R215 — hostile review of O215 (SEVEN_SIBLING.md + BRAINSTORM/y7_*.md)
 
+**Repairs applied** (author idle; all marked '(R215 repair …)' / 'R215 m…'): m1, m2, m4, m5, m9, m10 in SEVEN_SIBLING.md; m4 in y7_full_t1; m6 in y7_lattice_invariants; m9 in y7_near_misses; m5, m7, m9, m11 in AGENT_REPORT_O215. Not applied: m3, m8 (cosmetic). DISCOVERIES (J)46 correction (§2.4) is for the parent to apply on main.
+
 Reviewer worktree branch `side-agent/review-seven-sibling`, merged `side-agent/seven-sibling` at start.
 From-scratch scripts: `scripts/review_r215_thm31.py` (Thm 3.1 symbolic + n ≤ 10⁵), `scripts/review_r215_menu.py`
 (own re-derivation of the five one-parameter families and of the level-L covering), `scripts/review_r215_t1.py`
