@@ -108,7 +108,8 @@ den z = Q₁², rad Q₁ | y).** k = 1 shots with Q₁ ≤ 2·10⁵:
   101: {6, 7, 9–18} (1–7 hits per occupied octave; sparse, with gaps of up to 4 octaves); max Q₁ = 185 761,
   120 409, 152 881, 194 271, 165 649, 192 721, i.e. hits up to the search limit 2·10⁵ ≫ W(1) — no wall seen, and
   n = 13, 37 (no e ≤ 1 shot at k = 1) have e = 2 shots. Whether there are infinitely many is open. T1: n = 9, 25: no shot on any rung.
-**EVIDENCE for Prop 3.1(a) with ONE mute prime (`scripts/pd_k1s.py 1000000 40`, GNU factor, exact rationals).**
+**EVIDENCE for Prop 3.1(a) with ONE mute prime (`scripts/pd_k1s.py 1000000 40`, GNU factor with return-code and
+output-count checks, exact rationals; re-run after the self-review, identical).**
 For every prime 5 ≤ p < 10⁶ there is a ≤ 21 such that 4p + 9^a has a divisor g ≡ −1 (mod 12) (a = 0: g ≡ 3 mod 4),
 i.e. a k = 1 ES^{(y)} shot with Q₁ = 3^a, den z = 9^a, 3 | y (a ≥ 1; a = 0 is an ES shot). Least-a histogram: 0: 59 504, 1: 6 911, 2: 4 726,
 3: 2 548, 4: 2 040, 5: 799, 6: 524, 7: 426, 8: 339, 9: 236, 10: 183, 11: 91, 12: 66, 13: 43, 14: 25, 15: 17, 16: 10,
