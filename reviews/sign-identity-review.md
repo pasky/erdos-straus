@@ -160,3 +160,61 @@ for odd N), relabel: the geometric decomposition as PROVED-modulo-moduli-reading
 points), the Eisenstein-derivative form as CONDITIONAL on Zhu's theorem (preprint; local identity not re-checked
 here), and call the "⟺" a reformulation (tautological), not a "transcendence-separated form" with content.
 The barrier screen (i)–(iii) after it is fine and matches GROWING_IDENTITIES/DIFF_DEEP.
+
+## Numbered defects
+
+No FATAL defects. Mathematics of Lemmas 1.1, 1.2, 2.1, Thm 2.2, Prop 2.3, Prop 4.1 and the §3 certificate are correct
+and independently reproduced.
+
+**D10 (MAJOR) — §4 log-separation: wrong index normalization, missing/incorrect citation, misplaced label.**
+Location: §4 "Log-separation (CONDITIONAL …)" paragraph; summary bullet "Dictionary"; AGENT_REPORT SHARP 2 and the
+CONDITIONAL bullet. Details and evidence in the §4 section above (`review_si_scale.py`: Diff(T_w, ∆(2p)) ≠ Ram(T_w) on
+1604/2958 words). Repair: use 2p·T_w (= Gram of πi, πj in Hom(E, E′) ⊥ π, Zhu's lattice ∆(2p)); cite Zhu arXiv
+2304.10696 Thm 1.2.1 (arbitrary N) and note SSY needs N odd; state the degree decomposition as geometry (no Siegel–Weil
+needed), the Eisenstein form as CONDITIONAL on Zhu, and the "⟺" as a tautological reformulation.
+
+**D6 (MAJOR) — Prop 2.4 hidden hypothesis (trivial character).** Location: Prop 2.4 statement ("Let g be a weight-3/2
+Hecke eigenform (cuspidal, non-unary)") and AGENT_REPORT PROVED-relative bullet. The root-number formula
+ε(F ⊗ χ_D) = ε(F)χ_D(−N) and the self-dual vanishing need g ∈ S_{3/2}(Γ₀(4M)) with trivial character (lift F with
+trivial character). With nebentypus ψ, ψ² ≠ 1: no forced vanishing; ψ quadratic: the twist is ψχ_{−n}, formula changes.
+Repair: add "with trivial character"; optionally a remark on quadratic ψ (unproved).
+
+**D7 (MINOR) — Prop 2.4 Waldspurger citation form.** The ratio form of Waldspurger's Thm 1 is vacuous on a class where
+all central values vanish (the class Z used). Cite the form giving a(n) = 0 there (Waldspurger 1981 Thm 1 + Cor. 2 /
+ε-dichotomy, or Baruch–Mao 2007 explicit formula). Sources not in `sources/`; I did not check them.
+
+**D2 (MINOR) — Thm 2.2 projection to odd n.** "Replacing f by ½(f(z) − f(z + ½))" isolates odd n only when f has integral
+exponents. For Γ(N)/multiplier forms with q^{(m+κ)/h} expansions, the non-integral exponents are unconstrained by the
+hypothesis and would spoil "f(iy) = Σ a(n)e^{−2πny}". Repair: filter exponents ≡ 1 (mod 2) with
+(1/2h)Σ_{j mod 2h} e(−j/2)·f(z + j/2)-type averages (translations by ½ℤ preserve holomorphic modularity on a smaller group),
+or restrict the statement to integral-exponent expansions.
+
+**D3 (MINOR) — Thm 2.2 long proof step (i).** "cusp parts and weights k′ < k are o(y^{−k})": correct only via the exact
+expansion along the ray to a/c (cusp components of weight K are exponentially small there, ·y^{−K}); the generic bound
+y^{−K/2} would fail for K > 2k. Spell out f(a/c + iy) = Σ_k (i/(cy))^k (b_{k,γ} + O(e^{−c′/y})), or just drop the long
+proof in favour of the short one (which is complete).
+
+**D4 (MINOR) — Thm 2.2 scope sentence.** (a) "holomorphic Eisenstein series of every weight (Thm 9.1's class is the special
+case of weight-1 Eisenstein + exponent-0 divisor sums)" is wrong: Thm 9.1's class contains Σ_{d|n}χ(d)ψ(n/d)d^k with
+parity χψ(−1) ≠ (−1)^{k+1} (e.g. d(n), twisted σ₀ with χψ even), coefficients of *non-holomorphic* Eisenstein series,
+so it is NOT a sub-case of Thm 2.2. (b) "every holomorphic modular form has the wrong average (log¹ or a power)":
+holomorphic forms never give log¹ (weight-1 Eisenstein: L(s,χ₁)L(s,χ₂) with χ₁χ₂ odd has at most a simple pole); log¹ is
+d(n), non-holomorphic. (c) AGENT_REPORT SHARP 1 headline "no GL(2) modular generating function exists" overclaims —
+GL(2) Maass/non-holomorphic Eisenstein objects are not covered; say "holomorphic".
+
+**D5 (MINOR) — Prop 2.3 Reading.** "ℓ⁴, ℓ²ℓ′² are needed": the proof uses only ℓ^{2a} for one prime ℓ and a = 0..K.
+Repair: "one prime's even powers ℓ^{2a}, a ≤ K, suffice; prime squares alone do not".
+
+**D8 (MINOR) — AGENT_REPORT CERTIFIED bullet** still says "(exact rank mod 2⁶¹−1)"; the certificate is the exact rational
+rank on 120-row subsets. Also "50 003 words of odd n ≤ 2000" excludes n = 1 (50 008 with it) — say "3 ≤ n ≤ 2000".
+
+**D9 (MINOR) — novelty/attribution in Prop 4.1 and Lemmas.** (c) is CONSTRUCTIVE Thm 1.2(c) verbatim (both Eichler
+dichotomies), (b) is CHI_FLIP Thm 1.1 in Clifford-algebra language, KUDLA_ES Thms 1.2/1.4 already give Diff = {p} at
+certificate indices; Lemma 1.2's words are Mordell's and the cell counts 240/80 are MODEL_SPECIFIC Thm 3.1(a). Say
+"(restated)" / "(classical)" where appropriate; the new content is T_w = tD − R and the uniform packaging.
+
+## Overall
+Sound, careful document; the self-review already removed the big overclaims. The only substantive problem is §4's
+conditional log-separation (D10), which is mis-normalized and cites literature that does not cover N = 2p while missing
+the one that does; and the Prop 2.4 trivial-character hypothesis (D6). Neither changes the campaign picture: no ES case
+is claimed, and the barrier conclusions (size class, T1 at square shapes, root-number classes, family = lottery) stand.
