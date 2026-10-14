@@ -287,3 +287,13 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | y1_cerednik_swap | Cerednik–Drinfeld / Ribet: two fibres = two trees of X^{2p} | dictionary; forcing hope screened (B2/B6); fibre split not mass-equidistributed | Assessment; EVIDENCE (census ratios) |
 | y1_heegner_level_t | words = x = 4 GKZ terms of two root-2 Heegner points on X₀(t), index 4n | level-t condition = Heegner condition; B2 | K1 PROVED (congruence/index only; Heegner reading Assessment, imprimitive caveat); collisions trivial without level (t ≤ 11, p < 2·10⁵) |
 | y1_reciprocal_parity | word reversal (involution) → parity | only fixed word (p ≥ 5) = (p+2,1,1), parabolic; N₋ mod 8 equidistributed | R1, R3 PROVED; R2 EVIDENCE (10⁶) |
+
+## Spark relay Y8 (O217): the three-squares side and adelic "continuity of T1" (memos y8_*, deep file THREE_SQUARES.md; not yet triaged)
+
+| file | angle | outcome | labels |
+|---|---|---|---|
+| y8_adelic_continuity | sign balance vs distance to squares | archimedean distance irrelevant; clean levels (all primes of tp+1 QR mod p); T1 = all levels clean; calibrated reciprocity-constrained coin model fits clean-level rates | PROVED (L1–L4) + EVIDENCE — SHARP |
+| y8_siegel_weil_sign | exact Siegel–Weil weighting of words | r(T_w,I₃) = (p-adic factor 0 iff χ=−1)·ρ₊(w); N₊ = Σ r/ρ₊; comparison with \|X_p\| circular | PROVED; negative |
+| y8_lnr_level | least-non-residue level t₀ = −p⁻¹ mod q | Mordell (840) = "lnr ≤ 7 ⇒ lnr level admissible with A = q"; q ≥ 11: ≈ 0.85 success per translate, stable in p | PROVED + EVIDENCE |
+| y8_three_squares_sq | SQ for composite n via ℤ³-embeddability | 3SQ: all words embed ⟺ n square; no exceptions to 10⁶ (105 is not one) | CONJECTURE/EVIDENCE — SHARP (formulation) |
+| y8_conic_height | conic points carrying words | height(ℓ(w)) ≤ min letter; boundary words = principal-genus ideals dividing (1+√−p) | PROVED + EVIDENCE |
