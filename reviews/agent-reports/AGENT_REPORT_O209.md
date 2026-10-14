@@ -11,7 +11,8 @@ Branch side-agent/two-fibres (merged side-agent/sign-identity first). Deep file 
    p = 109) — Cerednik–Drinfeld's char-2 tree made explicit. Hence **ES-five(p) ⟺ some p·G_w is NOT a Gram matrix in ℤ³** (equivalently some path binary [[tv−1,1],[1,tu−1]]
    of det tp is not represented by x² + y² + z²). **T1 becomes an embedding (Thm B): every path lattice of odd square
    determinant m² is an index-m sublattice of ℤ³** (for m = q prime: ker(f mod q) with f off the conic). Checked: all
-   81 857 words of odd n ≤ 3001, all words of primes ≤ 40 000 (PRIMES40K), all 8 073 words of odd squares ≤ 10⁵, 0 mismatches.
+   81 857 words of odd n ≤ 3001, all 121 815 words of primes ≤ 12 000 and all 12 053 words of primes in (99 000, 10⁵] (Thm A is PROVED; these are consistency checks — the per-word lift search is
+   too slow for primes near 10⁶), all 8 073 words of odd squares ≤ 10⁵, 0 mismatches.
    Why it matters: it is the first explicit *asymmetry* between the two signs (exact class-number-one world on one side).
    Honest limit: at the level of single words it gives only the 2-adic cell law (TWO_FIBRES §3.1), and the sign-dominance
    injection it suggested is false (§3.2).

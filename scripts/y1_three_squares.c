@@ -2,7 +2,7 @@
 // For each word w=(t,u,v) of odd n (tuv-u-v=n), A=tu-1, A*=tv-1, chi=(-A/n) (Jacobi; CHI_FLIP normalisation, with
 // the n0 convention of SIGN_IDENTITY Lemma 1.1 handled by computing Prod_{l|n}(-A/l)^{v_l} via jacobi(-A mod n, n)
 // which is the same since gcd(A,n)=1).  LIFT(w) := exists x,y in Z^3 with x.x=A*, y.y=A, x.y=1.
-// Claim tested: chi(w)=+1 <=> LIFT(w).   Usage: y1_three_squares NMAX [sq|p [NMIN]]  (sq: odd squares only; p: primes only)
+// Claim tested (TWO_FIBRES Thm A): LIFT(w) <=> Diff(T_w)={2} (all odd eps_l=+1); for prime n this is chi(w)=+1.  Usage: y1_three_squares NMAX [sq|p [NMIN]]  (sq: odd squares only; p: primes only)
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>

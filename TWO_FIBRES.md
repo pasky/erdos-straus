@@ -61,7 +61,7 @@ constants depend only on T_w, so it is ≅ C₀(L_w) ⊗ ℚ. (iii, with congrue
 n-multiples of the dual basis have Gram n²·(nG_w⁻¹)⁻¹ = n·G_w. (iv)⇒(ii): L_w ⊗ ℚ is similar to I₃ ⊗ ℚ, and the even
 Clifford algebra is a similarity invariant. ∎
 CHECKED. (iii) ⟺ (i): all 81 857 words of odd n ≤ 3001 (`scripts/y1_three_squares.c`, 0 mismatches; 7 824 words with
-χ = +1 but Diff ⊋ {2} correctly do not lift, e.g. (1, 2, 23) ∈ X₂₁: 21 = x² + y² is impossible); primes only: see §5.
+χ = +1 but Diff ⊋ {2} correctly do not lift, e.g. (1, 2, 23) ∈ X₂₁: 21 = x² + y² is impossible); primes ≤ 12 000 and all primes in (99 000, 10⁵]: see §5.
 (iv): `scripts/y1_z3_gram.py 451`: 3 435 words of primes (⟺ χ = +1), 4 290 of composites (⟺ Diff = {2}), 0 failures.
 The congruence in (iii) is attained for every lifting word with n ≤ 151.
 
@@ -143,7 +143,7 @@ p ≡ 1, 3, 5, 7 (8): the split is governed by 2-adic cells, not by fibre masses
 | check | script | range | result |
 |---|---|---|---|
 | (iii) ⟺ Diff = {2} | y1_three_squares.c | all odd n ≤ 3001 (81 857 words) | 0 mismatches |
-| (iii) ⟺ χ = +1, primes | y1_three_squares.c `p` | primes ≤ 3001 (27 413 words); 3001 < p ≤ 40 000: see report | 0 mismatches |
+| (iii) ⟺ χ = +1, primes | y1_three_squares.c `p` | primes ≤ 12 000 (27 413 + 94 402 = 121 815 words); all primes in (99 000, 10⁵] (12 053 words) | 0 mismatches |
 | T1: all words lift | y1_three_squares.c `sq` | odd squares ≤ 10⁵ (8 073 words) | all lift |
 | (iv), Thm B | y1_z3_gram.py | n ≤ 451 (7 934 words) | 0 failures |
 | f off conic | y1_square_sublattice.py | q ≤ 19 | all off conic |
