@@ -133,3 +133,16 @@ square-root classes for a.
 condition is linear in L = ln N: slope ≤ 0 and value < 0 at ln N₀ are checked). P (M = 32, N₀ = 2^{600}, routes H, A, C, D,
 E, F, G, τ₃ (η = 0.3), I; 2^{ω(e)} ≤ C_ω(0.1)e^{0.1}): every chosen term has e ≤ 0.4797 < 1/2 and is decreasing relative to
 √N for N ≥ N₀. Q (M = 16, N₀ = 2^{100}, routes AD, AC, CD, fac, fca): every term has e ≤ 0.75 < 1, decreasing relative to N.
+
+## 5. Feedback to F_q[T] (O216's open q = 27; EVIDENCE, grid steering only)
+
+Two ℤ ingredients have F_q[T] twins that O216 did not use. (i) Coppersmith interpolation: fixing the top j coefficients of
+the unknown x in E = σ₀ + xQ splits the class into q^j sub-classes, each above the O216 Lemma 1.5 threshold once
+ρ + j > d(n − d)/n, so the class count is ≤ q^{(d(n−d)/n − ρ)⁺ + o(s)}. (ii) Divisibility-averaged pairs:
+#{(v₁, w₁) : w₁ ∣ T^{s−2} + v₁} ≤ q^{max(deg v₁, deg w₁)} (v₁ is fixed mod w₁), not q^{deg v₁ + deg w₁} — the twin of
+Σ_a (E/(4a) + 1) in route F. Adding both to O216's continuum optimiser (`scripts/se_ff_rate.py`, grid 60):
+max_p min_route − 1/2 = **0.000 (q = 3), 0.000 (q = 9), −0.083 (q = 27)**, against +0.167, +0.096, 0.000 in O216 §3.
+So at the exponent level the union bound now *closes q = 27* (O216's r = 3 gap), and q = 3, 9 sit exactly on the
+square-root line at the thirds corner (1/3, 1/3, 1/3, 0) (deg v₁ = o(s)), where O216's cyclotomic family shows the true
+count is exp(Ω(s/log s)) — so q = 3, 9 need a sub-exponential refinement there. Not certified (needs an fs_tail-type
+rigorous version with the FF Lemma 1.5 split); flagged as a spark.
