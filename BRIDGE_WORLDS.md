@@ -39,36 +39,47 @@ worlds that semi-primitivity supplies is cardinality (the integer m read in F_h)
 Fix h ≡ 3 (mod 4) prime and m | h + 1, so μ_m ⊂ T(F_h) = ker(N : F_{h²}^* → F_h^*). A "bridge" is a rule that
 attaches to μ_m (or to its elements) an element of F_h, where −p lives.
 
-**Theorem 2.1 (three-tier classification).**
+**Theorem 2.1 (three tiers of bridges; scope: the three classes defined below, NOT all conceivable constructions —
+R-O211 repair).**
 (a) (homomorphic; TORSION_FIRING Thm 3.1) every homomorphism μ_m → F_h^* has image in {±1}.
 (b) (symmetric algebraic) if S ∈ ℚ(x_1, …, x_m) is symmetric and defined at μ_m, then S(μ_m ⊂ F_{h²}) ≡ s(m) (mod h)
-for the fixed rational number s(m) := S(μ_m ⊂ ℂ), for every h ∤ den s(m)·m. Examples: |μ_c| = c,
-∏_{ζ≠1}(1 − ζ) = c, Σ csc²(πk/c) = (c² − 1)/3, Gauss-sum moduli, uniform cyclotomic numbers (m²(a,b) ≡ 1, 1 − m,
-1 − 3m: EVIDENCE, y3_gauss.py).
+for the fixed rational number s(m) := S(μ_m ⊂ ℂ), for every h for which S has good reduction at μ_m (h ∤ m and
+the denominator of the fixed formula does not vanish mod h). Examples: |μ_c| = c, ∏_{ζ≠1}(1 − ζ) = c,
+Σ csc²(πk/c) = (c² − 1)/3 (cot(πk/c) = i(ζ + 1)/(ζ − 1) is rational in ζ). NOT covered by (b): Gauss sums,
+cyclotomic numbers and Γ_h-values, which are not rational functions of μ_m; for those the analogous statements are
+separate (Stickelberger: g(χ_{4cd}) = (−1)^j h, PROVED, classical; m²(a,b) ≡ 1, 1 − m, 1 − 3m mod h: EVIDENCE,
+y3_gauss.py; Gross–Koblitz: the argument 1/m reduces to j, memo y3_gross_koblitz_box).
 (c) (Frobenius-invariant algebraic) quantities built from a single ζ ∈ μ_m and fixed by ζ ↦ ζ^h = ζ⁻¹ are values
-ρ_𝔥(α), α ∈ ℤ[ζ_m + ζ_m⁻¹][1/m], at a prime 𝔥 | h of K = ℚ(ζ_m)⁺ (h splits completely in K); those fixed by all of
-Gal(ℚ(ζ_m)/ℚ) are in case (b).
+ρ_𝔥(α), α ∈ K = ℚ(ζ_m)⁺ regular (integral) at 𝔥, at a prime 𝔥 | h (h splits completely in K); here "fixed by
+ζ ↦ ζ⁻¹" means the characteristic-zero formula is invariant (invariance only after reduction is not covered). Those
+fixed by all of Gal(ℚ(ζ_m)/ℚ) are rational, as in (b).
 *Proof.* (a) is Thm 3.1. (b) S is a rational function of the elementary symmetric functions of x_1..x_m; at μ_m these
 are the coefficients of X^m − 1 (0 or ±1) both in ℂ and in F_{h²} (h ∤ m). (c) Frob_𝔥 restricted to ℚ(ζ_m) is
-ζ ↦ ζ^h = ζ⁻¹ = complex conjugation, trivial on K; reduction O_K → O_K/𝔥 = F_h is a ring map. ∎
+ζ ↦ ζ^h = ζ⁻¹ = complex conjugation, trivial on K; reduction from the local ring of K at 𝔥 to O_K/𝔥 = F_h is a ring map. ∎
 **Corollary 2.2.** Type II firing on slice (c, d) at h is the case (b) statement −p ≡ s(m) with s = 4c²d (=|μ_{4cd}|·|μ_c|).
-A bridge sharper than "the box" must be either (c) with α ∉ ℚ — which tests p ≡ −α (mod 𝔥), a *cyclotomic
-generalisation* of Type II not implying ES — or non-algebraic in μ_m (it must use sizes: archimedean data).
+Within the three tiers, the only room beyond "the box" is (c) with α ∉ ℚ — which tests p ≡ −α (mod 𝔥), a
+*cyclotomic generalisation* of Type II that does not imply ES. Whether every useful bridge must be archimedean is an
+Assessment, not a theorem (other constructions — e.g. Gauss sums mixing in characters of F_h^* — are outside the tiers).
 
-## 3. Interpretation: h imitates the infinite place (PROVED dictionary; Assessment)
+## 3. Interpretation: h imitates the infinite place (PROVED dictionary; heuristic reading is Assessment)
 h ≡ −1 (mod m) ⟺ Frob_h = c_∞ in Gal(ℚ(ζ_m)/ℚ), i.e. D_h = D_∞ = {1, c_∞}; Thm 3.1's gcd = 2 is |D_∞|. With
 M = p + 4c²d: Type II on (c, d) ⟺ a sub-product of the prime factors of M has Artin symbol c_∞ (total symbol σ_p).
 On the slices with (ℤ/4cd)^* an elementary 2-group (cd | 6) this is genus theory: failure ⟺ some odd quadratic
-character χ mod 4cd has χ(q) = 1 for all q | M (checked: y3_span.py, 72 905 slice instances p < 10⁵, 0 mismatches).
+character χ mod 4cd has χ(q) = 1 for all q | M (hypothesis gcd(p, 4cd) = 1; checked: y3_span.py, 87 405 slice instances with gcd(M, 4cd) = 1, 86 310 of them at
+primes p < 10⁵, 0 mismatches).
 FF_MUTE works because its mute place is finite with Frobenius in p's group; over ℚ the place with decomposition group
-{±1} is ∞, residue field ℝ: the size conditions of B2/B3 are what "imitating ∞" costs (memo y3_frob_infinity).
+{±1} is ∞, residue field ℝ — heuristically, the size conditions of B2/B3 are what "imitating ∞" costs (memo
+y3_frob_infinity; Assessment).
 
-## 4. Type I: the overlap is p-dependent, and its non-trivial part is the trivial case (PROVED)
+## 4. Type I: the overlap is p-dependent; full overlap only in the trivial case (PROVED)
 Type I (fg = p² + 4c²d, f ≡ g ≡ −p mod 4cd): Frobenius at f acts on μ_{4cd} by ζ ↦ ζ^{−p}; the divisor world is
 μ_{f+p}, p's world F_f^*, overlap |Hom(μ_{f+p}, F_f^*)| = gcd(p + 1, f − 1). Full overlap at level 4cd ⟺ 4cd | p + 1
-⟹ p ≡ 3 (mod 4), where g = 1 (f = p² + 4c²d) is a certificate. The dual Hasse window (O207 spark 1) is exactly the
-g ∈ {1, 3, 5} family (p ≥ 17), i.e. g = 3 for p ≡ 1 (4): the greedy x = (p + 3)/4 congruence family (B1); the
-suggested CM by ℚ(√−d) never occurs (0/10 737, y3_typeI_hasse.py). Memo y3_typeI_hasse_window.
+⟹ p ≡ 3 (mod 4) (one-way), where g = 1 (f = p² + 4c²d) is a certificate. For p ≡ 1 (4) partial overlaps exist on
+the finitely many slices with gcd(cd, p + 1) > 1 (e.g. (p,c,d,f) = (17,1,3,43): overlap 6) — not exploited. The dual
+Hasse window (O207 spark 1) consists of the g ∈ {1, 3, 5} certificates (p ≥ 17; complete proof in the memo), i.e.
+for p ≡ 1 (4) of g = 3 with f prime: a sub-family of the greedy x = (p + 3)/4 congruence family (B1); the suggested
+CM by ℚ(√−d) occurs in none of the 10 737 window certificates p < 20000 (y3_typeI_hasse.py). Memo
+y3_typeI_hasse_window.
 
 ## 5. Prime-modulus Type II (O207 spark 2): census and CONJECTURE PM-II (EVIDENCE)
 Exhaustive census of all Type II certificates (no range cut on h) via (4cdt − p)j = c + t (scripts/y3_census.c):
