@@ -9,7 +9,7 @@ PHASE_DIAGRAM.md as merged from `side-agent/phase-diagram`. From-scratch scripts
 | Claim | Verdict |
 |---|---|
 | Prop 1.1 (normal form) + D-face | SOUND (MINOR m1) |
-| Thm 2.1 (k-wall, band, sharpness, equality family) | SOUND — re-derived; 348 shots reproduced; 0 violations in 5.6·10⁶ shots |
+| Thm 2.1 (k-wall, band, sharpness, equality family) | SOUND — re-derived; 348 shots reproduced; 0 violations among 231 ES^{[2]} shots (of 5.6·10⁶ shots, Q ≤ 10⁵) |
 | Consequence "is ES^{(y,1)} now a finite search?" | NO — every slice finite, the band is unbounded; R200 M1 stands (m2: say so explicitly) |
 | Prop 3.1 (a), (b); Cor 3.2 | SOUND (MINOR m3, m4); e ≤ 1 / e = 2 EVIDENCE reproduced exactly |
 | Prop 4.1 identity | SOUND; θ readings SOUND-AFTER-REPAIRS (m5 attribution, m6 θ is an infimum) |
