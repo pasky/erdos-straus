@@ -143,5 +143,72 @@ appropriate.
   interior words) and 174 / 116. Cause: `y5_words_at.py` stops at c² > 4N + 10 although c can be as large as N + 1
   (e.g. (327, 1, 68), (326, 68, 1) at 21841). The conclusion (words are a vanishing fraction of ≍ p classes) is unaffected.
 
+### (a) Five positions, P_h, C(o), and (J)26 (§2, memo y5_five_positions). Verdict: **SOUND-AFTER-REPAIRS** (one upgrade, wording).
+
+* Parity table re-derived: (c, m) even ⇒ s odd, edge {c, m}, o = h; c odd, m even ⇒ s even, edge {m, s}, o = h′;
+  c, m odd, s even ⇒ {s, h}, o = c; c even, m odd ⇒ s odd, {h′, c}, o = s; all odd ⇒ {h, h′}, o = m. The "N enters
+  via" column (o | N + c, o | N + s, h ≡ −1 (o), h′c = N + o, hh′ = 1 + oN with h ≡ h′ ≡ −1 (o)) is correct.
+  (Strictly the parity of (c, m) fixes the position only up to s when c, m are both odd.)
+* Prop 1 (P_h): for fixed odd o the candidates c ∈ [2, (o+1)/2] are distinct mod o, so there is **at most one** P_h
+  word with h = o at a given N, and it exists iff N mod o ∈ C(o) **and** s = (N + c)/o ≥ 1 (≥ 2 for interior), i.e.
+  o ≤ N + c — a size condition the memo omits (D8). For 4 | o + 1, |C(o)| = τ((o+1)/4) exactly (c = 2d with
+  d | (o+1)/4); the bound τ(o+1)/o in §2 can be replaced by this exact value.
+* C(o) ⊂ Jacobi non-residues for o ≡ 7 (8): (−c/o) = −(2/o)^{v₂(c)}(c′/o) = −(c′/o), and (c′/o) = (o/c′)(−1/c′) = 1
+  since o ≡ −1 (c′) and o ≡ 3 (4). ✔ Also via (N/o) = (o/N) = (h/N) = (h′/N) for N ≡ 1 (4). ✔
+* From-scratch check (`review_r211_identities.py`, item(a)): for all o ≤ 4000, o ≡ 7 (8): every element of C(o) is a
+  unit with (x/o) = −1 and |C(o)| = τ((o+1)/4); for all N ≡ 1 (8) < 2000 and all o ≡ 7 (8) ≤ N + 200 the P_h words
+  match Prop 1 (with the size condition). 0 failures.
+* "For o = q prime … Equality holds only for q = 7 (C(7) = {3, 5}; with formal c = 1 or c = q + 1 one also gets 6)":
+  |C(7)| = 2 < 3 = #non-residues mod 7, so there is no equality; the class 6 (mod 7) comes from the words (1, 8, s)
+  (o = h′ = 8s − 1, not 7) and (8, 1, s) (o = s), which are not P_h words with o = 7 (D8).
+* T1 per position ✔ (a prime ℓ | (o, n) would divide c | o + 1; gcd(h′, N) = 1).
+* **(J)26 relation — can be upgraded.** §2 labels "the P_h classes are ET Prop 1.9 classes" an Assessment. It is in fact
+  provable from ET's own Prop 1.9 (read in sources/elsholtz-tao-1107.1010.pdf, p. 7–8): for fixed even (c, m) the class
+  N ≡ −c (mod o), o = cm − 1, is primitive (o ≡ −1 (mod c)), and the vertex-fan identity of the certificate vertex gives
+  4/N as three unit fractions whose denominators are polynomials in the letters and N, hence in N on the class (s =
+  (N + c)/o), positive for large N. So the class is *solvable by polynomials* in ET's sense, hence (ET: "every solvable
+  primitive residue class is either Type I or Type II solvable") all large primes in it lie in finitely many classes of
+  the ET Prop 1.9 families. Therefore a bound o_h*(p) ≤ F(r) for all large primes p ≡ 1 (24) with n_p = r (prime r ≥ r₀)
+  would give a finite ET covering, contradicting DEPTH_ASPECT Thm 3.1 ((J)26). The conclusion "no bound o_h*(p) ≤ f(n_p)"
+  is thus **PROVED relative to (J)26 Thm 3.1** (and to the routine vertex-fan identities), for P_h; it says nothing for
+  o* over all positions (P_c, P_m with bounded o are not finite congruence families). Recommend relabelling (D9).
+* The heuristic Σ_{o ≤ Y, o ≡ 7 (8)} |C(o)|/o ≍ log² Y is right (= Σ_{d ≤ Y/4, d even} τ(d)/(4d) up to O(1)).
+* memo y5_ocensus_hard_primes "A bound o* ≤ (log p)^C … would yield QNRs": only a P_h certificate yields a small QNR
+  ((p/o) = −1, so o has a prime factor that is a QNR); a small o* attained in P_c/P_m forces no small non-residue.
+  Restrict the sentence to o_h* (D10).
+
+### (c) No mod-16/32 shadow (§4, memo y5_mod16_shadow). Verdict: **SOUND** (as EVIDENCE).
+
+From-scratch (`scripts/review_r211_mod32.py`, log `logs/review_r211_mod32.txt`): all formal words with N ≡ 1 (8),
+χ = +1, compared at odd squares vs non-squares, per class N mod 32. At (position, o mod 32): all 20 cells are populated at
+squares in every class, at X = 10⁵ and 4·10⁵ (word counts match the author's 2002/2004/2057/2005 up to the 5 words at
+N = 1, which I include). At my finer resolution (position, o, e, e′ all mod 32; 320 cells per class) the
+empty-at-squares cells drop from 61–74 per class (X = 10⁵) to 8–20 (X = 4·10⁵), max expected square count ≈ 3.3, and no cell
+is populated only at squares — consistent with sampling (square words come in clusters of ~30 per N and mirror pairs,
+so the Poisson model is optimistic). EVIDENCE label is right. The heuristic "the only global link is the one
+product-formula bit" is an Assessment (the spinor-genus remark is unproved, as the memo says).
+
+### (d) Siegel–Weil (§5, memo y5_siegel_weil_chamber). Verdict: **SOUND** (numerics in the memo wrong, see D7).
+
+* r(L, G) = |Aut L|·[L ≅ G] for rank L = rank G (an isometric embedding of equal-determinant lattices is an
+  isometry), so the genus average is 1/mass on gen(G) and 0 elsewhere. ✔ (Siegel's local-density form for m = n carries the
+  extra factor 2, ε_{m,n} = 1/2; irrelevant to the conclusion.)
+* |𝔊⁻_p| ≍ p: CONSTRUCTIVE_ES Thm 2.1 + the R199 count ≈ p/16 (Eichler mass for level 2, orbits of size ≤ 4). ✔
+  ("genus G₋(p)": CONSTRUCTIVE_ES defines 𝔊⁻_p as a set of classes with ε = −1; whether it is a single 2-adic genus was not
+  checked — immaterial for ≍ p.)
+* Number of words at N ≪ N^{1/3+o(1)}: re-derived — the least letter is ≤ N^{1/3}+O(1); if it is m, the word is fixed by
+  a divisor of 1 + mN; if it is c (or s), by a divisor h of N + c (h ≡ −1 (c)); so ≤ Σ_{t ≲ N^{1/3}} (τ(1 + tN) + 2τ(N + t))
+  = N^{1/3+o(1)}. ✔ ((J)26 by-product.) Hence path-basis classes are a p^{−2/3+o(1)} fraction. ✔ (Assessment reading OK.)
+* Numerical illustration wrong (D7, above).
+
+### Other checks
+* r-uniqueness (§3 bullet; memo Thm 2): K(2^i, x, 2^j) = xIJ − (I−1)J − I(J−1), A − B = I(x − 2) + 1 = 9; N = (2A + 3)²
+  ≡ 9 (A), k = (N + B)/A ≥ 2. ✔ Duplicate of R208/FRIEZE §4, correctly flagged.
+* "The product depends only on Q_a ⊗ ℤ₂, hence on the word mod 8" (memo): true (unimodular ℤ₂-lattices congruent mod 8
+  are isometric); checked from scratch on 100 000 pairs w, w + 8t (N odd): s₂ unchanged in all.
+* "r = 3 recovers FRIEZE Thm 1.2": Thm 3.1 at r = 3 gives (h/N) = (c, −h)₂(h, −N)₂ = CHI_FLIP Thm 1.1; turning this into
+  the closed form (−1/N)(−1)^{[8 | ee′]} still needs the mod-8 cell evaluation (or FRIEZE's 3-case proof). "Recovers" →
+  "implies, after a finite mod-8 evaluation" (D11, minor).
+
 ## Defects
 (numbered list follows)

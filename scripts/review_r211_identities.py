@@ -149,3 +149,28 @@ if __name__ == "__main__":
     sharp2(200000)
     sharp3(301)
     item_a(4000, 2000)
+
+# ---------- R211 extra: s_2 product depends only on the word mod 8 (N odd), as claimed in memo y5_general_r_jacobi
+def s2_of(w):
+    K = continuants(w); r = len(w)
+    if K[r] % 2 == 0 or any(k == 0 for k in K[1:r + 1]): return None
+    p = 1
+    for i in range(1, r): p *= hilbert2(K[i], -K[i + 1])
+    return p
+
+def mod8_invariance(trials, seed=7):
+    rnd = random.Random(seed); t = bad = 0
+    while t < trials:
+        r = rnd.randint(2, 8); w = [rnd.randint(-20, 20) for _ in range(r)]
+        a = s2_of(w)
+        if a is None: continue
+        w2 = [x + 8 * rnd.randint(-5, 5) for x in w]
+        b = s2_of(w2)
+        if b is None: continue
+        t += 1
+        # s_inf may differ between w and w2 (signs of K_i): compare s_2 * (-1/N)^? -> compare s_2 only
+        if a != b: bad += 1
+    print(f"mod8-invariance of s_2 (N odd): {t} pairs, {bad} differences")
+
+if __name__ == "__main__" and len(sys.argv) > 2 and sys.argv[2] == "mod8":
+    mod8_invariance(100000)
