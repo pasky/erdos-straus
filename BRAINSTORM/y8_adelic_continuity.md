@@ -35,6 +35,13 @@ unclean levels is still ≍ (#levels); no main-term certificate.
   √(log B/log tp), B = lnr: (1,3) 0.314/0.265, (1,5) 0.431/0.320, (1,7) 0.498/0.352, (1,11) 0.570/0.393,
   (1,13) 0.575/0.405, (1,≥17) 0.606/0.433; (5, 2) 0.195/0.211. Ratio ≈ 1.2–1.4 for p ≡ 1 (8), stable: consistent
   with a Sathe–Selberg law P(level clean | lnr = B) ≍ (log B/log tp)^{1/2}.
+* **Calibrated coin model (no free constant).** Exact Legendre signs for primes ℓ ≤ 100 of tp + 1, independent fair
+  coins for the larger ℓ with odd exponent, **conditioned on the exact reciprocity constraint
+  ∏_ℓ (ℓ/p)^{v_ℓ(tp+1)} = ((tp + 1)/p) = +1**: predicted vs observed clean fraction (600 primes, t ≤ 30):
+  (1,3) 0.314/0.317, (1,5) 0.456/0.446, (1,7) 0.508/0.514, (1,11) 0.576/0.563, (1,13) 0.602/0.585,
+  (1,≥17) 0.638/0.602, (5,2) 0.196/0.194. Without the constraint the model under-predicts by a factor ≈ 1.6; with
+  unconditioned coins from lnr upward it is off in the other direction. Consequence (PROVED): if tp + 1 = s·ℓ^e·(square)
+  with s (lnr−1)-smooth and ℓ prime, level t is clean ("rank-one sterility").
 * Removing words with A or A* (lnr−1)-smooth (forced +, 0 exceptions) flattens the ratio: N₋/(N − S) ≈ 0.66 for
   every lnr bucket 3…13 (p ≡ 1 mod 8) — but NOT at the extreme primes (2521: N − S = 27, N₋ = 4): there the whole
   level t = 1 (p + 1 = 2·13·97) and t = 2 (2p + 1 = 3·41²) are clean. The extremes are clean-level clusters.
