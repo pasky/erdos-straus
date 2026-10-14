@@ -65,3 +65,32 @@ S₄^{odd} fire at t ≤ 4 for 98% of p ≡ 1 (mod 8), against 86% for S₈ (fir
 ℤ₂-lattice meaning (Thm 2.3), it is strictly harder than SQ₅, and it is false at composites. A "parity mechanism forcing a
 one-odd solution" would have to act on the marking, i.e. on the word itself. That is the χ-flip problem of (J)33 plus a
 2-adic refinement, so it is harder, not easier.
+
+## 3. The first lottery: 4 is the only numerator with a {±1}-slice at every prime (BRAINSTORM/y4_catalogue)
+**Prop 3.1 (PROVED).** Type II slices of M/p need e ≡ −p (mod M), and Type I slices need e ≡ −p⁻¹ (mod M). The only
+M ≥ 3 for which every prime p ∤ M has such a slice with e ∈ {1, 3} is **M = 4**. (At most the three classes −1, −3, −3⁻¹
+are covered, so φ(M) ≤ 3 and M ∈ {3, 4, 6}. For 3 and 6, e = 3 is not a unit.) Brute check M < 200: `scripts/y4_slice3.py`.
+**3.2 Meaning.** (ℤ/e)^* = {±1} for e ∈ {1, 2, 3, 4, 6}. On an e = 3 slice the event −1 ∈ Σ₃(N) is "N has a prime factor
+≡ 2 (mod 3)", a non-triviality event and not a hitting event. For p ≡ 1 (mod 12), ES has two such slices,
+N_II = (p+3)/4 and N_I = (3p+1)/4. Both fail iff all their prime factors are ≡ 1 (mod 3). This happens for 1771 of the
+19564 primes p ≡ 1 (mod 12) below 10⁶ (9.1%; 10.7% below 10⁴), first at 241, 409, 769 (EVIDENCE). The e = 3 Type I slice
+is the t = 3 word family and the e = 3 Type II slice is a t = 1 family (MODEL_SPECIFIC §7 C2), so both lie inside the
+χ-fibre: Prop 3.1 refines the χ-fibre at small t and is not an independent input.
+**3.3 Failures of other numerators avoid such slices (EVIDENCE).** Across all census failures (M = 5–24), failures in a
+class with an e = 3 slice occur only for M = 10 (4 of 7), 16 (4/37) and 22 (9/53), and then always with N having only
+primes ≡ 1 (mod 3) (e.g. 10/67: N = 7). M = 8: 0/5; M = 20: 0/62 (its e = 3 classes are 2/8 of the units). e = 1 is the
+trivial two-term class, so it never fails.
+
+## 4. Mordell's 840 is the exact reach of universal one-slot witnesses (PROVED; BRAINSTORM/y4_mordell_witness)
+**Lemma 4.1.** A word of the prime p with first slot A exists ⟺ some t | A + 1 has tp ≡ −1 (mod A) (⟺ A | p + u for some
+u | A + 1). By (J)32 it is an ES certificate iff (−A/p) = −1.
+**Theorem 4.2.** The non-square A ≥ 2 such that every prime p ≡ 1 (mod 4) with (−A/p) = −1 has a word with slot A are
+exactly {2, 3, 5, 7, 8, 15, 20}. The union of their χ = −1 classes is the complement, among p ≡ 1 (mod 4), of Mordell's
+six square classes mod 840. (Proof: Dirichlet reduces this to a class check mod lcm(8, A), done for A ≤ 3000. For A > 3000,
+the needed image has ≥ φ(A)/2 residues mod A, but |D_A| ≤ τ(A+1) ≤ 2√(A+1) < φ(A)/2, by Rosser–Schoenfeld.)
+Cross-check: for all primes p ≡ 1 (mod 4) below 10⁶, the witnesses produce verified certificates exactly off Mordell's
+classes (0 mismatches, `crosscheck(10**6)`).
+**Reading.** The classical 840 is the point where single slot values stop covering their character half: beyond it a
+slot A covers a τ(A+1)/φ(A) fraction of its χ = −1 classes. That is the B2 lottery written one slot at a time. It
+also explains why the 8-analogue covering leaves non-square classes: for 8 a χ = −1 word is not a certificate
+((J)32 Thm 3.1(b)).
