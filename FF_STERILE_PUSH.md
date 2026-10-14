@@ -213,7 +213,7 @@ the Lemma 1.6 bound-sum through s = 150 is ≈ 194.6 > q − 1 = 26 (per-s terms
 about the method, not about the true counts). (ii) There is a second near-critical region p ≈ (0.39, 0.11, 0.10, 0.40) (29 of
 the 615 failed boxes of `fs_tail 3 150 8`), where R3, R10b, R4, R2 meet; the per-level maximum of min-route sits there
 (−0.0034·log q below (log q)/2 at s = 1200, increasing with s). Reaching r = 3 therefore also needs a class-divisor bound beyond
-the Coppersmith range for R2/R3/R4.) There two routes meet exactly at the exponent 1/2:
+the Coppersmith range for R2/R3/R4.) In the first region two routes meet exactly at the exponent 1/2:
 R1 (v, then a triple factorisation of T^{s−2} + v₁: exponent τ + H(ζ, α, β)/log q) and R10 (v, m', then w₁ in a
 square-root class mod Tv₁ — valid only above the Coppersmith threshold τ > αβ/(α + β)). Below the threshold the class bound is
 lost; above it R1 is ≥ 1/2. The finite sums at r = 3 (s ≤ 150) give per-s terms ≈ 2, decreasing only slowly (no
