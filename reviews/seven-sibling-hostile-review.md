@@ -129,3 +129,54 @@ family* g | n + MQ², g ≡ −1 mod M odd, is sterile at odd squares iff M ≡ 
 Also the headline "7 is the failure-free sibling of 4" should not suggest a shared T1; SEVEN_SIBLING §2/§6 say this
 correctly. (Caveat for the editor: the "M ≤ 30000" range relies on PW §6, which excepts m = 19 from its Thm 1.2 check;
 FOUR_SPECIFIC covers M ≤ 24 by census, so 19 is handled there, not by PW.)
+
+## 3. SHARP 3 — no lattice invariant of Q_w sees S₇ (memo y7_lattice_invariants, Prop Y7.2)
+Definitions checked against MODEL_SPECIFIC §3: word (t, u, v), tuv − u − v = n, A = tu − 1, A* = tv − 1; S_M: M divides
+one of A, A*, t, u, v; Q_w = Gram [[v, −1, 0], [−1, t, −1], [0, −1, u]], det n.
+**The n = 5 example, re-verified from scratch** (`scripts/review_r215_isom.py`, own short-vector isometry search):
+(1, 2, 7): 14 − 9 = 5, 7 | v, so ∈ S₇; (2, 1, 6): 12 − 7 = 5, A = 1, A* = 11, none of 1, 11, 2, 1, 6 divisible by 7, so
+∉ S₇. U = [[−1, 0, 0], [−3, 0, 1], [−2, 1, 0]] (det ±1) satisfies Uᵀ G(1,2,7) U = G(2,1,6) exactly. **Isometric: confirmed.**
+Independent census (my greedy isometry classes, all words of primes n ≤ 40): mixed classes M = 4: 0; 5: 14; 7: 14; 8: 6;
+11: 7. Same qualitative picture as the author's PARI census (n ≤ 150). (Nit: for M = 7 there is a smaller example at
+n = 3: (2, 1, 4) ∈ S₇ (A* = 7) and (1, 2, 5) ∉ S₇, isometric; the memo's "smallest example n = 5" is not literally the
+smallest — m6.) The 7-adic remark (L_w ⊗ ℤ₇ unimodular of rank 3 ⇒ isotropic, so ε₇ ≡ +1 when 7 ∤ n) is standard and
+correct. **Verdict: SOUND**, with the scope exactly as the memo states it (unmarked ℤ-isometry class of the length-3
+path form). The SEVEN_SIBLING §6 bullet "No lattice-invariant analogue of (J)33 exists on 7's length-3 slices" is
+fine; a headline "no lattice invariant sees S₇" would overclaim, because S₇ is trivially a function of the *marked*
+form (it is divisibility of the Gram entries v, t, u and the two adjacent 2×2 minors A, A*) — m7.
+
+## 4. §1 free slices = inert primes (Prop 1.1)
+Re-derived: the e ∈ {1, 2} slices with a = b = 1 are II[d] (1,1,1), (1,1,2) and I[d] (1,1,2), classes −1, −2, −2⁻¹
+(the last two only for odd M). A set of ≤ 3 classes is a coset of an index-2 subgroup only if φ(M) ≤ 6; checking all
+M ≤ 60 by brute force (`scripts/review_r215_misc.py`): the non-free units form an index-2 subgroup not containing −1
+exactly for M ∈ {4, 6, 7}, and the free classes are {3} mod 4, {5} mod 6, {3, 5, 6} mod 7 = residues of the primes inert
+in ℚ(i), ℚ(√−3), ℚ(√−7) (class number one). The M = 11 remark (four non-residues {2, 6, 7, 8} stay non-free) is right.
+**Verdict: SOUND** (a description; the label "PROVED" is fine; "inert primes of a class-number-one field" is decoration:
+class number plays no role in the proof — m8).
+
+## 5. §4 lottery calibration (goal (c))
+* Near misses re-verified: f₇(p) ≤ 1 for 11 ≤ p ≤ 1500 exactly at 43, 127, 211 (own Python divisor counter, unordered
+  x ≤ y ≤ z); the three single solutions 7/43 = 1/10 + 1/16 + 1/3440, 7/127 = 1/20 + 1/196 + 1/62230,
+  7/211 = 1/32 + 1/520 + 1/438880 check exactly; 7/43, 7/127 are I-c (5, 2, 13), (5, 2, 27) (b = 8, 49; c = 1, 2). The
+  author's C engine (`ms_census.c`, compiled by me) to 3·10⁵ gives the same f ≤ 1 list (run status in §8).
+  f₈ = 0 at 11, 17, 131, 241 confirmed.
+* **Defect (m9): "For 4, min f = 6 on 11 ≤ p ≤ 3·10⁵" is false.** f₄(13) = 4 (1/4 + 1/18 + 1/468, 1/4 + 1/20 + 1/130,
+  1/4 + 1/26 + 1/52, 1/5 + 1/10 + 1/130 — complete list, own brute force) and f₄(17) = 4; ms_census agrees
+  (`ms_census 4 11 c 300000`: the only p with f₄ ≤ 6 are 13, 17 (f = 4) and 193 (f = 6)). The memo's second clause
+  "no f ≤ 5 on 100 < p ≤ 3·10⁵" is correct. Repair: "min f₄ = 4 (p = 13, 17); no f₄ ≤ 5 on 100 < p ≤ 3·10⁵". This does
+  not change the reading (4's small-p counts are still larger than 7's 1s).
+* The pooled number 18/52 and (34/52)³ ≈ 0.280 recompute from the memo's table. The model is labelled crude/uncalibrated
+  and the conclusion is weakened accordingly; acceptable as Assessment. Two further caveats the text should carry
+  (m10): (i) M = 12 (whose PW exception list is long: 5, 7, 13, 25, 29, …) is omitted from the pool without comment;
+  including it would only lower P(no zero), i.e. make 7's record look luckier — say so; (ii) 7 was *selected* as the
+  failure-free sibling, so any probability of "no zero" computed after the fact is not a test, only a consistency check.
+  The logical conclusion "f₇ = 1 at three primes rules out a mechanism giving f₇ ≥ 2, not f₇ ≥ 1" is correct.
+
+## 6. §5 order 3
+Re-derived: for p ≡ 1 (mod 7) both e = 6 slices have N_II = (p + 6)/7, N_I = (6p + 1)/7 odd; with ab | N and odd a, b,
+the slice fires iff some a, b with a + b ≡ 0 (mod 3), which (for 3 ∤ N) happens iff N has a prime factor ≡ 2 (mod 3).
+If p ≡ 2 (mod 3) then N_II ≡ 2 (mod 3) fires; p = 3 is not ≡ 1 (mod 7); so double failure ⇒ p ≡ 1 (mod 21). PROVED,
+correct (also brute-checked for all p ≤ 10⁶). Rates recomputed from scratch with sympy factorisation: M = 4, p ≡ 1 (12):
+1771/19564 = 9.05 %; M = 7, p ≡ 1 (21): 1817/6530 = 27.83 % — **exact match**. I did not re-run the 8-cell cube-indicator
+split; the author's "no detected association" (EVIDENCE, Boolean indicators only, explicitly not the full cubic
+characters) is appropriately weak. **Verdict: SOUND as labelled.**
