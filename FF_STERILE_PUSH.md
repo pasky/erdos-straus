@@ -216,7 +216,7 @@ Lemma 2.1(b)), and through ≤ 2 square roots modulo prime powers (route R10) an
   (x ≡ 1 off T, u ≡ 1 + cT mod T²). Indeed D = 1 + T²g'² = (1 + Tg')² = E² — a "v = 0" tuple, E = E', s = 2, impossible
   in odd characteristic — and: T²g' ∣ P + E because P + E ≡ u + E ≡ 0 (mod T²) (char 2) and P + E ≡ 1 + 1 = 0 (mod g');
   modulo E, P ≡ 1 and X ≡ T^{−2}, so s = g' + X/g' ≡ (T²g'² + 1)/(T²g') = E²/(T²g') ≡ 0; lc(s) = 1 = lc(E) for deg P large.
-  (Check: E² = D verified symbolically for several g' over F₂, `/tmp`-free one-liner in §6 replay.) More generally for
+  (Sanity check `scripts/fs_char2.py`, over F₂.) More generally for
   k = 2m, the families with E = 1 + T^m g' cover every slice point with u ≡ 1 (mod T^m), u ≢ 1 (mod T^{m+1}). So in
   characteristic 2 the slice x ≡ 1 off T — the natural home of sterile points in odd characteristic (FF_STERILE_PROOF §3) —
   is covered by depth-2 families in one stroke. This is consistent with the char-2 coverings of (J)4 and FF_MUTE M1, and it
@@ -240,8 +240,8 @@ and, writing P := m'g'²v₁(1 + cT) + 1,
 w₁ ≡ −(1 + cT)C₁ (mod T^{n+1}); with w₁ + C₁ = Tg'v₁ and c² = 1: C₁ ≡ −cg'v₁, w₁ ≡ cg'v₁(1 + cT) (mod T^n), so
 w₁, C₁ have the displayed form with a common ω (their sum is exactly Tg'v₁). Then m'w₁C₁ = T^{s−2} + v₁ expands (2 = −1 in F₃) to
 −v₁P − cm'g'v₁T^nω(cT − 1) − m'T^{2n}ω² = T^{2n−2}; reducing mod T^n gives (S1) (T ∤ v₁), dividing by T^n gives
-v₁(P/T^n + cm'g'ω(cT − 1)) = −T^{n−2}(1 + m'T²ω²), whence (S2), (S3) as T ∤ v₁. Conversely (S1)–(S3) give the tuple
-identities; the extra condition at precision T^{n+1} (Lemma 1.2 of FF_STERILE_PROOF, [K + 1 = N] term) is one more digit. ∎
+v₁(P/T^n + cm'g'ω(cT − 1)) = −T^{n−2}(1 + m'T²ω²), whence (S2), (S3) as T ∤ v₁. Conversely, data satisfying (S1)–(S3) (with the monicity and degree side conditions) give a tuple whose E agrees with
+−(1 + cT) to precision T^n; covering needs one more T-adic digit. ∎
 (S3) is the genus condition of FF_STERILE_PROOF Lemma 2.1 made explicit (−m' is a square modulo every prime of v₁); (S1) says
 the "small" product m'g'²v₁ is ≡ −(1 + cT)^{−1} to precision n, which by degree forces z + 2y + t ≥ n + 1: one of the four
 small polynomials carries about half the degree — the lopsidedness of O175 Lemma 3.2 in one line. I found no further
@@ -259,3 +259,18 @@ polynomial (it is Σ_{v₁} #{m'w₁C₁ = T^{s−2} + v₁ into thirds with w�
 over the short family {T^{s−2} + v₁ : deg v₁ ≤ t − 2}, uniform in q = 3 — a short-interval divisor problem whose function-
 field results (Keating–Rodgers–Roditty-Gershon–Rudnick, Sawin) are large-q statements. This is the function-field face of
 B3, now located at a specific corner of pattern space.
+
+## 6. Replay
+
+```
+gcc -O2 -o /tmp/fs_sum scripts/fs_sum.c -lm && /tmp/fs_sum 4 200 1 10        # finite part, r = 4 (~3 min)
+uv run python scripts/fs_sum_check.py 4 40                                    # independent exact check (~15 min)
+gcc -O2 -o /tmp/fs_tail scripts/fs_tail.c -lm && /tmp/fs_tail 4 200 8         # tail, r = 4 (~5 s)
+uv run python scripts/fs_caseA.py 4,5,6 40                                    # Case A
+./scripts/fs_certify.sh                                                       # all r = 4..30 -> data/fs/certify.txt (~10 min)
+python3 scripts/fs_rate.py 1,2,3,4,5                                          # continuum exponents (steering)
+gcc -O2 -o /tmp/famcount scripts/bsE_famcount.c -lm && /tmp/famcount 3 2 15 print > /tmp/fc3.txt
+gcc -O2 -o /tmp/chk scripts/fs_check_bounds.c -lm && /tmp/chk 3 < /tmp/fc3.txt   # bounds vs exact counts
+uv run --with sympy python scripts/fs_lemma_check.py 3,5 150                  # Lemmas 1.4/1.5 brute force
+uv run --with sympy python scripts/fs_char2.py
+```
