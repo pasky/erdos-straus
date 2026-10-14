@@ -1,6 +1,6 @@
 # FF_STERILE_PUSH — pushing the large-q no-covering theorem down, and the q = 3 sterile point (O216, wave Y-e)
 
-Status: in progress (O216). **ES is not solved here, nor any infinite case of ES or ES_q.** Labels as in DISCOVERIES.md.
+Status: checkpoint 1 (O216): Theorem 3.1 (r ≥ 4) certified; self-reviewed, repairs applied; awaiting parent review. **ES is not solved here, nor any infinite case of ES or ES_q.** Labels as in DISCOVERIES.md.
 Builds on DEPTH_ASPECT.md §2 (Thm 2.5 = (J)26; reviews R178, R187), FUNCTIONFIELD_ES3.md (O173 Lemmas 1.1, 2.1, 2.3),
 FUNCTIONFIELD_ES2.md (§0.1 compactness criterion, §0.2 Case A), FF_STERILE_PROOF.md (O179). Scripts `scripts/fs_*`.
 
@@ -19,8 +19,15 @@ By the w ↔ C symmetry of (B) we write statements for a ≤ b.
   all (function-field Lenstra / Coppersmith), (iii) "loss-free" reconstruction routes. All three are below.
 * (I2) A new exact degree identity (Lemma 1.1: y + t = max(a, b) always, and E·v = T^s + m'w²) removes one degree of
   freedom from every pattern and gives four routes with no divisor loss at all.
-* (I3) Continuous pattern optimisation (scripts in §3): asymptotic per-s exponent becomes negative from r = 6
-  (Lenstra) resp. r = 5 (Coppersmith), against r ≥ 26 (stated constants) / r ≥ 10 (R187 E5).
+* (I3) Continuous pattern optimisation (`scripts/fs_rate.py`): the asymptotic per-s exponent becomes negative from r = 6
+  (Lenstra only) resp. r = 5 (Coppersmith), against r ≥ 26 (stated constants) / r ≥ 10 (R187 E5).
+* (I4) Barrier as steering wheel: the r = 4 obstacle was the hypothesis "all c at once". Each cylinder lives in one c-slice,
+  so averaging over c gains q − 1 (Lemma 2.1). With the square-root-class route R10 (average of 2^ω instead of a maximal
+  divisor bound) the exponent at r = 4 is −0.027 and Theorem 3.1 holds for **all r ≥ 4** (certified, §3).
+* (I5) r = 3 and q = 3: the binding hypothesis is located (§3 end, §5): the Coppersmith threshold of route R10 meets the
+  multinomial bound of R1; at q = 3 even exact counts violate (Σ) (94/27 > 2). Char 2 and k = 1: §4.
+* (I6) Hostile self-review (codex deep reviewer, 2026-10-14): no FATAL; 4 MAJOR (certification rounding/fail-open scripts,
+  a false "polynomial count" claim, overstated barrier labels) and minors — all repaired in place ("review repair").
 
 ## 1. New exact structure of Case B tuples
 
