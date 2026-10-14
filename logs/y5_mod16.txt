@@ -1,0 +1,16 @@
+N==1 mod 32: square words 2002 cells 80; nonsq words 118740 cells 80; cells only at nonsq: 0; only at sq: 0
+   expected square counts in the cells empty at squares: []
+   (pos, o mod 16): empty at squares but populated at non-squares: []
+   (pos, o mod 32): empty at squares but populated at non-squares: []
+N==9 mod 32: square words 2004 cells 78; nonsq words 118686 cells 80; cells only at nonsq: 2; only at sq: 0
+   expected square counts in the cells empty at squares: [1.8, 1.8]
+   (pos, o mod 16): empty at squares but populated at non-squares: []
+   (pos, o mod 32): empty at squares but populated at non-squares: []
+N==17 mod 32: square words 2057 cells 77; nonsq words 118732 cells 80; cells only at nonsq: 3; only at sq: 0
+   expected square counts in the cells empty at squares: [2.4, 2.5, 2.4]
+   (pos, o mod 16): empty at squares but populated at non-squares: []
+   (pos, o mod 32): empty at squares but populated at non-squares: []
+N==25 mod 32: square words 2005 cells 80; nonsq words 118797 cells 80; cells only at nonsq: 0; only at sq: 0
+   expected square counts in the cells empty at squares: []
+   (pos, o mod 16): empty at squares but populated at non-squares: []
+   (pos, o mod 32): empty at squares but populated at non-squares: []
