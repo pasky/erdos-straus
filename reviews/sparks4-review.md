@@ -46,7 +46,7 @@ No FATAL defect. ES is not solved; no claim of the document says otherwise.
 `scripts/review_r219_bruteword.py`):* every number in §2.5/§2.4 is reproduced **exactly** when the search admits
 *all* words with t u v ≠ 0 (positive ones included): records 15 @ 97 185 (≤ 10⁶), 18 @ 4 884 441 (≤ 10⁷); |t| ≤ 6
 failures 15 / 62 / 403 (≤ 10⁵/10⁶/10⁷); |t| ≤ 12 failures 8 (≤ 10⁷: 34 489, 97 185, 895 609, 3 567 369, 3 781 761,
-4 884 441, 5 737 449, 8 351 385). Positive ES-five ≤ 10⁶: fails only at 105, record 231 @ 702 585 (reproduced).
+4 884 441, 5 737 449, 8 351 385). Positive ES-five ≤ 10⁷: fails only at 105, record 231 @ 702 585, |t| > 6 at 10 550 n, > 12 at 996 n (all reproduced).
 But with the header's definition (signed = not positive) the least |t| is **not** ≤ 18:
 
 | range | strictly-signed failures | record least \|t\| (strictly signed) | |t|>6 | |t|>12 |
