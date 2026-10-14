@@ -68,3 +68,52 @@ p ≡ 1 (4) and misses the first non-injective cases 71, 79; the statement "onto
 implied "p = 109 is the exception" is not. In every collapse two size-24 orbits merge (consistent with the second unimodular
 overlattice of pℤ³ + ℤℓ̃, i.e. the Atkin–Lehner w_p swap of the edge's two ends) — Assessment, not checked further.
 
+### Props G, G′ (memo y1_gl3_cuspidal; TWO_FIBRES Summary, §4) — SOUND-AFTER-REPAIRS (the conclusion is true and in fact holds *without* the ℓ₀ hypothesis; the T1 mechanism and the "not covered" leftover are mis-stated — D6, D7)
+Step-by-step re-derivation of the author's proof:
+* (1) d_k(ℓ₀^{N}; ψ…) = binom(N + k − 1, k − 1) when all ψ(ℓ₀) = 1 ✓ (d₀ := 1 as in Prop 2.3).
+* (2) λ_π(ℓ^N) = h_N(α₁, …, α_m) for unramified unitary π (Shintani/Casselman–Shalika) ✓; h_N = Σ_j P_j(N)α_j^N with
+  deg P_j = (multiplicity of α_j) − 1; in a = N/2 the bases are α_j² ✓. α_j ≠ 0 ✓.
+* (3) linear independence of a^r β^a ✓; top-degree induction gives C_k = 0 (k ≥ 2) ✓. Under G′ (1 at most a simple
+  squared parameter) the base-1 coefficient is constant, so only K = C₀ + C₁ survives ✓. The Ad(σ) translation:
+  squared parameters {α⁴, 1, α⁻⁴}; α⁴ ≠ 1 ⟺ a = α + α⁻¹ ∉ {0, ±2} ✓ (twisting by a quadratic ψ′ does not change squares ✓).
+* (4)–(5) mean of C over primes ℓ ≡ 1 (L) is o(1): orthogonality of characters mod L + PNT for the cuspidal π_i ⊗ ψ̄
+  (m_i ≥ 2) ✓ (input: Jacquet–Shalika non-vanishing on Re s = 1 *plus* the standard Rankin–Selberg/Tauberian step and a
+  bound |α| < ℓ^{1/2} to discard prime powers — "relative to JS" is the usual shorthand; cite e.g. Iwaniec–Kowalski Thm 5.13,
+  MINOR D8). N₋(p) ≥ ω₃(p + 1) for p ≡ 1 (4): the word (1, q + 1, (p + 1)/q + 1) has n = q·(p+1)/q − 1 = p, A = q,
+  χ = (−q/p) = (p/q) = (−1/q) = −1 ✓; distinct q give distinct words ✓. Divergence of the mean: Dirichlet in finitely many
+  progressions, letting the set of q grow (BV not needed, as the memo itself concedes) ✓. N₋ ≥ 0 lets one pass from
+  p ≡ 1 (lcm(4, L)) to p ≡ 1 (L) ✓.
+* Numerics (`scripts/review_r214_census.c`, from scratch): N₋(p) ≥ ω₃(p + 1) at every prime p ≡ 1 (4) < 10⁶ (0
+  failures); mean N₋ over p ≡ 1 (8) is 38.75 (X = 10⁴), 91.96 (X = 10⁶) — matches the memo's 38.8 / 92.0.
+
+**The real mechanism (D6, MAJOR — steering).** On primes ℓ ≡ 1 (L), ℓ ∤ L, *every* term of E is constant:
+d_k(ℓ; ψ₁, …, ψ_k) = Σ_j ψ_j(ℓ) = k. Hence E(ℓ) = Σ_{k,i} k·c_{k,i} + (d₀-part) =: K′ for all such ℓ, with no T1 and no
+ℓ₀ hypothesis. If N₋ = E + C, then the mean of N₋ over primes ℓ ≡ 1 (L), ℓ ≤ X, is K′ + o(1) by step (4), contradicting
+step (5). So **Prop G′ holds unconditionally (relative to the same PNT input), for every finite family {π_i} on any GL(m_i ≥ 2)
+and any characters** — the exponential-polynomial/T1 analysis at ℓ₀^{2a} (steps (1)–(3)) and the genericity hypothesis
+are superfluous for the conclusion "≠ N₋". The killer is *size at primes* (exactly O205's own remark under Thm 2.2: "the
+mechanism is size, not T1"), not T1. Consequences: the memo title ("T1 also kills GL(3) … cuspidal additions"), the
+TWO_FIBRES §0 (I4)/§4 phrasing, the AGENT_REPORT SHARP 2 and the README row ("under a common one-prime genericity
+hypothesis") mis-attribute the mechanism and understate the result; the "Not covered" list (families with no common ℓ₀)
+is in fact covered. What steps (1)–(3) *do* prove is a different, T1-specific fact: under the ℓ₀ hypothesis, any
+E + C vanishing on odd squares has E ≡ K on the semigroup S_L — keep it as a lemma if wanted, but it is not what kills the
+identity. (Same remark applies to O205 Prop 2.3's "In particular E ≠ N₋", which also follows from E(ℓ) = const on
+primes ≡ 1 (L) plus divergence of the mean of N₋ — or even from N₋(p) ≥ 1 on a positive-density set only when combined
+with E(p) constant ≠ … ; flag to the O205 owner, not a defect of O209.)
+
+**The ℓ₀ hypothesis is not satisfiable in general (D7, MAJOR as a statement about scope).** The memo says "we do not know
+whether cuspidal such π exist". They do, inside the very class G′ advertises (self-dual orthogonal GL(3)): let σ be a
+tetrahedral weight-one newform (projective image A₄; modular by Langlands–Tunnell) and Π = Ad(σ), cuspidal on GL(3) by
+Gelbart–Jacquet (σ not dihedral). Let K₃ be the cyclic cubic field fixed by V₄ ⊲ A₄ and take L divisible by its conductor
+(the identity may contain characters of that conductor). For every unramified ℓ ≡ 1 (L), Frob_ℓ is trivial on K₃, so its
+projective image lies in V₄ and Ad(σ)(Frob_ℓ) has eigenvalues {1, 1, 1} or {1, −1, −1}: **1 is a triple squared parameter
+at every admissible ℓ₀**, and the G′ argument at ℓ₀^{2a} gives nothing (a degree-2 polynomial in a can absorb rank ≤ 3
+Eisenstein terms). Similarly D₄-type dihedral weight-one GL(2) forms (ring-class character of order 4, L divisible by the
+genus-field conductor) have squared parameters {1, 1} at every ℓ ≡ 1 (L). So, as stated, G′ does **not** cover all
+self-dual orthogonal GL(3) π; with the D6 argument it covers them all anyway.
+*Suggested repair:* replace Props G/G′ by "Prop G″ (PROVED rel. PNT for GL(m) cusp forms): no finite combination E + C
+equals N₋, because on primes ℓ ≡ 1 (L) E is constant, C has mean o(1), and N₋ has divergent mean (ω₃ bound)"; demote the
+ℓ₀ analysis to a remark about S_L; change the memo title/steering reading to "size at primes kills it; T1 is not used";
+delete the "Not covered (no common ℓ₀)" item; keep "not covered: infinite sums, shifted/derivative/non-standard
+normalisations, growing level, non-automorphic objects".
+
