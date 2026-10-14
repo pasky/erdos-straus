@@ -297,3 +297,4 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | y8_lnr_level | least-non-residue level t₀ = −p⁻¹ mod q | Mordell (840) = "lnr ≤ 7 ⇒ lnr level admissible with A = q"; q ≥ 11: ≈ 0.85 success per translate, stable in p | PROVED + EVIDENCE |
 | y8_three_squares_sq | SQ for composite n via ℤ³-embeddability | 3SQ: all words embed ⟺ n square; no exceptions to 10⁶ (105 is not one) | CONJECTURE/EVIDENCE — SHARP (formulation) |
 | y8_conic_height | conic points carrying words | height(ℓ(w)) ≤ min letter; boundary words = principal-genus ideals dividing (1+√−p) | PROVED + EVIDENCE |
+| y8_square_test_gap | n square ⟺ every level clean; ES-five = admissible version | the ES content is exactly the admissibility gap (A ≡ −1 mod t) | PROVED; steering |
