@@ -25188,4 +25188,35 @@ def check_fM():
 check_fM()
 
 
+def check_fN():
+    # (fN) TWO_FIBRES (O209/R214): R214 from-scratch C check of Thm A (chi = +1 with Diff = {2} <=> the path binary
+    # [[tv-1,1],[1,tu-1]] is the Gram of two vectors of Z^3; 35 184 words odd n <= 1500, 27 340 words of primes <= 3000)
+    # and Thm B (every path lattice of odd square determinant m^2 embeds in Z^3; m <= 141).
+    from time import perf_counter
+    import os
+    import subprocess
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+
+    def run(args):
+        r = subprocess.run(args, capture_output=True, text=True, timeout=900, cwd=sdir)
+        assert r.returncode == 0, ("TWO_FIBRES subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "r214l")
+        run(["gcc", "-O2", "-o", exe, "review_r214_lift.c", "-lm"])
+        out = run([exe, "iii", "1", "1500"])
+        assert "words=35184 Diff={2}:8231 lifts:8231 mismatches:0" in out, out
+        out = run([exe, "iiip", "3", "3000"])
+        assert "words=27340 Diff={2}:8408 lifts:8408 mismatches:0 chi+:8408 chi-:18932 chi+&Diff!={2}:0" in out, out
+        out = run([exe, "B", "3", "141"])
+        assert "words=2839 Diff={2}:2839 embed(G_w itself):2839 failures:0" in out, out
+    print(f"== (fN) TWO_FIBRES R214: chi = +1 fibre = Z^3 (path binaries are sums of three squares exactly when "
+          f"Diff = {{2}}; 35 184 + 27 340 words), odd-square path lattices embed in Z^3; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fN()
+
+
 print("\nall checks passed")

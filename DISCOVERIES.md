@@ -1100,6 +1100,18 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * squarefreeness of B along a Pell orbit (Wieferich-type).
      No relay was spawned, because the bottleneck is the already-explored MARKOFF_ES class layer ((J)37).
 
+48. **Spark relay Y1: the χ = +1 fibre is the cubic lattice ℤ³ — ES-five(p) ⟺ some path binary is not a sum of three squares (TWO_FIBRES.md + BRAINSTORM/y1_*.md (O209); review `reviews/two-fibres-review.md` (R214): no FATAL; Thm A/B SOUND; MAJOR D6 (Props G/G′ are in fact unconditional, by size alone) and D7 (the ℓ₀ hypothesis fails for Ad(tetrahedral)); D9 (the "near squares" description of the worst primes is false); minors; repaired by the author).**
+   * **Thm A (PROVED from class number one of B_{2,∞} and of the genus of I₃; R214 re-derived every step and re-checked 35 184 words with n ≤ 1500 and 27 340 words of primes ≤ 3000).** For odd n and every word w, Diff(T_w) = {2} ⟺ n·G_w is the Gram matrix of three integer vectors ⟺ there are x, y ∈ ℤ³ with |x|² = tv − 1, |y|² = tu − 1, x·y = 1 (and x × y ≡ x + y mod t).
+     * At a prime p this gives: **ES-five(p) ⟺ some path binary [[tv − 1, 1],[1, tu − 1]] (det tp) attached to X_p is NOT represented by x² + y² + z²** (as the Gram of two vectors).
+     * The χ = +1 lattice classes at p are the image of P¹(𝔽_p)/S₄ on the conic x² + y² + z² ≡ 0 (Prop A2). The map is not always injective (p = 71, 79, 109). This makes Cerednik–Drinfeld's char-2 tree explicit (Assessment).
+   * **Thm B (PROVED; R214 checked all 2 839 words of odd squares ≤ 141²).** T1 becomes an embedding statement: every path lattice of odd square determinant m² is an index-m sublattice of ℤ³.
+     * This is the first explicit asymmetry between the two signs: one side is an exact class-number-one world.
+     * At the level of single words it reduces to the 2-adic cell law. The sign-dominance injection it suggested is false.
+   * Prop G″ (PROVED relative to the PNT for cuspidal GL(m) L-functions; after R214 D6). No finite combination of twisted divisor convolutions d_k and GL(m) cusp-form coefficients equals N₋. It fails by size at primes, without T1 or any ℓ₀ hypothesis, which closes O205's GL(3) spark.
+   * G1–G3 (PROVED). χ is a function of M_w mod 8; it is not an SL₂(ℤ)-class function; genus-character form. K1: a congruence/index identity (the Heegner reading is an Assessment).
+   * EVIDENCE (reproduced by R214 for p < 10⁶). Sign dominance N₋ ≥ N₊ fails at 2 402 primes. The worst cases are p ≡ 1 (24) with (p/5) = +1, i.e. p is a square modulo the small moduli that short words see, as in (J)27. **They are not archimedeanly near squares (R214 D9).**
+   * Relay O217 (three squares; continuity of T1) was spawned.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
