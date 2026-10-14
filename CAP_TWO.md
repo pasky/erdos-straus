@@ -116,7 +116,7 @@ duality cofactor of EXPONENT_CAP Prop 1.3 (k = 1), w = (4na + cB³)/g, E = aw �
 D ≡ 3 (mod 4) ⟺ 4 | a. Equivalent forms:
 (i) **D := cBw − 4n > 0, D ≡ 3 (mod 4), D | w + cB³** (then 4D | w + cB³ automatically and a := (w + cB³)/D);
 (ii) (**box criterion**) D ≡ 3 (mod 4), gcd(D, n) = 1, and a factorisation D + 4n = c·w·B with **(w/B)² ≡ −4n (mod D)**;
-(iii) (**fixed-modulus tests**) for some (c, w): **64n³ + c²w⁴ has a divisor D ≡ −4n (mod cw) with D ≡ 3 (mod 4)**
+(iii) (**fixed-modulus tests**) for some (c, w): **64n³ + c²w⁴ has a divisor D ≡ −4n (mod cw) with D ≡ 3 (mod 4)**, gcd(D, ncw) = 1
 (then B := (4n + D)/(cw)).
 *Proof.* From Thm 1.1: w := (4na + cB³)/g is an integer since caB ≡ 1 (mod g) gives a(4na + cB³) ≡ 4na² + B² ≡ 0 and
 gcd(a, g) = 1; then a·w·g = 4na² + caB³ = 4na² + B² + B²g = (E + B²)g, so aw = E + B². W_n multiplied out with
@@ -140,3 +140,20 @@ prime to n, which holds e.g. for n = 13, D = 7: B = 59, g = 1 731 059 = (52 + 59
 covering-type (B1: finitely many of them never cover a non-residue class); the content is in letting (c, w) grow.
 T1: at n = m², D ≡ 3 (mod 4) would divide w² + (2mB)², a sum of two coprime squares (after removing gcd(w, B), which is
 prime to D) — impossible. This is the only place T1 enters, in every face.
+
+## 5. The exact place where the k = 1 slice stops being finite
+
+**Proposition 5.1 (PROVED).** Let n > 1 be odd and T a set of odd primes. Consider k = 1 shots whose overflow Q₁ has
+v_ℓ(Q₁) ≤ 2 for all ℓ, v_ℓ(Q₁) ≤ 1 for ℓ ∉ T (exponent 2 allowed only on T) and rad Q₁ | Q₀.
+(a) If T is finite, there are finitely many such shots; explicitly Q₁ = cB² with B | ∏T and c ≤ (4n + 1)(B² + 1)/B.
+(b) If T is all primes (the cap-2 cell) and one shot exists whose W_n-orbit (Prop 2.1(c)) contains infinitely many
+squarefree B, there are infinitely many, with Q₁ → ∞.
+(c) For comparison (O204): exponent ≤ 1 everywhere (T = ∅) gives the sharper Q₁ ≤ (16n + 1)/3; unbounded exponents on a
+fixed finite S (ES^{(y)}, no squarefreeness) give an infinite k = 1 slice for non-square n with gcd(n, 15) = 1 (O204
+Prop 3.1(a), |S| ≥ 4).
+*Proof.* (a) B is a squarefree product of primes of T: finitely many; Prop 2.1(b) for each. (b) Prop 2.1(c). ∎
+*Reading.* On the slice k = 1 the infinite direction is exactly "B unbounded", i.e. **exponent 2 at infinitely many
+primes**; any finite exponent-2 budget keeps the slice finite. "e = 1 + ε" variants (exponent 2 on a fixed finite set,
+or on primes ≤ a fixed bound) are therefore still finite on this slice. Bounded cap with unbounded exponent-2 support is
+the first point where the slice is infinite — conditionally on (b)'s squarefree hypothesis, which is a Wieferich-type
+statement about a binary recurrence and is open.
