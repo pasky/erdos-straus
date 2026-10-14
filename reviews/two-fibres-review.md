@@ -2,10 +2,23 @@
 
 Reviewer: R214 side agent (branch side-agent/review-two-fibres; merged side-agent/two-fibres at its tip).
 From-scratch scripts: `scripts/review_r214_*` (none of the author's `y1_*` scripts or `si_census.c` reused).
-Status: IN PROGRESS.
+Status: round 1 complete. Repairs applied: none (author worktree still live; defects forwarded via parent).
 
 ## Summary verdicts
-(filled in claim by claim below)
+| claim | verdict |
+|---|---|
+| Thm A (H1), incl. nM^# ⊂ ℤ³ and the congruence | **SOUND** (MINOR D1, D2) — 0 mismatches on 35 184 words n ≤ 1500, 27 340 words of primes ≤ 3000; (iv) direct on 7 939 words n ≤ 451 |
+| Thm B (H2), incl. f off the conic | **SOUND** (MINOR D3) — 2 844 words of odd squares ≤ 19 881 all embed with Gram G_w |
+| Cor A1 (H3) | **SOUND** (MINOR D4) |
+| Prop A2 (H4), 𝔊⁺_p = image of P¹/S₄ | **SOUND**; CERTIFIED counts true but incomplete — non-injective already at p = 71, 79 (D5) |
+| Props G, G′ | **SOUND-AFTER-REPAIRS**: conclusion true and in fact *unconditional* (size at primes, no T1, no ℓ₀) (MAJOR D6); the ℓ₀ hypothesis fails for Ad(tetrahedral) — "we do not know whether such π exist" is wrong (MAJOR D7); MINOR D8 |
+| G1, G2, G3 | **SOUND** (MINOR D10, D11) |
+| K1 | **SOUND** |
+| R1 | **SOUND** (parity verified to 10⁶) |
+| R3 | **GAP** (label/precision; trivial once stated, D12) |
+| EVIDENCE: sign dominance fails at 2 402 primes; N₋ mod 8 equidistributed; per-class ratios | **reproduced exactly** over the full range p < 10⁶; "near squares" description wrong (D9) |
+| Cerednik–Drinfeld reading | Assessment label correct; count inconsistency (D13) |
+| Novelty / labels | no external claim (correct); classical attributions should be explicit (D2) |
 
 ## Claim-by-claim
 
@@ -167,3 +180,53 @@ classes = image of P¹/S₄, with further identifications (D5). Both can be righ
 (oriented/unoriented, Γ_p vs its normaliser, w_p) — the R209 caveat says this is not pinned down; the two documents should
 at least not state different numbers without saying so. F3 masses: (p − 1)/4 and (p + 1)/12 (units mod ±1) ✓, ratio → 3 ✓.
 
+### Novelty and labels
+No external novelty is claimed, correctly: (i) ⟺ (iii) of Thm A is the classical fact that a positive binary form is
+represented by the one-class genus of x² + y² + z² iff it is represented locally everywhere (Gauss, *Disq.* art. 288–292;
+Mordell 1930; Ko 1937; Siegel), specialised to T_w; Thm B and Prop A2 are standard one-class-genus/maximal-lattice
+arguments (A2 = Eichler orders of level p in the Hurwitz order ↔ P¹(𝔽_p) mod units, as in LPS/Brandt-matrix literature).
+The quaternion-order proof is a valid re-proof. Labels: Thm A, B, A1, A2, K1, R1 PROVED ✓; A2 counts CERTIFIED ✓ (list
+incomplete, D5); sign-dominance refutation is an exact finite computation and could be labelled CERTIFIED rather than
+EVIDENCE; G′ "rel. JS + BV" — BV unnecessary (memo concedes), JS shorthand acceptable (D8); R3 over-labelled (D12);
+Cerednik–Drinfeld reading Assessment ✓.
+
+## Numbered defects
+* **D6 (MAJOR, steering/scope) — Props G/G′, memo y1_gl3_cuspidal (title, Prop G, Prop G′, "Not covered"), TWO_FIBRES
+  Summary bullet "Proposition G′", §0 (I4), §4 last bullet, AGENT_REPORT SHARP 2, README y1 row.** The ℓ₀ hypothesis and the
+  T1 exponential-polynomial analysis are not needed: on primes ℓ ≡ 1 (L), every d_k(ℓ; ψ…) = k, so E is constant there; C has
+  mean o(1) (PNT for π_i ⊗ ψ); N₋ has divergent mean (ω₃). Hence no finite E + C equals N₋, unconditionally (rel. PNT for
+  GL(m)). The killer is size at primes, not T1. *Repair:* restate as Prop G″ (unconditional) with this 5-line proof; demote
+  the ℓ₀/T1 analysis to a remark on S_L; fix the steering text ("size kills it; T1 unused"); delete the "no common ℓ₀" leftover.
+* **D7 (MAJOR, false scope statement) — memo "Not covered … we do not know whether cuspidal such π exist"; Summary
+  "including the self-dual orthogonal (Sym²/Ad) class".** Under the hypothesis as stated, Ad(σ) for tetrahedral weight-one σ
+  (cuspidal on GL(3), self-dual orthogonal) with L divisible by the conductor of the cyclic cubic subfield has 1 as a triple
+  squared Satake parameter at *every* ℓ ≡ 1 (L); D₄-type dihedral GL(2) forms likewise. So G′ as written does not cover the
+  whole orthogonal class. *Repair:* subsumed by D6 (the unconditional argument covers them); if the ℓ₀ version is kept, record
+  these examples.
+* **D5 (MINOR) — TWO_FIBRES Prop A2 CERTIFIED line, memo H4, AGENT_REPORT CERTIFIED line, §5 table.** Only p ≡ 1 (4) were
+  tested; #classes < #orbits already at p = 71 and 79 (also 107, 109, 113, 127). *Repair:* "for all primes 5 ≤ p ≤ 127 the
+  map is onto; injective except at p = 71, 79, 107, 109, 113, 127 (R214)".
+* **D9 (MINOR) — TWO_FIBRES §3.2 and Summary "the worst all near squares"; "871 249 … just above a square".** False as an
+  archimedean statement (29 401, 225 289, 871 249 are mid-gap). *Repair:* "the worst cases are p ≡ 1 (24) with (p/5) = +1
+  (mostly also (p/7) = +1): p is a square modulo the small moduli the short words see ((J)27); several are also m² + 24 or
+  m² − 3".
+* **D11 (MINOR) — TWO_FIBRES §4 B3/B6 bullet.** Stale "T^{−1+o(1)}"; should be T^{−2/3+ε} (R209 repair in memo/Summary).
+* **D13 (MINOR) — y1_cerednik_swap C1 "≈ (p + 1)/12 edges = P¹/A₄" vs Prop A2 "≈ (p + 1)/24, image of P¹/S₄".** State which
+  object each counts (oriented edges of Γ_p\𝒯_p vs conjugacy classes of Eichler orders vs lattice classes) or drop the number.
+* **D12 (MINOR) — y1_reciprocal_parity R3.** Imprecise "PROVED"; on X_p the n-preserving rotation is the reversal and
+  preserves χ. *Repair:* state the one-line fact or drop.
+* **D10 (MINOR) — y1_gamma8_trace G2/G3.** G2's example pair has trace 2 (parabolic) in a section about hyperbolic classes;
+  G3 is multiplicativity of the Jacobi symbol. *Repair:* give a hyperbolic pair; call G3 a reformulation.
+* **D3 (MINOR) — Thm B proof, H2.** "maximal classical integral lattice … (O'Meara §91)": O'Meara's maximal lattices are
+  norm-maximal; add "ℤ³ is norm-maximal in I₃ ⊗ ℚ, so gen(maximal) = gen(I₃)". Same in Prop A2.
+* **D2 (MINOR) — TWO_FIBRES §1 / memo Literature.** Say explicitly that (i) ⟺ (iii) is the classical local–global principle
+  for binary forms represented by the one-class genus I₃ (Gauss/Mordell/Ko/Siegel) — the novelty is only the word-level packaging.
+* **D1 (MINOR) — Thm A(iii) congruence.** "x × y ≡ x + y" holds for a suitably *oriented* lift (an improper signed permutation
+  turns it into x × y ≡ −(x + y)); add "after composing with a reflection if necessary". Checked for all 2 088 lifting words
+  n ≤ 451 (author: n ≤ 151).
+* **D4 (MINOR) — Cor A1.** Cite where ES-five(p) ⟺ N₋(p) ≥ 1 is proved.
+* **D8 (MINOR) — memo G proofs.** "PNT for cuspidal L(s, π ⊗ ψ), i.e. Jacquet–Shalika": add the Rankin–Selberg/Tauberian
+  step and the bound |α_j(ℓ)| < ℓ^{1/2} needed to pass from Λ-weighted sums to primes (cite e.g. Iwaniec–Kowalski Thm 5.13);
+  drop BV from the label.
+
+No FATAL defects. All PROVED core claims (Thm A, Thm B, A1, A2, K1, R1) survive re-derivation and from-scratch brute force.
