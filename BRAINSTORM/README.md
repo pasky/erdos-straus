@@ -234,10 +234,10 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 |---|---|---|---|
 | y3_semiprimitive_collapse | pure Gauss sums / uniform cyclotomy over F_{h²} at m = 4cd \| h+1 | COLLAPSES to the box: scaling collapse (p-blind), Stickelberger sign = (−1)^j, ∏(1−ζ) = c | PROVED; EVIDENCE (m²(a,b) ≡ 1, 1−m, 1−3m) |
 | y3_salie_angle | Salié sum at modulus h: root angle of ν² ≡ −pd at 1/(2j) + 1/(2jh) | COLLAPSES to H-A (Planck-scale hit) | PROVED dictionary |
-| y3_typeI_hasse_window | O207 spark 1: Type I dual Hasse window, CM, Type I overlap gcd(p+1, f−1) | COLLAPSES: window = g = 3 greedy family (B1); CM claim false (0/10737) | PROVED; EVIDENCE |
-| y3_euclid_schur_forcing | ES classes = Schur–Murty Euclidean classes (a² ≡ 1) | COLLAPSES: residue forcing only for \|G\| = 2 (trivial slice) | PROVED |
+| y3_typeI_hasse_window | O207 spark 1: Type I dual Hasse window, CM, Type I overlap gcd(p+1, f−1) | COLLAPSES: window = g ∈ {1,3,5} (g = 3, f prime, for p ≡ 1 mod 4: greedy sub-family, B1); CM suggestion fails (no instance in 10 737) | PROVED; EVIDENCE |
+| y3_euclid_schur_forcing | ES class −1 is one of the Schur–Murty Euclidean classes (a² ≡ 1) | COLLAPSES: single-integer forcing only for \|G\| = 2 (trivial slice); auxiliary-prime forcing = B1 | PROVED (E1); E3 withdrawn → remark |
 | y3_lucas_dickson_trace | Lucas ranks, Dickson, trace, Cayley; Galois-descent classification | COLLAPSES (Prop G: algebraic bridges carry rationals = box) | PROVED |
 | y3_frob_infinity | h ≡ −1 ⟺ Frob_h = c_∞: "h imitates ∞"; 2-group slices = genus theory | language; COLLAPSES B2/B4 | PROVED dictionary; check 0/72 905 mismatches |
-| y3_gross_koblitz_box | Gross–Koblitz at semi-primitive level; mixed torus Gauss sums | COLLAPSES: Γ_h reads 1/m ≡ j (box); mixed sum Weil-bounded (B3) | PROVED (classical); numerics |
+| y3_gross_koblitz_box | Gross–Koblitz at semi-primitive level; mixed torus Gauss sums | COLLAPSES: Γ_h argument 1/m ≡ j (box); mixed sum Weil-bounded (B3) | PROVED (classical); numerics |
 | y3_primemod_census | O207 spark 2: prime-modulus Type II census, growth, sieve screen | CONJECTURE PM-II (3361 only exception); no handle | EVIDENCE |
-| BRIDGE_WORLDS.md (deep) | three-tier bridge classification (homomorphic ±1 / symmetric-algebraic = rationals / Frobenius-invariant = O_K⁺ → F_h) | no route; precise negative + PM-II | see file |
+| BRIDGE_WORLDS.md (deep) | three tiers of bridges (homomorphic ±1 / fixed symmetric rational expressions = rationals / Frobenius-invariant = K⁺ → F_h); unit twists (trivial unless totally positive) | no route; scoped negative + PM-II | see file |
