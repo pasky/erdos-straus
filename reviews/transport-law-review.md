@@ -4,19 +4,23 @@ Reviewer: R211 (side agent). Scope: TRANSPORT_LAW.md, the eight memos BRAINSTORM
 O213 report. All numerics below were redone with from-scratch code (`scripts/review_r211_*`); the author's
 scripts were not run or reused.
 
-## Summary verdicts (in progress)
+## Summary verdicts
+
+No FATAL. All PROVED statements re-derived and correct; all census numbers reproduced exactly from scratch to 10⁷.
+Defects are in the *descriptions* of the evidence (hard primes, word counts, SQ_H scope) and in framing.
 
 | claim | verdict |
 |---|---|
-| SHARP 1 transport = Ptolemy mod 8 | (pending) |
-| SHARP 2 general-r Jacobi law | (pending) |
-| SHARP 3 narrow/wide dictionary | (pending) |
-| SHARP 4 SQ_H | (pending) |
-| SHARP 5 p = 21841, o* census | (pending) |
-| (a) P_h, C(o), (J)26 | (pending) |
-| (b) census | (pending) |
-| (c) no mod-32 shadow | (pending) |
-| (d) Siegel–Weil | (pending) |
+| SHARP 1 transport = Ptolemy mod 8 | **SOUND** (and (J)42 needs correcting, D1) |
+| SHARP 2 general-r Jacobi law | **SOUND**; novelty classical in substance (D3, D11) |
+| SHARP 3 narrow/wide dictionary | **SOUND-AFTER-REPAIRS** (D4; a relabelling) |
+| SHARP 4 SQ_H | **SOUND** as CONJECTURE/EVIDENCE; scope wording (D6) |
+| SHARP 5 p = 21841, o* census | **SOUND** (exhaustive); hard-prime description wrong (D5) |
+| (a) P_h, C(o), (J)26 | **SOUND-AFTER-REPAIRS** (D8, D10); (J)26 link upgradable (D9) |
+| (b) census | **SOUND-AFTER-REPAIRS** (D5) |
+| (c) no mod-32 shadow | **SOUND** (EVIDENCE) |
+| (d) Siegel–Weil | **SOUND**; memo numerics wrong (D7) |
+| labels | appropriate except D2, D9 |
 
 ## Claim-by-claim
 
@@ -211,4 +215,55 @@ product-formula bit" is an Assessment (the spinor-genus remark is unproved, as t
   "implies, after a finite mod-8 evaluation" (D11, minor).
 
 ## Defects
-(numbered list follows)
+
+No FATAL. Two MAJOR (one is a ledger correction outside the reviewed document), nine MINOR.
+
+* **D1 (MAJOR — ledger, DISCOVERIES (J)42 "Transport law" bullet; FRIEZE_ES §2/§7 wording).** "o ≡ ±1 (mod 8)" /
+  "o ≡ ±3 (mod 8)" are misleading (o ≡ 3 (4) for every word at N ≡ 1 (8)), and "Hilbert reciprocity localised" /
+  "transportable to a small modulus o" overstate the content. *Repair:* the replacement text under SHARP 1 above; add a
+  pointer "(deflated by O213 §1 / R211: Thm 1.2 + one Ptolemy relation; −(2/o) = o mod 8)". To be applied by the
+  maintainer on main (not in this branch).
+* **D5 (MAJOR — misread evidence; TRANSPORT_LAW §2 census bullet "the other hard primes are all ≡ 1 (120)", memo
+  y5_ocensus_hard_primes "Hard primes" paragraph, O213 report (b)).** The hard-prime list "(interior, o* ≥ 119)" omits
+  7 of 17 primes, and "≡ 1 (mod 120)" is false for 6 154 009 (in the list) and 944 329 (both ≡ 49 = 7² (mod 120)); "least
+  QNR prime ≡ 7 (8) between 23 and 127" fails for 8 586 481 (191). *Repair:* list all 17 (interior: 21841, 238681,
+  372121, 501841, 691681, 944329, 981481, 1249921, 1749001, 3191281, 3975721, 4362121, 6154009, 7183201, 7940521,
+  8586481, 8984641; formal o* ≥ 119: the same minus 372121, 501841) and replace the congruence statement by "all are
+  quadratic residues mod 840 (p mod 840 ∈ {1, 121, 169, 361}), n_p ∈ {11, 13, 17, 19, 23, 29}" (R211-verified).
+* **D2 (MINOR; §7 "CERTIFIED / EVIDENCE: … T1 controls (499 odd squares) clean").** The absence of certificates at odd
+  squares is FRIEZE Cor 1.4 (a theorem); the run is a code sanity check, not evidence. *Repair:* say so.
+* **D3 (MINOR, novelty; §3 Assessment "What it adds is the explicit ∞-factor", memo y5_general_r_jacobi).** The
+  ∞-factor (−1)^{#{K_i < 0 < K_{i+1}}} = ∏(K_i, −K_{i+1})_∞ is the real local Hilbert/Kubota factor of the same
+  leading-minor formula; it is as classical as the 2-adic part. *Repair:* "Thm 3.1 is the leading-minor Hasse invariant
+  + product formula (classical); new is only its frieze-notation reading (one 2-adic factor per continuant step; s_∞ as
+  a sign-change count). Not located verbatim in the literature by O213/R211 (Kubota 1969; Bach–Shallit 1996;
+  Girstmair 2011 not read in full)."
+* **D4 (MINOR; §3.2, memo y5_narrow_wide Prop 1 last bullet, report SHARP 3).** "A trivial factorisation (1, 1 + Nm)
+  is always in the +1 class. So negative-pair-type data exist for every N, apart from the degenerate c = 0": the trivial
+  factorisation *is* c = 0, so it gives no word. *Repair:* "negative-pair words exist for every odd N ≥ 3, e.g.
+  (−1, 1, (1 − N)/2); the ±1 dichotomy is meaningful only for m ≥ 3". Also: "the whole ES slice condition is the kernel
+  of narrow → wide" → "the slice condition asks Σ_e(N) to meet the non-trivial element (complex conjugation) of
+  ker((ℤ/e)* → (ℤ/e)*/±1)"; and note that the e-slice "N" is (p + e)/4 resp. (pe + 1)/4, not the frieze N.
+* **D6 (MINOR; §6 and memo y5_even_middle).** (i) SQ_H must state "positive (formal) letters": interior SQ_H fails at 5
+  primes ≡ 5 (8) (5, 13, 29, 53, …). (ii) The "22 composite exceptions" are formal-word exceptions (interior: 114).
+  (iii) Memo "Each … has a small factor (3, 5, 7, 13, …)" and report spark 3 "all have a small odd factor" are false:
+  199 369 = 193·1033. (iv) Worth recording: all 22 are ≡ 1 (mod 8) (formal SQ_H never fails at N ≡ 5 (8) ≤ 10⁶).
+  (v) The formal SQ_H range at p ≡ 1 (4) can be raised to 10⁷ (R211: 0 failures among 332 180 primes).
+* **D7 (MINOR; memo y5_siegel_weil_chamber "Cheap numerics").** Word counts wrong because `y5_words_at.py` truncates at
+  c² > 4N + 10: N = 21 841 has 42 formal words (14 with χ = −1; 20 interior words, 2 interior certificates), not 34/12;
+  N = 1 000 033 has 174 (116), not 133 (91). *Repair:* fix the loop bound (c ≤ N + 1) and the numbers.
+* **D8 (MINOR; memo y5_five_positions Prop 1 and "o = q prime" bullet; §2).** Prop 1 omits the size condition
+  s = (N + c)/o ≥ 1 (≥ 2 interior), and should say there is at most one P_h word per o; |C(o)| = τ((o+1)/4) exactly.
+  "Equality holds only for q = 7" is false (|C(7)| = 2 < 3); the class 6 mod 7 comes from words with o ≠ 7.
+* **D9 (MINOR, upgrade; §2 bullet on (J)26).** The identification of P_h classes with ET Prop 1.9 classes follows from ET
+  Prop 1.9 itself (polynomial solvability + "every solvable primitive class is Type I or II solvable"); relabel the
+  conclusion "no bound o_h*(p) ≤ f(n_p)" as PROVED relative to (J)26 Thm 3.1, and state it per fixed prime r ≥ r₀.
+* **D10 (MINOR; memo y5_ocensus_hard_primes "Burgess-free?").** "o* ≤ (log p)^C … would yield QNRs" holds only for o_h*
+  (P_h forces (p/o) = −1); restrict.
+* **D11 (MINOR; §3 "r = 3 recovers FRIEZE Thm 1.2", memo).** Thm 3.1 at r = 3 is CHI_FLIP Thm 1.1; the ee′ closed form
+  needs a further mod-8 evaluation. *Repair:* "implies, after the mod-8 evaluation".
+
+## Ledger recommendation
+(J)42 as in D1. A possible (J)43 entry for O213: SHARP 1 (deflation, PROVED), Thm 3.1 (PROVED, classical in substance),
+P_h + the (J)26 consequence (PROVED relative to (J)26 after D9), SQ_H (CONJECTURE, EVIDENCE to 10⁷, formal letters),
+p = 21841 fingerprint (CERTIFIED, exhaustive), hard primes square mod 840 (EVIDENCE, D5).
