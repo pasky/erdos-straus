@@ -72,3 +72,34 @@ of (I2)).
 *Proof.* Cut [D₀, D₁] into J intervals of length (D₁ − D₀)/J and apply Lemma 1.3 to each, with the common lower bound D₀.
 Asymptotics: with w = τm, (Cop) reads (1/2 + o(1)) + τ²(β − ρ − j)/2 < τβ, j = log J/log n; optimising τ = β/(β − ρ − j)
 gives the condition ρ + j > β(1 − β). ∎
+*Check (EVIDENCE):* `scripts/se_cop_check.py` evaluates (Cop) in exact rational arithmetic and compares J·(w − 1) with
+the true count on random highly composite n ≤ 10^{10}, random s, σ, windows: 200 tests, 0 violations (69 tight).
+
+## 2. Route table over ℤ (the twin of O216 Lemma 1.6) and the exponent 2/5
+
+For a dyadic box a ∈ [A, 2A), c ∈ [C, 2C), d ∈ [D, 2D) put E₀ = N/(32ACD), E₁ = N/(ACD) (Lemma 1.2) and
+L(A) = Σ_{A≤a<2A} 1/a ≤ ln 2 + 1/(2A). The number of P-data in the box is at most each of (PROVED from Lemmas 1.1–1.4):
+| route | data enumerated | then | bound | FF twin |
+|---|---|---|---|---|
+| H | (a, c, d) | b = (Nc + a)/f | ACD | T0 |
+| A | (a, d), e ≡ −N (4ad) | b = (N+e)/(4ad), c = (a+b)/e | (E₁ − E₀)L(A)L(D)/4 + AD | R9a |
+| C | (a, d) | f ∣ N + 4a²d, f ≡ −1 (4ad), f ∈ [4ACD−1, 32ACD) | AD·cop(3N, 4AD, f-window) | R4 |
+| D | (c, d) | f ∣ 4c²dN + 1, f ≡ −1 (4cd) | CD·cop(32C²DN+1, 4CD, f-window) | R2 |
+| E | (a, c) | f ∣ Nc + a, f ≡ −1 (4ac) | AC·cop(2CN+2A, 4AC, f-window) | R3 |
+| F | (e, a), 4a ∣ N + e | b ∣ (N+e)/(4a), b ≡ −a (e) [or d, cofactor] | ((E₁−E₀)L(A)/4 + A)·cop(…, E₀, b- or d-window) | R5a/R6a |
+| G | (e, d), 4d ∣ N + e | a² ≡ −(N+e)/(4d) (e): ≤ 2^{ω(e)} classes; a ∣ (N+e)/(4d) | ((E₁−E₀)L(D)/4 + D)·2^{ω}·cop(…) | R10a |
+| τ₃ | e ≡ −N (4) | (a, d) with ad ∣ (N+e)/4 | ((E₁−E₀)/4 + 1)·τ₃((N+E₁)/4) | R1 |
+| I, J | c, then (e, a) resp. (e, d) as in F, G | loss-free | C·(pairs of F), 2C·(pairs of G) | R8a, X1 |
+Here cop(n, s, window) is the least of: window/s + 1, J(w − 1) over admissible (m, k, J) of Cor 1.4, and τ(n).
+Units: the classes −1 (mod 4ad), (4cd), (4ac) and −a (mod e) are units (Lemma 1.1(iv)); the cofactor class of d in
+route F is (N+e)/(4a)·(−a)^{−1} mod e, a unit. *Proof:* each row's data and the displayed divisibility determine the
+datum (Lemma 1.1); the pair counts are Σ_a #{e ∈ (E₀, E₁] : e ≡ −N (mod 4a)} ≤ Σ_a ((E₁ − E₀)/(4a) + 1). ∎
+
+**Proposition 2.1 (continuum exponent; Assessment from a grid, EVIDENCE — to be replaced by the certificate of §3).**
+In normalised sizes (α, γ, δ, ε) the minimum over the routes of Table 2 is ≤ 2/5 everywhere when τ₃(m) ≤ C₃(η)m^η is
+used with η ≤ 0.3, and equals 2/5 at ET's point (1/5, 1/5, 1/5, 2/5). For Q-data (Type I N-points of 4/r^k, weight r^{−k})
+the analogous routes give 0.65 (grid; `/tmp`-prototype, to be committed), margin ≈ 1/3, with no divisor bound at all.
+*Prototype (non-rigorous floating point, `scripts/se_proto.py`):* the box sum bound for D_P(N) is 48, 7.6·10³, 3.8·10⁵,
+1.2·10⁷, 2.5·10⁸ at N = 17, 17³, 17⁵, 17⁷, 17⁹ (true: 2, 32, 121, 258, 604) and 2.2·10¹⁰, 3.8·10¹² at N = 10¹⁵, 10²⁰;
+bound/√N peaks ≈ 7·10² near N ≈ 10¹⁵ and then decays (local exponent 0.45 between 10¹⁵ and 10²⁰). Since each P-box of
+level (K+1)/2 weighs N^{−1/2}r^{−1/2}, this predicts an explicit r₀ around 10⁸–10⁹ once certified (§3).
