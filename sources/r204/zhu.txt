@@ -1,0 +1,4864 @@
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+arXiv:2304.10696v2 [math.NT] 6 May 2023
+
+BAIQING ZHU
+
+Abstract. We establish the arithmetic Siegel-Weil formula on the modular curve X0 pN q for arbitrary level N , i.e., we relate the arithmetic degrees of special cycles on X0 pN q to the derivatives
+of Fourier coefficients of a genus 2 Eisenstein series. We prove this formula by a precise identity
+between the local arithmetic intersection numbers on the Rapoport-Zink space associated to X0 pN q
+and the derivatives of local representation densities of quadratic forms. When N is odd and squarefree, this gives a different proof of the main results in the work of Sankaran, Shi and Yang [SSY22].
+This local identity is proved by relating it to an identity in one dimension higher, but at hyperspecial
+level.
+
+Contents
+1. Introduction
+2. Quadratic lattices and local densities
+3. Incoherent Eisenstein series and the main theorem
+4. The modular curve X0 pN q and special cycles
+5. Rapoport-Zink spaces and special cycles
+6. Difference formula at the geometric side
+7. Difference formula at the analytic side
+8. Proof of Arithmetic Siegel-Weil formula on X0 pN q
+References
+
+Date: April 2023.
+i
+
+1
+7
+11
+13
+29
+34
+44
+54
+56
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+1
+
+1. Introduction
+1.1. Background. The classical Siegel-Weil formula relates certain Siegel Eisenstein series to the
+arithmetic of quadratic forms, namely it expresses special values of these series as theta functions
+– generating series of representation numbers of quadratic forms. Kudla initiated an influential
+program to establish the arithmetic Siegel-Weil formula relating certain Siegel Eisenstein series to
+objects in arithmetic geometry.
+In this article, we study the case of modular curves. Let N be a positive integer, the classical
+modular curve Y0 pN qC over C is defined as the following smooth 1-dimensional complex curve,
+˘
+Y0 pN qC :“ GL2 pQqzH˘
+1 ˆ GL2 pAf q{Γ0 pN qpẐq » Γ0 pN qzH1 ,
+`
+where H˘
+1 “ CzR and H1 “ tz “ x ` iy P C : x P R, y P Rą0 u is the upper half plane. The group
+Γ0 pN qpẐq is the following open compact subgroup of GL2 pAf q,
+#
+˜
+¸
++
+a b
+Γ0 pN qpẐq “ x “
+P GL2 pẐq : a, b, c, d P Ẑ ,
+Nc d
+Ş
+and Γ0 pN q “ Γ0 pN qpẐq GL2 pZq.
+The smooth curve Y0 pN qC is not proper, its compactification X0 pN qC :“ Y0 pN qC Y tcuspsu is a
+smooth projective curve over C. It is a classical fact that the curve Y0 pN qC parameterizes cyclic
+isogenies between elliptic curves over C, here an isogeny π : E Ñ E 1 between two elliptic curves
+over C is called cyclic if kerpπq is a cyclic group.
+Katz and Mazur [KM85] extends the concept of cyclic isogeny to arbitrary base scheme, an
+isogeny π : E Ñ E 1 between two elliptic curves is called cyclic if kerpπq is a cyclic group scheme
+(cf. Definition 4.1.2). They also defined the Γ0 pN q-level structures on elliptic curves. In this
+article, we will mainly work on a 2-dimensional regular flat Deligne-Mumford stack X0 pN q, defined
+by Cesnavicius in [Ces17], which is the moduli stack of generalized elliptic curves with Γ0 pN q-level
+structures and whose fiber over C is X0 pN qC . We define the (arithmetic) special cycles on X0 pN q and
+study their intersection numbers. Finally, we prove that these intersection numbers are identified
+with the derivatives of Fourier coefficients of certain Siegel Eisenstein series of genus 2.
+When N is an odd, square-free positive integer, the relation has already been obtained in the
+work of Sankaran, Shi and Yang [SSY22, Theorem 2.14] by computing both sides explicitly based on
+the previous works of Yang [Yn98] and Kudla, Rapoport and Yang[KRY06]. In this article, we use
+a different method and work with arbitrary level N . We introduce a formal scheme N0 pN q which is
+the Rapoport-Zink space associated to X0 pN q. Via formal uniformization of the supersingular locus
+of the stack X0 pN q and its special cycles, we reduce the identity, which relates intersection numbers
+on X0 pN q and derivatives of Fourier coefficients of Eisenstein series, to a local identity between local
+arithmetic intersection numbers on N0 pN q and derivatives of local densities of quadratic forms. Now
+the key observation is that, both sides of the local identity, regardless of the level N , can be related
+to another intersection problem on Rapoport-Zink space of 1 dimension higher, but in a hyperspecial
+level, while the computation of the latter has been done in the works of Gross and Keating [GK93,
+Proposition 5.4], Wedhorn [Wed07, §2.16] and Rapoport [Rap07, Theorem 1.1] (see also the work
+of Li and Zhang [LZ22, Theorem 1.2.1]).
+
+2
+
+BAIQING ZHU
+
+1.2. Summary of main results.
+1.2.1. Arithmetic Siegel-Weil formula on X0 pN q. Let ∆pN q be the following rank 3 quadratic lattice
+over Z,
+#
+˜
+¸
++
+´N a b
+(1)
+∆pN q “ x “
+: a, b, c P Z
+c
+a
+equipped with the quadratic form x ÞÑ detpxq.
+We use v to denote a place of Q. For every finite place v, let δv pN q “ ∆pN q bZ Zv be a rank
+3 quadratic lattice over Zv . Let A be the ring of adèles over Q. Let V “ tVv u be the incoherent
+collection of quadratic spaces of A of rank 3 nearby ∆pN q at 8, i.e.,
+Vv “ δv pN q b Qv if v ă 8, and V8 is positive definite.
+
+(2)
+
+For a finite place v. Let Vf :“ V b Af (resp. Vvf :“ V b Avf ) be the quadratic space of rank 3
+over Af (resp. Avf ). Let S pV2 q (resp. S pV2f q, S ppVvf q2 q) be the space of Schwartz functions on V2
+(resp. V2f , pVvf q2 ). Associated to ϕ̃ “ ϕ b ϕ8 P S pV2 q, where ϕ8 is the Gaussian function on V28
+and ϕ P S pV2f q, there is a classical incoherent Eisenstein series Epz, s, ϕq (cf. §3.4) on the Siegel
+upper half plane,
+H2 “ tz “ x ` iy | x P Sym2 pRq, y P Sym2 pRqą0 u.
+This is essentially the Siegel Eisenstein series associated to a standard Siegel-Weil section of the
+degenerate principal series. The Eisenstein series here has a meromorphic continuation and a
+functional equation relating s Ø ´s. The central value Epz, s, ϕq “ 0 by the incoherence. We thus
+consider its central derivative
+ˇ
+d ˇˇ
+:“
+BEispz, ϕq
+Epz, s, ϕq.
+ds ˇ
+s“0
+
+Associated to the standard additive character ψ : A{Q Ñ Cˆ , it has a decomposition into the
+central derivatives of the Fourier coefficients
+ÿ
+BEispz, ϕq “
+BEisT pz, ϕq
+T PSym2 pQq
+
+On the geometric side, there is a regular integral model of the modular curve Y0 pN qC over Z
+π
+defined by Katz and Mazur: for any scheme S, the groupoid Y0 pN qpSq consists of objects pE ÝÑ E 1 q
+where E, E 1 are elliptic curves over S and π is a cyclic isogeny such that π _ ˝ π “ N . They proved
+that Y0 pN q is 2-dimensional regular flat Deligne-Mumford stack (cf. [KM85, Theorem 5.1.1]),
+but Y0 pN q is not proper. There is a moduli stack X0 pN q defined in [Ces17] which serves as a
+“compactification” of Y0 pN q. It is a proper regular flat 2-dimensional Deligne-Mumford stack
+which contains Y0 pN q as an open substack, so we can consider the arithmetic intersection theory
+on X0 pN q following the lines in [Gil09].
+The key concept is that of a special cycle. A typical special cycle is of the following form: ZpT, ϕq
+where T is a 2 ˆ 2 symmetric matrix and ϕ P S pV2f q is the characteristic function of some open
+compact subset of V2f . It is a Deligne-Mumford stack finite unramified over X0 pN q. For an object
+π
+
+pE ÝÑ E 1 q of Y0 pN qpSq, the special cycle ZpT, ϕq parameterizes pairs of isogenies between E and E 1
+with inner product matrix T and orthogonal to the cyclic isogeny π, along with some level structures
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+3
+
+given by the Schwartz function ϕ (cf. Definition 4.3.5). For every nonsingular T P Sym2 pQq and
+prime number l, we say T is represented by ∆pN q b Ql if there exist two vectors x1 , x2 P ∆pN q b Ql
+such that T “ 12 ppxi , xj qq. Define the following diffenence set,
+DiffpT, ∆pN qq “ tl is a finite prime : T is not represented by ∆pN q b Ql u
+2
+
+yC pX0 pN qq be the codimension 2 arithmetic Chow group with complex coefficients of the
+Let CH
+regular flat Deligne-Mumford stack X0 pN q. We also construct arithmetic special cycles on the stack
+p y, ϕq P CH
+y2 pX0 pN qq where T P Sym2 pQq is nonsingular,
+X0 pN q, they are elements of the form ZpT,
+C
+
+y P Sym2 pRq is positive definite and ϕ P S pV2f q is a Schwartz function. Let ϕ P S pV2f q be a
+T -admissible Schwartz function, which roughly means ϕ is invariant under the action of Γ0 pN qpẐq
+and for every p P DiffpT, ∆pN qq, ϕ “ ϕp b ϕp where ϕp P S ppVpf q2 q and ϕp “ c ¨ 1δp pN q2 P S pV2p q
+y ZpT,
+p y, ϕqq to derivatives of the Fourier coefficients
+for some c P C. Our main goal is to relate degp
+
+y : CH
+y2 pX0 pN qq Ñ C is the arithmetic degree map
+of a genus 2 Siegel Eisenstein series, where deg
+C
+(cf. (15)).
+
+Theorem 1.2.1. Let N be a positive integer. Let T P Sym2 pQq be a nonsingular symmetric matrix.
+Let ϕ P S pV2f q be a T -admissible Schwartz function, then
+y ZpT,
+p y, ϕqqq T “ ψpN q ¨ BEisT pz, ϕq,
+degp
+24
+ś
+for any z “ x ` iy P H2 . Here ψpN q “ N ¨ p1 ` l´1 q, q T “ e2πi tr pT zq .
+l|N
+
+1.2.2. The local arithmetic Siegel-Weil formula with level N . Fix a prime number p. Let F be the
+algebraic closure of Fp . Let W be the integer ring of the completion of the maximal unramified
+extension of Qp .
+On the geometry side, let X be a p-divisible group over F of dimension 1 and height 2. Let B be the
+unique division quaternion algebra over Qp , then End0 pXq » B as quadratic spaces. The RapoportZink space associated to X0 pN q is the following deformation space N0 pN q: for a W -scheme S where
+p is locally nilpotent, and an element x0 P B such that x_
+0 ˝ x0 “ N , the set N0 pN qpSq consists
+π
+1
+1
+of elements pX ÝÑ X q where X, X are deformations over S of X with certain restrictions on
+polarizations (cf. §5.1), the morphism π is a cyclic isogeny deforming x0 and π _ ˝ π “ N .
+Let W “ tx0 uK Ă B be the subspace of quasi-isogenies which are orthogonal to x0 . For any
+x P W, there is a closed formal subscheme Zpxq of N0 pN q over which the quasi-isogeny x lifts to an
+isogeny. This is an example of special cycle (cf. Definition 5.2.5) on N0 pN q. For a rank 2 lattice
+M Ă W, we choose a Zp -basis tx1 , x2 u of M , then define the local arithmetic intersection number
+of M on N0 pN q to be
+IntN0 pN q pM q “ χpN0 pN q, OZpx1 q bLON pNq OZpx2 q q.
+0
+
+This number is independent of the choice of the basis tx1 , x2 u of M .
+On the analytic side, for any two integral quadratic Zp -lattices L and M . Let RepM,L be the
+scheme of integral representations, an Zp -scheme such that for any Zp -algebra R, RepM,L pRq “
+QHompL bZp R, M bZp Rq, where QHom denotes the set of quadratic module homomorphisms. The
+
+4
+
+BAIQING ZHU
+
+local density of integral representations is defined to be
+DenpM, Lq “ lim
+
+dÑ8
+
+#RepM,L pZp {pd q
+pd¨dimpRepM,L qQp
+
+.
+
+Let H2` “ Z2p be the rank 2 quadratic Zp -lattice equipped with the quadratic form qH ` px, yq “ xy.
+2
+`
+:“ pH2` qkn be a rank 2k quadratic Zp -lattice. For any Zp -lattice M Ă W of
+For any k ě 0, let H2k
+rank 2, define the local density of M with level N to be the polynomial Den`
+∆pN q pX, M q such that
+for all k ě 0,
+$
+`
+Denpδp pN q k H2k
+, Mq
+’
+’
+, when p | N ;
+’
+`
+&
+´k
+ˇ
+Nor pp , 1q
+`
+(3)
+Den∆pN q pX, M q ˇX“p´k “
+`
+’
+, Mq
+Denpδp pN q k H2k
+’
+’
+, when p ∤ N .
+%
+pN,pqp ´k
+Nor
+pp , 2q
+
+where p¨, ¨qp is the Hilbert symbol at p, the polynomials Norε pX, nq are normalizing factors defined
+in Definition 2.2.6. Then Den`
+∆pN q p1, M q “ 0 since M can’t be isometrically embedded into the
+quadratic lattice δp pN q, we define the derived local density of M with level N to be
+ˇ
+d ˇˇ
+`
+BDen∆pN q pM q “ ´
+Den`
+∆pN q pX, M q.
+dX ˇX“1
+
+The local arithmetic Siegel-Weil formula with level N is an exact identity between the two integers
+just defined.
+Theorem 1.2.2. Let M Ă W be a Zp -lattice of rank 2. Then
+IntN0 pN q pM q “ BDen`
+pM q.
+∆pN q
+
+We refer to IntN0 pN q pM q as the geometric side of the identity (related to the geometry of
+Rapoport–Zink spaces and Shimura varieties) and BDen`
+∆pN q pM q the analytic side (related to the
+derivatives of Eisenstein series and L-functions).
+1.2.3. Formal uniformization. For any prime p, let X0 pN qss
+Fp be the supersingular locus of the stack
+X0 pN q, i.e., those F-points of X0 pN q which is isogenous to a supersingular elliptic curve. Let B
+be the
+be the unique quaternion algebra which ramifies exactly at p and 8. Let X̂0 pN q{pX0 pN qss
+F q
+p
+
+p
+completion of the stack X0 pN q along the closed substack X0 pN qss
+Fp . Let Γ0 pN qpẐ q be the group
+ś
+Γ0 pN qpZv q. We have the following formal uniformization theorem of the stack X0 pN q.
+v‰8,p
+
+Proposition 1.2.3. There is an isomorphism of formal stacks over W ,
+ΘX pNq
+
+0
+ÝÑ
+B ˆ pQq0 zrN0 pN q ˆ GL2 pApf q{Γ0 pN qpẐp qs
+X̂0 pN q{pX0 pN qss
+F q
+p
+
+„
+
+where B ˆ pQq0 is the subgroup of B ˆ pQq consisting of elements whose norm has p-adic valuation 0.
+The proposition was previously known only in the case that N is odd and square-free (see the
+work of Kim [Kim18, Theorem 4.7] for the case that p ∤ N , and the work of Oki [Oki20, Theorem
+6.1] for the case that p | N ). As a corollary, let Ẑ ss pT, ϕq be the completion of ZpT, ϕq along its
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+5
+
+ppq be the unique quadratic
+supersingular locus Z ss pT, ϕq :“ ZpT, ϕq ˆX0 pN q X0 pN qss
+Fp . Let ∆pN q
+space over Q (up to isometry) such that: 1. It is positive definite at 8; 2. For finite prime l ‰ p,
+∆pN qppq b Ql is isometric to δl pN q b Ql ; 3. ∆pN qppq b Qp is isometric to W. For a pair of vectors
+x “ px1 , x2 q P p∆pN qppq q2 , let T pxq “ p 21 pxi , xj qq be the inner product matrix. We have the
+following formal uniformization theorem of the special cycle ZpT, ϕq.
+
+Corollary 1.2.4. Let T P Sym2 pQq be a nonsingular symmetric matrix, and DiffpT, ∆pN qq “ tpu.
+q be the Grothendieck
+Let ϕ P S pV2f q be a T -admissible Schwartz function. Let K01 pXˆ0 pN q{pX0 pN qss
+Fp q
+group of coherent sheaves of OX̂0 pN q{
+-modules. Then we have the following identity in
+ss
+pX0 pNq
+
+q,
+K01 pXˆ0 pN q{pX0 pN qss
+Fp q
+Ẑ ss pT, ϕq “
+
+Fp
+
+q
+
+ÿ
+
+ÿ
+
+ϕpg ´1 xq ¨ Θ´1
+X0 pN q pZpxq, gq,
+
+ˆ
+xPB ˆ pQq0 zp∆pN qppq q2 gPBx
+pQq0 zGL2 pApf q{Γ0 pN qpẐp q
+
+T pxq“T
+
+where Bxˆ Ă B ˆ is the stabilizer of x P p∆pN qppq q2 .
+1.3. Strategy of the proof of main results.
+1.3.1. Difference formula at the geometric side. Let N be the following deformation functor: for
+a W -scheme S where p is locally nilpotent, the set N pSq consists of elements pX, X 1 q where both
+X and X 1 are deformations over S of X with certain restrictions on polarizations (cf. §5.1). For a
+nonzero integral element x P B, i.e., 0 ď νp px_ ˝ xq ă 8, there is a closed formal subscheme Z 7 pxq
+of N over which the quasi-isogeny x lifts to an isogeny. This is an example of special cycle (cf.
+Definition 5.2.1) on N .
+For a rank 3 lattice L Ă B, we choose a Zp -basis tx1 , x2 , x3 u of L, then define the local arithmetic
+intersection number of L on N to be
+Int7 pLq “ χpN , OZ 7 px1 q bLON OZ 7 px2 q bLON OZ 7 px3 q q.
+This number is independent of the choice of the basis tx1 , x2 , x3 u of the lattice L.
+The special cycle Z 7 pxq is cut out by a single element fx P m “ pp, t1 , t2 q Ă W rrt1 , t2 ss, and when
+νp px_ ˝ xq ě 2, fp´1x |fx . We define dx “ fx {fp´1x P W rrt1 , t2 ss when νp px_ ˝ xq ě 2, dx “ fx when
+νp px_ ˝ xq “ 0 or 1. The following divisor
+Dpxq :“ Spf W rrt1 , t2 ss{dx ,
+is called the difference divisor associated to x (cf. Definition 6.2.1), which is originally introduced
+by Terstiege in [Ter11].
+Fix x0 P B such that x_
+0 ˝ x0 “ N , recall that we have defined the deformation function N0 pN q.
+In Theorem 6.2.3, we prove that N0 pN q is identified with the difference divisor Dpx0 q, i.e., there is
+an isomorphism of formal schemes,
+„
+Dpx0 q ÝÑ N0 pN q.
+Let xuniv
+: X univ Ñ X 1univ be the universal isogeny deforming x0 over the special cycle Z 7 px0 q. We
+0
+to Dpx0 q is cyclic, therefore there is a natural morphism
+will prove that the base change of xuniv
+0
+Dpx0 q Ñ N0 pN q. The natural morphism is an isomorphism because both sides of the morphism are
+
+6
+
+BAIQING ZHU
+
+closed formal subschemes of N and are represented by 2-dimensional regular local rings. The identification of Dpx0 q and N0 pN q implies the following difference formula of local arithmetic intersection
+numbers,
+Theorem 1.3.1. For any rank 2 lattice M Ă W, the following identity holds,
+IntN0 pN q pM q “ Int7 pM k Zp ¨ x0 q ´ Int7 pM k Zp ¨ p´1 x0 q.
+
+We refer to this formula as the difference formula at the geometric side.
+1.3.2. Difference formula at the analytic side. For any rank 3 quadratic Zp -lattice L Ă B, define
+the local density of L to be the polynomial Den` pX, Lq P ZrXs such that for all k ě 0,
+`
+ˇ
+, Lq
+DenpH2k`4
+Den` pX, Lq ˇX“p´k “
+.
+` ´k
+Nor pp , 3q
+
+then Den` p1, Lq “ 0 since L can’t be isometrically embedded into the quadratic lattice H4` , we
+define the derived local density of L to be
+ˇ
+d ˇˇ
+`
+BDen pLq :“ ´
+Den` pX, Lq.
+dX ˇ
+X“1
+
+Theorem 1.3.2. For any rank 2 lattice M Ă W, the following identity holds,
+
+`
+2
+`
+´1
+Den`
+∆pN q pX, M q “ Den pX, M k Zp ¨ x0 q ´ X ¨ Den pX, M k Zp ¨ p x0 q.
+
+Since the lattice M k Zp ¨ x0 can’t be isometrically embedded into the lattice H4` ,
+`
+`
+´1
+BDen`
+∆pN q pM q “ BDen pM k Zp ¨ x0 q ´ BDen pM k Zp ¨ p x0 q.
+
+The theorem is proved in a more general form in Theorem 7.2.6. We refer to this formula as the
+difference formula at the analytic side.
+1.3.3. Proof of Theorem 1.2.1. The following local arithmetic Siegel-Weil formula is proved in
+[Wed07, §2.16] (see also [LZ22, Theorem 1.2.1] when p is odd).
+Theorem 1.3.3. For any rank 3 lattice L Ă B, the following identity holds,
+Int7 pLq “ BDen` pLq.
+For a rank 2 lattice M Ă W, let L “ M k Zp ¨ x0 Ă B, the local arithmetic Siegel-Weil formula
+with level N in Theorem 1.2.2 follows immediately from Int7 pLq “ BDen` pLq and two difference
+formulas we stated before (Theorem 1.3.1 and Theorem 1.3.2).
+1.3.4. Proof of Theorem 1.2.2. Let T P Sym2 pQq be a nonsingular matrix. Let ϕ P S pV2f q be a
+p y, ϕq is esT -admissible function. When T is not positive definite, the arithmetic special cycle ZpT,
+y ZpT,
+p y, ϕqq
+sentially an p1, 1q-current on the proper smooth complex curve X0 pN qC , the number degp
+
+has been computed explicitly in [SSY22, Theorem 4.10].
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+7
+
+p y, ϕq “ rpZpT, ϕq, 0qs where
+We focus on the case that T is positive definite. In this case, ZpT,
+ZpT, ϕq is a cycle of codimension 2 on X0 pN q. Moreover, ZpT, ϕq “ ∅ only if DiffpT, ∆pN qq “ tpu
+for some prime number p, in this case the special cycle ZpT, ϕq is concentrated in the supersingular
+locus of X0 pN q in characteristic p. Suppose that the 2 ˆ 2 matrix T has diagonal element t1 and t2 ,
+ϕ “ ϕ1 ˆ ϕ2 P S pV2f q, where ϕi P S pVf q. We will show that
+y ZpT,
+p y, ϕqq “ χpZpT, ϕq, OZpt ,ϕ q bL OZpt ,ϕ q q ¨ logppq,
+degp
+1 1
+2 2
+
+By the formal uniformization of the special cycle ZpT, ϕq in Corollary 1.2.4, the Euler characteristic
+χpZpT, ϕq, OZpt1 ,ϕ1 q bL OZpt2 ,ϕ2 q q is a weighted linear combination of local arithmetic intersection
+numbers on N0 pN q, Theorem 1.2.1 follows from the local arithmetic Siegel-Weil formula with level
+N at the place p and the classical local Siegel-Weil formula at other places.
+
+1.4. Supplement. By the Windows theory developed by Zink in [Zin01], if νp pN q ě 1, we prove
+that the special fiber Zpx0 qp of Zpx0 q has the following explicit description (cf. Theorem 6.2.6,
+Corollary 6.2.7),
+¨
+˛
+b ‹
+˚ ź pa
+pt1 ´ tp2 q‚.
+Zpx0 qp » Spf Frrt1 , t2 ss{ ˝
+a`b“n
+a,bě0
+
+„
+
+Based on the isomorphism Dpx0 q Ñ N0 pN q, the special fiber N0 pN qp of N0 pN q can be described by
+¨
+˛
+ź
+n
+n
+a´1
+b´1
+˚
+‹
+N0 pN qp » Spf Frrt1 , t2 ss{ ˝pt1 ´ tp2 q ¨ pt2 ´ tp1 q ¨
+ptp1
+´ tp2 qp´1 ‚.
+a`b“n
+a,bě1
+
+Both these two isomorphisms are proved in [KM85, Theorem 13.4.6, Theorem 13.4.7] by a totally
+different method.
+
+Acknowledgements. First, I would like to express my deep gratitude to Professor Chao Li, who
+suggested I consider the question, and had countless instructive conversations with me during
+this project, without which this article would never exist. Next, I would like to thank Michael
+Rapoport, Tonghai Yang and Qiao He for their careful reading of the manuscript and many helpful
+comments. Moreover, I thank Cathy Chen for her unwavering support. The author is supported
+by the Department of Mathematics at Columbia University in the city of New York.
+
+2. Quadratic lattices and local densities
+2.1. Notations on quadratic lattices. Let p be a prime number. Let F be a nonarchimedean
+local field of residue characteristic p, with ring of integers OF , residue field κ “ Fq of size q, and
+uniformizer π. Let νπ : F Ñ Z Y t8u be the valuation on F and | ¨ | : F Ñ Rě0 be the normalized
+absolute value on F . Let p¨, ¨qF be the Hilbert symbol on the local field F . Consider the following
+
+8
+
+BAIQING ZHU
+
+character:
+χF : F ˆ {pF ˆ q2 Ñ t˘1, 0u,
+$
+&px, πq , when ν pxq is even;
+F
+π
+x ÞÑ
+%0,
+when νπ pxq is odd.
+
+the character χF is independent of the choice of the uniformizer π.
+A quadratic space pU, qU q over F is a finite dimensional vector space U over F equipped with a
+quadratic form qU : U Ñ F , the quadratic form qU induces a symmetric bilinear form given by
+p¨, ¨q : U ˆ U Ñ F,
+(4)
+
+px, yq ÞÑ qU px ` yq ´ qU pxq ´ qU pyq.
+
+An isometry between two quadratic spaces pU, qU q and pU 1 , qU 1 q is a linear isomorphism φ : U Ñ U 1
+preserving quadratic forms, i.e., qU 1 pφpxqq “ qU pxq for any x P U . In that case, we say U and U 1
+are isometric.
+A quadratic lattice pL, qL q is a finite free OF -module equipped with a quadratic form qL : L Ñ F .
+p¨,¨q
+
+The quadratic form qL also induces a symmetric bilinear form L ˆ L ÝÑ F by similar formula (4).
+Let L_ “ tx P L bOF F : px, Lq Ă OF u. We say a quadratic lattice is integral if qL pxq P OF for all
+x P L, is self-dual if it is integral and L = L_ .
+Let’s assume that dimF U “ n and the symmetric bilinear form p¨, ¨q is nondegenerate. Let txi uni“1
+be a basis of U , and tij “ 21 pxi , xj q, we define the discriminant of the quadratic space U to be:
+n
+discpU q “ p´1qp 2 q det pptij qq P F ˆ {pF ˆ q2 .
+
+If txi uni“1 is an orthogonal basis of U then tij “ 0 if i ‰ j and tii ‰ 0 by the nondegeneracy of p¨, ¨q.
+The Hasse invariant of the quadratic space U is
+ź
+ǫpU q “
+ptii , tjj qF ,
+iăj
+
+For a quadratic lattice L, we use discpLq and ǫpLq to denote the corresponding invariants on the
+quadratic space LF “ L bOF F . Recall that when p is odd, quadratic spaces U over F are classified
+by the following three invariants:
+dimF U, χF pU q :“ χF pdiscpU qq,
+
+ǫpU q.
+
+i.e., two quadratic spaces U and U 1 are isometric if and only if the above three invariants for U and
+U 1 are the same.
+When p is odd, the quadratic space U admits a self-dual sub-lattice if and only if ǫpU q “ `1 and
+χF pU q ‰ 0, we will use Hkε to denote the unique self-dual lattice of rank k and
+χF pHkε q :“ χF pdiscpHkε qq “ ε.
+`
+When p “ 2, let H2n
+“ pH2` qkn be a self-dual lattice of rank 2n, where the quadratic form on
+H2` “ OF2 is given by px, yq P OF2 ÞÑ xy.
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+9
+
+Example 2.1.1. Let N P OF . Let δF pN q be the following rank 3 quadratic lattice over OF ,
++
+#
+˜
+¸
+´N a b
+δF pN q “ x “
+: a, b, c P OF .
+c
+a
+equipped with the quadratic form induced by x ÞÑ detpxq. Under the following basis of δF pN q,
+˜
+¸
+˜
+¸
+˜
+¸
+´N
+1
+e1 “
+, e2 “
+, e3 “
+.
+1
+1
+the quadratic form can be represented by the following symmetric matrix,
+¨
+˛
+´N 0
+0
+˚
+‹
+T “˝ 0
+0 ´ 21 ‚.
+0
+´ 12 0
+
+therefore discpδF pN qq “ ´ 41 N ” ´N , ǫpδF pN qq “ pN, ´1qF . Moreover,
++
+#
+˜
+¸
+1
+´N
+a
+b
+OF , b, c P OF .
+δF pN q_ “ x “
+: aP
+2N
+c
+a
+therefore δF pN q_ {δF pN q » OF {2N .
+Throughout this article, we will mainly focus on the case that F “ Qp . In this case, we simply
+use δp pN q to denote the lattice δQp pN q (as we did in the introduction).
+2.2. Local densities of quadratic lattices.
+Definition 2.2.1. Let L, M be two quadratic OF -lattices. Let RepM,L be the scheme of integral
+representations, an OF -scheme such that for any OF -algebra R,
+RepM,L pRq “ QHompL bOF R, M bOF Rq,
+where QHom denotes the set of injective module homomorphisms which preserve the quadratic
+forms. The local density of integral representations is defined to be
+DenpM, Lq “ lim
+
+dÑ8
+
+#RepM,L pOF {π d q
+q d¨dimpRepM,L qF
+
+.
+
+Remark 2.2.2. If L, M have rank n, m respectively and the generic fiber pRepM,L qF ‰ ∅, then
+n ď m and
+` ˘ `m´n˘
+npn ` 1q
+.
+dimpRepM,L qF “ dim Om ´ dim Om´n “ m
+“ mn ´
+2 ´
+2
+2
+
+Definition 2.2.3. Let L, M be two quadratic OF -lattices. Let PRepM,L be the OF -scheme of
+primitive integral representations such that for any OF -algebra R,
+PRepM,L pRq “ tφ P RepM,L pRq : φ is an isomorphism between LR and a direct summand of MR u.
+where LR (resp. MR ) is L bOF R (resp. M bOF R). The primitive local density is defined to be
+PdenpM, Lq “ lim
+
+dÑ8
+
+#PRepM,L pOF {π d q
+q d¨dimpRepM,L qF
+
+.
+
+10
+
+BAIQING ZHU
+
+Remark 2.2.4. For any positive integer d, a homomorphism φ P RepM,L pOF {π d q or RepM,L pOF q
+is primitive if and only if φ :“ φ mod π P PReppOF {πq, which is equivalent to dimFq pφpLq ` π ¨
+M q{π ¨ M “ rankOF pLq.
+Lemma 2.2.5. Let H be a self-dual quadratic lattice. Let L be a quadratic OF -lattice, k is any
+positive integer, then we have the following stratification,
+ğ
+RepH,L pOF q “
+PRepH,L1 pOF q.
+LĂL1 ĂL1_
+
+Proof. This is proved by Cho and Yamauchi in [CY20, (3.1)].
+
+
+
+Definition 2.2.6. Let n ě 0, for ε P t˘1u, we define the normalizing factors to be
+Norε pX, nq “ p1 ´
+
+1 ` p´1qn`1
+¨ εq ´pn`1q{2 Xq
+2
+
+ź
+
+p1 ´ q ´2i X 2 q
+
+1ďiăpn`1q{2
+
+Lemma 2.2.7. Let L be a quadratic lattice of rank n. When p is odd, there exist polynomials
+Denε pX, Lq and Den5ε pX, Lq P ZrXs, such that
+ε
+ˇ
+, Lq
+DenpH2k`n`1
+Denε pX, Lq ˇX“q´k “
+,
+ε ´k
+Nor pq , nq
+
+ε
+ˇ
+, Lq
+DenpH2k`n
+Den5ε pX, Lq ˇX“q´k “
+¨p1´εχF pLqq ´k q,
+ε ´k
+Nor pq , n ´ 1q
+
+we define the derived local density of L to be
+
+ˇ
+d ˇˇ
+Denε pX, Lq.
+BDen pLq “ ´
+dX ˇX“1
+ε
+
+There also exists a polynomial Pdenε pX, Lq, such that
+
+ε
+ˇ
+PdenpH2k`n`1
+, Lq
+.
+Pdenε pX, Lq ˇX“q´k “
+ε ´k
+Nor pq , nq
+
+When p “ 2 and n is odd, the polynomials Den` pX, Lq and Pden` pX, Lq with the same evaluation
+formulas at X “ q ´k exist, the derived local density BDen` pLq of L is defined similarly.
+Proof. This is a combination of [LZ22, Lemma 3.3.2, Definition 3.4.1, Definition 3.5.2]
+
+
+
+For any N P OF , let pxN y, qxN y q be the rank 1 OF -lattice with an OF generator lN such that
+qxN y plN q “ N . The following induction formula of local density is proved in [LZ22],
+Lemma 2.2.8. Assume p is odd. Let L be a quadratic lattice of rank n. Let N P OF , when νπ pN q
+is sufficiently large,
+Denε pX, L k xN yq “ X 2 ¨ Denε pX, L k xπ ´2 N yq ` p1 ´ εχF pLqXq´1 p1 ´ X 2 q ¨ Den5ε pX, Lq.
+ε
+bOF F , then
+Moreover, if L k xN y can’t be isometrically embedded into the quadratic space Hn`2
+$
+&´εχ pLq ¨ Den5ε p1, Lq, if χ pLq ‰ 0;
+F
+F
+BDenε pL k xN yq ´ BDenε pL k xπ ´2 N yq “
+%2 ¨ Den5ε p1, Lq,
+if χF pLq “ 0.
+
+Proof. This is proved in [LZ22, Theorem 3.6.1]
+
+
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+11
+
+3. Incoherent Eisenstein series and the main theorem
+3.1. Incoherent Eisenstein series. Let W be the standard symplectic space over Q of dimension
+4. Let P “ M N Ă SppWq be the standard Siegel parabolic subgroup, which take the following form
+under the standard basis of W,
+#
+˜
+¸
++
+a
+0
+M pQq “ mpaq “
+: a P GL2 pQq ,
+0 t a´1
+¸
++
+#
+˜
+12 b
+: b P Sym2 pQq .
+N pQq “ npbq “
+0 12
+Let A be the adèle ring over Q. Let MppWA q be the following metaplectic extension of SppWqpAq,
+1 Ñ C1 Ñ MppWA q Ñ SppWqpAq Ñ 1,
+„
+
+where C1 “ tz P Cˆ : |z| “ 1u. There is an isomorphism MppWA q Ñ SppWqpAq ˆ C1 with the
+multiplication on the latter is given by the global Rao cycle, therefore we can write an element of
+MppWA q as pg, tq where g P SppWqpAq and t P C1 .
+Let P pAq “ M pAqN pAq be the standard Siegel parabolic subgroup of MppWA q where
+(
+M pAq “ pmpaq, tq : a P GL2 pAq, t P C1 ,
+N pAq “ tnpbq : b P Sym2 pAqu .
+
+Recall the following incoherent collection of rank 3 quadratic spaces V “ tVv u over A we defined in
+(2),
+Vv “ δv pN q b Qv if v ă 8, and V8 is positive definite.
+ś
+ǫpVv q “ ´1.
+then we can verify immediately that
+v
+ś
+ś
+Let χ : Aˆ {Qˆ Ñ Cˆ be the quadratic character given by χpxq “
+χv pxv q “
+pxv , ´N qv
+vď8
+
+vď8
+
+for all x “ pxv q P Aˆ . Fix the standard additive character ψ : A{Q Ñ Cˆ such that ψ8 pxq “ e2πix .
+We may view χ as a character on M pAq by
+χpmpaq, tq “ χpdetpaqq ¨ γpdetpaq, ψq´1 ¨ t.
+
+and extend it to P pAq trivially on N pAq. Here γpdetpaq, ψq is the Weil index (see the work of
+Kudla [Kud97, p. 548]). We define the degenerate principal series to be the unnormalized smooth
+induction
+s`3{2
+MppW q
+q, s P C.
+Ips, χq :“ IndP pAq A pχ ¨ | ¨ |Q
+For a standard section Φp´, sq P Ips, χq (i.e., its restriction to the standard maximal compact
+subgroup of MppWA q is independent of s), we define the associated Siegel Eisenstein series
+ÿ
+Epg, s, Φq “
+Φpγg, sq,
+γPP pQqzSppQq
+
+which converges for Repsq " 0 and admits meromorphic continuation to s P C.
+
+12
+
+BAIQING ZHU
+
+Recall that S pV2 q is the space of Schwartz functions on V2 . The fixed choice of χ and ψ gives a
+Weil representation ω “ ωχ,ψ of MppWA q ˆ OpVq on S pV2 q. For ϕ̃ P S pV2 q, define a function
+Φϕ̃ pgq :“ ωpgqϕ̃p0q, g P MppWA q.
+Then Φϕ̃ pgq P Ip0, χq. Let Φϕ̃ p´, sq P Ips, χq be the associated standard section, known as the
+standard Siegel–Weil section associated to ϕ̃. For ϕ̃ P S pV2 q, we write Epg, s, ϕ̃q :“ Epg, s, Φϕ̃ q.
+3.2. Fourier coefficients and derivatives. We have a Fourier expansion of the Siegel Eisenstein
+series defined above,
+ÿ
+Epg, s, Φq “
+ET pg, s, Φq,
+T PSym2 pQq
+
+where
+
+ET pg, s, Φq “
+
+ż
+
+Epnpbqg, s, Φqψp´trpT bqqdnpbq,
+
+Sym2 pQqzSym2 pAq
+
+the Haar measure dnpbq is normalized to be self-dual with respect to ψ. When T is nonsingular, for
+factorizable Φ “ bv Φv , we have a factorization of the Fourier coefficient into a product
+ź
+ET pg, s, Φq “
+WT,v pgv , s, Φv q,
+v
+
+where the product ranges over all places v of Q and the local Whittaker function WT,v pgv , s, Φv q is
+defined by
+¸
+˜
+ż
+0
+1
+2
+,
+Φv pw´1 npbqgv , sq ¨ ψv p´trpT bqqdnpbq, w “
+(5)
+WT,v pgv , s, Φv q “
+´12 0
+Sym2 pQv q
+
+it has analytic continuation to s P C. Thus we have a decomposition of the derivative of a nonsingular
+Fourier coefficient,
+ÿ
+1
+ET1 pg, s, Φq “
+ET,v
+pg, s, Φq,
+v
+
+where
+(6)
+
+1
+1
+ET,v
+pg, s, Φq “ WT,v
+pgv , s, Φv q ¨
+
+ź
+
+WT,v1 pgv1 , s, Φv1 q.
+
+v1 ‰v
+
+3.3. Whittaker functions and local densities. Let v be a finite place of Q. Define the local
+degenerate principal series to be the unnormalized smooth induction
+MppW q
+
+q, s P C.
+Iv ps, χv q :“ IndP pQv qv pχv ¨ | ¨ |s`3{2
+v
+The fixed choice of χv and ψv gives a local Weil representation ωv “ ωχv ,ψv of MppWv q ˆ OpVv q
+on the Schwartz function space S pV2v q. We define the local Whittaker function associated to ϕv
+and T P Sym2 pQv q to be
+WT,v pgv , s, ϕv q :“ WT,v pgv , s, Φϕv q,
+where Φϕv pgv q :“ ωv pgv qϕv p0q P Iv p0, χv q and Φϕv p´, sq is the associated standard section.
+The relationship between Whittaker functions and local densities is encoded in the following
+proposition.
+Proposition 3.3.1. Suppose v ‰ 8. Let M be an integral Zv -quadratic lattice of rank 3 contained
+in Vv . Let L be an integral quadratic Zv -lattice of rank 2. Suppose that the quadratic form of L
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+13
+
+is represented by a matrix T P Sym2 pQv q after a choice of Zv -basis of L, we have the following
+identity,
+(7)
+
+`
+WT,v p1, k, 1M 2 q “ |M _ {M |v ¨ γpVv q2 ¨ |2|1{2
+v ¨ DenpM k H2k , Lq.
+
+where the constant γpVv q “ γpdetpVv q, ψv q´1 ¨ ǫpVv q ¨ γpψv q´3 , γpdetpVv q, ψv q and γpψv q are Weil
+indexes (cf. Appendix of [Rao93]).
+Proof. This is proved in [KRY06, Lemma 5.7.1].
+
+
+
+3.4. Classical incoherent Eisenstein series. The hermitian symmetric domain for SppWq is the
+Siegel upper half space
+H2 “ tz “ x ` iy | x P Sym2 pRq, y P Sym2 pRqą0 u.
+Let z “ x ` iy P H2 with x, y P Sym2 pRq and y “ t a ¨ a is positive definite. Define the classical
+incoherent Eisenstein series to be
+Epz, s, ϕ̃q “ χ8 pmpaqq´1 |detpmpaqq|´3{2 ¨ Epgz , s, ϕ̃q, gz “ npxqmpaq P MppWA q.
+Notice that Epz, s, ϕ̃q doesn’t depend on the choice of χ. We write the central derivatives as,
+(8)
+
+BEispz, ϕ̃q :“ E 1 pz, 0, ϕ̃q, BEisT pz, ϕ̃q :“ ET1 pz, 0, ϕ̃q.
+
+Then we have a Fourier expansion
+BEispz, ϕ̃q “
+
+ÿ
+
+BEisT pz, ϕ̃q.
+
+T PSym2 pQq
+
+For the open compact subgroup Γ0 pN qpẐq Ă GL2 pAf q , we will choose
+ϕ̃ “ ϕ b ϕ8 P S pV2 q.
+such that ϕ P S pV2f q is Γ0 pN qpẐq-invariant and ϕ8 is the Gaussian function
+ϕ8 pxq “ e´π tr T pxq .
+For our fixed choice of Gaussian ϕ8 , we write
+(9) Epz, s, ϕq “ Epz, s, ϕ b ϕ8 q, BEispz, ϕq “ BEispz, ϕ b ϕ8 q, BEisT pz, ϕq “ BEisT pz, ϕ b ϕ8 q.
+and so on for short.
+4. The modular curve X0 pN q and special cycles
+4.1. Cyclic group schemes. Let S be a scheme. Let G{S be a finite locally free group scheme
+over S. On every connected component of S, the rank of G is a constant, if the rank is a same
+number N for every connected component, we say that G has order N .
+Let OS be the structure sheaf of the scheme S. Let G{S be a finite locally free group scheme of
+order N , then the structure sheaf OG of G is finite locally free of rank N as an OS -module. Any
+element f P OG acts on itself by left multiplication, this defines an OS -linear endomorphism of OG ,
+the characteristic polynomial of this endomorphism
+detpT ´ f q “ T N ´ trpf qT N ´1 ` ¨ ¨ ¨ ` p´1qN Npf q,
+
+14
+
+BAIQING ZHU
+
+is a monic polynomial in OS rT s of degree N .
+Definition 4.1.1. We say that a set of N not necessarily distinct points tPi uN
+i“1 in GpSq is a full
+set of sections of G{S if the following condition is fulfilled: for any element f P OG , the following
+equality of polynomials with coefficients in OS holds,
+detpT ´ f q “
+
+N
+ź
+
+pT ´ f pPi qq.
+
+i“1
+
+Definition 4.1.2. We say a finite locally free group scheme G{S of rank N is cyclic over S if there
+exits a section P P GpSq such that taP uN
+a“1 forms a full set of sections of G{S, we say P is a
+generator of G over S. We say G{S is cyclic if GT is cyclic over T after some fppf covering by some
+scheme T Ñ S.
+Remark 4.1.3. The cyclicity of a group scheme is preserved under base change by the definition,
+i.e., if G{S is cyclic, then for any morphism S 1 Ñ S, the base change group scheme G ˆS S 1 {S 1 is
+also cyclic.
+Proposition 4.1.4. Let S be a scheme. Let E{S be an elliptic curve over S. Let G Ă ErN s be a
+finite locally free group scheme of order N over S. Then there exists a closed subscheme S cyc Ă S
+which is universal for the condition “G is cyclic”, in the sense that for any morphism T Ñ S, the
+base change GT {T is cyclic if and only if the morphism T Ñ S factors through the closed subscheme
+S cyc .
+Proof. This is proved in [KM85, Theorem 6.4.1].
+
+
+
+Lemma 4.1.5. Let W be a discrete valuation ring with residue characteristic p and uniformizer π.
+Let S be a reduced, noetherian, quasi-separated and flat scheme over W . Let G be a finite locally
+free group scheme of order pn over S, which is also embedded into an elliptic curve E{S. If for
+every generic point ξ of S, Gξ doesn’t factor through the multiplication-by-p morphism of Eξ , then
+G is a cyclic group scheme.
+Proof. Since S is quasi-separated, quasi-compact and flat over W , then Srπ ´1 s is dense in S since
+the scheme-theoretic image commutes with flat base change, therefore every generic point ξ lies in
+the open dense subscheme Srπ ´1 s. Let κpξq be the residue field of ξ, it has characteristic 0.
+k
+ś
+The group scheme Gξ is of order pn over the characteristic 0 field κpξq, hence Gξ »
+Z{pai Z
+i“1
+
+where
+
+k
+ř
+
+ai “ n. Now the fact that Gξ doesn’t factor through multiplication-by-p morphism of Eξ
+
+i“1
+
+implies the only possibility is k “ 1 and Gξ » Z{pn Z.
+Let S cyc be the closed subscheme described by Proposition 4.1.4, we know that every generic
+point is contained in the closed subscheme S cyc , hence S cyc “ S since S is reduced.
+
+Corollary 4.1.6. Let W be a discrete valuation ring with residue characteristic p and uniformizer
+π. Let S be an integral noetherian scheme, quasi-separated and flat over W . Let G be a finite locally
+free group scheme of order pn over S, which is also embedded into an elliptic curve E{S. If the
+isogeny πG : E Ñ E{G doesn’t factor through multiplication-by-p morphism of E, then G is a cyclic
+group scheme.
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+15
+
+Proof. The isogeny πG : E Ñ E{G factors through the multiplication-by-p morphism of E if and
+only if kerprpsE q is contained (as a Cartier divisor on E) in G, this is a closed condition on the base
+scheme S by [KM85, Lemma 1.3.4]. We use I ‰ 0 (since the morphism πG doesn’t factor through
+the multiplication-by-p morphism of E) to denote the ideal sheaf of this closed subscheme of S, it
+is functorial with respect to the base change of S.
+Let ξ be the only generic point of S, then Gξ doesn’t factor through the multiplication-by-p
+morphism because otherwise Iξ “ 0, but the injection I Ñ Iξ will imply that I “ 0, which is a
+contradiction. Then the corollary follows from Lemma 4.1.5.
+
+4.2. Γ0 pN q-structures on elliptic curves. Let S be a scheme. We say a scheme C over S is a
+smooth curve over S if the structure morphism C Ñ S is a smooth proper morphism of relative
+dimension 1.
+Definition 4.2.1. A closed immersion i : D Ñ C is called an effective Cartier divisor if the following
+conditions hold,
+(i) The closed subscheme D is flat over S;
+(ii) The ideal sheaf IpDq defining D is an invertible OC -module.
+Lemma 4.2.2. If C/S is a smooth curve, then any section s P CpSq defines an effective Cartier
+divisor on C, denoted by rss.
+Proof. This is proved in [KM85, Lemma 1.2.2].
+
+
+
+Given two effective Cartier divisors D and D 1 on C{S, we can define their sum D ` D 1 . It is an
+effective Cartier divisor on C{S defined locally by the product of the defining equations of D and
+D 1 . Explicitly, if S “ Spec R and if over an affine open subscheme Spec A of C, the Cartier divisor
+D (resp. D 1 ) is defined by an element f P A (resp. g P A), then the Cartier divisor D ` D 1 is
+defined by the equation f g.
+Lemma 4.2.3. Suppose E{S and E 1 {S are two elliptic curves over S, π : E Ñ E 1 is an isogeny,
+i.e., π is surjective and kerpπq is a finite flat group scheme locally of finite presentation over S.
+Then kerpπq Ñ E is an effective Cartier divisor.
+Proof. By cancellation theorem of morphisms of locally finite presentation, any morphism between
+abelian schemes are locally of finite presentation. Hence π is locally of finite presentation, and
+therefore kerpπq is also locally of finite presentation over S. Then the lemma follows from of [KM85,
+Lemma 1.2.3].
+
+Definition 4.2.4. We say an isogeny π : E Ñ E 1 between two elliptic curves E and E 1 is a cyclic
+N -isogeny if π _ ˝ π “ N , and there exists an fppf covering of S by a scheme T Ñ S with a point
+P P kerpπqpT q such that the following equality of Cartier divisors on ET holds:
+kerpπqT “
+
+N
+ÿ
+
+raP s.
+
+a“1
+π
+
+A Γ0 pN q-structure on an elliptic curve E{S is a cyclic N -isogeny E ÝÑ E 1 .
+
+16
+
+BAIQING ZHU
+
+Lemma 4.2.5. Let π : E Ñ E 1 be an isogeny between two elliptic curves E and E 1 , the isogeny π
+is a N -cyclic isogeny if and only if kerpπq is a cyclic group scheme of order N .
+Proof. By [KM85, Theorem 1.10.1], the set taP uN
+a“1 (where P P kerpπqpSq) forms a full set of
+sections of kerpπq if and only if we have the following equality of effective Cartier divisors in E{S,
+kerpπq “
+
+N
+ÿ
+
+raP s,
+
+a“1
+
+which is exactly the definition of the cyclicity of a N -isogeny.
+
+
+
+Example 4.2.6. (a) Suppose τ “ x ` iy P H`
+1 , we consider the elliptic curve Eτ “ C{Z ` Zτ , and
+a finite subgroup K generated by 1{N inside Eτ , then π : Eτ Ñ Eτ {K is a cyclic isogeny.
+(b) Suppose E{S is an elliptic curve over a Fp -scheme S, then for any n ě 1, the nth iterated relative
+Frobenius
+n
+F n : E Ñ E pp q ,
+n
+
+is a cyclic pn -isogeny. The origin P “ 0 is a generator of kerpF n q because kerpF n q » OS rT s{pT p q
+Zariski locally (cf. [KM85, Lemma 12.2.1]).
+Let Ell be the stack of elliptic curves, i.e., for an arbitrary scheme S, EllpSq is a groupoid whose
+objects are elliptic curves p : E Ñ S and morphisms are isomorphisms of elliptic curves over S. We
+use Y0 pN q to denote the stack which consists of all the Γ0 pN q-structures on elliptic curves, i.e., for
+π
+a scheme S, Y0 pN qpSq is a groupoid whose objects are cyclic N -isogenies pE Ñ E 1 q where E and
+π
+π
+E 1 are elliptic curves over S, a morphism between two cyclic isogenies pE1 Ñ1 E11 q and pE2 Ñ2 E21 q
+„
+„
+is a pair of isomorphisms of elliptic curves a : E1 Ñ E2 and a1 : E11 Ñ E21 such that a1 ˝ π1 “ π2 ˝ a.
+We have the following functors,
+s : Y0 pN q ÝÑ Ell,
+π
+
+pE{S Ñ E 1 {Sq ÞÝÑ E{S.
+Lemma 4.2.7. Both Y0 pN q and Ell are 2-dimensional Deligne-Mumford stacks. The functor s :
+ś
+Y0 pN q Ñ Ell is finite flat of degree ψpN q “ N ¨ p1 ` l´1 q, and representable by schemes, s is also
+l|N
+
+étale over Spec Zr1{N s.
+
+Proof. This is proved in [KM85, Theorem 5.1.1]. The key input is that a finite order group scheme
+is automatically étale if the order is invertible in the base scheme.
+
+For a Zppq -scheme S, a geometric point s of S and an elliptic curve E over S. Let Es be the
+base change of E to s. Let T p pEs q (resp. V p pEs q) be the integral (resp. rational) Tate module
+1
+of the elliptic curve Es . A Zˆ
+ppq -isogeny f : E Ñ E over S is a quasi-isogeny and there exists a
+prime-to-p number M , such that M ˝ f is an isogeny. Let V p pf q be the homomorphism on rational
+Tate modules induced by f .
+Lemma 4.2.8. Let Ellppq be the localization of the stack Ell to Spec Zppq . Then Ellppq can be
+described by the following stack: for every Zppq -scheme S, Ellppq pSq is a groupoid whose objects are
+pairs pE{S, η p q, where η p is a π1 pS, sq-invariant GL2 pẐp q-equivalence class of isomorphism
+»
+
+η p : V p pEs q ÝÑ pApf q2
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+17
+
+1
+A morphism between two objects pE{S, η p q and pE 1 {S, η 1p q is a Zˆ
+ppq -isogeny f : E Ñ E over S such
+
+that η p “ V p pf q ˝ η 1p .
+Proof. We temporarily use Ell1 to denote the stack described in the lemma. It suffices to show
+that for a connected scheme S over Spec Zppq , there is a category equivalence between EllpSq and
+Ell1 pSq. We first construct a functor F from EllpSq to Ell1 pSq. Given an elliptic curve E over S,
+and a geometric point s of S, we choose an isomorphism
+η p : T p pEs q » pẐp q2
+then clearly the GL2 pẐp q-orbit of η p is π1 pS, sq-invariant (because π1 pS, sq acts linear on T p pEs q).
+We define F pEq “ pE, η p q, this functor is independent of the choice of η p .
+Now we prove that this functor is essentially surjective and fully faithful. For essential surjectivity,
+we pick an arbitrary object pE{S, η p q of Ell1 pSq, by the work of Lan [Lan13, Corollary 1.3.5.4],
+»
+p 2
+1
+1p
+p
+p
+p
+1
+p
+1
+there is a Zˆ
+ppq -isogeny f : E Ñ E, such that η “ η ˝ V pf q : V pEs q ÝÑ pAf q maps T pEs q to
+pẐp q2 . Therefore the object pE{S, η p q is isomorphic to pE 1 {S, η 1p q, which is the essential image of
+E 1 P Ob EllpSq.
+Next we show that there is an isomorphism,
+(10)
+
+HomEllpSq pE, E 1 q » HomEll1 pSq ppE, η p q, pE 1 , η 1p qq
+
+This is clearly injective by the above discussion. Now we pick an arbitrary element f from the
+1p
+p
+p
+right hand side, then f is a Zˆ
+ppq -isogeny, and η “ η ˝ V pf q. There exists an integer M prime
+to p, such that f˜ “ M ˝ f is an isogeny from E to E 1 . We claim that this isogeny factors through
+the multiplication-by-M map, i.e., f itself is an isogeny. By the relation η 1p “ η p ˝ V p pf q and
+the construction above, V p pf q maps T p pEs q isomorphically to T p pEs1 q, then obviously f˜ maps
+Es1 rM s » E 1 rM ss to 0, this holds for every geometric point s of S, then since S is a Zppq -scheme
+and rigidity result proved by Mumford and Fogarty [MF82, Proposition 6.1], we know the isogeny
+f˜ vanishes on E 1 rM s, hence f itself is an isogeny. Now kerpf q is a finite flat group scheme over
+S of order prime to p, but since V p pf q maps T p pEs q isomorphically to T p pEs1 q, this group scheme
+must be trivial, i.e., f is an isomorphism, therefore it comes from an element of the left hand side
+
+of (10).
+Remark 4.2.9. We consider the following Deligne-Mumford stack,
+H “ Ell ˆZ Ell
+it parametrizes equivalence classes of pairs of elliptic curves. For any prime p, we use Hppq to denote
+the localization of H to Spec Zppq .
+There is a similar description of the stack Hppq as follows, for any Zppq -scheme S, the groupoid
+Hppq pSq consists of pairs ppE, E 1 q, pη p , η 1p qq, where η p (resp. η 1p ) is a π1 pS, sq-invariant GL2 pẐp q»
+»
+equivalence class of isomorphism V p pEs q ÝÑ pApf q2 (resp. V p pEs1 q ÝÑ pApf q2 ).
+For any N P Zą0 , let wN be the following 2 ˆ 2 matrix,
+˜
+¸
+N 0
+wN “
+.
+0 1
+
+18
+
+BAIQING ZHU
+
+We consider the following stack Y0 pN q1ppq over Spec Zppq : for every Zppq -scheme S, Y0 pN q1ppq pSq is
+π
+
+π
+
+a groupoid whose objects are pairs pE Ñ E 1 , pη p , η 1p qq, where E Ñ E 1 is a cyclic N -isogeny and
+pη p , η 1p q is a pair of π1 pS, sq-invariant Γ0 pN qpẐp q-equivalence class (we will specify the action of
+Γ0 pN qpẐp q in (12)) of isomorphisms
+»
+
+»
+
+η p : V p pEs q ÝÑ pApf q2 , η 1p : V p pEs1 q ÝÑ pApf q2 .
+which maps T p pEs q and T p pEs1 q to pẐp q2 , and the isomorphism η 1p is determined by η p by the
+following commutative diagram,
+V p pEs q
+
+(11)
+
+ηp
+
+/ pAp q2
+f
+
+V p pπq
+
+
+
+V p pEs1 q
+π
+
+wN
+
+η1p
+
+
+/ pAp q2
+f .
+
+π
+
+A morphism from pE1 Ñ1 E11 , pη1p , η11p qq to pE2 Ñ2 E21 , pη2p , η21p qq is a pair pf, f 1 q of isomorphisms
+f : E1 Ñ E2 and f 1 : E11 Ñ E21 such that f 1 ˝ π1 “ π2 ˝ f and pη1p , η11p q “ pη2p ˝ V p pf q, η21p ˝ V p pf 1 qq
+as Γ0 pN qpẐp q-orbits. The action of Γ0 pN qpẐp q on the pair pη p , η 1p q is given by
+´1
+˝ η 1p q.
+g ¨ ppη p , η 1p qq “ pg ˝ η p , wN gwN
+
+(12)
+
+Lemma 4.2.10. Let Y0 pN qppq be the localization of Y0 pN q to Zppq . There is an isomorphism
+G : Y0 pN qppq Ñ Y0 pN q1ppq of stacks over Spec Zppq .
+
+π
+
+Proof. Let S be a scheme over Spec Zppq , and an object pE Ñ E 1 q in the groupoid Y0 pN qppq pSq. Let
+s is a geometric point of S, the cyclicity of π implies that πs is also cyclic, since l is invertible in
+Spec κpsq if l ‰ p, there exist isomorphisms η p : T p pEs q » pẐp q2 and η 1p : T p pEs1 q » pẐp q2 such that
+ωN ˝ η p “ η 1p ˝ T p pπq. Now we consider a different choice of pη p , η 1p q, say pη̃ p , η̃ 1p q, satisfying the
+above conditions. Then η̃ 1p differs η p by an element g P GL2 pẐp q, i.e. η̃ p “ g ˝ η p , correspondingly
+´1
+´1
+P GL2 pẐp q since both η 1p and η̃ 1p give isomorphisms from
+˝ η 1p . However, ωN gωN
+η̃ 1p “ ωN gωN
+´1
+p
+2
+p
+p
+GL2 pẐp qωN “ Γ0 pN qpẐp q, thus the Γ0 pN qpẐp q-orbit
+T pEs q to pẐ q , therefore g P GL2 pẐ q X ωN
+π
+π
+pη p , η 1p q is well-defined. We define GppE Ñ E 1 qq “ ppE Ñ E 1 q, pη p , η 1p qq. For a pair of isomorphisms
+pf, f 1 q, where f : E1 Ñ E11 and f 1 : E2 Ñ E21 , define Gppf, f 1 qq “ pf, f 1 q.
+It suffices to show that for a connected scheme S over Spec Zppq , the functor GpSq : Y0 pN qppq pSq Ñ
+Y0 pN qppq pSq is an equivalence of categories. This functor is essentially surjective by definition, now
+we show that it is fully faithful, i.e., the following morphism between sets is bijective,
+π
+
+π
+
+G
+
+π
+
+π
+
+HomY0 pN qppq pSq ppE1 Ñ1 E11 q, ppE2 Ñ2 E21 qqq ÝÑ HomY0 pN qppq pSq ppE1 Ñ1 E11 , pη1p , η11p qq, pE2 Ñ2 E21 , pη2p , η21p qqq,
+pf, f 1 q ÞÝÑ pf, f 1 q.
+but this is clearly bijective by the definition.
+
+
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+19
+
+π
+
+There is a natural morphism from Y0 pN qppq to Hppq , i.e., pE ÝÑ E 1 q ÝÑ pE, E 1 q. By Remark
+4.2.9 and Lemma 4.2.10, we can also describe it as follows
+Y0 pN qppq ÝÑ Hppq ,
+(13)
+
+π
+
+pE ÝÑ E 1 , pη p , η 1p qq ÞÝÑ ppE, E 1 q, pη p , η 1p qq.
+
+4.2.1. Compactification of Y0 pN q. Next we introduce the compactification of the moduli stack
+Y0 pN q. Let S be a scheme, we first introduce the notion of Néron n-gons.
+Definition 4.2.11. For any integer n ě 1 and an scheme S, the Néron n-gon over S is the
+coequalizer of
+ğ
+ğ
+SÑ
+P1S .
+iPZ{nZ
+
+iPZ{nZ
+
+where the top (resp. the bottom) closed immersion includes the ith copy of S as the 0 (resp. the
+8) section of the ith (resp. pi ` 1qst ) copy of P1S .
+Definition 4.2.12. A generalized elliptic curve over a scheme S is the data of
+‚ A proper, flat, finitely presented morphism E Ñ S each of whose geometric fibers is either a
+smooth connected curve of genus 1 or a Néron n-gon for some n ě 1;
+`
+‚ An S-morphism E sm ˆS E Ñ E that restricts to a commutative S-group scheme structure on
+E sm for which ` becomes an S-group action such that via the pullback of line bundles the action
+` induces the trivial action of E sm on Pic0E{S .
+We will use X to denote the moduli stack consisting of generalized elliptic curves whose degenerate
+fibers are Néron 1-gons, i.e., for a scheme S, X pSq is a groupoid whose objects are generalized elliptic
+curves E over S and whose geometric fibers are either elliptic curves or Néron 1-gons. The following
+result is proved in [Ces17].
+
+Lemma 4.2.13. X is a proper smooth 2-dimensional Deligne-Mumford stack.
+Proof. This is proved in Theorem 3.1.6 of [Ces17].
+
+
+
+We have a natural morphism of Deligne-Mumford stacks Ell Ñ X , which sends an elliptic curve
+E over S to itself. This morphism is an open immersion, i.e., the stack Ell is an open substack of the
+stack X . Recall that we have a finite flat representable morphism Y0 pN q Ñ Ell by Lemma 4.2.7,
+let X0 pN q be the normalization of Y0 pN q with respect to this morphism. A moduli description
+of X0 pN q in terms of level structures on the generalized elliptic curves can be found in [Ces17,
+section 5.9]. The stack Y0 pN q can be realized as an open substack of the stack X0 pN q based on this
+description. We also have the following theorem
+Theorem 4.2.14. X0 pN q is a regular proper 2-dimensional Deligne-Mumford stack, it is finite flat
+over X .
+Proof. This is proved in Theorem 5.13 of [Ces17].
+
+
+
+20
+
+BAIQING ZHU
+
+4.2.2. Integral models of GSpin Shimura varities. Both the stacks Y0 pN q and H are examples of
+integral models of GSpin Shimura varieties, we will explain this and discuss the general case. This
+part will not be used in the following chapters, readers can skip on first reading.
+Let L be an integral quadratic lattice over Z of finite rank n ě 3, i.e., it is equipped with a
+quadratic form qL valued in Z. Let p¨, ¨q be the associated symmetric bilinear form, assume that
+the bilinear form is non-degenerate, we define discpLq :“ L_ {L, where L_ “ tx P L b Q : px, yq P
+Z, for any y P Lu. Let C :“ CpLq be the associated Clifford algebra over Z.
+Assume that the quadratic space L b R over R has signature pn ´ 2, 2q. Let G “ GSpinpL b Qq
+and X be the space of oriented negative definite planes in L b R. Let the level group KpLq :“
+GpAf q X CpL b Ẑqˆ , where CpL b Ẑqˆ is the unit group of the Clifford algebra of L b Ẑ. The
+Q-algebraic stack ShKpLq pG, Xq :“ GpQqzrX ˆ GpAf q{KpLqs is the Shimura variety associated to
+the pair pG, Xq with level structure KpLq, or simply speaking, associated to the quadratic lattice
+L.
+Theorem 4.2.15. Assume that the integer #discpLq is square-free. Then, over Zr 21 s, the Shimura
+variety ShKpLq pG, Xq admits a regular canonical integral model S pLq with a regular compactification.
+Theorem 4.2.15 is the main result of Madapusi [Mad16]. Roughly speaking, the integral model
+ShKpLq pG, Xq is constructed by building a regular integral model S pLqppq of ShKpLq pG, Xq over
+Zppq for every odd prime p. Let Lp “ L b Zp . The level group has the following decomposition:
+ś
+KpLq “ Kp , where Kp “ GpQp q X CpLp qˆ . When p ∤ discpLq, the quadratic lattice Lp is self-dual
+p
+
+and the group Kp is hyperspecial, Kisin [Kis10] has already constructed a smooth integral canonical
+model S pLqppq of ShKpLq pG, Xq over Zppq . In general, we can embed L into a bigger quadratic
+lattice L̃ of rank n ` 1 over Z that is self-dual at p and the associated quadratic space L̃ b R over
+R has signature pn ´ 1, 2q. Let G̃ “ GSpinpL̃ b Qq and X̃ be the space of oriented negative definite
+planes in L̃ b R. Let the level group KpL̃q :“ G̃pAf q X CpL̃ b Ẑqˆ , here again CpL̃ b Ẑqˆ is the unit
+group of the Clifford algebra of L̃ b Ẑ. Let ShKpL̃q pG̃, X̃q be the Shimura variety attached to the
+pair pG̃, X̃q with level structure KpL̃q, it has a smooth integral model S pL̃qppq over Zppq for every
+odd prime p since the quadratic lattice L̃ b Zp is self-dual. Then the regular integral model S pLqppq
+of ShKpLq pG, Xq is constructed as a divisor on S pL̃qppq (cf. [Mad16, Chapter 7]). We will explain
+Theorem 4.2.15 and constructions above by the following example.
+Let L̃ “ M2 pZq be the rank 4 lattice equipped with the quadratic form x ÞÑ detpxq. It can be
+checked immediately that the quadratic lattice L̃ is self-dual. Let N be a positive integer. Recall
+that wN “ diagtN, 1u P L̃. Let ∆pN q “ twN uK Ă L̃, then ∆pN q is the following quadratic lattice
+of rank 3 over Z,
+#
+˜
+¸
++
+´N a b
+(14)
+∆pN q “ x “
+: a, b, c P Z .
+c
+a
+Similiar computations in Example 2.1.1 implies that discp∆pN qq » Z{2N . When N is odd and
+square-free, the Shimura vairty associated to the quadratic lattice ∆pN q admits a regular canonical
+model with a regular compactification by Theorem 4.2.15. The following lemma will imply that the
+integral model is Y0 pN q, and the regular compactification is X0 pN q.
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+21
+
+Lemma 4.2.16. The following diagram is commutative,
+GSpinp∆pN q b Qq
+
+/ GSpinpL̃ b Qq
+
+ι
+
+ι̃
+
+
+
+
+
+GL2
+
+/ GL2 ˆG GL2 .
+m
+
+here ι and ι̃ are isomorphisms of algebraic groups, and the bottom arrow is given by g P GL2 ÞÑ
+´1
+q P GL2 ˆGm GL2 . An element g P GSpinp∆pN q b Qq acts on the quadratic space
+pg, wN gwN
+∆pN q b Q by the following formula,
+´1
+¨ x ¨ ιpg ´1 q, @x P ∆pN q b Q.
+gpxq “ wN ιpgqwN
+
+Moreover, for every prime number p, we consider the following subgroup of GL2 pZp q,
++
+#
+˜
+¸
+a b
+P GL2 pZp q : a, b, c, d P Zp .
+Γ0 pN qpZp q “ x “
+Nc d
+then the isomorphism ι induces the following isomorphism,
+GSpinpδp pN q b Qp q X Cpδp pN qqˆ » Γ0 pN qpZp q,
+and the isomorphism ι̃ induces the following isomorphism,
+GSpinpL̃ b Qp q X CpL̃ b Zp qˆ » GL2 pZp q ˆZˆ
+GL2 pZp q.
+p
+
+Proof. We choose the following basis of ∆pN q over Z,
+˜
+¸
+˜
+¸
+˜
+´N
+1
+e1 “
+, e2 “
+, e3 “
+1
+1
+
+¸
+
+.
+
+the Clifford algebra Cp∆pN q b Qq is an associated algebra over Q generated by e1 .e2 , e3 subject to
+the relations that v ¨ v “ pv, vq for any v P ∆pN q b Q where p¨, ¨q is the quadratic form on ∆pN q b Q.
+The even part of the Cp∆pN q b Qq` is spanned over Q by
+1, u1 “ e1 e2 , u2 “ e1 e3 , u3 “ e2 e3 ,
+and the even part of the CpL̃ b Qq` is spanned over Q by
+1, u1 , u2 , u3 , wN e1 , wN e2 , wN e3 , λ “ wN e1 pe2 ` e3 qpe2 ´ e3 q.
+We easily verify that λ2 “ N 2 . By the work of Kudla and Rapoport [KR99, Chapter 0], there is an
+algebra isomorphism CpL̃ b Qq` » Cp∆pN q b Qq` b Qpλq, where Qpλq » Q ˆ Q is the center of
+CpL̃ b Qq` . The following is an isomorphism of algebras over Q,
+ι : Cp∆pN q b Qq` ÝÑ M2 pQq,
+˜
+¸
+˜
+¸
+˜
+¸
+˜
+1
+1
+´1
+1Ñ
+Þ 12 :“
+, u1 ÞÑ
+, u2 ÞÑ
+, u3 ÞÑ
+1
+´N
+
+¸
+
+,
+
+under this isomorphism, the main involution g ÞÑ gt on the algebra Cp∆pN q b Qq` transfers to
+the adjoint involution of M2 pQq : g ÞÑ g˚ , here g ˚ is the adjoint matrix of g. Therefore ι induces
+
+22
+
+BAIQING ZHU
+
+an isomorphism of algebras ι b Qpλq : CpL̃ b Qq` » M2 pQq ˆ M2 pQq, where the element λ is
+mapped to p´N ¨ 12 , N ¨ 12 q. The main involution g̃ ÞÑ g̃t on the algebra CpL̃ b Qq` transfers to
+the following involution of M2 pQq ˆ M2 pQq : pg1 , g2 q ÞÑ pg1˚ , g2˚ q. By definition of the spinor group,
+for any Q-algebra R,
+GSpinp∆pN q b QqpRq “ tg P Cp∆pN q b Qq` bQ R : g ¨ g t P Rˆ u,
+GSpinpL̃ b QqpRq “ tg̃ P CpL̃ b Qq` bQ R : g̃ ¨ g̃ t P Rˆ u.
+Therefore ι induces isomorphisms of algebraic groups over Q, ι : GSpinp∆pN q b Qq » GL2 and
+ι b Qpλq : GSpinpL̃ b Qq » GL2 ˆGm GL2 .
+By definition, GSpinpδp pN q b Qp q X Cpδp pN qqˆ is the subgroup of GSpinpδp pN q b Qp q whose
+elements are Zp -linear combinations of 1, u1 , u2 , u3 , and invertible. Therefore we have the following
+identification under the isomorphism ι,
++
+#
+˜
+¸
+a
+b
+GSpinpδp pN q b Qp q X Cpδp pN qqˆ » g “
+P GL2 pZp q : a, b, c, d P Zp “ Γ0 pN qpZp q.
+´N c d
+´1
+for g P M2 pQq. Let
+Let AdwN be the conjugation action on M2 pQq, i.e., AdwN pgq “ wN gwN
+ι̃ “ pidˆAdwN q˝pιbQpλqq. By definition, GSpinpL̃bQp qXCpL̃qˆ is the subgroup of GSpinpL̃bQp q
+N e1 wN e2 `u1 wN e3 `u2 wN e2 ´u1 wN e3 ´u2
+whose elements are Zp -linear combinations of 1, N ´w
+,
+,
+, 2N , 2N , u3 ,
+2N
+2
+2
+and invertible. Under the isomorphism ι̃,
+
+GSpinpL̃ b Qp q X CpL̃ b Zp qˆ » GL2 pZp q ˆZˆ
+GL2 pZp q.
+p
+
+¯
+ś ´
+GL2 pZp q ˆZˆ
+GL
+pZ
+q
+and
+Lemma 4.2.16, the level group KpL̃q »
+2
+p
+p
+pă8
+ś
+Kp∆pN qq »
+Γ0 pN qpZp q. These two isomorphisms are compatible with the homomorphism
+By
+
+pă8
+
+pid, AdwN q : GL2 Ñ GL2 ˆGm GL2 . The GSpin Shimura variety associated to L̃ is ShKpL̃q pGL2 ˆGm
+˘
+GL2 , H˘
+1 ˆ H1 q » Y0 p1qC ˆ Y0 p1qC » HC , the smooth Deligne-Mumford stack H “ Ell ˆZ Ell is
+the canonical integral model S pL̃q of this Shimura variety, its compactification is X ˆZ X , which
+is also a smooth Deligne-Mumford stack by Lemma 4.2.13. The GSpin Shimura variety associated to ∆pN q is ShKp∆pN qq pGL2 , H˘
+1 q » Y0 pN qC , the regular Deligne-Mumford stack Y0 pN q is the
+canonical integral model S p∆pN qq of this Shimura variety, whose compactification is the regular
+Deligne-Mumford stack X0 pN q.
+Remark 4.2.17. Although Theorem 4.2.15 requires the integer N to be odd and square-free, all
+the computations in Lemma 4.2.16 and the discussions about the canonical integral model of the
+Shimura variety associated to the quadratic lattice ∆pN q don’t need this requirement. Moreover,
+canonical integral models H and Y0 pN q for the lattice L̃ “ M2 pZq and ∆pN q respectively are both
+regular over Z, not only over Zr 12 s.
+For every prime number p, the natural morphism from Y0 pN qppq to Hppq is described in the formula
+(13), this morphism realizes the regular integral model S p∆pN qqppq » Y0 pN qppq as a divisor on the
+smooth integral model S pL̃qppq » Hppq (cf. [Mad16, 6.12, 7.17]) when N is odd and square-free.
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+23
+
+4.3. Special cycles on H and X0 pN q. Let p be a prime number, we first define the special cycles
+on the stack Hppq .
+Definition 4.3.1. For every symmetric nˆn matrix T “ pTik q. Let ϕ̃p be the characteristic function
+of an open compact subset ω̃ p of M2 pApf qn invariant under the action of GL2 pẐp q ˆ GL2 pẐp q. We
+consider the stack Z 7 pT, ϕ̃p q, whose fibered category over a Zppq -scheme S consists of the following
+objects,
+ppE, E 1 q, pη p , η 1p q, jq,
+where ppE, E 1 q, pη p , η 1p qq is an object in Hppq pSq, j “ pj1 , j2 , ¨ ¨ ¨, jn q P pHompE, E 1 q bZ Zppq qn and
+η ˚ pjq :“ η 1p ˝ V p pjq ˝ pη p q´1 P ω̃ p . Moreover,
+Tik “
+
+1
+1
+pdegpji ` jk q ´ degpji q ´ degpjk qq “ pji ˝ jk_ ` jk ˝ ji_ q.
+2
+2
+
+The special cycle Z 7 pT, ϕ̃p q may be empty.
+For every symmetric nˆn matrix T , we have a natural finite unramified morphism i7n : Z 7 pT, ϕ̃p q Ñ
+Hppq by forgetting the morphisms j of an object ppE, E 1 q, pη p , η 1p q, jq of Z 7 pT, ϕ̃p q. We recall the
+following definition of generalized Cartier divisor appeared in the work of Howard and Madapusi
+[HM22, Definition 2.4.1].
+Definition 4.3.2. Suppose D Ñ X is any finite, unramified, and relatively representable morphism
+of Deligne-Mumford stacks, then there is an étale cover U Ñ X by a scheme such that the pullback
+DU Ñ U is a finite disjoint union
+ğ
+DU “
+DUi
+i
+
+with each map DUi
+
+Ñ U a closed immersion. If each of these closed immersions is an effective
+Cartier divisor on U in the usual sense (the corresponding ideal sheaves are invertible), then we call
+D Ñ X a generalized Cartier divisor.
+
+Proposition 4.3.3. Let ϕ̃p be the characteristic function of an open compact subset ω̃ p of M2 pApf q
+invariant under the action of GL2 pẐp q ˆ GL2 pẐp q. For any positive number d P Q, the finite
+unramified morphism i71 : Z 7 pd, ϕ̃p q Ñ Hppq is a generalized Cartier divisor
+Proof. This is proved by Howard and Madapusi in [HM20, Proposition 6.5.2] (see also [HM22,
+Proposition 2.4.3]).
+
+Now let’s come to the special cycles on the stack X0 pN qppq and Y0 pN qppq , we first introduce the
+notion of special morphisms for the moduli stack Y0 pN qppq .
+π
+
+Definition 4.3.4. Let S be a scheme over Spec Zppq , for an object ppE ÝÑ E 1 q, pη p , η 1p qq in
+Y0 pN qppq pSq, a special morphism of this object is an element j P HompE, E 1 q bZ Zppq satisfying
+j ˝ π _ ` π ˝ j _ “ 0.
+we denote this space by SpE, πq.
+Definition 4.3.5. For every symmetric n ˆ n matrix T “ pTik q. Let ϕp be the characteristic
+function of an open compact subset ω p of pVpf qn invariant under the action of Γ0 pN qpẐp q. We
+
+24
+
+BAIQING ZHU
+
+consider the stack ZpT, ϕp q, whose fibered category over a Zppq -scheme S consists of the following
+objects,
+π
+ppE ÝÑ E 1 q, pη p , η 1p q, jq,
+π
+
+where ppE ÝÑ E 1 q, pη p , η 1p qq is an object in Y0 pN qppq pSq, j “ pj1 , j2 , ¨ ¨ ¨, jn q P SpE, πqn and η ˚ pjq :“
+η 1p ˝ V p pjq ˝ pη p q´1 P ω p . Moreover,
+1
+1
+pdegpji ` jk q ´ degpji q ´ degpjk qq “ pji ˝ jk_ ` jk ˝ ji_ q.
+2
+2
+p
+The special cycle ZpT, ϕ q may be empty.
+Tik “
+
+For every symmetric n ˆ n matrix T , we have a natural morphism in : ZpT, ϕp q Ñ Y0 pN qppq by
+forgetting the special morphisms.
+Remark 4.3.6. Let T P Symn pQq, let ϕ̃p be the characteristic function of an open compact subset
+ω̃ p of M2 pApf qn invariant under the action of GL2 pẐp q ˆ GL2 pẐp q, and let ϕp be the restriction of
+ϕ̃p to the subspace pVpf qn of M2 pApf qn , then ϕp is the characteristic function of an open compact
+subset ω p of pVpf qn invariant under the action of Γ0 pN qpẐp q by Lemma 4.2.16, then the following
+diagram is Cartesian by definition,
+ZpT, ϕp q
+
+in
+
+
+
+i7n
+
+Z 7 pT, ϕ̃p q
+
+/ Y0 pN q
+
+ppq
+
+
+/H
+
+ppq .
+
+Therefore the morphisms in : ZpT, ϕp q Ñ Y0 pN qppq are also finite unramified. In particular, when
+n “ 1, let T “ d P Qą0 , the morphism i1 : Zpd, ϕp q Ñ Y0 pN qppq is a generalized Cartier divisor by
+Proposition 4.3.3.
+i
+
+n
+Y0 pN qppq Ñ X0 pN qppq is also finite
+We will show next that the composite ĩn : ZpT, ϕp q Ñ
+unramified. We start with the case that n “ 1.
+
+Proposition 4.3.7. Let ϕp be the characteristic function of an open compact subset ω p of Vpf
+invariant under the action of Γ0 pN qpẐp q. For any positive number d P Q, the morphism ĩ1 :
+Zpd, ϕp q Ñ X0 pN qppq is finite unramified, and Zpd, ϕp q is a generalized Cartier divisor.
+Proof. The morphism ĩ1 is unramified since i1 is unramified and the open immersion Y0 pN qppq Ñ
+X0 pN qppq is also unramified, therefore we only need to show the finiteness of ĩ1 .
+We first prove that the stack Zpd, ϕp q is flat over Zppq , since the morphism Zpd, ϕp qY0 pN qppq is a
+generalized Cartier divisor by Remark 4.3.6, the flatness of Zpd, ϕp q is equivalent to the fact that its
+local equation is not divisible by p since the stack Y0 pN qppq is flat over Zppq . We assume the converse
+and suppose that there exists a point z P Zpd, ϕp qpFp q such that the equation of Zpd, ϕp q in the
+étale local ring OYét0 pN q,z is divisible by p, then the stack Zpd, ϕp q contains an irreducible component
+π
+
+of Y0 pN qFp in an étale neighbourhood of z, let pE Ñ E 1 , pη p , η 1p qq be the object corresponding to
+the generic point of this irreducible component, then EndpEq » Z since the j-invariant of E must
+be transcendental over Fp (by the description of the stack Y0 pN qFp in [KM85, Proposition 13.4.5,
+Theorem 13.4.7]). There also exists an isogeny j P HompE, E 1 q bZ Zppq such that j _ ˝ π ` π _ ˝ j “ 0.
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+25
+
+Let α “ j ´1 ˝ π P End˝ pEq :“ EndpEq b Q » Q, then α2 “ ´N d´1 ă 0, this contradicts to the fact
+that End˝ pEq » Q.
+Therefore the stack Zpd, ϕp q is flat over Zppq , hence equals to the flat closure of its generic fiber
+Zpd, ϕp qQ :“ Zpd, ϕp q ˆZppq Q. The stack Zpd, ϕp qQ consists of finitely many points whose residue
+fields are finite extensions of Q, therefore the structure sheaf OZpd,ϕp q of Zpd, ϕp q is a finite product
+of subrings of the integer rings of these residue fields, hence the stack Zpd, ϕp q is finite over Zppq ,
+then ĩ1 : Zpd, ϕp q Ñ X0 pN qppq is proper since X0 pN qppq is proper over Zppq . The morphism ĩ1 is
+obviously quasi-finite by the finiteness of Zpd, ϕp q over Zppq , hence ĩ1 is finite.
+We already know that the morphism ĩ1 is a generalized Cartier divisor over the open substack
+Y0 pN qppq of X0 pN qppq . Moreover, étale locally around a cusp point of X0 pN qppq , the stack Zpd, ϕp q
+is cut out by 1 since ĩ1 factors through the non-cuspidal locus Y0 pN qppq , hence the finite unramified
+morphism ĩ1 : Zpd, ϕp q Ñ X0 pN qppq is a generalized Cartier divisor on the stack X0 pN qppq .
+
+Corollary 4.3.8. Let ϕp “
+
+n
+ś
+
+i“1
+
+ϕpi be the characteristic function of an open compact subset ω p of
+
+pVpf qn invariant under the action of Γ0 pN qpẐp q. For any matrix T P Symn pQqą0 , the morphism
+ĩn : ZpT, ϕp q Ñ X0 pN qppq is finite unramified.
+Proof. Suppose the diagonal elements of T are d1 , ¨ ¨ ¨, dn . Proposition 4.3.7 implies that the morphism Zpd1 , ϕp1 q ˆX0 pN qppq ˆ ¨ ¨ ¨ ˆX0 pN qppq Zpdn , ϕpn q Ñ X0 pN qppq is finite unramified. The stack
+ZpT, ϕp q is a connected component of Zpd1 , ϕp1 q ˆX0 pN qppq ˆ ¨ ¨ ¨ ˆX0 pN qppq Zpdn , ϕpn q, hence the morphism ĩn : ZpT, ϕp q Ñ X0 pN qppq is finite unramified.
+
+We will mainly focus on the case that T is a nonsingular 2 ˆ 2 symmetric matrix with coefficients
+in Q. For every such matrix T , recall that we have defined the difference set to be DiffpT, ∆pN qq “
+tl is a finite prime : T is not represented by ∆pN q b Ql .u.
+Proposition 4.3.9. Let T P Sym2 pQq be a nonsingular matrix. If ZpT, ϕp qpFp q ‰ ∅ for some
+prime p, then T is positive definite, and
+DiffpT, ∆pN qq “ tpu.
+Moreover, in this case, the special cycle ZpT, ϕp q is supported in the supersingular locus of the
+special fiber Y0 pN qFp .
+Proof. Since ZpT, ϕp qpFp q ‰ ∅, Corollary 4.3.8 implies that there are two elliptic curves E and E1
+over Fp , a cyclic isogeny π P HompE, E1 q, and two isogenies x1 , x2 P HompE, E1 qppq such that
+1
+T “ p pxi , xj qq, and px1 , πq “ px2 , πq “ 0.
+2
+therefore T must be positive definite and both E and E1 are supersingular elliptic curves over Fp
+since dimQ HompE, E1 q b Q ě 3. The quadratic space HompE, E1 q b Qp is isometric to the underlying
+quadratic space of the unique division quaternion algebra B over Qp .
+The isogenies x1 , x2 P tπuK Ă HompE, E1 qbQp » B where π _ ˝π “ N . However, tπuK and ∆pN qb
+Qp have the same discriminant ´N but opposite Hasse invariants, therefore p P DiffpT, ∆pN qq. At
+the same time, by choosing some level structures on E and E1 away from p, we get that T can
+
+26
+
+BAIQING ZHU
+
+be realized in ∆pN q b Ql for any finite prime l ‰ p. Therefore p is the only prime in the set
+DiffpT, ∆pN qq.
+
+Remark 4.3.10. Proposition 4.3.9 implies that the special cycle ZpT, ϕp q is also finite unramified
+over the stack X0 pN qppq because the scheme-theoretic image Z̃pT, ϕp q of ZpT, ϕp q in X0 pN qppq is
+supported in the supersingular locus of the special fiber X0 pN qFp , which equals the supersingular
+locus of the special fiber Y0 pN qFp , hence Z̃pT, ϕp q is contained in Y0 pN qppq , and therefore equals to
+the scheme-theoretic image of ZpT, ϕp q in Y0 pN qppq , over which ZpT, ϕp q is finite unramified.
+For any nonsingular 2 ˆ 2 symmetric matrix T P Sym2 pQq, we say a Schwartz function ϕ “
+Â
+ϕv P S pV2f q is T -admissible if ϕ is invariant under the action of Γ0 pN qpẐq, ϕ “ ϕ1 ˆ ϕ2 where
+
+vă8
+
+ϕi P S pVf q and
+‚ T is not positive definite, or
+‚ T is positive definite, and |DiffpT, ∆pN qq| ‰ 1, or
+‚ T is positive definite, DiffpT, ∆pN qq “ tpu for some prime number p, and ϕ “ ϕp b ϕp where
+ϕp P S ppVpf q2 q and ϕp “ c ¨ 1δp pN q2 for some c P C.
+Definition 4.3.11. For a nonsingular 2 ˆ 2 matrix T P Sym2 pQq and a T -admissible Schwartz
+function ϕ P S pV2f q which is also a characteristic function of a Γ0 pN qpẐq-invariant open compact
+subset ω of V2f , we define a stack finite unramified over X0 pN q as follows,
+ZpT, ϕq :“ ZpT, ϕp q Ñ X0 pN qppq ãÑ X0 pN q,
+where p P DiffpT, ∆pN qq. If |DiffpT, ∆pN qq| ‰ 1, we define ZpT, ϕq “ ∅.
+Remark 4.3.12. By Proposition 4.3.9, ZpT, ϕq is nonempty only if |DiffpT, ∆pN qq| “ 1, therefore
+the above definition makes sense.
+Remark 4.3.13. If we view ZpT, ϕq as an element in CH2C pX0 pN qq, we can drop the restrictions
+in Definition 4.3.11 that the Schwartz functions ϕ is the characteristic function of an open compact
+subset of V2f . Since any T -admissible Schwartz functions ϕ on V2f is a finite linear combination of
+Γ0 pN qpẐq-invariant characteristic functions of some open compact subsets, we can define ZpT, ϕq
+as the corresponding linear combination of elements in CH2C pX0 pN qq.
+4.3.1. Comparison with [SSY22, §2.2]. Another kind of special cycles of X0 pN q is defined in [SSY22,
+§2.2] as follows,
+Definition 4.3.14. For m P Z, let Zpmq denote the moduli stack whose S points, for a base scheme
+S, are given by
+π
+ZpmqpSq :“ tpE Ñ E 1 , αqu
+π
+
+where pE Ñ E 1 q P Y0 pN qpSq where α P EndpEq satisfies the following conditions:
+(a) α_ ˝ α “ mN and α_ ` α “ 0;
+(b) α ˝ π ´1 P HompE 1 , Eq;
+(c) π ˝ α ˝ π ´1 P EndpE 1 q.
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+27
+
+Lemma 4.3.15. For every prime number p, let Zpmqppq :“ Zpmq ˆZ Zppq , then we have an isomorphism of stacks as follows,
+„
+
+T : Zpmqppq ÝÑZpm, 1∆pN qbẐp q,
+π
+
+π
+
+pE Ñ E 1 , αq ÞÝÑpE Ñ E 1 , pη p , η 1p q, pα ˝ π ´1 q_ q.
+Proof. We first prove that T is well-defined. For any connected Zppq -scheme S, let s be a geometric
+„
+„
+point of S, we can choose trivilizations η p : V p pEs q Ñ pApf q2 and η 1p : V p pEs1 q Ñ pApf q2 such that
+T p pEs q and T p pEs1 q are mapped isomorphically to pẐp q2 , and η 1p ˝ V p pπq ˝ pη p q´1 “ wN by the
+cyclicity of π. Moreover,
+1 _
+1
+π ˝ α_ ˝ π ` π _ ˝ α ˝ π
+N
+N
+1 _
+“ π ˝ pα_ ` αq ˝ π “ 0.
+N
+
+pα ˝ π ´1 q_ ˝ π ` π _ ˝ pα ˝ π ´1 q “
+
+hence pα ˝ π ´1 q_ P SpE, πq, then (b) implies that η 1p ˝ V p ppα ˝ π ´1 q_ q ˝ pη p q´1 P ∆pN q b Ẑp Ă Vpf ,
+π
+
+therefore pE Ñ E 1 , pη p , η 1p q, pα ˝ π ´1 q_ q P Zpm, 1∆pN qbẐp qpSq.
+We define the following morphism,
+R : Zpm, 1∆pN qbẐp q ÝÑZpmqppq ,
+π
+
+π
+
+pE Ñ E 1 , pη p , η 1p q, jq ÞÝÑpE Ñ E 1 , j _ ˝ πq.
+π
+
+We show that R is well-defined: For any connected Zppq -scheme S, an object pE Ñ E 1 , pη p , η 1p q, jq P
+Zpm, 1∆pN qbẐp qpSq means that j P HompE, E 1 q b Zppq and j _ ˝ π ` π _ ˝ j “ 0, the fact that
+η 1p ˝ V p pjq ˝ pη p q´1 P ∆pN q b Ẑp implies that j P HompE, E 1 q, then j _ ˝ π P EndpEq, pj _ ˝ πq_ ˝
+pj _ ˝ πq “ π _ ˝ j ˝ j _ ˝ π “ mN and pj _ ˝ πq_ ` j _ ˝ π “ π _ ˝ j ` j _ ˝ π “ 0, which is exactly (a).
+π
+Moreover, (b) and (c) are easily verified, hence pE Ñ E 1 , j _ ˝ πq P ZpmqpSq, then the morphism
+R is well-defined. It’s easy to see that T and R are inverse to each other, therefore the lemma is
+proved.
+
+4.3.2. Arithmetic special cycles on X0 pN q. We apply the arithmetic intersection theory developed
+by Henri Gillet in [Gil82] and [Gil09] to the regular proper flat Deligne-Mumford stack X0 pN q. We
+obtain the following arithmetic Chow ring of X0 pN q,
+y‚ pX0 pN qq “
+CH
+C
+
+2
+à
+
+n“0
+
+yn pX0 pN qq.
+CH
+C
+
+ynC pX0 pN qq is represented by an arithmetic cycle pZ, gZ q, where Z is
+Roughly speaking, a class in CH
+
+a codimension n closed substack of X0 pN q, with C-coefficients, and gZ is a Green current for ZpCq,
+i.e., gZ is a current on the proper smooth complex curve X0 pN qC of degree pn ´ 1, n ´ 1q for which
+there exists a smooth ω such that
+ddc pgq ` δζ “ rωs.
+holds; here rωs is the current defined by integration against the smooth form ω. The rational
+x q “ pdivpf q, ι˚ r´logp|f˜|2 qsq, where f P κpZqˆ is a
+arithmetic cycles are those of the form divpf
+rational function on a codimension n ´ 1 integral substack ι : Z ãÑ X0 pN q, together with classes
+
+28
+
+BAIQING ZHU
+
+of the form p0, Bη ` Bη 1 q. By definition, the arithmetic Chow group CHnC pX0 pN qq is the quotient of
+the space of arithmetic cycles by the C-subspace spanned by those rational cycles.
+Let Z be an irreducible codimension 2 cycle on X0 pN q, then Z is a Deligne-Mumford stack over Fp
+for some prime number p and the groupoid ZpFp q would be a singleton with a finite automorphism
+group AutpZq, the rational function field κpZq of Z is a finite extension of Fp . Clearly δZ “ 0
+because ZpCq “ ∅.
+ř
+Let pZ, gq “ p ni rZi s, gq be an arithmetic cycle of codimension 2 where each Zi is an irreducible
+i
+
+codimension 2 cycle on X0 pN q. We define the degree map as follows,
+y : CH
+y2 pX0 pN qq ÝÑ C,
+deg
+C
+ÿ
+log |κpZi q| 1
+`
+rpZ, gqs ÞÝÑ
+ni ¨
+|AutpZi q|
+2
+i
+
+(15)
+
+here the integration
+
+ş
+
+ż
+
+g.
+
+X0 pN qpCq
+
+g is the integration of the constant function 1 on X0 pN qC against the
+
+X0 pN qC
+
+p1, 1q-current g. It is a finite number since the stack X0 pN q is proper. This number is independent of
+the choice of representing element pZ, gq as a consequence of the product formula (cf. [Gil82, 3.4.3]).
+Now we are going to construct Green currents for the special cycle ZpT, ϕq. Let D “ tz P
+∆pN q bZ C : pz, zq “ 0, pz, zq ă 0u { C˚ Ă Pp∆pN q b Cq, we have the following GL2 pRq-equivariant
+identification,
+„
+
+H˘
+1 ÝÑ D,
+τ ÞÝÑ spanC
+
+#˜
+
+´N τ
+1
+
+´N τ 2
+τ
+
+¸+
+
+.
+
+Next, we will associate to any nonsingular T P Sym2 pQq and a T -admissible Schwartz function
+y2C pX0 pN qq. Let y “ t a ¨ a P Sym2 pRq be a positive definite matrix,
+ϕ P S pV2 q an element in CH
+f
+
+where a P GL2 pRq.
+‚ For a positive definite T and a T -admissible Schwartz function ϕ, we consider the following
+element
+p y, ϕq “ pZpT, ϕq, 0q P CH
+y2 pX0 pN qq.
+ZpT,
+C
+
+‚ For other nonsingular T which is not positive definite, we apply the general machine developed
+by Garcia and Sankaran in [GS19] which is made explicit in [SSY22]. For any x P V8 and rzs P D,
+let Rpx, rzsq “ ´|px, zq|2 ¨ pz, zq´1 . We define an element in S pV28 q b A1,1 pH˘
+1 q by the following
+2
+description: for x “ px1 , x2 q P V8 and rzs P D,
+¸
+˜
+2
+ř
+2
+ÿ
+´2πp pRpxi ,rzsq` 12 pxi ,xi qqq dx ^ dy
+´1
+i“1
+¨
+.
+νpx, rzsq “ ´π ` 2 pRpxi , rzsq ` pxi , xi qq e
+y2
+i“1
+then we define a smooth p1, 1q-form gpT, y, ϕq on D as follows, its value at the point rzs P D is
+gpT, y, ϕqprzsq “
+
+ÿ
+
+xPp∆pNqbQq2
+T pxq“T
+
+ϕpxq ¨
+
+ż8
+1
+
+1
+
+νpt 2 x ¨ t a, rzsq ¨
+
+dt
+.
+t
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+29
+
+the sum converges absolutely, and descends to a smooth p1, 1q-form on the modular curve Y0 pN qC .
+[SSY22] proves the following
+Lemma 4.3.16. For nonsingular T P Sym2 pRq which is not positive definite. The form gpT, y, ϕq
+is absolutely integrable on X0 pN qC , hence gpT, y, ϕq defines a p1, 1q-current on X0 pN qC .
+Proof. This is proved in [SSY22, Lemma 2.9].
+
+
+
+To sum up, let T P Sym2 pQq be a nonsingular matrix, y P Sym2 pRqą0 , ϕ P S pV2f q is a T admissible Schwartz function, we define
+$
+&prZpT, ϕqs, 0q, when T is positive definite;
+p y, ϕq “
+(16)
+ZpT,
+%p0, gpT, y, ϕqq, when T is not positive definite.
+
+y2 pX0 pN qq.
+it is an element in CH
+C
+
+4.4. Arithmetic Siegel-Weil formula on X0 pN q. Now we can state the main theorem of this
+article, which proves an identity between arithmetic intersection numbers on X0 pN q and derivatives
+of Fourier coefficients of Eisenstein series,
+
+Theorem 4.4.1. Let N be a positive integer. Let T P Sym2 pQq be a nonsingular symmetric matrix.
+Let ϕ P S pV2f q be a T -admissible Schwartz function, then
+y ZpT,
+p y, ϕqqq T “ ψpN q ¨ BEisT pz, ϕq,
+degp
+24
+ś
+´1
+for any z “ x ` iy P H2 . Here ψpN q “ N ¨ p1 ` l q, q T “ e2πi tr pT zq .
+l|N
+
+The article [SSY22] proves this formula in the case that T is not positive definite without any
+restrictions on the the level N , and the case that T is positive definite but with the restriction that
+N is odd and square-free. We will give a proof of the case that T is positive definite and N is
+arbitrary in §8.3.
+5. Rapoport-Zink spaces and special cycles
+5.1. Γ0 pN q-structures on p-divisible groups. Let p be a prime number. Let F be the algebraic
+closure of Fp . Let W be the completion of the maximal unramified extension of Qp . Let NilpW be
+the category of schemes S over Spec W such that p is locally nilpotent on S, let S be the closed
+subscheme of S defined by the ideal sheaf pOS . For a p-divisible group X, we use X _ to denote
+the dual p-divisible group. We will introduce two Rapoport-Zink spaces in this chapter, they are
+essentially isomorphic to the completed local rings of supersingular points in characteristic p of the
+moduli stacks H and X0 pN q.
+Let X be a p-divisible group over F of dimension 1 and height 2, the associated filtered isocrystal DpXqQ has pure slope 12 , e.g., we can take X to be Erp8 s where E is a supersingular elliptic
+„
+curve over F. Let λ0 : X Ñ X_ be a principal polarization. We consider the following functor
+N on the category NilpW : for any S P NilpW , the set N pSq is the isomorphism classes of tuples
+ppX, ρ, λq, pX 1 , ρ1 , λ1 qq, where
+
+30
+
+BAIQING ZHU
+
+(1) X and X 1 are two p-divisible group over S, ρ and ρ1 are two quasi-isogenies between p-divisible
+groups ρ : X ˆF S Ñ X ˆS S, ρ1 : X ˆF S Ñ X 1 ˆS S.
+(2) λ : X Ñ X _ , λ1 : X 1 Ñ X 1_ are two principal polarizations, such that Zariski locally on S,
+we have
+ρ_ ˝ λ ˝ ρ “ cpρq ¨ λ0 , ρ1_ ˝ λ ˝ ρ1 “ cpρ1 q ¨ λ0 .
+for some cpρq, cpρ1 q P Zˆ
+p.
+Proposition 5.1.1. The functor N is represented by the formal scheme Spf W rrt1 , t2 ss over Spf W .
+Proof. When p is odd, this is explained in [LZ22, Example 4.5.3 (ii)]. In general, the deformation
+space of the supersingular elliptic curve E is isomorphic to Spf W rrtss. By Serre-Tate theorem, this
+is also the deformation space of the p-divisible group X with certain restrictions on the polarization
+as in the definition of the deformation functor N . Therefore N » Spf W rrt1 ss ˆSpf W Spf W rrt2 ss »
+Spf W rrt1 , t2 ss.
+
+Let ppX univ , ρuniv , λuniv q, pX 1univ , ρ1univ , λ1univ qq be the universal p-divisible group over
+N “ Spf W rrt1 , t2 ss. By Lemma 6.1.3 below, the category of p-divisible groups over Spf W rrt1 , t2 ss is
+equivalent to the category of p-divisible groups over Spec W rrt1 , t2 ss, we still use
+ppX univ , ρuniv , λuniv q, pX 1univ , ρ1univ , λ1univ qq to denote the corresponding p-divisible group over
+Spec W rrt1 , t2 ss.
+Next we fix a N -isogeny x0 : X Ñ X, i.e., x0 ˝ x_
+0 “ N . N0 pN q is a contravariant set-valued
+functor defined over NilpW , for every S P NilpW , the set N0 pN qpSq consists of the isomorphism
+x
+classes of elements of the following form pX Ñ X 1 , pρ, ρ1 q, pλ, λ1 qq, where
+(1) X and X 1 are two p-divisible group over S, ρ and ρ1 are two quasi-isogenies between p-divisible
+groups ρ : X ˆF S Ñ X ˆS S, ρ1 : X ˆF S Ñ X 1 ˆS S.
+(2) λ : X Ñ X _ , λ1 : X 1 Ñ X 1_ are two principal polarizations, such that Zariski locally on S,
+we have
+ρ_ ˝ λ ˝ ρ “ cpρq ¨ λ0 , ρ1_ ˝ λ ˝ ρ1 “ cpρ1 q ¨ λ0 .
+for some cpρq, cpρ1 q P Zˆ
+p.
+(3) x : X Ñ X 1 is a cyclic isogeny (i.e., kerpf q is a cyclic group scheme over S) lifting ρ1 ˝ x0 ˝ ρ´1 .
+We will prove it later that the functor N0 pN q is represented by a closed formal subscheme of
+Spf W rrt1 , t2 ss cut out by a single equation (cf. Theorem 6.2.3).
+5.2. Special cycles on N and N0 pN q. Now we give the definition of special cycles on the formal
+schemes N and N0 pN q. Recall that ppX univ , ρuniv , λuniv q, pX 1univ , ρ1univ , λ1univ qq is the universal pdivisible group over N , and B » End0 pXq is the unique division quaternion algebra over Qp , whose
+Hasse invariant as a quadratic space is ´1.
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+31
+
+Definition 5.2.1. For any subset L Ă B, define the special cycle Z 7 pLq Ă N to be the closed
+formal subscheme cut out by the condition,
+ρ1univ ˝ x ˝ pρuniv q´1 P HompX univ , X 1univ q.
+for all x P L.
+Remark 5.2.2. The special cycle Z 7 pLq only depends on the Zp -linear span of L in B, and is
+nonempty only when this span is an integral quadratic Zp -lattice in B.
+Proposition 5.2.3. Let x P B be a nonzero and integral element, i.e., 0 ď νp px_ ˝ xq ă 8. Then
+Z 7 pxq is a Cartier divisor on N , i.e., it is defined by a single nonzero element fx P W rrt1 , t2 ss.
+Moreover, Z 7 pxq is also flat over Spf W , i.e., p ∤ fx .
+Proof. When p is odd, the formal scheme N is an example of GSpin Rapoport-Zink space (cf. [LZ22,
+Example 4.5.3 (ii)]), and the proposition has been proved for every GSpin Rapoport-Zink space in
+
+[LZ22, Proposition 4.10.1]. In general, this is proved in [KM85, Theorem 6.8.1].
+Now let’s come to the special cycles on N0 pN q. Firstly, we give the definition of the space of
+special quasi-isogenies, recall that we have fixed a N -isogeny x0 when we define the formal scheme
+N0 pN q.
+Definition 5.2.4. We call a quasi-isogeny x P B “ End0 pXq is special to x0 if the following condition
+holds,
+_
+x ˝ x_
+0 ` x0 ˝ x “ 0.
+
+By definition, the space of quasi-isogenies special to x0 is just the quadratic space W “ tx0 uK Ă
+B. By Witt’s theorem, it is a 3-dimensional quadratic space over Qp whose isometric class is
+independent of the choice of the N -isogeny x0 .
+x̆
+
+Definition 5.2.5. Let pX̆ Ñ X̆ 1 , pρ̆, ρ̆1 q, pλ̆, λ̆1 qq be the universal object over N0 pN q. For any subset
+M Ă W, define the special cycle ZpM q Ă N0 pN q to be the closed formal subscheme cut out by the
+following conditions,
+ρ̆1 ˝ x ˝ ρ̆´1 P HompX̆, X̆ 1 q.
+for any x P M .
+For any subset M Ă W Ă B, we have the following Cartesion diagram,
+ZpM q
+
+/ N0 pN q
+
+
+
+
+/ N.
+
+Z 7 pM q
+
+5.3. Formal uniformization of X0 pN q and the special cycle ZpT, ϕq. Let B be the unique
+quaternion algebra over Q ramified exactly at p and 8. Then B bQ Qp » B is the unique division
+quaternion algebra over Qp . Let E be a supersingular elliptic curve over F and X “ Erp8 s is the
+
+32
+
+BAIQING ZHU
+
+p-divisible group of E. Then B » End0 pEq and B » End0 pXq. Suppose x0 P B comes from a cyclic
+N -isogeny of E under the above isomorphism End0 pEq bQ Qp » B.
+We first state and explain the formal uniformization theorem of the supersingular locus HFssp of
+HFp . We use Ĥ{pHss
+to denote the completion of H along the closed substack HFssp .
+F q
+p
+
+Theorem 5.3.1. There is an isomorphism of formal stacks over W
+Θ
+
+H
+ÝÑ
+B ˆ pQq20 zrN ˆ GL2 pApf q2 {GL2 pẐp q2 s,
+Ĥ{pHss
+F q
+
+(17)
+
+p
+
+„
+
+where B ˆ pQq0 is the subgroup of B ˆ pQq consisting of elements whose norm has p-adic valuation 0.
+
+Theorem 5.3.1 is proved by Rapoport and Zink [RZ96, Theorem 6.24]. Here we only describe the
+„
+isomorphism, especially the group action on the right hand side of (17). Let η0p : V p pEq Ñ pApf q2
+be a prime-to-p level structure of E. Let Ẽ be a deformation of E to W , and let X̃ :“ Ẽrp8 s
+be the corresponding deformation of X to W . For some object S P NilpW , we pick an object
+ppX, ρ, λq, pX 1 , ρ1 , λ1 q, pg, g1 qq P N pSq ˆ GL2 pApf q2 . The quasi-isogeny ρ (resp. ρ1 ) gives rise to a
+quasi-isogeny ρ̃ : X̃S Ñ X (resp. ρ̃1 : X̃S Ñ X 1 ). Then there exists an elliptic curve E (resp. E 1 )
+up to prime-to-p isogeny over S and a quasi-isogeny ρE : ẼS Ñ E (resp. ρE 1 : ẼS Ñ E 1 ), such that
+Erp8 s » X (resp. E 1 rp8 s » X 1 ) and ρE (resp. ρE 1 ) induces ρ̃ (resp. ρ̃1 ) under this isomorphism.
+The object ppX, ρ, λq, pX 1 , ρ1 , λ1 q, pg, g 1 qq is mapped to
+1´1 η p ˝ V p pρ´1 qqq P HpSq.
+ppE, E 1 q, pg´1 η0p ˝ V p pρ´1
+0
+E q, g
+E1
+
+The group action is given as follows, for a pair of elements pb, b1 q P B ˆ pQq0 ˆ B ˆ pQq0 , by the
+following map,
+ρ˚
+
+ρ1˚
+
+BpQq Ñ BpQp q » End0 pXq ÝÑ End0 pXq (resp. ÝÑ End0 pX 1 q),
+and a fixed isomorphism BpApf q » GL2 pApf q. We obtain another triple
+pb, b1 q˚ pppX, ρ, λq, pX 1 , ρ1 , λ1 q, pg, g 1 qqq :“ ppX, ρ ˝ b´1 , λq, pX 1 , ρ1 ˝ b1´1 , λ1 q, pbg, b1 g 1 qq.
+ss
+Now let X0 pN qss
+Fp (resp. Y0 pN qFp ) be the supersingular locus of X0 pN qFp (resp. Y0 pN qFp ). Let
+
+) be the completion of X0 pN q (resp. Y0 pN q) along the closed
+(resp. Ŷ0 pN q{pY0 pN qss
+X̂0 pN q{pX0 pN qss
+F q
+F q
+p
+
+p
+
+ss
+ss
+ss
+substack X0 pN qss
+Fp (resp. Y0 pN qFp ). By the definition of X0 pN q, we have X0 pN qFp “ Y0 pN qFp and
+
+.
+» Ŷ0 pN q{pY0 pN qss
+therefore X̂0 pN q{pX0 pN qss
+F q
+F q
+p
+
+p
+
+Proposition 5.3.2. There is an isomorphism of formal stacks over W ,
+(18)
+
+ΘX pNq
+
+0
+X̂0 pN q{pX0 pN qss
+ÝÑ
+B ˆ pQq0 zrN0 pN q ˆ GL2 pApf q{Γ0 pN qpẐp qs,
+F q
+p
+
+„
+
+where B ˆ pQq0 is the subgroup of B ˆ pQq consisting of elements whose norm has p-adic valuation 0.
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+33
+
+Proof. The following diagram is Cartesian with all arrows closed immersions.
+Y0 pN qss
+Fp
+
+/ Hss
+
+
+
+
+/ H.
+
+Y0 pN q
+
+Fp
+
+.
+Ñ Ĥ{pHss
+» Ŷ0 pN q{pY0 pN qss
+this diagram gives a closed immersion i : X̂0 pN q{pX0 pN qss
+Fp q
+Fp q
+Fp q
+Recall that we have the following isomorphism,
+Θ
+
+H
+ÝÑ
+B ˆ pQq20 zrN ˆ GL2 pApf q2 {GL2 pẐp q2 s.
+Ĥ{pHss
+F q
+p
+
+„
+
+Let S be an object in NilpW , let pz, pg, g1 qq P N pSq ˆ GL2 pApf q2 be a point in the closed formal
+π
+
+1
+substack Y0 pN qss
+Fp , then clearly z P N0 pN qpSq. Suppose z corresponds to a cyclic isogeny E ÝÑ E
+by our description of the isomorphism ΘH , then g 1 is determined by g by the following diagram,
+g ´1 η0p ˝V p pρ´1
+E q
+
+V p pEs q
+(19)
+
+/ pAp q2
+f
+
+V p pπq
+
+wN
+g 1´1 η0p ˝V p pρ´1
+q
+E1
+
+
+
+V p pEs1 q
+
+
+/ pAp q2 .
+f
+
+thus we only focus on the pair pz, gq P N0 pN qpSq ˆ GL2 pApf q. Consider the following morphism
+Θ : N0 pN q ˆ GL2 pApf q ÝÑ Ĥ{pHss
+,
+F q
+p
+
+1
+pz, gq Ý
+Þ Ñ Θ´1
+H pz, pg, g qq.
+
+the image of Θ lies in the closed formal substack X̂0 pN q{pX0 pN qss
+.
+F q
+p
+
+Let pz1 , g1 q, pz2 , g2 q P N0 pN qpSqˆGL2 pApf q be two points, then Θpz1 , g1 q “ Θpz2 , g2 q if and only if
+
+there exists b, b1 P B ˆ pQq0 and k1 , k11 P GL2 pẐp q such that pz2 , pg2 , g21 qq “ ppb, b1 q˚ z1 , pbg1 k1 , b1 g11 k11 qq.
+π
+We still use E ÝÑ E 1 to denote the corresponding point of z2 under ΘH . Notice that pz2 , pg2 , g21 qq “
+pz2 , pbg1 , b1 g11 qq in the quotient stack rN ˆ GL2 pApf q2 {GL2 pẐp q2 s, therefore ΘH pz2 , pg2 , g21 qq “
+pSq, hence both pg2 “ bg1 k1 , g21 “ b1 g11 k11 q and pbg1 , b1 g11 q satisfy
+ΘH pz2 , pbg1 , b1 g11 qq P X̂0 pN q{pX0 pN qss
+Fp q
+the commutative diagram (19), then
+´1
+,
+k11 “ wN k1 wN
+ś
+GL2 pZv q, there exists a, b, c, d P Ẑp such that
+since both k1 and k11 belongs to GL2 pẐp q :“
+v‰8,p
+
+k1 “
+
+˜
+
+¸
+a b
+P Γ0 pN qpẐp q.
+Nc d
+
+Moreover, the element b1 is also determined by b by the diagram (19). Therefore Θpz1 , g1 q “ Θpz2 , g2 q
+if and only if there exists b P B ˆ pQq0 and k P Γ0 pN qpẐp q such that pz2 , g2 q “ pb˚ z1 , bg1 kq.
+
+Let Ẑ ss pT, ϕq be the completion of ZpT, ϕq along its supersingular locus Z ss pT, ϕq :“
+ppq be the unique quadratic space over Q (up to isometry)
+ZpT, ϕq ˆX0 pN q X0 pN qss
+Fp . Let ∆pN q
+such that: 1. It is positive definite at 8; 2. For finite prime l ‰ p, ∆pN qppq b Ql is isometric to
+δl pN q b Ql ; 3. ∆pN qppq b Qp is isometric to W. As a corollary of the formal uniformization of the
+
+34
+
+BAIQING ZHU
+
+supersingular locus of X0 pN q (cf. Proposition 5.3.2), we have the following formal uniformization
+of the special cycles on X0 pN q.
+Corollary 5.3.3. Let T P Sym2 pQq be a nonsingular symmetric matrix, and DiffpT, ∆pN qq “ tpu.
+q be the Grothendieck
+Let ϕ P S pV2f q be a T -admissible Schwartz function. Let K01 pXˆ0 pN q{pX0 pN qss
+Fp q
+-modules. Then we have the following identity in
+group of coherent sheaves of OX̂0 pN q{
+ss
+pX0 pNq
+
+q,
+K01 pXˆ0 pN q{pX0 pN qss
+Fp q
+Ẑ ss pT, ϕq “
+
+ÿ
+
+Fp
+
+q
+
+ÿ
+
+ϕpg ´1 xq ¨ Θ´1
+pZpxq, gq,
+X0 pN q
+
+ˆ
+xPB ˆ pQq0 zp∆pN qppq q2 gPBx
+pQq0 zGL2 pApf q{Γ0 pN qpẐp q
+
+T pxq“T
+
+where Bxˆ Ă B ˆ is the stabilizer of x P p∆pN qppq q2 .
+Proof. We only need to prove the corollary when ϕ is the characteristic function of some open
+ss
+compact subset ω of V2f . Let S be an object in NilpW . Suppose Θ´1
+X0 pN q pz, gq P Ẑ pT, ϕqpSq
+π
+
+for some z P N0 pN qpSq, then z gives rise to a cyclic isogeny E ÝÑ E 1 , along with two isogenies
+x1 , x2 P HompE, E 1 qppq such that
+1
+T “ p pxi , xj qq, and px1 , πq “ px2 , πq “ 0.
+2
+then x1 , x2 and π induce endomorphisms of the correponding p-divisible groups, and hence endomorphims of X. We still use x1 , x2 to denote the endomorphisms of X, let T pxq :“ p 12 pxi , xj qq be
+the inner product matrix of x “ px1 , x2 qq, we have
+T “ T pxq, and px1 , x0 q “ px2 , x0 q “ 0.
+i.e., x1 , x2 P tx0 uK “ W » ∆pN qppq bQ Qp . We can also identify x1 and x2 as elements in
+p
+p ´1
+1
+∆pN qppq b Apf via the level structures η0p ˝ V p pρ´1
+E q and η0 ˝ V pρE 1 q of E and E . The positivity
+assumption on T makes it embeddable into ∆pN qppq bQ R. By carefully choosing the isometry
+W » ∆pN qppq bQ Qp , we can find x P p∆pN qppq q2 which induces x1 and x2 locally at every place of
+Q.
+ss
+Then the condition Θ´1
+X0 pN q pz, gq P Ẑ pT, ϕqpSq implies that
+z P Zpxq and g´1 x P ω phere g P GL2 pAf q with gp “ 1q.
+and this is exactly the meaning of the identity in the theorem.
+
+
+
+6. Difference formula at the geometric side
+6.1. p-divisible groups over adic noetherian rings.
+Definition 6.1.1. A topological ring R is an adic noetherian ring if it is noetherian as a ring and
+it has a topological basis consisting of all translations of the neighborhoods of zero of the form I n
+pn ą 0q where I Ă R is a fixed ideal of R, and R is Hausdorff and complete in that topology. A
+choice of such an ideal is said to be the defining ideal of the topological ring R.
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+35
+
+Lemma 6.1.2. Let A be an adic noetherian local ring whose defining ideal is the maximal ideal m,
+then any ideal I Ă A is complete in the topological ring A, i.e.,
+č
+I “ pI ` mn q.
+n
+
+Moreover, A{I is an adic noetherian ring with defining ideal m{I.
+
+Proof. Nakayama lemma implies that
+
+Ş
+
+mn I “ 0, then we can apply [Stacks Project, Lemma 031B]
+
+n
+
+n
+to conclude that I is m-adically complete, i.e., I » Iˆ :“ lim
+ÐÝ I{m I.
+
+We have the following exact sequence,
+
+n
+
+0 ÝÑ I ÝÑ A ÝÑ A{I ÝÑ 0.
+since A is noetherian, after taking completion with respect to the maximal ideal m, we get
+y ÝÑ 0.
+0 ÝÑ Iˆ ÝÑ Â ÝÑ A{I
+
+y » A{I. We conclude A{I is an adic noetherian ring.
+ˆ hence A{I
+However, A “ Â and I “ I,
+y “ lim A{pI ` mn q, hence A{I
+y » A{I implies that I “ ŞpI ` mn q.
+By definition, A{I
+ÐÝ
+n
+
+n
+
+
+
+Lemma 6.1.3. Let A be an adic noetherian ring whose defining ideal is I, then the following functor
+tCategory of p-divisible groups over Spec Au Ñ tCategory of p-divisible groups over SpfpAqu ,
+G “ pGn {Aq ÞÑ pGk “ pGk pnq “ Gpnq ˆA A{I k qqkě1 .
+
+is an equivalence.
+Proof. This is proved by de Jong in [deJ95, Lemma 2.4.4].
+
+
+
+6.2. Difference Divisors on N . Recall that for every nonzero integral x P B, we define the
+special divisor Z 7 pxq on N as the closed formal subscheme of N over where x lifts to an isogeny
+(cf. Definition 5.2.1 and Proposition 5.2.3). It is cut out by an element fx P W rrt1 , t2 ss.
+For any nonzero x P B such that νp px_ ˝ xq ě 2, there is a closed immersion:
+i : Z 7 pp´1 xq ÝÑ Z 7 pxq,
+by composing every deformation of p´1 x with the multiplication-by-p morphism. Since W rrt1 , t2 ss is
+a unique factorization domain, we get fp´1x |fx . Define dx “ fx {fp´1x P W rrt1 , t2 ss when νp px_ ˝xq ě
+2, dx “ fx when νp px_ ˝ xq “ 0 or 1.
+Definition 6.2.1. Let x P B be a nonzero and integral element. The difference divisor associated
+to x to be
+Dpxq “ Spf W rrt1 , t2 ss{dx .
+
+The notion of difference divisor is first introduced by Terstiege in [Ter11]. Proposition 5.2.3
+implies that p ∤ fx , hence p ∤ dx , therefore the difference divisor Dpxq is flat over Spf W . The
+following theorem asserts that Dpxq is regular.
+
+36
+
+BAIQING ZHU
+
+Theorem 6.2.2. Let x P B be a nonzero and integral element, m “ pp, t1 , t2 q is the maximal ideal
+of W rrt1 , t2 ss, then dx P mzm2 , i.e., the difference divisor Dpxq is regular. Moreover, for any i ě 1,
+dx and dp´i x are coprime to each other if p´i x is also integral.
+Proof. Let n ě 0 be the p-adic valuation of x_ ˝x. We first prove this result when n “ 0, in this case
+the result follows from the work of Li and Zhu [LZ18, Lemma 3.2.2] (p odd) and [Rap07, Lemma
+3.1] (p “ 2), and W rrt1 , t2 ss{fx » W rrtss is even smooth over W .
+Now we suppose n ě 1, we can always find an element x1 P B such that x1_ ˝ x1 has p-adic
+valuation 0, and px, x1 q “ 0. We consider the formal closed subscheme Z 7 pxq ˆN Z 7 px1 q, it is cut
+out by the ideal pfx , fx1 q Ă m; it is also a formal closed subscheme of Z 7 px1 q » Spf W rrtss cut out
+by the image f˜x of fx under the surjective map A Ñ W rrtss. By [GK93, (5.10)] (see also [LZ22,
+5.1]), we have the following decomposition of Z 7 pxq ˆN Z 7 px1 q into Cartier divisors on Z 7 px1 q,
+7
+
+7
+
+1
+
+Z pxq ˆN Z px q “
+
+(20)
+
+rn{2s
+ÿ
+
+Zi ,
+
+i“0
+
+each Zi » Spf OK̆,i , where OK̆,i is the ring of integers of some nonarchimedean local field, hence
+it is a regular local ring, and they are different from each other. Let di P W rrtss be the function
+defining the divisor Zi on Z 7 px1 q. Then we have the following identity,
+f˜x “ punitq ˆ
+
+(21)
+
+rn{2s
+ź
+
+di .
+
+i“0
+
+the regularity of OK̆,i implies that di P pp, tqzpp, tq2 .
+Let d˜p´i x be the image of dp´i x under the surjective map A Ñ A{pfx1 q » W rrtss. By definition
+we have fx “ punitq ˆ
+
+rn{2s
+ś
+i“0
+
+dp´i x , therefore,
+f˜x “ punitq ˆ
+
+(22)
+
+rn{2s
+ź
+
+d˜p´i x .
+
+i“0
+
+We induct on n to conclude that d˜x “ punitq ˆ drn{2s P pp, tqzpp, tq2 . When n “ 1, we simply get
+d˜x “ punitq ˆ d0 P pp, tqzpp, tq2 . Let’s assume the claim is true for n ă m for some m ě 2, we will
+prove the result for n “ m. For this, we just need to compare (21) and (22) for p´1 x and x.
+Therefore we have proved that A{pdx , fx1 q is a regular local ring, hence we conclude that dx P
+mzm2 , and Dpxq » Spf A{pdx q is regular. Moreover, since every piece on the right hand side of (20)
+is different from each other, we conclude that dx and dp´i x are coprime to each other.
+
+Fix a N -isogeny x0 P B, recall that we have defined the deformation functor N0 pN q in §5.1.
+Compare the moduli intepretations of N0 pN q and Z 7 px0 q, we have a natural functor,
+i : N0 pN q ÝÑ Z 7 px0 q,
+x cyclic
+
+x
+
+pX ÝÑ X 1 , pρ, ρ1 q, pλ, λ1 qq ÞÝÑ pX Ñ X 1 , pρ, ρ1 q, pλ, λ1 qq.
+Theorem 6.2.3. The natural functor i is a closed immersion, and induces an isomorphism:
+„
+
+N0 pN q ÝÑ Dpx0 q.
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+37
+
+Proof. By Proposition 5.2.3, Z 7 px0 q is represented by Spf W rrt1 , t2 ss{fx0 . We consider the maximal ideal m “ pp, t1 , t2 q of W rrt1 , t2 ss and a projective system of rings lim
+ÐÝn Rn where Rn “
+x
+
+n
+W rrt1 , t2 ss{pfx0 ` mn q. We use pXn Ñ
+Xn1 , pρn , ρ1n q, pλn , λ1n qq to denote the corresponding object
+in Z 7 px0 qpRn q by the natural morphism W rrt1 , t2 ss{fx0 Ñ Rn , which is essentially the base change
+
+xuniv
+
+0
+X 1univ , pρuniv , ρ1univ q, pλuniv , λ1univ qq. The
+from Z 7 px0 q to Spec Rn of the universal object pX univ Ñ
+following diagram is commutative,
+/ Xn`1
+Xn
+
+xn`1
+
+xn
+
+
+
+
+Xn1
+
+/ X1
+
+n`1 .
+
+By [deJ95, Lemma 2.4.4], xn fits together to be an isogeny of p-divisible groups xuniv
+: X univ Ñ
+0
+X 1univ over Spec W rrt1 , t2 ss{fx0 .
+lim
+Now we apply Serre-Tate theorem (cf. [CS64]) to the projective system Ð
+Ýn Rn , we obtain a
+1
+1
+direct system of elliptic curves En , En over Spec Rn and x̃n P EndRn pEn , En q such that,
+(i) There exist isomorphisms in : En rp8 s » Xn and i1n : En1 rp8 s » Xn1 ,
+(ii) xn “ i1n ˝ x̃n rp8 s ˝ i´1
+n .
+Since every elliptic curve is equipped with a canonical ample line bundle given by the unit section,
+we can apply Grothendieck’s algebraization theorem (cf. [Stacks Project, Theorem 089A, Lemma
+x̃univ
+
+0
+E 1univ , pρuniv , ρ1univ q, pλuniv , λ1univ qq where E univ and E 1univ are
+0A42]) to obtain a triple pE univ Ñ
+two elliptic curves over Spec W rrt1 , t2 ss{fx0 with the following isomorphisms
+
+iuniv : E univ rp8 s » X univ , i1univ : E 1univ rp8 s » X 1univ .
+and xuniv
+“ i1univ ˝ x̃univ
+rp8 s ˝ piuniv q´1 . Then we have
+0
+0
+kerpxuniv
+q » kerpx̃univ rp8 sq “ kerpx̃univ
+qrp8 s ãÑ E univ .
+0
+0
+Where kerpx̃univ
+qrp8 s is the p-torsion subgroup scheme of the finite locally free group scheme
+0
+q is embedded into an elliptic curve, we can apq. Therefore the universal kernel kerpxuniv
+kerpx̃univ
+0
+0
+ply Proposition 4.1.4 and conclude that there is an ideal I cyc px0 q Ă W rrt1 , t2 ss containing fx0 such
+x
+that for an object pX Ñ X 1 , pρ, ρ1 q, pλ, λ1 qq P Z 7 px0 qpSq where S P NilpW , the isogeny x is a cyclic
+isogeny if and only if the morphism S Ñ Spf W rrt1 , t2 ss{fx0 factors through Spf W rrt1 , t2 ss{I cyc px0 q.
+We conclude from here that N0 pN q is represented by the formal scheme Spf W rrt1 , t2 ss{I cyc px0 q and
+the natural functor i is a closed immersion.
+Recall that we use dx0 to denote the equation that cuts out the difference divisor Dpx0 q. In the
+1 be the base change of
+following we use D to denote the difference divisor Dpx0 q. Let xD : XD Ñ XD
+: X univ Ñ X 1univ to D. We first show that xD doesn’t factor through the multiplication-by-p
+xuniv
+0
+1 is an isogeny.
+morphism of XD . Let’s assume the converse, i.e., xD “ p ˝ x1D where x1D : XD Ñ XD
+Let Dn “ Spec W rrt1 , t2 ss{pdx0 `mn q, the base change of x1D from D to Dn is a deformation of p´1 x0 ,
+hence the natural morphism Dn Ñ Z 7 px0 q factors through Z 7 pp´1 x0 q » Spf W rrt1 , t2 ss{pfp´1 x0 q.
+n
+Since W rrt1 , t2 ss{pdx0 q » lim
+ÐÝ W rrt1 , t2 ss{pdx0 ` m q by Lemma 6.1.2, we get a ring homomorphism
+n
+
+38
+
+BAIQING ZHU
+
+W rrt1 , t2 ss{pfp´1 x0 q Ñ W rrt1 , t2 ss{pdx0 q. However, dx0 is coprime to fp´1x0 by Theorem 6.2.2, this
+is a contradiction. Hence xD doesn’t factor through the multiplication-by-p morphism of XD .
+Lemma 4.1.5 and Corollary 4.1.6 imply that kerpxD q is a cyclic group scheme since D is an
+integral noetherian scheme which is also separated and flat over W , hence there exists a natural morphism from Spec W rrt1 , t2 ss{dx0 to Spec W rrt1 , t2 ss{I cyc px0 q. Therefore we conclude that
+I cycpx0 q Ă pdx0 q Ă W rrt1 , t2 ss. This shows that the closed immersion Dpx0 q Ñ Z 7 px0 q decomposes
+in the following way:
+Dpx0 q Ñ N0 pN q Ñ Z 7 px0 q.
+Therefore we have an inclusion of ideals, pfx0 q Ă I cyc px0 q Ă pdx0 q P W rrt1 , t2 ss. [KM85, Theorem
+6.6.1] (see also Case II of 5.3.2.1 of loc.cit) asserts that W rrt1 , t2 ss{I cyc px0 q is a 2-dimensional regular
+local ring. Recall that we have already proved in Theorem 6.2.2 that W rrt1 , t2 ss{dx0 is also a regular
+local ring, hence we must have I cyc px0 q “ pdx0 q, i.e., Dpx0 q » N0 pN q.
+
+„
+
+6.2.1. Special Fibers. In this part we use the identification N0 pN q ÝÑ Dpx0 q to explicitly describe
+the special fiber of the local ring N0 pN q. The main results of this part will not be used in the
+following calculations, readers can skip on first reading.
+Let a “ pt1 , t2 q Ă W rrt1 , t2 ss. Let a be the image of a in Frrt1 , t2 ss. Let An “ W rrt1 , t2 ss{an and
+Rn “ Frrt1 , t2 ss{an . Let A0 “ W rrt1 , t2 ss and R0 “ Frrt1 , t2 ss. Equip each An with a morphism σ
+which extends the Frobenius morphism on W and maps t1 to tp1 , t2 to tp2 . Then An is a frame for Rn
+in the sense of [Zin01, Definition 1]. For any n ě 0, let pM, M1 , Φq be an An -window in the sense of
+[Zin01, Definition 2]. Since ΦpM1 q Ă p ¨M and p is not a zero-divisor in An , we define Φ1 : M1 Ñ M
+to be p´1 Φ. The morphism Φ1 is σ-linear and induces an isomorphism Φσ1 : M1σ Ñ M because both
+sides are free An -module of the same rank and Φσ1 is surjective by the definition of windows ([Zin01,
+Definition 2(ii)]). Let α be the following injective An -morphism,
+pΦσ q´1
+
+1
+α : M1 ãÑ M ÝÑ
+M1σ .
+
+Theorem 6.2.4. For any n ě 0, we have the following category equivalences,
+„
+
+tAn -window pM, M1 , Φqu ÐÑ tformal p-divisible groups over Rn u
+Moreover, both these two categories are equivalent to the following category.
+tpairs pM1 , α : M1 Ñ M1σ q, such that Coker(α) is a free Rn -module.u
+where the functor from An -window pM, M1 , Φq to pairs pM1 , α : M1 Ñ M1σ q is given by the constructions above.
+Proof. This is proved in [Zin01, Theorem 4].
+1
+
+1
+
+
+
+Let ppX, ρ, λq, pX , ρ1 , λ qq be the universal object in N pFrrt1 , t2 ssq, i.e., the base change of the
+universal object ppX univ , ρuniv , λuniv q, pX 1univ , ρ1univ , λ1univ qq over W rrt1 , t2 ss to Frrt1 , t2 ss. The corresponding window can be described as follows, let D “ W ¨ e ` W ¨ f be the Dieudonne module of
+X, where F e “ V e “ f , F f “ V f “ p ¨ e (F , V are the Frobenius and Verschiebung morphisms
+on D). Then we let M “ D bW W rrtss, and M1 “ pW ¨ f ` pW ¨ eq bW W rrtss. We still use σ to
+denote the Frobenius action on W rrtss which sends t to tp and extends the Frobenius morphism on
+W . Let Φ be the σ-linear map from M to M such that Φpe b 1q “ t ¨ pe b 1q ` f b 1, Φpf b 1q “
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+39
+
+p ¨ pe b 1q. Then pM, M1 , Φq is the W rrtss-window corresponding to the universal deformation of
+X over Frrtss (cf. [Zin02, (86)]). Let pM 1 , M11 , Φ1 q be the correpsonding window for X1 , then the
+W rrt1 , t2 ss-window corresponding to the universal deformation of X ˆF X1 over Frrt1 , t2 ss is given by
+pM ‘ M 1 , M1 ‘ M11 , Φ ‘ Φ1 q, or pM1 ‘ M11 , αq where under the basis tp ¨ pe b 1q, f b 1, ppe1 b 1q, f 1 b 1u,
+the map α is given by the following matrix
+¨
+˛
+1
+˚p ´t
+‹
+˚
+‹
+1
+α“˚
+‹.
+˝
+1 ‚
+p ´t2
+Any quasi-isogeny x P B induces the following endomorphism of the window M1 ‘ M11 of X ˆF X1
+under the basis tp ¨ e, f, p ¨ e1 , f 1 u,
+˛
+¨
+σpaq ´σpbq
+˚
+´p ¨ b
+a ‹
+‹
+˚
+Dpxq “ ˚
+‹,
+‚
+˝ a
+σpbq
+p ¨ b σpaq
+
+where a, b P Qp2 .
+Let M1 pnq “ M1 bA0 An , M11 pnq “ M11 bA0 An , αpnq “ α bA0 An . By Theorem 6.2.4, a quasiisogeny x lifts to an isogeny over Rn if and only if there exists xpnq P EndppM1 pnq ‘ M11 pnq, αpnqqq
+such that xp1q “ Dpxq and the following diagram commutes
+M1 pnq ‘ M11 pnq
+
+αpnq
+
+/ M1 pnqσ ‘ M 1 pnqσ
+1
+
+σpxpnqq
+
+xpnq
+
+
+
+M1 pnq ‘ M11 pnq
+
+αpnq
+
+
+
+/ M1 pnqσ ‘ M 1 pnqσ .
+1
+
+Under the basis tp ¨ pe b 1q, f b 1, ppe1 b 1q, f 1 b 1u, the morphism xpnq has the following form
+˜
+¸
+Apnq Y pnq
+xpnq “
+.
+Xpnq Bpnq
+where Xpnq, Y pnq, Apnq, Bpnq P M2 pAn q satisfy the following equations,
+Xpnq “ p´1 U 1 pt2 q ¨ σpXpnqq ¨ U pt1 q, Y pnq “ p´1 U 1 pt1 q ¨ σpY pnqq ¨ U pt2 q;
+Apnq “ p´1 U 1 pt1 q ¨ σpApnqq ¨ U pt1 q, Bpnq “ p´1 U 1 pt2 q ¨ σpBpnqq ¨ U pt2 q.
+˜
+¸
+˜
+¸
+1
+t 1
+1
+where U ptq “
+and U ptq “
+. Since Ap1q “ Bp1q “ 0, we conclude (by comparing
+p ´t
+p
+degrees of t1 and t2 ) that Apnq “ Bpnq “ 0.
+For any A P M2 pAn bZ Qq, the matrix σpAq is a well-defined element in M2 pApn bZ Qq. Therefore,
+starting from Xp1q and Y p1q, we can define successively
+(23)
+
+Xppl`1 q “ p´1 U 1 pt2 q ¨ σpXppl qq ¨ U pt1 q, Y ppl`1 q “ p´1 U 1 pt1 q ¨ σpY ppl qq ¨ U pt2 q.
+
+Since the local ring OZpxq only depends (up to noncanonical isomorphisms) on the valuation of x,
+we will take the following specific choice of x and Dpxq in the following computations.
+
+40
+
+BAIQING ZHU
+
+‚ When ordp px_ ˝ xq “ 2k for some k ě 0, we take
+Xp1q “ Y p1q “
+
+˜
+
+pk
+pk
+
+¸
+
+.
+
+By computation based on the recursion formula (23), it turns out that for any l ě 1,
+¸
+¸
+˜˜
+pl´1 ´1
+l´1
+pl´1
+l´1 pt t q p´1 ptp
+1
+´
+t
+q
+0
+p´1q
+l
+1
+2
+2
+1
+`p¨C ;
+Xpp q “ l´k
+p
+0
+0
+¸
+¸
+˜˜
+pl´1 ´1
+l´1
+pl´1
+l´1 pt t q p´1 ptp
+1
+´
+t
+q
+0
+p´1q
+l
+1 2
+2
+1
+Y pp q “ l´k
+`p¨D .
+p
+0
+0
+for some matrices C, D P M2 pApl q.
+‚ When ordp px_ ˝ xq “ 2k ` 1 for some k ě 0, we take
+˜
+Xp1q “ ´Y p1q “
+
+pk`1
+
+pk
+
+¸
+
+.
+
+By computation based on the recursion formula (23), it turns out that for any l ě 1,
+˜˜
+¸
+¸
+pl ´1
+l pt t q p´1
+1
+0
+p´1q
+l
+1
+1 2
+Xpp q “ l´k
+`p¨C ;
+p
+0
+0
+¸
+¸
+˜˜
+pl ´1
+l´1
+1
+p´1
+0 p´1q pt1 t2 q
+` p ¨ D1 .
+Y ppl q “ l´k
+p
+0
+0
+for some matrices C 1 , D 1 P M2 pApl q.
+
+Proposition 6.2.5. Let x P B be an integral nonzero element which has valuation n and induces
+Xp1q and Y p1q as described above, let fx P W rrt1 , t2 ss be the element cutting out Zpxq, then
+$
+n{2
+&pt t q p p´1´1 ptpn{2 ´ tpn{2 q mod pt , t qpn{2`1 when n is even;
+1 2
+1 2
+2
+1
+(24) f x :“ fx mod p “ punitq ˆ
+pn`1q{2 ´1
+p
+pn`1q{2
+%
+when n is odd.
+mod pt1 , t2 qp
+pt1 t2 q p´1
+
+Proof. By the above formula for Xppl q and Y ppl q, we can conclude that x can be lifted to an
+isogeny over Rprn{2s but not over Rprn{2s`1 . Then the formula for Xpprn{2s`1 q and Y pprn{2s`1 q imply
+the equation above.
+
+Theorem 6.2.6. Let x P B be an integral nonzero element which has valuation n and induces Xp1q
+and Y p1q as described above, let fx P W rrt1 , t2 ss be the element cutting out Zpxq, then f x is divisible
+by
+a
+a
+t1 ´ tp2 , tp1 ´ t2 for 0 ď a ď n and a ” n mod 2.
+a
+
+a
+
+Moreover, f x has no other irreducible factors and the multiplicity of t1 ´tp2 , tp1 ´t2 in f x is ppn´aq{2 .
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+k1
+
+41
+
+k2
+
+Proof. We first prove that tp1 ´ tp2 divides f x , where k1 , k2 ě 0 and k1 ` k2 “ n. We will prove
+k1
+k2
+k1
+k2
+this by showing that Xppl q, Y ppl q mod ptp1 ´ tp2 q P M2 pApl {ptp1 ´ tp2 qq for any l ě 0.
+‚ When n “ 2k is even, the recursion formula (23) implies that,
+Xppl q “ pk´l U 1 pt2 qU 1 ptp2 q ¨ ¨ ¨ U 1 pt2p
+
+l´1
+
+qU pt1p
+
+l´1
+
+q ¨ ¨ ¨ U ptp1 qU pt1 q;
+
+Y ppl q “ pk´l U 1 pt1 qU 1 ptp1 q ¨ ¨ ¨ U 1 pt1p
+
+l´1
+
+qU pt2p
+
+l´1
+
+q ¨ ¨ ¨ U ptp2 qU pt2 q.
+k2 ´k1 `l´t
+
+l´t
+
+Let’s assume k1 ď k2 . For any 0 ď t ď l ´ k1 , we have the relation t2p
+“ tp1
+, hence
+pl´t
+pk2 ´k1 `l´t
+pl´t
+pk2 ´k1 `l´t
+1
+U pt2 qU pt1
+q “ p ¨ I2 . Moreover, when 1 ď t ď k2 ´ k1 , t2
+“ t1
+“ 0, hence
+U pt2p
+
+l´t
+
+q “ U p0q.
+Xppl q “ U 1 pt2 qU 1 ptp2 q ¨ ¨ ¨ U 1 ptp2
+
+k2 ´1
+
+qU pt1p
+
+k1 ´1
+
+q ¨ ¨ ¨ U ptp1 qU pt1 q P M2 pApl {ptp1
+
+k1
+
+´ tp2 qq;
+
+Y ppl q “ U 1 pt1 qU 1 ptp1 q ¨ ¨ ¨ U 1 ptp1
+
+k1 ´1
+
+qU pt2p
+
+k2 ´1
+
+q ¨ ¨ ¨ U ptp2 qU pt2 q P M2 pApl {ptp1
+
+k1
+
+´ tp2 qq.
+
+k2
+
+k2
+
+The proof of the case k1 ą k2 is similar and we get the same formula for Xppl q and Y ppl q as above,
+k1
+k2
+therefore we conclude that tp1 ´ tp2 divides f x when k1 , k2 ě 0 and k1 ` k2 “ 2k by Theorem
+6.2.4, hence f x is divisible by the following polynomial,
+k
+
+pt1 ´ t2 qp ¨
+
+k ´
+¯pk´a
+ź
+2a
+2a
+pt1 ´ tp2 qpt2 ´ tp1 q
+.
+
+a“1
+k
+
+We also know that pt1 ´t2 qp ¨
+
+¯pk´a
+k ´
+pk ´1
+k
+k
+2a
+2a
+ś
+k`1
+pt1 ´ tp2 qpt2 ´ tp1 q
+” pt1 t2 q p´1 ¨ptp2 ´tp1 q mod pt1 , t2 qp ,
+
+a“1
+
+the lemma follows by comparing this formula with (24).
+‚ When n “ 2k ` 1 is odd, the recursion formula (23) implies that,
+˜
+¸
+l´1
+l´1
+0
+1
+Xppl q “ pk´l U 1 pt2 qU 1 ptp2 q ¨ ¨ ¨ U 1 pt2p q
+U pt1p q ¨ ¨ ¨ U ptp1 qU pt1 q;
+p 0
+˜
+¸
+l´1
+0 1
+l
+k´l 1
+1 p
+1 pl´1
+Y pp q “ p U pt1 qU pt1 q ¨ ¨ ¨ U pt1 q
+U pt2p q ¨ ¨ ¨ U ptp2 qU pt2 q.
+p 0
+Let’s assume k1 ă k2 . For any 0 ď t ď l ´ k1 , we have the relation t2p
+l´t
+k2 ´k1 `l´t
+U 1 pt2p qU pt1p
+q “ p ¨ I2 .
+pl´t
+U pt2 q “ U p0q.
+
+l´t
+
+“ tp1
+
+k2 ´k1 `l´t
+
+k2
+
+, hence
+
+l´t
+k2 ´k1 `l´t
+Moreover, when 1 ď t ď k2 ´ k1 , t2p
+“ tp1
+“ 0, hence
+
+Xppl q “ U 1 pt2 qU 1 ptp2 q ¨ ¨ ¨ U 1 ptp2
+
+k2 ´1
+
+qU pt1p
+
+k1 ´1
+
+q ¨ ¨ ¨ U ptp1 qU pt1 q P M2 pApl {ptp1
+
+k1
+
+´ tp2 qq;
+
+Y ppl q “ U 1 pt1 qU 1 ptp1 q ¨ ¨ ¨ U 1 ptp1
+
+k1 ´1
+
+qU pt2p
+
+k2 ´1
+
+q ¨ ¨ ¨ U ptp2 qU pt2 q P M2 pApl {ptp1
+
+k1
+
+´ tp2 qq.
+
+k1
+
+k2
+
+k2
+
+therefore we conclude that tp1 ´ tp2 divides f x when k1 , k2 ě 0 and k1 ` k2 “ 2k ` 1 by Theorem
+6.2.4, hence f x is divisible by the following polynomial,
+k ´
+¯pk´a
+ź
+2a`1
+2a`1
+pt1 ´ tp2
+qpt2 ´ tp1
+q
+.
+
+a“0
+
+42
+
+We also know that
+
+BAIQING ZHU
+
+¯pk´a
+k ´
+pk`1 ´1
+2a`1
+2a`1
+ś
+k`1
+pt1 ´ tp2
+qpt2 ´ tp1
+q
+” pt1 t2 q p´1 mod pt1 , t2 qp , the lemma
+
+a“0
+
+follows by comparing this formula with (24).
+
+
+
+Corollary 6.2.7. Let x P B be an integral nonzero element which has valuation n ě 1. Let Zpxqp
+be special fiber of Zpxq, then
+˛
+¨
+b ‹
+˚ ź pa
+pt1 ´ tp2 q‚.
+Zpxqp » Spf Frrt1 , t2 ss{ ˝
+a`b“n
+a,bě0
+
+Let Dpxqp (resp. N0 pN qp ) be the base change of Dpxq (resp. N0 pN q) to Frrt1 , t2 ss, then
+¨
+˛
+ź pa´1
+n
+n
+b´1
+˚
+‹
+N0 pN qp » Dpxqp » Spf Frrt1 , t2 ss{ ˝pt1 ´ tp2 q ¨ pt2 ´ tp1 q ¨
+pt1
+´ tp2 qp´1 ‚.
+a`b“n
+a,bě1
+
+Proof. The statement for Zpxqp follows from Theorem 6.2.6. The statement for Dpxqp follows from
+the definition of difference divisors.
+
+Remark 6.2.8. The same formula has been proved in [KM85, Theorem 13.4.6, Theorem 13.4.7]
+by a totally different method.
+6.3. Local arithmetic intersection numbers. Now we give the definition of the local arithmetic
+intersection numbers.
+Definition 6.3.1. For any rank 3 lattice L Ă B, we choose a Zp -basis tx1 , x2 , x3 u of L. Let OZ 7 pxi q
+be the structure sheaf of the special cycle Z 7 pxi q. Let ON be the structure sheaf of the formal
+scheme N . Let ´ bLON ´ be the derived tensor product functor in the derived category of coherent
+sheaves on N . Define the local arithmetic intersection number of L on N to be
+Int7 pLq “ χpN , OZ 7 px1 q bLON OZ 7 px2 q bLON OZ 7 px3 q q.
+This number is finite and independent of the choice of the basis txi u3i“1 of L because of the
+following result.
+Lemma 6.3.2. Let x, y P B be two linearly independent elements, then the tor sheaves
+N
+TorO
+i pOZ 7 pxq , OZ 7 pyq q vanish for all i ě 1. In particular,
+OZ 7 pxq bLON OZ 7 pyq “ OZ 7 pxq bON OZ 7 pyq .
+Moreover, the same formula holds if Z 7 pxq or Z 7 pyq or both are replaced by Dpxq resp. Dpyq.
+Let L Ă B be an integral quadratic lattice of rank 3 over Zp with basis tx1 , x2 , x3 u, then the
+derived tensor product OZ 7 px1 q bLON OZ 7 px2 q bLON OZ 7 px3 q is independent of the choice of the basis.
+Proof. This is proved in [Ter11, Lemma 4.1, Proposition 4.2].
+
+
+
+Now let’s come to the local arithmetic intersection numbers on N0 pN q. For a fixed N -isogeny x0
+of X, recall that we have defined the space of quasi-isogenies of X special to x0 (cf. Definition 5.2.4)
+to be those x P B such that
+_
+x ˝ x_
+0 ` x0 ˝ x “ 0.
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+43
+
+Recall that we use W to denote this space.
+Definition 6.3.3. For any rank 2 lattice M Ă W, we choose a Zp -basis tx1 , x2 u of M . Let OZpxi q
+be the structure sheaf of the special cycle Zpxi q. Let ON0 pN q be the structure sheaf of the formal
+scheme N0 pN q. Let ´ bLON pNq ´ be the derived tensor product functor in the derived category of
+0
+coherent sheaves on N0 pN q. Define the local arithmetic intersection number of M on N0 pN q to be
+IntN0 pN q pM q “ χpN0 pN q, OZpx1 q bLON pNq OZpx2 q q.
+0
+
+This number is independent of the choice of the basis tx1 , x2 u of M because of Lemma 6.3.2 and
+Theorem 6.2.3, we will relate it to the derivative of the local density of the quadratic lattice M with
+level N . The following theorem is the starting point of our calculation.
+Theorem 6.3.4. For any prime number p, let L Ă B be a Zp -lattice of rank 3, then
+Int7 pLq “ BDen` pLq.
+
+Proof. In [GK93, §4], the Gross-Keating invariants pa1 , a2 , a3 q of the rank 3 quadratic lattice L is
+defined, then the local arithmetic intersection number Int7 pLq is computed explicitly in terms of
+these invariants (see also [Rap07, Theorem 1.1]). In [Wed07, §2.11], the local density Den` pX, Lq
+is also expressed explicitly in terms of the Gross-Keating invariants pa1 , a2 , a3 q, hence the derived
+local density BDen` pLq, the theorem is proved by comparing the expressions of both sides in terms
+of pa1 , a2 , a3 q (see [Wed07, §2.16]). The readers can also see [LZ22] for a recent new proof when p
+is odd.
+
+6.4. Difference formula of the local arithmetic intersection numbers. Fix a N -isogeny
+x0 P EndpXq, recall that W “ tx0 uK Ñ B.
+Theorem 6.4.1. For any rank 2 lattice M Ă W, the following identity holds,
+IntN0 pN q pM q “ Int7 pM k Zp ¨ x0 q ´ Int7 pM k Zp ¨ p´1 x0 q.
+
+Proof. Let tx1 , x2 u be a basis of M . By Lemma 6.3.2 and the isomorphism Dpx0 q » N0 pN q, we
+have the following isomorphism as complexes of coherent sheaves on N ,
+ON0 pN q bLON OZ 7 px1 q bLON OZ 7 px2 q » OZpx1 q bLON OZ 7 px2 q
+» OZpx1 q bLON pNq ODpx0 q bLON OZ 7 px2 q
+0
+
+» OZpx1 q bLON pNq OZpx2 q .
+0
+When νp pN q “ 0 or 1, the difference divisor Dpx0 q is just Z 7 px0 q, hence IntN0 pN q pM q “ Int7 pM k
+Zp ¨ x0 q and Int7 pM k Zp ¨ p´1 x0 q “ 0 since p´1 x0 is not integral, therefore IntN0 pN q pM q “ Int7 pM k
+Zp ¨ x0 q ´ Int7 pM k Zp ¨ p´1 x0 q.
+When νp pN q ě 2, we have the following exact sequence,
+ˆdx
+
+0 ÝÑ OZ 7 pp´1 x0 q ÝÑ0 OZ 7 px0 q ÝÑ ODpx0 q » ON0 pN q ÝÑ 0.
+
+44
+
+BAIQING ZHU
+
+Tensoring the above exact sequence with the complex OZ 7 px1 q bLON OZ 7 px2 q in the derived category
+of coherent sheaves on N , we get an exact triangle
+OZ 7 pp´1 x0 q bLON OZ 7 px1 q bLON OZ 7 px2 q Ñ OZ 7 px0 q bLON OZ 7 px1 q bLON OZ 7 px2 q
+Ñ ON0 pN q bLON OZ 7 px1 q bLON OZ 7 px2 q Ñ,
+hence the following identity,
+χpOZ 7 px0 q bLON OZ 7 px1 q bLON OZ 7 px2 q q “ χpOZ 7 pp´1 x0 q bLON OZ 7 px1 q bLON OZ 7 px2 q q
+` χpON0 pN q bLON OZ 7 px1 q bLON OZ 7 px2 q q.
+We already know that ON0 pN q bLON OZ 7 px1 q bLON OZ 7 px2 q » OZpx1 q bLON pNq OZpx2 q since N0 pN q »
+0
+Dpx0 q, hence
+IntN0 pN q pM q “ χpOZpx1 q bLODpx q OZpx2 q q “ χpON0 pN q bLON OZ 7 px1 q bLON OZ 7 px2 q q
+0
+
+“ χpOZ 7 px0 q bLON OZ 7 px1 q bLON OZ 7 px2 q q ´ χpOZ 7 pp´1 x0 q bLON OZ 7 px1 q bLON OZ 7 px2 q q
+“ Int7 pM k Zp ¨ x0 q ´ Int7 pM k Zp ¨ p´1 x0 q.
+
+7. Difference formula at the analytic side
+Let p be a prime number. Let F be a nonarchimedean local field of residue characteristic p, with
+ring of integers OF , residue field κ “ Fq of size q, and uniformizer π.
+7.1. Primitive decomposition. Let N P F , recall that we use pxN y, qxN y q to denote the rank 1
+quadratic lattice over OF with a OF -generator lN such that qxN y plN q “ N , then xN y is an integral
+quadratic lattice if and only if N P OF . Let n “ νπ pN q, all the rank 1 integral quadratic lattice L1
+containing xN y has the following form,
+n
+L1 “ π ´i xN y » xπ ´2i N y, for i “ 0, 1, ¨ ¨ ¨, r s.
+2
+Let H be a self-dual quadratic OF -lattice of finite rank. Since qH pxq P OF for every x P H, Lemma
+2.2.5 gives the following decomposition,
+RepH,xN y pOF q “
+
+rn{2s
+ğ
+
+PRepH,xπ´2i N y pOF q.
+
+i“0
+
+Now for every 0 ď i ď r n2 s, we pick an arbitrary φ P PRepH,xπ´2i N y pOF q and consider the following
+sub-lattice of H,
+Hpφq :“ tx P H : px, φplN qq “ 0u.
+Lemma 7.1.1. The isometric class of the quadratic lattice Hpφq is independent of the choice of
+φ P PRepH,xπ´2i N y pOF q.
+Proof. Let φ1 P PRepH,xπ´2i N y pOF q be another element. The homomorphims φ and φ1 are totally
+determined by x :“ φplπ´2i N q and x1 :“ φ1 plπ´2i N q. The fact that φ and φ1 are primitive implies
+that x R π ¨ H and x1 R π ¨ H. Therefore,
+px, Hq “ OF , px1 , Hq “ OF .
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+45
+
+where we use p¨, ¨q to denote the associated bilinear form on H. Since H is self-dual, then by the
+work of Morin-Strom [Mor79, Theorem 5.3], there exists ϕ P OpHqpOF q such that ϕpxq “ x1 . The
+homomorphism ϕ also induces an isometric between Hpφq and Hpφ1 q because Hpφq “ xK X H and
+Hpφ1 q “ x1K X H.
+
+Let N P OF be an element of valuation n, for every 0 ď i ď r n2 s and φ P PRepH,xπ´2i N y pOF q, we
+use HpN, iq to denote the quadratic lattice Hpφq.
+Example 7.1.2. Let N P OF has valuation n. When k ą 4, we have an orthogonal decomposition,
+ε
+.
+Hkε » H4` k Hk´4
+
+Recall that the symbol Hkε is understood in the following way: when p is odd, k can be any positive
+integer, and ε P t˘1u is arbitrary; when p “ 2, k is even and ε “ `1. The lattice M2 pOF q is
+equipped with the quadratic form induced by the determinant, it is self-dual and χF pM2 pOF qq “ 1,
+hence we can view M2 pOF q as a model lattice for H4` .
+Let’s consider the following element φ P PRepHkε ,xπ´2i N y pOF q
+φi : xπ ´2i N y ÝÑ M2 pOF q » H4` ãÑ Hkε ,
+˜
+¸
+π ´2i N 0
+lπ´2i N ÞÝÑ
+.
+0
+1
+˜
+¸
+π ´i N 0
+the corresponding element in RepHkε ,xN y pOF q sends lN to
+.
+0
+πi
+Lemma 7.1.1 implies that the following quadratic lattices are isometric,
+ε
+,
+Hkε pN, iq “ Hkε pφi q » φi plπ´2i N qK k Hk´4
+
+where φi plπ´2i N qK is the space of elements in M2 pOF q that are orthogonal to φi plπ´2i N q, it can be
+described explicitly as follows,
++
+#
+˜
+¸
+´2i N a b
+´π
+φi plπ´2i N qK “ x “
+: a, b, c P OF .
+c
+a
+It is exactly the lattice δF pπ ´2i N q we defined in Example 2.1.1, therefore Hkε pN, iq » δF pπ ´2i N q k
+ε .
+Hk´4
+7.2. Difference formula of local densities.
+Theorem 7.2.1. Let H be a self-dual quadratic OF -lattice of finite rank k. Let M be an integral
+quadratic OF -lattice of finite rank r. Let N P OF be an element of valuation n, then
+DenpH, M k xN yq “
+
+rn{2s
+ÿ
+
+q p2´k`rqi ¨ PdenpH, xπ ´2i N yq ¨ DenpHpN, iq, M q.
+
+i“0
+
+The proof of this theorem is based on the following lemmas.
+Lemma 7.2.2. Let H be a self-dual quadratic OF -lattice. Let N P OF be an element of valuation
+n, then there is a bijective map D between the following sets when the positive integer d is large
+
+46
+
+BAIQING ZHU
+
+enough,
+d
+
+„
+
+D : RepH,xN y pOF {π q ÝÑ
+
+rn{2s
+ğ
+
+ğ
+
+PRepH,xπ´2i N `πd´2i xy pOF {π d´i q.
+
+i“0 xPOF {π i
+
+Proof. Let lN be a generator of the rank 1 OF -module xN y such that qxN y plN q “ N . Any f P
+RepH,xN y pOF {π d q is determined by f plN q P H{π d H. There is a natural filtration on H{π d H given
+as follows,
+0 Ă π d´1 H{π d H Ă π d´2 H{π d H Ă ¨ ¨ ¨ Ă π 2 H{π d H Ă πH{π d H Ă H{π d H.
+Let i be the minimal integer such that f plN q P π i H{π d H, then 0 ď i ď r n2 s since νπ pN q “ n.
+Then there exists l P H such that f plN q “ π i l P π i H{π d H, the image of l in H{π d´i H is uniquely
+determined by f . Let q be the quadratic form on H, then
+N mod π d “ qxN y plN q “ qpf plN qq “ π 2i qplq “ π 2i qplq,
+hence π 2i qplq ” π ´2i N mod π d´2i . Therefore there exists x P OF such that qplq “ π ´2i N ` π d´2i x.
+Next we show that x P OF {π i is independent of the choice of l P H when d is large enough. Suppose
+l1 is another element of H such that f plN q “ π i l1 , then there exists δ P H such that l1 ´ l “ π d´i δ.
+Therefore when d is large enough,
+qpl1 q “ qpl ` π d´i δq “ qplq ` π d´i pl, δq ` π 2d´2i qpδq ” qplq mod π d´i .
+Suppose qpl1 q “ π ´2i N ` π d´2i x1 for some x1 P OF , the above congruence formula between qplq and
+qpl1 q implies that x1 ” x mod π i . The above construction gives the following element Dpf q in
+PRepH,xπ´2i N `πd´2i xy pOF {π d´i q: the homomrphism Dpf q sends the generator lπ´2i N `πd´2i x of
+xπ ´2i N ` π d´2i xy{π d´i xπ ´2i N ` π d´2i xy to l P H{π d´i H.
+Now for any element ϕ P PRepH,xπ´2i N `πd´2i xy pOF {π d´i q, we consider the following morphism,
+ϕ̃ : xN y{π d xN y ÝÑ H{π d H,
+lN ÞÝÑ π i ϕplπ´2i N `πd´2i x q.
+then ϕ̃ P RepH,xN y pOF {π d q because qpϕ̃plN qq “ π 2i pπ ´2i N ` π d´2i xq “ N mod π d . This construction gives the inverse map of D.
+
+Let M be an integral quadratic OF -lattice of finite rank. Let N P OF be an element of valuation
+n. Let M 7 “ M k xN y be a quadratic OF -lattice of 1 rank higher than M , there is a natural
+restriction map as follows for any positive integer d and any self-dual quadratic OF -lattice H,
+r : RepH,M 7 pOF {π d q Ñ RepH,xN y pOF {π d q,
+given by composing any element in the set RepH,M 7 pOF {π d q with the natural inclusion xN y{π d xN y ãÑ
+M 7 {π d M 7 . The next lemma describes the fiber of the map D ˝ r.
+Lemma 7.2.3. Let H be a self-dual quadratic OF -lattice. Let M be an integral quadratic OF -lattice
+of finite rank r. Let N P OF be an element of valuation n. Let M 7 “ M k xN y be a quadratic
+OF -lattice of rank r ` 1. Let 0 ď i ď r n2 s be an integer. Let ϕ P PRepH,xπ´2i N `πd´2i xy pOF {π d´i q,
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+47
+
+then for d large enough,
+#pD ˝ rq´1 pϕq “ q ir ¨ #RepHpN,iq,M pOF {π d q.
+
+Proof. Let f be an element in RepH,M 7 pOF {π d q such that D ˝ rpf q “ ϕ, by the proof of Lemma
+1 P HzπH such that f pl q “ π i l1 , and qpl1 q “ π ´2i N when d is large enough.
+7.2.2, there exists lN
+N
+N
+N
+Let tei uri“1 be an OF -basis of M , then f is determined by txi :“ f pei q P H{π d Huri“1 . Therefore
+pD ˝ rq´1 pϕq can be described by the following set,
+(25)
+
+1 q “ 0, px , x q “ pe , e q for i ‰ j,
+pD ˝ rq´1 pϕq “ px1 , ¨ ¨ ¨, xr q P pH{π d Hqr : pxi , π i lN
+i j
+i j
+
+(
+and qpxi q “ qM pei q for every i. .
+
+1 . We have the following exact sequence,
+Let L be the rank 1 sub-lattice of H generated by lN
+θ
+
+0 ÝÑ L ‘ HpN, iq ÝÑ H ÝÑ Q :“ H{L ‘ HpN, iq ÝÑ 0.
+where θ is the natural inclusion map. After tensoring the above exact sequence with OF {π d , we get
+the following exact sequence by the flatness of H over OF ,
+θ
+
+0 ÝÑ Tor1OF pQ, OF {π d q ÝÑ L{π d L ‘ HpN, iq{π d HpN, iq ÝÑ H{π d H ÝÑ Q{π d Q ÝÑ 0.
+)
+!
+1 q “ 0 . When d is large enough, for every x P K, there
+Claim: Let K “ x P H{π d H : px, π i lN
+
+(26)
+
+exists x1 P L and x2 P HpN, iq such that the image of x1 ` x2 P L{π d L ‘ HpN, iq{π d HpN, iq under
+θ in H{π d H is x.
+Proof of the claim: We have the following decomposition in the quadratic space V “ H bOF F ,
+x “ x1 ` x2 ,
+where x1 P LF :“ L bOF F and x2 P pLF qK Ă V .
+The fact that x P K implies that px1 , lN q “ px, lN q P pπ d q, therefore x1 P pπ d´n q ¨ lN P LF . It
+turns out that x1 P L Ă H when d is large enough, hence x1 “ x ´ x1 P H X tlN uK “ HpN, iq.
+We get the following description of the inverse image of the set pD ˝ rq´1 pϕq under Θ :“ θ ˆ ¨ ¨ ¨ ˆ θ
+by (25)
+(27)
+
+Θ´1 ppD ˝ rq´1 pϕqq “ pπ d`i´n L{π d Lqr ˆ RepHpN,iq,M pOF {π d q.
+Θ
+
+and the claim implies that the map Θ´1 ppD ˝ rq´1 pϕqq ÝÑ pD ˝ rq´1 pϕq is surjective.
+Now we compute #kerpΘq, which equlas p#kerpθqqr by definition. By the exact sequence (26),
+#kerpθq “ #Tor1OF pQ, OF {π d q “ #Q{π d Q. Therefore when d is large enough, Q{π d Q “ Q. Since
+1 R πH, there exists y P H such that pl1 , yq “ 1. The existence of y implies the following exact
+lN
+N
+sequence,
+θ
+
+0 ÝÑ HpN, iq ÝÑ H ÝÑ L_ ÝÑ 0,
+x ÞÝÑ lpxq : v P L ÞÑ px, vq.
+
+48
+
+BAIQING ZHU
+
+Therefore H » L_ ‘ HpN, iq as OF -modules, and Q » L_ {L » π 2i´n L{L. Then by (27)
+#pD ˝ rq´1 pϕq “
+
+q rpn´iq
+¨ #RepHpN,iq,M pOF {π d q “ q ir ¨ #RepHpN,iq,M pOF {π d q.
+rpn´2iq
+q
+
+
+Proof of Theorem 7.2.1: By Lemma 7.2.2 and Lemma 7.2.3, we only need to know the size of the
+set PRepH,xπ´2i N `πd´2i xy pOF {π d´i q when x P OF . We first show that when d is large enough, the
+following identity holds for any x P OF ,
+#PRepH,xπ´2i N `πd´2i xy pOF {π d´i q “ #PRepH,xπ´2i N y pOF {π d´i q.
+d ´1 x
+Because when d is large enough, for any x P OF , we could find cx P OFˆ such that c´2
+x “ 1`π N
+mod π d´i , then for any element l P PRepH,xπ´2i N `πd´2i xy pOF {π d´i q, cx ¨l P PRepH,xπ´2i N y pOF {π d´i q.
+Let M 7 “ M k xN y, we have
+
+DenpH, M k xN yq “ lim
+
+#RepH,M 7 pOF {π d q
+
+dÑ8 q dpkpr`1q´pr`1qpr`2q{2q
+
+“ lim
+
+dÑ8
+
+“
+
+rn{2s
+ÿ
+
+rn{2s
+ÿ
+i“0
+
+i
+
+q ¨
+
+#PRepH,xπ´2i N y pOF {π d´i q
+q pd´iqpk´1q
+
+¨
+
+q ir
+q ipk´1q
+
+¨
+
+#RepHpN,iq,M pOF {π d q
+q dppk´1qr´rpr`1q{2q
+
+q p2´k`rqi ¨ PdenpH, xπ ´2i N yq ¨ DenpHpN, iq, M q.
+
+i“0
+
+
+
+Remark 7.2.4. When p odd, it has been calculated explicitly that for any N P OF (cf. [LZ22,
+(3.3.2.1)]),
+$
+’
+1 ´ q 1´k ,
+when k is odd and π | N ;
+’
+’
+’
+’
+&1 ` εχ pN qq p1´kq{2 ,
+when k is odd and π ∤ N ;
+F
+(28)
+PdenpHkε , xN yq “
+´k{2
+1´k{2
+’
+p1 ´ εq
+qp1 ` εq
+q, when k is even and π | N ;
+’
+’
+’
+’
+%
+1 ´ εq ´k{2 ,
+when k is even and π ∤ N .
+
+When p “ 2, the same formula makes sense and holds true only in the case that k is even and
+ε “ `1.
+
+Definition 7.2.5. Let M be a quadratic lattice of rank r over OF . Let N P OF . When p is odd,
+we define the local density of M with level N to be a polynomial Denε∆pN q pX, M q satisfying
+$
+ε
+DenpδF pN q k H2m`r´2
+, Mq
+’
+’
+, When π | N ;
+’
+ε
+&
+´m
+ˇ
+Nor pq , r ´ 1q
+ε
+ˇ
+Den∆pN q pX, M q X“q´m “
+ε
+’
+, Mq
+DenpδF pN q k H2m`r´2
+’
+’
+, When π ∤ N .
+%
+εχF pN q ´m
+Nor
+pq , rq
+
+for m ě 0. When p “ 2, r is even and ε “ `1, the local density of M with level N is the polynomial
+´m (m ě 0) as above.
+Den`
+∆pN q pX, M q with the same evaluation formula at X “ q
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+49
+
+We define the derived local density of M with level N to be
+ˇ
+d ˇˇ
+ε
+Denε∆pN q pX, M q.
+BDen∆pN q pM q “ ´
+dX ˇ
+X“1
+
+Theorem 7.2.6. Let M be a quadratic OF -lattice of finite rank r. Let N P OF , then when p is
+odd,
+Denε∆pN q pX, M q “ Denε pX, M k xN yq ´ X 2 ¨ Denε pX, M k xπ ´2 N yq.
+When p “ 2 and r is even, the same formula for ε “ `1 holds.
+ε
+bOF F , then
+Moreover, if M k xN y can’t be isometrically embedded into the quadratic space Hr`2
+BDenε∆pN q pM q “ BDenε pM k xN yq ´ BDenε pM k xπ ´2 N yq.
+When p “ 2 and r is even, the same formula for ε “ `1 holds.
+Proof. Recall the definition of the polynomial Norε pX, nq in Definition 2.2.6, we can verify immediately by formula (28) that, for any x P OF ,
+ε
+Norε pq ´m , r ` 1q “ PdenpH2m`r`2
+, xxyq ¨ NorεχF pxq pq ´m , rq, when π ∤ x;
+ε
+Norε pq ´m , r ` 1q “ PdenpH2m`r`2
+, xxyq ¨ Norε pq ´m , r ´ 1q, when π | x.
+
+Note that when p “ 2, the above formulas only make sense for r is even and ε “ `1. Let n “ νπ pN q,
+Theorem 7.2.1 and Example 7.1.2 imply the following decomposition,
+ε
+DenpH2m`r`2
+, M k xN yq “
+
+rn{2s
+ÿ
+
+ε
+ε
+q ´2mi ¨ PdenpH2m`r`2
+, xπ ´2i N yq ¨ DenpH2m`r`2
+pN, iq, M q
+
+i“0
+
+“
+
+rn{2s
+ÿ
+
+ε
+ε
+q ´2mi ¨ PdenpH2m`r`2
+, xπ ´2i N yq ¨ DenpδF pπ ´2i N q k H2m`r´2
+, M q.
+
+i“0
+
+By Definition 7.2.5, when p is odd, the following formula holds
+(29)
+
+Denε pX, M k xN yq “
+
+rn{2s
+ÿ
+
+X 2i ¨ Denε∆pπ´2i N q pX, M q.
+
+i“0
+
+when p “ 2 and r is even, formula (29) for ε “ `1 holds.
+When n “ 0 or 1, Denε pX, M k xN yq “ Denε∆pN q pX, M q and Denε pX, M k xπ ´2 N yq “ 0 since
+π ´2 N is not in OF , therefore Denε∆pN q pX, M q “ Denε pX, M k xN yq ´ X 2 ¨ Denε pX, M k xπ ´2 N yq.
+When n ě 2, Denε∆pN q pX, M q “ Denε pX, M k xN yq ´ X 2 ¨ Denε pX, M k xπ ´2 N yq follows from the
+formula (29).
+The fact that the lattice M k xN y can’t be isometrically embedded into the quadratic space
+ε
+Hr`2 bOF F implies that Denε p1, M k xN yq “ Denε p1, M k xπ ´2 N yq “ 0, the second formula in the
+theorem follows from the first one and the definitions of the symbols BDenε∆pN q and BDenε .
+
+Now we apply Theorem 7.2.6 to the case that we are interested, i.e., F “ Qp , ǫ “ `1 and r “ 2,
+Let N P Zp , we get the following difference formula of local density functions,
+(30)
+
+`
+2
+`
+´2
+Den`
+∆pN q pX, M q “ Den pX, M k xN yq ´ X ¨ Den pX, M k xp N yq.
+
+50
+
+BAIQING ZHU
+
+Note that the lattice M kxN y is a sub-lattice of B » End0 pXq which is the unique division quaternion
+algebra over Qp , hence the lattice M k xN y can’t be isometrically embedded into the quadratic
+space H4` b Qp » M2 pQp q, therefore Theorem 7.2.6 implies the following difference formula of the
+derivatives of local densities,
+`
+`
+´2
+BDen`
+∆pN q pM q “ BDen pM k xN yq ´ BDen pM k xp N yq.
+
+(31)
+
+7.3. Induction formula. In this section, we assume p is odd. Let Nk “ π 2k N0 where N0 P OF has
+valuation 0 or 1. Next we show that when k is sufficiently large, Denε∆pNk q pX, M q is independent of
+k, i.e., it will become a constant polynomial.
+Proposition 7.3.1. Let M be a quadratic lattice of rank r ě 2 over OF which is GL2 pOF q-equivalent
+to diagtε1 π a1 , ε2 π a2 , ¨ ¨ ¨, εr π r u, where εi P OFˆ , ai P N and a1 ď a2 ď ¨ ¨ ¨ ď ar . Let Nk “ π 2k N0
+where N0 P OF has valuation 0 or 1. Then when k ą ar ´ν2π pN0 q ,
+Denε∆pNk q pX, M q “ p1 ´ εχF pM qXq´1 p1 ´ X 2 q ¨ Den5ε pX, M q.
+ε
+bOF F , then
+Moreover, if M k xN0 y can’t be isometrically embedded into the quadratic space Hr`2
+$
+&´εχ pM q ¨ Den5ε p1, M q, if χ pM q ‰ 0;
+F
+F
+ε
+BDen∆pNk q pM q “
+%2 ¨ Den5ε p1, M q,
+if χF pM q “ 0.
+
+Proof. Proposition 7.2.6 implies that for any k ě 1,
+
+Denε pX, M k xNk yq ´ X 2 ¨ Denε pX, M k xNk´1 yq “ Denε∆pNk q pX, M q.
+Lemma 2.2.8 implies the following induction formula for k ą ar ´ν2π pN0 q ,
+Denε pX, M k xNk yq ´ X 2 ¨ Denε pX, M k xNk´1 yq “ p1 ´ εχF pM qXq´1 p1 ´ X 2 q ¨ Den5ε pX, M q.
+therefore we obtain the first formula, the second formula follows from the first one by applying
+ˇ
+d ˇ
+´ dX
+.
+
+X“1
+
+7.4. Examples. In this section, we assume p is odd. We will compare our formulas with known
+formulas given in [Wed07] and [SSY22].
+
+Example 7.4.1. When νp pN q “ 1, the above formula implies that Den` pX, M k xN yq “
+pX, M q, suppose M ãÑ W is GL2 pZp q-equivalent to the matrix diagtε1 pa , ε2 pb u where
+Den`
+∆pN q
+ε1 , ε2 P Zˆ
+p and 1 ď a ď b.
+‚ When a is even, by [Wed07, §2.11],
+`
+
+Den pX, M k xN yq “
+
+a{2
+ÿ
+
+i“0
+
+i
+
+pX
+
+2i
+
+`
+
+a{2
+ÿ
+
+i
+
+pX
+
+i“1
+
+2i´1
+
+´
+
+a{2
+ÿ
+
+i
+
+pX
+
+a`b`1´2i
+
+i“0
+
+´
+
+a{2
+ÿ
+
+pi X a`b`2´2i .
+
+i“1
+
+we compare this formula with the formula appeared in [SSY22, Proposition 3.6], it computes
+Den`
+∆pN q pX, M q in the following way,
+Den`
+∆pN q pX, M q “
+
+αp pX, M, δp pN qq
+,
+1 ´ p´1 X
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+51
+
+where αp pX, M, δp pN qq “ X ´2 pp ¨ αpXq ` pX ´ pqpR1 pXq ` 1 ` p´1 Xqq, and
+˛
+¨
+a{2
+a{2
+ÿ
+ÿ
+i
+2i
+a`b`2´2i ‚
+a{2 b`2
+´1 2
+´2 2 ˝
+pi X 2i ,
+p pX ´ X
+q , R1 pXq “ ´1 ´ p X
+` p1 ` p X q
+αpXq “ p1 ´ p X q
+i“0
+
+i“0
+
+then
+αp pX, M, δp pN qq
+1 ´ p´1 X
+¨
+
+¨
+
+i“0
+
+pi pX 2i ´ X a`b`2´2i q‚´ p´1 X ` pa{2 X b`2 ´ p1 ´ p´1 X 2 q
+
+i
+
+2i
+
+“ pX ´2 ˝p1 ` p´1 Xq ˝
+
+“ ppX
+
+“
+
+a{2
+ÿ
+
+´2
+
+p
+
+`X
+
+i`1
+
+X
+
+´1
+
+q˝
+
+2i´2
+
+´
+
+`
+
+a{2
+ÿ
+
+p pX
+
+´X
+
+i“0
+
+a{2
+ÿ
+
+i
+
+pX
+
+2i´1
+
+´
+
+˛
+
+a`b`2´2i ‚
+
+q ´X
+
+a{2
+ÿ
+
+p
+
+i`1
+
+X
+
+a`b´2i
+
+´1
+
+`p
+
+a{2`1
+
+b
+
+X ` p1 ´ pX
+
+´2
+
+q
+
+a{2
+ÿ
+
+a{2
+ÿ
+
+i“0
+
+˛
+
+pi X 2i ‚
+
+pi X 2i
+
+i“0
+
+´
+
+a{2
+ÿ
+
+i
+
+pX
+
+a`b`1´2i
+
+`
+
+a{2
+ÿ
+
+pi X 2i
+
+i“0
+
+i“0
+
+i“0
+
+i“0
+
+i“0
+a{2
+ÿ
+
+¨
+
+˛
+
+a{2
+ÿ
+
+pi`1 X 2i´2 ` pa{2`1 X b ´ X ´1 “ Den` pX, M k xN yq.
+
+i“0
+
+‚ When a is odd, again by [Wed07, §2.11] (note that b must be even since M is anisotropic),
+`
+
+Den pX, M k xN yq “
+
+pa´1q{2
+ÿ
+
+i
+
+2i
+
+pX `
+
+i
+
+pX
+
+2i´1
+
+pa´1q{2
+ÿ
+
+´
+
+pa´1q{2
+ÿ
+
+pi X a`b`1´2i
+
+i“0
+
+i“1
+
+i“0
+
+´
+
+pa´1q{2
+ÿ
+
+pi X a`b`2´2i ´ ppa`1q{2 pX b`1 ´ X a q.
+
+i“1
+
+we also compare this with the formula appeared in [SSY22, Proposition 3.6], it computes Den`
+∆pN q pX, M q
+in the following way,
+αp pX, M, δp pN qq
+Den`
+.
+∆pN q pX, M q “
+1 ´ p´1 X
+where αp pX, M, δp pN qq “ X ´2 pp ¨ αpXq ` pX ´ pqpR1 pXq ` 1 ` p´1 Xqq, and
+¨
+˛
+pa´1q{2
+b`1
+ÿ
+ÿ
+αpXq “ p1 ´ p´2 X 2 q ˝
+p´Xqk ‚,
+pi pX 2i ´ X a`b`2´2i q ` ppa`1q{2
+i“a`1
+
+i“0
+
+R1 pXq “ p1 ´ p
+
+´2
+
+q
+
+pa`1q{2
+ÿ
+i“1
+
+i
+
+pX
+
+2i
+
+`p
+
+pa`1q{2
+
+p1 ` p
+
+´1
+
+Xq
+
+b`1
+ÿ
+
+i“a`2
+
+p´Xqk .
+
+52
+
+then
+
+BAIQING ZHU
+
+˛
+¨
+pa´1q{2
+b`1
+ÿ
+ÿ
+αp pX, M, δp pN qq
+p´Xqk ‚
+pi pX 2i ´ X a`b`2´2i q ` ppa`1q{2
+“ ppX ´2 ` X ´1 q ˝
+1 ´ p´1 X
+i“a`1
+i“0
+´ ppX
+
+´2
+
+´p
+
+´1
+
+X
+
+´2
+
+q
+
+pa`1q{2
+ÿ
+
+pi X 2i ´ ppa`3q{2 p1 ` p´1 Xq
+
+pa`1q{2
+ÿ
+
+pi X 2i´4 `
+
+i“1
+
+´
+
+pa`3q{2
+ÿ
+
+pa´1q{2
+ÿ
+i“0
+
+pi X 2i´4 `
+
+i“2
+`
+
+pa´1q{2
+ÿ
+
+pi X 2i´1 ´
+
+p´Xqk´2 ´ pX ´2 ´ X ´1
+
+i“a`2
+
+i“1
+
+“
+
+b`1
+ÿ
+
+pa`1q{2
+ÿ
+
+pi X a`b`2´2i ´
+
+i“1
+
+pa´1q{2
+ÿ
+
+pi X a`b`1´2i
+
+i“0
+
+pi X 2i ´ pX ´2 ´ X ´1 ` ppa`3q{2 X a´1 ` ppa`1q{2 X a
+
+i“0
+
+“ Den pX, M k xN yq.
+
+therefore we see that our computation result of Den`
+∆pN q pX, M q coincides with the computation in
+[SSY22], but our method is different: we embed M and δp pN q into a higher rank self-dual quadratic
+lattice and do all the computations in the self-dual lattice.
+Example 7.4.2. We give examples for higher n when M ãÑ W is GL2 pZp q-equivalent to the matrix
+2k
+diagtε1 p, ε2 p2 u where ε1 , ε2 P Zˆ
+p . Let Nk “ p N0 where N0 is a positive integer with νp pN0 q “ 0
+or 1 and k ě 1 is an integer. By the formula in [Wed07, §2.11], Den` pX, M k xN0 yq “ 1 ´ X 3 when
+νp pN0 q “ 0, Den` pX, M k xN0 yq “ 1 ` pX ´ pX 3 ´ X 4 when νp pN0 q “ 1, and
+Den` pX, M k xNk yq “ 1` pX ` pX 2 ´ pX 2k`1`νp pN0 q ´ pX 2k`2`νp pN0 q ´ X 2k`3`νp pN0 q , when k ě 1.
+therefore we get
+2
+3
+4
+Den`
+∆pNk q pX, M q “ 1 ` pX ` pp ´ 1qX ´ pX ´ pX .
+`
+3
+3
+4
+when k ě 1, and Den`
+∆pN0 q pX, M q “ Den pX, M k xN0 yq “ 1 ´ X or 1 ` pX ´ pX ´ X depending
+on νp pN0 q “ 0 or 1.
+Therefore BDen`
+∆pN0 q pM q “ 3 or 2p ` 4 depending on νp pN0 q “ 0 or 1, and
+ˇ
+d ˇˇ
+`
+BDen∆pNk q pM q “ ´
+Den`
+∆pNk q pX, M q “ 4p ` 2.
+dX ˇX“1
+
+when k ě 1.
+We will double check our results by comparing it with the formulas of local density given in
+[Yn98, Theorem 7.1]. The theorem implies that for sufficiently large positive integer m,
+ˇ
+`
+Denpδp pNk q k H2m
+, M q “ 1 ` R1,k pXq ` R2,k pXq ˇX“p´m ,
+where R1,k pXq “
+
+8
+ř
+
+i“1
+
+I1,i,k pXq and R2,k pXq “ p1 ´ p´1 q
+
+8
+ř
+
+I2,i,k pXq ` p´1 I2,6,k pXq. I1,i,k pXq and
+
+i“1
+
+I2,i,k pXq are explicitly constructed polynomials in the beginning of section 7 of [Yn98]. In our case,
+when k ě 1,
+I1,1,k pXq “ pp ´ p´1 qX, I1,2,k pXq “ ´X 2 , I1,3,k pXq “ 0, I1,4,k “ ´pX 3 .
+I2,1,k pXq “ I2,3,k pXq “ I2,5,k pXq “ I2,7,k pXq “ 0.
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+53
+
+I2,2,k pXq “ ´X 2 , I2,4,k pXq “ ´pX 4 , I2,6,k pXq “ X 5 , I2,8,k pXq “ pX 2 .
+therefore when m is sufficiently large,
+ˇ
+`
+Denpδp pNk q k H2m
+, M q “ 1 ` pp ´ p´1 qX ` pp ´ 2qX 2 ´ pp ` 1 ´ p´1 qX 3 ` p1 ´ pqX 4 ` X 5 ˇX“p´m .
+By Definition 7.2.5, when k ě 1,
+
+`
+ˇ
+ˇ
+Denpδp pNk q k H2m
+, Mq
+ˇ
+pX,
+M
+q
+Den`
+“
+“ 1 ` pX ` pp ´ 1qX 2 ´ pX 3 ´ pX 4 ˇX“p´m .
+∆pNk q
+X“p´m
+´m´1
+1´p
+
+2
+3
+4
+hence Den`
+∆pNk q pX, M q “ 1` pX ` pp ´ 1qX ´ pX ´ pX when k ě 1, this agrees with our previous
+calculations.
+
+Example 7.4.3. We give another examples for higher n when M ãÑ W is GL2 pZp q-equivalent to
+2k
+the matrix diagtε1 p2 , ε2 p3 u where ε1 , ε2 P Zˆ
+p . Let Nk “ p N0 where N0 is a positive integer with
+νp pN0 q “ 0 or 1 and k ě 1 is an integer. By the formula in [Wed07, §2.11],
+Den` pX, M k xNk yq “1 ` pX ` pp ` p2 qX 2 ` p2 X 3 ` p2 X 4 ´ p2 X 2k`1`νp pN0 q ´ p2 X 2k`2`νp pN0 q
+´ pp ` p2 qX 2k`3`νp pN0 q ´ pX 2k`4`νp pN0 q ´ X 2k`5`νp pN0 q , when k ě 3.
+the formula (30) implies when k ě 3,
+Den`
+pX, M q “ 1 ` pX ` pp2 ` p ´ 1qX 2 ` pp2 ´ pqX 3 ´ pX 4 ´ p2 X 4 ´ p2 X 5 ´ p2 X 6 .
+∆pN q
+k
+
+2
+when k ě 3. Therefore BDen`
+∆pN0 q pM q “ 2 ` 4p ` 6p when k ě 3.
+We will double check our results by comparing it with the formulas of local density given in
+[Yn98, Theorem 7.1]. The theorem implies that for sufficiently large positive integer m,
+ˇ
+`
+Denpδp pNk q k H2m
+, M q “ 1 ` R1,k pXq ` R2,k pXq ˇX“p´m .
+
+where R1,k pXq “
+
+8
+ř
+
+I1,i,k pXq and R2,k pXq “ p1 ´ p´1 q
+
+i“1
+
+8
+ř
+
+I2,i,k pXq ` p´1 I2,6,k pXq. I1,i,k pXq and
+
+i“1
+
+I2,i,k pXq are explicitly constructed polynomials in the beginning of section 7 of [Yn98]. In our case,
+when k ě 3,
+I1,1,k pXq “ pp ´ p´1 qX ` pp2 ´ 1qX 2 , I1,2,k pXq “ ´X 3 , I1,3,k pXq “ 0, I1,4,k “ ´p2 X 4 .
+I2,1,k pXq “ pp2 ´ 1qX 3 , I2,3,k pXq “ I2,5,k pXq “ I2,7,k pXq “ 0.
+I2,2,k pXq “ ´pX 4 ´ pX 5 , I2,4,k pXq “ ´p2 X 5 ´ p2 X 6 , I2,6,k pXq “ pX 7 , I2,8,k pXq “ pX 2 ` p2 X 4 .
+therefore when m is sufficiently large,
+`
+Denpδp pNk q k H2m
+, M q “ 1 ` pp ´ p´1 qX ` pp2 ` p ´ 2qX 2 ` pp2 ´ 2p ` p´1 ´ 1qX 3
+ˇ
+´ p2p ´ 1qX 4 ` p1 ´ p2 qX 5 ` pp ´ p2 qX 6 ` pX 7 ˇX“p´m .
+
+By Definition 7.2.5, when k ě 3,
+
+`
+ˇ
+Denpδp pNk q k H2m
+, Mq
+ˇ
+pX,
+M
+q
+“
+Den`
+∆pNk q
+X“p´m
+´m´1
+1´p
+
+ˇ
+“ 1 ` pX ` pp2 ` p ´ 1qX 2 ` pp2 ´ pqX 3 ´ pX 4 ´ p2 X 4 ´ p2 X 5 ´ p2 X 6 ˇX“p´m .
+
+54
+
+BAIQING ZHU
+
+2
+2
+2
+3
+4
+2 4
+2 5
+2 6
+hence Den`
+∆pNk q pX, M q “ 1 ` pX ` pp ` p ´ 1qX ` pp ´ pqX ´ pX ´ p X ´ p X ´ p X when
+k ě 3, this agrees with our previous calculations.
+
+8. Proof of Arithmetic Siegel-Weil formula on X0 pN q
+8.1. Local arithmetic Siegel-Weil formula with level N . Let p be a prime number. The
+difference formulas at the analytic side and the geometric side are combined together to prove the
+following theorem.
+Theorem 8.1.1. Let M Ă W be a Zp -lattice of rank 2. Then
+(32)
+
+IntN0 pN q pM q “ BDen`
+∆pN q pM q.
+
+Proof. Theorem 6.4.1 gives the following difference formula of local arithmetic intersection numbers,
+IntN0 pN q pM q “ Int7 pM k Zp ¨ x0 q ´ Int7 pM k Zp ¨ p´1 x0 q.
+We also have the difference formula of the derived local densities (cf.(31)),
+`
+`
+´1
+BDen`
+∆pN q pM q “ BDen pM k Zp ¨ x0 q ´ BDen pM k Zp ¨ p x0 q.
+
+Theorem 6.3.4 implies that Int7 pLq “ BDen` pLq for any rank 3 lattice L Ă B.
+IntN0 pN q pM q “ BDen`
+∆pN q pM q holds by combining the above two difference formulas.
+
+Therefore
+
+
+8.2. Intersection Numbers and Whittaker functions. Let p be a prime number.
+Proposition 8.2.1. Let M Ă W be a Zp -lattice of rank 2. Then
+(33)
+
+WT1 p1, 0, 1δp pN q2 q “ cp ¨ IntN0 pN q pM q ¨ logppq
+
+where the constant cp is given as follows
+$
+&p1 ´ p´1 q ¨ pN, ´1q ¨ |N | ¨ |2|3{2
+p
+p
+p
+cp “
+´2
+%p1 ´ p q ¨ pN, ´1qp ¨ |N |p ¨ |2|p3{2
+
+when p | N ;
+when p ∤ N .
+
+Proof. Recall that δp pN q_ {δp pN q » Zp {2N Zp (cf. Example 2.1.1). By Proposition 3.3.1 and the
+explicit formula given by Rao in the appendix of [Rao93],
+`
+WT p1, k, 1δp pN q2 q “ |2N |p ¨ γpδp pN q b Qp q2 ¨ |2|1{2
+p ¨ Denpδp pN q ‘ H2k , M q
+
+(34)
+
+`
+“ |N |p ¨ pN, ´1qp ¨ |2|3{2
+p ¨ Denpδp pN q ‘ H2k , M q.
+
+Taking derivatives of both sides of (34),
+WT1 p1, 0, 1δp pN q2 q “ cp ¨ BDen`
+∆pN q pM q ¨ logppq.
+The formula (33) follows from Theorem 8.1.1.
+8.3. Proof of the main theorem.
+
+
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+55
+
+Proposition 8.3.1. Let T P Sym2 pQq be a positive definite symmetric matrix. Let ϕ P S pV2f q
+be a T -admissible Schwartz function. Suppose ϕ “ ϕ1 ˆ ϕ2 where ϕi P S pVf q, then for any
+y P Sym2 pRqą0 , we have
+$
+&χpZpT, ϕq, O
+L
+Zpt1 ,ϕ1 q b OZpt2 ,ϕ2 q q ¨ logppq, when DiffpT, ∆pN qq “ tpu;
+y
+p
+degpZpT, y, ϕqq “
+%0,
+when #DiffpT, ∆pN qq ‰ 1.
+p y, ϕq “ prZpT, ϕqs, 0q, therefore
+Proof. By definition (cf. (16)), the arithmetic special cycle ZpT,
+y ZpT,
+p y, ϕqq is independent of y. We can assume DiffpT, ∆pN qq “ tpu for some prime number p
+degp
+since otherwise both sides are 0 since ZpT, ϕq would be an empty stack.
+Let x P ZpT, ϕqpFp q be a geometric point, it is contained in Y0 pN q by Corollary 4.3.8, hence
+the special divisors Zpt1 , ϕ1 q and Zpt2 , ϕ2 q intersect properly at x because T is nonsingular. Then
+χpZpT, ϕq, OZpt1 ,ϕ1 q bL OZpt2 ,ϕ2 q q ¨ logppq is the sum of the length of local rings OX0 pN q,x cut out
+y ZpT,
+p y, ϕqq by the definition of the degree
+by these two divisors times log ppq, which is exactly degp
+homomorphism.
+
+Proof of Theorem 4.4.1: We first consider the case that T is positive definite. By Proposition 4.3.9,
+we only need to consider the case DiffpT, ∆pN qq “ tpu for some prime number p because otherwise
+both sides are 0. The same proposition and Corollary 4.3.8 imply that the special cycle ZpT, ϕq
+lies in the supersingular locus of X0 pN qFp . Then by the definition of special cycles and the formal
+uniformization of the special cycle ZpT, ϕq (cf. Corollary 5.3.3),
+χpZpT, ϕq, OZpt1 ,ϕ1 q bL OZpt2 ,ϕ2 q q ¨ logppq “
+ÿ
+ÿ
+
+ϕpg´1 xq ¨ IntN0 pN q pxq ¨ logppq.
+
+ˆ
+xPB ˆ pQq0 zp∆pN qppq q2 gPBx
+pQq0 zGL2 pApf q{Γ0 pN qpẐp q
+
+T pxq“T
+
+we already know that (cf. (33))
+WT1 p1, 0, 1δp pN q2 q “ cp ¨ IntN0 pN q pxq ¨ logppq.
+with constants cp given by (8.2.1).
+There exists a Haar measure on GL2 pApf q such that
+ÿ
+
+ÿ
+
+ˆ
+xPB ˆ pQq0 zp∆pN qppq q2 gPBx
+pQq0 zGL2 pApf q{Γ0 pN qpẐp q
+T pxq“T
+
+ϕpg
+
+´1
+
+xq “
+
+1
+volpΓ0 pN qpẐp qq
+
+By definition, the last integral is a product of “local” integrals
+ż
+ź ż
+p ´1
+ϕ pg xqdg “
+SOp∆pN qppq qpApf q
+
+v‰p,8 SOpδv pN qqpQv q
+
+ż
+¨
+
+SOp∆pN qppq qpApf q
+
+ϕp pg´1 xqdg.
+
+ϕv pgv´1 xqdgv .
+
+By the classical local Siegel-Weil formula which is made explicit in the work of Kudla, Rapoport
+and Yang [KRY06, Proposition 5.3.3], for every place v of Q, there exists a number dv P Rˆ such
+that
+ż
+ϕv pgv´1 xqdgv “ dv ¨ WT,v p1, 0, ϕv q,
+SOpδv pN qqpQv q
+
+56
+
+with
+
+BAIQING ZHU
+
+ś
+
+dv “ 1. Moreover, [KRY06, Lemma 5.3.9] implies the following,
+
+vď8
+
+volpΓ0 pN qv , dgv q “ dv ¨ γpδv pN qq2 ¨ |2|3{2
+v ¨
+then it can be checked immediately that
+
+$
+&p1 ´ v ´2 q,
+
+when v ∤ N ;
+
+%|N |´1 p1 ` v ´1 q when v|N .
+v
+
+volpΓ0 pN qpẐp qq ¨ dp d8 ¨ cp “ 2´1{2 ψpN q´1 ¨
+
+3
+.
+π2
+
+Suppose z “ x ` iy, it’s a classical result that
+3{2
+
+WT,8 pgz , 0, Φ8 q “ ´27{2 π 2 ¨ detpyq3{4 q T .
+Combining these together with the definitions made in previous sections (cf. (6) and (8)) and
+Proposition 8.3.1, we get the formula stated in the theorem.
+When T is not positive definite, the equality follows from [SSY22, §4.2] and our computations of
+ś
+the volume of volpΓ0 pN qpẐqq “
+volpΓ0 pN qv , dgv q above.
+
+vă8
+
+References
+
+[BY21] Jan Hendrik Bruinier and Tonghai Yang. Arithmetic degrees of special cycles and derivatives of Siegel Eisenstein series. J. Eur. Math. Soc. (JEMS), 23(5):1613–1674.
+[Ces17] Kestutis Cesnavicius. A modular description of X0 pN q. Algebra & Number Theory, Mathematical Sciences
+Publishers 2017, 11 (9):2001-2089.
+[CS64] Pierre Colmez and Jean-Pierre Serre. Correspondance Serre–Tate, SMF 2015, 2:854, comments on Tate’s
+letter from Jan.10, 1964.
+[CY20] Sungmun Cho and Takuya Yamauchi. A reformulation of the Siegel series and intersection numbers. Math.
+Ann., 377 (2020): 1757-1826.
+[deJ95] A. J. de Jong, Crystalline Dieudonné module theory via formal and rigid geometry. Publications
+Mathématiques de l’IHÉS, 82:5-96, 1995.
+[DY19] Tuoping Du and Tonghai Yang. Arithmetic Siegel-Weil formula on X0 pN q. Adv. Math., 345:702–755, 2019.
+17.
+[Fu98] Willam Fulton. Intersection Theory. Second edition. A Series of Modern Surveys in Mathematics, vol. 2
+(Springer, Berlin, 1998).
+[Gil82] Henri Gillet. Intersection theory on algebraic stacks and Q-varieties. Journal of Pure and Applied Algebra,
+34 (1984): 193-240.
+[Gil09] Henri Gillet. Arithmetic Intersection Theory on Deligne-Mumford Stacks. arXiv e-prints, page
+arXiv:0904.1424v2, Apr 2009.
+[GK93] Benedict H. Gross and Kevin Keating. On the intersection of modular correspondences. Invent. Math.,
+112(2):225–245, 1993.
+[GS19] Luis E. Garcia and Siddarth Sankaran. Green forms and the arithmetic Siegel–Weil formula. Invent. Math.,
+215(3):863–975, 2019.
+[GS87] Henri Gillet and Christophe Soulé. Intersection theory using Adams operations. Invent. Math., 90:243–277,
+1987.
+[GS90] Henri Gillet and Christophe Soulé. Arithmetic intersection theory. Publications Mathématiques de l’IHÉS,
+72:93-174, 1990.
+[HM20] Benjamin Howard and Keerthi Madapusi Pera. Arithmetic of Borcherds products, Astérisque, (421):187–297,
+2020. in Arithmetic divisors on orthogonal and unitary Shimura varieties.
+[HM22] Benjamin Howard and Keerthi Madapusi Pera. Kudla’s modularity conjecture on integral models of orthogonal Shimura varieties. arXiv e-prints, page arXiv:2211.05108, Nov 2022.
+
+ARITHMETIC SIEGEL-WEIL FORMULA ON X0 pN q
+
+57
+
+[HP17] Benjamin Howard and Georgios Pappas. Rapoport–Zink spaces for spinor groups. Compos. Math.,
+153(5):1050-1118.
+[Kim18] Wansu Kim. Rapoport-Zink uniformization of Hodge-type Shimura varieties. Forum Math. Sigma, 6:e16, 36,
+2018.
+[Kis10] Mark Kisin. Integral models for Shimura varieties of abelian type. J. Amer. Math. Soc., 23(4):967–1012, 2010.
+4.
+[KM85] Nicholas M. Katz and Barry Mazur. Arithmetic Moduli of Elliptic Curves. (AM-108). Princeton University
+Press, 1985.
+[KR99] Stephen S. Kudla and Michael Rapoport. Arithmetic Hirzebruch-Zagier cycles. J. Reine Angew. Math.,
+515:155–244, 1999.
+[KRY06] Stephen S. Kudla, Michael Rapoport, and Tonghai Yang. Modular Forms and Special Cycles on Shimura
+Curves. (AM-161), Princeton: Princeton University Press, 2006.
+[Kud97] Stephen S. Kudla. Central Derivatives of Eisenstein Series and Height Pairings. Ann. of Math., (2),
+146(3):545–646, 1997.
+[Lan13] Kai-Wen Lan. Arithmetic Compactifications of PEL-Type Shimura Varieties, Princeton: Princeton University
+Press, 2013.
+[LZ18] Chao Li and Yihang Zhu. Arithmetic intersection on GSpin Rapoport-Zink spaces. Compos. Math.,
+154(7):1407–1440, 2018.
+[LZ22] Chao Li and Wei Zhang. On the arithmetic Siegel–Weil formula for GSpin Shimura varieties. Invent. Math.
+(2022).
+[Mad16] Keerthi Madapusi Pera. Integral canonical models for Spin Shimura varieties. Compos. Math., 152(4):769-824.
+[MF82] David Mumford and John Fogarty. Geometric invariant theory. Second edition. Ergebnisse der Mathematik
+und ihrer Grenzgebiete (2) 34, Springer-Verlag (1965/1982).
+[Mor79] Karl A. Morin-Strom. Witt’s Theorem for Modular Lattices. Amer. J. Math., 101(6):1181–92, 1979.
+[Oki20] Yasuhiro Oki, Notes on Rapoport–Zink spaces of Hodge type with parahoric level structure. arXiv e-prints,
+page arXiv:2012.07076, Dec 2020.
+[Ols16] A. M. Olsson Huber. Algebraic Spaces and Stacks. Jahresber. Dtsch. Math. Ver. 120, 143–146 (2018).
+[Rao93] R. Ranga Rao. On some explicit formulas in the theory of Weil representation. Pacific J. Math., 157(2)
+335-371, 1993.
+[Rap07] Michael Rapoport. Deformations of isogenies of formal groups. Astérisque, (312):139–169, 2007. in Argos
+Seminar on Intersections of Modular Correspondences.
+[RZ96] Michael Rapoport and Thomas Zink. Period Spaces for p-Divisible Groups. (AM-141). Princeton University
+Press, 1996.
+[SSY22] Siddarth Sankaran, Yousheng Shi, and Tonghai Yang. A genus two arithmetic Siegel-Weil formula on X0 pN q.
+arXiv e-prints, page arXiv:2206.05823, June 2022.
+[Ter11] Ulrich Terstiege. Intersections of arithmetic Hirzebruch–Zagier cycles. Math. Ann., 349:161–213, 2011.
+[Stacks Project] The Stacks Project Authors. Stacks Project, https://stacks.math.columbia.edu.
+[Wed07] Torsten Wedhorn. Calculation of representation densities. Astérisque, (312):179–190, 2007. in Argos Seminar
+on Intersections of Modular Correspondences.
+[Yn98] Tonghai Yang. An Explicit Formula for Local Densities of Quadratic Forms, J. Number Theory, 72:309-356,
+1998.
+[Zin01] Thomas Zink. Windows for displays of p-divisible groups. In: Moduli of Abelian Varieties (Text 1999), Prog.
+in Math., (195):491–518. Birkhäuser, Basel (2001).
+[Zin02] Thomas Zink. The display of a formal p-divisible group. In: Cohomologies p-Adiques et Application
+Arithmétiques I. Astérisque, (278):127–248. Soc. Math. France, Paris (2002)
+
+
