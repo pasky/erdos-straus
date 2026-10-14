@@ -12,6 +12,9 @@ None of the author's `pd_*` scripts were used or imported. **ES is not solved; n
 | Thm 2.1(a) k-wall Q₁ ≤ (16k³n+1)/(4k−1), sharpness families | SOUND |
 | Thm 2.1(b) / band √(Q₁/6n) ≤ k < Q₁²/2; "both slicings finite" | SOUND |
 | Consequence: is ES^{(y,1)} / ES^{[2]} a FINITE search? | NO — R200 M1 stands (see §2 below; wording m3) |
+| Prop 3.1(a) k = 1 slice of ES^{(y)} non-empty (gcd(n,15) = 1) | SOUND (hypothesis can be weakened to 3 ∤ n, m4) |
+| Prop 3.1(b), Cor 3.2 (k-direction dichotomy) | SOUND-AFTER-REPAIRS (ES^□ half of Cor 3.2 is unproved as written, M1) |
+| §3 EVIDENCE (pd_k1, pd_k1s) | SOUND — reproduced exactly from scratch |
 | (rest: in progress) | |
 
 ## Claim-by-claim
@@ -65,7 +68,46 @@ cofactor λ ≫ r^{1/4} besides Q₁), and Q₁ ≤ ((3n/8)r²)^{1/3}. This narr
 The document itself does not claim global finiteness (Verdict 6 says "a union of finite searches in both
 directions"), but the table cell "FINITE" and the ES row "OPEN (finite search, B2/B3)" can be misread (m3).
 
+### Prop 3.1(a) — SOUND (re-derived)
+k = 1 slice derived independently: g ≡ 3 (mod 4), g | 4n + Q₁², Q₀ := (g+1)/4, Q := Q₀Q₁ ⇒ 4Q₀ ≡ 1 (mod g) ⇒
+16Q₀²(n + 4Q²)... more simply 4(n + 4Q₀²Q₁²) ≡ 4n + Q₁² ≡ 0 (mod g), so g | n + 4Q²; gcd(Q, K) = Q₀, overflow Q₁, k = 1.
+Proof checked against the actual statements of UNIT_ORBIT Lemma 2.2 (needs gcd(a, M) = 1, a ≡ 3 (mod 4), a ≢ 1 mod every
+odd ℓ | M — so excluding the extra residue −1 at ℓ | n is indeed free) and FROBENIUS Thm 4.2(a) (Γ_r ⊆ (F_r^*)² from
+a ≡ −1 (mod s) and (r−1)/2 odd; index argument + UNIT_ORBIT Lemma 2.3 with k = 4). The changes relative to Thm 4.2 are
+correct: (−4n/r) = (−1/r)(n/r) = 1; the unique square root of −4n inside the odd-order group (F_r^*)² = Γ_r gives
+Q₁ ∈ ⟨S⟩ with non-negative exponents; ∏S | (r+1)/4 = Q₀; Q₀ prime to n because a_ℓ ≢ −1. The n ≡ 3 (mod 4) case
+needs (r/n) = +1 rather than −1 (reciprocity with both ≡ 3 mod 4) — the document's "this is a condition on the Jacobi
+symbol (r/n), adjusted at ℓ₀" covers both signs; correct. Residue counting outside {0, ±1}: ℓ ≡ 1 (4): (ℓ−5)/2
+residues, (ℓ−1)/2 non-residues; ℓ ≡ 3 (4): (ℓ−3)/2 each — correct; ℓ = 5 leaves only {2, 3} (non-residues), ℓ = 3
+leaves nothing. Ineffective (BV/Siegel–Walfisz), inherited — should be stated (m5).
+
+### Prop 3.1(b) — SOUND. Cor 3.2 — SOUND-AFTER-REPAIRS (M1)
+(b) is Thm 2.1(a) at k = 1 plus the verified family. Cor 3.2's fixed-Q₁ and fixed-k finiteness, and the ES^{(y)}
+infinitude (infinitely many sieved primes r, each giving a distinct g = r, g ≤ 2nQ₁²(n + Q₁²) ⇒ Q₁ → ∞), are correct.
+The ES^□ half ("for every odd NON-SQUARE n the k = 1 slice of ES^□ is INFINITE … (resp. Dirichlet)") has no proof
+in the document and the cited SYNTHESIS_SPARKS2 Prop 2.2 concerns the fixed-modulus orbit, not the k = 1 slice with
+the shot side condition gcd(Q₀, n) = 1. It is true, but needs the argument (see M1).
+
+### §3 EVIDENCE — SOUND (exact reproduction)
+`review_pd_k1.py cap 200000 13 17 29 37 97 101 9 25` (GNU `factor` batch, divisor enumeration, every shot re-verified
+as an exact solution with den z = Q₁², rad Q₁ | y; 7 s): e ≤ 1 counts 0 / 5 / 6 / 0 / 2 / 13 with maxima 91, 155, 79,
+431 — identical; e = 2 bit-length sets and maxima 185 761, 120 409, 152 881, 194 271, 165 649, 192 721 — identical;
+n = 9, 25 empty. The n = 13 cap-2 shot (Q₁ = 49, g = 223) confirmed. `review_pd_k1.py three 1000000 40` (9 min):
+least-a histogram over primes 5 ≤ p < 10⁶ identical to the document's (0: 59 504 … 21: 1, none unresolved), and
+the 332-square control has no hit for any a ≤ 40 (as T1 forces: 4m² + 9^a is a sum of two coprime squares).
+Labels (EVIDENCE; "infinitude heuristic only") are appropriate. Higher caps (3–11) also show hits up to 2·10⁵.
+
 ## Numbered defects
+
+**M1 (MAJOR) — Cor 3.2 / Verdict 3 / §6 table row ES^□: the ES^□ k = 1 infinitude is asserted, not proved.**
+Location: Cor 3.2 "(resp. Dirichlet)"; Verdict 3 "The k = 1 slice is infinite for ES^□ … (non-square n)". The shot
+convention needs gcd(Q₀, n) = 1, i.e. g ≢ −1 (mod ℓ) for ℓ | n, in addition to (−4n/g) = 1, and for ℓ = 3 | n the
+document's own Prop 3.1 shows the class constraints can collide. Repair (it is true; two lines): choose a prime
+g ≡ 3 (mod 4) by Dirichlet in a class mod 4·rad(n) with g ≢ 0, −1 (mod ℓ) for all ℓ | n and (n/g) = −1. Possible for
+every non-square n: at ℓ = 3 the only allowed class is g ≡ 1 (a residue), at ℓ = 5 both characters remain, so adjust
+the character at an odd-exponent prime ℓ₀ ≥ 5 if one exists; if 3 is the only odd-exponent prime then n = 3m² ≡ 3
+(mod 4) and the needed (g/n) = (g/3) = +1 is exactly g ≡ 1 (mod 3). Then −4n ≡ Q₁² (mod g) has a root, which can be
+taken odd and prime to n (CRT shift by multiples of g), and Q₀ = (g+1)/4 is prime to n. Write this in Cor 3.2.
 
 **m1 (MINOR) — §0 (Y2) notation and congruence.** "D = 7" there is the cofactor m = (n+4Q²)/g of §1, not the duality
 cofactor D of Prop 1.3 (for n = 13, Q = 25, g = 359: k = 18, D = (4k²n + Q₁²)/g = 47). Also the λ = 1, j = b = 1
@@ -76,6 +118,15 @@ conditions.
 **m2 (MINOR) — §1 / §2 check, den z = Q₁².** EXPONENT_CAP Prop 1.2 is stated for Q odd; Prop 1.1 and the checks use it
 for every Q (Q₀ may be even). True on every shot I tested, and the proof of Prop 1.2 does not use parity of Q₀, but
 say so. The qualifier "(when gcd(Q₀, n) = 1)" in the §2 check is vacuous under the shot convention gcd(Q, n) = 1.
+
+**m4 (MINOR) — Prop 3.1(a): hypothesis gcd(n, 15) = 1 can be weakened to 3 ∤ n.** At ℓ = 5 | n the forced class
+a₅ ∈ {2, 3} is a non-residue; if 5 has even exponent it does not affect the Jacobi symbol, if another odd-exponent
+ℓ₀ ≥ 7 exists adjust there, and if 5 is the only odd-exponent prime then n = 5m² ≡ 1 (mod 4) and the required
+(r/n) = −1 is exactly a₅ ∈ {2, 3}. Only ℓ = 3 is a genuine obstruction for this proof (then g ≡ 1 (mod 3) is forced,
+outside Lemma 2.2). Optional repair (the stated theorem is correct as is); update the † footnote of the §6 table.
+
+**m5 (MINOR) — Prop 3.1(a), Cor 3.2: say "ineffective"** (inherited from BV/Siegel–Walfisz, as UNIT_ORBIT Thm 2.4 and
+FROBENIUS Thm 4.2 state).
 
 **m3 (MINOR) — §6 table / Verdict 2.** "k-slices FINITE" for ES^{[2]} and "OPEN (finite search, B2/B3)" for ES: add
 "(each slice; the cell is an infinite union of slices — Thm 2.1 gives no bound on g in terms of n; R200 M1's
