@@ -40,3 +40,38 @@ Corollaries 1.3 (8 | ee′ ⟺ some q_i ≡ 0 (4), since both even letters have 
 is exactly N = 1 (5 words; 1 is an odd square), which the author's control evidently excludes; all 8 073 have
 ee′ ≡ 4 (8). Not a defect beyond wording.
 **Verdict: SOUND.** The proof is complete, elementary and self-contained (no Dedekind sums, no cell enumeration).
+
+## Claim 2′ — novelty of Thm 1.2 (D1)
+FRIEZE_ES §1 Remark / §6 and memo y2_even_edge say Thm 1.2 "extends [DK Thm 4.5] to formal words and to N ≡ 3 (4)".
+But MODEL_SPECIFIC Thm 3.1(a) ((J)32, on main) already states, for *every word incl. boundary words and every odd n*:
+"a word lies in S₄ ⟺ χ(w) = −1", χ = (−A/n) = (−h′/N), S₄ = "some cluster variable ≡ 0 (mod 4)" — and notes "for
+n ≡ 3 mod 4 it is new in this form". Since (−h′/N) = (−1/N)(h′/N), Thm 1.2 ⟺ "χ = −1 ⟺ 8 | ee′" ⟺ (by Lemma 1.1)
+MODEL_SPECIFIC 3.1(a). So the *statement* of the extension is not new; CHI_FLIP Cor 1.2 (R198 repair) also gives a
+self-contained proof of the same cell law. What IS new: (i) Lemma 1.1 (mod-2 rigidity, the even edge as a locating
+device); (ii) a short computation-free proof of MS 3.1(a), avoiding DK Cor 4.1 (Hirzebruch–Zagier + Rademacher) and
+any 512/320-cell enumeration. **Verdict: GAP (overclaim of novelty), repairable by rewording.**
+
+## Claim 3 — transport law §2 (re-derived)
+With o = q_{i+3} for the even edge (q_i, q_{i+1}) — o = h for {c,m}, h′ for {m,s}, s for {h′,c}, c for {s,h}, m for {h,h′}:
+* Case A: (h′/N) = −(−1/N)(c/h), and (c/h) = (2/h)^a = (2/h) always (if a ≥ 2 then h ≡ 7 (8)). So
+  (h′/N) = −(−1/N)(2/o) with o = h ✓ (mirror: o = h′).
+* Case B: (h′/N) = (2/(Ns))^b(−1/s) = −(−1/N)(2/N)(2/s)·(2/(Ns))^{b−1}; if b ≥ 2 then 8 | h′c and Ns ≡ 7 (8), so the
+  last factor is 1 and (h′/N) = −(−2/N)(2/o), o = s ✓. Case C identical with o = m ✓.
+* N ≡ 1 (8) ⇒ (−1/N) = (−2/N) = 1 ⇒ (h′/N) = −(2/o) ✓.
+My derivation (above) is cleaner than the memo's one-line "proof" (which compares (2/o) with (2/−στ⁻¹) without
+defining σ, τ); suggest replacing it (D3). CERTIFIED independently: the full two-branch law (all N mod 8) holds on all
+5 115 860 words N ≤ 10⁵ and 10⁶ random words (`review_r208_even_edge.py`, check TR/TR8; 0 failures).
+Caveat (Assessment wording, D4): o is not "small" in general (o = h or h′ can be ≍ N); and given N mod 8, (2/o) is
+simply a rewriting of v₂(ee′) through one Ptolemy relation, so "the character of N is carried by the character of 2 at
+o" is a reformulation of Thm 1.2, not extra information. **Verdict: SOUND** (as a corollary of Thm 1.2).
+
+## Claim 4 — 2-adic Bruhat–Tits "cherry depth" reading
+For primitive u, v ∈ ℤ², v₂(det(u, v)) = max{k : u ≡ λv (mod 2^k), λ ∈ ℤ₂^×} = Gromov product of the ends [u], [v]
+at v₀ = [ℤ₂²] (standard; Serre, *Trees* II.1 — from memory). The five V_i of LENGTH_THREE Prop 1.1 are primitive
+(gcd(h,m) = gcd(N,h′) = 1). The quiddity at V_j is λ_{j−1,j+1}, so q_j even ⟺ V_{j−1}, V_{j+1} leave v₀ along the
+same edge. Sides odd ⇒ adjacent ends leave along different edges; Lemma 1.1 gives the colour pattern (a,b,a,b,c) on
+(V_{i−1},…,V_{i+3}) with a, b, c the three distinct neighbours, hence two cherries of depths v₂(q_i), v₂(q_{i+1}) and
+a lone end V_{i+3} = the vertex carrying o ✓. "Sign ⟺ depth sum ≥ 3" and "T1 ⟺ depths (1,1)" are correct
+restatements of Thm 1.2 / Cor 1.4; "depth ≥ 2 ⟺ the two ends agree mod 4 up to sign" ✓ (units mod 4 are ±1).
+Small point: the depth-1 (k = 1) colour argument needs only that the three classes of P¹(F₂) are distinct, ✓.
+**Verdict: SOUND** (a correct restatement; no new content beyond Thm 1.2).
