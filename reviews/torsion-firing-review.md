@@ -99,6 +99,24 @@ immediate: α_{t₀}/β_{t₀} (needs Q(t₀) ≠ 0 — implicit, MINOR) is a pr
 this definitional statement; the claim that every deterministic coupling of primitive divisors to the shot is
 either this or a lottery is (correctly) labelled Assessment.
 
+### §4.1 (3361 unique without prime-modulus Type II certificate) — SOUND, independently REPRODUCED and EXTENDED to 10⁸
+
+Definition used (checked against the text and FMS Lemma 1.1): a Type II solution 4/p = 1/x + 1/(py′) + 1/(pz′),
+p ∤ x, is a certificate of modulus h = 4y′ − 1 for the ordering (y′, z′); "prime-modulus certificate" = some
+solution and some ordering with 4y′ − 1 prime. Same definition in my code.
+From scratch (`scripts/review_tf_primemod.c`; stage 1 = sieve on the (c, d)-form h | p + 4c²d, 4cd | h + 1 — not the
+author's c/j-form; stage 2 = direct enumeration of ALL Type II solutions over x ∈ [⌈(p+1)/4⌉, (p−1)/2] (includes
+x = (p+1)/4, the case the author's first version skipped) and y′ ∈ (x/e, 2x/e], deterministic 64-bit Miller–Rabin):
+* validation `check 20000`: for all 2260 primes 5 ≤ p ≤ 2·10⁴, direct enumeration vs sieve with the FULL range
+  H0 = (P+1)(P+5)/4: 0 mismatches; only 3361 lacks a prime-modulus certificate.
+* `run 2·10⁶ 10⁵`, `run 10⁷ 10⁵`, `run 10⁸ 10⁵ 40`: after stage 1 with h ≤ 10⁵ the ONLY unmarked prime ≤ 10⁸ is 3361;
+  stage 2 confirms it has none. Spot check: the 40 largest marked primes below 10⁸ re-enumerated directly: all have
+  a prime-modulus certificate. So the claim holds to 10⁸ (author: 10⁷). Runtime: 18 s.
+* `list 3361`: exactly 2 unordered solutions, (x, y′, z′) = (850, 25, 170) and (841, 290, 8410), moduli
+  {99, 679} and {1159, 33639} — exactly the author's list. Factorisations 3²·11, 7·97, 19·61, 3·11213 confirmed.
+* torsion-side bullet: with h ≤ 20000 only 3361 is unmarked among the 78 496 primes 5 ≤ p ≤ 10⁶ (matches); up to
+  10⁸ eleven primes need h > 20000 (e.g. 89802703, 93896401), all but 3361 have one.
+
 ## Defects
 
 D1 (MINOR, §1 Lemma 1.1 vs Prop 1.2). Lemma 1.1 is stated for h ≥ 5, but Prop 1.2 (and Prop 5.1) quantify over
@@ -152,3 +170,7 @@ Prop 3.3 to "m | ord(Q mod 𝔥) for all degree-1 primes 𝔥 outside a finite s
 (e.g. an ℓ-adic Kummer/Chebotarev density argument for ℓ | m showing that the primes with v_ℓ(ord(Q mod 𝔥)) <
 v_ℓ(m) have positive density among degree-1 primes when Q is non-torsion; true in many cases but not proved here).
 Also state explicitly the hidden hypothesis that E_{b₀} is non-singular and R_{b₀} defined (t₀ not a bad fibre).
+
+D6 (MINOR, §4.1 bullet 1). "679 and 1159 have a prime factor ≡ 1 (mod 4)" — so does 33639 = 3·11213
+(11213 ≡ 1 mod 4); only 99 = 3²·11 is built from primes ≡ 3 (mod 4). Repair: "three of the four moduli (all but 99)
+have a prime factor ≡ 1 (mod 4)".
