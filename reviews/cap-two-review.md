@@ -9,7 +9,20 @@ Repairs applied: (none yet — filled in at the end if the author is quiet).
 | Claim | Verdict |
 |---|---|
 | Thm 1.1 (k = 1 cap-2 shots ⟺ W_n, c odd) | SOUND-AFTER-REPAIRS (m1: Q₁ odd must be a hypothesis) |
-| Thm 1.2 (one equation, two cells; fibre picture) | (in progress) |
+| Thm 1.2 (one equation, two cells; fibre picture) | SOUND-AFTER-REPAIRS (m1(b) false "other solutions" bullet; m6 halves overlap as shot sets; m7 fibre picture is a necessary condition) |
+| Prop 2.1 (a)(b)(c) (slices finite, orbits infinite) | SOUND |
+| §2 Reading "O204 contrast is a slicing effect" (Assessment) | SOUND-AFTER-REPAIRS (m6: wording) |
+| Thm 4.1 (D-face, (i)(ii)(iii)) | SOUND |
+| Thm 4.1 Example (c, w) = (1, 1) | SOUND-AFTER-REPAIRS (m2: missing gcd(a, n) = 1) |
+| Prop 5.1 (finite exponent-2 budget ⇒ finite slice) | SOUND (m4: stale citation in (c)) |
+| §6 no polynomial families (MARKOFF Thm 5.1 transfer) | SOUND (transfer is verbatim after μ ↦ x/2, N(η) = 4n) |
+| §6 fibre EVIDENCE + Assessment | SOUND-AFTER-REPAIRS (m5: "positive proportion" overclaim) |
+| §3 EVIDENCE (coverage of primes < 10⁶) | SOUND-AFTER-REPAIRS (m3: 13 402 → 13 401; "need exponent 2" overstated) |
+| T1 location | SOUND |
+| §7 verdict "ES^{(y,2)} at k = 1 not easier than ES^{[2]}" | SOUND as Assessment (correctly labelled; not PROVED) |
+
+No FATAL, no MAJOR defect found. All PROVED algebra re-derived by hand and brute-forced; all numerical claims I
+re-ran agree exactly except one count (m3) explained by tie-breaking.
 
 ## Checks performed
 
