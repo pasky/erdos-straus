@@ -16,6 +16,7 @@ None of the author's `pd_*` scripts were used or imported. **ES is not solved; n
 | Prop 3.1(b), Cor 3.2 (k-direction dichotomy) | SOUND-AFTER-REPAIRS (ES^□ half of Cor 3.2 is unproved as written, M1) |
 | §3 EVIDENCE (pd_k1, pd_k1s) | SOUND — reproduced exactly from scratch |
 | Prop 4.1 (one axis, θ = 1/(2e+2)) | SOUND (algebra); θ-reading and citations SOUND-AFTER-REPAIRS (m6, m7) |
+| Thm 5.1 (ES^{(y,e)}, e ≤ y^{(2+o(1))log₃y/(A log₂y)}) | SOUND-AFTER-REPAIRS (quantifier form M2; m8, m9) |
 | (rest: in progress) | |
 
 ## Claim-by-claim
@@ -117,6 +118,44 @@ neither says anything about existence, and neither applies at θ = 1/4 exactly (
 no α > 0 margin; the document says so). For θ < 1/4 no bound is KNOWN (Lenstra's open question) — "no O(1) bound"
 in the §4 table should read "no bound known".
 
+### Thm 5.1 — SOUND-AFTER-REPAIRS (the mathematics is right; the statement's quantifiers are not, M2)
+Checked line by line.
+* *Choice of S for a single n.* n is fixed; x → ∞ is the free variable; S = S(x, n) = first k odd primes ∤ n with
+  P ≤ (log x)^A, so log P = A log₂x − O(log n + log₂x/… ) and k = π(≈A log₂x) − O_n(1) ~ A log₂x/log₃x (A fixed) ✓.
+  The class a mod M = 4 rad(n)P is UNIT_ORBIT Thm 2.4's (ℓ₀ ≥ 5 of odd exponent exists for n ≡ 1 (4) non-square)
+  plus a ≡ −1 (mod s) — admissible for Lemma 2.2's conditions (gcd(a, M) = 1, a ≡ 3 (4), a ≢ 1 mod odd ℓ | M) ✓.
+* *Step 1 (sieve uniform in M).* Main term: #{r ∈ (x/2, x] : r ≡ a (M), r ≡ 1 (d)} has expectation X/φ(d),
+  X = (π(x) − π(x/2))/φ(M), gcd(d, M) = 1, g(ℓ) = 1/(ℓ−1) — dimension-1 axiom with an absolute constant (ℓ = 2 | M is
+  never sifted, so g(ℓ) < 1 throughout); V(z) ≥ ∏_{3 ≤ ℓ < z}(1 − 1/(ℓ−1)) ≍ 1/log z with an absolute constant ✓.
+  Remainders: distinct squarefree d ⇒ distinct moduli Md ≤ MD = x^{1/2}/log^β x, and |r_d| ≤ |E(x; Md, c)| +
+  |E(x/2; Md, c)| is bounded by BV's max-over-classes sum over ALL q ≤ x^{1/2}/log^β x — uniform in M, since M only
+  enters through which q are summed ✓. log D = (½ − o(1)) log x because log M = O(A log₂x), so s → 2/(1 − 4ε) and
+  f(s) > 0 ✓. Lower bound ≫ x/(φ(M) log²x) ≥ x/(4n log^{A+2}x) ≥ x/log^{A+3}x for x ≥ x₀(n, A) ✓; BV error
+  x/log^{2A+10}x is negligible ✓. **Exceptional characters/Siegel zeros:** no issue — BV is unconditional over the
+  full range q ≤ x^{1/2}/log^β x (small q via Siegel–Walfisz), at the price of ineffectivity, which is declared ✓.
+  The reason P cannot exceed (log x)^{O(1)} is that BV saves only powers of log against the main term x/(φ(M)log²x)
+  (Remark (1) attributes it to "Siegel–Walfisz range"; essentially the same thing) ✓. "PROVED relative to BV and
+  Iwaniec's linear sieve": both are theorems; the label is conservative, fine.
+* *Step 2.* Γ_r ⊆ (F_r^*)² (a ≡ −1 (s), (r−1)/2 odd) ✓; nontrivial index ≥ z ✓. Collision count: (B'+1)^k > Y,
+  log|N_c| ≤ B' log P, ≤ B' log P/log(x/2) prime factors > x/2 (author's B' log P + 1 is weaker, fine);
+  (2B'+1)^k ≤ 5^kY, total ≤ 6^kY^{1+1/k}·2 log P ✓; 6^k = (log x)^{O(A/log₃x)}, Y^{1+1/k} ≤ x^{15/16+5ε/4} ✓ o(x/log^{A+3}x).
+* *Step 3.* ℤ^k/Λ_r ≅ (F_r^*)² (image of c ↦ ∏s_i^{2c_i} is Γ_r² = Γ_r, odd order) ✓; λ₁ ≤ B ⇒ r | N_{2c} ✓;
+  (2B+1)^k(2B log P + 1) ≤ (3B)^{k+1} log P ✓; with the chosen B, (3B)^{k+1} ≤ x/log^{A+5}x ✓, B ≥ 1 for large x ✓.
+* *Step 4.* Minkowski II for the sup-norm cube (volume 2^k): λ₁⋯λ_k ≤ det Λ_r = (r−1)/2 < x ✓; λ_k < x/B^{k−1} ✓;
+  covering radius ≤ ½Σλ_i ≤ kλ_k ✓. "Q := ∏s_i^{a_i+L} with exponents in [0, 2L] satisfies Q² ≡ −n/4" is true only
+  if a represents the class of (−n/4)·∏s_i^{−2L} (as EXPONENT_CAP Thm 3.2 says explicitly), not of −n/4 (m9).
+  (−n/4 | r) = (−1/r)(n/r) = 1 ✓. UNIT_ORBIT Prop 2.1: v_s(z) = 2σ − 2c when σ = v_s(r+1) < 2c, so the cap is
+  c − σ < 2L ✓, s | (r+1)/4 | y ✓, primes of S ∤ 2n ✓.
+* *Final arithmetic.* B ≥ x^{1/(k+1)}/(6 log^{(A+5)/(k+1)}x) for large x ✓ ⇒ 2L ≤ 2k·6^{k−1}log^{A+5}x·x^{2/(k+1)} ✓;
+  2/(k+1) = (2 + o(1)) log₃x/(A log₂x) ✓; the prefactor exp(O(A log₂x)) is lower order ✓; y ∈ [nx/8, n(x+1)/4] ✓.
+  `review_pd_thm51.py` re-does the two inequalities and the exponent in logarithms for log x up to 10³⁰⁰ (n = 17,
+  A ∈ {1, 3, 10}): log(2L)/log x equals 2/(k+1) to 3 digits once log x ≥ 10¹⁰ and approaches 2 log₃x/(A log₂x)
+  extremely slowly (A = 1: k = 3 at log x = 10³ — Step 2's k ≥ 4 fails there; k = 127 at log x = 10³⁰⁰). Purely
+  asymptotic, as stated.
+* *Squares / n ≡ 3 (4).* n ≡ 3 (4): e = 0 ✓. Squares: run the argument at a prime p | m with S chosen prime to n
+  (the proof allows any S prime to the input, so choose S ∤ n), scale by n/p: the mute primes stay ∤ 2n and | y; the
+  bound y^{f(y)} is increasing for large y ✓.
+
 ## Numbered defects
 
 **M1 (MAJOR) — Cor 3.2 / Verdict 3 / §6 table row ES^□: the ES^□ k = 1 infinitude is asserted, not proved.**
@@ -128,6 +167,15 @@ every non-square n: at ℓ = 3 the only allowed class is g ≡ 1 (a residue), at
 the character at an odd-exponent prime ℓ₀ ≥ 5 if one exists; if 3 is the only odd-exponent prime then n = 3m² ≡ 3
 (mod 4) and the needed (g/n) = (g/3) = +1 is exactly g ≡ 1 (mod 3). Then −4n ≡ Q₁² (mod g) has a root, which can be
 taken odd and prime to n (CRT shift by multiples of g), and Q₀ = (g+1)/4 is prime to n. Write this in Cor 3.2.
+
+**M2 (MAJOR, quantifier) — Thm 5.1 statement.** "For every A ≥ 1 and every odd n > 1, ES^{(y,e)}(n) has a
+solution with e ≤ y^{(2+o(1))·log₃y/(A·log₂y)} (o(1) as y → ∞ for fixed n, A)": an o(1) attached to ONE solution's y
+is vacuous (every solution satisfies e ≤ y^{c} for some c). What the proof gives is a family: **for every A ≥ 1,
+η > 0 and odd n > 1 there is x₀(n, A, η) (ineffective) such that for every x ≥ x₀ there is a solution of
+ES^{(y,e)}(n) with x/8 ≤ y ≤ nx and e ≤ y^{(2+η)log₃y/(A log₂y)}** (for n ≡ 3 (4) and squares: modify the y-window
+accordingly). Same fix in §6 table row "cap e(y) = y^{o(1)}" and Verdict 5. The "In particular" ε-form (single
+solution, explicit exponent) is meaningful and correct as stated. This is a statement-level defect; the proof
+supports the repaired form.
 
 **m1 (MINOR) — §0 (Y2) notation and congruence.** "D = 7" there is the cofactor m = (n+4Q²)/g of §1, not the duality
 cofactor D of Prop 1.3 (for n = 13, Q = 25, g = 359: k = 18, D = (4k²n + Q₁²)/g = 47). Also the λ = 1, j = b = 1
@@ -155,6 +203,13 @@ threshold α > 1/4"; "below it no bound is known (Lenstra's question)". Also say
 (the document's Scope says 1/(2e)); for e = 0, M = 4kλ ranges up to g ≤ N₀, θ ∈ [½, 1). So the §6 table's θ column
 (1/4 for ES^{[2]}, 1/2 for ES) is the minimum over the pure-power family, not an invariant. Repair: label the
 column "θ_min of the Prop 4.1 family (bounded λ)" and add gcd(λ, n) = 1 to the displayed "⟸" of Prop 4.1.
+
+**m8 (MINOR) — Thm 5.1 statement vs reach of A.** "for every ε > 0 there is a solution with e ≤ y^{ε·log₃y/log₂y}"
+follows (A > 3/ε). Optional: note the absurdly slow onset (A = 1 needs log x ≳ 10⁴ even to get k ≥ 4,
+`review_pd_thm51.py`), so the "pushed proved side" is a statement about astronomically large certifying primes.
+
+**m9 (MINOR) — Thm 5.1 Step 4: the shift.** Say "let a represent the class of (−n/4)·∏s_i^{−2L}"; as written
+("Q := ∏ s_i^{a_i+L} … satisfies Q² ≡ −n/4") it is false for a representing −n/4.
 
 **m5 (MINOR) — Prop 3.1(a), Cor 3.2: say "ineffective"** (inherited from BV/Siegel–Walfisz, as UNIT_ORBIT Thm 2.4 and
 FROBENIUS Thm 4.2 state).
