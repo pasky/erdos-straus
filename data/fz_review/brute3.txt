@@ -1,14 +1,15 @@
-p=3 s=3: tuples(a<=b)=0 patterns=0
-p=3 s=4: tuples(a<=b)=2 patterns=1
-p=3 s=5: tuples(a<=b)=2 patterns=1
-p=3 s=6: tuples(a<=b)=6 patterns=3
-p=3 s=7: tuples(a<=b)=4 patterns=2
-p=3 s=8: tuples(a<=b)=8 patterns=3
-p=3 s=9: tuples(a<=b)=2 patterns=1
-p=3 s=10: tuples(a<=b)=18 patterns=7
-p=3 s=11: tuples(a<=b)=6 patterns=3
-p=3 s=12: tuples(a<=b)=10 patterns=5
-p=3 s=13: tuples(a<=b)=18 patterns=9
-p=3 s=14: tuples(a<=b)=74 patterns=21
-p=3 s=15: tuples(a<=b)=24 patterns=12
-p=3 s=16: tuples(a<=b)=22 patterns=11
+p=3 s=3: tuples(a<=b)=0 patterns=0 cumulative route violations=0
+p=3 s=4: tuples(a<=b)=2 patterns=1 cumulative route violations=0
+p=3 s=5: tuples(a<=b)=2 patterns=1 cumulative route violations=0
+p=3 s=6: tuples(a<=b)=6 patterns=3 cumulative route violations=0
+p=3 s=7: tuples(a<=b)=4 patterns=2 cumulative route violations=0
+p=3 s=8: tuples(a<=b)=8 patterns=3 cumulative route violations=0
+p=3 s=9: tuples(a<=b)=2 patterns=1 cumulative route violations=0
+p=3 s=10: tuples(a<=b)=18 patterns=7 cumulative route violations=0
+p=3 s=11: tuples(a<=b)=6 patterns=3 cumulative route violations=0
+p=3 s=12: tuples(a<=b)=10 patterns=5 cumulative route violations=0
+p=3 s=13: tuples(a<=b)=18 patterns=9 cumulative route violations=0
+p=3 s=14: tuples(a<=b)=74 patterns=21 cumulative route violations=0
+p=3 s=15: tuples(a<=b)=24 patterns=12 cumulative route violations=0
+p=3 SMAX=15: total tuples(all orders)=274, Lemma 1.1 division checks=2125736, route violations=0
+max count/route per route: {'D1': 1.0, 'D1c': 0.5, 'D2': 1.0, 'D3': 1.0, 'R1': 1.0, 'R10a': 0.5, "R10a'tau": 0.25, 'R10ar': 0.5, 'R10b': 0.5, 'R2': 0.333, 'R2r': 0.333, 'R3': 1.0, 'R3C': 1.0, 'R3Cr': 1.0, 'R3r': 1.0, 'R4': 1.0, "R4'": 1.0, "R4''": 1.0, 'R4C': 1.0, 'R4Cr': 1.0, 'R4r': 1.0, 'R5a': 1.0, 'R5ar': 1.0, 'R5b': 1.0, 'R5br': 1.0, 'R6a': 1.0, 'R6b': 1.0, 'R8a': 1.0, 'R8b': 1.0, 'R9a': 1.0, 'T0': 1.0, 'X1': 1.0, "X1'": 1.0, 'X2': 1.0, "X2'": 1.0}

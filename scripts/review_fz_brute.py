@@ -85,6 +85,6 @@ for s in range(3, SMAX + 1):
                 viol += 1
                 print("VIOLATION", p, s, (a, z, y, t), name, n, bd, flush=True)
             worst[name] = max(worst[name], n / bd)
-    print(f"p={p} s={s}: tuples(a<=b)={sum(cnt.values())} patterns={len(cnt)}", flush=True)
+    print(f"p={p} s={s}: tuples(a<=b)={sum(cnt.values())} patterns={len(cnt)} cumulative route violations={viol}", flush=True)
 print(f"p={p} SMAX={SMAX}: total tuples(all orders)={ntup}, Lemma 1.1 division checks={nl11}, route violations={viol}")
 print("max count/route per route:", {k: round(v, 3) for k, v in sorted(worst.items())})

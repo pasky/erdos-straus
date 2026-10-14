@@ -29,8 +29,8 @@ No FATAL, no MAJOR defects.
 gives remainder −v₁ and quotient m'w₁C₁/D. The three sufficient conditions are right: deg m' = z, deg w₁ = a − 1, and
 deg C₁ = b − 1 = y + t − 1 ≥ t − 1 > t − 2 (Lemma 1.1(ii) of FF_STERILE_PUSH, y + t = max(a, b)). No hidden hypothesis
 (T^{s−2} + v₁ is monic of degree s − 2 since t < s). *Check:* `review_fz_brute.py` asserts, for every v₁ enumerated
-(q = 3, s ≤ 15; q = 5, s ≤ 12; q = 7, s ≤ 10) and EVERY monic divisor D of T^{s−2} + v₁ with deg D > deg v₁, that
-−(T^{s−2} mod D) = v₁ and that the quotient times D is T^{s−2} + v₁ (2.2·10⁶ divisions at q = 7 alone), and for every
+(q = 3, s ≤ 15; q = 5, s ≤ 11; q = 7, s ≤ 10) and EVERY monic divisor D of T^{s−2} + v₁ with deg D > deg v₁, that
+−(T^{s−2} mod D) = v₁ and that the quotient times D is T^{s−2} + v₁ (2.1·10⁶, 1.2·10⁶, 2.2·10⁶ divisions at q = 3, 5, 7), and for every
 tuple that the larger of w₁, C₁ qualifies. 0 failures.
 
 **Lemma 1.2.** Each row = an O216 row (R9a, R10a, R5a, R5b) with the N*(t − 2) choices of v₁ replaced by the single v₁
@@ -61,7 +61,7 @@ counts only with the *minimum* over routes, so an invalid route that never attai
 unnoticed. `review_fz_brute.py` (own enumerator: v₁, then all ordered factorisations of T^{s−2} + v₁; agrees with R218's
 independent `review_fs2_brute.py` tuple counts for q = 3, s ≤ 10) compares every pattern count with EVERY route of
 `review_fz_bounds.py` separately (old rows, Lemma 1.4-refined rows R2r…R10ar, D1, D1c, D2, D3, X1', X2', R4'', and the
-undocumented τ-bound route of m-2): q = 3 (s ≤ 15), q = 5 (s ≤ 12), q = 7 (s ≤ 10): **0 violations**; several new routes
+undocumented τ-bound route of m-2): q = 3 (s ≤ 15; s = 16 also run, 0 violations, log `brute3_s16_killed.txt`), q = 5 (s ≤ 11), q = 7 (s ≤ 10): **0 violations**; several new routes
 are attained with equality (D1, D2, D3, R4'', X2': max count/route = 1.000 at q = 3).
 
 ## 2. Lemma 2.1 (Case A tail)
@@ -202,7 +202,7 @@ R220's independent certificate without them gives ≤ 3.056)".
 
 **m-5 (MINOR; §1 Check paragraph).** `fz_check_bounds.c` compares exact counts with the minimum over routes only; an
 invalid route that is never the argmin on small cases would pass. *Repair:* cite R220's per-route check
-(`review_fz_brute.py`: every route separately, q = 3 s ≤ 15, q = 5 s ≤ 12, q = 7 s ≤ 10, 0 violations).
+(`review_fz_brute.py`: every route separately, q = 3 s ≤ 15, q = 5 s ≤ 11, q = 7 s ≤ 10, 0 violations).
 
 **m-6 (MINOR; §4 q = 9, tail remark).** "terms 10⁻⁶ at s = 80, so the tail is negligible" holds only with Lemma 4.1 in the
 routes (without: term 0.118 at s = 80, sum to 80 = 79.95) and is not certified (no q = 9 tail run). *Repair:* "(with
