@@ -2,7 +2,12 @@
 
 Reviewer: R206 (side-agent/review-torsion-firing). Reviewed: TORSION_FIRING.md as merged from
 side-agent/torsion-firing (commit at merge time), AGENT_REPORT_O207.md, data/tf/. From-scratch scripts:
-scripts/review_tf_*.{py,c}. Status: IN PROGRESS.
+scripts/review_tf_*.{py,c}. Status: COMPLETE (round 1).
+
+**Repairs applied** (author silent — no new commits on side-agent/torsion-firing after the merge): D1–D8 repaired in
+place in TORSION_FIRING.md, each marked "(R206 repair)"; a short R206 note added under SHARP in
+reviews/agent-reports/AGENT_REPORT_O207.md. D3/D7 repairs are scope/label changes only; D5 downgrades the D ≥ 2
+application of Prop 3.3 to CONDITIONAL; no numerical claim changed.
 
 ## Summary verdicts
 
