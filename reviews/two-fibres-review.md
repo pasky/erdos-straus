@@ -154,9 +154,12 @@ t = 11 (at p = 14 281) ✓.
 ### R1, R3 (y1_reciprocal_parity) — R1 SOUND; R3 GAP in label (D12)
 R1: u = v ⇒ n = u(tu − 2) ⇒ u ∈ {1, p} ⇒ (p + 2, 1, 1) or (p = 3) (1, 3, 3) ✓; χ(t, u, v)χ(t, v, u) = (AA*/n) =
 ((tn + 1)/n) = 1 ✓; parity verified to 10⁶ (above). (p + 2, 1, 1) trace = (p + 2) − (p + 4) = −2 ✓ parabolic.
-R3 ("rotation changes n except on a thin set, … does not act on X_p with a fixed sign") is a qualitative remark with no
-precise statement or proof; it should be Assessment (or stated precisely: rotation (t, u, v) ↦ (u, v, t) preserves n iff
-(t − u)(…)=0, …).
+R3 ("rotation changes n except on a thin set, and rotation flips χ on whole cells, so it does not act on X_p with a fixed
+sign") is imprecise and its reason is off target. Precisely: the rotation (t, u, v) ↦ (u, v, t) changes n by u − t, so it
+preserves n iff u = t, and then (t, t, v) ↦ (t, v, t) **is the reversal** of R1 (likewise (t, u, v) ↦ (v, t, u) needs v = t and
+gives (t, u, t) ↦ (t, t, u), again the reversal). So on X_p the rotation is not a new symmetry and *preserves* χ there; the
+"flips χ on cells" remark concerns n-changing rotations and is irrelevant to X_p. Suggested repair: state R3 as this one-line
+fact (PROVED, trivial) or drop it.
 
 ### Cerednik–Drinfeld reading (y1_cerednik_swap, TWO_FIBRES §1 "Reading") — Assessment label correct; internal count inconsistency (D13)
 The memo says the χ = +1 side has "≈ (p + 1)/12 edges = P¹(𝔽_p)/A₄", while Prop A2 (and my count) give ≈ (p + 1)/24
