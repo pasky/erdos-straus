@@ -101,6 +101,12 @@ den z = Q₁², rad Q₁ | y).** k = 1 shots with Q₁ ≤ 2·10⁵:
 * e = 2, non-squarefree Q₁ (beyond ES^{(y,1)}): hits in every dyadic range up to the search limit, 1–7 per octave,
   max Q₁ = 185 761, 120 409, 152 881, 194 271, 165 649, 192 721 for n = 13, 17, 29, 37, 97, 101 — no sign of a wall,
   and n = 13, 37 (no e ≤ 1 shot at k = 1) have e = 2 shots. T1: n = 9, 25: no shot on any rung.
+**EVIDENCE for Prop 3.1(a) with ONE mute prime (`scripts/pd_k1s.py 1000000 40`, GNU factor, exact rationals).**
+For every prime 5 ≤ p < 10⁶ there is a ≤ 21 such that 4p + 9^a has a divisor g ≡ −1 (mod 12) (a = 0: g ≡ 3 mod 4),
+i.e. a k = 1 ES^{(y)} shot with Q₁ = 3^a, den z = 9^a, 3 | y. Least-a histogram: 0: 59 504, 1: 6 911, 2: 4 726,
+3: 2 548, 4: 2 040, 5: 799, 6: 524, 7: 426, 8: 339, 9: 236, 10: 183, 11: 91, 12: 66, 13: 43, 14: 25, 15: 17, 16: 10,
+17: 4, 18: 1, 19: 2, 21: 1. T1 control: none of the 332 odd squares m² < 10⁶ (3 ∤ m) has one (sum of two coprime
+squares). On the k = 1 slice the overflow exponent is exactly a, so this is also the least cap there.
 *Reading (Assessment).* Inside the single slice k = 1 the cap ladder shows every phase: fixed modulus (proved,
 Dirichlet/sieve), moving modulus ≥ 4√Q₁ ≈ (4n + Q₁²)^{1/4} with no archimedean bound (e = 2: an infinite lottery
 at the Lenstra–Coppersmith threshold, roughly constant hit-rate per octave, i.e. a log-divergent lottery), moving
