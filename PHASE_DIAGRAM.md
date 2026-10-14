@@ -236,7 +236,8 @@ Q := ∏ s_i^{a_i+L} has exponents in [0, 2L] and satisfies Q² ≡ −n/4 (mod 
 (s_i | (r+1)/4 | y, Type II shape at every prime of n) with overflow exponents ≤ v_s(Q) ≤ 2L. Finally
 2L ≤ 2k·x/B^{k−1} ≤ 2k·6^{k}·log^{A+5}x·x^{2/(k+1)} (using B ≥ x^{1/(k+1)}/(6 log^{(A+5)/(k+1)}x)) =
 x^{(2+o(1))log₃x/(A log₂x)}, because 6^k log^{A+5}x =
-exp(O(A log₂x)) is of lower order; and y = n(r+1)/4 ≥ x/8. ∎
+exp(O(A log₂x)) is of lower order; and x/8 ≤ y = n(r+1)/4 ≤ nx, so log₃y/log₂y = (1 + o(1))log₃x/log₂x and for
+x ≥ x₀(n, A, η) the bound is ≤ y^{(2+η)log₃y/(A log₂y)}. ∎
 *Remarks.* (1) The only change from Thm 3.2 is that S grows with x, which Bombieri–Vinogradov tolerates up to
 P = (log x)^A because its error term saves an arbitrary power of log (not more: Siegel–Walfisz range). (2) Allowing
 P up to exp(c√log x) (Gallagher's prime number theorem for moduli without exceptional zero, provided the exceptional
@@ -247,40 +248,47 @@ pure hitting problem for the arguments analysed (§4: θ_e = 1/(2e+2) > 0).
 
 ## 6. The phase diagram (cells, status, the wall that bounds each)
 
-Columns: k-direction (fixed k: finite?), Q₁-direction (fixed Q₁: finite? — always yes, EXPONENT_CAP Thm 2.1), the
-divisor modulus exponent θ of §4, and the status for every odd n.
-`  variant (mute condition on den z = Q₁²)      k-slices     θ            status`
-`  ES^□       none                              k=1 infinite  0 (mod 4)    PROVED (Dirichlet; SYNTHESIS_SPARKS2 2.2)`
-`  ES^{(S)}   rad Q₁ ⊆ S fixed, |S| ≥ 4          infinite     0            PROVED (sieve; UNIT_ORBIT 2.4)`
+Columns: k-direction (fixed k: finite? — a statement about SLICES, not about the cell), Q₁-direction (fixed Q₁:
+finite? — always yes, EXPONENT_CAP Thm 2.1), θ_min = the infimum of log M/log N over the Prop 4.1 face (bounded λ)
+for capped rows, the prime-face modulus for the proved rows (R209 m7, R210 m6), and the status.
+`  variant (mute condition on den z = Q₁²)      k-slices     θ_min        status`
+`  ES^□       none                              k=1 infinite‡ 0 (mod 4)    PROVED (Dirichlet; SYNTHESIS_SPARKS2 2.2; Cor 3.2)`
+`  ES^{(S)}   rad Q₁ ⊆ S fixed, |S| ≥ 4          k=1 infinite† 0            PROVED (UNIT_ORBIT 2.4; k = 1: Prop 3.1)`
 `  ES^{(y)}   rad Q₁ | y                         k=1 infinite† 0 (S fixed)  PROVED (sieve; FROBENIUS 4.2, Prop 3.1)`
-`  ES^{(y,y^{o(1)})} cap e(y) = y^{o(1)}          —            → 0          PROVED (Thm 5.1; was y^δ, EXPONENT_CAP 3.2)`
+`  ES^{(y,e(y))} e ≤ y^{(2+η)log₃y/(A log₂y)}      —            → 0          PROVED, family form (Thm 5.1; was y^δ)`
 `  ES^{(y,polylog)}  cap (log y)^C                —            → 0          OPEN: covering threshold; Dictionary 3.3(c)`
 `  ES^{(y,e)}, e ≥ 2 fixed                        no wall seen ≤1/(2e)*     OPEN: hitting below θ = 1/4 (§3 EVIDENCE)`
-`  ES^{[2]} = den z | y²; ES^{(y,1)} (e = 1)     FINITE       1/4          OPEN: doubly walled (Thm 2.1), Pell-orbit`
-`                                                                         lottery (GROWING_MUTE, MARKOFF 6.1)`
-`  ES         Q₁ = 1                             finite       1/2          OPEN (finite search, B2/B3)`
-(† for non-square n with gcd(n, 15) = 1; ES^□ row: non-square n. * θ of the pure-power sub-family of Prop 4.1, 1/(2e+2) for bounded λ.) Reading of the table (Assessment, every
+`  ES^{[2]} = den z | y²; ES^{(y,1)} (e = 1)     each FINITE  1/4          OPEN: doubly walled (Thm 2.1) but NOT a finite`
+`                                                                         search: infinite union of finite slices, Pell-`
+`                                                                         orbit lottery (GROWING_MUTE, MARKOFF 6.1); R200 M1 stands`
+`  ES         Q₁ = 1                             finite       1/2          OPEN (finite search, g ≤ 2n(n+1), B2/B3)`
+(† for odd non-square n with 3 ∤ n, ineffective (R209 m4/m12, R210 m4); ‡ odd non-square n. * θ of the pure-power sub-family of Prop 4.1, 1/(2e+2) for bounded λ.) Reading of the table (Assessment, every
 entry referenced): every PROVED cell has θ → 0 (certifying modulus fixed, or ≤ polylog of the number it divides),
 which is what lets a Kummer/Dirichlet field fixed in advance decide firing in the arguments analysed; θ → 0 is not
 sufficient (the polylog-cap row is open). For the arguments analysed here (fixed-field firing, covering of the
 per-certificate box) every bounded cap is a hitting problem at θ > 0 — this is a limitation of those arguments, not
-a classification theorem. The self-mute cap e ≤ 1 adds the k-wall (both slicings finite), ES adds Q₁ = 1.
+a classification theorem. The self-mute cap e ≤ 1 adds the k-wall (both slicings finite, the cell still unbounded — R209 m3, R210 m2), ES adds
+Q₁ = 1 (one slice, hence a genuinely finite search).
 
 **T1 (the brief's question: is ES^{(y,1)} T1-bearing?).** Yes, in the same sense as ES: (a) no ES^{(y,e)} solution
 for any e ≤ ∞ at n = m² has Type I/II shape at every prime of m (FROBENIUS_FIRING Thm 4.2(b): an ES^{(y,e)} solution
 is an ES^{(S′)} solution with S′ its mute primes; UNIT_ORBIT Cor 1.2), in particular no shot solution (sum of two
 coprime squares, §1 of GROWING_MUTE); (b) as a statement it nevertheless holds at m² whenever it holds at a prime
 p | m with mute primes prime to m (scaling 4/(pt) = 1/(tx) + 1/(ty) + 1/(tz)). So every cell of the table has the
-T1 of ES (checked: all T1 controls in §2–§3 and pd_k1s are empty), and any proof of a bounded-cap cell must use a
-non-square input such as (n/r) = −1. Covering proofs are excluded for every cell (B1; PROVED, elementary): let r ≡ 1 (mod 4) be prime, u a non-residue
-mod r, and x(u) ∈ Ẑ the point with x_ℓ = 1 (ℓ ≠ r), x_r = u. A shot class {n : g | n + 4Q²} (g ≡ 3 mod 4) of ANY
+T1 of ES (checked: all T1 controls in §2–§3 and pd_k1s are empty), and (Assessment, R210 repair m12) any proof of a
+bounded-cap cell is expected to use a non-square input such as (n/r) = −1. Covering by finitely many SHOT
+IDENTITIES is excluded for every cell (B1; PROVED, elementary; R209 m10, R210 m10/m11 repairs — this mirrors the
+classical Mordell obstruction to identities on quadratic-residue classes, and the restriction to non-residues in
+the first version was unused): let r ≡ 1 (mod 4) be prime, u ANY unit class mod r, and x(u) ∈ Ẑ the point with x_ℓ = 1 (ℓ ≠ r), x_r = u. A shot class {n : g | n + 4Q²} (g ≡ 3 mod 4) of ANY
 variant down to ES^□ cannot contain x(u): writing g = r^a g′, g′ | 1 + 4Q² forces g′ ≡ 1 (mod 4), and r^a ≡ 1, so
 g ≡ 1 (mod 4). Finitely many classes therefore miss a whole neighbourhood {n ≡ x(u) mod M} of x(u), which contains
-infinitely many primes (Dirichlet): **for every prime r ≡ 1 (mod 4) and non-residue u mod r, no finite set of shot
-identities of any of these variants covers the primes p ≡ u (mod r).** The proved cells escape this only by using
+infinitely many primes (Dirichlet): **for every prime r ≡ 1 (mod 4) and every class u ≢ 0 mod r, no finite set of shot
+identities of any of these variants covers the primes p ≡ u (mod r)** (more generally, the same holds for every
+reduced class modulo any modulus all of whose prime factors are ≡ 1 (mod 4); R210 `review_pd2_b1.py` found
+uncovered primes in all classes mod 5 and 13 for the shot classes with g ≤ 60). The proved cells escape this only by using
 arbitrarily large primes (non-covering proofs).
 
-**Where the single-n requirement bites (the brief's sieve question).** Not at B6: n is fixed and r (or (k, λ)) is
+**Where the single-n requirement bites (the brief's sieve question; Assessment — R209 repair m12).** Not at B6: n is fixed and r (or (k, λ)) is
 the summation variable, exactly as in the proved ES^{(y)}. It bites at the per-certificate box: after switching
 (sum over the shot first) the count is Σ_{k,λ} #{g | N_e(k, λ) : g ≡ −1 (mod 4kλ)} with N_e = n(2k(4kλ)^e)² + 1
 (Prop 4.1): divisors of ONE number per parameter in a class whose modulus is a parameter of that number. BFI /
@@ -294,33 +302,38 @@ with θ = 1/(2e+2). The Pell-orbit freedom of S_{n,D} (no archimedean wall once 
 ONE point into infinitely many but does not create the first (MARKOFF 6.1(c): class-group layer) and does not keep
 Q₁ squarefree (R201 M3), so it serves ES^{[2]} only, and only after existence.
 **Exact conditional form of the class layer (PROVED, from MARKOFF Thm 4.1 + Gauss's genus theory).** If for some
-genus-admissible (λ, D) (MARKOFF §6 local layer: −D primitively represented by the principal genus of
-discriminant 16(λ²D² − n)) the form class group of that discriminant has one class per genus, then ES^{[2]}(n)
-holds. (One class per genus makes "represented by the principal genus" equal "represented by the principal form".)
+(λ, D) with D admissible in the sense of MARKOFF Lemma 3.1 (D ≡ 3 (mod 4), gcd(D, n) = 1, (−n/p) = 1 for p | D),
+λ²D² − n > 0 and not a square, and genus-admissible (MARKOFF §6 local layer: −D primitively represented by the
+principal genus of discriminant 16(λ²D² − n)), the form class group of that discriminant (primitive forms, proper
+equivalence) has one class per genus, then ES^{[2]}(n) holds (R209 repair m11). (One class per genus makes "represented by the principal genus" equal "represented by the principal form".)
 This trades the problem for a Gauss/Cohen–Lenstra statement about the family 16(λ²D² − n): open, not a standard
 hypothesis.
 
-## 7. Verdict (O204 checkpoint 1)
+## 7. Verdict (O204 checkpoint 1, after R209/R210 repairs)
 
 1. **Normal form (Prop 1.1, PROVED).** Shots ⟺ k(4ab − n) = b + aQ₁²: the overflow is a Q₁²-weight on a in ES's
    Type II equation (d = 1 slice); ES: Q₁ = 1; ES^{[2]}: Q₁ | a; ES^{(y)}: rad Q₁ | a. D-face: ES^{[2]} ⟺
    4λtb − n | b + λt³.
 2. **Double wall (Thm 2.1, PROVED, sharp).** Under the self-mute cap Q₁ | Q₀ (ES^{[2]} ⊇ ES^{(y,1)}): Q₁ ≤
    (16k³n + 1)/(4k − 1), attained exactly (all n ≡ 2 mod 3 at k = 1). With Q₁ > (n+1)/2: √(Q₁/6n) ≤ k < Q₁²/2. Every
-   fixed-k and fixed-Q₁ slice is finite; solutions live in a band of slopes ½…2 in log coordinates.
+   fixed-k and fixed-Q₁ slice is finite; solutions with Q₁ > (n+1)/2 live in a band of slopes ½…2 in log coordinates.
+   **This does NOT make ES^{(y,1)} or ES^{[2]} a finite search**: the band is unbounded and carries infinite Pell
+   orbits; R200 M1 (bounded e, growing S: open) stands for e = 1 (R209 repair m3, R210 repair m2).
 3. **k-direction dichotomy (Cor 3.2, Prop 3.1, PROVED).** The k = 1 slice is infinite for ES^□ and ES^{(y)}
-   (non-square n; for ES^{(y)} also gcd(n, 15) = 1), finite for ES^{[2]}/ES^{(y,1)}/ES. EVIDENCE: e = 2 has no visible
+   (non-square n; for ES^{(y)} also 3 ∤ n, ineffective; ES^□ proof R209 M1), finite for ES^{[2]}/ES^{(y,1)}/ES. EVIDENCE: e = 2 has no visible
    wall at k = 1 (sparse hits up to Q₁ = 2·10⁵); one mute prime (S = {3}) gives k = 1 shots for all primes < 10⁶.
 4. **One axis for all caps (Prop 4.1, PROVED).** ES^{(y,e)} ⟸ n(2k(4kλ)^e)² + 1 has a divisor ≡ −1 (mod 4kλ) with
    (g+1)/(4kλ) squarefree (exact for e ≤ 1; a sufficient pure-power sub-family for e ≥ 2): modulus exponent
-   θ = 1/(2e+2) for bounded λ. ES = θ ½ (Lenstra), ES^{(y,1)} = θ ¼ (the Coppersmith–Howgrave-Graham–Nagaraj
-   threshold), e ≥ 2 below it; every proved cell has θ → 0.
-5. **Proved side pushed (Thm 5.1, PROVED rel. BV + linear sieve).** ES^{(y,e)} with e ≤ y^{(2+o(1))log₃y/(A log₂y)}
-   for every A (previously y^δ).
+   θ_min = 1/(2e+2) (infimum over the face, along bounded λ; parametrisation-dependent). ES: θ_0 = ½ (Lenstra); the
+   e = 1 face reaches down to θ = ¼, the N^{1/4} threshold of Lenstra (1984) / CHN (2008), with no margin; e ≥ 2
+   below it; every proved cell has θ → 0 on its own (prime) face (R209 m6/m7, R210 m5/m6 repairs).
+5. **Proved side pushed (Thm 5.1, PROVED rel. BV + linear sieve; ineffective, astronomically late onset).** For every
+   A, η > 0 and n, for all x ≥ x₀(n, A, η) there is an ES^{(y,e)}(n) solution with x/8 ≤ y ≤ nx and
+   e ≤ y^{(2+η)log₃y/(A log₂y)} (previously y^δ) (R209 repair M2, R210 repair m7).
 6. **Boundary (Assessment with PROVED pieces).** For the arguments analysed (firing decided in a field or
    progression fixed in advance; covering of the per-certificate box), bounded e is out of reach: the per-certificate
    box is g^{o(1)} (EXPONENT_CAP Prop 3.1) and the pure-power sub-family has θ > 0; this does not exclude other
-   (deterministic) methods. The k-wall makes e ≤ 1 a union of finite searches in both directions; finitely many fixed
-   shot classes never cover a non-residue class mod a prime r ≡ 1 (mod 4) (§6, B1). The polylog cap is the covering threshold (Dictionary 3.3(c)); between y^{o(1)} (proved) and
+   (deterministic) methods. The k-wall makes e ≤ 1 an (infinite) union of finite slices in both directions — not a finite
+   search; finitely many fixed shot classes never cover any reduced class mod a prime r ≡ 1 (mod 4) (§6, B1). The polylog cap is the covering threshold (Dictionary 3.3(c)); between y^{o(1)} (proved) and
    (log y)^{1−o(1)} (necessary for covering) nothing is known.
 Not a proof of ES or of any bounded-cap variant; no infinite case of ES is claimed.
