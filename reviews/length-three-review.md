@@ -129,3 +129,26 @@ cluster variables and N").** The leading minors are c, h, N and the trailing one
 not leading or trailing. *Repair:* "whose contiguous principal minors are c, m, s, h, h′ and N".
 
 **D8 (MINOR; header).** "Status: in progress (O206)" while §8 is a checkpoint verdict. *Repair:* update the status line.
+
+**D9 (MINOR for this doc, IMPORTANT for the campaign's attribution; §5 "Scope/novelty", §2 preamble).** Literature
+search (Jina web search + the archived `sources/lit2026/arxiv-2605.04551v2.pdf`, read in full text):
+* **Ventas, arXiv:2605.04551 (May 2026), eq. (3) + Thm 2.1 ("sum by pairs") + Prop 2.2** already states: if the *ceiling*
+  (= Hirzebruch–Jung) continued fraction of p/(4k) has exactly three terms, then 4k/p = 1/p₀ + 1/(p₀p₁) + 1/(p₁p₂) with
+  p₂ = p, the pᵢ being the HJ convergent numerators. This is exactly the **V₁ row** of Thm 2.1 (h′/N = 1/c + 1/(ch) + 1/(hN),
+  p₀ = c, p₁ = h, p₂ = N, 4k = h′), i.e. DK Cor 1.2's Type I slice. Ventas also has boundary-word shots (Thm 2.3: divisors
+  ≡ 3 (4) of p + i). So "length-3 HJ fraction with numerator ≡ 0 (4) ⇒ ES via convergent telescoping" is in the literature;
+  the campaign's novelty audit (reviews/novelty-audit-2026-10c.md) read this abstract only as "heuristic" and did not
+  record the overlap with (J)9/DK Cor 1.2. Ventas has nothing on the other four slices, the Jacobi-symbol criterion,
+  Ptolemy/friezes or the pencil, so Cor 2.2's five-vertex statement and §4 remain plausibly new.
+* Prop 1.1 (continuants = λ-lengths = frieze entries; HJ path = Farey path) is classical: Conway–Coxeter, Penner, and
+  explicitly Morier-Genoud–Ovsienko, "Farey boat I" (arXiv:1811.01229, Jahresber. DMV 121 (2019)). Friezes with arbitrary
+  boundary values are "frieze patterns with coefficients", Cuntz–Holm–Pagano (Forum Math. Sigma 2020) — the standard
+  name for the doc's "A₂ frieze with frozen values (1, 1, 1, 1, N)". (Abstract-level only; I did not read these papers.)
+* No hit for frieze/Ptolemy ↔ Erdős–Straus (searches: "Erdős–Straus frieze pattern Ptolemy", "Egyptian fractions frieze
+  Conway Coxeter continuants", "Farey graph Egyptian fraction Ford circles").
+* In-campaign precursor not cited: **BRAINSTORM/farey_chain_frieze.md (O144)** already reformulates every ES solution as a
+  3-step Farey/frieze chain (Lemma C.0, Prop C.1: Type II chain (cp, a, b, cp)), and its Prop C.2 is the census behind
+  §7.6. §7.6 should cite it and compare (O144: chain-realisable ⟺ the gcd g is a square).
+*Repair:* in §5 replace "no literature search was done" by the three bullets above (Ventas for the V₁ row; Farey boat /
+CHP for Prop 1.1 terminology; O144 for chains) and narrow "new" to Cor 2.2's five-vertex/Jacobi statement and Thm 4.1/Cor
+4.2's Ptolemy reading. Forward to the DK/(J)9 owner: (J)9's Type I slice should cite Ventas 2026.
