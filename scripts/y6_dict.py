@@ -51,6 +51,10 @@ for n in range(3, NMAX+1, 2):
                     if a % 4 or not (sqf(c) and sqf(B) and gcd(c, B) == 1 and gcd(c*a*B, n) == 1): continue
                     Q = c*c*a*B**3//4
                     assert check_solution(n, Q, g, 2) == c*B*B; bw[1] += 1
+                    # D-face (Thm 4.1): w = (4na + cB^3)/g, D = cBw - 4n = (4n + Q1^2)/g, a*D = w + cB^3, a*w = E + B^2
+                    w, r = divmod(4*n*a + c*B**3, g); assert r == 0
+                    D = c*B*w - 4*n; assert D > 0 and D*g == 4*n + (c*B*B)**2 and a*D == w + c*B**3 and a*w == E + B*B
+                    assert D % 4 == 3 and (w*w + 4*n*B*B) % D == 0
                 elif c % 4 == 0:
                     lam = c//4
                     if gcd(a, B) != 1 or gcd(lam*B, n) != 1: continue

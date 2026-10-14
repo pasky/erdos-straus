@@ -105,3 +105,38 @@ holds iff n ≡ −B²(4a²)^{−1} (mod g); 4 614 210 triples; 47 s, 0.7 GB) an
   a prime factor needs the mute primes prime to the cofactor).
 *Caution.* The least-g of p = 379 being within 5% of the search limit shows the k = 1 cap-2 lottery has a long tail even
 for small p; nothing here bounds g in terms of p.
+
+## 4. The D-face: an ES-shaped normal form and a box criterion
+
+**Theorem 4.1 (PROVED).** Let n > 1 be odd. k = 1 cap-2 shots correspond bijectively (via Thm 1.1) to positive
+integers (a, w, B, c) with
+`  a·(cBw − 4n) = w + cB³,     D := cBw − 4n ≡ 3 (mod 4),`
+plus the side conditions of Thm 1.1 (c, B odd squarefree coprime, gcd(caB, n) = 1). Here D = (4n + Q₁²)/g is the
+duality cofactor of EXPONENT_CAP Prop 1.3 (k = 1), w = (4na + cB³)/g, E = aw − B², g = caB − 1, Q₁ = cB²; and
+D ≡ 3 (mod 4) ⟺ 4 | a. Equivalent forms:
+(i) **D := cBw − 4n > 0, D ≡ 3 (mod 4), D | w + cB³** (then 4D | w + cB³ automatically and a := (w + cB³)/D);
+(ii) (**box criterion**) D ≡ 3 (mod 4), gcd(D, n) = 1, and a factorisation D + 4n = c·w·B with **(w/B)² ≡ −4n (mod D)**;
+(iii) (**fixed-modulus tests**) for some (c, w): **64n³ + c²w⁴ has a divisor D ≡ −4n (mod cw) with D ≡ 3 (mod 4)**
+(then B := (4n + D)/(cw)).
+*Proof.* From Thm 1.1: w := (4na + cB³)/g is an integer since caB ≡ 1 (mod g) gives a(4na + cB³) ≡ 4na² + B² ≡ 0 and
+gcd(a, g) = 1; then a·w·g = 4na² + caB³ = 4na² + B² + B²g = (E + B²)g, so aw = E + B². W_n multiplied out with
+E = aw − B²: caB(aw − B²) = 4na² + aw, i.e. a(cBw − 4n) = w + cB³ (divide by a). D := cBw − 4n: D·g = (cBw − 4n)(caB − 1)
+and, using a(cBw − 4n) = w + cB³, D·caB = cB(w + cB³) = cBw + c²B⁴, so D·g = cBw + c²B⁴ − D = 4n + c²B⁴ = 4n + Q₁².
+Conversely a(cBw − 4n) = w + cB³ with a, w, B, c > 0 gives E := aw − B² and W_n by reversing the computation, and
+E·g = 4na² + B² > 0 gives E > 0. Mod 4 (c, B, w odd since cBw = D + 4n is odd): w + cB³ ≡ w + cB and cBw ≡ D, so
+a·D ≡ w + cB (mod 4); if D ≡ 3 then w ≡ 3cB, w + cB ≡ 0, so 4 | a·D, 4 | a; if 4 | a then w ≡ −cB, D ≡ cBw ≡ −1.
+(i) is a restatement; "4D | w + cB³" by the mod-4 computation. (ii) cwB ≡ 4n (mod D) and gcd(w, D) = 1 (a common prime
+divides 4n and D, impossible as gcd(D, 2n) = 1) give: w + cB³ ≡ 0 ⟺ w² ≡ −cwB³ ≡ −4nB² (mod D) ⟺ (w/B)² ≡ −4n.
+(iii) with B = (4n + D)/(cw): B ≡ 4n/(cw) (mod D) and w + cB³ ≡ 0 ⟺ (×c²w³) c²w⁴ + 64n³ ≡ 0 (mod D). ∎
+*Check:* `scripts/y6_dict.py 61 401 40` re-derives w, D from every c-odd W_n point and asserts a·D = w + cB³,
+aw = E + B², D·g = 4n + Q₁², D ≡ 3 (mod 4), D | w² + 4nB² (121 points).
+*Comparison with ES (FIXED_MODULUS_SHOTS (J)25).* ES Type II: 4cdj − 1 | pj + c, box criterion −p ∈ {c/j : cj | (h+1)/4}
+(mod h) with h = O(p²) (a finite search). Here: target ±2√(−n) (mod D), box {w/B : wB | D + 4n}, and **D is unbounded**
+(test (iii) with w → ∞). The pure-square cell c = 1 is "a(Bw − 4n) = w + B³": ES's Type II normal form
+k(4ab − n) = a + b (O204 Prop 1.1, Q₁ = 1) with n ↦ 4n and one summand cubed. ES k = 1 is c = B = 1: D | 4n + 1.
+*Example (test (iii), (c, w) = (1, 1)): every divisor D ≡ 3 (mod 4) of 64n³ + 1 = (4n + 1)(16n² − 4n + 1) gives the
+shot Q₁ = (4n + D)², g = (4n + Q₁²)/D (a polynomial identity; a k = 1 cap-2 shot iff B = 4n + D is squarefree and
+prime to n, which holds e.g. for n = 13, D = 7: B = 59, g = 1 731 059 = (52 + 59⁴)/7).* Such fixed (c, w) tests are
+covering-type (B1: finitely many of them never cover a non-residue class); the content is in letting (c, w) grow.
+T1: at n = m², D ≡ 3 (mod 4) would divide w² + (2mB)², a sum of two coprime squares (after removing gcd(w, B), which is
+prime to D) — impossible. This is the only place T1 enters, in every face.
