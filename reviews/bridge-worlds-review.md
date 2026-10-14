@@ -1,5 +1,9 @@
 # R216 — hostile review of O211 (BRIDGE_WORLDS.md + BRAINSTORM/y3_*.md)
 
+**Repairs applied (R216, author quiet since 19:51):** M1, M2, m1–m8 applied in place in BRIDGE_WORLDS.md, memos
+y3_ordinary_bridge / y3_semiprimitive_collapse / y3_primemod_census, and AGENT_REPORT_O211.md, each marked "(R216 repair)";
+m9 (wording only) not applied.
+
 Reviewer: R216 (side agent). Branch `side-agent/review-bridge-worlds`, merged `side-agent/bridge-worlds` at 7714153a.
 **ES is not solved; nothing in O211 claims otherwise, and nothing here changes that.**
 From-scratch scripts: `scripts/review_r216_*.{c,py}` (none of the author's `scripts/y3_*` were reused).
@@ -13,7 +17,7 @@ From-scratch scripts: `scripts/review_r216_*.{c,py}` (none of the author's `scri
 | "every useful bridge is archimedean" | correctly labelled Assessment everywhere ✓ |
 | §3 / y3_frob_infinity dictionary + cd \| 6 criterion (0 mismatches in 86 310) | SOUND (re-checked from scratch: 86 310 / 0 mismatches; it is linear duality) |
 | §4 Type I overlap + dual Hasse window (g ∈ {1,3,5}, CM refuted) | SOUND |
-| §5 CONJECTURE PM-II + census | SOUND as EVIDENCE (independent census complete to 10⁷ [10⁸: C4b]: exceptions 13, 193, 3361 (0), 76441 exactly); minor: growth constants, adversarial numbers |
+| §5 CONJECTURE PM-II + census | SOUND as EVIDENCE (independent complete census to 10⁸, C4/C4b: exceptions 13, 193, 3361 (0), 76441 exactly); minor: growth constants, adversarial numbers |
 | Prop 6.1 | SOUND |
 | Prop 6.2 (T1 kept; (p/h) = −1 ⟺ firing at good h; numerics) | SOUND-AFTER-REPAIRS (MAJOR: the variant is never defined, and the natural reading "E⁺ of K_{4cd}" FAILS T1 by the author's own ℚ(√3) example; provability is GRH/Artin-type, not unconditional; novelty = (J)23 mechanism at rank 1) |
 | §8 / y3_ordinary_bridge (1): \|Hom(E(F_h),F_h^*)\| ≤ gcd(a_h − 2, h − 1) | GAP — false as stated (counterexamples), true for the image of a single homomorphism; repair trivial, conclusions unaffected |

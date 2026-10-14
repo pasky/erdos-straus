@@ -19,31 +19,35 @@ case.** Outcome: a precise negative classification of bridges, one clean sub-con
 3. **CONJECTURE PM-II (EVIDENCE):** every prime p ≥ 5 except 3361 has a prime-modulus Type II certificate. Exhaustive
    to 10⁷ (O207) and to 10⁸ (R206, and independently rerun here: see end); full census of all certificates to 10⁶ (min N_II^pr = 5 on
    [10⁵, 10⁶]); only 13, 193, 76441 have N_II^pr = 1; mean N_II^pr ≈ 0.3·log²p; stacked-QR adversaries up to 1.3·10¹¹
-   still have ≥ 14 prime-firing slices with cd ≤ 200.
+   still have ≥ 4 prime-firing slices with cd ≤ 200 (min 4 at p = 600601; R216 repair of "≥ 14").
+   R216: independent complete census of all certificates to 10⁸ confirms the exceptions 13, 193, 3361, 76441.
 4. **Tier-(c) unit twists erase the box, leaving exactly the genus layer (Prop 6.1/6.2, PROVED + EVIDENCE).** Units of
    ℚ(ζ_{4cd})⁺ reduce into F_h^* (p's group). With ALL units the twist is trivial (ε = −1 is signed ES: 3 | p ± 4).
    With totally positive units of ℚ(√2) (E⁺ = ⟨(1+√2)²⟩): odd squares NEVER fire (PROVED: (−d/h) = −1 whenever
    h ≡ −1 mod 4d), and a prime p fires at every "good" h ≡ 7 (8) with (p/h) = −1 (good = 1 + √2 has index ≤ 2 mod h;
    75% of h ≡ 7 mod 8 below 10⁵). Every prime 5 ≤ p < 10⁵ fires at some h < 2000 (half at h = 7). So at good h the
    E⁺ twist erases the box and leaves the genus layer (not at every h: h = 103, p = 5 fails although (5/103) = −1);
-   it is a T1-keeping, Artin-type cousin of ES of the same mechanism as (J)21/(J)23 (modest novelty), and the gap to
+   it is a T1-keeping, Artin-type cousin of ES of the same mechanism as (J)21/(J)23 (modest novelty; R216: precisely
+   the predicate Fire⁺ of BRIDGE_WORLDS §6 — units ⟨(1+√2)²⟩ on cd-even slices; the K_{4cd}-wide E⁺ reading breaks T1
+   (n = 9, h = 11); rank 1, so GRH-type, not unconditional), and the gap to
    ES is exactly the box (ρ(ε) = 1). The T1 argument needs E⁺ ⊂ squares (N(ε₀) = −1): it fails over ℚ(√3). Spark: unconditional proof via
    higher-rank units of ℚ(ζ_m)⁺ (Gupta–Murty/Heath-Brown), and whether anything transports back.
 
-5. **Ordinary reductions (R206 D3; memo y3_ordinary_bridge, PROVED).** |Hom(E(F_h), F_h^*)| ≤ gcd(a_h − 2, h − 1)
+5. **Ordinary reductions (R206 D3; memo y3_ordinary_bridge, PROVED).** Every homomorphism E(F_h) → F_h^* has image ≤ gcd(a_h − 2, h − 1)
+   (R216 repair: not |Hom|, which can be larger — y² = x³ − x over F_7)
    ≤ 2√h + 2 unless a_h = 2 (Lang–Trotter primes); the m-part (m | h+1) of any group maps into ±1; global Tate-pairing
    maps are Mazur-bounded; the ES box is trace-0 data (with trace a the analogue is h | pj + (1 − a)c). Trichotomy
    a_h = 0 / 2 / other ↔ (h+1)-world / (h−1)-world / Hasse-bounded mixture. Type I = the imaginary-quadratic
    (finite-unit) instance of tier (c).
 
 ## Other results
-* Uniform cyclotomy residue law (EVIDENCE): m²·(a,b)_m over F_{h²} ≡ 1, 1 − m or 1 − 3m (mod h) for m ∈
+* Uniform cyclotomy residue law (PROVED — R216 repair, two-line Jacobi-sum proof; was EVIDENCE): m²·(a,b)_m over F_{h²} ≡ 1, 1 − m or 1 − 3m (mod h) for m ∈
   {4,6,8,10,12,16,20,24}, h ≤ 199. Stickelberger: g(χ_{4cd}) = (−1)^j h.
 * Scaling collapse (Prop 1.2, PROVED): weighted-homogeneous cyclotomic counts see p only via p mod F_h^{*e}.
 * O207 spark 1 COLLAPSES (PROVED + EVIDENCE): the Type I dual Hasse window consists of the g ∈ {1,3,5} certificates
   (p ≥ 17); for p ≡ 1 mod 4 that is g = 3 with f prime, a sub-family of the greedy x = (p+3)/4 family; the CM-by-ℚ(√−d)
   suggestion holds in none of 10 737 window certificates. Type I overlap |Hom(μ_{f+p}, F_f^*)| = gcd(p+1, f−1); full
-  overlap at level 4cd ⟹ p ≡ 3 (4) (trivial case); partial overlaps exist for p ≡ 1 (4) on finitely many slices.
+  overlap at level 4cd ⟹ p ≡ 3 (4) (trivial case); partial overlaps exist for p ≡ 1 (4) on slices with gcd(cd, (p+1)/2) > 1 (R216 wording repair).
 * Euclid–Schur: the ES class −1 is one of the Schur–Murty "Euclidean" classes (a² ≡ 1); forcing a prime factor ≡ −1
   of a single integer from its residue exists only for |(ℤ/m)^*| = 2 (trivial slice); forcing via auxiliary primes is B1.
 * Salié angle dictionary: Type II at prime h ⟺ a root ν of ν² ≡ −pd (mod h) sits exactly at (h+1)/(2j) (Planck scale).
