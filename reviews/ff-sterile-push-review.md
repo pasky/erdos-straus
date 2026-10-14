@@ -10,3 +10,47 @@ Status: IN PROGRESS (written claim by claim).
 
 ## Claim-by-claim
 
+### Lemma 1.1 (E·v = T^s + m′w², y + t = max(a, b), T² ∥ v) — SOUND
+Re-derived: (R3) of DEPTH_ASPECT Lemma 2.1 is C·E = g′T^s + w; times m′w and m′wC = T^s + v gives
+(T^s + v)E = (E + 1)T^s + m′w², i.e. Ev = T^s + m′w². Degrees: z + 2a ≤ z + a + b = s, with equality iff a = b, and then
+the sum of two monic degree-s polynomials has leading coefficient 2 ≠ 0 (q odd). deg E = deg(L′w) = a + y + z, so
+t = s − a − y − z = b − y. (iii): v_T(m′wC) = 2 < s forces v_T(v) = 2 exactly; a common prime of w₁ and v₁ divides
+T^{s−2}. All correct; note (ii) uses q odd (H2), which §4 correctly lists.
+From scratch: `scripts/review_fs_tuples.py` enumerates all tuples (B) by (m′, g′, w) ↦ C = (g′T^s + w)/E, re-checks (B)
+literally and asserts Ev = T^s + m′w², y + t = max(a, b), T² ∥ v on every tuple (q = 3, s ≤ 13; q = 5, s ≤ 9): 0 failures
+(see log in the "Numerics" section below).
+
+### Lemma 1.2 (loss-free reconstructions T0, R4′, X1, X2) — SOUND
+Each reconstruction re-derived (X1: w, C are the two roots of X² − g′vX + (T^s + v)/m′, so ≤ 2 ordered pairs).
+Counts: N*(d) = q^d − q^{d−1} is the number of monic f of degree d ≥ 1 with T ∤ f; for v = T²v₁ the leading coefficient
+is fixed per pattern (1 if a < b, 2 if a = b) and v₁(0) ≠ 0, which gives the same count N*(t − 2). Correct.
+
+### Lemma 1.3 (C(n, d), multinomial) — SOUND
+Standard (sub-multisets of the root multiset in F̄_q).
+
+### Lemma 1.4 (FF Lenstra: 3ρ > n ⇒ ≤ 2 divisors of degree d in a unit class mod Q) — SOUND
+Re-derived line by line. Points I checked specifically: (1) τ₀ is well defined even if gcd(F, Q) ≠ 1, because
+σ₀e ≡ F (mod Q) with σ₀ a unit determines e mod Q — the document's wording ("when such τ₀ exists … τ₀ := e mod Q") is
+correct but would read better as "τ₀ ≡ Fσ₀^{−1}"; (2) Λ-determinant: σ₀(u_x u′_y − u_y u′_x) ≡ 0 and deg ≤ X + Y = n − 2ρ < ρ,
+so all differences are F_q(T)-collinear, hence multiples of one primitive b ∈ F_q[T]² (F_q[T] is a PID); (3) φ(α) =
+α·(αb_xb_yQ + b_xτ₀ + b_yσ₀ + Q(x₀b_y + y₀b_x)) — constant term 0, so if b_xb_y ≠ 0 the second root is unique (|S| ≤ 2), and if
+b_y = 0 the linear coefficient is b_x e₀ ≠ 0 (|S| = 1); b_x = 0 is impossible as stated (m8 repair is correct).
+Nothing hidden: no hypothesis gcd(F, Q) = 1 is needed, and "monic or not" is harmless (λE ≡ λσ ≢ σ for λ ≠ 1).
+From scratch: `scripts/review_fs_lenstra_bf.py` (own polynomial arithmetic; divisors from a known factorisation, all scalar
+multiples included; every monic Q with deg Q ≤ 5 (p = 3) / ≤ 3 (p = 5); random highly-factorable F with n ≤ 14 (p = 3),
+n ≤ 12 (p = 5) plus F = ∏ of all monic irreducibles of degree ≤ 2 and variants with repeated linear factors):
+p = 3: 848 429 + 565 594 (degree, Q) groups; p = 5: 246 073 + 127 398 groups; **0 violations** of "≤ 1 if d < ρ or n − d < ρ"
+and "≤ 2 if 3ρ > n"; the bound 2 is attained thousands of times (so it is sharp).
+
+### Lemma 1.5 (FF Coppersmith–Howgrave-Graham by pigeonhole) — SOUND
+Re-derived: (a) |F_q[T]^N/Λ| = q^{deg det Λ} and q^{N(μ+1)} > q^Δ for μ = ⌊Δ/N⌋ — exact Siegel lemma, no loss. (b) E prime to
+Q, hence E | F₁; Q·f(x₀) ≡ Qx₀ + σ₀ = E ≡ 0 (mod E) and gcd(E, Q) = 1 give E | f(x₀); the scaled coefficient lattice of
+{f^iF₁^{m−i}} ∪ {x^jf^m} is triangular with diagonal degrees (m − i)deg F₁ + iX, (m + j)X, so deg det ≤ Δ(m, k);
+⌊Δ/N⌋ < md ⇔ Δ < N·md, which is (C); then deg P(x₀) < md = deg E^m forces P(x₀) = 0, and P ≠ 0 has ≤ m + k roots.
+Asymptotics: (C)/m² → n/(2u) + Xu/2 < d with u = 1 + τ, optimum u = √(n/X) ≥ 1, i.e. nX < d² ⇔ ρ > d(n − d)/n. Correct.
+Note: the proof needs deg x₀ ≤ X, i.e. ρ ≤ d; for d < ρ the count is ≤ 1 anyway, so using m + k ≥ 1 there is harmless
+(both scripts rely on this; fine).
+From scratch (same script): in every group with 3ρ ≤ n (Lenstra not applicable), d ≥ ρ, n − d ≥ ρ, the least m + k over
+m ≤ 12, k ≤ 40 satisfying (C) was compared with the true maximal class size: 0 violations; the Coppersmith bound is
+attained with value 3 (p = 3: 6 groups; p = 5: 75 groups), so the test reaches the regime beyond Lenstra.
+
