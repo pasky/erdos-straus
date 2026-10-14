@@ -17,16 +17,24 @@ case.** Outcome: a precise negative classification of bridges, one clean sub-con
    symbol c_∞. For cd | 6 this is genus theory: the slice fails ⟺ some odd quadratic character mod 4cd is 1 on every
    prime factor (0 mismatches in 86 310 prime slice instances p < 10⁵). Folklore-level, but a clean dictionary.
 3. **CONJECTURE PM-II (EVIDENCE):** every prime p ≥ 5 except 3361 has a prime-modulus Type II certificate. Exhaustive
-   to 10⁷ (O207) [10⁸ run: see "10⁸ status" below]; full census of all certificates to 10⁶ (min N_II^pr = 5 on
+   to 10⁷ (O207) and to 10⁸ (orchestrator, R206; this agent's independent 10⁸ rerun of tf_primemod: see end); full census of all certificates to 10⁶ (min N_II^pr = 5 on
    [10⁵, 10⁶]); only 13, 193, 76441 have N_II^pr = 1; mean N_II^pr ≈ 0.3·log²p; stacked-QR adversaries up to 1.3·10¹¹
    still have ≥ 14 prime-firing slices with cd ≤ 200.
 4. **Tier-(c) unit twists erase the box, leaving exactly the genus layer (Prop 6.1/6.2, PROVED + EVIDENCE).** Units of
    ℚ(ζ_{4cd})⁺ reduce into F_h^* (p's group). With ALL units the twist is trivial (ε = −1 is signed ES: 3 | p ± 4).
    With totally positive units of ℚ(√2) (E⁺ = ⟨(1+√2)²⟩): odd squares NEVER fire (PROVED: (−d/h) = −1 whenever
    h ≡ −1 mod 4d), and a prime p fires at every "good" h ≡ 7 (8) with (p/h) = −1 (good = 1 + √2 has index ≤ 2 mod h;
-   75% of h). Every prime < 10⁵ fires at some h < 2000 (half at h = 7). So the E⁺-twisted Type II is a T1-keeping,
-   Artin-type (V_φ-like) cousin of ES, and the gap to ES is exactly the box (ρ(ε) = 1). Spark: unconditional proof via
+   75% of h ≡ 7 mod 8 below 10⁵). Every prime 5 ≤ p < 10⁵ fires at some h < 2000 (half at h = 7). So at good h the
+   E⁺ twist erases the box and leaves the genus layer (not at every h: h = 103, p = 5 fails although (5/103) = −1);
+   it is a T1-keeping, Artin-type cousin of ES of the same mechanism as (J)21/(J)23 (modest novelty), and the gap to
+   ES is exactly the box (ρ(ε) = 1). The T1 argument needs E⁺ ⊂ squares (N(ε₀) = −1): it fails over ℚ(√3). Spark: unconditional proof via
    higher-rank units of ℚ(ζ_m)⁺ (Gupta–Murty/Heath-Brown), and whether anything transports back.
+
+5. **Ordinary reductions (R206 D3; memo y3_ordinary_bridge, PROVED).** |Hom(E(F_h), F_h^*)| ≤ gcd(a_h − 2, h − 1)
+   ≤ 2√h + 2 unless a_h = 2 (Lang–Trotter primes); the m-part (m | h+1) of any group maps into ±1; global Tate-pairing
+   maps are Mazur-bounded; the ES box is trace-0 data (with trace a the analogue is h | pj + (1 − a)c). Trichotomy
+   a_h = 0 / 2 / other ↔ (h+1)-world / (h−1)-world / Hasse-bounded mixture. Type I = the imaginary-quadratic
+   (finite-unit) instance of tier (c).
 
 ## Other results
 * Uniform cyclotomy residue law (EVIDENCE): m²·(a,b)_m over F_{h²} ≡ 1, 1 − m or 1 − 3m (mod h) for m ∈
@@ -52,9 +60,17 @@ condition kept; genus criterion hypothesis and counts fixed; label wording). All
 All eight memos COLLAPSE (B1/B2/B3/B4 as tabulated in BRIDGE_WORLDS §7); T1 control (odd squares) gave 0 throughout.
 
 ## Sparks (not pursued)
-1. Tier (c) unit-twisted ES (Prop 6.1): find the Diophantine equation it is equivalent to (norm form
-   p² + t·pX + N(ε)X², X = 4c²d) and whether it is provable (Chebotarev over ℚ(ζ_m)⁺ with large unit image).
+1. Totally-positive-unit twist (Prop 6.2): is the ℚ(√2) E⁺-variant provable for every p (an Artin-type statement for
+   1 + √2 at h ≡ 7 mod 8 with (p/h) = −1; GRH/Hooley, or unconditional via several slices/fields)? Higher-rank fields
+   ℚ(ζ_m)⁺ need a new T1 argument (positivity alone fails over ℚ(√3)). Does any unit-twisted certificate with
+   ρ_𝔥(ε) ≠ 1 transport back to an ES certificate?
+5. The partial Type I overlap gcd(4cd, p + 1) = 2·gcd(cd, (p+1)/2) for p ≡ 1 (4): a homomorphic bridge on specific slices,
+   unexploited.
 2. Closed form for the residue law m²(a,b) ≡ {1, 1 − m, 1 − 3m} from Baumert–Mills–Ward (should be a two-line check).
 3. FF analogue of "h imitates ∞": in Carlitz cyclotomy D_∞ = F_q^*; does the FF ES firing condition become
    "h ≡ unit (mod m)", and does this explain the small-q accidents of FUNCTIONFIELD_ES?
 4. Composite-modulus Type II as a zero-sum problem with target c_∞ in (ℤ/4cd)^* beyond 2-groups (cf. W15).
+
+## 10⁸ status
+Orchestrator reports 3361 unique to 10⁸ (R206). This agent's independent rerun (`tf_primemod 10⁸ 10⁸`) is appended
+below when it finishes.
