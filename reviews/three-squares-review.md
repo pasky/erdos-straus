@@ -1,5 +1,13 @@
 # R224 — hostile review of O217 THREE_SQUARES.md (+ memos BRAINSTORM/y8_*.md, AGENT_REPORT_O217)
 
+**Repairs applied (author quiet since its last push 1de2a710):** THREE_SQUARES.md — D1–D14 marked "(R224 repair)"
+(Summary 1–5, Assessment, §0 I1/I2, Lemma 1.2(b), Prop 1.3 "odd-clean", new Lemma 1.4 (T1-type levels), §2 model caveat /
+factor 2 / Wirsing–Selberg–Delange / GRH restriction / forced-word numbers, Prop 3.1 citation, Lemma 3.2 wording, §3
+numerics, Prop 4.3 label, new Lemma 4.2 (h = min letter), §6 B4, §7 table); R224 notes at the top of
+AGENT_REPORT_O217.md, y8_adelic_continuity.md, y8_conic_height.md; README row y8_adelic_continuity; comment of
+scripts/y8_gauss_weight.py. Not changed: the author's EVIDENCE tables (left as the author's numbers, with R224 numbers
+added beside them).
+
 Reviewer: R224 (side-agent/review-three-squares). Merged side-agent/three-squares at its tip (README conflict: kept both).
 All numerics re-done with from-scratch code `scripts/review_r224_*.py` (author scripts not reused).
 
