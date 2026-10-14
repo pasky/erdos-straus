@@ -243,7 +243,7 @@ P = (log x)^A because its error term saves an arbitrary power of log (not more: 
 P up to exp(c√log x) (Gallagher's prime number theorem for moduli without exceptional zero, provided the exceptional
 modulus, if any, does not divide 4 rad(n) — the choice of S cannot avoid that case, R210 repair m13) should give e = exp(O(√(log y)·log₂y)); not carried out (Assessment). (3) The
 covering lower bound (EXPONENT_CAP Prop 3.1(c)) is e ≥ (log y)^{1−o(1)} for any covering argument; the gap
-(log y)^{1−o(1)} ↔ y^{o(1)} is the Dictionary 3.3(c) discrete-log problem, and below it every bounded cap is a
+(log y)^{1−o(1)} ↔ sub-polynomial (Thm 5.1, family form) is the Dictionary 3.3(c) discrete-log problem, and below it every bounded cap is a
 pure hitting problem for the arguments analysed (§4: θ_e = 1/(2e+2) > 0).
 
 ## 6. The phase diagram (cells, status, the wall that bounds each)
@@ -334,6 +334,6 @@ hypothesis.
    progression fixed in advance; covering of the per-certificate box), bounded e is out of reach: the per-certificate
    box is g^{o(1)} (EXPONENT_CAP Prop 3.1) and the pure-power sub-family has θ > 0; this does not exclude other
    (deterministic) methods. The k-wall makes e ≤ 1 an (infinite) union of finite slices in both directions — not a finite
-   search; finitely many fixed shot classes never cover any reduced class mod a prime r ≡ 1 (mod 4) (§6, B1). The polylog cap is the covering threshold (Dictionary 3.3(c)); between y^{o(1)} (proved) and
+   search; finitely many fixed shot classes never cover any reduced class mod a prime r ≡ 1 (mod 4) (§6, B1). The polylog cap is the covering threshold (Dictionary 3.3(c)); between the sub-polynomial cap of Thm 5.1 (proved, family form) and
    (log y)^{1−o(1)} (necessary for covering) nothing is known.
 Not a proof of ES or of any bounded-cap variant; no infinite case of ES is claimed.
