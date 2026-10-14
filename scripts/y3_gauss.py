@@ -59,3 +59,28 @@ if __name__ == "__main__":
             vals = sorted(set(N[a][b] for a in range(m) for b in range(m)))
             rows.append((h, eta, vals, sorted(set((m*m*v) % h for v in vals))))
         for r in rows: print("m=%d h=%d eta=%+d distinct (a,b)=%s  m^2(a,b) mod h=%s" % (m, *r))
+
+def mixed_check(h, ochi, opsi):
+    """g(lambda), lambda = (chi o N) * psi, chi of order ochi on F_h^*, psi of order opsi | h+1 on F_{h^2}^*,
+    vs 1/2 g_{F_h}(chi^2) sum_{eps} chi(N gamma)^eps sum_{u in T} psi(u gamma^eps) conj(chi^2)(Tr(u gamma^eps))."""
+    mul, pw, g, log = field(h); q1 = h*h - 1
+    E = lambda t: cmath.exp(2j*cmath.pi*t)
+    gh = next(a for a in range(2, h) if all(pow(a, (h-1)//r, h) != 1 for r in range(2, h) if (h-1) % r == 0 and all(r % s for s in range(2, r))))
+    lg = {pow(gh, e, h): e for e in range(h-1)}
+    chi = lambda a: E(lg[a % h]/ochi) if a % h else 0
+    N = lambda x: (x[0]*x[0] + x[1]*x[1]) % h
+    lam = lambda x: chi(N(x)) * E(log[x]/opsi)
+    G = sum(lam(x)*E(2*x[0]/h) for x in log)
+    gF = sum(chi(a)**2 * E(a/h) for a in range(1, h))
+    T = [x for x in log if N(x) == 1]
+    gam = next(x for x in log if pow(N(x), (h-1)//2, h) == h-1)
+    S = 0
+    for eps in (0, 1):
+        for u in T:
+            v = mul(u, gam) if eps else u; tr = 2*v[0] % h
+            S += chi(N(gam))**eps * E(log[v]/opsi) * (chi(tr)**2).conjugate() if tr else 0
+    return abs(G - 0.5*gF*S)
+
+if __name__ == "__main__":
+    errs = [mixed_check(h, oc, op) for h, oc, op in [(11, 5, 4), (19, 9, 4), (23, 11, 8), (31, 5, 8), (43, 7, 4), (47, 23, 12)]]
+    print("mixed Gauss sum decomposition, max error:", max(errs))
