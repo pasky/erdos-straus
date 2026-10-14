@@ -161,7 +161,8 @@ def check_controls(NMAX):
 if __name__ == '__main__':
     NMAX = int(sys.argv[1]) if len(sys.argv) > 1 else 3000
     PMAX = int(sys.argv[2]) if len(sys.argv) > 2 else 500
-    print('words', check_words(NMAX))
-    print("typeII", check_typeII(PMAX))
-    print("controls (words at 105, #odd squares with words, #slice words at controls)", check_controls(NMAX))
-
+    w = check_words(NMAX); t = check_typeII(PMAX); c = check_controls(NMAX)
+    print('words (#words, #slice words N=1(4), failures, slice words at odd squares)', w)
+    print('typeII (#cube points, #d=1, failures)', t)
+    print('controls (words at 105, #odd squares with words, #slice words at controls)', c)
+    sys.exit(1 if (w[2] or w[3] or t[2] or c[0] or c[2]) else 0)

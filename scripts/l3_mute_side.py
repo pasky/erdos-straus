@@ -23,3 +23,4 @@ for n in range(3, NMAX + 1, 2):
             ok &= F(4, n) == F(1, s*n) + F(1, s*c) + F(Q*Q, c*n)
             bad += (not ok)
 print('mute-side pentagons', tot, 'failures', bad)
+sys.exit(1 if bad else 0)

@@ -4,8 +4,10 @@ Status: in progress (O206). **ES is not solved here, nor any infinite case of ES
 Builds on DEDEKIND_ES (DK, (J)9), HJ_DEEP ((J)15), MARKOFF_ES ((J)37), COMPOSITION_ES ((J)38), FIXED_MODULUS_SHOTS
 ((J)25), CHI_FLIP. Scripts `scripts/l3_*`.
 
-Notation. A *word* is (c, m, s) ∈ ℤ³_{≥1}; K(c, m, s) = mcs − c − s (negative continuant); h := cm − 1,
-h′ := ms − 1. For letters ≥ 2, N/h′ = [[c, m, s]] is an HJ fraction of length 3 (DK Lemma 1.1, with DK's
+Notation. A *word* is (c, m, s) ∈ ℤ³_{≥1} with N := K(c, m, s) = mcs − c − s > 0 (negative continuant); h := cm − 1,
+h′ := ms − 1. (R-self repair: N > 0 is required — (1,1,1) gives N = −1 and a degenerate pentagon.) A word with all letters
+≥ 2 is *interior*; words with a letter 1 are *formal* (boundary) words and are NOT HJ fractions of length 3 (e.g. (1, 4, 2) at
+N = 5, while L₃(5) = ∅). For interior words, N/h′ = [[c, m, s]] is an HJ fraction of length 3 (DK Lemma 1.1, with DK's
 (v, t, u) = (c, m, s), A = h′, A* = h). Type II cube point (c, d, j) (FMS Lemma 1.1): h = 4cdj − 1 | pj + c,
 s := (pj + c)/h.
 
@@ -28,7 +30,9 @@ at a CM point (Machin, §2) and along the orthogonal pencil of one geodesic (CF 
 For letters ≥ 2 the four unit sides form the HJ path ∞ → c → h/m → N/h′ (DK §5.1). With Ford horocycles,
 λ_{ik} are Penner λ-lengths, and the five Ptolemy relations of the pentagon are
 `  cm = h + 1,   ms = h′ + 1,   hh′ = mN + 1,   hs = N + c,   ch′ = N + s.`   (P)
-Conversely every positive integer solution (c, m, s, h, h′) of (P) is a word with N = K(c, m, s).
+Conversely every positive integer solution (c, m, s, h, h′) of (P) with N > 0 is a (possibly formal) word with N = K(c, m, s);
+it is an HJ length-3 fraction iff c, m, s ≥ 2. So "positive integral A₂ frieze with frozen (1,1,1,1,N)" = formal word, and
+"length-3 HJ word" = such a frieze with all three letters ≥ 2 (R-self repair).
 *Proof.* V_{i+1} = b_i V_i − V_{i−1} with (b) = (c, m, s), so consecutive determinants are 1 and
 det(V_{i−1}, V_{i+1}) = b_i; the rest is expansion (e.g. det(V₃, V₅) = ch′ − N = s). Ptolemy = Plücker. The
 converse: the first two relations define h, h′, and the third is then hh′ − mN − 1 = m(mcs − c − s − N), so N = K. ∎
@@ -39,7 +43,8 @@ converse: the first two relations define h, h′, and the third is then hh′ �
 = a positive integral frieze of the pentagon with one non-unit boundary entry N.** The dihedral reflection fixing the
 N-side is reversal (c ↔ s, h ↔ h′, m fixed).
 
-**Corollary 1.2 (the five ES slices are the five cluster variables; PROVED, = DK Thm 4.5 restated).** For N ≡ 1 (4):
+**Corollary 1.2 (the five ES slices are the five cluster variables; PROVED, = DK Thm 4.5 restated).** For interior words
+(letters ≥ 2) and N ≡ 1 (4):
 `  (h′/N) = −1  ⟺  one of the five cluster variables c, m, s, h, h′ is ≡ 0 (mod 4).`
 DK Thm 4.5's five conditions 4 | tu−1, tv−1, t, u, v are exactly 4 | h′, h, m, s, c. Each gives an ES solution (DK
 Cor 1.2, Thm 4.5). The symmetric formulation is new as a statement (content is DK's).
@@ -90,7 +95,8 @@ unit sides and closing side N in which some vertex has opposite diagonal ≡ 0 (
 
 **Theorem 3.1.** Let (c, m, s) be a word at N, r := √(N/m), z* := ir ∈ ℍ (a point of the pentagon side V₁V₂ = (0, ∞)),
 so z*² = −N/m. For x ∈ ℚ let K_x be the Möbius map z ↦ (xz − r²)/(z + x). It fixes z*, sends ∞ ↦ x, and is the rotation
-about z* by the angle 2·arg(x + ir), since x + z* ↦ K_x is the regular representation of ℚ(z*)^×. Then:
+about z* through the angle 2·arg(x + ir), clockwise in the standard orientation (K′_x(z*) = e^{−2i·arg(x+ir)}; R-self repair of
+the sign), since x + z* ↦ K_x is the regular representation of ℚ(z*)^×. Then:
 `(c + z*)(s + z*) = (c + s)(1/m + z*)  ⟺  K_c ∘ K_s = K_{1/m}  ⟺  K_c(s) = 1/m  ⟺  K(c, m, s) = N,`
 i.e. arccot(c/r) + arccot(s/r) = arccot(1/(mr)) (all angles in (0, π/2)).
 *Proof.* (c + z)(s + z) = (cs + z²) + (c + s)z = (cs − N/m) + (c + s)z, and cs − N/m = (c + s)/m ⟺ mcs − c − s = N.
@@ -108,8 +114,9 @@ CERTIFIED (`l3_dict.py`): cs − (c + s)/m = N/m on all words N ≤ 10⁵; = p/(
 ## 4. CF depth 3 is the same pentagon on a geodesic of the orthogonal pencil of C (PROVED, elementary)
 
 Let (c, m, s) be a word at N, r² = N/m, and consider the pencil of quadratic algebras / binary forms
-`  R_μ := ℚ[z]/(z² + μz + r²),   Norm_μ(X + Yz) = X² − μXY + r²Y²   (μ ∈ ℝ ∪ {∞}).`
-Geometrically (roots of z² + μz + r²) this is the **orthogonal pencil of the geodesic C : |z| = r**. For |μ| < 2r it gives
+`  R_μ := ℚ(r²)[z]/(z² + μz + r²) for μ ∈ ℚ,   Norm_μ(X + Yz) = X² − μXY + r²Y²,`
+an algebra over ℚ (r² = N/m ∈ ℚ). Geometrically, i.e. letting μ range over ℝ ∪ {∞} and taking the roots of z² + μz + r²
+(at μ = ∞ only the geometric object, no algebra; R-self repair), this is the **orthogonal pencil of the geodesic C : |z| = r**. For |μ| < 2r it gives
 the points of C (μ = 0 is z*), for |μ| > 2r the geodesics orthogonal to C (the product of their endpoints is r²), and for
 μ = ∞ the pentagon side V₁V₂ = (0, ∞). Put ℓ_x := z + x (so ℓ_c, ℓ_s, ℓ_{1/m} are the three Machin elements).
 
@@ -120,16 +127,20 @@ it equals −h resp. −h′, and that value divides μ.
 *Proof.* m²(1/m² − μ/m + N/m) = 1 − mμ + mN; at μ = N + c this is 1 − mc = −h. ∎
 
 **Corollary 4.2 ((J)37/(J)38 are Thm 4.1 for Type II words).** Let (c, d, j) be a cube point of a prime p, i.e. the
-word (c, 4dj, s) at pj, and put ω := 2dz. Then R_μ becomes ℤ[ω]/(ω² + 2dμ·ω + pd), m·ℓ_{1/m} = 1 + 2jω, and:
-* d = 1, μ = μ_c = pj + c: R_μ is COMPOSITION's order with ω = −η̄, and 1 + 2jω is ε_μ = 1 − 2jη̄ of (J)38 Thm 1.3
+word (c, 4dj, s) at pj, and put ω := 2dz. Then ω² + 2dμ·ω + pd = 0, so ℤ[ω] ⊂ R_μ is an order (the integral lattice is a choice; R-self repair),
+m·ℓ_{1/m} = 1 + 2jω, and:
+* d = 1, μ = μ_c = pj + c: ℤ[ω] = COMPOSITION's O = ℤ[√(μ² − p)] with ω = −η̄, and 1 + 2jω ∈ O′ = ℤ[2√(μ² − p)] is ε_μ = 1 − 2jη̄ of (J)38 Thm 1.3
   (t = c). Its norm −h = −(4cj − 1) divides μ because of the Ptolemy relation hs = N + c. In the regular CF of
   √(4μ² − 4p) it is the convergent of index 2 (depth 3) when j ≥ 2 (μ > 2p), resp. index 0 (depth 1) when j = 1
   ((J)37 Thm 4.3 + R202 M1). The mirror point (s, d, j) gives μ_s.
 * general d, μ = μ_s: V_{pd} at μ_V = dμ_s = cd·h′ with λ = cd, D = h′ (COMPOSITION Prop 4.1(b)).
 So **"the B = 1 slot ε_μ has norm dividing μ" is a Ptolemy relation of the pentagon**, read on the geodesic g_{μ_c} of the
-orthogonal pencil of C. "Depth 3" is the position of the cusp −1/m (the Ford horocycle of ε) in the cutting sequence of
-g_{μ_c}. A cusp v is a convergent of an indefinite form f when |f(v)| < √disc/2, i.e. when its Ford horocycle meets the
-geodesic (signed distance δ: |f(v)| = (√disc/2)e^{−δ}).
+orthogonal pencil of C. "Depth 3" is a statement in MARKOFF's coordinates (x, z_M) = (B − μA, A/2), where ε is the
+convergent (p₂, q₂) of √(4μ² − 4p) and Lagrange's criterion applies. *R-self repair:* an earlier sentence placed this in
+the cutting sequence of g_{μ_c} in the z-frame, read through the Ford horocycle at −1/m. That is FALSE: the change of frame is
+affine but not unimodular. Example: (p, c, d, j, s) = (7, 2, 1, 3, 1) has m = 12, μ_c = 23, Q₃ = h = 23. In the z-frame the
+form is [4, 92, 7], and |f(−1, 12)| = 92 > √8352/2, so that Ford horocycle misses the geodesic. The arithmetic dictionary
+is unaffected.
 CERTIFIED (`l3_dict.py … 5000`): for all 10 646 d = 1 cube points with p ≤ 5000, Norm = −h, h | μ_c, and the CF of
 √(4μ² − 4p) has Q₃ = h (μ > 2p) resp. Q₁ = h (μ ≤ 2p), 0 failures. (For p ≤ 1000 the count is 1 736, matching the
 COMPOSITION census.)
@@ -137,7 +148,7 @@ COMPOSITION census.)
 ## 5. The unified object and the dictionary (summary)
 
 **The object 𝒫(c, m, s; N):** the Ford-decorated Farey pentagon (0, ∞, c, c − 1/m, N/h′) with four unit sides and closing
-side N. Equivalently: a positive integral A₂ frieze with frozen values (1, 1, 1, 1, N); the HJ word [[c, m, s]]; the
+side N. Equivalently: a positive integral A₂ frieze with frozen values (1, 1, 1, 1, N) (a formal word; the HJ word [[c, m, s]] when all letters ≥ 2); the
 tridiagonal path form with diagonal (c, m, s), whose leading/trailing principal minors are the five cluster variables
 and N (CHI_FLIP's Q_w). It comes with the geodesic C : |z|² = N/m, orthogonal to the side V₁V₂, and with the
 orthogonal pencil of C.
@@ -147,13 +158,13 @@ orthogonal pencil of C.
 | (J)9/(J)15 HJ length 3, five slices, (A/N) = −1 | some vertex's opposite diagonal ≡ 0 (4); the ES triple is that vertex's Ford horocycle cut by the fan (Thm 2.1, Cor 2.2) | the five cusps |
 | (J)25 certificate cube (c, d, j) | 𝒫(c, 4dj, s; pj); the three divisibilities are Ptolemy relations (Cor 1.3) | λ-lengths |
 | COMPOSITION Prop 5.1 Machin | rotation about z* = top of C: K_c(s) = 1/m (Thm 3.1); r² = p/4d independent of j | μ = 0 member |
-| (J)37 CF depth 3 / (J)38 ε_μ | Norm(ℓ_{1/m}) = −h on g_{μ_c}, divisibility = Ptolemy hs = N + c (Thm 4.1, Cor 4.2) | μ = μ_c member |
+| (J)37 CF depth 3 / (J)38 ε_μ | m²Norm(ℓ_{1/m}) = −h on g_{μ_c}, divisibility = Ptolemy hs = N + c (Thm 4.1, Cor 4.2) | μ = μ_c member |
 | HJ path itself | the side V₁V₂ and the Farey path V₂…V₅ | μ = ∞ member |
 
 The four "3"s: the three short diagonals (HJ letters = Machin arguments), the three arcs of a vertex horocycle (ES triple),
 the three CF steps before the cusp −1/m (a Farey path on g_{μ_c}), and the cube coordinates (c, d, j) = (λ₁₃, factor of λ₂₄,
 factor of λ₁₅). All of them are the single relation K(c, m, s) = N, i.e. the pentagon's Ptolemy system (P).
-*Scope/novelty (Assessment).* Every individual identity is elementary and most are classical in disguise: continuants =
+*Scope/novelty (Assessment; "new" means new in this campaign — no literature search was done, R-self repair).* Every individual identity is elementary and most are classical in disguise: continuants =
 λ-lengths = frieze entries (Conway–Coxeter, Penner), Farey telescoping = h-lengths, Machin = regular representation. New
 here: the identification of DK's five ES slices with the five vertices (Cor 2.2, with the five ES triples as fan decompositions),
 and of the (J)37/(J)38 divisibility N(ε_μ) | μ with a Ptolemy relation, on one geodesic pencil.
@@ -212,31 +223,35 @@ classical in substance — ET Prop 1.6 / Yamamoto): at n = M² the Machin field 
 while h ≡ −1 (mod 4dj) forces the Jacobi symbol (−d/h) = −1. Proof of the last step: (−1/h) = −1; for d = 2^a d′ one
 has (d′/h) = (−1/d′)(−1)^{(d′−1)/2} = 1, and (2/h) = 1 when a ≥ 1 since h ≡ −1 (mod 8). So no cube point exists at any
 odd square (check: 0 cube points at all odd squares 9 ≤ M² ≤ 9801, inline probe). For d = e² the geodesic C_d has rational endpoints ±M/2e and this is Fermat's "1 + x² has no divisor
-≡ 3 (mod 4)" in ℤ[i]. At a prime p the field ℚ(√−pd) carries the extra genus character (·/p), which is what lets h
-exist. Geometrically: at squares the CM point z* = iM/√m is the M-dilate (a Hecke translate) of i/√m, and the dilation
-loses the genus character at N. This is the (J)13 "geometry sees only genus" statement in Machin form. It is not new
+≡ 3 (mod 4)" in ℤ[i]. At a prime p the same computation gives only (−pd/q) = 1 for q | 1 + pd(2j)², so the requirement
+(−d/h) = −1 becomes (p/h) = −1, a reciprocity condition that is satisfiable. (R-self repair: an earlier "extra genus
+character of ℚ(√−pd)" was wrong, e.g. p = 7, d = 1 has trivial genus group and cube points exist.) Geometrically: at
+squares the Type II CM point z* = iM/(2√d) is the M-dilate (a Hecke translate) of i/(2√d), and the condition no longer
+involves N. This is the (J)13 "geometry sees only genus" statement in Machin form. It is not new
 and gives no existence at primes.
 
-**7.5 Equidistribution (candidate (d); screen against B3).** The CM points z*_d (discriminants −16pd·(…)) and the
-pencil geodesics equidistribute in SL₂(ℤ)\ℍ (Duke). The ES event is an exact coincidence of rational cusps:
-K_c(s) = 1/m, i.e. a rotation about z*_d maps the cusp pair (∞, s) to (c, 1/m) with prescribed λ-lengths. This is a
-measure-zero target (shrinking target of size ≍ 1/p² for p-height cusps). Equidistribution controls sets of fixed
-positive measure, so it gives at most the average count ≍ log³ p over p (B6), and nothing pointwise. **Dead (B3/B6)**
-(Assessment).
+**7.5 Equidistribution (candidate (d); screen against B3).** (R-self repair: an earlier version said that the points
+z*_d equidistribute. That is FALSE: they are purely imaginary and stay on the imaginary axis mod SL₂(ℤ). Duke's theorem
+concerns full Heegner packets of one discriminant, not these distinguished representatives.) Any equidistribution input
+would have to come from the packet of [4d, 0, p] or from the pencil geodesics, and the ES event is an exact coincidence of
+rational cusps, K_c(s) = 1/m, attached to one specific representative. Equidistribution controls sets of fixed positive
+measure. I see no way to make it say anything about a single exact coincidence at a single p. **No route (Assessment)**;
+no scale or average claim is made.
 
 **7.6 Farey-chain slice (EVIDENCE, negative).** The cleanest fully "geometric" certificates are those where 4/p itself
 is the h-length of a three-edge Farey chain seen from one cusp: 4/p = Σ 1/(b_ib_{i+1}) with b_i | b_{i−1} + b_{i+1}.
 Among all ES solutions of primes < 400, 358/1615 Type I and 242/641 Type II solutions are such chains. The primes
-13, 37, 97, 181, 193, 277, 373 have none (`/tmp` probe recorded here). This is another fixed slice set that fails
-infinitely often (B2/(J)2). **Dead.**
+13, 37, 97, 181, 193, 277, 373 have none (`/tmp` probe recorded here). It is another restricted slice set with failures.
+That it fails infinitely often is expected by analogy with (J)2/B2 but NOT shown (R-self repair). **Not pursued.**
 
 **7.7 What the unified language does buy (Assessment).** (i) The five slices are cyclically arranged (vertex ↔
 opposite diagonal), so DK Thm 4.5 reads "the pentagon's mod-4 frieze has a zero quiddity ⟺ (A/N) = −1". The sign is
 a property of the ℤ/8-frieze. (ii) (J)37/(J)38's "norm divides μ" and the cube's divisibilities are *Ptolemy
-relations*, and Machin is the same relation at a CM point. So the four "length 3" phenomena carry no independent
-information: any mechanism that sees one sees all, and B2 is the statement that the Ptolemy system contains an unknown
-divisor (the λ-length h). (iii) ES^{(S)} versus ES is "one side non-tangent" (§6). A proof would have to produce
-pentagons with tangent sides. No geometric move does that while keeping N = p (§6).
+relations*, and Machin is the same relation at a CM point. So the four "length 3" phenomena are algebraically equivalent
+restatements of K(c, m, s) = N. That does not prove that every mechanism seeing one sees all (Assessment, R-self repair),
+but B2 appears in each as an unknown λ-length (the divisor h) inside the Ptolemy system. (iii) ES^{(S)} versus ES is "one
+side non-tangent" (§6). A proof would have to produce pentagons with tangent sides. The decoration torus cannot do that
+while keeping N = p (§6); other moves are not excluded.
 
 ## 8. Verdict (O206 checkpoint 1)
 
