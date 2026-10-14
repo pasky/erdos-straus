@@ -25316,4 +25316,36 @@ def check_fQ():
 check_fQ()
 
 
+def check_fR():
+    # (fR) SYNTHESIS_SPARKS4 (O218/R219): R219 from-scratch — CONJECTURE SQ_± evidence (every odd non-square n <= 10^6
+    # has a point of X_n with tuv != 0 and chi = -1), the three-bit law on all 24 201 words of odd n <= 401 (incl.
+    # signed), and the genus slot table at |t| in {1,2,3,4,6} (4 900 n, positivity costs at t = 6).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+
+    def run(args):
+        r = subprocess.run(args, capture_output=True, text=True, timeout=900, cwd=sdir)
+        assert r.returncode == 0, ("SPARKS4 subprocess", args, r.stderr[-2000:])
+        return r.stdout + r.stderr
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "r219")
+        run(["gcc", "-O2", "-o", exe, "review_r219_sqpm.c", "-lm"])
+        out = run([exe, "1000000"])
+    assert "N=1000000 nonsq=499500 signedfail=0 maxls=30@297465" in out, out[-2000:]
+    out = run([sys.executable, "review_r219_threebit.py", "401"])
+    assert "odd n<= 401 words 24201 signed 17360 cells 320 violations {'a': 0, 'b': 0, 'c': 0, 'd': 0, 'e': 0, 'l': 0}" in out, out
+    out = run([sys.executable, "review_r219_slots.py", "40000"])
+    assert "signed/any mismatches: {}" in out and "positive t=6 vs divisor ≡17,23 (24) criterion mismatches: 0" in out, out
+    print(f"== (fR) SYNTHESIS_SPARKS4 R219: SQ_± holds for all odd non-squares <= 1e6 (strictly signed record |t| = 30); "
+          f"three-bit law on 24 201 words; slot table; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fR()
+
+
 print("\nall checks passed")

@@ -1152,6 +1152,30 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * §5 (PROVED, equivalence). At q = 3, "a Case B family covers x*_c" is the explicit system (S1)–(S3). There the union bound is dead (exact Σ ≥ 94/27 > 2), so **CONJECTURE 0.2 (q = 3) remains open**. q = 9 and q = 27 are also open; the r = 3 barrier is EVIDENCE/Assessment.
    * Relay O219 (transplant Lemmas 1.4–1.6 to ℤ to make the sterile-Mordell threshold r₀ of (J)26 explicit) was spawned.
 
+52. **Synthesis IV: "ES must imitate the archimedean place" — positivity is T1's anchor, not the bottleneck (SYNTHESIS_SPARKS4.md + BRAINSTORM/s4_*.md (O218); review `reviews/sparks4-review.md` (R219): no FATAL; MAJOR D1 ("signed" was used in two senses; the record |t| ≤ 18 holds only for the inclusive reading); the three-bit law upgraded to PROVED; §2.4 now has a complete argument conditional on Dickson; minors; repaired by the reviewer).**
+   * Setting. A recurring theme across the wave: ES moduli imitate ∞ ((J)50), positivity = c_∞ ((J)45), frieze positivity ((J)42), and the χ = +1 side is the definite lattice ℤ³ ((J)48).
+   * **Meta-statement (PROVED: L1, L2 and the three-bit law; R219 supplied the proof of the last).**
+     * Positive words ⟺ definite path forms.
+     * The positive locus D is one of the two connected components of X_n(ℝ).
+     * ES-five(n) ⟺ X_n(ℤ) ∩ (D × Ω₂) ≠ ∅.
+     * The three-bit law: certificate ⟺ χ·s_∞ = −1, for all words, signed included. "Positivity-blind" means the conclusion lands outside D.
+   * **§2, signed relaxation (R_n) (PROVED parts).** "Some integral point of X_n with tuv ≠ 0 has χ = −1."
+     * It keeps T1 automatically and is a finite search (|t| ≤ n + 3).
+     * There is no forcing: χ(A)χ(B) = 1 for every factorisation.
+     * Genus slot table at |t| ∈ {1, 2, 3, 4, 6}. R219 found that positivity costs something at t = 6.
+     * No finite t-set suffices (CONDITIONAL on Dickson's conjecture, R219's proof).
+   * **CONJECTURE SQ_± (EVIDENCE; R219 reproduced it with its own code).** For odd n, some point with tuv ≠ 0 has χ = −1 ⟺ n is not a square. The SQ₅ exception n = 105 disappears.
+     * Counts to 10⁷ with strictly non-positive words: 0 failures, record least |t| = 54 at 9 817 305.
+     * Counts to 10⁷ with the inclusive reading: record 18.
+     * Steering (Assessment): test any lottery-breaking idea on SQ_± (same T1, same box, more tickets) first. If it fails there, positivity will not rescue it.
+   * Memos (PROVED or Assessment; all SOUND or SOUND-AFTER-REPAIRS).
+     * Selling/Voronoi: path forms are exactly the obtuse superbases with a face of conorms (1, 1, 0), so certificates are χ = −1-genus lattices on a Voronoi wall.
+     * Maslov count = ind_−(path form)/2. At length 3 the ∞-factor is all-or-nothing.
+     * Minkowski/Thue are sign-blind; the "50 %" quadrant split is a symmetry theorem.
+     * Numerator data is purely 2-adic and positivity purely archimedean; their unique coupling over ℚ is B_{2,∞} (= (J)48 Thm A).
+     * Real-analytic tools (θ > 0 on iℝ, degree, SOS, Hodge index) collapse to the real/genus layer.
+   * No relay was spawned: SHARP 1 is steering, and the conjecture is a lottery statement.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
