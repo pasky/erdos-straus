@@ -173,7 +173,8 @@ periods, e.g. n = 379, x = 161, E = 23: (a, B) = (8 207 552, 1 238 990 989), g �
 shot); n = 13, x = 33, E = 11: (267 468, 443 777), g ≈ 3.6·10¹¹. Fixing E and varying c (`scripts/y6_fixE.py 13 E 301`;
 explicit points: `scripts/y6_pt.py n x E`): n = 13, E = 7: 18 of 118 admissible c ≤ 301 carry a point, all with 3 | c — the
 genus layer: p = 3 has (13/3) = 1, (−7/3) = −1, so the prime 3 must not divide Δ = 49c² − 208 to first order, forcing
-c ≡ 0 (mod 3); E = 11: 61 of 125; E = 19: 23 of 131 (again 3 | c).
+c ≡ 0 (mod 3); E = 11: 61 of 125; E = 19: 23 of 131 (again 3 | c); n = 379, E = 23: 16 of 72 (c ≤ 151). ("no" counts are
+upper bounds when Δ ≤ 0 or E ≥ √Δ/2, where the scan is not complete; the "yes" points are explicit.)
 *Assessment.* The c-odd half has exactly the two-layer structure MARKOFF_ES §6 found for ES^{[2]} (c ≡ 0 mod 4):
 a local (genus) layer, a half-dimensional sieve condition on x, and a global layer "the ideal of norm E is in the
 narrow class of negative-norm principal ideals of ℤ[(x + √(x² − 16n))/2]", which holds with probability bounded
@@ -189,3 +190,27 @@ progressions suggests no bounded-depth family exists for odd x; not re-derived h
 proof of MARKOFF_ES Thm 5.1 (units of y² = μ² − n over ℚ[s]) applies verbatim with μ = x/2 to rule out polynomial
 families (a(s), B(s), c(s)) with c non-constant at fixed E, n non-square (PROVED by that argument: η = (x + √f)/2,
 f = x² − 16n, has constant norm 4n, α = B − aη has norm −E; R* = ℚ*×⟨ε⟩; b odd forces N(α) > 0, b even forces 4n square).
+
+## 7. Verdict (O214 checkpoint 1)
+
+1. **Dictionary (Thm 1.1, 1.2, PROVED, checked).** k = 1 cap-2 shots ⟺ 4na² + B² + E = c·a·B·E with c odd
+   (Q₁ = cB², g = caB − 1, 4 | a ⟺ E ≡ 3 mod 4). The same equation with c ≡ 0 (mod 4) is GROWING_MUTE's ES^{[2]} (A, B)
+   form (k = a, Q₁ = B). Both are "the principal form of discriminant x² − 16n represents −E for some E | x"
+   (x = cE), the cell read off from x/E mod 4. ES = {B = 1, 4 | c}; k = 1 ES^{(y,1)} = {B = 1, c odd}.
+2. **Slices vs orbits (Prop 2.1, 5.1, PROVED).** Fixed a or fixed B: finite (c ≤ (4n + 1)(B² + 1)/B). Fixed (c, E):
+   Pell orbits. The k = 1 slice is infinite exactly when exponent 2 is allowed at infinitely many primes (B unbounded);
+   any finite exponent-2 budget keeps it finite. O204's per-slice contrast (k = 1: e ≤ 1 finite, e = 2 no wall) is
+   "the line a = 1 of one half vs the whole other half" of the same equation — no cap is shown to be a global finite
+   search (R210).
+3. **D-face (Thm 4.1, PROVED).** a(cBw − 4n) = w + cB³, D = cBw − 4n ≡ 3 (mod 4): ES's Type II normal form with n ↦ 4n
+   and one summand cubed; box criterion ±2√(−n) ∈ {w/B : wB | D + 4n} (mod D), D unbounded; fixed-modulus tests
+   "64n³ + c²w⁴ has a divisor ≡ −4n (mod cw), ≡ 3 (mod 4)". T1 enters only as "D ≡ 3 (mod 4) cannot divide a sum of two
+   coprime squares".
+4. **EVIDENCE.** Every prime 3 ≤ p < 10⁶ has a k = 1 cap-2 shot with g ≤ 10⁶ (exact re-verification; no odd square has
+   one); positive proportion of fibres x ≤ 3000 carry points, at heights up to 10¹⁷ (§6).
+5. **Negative calibration (Assessment).** ES^{(y,2)} at k = 1 is NOT a new easier target: its existence problem is the
+   class-group layer of MARKOFF_ES §6 (now in the odd discriminants x² − 16n) plus a squarefree-B layer on a Pell orbit
+   (Wieferich-type, open). Brief ideas: (a) explicit infinite candidate family — yes (tests (iii), Pell orbits), but
+   firing is a class-group/lottery event; (b) DFI root equidistribution acts at scale ≫ 1/D, the box is D^{o(1)} (B3);
+   (c) the R ↔ s symmetry is a ↔ B with n ↦ 1/(4n) weights, not an involution of W_n; (d) GRH does not touch the box
+   or the class layer; (e) answered on the k = 1 slice by Prop 5.1. No proof of ES^{(y,2)}; no infinite case of ES.
