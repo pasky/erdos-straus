@@ -281,10 +281,10 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 ## Spark relay Y7 (O215): the sibling numerator 7 (memos y7_*, deep file SEVEN_SIBLING.md; not yet triaged)
 | memo | idea | outcome | label |
 |---|---|---|---|
-| y7_mordell_levels | shape of the identity-hard core per numerator | 4: square coset; **7: exactly the class of one (levels 14, 42, 70, 210): 7/p for all p ≢ 1 (mod 105)**; 8, 11, 12 have extra classes | PROVED + CERTIFIED — SHARP (dictionary) |
-| y7_full_t1 | is 7's T1 full? | no: Type I/II solutions at 41–42 of 42 odd squares; full T1 ⟺ 4 ∣ M | CERTIFIED; PROVED for Type II, 4 ∣ M |
-| y7_free_inert | free slices (e = 1, 2) vs inert primes of ℚ(√−M) | equal iff M ∈ {4, 6, 7} | PROVED (description) |
+| y7_mordell_levels | shape of the identity-hard core per numerator | 4: square coset; **7: only the residue 1 survives at levels 14, 42, 70, 210: 7/p for all odd p ≢ 1 (mod 105)**; 8, 11, 12 have extra classes | PROVED + CERTIFIED — SHARP (dictionary) |
+| y7_full_t1 | is 7's T1 full? | no: Type I/II solutions at 41–42 of 42 odd squares; full T1 for all 4 ∣ M (PROVED), fails for 5, 6, 7, 11 | PROVED + CERTIFIED |
+| y7_free_inert | free slices (e = 1, 2) vs inert primes | exact iff M ∈ {4, 6, 7} (ℚ(i), ℚ(√−3), ℚ(√−7)) | PROVED (description) |
 | y7_lattice_invariants | 7-adic analogue of (J)33 | S_M is not a function of the ℤ-isometry class of Q_w for M = 5, 7, 8, 11 (marking data) | PROVED by example (negative) |
 | y7_near_misses | is 7 lottery-lucky? | f₇ = 1 at 43, 127, 211; ≈ 1-in-4 luck | EVIDENCE + Assessment |
 | y7_order3 | e = 3 / e = 6 double failures vs cubic residues | no correlation; 7's double failure only at p ≡ 1 (21), 27.8 % | EVIDENCE (negative) |
-| y7_split_norm | Hecke angle of π in ℚ(√−7) | no effect beyond p mod q | EVIDENCE (negative) |
+| y7_split_norm | residue class of π mod q in ℚ(√−7) | no detected association beyond p mod q (q = 5, 9) | EVIDENCE (negative) |
