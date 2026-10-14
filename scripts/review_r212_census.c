@@ -2,7 +2,8 @@
  * Also records whether a Type I (p divides exactly one of y,z; x<p) and a Type II (p | y and p | z) solution exists.
  * Complete search: x in (p/M, 3p/M]; A = Mx - p, B = p x, reduced by gcd; (A'y-B')(A'z-B') = B'^2;
  * all divisors d <= B' of B'^2 with d = -B' (mod A').  Every hit is re-verified in 128-bit.
- * usage: review_r212_census M PMAX [n]   (n: also test the single integer n, e.g. 37 with M=11)
+ * usage: review_r212_census M PMAX [n|0 [odd]]   (odd: only solutions with exactly one odd denominator count)
+ *   (n: also test the single integer n, e.g. 37 with M=11)
  * output: failing primes and Type-I-free / Type-II-free primes. Requires 3p/M < p, i.e. M >= 4, for typing;
  * for M = 3 only existence is reported. */
 #include <stdio.h>
@@ -26,12 +27,13 @@ static int test_d(u128 d){
   u128 e = Bp2/d; u128 z = (u128)Bp + e; if (z % Ap) return 0; z/=Ap;
   return 1;
 }
-static u64 X;
+static u64 X; static int PAR=0;
 static void record(u128 d){
   u128 y = ((u128)Bp + d)/Ap, z = ((u128)Bp + Bp2/d)/Ap;
   /* verify M x y z = p(yz + xz + xy) */
   u128 lhs = (u128)M_*X*y*z; u128 rhs = (u128)P*(y*z + (u128)X*z + (u128)X*y);
   if(lhs!=rhs){ fprintf(stderr,"VERIFY FAIL p=%llu\n",P); exit(1); }
+  if(PAR){ int odd=(int)(X&1)+(int)(y&1)+(int)(z&1); if(odd!=1) return; }
   foundAny=1; int a = (y%P==0), b=(z%P==0);
   if(a&&b) foundII=1; else if(a||b) foundI=1;
 }
@@ -41,7 +43,7 @@ static void rec(int i, u128 d){
   u128 dd=d; for(int e=0;e<=2*fe[i];e++){ if(dd>Bp) break; rec(i+1,dd); dd*=fp[i]; }
 }
 int main(int argc,char**argv){
-  int M=atoi(argv[1]); long PMAX=atol(argv[2]); long single = argc>3? atol(argv[3]):0; M_=M;
+  int M=atoi(argv[1]); long PMAX=atol(argv[2]); long single = argc>3? atol(argv[3]):0; M_=M; PAR = argc>4 && !strcmp(argv[4],"odd");
   SPFMAX = 3*(PMAX>single?PMAX:single)+10; spf=calloc(SPFMAX+1,sizeof(int));
   for(long i=2;i<=SPFMAX;i++) if(!spf[i]) for(long j=i;j<=SPFMAX;j+=i) if(!spf[j]) spf[j]=i;
   long nfail=0,nI=0,nII=0,np=0;
