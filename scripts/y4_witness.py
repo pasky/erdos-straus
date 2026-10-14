@@ -70,3 +70,27 @@ def universal_exact(A):
 
 def exact_scan(AMAX):
     return [A for A in range(2, AMAX + 1) if universal_exact(A)]
+
+
+def crosscheck(PMAX, As=(2, 3, 5, 7, 8, 15, 20)):
+    """primes p = 1 (mod 4) < PMAX: every universal A with (-A/p) = -1 yields a word (built + verified);
+    and p is uncovered by all of them iff p mod 840 is one of Mordell's six classes."""
+    mord = {1, 121, 169, 289, 361, 529}
+    bad = 0
+    for p in primerange(5, PMAX):
+        if p % 4 != 1 or p in (5, 7):
+            continue
+        cov = False
+        for A in As:
+            if J((-A) % p, p) == -1:
+                w = word_with_A(p, A)
+                if w is None:
+                    bad += 1
+                    continue
+                t, u, v = w
+                for _, _, (x, y, z) in slice_sols(p, t, u, v):
+                    assert Fraction(4, p) == Fraction(1, x) + Fraction(1, y) + Fraction(1, z)
+                cov = True
+        if cov == (p % 840 in mord):
+            bad += 1
+    return bad
