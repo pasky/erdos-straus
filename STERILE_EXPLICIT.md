@@ -1,6 +1,6 @@
 # STERILE_EXPLICIT — the function-field class-divisor machinery over ℤ: explicit sterile Mordell points (O219, spark relay Y9)
 
-Status: in progress (O219). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
+Status: checkpoint 2 (O219): Theorem 3.4 (explicit r₀ = 2³²) certified; self-review `reviews/sterile-explicit-review.md` (no FATAL; M1, M2, m1–m3 repaired); awaiting parent review. **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
 Builds on DEPTH_ASPECT.md §3 ((J)26 Thm 3.1, reviews R178/R187), FF_STERILE_PUSH.md (O216, Lemmas 1.1–1.6, 2.1),
 POINTWISE_MORDELL17*.md (= M17, M17B, M17C, M17D), STERILE_STEER.md. Scripts `scripts/se_*`.
 
