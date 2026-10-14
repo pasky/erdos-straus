@@ -37,9 +37,11 @@ reciprocity computation; I did not find it stated, but it is surely folklore-lev
 
 ## Barrier screen
 Prop 1 is a classification of the B5/T1 structure across numerators; it is numerator-uniform within each class
-mod 4, hence by O208 Cor 2.1 extended (harness below) it gives no input. New harness entries (beyond 8/131): **11/37**
-and **11/3** (M ≡ 3 mod 4, T1-bearing, relaxation true, exact problem false):
-`11/37 = 1/8 + 1/148 + 49/296` (g = 43, Q = 14), `11/3 = 1/7 + 1/12 + 289/84` (g = 43, Q = 17).
+mod 4, hence by O208 Cor 2.1 extended (harness below) it gives no input. New harness entry (beyond 8/131): **11/37** (M ≡ 3 mod 4, T1-bearing, relaxation true,
+exact problem false; 11/37 < 3, so the failure is not the trivial size failure M/p > 3 — 11/3 IS trivial and is not a
+harness entry): `11/37 = 1/8 + 1/148 + 49/296` (g = 43, Q = 14). (Calibration after R207 D1: the barrier is a statement
+about uniform implications; any finite list of failures is also consistent with a threshold n > n₀(M), so a
+"4-specific input" is an Assessment-level reading, see SYNTHESIS_SPARKS3 as repaired. BM was not computed for 11/37.)
 
 ## Cheap numerics (`scripts/y4_t1_numerators.py`, ~2 min)
 For M = 3..24: odd squares k² (k ≤ 99, gcd(k, M) = 1), Q ≤ 40: odd-g shots = 0 exactly for M ≡ 0, 3 (mod 4)
