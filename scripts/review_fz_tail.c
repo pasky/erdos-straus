@@ -143,7 +143,16 @@ static double boxsum(double h, int *ok) {
 }
 /* returns the best valid bound for the box: min(own bound, sum of children's best bounds) -- both are valid
    coverings of the patterns in the box. INFINITY if no valid bound at depth MAXLEV. */
-static long nleaf; static double budget;
+static long nleaf; static double budget; static int RATE = 0; static double ratemax = -1e9, ratept[3];
+/* RATE mode: uniform depth MAXLEV, max over boxes of min_route phi^+ / LQ - 1/2 (an upper bound for the continuum exponent
+   max_p min_route phi(p) - 1/2, up to the O(width) enlargement of phi^+) */
+static double raterec(double a0, double z0, double y0, int lev) {
+  double h = ldexp(1.0, -lev);
+  if (a0 + z0 + y0 >= 1 || 2 * a0 + z0 > 1) return 0;
+  if (lev < MAXLEV) { double g = h / 2; for (int i = 0; i < 8; i++) raterec(a0 + (i & 1) * g, z0 + ((i >> 1) & 1) * g, y0 + ((i >> 2) & 1) * g, lev + 1); return 0; }
+  lo[0] = a0; hi[0] = a0 + h; lo[1] = z0; hi[1] = z0 + h; lo[2] = y0; hi[2] = y0 + h;
+  routes(); double m = INFINITY; for (int i = 0; i < nr; i++) if (rt[i].phi < m) m = rt[i].phi;
+  m = m / LQ - 0.5; if (m > ratemax) { ratemax = m; ratept[0] = a0; ratept[1] = z0; ratept[2] = y0; } return 0; }
 static double rec(double a0, double z0, double y0, int lev) {
   double h = ldexp(1.0, -lev);
   if (a0 + z0 + y0 >= 1) return 0;          /* ta <= 0 on the whole box: no patterns */
@@ -159,6 +168,8 @@ static double rec(double a0, double z0, double y0, int lev) {
 int main(int argc, char **argv) {
   int r = atoi(argv[1]); S = atol(argv[2]); MAXLEV = argc > 3 ? atoi(argv[3]) : 8; budget = argc > 4 ? atof(argv[4]) : 1e-2;
   LQ = r * log(3.0); if (argc > 5) NEW = atoi(argv[5]);
+  if (getenv("RATE")) { for (int i = 0; i < 512; i++) raterec((i & 7) / 8.0, ((i >> 3) & 7) / 8.0, (i >> 6) / 8.0, 3);
+    printf("RATE r=%d new=%d lev=%d: max_box min_route phi+/log q - 1/2 = %.4f at box corner (a,z,y)=(%.4f,%.4f,%.4f)\n", r, NEW, MAXLEV, ratemax, ratept[0], ratept[1], ratept[2]); return 0; }
   double total = 0;
   for (int i = 0; i < 512; i++) total += rec((i & 7) / 8.0, ((i >> 3) & 7) / 8.0, (i >> 6) / 8.0, 3);
   printf("r=%d S=%ld maxlev=%d boxes_evaluated=%ld tail<=%.6e certified(x1.001)=%.6e\n", r, S, MAXLEV, nleaf, total, total * 1.001);
