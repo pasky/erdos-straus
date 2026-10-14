@@ -25219,4 +25219,38 @@ def check_fN():
 check_fN()
 
 
+def check_fO():
+    # (fO) SEVEN_SIBLING (O215/R215): R215 from-scratch — Thm 3.1 identities (7/p for every odd prime p != 1 mod 105;
+    # n <= 10^5 per class), full T1 at odd squares for M = 4, 8 versus genuine Type I/II for 7 (7/9 = 1/2+1/4+1/36),
+    # and the n = 5 isometry showing S_7 is not a lattice invariant.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("SEVEN subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r215_thm31.py"])
+    for s in ("symbolic identities OK", "uncovered odd 7∤n equals predicted set: True 1906",
+              "uncovered with gcd(n,105)=1 all ≡1 mod 105: True", "odd primes p≢1 (105), p∉{3,5,7}, uncovered: []"):
+        assert s in out, ("SEVEN R215 thm31", s, out[-2000:])
+    out = run(["review_r215_t1.py", "99", "4", "7", "8"])
+    for s in ("M=4: odd squares k^2, 3<=k<=99, gcd(k,M)=1: 49; with Type II: 0; with Type I: 0",
+              "M=7: odd squares k^2, 3<=k<=99, gcd(k,M)=1: 42; with Type II: 32; with Type I: 41",
+              "M=8: odd squares k^2, 3<=k<=99, gcd(k,M)=1: 49; with Type II: 0; with Type I: 0"):
+        assert s in out, ("SEVEN R215 t1", s, out[-2000:])
+    out = run(["review_r215_isom.py", "40"])
+    assert "n=5: (1,2,7) in S7: True  (2,1,6) in S7: False" in out and "== G2: True" in out, out[-2000:]
+    print(f"== (fO) SEVEN_SIBLING R215: 7/p for all odd primes p != 1 (mod 105) by identities; full T1 for 4, 8 but not "
+          f"7; S_7 not an isometry invariant (n = 5); seconds = {perf_counter() - t0:.1f}")
+
+
+check_fO()
+
+
 print("\nall checks passed")

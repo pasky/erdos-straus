@@ -1077,7 +1077,7 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
 
 46. **Spark relay Y4: hunting 4-specific inputs — T1-bearing numerators are discriminants, and 7 is the failure-free sibling of 4 (FOUR_SPECIFIC.md + BRAINSTORM/y4_*.md (O212); review `reviews/four-specific-review.md` (R212): SOUND, no FATAL or MAJOR; minor repairs (incl. novelty wording: Thm 2.3 and Prop 3.1 are elementary/standard); every numerical claim re-verified, the 7/p census to 10⁸).**
    * **Prop 1.1 / Cor 1.2 (PROVED; R212 re-derived all four residue cases).** The M-shot family (g | n + MQ², g ≡ −1 (mod M), g odd) carries T1 exactly when M ≡ 0, 3 (mod 4), i.e. when −M is a discriminant. M^□ is a theorem at all non-squares for every M ((J)41).
-   * **7/p is solvable at every prime p ≤ 10⁸ (CERTIFIED; R212's own solver).** *Correction (O215, under review by R215):* only the square-shot subfamily of 7 is T1-bearing. Full T1 fails for 7 (7/9 = 1/2 + 1/4 + 1/36 is ET-shaped), whereas it holds for every 4 | M. Type I of 7 never fails; Type II of 7 fails exactly at 3, 31, 43, 127, 211, 421, 463, 631, 12601. Among M ≤ 30000 (Pomerance–Weingartner §6), the T1-bearing failure-free numerators are 3, 4 and 7.
+   * **7/p is solvable at every prime p ≤ 10⁸ (CERTIFIED; R212's own solver).** *Correction (O215, R215 §2.4):* 7 is only *shot*-T1-bearing: its odd square-shot family is sterile at odd squares (Prop 1.1), but 7/n itself has **no T1**. Genuine Type I and II solutions exist at odd squares (7/9 = 1/2 + 1/4 + 1/36 Type I; 7/25 = 1/4 + 1/50 + 1/100 Type II). Full T1 holds for every 4 | M and fails for M = 3, 5, 6, 7, 11, 19 (certified). **Among the failure-free numerators, only 4 has full T1.**
      * 7 does not share 4's simple χ-fibre structure: S₇(p) = ∅ at exactly 10 primes ≤ 10⁵, seven of which are the 7/p Type II failures.
      * Harness entry: 11/37 = 1/8 + 1/148 + 49/296 (11/37 has no unit-fraction solution; BM was not computed for it).
      * Consequence (Assessment): every proposed "4-specific input" must now also be tested against 7 (true) as well as against 8 and 11 (false).
@@ -1111,6 +1111,17 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * G1–G3 (PROVED). χ is a function of M_w mod 8; it is not an SL₂(ℤ)-class function; genus-character form. K1: a congruence/index identity (the Heegner reading is an Assessment).
    * EVIDENCE (reproduced by R214 for p < 10⁶). Sign dominance N₋ ≥ N₊ fails at 2 402 primes. The worst cases are p ≡ 1 (24) with (p/5) = +1, i.e. p is a square modulo the small moduli that short words see, as in (J)27. **They are not archimedeanly near squares (R214 D9).**
    * Relay O217 (three squares; continuity of T1) was spawned.
+
+49. **Spark relay Y7: the sibling numerator 7 — the identity-hard core is the class of one, and 7 has no full T1 (SEVEN_SIBLING.md + BRAINSTORM/y7_*.md (O215); review `reviews/seven-sibling-hostile-review.md` (R215): no FATAL, no MAJOR; minors repaired by the reviewer; an earlier self-review `reviews/seven-sibling-review.md` had found 4 MAJOR, all repaired).**
+   * **Thm 3.1 (PROVED; R215 re-derived all nine identities symbolically and checked n ≤ 10⁵).** 7/n holds for every odd n ≢ 0, 1 (mod 7) by five level-14 identities; for n ≡ 2 (mod 3) by 7/n = 1/n + 1/b + 1/(bn) with b = (n+1)/6; and for n ≢ 1 (mod 5) by three level-70 families. **So 7/p holds for every odd prime p ≢ 1 (mod 105).**
+     * At levels 14, 42, 70 and 210 the uncovered unit set is exactly {1}; at level 840 it is {1, 211, 421, 631}.
+     * The same harness at level 840 reproduces Mordell's six classes for 4.
+     * Novelty is not claimed: these are routine consequences of Pomerance–Weingartner Cor 2.2/2.4 and almost certainly folklore.
+   * **SHARP 2 (PROVED for 4 | M; CERTIFIED for M = 3, 5, 6, 7, 11, 19).** Full T1 (no Type I/II solution at any odd square) holds for every multiple of 4, by ET §4 via d ↦ hd, and fails for those M. Among failure-free numerators, only 4 has full T1, so 7/n is a weaker model of ES ((J)46 corrected accordingly).
+   * SHARP 3 (PROVED by example; R215 verified the isometry independently). Membership in S₇ is not a function of the ℤ-isometry class of the path form: at n = 5, (1, 2, 7) ∈ S₇ and (2, 1, 6) ∉ S₇ have isometric forms. So no 7-adic analogue of (J)33 exists on the length-3 slices. For M = 4 membership is a genus function.
+   * The free slices are the inert primes of ℚ(i), ℚ(√−3), ℚ(√−7) for M = 4, 6, 7 (PROVED; a description).
+   * The lottery calibration says 7's record is consistent with luck (f₇(p) = 1 at 43, 127, 211). Assessment.
+   * Verdict. No input-type property true for both 4 and 7 and false for 8 and 11 was found. The numerator-4-specific input is still the χ-fibre / full T1 ((J)32/(J)33). The relay chain (J)41 → (J)46 → (J)49 ends here.
 
 ## Items to verify by the maintainer
 
