@@ -25117,4 +25117,44 @@ def check_fK():
 check_fK()
 
 
+def check_fL():
+    # (fL) FOUR_SPECIFIC (O212/R212): R212 from-scratch — T1-bearing numerators (M = 0, 3 mod 4), 11/37 harness entry,
+    # 7/p failure-free to 10^7 (Type II fails exactly 9 times), 8/p failures to 10^6, Thm 2.3 2-adic class of chi = -1
+    # path forms (n <= 2001), Thm 4.2 universal one-slot witnesses {2,3,5,7,8,15,20} = Mordell's reach.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run(args, capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("FOUR_SPECIFIC subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run([sys.executable, "review_r212_t1.py"])
+    assert "TOTAL mismatches 0" in out and "(5) 11/37 == 1/8+1/148+49/296: True" in out, out[-2000:]
+    out = run([sys.executable, "review_r212_twoadic.py", "2001"])
+    assert "violations: 0 []" in out and "(-1, True, True) 34042" in out and "(1, False, False) 16021" in out, out[-2000:]
+    out = run([sys.executable, "review_r212_witness.py", "3000", "1000000", "1000000"])
+    for s in ("(1) universal non-square A <= 3000 : [2, 3, 5, 7, 8, 15, 20]",
+              "(3) primes p=1 mod 4 < 1000000: 39175, mismatches vs Mordell's classes: 0"):
+        assert s in out, ("FOUR_SPECIFIC R212 witness", s, out[-2000:])
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "r212c")
+        run(["gcc", "-O2", "-o", exe, "review_r212_census.c", "-lm"])
+        out = run([exe, "7", "10000000"])
+        assert "M=7 PMAX=10000000 primes=664577 fails=0 noTypeI=0 noTypeII=9" in out, out[-2000:]
+        out = run([exe, "8", "1000000"])
+        assert "M=8 PMAX=1000000 primes=78497 fails=5 noTypeI=5 noTypeII=22" in out, out[-2000:]
+    print(f"== (fL) FOUR_SPECIFIC R212: T1 numerators M = 0,3 mod 4; 7/p failure-free to 1e7 (T1-bearing sibling of 4); "
+          f"8/p 5 failures to 1e6; chi = -1 path forms 2-adically <1,-1,-n>; Mordell reach = {{2,3,5,7,8,15,20}}; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fL()
+
+
 print("\nall checks passed")

@@ -1075,6 +1075,18 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Siegel–Weil on full-rank data is the genus indicator. SQ₅(p) asks that the χ = −1 genus (≍ p classes) contain a path-basis lattice (≪ p^{1/3+o(1)} of them): a thin-set lottery (Assessment).
    * The frieze relay chain ((J)40, (J)42, (J)45) ends here. No further relay was spawned, because every SHARP item is either negative or classical.
 
+46. **Spark relay Y4: hunting 4-specific inputs — T1-bearing numerators are discriminants, and 7 is the failure-free sibling of 4 (FOUR_SPECIFIC.md + BRAINSTORM/y4_*.md (O212); review `reviews/four-specific-review.md` (R212): SOUND, no FATAL or MAJOR; minor repairs (incl. novelty wording: Thm 2.3 and Prop 3.1 are elementary/standard); every numerical claim re-verified, the 7/p census to 10⁸).**
+   * **Prop 1.1 / Cor 1.2 (PROVED; R212 re-derived all four residue cases).** The M-shot family (g | n + MQ², g ≡ −1 (mod M), g odd) carries T1 exactly when M ≡ 0, 3 (mod 4), i.e. when −M is a discriminant. M^□ is a theorem at all non-squares for every M ((J)41).
+   * **7 is a T1-bearing numerator with no failure: 7/p is solvable at every prime p ≤ 10⁸ (CERTIFIED; R212's own solver).** Type I of 7 never fails; Type II of 7 fails exactly at 3, 31, 43, 127, 211, 421, 463, 631, 12601. Among M ≤ 30000 (Pomerance–Weingartner §6), the T1-bearing failure-free numerators are 3, 4 and 7.
+     * 7 does not share 4's simple χ-fibre structure: S₇(p) = ∅ at exactly 10 primes ≤ 10⁵, seven of which are the 7/p Type II failures.
+     * Harness entry: 11/37 = 1/8 + 1/148 + 49/296 (11/37 has no unit-fraction solution; BM was not computed for it).
+     * Consequence (Assessment): every proposed "4-specific input" must now also be tested against 7 (true) as well as against 8 and 11 (false).
+   * Thm 2.3 (PROVED relative to the 2-adic symbol classification, Allcock–Gal–Mark Thm 5.1; R212 tested all 50 063 words with n ≤ 2001). Every χ = −1 path form has Q_w ⊗ ℤ₂ ≅ ⟨1, −1, −n⟩. So the one-odd versus all-even (= 8/n) split of the certificates is marking data, not lattice data.
+     * S₄^{odd}(p) ≠ ∅ at all primes ≤ 10⁷, while S₈ fails 27 times.
+   * **Thm 4.2 (PROVED; finite part re-checked by R212, with the Rosser–Schoenfeld tail).** The non-square A for which "(−A/p) = −1 ⇒ p has a word with slot A" holds for all p ≡ 1 (4) are exactly {2, 3, 5, 7, 8, 15, 20}, because τ(A+1) ≥ φ(A)/4 is necessary. Their joint reach is the complement of Mordell's six square classes: **Mordell's 840 is exactly the reach of universal one-slot χ-witnesses.**
+   * Prop 3.1/3.2 (PROVED, elementary). 4 is the unique M ≥ 3 with a slice e ∈ {1, 3} at every prime; the {±1}-unit-group slices (e ∈ {1, 2, 3, 4, 6}) hold exactly for M ∈ {3, 4, 5, 7}.
+   * Assessment. The only 4-specific fact with the character of an input is still the χ-fibre / 2-adic isotropy ((J)32/(J)33, SQ₅). Hatch harness: all PARTIAL hatches are mixed (a uniform skeleton plus a lottery). Relay O215 (what 4 and 7 share) was spawned.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
