@@ -1,0 +1,2 @@
+r=2 q=9 S=80 [r=2 total(3<=s<=80)=3.287220339594e+00 exact_part=5.922010e-01] finite=3.2872203396e+00 tail=7.9749e-02 caseA=1.7501e-01 certified_total(x1.01)=3.577402e+00 q-1=8 every-c=no
+ALL OK

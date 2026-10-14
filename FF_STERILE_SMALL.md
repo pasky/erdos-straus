@@ -1,6 +1,6 @@
 # FF_STERILE_SMALL — the small-q sterility cases: q = 27 (r = 3), q = 9, and A = T (k = 1) (O220, wave Y-f)
 
-Status: checkpoint 1 (O220): Theorem 3.1 (q = 27) PROVED (computer-assisted, certified as O216); q = 9 and A = T open. **ES is not solved here, nor any infinite case of ES or ES_q.** Labels as in DISCOVERIES.md.
+Status: checkpoint 2 (O220): Theorem 3.1 (q = 27; reviewed R220, repairs applied) and Theorem 5.2 (q = 9) PROVED (computer-assisted); A = T: reduction §6 (Prop 6.1 PROVED), count not done; q = 3 open. **ES is not solved here, nor any infinite case of ES or ES_q.** Labels as in DISCOVERIES.md.
 Builds on FF_STERILE_PUSH.md ((J)51; notation (B), Lemmas 1.1–1.6, 2.1, 2.2, Thm 3.1), DEPTH_ASPECT.md §2, FUNCTIONFIELD_ES*.md.
 Scripts `scripts/fz_*`.
 
@@ -178,15 +178,21 @@ unit). Hence for s ≥ S every divisor count in a tail box is ≤ exp(s(−D log
 box upper bounds of d'/s, n/s (the bound is increasing in d' and n). `fz_tail.c` (RANK = 1) uses 24 values of ρ and
 n₀ ∈ {S/2, S, 2S, 4S}, outward rounded; brute-force check of the linearised bound (q = 3, 4 ≤ n ≤ 11): 0 violations.
 
-**Theorem 5.2 (no finite linear covering of ES₉(T^k), k ≥ 2; PROVED, computer-assisted, O216 certification standard plus
-exhaustive enumeration).** O(9, T^k) ≠ ∅ for every k ≥ 2. The covered relative measure summed over the 8 c-slices is
-≤ 4.74 < 8; so the average uncovered fraction of a c-slice is ≥ 1 − 4.74/8 > 0.40, and at most 4 of the 8 c-slices have
-covered measure ≥ 0.95 … (the number of c with covered measure ≥ θ is ≤ 4.74/θ).
+**Theorem 5.2 (no finite linear covering of ES₉(T^k), k ≥ 2; PROVED, computer-assisted: O216 certification standard plus
+exhaustive enumeration).** O(9, T^k) ≠ ∅ for every k ≥ 2, so ES₉(T^k, ·) has no finite linear covering. The covered relative
+measure summed over the 8 c-slices is ≤ 3.58 < 8: the average uncovered fraction of a c-slice is ≥ 0.55, at least one c-slice
+is more than half uncovered, and at most 3 c-slices have covered measure ≥ 0.95 (the number of c with covered measure ≥ θ is
+≤ 3.58/θ).
 *Proof.* (Σ) with k = 2 (FF_STERILE_PUSH Lemma 2.1). `scripts/fz_certify9.sh 80` (log `data/fz/certify9.txt`): finite part
-3 ≤ s ≤ 80 by `fz_hybrid.c` — exact counts for s ≤ 21 (files `data/fz/enum9/e_<s>.txt.gz`, every pattern listed, checked by
-the script) and the route bounds of FF_STERILE_PUSH Lemma 1.6 + Lemmas 1.2–1.4, 4.1 for 22 ≤ s ≤ 80 — total 4.43364;
-tail s > 80 by `fz_tail.c` with Lemma 5.1: ≤ 0.079749 (242 053 boxes, none failed); Case A ≤ 0.17501 (α ≤ 40 exact) + 1.1·10⁻⁵
-(Lemma 2.1). Certified total (×1.01) 4.7353 < q − 1 = 8. ∎
+3 ≤ s ≤ 80 by `fz_hybrid.c` — exact counts for s ≤ 22 (`data/fz/enum9/e_<s>.txt.gz`, produced by the self-checked fz_enum;
+every pattern of each level listed, which fz_hybrid checks), exact mass 0.592201; route bounds (FF_STERILE_PUSH Lemma 1.6 +
+Lemmas 1.2–1.4, 4.1) for 23 ≤ s ≤ 80; total 3.2872203; tail s > 80 by `fz_tail.c` with Lemma 5.1: ≤ 0.079749 (242 053 boxes,
+none failed); Case A ≤ 0.17501 (α ≤ 40 exact, `fs_caseA.py`) + 1.1·10⁻⁵ (Lemma 2.1). Certified total (×1.01) 3.5774 < q − 1 = 8. ∎
+(With exact counts only for s ≤ 18 the same certificate gives 4.735; `fz_certify9.sh 80 1 21` regenerates the enumeration.)
+*Remark.* The exact per-level masses decay fast (1.8·10⁻⁵ at s = 22); the true left side of (Σ) is very likely ≈ 0.592 < 1,
+which would give every c-slice — but levels 23 ≤ s ≤ 80 are covered only by route bounds (mass 2.70), so this is EVIDENCE.
+With (J)51 and Theorem 3.1: **for every q = 3^r, r ≥ 2, and every k ≥ 2, ES_q(T^k) has no finite linear covering**; q = 3 stays
+open (Conjecture 0.2; §5.3).
 
 **5.3 q = 3 and Conjecture 0.2: an honest estimate of s₀ (Assessment, from CERTIFIED bound sums).** With all routes
 (Lemmas 1.2–1.4, 4.1), `fz_sum 1 200` gives at q = 3 per-level bound terms 26.1 (s = 10), 68.1 (s = 20), 52.9 (s = 30),
