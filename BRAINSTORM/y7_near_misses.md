@@ -19,7 +19,7 @@ Primes p ≥ 11 with f_M(p) ∈ {0, 1} (p = 3, 5, 7 excluded: size-trivial failu
 | 11 | 37 | 13, 17, 23, 67, 101, 331, 631 |
 | 13 | 53, 61, 67, 79, 211, 281 | 17, 29, 41, 163, 241, 601, 1097, 1777 |
 The single solutions of 7/p: 7/43 = 1/10 + 1/16 + 1/3440, 7/127 = 1/20 + 1/196 + 1/62230, 7/211 = 1/32 + 1/520 + 1/438880
-(all Type I, e = 13, 27, 27 — the e = 6 slice of p ≡ 1 (mod 7) is empty; `scripts/y7_sols.py`).
+(all Type I, e = 13, 27, 69 — all ≡ 6 (mod 7); the e = 6 slice of p ≡ 1 (mod 7) is empty; `scripts/y7_sols.py`).
 All ten S₇-empty primes ≤ 10⁵ (43, 127, 211, 421, 463, 631, 967, 4201, 9661, 12601) are ≡ 1 (mod 42), and six are
 ≡ 1 (mod 105): they sit in the class-of-one core of y7_mordell_levels. p − 1 is highly divisible in every case
 (4200 = 2³·3·5²·7, 12600 = 2³·3²·5²·7).
