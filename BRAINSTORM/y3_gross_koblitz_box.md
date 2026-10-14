@@ -25,8 +25,9 @@ exactly j** — the box coordinate (−p ≡ c/j). Consistent with Stickelberger
 h + 1 — no longer semi-primitive, Γ-products don't collapse, and the resulting congruences (Jacobi sums ≡ binomials,
 Cosgrave–Dilcher) live in the (h − 1)-world (they evaluate representations h = a² + Db² for split h). The semi-
 primitive (inert) case is exactly where these binomial congruences degenerate (Jacobi sums ≡ 0 mod h).
-(2) Mixed characters λ = (χ ∘ N)·ψ (χ on F_h^*, ψ of order | h + 1): g(λ) = ½ g_{F_h}(χ²) Σ_{u ∈ T} ψ(u) χ̄²(u + ū)
-(decompose F_{h²}^* = F_h^*·T): a torus character sum of "Salié/Kloosterman on the conic" type — equidistributed
+(2) Mixed characters λ = (χ ∘ N)·ψ (χ on F_h^*, ψ of order | h + 1): g(λ) = ½ g_{F_h}(χ²) Σ_{ε∈{0,1}} χ(Nγ)^ε Σ_{u ∈ T} ψ(uγ^ε) χ̄²(Tr(uγ^ε)) for χ² ≠ 1, γ any element with Nγ a
+non-square (F_h^*·T has index 2 in F_{h²}^*; checked numerically, scripts/y3_gauss.py mixed_check, 6 cases, error
+< 10⁻¹¹): a torus character sum of "Salié/Kloosterman on the conic" type — equidistributed
 (Katz), no closed form for general χ: the only place p could enter (via χ) is a square-root-cancelling sum: B3.
 
 ## Barrier screen
