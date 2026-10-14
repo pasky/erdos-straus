@@ -147,8 +147,10 @@ int main(int argc, char **argv){
     int t = j/(qq*T); R s = (t < 1) ? 1.0L/g : (R)t;
     R lam = powl(2.0L, s);
     R N0 = powl(2.0L, (R)j/qq), N1 = powl(2.0L, (R)(j+1)/qq) * (1.0L + 1e-15L);
+    if(getenv("SE_EXACT")){ N0 = strtold(getenv("SE_EXACT"),0); N1 = N0*(1.0L+1e-15L); }   /* validation mode */
+    int dump = getenv("SE_DUMP") != 0;
     R tot = 0, share[NR]; memset(share,0,sizeof share);
-    int imax = (int)ceill(((R)(j+1)/qq + 2)/s) + 1;
+    int imax = (int)ceill((log2l(N1) + 2)/s) + 1;
     for(int i1=0; i1<=imax; i1++){ R X1 = powl(2.0L, s*i1);       /* P: A ; Q: C */
       for(int i2=0; i2<=imax; i2++){ R X2 = powl(2.0L, s*i2);     /* P: D ; Q: D */
         if(mode=='P' && 2*X1*X1*X2 > N1) break;
@@ -158,6 +160,7 @@ int main(int argc, char **argv){
           R v = (mode=='P') ? boxP(N0, N1, X1, X3, X2, lam, &who) : boxQ(N0, N1, X1, X2, X3, lam, &who);
           if(who < 0){ if(mode=='P' && X1*X2*X3 > N1) break; if(mode=='Q' && X3 > N1+2) break; continue; }
           inner += v; ish[who] += v; any = 1;
+          if(dump) printf("B %.0Lf %.0Lf %.0Lf %.6Le\n", X1, X2, X3, v);
         }
         if(!any) continue;
         /* aggregated pair routes (all values of the third variable at once) */
@@ -166,6 +169,7 @@ int main(int argc, char **argv){
         R agg;
         if(mode=='P') agg = n1*n2*floorl(expl(ltau(logl(3*N1), LC2)));          /* (a,d): f | N+4a^2d */
         else          agg = n1*n2*floorl(expl(ltau(logl(N1*N1 + 4*lam*lam*lam*X1*X1*X2), LC2))); /* (c,d): f | F^2+4c^2d */
+        if(dump) printf("R %.0Lf %.0Lf %.6Le\n", X1, X2, agg < inner ? agg : inner);
         if(agg < inner){ tot += agg; share[mode=='P'?2:3] += agg; }
         else { tot += inner; for(int q=0;q<NR;q++) share[q] += ish[q]; }
       }
