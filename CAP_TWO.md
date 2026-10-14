@@ -170,8 +170,8 @@ carrying a c-odd W_n point (side conditions on (a, B) not imposed):
 So a positive proportion (≈ 5–15%) of fibres carry points, while the shot search of §3 sees only a handful of shots per
 n (n = 13: 4 shots with g ≤ 10⁶, n = 379: 1, `scripts/y6_count.py`). The reason: the points are deep in long CF
 periods, e.g. n = 379, x = 161, E = 23: (a, B) = (8 207 552, 1 238 990 989), g ≈ 7·10¹⁶ (B squarefree, a valid
-shot); n = 13, x = 33, E = 11: (267 468, 443 777), g ≈ 3.6·10¹¹. Fixing E and varying c (`/tmp`-style check,
-reproduced inside y6_fibres logic): n = 13, E = 7: 18 of 118 admissible c ≤ 301 carry a point, all with 3 | c — the
+shot); n = 13, x = 33, E = 11: (267 468, 443 777), g ≈ 3.6·10¹¹. Fixing E and varying c (`scripts/y6_fixE.py 13 E 301`;
+explicit points: `scripts/y6_pt.py n x E`): n = 13, E = 7: 18 of 118 admissible c ≤ 301 carry a point, all with 3 | c — the
 genus layer: p = 3 has (13/3) = 1, (−7/3) = −1, so the prime 3 must not divide Δ = 49c² − 208 to first order, forcing
 c ≡ 0 (mod 3); E = 11: 61 of 125; E = 19: 23 of 131 (again 3 | c).
 *Assessment.* The c-odd half has exactly the two-layer structure MARKOFF_ES §6 found for ES^{[2]} (c ≡ 0 mod 4):
@@ -184,7 +184,8 @@ principal with a negative-norm generator in the order of discriminant x² − 16
 quadratic family of real quadratic orders: no unconditional technique proves it (MARKOFF_ES Prop 6.1(c)). On top of
 it the cap-2 cell needs B squarefree at some orbit point (Prop 2.1(c)), which ES^{[2]} does not need.
 Families x ≡ 0 (mod 4n) would be Richaud–Degert (explicit short CF) but are excluded: x odd here (and the RD
-subfamily of ES^{[2]} is killed by reciprocity, GROWING_MUTE Prop 1.2(c)). By Schinzel's criterion the CF period of
-√(x² − 16n) is unbounded along every progression of odd x, so no bounded-depth (explicit) family exists; and the
+subfamily of ES^{[2]} is killed by reciprocity, GROWING_MUTE Prop 1.2(c)). (Schinzel's criterion for bounded CF periods of √f(x) along
+progressions suggests no bounded-depth family exists for odd x; not re-derived here, Assessment.) The
 proof of MARKOFF_ES Thm 5.1 (units of y² = μ² − n over ℚ[s]) applies verbatim with μ = x/2 to rule out polynomial
-families (a(s), B(s), c(s)) with c non-constant at fixed E.
+families (a(s), B(s), c(s)) with c non-constant at fixed E, n non-square (PROVED by that argument: η = (x + √f)/2,
+f = x² − 16n, has constant norm 4n, α = B − aη has norm −E; R* = ℚ*×⟨ε⟩; b odd forces N(α) > 0, b even forces 4n square).
