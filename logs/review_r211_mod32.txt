@@ -1,0 +1,18 @@
+X=100000
+N==1 (32) R1: sq words 2007, nonsq chi=+1 words 118740, cells sq 20 nonsq 20; empty-at-squares cells (expected sq count): 0 cells, max expected 0, sum expected 0; only-at-squares: 0
+N==1 (32) R2: sq words 2007, nonsq chi=+1 words 118740, cells sq 257 nonsq 320; empty-at-squares cells (expected sq count): 63 cells, max expected 3.8, sum expected 49.1; only-at-squares: 0
+N==9 (32) R1: sq words 2004, nonsq chi=+1 words 118686, cells sq 20 nonsq 20; empty-at-squares cells (expected sq count): 0 cells, max expected 0, sum expected 0; only-at-squares: 0
+N==9 (32) R2: sq words 2004, nonsq chi=+1 words 118686, cells sq 246 nonsq 320; empty-at-squares cells (expected sq count): 74 cells, max expected 1.72, sum expected 51.0; only-at-squares: 0
+N==17 (32) R1: sq words 2057, nonsq chi=+1 words 118732, cells sq 20 nonsq 20; empty-at-squares cells (expected sq count): 0 cells, max expected 0, sum expected 0; only-at-squares: 0
+N==17 (32) R2: sq words 2057, nonsq chi=+1 words 118732, cells sq 257 nonsq 320; empty-at-squares cells (expected sq count): 63 cells, max expected 3.24, sum expected 45.3; only-at-squares: 0
+N==25 (32) R1: sq words 2005, nonsq chi=+1 words 118797, cells sq 20 nonsq 20; empty-at-squares cells (expected sq count): 0 cells, max expected 0, sum expected 0; only-at-squares: 0
+N==25 (32) R2: sq words 2005, nonsq chi=+1 words 118797, cells sq 259 nonsq 320; empty-at-squares cells (expected sq count): 61 cells, max expected 2.84, sum expected 35.1; only-at-squares: 0
+X=400000
+N==1 (32) R1: sq words 4952, nonsq chi=+1 words 563182, cells sq 20 nonsq 20; empty-at-squares cells (expected sq count): 0 cells, max expected 0, sum expected 0; only-at-squares: 0
+N==1 (32) R2: sq words 4952, nonsq chi=+1 words 563182, cells sq 312 nonsq 320; empty-at-squares cells (expected sq count): 8 cells, max expected 2.0, sum expected 10.9; only-at-squares: 0
+N==9 (32) R1: sq words 4966, nonsq chi=+1 words 563171, cells sq 20 nonsq 20; empty-at-squares cells (expected sq count): 0 cells, max expected 0, sum expected 0; only-at-squares: 0
+N==9 (32) R2: sq words 4966, nonsq chi=+1 words 563171, cells sq 307 nonsq 320; empty-at-squares cells (expected sq count): 13 cells, max expected 2.16, sum expected 19.5; only-at-squares: 0
+N==17 (32) R1: sq words 4886, nonsq chi=+1 words 563322, cells sq 20 nonsq 20; empty-at-squares cells (expected sq count): 0 cells, max expected 0, sum expected 0; only-at-squares: 0
+N==17 (32) R2: sq words 4886, nonsq chi=+1 words 563322, cells sq 305 nonsq 320; empty-at-squares cells (expected sq count): 15 cells, max expected 3.3, sum expected 28.1; only-at-squares: 0
+N==25 (32) R1: sq words 4937, nonsq chi=+1 words 563231, cells sq 20 nonsq 20; empty-at-squares cells (expected sq count): 0 cells, max expected 0, sum expected 0; only-at-squares: 0
+N==25 (32) R2: sq words 4937, nonsq chi=+1 words 563231, cells sq 300 nonsq 320; empty-at-squares cells (expected sq count): 20 cells, max expected 2.73, sum expected 27.2; only-at-squares: 0
