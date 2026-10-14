@@ -84,7 +84,7 @@ Let Z_r(N) be "some interior word of HJ length r at N has a short diagonal (quid
 gives 4/N as r unit fractions (vertex fan).
 * r = 2: for N ≡ 1 (4), Z₂ is empty, because xy = N + 1 ≡ 2 (4) (PROVED).
 * r = 3: Z₃ ⟺ some word has (h′/N) = −1 (Thm 1.2). This is a Jacobi fibre, empty at squares (T1).
-* r = 4: **Z₄(N) holds for every N ≡ 1 (4), N ≥ 9**, via the word (2, 2, 2, (N+3)/4). Its 4-diagonal K(2,2,2) = 4 cuts
+* r = 4: **Z₄(N) holds for every N ≡ 1 (4), N ≥ 5**, via the word (2, 2, 2, (N+3)/4). Its 4-diagonal K(2,2,2) = 4 cuts
   off a free triangle that contains the N-side (PROVED, explicit identity). In particular Z₄ holds at all odd squares.
 * r ≡ 0 (4): (2^{r−1}, k) has K = rk − r + 1 and end quiddity K(2^{r−1}) = r ≡ 0 (4). Its N-class is 1 (mod r), which
   contains odd squares (PROVED).
