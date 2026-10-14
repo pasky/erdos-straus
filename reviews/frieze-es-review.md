@@ -177,3 +177,33 @@ Script `scripts/review_r208_parity.py 3000` (log `logs/review_r208_parity.txt`).
   says); Prop 3 is correctly labelled Assessment. Nothing overclaimed.
 **Verdicts:** parity involution SOUND-AFTER-REPAIRS (p = 3; Lemma 1 scope); Zamolodchikov SOUND-AFTER-REPAIRS (label);
 coefficients model SOUND.
+
+## Claim 8 — literature and novelty
+* **Cuntz–Holm–Jørgensen**, *Frieze patterns with coefficients*, arXiv:1909.02332, Forum Math. Sigma 8 (2020) e17 —
+  authors, title, journal verified via the arXiv API; the abstract has "cutting out subpolygons" and the realisability
+  question ("which frieze patterns with coefficients can be obtained in this way … solve this problem completely for
+  triangles") ✓. The Zamolodchikov memo's "CHJ Prop. on glide symmetry" is CHJ **Theorem 2.11** (PDF read) (D14).
+* **SVZ** arXiv:2312.12953 — verified in the PDF (Claim 5).
+* **Böhmler–Cuntz** arXiv:2407.12596 (*Frieze patterns over finite commutative local rings*) and **Morier-Genoud–Ovsienko**
+  arXiv:1811.01229 (*Farey boat I*) — titles/authors verified via the arXiv API ✓.
+* **Guo**, *On tropical friezes associated with Dynkin diagrams* — exists, arXiv:1201.1805 ✓ (IMRN 2013 journal data not
+  verified). Caution (D14): Guo's tropical friezes satisfy the max-plus exchange relation *with equality*; the 2-adic
+  valuation pattern of an integral frieze is NOT such an object (e.g. q₁q₂ = N + q₄ with q₄ odd gives
+  v₂(q₁) + v₂(q₂) ≥ 1 > 0 = min(v₂N, v₂q₄)). Only the four-point (ultrametric) condition holds, as the memo correctly says;
+  the citation should be "cf." not an identification. Also y2_even_edge's pointer to a memo "y2_tropical_2adic" is
+  dangling — the memo is y2_twoadic_tree_transport (D14).
+* **Beardon–Hockman–Short**, *Geodesic continued fractions*, Michigan Math. J. 61 (2012) 133–150 — bibliographic data
+  verified by web search (Project Euclid / ORO); content not read; nothing depends on it.
+* **Musiker–Schiffler–Williams**, *Positivity for cluster algebras from surfaces*, arXiv:0906.0748 (Adv. Math. 2011) ✓
+  exists; used only for the classical "frieze entry = number of perfect matchings of a snake graph", which is standard.
+* **Novelty of Thm 1.2** — see Claim 2′/D1: the statement for all words and all odd N is MODEL_SPECIFIC Thm 3.1(a) and
+  DISCOVERIES (J)33 already records CHI_FLIP as "a citation-free proof of the mod-8 sign law of (J)9 / (J)32". What the
+  even-edge proof adds over CHI_FLIP is: no Hilbert-reciprocity-for-ternary-forms machinery and **no cell enumeration**
+  (CHI_FLIP still identifies the χ = −1 cells with the 4-slices by enumerating 320 cells).
+* **Missed corollary (positive, D15).** Thm 1.2 + Cor 1.3 show that χ = (−h′/N) is a function of (c, m, s) **mod 4**
+  (8 | ee′ ⟺ some q_i ≡ 0 (4), and N, q_i mod 4 are functions of the letters mod 4). Checked: on all odd-N words with
+  letters < 80, χ is constant on each of the 40 odd-N cells mod 4 (30 cells with χ = −1). So "the period is 8"
+  (CHI_FLIP Cor 1.2) and DK's 512-cell/mod-8 framing are not sharp: 8 is a period, 4 is the minimal one. Likewise §0 (I1)
+  "it must be 2-adic of depth 3" is misleading — the sign is the mod-4 spur property (depth 2 on one cherry), cf. y2_farey
+  "(h′/N) = −1 ⟺ the mod-4 walk has a spur". The 80 classes per N mod 8 of y2_lift8 are correct (my count: 80 each).
+**Verdict: GAP on novelty (D1), citations otherwise SOUND with minor fixes (D14).**
