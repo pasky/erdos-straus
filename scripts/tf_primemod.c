@@ -16,7 +16,7 @@ static int divs(long n,long*dv){ int c=1; dv[0]=1; long m=n; while(m>1){ long q=
 /* stage 2: returns 0 none, 1 only composite moduli, 2 some prime modulus */
 static int stage2(long p, long *nsol){
   int best=0; *nsol=0; static long dv[200000];
-  for(long x=(p+1)/4+1; 2*x<=p; x++){ long e=4*x-p; if(e<=0) continue; { long a=x,b=p; while(b){ long t=a%b; a=b; b=t; } if(a!=1) continue; }
+  for(long x=p/4+1; 2*x<=p; x++){ long e=4*x-p; if(e<=0) continue; { long a=x,b=p; while(b){ long t=a%b; a=b; b=t; } if(a!=1) continue; }
     /* divisors of x^2 from factorisation of x */
     long pr[20]; int ex[20],k=0; long m=x; while(m>1){ long q=spf[m]; int t=0; while(m%q==0){m/=q;t++;} pr[k]=q; ex[k]=2*t; k++; }
     int c=1; dv[0]=1; for(int i=0;i<k;i++){ int c0=c; long pw=1; for(int t=1;t<=ex[i];t++){ pw*=pr[i]; for(int j=0;j<c0;j++) dv[c++]=dv[j]*pw; } }
