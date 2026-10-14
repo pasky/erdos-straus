@@ -986,6 +986,29 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * Farey-chain slice: fails at 13, 37, 97, 181, 193, 277, 373.
    * Assessment. The four "length 3" phenomena are algebraically equivalent restatements of the single continuant equation K(c, m, s) = N. No deterministic existence mechanism appears; the unknown λ-length h is B2's "modulus that is part of the solution". Relay O210 (friezes over ℤ/4, ℤ/8; ear-adding; cluster periodicity) was spawned.
 
+41. **Synthesis III: the numerator-blindness barrier — the □-relaxation is a theorem for every numerator M ≡ 0 (4), including those where M/p fails (SYNTHESIS_SPARKS3.md + BRAINSTORM/s3_*.md (O208); review `reviews/synthesis-three-review.md` (R207): no FATAL; MAJOR D1 (the "must be 4-specific" reading ignores thresholds and was labelled PROVED; now split into a formal statement and an Assessment, with a threshold-robust strengthening) and D2 (novelty relative to (J)31/(J)32); minors; repaired by the reviewer).**
+   * Lemma 1.0 / Thm 1.1 (PROVED, elementary; R207 re-derived them by valuations and brute force).
+     * For M ≡ 0 (4): if g | n + MQ² and g ≡ −1 (mod M), then M/n = 1/x + 1/y + 1/z where den z = (Q/gcd(Q, (g+1)/M))² is an odd square.
+     * (∗): (−M/g) = −1 for every odd g ≡ −1 (mod M).
+     * (a) Hence M^□(n) holds at every odd non-square n prime to M (one Dirichlet prime).
+     * (b) There is no M-shot at an odd square, so the shot mechanism keeps T1 exactly.
+   * **Cor 2.1 (formal part CERTIFIED; R207 re-solved the failing pairs from scratch).**
+     * M/p fails at 278 known pairs (M ∈ {8, 12, 16, 20, 24}). Every one of them has an exact M^□ certificate with a prime g ≤ 239.
+     * The 264 pairs with p ∉ S also have M^{(S)} certificates for S = {3, 5, 7, 11}. Example: **8/131 = 1/20 + 1/131 + 9/2620**, while 8/131 has no unit-fraction solution.
+     * Threshold-robust strengthening (R207 D1; relative to Pomerance–Weingartner Thm 1.2): for every M ≡ 0 (4) with M ≥ 6.52·10⁹, some prime p ∈ (M², 2M²) has M^□(p) and not M/p.
+   * Assessment (R207: fair item by item, but the conclusion is an Assessment).
+     * Shot identities, overflow duality, T1/BM/Diff-parity, box finiteness, sieves, composition and class-group pigeonhole all work uniformly in the numerator. So any ES proof that uses only such tools, uniformly in M without a threshold, would also prove false statements.
+     * An ES proof therefore needs an input specific to 4 (consistent with (J)31). The cleanest known one is the χ-fibre S₄ = {χ = −1} of (J)32.
+     * New relative to (J)31: the relaxations are theorems for every M, and the failures 8/131, 8/241, TES and ES_q serve as a falsification harness for mechanisms, not only for Brauer–Manin.
+   * Memos (R207: SOUND, or SOUND-AFTER-REPAIRS).
+     * s3_box_bit (PROVED): for a prime g ≡ 3 (4), a □-shot at g exists ⟺ (p/g) = −1. So the □ relaxation is exactly the sign layer.
+     * s3_eps_mu_sieve (PROVED): 4tj − 1 | nj + t ⟺ 4tj − 1 | n + 4t², i.e. (J)38's ES slot is the (J)23 sieve shot with Q = t.
+     * s3_min_scale (EVIDENCE to 10⁷): the least certifying modulus is h_min ≤ 0.82 log³p.
+     * s3_lll_lenstra: LLL decides, it does not produce existence.
+     * s3_isogeny_mixing (Assessment): certificate edges are o(N), so expander mixing cannot force one.
+     * s3_words_parity: #χ=−1 words is even at p ≡ 1 (4).
+   * Relay O212 (hunting 4-specific inputs) was spawned.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
