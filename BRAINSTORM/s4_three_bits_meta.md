@@ -53,9 +53,12 @@ Maslov count). On D: certificate ⟺ χ = −1 (MODEL_SPECIFIC 3.1(a)). **For al
       factorisations with A or B ∈ {±1, ±2}, which are excluded (= −1), of the wrong class mod t, or give finitely
       many congruence-determined signs (to be checked per t). So H gives infinitely many
       n ≡ 1 (8) where every |t| ≤ T fails (sketch; admissibility of the prime tuple to be checked per T).
-  Mechanism of the quantitative gain: with A, B < 0 the factors a = |A|, b = |B| satisfy a ≡ b ≡ +1 (mod t) (the
-  *wide/trivial* class), and for prime t ≡ 1 (4), n ≡ 1 (4), χ = (−t/a) = (−1/a): the c_∞-condition moves from
-  "≡ −1 mod t" to "≡ −1 mod 4" — a fixed modulus. So positivity is what makes the c_∞ modulus grow with t.
+  Mechanism of the quantitative gain (Assessment, corrected after inspection): t = −s gives AB = 1 − sn, so the
+  signed problem adds the numbers sn − 1 to ES's numbers sn + 1. For |t| ∈ {1, 2, 3, 4, 6} ((ℤ/t)* = {±1}) the sign of
+  A can always be chosen to meet A ≡ −1 (mod t), so each such slot is a pure genus condition on one number |t|n ± 1
+  (e.g. for n ≡ 1 (8): n + 1 needs a prime ≡ 3 (4); n − 1 never works; 2n − 1 needs a prime ≡ ±3 (8)). Signed doubles
+  the number of independent slots per |t|, which roughly squares the small-slot failure probability. No new
+  mechanism: the c_∞ condition is moved, not removed.
 
 ## Literature
 CHI_FLIP Thm 1.1 / Prop 1.6 ((J)33), TRANSPORT_LAW Thm 3.1 ((J)45), FRIEZE_ES §3 ((J)42), MODEL_SPECIFIC Thm 3.1
@@ -82,8 +85,7 @@ The precise meta-statement: **positivity enters ES exactly as the single bit ε_
 it converts the 2-adic certificate condition into the n-adic condition χ = −1, and nothing else.** Dropping it in the
 2-adic form trivialises ES and loses T1; dropping it in the n-adic form keeps T1 and stays qualitatively the same
 (finite, no forcing, a sub-product lottery, no finite t-set under H) but becomes quantitatively far easier (|t| ≤ 18
-to 10⁷ versus 231 by 2·10⁶), because the c_∞-requirement then lives at the fixed modulus 4 instead of the moving
-modulus t. **New CONJECTURE SQ_± (EVIDENCE to 10⁷): for odd n > 1, some signed point of X_n (t u v ≠ 0) has χ = −1 iff
+to 10⁷ versus 231 by 2·10⁶), because it has twice the slots (the numbers sn − 1 join sn + 1). **New CONJECTURE SQ_± (EVIDENCE to 10⁷): for odd n > 1, some signed point of X_n (t u v ≠ 0) has χ = −1 iff
 n is not a square** — the exception 105 of SQ₅ disappears. So "ES must use positivity archimedeanly" is true for T1, but a
 positivity-respecting tool is not thereby a lottery-breaker: the lottery is n-adic. Label: L1, L2, P3(a,b) PROVED
 (elementary); P3(c) EVIDENCE; the reading is an Assessment.
