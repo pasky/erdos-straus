@@ -4,9 +4,25 @@ Reviewer: R223 (side agent, branch side-agent/review-sterile-explicit-2). Round 
 Scope: STERILE_EXPLICIT.md as merged from side-agent/sterile-explicit; scripts se_box.c, se_tail.py, se_r0.py;
 data/se/*. From-scratch scripts: scripts/review_se2_*.py. The parallel review (R222) was NOT read before writing this.
 
-## Summary verdicts (filled in progressively)
+## Summary verdicts
 
-(in progress)
+| claim | verdict |
+|---|---|
+| Lemma 1.1, 1.2 (P identities, sizes) | **SOUND** (re-proved; brute force 0 failures) |
+| Lemma 1.3 (class divisors via Minkowski) | **SOUND** (re-proved; 3300 exact tests, 0 violations) |
+| Cor 1.4 (Coppersmith interpolation, n^{max(0, β(1−β)−ρ)+o(1)}) | **SOUND** (re-proved incl. asymptotics); "new" → "standard trick" (m-B2) |
+| Table 2 / Table 3.2Q route bounds | **SOUND** (each re-derived; f-route congruences brute-forced) |
+| §3.1 measure criterion (S) ⇒ sterile point ⇒ no finite ET covering | **SOUND-AFTER-REPAIRS** (citation repair m-D5: uses M17 1.3/5.1/5.2 for general r, re-derived here) |
+| Theorem 3.4 quantifier "every prime r ≥ 2³²" (finite log-r grid + monotone tail) | **SOUND** (minor m-A1) |
+| Theorem 3.4 numerics: dominant terms at r = 2³² (Q k=1, P K=1, P tail) | **CONFIRMED** by independent exact/interval code (0.35036, 0.02298, 0.10930 vs author 0.35044, 0.02460, 0.10932) |
+| Theorem 3.4 overall | **SOUND-AFTER-REPAIRS** (only MINOR repairs; no FATAL/MAJOR found) |
+| (I3)/Prop 2.1 "θ* = 2/5 exactly, tolerated to η = 0.3" | threshold η = 0.3 **confirmed** (EVIDENCE, refined optimiser); "exactly" not grid-provable; θ*(0.35) = 0.425 not 0.417 (m-D1); label EVIDENCE is right |
+| (I1) dictionary O216 Case B ↔ ℤ P-data | equations ✓; side conditions differ (m-D3) |
+| r = 13 (all six cells covered at level 1), r = 17 (two of eight survive) | **SOUND** (from-scratch level-1 check) |
+| Labels | mostly right; m-D5–m-D8 |
+
+No FATAL, no MAJOR defect found. The certificate is reproduced on its dominant terms by from-scratch code in exact/interval
+arithmetic, with the author's values on the conservative side everywhere.
 
 ## A. The reduction Theorem 3.4 → (S) → finite certificate (task focus (a))
 
@@ -164,3 +180,40 @@ here, §A.1), so this is a citation repair (m-D5). (ii) "→ 1/2 as r → ∞" i
 (each term × weight ≤ c·r^{−1/2−0.02K}·polylog, and the Q terms ≤ c r^{−1/4}) — add the sentence (m-D6). (iii) Section order: "## 5.
 Feedback to F_q[T]" sits between §3.3 and §3.4 (Theorem 3.4 appears under §5; there is no §4) (m-D7). (iv) Prop 2.1: "Q … 0.65 (grid;
 `/tmp`-prototype, to be committed)" — se_rateQ.py is committed; stale (m-D8). (v) §5 FF claims ("closes q = 27") are labelled EVIDENCE ✓.
+
+## Numbered defects
+
+FATAL: none. MAJOR: none.
+
+* **m-A1** (MINOR) `se_r0.py` K/k-loops: the "+1e-20 geometric remainder" after the 10⁻³⁰ cut is asserted, not proved. Repair: add
+  the one-line bound (ratio of successive odd-K tail terms ≤ 2^{(2·0.4797 − 1)b + 0.4797/2}·((K+2)/K)² < 0.5 for b ≥ 32, K ≥ 19; measured
+  0.155–0.48) to §3.4 or assert it in code.
+* **m-B2** (MINOR) Cor 1.4 "for ρ ≤ 1/4 it is new to the campaign": the interval-splitting step is the standard Coppersmith/
+  Howgrave-Graham device; say "standard; first used in the campaign here".
+* **m-C1** (MINOR) se_tail.py `cop`: X_J = Δ/(2sJ) + 1/2 is bounded by max(1, c₁N^{x₁−x_s−κ}/c_s) implicitly (via c₁/c_s in place of
+  c₁/(2c_s) and the separate check g(L₀) < 0). Correct, but undocumented — add a comment (my exact re-implementation makes it explicit).
+* **m-D1** (MINOR) (I3): "θ* = 0.400, 0.417, 0.450, 0.500 at η = 0.3, 0.35, 0.4, 0.5": the 0.35 value is 0.425 (grid 1/60 misses
+  (1/3, 0.2583, 1/3, 0.075); se_rate2 at n = 120 gives 0.425). Replace "θ* = 2/5 exactly" by "θ* = 0.400 (1/60 grid, confirmed by local
+  refinement; EVIDENCE)", and state θ*(η) ≈ 0.4 + (η − 0.3)/2 on [0.3, 0.4].
+* **m-D2** (MINOR) (I3) "no divisor bound at all except τ₃": route G also uses 2^{ω(e)} ≤ C_ω e^{η_ω} (η_ω = 0.1 in se_tail).
+* **m-D3** (MINOR) (I1) "literally the ℤ P-data": the defining equations match; O216's T ∥ w, T ∥ C ≠ r ∤ ab. Say "equation-level twin".
+* **m-D4** (MINOR) §3.4 remark on r = 17: quote M17D's conditions (constant ≲ 2.5 at θ = 0.4 with no log loss *from K = 15 on, given exact
+  data through K = 13*).
+* **m-D5** (MINOR, citation) Theorem 3.4 header "same inputs as (J)26 Thm 3.1 minus …, all with r-free proofs (R83, R93, R187)": M17
+  Lemmas 1.3, 5.1, 5.2 (and M17B 1.1, M17C 2.1(iv)) are inputs here but not of (J)26 (DEPTH_ASPECT §3: "Lemma 1.3 is not used",
+  "Lemma 5.2 is optional"), and their general-r validity was not covered by R187. They are r-free (re-derived in §A.1; brute force for
+  13 primes r ≤ 43, `scripts/review_se2_identities.py`). Repair: list them as additional inputs and cite this check.
+* **m-D6** (MINOR) "→ 1/2 as r → ∞": add the one-line justification from the tail lists (§D.7 (ii)).
+* **m-D7** (MINOR) Section order: "## 5. Feedback to F_q[T]" is placed between §3.3 and §3.4; there is no §4.
+* **m-D8** (MINOR) Prop 2.1: "`/tmp`-prototype, to be committed" is stale (scripts/se_rateQ.py is committed).
+
+## Replay (all under `ulimit -v 8000000`, ≤ 2 cores)
+
+```
+uv run python scripts/review_se2_identities.py                      # §A.1, ~4 s
+uv run python scripts/review_se2_level1.py                          # §D.6
+uv run python scripts/review_se2_cop.py 3000 7                       # §B, ~5 s
+uv run python scripts/review_se2_boxbound.py Q 128                   # §C, ~1 min  (also P 128, Q 192; P 384 ~1 h)
+uv run python scripts/review_se2_tail.py 32 40                       # §C, P tail, ~10 min
+uv run --with scipy --with numpy python scripts/review_se2_rate.py 0.3 0.35   # §D.4
+```
