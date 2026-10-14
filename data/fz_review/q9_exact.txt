@@ -1,0 +1,7 @@
+q=9 s=3: exact tuples=0  mass=0.000000  cumulative=0.000000
+q=9 s=4: exact tuples=2  mass=0.222222  cumulative=0.222222
+q=9 s=5: exact tuples=4  mass=0.049383  cumulative=0.271605
+q=9 s=6: exact tuples=16  mass=0.197531  cumulative=0.469136
+q=9 s=7: exact tuples=20  mass=0.027435  cumulative=0.496571
+q=9 s=8: exact tuples=40  mass=0.054870  cumulative=0.551440
+q=9 s=9: exact tuples=12  mass=0.001829  cumulative=0.553269

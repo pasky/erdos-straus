@@ -1,0 +1,2 @@
+r=3 S=80 VMODE=0 finite=3.0457472488e+00 tail=1.6472e-04 caseA=9.659034e-03 total=3.055571e+00 (q-1=26)
+r=3 S=80 VMODE=1 finite=4.4317478829e+00 tail=1.6472e-04 caseA=9.659034e-03 total=4.441572e+00 (q-1=26)
