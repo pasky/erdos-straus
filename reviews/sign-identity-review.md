@@ -11,7 +11,10 @@ None reuse `scripts/si_*`.
 | Lemma 1.1 ((u,v)-form, χ = (−uv/n₀), size bound) | SOUND |
 | Lemma 1.2 (trivial certificates; Dirichlet/Chebotarev form) | SOUND (classical; novelty nil — see D1) |
 | Lemma 2.1 (averages, 240/512, 80/512) | SOUND |
-| Thm 2.2 (no holomorphic modular generating function) | SOUND-AFTER-REPAIRS (minor: D2, D3) |
+| Thm 2.2 (no holomorphic modular generating function) | SOUND-AFTER-REPAIRS (minor: D2, D3, D4) |
+| Prop 2.3 (T1 kills finite twisted d_k combinations) | SOUND (minor D5; elementary) |
+| Prop 2.4 (Waldspurger zero-set, non-square conductor) | SOUND-AFTER-REPAIRS (MAJOR D6 hidden trivial-character hypothesis; D7 citation form) |
+| §3 rank screen (CERTIFIED) | SOUND — reproduced from scratch, all 32 certificates, same column ranks |
 
 ## Claim-by-claim
 
@@ -70,3 +73,45 @@ parenthetical "slash by γ" must be read this way; D3).
   weight-½ X^{1/2}) are O(X^{K−1/2}); the triangle inequality in ℓ² finishes; the bound Σ|a(n)|² ≪ X^{3/2+ε} is correct
   (|a(n)| ≤ |X_n| ≪ n^{1/2+ε}). Correct, but redundant given the short proof.
 *Defects:* D2 (projection to odd n), D3 (step (i) wording), D4 (scope sentence about Thm 9.1 and "log¹" is wrong).
+
+### Prop 2.3 — SOUND
+Re-derived: on n composed of primes ≡ 1 (L) every ψ(d) = 1, d_k(ℓ^{2a}) = binom(2a+k−1, k−1), a polynomial in a of
+degree k − 1 with leading coefficient 2^{k−1}/(k−1)!; vanishing for all a ≥ 0 kills C_k (k ≥ 2) top-down and leaves
+C₀ + C₁ = 0, so E ≡ C₀ + C₁ = 0 on the semigroup. T1 for N₋ is trivial ((x/m²) = 1 for gcd(x, m) = 1; gcd(A, n) = 1).
+With Lemma 1.2, E(p) = 0 ≠ N₋(p) for infinitely many p. Correct.
+Remarks. (a) The proof uses only *one* prime ℓ and a = 0, …, K (K = max rank); the Reading's "ℓ⁴, ℓ²ℓ′² are needed"
+is inaccurate — ℓ²ℓ′² is never used (D5). (b) It is elementary and does not use any automorphy, so "GL(k)-Eisenstein"
+is only a name for the coefficient class; fine as stated ("exponent 0"). (c) Relation to Thm 9.1 is correctly
+qualified (Thm 9.1: rank 2, exponents; Prop 2.3: rank k, exponent 0). Mixed rank-and-exponent combinations
+d_k with d_j^{s_j} weights are covered by neither; the doc doesn't claim them.
+
+### Prop 2.4 — SOUND-AFTER-REPAIRS
+Re-derived the restricted statement. For F a newform of level N with **trivial character** and D a fundamental
+discriminant prime to N, ε(F ⊗ χ_D) = ε(F)χ_D(−N) (IK Prop 14.20 with τ(χ_D)² = χ_D(−1)|D|); for D < 0 this is
+−ε(F)(D/N). For D ≡ 1 (4): if N_odd is not a square, D ↦ (D/N_odd) is a non-principal character mod N_odd, independent
+of D mod 8 by CRT, so (D/N) is non-constant; if N_odd = □ and v₂(N) odd, (D/2) separates D ≡ 1, 5 (8); otherwise N = □.
+So a class Z mod 8N_odd ⊂ {n ≡ 3 (4)} with ε = −1 exists and contains infinitely many squarefree n prime to N. The
+121b1 counterexample to the original version is right (and the root-number formula reproduces it). The comparison
+uses only the PROVED N₋ ≥ 1 on n ≡ 3 (4). Logic correct, with two repairs:
+* **D6 (MAJOR, hidden hypothesis).** The statement allows any "weight-3/2 Hecke eigenform"; with a nebentypus ψ the
+  Shimura lift has character ψ², and if ψ² ≠ 1 the twisted L-values are not self-dual — no root-number vanishing at
+  all; if ψ is quadratic the relevant twist is ψχ_{−n}, whose conductor may share primes with N and the formula
+  ε = ε(F)χ_D(−N) is not the right one. The proof is valid for g ∈ S_{3/2}(Γ₀(4M)) with trivial character (the
+  Kohnen–Zagier/Waldspurger setting). Repair: add "trivial character" (and, if desired, a remark that quadratic ψ
+  can be handled by replacing χ_{−n} with ψχ_{−n} when gcd(cond ψ, n) = 1 — not checked here).
+* **D7 (MINOR, citation form).** "a(n)² = c(n)·L(F ⊗ χ_D, 1), c depending only on square classes" is the
+  Corollaire-2 / explicit (Kohnen–Zagier, Baruch–Mao) form. Waldspurger's Théorème 1 alone (the ratio identity
+  c(n₁)²L(χ_{n₂})n₂^{1/2} = c(n₂)²L(χ_{n₁})n₁^{1/2} within a square class) gives nothing on a class where *all* L-values
+  vanish, which is exactly the class Z used here. The needed input is the full Waldspurger statement (a(n) = 0
+  whenever ε(F ⊗ χ_{−n}) disagrees with the local signs of g's packet, equivalently a(n)² = (local factor)·L(1/2)
+  with the local factor possibly 0); cite it precisely (Waldspurger 1981, Thm 1 + Cor 2; or Baruch–Mao 2007). I could
+  not access the PDFs (not in sources/); the statement is standard and I believe it holds as used.
+* The "Kohnen plus space" remark is right: weight 3/2 plus space supports −n ≡ 0, 1 (4), i.e. n ≡ 0, 3 (4).
+
+### §3 rank screen — SOUND (reproduced from scratch)
+`review_si_rank.py 120`: all 48 columns rebuilt from the verbal description (Hurwitz numbers by reduced-form count,
+Kronecker symbols, ternary counts, words) without using si_*; exact Fraction elimination on the first 120 rows
+(n ≥ 3) of each class mod 8. Column ranks 37, 32, 32, 34 (identical to the author's), and **all 32 (class, target)
+pairs are certified not in the ℚ-span** (8 targets: N₊, N₋, S, |X|, interior N_±, t-weighted N_±). Sanity: Hurwitz table
+checked at 10 values; a planted in-span target is correctly not certified. The label "CERTIFIED finite statement" is
+right; the AGENT_REPORT still says "(exact rank mod 2⁶¹−1)" in the CERTIFIED bullet — stale wording (D8).
