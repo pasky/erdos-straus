@@ -54,3 +54,25 @@ From scratch (same script): in every group with 3ρ ≤ n (Lenstra not applicabl
 m ≤ 12, k ≤ 40 satisfying (C) was compared with the true maximal class size: 0 violations; the Coppersmith bound is
 attained with value 3 (p = 3: 6 groups; p = 5: 75 groups), so the test reaches the regime beyond Lenstra.
 
+### Lemma 1.6 (19-route table) — SOUND
+Every row re-derived (n, d, ρ, coprimality):
+* R2: E | D = 1 + T^s m′g′² (= EE′), deg D = s + 2y + z, E + 1 = L′Tw₁ so E ≡ −1 (mod TL′), ρ = 1 + y + z; D ≡ 1 (mod TL′), so the
+  cofactor version is legitimate. R3: E | T(g′T^{s−1} + w₁) and E(0) = −1 ⇒ E | g′T^{s−1} + w₁; ρ = deg(Tw₁g′) = a + y; E-version
+  only (correct: gcd(g′, w₁) can be ≠ 1). R4: Ev₁ = T^{s−2} + m′w₁² (Lemma 1.1(i)/T²), degree exactly s − 2 (lc 2 if a = b),
+  prime to Tm′w₁. R3C/R4C: n = z + 2b − 2 for R4C is right (z + 2b ≥ s since b ≥ a; lc 2 when a = b).
+* R5a/b, R6a/b: C₁ | (T^{s−2} + v₁)/w₁ = m′C₁, C₁ ≡ −w₁ (mod Tv₁) a unit by Lemma 1.1(iii); cofactor m′ (or w₁) prime to Tv₁. R8, R9: fine.
+* R10: w₁C₁ = G₂ and C₁ ≡ −w₁ give w₁² ≡ −G₂ (mod Tv₁), G₂ a unit; in odd characteristic x² ≡ y² (mod P^e) with x, y units
+  forces P^e | x − y or P^e | x + y (P cannot divide both), so ≤ 2 roots per prime power and ≤ 2^{ω(Tv₁)} = 2·2^{ω(v₁)} classes.
+  Σ_{deg v = e, monic} 2^{ω(v)} = Σ_{d sqfree, deg d ≤ e} q^{e−deg d} = q^e(2 + (e − 1)(1 − 1/q)) (e ≥ 1) re-derived; v₁ with the
+  fixed leading coefficient 2 is a scalar multiple of a monic one, so the monic sum is the right majorant. e = 0 gives 1 (both
+  codes handle it).
+* All divisors counted by C(n, d) are monic (E = L′w − 1, E′, w₁, C₁, m′ monic), as Lemma 1.3 requires.
+From scratch: (1) `scripts/review_fs_tuples.py` gives exact pattern counts for q = 3 (s ≤ 13) and q = 5 (s ≤ 9); every count
+is ≤ the minimum of my own implementation of the table (`scripts/review_fs_exact.py`) — see Numerics. (2) My C implementation
+(`scripts/review_fs_fin.c`) and the author's `fs_sum.c` agree on every pattern up to the Coppersmith search range: the author
+caps m ≤ 60, k ≤ 200; I search j = m + k ≤ 3000 exactly (convex in m) with the necessary condition nX < d² (proved by AM–GM:
+n m(m+1) + X j(j+1) ≥ 2√(nX)·m(j+1) for m ≤ j) as prefilter. On all patterns s ≤ 70 (r = 4) and s ≤ 50 (r = 5, 6) my
+bound is ≤ the author's, never larger (harness `/tmp/r217_cmp.c`, reproducible from the two sources), so the author's
+values are never *below* what the lemmas give. Remark: the rewriting Δ(m, k) = [n·m(m+1) + X·j(j+1)]/2 with j = m + k
+(since m(m+1) + 2km + k(k+1) = j(j+1)) simplifies (C) and shows the bound depends on m and j only.
+
