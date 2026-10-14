@@ -10,7 +10,7 @@ def rep(x, E):
     for (P,Q) in ((x,2),(-x,-2)):
         p0,p1,q0,q1=0,1,1,0; seen=set()
         while True:
-            a=(P+s)//Q if Q>0 else ((P+s+1)//Q if (P+s+1)%Q else (P+s+1)//Q-1)
+            a=(P+s)//Q if Q>0 else (P+s+1)//Q
             p0,p1=p1,a*p1+p0; q0,q1=q1,a*q1+q0
             m=4*n*q1*q1-x*q1*p1+p1*p1
             if m==-E: return (q1.bit_length(), len(seen))

@@ -37,18 +37,21 @@ since primes of cB divide Q and primes of a divide 4Q₀ | 4Q.
 (E ≡ 3 ⟺ 4 | a.) Mod 4, W_n reads B² + E ≡ caBE. If 4 | a: E ≡ −B² ≡ 3. If E ≡ 3 and a odd or a ≡ 2 (mod 4),
 caBE ≡ 1 + 3 ≡ 0 (mod 4) is impossible for a odd and gives 2·(odd) ≡ 0 for a ≡ 2 — contradiction. ∎
 
-**Theorem 1.2 (one equation, two cells; PROVED).** Consider all positive solutions (a, B, c, E) of
-`  4n·a² + B² + E = c·a·B·E,   B odd, gcd(B, n) = 1`   (equivalently: **4na² + B² has a divisor g ≡ −1 (mod aB)**,
-g = caB − 1, E = (4na² + B²)/g). Then, by the residue of c mod 4:
-* **c ≡ 0 (mod 4): ES^{[2]} shots** — this is GROWING_MUTE Prop 1.1(c) with A_GM = 2a, k = a, Q₁ = B, λ = c/4,
-  E = D (the duality cofactor of EXPONENT_CAP Prop 1.3); side conditions gcd(a, B) = 1, gcd(λB, n) = 1. ES = {B = 1};
-  ES^{(y,1)} = {B squarefree}.
-* **c odd: k = 1 shots with overflow Q₁ = cB²** (Thm 1.1); cap 2 iff c, B squarefree and coprime. On {B = 1}:
-  k = 1 ES^{(y,1)} shots with Q₁ = c (the walled cell, PHASE_DIAGRAM Thm 2.1(a)); on {c = 1}: the pure-power family
-  Q₁ = B² (PHASE_DIAGRAM Prop 4.1, e = 2, k = 1).
-* c ≡ 2 (mod 4): forces 2 | a (g ≡ 3 mod 4); not used here.
-*Proof.* c ≡ 0: GROWING_MUTE Prop 1.1(c) is "g | nA_GM² + B², g ≡ −1 (mod 2A_GM B)" with A_GM even; put A_GM = 2a,
-then 2A_GM B = 4aB and g + 1 = 4λ·aB. c odd: Thm 1.1. c = 2c': g ≡ 3 (mod 4) needs 4 | 2c'aB. ∎
+**Theorem 1.2 (one equation, two cells; PROVED; repaired after self-review: hypotheses restored).** Consider positive
+solutions (a, B, c, E) of
+`  4n·a² + B² + E = c·a·B·E   (equivalently: 4na² + B² has a divisor g = caB − 1 ≡ −1 (mod aB), E = (4na² + B²)/g).`
+* **c ≡ 0 (mod 4), B odd, gcd(a, B) = 1, gcd(λB, n) = 1 (λ := c/4): ES^{[2]} shots** — GROWING_MUTE Prop 1.1(c) with
+  A_GM = 2a, k = a, Q₁ = B, E = D (the duality cofactor of EXPONENT_CAP Prop 1.3). ES = {B = 1}; ES^{(y,1)} = {B squarefree}.
+* **c, B odd, 4 | a (⟺ E ≡ 3 mod 4), gcd(caB, n) = 1: k = 1 shots with overflow Q₁ = cB², rad Q₁ | Q₀ = caB/4**
+  (the proof of Thm 1.1 (⇐) uses no squarefreeness). The cap is max_ℓ v_ℓ(cB²); a shot can arise from several such
+  points (e.g. n = 41: (a, B, c) = (4, 1, 9) and (12, 3, 1) give the same shot Q₁ = 9); Thm 1.1's canonical choice
+  (c, B squarefree, coprime) selects one point per cap-≤2 shot. Canonical points with B = 1 are the k = 1 ES^{(y,1)}
+  shots (the walled cell, PHASE_DIAGRAM Thm 2.1(a)); c = 1 is the pure-power family Q₁ = B² (PHASE_DIAGRAM Prop 4.1).
+* Other solutions (c ≡ 2 mod 4, or c odd with 4 ∤ a) give g ≢ 3 (mod 4) or fractional Q₀ (e.g. n = 5, (2, 1, 41, 1):
+  g = 81) and are not used.
+*Proof.* First bullet: GROWING_MUTE Prop 1.1(c) is "g | nA_GM² + B², g ≡ −1 (mod 2A_GM B), A_GM even, B odd,
+gcd(A_GM, B) = gcd(B, n) = 1" (plus gcd(Q₀, n) = 1, Q₀ = λB); put A_GM = 2a, then 2A_GM B = 4aB and g + 1 = 4λ·aB.
+Second bullet: Thm 1.1 (⇐). ∎
 *The fibre picture (both cells).* Put x := c·E. Then W_n is **f_x(a, B) := 4na² − x·aB + B² = −E**, a value of the
 principal form of discriminant Δ_x = x² − 16n. So every cell of {ES, ES^{(y,1)}, ES^{[2]}, k = 1 cap-2} is:
 "for some x, the principal form of discriminant x² − 16n represents −E for a divisor E | x", the cell being read off
@@ -63,7 +66,7 @@ no violation of "E ≡ 3 ⟺ 4 | a" among c-odd points.
 
 **Proposition 2.1 (PROVED).** Let n > 1 be odd and consider W_n with c odd (all side conditions of Thm 1.1 except
 squarefreeness are irrelevant here).
-(a) (fixed a) If 4 | a then every point has B ≤ 8na², E ≤ 4na² + B², c ≤ (4na² + B² + E)/(aBE): finitely many.
+(a) (fixed a) If 4 | a then every point has B ≤ 8na² and E ≤ 4na² + B², and c is determined by (a, B, E): finitely many.
 (b) (fixed B) Every point has c ≤ (4n + 1)(B² + 1)/B, and for fixed B there are finitely many points.
 (c) (fixed (c, E), i.e. fixed x = cE) If Δ_x = x² − 16n is not a square, the points form finitely many orbits of the
 automorph group of f_x; if one point satisfies the conditions of Thm 1.1 then infinitely many points of its orbit
@@ -136,8 +139,9 @@ aw = E + B², D·g = 4n + Q₁², D ≡ 3 (mod 4), D | w² + 4nB² (121 points).
 k(4ab − n) = a + b (O204 Prop 1.1, Q₁ = 1) with n ↦ 4n and one summand cubed. ES k = 1 is c = B = 1: D | 4n + 1.
 *Example (test (iii), (c, w) = (1, 1)): every divisor D ≡ 3 (mod 4) of 64n³ + 1 = (4n + 1)(16n² − 4n + 1) gives the
 shot Q₁ = (4n + D)², g = (4n + Q₁²)/D (a polynomial identity; a k = 1 cap-2 shot iff B = 4n + D is squarefree and
-prime to n, which holds e.g. for n = 13, D = 7: B = 59, g = 1 731 059 = (52 + 59⁴)/7).* Such fixed (c, w) tests are
-covering-type (B1: finitely many of them never cover a non-residue class); the content is in letting (c, w) grow.
+prime to n, which holds e.g. for n = 13, D = 7: B = 59, g = 1 731 059 = (52 + 59⁴)/7).* Whether finitely many fixed (c, w) tests can certify all
+n is NOT addressed here (they are not fixed (Q, g) shot classes, so PHASE_DIAGRAM §6's B1 statement does not apply);
+the numerics of §3 suggest the needed (c, w) grow.
 T1: at n = m², D ≡ 3 (mod 4) would divide w² + (2mB)², a sum of two coprime squares (after removing gcd(w, B), which is
 prime to D) — impossible. This is the only place T1 enters, in every face.
 
@@ -173,15 +177,17 @@ periods, e.g. n = 379, x = 161, E = 23: (a, B) = (8 207 552, 1 238 990 989), g �
 shot); n = 13, x = 33, E = 11: (267 468, 443 777), g ≈ 3.6·10¹¹. Fixing E and varying c (`scripts/y6_fixE.py 13 E 301`;
 explicit points: `scripts/y6_pt.py n x E`): n = 13, E = 7: 18 of 118 admissible c ≤ 301 carry a point, all with 3 | c — the
 genus layer: p = 3 has (13/3) = 1, (−7/3) = −1, so the prime 3 must not divide Δ = 49c² − 208 to first order, forcing
-c ≡ 0 (mod 3); E = 11: 61 of 125; E = 19: 23 of 131 (again 3 | c); n = 379, E = 23: 16 of 72 (c ≤ 151). ("no" counts are
+c ≡ 0 (mod 3); E = 11: 61 of 125; E = 19: 23 of 131 (again 3 | c); n = 379, E = 23: 27 of 143 (c ≤ 301). ("no" counts are
 upper bounds when Δ ≤ 0 or E ≥ √Δ/2, where the scan is not complete; the "yes" points are explicit.)
 *Assessment.* The c-odd half has exactly the two-layer structure MARKOFF_ES §6 found for ES^{[2]} (c ≡ 0 mod 4):
 a local (genus) layer, a half-dimensional sieve condition on x, and a global layer "the ideal of norm E is in the
 narrow class of negative-norm principal ideals of ℤ[(x + √(x² − 16n))/2]", which holds with probability bounded
 below (Cohen–Lenstra; large regulators). So the e = 2, k = 1 cell is NOT a polylog lottery: like ES^{[2]} (O202
 Prop 6.1(a)) it has a polynomially large heuristic main term in the fibre count, and solutions of size exp(x^{1−o(1)}).
-The residual statement, **"for some odd x and some E ≡ 3 (mod 4), E | x, the split ideal of norm E is narrowly
-principal with a negative-norm generator in the order of discriminant x² − 16n"**, is a class-group statement in a
+The residual statement, **"for some odd x and some E ≡ 3 (mod 4), E | x, some ideal of norm E/h² (h² | E) of the order of
+discriminant x² − 16n is principal with a generator of NEGATIVE norm"** (i.e. lies in the distinguished narrow class of
+negative-norm principal ideals — not the identity narrow class: n = 13, (a, B, c, E) = (32, 7, 1, 239), Δ = 56 913,
+3 | Δ, so there is no unit of norm −1 and the ideal is principal but not narrowly principal), is a class-group statement in a
 quadratic family of real quadratic orders: no unconditional technique proves it (MARKOFF_ES Prop 6.1(c)). On top of
 it the cap-2 cell needs B squarefree at some orbit point (Prop 2.1(c)), which ES^{[2]} does not need.
 Families x ≡ 0 (mod 4n) would be Richaud–Degert (explicit short CF) but are excluded: x odd here (and the RD
@@ -198,8 +204,9 @@ f = x² − 16n, has constant norm 4n, α = B − aη has norm −E; R* = ℚ*×
    form (k = a, Q₁ = B). Both are "the principal form of discriminant x² − 16n represents −E for some E | x"
    (x = cE), the cell read off from x/E mod 4. ES = {B = 1, 4 | c}; k = 1 ES^{(y,1)} = {B = 1, c odd}.
 2. **Slices vs orbits (Prop 2.1, 5.1, PROVED).** Fixed a or fixed B: finite (c ≤ (4n + 1)(B² + 1)/B). Fixed (c, E):
-   Pell orbits. The k = 1 slice is infinite exactly when exponent 2 is allowed at infinitely many primes (B unbounded);
-   any finite exponent-2 budget keeps it finite. O204's per-slice contrast (k = 1: e ≤ 1 finite, e = 2 no wall) is
+   Pell orbits. A finite exponent-2 budget keeps the k = 1 slice finite (Prop 5.1(a)); unbounded exponent-2 support is
+   necessary for an infinite slice, and sufficient only CONDITIONALLY (an existing orbit with infinitely many squarefree B,
+   Prop 5.1(b)). O204's per-slice contrast (k = 1: e ≤ 1 finite, e = 2 no wall) is
    "the line a = 1 of one half vs the whole other half" of the same equation — no cap is shown to be a global finite
    search (R210).
 3. **D-face (Thm 4.1, PROVED).** a(cBw − 4n) = w + cB³, D = cBw − 4n ≡ 3 (mod 4): ES's Type II normal form with n ↦ 4n

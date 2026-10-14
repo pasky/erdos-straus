@@ -5,7 +5,7 @@ Usage: y6_dict.py NMAX Q1MAX ABMAX
     gives an exact ES^{(y,2)} solution (exact rationals, Def 1.1) with den z = c^2 B^4; c = 0 mod 4 gives den z = B^2."""
 import sys
 from fractions import Fraction
-from math import gcd
+from math import gcd, isqrt
 from sympy import factorint, divisors
 
 NMAX, Q1MAX, ABMAX = map(int, sys.argv[1:4])
@@ -15,7 +15,7 @@ def check_solution(n, Q, g, capmax):
     m = (n + 4*Q*Q)//g; assert (n+m) % 4 == 0
     x = (n+m)//4; y = n*(g+1)//4; z = Fraction(n*x*(g+1), 4*Q*Q)
     assert Fraction(4, n) == Fraction(1, x) + Fraction(1, y) + 1/z
-    q2 = z.denominator; q = int(round(q2**0.5)); assert q*q == q2 and q % 2 == 1 and gcd(q, n) == 1
+    q2 = z.denominator; q = isqrt(q2); assert q*q == q2 and q % 2 == 1 and gcd(q, n) == 1
     for l, v in factorint(q).items():
         assert y % l == 0 and v <= capmax
     return q
