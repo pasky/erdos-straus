@@ -10,6 +10,7 @@ From-scratch scripts: `scripts/review_r212_*.{py,c}` (none of the author's `y4_*
 |---|---|
 | Prop 1.1 / Cor 1.2 (T1 ⟺ M ≡ 0, 3 mod 4; M^□ at non-squares for all M) | SOUND (one sign typo in memo, D1) |
 | 7/p failure-free to 10⁸, T1-bearing; S₇(p) = ∅ at 10 primes; Type II of 7 fails 9×; 11/37 | SOUND (independently re-verified to 10⁸) |
+| Thm 2.3 (χ = −1 ⇒ Q_w ⊗ ℤ₂ ≅ ⟨1, −1, −n⟩; parity split is marking data) | SOUND (citation verified; tested n ≤ 2001) |
 | Lemma 2.1 + census of §2 (S₄^{odd}, S₈, squares, composite list, one-odd halves) | SOUND (re-verified ≤ 10⁶ / 2·10⁵) |
 
 ---
@@ -92,6 +93,41 @@ possible, but this shot uses g = 43 odd ✓ (43 ≡ −1 mod 11, 43 | 37 + 11·1
 
 ---
 
+## C3. Thm 2.3 — all χ = −1 path forms of fixed n are ℤ₂-isometric to ⟨1, −1, −n⟩
+
+**Citation checked.** Allcock–Gal–Mark, *The Conway–Sloane calculus for 2-adic lattices*, arXiv:1511.04614v3 (downloaded
+to /tmp, not committed). Thm 5.1 reads verbatim: "A unimodular lattice is characterized by its dimension, type, sign and
+oddity", with oddity := 2-signature (a genuine invariant for unimodular lattices), and "all even unimodular lattices
+have vanishing … oddity"; sign = + iff det ≡ ±1 (mod 8). The citation is accurate. (Conway–Sloane SPLAG ch. 15 itself
+not accessed; not needed.)
+
+**Proof re-derived.** det G_w = v(tu − 1) − u = n odd ⇒ L unimodular over ℤ₂. (J)33 Thm 1.1: χ = −1 ⟺ L ⊗ ℚ₂ isotropic
+(re-tested below). x primitive isotropic ⇒ B(x, ·) : L → ℤ₂ surjective (unimodular) ⇒ y with B(x, y) = 1; P = ⟨x, y⟩ has
+Gram [[0, 1], [1, Q(y)]], det −1, unimodular, so L = P ⊥ P^⊥ with P^⊥ = ⟨c⟩, c = −n·(unit square) (det L = n forces c ≡ −n
+modulo unit squares). P ≅ H (Q(y) even) or odd isotropic det −1 plane (≅ ⟨1, −1⟩); both have oddity 0. Hence L has
+dimension 3, odd type (⟨c⟩ is odd), det n (so the same sign as ⟨1, −1, −n⟩) and oddity −n (mod 8): identical invariants,
+isometric by AGM Thm 5.1. ✓ No gap. (One could avoid the citation: H ⊥ ⟨c⟩ ≅ ⟨1, −1, c⟩ is a standard lemma, and
+⟨1, −1⟩ ⊥ ⟨c⟩ is the target.)
+
+**From-scratch test** (`scripts/review_r212_twoadic.py 2001`, 2.4 s): for all 50 063 words of all odd n ≤ 2001 I computed
+(i) χ = (−A/n), (ii) ℚ₂-isotropy from the Hasse–Witt invariant of a rational diagonalisation (isotropic ⟺
+∏_{i<j}(d_i, d_j)₂ = (−1, −det)₂), (iii) an explicit ℤ₍₂₎ Jordan splitting (odd unit diagonal blocks / even planes H, A)
+giving (det mod 8, type, oddity). Result: 34 042 words with χ = −1, **all** ℚ₂-isotropic and **all** with symbol
+(n mod 8, odd, −n mod 8) = symbol of ⟨1, −1, −n⟩; 16 021 words with χ = +1, all anisotropic and all with oddity −n + 4
+(so the test does discriminate). 0 violations. The oddity table 7, 5, 3, 1 for n ≡ 1, 3, 5, 7 (mod 8) is reproduced.
+The cell split **100 / 100 / 40** (one-odd only / S₈ only / both, out of 240 χ = −1 cells; 80 χ = +1 cells) is reproduced by
+`scripts/review_r212_cells.py`, which also cross-checks Lemma 3.0′ against Thm 3.1(a) on all 320 odd cells.
+
+**Assessment of the content.** The statement is correct but nearly tautological: *every* unimodular isotropic ternary
+ℤ₂-lattice of determinant n is ⟨1, −1, −n⟩, so "certificates of fixed n are ℤ₂-isometric" carries no information
+specific to path forms, and the consequence "no ℤ₂-invariant of the unmarked lattice separates one-odd from all-even"
+is immediate. The text calls it one of "the sharpest new statements" (§7 Verdict) — that is an overstatement (D4, MINOR):
+it should be presented as a one-line remark (a standard consequence of the 2-adic classification), not a theorem
+of the programme. The interpretive conclusion (the split is marking data, i.e. depends on which pentagon quantity
+carries the 4) is right. Label PROVED (relative to AGM Thm 5.1) is right.
+
+---
+
 ## C3-pre. §2 numerics and Lemma 2.1 (re-verified)
 
 **Lemma 2.1, by hand.** n odd. (T) t = 4c: n ≡ u + v (2) ⇒ one of u, v even (say u); denominators uvc, ucn (even),
@@ -121,3 +157,6 @@ u ↔ v. ✓ PROVED.
    odd squares for all M anyway.
 3. **D3 (MINOR)** FOUR_SPECIFIC §1 last line / memo: "T1-bearing and failure-free to 10⁸: 3, 4, 7" is a statement
    about M ≤ 24 (census) and, via PW §6, M ≤ 30000; add "(among M ≤ 30000)".
+4. **D4 (MINOR)** FOUR_SPECIFIC §7 Verdict / report: Thm 2.3 is presented as one of "the sharpest new statements". It is the
+   generic fact that an isotropic unimodular ternary ℤ₂-lattice of det n is ⟨1, −1, −n⟩ (AGM Thm 5.1); demote to
+   "Remark (standard)" and keep only the marking-data conclusion.
