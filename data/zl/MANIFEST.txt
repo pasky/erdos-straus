@@ -34,3 +34,7 @@ zl_boxa.c (used for §6, under round-2 review) left untouched: its comment still
 P_q1_hi.txt: the run se_box P 600 999 1 1 64 24 was stopped deliberately after row 841 (R232 m7); rows <= 799 used.
 new sha: 6cbfcae65376ff1ef3584c8cff46f422f7ec4462a28684b747123d25b1ef5697  scripts/zl_box.c
 9c5de38190b16f1bf899bb75742938d12d15c6562cea16c43ae89300f9a86aa0  scripts/zl_r0.py
+--- R231 round-2 repair (Thu Oct 15 17:58:37 UTC 2026) ---
+zl_r1.py: (R231 repair r2-m1) exact integer cell endpoints, exit on endpoint mismatch (was a silent skip), contiguity check of the
+certified cells; re-run on all nine octaves with the MANIFEST parameters: every data/zl/r1_*.txt reproduced byte-identically.
+new sha: 2b12d54b38a007aa19634db9f02dd60f935f12c0fc0003f3c7de922369511286  scripts/zl_r1.py

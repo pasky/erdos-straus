@@ -185,6 +185,11 @@ ced7e8b9: "§6 sweep certificate, r ≥ 2^27"), which is **not** reviewed here. 
 ---------------------------------------------------------------------------------------------------------------------------
 # Round 2 (R231): STERILE_LOWER §6–7 (Thm 6.3, r₀ = 2^{21.4375})
 
+**Repairs applied (round 2, author quiet ≥ 3 h):** r2-m1 in `scripts/zl_r1.py` (exact endpoints, exit on mismatch, contiguity
+check; all nine r1 logs reproduced byte-identically; a corrupted-endpoint file and a file with a missing cell now exit 1) + MANIFEST
+note; r2-m3 and r2-m5 as wording in STERILE_LOWER §6.3 and §7, marked '(R231 repair …)'. Not applied: r2-m2 (sweep header — needs
+a zl_sweep change and re-runs), r2-m4 (zl_boxa comment — would change a certified binary's sha for a comment).
+
 Merged `side-agent/sterile-lower` at cf13d705 (checkpoint 2). New scripts (from scratch): `scripts/review_zl_pern.c` (per-n
 level-1 counter), `scripts/review_zl_r1.py` (certificate re-check); `review_zl_pbox.py` gained in-cell validation for N = r^K.
 

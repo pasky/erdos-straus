@@ -192,6 +192,11 @@ give byte-identical per-n dumps (2.9·10⁷ counted data); a split run merged = 
 level-1 terms ≤ 2(max_r (JP + JQ) + 2·#{ad ≤ Y} + B_A)/2^{j/32}; deeper terms (K, k ≥ 3, tails) exactly as `zl_r0.py`, with the
 extra certified P tables `data/zl/P_q32_k3.txt` (se_box, N ∈ [2^62, 2^70), 1/32-octaves) and, for octave 21,
 `P_q32_k3_l2.txt`, `P_q32_k5_l2.txt` (zl_box, N ∈ [2^62, 2^66) and [2^104, 2^110)).
+(R231 repair r2-m1) zl_r1 now computes the cell endpoints ⌈2^{j/32}⌉ exactly and exits on any sweep cell whose endpoints differ
+(it used to skip such a cell silently), and checks that the certified cells are contiguous; all logs r1_* are reproduced unchanged.
+(R231 repair r2-m3) The K-series is cut after the first tail term < 10⁻³⁰ and charged 10⁻²⁰ (as in SE); below 2^32 the per-step ratio
+of odd-K tail terms is ≈ 2^{(2·0.48 − 1)b}·((K+2)/K)^p ≈ 0.6–0.65 at b ≈ 21.4 (SE's "< 1/2" was for b ≥ 32), still < 1, so the
+remainder is ≤ 2·10⁻³⁰ and the charge stays valid; R231's independent combiner uses an explicit geometric remainder and agrees.
 
 | r-octave | A | Y | sweep (s) | max_r JP + JQ | max S | log |
 |---|---|---|---|---|---|---|
@@ -221,7 +226,8 @@ For a rational u = −p/q and fixed (c, d, z), the covering condition of M17D Le
 W² = rN is equivalent to: **(a, b) is an integral point of the conic**
   Γ_{c,d,z}: c(qa − pb)² − 4rcdz²·ab + rz²(a + b) = 0,   **and (qa − pb)/(rz) = ±r^{L−1}**
 (PROVED, elementary: given (a, b) on Γ put X = qa − pb, N := X²/(rz²), e := (a + b)/c; then Γ reads cX² = rz²(4abcd − (a + b)),
-i.e. N = 4abd − e; the second condition says N = r^{2L−1}; integrality of e, N and r ∤ ab are extra conditions.) Mod r and
+i.e. N = 4abd − e; the second condition says N = r^{2L−1}; integrality of e, N and r ∤ ab are extra conditions.) (R231 repair r2-m5: assuming
+r ∤ c, as for in-cell data; then v_r(X²) = 1 + 2v_r(z) + v_r(4abcd − a − b) gives r | N also when r | z.) Mod r and
 mod r², Γ already forces r | X and N ≡ 0 (mod r), so the conic family is exactly "coverings of u by P-data of N = r·w² at
 modulus W = rw" with w arbitrary — the levels are the points where w is a power of r. Consequences (Assessment):
 (i) A descent would have to be an automorphism of Γ preserving "w ∈ r^ℕ". The obvious ones (Vieta involutions in a or b)
