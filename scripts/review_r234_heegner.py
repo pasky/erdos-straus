@@ -20,6 +20,8 @@ def in_order(B, z):
     return all(c.q == 1 for c in s)
 
 
+VERB = False
+
 def run(P, T):
     stats = dict(classes=0, path=0, cond=0, cond_nonpath=0, ring=0, ring_nonpath=0, algebra_checks=0)
     for p in primes_1mod4(5, P):
@@ -53,6 +55,9 @@ def run(P, T):
                         if not in_order(B, i):
                             continue
                         cond = True
+                        if VERB and k not in paths:
+                            r_ = Q.mul(Q.add(one, Q.scal(i, -1)), Q.add(one, Q.scal(jj, -1)), G)
+                            print('  witness p', p, 'class', k, 't', t, 'A', A, 'A*', (t * p + 1) // A, 'ring?', in_order(B, Q.scal(r_, Fr(1, t))))
                         # algebra checks (z9_heegner (a)) in this setting
                         assert Q.trd(i) == 0 and Q.nrd(i) == (t * p + 1) // A
                         ij = Q.mul(i, jj, G); ji = Q.mul(jj, i, G)

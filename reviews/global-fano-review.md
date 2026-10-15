@@ -128,3 +128,32 @@ no path class. All as claimed. The weakened wording ("refutes forcing from graph
 Comment (not a defect): the 105 graph is a graph of the *wrong* genus for the words (all 11 words have χ = +1, i.e. live in
 2-adically anisotropic genera with no 2-neighbour graph at all), so the control shows "words can avoid the graph's genus
 entirely", which for primes is excluded by CHI_FLIP/SQ₅ only conjecturally. **Verdict C6: SOUND.**
+
+### C4. §4 / z9_heegner_layers: forward algebra, level-t ring condition, necessity only
+Forward algebra re-derived by hand: with trd i = trd j = 0, i² = −A*, j² = −A, ij + ji = −2: conj(ij) = ji, so
+nrd(1 + ij) = 1 + (ij + ji) + i j² i = 1 − 2 + AA* = tp and trd(1 + ij) = 2 − 2 = 0, hence ε² = −tp; trd(εj̄) = trd(j + ij²) = 0;
+(1 + ε)j = −ij·j = Ai, so i = (1 + ε)j/A; nrd i = (1 + tp)A/A² = A*. Also (reviewer) ij = −1 − ε, ji = −1 + ε, and the ring
+condition is (1 − i)(1 − j) = −(i + j + ε) ∈ t·E. All PROVED; additionally verified in exact arithmetic inside independently built
+E(L) (`scripts/review_r234_heegner.py`, assertions trd i = 0, nrd i = A*, ij + ji = −2, ε = −(1 + ij) on every witness found).
+Deuring lifting of ((E, C), ε): C lifts uniquely (2 ≠ p, reduction is injective on E[2] and compatible with endomorphisms), so the
+statement is fine; "p ramified in ℚ(√−tp)" needs p ∤ t (t ∈ {p, p + 1, p + 2} occur for boundary words) — MINOR.
+(b) "≍ h(−4tp) up to bounded local factors at 2 and t": the non-optimal embeddings add Σ_{f² | 4tp} h(−4tp/f²), which is not
+"bounded local factors" when t has a large square part — MINOR wording.
+
+**Edge-wise test of the class condition without the ring condition (reviewer, new).** For every class L ∈ 𝔊⁻_p, p ≤ 110 (then 200),
+t ≤ 5 (6): search ε, j ∈ E(L)⁰ with nrd ε = tp, j ⊥ ε, nrd j = A | tp + 1, A ≡ −1 (mod t), i = (1 + ε)j/A ∈ E(L).
+p ≤ 110: 69 classes, 49 path classes; the condition holds at 44 classes, of which **3 are not path classes** (p = 61, 89, 101);
+the ring condition holds at 41, never at a non-path class (consistent with Cor 2.2(iv) ⟹ (i)); every path class with letter t ≤ 5
+is found. Explicit example: **p = 61, L = ⟨1⟩ ⊥ [[7, −3], [−3, 10]]** (not a path class), t = 4, A = 7, A* = 35 (the numbers of the
+χ = −1 word (4, 2, 9), whose path class is the different class [[2, −1, 0], [−1, 4, −1], [0, −1, 9]]-type key (2, 4, 9, −1, 0, −1)):
+ε, j, i all lie in E(L) but (1 − i)(1 − j) ∉ 4E(L). So the author's repaired reading (necessary, not sufficient) is not just
+cautious but **necessary at the edge level**: the "ideal of norm A ≡ −1 (mod t) dividing tp + 1" condition is satisfied by
+non-certificate edges. The author's own counterexample ((3, 1, 7), p = 13 with i, j ↦ −i, −j) is only a *data-level* failure on a
+certificate edge (the edge is still a certificate via (i, j)), so it does not by itself show edge-wise insufficiency —
+MINOR: replace/augment it with an edge-level example such as the one above.
+(c) itself: given j ∈ E with nrd j = A, the binary lattice E ∩ (ℚ(ε))j trivially represents A, so "the class contains an ideal of
+norm A" carries content only through the unproved identification of that binary lattice's class with the CM point's ideal class
+in Cl(ℤ[√−tp]) (Gross–Zagier/Dorman-type, here for an Eichler order of level 2 and the ramified prime p | disc). Labelled
+Assessment — correct; but GLOBAL_FANO §4 bolds it as the description of certificate edges. MINOR: say "(Assessment; the
+class-group identification is not proved)".
+**Verdict C4: SOUND-AFTER-REPAIRS (minor)**: forward algebra PROVED; converse correctly withdrawn; dictionary = Assessment.
