@@ -181,3 +181,28 @@ ced7e8b9: "§6 sweep certificate, r ≥ 2^27"), which is **not** reviewed here. 
 | Comp 4.1 (r ≤ 13 covered; 17 ≤ r < 20000 survivors; r = 17: {5, 7}) | SOUND — recomputed for all r < 20000 |
 | Lemma 4.3 (UV = c²p²q² + Grz², e ≤ 4q²a) | SOUND (m1, m2) |
 | Assessments 3.0 / 4.2, r = 17 "undecided", labels | SOUND (m6, m8, m9) |
+
+---------------------------------------------------------------------------------------------------------------------------
+# Round 2 (R231): STERILE_LOWER §6–7 (Thm 6.3, r₀ = 2^{21.4375}) — IN PROGRESS
+
+Merged `side-agent/sterile-lower` at cf13d705 (checkpoint 2). New scripts (from scratch): `scripts/review_zl_pern.c` (per-n
+level-1 counter), `scripts/review_zl_r1.py` (certificate re-check); `review_zl_pbox.py` gained in-cell validation for N = r^K.
+
+## 6.1 Splitting the level-1 count
+Re-derived. (a) Q-data with ad ≤ Y: at most 2 per (a, d) — M17C Lemma 2.1(iv): f | t = 4a²d + 1, f ≡ −F (mod s), s = 4ad,
+s² > t, gcd(t, s) = 1; a divisor f ≤ √t < s is the least residue of its class, a divisor f > √t is fixed by its cofactor t/f < s in
+the class t·(−F)^{−1}: ≤ 1 of each kind. Correct (and c, hence the datum, is fixed by f). (b) Q-data with a ≥ A: zl_boxa skips a
+box only if its upper a-enclosure a₁ = UP((λP + F₁)/(4CD)) < ACUT, so all a ≥ A data stay in non-skipped boxes; row aggregation
+min(agg, inner) still bounds them (agg bounds the whole row). Correct. (c) Range facts: a ≤ b ⇒ f ≤ F + 2/e ≤ F + 2 (from
+f − 1/e ≤ 2acd, shown in round 1) and 4acd = f + F ⇒ acd ≤ (F + 1)/2 — the sweep's d ≤ (2X₁+2)/(4a), f ≤ X₁ + 1, and the
+'none' criterion (no Q-datum has a > (F+1)/2) follow. The AD and engine pieces may double-count data with ad ≤ Y and a ≥ A: harmless.
+**Verdict 6.1: SOUND.**
+
+## 6.2 zl_sweep.c (code reading)
+P: triples (a, c, d) with 4a² − 2a < X₁, 4a²d − 2a < X₁; progression N ≡ −4a²d (mod f), start ⌈4a²d − 2a/c⌉ = 4a²d − ⌊2a/c⌋
+(a ≤ b ⇔ cN ≥ 4a²cd − 2a), odd N only (f odd ⇒ step 2f); c-loop stops once f > 4a²d and f − 4a²d ≥ X₁ (least positive member).
+Correct. Q: rows a < A, d ∈ [⌊Y/a⌋ + 1, ⌊(2X₁+2)/(4a)⌋] (⇔ ad > Y), sieve root d ≡ −(4a²)^{−1} (mod p) for odd p ∤ a up to
+√m_max (prime table size checked, exit 3), leftover cofactor prime (two leftover factors > √m_max would exceed m); short rows by
+trial division < 2^10 + deterministic MR (12 bases ≤ 37, valid < 3.3·10²⁴) + Brent ρ; at most one prime factor ≥ 2^32 (m < 2^64);
+divisors f ≤ X₁ + 1, c from ⌈(X₀ + f)/(4ad)⌉, condition na + c ≥ af (b ≥ a). Overflow paths (MF, dv, sieve root) exit non-zero;
+16-bit counters saturate at 65535 and zl_r1 fails on mp or mq = 65535. Correct as read.

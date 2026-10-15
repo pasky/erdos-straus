@@ -150,11 +150,12 @@ def P_data(n):
             b += 1
         a += 1
 
-def validate(N):
+def validate(N, r=None):
     global F0, F1
     F0 = F1 = N
     cnt, rows, data = {}, {}, []
     for (a, b, c, d, e) in P_data(N):
+        if r and (a % r == 0 or b % r == 0 or c % r == 0 or d % r == 0): continue     # in-cell data of N = r^K only
         key = (1 << (a.bit_length() - 1), 1 << (c.bit_length() - 1), 1 << (d.bit_length() - 1))
         cnt[key] = cnt.get(key, 0) + 1; rows[(key[0], key[2])] = rows.get((key[0], key[2]), 0) + 1
         data.append((key, a, b, c, d, e))
@@ -171,7 +172,11 @@ def validate(N):
     return bad
 
 if sys.argv[1] == "validate":
-    sys.exit(1 if sum(validate(int(x)) for x in sys.argv[3].split(",")) else 0)
+    tot = 0
+    for x in sys.argv[3].split(","):
+        if "^" in x: r, K = map(int, x.split("^")); tot += validate(r ** K, r)
+        else: tot += validate(int(x))
+    sys.exit(1 if tot else 0)
 for j in range(JR[0], JR[-1] + 1):
     F0 = int(mfloor(mpf(2) ** (mpf(j) / 32))); F1 = int(mfloor(mpf(2) ** (mpf(j + 1) / 32))) + 1
     main()
