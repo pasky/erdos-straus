@@ -99,7 +99,7 @@ w₁ + C₁ = Tg'v₁, T ∤ m'w₁C₁v₁) of pattern (s; a, z, y, t): w₁(0)
 patterns violating it are empty. *Check:* the archived exact q = 9 counts `data/fz/enum9/e_{3..22}.txt.gz` (O220/R221): all 5 210
 violating patterns have count 0 (1 830 compatible patterns). *Effect on the route-bound sums* (`scripts/zc_sum_k2.c`, = fz_sum with
 the filter; filter off reproduces fz_sum): q = 9, s ≤ 80: 41.87 → 11.24; q = 3, s ≤ 120: 1466.7 → 389.2 (the s₀ of FF_STERILE_SMALL
-§5.3, where the bound tail drops below 0.5, moves from ≈ 80–85 to ≈ 65–70). This does not rescue union bounds at q = 3 (they fail
+§5.3, where the bound tail drops below 0.5, moves from 84 to 74, tails up to s = 160). This does not rescue union bounds at q = 3 (they fail
 even with exact counts), but it is a free factor ≈ 4 in every k ≥ 2 bound sum.
 
 ## 2. Closing q = 9, k = 1
