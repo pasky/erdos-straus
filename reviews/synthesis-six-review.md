@@ -111,3 +111,31 @@ slice (−1 ∈ Σ_m(K), CAP_DOWN Lemma 3.1); the δ_p = ±1 families of Lemma 3
 **Repair.** Restrict the theorem to 4 | ν (PROVED); delete "strictly more T1-rigid than the problem" (refuted: ν = 3, 7, 9, 25
 have valid forced windows at odd squares); for odd ν state the 2-adic forcing condition (K′/q_i) = −1 and record the
 counterexamples; fix the README/§2 rows.
+
+## 6. s6_witness_onesided — SOUND-AFTER-REPAIRS (minor) (EVIDENCE label correct)
+
+* Observation re-derived: at prime q ≡ 3 (4), (K/q) = (p/q) = (q/p); for (q/p) = +1, d ≡ −K is a non-residue and can be
+  supplied by an odd-exponent non-residue prime of K with c_s ≤ 2b_s. Nothing forces (q/p) = −1. ✔ (279 counterexamples.)
+* Numerics reproduced from scratch (`review_r245_onesided.py 3000 120`): cap 0 at 561 ((q/p) = −1) and 279 ((q/p) = +1, 53
+  with K odd) — identical. Pair totals differ slightly: I count 1 635 / 1 530 pairs, the memo 1 655 / 1 531 (rates 34.3 % / 18.2 %
+  instead of 33.9 % / 18.2 %; immaterial, but recheck the memo's denominators).
+* MINOR: "(q/p) = −1 forces firing at some cap" is only true under Thm 1.1 (ii) (q ≡ 4 − p mod 8, K odd) or CAP_DOWN Thm 1.2 (E)
+  / Addendum; in the excluded case (p ≡ 5 (8), q ≡ 3 (8), v₂(K) odd, ord_q(2)/2 > v₂(K)) a (q/p) = −1 window can be dead at every
+  cap (CAP_DOWN: n = 5, q = 67). Add the qualifier. Same qualifier needed in s6_ydual_windows (b) ("forced for every p").
+
+## 7. s6_ydual_windows — SOUND-AFTER-REPAIRS (minor)
+
+(a) re-derived from CAP_INTERPOLATION Prop 5.1 (re-read): D ∈ 𝒟_e(M) ⟹ rad D | A ⟹ D ∈ ⟨primes of A⟩ (monoid = subgroup in a
+finite group) and p ≡ −4D ⟹ −p/4 ∈ ⟨primes of A⟩. Example M = 7, A = 2: −p/4 ∉ {1, 2, 4} ⟺ p ≡ 1, 2, 4 (mod 7) ✔. The
+"converse fails" remark is right (odd exponents above 2σ excluded). (b): needs the 2-adic qualifier of §6. The "phase
+boundary = who owns the mute set" is a dictionary/Assessment, fine as labelled; "PROVED dictionary" is acceptable since the
+two PROVED pieces are (a) and the Legendre identity in (b).
+
+## 8. s6_window_independence — SOUND (label "PROVED (trivial) + Assessment" correct)
+
+gcd(K_m, K_m′) | (m − m′)/4 ✔ (K_m − K_m′ = (m − m′)/4, both m ≡ −p (4)). Heuristic test (`review_r245_indep.py 200000 63`,
+from scratch): per-window cap-0 rates at small m are much higher than the memo's 34 %/18 % (m = 3: 0.88, 7: 0.76, 11: 0.67,
+…, 63: 0.22); the independence prediction for #{p < 2·10⁵ with no cap-0 window ≤ 63} is 0.2, observed 0 — consistent, as
+claimed. MINOR: the memo quotes the 34 %/18 % (q < 120) rates next to the "≤ 63" fact; the consistency check needs the
+small-window rates (much larger), cite those. The sentence "no pigeonhole over windows exists because … almost coprime" is
+still phrased as a fact in the Consequence paragraph; prefix "heuristically".
