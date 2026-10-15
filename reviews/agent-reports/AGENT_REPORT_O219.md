@@ -10,20 +10,20 @@ Nothing here proves ES or any case of it. Sterility = "in no class of the seven 
 2. **Coppersmith interpolation (Cor 1.4, PROVED, elementary via Minkowski):** divisors of n of size n^β in a unit class mod n^ρ
    number ≤ n^{max(0, β(1−β)−ρ)+o(1)} with explicit lattice constants (cut the size window into J pieces). Below the
    Coppersmith threshold it replaces the divisor function.
-3. **With it, the ℤ P-count (Type II solutions of 4/r^K) has exponent 2/5 (ET's) with *no* divisor-function loss except a τ₃
+3. **With it, the ℤ P-count (Type II solutions of 4/r^K) has exponent 2/5 (ET's) with *no* divisor-function loss except 2^{ω(e)} = N^{o(1)} (R222 repair m6) and a τ₃
    envelope on the single integers (N+e)/4, tolerated up to η = 0.3** (grid EVIDENCE). ET's own argument tolerates η ≈ 1/18 —
    that is why (J)26's r₀ was a tower.
 4. **FF feedback (grid EVIDENCE):** interpolation + divisibility-averaged pairs (#{(v₁,w₁): w₁ | T^{s−2}+v₁} ≤ q^{max(deg)})
    give O216's exponent −0.083 at q = 27 (closes r = 3 at exponent level; O220 has since closed q = 27 by its "division trick",
    whose ℤ twin is exactly my averaged-pair routes), and exactly 0.000 at q = 3, 9 (thirds corner).
-5. Exact dictionary: O216 Case B tuples (m', g', w, C, v) = ℤ P-data (4d, c, a, b, e); O216 Lemma 1.1(i) ↔ ef = N + 4a²d.
+5. Exact dictionary of equations (R222 repair m7: side conditions differ, T ∥ w, C in (B) vs r ∤ abcde in-cell): O216 Case B tuples (m', g', w, C, v) ↔ ℤ P-data (4d, c, a, b, e); O216 Lemma 1.1(i) ↔ ef = N + 4a²d.
 
 ## What limits r₀ = 2³², and r = 13, 17
 * At r ≈ 2³² the dominant term is the level-1 Q term 2D_Q(r)/r ≈ 0.35 (Type I solutions of 4/r bounded by box sums with
   exponent ≈ 0.6 but (log r)² boxes; true count is a few hundred). P at K = 1: 0.025; P tail beyond N = 2^{600}: ≈ 0.1.
   The certificate fails at b = 31.5 (S = 0.58).
 * r = 13: all six non-residue cells are covered at level 1 (POINTWISE_MORDELL §1) — no sterile 13-generic point. r = 17: union
-  bounds of any known kind need a P-count constant ≲ 2.5 at θ = 0.4 (M17D §1); the engine's bound/√N peaks ≈ 820 near N ≈ 2⁴⁰.
+  bounds of any known kind need a P-count constant ≲ 2.5 at θ = 0.4 (M17D §1); the certified engine's bound/√N peaks ≈ 931 near N ≈ 2^{38.75} (R222 repair m4: was 820).
   Not reachable by this method; honest negative (Assessment).
 
 ## Self-review (codex deep, `reviews/sterile-explicit-review.md`)
