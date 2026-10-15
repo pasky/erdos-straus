@@ -277,7 +277,7 @@ for α ≤ 4 on the 24 slices** (CERTIFIED by enumeration); unfiltered, all 172 
 
 **Theorem 7.3 (no finite linear covering of ES_q(T) for q = 3^r, 3 ≤ r ≤ 19; PROVED, computer-assisted, O216 standard).**
 For q = 3^r with 3 ≤ r ≤ 19, O(q, T) ≠ ∅: ES_q(T, ·) has no finite linear covering. The covered measure summed over the q − 3
-slices u₀ ∉ F₃^* is ≤ 9.47 (r = 3; q − 3 = 24), ≤ 27.7 (r = 4; 78), ≤ 15.5 (r = 5), and ≤ 9.10 for 7 ≤ r ≤ 19.
+slices u₀ ∉ F₃^* is ≤ 9.47 (r = 3; q − 3 = 24), ≤ 27.7 (r = 4; 78), ≤ 15.5 (r = 5), ≤ 11.1 (r = 6), ≤ 9.74 for 7 ≤ r ≤ 19 (decreasing to 9.0900 at r = 19).
 *Proof.* `scripts/fz1_certify.sh 3 19` (log `data/fz/certify_k1.txt`): Case B finite part 2 ≤ s ≤ 80 (`fz1_sum.c`; for r = 3 with
 the exact filtered counts s ≤ 12, `data/fz/enum1_27/`), tail s > 80 (`fz1_tail.c`, all boxes certified), Case A (`fz1_caseA.py`,
 α ≤ 40 exact rationals, for r = 3 with exact filtered counts α ≤ 4; tail Lemma 7.2(b)); certified total ×1.01 < q − 3. ∎
