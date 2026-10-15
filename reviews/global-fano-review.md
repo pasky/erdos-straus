@@ -218,7 +218,7 @@ statistics to non-loop path classes and say so.
 
 ### C9. Novelty (Deuring / Kaneko / Gross–Zagier-type facts)
 * Thm 1.1: core known (Chenu–Smith Prop 1–2 and Thm 2; Arpin et al. §5 for the loop/conjugate-pair phenomenon; Kaneko 1989's
-  "two embeddings ⟹ d₁d₂ ≥ 4p" is the same trace mechanism). Edge-level packaging new. → D2.
+  "two embeddings ⟹ d₁d₂ ≥ 4p" is a related, not identical, mechanism — not checked against the paper, from memory). Edge-level packaging new. → D2.
 * Prop 3.1-type "θ_L counts trace-zero elements of p-divisible norm": Gross 1987 §12 (Gross lattice) — already attributed in
   CONSTRUCTIVE_ES; fine.
 * Depth walks: Bruhat–Tits / Eichler orders of level 2^k ⟷ non-backtracking paths (Serre, Trees) — cited; the conic-marking
