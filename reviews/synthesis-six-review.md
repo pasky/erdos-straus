@@ -87,3 +87,27 @@ slice (−1 ∈ Σ_m(K), CAP_DOWN Lemma 3.1); the δ_p = ±1 families of Lemma 3
 * ±-weighted Davenport constant D_{±1}(ℤ/n) = ⌊log₂ n⌋ + 1 (Adhikari–Chen–Friedlander–Konyagin–Pappalardi 2006) — matches my
   recollection of the statement; source not accessed. "Ω(K) ≳ q/4 for structure-free arguments" is an informal reading of the
   worst case; fine as labelled (the PROVED part is the sharpness example).
+
+## 5. s6_numerator_windows — GAP (odd-ν half of the "window-shape T1" theorem is about the wrong condition; refuted under the correct one)
+
+* ν-version of Lemma 1.1: SOUND (same algebra; needs gcd(m, n) = 1 so that gcd(K, n) = 1). The K-odd repair and the
+  counterexample ν = 4, n = 5, m = 67, K = 18 are correct (re-checked: 2^{c₂}3^{c₃} ≡ 49 (mod 67) has no solution with
+  c₂ ≤ 2, and ord₆₇(3) = 22).
+* **Parity defect.** For odd ν and odd n, m = νK − n is odd ⟺ K is EVEN. So after the K-odd repair the mechanism has **no
+  windows at all for odd ν** (at any n, square or not): "works for all ν" (memo §Idea, README row, SYNTHESIS §2 table) is false
+  for odd ν, and the odd-ν part of the T1 theorem is vacuously true.
+* **The meaningful odd-ν mechanism** is the 2-adic one of CAP_DOWN Thm 1.2: K = 2^t K′, every q_i | m is ≡ 3 (4) with
+  (K′/q_i) = −1; then Q² ≡ −K′ with Q ∈ ⟨odd primes of K′⟩, d = 2^t Q² ≡ −K, c₂ = t ≤ 2t, and Lemma 1.1 applies. At n = a² this
+  condition reads (ν/q_i)(2/q_i)^t = −1, NOT (ν/q_i) = −1, and the memo's reciprocity computation changes for t = 1
+  (m ≡ 1 mod 4, factor (2/m) enters). **Counterexamples** (`review_r245_numwin2.py`, solutions built and verified exactly,
+  den z odd, prime to n, rad | y): ν = 3: a = 5, K = 34, m = 77 = 7·11; ν = 7: a = 5, K = 34, m = 213 = 3·71, giving
+  7/25 = 1/34 + 1/5666100 + 17⁴/333300; ν = 9: a = 5, K = 26, m = 209 = 11·19; ν = 25: a = 7, K = 10, m = 201 = 3·67. Counts
+  (a < 200, m ≤ 400): ν = 3: 60/66 squares, 7: 37/85, 9: 19/66, 25: 44/79 have a valid forced window; ν = 4, 8, 12: 0.
+* 4 | ν part: SOUND, and survives the 2-adic correction (8 | νK ⟹ m ≡ 7 (8), (2/m) = 1, so (K′/m) = (K/m)). My own count
+  with K odd agrees (0 for ν = 4, 8, 12, …, 24).
+* Author's numerics (`s6_numerator_windows.py`) allow even K with the condition (K/q_i) = −1, i.e. exactly the invalid condition;
+  the "most squares for ν ∈ {5, 13, 17, 21}" counts are therefore counts of non-mechanisms. (My K-odd count: 0 for every odd ν.)
+* Label: "PROVED (only-if)" is also reversed — what is proved is "ν ∈ {4 | ν, ν ≡ 3 (4), □} ⟹ T1" (the *if* direction).
+**Repair.** Restrict the theorem to 4 | ν (PROVED); delete "strictly more T1-rigid than the problem" (refuted: ν = 3, 7, 9, 25
+have valid forced windows at odd squares); for odd ν state the 2-adic forcing condition (K′/q_i) = −1 and record the
+counterexamples; fix the README/§2 rows.
