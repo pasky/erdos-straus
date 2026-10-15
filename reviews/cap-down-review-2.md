@@ -120,3 +120,62 @@ n ≡ 9ω²x; r | n + 18Q³ ⇒ Q³ ≡ −ω²x/2 ✓. Mute-set equivalence: fo
 n + ω²r ≡ 0 ⟺ s | ω²(ωn + r) = 9ω²x ✓. Units of ℤ[ω] are μ₆, x ∈ ⟨S⟩μ₆ when x is prime to 3 ✓. Residue-field spot
 check (`check_prop61`, 20 000 random instances) ✓. The window is E = r, so g = (n + 18Q³)/r must still be ≡ g₀ (mod 18):
 another constraint, only strengthening "necessary". The Reading (anchor constant, degree-2 accident) is Assessment ✓.
+
+### §5 / §1 numerics — SOUND, reproduced exactly (independent builder)
+`review_r243_caps.py` (residue-set products mod m, never more than m entries; every best solution rebuilt with exact
+Fractions and checked against Def 1.1 by factoring den z):
+* `1000000 1000 6 primes` (4.7 s): 39 175 primes p ≡ 1 (4) ≤ 10⁶, best cap 0 for all; max least cap-0 window 63 at
+  p = 87 481; max least cap ≤ 1 window 51 at p = 496 609 ✓.
+* `1000000 1000 6 all` (7.9 s): 87 759 non-squares with all prime factors ≡ 1 (4); cap 0 for all but 3985 (cap 1 at
+  m = 19, d = 1 399 489); max least cap-0 window 103 at n = 119 785 ✓. Odd squares ≤ 10⁶, m ≤ 400, cap ≤ 3: 0 ✓.
+* 3985: no Lemma-1.1 cap-0 window for m ≤ 20 000 either (robust; the bullet should state M = 1000, D2).
+* `… forced`: p ≡ 1 (8): 19 552 primes, mean q_old 13.46 → q_new 7.62, max 227 → 131, max Prop 1.3 cap (min over s) 32
+  at p = 880 993, max exhaustive cap at q_new 16; p ≡ 5 (8): 19 623, 21.33 → 14.64, max 199 → 191, Prop 1.3 max 47 at
+  636 469, exhaustive max 37, 9 161 with excluded least q ✓ (all as in data/z13_even_windows_1e6.txt; ties reported at
+  different n).
+
+### Novelty
+Quick literature search (web + repo sources) found no prior use of Pollack-type "least prime with ξ(q) ≠ 0" bounds for
+Erdős–Straus-type questions. Closest: Dahan, arXiv 2608.24035 (sources/), Thm 4.6 — a Type II window c needs a prime of
+K_c that is a non-residue mod some p | c (the necessary-condition side of the same quadratic-character mechanism; cite).
+The capped notion e*(n) is internal to the campaign, so Cor 2.1 is new only as a statement about that notion; the
+underlying "least prime q ≡ 3 (4) with (q/n₀) = −1 is ≪ n₀^{1/4+ε}" is a direct special case of Pollack Thm 1.4 /
+Vinogradov–Linnik-type results. Not a defect; the document already presents it as "relative to Pollack".
+
+## Defects
+
+**D1 (MINOR) — "2 is unusable" in the excluded case is false.** Locations: CAP_DOWN §1 paragraph "Why the excluded case
+is genuinely not forced"; §2 (Z7-2) "In every variant the forced non-residue of a bad window is the prime 2 itself"
+(correct but should add when it works); §7 item 1 "which is unusable"; BRAINSTORM/z13_pollack_quarter "Barrier".
+Repair: add after Thm 1.2: "*Addendum (excluded case).* If n ≡ 5, q ≡ 3 (8), t = v₂(K) odd and ord_q(2)/2 ≤ t, then
+d = K·2^{ord_q(2)/2} gives cap 0 (Lemma 1.1: c₂ = t + o₂/2 ≤ 2t, odd exponents unchanged); in particular q = 3 always
+fires (d = 2K). The excluded windows that need not fire are those with ord_q(2)/2 > v₂(K)." Change §7 item 1 to
+"…which is usable only when ord_q(2)/2 ≤ v₂(K) (e.g. q = 3)". Note in §1's statistics that 6 533 of the 9 161 excluded
+least windows are q = 3, which do fire (cap 0). No exponent changes.
+
+**D2 (MINOR) — n = 3985 explanation wrong.** §5 bullet 2: "(ES(3985) holds via 5 | n — the gcd(K, n) = 1 rule removes
+windows)". In fact the admissible window m = 3 (x = K = 997, gcd(K, n) = 1) carries an ES solution
+4/3985 = 1/997 + 1/1 324 614 + 1/6 603 200 790 (D₁ = 797, i.e. c₅ = 0: the δ₅ = −1 family of Lemma 3.1). It is the
+restriction to the δ_n = 0 slice (Lemma 1.1, D₁ = n·d), not the gcd rule, that misses it. Repair: "best Lemma-1.1 cap 1
+(windows m ≤ 1000; none ≤ 20 000 either); 3985 does have a cap-0 solution at window m = 3 in the δ₅ = −1 family of
+Lemma 3.1 (D₁ = 797)". Also state M = 1000 in this bullet.
+
+**D3 (MINOR) — Prop 4.1(b) hidden hypothesis.** The proof uses that each (ℤ/q_i^{k_i})^* has 2-part ℤ/2 (q_i ≡ 3 (4)),
+which makes o_i/2 odd and "j an odd multiple of L" correct. Repair: state "m a forced composite window as in CAP_POINTWISE
+Thm 1.1′ (all q_i ≡ 3 (mod 4))" explicitly in (b). (For general m the condition is j ≡ o_i/2 (mod o_i) ∀i, which need
+not be "odd multiple of lcm".)
+
+**D4 (MINOR) — citation details.** Pollack's theorem was read from the author's preprint PDF; the journal volume/pages
+"IJNT 10 (2014) 885–903" and "printed p. 11" refer to different versions. Repair: cite as "Int. J. Number Theory 10 (2014)
+(preprint pollack-math.net/generalsplit6.pdf, Thm 1.4, Prop 3.3)" and archive the PDF (now in sources/r243/).
+
+**Remarks (no repair required).** (i) Thm 1.2's "dead case" example should say "no Lemma-1.1 solution at this window at
+any cap" (Lemma 3.1's δ_n ≠ 0 families are not excluded); a concrete dead instance is n = 5, q = 67, K = 18 (parity of the
+overflow exponent of 3 also blocks). (ii) Cor 2.1 Remark 3's justification "gcd(K_d, n/d) = 1" is not the operative fact
+(see above). (iii) Lemma 1.1's converse (a triple violating (ii)/(iii) is in no ES^{(y,e)}) holds and is verified, but is
+not stated; §5 "least cap over the full Lemma 1.1 family" implicitly uses it.
+
+## Bottom line
+All PROVED claims (Lemma 1.1, Thm 1.2, Prop 1.3, Cor 2.1 rel. Pollack, Lemma 3.1, T1, Prop 4.1, Prop 6.1) re-derived and
+confirmed with from-scratch exact code; all numerics reproduced exactly. Defects are wording/scope (D1, D2) and
+hypotheses/citation hygiene (D3, D4). ES is not solved; no infinite case of ES is claimed, correctly.
