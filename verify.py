@@ -26035,4 +26035,43 @@ def check_gk():
 check_gk()
 
 
+def check_gl():
+    # (gl) STERILE_DIOPHANTINE (O241/R248): R248 from-scratch Case B census (312 tuples, s <= 16) + re-derived Case A data
+    # rebuild the q = 3, A = T^2 survivor tree of the c-slices to depth 9 byte-identically to data/z16/balls_d9.txt
+    # (172 balls; alive fraction .5167 at depth 9; no alive parent ever has all 3 children covered — the sibling property
+    # behind CONJECTURE 3.3, EVIDENCE).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    env = dict(os.environ, PYTHONPATH=os.path.join(root, "scripts"), OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    with tempfile.TemporaryDirectory() as td:
+        exe, bf, df = os.path.join(td, "cb"), os.path.join(td, "b.txt"), os.path.join(td, "d.txt")
+        r = subprocess.run(["gcc", "-O2", "-o", exe, os.path.join(root, "scripts/review_r248_caseB.c"), "-lm"],
+                           capture_output=True, text=True, timeout=120)
+        assert r.returncode == 0, r.stderr[-2000:]
+        r = subprocess.run([exe, "16"], capture_output=True, text=True, timeout=900)
+        assert r.returncode == 0, r.stderr[-2000:]
+        open(bf, "w").write(r.stdout)
+        assert len([l for l in r.stdout.split("\n") if l.strip()]) == 312
+        r = subprocess.run([sys.executable, "scripts/review_r248_tree.py", bf, "9", df], capture_output=True, text=True,
+                           timeout=900, cwd=root, env=env)
+        assert r.returncode == 0, r.stderr[-2000:]
+        assert "d=9 balls=26 (mass 0.0119) alive=1130 (frac 0.5167) prof=[370, 10, 0, 0]" in r.stdout, r.stdout[-2000:]
+        for line in r.stdout.split("\n"):
+            if line.strip().startswith("d=") and "prof=" in line:
+                assert line.rstrip().endswith(", 0]"), line
+        mine = sorted(l for l in open(df) if l.strip())
+        ref = sorted(l for l in open(os.path.join(root, "data/z16/balls_d9.txt")) if l.strip())
+        assert mine == ref and len(mine) == 172, (len(mine), len(ref))
+    print(f"== (gl) STERILE_DIOPHANTINE R248: q = 3 survivor tree to depth 9 rebuilt from scratch (172 balls, identical); "
+          f"no alive parent with 3 covered children; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gl()
+
+
 print("\nall checks passed")
