@@ -25,3 +25,30 @@ Files: STERILE_LOWER.md; scripts/zl_{tail.py, r0.py, box.c, joint_check.py, leve
 data/zl/. Labels: Thm 2.1 PROVED (computer-assisted); Lemmas 1.1, 1.2, 3.1, 4.3 PROVED; Comp 4.1 CERTIFIED; rest Assessment.
 
 Sparks: see STERILE_LOWER §5 (joint sweep; level-2 cubic-residue sweep; descent in U for a rational point).
+
+---
+# Checkpoint 2 (round 2: the SHARP run)
+
+SHARP (new, prominent):
+* **(S) holds for every prime r ≥ 2^{21.4375} ≈ 2.84·10⁶** (STERILE_LOWER Thm 6.3, PROVED, computer-assisted; was 2³² in SE,
+  2^{30.16} at checkpoint 1). Mechanism: Lemma 3.1 joint sweep gives the *exact* level-1 counts of every prime in an octave
+  (P: factoring-free AP sweep; Q: sieve / ρ factoring of 4a²d + 1 for a < A), plus the AD bound for ad ≤ Y and the engine only
+  for a ≥ A (none at all for r < 2^24). Worst exact level-1 counts: 1.6·10⁴–7.5·10⁴ (≤ 0.6 % of r).
+* Below 2^{21.44} the binding term is K = 3 (N = r³, uniform engine); a level-2 sweep (Lemma 3.1(i) restricted to cubes N = r³)
+  is the next step and would be a per-r computation of cost ~ r^{1.2} per prime in the P-route — not obviously feasible.
+
+Budget: total sweep wall ≈ 5.8 h on ≤ 2 cores (all runs under ulimit -v 8000000 and timeout); per-octave times in §6 table.
+Every octave was certified fail-closed and committed as it finished (data/zl/sweep_NN.txt, r1_NN.txt, MANIFEST.txt).
+Validation: per-n comparison with R223's enumerators (0 mismatches), byte-identical dumps across sieve/ρ/split variants.
+Bug log: (1) zl_r1 initially skipped the first cell of an odd-started sweep (fixed); (2) a false "prime table too small" exit
+(fail-closed) fixed; (3) first 2^23/2^22 runs used A = X₁/4 instead of > X₁/2 — caught by zl_r1's check, rerun.
+
+r = 17 descent (Lemma 4.3), §7: **negative** (Assessment): covering data of a rational u are the integral points of the conic
+c(qa − pb)² − 4rcdz²·ab + rz²(a + b) = 0 with (qa − pb)/(rz) = ±r^{L−1}; the levels are where a binary-recurrence-like quantity hits
+powers of r — a uniform S-unit problem over the two-parameter family (c, d, z) of conics. Naive Vieta moves don't even keep
+integrality (checked on the known covering of 11/9). No descent; r = 17 undecided.
+
+Files new in round 2: scripts/zl_{sweep.c, sweep_check.py, merge.py, boxa.c, r1.py}; data/zl/{sweep_*, r1_*, Qa_*, P_q32_k3*,
+P_q32_k5_l2}.txt. §§1–4 untouched except the status line.
+Sparks: (a) level-2 (cube) sweep or a sharper K = 3 engine to pass j ≤ 685; (b) the same joint idea for the r = 17 *cell-wide*
+counts is hopeless (17^K levels needed to K ≈ 40), but a joint sweep over *many* r for level 2 might show where P₃ truly sits.
