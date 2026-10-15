@@ -4,7 +4,10 @@ Reviewer branch side-agent/review-synthesis-five (merged side-agent/synthesis-fi
 were recomputed with FROM-SCRATCH code (`scripts/review_r227_census.c`, `scripts/review_r227_lemmas.py`, further
 `scripts/review_r227_*.py` listed per claim); none of the author's scripts were reused except as a diff target.
 
-## Summary verdicts (filled in claim by claim)
+**Overall: no FATAL. 6 MAJOR (D4, D5, D10, D14, D15, D18), the rest MINOR.** Every number in the synthesis was
+reproduced exactly with independent code; the defects are in interpretation, scope and labels. ES is not solved.
+
+## Summary verdicts
 | # | claim | verdict |
 |---|---|---|
 | 1 | three side numbers, Lemma S, Lemma G, side deformations, N₋ ≤ U | SOUND-AFTER-REPAIRS (minor) |
@@ -13,8 +16,8 @@ were recomputed with FROM-SCRATCH code (`scripts/review_r227_census.c`, `scripts
 | 4 | refutation of N₋ ≥ U/2 | SOUND (all four counterexamples exact; complete list < 10⁷ given) |
 | 5 | Prop R | SOUND as a tautology; GAP in scope ("local-invariant" undefined; listed examples not shown to be local invariants); can be strengthened to the genus |
 | 6 | Prop C | SOUND (verified for general M); MINOR: the √p twist is redundant for certificates, (c) is a one-way inclusion |
-| 7 | uniform profinite sterility, Prop V | (pending) |
-| 8 | novelty vs (J)48/(J)53/(J)55/R225 | (pending) |
+| 7 | uniform profinite sterility, Prop V | GAP (Prop V false/vacuous as literally stated — ℤ ↪ ℤ̂ is injective; conclusion overreaches from "fixed finite family" to "ES"; "sign avoidable" rests on CONJECTURE SQ_±) — repairable, then = B1 (PROVED) + Assessment |
+| 8 | novelty vs (J)48/(J)53/(J)55/R225 | partly new; the u-side idea is R225's (who proposed exactly the "u-level clean test"); R225's congruence mechanism is NOT inside Lemma S and is missing from the census (MAJOR for §2/§3 interpretation) |
 
 ## Claim 1 — side numbers, Lemma S, Lemma G, deformations, N₋ ≤ U: SOUND-AFTER-REPAIRS
 
@@ -102,8 +105,12 @@ Defects (claim 2).
   three-side theory cannot produce a certificate" is contradicted by D4.** Defective cleanliness plus the side
   congruence forces χ = −1 on all words of the side (K0 = 20, u = 16). This does not escape B2 (a word with u = 16
   still needs a divisor A ≡ 15 (mod 16) of p + 16, i.e. 3c with c ≡ 5 (mod 16) built from primes of m′² + 4), and the
-  family is polynomial in m (B1). Repair: "clean sides only force χ = +1; *defective* sides can force χ = −1 under the
-  side congruence, but only conditionally on a divisor in a class (B2)".
+  family is polynomial in m (B1). A second, even simpler example: sides N_u = p + u whose odd primes are all ≡ 1 (4),
+  with u ≡ 3 (4): for odd A ≡ −1 (mod u), χ = (−u/A) = (A/u) = (−1/u) = −1 (e.g. p = 17, w = (2, 3, 4), N_u = 20,
+  χ = (5/17) = −1). Both are instances of the three-bit law (χ is a function of w mod 8): "forcing" by a side is a
+  statement about which cells the side's words can occupy, and the sign it forces depends on the genus character used.
+  Repair: "*ψ-clean* sides only force χ = +1 (Lemma S); other side conditions (defects, (−1/·)-cleanliness) combined
+  with the side congruence A ≡ −1 (mod u) can force χ = −1, but only conditionally on a divisor in a class (B2)".
 * **D6 (MINOR→MAJOR for the synthesis) unexplained residuals are not listed.** Per-K0 residuals of N₋/U (my run):
   K0 = 4: −0.016 ± 0.004, 12: −0.025 ± 0.004, **20: −0.039 ± 0.007**, **28: −0.032 ± 0.003**, 33: −0.023 ± 0.005
   (all ≥ 4σ), and the [5, 10) bin keeps 78 % of its residual. The memo mentions 4, 12, 28 as "weaker"; 28 is 10σ and 20,
@@ -201,3 +208,57 @@ Defects.
 * **D13 (MINOR) T1 reading.** "At p = m², g is not an element of Gal(K_M/ℚ)" is right, but the operative T1 fact is
   again BRIDGE_WORLDS (i): h | m² + 4c²d makes −d a QR mod h, contradicting (−d/h) = −1. Cite it; the field-theoretic
   phrase is a restatement (Assessment).
+
+## Claim 7 — (v) uniform profinite sterility, Prop V: GAP (label)
+
+Re-derivation of what is true: a fixed finite family F of linear/ET families covers a finite union of residue classes
+U_F ⊂ R̂, which is **clopen**; if s ∈ 𝒮 (so s ∉ U_F) then a whole neighbourhood s + Nℝ̂ avoids U_F, and it contains
+infinitely many primes (Dirichlet / Kornblum, s a unit). Hence no fixed finite family covers the cell — this is B1,
+PROVED (given (J)51/(J)54/(J)56 for 𝒮 ≠ ∅).
+
+Defects.
+* **D14 (MAJOR) s5_sterile_uniform Prop V and "Consequence (formal)".** (a) "P determined by the image of p in R̂" is
+  vacuous: ℤ → ℤ̂ and F_q[T] → F_q[T]^ are injective, so *every* property of p is a function of its image (including
+  ES-five(p) itself, and |p|). Taken literally, Prop V says that no true property of primes implies ES on the cell —
+  which is false if ES is true (take P = ES). Repair: "P is **locally constant** on R̂ (equivalently, depends only on
+  p mod N for one fixed N)". Same repair for "data that is not a function of the image of p in R̂" → "not locally
+  constant on R̂". (b) The proof's "a certificate in a fixed family is an open condition, and s ∉ ⋃U_f" does not give
+  a neighbourhood of s avoiding ⋃U_f — an open set can accumulate at s. It needs U_f **closed** too (true: finite unions
+  of residue classes are clopen); say so. (c) The conclusion "P does not imply ES on that cell, because the primes near
+  s have no certificate in any fixed finite family" is a non sequitur: ES at those primes may use families outside F.
+  What is proved is "P does not imply a certificate from a fixed finite family" (B1). Label: PROVED only after
+  (a)–(c); then it is B1 restated, as the memo itself says.
+* **D15 (MAJOR, label) s5_sterile_uniform "Reading" and Assessment; SYNTHESIS §4(v).** "(J)52 shows that dropping
+  positivity … does not help (SQ_±)" and "sign data (positivity) is avoidable (SQ_±)" rest on **CONJECTURE SQ_±**
+  (EVIDENCE only, DISCOVERIES (J)52). Must read "conditionally on SQ_±" / Assessment. Likewise "the only such data
+  available in either ring is the place at infinity" is an Assessment (no classification of non-locally-constant
+  data is proved; e.g. lnr(p) is not locally constant at a sterile point and is not "the place at ∞").
+* **D16 (MINOR) s5_sterile_uniform.** "(J)56 (F_q[T], every q = 3^r except q = 3)" omits "(and q = 9 at k = 1)"
+  (DISCOVERIES (J)56 title); the ℤ column "ES^{(S)}, |S| ≥ 4" is a mute *set* result for non-square n coprime to 2S,
+  ineffective ((J)23 Thm 2.4(a)) — add these qualifiers to the comparison table.
+
+## Claim 8 — novelty vs (J)48/(J)53/(J)55 and R225
+
+* t-side: THREE_SQUARES Lemma 1.4 / NEAR_SQUARE Prop 4.1, correctly credited.
+* **u-side: R225 (reviews/near-square-review.md, "Partial mechanism for the beyond-clean gradient") already had
+  (i) the observation p + u = A·v ⇒ χ = (−u/A) by reciprocity, (ii) the deformation K0 + u = s², and (iii) the explicit
+  proposal "that u-level 'clean' test (the analogue of Prop 4.1 on the u-side) is the natural next candidate for the
+  remaining gradient".** O230 executes that proposal in the ψ-form (Lemma S on N_u, N_v) and adds the u(K + u) = □
+  deformation and the census. Credit should say "R225 proposed the u-level clean test; O230 carries it out
+  symmetrically" rather than "R225 had the u-side idea in the narrower form K + u = s²" (D17, MINOR).
+* **D18 (MAJOR for the interpretation of §2/§3) R225's mechanism is not a sub-case of Lemma S and is missing from the
+  census.** R225's forcing uses the *side congruence* A ≡ −1 (mod u) together with (−1/·)-cleanliness of p + u, not
+  ψ-cleanliness; such words are counted as *unforced* in U. From scratch (`scripts/review_r227_r225side.py`, primes
+  p = m² + K0 in (10⁵, 5·10⁶), u = s² − K0, s < 60, gcd(m, s) = 1, all u incl. even): unforced words on these sides
+  per K0 = 4, 12, 20, 28, 8, 16, 24: 772, 232, 266, 480, 74, 234, 56, **all with χ = +1 (0 exceptions in 2 114)**.
+  Removing them raises N₋/U at K0 = 4: 0.709 → 0.728, 12: 0.723 → 0.730, 20: 0.691 → 0.705, 28: 0.719 → 0.726 (the
+  p ≡ 5 (8) baseline is 0.740), i.e. a sizeable part of the residuals of D6 is R225's mechanism. Consequences: (a) U
+  over-counts the genuinely undetermined words, so "N₋ ≤ U" is not the sharpest bound and the forced fraction is
+  under-counted; (b) "three-side cleanliness explains …" should become "three-side ψ-cleanliness plus R225's
+  congruence-pinned u-sides explain …"; (c) the scale-law and hard-prime statements are unaffected numerically
+  (they are about U as defined) but their "forced = all deterministic χ = +1" reading is wrong. Repair: add R225-type
+  sides (and, generally, sides whose ψ-odd part is pinned by A ≡ −1 (mod u)) as a second forcing class, or state that
+  U counts only ψ-clean forcing.
+* Lemma G, Prop R, Prop C, (v): dictionaries over (J)40, SPARKS4 three-bit law, (J)50, B1 respectively; the memos say
+  so. The forced/unforced split, CONJECTURE U and the N₋ ≥ U/2 refutation are new to the campaign as far as I can see
+  (grep of DISCOVERIES/BRAINSTORM for "unforced", "U(n)": no earlier occurrence).
