@@ -5,7 +5,7 @@
 // Output per prime p = 1 (4) in [LO, HI): p N Nminus NT1 NT1minus lnr minK
 //   NT1 = words whose level is T1-type, NT1minus = those with chi = -1 (must be 0 when p = 1 mod 8),
 //   minK = min over words on T1-type levels of the least K = p - m^2 realising it (-1 if none).
-//   (7 extra columns) Ncl Nclm: words on clean levels (every prime r | tp+1 has (r/p) = +1) and their chi=-1 count (must be 0).
+//   (7 extra columns) Ncl Nclm: words on clean levels (every prime r | tp+1 has (r/p) = +1) and their chi=-1 count (must be 0); Nu = words on clean or T1-type levels.
 // usage: ns_census LO HI
 #include <stdio.h>
 #include <stdlib.h>
@@ -44,7 +44,7 @@ int main(int argc, char **argv) {
     static long long divs[1 << 16];
     for (long long p = LO + ((5 - LO % 4) % 4 + 4) % 4 - 4; p < HI; p += 4) {
         if (p < LO || p % 4 != 1 || spf[p] != p) continue;
-        long long Nw = 0, Nm = 0, NT = 0, NTm = 0, minK = -1, Ncl = 0, Nclm = 0;
+        long long Nw = 0, Nm = 0, NT = 0, NTm = 0, minK = -1, Ncl = 0, Nclm = 0, Nu = 0;
         long long q = 2; while (leg(q, p) == 1) q++;
         // cache T1 status per level (levels up to p+2): use small hash via array for t <= 4096, else compute
         static long long cacheK[4097]; static long long cacheP[4097];
@@ -62,11 +62,13 @@ int main(int argc, char **argv) {
                 long long K;
                 if (t <= 4096) { if (cacheP[t] != p) { cacheP[t] = p; cacheK[t] = t1K(p, t); } K = cacheK[t]; }
                 else K = t1K(p, t);
-                if (clean((u64)t * p + 1, p)) { Ncl += mult; if (c == -1) Nclm += mult; }
+                int iscl = clean((u64)t * p + 1, p);
+                if (iscl) { Ncl += mult; if (c == -1) Nclm += mult; }
+                if (K > 0 || iscl) Nu += mult;
                 if (K > 0) { NT += mult; if (c == -1) NTm += mult; if (minK < 0 || K < minK) minK = K; }
             }
         }
-        printf("%lld %lld %lld %lld %lld %lld %lld %lld %lld\n", p, Nw, Nm, NT, NTm, q, minK, Ncl, Nclm);
+        printf("%lld %lld %lld %lld %lld %lld %lld %lld %lld %lld\n", p, Nw, Nm, NT, NTm, q, minK, Ncl, Nclm, Nu);
     }
     return 0;
 }
