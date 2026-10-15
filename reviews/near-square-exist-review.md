@@ -85,3 +85,21 @@ Re-derived line by line.
   Brute force agrees (`review_r228_evenA2.py`: all k ≡ 0 (4) ≤ 60, predicted-clean u ≤ 150, odd m ≤ 400, all n:
   67 levels with u ≡ 1 (4) carrying 3 065 even-A words, 18 levels with u ≡ 3 (4) carrying 840; **0 with χ = −1**).
   Hence for k ≡ 0 (4) Cor 2.3 is a classification for ALL words; suggested wording accordingly.
+
+### Pointwise form (end of §2) — SOUND
+Proof of Thm 2.1(b) indeed uses only the single m (one prime p): odd r | A ⇒ r | p + u ⇒ r splits in F by hypothesis.
+No genericity needed in the pointwise form (the hypothesis "F splits every odd prime of p + u" replaces it). ✓
+
+### §3 EVIDENCE (pointwise genus cleanness, residual shrink) — SOUND (reproduced), two reporting remarks
+* From scratch (`review_r228_genus.py`: sympy factorisation, admissible F decided by a DIRECT character test in
+  Gal(ℚ(ζ_{8u})/ℚ) — not by the Cor 2.3 table —, own t-clean test): per-prime (N, N₋, Ncl, Nfl, Nflm) on
+  p ∈ (10⁵, 1.1·10⁵) (422 primes, 55 326 words, 4 924 flagged beyond clean) and p ∈ (5·10⁶, 5.01·10⁶) (312 primes,
+  66 852 words, 5 602 flagged): **identical to z2_hardness.c prime by prime; 0 flagged words with χ = −1.**
+* z2_hardness.c rerun on (10⁵, 10⁶): totals 5 570 014 / 432 677 / 481 272 / 0, as stated.
+* Residuals recomputed with my own cell/residual code (`review_r228_resid.py`, on the z2_hardness output validated above):
+  every quoted number reproduced ([10,17) −0.0235 → −0.0014; [17,30) −0.0193 → −0.0149; [30,100) −0.0093 → −0.0059;
+  [100,300) −0.0045 → −0.0025; ≥300 +0.0022 → +0.0013; [5,10) → −0.0359 ± 0.0062; K0 = 24 → −0.058).
+* Remarks (MINOR, D5): (i) "40–50 %" holds for [30, 300); [17, 30) is only 23 %, [10, 17) 94 % — say "21–94 % by bin,
+  ≈ 40 % in the two best-populated bins". (ii) Unreported small bins: K0 = 1 overshoots (−0.0081 → **+0.0159 ± 0.0083**,
+  flagged fraction residual +0.021) and K0 ∈ [2, 5) does not move (−0.0112 → −0.0110). Both should be in the table: the
+  K0 = 1 overshoot says that at K0 = 1 the genus flag over-corrects, i.e. it is not a calibrated "explanation" there.
