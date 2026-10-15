@@ -161,8 +161,10 @@ e: a = b = 0 as before; f: ef = n + 4a²d gives 0 > 0. ∎
 coefficient and largest real root ρ. If m₀ ∈ ℤ, m₀ > ρ and n(m₀) is an odd perfect square, then no Type I/II polynomial
 family is valid on a class C ∋ m₀. Hence every finite set of polynomial families misses all m in some class
 m ≡ m₀ (mod L), i.e. infinitely many m.
-*Proof.* Lemma 3.2 makes F(m₀) positive; Prop 3.1 makes it an integral point of Σ_{n(m₀)}; ET Prop 1.6. For the
-second statement take L = lcm of the moduli of the finitely many families. ∎
+*Proof.* Writing m = g + Lt, each coordinate is a polynomial in t taking integer values at all large t, hence (finite
+differences / binomial basis) at every integer t; so F(m₀) ∈ ℤ⁶ lies on Σ_{n(m₀)} (R-O221: this replaces the
+denominator assumption of Prop 3.1). Lemma 3.2 makes F(m₀) positive; ET Prop 1.6. For the second statement take
+L = lcm of the moduli of the finitely many families. ∎
 Remarks. (i) For n = qt + r this recovers ET/Schinzel's "square classes are not solvable by polynomials" (t₀ with
 qt₀ + r = w² lies above the root −r/q). (ii) For n = m² + k, k > 0, ρ = −∞, so every integer T1 point obstructs
 (subsumed by Thm 2.2). (iii) For k = −j < 0 the T1 points are the m₀ with j = (m₀ − w)(m₀ + w), w odd; m₀ > √j obstructs, −m₀ < −√j does not (there n > 0 but it is the other real component) — matching the
@@ -171,24 +173,25 @@ families found is 2.818, 3.865, 4.895 < √j = 2.828, 3.873, 4.899 (j = 8, 15, 2
 
 **Theorem 3.4 (the K-adic square set is sterile for every polynomial family; PROVED).** Let k = −j < 0, j not a square,
 K = ℚ(√j), π_m := m − √j (so n(m) = N(π_m)), and
-  Z_K⁺ := {m* ∈ Ẑ : π_{m*} is a non-zero square in K_v for every finite place v of K}.
-Then no Type I/II polynomial family for n = m² − j has a class C (m ≡ g mod L) whose closure in Ẑ meets Z_K⁺.
-(We use the m with gcd(n(m), 2j) = 1; the classes where a prime of 2j divides n are non-primitive or 2-adically trivial.)
-*Proof.* Let α := D(√j) ∈ K (D the witness). If α ∈ ℚ the family is non-escaping: (D(m)/n) = ψ(n(m)) for a fixed
-Kronecker character ψ, and n(m*) = N(π_{m*}) is a local square everywhere, so ψ(n(m)) ∈ {0, +1} for m ∈ C near m*.
-Otherwise, for m ∈ C large with gcd(n, 2j) = 1: (i) the prime ideals dividing (π_m) have degree one and are prime to the index of ℤ[√j] (an inert q dividing π_m would
-divide m − √j, impossible; ramified or index primes divide 2j), so
-(X/n) = (X/(π_m))_K for X ∈ ℤ (Jacobi symbol of K); (ii) D(m) ≡ α (mod π_m); (iii) by the Hilbert product formula,
-(α/(π_m))_K = ∏_{v | 2α∞} (α, π_m)_v (v | π_m cannot divide α, else (D(m)/n) = 0). If m* ∈ Z_K⁺ ∩ closure(C), choose
-m ∈ C, m > √j, so close to m* that π_m/π_{m*} is a square in K_v for the finitely many finite v | 2α (squares are
-open); then (α, π_m)_v = 1 there, and at the two real places π_m > 0, so (α, π_m)_∞ = 1. Hence (D(m)/n(m)) = +1,
-contradicting Lemmas 1.1/1.3. ∎
+  Z_K⁺ := {m* ∈ Ẑ : π_{m*} is the square of a unit of O_{K,v} for every finite place v of K}
+(R-O221 repair: unit squares; then n(m*) ∈ Ẑ^×). Then no Type I/II polynomial family for n = m² − j has a class C
+(m ≡ g mod L) whose closure in Ẑ meets Z_K⁺; since the set of points covered by no family is closed, it contains the
+closure of Z_K⁺ (which also contains non-unit square points, e.g. the R-O221 examples j = 648, m* = 27).
+*Proof.* Write D = D̃/g with D̃ ∈ ℤ[m], g ∈ ℕ, and α := D̃(√j) ∈ ℤ[√j] (no escape hypothesis is needed). Let m* ∈
+Z_K⁺ ∩ closure(C). As n(m*) is a unit everywhere, all m ∈ C close enough to m* have n(m) coprime to 2jg·N(α) (if α ≠ 0;
+α = 0 would make D̃(m) ≡ 0 mod π_m and (D(m)/n) = 0). For such m: (i) the prime ideals dividing (π_m) have degree one
+and are prime to the index of ℤ[√j] (an inert q dividing π_m would divide m − √j, impossible), so (X/n) = (X/(π_m))_K
+for X ∈ ℤ (Jacobi symbol of K); (ii) D̃(m) ≡ α (mod π_m); (iii) by the Hilbert product formula, for β ∈ {α, g},
+(β/(π_m))_K = ∏_{v | 2β∞} (β, π_m)_v. Choose such m with m > √j and π_m/π_{m*} a square in K_v for the finitely many
+finite v | 2αg (unit squares are open); then (β, π_m)_v = 1 there, and at the two real places π_m > 0. Hence
+(D(m)/n(m)) = (α/(π_m))_K·(g/(π_m))_K = +1, contradicting Lemmas 1.1/1.3. ∎
 Remarks. (i) Z_K⁺ ⊊ Z_k^□ (= {m : N(π_m) a local square}): at a split prime ℓ = 𝔩𝔩′ both m − s and m + s (s² = j in ℤ_ℓ)
 must be squares (density 1/4 instead of 1/2); at inert and ramified ℓ the conditions agree with Z_k^□ up to the
 ramified residue condition. So **below the squares the sterile set of polynomial families shrinks from "n is a local
 square" to "π = m − √j is a local square in K"** — T1 deformed is a square *in K*, not in ℚ. (ii) For k > 0 (K imaginary)
-the same proof gives only Z_K ⊆ Z_k^□; Thm 2.2 shows the true sterile set is the larger Z_k^□ ∪ (Z_k), because no
-escaping family exists: with a complex place there is no sign at ∞ to absorb the positivity constraint. (iii) The
+the same proof gives only Z_K ⊆ Z_k^□; Thm 2.2 shows that polynomial families avoid all of Z_k^□ (R-O221: not a claim
+about the full sterile set), because no escaping family exists: with a complex place there is no sign at ∞ to absorb
+the positivity constraint. (iii) The
 integer T1 point m₀ = 3 (j = 8) lies in Z_K⁺ (3 − 2√2 = (1 − √2)²); m₀ = 4 (j = 15) does not (4 − √15 ∈ 6·K^{×2} is not a
 square at 2), but is excluded by Thm 3.3 (size: 4/1 is not a sum of three unit fractions).
 EVIDENCE (`scripts/ns_padic_cover.py -8 L /tmp/fam_-8.txt`, all seven ET congruence families with modulus | L plus
@@ -199,15 +202,15 @@ at 3 and 5 (inert) N(π) ≡ □, i.e. m ≡ 0 (3), m ≡ ±2 (5); at 7 = 𝔩�
 (m ≡ 1 (7) is the degenerate 7 | n class). So at these levels the polynomial-sterile set is exactly Z_K⁺ (CONJECTURE in
 general: CONJECTURE Y10-S below).
 
-**CONJECTURE Y10-S (sterile set below the squares).** For k = −j < 0, j not a square, an m* ∈ Ẑ (with n(m*) a 2-adic
-unit ≡ 1 mod 4) lies in the closure of the class of no polynomial family iff m* ∈ Z_K⁺ or m* is a positive integer T1
-point (Thm 3.3). Equivalently: the T1 obstruction for polynomial families on p = m² − j is "π = m − √j is a square in
+**CONJECTURE Y10-S (sterile set below the squares).** For k = −j < 0, j not a square, an m* ∈ Ẑ with n(m*) ∈ Ẑ^× and
+n(m*) ≡ 1 (mod 4) lies in the closure of the class of no polynomial family iff m* ∈ Z_K⁺ or m* is a positive integer
+T1 point with n(m*) = 1 (Thm 3.3). Equivalently: the T1 obstruction for polynomial families on p = m² − j is "π = m − √j is a square in
 K", one level finer than the T1 obstruction for congruences ("n = N(π) is a square in ℚ").
 Status: Thm 3.3 + Thm 3.4 give "⊇". "⊆" is EVIDENCE at j = 8 for L = 8064 and 4480 (the families found so far have
 moduli built from 2, 3, 7, so the test cannot see finer levels); for j = 15, 24 the found families are too thin
 (30 % / 16 % of classes uncovered at L = 63360 / 132480), so no test. Consequence if true: ES for n = m² − j holds for every m
-outside an Ẑ-neighbourhood of Z_K⁺, i.e. polynomial families do *strictly* better than congruences below the squares
-and *exactly as well* above them (Thm 2.2).
+outside an Ẑ-neighbourhood of Z_K⁺, i.e. polynomial families do *strictly* better than congruences below the squares,
+while above them they gain nothing at the locally-square m (Thm 2.2; whether they gain elsewhere is not studied).
 
 ## 4. Deterministically clean levels (goal (a))
 
