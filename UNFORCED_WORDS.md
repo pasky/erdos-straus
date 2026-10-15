@@ -209,7 +209,7 @@ t ≤ 4). New here: the u/v-sides (Prop F for p + 1, p + 2; F′ for p + 3, p + 
 **SQ_± (signed words).** Lemma S holds verbatim for signed words with |N_X| (ψ(−1) = 1 for n ≡ 1 (4); a zero side
 counts as clean), so N₋^± ≤ U^±. Census over |t| ≤ 60 (`scripts/z7_sqpm_split.py`, EVIDENCE):
 
-| n (record) | version | least |t| cert | forced fraction | N₋/U | control n + 8: forced, N₋/U |
+| n (record) | version | least abs(t) of a certificate | forced fraction | N₋/U | control n + 8: forced, N₋/U |
 |---|---|---|---|---|---|
 | 4 884 441 | signed incl. positive (record 18) | 18 | 0.93 | 14/20 | 0.39, 0.66 |
 | 97 185 | signed incl. positive (record 15) | 15 | 0.84 | 16/20 | 0.24, 0.59 |
@@ -219,9 +219,9 @@ counts as clean), so N₋^± ≤ U^±. Census over |t| ≤ 60 (`scripts/z7_sqpm_
 
 The records reproduce SPARKS4 §2.5 exactly (18, 15, 54, 30, 19). **SQ_± hardness is forcedness too:** every record n
 has forced fraction 0.84–0.94, against 0.24–0.51 at the controls. One difference from ES-five: at the strictly-signed
-record 9 817 305, unforced words appear already at |t| = 7, but the first certificate only at |t| = 54. So in the
-signed problem the gap between "unforced" and "certificate" is visible as a gap in |t|. This is the same
-congruence-pinned forcing as R227 D18, now on signed sides.
+record 9 817 305, unforced words appear already at |t| = 7, but the first certificate only at |t| = 54.
+So in the signed problem the gap between "unforced" and "certificate" shows up as a gap in |t|. The mechanism was
+not analysed.
 **3SQ (exception-free at 105) explained by the split.** At composite n, Jacobi cleanliness is *genus-collapsed*:
 ψ = ∏_{ℓ | n} ψ_ℓ^{v_ℓ(n)} with ψ_ℓ = (·/ℓ). A side can be ψ-clean while every one of its primes is ψ_ℓ-odd for two
 different ℓ. At n = 105 every prime factor of every side of all 11 words (2, 53, 107, 79, 211, 3) has
