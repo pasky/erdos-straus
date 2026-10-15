@@ -18,7 +18,9 @@ B2 throughout (cap 0 at either kind of window is a divisor-class event). T1: at 
 ## Cheap numerics
 `scripts/s6_witness_caps.py 3000 120 6` (primes p ≡ 1 (4) < 3000, prime windows q ≡ 3 (4) < 120, exhaustive Lemma-1.1 caps):
 (q/p) = −1: cap 0 at 561 of 1 655 pairs, dead at cap ≤ 6 for 218; (q/p) = +1: cap 0 at 279 of 1 531 (53 of them with K odd),
-dead at cap ≤ 6 for 784. So cap-0 rate 34 % vs 18 %: the forced bit roughly doubles the odds and does not decide.
+dead at cap ≤ 6 for 784. (R246 repair: the pair totals are 1 635 and 1 530 — 15 windows × 211 primes — not 1 655 / 1 531;
+rates 34.3 % vs 18.2 %; `scripts/review_r246_witness.py`, which also finds 14 pairs with (q/p) = −1 dead at EVERY cap, all
+K even with (E) failing.) So cap-0 rate 34 % vs 18 %: the forced bit roughly doubles the odds and does not decide.
 
 ## Assessment
 EVIDENCE + small PROVED observation. (iii) answered: a cap-0 window is a c-fibre word with m = (u + v)/c; "forced" is a

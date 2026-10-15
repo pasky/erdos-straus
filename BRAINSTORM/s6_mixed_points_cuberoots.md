@@ -17,8 +17,9 @@ bⁿ ± 1 (Brillhart–Lehmer–Selfridge–Tuckerman–Wagstaff 1988). (J)54 ST
 ## Barrier screen
 For primes p no algebraic factorisation of (p + m)/4 is available (p is not a value of a fixed exponential/polynomial
 in a free parameter): B2 returns. The dictionary is therefore family-level (H-A: moving modulus via algebraic factors).
-T1: n = a² excluded by the global Lemma-1.1 T1, not by a congruence (the 105 exp class is congruence-wise square-compatible:
-n ≡ 59 (mod 151) is a residue) — the global Lemma-1.1 T1 of CAP_DOWN §3 ((J)66; R245 repair: not new; on the family itself 4^s + 105 is a square only for s = 2, 3, 4).
+T1: n = a² excluded by the global Lemma-1.1 T1 [R246 repair: AND by a congruence — (n_s/18837001) = −1 for all s ≡ 34
+(mod 45), 18837001 | 4⁴⁵ − 1; only the larger cubic family u ≡ 32 (151) is congruence-wise square-compatible, e.g. at
+n ≡ 59 (mod 151), a residue] — the global Lemma-1.1 T1 of CAP_DOWN §3 ((J)66; R245 repair: not new; on the family itself 4^s + 105 is a square only for s = 2, 3, 4).
 
 ## Cheap numerics
 s6_expclass_pts.py: every residual (J)62 exponent ≤ 8000 tested is in an exp class. The mixed point μ* (4 at ℓ ≠ 3, −2 at

@@ -3,7 +3,7 @@
 Branch side-agent/synthesis-six. Deep file SYNTHESIS_SPARKS6.md; memos BRAINSTORM/s6_*.md (9, indexed in BRAINSTORM/README.md);
 scripts scripts/s6_*; certificate data/s6_cert105_et.json (2 KB).
 
-**SHARP:** ES holds for every n = 4^s + 105 (s ≥ 0) — (J)62's open, Mordell-hard-for-all-s offset — PROVED (computer-
+**SHARP:** ES holds for every n = 4^s + 105 (s ≥ 0) — (J)62's open, Mordell-hard-for-all-s ≥ 2 (R246 repair) offset — PROVED (computer-
 assisted). The 13-class ET covering at L = 360 (O238's, built with (J)62's z8 code; R245 repair) leaves exactly s ≡ 34 (mod 90); ONE exponential window class closes it:
 for u ≡ 32 (mod 151), n = 256u³ + 105, x = 64(u³+1), A = (64u³ + 2u² − 2u + 66)/151, y = nA, z = 32n(u+1)A solves
 4/n = 1/x + 1/y + 1/z (one-line identity: 4x − n = 151 and 2(32u+33)(u² − u + 1) = 151A), and s ≡ 34 (mod 45) gives
@@ -27,7 +27,7 @@ k = 33's residual is at μ = −2, where 4^{s+2} − 1 would be the natural fact
   windows at odd squares for ν = 3, 7, 9, 25, so the "more T1-rigid than ES_ν" claim is withdrawn.
 * (iii) s6_witness_onesided: (q/p) = −1 is not necessary for cap 0 at q (non-square d); cap-0 rates 34 % vs 18 % (EVIDENCE).
 * (iv) s6_ydual_windows: 𝒟_e(M) is the y-window (fixed mute set ⟹ almost-all side); x-windows own their mute set (pointwise).
-* (v) s6_mixed_points_cuberoots: sterility is menu-relative (Assessment; 105 instance PROVED).
+* (v) s6_mixed_points_cuberoots: sterility is menu-relative (Assessment, by definition; 105 instance PROVED; R246 repair: Λ₁₀₅ ∩ S′ = ∅ is NOT decided — fixed-class coverability of k = 105 remains OPEN).
 * Negatives: s6_window_independence (gcd(K_m, K_m′) | (m − m′)/4 — almost coprime mute sets; independence only heuristic), s6_exp_classes_primes (algebraic
   budget forcing needs a thin family; for primes it is B2).
 * For ES at primes nothing new: cap 0 at a window stays B2. No claim about ES or any infinite set of primes.
@@ -41,8 +41,9 @@ heuristic. Minor: u ≥ 1 in Lemma 1.0; checker's 2-part assumption (all moduli 
 ## Honest caveats for the reviewer
 * The 13 ET classes are produced by (J)62's z8 code (`ec_cover.certificate`); my checker re-verifies them independently from
   the JSON, but a from-scratch reviewer checker would be good.
-* The exponential class contains no squares by the global Lemma-1.1 T1 (CAP_DOWN §3), not by a congruence: n ≡ 59 (mod 151)
-  is a QR. Numerically no square for u < 3·10⁷ on the class.
+* The exponential class contains no squares by the global Lemma-1.1 T1 (CAP_DOWN §3); n ≡ 59 (mod 151)
+  is a QR, but (R246 repair) it is also a congruence non-square class: (n_s/18837001) = −1 for all s ≡ 34 (mod 45)
+  (18837001 | 4⁴⁵ − 1). Numerically no square for u < 3·10⁷ on the class.
 * Whether NEAR_SQUARE Thm 2.2's witness argument extends to families m = 16u^{3/2} was not examined (not needed for Thm 1.1).
 * The "primes to 10⁶" triple-check rule does not apply to a family theorem; the exact check to s = 1500 and the symbolic
   identity replace it.

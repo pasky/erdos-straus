@@ -4,7 +4,8 @@
 Cap 0 at window q is −1 ∈ Σ_q(K) = {d₁/d₂ : d₁, d₂ | K} (CAP_DOWN Lemma 3.1, δ_n = 0). Let P := {d mod q : d | K}.
 **Prop (PROVED, pigeonhole).** If |P| > (q − 1)/2 then P ∩ (−P) ≠ ∅ (|P| + |−P| > q − 1), so d₁ ≡ −d₂ and cap 0 holds.
 **Prop (PROVED, Cauchy–Davenport; sharpness).** Write (ℤ/q)^* = {±1} × U, |U| = u = (q−1)/2 odd. If the only QNR prime of K is
-s₀ with exponent 1 and the other primes map to even exponents in log coordinates, the cap-0 condition is u − log s₀ ∈ the
+s₀ with exponent 1 (R246 repair: the former extra hypothesis "other primes map to even exponents in log coordinates" is
+unused and dropped; u prime is needed for Cauchy–Davenport, Kneser otherwise), the cap-0 condition is u − log s₀ ∈ the
 signed subset-sum set of the remaining log-images in ℤ/u; for u prime this set has size ≥ min(u, 2N + 1) (N = total
 multiplicity of the primes with NONZERO image in ℤ/u, i.e. s ≢ ±1 (mod q); primes ≡ ±1 contribute nothing — e.g. q = 7,
 K = 3·29^N fails at every N; R-O238 self-review), sharp when all nonzero images are equal. Hence the forced bit plus any *structure-free* argument needs

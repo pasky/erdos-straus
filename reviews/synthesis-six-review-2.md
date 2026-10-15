@@ -2,6 +2,16 @@
 
 Reviewer: R246 (independent; no author files edited). From-scratch scripts: `scripts/review_r246_*.py`.
 
+**Repairs applied (round 2).** After merging R245's repairs (side-agent/review-synthesis-six), R246 applied its remaining
+defects, marked "(R246 repair)": D1 (Lemma 1.0 integrality one-liner, explicit d = 2(u²−u+1); "s ≥ 2" in AGENT_REPORT;
+"s ≥ 64" already removed by R245), D2 (§1.2 "violated" → "outside the menu"; Λ₁₀₅ ∩ S′ undecided, ET-alone coverability of
+k = 105 OPEN, stall "bypassed, not an artefact"; README/AGENT_REPORT rows; "fixed moduli" already removed by R245), D3
+(numerator memo: "more T1-rigid" struck, explicit window-shape solutions at squares, even-K failures), D4 (local
+non-square certificate mod 18837001 in SYNTHESIS §1 T1 control and §3.3, mixed-points memo, AGENT_REPORT), D5 (covered by
+R245; 14-pair count added to witness memo), D6 (Thm 1.1′ admissibility; ν-version labelled Assessment), D7 (dropped unused
+hypothesis; u prime), D8 (pair totals), D9 (Assessment label), D10 (covered by R245 "heuristically"), D11 (novelty sentence;
+315·2^m + 1 note already added by R245).
+
 ## Summary verdicts
 | claim | verdict |
 |---|---|

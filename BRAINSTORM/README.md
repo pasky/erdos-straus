@@ -448,7 +448,7 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | memo | idea | result | label |
 |---|---|---|---|
 | s6_exp_classes_105 | windows 4^j − k on 4^s + k with algebraically forced budget (cyclotomic factors of 4^r + 1) | **ES for all 4^s + 105** (one exponential class + 13 ET classes, L = 360) — SHARP | PROVED (computer-assisted) |
-| s6_mixed_points_cuberoots | uniform reading of sterility (FF root-product law, window reciprocity, mixed points) | sterility is relative to the class menu (by definition; R245 repair: no sterile point on Λ₁₀₅ known); 105's mixed point = cube-root family 256u³ + 105 | Assessment (instance PROVED) |
+| s6_mixed_points_cuberoots | uniform reading of sterility (FF root-product law, window reciprocity, mixed points) | sterility is relative to the class menu (by definition; R245 repair: no sterile point on Λ₁₀₅ known; R246 repair: ET-alone coverability of k = 105 remains OPEN; the exp class is also a local non-square class mod 18837001); 105's mixed point = cube-root family 256u³ + 105 | Assessment (instance PROVED) |
 | s6_divisor_pigeonhole | P ∩ −P at a forced window | \|P\| > (q−1)/2 ⟹ cap 0; structure-free versions need Ω(K) ≳ q/4 (sharp) | PROVED + EVIDENCE |
 | s6_unique_forced_cap0 | when does the forced bit give cap 0 for all K | only m = 3 (2-elementary unit group) | PROVED |
 | s6_witness_onesided | is (q/p) = −1 necessary for cap 0 at q | no (non-square d); rates 34 % vs 18 % | PROVED obs. + EVIDENCE |

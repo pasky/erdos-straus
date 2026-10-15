@@ -27,10 +27,12 @@ Then A ∈ ℤ_{>0} and 4/n = 1/x + 1/y + 1/z.
 *Proof.* 4x − n = 151, so 4/n − 1/x = 151/(nx). And 1/(nA) + 1/(32n(u+1)A) = (32u + 33)/(32n(u+1)A); equality with
 151/(64n(u³+1)) is 2(32u + 33)(u² − u + 1) = 151A, i.e. 64u³ + 2u² − 2u + 66 = 151A (expand). For u ≡ 32 (mod 151):
 64·32³ + 2·32² − 2·32 + 66 = 2 099 202 = 151 · 13 902, and A is a cubic, integer-valued on 32 + 151ℤ (checked by forward
-differences). Positivity is clear for u ≥ 1. ∎
+differences; (R246 repair) directly: 32·32 + 33 = 1057 = 7·151, so 151 | 32u + 33 for u ≡ 32 and 151A = 2(32u+33)(u²−u+1)).
+Positivity is clear for u ≥ 1. ∎
 *Origin.* This is CAP_DOWN Lemma 1.1 at the window m = 151 = 4⁴ − 105 with x = K, d = K·d₁/d₂, d₁/d₂ = 2⁻⁵/(u + 1),
 u + 1 = 4^{r/3} + 1 the cyclotomic factor G₃ of 4^r + 1 (u = 4^{r/3}); cap 0 because 2⁵ | K = 64(u³+1) and (u+1) | u³ + 1.
-The class condition 32(u + 1) ≡ −1 (mod 151) is u ≡ 32.
+The class condition 32(u + 1) ≡ −1 (mod 151) is u ≡ 32. (R246 repair) Explicitly d = K/(32(u+1)) = 2(u² − u + 1), an
+honest divisor of K (c_s ≤ b_s, cap 0), growing like n^{2/3}.
 
 **Lemma 1.0′ (which exponents; PROVED).** If s ≡ 34 (mod 45) then 3 | s − 4 and u := 4^{(s−4)/3} ≡ 32 (mod 151), so
 n_s = 4^s + 105 = 256u³ + 105 lies in Lemma 1.0's family. *Proof.* ord₁₅₁(4) = 15 and (s − 4)/3 ≡ 10 (mod 15); 4¹⁰ ≡ 32
@@ -47,14 +49,18 @@ periodicity; all coefficients ≥ 0 ⟹ positivity for n ≥ 1).
 (n ≥ 4⁴), the periodicity hypothesis, coverage of all s mod 360 by (a) ∪ (b), the exponential identity, and builds and checks
 an exact solution 4xyz = n(xy + yz + zx) for every s ≤ 1500 (s ≤ 3 included; no brute force was needed). ∎
 *T1 control.* The ET non-divisor classes are z8 classes (non-square classes by (J)62's checker). For the exponential class
-no non-square congruence is certified here (n ≡ 59 (mod 151) is a residue), but it contains no square: a square n with a cap-0 window
+n ≡ 59 (mod 151) is a residue, but (R246 repair) the class IS a local non-square class: q = 18837001 divides 4⁴⁵ − 1
+(ord_q(4) = 45) and (n_s/q) = −1 for every s ≡ 34 (mod 45) (`scripts/review_r246_localT1.py`), so T1 is respected by a
+congruence exactly as for ET classes. Independently (needed only for the larger cubic family, u not a power of 4) it contains no square: a square n with a cap-0 window
 solution at m = 151 contradicts CAP_DOWN §3 (T1 for Lemma 1.1); numerically 256u³ + 105 is not a square for
 u = 32 + 151t, t < 2·10⁵. (The curve a² = 256u³ + 105 has finitely many integral points; 4⁴ + 105 = 19² is u = 1.)
 *Scope (honest).* A thin (O(log X) members up to X) Sierpiński-type family; nothing about ES for primes follows. It
 answers (J)62's open k = 105 (OPEN → PROVED). (R245 repair) It does NOT show that a sterile point was a menu artefact: no
 sterile point on Λ₁₀₅ was ever known ((J)62: μ* lies in the II2 class (2, 23, 919); the ET search merely stalled), and whether
 ET + divisor classes alone cover 4^s + 105 remains OPEN. Not the first infinite all-Mordell-hard ES family ((J)22: all
-315·2^m + 1); members with s ≤ 29 are below published computational verification bounds.
+315·2^m + 1); members with s ≤ 29 are below published computational verification bounds. (R246 repair) What is new is
+closing a family with a non-ET identity class whose divisor 2(u² − u + 1) moves with n; no literature on ES for 4^s + k
+was found (R236, R246 web searches; not exhaustive).
 
 **1.2 Reading: mixed points are cube roots (Assessment + PROVED dictionary).** (J)62 located the obstruction at the mixed
 point μ* ("4 in every ℓ-adic component except ℓ = 3, where μ* = −2"). The exponential class is exactly the
@@ -65,8 +71,10 @@ with m = 16u^{3/2}, not a polynomial in u (Assessment: whether Thm 2.2's witness
 examined; the identity itself is unconditional). So: **an ET class is a polynomial-in-n identity on a residue class n ≡ r (mod M). The exponential class is also a
 residue condition (s ≡ 34 (mod 45) is detectable as n_s mod 4⁴⁵ − 1, R-O238 self-review), but its identity is NOT
 polynomial in n: it uses the algebraic parameter u = ((n − 105)/256)^{1/3}, i.e. the moving divisor u + 1 of
-K = (n + 151)/4.** What is violated in EXPONENT_COVERING Thm 1.4 / the (J)22, (J)62 sterility criterion is "the identities
-are polynomial in n" (fixed ET parameters), not "the classes are congruences"; sterility of a profinite point is a
+K = (n + 151)/4.** What lies outside the menu of EXPONENT_COVERING Thm 1.4 / the (J)22, (J)62 sterility criterion is
+"the identities are polynomial in n" (fixed ET parameters), not "the classes are congruences" (R246 repair: nothing is
+"violated"; Thm 1.1 does not decide whether Λ₁₀₅ ∩ S′ = ∅, and the fixed-class coverability of k = 105 remains OPEN —
+the (J)62 greedy stall is bypassed, not shown to be an artefact); sterility of a profinite point is a
 property of the identity menu (R245 repair: by definition — S′ is the complement of the menu's union; Thm 1.4's proof
 applies verbatim to the enlarged menu, and no point of Λ₁₀₅ is known to be sterile for the ET menu either).
 
@@ -103,7 +111,8 @@ exponential classes are untried (spark).
 2. For ES at primes nothing changes: every route to cap 0 found here either is a finite congruence menu (m = 3), needs a
    linear-in-q budget (pigeonhole), or needs a thin family with a moving algebraic factorisation. Cap 0 at a window
    remains B2 (CAP_DOWN §4); different windows have almost coprime K's (heuristically independent lotteries, Assessment).
-3. T1 checks: exp class contains no squares (global Lemma-1.1 T1, numerically to u < 3·10⁷); window-shape T1
+3. T1 checks: exp class contains no squares (local non-square class mod 18837001 | 4⁴⁵ − 1 — R246 repair; also global
+   Lemma-1.1 T1, numerically to u < 3·10⁷); window-shape T1
    proved for 4 | ν only (R245 repair: the odd-ν claim used an invalid forcing condition; with the correct 2-adic forcing
    odd squares DO have forced windows for ν = 3, 7, 9, 25 — reviews/synthesis-six-review.md §5). TES/8/131: untouched (cap-0 statements; s6_numerator_windows records that 8/131 has forced windows at
    some positive cap only).

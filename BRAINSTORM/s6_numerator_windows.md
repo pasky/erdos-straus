@@ -19,7 +19,11 @@ condition (K/q_i) = −1 and the "strictly more T1-rigid" conclusion is withdraw
 +1 ≠ −1; if m ≡ 1 (4) (r even) it is (−1)^{(ν−1)/2}, which must be +1, i.e. ν ≡ 1 (4). 4 | ν: m ≡ −a² ≡ 3 (mod 4), r odd;
 if 8 | ν then m ≡ 7 (8) and (2/m) = 1; so (ν/m) = (ν_odd/m) = +1 by the odd case with m ≡ 3 (4) (and (4/m) = 1). ∎
 So window-shape T1 holds for 4 | ν (matching (J)46's "full T1 ⟺ 4 | ν") but ALSO for ν ≡ 3 (mod 4) and square ν, where
-ES_ν itself has no T1 (e.g. 3/n is always solvable): the window shape is strictly more T1-rigid than the problem.
+ES_ν itself has no T1 (e.g. 3/n is always solvable): ~~the window shape is strictly more T1-rigid than the problem~~ (R246 repair:
+withdrawn; even window-shape SOLUTIONS exist at odd squares with m odd, all prime factors ≡ 3 (4): 3/49 = 1/20 + 1/98 + 1/980
+(m = 11), 7/25 = 1/4 + 1/50 + 1/100 (m = 3), 9/169 = 1/20 + 1/338 + 1/3380 (m = 11); also ν = 11, 19
+(`scripts/review_r246_numwin.py`); for ν = 4 none, as CAP_DOWN §3 proves. Even-K sign-forced windows can fail at every cap:
+ν = 3, n = 5, q = 19, K = 8 (`scripts/review_r246_numwin_even.py`, ≈ 2–3 % for ν = 3, 5, 7).)
 
 ## Literature
 (J)46 (full T1 ⟺ 4 | ν), SIGN_FIELDS Thm 2.2 ((J)62: T1-clean t-slots ⟺ 4 | ν), Sierpiński's 5/n, Schinzel's ν/n.
