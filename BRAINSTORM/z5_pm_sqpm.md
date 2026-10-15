@@ -15,7 +15,7 @@ SYNTHESIS_SPARKS4 §2 (SQ_±, slot table, no finite t-set under Dickson); Montgo
 ## Result
 * Prop 3.2 (PROVED): #{n ≤ N, n ≡ 1 (8): no prime-modulus χ = −1 word} ≪ N exp(−c (log N)^{1/2}).
 * Calibration (Assessment): the prime-modulus class mass of SQ_± is ≍ log X (measured 2.06·log N at 10⁶) vs (log X)² for
-  ES (Vaughan): the "easier" signed twin is *harder on average* for the large sieve; its ease is pointwise.
+  ES (Vaughan): the "easier" signed twin gets a weaker exponent from the prime-modulus large sieve (not a hardness statement; (R230 repair D6)); its ease is pointwise.
 * **CONJECTURE PM-SQ_±**: every non-square n ≡ 1 (8) has a prime-modulus χ = −1 word. EVIDENCE: 0 exceptions ≤ 10⁶
   (z5_sqpm_prime.py), random checks to 10¹¹, adversarial n ≡ 1 (mod 8∏_{q≤31} q) ≈ 10¹³ still have ≥ 21 tickets with
   |u| ≤ 300. Unlike PM-II (exception 3361), stacking residues cannot kill it: tickets come from LARGE primes of n + u.

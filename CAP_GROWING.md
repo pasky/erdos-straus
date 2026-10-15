@@ -19,7 +19,8 @@ shots alone give (e+1)/(e+2)) — the cap is a sieve-dimension knob, from Vaugha
 theorem ES^{(y)} (e = ∞, fixed S).
 (Z3) PM-II: Vaughan's classes are prime-modulus Type II certificates, so PM-II inherits Vaughan's bound (§2).
 (Z4) SQ_±: its prime-modulus classes number only ≍ τ(ℓ²−1) per ℓ, so the same machinery gives exponent 1/2 —
-the "easier" signed twin is *provably harder on average* by this method (§3).
+the "easier" signed twin gets a *weaker exponent* from this method (§3; (R230 repair D6): a statement about the method's
+prime-modulus layer, not a proof that SQ_± is harder on average).
 
 ## 1. Goal 1 on average: the cap e is a sieve-dimension knob
 
@@ -62,16 +63,19 @@ e·S/k ≥ e², giving L ≥ exp(k) and |𝒩| ≪ N exp(−c_e'(log N)^{(e+1)/(
 *Calibration.*
 * e = 0 (ES itself, shot family only = the d = 1 slice of Type II): exponent 1/2. Vaughan's 2/3 uses the full
   Type II cube (classes −4c²d, cd | K, τ₃(K) of them); e = 1 already matches 2/3 **with the d = 1 slice alone**, and
-  e ≥ 2 beats Vaughan (and the loglog note): ES^{(y,2)}: 3/4, ES^{(y,3)}: 4/5, …
-* (Assessment, not proved.) Combining the cap with Vaughan's d-dimension should give (e+2)/(e+3). Uniformity in e is
+  e ≥ 2 beats Vaughan (and the loglog note): ES^{(y,2)}: 3/4, ES^{(y,3)}: 4/5, … ((R230 repair D1): the campaign's
+  own ES record is already 3/4 — paper/es-threequarter-note, composite multiplier moduli — so the comparison with
+  Vaughan is a comparison within the prime-modulus large-sieve architecture only.)
+* Combining the cap with Vaughan's d-dimension gives (e+2)/(e+3): this is Thm 1.4 below ((R230 repair D9)). Uniformity in e is
   not tracked (c_e decays like ((e+1)(e+2))^{−e}), so letting e → ∞ with N is not covered; e = ∞ with FIXED S is the
   pointwise theorem ES^{(y)} (FROBENIUS_FIRING Thm 4.2), and PHASE_DIAGRAM Thm 5.1 is the pointwise sub-polynomial cap.
 * T1: odd squares avoid every class (−4Q² is a non-residue mod ℓ ≡ 3 (4)); the exceptional set contains them, and the
   bound is consistent with √N squares.
 * Barrier screen: this is a B6 statement (average over p) and makes no pointwise claim. What it shows is that R200 M1's
   regime (bounded e, unbounded S) differs from ES on average *quantitatively*: the cap raises the sieve dimension from
-  log² to log^{e+1}. By the large sieve's own ceiling (Σ_{q≤N^{1/2}} ∏ω/ℓ with ω ≤ (log ℓ)^{O(1)} is
-  exp(O((log N)^{1−δ}))) no fixed cap gives power saving by this method.
+  log² to log^{e+1}. By the large sieve's own ceiling (Σ_{q≤N^{1/2}} ∏ω/ℓ with Σ_{ℓ≤y} ω(ℓ)/ℓ ≪ (log y)^A is
+  exp(O((log N)^{A/(A+1)})) by Rankin's trick; (R230 repair D9): the hypothesis is on average, ω itself is not
+  pointwise (log ℓ)^{O(1)}) no fixed cap gives power saving by this method.
 
 ## 2. PM-II on average (goal 2)
 
@@ -79,16 +83,21 @@ e·S/k ≥ e², giving L ≥ exp(k) and |𝒩| ≪ N exp(−c_e'(log N)^{(e+1)/(
 prime, (ℓ+1)/4 = uvw. If n ≡ −u v^{−1} (mod ℓ) then n ≡ −4u²w (mod ℓ), i.e. ℓ | n + 4c²d with (c, d) = (u, w) and
 4cd = 4uw | ℓ + 1: a Type II certificate with PRIME modulus h = ℓ (BRIDGE_WORLDS §5 notation).
 *Proof.* 4uvw ≡ 1 (mod ℓ) gives v^{−1} ≡ 4uw. ∎
-**Corollary 2.2 (PM-II for almost all primes; PROVED relative to Vaughan 1970 / Pomerance–Weingartner Thm 1.3).**
+**Corollary 2.2 (PM-II for almost all primes; PROVED relative to Bombieri–Vinogradov and Montgomery's large sieve, as the case e = 0 of Thm 1.4; (R230 repair D3)).**
 `  #{p ≤ N prime : p has no prime-modulus Type II certificate} ≪ N exp(−c (log N)^{2/3}).`
-*Proof.* Vaughan's large sieve (as described in paper/vaughan-loglog-note.tex §1: classes −uv^{−1} mod primes
-ℓ ≡ 3 (4), multiplier k = 1) uses only the classes of Lemma 2.1; an exceptional prime p > X avoids all of them. ∎
+*Proof.* (R230 repair D3.) Thm 1.4 with e = 0: R = 1, the classes −4c₀²d₀ mod ℓ come from Prop 1.3 with R = 1, i.e.
+the cube lemma at the PRIME modulus ℓ — PM-II certificates; an exceptional prime p > X avoids all of them. Consistent
+with Vaughan's large sieve (paper/vaughan-loglog-note.tex §1: classes −uv^{−1} mod primes ℓ ≡ 3 (4), multiplier k = 1,
+which are PM-II by Lemma 2.1) and PW Thm 1.3 (m = 4); Vaughan 1970 itself was not accessible
+(sources/vaughan-1970-access-log.md). ∎
 *Remarks.* (i) The loglog improvement of the note does NOT transfer: it uses the composite moduli kℓ. (ii) PM-II is
 trivial for p ≡ 3 (mod 4) and for p ≡ 2 (mod 3) (h = 3, c = d = 1); the classes at h = 7 ((c,d) ∈ {(1,1),(1,2),(2,1)},
 classes 3, 6, 5) are exactly the non-residues mod 7, so **a PM-II failure is ≡ 1 (mod 12) and a QR mod 7** (3361 ≡ 1 mod 84
 and 3361 ≡ 1 mod 5, 7 as well). Among primes h ≡ 3 (mod 4) ≤ 20 000 only h = 3, 7 have
 covering class sets (`scripts/z5_pm_cover.py 20000`; CERTIFIED in that range), and for large h the τ₃((h+1)/4) = h^{o(1)}
-classes cannot cover the (h−1)/2 non-residues — no further covering (B1). (iii) A pointwise PM-II would give Type II-ES at every p ≠ 3361: B2/B3 apply
+classes cannot cover the (h−1)/2 non-residues — no further covering (B1). (R230 repair D4: PROVED for all h — the class
+count is ≤ τ₃(K) ≤ τ(K)² ≤ (3.5273·K^{1/3})² < 2K − 1 for K > 241, and τ₃(K) ≥ 2K − 1 for K ≤ 242 only at K = 1, 2;
+`scripts/review_r230_pmcover.py`.) (iii) A pointwise PM-II would give Type II-ES at every p ≠ 3361: B2/B3 apply
 verbatim (BRIDGE_WORLDS §5); nothing here addresses that.
 
 ## 3. SQ_± on average, its prime-modulus core, and a calibration (goal 3)
@@ -99,7 +108,8 @@ content (Prop 2.1(c) there handles n ≢ 1 mod 8).
 **Lemma 3.1 (prime-modulus words; PROVED, elementary).** Let n ≡ 1 (mod 4), ℓ an odd prime, u ∈ ℤ∖{0, −n}. There is
 a word with A = ±ℓ and this u iff ℓ | n + u and u | ℓ + 1 (A = ℓ) or u | ℓ − 1 (A = −ℓ); then
 **χ = (n/ℓ) = (−u/ℓ)**. Hence such a word with χ = −1 exists iff for some prime ℓ with **(n/ℓ) = −1**, the residue
-n mod ℓ lies in R(ℓ) := {−u mod ℓ : u ∈ ±div(ℓ+1) ∪ ±div(ℓ−1)}.
+n mod ℓ lies in R(ℓ) := {−u mod ℓ : u ∈ ±div(ℓ+1) ∪ ±div(ℓ−1)}. ((R230 repair D7): the excluded u = −n never matters:
+it would need ℓ ≡ ±1 (mod n), whence (n/ℓ) = (±1/n) = 1. The search is finite, |u| ≤ n + 1.)
 *Proof.* v = (n + u)/A and t = (A + 1)/u must be nonzero integers; χ = (−A/n) = (±ℓ/n) = (ℓ/n) = (n/ℓ) by Jacobi
 reciprocity (n ≡ 1 mod 4, (−1/n) = 1), and n ≡ −u (mod ℓ). ∎
 So the prime-modulus layer of SQ_± fires at ℓ on ω_±(ℓ) := #{r ∈ R(ℓ) : (r/ℓ) = −1} ≤ 2(τ(ℓ+1) + τ(ℓ−1)) classes;
@@ -109,14 +119,16 @@ For |u| ∈ {1, 2, 3, 4, 6} the condition u | ℓ ± 1 is automatic, giving addi
 |t|n ± 1 slot table.
 
 **Proposition 3.2 (SQ_± almost always, exponent 1/2; PROVED relative to Montgomery's large sieve and the
-Titchmarsh divisor bound).** #{n ≤ N : n ≡ 1 (8), no prime-modulus χ = −1 word} ≪ N exp(−c (log N)^{1/2}).
-*Proof.* As Thm 1.2 with a = 1: Σ_{X^{1/2}<ℓ≤X} ω_±(ℓ)/ℓ ≫ log X (already the class u = 1 for ℓ ≡ 3 (4) together with
-u = 2, ±3, 4, ±6 gives ≫ 1 per dyadic block of log ℓ; the class count of R(ℓ) is ≥ 1 for every ℓ ≥ 5), and
-ω_±(ℓ) ≪ τ(ℓ²−1). ∎
+divisor bound; (R230 repair D5)).** #{n ≤ N : n ≡ 1 (8), no prime-modulus χ = −1 word} ≪ N exp(−c (log N)^{1/2}).
+*Proof.* As Thm 1.2 with a = 1: Σ_{X^{1/2}<ℓ≤X} ω_±(ℓ)/ℓ ≫ log X and ω_±(ℓ) ≪ τ(ℓ²−1) = ℓ^{o(1)}. (R230 repair D5: a
+fixed set of u gives only ≫ 1 here, which is useless.) For ℓ ≡ 3 (4) and odd u | ℓ + 1 (⟺ ℓ ≡ −1 mod 4u) every odd
+prime q | u has (q/ℓ) = (ℓ/q)(−1)^{(q−1)/2} = 1, so (−u/ℓ) = −1: each −u is a firing class, and these are distinct for
+u < ℓ. Bombieri–Vinogradov as in Lemma 1.1 gives Σ_{u ≤ X^{1/5} odd} (log 2)/φ(4u) − O(1) ≫ log X. ∎
 *Calibration (Assessment).* SQ_± is "empirically far easier" than ES-five (SYNTHESIS_SPARKS4 §2.5), yet its
 prime-modulus class mass is only Σω_±/ℓ ≍ log X (measured: 1.95·log N at N = 10⁵, 2.06·log N at 10⁶), against
-(log X)² for Vaughan's ES classes. So **by the large-sieve method the signed twin is provably HARDER on average
-(exponent 1/2 < 2/3)**: its ease is pointwise (many cheap genus slots with Landau-type failure probability), not a
+(log X)² for Vaughan's ES classes. So **the prime-modulus large sieve gives the signed twin a weaker exponent
+(1/2 < 2/3)** ((R230 repair D6): this compares what one method yields on one layer — A = ±prime; it does not prove
+SQ_± harder on average, composite-A words were not sieved, and ES's own record 3/4 uses composite moduli): its ease is pointwise (many cheap genus slots with Landau-type failure probability), not a
 richer class structure. A lottery-breaker tested on SQ_± (SPARKS4 steering rule) should therefore not be expected to
 transfer its *average* strength to ES, nor conversely.
 
@@ -151,7 +163,11 @@ v_s(z) = σ + v_s(j) − v_s(c₀) − 2ρ = −2ρ. So den z = R². ∎
 
 **Theorem 1.4 (supersedes Thm 1.2; PROVED relative to Bombieri–Vinogradov and Montgomery's large sieve).**
 `  #{p ≤ N prime : ES^{(y,e)}(p) has no solution}  ≪_e  N·exp(−c_e (log N)^{(e+2)/(e+3)}).`
-e = 0 is Vaughan's 2/3; e = 1 gives 3/4, e = 2 gives 4/5.
+e = 0 is Vaughan's 2/3; e = 1 gives 3/4, e = 2 gives 4/5. ((R230 repair D1): e = 1 only ties the campaign's internally
+proved ES exponent 3/4 (paper/es-threequarter-note); the relaxation exceeds what is known for ES only for e ≥ 2. No
+conflict with the 3/4 cap of EXCEPTIONAL_KARY3 Thm 4.1/Cor 4.2: that cap concerns ES-certificate classes, while the
+overflow classes with R > 1 certify only ES^{(y,e)}; their mass (log)^{e+2} exceeding the cubic ES mass for e ≥ 2 is the
+signature of the relaxation. Overflow + the 3/4 note's multipliers should give (e+3)/(e+4) — Assessment.)
 *Proof.* As Thm 1.2, with ω'_e(ℓ) := number of triples (c₀, d₀, R): c₀, d₀ odd squarefree coprime, c₀d₀ | K,
 rad R | c₀, v_s(R) ≤ e, s² ∤ K for s | R, and 4c₀²d₀R² < ℓ. The map (c₀, d₀, R) ↦ c₀²d₀R² is injective (d₀ is the
 squarefree kernel, c₀R its square root, c₀ = rad(c₀R)), so these give ω'_e(ℓ) distinct classes −4c₀²d₀R² mod ℓ
@@ -159,12 +175,13 @@ squarefree kernel, c₀R its square root, c₀ = rad(c₀R)), so these give ω'_
 ℓ ≢ −1 (mod 4s²) for s | R have, by BV with divisor-bounded weights as in Lemma 1.1, reciprocal sum
 (log 2)·∏_{s|R}(1 − 1/s)/φ(4c₀d₀) + error (summably small). The Euler factor of Σ ∏_{s|R}(1−1/s)/φ(c₀d₀) at a prime s
 is 1 + 1/(s−1) [s | d₀] + 1/(s−1) [s | c₀, s ∤ R] + e(1 − 1/s)/(s−1) [s | c₀, 1 ≤ v_s(R) ≤ e] = 1 + (e+2)/s + O(1/s²), and
-the restriction c₀²d₀R² ≤ X^{1/5} keeps a fixed power of log X (restrict all three to ≤ X^{1/(5(2e+3))}), so
+the restriction c₀²d₀R² ≤ X^{1/5} keeps a fixed power of log X ((R230 repair D2): restrict to m := c₀d₀ ≤ W := X^{1/(10(e+1))}; then R ≤ c₀^e gives c₀²d₀R² ≤ m^{2e+2} ≤ X^{1/5}, and the
+sum is ≥ ½Σ_{m≤W odd} μ²(m)∏_{s|m}(2/(s−1) + e/s) ≥ ½Σ μ²(m)(e+2)^{ω(m)}/m), so
 S'_e(X) ≫_e (log X)^{e+2}; the large-sieve step is unchanged with a = e + 2. ∎
 *T1.* (−4c₀²d₀R²/ℓ) = −(d₀/ℓ) = −1, since every odd prime q | d₀ divides ℓ + 1 and ℓ ≡ 3 (4) give (q/ℓ) = 1 by
 reciprocity (and 2 | d₀ forces ℓ ≡ 7 mod 8): the classes are non-residues, odd squares are never hit.
 *Reading.* The cap e adds e dimensions to Vaughan's two (c and d of the Type II cube). ES^{(y,e)} with free mute set
-is therefore on average a sieve problem of dimension ≍ (log)^{e+2}; ES itself is the case e = 0. Pointwise nothing
+is therefore on average a sieve problem of dimension ≍ (log)^{e+2}; ES itself is the case e = 0 (within the prime-modulus large sieve; (R230 repair D1)). Pointwise nothing
 changes (B6).
 
 ## 4. Construction attempts for the pointwise e = 2 layer (goal 1; negative, see memos)
@@ -178,16 +195,18 @@ changes (B6).
   over ℚ(θ), θ⁴ = −1/(4λ²n); for quadratic A this is a rational point on an n-dependent plane cubic — an n-specific
   lottery, not a mechanism (not pursued).
 * The (e+1)-free layer: an ES^{[2]} Pell orbit gives ES^{(y,e)} iff some orbit B is (e+1)-free — k-free values of
-  binary recurrences are open for every fixed k (Wieferich-type); abc controls the powerful part, not every exponent.
+  binary recurrences are open for every fixed k (Wieferich-type; Assessment, uncited — and what is needed is ONE
+  (e+1)-free orbit element; (R230 repair D8)); abc controls the powerful part, not every exponent.
 
 ## 5. Verdict (O229 checkpoint 1)
 1. **R200 M1 on average (PROVED rel. BV + large sieve):** ES^{(y,e)} with bounded cap and free mute set fails for
    ≪ N exp(−c_e (log N)^{(e+2)/(e+3)}) primes (Thm 1.4, via the overflow cube Prop 1.3; shots alone: (e+1)/(e+2)).
-   The cap is a sieve-dimension knob; e = 0 is Vaughan. Pointwise R200 M1 remains OPEN (two layers: class group
+   The cap is a sieve-dimension knob; e = 0 is Vaughan (prime-modulus large sieve; ES's record is 3/4, so only e ≥ 2
+   exceeds it; (R230 repair D1)). Pointwise R200 M1 remains OPEN (two layers: class group
    across fields + (e+1)-free values on Pell orbits; §4).
-2. **PM-II (PROVED rel. Vaughan):** fails for ≪ N exp(−c (log N)^{2/3}) primes; failures are ≡ 1 (mod 12) and QR mod 7
-   (only covering moduli ≤ 2·10⁴: h = 3, 7). No structural reason for p > 3361 (would be pointwise Type II-ES).
+2. **PM-II (PROVED rel. BV + large sieve, = Thm 1.4 at e = 0; (R230 repair D3)):** fails for ≪ N exp(−c (log N)^{2/3}) primes; failures are ≡ 1 (mod 12) and QR mod 7
+   (the only covering moduli, for all h: h = 3, 7; (R230 repair D4)). No structural reason for p > 3361 (would be pointwise Type II-ES).
 3. **SQ_± (PROVED + CONJECTURE):** the prime-modulus layer has χ = (n/ℓ) (free genus filter), exponent 1/2 on average
-   (signed twin harder on average than ES); CONJECTURE PM-SQ_± (0 exceptions ≤ 10⁶, adversarial-robust). Power saving
-   is beyond the large sieve for all three (class counts ω(ℓ) = (log ℓ)^{O(1)}). No pointwise strengthening found.
+   (weaker exponent than ES's 2/3 by the prime-modulus method — not a hardness statement; (R230 repair D6)); CONJECTURE PM-SQ_± (0 exceptions ≤ 10⁶, adversarial-robust). Power saving
+   is beyond the large sieve for all three (class masses Σ_{ℓ≤y} ω(ℓ)/ℓ = (log y)^{O(1)}). No pointwise strengthening found.
 ES untouched.

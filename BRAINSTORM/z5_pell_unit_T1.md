@@ -28,4 +28,4 @@ positivity no.
 None needed (statements are algebraic).
 
 ## Assessment
-Negative, PROVED in the stated scope (squarefree n). Closes an obvious "deterministic T1-shaped mechanism".
+Negative: the order lemma is PROVED (squarefree n); "never acts on a fibre" is its Assessment-level reading ((R230 repair D8)). Closes an obvious "deterministic T1-shaped mechanism".
