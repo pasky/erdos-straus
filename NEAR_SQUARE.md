@@ -17,16 +17,18 @@ Z_k := {m ∈ Ẑ : m² + k ∈ S}, S ⊂ Ẑ the sterile set (STERILE_STEER Pro
    avoids Z_k^□ = {m ∈ Ẑ : m² + k a local square} (≠ ∅ iff k ≡ 0, 1, 5 mod 8). Every escaping shape dies by the
    positive-definiteness of x² + ky² — the archimedean place of ℚ(√−k).
 2. **Below the squares families escape (PROVED existence).** For p = m² − j escaping families exist (j = 8, 15, 24:
-   80/161/263 found, all verified), reaching m with n ≡ 1 mod every fixed L.
+   80/161/263 algebraic candidates, of which 76/97/111 have computed non-empty classes and were verified on
+   99 702 instances; the rest have period > 20 000 and were not checked — R-O221), reaching m with n ≡ 1 mod every L.
 3. **The deformed T1 is "square in K", not "square in ℚ" (PROVED ⊇, CONJECTURE =).** Integer T1 points above √j obstruct
-   every family (Lemma 3.2 positivity + Thm 3.3), and the K-adic square set Z_K⁺ = {m − √j ∈ (K_v^×)² ∀v} is sterile for
+   every family (Lemma 3.2 positivity + Thm 3.3), and the K-adic unit-square set Z_K⁺ = {m − √j ∈ (O_{K,v}^×)² ∀v} (and its
+   closure) is sterile for
    every family (Thm 3.4, Hilbert reciprocity in K = ℚ(√j)); at j = 8 the uncovered classes at L = 8064, 4480 are
    exactly Z_K⁺ (CONJECTURE Y10-S).
 4. **Clean levels (PROVED, Prop 4.1).** Level t is odd-clean along Q(m) = Am² + Bm + C iff 4A − tΔ is a square (R224's
    tk + 1 = c² is the case Q = m² + k, now with the converse). Per prime, T1-type = principal-form part of "clean"
    (82 % of clean words, 10⁵–10⁶).
 5. **Hardness (EVIDENCE, §5).** Within adelic cells, exact cleanliness explains N₋/N (corr −0.57) and T1-type adds
-   nothing; but there is a monotone archimedean gradient in p − ⌊√p⌋² of which half survives removing every clean level
+   no detectable effect; but there is a (descriptive) archimedean gradient in p − ⌊√p⌋² of which half survives removing every clean level
    (−0.0045 ± 0.0008 even at K0 ∈ [100, 300)); mechanism open. Two hard primes are m² − 3 next to the T1 point m₀ = 2.
 * Assessment: a precise two-sided map of what polynomial families on near-square primes can do. It is not a route to ES:
   above the squares it is a negative theorem; below, the coverage question is a moving-modulus covering problem (H-A)
@@ -224,7 +226,9 @@ gcd(tQ(m) + 1, 2A) = 1 (and then χ = +1 on level t at primes, under the 2-condi
 (b) If E is not a perfect square and E ≠ −t·□, there is a prime r ∤ 2tAE with (−t/r) = −1 and (E/r) = −1; for every
 such r, level t is NOT odd-clean at Q(m) for all m in a residue class mod r (namely tX² ≡ −E, X = 2Am + B). If
 E = −t s² (s ≥ 0), tQ + 1 = t(X − s)(X + s)/(4A) is reducible and level t is not odd-clean on a class of m as well.
-So "level t is odd-clean along the whole family" ⟺ 4A − tΔ is a perfect square.
+So, *generically* (R-O221 repair: the exceptional m of (a) are essential — Q = m² + 8, t = 1, E = 36, m = 3: n = 17,
+3 | 18 = n + 1, (−1/3) = −1): level t is odd-clean at all m outside the gcd-exceptional classes ⟺ 4A − tΔ is a perfect
+square; if it is not, uncleanness occurs on a positive-density set of classes.
 *Proof.* (a) r | tQ + 1, r ∤ 2Ac ⇒ tX² ≡ −c² (r), r ∤ X ⇒ −t ≡ (c/X)². (b) r with (−tE/r) = 1 (so tX² ≡ −E is
 solvable mod r) and (−t/r) = −1 exist by Dirichlet/Chebotarev in ℚ(√−t, √E) as soon as −t·E and −t are independent
 modulo squares, i.e. E ∉ □ ∪ (−t)□. ∎
@@ -232,11 +236,13 @@ Examples. Q = m² + k: E = 4(1 + tk): clean ⟺ tk + 1 = □ (THREE_SQUARES Lemm
 "only if"). Q = 2m² + k: 8(1 + tk) = □ ⟺ tk + 1 = 2□ (k = 1: t = 1, 7, 17, 31, …). Q = m² + m + k: E = 4 + t(4k − 1).
 Families p = m² + k·j² with j varying: level t clean ⟺ (c, j) solves the Pell equation c² − tk·j² = 1.
 **Per-prime form (PROVED, elementary).** At a single prime p, level t is *T1-type* if tp + 1 = c² + t·m² with gcd(m, c) = 1;
-equivalently K := p − m² > 0 satisfies tK + 1 = c². Every prime has the T1-type levels t = K ± 2 (c = K ∓ 1... i.e.
-(K − 2)K + 1 = (K − 1)², (K + 2)K + 1 = (K + 1)²) for each m < √p with the gcd condition, and more generally
+equivalently K := p − m² > 0 satisfies tK + 1 = c². Every prime has the T1-type levels t = K ± 2 (c = K ± 1:
+(K − 2)K + 1 = (K − 1)², (K + 2)K + 1 = (K + 1)²; t ≥ 1) for each m < √p with the gcd condition, and more generally
 t = (c² − 1)/K for every square root c of 1 mod K. T1-type ⟺ tp + 1 is primitively represented by the PRINCIPAL form
 x² + ty² — while "clean" ⟺ every prime of tp + 1 splits in ℚ(√−t) ⟺ (essentially) primitively represented by SOME form of
-discriminant −4t. So T1-type levels are the principal-genus-class part of the clean levels.
+discriminant −4t. So T1-type levels are, roughly, the principal-CLASS part of the clean levels (R-O221: "genus" was wrong; the
+equivalence also needs exclusions at 2 and at the conductor of ℤ[√−t], e.g. p = 17, t = 3: 52 is clean but 2 is inert
+in ℚ(√−3)).
 EVIDENCE (`scripts/ns_census.c`, all 34 392 primes p ≡ 1 (4) in (10⁵, 10⁶), 5 570 014 ordered words): 432 677 words lie on
 clean levels, 356 023 (82 %) of them on T1-type levels; 0 χ = −1 words on either (Lemma 1.4 and Lemma 1.2(a) at scale).
 
@@ -246,15 +252,17 @@ Data: `scripts/ns_census.c 100000 1000000` (34 392 primes p ≡ 1 (4)), `scripts
 = (p mod 8, (r/p) for odd r ≤ RMAX, lnr capped); all residuals are within-cell. φ_cl = fraction of words on clean
 levels, φ_T1 = on T1-type levels, K0 = p − ⌊√p⌋².
 * Within cells (RMAX = 31, 2 048 cells), corr(φ_cl, N₋/N) = −0.57; regression of N₋/N on (φ_cl, φ_T1): slopes −0.78, +0.02.
-  **Given exact cleanliness, the T1-type (principal-form) indicator adds nothing.** The R224 coin model is the adelic
+  **Given exact cleanliness, the T1-type (principal-form) indicator adds no detectable effect** (point estimate; no
+  standard error computed — R-O221). The R224 coin model is the adelic
   approximation of φ_cl; φ_cl itself is exact (Legendre symbols of all prime factors of tp + 1).
-* Archimedean gradient. Residual of N₋/N by K0: −0.019 (K0 = 1, 61 primes), −0.050 ([2, 5)), −0.046 ([5, 10)), −0.042
+* Archimedean association (descriptive, not a calibrated test; bins not strictly monotone at the small end). Residual of N₋/N by K0: −0.019 (K0 = 1, 61 primes), −0.050 ([2, 5)), −0.046 ([5, 10)), −0.042
   ([10, 17)), −0.029 ([17, 30)), −0.015 ([30, 100), 1 828), −0.0067 ([100, 300), 5 344), +0.0035 (≥ 300, 26 414). By
   offset: K0 = 24: −0.153 (36 primes), 16: −0.056, 4: −0.050, 9: −0.013, 1: −0.019, 25: +0.003, 36: +0.019 — ordered by the
   number of small T1-type levels {t : tK0 + 1 = □} (24: t = 1, 2, 5, 7, 12, …; 25, 36: first t = 23, 35).
 * About half of the gradient survives removing all words on clean levels: residual of N₋/(N − N_cl): −0.041 ([5, 10)),
   −0.024 ([10, 17)), −0.019 ([17, 30)), −0.0093 ± 0.0014 ([30, 100)), −0.0045 ± 0.0008 ([100, 300)), +0.0022 (≥ 300); K0 = 24:
-  −0.068 ± 0.010. So near-squares are depleted of χ = −1 words also on UNclean levels. Mechanism not identified (tried:
+  −0.068 ± 0.010. So near-squares are depleted of χ = −1 words also on UNclean levels (descriptive; the per-bin SEs ignore cell-mean
+estimation and multiple testing). Mechanism not identified (tried:
   T1-type levels with gcd(m, c) > 1, levels with tK0 + 1 = s·□ for small s where χ = (s/A) — neither is depleted in a
   sample of 800 primes m² + K, K < 30; `/tmp`-only script, not kept). Open (spark S2).
 * Hard primes. Of the 17 (J)45 hard primes plus 3361, two are m² − 3 with m ≡ 2 (4): 3361 = 58² − 3 and 1 249 921 =
@@ -275,7 +283,7 @@ levels, φ_T1 = on T1-type levels, K0 = p − ⌊√p⌋².
 | check | script | result |
 |---|---|---|
 | Lemmas 1.1/1.3 witnesses | ns_witness_check.py 800 | 1 561 solutions, 0 failures; odd squares < 800: 0 Type I/II |
-| family search | ns_polyfam.py K 3 (and −8 8) | escaping: 0 (k = 1, 16, 24); 80/161/263 (k = −8, −15, −24); R = 8 adds none for −8 |
+| family search | ns_polyfam.py K 3 (and −8 8) | escaping: 0 (k = 1, 16, 24); 80/161/263 candidates, 76/97/111 with computed classes (k = −8, −15, −24); R = 8 adds none for −8 |
 | family validity | ns_verify_families.py K file 20000 | 48 540 / 27 911 / 23 251 instances, 0 failures |
 | integer T1 points | inline on family files | 0 families contain m₀ = 3 (j = 8), 4, 8 (j = 15), 5, 7 (j = 24) |
 | level-L coverage | ns_padic_cover.py −8 L file | uncovered = Z_K⁺ classes at L = 2016, 8064, 4480 |
