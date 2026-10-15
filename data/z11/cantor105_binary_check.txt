@@ -1,0 +1,12 @@
+M=19 D (19,) support [3] covers 1/2 patterns
+M=919 II2 (2, 23, 919) support [3, 17] covers 1/4 patterns
+M=41 D (41,) support [2, 5] covers 2/4 patterns
+M=191 D (191,) support [5, 19] covers 1/4 patterns
+M=35288 II1 (11, 802, 271) support [2, 5] covers 1/4 patterns
+M=419 II2 (3, 5, 419) support [11, 19] covers 1/4 patterns
+M=1787 II2 (1, 447, 1787) support [19, 47] covers 1/4 patterns
+M=27551 II2 (287, 12, 27551) support [19, 29] covers 1/4 patterns
+M=32008 II1 (1, 8002, 151) support [2, 5] covers 1/4 patterns
+M=213384 II1 (6, 8891, 1271) support [2, 3, 29] covers 1/8 patterns
+S = [2, 3, 5, 11, 17, 19, 29, 47] patterns 256 uncovered 0
+CHECKED: the binary Cantor set prod_l {4,-2} of 4^s + 105 lies in the union of the 10 classes

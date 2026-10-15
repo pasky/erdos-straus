@@ -15,7 +15,7 @@ Per *P;
 int *byl[512]; int nbyl[512];
 i64 e[512], c[512];
 i64 nodes = 0, NODEMAX, leaves = 0, stuck = 0; int maxdepth = 400, curdepth = 0, deepest = 0;
-FILE *out;
+FILE *out; int SHOWSTUCK = 5;
 double meas = 1.0, covmeas = 0.0;
 int *newl[512][64]; int nnewl[512][64];
 
@@ -75,7 +75,7 @@ static void solve(int known) {  // known: 1 if the caller already established th
   if (best < 0) {
     for (int l = 0; l < nH; l++) if (e[l] < CAP[l]) { i64 cost = PW[l][e[l] + 1]; if (best < 0 || cost < bcost) { best = l; bcost = cost; } }
   }
-  if (best < 0 || curdepth >= maxdepth) { fprintf(out, "X\n"); stuck++; if (stuck <= 5) { fprintf(stderr, "stuck:"); for (int l = 0; l < nH; l++) if (e[l]) fprintf(stderr, " %lld^%lld:%lld", (long long)HP[l], (long long)e[l], (long long)c[l]); fprintf(stderr, "\n"); } return; }
+  if (best < 0 || curdepth >= maxdepth) { fprintf(out, "X\n"); stuck++; if (stuck <= SHOWSTUCK) { fprintf(stderr, "stuck:"); for (int l = 0; l < nH; l++) if (e[l]) fprintf(stderr, " %lld^%lld:%lld", (long long)HP[l], (long long)e[l], (long long)c[l]); fprintf(stderr, "\n"); } return; }
   fprintf(out, "S %lld\n", (long long)HP[best]);
   i64 base = c[best], step = PW[best][e[best]];
   e[best]++; curdepth++; double om = meas; meas /= HP[best];
@@ -85,6 +85,7 @@ static void solve(int known) {  // known: 1 if the caller already established th
 int main(int argc, char **argv) {
   FILE *f = fopen(argv[1], "rb"); NODEMAX = atoll(argv[2]); out = fopen(argv[3], "w");
   if (argc > 4) maxdepth = atoi(argv[4]);
+  if (getenv("SHOWSTUCK")) SHOWSTUCK = atoi(getenv("SHOWSTUCK"));
   i64 x; fread(&x, 8, 1, f); nH = x;
   fread(HP, 8, nH, f); fread(CAP, 8, nH, f);
   for (int l = 0; l < nH; l++) { PW[l][0] = 1; for (int t = 1; t < 16; t++) PW[l][t] = PW[l][t - 1] * HP[l]; }
@@ -103,6 +104,6 @@ int main(int argc, char **argv) {
   memset(e, 0, sizeof e); memset(c, 0, sizeof c);
   solve(0);
   fclose(out);
-  fprintf(stderr, "nodes %lld leaves %lld stuck %lld deepest %d\n", (long long)nodes, (long long)leaves, (long long)stuck, deepest);
+  fprintf(stderr, "nodes %lld leaves %lld stuck %lld deepest %d uncovered measure %.3e\n", (long long)nodes, (long long)leaves, (long long)stuck, deepest, 1.0 - covmeas);
   return stuck ? 1 : 0;
 }

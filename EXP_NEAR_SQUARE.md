@@ -91,3 +91,35 @@ q with 3^j ∥ ord_q(4) (generic). This is the exponential analogue of the r-gen
 q ≠ r), but with infinitely many generic primes. Mechanism of divergence: to use a class whose period contains a new ℓ′
 the tree must split on ℓ′; the child on the line (μ_ℓ′ = x) is pure at the new primes (Lemma 1.2) and survives, and the
 ℓ′ − 1 off-line children are new 2-dimensional lines. Covering converges only if fibres are nearly complete.
+
+**Line coverage (CERTIFIED finite computation of coverage, witnesses not replayed; `z11_line.py 1 297 3 3 9 10⁶ 3·10⁵`).**
+On the 3-line X_{3,3} of k = 297, every residue μ₃ mod 3^e (e ≤ 9) other than the point itself at precision 3⁰, 3¹ is
+covered by classes with any order support (QMAX 10⁶, MMAX 3·10⁵); with QMAX 3·10⁵, MMAX 10⁵ one residue (μ₃ ≡ 42 mod 3⁵)
+remained. So this line is covered (no sterile point on it) — but only by classes whose periods involve large primes ℓ′,
+which a tree of Ẑ must split on. The obstruction to a *small* covering is combinatorial (branching), not sterility.
+
+## 3. Other shapes (goal 3)
+
+**Lemma 3.1 (integer unit-square points for c₀·4^s + k; PROVED, elementary).** Let c₀, k > 0, k odd. ν(x) for x ∈ ℤ is
+a profinite unit square iff c₀·4^x + k = 4^j for some j ≥ 0 (odd part a unit at every odd prime ⇒ the root is ±2^j),
+which forces x = 0 when c₀ is odd (x > 0: LHS odd ≠ 4^j unless j = 0, impossible; x = −a < 0: c₀ + k·4^a = 4^{a+j}
+with c₀ odd forces a + j = 0, then k < 0) and is impossible for c₀ ≡ 2 (mod 4). So: **unit-square point ⟺ c₀ + k = 4^j.**
+Within the non-trivial range (k ≡ 1 mod 8; c₀ + k ≡ 1 mod 3 is automatic) this means (c₀, k) = (3, 1) (j = 1) or
+j ≥ 2 and c₀ ≡ 7 (mod 8), k = 4^j − c₀ (e.g. 7·4^s + 9, 15·4^s + 1, 23·4^s + 41, 31·4^s + 33, 7·4^s + 57).
+By EXPONENT_COVERING Thm 1.4 (base 4, family-agnostic) and T1 (sterility of Sq^×), **each of these families has no
+finite covering by ET classes and divisor classes** (PROVED, relative to the reviewed Thm 1.4). (3, 1) is a subfamily of
+(J)22's 3·2^m + 1; the c₀ ≡ 7 (mod 8) series is the same mechanism (EXPONENT_COVERING §5.1, S-unit points) in new shape.
+
+**Survey c₀ ∈ {2, 3, 5}, k ≤ 300 (EVIDENCE; `z8_expnear_survey.py c₀ 300 30000 6 12 18 30 36 60`, coverings found by
+the search, not replayed through ec_cert; many are probably Mordell-immediate as R236 D1 found for c₀ = 1).**
+| c₀ | non-trivial k | covered (L) | open |
+|---|---|---|---|
+| 2 | 12 | 41, 65, 89, 113, 137, 185, 209 | 17, 161, 233, 257, 281 |
+| 3 | 13 | 25, 49, 97, 121, 145, 169, 193, 217, 241, 265, 289 | 1 (PROVED uncoverable, Lemma 3.1), 73 |
+| 5 | 12 | 17, 65, 113, 137, 161, 185, 233, 257, 281 | 41, 89, 209 |
+Integer non-unit square points (x ∈ [−12, 60)): every open (c₀, k) has ≥ 1 (mean 2.4: e.g. (5, 209): x = −1, 2, 3, 5;
+(2, 17): 1, 2, 4); the covered ones have mean 0.8 (Assessment: square points — and the lines and mixed points through
+them — are what make coverings expensive; the correlation is not a dichotomy: (2, 41), (2, 89), (2, 113), (3, 97),
+(3, 193) have two square points and are covered; (1, 297), (2, 233), (2, 257), (2, 281) have one and are open).
+Two-parameter 4^a·9^b + k: not run (time); note u = 4^a9^b is itself a square, so unit-square points are the
+factorisations k = (y − w)(y + w) with w = 2^a3^b, y = ±2^i3^j — finitely many, explicitly listable.
