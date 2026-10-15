@@ -21,7 +21,10 @@ than the fixed-divisor test of s7_window_mass.py.)
 (m/ℓ) = (−1/ℓ) and reciprocity give (ℓ/m) = 1; for ℓ = 2, 8 | 1 + m gives (2/m) = 1; so χ(δ) = 1. The cell condition
 (−m/r) = −1 gives χ(r) = −1 (both r ≡ 1 and r ≡ 3 (4)). Then χ(−1/4) = −1 = χ(r)^c forces c odd. (c = 0 is
 excluded independently by T1: it would certify the square point u = 1.) ∎
-This is the exact ℤ-twin of (J)67's root-product parity law (the μ₂ shadow predicted in (J)67's Assessment).
+(R256 repair: the cell condition is needed only for c ≥ 1, i.e. r | u + m; c = 0 is already contradictory by the same computation,
+χ(δ) = 1 ≠ −1; and the argument shows that every admissible c, not only c_m, is odd.)
+This is a ℤ-analogue of (J)67's root-product parity law (the μ₂ shadow predicted in (J)67's Assessment; R256 repair: was
+"the exact ℤ-twin" — an analogy, no proved correspondence).
 
 ## Literature
 POINTWISE_MORDELL17 §1–3 (box types, exact levels ≤ 5–7), STERILE_LOWER Comp 4.1 / Assessment 4.2 (M17D tail wall),

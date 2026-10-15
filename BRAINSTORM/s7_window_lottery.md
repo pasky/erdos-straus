@@ -26,13 +26,14 @@ Type II search; no distributional study of it was found in the campaign files (g
   redteam-automorphic-2 Thm 2.2(iii) gives infinitely many failing primes under H. Explicit instances (CONDITIONAL on
   Dickson's prime k-tuples conjecture): `s7_dickson_classes.py` finds residue classes r mod L in which every window
   m ≤ M fails when each rough part (p+m)/(4S_m) is prime, for M = 11, 27, 47, 63, 99 (e.g. r = 1000000434889 for M = 99);
-  Dickson admissibility holds because L contains every prime ≤ M (> #forms). So m₀ is unbounded under Dickson.
+  Dickson admissibility holds because L contains every prime ≤ M (> #forms). So m₀ > 99 for infinitely many p under Dickson (R256 repair: the script exhibits classes for these five M only; unboundedness
+  under H is redteam-automorphic-2 Thm 2.2(iii); R256 re-verified the representatives and admissibility).
 * B6: nothing averaged; the statistics below are descriptive only.
 
 ## Cheap numerics (scripts/s7_window_excess.py, s7_window_shuffle.py, s7_window_controls.py)
 * All 332 180 primes p ≡ 1 (4) ≤ 10⁷ have m₀(p) ≤ 107; records (p, m₀): (73, 7), (1129, 11), (1201, 23), (21169, 31),
-  (67369, 35), (87481, 63), (1430641, 71), (8803369, 107). m₀/log²p ≈ 0.4–0.5 at the records.
-* Histogram ≤ 10⁶ (39 175 primes): m₀ = 3: 34 635; 7: 3 551; 11: 584; 15: 131; 19: 113; 23: 96; 31: 33; larger: 32.
+  (67369, 35), (87481, 63), (1430641, 71), (8803369, 107). m₀/log²p ≈ 0.3–0.5 at the records (R256 repair: e.g. 35/log²67369 = 0.28).
+* Histogram ≤ 10⁶ (39 175 primes): m₀ = 3: 34 635; 7: 3 551; 11: 584; 15: 131; 19: 113; 23: 96; 27: 8; 31: 33; ≥ 35: 24 (R256 repair: the 27-bin was missing).
 * **Mordell split (PROVED, below; checked to 10⁷).** m₀(p) ≥ 11 only for p in the six Mordell-hard classes mod 840.
   Mean m₀ is 3.33 off those classes and 8.98 on them (≤ 10⁶).
 * **Independence test (EVIDENCE).** Conditional permutation test: split K_m = S_m R_m (S_m = part on primes ≤ B),
@@ -42,8 +43,11 @@ Type II search; no distributional study of it was found in the campaign files (g
   actual 4540, 989, 405, 161, 57, 20, 7; shuffled (B = 47, four runs) 4536–4561, 958–995, 391–416, 149–167, 47–56,
   15–21, 3–9; (B = 13) 4540–4572, 1008–1056, 427–456, 175–200, 55–67, 17–23, 3–7.
   A naive model conditioning only on p mod 8 and the Legendre symbols (p/ℓ), ℓ | m, under-predicts the tail 3–9×
-  (M = 19: 48 vs 161): within the resolution of four shuffles, the correlation between windows is carried by the shared
-  small prime factors (ℓ | K_m ⟺ p ≡ −m (mod ℓ)), i.e. by B1/Haar-CRT data (no residual correlation detected; not a proof
+  (M = 19: 48 vs 161): within the resolution of four shuffles, the correlation between windows is carried by the joint
+  congruence of p modulo small primes (ℓ | K_m ⟺ p ≡ −m (mod ℓ)) (R256 repair: for B = 47 only — the B = 13 ranges above exclude
+  the actual tails at M = 7, 11, 19, so primes 17–47 matter; and no prime > 11 divides two windows' K for m ≤ 51, so this is joint
+  congruence, e.g. mutual exclusivity, not shared factors; R256 independent run N = 4·10⁶, 30 shuffles, B = 47: every tail
+  M ≤ 47 within 1 sd), i.e. by B1/Haar-CRT data (no residual correlation detected; not a proof
   that none exists).
 
 **Proposition 1 (Mordell's theorem in window form; PROVED, elementary).** Let p ≡ 1 (4) be prime outside the classes

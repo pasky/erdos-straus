@@ -31,4 +31,6 @@ controls), none outside ℚ[Q]. POINTWISE_BINARYFORM §6 (0 two-variable Type I 
 
 ## Assessment
 PROVED (two theorems, elementary; R-O247 review: both sound, Thm 1.2 after editorial repairs). Closes the open Type I question of POINTWISE_BINARYFORM §5 on cones and removes the
-cone/definiteness hypotheses of its Prop 5.2. For ES at primes: one more hatch closed; next candidate is degree-3 norm forms.
+cone/definiteness hypotheses of its Prop 5.2. (R256 repair: the two-variable question only; O145's one-variable questions —
+non-constant level on t² + k — are not addressed. R256 re-derived both proofs and ran an independent search, SOUND after minor
+repairs: reviews/synthesis-seven-review.md.) For ES at primes: one more hatch closed; next candidate is degree-3 norm forms.

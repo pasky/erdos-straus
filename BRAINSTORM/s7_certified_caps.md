@@ -48,7 +48,8 @@ ET-covered at level 1, so cap statements there are superseded by ES).
 ## Assessment
 PROVED (Lemma 1, per class) + EVIDENCE (densities). Answer to (ii): yes, explicit positive-density classes of the first
 undecided line r = 17 get e*(p) ≤ 1 (Haar measure ≈ 0.93–0.96 with windows ≤ 400) — but these are congruence classes, and
-the same window data at cap 0 already cover Haar-almost all of the line. The forced witness adds nothing at the
+the same window data at cap 0 already cover Haar measure ≈ 0.98–1.00 of the line (R256 repair: EVIDENCE for windows ≤ 200–800, not "almost all" for any finite
+window set; specify which unforced windows enter the F-only count). The forced witness adds nothing at the
 points that matter (the r-generic / sterile points, where (q/p) = +1 for every window prime q ≠ r, so no window is
 forced at all). Value: a clean statement of *where* (J)64 lives — it is a Haar-generic mechanism, blind on the
 sterile null set.

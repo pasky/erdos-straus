@@ -1,5 +1,9 @@
 # R256 — hostile review of O247 Synthesis VII (SYNTHESIS_SPARKS7.md, BRAINSTORM/s7_*.md)
 
+**Repairs applied (author quiet after a8269442):** D1–D9 applied directly, each marked '(R256 repair)', in SYNTHESIS_SPARKS7.md
+(I2, I3, I4, I6, Thm 1.1 remark, Thm 1.2 proof ×3, Cor 1.3 scope, §2 Dickson/shuffle/records, §3(ii)) and in BRAINSTORM/
+s7_window_lottery.md, s7_certified_caps.md, s7_sibling_certificate.md, s7_normform_collapse.md. No mathematical content changed.
+
 Reviewer: R256 (side agent, branch side-agent/review-synthesis-seven). Author files merged from side-agent/synthesis-seven
 at a8269442. From-scratch scripts: `scripts/review_r256_bf_search.py` (polynomial-family search), `scripts/review_r256_m0.py`
 (m₀, brute-force validation, Type-II-free non-squares), `scripts/review_r256_dickson.py` (Dickson classes),
@@ -239,4 +243,6 @@ No FATAL, no MAJOR defect found. All MINOR:
   only c_m) is odd. "Exact ℤ-twin of (J)67" → "ℤ-analogue" (no proved correspondence).
 
 ## 10. Repairs applied
-None yet (author's branch has no commits after a8269442 at time of writing; repairs left to the author / parent).
+Author's branch had no commits after a8269442, so D1–D9 were applied directly (see the line at the top). Labels unchanged:
+Thm 1.1/1.2 PROVED, Prop 2.1 PROVED, parity Lemma 2 PROVED, certified-cap Lemma 1 PROVED (per class, e*(p) ≤ e), Dickson classes
+CONDITIONAL, densities/shuffles EVIDENCE, (iii)/(iv) Assessment.
