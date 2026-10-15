@@ -82,3 +82,25 @@ max exponent from 0.4797 to 0.4960 (harmless, still < 1/2; worth a word since SE
 Consequence (see Thm 2.1 below): with tails from 2^800 the P tail term at r ≈ 2^30 is ≲ 10⁻⁴ even with G = 1.01, so Thm 2.1 does
 not actually *need* Lemma 1.2's new selection — only SE's §3.3 at N₀ = 2^800 plus the extra table.
 **Verdict: SOUND** (MINOR attribution fix).
+
+### Theorem 2.1 — combiner and certificate (independent re-certification)
+From-scratch combiner `scripts/review_zl_combine.py` (does not import zl_r0/se_r0; reads only the certified tables and tail
+term lists): exact Fraction cell endpoints; all reals in 40-digit mpmath inflated by a relative 10⁻³⁰; at each point of an
+N-range it takes the *smallest* covering table cell (any covering cell is valid), tails at the top of the N-range (after
+rounding exponents up to a 10⁻⁵ grid, capping e < 0 at 0, and re-checking e < h, p ≤ (h − e)L₀), weights at r = 2^b; and,
+instead of the author's "charge 10⁻²⁰ after the first term < 10⁻³⁰", a rigorous geometric remainder (per-term ratio
+2^{2b⁺e − b}((K+2)/K)^p resp. 2^{2b⁺e − 2b}(…)^p, required < 1/2). Tails: P from `review_zl_tail.py` (SE's reviewed term
+lists, my selection) at N₀ = 2^800; Q at 2^100. Results:
+| variant | B0 | max S (mine) | author | first failing cell (mine) |
+|---|---|---|---|---|
+| ℓ² tables + se tables (ZL_L2) | 30.15625 | **0.49782559** (b = 30.15625; Q₁ 0.45626, P₁ 0.03599, P₃ 0.00548) | 0.497826 | b = 30.125: 0.50415 |
+| se_box tables only | 30.34375 | **0.49424867** (b = 30.34375) | 0.494249 | b = 30.3125: 0.50075 |
+Both certificates are reproduced to all printed digits, 0 failures over b up to 800 (r ≥ 2^800 by monotonicity).
+Table provenance: recompiled `se_box.c`/`zl_box.c` (gcc 14, x86-64 long double) reproduce the rows j = 965 (Q, P; ℓ²), 965 (Q, se),
+971 (P, Q, se) **bit-for-bit** (full regeneration of the four 1/32 tables: see below).
+Combiner checks (zl_r0.py, by reading): the r-cell rule is sound — within [2^b, 2^{b+1/32}) no monotonicity in r is used:
+the weight 2r^{−k} resp. 2r^{−(K+1)/2} is maximal at r = 2^b and the table maximum is over all N-cells meeting
+[2^{Kb}, 2^{K(b+1/32)}); straddling ranges take max(table part, tail at top); fails closed on gaps (exit 1), on
+non-admissible tails, and on non-finite terms. Rounding: tables ×(1 + 10⁻⁹), S ×(1 + 10⁻⁶) — ample (margin 2·10⁻³).
+**MINOR (provenance):** the `_l2` tables carry the header "# se_box …" (zl_box.c did not change its printf); only MANIFEST
+distinguishes them. Suggest zl_box print "zl_box" in the header.
