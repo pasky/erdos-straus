@@ -1152,6 +1152,61 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * §5 (PROVED, equivalence). At q = 3, "a Case B family covers x*_c" is the explicit system (S1)–(S3). There the union bound is dead (exact Σ ≥ 94/27 > 2), so **CONJECTURE 0.2 (q = 3) remains open**. q = 9 and q = 27 are also open; the r = 3 barrier is EVIDENCE/Assessment.
    * Relay O219 (transplant Lemmas 1.4–1.6 to ℤ to make the sterile-Mordell threshold r₀ of (J)26 explicit) was spawned.
 
+52. **Synthesis IV: "ES must imitate the archimedean place" — positivity is T1's anchor, not the bottleneck (SYNTHESIS_SPARKS4.md + BRAINSTORM/s4_*.md (O218); review `reviews/sparks4-review.md` (R219): no FATAL; MAJOR D1 ("signed" was used in two senses; the record |t| ≤ 18 holds only for the inclusive reading); the three-bit law upgraded to PROVED; §2.4 now has a complete argument conditional on Dickson; minors; repaired by the reviewer).**
+   * Setting. A recurring theme across the wave: ES moduli imitate ∞ ((J)50), positivity = c_∞ ((J)45), frieze positivity ((J)42), and the χ = +1 side is the definite lattice ℤ³ ((J)48).
+   * **Meta-statement (PROVED: L1, L2 and the three-bit law; R219 supplied the proof of the last).**
+     * Positive words ⟺ definite path forms.
+     * The positive locus D is one of the two connected components of X_n(ℝ).
+     * ES-five(n) ⟺ X_n(ℤ) ∩ (D × Ω₂) ≠ ∅.
+     * The three-bit law: certificate ⟺ χ·s_∞ = −1, for all words, signed included. "Positivity-blind" means the conclusion lands outside D.
+   * **§2, signed relaxation (R_n) (PROVED parts).** "Some integral point of X_n with tuv ≠ 0 has χ = −1."
+     * It keeps T1 automatically and is a finite search (|t| ≤ n + 3).
+     * There is no forcing: χ(A)χ(B) = 1 for every factorisation.
+     * Genus slot table at |t| ∈ {1, 2, 3, 4, 6}. R219 found that positivity costs something at t = 6.
+     * No finite t-set suffices (CONDITIONAL on Dickson's conjecture, R219's proof).
+   * **CONJECTURE SQ_± (EVIDENCE; R219 reproduced it with its own code).** For odd n, some point with tuv ≠ 0 has χ = −1 ⟺ n is not a square. The SQ₅ exception n = 105 disappears.
+     * Counts to 10⁷ with strictly non-positive words: 0 failures, record least |t| = 54 at 9 817 305.
+     * Counts to 10⁷ with the inclusive reading: record 18.
+     * Steering (Assessment): test any lottery-breaking idea on SQ_± (same T1, same box, more tickets) first. If it fails there, positivity will not rescue it.
+   * Memos (PROVED or Assessment; all SOUND or SOUND-AFTER-REPAIRS).
+     * Selling/Voronoi: path forms are exactly the obtuse superbases with a face of conorms (1, 1, 0), so certificates are χ = −1-genus lattices on a Voronoi wall.
+     * Maslov count = ind_−(path form)/2. At length 3 the ∞-factor is all-or-nothing.
+     * Minkowski/Thue are sign-blind; the "50 %" quadrant split is a symmetry theorem.
+     * Numerator data is purely 2-adic and positivity purely archimedean; their unique coupling over ℚ is B_{2,∞} (= (J)48 Thm A).
+     * Real-analytic tools (θ > 0 on iℝ, degree, SOS, Hodge index) collapse to the real/genus layer.
+   * No relay was spawned: SHARP 1 is steering, and the conjecture is a lottery statement.
+
+53. **Spark relay Y8: the three-squares side — clean levels, an exception-free 3SQ, and T1 deforming to p = m² + k (THREE_SQUARES.md + BRAINSTORM/y8_*.md (O217); review `reviews/three-squares-review.md` (R224): no FATAL; MAJOR D5 (the claim "continuity of T1 is adelic, not archimedean" is wrong at bounded p − m²; R224 PROVED the missing mechanism), D6, D12 (interpretive); minors; repaired by the reviewer).**
+   * Lemmas 1.1/1.2, Prop 1.3 (PROVED; R224 re-derived them).
+     * Write χ(w) = (A/p) = ∏(r/p)^{v_r(A)}. Level t is *clean* if every prime r | tp + 1 has (r/p) = +1; then every level-t word has χ = +1.
+     * The reciprocity constraint is ∏(r/p)^{v_r(tp+1)} = +1.
+     * An odd n is a square ⟺ every level is clean. This is T1 as tm² + 1 = 1² + t·m².
+   * Lemma 3.2 (PROVED; R224 checked 36 805 primes). Mordell's 840 theorem is exactly "the least-non-residue level t₀ admits A = q when lnr ≤ 7". For lnr ≥ 11 that level succeeds in ≈ 85–91 % of cases (EVIDENCE, sampled to 10¹⁵).
+   * **T1 deforms to polynomially-near squares (PROVED by R224, elementary).** If p = m² + k and tk + 1 = c² with gcd(m, c) = 1, then tp + 1 = t·m² + c², so level t is odd-clean (all its words have χ = +1).
+     * For k = 4 the levels are t = 2, 6, 12, 20, … and they are fully clean.
+     * EVIDENCE: primes with bounded p − m² show a 6–7σ deficit of χ = −1 words relative to adelically identical primes (k = 4: z = −6.3; k = 16: z = −7.5). Removing these levels explains the deficit fully for k = 4 and about 3/4 of it for k = 16.
+     * At the √p scale there is no archimedean association; the near-square effect is polynomial, not generic. O209's "near squares" (corrected in (J)48) was thus partly right, in this precise sense.
+   * Clean-level coin model (EVIDENCE, weaker than first presented). It needs the exact reciprocity constraint; without it the model is off by a factor of about 2.
+   * **CONJECTURE 3SQ (EVIDENCE; R224 re-checked to 10⁶ and by direct embedding to 1001).** For odd n, every path lattice of X_n embeds in ℤ³ ⟺ n is a square.
+     * At primes this is ES-five. The direction ⇐ is (J)48 Thm B.
+     * 105 is not an exception: its 11 words have χ = +1 but are ramified at two odd primes. There are 0 exceptions ≤ 10⁶.
+     * It is an exception-free companion of SQ₅, alongside SQ_± ((J)52).
+   * §4. On χ = −1 words α₂ and α_p vanish together, so no Siegel–Weil weighting beyond the indicator exists (the earlier N₊ formula was 0/0 and is withdrawn). Comparing r-weighted counts with |X_p| is circular (Assessment).
+   * Assessment. Near-square hardness is explained structurally, but no mechanism closes the admissibility gap ("an unclean divisor ≡ −1 (mod t)", B2).
+
+54. **Spark relay Y9: explicit sterile Mordell points over ℤ — r₀ = 2³² (STERILE_EXPLICIT.md (O219); two independent hostile reviews `reviews/sterile-explicit-hostile-review.md` (R222) and `reviews/sterile-explicit-hostile-review-2.md` (R223): both no FATAL, no MAJOR; minor repairs applied by both reviewers; R222 re-certified 13 cells and the combiner independently (max Ŝ = 0.48668); R223 recomputed the dominant terms at r = 2³² in exact/interval arithmetic).**
+   * **Theorem 3.4 (PROVED, computer-assisted).** For every prime r ≥ 2³² ≈ 4.3·10⁹, the r-generic line has sterile points in the non-residue cells. So **no finite ET covering handles all large primes whose least quadratic non-residue is r.**
+     * (J)26 Thm 3.1 had this only for an ineffective, tower-sized r₀.
+     * Certificate: the measure criterion (S) holds with max S = 0.48670 < 1/2, over a finite log-r grid plus a monotone tail.
+     * The dominant terms at r = 2³² are the level-1 Q term 0.350, the P term at K = 1 (0.023) and the all-N P tail (0.109). R223 reproduced them within 10⁻³, with the author's values on the conservative side.
+     * Full replay: scripts/se_certify.sh (~3.5 h).
+   * Cor 1.4 (PROVED, elementary via Minkowski; a standard Coppersmith-type trick). Divisors of n of size n^β in a unit class mod n^ρ number at most n^{max(0, β(1−β)−ρ)+o(1)}, with explicit lattice constants. It is the ℤ twin of (J)51's Lemmas 1.4/1.5, and it replaces the divisor function below the Coppersmith threshold.
+   * EVIDENCE (grid; reproduced by both reviewers). With Cor 1.4, the ℤ P-count has ET's exponent 2/5 with only a τ₃ envelope, tolerated up to η = 0.3. ET's own argument tolerates η ≈ 1/18, which is why the earlier r₀ was a tower.
+   * r = 13 and r = 17 (PROVED by finite computation; both reviewers redid level 1).
+     * r = 13: all six non-residue cells are covered at level 1, so there is no sterile 13-generic point of this kind.
+     * r = 17: cells 5 and 7 survive level 1, but the method cannot reach r = 17 (Assessment).
+   * Dictionary (I1): (J)51's Case B tuples and the ℤ P-data satisfy the same equations, but with different side conditions.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

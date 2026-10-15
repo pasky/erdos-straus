@@ -1,0 +1,12 @@
+q=5 alpha<=3: data on slices u0 not in {-1,-2}: 7; per alpha: {1: 0, 2: 7, 3: 0}
+  Lemma 7.2(a) claim failures: 0 (outside the pattern range: 0) []
+  author routes (i)-(vi) violations 0, max count/bound [0.125, 0.062, 0.125, 0.25, 0.062, 0.013]; own routes violations 0, max [0.125, 0.062, 0.062, 0.013]
+q=7 alpha<=2: data on slices u0 not in {-1,-2}: 0; per alpha: {1: 0, 2: 0}
+  Lemma 7.2(a) claim failures: 0 (outside the pattern range: 0) []
+  author routes (i)-(vi) violations 0, max count/bound [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]; own routes violations 0, max [0.0, 0.0, 0.0, 0.0]
+q=9 alpha<=2: data on slices u0 not in {-1,-2}: 14; per alpha: {1: 0, 2: 14}
+  Lemma 7.2(a) claim failures: 0 (outside the pattern range: 0) []
+  author routes (i)-(vi) violations 0, max count/bound [0.125, 0.062, 0.25, 0.5, 0.062, 0.007]; own routes violations 0, max [0.125, 0.062, 0.062, 0.007]
+q=3 alpha<=4: data on slices u0 not in {-1,-2}: 0; per alpha: {1: 0, 2: 0, 3: 0, 4: 0}
+  Lemma 7.2(a) claim failures: 0 (outside the pattern range: 0) []
+  author routes (i)-(vi) violations 0, max count/bound [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]; own routes violations 0, max [0.0, 0.0, 0.0, 0.0]

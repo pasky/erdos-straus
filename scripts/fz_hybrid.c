@@ -10,7 +10,7 @@ static long EX[200][200][200]; static char HAS[200][200][200];
 int main(int argc, char **argv) {
   int r = atoi(argv[1]), S = atoi(argv[2]); const char *dir = argv[3];
   lq = r * logl(3.0L); lfact[0] = 0; for (int i = 1; i < NF; i++) lfact[i] = lfact[i - 1] + logl((LD)i);
-  int q = (int)lroundl(powl(3.0L, r)); init_omstar(q); init_rankin(q);
+  long double q = powl(3.0L, r); init_omstar(q); init_rankin(q);
   LD cum = 0, cumex = 0;
   for (int s = 3; s <= S; s++) {
     char fn[512]; snprintf(fn, sizeof fn, "%s/e_%d.txt", dir, s); FILE *f = fopen(fn, "r");

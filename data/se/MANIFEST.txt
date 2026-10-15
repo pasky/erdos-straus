@@ -1,0 +1,7 @@
+date: Wed Oct 14 21:08:04 UTC 2026
+gcc (Debian 14.2.0-19) 14.2.0
+x86_64
+1c22a7e57802d48747b9f5048b66d77e51cff666dc50c09b7b5d321f8fe2a1c1  scripts/se_box.c
+879dced75f5bad5ae99e0ed1767933583667398c1f546611641935615d9454ac  scripts/se_tail.py
+a9e335c17687f288cf7aad7ca93b4940a559e068c9a2c93e1322a6c97782443a  scripts/se_r0.py
+commands: se_box P 124 799 4 1 64 24; se_box Q 124 399 4 1 64 24; se_box P 200 599 1 1 64 24

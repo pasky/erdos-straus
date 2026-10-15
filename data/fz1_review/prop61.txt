@@ -1,0 +1,12 @@
+q=3 dA=2 dE=4: 18592 (family, type) tests; valid j=0 families per u0: {1: 164, 2: 52}
+  allowed u0 = {-1, -2} = [1, 2]; examples: u0=1 nonconstE=False: E=(2,) a0=(1,) b0=(1,) t=(0,0); u0=2 nonconstE=False: E=(1,) a0=(1,) b0=(1,) t=(0,1); u0=2 nonconstE=True: E=(1, 1) a0=(1,) b0=(1,) t=(0,2)
+  VIOLATIONS: none
+q=5 dA=2 dE=3: 77056 (family, type) tests; valid j=0 families per u0: {3: 4, 4: 52}
+  allowed u0 = {-1, -2} = [3, 4]; examples: u0=3 nonconstE=False: E=(2,) a0=(1,) b0=(1,) t=(0,0); u0=4 nonconstE=False: E=(1,) a0=(1,) b0=(1,) t=(0,1); u0=4 nonconstE=True: E=(1, 1) a0=(1,) b0=(1,) t=(0,2)
+  VIOLATIONS: none
+q=7 dA=1 dE=4: 964320 (family, type) tests; valid j=0 families per u0: {5: 4, 6: 52}
+  allowed u0 = {-1, -2} = [5, 6]; examples: u0=5 nonconstE=False: E=(2,) a0=(1,) b0=(1,) t=(0,0); u0=6 nonconstE=False: E=(1,) a0=(1,) b0=(1,) t=(0,1); u0=6 nonconstE=True: E=(1, 1) a0=(1,) b0=(1,) t=(0,2)
+  VIOLATIONS: none
+q=9 dA=1 dE=3: 406656 (family, type) tests; valid j=0 families per u0: {1: 260, 2: 52}
+  allowed u0 = {-1, -2} = [1, 2]; examples: u0=1 nonconstE=False: E=(2,) a0=(1,) b0=(1,) t=(0,0); u0=2 nonconstE=False: E=(1,) a0=(1,) b0=(1,) t=(0,1); u0=2 nonconstE=True: E=(1, 1) a0=(1,) b0=(1,) t=(0,2)
+  VIOLATIONS: none

@@ -1,3 +1,58 @@
+# AGENT_REPORT_O220 — checkpoint 4 (final for this session): A = T closed for all r ≥ 3
+
+## Results (FF_STERILE_SMALL §8)
+* **Theorem 8.1 (PROVED, computer-assisted):** for every q = 3^r with r ≥ 3, ES_q(T) (A = T, k = 1) has no finite linear covering.
+  - 3 ≤ r ≤ 19: Thm 7.3 (fz1_certify, unchanged).
+  - r ≥ 20: **Lemma 7.4**, a q-uniform bound K(q) whose terms are all nonincreasing in q. It uses DEPTH_ASPECT-style crude routes R1–R4,
+    min exponent ≤ ⌊2s/5⌋ ≤ ⌈(s−1)/2⌉, plus the Case A tail lemma. K(3^20) ≤ 4.19·10⁸ < 3^20 − 3 (`fz1_largeq.py`, exact rationals,
+    fail-closed tails).
+  - Cross-check: with overflow-safe helpers (q as a float type; value-preserving, all previously certified numbers reproduced to all
+    printed digits), `fz1_certify.sh 20 30` certifies r = 20..30 directly too (totals ≈ 9.09).
+* Combined status for q = 3^r: no finite linear covering for k ≥ 2, r ≥ 2 and for k = 1, r ≥ 3. Open: q = 3 (k ≥ 2, Conjecture 0.2)
+  and q = 9 (k = 1; exact counts suggest ≈ 4.6 < 6, but the bounds fail).
+
+## Sparks (carried forward)
+* **Odd-r absence (SHARP of checkpoint 3):** on the A = T slices u₀ ∉ F₃^*, q = 27 has no tuples with s ≤ 12 and no Case A data with
+  α ≤ 4, and q = 9 has no tuples at odd s ≤ 17. A descent explanation could close q = 9 with k = 1 and sharpen everything.
+* **Goal (3) (not started):** test whether the cyclotomic "thirds corner" tuples at q = 3 (exp(Ω(s/log s)) of them) cover x*_c
+  (Conjecture 0.2); a refutation would also be a result.
+* q = 9, k = 1: exact enumeration to s ≈ 22–24 plus sharper moderate-s bounds.
+* Transplant the division routes (Lemmas 1.1–1.3) and the T-adic class refinement (Lemma 1.4) to the ℤ box bounds of MORDELL17 ((J)26 r₀).
+
+---
+
+# AGENT_REPORT_O220 — checkpoint 3 (k = 1, A = T: decided for 3 ≤ r ≤ 19; q = 9 open)
+
+**SHARP:** on the A = T slices u₀ ∉ F₃^* the small-level families are *absent* when r is odd. At q = 27 there are no Case B tuples
+with s ≤ 12 and no Case A data with α ≤ 4 (exhaustive enumeration), and all 172 unfiltered tuples with s ≤ 7 sit in the class
+u₀ = −1. At q = 9 every tuple with odd s ≤ 17 is absent, while even s carry mass. This looks like a Galois/descent constraint
+(solutions off F₃^* seem to need F₉ ⊂ F_q). It is unexplained and might be provable.
+
+## New results (checkpoint 3; FF_STERILE_SMALL §§6–7, §§1–5 untouched)
+1. **Theorem 7.3 (PROVED, computer-assisted):** A = T (k = 1), q = 3^r, 3 ≤ r ≤ 19: no finite linear covering of ES_q(T).
+   Covered measure summed over the q − 3 slices u₀ ∉ F₃^*: ≤ 9.47 (r = 3, need < 24), 27.6 (r = 4, < 78), then decreasing to 9.09.
+   `scripts/fz1_certify.sh 3 19`, log `data/fz/certify_k1.txt`, fails closed. r = 3 uses exact filtered counts (`data/fz/enum1_27`).
+   r ≥ 20 is not run, for a C-int implementation reason only (totals converge to ≈ 9.09); EVIDENCE.
+2. Ingredients: Prop 6.1 (depth-1 families only in classes −1, −2) ⇒ depth ≥ 2 on the q − 3 slices; Lemma 7.1 (k = 1 Case B
+   structure, 19 routes, `fz1_sum.c`/`fz1_tail.c`); Lemma 7.2 (k = 1 Case A redone: T ∤ K, T ∤ z, new route (ix)
+   E ∣ 1 + T^α a1'²K; tail lemma). Validation: k = 1 enumerator vs an independent Python brute force; every Case B and Case A
+   route separately vs exact data (the Case A check caught a missing factor 2 for lc(E) = 2 in two class routes, now fixed).
+3. **q = 9, k = 1: not closed** (CERTIFIED statement about the method): exact s ≤ 18 gives 3.93, Case A 0.67, but the bounds for
+   19 ≤ s ≤ 80 add 53 > 6 − 4.6. The true sum is very likely ≈ 4.6 < 6 (exact masses ~10⁻⁵ at s = 18), EVIDENCE only.
+4. Goal (3) (cyclotomic thirds corner vs x*_c at q = 3): not started (budget used on k = 1).
+
+## Compute used
+About 1.5 h at ≤ 2 cores for k = 1 (enumerations q = 9 s ≤ 18, q = 27 s ≤ 12, Case A; certificates r = 3..19 in about 5 min).
+
+## Sparks (new)
+* Explain the odd-r absence (SHARP above). If small-level tuples off F₃^* need √−1 or F₉, a descent argument could give exact
+  vanishing ranges and close q = 9-type cases for r odd for free.
+* For q = 9, k = 1: extend exact enumeration to s ≈ 22–24 and sharpen moderate-s bounds. The obstruction is again the
+  finite part, as for k ≥ 2 at q = 9 before exact counts.
+* Make the fz_sum.c helpers 64-bit in q, then certify r ≥ 20 for k = 1 (or prove a monotone-in-q bound for the route sums).
+
+---
+
 # AGENT_REPORT_O220 — checkpoint 2 (q = 9 decided: CLOSED)
 
 **SHARP:** exact small-level enumeration is cheap once the class-divisor routes are made *exact by factoring*: factor F

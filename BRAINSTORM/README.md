@@ -313,3 +313,28 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | y7_near_misses | is 7 lottery-lucky? | f₇ = 1 at 43, 127, 211; consistent with a crude lottery model (≈ 0.28) | EVIDENCE + Assessment |
 | y7_order3 | e = 3 / e = 6 double failures vs cubic residues | no detected association with cube indicators; 7 can doubly fail only at p ≡ 1 (21), 27.8 % do | EVIDENCE (negative) |
 | y7_split_norm | residue class of π mod q in ℚ(√−7) | no detected association beyond p mod q (q = 5, 9) | EVIDENCE (negative) |
+
+## Synthesis IV (O218): "ES must imitate the archimedean place" — cross-combinations of (J)39–(J)50 with (J)13–(J)38 (`s4_*`, deep file SYNTHESIS_SPARKS4.md; not yet triaged)
+
+| file | combination / tool | own verdict | labels |
+|---|---|---|---|
+| s4_three_bits_meta | meta-statement: positive ⟺ definite (L1); D one real component (L2); three-bit law for all words; signed relaxations R₂ (no T1) and R_n (T1, finite, no forcing) | positivity = T1 anchor, not bottleneck; **CONJECTURE SQ_±** | L1, L2, P3(a,b) PROVED; three-bit law CERTIFIED (n ≤ 1001); SQ_± EVIDENCE to 10⁷; P3(d) CONDITIONAL (H) |
+| s4_selling_voronoi_wall | Selling/Voronoi reduction on the χ = −1 genus | certificates = obtuse superbases with a (1,1,0) face (Voronoi wall); locates, no forcing (B2) | Lemma S PROVED; invariance CERTIFIED (3000) |
+| s4_kudla_green_infinity | (J)13 × L1 | signed words = archimedean (Green) coefficients; at squares certificates have Diff = {∞} | PROVED given the three-bit law |
+| s4_minkowski_sail | Minkowski/Thue/Siegel vs Klein sail | symmetric GoN sign-blind (50.0 % quadrant); one-quadrant GoN = HJ words; no volume theorem | Lemma M PROVED; EVIDENCE |
+| s4_real_analytic_tools | θ > 0 on iℝ, IVT/degree, SOS, Hodge index/Hasse | all act on real/genus layer identical at squares | COLLAPSES (Assessment) |
+| s4_two_and_infinity | (J)49 × (J)32 × (J)48 | numerator lives at 2, positivity at ∞; their coupling = Hamilton B_{2,∞} = TWO_FIBRES Thm A | elementary PROVED parts; reformulation |
+| s4_mute_infinity | c_∞-imitation × mute place × relaxations | steering table: PROVED variants = fixed c_∞-modulus + infinite shots | Assessment |
+| s4_maslov_inertia | (J)45 Maslov × HJ length 3 | Maslov count = ind_−/2; at length 3 all-or-nothing | PROVED; CERTIFIED (75 097 words) |
+| SYNTHESIS_SPARKS4.md (deep) | R_n / SQ_±: finiteness, no forcing, unit-slot genus table, no finite t-set (H), numerics; Selling wall | no route; steering rule "test on SQ_± first" | see file |
+
+## Spark relay Y8 (O217): the three-squares side and adelic "continuity of T1" (memos y8_*, deep file THREE_SQUARES.md; not yet triaged)
+
+| file | angle | outcome | labels |
+|---|---|---|---|
+| y8_adelic_continuity | sign balance vs distance to squares | archimedean distance irrelevant at the √p scale (R224: NOT at bounded p − m²: T1-type levels tm² + c², THREE_SQUARES Lemma 1.4); clean levels (all primes of tp+1 QR mod p); T1 = all levels clean; calibrated reciprocity-constrained coin model fits clean-level rates | PROVED (L1–L4) + EVIDENCE — SHARP |
+| y8_siegel_weil_sign | exact Siegel–Weil weighting of words | α₂ and α_p vanish together on χ=−1, so no weighting beyond the indicator (checkpoint formula withdrawn, R-O217); comparison with \|X_p\| circular | PROVED; negative |
+| y8_lnr_level | least-non-residue level t₀ = −p⁻¹ mod q | Mordell (840) = "lnr ≤ 7 ⇒ lnr level admissible with A = q"; q ≥ 11: ≈ 0.85 success per translate, stable in p | PROVED + EVIDENCE |
+| y8_three_squares_sq | SQ for composite n via ℤ³-embeddability | 3SQ: all words embed ⟺ n square; no exceptions to 10⁶ (105 is not one) | CONJECTURE/EVIDENCE — SHARP (formulation) |
+| y8_conic_height | conic points carrying words | height(ℓ(w)) ≤ min letter; boundary words = principal-genus ideals dividing (1+√−p) | PROVED + EVIDENCE |
+| y8_square_test_gap | n square ⟺ every level clean; ES-five = admissible version | the ES content is exactly the admissibility gap (A ≡ −1 mod t) | PROVED; steering |

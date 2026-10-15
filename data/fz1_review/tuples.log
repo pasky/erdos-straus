@@ -1,0 +1,8 @@
+q=3 D=11 SMAX=13: tuples found 727; Lemma 7.1 check failures: 0
+  per s (a<=b, complete for s<=D): s=1:2/0 s=2:2/0 s=3:12/0 s=4:2/0 s=5:21/0 s=6:16/0 s=7:26/0 s=8:20/0 s=9:85/0 s=10:49/0 s=11:88/0
+q=5 D=7 SMAX=9: tuples found 400; Lemma 7.1 check failures: 0
+  per s (a<=b, complete for s<=D): s=1:2 s=2:10 s=3:10 s=4:12 s=5:38 s=6:99 s=7:30
+q=7 D=6 SMAX=8: tuples found 286; Lemma 7.1 check failures: 0
+  per s (a<=b, complete for s<=D): s=1:2 s=2:2 s=3:37 s=4:12 s=5:23 s=6:41
+q=9 D=6 SMAX=8: tuples found 656; Lemma 7.1 check failures: 0
+  per s (a<=b, complete for s<=D): s=1:2/0 s=2:10/8 s=3:12/0 s=4:106/90 s=5:43/0 s=6:112/66

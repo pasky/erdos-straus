@@ -25316,4 +25316,104 @@ def check_fQ():
 check_fQ()
 
 
+def check_fR():
+    # (fR) SYNTHESIS_SPARKS4 (O218/R219): R219 from-scratch — CONJECTURE SQ_± evidence (every odd non-square n <= 10^6
+    # has a point of X_n with tuv != 0 and chi = -1), the three-bit law on all 24 201 words of odd n <= 401 (incl.
+    # signed), and the genus slot table at |t| in {1,2,3,4,6} (4 900 n, positivity costs at t = 6).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+
+    def run(args):
+        r = subprocess.run(args, capture_output=True, text=True, timeout=900, cwd=sdir)
+        assert r.returncode == 0, ("SPARKS4 subprocess", args, r.stderr[-2000:])
+        return r.stdout + r.stderr
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "r219")
+        run(["gcc", "-O2", "-o", exe, "review_r219_sqpm.c", "-lm"])
+        out = run([exe, "1000000"])
+    assert "N=1000000 nonsq=499500 signedfail=0 maxls=30@297465" in out, out[-2000:]
+    out = run([sys.executable, "review_r219_threebit.py", "401"])
+    assert "odd n<= 401 words 24201 signed 17360 cells 320 violations {'a': 0, 'b': 0, 'c': 0, 'd': 0, 'e': 0, 'l': 0}" in out, out
+    out = run([sys.executable, "review_r219_slots.py", "40000"])
+    assert "signed/any mismatches: {}" in out and "positive t=6 vs divisor ≡17,23 (24) criterion mismatches: 0" in out, out
+    print(f"== (fR) SYNTHESIS_SPARKS4 R219: SQ_± holds for all odd non-squares <= 1e6 (strictly signed record |t| = 30); "
+          f"three-bit law on 24 201 words; slot table; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fR()
+
+
+def check_fS():
+    # (fS) THREE_SQUARES (O217/R224): R224 from-scratch — clean-level lemmas, Prop 1.3 square test, Lemma 3.2 (Mordell's
+    # 840 = the least-non-residue level), CONJECTURE 3SQ to 10^6 (0 exceptions), and the PROVED polynomial deformation
+    # of T1: p = m^2 + k, tk + 1 = c^2, gcd(m, c) = 1 => level t is odd-clean (all words chi = +1).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run(args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("THREE_SQUARES subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run([sys.executable, "review_r224_lemmas.py"])
+    for s in ("Lemma1.1/1.2/Prop3.1 small-p failures: 0", "rank-one levels 667 clean 667", "Prop 1.3 fails n<3000: 0",
+              "Lemma 3.2 failures 0 of 36805 ; 840 mismatches 0"):
+        assert s in out, ("THREE_SQUARES R224 lemmas", s, out[-2000:])
+    out = run([sys.executable, "review_r224_poly_levels.py"])
+    assert out.count("odd-clean failures 0 []") == 5 and "clean 520/520" in out, out[-2000:]
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "r224")
+        run(["gcc", "-O2", "-o", exe, "review_r224_3sq.c", "-lm"])
+        out = run([exe, "1000001"])
+    assert "N=1000001 odd non-squares 499501, exceptions 0, squares failing 0" in out, out[-2000:]
+    print(f"== (fS) THREE_SQUARES R224: clean-level lemmas, Mordell 840 = lnr level, 3SQ to 1e6 (0 exceptions), "
+          f"T1 deforms to p = m^2 + k (tk + 1 = c^2 levels clean); seconds = {perf_counter() - t0:.1f}")
+
+
+check_fS()
+
+
+def check_fT():
+    # (fT) STERILE_EXPLICIT (O219; reviews R222, R223): R223 from-scratch — P/Q identities (108 cases), Coppersmith
+    # interpolation Cor 1.4 (3000 trials, 0 violations), level-1 coverage (r = 13 fully covered; r = 17 cells 5, 7
+    # survive), and the exact-exponent all-N P tail at r = 2^32 (0.10930) behind Theorem 3.4 (explicit r0 = 2^32).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    env = dict(os.environ, PYTHONPATH=os.path.join(root, "scripts"), OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=1200, cwd=root, env=env)
+        assert r.returncode == 0, ("STERILE_EXPLICIT subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["scripts/review_se2_identities.py"])
+    assert out.count(": ok") == 108 and "D_P(17^5) with 17 ∤ cd = 121" in out and "D_Q(17^3) with 17 ∤ e = 73" in out, out[-2000:]
+    out = run(["scripts/review_se2_cop.py", "3000", "7"])
+    assert "3000 trials: violations 0" in out, out[-2000:]
+    out = run(["scripts/review_se2_level1.py"])
+    assert "r=13: non-residue cells 6, covered at level 1: [2, 5, 6, 7, 8, 11], survivors []" in out, out[-2000:]
+    assert "r=17: non-residue cells 8, covered at level 1: [3, 6, 10, 11, 12, 14], survivors [5, 7]" in out, out[-2000:]
+    out = run(["scripts/review_se2_tail.py", "32", "40"])
+    assert "max exponent 0.47969 monotone/decreasing True" in out, out[-2000:]
+    assert "P-tail contribution to S for r in [2^32, 2^32.25): 0.10929805" in out, out[-2000:]
+    print(f"== (fT) STERILE_EXPLICIT R223: P/Q identities, Cor 1.4 (3000 trials), level-1 coverage r = 13/17, exact "
+          f"P tail 0.10930 at r = 2^32 (Thm 3.4 explicit r0); seconds = {perf_counter() - t0:.1f}")
+
+
+check_fT()
+
+
 print("\nall checks passed")

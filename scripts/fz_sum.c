@@ -77,7 +77,7 @@ static double Vr[NRHO][NMAXRK + 1]; static double lrho[NRHO];
 static LD rkcache[NMAXRK + 1][NMAXRK / 2 + 2]; static char rkdone[NMAXRK + 1][NMAXRK / 2 + 2];
 typedef struct { double ratio, gain; int j; double cnt; } RKI;
 static int rkcmp(const void *x, const void *y) { double a = ((RKI *)x)->ratio, b = ((RKI *)y)->ratio; return a < b ? 1 : a > b ? -1 : 0; }
-static void init_rankin(int q) {
+static void init_rankin(long double q) {   /* O220: q as long double (was int; overflowed for q > 2^31) */
   static double Ip[NMAXRK + 1];
   for (int j = 1; j <= NMAXRK; j++) {
     long double sum = 0;
@@ -130,7 +130,7 @@ static LD lRk(int n, int d) {
 static LD lD(int n, int d) { LD a = lC(n, d), b = lRk(n, d); return a < b ? a : b; }
 /* omega*(e): max number of distinct monic irreducibles != T with total degree <= e (greedy by degree) */
 static int omstar[NF];
-static void init_omstar(int q) {
+static void init_omstar(long double q) {   /* O220: q as long double */
   /* number of monic irreducibles of degree j: (1/j) sum_{i | j} mu(i) q^{j/i}; computed in long double, capped */
   LD cntj[64]; int J = 63;
   for (int j = 1; j <= J; j++) {
@@ -210,9 +210,9 @@ int main(int argc, char **argv) {
   int r = atoi(argv[1]), S = atoi(argv[2]); if (argc > 3) COP = atoi(argv[3]);
   int every = argc > 4 ? atoi(argv[4]) : 10;
   if (argc > 5) NEWR = REF = atoi(argv[5]);
-  init_omstar((int)lroundl(powl(3.0L, r)));
+  init_omstar(powl(3.0L, r));
   if (argc > 6) RANK = atoi(argv[6]);
-  if (RANK) init_rankin((int)lroundl(powl(3.0L, r)));
+  if (RANK) init_rankin(powl(3.0L, r));
   lq = r * logl(3.0L);
   lfact[0] = 0; for (int i = 1; i < NF; i++) lfact[i] = lfact[i - 1] + logl((LD)i);
   LD tot = 0; long cnt[NR] = {0};

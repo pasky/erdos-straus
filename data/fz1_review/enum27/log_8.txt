@@ -1,0 +1,1 @@
+q=27 s=8 t0=3 D=2: factorisations 45789, tuples(a<=b) 38, filtered (E(0) not in F_3) 0, time 6s
