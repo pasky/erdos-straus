@@ -375,3 +375,12 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | s5_cm_frobenius | (iv) Frob = c_∞ × (h±1)-worlds × supersingular | Prop C: certificate primes = primes splitting completely in the CM field F_M = ℚ(ζ_M)⁺(√(p(θ²−4))) with Frob = c_∞·σ_p; T1 = the twisted conjugation ceases to exist; Chebotarev + divisibility = B2 | PROVED dictionary; checked |
 | s5_sterile_uniform | (v) FF (J)56 vs ℤ (J)54 sterility | one profinite formulation; unavoidable global input = size/degree coupling of certificate modulus (box), not sign (SQ_±), not congruences (sterility) | PROVED (formal) + Assessment |
 | s5_scale_law | own: scale behaviour of the sign ratio | N₋/U stable ≈ 0.75 (0.770 at 1 mod 8, 0.739 at 5 mod 8) from 2¹⁰ to 2²⁴ while N₋/N drifts 0.59 → 0.67; drift = forced fraction ≈ 0.5/√log p | EVIDENCE (928 779 primes to 3·10⁷) |
+## Wave Z-e (O229): bounded cap with a growing mute set, PM-II and SQ_± on average (memos z5_*, deep file CAP_GROWING.md; not yet triaged)
+
+| file | idea | outcome | labels |
+|---|---|---|---|
+| z5_cap_dimension | cap e of ES^{(y,e)} (free S) as a large-sieve dimension: Σω_e(ℓ)/ℓ ≍ (log X)^{e+1} | exceptional primes ≪ N exp(−c_e (log N)^{(e+2)/(e+3)}) via the overflow cube (shots alone: (e+1)/(e+2)); every e ≥ 1 beats Vaughan's 2/3 | PROVED rel. BV + large sieve |
+| z5_pmII_vaughan | Vaughan's classes are prime-modulus Type II certificates | PM-II fails for ≪ N exp(−c log^{2/3} N) primes; covering moduli only h = 3, 7 (≤ 2·10⁴) | PROVED rel. Vaughan; CERTIFIED range |
+| z5_pm_sqpm | prime-modulus words of SQ_±: χ = (n/ℓ), free genus filter, shift slots n + u | exponent 1/2 only (signed twin harder on average); CONJECTURE PM-SQ_±, 0 exceptions ≤ 10⁶, adversarial ok — SHARP | PROVED + CONJECTURE/EVIDENCE |
+| z5_fixed_field_orbits | x-orbits with Δ_x = D₀m_k² in one real quadratic field | no free point (norms ±(16n)^i r²); ring class group ≍ m kills the CL luck | PROVED lemma + Assessment (negative) |
+| z5_pell_unit_T1 | Pell unit of ℚ(√n) as a T1-shaped existence mechanism | never acts on ES^{[2]} fibres (needs n | λ, reciprocity-killed); sign-blind | PROVED (squarefree n), negative |
