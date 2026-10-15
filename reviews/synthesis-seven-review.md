@@ -11,7 +11,18 @@ at a8269442. From-scratch scripts: `scripts/review_r256_bf_search.py` (polynomia
 |---|---|
 | Thm 1.1 (Type II, one valid point ⇒ A, B, C, D ∈ ℚ[Q]) | SOUND (minor wording) |
 | Thm 1.2 (Type I on a cone ⇒ ℚ[Q]) | SOUND-AFTER-REPAIRS (minor: sign dilation; positivity of κ) |
-| Cor 1.3 / consequences (POINTWISE_BINARYFORM §5–6, Prop 5.2, (J)76 hatch) | (in progress) |
+| Cor 1.3 / consequences (POINTWISE_BINARYFORM §5–6, Prop 5.2, (J)76 hatch) | SOUND-AFTER-REPAIRS (scope wording: O145's one-variable questions are not settled) |
+| Prop 2.1 (Mordell ⟺ m₀ ∈ {3, 7} off six classes mod 840) | SOUND (re-proved; checked to 10⁷) |
+| m₀ records ≤ 107 for p ≤ 10⁷, histogram | SOUND (recomputed exactly; histogram label slip D5) |
+| Permutation test (EVIDENCE) | SOUND as EVIDENCE for B = 47; wording repairs (D7) |
+| Dickson all-fail classes (CONDITIONAL) | SOUND (5 representatives re-verified, admissibility checked) |
+| Parity law on r-generic lines (Lemma 2) | SOUND (re-proved; brute-forced r = 17, 19, 23; analogy wording D9) |
+| (ii) certified caps, Lemma 1 per class; Haar ≈ 0.93–0.96 | SOUND (per class: e*(p) ≤ e, not ES); densities replicated; "Haar-almost all" overstated (D8) |
+| (iii) no finite certificate / level-1 survivors | SOUND (survivor sets reproduced with an independent test) |
+| (iv) FF thin menus (Baire), lifted digit identities | SOUND as Assessment |
+| (v) Type II window bound Lemma 1; 103 Type-II-free non-squares ≤ 2·10⁵; 3985 | SOUND (recomputed: 103, list identical; 3985 unique ≤ 10⁶) |
+
+Overall: **no FATAL, no MAJOR defect.** Nine MINOR defects (D1–D9), all editorial/scope.
 
 ## 1. Theorems 1.1 and 1.2 — re-derivation
 
@@ -183,3 +194,49 @@ divisible by 3 or 7 (exceptions 1705, 3985) ✓. `review_r256_free1mod4.py 10⁶
 * T1/105 control remark ("predicts nothing at odd squares beyond ET Prop 1.6") ✓ — a negative theorem.
 
 **Verdict Cor 1.3: SOUND-AFTER-REPAIRS (scope wording D3, D4).**
+
+## 8. Not re-checked
+Spearman(m₀, L(1, χ_p)-proxy) = 0.35 / 0.20 (s7_lvalue_proxy), the Gaussian-window cap-0 rate 1.0·10⁻⁴ (only the identity
+p + m = (A+B+1)² for m = 2AB+2A+2B+1, p = A²+B², and m ≡ 3 (4), checked by hand ✓), the union mass 0.31857/0.31888, and the
+actual-prime cap percentages 79.4 / 93.8 / 95.2 %. All are labelled EVIDENCE and none is load-bearing.
+
+## 9. Defects
+
+No FATAL, no MAJOR defect found. All MINOR:
+
+* **D1 (MINOR) Thm 1.2 proof, "Positivity on the cone".** Valid points may carry the sign pattern (A, B, C) < 0 < D (ET
+  dilation; POINTWISE_BINARYFORM §1 and its R159 repair to Thm 3.2). Repair: "On an arc I avoiding the zero directions, the sign
+  of each coordinate at far valid points equals that of its top part, constant on I; replacing (A, B, C) by −(A, B, C) (which
+  preserves the Type I identity and the conclusion) we may assume A_top, B_top, C_top, D_top > 0 on I."
+* **D2 (MINOR) Thm 1.2 (c1) C-quadratic and (c2).** "κ = B + 1/(4BD) > 0" needs B > 0 (D1); only κ ≠ 0 is used, and
+  κ = (4B²D + 1)/(4BD) ≠ 0 because D > 0. In (c2) μ = 0 the sub-case γ = 2 is case (b) (γ = μ + 2), not (c): drop it or mark it
+  redundant.
+* **D3 (MINOR, scope) (I6), s7_normform_collapse Assessment, Cor 1.3.** "settle the open question … (Type I families with
+  non-constant level; O145)": O145's open items (ident_form_families §6: one-variable non-constant-level Type I on t² + k;
+  t-dependent leading coefficient) are not addressed, and the line-version "Type I analogue of O145 Prop 3.2"
+  (POINTWISE_BINARYFORM §7) is bypassed, not proved. Repair: "settles, on cones, the two-variable question of
+  POINTWISE_BINARYFORM §5–6 (and the last clause of ident_form_families §6); O145's one-variable questions remain open." Add
+  POINTWISE_BINARYFORM §4.4(i) (floor/factorisation in (u, v)) and §4.2 (unbounded families of forms) to Cor 1.3's remaining scope.
+* **D4 (MINOR) Thm 1.1/1.2 vs Prop 5.2.** Prop 5.2 concludes F ∈ ℚ[n]⁶; add one line: f = 4acd − 1 (Type II) resp. the Type I
+  e, f are then rational functions of Q that are polynomials, and ℚ(Q) ∩ ℚ[u, v] = ℚ[Q] (if h(Q) | g(Q) with gcd(g, h) = 1 in
+  ℚ[t], a root ρ of h gives Q − ρ | g(Q), whence g(ρ) = 0).
+* **D5 (MINOR) s7_window_lottery histogram / records.** "…; 31: 33; larger: 32" omits m₀ = 27 (8 primes); ≥ 35 has 24. Repair:
+  "27: 8; 31: 33; ≥ 35: 24". "m₀/log²p ≈ 0.4–0.5 at the records": the records give 0.28–0.49 (e.g. 35/log²67369 = 0.28,
+  71/log²1430641 = 0.35); say "0.3–0.5".
+* **D6 (MINOR) "So m₀ is unbounded under Dickson".** The script exhibits all-fail classes for M ∈ {11, 27, 47, 63, 99} only.
+  Repair: "m₀ > 99 for infinitely many p under Dickson; unbounded under H by redteam-automorphic-2 Thm 2.2(iii)".
+* **D7 (MINOR) Permutation-test wording (s7_window_lottery, SYNTHESIS §2).** (a) The B = 13 shuffles reported in the memo exclude
+  the actual tail at M = 7, 11, 19 (989 vs 1008–1056, 405 vs 427–456, 161 vs 175–200; my 40 shuffles: 405 vs 436.7 ± 13.5).
+  "Agree within noise" holds for B = 47 only; say so, and conclude that primes 17–47 carry part of the dependence. (b) "Shared small
+  prime factors" is inaccurate for ℓ > 11: K_m − K_{m′} = (m − m′)/4 ≤ 12 for windows ≤ 51, so no prime > 11 divides two windows'
+  K; the dependence is carried by the *joint congruence of p* modulo primes ≤ 47 (e.g. mutual exclusivity of ℓ | K_m). (c) Four
+  shuffles cannot resolve the deep tail M ≥ 27; cite a larger run (mine: N = 4·10⁶, 30 shuffles, all tails within 1 sd).
+* **D8 (MINOR) "cap 0 on Haar-almost all of the line" (I3; §3(ii) by implication; s7_certified_caps).** For any finite window
+  set the cap-0 measure is < 1 (the memo's own B1 screen). Repair: "cap 0 on Haar measure ≈ 0.98–1.00 for windows ≤ 200–800
+  (EVIDENCE)"; and specify which unforced windows enter the F-only count (prime q only? composites? q < 19?).
+* **D9 (MINOR) s7_sibling_certificate Lemma 2.** "(−m/r) = −1 gives χ(r) = −1" is valid for c ≥ 1 (r | u + m); c = 0 is excluded
+  by the same character computation (χ(δ) = 1 ≠ −1), so the T1 parenthesis is unnecessary. State that every admissible c (not
+  only c_m) is odd. "Exact ℤ-twin of (J)67" → "ℤ-analogue" (no proved correspondence).
+
+## 10. Repairs applied
+None yet (author's branch has no commits after a8269442 at time of writing; repairs left to the author / parent).
