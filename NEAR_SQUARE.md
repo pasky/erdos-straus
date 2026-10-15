@@ -1,6 +1,6 @@
 # NEAR_SQUARE — T1 deformed to polynomially-near squares p = m² + k (task O221, spark relay Y10)
 
-Status: work in progress (O221). **ES is not solved here, nor any infinite case of it unless explicitly stated with a
+Status: checkpoint 1 (O221), awaiting review. **ES is not solved here, nor any infinite case of it unless explicitly stated with a
 complete proof.** Labels as in DISCOVERIES.md. Builds on THREE_SQUARES.md Lemma 1.4 (R224), ET §10 (Prop 1.9),
 STERILE_STEER Prop 3.1, POINTWISE_BINARYFORM (J)3. Memos BRAINSTORM/y10_*.md, scripts `scripts/ns_*`.
 
@@ -10,12 +10,41 @@ ce = a + b, 4acd = f + 1, ef = n + 4a²d). A *polynomial family* on a class C = 
 (a, …, f) ∈ ℚ[m]⁶ on Σ_{n(m)}, giving N-points for all large m ∈ C (ET's notion, with the parameter m in place of n).
 Z_k := {m ∈ Ẑ : m² + k ∈ S}, S ⊂ Ẑ the sterile set (STERILE_STEER Prop 3.1); Z_k ⊇ {m : m² + k ∈ (Ẑ^odd)²}.
 
+## Summary (checkpoint 1)
+1. **Above the squares nothing beats congruences (PROVED, Thm 2.2).** For p = m² + k, k > 0, ET's polynomial-solvability
+   theory in the variable m has new (Aurifeuillean) families, but every Type I/II polynomial family has a witness that is a
+   fixed character of n (Lemmas 1.1/1.3: every Type I solution has (d/n) = −1, every Type II (de/n) = −1), so its class
+   avoids Z_k^□ = {m ∈ Ẑ : m² + k a local square} (≠ ∅ iff k ≡ 0, 1, 5 mod 8). Every escaping shape dies by the
+   positive-definiteness of x² + ky² — the archimedean place of ℚ(√−k).
+2. **Below the squares families escape (PROVED existence).** For p = m² − j escaping families exist (j = 8, 15, 24:
+   80/161/263 found, all verified), reaching m with n ≡ 1 mod every fixed L.
+3. **The deformed T1 is "square in K", not "square in ℚ" (PROVED ⊇, CONJECTURE =).** Integer T1 points above √j obstruct
+   every family (Lemma 3.2 positivity + Thm 3.3), and the K-adic square set Z_K⁺ = {m − √j ∈ (K_v^×)² ∀v} is sterile for
+   every family (Thm 3.4, Hilbert reciprocity in K = ℚ(√j)); at j = 8 the uncovered classes at L = 8064, 4480 are
+   exactly Z_K⁺ (CONJECTURE Y10-S).
+4. **Clean levels (PROVED, Prop 4.1).** Level t is odd-clean along Q(m) = Am² + Bm + C iff 4A − tΔ is a square (R224's
+   tk + 1 = c² is the case Q = m² + k, now with the converse). Per prime, T1-type = principal-form part of "clean"
+   (82 % of clean words, 10⁵–10⁶).
+5. **Hardness (EVIDENCE, §5).** Within adelic cells, exact cleanliness explains N₋/N (corr −0.57) and T1-type adds
+   nothing; but there is a monotone archimedean gradient in p − ⌊√p⌋² of which half survives removing every clean level
+   (−0.0045 ± 0.0008 even at K0 ∈ [100, 300)); mechanism open. Two hard primes are m² − 3 next to the T1 point m₀ = 2.
+* Assessment: a precise two-sided map of what polynomial families on near-square primes can do. It is not a route to ES:
+  above the squares it is a negative theorem; below, the coverage question is a moving-modulus covering problem (H-A)
+  whose sterile set is (conjecturally) a measure-zero Cantor set Z_K⁺ plus finitely many integer points — so no finite
+  covering, but strictly more than congruences.
+
 ## 0. Iteration log
 (I1) Lemma 1.4 (T1-type levels) says what is *forbidden* on p = m² + k. Goal (c) asks what is *possible*: ET §10 for
 linear families has a final case killed by "p² + 4c²d is irreducible over ℝ". In the variable m the quartic
 (m² + k)² + 4c²d can split over ℚ (Sophie Germain / Aurifeuille): first new shape found, but it lives only on
 m-classes where n is a non-square for a fixed character — Lemma 1.1 below explains why (the T1 obstruction survives
 any family with a constant gcd-parameter d).
+(I2) Escape needs a growing d (H-A). Case analysis of all degree shapes (Thm 2.2): for k > 0 every escaping shape needs
+a negative norm (Λ − 1)(k + ρ²) = −(r² + k) etc. Violate the hypothesis "k > 0": k < 0 has escaping families (§3).
+(I3) Do they cover? Obstruction 1: integer T1 points (positivity propagation, Thm 3.3). Coverage numerics left more
+uncovered classes, matching exactly "m − √j is a local square in ℚ(√j)" — proved sterile by Hilbert reciprocity
+(Thm 3.4). Pivot from norms to elements: T1 deforms to squares in K.
+(I4) Goals (a)/(b): classification of family-clean levels (Prop 4.1) and the census (§5).
 
 ## 1. The Jacobi constraint of a Type I solution (PROVED)
 
@@ -221,3 +250,22 @@ levels, φ_T1 = on T1-type levels, K0 = p − ⌊√p⌋².
   372 121 = 610² + 21. The other 15 sit at generic distance (min(p − m², (m+1)² − p)/√p spread over (0.15, 1)).
   Assessment: hardness is driven by the adelic pattern (square mod small primes) and, *pre-asymptotically*, by
   T1 points of polynomial families: m² − 3 is the cheapest way to be a square mod every small prime simultaneously.
+
+## 6. Barrier summary
+* B1: Thm 2.2 is a B1 theorem for quadratic families above the squares; below, B1's finiteness fails only by the
+  measure-zero Z_K⁺ (CONJECTURE), still no finite covering (Thm 3.3/3.4).
+* B2/B6: everything is about classes of m; at a single p nothing new is forced.
+* B5/T1: T1 deforms to (i) clean levels tk + 1 = c² (R224, Prop 4.1), (ii) the norm-level sterile set Z_k^□ above the
+  squares, (iii) the element-level sterile set Z_K⁺ and integer T1 points below.
+* (J)52: the sign of k is the archimedean place of ℚ(√∓k); positivity is literally what kills the escape for k > 0.
+
+## 7. Numerics index (tiny outputs; heavy files in /tmp only)
+| check | script | result |
+|---|---|---|
+| Lemmas 1.1/1.3 witnesses | ns_witness_check.py 800 | 1 561 solutions, 0 failures; odd squares < 800: 0 Type I/II |
+| family search | ns_polyfam.py K 3 (and −8 8) | escaping: 0 (k = 1, 16, 24); 80/161/263 (k = −8, −15, −24); R = 8 adds none for −8 |
+| family validity | ns_verify_families.py K file 20000 | 48 540 / 27 911 / 23 251 instances, 0 failures |
+| integer T1 points | inline on family files | 0 families contain m₀ = 3 (j = 8), 4, 8 (j = 15), 5, 7 (j = 24) |
+| level-L coverage | ns_padic_cover.py −8 L file | uncovered = Z_K⁺ classes at L = 2016, 8064, 4480 |
+| census | ns_census.c 100000 1000000 | 5 570 014 words; clean 432 677, T1-type 356 023, 0 χ = −1 on either |
+| hardness | ns_hardness.py census 31 | §5 |
