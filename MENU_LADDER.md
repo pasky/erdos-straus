@@ -120,3 +120,72 @@ Pell points 15Y² + 1 = w² (Y_j ≡ 1 mod 17 forces j odd, hence Y_j odd; `scri
 So the ladder's first two rungs are sterile for structural reasons (Schinzel at D = 1, positivity at D = 2), and the
 rung where escapes appear (D = 4) is the first where BOTH the integer T1 points become finite AND a factorisation supply
 (Sophie Germain) exists in base 2 (Aurifeuille: only 4X⁴ + 1 among binomials, Capelli).
+
+## 5. Searching the higher rungs for 15·2^s + 1 (EVIDENCE, negative)
+All searches test exactly Lemma 2.1 (+ positivity), so a hit would be a valid family near μ = 0; every hit would then be
+re-verified on actual s. Sanity: `z18_crt.py 3 1 4 0 2 3 <r-list>` recovers O240 Theorem B (b₁ = Y² + 2Y + 2, r = 1/6, λ = 3)
+and its mirror (b₁ = Y² − 2Y + 2, λ = 5).
+* `z18_crt.py` (Type I and II; a₁, b₁ primitive with |coeff| ≤ 3, deg a₁ ≤ 1, deg b₁ ≤ 4, m = −n mod a₁b₁ resp.
+  e = −n⁻¹ mod a₁b₁ forced, ratio r forced or from {p/q ≤ 16}): (15,1), D ∈ {3,4,5,6,8}: **0 hits** (up to 211 230 pairs per D).
+* `z18_quad.py` (a constant, b quadratic with rational (p, q) of height ≤ 12, m linear): 0 hits for (3,1), (7,9), (15,1),
+  D = 3…7 — explained by Lemma 2.3 (positivity never holds).
+* `z18_tt.py` (exact normal form n = σTT′ − T − T′, T′ = S·T₁, T = r + U·T₁, (U, S) solved by resultants; also Type I
+  nT′ + 1 = T(σT′ − 1); T₁ quadratic |coeff| ≤ 4–6, also with Y ↦ 2^{±1}Y, 2^{−2}Y rescaling): (15,1) D = 4: 110–148
+  exact algebraic families, **0 integral at μ = 0** (failures mostly at the 2-adic specialisation Y = 0); D = 5, 8: no
+  algebraic solutions in range; D = 6: 4 algebraic, 0 integral; T₁ cubic, D = 6, 8: none. The D = 4 constant-σ solutions
+  with σ = 4/11 are the Sophie-Germain Type II in disguise (a = 11, c = 4: cn + a = 15(4Y⁴ + 1)); their failure is the
+  O239 Cor 2.8 magnitude obstruction (worked: κ ≡ −1 mod 16·11 with κ | 75 has no solution).
+**Status of 15·2^s + 1: NOT decided.** Rungs 1, 2 are PROVED sterile at μ = 0 (Type II for rung 2); the window part of
+rung 4 is PROVED sterile (O239); everything else searched is empty at the stated heights (EVIDENCE only).
+
+## 6. Goal (2): the exponential analogue of Theorem 1.4
+
+Setting: n_s = c₀b^s + k, Λ ⊂ Ẑ the closure of the exponents, divisor classes D_q as in EXPONENT_COVERING. A *root class*
+F of degree D on s ≡ r (mod L) (D | L) is a polynomial Type I/II family in Y = b^{(s−r)/D}. For μ ∈ Ẑ with μ ≡ r (L) let
+Y*(μ) ∈ Ẑ be Y*_ℓ = b^{(μ−r)/D} (ℓ ∤ b), Y*_ℓ = 0 (ℓ | b).
+**Lemma 6.1 (PROVED; Lemma 2.1 verbatim).** F is integral at all large s near μ iff all its parameters are integral at Y*(μ);
+the set V_F of such μ is clopen.
+**Theorem 6.2 (PROVED; compactness, as Thm 1.4).** {n_s : s ≥ s₀} has a finite covering by ET, divisor and root classes iff
+every μ ∈ Λ lies in some D_q or some V_F with F positive.
+**Proposition 6.3 (PROVED; Theorem A).** V_F ∩ S_D = ∅ for every degree-D root class, where S_D := {μ : Y*(μ) ∈ Ster(φ_D)}.
+Hence Λ ∩ (∩_D S_D) \ ∪_q D_q ≠ ∅ ⟹ no covering. (Note ∩_D S_D ⊆ S_1 = Sq^×-points.)
+**The converse fails for the natural sub-menus (PROVED).** O240 spark 6 / O238 spark 2 asked whether a covering exists iff
+Λ avoids ∩_D S_D. For the menu "ET + divisor + z14 windows" the answer is NO: for 15·4^s + 1, μ = 0 ∈ S_1 only
+(Computation 1.2: μ = 0 ∉ S_D for D = 2, 4, …), yet O239 Cor 2.8 proves no z14 window reaches it. For the menu
+"all root classes" the converse is equivalent to: *every non-descent-sterile unit-square point is reached by some
+root family* — which at μ = 0 of (15,1) is false at rung 2 (Theorem 4.1: Type II sterile although μ = 0 ∉ S_2). So the
+correct sterile set of a degree-D rung is S_D ∪ P_D with an **archimedean/positivity part P_D** (Thm 4.1, Lemma 2.3) and,
+for finite sub-menus, a magnitude part (O239 Cor 2.8, MENU_STERILITY Prop 4.3).
+**CONJECTURE 6.4 (ladder-sterility of (15,1); Assessment, weak).** μ = 0 of 15·2^s + 1 is not reached by any root class
+of any degree. Evidence: §5 (empty searches), the failure of every SG window (O239), and the 2-adic failure pattern of all
+D = 4 algebraic families. Counter-evidence: no structural obstruction is known for D ≥ 3 (descent silent, T1 finite, witness
+parity a coin flip). If true, 15·2^s + 1 would be the first family proved immune to every exponential-polynomial covering;
+proving it needs a positivity/size theorem for all shapes, which this file only has at D ≤ 2.
+
+## 7. Goal (3): where the ladder stops for primes
+
+**Proposition 7.1 (slices collapse to ET; PROVED, elementary).** Let g be an auxiliary arithmetic function and F an identity
+polynomial in (n, g(n)) (e.g. g(n) = 2^{v₂(n−1)}, which realises the exponential families as slices u = (n − 1)/g(n) = c₀
+and is defined at EVERY odd n). If F is valid on {n : g(n) = g₀, n ≡ n₀ (mod M)} for some fixed g₀, then on that slice F is
+an ET class (polynomial in n); near a profinite unit-square point every such slice class contains odd squares (for
+g = 2^{v₂(n−1)}: 1 + 2^{e}u₀ ≡ 1 + c₀·2^e ≡ 4^J mod odd M when e ≡ 0 mod ord_M(2), and ≡ 1 (8) for e ≥ 3), where Type I/II
+solutions do not exist (ET Prop 1.6). Hence a family covering a positive-density slice near μ = 0 is impossible, and a
+finite menu of (n, g)-polynomial families can only beat Schinzel on the slices where u = (n − 1)/g(n) is held in a thin set —
+density 0 (MENU_STERILITY Prop 5.1).
+*Proof.* With g = g₀ fixed, the identity is polynomial in n on a residue class: Schinzel/Mordell (ET p. 7–8), applied at an
+odd square in the class. ∎
+**Answer to (3) (Assessment, sharpened).** The exponential ladder works only because the parameter Y = 2^{s/D} has the two
+decoupled specialisations Y → 1 (odd) / Y → 0 (2) *while u = c₀ is frozen*. At primes any parameter that decouples
+specialisations must vary along a set where the remaining datum (u) is frozen or thin; freezing u is a thin family. So
+the ladder stops exactly at the first rung that must see a positive-density prime set: there the only non-ET parameters
+whose slices are not residue classes are divisor/factorisation data of n ± small (B2), or norm-form representations
+(T1 survives on square-compatible classes, (J)3). No menu built from Y-type parameters can see all primes in a sterile
+Ẑ-cylinder.
+
+## 8. Spark explored and closed: s-deformation
+Exponential-polynomial parameters P(s, 2^{s/D}) with P ∈ ℚ[s, Y]: by Lemma 2.1 integrality near μ = 0 depends only on
+P(0, 1), P(0, 0), while positivity is decided at s → ∞ — so s-dependence *decouples integrality from positivity*, which
+would evade Lemma 2.3 and O239's positivity-based magnitude bound. But every parameter must stay polynomial in s: for
+windows this forces m(s) | (a + b) coefficientwise in Y, impossible (shown for SG pieces Q±(s, Y), t(s)); for the a-constant
+SG Type II shape d = (κQ + 1)/(4ac) is polynomial in s only if ac is constant, which freezes t. Assessment: no gain found;
+a general polynomial-curve statement on the shape varieties is open (spark).
