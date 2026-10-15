@@ -1,0 +1,157 @@
+OCR (tesseract) of P.X. Gallagher, Invent. Math. 11 (1970) 329-339, pp. 336-338, from GDZ https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0011/LOG_0035.pdf (fetched by R237). OCR is garbled in formulas.
+tion to modulus <T has a zero in the region
+
+_ _5 < 26
+o>1 log? t|<T, (26)
+
+ 
+
+and if there is such an exception, the exceptional zero is real, simple and
+unique [4, §13, 14]. We denote the exceptional zero by 1-6. As
+d log T- 0, the zero-free region (26) may be widened to
+
+C2
+
+o>1- Tog T
+
+ 
+
+_ 651 _ < 27
+104510“). <T. 27
+
+A Large Sieve Density Estimate near a=1 337
+
+with 1-6 still the only exception. The proof of (27) in [9] applies only
+to all L-functions to a given modulus. However, if x, and z, are different
+primitive characters to moduli q; and g,, then we may apply the result
+of [9] to L(s. x, x,) and L(s, z, x2). where x, is the principal character
+to modulus q, q,, and get (27) with c; and c, halved. We will also use
+Siegel's estimate [4, § 21]
+
+6> T-, - for each e>0. (28)
+Theorem 7. We have
+
+% X*
+
+as0 x
+
+x+h
+
+Y x(p)log p
+
+x
+
+ 
+
+(29)
+
+ 
+
+ 
+
+<h - exp (—a 10g”)
+
+logQ
+
+provided x/Q<h<x and exp(log* x)SQ=x®. Here the term with qg=1
+
+must be read as
+x+h
+
+Y log p-h,
+
+and if there is an exceptional zero 1-6 of L(s, z'), with blog Qd, then
+the corresponding term must be read as
+
+x+h
+Y 1'(p)logp+h&~5, _ for some Ee[x,x+h].
+
+In the latter case, the bound on the right of (29) may be reduced, e.g. by a
+factor of (d log Q).
+
+Proof. For qs T Sx3, we have by [4, §17, 19]
+
+l l 2
+n§x1(n)A(n):61x~2x7+O (L?)
+
+where 6, =1 or 0 according as z=z, or not, and the sum on the right is
+over the zeros of L(s, 3) in a 1, |t| T. The terms with n=p", v2 2
+contribute <x* to the sum, and therefore may be absorbed into the
+remainder. Since
+
+_ xf *t"
+
+go--< = | ot dyes",
+
+ 
+
+for Q<T we get, using x/h<Q and log x<log* Q,
+
+x+h
+
+Y, x(p)log p<Ah(Y x"~'+@"/T),
+
+338 P. X. Gallagher:
+
+where, if g=1 or x=4', the left side must be read as above, and the sum
+on the right is over non-exceptional zeros. Hence
+
+c
+
+asQ x
+
+x+h
+
+Y x(p)logp
+
+x
+
+<h(y y*Xx®-'+0/T). (30)
+
+asQ x
+
+ 
+
+ 
+
+The triple sum on the right is
+
+1
+
+-f x-! d,( ¥, F* T)= | x~! log x XF da+ x-! FF N,(0, T).
+0 aso x 0
+
+Using Theorem 6, and assuming T< x3, this is
+
+1-107)
+|-
+0
+where 1-1(T) is either the bound (27) or the bound (26) according as
+there is an exceptional zero or not.
+We choose T= Q*. If there is no exceptional zero, then the parentheses
+on the right of (30) is
+
+log x
+log Q
+
+If there is an exceptional zero, the parentheses is
+
+log x c
+<exp (—CA@log (mg—Q» +Q7,
+
+logx
+<(6 10g 0) "#2 + (8 log Q) Q-+ _ (by (28)),
+
+logx)
+log Q/"
+
+ 
+
+ 
+
+logx)
+
+)+Q71<exp (—a Tog 0
+
+<exp (—c3
+

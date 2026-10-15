@@ -12,6 +12,12 @@ From-scratch scripts: `scripts/review_r237_*.py`; outputs `data/r237/`. Author s
 | Cor 5.2 (dimension e + 3, no tower) | SOUND-AFTER-REPAIRS (D2 scope) |
 | Prop 5.3 | SOUND-AFTER-REPAIRS (D2 scope) |
 | Thm 3.1 (ceiling "at ANY cap, incl. e = ∞") | **GAP/FALSE as interpreted** (D1): the inequality is correct for the *truncated* family V < ℓ/4, but that family is not "the largest class family of this architecture"; with the full 𝒟_e(ℓ) the prime-modulus large sieve gives a POWER saving at e = ∞ (and at e ≥ (log N)^{1+ε}) |
+| Input (G) (Gallagher Thm 7) | SOUND-AFTER-REPAIRS (D3: statement/range mis-quoted; the consequence used is valid) |
+| Lemma 1.1 (Rankin lower bound) | SOUND |
+| Prop 1.2 (uniform cube supply) | SOUND-AFTER-REPAIRS (D3: add log T ≥ √log x to the hypotheses) |
+| Remark 1.3 (exactness unnecessary) | SOUND (special case of Prop 5.1) |
+| Thm 2.1 (uniform in e ≤ log log N) | SOUND-AFTER-REPAIRS (D3, D4 minor); label "PROVED rel. (G) + BV + LS" correct |
+| Thm 3.1 inequality itself (truncated family) | SOUND |
 | (further claims) | see below (to be filled) |
 
 ## Claim-by-claim
@@ -54,6 +60,49 @@ Local count N(σ, e) = 2σ + 1 + e at odd s (t ∈ [0, 2σ] ∪ {2σ+2, …, 2σ
 D ∈ 𝒟_e(M) ✓. Prop 5.3 (z ∈ ℤ ⟺ D | A² inside 𝒟_e) is immediate from the valuation table ✓. Only the scope wording is
 wrong (D2).
 
+### Input (G) — Gallagher's Theorem 7: checked against the source; SOUND-AFTER-REPAIRS (D3)
+Source obtained: GDZ scan of Invent. Math. 11 (1970) 329–339 (LOG_0035), OCR excerpt in
+`data/r237/gallagher1970_thm7_ocr.txt`; pp. 337 read as an image. **Actual statement (Thm 7, eq. (29)):**
+Σ_{q≤Q} Σ*_χ |Σ_{x<p≤x+h} χ(p) log p| ≪ h·exp(−a log x/log Q), **provided x/Q ≤ h ≤ x and exp(log^{1/2} x) ≤ Q ≤ x^b**;
+the q = 1 term is read as Σ log p − h; if there is an exceptional zero 1 − δ of L(s, χ′) (δ log Q ≤ d) the χ′-term is
+read as Σ χ′(p) log p + hξ^{−δ} (the exceptional character is NOT omitted; its secondary main term is subtracted).
+Differences from (G): (i) Gallagher has a lower bound Q ≥ exp(√log x) instead of the "+exp(−c₁√log x)" term with
+1 ≤ T; (ii) short-interval form (x, x+h] instead of ψ(x, χ); (iii) the exceptional term is modified, not dropped.
+The consequence actually used in Prop 1.2 is nevertheless VALID: with h = y, x = y (dyadic (y, 2y]), Q = T, for q ≤ T with
+q₁ ∤ q every χ mod q is induced by a distinct non-exceptional primitive χ* of conductor ≤ T, and χ(p) = χ*(p) for
+p > T, so |θ(2y; q, a) − θ(y; q, a) − y/φ(q)| ≤ φ(q)^{−1}·C y exp(−a log y/log T): relative error C e^{−a log y/log T},
+the φ(q) cancelling (the author's key observation is right). Dropping one term of a sum of non-negative terms is fine.
+The range condition T ≥ exp(√log x) holds in Prop 1.2 iff u/(10(e+1)) ≳ √u, i.e. u ≳ 100κ² — true in Thm 2.1 (u ≥ e^{C₄}κ²
+log(κ+2)) but not stated in Prop 1.2's hypothesis u ≥ 40(C₂+1)κ² (D3). T ≤ x^b holds since log T/log x ≤ 1/(4κ).
+Exceptional modulus: Gallagher's exception is relative to Q (region (26)/(27)); χ₋₄, χ_{±8} have a fixed zero-free
+neighbourhood of 1, so for T ≥ T₀ the exceptional conductor has odd part > 1, and dropping one prime s₁ of it from 𝒫'
+makes q₁ ∤ 4m for all admissible m ✓.
+
+### Lemma 1.1 — SOUND
+Re-derived line by line: F_Z ≥ F(σ) − Z^{−σ/2}F(σ/2); log(F(σ/2)/F(σ)) ≤ κΣ_p p^{−1−σ/2}(1 − p^{−σ/2}) ≤ κ(1 + O(σ) +
+E₁(1) + O(1)) = C₂κ; σ = 2(C₂κ+1)/log Z gives F_Z ≥ (1 − e^{−1})F(σ); log(1 + w) ≥ w − w²/2, Σ_{p>κ} p^{−2} ≤ 1/κ, Mertens
+for Σ_{p≤κ} 1/p and ≤ 1/3 for the excluded prime. All uniform in κ ≥ 1 and in σ ∈ (0, ½]. Numerically sanity-checked
+the shape (not needed).
+
+### Prop 1.2 / Remark 1.3 — SOUND (after D3)
+Validity of each class: D = V = c₀²d₀R² with c₀d₀ | K, v(R) ≤ e satisfies Prop 5.1's predicate (s | d₀: t = 1 ≤ 2σ;
+s | c₀: t = 2 + 2ρ even ≤ 2σ + 2e), so Remark 1.3 is a special case of Prop 5.1 and needs no separate proof; its
+valuation table agrees with mine. Supply: ω_e(ℓ) ≥ Σ_{m ≤ Z, 4m | ℓ+1} κ^{ω(m)} (distinct since V < ℓ/4 and V injective);
+swap; Σ_{ℓ ≡ −1 (4m), ℓ∈(X^{1/2},X]} 1/ℓ ≥ (1 − 3η)(log 2)/(2·φ(4m))·(1 − o(1)) ≥ 1/(5φ(4m)) for η ≤ 1/6 ✓; φ(4m) ≤ 2m ✓;
+V ≤ m^{2+2e} ≤ Y ✓; log Z ≥ 4(C₂κ + 1) ⟸ u ≥ 40(C₂+1)κ² ✓; log(4m)... log x/log T ≥ 4κ for κ ≥ κ₀ ✓.
+
+### Thm 2.1 — SOUND-AFTER-REPAIRS (minor)
+Bookkeeping re-done independently: log S ≥ κ(log u − A_κ) = κ(1 + λ/(κ+1)) ≥ κ; log k ≤ λ − log 2u;
+log(S/k) ≥ (κ+1)log u − κA_κ − λ = A_κ + κ + 1 ✓. k!e_k ≥ S^k − C(k,2)T S^{k−2} ✓ (standard). T ≤ X^{1/5−1/2}S ✓;
+k² ≤ X^{3/10} ⟸ u ≥ (20/3)λ ✓ in both regimes. L ≥ ½(S/k)^k ✓, log L ≥ (κ+1)k − 1 ✓, k ≥ log N/(2u) − 1 ✓; small primes
+≤ X: e^u ≤ e^{O(λ² log λ)} ✓. The sieved set: p ∈ (X, N] prime with no ES^{(y,e)} solution avoids −4V mod ℓ (p ∤ Vℓ since
+p > X > ℓ, V) ✓. Monotonicity in e ✓. At e = ⌊λ⌋: saving ≥ c log N/(e·λ log λ) ✓. Finitely many small e via CAP_GROWING
+Thm 1.4 (≪_e, c_e > 0) — uniform constant by taking min/max over finitely many e ✓. Label correct; "ineffective" correct
+(BV/Siegel–Walfisz for the small e; the large-e part is effective).
+Minor (D4): the statement has log(e+3), the proof gives log(κ+2) = log(e+4) — harmless; the "u ≤ ½log N − (saving)"
+sentence is garbled (what is needed is e^u ≤ N exp(−c(log N)^{κ/(κ+1)}/(κ log κ)), true since u = O(λ² log λ ·
+(log N)^{1/3})).
+
 ### Thm 3.1 — the inequality is correct for V < ℓ/4; the "any cap, e = ∞ included" reading is FALSE (D1)
 See D1.
 
@@ -85,6 +134,16 @@ B6-moral "not even for a true statement" (the opposite is true: at e = ∞ the l
 not "all p ≥ p₀" — the large sieve can never give that, which is the trivial part of B6); replace "saturates at
 e ≍ log log N" by "saturates at e ≍ log log N *within the truncated family*"; add the full-family power saving at
 e ≥ (log N)^{1+ε} as a Remark (PROVED, elementary as sketched) and leave log log N ≤ e ≤ (log N)^{1+ε} as OPEN.
+
+**D3 (MINOR — citation).** §1 Input (G) misquotes Gallagher's Thm 7 (see the claim section above: range
+exp(√log x) ≤ Q ≤ x^b, short intervals x/Q ≤ h ≤ x, exceptional term modified not omitted). *Repair:* quote eq. (29)
+verbatim, state that (G) is used only in the form "for q ≤ T, q₁ ∤ q, y ≥ T^{4κ}, exp(√log 2y) ≤ T: relative error
+≤ C exp(−a log y/log T) for θ(2y; q, a) − θ(y; q, a)", and add "u ≥ 100κ²" (or C₂ ≥ 2) to Prop 1.2's hypothesis so that
+T ≥ exp(√log X).
+
+**D4 (MINOR — bookkeeping wording).** Thm 2.1 proof: log(κ+2) vs log(e+3) mismatch; the sentence "u ≤ … ≤ ½ log N −
+(saving)" should read "e^u ≤ N·exp(−c(log N)^{κ/(κ+1)}/(κ log κ))", which holds since u ≪ κ² log κ (log N)^{1/(κ+1)}
+≤ (log N)^{1/3+o(1)} + O(λ² log λ).
 
 **D2 (MINOR — scope).** Cor 5.2(i) "within the shot form y = pA every ES^{(y,e)} certificate at every modulus is a class
 of 𝒟_e(M)" and Prop 5.3 "every integral solution of this shape is in ℛ(M)" omit the hypothesis p ∤ xM: solutions with
