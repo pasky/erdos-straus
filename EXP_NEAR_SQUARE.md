@@ -27,7 +27,7 @@ for s ≥ a/2, n_s mod M depends only on s mod L_M, so the class pulls back to a
 * Larger H (all ℓ ≤ 43) with the greedy split: node budget exhausted (greedy imports many ℓ, then stalls). Heuristic issue.
 
 **Reformulation (binary Cantor core).** Integer square points of 4^x + 105: x = 2, 3, 4 (11², 13², 19²) and x = −2
-((41/4)²); no others for −6 ≤ x ≤ 40 (checked). On the Cantor set C = Π_ℓ {4, −2} ⊂ Ẑ, the ℓ-component is exact, so a class of
+((41/4)²); no others (PROVED, R244 repair D13: for x ≥ 0, (y − 2^x)(y + 2^x) = k is a finite factorisation check; for x = −a < 0, (y − 1)(y + 1) = k·4^a with gcd(y − 1, y + 1) = 2 forces {y ∓ 1} = {2d, 2^{2a−1}k/d} (d | k), and |2^{2a−1}k/d − 2d| = 2 bounds a). On the Cantor set C = Π_ℓ {4, −2} ⊂ Ẑ, the ℓ-component is exact, so a class of
 modulus M meets C in a cylinder over supp(L_M) (exponents of ℓ irrelevant). Covering C is a finite boolean problem over
 {A, B}^S for the finite set S of ℓ involved: script `z11_cantor.py`.
 
@@ -53,7 +53,7 @@ MMAX 10⁵): the DFS follows one surviving lineage through all of H and dies at 
 
 **Quaternary core.** The C tree (`z11_tree.c` on the z11_pool output, H = all ℓ ≤ 200) grinds in a region whose open path is
 a gluing of *all four* square points (labels A = 4 on {5, 7, 11, 23, 29, 31}, B = −2 on {3, 13, 17}, c = 2 on {19, 43}, d = 3
-on {41}, generic only at 83). So the true mixed-point set is the label Cantor set C₄ = Π_ℓ {4, −2, 2, 3}.
+on {41}, generic only at 83). So the open path observed lies near the label Cantor set C₄ = Π_ℓ {4, −2, 2, 3} (Assessment; R244 repair D6: other stuck regions are generic points and ℓ-lines, not label points).
 `z11_cantor.py … 4,-2,2,3` (brute force over 4^|S|): ℓ ≤ 19: 2 of 65 536 patterns uncovered; ℓ ≤ 31: 4 of 4 194 304
 (all = σ₀ with 19:2, 29:−2 and 23, 31 ∈ {4, −2}). `z11_cantor_dfs.py` (primes in increasing order, QMAX 10⁶, MMAX 3·10⁵):
 survivors 4, 4, 1, 1, 2, 4, 1, 2, 4, 2, 4, 8, 8 up to ℓ = 41, then grow ×3 per prime (19 008 at ℓ = 79): for large ℓ the
@@ -66,8 +66,10 @@ tree also explodes at large ℓ (per-ℓ class supply too thin). Not decided at 
 *σ-pure* if all ℓ | ord_q(4) carry the same label x; then ν(σ) ≡ s_x² (mod q^e) for every e with ord_{q^e}(4) supported on
 those ℓ. If every odd prime factor of M is σ-pure (labels may differ between primes) then ν(σ) is a unit square mod M
 (CRT of squares; the 2-component k ≡ 1 mod 8 is a 2-adic unit square), hence lies in no ET class of modulus M (an ET
-class containing a unit square residue r mod M would contain integer squares m² ≡ r, contradicting ET Prop 1.6 /
-(J)55-type T1 vanishing). *So every class covering a label point uses a σ-mixed prime (or a prime dividing some s_x).*
+class containing a unit square residue r mod M would contain integer squares m² ≡ r, which no polynomial ES family solves:
+ET p. 7 (Mordell/Schinzel) with the converse half of ET Prop 1.9, i.e. the T1 argument of EXPONENT_COVERING Thm 1.2 —
+R244 repair D5). Primes q | k are harmless too: ν(σ)_q ≡ 4^σ = (2^σ)², a unit square for every σ (R244 repair D4), and
+squareness at q^e only depends on ord_q(4) (Hensel). *So every class covering a label point uses a σ-mixed prime (or a prime dividing some s_x).*
 For pure σ (constant label x) only the D_q, q | s_x, survive — D₁₉ (x = 4: needs μ₃ ≡ 4 mod 9), D₄₁ (x = −2: μ₂, μ₅),
 D₁₁ (x = 2: μ₅), D₁₃ (x = 3: μ₂, μ₃) — and each depends only on ℓ ∈ supp ord_q(4); a mixed point evades them by putting
 a different label on exactly those ℓ. This is the whole mechanism of "mixed points": **they are the points where the
@@ -82,7 +84,7 @@ measure / stuck nodes at depth cap D:
 |---|---|---|---|
 | 105 | 9.0·10⁻⁹ / 80 | 3.6·10⁻¹⁰ / 959 | 3.3·10⁻¹¹ / 157 269 |
 | 297 | 1.2·10⁻⁸ / 62 | 4.3·10⁻¹⁰ / 1 748 | 2.3·10⁻¹¹ / 128 092 |
-The measure falls ~×20 per level but the stuck nodes multiply ~×10–100 per level: a supercritical branching process.
+Per two levels the measure falls ×25, ×11 (105) while stuck nodes multiply ×12, ×164 (105) / ×28, ×73 (297) (R244 repair D9): this greedy tree behaves like a supercritical branching process (Assessment, from three depths of one heuristic — R244 repair D10). "Uncovered measure" = 1 − Σ leaf measures in double precision (cancellation near 10⁻¹¹; R244 D8: should be summed over open nodes); the stuck column counts depth-capped nodes.
 k = 297 has a **single** square point (4³ + 297 = 19²; checked −12 ≤ x < 60), so it has no mixed points at all, yet
 diverges the same way. Its stuck nodes are labelled "3" at every split prime except ℓ = 3 (and a few others): they lie
 near the **ℓ-line through the square point** X_{x,ℓ} = {μ : μ_ℓ′ = x for all ℓ′ ≠ ℓ, μ_ℓ ∈ ℤ_ℓ free}. On X_{3,3}:
@@ -92,7 +94,7 @@ q ≠ r), but with infinitely many generic primes. Mechanism of divergence: to u
 the tree must split on ℓ′; the child on the line (μ_ℓ′ = x) is pure at the new primes (Lemma 1.2) and survives, and the
 ℓ′ − 1 off-line children are new 2-dimensional lines. Covering converges only if fibres are nearly complete.
 
-**Line coverage (CERTIFIED finite computation of coverage, witnesses not replayed; `z11_line.py 1 297 3 3 9 10⁶ 3·10⁵`).**
+**Line coverage (CERTIFIED: R244 replay, review_r244_line297.py, 9 explicit witnesses — R244 repair D7; `z11_line.py 1 297 3 3 9 10⁶ 3·10⁵`).**
 On the 3-line X_{3,3} of k = 297 (μ_ℓ′ = 3 exactly for ℓ′ ≠ 3, μ₃ ∈ ℤ₃ free) the whole of ℤ₃ is covered by classes
 with v₃(L_M) ≤ 2 and arbitrary other order support (QMAX 10⁶, MMAX 3·10⁵; no residue left at any precision 3², …, 3⁹);
 with the smaller supply QMAX 3·10⁵, MMAX 10⁵ one residue (μ₃ ≡ 42 mod 3⁵) remained. So this line is covered (no sterile point on it) — but only by classes whose periods involve large primes ℓ′,
@@ -100,7 +102,7 @@ which a tree of Ẑ must split on. The obstruction to a *small* covering is comb
 
 ## 3. Other shapes (goal 3)
 
-**Lemma 3.1 (integer unit-square points for c₀·4^s + k; PROVED, elementary).** Let c₀, k > 0, k odd. ν(x) for x ∈ ℤ is
+**Lemma 3.1 (integer unit-square points for c₀·4^s + k; PROVED, elementary).** Let c₀, k > 0, k odd, **4 ∤ c₀ and k ≡ 1 (mod 8)** (R244 repair: for 4 | c₀ the criterion fails, e.g. 12·4^s + 1 = 3·4^{s+1} + 1 has a unit-square point at x = −1; normalise 4 ∤ c₀ by shifting s; k ≡ 1 (8) is the 2-adic condition ν₂ = k ∈ Sq^×). ν(x) for x ∈ ℤ is
 a profinite unit square iff c₀·4^x + k = 4^j for some j ≥ 0 (odd part a unit at every odd prime ⇒ the root is ±2^j),
 which forces x = 0 when c₀ is odd (x > 0: LHS odd ≠ 4^j unless j = 0, impossible; x = −a < 0: c₀ + k·4^a = 4^{a+j}
 with c₀ odd forces a + j = 0, then k < 0) and is impossible for c₀ ≡ 2 (mod 4). So: **unit-square point ⟺ c₀ + k = 4^j.**
@@ -118,7 +120,8 @@ the search, not replayed through ec_cert; many are probably Mordell-immediate as
 | 3 | 13 | 25, 49, 97, 121, 145, 169, 193, 217, 241, 265, 289 | 1 (PROVED uncoverable, Lemma 3.1), 73 |
 | 5 | 12 | 17, 65, 113, 137, 161, 185, 233, 257, 281 | 41, 89, 209 |
 Integer non-unit square points (x ∈ [−12, 60)): every open (c₀, k) has ≥ 1 (mean 2.4: e.g. (5, 209): x = −1, 2, 3, 5;
-(2, 17): 1, 2, 4); the covered ones have mean 0.8 (Assessment: square points — and the lines and mixed points through
+(2, 17): 1, 2, 4); the covered ones have mean 0.8 (R244 repair D12: 2/7, 5/11, 8/9 of the covered offsets for c₀ = 2, 3, 5 are
+Mordell-immediate, so this correlation should be recomputed on non-Mordell offsets only; Assessment: square points — and the lines and mixed points through
 them — are what make coverings expensive; the correlation is not a dichotomy: (2, 41), (2, 89), (2, 113), (3, 97),
 (3, 193) have two square points and are covered; (1, 297), (2, 233), (2, 257), (2, 281) have one and are open).
 Two-parameter 4^a·9^b + k: not run (time); note u = 4^a9^b is itself a square, so unit-square points are the
@@ -127,25 +130,26 @@ factorisations k = (y − w)(y + w) with w = 2^a3^b, y = ±2^i3^j — finitely m
 ## 4. Which k admit a covering? (goal 4; CONJECTURE + Assessment)
 
 Exact criterion (PROVED, EXPONENT_COVERING Thm 1.4): a finite covering of {c₀4^s + k} exists iff Λ ∩ S′ = ∅.
-Known pieces of S′ ∩ Λ: (a) unit squares — occur iff c₀ + k = 4^j (Lemma 3.1), PROVED sterile. (b) Nothing else is known.
+Known pieces of S′ ∩ Λ: (a) unit squares — *integer* ones occur iff c₀ + k = 4^j (Lemma 3.1, 4 ∤ c₀), PROVED sterile; whether Λ meets Sq^× at non-integer μ ∈ Ẑ is OPEN (the (EH_k)-type question of EXPONENT_COVERING §2; R244 repair: formerly read as a full classification). (b) Nothing else is known.
 Non-unit square points x are covered by D_q (q | s_x) on the clopen set {μ_ℓ ≡ x mod ℓ^{v_ℓ(ord_q 4)}, ℓ | ord_q(4)};
 the sets around them that the D_q switch off are the *label points* (Lemma 1.2) and the *ℓ-lines* (§2).
 * Heuristic for non-sterility (Assessment): a non-constant label point has a positive-density set of mixed primes
   (any q with ℓ^j | ord_q(4) at a level where two labels differ, and one more prime factor); the expected number of ET
   classes containing it, Σ_q τ((q+1)/4)²/q over those q, diverges. Same for ℓ-lines (the q with ℓ | ord_q(4)). So no sterile
   point is expected; every computed point was covered (μ* in II2 919; binary core Result 1.1; the 3-line of 297).
-* **CONJECTURE E (weak; exponential coverability).** For c₀ ≥ 1 and k ≥ 1 with c₀4^s + k non-trivial, a finite covering by ET
+* **CONJECTURE E (weak; exponential coverability).** For c₀ ≥ 1 with 4 ∤ c₀ (R244 repair: false without it, e.g. (12, 1), (28, 9)) and k ≥ 1 with c₀4^s + k non-trivial, a finite covering by ET
   and divisor classes exists iff c₀ + k is not a power of 4. In particular k = 33, 105, 273, 297 (c₀ = 1) are coverable.
-  Evidence: certified/surveyed coverings for 9 + 7 + 11 + 9 offsets; Λ ∩ Sq^× = ∅ screens; binary core of 105; line of 297.
+  Evidence: 3 genuine certified coverings (57, 177, 225) + 12 unreplayed non-Mordell survey coverings (R244 repair D12); Λ ∩ Sq^× = ∅ screens; binary core of 105; line of 297.
   Counter-evidence: none, but the computed coverings for the open k do not terminate (§2): the conjecture predicts
   coverings that are *large* — trees whose class periods involve many primes ℓ ≥ 200.
 * What this says about B1. B1 (no finite covering of all n, POINTWISE_SIZE Thm M) uses only that the parameter space
-  contains a T1 point. For an exponential family the parameter space is Ẑ (exponents) and its image avoids Sq^× unless
-  c₀ + k = 4^j, so the *qualitative* B1 obstruction disappears; what remains is *quantitative*: the square points that
+  contains a T1 point. For an exponential family the parameter space is Ẑ (exponents) and its image is not known to meet Sq^× (R244 repair: only integer unit-square points are classified) unless
+  c₀ + k = 4^j, so the *qualitative* B1 obstruction is not known to persist (R244 repair: was "disappears"); what remains is *quantitative*: the square points that
   Λ does contain (non-unit) force every covering to contain a covering of neighbourhoods of their label set and lines,
   whose cost is governed by a branching process (fibre completeness ≥ 1 − 1/ℓ). So "finite coverings exist but are
-  huge" is the expected shape of B1 over Ẑ-parameter spaces; certificates are practical only when the square points are
-  isolated by small-period D_q's (the nine certified k).
+  huge" is the expected shape of B1 over Ẑ-parameter spaces; certificates have so far been practical only where the
+  square points are isolated by small-period D_q's or absent (of the nine certified k, 81, 177, 249 have no integer square
+  point and 5 are Mordell-immediate — R244 repair D11).
 
 ## 5. Regenerating the scratch pools (deleted from /tmp to save disk)
 Nothing committed depends on them. To rebuild them (single core, ≤ 8 GB; ulimit -v 8000000):
