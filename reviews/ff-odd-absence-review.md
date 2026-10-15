@@ -3,8 +3,25 @@
 Reviewer: R240 (side agent, branch side-agent/review-ff-odd). Merged author branch side-agent/ff-odd-absence at review start.
 From-scratch scripts: `scripts/review_r240_*`.
 
+Repairs applied: none (no FATAL/MAJOR found; the minors below are editorial/citation items left to the author).
+
 ## Summary verdicts
-(filled in as the review proceeds)
+| Claim | Verdict |
+|---|---|
+| Lemma 1.1 (root-product identity) | **SOUND** |
+| Thm 1.2 (Case B law E(0)^s = ε, incl. R-O226 λ-repair) | **SOUND** |
+| Cor 1.3 / Cor 1.5 (vanishing law, ord(−u₀) ∣ 2n) | **SOUND** |
+| Thm 1.4 (Case A law E(0)^{2α} = 1) | **SOUND** (m-2, m-3 notation/citation) |
+| Prop 1.6 (sharpness on u₀^s = −1) | **SOUND** (m-4 citation for tuple ⇒ family) |
+| Cor 1.7 (k ≥ 2 parity z ≡ t ≡ s) | **SOUND** |
+| Lemma 2.1 (union bound on a slice subset) | **SOUND** |
+| Thm 2.2 (q = 9, A = T: no finite linear covering; 3.195 < 4) | **SOUND** — independently recounted s ≤ 16 (all patterns) and 854/950 s = 20 patterns, Case A α = 4; own re-summation reproduces 3.194887, and 3.406 < 4 without the author's un-cross-checked s = 20 counts |
+| "ES_q(T) has no finite linear covering for every q = 3^r, r ≥ 2" (report) | **SOUND** given (J)56 Thm 8.1 (r ≥ 3) + Thm 2.2 (r = 2); should be stated in the document (m-5) |
+
+Reproduction: `gcc -O2 -o /tmp/r240_bounds scripts/review_r240_bounds.c -lm && /tmp/r240_bounds 2 80 > /tmp/r240_bounds.txt`
+(51 MB, not committed); `uv run --with cypari2 python scripts/review_r240_enum.py S [--compat-only] [--maxcost C] [--mincost C]
+--cmp data/zc` (outputs in `data/review_r240/enum_*.txt`); `uv run python scripts/review_r240_certify.py /tmp/r240_bounds.txt
+0.025752412429 0.17046324661 data/review_r240/enum_{4,8,12,16,20_c5,20_c6}.txt [--author20 data/zc/p_20.txt]`.
 
 ## Lemma 1.1 (root-product identity)
 Re-derived independently. At a root β of V (multiplicity counted), C(β) = −W(β) and M(β)W(β)C(β) = β^s, so −M(β)W(β)² = β^s;
@@ -81,7 +98,9 @@ Cross-route consistency: s = 4 all 5 routes on all 27 patterns; s = 8 every rout
 of cost ≤ 9⁴ (226 of 343 patterns run by ≥ 2 routes): 0 disagreements. Every tuple found also satisfied E(0)^s = ε (0 law failures,
 ≈ 54 000 tuples). s = 4 total 106 also equals the independent Python enumerator (`review_r240_law.py`, a third method).
 **s = 20:** recounted the 700 ε-compatible patterns of cost ≤ 9⁵ (factoring routes cost +1): 0 mismatches with `p_20.txt`; all
-138 136 tuples found are on P₈ (as the law predicts: at s = 20, ε = −1 forces E(0)⁴ = −1). [cost-6 extension: see below.]
+138 136 tuples found are on P₈ (as the law predicts: at s = 20, ε = −1 forces E(0)⁴ = −1). Extension to cost 9⁶: 154 further
+patterns (620 tuples, all on P₈), 0 mismatches. In total **854 of the 950 compatible s = 20 patterns recounted, 0 mismatches**
+(the 17 author SKIPs are among the 96 not recounted; they stay route-bounded).
 
 **Case A α = 4:** independent enumeration via z = (F + b1)/a1' and ordered factorisations T⁴ + z = b1·K·F (`caseA()` in
 the GP file, `review_r240_caseA.py`): per-pattern six-slice counts equal `data/zc/caseA9_4.txt` (325 data, six-slice mass
@@ -93,8 +112,8 @@ patterns):**
 * Variant A (my counts s ≤ 16 and s = 20 cost ≤ 5, author's s = 20 counts for the rest, SKIPs route-bounded): Case B
   2.9670390099 — identical to the author's figure; tail (re-run `fz1_tail 2 80 8 1e-3 1 1`) 0.025752412; Case A (re-run
   `zc_caseA9.py`) 0.17018962 + 2.7363·10⁻⁴; **certified total ×1.01 = 3.194887 < 4.**
-* Variant B (no author count used at s = 20: only my recounted patterns are exact, all other s = 20 patterns route-bounded):
-  Case B 3.5850789, **total ×1.01 = 3.819107 < 4.** So the certificate does not depend on the un-cross-checked part of the
+* Variant B (no author count used at s = 20: only my 854 recounted patterns are exact, the other 96 s = 20 patterns
+  route-bounded, 0.3083): Case B 3.1760856, **total ×1.01 = 3.406024 < 4** (with the cost ≤ 9⁵ recount alone: 3.819107 < 4). So the certificate does not depend on the un-cross-checked part of the
   author's s = 20 enumeration (the author's trust point).
 
 **Other checks.** Cor 1.7's archived-data claim reproduced from `data/fz/enum9/e_{3..22}.txt.gz` with my own awk filter
@@ -128,5 +147,5 @@ No FATAL, no MAJOR.
   (Thm 2.2 + (J)56 Thm 8.1) is made only in the agent report; FF_ODD_ABSENCE should state it as a corollary, and on merge
   FF_STERILE_SMALL §7 ("q = 9 (k = 1) is not closed") and §8 ("Open: … q = 9 with k = 1") need a forward pointer.
 * **m-6 (MINOR, trust point now discharged).** The s = 20 exact counts were not cross-checked by the author. R240's recount
-  (700 + cost-6 patterns, 0 mismatches) and variant B (total 3.819 < 4 without any author s = 20 count) close this; suggest
+  (854 of 950 patterns, 0 mismatches) and variant B (total 3.406 < 4 without any author s = 20 count) close this; suggest
   citing this review in the Thm 2.2 proof.
