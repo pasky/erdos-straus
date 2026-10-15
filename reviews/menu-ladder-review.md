@@ -195,3 +195,17 @@ for non-existence near μ = 0 (restrict a base-2 class near μ = 0 to even s), b
 9. (MINOR) Cor 4.2 table / §5 quote O239 results proved for 15·4^s + 1 (base 4) as statements about 15·2^s + 1. Add one
    line: a base-2 class near μ = 0 restricts to a base-4 class near μ = 0 (s ↦ 2s), so base-4 non-existence implies base-2
    non-existence for the corresponding sub-menu.
+10. (MINOR) Memo z18_primes_slices "Result (PROVED…)": "(n, Y)-polynomial families can escape Schinzel only where u is
+    frozen or thin, i.e. on density-0 sets" goes beyond Prop 7.1 (which only covers valid sets containing a FULL slice
+    progression). Repair: move that sentence to the Assessment section.
+11. (MINOR) Reproducibility: MENU_LADDER Lemma 2.3 (ii) and memo z18_real_place cite "0 of 5041–33489 grid points pass
+    positivity" from "the POS counter in the debug copy" of `z18_quad.py`; the committed script has no positivity counter.
+    Repair: commit the counter or drop the numbers (for even D the statement is proved anyway, D3).
+
+## Overall assessment
+No FATAL defects. The mathematical core — Prop 1.1, Computation 1.2, Lemmas 2.1–2.3, Prop 3.1, **Theorem 4.1**, Thm 6.2,
+Prop 6.3, Prop 7.1 (narrow), §8 rung 2 — re-derives correctly; Computation 1.2 and Theorem 4.1 are independently reproduced
+from scratch (different 2-adic method; exhaustive-per-(a, b) Type II search with a firing negative control). One MAJOR
+overclaim (D5: the finite-cover refutation in §6 is unproven; the pointwise refutation stands), the rest are MINOR wording /
+scope / reproducibility issues. Labels in §5, §7 (Assessment), Cor 4.2 are appropriate. ES is not solved; 15·2^s + 1 remains
+undecided, as the document correctly says.
