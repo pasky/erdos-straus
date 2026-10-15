@@ -164,3 +164,21 @@ Re-proved line by line; all five rearrangements and the degenerate family re-ver
   (principal degree-1 primes of O_K splitting completely in K(ζ_M) have N𝔭 = p ≡ 1 (mod M), a square class); it is unlabelled
   — label it Assessment or give the 2-line argument incl. that the ω_i must be a ℤ-basis of O_K (else the
   representable set is an order's) (MINOR D10). The x³ + 2y³ caveat is correct.
+
+### Remark 1.4 (SYNTHESIS_SPARKS7 Cor 1.3's "top-part step fails for degree 3" is wrong) — SOUND
+Checked against SYNTHESIS_SPARKS7 §1: the only degree-2-specific steps are Thm 1.2 (c1) α = 3 ("Q on the rational line
+E = 0 has degree exactly 2") and (c2) μ = 2 / γ = δ = 1 / μ = 1 (products of linear forms); each is replaced by (F1)–(F3)
+as claimed. The Cor 1.3 parenthesis was an over-cautious scope remark, not a proved obstruction. Correction justified.
+
+### Remark 3.3 (dictionary Type I ↔ units of ℚ[x]/(P)) — SOUND as Assessment
+The precise part (non-collapsing Type I needs non-constant units mod P with 4ABD ≡ 1, or 4ABD − 1 | A + B) is exactly
+the proof's dichotomy; the (e0) branch only yields the degenerate family, so "or divisibility 4ABD − 1 | A + B" is
+vacuous for prime P (could be dropped). The from-scratch controls confirm the dictionary: 4u² − 4v² − 1 (units u ± v)
+has non-collapsing valid families; u³ + 2v³, u² + v², u² − 2v² − 1, u² + v (constant units) have none in the search.
+The "rungs sorted by (ℚ[x]/(P))^×" sentence is correctly labelled Assessment.
+
+### §2 "What is left" and AGENT_REPORT_O248 — SOUND (labels OK after D9/D10)
+"What is left" is labelled Assessment. Report summarises the document faithfully; its label list "Thm 1.1′ … §4
+identification: PROVED" should carry D8/D9 (the §4 pull-back needs the pointwise witness argument; its "relevant object"
+phrasing is Assessment). Report's iteration I4 self-correction (windows not a lower bound) is honest and correct for the
+example given: N(u + v + vθ... ) aside, (u, v, v) with u² − 2v² = 1 was not re-checked by the reviewer (outside scope).
