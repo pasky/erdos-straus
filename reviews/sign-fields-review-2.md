@@ -12,13 +12,16 @@ independent ES search s ≤ 10), further `scripts/review_r236_*.py` below.
 | Thm 1.3 (ES for all 4^s + k, nine k) | SOUND (independently re-certified); MINOR wording/novelty issues |
 | Lemma 1.1 | SOUND (MINOR: s ∈ {0,1} handled only by the certificates) |
 | Lemma 1.2 | SOUND statement, proof has a slip at ℓ = 0 (MINOR) |
-| §1.4 OPEN list / square points / k = 105 | (pending) |
-| Prop 2.1 | (pending) |
-| Thm 2.2 (a)–(d) | (pending) |
-| 8/131, 8/241 | (pending) |
-| §3 Prop 3.1 + Assessment | (pending) |
-| §4 Assessment | (pending) |
-| novelty | (pending) |
+| §1.4 OPEN list / square points / k = 105 screen / mixed points | SOUND-AFTER-REPAIRS (MINOR D5–D8); screen re-certified |
+| Prop 2.1 | SOUND (MINOR: non-unit A*-class) |
+| Thm 2.2 (a)–(c) | SOUND (reformulation of classical T1, D11) |
+| Thm 2.2 (d) + "uniqueness of 4" | SOUND-AFTER-REPAIRS — **MAJOR D9**: u ≡ 3 (4) parenthetical false; uniqueness only for coprime slots at u ≡ 1 (4) |
+| 8/131, 8/241, 11/37 | SOUND (counts off by one, D10; conclusion unaffected) |
+| §3 Prop 3.1 + Assessment | SOUND (MINOR D13, D14) |
+| §4 Assessment | SOUND |
+| novelty | modest; nothing found in literature on 4^s + k |
+
+No FATAL defects. One MAJOR (D9), fourteen MINOR.
 
 ## 1. Theorem 1.3 — SOUND
 
@@ -137,3 +140,44 @@ Defects:
 - **D11 (MINOR, novelty).** (a)–(c) are the classical quadratic-reciprocity T1 argument (Yamamoto/Schinzel-type: ν/n with
   4 | ν has no polynomial-family solution on square classes) restated as a containment ℚ(√−u) ⊂ ℚ(ζ_{νu}); label is
   correct (PROVED, elementary) but it is a reformulation, not new information — say so next to "(J)46 SHARP 2".
+- **D12 (MINOR, 8/131 reading).** "all forbidden-half Frobenii land in the complementary ℚ(ζ_{8u})-class" explains the
+  absence of *8-slots*; that this is the same as "8/131 unsolvable" needs "every 3-term decomposition of ν/p (p prime)
+  arises from a ν-slot of a word of p" — true by the Elsholtz–Tao-type parametrisation for Type I/II solutions, but it
+  should be cited (DEDEKIND_ES / (J)32) rather than left implicit. (Unsolvability itself independently re-checked.)
+
+## 4. §3 non-genus layer — Prop 3.1 SOUND (trivial); Consequence SOUND as Assessment, with a sharper reason available
+
+Re-derivation: an odd A at level u satisfies A ≡ −1 (u) ⇒ gcd(A, u) = 1, so A = ∏ r^{a_r} over odd r ∤ u, r | p + u,
+0 ≤ a_r ≤ v_r; t = (A + 1)/u ≥ 1 and v = (p + u)/A ≥ 1 automatically. χ(w) = (A/p) = (p/A) = (−u/A) (p ≡ 1 (4)), the
+ℚ(√−u)-character at A; with A ≡ −1 (u) this is "σ_A = c on Σ_u ⊂ ℚ(ζ_{4u})", a function of A mod 4u ✓.
+- **D13 (MINOR, Prop 3.1 scope).** The statement is about words with *any* v; if "level u carries a word" is read with
+  the census convention u ≤ v (NEAR_SQUARE_EXIST §1), the size condition A ≤ (p + u)/u enters and the event is no longer
+  a function of (σ_r, v_r) alone. Repair: "(words with this u, v arbitrary; the mirror word lives at level v)".
+- **D14 (MINOR, Assessment could be made a lemma).** The sentence "the only constraints … that hold for all m in a
+  congruence class are (i), (ii)" is heuristic (Schinzel-H-type independence). The natural non-abelian candidate — the
+  class-group relation ∏[𝔯]^{a} = [(m + √−K)] = 1 in Cl(F) for the prime ideals over the r | m² + K — projects to
+  Gal(Σ_u/ℚ) only through H_F ∩ ℚ^{ab} = the genus field of F (Σ_u is abelian over ℚ). That is the precise reason Rédei /
+  4-rank data cannot produce a *forced* constraint on the σ_r beyond genus, and is provable; suggest stating it, and keep
+  "only constraints" as Assessment.
+
+## 5. §4 Chebotarev-in-family — SOUND (Assessment, correctly labelled)
+
+The reduction for a prime A = r re-derived: u ≡ −p (r), 1 ≤ u ≤ r + 1, u | r + 1; χ = −1 ⟺ (−u/r) = −1. Since
+−u ≡ p (mod r), the condition simplifies to **(p/r) = −1 and (−p mod r) | r + 1** — cleaner than the stated form
+(equivalent: −d ≡ p). MINOR suggestion only. (F1)–(F4) are reasonable reductions to B1/B2/B3/B6; no claim exceeds
+Assessment.
+
+## 6. Novelty / literature
+
+Jina web searches ("Erdős–Straus … n = 4^k + c", "… powers of 2 special forms") found nothing on ES for 4^s + k; the method
+is EXPONENT_COVERING (J)22 with base 4 and offset k (the text says so). Elsholtz–Tao classes and Mordell 1967 are the
+only external inputs; Bertók–Hajdu and Filaseta–Finch–Kozek are analogies (FFK flagged "from memory" — not accessible
+here either, not checked). Novelty: the certified families are new to my search but modest (D1); §2 is a Galois
+reformulation of T1 (D11) with one genuinely informative point (the 1/φ(ν) vs 1/2 count at u ≡ 1 (4)); §3–§4 negative
+Assessments.
+
+## 7. Agent report (AGENT_REPORT_O232)
+
+- **D15 (MINOR).** SHARP 1 and the "Caveats" bullet repeat the false u ≡ 3 (4) statement (D9) and "for 8, 12, … it is a
+  proper Chebotarev subset" without the level restriction. Repair as D9.
+- Report claims "independent brute force for s ≤ 8"; I extended this to s ≤ 10 for all 13 offsets (pass).
