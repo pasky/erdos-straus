@@ -76,3 +76,19 @@ This explains both O220 observations exactly (q = 27: nothing for s ≤ 12, α �
 *Interpretation.* The law is a reciprocity statement: the "local symbol" w(0)/C(0) of the curve-data at T = 0 is a product of
 local symbols at the other places (roots of v, w, m', and ∞), where the defining equation makes every symbol a power of T^s.
 Galois descent plays no role (the law is the same over every field); the F₃-flavour comes only from lc's ∈ {±1}.
+
+## 2. Closing q = 9, k = 1
+
+**Lemma 2.1 (union bound on a sub-family of slices; PROVED, as FF_STERILE_SMALL §7).** Let P ⊂ F_q^* ∖ F₃^* be a set of slice
+labels u₀. If Σ_{Case B tuples with −E(0) ∈ P} q^{−⌈(s−1)/2⌉} + Σ_{Case A data with −E(0) ∈ P} q^{−α} < |P|, then some slice u₀ ∈ P
+has covered relative measure < 1, so O(q, T) ≠ ∅ and ES_q(T, ·) has no finite linear covering.
+*Proof.* The covered measure of the slice u₀ is at most the sum of the masses of the cylinders lying in it (FF_STERILE_SMALL §7:
+on u₀ ∉ F₃^* every cylinder has depth ≥ 2 and the stated relative mass; a family lies in exactly one slice, u₀ = −E(0)). Sum
+over u₀ ∈ P and average. The rest (positive uncovered measure ⇒ O ≠ ∅ ⇒ no finite linear covering) is verbatim §7 of
+FF_STERILE_SMALL. ∎
+
+**Choice of P at q = 9.** F₉^* ∖ F₃^* = {±i} ∪ P₈, P₈ := {u₀ : u₀⁴ = −1} (the four primitive 8th roots; −P₈ = P₈). By Corollary
+1.5 a family of level n lies on P₈ only if 4 ∣ n, and (Case B) only if its pattern has ε(s; a, z, t) = (−1)^{s/4} (since
+E(0)^s = (E(0)⁴)^{s/4} = (−1)^{s/4} for E(0) ∈ P₈). Exact masses (s ≤ 12, from §1's dump): the six slices carry 3.927 in total,
+of which 2.168 on {±i} (> 1 per slice: the union bound cannot work there) and 1.759 on P₈ (0.44 per slice). So P = P₈ with
+budget |P| = 4.
