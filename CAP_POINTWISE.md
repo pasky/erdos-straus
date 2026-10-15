@@ -100,3 +100,26 @@ LITERATURE_2026 (vii) "test case" (q = 4x − p a prime non-residue, x = (p+q)/4
 relaxation of that window's exponent budget, so the subgroup-level success — which is forced — is already an
 ES^{(y,e)} solution with e < q. This answers CAP_INTERPOLATION's "unconditionally no bound on e*(n) in terms of n is
 known" with a polynomial bound, and with an explicit (log n)² bound under GRH.
+
+## 3. Numerics (goal 3): window caps for all primes p ≡ 1 (mod 4) below 10⁶
+
+**Lemma 3.1 (exact cap of a window shot; PROVED).** In Thm 1.1/1.1′ with Q = ∏ s^{a_s} (actual exponents) and
+b_s := v_s(K): the shot solution has den z = Q₁² with v_s(Q₁) = (a_s − b_s)^+, so its cap is max_s (a_s − b_s)^+;
+**cap 0 ⟺ Q | K (an ES solution of Type II shape).**
+*Proof.* g + 1 = 4(K + Q²)/m, s ∤ 2m, so σ_s := v_s(g+1) = v_s(K + Q²) = min(b_s, 2a_s) if 2a_s ≠ b_s, and ≥ b_s = 2a_s
+if 2a_s = b_s. EXPONENT_CAP Prop 1.2: v_s(Q₁) = (a_s − σ_s)^+, which is 0 if 2a_s ≤ b_s and a_s − b_s otherwise. ∎
+So the window cap is cap(m) := min{e : −K ∈ {∏ s^{2a_s} : 0 ≤ a_s ≤ b_s + e} mod m}, and e*(n) ≤ min_m cap(m).
+
+`scripts/z12_window_scan.py 1000000 1000 200` (data/z12_window_scan_1e6.txt; 0.5 min): all 39 175 primes
+p ≡ 1 (4), p ≤ 10⁶; windows m ≤ 1000 (prime and composite, Thm 1.1′); every 200th prime's solutions rebuilt and
+checked with exact rationals against Def 1.1 (756 checks; cap formula of Lemma 3.1 confirmed in all).
+* q*(p) (least prime window) exists ≤ 227 for every p; record q* = 227 at p = 867 793 (log²p = 186); q*/log²p ≤ 1.3
+  throughout (EVIDENCE that the GRH bound (16 log p + 70)² is very generous; q* behaves like a least
+  prime non-residue in a class mod 8).
+* Cap at the least window q*: histogram 0: 24 266, 1: 9012, 2: 2448, 3: 912, 4: 699, 5: 998, …, max 41
+  (p = 575 717, 589 997; q* = 167). Always ≤ q* − 3 (Thm 1.1; asserted). The guaranteed cap behaves like a discrete
+  logarithm: it is large exactly when K has few prime factors.
+* Best cap over all windows m ≤ 1000: 0: 32 043, 1: 6887, 2: 238, **3: 7 (max)**; over prime windows only, max 5 (one p).
+  So "e*_win(p) ≤ 3 using windows ≤ 1000" for all p ≤ 10⁶ (EVIDENCE). (True e*(p) = 0 by ES itself; 7132 primes have
+  no cap-0 window ≤ 1000, i.e. their Type II ES solutions need a larger window or Type I.)
+* T1 control: no odd square a² ≤ 10⁶ has any window (Cor 1.2 T1 check), as proved.
