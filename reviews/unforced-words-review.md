@@ -33,3 +33,29 @@ admissible D and gives a positive word. (iii)⇒(i) with D = r; (i)⇒(ii) Lemma
 proof never uses n ≡ 1 (8) (for n ≡ 5 (8) r = 2 is allowed) — harmless. The proof is valid for composite n as well
 (X is coprime to n, so no ψ = 0 primes occur). Cor 1.2 ✓. Cor 3.1's "min = K(p)+1" for the certificate is also right:
 the certificate of the s-family cannot have another coordinate < s, because that coordinate's side is clean by K(p) ≥ s−1.
+
+## Claim 3 — Prop F′ (s = 3, 4, 7) and Cor 3.1: SOUND
+Re-derived. Odd r | p+s or sp+1 has ψ(r) = (p/r) = (−s/r); ψ(2) = +1 at p ≡ 1 (8). s = 3: 4 ∥ X, D ∈ {r, 2r}
+reaches the class 2 (3) (3 ∤ X). s = 4: ψ(D) = (−1/D) = −1 for every admissible D. s = 7: 8 | X, 7 ∤ X, ψ(r) = (r/7),
+r·⟨2⟩ = the NR coset ∋ 6. The 2-adic remark ("every word is a certificate when 4 | s or s ≡ 7 (8)") is also right:
+−s is then a fundamental-type discriminant whose Kronecker character is a character mod s with value −1 at −1, and
+(−s/2) = +1 = ψ(2) when s ≡ 7 (8).
+From-scratch brute force `scripts/review_r233_propF.py 100000` (all 2 384 primes p ≡ 1 (8) < 10⁵; every word of each
+family enumerated, cleanliness by full factorisation, Lemma S asserted): 0 mismatches of
+"unclean ⟺ certificate ⟺ unforced" for s ∈ {1, 2, 3, 4, 7}, both family kinds. Controls reproduce the author's
+numbers exactly: unclean ≠ certificate at s = 5: 310 (t) / 280 (u); s = 6: 328 / 183; s = 8: 297 / 290;
+unforced ≠ certificate only at s = 5: 24 (t) / 39 (u).
+Cor 3.1 follows (U = 0 or N₋ = 0 ⟹ all nine sides clean ⟹ K(p) ≥ 4 and p+7, 7p+1 clean). The "min = K(p)+1"
+clause is right (see Claim 2).
+
+## Claim 5 — Thm 3.2 (CONDITIONAL on Dickson): SOUND-AFTER-REPAIRS (D3, MINOR)
+Re-derived. With p = 1 + Mx and every prime power ℓ^{a_ℓ} ∥ M exceeding K+1, (s+1) | M and p+s = (s+1)L_s,
+sp+1 = (s+1)L′_s; the 2K distinct forms all have constant term 1 (≢ 0 mod ℓ | M) and, for ℓ > 2K+1, cover ≤ 2K < ℓ
+residues: admissible, no local obstruction, all leading coefficients positive. Prime factors of s+1 are ≤ K+1 and
+divide p−1, so ψ = +1; ψ(L_s) = ψ(s) = +1, ψ(L′_s) = ψ(1)ψ(s+1) = +1; a prime with ψ = +1 is clean. Label
+CONDITIONAL is correct. Illustration `scripts/review_r233_dickson.py K` finds the predicted primes:
+K = 2: p = 25 561, 53 281, 156 241; K = 3: 15 555 961, …; K = 4: 36 070 209 001, … — all with K(p) ≥ K verified by
+direct factorisation.
+**D3 (MINOR).** UNFORCED_WORDS.md §3, Thm 3.2 proof: "M = 8·∏_{3 ≤ ℓ ≤ 2K+1} ℓ^{a_ℓ} … (also 2^{a_2} > K + 1)" —
+as written the 2-part of M is 8, so for K ≥ 15 (s+1 = 16) (s+1) ∤ M and L_s is not integral. Repair: M =
+2^{a_2}·∏_{3≤ℓ≤2K+1} ℓ^{a_ℓ} with a_2 ≥ 3 and 2^{a_2} > K+1.
