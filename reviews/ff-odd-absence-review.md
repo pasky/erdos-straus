@@ -58,3 +58,41 @@ maps E(0) ↦ 1/E(0) and preserves (s, z, t) hence ε; P₈ is closed under inve
 E(0) ∈ P₈ and doubling is exact. Case A data counted on all six (or all) slices are upper bounds for P₈. The Frobenius remark is
 correct (coefficient Frobenius is a measure-preserving bijection of the slice set mapping valid families to valid families since
 A = T ∈ F₃[T]); it is not used by the proof. **SOUND.**
+
+## Theorem 2.2 (q = 9, A = T: no finite linear covering)
+**Logic.** Lemma 2.1 with P = P₈, |P| = 4. Only 4 | n survives (Cor 1.5), and for Case B only ε(s; z, t) = (−1)^{s/4} (Thm 1.2);
+Case A only 4 | α (Thm 1.4). All filters re-derived above. Filter code: `eps_ok` (zc_sum9.c) and `zc_eps_ok` (zc_enum.c) agree
+with ε (the extra a = b term is vacuous, z + s even); the slice filter `SLICEF == 2` tests E(0)⁴ ≠ 1 with E(0) computed as
+m'(0)g'(0)w(0) − 1 (= E(0), E = m'g'w − 1), which on F₉^* ∖ {±1, ±i} is exactly P₈; `zc_caseA9.py` differs from the reviewed
+`fz1_caseA.py` only by `if al % MOD: continue` and fail-closed parsing (diffed).
+
+**Independent recount (from scratch; `scripts/review_r240_enum.gp` + `review_r240_enum.py`, PARI/GP factoring over F₉, five
+routes, every candidate re-verified against (B^{k=1}) from scratch; ALL patterns a ≤ b, not only ε-compatible ones):**
+
+| s | patterns (all) | tuples a ≤ b | P₈ tuples | P₈ in ε-incompatible patterns | P₈ mass | author |
+|---|---|---|---|---|---|---|
+| 4 | 27 | 106 | 70 | 0 | 1.629630 | 1.62963, 70 |
+| 8 | 125 | 1 146 | 658 | 0 | 0.1164457 | 0.11645, 658 |
+| 12 | 343 | 6 378 | 3 530 | 0 | 0.01317173 | 0.01317, 3 530 |
+| 16 | 729 | 46 818 | 26 570 | 0 | 6.319645·10⁻⁴ | 6.3·10⁻⁴, 26 570; 514 incompatible patterns empty |
+
+Per-pattern P₈ counts equal the author's `data/zc/p_{4,8,12,16}.txt` line by line (0 mismatches, no missing pattern).
+Cross-route consistency: s = 4 all 5 routes on all 27 patterns; s = 8 every route of cost ≤ 9⁵ (125 patterns); s = 12 every route
+of cost ≤ 9⁴ (226 of 343 patterns run by ≥ 2 routes): 0 disagreements. Every tuple found also satisfied E(0)^s = ε (0 law failures,
+≈ 54 000 tuples). s = 4 total 106 also equals the independent Python enumerator (`review_r240_law.py`, a third method).
+**s = 20:** recounted the 700 ε-compatible patterns of cost ≤ 9⁵ (factoring routes cost +1): 0 mismatches with `p_20.txt`; all
+138 136 tuples found are on P₈ (as the law predicts: at s = 20, ε = −1 forces E(0)⁴ = −1). [cost-6 extension: see below.]
+
+**Case A α = 4:** independent enumeration via z = (F + b1)/a1' and ordered factorisations T⁴ + z = b1·K·F (`caseA()` in
+the GP file, `review_r240_caseA.py`): per-pattern six-slice counts equal `data/zc/caseA9_4.txt` (325 data, six-slice mass
+0.04084743; P₈ alone 0.02652); α = 1, 2, 3 also equal; E(0)^{2α} = 1 on all data.
+
+**Re-summation (`scripts/review_r240_certify.py`, own pattern loop/filter/weights; route-bound values from the reviewed (J)56
+`pattern_bound1` via `review_r240_bounds.c`; fails closed on missing/duplicate patterns, law failures, P₈ tuples in incompatible
+patterns):**
+* Variant A (my counts s ≤ 16 and s = 20 cost ≤ 5, author's s = 20 counts for the rest, SKIPs route-bounded): Case B
+  2.9670390099 — identical to the author's figure; tail (re-run `fz1_tail 2 80 8 1e-3 1 1`) 0.025752412; Case A (re-run
+  `zc_caseA9.py`) 0.17018962 + 2.7363·10⁻⁴; **certified total ×1.01 = 3.194887 < 4.**
+* Variant B (no author count used at s = 20: only my recounted patterns are exact, all other s = 20 patterns route-bounded):
+  Case B 3.5850789, **total ×1.01 = 3.819107 < 4.** So the certificate does not depend on the un-cross-checked part of the
+  author's s = 20 enumeration (the author's trust point).
