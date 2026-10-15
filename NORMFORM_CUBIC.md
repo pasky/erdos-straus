@@ -83,11 +83,13 @@ Every cubic field has unit rank ≥ 1, so each n = N(x) ≠ 0 has infinitely man
 at the "cusps" (directions where N* = 0). POINTWISE_BINARYFORM §4.3 left open, for indefinite binary quadratics, whether a
 family can be valid on a cusp; the cubic norm forms are cusp-rich in the same way. The tempting mechanism: a polynomial
 Type I family valid on L ∩ (a cusp neighbourhood that is forward-invariant under a unit ε ≡ 1 mod M) would prove ES for
-every prime of the class represented by N, since every unit orbit enters every such neighbourhood. This is killed by the
+every prime of the class represented by N whose unit orbit enters the neighbourhood (an accessibility hypothesis that
+forward invariance alone does not give; R-O248 self-review fix). Whatever the region, it is killed by the
 plain finiteness of the ES solution set at fixed n:
 
 **Lemma 2.1 (orbit finiteness; PROVED, uses Skolem–Mahler–Lech).** Let K be a number field of degree k with ℚ-basis
-ω₁,…,ω_k, N(x) = N_{K/ℚ}(Σx_iω_i), and identify ℚ^k ≅ K. Let ε ∈ O_K^× have infinite order and let T_ε be the identity
+ω₁,…,ω_k, N(x) = N_{K/ℚ}(Σx_iω_i), and identify ℚ^k ≅ K. Let ε ∈ O_K^× have infinite order and N(ε) = 1 (so the orbit stays on {N = n}; R-O248 self-review fix: with N(ε) = −1
+an odd-offset progression lies on {N = −n}), and let T_ε be the identity
 component of the Zariski closure of ⟨ε⟩ in R_{K/ℚ}𝔾_m (acting on 𝔸^k by multiplication). Let F ∈ ℚ[x]^m be any
 polynomial map (ET coordinates (A, B, C, D), or (x, y, z)) and x₀ ∈ ℤ^k with N(x₀) = n ≠ 0. If F(ε^j x₀) is an ES solution
 for 4/n (Type I/II/any) for infinitely many j ∈ ℤ, then for each coordinate F_i there are q ≥ 1, r with F_i constant on T_ε·ε^r x₀ (contained in the Zariski
@@ -122,12 +124,12 @@ algebraically dependent (Jacobian criterion, char 0). N is non-composite: N − 
 ℚ[N]: if F_i = f(N)/g(N) in lowest terms with g non-constant, at a root τ of g the hypersurface N = τ is non-empty and
 g(N)F_i = f(N) gives f(τ) = 0, contradiction. ∎
 
-**What is left (exact).** A non-collapsing polynomial family for a cubic norm form can be valid, for each prime, only at
-finitely many points of each unit orbit, and (Thm 1.2′) on no lattice coset of an open cone with N* > 0. Unit fundamental
-domains can be taken to be finite unions of (Shintani) open cones, so "evaluate at the reduced representative" is covered
-by Thm 1.2′ on each cone. The residual validity sets are *power-cusp shells*: regions {|l₁| ≍ |x|, |l₂ l₃| ≍ |x|^κ} with
-0 < κ < 2 (the depth along the orbit growing like a fixed multiple of log p), and thin sets near the zero directions Z_F of
-the top forms. §3 studies the shells.
+**What is left (Assessment, not a classification).** Cor 2.2 allows a non-collapsing family to be valid at infinitely
+many points of an orbit for finitely many primes, and at finitely many points of each orbit for all others; Thm 1.2′ rules
+out validity on a lattice coset of an open cone with N* > 0. Evaluating at "reduced representatives" in a Shintani cone is
+covered only if the family is valid on the whole coset ∩ cone, which is not automatic. Candidate residual validity sets:
+power-cusp shells {|l₁| ≍ |x|, |l₂l₃| ≍ |x|^κ}, 0 < κ < 2, and thin sets near the zero directions Z_F of the top forms.
+No exhaustive classification is claimed; §3 makes the question moot for ET-coordinate families.
 
 ## 3. Type I without cones: the unit-group criterion
 
@@ -152,13 +154,14 @@ the degenerate family. (Check: 4A·b·(−bP)·(−1/(4b²)) = AP = P(A + b) −
 (e1) P | 4ABD − 1. Then A, B, D are units mod P, hence A ≡ a, B ≡ b, D ≡ d (mod P) with 4abd = 1, and C·H = A + B with
 H := (4ABD − 1)/P ≠ 0 (if 4ABD = 1 then A + B = 0). So deg H = α + β + δ − deg P ≤ deg(A + B) ≤ α, i.e. β + δ ≤ deg P. A
 non-constant B ≡ b has β ≥ deg P (B − b = P·B₁), likewise D; so (β, δ) ∈ {(0, 0), (deg P, 0), (0, deg P)}, and in the last two
-cases B = b + κP resp. D = d + κP with κ ∈ ℚ. Write A = a + P·A₁ (A₁ ≠ 0 unless everything is constant). Using 4abd = 1:
+cases B = b + κP resp. D = d + κP with κ ∈ ℚ. Write A = a + P·A₁ (A₁ = 0 is allowed: A = a). Using 4abd = 1:
  (i) B = b, D = d: H = A₁/a, so A₁ | A + B = (a + b) + P·A₁, i.e. A₁ | a + b. If a + b ≠ 0, A₁ is constant and A ∈ ℚ[P].
  If a + b = 0 then d = −1/(4a²) = −1/(4b²) and C = (A + B)/H = aP = −bP: the degenerate family.
  (ii) B = b + κP, D = d: H = 4d(aκ + B·A₁). If α ≤ deg P, A₁ is constant. Otherwise deg H = α = deg(A + B), so A + B = G·H
  with G ∈ ℚ, which rearranges to A₁·(4dG·B − P) = a + B − 4dGaκ; the bracket 4dGb + (4dGκ − 1)P is non-zero (b, d ≠ 0), and
  both sides' other factors lie in ℚ[P], so A₁ ∈ ℚ(P) ∩ ℚ[x] = ℚ[P].
- (iii) B = b, D = d + κP: H = 4b(aκ + A₁·D); as in (ii), A₁·(4bG·D − P) = a + b − 4bGaκ, so A₁ ∈ ℚ[P].
+ (iii) B = b, D = d + κP: H = 4b(aκ + A₁·D). If α ≤ deg P, A₁ is constant (e.g. A₁ = 0: H = 4abκ and C = (a + b)/H
+ are constants, collapse is immediate). Otherwise, as in (ii), A₁·(4bG·D − P) = a + b − 4bGaκ, so A₁ ∈ ℚ[P].
 In all non-degenerate cases A, B, D ∈ ℚ[P], and C = P(A + B)/(4ABD − 1) ∈ ℚ(P) ∩ ℚ[x] = ℚ[P]. Validity: degenerate families
 have B = −A or D < 0. ∎
 (The five rearrangements in (i)–(iii) are checked by sympy in scripts/z20_collapse_check.py, section "Thm 3.1".)
@@ -167,8 +170,9 @@ have B = −A or D < 0. ∎
 every polynomial ET family, Type I or Type II, that is valid at a single point is an ET identity in n = N(x). No cone, no
 positivity region, no direction condition. In particular:
  (a) the cubic norm-form rung collapses completely (binary cubic forms, ternary cubic norm forms, any signature);
- (b) POINTWISE_BINARYFORM §4.3 (indefinite binary quadratics: can a family be valid on a cusp?) is settled negatively for
- polynomial ET families (Type I by Thm 3.1, Type II by SYNTHESIS_SPARKS7 Thm 1.1), and so are §2's power-cusp shells;
+ (b) POINTWISE_BINARYFORM §4.3 (indefinite binary quadratics: can a family be valid on a cusp?) is settled for polynomial
+ ET families: a cusp-valid family is an ET identity in n (Type I by Thm 3.1, Type II by SYNTHESIS_SPARKS7 Thm 1.1), i.e.
+ nothing beyond rung 0; the same for §2's power-cusp shells;
  (c) Thm 1.2′ (cones) is subsumed for homogeneous prime P; Lemma 2.1 remains the tool for families given only by
  (x, y, z) ∈ ℚ[x]³ (whose ET coordinates need not be polynomial).
 
@@ -184,12 +188,14 @@ last sentence; the theorem is the precise statement.)
 
 ## 4. Goal (3): 2-descent on w² = N(u, v) is not the relevant object
 By Cor 3.2 the norm-form menu M[N] (polynomial ET families in x, valid somewhere) equals M₁[linear] ∘ N: ET identities in
-n composed with n = N(x). So its sterile set is the pull-back of the rung-0 sterile set (MENU_STERILITY Thm A with φ linear;
-Mordell/Schinzel): Ster(M[N]) = {x* ∈ Ẑ^r : N(x*) ∈ Ẑ^{×2}} (with N(x*) ≡ 1 mod 8 as in Thm A). The double cover that governs
-it is w² = n (genus 0), not w² = N(u, v). No 2-descent on the genus-1 (binary cubic) cover enters: the cover w² = N(u, v)
-would matter only for a menu whose parameter algebra is ℚ[x]/(N), and Thm 3.1 shows that algebra (no units) supports no
-Type I family. (PROVED, given Cor 3.2 and Thm A; the identification is immediate.)
-Consequence: the primes p = N(x) in square classes mod the joint modulus — a positive proportion of the primes represented by
-N, e.g. of Heath-Brown's primes x³ + 2y³ — are uncovered by every finite set of polynomial ET families for N, exactly as in
-one variable: each family is an ET identity in n, valid only on non-square classes of n (Thm A, φ linear). That these
-primes are a positive proportion of those represented by N is Chebotarev (degree-1 primes of K in a ray class), not reproved here.
+n composed with n = N(x). So the descent obstruction is pulled back from rung 0 (MENU_STERILITY Thm A with φ linear;
+Mordell/Schinzel): no family of M[N] is valid on a class of x whose closure meets {x* ∈ Ẑ^r : N(x*) ∈ Ẑ^{×2}, N(x*) ≡ 1 (8)}.
+(This is a containment — the obstructed set; it is NOT claimed that all other points are covered. R-O248 self-review fix.)
+The double cover carrying the obstruction is w² = n (genus 0), not w² = N(u, v): no 2-descent on the genus-1 (binary
+cubic) cover enters, because Thm 3.1 shows ℚ[x]/(N) (no non-constant units) supports no non-collapsing valid Type I family
+(collapsing ones exist, e.g. A = B = 1, C = 2, D = (P + 1)/4). (PROVED, given Cor 3.2 and Thm A.)
+Consequence: primes p = N(x) lying in square classes mod the joint modulus are uncovered by every finite set of polynomial
+ET families for N, exactly as in one variable (each family is an ET identity in n, valid only off square classes of n).
+Whether such primes form a positive proportion of the primes represented by N is a prime-distribution question: for full
+norm forms it follows from Chebotarev/Hecke (degree-1 primes of K in a ray class); for a restricted binary form such as
+Heath-Brown's x³ + 2y³ it needs a Heath-Brown-type theorem with congruence conditions — not established here.
