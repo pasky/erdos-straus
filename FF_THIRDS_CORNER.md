@@ -229,3 +229,18 @@ small integer. A covering datum needs an ET divisor f ≡ −u (mod r^{N+1}) (sh
 f < r^{N+1} − |u| is impossible unless f = −u, so the data must be "lopsided" (f ≥ r^{N+1} − |u|) or exact (f = |u|,
 possible only for u < 0 — the sign again). The sterile Mordell points proved for r ≥ 2³² are measure-theoretic; small-integer
 points of the line would be the ℤ-analogues of x*_c. Not pursued.
+
+## 7. Route bounds restricted to the patterns that can reach x*_c (goal 2; EVIDENCE/Assessment, grid)
+
+`scripts/zt_rate_lop.py` reruns the continuum optimiser of FF_STERILE_PUSH (`fs_rate.py`, Lemma 1.6 routes, grid G = 60)
+on the patterns allowed at x*_c by Cor 1.3 and Cor 3.2 (normalised a ≤ b: b ≥ 1/2 and max(z + 2a, t) ≥ 1/2):
+| q | all patterns: max min_route − 1/2 | restricted | restricted maximiser (a, z, y, t)/s |
+|---|---|---|---|
+| 3 | +0.167 (thirds corner) | **0.000** | (0, 0, 1/2, 1/2) |
+| 9 | +0.096 | 0.000 | (0, 0.2, 0.3, 0.5) |
+| 27 | 0.000 | −0.007 | (0.38, 0.12, 0.12, 0.38) |
+So the whole super-critical excess of the q = 3 union bound lives in patterns that provably cannot reach x*_c. On the
+admissible patterns the route bounds are exactly critical, and the maximiser is a degenerate corner (w, m' of degree o(s))
+where the true count is only polynomial (given small m', w₁, v₁ is fixed mod m'w₁ and the congruence w₁ + C₁ ≡ 0 (mod Tv₁)
+leaves O(1) tuples per (m', w₁) on average) — consistent with the poly(N)·3^{−N} lottery of §3. Union bounds therefore
+cannot settle x*_c either way (a single point has measure 0), but they no longer contradict it.
