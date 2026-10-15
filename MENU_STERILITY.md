@@ -108,7 +108,9 @@ whether ES for this Proth family is recorded anywhere (likely folklore-invisible
 * 7·4^s + 9 ((J)68 Lemma 3.1, ET/divisor-uncoverable at μ = 0): ET/divisor classes at L₀ = 360 leave {0, 90, 180, 200, 290};
   the Sophie-Germain window m = 19 = 7·4 − 9 (K = 7(4X⁴ + 1)) covers the μ = 0 neighbourhood s ≡ 0 (mod 90). The residue
   class s ≡ 20 (mod 90) is NOT closed: at L* = 128520 the windows SG(19), CY₃/₇/₉(103), CY₅(215) and ET classes leave 2 of
-  1785 lifts (s ≡ 8570, 104960 mod 128520); single firing windows there have periods 99, 1329, 7158 (not pursued further).
+  1785 lifts (s ≡ 8570, 104960 mod 128520). Lifting these two to L* = 1413720 (×11), the window CY₁₁(19) covers 2 of the 22 lifts and ET classes
+  all but 2 — again one lift of each (s ≡ 1293770, 233480 mod 1413720): self-similar stuck nodes (the supercritical branching
+  of (J)68 §2), and no window with j ≤ 40, t ≤ 11, e ≤ 21 fires at s = 233480. 7·4^s + 9 is NOT decided (EVIDENCE).
 * 15·2^s + 1, 63·2^s + 1, 255·2^s + 1 (EXPONENT_COVERING Cor 1.5): **no** Sophie-Germain window m = 4ct⁴ − 1 fires at μ = 0 for
   t ≤ 301 (c = 15, 63), and the polynomial-window search (`z15_polywin_root.py 240 4 1 6 1/2`) finds nothing; for c = 3 only
   t = 1 fires among t ≤ 41. Reason (PROVED, Prop 4.3 below): at μ = 0 every SG window condition is the divisibility

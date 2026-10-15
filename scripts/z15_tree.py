@@ -1,6 +1,6 @@
 # O240: two-level hybrid covering of c*b^s + k: ET/divisor classes at L0, then the residual lifted to Lstar (L0 | Lstar)
 # is attacked by exponential window rules with period | Lstar and by ET/divisor classes at Lstar.
-# Usage: z15_tree.py c k beta L0 Lstar Mmax JMAX TMAX EMAX
+# Usage: z15_tree.py c k beta L0 Lstar Mmax JMAX TMAX EMAX [residual list mod L0 (skip level 0)]
 import sys, math, functools
 import mordell_lib as ML, ec_cover as EC
 from ec_screen import admissible_prime_powers
@@ -27,7 +27,7 @@ def etcover(L,target):
         Wt=ML.residue_table(M)
         cov|={x for x in target if nval(x,M) in Wt}
     return cov
-R0=sorted(set(range(L0))-etcover(L0,set(range(L0))))
+R0=[int(x) for x in sys.argv[10].split(',')] if len(sys.argv)>10 else sorted(set(range(L0))-etcover(L0,set(range(L0))))
 print("level 0: L0=%d residual %s"%(L0,R0),flush=True)
 lifts={r+L0*i for r in R0 for i in range(Ls//L0)}
 rules=[]
@@ -42,8 +42,8 @@ left=set(lifts); used=[]
 for rule in rules:
     hit={x for x in left if W.rule_ok(beta*(x+Ls*(4+JMAX)),rule) is not None}
     if hit:
-        x0=next(iter(hit)); ex=W.rule_ok(beta*(x0+Ls*(4+JMAX)),rule)
-        assert W.exact(x0+Ls*(4+JMAX),rule,ex)
+        x0=min(hit); sx=x0 if x0>JMAX+8 else x0+Ls; ex=W.rule_ok(beta*sx,rule)
+        assert ex is not None and W.exact(sx,rule,ex)
         used.append((rule,len(hit))); left-=hit
 print("level 1: Lstar=%d lifts %d, rules periodic %d, used %s, left after rules %d"%(Ls,len(lifts),len(rules),used,len(left)),flush=True)
 left-=etcover(Ls,left)

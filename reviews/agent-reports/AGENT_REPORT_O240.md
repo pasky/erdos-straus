@@ -31,7 +31,7 @@ descent pairing on w² = φ(u).
   points (positive-density prime targets); positive-density parametrisations (norm forms) keep T1 via element squares ((J)3
   for d = 2). Answer to brief item (2): no; the residual obstruction for primes is B2 + density.
 * §6 (Assessment): F_q[T] — Frobenius kills the Aurifeuillean divisor supply; Carlitz-cyclotomic divisors are the analogue.
-* §4.1 EVIDENCE: 7·4^s + 9 ((J)68 sterile at μ = 0): μ = 0 covered by SG window m = 19; 2 of 1785 lifts left at L* = 128520.
+* §4.1 EVIDENCE: 7·4^s + 9 ((J)68 sterile at μ = 0): μ = 0 covered by SG window m = 19; 2 of 1785 lifts left at L* = 128520, and they reproduce (1 lift each) at L* = 1413720 — self-similar stuck nodes, not decided.
 * Menu ladder table: MENU_STERILITY §7.
 
 ## Honest caveats for the reviewer
@@ -47,7 +47,7 @@ descent pairing on w² = φ(u).
 * Theorem A gives only ⊇ for the sterile set; equality (analogue of CONJECTURE Y10-S) is open.
 
 ## Sparks (not pursued)
-1. Close 7·4^s + 9 (L* = 128520·11, faster rule evaluator) — would be a second ET-sterile family proved.
+1. 7·4^s + 9: identify the profinite point behind the self-reproducing residues 104960 (128520) → 233480 (1413720) and test it against Theorem A (is it a descent-sterile point for every root menu?).
 2. μ = 0 of 15·2^s + 1: SG menu fails; try Type I root families and polynomial windows of degree ≥ 2, or prove sterility
    for all M₁[240X⁴ + 1] families via a refinement of Theorem A at the 2-adic places.
 3. Genus ladder: for deg φ ≥ 5, Bruin–Stoll fake 2-Selmer sets are often empty — predict that M₁[φ] has no T1-type sterile

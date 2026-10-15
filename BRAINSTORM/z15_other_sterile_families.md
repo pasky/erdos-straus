@@ -14,4 +14,4 @@ As z15_proth_sophie_germain; T1 automatically respected.
 ## Cheap numerics
 `z15_hybrid_exp.py c k beta L Mmax JMAX TMAX EMAX`, `z15_tree.py 7 9 2 360 128520 3000 12 5 9`, `z15_rules_at.py`.
 ## Assessment
-EVIDENCE. 7·4^s + 9 looks closable with a larger L* (next step: L* = 128520·11 with a faster rule evaluator).
+EVIDENCE. At L* = 128520·11 the two stuck residues reproduce themselves (one lift each survives): self-similar stuck nodes; 7·4^s + 9 not decided.
