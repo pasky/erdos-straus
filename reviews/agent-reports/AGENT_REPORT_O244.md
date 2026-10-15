@@ -30,7 +30,9 @@ types add nothing, so **(J)51, (J)56, (J)67 and Conjecture 0.2 need no repair**.
 families only; ffl_tree uncovered densities are upper bounds for the ET-uncovered density. "No finite covering" must keep "linear"
 or cite Cor 2.6. Suggested ledger line: "(J)?? FF family classification audit (O244): linear families = ET II1, II3, I1–I3; I4 and
 II2 omitted; on the sterility slices both are dominated by Case B (Case A ⊂ Case B with the same E), so (J)51/(J)56/(J)67 hold for
-all ET-type coverings. PROVED."
+all ET-type coverings. PROVED." (R250 repair m-2/m-5: say "hold for coverings by linear, I4 and II2 families (the seven ET
+types); coverings by other polynomial families are not addressed". Lines still lacking "linear": SYNTHESIS_SPARKS3.md:119,
+STATUS.md:52. Hostile review R250, reviews/ff-inversion-review.md: no FATAL/MAJOR; depth-9 tree reproduced exactly.)
 
 **Not done / scope.** Families fixing other auxiliary quantities than E_FF (beyond the seven ET types) are not classified (Lemma 1.6
 scope note). Off-slice I4/II2 coverage (global O) not quantified.

@@ -7,9 +7,33 @@ FUNCTIONFIELD_ES2.md §0.1–0.2, FUNCTIONFIELD_ES3.md Lemmas 1.1, 1.2, 2.1, FF_
 (sources/elsholtz-tao-1107.1010.pdf: Prop 1.9, §2 Props 2.2, 2.6, identities (2.1)–(2.21)).
 From-scratch scripts: `scripts/review_r250_*.py` (own GF(q) arithmetic; nothing imported from `zi_*`).
 
+**Repairs applied** (author idle since the checkpoint; all marked "(R250 repair)"): m-1 (definition of ET-type family / O_ET,
+after Thm 2.5's statement), m-3 (Cor 1.3, dictionary = inclusion of validity sets), m-4 (deg e \u2265 1 in Thm 2.5's proof) in
+FF_INVERSION_CHECK.md; m-2/m-5 (ledger wording, list of lines lacking "linear") in AGENT_REPORT_O244.md. m-5's two lines on
+main (SYNTHESIS_SPARKS3.md:119, STATUS.md:52) are for the parent. m-6 optional, not applied.
+
 ## Summary verdicts
 
-(filled in progressively below; see §1 per claim, §2 defects)
+| Claim | Verdict |
+|---|---|
+| Lemma 1.1 (ET parametrisation over F_q[T]) | SOUND (brute force, 7+2 cases, sets equal) |
+| Lemma 1.2 (X, E_FF; deg a \u2260 deg b in Type I) | SOUND |
+| Cor 1.3 (ET dictionary; linear = II1, II3, I1, I2, I3) | SOUND-AFTER-REPAIRS (m-3, wording) |
+| Prop 1.4 (I4 congruence families, example, counterexample) | SOUND |
+| Remark 1.5 (II2) | SOUND |
+| Lemma 1.6 (3-bounded families) | SOUND (scope: m-2) |
+| Lemma 2.1 (II2 never valid on a slice) | SOUND |
+| Lemma 2.2 (I4 at u \u21d2 Case A at 1/u) | SOUND (m-4) |
+| Lemma 2.3 (Case A ball \u2286 same-E Case B ball, \u03b1 + v \u2265 k) | SOUND (re-proved; brute force incl. end-to-end solutions with prime P) |
+| Lemma 2.4 (Case B inversion-closed) | SOUND |
+| Thm 2.5 (incl. the k \u2265 3 reduction to level 2) | SOUND-AFTER-REPAIRS (m-1 definition of O_ET, m-4) |
+| Cor 2.6 ((J)51, (J)56, (J)67, Conj 0.2 hold for all ET-type coverings, same constants) | SOUND-AFTER-REPAIRS (m-1: "\u27fa" for Conj 0.2 needs the defined O_ET) |
+| \u00a73 computations | reproduced from scratch; depth-9 tree identical in every number |
+
+**Bottom line.** No FATAL, no MAJOR defect. The F_q[T] linear-family model does omit I4 and II2, and on the sterility slices
+both are dominated by Case B exactly as claimed; the k \u2265 3 reduction is sound. The PROVED theorems (J)51, (J)56, (J)67 are true as
+stated (they say "linear") and also for coverings by linear \u222a I4 \u222a II2 families, with the same constants. Not addressed (and
+not claimed): coverings by polynomial families outside ET's seven types, and I4/II2 coverage off the slices (global O(q, A)).
 
 ## 1. Claim-by-claim
 
@@ -128,4 +152,59 @@ mirror), so it is conservative. Fine as Assessment; superseded by Thm 2.5 anyway
 
 ## 2. Defects
 
-(in progress)
+No FATAL or MAJOR defect. The domination argument (Lemmas 2.1\u20132.4, Thm 2.5, Cor 2.6) is correct as written.
+
+**m-1 (MINOR; Thm 2.5 last sentence, Cor 2.6 \"Conjecture 0.2 (x*_c \u2208 O \u27fa x*_c \u2208 O_ET)\", report item 2).** \"ET-type family\"
+and O_ET are never defined. Thm 2.5's parenthesis \"(linear, I4 or II2)\" suggests ET-type := every linear family \u222a I4 \u222a II2; then
+O_ET \u2286 O is trivial and \"O_ET \u2229 \u03a3 = O \u2229 \u03a3\" holds. If instead it means the seven ET types *literally* (I1\u2013I3, II1, II3 as
+specific linear families, plus I4, II2), only O_ET \u2229 \u03a3 \u2287 O \u2229 \u03a3 is proved (Cor 1.3 gives ET-literal validity \u2286 linear validity,
+not conversely: a general linear family, e.g. Case B (E; 0, T^\u03b3g'; 2, T^jL') with a0 \u2224 b0, has ET parameters depending on P mod
+something, so it is a finite union of ET-literal families at best, unproved). The no-covering theorems need only \u2287, so nothing
+breaks. *Repair:* after Cor 1.3 add \"Definition. An ET-type family is a linear family, an I4(a, b, e) or a II2(a, c, d) family;
+O_ET(q, A) := {x : no ET-type family is valid at x}. (By Cor 1.3 this contains the seven ET types; the literal seven-type set
+O_ET^{lit} satisfies O_ET^{lit} \u2287 O_ET.)\" and in Cor 2.6 replace \"\u27fa\" by the defined O_ET.
+
+**m-2 (MINOR; Lemma 1.6 scope, \u00a74(1) \"omits exactly two of the seven ET types\", report ledger line).** \"Exactly\" is relative
+to ET's list; the F_q[T] analogue of ET Prop 1.9's completeness half (every polynomially solvable class lies in one of the seven
+families) is not proved, so the extension \"no finite covering by ET-type families\" must not be shortened to \"no finite
+covering\". The document says this in the Scope note; the suggested ledger line should too. *Repair:* ledger line \"... so
+(J)51/(J)56/(J)67 hold for coverings by linear, I4 and II2 families (the seven ET types); coverings by other polynomial families
+are not addressed. PROVED.\"
+
+**m-3 (MINOR; Cor 1.3).** For II1, I2 (and II3, I1 when a | d etc.) the linear family's validity set is in general *larger*
+than ET's class (A\u00b7lcm(a0, b0) | P + E versus A\u00b7a0\u00b7b0 | P + E). Harmless (it is the inclusion the argument uses), but \"II1 =
+(e; 0, b; 0, a)\" reads as an equality of families. *Repair:* \"II1 \u2286 (e; 0, b; 0, a) (validity sets; equality iff gcd(a, b) = 1)\"
+or one sentence saying the dictionary is an inclusion of validity sets.
+
+**m-4 (MINOR; Thm 2.5 proof).** Lemma 2.3 needs deg E \u2265 1; for the I4 mirror E = e this is not stated. It holds on both slice
+families (e = 1 would put the centre at u \u2261 \u22121, off every c-slice, and u\u2080 = \u22121 \u2208 F\u2083^*). *Repair:* add \"(deg e \u2265 1, since
+e = 1 forces u \u2261 \u22121 mod T, which is in no slice of \u03a3)\".
+
+**m-5 (MINOR; wording elsewhere in the repo, the document's \u00a72 \"What is affected (2)\").** The document asks that \"no finite
+covering\" keep \"linear\" but lists no instances. Instances found by `git grep` (FF context, without \"linear\"):
+SYNTHESIS_SPARKS3.md:119 (\"ES_q ... has no finite covering for q = 3^r, r \u2265 27 ((J)26)\") and STATUS.md:52 (\"even where ES_q
+itself has no finite covering\"). All theorem statements ((J)51, (J)56, (J)67, FE \u00a76.4, FE2 Conj 0.2) already say \"linear\".
+*Repair (parent, on main):* insert \"linear\" (or \"ET-type, Cor 2.6 of FF_INVERSION_CHECK\") in those two lines.
+
+**m-6 (MINOR, optional strengthening; Thm 2.5 k \u2265 3).** On c-slices \u03b1 \u2265 2 always (\u03b1 = 1 forces b1 = 1, F = 1, E = Ta1' + 1,
+v_T(E + 1) = 0), so Lemma 2.3 applies directly at k = 3 (confirmed: row q = 3, k = 3, c in \u00a71). Not needed given the level-2
+reduction; mention only if useful.
+
+## 3. Computations reproduced from scratch (EVIDENCE)
+
+* **\u00a73.1 rows** (`review_r250_lemma11.py`, naive solution loop, not the divisor method): q = 9, k = 2, n = 3, P(0) = 1: 30 primes,
+  Type I 2 / Type II 4, 1 with deg E_FF \u2265 n/2, 25 primes without solution \u2014 identical to the author's row; q = 5, k = 2, n = 4,
+  P \u2261 1 + T: 7 primes, 4 / 0, 4, 4 \u2014 identical. Rows q = 3, n = 6, 7 and q = 9, k = 1, n = 3 not reproduced (too slow for a
+  naive loop); replaced by the other cases in \u00a71 (all primes of the degree, 1,068 solutions + these).
+* **\u00a73.2 depth-9 tree** (`review_r250_tree.py 3 9`, log `data/review_r250/tree_q3_d9.txt`; own complete enumerations, the
+  completeness arguments are in the script docstring: Case A via a1'(Kb1F \u2212 T^\u03b1) = F + b1 with deg b1, deg F \u2264 \u03b1 \u2212 1; Case B via
+  m'wC = T^s + v, w + C = g'v, v = (\u2212T^s) mod wC, s \u2264 16): Case A 26 balls, Case B 148, I4 26, |A \u2229 B| = 2; balls without an
+  inverse ball: A 26, B 0, I4 26, A + B 24, **A + B + I4 0**; every A ball and every I4 ball lies in a Case B ball (26/26, 26/26);
+  survivors per c-slice at depths 3\u20139: 2, 6, 16, 44, 130, 380, 1130 with and without I4; x*_c alive. **Identical to
+  `data/zi/tree_d9.txt` in every number.**
+* **q = 5, A = T², depth ≤ 6** (`review_r250_tree.py 5 6`, `data/review_r250/tree_q5_d6.txt`): no Case A (hence no I4) balls on
+  the c-slices, 42 Case B balls, all mirrored; survivors identical with and without I4 (consistent with the author's q = 5 row).
+* **\u00a73.3 table** \u2014 all rows reproduced up to the ordered/unordered factor 2 (\u00a71 above, Lemma 2.3), plus end-to-end solutions.
+* **Prop 1.4 example and the review counterexample** \u2014 `review_r250_example.py`: P irreducible, degrees 11, 4, 5,
+  E_FF = T\u2075 + T\u00b3 + 2T + 1; the I4(1, T, 1) class equals the validity class of (1; 0, T; 1, 1) on all primes of degree 5.
+

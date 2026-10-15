@@ -58,7 +58,9 @@ a ~ P, b ~ P²; E_FF = f). **Not linear:** I4 (a, b, e fixed; E_FF = (aP + c)/b 
 b = (cP + a)/f; E_FF = e = (a + b)/c = (P + Aa²d)/f grows).
 *Proof.* Lemma 1.2 applied to each parametrisation (for I1–I3 the fixed f equals AX − P for X = acd: AX = P + f is the defining
 divisibility of each). The linear ones are linear families with fixed (a0, b0, types) (review fix): in FE Lemma 1.3 form, Type II
-with κ = c has (a_FF, b_FF) = (b, a), Type I with κ = b has (a_FF, b_FF) = (Pa, c) (using bE_FF = aP + c). Hence II1 =
+with κ = c has (a_FF, b_FF) = (b, a), Type I with κ = b has (a_FF, b_FF) = (Pa, c) (using bE_FF = aP + c). (R250 repair m-3: "=" below identifies the solution shapes; as validity sets the ET class is contained
+in the linear one, e.g. II1 needs A·ab | P + e, the linear family only A·lcm(a, b) | P + e — the inclusion the coverage
+argument needs.) Hence II1 =
 (e; 0, b; 0, a); II3 = (e; 2, ad; 0, a) (b = X/(ad)); I1 = (f; 1, a; 2, ad) (c = X/(ad)); I2 = (f; 1, a; 0, c); I3 = (f; 3, cd; 0, c)
 (Pa = PX/(cd)). For I4 the same (Pa, c) are fixed-shape but E_FF is not fixed. ∎
 
@@ -153,10 +155,14 @@ valid at x_u; if an I4 family is valid at x_u, then a Case B family is valid at 
 some level-k ET-type family is valid lies in the covered set of the *level-2* linear families (the set whose measure SP/SS
 bound). For k ≤ 2 moreover every Case A family with E monic valid
 at x_u is dominated by a Case B family with the same E (Lemma 2.3). Hence O_ET(q, T^k) ∩ Σ = O(q, T^k) ∩ Σ for k ≤ 2, and O_ET(q, T^k) ∩ Σ ⊇ O(q, T²) ∩ Σ for k ≥ 3, where O_ET is the
-set of points at which no ET-type family is valid.
+set of points at which no ET-type family is valid. (R250 repair m-1: here and below an *ET-type family* means a linear family,
+an I4(a, b, e) or a II2(a, c, d) family; by Cor 1.3 these include the seven ET types. For the literal seven-type set O_ET^lit
+only O_ET^lit ⊇ O_ET is known — a general linear family is not shown to be a finite union of the five linear ET types — which
+is the direction the no-covering corollaries use.)
 *Proof.* II2: Lemma 2.1. I4, k = 2 (case (i)): by Lemma 2.2, F^A is a Case A family valid at x_{1/u}, and 1/u lies in the
 (−c)-slice. FE2 §0.2 step (1) uses only u ≡ 1 + cT (mod T²); applied at 1/u it gives T^α ∥ a1 with α ≥ 1 and T ∤ b1 for the
-labelling with deg a1 ≥ deg b1, and E + 1 ≡ cT (mod T²) gives v = 1. So α + v ≥ 2 = k and v ≤ k + α: Lemma 2.3 gives a Case B
+labelling with deg a1 ≥ deg b1, and E + 1 ≡ cT (mod T²) gives v = 1 (and deg E ≥ 1: E = e = 1 would put u ≡ −1 mod T, on no
+slice of Σ; likewise in case (ii); R250 repair m-4). So α + v ≥ 2 = k and v ≤ k + α: Lemma 2.3 gives a Case B
 family valid at x_{1/u}, and Lemma 2.4 one valid at x_u. Case (ii): at 1/u, u(0)^{−1} ∉ F₃^*, so SS Lemma 7.2(a) gives α ≥ 1,
 and e(0) = −u(0)^{−1} ≠ −1 gives v = 0; α + v ≥ 1 = k, and conclude as before. k ≥ 3 in case (i) — the data of linear families,
 of I4 and of Case B tuples do not depend on k except through the ball depth:
