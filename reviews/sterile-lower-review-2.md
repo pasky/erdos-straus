@@ -180,3 +180,38 @@ PROVED (elementary, re-derived); Comp 4.1 CERTIFIED (independently reproduced fo
 4.2 Assessment; "ES not solved" disclaimer present; r = 17 outcome "undecided" — correct, nothing proved about r = 17 beyond
 Comp 4.1 and Lemma 4.3. Spot value for "true count of a few hundred": D_Q(10000019) = 486 (r ∤ e), D_P(10000019) = 170 (my
 enumerator), so at 2^30 "a few hundred to ~10³" — fine as Assessment.
+
+---------------------------------------------------------------------------------------------------------------------------
+# Round 2 (checkpoint 2: §6 joint sweep, Thm 6.3 r₀ = 2^{21.4375}; §7 r = 17) — still no edits to the author's files
+
+Merged side-agent/sterile-lower again. New scripts of mine: `scripts/review_r232_l1count.c`, `review_r232_cells.py`,
+`review_r232_combine2.py` (+ an `R232_ACUT` option in `review_r232_box.py`); data `data/review_r232/r2/`.
+
+### R2.1 §6.1 decomposition — SOUND
+D_P(r) + D_Q(r) ≤ JP + JQ_{A,Y} + 2#{ad ≤ Y} + B_A: P-data all swept; Q-data split into a ≥ A (box bound), a < A & ad ≤ Y
+(≤ 2 per (a, d) — re-derived in round 1: f and e = f⁻¹ have fixed classes mod s = 4ad and ef = 4a²d + 1 < s²), a < A & ad > Y
+(swept) ✓. Ranges: f = (aF + c)/b ≤ F + c/b ≤ F + 2 (c ≤ a + b ≤ 2b), 4acd = F + f ≤ 2F + 2 ⇒ a ≤ acd ≤ (F + 1)/2, d ≤ (2X₁+2)/(4a)
+✓ (so "all rows" ⇒ B_A = 0 ✓). The level-1 weights 2r⁻¹ (k = 1 and K = 1) combine into 2(D_P + D_Q)/r ≤ 2(…)/2^{j/32} ✓.
+`zl_boxa.c` (diff vs zl_box.c: one line skipping Q-boxes with a₁ < ACUT; the (c, d)-row τ-aggregate stays a valid bound for the
+subset) ✓. Spot-checked with my engine restricted to a ≥ A (`R232_ACUT`, which even clips a₀ to A): cell 940, A = 40000:
+mine 7.533·10⁷ vs Qa_40000 8.463·10⁷; cell 800, A = 262144: 3.330·10⁶ vs 3.484·10⁶ — both below the author's ✓.
+
+### R2.2 Independent exact level-1 counts — SOUND (64/64 cells identical)
+`review_r232_l1count.c` uses parametrisations *different from the joint sweep*:
+* P: loop (a, b) with b ≤ X₁/(4a − 2), c over the divisors of a + b (smallest-prime-factor table), e = (a + b)/c, then the
+  progression r = 4abd − e in d [author: (a, c, d) and r ≡ −4a²d (mod 4acd − 1)];
+* Q, a < A: divisor pairs {g, m/g} of m = 4a²d + 1 found without factoring — for each g ≤ √m_max, gcd(g, 2a) = 1, d runs over
+  d ≡ −(4a²)⁻¹ (mod g) with g² ≤ m, both orientations (e, f); Q, a ≥ A: for each d ≤ (2X₁+2)/(4A) the quadratic polynomial
+  4d·a² + 1 is sieved *in a* (two Tonelli–Shanks roots of a² ≡ −(4d)⁻¹ per prime p ≤ √m_max, leftover cofactor prime)
+  [author: sieve/ρ-factoring of 4a²d + 1 in d for fixed a]; then r = 4acd − f in c, b = ce − a ≥ a;
+* every datum checked against its defining equation in 128-bit arithmetic; cell membership exact (2^j ≤ r^{32} < 2^{j+1}).
+Validation: vs my round-1 Python enumerator for all primes in [1000, 2000), [100000, 103000) (A = 5, i.e. mostly via the
+polynomial sieve) and [100000, 101000) (A = 7): 0 mismatches; the two Q methods agree on all 2204 primes in [10⁶, 1.03·10⁶)
+(A = 5 vs A = 20000). Runs: octave 21 = [2^21, 2^22) (A = 2048, 26 s), octave 22 (A = 2896, 60 s); ALL Q-data counted (no Y),
+plus separately the Q-data with ad ≤ Y to compare with the author's split.
+**Result: for all 32 + 32 cells j = 672..735, (max_r JP, max_r JQ_{ad>Y}, max_r (JP + JQ_{ad>Y}), #primes) agree exactly with
+`data/zl/sweep_21.txt` (Y = 300) and `sweep_22.txt` (Y = 1048)** (`data/review_r232/r2/cells_oct2{1,2}.txt`). The author's
+level-1 bound ms + 2#{ad ≤ Y} (e.g. 7694 + 3534 at j = 686) is ≥ my exact max_r(D_P + D_Q) over *all* data (8509) ✓.
+Remark (correcting my round-1 comment, as the author did): in octave 21 the *median* of D_P + D_Q is 536 but the max is
+17458 (r = 3991679, r + 1 = 2⁷·3⁴·5·7·11); my round-1 "a few hundred is fine" was about typical r and was wrong for the
+worst primes; the author's §6 correction is right.
