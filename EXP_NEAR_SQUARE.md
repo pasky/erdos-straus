@@ -134,7 +134,7 @@ the sets around them that the D_q switch off are the *label points* (Lemma 1.2) 
   (any q with ℓ^j | ord_q(4) at a level where two labels differ, and one more prime factor); the expected number of ET
   classes containing it, Σ_q τ((q+1)/4)²/q over those q, diverges. Same for ℓ-lines (the q with ℓ | ord_q(4)). So no sterile
   point is expected; every computed point was covered (μ* in II2 919; binary core Result 1.1; the 3-line of 297).
-* **CONJECTURE E (exponential coverability).** For c₀ ≥ 1 and k ≥ 1 with c₀4^s + k non-trivial, a finite covering by ET
+* **CONJECTURE E (weak; exponential coverability).** For c₀ ≥ 1 and k ≥ 1 with c₀4^s + k non-trivial, a finite covering by ET
   and divisor classes exists iff c₀ + k is not a power of 4. In particular k = 33, 105, 273, 297 (c₀ = 1) are coverable.
   Evidence: certified/surveyed coverings for 9 + 7 + 11 + 9 offsets; Λ ∩ Sq^× = ∅ screens; binary core of 105; line of 297.
   Counter-evidence: none, but the computed coverings for the open k do not terminate (§2): the conjecture predicts
