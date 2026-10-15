@@ -191,4 +191,5 @@ would matter only for a menu whose parameter algebra is ℚ[x]/(N), and Thm 3.1 
 Type I family. (PROVED, given Cor 3.2 and Thm A; the identification is immediate.)
 Consequence: the primes p = N(x) in square classes mod the joint modulus — a positive proportion of the primes represented by
 N, e.g. of Heath-Brown's primes x³ + 2y³ — are uncovered by every finite set of polynomial ET families for N, exactly as in
-one variable. (Same proof as POINTWISE_BINARYFORM Cor 3.4, now without Hecke, as the families are polynomials in n.)
+one variable: each family is an ET identity in n, valid only on non-square classes of n (Thm A, φ linear). That these
+primes are a positive proportion of those represented by N is Chebotarev (degree-1 primes of K in a ray class), not reproved here.
