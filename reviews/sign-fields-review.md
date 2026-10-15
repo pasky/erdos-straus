@@ -4,6 +4,13 @@ Reviewer: R235 (side-agent/review-sign-fields). Merged side-agent/sign-fields at
 keeping both sides). From-scratch scripts: `scripts/review_r235_cert.py` (certificate checker, sympy, no ec_cert/z8
 imports), `scripts/review_r235_brute.py` (independent ES solver via (ay − d)(az − d) = d²), further `scripts/review_r235_*.py`.
 
+**Repairs applied (R235 only):** SIGN_FIELDS.md D1, D3, D4, D5, D6 (+ ν-odd strengthening), D7, D8, D9 and memo
+z8_eight_failures_frobenius D7, each marked "(R235 repair)". Author's last commit (86675a30, agent report caveat) predates the
+review; no author activity during the review. No change to any certificate or claim label.
+
+**Overall: no FATAL defect. Headline Thm 1.3 is SOUND (independently re-certified). One MAJOR (D5: wrong u ≡ 3 (4)
+parenthetical inside Thm 2.2(d); conclusion survives, strengthened). Rest MINOR.**
+
 ## Summary verdicts
 (filled in progressively; see sections below)
 

@@ -32,14 +32,17 @@ k ∈ {9, 57, 81, 129, 153, 177, 201, 225, 249}. Certificates `data/z8/cert_c1_k
 produced by `scripts/z8_expnear_cert.py` and checked by `ec_cert.main` (polynomial identity, integrality on the class,
 positivity bound, periodicity M′ | 4^L − 1, exact verification for all s ≤ 600, brute force below s₀, T1 control).
 Of these, k = 57, 153, 177, 225 have members in Mordell's hard classes mod 840 (s ≡ 3 mod 6: n ≡ 121; s ≡ 2 mod 6:
-n ≡ 169; s ≡ 5 mod 6: n ≡ 361; s ≡ 0 mod 3: n ≡ 121, 289), the others are covered by mod-840-type classes. These are
+n ≡ 169; s ≡ 5 mod 6: n ≡ 361; s ≡ 0 mod 3: n ≡ 121, 289), the others are covered by mod-840-type classes. (R235 repair) For k ∈ {9, 81, 129, 201, 249} no member with s ≥ 2 lies
+in Mordell's six classes, so those five cases are already Mordell's theorem; for k = 153 (and k = 225, s ≡ 3 mod 6) the
+hard members are multiples of 13 (17): divisor classes. The genuinely new coverings are k = 57 (s ≡ 9 mod 30), k = 177
+(s ≡ 5 mod 6) and k = 225 (s ≡ 0 mod 6, s ≡ 9, 21 mod 24). These are
 *near-square* infinite families n = m² + k on which polynomial families in m provably cannot cover (Z_k^□ ≠ ∅):
 the exponential coupling of EXPONENT_COVERING Prop 2.2 is what makes them coverable.
 Survey (`scripts/z8_expnear_survey.py 1 300 30000 6 12 18 30 36 60`; EVIDENCE): of the 13 non-trivial k ≤ 300, 9 are
 covered (above; 225 needs L = 24), 4 are OPEN at the search limits: k = 33, 105, 273, 297.
 
 **1.4 The OPEN offsets (EVIDENCE + PROVED pieces).** Integer *non-unit* square points: k = 33: 4² + 33 = 7², 4⁴ + 33 = 17²,
-1 + 33·4² = 23²; k = 105: 4² + 105 = 11², 4³ + 105 = 13², 4⁴ + 105 = 19², 1 + 105·4² = 41²; k = 273: 4² + 273 = 17²;
+1 + 33·4² = 23²; k = 105: 4² + 105 = 11², 4³ + 105 = 13², 4⁴ + 105 = 19², 1 + 105·4² = 41²; k = 273: 4² + 273 = 17², 4⁴ + 273 = 23² (R235 repair);
 k = 297: 4³ + 297 = 19². (Same pattern as (J)22 §4.2: every OPEN k has an integer square point.)
 * **k = 105 is the "maximally hard" offset** (PROVED, trivial): 105 = 3·5·7 ≡ 1 (mod 8), so n_s ≡ (2^s)² (mod 105) and
   n_s ≡ 1 (mod 8): **every** member lies in one of Mordell's six hard classes mod 840 (all six occur), and n_s is a square
@@ -47,11 +50,12 @@ k = 297: 4³ + 297 = 19². (Same pattern as (J)22 §4.2: every OPEN k has an int
 * Unit-square screen (`scripts/z8_expnear_screen.py 1 105 3000000 … 360 …`, CERTIFIED finite computation): at L = 360
   every residue s mod 360 has n_s ≡ 0 or a non-residue modulo some prime q < 3·10⁶ with ord_q(4) | 360. Hence
   **Λ₁₀₅ ∩ Sq^× = ∅** (the square half (EH) of (J)22's criterion holds); only the non-square part of S′ can obstruct.
-  (k = 33: the screen leaves exactly s ≡ −2 (mod L) at every L tested — the point μ = −2, n = 23²/16, a non-unit square,
+  (k = 33: the screen leaves exactly s ≡ −2 (mod L) for L = 180, 360, 720 (R235 repair: at L = 60, 120 also the mixed
+point s ≡ 34 mod 60 survives, killed once 9 | L) — the point μ = −2, n = 23²/16, a non-unit square,
   killed by D₂₃ only when 11 | L.)
 * The obstruction is the *class supply*, at **mixed points**: the general search leaves s ≡ 124 (mod 360), and refines
   to s ≡ 844 (mod 2520). These exponents are the CRT gluing μ* = "4 in every ℓ-adic component except ℓ = 3, where
-  μ* = −2" (`scripts/z8_point.py`): at primes q with 3 ∤ ord_q(4), n ≡ 4⁴ + 105 = 19²; at q with ord_q(4) a 2·3-power,
+  μ* = −2" (`scripts/z8_point.py`): at primes q with 3 ∤ ord_q(4), n ≡ 4⁴ + 105 = 19²; at q with ord_q(4) ∈ {3^b, 2·3^b} (R235 repair),
   n ≡ 4⁻² + 105 = (41/4)²; only at q whose order mixes 3 with another prime is n_q generic (non-residue at q = 181,
   ord 90, but no ET class of admissible modulus ≤ 2·10⁶ hits it). The point μ* itself lies in the II2 class
   (2, 23, 919) (ord_919(4) = 153), so μ* is NOT sterile; but its neighbours with other 17-adic components are again
@@ -85,15 +89,21 @@ is the slot ν | t (σ_A = c on all of ℚ(ζ_{νu})), the class −(n + u)/n is
 (The script asserts this classification on every coprime word of the test range: 0 failures.)
 
 **Theorem 2.2 (T1 as a containment; PROVED).** Let n = m² be an odd square, gcd(m, u) = 1, so every odd prime r | m² + u
-splits in ℚ(√−u) and every odd A at level u has σ_A ∈ Gal(Σ_{ν,u}/ℚ(√−u)).
+splits in ℚ(√−u) and every odd A at level u with gcd(A, ν) = 1 (R235 repair) has σ_A ∈ Gal(Σ_{ν,u}/ℚ(√−u)).
+(For ν odd, √−u ∈ ℚ(ζ_{νu}) ⟺ √−u ∈ ℚ(ζ_u), and then the whole level is empty for odd A, not just the t-slot: χ_{−u}(A) =
+χ_{−u}(−1) = −1 for A ≡ −1 mod u. R235.)
 (a) If √−u ∈ ℚ(ζ_{νu}), no odd A at level u lies in the t-slot class (σ_A = c on ℚ(ζ_{νu}) would move √−u).
 (b) √−u ∈ ℚ(ζ_{νu}) for every u ≥ 1 ⟺ 4 | ν. (⇐: disc ℚ(√−u) divides 4u. ⇒: u = 1 needs i ∈ ℚ(ζ_ν).)
 (c) If √−u ∉ ℚ(ζ_{νu}) (e.g. ν odd, u = 1), Chebotarev in Σ_{ν,u} gives primes r ≡ −1 (mod νu) split in ℚ(√−u); for
 every odd m with r | m² + u and m² + u ≥ r, A = r is a t-slot ν-word of m² (v = (m² + u)/r): T1 fails at this level.
-So **"full T1 ⟺ 4 | ν" ((J)46 SHARP 2) is, on the t-slots, the statement ℚ(i) ⊂ ℚ(ζ_ν)**: for 4 | ν every sign field
+So **"full T1 ⟺ 4 | ν" ((J)46 SHARP 2) is, on the t-slots (odd A coprime to ν; R235 repair: the other slots and even A
+are not re-derived here), the statement ℚ(i) ⊂ ℚ(ζ_ν)**: for 4 | ν every sign field
 Σ_{ν,u} collapses to the cyclotomic field ℚ(ζ_{νu}), and c is forbidden at squares.
 (d) **Uniqueness of 4 (PROVED).** Let 4 | ν, u ≡ 1 (mod 4) prime to ν, n ≡ 1 (mod 4) (so √−u ∉ ℚ(ζ_u): the c-fibre is
-split half/half by √−u; for u ≡ 3 (mod 4) the whole c-fibre is forbidden and the ratio below is even smaller). The class
+split half/half by √−u). (R235 repair: the former parenthetical on u ≡ 3 (mod 4) was wrong. There 4 | n + u, Prop 2.1 does
+not apply for ν = 4, and the v-slot opens: v₂(v) = v₂(n + u) ≥ 2 for odd A, so every odd-A word at level u ≡ 3 (4) is a
+4-word, and by reciprocity has χ = −1; the whole c-fibre is both the 4-slot set and the forbidden set. So for ν = 4 the
+coincidence holds at every odd u (= DEDEKIND Thm 4.5); for other 4 | ν at u ≡ 3 (4) it is not analysed.) The class
 −(n + u)/n ≡ −(1 + u) ≡ 2 (mod 4) is not a unit, so the coprime part of C_ν is the single class σ = c on ℚ(ζ_{νu}), of relative size 1/φ(ν) in the c-fibre
 over ℚ(ζ_u); the T1-forbidden part {σ(√−u) = −√−u} has relative size 1/2. They coincide iff φ(ν) = 2, i.e. ν = 4.
 **For ν = 4 the word condition is exactly the sign condition σ_A = c on Σ_u = ℚ(ζ_u, √−u) (O225); for every other
@@ -102,7 +112,8 @@ T1-numerator (8, 12, 16, …) it is a proper Chebotarev subset of the forbidden 
 Numerics (EVIDENCE, `scripts/z8_numerators.py 2000 60 3 4 5 7 8 11 12`): ν-words at odd squares 3² … 59²: 0 for
 ν = 4, 8, 12; for ν = 3, 5, 7, 11 many, and every coprime odd-A violator has √−u ∉ ℚ(ζ_{νu}) as (a)/(c) predict (the
 coprime violators with √−u ∈ ℚ(ζ_{νu}) all have A even — O225's Remark 2.4 caveat, (a) is for odd A).
-**The failures.** 8/131: of the 21 words of 131, 14 carry a 4-slot (χ = −1) and every such slot is ≡ 4 (mod 8) —
+**The failures.** 8/131: of the 21 words of 131, 14 carry a 4-slot (R235 repair: 131 ≡ 3 mod 4, so these are the words with (A/131) = +1,
+i.e. (−A/131) = −1; (d) and DEDEKIND Thm 4.5 are for n ≡ 1 mod 4; R235 counts 22 words (t, u ≤ v) for 131 and 16 for 241 — the word convention behind 21 / 15 should be stated) and every such slot is ≡ 4 (mod 8) —
 all forbidden-half Frobenii land in the complementary ℚ(ζ_{8u})-class; same at 8/241 (6 words with a 4-slot, all
 ≡ 4 mod 8). 11/37: none of the 9 words of 37 has an 11-slot (11 is odd: no containment, T1 fails, and 37 is a
 lottery miss). Assessment: the sign-field picture makes 4's special status *visible* (it is the unique numerator whose
@@ -118,7 +129,8 @@ c ∉ ⟨σ_r⟩·G² (a quadratic character separates); S1 asked whether deplet
 **Prop 3.1 (PROVED, elementary).** Whether level u carries a χ = −1 word of p (A odd) is a function of the multiset of pairs
 (σ_r, v_r(p + u)) over the odd primes r ∤ u of p + u, and σ_r depends only on r mod 4u. In particular it involves no
 Frobenius in any non-abelian extension of ℚ: Rédei symbols / 4-rank data of F = ℚ(√−(k + u)) (Frobenii in dihedral
-degree-8 fields) do not enter.
+degree-8 fields) do not enter the decision function (R235 repair: they can constrain its *input* — which r divide
+p + u in a family is governed by ring-class-field Frobenii — and that this adds nothing beyond genus is the Assessment below).
 *Proof.* A = ∏ r^{a_r}, 0 ≤ a_r ≤ v_r; admissibility and χ are σ_A = ∏σ_r^{a_r} = c (O225 (i)–(ii)); Σ_u ⊂ ℚ(ζ_{4u}). ∎
 **Consequence (Assessment, not a theorem).** On p = m² + k, the only constraints on that multiset that hold for *all*
 m in a congruence class are (i) every σ_r lies in the image H_F of Gal(Σ_uF/F) (r splits in F; O225 genus layer) and
