@@ -170,3 +170,31 @@ moduli built from 2, 3, 7, so the test cannot see finer levels); for j = 15, 24 
 (30 % / 16 % of classes uncovered at L = 63360 / 132480), so no test. Consequence if true: ES for n = m² − j holds for every m
 outside an Ẑ-neighbourhood of Z_K⁺, i.e. polynomial families do *strictly* better than congruences below the squares
 and *exactly as well* above them (Thm 2.2).
+
+## 4. Deterministically clean levels (goal (a))
+
+Convention (THREE_SQUARES Prop 1.3): level t is *odd-clean* at odd n if (−t/r) = +1 for every odd prime r | tn + 1, r ∤ t
+(for n = p prime this is (r/p) = +1, so all level-t words have χ = +1 when moreover 2 ∤ tp + 1 or (2/p) = 1).
+
+**Prop 4.1 (classification for quadratic families; PROVED).** Let Q(m) = Am² + Bm + C ∈ ℤ[m], A > 0, Δ = B² − 4AC,
+t ≥ 1, E := 4A − tΔ. Identity: 4A(tQ(m) + 1) = t(2Am + B)² + E.
+(a) If E = c² is a perfect square, level t is odd-clean at n = Q(m) for every m with gcd(2Am + B, c) = 1 and
+gcd(tQ(m) + 1, 2A) = 1 (and then χ = +1 on level t at primes, under the 2-condition above).
+(b) If E is not a perfect square and E ≠ −t·□, there is a prime r ∤ 2tAE with (−t/r) = −1 and (E/r) = −1; for every
+such r, level t is NOT odd-clean at Q(m) for all m in a residue class mod r (namely tX² ≡ −E, X = 2Am + B). If
+E = −t s² (s ≥ 0), tQ + 1 = t(X − s)(X + s)/(4A) is reducible and level t is not odd-clean on a class of m as well.
+So "level t is odd-clean along the whole family" ⟺ 4A − tΔ is a perfect square.
+*Proof.* (a) r | tQ + 1, r ∤ 2Ac ⇒ tX² ≡ −c² (r), r ∤ X ⇒ −t ≡ (c/X)². (b) r with (−tE/r) = 1 (so tX² ≡ −E is
+solvable mod r) and (−t/r) = −1 exist by Dirichlet/Chebotarev in ℚ(√−t, √E) as soon as −t·E and −t are independent
+modulo squares, i.e. E ∉ □ ∪ (−t)□. ∎
+Examples. Q = m² + k: E = 4(1 + tk): clean ⟺ tk + 1 = □ (THREE_SQUARES Lemma 1.4 is exactly the "if"; this is the
+"only if"). Q = 2m² + k: 8(1 + tk) = □ ⟺ tk + 1 = 2□ (k = 1: t = 1, 7, 17, 31, …). Q = m² + m + k: E = 4 + t(4k − 1).
+Families p = m² + k·j² with j varying: level t clean ⟺ (c, j) solves the Pell equation c² − tk·j² = 1.
+**Per-prime form (PROVED, elementary).** At a single prime p, level t is *T1-type* if tp + 1 = c² + t·m² with gcd(m, c) = 1;
+equivalently K := p − m² > 0 satisfies tK + 1 = c². Every prime has the T1-type levels t = K ± 2 (c = K ∓ 1... i.e.
+(K − 2)K + 1 = (K − 1)², (K + 2)K + 1 = (K + 1)²) for each m < √p with the gcd condition, and more generally
+t = (c² − 1)/K for every square root c of 1 mod K. T1-type ⟺ tp + 1 is primitively represented by the PRINCIPAL form
+x² + ty² — while "clean" ⟺ every prime of tp + 1 splits in ℚ(√−t) ⟺ (essentially) primitively represented by SOME form of
+discriminant −4t. So T1-type levels are the principal-genus-class part of the clean levels.
+EVIDENCE (`scripts/ns_census.c`, all 34 392 primes p ≡ 1 (4) in (10⁵, 10⁶), 5 570 014 ordered words): 432 677 words lie on
+clean levels, 356 023 (82 %) of them on T1-type levels; 0 χ = −1 words on either (Lemma 1.4 and Lemma 1.2(a) at scale).
