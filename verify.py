@@ -25841,4 +25841,37 @@ def check_ge():
 check_ge()
 
 
+def check_gf():
+    # (gf) CAP_DOWN (O237; reviews R242, R243): Lemma 1.1 general Type II windows with cap; Thm 1.2 (even windows are
+    # forced); window numerics: every non-square n = 1 (4) <= 10^6 with all primes = 1 (4) (87 759 n) has a cap-0 window
+    # (an honest ES solution of window shape) except n = 3985 (cap 1); T1: no window at odd squares; the excluded case.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("CAP_DOWN subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r242_windows.py", "1000000", "1000", "all"])
+    assert "count 87759" in out and "least-cap histogram {0: 87758, 1: 1}" in out, out[-2000:]
+    assert "n without cap-0 window <= M: (n, (cap, m)) [(3985, (1, 19))]" in out, out[-2000:]
+    out = run(["review_r242_windows.py", "1000000", "1000", "primes"])
+    assert "count 39175" in out and "least-cap histogram {0: 39175}" in out, out[-2000:]
+    assert "max least cap-0 window (m, n): (63, 87481)" in out, out[-2000:]
+    out = run(["review_r243_lemmas.py", "2000"])
+    assert "Thm 1.2 / Prop 1.3: {'fire': 6375, 'excluded': 1384}" in out and "T1 hits (should be 0): 0" in out, out[-2000:]
+    assert "Lemma 3.1 brute force: 845011" in out and "'dead': 216" in out, out[-2000:]
+    print(f"== (gf) CAP_DOWN R242/R243: cap-0 windows for all primes p = 1 (4) <= 1e6 (max window 63) and all 87759 "
+          f"relevant non-squares except 3985 (cap 1); Thm 1.2 forced windows; T1 0 hits; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_gf()
+
+
 print("\nall checks passed")
