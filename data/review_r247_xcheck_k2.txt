@@ -1,0 +1,13 @@
+ok (1, 1, 2) full 17 exact 8 lop 14 zt_lop 14
+ok (1, 2, 2) full 17 exact 8 lop 14 zt_lop 14
+ok (1, 1, 2, 1) full 1 exact 0 lop 1 zt_lop 1
+ok (1, 2, 2, 2) full 1 exact 0 lop 1 zt_lop 1
+ok (1, 1, 0, 0, 1) full 1 exact 0 lop 1 zt_lop 1
+ok (1, 1, 0, 0, 2) full 4 exact 1 lop 3 zt_lop 3
+ok (1, 1, 0, 1, 1) full 1 exact 0 lop 1 zt_lop 1
+ok (1, 1, 1, 2, 2) full 5 exact 1 lop 5 zt_lop 5
+ok (1, 1, 2, 0, 1) full 6 exact 0 lop 6 zt_lop 6
+ok (1, 1, 2, 0, 2) full 6 exact 1 lop 8 zt_lop 8
+ok (1, 1, 2, 1, 1) full 1 exact 0 lop 1 zt_lop 1
+ok (1, 1, 2, 1, 2) full 7 exact 1 lop 8 zt_lop 8
+ok (1, 2, 0, 0, 1) full 1 exact 0 lop 1 zt_lop 1

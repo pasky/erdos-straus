@@ -79,3 +79,17 @@ monic of degree s − 2 − d (since d < s − 2). So the "iff" holds once lc Z 
 * MINOR-4: the "iff" sentence should include "lc Z = c" (stated earlier in the display but not in the iff), and the
   final "E | u² + m'(T²Zw₁)²" is only a consequence (⇒): the converse needs Z to be a unit mod E, i.e. gcd(Z, 1 + cT) = 1
   (gcd(E, u) = gcd(Z, u)). As written ("and then") it is a one-way statement, which is correct; just don't use it as a test.
+
+### Independent search and census (R247 from-scratch code)
+* `scripts/review_r247_census.c`: brute-force census of ALL Case B tuples, s ≤ 16, by enumerating every triple (m', w₁, C₁)
+  of monic T-free polynomials with deg sum s − 2 and testing Tv₁ | w₁ + C₁, g' monic T-free (no CRT, no Liouville, no case
+  split). Counts per s = 4..16: 2, 4, 10, 8, 8, 4, 24, 12, 14, 36, 104, 48, 38 (312 tuples; author's census has 348 for
+  s ≤ 17, consistent). Log: `data/review_r247_census_s16.txt`.
+* `scripts/review_r247_census_checks.py` on all 312 tuples × 80 polynomial points (deg 1..4, u(0) = 1): EE' = D for all;
+  0 violations of Lemma 1.2, of Lemma 3.1 (agreement depths of E + u, m'w₁² + uv₁, um'C₁² + v₁ capped at s − 2), of the
+  depth-generalised Cor 3.2 inequalities (h = 1), of the parity laws (z ≡ t ≡ s mod 2, deg E, deg E' even);
+  24 exact (tuple, u) pairs, all with lc u = −1 (Prop 1.4).
+* `scripts/review_r247_search.c` (enumeration described under Prop 2.1). `scripts/review_r247_census_vs_search.py`: at all
+  54 points (deg 1..4, u(0) = 1, u'(0) ≠ 0), k = 2 levels 3..8 and k = 3 levels 4..8, the census coverings minus exact
+  ones coincide with my lop-mode hits: 156 covering records (46 exact), 0 mismatching (k, u). **Positive control: 110
+  non-exact coverings at polynomial points are found by both methods.**
