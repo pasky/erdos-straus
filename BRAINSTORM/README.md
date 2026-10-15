@@ -434,3 +434,11 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z9_brandt_screen | how Brandt/class-number counts fail Prop 10.3 | L1 eigen-covariant functionals see only the mass of path classes; L2 planes up to genus (glue invisible); L3 Schiemann = problem itself | PROVED (L1 narrow); Assessment |
 | z9_heegner_layers | layer t of G_p as reductions of CM points of disc −4tp on X₀(2) | necessary ray-class condition mod t (norm A ≡ −1, A ∣ tp+1) on those CM points, plus the level-t ring condition; unifies (J)35 with Prop 10.3 | Assessment (algebra PROVED) |
 | GLOBAL_FANO.md (deep) | global pigeonhole over G_p | no global law; what a global Fano must act on (ray classes mod varying t); 105 has the graph but no path edge | PROVED parts + negative |
+
+## Spark relay Z5 (O235): exponential near-squares — label points, ℓ-lines, c₀·4^s + k (memos z11_*, deep file EXP_NEAR_SQUARE.md; not yet triaged)
+
+| file | idea | outcome | labels |
+|---|---|---|---|
+| z11_label_cantor | mixed points = label points Π_ℓ{square points}; CRT of squares | only mixed primes can cover; binary core of 4^s + 105 covered by 10 classes; quaternary core open | PROVED + CERTIFIED + EVIDENCE |
+| z11_lines_branching | per-branch Ẑ tree (C) instead of global period | measure → 3·10⁻¹¹ but stuck nodes multiply; cause = ℓ-lines through square points (also k = 297, one square point); 3-line of 297 itself covered | EVIDENCE + diagnosis |
+| z11_unit_square_shapes | when c₀·4^s + k has a unit-square point | iff c₀ + k = 4^j: (3, 1), c₀ ≡ 7 mod 8 series uncoverable; survey c₀ = 2, 3, 5 | PROVED + EVIDENCE |
