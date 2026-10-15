@@ -142,7 +142,7 @@ Thm 4.2 gives e*(n) < ∞ for every odd n > 1 (ineffective: no bound in terms of
 the ineffective x₀(n)^{o(1)}. The almost-all statements of §2 are bounds on #{p ≤ N : e*(p) > e}.
 
 **Proposition 4.1 (covering barrier at the log log scale; PROVED, elementary + EXPONENT_CAP Prop 3.1(c)).** For
-infinitely many primes p, every shot certificate (Q, r) of p has r > (1 − o(1)) log p; hence any argument that
+infinitely many primes p, every shot certificate (Q, r) of p with PRIME modulus r has r > log p/C′; hence any argument that
 proves ES^{(y,e)}(p) by *covering* (F_r^*)² with the cap-e box at a single certifying prime r (EXPONENT_CAP Prop 3.1)
 needs e ≥ (log r)^{1−o(1)} ≥ (log log p)^{1−o(1)} for these p.
 *Proof.* A shot (Q, r) with r prime needs (−p/r) = 1 with r ≡ 3 (4), i.e. (p/r) = −1 for p ≡ 1 (4). Let
@@ -159,7 +159,7 @@ tested p by ES itself).
 **Theorem 4.2 (pointwise cap under GRH; CONDITIONAL on GRH for the Dedekind zeta functions of the fields
 L = ℚ(ζ_{4P}, √p, ζ_m, s₁^{1/m}, …, s_k^{1/m}); proof at citation level (Hooley/Lenstra + Lagarias–Odlyzko), to be
 hostile-reviewed).** There is an absolute C such that for every prime p,
-`  (a) e*(p) ≤ C (log p)^{2.1}          (k = 1, S = {3}, p ≠ 3);`
+`  (a) e*(p) ≤ C_ε (log p)^{2+ε}        (k = 1, S = {3}, p ≠ 3; every ε > 0);`
 `  (b) e*(p) ≤ exp(C √(log log p · log log log p))      (k ≍ √(log₂p/log₃p) mute primes).`
 *Proof sketch.* p ≡ 3 (4): e* = 0 (shot Q = 1). Let p ≡ 1 (4); S = first k odd primes ≠ p, P = ∏S. Count primes
 r ∈ (x/2, x] with (i) r ≡ −1 (mod 4P), (ii) (p/r) = −1, (iii) for no odd prime q | r − 1 are all s ∈ S q-th powers
@@ -167,19 +167,19 @@ mod r, (iv) λ₁(Λ_r) > B (k ≥ 2 only; Λ_r as in PHASE_DIAGRAM Thm 5.1). Fo
 FROBENIUS_FIRING Thm 4.2), so (iii) gives ⟨S⟩ = (F_r^*)², and (ii) makes −p/4 a square; hence r | p + 4Q² with
 Q ∈ ⟨S⟩, rad Q | (r+1)/4, and the overflow exponents are ≤ v_s(Q). For k = 1 take Q = s^a, a < (r−1)/2: e ≤ r/2.
 For k ≥ 2 Minkowski II gives exponents ≤ 2kλ_k ≤ 2k·x/B^{k−1} (PHASE_DIAGRAM Thm 5.1 Step 4).
-Counting (Hooley's scheme, GRH): *small q ≤ ξ₁ = (1/6)log x*: inclusion–exclusion over m | ∏_{q≤ξ₁} q, 2^{π(ξ₁)} ≤ x^{0.12}
+Counting (Hooley's scheme, GRH): *small q ≤ ξ₁ = ε′ log x*: inclusion–exclusion over m | ∏_{q≤ξ₁} q, 2^{π(ξ₁)} ≤ x^{ε′}
 fields, each with |C| = 1 and Lagarias–Odlyzko error ≪ √x log(pPmx); main term δ·x/(φ(4P)·2·log x) with
 δ = ∏_{q≤ξ₁, q∤2P}(1 − 1/(q^k(q−1))) ≥ 0.3 (linear disjointness as in FROBENIUS_FIRING Thm 4.4; m sharing a prime with
 the conductor of ℚ(√p) only kills terms). *Medium q ∈ (ξ₁, ξ]*: upper bound #{r ≡ −1 (4P) split in ℚ(ζ_q, s₁^{1/q})}
 ≤ li(x)/(φ(4P)q(q−1)) + O(√x log(Pqx)) — no p-dependence. *Large q > ξ*: k = 1: Hooley (BT on (ξ, √x log x], and
 r | s^t − 1 with t ≤ √x/log x beyond), total ≪ x log₂x/log²x; k ≥ 2: index ≥ ξ ⇒ |Γ_r| ≤ x/ξ, and
 #{r : |Γ_r| ≤ Y} ≤ 6^k Y^{1+1/k}·3 log P (PHASE_DIAGRAM Thm 5.1 Step 2). *(iv)*: #{r : λ₁ ≤ B} ≤ (3B)^{k+1} log P.
-Parameters. (a) k = 1, P = 3: main ≍ x/log x; the small range needs x^{0.38} ≫ log p·log²x, i.e. x ≥ (log p)^{2.1}·C;
-the rest is n-free. So r ≤ C(log p)^{2.1} and e ≤ r/2. (b) ξ := √x/(P log³x): medium error ≪ x/(φ(P) log² x);
+Parameters. (a) k = 1, P = 3: main ≍ x/log x; the small range needs x^{1/2−ε′} ≫ log p·log²x, i.e. x ≥ C_ε(log p)^{2+ε};
+the medium/large ranges are p-free (they need only ξ₁ log ξ₁ ≫ 1/δ and log x ≫ log₂x/δ). So r ≤ C_ε(log p)^{2+ε}, e ≤ r/2. (b) ξ := √x/(P log³x): medium error ≪ x/(φ(P) log² x);
 large range needs (x/ξ)^{1+1/k}6^k log P ≪ x/(φ(P) log² x), true when log x ≥ C k log k (as P = e^{(1+o(1))k log k});
-B := (x/(P log³x))^{1/(k+1)}/3. Small range: x ≥ (P log p)^{2.1}. Take log x := max(Ck log k·?, 2.1(log₂p + log P))
-with k := ⌊√(log₂p/log₃p)⌋: log x ≍ log₂p, and e ≤ 2k·x/B^{k−1} ≤ exp(2 log x/(k+1) + O(k log k)) =
-exp(O(√(log₂p·log₃p))). ∎
+B := (x/(P log³x))^{1/(k+1)}/3. Small range: x ≥ (P log p)^{2.1}. Take log x := 2.1(log₂p + log P) + Ck log k with k := ⌊√(log₂p/log₃p)⌋:
+log x ≍ log₂p, and x/B^{k−1} = x^{2/(k+1)}(P log³x)^{(k−1)/(k+1)}3^{k−1}, so
+e ≤ 2k·x/B^{k−1} ≤ exp(2 log x/(k+1) + O(k log k)) = exp(O(√(log₂p·log₃p))). ∎
 *Remarks.* (1) Min-form vs family-form: (b) bounds the SMALLEST solution's cap (y ≈ p·(log p)^{O(1)}, so also
 e ≤ exp(O(√(log₂y log₃y)))). In family form (scale y → ∞ at fixed p) the same argument gives only
 e ≤ exp(O(√(log y·log₂y))) — PHASE_DIAGRAM Thm 5.1 Remark (2)'s prediction, now under GRH; the cell
