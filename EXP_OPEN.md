@@ -125,3 +125,36 @@ beside the Sophie-Germain window m = 11 (MENU_STERILITY Theorem B).
 
 **Computation 2.2 (EVIDENCE, `z19_iiac.py c₀ k 10⁸ 60 13 1,2 10`: c′ ≤ 60, u, v ≤ 10, p ≤ 13 and SG, D ∈ {e, 2e}).**
 (3, 1): exactly the family of Prop 2.1 (and its D = 6 reparametrisation). (7, 9): none. **(15, 1): none.**
+
+(I4) All two-constant *binomial menus* (`scripts/z19_binom.py`, replay `scripts/z19_binom_verify.py`). Fixing two of
+(a, b, c, d) in cn = 4abcd − a − b (Type II) or (a + b)n = c(4abd − 1) (Type I, x = abdn, y = acd, z = bcd) leaves
+either an ET class / constant gap (Thm W) / constant ratio (Cor 1.7) / Type I with (c, d) constant (dead at μ = 0: the
+witness character (−d/·) is evaluated at −n → −(unit square)), or one of four menus in which a witness f is a polynomial
+factor of a binomial B and two parameters are fixed by congruences modulo a FIXED modulus:
+| menu | constants | binomial B | congruences (mod Mod) |
+|---|---|---|---|
+| II-ac | a, c | cn + a | f = 4acd − 1 ≡ −1 (4ac) |
+| II-ad | a, d | n + 4a²d | f = 4abd − n (the gap) ≡ −n, B/f = 4acd − 1 ≡ −1 (4ad) |
+| I-ac | a, c | an + c | f = 4acd − n ≡ −n (4ac) |
+| II-cd | c, d | 4c²dn + 1 | f, B/f ≡ −1 (4cd) |
+In every menu f(0) is a 2-adic unit, so the same progression test applies. Positive controls and results (c′/a ≤ 40,
+u, v ≤ 10, p ≤ 13 and SG, D ∈ {e, 2e}; every hit replayed by `z19_binom_verify.py` on s = Dj, j ≤ 240–400):
+* (3, 1): hits in II-ac, II-ad, I-ac (cyclotomic Y³ + 27 and SG pieces), e.g. Prop 2.1.
+* (39, 25): I-ac hits (SG, (a, c) = (1, 131)). (7, 9), (23, 41), (31, 33), (7, 57): none.
+* **(63, 1): II-ad hit (a, d) = (5, 17), D = 3** — see Theorem 2.3. **(15, 1): none.**
+
+**Theorem 2.3 (a moving-gap family through the unit-square point of 63·2^s + 1; PROVED, elementary; replayed).**
+For s ≡ 0 (mod 24), s ≥ 6, put Y = 2^{s/3}, n = 63Y³ + 1 = 63·2^s + 1, a = 5, d = 17 and
+  b = (63Y³ + 3Y² − 9Y + 28)/340,  c = (21Y + 64)/340,  x = abd, y = acdn, z = bcdn.
+Then 4/n = 1/x + 1/y + 1/z with x, y, z positive integers.
+*Proof.* n + 4a²d = 63Y³ + 1701 = 63(Y + 3)(Y² − 3Y + 9). Put f = 3(Y² − 3Y + 9), f′ = 21(Y + 3), so ff′ = n + 1700.
+Then 4abd − n = 85·4b − n = f and 4acd − 1 = 85·4c − 1 = f′ − ... more precisely 340c − 1 = 21Y + 63 = f′, so
+(4abd − n)(4acd − 1) = n + 4a²d, which expands to c·n = 4abcd − a − b (Type II identity). Integrality: 340 = 4·5·17;
+Y ≡ 0 (4), and Y ≡ 1 (mod 5) and (mod 17) iff 4 | s/3 and 8 | s/3; then 21Y + 64 ≡ 85 ≡ 0 and
+63Y³ + 3Y² − 9Y + 28 ≡ 85 ≡ 0 (mod 5·17), both ≡ 0 (mod 4). Positivity is clear. ∎ (`z19_binom_verify.py 63 1 II-ad 5 17 3
+"Y**2-3*Y+9" 3 400`: identity and integrality verified at all j = s/3 ≡ 0 (mod 8), j ≤ 400.)
+*Significance (SHARP).* 63·2^s + 1 is one of the families PROVED (EXPONENT_COVERING Cor 1.5) to have no ET/divisor
+covering, and Theorem W (and O239 Cor 2.8) prove that no constant-gap / window class reaches its unit-square point
+μ = 0. The class s ≡ 0 (mod 24) above contains μ = 0. So **a moving-gap, cubic-root, cyclotomic (Y³ + 3³) Type II
+class dissolves a unit-square point that every window provably misses.** The gap 4x − n = 3(Y² − 3Y + 9) is itself the
+cyclotomic factor. Whether 63·2^s + 1 is fully coverable (ET + windows + this class) is the next step (§3).
