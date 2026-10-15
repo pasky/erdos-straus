@@ -10,7 +10,8 @@ Deliverables:
 **ES is not solved, and CONJECTURE U is not proved.** No infinite case is claimed.
 
 ## SHARP
-1. **Every failure of N₋ ≥ U/2 at n ≡ 1 (8) has a defective n + 1 (EVIDENCE + PROVED lemma).** The ψ-odd part of n + 1 is
+1. **All 8 known failures of N₋ ≥ U/2 at n ≡ 1 (8) have a defective n + 1 (EVIDENCE + PROVED lemma; necessary in range,
+   not sufficient — R233 repair D6).** The ψ-odd part of n + 1 is
    exactly 3² in all 8 cases: R227's full list below 10⁷, plus the primes below 3·10⁷.
    * Lemma 5.2 (PROVED): on the Div(n + 1) family (t = 1 and u = 1, the largest family), the certificate count is
      (τ/2)(1 − ∏_{ψ(r)=−1}[e_r even]/(e_r + 1)). That is exactly half when some ψ-odd prime has odd exponent, and 1/3 for 3².
@@ -20,8 +21,9 @@ Deliverables:
    * New CONJECTURE: N₋ ≥ U/2 whenever a ψ-odd prime of n + 1 has odd exponent.
 2. **"N₋/U ≈ ¾, scale-stable" is a mixture of strata, not a law.**
    * Prop 5.1 (PROVED): the 2-adic Haar mass of the five-slice set on X_p(ℤ₂) is exactly 3/4 for every p ≡ 1 (4).
-   * Words with large min(t, u, v) obey it at every scale (N₋/N ≈ 0.73–0.75 for min ≥ 10 and min ≥ 50, from 10⁴ to 3·10⁷).
-   * The entire deficit of N₋/N, and its drift, sits in the min ≤ 2 automatic families. There the sign is a Landau event
+   * Words with large min(t, u, v) approach it (N₋/N ≈ 0.72–0.75 for min ≥ 10 and min ≥ 50, from 10⁴ to 3·10⁷; slight upward drift, saturating
+     ≈ 0.74; R233 repair D7).
+   * Almost the entire deficit of N₋/N, and its drift, sits in the min ≤ 2 automatic families. There the sign is a Landau event
      on p + 1, p + 2, 2p + 1, with rate ≤ 1/2 by Lemma 5.2.
    * N₋/U is 0.59 on min = 1 and 0.90 → 0.85 on min ≥ 3. These two drift in opposite directions.
 3. **Prop F/F′ (PROVED).** On every family with fixed side X ∈ {p+1, p+2, 2p+1, p+3, 3p+1, p+4, 4p+1, p+7, 7p+1}
@@ -84,3 +86,11 @@ Deliverables:
   law than O230's.
 * SQ_± gap: why do unforced words at 9 817 305 precede certificates by |t| 7 → 54? Is it congruence-pinned forcing on
   signed sides?
+
+## R233 repairs (applied)
+D2 (ψ(r) = (−s/r) notation), D3 (2-part of M in Thm 3.2), D4 (gcd(uv, n) = 1 in Lemma 2.1; closing sentence labelled
+Assessment), D5 (r ∤ 105 at 105), D6 (SHARP 1 restated as 8/8 EVIDENCE, 3² necessary-in-range, not sufficient),
+D7 (large-min drift 0.719 → 0.736; window-coincidence reading labelled Assessment), D8 (Remark 4.1 last sentence
+restricted to 2-adically pinned cases), D9 (|t| gap not specific to strictly signed; SQ_± claim labelled EVIDENCE),
+D10 ("under Dickson's conjecture") — in UNFORCED_WORDS.md, memos z7_haar_strata / z7_symbol_blind / z7_landau_depth /
+z7_signed_3sq, and this report.

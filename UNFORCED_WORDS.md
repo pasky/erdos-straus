@@ -46,7 +46,7 @@ fixed side of these families is n + 1 (t = 1, u = 1, v = 1), 2n + 1 (t = 2) or n
 (i) ⟹ (ii): a certificate has no clean side (Lemma S). ∎
 **Corollary 1.2.** If U(n) = 0 or N₋(n) = 0, then n + 1, n + 2 and 2n + 1 are all clean (a *Landau triple*), and
 then every word with min(t, u, v) ≤ 2 is forced. Conversely, at a Landau triple U(n) ≥ 1 ⟺ some word with
-min(t, u, v) ≥ 3 has three unclean sides. At primes p ≡ 1 (8), by Lemma S's formula ψ(r) = (−X/r): p + 1 clean ⟺ all odd
+min(t, u, v) ≥ 3 has three unclean sides. At primes p ≡ 1 (8), by Lemma S's formula ψ(r) = (−s/r) for the side p + s or sp + 1 (R233 repair D2): p + 1 clean ⟺ all odd
 r | p + 1 are ≡ 1 (4); p + 2 and 2p + 1 clean ⟺ all their prime factors are ≡ 1, 3 (8). (Same for composite n with
 Jacobi symbols.)
 So the anti-Landau event is genuinely weaker than a certificate only on words with min ≥ 3. On the automatic families
@@ -61,14 +61,15 @@ predicts. Over n ≡ 1 (8) non-square ≤ 2·10⁵ including composites there ar
 (log p)^{−3/2} heuristic for three half-dimensional conditions. Largest least-min observed at a Landau triple: 18.
 
 ## 2. Where the anti-Landau content sits, and parity across a family
-**Lemma 2.1 (symbol-visible and symbol-blind sides; PROVED).** ψ(N_u) = ψ(u), ψ(N_v) = ψ(v), ψ(N_t) = ψ(1) = +1, and
+**Lemma 2.1 (symbol-visible and symbol-blind sides; PROVED).** Assume gcd(uv, n) = 1 (automatic for prime n ≥ 5;
+R233 repair D4: e.g. n = 105, w = (1, 3, 54) has ψ(3) = ψ(54) = 0, χ = +1, and lies outside (a)–(c)). ψ(N_u) = ψ(u), ψ(N_v) = ψ(v), ψ(N_t) = ψ(1) = +1, and
 ψ(u)ψ(v) = χ. Hence:
 (a) a word with ψ(u) ≠ ψ(v) is a certificate (χ = −1, all sides unclean);
 (b) a word with ψ(u) = ψ(v) = −1 has N_u, N_v unclean for free. It is unforced iff N_t ∉ C_n, i.e. tn + 1 has
     ≥ 2 prime factors (with multiplicity) with ψ = −1;
 (c) a word with ψ(u) = ψ(v) = +1 is unforced iff all three sides contain ≥ 2 ψ-odd prime factors.
 So a non-certificate unforced word always needs the t-side event "tn + 1 ∉ C_n". No symbol can detect this event,
-because ψ(tn + 1) = 1 identically. This is the precise "anti-Landau" kernel of CONJECTURE U beyond ES-five. In cases
+because ψ(tn + 1) = 1 identically. This is the precise "anti-Landau" kernel of CONJECTURE U beyond ES-five. *(Assessment, R233 repair D4:)* In cases
 (b)/(c) a congruence covering cannot supply it: any covering identity evaluates fixed symbols, and those are all +1 on
 the class n ≡ 1 (mod M) (B1-type).
 
@@ -124,7 +125,7 @@ K(p) + 1 at 41/715 primes with K = 4, at 29/153 with K = 5 and at 3/8 with K = 8
 **Theorem 3.2 (CONDITIONAL on Dickson's prime k-tuples conjecture).** For every K ≥ 1 there are infinitely many primes
 p ≡ 1 (8) with K(p) ≥ K. At these primes every word with min(t, u, v) ≤ K is forced (neither a certificate nor
 unforced).
-*Proof.* Let M = 8·∏_{3 ≤ ℓ ≤ 2K+1} ℓ^{a_ℓ} with ℓ^{a_ℓ} > K + 1 (ℓ prime; also 2^{a_2} > K + 1). Put p = 1 + Mx. For
+*Proof.* Let M = 2^{a_2}·∏_{3 ≤ ℓ ≤ 2K+1} ℓ^{a_ℓ} with ℓ^{a_ℓ} > K + 1 (ℓ prime), a_2 ≥ 3 and 2^{a_2} > K + 1 (R233 repair D3). Put p = 1 + Mx. For
 1 ≤ s ≤ K and ℓ ≤ 2K + 1, p + s ≡ sp + 1 ≡ s + 1 (mod ℓ^{a_ℓ}), so v_ℓ(p + s) = v_ℓ(sp + 1) = v_ℓ(s + 1). Hence
 p + s = (s + 1)·L_s(x), sp + 1 = (s + 1)·L′_s(x) with L_s = 1 + (M/(s+1))x and L′_s = 1 + (sM/(s+1))x. The forms p,
 L_s, L′_s (L′_1 = L_1) are pairwise non-proportional, ≡ 1 mod every ℓ ≤ 2K + 1, and number ≤ 2K + 1 < ℓ for every
@@ -132,7 +133,8 @@ other prime ℓ. So the system is admissible, and Dickson gives infinitely many 
 prime factor of s + 1 is ≤ K + 1 and is a residue mod p (p ≡ 1 mod ℓ for odd ℓ, p ≡ 1 (8) for ℓ = 2). Also
 ψ(L_s) = ψ(p + s)ψ(s + 1) = ψ(s) = +1, because s is a product of primes ≤ K. Likewise ψ(L′_s) = ψ(1)ψ(s + 1) = +1. So
 p + s and sp + 1 are clean. A word with min = s ≤ K has the side sp + 1 (if t = s) or p + s (if u or v = s). ∎
-So **no proof of CONJECTURE U (or of ES-five) can use only words of bounded minimum parameter**. This is the U-analogue
+So, **under Dickson's conjecture, no proof of CONJECTURE U (or of ES-five) can use only words of bounded minimum
+parameter** (R233 repair D10). This is the U-analogue
 of B2's "fixed finite slice sets fail i.o. under H" and of SQ_±'s Dickson-conditional "no finite t-set". The
 hypothesis a U-proof must violate is boundedness of the family; the escape is H-A (growing family). The observed depth
 grows slowly: max K = 10 below 3·10⁷.
@@ -163,8 +165,9 @@ sharper the forcing notion, the closer "U ≥ 1" is to ES-five itself. CONJECTUR
 gap to ES-five is exactly the words whose three families are certificate-free for non-clean reasons: R227's
 congruence-pinned sides, and more generally sides whose ψ-odd primes sit only in classes that Lemma 2.2 cannot move.
 The same mechanism can also force χ = −1 on a whole family (R227 D4/D5; Prop F′'s s = 4, 7 families consist entirely
-of certificates). In every case the forcing is a function of (N_X's factorization, X mod 8): the three-bit law on a
-family.
+of certificates). In the 2-adically pinned cases (s ∈ {3, 4, 7}, 4 | s, s ≡ 7 (8); R227 D4/D5) the forcing is a function of (N_X's
+factorization, X mod 8): the three-bit law on a family. Family-exact forcing in general depends on the classes of the
+divisors of N_X modulo the full X (Lemma 2.2; e.g. s = 5, where Prop F′ fails) (R233 repair D8).
 
 ## 5. Goal 3: where "N₋/U ≈ 3/4" comes from. It is a stratum mixture; the robust law is Haar 3/4 at large min
 **Prop 5.1 (PROVED, finite computation; `scripts/z7_haar2.py 5`).** For every p ≡ 1 (4), the solutions of
@@ -185,7 +188,8 @@ min(t, u, v) ≥ m, p ≡ 1 (8)):**
 (p ≡ 5 (8) is similar at m ≥ 10, 50: 0.76, 0.755. At m = 3, 4 the class is distorted by its all-certificate families
 u, t ≡ 3 (mod 8) → N_X ≡ 0 (8), giving 0.81–0.85.)
 **Reading (Assessment).**
-* Words with large min(t, u, v) carry the Haar sign law N₋/N ≈ 3/4 already at p ≈ 10⁴, with no visible drift.
+* Words with large min(t, u, v) approach the Haar sign law: N₋/N at m ≥ 10 has a slight upward drift 0.719 → 0.736, saturating ≈ 0.74, and stays
+  below 3/4 at m ≥ 10, 50 (R233 repair D7).
 * The whole deficit of N₋/N, and its slow drift 0.57 → 0.64, lives in the strata min ≤ 2. These are the automatic
   families of Prop F, where (i) a clean p + 1, p + 2 or 2p + 1 makes the whole family χ = +1 (a Landau event of
   probability ≍ 1/√log p), and (ii) if the side is unclean, the certificate fraction on the family is ≤ 1/2 exactly
@@ -196,19 +200,20 @@ u, t ≡ 3 (mod 8) → N_X ≡ 0 (8), giving 0.81–0.85.)
   (τ(X)/2)·(1 − ∏_{ψ(r)=−1}[e_r even]/(e_r+1)). This is exactly τ/2 (flip involution) if some ψ-odd prime has an odd
   exponent, and τ/3 if the ψ-odd part of X is r². In the latter case, R227 D4's "defective side, rate 1/3" is this
   lemma. So N₋(F) ≥ U(F)/2 whenever a ψ-odd prime of X has odd exponent, but not for X = r²·(clean).
-* **SHARP (EVIDENCE + Lemma 5.2): every N₋ ≥ U/2 failure at n ≡ 1 (8) sits on a defective n + 1.** All 8 failures with
+* **SHARP (EVIDENCE + Lemma 5.2): all 8 known N₋ ≥ U/2 failures at n ≡ 1 (8) (all n ≡ 1 (8) < 10⁷, primes < 3·10⁷) sit
+  on a defective n + 1; the 3² defect is necessary in this range, not sufficient (EVIDENCE; R233 repair D6).** All 8 failures with
   n ≡ 1 (8) in R227's complete list (n < 10⁷) and among the primes < 3·10⁷ (110 897, 1 512 089, 2 152 097,
   3 000 329, 5 270 849, 9 948 977, 17 188 937, 21 387 257) have **ψ-odd part of n + 1 equal to 3²** (`scripts/z7_defect_p1.py`;
   the ninth, 4 095 125 = 5³·181², is ≡ 5 (8)). The largest family (t = 1 and u = 1, indexed by Div(p + 1)) then has
   certificate rate exactly 1/3. At p = 5 270 849, for example, the min ≤ 2 strata have N₋/U = 148/333, while min ≥ 3
   has 44/56. Splitting all 464 288 primes p ≡ 1 (8) < 3·10⁷ by the ψ-odd profile of p + 1 gives min N₋/U:
   odd exponent present 0.564 (320 343 primes, 0 failures); clean 0.600 (107 296); even, ψ-odd part 3² 0.475
-  (25 666, 3 failures); other even profiles 0.549 (10 983). Why 3: 3 | p + 1 forces p ≡ 2 (3), hence ψ(3) = −1
+  (25 666, 3 failures; R233: 6 among 49 890 n < 10⁷ with this profile); other even profiles 0.549 (10 983). Why 3: 3 | p + 1 forces p ≡ 2 (3), hence ψ(3) = −1
   automatically, so 3² is the most frequent pure-square defect. The failure needs, in addition, an unusually lopsided
   min ≥ 1 stratum (3 failures among 25 666 such primes).
 * "N₋/U ≈ 3/4, scale-stable" is a weighted average of two strata moving in *opposite* directions. The min = 1 stratum
   has N₋/U ≈ 0.59 (> 1/2 because some non-certificates of a flip pair are forced through their u/v side). The min ≥ 3
-  stratum has 0.90 → 0.85, slowly decreasing, since its forced share falls slower than its non-certificate share. So
+  stratum has 0.90 → 0.85, slowly decreasing, since its forced share falls slower than its non-certificate share. *(Assessment, R233 repair D7:)* So
   the stability is a coincidence of the window 10⁴–3·10⁷, not a law. It should not be explained by a 2-adic mass
   computation; the 2-adic mass explains N₋/N at large min instead (Prop 5.1).
 * At large min, ≈ 12–15 % of all words are forced, i.e. roughly half of the Haar non-certificate quarter. Forcing does
@@ -231,15 +236,15 @@ counts as clean), so N₋^± ≤ U^±. Census over |t| ≤ 60 (`scripts/z7_sqpm_
 | 297 465 | strictly signed (record 30) | 30 | 0.94 | 6/8 | 0.51, 0.53 |
 | 60 369 | strictly signed (record 19) | 19 | 0.93 | 14/16 | 0.39, 0.54 |
 
-The records reproduce SPARKS4 §2.5 exactly (18, 15, 54, 30, 19). **SQ_± hardness is forcedness too:** every record n
-has forced fraction 0.84–0.94, against 0.24–0.51 at the controls. One difference from ES-five: at the strictly-signed
-record 9 817 305, unforced words appear already at |t| = 7, but the first certificate only at |t| = 54.
-So in the signed problem the gap between "unforced" and "certificate" shows up as a gap in |t|. The mechanism was
-not analysed.
+The records reproduce SPARKS4 §2.5 exactly (18, 15, 54, 30, 19). **SQ_± hardness is forcedness too (EVIDENCE: 5 records, 1 control each, |t| ≤ 60; R233 repair D9):** every record n
+has forced fraction 0.84–0.94, against 0.24–0.51 at the controls. At the strictly-signed record 9 817 305 unforced words appear already at |t| = 7,
+the first certificate only at |t| = 54; the same kind of gap occurs at the incl.-positive records 97 185 (7 vs 15) and
+4 884 441 (16 vs 18), and unforced non-certificates are ubiquitous in ES-five as well, so this is not a difference
+from ES-five (R233 repair D9). The mechanism was not analysed.
 **3SQ (exception-free at 105) explained by the split.** At composite n, Jacobi cleanliness is *genus-collapsed*:
 ψ = ∏_{ℓ | n} ψ_ℓ^{v_ℓ(n)} with ψ_ℓ = (·/ℓ). A side can be ψ-clean while every one of its primes is ψ_ℓ-odd for two
-different ℓ. At n = 105 every prime factor of every side of all 11 words (2, 53, 107, 79, 211, 3) has
-(r/3) = (r/5) (and (r/7) = +1). This is why U(105) = 0. Yet each word has exactly two local signs ε_ℓ = (−A/ℓ) equal to −1
+different ℓ. At n = 105 every prime factor r ∤ 105 of every side of all 11 words (2, 53, 107, 79, 211) has
+(r/3) = (r/5) and (r/7) = +1 (R233 repair D5; r = 3 occurs on the sides 108, 159 with ψ(3) = 0, counted clean). This is why U(105) = 0. Yet each word has exactly two local signs ε_ℓ = (−A/ℓ) equal to −1
 (e.g. (107, 1, 1): A = 106, (ε₃, ε₅, ε₇) = (−1, +1, −1)). That is precisely the "ramified at two odd primes" of (J)53, so
 105 is not a 3SQ exception. **Lemma 6.1 (PROVED).** For ℓ ∥odd n and a side N_X all of whose prime factors r ≠ ℓ
 have (r/ℓ) = +1, every word on that side has ε_ℓ = (−1/ℓ). (Proof: A | N_X (or B, with (A/ℓ) = (B/ℓ) since AB ≡ 1
@@ -262,9 +267,9 @@ collapse that creates SQ₅/CONJECTURE U's exception 105 disappears. At primes, 
 * **Goal 3:**
   * The ¾ of N₋/U is not a law. It is a mixture of strata. The robust law is Haar 3/4 for large-min words (Prop 5.1
     PROVED, EVIDENCE that the words follow it).
-  * The O230 refutation of N₋ ≥ U/2 is explained: every failure at n ≡ 1 (8) is a defective n + 1 (ψ-odd part 3²,
-    Lemma 5.2).
-* **Goal 4:** SQ_± hardness is forcedness. 3SQ removes 105 because Jacobi cleanliness collapses per-prime signs.
+  * The O230 refutation of N₋ ≥ U/2 is located (EVIDENCE, R233 repair D6): all 8 known failures at n ≡ 1 (8)
+    (n < 10⁷, primes < 3·10⁷) have defective n + 1 (ψ-odd part 3², Lemma 5.2); necessary in range, not sufficient.
+* **Goal 4:** SQ_± hardness is forcedness (EVIDENCE, 5 records, |t| ≤ 60). 3SQ removes 105 because Jacobi cleanliness collapses per-prime signs.
 * New invariant: U2 (CONJECTURE U2).
 
 ES is not solved; no infinite case of it is claimed.

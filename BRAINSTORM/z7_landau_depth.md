@@ -8,7 +8,7 @@ Question: can K(p) be bounded (which would make U provable by finitely many fami
 * K(p) < q(p), the least non-residue prime (PROVED, trivial): ψ(p + q) = ψ(q) = −1. So K(p) ≪ p^{1/(4√e)+ε}
   (Burgess). This is the only unconditional upper bound.
 * **Thm 3.2 (CONDITIONAL on Dickson).** For every K there are infinitely many primes p ≡ 1 (8) with K(p) ≥ K. At them
-  every word with min(t, u, v) ≤ K is forced. So no proof of CONJECTURE U (or ES-five) can use bounded-min words
+  every word with min(t, u, v) ≤ K is forced. So, under Dickson's conjecture (R233 repair D10), no proof of CONJECTURE U (or ES-five) can use bounded-min words
   only. This is the U-analogue of B2 (redteam-automorphic-2 Thm 2.2) and of SPARKS4 §2.4.
 * Numerics: the K histogram to 3·10⁷ (max 10, at p = 21 746 761). The least min of an unforced word is K(p) + 1 at
   most primes (always for K ∈ {2, 3, 6, 7, 9, 10}). The excess is ≤ 9 otherwise.

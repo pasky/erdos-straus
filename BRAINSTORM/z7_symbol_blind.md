@@ -6,6 +6,7 @@ u makes the u-side unclean for free. But ψ(N_t) = ψ(tn + 1) = 1 identically. S
 primes) is never visible to a symbol.
 
 ## Results (UNFORCED_WORDS Lemma 2.1)
+* (Assuming gcd(uv, n) = 1, automatic for prime n ≥ 5; R233 repair D4.)
 * (a) ψ(u) ≠ ψ(v) ⟺ certificate.
 * (b) ψ(u) = ψ(v) = −1: unforced ⟺ tn + 1 ∉ C_n (C_n = clean integers).
 * (c) ψ(u) = ψ(v) = +1: three symbol-blind sides.

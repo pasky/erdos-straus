@@ -10,10 +10,11 @@ Apply the split to the two exception-free companions of SQ₅: the signed n-adic
   |t| ≤ 60 (EVIDENCE):
   * the forced fraction is 0.84–0.94, against 0.24–0.51 at controls n + 8;
   * the least certificate |t| reproduces SPARKS4 exactly (18, 15, 54, 30, 19).
-  * So SQ_± hardness is forcedness too.
+  * So SQ_± hardness is forcedness too (EVIDENCE: 5 records, 1 control each, |t| ≤ 60; R233 repair D9).
+  * The |t| gap below is not specific: 97 185 has first unforced |t| = 7 vs certificate 15, 4 884 441 has 16 vs 18.
   * At 9 817 305, unforced words exist from |t| = 7, but the first certificate is at |t| = 54.
 * **3SQ at 105.**
-  * Jacobi cleanliness is genus-collapsed. Every side prime of 105's 11 words has (r/3) = (r/5) and (r/7) = +1, so
+  * Jacobi cleanliness is genus-collapsed. Every side prime r ∤ 105 of 105's 11 words has (r/3) = (r/5) and (r/7) = +1 (R233 repair D5), so
     U(105) = 0.
   * But every word has exactly two local signs ε_ℓ = −1: (J)53's "ramified at two odd primes".
   * Lemma 6.1 (PROVED): a side all of whose primes are ψ_ℓ-residues forces ε_ℓ = (−1/ℓ). This is −1 for ℓ ≡ 3 (4),
