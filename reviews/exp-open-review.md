@@ -6,10 +6,18 @@ Reviewer: R257 (side-agent/review-exp-open). Author branch merged: side-agent/ex
 ## Summary verdicts
 | claim | verdict |
 |---|---|
-| Theorem 3.1 (ES for every 63·2^s + 1) | (in progress) |
-| Theorem 2.3 (moving-gap class) | (in progress) |
-| Theorem W / Lemmas 1.1–1.5 / Cor 1.7 | (pending) |
-| Prop 2.1, Reduction 2.5, Prop 4.1, Comp 4.2 | (pending) |
+| **Theorem 3.1 — ES for every 63·2^s + 1 (PROVED, computer-assisted)** | **SOUND** (from-scratch replay; MINOR D1) |
+| Theorem 2.3 (moving-gap cubic Type II class, s ≡ 0 mod 24) | **SOUND** (MINOR D1) |
+| Lemmas 1.1–1.5, Theorem W, Computation 1.6, Cor 1.7 | **SOUND** for the stated menu (MINOR D3 scope wording) |
+| Prop 2.1 (cubic family for 3·2^s + 1) | **SOUND** (MINOR D2: "iff" wrong, class is larger) |
+| Reduction 2.5 (II-ad limit algebra) | **SOUND** (algebra re-derived; used only as an EVIDENCE filter) |
+| Prop 4.1 (windows at 297's μ = 3) | **GAP** (MAJOR D4: 19 ∣ m untreated; local⇒global step missing, repaired here for 19 ∤ m) |
+| Comp 2.2, Map 2.4, Comp 4.2 | EVIDENCE, labels appropriate (not replayed) |
+| Labels | appropriate except Prop 4.1 (PROVED → should be PROVED for 19 ∤ m + GAP, see D4) |
+| Novelty of Thm 3.1 | Assessment: brief web search (3 queries) found no prior ES result for 63·2^s + 1 or any k·2^s + 1 family; non-exhaustive |
+
+No FATAL defects. One MAJOR (D4, Prop 4.1 only — does not touch the headline). Repairs NOT applied: the author's last
+commit (db1b591f) was ~10 min before this review finished, so the author is not quiet; defects forwarded instead.
 
 ## 1. Theorem 3.1 / Theorem 2.3 — from-scratch replay
 
@@ -104,3 +112,41 @@ Y^D), impossible since 19 ∤ t; pairs (λ₁, λ₂) die by Cor 1.7's Jacobi ar
 (a) remains open: I found no quick argument for 19 | m.
 **Verdict Prop 4.1: GAP** (sound for 19 ∤ m after the repair above; 19 | m unproved). The "Consequently…" sentence and
 the *Reading* paragraph inherit the gap.
+
+## 4. Prop 2.1, Reduction 2.5
+* Prop 2.1: identity re-derived (3Y³ + 81 = 3(Y + 3)(Y² − 3Y + 9), 320d − 1 = 21(Y + 3)); `scripts/review_r257_prop21.py`
+  verifies 4xyz = n(xy + yz + zx), positivity and integrality for s = 36, 72, …, 2124. But 7 | Y² − 3Y + 9 ⇔
+  (Y − 1)(Y − 2) ≡ 0 (7), i.e. Y ≡ 1 OR 2 (mod 7): the integrality set is j = s/3 ≡ 0, 4 (mod 12) (script: j ∈ [6, 30)
+  → {12, 16, 24, 28}), i.e. s ≡ 0, 12 (mod 36). Statement (sufficient direction) is correct. **SOUND** (D2).
+* Reduction 2.5: (4abd − n)(4acd − 1) = 4ad(4abcd − b − cn) + n = n + 4a²d ✓; roots of B are 2-adic units since k + T is
+  odd ✓; dividing jj′q² − jq − 4^J j′q = 4a²d by q = a₁d₁ gives jj′a₁d₁ = 2^E a₁ + j + 4^J j′ ✓; j = j′ = 1, k = 1:
+  T = z(z + c₀ + 2), (1 + T)/c₀ = u^p ⇔ c₀(u^p − z) = (1 + z)² ✓; (63,1): z = 20, 441/63 = 7, 27 = 3³ ✓. **SOUND**.
+
+## 5. Defects
+
+**D1 (MINOR) — Theorem 3.1 proof (b) and Theorem 2.3 statement.** (i) "(ET/divisor classes alone leave exactly
+s ≡ 0 mod 2520, `z15_tree.py …`)": the 18 certificate classes leave s ≡ 0, 840, 1680 (mod 2520) uncovered among
+s ≡ 0 (24) (replay) — harmless since the moving class takes all s ≡ 0 (24), but the sentence reads as a statement about
+the certificate. *Repair:* "(the certificate's 18 classes in fact cover all s ≢ 0 (mod 840); a larger z15_tree supply
+leaves only s ≡ 0 mod 2520 — EVIDENCE)". (ii) Theorem 2.3 "s ≡ 0 (mod 24), s ≥ 6": replace by "s ≥ 24" (s = 0 fails:
+c = 85/340). (iii) Scope line "the integer square 63·2^8 + 1 = 127²" — fine; add that s = 0, 8 are the only squares (A(A+1)
+= 63·2^{s−2} forces {A, A+1} = {63, 64}).
+
+**D2 (MINOR) — Prop 2.1 proof.** "7 | Y² − 3Y + 9 iff Y ≡ 1 (mod 7)" is false (Y ≡ 2 also). *Repair:* "if Y ≡ 1 (mod 7)
+(the exact integrality class is s ≡ 0, 12 mod 36)"; also "s ≥ 18" → "s ≥ 36" (or s ≥ 12 with the enlarged class).
+
+**D3 (MINOR) — Theorem W setting/scope.** "(Every exponential-polynomial identity near μ = 0 has this form after
+reparametrisation…)" is an unproved remark; it is really the *definition* of the menu (ℚ-polynomials in a single
+Y = 2^{s/D}). Families using other bases (3^s), s-polynomial coefficients, or non-polynomial parametrisations are not
+covered. *Repair:* replace by "We call a family of this form a root family; the results below concern only this menu",
+and in *Scope* say "constant-gap / constant-ratio root families in ℚ[2^{s/D}]".
+
+**D4 (MAJOR) — Prop 4.1 proof (and the "Consequently …" / *Reading* sentences).** See §3: (a) the case 19 | m is not
+handled (Lemma 1.1's coprimality N(1) ⊥ m fails; not vacuous at the limit, 4/361 = 1/95 + 2/3610 has m = 19);
+(b) the passage from the local Rav structure near μ = 3 to the global "C ⊆ {s ≡ 3 (mod 9)}" is not argued.
+*Repair:* add the generic-point 19-adic valuation argument of §3 (proves the claim for 19 ∤ m, incl. constant ratio),
+and either prove the 19 | m case or add the hypothesis 19 ∤ m to the statement (label: PROVED for 19 ∤ m; 19 | m OPEN).
+
+**D5 (MINOR) — Lemma 1.2 proof.** "Y ≡ 1 (mod m) on a neighbourhood gives m | ρ₁ + ρ₂": the dᵢ may have coefficients
+with denominators divisible by primes of m, so congruence mod m of dᵢ(Y) and dᵢ(1) is not literal. *Repair:* say "by
+q-adic continuity (Y → 1 in ℤ_q, values in ℤ_q, and q^v ℤ_q closed)".
