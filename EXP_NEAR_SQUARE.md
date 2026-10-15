@@ -30,3 +30,10 @@ for s ≥ a/2, n_s mod M depends only on s mod L_M, so the class pulls back to a
 ((41/4)²); no others for −6 ≤ x ≤ 40 (checked). On the Cantor set C = Π_ℓ {4, −2} ⊂ Ẑ, the ℓ-component is exact, so a class of
 modulus M meets C in a cylinder over supp(L_M) (exponents of ℓ irrelevant). Covering C is a finite boolean problem over
 {A, B}^S for the finite set S of ℓ involved: script `z11_cantor.py`.
+
+**Result 1.1 (CERTIFIED finite computation, `z11_cantor.py 1 105 4 -2 47 10⁶ 3·10⁵ -g`).** For S = {primes ℓ ≤ 47}, every
+one of the 2¹⁵ binary patterns σ ∈ {4, −2}^S lies in an ET/divisor class whose period is S-smooth; a greedy subcover uses
+10 classes: D₁₉ (3:A), II2 919 (3:B,17:A), D₄₁ (2:B,5:B), D₁₉₁ (5:A,19:B), II1 35288 (2:A,5:B), II2 419 (11:B,19:A),
+II2 1787 (19:A,47:B), II2 27551 (19:A,29:B), II1 32008 (2:B,5:A; period 2²5³), II1 213384 (2:A,3:B,29:A).
+With ℓ ≤ 23 only two patterns remain (B exactly on {3,13,17} or {3,13,17,23}). Hence the binary mixed-point Cantor set
+C = Π_ℓ{4, −2} of k = 105 contains **no sterile point** and is covered by 10 classes (pattern check exact over 2¹⁵).
