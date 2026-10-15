@@ -137,9 +137,8 @@ the side containing the other factor is unclean only through v or u.
 **CONJECTURE U2 (EVIDENCE as above):** for odd non-square n ≡ 1 (4), U2(n) = 0 ⟺ n = 105. It is intermediate between
 CONJECTURE U and SQ₅ (N₋ ≤ U2). Its bridge inequality "N₋ ≥ U2/2" is unrefuted to 3·10⁷ at primes ≡ 1 (8), with
 margin (min 0.62). It is only EVIDENCE, and in view of §2 probably a distributional fact rather than an injection.
-For n ≡ 5 (8), U2 ≥ 1 by Lemma 1.1's word? No: there A = n + 1 is unclean (2 | A) but B = 1 is clean. Use instead
-(1, 3, (n+3)/2): A = 2 and B = (n+1)/2. B ≡ 3 (4) is not automatic, so U2 at n ≡ 5 (8) is not covered by Lemma 1.1. It is
-not needed, since ES-five is classical there.
+For n ≡ 5 (8), U2 ≥ 1 trivially: the word (1, 3, (n+1)/2 + 1) has A = 2 (ψ(2) = −1) and B = (n+1)/2, and
+ψ(B) = ψ(n+1)ψ(2) = −1. It is Mordell's classical certificate.
 
 **Remark 4.1 (the forcing hierarchy; R227 D18 in this language).** Forcing notions interpolate between U and N₋:
 ψ-clean side (Lemma S) ⊂ congruence-pinned sides (R225/R227 D4–D5: (−1/·)-clean or defective N_u with A ≡ −1 (mod u)
