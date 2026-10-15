@@ -71,8 +71,8 @@ cap 0 via d = K·2^{o₂/2} (all 85 q = 3 pairs among them); exhaustively, 1 825
 ≤ 40 and 216 have none (e.g. n = 5, q = 67, K = 18) — so "not forced" is right, "unusable" is wrong.
 For the primes p ≡ 5 (8) ≤ 10⁶: of the 9 161 whose least q ≡ 3 (4) with (q/p) = −1 is excluded, **6 533 have that q = 3,
 which is a cap-0 window** (`review_r243_caps.py … forced`). So the q_new statistics of §1 measure "least Thm-1.2
-window", not "least firing window". No exponent in Cor 2.1 changes (the gain is confined to the finitely many q | 2^k + 1,
-k odd ≤ t), so this is MINOR.
+window", not "least firing window". No exponent in Cor 2.1 changes (the gain needs q | 2^k + 1 with k odd ≤ v₂(K) — for a typical
+n only q = 3, or q = 11 when v₂(K) ≥ 5, etc.), so this is MINOR.
 
 ### Cor 2.1 — SOUND (relative to Pollack, ineffective)
 *Source:* Pollack, "Prime splitting in abelian number fields and linear combinations of Dirichlet characters", author's
