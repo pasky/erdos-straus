@@ -1,6 +1,6 @@
 # FF_INVERSION_CHECK — is the function-field family classification complete? The Case A inversion asymmetry (O244)
 
-Status: in progress (O244, integrity check). **ES is not solved here, nor any infinite case of ES or ES_q.** Labels as in
+Status: checkpoint 1 (O244, integrity check); self-reviewed, no hostile review yet. **ES is not solved here, nor any infinite case of ES or ES_q.** Labels as in
 DISCOVERIES.md. Builds on FUNCTIONFIELD_ES.md (= FE; Lemma 1.3, §6.2 linear families, Lemma 6.2), FUNCTIONFIELD_ES2.md (= FE2;
 §0.1 compactness, §0.2 Case A), FUNCTIONFIELD_ES3.md (= FE3; Lemma 1.1, the A/B dichotomy), FF_STERILE_PUSH.md (= SP),
 FF_STERILE_SMALL.md (= SS), FF_ODD_ABSENCE.md (= OA), SIBLING.md (branch side-agent/sibling-conj; Prop 1.3), POINTWISE_MORDELL17.md
@@ -15,6 +15,8 @@ FF_STERILE_SMALL.md (= SS), FF_ODD_ABSENCE.md (= OA), SIBLING.md (branch side-ag
 * (I2) The missing type changes nothing on the slices where sterility is proved: every Case A ball there lies inside a Case B
   ball with the *same* E (§2, Lemma 2.3; seen first in the depth-9 data, `scripts/zi_AinB.py`), Case B is inversion-closed,
   so the I4 balls lie inside Case B balls too. The second missing ET type (II2) is never valid on a slice (Lemma 2.1).
+* (I3) Checkpoint: verdict "classification incomplete as a *definition*, complete in effect on the sterility slices"
+  (Thm 2.5, Cor 2.6); no PROVED theorem needs repair; report `reviews/agent-reports/AGENT_REPORT_O244.md`.
 
 ## 1. The classification, re-derived from scratch
 
