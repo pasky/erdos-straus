@@ -146,3 +146,28 @@ for every level through 20 (checked by grep).
 * MINOR-7: "the exact identities … cover it": by Prop 1.4, lc(u) = −1 is necessary, NOT sufficient (the discrete-log
   condition can fail); the "archimedean sign" analogy should say "exact families can exist only on one side". The (J)55
   analogy and the ℤ-face paragraph are labelled Assessment and are fine as such.
+
+### §3 calibration and lottery model — calibration numbers SOUND (reproduced); model label Assessment OK; MINOR-8, MINOR-9
+* Reproduced with my searcher (`scripts/review_r247_calib.py`, log `data/review_r247_calib.txt`), 52 points of degree 2..4,
+  k = 2: levels 3..12: 10 unstructured hits at 4 points; 5..12: 2 at 2 points; 6..12 and 7..12: 0. Structured hits
+  (dep ≥ s − 2) at levels 5..12: 42, all at lc u = −1; the lc u = +1 points carry exactly 2 hits, both unstructured, N = 5.
+  All numbers in the §3 table and in the §6 "archimedean sign" EVIDENCE sentence agree. I did NOT re-implement the
+  model column (3.9 / 2.9 / 1.5 / 0.9) or the per-level x*_c model values.
+* The "*Reading*" sentence of the lottery paragraph ("all other conditions then hold automatically …") re-derived:
+  w₁ + C₁ = Tg'(MC₁ − T^{s−2}) and C₁ monic iff g' monic (deg Ê = 1 + d + y < s − 1 + y). Correct given lc g' = 1.
+* MINOR-8 (statistical weight): beyond the degenerate levels the calibration rests on 2 events (model 2.9) and two
+  zero-counts (model 1.5, 0.9). This cannot validate a model to better than a factor ≈ 3 either way, let alone the
+  extrapolation to 10⁻⁷. "Right order" is fair; "slightly conservative" is not supported (Poisson: P(0 | 1.5) = 0.22).
+  Repair: say "consistent within the (large) Poisson error"; keep the extrapolated mass explicitly Assessment.
+* MINOR-9 (a gap the review can close): the model excludes "structured" candidates (E ≡ −u mod T^{s−2}), which at
+  calibration points are the periodic Prop 1.4 mechanism and occur exactly at lc u = −1 — and x*_{−1} has lc u = −1. The
+  extrapolation at c = −1 therefore silently assumes there are no structured tuples at x*_c. **This is true (R247 proof,
+  q = 3, s ≥ 5):** E ≡ −u (mod T^{s−2}) with u = 1 + cT means T^{s−2} | w₁ + uC₁; non-exact forces max(a − 1, b) ≥ s − 2, so
+  either (i) a = 1, z = 0 (m' = w₁ = 1), (ii) b = s − 2 with (a, z) ∈ {(1, 1), (2, 0)}, or (iii) a = s − 1, b = 1, z = 0.
+  In (i)/(ii) v₁ (deg ≤ s − 3, resp. ≤ s − 4) is the truncation of −m'w₁²u^{−1} to degree < s − 2. (i): v₁u = −1 + (−c)^{s−2}
+  T^{s−2}; if (−c)^{s−2} = −1 then v₁ | T^{s−2} + 1 gives g' = −c, monic only for c = −1, contradiction; if = +1 then
+  v₁ | 2, impossible for s ≥ 4. (ii): the T^{s−3} coefficient vanishes (needs s ≥ 5) only for m' = T + c resp. w₁ = T + c,
+  where m'w₁² = −uv₁ exactly: Cor 3.2's first exact case (non-monic g') resp. gcd(w₁, v₁) ≠ 1. (iii): w₁ = T^{s−2} − u,
+  v₁ = −u: Cor 3.2's second exact case. Brute-force census (`scripts/review_r247_structured_xstar.py`): max of
+  v_T(E + 1 + cT) − (s − 2) over all 312 tuples is 0, attained only at s = 4 (the two known level-2 tuples), as predicted.
+  Repair: add this lemma (it makes "structured hits are excluded from the model" a theorem at x*_c rather than a choice).
