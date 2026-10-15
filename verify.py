@@ -25480,4 +25480,50 @@ def check_fV():
 check_fV()
 
 
+def check_fW():
+    # (fW) FOUR_ADIC_INPUT (O224/R229): R229 from-scratch — Fano-pigeonhole Thm 1.3 (S_4 = {chi = -1}) on all 50 008
+    # words of odd n <= 2000; Prop 1.4 2^k bit law at cell level (7/12, 5/16, 31/192); Legendre levels: exactly the 7
+    # failing primes p = 1 (4) < 10^6, and no Legendre-level word at any odd square <= 10^8 (levels <= 3000).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args, py=True):
+        r = subprocess.run(([sys.executable] if py else []) + args, capture_output=True, text=True, timeout=900,
+                           cwd=sdir, env=env)
+        assert r.returncode == 0, ("FOUR_ADIC subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r229_words.py", "2000"])
+    assert "'words': 50008" in out and "'bad_thm': 0" in out and "'bad_iso_chi': 0" in out, out[-2000:]
+    for k in ("bad_even", "bad_distinct", "bad_le2", "bad_lem12", "bad_W", "bad_pentvec"):
+        assert f"'{k}': 0" in out, (k, out[-2000:])
+    assert "Lemma 1.2 diagonal check, failures: 0" in out, out[-2000:]
+    out = run(["review_r229_cells.py", "5"])
+    rows = [l for l in out.split("\n") if l.strip().endswith("1920 ['1', '7/12', '5/16', '31/192']")]
+    assert len(rows) == 8 and "classes deviating from f_k: [] 0" in out, out[-2000:]
+    assert out.count("ok=True") == 4 and "ok=False" not in out, out[-2000:]
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "r229leg")
+        r = subprocess.run(["gcc", "-O2", "-o", exe, os.path.join(sdir, "review_r229_legendre.c")],
+                           capture_output=True, text=True, timeout=120)
+        assert r.returncode == 0, r.stderr[-2000:]
+        out = run([exe, "1000000", "50", "0"], py=False)
+        fails = [int(l.split()[1]) for l in out.split("\n") if l.startswith("FAIL")]
+        assert fails == [73, 1201, 1489, 9649, 21169, 23041, 44641], fails
+        assert "39175; no Legendre-level word: 7;" in out, out[-1000:]
+        out = run([exe, "100000000", "3000", "1"], py=False)
+        assert "4999 squares, Legendre-level words at levels <= 3000: 0" in out, out[-1000:]
+    print(f"== (fW) FOUR_ADIC_INPUT R229: Fano pigeonhole S_4 = chi-fibre on 50008 words (odd n <= 2000); 2^k bit law "
+          f"7/12, 5/16, 31/192; Legendre levels fail exactly at 7 primes < 1e6, T1 at odd squares <= 1e8; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fW()
+
+
 print("\nall checks passed")
