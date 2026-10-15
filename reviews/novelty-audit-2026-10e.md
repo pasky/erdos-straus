@@ -158,14 +158,14 @@ Status: in progress.
 
 * **The ℤ/4-valued form on L/2L is Brown's construction.** L. R. Taylor, "Gauss sums in
   algebra and topology", arXiv:2208.06319v1 [visited; excerpt archived
-  `sources/lit2026e/taylor-2208.06319-excerpt.txt`], §2 p. 11: for a symmetric bilinear
+  `sources/lit2026e/taylor-2208.06319-excerpt.txt`], §2 pp. 10–11: for a symmetric bilinear
   form B on V, "ψ_B : V ⊗ ℤ/2ℤ → ℤ/4ℤ, ψ_B(x) = B(x, x)/4" is a well-defined quadratic
   enhancement of B mod 2 (Brown's construction, E. H. Brown Jr., "Generalizations of the
   Kervaire invariant", Ann. of Math. 95 (1972) [as cited by Taylor, ref. [2]]), and Brown's
   theorem β(ψ_{B,2}) = σ(B)/8 (Thm 2.5) — the Gauss-sum (Brown) invariant of this
   enhancement is the signature mod 8; over ℤ₂ its counterpart is the oddity of the
   2-adic symbol (Conway–Sloane, SPLAG ch. 15 [memory]). The even classes (Q ≡ 0 mod 2)
-  form the hyperplane orthogonal to the characteristic class (Taylor p. 6, "characteristic"
+  form the hyperplane orthogonal to the characteristic class (Taylor p. 7, "characteristic"
   element; Gaulter, JTNB 19 (2007) [snippet] for characteristic vectors of unimodular
   lattices).
 * **Auditor's check of the core lemma** (5 lines). An odd unimodular ℤ₂-lattice of rank 3
@@ -173,7 +173,8 @@ Status: in progress.
   support. The even nonzero classes are the three supports of size 2 (a Fano line), and
   Q ≡ 0 (mod 4) on a pair iff its two units are of opposite sign mod 4; the lattice is
   isotropic iff the signs mod 4 are mixed (all-equal sign patterns ⟨1,1,1⟩, ⟨1,1,5⟩, …
-  are anisotropic), and then exactly two of the three pairs qualify. So "an isotropic odd
+  are anisotropic; auditor's brute force over all 20 unit patterns mod 2⁸ confirms
+  isotropic ⟺ mixed), and then exactly two of the three pairs qualify. So "an isotropic odd
   unimodular ℤ₂-lattice has exactly two nonzero classes with Q ≡ 0 (mod 4), both in W∖0"
   is a routine consequence of the 2-adic diagonalisation, i.e. a zero count of Brown's
   ℤ/4-enhancement fixed by its Gauss-sum invariant. The pentagon-parity half is
