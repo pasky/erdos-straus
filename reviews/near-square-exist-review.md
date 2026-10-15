@@ -131,3 +131,30 @@ prime to the conductor of Σ_u — for even N and u ≢ 3 (4) "σ_N" needs the o
 * E4: the density-0 statement is CRT-exact (∏(1 − |G_r|/r) → 0 since Σ τ(r + 1)/r ≍ log² R, Titchmarsh) ✓;
   Z_k^□ (NEAR_SQUARE: m² + k a local square everywhere) has (p/r) = +1 for all r, while G_r needs (p/r) = (−u/r) = −1 ✓.
 * The overall "Conclusion for goal 4" is labelled Assessment ✓; with D3 it should not lean on Lemma 4.2 as if proved.
+
+### §5.1 Type I (1,0,1), Λ = 1 parametrisation — SOUND (verified symbolically)
+`review_r228_family.py` (sympy): with n = m² − j, c = −α n(x), a = λ(m − x) + α, d = (m − x)/(4cλ) − 1/(4α²):
+f = 4acd − n ≡ κ(m − x) identically with κ = α/λ + λn(x)/α − 2x; na + c and 4a²d + 1 vanish at m = x, so are divisible
+by f in ℚ[m] ✓. Converse ("every (1,0,1) Λ = 1 family is of this form"): solving [m²]f = 0, (4a²d + 1)(x) = 0,
+(na + c)(x) = 0 for a linear d, constant c returns exactly the stated c and d (unique solution); f(x) = 0 then holds
+automatically ✓. (This presupposes f linear with a root x ∈ ℚ; the degenerate case f constant is not covered by "every"
+— MINOR, say "with f non-constant".) The "only finitely many 5.1-families through a given solution" degree-count claim
+is not proved (stated in a NOT DONE paragraph; fine).
+
+### §5.2 inert-prime observation — GAP (D4, MAJOR: a false side-statement) + overstatement
+* Correct part: at inert ℓ, j is a non-residue, ℓ ∤ n(m), and (NEAR_SQUARE Thm 3.4 Remark (i)) m ∈ Z_K⁺ at ℓ ⟺ n(m) is
+  an ℓ-adic square ⟺ n(m) is a QR mod ℓ ✓. (J)54 (STERILE_EXPLICIT Thm 3.4) is quoted correctly: for primes r ≥ 2³² no
+  finite set of ET Prop 1.9 classes covers all large primes with least non-residue r.
+* **D4 (MAJOR).** "For ℓ ≤ 13 classical congruence families cover these classes" is FALSE as a statement of known
+  fact for ℓ = 11, 13 (both inert for j = 8). Mordell's 840 theorem covers non-residues at 3, 5, 7 only; for 13 the
+  campaign's own POINTWISE_MORDELL13B Thm 3.1 leaves 6 classes mod 720720 uncovered among (p/13) = −1, and
+  POINTWISE_MORDELL13E (CERTIFIED) shows x** survives every ET class of T-level ≤ 161050 — a candidate sterile point
+  with (p/11) = (p/13) = −1; r = 17 is CONDITIONAL (M17). Repair: "for ℓ ∈ {3, 5, 7} (Mordell 840) classical congruence
+  families cover these classes; at ℓ = 11, 13, 17 coverage is open (M13B/E, M17), and for ℓ ≥ 2³² it provably fails
+  ((J)54)". This strengthens the author's own caveat: "⊆" at inert ℓ is already delicate at ℓ = 11, 13.
+* Overstatement (MINOR): "'⊆' at large inert ℓ *requires* polynomial families in m to cover classes that no congruence
+  family in n covers" does not follow. (J)54's sterile points live on the r-generic line in n-space; the values
+  n = m² − j with m ∈ Z_K⁺ at all primes ≠ ℓ form a thinner set, and nobody has shown that its closure contains a sterile
+  point, i.e. congruence families might still cover all n of the form m² − j there. Say "may require … unless the
+  sterile points of (J)54 avoid the closure of {m² − j}"; the report's Spark S3 already phrases it as a question.
+* §5.3 (inconclusive 17-adic test): correctly labelled; not rechecked (no claim to check).
