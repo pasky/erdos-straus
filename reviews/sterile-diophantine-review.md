@@ -4,15 +4,80 @@ Reviewer: R248 (side-agent/review-sterile-dioph). Scope: STERILE_DIOPHANTINE.md,
 reviews/agent-reports/AGENT_REPORT_O241.md, scripts/z16_*, data/z16/. O227 (FF_THIRDS_CORNER.md) is out of scope except where
 cited. From-scratch scripts: `scripts/review_r248_*`; data `data/review_r248/`.
 
-(Status: in progress; verdict table filled in claim by claim.)
+Round 1 complete. **No FATAL defect.** All PROVED statements re-derived and correct as mathematics; the defects are an
+incomplete step in Thm 2.1 (density of absolute/potential-winning sets), two strategic overclaims in the readings/report
+(D3: Prop 3.2 does not imply "only positional input can pass the barrier"; D5: "protected levels exclude balanced tuples"
+ignores exact tuples, which are common), and minor wording/label issues. Both EVIDENCE tables reproduced exactly with
+independent code. Repairs applied: none (author's branch had no new commits at review time; parent to forward).
 
 ## Summary verdicts
 
 | claim | verdict |
 |---|---|
-| Thm 2.1 (game barrier) | SOUND-AFTER-REPAIRS (proof of density incomplete for absolute/potential games; "games only give ⋃_k U_c^{(k)}" is Assessment) |
+| Thm 2.1 (game barrier) | SOUND-AFTER-REPAIRS (D1 density step for absolute/potential games; D2 "games only give ⋃_k U_c^{(k)}" is Assessment) |
 | Lemma 3.1 (windowed König + dimension) | SOUND (minor wording) |
-| EVIDENCE q = 3 tree to depth 9 | CONFIRMED independently (identical ball set, identical table) |
+| Prop 3.2 (counts collapse to tail union bound) | SOUND as stated (D4 equality case); its Reading/report consequences OVERCLAIMED (D3, MAJOR) |
+| Lemma 4.1, Thm 4.2, Cor 4.3, Cor 4.4 | SOUND (D8 superfluous hypothesis); Reading/SHARP 3 overclaim (D5, MAJOR); Remark density claim false (D6) |
+| Prop 5.1 (Frobenius) | SOUND; extends to Case A (D12) |
+| EVIDENCE q = 3 tree to depth 9 | CONFIRMED independently (identical ball set and table); p_d definition caveat (D9) |
+| EVIDENCE r = 17 tree to depth 7 | CONFIRMED independently (own tree code on R83-engine boxes + stored P K ≥ 9) |
+| Conj 3.3 ⟹ Conj 0.2 | SOUND for O(3, T²) ≠ ∅ (D10 naming; D11 vacuous "weaker" form) |
+| Percolation reading | Assessment, OK after D9, D13 |
+
+## Defects
+
+1. **D1 (MINOR→MAJOR-for-the-proof, Thm 2.1, §2 proof and theorem hypothesis).** "A 𝒢-winning set meets every ball (Bob
+   opens inside it)" is false for games in which Alice can win *by default* (FSU potential game Def C.4: r_n ↛ 0 or outcome in
+   Alice's chosen sets; FSU's own Rem. C.3 says nonemptiness of potential-winning sets is not obvious). Repair: restrict the
+   hypothesis to games whose winning sets are known to be dense and add: "for the absolute and potential games density
+   follows from FSU Thm C.8 (potential ⇔ absolute winning; Assumption C.6 holds for H = points in the doubling space X_c,
+   Obs. C.7) and absolute ⇒ Schmidt winning on the uniformly perfect X_c (FSU Prop 4.4(ii))". Replace "hyperplane-absolute"
+   by "(H = points, the only meaningful case on X_c)".
+2. **D2 (MINOR, §2 "Which hypothesis kills games", memo z16_game_barrier, report SHARP 2(a)).** "A winning statement … yields at
+   most ⋃_k U_c^{(k)} ≠ ∅" / "games only ever give ⋃_k U_c^{(k)}" is a heuristic, not part of the theorem: label Assessment.
+   Add that each U_c^{(k)} is itself closed and not winning; only the union could be.
+3. **D3 (MAJOR, Prop 3.2 Reading in §3, §7 bullet 2, report SHARP 2(b), memos z16_windowed_konig/z16_zz_sibling).** Prop 3.2 is
+   conditional on the per-depth bounds n_d used; it does not show that *true* counts violate the tail union bound. Hence
+   "the q = 3 union-bound barrier … and the r₀ = 2³² limit … can only be passed with positional input" and "any improvement to
+   r = 17 must use positional information" do not follow — sharper per-depth counts (negative route exponent; better
+   constants at r = 17) would also pass. The q = 3 data (conditional p_d ≤ 10/1140 at depth 9, decaying) are compatible with
+   the true tail being far below the alive mass. Also "class-divisor bounds, any counting certificate" are mislisted as
+   count-only inputs: residue-class divisor counts are positional (they count balls in a prescribed cylinder). Repair: "can
+   only be passed by sharper per-depth counts or by positional input; Cantor/game constructions on top of fixed per-depth
+   counts add nothing", and drop the mislisted examples.
+4. **D4 (MINOR, Prop 3.2 statement).** Equality case: with Σ n_d3^{−(d−2)} = μ_A and infinitely many n_d > 0 covering is
+   impossible (compactness), so counts *can* certify non-emptiness there. Replace "< μ_A" in the "unless" clause by "< μ_A, or
+   = μ_A with infinitely many n_d > 0".
+5. **D5 (MAJOR, Reading after Thm 4.2, memo z16_liouville_spectrum Idea/Assessment, report SHARP 3, §8).** "Level N is
+   protected from balanced tuples when η_u(N + 1) < (N + 1)/3" and "only rational points are protected at all large levels"
+   drop Thm 4.2's exception ρ_τ = best approximant. Exact tuples are common because w₁, C₁ often share factors: explicit
+   counterexample s = 14, w₁ = 2 + 2T + T⁴ + T⁵, C₁ = 1 + 2T + 2T⁴ + T⁵ (gcd 1 + 2T⁴), E = −1 + T + … + T¹², covering the
+   height-1 rational u = (1 + T)/(1 − T) at level N = 7 > 3h − 1 with H_τ = 5 ≈ 2(N + 1)/3 (`scripts/review_r248_exact.py`,
+   dozens of such tuples for s ≤ 17). Repair: "protected from **non-exact** tuples"; add that rational/Liouville points
+   additionally need an exact-case analysis (−w₁/C₁ = best approximant), classified only for polynomial u (FF_THIRDS_CORNER
+   Prop 1.4).
+6. **D6 (MINOR, §4 Remark, memo z16_liouville_spectrum).** "Protected on all but a density-zero set of levels" is false for
+   natural density: unprotected levels have upper density ≥ 1/3 for every irrational u and ≥ 2/3 when h_{k+1}/h_k → ∞.
+   Repair: "logarithmic density zero".
+7. **D7 (MINOR, §4 Check / `z16_thm42_check.py`).** The rational loop uses non-reduced (P, Q) and takes the height of the
+   representative, so "2636 pairs" counts repeats with inflated heights (weaker test). My reduced-rational test (560 pairs +
+   94 exact, 0 violations, min slack 0) should replace or accompany it.
+8. **D8 (MINOR, Cor 4.4).** Hypothesis N ≥ 2h is unused (Thm 4.2 with ρ = u, δ = ∞ needs only N + 1 ≤ s − 1). Drop it or say
+   it is only there to make the exact rational unique.
+9. **D9 (MINOR, §3 Data table and Percolation reading, memos).** p_d = mass of all distinct depth-d balls includes balls
+   inside already-dead cylinders (e.g. both depth-4 balls); the model's p_d is the conditional ball fraction among children of
+   alive parents (1/3, 0, 1/9, 1/12, 1/66, 1/39, 1/114 for d = 3..9). Add that row; "Σ p_d = 0.955" is neither a covered mass nor
+   a union-bound quantity relevant here.
+10. **D10 (MINOR, §1, Conj 3.3, §8, report).** Conjecture 0.2 (FUNCTIONFIELD_ES2) is "x*_c ∈ O(3, T²)"; Conj 3.3 implies only its
+   conclusion O(3, T²) ≠ ∅. Reword.
+11. **D11 (MINOR, Conj 3.3 last sentence).** The "weaker" path form is equivalent to U_c ≠ ∅ itself; replace by a genuinely
+   weaker hypothesis (sibling condition for all alive V ⊂ V₀ of depth ≥ n₁).
+12. **D12 (MINOR, improvement, §5 and S5).** Prop 5.1 holds for Case A too (cube the Case A data; congruences only strengthen),
+   so drop "Case A not checked" and the "for Case B" qualifier.
+13. **D13 (MINOR, Percolation reading).** "Survives iff 3(1 − p_d) eventually ≥ 1 + δ" is only "if" for varying environments.
+14. **D14 (MINOR, Lemma 3.1 proof).** "the depth-d cylinder of x, alive by construction" — only the depths n₀ + jm are visited;
+   aliveness of the depth-d cylinder follows because ancestors of alive cylinders are alive (or use the visited cylinder of
+   depth ≥ d directly). Also make explicit that n ∈ n₀ + mℕ includes n = n₀.
 
 ## Independent recomputation: q = 3 survivor tree to depth 9
 
