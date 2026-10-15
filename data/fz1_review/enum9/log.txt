@@ -1,0 +1,13 @@
+q=9 s=2 t0=0 D=0: factorisations 11, tuples(a<=b) 10, filtered (E(0) not in F_3) 8, time 0s
+q=9 s=3 t0=1 D=0: factorisations 27, tuples(a<=b) 12, filtered (E(0) not in F_3) 0, time 0s
+q=9 s=4 t0=1 D=1: factorisations 75, tuples(a<=b) 106, filtered (E(0) not in F_3) 90, time 0s
+q=9 s=5 t0=2 D=1: factorisations 219, tuples(a<=b) 43, filtered (E(0) not in F_3) 0, time 0s
+q=9 s=6 t0=1 D=2: factorisations 699, tuples(a<=b) 112, filtered (E(0) not in F_3) 66, time 0s
+q=9 s=7 t0=2 D=2: factorisations 843, tuples(a<=b) 70, filtered (E(0) not in F_3) 0, time 0s
+q=9 s=8 t0=3 D=2: factorisations 2139, tuples(a<=b) 1146, filtered (E(0) not in F_3) 978, time 0s
+q=9 s=9 t0=3 D=3: factorisations 9483, tuples(a<=b) 245, filtered (E(0) not in F_3) 0, time 1s
+q=9 s=10 t0=4 D=3: factorisations 21147, tuples(a<=b) 603, filtered (E(0) not in F_3) 384, time 3s
+q=9 s=11 t0=3 D=4: factorisations 91131, tuples(a<=b) 190, filtered (E(0) not in F_3) 0, time 7s
+q=9 s=12 t0=4 D=4: factorisations 102795, tuples(a<=b) 6378, filtered (E(0) not in F_3) 5352, time 13s
+q=9 s=13 t0=5 D=4: factorisations 207771, tuples(a<=b) 524, filtered (E(0) not in F_3) 0, time 51s
+q=9 s=14 t0=5 D=5: factorisations 1082571, tuples(a<=b) 1122, filtered (E(0) not in F_3) 724, time 169s
