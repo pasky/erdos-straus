@@ -58,3 +58,18 @@ on {41}, generic only at 83). So the true mixed-point set is the label Cantor se
 (all = σ₀ with 19:2, 29:−2 and 23, 31 ∈ {4, −2}). `z11_cantor_dfs.py` (primes in increasing order, QMAX 10⁶, MMAX 3·10⁵):
 survivors 4, 4, 1, 1, 2, 4, 1, 2, 4, 2, 4, 8, 8 up to ℓ = 41, then grow ×3 per prime (19 008 at ℓ = 79): for large ℓ the
 pool has too few classes whose period support is {ℓ} ∪ (small primes). Next: adaptive choice of the branching prime.
+`z11_cantor_tree.py` (adaptive branching prime, ℓ ≤ 100, QMAX 10⁶, MMAX 3·10⁵): 20 000 nodes, 13 314 open leaves — the label
+tree also explodes at large ℓ (per-ℓ class supply too thin). Not decided at this supply.
+
+**Lemma 1.2 (CRT of squares; PROVED, elementary).** Let P be the set of integer square points of k (exponents x ∈ ℤ with
+4^x + k ∈ ℚ^{×2}, here {2, 3, 4, −2}, n_x = s_x²) and σ ∈ C_P = Π_ℓ P a label point. Call an odd prime q ∤ 2k·∏s_x
+*σ-pure* if all ℓ | ord_q(4) carry the same label x; then ν(σ) ≡ s_x² (mod q^e) for every e with ord_{q^e}(4) supported on
+those ℓ. If every odd prime factor of M is σ-pure (labels may differ between primes) then ν(σ) is a unit square mod M
+(CRT of squares; the 2-component k ≡ 1 mod 8 is a 2-adic unit square), hence lies in no ET class of modulus M (an ET
+class containing a unit square residue r mod M would contain integer squares m² ≡ r, contradicting ET Prop 1.6 /
+(J)55-type T1 vanishing). *So every class covering a label point uses a σ-mixed prime (or a prime dividing some s_x).*
+For pure σ (constant label x) only the D_q, q | s_x, survive — D₁₉ (x = 4: needs μ₃ ≡ 4 mod 9), D₄₁ (x = −2: μ₂, μ₅),
+D₁₁ (x = 2: μ₅), D₁₃ (x = 3: μ₂, μ₃) — and each depends only on ℓ ∈ supp ord_q(4); a mixed point evades them by putting
+a different label on exactly those ℓ. This is the whole mechanism of "mixed points": **they are the points where the
+divisor classes of the square points are switched off by the label at the ℓ's of ord_{s_x}(4), and all pure primes
+see squares.**
