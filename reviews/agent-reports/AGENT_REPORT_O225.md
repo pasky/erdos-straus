@@ -26,7 +26,8 @@ z2_hardness.c, z2_hardness_an.py. **ES is not solved; no infinite case of ES is 
 * (2) classification: DONE for words with odd A (Thm 2.1, Cor 2.2, 2.3); even A: t-side fully, u-side for u ≡ 3 (4)
   (Remark 2.4); u ≡ 1 (4) even-A words only EVIDENCE. Two-variable p = m² + kj²: not separately treated (the t-side
   Pell remark of NEAR_SQUARE §4 is the same criterion with c₀ = tkj² + 1).
-* (3) CONJECTURE Y10-S "⊆": NOT done. Observation (Sparks S3): at inert ℓ the Z_K⁺ condition is "n is a QNR mod ℓ", i.e. the
+* (3) CONJECTURE Y10-S "⊆": NOT done (§5: explicit 3-parameter Type I (1,0,1) family set, PROVED; a 17-adic coverage
+  test with a smooth-parameter grid was inconclusive — 12 valid families, none hitting the targets). Observation (Sparks S3): at inert ℓ the Z_K⁺ condition is "n is a QNR mod ℓ", i.e. the
   Mordell setting; for ℓ ≥ 2³² there are sterile Mordell points ((J)54), so "⊆" at large inert ℓ asks polynomial families
   in m to beat congruence sterility — Y10-S may be much harder (or false) at large inert primes than the j = 8 evidence
   suggests. The split-ℓ part is the genuinely new coverage; a 3-parameter Type I (1,0,1) family with
