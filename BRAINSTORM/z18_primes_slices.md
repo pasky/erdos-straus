@@ -7,7 +7,7 @@ positive density (also among primes). Could identities polynomial in (Y, u) cove
 ## Result (MENU_LADDER Prop 7.1, PROVED with narrowed scope)
 If a family's valid set contains a FULL slice progression (Y fixed, n in a progression), it is polynomial in n there; near a unit-square point every
 such slice class contains odd squares, where Type I/II solutions do not exist (ET Prop 1.6). So (n, Y)-polynomial families
-can escape Schinzel only where u is frozen or thin, i.e. on density-0 sets (MENU_STERILITY Prop 5.1).
+(Assessment, moved out of the PROVED part by R255 repair:) can escape Schinzel only where u is frozen or thin, i.e. on density-0 sets (MENU_STERILITY Prop 5.1).
 ## Literature
 ET 2013 p. 7–8 (Mordell/Schinzel), Prop 1.6.
 ## Barrier screen

@@ -15,4 +15,4 @@ Structural statement; B1 explained, not broken.
 ## Cheap numerics
 z18_descent2 (S_D empty at μ = 0 for D ≥ 2); z18_crt D = 2 (0 hits).
 ## Assessment
-PROVED (criterion and counterexamples to the naive converse). Global converse open = CONJECTURE 6.4's negation.
+PROVED (criterion and counterexamples to the POINTWISE naive converse; R255 repair: the finite-cover form is not refuted — would need μ = 0 to be the only point of ∩_D S_D \ ∪D_q). Global converse open = CONJECTURE 6.4's negation.

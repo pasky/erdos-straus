@@ -1,6 +1,6 @@
 # MENU_LADDER — the genus ladder for root menus at unit-square points (task O245, spark relay Z12)
 
-Status: O245 work in progress (unreviewed). **ES is not solved here; no infinite case of ES for primes is claimed.**
+Status: O245; hostile review R255 (reviews/menu-ladder-review.md), repairs marked '(R255 repair)'. **ES is not solved here; no infinite case of ES for primes is claimed.**
 Labels as in DISCOVERIES.md. Memos `BRAINSTORM/z18_*.md`; scripts `scripts/z18_*`.
 Builds on MENU_STERILITY (O240: Theorem A witness reciprocity, Props 4.1, 4.3, 5.1), EXP_105 (O239: Prop 2.4–2.8,
 ES for all 7·4^s + 9), EXPONENT_COVERING ((J)22 Thm 1.4, Cor 1.5), NEAR_SQUARE ((J)55 Thm 2.2, 3.3, 3.4).
@@ -36,7 +36,7 @@ iff the divisor class [P₁ − P₀] lies in 2J(ℚ₂) for the Jacobian of the
 (15,1), (63,1), (7,9), (31,33), (7,57)} and 2 ≤ D ≤ 10, θ(θ − 1) is a NON-square at some prime of A above 2 in every
 case (at D = 9 one component is a square, others are not; for (63,1) and (31,33), (7,57) at D = 4 one component is a
 square). So **Y* ∉ Ster(φ) for every tested (c₀, k) and 2 ≤ D ≤ 10** (CERTIFIED; all D ≥ 2: CONJECTURE, R-O245 repair):
-Theorem A certifies no sterility of the unit-square point for these root menus. Heuristic: J(ℚ₂)/2J(ℚ₂) has order ≈ 2^{g + #J[2](ℚ₂)}, so a "random" class lies in 2J(ℚ₂) with
+Theorem A certifies no sterility of the unit-square point for these root menus. Heuristic (D odd): J(ℚ₂)/2J(ℚ₂) has order #J(ℚ₂)[2]·2^g (R255 repair: formula corrected), so a "random" class lies in 2J(ℚ₂) with
 probability ≈ 2^{−g}·… — the genus ladder predicts rarity of descent-sterility, and in the data it is already absent at g = 0
 (D = 2), where A ⊗ ℚ₂ is a quadratic algebra.
 
@@ -70,8 +70,11 @@ n(t′) = −T(t′). Hence if D is even (n > 0 on ℝ), T and T′ have no comm
 say of T; then T′(t*) ≥ 0 (positive leading coefficient, t* ≥ its real roots), so n(t*) ≤ 0 — impossible. **For even D,
 T and T′ have no real roots.** For odd D all real roots of TT′ are ≤ the real root of n.
 Consequences: (i) T, T′ both linear is impossible for every D (for odd D the two roots force opposite signs of n(t), n(t′)
-with t − t′ of the wrong sign — direct check); (ii) the CRT shape "a constant, m linear" (`scripts/z18_quad.py`) never passes
-positivity (0 of 5041–33489 grid points, every tested D and (c₀, k)): for D = 4 directly, b = Y² + pY + q and the cofactor
+with t − t′ of the wrong sign — direct check; (R255 repair) a common root t = t′ would be the real root −(k/c₀)^{1/D} of n,
+rational only if k = gu^D, c₀ = gv^D, and then g(u^D + v^D) = 4^J with g, u, v odd, D odd forces u + v = 2^{2J}/g with odd
+cofactor 1, so u = v = 1, 2g = 4^J — impossible); (ii) (R255 repair: label split — PROVED for even D, since m linear has a
+real root; EVIDENCE for odd D) the CRT shape "a constant, m linear" (`scripts/z18_quad.py`) never passes
+positivity (0 of 5041–33489 grid points, every tested D and (c₀, k); R255: the positivity counter is not in the committed script, numbers not reproducible as committed): for D = 4 directly, b = Y² + pY + q and the cofactor
 Y² − pY + p² − q cannot both have real roots (would need 3p² < 4q < p²).
 
 ## 3. Witness localisation at μ = 0
@@ -108,6 +111,8 @@ hence f = 4acd − 1 ≡ const (mod n); 4bcd − 1 ≠ 0 since else cn + b = 0.)
 −4d·a(Y₀)² ≤ 0, impossible.
 (1,0,1): at the root Y_a of a, m(Y_a) = −n(Y_a) < 0; but m is a positive constant, or linear with c = (a + b)/m constant
 and m(Y_a) = b/c > 0. Impossible.
+(R255 repair) The reduction "up to a ↔ b" is legitimate because (4acd − 1)(4bcd − 1) = 4cd(4abcd − a − b) + 1 = 4c²dn + 1
+≡ 1 (mod n): f ≡ const iff 4bcd − 1 ≡ const, and f₀ ≠ 0.
 So f ≡ f₀ ∈ ℚ (mod n) whenever a family exists. Then (f(Y)/n(Y)) = (f₀′/n(Y)) (f₀′ = numerator·denominator of f₀) is a
 Kronecker character of n(Y); near μ = 0, n(Y) → 4^J at odd places and → k ≡ 1 (8) at 2, a profinite unit square, so the
 symbol is +1, contradicting the Type II witness lemma (NEAR_SQUARE Lemma 1.3: = −1). ∎
@@ -122,7 +127,7 @@ Pell points 15Y² + 1 = w² (Y_j ≡ 1 mod 17 forces j odd, hence Y_j odd; `scri
 | 1 | line | dense (Schinzel) | obstructs (Prop 1.1) | no (PROVED, Cor 1.5) |
 | 2 | conic (Pell) | infinitely many, not dense at Y* (c₀ = 15) | silent | no for Type II (Thm 4.1) |
 | 3, ≥ 5 | genus ≥ 1 | finitely many (Siegel) | silent for tested D ≤ 10 (CERTIFIED) | (15,1): no family found at D = 3, 5, 6, 8 (EVIDENCE §5) |
-| 4 | genus 1 | finitely many | silent | yes for (3,1), (7,9), (23,41), (39,25) (SG, O239/O240); no z14 window for (15,1), (31,33), (7,57), (63,1), (47,17), (55,9) (O239 Cor 2.8) |
+| 4 | genus 1 | finitely many | silent | yes for (3,1), (7,9), (23,41), (39,25) (SG, O239/O240); no z14 window for (15,1), (31,33), (7,57), (63,1), (47,17), (55,9) (O239 Cor 2.8, base 4, unsplit SG pieces, pending review; R255 repair: base-4 non-existence implies base-2 non-existence near μ = 0 for the corresponding sub-menu via s ↦ 2s) |
 So the ladder's first two rungs are sterile for structural reasons (Schinzel at D = 1, positivity at D = 2 — Type II only), and the
 rung where escapes appear (D = 4) is the first where BOTH the integer T1 points become finite AND a factorisation supply
 (Sophie Germain) exists in base 2 (Aurifeuille: only 4X⁴ + 1 among binomials, Capelli).
@@ -135,7 +140,7 @@ and its mirror (b₁ = Y² − 2Y + 2, λ = 5).
 * `z18_crt.py` (Type I and II; a₁, b₁ primitive with |coeff| ≤ 3, deg a₁ ≤ 1, deg b₁ ≤ 4, m = −n mod a₁b₁ resp.
   e = −n⁻¹ mod a₁b₁ forced, ratio r forced or from {p/q ≤ 16}): (15,1), D ∈ {3,4,5,6,8}: **0 hits** (up to 211 230 pairs per D).
 * `z18_quad.py` (a constant, b quadratic with rational (p, q) of height ≤ 12, m linear): 0 hits for (3,1), (7,9), (15,1),
-  D = 3…7 — explained by Lemma 2.3 (positivity never holds).
+  D = 3…7 — explained by Lemma 2.3 (positivity never holds; R255: proved for even D, EVIDENCE for odd D).
 * `z18_tt.py` (exact normal form n = σTT′ − T − T′, T′ = S·T₁, T = r + U·T₁, (U, S) solved by resultants; also Type I
   nT′ + 1 = T(σT′ − 1); T₁ quadratic |coeff| ≤ 4–6, also with Y ↦ 2^{±1}Y, 2^{−2}Y rescaling): (15,1) D = 4: 110–148
   exact algebraic families, **0 integral at μ = 0** (failures mostly at the 2-adic specialisation Y = 0); D = 5, 8: no
@@ -155,12 +160,16 @@ the set V_F of such μ is clopen.
 **Theorem 6.2 (PROVED; compactness, as Thm 1.4).** For some sufficiently large s₀ (R-O245 repair), {n_s : s ≥ s₀} has a finite covering by ET, divisor and root classes iff
 every μ ∈ Λ lies in some D_q or some V_F with F positive.
 **Proposition 6.3 (PROVED; Theorem A).** V_F ∩ S_D = ∅ for every degree-D root class, where S_D := {μ : Y*(μ) ∈ Ster(φ_D)}.
-Hence Λ ∩ (∩_D S_D) \ ∪_q D_q ≠ ∅ ⟹ no covering. (Note ∩_D S_D ⊆ S_1 = Sq^×-points.)
+(R255 repair: Theorem A is stated for residue classes of u; if μ ∈ V_F then every parameter is integral on the full class
+u ≡ Y*(μ) mod N (N clearing denominators), positive for large u, whose closure contains Y*(μ); S_D = S_{D,r} uses
+φ_{D,r} = c₀b^r Y^D + k.) Hence Λ ∩ (∩_D S_D) \ ∪_q D_q ≠ ∅ ⟹ no covering. (Note ∩_D S_D ⊆ S_1 = Sq^×-points.)
 **The pointwise converse fails for natural sub-menus (PROVED; R-O245 repair: scope narrowed).** O240 spark 6 / O238 spark 2
 asked whether a covering exists iff Λ avoids ∩_D S_D. Pointwise version: "every μ ∉ ∩_D S_D ∪ ∪_q D_q lies in some V_F".
 For the menu "ET + divisor + z14 windows" this is FALSE: for 15·4^s + 1, μ = 0 ∉ S_2, S_4 (Computation 1.2), μ = 0 is in no
-D_q (n → 16 at odd q), yet O239 Cor 2.8 proves no z14 window reaches μ = 0 — and since μ = 0 ∈ Λ, this also refutes the
-finite-cover equivalence for that menu. For the *Type II part* of the degree-2 rung the pointwise per-rung statement
+D_q (n → 16 at odd q), yet O239 Cor 2.8 (unsplit SG pieces; branch side-agent/exp-105, pending review) proves no z14 window
+reaches μ = 0. (R255 repair: the former clause "this also refutes the finite-cover equivalence for that menu" is withdrawn —
+it would need that no μ ≠ 0 of Λ lies in ∩_D S_D \ ∪_q D_q, e.g. that μ = 0 is the only profinite unit-square point of
+15·4^μ + 1; EVIDENCE only: the primes of 4^60 − 1 force μ ≡ 0 mod 60, `scripts/review_r255_s1points.py`.) For the *Type II part* of the degree-2 rung the pointwise per-rung statement
 (reachable iff ∉ S_2) is FALSE at μ = 0 (Theorem 4.1); for the full rung 2 (Types I and II) it is open (Type I half of
 Thm 4.1 missing). The global version for all root classes is open; at μ = 0 of (15,1) it is CONJECTURE 6.4's negation.
 So per-rung sterile sets *contain* S_D together with positivity-forced points (Thm 4.1, Lemma 2.3) and, for finite
@@ -177,7 +186,8 @@ proving it needs a positivity/size theorem for all shapes, which this file only 
 g(n) = 2^{v₂(n−1)} (defined at every odd n; the exponential families c₀2^s + 1 are the slices u := (n − 1)/g(n) = c₀) and let
 F be a Type I/II identity polynomial in (n, g) with positive values. Suppose F is valid on a set containing, for some
 e ≥ 3, the FULL slice progression P_e = {n ≡ 1 + 2^e u₀ (mod 2^e M), v₂(n − 1) = e} (u₀ odd). Then F restricted to P_e is a
-polynomial-in-n identity on an arithmetic progression, so P_e must contain no odd square (Schinzel/Mordell, ET p. 7–8;
+polynomial-in-n identity on an arithmetic progression, so P_e must contain no odd square coprime to its modulus (R255
+repair: primitivity needed — n ≡ 0 mod 3 ∋ 9 is polynomially solvable) (Schinzel/Mordell, ET p. 7–8;
 Type I/II solutions do not exist at squares, ET Prop 1.6). Near a profinite unit-square point (u₀ ≡ c₀, e ≡ 0 mod
 ord_M(2)·L) P_e does contain odd squares (1 + 2^e c₀ ≡ 4^J mod odd M; ≡ 1 mod 8 at 2), contradiction. ∎
 So (n, g)-polynomial families whose valid sets contain full slice progressions cannot reach unit-square points; the

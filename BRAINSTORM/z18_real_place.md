@@ -13,7 +13,7 @@ NEAR_SQUARE Thm 2.2 (the same mechanism: "above the squares" positivity kills es
 ## Barrier screen
 Archimedean analogue of B1's degree constraints; no conflict with T1.
 ## Cheap numerics
-`scripts/z18_quad.py` (with the POS counter in the debug copy) — positivity never satisfied.
+`scripts/z18_quad.py` (with the POS counter in the debug copy — not committed; R255: not reproducible as committed; for even D the claim is PROVED by the lemma) — positivity never satisfied.
 ## Assessment
 PROVED (lemma) + EVIDENCE (grids). With z18_descent_dies_at_D2: what remains of sterility at D ≥ 2 is archimedean +
 magnitude (O239 Cor 2.8) + finite algebraic supply (Capelli).

@@ -3,7 +3,10 @@
 Reviewer: R255 side agent (branch side-agent/review-menu-ladder, merged side-agent/menu-ladder at 7ecab42c).
 From-scratch scripts: `scripts/review_r255_*.py`. ES is not solved; nothing below changes that.
 
-## Summary verdicts (filled in progressively)
+**Repairs applied (author quiet):** D1–D11 applied directly in MENU_LADDER.md and memos z18_primes_slices, z18_real_place,
+z18_exp_cover_criterion, each marked '(R255 repair)' / 'R255:'. D5 (MAJOR) repaired by withdrawing the finite-cover clause.
+
+## Summary verdicts
 
 | claim | verdict |
 |---|---|
