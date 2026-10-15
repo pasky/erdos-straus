@@ -271,12 +271,14 @@ Status: in progress.
   class count is ½τ(A²) = ½|ℛ(ℓ)|: the e = 0 class family is Vaughan's, as (J)59 Cor 2.2
   already says (Vaughan 1970 itself still not accessed, see `sources/vaughan-1970-access-log.md`).
   PW Thm 1.3: the numerator-m analogue with N/exp(C(log₂N/φ(m))^{1/3}).
-* **Elsholtz, "Sums of k unit fractions", Trans. AMS 353 (2001) 3209–3227** [zbMATH
-  review Zbl 0982.11016 visited via API; paper not opened (AMS/JSTOR walls)]:
-  E_{m,k}(N) ≪ N/exp(C_{m,k}(log N)^{1 − 1/(2^{k−1} − 1)}) for m > k ≥ 3, by Vaughan's
-  large sieve with 2^{k−1} parameters instead of Viola's k (Acta Arith. 22 (1973)) or
-  Shen's k + 1 (Chinese Ann. Math. B 7 (1986)); k = 3 gives Vaughan's 2/3. ET
-  (arXiv:1107.1010, archived) p. 9 confirms the Viola/Shen/Elsholtz lineage.
+* **Elsholtz, "Sums of k unit fractions", Trans. AMS 353 (2001) 3209–3227** [re-read:
+  author copy archived by O101 as `sources/o101/elsholtz-2001-sums-of-k-unit-fractions.pdf`
+  (see 10c §1); zbMATH Zbl 0982.11016 also visited]. Thm 1.3 (p. 3210):
+  E_{m,k}(N) ≪ N/exp(c_{m,k}(log N)^{1 − 1/(2^{k−1} − 1)}) for m > k ≥ 3. p. 3210:
+  "It can be expected to yield good upper bounds on E_{m,k}(N), if the parametric solution
+  uses many independent parameters … We use 2^{k−1} parameters, while Vaughan used 4
+  parameters for k = 3"; Viola (Acta Arith. 22 (1973)) had 1 − 1/(k−1), Shen (Chinese Ann.
+  Math. B 7 (1986)) 1 − 1/k.
   * **Bearing on (J)59 Thm 1.2/1.4 and (J)63 Thm 2.1.** The principle "each extra free
     divisor parameter raises the large-sieve exponent 1 − 1/D" is exactly Vaughan →
     Viola → Shen → Elsholtz for k-term representations. (J)59's ladder
