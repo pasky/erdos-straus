@@ -123,3 +123,26 @@ them — are what make coverings expensive; the correlation is not a dichotomy: 
 (3, 193) have two square points and are covered; (1, 297), (2, 233), (2, 257), (2, 281) have one and are open).
 Two-parameter 4^a·9^b + k: not run (time); note u = 4^a9^b is itself a square, so unit-square points are the
 factorisations k = (y − w)(y + w) with w = 2^a3^b, y = ±2^i3^j — finitely many, explicitly listable.
+
+## 4. Which k admit a covering? (goal 4; CONJECTURE + Assessment)
+
+Exact criterion (PROVED, EXPONENT_COVERING Thm 1.4): a finite covering of {c₀4^s + k} exists iff Λ ∩ S′ = ∅.
+Known pieces of S′ ∩ Λ: (a) unit squares — occur iff c₀ + k = 4^j (Lemma 3.1), PROVED sterile. (b) Nothing else is known.
+Non-unit square points x are covered by D_q (q | s_x) on the clopen set {μ_ℓ ≡ x mod ℓ^{v_ℓ(ord_q 4)}, ℓ | ord_q(4)};
+the sets around them that the D_q switch off are the *label points* (Lemma 1.2) and the *ℓ-lines* (§2).
+* Heuristic for non-sterility (Assessment): a non-constant label point has a positive-density set of mixed primes
+  (any q with ℓ^j | ord_q(4) at a level where two labels differ, and one more prime factor); the expected number of ET
+  classes containing it, Σ_q τ((q+1)/4)²/q over those q, diverges. Same for ℓ-lines (the q with ℓ | ord_q(4)). So no sterile
+  point is expected; every computed point was covered (μ* in II2 919; binary core Result 1.1; the 3-line of 297).
+* **CONJECTURE E (exponential coverability).** For c₀ ≥ 1 and k ≥ 1 with c₀4^s + k non-trivial, a finite covering by ET
+  and divisor classes exists iff c₀ + k is not a power of 4. In particular k = 33, 105, 273, 297 (c₀ = 1) are coverable.
+  Evidence: certified/surveyed coverings for 9 + 7 + 11 + 9 offsets; Λ ∩ Sq^× = ∅ screens; binary core of 105; line of 297.
+  Counter-evidence: none, but the computed coverings for the open k do not terminate (§2): the conjecture predicts
+  coverings that are *large* — trees whose class periods involve many primes ℓ ≥ 200.
+* What this says about B1. B1 (no finite covering of all n, POINTWISE_SIZE Thm M) uses only that the parameter space
+  contains a T1 point. For an exponential family the parameter space is Ẑ (exponents) and its image avoids Sq^× unless
+  c₀ + k = 4^j, so the *qualitative* B1 obstruction disappears; what remains is *quantitative*: the square points that
+  Λ does contain (non-unit) force every covering to contain a covering of neighbourhoods of their label set and lines,
+  whose cost is governed by a branching process (fibre completeness ≥ 1 − 1/ℓ). So "finite coverings exist but are
+  huge" is the expected shape of B1 over Ẑ-parameter spaces; certificates are practical only when the square points are
+  isolated by small-period D_q's (the nine certified k).
