@@ -63,3 +63,55 @@ P = Q = R on every pattern, also without fixing lc(v₁) (q = 3, 5, 7, 9; s ≤ 
 3 ≤ s ≤ 18 agree with `data/fz/enum9/e_<s>.txt.gz` count for count (0 mismatches;
 `data/fz/review_r221_enum9_3_18.txt`).** Per-level masses agree with §5.2 to all printed digits; Σ_{s≤18} = 0.5921770
 (text: 0.592177). (s = 19, 20: see §1b.)
+
+## 2. Lemma 5.1 (linearised Lemma 4.1) and `fz_tail.c` RANK = 1
+
+**Proof from scratch.** V_ρ(n) = ∫₀ⁿ r(x) dx where r(x) is the ratio (gain/weight) of the item occupying position x after
+sorting all items (P, e) by decreasing ratio (multiplicities I'(j)); r is non-increasing, so V_ρ is concave with V_ρ(0) = 0.
+For a concave function, f(n) ≤ f(n₀) + λ(n − n₀) for every n ≥ 0 and every λ ∈ [f'₊(n₀), f'₋(n₀)] (for n > n₀ by f'₊,
+for n < n₀ because λ ≤ f'₋). With F of degree n ≤ sN, T ∤ F, and d' = min(d, n − d) ≤ s·min(D, E):
+#div ≤ ρ^{−d'}e^{V_ρ(n)} ≤ exp(s(−log ρ·min(D, E) + λ(D + E)) + c) with c = V_ρ(n₀) − λn₀ ≥ 0 (concavity), and c ≤ s·c/S
+for s ≥ S. Increasing in D, E since −log ρ ≥ 0, λ ≥ 0. **SOUND.** (The exactness of the item set matters: the
+linearisation is used for all n at once, so — unlike the per-n V of fz_sum — the item set may not be truncated at n.)
+
+**Implementation (`init_rankin`).** Items j ≤ NM = 8S + 8 = 648, e·j ≤ NM, gains < 10⁻¹⁸ dropped; λ := ratio of the next
+item after filling n₀, then λ(1 + 10⁻⁹) + 10⁻¹⁵, V(n₀)(1 + 10⁻⁹) + 10⁻⁹ + 10⁻¹²n₀. Omitted items have ratio
+≤ min(1/(je), ρ^{je}/j) — gain log(1 + y^e/S_{e−1}(y)) ≤ min(1/e, y^e) — so they are harmless iff they lie below λ; the code
+does not test this, but my check does it externally:
+*`review_fz9_rankin.py` (own Möbius count, own item list with j up to J chosen adaptively so that the omitted-degree bound
+min(ρ^j, log 2)/j < λ_true/2, e-cut certified by min(1/(4S), ρ^{4S}) < λ_true):* for all 96 (ρ, n₀) pairs used at q = 9,
+S = 80 (dumped from the unmodified fz_tail.c by the harness `review_fz9_rkdump.c`): c_author ≥ V_true(n₀) − λ_true n₀
+and λ_author ≥ λ_true: **0 violations** (also q = 3). Brute force over all factorisation types (q = 9, n ≤ 5; q = 3,
+n ≤ 10), every d: max count / linearised bound = 0.72 resp. 0.91. **SOUND.**
+
+**Independent tail (`review_fz9_tail.c`):** R220's independent tail code (`review_fz_tail.c`, not derived from fz_tail)
+plus my own linearised Lemma 4.1 (ρ ∈ {k/32}, n₀ ∈ {S/2, …, 8S}, items to weight 20 000, λ > omitted bound enforced, exit
+otherwise) in every binomial divisor count, plus the R1 alternative m' | F, w₁ | F/m'. q = 9, S = 80, depth 8:
+**tail(s > 80) ≤ 0.0703** (author 0.0797). Without Lemma 4.1 the same code gives 9.1·10⁷: the q = 9 tail depends on
+Lemma 5.1, which is correct. Every F to which Lemma 4.1 is applied is prime to T (1 + T^s m'g'², g'T^{s−1} + w₁,
+T^{s−2} + m'w₁², T^{s−2} + v₁ and its cofactors m'C₁, w₁C₁, m'w₁ … — v₁(0), w₁(0), C₁(0), m'(0) ≠ 0). The box logic
+(pattern counts (sw + 1)³, class conditions uniform in s ≥ S, b ≥ a, t ≥ 0 pruning) is unchanged from the version R220
+reviewed at q = 27.
+
+## 3. Hybrid splice (`fz_hybrid.c`) and the finite bound part 23 ≤ s ≤ 80
+
+* Pattern set: a ≥ 1, z ≥ 0, b = s − a − z ≥ a, 0 ≤ y ≤ b − 2, t = b − y (≥ 2) — exactly the patterns of (B) by
+  FF_STERILE_PUSH Lemma 1.1(ii),(iii); identical loop to fz_sum. Weight mult·q^{1−⌈s/2⌉} ((s + 1)/2 integer division).
+* Per pattern either the exact count (if the level file has a line for it) or the route bound — never both; levels
+  3 ≤ s ≤ 80 in the finite part, s > 80 in the tail: no overlap, no gap. A file with a wrong line count aborts; a missing or
+  duplicated pattern line could at worst fall back to the (valid) bound for that pattern — fail-safe. No SKIP lines in the
+  shipped files (checked). **No double counting, no omitted patterns.**
+* Route bounds at 23 ≤ s ≤ 80 use Lemma 4.1 per n (`lD`): fz_sum truncates items at e·j ≤ 2048 and n ≤ 2048, which is a valid
+  relaxation for each fixed n (an integer solution only uses items with e·deg P ≤ n). Independent re-computation
+  (`review_fz9_sum.c` = R220's independent route code + my own per-n Lemma 4.1, ρ ∈ {k/48}, items e·j ≤ n): with the author's
+  exact counts for s ≤ 22, finite part **3.6670** (author 3.2872; mine is weaker: no τ-bound, coarser ρ grid). Exact count ≤
+  my route bound on every pattern s ≤ 22 (0 violations). Pure bound sum s ≤ 80: 42.76 (author's fz_sum: 41.87).
+* Sensitivity (mine): exact ≤ 18 → finite 7.98 (fails together with tail and Case A: 8.22 > 8), exact ≤ 19 → 7.25,
+  ≤ 20 → 5.39, ≤ 21 → 4.90, ≤ 22 → 3.67. So with my weaker bounds the certificate needs exact counts through s ≥ 19
+  (with the author's bounds through 18: 4.735, as stated). Hence the independent re-enumeration of s = 19, 20 (§1b).
+
+## 4. Case A at q = 9
+
+R218's author-independent `review_fs2_caseA.py` at q = 9: Σ_{α≤40} = 0.17500159866 (fz_caseA: 0.17500159866); with α ≤ 60:
+0.17500159876. Lemma 2.1 tail: direct summation Σ_{41≤α≤400} (α+1)³9^{−(α+1)/2}3^{α/2} = 1.0707·10⁻⁵ ≤ 1.0749·10⁻⁵ (script's
+geometric majorant, ratio (44/43)³/√3 < 1). Weight q^{2−k−α} = 9^{−α} at k = 2. **SOUND.**
