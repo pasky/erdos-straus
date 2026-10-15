@@ -1,0 +1,6 @@
+N=1000000: max least r = 251; max r/log^2 p = 8.88 at p=5 (r=23); 391 solutions verified
+adversarial p=W*1+1 (log p=31.0): least r=47, r/log^2 p=0.05, overflow exponent 5
+adversarial p=W*4+1 (log p=32.4): least r=47, r/log^2 p=0.04, overflow exponent 15
+adversarial p=W*5+1 (log p=32.6): least r=47, r/log^2 p=0.04, overflow exponent 6
+adversarial p=W*8+1 (log p=33.1): least r=71, r/log^2 p=0.06, overflow exponent 0
+adversarial p=W*14+1 (log p=33.7): least r=47, r/log^2 p=0.04, overflow exponent 18
