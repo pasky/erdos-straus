@@ -1,8 +1,13 @@
 # FF_ODD_ABSENCE — the odd-r / odd-s absence on the A = T slices, explained (O226, wave Z-c)
 
-Status: checkpoint 1 (O226): Thms 1.2, 1.4 (law), Prop 1.6, Cor 1.7 PROVED; Thm 2.2 (q = 9, k = 1 closed) PROVED, computer-assisted. Builds on FF_STERILE_SMALL.md ((J)56; §§6–8: k = 1, slices u₀ ∉ F₃^*, tuples (B^{k=1})).
+Status: checkpoint 1 (O226): Thms 1.2, 1.4 (law), Prop 1.6, Cor 1.7 PROVED; Thm 2.2 (q = 9, k = 1 closed) PROVED, computer-assisted;
+Cor 2.3 (ES_q(T) has no finite linear covering for every q = 3^r, r ≥ 2) PROVED, computer-assisted. Builds on FF_STERILE_SMALL.md
+((J)56; §§6–8: k = 1, slices u₀ ∉ F₃^*, tuples (B^{k=1})), FF_STERILE_PUSH.md ((J)51), DEPTH_ASPECT.md Lemma 2.3 (Case A
+identities). Scripts `scripts/zc_*`. (R240 m-1, applied by R241: header sentence re-joined.)
 Hostile deep review (codex, self-requested): no FATAL; MAJOR (λ = 2 for a = b outside char 3) and minors repaired in place ("R-O226 repair").
-FF_STERILE_PUSH.md ((J)51), DEPTH_ASPECT.md Lemma 2.3 (Case A identities). Scripts `scripts/zc_*`.
+Independent hostile reviews R240 (`reviews/ff-odd-absence-review.md`) and R241 (`reviews/ff-odd-absence-review-2.md`): no FATAL,
+no MAJOR, all claims SOUND; both re-certified Thm 2.2 with their own enumerations; their minors are applied in place (round 2,
+by R241: "(R241 repair)", "(R240 m-k, applied by R241)").
 
 ## 0. Iteration log
 
@@ -40,7 +45,8 @@ T ∣ g'v).
 and if a = b the exponent is 0. ∎ (In characteristic 3 the scripts use the equivalent form with the trivial factor λ^{z+s}, λ = −1 iff
 a = b: for a = b, z + s = 2(z + a) is even. `zc_law_check.py` checks the unsimplified Lemma 1.1 identity.)
 *Check (EVIDENCE, `scripts/zc_law_check.py` on the dump of `zc_enum`; tuples re-verified against (B^{k=1}) independently in
-Python, `scripts/zc_field.py`):* q = 9, s ≤ 12: 8 915 tuples; q = 5, 7, 27, s ≤ 9: 305, 645, 340 tuples; 0 failures of the exact sign
+Python, `scripts/zc_field.py`):* q = 9, 2 ≤ s ≤ 12: 8 915 oriented tuples (deg w ≤ deg C, a = b both orders; 15 701 ordered
+tuples, R241); q = 5, 7, 27, 2 ≤ s ≤ 9: 305, 645, 340 oriented tuples (R241 repair, m-1: "oriented" made explicit); 0 failures of the exact sign
 formula, both the unsimplified Lemma 1.1 form and the simplified Thm 1.2 form. (Distribution of E(0) at q = 9: odd s only E(0) = 1; s ≡ 2 (4): {1, ±i}; s ≡ 0 (4): all eight values except −1 — the
 law is sharp at q = 9, s ≤ 12.)
 
@@ -56,14 +62,18 @@ s ≤ 12"). q = 3^r with r odd: (q−1)/2 is odd, so parity plays no role and on
 **Theorem 1.4 (k = 1 Case A law; PROVED).** Let q = 3^r and let (a1', b1, K) be k = 1 Case A data (FF_STERILE_SMALL Lemma 7.2:
 T^α ∥ a1 = T^α a1', a1', b1 monic, lc K = lc E ∈ {1, 2}, T ∤ a1'b1K, E = a1'b1K − 1, F = (a1 + b1)/E a polynomial) whose
 cylinder lies on a slice u₀ = −E(0) ∉ F₃^*. Then E(0) = b1(0)/F(0) and
-  E(0)^α = (−1)^{t + tκ + κ(1+α) + tα} · λ^{κ + 2β − α} · (lc K)^{α − t} ∈ F₃^*,
-(t = deg z, λ = lc z, z := (F + b1)/a1', β = deg b1, κ = deg K); in particular **E(0)^{2α} = 1**.
+  E(0)^α = (−1)^{t + tκ + κ(1+α) + tα} · ν^{κ + 2β − α} · (lc K)^{α − t} ∈ F₃^*,
+(z := (F + b1)/a1' (a polynomial, not deg m'), t = deg z, ν = lc z, β = deg b1, κ = deg K, ℓ := deg a1' — the "lam" of
+`zc_caseA9.py`/`caseA9_4.txt` and of (J)56 Lemma 7.2 is ℓ, not ν); in particular **E(0)^{2α} = 1**. (R240 m-2, applied by R241:
+ν for lc z, formerly λ.) (R241 repair, m-3: the hypothesis lc K = lc E ∈ {1, 2} is (J)56 Lemma 7.2 / DEPTH_ASPECT Lemma 2.4; the
+conclusion E(0)^α ∈ F₃^* uses it.)
 *Proof.* E ≡ −1 (mod a1') and EF = T^α a1' + b1 give F + b1 ≡ 0 (mod a1'), so z is a polynomial, and
 b1·K·F = T^α + z, F + b1 = a1'·z (DEPTH_ASPECT Lemma 2.3 (A0), (A3): pure algebra from E = a1'b1K − 1, EF = T^α a1' + b1).
 At T = 0: E(0)F(0) = b1(0) ≠ 0 and E(0) ≠ 0 (E(0) = −u₀), so F(0) ≠ 0 and z(0) = b1(0)K(0)F(0) ≠ 0. Lemma 1.1 with
-(M, W, C, G, V, s) = (K, b1, F, a1', z, α) gives the formula (μ_W = 1, μ_M = lc K). lc K ∈ F₃^*. For λ: lc(T^α a1' + b1) ∈ {1, 2}
-(sum of monics; deg F = α − β − κ ≥ 0 forces α + λ_deg ≥ β), so lc F ∈ F₃^*; hence λ = lc(F + b1) ∈ F₃^* unless deg F = β
-and lc F = −1 (top coefficients cancel). In that case deg F = α − β − κ = β, i.e. κ + 2β − α = 0, and λ does not occur.
+(M, W, C, G, V, s) = (K, b1, F, a1', z, α) gives the formula (μ_W = 1, μ_M = lc K). lc K ∈ F₃^*. For ν: lc(T^α a1' + b1) ∈ {1, 2}
+(sum of monics; deg F = α − β − κ ≥ 0 forces α + ℓ ≥ β — this uses (J)56 Lemma 7.2(a): patterns with β > α + ℓ do not occur,
+otherwise deg(T^α a1' + b1) = β (R240 m-3, applied by R241)), so lc F ∈ F₃^*; hence ν = lc(F + b1) ∈ F₃^* unless deg F = β
+and lc F = −1 (top coefficients cancel). In that case deg F = α − β − κ = β, i.e. κ + 2β − α = 0, and ν does not occur.
 So the right side lies in F₃^* = {±1}. ∎
 *Check (EVIDENCE):* `zc_caseA_enum` (fz1_caseA_enum + dump), all Case A data unfiltered: q = 9, α ≤ 6 (745 data, plus a partial
 α = 7) and q = 27, α ≤ 4 (+ partial α = 5): E(0)^{2α} = 1 in every case; the cancellation case λ ∉ F₃ occurs (4 data at q = 9) and
@@ -86,7 +96,9 @@ level s (pattern a = 0, z = deg D, y = 0, t = s − z) with E(0) = D(0), i.e. on
 **every u₀ ∈ F_q^* with u₀^s = −1 carries a level-s Case B family.**
 *Proof.* (D + 1)C = T^s + 1 + C = T^s + v and w + C = 1 + C = v = g'v; m' = D + 1 is monic of degree z ≥ 1 with m'(0) = D(0) + 1 ≠ 0;
 C is monic of degree s − z ≥ 1 with C(0) = 1/D(0); v = C + 1 has lc 1 (= λ, a < b) and v(0) = (1 + D(0))/D(0) ≠ 0. E(0) = w(0)/C(0)
-= D(0). For D = T − ρ: D(0) = −ρ ≠ −1 since ρ^s = −1 ≠ 1 = 1^s. ∎
+= D(0). For D = T − ρ: D(0) = −ρ ≠ −1 since ρ^s = −1 ≠ 1 = 1^s. That the tuple gives a valid level-s family (cylinder
+u ≡ −E (mod T^s) on the slice u₀ = −E(0)) is the converse direction of FUNCTIONFIELD_ES3 Lemma 1.1 with L' = m'g' (so g' ∣ L'),
+E = m'g'w − 1 (monic; E·E' = 1 + T^s m'g'²), j = N = s − 1, γ = 0 (s = N + 1 + γ); then E ≡ −1 (mod L'). (R240 m-4, applied by R241.) ∎
 *Exact scope (EVIDENCE beyond Prop 1.6).* Theorem 1.2 says level s can reach only u₀ with u₀^{2s} = 1, u₀ ≠ 1 (E(0) ≠ −1);
 Prop 1.6 reaches all u₀ with u₀^s = −1. The enumerations show that the remaining allowed classes (u₀^s = 1, u₀ ≠ 1) are also
 populated whenever allowed: q = 9, s ≤ 12 (all allowed E(0) values occur at every level, §1 table); q = 5, 7, s ≤ 9 (same);
@@ -112,7 +124,9 @@ even with exact counts), but it is a free factor ≈ 4 in every k ≥ 2 bound su
 labels u₀. If Σ_{Case B tuples with −E(0) ∈ P} q^{−⌈(s−1)/2⌉} + Σ_{Case A data with −E(0) ∈ P} q^{−α} < |P|, then some slice u₀ ∈ P
 has covered relative measure < 1, so O(q, T) ≠ ∅ and ES_q(T, ·) has no finite linear covering.
 *Proof.* The covered measure of the slice u₀ is at most the sum of the masses of the cylinders lying in it (FF_STERILE_SMALL §7:
-on u₀ ∉ F₃^* every cylinder has depth ≥ 2 and the stated relative mass; a family lies in exactly one slice, u₀ = −E(0)). Sum
+on u₀ ∉ F₃^* every cylinder has depth ≥ 2; the validity sets of all families with a given datum lie in the datum's maximal
+cylinder, of relative mass ≤ q^{−⌈(s−1)/2⌉} resp. q^{−α} ((J)51 Lemma 2.1), which lies in exactly one slice, u₀ = −E(0) (R241
+repair, m-6: wording)). Sum
 over u₀ ∈ P and average. The rest (positive uncovered measure ⇒ O ≠ ∅ ⇒ no finite linear covering) is verbatim §7 of
 FF_STERILE_SMALL. ∎
 
@@ -125,9 +139,6 @@ budget |P| = 4.
 **Theorem 2.2 (no finite linear covering of ES₉(T); PROVED, computer-assisted, O216 certification standard plus exhaustive
 enumeration).** For q = 9 and A = T (k = 1), O(9, T) ≠ ∅: ES₉(T, ·) has no finite linear covering. More precisely the covered
 relative measure summed over the four slices u₀ ∈ P₈ (u₀⁴ = −1) is ≤ 3.195 < 4, so some u₀ ∈ P₈ has positive uncovered measure.
-(The coefficient Frobenius x ↦ x³ maps valid families on u₀ to valid families on u₀³ with the same cylinder masses, since
-A = T is defined over F₃; so the covered measure is constant on the orbits {ζ, ζ³}, {ζ⁵, ζ⁷}, and both slices of one orbit
-have covered measure < 1.)
 *Proof.* Lemma 2.1 with P = P₈. By Corollary 1.5 only levels n ≡ 0 (mod 4) and (Case B) only patterns with
 ε(s; z, t) = (−1)^{s/4} contribute. `scripts/zc_certify9.sh` (log `data/zc/certify9_k1.txt`):
 * Case B, 4 ≤ s ≤ 80, 4 ∣ s (`zc_sum9.c`): exact P₈-counts for s = 4, 8, 12, 16 (all compatible patterns) and s = 20 (933 of 950
@@ -135,7 +146,10 @@ have covered measure < 1.)
   (fz1_enum + slice filter E(0)⁴ ≠ 1 + pattern filter; per-pattern driver `zc_drive.py` for s = 20): exact mass 1.759959
   (s = 4: 1.62963, s = 8: 0.11645, s = 12: 0.01317, s = 16: 6.3·10⁻⁴, s = 20: 8.0·10⁻⁵); route bounds (fz1_sum.c `pattern_bound1`,
   FF_STERILE_SMALL Lemma 7.1, unchanged) for the rest: total 2.9670390;
-* tail s > 80: `fz1_tail 2 80` (all patterns, all slices, so an upper bound) ≤ 0.025752 (183 363 boxes, none failed);
+* tail s > 80: `fz1_tail 2 80` (all patterns, all slices, so an upper bound) ≤ 0.025752 (183 363 boxes, none failed). (R241
+  repair, m-4: this is the first use of fz1_tail at r = 2, and here the tail is finite only because of the linearised divisor
+  bound FF_STERILE_SMALL Lemma 5.1 (RANK = 1), as for Thm 5.2 there: without it a reviewer tail gives 3.1·10⁶; R241's independent
+  port (R226's k = 1 reviewer tail + R221's own Lemma 5.1, `scripts/review_r241_tail9.c`) gives ≤ 0.0228.)
 * Case A (`zc_caseA9.py`, fz1_caseA.py restricted to 4 ∣ α by Theorem 1.4; α = 4 from the exact six-slice counts of
   `fz1_caseA_enum`, an upper bound for P₈; α ≤ 40 exact rationals, tail Lemma 7.2(b)) ≤ 0.170463.
 Certified total ×1.01 = 3.1949 < 4. ∎
@@ -149,3 +163,22 @@ M2, M3, M5 forced, cost ≤ 9^{6.5}) vs the auto (factoring) counts: s = 12: 214
 215, 0 mismatches; s = 8 totals agree (658) for M2, M3, M5. (v) Independent Python brute force `zc_brute.py` (q = 9, s ≤ 5):
 per-pattern P₈ counts equal zc_enum at s = 4; law failures 0. (vi) `zc_certify9.sh 1` regenerates s ≤ 16 and Case A α ≤ 4
 byte-identically.
+(vii) *Independent cross-checks by the hostile reviewers (R241 repair, m-5; R240 m-6, applied by R241).* The exact counts at
+s = 16 and s = 20 are load-bearing (their route bounds, ≈ 2.1 and 2.4–2.9, would each break < 4). Both reviewers recounted them
+with their own enumerators: s ≤ 16, all compatible patterns, 0 mismatches (R240, R241); s = 20: R240 854 of 950 patterns,
+R241 920 of 950 (including 5 of the 17 SKIP patterns), 0 mismatches with `data/zc/p_20.txt`. Certificates using no O226
+enumeration input at s = 20 (reviewer counts + route bounds on the rest): 3.406 < 4 (R240, variant B, `reviews/ff-odd-absence-review.md`)
+and 3.037 < 4 (R241, own tail and R226 reviewer route bounds; 3.293 also with R226's own Case A routes;
+`reviews/ff-odd-absence-review-2.md` §5, `scripts/review_r241_certify.sh`).
+
+*Remark 2.2' (Frobenius; R241 repair, m-2: moved out of the statement of Thm 2.2 and proved).* The coefficient Frobenius
+σ: x ↦ x³ of F₉[[T]] preserves Haar measure; the defining conditions of (B^{k=1}) tuples and of Case A data are F₃-rational
+(A = T is defined over F₃), σ maps the datum of E to the datum of σ(E), and the cylinder u ≡ −E (mod T^{N+1}) to u ≡ −σ(E). Hence the
+covered measure of the slice u₀ equals that of u₀³; it is constant on the orbits {ζ, ζ³}, {ζ⁵, ζ⁷} of P₈, and by Thm 2.2 both
+slices of at least one orbit have covered measure < 1.
+
+**Corollary 2.3 (A = T for every q = 3^r, r ≥ 2; PROVED, computer-assisted).** For every q = 3^r with r ≥ 2, O(q, T) ≠ ∅:
+ES_q(T, ·) has no finite linear covering. *Proof.* r = 2: Theorem 2.2. r ≥ 3: FF_STERILE_SMALL Thm 8.1 ((J)56; Thm 7.3 for
+3 ≤ r ≤ 19, Lemma 7.4 for r ≥ 20). ∎ (q = 3 is different: ES₃(T) has a finite covering, FUNCTIONFIELD_ES (J)4. Together with
+(J)51/(J)56 for k ≥ 2: for q = 3^r, r ≥ 2, ES_q(T^k) has no finite linear covering for every k ≥ 1.) (R240 m-5 / R241 m-7,
+applied by R241.)

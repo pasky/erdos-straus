@@ -1,6 +1,13 @@
 # Hostile review #2 of FF_ODD_ABSENCE.md (O226) — R241, round 1
 
 Reviewer: R241 (independent; no edits to the author's files in round 1).
+**Repairs applied (round 2, by R241, author idle; after merging R240's branch):** in FF_ODD_ABSENCE.md — R241 m-1 (oriented
+counts), m-2 (Frobenius moved to Remark 2.2' with proof), m-3 (lc K source), m-4 (tail rests on Lemma 5.1; independent 0.0228),
+m-5 (Validation (vii): reviewers' s = 16/20 cross-checks and author-independent certificates 3.406 / 3.037), m-6 (Lemma 2.1
+wording); R240 m-1 (header), m-2 (ν = lc z, ℓ = deg a1'), m-3 (Lemma 7.2(a) citation), m-4 (tuple ⇒ family, Prop 1.6), m-5 /
+R241 m-7 (new Cor 2.3: ES_q(T) has no finite linear covering for every q = 3^r, r ≥ 2 = Thm 2.2 + (J)56 Thm 8.1; status
+header), m-6 (= R241 m-5). FF_STERILE_SMALL.md: status header, §7 "q = 9 (k = 1) is not closed" and §8 "Open" now point to
+FF_ODD_ABSENCE Thm 2.2 / Cor 2.3. STATUS/DISCOVERIES not touched (parent).
 **Bottom line: no FATAL, no MAJOR; 7 minor defects. All headline claims SOUND; Thm 2.2 independently re-certified (≤ 3.04 < 4 without any O226 enumeration input).** Scope: Lemma 1.1, Thm 1.2, Cor 1.3, Thm 1.4,
 Cor 1.5, Prop 1.6, Cor 1.7, Lemma 2.1, Thm 2.2 (certificate), consistency with (J)56 Thm 8.1.
 From-scratch scripts: `scripts/review_r241_*.py`.
