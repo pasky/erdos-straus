@@ -67,18 +67,15 @@ d < n₀). For K ≥ 2 the uniform measure on the K-ary subtree gives mass K^{�
 mass distribution principle gives dim ≥ log K/(m log 3). ∎
 
 **Proposition 3.2 (global counts collapse to the tail union bound; PROVED).** Let n₀ ≥ 2, let A ⊂ X_c be a union of
-cylinders of depth n₀ of relative mass μ_A, and let (n_d)_{d > n₀} be non-negative integers. If Σ_{d > n₀} n_d 3^{−(d−2)} ≥ μ_A,
+cylinders of depth n₀ of relative mass μ_A, and let (n_d)_{d > n₀} be non-negative integers. If Σ_{d > n₀} n_d 3^{−(d−2)} > μ_A,
 then there is a set 𝔅' of cylinders, with exactly n_d of depth d (as long as n_d ≤ 3^{d−2}), such that ⋃𝔅' ⊃ A. Hence no
 argument that uses only (i) the exact alive set at depth n₀ and (ii) upper bounds on the number of tuple balls of each depth
 d > n₀ can prove U_c ≠ ∅ unless it proves the tail union bound Σ_{d > n₀} n_d 3^{−(d−2)} < μ_A.
-*Proof.* Greedy: list the alive cylinders of A; for d = n₀ + 1, n₀ + 2, … place the n_d depth-d cylinders disjointly inside
-the not-yet-covered part of A, filling A from left to right (always possible while uncovered mass remains, since every
-uncovered region at depth d − 1 is a union of depth-d cylinders); surplus cylinders go anywhere. The masses add until A is
-exhausted; if the series reaches μ_A at a finite stage, A is covered. If it reaches μ_A only in the limit, place cylinders so
-that the uncovered part at stage d is a single cylinder-union shrinking to one point x, and add one extra depth-d₁ ball at x
-from the surplus of some later n_d (if all n_d are used exactly, the limit point survives: the statement "Σ ≥ μ_A ⇒ covered"
-needs Σ > μ_A or a surplus ball; we state it with >). ∎
-(Precise form: if Σ_{d>n₀} n_d 3^{−(d−2)} > μ_A, an adversarial 𝔅' with these counts covers A.)
+*Proof.* State it with ">" (the case "=" can leave one point). Greedy: for d = n₀ + 1, n₀ + 2, … the uncovered part of A
+is a finite union of depth-(d − 1) cylinders, i.e. of depth-d cylinders; place min(n_d, their number) depth-d cylinders on
+uncovered ones (the rest anywhere). As long as nothing runs out, the uncovered mass after stage d is μ_A − Σ_{n₀<d'≤d} n_{d'}3^{−(d'−2)},
+a multiple of 3^{−(d−2)}. The partial sums increase to a limit > μ_A, so at the first stage d* where the partial sum exceeds
+μ_A − 3^{−(d*−2)}·0, i.e. reaches ≥ μ_A, the number of uncovered depth-d* cylinders is ≤ n_{d*}: A is covered. ∎
 *Reading.* The union-bound barrier of FF_STERILE_PUSH / STERILE_EXPLICIT §4 (exponent +0.167, after O219's refinements
 0.000 at the thirds corner) cannot be bypassed by any Cantor/game cleverness that only knows counts per depth. What Lemma 3.1
 exploits is *where* the balls are: they must not exhaust a whole alive cylinder within a window.
