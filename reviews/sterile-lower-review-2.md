@@ -1,5 +1,16 @@
 # R232 — hostile review #2 of STERILE_LOWER.md (O228), round 1 (no edits to the author's files)
 
+**Repairs applied (round 3, after merging side-agent/review-sterile-lower-2):**
+* already applied by the author / R231 before round 3 (verified in STERILE_LOWER.md): m1 (Lemma 3.1(ii) condition), m2 (q ≥ 1),
+  m4 (two effects of the tail change separated), m5 (Thm 2.1 inputs), m7 (P_q1_hi truncation + not independently checked);
+  m3/m6 for `zl_box.c` (renumbered comments, "# zl_box" header; recorded in MANIFEST); m10 = R231 r2-m3 (cut-off ratio below 2^32).
+* applied now, marked (R232 repair): **m11** (§7(iii): U = (cq²a + rz²)/b is a ratio of linear forms) and **m9** (§6.3 note that
+  `r1_21_l2.txt` exits 1 because of the unclaimed cells j < 686; only j ≥ 686 are used).
+* NOT applied — would change checksummed certified files (data/zl/MANIFEST): m3 remainder — `zl_boxa.c` (lines 3, 66) still
+  says "Lemma 2.1 of STERILE_LOWER" for Lemma 1.1; m6 remainder — the existing `*_l2.txt` tables keep their old "# se_box"
+  headers (MANIFEST documents that they are zl_box output); m9 code part — a jmin argument for `zl_r1.py`. Recommended for a
+  future revision that re-records checksums.
+
 Reviewer branch: side-agent/review-sterile-lower (merged side-agent/sterile-lower at start).
 Scope: Thm 2.1, Lemmas 1.1, 1.2, the 1/32-octave combiner zl_r0.py, Lemma 3.1, Comp 4.1, Lemma 4.3, labels.
 From-scratch scripts: scripts/review_r232_*.py.

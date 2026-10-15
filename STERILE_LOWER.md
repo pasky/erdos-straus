@@ -197,6 +197,10 @@ extra certified P tables `data/zl/P_q32_k3.txt` (se_box, N ∈ [2^62, 2^70), 1/3
 (R231 repair r2-m3) The K-series is cut after the first tail term < 10⁻³⁰ and charged 10⁻²⁰ (as in SE); below 2^32 the per-step ratio
 of odd-K tail terms is ≈ 2^{(2·0.48 − 1)b}·((K+2)/K)^p ≈ 0.6–0.65 at b ≈ 21.4 (SE's "< 1/2" was for b ≥ 32), still < 1, so the
 remainder is ≤ 2·10⁻³⁰ and the charge stays valid; R231's independent combiner uses an explicit geometric remainder and agrees.
+(R232 repair m9) The octave-21 certificate of record `r1_21_l2.txt` ends "failures 13" and the run exits 1, because it also
+processes the cells j = 672..685, which fail and are *not* claimed; Thm 6.3 uses only its cells j = 686..703, all "ok"
+(independently: R232 max S = 0.4554 on j = 686..703). `zl_r1.py` is a checksummed certified file and was not changed; a future
+revision should take a jmin argument so that the certificate of record exits 0.
 
 | r-octave | A | Y | sweep (s) | max_r JP + JQ | max S | log |
 |---|---|---|---|---|---|---|
@@ -208,7 +212,7 @@ remainder is ≤ 2·10⁻³⁰ and the charge stays valid; R231's independent co
 | [2^24, 2^25) | 524288 | 4194 | 426 + 4415 (split) | 33174 | 0.2891 | r1_24 |
 | [2^23, 2^24) | all rows | 2097 | 1801 | 23092 | 0.2536 | r1_23 |
 | [2^22, 2^23) | all rows | 1048 | 537 | 20008 | 0.4173 | r1_22 |
-| [2^{21.4375}, 2^22) | all rows | 300 | 157 | 16084 | 0.4832 | r1_21_l2 (cells j ≥ 686) |
+| [2^{21.4375}, 2^22) | all rows | 300 | 157 | 16084 | 0.4832 | r1_21_l2 (cells j ≥ 686; R232 repair m9, see below) |
 
 **Theorem 6.3 (PROVED, computer-assisted; inputs as Thm 2.1 plus M17C Lemma 2.1(iv) and M17D Lemma 2.2(ii)):
 (S) holds for every prime r ≥ 2^{21.4375} ≈ 2.84·10⁶.** Hence for every such r the r-generic line contains a sterile point,
@@ -235,6 +239,7 @@ do not even preserve integrality: on the known covering (1, 78, 1, 16) of 11/9 a
 a′ = bV/(cq²) = 748098/81 and b′ = aU/(cp²) = 3/121. (ii) Along an infinite orbit of integral points of a fixed Γ, w satisfies a
 binary linear recurrence, and "w = ±r^k" is an S-unit equation with finitely many, effectively bounded solutions (Baker) — but
 Γ ranges over infinitely many (c, d, z), with no uniformity. So sterility of a rational point is a *uniform S-unit problem
-over a two-parameter family of conics*; nothing in reach decides it. (iii) Lemma 4.3's U = Ga − cp² is the value of a linear
-form at a point of Γ; U ≥ 1 is what forces e ≤ 4q²a, a sieve-type restriction, not an exclusion.
+over a two-parameter family of conics*; nothing in reach decides it. (iii) Lemma 4.3's U = Ga − cp² = (cq²a + rz²)/b is a ratio of
+linear forms evaluated at a point of Γ (R232 repair m11: was "the value of a linear form" — G = c((p + q)² + 4rdz²)/(a + b)
+depends on the point); U ≥ 1 is what forces e ≤ 4q²a, a sieve-type restriction, not an exclusion.
 Outcome: no descent found; r = 17 stays undecided (Conjecture M17D 4.2 unchanged).
