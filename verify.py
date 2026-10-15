@@ -25963,4 +25963,41 @@ def check_gi():
 check_gi()
 
 
+def check_gj():
+    # (gj) STERILE_LOWER (O228; reviews R231, R232): Thm 6.3 — (S) holds for every prime r >= 2^{21.4375}, so sterile
+    # Mordell points exist on the r-generic line for all such r (was 2^32 in (J)54). R232 from scratch: exact level-1
+    # counts by a parametrisation different from the joint sweep (regenerated here on [2^21, 2.4*10^6) and compared
+    # with the archived octave-21 counts), and an independent mpmath combiner on the lowest octave: max S = 0.455444 < 1/2.
+    from time import perf_counter
+    import gzip
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    arch = os.path.join(root, "data/review_r232/r2/l1_oct21.txt.gz")
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "l1")
+        r = subprocess.run(["gcc", "-O2", "-o", exe, os.path.join(root, "scripts/review_r232_l1count.c"), "-lm"],
+                           capture_output=True, text=True, timeout=120)
+        assert r.returncode == 0, r.stderr[-2000:]
+        r = subprocess.run([exe, "2097152", "2400000", "2048"], capture_output=True, text=True, timeout=900,
+                           env=dict(env, R232_QA="1", R232_Y="300"))
+        assert r.returncode == 0, r.stderr[-2000:]
+    mine = [l for l in r.stdout.split("\n") if l.strip()]
+    ref = [l.strip() for l in gzip.open(arch, "rt") if int(l.split()[0]) < 2400000]
+    assert len(mine) == 20691 and mine == ref, (len(mine), len(ref))
+    r = subprocess.run([sys.executable, "scripts/review_r232_combine2.py", arch, "data/review_r232/r2/P_q32_k3_l2.txt",
+                        "r223", "686", "703"], capture_output=True, text=True, timeout=900, cwd=root, env=env)
+    assert r.returncode == 0, r.stderr[-2000:]
+    assert "cells 686..703 tail=r223: max S = 0.455444 at j = 686; failures 0" in r.stdout, r.stdout[-2000:]
+    print(f"== (gj) STERILE_LOWER R232: exact level-1 counts reproduced (20691 primes in [2^21, 2.4e6)); lowest octave "
+          f"[2^21.4375, 2^22) independently certified, max S = 0.455444 < 1/2; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gj()
+
+
 print("\nall checks passed")
