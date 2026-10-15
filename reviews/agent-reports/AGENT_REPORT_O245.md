@@ -7,12 +7,13 @@ sections). Deep file MENU_LADDER.md; memos BRAINSTORM/z18_*.md (9, indexed); scr
 **SHARP:**
 1. **The genus ladder is flat: descent stops obstructing at D = 2, not at genus 2.** At the unit-square point μ = 0 of
    c₀·2^s + k, the point Y* (= 1 at odd places, 0 at 2) lies in Theorem A's descent set of c₀Y^D + k iff θ(θ − 1) is a
-   square in A ⊗ ℚ₂ (Prop 1.1, PROVED; reading: the 2-descent images of the rational points P₁ = (1, 2^J), P₀ = (0, √k)
+   square in A ⊗ ℚ₂ (Prop 1.1, PROVED; reading: the 2-descent images of P₁ = (1, 2^J) and the ℚ₂-point P₀ = (0, √k)
    agree 2-adically). CERTIFIED (PARI `nfislocalpower`) non-square for all D = 2…10 and (c₀, k) ∈ {(3,1), (15,1), (63,1),
-   (7,9), (31,33), (7,57)}; D = 1 is Schinzel. So O240's spark-3 prediction holds trivially and is beside the point:
-   whatever keeps 15·2^s + 1 unreachable at D ≥ 2 is NOT 2-descent.
+   (7,9), (31,33), (7,57)}; D = 1 is Schinzel; all D ≥ 2 is CONJECTURE (R-O245 scope). So in the tested range O240's spark-3
+   prediction holds trivially and is beside the point: whatever keeps 15·2^s + 1 unreachable there is NOT 2-descent.
 2. **Rung 2 is sterile for an archimedean reason (Theorem 4.1, PROVED for Type II).** Every Type II polynomial family on
-   n = c₀Y² + k (c₀, k > 0) has witness ≡ constant (mod n) (five degree shapes; positivity at real roots kills the rest),
+   n = c₀Y² + k (c₀, k > 0) has witness ≡ constant (mod n) (four shapes with deg m ≤ 1 plus the deg m = 2 case added after
+   self-review; positivity at real roots kills the rest), and this survives coefficients polynomial in s (§8),
    so no Type II root family of degree 2 reaches a unit-square point — although Y* is outside the descent set (SHARP 1)
    and outside the closure of the Pell T1 points (mod-17 parity, `z18_pell.py`). A fourth kind of sterility beside
    Schinzel/T1, descent and O239's magnitude bound.
@@ -30,21 +31,27 @@ sections). Deep file MENU_LADDER.md; memos BRAINSTORM/z18_*.md (9, indexed); scr
 * Theorem 4.1 (PROVED, Type II; Type I (1,0,1) case open) + ladder table Cor 4.2.
 * §5 EVIDENCE (negative): exact shape searches (`z18_crt.py`, `z18_quad.py`, `z18_tt.py`, Types I and II, D = 2…8): for
   (15,1) up to 148 exact algebraic D = 4 families, none integral at μ = 0; sanity check recovers O240 Theorem B for (3,1).
-* §6 (goal 2): exponential Thm 1.4 (compactness criterion with clopen validity sets V_F read at Y*(μ), PROVED); Theorem A gives
-  V_F ∩ S_D = ∅; the converse "iff Λ avoids ∩_D S_D" is FALSE per rung (D = 2) and for the z14 window menu (O239 Cor 2.8
-  at a point with S_2 = S_4 = ∅). CONJECTURE 6.4 (weak): μ = 0 of 15·2^s + 1 is reached by no root class of any degree.
-* §7 (goal 3, PROVED negative with scope, Prop 7.1): the exponential mechanism has a positive-density version
-  (Y = 2^{v₂(n−1)}, u = (n−1)/Y, n = 1 + Yu, defined at every odd n), but on each Y-slice a (n, Y)-polynomial family is an ET
-  class on a residue class containing odd squares near unit-square points (ET Prop 1.6) ⇒ escapes only where u is frozen/thin.
-  The ladder stops at the first rung that must see a positive-density prime set; beyond it only B2 divisor data or norm-form
-  data (T1 on square-compatible classes) remain.
-* §8: s-deformation (coefficients polynomial in s) decouples integrality (s = 0 slice) from positivity (s → ∞); blocked for
-  windows/SG by s-polynomiality; open in general.
+* §6 (goal 2): exponential Thm 1.4 (compactness criterion with clopen validity sets V_F read at Y*(μ), PROVED, for s₀ large);
+  Theorem A gives V_F ∩ S_D = ∅; the pointwise converse is FALSE for the z14 window menu (O239 Cor 2.8 at μ = 0 ∉ S_2, S_4)
+  and for the Type II part of rung 2 (Thm 4.1); global converse open. CONJECTURE 6.4 (weak): μ = 0 of 15·2^s + 1 is reached by no root class of any degree.
+* §7 (goal 3): Prop 7.1 (PROVED, narrow): with Y = 2^{v₂(n−1)}, u = (n−1)/Y (defined at every odd n), an (n, Y)-polynomial
+  family whose valid set contains a FULL slice progression is an ET identity there, and near unit-square points such
+  progressions contain odd squares ⇒ impossible; exponential families escape because u is frozen. "The ladder stops at the
+  first positive-density rung; only B2 or norm-form data remain" is Assessment (R-O245 downgrade).
+* §8: s-deformation (coefficients polynomial in s) decouples integrality (s = 0 slice) from positivity (s → ∞); rung 2 stays
+  closed (Type II, F·G = 1 argument); blocked for windows/SG by s-polynomiality; open for D ≥ 3 shapes.
 * 7·4^s + 9 was decided by O239 (EXP_105 Thm 2.6), not here.
 
+## Self-review (codex deep, R-O245) — repairs applied
+No FATAL. MAJOR repaired: Thm 4.1 missed the deg m = 2 case (added; theorem survives); descent computation no longer
+extrapolated to all D; §6 converse statements narrowed (pointwise, Type II, no classification); Prop 7.1 narrowed to full slice
+progressions, its prime-level conclusion downgraded to Assessment; s-deformation memo corrected (rung 2 closed);
+`z18_famsearch.py` j = ±D specialisation bug fixed (only j = 0; it had 0 hits anyway). Minors: N(θ − 1) = ±4^J/c₀, P₀ is a
+ℚ₂-point, s₀ large in Thm 6.2, search-coverage exclusions stated, witness-parity reading marked heuristic.
+
 ## Honest caveats for the reviewer
-* Theorem 4.1 is Type II only. Its proof is a short case analysis; please re-derive the five shapes (especially the
-  "deg(abd) ≠ 2" exclusion and (1,0,1)).
+* Theorem 4.1 is Type II only. Its proof is a short case analysis; please re-derive the shapes (especially the
+  "deg(abd) ≠ 2" exclusion, the deg m = 2 case and (1,0,1)).
 * Prop 1.1 uses: a local square at all odd places ⇒ global square (Chebotarev, exponent 2). Real places: real roots of
   c₀Y^D + k are negative, 1 − θ > 0. Please check the reduction "γ ∈ (1 − θ)A^{×2}".
 * Prop 3.1 assumes k = 1 and c₀ squarefree (for (7,9), (31,33) etc. the places above k need their own computation).
