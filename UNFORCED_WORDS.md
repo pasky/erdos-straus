@@ -151,3 +151,38 @@ congruence-pinned sides, and more generally sides whose ψ-odd primes sit only i
 The same mechanism can also force χ = −1 on a whole family (R227 D4/D5; Prop F′'s s = 4, 7 families consist entirely
 of certificates). In every case the forcing is a function of (N_X's factorization, X mod 8): the three-bit law on a
 family.
+
+## 5. Goal 3: where "N₋/U ≈ 3/4" comes from. It is a stratum mixture; the robust law is Haar 3/4 at large min
+**Prop 5.1 (PROVED, finite computation; `scripts/z7_haar2.py 5`).** For every p ≡ 1 (4), the solutions of
+tuv − u − v ≡ p (mod 2⁵) number 1280 for each class p mod 16. Exactly 3/4 of them are five-slice (4 | t, u, v, A or B).
+The condition is a mod-4 condition and 2⁵ already resolves A, B mod 4, so the 2-adic Haar mass of the certificate set on
+X_p(ℤ₂) is exactly 3/4, independently of p mod 16. This is the pointwise local version of (J)39 Lemma 2.1's 240/320.
+**Stratified census (EVIDENCE; `scripts/z7_ratio.c`, all primes p ≡ 1 (4) in windows; table = Σ N₋/Σ N by
+min(t, u, v) ≥ m, p ≡ 1 (8)):**
+
+| window | m ≥ 1 | m ≥ 3 | m ≥ 10 | m ≥ 50 | N₋/U (m ≥ 1) | N₋/U (m ≥ 3) |
+|---|---|---|---|---|---|---|
+| (10⁴, 3·10⁴) | 0.572 | 0.761 | 0.719 | — | 0.765 | 0.902 |
+| (10⁵, 2·10⁵) | 0.598 | 0.758 | 0.728 | — | 0.771 | 0.888 |
+| (10⁶, 1.3·10⁶) | 0.618 | 0.756 | 0.733 | 0.740 | 0.771 | 0.872 |
+| (10⁷, 1.03·10⁷) | 0.635 | 0.754 | 0.736 | 0.748 | 0.770 | 0.859 |
+| (2.9·10⁷, 2.93·10⁷) | 0.640 | 0.753 | 0.736 | 0.746 | 0.769 | 0.854 |
+
+(p ≡ 5 (8) is similar at m ≥ 10, 50: 0.76, 0.755. At m = 3, 4 the class is distorted by its all-certificate families
+u, t ≡ 3 (mod 8) → N_X ≡ 0 (8), giving 0.81–0.85.)
+**Reading (Assessment).**
+* Words with large min(t, u, v) carry the Haar sign law N₋/N ≈ 3/4 already at p ≈ 10⁴, with no visible drift.
+* The whole deficit of N₋/N, and its slow drift 0.57 → 0.64, lives in the strata min ≤ 2. These are the automatic
+  families of Prop F, where (i) a clean p + 1, p + 2 or 2p + 1 makes the whole family χ = +1 (a Landau event of
+  probability ≍ 1/√log p), and (ii) if the side is unclean, the flip involution of Lemma 2.2 pairs certificates with
+  non-certificates *exactly*. So N₋ = (family size)/2 on each unclean automatic family, far below 3/4. Hence N₋/N
+  drifts up as the logarithmic weight of the min ≤ 2 strata, and the Landau probability, decay.
+* In particular N₋ ≥ U/2 holds on every unclean automatic family (PROVED by the flip involution, since U(family) ≤
+  family size = 2N₋(family)). The O230 failures of N₋ ≥ U/2 come from the min ≥ 3 strata.
+* "N₋/U ≈ 3/4, scale-stable" is a weighted average of two strata moving in *opposite* directions. The min = 1 stratum
+  has N₋/U ≈ 0.59 (> 1/2 because some non-certificates of a flip pair are forced through their u/v side). The min ≥ 3
+  stratum has 0.90 → 0.85, slowly decreasing, since its forced share falls slower than its non-certificate share. So
+  the stability is a coincidence of the window 10⁴–3·10⁷, not a law. It should not be explained by a 2-adic mass
+  computation; the 2-adic mass explains N₋/N at large min instead (Prop 5.1).
+* At large min, ≈ 12–15 % of all words are forced, i.e. roughly half of the Haar non-certificate quarter. Forcing does
+  not deplete certificates there; it only sorts non-certificates.
