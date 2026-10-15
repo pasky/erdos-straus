@@ -32,6 +32,7 @@ int main(int argc, char **argv) {
         LD e = pattern_bound1(s, a, z, y, t, &am); all += mult * expl(e) * w;
         if (!eps_ok(s, a, z, t)) continue;
         npat++;
+        if (getenv("ZC_PAT")) printf("P %d %d %d %d %d %.6Le\n", s, a, z, y, t, mult * expl(e) * w);
         if (HAS[a][z][y]) ex += mult * EX[a][z][y] * w; else bd += mult * expl(e) * w; } }
     if (f && nlines != npat) { fprintf(stderr, "s=%d: file has %d lines, %d compatible patterns\n", s, nlines, npat); return 1; }
     cum += ex + bd; cumex += ex; cumall += all;
