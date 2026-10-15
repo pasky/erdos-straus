@@ -1,0 +1,952 @@
+                                                    COUNTING COXETER’S FRIEZES OVER A FINITE FIELD
+                                                                 VIA MODULI SPACES
+arXiv:1907.12790v2 [math.CO] 3 Sep 2020
+
+
+
+
+                                                                                 SOPHIE MORIER-GENOUD
+
+
+                                                  Abstract. We count the number of Coxeter’s friezes over a finite field. Our method uses
+                                                  geometric realizations of the spaces of friezes in a certain completion of the classical moduli
+                                                  space M0,n allowing repeated points in the configurations. Counting points in the completed
+                                                  moduli space over a finite field is related to the enumeration problem of counting partitions
+                                                  of cyclically ordered set of points into subsets containing no consecutive points. In Appendix
+                                                  we provide an elementary solution for this enumeration problem.
+
+
+
+
+                                                                                        Introduction
+                                              The notion of friezes goes back to Coxeter in the early 70’s [Cox71]. They are arrays of
+                                          numbers in which every four adjacent values forming a square are related by the same arithmetic
+                                          condition ad − bc = 1. The classification of friezes over positive integers is given by a beautiful
+                                          result of Conway and Coxeter [CC73] establishing an unexpected bijection between friezes and
+                                          triangulations of polygons. As a consequence the number of friezes over positive integers with
+                                          a fixed number of rows is given by a Catalan number.
+                                              Friezes became popular in the last decade due to connections with the theory of cluster
+                                          algebras of Fomin and Zelevinsky. Many variants of friezes have been recently introduced and
+                                          studied. In particular Coxeter’s friezes over other sets of numbers, or other types of friezes over
+                                          positive integers, were investigated in various cases leading to new interesting combinatorics,
+                                          e.g. [BM09], [BR10], [Fon14], [FP16], [Cun17], [Ovs18], [CH19], [HJ20].
+                                              In the present paper we determine the number of Coxeter’s friezes over an arbitrary finite
+                                          field. Our main result gives explicit polynomial formulas according to the “width” of the friezes,
+                                          i.e. the number of rows in the friezes. We express the formulas with the help of the q-integer
+                                                     2m
+                                                        −1
+                                                                                                 (qm −1)(qm−1 −1)
+                                          [m]q2 = qq2 −1   and the q-binomial coefficient m2 q =     (q−1)(q2 −1) .
+
+                                          Theorem 1. (i) The number of tame friezes of width 2m − 2 over Fq is given by
+                                          (1)                                           f2m−2 = [m]q2 ,
+                                          for all m ≥ 2;
+                                             (ii) The total number of tame friezes of width 2m − 3 over Fq is given by
+                                                                              
+                                                                             m
+                                                                    (q − 1) 2 q ,           if char(Fq ) 6= 2, and m even
+                                          (2)               f2m−3 =
+                                                                    (q − 1) m + q m−1 , otherwise
+                                                                    
+                                                                              2 q
+
+                                          for all m ≥ 2.
+                                             We solve this problem by using geometric realizations of the spaces of friezes in moduli spaces
+                                          of configurations of points in the projective line. The realizations are different according to the
+                                          parity of the number of rows in the friezes leading to different formulas according to this parity.
+
+                                            Key words and phrases. Frieze, Moduli space, Finite field, Partitions, Stirling numbers, cluster variety.
+                                                                                                1
+2                                       SOPHIE MORIER-GENOUD
+
+
+   Friezes over complex numbers with even number of rows containing no zero entries, form
+an algebraic variety isomorphic to the classical moduli space M0,n , where n is the width plus
+three, [Cox71], [MGOT12]. Tame friezes are more general friezes allowing zero entries. When
+the number of rows is even, tame friezes form a bigger variety denoted M        c0,n which is some
+completion of M0,n [MGOST14], [MG15]. This is no longer true when the friezes have an odd
+number of rows, one has to consider a subvariety of M    c0,n that we denote M  c+ .
+                                                                                   0,n
+   Considering the variety of friezes as a cluster variety of type A the result of Theorem 1 agrees
+with the result of [Cha11].
+   The paper is organized as follows.
+   Section 1 is a brief introduction to Coxeter’s friezes. In particular we recall the definition of
+tame friezes and their main properties.
+   In Section 2 we explain the geometric realizations of the spaces of friezes. Cases of friezes
+with odd or even number of rows need to be distinguished. As a new result we get the geometric
+realization of the space of tame friezes with odd number of rows as M    c+ , Theorem 2.
+                                                                           0,n
+   In Section 3 we determine the number of points in the spaces M  c0,n and M c+ when considered
+                                                                                0,n
+over Fq , Theorem 3 and Theorem 4 respectively, and we prove Theorem 1. We end the section
+with examples of friezes over Fq and open problems.
+   Appendix A can be read independently of the rest of the paper. It deals with an enumeration
+problem of restricted set partitions for which we provide an elementary solution. More precisely
+we establish an explicit formula for the number of partitions of n points in the circle into k
+subsets avoiding consecutive points, Proposition A.4. Our method is related to the counting of
+points in Mc0,n over Fq and requires only the formula of Lemma 3.1 established for the proof
+of Theorem 3. These numbers of restricted partitions are known and much information can be
+found about them on A261139 of OEIS.
+
+
+
+                                        1. Coxeter’s friezes
+1.1. Definition. Coxeter’s friezes [Cox71] are arrays of numbers that can be described as
+follows:
+   (i) The array has finitely many rows, all of them being infinite on the right and left;
+   (ii) The first and last rows are rows of 1’s;
+   (iii) Consecutive rows are displayed with a shift, and every four adjacent entries a, b, c, d
+forming a diamond
+                                                     b
+                                                 a       d
+                                                     c
+satisfy the unimodular rule: ad − bc = 1.
+   The number of rows strictly between the border rows of 1’s is called the width of the frieze.
+The following array (3) is an example of a frieze pattern of width w = 4.
+
+           row 0                1        1       1       1       1       1       1       ···
+           row 1          ···       4        2       1       3       2       2       1
+           row 2                3        7       1       2       5       3       1       ···
+(3)
+           ···            ···       5        3       1       3       7       1       2
+           row w                3        2       2       1       4       2       1       ···
+           row w + 1      ···       1        1       1       1       1       1       1
+                     COUNTING COXETER’S FRIEZES OVER A FINITE FIELD...                           3
+
+
+   One can observe that the above example of frieze contains only positive integers. However,
+the definition allows the frieze to take its values in any subset of a unital ring. Conway and
+Coxeter [CC73] established a surprising one-to-one correspondence between the friezes over
+positive integers and the triangulations of polygons. As a consequence of this correspondence
+one gets the following.
+Theorem 1.1 ([CC73]). The number of friezes of width w over positive integers is given by
+                           1  2w+2
+the Catalan number Cw+1 = w+2 w+1 .
+
+  Several enumerative interpretations for the entries appearing in the friezes are known, see
+[MG15] for an overview.
+1.2. Tame friezes. By convention one extends the friezes top and bottom by rows of 0’s and
+−1’s so that the unimodular rule still holds. Following [BR10] a frieze is said to be tame if it
+satisfies the following extra condition: every 3 × 3-entries in diamond in the extended array
+
+                                                 c
+                                             b       f
+(4)                                      a       e       i
+                                             d       h
+                                                 g
+form a matrix of rank 2.
+   Friezes with no zero entries between the bording rows of 1’s are all tame, but tame friezes
+may contain zeroes. Generically when e 6= 0 the determinant of the matrix (4) formed by the
+ajacent entries in a frieze vanishes by Desnanot-Jacobi identity. Hence the tameness condition
+has to be checked only for entries centered at the zeroes of the frieze.
+   Many properties established by Coxeter in the case of friezes over positive real numbers can
+be directly generalized to tame friezes with entries in any unital ring. Non-tame friezes are
+called “wild” and may have completely different behavior, see [Cun17]. In this paper we always
+assume that the friezes are tame.
+   Let us recollect some of the main properties of tame friezes.
+Theorem 1.2 ([Cox71]). Tame friezes of width w are (w + 3)-periodic. Moreover they are
+invariant under a glide reflection.
+   The above property can be observed in the frieze (3). This array consists in the fundamental
+domain
+                           1      1     1      1      1      1
+                              4     2       1     3      2
+                                  7     1      2      5
+                                    3       1     3
+                                        2      1
+                                            1
+repeated horizontally under glide reflections. We will sometimes represent a fundamental do-
+main instead of the whole frieze.
+   The entries in the first row of a tame frieze of width w will be denoted a1 , . . . , an , with
+n = w + 3.
+Theorem 1.3 ([Cox71]). The South-East diagonal (∆i )0≤i≤w+1 in a tame friezes of width w,
+starting at ∆0 = 1, ∆1 = a1 , satisfies the recursion
+(5)                            ∆i+1 = ai+1 ∆i − ∆i−1 , 1 ≤ i ≤ w,
+and similarly for the other diagonals up to shifts in the indices.
+4                                                SOPHIE MORIER-GENOUD
+
+
+    The above recursion gives an alternative way to compute the entries in the frieze from the
+first row without using the relation ad − bc = 1. This relation may cause trouble in the case
+where one of the entries is zero. A tame frieze starts as follows.
+    1                              1                              1               1                          1
+                  a1                             a2                        ···                  an                    a1
+    ···                        a1 a2 − 1                     a2 a3 − 1           ···                      an a1 − 1
+             an a1 a2 − a2                  a1 a2 a3 − a3                  ···            an a1 a2 − a2               ···
+                 −an                            −a1                                           −an
+    ..                            ..                             ..              ..                          ..
+         .                             .                              .               .                           .
+                  1                               1                         1                   1                     1
+
+The recursion (5) remains valid in the frieze extended top and bottom with rows of 0’s and −1’s.
+This allows to immediately deduce the glide reflection property of Theorem 1.2. Furthermore,
+the recursion (5) in the extended frieze can be encoded by 2 × 2 matrices and lead to the
+following criterion.
+
+Theorem 1.4 ([Cox71]). The n-tuple (a1 , . . . , an ) ∈ Kn determines the first row of a tame
+frieze if and only if
+                            !                      !            !
+                      an −1          a2 −1              a1 −1
+(6)                           ···                                 = −Id.
+                       1 0           1        0         1   0
+
+   The condition (6) is established in [Cox71] in an equivalent form, using continuants, in the
+case of friezes over positive real numbers. It was also recovered in this case in [BR10]. The
+arguments can be extended straightforward in the case of tame friezes over any unital ring.
+The condition (6) is also established in [CH19] for tame friezes over subsets of C and again
+the arguments can be extended straightforward in the case of tame friezes over arbitrary unital
+ring.
+
+
+                                                                       c0,n
+                                       2. Friezes and the moduli space M
+2.1. Definition of M c0,n . We fix a ground field K. The field will be later specified to the field
+of complex numbers C or to the finite field Fq with q elements. A variety V (K) defined over
+K will be denoted simply V when no confusion occurs, e.g P1 = P1 (K), GL2 = GL2 (K). The
+classical moduli space of genus 0 curves with n distinct marked points is
+
+                             M0,n ≃ {(v1 , v2 , . . . , vn ) ∈ (P1 )n , vi 6= vj , ∀i 6= j}/PGL2 .
+
+We consider a completion of this space by allowing repetitions of points as long as they are not
+cyclically next to each other
+                              c0,n = {(v1 , v2 , . . . , vn ) ∈ (P1 )n , vi 6= vi+1 , ∀i}/PGL2 ,
+                              M
+
+The indices are considered modulo n, i.e. v1 = vn+1 6= vn .
+                                                                      c0,n ; we define
+  We often consider the configuration space used in the definition of M
+
+                                    Cn = {(v1 , v2 , . . . , vn ) ∈ (P1 )n , vi 6= vi+1 , ∀i}
+
+where again the indices are considered modulo n.
+                       COUNTING COXETER’S FRIEZES OVER A FINITE FIELD...                           5
+
+
+2.2. The subvariety of M     c+ . The varieties M    c0,n have different properties according to the
+                                0,2m
+parity of n. In the case n = 2m we will need to consider the algebraic subvariety of M       c+
+                                                                                                0,2m
+that we define below. We first introduce two subspaces of C2m
+                                                                                          
+          ±                               (v1 − v2 )(v3 − v4 ) · · · (v2m−1 − v2m )
+         C2m := (v1 , . . . , v2m ) ∈ C2m                                           = −(±1)
+                                            (v2 − v3 )(v4 − v5 ) · · · (v2m − v1 )
+and then define
+                                         c± := C ± /PGL2 .
+                                         M 0,2m 2m
+                                    c0,2m of codimension 1.
+These are algebraic subvarieties of M
+
+Remark 2.1. These subvarieties are studied in [Boa18] as MSibuya
+                                                          2m     (±1), see also [Sib75].
+2.3. Geometric realizations of tame friezes. Coxeter’s friezes have deep connections with
+geometry [Cox71], [Cox91]. The link with the moduli space M0,n was explained in [MGOT12]
+and then further generalized in higher dimension in [MGOST14].
+   The realization of friezes as geometric objects is the key ingredient in order to achieve the
+goal of counting friezes over a finite field.
+   In the case of odd n one has the following known result.
+Theorem 2.2 ([MGOST14]). When n ≥ 3 is odd, tame friezes of width n − 3 over K form an
+                                         c0,n (K).
+algebraic subvariety of Kn isomorphic to M
+   The above theorem is the particular case (k = 1) of [MGOST14, Thm 3.4.1]. The set of
+tame friezes of width n − 3 is viewed as the subvariety of Kn of dimension n − 3 defined by
+the polynomial equations of (6) (note that the matrices involved in (6) belong to SL2 so that
+one gets three independent equations). The space M c0,n (K) is identified with a quotient of a
+Grassmannian by a torus action using Gelfand-MacPherson’s correspondence [GM82].
+   For our purpose, we only need a one-to-one correspondence between the set of tame friezes
+and the moduli space (we do not need the isomorphism of algebraic varieties). For completeness
+we explain the one-to-one correspondence in Section 2.4.
+
+    In the case of even n the situation is different. We need to consider friezes up to rescaling
+of the first row. More precisely K∗ acts on the space of tame friezes with odd width by
+sending the frieze defined by the cycle of the first row (a1 , . . . , an ) to the frieze defined by
+                                                                           c0,n do not correspond to
+(λa1 , λ1 a2 , . . . , λan−1 , λ1 an ) for λ ∈ K∗ . Also, some elements in M
+                                           c +
+friezes. We need to restrict to M0,n . One gets the following.
+Theorem 2. When n ≥ 3 is even, the set of tame friezes of width n − 3 over K, modulo the
+                                                    c+ (K).
+action of K∗ , is in one-to-one correspondence with M 0,n
+
+  We prove the above theorem in Section 2.5.
+
+2.4. A one-to-one correspondence between tame friezes and M           c0,n (K), case of odd n.
+We explain the bijection of Theorem 2.2 between the tame friezes of width w = n − 3 with odd
+n over K and the set M     c0,n (K) = Cn (K)/PGL2 (K). The construction was given for K = R in
+[MGOST14] and K = C in [MG15]. Here the construction is slightly modified in order to work
+over an arbitrary field K.
+   Choose v = (v1 , . . . , vn ) an element of Cn .
+Lemma 2.3. There exists (V1 , . . . , Vn ) a lift of v with Vi ∈ K2 such that
+                  det(V1 , V2 ) = det(V2 , V3 ) = · · · = det(Vn−1 , Vn ) = det(Vn , −V1 ).
+6                                       SOPHIE MORIER-GENOUD
+
+
+Proof. Consider first an arbitrary lift (V1′ , . . . , Vn′ ) of v in K2 . We want to extend the sequence
+                      ′
+by antiperiodicity, Vi+n  = −Vi′ , and rescale the points in order to have constant consecutive
+determinants. Introducing the scalar parameter c and the unknown scalars λi , 1 ≤ i ≤ n, we
+consider the system given by the n conditions det(λi Vi′ , λi+1 Vi+1      ′
+                                                                            ) = c, 1 ≤ i ≤ n.
+   This leads to the following
+                                     
+                                     
+                                          λ1 λ2         =       d1 c
+                                     
+                                     
+                                     
+                                          λ2  λ 3       =       d2c
+(7)                                           .
+                                              .                    ..
+                                             .                     .
+                                     
+                                     
+                                     
+                                        λ       λ       =     dn−1 c
+                                      n−1 n
+                                          λn λ1          =      dn c
+
+where di = 1/ det(Vi′ , Vi+1
+                          ′
+                             ) are well defined non zero scalars since vi 6= vi+1 in the initial
+configuration.
+  Using λ1 as a parameter to solve the system one gets the expressions
+                                d1 d3 · · · d2i−1 c                   d2 d4 · · · d2i
+(8)                     λ2i =                        ,   λ2i+1 =                       λ1
+                                d2 d4 · · · d2i−2 λ1                 d1 d3 · · · d2i−1
+for all 1 ≤ i ≤ (n − 1)/2, using all but the last equation of (7).
+   The fact that n is odd is now crucial to solve the above system. In order to have the full
+system satisfied one needs to add the last equation and gets the final relation
+                                                    d1 d3 . . . dn
+                                           λ21 =                    c.
+                                                   d2 d4 . . . dn−1
+It is clear that there is a choice of c ∈ K∗ leading to a solution (λ1 , . . . , λn ) for the system. The
+sequence defined by Vi = λi Vi′ has the desired property.                                              
+
+   From a lift (Vi ) of v given by Lemma 2.3, by expanding Vi in the basis (Vi−1 , Vi−2 ), one gets
+n coefficients (a1 , . . . , an ) defined by
+
+(9)                                  Vi = ai Vi−1 − Vi−2 , 1 ≤ i ≤ n
+
+where we set V0 = −Vn and V−1 = −Vn−1 . The coefficients in front of Vi−2 are all equal to −1
+since consecutive determinants are constant.
+
+Lemma 2.4. The coefficients (a1 , . . . , an ) defined by (9) only depend on the class of v modulo
+PGL2 (K) and characterize the class.
+
+Proof. We need to check that the coefficients do not depend on the choice of the lift in Lemma
+2.3 and that they are invariant under the action of PGL2 (K). Let w be a configuration of
+Cn equivalent to v modulo PGL2 (K) (this of course includes the case w = v). Consider lifts
+(W1 , . . . , Wn ) and (V1 , . . . , Vn ) for w and v as in Lemma 2.3. There exist a matrix M ∈ GL2 (K)
+and scalars µ1 , . . . , µn in K∗ such that Wi = µi M Vi for all 1 ≤ i ≤ n. Since the consecutive
+determinants are constant in both sequences one immediately gets that µi µi+1 = µi−1 µi for all
+1 ≤ i ≤ n, and hence µi = µ1 for all 1 ≤ i ≤ n (here again we use the fact that n is odd). Thus
+Wi = µ1 M Vi for all 1 ≤ i ≤ n and this leads to the same coefficients in the expansions (9).
+   Now, if two lifts (W1 , . . . , Wn ) and (V1 , . . . , Vn ) for two configurations w and v lead to the
+same coefficients (9) then the matrix M defined by M V1 = W1 and M V2 = W2 will satisfy
+M Vi = Wi for all 1 ≤ i ≤ n. Thus w and v are equivalent modulo PGL2 (K).                              
+
+Lemma 2.5. The coefficients (a1 , . . . , an ) satisfy (6).
+                       COUNTING COXETER’S FRIEZES OVER A FINITE FIELD...                                  7
+
+
+Proof. By writing the coordinates of the vectors Vi and Vi−1 in the rows of a 2 × 2 matrix one
+obtains from (9)
+                !          !                !                !             !       !
+           −V0         Vn          an −1             a2 −1        a1 −1         V0
+                  =          =                ···                                    .
+           −V−1       Vn−1          1    0           1    0        1   0       V−1
+
+Hence (6) holds.                                                                                         
+
+   The above lemma and Theorem 1.4 imply that the coefficients (a1 , . . . , an ) defined by (9)
+determine a unique tame frieze of width n − 3. Hence we have constructed an injective map
+from Mc0,n (K) to the set of tame friezes of width n − 3.
+   Conversely, starting form a tame frieze of width n − 3, the corresponding point in M c0,n (K)
+is obtained from the sequence of n vectors
+                                   !            !             !          !     !     !
+                                1          a2       a2 a3 − 1          ∗     1     0
+(10)       (V1 , . . . , Vn ) =      ,            ,             ,··· ,     ,     ,
+                                a1     a1 a2 − 1        ∗              1     0     −1
+
+whose components are given by the first and second diagonal of the frieze.
+
+2.5. Correspondence between tame friezes and M     c+ (K), case of even n. In this section
+                                                      0,n
+we prove Theorem 2. When n is even there is no bijection between the tame friezes of width
+w = n − 3 and the set Mc0,n (K). We need to adapt the strategy used in the case of odd n and
+                 c +
+use the subspace M0,n (K).
+
+Lemma 2.6. When n is even Lemma 2.3 holds if and only if v ∈ Cn+ .
+
+Proof. We fix v ∈ Cn+ and proceed as in the proof of Lemma 2.3. We are led to the system (7).
+In general, for even n the system has no solution. But with the choice of v ∈ Cn+ , by definition,
+every arbitrary lift of v to (Vi′ )1≤i≤n will satisfy the relation
+
+                                       d1 d3 · · · dn−1 = d2 d4 · · · dn
+
+where di = 1/ det(Vi′ , Vi+1   ′           ′
+                                  ) (with Vn+1 = −V1′ ). This makes the system (7) consistent and
+solutions for (λ1 , . . . , λn ) are given by (8) where λ1 is any non zero parameter. Hence the
+rescaling Vi = λi Vi′ provides us with a antiperiodic lift with constant consecutive determinants.
+   Conversely, if such a lift exists the element v does belong to Cn+ . (Note that the choice of
+Vn+1 = −V1 makes a difference of sign in the equation defining Cn+ .)                           
+
+   For v ∈ Cn+ and a lift (Vi ) given by Lemma 2.3 one gets n coefficients (a1 , . . . , an ) defined by
+the recursion (9). Now these coefficients depend on the choice of the lift, but another choice
+of lift will lead to the coefficients (λa1 , λ1 a2 , . . . , λan−1 , λ1 an ) for some λ 6= 0. We immediately
+obtain the following analogs of Lemma 2.4 and Lemma 2.5.
+
+Lemma 2.7. The family of coefficients (λa1 , λ1 a2 , . . . , λan−1 , λ1 an ), λ 6= 0, defined by (9), only
+depends on the class of v modulo the action of PGL2 (K) and characterize the class.
+
+Lemma 2.8. The coefficients (λa1 , λ1 a2 , . . . , λan−1 , λ1 an ) satisfy (6).
+
+   We conclude that an element of M            c+ = Cn+ /PGL2 defines a unique tame frieze up to the
+                                                 0,n
+                 1                      1
+rescaling (λa1 , λ a2 , . . . , λan−1 , λ an ), λ 6= 0, in the first row, and vice versa by (10).
+8                                       SOPHIE MORIER-GENOUD
+
+
+                                    3. Counting points over Fq
+3.1. Counting points in M      c0,n (Fq ). Let us recall some useful notation and basic facts. One
+                                                           n
+                                                             −1
+has [n]q := |P n−1
+                   (Fq )| = 1 + q + q 2 + . . . + q n−1 = qq−1  and |PGL2 (Fq )| = q(q 2 − 1).
+
+Theorem 3. Let n ≥ 2. The number of points in M  c0,n (Fq ) is
+                                   (
+                                     [m]q2 ,          if n = 2m + 1,
+                     c0,n (Fq )| =
+                    |M
+                                     1 + q[m − 1]q2 , if n = 2m.
+Proof. We first count points in the space Cn .
+Lemma 3.1. Denote by cn = |Cn (Fq )|. One has
+(11)                                   cn = q n + (−1)n q, n ≥ 2.
+Proof. One easily computes the first values c2 = (q + 1)q, c3 = (q + 1)q(q − 1), which are
+obtained as the choice of two, resp. three, distinct points among the q + 1 points of P1 (Fq ).
+Consider a configuration (v1 , . . . , vn+1 , vn+2 ) in Cn+2 . If v1 = vn+1 then the configuration
+can be viewed as a configuration (v1 , . . . , vn ) ∈ Cn with an extra point vn+2 6= v1 . There
+are qcn configurations of this type. If v1 6= vn+1 then the configuration can be viewed as a
+configuration (v1 , . . . , vn+1 ) ∈ Cn+1 with an extra point vn+2 6∈ {v1 , vn+1 }. There are (q−1)cn+1
+configurations of this type. This establishes the recurrence relation
+                                   cn+2 = (q − 1)cn+1 + qcn , n ≥ 2,
+This linear recurrence of order 2 can be easily solved and leads to the formula (11).                     
+   When a configuration contains three distinct points it will lead to q(q 2 − 1) other configu-
+rations modulo the action of PGL2 (Fq ). When n = 2m + 1 the configurations in Cn always
+contain three distinct points, therefore
+                 c0,2m+1 (Fq )| = c2m+1 /(q(q 2 − 1)) = (q 2m − 1)/(q 2 − 1) = [m]q2 .
+                |M
+When n = 2m, the (q + 1)q configurations of the form (v1 , v2 , v1 , v2 , . . . , v1 , v2 ), v1 6= v2 are all
+the same modulo PGL2 (Fq ). All other configurations contain three distinct points. Therefore
+                 c0,2m (Fq )| = (c2m − q(q + 1))/(q(q 2 − 1)) + 1 = 1 + q[m − 1]q2 .
+                |M
+                                                                                                          
+    Lemma 3.1 is the only result needed in Appendix A.
+3.2. Counting points in M       c+ (Fq ). We consider K = Fq and want to count the points in
+                                   0,2m
+the variety Mc+      defined    in  the previous section. Different cases appear according to the
+                0,2m
+characteristic of the field is 2 or not and according to m is even or odd. Recall the definition of
+                                      (qm −1)(qm−1 −1)
+the q-binomial coefficient m   2 q =     (q−1)(q2 −1) , which symplify to a polynomial in q.
+
+Theorem 4. For all m ≥ 1
+                             
+                             m
+                                                             if char(Fq ) 6= 2 and m even,
+                             2 q,
+                            
+                c+ (Fq )| =
+               |M               
+                  0,2m
+                            
+                             m
+                             2 q + [m − 1]q + 1,            otherwise.
+
+Proof. We introduce the cardinals
+                                          c±     ±
+                                           n = |Cn (Fq )|.
+Recall that cn = |Cn (Fq )| is given by Equation (11).
+                        COUNTING COXETER’S FRIEZES OVER A FINITE FIELD...                                     9
+
+                                                      ∓
+Lemma 3.2. For all n ≥ 4, even, one has c±
+                                         n = cn−1 + qcn−2 .
+
+Proof. Let us choose v = (v1 , . . . , vn ) ∈ Cn+ . Assume first that v1 6= vn−1 . This means that
+v ′ = (v1 , . . . , vn−1 ) defines an element of Cn−1 . For such an element v ′ there is a unique choice
+of vn that makes (v ′ , vn ) belong to Cn+ . Indeed, choose any lift of v ′ to a tuple (V1 , V2 , . . . , Vn−1 )
+of points in K2 and denote di = det(Vi , Vi+1 ) for i = 1 . . . n − 2. We want to add Vn such that
+the following condition
+                       d1 d3 · · · dn−3 det(Vn−1 , Vn ) = −d2 d4 · · · dn−2 det(Vn , V1 )
+holds. Since v1 6= vn−1 , this leads to a unique choice of Vn , up to scalar multiple. We conclude
+that there exist cn−1 elements v in Cn+ such that v1 6= vn−1 .
+   Assume now v1 = vn−1 . The sequence v ′′ = (v1 , . . . , vn−2 ) is an element in Cn−2 . Choose
+any lift of v ′′ to (V1 , V2 , . . . , Vn−2 ) and denote di = det(Vi , Vi+1 ) for i = 1 . . . n − 3 and dn−2 =
+det(Vn−2 , V1 ). We want to add Vn−1 = λV1 and Vn in order to have
+             d1 d3 · · · dn−3 det(Vn−1 , Vn ) = −d2 d4 · · · dn−3 det(Vn−2 , Vn−1 ) det(Vn , V1 ).
+Substituting Vn−1 = λV1 and cancelling λ’s we obtain the simplified condition
+                        d1 d3 · · · dn−3 det(V1 , Vn ) = −d2 d4 · · · dn−2 det(Vn , V1 ),
+                                                                                                −
+which can hold if and only if d1 d3 · · · dn−3 = d2 d4 · · · dn−2 , i.e. if and only if v ′′ ∈ Cn−2 . And
+                                    ′′     −                           1                         ′′
+from this condition we see that if v ∈ Cn−2 any choice of vn in P (Fq )\{v1 } will make (v , v1 , vn )
+belong to Cn+ . We conclude that there exist qc−                            +
+                                                 n−2 elements v in Cn such that v1 = vn−1 .
+                                           +                 −
+   We have established the recursion cn = cn−1 + qcn−2 . Same arguments hold when taking
+                                                 +
+opposite signs so we also have c− n = cn−1 + qcn−2 .                                                    
+   From the above lemma one obtains
+                                                                                        (−)m−1
+                 c+                      2
+                  2m = c2m−1 + qc2m−3 + q c2m−5 + . . . + q
+                                                            m−2
+                                                                c3 + q m−1 c2
+where (−)m−1 = + or − if m is odd or even respectively. So we will need to separate the cases
+m odd or even. Also if char(Fq ) = 2 one has c+        −        +     −
+                                                  n = cn since Cn = Cn . So we will need to
+separate the cases char(Fq ) = 2 and char(Fq ) > 2.
+Lemma 3.3. For all m ≥ 1
+                  Pm−1
+                         k−1
+                   k=1 q     [m − k]q2 ,                                if char(Fq ) 6= 2 and m even,
+    c
+   |M +
+          (F )| =   P
+      0,2m q          m−1
+                  
+                   k=1 q k−1 [m − k]q2 + [m − 1]q + 1,                  otherwise.
+
+Proof. Assume char(Fq ) > 2 and n = 2m with even m. We have C2− = ∅ so that c−
+                                                                             2 = 0 and
+we obtain from the recursion
+                          c+                      2
+                           2m = c2m−1 + qc2m−3 + q c2m−5 + . . . + q
+                                                                     m−2
+                                                                         c3 .
+             +
+The space C2m  does not contain the elements of the form (v1 , v2 , v1 , v2 , . . . , v1 , v2 ). Thus ele-
+           +
+ments of C2m always contain three distinct points and the orbits under PGL2 will have same
+cardinality |PGL2 | . One obtains
+                                                m−1
+                                                X                             m−1
+                                                                              X
+            |Cn+ /PGL2 | = c+     3                          c2m−2k+1 | =
+                                                      q k−1 |M                      q k−1 [m − k]q2 .
+                            2m /(q − q) =
+                                                k=1                           k=1
+
+Assume char(Fq ) > 2 and n = 2m with odd m.               We have C2+ = C2 so that c+
+                                                                                    2 = c2 = q(q + 1)
+and we obtain from the recursion
+                    c+                      2
+                     2m = c2m−1 + qc2m−3 + q c2m−5 + . . . + q
+                                                               m−2
+                                                                   c3 + q m−1 c2 .
+10                                                SOPHIE MORIER-GENOUD
+
+             +
+The space C2m   does contain the elements of the form (v1 , v2 , v1 , v2 , . . . , v1 , v2 ). These elements
+                                                                                 +
+are all the same under the action of PGL2 . The other elements of C2m                 always contain three
+                                                                             3
+distinct points and their orbits under PGL2 have same cardinality q − q. One obtains
+            |Cn+ /PGL2 | = (c+                3
+                             2m − q(q + 1))/(q − q) + 1
+                                        m−1
+                                        X
+                               =                      c2m−2k+1 | + (q m−1 − 1)q(q + 1)/(q 3 − q) + 1
+                                               q k−1 |M
+                                        k=1
+                                        m−1
+                                        X
+                               =               q k−1 [m − k]q2 + [m − 1]q + 1.
+                                        k=1
+
+Assume char(Fq ) = 2. In that case c+      −
+                                     2 = c2 = c2 = q(q + 1). The computations are the same
+as in the previous case, independently of m is odd or even.                              
+
+     Finally one gives alternative expressions in the formula of Lemme 3.3. One first notices that
+                                                                        q 2(m−k) − 1 + q (2(m−k)−1) − q
+            q k−1 [m − k]q2 + q k [m − k − 1]q2              = q k−1
+                                                                                    q2 − 1
+                                                                 q 2m−k−2 − q k−1
+                                                             =                    .
+                                                                      q−1
+In the sums one can group the terms for k = 2ℓ − 1 and k = 2ℓ. If m = 2m′ one obtains
+                   m−1
+                   X                                           m′ −1
+                                                          1 X 2m−2ℓ−1
+                         q   k−1
+                                   [m − k]q2       =              (q           − q 2ℓ−2 ) + q m−2
+                                                         q−1
+                   k=1                                        ℓ=1
+                                                          1
+                                                   =         (q m−1 [m′ ]q2 − [m′ ]q2 )
+                                                         q−1
+                                                   = [m − 1]q [m′ ]q2
+and if m = 2m′ + 1 one obtains
+                         m−1
+                         X                                             m′
+                                                              1 X 2m−2ℓ−1
+                                   q   k−1
+                                             [m − k]q2   =            (q          − q 2ℓ−2 )
+                                                             q−1
+                         k=1                                      ℓ=1
+                                                              1
+                                                         =       (q m [m′ ]q2 − [m′ ]q2 )
+                                                             q−1
+                                                         = [m]q [m′ ]q2
+                                               Pm−1 k−1                     m
+                                                                             
+One observes that in both cases                 k=1 q   [m − k]q2 =         2 q . Theorem 4 is proved.          
+
+3.3. Counting tame friezes over Fq . A tame frieze of width n−3 is determined by (a1 , . . . , an )
+satisfying (6). It is clear that if (a1 , . . . , an ) satisfies (6) then so do (a2 , . . . , an , a1 ). The corre-
+sponding friezes look the same up to an horizontal shift. We count friezes regardless symmetries,
+i.e. we count all the solutions of (6) considering that (a1 , a2 , . . . , an ) and (a2 , . . . , an , a1 ) give
+two different friezes whenever (a1 , a2 , . . . , an ) 6= (a2 , . . . , an , a1 ).
+    It is also clear that if (a1 , . . . , an ) satisfies (6) then so do (an , an−1 , . . . , a1 ). The correspond-
+ing friezes look the same up to vertical reflection. They count for two different friezes whenever
+(a1 , a2 , . . . , an ) 6= (an , an−1 , . . . , a1 ).
+    To count all the tame friezes, or equivalently the solutions of (6), over Fq , we use the geo-
+metric realizations of the previous sections.
+                          COUNTING COXETER’S FRIEZES OVER A FINITE FIELD...                                   11
+
+
+Proof of Theorem 1 (i) Let n = 2m + 3. The construction in Section 2.4 gives a bijection
+between the set of tame friezes of width n − 3 with odd n and the set M                 c0,n (K). Theorem 3
+gives the number of elements in the sets when K = Fq . Hence we get (1).
+   (ii) Let n = 2m. By Theorem 2 every class in Cn+ /PGL2 leads to a n-tuple (a1 , . . . , an ) and
+a family of friezes defined by the first rows (λa1 , λ1 a2 , . . . , λan−1 , λ1 an ), for all λ 6= 0.
+   Assume m even and char(Fq ) 6= 2. In this case one has (a1 , . . . , an ) 6= (0, . . . , 0) because
+the elements in Cn+ are not of the form (v1 , v2 , v1 , v2 , . . . , v1 , v2 ). Therefore the corresponding
+family of friezes contains exactly (q − 1) distinct friezes. One thus obtains
+                                                                          
+                            f2m−3 = (q − 1)|M c+ | = (q − 1) m ,
+                                                 0,2m
+                                                                            2 q
+by Theorem 4.
+   Assume m odd and char(Fq ) 6= 2, or assume char(Fq ) = 2. In this case Cn+ contains the
+elements of the form (v1 , v2 , v1 , v2 , . . . , v1 , v2 ). They are all in the same class in M      c+
+                                                                                                         0,2m and
+this class gives the coefficients (a1 , . . . , an ) = (0, . . . , 0) and leads to a unique frieze. The other
+classes in M     c+                                                         1                 1
+                    0,2m lead to families of friezes defined by (λa1 , λ a2 , . . . , λan−1 , λ an ), λ 6= 0 with
+(a1 , . . . , an ) 6= (0, . . . , 0). These families contain (q − 1) distinct friezes. Using Theorem 4 one
+thus obtains
+                                                                                              !
+                                                                            m
+                                            c +
+                f2m−3 = (q − 1) |M0,2m | − 1 + 1 = (q − 1)                        + [m − 1]q + 1
+                                                                              2 q
+                                          
+                                           m
+                            = (q − 1)           + q m−1 .
+                                           2 q
+Theorem 1 is proved.
+                                            
+Remark 3.4. The polynomial (q − 1) m      2 q is a sum of odd powers of q minus a sum of even
+powers of q. More precisely one has
+               
+             q 2m−3 + q 2m−5 + . . . + q m+1 + q m−1 − q m−2 − q m−4 − . . . − q 2 − 1, (m even),
+       m
+(q−1)        =
+       2 q q 2m−3 + q 2m−5 + . . . + q m+2 + q m − q m−3 − q m−5 − . . . − q 2 − 1,       (m odd).
+Remark 3.5. It is known that friezes of width n − 3 are related to the cluster algebra of type
+An−3 [CC06]. The results of Theorems 3 and 4 agree with the results of [Cha11, Prop 3.2] (see
+also [Cha15, Prop 4.10]).
+3.4. Friezes of width 1 over finite fields. Recall that the tameness condition §1.2 is defined
+in the frieze extended top and bottom with rows of 0’s and −1’s. For simplicity we omit these
+rows in the arrays.
+   Let K = Fq be a finite field of characteristic bigger than 2. Tame friezes of width 1 are
+exactly the following,
+              ···          1           1       1            1        1            1         ···
+                    ···        2α−1        α        2α−1         α       2α−1         ···
+              ···          1           1       1            1        1            1         ···
+for all α 6= 0.
+   Let K = Fq be a finite field of characteristic 2. Tame friezes of width 1 are exactly the
+following
+                ···       1       1      1       1     1      1       ···
+                     ···       0     α       0      α    0       ···
+                ···       1       1      1       1     1      1       ···
+12                                        SOPHIE MORIER-GENOUD
+
+
+with α ∈ K. If α 6= 0 the above array counts for two different friezes.
+   Hence we have just established that the number of tame friezes over Fq is 2q − 1 if the
+characteristic is 2 and q − 1 otherwise, which agrees with the value of f1 given in Theorem 1.
+
+3.5. Examples of friezes of width 2 over finite fields. A frieze of width 2 is determined
+by 5 consecutive coefficients (a1 , a2 , . . . , a5 ) on the first row. Under a dihedral action, i.e. cyclic
+permutations (a2 , a3 , . . . , a1 ) and/or reversion (a5 , a4 , . . . , a1 ), a frieze can produce up to 10
+friezes.
+    By Theorem 1 there exist 1 + q 2 tame friezes of width 2 over Fq .
+    For q = 2 the five friezes contain the following fundamental domain
+                                             1       1       1       1
+                                                 1       1       1
+                                                     0       0
+                                                         1
+and are defined by the coefficients (1, 1, 1, 0, 0) on the first row, up to cyclic permutation.
+  For q = 4, let F4 = {0, 1, α, β} with β = 1 + α = α−1 . The 17 friezes are the same as the five
+ones above for F2 together with the friezes containing one of the following three fundamental
+domains
+       1       1       1        1        1           1       1       1        1       1        1        1
+           α       0       β                     α       α       α                β        β       β
+               1       1                             α       α                        β        β
+                   1                                     1                                 1
+Note that the domain on the left contributes to 10 friezes under dihedral action.
+   For q = 3 the 10 friezes are obtained by cyclic permutations of (2, 1, 0, 1, 2) and (0, 2, 2, 2, 0).
+For q = 5 the 26 friezes are obtained by cyclic permutations and reversions of (2,1,3,1,2),
+(4,4,4,0,0,) (4,2,0,2,4) (1,4,4,3,0), (3,3,3,3,3).
+
+3.6. Friezes of width 3 over F2 and F3 . A frieze of width 3 is determined by 6 consecutive
+coefficients (a1 , a2 , . . . , a6 ) on the first row. Under a dihedral action, i.e. cyclic permutations
+(a2 , a3 , . . . , a1 ) and/or reversion (a6 , a5 , . . . , a1 ), a frieze can produce up to 12 friezes.
+   By Theorem 1 there exist q 3 + q 2 − 1 tame friezes of width 3 over Fq .
+   For q = 2, there are 11 tame friezes of width 3 given by the cycles (1, 0, 1, 0, 0, 0), (1, 1, 0, 1, 1, 0),
+(1, 1, 1, 1, 1, 1) and (0, 0, 0, 0, 0, 0). By dihedral action these cycles contribute respectively to 6,
+3, 1 and 1 friezes.
+   For q = 3, there are 35 tame friezes of width 3 given by the cycles (0, 0, 0, 2, 0, 1), (1, 1, 0, 2, 2, 0),
+(1, 0, 2, 1, 0, 2), (1, 0, 1, 0, 1, 0), (2, 0, 2, 0, 2, 0) and (0, 0, 0, 0, 0, 0). By dihedral action these cycles
+contribute respectively to 12, 6, 6, 6, 2, 2 and 1 friezes.
+
+3.7. Combinatorial models. Theorem 1 gives the number of friezes over an arbitrary finite
+field but how to produce all the friezes (or all solutions of (6)) remains a natural open problem.
+    When working over Fp with p prime, the original construction of Conway-Coxeter [CC73]
+for friezes over Z≥0 by means of triangulations of polygons provide solutions to this problem
+by reducing modulo p. But not all the solutions. A construction producing all the friezes over
+F2 and F3 has been given [Mab19].
+    The construction of Conway-Coxeter [CC73] has been generalized to other cases [Ovs18],
+[Cun19], [CH19], [HJ20]. These generalized models could inspire a model for friezes over finite
+fields.
+
+Open problem: Find a combinatorial model to construct all friezes over Fq .
+                       COUNTING COXETER’S FRIEZES OVER A FINITE FIELD...                            13
+
+
+3.8. Numerology. We compute the first terms of the sequence (fn ) given by Theorem 1:
+
+
+                        char(Fq ) > 2                   char(Fq ) = 2
+                  f1    q−1                             2q − 1
+                         2
+                  f2    q +1                            idem
+                         3    2
+                  f3    q +q −1                         idem
+                         4    2
+                  f4    q +q +1                         idem
+                         5    3    2
+                  f5    q +q −q −1                      q 5 + 2q 3 − q 2 − 1
+                  f6    q6 + q4 + q2 + 1                idem
+                         7    5    4     2
+                  f7    q +q +q −q −1                   idem
+                         8    6    4     2
+                  f8    q +q +q +q +1                   idem
+                         9    7    5     4    2
+                  f9    q +q +q −q −q −1                q 9 + q 7 + 2q 5 − q 4 − q 2 − 1
+   The table below gives the numerical values for q = 2, 3 and 4.
+
+
+                         q \ fn   f1    f2   f3   f4       f5      f6          f7
+                         q=2       3    5    11   21       43      85      171
+                         q=3       2    10   35   91      260     820     2501
+                         q=4       7    17   79   273    1135    4369     17696
+
+The sequence for q = 2 is the Jacobsthal sequence, see A001045 in [OEI19]. Indeed, from the
+explicit formulas of Theorem 1, one can check that for q = 2 one has
+                                         fn = fn−1 + 2fn−2
+for all n ≥ 3.
+   The other sequences have no entry so far in OEIS.
+
+                         Appendix A. Partitions of a circular set
+  As an application of the computation in Section 3 and independently of Section 2 and
+Section 1 we solve an enumeration problem of restricted partitions of a circular set.
+
+A.1. Definition. We consider the set {1, 2, . . . , n} as the labels of n cyclically ordered points
+on the circle, i.e. 1 and n are consecutive points. We denote by Ak,n the number of partitions
+of the set into k parts such that no two consecutive points are in the same part.
+Example A.1. One always has A1,n = 0 and An,n = 1. For n = 3, one has A1,3 = A2,3 = 0
+and A3,3 = 1. For n = 4 one has A1,4 = 0, A2,4 = 1, since the only allowed partition into two
+parts is exactly {1, 3} ⊔ {2, 4} and A3,4 = 2 since the allowed partitions into three parts are
+exactly {1, 3} ⊔{2} ⊔{4} and {2, 4} ⊔{1} ⊔{3}. For n = 5, one has A3,5 = 5, since the partitions
+of {1, . . . , 5} into 3 parts are {1, 3} ⊔ {2, 4} ⊔ {5} together with the 5 cyclic permutations of the
+indices.
+  Our next goal is to deduce the exact value of Ak,n from §3.1. These values are known, see
+A261139 and A105794 of [OEI19]. The corresponding generating function is given in [KL07].
+They are also a particular case of graphical Stirling numbers [GT13].
+14                                        SOPHIE MORIER-GENOUD
+
+
+A.2. Recounting points of Cn (Fq ). We consider the set of configurations
+
+                  Cn (Fq ) = {(v1 , v2 , . . . , vn ) ∈ (P1 (Fq ))n , v1 6= vn , vi 6= vi+1 , ∀i}
+
+introduced in §2.1. The cardinal cn = |Cn (Fq )| has been computed in Lemma 3.1. It can be
+related to the numbers Ak,n .
+
+Proposition A.2. For n ≥ 2, one has
+                                                       n
+                                                       X            k−2
+                                                                    Y
+                                    cn = q(q + 1)            Ak,n         (q − j).
+                                                       k=2          j=1
+
+Proof. Let us choose a partition S1 ⊔ . . . ⊔ Sk of cyclic {1, 2, . . . , n} such that no two consecutive
+integers are in the same subset Sℓ . Consider a configuration in Cn satisfying vi = vj if and only
+                                                                         Qk−2
+if i and j belong to the same part Sℓ . There are exactly (q +1)q j=1          (q −j) such configurations,
+corresponding to a choice of k points in P1 (Fq ). Hence the results.                                   
+
+     In the next section we use the exact value of cn given by (11) to deduce the value of Ak,n .
+
+A.3. Determining Ak,n . The problem has now been translated into a simple problem of linear
+algebra consisting in expanding a given polynomial P (q) ∈ Q[q] into the basis of the falling
+factorials
+                                     (q)k := q(q − 1) . . . (q − (k − 1)).
+This exercise has been probably already solved in the literature. We write down a brief solution.
+  Let P be a polynomial of degree n and denote by Bk its coefficients in the basis {(q)k }k , i.e.
+                                                        n
+                                                        X
+                                             P (q) =          Bk (q)k .
+                                                        k=0
+
+Lemma A.3. For 0 ≤ k ≤ n, one has
+                                                       k
+                                                       X
+                                                   k         (−1)j
+                                     Bk = (−1)                        P (j).
+                                                       j=0
+                                                           j!(k − j)!
+
+Proof. By evaluating at q = j, and setting pj := P (j)/j!, one immediately obtains
+                                                   j
+                                                   X        1
+                                            pj =                  Bk ,
+                                                         (j − k)!
+                                                   k=0
+
+that can be written in a triangular linear system
+                      1                                                                   
+                      p0        0!                                                        B0
+                      1              1                                               
+                     p1   1!         0!                                               B1 
+                                                                                     
+                      1              1       1                                       
+                     p2   2!         1!      0!                                       B2 
+                      1              1       1                   1                   
+                     p  =  3!                                                        B 
+                     3               2!      1!                  0!                   3
+                      .              ..      ..                         ..           
+                    . .                                                      .       . 
+                     ..   .           .       .                                       .. 
+                                                                                     
+                                 1      1       1                           1       1
+                      pn        n!    (n−1)!  (n−2)!                ···     1!      0!    Bn
+                      COUNTING COXETER’S FRIEZES OVER A FINITE FIELD...                                          15
+
+
+whose inverse system is
+                     1                                                               
+                    B0        0!                                                       p0
+                         − 1                1                                   
+                                                                                    p 
+                   B1   1!                   0!                                   1
+                     1                                                           
+                                              1
+                                               − 1!       1
+                                                                                     p2 
+                   B2   2!                             0!
+                                                                                    
+                     1                       1          1     1                  .
+                   B  =  − 3!                2!       − 1!    0!                  p3 
+                   3                                                             
+                     .                        ..                    ..           
+                   .   ..                      .                         .        .. 
+                   ..                                                            . 
+                                                                                
+                            (−1)n            (−1)n−1                    1       1
+                   Bn         n!              (n−1)!     ···    · · · − 1!      0!    pn
+Hence, one obtains
+                                                       Xk
+                                                            (−1)j
+                                       Bk = (−1)k                   pj .
+                                                       j=0
+                                                           (k − j)!
+                                                                                                                 
+   Applying the above lemma for P = cn /q(q + 1) with cn given by (11) (note that this is
+indeed a polynomial in q since cn vanishes for q = 0 and q = −1), one immediately deduces the
+following formula.
+Proposition A.4. For n ≥ 2 and 2 ≤ k ≤ n, one has
+                                       k
+                                       X     (−1)j                            
+                      Ak,n = (−1)k                    (j − 1)n + (−1)n (j − 1) .
+                                       j=2
+                                           j!(k − j)!
+
+Acknowledgements. I am deeply grateful to Valentin Ovsienko for stimulating discussions
+on the subject. This work is supported by the ANR project SC3A, ANR-15-CE40-0004-01.
+
+                                               References
+[BM09]     Karin Baur and Robert J. Marsh. Frieze patterns for punctured discs. J. Algebraic Combin.,
+           30(3):349–379, 2009.
+[Boa18]    Philip Boalch. Wild character varieties, points on the Riemann sphere and Calabi’s examples. In
+           Representation theory, special functions and Painlevé equations—RIMS 2015, volume 76 of Adv.
+           Stud. Pure Math., pages 67–94. Math. Soc. Japan, Tokyo, 2018.
+[BR10]     François Bergeron and Christophe Reutenauer. SLk -tilings of the plane. Illinois J. Math.,
+           54(1):263–300, 2010.
+[CC73]     J. H. Conway and H. S. M. Coxeter. Triangulated polygons and frieze patterns. Math. Gaz.,
+           57(400):87–94, 175–183, 1973.
+[CC06]     Philippe Caldero and Frédéric Chapoton. Cluster algebras as Hall algebras of quiver representa-
+           tions. Comment. Math. Helv., 81(3):595–616, 2006.
+[CH19]     Michael Cuntz and Thorsten Holm. Frieze patterns over integers and other subsets of the complex
+           numbers. J. Comb. Algebra, 3(2):153–188, 2019.
+[Cha11]    Frédéric Chapoton. On the number of points over finite fields on varieties related to cluster algebras.
+           Glasg. Math. J., 53(1):141–151, 2011.
+[Cha15]    Frédéric Chapoton. On some varieties associated with trees. Michigan Math. J., 64(4):721–758,
+           2015.
+[Cox71]    H. S. M. Coxeter. Frieze patterns. Acta Arith., 18:297–310, 1971.
+[Cox91]    H. S. M. Coxeter. Regular complex polytopes. Cambridge University Press, Cambridge, second
+           edition, 1991.
+[Cun17]    Michael Cuntz. On wild Frieze patterns. Exp. Math., 26(3):342–348, 2017.
+[Cun19]    Michael Cuntz. A combinatorial model for tame frieze patterns. Münster J. Math., 12(1):49–56,
+           2019.
+[Fon14]    Bruce Fontaine. Non-zero integral friezes. arXiv:1409.6026, 2014.
+[FP16]     Bruce Fontaine and Pierre-Guy Plamondon. Counting friezes in type Dn . J. Algebraic Combin.,
+           44(2):433–445, 2016.
+16                                       SOPHIE MORIER-GENOUD
+
+
+[GM82]    I. M. Gel′ fand and R. D. MacPherson. Geometry in Grassmannians and a generalization of the
+          dilogarithm. Adv. in Math., 44(3):279–312, 1982.
+[GT13]    David Galvin and Do Trong Thanh. Stirling numbers of forests and cycles. Electron. J. Combin.,
+          20(1):Paper 73, 16, 2013.
+[HJ20]    Thorsten Holm and Peter Jørgensen. A p-angulated generalisation of Conway and Coxeter’s theo-
+          rem on frieze patterns. Int. Math. Res. Not. IMRN, (1):71–90, 2020.
+[KL07]    Donald E Knuth and O.P Lossers. Partitions of a circular set. problem 11151. Amer. Math. Monthly,
+          114(3):265–266, 2007.
+[Mab19]   Flavien Mabilat. Combinatorial description of the principal congruence subgroups in sl(2,z). Private
+          Communication, 2019.
+[MG15]    Sophie Morier-Genoud. Coxeter’s frieze patterns at the crossroads of algebra, geometry and com-
+          binatorics. Bull. Lond. Math. Soc., 47(6):895–938, 2015.
+[MGOST14] Sophie Morier-Genoud, Valentin Ovsienko, Richard Schwartz, and Serge Tabachnikov. Linear dif-
+          ference equations, frieze patterns, and the combinatorial Gale transform. Forum of Mathematics,
+          Sigma, 2, 2014.
+[MGOT12] Sophie Morier-Genoud, Valentin Ovsienko, and Serge Tabachnikov. 2-frieze patterns and the cluster
+          structure of the space of polygons. Ann. Inst. Fourier (Grenoble), 62(3):937–987, 2012.
+[OEI19]   OEIS Foundation Inc OEIS. The on-line encyclopedia of integer sequences. http://oeis.org, 2019.
+[Ovs18]   Valentin Ovsienko. Partitions of unity in SL(2, Z), negative continued fractions, and dissections of
+          polygons. Res. Math. Sci., 5(2):Paper No. 21, 25, 2018.
+[Sib75]   Yasutaka Sibuya. Global theory of a second order linear ordinary differential equation with a poly-
+          nomial coefficient. North-Holland Publishing Co., Amsterdam-Oxford; American Elsevier Publish-
+          ing Co., Inc., New York, 1975. North-Holland Mathematics Studies, Vol. 18.
+
+   Sophie Morier-Genoud, Sorbonne Université, Université de Paris, CNRS, Institut de Mathématiques
+de Jussieu-Paris Rive Gauche, IMJ-PRG, F-75005, Paris, France,
+   E-mail address: sophie.morier-genoud@imj-prg.fr
+
