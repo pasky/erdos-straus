@@ -88,7 +88,14 @@ K0 = p − ⌊√p⌋².
     10 ≤ K0 < 300, and all of it at K0 = 16 and 24. This roughly halves what (J)53/(J)55 left as "beyond clean
     levels" (R225 spark S2).
   * K0 = 8 (and, weaker, 4, 12, 28) keeps a depletion after both refinements.
-  * Candidate mechanism (CONJECTURE, untested): "square-defect sides". If tK + 1 = c² with g = gcd(m, c) > 1, then the
-    ψ-odd part of N_t divides g², so χ = −1 needs an uneven split of g's primes. At K0 = 8, primality forces 3 | m, and
-    c² = 8t + 1 has 3 | c exactly when t ≡ 1 (mod 9).
+  * Follow-up test (`scripts/s5_defect.c`, same 169 410 primes). A side is *square-defect* if every prime r with
+    ψ(r) = −1 divides it to an even power (and at least one does).
+    * Generic square-defect sides are **not** depleted: the χ = −1 rate is 0.743 on them versus 0.755 on generic sides
+      (primes with K0 ≥ 300). So the naive "square-defect" conjecture is REFUTED as a general mechanism.
+    * At K0 = 8, 45 % of all words lie on square-defect sides (11 % elsewhere), and their χ = −1 rate is 0.485 versus
+      0.784 on the remaining unclean sides. So **the K0 = 8 depletion is the defective deformation**.
+    * Mechanism. Primality forces 3 | m, so the u = 1 side (u(K + u) = 9) and the t-sides with 8t + 1 = c², t ≡ 1 (mod 9),
+      are clean apart from an exact factor 9 = 3², with ψ(3) = −1. A χ = −1 word on such a side needs 3 ‖ A.
+    * CONJECTURE D: deformations with g = gcd > 1 deplete; generic square-defect sides do not. The data above
+      supports it at K0 = 8 only, and it is untested elsewhere.
 * This is a hardness explanation, not an existence mechanism (B2).
