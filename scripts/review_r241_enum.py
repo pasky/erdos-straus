@@ -187,7 +187,14 @@ for s in range(smin, smax + 1):
         if c > MAXCOST:
             skipped.append((a, b, z, y, t)); continue
         keys.setdefault(k, []).append((a, b, z, y, t))
-    for k in sorted(keys, key=str):
+    allpats = set(pats)
+    ch = os.environ.get('R241_CHUNK')   # 'i/n': run only keys with index % n == i (separate processes: python-flint leaks)
+    ci, cn = (map(int, ch.split('/')) if ch else (0, 1))
+    hist = {}; nfail = 0; ntup = 0; covered = set()
+    for idx, k in enumerate(sorted(keys, key=str)):
+        if idx % cn != ci:
+            continue
+        FOUND.clear()   # per-key: each pattern is counted ONLY from the run of its assigned (complete) route
         if k[0] == 'V':
             run_V(s, k[1], (ONE, TWO))
         elif k[0] == 'MW':
@@ -198,22 +205,21 @@ for s in range(smin, smax + 1):
             run_WG(s, k[1], k[2], False)
         else:
             run_WG(s, k[1], k[2], True)
-    covered = set(pp for lst in keys.values() for pp in lst)
-    hist = {}
-    nfail = 0
-    for key, (pat, e0, o1, o2) in FOUND.items():
-        if key[0] != s:
-            continue
-        if not (o1 and o2):
-            nfail += 1
-            print('LAWFAIL', key, pat, e0, o1, o2)
-        if pat[1:] not in covered and pat[1:] not in skipped:
-            print('OUTSIDE_PATTERN_SPACE', key, pat)
-        hist.setdefault(pat[1:], {}).setdefault(e0, 0)
-        hist[pat[1:]][e0] += 1
+        mine = set(keys[k]); covered |= mine
+        for key, (pat, e0, o1, o2) in FOUND.items():
+            if not (o1 and o2):
+                nfail += 1
+                print('LAWFAIL', key, pat, e0, o1, o2)
+            if pat[1:] not in allpats and not os.environ.get('R241_P8COMPAT'):
+                print('OUTSIDE_PATTERN_SPACE', key, pat)
+            if pat[1:] in mine:
+                ntup += 1
+                hist.setdefault(pat[1:], {}).setdefault(e0, 0)
+                hist[pat[1:]][e0] += 1
     for pp in sorted(covered):
         h = hist.get(pp, {})
         print('P', s, *pp, ' '.join(f'{k}:{h[k]}' for k in sorted(h)), flush=True)
-    for pp in skipped:
-        print('SKIP', s, *pp)
-    print(f'# s={s} tuples={sum(1 for k in FOUND if k[0]==s)} lawfail={nfail} keys={len(keys)} skipped={len(skipped)} time={time.time()-t0:.1f}s', flush=True)
+    if not ch or ci == 0:
+        for pp in skipped:
+            print('SKIP', s, *pp)
+    print(f'# s={s} chunk={ci}/{cn} tuples={ntup} lawfail={nfail} keys={len(keys)} skipped={len(skipped)} time={time.time()-t0:.1f}s', flush=True)
