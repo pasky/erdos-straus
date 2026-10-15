@@ -700,3 +700,11 @@ Jiang, Wikipedia, OEIS, arXiv abstracts) and are marked as such above.
 * Bleicher, JNT 4 (1972) 342–382 (Farey sequence method for Egyptian fractions) — (J)40.
 * Ventas, arXiv:2605.04551 (2026) — Type I slice via three-term ceiling continued fractions; (J)9, (J)40 (found by R205).
 
+## Wave Z additions (O243, reviews/novelty-audit-2026-10e.md)
+* Chamberland, Integers 26 (2026) #A42, Thm 1 — Type II for primes ⟺ p = qr − 4s₁s₂; identifies the 3/4 note's ℛ(M) (= ET Prop 1.9 Type II, Rosati 1954, Vaughan 1970).
+* Dahan, arXiv:2608.24035, Prop 4.8 / Thm 4.6 — necessary direction of the window criterion of (J)64.
+* Elsholtz, Trans. AMS 353 (2001) Thm 1.3, p. 3210 — parameter-count principle for exceptional-set exponents ((J)59).
+* Chenu–Smith (Prop 1–2, Lemma 1, Thm 2) and Arpin et al. §5.3 — supersingular isogenies to the Frobenius conjugate ((J)65).
+* Brown, Ann. Math. 95 (1972); Taylor arXiv:2208.06319 §2 — ℤ/4-quadratic enhancement ((J)57).
+* Filaseta–Finch–Kozek, JNT 128 (2008); Izotov 1995; Sierpiński 1960 — covering + algebraic factorisation for Sierpiński numbers ((J)62, (J)69).
+* Mahler, Canad. J. Math. 1 (1949); Kristensen, JTNB 18 (2006); McMullen, GAFA 2010 — function-field Liouville, games ((J)71, (J)72).
