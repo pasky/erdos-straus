@@ -11,7 +11,7 @@ Vaughan 1970; Pomerance–Weingartner Thm 1.3; paper/vaughan-loglog-note.tex (it
 
 ## Result
 Lemma (PROVED): Vaughan's class n ≡ −uv^{−1} (mod ℓ), uvw = (ℓ+1)/4, is n ≡ −4u²w — a prime-modulus certificate with
-(c, d, h) = (u, w, ℓ). Hence **#{p ≤ N : PM-II fails} ≪ N exp(−c(log N)^{2/3})** (PROVED relative to Vaughan).
+(c, d, h) = (u, w, ℓ). Hence **#{p ≤ N : PM-II fails} ≪ N exp(−c(log N)^{2/3})** (PROVED relative to Vaughan; (R230 repair D3): self-contained as CAP_GROWING Thm 1.4 at e = 0, rel. BV + large sieve).
 Covering moduli: among h ≡ 3 (4) ≤ 20 000 only h = 3, 7 have firing classes containing all non-residues
 (`scripts/z5_pm_cover.py`), so a PM-II failure is ≡ 1 (mod 12) and a QR mod 7 (3361 ≡ 1 mod 3360 = 2⁵·3·5·7).
 

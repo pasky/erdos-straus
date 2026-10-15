@@ -8,11 +8,11 @@ BRAINSTORM/README.md), scripts `scripts/z5_*.py`. **ES is not solved; no infinit
    + Montgomery's large sieve).** The Type II certificate cube extends to the rational point (c, d) = (c₀R², d₀/R²)
    ("overflow cube"): for prime ℓ = 4c₀d₀j − 1, rad R | c₀ ∥-wise in K, p ≡ −4c₀²d₀R² (mod ℓ) gives an exact solution
    with den z = R², rad R | y. Hence ES^{(y,e)} (cap e, free mute set = R200 M1's regime) fails for
-   ≪ N exp(−c_e (log N)^{(e+2)/(e+3)}) primes: e = 0 is Vaughan's 2/3, every e ≥ 1 beats it (3/4, 4/5, …).
+   ≪ N exp(−c_e (log N)^{(e+2)/(e+3)}) primes: e = 0 is Vaughan's 2/3, every e ≥ 1 beats it (3/4, 4/5, …) ((R230 repair D1): within the prime-modulus large sieve; ES's own record is 3/4, so only e ≥ 2 exceeds it).
 2. **Prime-modulus SQ_±: χ = (n/ℓ) — a free genus filter (Lemma 3.1, PROVED) — and CONJECTURE PM-SQ_±** (every non-square
    n ≡ 1 (8) has a word with A = ±prime and χ = −1): 0 exceptions to 10⁶, robust against residue stacking to ≈10¹³
-   (contrast PM-II's 3361). Calibration: its class mass is only ≍ log X, so the "easier" signed twin is provably
-   *harder on average* (exponent 1/2 < 2/3).
+   (contrast PM-II's 3361). Calibration: its class mass is only ≍ log X, so the prime-modulus large sieve gives the "easier" signed twin a
+   weaker exponent (1/2 < 2/3) ((R230 repair D6): a statement about the method, not a hardness proof).
 
 ## Results by goal
 * Goal 1 (R200 M1). Pointwise: OPEN; every construction (fixed-field x-orbits, Pell unit of ℚ(√n), polynomial

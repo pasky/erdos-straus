@@ -1,9 +1,27 @@
 # R230 — hostile review of O229 (CAP_GROWING.md, BRAINSTORM/z5_*.md)
 
 Reviewer: R230 side agent. Author branch merged: side-agent/cap-growing. From-scratch scripts: scripts/review_r230_*.py.
-Status: in progress.
+Status: round 1 complete. **Repairs applied** (author silent; no commits after 161a9569): D1–D8 folded into CAP_GROWING.md,
+AGENT_REPORT_O229.md, BRAINSTORM/z5_pmII_vaughan.md, z5_pm_sqpm.md, z5_pell_unit_T1.md, each marked "(R230 repair Dk)";
+D9's stale-text and ceiling items applied, the structural move of §1.2 into §1 left to the author.
 
-## Summary verdicts (filled in as checked)
+## Summary verdicts
+| claim | verdict |
+|---|---|
+| Lemma 1.1 (shot mass ≫ (log X)^{e+1}) | SOUND |
+| Thm 1.2 (exponent (e+1)/(e+2)) | SOUND |
+| Prop 1.3 (overflow cube, den z = R²) | SOUND (symbolic + exhaustive brute force) |
+| Thm 1.4 (exponent (e+2)/(e+3)) | SOUND-AFTER-REPAIRS (D1 calibration/scope, D2 restriction) — mathematics correct |
+| Sieve-limit consistency (KARY3 3/4 cap) | no contradiction (relaxation; scope sentence added, D1) |
+| Lemma 2.1 | SOUND |
+| Cor 2.2 (PM-II, 2/3) | SOUND-AFTER-REPAIRS (D3: re-routed through Thm 1.4, e = 0) |
+| covering moduli {3, 7} | SOUND; upgraded CERTIFIED → PROVED for all h (D4) |
+| Lemma 3.1 | SOUND (D7 cosmetic) |
+| Prop 3.2 (SQ_±, exponent 1/2) | SOUND-AFTER-REPAIRS (D5: mass proof as written was a GAP; repaired) |
+| "SQ_± provably harder on average" | overclaim, removed (D6) |
+| CONJECTURE PM-SQ_± | EVIDENCE confirmed independently (0 exceptions ≤ 10⁶, adversarial to 6.8·10¹⁶) |
+| §4 negative constructions | labels OK after D8 |
+No FATAL defects. ES untouched.
 
 ### Prop 1.3 (overflow cube) — SOUND
 Re-derived: 4(x + c₀²d₀R²) = E(ℓ+1) = 4EK ⇒ x + c₀²d₀R² = EK ⇒ 1/y + 1/z = (x + c₀²d₀R²)/(p c₀d₀j x) = E/(px) = 4/p − 1/x.
