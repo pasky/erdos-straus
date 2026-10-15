@@ -3,7 +3,52 @@
 Reviewer: R228 side agent (branch side-agent/review-near-square, merged side-agent/near-square-exist at 305cf029).
 From-scratch scripts: `scripts/review_r228_*.py` (none reuses the author's `z2_*`). ES is not solved; nothing below changes that.
 
-(Verdict table and defect list at the end; written claim by claim.)
+**Overall: no FATAL defect.** The mathematics of Prop 1.1, Thm 2.1, Cor 2.2/2.3 and §5.1 is correct and every checkable
+number reproduced with independent code. Four MAJOR defects: a definitional one that makes the k ≡ 1 (4) case vacuous
+(D1), an even-A overclaim it hid (D2), a PROVED label on a heuristic consequence (D3), and a false side-statement about
+congruence coverage at ℓ = 11, 13 (D4). Bonus: the u ≡ 1 (4) even-A case the author left as EVIDENCE is PROVED below.
+
+## Verdict summary
+
+| claim | verdict |
+|---|---|
+| Prop 1.1 (u-side T1, all u) | SOUND |
+| Thm 2.1 (sign-field criterion) | SOUND-AFTER-REPAIRS (D1: genericity must ignore the prime 2) |
+| Cor 2.2 (t-side: tk + 1 = □) | SOUND (odd A; after D1) |
+| Cor 2.3 (u-side table) | SOUND (table = direct criterion on 12 000 levels; after D1) |
+| Remark 2.4 (even A) | SOUND only for k ≡ 0 (4); false for k ≡ 1 (4) under repaired genericity (D2); u ≡ 1 (4) gap closed by R228 proof |
+| Pointwise form | SOUND |
+| §3 EVIDENCE | SOUND (prime-by-prime match on two subranges; residuals reproduced); D5 reporting |
+| §4.1 | SOUND |
+| Lemma 4.2 | group statement SOUND; consequences are Assessment, not PROVED (D3) |
+| §4.3 E1–E4 | correctly labelled; algebra checked (minor slip in E1) |
+| §5.1 3-parameter family | SOUND (sympy, incl. converse) |
+| §5.2 inert-prime observation | GAP (D4 false "ℓ ≤ 13 covered"; D7 overstatement) |
+| Novelty | real but modest: p-independent sign field Σ_M; cite (J)50 §3, O230 Prop C (D6) |
+
+## Defects (each with location and repair)
+* **D1 (MAJOR)** §2 "Call m generic if gcd(m, b) = 1": for k ≡ 1 (4) every odd level has no generic m (m even, b even),
+  so (b) and Remark 2.4 are vacuous there and the "iff" of Thm 2.1/Cor 2.2/2.3 is literally false (50/100 u-levels,
+  40/80 t-levels at k = 1 and k = 9). Repair: "generic ⟺ m and b have no common odd prime"; the proof of (b) is unchanged.
+* **D2 (MAJOR)** Remark 2.4 and AGENT_REPORT ("even A: t-side fully"): with D1's repair, even-A χ = −1 words occur on
+  sign-clean odd levels for k ≡ 1 (4): t-side k = 1, t = 3, p = 37, word (3, 1, 19), A = 2; u-side k = 9, u = 3, p = 109,
+  word (1, 3, 56), A = 2. Repair: restrict Remark 2.4 to k ≡ 0 (4) and state the k ≡ 1 (4) counterexamples; add the
+  R228 proof for u ≡ 1 (4) (K odd), so for k ≡ 0 (4) the u-side classification covers all words.
+* **D3 (MAJOR, label)** §4.2: the lemma is PROVED; "only A = N can be forced" and "every level-by-level mechanism is a
+  congruence covering" need realisability of Frobenius patterns of the factors of N(m) in every class (unproved) and a
+  definition of "mechanism". Relabel those consequences Assessment.
+* **D4 (MAJOR)** §5.2 "For ℓ ≤ 13 classical congruence families cover these classes": known only for ℓ ∈ {3, 5, 7};
+  open at 11, 13 (M13B Thm 3.1 leaves 6 classes; M13E's x** survives), conditional at 17. Repair as in §5.2 below.
+* **D5 (MINOR)** §3: "40–50 %" → bin-dependent (23 % at [17, 30), ≈ 40 % at [30, 300), 94 % at [10, 17)); report the
+  K0 = 1 overshoot (→ +0.016 ± 0.008) and the unmoved K0 ∈ [2, 5).
+* **D6 (MINOR)** §2 Reading / §4.1: cite (J)50 §3 (BRIDGE_WORLDS: genus failure ⟺ odd quadratic character trivial on all
+  q | M) and O230 Prop C next to "Frob = c_∞".
+* **D7 (MINOR)** §5.2 "'⊆' … requires polynomial families in m to cover classes that no congruence family in n covers"
+  → "may require" (sterile points of (J)54 are not shown to lie in the closure of {m² − j}).
+* **D8 (MINOR, assorted)** E1 "v < m" → "v ≤ m + k + 2, and for m > k² + 4k + 3 only v = m − k² − 2k"; §4.2 "Thm 2.2 / B1"
+  → "NEAR_SQUARE Thm 2.2 / B1"; §4.2 σ_N needs N prime to the conductor (use the odd part); §5.1 "Every (1,0,1) Λ = 1
+  family" → "with f non-constant"; Thm 2.1(a) can be strengthened to "χ = −1 words at the level for a density-1 set of m"
+  (CRT), worth saying since it sharpens "Chebotarev lottery".
 
 ## Claim-by-claim
 
