@@ -158,3 +158,16 @@ is not proved (stated in a NOT DONE paragraph; fine).
   point, i.e. congruence families might still cover all n of the form m² − j there. Say "may require … unless the
   sterile points of (J)54 avoid the closure of {m² − j}"; the report's Spark S3 already phrases it as a question.
 * §5.3 (inconclusive 17-adic test): correctly labelled; not rechecked (no claim to check).
+
+### Novelty (Assessment)
+* Frob = c_∞ for admissibility is (J)50 (BRIDGE_WORLDS §3: "h ≡ −1 (mod m) ⟺ Frob_h = c_∞"; Type II ⟺ a sub-product of
+  the primes of M has symbol c_∞; on 2-group slices "failure ⟺ some odd quadratic character mod 4cd is 1 on all q | M" —
+  which is the pointwise genus form in another guise: odd character = imaginary F). O230 Prop C encodes the sign by
+  adjoining √p (p-dependent field K_M = ℚ(ζ_M, √p), Frob = c_∞σ_p). O225's genuinely new ingredient is to encode the sign by
+  √−M instead, via the reciprocity (r/p) = (−M/r) valid for r | p + u (resp. tp + 1): the sign field Σ_M is
+  p-independent, which is exactly what makes a family statement (F vs Σ_M, Chebotarev in the fixed field FΣ_M) possible.
+  The proofs are classical genus/class-field theory of abelian fields; Cor 2.2/2.3 are new explicit computations in that
+  frame and Remark 2.4 (u ≡ 3) plus the R228 proof for u ≡ 1 complete the u-side for k ≡ 0 (4). The text should cite
+  (J)50 §3 and O230 Prop C next to "the Frob = c_∞ of (J)50" (MINOR, D6).
+* "the obstruction is always … positivity once more ((J)52)" is a reading (Assessment), fine as worded.
+* Not rechecked: the sentence "most of [the new u-levels] are not clean in the sense of THREE_SQUARES" (plausible, untested).
