@@ -86,3 +86,77 @@ edge ((J)45: ee′ ∈ {1 + o, N + o, 1 + No}), so many words share one bit.
 far from independent across the words of one prime. That is why 8/n fails at 131 and 241 although 29 and 12 χ = −1 words
 exist there. Any "main term at Planck scale" argument for 8 would have to beat this correlation. For 4 no such
 argument is needed; the problem is only whether a χ = −1 word exists at all (SQ₅).
+CERTIFIED at word level (`scripts/z1_thm13_check.py 1500`): all 35 179 words of all odd n < 1500 have exactly two even pentagon
+entries, at most two entries divisible by 4, and (4 | some entry) ⟺ χ = −1 (sympy Jacobi), with 0 violations.
+
+## 2. The requirements (i)–(iv) after Theorem 1.3
+
+**Proposition 2.1 (steering; PROVED parts as labelled).** Let P(p) := "X_p has a word w with L_w ⊗ ℤ₂ isotropic" (= SQ₅ at
+primes, CHI_FLIP C1).
+(a) P(p) ⟺ ES-five(p) (Thm 1.3 + MODEL_SPECIFIC Lemma 3.0). PROVED.
+(b) (iii) holds for P: at odd squares no path lattice is 2-adically isotropic (T1 = CHI_FLIP Cor 1.3; T1 in Legendre form:
+z1_legendre_levels Cor 2). PROVED. P also fails at the composite 105 (CHI_FLIP §4.1), so a proof of P must use more than
+non-squareness.
+(c) (ii) holds for P in the strong sense: P(131) and P(241) are true (29 resp. 12 χ = −1 words), while 8/131 and 8/241 are
+false. So P does not imply 8/p. What 8/p additionally needs is one 2-adic bit per isotropic pentagon vector (§1.2), and at 131,
+241 every bit fails (§1.3). For 11/37 there is no character description of S₁₁ (MODEL_SPECIFIC Thm 3.1(c)), so P has no
+11-analogue at all. TES and ES_q: P is a statement about the path lattices of X_p over ℤ and has no transcription there in
+this file. So (ii) for those failure sets is "not applicable", not "checked".
+(d) (iv) fails for P: S₇ is not a character fibre, and S₇(p) = ∅ at 10 primes ≤ 10⁵ (FOUR_SPECIFIC). z1_small_prime_pigeonhole:
+the pigeonhole forcing exists only for M ∈ {2, 3, 4}.
+(e) (i) for P is CONJECTURE SQ₅ (EVIDENCE to 10⁸, DEDEKIND/HJ_DEEP; 10⁷ with boundary words, MODEL_SPECIFIC).
+*Reading.* After Thm 1.3, the 4-specific 2-adic input is **used up**. ES-five is equivalent to P, and P has no numerator in
+it. So a proof of P need not itself be 4-specific: it cannot prove 8/131, because P ⇏ 8/p. The (J)41 demand ("an ES
+proof needs a 4-specific input") is discharged by routing through Thm 1.3. MODEL_SPECIFIC §3 said this for λ(p) ≤ 3; Thm 1.3
+says why the routing costs nothing. Every 2-adic *refinement* of the target (2^k-slices, the one-odd half S₄^{odd} of
+FOUR_SPECIFIC, the Legendre levels) is a strict sub-lottery. Two of them fail at primes: S₈ at 27 primes ≤ 10⁷, the Legendre
+levels at 7 primes ≤ 10⁶. Every 2-adic *coarsening* of the target contains χ = +1 cells, which certify nothing.
+
+| candidate property (numerator 4) | (i) primes | (ii) 8/131, 8/241 | (iii) odd squares | (iv) 7 | file |
+|---|---|---|---|---|---|
+| P = SQ₅ (some 2-adically isotropic path lattice) | EVIDENCE 10⁸ | not implied ✓ | fails ✓ (T1) | ✗ | §2 |
+| Legendre levels (tp = 4^a(8b+7) carries a word) | **fails at 73**, 1201, 1489, 9649, 21169, 23041, 44641 | ✓ | fails ✓ | ✗ | z1_legendre_levels |
+| spine t = 1 | fails (5013 primes p ≡ 1 mod 8 < 10⁶) | ✓ | ✓ | ✗ | CONSTRUCTIVE_ES 3.3 |
+| one-odd five-slice half S₄^{odd} | EVIDENCE 10⁷ | ✓ | ✓ | ✗ | FOUR_SPECIFIC §2 |
+| Siegel/mass weight of 𝔊⁻_p on lattices ⊃ M | genus shadow only | — | ✓ | ✗ | z1_glue_square_roots |
+| 2-isogeny walk from χ = +1 | impossible (no crossing) | — | — | — | z1_isogeny_pointer |
+| "4 is a square" | refuted by 9/p, 16/p | — | — | — | z1_square_numerator |
+
+## 3. Attempts at (i): what a global object would have to do
+
+**Proposition 3.1 (path classes as glued planes; PROVED, z1_glue_square_roots).** A positive ternary lattice L of det p
+(unimodular away from p) is a path lattice iff it contains a primitive plane M with
+(1) a basis of Gram [[v, −1], [−1, t]], so D := det M = tv − 1 and v | D + 1 (a *divisor form* in M's class), and
+(2) gluing class c ≡ ±1 (mod D) with respect to that basis (L/(M ⊕ M^⊥) ≅ ℤ/D, generator ↦ c·e₂^#), equivalently D | p + v.
+Siegel–Weil / mass formulas on 𝔊⁻_p see only the genus of (M, c), i.e. whether −p·v⁻¹ is a square mod D. Condition (2) is a
+residue condition (B2, Prop 10.3), and (1) is a second divisor event at the binary level. Path lattices are the "elongated"
+classes of 𝔊⁻_p (two small successive minima, λ₁λ₂ ≍ D, λ₃ ≍ p/D), of which there are ≍ log²p among ≍ p/16 classes.
+
+*Construction attempts, each pushed against the barrier it met (iteration record).*
+1. **Global 2-adic forcing** (brief angle 4, Hilbert symbol). Thm 1.3 is a pigeonhole *inside one word*. A global analogue
+   would be a pigeonhole over the words of X_p. But a word's χ is (−A/p), and there is no finite structure on X_p whose
+   size beats the number of χ-classes: X_p has no group action (CHI_FLIP §2: linear in each letter, no Vieta moves), and
+   the classical moves leave X_p. *Hypothesis met:* B2 (moving modulus). *Modification tried:* replace the word set by the
+   Legendre levels, where χ is forced to −1 by ℤ³, so only existence remains. Result: existence still fails (73, …), so
+   removing the character does not remove the lottery (z1_legendre_levels).
+2. **ℤ³ input** (one-class genus of I₃). If ES-five fails at p, every word gives x, y ∈ ℤ³ with |x|² = A*, |y|² = A, x·y = 1
+   (TWO_FIBRES Thm A). For the word (1, 3, (p+3)/2) this is p = X² + 2Y² (y = (1, 1, 0) forces x = (x₁, 1 − x₁, x₃), and
+   (2x₁ − 1)² + 2x₃² = p), which is always solvable for p ≡ 1, 3 (mod 8). Every such consequence is a genus statement that is
+   true, so no contradiction can arise from ℤ³ data word by word (Prop 10.3). *Modification tried:* combine several words
+   through z = x × y (|z|² = tp): different words have different t, hence different z-norms, and no relation links them.
+3. **Mass at Planck scale** (angle 1): z1_depth_bits and z1_glue_square_roots. For 4 the conditional 2-adic density is 1, so
+   nothing is to be forced. The count of χ = −1 words is the SQ₅ lottery itself.
+4. **Isogeny walks** (angle 2): z1_isogeny_pointer (no crossing; pointer automatic; path edges below expander resolution).
+5. **Exponent 2** (angle 3): what survives of "4 = 2²" is v₂(M) = 2 with odd part 1, i.e. Thm 1.3 (z1_square_numerator).
+
+## 4. Outcome (Assessment)
+* **Positive (PROVED):** Thm 1.3, a conceptual proof that the five 4-slices are the χ = −1 fibre (Fano pigeonhole). It uses
+  frieze parity plus the mod-4 isotropy test, and identifies a certificate as "path-shaped 2-isogeny edge + pointer to an
+  endpoint". Prop 1.4 (CERTIFIED): the fair-bit law for numerators 2^k (7/12, 5/16, 31/192, …). It explains MODEL_SPECIFIC's cell
+  fractions and puts 4 at zero bits.
+* **Negative (precise):** after Thm 1.3 no 4-specific 2-adic input is left. The requirements (ii) and (iii) are automatic for
+  any proof of SQ₅, and (iv) is not available from this mechanism. Requirement (i) is SQ₅, whose obstruction is the thin
+  path-shape set (Prop 3.1: divisor form + glue residue), i.e. B2. None of the four brief angles produces a forcing
+  mechanism. Each fails at an identified hypothesis (table §2, list §3).
+* **EVIDENCE:** inside one prime the depth bits for 8 are strongly correlated (12 observed against 0.82 predicted S₈-empty
+  primes below 4000). This is the quantitative reason why 8/p fails where 4/p does not.
