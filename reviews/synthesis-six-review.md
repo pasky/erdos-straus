@@ -64,3 +64,26 @@ closing ingredient is an identity that is polynomial in the algebraic parameter 
 u + 1 | u³ + 1 of x = (n + 151)/4). Literature: a cursory web search (Jina) found nothing on ES for 4^s + 105 or for exponential
 offset families; I could not do a thorough search. Note also that members with s ≤ 29 (n < 3·10¹⁷) are already covered by
 the published computational verifications of ES (Salez 2014, n ≤ 10¹⁷) — irrelevant to correctness, worth one sentence.
+
+## 3. s6_unique_forced_cap0 — SOUND-AFTER-REPAIRS (minor)
+
+Re-derived. In the forced-window setting of CAP_POINTWISE Thm 1.1′ every prime of m is ≡ 3 (mod 4), so the 2-part of
+(ℤ/m)^* is elementary (ℤ/2)^r and U = 1 ⟺ φ(q^k)/2 = q^{k−1}(q−1)/2 = 1 for every prime power ⟺ m = 3. (Outside that setting
+"U = 1" would NOT imply (ℤ/m)^* = {±1}: e.g. m = 15 has (ℤ/15)^* ≅ C₂ × C₄, odd part trivial — irrelevant here because 5 ≢ 3 (4),
+but the memo's "U = 1 ⟹ (ℤ/m)^* = {±1}" should cite the setting.) Converse: the memo's choice "s generating a cyclic factor of
+order 2o" is imprecise for composite m (s must be a non-residue modulo EVERY prime of m). Correct choice: s ≡ −u₀ (mod m) with
+u₀ ∈ U \ {1}; then K = s is forced (image (−1, …, −1) in E), s ≢ ±1, Σ_m(s) = {1, s, s⁻¹} ∌ −1, and n = 4s − m satisfies
+n ≡ 1 (4), m ≡ 4 − n (8) (s odd), (q_i/n) = (n/q_i) = (s/q_i) = −1, n non-square. ✔ Also the statement is about the δ_n = 0
+slice (−1 ∈ Σ_m(K), CAP_DOWN Lemma 3.1); the δ_p = ±1 families of Lemma 3.1 are not addressed — say so.
+
+## 4. s6_divisor_pigeonhole — SOUND
+
+* |P| > (q−1)/2 ⟹ P ∩ −P ≠ ∅ (P ⊂ (ℤ/q)^* since gcd(K, q) = 1) ⟹ −1 ∈ Σ_q(K) with |δ_s| ≤ v_s(K) ⟹ cap 0. ✔
+* Cauchy–Davenport: cap 0 ⟺ ±log w₀ ∈ Σ_s Σ_{δ=−b_s}^{b_s} δ·ℓ_s, an N-fold sumset of {−ℓ, 0, ℓ} (ℓ ≠ 0) in ℤ/u, u prime ⟹ size
+  ≥ min(u, 2N+1), sharp for equal images. The "zero images excluded" repair is correct and necessary (q = 7, K = 3·29^N
+  fails for every N: re-checked). Random test (3000 cases, u prime ≤ 31): 0 violations.
+* Numerics reproduced exactly from scratch (`review_r245_pigeon.py 200000`): 8 977 primes, criterion 4 870, cap 0 6 149,
+  0 cases criterion ∧ ¬cap 0.
+* ±-weighted Davenport constant D_{±1}(ℤ/n) = ⌊log₂ n⌋ + 1 (Adhikari–Chen–Friedlander–Konyagin–Pappalardi 2006) — matches my
+  recollection of the statement; source not accessed. "Ω(K) ≳ q/4 for structure-free arguments" is an informal reading of the
+  worst case; fine as labelled (the PROVED part is the sharpness example).
