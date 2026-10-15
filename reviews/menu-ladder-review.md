@@ -13,6 +13,9 @@ From-scratch scripts: `scripts/review_r255_*.py`. ES is not solved; nothing belo
 | Lemma 2.2 (normal form) | SOUND |
 | Lemma 2.3 (real place) | SOUND-AFTER-REPAIRS (minor: t = t′ case; label of consequence (ii)) |
 | Prop 3.1 (witness localisation) | SOUND |
+| Lemma 6.1, Theorem 6.2 (compactness, s₀ large) | SOUND |
+| Prop 6.3 | SOUND (one implicit step, D6) |
+| §6 "pointwise converse fails" | SOUND for the pointwise statement; GAP for the added finite-cover refutation (D5) |
 | Theorem 4.1 (rung 2, Type II) | SOUND (shape analysis redone; from-scratch exhaustive-per-(a,b) search, 0 violations; negative control fires) |
 
 ## Claim-by-claim
@@ -98,6 +101,35 @@ Re-derived independently.
   sign changed: all +1. Matches the memo. (Observation: replacing f by −f never changes W here, since (−1, β) is trivial
   at all places other than 2 — so W does not see the overall sign of the witness.)
 
+### Lemma 6.1 / Theorem 6.2 — SOUND
+* (μ − r)/D ∈ (L/D)Ẑ, and x ↦ b^x extends continuously from ℤ to Ẑ in ℤ_ℓ^× (ℓ ∤ b); at ℓ | b, Y → 0 as s → ∞. Integrality
+  of R₁(Y*)/N is a clopen condition, so V_F is clopen. ✓
+* ⇐: Λ compact, finitely many D_q, V_F cover it. An integer s ∈ V_F gives integrality at the actual Y = b^{(s−r)/D} only once
+  Y ≡ 0 mod ℓ^e for ℓ^e ∥ N, ℓ | b, i.e. s large — so s₀ must be chosen AFTER the finite subcover (max of these depths and of
+  the positivity thresholds). The repaired wording "for some sufficiently large s₀" is exactly right; the statement is
+  "∃ s₀ ∃ finite cover of {n_s : s ≥ s₀} ⟺ condition". ✓
+* ⇒: for μ ∈ Λ take s_j → μ, s_j → ∞; infinitely many s_j in one class; D_q closed ⇒ μ ∈ D_q; or F integral at infinitely
+  many actual Y_j → Y*(μ), integrality closed ⇒ μ ∈ V_F. ✓ ET classes are degree-1 root classes. ✓
+
+### Prop 6.3 — SOUND
+Theorem A needs a family valid on a full residue class of u, while the root class is a priori only valid on the sparse set
+u = b^{(s−r)/D}. This is fine but should be said: if μ ∈ V_F then R₁(Y*) ≡ 0 (mod N) for every parameter, so F is integral
+on the whole class u ≡ Y* (mod N) (any modulus N clearing all denominators), positive for large u, and the closure of that
+class contains Y*. Theorem A applied to φ_{D,r}(u) = c₀b^r u^D + k gives the claim. (S_D depends on (r, L) through φ_{D,r};
+notation only.) See D6.
+
+### §6 "pointwise converse fails" — SOUND (pointwise), GAP (finite-cover add-on)
+* For 15·4^s + 1, the base-4 degree-D menu uses the same φ = 15Y^D + 1 and the same Y* as Computation 1.2, so μ = 0 ∉ S_2,
+  S_4 ✓; n → 16 at odd q, so μ = 0 ∉ ∪D_q ✓; O239 Cor 2.8 (branch side-agent/exp-105, under review; scope "z14 menu, unsplit
+  pieces") says no window reaches μ = 0. So the POINTWISE converse fails for that sub-menu ✓, conditional on Cor 2.8.
+* The rung-2 Type II counterexample (Theorem 4.1 + Computation 1.2 at D = 2) is correct. ✓
+* GAP: "and since μ = 0 ∈ Λ, this also refutes the finite-cover equivalence for that menu". The naive finite-cover
+  equivalence is "covering ⟺ Λ ∩ (∩_D S_D) ⊆ ∪_q D_q". Absence of a covering (O239) refutes its ⇐ direction only if
+  Λ ∩ (∩_D S_D) \ ∪D_q = ∅, i.e. if NO other μ ∈ Ẑ lies in every S_D. Only μ = 0 is examined. Since ∩S_D ⊆ S_1 =
+  unit-square points, it would suffice that μ = 0 is the only unit-square point of 15·4^μ + 1. EVIDENCE for that
+  (`scripts/review_r255_s1points.py 15 1 …`): the QR constraints from the primes of 4^60 − 1 already force μ ≡ 0 (mod 60);
+  mod 2^a the survivors are {0, 3, 19}, killed by μ ≡ 0 (mod 10). This is not a proof for all moduli. See D5.
+
 ## Defects
 
 1. (MINOR) §1 "Heuristic" line: "J(ℚ₂)/2J(ℚ₂) has order ≈ 2^{g + #J[2](ℚ₂)}" is wrong. The correct formula is
@@ -114,3 +146,13 @@ Re-derived independently.
    b = Y² + pY + q redundant. Repair: "(ii) for even D PROVED (m linear has a real root); for odd D EVIDENCE (grid)".
 4. (MINOR) Theorem 4.1 proof: "the four shapes up to a ↔ b" silently uses that the witness is not a ↔ b symmetric. Repair:
    add the identity (4acd − 1)(4bcd − 1) = 4c²dn + 1, so f ≡ const ⟺ 4bcd − 1 ≡ const (mod n); it also shows f₀ ≠ 0.
+5. (MAJOR — overclaim inside a PROVED paragraph) §6, "…this also refutes the finite-cover equivalence for that menu".
+   Unproven: needs that no μ ≠ 0 in Λ lies in ∩_D S_D \ ∪_q D_q (e.g. that μ = 0 is the only profinite unit-square point
+   of 15·4^μ + 1). Repair: delete the clause, or replace by "(the finite-cover equivalence would also fail if μ = 0 were the
+   only unit-square point of 15·4^μ + 1 — EVIDENCE: forced mod 60 by the primes of 4^60 − 1, R255)". Same caveat for the
+   memo z18_exp_cover_criterion "counterexamples to the naive converse": say "pointwise".
+6. (MINOR) Prop 6.3: make explicit the passage from the sparse set u = b^{(s−r)/D} to a full residue class
+   u ≡ Y* (mod N) (Theorem A is stated for residue classes), and note S_D = S_{D,r} depends on the class through
+   φ_{D,r} = c₀b^r Y^D + k.
+7. (MINOR) §6 / Cor 4.2 cite O239 Cor 2.8 as PROVED; it lives on side-agent/exp-105 (under review) and is stated for the
+   z14 menu with UNSPLIT SG pieces. Repair: add "(O239 Cor 2.8, unsplit pieces; pending review)".
