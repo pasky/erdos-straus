@@ -213,7 +213,7 @@ FATAL: none. MAJOR: none.
 uv run python scripts/review_se2_identities.py                      # §A.1, ~4 s
 uv run python scripts/review_se2_level1.py                          # §D.6
 uv run python scripts/review_se2_cop.py 3000 7                       # §B, ~5 s
-uv run python scripts/review_se2_boxbound.py Q 128                   # §C, ~1 min  (also P 128, Q 192; P 384 ~1 h)
-uv run python scripts/review_se2_tail.py 32 40                       # §C, P tail, ~10 min
+uv run python scripts/review_se2_boxbound.py Q 128                   # §C, ~1 min  (also P 128, Q 192; P 384 did NOT finish in 2 h of pure Python — K = 3 term 0.0023 not independently recomputed)
+uv run python scripts/review_se2_tail.py 32 40                       # §C, P tail, minutes
 uv run --with scipy --with numpy python scripts/review_se2_rate.py 0.3 0.35   # §D.4
 ```
