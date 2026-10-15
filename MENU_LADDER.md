@@ -28,17 +28,17 @@ exponent 2). So γ ∈ (1 − θ)·A^{×2}; it is totally positive because the r
 (D even) and 1 − θ > 0 there. Condition (ii) at ℓ = 2 then reads (1 − θ)(0 − θ) ∈ (A ⊗ ℚ₂)^{×2}. Conversely
 γ := 1 − θ works if that holds. ∎
 *Reading.* Y* is the glued adelic point "rational point P₁ = (1, 2^J) of w² = φ(Y) at odd places, rational point
-P₀ = (0, √k) at 2". It survives 2-cover descent iff the x − θ descent images of P₁ and P₀ agree in A ⊗ ℚ₂ — i.e. (D odd)
+P₀ = (0, √k) at 2" (P₀ is ℚ₂-rational; ℚ-rational iff k is a square). It survives 2-cover descent iff the x − θ descent images of P₁ and P₀ agree in A ⊗ ℚ₂ — i.e. (D odd)
 iff the divisor class [P₁ − P₀] lies in 2J(ℚ₂) for the Jacobian of the hyperelliptic curve w² = φ(Y). For D = 1, A = ℚ,
 θ = −k/c₀ and θ(θ − 1) = k·4^J/c₀² is a square in ℚ₂ (k ≡ 1 mod 8): Schinzel / EXPONENT_COVERING Cor 1.5 recovered.
 
 **Computation 1.2 (CERTIFIED by PARI `nfislocalpower`; `scripts/z18_descent2.py c₀ k 10`).** For (c₀, k) ∈ {(3,1),
 (15,1), (63,1), (7,9), (31,33), (7,57)} and 2 ≤ D ≤ 10, θ(θ − 1) is a NON-square at some prime of A above 2 in every
 case (at D = 9 one component is a square, others are not; for (63,1) and (31,33), (7,57) at D = 4 one component is a
-square). So **Y* ∉ Ster(φ) for all D ≥ 2**: Theorem A certifies no sterility of the unit-square point for any root
-menu of degree ≥ 2. Heuristic: J(ℚ₂)/2J(ℚ₂) has order ≈ 2^{g + #J[2](ℚ₂)}, so a "random" class lies in 2J(ℚ₂) with
+square). So **Y* ∉ Ster(φ) for every tested (c₀, k) and 2 ≤ D ≤ 10** (CERTIFIED; all D ≥ 2: CONJECTURE, R-O245 repair):
+Theorem A certifies no sterility of the unit-square point for these root menus. Heuristic: J(ℚ₂)/2J(ℚ₂) has order ≈ 2^{g + #J[2](ℚ₂)}, so a "random" class lies in 2J(ℚ₂) with
 probability ≈ 2^{−g}·… — the genus ladder predicts rarity of descent-sterility, and in the data it is already absent at g = 0
-(D = 2), where A ⊗ ℚ₂ is a quadratic algebra and the test is a single Hilbert symbol.
+(D = 2), where A ⊗ ℚ₂ is a quadratic algebra.
 
 *Hand check (D = 2, c₀ = 15).* θ = ±σ/15 with σ = √−15 ∈ ℤ₂ (−15 ≡ 1 mod 16), σ ≡ −7 (mod 32) for one root; then
 θ(θ − 1) = −(1 ± σ)/15 has v₂ = v₂(1 + σ) = 1 resp. v₂(1 − σ) = 3 in the two components — odd, so a non-square in both ✓.
@@ -83,11 +83,12 @@ Y² − pY + p² − q cannot both have real roots (would need 3p² < 4q < p²).
 an S-unit, u → 0 at 2; MENU_STERILITY §4.2). Product formula Π_v(α, β)_v = 1: real places of A are the negative real root
 (D odd), where β > 0 ⇒ symbol 1. At q | c₀: 1/θ is a root of x^D + c₀, Eisenstein at q, so q is totally ramified with
 uniformiser ϖ = 1/θ and β = ϖ^{−2}(1 − ϖ); the tame symbol (α, β)_𝔮 = ((−1)^{v(α)v(β)} α^{v(β)} β^{−v(α)} mod 𝔮 / 𝔮) has
-v(β) = −2, so it equals ((1 − ϖ)^{−v(α)} mod 𝔮 / 𝔮) = 1. At the remaining odd v, β is a unit (N(θ − 1) = ±16/c₀) and the
+v(β) = −2, so it equals ((1 − ϖ)^{−v(α)} mod 𝔮 / 𝔮) = 1. At the remaining odd v, β is a unit (N(θ − 1) = ±4^J/c₀, standing hypothesis c₀ + 1 = 4^J) and the
 symbol is ((β mod v)/v)^{v(α)}. ∎
 `scripts/z18_witness2.py` evaluates W(f) with PARI `nfhilbert`; O240 Theorem B's witness gives W = −1 (2-part −1,
 c₀-part +1, other odd −1), its sign-flipped constant gives +1. **Reading:** the witness condition is a coin-flip parity over
-the primes of Res(f, φ); it does not obstruct anything structurally (consistent with §1).
+the primes of Res(f, φ); for unconstrained f it is not an obstruction (heuristic reading: within constrained shapes it may
+still bite).
 
 ## 4. The first two rungs: D = 1 and D = 2 are sterile at μ = 0 (Type II)
 
@@ -97,7 +98,9 @@ the primes of Res(f, φ); it does not obstruct anything structurally (consistent
 family c₀·4^t + k with Y = 2^t) contains μ = 0 in the closure of its class.
 *Proof.* m := 4abd − n = (a + b)/c ∈ ℚ[Y] has positive leading coefficient. If deg(abd) > 2 then deg m = deg(abd) ≤
 max(deg a, deg b), forcing (say) a, c, d constant and b ∝ n + const of degree 2 — contradiction; if deg(abd) < 2 then
-lc(m) = −c₀ < 0. So deg(abd) = 2, deg m ≤ 1. Shapes (deg a, deg b, deg d), up to a ↔ b:
+lc(m) = −c₀ < 0. So deg(abd) = 2 and deg m ≤ 2. (R-O245 repair: deg m = 2 occurs, e.g. a = (n + 1)/3, b = c = d = 1. Then
+m | a + b forces a or b quadratic, so the shape is (2,0,0) and c is constant; (4bcd − 1)a = cn + b gives a ≡ b/(4bcd − 1),
+hence f = 4acd − 1 ≡ const (mod n); 4bcd − 1 ≠ 0 since else cn + b = 0.) For deg m ≤ 1, the four shapes up to a ↔ b:
 (0,0,2): m | a + b constant ⇒ m, c constant; f = c(n + m)/b − 1 ≡ cm/b − 1 (mod n).
 (2,0,0): m constant ⇒ a = (n + m)/(4bd), c = (a + b)/m ≡ (m/(4bd) + b)/m (mod n) is ≡ a constant, so f = c(n + m)/b − 1 ≡ const. m linear with root Y₀: a(Y₀) = −b and
 4a(Y₀)bd = n(Y₀) give −4b²d = n(Y₀) > 0, impossible (b, d positive constants).
@@ -118,9 +121,9 @@ Pell points 15Y² + 1 = w² (Y_j ≡ 1 mod 17 forces j odd, hence Y_j odd; `scri
 |---|---|---|---|---|
 | 1 | line | dense (Schinzel) | obstructs (Prop 1.1) | no (PROVED, Cor 1.5) |
 | 2 | conic (Pell) | infinitely many, not dense at Y* (c₀ = 15) | silent | no for Type II (Thm 4.1) |
-| 3, ≥ 5 odd | genus ≥ 1 | finitely many (Siegel) | silent | (15,1): no family found (EVIDENCE §5) |
+| 3, ≥ 5 | genus ≥ 1 | finitely many (Siegel) | silent for tested D ≤ 10 (CERTIFIED) | (15,1): no family found at D = 3, 5, 6, 8 (EVIDENCE §5) |
 | 4 | genus 1 | finitely many | silent | yes for (3,1), (7,9), (23,41), (39,25) (SG, O239/O240); no z14 window for (15,1), (31,33), (7,57), (63,1), (47,17), (55,9) (O239 Cor 2.8) |
-So the ladder's first two rungs are sterile for structural reasons (Schinzel at D = 1, positivity at D = 2), and the
+So the ladder's first two rungs are sterile for structural reasons (Schinzel at D = 1, positivity at D = 2 — Type II only), and the
 rung where escapes appear (D = 4) is the first where BOTH the integer T1 points become finite AND a factorisation supply
 (Sophie Germain) exists in base 2 (Aurifeuille: only 4X⁴ + 1 among binomials, Capelli).
 
@@ -148,7 +151,7 @@ F of degree D on s ≡ r (mod L) (D | L) is a polynomial Type I/II family in Y =
 Y*(μ) ∈ Ẑ be Y*_ℓ = b^{(μ−r)/D} (ℓ ∤ b), Y*_ℓ = 0 (ℓ | b).
 **Lemma 6.1 (PROVED; Lemma 2.1 verbatim).** F is integral at all large s near μ iff all its parameters are integral at Y*(μ);
 the set V_F of such μ is clopen.
-**Theorem 6.2 (PROVED; compactness, as Thm 1.4).** {n_s : s ≥ s₀} has a finite covering by ET, divisor and root classes iff
+**Theorem 6.2 (PROVED; compactness, as Thm 1.4).** For some sufficiently large s₀ (R-O245 repair), {n_s : s ≥ s₀} has a finite covering by ET, divisor and root classes iff
 every μ ∈ Λ lies in some D_q or some V_F with F positive.
 **Proposition 6.3 (PROVED; Theorem A).** V_F ∩ S_D = ∅ for every degree-D root class, where S_D := {μ : Y*(μ) ∈ Ster(φ_D)}.
 Hence Λ ∩ (∩_D S_D) \ ∪_q D_q ≠ ∅ ⟹ no covering. (Note ∩_D S_D ⊆ S_1 = Sq^×-points.)
