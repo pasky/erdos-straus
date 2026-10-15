@@ -245,3 +245,49 @@ Archive of this pass: `sources/lit2026d/`.
 | (J)54 Thm 3.4 (explicit r₀ = 2³² for sterile Mordell points over ℤ) | APPARENTLY NEW | 10c §2 verdicts on sterile points stand (only the square obstruction is in the literature; Yamamoto/Ionascu–Wilson expect coverability at integer level) |
 | FF_STERILE_SMALL Lemma 1.4 (branch side-agent/ff-sterile-small, O220; refined class bound below the Coppersmith threshold, extra exponent max(0, d(n − d)/n − ρ)) | **KNOWN in substance** | the F_q[T] twin of (J)54 Cor 1.4: Cohn–Heninger Thm 1.2 + splitting the class into q^{d(n−d)/n−ρ} subclasses |
 | FF_STERILE_SMALL Lemmas 1.1–1.3 (Euclidean-division routes), Thms 3.1/5.2/8.1 (q = 27, q = 9, A = T) | APPARENTLY NEW | ES-specific; no ES_q literature |
+
+---
+
+## 5. Polynomial families on p = m² ± k, the T1 deformation ((J)53, (J)55)
+
+### 5.1 Findings (verified)
+
+* **Schinzel, "On sums of three unit fractions with polynomial denominators", Funct.
+  Approx. Comment. Math. 28 (2000) 187–194** [Project Euclid abstract page visited (PDF
+  behind a bot wall); zbMATH review Zbl 0974.11015 visited via the zbMATH Open API].
+  Abstract: "The equation m/(ax + b) = 1/F₁(x) + 1/F₂(x) + 1/F₃(x) is shown to be
+  impossible under some conditions on polynomials ax + b and F₁, F₂, F₃." Review: no such
+  identity exists when **(1) m ≡ 0 (mod 4), a > 0, (a, b) = 1 and b is a quadratic
+  residue mod a**, or (2) a > 0, m > 3b > 0. **Only linear denominators ax + b.**
+  * Bearing on (J)55: Schinzel 2000 is exactly the linear case that NEAR_SQUARE Thm 3.3
+    Rem (i) says it "recovers". It does not treat quadratic n(m) = m² ± k.
+  * **Bearing on (J)49 SHARP 2:** Schinzel's condition (1) is for **every m ≡ 0 (mod 4)**,
+    i.e. the polynomial-identity shadow of "full T1 holds for every multiple of 4". The
+    ledger attributes the 4 | M half to ET §4 via d ↦ hd; Schinzel 2000 (1) should be
+    cited alongside (it is the published "4 | m ⇒ square classes are not polynomially
+    solvable" statement).
+* **Schuh, "Restrictions on polynomial solutions of diophantine equations with sums of
+  three unit fractions", HAL hal-04368730 (2024)** [HAL API record visited; the PDF is
+  behind an Anubis wall]. Abstract: "The equation m/(a + bw) = 1/x(w) + 1/y(w) + 1/z(w)
+  is shown to be incompatible with integer valued polynomials x, y, z if b is prime and
+  a, b are coprime. Less stringent conditions for b lead to the same conclusion too."
+  **Linear denominators only.** (Schuh's other HAL items: hal-04994962 (2025, Pythagorean
+  primes, = arXiv:2503.11672 in LITERATURE_2026) and hal-05660622 (2026, "solution based
+  residue classes" 4kx + 1 + 4(k − l)) — both linear classes, no quadratic families.)
+* **Ghermoul, arXiv:2508.07383** [archived in `sources/lit2026/`, re-read p. 1]: explicit
+  multivariable polynomials p_i(x, y, z) with 4p_i + 1 solvable; no obstruction theory,
+  no quadratic one-variable families n = m² ± k.
+* **Searches with no relevant hit:** "Erdős–Straus polynomial identities quadratic
+  polynomial n = m² + k", "4/(m² + k) sum of three unit fractions polynomial identity",
+  "Erdős–Straus numbers of the form n² + 1", HAL author search (Schuh).
+
+### 5.2 Verdicts
+
+| Claim | Verdict | Notes |
+|---|---|---|
+| (J)55 Lemmas 1.1/1.3 (per-solution χ = −1 witnesses (−4d/n), (f/n)) | KNOWN in substance | ET Prop 1.6 / Yamamoto 1965 Lemma 4 mechanism (ledger already says "ET Prop 1.6's mechanism") |
+| (J)55 Thm 2.2 (k > 0: every Type I/II family in m on m² + k has a fixed-character witness) | **APPARENTLY NEW** | Schinzel 2000 and Schuh 2024 are linear-denominator only; ET Prop 1.9 is linear in n |
+| (J)55 Thm 3.3 (integer T1 points above the largest real root obstruct every family) | linear case **KNOWN** (Schinzel 2000; ET Prop 1.6; Mordell); polynomial n(m) APPARENTLY NEW | — |
+| (J)55 Thm 3.4 (K-adic unit-square set Z_K⁺ sterile, Hilbert reciprocity in ℚ(√j)) | **APPARENTLY NEW** | nothing found |
+| (J)55 Prop 4.1 / (J)53 "T1 deforms": tp + 1 = tm² + c² | APPARENTLY NEW (elementary) | — |
+| (J)55 escaping families for k < 0 (e.g. 4/2801) | APPARENTLY NEW (computation) | — |
