@@ -25812,4 +25812,33 @@ def check_gd():
 check_gd()
 
 
+def check_ge():
+    # (ge) GLOBAL_FANO (O233/R234): R234 from-scratch lattice library — loops of G_p/Frob <=> the 𝔊⁻_p lattice represents 2
+    # (all p = 1 (4), 5 <= p <= 600: 1058 edges, 236 loops, 0 mismatches); depth = conic-marked walk (618 pointers,
+    # p <= 120, 0 bad); the n = 105 control (11 words, no 2-adically isotropic word, no path class).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("GLOBAL_FANO subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r234_loops.py", "5", "600"])
+    assert "5 600 {'edges': 1058, 'loops': 236, 'rep2': 236, 'bad': 0," in out, out[-2000:]
+    out = run(["review_r234_depth.py", "120", "0"])
+    assert "P 120 all odd primes pointers 618 bad 0" in out, out[-2000:]
+    out = run(["review_r234_105.py", "105"])
+    assert "n 105 words 11" in out and "2-adically isotropic words []" in out and "path classes in component 0" in out, out
+    print(f"== (ge) GLOBAL_FANO R234: loops = represents 2 on 1058 edges (p <= 600); conic-marked depth walks (618 "
+          f"pointers); 105 control; seconds = {perf_counter() - t0:.1f}")
+
+
+check_ge()
+
+
 print("\nall checks passed")
