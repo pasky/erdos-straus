@@ -77,3 +77,48 @@ families. Flippable but no family certificate: 0, consistent with the lemma. So 
 side" is the typical mechanism by which an unforced word sits next to a certificate. But the flip needs a prime in a
 moving residue class, so it is not a deterministic bridge U ≥ 1 ⟹ N₋ ≥ 1 (goal 2): Lemma 2.2 *is* the e-slice form
 −1 ∈ Σ_e(N), with e = X.
+
+## 3. Extending Prop F: s = 3, 4, 7; Landau depth; a Dickson-conditional obstruction
+(I3) Construction attempt: push Prop F to larger fixed parameters s, using the *fixed* QR prime 2 as a flip tool.
+**Prop F′ (PROVED; p ≡ 1 (8) prime).** For s ∈ {3, 4, 7} and X ∈ {p + s, sp + 1}: the X-family (u = s or v = s,
+resp. t = s) contains a certificate ⟺ it contains an unforced word ⟺ X is unclean.
+*Proof.* As in Prop F it suffices to show that X unclean ⟹ some admissible D (D | X, D ≡ −1 (mod s)) has ψ(D) = −1.
+For odd primes r | X, Lemma S gives ψ(r) = (−s/r), and ψ(2) = +1.
+* s = 3: 4 ∥ X (since p ≡ 1 (8)). Let r be an odd prime of X with ψ(r) = −1. Then D = r (if r ≡ 2 (3)) or D = 2r
+  (if r ≡ 1 (3)) is admissible.
+* s = 4: X is odd and ψ(r) = (−4/r) = (−1/r), so ψ(D) = (−1/D) = −1 for every D ≡ 3 (4). The family is nonempty ⟺
+  X has a prime r ≡ 3 (4) ⟺ X is unclean, and then *every* word of the family is a certificate.
+* s = 7: 8 | X, and 7 ∤ X since p ≠ 7. ψ(r) = (−7/r) = (r/7) (quadratic reciprocity), so a ψ-odd r is a
+  non-residue mod 7. The powers 1, 2, 4 of 2 run through the residues mod 7, so one of r, 2r, 4r is ≡ 6 (mod 7), and it
+  divides X. ∎
+*2-adic remark.* For X = s ≡ 7 (8), or 4 | s, every word of the family is a certificate. For t ≡ 7 (8), 8 | AB forces
+4 | A or 4 | B; for u ≡ 7 (8), 8 | Av forces 4 | A or 4 | v. This is the three-bit law on a family: χ is 2-adic
+(SYNTHESIS_SPARKS4 §1). For s = 7 it combines with the 2-trick, so nonemptiness ⟺ uncleanness. For s = 8 the
+equivalence fails (nonempty needs a divisor ≡ 7 (8)).
+**Numerics (EVIDENCE; `scripts/z7_propF.py 100000`, primes p ≡ 1 (8) < 10⁵).** For s = 1, 2, 3, 4, 7 and both kinds
+of family there are 0 mismatches in "unclean ⟺ certificate ⟺ unforced". At s = 5, 6, 8, "unclean ⟹ certificate" fails
+at 183–328 primes per family. "Unforced ⟺ certificate in the family" fails only at s = 5 (24 resp. 39 primes). At
+s = 6, 8 the family's unforced words all coincide with its certificates even when the side is unclean.
+
+**Landau depth.** Let K(p) = max{K : p + s and sp + 1 are clean for all 1 ≤ s ≤ K}.
+**Corollary 3.1 (PROVED).** U(p) = 0 or N₋(p) = 0 ⟹ K(p) ≥ 4 and also p + 7, 7p + 1 are clean. If K(p) ∈ {2, 3, 6},
+then some word with min(t, u, v) = K(p) + 1 is a certificate (s = 3, 4, 7 respectively).
+**Numerics (EVIDENCE; `scripts/z7_depth.c`, all 464 288 primes p ≡ 1 (8) < 3·10⁷).** The histogram of K is
+0: 356 992, 1: 96 788, 2: 7 619, 3: 1 965, 4: 715, 5: 153, 6: 37, 7: 6, 8: 8, 9: 4, 10: 1 (p = 21 746 761).
+The least min(t, u, v) of an unforced word equals K(p) + 1 at every prime with K ∈ {2, 3, 6, 7, 9, 10}. It exceeds
+K(p) + 1 at 41/715 primes with K = 4, at 29/153 with K = 5 and at 3/8 with K = 8, always by ≤ 9.
+**Theorem 3.2 (CONDITIONAL on Dickson's prime k-tuples conjecture).** For every K ≥ 1 there are infinitely many primes
+p ≡ 1 (8) with K(p) ≥ K. At these primes every word with min(t, u, v) ≤ K is forced (neither a certificate nor
+unforced).
+*Proof.* Let M = 8·∏_{3 ≤ ℓ ≤ 2K+1} ℓ^{a_ℓ} with ℓ^{a_ℓ} > K + 1 (ℓ prime; also 2^{a_2} > K + 1). Put p = 1 + Mx. For
+1 ≤ s ≤ K and ℓ ≤ 2K + 1, p + s ≡ sp + 1 ≡ s + 1 (mod ℓ^{a_ℓ}), so v_ℓ(p + s) = v_ℓ(sp + 1) = v_ℓ(s + 1). Hence
+p + s = (s + 1)·L_s(x), sp + 1 = (s + 1)·L′_s(x) with L_s = 1 + (M/(s+1))x and L′_s = 1 + (sM/(s+1))x. The forms p,
+L_s, L′_s (L′_1 = L_1) are pairwise non-proportional, ≡ 1 mod every ℓ ≤ 2K + 1, and number ≤ 2K + 1 < ℓ for every
+other prime ℓ. So the system is admissible, and Dickson gives infinitely many x with all of them prime. Then every
+prime factor of s + 1 is ≤ K + 1 and is a residue mod p (p ≡ 1 mod ℓ for odd ℓ, p ≡ 1 (8) for ℓ = 2). Also
+ψ(L_s) = ψ(p + s)ψ(s + 1) = ψ(s) = +1, because s is a product of primes ≤ K. Likewise ψ(L′_s) = ψ(1)ψ(s + 1) = +1. So
+p + s and sp + 1 are clean. A word with min = s ≤ K has the side sp + 1 (if t = s) or p + s (if u or v = s). ∎
+So **no proof of CONJECTURE U (or of ES-five) can use only words of bounded minimum parameter**. This is the U-analogue
+of B2's "fixed finite slice sets fail i.o. under H" and of SQ_±'s Dickson-conditional "no finite t-set". The
+hypothesis a U-proof must violate is boundedness of the family; the escape is H-A (growing family). The observed depth
+grows slowly: max K = 10 below 3·10⁷.
