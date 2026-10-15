@@ -127,3 +127,43 @@ computes within-cell residuals exactly as NEAR_SQUARE §5 / R225 (cells: p mod 8
 * Assessment: the "hardness of near-squares" is, to a large part, *u-side* T1 deformed into genus theory of
   ℚ(√−(K0 + u)) inside the sign field ℚ(ζ_u, √−u). The remainder is not explained by any genus-level condition tested
   here (candidates: non-genus — Rédei/4-rank — cleanness, c_∞ ∉ ⟨σ_r⟩ but ∈ ⟨σ_r⟩·G², and the even-A words).
+
+## 4. Towards existence on the family (goal 4): what the sign field allows, and where every attempt ends
+
+**4.1 Galois form of ES-five (PROVED, from §2).** For p ≡ 1 (4): ES-five(p) holds iff for some u ≥ 1 the integer p + u has
+a divisor A with A ≡ −1 (mod u) and χ = −1; for odd A this is **σ_A = c_∞ in Gal(Σ_u/ℚ)**, Σ_u = ℚ(ζ_u, √−u). For
+p = m² + k every odd prime of p + u = m² + K is split in F_K = ℚ(√−K) (generic m). So: sign-clean levels are those
+with F_K ⊂ Σ_u (Cor 2.3), and every other level is a *Chebotarev lottery*: one needs a sub-product of the Frobenii of the
+prime factors of m² + K equal to c_∞.
+
+**4.2 Single-level forcing gives only boundary words (PROVED, elementary).** Let G be a finite abelian group, x ∈ G, and
+call x *forced by s ∈ G* if every finite multiset of elements of G with product s has a sub-multiset with product x.
+Then x is forced by s iff x = s (take the one-element multiset {s}). Applied to G = Gal(Σ_u/ℚ) (or Gal(Σ_t/ℚ)) and the
+prime factors of N: the only χ = −1 word that a congruence condition on N(m) can *force* is A = N itself (v = 1 on the
+u-side, the cofactor on the t-side), i.e. σ_N = c_∞ — and σ_N is a function of m modulo a fixed modulus. For
+|Gal(Σ_M/ℚ)| = 2 (M ∈ {1, 2, 3, 4} on either side) "some prime factor has σ_r = c_∞" is forced by σ_N = c_∞; these are
+Mordell's identities (e.g. t = 3: every odd A ≡ 2 (3) has χ = −1, forced iff v₂(3p + 1) is odd). So **every deterministic
+mechanism working level by level is a congruence covering**, which Thm 2.2 / B1 bar on Z_k^□-classes. A deterministic
+proof on the family must use the factorisation of some N(m) beyond its class — i.e. a moving modulus (H-A).
+
+**4.3 Attempts with a moving level (iteration log; each is recorded with the exact reason it dies).**
+(E1) *Algebraic factorisation of p + u.* u = (a + b)m + ab − k makes p + u = (m + a)(m + b). A word needs A ≡ −1 (mod u),
+u ≍ m, A | (m + a)(m + b). With a + b = 1, a = 0: u = m − k, p + u = m(m + 1); A = m(m + 1)/v needs v ≡ −k(k + 1) (mod u),
+v < m, so v = m − k² − 2k and v | (k² + 2k)(k² + 2k + 1): finitely many m. General A = d·d′ (d | m + a, d′ | m + b) is a
+lottery of probability ≍ τ(m + a)τ(m + b)/m. Dies: moving modulus of size m, divisor lottery (B2).
+(E2) *Level from the factorisation of m.* For r | m: (r/p) = (k/r), so the primes of m have *known* signs (the near-square
+input!). A word with A = r needs r | tp + 1 ⟺ r | tk + 1 and t | r + 1; then tk + 1 = jr with j ≤ k + 1 and
+(jr − 1)/k | r + 1, which bounds r ≤ k + 2 + O(1/j): only small primes of m — a congruence family. With composite
+A = r·B the condition on B is again "a divisor of (tp + 1)/r in a fixed class mod t": lottery. Dies: B2.
+(E3) *A near √p or near m.* A = m ± c divides p + u iff u ≡ −(c² + k) (mod A); admissibility u | A + 1 forces
+u = m ± c − c² − k (small) with u | c² + k + 1, i.e. m = c² ∓ c + k + u with u | c² + k + 1: a thin set of m (≍ √X·log X
+of the m ≤ X). Dies: thinness.
+(E4) *Sieve picture (Assessment).* With A = r prime: m ∈ G_r := {m mod r : m² ≡ −k − u (mod r) for some u | r + 1 with
+(−u/r) = −1} gives a word. |G_r|/r ≈ τ(r + 1)/(2r), Σ_r τ(r + 1)/(2r) diverges like log²R, so the m avoiding all G_r,
+r ≤ R, have density → 0 (almost all m in every class); but Z_k^□ avoids every G_r (there (p/r) = +1 for all small r), so no
+finite R suffices, and r must grow with m (B6 at a single m).
+* Conclusion for goal 4 (Assessment, not a theorem): on p = m² + k (k > 0) the sign-clean levels are completely understood
+  (§2), and on every other level the existence of a χ = −1 word is a Chebotarev lottery that no congruence, polynomial or
+  single-level forcing decides. I found no mechanism that uses the difference p − m² = k beyond the genus layer: the
+  near-square input (known signs (r/p) = (k/r) for r | m, and F_K = ℚ(√−(k + u)) for every u) is all *genus* information,
+  and §4.2 shows genus information alone forces only boundary words.
