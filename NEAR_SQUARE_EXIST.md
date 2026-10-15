@@ -117,7 +117,10 @@ v ≡ 1 (4) and χ = +1. Hence for k ≡ 0 (4) Cor 2.3 classifies ALL words (bru
 EVIDENCE (`scripts/z2_classify.py SIDE k-list MAXL MMAX x`: Thm 2.1's group criterion vs brute force over all m ≤ 500
 with n ≡ 1 (4), gcd(m, b) = 1, all words incl. even A, χ from the sign table; n need not be prime): k ∈ {1, 8, 9, 16, 24},
 u ≤ 80 and t ≤ 60: predicted sign-clean = empirically sign-clean in every case; the 14 levels predicted dirty but not yet
-dirty at m ≤ 500 all became dirty by m ≤ 3000 (the first suitable prime r is large). Without the gcd restriction the
+dirty at m ≤ 500 all became dirty by m ≤ 3000 (the first suitable prime r is large). (R228: with gcd(m, b) = 1 the odd
+levels at k = 1, 9 have no admissible m, so that part of this comparison was vacuous; R228's independent rerun with the
+repaired genericity, `scripts/review_r228_signfield.py 1,4,8,9,16,24 100 80 300`, χ = Jacobi(A/n): 0 predicted-clean levels
+with an odd-A χ = −1 word.) Without the gcd restriction the
 predicted-clean levels show χ = −1 exactly at non-generic m (e.g. k = 24, u = 25, m = 63 = 7·9, 7 | K = 49).
 
 **Pointwise form (PROVED; the proof of Thm 2.1(b) uses only the one m).** For a single prime p ≡ 1 (4) and level u:
