@@ -1,0 +1,1 @@
+M<3000, e=3: 7820 classes, 0 containing a square

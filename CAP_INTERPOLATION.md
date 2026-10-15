@@ -215,6 +215,11 @@ foreign primes), random prime p ≡ −4D: the predicate "D ∈ 𝒟_e(M)" agree
 **3000/3000 cases at e = 2 and 2000/2000 at e = 0**. (`z10_cube_check.py`: 2000 cube solutions with exactness
 violated in 486 cases, composite M in 1505, all valid — Remark 1.3.)
 
+*T1 (PROVED).* For D ∈ 𝒟_e(M), (−D/M) = −1 (Jacobi): write D = f²d, d squarefree; d | A (odd parts of t > 2σ are
+even, so the squarefree part comes from t ≤ 2σ ⇒ d | A); for odd q | d, M ≡ −1 (q) and reciprocity give (q/M) = 1;
+2 | d forces 8 | M + 1, (2/M) = 1; so (−D/M) = (−1/M) = −1. Hence no class −4D contains a square (any e, any M):
+`scripts/z10_t1.py 3000 3`: all 7820 classes with M < 3000, e = 3, exhaustively — 0 contain a square.
+
 **Corollary 5.2 (supply dimension; PROVED, elementary).** Let F_e(M) := #{D ∈ 𝒟_e(M) : 4D < M} (distinct classes
 −4D mod M). The local count at a prime s ∥^σ A, s odd, is N(σ, e) = 2σ + 1 + e (t ∈ [0, 2σ] ∪ {2σ+2, …, 2σ+2e}), so
 `  Σ_{M≤Q, M≡3 (4)} F_e(M)/M ≍_e (log Q)^{e+3},     Σ_{ℓ≤X prime} F_e(ℓ)/ℓ ≫_e (log X)^{e+2}.`
