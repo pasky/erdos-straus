@@ -1207,6 +1207,20 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * r = 17: cells 5 and 7 survive level 1, but the method cannot reach r = 17 (Assessment).
    * Dictionary (I1): (J)51's Case B tuples and the ℤ P-data satisfy the same equations, but with different side conditions.
 
+55. **Spark relay Y10: polynomial ES families on p = m² ± k — the sterile set is a square class in ℚ(√j), and the archimedean sign of k matters (NEAR_SQUARE.md + BRAINSTORM/y10_*.md (O221); review `reviews/near-square-review.md` (R225): no FATAL; all PROVED theorems re-derived; one MAJOR (D1: a false side-claim inside Thm 3.4's statement, deleted); minors; citations (Schinzel 2000, Schuh 2023) still to be checked before any novelty claim; repaired by the reviewer).**
+   * Lemmas 1.1/1.3 (PROVED; R225 checked 8 501 Type I and 1 034 Type II solutions, n < 400). Every Type I solution of n ≡ 1 (4) has (−4d/n) = −1, and every Type II solution has (f/n) = −1. This is ET Prop 1.6's mechanism read as a per-solution χ = −1 witness. On p = m² + k it is the quadratic residue symbol of ℚ(√−k) (Prop 1.4).
+   * **Thm 2.2 (PROVED by exhaustive shape analysis over ET-parametrised families; R225 redid it with Gröbner bases).** For k > 0 (above the squares), every Type I/II polynomial family in m on p = m² + k has a witness that is a fixed character of n. So polynomial families are no stronger than congruences at locally-square m.
+     * Lemma 2.3: the sterile set is non-empty iff k ≡ 0, 1, 5 (mod 8).
+     * For k < 0, escaping families exist, e.g. 4/2801 = 1/29421704 + 1/702 + 1/283608 from a family on m ≡ 53 (mod 56).
+   * Lemma 3.2 / Thm 3.3 (PROVED). Positivity propagation: family coordinates are positive above the largest real root of n. So any integer point above it where n is an odd square kills every family on its class.
+   * **Thm 3.4 (PROVED; Hilbert reciprocity in K = ℚ(√j), with gcd(n, 2j) = 1).** For p = m² − j, the K-adic unit-square set Z_K⁺ = {m : m − √j is a unit square in ∏ K_v} meets no family's class. So the sterile set of polynomial families is one level finer than the congruence sterile set "p is a square".
+     * At j = 8 the uncovered classes are exactly the classes meeting Z_K⁺ (R225 reproduced this at L = 8064 and L = 4480).
+     * CONJECTURE Y10-S (equality in general) has thin evidence.
+   * Prop 4.1 (PROVED). For quadratic families, the deterministically clean levels are exactly those with 4A − tΔ = □. This generalises the (J)53 deformation.
+   * EVIDENCE (§5; R225 reproduced the numbers; multiple testing considered). A monotone archimedean gradient in K0 = p − ⌊√p⌋² survives removing clean levels.
+     * R225 found a partial second mechanism ("u-side T1"): if p + u is a sum of two coprime squares, the words with that u have χ = +1 (proved for odd u). 0 of 1 176 such words have χ = −1. These explain a minority of the residual gradient.
+   * Assessment. Polynomial (B1-type) coverings of near-square families meet a K-adic T1. Near-square hardness now has two explicit deterministic mechanisms (t-side and u-side), both forms of T1's norm identity.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

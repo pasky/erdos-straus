@@ -25416,4 +25416,34 @@ def check_fT():
 check_fT()
 
 
+def check_fU():
+    # (fU) NEAR_SQUARE (O221/R225): R225 from-scratch — the per-solution chi = -1 witness dictionary (every Type I / II
+    # solution of odd n < 400, n = 1 mod 4: (d/n) = -1 resp. (f/n) = -1) and the clean-level census on all primes
+    # p = 1 (4) in (10^5, 2*10^5): no chi = -1 word on any clean or T1-type level.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("NEAR_SQUARE subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r225_witness.py", "400"])
+    assert "TypeI 8501 TypeII 1034 bad 0" in out, out[-2000:]
+    out = run(["review_r225_census.py", "100000", "200000"])
+    rows = [list(map(int, l.split())) for l in out.split("\n") if l.strip()]
+    assert len(rows) == 4194, len(rows)
+    assert sum(r[4] for r in rows) == 0 and sum(r[6] for r in rows) == 0, "chi=-1 word on a clean/T1 level"
+    assert all(r[3] <= r[5] for r in rows), "T1-type not inside clean"
+    print(f"== (fU) NEAR_SQUARE R225: chi = -1 witness dictionary (8501 Type I, 1034 Type II, n < 400); clean and T1-type "
+          f"levels carry no chi = -1 word on 4194 primes in (1e5, 2e5); seconds = {perf_counter() - t0:.1f}")
+
+
+check_fU()
+
+
 print("\nall checks passed")
