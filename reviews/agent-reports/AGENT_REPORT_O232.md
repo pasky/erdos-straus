@@ -12,6 +12,8 @@ BRAINSTORM/z8_*.md (6, indexed in BRAINSTORM/README.md); scripts scripts/z8_*; c
    Moreover **ν = 4 is the unique numerator whose coprime slot set is exactly the T1-forbidden half** of the c-fibre
    (relative size 1/φ(ν) = 1/2): for 4 the word condition *is* the sign/genus condition; for 8, 12, … it is a proper
    Chebotarev subset (an extra ζ₈-type bit). Check: 8/131, 8/241 — every χ = −1 word has its 4-slot ≡ 4 (mod 8).
+   (R236 repair: "proper subset" only at levels u ≡ 1 (4) with ν ∤ n + u — at ν | n + u the v-slot gives the whole
+   c-fibre; and the 8/131, 8/241 data are only *consistent with* this: ν-slot ⟹ ν/n solvable, not conversely, 8/113.)
 2. **Mixed exponent points (EVIDENCE + description, SIGN_FIELDS §1.4).** n_s = 4^s + 105 is an infinite family with
    **every member in Mordell's hard classes mod 840** and a square mod 3, 5, 7. Certified: Λ ∩ Sq^× = ∅ (unit-square
    screen at L = 360), so the square half of (J)22's criterion holds and only the ET class supply can block a covering.
@@ -38,7 +40,8 @@ BRAINSTORM/z8_*.md (6, indexed in BRAINSTORM/README.md); scripts scripts/z8_*; c
   (−d/r) = −1}"; bounded → B1/B2, growing → B3, summed → B6. Linear disjointness is free; hitting a divisor is the problem.
 
 ## Caveats for the reviewer
-* Thm 2.2(d) is stated for u ≡ 1 (mod 4); for u ≡ 3 (mod 4) the whole c-fibre is forbidden (statement adjusted).
+* Thm 2.2(d) is stated for u ≡ 1 (mod 4); for u ≡ 3 (mod 4) the whole c-fibre is forbidden (statement adjusted). (R236 repair: for ν = 4 at
+  u ≡ 3 (4) the v-slot makes the whole c-fibre a 4-word set, so the coincidence holds there too; see SIGN_FIELDS Thm 2.2(d).)
 * z8_adaptive.py's certificate path and z8_cert_tree.py (replay checker) are written but never produced a terminating certificate (the k = 105 run stalled), so the
   replay checker is untested beyond syntax.
 * Memo z8_mixed_points cites Filaseta–Finch–Kozek from memory (flagged in the memo).

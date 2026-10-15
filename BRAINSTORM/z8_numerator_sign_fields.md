@@ -16,4 +16,5 @@ at levels with √−u ∉ ℚ(ζ_{νu}).
 
 **Assessment.** PROVED (SIGN_FIELDS Prop 2.1, Thm 2.2): t-slot T1 at level u ⟺ √−u ∈ ℚ(ζ_{νu}) (odd A), and this holds for
 all u ⟺ ℚ(i) ⊂ ℚ(ζ_ν) ⟺ 4 | ν. ν = 4 is the unique numerator whose coprime slot set is exactly the forbidden half
-(φ(ν) = 2 and 4 | ν). A clean Galois explanation of a known fact; SHARP as a dictionary, no new existence.
+(φ(ν) = 2 and 4 | ν) — (R236 repair) at levels u ≡ 1 (mod 4) with ν ∤ n + u; at levels ν | n + u the v-slot makes every
+odd A a ν-word for every 4 | ν. Also ν-slot ⟹ ν/n solvable but not conversely (8/113 solvable, no 8-slot). A clean Galois explanation of a known fact; SHARP as a dictionary, no new existence.

@@ -14,8 +14,10 @@ of a sparse family; says nothing about generic primes).
 
 **Cheap numerics.** `scripts/z8_expnear_survey.py`, `z8_expnear_cert.py`: k ≤ 300, c₀ = 1: 13 non-trivial offsets
 (k ≡ 9 mod 24), 9 certified (k = 9, 57, 81, 129, 153, 177, 201, 225, 249; data/z8/), 4 OPEN (33, 105, 273, 297), every
-OPEN k has an integer non-unit square point.
+OPEN k has an integer non-unit square point (R236 repair: so do 6 of the 9 certified k — 9, 57, 129, 153, 201, 225 — so this
+does not discriminate).
 
 **Assessment.** PROVED (computer-assisted, certificates checked): ES for all 4^s + k, k in the list. Modest: these are
 sparse families, and the novelty is that they are near-square families provably out of reach of polynomial families in m.
-They do not touch the hard core (B1/B5).
+They do not touch the hard core (B1/B5). (R236 repair: k = 9, 81, 129, 201, 249 are already Mordell's mod-840 theorem and
+k = 153 adds only a divisor class; the genuinely new coverings are k = 57, 177, 225.)

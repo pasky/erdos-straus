@@ -395,7 +395,6 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z7_haar_strata | goal 3: the "¾" of N₋/U | Haar five-slice mass = 3/4 exactly (pointwise); large-min words obey it, deficit lives in automatic families; Lemma 5.2; **SHARP: all N₋ < U/2 failures at n ≡ 1 (8) have ψ-odd part of n+1 = 3²** | PROVED + EVIDENCE |
 | z7_symbol_blind | goal 1: what a U-proof must supply | ψ(tn+1) ≡ 1: the t-side is symbol-blind; non-certificate unforced words need tn+1 ∉ C_n (anti-Landau kernel); least-NR families fail i.o. | PROVED kernel + EVIDENCE |
 | z7_signed_3sq | goal 4: split on SQ_± and 3SQ | SQ_± records fully forced (0.84–0.94 vs 0.24–0.51); 105 = Jacobi genus collapse, per-prime forcing (Lemma 6.1) explains 3SQ's exception-freeness | EVIDENCE + PROVED lemma |
-
 ## Spark relay Z2 (O232): sign fields — exponential near-squares, numerators, non-genus layer (memos z8_*, deep file SIGN_FIELDS.md; not yet triaged)
 
 | file | idea | outcome | labels |

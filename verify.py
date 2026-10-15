@@ -25655,4 +25655,84 @@ def check_fZ():
 check_fZ()
 
 
+def check_ga():
+    # (ga) NEAR_SQUARE_EXIST (O225/R228): R228 from-scratch — Prop 1.1 (u-side T1 for all u) on all primes p = 1 (4)
+    # < 2*10^5; Thm 2.1 sign-field criterion / Cor 2.2-2.3 classification by brute force (k in {1,4,8,9,16,24}, u <= 100,
+    # t <= 80, m <= 300: no predicted-clean level carries an odd-A chi = -1 word) and against a direct character test
+    # (12 000 u-levels, 7 200 t-levels); R228's even-A proof (k = 0 mod 4); the 3-parameter Type I family (sympy).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("NEAR_SQUARE_EXIST subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r228_prop11.py", "200000"])
+    assert "primes=8977 words(ordered,both orientations)=1103693 table_mismatch=0" in out, out[-2000:]
+    assert "words with p+u coprime-two-squares: 28886; with chi=-1: 0; with that u even: 0" in out, out[-2000:]
+    out = run(["review_r228_signfield.py", "1,4,8,9,16,24", "100", "80", "300"])
+    assert out.count("predicted clean but dirty (odd A): [];") == 12, out[-3000:]
+    assert "Cor2.3 table mismatches vs direct criterion: 0  Cor2.2: 0" in out, out[-2000:]
+    assert "k=24 side=t: predicted clean [1, 2, 5, 7, 12, 15, 22, 26, 35, 40, 51, 57, 70, 77]" in out, out[-2000:]
+    out = run(["review_r228_evenA2.py"])
+    assert "{1: [67, 3065, 0], 3: [18, 840, 0]}" in out, out
+    out = run(["review_r228_cor23wide.py"])
+    assert "checked 12000 u-levels and 7200 t-levels; mismatches: 0" in out, out
+    out = run(["review_r228_family.py"])
+    assert "f - kappa(m-x) = 0" in out and "f2(x) = 0 ; d matches: 0" in out, out
+    print(f"== (ga) NEAR_SQUARE_EXIST R228: Prop 1.1 on 8977 primes; sign-field classification exact (brute force + "
+          f"19 200 levels vs direct character test); even-A k = 0 (4) proof checked; Type I family identity; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_ga()
+
+
+def check_gb():
+    # (gb) SIGN_FIELDS (O232; reviews R235, R236): two independent from-scratch certificate checkers re-certify
+    # Thm 1.3 — ES for ALL n = 4^s + k, k in {9, 57, 81, 129, 153, 177, 201, 225, 249} (PROVED, computer-assisted;
+    # five k are Mordell-immediate, 153 = Mordell + D_13, only 57, 177, 225 are genuine coverings); odd squares in the
+    # families sit in divisor classes; independent ES solutions for s <= 14 for all 13 non-trivial k (incl. OPEN 33, 105,
+    # 273, 297); every non-D class is a non-square class (T1).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    ks = (9, 57, 81, 129, 153, 177, 201, 225, 249)
+
+    def run(args, cwd):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=cwd, env=env)
+        assert r.returncode == 0, ("SIGN_FIELDS subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r236_cert.py"] + [f"../data/z8/cert_c1_k{k}.json" for k in ks] + ["300"], sdir)
+    for k in ks:
+        assert f"cert_c1_k{k}.json: n = 1*4^s + {k}," in out, (k, out[-2000:])
+    assert out.count("-> COVERED; exact to s = 300; small []") == 9, out[-2000:]
+    out = run(["scripts/review_r235_cert.py", "400"], root)
+    assert out.count(" OK  L=") == 9, out[-2000:]
+    for k in ks:
+        assert f"data/z8/cert_c1_k{k}.json OK" in out, (k, out[-2000:])
+    out = run(["review_r235_brute.py", "14"], sdir)
+    for k in (9, 33, 57, 81, 105, 129, 153, 177, 201, 225, 249, 273, 297):
+        assert f"{k} ES ok for s <= 14" in out, (k, out[-2000:])
+    out = run(["review_r236_misc.py"], sdir)
+    assert "(d) no non-D class is a square class mod M: OK" in out, out[-2000:]
+    assert "(b) k=105 n mod 840: [1, 121, 169, 289, 361, 529]; hard s mod 6: [0, 1, 2, 3, 4, 5]" in out, out[-2000:]
+    print(f"== (gb) SIGN_FIELDS R235/R236: ES certified for all 4^s + k, k in {list(ks)} (two independent checkers, "
+          f"exact to s = 400); ES s <= 14 for the 13 non-trivial k; T1 classes OK; 4^s + 105 Mordell-hard for every s; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_gb()
+
+
 print("\nall checks passed")
