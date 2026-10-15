@@ -1,6 +1,8 @@
 # FF_STERILE_SMALL — the small-q sterility cases: q = 27 (r = 3), q = 9, and A = T (k = 1) (O220, wave Y-f)
 
 Status: checkpoint 4 (O220): Thm 3.1 (q = 27, k ≥ 2; R220), Thm 5.2 (q = 9, k ≥ 2), Thm 8.1 (A = T, all q = 3^r, r ≥ 3) PROVED (computer-assisted); open: q = 3 (k ≥ 2), q = 9 (k = 1).
+§§6–8 hostile review R226 (`reviews/ff-sterile-small-review-3.md`): no FATAL/MAJOR; Thm 7.3 independently re-certified for
+3 ≤ r ≤ 19, Lemma 7.4 re-derived; minor repairs m-1..m-6 applied in place ("(R226 repair)").
 Builds on FF_STERILE_PUSH.md ((J)51; notation (B), Lemmas 1.1–1.6, 2.1, 2.2, Thm 3.1), DEPTH_ASPECT.md §2, FUNCTIONFIELD_ES*.md.
 Scripts `scripts/fz_*`.
 
@@ -217,8 +219,10 @@ has u₀ = −E(0) ∈ {−1, −2}. Precisely: Case A with j = 0 forces E const
 Prop 1.4); Case B with j = 0 forces u₀ = −1, and there are exactly the tuples (m', g', w, C) = (T + 2, 1, 1, 1),
 (1, T + 2, T + 1, 1), (1, T + 2, 1, T + 1) (E = T + 1, T² + 3T + 1, T + 1, all with E(0) = 1).
 *Proof.* Case B (j = 0, so γ = 0, s = 1): writing E = L'w − 1, E' = L'C − 1 (E ≡ E' ≡ −1 mod L'), EE' = 1 + TL'g' gives
-m'wC = T + v, w + C = g'v (FUNCTIONFIELD_ES3 Lemma 2.1(a), pure algebra). If z + a + b ≥ 2 then deg v = z + a + b >
-max(a, b) ≥ deg(w + C) = deg(g'v) ≥ deg v (w + C ≠ 0: monic, q odd): impossible. So z + a + b ≤ 1. (z, a, b) = (1, 0, 0):
+m'wC = T + v, w + C = g'v (FUNCTIONFIELD_ES3 Lemma 2.1(a), pure algebra). (R226 repair m-1: if E = 1 or E' = 1 then u₀ = −1
+directly, as E' ≡ −u^{−1}; otherwise E, E' are monic of positive degree, so w, C are monic.) If z + a + b ≥ 2 and z + min(a, b) ≥ 1
+then deg v = z + a + b > max(a, b) ≥ deg(w + C) = deg(g'v) ≥ deg v (w + C ≠ 0: monic, q odd): impossible. (R226 repair m-1: if
+z = 0 and min(a, b) = 0, say C = 1, then w = T + v; for a ≥ 2, deg v = a forces g' = 1 and T + v + 1 = v: impossible.) So z + a + b ≤ 1. (z, a, b) = (1, 0, 0):
 w = C = 1, g'v = 2, g' = 1, v = 2, m' = T + 2, E = T + 1. (0, 1, 0): w = T + v with v constant, w + 1 = g'v, comparing leading
 coefficients v = 1, g' = T + 2, E = (T + 2)(T + 1) − 1 = T² + 3T + 1. (0, 0, 1) symmetric (E = L' − 1 = T + 1). (0, 0, 0):
 m' = 1 = T + v and 2 = g'v force deg v = 1 and deg v = 0: impossible. In all cases E(0) = 1, u₀ = −1.
@@ -252,7 +256,9 @@ z + a + b < s then deg v = s > max(a, b) ≥ deg(g'v)); y + t = max(a, b); E·v 
 C ≡ −w mod v, w² ≡ −wC mod v, v ≡ −T^s mod every factor of m'wC (Lemma 1.3 analogue: V(D) = q^{t−deg D} or 1), and
 w is a unit mod v. (iii) Hence the 19 routes of `scripts/fz1_sum.c` (the k = 1 rows of FF_STERILE_PUSH Lemma 1.6 with
 w₁ → w, C₁ → C, v₁ → v, T^{s−2} → T^s, moduli without the factor T; class bounds with Lemma 1.4 refinement — every
-counted E, w, C, m' is prime to T, every F is prime to T; Lemma 4.1 divisor bounds) are valid upper bounds.
+counted E, w, C, m' is prime to T, every F is prime to T; Lemma 4.1 divisor bounds) are valid upper bounds. (R226 repair m-2:
+here every modulus is T-free, so Lemma 1.4 is used in its repaired form — every counted divisor divides a T-free F, hence is prime
+to T, and every F used with the cofactor version is prime to QT^j.)
 *Check (EVIDENCE):* every route separately vs the exact counts of `fz1_enum` (q = 3, s ≤ 12; q = 5, s ≤ 9; q = 7, s ≤ 8;
 q = 9, s ≤ 9): 0 violations (`scripts/fz1_check_bounds.c`).
 
@@ -281,9 +287,12 @@ slices u₀ ∉ F₃^* is ≤ 9.47 (r = 3; q − 3 = 24), ≤ 27.7 (r = 4; 78), 
 *Proof.* `scripts/fz1_certify.sh 3 19` (log `data/fz/certify_k1.txt`): Case B finite part 2 ≤ s ≤ 80 (`fz1_sum.c`; for r = 3 with
 the exact filtered counts s ≤ 12, `data/fz/enum1_27/`), tail s > 80 (`fz1_tail.c`, all boxes certified), Case A (`fz1_caseA.py`,
 α ≤ 40 exact rationals, for r = 3 with exact filtered counts α ≤ 4; tail Lemma 7.2(b)); certified total ×1.01 < q − 3. ∎
-*Scope.* r ≥ 20 is not certified only for an implementation reason (the fz_sum.c helpers `init_omstar`/`init_rankin` take q as a
-C int); the certified totals converge to ≈ 9.09 (Case B → 7.00, from s = 2, 3 at large q; Case A → 2.00, from α = 1), against
-q − 3 → ∞, so r ≥ 20 is EVIDENCE. **q = 9 (k = 1) is not closed:** exact filtered counts give Case B mass 3.929 for s ≤ 18 (all from
+*Scope.* (R226 repair m-3: superseded by §8 — r ≥ 20 is Lemma 7.4 (PROVED), and the helpers now take a floating q; the original
+text was: "r ≥ 20 is not certified only for an implementation reason ... so r ≥ 20 is EVIDENCE".) The certified totals converge
+to ≈ 9.09 (Case B → 7.00, from s = 2, 3 at large q; Case A → 2.00, from α = 1). *Independent re-certification (R226):* with
+R226's own routes, tail, Case A bound and its own exact q = 27 enumeration (0 filtered tuples for s ≤ 12, confirmed), totals ≤ 18.03
+(r = 3), 31.89 (r = 4), ≤ 19.62 (r ≥ 5) (`reviews/ff-sterile-small-review-3.md` §5). **q = 9 (k = 1) is not closed:** exact filtered counts
+(R226 repair m-6: not archived; R226's independent s ≤ 14 value is 3.92790) give Case B mass 3.929 for s ≤ 18 (all from
 even s; no tuples at odd s ≤ 17) and Case A ≤ 0.671 (exact α ≤ 6), but the route bounds for 19 ≤ s ≤ 80 add 53 > 6 − 4.6
 (CERTIFIED statement about the method; the exact masses decay like 10⁻⁵ at s = 18, so the true sum is very likely ≈ 4.6 < 6, EVIDENCE).
 Contrast: q = 3 has a finite covering ((J)4) — there are no slices u₀ ∉ F₃^*.
@@ -293,7 +302,8 @@ Contrast: q = 3 has a finite covering ((J)4) — there are no slices u₀ ∉ F�
 **Lemma 7.4 (q-uniform bound; PROVED).** For every q = 3^r ≥ 9 the left side of the k = 1 union bound over the q − 3 slices is
 ≤ K(q) := Σ_{s≥2} 2(s+1)³·8^s·q^{e(s)} + Σ_{α≥1} (α+1)³·√8·3^{α/2}·q^{(1−α)/2}, e(s) := ⌊2s/5⌋ − ⌈(s−1)/2⌉ ≤ 0, and K is
 nonincreasing in q.
-*Proof.* Case B, per pattern (s; a, z, y, t) of (B^{k=1}): routes R1 (v, then an ordered triple factorisation of T^s + v:
+*Proof.* Case B, per pattern (s; a, z, y, t) of (B^{k=1}), oriented a ≤ b (R226 repair m-4: w ↔ C, E ↔ E' symmetry; for a > b use
+the C-versions of R3, R4; the orientation gives t = s − σ below and deg(T^s + m'w²) = s): routes R1 (v, then an ordered triple factorisation of T^s + v:
 ≤ q^t·3^s), R2 ((m', g'), then a monic divisor E of 1 + T^s m'g'², degree ≤ 3s since y + z ≤ s: ≤ q^{y+z}·2^{3s}), R3 ((w, g'),
 E ∣ g'T^s + w of degree ≤ 2s: ≤ q^{a+y}·4^s), R4 ((m', w), E ∣ T^s + m'w² of degree s: ≤ q^{z+a}·2^s) — each tuple is
 reconstructed from the data and E (Lemma 7.1; E monic in Case B), N* ≤ q^d, and a degree-n polynomial has ≤ 2^n monic
@@ -302,7 +312,8 @@ min(s − σ, 2σ/3) ≤ 2s/5, hence (integers) ≤ ⌊2s/5⌋: count ≤ 8^s q^
 mass q^{−⌈(s−1)/2⌉} each. e(s) ≤ 2s/5 − (s−1)/2 = 1/2 − s/10, and e(s) ≤ 0 for all s ≥ 2 (checked for s ≤ 600, and
 1/2 − s/10 < 0 beyond). Case A: Lemma 7.2(b) with weight q^{−α}. All exponents of q are ≤ 0, so every term is nonincreasing in q. ∎
 **Computation (`scripts/fz1_largeq.py 20`, log `data/fz/largeq_k1.txt`; exact rationals for s ≤ 600, α ≤ 200, geometric tails
-via e(s) ≤ 1/2 − s/10, fail-closed against underflow):** K(3^20) ≤ 4.192·10⁸ < 3^20 − 3 = 3.487·10⁹. Hence (Σ_{k=1}) holds for
+via e(s) ≤ 1/2 − s/10, fail-closed against underflow (R226 repair m-5: an underflowing tail is replaced by 1e-300, which is not
+an upper bound below e^{−690}; immaterial here; R226's exact-rational re-evaluation `scripts/review_fz1_largeq.py` gives K(3^20) ≤ 4.19188·10⁸)):** K(3^20) ≤ 4.192·10⁸ < 3^20 − 3 = 3.487·10⁹. Hence (Σ_{k=1}) holds for
 every q = 3^r with r ≥ 20.
 
 **Theorem 8.1 (A = T, all r ≥ 3; PROVED, computer-assisted).** For every q = 3^r with r ≥ 3, O(q, T) ≠ ∅: ES_q(T, ·) has no finite

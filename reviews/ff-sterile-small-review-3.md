@@ -1,6 +1,8 @@
 # R226 — hostile review of FF_STERILE_SMALL.md §§6–8 (O220 checkpoints 3–4: A = T, k = 1)
 
 Reviewer: R226 (side agent, branch side-agent/review-ff-small-3). Reviewed: side-agent/ff-sterile-small @ 343353a4.
+**Repairs applied** (author quiet): m-1..m-6 applied to FF_STERILE_SMALL.md §§6–8 in place, marked "(R226 repair)", plus a
+status-line pointer to this review; scripts of the author untouched (m-5 documented only); m-7 concerns the report only.
 Scope: Prop 6.1 / Cor 6.2, the k = 1 reduction "(Σ) on the q − 3 slices ⟹ no finite covering", Lemma 7.1, Lemma 7.2,
 Theorem 7.3 (3 ≤ r ≤ 19), Lemma 7.4 / Theorem 8.1 (r ≥ 20), the q = 9 (k = 1) CERTIFIED statement, the odd-s observation.
 §§1–5 are out of scope (R220, R221).
