@@ -46,12 +46,26 @@ g ≡ −1 (mod 4Q^{(e)}), Q^{(e)} = ∏ ℓ^{max(1, v_ℓ(Q) − e)}; with e :=
 **Corollary 1.2 (all odd n; PROVED).** For every odd n > 1, e*(n) ≤ q*(n) − 3 (or 0), where:
 (a) if some prime ℓ ≡ 3 (4) divides n, e*(n) = 0 (ES(ℓ) by 4/ℓ = 1/((ℓ+1)/4) + 1/(ℓ(ℓ+1)/2) + 1/(ℓ(ℓ+1)/2), scaled);
 (b) if n is a non-square with all prime factors ≡ 1 (4), q*(n) := least prime with (i)–(iii) (exists by Dirichlet:
-the conditions are one Frobenius class in Gal(ℚ(i, √2, √n)/ℚ) ≅ (ℤ/2)³, n ≡ 1 (4) non-square — see Remark 1.4);
+one class mod 8·rad(n), see Thm 1.3(b));
 (c) if n = a² (a odd, all primes ≡ 1 (4)), fix a prime p | a and let q*(n) := least prime with (i)–(iii) for p and
 additionally q ≢ −p (mod ℓ) for every prime ℓ | a, ℓ ≠ p. Apply Thm 1.1 to p: gcd(K, n) = 1, so q is prime to n,
 and 4/n = 1/(kx) + 1/(ky) + 1/(kz) (k = n/p) keeps den(kz) = q², rad q | ky.
 *T1 check.* For n = a², (q/n) = 1 for every q ∤ n, so condition (iii) is never met at n itself: Thm 1.1 never fires at
 an odd square (consistent with T1 / FROBENIUS_FIRING Thm 4.2(b)); (c) routes through the non-square divisor p.
+
+**Theorem 1.1′ (composite windows; PROVED, elementary).** Thm 1.1 holds verbatim for any positive integer m
+(in place of q) with m ≡ 4 − n (mod 8), gcd(m, n) = 1, **every prime factor q_i of m satisfying q_i ≡ 3 (mod 4) and
+(q_i/n) = −1**; then e ≤ λ(m) − 2 < m (λ = Carmichael).
+*Proof.* K = (n+m)/4 is odd, gcd(K, mn) = 1 as before. G := (ℤ/m)^* = ∏(ℤ/q_i^{k_i})^*, each factor {±1} × (odd
+order) since q_i ≡ 3 (4); so G = E × U with E ≅ (ℤ/2)^r the sign part and U = G² of odd order, and an element is a
+square iff its image in E is trivial. Image of K in E: (K/q_i) = (n/q_i) (as 4K ≡ n mod q_i) = (q_i/n) = −1 for all i, i.e.
+K ↦ (−1, …, −1), the image of −1. Write K = εu (ε ∈ E, u ∈ U) with ε = image of −1; for o := ord(u) (odd),
+K^o = ε^o = ε = −1 (as −1 ∈ E is the element (−1, …, −1)). So −1 ∈ H := ⟨S⟩, −K ∈ H ∩ U, and an odd-order element of
+H is a square of an element of H: Q² ≡ −K (mod m) with Q ∈ ⟨S⟩. The shot step is unchanged (it used only s | K ⇒
+m ≡ −n (mod s), and g ≡ 3 (4)). ∎
+*Remark.* The prime factors of m are all ≡ 3 (mod 8) or ≡ 7 (mod 8); m ≡ 4 − n (mod 8) with an odd number of factors
+forces at least one prime factor in the class 4 − n mod 8. So the least composite window is never smaller than q*(n);
+composite windows add *many more* windows (useful for small e, §3), not a smaller bound.
 
 **Theorem 1.3 (size of q*(n); PROVED relative to the cited theorems).**
 (a) *Unconditional, explicit (n squarefree, e.g. n = p prime).* For squarefree n in case (b), (i)–(iii) say that q is
