@@ -33,9 +33,10 @@ The menu M₁[φ] := all such families (any degree, any class). M₁[linear] = E
 
 **Theorem A (witness reciprocity; PROVED).** No family of M₁[φ] has a class C whose closure in Ẑ meets Ster(φ).
 *Proof.* Let D = D̃/g with D̃ ∈ ℤ[u], g ∈ ℕ, and α := D̃(θ) ∈ A. If α is a zero divisor, a non-constant common factor h of
-D̃ and φ gives h(u) | gcd(D̃(u), φ(u)) with |h(u)| > 1 for large u, so (D/n) = 0 ≠ −1; hence α ∈ A^×. Let u* ∈ Ster(φ) ∩
-closure(C) with its γ, and let S be a finite set of primes containing 2, the primes of g, lc(φ), disc(φ), the index of
-ℤ[θ] in the maximal order, and all primes below places where α or γ is not a unit. Pick u ∈ C, u larger than every real
+D̃ and φ gives h(u) | gcd(D̃(u), φ(u)) with |h(u)| > 1 for large u; as g is fixed, h(u)/gcd(h(u), g^∞) > 1 for large u still
+divides gcd(D(u)·g, n), so (D/n) = 0 ≠ −1; hence α ∈ A^×. Let u* ∈ Ster(φ) ∩
+closure(C) with its γ, and let S be a finite set of primes containing 2, the primes of g, lc(φ), disc(φ), the conductor
+of the order ℤ[1/lc(φ)][θ] away from lc(φ) (R-O240 repair: ℤ[θ] need not be an order), and all primes below places where α or γ is not a unit. Pick u ∈ C, u larger than every real
 root of φ, with u ≡ u* modulo a high power of every ℓ ∈ S (possible by CRT as u* ∈ closure(C)); then φ(u) ≡ φ(u*) is
 prime to S, φ(u) ≡ 1 (8), and (u − θ)/(u* − θ) ∈ (A ⊗ ℚ_ℓ)^{×2} for ℓ ∈ S (u* − θ is invertible in A ⊗ ℚ_ℓ as φ(u*) ≠ 0;
 squares are open). For a prime q ∉ S, q | φ(u): u − θ is integral at the places 𝔮 | q, v_q(φ(u)) = Σ_{𝔮|q} f_𝔮 v_𝔮(u − θ),
@@ -48,8 +49,9 @@ the same computation with α = g gives (g/φ(u)) = +1, so (D(u)/φ(u)) = +1, con
 Special cases (all previously proved separately; Theorem A unifies them):
 * φ = qu + r (ET classes): A = ℚ, γ = q·(square) turns (ii) into "φ(u*) is a profinite unit square" — Schinzel/Mordell
   (ET p. 7–8) and EXPONENT_COVERING Thm 1.2, Sq^× ⊂ S.
-* An integer u₀ larger than every real root with φ(u₀) an odd square: γ := (u₀ − θ)⁻¹ is totally positive, so u₀ ∈ Ster(φ)
-  whenever φ(u₀) ≡ 1 (8) — NEAR_SQUARE Thm 3.3 (the "largest real root" of Lemma 3.2 is exactly total positivity of γ).
+* An integer u₀ larger than every real root with φ(u₀) = 1: γ := (u₀ − θ)⁻¹ is totally positive, so u₀ ∈ Ster(φ). (R-O240 repair:
+  an integer T1 point with φ(u₀) an odd square > 1 is NOT a unit point, hence not in Ster(φ); it is obstructed by NEAR_SQUARE
+  Thm 3.3 directly — the "largest real root" there plays the role of total positivity of γ here.)
 * φ = m² − j: γ = 1 gives NEAR_SQUARE Thm 3.4 (Z_K⁺); Theorem A adds the twists by totally positive γ.
 * Two variables: the same computation with A = the norm-form algebra is the mechanism behind POINTWISE_BINARYFORM §4.1.
 
@@ -73,14 +75,19 @@ which contains odd squares; Schinzel/Thm 1.2 forbid identities *polynomial in n*
 X = ((n − 1)/48)^{1/4}. In Theorem A terms: φ(X) = 48X⁴ + 1, X* = 1/2 at odd ℓ, X* = 0 at 2; X* is the rational point
 (1/2, 2) of w² = φ(X) at odd places glued with the rational point (0, 1) at 2, and the witness algebra pairs non-trivially
 with that glued adelic point (the pairing reduces to the places above 2).
-*T1 control.* 3·2^s + 1 is a square only for s = 0, 3 (25); neither lies in the class. Exact numeric re-check of the solution
+*T1 control.* 3·2^s + 1 is a square only for s = 0, 3, 4 (4, 25, 49); none lies in the class. Exact numeric re-check of the solution
 for all s ≡ 0, 12 (mod 40), s ≤ 4000 (`z15_proth_identity.py`).
 
 **Why the first searches missed it (PROVED obstruction for the naive window menu).** Prop 4.1. Let c + 1 = 4^i, n_s = c·2^s + 1,
 and let a constant-window Lemma-1.1 class (window m ≡ 3 (4), atoms = factors in ℤ[U] of K(U) = (n + m)/4, U = 2^{(s−j)/e},
 divisor d = λ·Πatoms^{k}) contain a neighbourhood of μ = 0. Then m ≡ 3 (mod 8) and v₂(d(ρ)) is odd, where ρ = 2^{−j/e}.
-*Proof.* Near μ = 0, U ≡ ρ (mod m) and n ≡ c + 1 = 4^i (mod m), so K ≡ 4^{i−1}, and d(U) ≡ d(ρ) (mod m), a rational number
-whose odd primes all divide N₀ := 4^i + m (they divide K(U) on the class, hence K(ρ) = N₀/4). For an odd prime q | N₀,
+*Proof.* The class contains all s ≡ 0 (mod L) for some L; it requires e | s − j, so (taking e | L) e | j and ρ = 2^{−j/e} is
+rational (R-O240 repair: made explicit; the same holds for SG with 4 | s − j − 2, ρ = 2^{−(j+2)/4}). Taking s ≡ 0 modulo
+L·ord_m(2)·(odd part of the class modulus)^∞, U → ρ in every ℤ_q, q odd: hence U ≡ ρ (mod m), n ≡ c + 1 = 4^i (mod m),
+K ≡ 4^{i−1}, d(U) ≡ d(ρ) (mod m). The odd primes of the rational d(ρ) all divide N₀ := 4^i + m: atom values f(ρ) ∈ ℤ[1/2] have
+product (with multiplicity, times the content) K(ρ) = N₀/4; an odd prime q of λ (numerator or denominator) divides K(U) on the
+whole class, so either q divides the content of K(U) (then q | K(ρ)) or q divides the class modulus and U → ρ q-adically, so again
+q | K(ρ). For an odd prime q | N₀,
 −m ≡ 4^i is a square mod q, so (q/m) = (−m/q) = 1 (Jacobi reciprocity, m ≡ 3 (4)). Hence (d(ρ)/m) = (2/m)^{v₂(d(ρ))},
 while d ≡ −K forces (d/m) = (−1/m) = −1. ∎ So windows m ≡ 7 (mod 8) (all m = c·2^j w − 1 with j ≥ 3, the shapes searched by
 `z15_proth_mu0.py`: 0 hits) are dead at μ = 0; j = 2 (m ≡ 3 (8)) needs an algebraic factorisation of 2^{s−2} + w with
@@ -124,7 +131,8 @@ Sophie-Germain window with parameter t fires iff 4ct⁴ − 1 divides N_{a,x,y}(
 (g± = 2t² ± 2t + 1) for some admissible exponents. m(t) = 4ct⁴ − 1 is irreducible over ℚ (t⁴ − 1/(4c) factors only if
 1/(4c) is a square or −4·(fourth power)). So either m | N in ℚ[t] (a polynomial family of windows, firing for every t) or
 Res(N, m) ≠ 0, and m(t) | N(t) ⟹ m(t) | Res(N, m) (Bezout over ℤ, gcd(m(t), 4c) = 1), bounding t. For c = 3 the first case
-never occurs (`z15_sg_mu0_complete.py 3`, all 81 exponent vectors). ∎ (Derivation: near μ = 0,
+cannot occur for any c (R-O240 repair): m has the positive real root τ = (4c)^{−1/4}, and N(τ) = Πq^{a_q}g₊(τ)^x g₋(τ)^y
++ 4^{i−1}2^{x+y} > 0 since g± > 0 on ℝ; so Res(N, m) ≠ 0 always. (`z15_sg_mu0_complete.py 3` confirms for all 27 vectors.) ∎ (Derivation: near μ = 0,
 X ≡ 1/2, f± ≡ g±/2, K ≡ 4^{i−1} mod m; clear the unit 2^{x+y}.)
 
 **4.2 Reading.** For the (J)22 / (J)68 unit-square points the obstruction to ET/divisor menus is that n* is a profinite unit
@@ -162,11 +170,12 @@ So the mechanism of Theorems B/C — the parameter lives on a thin curve where t
 from the square class of n — is *by construction* unavailable on a positive-density set of primes. The positive-density
 parametrisations of primes are norm-form/binary-form representations p = N(x) (Fermat, Hecke): there element squares
 x = y² give actual squares N(y)², which are Zariski-dense in every congruence class and sector, so the old T1 argument
-survives: POINTWISE_BINARYFORM Thm 3.2/Cor 3.4 (PROVED for positive definite binary quadratic forms; Assessment for higher
-norm forms, where the same argument needs Hecke equidistribution of prime elements in ray classes and sectors). The
-remaining "parameters" defined at every prime are divisors of polynomial expressions in p — exactly the moving-modulus
-divisor lottery B2. **Answer to (2): no algebraic/exponential window family passes through the (J)54 points in the
-sense needed (covering all primes near them); the obstruction is B2 + density, not T1.** (Assessment for the norm-form clause.)
+survives on square-compatible classes: POINTWISE_BINARYFORM Thm 3.2/Cor 3.4 (PROVED for positive definite binary quadratic
+forms under its modulus hypotheses; R-O240 repair: squares are not dense in *every* class, only in square classes; higher norm
+forms: Assessment). Prop 5.1 excludes finitely many thin items only; it does not classify all positive-density
+parametrisations. Assessment: the natural remaining parameters defined at every prime are divisors of polynomial expressions
+in p — the moving-modulus lottery B2. **Answer to (2) (PROVED for thin menus, Assessment beyond): finitely many algebraic/
+exponential window families cannot cover all primes near the (J)54 points.**
 
 ## 6. Question (4): function fields
 Prop 5.1 holds verbatim in F_q[T] (deg φ ≥ 2 in u ∈ F_q[T] gives q^{n/2}-sized images in degree n), so CONJECTURE 0.2's
@@ -180,7 +189,7 @@ supply of moving divisors that powered Theorem C collapses in characteristic p (
 | menu (parameter complexity) | domain | sterile set contains | status |
 |---|---|---|---|
 | M₀: ET/divisor classes, polynomial in n | residue classes of n | profinite unit squares Sq^× (Schinzel; EXPONENT_COVERING 1.2/1.4) | PROVED |
-| M₁[φ]: polynomial in u, n = φ(u) | classes of u (thin if deg φ ≥ 2) | Ster(φ): 2-descent classes u* − θ ∈ γ·□ (Theorem A) | PROVED (⊇); = open |
+| M₁[φ]: polynomial in u, n = φ(u) | classes of u (thin if deg φ ≥ 2) | Ster(φ): 2-descent classes u* − θ ∈ γ·□ (Theorem A, unit locus) + integer T1 points (Thm 3.3) | PROVED (⊇); equality on the unit locus open |
 | M₁, deg φ = 2 (near squares) | m-classes | Z_K⁺ (NEAR_SQUARE 3.4), Z_k^□ (2.2) | PROVED |
 | M₁ ∘ algebraic (m = 16v³) | v-classes | Z_k^□ NOT sterile (Prop 3.1) | PROVED |
 | M_exp: windows m = c·2^j w − k with algebraic budget (cyclotomic, Sophie Germain) | s-classes of c·b^s + k | μ = 0 of 3·2^s + 1, 7·4^s + 9 NOT sterile (Thm B, §4.1); constant windows m ≡ 7 (8) blocked at μ = 0 (Prop 4.1); SG menu finite at μ = 0 (Prop 4.3) | PROVED + EVIDENCE |
@@ -191,6 +200,7 @@ supply of moving divisors that powered Theorem C collapses in characteristic p (
 **4.3 T1 control explains the two dead residues (PROVED).** The SG window-11 menu fires at every s ≡ 0 (mod 4) except
 s ≡ 4, 24 (mod 40), i.e. X ≡ 1, −1 (mod 11). These are exactly the neighbourhoods of the integer T1 points X = ±1 of
 φ(X) = 48X⁴ + 1: φ(±1) = 49 = 7² (s = 4: 3·2⁴ + 1 = 49). φ has no real root, so by NEAR_SQUARE Thm 3.3 (= Theorem A with
-γ = (±1 − θ)⁻¹) no polynomial-in-X family whatsoever is valid on a class containing X = ±1. Numerically 48X⁴ + 1 is a square
+not via Theorem A: φ(±1) = 49 is not a unit — R-O240 repair) no Type I/II polynomial-in-X family is valid on a class containing
+X = ±1 (divisor families by 7 do exist there, e.g. (2n/7, 15n/7, 30n) on X ≡ 1 (mod 7)). Numerically 48X⁴ + 1 is a square
 for no X ≡ 4, 6 (mod 11), X < 2·10⁶, and for no X < 10⁵ except X = 1. These residues are handled by ET classes in Theorem C
 (they are not near a unit-square point of the s-family).

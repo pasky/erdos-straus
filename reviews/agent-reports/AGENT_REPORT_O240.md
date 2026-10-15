@@ -13,7 +13,7 @@ Sophie Germain factorisation 4X⁴ + 1 = (2X² + 2X + 1)(2X² − 2X + 1), X = 2
 exactly the neighbourhoods of the integer T1 points X = ±1 (n = 49 = 7²) — and 6 ET/divisor classes (moduli 5, 7, 15, 61)
 cover the rest. Second sharp item: **Theorem A (witness reciprocity)**: the sterile set of the menu "identities polynomial
 in u on n = φ(u)" contains the 2-descent set {u* : γ(u* − θ) locally square everywhere, γ ∈ ℚ[u]/(φ) totally positive};
-it unifies Schinzel/Mordell, NEAR_SQUARE Thm 3.3 and 3.4, and identifies one-parameter sterility with a Brauer/2-cover-
+it unifies Schinzel/Mordell and NEAR_SQUARE Thm 3.4 (integer T1 points with φ(u₀) > 1 stay with Thm 3.3 — R-O240 repair), and identifies one-parameter sterility with a Brauer/2-cover-
 descent pairing on w² = φ(u).
 
 ## Results
@@ -24,15 +24,22 @@ descent pairing on w² = φ(u).
   solutions s ≤ 1500; ~2 s). Builder `z15_cert_proth_make.py 3 360 3000 OUT 0,8,12,16,20,28,32,36`.
 * Prop 4.1 (PROVED): constant windows m ≡ 7 (mod 8) never fire at μ = 0 of c·2^s + 1, c + 1 = 4^i (Jacobi); this kills all
   cyclotomic windows there and is why O238-style windows fail. Prop 4.3 (PROVED): the Sophie-Germain menu at μ = 0 is
-  finite (resultant bound). EVIDENCE: no SG window fires at μ = 0 for c = 15, 63 (t ≤ 301), 255 (t ≤ 15).
+  finite (resultant bound; m ∤ N identically since m has a positive real root where N > 0 — R-O240 repair). EVIDENCE: no SG window found at μ = 0 for c = 15, 63 (t ≤ 301), 255 (t ≤ 15).
 * Prop 3.1 (PROVED): NEAR_SQUARE Thm 2.2 does not extend to families polynomial in an algebraic function of m
   (O238's class as m = 16v³ meets Z_105^□) — answers O238 spark 5 negatively for the naive extension.
-* Prop 5.1 (PROVED, elementary) + Assessment: thin (root/exponential/window) menus cannot help at the (J)54 sterile Mordell
-  points (positive-density prime targets); positive-density parametrisations (norm forms) keep T1 via element squares ((J)3
-  for d = 2). Answer to brief item (2): no; the residual obstruction for primes is B2 + density.
+* Prop 5.1 (PROVED, elementary): finitely many thin (root/exponential/window) items cannot cover all primes near the (J)54
+  sterile Mordell points. Assessment (R-O240 narrowed): norm-form parametrisations keep T1 on square-compatible classes ((J)3,
+  d = 2, under its hypotheses); remaining parameters at every prime are divisors (B2).
 * §6 (Assessment): F_q[T] — Frobenius kills the Aurifeuillean divisor supply; Carlitz-cyclotomic divisors are the analogue.
 * §4.1 EVIDENCE: 7·4^s + 9 ((J)68 sterile at μ = 0): μ = 0 covered by SG window m = 19; 2 of 1785 lifts left at L* = 128520, and they reproduce (1 lift each) at L* = 1413720 — self-similar stuck nodes, not decided.
 * Menu ladder table: MENU_STERILITY §7.
+
+## Self-review (codex deep, R-O240) — repairs applied
+No FATAL; Theorems B/C re-run and confirmed (coverage of all s: ET periods divide 360, SG residues depend on s mod 40;
+Cor 1.5 + Thm 1.4 indeed exclude ET/divisor coverings). MAJOR repaired: Theorem A does not contain integer T1 points with
+φ(u₀) > 1 (not units; Thm 3.3 handles them; §4.3 attribution fixed, "Type I/II" qualifier added); Prop 4.3's general
+finiteness now proved (real-root argument); density conclusions of §5 narrowed. Minors: ℤ[θ] → ℤ[1/lc][θ]; squares
+s = 0, 3, 4; 27 vectors; Prop 4.1 proof expanded (e | j, odd-prime support); checker always covers s < 10.
 
 ## Honest caveats for the reviewer
 * Theorem C's ET part uses the z8/ec_cover machinery (`ec_cover.certificate`); my checker re-verifies the JSON

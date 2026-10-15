@@ -7,14 +7,14 @@ N₀ = 4^i + m, where −m is a square; Jacobi reciprocity gives (d/m) = (2/m)^{
 ## Results (MENU_STERILITY Prop 4.1, 4.3; PROVED)
 * windows m ≡ 7 (mod 8) never fire at μ = 0; cyclotomic windows (e | j ⟹ j ≥ 3) are all of this kind;
 * j = 2 Sophie-Germain windows m = 4ct⁴ − 1: firing ⟺ m(t) | N(t) (explicit, deg ≤ 8); m irreducible ⟹ finitely many t
-  unless m | N identically (never for c = 3). So the SG menu at μ = 0 is a FINITE menu: an arithmetic accident.
+  (m | N identically is impossible: real root τ of m, N(τ) > 0). So the SG menu at μ = 0 is a FINITE menu: an arithmetic accident.
 ## Literature
 Jacobi reciprocity; resultant/Bezout bound.
 ## Barrier screen
 This is a B1-type theorem for a richer menu: the window menu at a glued point is finite and Jacobi-constrained.
 ## Cheap numerics
 `z15_proth_mu0.py 3 12 36 81` (0 cyclotomic hits); `z15_mu0_sg.py c 1 T`: c = 3 fires only at t = 1 (t ≤ 41);
-c = 15, 63 never (t ≤ 301); c = 255 never (t ≤ 15). `z15_sg_mu0_complete.py 3`: no identical divisibility.
+none found for c = 15, 63 (t ≤ 301) or c = 255 (t ≤ 15). `z15_sg_mu0_complete.py 3`: 27 vectors.
 ## Assessment
 PROVED (Props 4.1, 4.3) + EVIDENCE (c = 15, 63, 255 negative). Steering: whether μ = 0 of 15·2^s + 1 is sterile for ALL
 polynomial-in-X families is open (Theorem A does not decide it).

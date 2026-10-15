@@ -5,8 +5,8 @@ Every Type I/II polynomial family on n = φ(u) carries a witness D(u) with (D/φ
 A = ℚ[u]/(φ), α = D(θ), Hilbert reciprocity in A turns (D(u)/φ(u)) into Π_{v∈S∪∞}(α, u − θ)_v — the evaluation of the
 quaternion (Brauer) class cor(α, u − θ) on the double cover C_φ: w² = φ(u). Sterile points of the menu M₁[φ] therefore
 contain the adelic points whose descent class u* − θ is globally a totally positive γ⁻¹ times local squares
-(MENU_STERILITY Theorem A, PROVED). Special cases: Schinzel (deg 1), NEAR_SQUARE Thm 3.3 (integer T1 points: γ = (u₀ − θ)⁻¹,
-"largest real root" = total positivity), Thm 3.4 (deg 2, γ = 1).
+(MENU_STERILITY Theorem A, PROVED). Special cases: Schinzel (deg 1), Thm 3.4 (deg 2, γ = 1); integer T1 points with φ(u₀) > 1 are not unit points and
+stay with NEAR_SQUARE Thm 3.3 (R-O240 repair).
 ## Literature
 Two-cover descent / fake 2-Selmer sets: N. Bruin, M. Stoll, Math. Comp. 78 (2009) 2347–2370; descent and Brauer–Manin:
 A. Skorobogatov, *Torsors and rational points* (CUP 2001). Mordell/Schinzel on polynomial ES identities via ET (2013) p. 7–8.
@@ -18,5 +18,5 @@ object in A; nothing about single primes.
 `scripts/z15_twoadic_mu0.py 3 7`: at μ = 0 of 3·2^s + 1 the class θ(θ − ρ) is not a 2-adic square for e = 3, 5, 7, so
 Theorem A does not certify sterility there — and indeed Theorem C (memo z15_proth_sophie_germain) covers it.
 ## Assessment
-PROVED (⊇). Whether Ster(φ) is the full sterile set of M₁[φ] (the analogue of CONJECTURE Y10-S) is open; for genus ≥ 2
+PROVED (⊇, unit locus). Whether Ster(φ) is the full sterile set on the φ-unit locus of M₁[φ] (the analogue of CONJECTURE Y10-S) is open; for genus ≥ 2
 (deg φ ≥ 5) Bruin–Stoll fake Selmer sets are often empty, which would predict *no* T1-type obstruction for such menus.

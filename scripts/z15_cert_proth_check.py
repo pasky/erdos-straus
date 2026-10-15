@@ -6,7 +6,7 @@ import sys, json
 from fractions import Fraction as F
 from math import comb, isqrt
 import sympy as sp
-C=json.load(open(sys.argv[1])); SMAX=int(sys.argv[2]) if len(sys.argv)>2 else 1500
+C=json.load(open(sys.argv[1])); SMAX=max(9,int(sys.argv[2]) if len(sys.argv)>2 else 1500)   # R-O240: always cover s < 10
 c0=C['c0']; assert c0==3 and C['k']==1 and C['b']==2
 n=sp.Symbol('n'); X=sp.Symbol('X')
 def intvalued(P,var,r,M):

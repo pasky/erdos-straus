@@ -462,9 +462,9 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | memo | idea | result | label |
 |---|---|---|---|
 | z15_proth_sophie_germain | Sophie-Germain window m = 11 through the ET-sterile point μ = 0 of 3·2^s + 1 | **ES for all 3·2^s + 1** (proved ET/divisor-uncoverable family) — SHARP | PROVED (computer-assisted) |
-| z15_witness_descent | witness symbol = Brauer/2-descent pairing on w² = φ(u) | Theorem A: sterile set of one-parameter menus ⊇ descent set; unifies Schinzel, Thm 3.3, 3.4 | PROVED |
+| z15_witness_descent | witness symbol = Brauer/2-descent pairing on w² = φ(u) | Theorem A: sterile set of one-parameter menus ⊇ descent set (unit locus); unifies Schinzel, Thm 3.4 | PROVED |
 | z15_window_jacobi_mu0 | constant windows at glued rational points | m ≡ 7 (8) dead at μ = 0; SG menu at μ = 0 is finite (resultant) | PROVED + EVIDENCE |
 | z15_near_square_algebraic | Thm 2.2 for m = 16v³ | Z_105^□ not sterile for polynomial-in-v families | PROVED |
 | z15_density_thin | thin menus vs (J)54 points | cannot help on positive-density prime sets; norm forms keep T1 | PROVED (thin) + Assessment |
 | z15_ff_frobenius | F_q[T] analogue | Frobenius kills Aurifeuille; Carlitz divisors as spark | Assessment |
-| z15_other_sterile_families | 7·4^s + 9, 15·2^s + 1, … | 7·4^s + 9: μ = 0 covered (m = 19), 2/1785 lifts left; c = 15, 63, 255: no SG window at μ = 0 | EVIDENCE |
+| z15_other_sterile_families | 7·4^s + 9, 15·2^s + 1, … | 7·4^s + 9: μ = 0 covered (m = 19), 2/1785 lifts left; c = 15, 63, 255: no SG window found at μ = 0 (stated bounds) | EVIDENCE |
