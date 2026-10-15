@@ -46,6 +46,8 @@ int main(int argc,char**argv){ int SMAX=atoi(argv[1]); long ntup=0;
         if(df.d>=0){ fprintf(stderr,"identity fail\n"); return 1; }
         if(E.c[E.d]!=1||Ep.c[Ep.d]!=1){ fprintf(stderr,"non-monic\n"); return 1; }
         int N=(s+1)/2, dep=N+1; printf("%d %d ",s,dep);
-        for(int i=0;i<dep;i++){ int x=(i<=E.d?E.c[i]:0); printf("%d",(3-x)%3); } printf("\n"); ntup++;
+        for(int i=0;i<dep;i++){ int x=(i<=E.d?E.c[i]:0); printf("%d",(3-x)%3); } if(getenv("FULL")){ printf(" a=%d b=%d E=",a,b); for(int i=0;i<=E.d;i++) printf("%d",E.c[i]);
+          printf(" w1="); for(int i=0;i<=w1.d;i++) printf("%d",w1.c[i]); printf(" C1="); for(int i=0;i<=C1.d;i++) printf("%d",C1.c[i]); }
+        printf("\n"); ntup++;
       } } } }
   fprintf(stderr,"tuples %ld\n",ntup); return 0; }
