@@ -10,6 +10,7 @@ from math import gcd, lcm
 from collections import defaultdict
 from sympy import n_order, factorint, primerange
 import mordell_lib as ML
+import numpy as np
 
 c0, k, H, QMAX, MMAX, LCAP, NODEMAX = map(int, sys.argv[1:8])
 OUT = sys.argv[8] if len(sys.argv) > 8 else None
@@ -86,11 +87,17 @@ print('moduli with hits: %d, periods: %d, total residues %d, %.1fs' % (ncls, len
                                                                    time.time() - t0), flush=True)
 
 
-@functools.lru_cache(None)
-def cnt(Lp, dd):
-    c = defaultdict(int)
-    for s in per[Lp]: c[s % dd] += 1
-    return c
+HP = sorted(factorint(H))
+hexp = np.array([factorint(H)[l] for l in HP])
+
+
+def evec(x):
+    f = factorint(x)
+    return np.array([f.get(l, 0) for l in HP])
+
+
+PE = np.array([evec(Lp) for Lp in plist])
+parr = plist
 
 
 def leafclass(L, u):
@@ -107,17 +114,27 @@ stuck = []
 
 
 def best_split(L, u):
+    le = evec(L)
+    divL = (PE <= le).all(1)
     best = None
-    for Lp in plist:
-        if L % Lp == 0: continue
-        T = lcm(L, Lp)
+    seen = set()
+    for i in np.nonzero(~divL)[0]:
+        te = np.maximum(le, PE[i])
+        if (te > hexp).any(): continue
+        tk = tuple(te)
+        if tk in seen: continue
+        seen.add(tk)
+        T = 1
+        for l, e in zip(HP, te): T *= l ** int(e)
         g = T // L
-        if g > GMAX or T > H or H % T: continue
-        dd = gcd(L, Lp)
-        c = cnt(Lp, dd).get(u % dd, 0)
+        if g > GMAX: continue
+        newp = [parr[j] for j in np.nonzero((PE <= te).all(1) & ~divL)[0]]
+        c = 0
+        for j in range(g):
+            x = u + j * L
+            if any(x % Lp in per[Lp] for Lp in newp): c += 1
         if not c: continue
-        frac = c / (Lp // dd)
-        key = (frac / (1 + 0.15 * (g - 1) ** 0.5), -g)
+        key = (c / g, -g)
         if best is None or key > best[0]: best = (key, T)
     return best
 

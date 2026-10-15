@@ -37,3 +37,10 @@ one of the 2¹⁵ binary patterns σ ∈ {4, −2}^S lies in an ET/divisor class
 II2 1787 (19:A,47:B), II2 27551 (19:A,29:B), II1 32008 (2:B,5:A; period 2²5³), II1 213384 (2:A,3:B,29:A).
 With ℓ ≤ 23 only two patterns remain (B exactly on {3,13,17} or {3,13,17,23}). Hence the binary mixed-point Cantor set
 C = Π_ℓ{4, −2} of k = 105 contains **no sterile point** and is covered by 10 classes (pattern check exact over 2¹⁵).
+
+**Fibre coverage at the hard core (EVIDENCE, `z11_fiber.py 1 105 23 4 29 113 10⁶ 3·10⁵ 3:-2 13:-2 17:-2`).** Freeze the
+uncovered binary point σ₀ (μ_ℓ = −2 exactly for ℓ ∈ {3, 13, 17}, = 4 for the other ℓ ≤ 23) and let μ_ℓ = c vary for one
+larger ℓ. Classes with period support in {ℓ ≤ 23} ∪ {ℓ} cover 26/29 residues c mod 29 (missing 6, 9, 13), 24/31, 27/37, …,
+62/113. So the neighbourhood of σ₀ needs a genuinely multi-ℓ tree; no single fibre is full at this class supply.
+The *tree* must split one prime at a time (single ℓ-steps scored by covered fraction): z11_tree's multi-prime jumps import
+large ℓ greedily and exhaust the node budget (200 000 nodes, H = 2⁶3⁴5³7²·∏_{11≤ℓ≤47}ℓ).
