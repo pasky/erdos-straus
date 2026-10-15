@@ -130,3 +130,36 @@ transfer its *average* strength to ES, nor conversely.
 * Heuristic (Assessment): expected tickets ≈ 2 log n (Poisson failure ≈ n^{−2}, summable), so finitely many exceptions
   are expected; the slots |u| ≤ 6 alone fail with probability ≍ (log n)^{−9/2}. As for the t-slots (SPARKS4 §2.4), no
   finite u-set should suffice (Dickson-type construction; not carried out here).
+
+### 1.2 Upgrade: the certificate cube with overflow — exponent (e+2)/(e+3)
+
+**Proposition 1.3 (overflow cube; PROVED, elementary).** Let ℓ ≡ 3 (mod 4) be prime, K = (ℓ+1)/4 = c₀d₀j, and R odd
+with rad R | c₀ and, for every s | R, v_s(c₀) = v_s(K) (so s ∤ d₀j). If p is a prime, p ∤ R and
+**p ≡ −4c₀²d₀R² (mod ℓ)**, put E := (p + 4c₀²d₀R²)/ℓ, x := (p + E)/4, y := p·c₀d₀j, z := p·x·j/(c₀R²). Then
+4/p = 1/x + 1/y + 1/z with x, y ∈ ℤ_{>0}, **den z = R²**, rad R | y; so it is an ES^{(y,e)}(p) solution as soon as
+v_s(R) ≤ e for all s. (R = 1 is FIXED_MODULUS_SHOTS Lemma 1.1, i.e. Vaughan's classes; d₀ = 1, c₀ = Q₀, R = Q₁ is the
+shot family — the cube point (c₀R², d₀/R², j) of EXPONENT_CAP Cor 1.4 with d₀ free.)
+*Proof.* Lemma 1.1 of FIXED_MODULUS_SHOTS with the rational point (c, d) = (c₀R², d₀/R²): cd = c₀d₀ and c²d = c₀²d₀R²
+are integers, ℓ = 4cdj − 1, and its computation (4(x + c²d) = E(ℓ + 1), so x + c₀²d₀R² = E·K; ℓ ≡ −1 and
+p + 4c₀²d₀R² ≡ p mod 4c₀d₀ give 4c₀d₀ | p + E) is formal: x ∈ ℤ, c₀ | x, and 1/y + 1/z = (x + c²d)/(p·cdj·x) = E/(px)
+= 4/p − 1/x. Valuations: for s ∤ R, v_s(z) ≥ 0 (c₀ | x). For s | R put σ = v_s(K) = v_s(c₀) ≥ 1, ρ = v_s(R) ≥ 1:
+s ∤ p and ℓ ≡ −1 (mod s) give v_s(E) = 0, so in x = EK − c₀²d₀R², v_s(EK) = σ < 2σ + 2ρ, hence v_s(x) = σ and
+v_s(z) = σ + v_s(j) − v_s(c₀) − 2ρ = −2ρ. So den z = R². ∎
+*Check (`scripts/z5_cube_overflow.py 20000 2 0 1`, `… 5000 3 0 2`):* 2 441 (e = 2, ℓ < 2·10⁴) and 753 (e = 3,
+ℓ < 5000) random overflow-cube solutions at large primes p re-verified with exact rationals and Def 1.1 prime by prime.
+
+**Theorem 1.4 (supersedes Thm 1.2; PROVED relative to Bombieri–Vinogradov and Montgomery's large sieve).**
+`  #{p ≤ N prime : ES^{(y,e)}(p) has no solution}  ≪_e  N·exp(−c_e (log N)^{(e+2)/(e+3)}).`
+e = 0 is Vaughan's 2/3; e = 1 gives 3/4, e = 2 gives 4/5.
+*Proof.* As Thm 1.2, with ω'_e(ℓ) := number of triples (c₀, d₀, R): c₀, d₀ odd squarefree coprime, c₀d₀ | K,
+rad R | c₀, v_s(R) ≤ e, s² ∤ K for s | R, and 4c₀²d₀R² < ℓ. The map (c₀, d₀, R) ↦ c₀²d₀R² is injective (d₀ is the
+squarefree kernel, c₀R its square root, c₀ = rad(c₀R)), so these give ω'_e(ℓ) distinct classes −4c₀²d₀R² mod ℓ
+(Prop 1.3). Class mass: for c₀²d₀R² ≤ X^{1/5}, the primes ℓ ∈ (X^{1/2}, X] with ℓ ≡ −1 (mod 4c₀d₀) and
+ℓ ≢ −1 (mod 4s²) for s | R have, by BV with divisor-bounded weights as in Lemma 1.1, reciprocal sum
+(log 2)·∏_{s|R}(1 − 1/s)/φ(4c₀d₀) + error (summably small). The Euler factor of Σ ∏_{s|R}(1−1/s)/φ(c₀d₀) at a prime s
+is 1 + 1/(s−1) [s | d₀] + 1/(s−1) [s | c₀, s ∤ R] + e(1 − 1/s)/(s−1) [s | c₀, 1 ≤ v_s(R) ≤ e] = 1 + (e+2)/s + O(1/s²), and
+the restriction c₀²d₀R² ≤ X^{1/5} keeps a fixed power of log X (restrict all three to ≤ X^{1/(5(2e+3))}), so
+S'_e(X) ≫_e (log X)^{e+2}; the large-sieve step is unchanged with a = e + 2. ∎
+*Reading.* The cap e adds e dimensions to Vaughan's two (c and d of the Type II cube). ES^{(y,e)} with free mute set
+is therefore on average a sieve problem of dimension ≍ (log)^{e+2}; ES itself is the case e = 0. Pointwise nothing
+changes (B6).

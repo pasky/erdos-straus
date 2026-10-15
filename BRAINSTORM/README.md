@@ -356,7 +356,7 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 
 | file | idea | outcome | labels |
 |---|---|---|---|
-| z5_cap_dimension | cap e of ES^{(y,e)} (free S) as a large-sieve dimension: Σω_e(ℓ)/ℓ ≍ (log X)^{e+1} | exceptional primes ≪ N exp(−c_e (log N)^{(e+1)/(e+2)}); e = 2 beats Vaughan's 2/3 | PROVED rel. BV + large sieve |
+| z5_cap_dimension | cap e of ES^{(y,e)} (free S) as a large-sieve dimension: Σω_e(ℓ)/ℓ ≍ (log X)^{e+1} | exceptional primes ≪ N exp(−c_e (log N)^{(e+2)/(e+3)}) via the overflow cube (shots alone: (e+1)/(e+2)); every e ≥ 1 beats Vaughan's 2/3 | PROVED rel. BV + large sieve |
 | z5_pmII_vaughan | Vaughan's classes are prime-modulus Type II certificates | PM-II fails for ≪ N exp(−c log^{2/3} N) primes; covering moduli only h = 3, 7 (≤ 2·10⁴) | PROVED rel. Vaughan; CERTIFIED range |
 | z5_pm_sqpm | prime-modulus words of SQ_±: χ = (n/ℓ), free genus filter, shift slots n + u | exponent 1/2 only (signed twin harder on average); CONJECTURE PM-SQ_±, 0 exceptions ≤ 10⁶, adversarial ok — SHARP | PROVED + CONJECTURE/EVIDENCE |
 | z5_fixed_field_orbits | x-orbits with Δ_x = D₀m_k² in one real quadratic field | no free point (norms ±(16n)^i r²); ring class group ≍ m kills the CL luck | PROVED lemma + Assessment (negative) |

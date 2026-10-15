@@ -15,6 +15,9 @@ weights. Campaign: paper/vaughan-loglog-note.tex (exponent 2/3 with (log log)^{1
 condition g ≡ −1 mod 4Q^{(e)}).
 
 ## Result
+**Upgrade (CAP_GROWING Prop 1.3 + Thm 1.4): the Type II cube with overflow (c, d) = (c₀R², d₀/R²) gives
+exponent (e+2)/(e+3) (e = 0: Vaughan's 2/3; e = 1: 3/4; e = 2: 4/5); 3 194 overflow-cube solutions verified exactly.**
+Shot-only version:
 **Thm (CAP_GROWING Thm 1.2; PROVED relative to BV + large sieve).** #{p ≤ N : ES^{(y,e)}(p) fails}
 ≪_e N exp(−c_e (log N)^{(e+1)/(e+2)}). Shots alone: e = 0 → 1/2, e = 1 → 2/3 (= Vaughan, who needs the whole Type II
 cube), e = 2 → 3/4 (beats Vaughan), … ES^{[2]} ("den z | y²", condition ∏ s^{⌈v_s/2⌉} | K) has local factor
