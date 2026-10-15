@@ -25735,4 +25735,43 @@ def check_gb():
 check_gb()
 
 
+def check_gc():
+    # (gc) CAP_INTERPOLATION (O234/R237): R237 from-scratch — exact dictionary Prop 5.1 (overflow solutions <=> D in
+    # D_e(M)) on all M < 800 (2 774 632 tests) and T1 for 3200 classes; R237 D1: the full D_e(l) family reaches every
+    # QNR class at e = infinity (D = 9^j), unlike the truncated family V < l/4; GRH-cap numerics (least certifying
+    # prime r <= 251 for all p = 1 (4) < 10^6); PM-SQ_± to 10^6 (0 exceptions, record least |u| = 19 at 33 201).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("CAP_INTERP subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r237_dict.py", "800"])
+    assert "partA M<800: tests=2774632 agree=2774632 disagree=0" in out, out[-2000:]
+    assert "with p!|x: 336, failures 0" in out and "T1 M<1500 e=3: classes 3200, failures 0" in out, out[-2000:]
+    out = run(["review_r237_fullfamily.py", "60000"])
+    assert out.count("(= (l-1)/2? True)") == 6 and "(= (l-1)/2? False)" not in out, out[-2000:]
+    assert "l=11, D=729, p=43: x=78, y=129, z=1118/81" in out, out[-2000:]
+    out = run(["review_r237_grh_r.py", "1000000"])
+    assert "p=1(4) primes < 1000000: 39175; max least r = 251 (at p = 172573)" in out, out
+    out = run(["review_r237_pmsq.py", "1000000"])
+    assert "NMAX=1000000: non-squares 124500, squares 499 (fired: 0)" in out, out[-2000:]
+    import ast
+    hist = ast.literal_eval(out.split("hist ")[1].split("\n")[0])
+    assert 0 not in hist and sum(hist.values()) == 124500, hist
+    assert "(33201, 19, (8, 19, 220, 151))]" in out, out[-2000:]
+    print(f"== (gc) CAP_INTERPOLATION R237: Prop 5.1 exact on M < 800; full D_e family hits all QNR classes at e = inf; "
+          f"GRH-cap least r <= 251 (p < 1e6); PM-SQ_± 0 exceptions to 1e6, record |u| = 19; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_gc()
+
+
 print("\nall checks passed")
