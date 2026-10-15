@@ -43,8 +43,8 @@ are polynomial ES identities in n, integer-valued and positive on their residue 
 (c) `scripts/s6_cert105_check.py` re-verifies (sympy, not the z8 checker) every class identity, integer-valuedness, positivity
 (n ≥ 4⁴), the periodicity hypothesis, coverage of all s mod 360 by (a) ∪ (b), the exponential identity, and builds and checks
 an exact solution 4xyz = n(xy + yz + zx) for every s ≤ 1500 (s ≤ 3 included; no brute force was needed). ∎
-*T1 control.* The ET non-divisor classes are z8 classes (non-square classes by (J)62's checker). The exponential class is
-not a congruence class in n (n ≡ 59 (mod 151) is a residue), but it contains no square: a square n with a cap-0 window
+*T1 control.* The ET non-divisor classes are z8 classes (non-square classes by (J)62's checker). For the exponential class
+no non-square congruence is certified here (n ≡ 59 (mod 151) is a residue), but it contains no square: a square n with a cap-0 window
 solution at m = 151 contradicts CAP_DOWN §3 (T1 for Lemma 1.1); numerically 256u³ + 105 is not a square for
 u = 32 + 151t, t < 2·10⁵. (The curve a² = 256u³ + 105 has finitely many integral points; 4⁴ + 105 = 19² is u = 1.)
 *Scope (honest).* A thin (O(log X) members up to X) Sierpiński-type family; nothing about ES for primes follows. It
