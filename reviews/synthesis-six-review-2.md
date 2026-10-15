@@ -48,3 +48,26 @@ Divisor search ((my − N)(mz − N) = N², N = nx) found and verified a solutio
   11 | n) exist. What appears new within the campaign: the first family closed with a non-ET identity class whose
   witness divisor d = 2(u² − u + 1) ≍ n^{2/3} moves algebraically with n. Literature: no treatment of ES on 4^s + k found
   (3 Jina web searches; R236 likewise); not exhaustive.
+
+## s6_unique_forced_cap0 — check
+Re-derived. In Thm 1.1′'s setting (every prime factor of m is ≡ 3 (4)) G = (ℤ/m)^* = E × U with E ≅ (ℤ/2)^r, so U = 1 ⟺
+every q_i^{k_i} has φ = 2 ⟺ m = 3, and then G = {±1} and any forced K has a prime ≡ −1: cap 0. If U ≠ 1 pick
+g = (−1,…,−1)·u, ord u = o > 1 odd; a prime s ≡ g (Dirichlet), s odd, gives n = 4s − m ≡ 1 (4), (q_i/n) = (s/q_i) = −1,
+m ≡ 4 − n (8): admissible, and Σ_m(s) = {1, g, g⁻¹} ∌ −1. Brute force (`scripts/review_r246_pigeon.py` (b)): among all
+admissible m ≤ 300 (including m ≡ 1 (4) with two prime factors), m = 3 is the only window at which every forced prime K
+has cap 0. Verdict: **SOUND** (two MINOR wording points, D6).
+
+## s6_divisor_pigeonhole — check
+* Pigeonhole: P, −P ⊂ (ℤ/q)^* (gcd(K, q) = 1), |P| + |−P| > q − 1 ⟹ d₁ ≡ −d₂, and d = K·d₁/d₂ has c_s = b_s + δ_s ≤ 2b_s:
+  cap 0. Correct.
+* Cauchy–Davenport: for q ≡ 3 (4), G = {±1} × U, u odd; only s₀ carries the sign, so the U-condition is ±log w₀ ∈
+  Σ δ_s·a_s with |δ_s| ≤ v_s; N copies of the 3-set {−a, 0, a} (a ≠ 0) give |sumset| ≥ min(u, 2N + 1) for u prime,
+  equality when all a equal. The R-O238 repair (N counts only primes with nonzero image; s ≡ 1 contributes {0}) is
+  correct and necessary (q = 7, K = 3·29^N: Σ = {1, 3, 5} ∌ 6 for every N). Brute-force confirmation of
+  min |sumset| = min(u, 2N+1) for u ∈ {5, 7, 11, 13}, N ≤ 5 (script (c)).
+* Numerics reproduced exactly from scratch (own sieve/Jacobi/factoring): 8977 primes, criterion 4870, cap 0 6149, no
+  criterion-true/cap-0-false case.
+* "the other primes map to even exponents in log coordinates" (memo l.8) is unexplained and seems unnecessary (D7).
+* ±-weighted Davenport constant D_{±}(ℤ/n) = ⌊log₂ n⌋ + 1 matches Adhikari–Chen–Friedlander–Konyagin–Pappalardi (2006)
+  (from memory; paper not in sources/).
+Verdict: **SOUND** (Prop + sharpness PROVED, numerics EVIDENCE as labelled).
