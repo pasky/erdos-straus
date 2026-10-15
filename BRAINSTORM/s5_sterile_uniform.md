@@ -29,10 +29,17 @@ Each family covers an open set U_f ⊂ R̂, and "finite covering" means R̂^{pri
 
 Reading. In both rings the PROVED variants (mute place / mute set) use the place at ∞ through *analytic* input (Weil
 bound, sieve) with a **fixed** firing modulus. ES uses it through the box with a **moving** modulus. Sterility shows
-that ES cannot drop the ∞-coupling. (J)52 shows that dropping positivity, the ∞-*sign*, does not help (SQ_±). So the
+that ES cannot drop the ∞-coupling. (J)52 suggests that dropping positivity, the ∞-*sign*, does not help (SQ_± — a CONJECTURE, so this is conditional;
+R227 repair D15). So the
 ∞-coupling needed is the *size* coupling, not the sign.
 
 ## Prop V (PROVED, elementary; a precise "unavoidable input" statement)
+**(R227 repair D14.)** As first written Prop V is vacuous/false: ℤ → ℤ̂ is injective, so every property of p is
+"determined by its image". Corrected statement: let P be **locally constant** on R̂ (depends on p mod one fixed N) and
+true at every admissible prime of the cell; then P does not imply that p has a certificate *from a fixed finite family
+F*. Proof: U_F is a finite union of residue classes, hence clopen; s ∉ U_F gives a neighbourhood s + NR̂ disjoint from
+U_F, containing infinitely many primes (Dirichlet/Kornblum). It does **not** show that P fails to imply ES (ES may use
+families outside F). This is B1. Read "not a function of the image of p in R̂" below as "not locally constant on R̂".
 Let P be any property of primes that is (i) determined by the image of p in R̂ and (ii) true at every prime admissible
 for the sterile cell. Then P does not imply ES on that cell, because the primes in small neighbourhoods of a sterile
 point have no certificate in any fixed finite family. *Proof:* a certificate in a fixed family is an open condition, and

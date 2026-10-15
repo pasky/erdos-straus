@@ -23,7 +23,9 @@ s5_three_sides) and unforced (U, s5_unforced_words).
 * **N₋/U is scale-stable (0.747 → 0.754 over 2¹⁰ to 2²⁴), while N₋/N drifts (0.59 → 0.67).** The whole drift is the
   forced fraction, which decays roughly like 0.5/√(log p) (Landau-type: a side number is clean with probability
   ≍ (log)^{−1/2}). The slow downward trend of forced·√log suggests an extra log log factor; this is not fitted.
-* Prediction: N₋/N → ≈ 0.75 (the (J)39 cell average) as p → ∞, with a (log p)^{−1/2} deficit. Forced words are exactly
+* (R227 repair D8: N₋/N = (N₋/U)(1 − forced) is an identity; the content is that N₋/U drifts little; forced·√log p
+  falls 0.56 → 0.47, so 0.5/√log p is descriptive, and the (log)^{−1/2} order for three correlated sides is a heuristic.)
+* Prediction (CONJECTURE): N₋/N → ≈ 0.75 (the (J)39 cell average) as p → ∞, with a (log p)^{−1/2} deficit. Forced words are exactly
   the "missing certificates" at primes relative to the all-n average.
 * The p mod 8 split 0.770 / 0.739 is stable and reflects the 2-adic cell proportions of unforced words. It is not
   derived here.

@@ -8,6 +8,12 @@
   where reciprocity forces χ = −1 ("anti-T1")?
 
 ## Prop R (PROVED, elementary; the "locality lemma")
+(R227 repair D10: *local invariant of w* := a function of the genus of L_w, i.e. of the ℤ_v-isometry classes. In that
+stronger form Prop R still holds: unimodular at odd ℓ ≠ p, v_p(det) = 1 so the ℤ_p-class is fixed by ε_p, and the
+ℤ₂-class of an odd-determinant lattice is fixed by its Gram matrix mod 8. Individual Hilbert symbols of a
+diagonalisation are not invariants (use Hasse invariants); Dedekind-sum residues count only through explicitly named
+Jacobi symbols that are themselves cell functions; the theta multiplier is constant (level 4p). Non-local = class
+inside the genus. The statement also holds for odd composite n with gcd(A, n) = 1, D11.)
 Let p be an odd prime and w ∈ X_p(ℤ) with tuv ≠ 0, signed words allowed. Let Q_w be the ternary path form (det p).
 * The local isometry classes (Q_w ⊗ ℚ_v)_v are determined by (ε₂, ε_∞), the isotropy signs at 2 and ∞, together with
   the fixed determinant.
