@@ -14,6 +14,20 @@ forced by a symbol. Found: n ≡ 5 (8) is trivial (ψ(2) = −1). For n ≡ 1 (8
 (I2) Kill: the same n + 1 also carries a *certificate* (u = 1 family, A ranges over all divisors of n + 1). Every word
 with min(t, u, v) ≤ 2 lives on one of the three "automatic" side numbers n + 1, n + 2, 2n + 1, and on each of these
 families unforced ⟺ certificate (Prop F). So nothing is gained over ES-five unless min ≥ 3. → §1.
+(I3) Modification: violate "small fixed parameter" only mildly. Use the fixed QR prime 2 and 2-adic pinning to make
+s = 3, 4, 7 automatic (Prop F′). Kill: s = 5, 6, 8 are not automatic, and Dickson makes every bounded set of s fail
+i.o. (Thm 3.2). The hypothesis a U-proof must violate is bounded family size: H-A. → §3.
+(I4) Goal 2: parity across the family of a shared side. The Flip Lemma is exact, but it is the e-slice condition (B2).
+With family-exact forcing, "unforced" collapses to ES-five (Remark 4.1). → §2, §4.
+(I5) Look for a sharper invariant between N₋ and U: U2 (A and B both unclean). It is sandwiched, unrefuted
+N₋ ≥ U2/2. → §4.
+(I6) Goal 3: test "N₋/U ≈ ¾" against the exact 2-adic Haar mass (= 3/4, Prop 5.1). The test refutes the reading: the
+¾ is a mixture of strata. Haar holds at large min, and the deficit is in the automatic families. Follow-up: locate the
+O230/R227 failures of N₋ ≥ U/2. All have ψ-odd part of n + 1 = 3² (Lemma 5.2: rate 1/3). → §5.
+(I7) Goal 4: SQ_± records are fully forced; 3SQ's missing 105 exception is the Jacobi genus collapse. → §6.
+(I8) Construction pass on goal 1 with least-NR families (u = q; q | gcd(A, B); q | tn + 1 with NR u, v). Each holds at
+76–96 % of primes, never all. The non-congruence input "tn + 1 ∉ C_n" cannot be supplied by symbols
+(Lemma 2.1). → memo z7_symbol_blind.
 
 ## 1. The automatic families: unforced ⟺ certificate when min(t, u, v) ≤ 2 (PROVED)
 **Lemma 1.1 (n ≡ 5 (8)).** For odd non-square n ≡ 5 (8), the word (1, n + 2, 2) is unforced: N_t = n + 1 and
@@ -232,3 +246,40 @@ have (r/ℓ) = +1, every word on that side has ε_ℓ = (−1/ℓ). (Proof: A | 
 (mod ℓ)), so (A/ℓ) = 1.) Hence per-prime forcing can force ε_ℓ = −1, i.e. *non*-embedding, when ℓ ≡ 3 (4). That is
 what happens at 105 (ℓ = 3, 7). So 3SQ is the per-prime refinement of the forced/unforced split, in which the Jacobi
 collapse that creates SQ₅/CONJECTURE U's exception 105 disappears. At primes, 3SQ = ES-five and the split is unchanged.
+
+## 7. Verdict
+* **Goal 1 is not proved.** I found no proof of CONJECTURE U for primes. The exact situation:
+  * U(n) ≥ 1 is trivial for n ≡ 5 (8).
+  * For n ≡ 1 (8), U ≥ 1 ⟺ N₋ ≥ 1 on all automatic families (Prop F/F′). So U's extra content lives on words with
+    min ≥ 3 outside s ∈ {3, 4, 7}.
+  * Under Dickson, no bounded family suffices (Thm 3.2).
+  * The kernel of a U-proof beyond ES-five is a symbol-blind Landau-negation "tn + 1 ∉ C_n" on a word in a moving
+    family (Lemma 2.1).
+  * A U-proof avoids nothing in B2 or B1. T1 is respected automatically, and B5 does not apply (U is not a Type I/II
+    count). This is a precise negative with exact scope, not an obstruction to CONJECTURE U itself.
+* **Goal 2 is answered negatively, with exact scope.** Parity across a family is exactly the divisor-class condition
+  (Flip Lemma). With family-exact forcing, "unforced" becomes ES-five (Remark 4.1).
+* **Goal 3:**
+  * The ¾ of N₋/U is not a law. It is a mixture of strata. The robust law is Haar 3/4 for large-min words (Prop 5.1
+    PROVED, EVIDENCE that the words follow it).
+  * The O230 refutation of N₋ ≥ U/2 is explained: every failure at n ≡ 1 (8) is a defective n + 1 (ψ-odd part 3²,
+    Lemma 5.2).
+* **Goal 4:** SQ_± hardness is forcedness. 3SQ removes 105 because Jacobi cleanliness collapses per-prime signs.
+* New invariant: U2 (CONJECTURE U2).
+
+ES is not solved; no infinite case of it is claimed.
+
+## 8. Numerics index (tiny outputs; heavy files in /tmp/z7)
+| claim | script | range |
+|---|---|---|
+| U ≥ 1, U2 ≥ 1, Prop F mismatch test, N₋/U2 | z7_types.c | all primes ≡ 1 (8) < 3·10⁷; all n ≡ 1 (8) ≤ 2·10⁵ (ALL=1) |
+| Prop F/F′ family test | z7_propF.py | primes ≡ 1 (8) < 10⁵, s ≤ 8 |
+| Landau depth | z7_depth.c | primes ≡ 1 (8) < 3·10⁷ |
+| Flip Lemma census | z7_flip.py | primes ≡ 1 (8) < 2·10⁵ |
+| Haar mass | z7_haar2.py 5 | exact |
+| stratified ratios | z7_ratio.c | windows 10⁴ … 2.93·10⁷ |
+| defective p + 1 | z7_defect_p1.py, z7_strata_check.py | primes ≡ 1 (8) < 3·10⁷; failure list |
+| SQ_± split | z7_sqpm_split.py | records + controls, abs(t) ≤ 60 |
+| least-NR families | z7_lnr_family.py | primes ≡ 1 (8) < 3·10⁵ |
+T1 control: at odd squares every Jacobi symbol of a prime factor is 0 or +1, so every side is clean and U = U2 = 0 by
+definition. z7_types skips squares, as s5_U did. R227 re-checked U(m²) = 0 by computation.
