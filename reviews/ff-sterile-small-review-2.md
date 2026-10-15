@@ -62,7 +62,24 @@ m' = (T^{s−2} + v₁)/(w₁C₁)); every candidate checked against (B) itself 
 P = Q = R on every pattern, also without fixing lc(v₁) (q = 3, 5, 7, 9; s ≤ 10). **Result: all 3 + … + 648 patterns of
 3 ≤ s ≤ 18 agree with `data/fz/enum9/e_<s>.txt.gz` count for count (0 mismatches;
 `data/fz/review_r221_enum9_3_18.txt`).** Per-level masses agree with §5.2 to all printed digits; Σ_{s≤18} = 0.5921770
-(text: 0.592177). (s = 19, 20: see §1b.)
+(text: 0.592177). (s = 19–22: see §1b.)
+
+## 1b. Independent counts for 19 ≤ s ≤ 22 and a fully independent certificate
+
+For s ≥ 19 the factoring-free routes are too slow, so `review_fz9_enum.c` handles the patterns of cost ≤ 9⁷ (s = 22: ≤ 9⁸)
+and `review_fz9_flint.py` the rest, by five factoring routes (F11 (m', v₁ class) → w₁ | G; F12 (m', g') → E | 1 + T^s m'g'²;
+F13 (w₁, g') → E | g'T^{s−1} + w₁; F14 (m', w₁) → E | T^{s−2} + m'w₁²; F16 (w₁, v₁ class) → C₁ | m'C₁), with factorisation by
+FLINT (python-flint `fq_default`, independent of fz_enum's Cantor–Zassenhaus), my own divisor enumeration, my own field model,
+and a full (B) check that reads the pattern off the candidate's degrees (each pattern assigned to exactly one group).
+Validation: each of the five routes forced on all patterns reproduces `review_fz9_enum` for 6 ≤ s ≤ 9.
+**Result: all 765 + 900 + 1045 + 1210 patterns of s = 19, 20, 21, 22 agree with the author's files (0 mismatches;
+`data/fz/review_r221_enum9_19_22.txt`).** So every exact count used by Theorem 5.2 is independently reproduced.
+
+**Fully independent certificate** (no author code in any component): exact counts s ≤ 22 (mine) + my bound sum
+23 ≤ s ≤ 80 (`review_fz9_sum.c`: finite total 3.66697, `data/fz/review_r221_sum_mine22.txt`) + my tail ≤ 0.07034
+(`review_fz9_tail.c`, ×1.001) + R218's Case A 0.17500160 + Lemma 2.1 tail 1.075·10⁻⁵ = 3.9123; ×1.01 = **3.951 < 8**.
+(With exact counts only through s = 20: 5.70 < 8.) Theorem 5.2's conclusion (Σ) < 8 is therefore confirmed with a wide
+margin; the author's sharper constant 3.58 rests in addition on the τ-bound and the finer ρ grid of fz_sum (reviewed by R220).
 
 ## 2. Lemma 5.1 (linearised Lemma 4.1) and `fz_tail.c` RANK = 1
 
