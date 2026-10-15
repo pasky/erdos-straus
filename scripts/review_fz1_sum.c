@@ -40,7 +40,8 @@ static LD V_(int t, int d);
    spread total exponent K over m = min(I(j), K) primes is balanced (log-concavity of e -> e+1 and e -> C(e+2,2)). */
 #define TN 1200
 static LD TAU[TN + 1], TAU3[TN + 1];
-static LD nirr(int j) { LD s = 0; for (int i = 1; i <= j; i++) if (j % i == 0) { int m = i, mu = 1;
+static LD nirr(int j) { if (j * LQ > 100) return 1e30L;   /* I(j) >= (q^j - 2 q^{j/2})/j > 10^40: more than any n <= TN can use */
+  LD s = 0; for (int i = 1; i <= j; i++) if (j % i == 0) { int m = i, mu = 1;
     for (int p = 2; p * p <= m; p++) if (m % p == 0) { m /= p; if (m % p == 0) { mu = 0; break; } mu = -mu; } if (mu && m > 1) mu = -mu;
     LD e = (LD)(j / i) * LQ; s += mu * (e > 11000 ? 1e4000L : expl(e)); } s /= j; if (j == 1) s -= 1; return s; }
 static void init_tau(void) {
