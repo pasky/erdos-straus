@@ -11,7 +11,7 @@ gcd(q₀, n) = 1, rad q₀ | y, v_ℓ(q₀) ≤ e).
 combinations of Dirichlet characters*, IJNT 10 (2014) 885–903, **Thm 1.4** (read from the author's PDF
 pollack-math.net/generalsplit6.pdf): X a finite group of primitive characters, conductor f, exponent | n;
 ξ ∈ ℤ[X] with ξ(0) = ±1 (coefficient of the trivial character), length ≤ L; W := max(W_{ξ⁺}, W_{ξ⁻}),
-W_η := ∏ f_χ^{a_χ}. Then the least prime q ∤ f with ξ(q) ≠ 0 is ≪_{n,ε,L} W^{1/4} f^ε (ineffective: Siegel, Prop 3.3, printed p. 11). First screen: the O236 window class is (χ₋₄, χ_{±8}, χ_{n₀})(q) = (−1, −1, −1), a single Frobenius class
+W_η := ∏ f_χ^{a_χ}. Then the least prime q ∤ f with ξ(q) ≠ 0 is ≪_{n,ε,L} W^{1/4} f^ε (ineffective: Siegel, Prop 3.3, p. 10–11 of the preprint; (R243 repair) page refers to the preprint, archived as sources/r243/ and sources/pollack_ijnt2014_generalsplit6.pdf). First screen: the O236 window class is (χ₋₄, χ_{±8}, χ_{n₀})(q) = (−1, −1, −1), a single Frobenius class
 in a (ℤ/2)³ group; its detector ξ = (1−χ₋₄)(1−χ_{±8})(1−χ_{n₀}) has two characters of conductor ≍ n₀ in each of ξ±,
 so W ≍ n₀² and Pollack gives only q* ≪ n₀^{1/2+ε} (already a power improvement over rad(n)⁵). Hypothesis of the
 "1/4" obstruction: the accepted Frobenius set is a single class mod 8. The 1/4 exponent needs ξ = (1−χ₋₄)(1−χ_{n₀}),
@@ -47,7 +47,14 @@ n ≡ 1 (8): q ≡ 3 (8) gives n + q ≡ 4 (8), t = 0; q ≡ 7 (8) satisfies (E)
 q ≡ 3 (8) gives t ≥ 1 and (E) ⟺ t even. ∎
 *Why the excluded case is genuinely not forced:* n ≡ 5, q ≡ 3 (8), t odd: (2/q) = −1, (K′/q) = +1, the forced
 non-residue of S is the prime 2 itself, and using it costs a 2-exponent that is uncontrolled (c₂ ≤ 2t is required:
-2-adic denominators are not allowed in ES^{(y,e)}). Example of a dead case: K′ prime and −2^j ∉ ⟨K′⟩ for |j| ≤ t.
+2-adic denominators are not allowed in ES^{(y,e)}). Example of a dead case (no Lemma-1.1 solution at this window at any
+cap; Lemma 3.1's δ_n ≠ 0 families not excluded — R243 repair): K′ prime and −2^j ∉ ⟨K′⟩ for |j| ≤ t; concretely n = 5, q = 67.
+**Addendum (excluded case; R243 repair, PROVED).** The non-residue 2 is *usable* when o₂ := ord_q(2) satisfies o₂/2 ≤ t:
+(2/q) = −1, so o₂/2 is odd and 2^{o₂/2} ≡ −1 (mod q); d := K·2^{o₂/2} has c₂ = t + o₂/2 ≤ 2t and all odd c_s = b_s, so
+Lemma 1.1 gives **cap 0** (an ES solution). In particular **q = 3 always fires** in the excluded case (o₂/2 = 1 ≤ t;
+d = 2K, the classical n ≡ 2 (3) solution). So the excluded windows that can fail are those with ord_q(2)/2 > v₂(K)
+(needs q | 2^k + 1, k odd ≤ v₂(K), to fire this way). R243 scan (n ≡ 5 (8) ≤ 3000, q < 300): 2 041 excluded pairs,
+98 fire via this witness (all 85 with q = 3), 1 825 fire at some cap ≤ 40, 216 have no Lemma-1.1 solution at cap ≤ 40.
 *T1:* (q/a²) = 1, so no such window exists at an odd square (as in O236).
 
 **Proposition 1.3 (one-prime witness: cap ≤ (q−3)/4; PROVED).** In Thm 1.2 (and in CAP_POINTWISE Thm 1.1) let s be
@@ -66,7 +73,8 @@ are rebuilt and checked with exact rationals against Def 1.1 (square odd den, ra
 Odd squares: 0 windows. Statistics (EVIDENCE): p ≡ 1 (8): mean least window 13.46 (O236) → 7.62, max 227 → 131;
 p ≡ 5 (8): 21.33 → 14.64, max 199 → 191. Max Prop 1.3 cap at q_new: 32 (p ≡ 1 (8)), 47 (p ≡ 5 (8)). For p ≡ 5 (8) the
 least prime q ≡ 3 (4) with (q/p) = −1 is in the excluded case for 9161 of 19 623 primes (it is mostly q = 3 with
-v₂(p+3) odd).
+v₂(p+3) odd). (R243 repair: q_new = least *Thm-1.2* window, not least firing window — by the Addendum, q = 3 fires
+with cap 0 in the excluded case; that covers 6 533 of these 9 161 primes, all of them p ≡ 2 (3), classically solvable.)
 
 ## 2. Goal 1: power savings for q*(n) via Pollack's detector-form theorem
 
@@ -111,7 +119,9 @@ and Remark (3). ∎ (Supersedes O236 Thm 1.3(a)/(b) on these classes.)
 powers q^{2j+1} and odd products of bad primes (they do reach v₂ even, but then the window is q^{2j+1} with j up to 3, or a product of three bad
 primes, and the available bounds give only n₀^{3/4+ε} or worse — no gain over 1/2);
 (iii) n-primes inside D₁. In every variant the forced non-residue of a bad window is the prime 2 itself, and every
-use of it needs a 2-exponent ≈ ord_q(2)/2, while c₂ ≤ 2v₂(K) is mandatory (no 2-adic denominators in ES^{(y,e)}).
+use of it needs a 2-exponent ≈ ord_q(2)/2, while c₂ ≤ 2v₂(K) is mandatory (no 2-adic denominators in ES^{(y,e)}); it
+works iff ord_q(2)/2 ≤ v₂(K) (Thm 1.2 Addendum, R243 repair: always for q = 3 — no gain in exponent, as that only
+reaches the sparse q | 2^k + 1, k odd ≤ v₂(K)).
 Detector side: accepting only {q ≡ 7 (8)} ∪ {q ≡ 3 (8), v₂(n+q) even} forces two conductor-n₀ characters into each
 of ξ± (W ≥ n₀²; a short-form ξ with max(‖α⁺‖, ‖α⁻‖) ≤ 1 must be 1 ± ψ, whose support is ≥ half of (ℤ/2^k)^*);
 equivalently the main-term sum is a character sum of χ_{−4n₀}(a² − 2b²) over a box, i.e. a 2-dim Burgess problem with
@@ -147,7 +157,8 @@ Contradiction. (The δ_p ≠ 0 part of Lemma 3.1 is not covered by this argument
 **Proposition 4.1 (PROVED, elementary).** (a) At a single forced prime window q the one-prime bound of Prop 1.3 is
 sharp: if K = s is an odd prime with ord_q(s) = q − 1 (q > 3), the least Lemma-1.1 cap at q is exactly (q−3)/4.
 (b) (R-O237 self-review repair: hypotheses added, formula corrected.) Let m = ∏ q_i^{k_i} be a forced composite window
-(CAP_POINTWISE Thm 1.1′) and s | K an odd prime with b := v_s(K) odd and o_i := ord_{q_i^{k_i}}(s) even for every i
+(CAP_POINTWISE Thm 1.1′; in particular **every q_i ≡ 3 (mod 4)**, so each (ℤ/q_i^{k_i})^* has 2-part ℤ/2 and o_i/2 is odd
+below — R243 repair: hypothesis made explicit; for general m the condition is j ≡ o_i/2 (mod o_i) ∀i) and s | K an odd prime with b := v_s(K) odd and o_i := ord_{q_i^{k_i}}(s) even for every i
 (this need not exist: forcing makes K, not one prime of K, a non-residue in every component — e.g. n = 5,
 m = 567 = 3⁴·7, K = 11·13). Then the one-prime witness d = K·s^j needs s^j ≡ −1 (mod m), i.e. j an odd multiple of
 L := lcm_i(o_i/2), and its least cap is max{0, (L − b)/2} ≥ the corresponding cap max{0, (o_i/2 − b)/2} at each
@@ -175,8 +186,11 @@ with exact rationals against Def 1.1 (VER = 1: every n).
   solution at a window ≤ **63** (record p = 87 481); cap ≤ 1 already at m ≤ 51. (O236's "max 3" was the square-shot
   sub-family d = Q², K odd; the general divisor d of Lemma 1.1 collapses it to 0.)
 * All non-square n ≡ 1 (4) ≤ 10⁶ with all prime factors ≡ 1 (4) (87 759; data/z13_window_caps_all_1e6.txt, 7 s):
-  cap 0 for all but **n = 3985 = 5·797** (best cap 1, at m = 19; ES(3985) holds via 5 | n — the gcd(K, n) = 1 rule
-  removes windows); least cap-0 window ≤ 103.
+  cap 0 for all but **n = 3985 = 5·797** (best Lemma-1.1 cap 1, at m = 19, over windows m ≤ M = 1000; R243: none
+  ≤ 20 000 either); least cap-0 window ≤ 103. (R243 repair: the earlier explanation "the gcd(K, n) = 1 rule removes
+  windows" was wrong: the admissible window m = 3 (x = K = 997, gcd(K, n) = 1) carries the ES solution
+  4/3985 = 1/997 + 1/1 324 614 + 1/6 603 200 790, with D₁ = 797, i.e. c₅ = 0 — the δ₅ = −1 family of Lemma 3.1, outside
+  the δ_n = 0 slice D₁ = n·d of Lemma 1.1.)
 * Odd squares a² ≤ 10⁶: no window m ≤ 400 with any cap ≤ 3 (T1 of §3, as proved).
 * Forced windows only (data/z13_even_windows_1e6.txt): Prop 1.3 cap at the least forced window ≤ 32 (p ≡ 1 (8)),
   ≤ 47 (p ≡ 5 (8)); best Lemma-1.1 cap at that window ≤ 16 / 37.
@@ -216,7 +230,7 @@ i.e. loses T1₃. Assessment, not proved.)
 1. **Even windows (Thm 1.2, PROVED):** the O236 restriction "K odd" was unnecessary. The general Type II divisor
    d = 2^{v₂(K)}Q′² keeps the 2-adic denominator trivial, and every prime q ≡ 3 (4) with (q/n) = −1 is a *forced*
    window, except (n ≡ 5, q ≡ 3 (8), v₂(n+q) odd). In the excluded case the forced non-residue is 2 itself, which is
-   unusable; (R242 repair) excluded windows are not forced but often still fire (R242 scan, n ≤ 2·10⁵, q ≤ 200:
+   usable only when ord_q(2)/2 ≤ v₂(K) (then cap 0; always at q = 3 — R243 repair, Thm 1.2 Addendum); (R242 repair) excluded windows are not forced but often still fire (R242 scan, n ≤ 2·10⁵, q ≤ 200:
    36 446 of 37 522 excluded pairs fire at some cap, 1 076 are dead, e.g. n = 5, q = 67).
 2. **One-prime witness (Prop 1.3, PROVED):** d = K·s^{ord_q(s)/2} gives cap ≤ (q−3)/4 (was q − 3). It needs no
    discrete logarithm and is sharp at a single window (Prop 4.1(a)).

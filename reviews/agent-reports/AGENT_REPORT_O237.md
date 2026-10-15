@@ -8,9 +8,10 @@ data/z13_*. **ES is not solved; no infinite case of ES is claimed.**
 1. **e*(n) ≪_ε n₀^{1/4+ε} for every non-square n ≡ 1 (mod 8)** (n₀ = squarefree part; e*(n) = 0 if some prime ≡ 3 (4)
    divides n). Also n₀^{1/2+ε} for n ≡ 5 (8), and p^{1/4+ε}/p^{1/2+ε} for odd squares via d = n/p. These are PROVED
    relative to Pollack, IJNT 10 (2014), Thm 1.4 (detector forms; Burgess + Vinogradov–Linnik; ineffective via Siegel),
-   read from the author's PDF. O236 had rad(n)^5. Key input (Thm 1.2, PROVED, elementary): **even windows fire.** With
+   read from the author's PDF. O236 had rad(n)^5. Key input (Thm 1.2, PROVED, elementary): **even windows are forced.** With
    K = (n+q)/4 = 2^t K′ and d = 2^t·Q′² (odd 2-exponent ≤ 2t is allowed), every prime q ≡ 3 (4) with (q/n) = −1 is a
-   forced window, except (n ≡ 5, q ≡ 3 (8), v₂(n+q) odd). So the detector is (1−χ₋₄)(1−χ_{n₀}), with W = 4n₀.
+   forced window, except (n ≡ 5, q ≡ 3 (8), v₂(n+q) odd). (R243 repair, after R242: the excluded windows are not
+   forced, but most still fire — always cap 0 when ord_q(2)/2 ≤ v₂(K), e.g. q = 3 — and some are dead, e.g. n = 5, q = 67.) So the detector is (1−χ₋₄)(1−χ_{n₀}), with W = 4n₀.
 2. **Discrete-log-free witness:** d = K·s^{ord_q(s)/2} (s | K a non-residue with odd exponent) gives cap ≤ (q−3)/4,
    sharp at a single window.
 3. **Dictionary (order 3, Prop 6.1):** in ES the window constant (n + m = 4x) equals the shot constant (n + 4Q²), so
@@ -20,7 +21,7 @@ data/z13_*. **ES is not solved; no infinite case of ES is claimed.**
 
 ## Results by goal
 1. Goal 1 (spark 1): exponent 1/4 for n ≡ 1 (8), 1/2 otherwise (Cor 2.1).
-   * The n ≡ 5 (8) half is a method barrier (Z7-2, Assessment). The bad windows' forced non-residue is 2 itself.
+   * The n ≡ 5 (8) half is a method barrier (Z7-2, Assessment). The bad windows' forced non-residue is 2 itself (usable iff ord_q(2)/2 ≤ v₂(K); R243 repair).
    * Any detector excluding the bad windows carries two conductor-n₀ characters in each of ξ±. Equivalently, it needs
      a 2-dim Burgess bound for χ(a² − 2b²) at side n₀^{1/8}.
    * In a variant allowing even 2-adic denominators, the exponent would be 1/4 for all n.
@@ -37,7 +38,7 @@ data/z13_*. **ES is not solved; no infinite case of ES is claimed.**
 4. Goal 4 numerics (EVIDENCE, every reported solution rebuilt exactly against Def 1.1):
    * Full Lemma-1.1 family: all 39 175 primes p ≡ 1 (4) ≤ 10⁶ have cap 0 at a window ≤ 63 (record p = 87 481).
      O236's "max 3" was the square-shot artefact.
-   * All 87 759 relevant non-squares ≤ 10⁶ have cap 0 except n = 3985 (cap 1).
+   * All 87 759 relevant non-squares ≤ 10⁶ have cap 0 except n = 3985 (Lemma-1.1 cap 1; R243: 3985 still has a cap-0 solution at window m = 3 in Lemma 3.1's δ₅ = −1 family).
    * Odd squares: no windows.
    * Forced windows: least forced window mean 13.5 → 7.6 (p ≡ 1 (8)) and 21.3 → 14.6 (p ≡ 5 (8)); Prop 1.3 cap ≤ 47.
 5. Goal 5 (spark 5): Prop 6.1 (necessary condition; negative within that window shape).

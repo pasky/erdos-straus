@@ -1,5 +1,13 @@
 # Hostile review #2 of CAP_DOWN.md (O237) — R243, round 1
 
+**Repairs applied (round 2).** After merging R242 (side-agent/review-cap-down: Cor 2.2, Pollack JNT 2018 citation,
+wording), R243 applied, marked '(R243 repair)': D1 — CAP_DOWN Thm 1.2 *Addendum* (excluded case fires with cap 0 iff
+ord_q(2)/2 ≤ v₂(K) via d = K·2^{o₂/2}; q = 3 always), dead-case scope wording, §1 q_new statistics note, Z7-2 and §7
+item 1 "unusable" corrected, memos z13_even_windows / z13_pollack_quarter; D2 — §5 n = 3985 explanation (window m = 3,
+δ₅ = −1 family) and M = 1000; D3 — Prop 4.1(b) hypothesis q_i ≡ 3 (4) explicit; D4 — journal data already confirmed by
+R242 (IJNT 10 (2014) no. 4, 885–903), page reference marked as preprint. AGENT_REPORT_O237: "even windows fire" →
+"are forced", excluded-case and 3985 wording fixed. Cor 2.2 (R242) spot-checked: (q−3)/4 ≤ (p−5)/8 for q ≤ (p+1)/2 ✓.
+
 Reviewer: R243 (side-agent/review-cap-down-2). Round 1: no edits to the author's files. Reviewed: CAP_DOWN.md as merged
 from side-agent/cap-down (iteration Z7-1/Z7-2 + self-review repairs), BRAINSTORM/z13_*.md. From-scratch scripts:
 `scripts/review_r243_lemmas.py` (lemmas, exact Fractions), `scripts/review_r243_caps.py` (numerics). Pollack's paper
