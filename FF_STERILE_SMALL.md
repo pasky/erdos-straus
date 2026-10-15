@@ -1,6 +1,6 @@
 # FF_STERILE_SMALL — the small-q sterility cases: q = 27 (r = 3), q = 9, and A = T (k = 1) (O220, wave Y-f)
 
-Status: checkpoint 2 (O220): Theorem 3.1 (q = 27; reviewed R220, repairs applied) and Theorem 5.2 (q = 9) PROVED (computer-assisted); A = T: reduction §6 (Prop 6.1 PROVED), count not done; q = 3 open. **ES is not solved here, nor any infinite case of ES or ES_q.** Labels as in DISCOVERIES.md.
+Status: checkpoint 3 (O220): Thm 3.1 (q = 27, k ≥ 2; R220), Thm 5.2 (q = 9, k ≥ 2), Thm 7.3 (A = T, q = 3^r, 3 ≤ r ≤ 19) PROVED (computer-assisted); q = 3 and (k = 1, q = 9) open.
 Builds on FF_STERILE_PUSH.md ((J)51; notation (B), Lemmas 1.1–1.6, 2.1, 2.2, Thm 3.1), DEPTH_ASPECT.md §2, FUNCTIONFIELD_ES*.md.
 Scripts `scripts/fz_*`.
 
@@ -238,3 +238,52 @@ with relative cylinder mass q^{−N(s)}, N(s) = ⌈(s − 1)/2⌉, on the slice 
 T-adic constraints T ∥ w, T ∥ C, T² ∣ v are gone (counts grow by ≈ q^{3}·(1 − 1/q)³ per pattern), the slice weight improves by
 q^{1/2} on average (N(s) = ⌈(s−1)/2⌉ vs ⌈s/2⌉ − 1) and the averaging is over q − 3 slices. Case A changes too (T ∤ K now, since
 E(0) + 1 = 1 − u₀ ≠ 0); its count has to be redone. Status: the reduction is PROVED; the counting certificate for k = 1 is not done.
+
+## 7. A = T (k = 1): no finite linear covering for q = 3^r, 3 ≤ r ≤ 19 (O220 checkpoint 3)
+
+Setting of §6: the q − 3 slices u₀ ∈ F_q^* ∖ F₃^*, all cylinders of depth ≥ 2 (Cor. 6.2), Case B tuples (B^{k=1}) with relative
+mass q^{−⌈(s−1)/2⌉}. For k = 1 the analogue of FF_STERILE_PUSH Lemma 2.1 reads: if Σ_{Case B} q^{−N(s)} + Σ_{Case A} q^{−α} < q − 3,
+some slice has positive uncovered measure, so O(q, T) ≠ ∅ and ES_q(T, ·) has no finite linear covering.
+
+**Lemma 7.1 (k = 1 Case B structure and routes; PROVED).** (i) For every tuple (B^{k=1}): deg(m'wC) = s (if z + a + b > s then
+deg(g'v) ≥ z + a + b ≥ max(a, b) forces z = 0, min(a, b) = 0, g' = 1, v = w + C, and then w + C = wC − T^s is impossible; if
+z + a + b < s then deg v = s > max(a, b) ≥ deg(g'v)); y + t = max(a, b); E·v = T^s + m'w², EC = g'T^s + w, EE' = 1 + T^s L'g'
+(same algebra as FF_STERILE_PUSH Lemma 1.1, DEPTH_ASPECT Lemma 2.1). (ii) Congruences: E ≡ −1 mod L'w (and mod g'w, m'w),
+C ≡ −w mod v, w² ≡ −wC mod v, v ≡ −T^s mod every factor of m'wC (Lemma 1.3 analogue: V(D) = q^{t−deg D} or 1), and
+w is a unit mod v. (iii) Hence the 19 routes of `scripts/fz1_sum.c` (the k = 1 rows of FF_STERILE_PUSH Lemma 1.6 with
+w₁ → w, C₁ → C, v₁ → v, T^{s−2} → T^s, moduli without the factor T; class bounds with Lemma 1.4 refinement — every
+counted E, w, C, m' is prime to T, every F is prime to T; Lemma 4.1 divisor bounds) are valid upper bounds.
+*Check (EVIDENCE):* every route separately vs the exact counts of `fz1_enum` (q = 3, s ≤ 12; q = 5, s ≤ 9; q = 7, s ≤ 8;
+q = 9, s ≤ 9): 0 violations (`scripts/fz1_check_bounds.c`).
+
+**Lemma 7.2 (k = 1 Case A on the slices u₀ ∉ F₃^*; PROVED).** (a) In Case A exactly one of a1, b1 is divisible by T
+(if neither, the argument of Prop 6.1 forces E constant, E ∈ {1, 2}, i.e. u₀ ∈ F₃^*); write T^α ∥ a1 (α ≥ 1), K = (E + 1)/(a1'b1)
+(now T ∤ K since E(0) + 1 = 1 − u₀ ≠ 0), F = (a1 + b1)/E, z = (F + b1)/a1'. The identities (A0)–(A4) of DEPTH_ASPECT Lemma 2.3
+hold verbatim, z ≠ 0 and T ∤ z, patterns with β > α + λ do not occur (they force KF = 1 and T^α + F = 0), so f = α − β − κ ≥ 0,
+λ ≤ max(f, β), deg z ≤ ζ := max(f, β) − λ, and the maximal cylinder has relative mass q^{−α}. New route (ix): E ∣ 1 + T^α a1'²K,
+E ≡ −1 mod a1'K. Routes (i)–(vi) of `scripts/fz1_caseA.py` are valid upper bounds (lc(E) = lc(K) ∈ {1, 2}: factor 2 wherever a
+bound counts monic divisors only). (b) count(α) ≤ (α+1)³·√8·q^{(α+1)/2}·3^{α/2} (as Lemma 2.1), so the tail α > 40 is a convergent
+geometric series for q ≥ 9.
+*Check (EVIDENCE):* every route separately vs exact data from `fz1_caseA_enum` (route (ix) by factoring, cross-checked against
+direct enumeration of (a1', b1, K)): q = 3 (α ≤ 7), 5, 7 (α ≤ 5), 9 (α ≤ 4): 0 violations (this check found and fixed the lc
+factor 2 in routes (iii), (iv)).
+
+**Exact enumeration (`fz1_enum.c`, `fz1_caseA_enum.c`).** k = 1 versions of the §5 routes (M2 needed one repair: for y = 0 the
+factor C has degree t and does not determine v; then v = r₀ + lc·C by Lemma 1.3), validated by all 8 routes forced against an
+independent Python brute force (`fz1_brute.py`: q = 3, s ≤ 8; q = 5, s ≤ 6; q = 7, s ≤ 5; 0 mismatches) and by cross-method
+agreement at q = 3, 5, 27; F₂₇ = F₃[x]/(x³ − x − 1), field axioms checked; factorisations self-checked. With the slice filter
+E(0) ∉ F₃ (the tuple's cylinder lies in a counted slice): **at q = 27 there are no tuples at all for s ≤ 12 and no Case A data
+for α ≤ 4 on the 24 slices** (CERTIFIED by enumeration); unfiltered, all 172 tuples with s ≤ 7 have E(0) = 1 (slice u₀ = −1).
+
+**Theorem 7.3 (no finite linear covering of ES_q(T) for q = 3^r, 3 ≤ r ≤ 19; PROVED, computer-assisted, O216 standard).**
+For q = 3^r with 3 ≤ r ≤ 19, O(q, T) ≠ ∅: ES_q(T, ·) has no finite linear covering. The covered measure summed over the q − 3
+slices u₀ ∉ F₃^* is ≤ 9.47 (r = 3; q − 3 = 24), ≤ 27.7 (r = 4; 78), ≤ 15.5 (r = 5), and ≤ 9.10 for 7 ≤ r ≤ 19.
+*Proof.* `scripts/fz1_certify.sh 3 19` (log `data/fz/certify_k1.txt`): Case B finite part 2 ≤ s ≤ 80 (`fz1_sum.c`; for r = 3 with
+the exact filtered counts s ≤ 12, `data/fz/enum1_27/`), tail s > 80 (`fz1_tail.c`, all boxes certified), Case A (`fz1_caseA.py`,
+α ≤ 40 exact rationals, for r = 3 with exact filtered counts α ≤ 4; tail Lemma 7.2(b)); certified total ×1.01 < q − 3. ∎
+*Scope.* r ≥ 20 is not certified only for an implementation reason (the fz_sum.c helpers `init_omstar`/`init_rankin` take q as a
+C int); the certified totals converge to ≈ 9.09 (Case B → 7.00, from s = 2, 3 at large q; Case A → 2.00, from α = 1), against
+q − 3 → ∞, so r ≥ 20 is EVIDENCE. **q = 9 (k = 1) is not closed:** exact filtered counts give Case B mass 3.929 for s ≤ 18 (all from
+even s; no tuples at odd s ≤ 17) and Case A ≤ 0.671 (exact α ≤ 6), but the route bounds for 19 ≤ s ≤ 80 add 53 > 6 − 4.6
+(CERTIFIED statement about the method; the exact masses decay like 10⁻⁵ at s = 18, so the true sum is very likely ≈ 4.6 < 6, EVIDENCE).
+Contrast: q = 3 has a finite covering ((J)4) — there are no slices u₀ ∉ F₃^*.
