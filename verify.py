@@ -26000,4 +26000,39 @@ def check_gj():
 check_gj()
 
 
+def check_gk():
+    # (gk) FF_THIRDS_CORNER (O227/R247): R247's independent searcher (Liouville-reduced 'lop' mode, completeness = Lemma 1.2,
+    # re-proved by R247): no Case B tuple covers x*_c = 1 + cT (q = 3, A = T^2) at any level 3 <= N <= 14 (k = 2) or
+    # 4 <= N <= 14 (k = 3), both c (EVIDENCE; the author's search reaches N = 20 / 18); positive control: the polynomial
+    # point 1 + T + 2T^2 IS covered at levels 3, 6, 7 (k = 2).
+    from time import perf_counter
+    import os
+    import subprocess
+    import tempfile
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "s")
+        r = subprocess.run(["gcc", "-O2", "-o", exe, os.path.join(root, "scripts/review_r247_search.c"), "-lm"],
+                           capture_output=True, text=True, timeout=120)
+        assert r.returncode == 0, r.stderr[-2000:]
+
+        def run(args):
+            r = subprocess.run([exe] + args, capture_output=True, text=True, timeout=900)
+            assert r.returncode == 0, (args, r.stderr[-2000:])
+            return [l for l in (r.stdout + r.stderr).split("\n") if l.startswith("LEVEL")]
+        for k, nmin in (("2", "3"), ("3", "4")):
+            for c in ("1", "2"):
+                lv = run([k, "1," + c, nmin, "14", "lop"])
+                assert len(lv) == 15 - int(nmin) and all(" hits=0 " in l for l in lv), (k, c, lv)
+        lv = run(["2", "1,1,2", "3", "8", "lop"])
+        hits = [int(l.split("hits=")[1].split()[0]) for l in lv]
+        assert hits == [4, 0, 0, 1, 4, 0], hits
+    print(f"== (gk) FF_THIRDS_CORNER R247: x*_c uncovered by Case B tuples to level 14 (k = 2, 3; both c); positive "
+          f"control 1 + T + 2T^2 covered; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gk()
+
+
 print("\nall checks passed")
