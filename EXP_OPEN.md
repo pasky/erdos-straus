@@ -176,3 +176,19 @@ class can reach (Theorem W) and that is nevertheless closed** — the closing cl
 binomial menu II-ad. T1 respected: the integer square 63·2^8 + 1 = 127² lies in the divisor class D₁₂₇ (s ≡ 1 mod 7) and
 is solved by brute force anyway (s < 10). Literature: not searched yet for this specific family (the campaign's prior web
 searches found no ES result for any k·2^m + 1 family; non-exhaustive).
+
+**Map 2.4 (EVIDENCE; `z19_binom.py c₀ k MENU 30 8 7 1,2` for every c₀ ≡ 7 (mod 8), k = 4^J − c₀ ≡ 1 (mod 8), J ≤ 4).**
+Families with a profinite unit-square point and a binomial-menu class through it: (3, 1) [II-ac, II-ad, I-ac],
+(15, 49) [II-ac SG (a, c) = (11, 1); I-ac cubic (a, c) = (8, 13)], (39, 25) [I-ac SG], (63, 1) [II-ad cubic],
+(55, 201) [II-ac SG]. None found (at this small range) for (7, 9), **(15, 1)**, (7, 57), (23, 41), (31, 33), (47, 17),
+(55, 9) and all other J = 4 pairs. (Hits are necessary-and-sufficient for validity near μ = 0; each was spot-replayed.)
+
+**Reduction 2.5 (II-ad at the limit; PROVED algebra, used as a fast EVIDENCE filter `scripts/z19_iiad_limit.py`).** In
+II-ad, B = n + T, T = 4a²d, the roots of B are 2-adic units, so v₂(f(1)/f(0)) ≥ 0 and X := f(1), X′ := f′(1) are
+positive integers with X ≡ −4^J, X′ ≡ −1 (mod q), q = odd(a)·odd(d), XX′ = 4^J + T. Writing X = jq − 4^J,
+X′ = j′q − 1, a = 2^α a₁, d = 2^δ d₁, E = 2 + 2α + δ: **jj′a₁d₁ = 2^E a₁ + j + 4^J j′**, and Capelli needs
+(k + T)/c₀ ∈ ℚ^p ∪ 4ℚ⁴. For j = j′ = 1, k = 1, c₀ = 4^J − 1 this reads c₀(u^p − z) = (1 + z)², z = 2^E a₁: the (63, 1)
+class is z = 20 (u³ = 20 + 21²/63 = 27). Enumeration E ≤ 40, a₁ ≤ 2001, j, j′ ≤ 60: (63, 1) → only Theorem 2.3's data;
+(3, 1) → T = 80 (Prop-2.1-type); (7, 9) → one limit candidate T = 180 that fails the factor-shape test; **(15, 1) → no
+limit candidate at all.** (A proof for all (E, a₁, j, j′) would need the exponential-Diophantine equations
+(k + T(E))/c₀ = u^p; not attempted.)
