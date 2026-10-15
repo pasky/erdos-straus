@@ -103,3 +103,30 @@ exact solution for every s ≤ 1500 (s = 0 by brute force). ∎
 by adding ONE window (m = 11) with an algebraically forced budget (the Aurifeuillean factorisation 4X⁴ + 1 = f₊f₋).
 So a genuinely sterile point (unlike O238's 105, R246 D2) dissolves under the exponential-window menu. Literature: not checked
 whether ES for this Proth family is recorded anywhere (likely folklore-invisible; no claim of priority).
+
+**4.1 Other proved-sterile families (EVIDENCE; `z15_hybrid_exp.py`, `z15_tree.py`, `z15_mu0_sg.py`, `z15_rules_at.py`).**
+* 7·4^s + 9 ((J)68 Lemma 3.1, ET/divisor-uncoverable at μ = 0): ET/divisor classes at L₀ = 360 leave {0, 90, 180, 200, 290};
+  the Sophie-Germain window m = 19 = 7·4 − 9 (K = 7(4X⁴ + 1)) covers the μ = 0 neighbourhood s ≡ 0 (mod 90). The residue
+  class s ≡ 20 (mod 90) is NOT closed: at L* = 128520 the windows SG(19), CY₃/₇/₉(103), CY₅(215) and ET classes leave 2 of
+  1785 lifts (s ≡ 8570, 104960 mod 128520); single firing windows there have periods 99, 1329, 7158 (not pursued further).
+* 15·2^s + 1, 63·2^s + 1, 255·2^s + 1 (EXPONENT_COVERING Cor 1.5): **no** Sophie-Germain window m = 4ct⁴ − 1 fires at μ = 0 for
+  t ≤ 301 (c = 15, 63), and the polynomial-window search (`z15_polywin_root.py 240 4 1 6 1/2`) finds nothing; for c = 3 only
+  t = 1 fires among t ≤ 41. Reason (PROVED, Prop 4.3 below): at μ = 0 every SG window condition is the divisibility
+  m(t) = 4ct⁴ − 1 | N(t) for an explicit polynomial N of degree ≤ 8 with small coefficients; since 4ct⁴ − 1 is irreducible
+  (c not a square), Res(N, m) ≠ 0 and m(t) | Res(N, m): **only finitely many t can fire**. The SG menu at μ = 0 is a finite menu.
+  For c = 3: (t, a, x, y) = (1, 0, 2, 1), (1, 2, 0, 1) are the only firings with "identically zero" excluded (z15_sg_mu0_complete).
+  For c = 15, 63 the exhaustive resultant bound was not completed (bounds ~10⁸ in t): EVIDENCE only.
+
+**Prop 4.3 (finiteness of the SG menu at μ = 0; PROVED).** Let c + 1 = 4^i, c not a square. At μ = 0 of c·2^s + 1 the cap-0
+Sophie-Germain window with parameter t fires iff 4ct⁴ − 1 divides N_{a,x,y}(t) := Π q^{a_q}·g₊^x g₋^y + 4^{i−1}2^{x+y}
+(g± = 2t² ± 2t + 1) for some admissible exponents; each such N is coprime to 4ct⁴ − 1 in ℚ[t] (irreducible quartic vs. a
+product of the quadratics g±, which are not its factors), so m(t) ≤ |Res(N, m)| bounds t. ∎ (Derivation: near μ = 0,
+X ≡ 1/2, f± ≡ g±/2, K ≡ 4^{i−1} mod m; clear the unit 2^{x+y}.)
+
+**4.2 Reading.** For the (J)22 / (J)68 unit-square points the obstruction to ET/divisor menus is that n* is a profinite unit
+square; Theorem A shows that for a root parametrisation n = φ(X) the obstruction is instead the *descent class* of X* − θ.
+At μ = 0, X* is the rational point ρ = 2^{−(j+2)/4} at odd places and 0 at 2, so (Theorem A) the only possible
+obstruction sits at the places of A above 2: it is (α, θ(θ − ρ))₂, and θ(θ − ρ) is NOT a 2-adic square in A ⊗ ℚ₂ for
+3θ³ + 1 = 0, 3θ⁵ + 1 = 0, 3θ⁷ + 1 = 0 (`z15_twoadic_mu0.py`), so Theorem A certifies no sterility there. Whether a window with
+the right witness α exists is then a finite arithmetic accident (Prop 4.3): it happens for 3·2^s + 1 (m = 11) and
+7·4^s + 9 (m = 19), not (yet) for c = 15, 63, 255.
