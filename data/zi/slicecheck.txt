@@ -1,0 +1,9 @@
+q=3 k=2 D=4 DMAX=9: pairs=9841, A=4998, Anonmonic=4929, I4=46, L23_fail=0, L23_ok=52, alpha0=1, I4_not_A=10, cen_in=0, cen_out=0, Econst=8, L23_na=8, A_balls=33, I4_balls=18
+q=5 k=2 D=3 DMAX=8: pairs=19531, A=70, Anonmonic=7, I4=44, L23_fail=0, L23_ok=48, alpha0=1, I4_not_A=13, cen_in=0, cen_out=0, Econst=6, L23_na=8, A_balls=23, I4_balls=13
+q=9 k=2 D=2 DMAX=8: pairs=7381, A=5938, Anonmonic=5909, I4=14, L23_fail=0, L23_ok=16, alpha0=1, I4_not_A=4, cen_in=0, cen_out=0, Econst=4, L23_na=8, A_balls=15, I4_balls=5
+q=9 k=1 D=2 DMAX=8: pairs=7381, A=5938, Anonmonic=5909, I4=20, L23_fail=0, L23_ok=24, alpha0=1, I4_not_A=4, cen_in=0, cen_out=0, Econst=4, A_balls=14, I4_balls=7
+q=3 k=3 D=4 DMAX=10: pairs=9841, A=4998, Anonmonic=4929, I4=40, L23_fail=0, L23_ok=44, alpha0=1, I4_not_A=14, cen_in=0, cen_out=0, Econst=8, L23_na=16, A_balls=34, I4_balls=16
+q=3 k=4 D=4 DMAX=10: pairs=9841, A=4998, Anonmonic=4929, I4=14, L23_fail=0, L23_ok=16, alpha0=1, I4_not_A=6, cen_in=0, cen_out=0, Econst=8, L23_na=44, A_balls=34, I4_balls=7
+q=3 k=2 D=6 DMAX=9: pairs=797161, A=32, Anonmonic=0, I4=32, L23_fail=0, L23_ok=32, alpha0=0, I4_not_A=16, cen_in=16, cen_out=0, A_balls=16, I4_balls=16
+q=5 k=2 D=4 DMAX=12: pairs=488281, A=0, Anonmonic=0, I4=0, L23_fail=0, L23_ok=0, alpha0=0, I4_not_A=0, cen_in=0, cen_out=0, A_balls=0, I4_balls=0
+q=9 k=1 D=2 DMAX=12: pairs=7381, A=12, Anonmonic=0, I4=12, L23_fail=0, L23_ok=12, alpha0=0, I4_not_A=4, cen_in=0, cen_out=0, A_balls=4, I4_balls=4

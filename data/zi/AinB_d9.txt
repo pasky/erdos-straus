@@ -1,0 +1,112 @@
+A: alpha=3 a1'=1 b1=11 E=112 ball=12200
+    in B: s=4 depth=3 w=110 C=120 m'=1 g'=1 E_B=112
+    in B: s=5 depth=4 w=10 C=1220 m'=11 g'=1 E_B=112
+    in B: s=6 depth=4 w=10 C=101220 m'=1 g'=11 E_B=112
+    same-E container: yes
+A: alpha=3 a1'=1 b1=12 E=122 ball=11200
+    in B: s=4 depth=3 w=120 C=110 m'=1 g'=1 E_B=122
+    in B: s=5 depth=4 w=10 C=1120 m'=12 g'=1 E_B=122
+    in B: s=6 depth=4 w=10 C=101120 m'=1 g'=12 E_B=122
+    same-E container: yes
+A: alpha=4 a1'=1 b1=1 E=112 ball=122000
+    in B: s=4 depth=3 w=110 C=120 m'=1 g'=1 E_B=112
+    in B: s=5 depth=4 w=10 C=1220 m'=11 g'=1 E_B=112
+    in B: s=6 depth=4 w=10 C=101220 m'=1 g'=11 E_B=112
+    same-E container: yes
+A: alpha=4 a1'=1 b1=1 E=122 ball=112000
+    in B: s=4 depth=3 w=120 C=110 m'=1 g'=1 E_B=122
+    in B: s=5 depth=4 w=10 C=1120 m'=12 g'=1 E_B=122
+    in B: s=6 depth=4 w=10 C=101120 m'=1 g'=12 E_B=122
+    same-E container: yes
+A: alpha=4 a1'=1 b1=112 E=10112 ball=122020
+    in B: s=5 depth=4 w=1120 C=10 m'=12 g'=1 E_B=10112
+    in B: s=6 depth=4 w=10 C=1220 m'=112 g'=12 E_B=10112
+    same-E container: yes
+A: alpha=4 a1'=1 b1=122 E=10122 ball=112020
+    in B: s=5 depth=4 w=1220 C=10 m'=11 g'=1 E_B=10122
+    in B: s=6 depth=4 w=10 C=1120 m'=122 g'=11 E_B=10122
+    same-E container: yes
+A: alpha=5 a1'=1 b1=11 E=11112 ball=1222200
+    in B: s=6 depth=4 w=110 C=120 m'=101 g'=1 E_B=11112
+    in B: s=7 depth=5 w=10 C=121220 m'=11 g'=101 E_B=11112
+    same-E container: yes
+A: alpha=5 a1'=1 b1=12 E=12122 ball=1121200
+    in B: s=6 depth=4 w=120 C=110 m'=101 g'=1 E_B=12122
+    in B: s=7 depth=5 w=10 C=111120 m'=12 g'=101 E_B=12122
+    same-E container: yes
+A: alpha=5 a1'=11 b1=1 E=112 ball=1220000
+    in B: s=4 depth=3 w=110 C=120 m'=1 g'=1 E_B=112
+    in B: s=5 depth=4 w=10 C=1220 m'=11 g'=1 E_B=112
+    in B: s=6 depth=4 w=10 C=101220 m'=1 g'=11 E_B=112
+    in B: s=12 depth=7 w=110 C=12202110120 m'=1 g'=1 E_B=112
+    same-E container: yes
+A: alpha=5 a1'=11 b1=1 E=10122 ball=1120200
+    in B: s=5 depth=4 w=1220 C=10 m'=11 g'=1 E_B=10122
+    in B: s=6 depth=4 w=10 C=1120 m'=122 g'=11 E_B=10122
+    same-E container: yes
+A: alpha=5 a1'=11 b1=112 E=1100112 ball=1220022
+    in B: s=6 depth=4 w=1120 C=10 m'=122 g'=11 E_B=1100112
+    same-E container: yes
+A: alpha=5 a1'=11 b1=10122 E=1110122 ball=1120222
+    in B: s=6 depth=4 w=101220 C=10 m'=1 g'=11 E_B=1110122
+    same-E container: yes
+A: alpha=5 a1'=12 b1=1 E=10112 ball=1220200
+    in B: s=5 depth=4 w=1120 C=10 m'=12 g'=1 E_B=10112
+    in B: s=6 depth=4 w=10 C=1220 m'=112 g'=12 E_B=10112
+    same-E container: yes
+A: alpha=5 a1'=12 b1=1 E=122 ball=1120000
+    in B: s=4 depth=3 w=120 C=110 m'=1 g'=1 E_B=122
+    in B: s=5 depth=4 w=10 C=1120 m'=12 g'=1 E_B=122
+    in B: s=6 depth=4 w=10 C=101120 m'=1 g'=12 E_B=122
+    in B: s=12 depth=7 w=120 C=11202210110 m'=1 g'=1 E_B=122
+    same-E container: yes
+A: alpha=5 a1'=12 b1=10112 E=1210112 ball=1220212
+    in B: s=6 depth=4 w=101120 C=10 m'=1 g'=12 E_B=1210112
+    same-E container: yes
+A: alpha=5 a1'=12 b1=122 E=1200122 ball=1120012
+    in B: s=6 depth=4 w=1220 C=10 m'=112 g'=12 E_B=1200122
+    same-E container: yes
+A: alpha=6 a1'=101 b1=1 E=11112 ball=12222000
+    in B: s=6 depth=4 w=110 C=120 m'=101 g'=1 E_B=11112
+    in B: s=7 depth=5 w=10 C=121220 m'=11 g'=101 E_B=11112
+    same-E container: yes
+A: alpha=6 a1'=101 b1=1 E=12122 ball=11212000
+    in B: s=6 depth=4 w=120 C=110 m'=101 g'=1 E_B=12122
+    in B: s=7 depth=5 w=10 C=111120 m'=12 g'=101 E_B=12122
+    same-E container: yes
+A: alpha=6 a1'=101 b1=11112 E=101011112 ball=12222020
+    in B: s=7 depth=5 w=111120 C=10 m'=12 g'=101 E_B=101011112
+    same-E container: yes
+A: alpha=6 a1'=101 b1=12122 E=101012122 ball=11212020
+    in B: s=7 depth=5 w=121220 C=10 m'=11 g'=101 E_B=101012122
+    same-E container: yes
+A: alpha=6 a1'=11 b1=1201 E=1222022 ball=11011120
+    in B: s=7 depth=5 w=12010 C=120 m'=12 g'=11 E_B=1222022
+    same-E container: yes
+A: alpha=6 a1'=11 b1=12 E=12212 ball=12112000
+    in B: s=7 depth=5 w=120 C=12010 m'=12 g'=11 E_B=12212
+    in B: s=10 depth=6 w=110 C=1122120 m'=111 g'=1 E_B=12212
+    in B: s=10 depth=6 w=1020 C=10102110 m'=1 g'=12 E_B=12212
+    in B: s=11 depth=7 w=10 C=1212220220 m'=11 g'=111 E_B=12212
+    same-E container: yes
+A: alpha=6 a1'=12 b1=11 E=11222 ball=11122000
+    in B: s=7 depth=5 w=110 C=11020 m'=11 g'=12 E_B=11222
+    in B: s=10 depth=6 w=120 C=1221110 m'=121 g'=1 E_B=11222
+    in B: s=10 depth=6 w=1020 C=10102210 m'=1 g'=11 E_B=11222
+    in B: s=11 depth=7 w=10 C=1111210120 m'=12 g'=121 E_B=11222
+    same-E container: yes
+A: alpha=6 a1'=12 b1=1102 E=1121012 ball=12021220
+    in B: s=7 depth=5 w=11020 C=110 m'=11 g'=12 E_B=1121012
+    same-E container: yes
+A: alpha=7 a1'=1 b1=11 E=1111112 ball=122222200
+    in B: s=8 depth=5 w=110 C=120 m'=10101 g'=1 E_B=1111112
+    in B: s=8 depth=5 w=1020 C=1110 m'=121 g'=12 E_B=1111112
+    in B: s=8 depth=5 w=1210 C=1020 m'=111 g'=11 E_B=1111112
+    in B: s=8 depth=5 w=11220 C=12210 m'=1 g'=102 E_B=1111112
+    same-E container: yes
+A: alpha=7 a1'=1 b1=12 E=1212122 ball=112121200
+    in B: s=8 depth=5 w=120 C=110 m'=10101 g'=1 E_B=1212122
+    in B: s=8 depth=5 w=1020 C=1210 m'=111 g'=11 E_B=1212122
+    in B: s=8 depth=5 w=1110 C=1020 m'=121 g'=12 E_B=1212122
+    in B: s=8 depth=5 w=12210 C=11220 m'=1 g'=102 E_B=1212122
+    same-E container: yes
