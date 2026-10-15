@@ -18,6 +18,9 @@ imports), `scripts/review_r235_brute.py` (independent ES solver via (ay − d)(a
 | Thm 2.2 (a)–(c) | SOUND (D6 minor hypothesis) |
 | Thm 2.2 (d) uniqueness of 4 | SOUND-AFTER-REPAIRS (D5: the u ≡ 3 (4) parenthetical is wrong) |
 | §2 numerics, 8/131, 8/241 | SOUND-AFTER-REPAIRS (D7: χ sign at 131, word count) |
+| Prop 3.1 (single level sees only r mod 4u) | SOUND (trivial; D8 wording) |
+| §3 Consequence, §4 Chebotarev-in-family | SOUND as Assessment (relies on O225 Lemma 4.2, under R228) |
+| Novelty | modest, correctly self-assessed (D1 sharpening) |
 
 ## 1. Theorem 1.3 — headline
 
@@ -125,6 +128,44 @@ set — the identity "4-slots = T1-forbidden set" holds at every odd u, it is no
 "(χ = −1)" is false with the convention χ(w) = (A/n); DEDEKIND Thm 4.5 and Thm 2.2(d) are stated for n ≡ 1 (mod 4) only.
 At 241 ≡ 1 (mod 4) all six have χ = −1 ✓.
 
+## 5. §3 non-genus layer, §4 Chebotarev-in-family
+
+**Layer inclusions.** Quadratic subfields F ⊂ Σ_u ↔ order-2 characters ψ of G = Gal(Σ_u/ℚ) (G abelian); F imaginary ⟺
+ψ(c) = −1; F splits every r ⟺ ψ(⟨σ_r⟩) = 1. Such ψ exists ⟺ c ∉ ⟨σ_r⟩G² (characters of the elementary 2-group
+G/⟨σ_r⟩G² separate points). ✓ genus-clean ⇒ group-clean ⇒ clean (sub-products lie in ⟨σ_r⟩) ✓.
+
+**Prop 3.1.** A odd, A | p + u ⟺ A = ∏ r^{a_r}, 0 ≤ a_r ≤ v_r (r ∤ u automatically since r | u, r | p + u ⇒ r | p, p > u
+prime); level-u admissibility (A ≡ −1 mod u) and χ = −1 ⟺ σ_A = c on Σ_u ⊂ ℚ(ζ_{4u}) (O225 (i)–(ii), consistent with my
+§4 re-derivation for u ≡ 1 (4) and with the u ≡ 3 (4) reciprocity check). So existence is the predicate "c ∈ {∏σ_r^{a_r}}",
+a function of the multiset {(r mod 4u, v_r)}. **SOUND, and as trivial as labelled.**
+
+**D8-type caveat (wording).** "no Frobenius in any non-abelian extension … Rédei symbols do not enter" is true of the
+*decision function*, not of the *input*: which r divide p + u = m² + (k + u) as m varies is governed by
+representation by the principal form of disc −4(k + u), i.e. by Frobenii in the ring class field of ℚ(√−(k + u))
+(dihedral over ℚ). That constraint (product of the chosen prime-ideal classes is trivial in Cl) can a priori correlate the
+σ_r's. The Consequence paragraph argues it cannot force anything beyond genus because H ∩ Σ_uF ⊂ genus field — that is the
+right argument but it is only sketched (and rests on O225 Lemma 4.2, under R228). It is labelled Assessment, which is
+correct; the phrase "do not enter" in Prop 3.1 should be "do not enter the decision function; they can only constrain its
+input, and (Assessment) only through the genus field".
+
+**§4.** Algebra checked: r | p + u, r ≡ −1 (mod u) ⟺ u ≡ −p (mod r), u | r + 1; with u < r, u = r − (p mod r); σ_r = c on
+Σ_u adds (−u/r) = −1 ✓. (F1)–(F4) are correct reductions to B1/B2/B3/B6 at the level of Assessment; no claim stronger than
+Assessment is made. SOUND as Assessment.
+
+## 6. Novelty and literature
+* Thm 1.3: a direct transfer of (J)22's method (EXPONENT_COVERING Thm 1.4, ec_cert format) from k·2^m + 1 to 4^s + k. No
+  prior result on ES for families 4^s + k found (cursory web search, 2 queries; not exhaustive). Real content limited to
+  k = 57, 177, 225 (D1). The observation that these are near-square families out of reach of polynomial families in m is
+  correct (NEAR_SQUARE Thm 2.2) and is the interesting framing.
+* Prop 2.1/Thm 2.2: a Galois-language restatement of DEDEKIND Thm 4.5 + FOUR_SPECIFIC Prop 1.1 ((−M/g) for g ≡ −1 mod M).
+  New and clean: (b) "∀u ⟺ ℚ(i) ⊂ ℚ(ζ_ν)" and (d). **Possible upgrade (not claimed by the author):** (c) with u = 1 proves
+  for *every* ν with 4 ∤ ν that some odd square m² has a t-slot ν-word (r prime ≡ −1 mod ν, r ≡ 1 mod 4, r | m² + 1); I
+  checked that t-slot words give explicit ν/n decompositions on 260 test cases. If a t-slot word is a "Type I/II
+  solution" in (J)46's sense, this upgrades (J)46 SHARP 2's failure half from CERTIFIED (M = 3, 5, 6, 7, 11, 19) to PROVED
+  for all 4 ∤ M. Worth one sentence after checking the (J)32 Type correspondence.
+* Mixed points: the CRT-gluing description is a correct and useful way to name the residual exponents; Filaseta–Finch–Kozek
+  analogy flagged as from memory (not checked by me either).
+
 ## Defects
 **D1 (MINOR, presentation/novelty; SIGN_FIELDS §1 Thm 1.3 and AGENT_REPORT headline).** Five of the nine offsets
 (k = 9, 81, 129, 201, 249) have **no** member in Mordell's six classes mod 840 for s ≥ 2, so ES for them is an immediate
@@ -163,3 +204,10 @@ otherwise). Add the hypothesis; also note in (a) that for ν odd the conclusion 
 (A/131) = +1, not −1; the sign-field "forbidden half" language of (d) is for n ≡ 1 (mod 4). Repair: "14 carry a 4-slot
 (for n ≡ 3 (4) these are the words with (A/n) = +1, i.e. (−A/n) = −1)", and state the word-count convention (21 vs. the
 reviewer's 22 words (t, u ≤ v) — say which word is excluded and why).
+
+**D8 (MINOR; SIGN_FIELDS Prop 3.1 last sentence, memo z8_no_redei_abelian_levels).** Rephrase "Rédei symbols … do not
+enter" as "do not enter the decision function" and note that the input (which r divide p + u in a family) is governed by
+ring-class-field Frobenii; the reason this cannot force non-genus cleanness is the Assessment in the Consequence paragraph.
+
+**D9 (MINOR; Thm 2.2 closing sentence "full T1 ⟺ 4 | ν … is, on the t-slots, …").** Add "for odd A coprime to ν"; the
+⇒ direction of (J)46's *full* T1 (all five slots, even A) is not re-derived here — only the t-slot part.
