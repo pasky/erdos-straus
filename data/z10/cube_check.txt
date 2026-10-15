@@ -1,0 +1,1 @@
+Mmax=400000 e=4: 2000 ok, 0 bad, 1505 at composite moduli, 486 non-exact (s^2 | K for some s | R)
