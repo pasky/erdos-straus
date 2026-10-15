@@ -11,9 +11,10 @@ FF_STERILE_SMALL.md (= SS), FF_ODD_ABSENCE.md (= OA), SIBLING.md (branch side-ag
 * (I1) The O242 asymmetry is real at the level of *families*: the F_q[T] model of FE §6.2 ("linear family": E = AX − P a fixed
   polynomial) does **not** contain the analogue of the Elsholtz–Tao type I4, whose ℤ boxes are M17's (U⁻¹) = −1/e. Its F_q[T]
   analogue (§1, Prop 1.4) is a genuine congruence family with balls u ≡ −1/E — exactly the missing "Case A⁻¹". Explicit
-  solutions over F₃[T] (`scripts/zi_example.py`) have E_FF = AX − P of degree n − 2 or n − 1, so they lie in no linear family.
-* (I2) The missing type changes nothing on the slices where sterility is proved: every Case A ball there lies inside a Case B
-  ball with the *same* E (§2, Lemma 2.3; seen first in the depth-9 data, `scripts/zi_AinB.py`), Case B is inversion-closed,
+  solutions over F₃[T] (`scripts/zi_example.py`) have E_FF = AX − P of degree n − 2 or n − 1, so these solution triples are
+  produced by no fixed linear family.
+* (I2) The missing type changes nothing on the slices where sterility is proved (for k ≥ 3: relative to the level-2 covered set
+  that the proofs bound): for k ≤ 2 every Case A ball with monic E there lies inside a Case B ball with the *same* E (§2, Lemma 2.3; seen first in the depth-9 data, `scripts/zi_AinB.py`), Case B is inversion-closed,
   so the I4 balls lie inside Case B balls too. The second missing ET type (II2) is never valid on a slice (Lemma 2.1).
 * (I3) Checkpoint: verdict "classification incomplete as a *definition*, complete in effect on the sterility slices"
   (Thm 2.5, Cor 2.6); no PROVED theorem needs repair; report `reviews/agent-reports/AGENT_REPORT_O244.md`.
@@ -32,8 +33,9 @@ Conversely each such (a, b, c, d) gives a solution (lc conditions aside).
 with monic X_i/P: deg A = k ≥ 1, while the right side has degree ≤ 0. Type II: X₂ = PY', X₃ = PZ' give
 (AX₁ − P)/X₁ = 1/Y' + 1/Z'. The left side is in lowest terms (gcd(AX₁ − P, X₁) = gcd(P, X₁) = 1). Put g = gcd(Y', Z') (monic),
 Y' = gy, Z' = gz; then 1/Y' + 1/Z' = (y + z)/(gyz) with gcd(y + z, yz) = 1, so its reduced form has numerator (y + z)/c and
-denominator dyz, where c := gcd(y + z, g), d := g/c. Comparing reduced forms (all monic): X₁ = dyz, AX₁ − P = (y + z)/c. Take
-a = y, b = z (then Y' = acd, Z' = bcd). Type I: X₁ = PX₁', P ∤ X₂X₃ give (AX₁' − 1)/(PX₁') = (y + z)/(c·dyz) with the same notation. The right side's
+denominator dyz, where c := gcd(y + z, g), d := g/c. Comparing reduced forms (denominators monic; the numerator (y + z)/c need not be,
+e.g. lc 2 if deg y = deg z): X₁ = dyz, AX₁ − P = (y + z)/c. Take
+a = y, b = z (then Y' = acd, Z' = bcd). Type I: X₁ = PX₁', P ∤ X₂X₃ give (AX₁' − 1)/(PX₁') = (y + z)/(c·dyz) with the same notation; gcd(AX₁' − 1, X₁') = 1. The right side's
 reduced denominator is prime to P, so P | AX₁' − 1, and then X₁' = dyz, (AX₁' − 1)/P = (y + z)/c. ∎
 (This is ET 2013 Prop 1.3 transcribed; nothing in it uses ℤ beyond unique factorisation, and "monic" replaces "positive".)
 
@@ -41,8 +43,10 @@ reduced denominator is prime to P, so P | AX₁' − 1, and then X₁' = dyz, (A
 Lemma 1.2) and E_FF := AX − P (the "E" of FE Lemma 1.3 and of every linear family) are:
  Type II: X = X₁ = abd and **E_FF = e**;
  Type I (deg a < deg b, say): X = X₂ = acd and **E_FF = (aP + c)/b**, of degree n − (deg b − deg a).
-A linear family (FE §6.2) is by definition a family with E_FF a fixed polynomial. So, over a family of P (some parameters fixed,
-the others functions of P), it is linear iff e stays bounded (Type II) or b/a grows like P (Type I).
+A linear family (FE §6.2) fixes E (= E_FF), a0, b0 and the types. So a family of solutions (some parameters fixed, the others
+functions of P) can be a linear family only if E_FF is the same polynomial for all its P; in Type I this needs deg b − deg a to
+grow like n. (The converse — that the five ET types listed in Cor 1.3 as linear really are linear families with fixed a0, b0 and
+types — is checked type by type there; review fix R-O244.)
 *Proof.* Type II: deg X₂, X₃ ≥ n > n − k. Type I: A·acd = c(eP + 1)/b and ce = a + b give AX₂ − P = (aP + c)/b. Monicity of all
 three denominators forces lc(a + b) = 1 in Type I (see Prop 1.4), so deg a ≠ deg b and the smaller of X₂, X₃ is the one with the
 smaller of a, b. ∎
@@ -53,7 +57,10 @@ II3 (a, d, e fixed; E_FF = e), I1 (a, d, f fixed; c, b ~ P; E_FF = f), I2 (a, c,
 a ~ P, b ~ P²; E_FF = f). **Not linear:** I4 (a, b, e fixed; E_FF = (aP + c)/b grows) and II2 (a, c, d fixed, f := Aacd − 1,
 b = (cP + a)/f; E_FF = e = (a + b)/c = (P + Aa²d)/f grows).
 *Proof.* Lemma 1.2 applied to each parametrisation (for I1–I3 the fixed f equals AX − P for X = acd: AX = P + f is the defining
-divisibility of each). ∎
+divisibility of each). The linear ones are linear families with fixed (a0, b0, types) (review fix): in FE Lemma 1.3 form, Type II
+with κ = c has (a_FF, b_FF) = (b, a), Type I with κ = b has (a_FF, b_FF) = (Pa, c) (using bE_FF = aP + c). Hence II1 =
+(e; 0, b; 0, a); II3 = (e; 2, ad; 0, a) (b = X/(ad)); I1 = (f; 1, a; 2, ad) (c = X/(ad)); I2 = (f; 1, a; 0, c); I3 = (f; 3, cd; 0, c)
+(Pa = PX/(cd)). For I4 the same (Pa, c) are fixed-shape but E_FF is not fixed. ∎
 
 **Proposition 1.4 (the I4 analogue is a congruence family outside the linear model; PROVED).** Let a, b, e ∈ R be monic with
 deg a ≠ deg b, e | a + b, gcd(e, Aab) = 1, and put c := (a + b)/e. For every monic prime P with **Aab | eP + 1** and
@@ -64,9 +71,12 @@ its validity set V_{I4} ⊂ R̂^* is clopen, defined by one congruence. At a sli
 T^∞; A = T^k) it is valid iff
   T^{k+v_T(ab)} | ue + 1  and  (ab)' | e + 1     ((ab)' = prime-to-T part),
 i.e. on the **ball u ≡ −1/e (mod T^{k+v_T(ab)})** — the mirror image of the Case A ball u ≡ −E (mod T^{k+j}) of FE3 Lemma 1.1.
-Its solutions have E_FF = (aP + c)/b (deg a < deg b), of degree n − deg b + deg a → ∞: I4(a, b, e) is not a linear family, and no
-finite set of linear families has the same validity set restricted to large n. (For a single P the solution does lie in a
-linear family, namely (E_FF(P); 1, a; 0, c), but that family changes with P.)
+Its solutions have E_FF = (aP + c)/b (deg a < deg b), of degree n − deg b + deg a → ∞: I4(a, b, e) is not a linear family, and
+its *solution triples* are produced by no finite set of linear families. (For a single P the solution does lie in a linear
+family, namely (E_FF(P); 1, a; 0, c), but that family changes with P.) This says nothing about whether the *validity set* of
+I4(a, b, e) is covered by linear validity sets — it can be: for a = 1, b = T, e = 1 (A = T²) the class P ≡ −1 (mod T³) is also
+the validity set of the linear family (1; 0, T; 1, 1) (review counterexample). Coverage questions are settled in §2 on the
+slices only.
 *Proof.* d is a polynomial by hypothesis; lc(d) = lc(e)/lc(Aab) = 1, lc(c) = lc(a + b) = 1 as deg a ≠ deg b, so all three
 denominators are monic. The identity is A·abcd = c(eP + 1) = (a + b)P + c, which is the Type I equation of Lemma 1.1. NC: FE
 Lemma 1.2 (odd q). The slice form: x ≡ u at T and x ≡ 1 at the primes of (ab)'. The single-P statement: with κ = b,
@@ -161,13 +171,15 @@ I4 and II2 included. ∎
 (J)67 (OA Thm 2.2) each exhibit a positive-measure subset of Σ outside every linear validity set. By Thm 2.5 these points are
 outside the validity sets of all seven ET-type families. So each theorem holds verbatim with "linear covering" replaced by
 "covering by families of the seven ET types", with the same certified constants: **no repair is needed, the union bounds do not
-undercount** (on Σ the I4 mass is covered twice over, and for k ≤ 2 even the Case A terms of (Σ) are redundant — the certified
-totals are conservative by at most their Case A part). The same holds for Conjecture 0.2 (x*_c ∈ O ⟺ x*_c ∈ O_ET) and for
+undercount** (on Σ the I4 balls lie in Case B balls — for k ≥ 3 in level-2 Case B balls, which is what the proofs bound — and
+for k ≤ 2 even the Case A terms of (Σ) with monic E are redundant; for k = 1, Case A data with lc(E) = 2 (SS Lemma 7.2) are not
+covered by Lemma 2.3 and stay in the bound). The same holds for Conjecture 0.2 (x*_c ∈ O ⟺ x*_c ∈ O_ET) and for
 O140 Prop 4.1 (the point x ≡ 1: I4 would need Aab | e + 1 with deg e ≤ max(deg a, deg b), forcing e = −1, not monic; II2 needs
 f | a + c, impossible as in Lemma 2.1).
 *What is affected.* (1) The definition of O(q, A) (FE2 §0.1) and every *global* statement about it away from the slices: at a
-general point of R̂^* (P ≢ 1 off T) I4 and II2 families can be valid where no linear family is, so EVIDENCE such as the ffl_tree
-"uncovered density" (FE2 §0.1, FE §6.3) is an upper bound for the ET-uncovered density, not an equality. (2) Wording: statements
+general point of R̂^* (P ≢ 1 off T) Thm 2.5 does not apply, and whether I4/II2 cover points outside all linear validity sets is
+**not established here**; EVIDENCE such as the ffl_tree "uncovered density" (FE2 §0.1, FE §6.3) is an upper bound for the
+ET-uncovered density (equality not known). (2) Wording: statements
 "ES_q(T^k) has no finite covering" must keep the word "linear" or cite Cor 2.6. (3) Positive results (FE Thm 6.3, (J)4) are
 unaffected (they exhibit coverings).
 
@@ -190,12 +202,15 @@ Type I solutions with large E_FF are I4-shaped (Prop 1.4); some primes have *onl
 At finite n this is only illustrative (every single solution lies in *some* linear family, Prop 1.4), but it shows that the
 I4 shape is common, not exotic.
 
-**3.2 The q = 3 depth-9 tree with I4 (`scripts/zi_tree.py data/z16/balls_d9.txt 9`).** Ball sets on the two c-slices, depth ≤ 9:
-Case A 26 balls (route_A4, complete), Case B 146 (census, complete), I4 26 (mirrors of Case A). Missing inverses: A + B: 24
+**3.2 The q = 3 depth-9 tree with I4 (`scripts/zi_tree.py data/z16/balls_d9.txt 9 data/zi/census_s16.txt`, log
+`data/zi/tree_d9.txt`).** Ball sets on the two c-slices, depth ≤ 9: Case A 26 balls (route_A4, complete), Case B 148 (census
+`bsE_famcount 3 2 16 print`, complete; read directly — review fix: A ∩ B = 2 balls, A ∪ B = the 172 balls of O241), I4 26 (mirrors
+of Case A). Missing inverses: Case B alone 0 (Lemma 2.4), A + B: 24
 (the O242 observation), **A + B + I4: 0**. Of the 26 I4 balls, 24 are new as balls, but survivor counts at depths 3–9 are
 identical with and without I4 (2, 6, 16, 44, 130, 380, 1130 per slice) and x*_c stays alive: **every Case A ball and every I4
-ball lies inside a Case B ball** (26/26 and 26/26; `scripts/zi_AinB.py` lists, for each Case A datum, the Case B tuples with the
-*same* E whose ball contains it — this is how Lemma 2.3 was found; `data/zi/AinB_d9.txt`).
+ball lies inside a Case B ball** (26/26 and 26/26; `scripts/zi_AinB.py` lists, for each Case A datum, containing Case B tuples and
+flags those with the *same* E: all 26 Case A data have a same-E container — this is how Lemma 2.3 was found; `data/zi/AinB_d9.txt`).
+Solution-enumeration logs of §3.1: `data/zi/solutions.txt`.
 
 **3.3 Lemmas 2.2–2.4 by brute force (`scripts/zi_slicecheck.py`, `data/zi/slicecheck.txt`).** All Case A data with g = 1 in a
 degree box (a1, b1 monic coprime of degree ≤ D, E every divisor of a1 + b1 with admissible lc), ball depth ≤ DMAX. For each: the
@@ -234,7 +249,8 @@ show that the F_q[T] model omits exactly two of the seven ET types, **I4** (the 
 cylinders) is Type I or II as in Lemma 1.1 (§3.1). On the slices, every ball of every ET-type family lies in a Case B ball
 (q = 3 to depth 9, complete; brute-force degree boxes at q = 3, 5, 9, §§3.2–3.3). No solution and no ball outside the counted
 families was found that is not dominated by a counted Case B ball.
-**(3) Consequences.** On the slices where the no-covering theorems live, I4 ⊆ Case B and II2 = ∅ (Thm 2.5): (J)51, (J)56, (J)67
+**(3) Consequences.** On the slices where the no-covering theorems live, II2 = ∅ and I4 ⊆ Case B (Thm 2.5; for k ≥ 3: inside the
+level-2 Case B covered set, which is the set the proofs bound): (J)51, (J)56, (J)67
 and Conjecture 0.2 stand verbatim and extend to "no finite covering by ET-type families" (Cor 2.6); their union bounds do not
 undercount (and even naive double counting of the Case A mass keeps every certificate closed, §3.4). What needs a remark:
 the definition of O(q, A) and any *global* EVIDENCE about it (FE2 §0.1, ffl_tree densities): these are for linear families only.
@@ -245,5 +261,5 @@ Over ℤ both are counted, and at a prime r ∤ 4 they give M17's boxes (U) and 
 lc(P) for the smallest denominator X, so II1 keeps a *bounded* E = AX − P = e and is a linear family (it is Case A), while in I4
 E = AX − P = (aP + c)/b has degree n − (deg b − deg a): the ℤ ratio 4x/n = 1 + a/b ≠ 1 becomes a degree drop, and the fixed-E model
 drops I4. Case B (ℤ's (P) boxes, EE' = D) is closed under inversion by itself (swap E ↔ E'), so the only mirror pair split by the
-model is Case A / I4. On the sterility slices the split is invisible in the covered set, because every Case A ball sits inside a
-Case B ball with the same E (Lemma 2.3: E | 1 + T^{α+v}(H/b1)a1'), hence every I4 ball inside the mirror Case B ball.
+model is Case A / I4. On the sterility slices (k ≤ 2; for k ≥ 3 via level 2) the split is invisible in the covered set, because
+every Case A ball with monic E sits inside a Case B ball with the same E (Lemma 2.3: E | 1 + T^{α+v}(H/b1)a1'), hence every I4 ball inside the mirror Case B ball.

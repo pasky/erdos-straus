@@ -42,8 +42,7 @@ def solutions(P):
                 if Z is None or not Z or Z[-1] != 1:
                     continue
                 if min(len(Y), len(Z)) - 1 <= n - k:
-                    cnt["VIOLATION of FE Lemma 1.2 (second denominator of degree <= n-k)"] += 1
-                    continue
+                    raise AssertionError("VIOLATION of FE Lemma 1.2 (second denominator of degree <= n-k)")
                 sols.add(tuple(sorted([tuple(X), tuple(Y), tuple(Z)])))
     return sols
 

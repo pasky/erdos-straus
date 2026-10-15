@@ -18,5 +18,7 @@ for al in range(1, DMAX - 1):
         d = al + 2; u = ball(E, d)
         hits = [(s, dB, show(w), show(C), show(mm), show(g), show(EB)) for (s, dB, w, C, mm, g, EB) in Bt if dB <= d and ball(EB, dB) == u[:dB]]
         print(f"A: alpha={al} a1'={show(a1)} b1={show(b1)} E={show(E)} ball={''.join(map(str,u))}")
-        for h in hits[:4]: print("    in B: s=%d depth=%d w=%s C=%s m'=%s g'=%s E_B=%s" % h)
+        same = [h for h in hits if h[6] == show(E)]
+        for h in (same or hits)[:4]: print("    in B: s=%d depth=%d w=%s C=%s m'=%s g'=%s E_B=%s" % h)
+        print("    same-E container:", "yes" if same else "NO")
         if not hits: print("    NOT inside any census Case B ball")

@@ -1,0 +1,38 @@
+q=3 k=2 n=6 cylinder=11: primes 18
+   ('I', False, False) 42
+   ('I', True, False) 85
+   ('II', False, None) 35
+   primes all of whose solutions have deg E_FF >= n/2 (no linear family with small E): 2
+   Lemma 1.1 parametrisation verified on every solution (assertions passed)
+q=3 k=2 n=7 cylinder=11: primes 50
+   ('I', False, False) 263
+   ('I', True, False) 283
+   ('I', True, True) 24
+   ('II', False, None) 155
+   primes all of whose solutions have deg E_FF >= n/2 (no linear family with small E): 0
+   Lemma 1.1 parametrisation verified on every solution (assertions passed)
+q=3 k=2 n=7 cylinder=12: primes 54
+   ('I', False, False) 516
+   ('I', True, False) 209
+   ('II', False, None) 328
+   primes all of whose solutions have deg E_FF >= n/2 (no linear family with small E): 1
+   Lemma 1.1 parametrisation verified on every solution (assertions passed)
+q=5 k=2 n=4 cylinder=11: primes 7
+   P without solution 4
+   ('I', True, False) 4
+   primes all of whose solutions have deg E_FF >= n/2 (no linear family with small E): 3
+   Lemma 1.1 parametrisation verified on every solution (assertions passed)
+q=9 k=2 n=3 cylinder=1: primes 30
+   P without solution 25
+   ('I', False, False) 1
+   ('I', True, False) 1
+   ('II', False, None) 4
+   primes all of whose solutions have deg E_FF >= n/2 (no linear family with small E): 1
+   Lemma 1.1 parametrisation verified on every solution (assertions passed)
+q=9 k=1 n=3 cylinder=3: primes 30
+   P without solution 3
+   ('I', False, False) 30
+   ('I', True, False) 25
+   ('II', False, None) 11
+   primes all of whose solutions have deg E_FF >= n/2 (no linear family with small E): 4
+   Lemma 1.1 parametrisation verified on every solution (assertions passed)

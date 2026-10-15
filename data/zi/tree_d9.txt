@@ -1,0 +1,16 @@
+overlap |A cap B| = 2
+A      : balls   26, without ball at 1/u: 26
+B      : balls  148, without ball at 1/u: 0
+I4     : balls   26, without ball at 1/u: 26
+A+I4   : balls   52, without ball at 1/u: 0
+A+B    : balls  172, without ball at 1/u: 24
+A+B+I4 : balls  196, without ball at 1/u: 0
+I4 balls not already in A+B, per depth: {3: 0, 4: 0, 5: 2, 6: 4, 7: 8, 8: 8, 9: 2}
+A+B
+  c=1: survivors d3:2 d4:6 d5:16 d6:44 d7:130 d8:380 d9:1130;  x*_c=1+cT alive: True;  1/x*_(-c) (lies in this slice) alive: True
+  c=2: survivors d3:2 d4:6 d5:16 d6:44 d7:130 d8:380 d9:1130;  x*_c=1+cT alive: True;  1/x*_(-c) (lies in this slice) alive: True
+A+B+I4
+  c=1: survivors d3:2 d4:6 d5:16 d6:44 d7:130 d8:380 d9:1130;  x*_c=1+cT alive: True;  1/x*_(-c) (lies in this slice) alive: True
+  c=2: survivors d3:2 d4:6 d5:16 d6:44 d7:130 d8:380 d9:1130;  x*_c=1+cT alive: True;  1/x*_(-c) (lies in this slice) alive: True
+A: 26 balls; inside a Case B ball of depth <= own: 26; inside some ball (B or smaller A/I4): 26; maximal: []
+I4: 26 balls; inside a Case B ball of depth <= own: 26; inside some ball (B or smaller A/I4): 26; maximal: []
