@@ -152,8 +152,9 @@ Hence Λ ∩ (∩_D S_D) \ ∪_q D_q ≠ ∅ ⟹ no covering. (Note ∩_D S_D �
 **The converse fails for the natural sub-menus (PROVED).** O240 spark 6 / O238 spark 2 asked whether a covering exists iff
 Λ avoids ∩_D S_D. For the menu "ET + divisor + z14 windows" the answer is NO: for 15·4^s + 1, μ = 0 ∈ S_1 only
 (Computation 1.2: μ = 0 ∉ S_D for D = 2, 4, …), yet O239 Cor 2.8 proves no z14 window reaches it. For the menu
-"all root classes" the converse is equivalent to: *every non-descent-sterile unit-square point is reached by some
-root family* — which at μ = 0 of (15,1) is false at rung 2 (Theorem 4.1: Type II sterile although μ = 0 ∉ S_2). So the
+"all root classes" two versions must be separated: the *per-rung* version (sterile set of the degree-D rung at a unit point
+= S_D) is FALSE at D = 2 (Theorem 4.1: Type II-sterile at μ = 0 although μ = 0 ∉ S_2); the *global* version (some rung
+reaches every point outside ∩_D S_D ∪ ∪_q D_q) is open, and at μ = 0 of (15,1) it is exactly CONJECTURE 6.4's negation. So the
 correct sterile set of a degree-D rung is S_D ∪ P_D with an **archimedean/positivity part P_D** (Thm 4.1, Lemma 2.3) and,
 for finite sub-menus, a magnitude part (O239 Cor 2.8, MENU_STERILITY Prop 4.3).
 **CONJECTURE 6.4 (ladder-sterility of (15,1); Assessment, weak).** μ = 0 of 15·2^s + 1 is not reached by any root class

@@ -42,6 +42,9 @@ for co in itertools.product(range(-R, R+1), repeat=e):
         cs = list(co) + [lc]
         if math.gcd(*cs) != 1: continue
         T1 = pari.Pol(list(reversed(cs)), 'Y')
+        SC = int(__import__('os').environ.get('Z18_SCALE', '0'))   # T1(Y) -> T1(2^SC * Y), made primitive
+        if SC:
+            T1 = pari.subst(T1, 'Y', pari(f'2^({SC})*Y')); T1 = T1/pari.content(T1)
         if D % 2 == 0 and pari.polsturm(T1) > 0: continue        # Lemma 2.3
         if pari.gcd(T1, n) != 1 or not pari.polisirreducible(T1) and e > 1: pass
         r = -pari.lift(pari.Mod(n, T1)) if TYPE == 'II' else pari(-1)
