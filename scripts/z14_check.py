@@ -26,6 +26,8 @@ from sympy import isprime, n_order, factorint, symbols, simplify, divisors
 c0, k = map(int, sys.argv[1].split(',')) if ',' in sys.argv[1] else (1, int(sys.argv[1])); path = sys.argv[2]
 ALLOW = '--allow-stuck' in sys.argv  # report exact uncovered measure instead of failing
 UNC = [Fr(0)]
+EXPL = int(sys.argv[sys.argv.index('--explicit') + 1]) if '--explicit' in sys.argv else 0  # build+verify solutions s <= EXPL
+LEAVES = []
 fh = gzip.open(path, 'rt') if path.endswith('.gz') else open(path)
 lines = (ln.split() for ln in fh)
 
@@ -157,6 +159,7 @@ def walk(e, c):
         stats['stuck'] += 1; UNC[0] += Fr(1, L)
         return
     stats['leaves'] += 1; stats[t[0]] += 1
+    if EXPL: LEAVES.append((u, L, t))
     if t[0] == 'W':
         for s_ in check_window(t, L, u): small.add(s_)
         return
@@ -205,4 +208,59 @@ for s in sorted(small):
     sol = es_explicit(N)
     assert sol, ('no direct ES solution', s)
     stats['direct'] += 1
+
+
+def explicit(s, t):
+    """explicit (x, y, z) for n_s from leaf token t (no residue shortcuts); None if not applicable at this s."""
+    n = c0 * 4 ** s + k
+    if t[0] == 'D':
+        q = int(t[1]); X = ESQ.get(q) or es_explicit(q)
+        if n % q: return None
+        return tuple(v * (n // q) for v in X)
+    if t[0] == 'P':
+        a, d = int(t[1]), int(t[2]); f = prod(int(x) for x in t[3:]); cc = (f + 1) // (4 * a * d)
+        if (n + 4 * a * a * d) % f: return None
+        e_ = (n + 4 * a * a * d) // f; b = cc * e_ - a
+        return (a * b * d, a * cc * d * n, b * cc * d * n) if b > 0 else None
+    if t[0] == 'I':
+        c_, d = int(t[1]), int(t[2]); f = prod(int(x) for x in t[3:])
+        if (n + f) % (4 * c_ * d) or (n * n + 4 * c_ * c_ * d + n * f) % (4 * c_ * d * f): return None
+        a = (n + f) // (4 * c_ * d); b = (n * n + 4 * c_ * c_ * d + n * f) // (4 * c_ * d * f)
+        return (a * b * d * n, a * c_ * d, b * c_ * d)
+    m, j, code, w, h = map(int, t[1:6]); r = s - j
+    if r < 1: return None
+    oc = c0
+    while oc % 2 == 0: oc //= 2
+    E = 2 * j - 2 + ((c0 & -c0).bit_length() - 1)
+    if code == 0: X = 4 ** (r // h); tt = w ** h
+    elif code == 1: X = 2 ** (r // 2); tt = 4 * w ** 4
+    else: X = 2 ** ((r - 1) // 2); tt = w ** 4
+    _, homs, var = win_pieces_sym(m, j, code, w, h)
+    ys = [int(e_.subs(var, X)) for e_ in homs]
+    x = (n + m) // 4; N = n * x
+    assert 4 * x - n == m and x == c0 * 4 ** (j - 1) * (4 ** r + tt) and prod(ys) == 4 ** r + tt
+    pieces = [p for p, v in factorint(oc).items() for _ in range(v)] + [n] + ys
+    assert 2 ** E * prod(pieces) == N
+    from itertools import product as iprod
+    for eps in iprod((-1, 0, 1), repeat=len(pieces)):
+        d1 = prod(p for p, e_ in zip(pieces, eps) if e_ == 1); d2 = prod(p for p, e_ in zip(pieces, eps) if e_ == -1)
+        for i in range(-E, E + 1):
+            D1, D2 = (d1 * 2 ** i, d2) if i >= 0 else (d1, d2 * 2 ** (-i))
+            if (D1 + D2) % m == 0:
+                assert N % D1 == 0 and N % D2 == 0
+                return (x, N * (D1 + D2) // (m * D2), N * (D1 + D2) // (m * D1))
+    return None
+
+
+if EXPL:
+    for s in range(EXPL + 1):
+        lf = [t for (u, L, t) in LEAVES if s % L == u % L]
+        assert len(lf) == 1, ('leaf partition', s, len(lf))
+        sol = explicit(s, lf[0])
+        if sol is None:
+            assert s in small or es_explicit(c0 * 4 ** s + k), s
+            continue
+        x, y, z = sol; n = c0 * 4 ** s + k
+        assert min(x, y, z) > 0 and 4 * x * y * z == n * (x * y + y * z + z * x), s
+        stats['explicit'] = stats.get('explicit', 0) + 1
 print('OK' if not stats['stuck'] else 'PARTIAL (uncovered Haar measure exactly %s ~ %.3e)' % (UNC[0], float(UNC[0])), stats, 'small s checked directly:', sorted(small))
