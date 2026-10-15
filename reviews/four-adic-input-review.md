@@ -14,6 +14,9 @@ From-scratch scripts: `scripts/review_r229_*.py` (no reuse of the author's z1_* 
 | marking Lemma 1, Prop 2 (S_M not isometry-invariant for φ(M) > 2) | SOUND |
 | marking Prop 3 (M = 2, 3, 4 PROVED; M = 6 norm-one PROVED, general EVIDENCE) | SOUND (D7: S₆ genus split can be PROVED by one example) |
 | small-prime pigeonhole "classification M ∈ {2, 3, 4}" | SOUND-AFTER-REPAIRS (D8: "forced" undefined; precise PROVED form supplied) |
+| Prop 3.1 / z1_glue (marked extension criterion c ≡ ±1, D ∣ p + v) | SOUND |
+| z1_isogeny_pointer (a) no crossing | SOUND (D9: spine word has χ = +1 only for p ≡ 1 mod 4) |
+| Legendre Prop 1, Cor 2, 7 failures ≤ 10⁶, squares | SOUND (all numbers reproduced exactly) |
 
 ## Claim 1: Lemma 1.1, Lemma 1.2, Theorem 1.3
 
@@ -132,3 +135,32 @@ points in ℙ²(𝔽₃): no forced meeting by counting; the real proof is the r
 PROVED theorem that the files actually contain: "For M ≥ 2, S_M ∩ X_n is a union of genera of path lattices for every n
 coprime to M iff M ∈ {2, 3, 4} (S₂ = S₃ = X_n, S₄ = χ-fibre). ⇐: Prop 3(a), Thm 1.3. ⇒: φ(M) > 2 by Prop 2 (not even
 isometry-invariant); M = 6 by the p = 17 example of D7." Drop or relabel the conic remark as heuristic.
+
+## Claim 4: gluing (Prop 3.1), no crossing, Legendre levels
+
+**Gluing, re-derived.** gcd(D, p) = 1 (for path words AA* = tp + 1), so L is unimodular at ℓ | D, the projection of L to
+M ⊗ ℚ is M^#, index [L : M ⊕ ℤz] = D, hence D·|z|² = D²p, |z|² = pD. ✓ With B(e₂^#, e₁) = 0, B(e₂^#, e₂) = 1 and
+Q(e₂^#) = (G_M⁻¹)₂₂ = v/D: y = −c e₂^# + z/D has B(y, e₁) = 0, B(y, e₂) = −c, Q(y) = (c²v + p)/D. ✓ Any third basis vector is
+e₃ = ±y + αe₁ + βe₂; e₁·e₃ = 0 forces β = αv; then e₂·e₃ = ∓c + αD, which equals −1 iff ±c ≡ 1 (mod D). ✓ So the marked
+criterion is right, and c = ±1 is admissible iff D | v + p, giving u = (v + p)/D. ✓ The self-review counterexample
+(p = 11, v = t = 4, D = 15, c = 4: Gram [[4,−1,0],[−1,4,−4],[0,−4,5]], det 11; basis (e₂, e₁, e₂ + e₃) gives
+[[4,−1,0],[−1,4,−1],[0,−1,1]], the path Gram of (4, 1, 4) ∈ X₁₁) verified by hand, as is the 2-power root example (A* = 8,
+v = 1, p = 7: c ∈ {1, 3, 5, 7}). Cosmetic: condition (1) "v | D + 1" is vacuous (D + 1 = tv); what (1) really asks is a basis of
+M with off-diagonal −1. The 17.5 % accidental-isometry statistic was not recomputed (EVIDENCE, not load-bearing).
+**No crossing, re-derived.** Kneser neighbours, Hecke images, duals live in the same quadratic space L ⊗ ℚ; rescaling
+preserves isotropy; χ = −(2-adic isotropy sign) for path lattices. ✓ Trivial but correct.
+**Legendre levels, re-derived.** Prop 1: |x × y|² = |x|²|y|² − (x·y)² = AA* − 1 = tn, so χ = +1 forces tn ∈ □+□+□ (TWO_FIBRES
+Thm A). The memo's direct check (a = 0: tn + 1 ≡ 1 − n² ≡ 0 (mod 8), so 4 | A or 4 | A*; a ≥ 1: 4 | t) gives an
+independent proof through Thm 1.3, so Prop 1 does not even need Thm A. ✓ Level residues t′ ≡ 7 (p ≡ 1 mod 8), 3 (p ≡ 5)
+✓; t = 2·odd·4^a is never a level ✓. Cor 2: a divisor pair A·A* = tm² + 1 with A ≡ A* ≡ −1 (mod t) is exactly a word
+(u = (A+1)/t, v = (A*+1)/t, tuv − u − v = (AA* − 1)/t), and words at squares have χ = (−A/m)² = +1. ✓
+**From-scratch recomputation** (`scripts/review_r229_legendre.c`, own sieve and divisor search, all levels t ≤ p + 2):
+39 175 primes p ≡ 1 (mod 4) below 10⁶; no Legendre-level word exactly at **73, 1201, 1489, 9649, 21169, 23041, 44641**;
+maximal least level 7119 at p = 704 761; primes without a Legendre-level word having 8 | some entry (levels ≤ 1000): 202.
+All identical to the memo. Odd squares 9 ≤ m² ≤ 10⁸, levels ≤ 3000: 0 words; odd squares ≤ 4·10⁶, **all** levels: 0 words.
+
+### Defects (claim 4)
+**D9 (MINOR).** z1_isogeny_pointer (a): "The spine word (p + 2, 1, 1) has L ≅ ⟨1, 1, p⟩ ∈ 𝔊⁺_p" holds only for p ≡ 1
+(mod 4): A = p + 1, χ = (−(p+1)/p) = (−1/p), which is −1 for p ≡ 3 (mod 4) (⟨1, 1, 3⟩ is ℚ₂-isotropic). *Repair:* add
+"(p ≡ 1 mod 4, the only case of interest)".
+**D10 (MINOR, cosmetic).** Prop 3.1(1) "v | D + 1" is automatic; replace by "a basis with off-diagonal entry −1".
