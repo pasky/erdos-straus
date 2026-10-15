@@ -124,3 +124,58 @@ c₀ = 2: 41, 89, 113, 137, 209; c₀ = 3: 97, 121, 169, 193, 241, 289; c₀ = 5
 correlation (open 2.4 vs covered 0.8) is confounded by the Mordell-immediate ones (covered for a reason unrelated to
 square points) — restrict to non-Mordell k before drawing it (D12). (3, 1) PROVED uncoverable ✓ (Lemma 3.1). c₀ = 5:
 5 + k ∈ 4^ℤ only for k ∈ {11, 59, 251}, none ≡ 1 (8) ✓ — no proved obstruction, consistent with the table.
+
+## Numbered defects
+* **D1 (FATAL for CONJECTURE E as stated; easy repair).** §4 CONJECTURE E and memo z11_unit_square_shapes/report SHARP 3:
+  "coverable iff c₀ + k is not a power of 4" is false for 4 | c₀: (12, 1), (28, 9), (48, 1), (60, 49), (92, 41) … have a
+  unit-square point at x < 0 and are provably uncoverable. Repair: assume 4 ∤ c₀ (WLOG by shifting s), or replace the
+  criterion by "c₀·4^x + k ∉ 4^ℤ for all x ∈ ℤ".
+* **D2 (MAJOR).** §4 "(a) unit squares — occur iff c₀ + k = 4^j (Lemma 3.1), PROVED sterile" and "for an exponential family …
+  its image avoids Sq^× unless c₀ + k = 4^j, so the qualitative B1 obstruction disappears" (also memo z11_lines_branching
+  "qualitative obstruction gone", report Goal 4). Lemma 3.1 classifies only integer exponents; Λ ∩ Sq^× = ∅ for the other
+  (c₀, k) is the open (EH_k)-type statement. Repair: "integer unit-square points occur iff …; whether Λ meets Sq^× at
+  non-integer μ is open (CONJECTURE; screens consistent)"; "the qualitative obstruction disappears" → "is not known to persist".
+* **D3 (MINOR).** Lemma 3.1 hypotheses: add 4 ∤ c₀ and k ≡ 1 (mod 8) (the 2-component ν₂ = k must be ≡ 1 mod 8 for Sq^×); the
+  phrase "ν(x) is a profinite unit square iff c₀·4^x + k = 4^j" is false at the 2-adic place without k ≡ 1 (8).
+* **D4 (MINOR).** Lemma 1.2: primes q | k are excluded from "pure" but not listed in the italic conclusion; the conclusion is
+  still true because for q | k, ν(σ)_q ≡ 4^σ = (2^σ)² is a unit square for *every* σ. Add this one line (it strengthens the
+  lemma: primes of k never help). Also note only ord_q(4) (not ord_{q^e}(4)) matters for squareness (Hensel).
+* **D5 (MINOR, citation).** Lemma 1.2 "contradicting ET Prop 1.6 / (J)55-type T1 vanishing": Prop 1.6 is about f_I, f_II of odd
+  squares; the needed fact is ET p. 7 (Mordell/Schinzel: primitive square classes are not solvable by polynomials) + the
+  converse half of ET Prop 1.9, i.e. the T1 argument in EXPONENT_COVERING Thm 1.2's proof. Cite that.
+* **D6 (MINOR, overclaim).** §1 "So the true mixed-point set is the label Cantor set C₄ = Π_ℓ{4, −2, 2, 3}" — stated as fact,
+  but only an observation of one open path; §1 itself (tree v2) and §2 show stuck regions at generic points and on ℓ-lines,
+  which are not label points. Repair: "the open path observed lies near C₄ (Assessment)".
+* **D7 (MINOR, label).** §2 "CERTIFIED finite computation of coverage, witnesses not replayed" is self-contradictory. Now
+  replayed by R244 (C4a, 9 explicit witnesses): may be relabelled "CERTIFIED (R244 replay, review_r244_line297.py)".
+* **D8 (MINOR).** z11_tree.c: "uncovered measure" = 1.0 − Σ leaf measures in double precision — cancellation at 10⁻¹¹.
+  Report Σ over open nodes of their measure instead (exact rationals or long double), and separate depth-capped from
+  genuinely stuck nodes in the "stuck" column.
+* **D9 (MINOR, arithmetic).** §2 "measure falls ~×20 per level … stuck nodes multiply ~×10–100 per level": the table steps
+  by two levels; actual per-two-level factors ×25, ×11 (measure) and ×12, ×164 (105) / ×28, ×73 (297) nodes. Fix the text.
+* **D10 (MINOR, label).** "a supercritical branching process" — from 3 depth values of one greedy heuristic; label as
+  Assessment, not EVIDENCE for non-termination of all trees.
+* **D11 (MINOR).** §4 "certificates are practical only when the square points are isolated by small-period D_q's (the nine
+  certified k)": 81, 177, 249 have no integer square point and 5 of 9 are Mordell-immediate (SIGN_FIELDS R236). Rephrase.
+* **D12 (MINOR).** §3 survey: quantify the caveat — 2/7, 5/11, 8/9 of the "covered" offsets (c₀ = 2, 3, 5) are
+  Mordell-immediate; the square-point correlation (2.4 vs 0.8) should be recomputed on the non-Mordell offsets only;
+  CONJECTURE E's evidence count "9 + 7 + 11 + 9" → 3 certified + 12 unreplayed non-Mordell.
+* **D13 (MINOR, improvement).** "no others for −6 ≤ x ≤ 40 (checked)" (105; similarly 297 "−12 ≤ x < 60"): the integer square
+  points are provably complete by factoring ((y − 2^x)(y + 2^x) = k for x ≥ 0; coprime consecutive factors {d·4^{a−1}, k/d}
+  for x = −a). State as PROVED.
+* **D0 (housekeeping).** side-agent/exp-near-square tracks `.pi/active.lock` (agent lock file); `git rm --cached` it before
+  any merge to main (it conflicts with every other worktree's untracked lock).
+
+## Verdict summary
+| claim | verdict |
+|---|---|
+| Lemma 1.2 (label points, CRT of squares, D_q depend on ℓ \\| ord_q(4)) | SOUND-AFTER-REPAIRS (D4, D5; D6 nearby) |
+| Result 1.1 (binary core of 4^s + 105 covered by 10 classes) | SOUND — CERTIFIED, replayed from scratch (9 classes suffice) |
+| Lemma 3.1 (unit-square point ⟺ c₀ + k = 4^j) | SOUND-AFTER-REPAIRS (D3: 4 ∤ c₀, k ≡ 1 mod 8) |
+| Consequence: (3, 1), c₀ ≡ 7 (8), k = 4^j − c₀ have no finite ET/divisor covering | SOUND (via Thm 1.4 + Remark 1.3 + T1, not Cor 1.5; scope as in C3) |
+| 4⁴ + 273 = 23² | SOUND (also 4² + 273 = 17²; complete list {2, 4}) |
+| §2 tree table / supercritical branching | EVIDENCE after repairs D8–D10 |
+| §2 line X_{3,3} of 297 covered | SOUND (replayed, D7) |
+| CONJECTURE E | FATAL as stated (D1); after the 4 ∤ c₀ repair a consistent CONJECTURE (no conflict with (J)22, (J)62) |
+| §4 "image avoids Sq^× unless c₀ + k = 4^j" | GAP — overclaimed as PROVED (D2) |
+| Survey c₀ ∈ {2, 3, 5} | EVIDENCE label OK; caveat to be quantified (D12) |
