@@ -1,10 +1,28 @@
 # R238 — hostile review #1 of O236 CAP_POINTWISE.md (cap-pointwise)
 
 Reviewer: R238 (side-agent/review-cap-pointwise). Reviewed: CAP_POINTWISE.md at commit c5c0f217 (+ memos z12_*, report O236).
-From-scratch scripts: scripts/review_r238_*.py. Status: IN PROGRESS.
+From-scratch scripts: scripts/review_r238_*.py. Status: ROUND 1 COMPLETE.
+
+**Repairs applied (R238, author quiet since c5c0f217):** M1, m1, m2, m3, m4, m5 applied directly in CAP_POINTWISE.md,
+each marked "(R238 repair)". AGENT_REPORT_O236 not edited.
 
 ## Summary verdicts
-(filled in as the review proceeds)
+| Claim | Verdict |
+|---|---|
+| Def 1.1 loophole (solution-dependent mute set) | no loophole — Def 1.1 has no mute-set parameter; rad q \| y verified |
+| Thm 1.1 (prime window, e*(n) ≤ q − 3) | SOUND |
+| Thm 1.1′ (composite windows) | SOUND |
+| Cor 1.2 (all odd n; squares via p \| a; T1) | SOUND |
+| Thm 1.3(a) Ahn–Kwon explicit bound | SOUND-AFTER-REPAIRS (M1; citation verified) |
+| Thm 1.3(b) Linnik–Xylouris | SOUND-AFTER-REPAIRS (M1) |
+| Thm 1.3(c) GRH (16 log n + 70)² | SOUND-AFTER-REPAIRS (M1, m5; B–S formula verified second-hand) |
+| Lemma 3.1 (cap = max (a_s − v_s(x))⁺) | SOUND |
+| Lemma 2.1 / §2 (Assessment) | SOUND as labelled (trivial / tentative) |
+| Remarks 1.4, 1.5 (B6, B3 evaded, B2; novelty) | SOUND as Assessment (m4) |
+| Prop 4.1 Type I dichotomy | SOUND, strengthenable (m3) |
+| Numerics (q* ≤ 227, 2.84, cap ≤ 41, best ≤ 3, 2·10⁵ composites ≤ 263 / 55) | SOUND — all reproduced exactly |
+
+No FATAL defect; 1 MAJOR (one-word repair), 5 MINOR.
 
 ### Definition / loophole check (EXPONENT_CAP Def 1.1)
 Def 1.1 (EXPONENT_CAP l.28–30) has **no mute-set parameter at all**: ES^{(y,e)}(n) asks for x, y ∈ ℤ_{>0}, z ∈ ℚ_{>0},
@@ -135,4 +153,4 @@ second-hand (quoted in Ahn–Kwon p. 1412); the theorem number "5.1" remains unv
 No FATAL defect. No quantifier/uniformity problem found: the constants in Thm 1.3 are absolute (Ahn–Kwon's 12577,
 Bach–Sorenson's 4, 2.5, 5 with n_L = 8 fixed), the window q depends on n only through a Frobenius class, and
 the cap bound e ≤ q − 3 is uniform. No circularity: Thm 1.1 uses only reciprocity, cyclicity of F_q^*, and EXPONENT_CAP
-Prop 1.2 (re-checked: den z = Q₁² verified directly by my Def-1.1 checker on 220 000+ solutions).
+Prop 1.2 (re-checked: den z = Q₁² verified directly by my Def-1.1 checker on ≈ 138 000 solutions).
