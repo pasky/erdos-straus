@@ -1,6 +1,8 @@
 # FF_STERILE_SMALL — the small-q sterility cases: q = 27 (r = 3), q = 9, and A = T (k = 1) (O220, wave Y-f)
 
 Status: checkpoint 4 (O220): Thm 3.1 (q = 27, k ≥ 2; R220), Thm 5.2 (q = 9, k ≥ 2), Thm 8.1 (A = T, all q = 3^r, r ≥ 3) PROVED (computer-assisted); open: q = 3 (k ≥ 2), q = 9 (k = 1).
+(Update, O226: q = 9, k = 1 is closed by FF_ODD_ABSENCE Thm 2.2 (reviewed R240, R241); with Thm 8.1, ES_q(T) has no finite linear
+covering for every q = 3^r, r ≥ 2 (FF_ODD_ABSENCE Cor 2.3). Open: q = 3 (k ≥ 2).)
 §§6–8 hostile review R226 (`reviews/ff-sterile-small-review-3.md`): no FATAL/MAJOR; Thm 7.3 independently re-certified for
 3 ≤ r ≤ 19, Lemma 7.4 re-derived; minor repairs m-1..m-6 applied in place ("(R226 repair)").
 Builds on FF_STERILE_PUSH.md ((J)51; notation (B), Lemmas 1.1–1.6, 2.1, 2.2, Thm 3.1), DEPTH_ASPECT.md §2, FUNCTIONFIELD_ES*.md.
@@ -302,7 +304,8 @@ the exact filtered counts s ≤ 12, `data/fz/enum1_27/`), tail s > 80 (`fz1_tail
 text was: "r ≥ 20 is not certified only for an implementation reason ... so r ≥ 20 is EVIDENCE".) The certified totals converge
 to ≈ 9.09 (Case B → 7.00, from s = 2, 3 at large q; Case A → 2.00, from α = 1). *Independent re-certification (R226):* with
 R226's own routes, tail, Case A bound and its own exact q = 27 enumeration (0 filtered tuples for s ≤ 12, confirmed), totals ≤ 18.03
-(r = 3), 31.89 (r = 4), ≤ 19.62 (r ≥ 5) (`reviews/ff-sterile-small-review-3.md` §5). **q = 9 (k = 1) is not closed:** exact filtered counts
+(r = 3), 31.89 (r = 4), ≤ 19.62 (r ≥ 5) (`reviews/ff-sterile-small-review-3.md` §5). **q = 9 (k = 1) is not closed** (by this method; closed by FF_ODD_ABSENCE Thm 2.2, O226, which restricts the union bound to the
+four primitive slices via the root-product law)**:** exact filtered counts
 (R226 repair m-6: not archived; R226's independent s ≤ 14 value is 3.92790) give Case B mass 3.929 for s ≤ 18 (all from
 even s; no tuples at odd s ≤ 17) and Case A ≤ 0.671 (exact α ≤ 6), but the route bounds for 19 ≤ s ≤ 80 add 53 > 6 − 4.6
 (CERTIFIED statement about the method; the exact masses decay like 10⁻⁵ at s = 18, so the true sum is very likely ≈ 4.6 < 6, EVIDENCE).
@@ -335,5 +338,6 @@ type (they took a C int, which overflowed for r ≥ 20 — the reason Thm 7.3 st
 the certified cases: fz_sum 3 80 (3.018043069489), fz_hybrid q = 9 (3.287220339594), fz1_sum 4 80 (24.81244341985) and
 fz1_tail 4 80 (3.3028636616·10⁻⁵) are reproduced to all printed digits.
 **Status of ES_q(T^k) for q = 3^r (with (J)51 and this file):** no finite linear covering for k ≥ 2 and every r ≥ 2 (Thms 3.1, 5.2 +
-(J)51), and for k = 1 and every r ≥ 3 (Thm 8.1). Open: q = 3 with k ≥ 2 (Conjecture 0.2), and q = 9 with k = 1 (§7: exact counts give
-≈ 4.6 < 6, EVIDENCE; the bounds beyond s ≈ 19 are too weak). q = 3 with k = 1 has a finite covering ((J)4).
+(J)51), and for k = 1 and every r ≥ 3 (Thm 8.1). Open here: q = 3 with k ≥ 2 (Conjecture 0.2), and q = 9 with k = 1 (§7: exact counts give
+≈ 4.6 < 6, EVIDENCE; the bounds beyond s ≈ 19 are too weak) — the latter is now closed by FF_ODD_ABSENCE Thm 2.2 (O226;
+reviews R240, R241), so k = 1 holds for every r ≥ 2 (FF_ODD_ABSENCE Cor 2.3) and only q = 3, k ≥ 2 remains open. q = 3 with k = 1 has a finite covering ((J)4).
