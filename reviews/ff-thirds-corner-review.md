@@ -1,9 +1,29 @@
 # R247 — hostile review of O227 (FF_THIRDS_CORNER.md, branch side-agent/ff-thirds-corner)
 
-Reviewer: R247. Status: IN PROGRESS (round 1). From-scratch scripts: scripts/review_r247_*.
+Reviewer: R247. Status: round 1 complete. From-scratch scripts: scripts/review_r247_*.
 
 ## Summary verdicts
-(filled in claim by claim below)
+| claim | verdict |
+|---|---|
+| Setting: tuple covers x_u ⟺ E ≡ −u mod T^{N(s)+1} | SOUND |
+| Lemma 1.1 (R3 identity) | SOUND |
+| Lemma 1.2 (Liouville lemma; exact case dies by 2 ≠ 0) | SOUND |
+| Cor 1.3 (thirds corner / cyclotomic / all a = b tuples miss x*_c) | SOUND (MINOR-1: "s ≥ 4" should be "s ≥ k + 2") |
+| Prop 1.4 (exact tuples need lc u = −1 + discrete log) | SOUND-AFTER-REPAIRS (MINOR-2: converse side conditions) |
+| Prop 2.1 (complete ≈3^N search) | SOUND (MINOR-3: hypothesis N ≥ k + 1, not N ≥ 3); completeness independently confirmed |
+| Lemma 3.1 | SOUND |
+| Cor 3.2 | SOUND |
+| Prop 5.1 (Bezout form) | SOUND (MINOR-4: wording of the "iff") |
+| EVIDENCE: no Case B tuple covers x*_c, N ≤ 20 (k = 2), N ≤ 18 (k = 3) | SOUND as EVIDENCE; independently reproduced to N ≤ 17 (k = 2) and N ≤ 16 (k = 3), both c; MINOR-5: c = 2 log not committed |
+| "no linear family of level ≤ 20 valid at x*_c" (with Case A theorem) | SOUND as EVIDENCE |
+| §3 calibration counts (EVIDENCE) | SOUND (reproduced exactly) |
+| §3 lottery model / extrapolation | Assessment, label OK; MINOR-8 (statistical weight), MINOR-9 (structured exclusion — gap closed by an R247 lemma) |
+| §4 cyclotomic table | h = 2 row reproduced; h = 3, 4 not re-run |
+| §6 interpretation | Assessment OK; MINOR-6 (garbled formula), MINOR-7 |
+| §7 restricted route exponent 0.000 | number SOUND (grid EVIDENCE, reproduced at q = 3, 9; q = 27 value is a grid artefact); **MAJOR-1: "degenerate corner, true count polynomial" interpretation is false — the zero set is a 2-dim part of the face b = 1/2** |
+
+No FATAL defects. Positive controls: 110 non-exact coverings at polynomial points found identically by a Liouville-free
+brute-force census, my Liouville-free full-mode search, my lop search and zt_lop.
 
 ## Claim-by-claim
 
