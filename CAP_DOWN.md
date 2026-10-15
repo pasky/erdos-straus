@@ -89,3 +89,35 @@ ineffectivity (Siegel, inside Pollack's proof). O236's Thm 1.3(a)/(b) remain the
 the 1/4 for n ≡ 1 (8) is exactly the 2-adic repair. (3) Odd squares (Cor 1.2(c) of O236, routed through p | a with
 exclusions q ≢ −p (mod ℓ)) are not covered: the exclusions are not detector forms of bounded length. (4) Exponent 1/4
 is Burgess's barrier (the method is Burgess + Vinogradov–Linnik); GRH gives (log n)² as before.
+
+(Z7-2) Can (b) reach 1/4? Hypothesis to violate: "bad windows (n ≡ 5, q ≡ 3 (8), v₂(n+q) odd) are dead". Tried:
+(i) all D₁ at fixed x (Lemma 3.1 below: includes the c_p ∈ {0, 2} "Type-I-at-x" family −4 ∈ box); (ii) odd prime
+powers q^{2j+1} and odd products of bad primes (they do reach v₂ even, but the window is then ≥ q³ ≫ n^{1/2});
+(iii) n-primes inside D₁. In every variant the forced non-residue of a bad window is the prime 2 itself, and every
+use of it needs a 2-exponent ≈ ord_q(2)/2, while c₂ ≤ 2v₂(K) is mandatory (no 2-adic denominators in ES^{(y,e)}).
+Detector side: accepting only {q ≡ 7 (8)} ∪ {q ≡ 3 (8), v₂(n+q) even} forces two conductor-n₀ characters into each
+of ξ± (W ≥ n₀²; a short-form ξ with max(‖α⁺‖, ‖α⁻‖) ≤ 1 must be 1 ± ψ, whose support is ≥ half of (ℤ/2^k)^*);
+equivalently the main-term sum is a character sum of χ_{−4n₀}(a² − 2b²) over a box, i.e. a 2-dim Burgess problem with
+nontrivial range only at side ≥ n₀^{1/4} (x ≥ n₀^{1/2}). So (b) stays at 1/2 (Assessment: method barrier, not a proof
+of necessity). *Remark:* if 2-adic denominators were allowed (variant ES^{(y,e)}_2 with den z = 4^j q₀²), the
+one-prime witness d = K·2^{o₂/2} fires at every q ≡ 3 (4), (q/n) = −1, and (a) would hold for all non-square n.
+
+## 3. The full fixed-x picture and the cap-0 slice
+
+**Lemma 3.1 (all ES^{(y,e)} solutions with given x; PROVED).** Let n be odd, x ≥ 1 with m := 4x − n > 0,
+gcd(m, n) = 1 = gcd(x, n), N := nx. Solutions 4/n = 1/x + 1/y + 1/z (y ∈ ℤ_{>0}, z ∈ ℚ_{>0}) are in bijection with
+D₁ ∈ ℤ_{>0}, D₁ ≡ −N (mod m), via y = (N + D₁)/m, z = Ny/D₁ ((my − N)(mz − N) = N²). Such a solution lies in
+ES^{(y,e)}(n) iff D₁ = ∏_{s | 2nx} s^{c_s} with c_s ≤ 2v_s(N) for s | 2n, and for odd s | x: c_s ≤ 2v_s(x) or
+(c_s even and c_s ≤ 2v_s(x) + 2e).
+*Proof.* A prime ℓ of den z divides D₁ and y, so ℓ | my − D₁ = N. The local computation of Lemma 1.1 at s | N with
+b := v_s(N): den exponent (c_s − 2b)⁺ (cases c < b, c = b, c > b). It must vanish at s | 2n (den z odd and prime to
+n) and be even and ≤ 2e at odd s | x; rad den z | y is automatic (s | y when c_s > b ≥ 1). ∎
+*Reading.* Writing D₁ = N·∏ s^{δ_s}: **−1 ≡ ∏_{s | 2nx} s^{δ_s} (mod m)** with |δ_s| ≤ v_s(nx), plus overflow
+δ_s ∈ v_s(x) + 2ℤ_{>0} at odd s | x (cap = (δ_s − v_s(x))/2). For n = p prime and e = 0 the δ_p = 0 part is the
+campaign's e-slice condition −1 ∈ Σ_m(K) (Type II, p | y); δ_p = ±1 are the solutions with p ∤ y ("Type I at x"),
+which via p ≡ 4x (mod m) read −4^{±1}·(box element) ≡ 1 — not touched by the forced parity, which only ever
+concerns δ_p = 0 (Lemma 1.1 is the case D₁ = n·d).
+**T1 for Lemma 1.1 (PROVED).** At n = a² no window m (any m ≡ 3 (4), coprime to n) has a Lemma-1.1 solution at any
+cap: d ≡ −K gives (d/m) = (−1/m)(4K/m) = −(a²/m) = −1, while for every prime s | d (s | K): if s odd, m ≡ −a² (mod s)
+so (s/m) = (m/s)(−1)^{(s−1)/2} = 1 ((m−1)/2 odd); if s = 2, K is even and m ≡ −a² ≡ 7 (8), (2/m) = 1. So (d/m) = 1.
+Contradiction. (The δ_p ≠ 0 part of Lemma 3.1 is not covered by this argument; ES(a²) does have solutions.)
