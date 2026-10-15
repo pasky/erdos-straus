@@ -174,11 +174,24 @@ u, t ≡ 3 (mod 8) → N_X ≡ 0 (8), giving 0.81–0.85.)
 * Words with large min(t, u, v) carry the Haar sign law N₋/N ≈ 3/4 already at p ≈ 10⁴, with no visible drift.
 * The whole deficit of N₋/N, and its slow drift 0.57 → 0.64, lives in the strata min ≤ 2. These are the automatic
   families of Prop F, where (i) a clean p + 1, p + 2 or 2p + 1 makes the whole family χ = +1 (a Landau event of
-  probability ≍ 1/√log p), and (ii) if the side is unclean, the flip involution of Lemma 2.2 pairs certificates with
-  non-certificates *exactly*. So N₋ = (family size)/2 on each unclean automatic family, far below 3/4. Hence N₋/N
-  drifts up as the logarithmic weight of the min ≤ 2 strata, and the Landau probability, decay.
-* In particular N₋ ≥ U/2 holds on every unclean automatic family (PROVED by the flip involution, since U(family) ≤
-  family size = 2N₋(family)). The O230 failures of N₋ ≥ U/2 come from the min ≥ 3 strata.
+  probability ≍ 1/√log p), and (ii) if the side is unclean, the certificate fraction on the family is ≤ 1/2 exactly
+  as in Lemma 5.2 below. That is far below 3/4. Hence N₋/N drifts up as the logarithmic weight of the min ≤ 2
+  strata, and the Landau probability, decay.
+* **Lemma 5.2 (PROVED).** Let F be an automatic family with fixed side X = ∏ r^{e_r}. Every divisor of X is an
+  admissible D, so Σ_{D|X} ψ(D) = ∏_{ψ(r)=1}(e_r+1)·∏_{ψ(r)=−1}[e_r even]. Hence the number of certificates in F is
+  (τ(X)/2)·(1 − ∏_{ψ(r)=−1}[e_r even]/(e_r+1)). This is exactly τ/2 (flip involution) if some ψ-odd prime has an odd
+  exponent, and τ/3 if the ψ-odd part of X is r². In the latter case, R227 D4's "defective side, rate 1/3" is this
+  lemma. So N₋(F) ≥ U(F)/2 whenever a ψ-odd prime of X has odd exponent, but not for X = r²·(clean).
+* **SHARP (EVIDENCE + Lemma 5.2): every N₋ ≥ U/2 failure at n ≡ 1 (8) sits on a defective n + 1.** All 8 failures with
+  n ≡ 1 (8) in R227's complete list (n < 10⁷) and among the primes < 3·10⁷ (110 897, 1 512 089, 2 152 097,
+  3 000 329, 5 270 849, 9 948 977, 17 188 937, 21 387 257) have **ψ-odd part of n + 1 equal to 3²** (`scripts/z7_defect_p1.py`;
+  the ninth, 4 095 125 = 5³·181², is ≡ 5 (8)). The largest family (t = 1 and u = 1, indexed by Div(p + 1)) then has
+  certificate rate exactly 1/3. At p = 5 270 849, for example, the min ≤ 2 strata have N₋/U = 148/333, while min ≥ 3
+  has 44/56. Splitting all 464 288 primes p ≡ 1 (8) < 3·10⁷ by the ψ-odd profile of p + 1 gives min N₋/U:
+  odd exponent present 0.564 (320 343 primes, 0 failures); clean 0.600 (107 296); even, ψ-odd part 3² 0.475
+  (25 666, 3 failures); other even profiles 0.549 (10 983). Why 3: 3 | p + 1 forces p ≡ 2 (3), hence ψ(3) = −1
+  automatically, so 3² is the most frequent pure-square defect. The failure needs, in addition, an unusually lopsided
+  min ≥ 1 stratum (3 failures among 25 666 such primes).
 * "N₋/U ≈ 3/4, scale-stable" is a weighted average of two strata moving in *opposite* directions. The min = 1 stratum
   has N₋/U ≈ 0.59 (> 1/2 because some non-certificates of a flip pair are forced through their u/v side). The min ≥ 3
   stratum has 0.90 → 0.85, slowly decreasing, since its forced share falls slower than its non-certificate share. So
