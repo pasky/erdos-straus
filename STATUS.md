@@ -19,7 +19,7 @@ proof has an identifiable gap.
   * **T1 deforms to polynomially-near squares ((J)53, (J)55).** If p = m² + k and tk + 1 = c², then level t is forced to χ = +1. This explains a 6–7σ deficit at bounded p − m². For polynomial families on p = m² − j, the sterile set is a square class in ℚ(√j) (Thm 3.4; apparently new).
   * Torsion and Frobenius ((J)44, (J)50): ES divisors live in the (h+1)-world, p in the (h−1)-world, and they meet only in the genus bit. CONJECTURE PM-II: 3361 is the only prime without a prime-modulus Type II certificate (exhaustive to 10⁸).
   * Exponent caps ((J)43, (J)47): a second archimedean wall makes every slice of the cap-1 variants finite, but the band is unbounded (R200 M1 still open). The provable cap is now sub-polynomial (Thm 5.1: e ≤ y^{(2+η)log₃y/(A log₂y)}). The e = 2 cell is a Markoff-type class-group problem, not easier.
-  * Composition-free statements of the obstruction: (J)38's ε_μ is the (J)23 sieve shot with Q = t ((J)41).
+  * The ES slot ε_μ of (J)38 is the (J)23 sieve shot with Q = t (s3_eps_mu_sieve, (J)41), so the sieve and the slot are the same shot.
 * *Proved theorems on the obstruction side (computer-assisted, multiply reviewed).*
   * **Function fields: ES_q(T^k) has no finite linear covering for every q = 3^r with r ≥ 2 (k ≥ 2), and ES_q(T) none for r ≥ 3** ((J)51, (J)56). Previously r ≥ 27. Only q = 3 (CONJECTURE 0.2) remains, and it is not a feasible finite computation with these tools.
   * **ℤ: sterile Mordell points exist on the r-generic line for every prime r ≥ 2³²** ((J)54; previously an ineffective tower). No finite ET covering handles all primes whose least QNR is r ≥ 2³². r = 13 is fully covered at level 1, and r = 17 is out of reach.
