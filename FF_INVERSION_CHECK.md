@@ -207,6 +207,6 @@ Cor 2.6 (1)).
 inversion preserves Haar measure and maps the slice families Σ of each theorem to themselves: c ↦ −c, resp. u₀ ↦ 1/u₀, and
 P₈ = {u₀⁴ = −1} is inversion-closed) to each union bound, every certificate would still close: OA Thm 2.2: 3.195 + 1.01·0.1705
 ≈ 3.37 < 4; SS Thm 5.2 (q = 9, k ≥ 2): 3.577 + 1.01·0.1750 ≈ 3.75 < 8; SS Thm 3.1 (q = 27): Case A ≤ 0.0097, total far below 26;
-SP Thm 3.1: Case A parts are ≤ the Case A terms in `data/fs/certify.txt`, totals 2.18 / 0.25 / 0.37 / … against 80 / 1 / 1 / …
-(the r ≥ 5 per-c statements keep their constants up to the added Case A part); SS Thms 7.3/8.1 (k = 1): Case A → 2.00 at most,
-totals ≤ 9.74 + 2.0 < q − 3 for r ≥ 3. This is a second, independent reason why no theorem breaks; Thm 2.5 is the exact one.
+SP Thm 3.1 (`data/fs/certify.txt`): Case A terms 0.064 (r = 4), 8.8·10⁻⁵ (r = 5), ≤ 10⁻⁵ beyond, against totals 2.18 / 0.25 /
+0.37 and budgets 80 / 1 (per c) / 1; SS Thm 7.3 (k = 1, `data/fz/certify_k1.txt`): Case A 0.068 (r = 3), 2.55 (r = 4), → 2.00,
+totals 9.47 / 27.6 / ≤ 15.5 against q − 3 = 24 / 78 / ≥ 240. This is a second, independent reason why no theorem breaks; Thm 2.5 is the exact one.
