@@ -1407,6 +1407,14 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment. B1-type sterility is menu-relative: polynomial-in-n menus are blocked by profinite unit-square points (T1 through descent), and algebraic-parameter windows with 2-adically sensitive Sophie-Germain pieces escape on thin exponential families. For primes nothing changes (Prop 5.1). Relay O245 (menu/genus ladder) was spawned.
    * verify.py (gn) re-runs both reviewers' checkers.
 
+75. **Spark relay Z8 (redirected): ES for every 7·4^s + 9 and every 3·2^m + 1, and the exact limit of window classes at unit-square points (EXP_105.md (O239); two independent hostile reviews `reviews/exp-105-review.md` (R253) and `reviews/exp-105-review-2.md` (R254, round 2 after merging R253): both no FATAL or MAJOR; certificates re-checked twice from scratch; minors (menu definition, scope of Cor 2.8 to unsplit SG pieces, firing conditions, novelty pointer) repaired by both reviewers).**
+   * **Thm 2.6 (PROVED, computer-assisted).** ES holds for every n = 7·4^s + 9. Since 7 + 9 = 16, μ = 0 is a profinite unit-square point and the family has NO finite ET/divisor covering ((J)68 Lemma 3.1, (J)22 Thm 1.4); every even s ≥ 2 is Mordell-hard (n ≡ 121 mod 840). Certificate: a 59-leaf tree (40 window leaves: m = 19 Sophie-Germain at μ = 0, m = 103, 663; plus ET/divisor leaves), found with a forced prefix μ mod 36.
+   * **Thm 2.2/2.3 (PROVED, computer-assisted).** ES for every 3·2^m + 1 (trees for 3·4^s + 1 and 6·4^s + 1; three m = 11 windows) — independent of, and agreeing with, (J)74 Theorem C.
+   * Prop 2.4, Cor 2.5, Prop 2.7, Cor 2.8 (PROVED; scope after R253/R254: the z14 window menu with unsplit Sophie-Germain numerators): at a unit-square point (c₀ + k = 4^J, k ≡ 1 (8), J ≥ 2) a window piece is visible only through an odd 2-adic valuation of its S-integer limit; h = 1, cyclotomic and most SG windows are blind there, and the single surviving shape is a finite check. Consequence: 15·4^s + 1, 31·4^s + 33, 7·4^s + 57, 63·4^s + 1, 47·4^s + 17, 55·4^s + 9 have no finite covering by ET + divisor + z14 window classes, while (3, 1), (7, 9), (23, 41), (39, 25) have a window at μ = 0. This is the window analogue of the T1 argument: the escape is a Sophie-Germain piece with 2-adic denominator, (2/m) = −1.
+   * Not decided (EVIDENCE: supercritical trees, uncovered measure ≈ 10⁻⁷): k = 297, 33, 273 and the c₀ ∈ {2, 3, 5} open list; on the 3-line through the integer square point of 297 no window fires.
+   * Novelty: no prior ES result for these families was found (R253, R254, O243 searches; cf. EXPONENT_COVERING §5.4).
+   * verify.py (go) re-runs both reviewers' certificate checkers.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

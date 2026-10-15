@@ -26138,4 +26138,34 @@ def check_gn():
 check_gn()
 
 
+def check_go():
+    # (go) EXP_105 (O239; reviews R253, R254): Thm 2.6 — ES for EVERY n = 7*4^s + 9 (a family with a profinite unit-square
+    # point, hence no ET/divisor covering) and Thm 2.2/2.3 — ES for every 3*2^m + 1 (= 3*4^s + 1 and 6*4^s + 1), via
+    # tree certificates with Sophie-Germain window leaves. Two independent from-scratch checkers, exact to s = 1000.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=root, env=env)
+        assert r.returncode == 0, ("EXP_105 subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    for c0, k, f, head in (("7", "9", "data/z14/cert_c7_k9.txt", "OK c0=7 k=9 leaves=59"),
+                           ("3", "1", "data/z14/cert_c3_k1.txt", "OK c0=3 k=1 leaves=9"),
+                           ("6", "1", "data/z14/cert_c6_k1.txt", "OK c0=6 k=1 leaves=2")):
+        out = run(["scripts/review_r253_cert.py", c0, k, f, "1000"])
+        assert head in out and "measure=1; explicit solutions verified for all s<=1000" in out, out[-2000:]
+        out = run(["scripts/review_r254_cert.py", c0, k, f, "1000"])
+        assert "cylinder checks OK" in out and "explicit solutions verified for 1000 s <= 1000" in out, out[-2000:]
+    print(f"== (go) EXP_105 R253/R254: ES for all 7*4^s + 9 and all 3*2^m + 1 (tree certificates with SG windows), two "
+          f"independent checkers, exact to s = 1000; seconds = {perf_counter() - t0:.1f}")
+
+
+check_go()
+
+
 print("\nall checks passed")
