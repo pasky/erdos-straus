@@ -365,3 +365,16 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z1_isogeny_pointer | 2-isogeny walks crossing into χ = −1 (brief angle 2) | no crossing (lattice/Hecke walks preserve χ); pointer automatic; expansion cannot prove the thin path-edge set non-empty | PROVED + EVIDENCE; negative |
 | z1_square_numerator | "4 = 2² is a square" (brief angle 3) | refuted by 9/p, 16/p; residue = v₂(M) = 2 (Fano) | dead |
 | FOUR_ADIC_INPUT.md (deep) | Fano theorem, 2^k bit law, requirements (i)–(iv), glued-plane form of path classes | 4-specific 2-adic input is used up by Thm 1.3; (i) = SQ₅ remains the lottery | see file |
+
+## Spark relay Z3 (O233): global Fano over the supersingular 2-isogeny graph (memos z9_*, deep file GLOBAL_FANO.md; not yet triaged)
+
+| file | idea | outcome | labels |
+|---|---|---|---|
+| z9_frobenius_layers | why path edges are 4× enriched in loops of G_p/Frob | loop ⟺ edge lattice represents 2 (⟺ E/C ≅ E^(p)); layers r_L(m) > 0 = compatible degree-m isogeny E^(p) → E; path edges sit in the layers of their letters | PROVED; CERTIFIED (9489 edges, p ≤ 2000) |
+| z9_pointer_parity | parity/degree/pointer laws for path edges over G_p | none: P(p) even 47.6 %, no forced odd vertex (609 primes ≤ 10⁴) | EVIDENCE; negative |
+| z9_depth_walks | O224's depth bits on the tree | depth-k pentagon vector = non-backtracking walk of k − 1 half-steps in G_p; 8/p = X₀(4) refinement; bits = v₂(t) or split of v₂(tp+1) | PROVED; CERTIFIED (1190 pointers) |
+| z9_order3_fano | "Q mod 3 on L/√−3L" for TES | no order-3 Fano: χ₃ does not control v_λ(T); target words exist at all 13 TES failures ≤ 787 → TES failures are bit failures | EVIDENCE (one Type II slice); Assessment |
+| z9_triangle_shapes | widen target to near-orthogonal (cyclic plumbing) classes | decoupled from path classes (47/329 primes: triangles but no path); no Egyptian identity | EVIDENCE; negative |
+| z9_brandt_screen | how Brandt/class-number counts fail Prop 10.3 | L1 Hecke-linear = word count (full-rank Siegel–Weil tautology); L2 planes up to genus (glue invisible); L3 Schiemann = problem itself | PROVED (L1); placement |
+| z9_heegner_layers | layer t of G_p as reductions of CM points of disc −4tp on X₀(2) | certificates = ray-class condition mod t (norm A ≡ −1, A ∣ tp+1) on those CM points; unifies (J)35 with Prop 10.3 | Assessment (algebra PROVED) |
+| GLOBAL_FANO.md (deep) | global pigeonhole over G_p | no global law; what a global Fano must act on (ray classes mod varying t); 105 has the graph but no path edge | PROVED parts + negative |
