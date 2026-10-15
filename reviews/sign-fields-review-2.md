@@ -183,5 +183,5 @@ Assessments.
 ## 7. Agent report (AGENT_REPORT_O232)
 
 - **D15 (MINOR).** SHARP 1 and the "Caveats" bullet repeat the false u ≡ 3 (4) statement (D9) and "for 8, 12, … it is a
-  proper Chebotarev subset" without the level restriction. Repair as D9.
+  proper Chebotarev subset" without the level restriction, and presents 8/131, 8/241 as a check of the mechanism (see D12). Repair as D9, D12.
 - Report claims "independent brute force for s ≤ 8"; I extended this to s ≤ 10 for all 13 offsets (pass).
