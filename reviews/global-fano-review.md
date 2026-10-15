@@ -185,3 +185,14 @@ edge-wise statement is: **converse TRUE for t ∈ {1} ∪ {odd primes}, FALSE fo
 ring condition carries real information exactly through the 2-part of t and the CRT sign pattern over odd ℓ | t. This sharpens
 z9_heegner_layers' repaired (a) — recommended as a repair (D6).
 **Verdict C4 (final): SOUND-AFTER-REPAIRS (minor).**
+
+### C8. z9_triangle_shapes (triangle decoupling, 47 of 329 primes ≤ 5000)
+Determinant re-derived: det [[a, e, e], [e, b, e], [e, e, c]] = abc − a − b − c + 2e³ = abc − a − b − c ± 2; c(ab − 1) = p + a + b − 2e;
+for e = −1, (ab − 1)(ac − 1) = a(p + a + b + 2) − (ab − 1) = ap + (a + 1)². Correct.
+From-scratch run (`scripts/review_r234_triangle.py 5 5000`; enumeration a ≤ b ≤ c, own canonical forms and p-adic test): 329 primes;
+327 with a χ = −1 triangle class; **47 decoupled primes, first 61, 181, 349, 421, 541** ✓; 312 primes with a χ = −1 triangle class
+that is not a path class ✓. Two wording defects (MINOR, D12): (i) "the two exceptions (109, 229) have none at all" — false as
+written: every p has the triangle (a, b, c, e) = (1, 2, p + 5, −1) ≅ ⟨1, 1, p⟩ (χ = +1); at 109 and 229 there are 2 resp. 4 triangle
+classes, all χ = +1; they have no **χ = −1** triangle class. (ii) "At 312 some triangle class is not a path class" must say "some χ = −1
+triangle class" — with any χ it holds at all 329 primes trivially (⟨1, 1, p⟩). The scope sentence in the Assessment is correct.
+**Verdict C8: SOUND** (EVIDENCE; minor wording).
