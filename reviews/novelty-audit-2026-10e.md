@@ -371,8 +371,8 @@ Status: in progress.
   linear forms over a field of formal series", JTNB 18 (2006) 421–444 [visited, numdam
   PDF; excerpt archived `sources/lit2026e/kristensen-jtnb-2006-excerpt.txt`], defines
   (α, β)-winning sets in L^{mn} over F_q((X^{−1})) (p. 426) and proves winning dimension
-  > 0 for badly approximable systems; Kleinbock–Shah? / Hussain (Res. Number Theory 2023,
-  HAW over formal power series) [snippets] extend this. McMullen, "Winning sets,
+  > 0 for badly approximable systems; Hussain, Res. Number Theory (2023) (hyperplane
+  absolute winning over formal power series) [snippet] extends this. McMullen, "Winning sets,
   quasiconformal maps and Diophantine approximation" (GAFA 2010) [visited author PDF;
   excerpt archived], p. 2: "Any winning set in ℝⁿ has Hausdorff dimension n" (after
   Schmidt 1966 and Dani). **Bearing on (J)72 Thm 2.1 ("U_c closed and misses a ball ⇒ not
