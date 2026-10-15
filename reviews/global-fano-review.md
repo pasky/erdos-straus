@@ -1,9 +1,9 @@
 # R234 — hostile review of O233 (GLOBAL_FANO.md, BRAINSTORM/z9_*.md)
 
-Reviewer: R234 side agent. Scope: brief items 1–10. Status: IN PROGRESS.
+Reviewer: R234 side agent. Status: round 1 complete. No FATAL; 1 MAJOR (attribution, D2); 11 MINOR.
 
 ## Summary verdicts
-(filled in per claim below)
+See the table after C9.
 
 ## Claim-by-claim
 
@@ -215,3 +215,68 @@ among the 17 "absences" the loop share of path classes is 1/1, 2/2, 3/4, 4/5, 3/
 2/7, 2/8, 2/4 (author's data, p = 5 … 9601) — i.e. the statistic is partly, not wholly, a loop artefact (3361 is a genuine case). Repair: restrict the pointer
 statistics to non-loop path classes and say so.
 **Verdict C7: SOUND** as EVIDENCE for "no parity law" (the parity statistic is unaffected); the pointer statistic needs the scope fix.
+
+### C9. Novelty (Deuring / Kaneko / Gross–Zagier-type facts)
+* Thm 1.1: core known (Chenu–Smith Prop 1–2 and Thm 2; Arpin et al. §5 for the loop/conjugate-pair phenomenon; Kaneko 1989's
+  "two embeddings ⟹ d₁d₂ ≥ 4p" is the same trace mechanism). Edge-level packaging new. → D2.
+* Prop 3.1-type "θ_L counts trace-zero elements of p-divisible norm": Gross 1987 §12 (Gross lattice) — already attributed in
+  CONSTRUCTIVE_ES; fine.
+* Depth walks: Bruhat–Tits / Eichler orders of level 2^k ⟷ non-backtracking paths (Serre, Trees) — cited; the conic-marking
+  lemma is elementary and, as packaged, new to the campaign. Fine.
+* Heegner dictionary: Deuring lifting, Gross–Zagier "On singular moduli" (reduction of CM points; there the ramified case p | D
+  is not the main case), Elkies — cited as background; no claim of novelty beyond the campaign. The "ideal class contains an ideal
+  of norm A" identification is *not* in those sources in this form and is unproved here (C4). Fine as Assessment.
+* L1/L2/L3: standard (Brandt self-adjointness, Siegel, Schiemann), correctly presented as placements.
+
+## Summary verdicts
+| # | claim | verdict |
+|---|---|---|
+| C1 | Thm 1.1 / frobenius_layers Lemma 1: loops ⟺ L represents 2; r_L(m) = #{x ∈ End(E, C) : deg x = mp}, m < p/4, trace 0 | **SOUND** (recertified from scratch, 9489/9489 edges p ≤ 2000; 6471 quaternion checks p ≤ 200); attribution MAJOR (D2) |
+| C1′ | 4× enrichment statistic | SOUND as EVIDENCE; range-dependent pooled ratio (D3) |
+| C2 | Thm 2.1 / depth_walks Lemma 1, Cor 2, Prop 3(i)–(iii) | **SOUND** (1190/1190 pointers p ≤ 200, own code); marking is the whole content (strengthened) |
+| C3 | L1 (narrow), L2/L3 placements | **SOUND-AFTER-REPAIRS** (minor: ℓ ∤ 2p, weights, Siegel ε, label wording) |
+| C4 | Heegner dictionary: forward algebra; level-t ring condition; necessity only | **SOUND-AFTER-REPAIRS** (forward algebra PROVED; converse: TRUE for t ∈ {1, odd primes} by a sign lemma, FALSE at t = 4, 8, 12, 15 — author's example is not edge-level) |
+| C5 | TES χ₃ test, radius, "bit failures" | **SOUND** as EVIDENCE (all rates reproduced exactly; counts doubled by the author's convention, D9); "bit failures" = Assessment, one slice (D10) |
+| C6 | 105 control | **SOUND** |
+| C7 | no parity law (47.6 % even, odd vertices, both-end pointers) | **SOUND** as EVIDENCE (116/116 primes ≤ 1500 identical); both-end statistic ill-defined on loops (D11) |
+| C8 | triangle decoupling 47/329 | **SOUND** (exact reproduction); wording (D12) |
+| C9 | novelty | see D2 |
+No FATAL defects. No positive ES claim is made, and none is needed for the labels used.
+
+## Defects
+* **D1 (MINOR) depth_walks / GLOBAL_FANO §2:** "1190 pentagon pointers … p ≤ 200" are over all odd primes 5 ≤ p ≤ 200 (368 for
+  p ≡ 1 (4)); say so. Add the reviewer remark: for primitive x, x/2 is never the radical, so without marking every pointer
+  continues — the marking is the entire content of the step count. *Repair:* one sentence each.
+* **D2 (MAJOR, attribution) frobenius_layers Lemma 1 / GLOBAL_FANO Thm 1.1 / AGENT_REPORT SHARP 1:** the d-isogeny-to-conjugate ⟺
+  √−dp ∈ End E statement with the same trace argument is Chenu–Smith (Prop 1–2; counts via Cl(ℤ[√−dp]), Thm 2). *Repair:* label
+  "PROVED; known in substance (Chenu–Smith 2021, Prop 2; Arpin et al. §5); new: the edge (level-2) form via L = (E⁰)^#(p)", and
+  cite Chenu–Smith Thm 2 for "layer m ≍ h(−4mp)".
+* **D3 (MINOR) frobenius_layers / AGENT_REPORT:** "4× enrichment" is the pooled ≤ 10⁴ share ratio (22.6/5.8); it is 2.3× at ≤ 2000
+  and 2.6× at ≤ 3000. *Repair:* state pooled and range.
+* **D4 (MINOR) brandt_screen L1:** restrict to ℓ ∤ 2p; state that the Brandt self-adjointness weights descend to 8/|Aut L|
+  (|Aut L| = 2e·|Stab_{⟨Frob,w₂⟩}|), which is what makes the mass functional the right one.
+* **D5 (MINOR) brandt_screen L2 / GLOBAL_FANO §3 table:** Siegel's formula for rank 2 in rank 3 carries ε = 1/2; the written local
+  condition is only the odd part; "PROVED placement" → "placement of a PROVED local criterion (Assessment)".
+* **D6 (MINOR) heegner_layers (a) / GLOBAL_FANO §4:** the (3, 1, 7)/p = 13 sign-flip example is not an edge-level counterexample
+  (at odd prime t the edge-wise converse is TRUE by the sign lemma in C4). *Repair:* replace by: converse true for t ∈ {1} ∪
+  {odd primes}; false in general (p = 61, L = ⟨1⟩ ⊥ [[7, −3], [−3, 10]], t = 4, A = 7, imprimitive ε; primitive failures at
+  t = 8, 12, 15, e.g. p = 41, t = 15, A = 14).
+* **D7 (MINOR) heegner_layers (b):** "p ramified in ℚ(√−tp)" needs p ∤ t; "bounded local factors" ignores the sum over
+  conductors f² | 4tp.
+* **D8 (MINOR) GLOBAL_FANO §4 bold sentence:** add "(Assessment: the identification with an ideal class of ℤ[√−tp] is not proved;
+  given j the binary complement trivially represents A)".
+* **D9 (MINOR) order3_fano numbers / AGENT_REPORT SHARP 2:** all word counts (428–1370, 2620 at N = 97, etc.) are 2× the number of
+  distinct words (each word counted with (j, k, u, v) and (k, j, v, u)); rates unaffected. *Repair:* halve (214–685) or define
+  the convention.
+* **D10 (MINOR) GLOBAL_FANO §0 (I7), §5, AGENT_REPORT SHARP 2:** "TES failures are bit failures" stated as a conclusion; add "in
+  the Type II slice (Type I = 75 % of TES solutions not enumerated); reading = Assessment".
+* **D11 (MINOR) pointer_parity / GLOBAL_FANO (I1):** both-end pointers are undefined on loop classes (loop ⟺ Aut(L) swaps the
+  ends, C7 lemma); restrict the statistic to non-loop path classes.
+* **D12 (MINOR) triangle_shapes:** 109/229 have χ = +1 triangles (⟨1, 1, p⟩ always is one); "312 … some triangle class" must be
+  "some χ = −1 triangle class".
+
+## Reproduction (reviewer scripts, no author code imported)
+`cd scripts; PYTHONPATH=. uv run --with sympy python <script>`:
+`review_r234_loops.py 5 2000` (126 s) · `review_r234_quat.py 200 55` (≈ 40 min) · `review_r234_depth.py 200 0` · `review_r234_pointers.py`
+(via `run(primes_1mod4(5, 1500))`) · `review_r234_triangle.py 5 5000` · `review_r234_105.py 105` · `review_r234_tes.py 787` ·
+`review_r234_heegner.py` (`run(200, 6)`, with `PRIM = True`, and `run(110, 15)`). Library: `review_r234_lib.py`.
