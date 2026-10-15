@@ -3,7 +3,22 @@
 Reviewer: R246 (independent; no author files edited). From-scratch scripts: `scripts/review_r246_*.py`.
 
 ## Summary verdicts
-(filled in progressively)
+| claim | verdict |
+|---|---|
+| **Thm 1.1** ES for every n = 4^s + 105 (Lemma 1.0, 1.0′, 13 ET classes, coverage) | **SOUND** (independently re-certified from scratch; MINOR D1) |
+| Thm 1.1 T1 control | SOUND, but stronger than stated: the exp class is a LOCAL non-square class (D4) |
+| §1.2 / s6_mixed_points_cuberoots "mixed points were a menu artefact; sterility is menu-relative"; Thm 1.4 "violated hypothesis" | **GAP** (D2 MAJOR, D4) |
+| s6_unique_forced_cap0 | SOUND (D6 MINOR) |
+| s6_divisor_pigeonhole (incl. Cauchy–Davenport with zero images excluded) | SOUND (D7 MINOR) |
+| s6_numerator_windows: sign-level only-if Theorem | SOUND |
+| s6_numerator_windows: "works for every ν/n", "window shape strictly more T1-rigid" | **GAP** (D3 MAJOR) |
+| s6_witness_onesided (EVIDENCE) | SOUND-AFTER-REPAIRS (D5, D8 MINOR) |
+| s6_ydual_windows | SOUND (D9 MINOR) |
+| s6_window_independence (heuristic) | SOUND as labelled after D10 (MINOR) |
+| s6_exp_classes_primes (Assessment, negative) | SOUND |
+| Novelty / labels | Thm 1.1 genuinely new in the campaign (non-ET identity class); NOT the first all-Mordell-hard ES family (D11) |
+
+No FATAL defect. The headline theorem stands.
 
 ## Thm 1.1 (ES for every 4^s + 105) — checks
 
@@ -155,3 +170,64 @@ Verdict: instance (Thm 1.1) PROVED; reading **GAP** (D2, D4).
 "Every exponential class is a polynomial family in a root parameter" is correct for this one (n = 256u³ + 105), and the
 density-0 argument for finitely many polynomial families of degree ≥ 2 is standard. "B1 (POINTWISE_SIZE Thm M analogue)"
 is an analogy (Assessment). Verdict: **SOUND** as Assessment (negative).
+
+## Numbered defects
+
+**D1 (MINOR) Thm 1.1 presentation.** (a) "(for s ≥ 64)" in Thm 1.1(a) is unnecessary: all M are odd and every
+coefficient is ≥ 0, so coverage, integrality and positivity hold for every s ≥ 0. (b) "Mordell-hard for every s"
+(SYNTHESIS §0 (I2), AGENT_REPORT l.6) is false for s = 0, 1 (106, 109); write "s ≥ 2" as SIGN_FIELDS does. (c) Lemma 1.0
+integrality: replace "checked by forward differences" by the one-liner 32·32 + 33 = 1057 = 7·151, so 151 | 32u + 33 for
+u ≡ 32 and 151A = 2(32u+33)(u²−u+1). (d) Add the explicit d = K·d₁/d₂ = 2(u² − u + 1) (an honest divisor of K, cap 0).
+
+**D2 (MAJOR) Sterility framing and the Thm 1.4 hypothesis.** Locations: SYNTHESIS §0 (I2), §1.1 "Scope", §1.2 last
+sentences, §2 row (v), §3 item 1; s6_mixed_points_cuberoots; AGENT_REPORT ("(J)62's mixed points are sterile only for
+menus of polynomial-in-n ET identities"). Problems: no point of Λ₁₀₅ is known to be sterile ((J)62: μ* lies in II2
+(2, 23, 919); "no mixed point found so far is sterile"; the stall is weak EVIDENCE of coverability); S′ is defined
+relative to the ET menu, so "menu-relative" is a tautology; Thm 1.4's hypothesis is not "fixed moduli" (the exp class
+has a fixed modulus) but "ET/divisor classes"; and the fixed-class coverability of k = 105 remains OPEN. Repair: as in
+the mixed-points section above; in particular add to §1.1 "Thm 1.1 does not decide whether Λ₁₀₅ ∩ S′ = ∅ ((J)62/(J)22
+question remains OPEN)", delete "fixed moduli" in §0 (I2) and §3.1, and downgrade "the stall was an artefact" to
+"the greedy stall is bypassed".
+
+**D3 (MAJOR) s6_numerator_windows for odd ν.** For odd ν and odd n every forced (odd) window has K even, which the
+memo's own R-O238 repair excludes; even-K sign-forced windows fail at every cap in ≈ 2–3 % of cases (ν = 3: n = 5,
+q = 19, K = 8). And window-shape solutions DO exist at odd squares for ν = 3, 7, 9, 11, 19 (3/49 = 1/20 + 1/98 + 1/980).
+Repair: restrict "works for every ν/n" to ν ≡ 2 (4) (K may be odd) and to 4 | ν, and for odd ν state the even-K 2-adic
+condition (analogue of CAP_DOWN Thm 1.2 (E)); rename "window-shape T1" to "sign-forcing T1" and delete "the window shape
+is strictly more T1-rigid than the problem"; flag that the ν ≡ 1 (4) numerics count even-K windows (not solutions).
+Also SYNTHESIS §2 table row and §3 item 3 ("window-shape T1 proved impossible-at-squares").
+
+**D4 (MAJOR for the Assessment; MINOR for Thm 1.1) local T1 for the exp class.** (n_s / 18837001) = −1 for all
+s ≡ 34 (mod 45) (18837001 | 4⁴⁵ − 1, ord = 45). Locations: SYNTHESIS §1 "T1 control" ("no non-square congruence is
+certified here"), s6_mixed_points_cuberoots barrier screen ("congruence-wise square-compatible … a new kind of T1
+respect, 'global, not local'"), AGENT_REPORT caveat 2. Repair: cite the local certificate; the "global T1" remark
+applies only to the full cubic family u ≡ 32 (151).
+
+**D5 (MINOR) s6_witness_onesided.** "(q/p) = −1 forces firing at some cap" needs "K odd, or CAP_DOWN Thm 1.2 (E)":
+14 pairs (p < 3000, q < 120) with (q/p) = −1 are dead at every cap, all with K even and (E) failing.
+
+**D6 (MINOR) s6_unique_forced_cap0.** State admissibility as in Thm 1.1′ (m ≡ 4 − n (8), all prime factors ≡ 3 (4))
+rather than "m ≡ 3 (4)"; say explicitly that U = 1 ⟹ (ℤ/m)^* = {±1} uses G = E × U with E ≅ (ℤ/2)^r; the ν-version
+("For numerator ν the same statement … m | 24") is unproved — label Assessment or prove it.
+
+**D7 (MINOR) s6_divisor_pigeonhole.** The hypothesis "other primes map to even exponents in log coordinates" is
+unexplained and unused in the Cauchy–Davenport bound; delete or explain. State u prime for CD (Kneser otherwise).
+
+**D8 (MINOR) s6_witness_onesided totals.** Pair totals are 1635 / 1530 (sum 3165 = 15·211), not 1655 / 1531.
+
+**D9 (MINOR) s6_ydual_windows.** Label the "phase boundary = who owns the mute set" paragraph as Assessment; note that
+necessity in (a) holds for the whole y = pA slice (including p | D₁ branches), which strengthens the Prop.
+
+**D10 (MINOR) s6_window_independence.** "No pigeonhole over windows exists because … pairwise almost coprime" is an
+Assessment; the shared primes are precisely the small ones that drive cap-0 events.
+
+**D11 (MINOR) Novelty statement.** Add: not the first infinite all-Mordell-hard ES family ((J)22 Thm 4.1: 315·2^m + 1,
+15015·2^m + 1, m ≥ 3); the new feature is closing a family with a non-ET identity class whose divisor 2(u² − u + 1) moves
+with n. Literature search (3 web queries) found nothing on ES for 4^s + k; not exhaustive. §1.3–1.5 numerics
+(79 %, k = 33/273/297 stall densities) were NOT re-run by this reviewer (EVIDENCE, untouched by the theorem).
+
+## Scripts (all from scratch)
+`review_r246_cert105.py` (full certificate + exact s ≤ 2000), `review_r246_et19.py` (ET Prop 1.9 provenance),
+`review_r246_bruteforce.py` (certificate-free ES for s ≤ 20), `review_r246_t1.py`, `review_r246_localT1.py`,
+`review_r246_pigeon.py`, `review_r246_numwin.py`, `review_r246_numwin_even.py`, `review_r246_witness.py`,
+`review_r246_ydual.py`. All runs < 1 min, single core, under ulimit -v 8 GB.
