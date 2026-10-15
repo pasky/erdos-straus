@@ -85,7 +85,8 @@ use the "imaginary direction" of ℚ(√−k), which no congruence condition on 
 Definition. A *Type I (II) polynomial family* for n = m² + k on the class C is (a, …, f) ∈ ℚ[m]⁶ lying on Σᴵ_{n(m)}
 (Σᴵᴵ_{n(m)}) identically, with positive integer values at all large m ∈ C. (ET's reduction from (x, y, z) ∈ ℚ[m]³
 to such parameters needs n(m) prime for infinitely many m ∈ C — Bunyakovsky — so we take the parametrised form as the
-definition.) Its *witness* is D = d (Type I) or D = de (Type II); by Lemmas 1.1/1.3, (D(m)/n(m)) = −1 on C.
+definition.) Its *witness* is D = d (Type I) or D = f (Type II); by Lemmas 1.1/1.3, (D(m)/n(m)) = −1 on C (Type II:
+for n ≡ 1 mod 4).
 The family *escapes* if D mod (m² + k) has a non-zero m-coefficient, i.e. D(−√−k) ∉ ℚ (Prop 1.4); otherwise
 (D(m)/n) is a fixed character ψ(n) and C avoids Z_k^□ := {m ∈ Ẑ : m² + k ∈ (Ẑ^odd)²}.
 Degrees: by ET Lemma 2.8, deg a + deg c + deg d = 2 (Type I), deg a + deg c + deg d + deg e = 2 (Type II).
@@ -109,14 +110,23 @@ coefficients, α = ρ − r, β = k + ρ² − ρr, s = −(Λ − 1)α/Λ − r
 (Λ − 1)(k + ρ²) = −(r² + k): LHS > 0 > RHS. Impossible.
 (0,1,1): c = λ_c(m − r), d = λ_d(m − s), na + c quadratic. Λ > 1: na + c = μf with μ = a/(Λ − 1) > 0; the m- and
 constant coefficients force k = −r². Λ = 1: as in (1,0,1), k < −r². Λ = 1, r + s = 0: f < 0.
-Type II (chart f = 4acd − 1, f | n + 4a²d). If deg e = 2 then a, c, d are constant and e = (n + 4a²d)/f ≡ 4a²d/f
-(mod n): non-escaping. If deg e = 1: f is linear with a real root, but n + 4a²d is positive definite when a or c is
-the linear one (a const & d linear: value at the root of f is m₁² + k + a/c > 0; c linear, a, d const or a linear:
-n + 4a²d > 0 everywhere) — impossible. If deg e = 0 (deg acd = 2): (a, c, d) with d quadratic forces (linear
-coefficient) u(a − ec) = 0 and (quadratic coefficient) a ≠ ec, so u = 0, non-escaping; (a const, c, d linear)
-forces k + s² = −e < 0; (a, c linear, d const) has D = de constant; (a, d linear) makes n + 4a²d cubic ≠ e·f;
-(a quadratic) makes it quartic. The remaining shapes have d and e constant. In every non-escaping case D ≡ D₀
-(mod n) for a rational D₀, and ψ = (D₀'/·) with D₀' the integer numerator–denominator product of D₀. ∎
+Type II (chart f = 4acd − 1, f | n + 4a²d; witness f, Lemma 1.3). If deg e = 2 then a, c, d and f are constant:
+non-escaping. If deg e = 1: f is linear with a real root, but n + 4a²d is positive at every real point when a or c is
+the linear one (a, c const & d linear: value at the root of f is m₁² + k + a/c > 0; c linear, a, d const or a linear:
+n + 4a²d > 0 everywhere) — impossible. If deg e = 0 (deg acd = 2), e is a positive constant and f = (n + 4a²d)/e:
+(a, c const, d quadratic) the linear coefficient gives u(a − ec) = 0 and the quadratic one 1 + 4a²λ = 4acλe, so a ≠ ec,
+u = 0 and f ≡ const (mod n); (a const, c, d linear) forces k + s² = −e < 0; (a, c linear, d const) is impossible since
+n + 4a²d > 0 on ℝ while e·f = e(Λ(m − r)(m − s) − 1) has real roots (R-O221: the checkpoint said "D = de constant");
+(a, d linear) makes n + 4a²d cubic ≠ e·f; (a quadratic) makes it quartic; (c quadratic, a, d const) gives
+f = (n + 4a²d)/e ≡ 4a²d/e (mod n). In every surviving case D ≡ D₀ (mod n) for a rational D₀, and ψ = (D₀'/·) with D₀' the
+product of numerator and denominator of D₀. ∎
+Normalisation (R-O221): ET Lemma 2.8 assumes a ≤ b (y ≤ z). For a polynomial family either a ≤ b or b ≤ a for all large m;
+in the second case apply the reflection (a ↔ b, with f ↦ 4bcd − n for Type I, f ↦ (4c²dn + 1)/f for Type II), which
+keeps d (resp. maps the Type II witness f to another Type II witness of the same reflected family). After this
+normalisation all six Type I and ten Type II degree distributions occur above (R-O221 checked the list).
+Remark (R-O221). "Escaping" is the algebraic condition D(−√−k) ∉ ℚ; a genuine escape from characters of n needs
+D(−√−k) ∉ ℚ^×·K^{×2} (e.g. D = (m + 1)² is algebraically escaping, character-trivially). Thm 2.2 proves the stronger
+algebraic statement, and Thm 3.4 below needs no escape hypothesis at all.
 **Lemma 2.3 (PROVED).** Z_k^□ ≠ ∅ ⟺ k ≡ 0, 1, 5 (mod 8). *Proof.* For odd ℓ, m = (k − 1)/2, w = (k + 1)/2 ∈ ℤ_ℓ
 give m² + k = w². At 2, unit squares are 1 + 8ℤ₂ (Hensel), and m² + k ≡ 1 (8) is solvable iff k ≡ 0 (m odd), 1 (4 | m)
 or 5 (m ≡ 2 mod 4) (mod 8). CRT. ∎ (For the other k, n = m² + k is never ≡ 1 mod 8 at odd n, so Mordell's classes
