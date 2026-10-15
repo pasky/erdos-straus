@@ -171,3 +171,11 @@ E(L) = E(L_w) and L ≅ L_w). The ring condition is a genuine extra condition on
 not analysed). So the author's sign-flip example ((3, 1, 7), p = 13) shows nothing edge-wise — at t = 3 the edge-wise converse is
 true — and the doc should state the converse as: TRUE for t = 1 and t odd prime (sign lemma), FALSE in general (t = 4, p = 61
 above), open for primitive ε with composite t (see the t ≤ 15 re-run below).
+Primitive re-run, p ≤ 110, t ≤ 15 (ε/2, ε/3 ∉ E(L) when 4 | t, 9 | t): 69 classes; condition at 54, ring condition at 48, **6
+non-path classes satisfy the condition** — witnesses only at **t = 8, 12, 15** (p = 41: t = 8, A = 7 and t = 15, A = 14; p = 73, 89,
+97: t = 8; p = 97: t = 15, A = 14; p = 109: t = 12, A = 11), never at t ∈ {1, 3, 5, 7, 11, 13} (sign lemma) nor at t = 9 in range.
+t = 15 = 3·5 is exactly the predicted "two odd primes, incompatible signs" failure; 8 and 12 are 2-part failures. So the precise
+edge-wise statement is: **converse TRUE for t ∈ {1} ∪ {odd primes}, FALSE for t = 4 (imprimitive), 8, 12, 15 (primitive)**; the
+ring condition carries real information exactly through the 2-part of t and the CRT sign pattern over odd ℓ | t. This sharpens
+z9_heegner_layers' repaired (a) — recommended as a repair (D6).
+**Verdict C4 (final): SOUND-AFTER-REPAIRS (minor).**
