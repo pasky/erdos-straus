@@ -1,10 +1,22 @@
 # R222 — hostile review #1 of O219 (STERILE_EXPLICIT.md)
 
 Reviewer: R222 side agent (worktree branch side-agent/review-sterile-explicit, merged side-agent/sterile-explicit at d539a4a2).
-Status: IN PROGRESS. Scripts: `scripts/review_se_*` (from scratch; none of the author's code is imported).
+Status: round 1 complete. Scripts: `scripts/review_se_*` (from scratch; none of the author's code is imported).
 
 ## Summary verdicts
-(filled at the end)
+| claim | verdict |
+|---|---|
+| Thm 3.4 (every prime r ≥ 2³²: sterile points in the non-residue cells; no finite ET covering for least QNR r) | **SOUND** (MINOR text repairs m1–m4) |
+| §3.1 reduction to (S) (inputs, r-uniformity, "for every r ≥ 2³²" quantifier) | **SOUND** |
+| se_box.c route bounds / rounding / λ = 2^s boxes; se_tail.py all-N tail; se_r0.py combiner | **SOUND** (12 cells independently re-certified; independent combiner max Ŝ = 0.48668; λ = 2…16 per-box validation 0 violations) |
+| Lemma 1.1, 1.2, Q identities | **SOUND** |
+| Lemma 1.3, Cor 1.4 finite form | **SOUND**; asymptotic n^{max(0, β(1−β)−ρ)+o(1)}: **SOUND-AFTER-REPAIRS** (m5) |
+| "P-count exponent 2/5 with only a τ₃ envelope, tolerated up to η = 0.3" | correctly **EVIDENCE** (grid); reproduced from scratch (θ* = 0.400 for η ≤ 0.3, 0.417, 0.450, 0.500 at 0.35, 0.4, 0.5); wording m6 |
+| Dictionary O216 Case B ↔ ℤ P-data | **SOUND-AFTER-REPAIRS** (m7: equations coincide; side conditions do not — "literally" overclaims) |
+| r = 13 (all six non-residue cells covered at level 1), r = 17 (cells 5, 7 survive; out of reach) | **SOUND** (level 1 recomputed from scratch) |
+| Labels | SOUND-AFTER-REPAIRS (m4, m6, m8) |
+
+No FATAL, no MAJOR.
 
 ## 1. Reduction sterility ⇐ (S) (§3.1, Thm 3.4 first half)
 
@@ -135,3 +147,47 @@ fixed finite list of monomials with box-independent constants):
   then window/(sJ) < X_max, X_J < (X_max+1)/2 < X_max) is correct; count ≤ (w−1)(N^κ+1) is what is emitted. ✓
 * Decrease in r and the r ≥ 2^{600.25} extension: see §1. ✓
 **Verdict on the numerics: SOUND** (MINOR documentation defects below).
+
+## 5. Other claims
+
+* **r = 13, 17** (`scripts/review_se_level1.py`, from scratch): level-1 centres −a/b mod r of P-data of N = r and Q-points of
+  F = r (both orientations): r = 13 covers all of {2, 5, 6, 7, 8, 11}; r = 17 covers {3, 6, 10, 11, 12, 14} and leaves {5, 7}. ✓
+  The "constant ≲ 2.5 at θ = 0.4" is M17D line 70 (pointwise 2.48). ✓ (Scope "in a non-residue cell" is now stated. ✓)
+* **Continuum 2/5** (`scripts/review_se_rate.py`, from scratch, my own route exponents from Table 2 + Cor 1.4): reproduces the
+  claimed θ*(η) exactly, binding point (1/5, 1/5, 1/5, 2/5) for η ≤ 0.3; dropping C, D, E or τ₃ gives 0.5, dropping F or G
+  0.433, dropping A or I nothing — consistent with "five class routes + τ₃". It is a grid maximum (EVIDENCE), as labelled.
+* **Dictionary** (FF_STERILE_PUSH (B), Lemma 1.1): m′wC = T^s + v, w + C = g′v ↔ 4d·a·b = N + e, a + b = ce and
+  E = g′m′w − 1 ↔ f = 4acd − 1, Ev = T^s + m′w² ↔ ef = N + 4a²d are exact. But (B) has T ∥ w, T ∥ C (and T² | v), and even the
+  reduced tuple (m′, Tg′, w₁, C₁, v₁) has T | (c-twin); the ℤ in-cell data have r ∤ abcde. So the twins are the *equations and
+  routes*, not the counted sets (FF slices sit at the centre 1, ℤ cells at non-residues). See m7.
+
+## Defects (all MINOR; none affects the truth of Theorem 3.4)
+
+* **m1** (§3.2 first sentence; also se_box.c header "valid for EVERY odd N"): the table bounds hold for N = r^K / F = r^k with
+  in-cell data (unit classes need gcd(e, abd) = 1, gcd(f, F) = 1 — Lemma 1.1(iv) uses N = r^K and r ∤ abd), not for every odd N.
+  *Repair:* "for every N = r^K (r an odd prime, any K) in the range, counting in-cell (r-free) data".
+* **m2** (§3.3 / se_tail.py docstring): the Q-tail AC integer bound aF + c ≤ N^{2+u−x_c−x_d} uses c ≤ F/d and N^u ≥ 1.51; the
+  P/Q tail validity arguments (windows, capped exponents, the linear-in-L Coppersmith argument with κ ≥ k₁, κ > k₂) are only in the
+  self-review. *Repair:* add a five-line "why each tail term is valid" paragraph to §3.3 (can be copied from §4.4 here).
+* **m3** (§3.4 "→ 1/2 as r → ∞"): not given by the certificate (which shows S ≤ S(2^600-range) beyond). *Repair:* cite (J)26
+  Thm 3.1 / note that each weighted tail monomial → 0 and the series is uniformly geometric.
+* **m4** (stale text, self-review m4 not fully applied): §5 still sits between §3.3 and §3.4; §0 (I1) cites a nonexistent
+  "Table 1.2"; Prop 2.1 still says the Q grid is a "/tmp-prototype, to be committed" (it is `scripts/se_rateQ.py`) and that it is
+  "to be replaced by the certificate of §3" (the certificate proves exponent ≤ 0.4797 on the tail, not 2/5); the report says the
+  engine's bound/√N peaks ≈ 820 near 2⁴⁰ — the certified P_q4 table peaks at 931 (j = 155, N ≈ 2^{38.75}).
+* **m5** (Cor 1.4 asymptotic): add "0 < β < 1, fixed β, ρ; m → ∞ slowly; if β − ρ − j ≤ 0 use the trivial bound". Cite
+  Coppersmith–Howgrave-Graham–Nagaraj (Math. Comp. 2008) for the size-restricted divisors-in-classes lattice; "new to the campaign" OK.
+* **m6** (§0 (I3), report SHARP 3: "no divisor-function loss except a τ₃ envelope"): route G also uses 2^{ω(e)} (N^{o(1)}, charged
+  as C_ω e^{0.1} in the tail). *Repair:* "no τ-loss except τ₃ and 2^{ω(e)} ≤ N^{o(1)}"; keep "(grid EVIDENCE)" next to "exactly 2/5".
+* **m7** (§0 (I1), §1 notation, report SHARP 5: "literally the ℤ P-data", "Every FF route has a ℤ twin"): replace by "the defining
+  equations and the reconstruction identities coincide under (m′, g′, w, C, v) ↔ (4d, c, a, b, e), T^s ↔ N; the side conditions
+  differ (FF: T ∥ w, C, T² | v; ℤ in-cell: r ∤ abcde), so counts and box geometry do not transfer literally".
+* **m8** (labels): Thm 3.4 "PROVED, computer-assisted" is acceptable; for the house style add "(tables CERTIFIED, data/se/,
+  MANIFEST)". Also note that the floating-point argument assumes glibc x87 libm accuracy of a few ulp (stated in se_box.c, not in §3.2).
+
+## Not done / limits of this review
+* I did not rerun the 3.5 h certificate. I re-certified 12 table cells independently (bits 32–75); the λ ≥ 4 cells (P bits ≥ 128
+  in P_q4, all of P_q1) were validated only by the small-N per-box test (λ = 2…16) and by code audit; P j = 600 (λ = 4): RESULT_600.
+* The tail monomial lists were produced by the author's se_tail.py (fed as data to my combiner); their derivation is checked by
+  audit (§4.4), not by an independent implementation.
+* CHN (2008) and Browning–Elsholtz were not available in sources/.
