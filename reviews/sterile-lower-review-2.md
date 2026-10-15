@@ -51,3 +51,29 @@ Positivity U, V > 0 uses q ≠ 0 resp. p ≠ 0 or z ≠ 0 (u = −p/q with q ≥
 ### Assessment 4.2 — SOUND as Assessment
 Spot-checked the quoted engine values: `data/se/P_q4.txt` rows 155 (2^{38.75}: 931), 244 (2^{61}: 538 ≈ "550"), 364 (2^{91}: 98),
 `P_q1_hi` row 600 (7.1·10⁻¹¹) ✓. The conclusion "box-sum certificates cannot reach r = 17" is an Assessment and is labelled so.
+
+### Lemma 1.1 (ℓ²-Minkowski form of (Cop)) — SOUND
+Re-derived: the lattice of vectors (g_l X^l)_{l<w} is full rank (triangular basis, diagonal n₁^{m−i}X^i, X^{m+j}), det
+Δ = n₁^{m(m+1)/2}X^{w(w−1)/2}; the closed ball of radius ρ = 2(Γ(w/2+1)Δ)^{1/w}/√π has volume exactly 2^wΔ, so Minkowski
+(compact convex symmetric body, vol ≥ 2^w det) gives g ≠ 0 with ‖v‖₂ ≤ ρ; for |y| ≤ X, |g(y)| ≤ Σ|g_l|X^l = ‖v‖₁ ≤ √w‖v‖₂
+≤ μ_wΔ^{1/w}, μ_w = 2√w Γ(w/2+1)^{1/w}/√π. With n₁ ≤ n this is (Cop₂) ✓. Constants recomputed (mpmath, 30 digits):
+μ₁ = 1, μ₂ = 1.59577, μ₁₀ = 5.75935, μ₂₄ = 12.7128 ✓; μ_w/w = 0.80, 0.58, 0.53 (w = 2, 10, 24) → √(2/(πe)) ≈ 0.48, so μ_w < w
+for w ≥ 2 ✓. `zl_box.c` (diff against `se_box.c`: only the w·ln w term of lhs0 changes, LMK[w] = ½ln w + ln 2 + lgamma(w/2+1)/w
+− ½ln π, padded up by 10⁻¹²·(1 + |v|), capped at ln w) implements exactly (Cop₂) with the same safety margins ✓.
+*Optional improvement (not a defect):* since the quantity actually needed is ‖v‖₁, Minkowski on the cross-polytope
+{‖v‖₁ ≤ ρ} (volume (2ρ)^w/w!) gives directly ‖v‖₁ ≤ (w!)^{1/w}Δ^{1/w}, i.e. (Cop₁) with w! in place of μ_w^w:
+(w!)^{1/w} = 1.414, 4.529, 9.803 for w = 2, 10, 24 — another ≈ 20–23 % below μ_w, equally elementary.
+Minor: `zl_box.c` header and `zl_r0.py` comment call it "Lemma 2.1" (the document's Lemma 1.1) — m3.
+
+### Lemma 1.2 (value-selected tail routes) — SOUND
+The validity of every per-box term list is SE §3.3's (reviewed by R222/R223; the term lists and the cop() logic are
+unchanged — diff of `zl_tail.py` vs `se_tail.py` touches only the route choice). Any valid route may be chosen per box ✓.
+Monotonicity: for a term c N^e (ln N)^p with e < h, d/dL[(e − h)L + p ln L] = (e − h) + p/L ≤ 0 for all L ≥ L₀ iff p ≤ (h − e)L₀ ✓
+(and p ≥ 0 always). If no admissible route exists, `pick` falls back to SE's rule and the combiner's own check
+(`wP < 0.5`, all aggregated terms e < h, p ≤ (h − e)L₀ after rounding e up) fails closed ✓.
+Reproduced (`SE_W=40 zl_tail.py P 32 L`, author's code, reproduction only): G = 7.260 (2^600), **1.3618·10⁻² (2^800)**,
+max exponent 0.4960 resp. 0.4797; SE's rule at 2^600 gives 873.57 ✓ (the "873 → 0.0136" claim). Note: SE's rule at
+L₀ = 800 crashes with an OverflowError in `val` (exp(e·L₀) with e > 1.28 for some candidate route) — harmless (fail-closed),
+but it means the document's comparison is 600-vs-800 with different rules, not like for like (m4).
+How much the tail matters: at b = 30.16 the first tail K is 27 and each tail term is ≈ 2G·r^{−1/2} ≈ 8·10⁻⁷; the certificate
+margin (≈ 0.0022) would tolerate G up to roughly 3, so the 2^800 tail is not delicate.
