@@ -39,3 +39,10 @@ print(f"mode {mode} M {M} L0 {L0bits}: boxes {nbox}, boxes w/o admissible route 
 print(f"  new selection: G = {mp.nstr(G, 8)}, max exponent {max(e for (c, e, p) in allterms):.6f}, all admissible {all(adm(b[1]) for b in boxes)}")
 print(f"  SE selection : G = {mp.nstr(Gold, 8) if Gold is not None else 'n/a'}, max exp {max(e for T in olds if T for (c,e,p) in T):.6f}")
 print("  routes SE  :", dict(old)); print("  routes new :", dict(new))
+if os.environ.get("DUMP"):
+    import json
+    sel = os.environ.get("SEL", "new")
+    out = [t for b in boxes for t in b[1]] if sel == "new" else [t for T in olds for t in T]
+    if sel != "new": assert all(adm(T) for T in olds), "SE selection not admissible"
+    json.dump(out, open(os.environ["DUMP"], "w"))
+    print("dumped", len(out), "terms (", sel, ") to", os.environ["DUMP"])

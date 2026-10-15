@@ -71,6 +71,9 @@ def main():
     Q = [table("data/zl/Q_q32.txt", 32), table("data/se/Q_q4.txt", 4)]
     if variant == "l2":
         P.append(table("data/zl/P_q32_l2.txt", 32)); Q.append(table("data/zl/Q_q32_l2.txt", 32))
+    if os.environ.get("MINE_ONLY"):        # drop the author's new 1/32 tables; use the reviewer's own engines' tables instead
+        P = [table("data/zl_review/myP_q32.txt", 32)] + P[1:4]; Q = [table("data/zl_review/myQ_q32.txt", 32)] + Q[1:2]
+        print("MINE_ONLY: level-1 cells j=965..1087 from review_zl_pbox/qbox; other cells from SE's reviewed tables + P_q1_hi")
     tP = agg(json.load(open(os.path.join(ROOT, tailP))), Fr(1, 2), mpf(800) * LN2)
     tQ = agg(json.load(open(os.path.join(ROOT, "data/zl_review/tailQ100_new.json"))), Fr(1), mpf(100) * LN2)
     print(f"tail groups: P {len(tP)}, Q {len(tQ)}; max e P {float(max(t[1] for t in tP)):.6f} Q {float(max(t[1] for t in tQ)):.6f}")

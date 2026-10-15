@@ -1,10 +1,10 @@
 # Hostile review R231 of STERILE_LOWER.md (O228, checkpoint 1) — round 1
 
 Reviewer: R231 (independent hostile review #1). Branch `side-agent/review-sterile-lower-2`, merged `side-agent/sterile-lower`.
-Scripts (from scratch): `scripts/review_zl_*.py`. Status: IN PROGRESS.
+Scripts (from scratch): `scripts/review_zl_*.py`; data `data/zl_review/`. Status: round 1 complete. Repairs applied: none (author active).
 
 ## Summary verdicts
-(filled in at the end)
+See the table at the end. No FATAL, no MAJOR; 8 MINOR + 1 nit.
 
 ## Claim-by-claim
 
@@ -28,7 +28,8 @@ so they add nothing. From-scratch enumerator `scripts/review_zl_level1.py` (own 
 with the bound c(4ad − 1) ≤ 2r derived from b ≥ a). Result for all 302 primes 3 ≤ r < 2000: **identical** (r, #NR, #survivors)
 to `data/zl/level1_survivors.txt`; r ≤ 13 no survivors; r = 17 survivors {5, 7}; r = 19 {2, 3, 10, 13}; r = 23 {5, 14};
 least surviving fraction for 17 ≤ r < 2000 is 2/11 at r = 23. With all r-conditions dropped (LOOSE=1) the survivor sets are
-unchanged (the dropped data have residue 1 or 0, as checked by hand: r | c forces −a/b ≡ 1). [r ∈ [2000, 20000): see below.]
+unchanged (the dropped data have residue 1 or 0, as checked by hand: r | c forces −a/b ≡ 1). Extended to **all 2261 primes
+3 ≤ r < 20000**: identical to the author's file line by line (e.g. r = 19993: 9898 of 9996 survive); no r ≥ 17 without survivors.
 Note on label: "CERTIFIED by exhaustive exact enumeration" is fine; the claimed *dichotomy* is only about level 1 (stated).
 
 ### Lemma 4.3 (U–V factorisation)
@@ -125,3 +126,58 @@ for primes in [2^{j/32}, 2^{(j+1)/32}) (k = K = 1, the only cells taken from the
   datum lies inside the computed windows of its box, every box bound and every row bound dominates the true count: 0 violations.
 Results: P (K = 1), j = 965..970 with (Cop₂), 971..1087 with (Cop): my bound / author's table = 0.44 … 0.56 in every one of the 123 cells
 (my e-window is ≈ 4× tighter than SE Lemma 1.2's N/(ACD)). Q (k = 1): see the next paragraph.
+Q (k = 1): my bound / author's table = **0.936 … 0.951** in all 123 cells (j = 965..970 against the ℓ² table, 971..1087 against
+se_box); e.g. j = 965: 2.5706·10⁸ (ℓ²) vs 2.7297·10⁸, and 2.7502·10⁸ (cube) vs 2.9240·10⁸.
+**Fully independent certificate:** `MINE_ONLY=1 review_zl_combine.py 965/32 …` replaces *all* of the author's new 1/32-octave tables by my
+engines' tables (`data/zl_review/myP_q32.txt`, `myQ_q32.txt`) and keeps only SE's reviewed tables (P_q4, P_q1, Q_q4) plus the regenerated
+P_q1_hi: **max S = 0.45311 at b = 30.15625, 0 failures up to 2^800** (Q₁ 0.4297, P₁ 0.0179, P₃ 0.0055). So Thm 2.1 does not hinge on
+the author's table code; it has a margin of ≈ 0.047 under my engines. Logs in `data/zl_review/*.log`.
+Robustness: with the *SE-selected* tail at N₀ = 2^800 (G = 1.01 instead of 0.0136) the author's tables still give max S = 0.49788 (0 failures),
+i.e. Lemma 1.2's re-selection is not needed for Thm 2.1.
+**Verdict on Thm 2.1: SOUND** — both the ℓ² variant (r ≥ 2^{30.15625}) and the se_box-only variant (r ≥ 2^{30.34375}), labels
+"PROVED, computer-assisted" appropriate (same standard as SE Thm 3.4; floating point in the C tables assumes glibc x87 libm, as in SE).
+
+### Assessments 3.0, 4.2 and the r = 17 outcome
+Labels are right (Assessment; "undecided"). Numbers checked against `data/se/P_q4.txt`: G = 931 (2^{38.75}), 894 (2^{39}), 538 (2^{61}), 98 (2^{91}),
+7·10⁻¹¹ (2^{600}, P_q1_hi). Off-by-10⁴ at K = 15: bound 538·17^{7.5} ≈ 9·10¹¹ vs allowed 2.5·17^{6} ≈ 6·10⁷ — correct. Max τ(n ≤ 2^64) = 184320 and
+the envelope 1.874·10⁵ (my own C₂(η) code) — correct.
+
+## Defects
+No FATAL, no MAJOR.
+* **m1 (MINOR) §4 Lemma 4.3, Check line:** "u = 11/9 ∈ C₇" — 11/9 ≡ 5 (mod 17) and the box −63 ≡ 226 (mod 289) lies in C₅. *Repair:* "∈ C₅".
+* **m2 (MINOR) Lemma 4.3 statement:** the size claim needs q ≥ 1 (u = −p/q, q > 0); say so. Optionally note G ∈ ℤ follows directly from
+  eG ∈ ℤ, abG = c(p²b + q²a) + rz² ∈ ℤ and gcd(e, ab) = 1, without M17D Remark 2.4.
+* **m3 (MINOR) Lemma 3.1(ii):** "a ≤ b ⇔ b ≥ a" is vacuous. *Repair:* "a ≤ b ⇔ f ≤ n + c/a" (from fb = na + c), or just "keep those with b ≥ a".
+* **m4 (MINOR) numbering:** `zl_box.c` (header and inline comment) and `zl_r0.py` call the ℓ²-lemma "Lemma 2.1"; the document has Lemma 1.1.
+* **m5 (MINOR) attribution of the tail gain** (§0 (I4), §1 Lemma 1.2, report "873 → 0.0136"): at the same N₀ = 2^800 SE's own route choice gives
+  G = 1.01; the move N₀: 2^600 → 2^800 (new table P_q1_hi) accounts for ×860, value-selection for ×74, and Thm 2.1 holds even without the
+  re-selection (max S 0.49788). Also: at N₀ = 2^600 the value-selection raises the max exponent 0.4797 → 0.4960. *Repair:* one sentence each.
+* **m6 (MINOR) §0 (I3) and §3.0, report:** "Q₁ bound ≈ 10·F^{0.6}·ln F" — on the certified tables it is ≈ **50**·r^{0.6}·ln r
+  (48.8, 50.0, 50.3, 51.1, 50.5 at b = 24, 26, 28, 30, 32; ratio to r^{0.65} ≈ 360). The interpretation "(# (c, d) pairs) × (Coppersmith
+  constant ≈ 4)" should be re-examined accordingly (it was presumably derived from the 10× smaller constant).
+* **m7 (MINOR) provenance:** `_l2` tables have header "# se_box …" (zl_box's printf unchanged); only MANIFEST tells them apart. *Repair:*
+  print "zl_box" in zl_box.c, or annotate MANIFEST explicitly (it does name zl_box — so this is cosmetic).
+* **m8 (nit) Assessment 4.2:** "G < 1 only from ≈ 2^{159} on" — in P_q4 the last cell with G ≥ 1 is 2^{156.75}; "≈ 2^{157}".
+* **m9 (MINOR) report SHARP bullet:** "a joint sweep would move r₀ … to ≈ 2^{22.5}" sits next to PROVED items; tag it "(Assessment)" as §3 does.
+
+## Suggestion (not a defect)
+Tighter exact windows lower the engine bounds: my P engine uses e ∈ [(N₀ + 4A²D)/f_max, (N₁ + 4(2A−1)²(2D−1))/f_min] (ratio ≈ 8 instead of
+SE Lemma 1.2's 32) and integer windows [P, 2P − 1]; it gives D_P bounds 0.44–0.56× and D_Q bounds 0.94–0.95× the tables, i.e. S(2^{30.15625})
+≤ 0.453 instead of 0.498. Worth porting into the engine if uniform bounds are pushed further.
+
+## Scope note
+This round covers checkpoint 1 (author commit cd1939f0: §§0–5). The author has since pushed new material (commits 5b52f3bd, 89552e24,
+ced7e8b9: "§6 sweep certificate, r ≥ 2^27"), which is **not** reviewed here. Since the author is active, no repairs were applied by R231.
+
+## Summary verdicts
+| claim | verdict |
+|---|---|
+| Lemma 1.1 (ℓ²-Minkowski (Cop₂)) | SOUND |
+| Lemma 1.2 (value-selected tails; G = 0.0136 at 2^800) | SOUND (m5) |
+| Thm 2.1, ℓ² variant, r ≥ 2^{30.15625} | **SOUND** — reproduced (0.497826) and independently re-certified with own engines (0.4531) |
+| Thm 2.1, se_box-only variant, r ≥ 2^{30.34375} | **SOUND** — reproduced (0.494249) |
+| 1/32-octave r-cells / combiner zl_r0.py (fail-closed, rounding) | SOUND |
+| Lemma 3.1 (joint parametrisation) | SOUND (m3) |
+| Comp 4.1 (r ≤ 13 covered; 17 ≤ r < 20000 survivors; r = 17: {5, 7}) | SOUND — recomputed for all r < 20000 |
+| Lemma 4.3 (UV = c²p²q² + Grz², e ≤ 4q²a) | SOUND (m1, m2) |
+| Assessments 3.0 / 4.2, r = 17 "undecided", labels | SOUND (m6, m8, m9) |
