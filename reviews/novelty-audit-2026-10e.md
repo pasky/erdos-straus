@@ -310,17 +310,18 @@ Status: in progress.
     and |r| ≤ 2√(p/d) force r = 0).
   * **Thm 2 (p. 7):** for K = ℚ(√−dp), Cl(O_K) acts freely and transitively on the
     maximal-order part, and Cl(ℤ[√−dp]) on the other part (if non-empty).
-  * R234's quotation (global-fano-review.md lines 101–104) is accurate. Note: Chenu–Smith
-    state the *forward* direction (structure ⇒ μ with μ² = −dp); the converse
-    (μ ∈ End E with μ² = −dp, trace 0 ⇒ a d-isogeny E → E^{(p)} via ψ = π_p^{−1}μ up to
-    Frobenius) is the orientation statement implicit in their §3 (natural orientation,
-    l. 375 "is a ℤ[√−dp]-orientation by Proposition 2"); the iff is standard Deuring
-    theory [auditor's reading].
+  * **Lemma 1 (p. 6), the converse:** "If E/F_{p²} is a supersingular elliptic curve with
+    #E(F_{p²}) = (p + ε)² and ι is a ℤ[√−dp]-orientation on E, then ι is the natural
+    orientation for some (d, ε)-structure (E, ψ)" (proof: μ = ι(√−dp) has degree dp and
+    factors as π_p ∘ ψ). So the iff "d-isogeny E → E^{(p)} ⟺ √−dp ∈ End E (trace-zero
+    element of norm dp)" is Prop 2 + Lemma 1 verbatim.
+  * R234's quotation (global-fano-review.md lines 101–104) is accurate; Lemma 1 should be
+    added as the converse.
 * **Arpin–Camacho-Navarro–Lauter–Lim–Nelson–Scholl–Sotáková, "Adventures in
   Supersingularland", arXiv:1909.07779v1** [visited, full PDF; excerpt archived
-  `sources/lit2026e/arpin-1909.07779-excerpt.txt`]. §5.3 (pp. 37–39): **experimental**
+  `sources/lit2026e/arpin-1909.07779-excerpt.txt`]. §5.3 (pp. 38–39): **experimental**
   proportions of 2-isogenous Galois-conjugate pairs in G₂(F̄_p) for 5 ≤ p ≤ 100 193 (mean
-  0.0328 for 10⁴ < p ≤ 10⁵) with a p mod 12 bias (Table 1); §3 lists the loops of
+  0.0328 for 10⁴ < p ≤ 10⁵) with a p mod 12 bias (Table 1, p. 39); §3 (p. 8) lists the loops of
   G₂(F_p). No lattice/theta statement. So Arpin et al. is the empirical precedent for
   "loop share", not for the criterion.
 * **Not checked (memory only):** the Gross-lattice theta-series interpretation
@@ -332,6 +333,6 @@ Status: in progress.
 
 | Claim | Verdict | Notes |
 |---|---|---|
-| (J)65 Thm 1.1 (edge is a loop of G_p/Frob ⟺ its lattice represents 2; r_L(m) count) | **KNOWN in substance** (confirmed) | Chenu–Smith Prop 1–2 (forward direction, d general), Thm 2 (class-group count); Arpin et al. §5.3 (empirics); the edge/Gross-lattice packaging is the campaign's |
+| (J)65 Thm 1.1 (edge is a loop of G_p/Frob ⟺ its lattice represents 2; r_L(m) count) | **KNOWN in substance** (confirmed) | Chenu–Smith Prop 1–2 + Lemma 1 (both directions, d general), Thm 2 (class-group count); Arpin et al. §5.3 (empirics); the edge/Gross-lattice packaging is the campaign's |
 | (J)65 depth = conic-marked walk; Heegner-layer dictionary | APPARENTLY NEW (ES-specific) | — |
 | (J)65 negative results (no parity law, L1–L3) | APPARENTLY NEW (ES-specific; scope as labelled) | — |
