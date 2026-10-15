@@ -90,7 +90,7 @@ for fixed (t, u). So the even pair is independent of n mod 2^K in every pattern.
 n-class statement PROVED.
 **D6 (MINOR, heuristic wording).** §1.2 "lifts x + 2y change Q(x) mod 8 by 4(B(x, y) + Q(y)), affine-linear in ȳ … one fair
 bit": this is linear in ȳ (Q(y) mod 2 is linear), and it is a fair bit only if the functional ȳ ↦ B(x, y) + Q(y) mod 2 is
-non-zero; the actual proof of Prop 1.4 does not use this picture (it varies the *word*, not the vector). *Repair:* mark the
-lift sentence as motivation, or note the functional is non-zero because L₂ is unimodular (B(x, ·) mod 2 ranges over all
-functionals as x ranges over L/2L; for an isotropic primitive x, B(x, ·) + Q(·) ≡ B(x + c, ·) where c is the characteristic
-class — zero only if x̄ = c̄, but c̄ has odd q since q(c̄) ≡ rank... ) — simplest is to drop "fair" from the lift sentence.
+non-zero; the actual proof of Prop 1.4 does not use this picture (it varies the *word*, not the vector). *Repair:* add the one-line reason it is fair: L₂ is unimodular, so Q(y) ≡ B(c, y) (mod 2) for a characteristic
+vector c, and B(x, y) + Q(y) ≡ B(x + c, y) (mod 2) is the zero functional only if x̄ = c̄; but q(c̄) is odd (c̄ = (1,1,1) in a
+diagonal basis, q = a₁ + a₂ + a₃) while q(x̄) = 0, so the functional is non-zero and the bit is fair. Also "affine-linear" →
+"linear".
