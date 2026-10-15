@@ -1,5 +1,9 @@
 # R228 — hostile review of O225 (NEAR_SQUARE_EXIST.md, checkpoint 1)
 
+**Repairs applied** (author quiet, no new commits on side-agent/near-square-exist after 305cf029): D1–D8 applied directly in
+NEAR_SQUARE_EXIST.md, each marked "(R228 repair …)" / "(R228 …)", including the R228 proof of the u ≡ 1 (4) even-A case in
+Remark 2.4; AGENT_REPORT_O225 aligned on D1/D2/D3 only (its §5/Sparks wording of S3 is already cautious).
+
 Reviewer: R228 side agent (branch side-agent/review-near-square, merged side-agent/near-square-exist at 305cf029).
 From-scratch scripts: `scripts/review_r228_*.py` (none reuses the author's `z2_*`). ES is not solved; nothing below changes that.
 

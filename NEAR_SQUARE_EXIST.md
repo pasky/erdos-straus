@@ -1,6 +1,6 @@
 # NEAR_SQUARE_EXIST — near-square primes: from the hardness explanation towards existence (task O225, wave Z-b)
 
-Status: checkpoint 1 (O225), awaiting review. **ES is not solved here, nor any infinite case of it unless explicitly stated with a complete
+Status: checkpoint 1 (O225); hostile review R228 (`reviews/near-square-exist-review.md`): no FATAL; MAJOR D1–D4 and minors applied as '(R228 repair)' (author quiet). **ES is not solved here, nor any infinite case of it unless explicitly stated with a complete
 proof.** Labels as in DISCOVERIES.md. Builds on NEAR_SQUARE.md ((J)55, R225), THREE_SQUARES.md ((J)53), DEDEKIND_ES.md
 Thm 4.5 (the sign table). Memos BRAINSTORM/z2_*.md, scripts `scripts/z2_*`.
 
@@ -47,15 +47,20 @@ Define the **family field** F := ℚ(√−ab) (odd primes r ∤ 2ab divide some
   Σ_M := ℚ(ζ_M, √−M).
 For an odd A coprime to M let σ_A ∈ Gal(Σ_M/ℚ) be its Artin symbol (ζ_M ↦ ζ_M^A, √−M ↦ (−M/A)√−M). Then
 (i) A ≡ −1 (mod M) ⟺ σ_A|ℚ(ζ_M) = complex conjugation c_∞ (for M ≤ 2 both sides are vacuous/true); (ii) χ(A) = ∏_{r|A}(r/p) = (−M/A) = σ_A(√−M)/√−M.
-So **an admissible odd A has χ(A) = −1 ⟺ σ_A = c_∞|Σ_M** — the "Frob = c_∞" of (J)50, now with the level field attached.
-Call m *generic* if gcd(m, b) = 1 (u-side, b = K) resp. gcd(m, c₀) = 1 (t-side). Then every odd prime r | N(m) is prime
+So **an admissible odd A has χ(A) = −1 ⟺ σ_A = c_∞|Σ_M** — the "Frob = c_∞" of (J)50, now with the level field attached. (R228 repair D6: cf. (J)50 = BRIDGE_WORLDS §3,
+where genus failure on 2-group slices is "an odd quadratic character is 1 on every q | M" — the pointwise form below in
+another guise — and O230 Prop C, which encodes the sign by √p instead of √−M; the p-independence of Σ_M is what is new.)
+Call m *generic* if m and b have no common ODD prime (u-side, b = K; t-side, b = c₀). (R228 repair D1: was gcd(m, b) = 1,
+which for k ≡ 1 (4) excludes every m on every odd level — m is even and b is even there — making (b) vacuous and the
+"iff" below false; the proof only uses odd primes.) Then every odd prime r | N(m) is prime
 to ab (r | b, r | N ⇒ r | m; r | t ⇒ r ∤ tn + 1) and hence splits in F.
 
 **Theorem 2.1 (sign-field criterion; PROVED).** Let n(m) = m² + k with k ≥ 1 (so F is imaginary), level (side, M) as above.
-(a) If F ⊄ Σ_M, there is a set of primes r of positive density with σ_r = c_∞ on Σ_M and r split in F; for each such r
+(a) If F ⊄ Σ_M, there is a set of primes r of positive (Dirichlet) density with σ_r = c_∞ on Σ_M and r split in F; for each such r
 and every m in one of the two residue classes mod r with r | N(m) (all large m in those classes), the level carries the
 word with A = r (resp. A* = r) and χ = −1. In particular the level is NOT sign-clean on a positive density of m-classes,
-and these classes can be chosen inside any m-class C (CRT, r ∤ modulus of C).
+and these classes can be chosen inside any m-class C (CRT, r ∤ modulus of C). (R228 repair: by CRT the m avoiding all these
+classes have density ∏(1 − 2/r) = 0, so the level carries a χ = −1 word for a density-1 set of m.)
 (b) If F ⊂ Σ_M, then for every generic m, every word at this level with A odd has χ = +1.
 *Proof.* (a) F and Σ_M are abelian; F ⊄ Σ_M ⇒ Gal(FΣ_M/ℚ) = Gal(F/ℚ) × Gal(Σ_M/ℚ) restricted appropriately, so
 (1, c_∞|Σ_M) is an element; Chebotarev. Then r ≡ −1 (mod M), r | N(m) on two classes mod r, χ(r) = (−M/r) = −1;
@@ -99,6 +104,15 @@ F ⊂ Σ_u ⊂ ℚ(ζ_u) and the argument extends (PROVED): A = 2^a·A₀ gives 
 a even this contradicts c_∞|F ≠ 1, for a odd it forces 2 inert in F, and then N ≡ 4 (8) gives A = 2A₀ with v ≡ 2 (4),
 t odd, A* odd, so χ = +1 by the sign table. For u ≡ 1 (4) (K odd, N ≡ 2 mod 4, a = 1) the even-A words are not covered by
 the proof: EVIDENCE only (next paragraph).
+(R228 repair D2.) Scope: everything in this remark needs k ≡ 0 (mod 4) (so K resp. c₀ is odd; "N ≡ 4 (8)" uses K odd; on
+the t-side tk + 1 = c² with t odd forces 8 | k, hence (2/p) = +1). For k ≡ 1 (4) the odd levels are sign-clean only for
+odd A: with the repaired genericity, even-A χ = −1 words do occur there — t-side k = 1, t = 3, p = 37, word (3, 1, 19),
+A = 2; u-side k = 9, u = 3, p = 109, word (1, 3, 56), A = 2 (`scripts/review_r228_evenA.py`).
+**u ≡ 1 (4), K odd: PROVED (R228).** N ≡ 2 (4), A = 2A₀, t ≡ 3 (4), v odd, so χ = −1 ⟺ 4 | tv − 1 ⟺ v ≡ 3 (4). From
+vA = N, A ≡ −1 (u): v ≡ −N (mod u); Cor 2.3 gives K₀ | u, and every prime of v splits in F. If K₀ ≡ 3 (4):
+χ_F(v) = (v/K₀) = (−m²/K₀) = −1, contradiction — no even-A words. If K₀ ≡ 1 (4): 1 = χ_F(v) = (−1/v)(v/K₀) = (−1/v), so
+v ≡ 1 (4) and χ = +1. Hence for k ≡ 0 (4) Cor 2.3 classifies ALL words (brute force `scripts/review_r228_evenA2.py`:
+3 905 even-A words on 85 predicted-clean levels, k ≡ 0 (4) ≤ 60, u ≤ 150, 0 with χ = −1).
 
 EVIDENCE (`scripts/z2_classify.py SIDE k-list MAXL MMAX x`: Thm 2.1's group criterion vs brute force over all m ≤ 500
 with n ≡ 1 (4), gcd(m, b) = 1, all words incl. even A, χ from the sign table; n need not be prime): k ∈ {1, 8, 9, 16, 24},
@@ -122,7 +136,9 @@ computes within-cell residuals exactly as NEAR_SQUARE §5 / R225 (cells: p mod 8
   5 287 430 flagged beyond clean, 0 flagged words with χ = −1, 0 χ = −1 words on t-clean levels.)
 * Residual of N₋/(N − Ncl) → N₋/(N − Ncl − Nfl) by K0 = p − ⌊√p⌋²: [10, 17): −0.0235 → −0.0014; [17, 30): −0.019 → −0.015;
   [30, 100): −0.0093 ± 0.0014 → −0.0059 ± 0.0013; [100, 300): −0.0045 ± 0.0008 → −0.0025 ± 0.0007; ≥ 300: +0.0022 → +0.0013.
-  So u-genus cleanness removes roughly 40–50 % of the beyond-t-clean gradient in the well-populated bins (R225's
+  (R228 repair D5: the share removed is bin-dependent — 94 % at [10, 17), 23 % at [17, 30), ≈ 40 % at [30, 300); at K0 = 1 the
+  correction overshoots, −0.0081 → +0.0159 ± 0.0083, and K0 ∈ [2, 5) does not move, −0.0112 → −0.0110; reproduced by R228.)
+  So u-genus cleanness removes roughly 40 % of the beyond-t-clean gradient in the two best-populated bins (R225's
   two-squares mechanism: ≈ ¼ at K0 < 30). It does not remove all of it: K0 ∈ [5, 10) stays at −0.036 ± 0.006 and K0 = 24 at
   −0.058 (36 primes). The flagged fraction itself is higher at small K0 (within-cell residual of Nfl/N: +0.021 at [10, 17),
   +0.003 at [30, 100), −0.001 at ≥ 300), as Cor 2.3 predicts (p + u = m² + (K0 + u) with K0 + u ∈ K₀·□ for small K0).
@@ -138,21 +154,23 @@ p = m² + k every odd prime of p + u = m² + K is split in F_K = ℚ(√−K) (g
 with F_K ⊂ Σ_u (Cor 2.3), and every other level is a *Chebotarev lottery*: one needs a sub-product of the Frobenii of the
 prime factors of m² + K equal to c_∞.
 
-**4.2 Single-level forcing gives only boundary words (PROVED, elementary).** Let G be a finite abelian group, x ∈ G, and
+**4.2 Single-level forcing gives only boundary words (group lemma PROVED, elementary; its application below is
+Assessment — R228 repair D3: it presupposes that every Frobenius pattern of the prime factors of N(m) compatible with
+σ_N is realised in every m-class, an unproved Chebotarev-in-polynomial-values statement, and "mechanism" is undefined).** Let G be a finite abelian group, x ∈ G, and
 call x *forced by s ∈ G* if every finite multiset of elements of G with product s has a sub-multiset with product x.
 Then x ≠ 1 is forced by s iff x = s (take the one-element multiset {s}). (When F ⊄ Σ_M the Frobenii of the prime
 factors of N(m) range over all of G by Chebotarev, so restricting the multisets to "admissible" Frobenii does not help.) Applied to G = Gal(Σ_u/ℚ) (or Gal(Σ_t/ℚ)) and the
 prime factors of N: the only χ = −1 word that a congruence condition on N(m) can *force* is A = N itself (v = 1 on the
-u-side, the cofactor on the t-side), i.e. σ_N = c_∞ — and σ_N is a function of m modulo a fixed modulus. For
+u-side, the cofactor on the t-side), i.e. σ_N = c_∞ (σ of the part of N prime to the conductor of Σ_M; R228) — and σ_N is a function of m modulo a fixed modulus. For
 |Gal(Σ_M/ℚ)| = 2 (M ∈ {1, 2, 3, 4} on either side) "some prime factor has σ_r = c_∞" is forced by σ_N = c_∞; these are
-Mordell's identities (e.g. t = 3: every odd A ≡ 2 (3) has χ = −1, forced iff v₂(3p + 1) is odd). So **every deterministic
-mechanism working level by level is a congruence covering**, which Thm 2.2 / B1 bar on Z_k^□-classes. A deterministic
+Mordell's identities (e.g. t = 3: every odd A ≡ 2 (3) has χ = −1, forced iff v₂(3p + 1) is odd). So (Assessment) **every deterministic
+mechanism working level by level is a congruence covering**, which NEAR_SQUARE Thm 2.2 / B1 bar on Z_k^□-classes. A deterministic
 proof on the family must use the factorisation of some N(m) beyond its class — i.e. a moving modulus (H-A).
 
 **4.3 Attempts with a moving level (iteration log; each is recorded with the exact reason it dies).**
 (E1) *Algebraic factorisation of p + u.* u = (a + b)m + ab − k makes p + u = (m + a)(m + b). A word needs A ≡ −1 (mod u),
 u ≍ m, A | (m + a)(m + b). With a + b = 1, a = 0: u = m − k, p + u = m(m + 1); A = m(m + 1)/v needs v ≡ −k(k + 1) (mod u),
-v < m, so v = m − k² − 2k and v | (k² + 2k)(k² + 2k + 1): finitely many m. General A = d·d′ (d | m + a, d′ | m + b) is a
+v ≤ m(m + 1)/(m − k − 1) ≈ m + k + 2 (R228 repair: was "v < m"), so for m > k² + 4k + 3 only v = m − k² − 2k and v | (k² + 2k)(k² + 2k + 1): finitely many m. General A = d·d′ (d | m + a, d′ | m + b) is a
 lottery of probability ≍ τ(m + a)τ(m + b)/m. Dies: moving modulus of size m, divisor lottery (B2).
 (E2) *Level from the factorisation of m.* For r | m: (r/p) = (k/r), so the primes of m have *known* signs (the near-square
 input!). A word with A = r needs r | tp + 1 ⟺ r | tk + 1 and t | r + 1; then tk + 1 = jr with j ≤ k + 1 and
@@ -178,12 +196,16 @@ finite R suffices, and r must grow with m (B6 at a single m).
   a = λ(m − x) + α,  d = (m − x)/(4cλ) − 1/(4α²),  f = 4acd − n = κ(m − x),  b = (na + c)/f,  e = (4a²d + 1)/f.
 Then f divides na + c and 4a²d + 1 in ℚ[m] (both vanish at m = x: n(x)α = −c and 4α²·(−1/(4α²)) = −1), so this is a
 Type I polynomial family wherever it is integral; witness D = d, α_K = d(√j) = (√j − x)/(4cλ) − 1/(4α²). (Identities
-re-checked numerically in `scripts/z2_split_cover.py`.) Every (1,0,1) Λ = 1 family is of this form (x = root of f,
+re-checked numerically in `scripts/z2_split_cover.py`.) Every (1,0,1) Λ = 1 family with f non-constant is of this form (R228: verified symbolically incl. this converse,
+`scripts/review_r228_family.py`) (x = root of f,
 α = a(x)); the (0,1,1) shape has an analogous parametrisation.
 **5.2 Where "⊆" is hard.** At an inert prime ℓ of K = ℚ(√j), m ∉ Z_K⁺ at ℓ means n(m) is a non-residue mod ℓ — the Mordell
-setting. For ℓ ≤ 13 classical congruence families cover these classes, but for primes ℓ ≥ 2³² there are sterile
+setting. For ℓ ∈ {3, 5, 7} classical congruence families (Mordell 840) cover these classes (R228 repair D4: was "ℓ ≤ 13";
+at ℓ = 11, 13 coverage is open — POINTWISE_MORDELL13B Thm 3.1 leaves 6 classes mod 720720, 13E's x** survives all ET
+classes of T-level ≤ 161050 — and at 17 it is CONDITIONAL, M17), and for primes ℓ ≥ 2³² there are sterile
 r-generic Mordell points ((J)54): no finite set of congruence families covers all n that are non-residues at ℓ and
-residues below ℓ. So "⊆" at large inert ℓ requires *polynomial families in m* to cover classes that no congruence
+residues below ℓ. So "⊆" at large inert ℓ may require (R228 repair D7: was "requires"; it is not shown that the closure of
+{m² − j : m ∈ Z_K⁺ away from ℓ} contains a sterile point of (J)54) *polynomial families in m* to cover classes that no congruence
 family in n covers — a genuinely new B1-escape claim; Y10-S is better restricted for now to split and ramified ℓ, where
 the j = 8 evidence lives (7-adic: m ≡ 4 (7) is covered only by escaping families).
 **5.3 First test at the split prime ℓ = 17 (j = 8; inconclusive).** `z2_split_cover.py 8 17 200000 1` searches the

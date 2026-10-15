@@ -24,7 +24,9 @@ z2_hardness.c, z2_hardness_an.py. **ES is not solved; no infinite case of ES is 
 * (1) even-u case: DONE, trivially (Prop 1.1): the hypothesis forces 4 | u, where every word has χ = −1, so there are no
   words; odd u re-proved from the DK sign table. Checked on all primes < 10⁷ (1 358 527 flagged words, 0 failures).
 * (2) classification: DONE for words with odd A (Thm 2.1, Cor 2.2, 2.3); even A: t-side fully, u-side for u ≡ 3 (4)
-  (Remark 2.4); u ≡ 1 (4) even-A words only EVIDENCE. Two-variable p = m² + kj²: not separately treated (the t-side
+  (Remark 2.4); u ≡ 1 (4) even-A words only EVIDENCE. (R228 repair D1/D2: all even-A statements hold for k ≡ 0 (4) only —
+  for k ≡ 1 (4) the old genericity made the odd levels vacuous, and with the repaired one even-A χ = −1 words occur there,
+  e.g. k = 1, t = 3, p = 37, A = 2; R228 PROVED the u ≡ 1 (4), K odd case, so for k ≡ 0 (4) the u-side is complete.) Two-variable p = m² + kj²: not separately treated (the t-side
   Pell remark of NEAR_SQUARE §4 is the same criterion with c₀ = tkj² + 1).
 * (3) CONJECTURE Y10-S "⊆": NOT done (§5: explicit 3-parameter Type I (1,0,1) family set, PROVED; a 17-adic coverage
   test with a smooth-parameter grid was inconclusive — 12 valid families, none hitting the targets). Observation (Sparks S3): at inert ℓ the Z_K⁺ condition is "n is a QNR mod ℓ", i.e. the
@@ -32,7 +34,7 @@ z2_hardness.c, z2_hardness_an.py. **ES is not solved; no infinite case of ES is 
   in m to beat congruence sterility — Y10-S may be much harder (or false) at large inert primes than the j = 8 evidence
   suggests. The split-ℓ part is the genuinely new coverage; a 3-parameter Type I (1,0,1) family with
   f = κ(m − x), κ = α/λ + λn(x)/α − 2x, c = −αn(x), a = λ(m − x) + α, d = (m − x)/(4cλ) − 1/(4α²) is the natural tool.
-* (4) MAIN AIM — existence on the family: NOT achieved. Precise negative content (§4): Lemma 4.2 (single-level Frobenius
+* (4) MAIN AIM — existence on the family: NOT achieved. Precise negative content (§4): Lemma 4.2 (group lemma PROVED; its application is Assessment, R228 D3) (single-level Frobenius
   forcing produces only boundary words, i.e. congruence identities), and four moving-level attempts each dying at an
   identified point (algebraic factorisation of p + u → τ(m)/m lottery; levels from the factorisation of m → bounded
   primes; A near m → thin set of m; sieve → almost all m only, Z_k^□ avoids every fixed G_r). Assessment: all near-square
