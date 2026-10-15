@@ -32,7 +32,7 @@ z5_cap_classes.py 2e6 (class mass; 140 exact solutions), z5_cube_overflow.py (3 
 Def 1.1 prime by prime), z5_sqpm_prime.py 1e6 (0 exceptions, 0 squares marked), z5_sqpm_verify.py (400 random n to 1e11,
 independent search + exact identity), z5_sqpm_adversarial.py (Q = 13, 23, 31), z5_pm_cover.py 2e4.
 Not done: odd-square T1 control for the overflow cube beyond the proof (classes −4c₀²d₀R² are QNRs mod ℓ ≡ 3 (4), so
-squares are never hit — PROVED); a C rerun of PM-SQ_± to 10⁷; uniformity of c_e in e.
+squares are never hit — PROVED: (d₀/ℓ) = 1 for d₀ | ℓ + 1 by reciprocity, CAP_GROWING Thm 1.4 T1); a C rerun of PM-SQ_± to 10⁷; uniformity of c_e in e.
 
 ## Points for the hostile reviewer
 * Thm 1.4's BV step (weights ∏(1−1/s)/φ, the extra non-divisibility ℓ ≢ −1 mod 4s²) and the injectivity of

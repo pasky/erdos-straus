@@ -161,6 +161,8 @@ squarefree kernel, c₀R its square root, c₀ = rad(c₀R)), so these give ω'_
 is 1 + 1/(s−1) [s | d₀] + 1/(s−1) [s | c₀, s ∤ R] + e(1 − 1/s)/(s−1) [s | c₀, 1 ≤ v_s(R) ≤ e] = 1 + (e+2)/s + O(1/s²), and
 the restriction c₀²d₀R² ≤ X^{1/5} keeps a fixed power of log X (restrict all three to ≤ X^{1/(5(2e+3))}), so
 S'_e(X) ≫_e (log X)^{e+2}; the large-sieve step is unchanged with a = e + 2. ∎
+*T1.* (−4c₀²d₀R²/ℓ) = −(d₀/ℓ) = −1, since every odd prime q | d₀ divides ℓ + 1 and ℓ ≡ 3 (4) give (q/ℓ) = 1 by
+reciprocity (and 2 | d₀ forces ℓ ≡ 7 mod 8): the classes are non-residues, odd squares are never hit.
 *Reading.* The cap e adds e dimensions to Vaughan's two (c and d of the Type II cube). ES^{(y,e)} with free mute set
 is therefore on average a sieve problem of dimension ≍ (log)^{e+2}; ES itself is the case e = 0. Pointwise nothing
 changes (B6).
