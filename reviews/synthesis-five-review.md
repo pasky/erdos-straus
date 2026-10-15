@@ -4,6 +4,12 @@ Reviewer branch side-agent/review-synthesis-five (merged side-agent/synthesis-fi
 were recomputed with FROM-SCRATCH code (`scripts/review_r227_census.c`, `scripts/review_r227_lemmas.py`, further
 `scripts/review_r227_*.py` listed per claim); none of the author's scripts were reused except as a diff target.
 
+**Repairs applied (R227 repair, author idle after checkpoint 1):** SYNTHESIS_SPARKS5 §0 (I2)/(I3), §1, §2, §3, §4 rows
+(ii)/(iv)/(v), §5; memos s5_three_sides (D1–D6, D17, D18), s5_unforced_words (D7, D9, D18), s5_scale_law (D8),
+s5_reciprocity_forcing (D10, D11), s5_cm_frobenius (D12), s5_sterile_uniform (D14–D16). D13 left as a suggestion.
+DISCOVERIES/AGENT_REPORT not edited (parent's ledger; AGENT_REPORT SHARP 2 and the Prop R example list need the same
+wording when the parent writes the (J) entry).
+
 **Overall: no FATAL. 6 MAJOR (D4, D5, D10, D14, D15, D18), the rest MINOR.** Every number in the synthesis was
 reproduced exactly with independent code; the defects are in interpretation, scope and labels. ES is not solved.
 
