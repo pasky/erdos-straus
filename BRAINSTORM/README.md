@@ -395,3 +395,16 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z7_haar_strata | goal 3: the "¾" of N₋/U | Haar five-slice mass = 3/4 exactly (pointwise); large-min words obey it, deficit lives in automatic families; Lemma 5.2; **SHARP: all N₋ < U/2 failures at n ≡ 1 (8) have ψ-odd part of n+1 = 3²** | PROVED + EVIDENCE |
 | z7_symbol_blind | goal 1: what a U-proof must supply | ψ(tn+1) ≡ 1: the t-side is symbol-blind; non-certificate unforced words need tn+1 ∉ C_n (anti-Landau kernel); least-NR families fail i.o. | PROVED kernel + EVIDENCE |
 | z7_signed_3sq | goal 4: split on SQ_± and 3SQ | SQ_± records fully forced (0.84–0.94 vs 0.24–0.51); 105 = Jacobi genus collapse, per-prime forcing (Lemma 6.1) explains 3SQ's exception-freeness | EVIDENCE + PROVED lemma |
+
+## Spark relay Z3 (O233): global Fano over the supersingular 2-isogeny graph (memos z9_*, deep file GLOBAL_FANO.md; not yet triaged)
+
+| file | idea | outcome | labels |
+|---|---|---|---|
+| z9_frobenius_layers | why path edges are 4× enriched in loops of G_p/Frob | loop ⟺ edge lattice represents 2 (⟺ E/C ≅ E^(p)); layers r_L(m) > 0 = compatible degree-m isogeny E^(p) → E; path edges sit in the layers of their letters | PROVED; CERTIFIED (9489 edges, p ≤ 2000) |
+| z9_pointer_parity | parity/degree/pointer laws for path edges over G_p | none: P(p) even 47.6 %, no forced odd vertex (609 primes ≤ 10⁴) | EVIDENCE; negative |
+| z9_depth_walks | O224's depth bits on the tree | depth-k pentagon vector = conic-marked non-backtracking walk of k − 1 half-steps in G_p; 8/p = marked X₀(4) refinement; bits constrained (not determined) by v₂ of a letter or v₂(tp+1) | PROVED; CERTIFIED (1190 pointers) |
+| z9_order3_fano | "Q mod 3 on L/√−3L" for TES | no order-3 Fano: χ₃ does not control v_λ(T); target words exist at all 13 TES failures ≤ 787 → TES failures are bit failures | EVIDENCE (one Type II slice); Assessment |
+| z9_triangle_shapes | widen target to near-orthogonal (cyclic plumbing) classes | decoupled from path classes (47/329 primes: triangles but no path); no Egyptian identity | EVIDENCE; negative |
+| z9_brandt_screen | how Brandt/class-number counts fail Prop 10.3 | L1 eigen-covariant functionals see only the mass of path classes; L2 planes up to genus (glue invisible); L3 Schiemann = problem itself | PROVED (L1 narrow); Assessment |
+| z9_heegner_layers | layer t of G_p as reductions of CM points of disc −4tp on X₀(2) | necessary ray-class condition mod t (norm A ≡ −1, A ∣ tp+1) on those CM points, plus the level-t ring condition; unifies (J)35 with Prop 10.3 | Assessment (algebra PROVED) |
+| GLOBAL_FANO.md (deep) | global pigeonhole over G_p | no global law; what a global Fano must act on (ray classes mod varying t); 105 has the graph but no path edge | PROVED parts + negative |
