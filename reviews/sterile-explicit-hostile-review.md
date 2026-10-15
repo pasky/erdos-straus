@@ -10,7 +10,7 @@ and m4/m6/m7 to AGENT_REPORT_O219.md. No mathematical content or certified numbe
 |---|---|
 | Thm 3.4 (every prime r ≥ 2³²: sterile points in the non-residue cells; no finite ET covering for least QNR r) | **SOUND** (MINOR text repairs m1–m4) |
 | §3.1 reduction to (S) (inputs, r-uniformity, "for every r ≥ 2³²" quantifier) | **SOUND** |
-| se_box.c route bounds / rounding / λ = 2^s boxes; se_tail.py all-N tail; se_r0.py combiner | **SOUND** (12 cells independently re-certified; independent combiner max Ŝ = 0.48668; λ = 2…16 per-box validation 0 violations) |
+| se_box.c route bounds / rounding / λ = 2^s boxes; se_tail.py all-N tail; se_r0.py combiner | **SOUND** (13 cells independently re-certified; independent combiner max Ŝ = 0.48668; λ = 2…16 per-box validation 0 violations) |
 | Lemma 1.1, 1.2, Q identities | **SOUND** |
 | Lemma 1.3, Cor 1.4 finite form | **SOUND**; asymptotic n^{max(0, β(1−β)−ρ)+o(1)}: **SOUND-AFTER-REPAIRS** (m5) |
 | "P-count exponent 2/5 with only a τ₃ envelope, tolerated up to η = 0.3" | correctly **EVIDENCE** (grid); reproduced from scratch (θ* = 0.400 for η ≤ 0.3, 0.417, 0.450, 0.500 at 0.35, 0.4, 0.5); wording m6 |
