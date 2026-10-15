@@ -45,3 +45,35 @@ predicts. Over n ≡ 1 (8) non-square ≤ 2·10⁵ including composites there ar
 105 = 3·5·7, a Landau triple (106 = 2·53, 107, 211 are all clean mod 105). The Landau-triple fraction among primes
 ≡ 1 (8) is 3.3 % / 2.7 % / 2.2 % on the decades (3·10⁴, 3·10⁵) / … / (3·10⁶, 3·10⁷). This slow decay matches the
 (log p)^{−3/2} heuristic for three half-dimensional conditions. Largest least-min observed at a Landau triple: 18.
+
+## 2. Where the anti-Landau content sits, and parity across a family
+**Lemma 2.1 (symbol-visible and symbol-blind sides; PROVED).** ψ(N_u) = ψ(u), ψ(N_v) = ψ(v), ψ(N_t) = ψ(1) = +1, and
+ψ(u)ψ(v) = χ. Hence:
+(a) a word with ψ(u) ≠ ψ(v) is a certificate (χ = −1, all sides unclean);
+(b) a word with ψ(u) = ψ(v) = −1 has N_u, N_v unclean for free. It is unforced iff N_t ∉ C_n, i.e. tn + 1 has
+    ≥ 2 prime factors (with multiplicity) with ψ = −1;
+(c) a word with ψ(u) = ψ(v) = +1 is unforced iff all three sides contain ≥ 2 ψ-odd prime factors.
+So a non-certificate unforced word always needs the t-side event "tn + 1 ∉ C_n". No symbol can detect this event,
+because ψ(tn + 1) = 1 identically. This is the precise "anti-Landau" kernel of CONJECTURE U beyond ES-five. In cases
+(b)/(c) a congruence covering cannot supply it: any covering identity evaluates fixed symbols, and those are all +1 on
+the class n ≡ 1 (mod M) (B1-type).
+
+**Flip Lemma 2.2 (PROVED).** Fix X ∈ {t, u, v} and its value. The X-family of words is in bijection with the set of
+divisors D of N_X in the class D ≡ −1 (mod X): D = A for X = t (then B = N_t/A), D = A for X = u (then t = (A+1)/u,
+v = N_u/A), and D = B for X = v. On it, χ = ψ(D). Hence the family contains a certificate iff the image of
+Div(N_X) → (ℤ/X)^× × {±1}, d ↦ (d mod X, ψ(d)), contains (−1, −1). In particular, if some word of the family has
+D and N_X has
+* a prime r ∥ N_X with ψ(r) = −1 and r ≡ 1 (mod X) (take D′ = Dr or D/r), or
+* primes r ∥ D, s ∥ N_X/D with r ≡ s (mod X) and ψ(r) ≠ ψ(s) (take D′ = Ds/r),
+then the family contains a certificate. *Proof.* D′ ≡ D ≡ −1 (mod X), D′ | N_X, and ψ(D′) = −ψ(D). Each D in the class
+gives a positive word: for X = u, t = (D+1)/u ≥ 1 and v = N_u/D ≥ 1, and similarly for the others. ∎
+For X ∈ {1, 2} every odd r is ≡ 1 (mod X), which recovers Prop F. For X ≥ 3 the flip needs a ψ-odd prime of N_X in
+the class 1 (mod X) (or a matched swap). That is a divisor-in-class condition with the modulus X part of the word,
+i.e. B2 verbatim.
+
+**Numerics (EVIDENCE; `scripts/z7_flip.py 9 200000`, primes p ≡ 1 (8) < 2·10⁵).** There are 94 262 non-certificate
+unforced words. 73 % are flippable by Lemma 2.2's two moves. 96 % have a certificate somewhere in one of their three
+families. Flippable but no family certificate: 0, consistent with the lemma. So "parity across the family of a shared
+side" is the typical mechanism by which an unforced word sits next to a certificate. But the flip needs a prime in a
+moving residue class, so it is not a deterministic bridge U ≥ 1 ⟹ N₋ ≥ 1 (goal 2): Lemma 2.2 *is* the e-slice form
+−1 ∈ Σ_e(N), with e = X.
