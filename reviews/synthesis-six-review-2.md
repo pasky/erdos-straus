@@ -106,3 +106,13 @@ readings **GAP** (D3).
   at EVERY cap (E = q), all with K even and CAP_DOWN Thm 1.2's (E) failing (q ≡ 3 (8), v₂(K) odd). Needs "(and K odd or
   (E))" (D5, MINOR; the correct statement is already CAP_DOWN Thm 1.2).
 Verdict: **SOUND-AFTER-REPAIRS** (EVIDENCE label appropriate).
+
+## s6_ydual_windows — check
+* (a) Re-derived including the branches where p divides the D₁ of (Mx − pA)(Mz − pA) = p²A²: D₁ = p^j·D, D built from
+  primes of A (any cap: primes of den z divide y = pA). j = 0, 2 give −p/4 ≡ D or A²/D ∈ ⟨primes of A⟩ (using 16A² ≡ 1
+  mod M); j = 1 would put p in x, y, z (4 = sum of three unit fractions, impossible). So necessity holds for the whole
+  y = pA slice, not only the 𝒟_e family. Brute force (`scripts/review_r246_ydual.py`, cap-0 slice, all p < 2·10⁴,
+  A ∈ {2, 3, 5, 6, 8, 12}): no integer solution with −p/4 ∉ ⟨primes of A⟩. M = 7, A = 2 example (p ≡ 1, 2, 4) correct.
+* (b) is CAP_POINTWISE Thm 1.1 (needs K odd / (E) for the firing half, cf. D5).
+* "Phase boundary = who owns the mute set": a dictionary/Assessment, fairly labelled.
+Verdict: **SOUND** (PROVED dictionary; the Assessment part should be labelled as such, D9 MINOR).
