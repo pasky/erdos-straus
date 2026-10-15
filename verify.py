@@ -26168,4 +26168,33 @@ def check_go():
 check_go()
 
 
+def check_gp():
+    # (gp) MENU_LADDER (O245/R255): R255 from scratch — Computation 1.2 (the unit-square point of 15*2^s + 1 lies outside
+    # Theorem A's 2-descent set for every root degree D = 2..10; only D = 1 (Schinzel) is descent-sterile), and Theorem 4.1
+    # (rung 2, Type II: every polynomial family on n = 3Y^2 + 1 has deg(abd) = 2 and constant witness mod n; 1372 families,
+    # 0 violations).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run(["uv", "run", "--with", "cypari2", "python", "review_r255_descent.py", "15", "1", "10"],
+                       capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+    assert r.returncode == 0, r.stderr[-2000:]
+    lines = [l for l in r.stdout.split("\n") if l.strip()]
+    assert lines[0].startswith("1 ") and "ALL SQUARE" in lines[0], lines[:2]
+    assert len(lines) == 10 and all(l.endswith("=> some NS") for l in lines[1:]), lines
+    r = subprocess.run([sys.executable, "review_r255_rung2.py", "3", "1", "3", "1", "2"], capture_output=True, text=True,
+                       timeout=900, cwd=sdir, env=env)
+    assert r.returncode == 0, r.stderr[-2000:]
+    assert "families=1372" in r.stdout and r.stdout.rstrip().endswith("(Lemma 2.1): 0"), r.stdout[-2000:]
+    print(f"== (gp) MENU_LADDER R255: descent obstruction at mu = 0 of 15*2^s + 1 only for D = 1 (D = 2..10 not sterile); "
+          f"rung-2 Type II families: 0 violations of Thm 4.1 (1372); seconds = {perf_counter() - t0:.1f}")
+
+
+check_gp()
+
+
 print("\nall checks passed")
