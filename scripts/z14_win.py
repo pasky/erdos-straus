@@ -34,7 +34,7 @@ def hom_eval(coef, X, w, m):
     return sum(c * pow(X, i, m) * pow(w, d - i, m) for i, c in enumerate(coef)) % m
 
 
-def make_windows(c0, k, JMAX, MMAX, WMAX=6, HS=(1, 3, 5, 7, 9, 15)):
+def make_windows(c0, k, JMAX, MMAX, WMAX=6, HS=(1, 3, 5, 7, 9, 15), T1MAX=0):
     W = []
     v2c = (c0 & -c0).bit_length() - 1
     for j in range(1, JMAX + 1):
@@ -44,6 +44,8 @@ def make_windows(c0, k, JMAX, MMAX, WMAX=6, HS=(1, 3, 5, 7, 9, 15)):
                 ts.append((w ** h, ('pow', w, h)))
             ts.append((4 * w ** 4, ('sg', w)))
             ts.append((w ** 4, ('sg1', w)))
+        for t1 in range(WMAX + 1, T1MAX + 1):
+            ts.append((t1, ('pow', t1, 1)))
         seen = set()
         for t, kind in ts:
             m = c0 * 4 ** j * t - k
