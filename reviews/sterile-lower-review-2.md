@@ -215,3 +215,74 @@ level-1 bound ms + 2#{ad ≤ Y} (e.g. 7694 + 3534 at j = 686) is ≥ my exact ma
 Remark (correcting my round-1 comment, as the author did): in octave 21 the *median* of D_P + D_Q is 536 but the max is
 17458 (r = 3991679, r + 1 = 2⁷·3⁴·5·7·11); my round-1 "a few hundred is fine" was about typical r and was wrong for the
 worst primes; the author's §6 correction is right.
+
+### R2.3 Deeper terms — the K = 3 tables re-computed; the 2^800 tail cross-checked independently
+* **K = 3 (the binding deeper term, 0.31–0.44 in these octaves).** My exact-arithmetic engine (`review_r232_box.py P 32 j`,
+  the same code that was validated per box against exact counts in round 1): ℓ² cells j = 2058..2111 (N ∈ [2^{64.31}, 2^{66}),
+  used by octave 21) and cube cells j = 2112..2207 (N ∈ [2^{66}, 2^{69}), octave 22): `data/review_r232/r2/P_q32_k3_{l2,cube}.txt`.
+  mine/theirs = 0.842–0.957 (ℓ², vs P_q32_k3_l2) and 0.858–0.963 (cube, vs P_q32_k3): every cell below the author's.
+* **K ≥ 5, k ≥ 3:** I use only SE's reviewed tables (`data/se/P_q4, P_q1, Q_q4`), *not* the author's new P_q32_k5_l2 — so that
+  table is not needed (it costs me P₅ ≈ 0.037 instead of the author's 0.033 at j = 686).
+* **Tail.** With SE's original tail (N₀ = 2^600, SE's rule, G = 873) both octaves FAIL badly (max S = 1.40 resp. 1.69): Thm 6.3
+  genuinely rests on Lemma 1.2 (value-selected tail at 2^800) and on `P_q1_hi` rows 600..799. Both checked:
+  (a) `scripts/review_r232_tail800.py` runs **R223's independent exact-exponent tail code** (`review_se2_tail.py`, not the
+  author's) with L₀ = 800 and the value rule substituted by source transformation: 4913 boxes, 12973 terms, max exponent
+  0.47969, every term admissible, **G(2^800) = 1.361841·10⁻²** (author's zl_tail: 1.361842·10⁻²) — Lemma 1.2's number is
+  reproduced by an implementation independent of the author; its term list is used as the tail in my combiner (TAIL=r223).
+  (b) `P_q1_hi` rows 600, 700, 799 regenerated with SE's reviewed se_box: identical. Numerically these rows are irrelevant here
+  (bound/√N ≈ 10⁻¹³, i.e. terms ≈ 10⁻¹⁶ in S); what matters is only that the SE tail is *not* used below 2^800.
+
+### R2.4 End-to-end re-certification of two octaves — SOUND
+`scripts/review_r232_combine2.py` (from scratch; mpmath; exact cell membership; level 1 = my exact max_r(D_P + D_Q) over **all**
+level-1 data, no A/Y split; K = 3 = my tables; everything else SE's reviewed tables; tail: R223-code value-selected list at
+2^800 (P) + SE's se_tail (Q, 2^100); series remainder bounded by tρ/(1 − ρ) with ρ the explicit ratio bound of the tail terms):
+| octave | cells | max S (R232) | at | author's max S | terms at the worst cell (R232) |
+|---|---|---|---|---|---|
+| **[2^{21.4375}, 2^{22})** (ℓ² K = 3) | j = 686..703, all ok | **0.455444** | j = 686 | 0.483248 (j = 686) | L1 0.00599, P₃ 0.41013, P₅ 0.03719, Q₃ 4·10⁻⁵ |
+| [2^{22}, 2^{23}) (cube K = 3) | j = 704..735, all ok | **0.380115** | j = 704 | 0.417317 | L1 0.00560, P₃ 0.34788, P₅ 0.02538 |
+(limit (r − 1)/(2r) ≥ 0.4999998.) The same with the author's zl_tail instead of the R223-code tail: identical maxima.
+So the two octaves, including the lowest one, are independently certified end to end.
+
+### R2.5 Does the per-octave claim give Thm 6.3? — SOUND (minor m9, m10)
+(The criterion is S < (r − 1)/(2r) ≈ ½ per cell, not "< 1".) From the author's logs `r1_22..29.txt` and `r1_21_l2.txt`:
+cells j = 686..964 are 279 contiguous cells, every one "ok", max S = 0.483248 (j = 686); j = 965 = 32·30.15625 is where Thm 2.1
+starts. Every prime r ≥ 2^{21.4375} lies in exactly one cell (cell membership exact; for octaves 21, 22 my exact membership gives
+the same #primes per cell). zl_r1.py rule: L1 = 2(ms + 2#{ad ≤ Y} + B_A)/2^{j/32} ✓ (ADY = 3534 at Y = 300 and 14900 at Y = 1048
+recomputed); partial cells skipped, counter saturation ⇒ FAIL, missing engine row ⇒ exit ✓. Deeper terms: identical code path to
+zl_r0 (reviewed in round 1) plus the k3/k5 tables ✓.
+m9: `r1_21_l2.txt` (the octave-21 certificate) ends "failures 13" and exits 1, because it also processes j = 672..685, which fail;
+Thm 6.3 uses only j ≥ 686. Fail-closed hygiene: add a jmin argument (or a run restricted to j ≥ 686) so that the certificate
+of record exits 0.
+m10: the series cut-off (term < 10⁻³⁰ ⇒ add 10⁻²⁰) was justified by R223 m-A1 only for b ≥ 32 (ratio < ½). At b ≈ 21.4 the
+ratio of successive tail terms is ≈ 2^{2(b+1/32)·0.4797 − b}·((K+2)/K)^p ≈ 0.56–0.64 — still < 1, so the remainder is
+≤ 2·10⁻³⁰, fine; but say so (my combiner uses the explicit tρ/(1 − ρ)).
+
+### R2.6 What the octaves 23–29 rest on (not re-run end to end)
+Octaves 23–29 were not re-certified end to end by me. Their new ingredients are the sweep (whose output I matched exactly in
+octaves 21–22, same binary family), the zl_boxa B_A tables (two cells spot-checked above, mine below theirs) and SE tables.
+The worst of them is octave 27 (max S 0.4732, margin 0.027).
+
+### R2.7 §7 (r = 17, conic Γ_{c,d,z}) — labels SOUND, one wording MINOR (m11)
+Re-derived: since 4abcd − (a + b) = c(4abd − e) = cN, Γ is cX² = rz²·cN, i.e. X² = rz²N with X = qa − pb — the covering
+condition qa − pb = zW with W² = rN, W = r^L ✓. Given integrality, v_r(N) = 2v_r(X) − 1 − 2v_r(z) is odd, so r | N and
+N = r·w², w = X/(rz) ✓ ("levels = points with w a power of r"). Vieta in a: a·a′ = (cp²b² + rz²b)/(cq²) = bV·a/(cq²), so
+a′ = bV/(cq²) = 78·9591/81 = 748098/81 ✓, b′ = aU/(cp²) = 3/121 ✓. For (1, 78, 1, 16) the quadratic form has discriminant
+16rc²dz²(pq + rdz²) > 0 (pq + rdz² = −99 + 2448), so Γ is a hyperbola; the S-unit/binary-recurrence remark is a correctly
+labelled Assessment. The equivalence is labelled "PROVED, elementary" with integrality of e, N and r ∤ ab stated as extra
+conditions ✓; outcome "undecided" ✓.
+m11: (iii) "U = Ga − cp² is the value of a linear form at a point of Γ" — G = ((p + q)² + 4rdz²)c/(a + b) depends on the point,
+and U = (cq²a + rz²)/b; U is a ratio of linear forms (a linear form only after fixing e). Repair: say "U = (cq²a + rz²)/b".
+
+### Round 2 verdicts
+| claim | verdict |
+|---|---|
+| §6.1 split of the level-1 count | SOUND |
+| §6.2 sweep counts (octaves 21, 22) | SOUND — 64/64 cells identical to an independent method |
+| Thm 6.3, octave [2^{21.4375}, 2^{22}) | **SOUND, independently re-certified** (max S 0.4554) |
+| Thm 6.3, octave [2^{22}, 2^{23}) | **SOUND, independently re-certified** (max S 0.3801) |
+| Thm 6.3 as a whole (cells 686..964 + Thm 2.1) | SOUND from the author's logs; octaves 23–29 not re-run (R2.6) |
+| Lemma 1.2's G(2^800) = 0.0136 | confirmed by R223's independent code with the value rule |
+| §7 labels | SOUND (m11 wording) |
+New defects round 2: m9, m10, m11 (all MINOR). No FATAL / MAJOR. The round-1 minors m1–m7 still apply to §§1–4.
+Attribution note for Thm 6.3 (extends m5): the inputs include Lemma 1.2 and the P_q1_hi rows in an essential way (with SE's
+2^600 tail octaves 21–22 fail with S ≈ 1.4–1.7); "inputs as Thm 2.1" covers this formally, but it is worth stating.

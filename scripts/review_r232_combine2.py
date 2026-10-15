@@ -5,7 +5,7 @@
   K >= 5, k >= 3:       SE's reviewed tables data/se/{P_q4, P_q1, Q_q4}.txt (NOT the author's new k3/k5 tables);
   tails:                SE's reviewed se_tail (P from 2^600, Q from 2^100; TAIL=se) or the author's zl_tail (TAIL=zl, P from 2^800,
                         then rows 600..799 of the author's P_q1_hi are needed).
-mpmath 40 digits; tables padded up 1e-9; fails closed.  Usage: review_r232_combine2.py COUNTS.gz K3TABLE se|zl jlo jhi"""
+mpmath 40 digits; tables padded up 1e-9; fails closed.  Usage: review_r232_combine2.py COUNTS.gz K3TABLE se|zl|r223 jlo jhi"""
 import sys, os, gzip
 import mpmath as mp
 mp.mp.dps = 40
@@ -30,12 +30,17 @@ for line in gzip.open(counts, 'rt'):
 SE = ROOT + '/data/se/'
 P3 = load(k3file, 32)
 Ptabs = [load(SE + 'P_q4.txt', 4), load(SE + 'P_q1.txt', 1)]
-if TAIL == 'zl': Ptabs.append(load(ROOT + '/data/zl/P_q1_hi.txt', 1, 600, 799))
+if TAIL in ('zl', 'r223'): Ptabs.append(load(ROOT + '/data/zl/P_q1_hi.txt', 1, 600, 799))
 Qtabs = [load(SE + 'Q_q4.txt', 4)]
-LP = 800 if TAIL == 'zl' else 600; LQ = 100
+LP = 800 if TAIL in ('zl', 'r223') else 600; LQ = 100
 sys.path.insert(0, HERE); os.environ.setdefault("SE_W", "40")
 T = __import__('zl_tail' if TAIL == 'zl' else 'se_tail')
-tP, _, _, _ = T.tailP(32, LP); tQ, _, _, _ = T.tailQ(16, LQ)
+if TAIL == 'r223':     # P tail at 2^800 from R223's independent code with the value rule (review_r232_tail800.py); Q tail: SE's se_tail
+    import pickle
+    tP = [(float(c) * (1 + 1e-12), float(e), p) for (c, e, p) in pickle.load(open(ROOT + '/data/review_r232/r2/tail800_r223.pkl', 'rb'))]
+    _, _, _, _ = (None,) * 4; tQ, _, _, _ = T.tailQ(16, LQ)
+else:
+    tP, _, _, _ = T.tailP(32, LP); tQ, _, _, _ = T.tailQ(16, LQ)
 
 def rnd(terms, h, L0bits):
     out = {}; L0 = mp.mpf(L0bits) * mp.log(2)
@@ -80,7 +85,11 @@ for j in range(jlo, jhi + 1):
             t = term(kind, K, b, bh) * w; S += t
             if K <= 5: parts[f"{kind}{K}"] = t
             L0 = LP if kind == 'P' else LQ
-            if K * b >= L0 and prev is not None and t < mp.mpf(10) ** -40 and t < prev / 2: S += t; break
+            if K * b >= L0 and t < mp.mpf(10) ** -30:
+                # every tail term's ratio (K -> K+2) is <= rho_K = 2^{2(bh e - b/2)} ((K+2)/K)^p (Q: 2^{2(bh e - b)}...), decreasing in K
+                tt = tP if kind == 'P' else tQ; hh = mp.mpf(1) / 2 if kind == 'P' else 1
+                rho = max(mp.mpf(2) ** (2 * (bh * e - b * hh)) * (mp.mpf(K + 2) / K) ** p for (c, e, p) in tt)
+                if rho < mp.mpf('0.95'): S += t * rho / (1 - rho); break
             prev = t; K += 2
             if K > 200001: sys.exit("no convergence")
     lim = (1 - mp.mpf(2) ** (-b)) / 2
