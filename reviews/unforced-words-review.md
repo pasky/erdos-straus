@@ -83,3 +83,45 @@ cleanliness of N_t = AB, N_u = Av, N_v = Bu via an SPF sieve. Runs: (a) all non-
   other-even 10 983 / 0.549 — exact match. Composites (a): odd-exp 754 595 / min 0.545 / 0; clean 414 515 / 0.56;
   3²: 49 890 / 0.454 / 6; other-even 29 419 / **0.505** / 0. The proposed CONJECTURE (N₋ ≥ U/2 when n+1 has a ψ-odd
   prime of odd exponent) survives on composites < 10⁷ (min 0.545); "other even profiles" come within 0.005 of failing.
+
+## Claim 4 — Lemma 2.1 and Flip Lemma 2.2: SOUND-AFTER-REPAIRS (D4, MINOR)
+Re-derived: ψ(N_u) = ((n+u)/n) = ψ(u), ψ(N_t) = ψ(1); ψ(A)ψ(B) = ψ(tn+1) = 1 and ψ(A)ψ(v) = ψ(u) give
+ψ(u)ψ(v) = χ **provided ψ(u) ≠ 0**. Cases (a)–(c) are right. Flip Lemma: the parametrisations D ↦ word are right
+(for X = t, AB ≡ 1 (mod t) makes B ≡ −1 automatic), and both moves preserve D mod X and flip ψ(D). The worry
+"ψ(s) = 0" in the swap move cannot occur: s | n and s | N_u forces s | u, and then r ≡ s (mod u) forces s = r.
+Numerics: Σ(U − N₋) over primes p ≡ 1 (8) < 2·10⁵ from my census = 94 262, matching the author's word count.
+"Flippable ⟹ family certificate, 0 exceptions" is implied by the lemma (not independent evidence).
+**D4 (MINOR).** §2 Lemma 2.1 is stated for the general (Jacobi) setting but ψ(u)ψ(v) = χ fails when gcd(u, n) > 1
+(then also gcd(v, n) > 1, both symbols 0, while χ = ±1): e.g. n = 105, w = (1, 3, 54), χ = +1, ψ(3) = ψ(54) = 0. Such
+words fall outside (a)–(c). For prime n ≥ 5 this never happens (u = pa, v = pb gives tpab − a − b = 1, impossible).
+Repair: add "gcd(uv, n) = 1 (automatic for prime n)". Also the last sentence of Lemma 2.1 ("a congruence covering
+cannot supply it … B1-type") is an Assessment inside a PROVED lemma; label it so.
+
+## Claim 6 — U2 sandwich (PROVED) and CONJECTURE U2 (EVIDENCE): SOUND
+N₋ ≤ U2: certificates have ψ(A) = ψ(B) = −1. U2 ≤ U: A | N_t, N_u and B | N_t, N_v, so A, B unclean makes every side
+unclean. Census confirms (0 violations, U2 = 0 only at 105 for all n ≡ 1 (8) < 10⁷). The n ≡ 5 (8) word
+(1, 3, (n+3)/2) is right (A = 2, B = (n+1)/2, both ψ = −1). Note the document writes "(1, 3, (n+1)/2 + 1)", equal.
+
+## Claim 8 — Prop 5.1 (2-adic Haar mass 3/4): SOUND
+`scripts/review_r233_haar.py`: for k = 2…7 and **every** odd class p mod 2^k, #solutions = 5·4^{k−1} (k = 5: 1280)
+and the five-slice share is exactly 0.75 — also for p ≡ 3 (4), where the five-slice set is not the certificate set.
+Conceptual proof (stronger than "finite computation"): the gradient (uv, B, A) never vanishes mod 2 on the 5 points
+mod 2 (A ≡ B ≡ 0 forces t, u, v odd, so uv odd), so X_p is ℤ₂-smooth and every point mod 2^k lifts to exactly 4 points
+mod 2^{k+1}; the five-slice condition depends only on w mod 4, so its share is constant for k ≥ 2. The identification
+"five-slice = certificate" for positive words at n ≡ 1 (4) is the three-bit law (SPARKS4 §1); my Lemma 5.2 script
+also checks it directly on all automatic-family words for n ≡ 1 (4) < 2·10⁴ (0 mismatches).
+
+## Claim 9 — Lemma 5.2: SOUND
+Re-derived: Σ_{D|X} ψ(D) = ∏_r Σ_{k ≤ e_r} ψ(r)^k (X coprime to n, so no ψ = 0 primes for X ∈ {n+1, n+2, 2n+1}), and
+#cert = (τ − Σψ)/2. `scripts/review_r233_lemma52.py 20000`: all six automatic families of every odd non-square
+n ≡ 1 (4) < 2·10⁴ (29 568 families), words found by *direct search* (not via divisors): |family| = τ(X) always and
+0 mismatches with the formula. "N₋(F) ≥ U(F)/2 when a ψ-odd prime has odd exponent" follows since U(F) ≤ τ.
+
+## Claim 11 — 105 genus collapse, Lemma 6.1: SOUND-AFTER-REPAIRS (D5, MINOR)
+`scripts/review_r233_105.py`: 11 words, all χ = +1, side primes {2, 3, 53, 79, 107, 211}; every word has exactly two
+ε_ℓ = (−A/ℓ) = −1, at {3, 7} or {5, 7}, matching THREE_SQUARES §5; (107, 1, 1) has (−1, +1, −1) ✓. Lemma 6.1 proof is
+right (A or B divides N_X; (A/ℓ) = (B/ℓ) since AB ≡ 1 (mod ℓ)). Every word of 105 has the side 106 = 2·53 with
+(2/7) = (53/7) = +1, so Lemma 6.1 forces ε₇ = (−1/7) = −1 on all 11 words — the explanation works.
+**D5 (MINOR).** §6: "every prime factor of every side of all 11 words … has (r/3) = (r/5) (and (r/7) = +1)" is false
+for r = 3, which divides the sides 108 and 159 of (1, 3, 54), (1, 54, 3): (3/3) = 0, (3/5) = −1, (3/7) = −1. It is
+harmless (ψ(3) = 0 counts as clean, and those words also have the side 106). Repair: "every prime factor r ∤ 105 …".
