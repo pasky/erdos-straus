@@ -8,14 +8,14 @@ of primes that matters (i.e. inside the undecided least-non-residue lines, not w
 
 **Lemma 1 (certified cap of a class; PROVED, elementary from CAP_DOWN Lemma 1.1).** Let p ≡ 1 (8), q ≡ 3 (4) prime with
 (q/p) = −1, F the set of primes ℓ ≤ L with ℓ | K_q (for ℓ = 2: q ≡ 7 (8)). Put G_e = {−1, 0, 1, 3, 5, …, 2e + 1}. If for
-every non-residue class a mod q, −1 ∈ a^{G_e}·⟨ℓ^{−1,0,1} : ℓ ∈ F⟩, and for every non-residue ℓ₀ ∈ F, −1 ∈
-ℓ₀^{G_e}·⟨ℓ^{−1,0,1} : ℓ ∈ F∖{ℓ₀}⟩ (all mod q), then e*(p) ≤ e.
+every non-residue class a mod q, −1 ∈ a^{G_e}·Π_F, and for every non-residue ℓ₀ ∈ F, −1 ∈ ℓ₀^{G_e}·Π_{F∖{ℓ₀}} (all mod q),
+where Π_F := {∏_{ℓ∈F} ℓ^{j_ℓ} : j_ℓ ∈ {−1, 0, 1}} is the bounded product set (not the generated subgroup), then e*(p) ≤ e.
 *Proof.* K has a prime s, (s/q) = −1, b_s odd (reciprocity, CAP_DOWN Thm 1.2); either s ∉ F (first condition with
 a = s mod q) or s ∈ F (second). Take d = K·s^g·∏ℓ^{j_ℓ} realising −1. For ℓ ∈ F, c_ℓ = b_ℓ + j_ℓ ∈ [0, 2b_ℓ];
 for s, g ∈ {−1, 0, 1} gives c_s ≤ 2b_s, and g = 2e' + 1 gives c_s = b_s + g even with c_s/2 − b_s ≤ e'. Lemma 1.1. ∎
 The hypothesis depends only on p mod 8·q·∏_{ℓ ≤ L} ℓ: each certified class is a congruence class (B1-type object),
 but the existence of s is reciprocity, not a congruence (the (J)64 mechanism). For windows with (q/p) = +1 only the
-F-part is available and certifies cap 0 iff −1 ∈ ⟨ℓ^{−1,0,1}⟩ (an ET Type II class).
+F-part is available and certifies cap 0 iff −1 ∈ Π_F (an ET Type II class).
 
 ## Literature
 CAP_POINTWISE Thm 1.1, CAP_DOWN Thm 1.2 / Prop 1.3 / Cor 2.2; STERILE_LOWER Comp 4.1 (lines r ≤ 13 are finitely
