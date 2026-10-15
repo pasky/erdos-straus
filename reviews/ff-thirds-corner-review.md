@@ -124,14 +124,25 @@ for every level through 20 (checked by grep).
   refinement reaches −0.0024 (so the "−0.007" is a grid artefact; the q = 27 sup may well be 0).
 * **MAJOR-1.** The text says the restricted maximiser is "a degenerate corner (w, m' of degree o(s)) where the true count is
   only polynomial … consistent with the poly(N)·3^{−N} lottery". False as stated: the zero set of max-min-route − 1/2 is
-  huge — at G = 60 it contains 326 grid points, including the whole boundary face b = y + t = 1/2 (e.g.
+  huge — at G = 60 it contains 326 grid points: 314 of the 961 grid points of the boundary face b = y + t = 1/2 (a
+  2-dimensional region of that face; e.g.
   (a, z, y, t) = (1/6, 1/3, 1/3, 1/6) with binding route R3c, (0.1, 0.4, 0.4, 0.1), (0.05, 0.45, 0.25, 0.25), …) and the
-  face t = 1/2 (e.g. (1/6, 0, 1/3, 1/2), binding T0). These are non-degenerate patterns with w, m', g' all of linear degree;
+  12 more on two segments of the face t = 1/2 (e.g. (1/6, 0, 1/3, 1/2), binding T0; a = 0 or z = 0). These are non-degenerate patterns with w, m', g' all of linear degree;
   no polynomial-count argument covers them. The argmax printed by the script is just the first grid point found. So the
   q = 3 restricted bound is critical along the entire boundary of the Liouville region (the constraint b ≥ s/2 + 1 is
   exactly what makes it critical), and nothing beyond "critical, union bound inconclusive" can be read off; the report's
   SHARP/Results line "(critical, at a degenerate corner where true counts are polynomial)" must go.
-  Repair: replace the last paragraph of §7 by "the restricted supremum is exactly 0, attained on the boundary b = 1/2 of
-  the Liouville region (a 2-dimensional face) and on t = 1/2; route bounds are critical there and cannot decide x*_c";
+  Repair: replace the last paragraph of §7 by "the restricted supremum is exactly 0, attained on a 2-dimensional part of the
+  boundary b = 1/2 of the Liouville region and on segments of t = 1/2; route bounds are critical there and cannot decide x*_c";
   report all three zero faces; drop the "true count only polynomial" sentence (or prove it for the a = z = 0 corner only,
   where it is a divisor-bound (3^{o(s)}, not polynomial) statement).
+
+### §6 Interpretation (Assessment) — mostly SOUND; MINOR-6, MINOR-7
+* "Covering = T-adic approximation by −w₁/C₁" (PROVED content) is correct — it is Lemmas 1.1/1.2/3.1. "Liouville exponent
+  1: a rational of height H ≠ −u approximates u to order ≤ H + h" is Lemma 1.2 verbatim. Fine.
+* MINOR-6: the c = −1 bullet contains a garbled formula: "needs T − 1 | 1 + T^s L'g' with L' | T − 1 + 1…". Repair: state
+  what is meant (e.g. "the exact tuple of Lemma 1.2(ii) needs (T − 1)m'g'² = T^{s−2} + 1, and T ≡ 1 (mod T − 1) turns this
+  into 0 = 2").
+* MINOR-7: "the exact identities … cover it": by Prop 1.4, lc(u) = −1 is necessary, NOT sufficient (the discrete-log
+  condition can fail); the "archimedean sign" analogy should say "exact families can exist only on one side". The (J)55
+  analogy and the ℤ-face paragraph are labelled Assessment and are fine as such.
