@@ -114,8 +114,8 @@ R2: (m', g'); R3: (w₁, g'); R4: (m', w₁); then a class-divisor bound) with t
 localised refinements: the condition B_τ ⊂ V adds T^n to the modulus of the class-divisor step, and in the Bezout form
 (TC Prop 2.1, case 1) it determines g' modulo T^{n−1} once M = m'w₁ (or m'C₁) is fixed (route R4L: M, then g' in its class).
 
-**Proposition 3.1 (window (n, 5n]; PROVED for the route bounds).** At the Elsholtz–Tao point p* = (s; s/5 + 1, s/5, s/5, 2s/5)
-(5 | s; SS Cor 4.2: the unique maximiser of min_route, value 2s/5) every route-type bound for N_V(p*), localised or not,
+**Proposition 3.1 (window (n, 5n]; PROVED for the route bounds listed above).** At the Elsholtz–Tao point p*:
+(a, z, y, t) = (s/5, s/5, s/5, 2s/5) + O(1), b = 3s/5 + O(1) (SS Cor 4.2: the unique maximiser of min_route, value 2s/5) every route-type bound for N_V(p*), localised or not,
 is ≥ 3^{2s/5 − O(1)}. Hence route-type bounds certify "relative mass of level-N(s) balls in V < 1" only for
 N(s) > (5 + o(1))n, and this threshold is already reached by the *global* bound (SS Cor 4.2: ≤ 3^{(2/5)s + o(s)} tuples in all).
 So localisation gains nothing at the exponent level: inside a cylinder of depth n the levels n < N ≤ (5 + o(1))n are out of
@@ -123,8 +123,7 @@ reach of every route-type count, and Lemma 3.1 must be fed there by positional i
 *Proof.* A route bound is (number of fixed data of the given degrees) × (a multiplicity bound ≥ 1 whenever a datum exists).
 At p*: R1 fixes v₁, 3^{t−2} ≍ 3^{2s/5} choices; R2 (m', g'): 3^{z+y} = 3^{2s/5}; R3 (w₁, g'): 3^{a−1+y} ≍ 3^{2s/5};
 R4 (m', w₁): 3^{z+a−1} ≍ 3^{2s/5}; their localised forms only change the multiplicity factor. R4L fixes M (deg a + z − 1)
-and then g' in a class mod T^{n−1}: 3^{a+z−1}·3^{max(0, y−n+1)} ≥ 3^{2s/5 − 1}. The mirror routes (C₁ for w₁) have the same
-degrees at p* up to O(1) (b = 3s/5 + 1 − 1 enters only R3C/R4C, which are larger). Relative mass ≤ 1 needs
+and then g' in a class mod T^{n−1}: 3^{a+z−1}·3^{max(0, y−n+1)} ≥ 3^{2s/5 − 1}. The mirror routes R3C/R4C involve b = 3s/5 and are larger. Relative mass ≤ 1 needs
 2s/5 − O(1) ≤ N(s) − n = s/2 − n + O(1), i.e. s ≥ 10n − O(1). ∎
 *Explicit form (Assessment on the CERTIFIED bound terms of SS §5.3).* The certified q = 3 per-level bound terms decay like
 ≈ 3^{−0.12 s} for s ≥ 60 (2.43, 0.60, 0.15, 0.039 at s = 60, 70, 80, 90). A cylinder V of depth n needs Σ_{s>s₁} terms
