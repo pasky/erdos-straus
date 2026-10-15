@@ -25933,4 +25933,34 @@ def check_gh():
 check_gh()
 
 
+def check_gi():
+    # (gi) SYNTHESIS_SPARKS6 (O238; reviews R245, R246): Thm 1.1 — ES holds for EVERY n = 4^s + 105 (PROVED,
+    # computer-assisted): 13 ET classes at L = 360 leave exactly s = 34 (mod 90), closed by one exponential window class
+    # (u = 4^{(s-4)/3} = 32 mod 151, n = 256u^3 + 105, x = 64(u^3 + 1), A = (64u^3 + 2u^2 - 2u + 66)/151, y = nA,
+    # z = 32n(u+1)A). Two independent from-scratch checkers; exact solutions for all s <= 2000.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=root, env=env)
+        assert r.returncode == 0, ("SYNTHESIS6 subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["scripts/review_r246_cert105.py"])
+    assert "uncovered s mod 360: [34, 124, 214, 304]" in out, out[-2000:]
+    assert "exp class identity / integrality / s=34 (45) => u=32 (151): OK" in out, out[-2000:]
+    assert "exact ES solutions verified for all 0 <= s <= 2000; 22 via exponential class" in out, out[-2000:]
+    out = run(["scripts/review_r245_cert.py", "2000"])
+    assert "exact solutions verified for all s <= 2000 {'ET': 1979, 'EXP': 22}" in out, out[-2000:]
+    print(f"== (gi) SYNTHESIS_SPARKS6 R245/R246: ES for all 4^s + 105 (13 ET classes + 1 exponential window class), two "
+          f"independent checkers, exact to s = 2000; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gi()
+
+
 print("\nall checks passed")
