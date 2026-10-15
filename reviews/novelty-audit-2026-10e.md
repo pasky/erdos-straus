@@ -113,7 +113,7 @@ Status: complete (checkpoint 1); report `reviews/agent-reports/AGENT_REPORT_O243
 * **Sierpiński-type coverings of the exponent** are classical for *primality*:
   Sierpiński, Elem. Math. 15 (1960) 73–74 (as cited in FFK ref. [11]), restated in **Filaseta–Finch–Kozek, "On
   powers associated with Sierpiński numbers, Riesel numbers and Polignac's conjecture"**
-  (J. Number Theory 128 (2008) [memory for journal data]) [visited, author PDF
+  (J. Number Theory 128 (2008) 1916–1940, data via zbMATH API) [visited, author PDF
   people.math.sc.edu/filaseta/papers/SierpinskiEtCoPap5.pdf; text archived
   `sources/lit2026e/filaseta-finch-kozek-sierpinski-powers.txt`], §1 p. 2: the covering
   n mod 2, 4, 8, …, 64 with the Fermat-prime moduli. The transfer of the covering idea from
@@ -382,7 +382,7 @@ Status: complete (checkpoint 1); report `reviews/agent-reports/AGENT_REPORT_O243
   (α, β)-winning sets in L^{mn} over F_q((X^{−1})) (p. 426) and proves winning dimension
   > 0 for badly approximable systems; Hussain, Res. Number Theory (2023) (hyperplane
   absolute winning over formal power series) [snippet] extends this. McMullen, "Winning sets,
-  quasiconformal maps and Diophantine approximation" (GAFA 2010) [visited author PDF;
+  quasiconformal maps and Diophantine approximation" (GAFA 20 (2010) 726–740, data via OpenAlex) [visited author PDF;
   excerpt archived], p. 2: "Any winning set in ℝⁿ has Hausdorff dimension n" (after
   Schmidt 1966 and Dani). **Bearing on (J)72 Thm 2.1 ("U_c closed and misses a ball ⇒ not
   winning for any Schmidt-type game"):** immediate from the definition (player B's first
