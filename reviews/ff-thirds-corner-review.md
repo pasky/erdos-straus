@@ -19,7 +19,7 @@ line fixed). No result label changed. From-scratch scripts: scripts/review_r247_
 | Lemma 3.1 | SOUND |
 | Cor 3.2 | SOUND |
 | Prop 5.1 (Bezout form) | SOUND (MINOR-4: wording of the "iff") |
-| EVIDENCE: no Case B tuple covers x*_c, N ≤ 20 (k = 2), N ≤ 18 (k = 3) | SOUND as EVIDENCE; independently reproduced to N ≤ 17 (k = 2) and N ≤ 16 (k = 3), both c; MINOR-5: c = 2 log was not committed (repaired) |
+| EVIDENCE: no Case B tuple covers x*_c, N ≤ 20 (k = 2), N ≤ 18 (k = 3) | SOUND as EVIDENCE; independently reproduced to N ≤ 18 (k = 2) and N ≤ 16 (k = 3), both c; MINOR-5: c = 2 log was not committed (repaired) |
 | "no linear family of level ≤ 20 valid at x*_c" (with Case A theorem) | SOUND as EVIDENCE |
 | §3 calibration counts (EVIDENCE) | SOUND (reproduced exactly) |
 | §3 lottery model / extrapolation | Assessment, label OK; MINOR-8 (statistical weight), MINOR-9 (structured exclusion — gap closed by an R247 lemma) |
@@ -129,7 +129,7 @@ monic of degree s − 2 − d (since d < s − 2). So the "iff" holds once lc Z 
 
 ### EVIDENCE claim "no Case B tuple covers x*_c at N ≤ 20 (k = 2), N ≤ 18 (k = 3)" — SOUND as EVIDENCE (reproduced to 17 / 16)
 My searcher (lop mode; completeness of lop mode = Lemma 1.2 only, which I re-proved and which is confirmed against the
-Liouville-free census and full mode) at u = 1 + cT: **0 hits at every level 3 ≤ N ≤ 17 for k = 2, c = 1 and c = 2, and
+Liouville-free census and full mode) at u = 1 + cT: **0 hits at every level 3 ≤ N ≤ 18 for k = 2, c = 1 and c = 2 (N = 18: `data/review_r247_xstar_k2_c*_N18.txt`, 6.8·10⁷ candidates), and
 4 ≤ N ≤ 16 for k = 3, c = 1, 2** (`data/review_r247_xstar_k*_c*.txt`; candidate counts grow ×3 per level, e.g. 2.27·10⁷ v₁-
 candidates at N = 17). This is an independent reproduction well beyond the requested 12–14 / 11–12. Levels 18..20 (k = 2)
 and 17..18 (k = 3) rest on zt_lop alone, whose correctness I have cross-checked against my code at 54 polynomial points to

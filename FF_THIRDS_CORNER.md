@@ -103,7 +103,7 @@ exactly zt_lop's hits plus exact tuples (98 census tuples, 76 hits, 0 mismatchin
 **Result at x*_c (EVIDENCE: complete computer search, one code beyond level 8).** `zt_lop 3 2 3 NMAX 1,c`
 (logs `data/zt_lop_xstar_c*.txt`, `data/zt_lop_xstar_k3_c*.txt`): **no Case B tuple covers x*_c at any level
 3 ≤ N ≤ 20 (k = 2, c = 1 and c = 2)** and none at any level 4 ≤ N ≤ 18 for k = 3 (A = T³; levels ≤ 7 were already excluded
-by FUNCTIONFIELD_ES3 §4). (R247: independently reproduced with a different enumeration, `scripts/review_r247_search.c`, for N ≤ 17 (k = 2) and N ≤ 16 (k = 3), both c; the c = 2 log is now committed.) Level 21 (k = 2) was not completed within the 8-hour budget (≈ 10¹¹ candidates). Levels ≤ 2 have no Case B tuple at x*_c (FUNCTIONFIELD_ES3 Lemma 2.1: N + γ ≥ 3 and the s = 4 tuples cover
+by FUNCTIONFIELD_ES3 §4). (R247: independently reproduced with a different enumeration, `scripts/review_r247_search.c`, for N ≤ 18 (k = 2) and N ≤ 16 (k = 3), both c; the c = 2 log is now committed.) Level 21 (k = 2) was not completed within the 8-hour budget (≈ 10¹¹ candidates). Levels ≤ 2 have no Case B tuple at x*_c (FUNCTIONFIELD_ES3 Lemma 2.1: N + γ ≥ 3 and the s = 4 tuples cover
 u ≡ 1 + cT + 2T² only). With the Case A theorem (FUNCTIONFIELD_ES2 §0.2): no linear family of level ≤ 20 (k = 2) is valid at
 x*_c. Previously: level ≤ 8 (FUNCTIONFIELD_ES3).
 

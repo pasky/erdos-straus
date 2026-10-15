@@ -1,0 +1,1 @@
+LEVEL N=18 hits=0 cand=68024646
