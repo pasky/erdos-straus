@@ -194,3 +194,39 @@ the Euclid-determined E_M = cT^{N+1}(T^{−N} mod M) − (1 + cT) never divides 
 large w₁ (plus the much smaller case 2 and orientation B, which have the same shape). This is a deterministic but
 structureless (lottery-type) condition: the remainder −T^{s−2}M^{−1} mod E_M must be a small divisor of M. The calibration
 of §3 says such coincidences occur at rate poly(N)·3^{−N} per level.
+
+## 6. Interpretation (goal 3; Assessment unless labelled)
+
+**Dictionary: covering = rational T-adic approximation (PROVED content: Lemmas 1.1, 1.2, 3.1).** A tuple covers x_u at
+level N iff the rational function −w₁/C₁ approximates u T-adically to order N + 1 (N + 1 ≤ s − 1), where the "height"
+max(deg w₁, deg C₁) and the multiplicative side condition m'w₁C₁ = T^{s−2} + v₁ come from the tuple. Generic u are
+approximated by balanced tuples (height ≈ s/3, order ≈ s/2: exponent 3/2, comfortably below Dirichlet's 2), so for them
+coverage is a counting question dominated by the thirds corner — where the union bound fails at q = 3. A polynomial u of
+degree h has Liouville exponent 1: a rational of height H ≠ −u approximates it to order ≤ H + h. Hence only lopsided
+tuples (one of w, C of degree ≥ s/2) or exact identities can reach it. The obstructed set O(3, T²) ∩ slice is the complement
+of a union of T-adic balls around the "tuple rationals" −w₁/C₁; low-height points sit far from all balls of large radius.
+
+**Why q = 3 is covered at A = T but (conjecturally) not at A = T².** For k = 1 a cylinder can have depth 1, and the depth-1
+families E = −1, −2 are exactly the "exact" families E = −u(0) of Prop 1.4 at precision 1: the Liouville constraint is
+vacuous at depth 1, and F₃^* = {1, 2} is exhausted by the two constants ((J)4; for q = 3^r, r ≥ 2, the classes u(0) ∉ F₃
+are not reached, (J)56). For k ≥ 2 every cylinder has depth N + 1 ≥ 3 > deg(1 + cT) + 1, so at x*_c the Liouville
+constraint bites at every level, and the only escape — an exact family — is killed by one bit:
+* c = +1: lc(u) = +1, and both exact types (E = −u, w₁ = −uC₁) need lc(u) = −1 (Prop 1.4, Lemma 1.2(ii)).
+* c = −1: the would-be exact family E = −u = T − 1 needs T − 1 | 1 + T^s L'g' with L' | T − 1 + 1…, and T ≡ 1 (mod T − 1)
+  turns every such condition into 2 ≡ 0: **the same "2 ≠ 0" that makes odd characteristic sterile and characteristic 2 covered
+  by the Frobenius family (1 + Tg')² = 1 + T²g'² (FF_STERILE_PUSH §4)**.
+
+**The leading coefficient as the archimedean sign (Assessment; a sharp analogy with (J)55).** In F_q[T] the place ∞ is the
+archimedean place and lc is its sign. Exact families at a polynomial point need lc(u) = −1 (Prop 1.4); the calibration of
+§3 shows that all structured, periodic coverings of low-height points occur at lc(u) = −1 (e.g. u = 1 ± T − T² at
+N = 3, 6, 7, 10, 11, …), while lc(u) = +1 points of degree ≤ 4 carry no structured hits and only 4 unstructured hits in
+total at levels ≤ 12. Over ℤ, (J)55 found the same split on p = m² + k: for k > 0 every polynomial family meets a fixed
+character (sterile), for k < 0 escaping families exist. In both worlds a *low-height* point is sterile for polynomial/
+exact families exactly on one side of the archimedean sign, and on the other side exact identities (here E = −u, there
+the k < 0 families) cover it. x*_c with c = −1 sits on the "wrong" side and is saved only by 2 ≠ 0.
+
+**ℤ face of the Liouville lemma (Assessment).** On the r-generic line of (J)26/(J)54 (x_q = 1 off r, x_r = u) take u a
+small integer. A covering datum needs an ET divisor f ≡ −u (mod r^{N+1}) (shape of the Type II congruences); a positive
+f < r^{N+1} − |u| is impossible unless f = −u, so the data must be "lopsided" (f ≥ r^{N+1} − |u|) or exact (f = |u|,
+possible only for u < 0 — the sign again). The sterile Mordell points proved for r ≥ 2³² are measure-theoretic; small-integer
+points of the line would be the ℤ-analogues of x*_c. Not pursued.
