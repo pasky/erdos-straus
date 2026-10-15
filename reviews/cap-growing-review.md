@@ -104,3 +104,65 @@ odd squares ≤ 4·10⁴: no ticket in the COMPLETE search |u| ≤ n + 1 (T1 con
 Adversarial (`scripts/review_r230_sqpm_adv.py Q 20 300 7`, n ≡ 1 mod 8∏_{3≤q≤Q}q): Q = 13, 23, 31 → min 14, 16, 22
 tickets (u, ℓ) with |u| ≤ 300, n up to 6.8·10¹⁶, least |u| ≤ 6 — consistent with the author's 10, 11, 21.
 (Note: the search is finite, |u| ≤ n + 1, since ℓ | n + u and u | ℓ ± 1; worth stating so "exception" is decidable.)
+
+### §4 negative constructions — labels essentially correct (MINOR D8)
+§4 claims nothing positive. Spot checks: fixed-field memo's no-free-point lemma holds (norms of rβ^iε^j are
+±(16n)^i r²; −E with E ≡ 3 (4), gcd(E, n) = 1 is impossible for non-square n — for i odd it would force n | E after
+clearing denominators). Pell memo: "order ⊂ ℚ(√n) ⇒ n | μ" is right for squarefree n (μ²b² = n(a² + b²) ⇒ p ∤ b ⇒ p | μ),
+though the written "iff n | μ²" is only the needed direction. But the memo's verdict "Negative, PROVED in the stated
+scope" attaches PROVED to an informal claim ("the unit never acts on an ES^{[2]} fibre"); only the order lemma is PROVED.
+§4 bullet 4 ("k-free values of binary recurrences are open for every fixed k") is uncited, and what is needed is ONE
+(e+1)-free orbit element, not infinitely many/density — label Assessment and cite or soften.
+
+## Numbered defects
+
+**D1 (MAJOR, calibration/scope).** CAP_GROWING Thm 1.2 Calibration ("e ≥ 2 beats Vaughan (and the loglog note)"),
+Thm 1.4 line "e = 0 is Vaughan's 2/3; e = 1 gives 3/4", §1 Reading ("ES itself is the case e = 0"), §5 item 1, and
+AGENT_REPORT_O229 l. 11 ("every e ≥ 1 beats it"). The campaign's own ES record is N exp(−c(log N)^{3/4})
+(paper/es-threequarter-note, internally proved; composite multiplier moduli, cubic class mass), and EXCEPTIONAL_KARY3
+Thm 4.1/Cor 4.2 caps ES-certificate CRT methods at (log N)^{3/4}. So e = 1 merely ties ES's record, the relaxation
+strictly exceeds what is known for ES only for e ≥ 2 (4/5), and "ES is the case e = 0" is true only for the
+prime-modulus large-sieve architecture. Repair: say "prime-modulus large sieve" wherever e = 0 ↔ 2/3 is asserted; add
+one sentence: "No conflict with KARY3's 3/4 cap: overflow classes with R > 1 certify ES^{(y,e)}, not ES, so they lie
+outside the K2 class family; their mass (log)^{e+2} exceeding the ES cubic mass for e ≥ 2 is the signature of the
+relaxation. Combining the overflow with the 3/4 note's multipliers should give (e+3)/(e+4) (Assessment)." Fix the agent
+report line accordingly.
+
+**D2 (MINOR, proof precision).** Thm 1.4 proof, "restrict all three to ≤ X^{1/(5(2e+3))}". With R constrained to ≤ Z
+separately, the lower bound (log)^{e+2} is not immediate. Repair: restrict to m := c₀d₀ ≤ W := X^{1/(10(e+1))}; then
+R ≤ c₀^e, M = c₀²d₀R² ≤ m^{2e+2} ≤ X^{1/5} automatically, and the sum is ≥ ½·Σ_{m≤W odd} μ²(m)∏_{s|m}(2/(s−1) + e/s)
+≥ ½Σ μ²(m)(e+2)^{ω(m)}/m ≫_e (log X)^{e+2}.
+
+**D3 (MINOR, citation route).** Cor 2.2 "PROVED relative to Vaughan 1970 / PW Thm 1.3": Vaughan 1970 is inaccessible
+(sources/vaughan-1970-access-log.md) and PW §4 does not display the classes, so "uses only the classes of Lemma 2.1"
+is uncheckable from sources. Repair: prove Cor 2.2 as the e = 0 case of Thm 1.4 (R = 1 ⇒ cube lemma at prime modulus
+ℓ ⇒ PM-II certificate), label "PROVED relative to BV + large sieve", cite PW Thm 1.3 (m = 4) as consistent.
+
+**D4 (MINOR, label upgrade).** §2 Remark (ii): "only h = 3, 7 have covering class sets (CERTIFIED ≤ 2·10⁴) … no further
+covering (B1)". This is PROVED for all h: #classes ≤ τ₃(K) ≤ τ(K)² ≤ (3.5273·K^{1/3})² < 2K − 1 for K > 241, and
+τ₃(K) ≥ 2K − 1 only for K ∈ {1, 2} below that (`scripts/review_r230_pmcover.py`).
+
+**D5 (MAJOR, proof gap — repairable).** Prop 3.2 proof: the stated reason for Σ_{X^{1/2}<ℓ≤X} ω_±/ℓ ≫ log X (fixed
+u-classes "≫ 1 per dyadic block of log ℓ") only yields ≫ 1, which gives no saving at all. Repair (see verdict above):
+for ℓ ≡ 3 (4) and odd u | ℓ + 1, (−u/ℓ) = −1 by reciprocity, so the classes −u, u ≤ X^{1/5} odd with ℓ ≡ −1 (mod 4u),
+all fire; BV as in Lemma 1.1 gives ≫ log X. Replace "Titchmarsh divisor bound" in the label by "divisor bound" (only the
+upper estimate ≍ log X in the Calibration needs Titchmarsh/Brun–Titchmarsh).
+
+**D6 (MAJOR, overclaim).** §3 Calibration "the signed twin is provably HARDER on average (exponent 1/2 < 2/3)", §0 (Z4)
+"provably harder on average by this method", §5 item 3, AGENT_REPORT l. 15. Comparing the exponents one method yields
+on one layer (A = ±prime) does not prove a comparison of the problems. Repair: "Assessment: the prime-modulus class
+dimension of SQ_± is 1 (vs 2 for ES), so this method gives a weaker exponent for SQ_±"; delete "provably" and "harder".
+
+**D7 (MINOR).** Lemma 3.1 "iff": add the one-line exclusion of the u = −n edge case ((n/ℓ) = (±1/n) = 1), and note
+the PM-SQ_± search is finite (|u| ≤ n + 1), so the conjecture's "exception" is decidable.
+
+**D8 (MINOR, labels).** z5_pell_unit_T1 Assessment "Negative, PROVED in the stated scope": PROVED only for the order
+lemma; "never acts on a fibre" is an informal reading → Assessment. §4 bullet 4 and memo: k-free-values claim uncited;
+mark Assessment.
+
+**D9 (MINOR, stale text/structure).** Thm 1.2 Calibration still says "(Assessment, not proved.) Combining the cap with
+Vaughan's d-dimension should give (e+2)/(e+3)" — that is now Thm 1.4; replace by a pointer. §1.2 (Prop 1.3/Thm 1.4)
+sits after §3; move it into §1. "Supersedes" is asymptotic only: at X ≤ 4·10⁶ the cube mass (4M < ℓ) is below the
+shot mass (Q < ℓ/2) (`scripts/review_r230_mass.py`); a remark that a union of both families is used in practice would
+help. The large-sieve-ceiling remark ("ω ≤ (log ℓ)^{O(1)}") is false pointwise (ω can be exp(c log ℓ/log log ℓ)); the
+intended hypothesis is Σ_{ℓ≤y} ω(ℓ)/ℓ ≪ (log y)^A, which via Rankin gives L ≤ exp(O((log N)^{A/(A+1)})).
