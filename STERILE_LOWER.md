@@ -39,3 +39,45 @@ FF_STERILE_PUSH.md / FF_STERILE_SMALL.md (division routes). Scripts `scripts/zl_
   of least *value at N₀* among routes whose every term is admissible (e < 1/2, p ≤ (1/2 − e) ln N₀ — exactly SE's
   decreasing-check, so validity is unchanged) gives G = 7.26 at N₀ = 2^600 and **G = 4.1·10⁻⁵ at N₀ = 2^1000**
   (`scripts/zl_tail.py`, SE_W = 40). With `se_box` tables extended to 2^1000 the tail term disappears from (S).
+
+## 1. Two certified ingredients
+
+**Lemma 1.1 (ℓ²-Minkowski form of SE Lemma 1.3; PROVED, elementary).** SE Lemma 1.3 (and hence SE Cor 1.4) holds with
+(Cop) replaced by
+  μ_w^w · n^{m(m+1)/2} · X^{w(w−1)/2} < D₀^{mw},   μ_w := 2√w · Γ(w/2 + 1)^{1/w} / √π                      (Cop₂)
+(μ₁ = 1, μ₂ ≈ 1.60, μ₁₀ ≈ 5.76, μ₂₄ ≈ 12.7; μ_w < w for w ≥ 2, so (Cop₂) is weaker than (Cop)).
+*Proof.* As in SE Lemma 1.3, the coefficient vectors (g_l X^l)_{l<w} of g ∈ 𝓛 form a lattice of determinant
+Δ = n₁^{m(m+1)/2} X^{w(w−1)/2} ≤ n^{m(m+1)/2} X^{w(w−1)/2}. The closed Euclidean ball of radius ρ has volume
+π^{w/2}ρ^w/Γ(w/2 + 1), which is ≥ 2^wΔ for ρ = 2(Γ(w/2 + 1)Δ)^{1/w}/√π; by Minkowski's convex body theorem some g ≠ 0 in 𝓛
+has ‖v‖₂ ≤ ρ. For |y| ≤ X, |g(y)| ≤ Σ_l |g_l|X^l = ‖v‖₁ ≤ √w‖v‖₂ ≤ μ_w Δ^{1/w} < D₀^m by (Cop₂). The rest is verbatim. ∎
+`scripts/zl_box.c` is `se_box.c` with w·ln w replaced by w·ln μ_w (computed with `lgammal`, padded up by a relative 10⁻¹²,
+capped at w·ln w, so it is never weaker than se_box). Effect: −5 % (P) to −7 % (Q) on the tables near N = 2^30.
+
+**Lemma 1.2 (tail by value-selected routes; PROVED, same proof as SE §3.3).** SE §3.3 proves, for every box of the
+normalised mesh and every route of SE Table 2 / Q-routes, a term list Σ c N^e (ln N)^p bounding the box count for all N ≥ N₀,
+and the combiner only needs, for the *chosen* route of each box, that every term has e < h and p ≤ (h − e) ln N₀
+(h = 1/2 for P, 1 for Q; these make c N^{e−h}(ln N)^p nonincreasing for N ≥ N₀). The choice of route is free. `scripts/zl_tail.py`
+chooses the admissible route of least value at N₀ (SE: least maximal exponent, then value). Result (SE_W = 40, M = 32):
+G := bound/√N at N₀ is 7.26 (N₀ = 2^600; SE: 873.6), **1.36·10⁻² (N₀ = 2^800)**, 4.1·10⁻⁵ (2^1000); max exponent 0.4797 (2^800).
+
+## 2. The certificate: r₀ = 2^{30.15625}
+
+**Theorem 2.1 (explicit r₀ lowered; PROVED, computer-assisted, relative to exactly the inputs of SE Thm 3.4).**
+**For every prime r ≥ 2^{30.15625} ≈ 1.19·10⁹, (S) holds; hence the r-generic line contains a sterile point x(u), u a
+quadratic non-residue mod r, and no finite set of ET Prop 1.9 classes covers all sufficiently large primes whose least
+quadratic non-residue is r.** Using only SE's reviewed engine `se_box.c` (without Lemma 1.1) the same holds for
+r ≥ 2^{30.34375} ≈ 1.39·10⁹.
+*Proof (certificate).* `ZL_L2=1 python3 scripts/zl_r0.py 30.15625 800 34` (log `data/zl/r0_certify.txt`; plain:
+`data/zl/r0_certify_plain.txt`): SE's combiner `se_r0.py` with three changes, each covered by a proved statement:
+(i) r-ranges [2^b, 2^{b+1/32}) for b < 34 (then quarter octaves as in SE), each term bounded by the certified table value at
+the worst N-cell of the range and the largest weight 2r^{−k} resp. 2r^{−(K+1)/2} at r = 2^b — exactly SE's rule with a finer
+partition; (ii) new certified tables `data/zl/P_q32.txt`, `Q_q32.txt` (se_box, N ∈ [2^24, 2^34), 1/32-octave cells),
+`P_q32_l2.txt`, `Q_q32_l2.txt` (zl_box, N ∈ [2^29, 2^32)), `P_q1_hi.txt` (se_box, N ∈ [2^600, 2^842), octaves), each row an
+upper bound for D_P resp. D_Q on its whole N-cell (SE §3.2; Lemma 1.1 for the _l2 tables); (iii) tails from N ≥ 2^800 (P) and
+2^100 (Q) by Lemma 1.2, with SE's checks (all exponents < h, p ≤ (h − e)·ln N₀, merged exponents rounded up, negative ones
+capped at 0; for r ≥ 2^800 every N = r^K is in the tail and every weighted term is decreasing in r). Result: max S = 0.49783
+(at b = 30.15625; limit (r − 1)/(2r) > 0.4999999), no failure; for b ≤ 30.125 it fails (S = 0.5042 at b = 30.125). ∎
+*What limits it now:* at r ≈ 2^{30.16} the terms are Q (k = 1) ≈ 0.45, P (K = 1) ≈ 0.04, P (K = 3) ≈ 0.006, rest < 10⁻³.
+The P tail of SE (≈ 0.11 at 2^32) is gone. So r₀ is now set by **one number: the certified bound for the level-1 count
+D_Q(r) of Type I N-points of 4/r**, which must be ≤ 0.22 r; the engine gives ≈ 0.22 r at r = 2^{30.16} against a true count
+of a few hundred.
