@@ -3,7 +3,8 @@
 Repairs applied: none (author active at review time — last author commit 21:54; defects forwarded to the parent).
 Reviewer: R251 (side-agent/review-menu-sterility). Reviewed: merge of side-agent/menu-sterility at ccddde8b.
 From-scratch scripts: `scripts/review_r251_proth3.py` (Theorems B/C: rules, ET classes, coverage, exact solutions),
-`scripts/review_r251_brute.py` (rule-free ES search, small s). No z15_/z8/ec_cover code was imported or reused.
+`scripts/review_r251_brute.py` (rule-free ES search, small s), `review_r251_thmA_2adic.py` (PARI/cypari),
+`review_r251_prop41.py`, `review_r251_prop43.py`, `review_r251_prop31.py`. No z15_/z8/ec_cover code was imported or reused.
 
 ## Summary verdicts
 | claim | verdict |
