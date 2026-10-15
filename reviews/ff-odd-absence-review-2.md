@@ -13,7 +13,9 @@ From-scratch scripts: `scripts/review_r241_*.py`.
 | Cor 1.5 (vanishing law) | SOUND (§2) |
 | Prop 1.6 (sharpness) | SOUND (§3); its 'Exact scope' paragraph partially reproduced (q = 9, s ≤ 12) |
 | Cor 1.7 (k ≥ 2 parity law) | SOUND (§3); the bound-sum reductions 41.87 → 11.24, 1466.7 → 389.2 not re-run (not load-bearing) |
-| (further claims) | (in progress) |
+| Lemma 2.1 (union bound on a sub-family of slices) | SOUND (§4) |
+| Thm 2.2 (q = 9, A = T, no finite linear covering) | SOUND (§4, §5: filters re-derived, exact counts s ≤ 16 fully and s = 20 largely reproduced from scratch, certificate re-summed independently: 3.01 / 3.89 < 4) |
+| ES_q(T) no finite linear covering for all q = 3^r, r ≥ 2 | SOUND: Thm 2.2 (r = 2) + (J)56 Thm 8.1 (r ≥ 3); status lines elsewhere need updating (m-7) |
 
 ## §1. Lemma 1.1, Theorem 1.2, Corollary 1.3
 
@@ -109,6 +111,47 @@ equals my ordered-tuple mass (§5). **All filters SOUND.**
 **Frobenius remark** in the statement of Thm 2.2 (covered measure constant on {ζ, ζ³}, {ζ⁵, ζ⁷}): correct (the (B^{k=1}) and Case A
 conditions are F₃-rational, σ(E) is the E of the conjugate datum, and coefficientwise Frobenius preserves Haar measure on
 F₉[[T]]), but unproved in the text; harmless (m-2).
+
+## §5. Re-computation of the Thm 2.2 certificate (fail-closed, own summation)
+
+**Exact P₈ counts, s ≤ 16 — fully reproduced from scratch.** `review_r241_enum.py` (six complete routes incl. R2 = (m', g'),
+E | 1 + T^s m'g'², each pattern counted only from its own complete route; ORDERED tuples), `review_r241_compare.py`:
+| s | ordered P₈ tuples (mine) | mass 9^{−⌊s/2⌋}·count | author's file | per-pattern mismatches |
+|---|---|---|---|---|
+| 4 | 132 | 1.629630 | p_4 (16 lines) | 0 |
+| 8 | 764 | 0.1164457 | p_8 (42) | 0 |
+| 12 | 7 000 | 0.01317173 | p_12 (237) | 0 |
+| 16 | 27 204 | 6.319645·10⁻⁴ | p_16 (215) | 0 |
+No P₈ tuple at s ≢ 0 (4) (s ≤ 12, all patterns enumerated), and none in an ε-incompatible pattern (s ≤ 12). The (a, b)/(b, a)
+P₈ counts agree pattern by pattern (orientation convention confirmed). Σ_{s≤16} = 1.7598791.
+
+**s = 20.** (route bound ≈ 2.40 with R226's routes, 2.9 with the author's — load-bearing.) First pass (routes without R2, cost cap
+10⁵): 725 of the 950 compatible oriented patterns enumerated from scratch, **0 mismatches** with `data/zc/p_20.txt`
+(mine 7.88·10⁻⁵ on those patterns); see the update below for the R2 / cap-10⁶ pass.
+
+**Route bounds 24 ≤ s ≤ 80** from R226's reviewer code `review_fz1_sum.c` (written from the text of (J)56; per-pattern dump
+`R226_DUMP=s`), filtered and weighted by my own code (`review_r241_cert.py`: 4 | s, ε = (−1)^{s/4}, mult 2 for a < b,
+9^{−⌊s/2⌋}): **0.94270** (author, with fz1_sum's pattern_bound1: 1.108). The 17 author-SKIP patterns of s = 20 under R226's
+routes: 0.09929 (author 0.0993).
+
+**Tail s > 80** (all patterns, all slices): own port `review_r241_tail9.c` = R226's k = 1 reviewer tail + R221's own
+linearised Lemma 4.1 + the exact R1 route: **≤ 0.022797** (author 0.025752). Without Lemma 4.1: 3.08·10⁶ (m-4).
+
+**Case A.** α ≡ 0 (4) only. α = 4: my own exact count (174 data with E(0) ∈ P₈; 268 off F₃ = the author's input). α = 8..40:
+(J)56's routes (fz1_caseA.py, reviewed SOUND by R226 incl. per-route checks), tail Lemma 7.2(b) over all α > 40:
+0.155863 + 0.000274 = **0.156136** with my P₈ count (author 0.170463 with 268). With R226's own (weaker) routes instead:
+0.40985 (α = 8 alone 0.332).
+
+**Totals (×1.01, threshold 4):**
+* (A) author's inputs: 3.194887 (reproduced arithmetic: 1.01 × (2.9670390 + 0.025752 + 0.170463) = 3.194887).
+* (B) my exact s ≤ 16 + author's exact s = 20 (725 of its 933 exact patterns re-verified) + R226 bounds + my tail + Case A 0.156136:
+  1.01 × (1.7598791 + 0.0000797 + 0.0992923 + 0.9427013 + 0.022797 + 0.156136) ≈ **3.0101 < 4**.
+* (C) no O226-enumerator input at all at s = 20 (my 725 exact patterns, R226 bound on the other 225: 0.97022):
+  1.01 × (1.7598791 + 0.0000788 + 0.9702200 + 0.9427013 + 0.022797 + 0.156136) ≈ **3.8901 < 4**.
+* (D) as (B) but R226's own Case A routes (0.40985): ≈ 3.2663 < 4.
+All variants certify Thm 2.2. **Thm 2.2: SOUND.** The margin of the author-independent variant (C) is thin (≈ 2.7 %) but every
+ingredient is a rigorous upper bound, the inputs are integers or outward-rounded, and ×1.01 covers the printing precision of
+the R226 dump (7 significant digits).
 
 ## Defects
 
