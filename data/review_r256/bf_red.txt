@@ -78,3 +78,63 @@ Q=usq mode=IIA: families=18  in QQ[Q]=18  outside=0
   outside & valid-in-theorem-sense: 0
 Q=usq mode=IID: families=312  in QQ[Q]=24  outside=288
   outside & valid-in-theorem-sense: 0
+Q=usq mode=IA: families=12  in QQ[Q]=12  outside=0
+  outside & valid-in-theorem-sense: 0
+Q=usq mode=ID: families=906  in QQ[Q]=27  outside=879
+  OUTSIDE ('I', '-u - 1', '-1', '-u', '1/4*u + 1/4') int-valid-pt (3, -12, 9, -4, -1, -3, 1) pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '-1', '-1', '-u', '1/2*u + 1/4') int-valid-pt None pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '-1', '-1', 'u', '-1/2*u + 1/4') int-valid-pt None pos-pt None pos-arc 1.575
+  OUTSIDE ('I', '-1', 'u - 1', 'u', '-1/4*u + 1/4') int-valid-pt (-11, -12, 121, -1, -12, -11, 3) pos-pt None pos-arc 1.575
+  OUTSIDE ('I', '-1', '2*u - 1', '-u^2 + u', '1/4') int-valid-pt None pos-pt None pos-arc 1.575
+  OUTSIDE ('I', '-u + 1', '1', '-u', '-1/4*u + 1/4') int-valid-pt (-11, -12, 121, 12, 1, 11, 3) pos-pt None pos-arc 1.575
+  OUTSIDE ('I', '1', '1', '-u', '-1/2*u + 1/4') int-valid-pt None pos-pt None pos-arc 1.575
+  OUTSIDE ('I', '1', '1', 'u', '1/2*u + 1/4') int-valid-pt None pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '1', 'u + 1', 'u', '1/4*u + 1/4') int-valid-pt (3, -12, 9, 1, 4, 3, 1) pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '1', '2*u + 1', 'u^2 + u', '1/4') int-valid-pt None pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '1', '2', '-u', '-3/8*u + 1/8') int-valid-pt (-5, -12, 25, 1, 2, 5, 2) pos-pt None pos-arc 1.575
+  OUTSIDE ('I', '1', '2', 'u', '3/8*u + 1/8') int-valid-pt (5, -12, 25, 1, 2, 5, 2) pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '1', '2*u + 2', 'u', '1/4*u + 1/8') int-valid-pt None pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '2*u + 1', '2', 'u', '1/8*u + 1/8') int-valid-pt (7, -12, 49, 15, 2, 7, 1) pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '2', '2', '-u', '-1/4*u + 1/16') int-valid-pt None pos-pt None pos-arc 1.575
+  OUTSIDE ('I', '2', '2', 'u', '1/4*u + 1/16') int-valid-pt None pos-pt None pos-arc 0.004
+  outside & valid-in-theorem-sense: 16
+Q=uupv mode=IIA: families=18  in QQ[Q]=18  outside=0
+  outside & valid-in-theorem-sense: 0
+Q=uupv mode=IID: families=144  in QQ[Q]=24  outside=120
+  outside & valid-in-theorem-sense: 0
+Q=uupv mode=IA: families=12  in QQ[Q]=12  outside=0
+  outside & valid-in-theorem-sense: 0
+Q=uupv mode=ID: families=921  in QQ[Q]=27  outside=894
+  OUTSIDE ('I', '-u - v - 1', '-1', '-u', '1/4*u + 1/4*v + 1/4') int-valid-pt (1, 2, 3, -4, -1, -1, 1) pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '-u - 1', '-1', '-u - v', '1/4*u + 1/4') int-valid-pt (3, -2, 3, -4, -1, -1, 1) pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '-1', '-1', '-u - v', '1/2*u + 1/4') int-valid-pt None pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '-1', '-1', '-u', '1/2*u + 1/2*v + 1/4') int-valid-pt None pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '-1', '-1', 'u', '-1/2*u - 1/2*v + 1/4') int-valid-pt None pos-pt None pos-arc 2.361
+  OUTSIDE ('I', '-1', '-1', 'u + v', '-1/2*u + 1/4') int-valid-pt None pos-pt None pos-arc 2.361
+  OUTSIDE ('I', '-1', 'u - 1', 'u + v', '-1/4*u + 1/4') int-valid-pt (-11, -12, 253, -1, -12, -23, 3) pos-pt None pos-arc 2.361
+  OUTSIDE ('I', '-1', 'u + v - 1', 'u', '-1/4*u - 1/4*v + 1/4') int-valid-pt (-12, -11, 276, -1, -24, -12, 6) pos-pt None pos-arc 2.361
+  OUTSIDE ('I', '-1', '2*u - 1', '-u^2 - u*v + u + v', '1/4') int-valid-pt None pos-pt None pos-arc 2.361
+  OUTSIDE ('I', '-1', '2*u + 2*v - 1', '-u^2 - u*v + u', '1/4') int-valid-pt None pos-pt None pos-arc 2.361
+  OUTSIDE ('I', '-u - v + 1', '1', '-u', '-1/4*u - 1/4*v + 1/4') int-valid-pt (-12, -11, 276, 24, 1, 12, 6) pos-pt None pos-arc 2.361
+  OUTSIDE ('I', '-u + 1', '1', '-u - v', '-1/4*u + 1/4') int-valid-pt (-11, -12, 253, 12, 1, 23, 3) pos-pt None pos-arc 2.361
+  OUTSIDE ('I', '1', '1', '-u - v', '-1/2*u + 1/4') int-valid-pt None pos-pt None pos-arc 2.361
+  OUTSIDE ('I', '1', '1', '-u', '-1/2*u - 1/2*v + 1/4') int-valid-pt None pos-pt None pos-arc 2.361
+  OUTSIDE ('I', '1', '1', 'u', '1/2*u + 1/2*v + 1/4') int-valid-pt None pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '1', '1', 'u + v', '1/2*u + 1/4') int-valid-pt None pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '1', 'u + 1', 'u + v', '1/4*u + 1/4') int-valid-pt (3, -2, 3, 1, 4, 1, 1) pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '1', 'u + v + 1', 'u', '1/4*u + 1/4*v + 1/4') int-valid-pt (1, 2, 3, 1, 4, 1, 1) pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '1', '2*u + 1', 'u^2 + u*v + u + v', '1/4') int-valid-pt None pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '1', '2*u + 2*v + 1', 'u^2 + u*v + u', '1/4') int-valid-pt None pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '1', '2', '-u - v', '-3/8*u + 1/8') int-valid-pt (-5, -12, 85, 1, 2, 17, 2) pos-pt None pos-arc 2.361
+  OUTSIDE ('I', '1', '2', '-u', '-3/8*u - 3/8*v + 1/8') int-valid-pt (-12, -9, 252, 1, 2, 12, 8) pos-pt None pos-arc 2.361
+  OUTSIDE ('I', '1', '2', 'u', '3/8*u + 3/8*v + 1/8') int-valid-pt (1, 4, 5, 1, 2, 1, 2) pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '1', '2', 'u + v', '3/8*u + 1/8') int-valid-pt (5, -4, 5, 1, 2, 1, 2) pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '1', '2*u + 2', 'u + v', '1/4*u + 1/8') int-valid-pt None pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '1', '2*u + 2*v + 2', 'u', '1/4*u + 1/4*v + 1/8') int-valid-pt None pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '2*u + 1', '2', 'u + v', '1/8*u + 1/8') int-valid-pt (7, -6, 7, 15, 2, 1, 1) pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '2*u + 2*v + 1', '2', 'u', '1/8*u + 1/8*v + 1/8') int-valid-pt (1, 6, 7, 15, 2, 1, 1) pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '2', '2', '-u - v', '-1/4*u + 1/16') int-valid-pt None pos-pt None pos-arc 2.361
+  OUTSIDE ('I', '2', '2', '-u', '-1/4*u - 1/4*v + 1/16') int-valid-pt None pos-pt None pos-arc 2.361
+  OUTSIDE ('I', '2', '2', 'u', '1/4*u + 1/4*v + 1/16') int-valid-pt None pos-pt None pos-arc 0.004
+  OUTSIDE ('I', '2', '2', 'u + v', '1/4*u + 1/16') int-valid-pt None pos-pt None pos-arc 0.004
+  outside & valid-in-theorem-sense: 32
