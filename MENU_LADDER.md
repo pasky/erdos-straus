@@ -96,7 +96,7 @@ family c₀·4^t + k with Y = 2^t) contains μ = 0 in the closure of its class.
 max(deg a, deg b), forcing (say) a, c, d constant and b ∝ n + const of degree 2 — contradiction; if deg(abd) < 2 then
 lc(m) = −c₀ < 0. So deg(abd) = 2, deg m ≤ 1. Shapes (deg a, deg b, deg d), up to a ↔ b:
 (0,0,2): m | a + b constant ⇒ m, c constant; f = c(n + m)/b − 1 ≡ cm/b − 1 (mod n).
-(2,0,0): m constant ⇒ a ∝ n + m, f = c(n + m)/b − 1 ≡ cm/b − 1. m linear with root Y₀: a(Y₀) = −b and
+(2,0,0): m constant ⇒ a = (n + m)/(4bd), c = (a + b)/m ≡ (m/(4bd) + b)/m (mod n) is ≡ a constant, so f = c(n + m)/b − 1 ≡ const. m linear with root Y₀: a(Y₀) = −b and
 4a(Y₀)bd = n(Y₀) give −4b²d = n(Y₀) > 0, impossible (b, d positive constants).
 (1,1,0): m constant: at the root of a, n + m = 0, impossible (n, m > 0). m linear with root Y₀: n(Y₀) = 4a(Y₀)b(Y₀)d =
 −4d·a(Y₀)² ≤ 0, impossible.
@@ -108,7 +108,7 @@ symbol is +1, contradicting the Type II witness lemma (NEAR_SQUARE Lemma 1.3: = 
 *Scope.* Type II only; the Type I analogue (NEAR_SQUARE Thm 2.2's (0,0,2)/(1,0,1)/(0,1,1) analysis transplanted to
 c₀Y² + k) is not written — (0,0,2) goes through verbatim, (1,0,1) needs NEAR_SQUARE's Λ-argument redone: open.
 *Not T1.* The rung-2 obstruction is archimedean (positivity), not integral-point: Y* is NOT in the profinite closure of the
-Pell points 15Y² + 1 = w² (Y_j ≡ 1 mod 17 forces j odd, hence Y_j odd; `/tmp`-free check in §5), and Y* ∉ Ster (§1).
+Pell points 15Y² + 1 = w² (Y_j ≡ 1 mod 17 forces j odd, hence Y_j odd; `scripts/z18_pell.py`), and Y* ∉ Ster (§1).
 
 **Corollary 4.2 (the ladder at unit-square points; PROVED/EVIDENCE as marked).**
 | D | curve w² = c₀Y^D + k | integer T1 points | descent at μ = 0 | root menu reaches μ = 0? |
