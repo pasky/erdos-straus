@@ -1,5 +1,8 @@
 # R253 — hostile review #1 of O239 (EXP_105.md, branch side-agent/exp-105 @ fe4ec16a)
 
+**Repairs applied (R253, author quiet since fe4ec16a):** D1–D5 fixed in EXP_105.md, each marked '(R253 repair)'
+(text-only; no certificate or theorem statement changed).
+
 Reviewer branch side-agent/review-exp-105-2. From-scratch scripts (no z14_/z8/ec_cover imports):
 `scripts/review_r253_cert.py` (tree-certificate checker), `scripts/review_r253_closed.py` (closed-form window identities),
 `scripts/review_r253_mu0.py` (generic μ = 0 window search, cross-check of Prop 2.4–Cor 2.8).
@@ -73,7 +76,7 @@ an sg1 window (m = 11 resp. 19), as Prop 2.7 predicts. Mordell-hardness: 7·4^s 
   (4^r + t odd), t even ⇒ m ≡ 7 (8). Correct.
 * Prop 2.7: cyclotomic: class ⊂ {s ≡ j mod h}, μ = 0 needs h | j; Y_e homogeneous of degree φ(2e) ⇒
   Y_e(4^{−j/h}, w) = 4^{−jφ(2e)/h}·Y_e(1, w4^{j/h}), the integer factors divide 1 + t4^j = R. 'sg' needs j even, pieces
-  2^{−j}·(divisor of R); 'sg1' pieces 2^{−j}·(divisor of 1 + 4^j·... = R), j odd, (2/m) = −1 only for j = 1, w odd. Small
+  2^{−j}·(divisor of R); 'sg1' pieces 2^{−j}·(divisor of R = 1 + 4^j w⁴), j odd, (2/m) = −1 only for j = 1, w odd. Small
   primes splitting n never occur at μ = 0 (n → 4^J). Correct.
 * Cross-check (`review_r253_mu0.py`, generic search over the whole menu j ≤ 7, w ≤ 9, h ∈ {1,3,5,7,9,15}, sg, sg1, with
   all piece limits at μ = 0 and free 2^i, |i| ≤ 2j − 2): for (15,1), (31,33), (7,57), (63,1), (47,17), (55,9) **no**
@@ -90,7 +93,7 @@ an sg1 window (m = 11 resp. 19), as Prop 2.7 predicts. Mordell-hardness: 7·4^s 
 **D1 (MINOR) — Cor 2.8 caveat, "(the magnitude bound still applies to such sub-products; …)".** False as a general
 statement: once the SG numerators are split by fixed primes, the side carrying no "½" may contain primes of *both*
 numerators (only one ½-carrying remainder may be used, the other A's split-off primes are free), so D₁D₂ can reach
-c₀4^J·R = 4^J(m + 4^J)/… ≫ m; the bound gives nothing (note c₀R ≡ 4^J mod m). *Evidence:* my Part B search (split
+c₀4^J·R = 4^J(m + 4^J) > m; the bound gives nothing (note c₀R ≡ 4^J mod m). *Evidence:* my Part B search (split
 numerators, relation D₁ + 2D₂ ≡ 0) finds no relation for odd w ≤ 201 in all six families. *Repair:* replace the
 parenthetical by "(the magnitude bound does NOT cover sub-products mixing primes of both numerators; EVIDENCE: no relation
 for odd w ≤ 201, R253)".
