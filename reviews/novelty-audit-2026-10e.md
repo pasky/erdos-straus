@@ -66,7 +66,7 @@ Status: complete (checkpoint 1); report `reviews/agent-reports/AGENT_REPORT_O243
   works) and Pollack, "The least prime quadratic nonresidue in a prescribed residue class
   mod 4", JNT 187 (2018) (W2772124206; 7 citing works): the citing works are Pollack's own
   follow-ups, Jacobians of graphs, least inert/split primes, and the Euclidean-ideal-class
-  papers on biquadratic fields (Chattopadhyay–Muthukrishnan et al. 2019–2023). None on
+  papers on biquadratic fields (2019–2023; titles only). None on
   Egyptian fractions or ES. (Semantic Scholar API rate-limited; OpenAlex only.)
 * **Relaxations of ES with a rational third term.** Searches "Erdős–Straus conjecture
   rational third term square denominator relaxation", "4/n = 1/x + 1/y + 1/z z rational
