@@ -29,6 +29,12 @@ classes of det p enumerated from Minkowski-type reduced Grams and canonicalised 
 p-adic test (−d/p) = −1 on the binary quotient of L/pL; class counts reproduce 4, 7, 9, 15, 69 at p = 37, 73, 97, 193, 1009.
 Loop test on the lattice side = isometry of the two vertex overlattices L + ℤx/2 (maximal-order types = j up to Frob).
 
+**C1 addendum (quaternion side).** `scripts/review_r234_quat.py 200 55`: for every class of 𝔊⁻_p, p ≡ 1 (4), p ≤ 200, the Eichler order
+E(L) was built from scratch (even Clifford algebra with reversal as standard involution; unique index-2 overorder found among the
+15 candidates, uniqueness asserted) and all x ∈ E(L) with nrd x = mp enumerated: **for all 1 ≤ m < p/4: #{x : nrd x = mp} = r_L(m)
+and every such x has trace 0 — 6471 (L, m) checks, 0 failures**; for m ≥ p/4, 275 (L, m) pairs have elements of nonzero trace, so the
+bound m < p/4 is the operative one (the memo's Verschiebung remark is consistent).
+
 ### C2. Thm 2.1 / z9_depth_walks Lemma 1, Cor 2, Prop 3 (depth = conic-marked walk)
 Re-derivation (reviewer):
 * Vertex step. F = F_j has Q integral, B half-integral, det_B F = p/4, so b = 2B mod 2 on F/2F is alternating of rank 2 with
