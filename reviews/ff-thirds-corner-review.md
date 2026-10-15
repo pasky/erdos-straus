@@ -114,3 +114,24 @@ for every level through 20 (checked by grep).
   tuples** at levels 3..12: 98 full-mode hits (24 exact), 96 lop hits, 96 zt_lop hits, 0 mismatching points.
 * §4 cyclotomic h = 2 row reproduced from my census (`scripts/review_r247_cyclo_h2.py`): 12 tuples, dep histogram
   6, 4, 1, 1 at dep 1..4 for both c. h = 3, 4 rows not re-run.
+
+### §7 route bounds restricted to x*_c-admissible patterns — headline number SOUND (grid EVIDENCE), interpretation WRONG (MAJOR-1)
+* The restriction in `zt_rate_lop.py` is the right asymptotic translation: after normalising a ≤ b, Cor 1.3 becomes
+  b ≥ 1/2 and the two Cor 3.2 inequalities collapse to max(z + 2a, t) ≥ 1/2 (in either orientation one of them is trivial
+  because the large side has degree ≥ s/2). I checked this case split by hand.
+* My re-optimisation (`scripts/review_r247_rate.py`, same route table fs_rate.routes, finer grid G = 90 + random local
+  refinement; log `data/review_r247_rate.txt`): q = 3 max = +0.00000; q = 9 max = +0.00000; q = 27 grid −0.0074 but local
+  refinement reaches −0.0024 (so the "−0.007" is a grid artefact; the q = 27 sup may well be 0).
+* **MAJOR-1.** The text says the restricted maximiser is "a degenerate corner (w, m' of degree o(s)) where the true count is
+  only polynomial … consistent with the poly(N)·3^{−N} lottery". False as stated: the zero set of max-min-route − 1/2 is
+  huge — at G = 60 it contains 326 grid points, including the whole boundary face b = y + t = 1/2 (e.g.
+  (a, z, y, t) = (1/6, 1/3, 1/3, 1/6) with binding route R3c, (0.1, 0.4, 0.4, 0.1), (0.05, 0.45, 0.25, 0.25), …) and the
+  face t = 1/2 (e.g. (1/6, 0, 1/3, 1/2), binding T0). These are non-degenerate patterns with w, m', g' all of linear degree;
+  no polynomial-count argument covers them. The argmax printed by the script is just the first grid point found. So the
+  q = 3 restricted bound is critical along the entire boundary of the Liouville region (the constraint b ≥ s/2 + 1 is
+  exactly what makes it critical), and nothing beyond "critical, union bound inconclusive" can be read off; the report's
+  SHARP/Results line "(critical, at a degenerate corner where true counts are polynomial)" must go.
+  Repair: replace the last paragraph of §7 by "the restricted supremum is exactly 0, attained on the boundary b = 1/2 of
+  the Liouville region (a 2-dimensional face) and on t = 1/2; route bounds are critical there and cannot decide x*_c";
+  report all three zero faces; drop the "true count only polynomial" sentence (or prove it for the a = z = 0 corner only,
+  where it is a divisor-bound (3^{o(s)}, not polynomial) statement).
