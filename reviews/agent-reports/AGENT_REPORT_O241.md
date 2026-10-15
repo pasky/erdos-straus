@@ -62,8 +62,8 @@ cp $REPO/data/m17b/qu7_o93/*.txt $REPO/data/m17b/p*.txt .; cd $REPO; python3 scr
 ```
 
 ## What did not work / limits
-* No proof of Conjecture 0.2: every route ends in a positional statement (sibling/pair correlation of tuple-ball centres) that
-  route/class-divisor bounds cannot reach; the gap principle gives only N ≤ H₁ + H₂ for siblings (no contradiction at the
+* No proof of O(3, T²) ≠ ∅: every route tried ends either in sharper per-depth counts or in a positional statement
+  (sibling/pair correlation of tuple-ball centres) that present route/class-divisor bounds do not reach (R248 repair D3); the gap principle gives only N ≤ H₁ + H₂ for siblings (no contradiction at the
   thirds corner), same over ℤ (|a_ib_j − a_jb_i| ≥ 17^{L−1}).
 * Rational-target Cantor idea (many low-height rationals, ≤ 1 per lopsided ball at levels ≥ 2h): reduces to counting lopsided
   tuples near low-height rationals, for which no bound beyond the critical one exists; not written up as a memo (spark S3).
