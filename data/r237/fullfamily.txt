@@ -1,0 +1,8 @@
+primes l=11 (12) below 300000: 6512; #(w < sqrt(l)/~log) = 3; L1 = sum w/(l-w) = 5899.3; Q^(1/2) = 547.7
+l=11: classes from D=9^j: full 5 (= (l-1)/2? True), with V<l/4: 1
+l=23: classes from D=9^j: full 11 (= (l-1)/2? True), with V<l/4: 1
+l=47: classes from D=9^j: full 23 (= (l-1)/2? True), with V<l/4: 2
+l=59: classes from D=9^j: full 29 (= (l-1)/2? True), with V<l/4: 2
+l=83: classes from D=9^j: full 41 (= (l-1)/2? True), with V<l/4: 2
+l=107: classes from D=9^j: full 53 (= (l-1)/2? True), with V<l/4: 2
+l=11, D=729, p=43: x=78, y=129, z=1118/81, den z factor {3: 4} (3 | y: True)
