@@ -1,14 +1,14 @@
 # R249 — hostile review of O242 (SIBLING.md, BRAINSTORM/z17_*.md, AGENT_REPORT_O242.md)
 
 Reviewer: R249 (side-agent/review-sibling). Author branch merged: side-agent/sibling-conj.
-Status: in progress.
+Status: round 1 complete (r = 19 depth-5 spot check still running). Repairs applied: none (author's branch is unchanged since the review started; parent to decide on forwarding vs. reviewer repairs).
 
 ## Summary verdicts
 | claim | verdict |
 |---|---|
 | Lemma 1.1 (≤ 2 balls per key (m′, g′, s, a) in a parent; 3 deg Q > deg F) | **SOUND** (re-derived; 274 tuples s ≤ 15, max 1) |
 | Lemma 1.2 (≤ 6 P-boxes per (c, d) per class, r ≤ 17) | **SOUND** (m1: "⌈√(r/2)⌉ + 1" should be ⌈√(r/2)⌉) |
-| Prop 1.3 (Klein symmetry of Case B balls; parity law) | **SOUND** (re-derived; brute-force on own tuples s ≤ 16 and O241 balls) |
+| Prop 1.3 (Klein symmetry of Case B balls; parity law) | **SOUND** (re-derived; brute-force on own tuples s ≤ 17: 178 balls, as author; O241 ball list) |
 | Prop 3.1 (route-type counts do not localise; window (n, 5n]) | **GAP** (D1 MAJOR: central inequality false for the natural localised route R2L; proof sentence wrong; PROVED only for an explicit list; D2 citation label) |
 | Cor 4.1 (pair-count forms) | (i), (iii) **SOUND**; (ii) **SOUND-AFTER-REPAIRS** (D3: needs an alive depth-N₀ cylinder) |
 | Conjecture 4.2 + "PROVED consequence" + "sharp threshold at 17" | data **REPRODUCED** (r ≤ 31 to depth 4, r ≤ 61 to depth 3, all r ≤ 13 at level 1); label CONJECTURE correct; consequence **GAP** (D5 MAJOR: needs level-1 survival, certified only for r < 2·10⁴) ; D6 heuristic |
@@ -43,6 +43,9 @@ T-adic cylinders, so "ball set invariant" is meaningful level by level.
 From-scratch check (same 274 tuples, s ≤ 15, `scripts/review_r249_check11.py`): parity law holds on every tuple; y + t =
 max(a, b) on every tuple; τ^σ is a valid Case B tuple and E^σ = E(−T) for every tuple (asserted); the 128 Case B balls of depth
 ≤ 9 (depths 3..8 complete; 9 partial until s = 16 is added) are invariant under u ↦ u(−T), u ↦ 1/u and ι; 32 are ι-fixed.
+**Addendum (s ≤ 17, 348 tuples):** parity law, y + t = max(a, b), validity of τ^σ and E^σ = E(−T) hold on all; the Case B ball set
+has **178 balls of depth ≤ 10 — exactly the author's census count** — and is invariant under all three maps (38 ι-fixed);
+Lemma 1.1 maximum still 1 per (key, parent).
 "Reading" (an involution fixing V fixes a child, so symmetry never forbids a triple): correct and trivially so.
 
 ### Lemma 1.2 (≤ 6 P-boxes per key (c, d) in a class mod r^{L−1}) — SOUND (one MINOR wording defect, m1)
@@ -141,7 +144,8 @@ Results (all agree exactly with `data/z17/landscape_d4.txt`, `rtree19_d6.txt`, `
 * max boxed children of an alive parent, d2/d3/d4: 17: 4/4/2; 19: 7/5/2; 23: 8/5/3; 29: 5/4/2; 31: 10/2/2 ✓, min alive fraction at
   d4 0.6782, 0.5698, 0.5800, 0.8002, 0.6621 ✓; d2/d3 for 37..61: 5/4, 3/3, 7/3, 14/3, 4/3, 8/3, 6/4 ✓. Histograms at r = 19, 23
   (d ≤ 4) identical to the author's. (Depth 4 for r ≥ 37 and depths 5–6 at r = 19, 23 not reproduced: the naive scan costs
-  ≈ N log N, N = r^{2L−1}; r = 17 and r = 19 at depth 5 are running, see addendum.)
+  ≈ N log N, N = r^{2L−1}.) **Addendum:** r = 17 to depth 5 reproduced (D_P(9) = 604 as in M17; d5 max 2, hist {1: 81, 2: 1},
+alive fraction 0.6772 = M17's 56561/83521); r = 19 depth 5 running (≈ 2 h) — result appended if it finishes.
 * Note: the bound 3 is **attained** (r = 23, d = 4, one parent with 3 boxed children): Conjecture 4.2 is fitted to the data
   maximum with zero slack; "≤ 5 at depth 3" is likewise attained (r = 19, 23).
 (D5, MAJOR — hidden hypothesis in a PROVED implication and in the headline "sharp threshold".) "Conjecture 4.2 for a prime r
