@@ -25383,4 +25383,37 @@ def check_fS():
 check_fS()
 
 
+def check_fT():
+    # (fT) STERILE_EXPLICIT (O219; reviews R222, R223): R223 from-scratch — P/Q identities (108 cases), Coppersmith
+    # interpolation Cor 1.4 (3000 trials, 0 violations), level-1 coverage (r = 13 fully covered; r = 17 cells 5, 7
+    # survive), and the exact-exponent all-N P tail at r = 2^32 (0.10930) behind Theorem 3.4 (explicit r0 = 2^32).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    env = dict(os.environ, PYTHONPATH=os.path.join(root, "scripts"), OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=1200, cwd=root, env=env)
+        assert r.returncode == 0, ("STERILE_EXPLICIT subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["scripts/review_se2_identities.py"])
+    assert out.count(": ok") == 108 and "D_P(17^5) with 17 ∤ cd = 121" in out and "D_Q(17^3) with 17 ∤ e = 73" in out, out[-2000:]
+    out = run(["scripts/review_se2_cop.py", "3000", "7"])
+    assert "3000 trials: violations 0" in out, out[-2000:]
+    out = run(["scripts/review_se2_level1.py"])
+    assert "r=13: non-residue cells 6, covered at level 1: [2, 5, 6, 7, 8, 11], survivors []" in out, out[-2000:]
+    assert "r=17: non-residue cells 8, covered at level 1: [3, 6, 10, 11, 12, 14], survivors [5, 7]" in out, out[-2000:]
+    out = run(["scripts/review_se2_tail.py", "32", "40"])
+    assert "max exponent 0.47969 monotone/decreasing True" in out, out[-2000:]
+    assert "P-tail contribution to S for r in [2^32, 2^32.25): 0.10929805" in out, out[-2000:]
+    print(f"== (fT) STERILE_EXPLICIT R223: P/Q identities, Cor 1.4 (3000 trials), level-1 coverage r = 13/17, exact "
+          f"P tail 0.10930 at r = 2^32 (Thm 3.4 explicit r0); seconds = {perf_counter() - t0:.1f}")
+
+
+check_fT()
+
+
 print("\nall checks passed")

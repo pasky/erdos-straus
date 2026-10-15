@@ -1194,6 +1194,19 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * §4. On χ = −1 words α₂ and α_p vanish together, so no Siegel–Weil weighting beyond the indicator exists (the earlier N₊ formula was 0/0 and is withdrawn). Comparing r-weighted counts with |X_p| is circular (Assessment).
    * Assessment. Near-square hardness is explained structurally, but no mechanism closes the admissibility gap ("an unclean divisor ≡ −1 (mod t)", B2).
 
+54. **Spark relay Y9: explicit sterile Mordell points over ℤ — r₀ = 2³² (STERILE_EXPLICIT.md (O219); two independent hostile reviews `reviews/sterile-explicit-hostile-review.md` (R222) and `reviews/sterile-explicit-hostile-review-2.md` (R223): both no FATAL, no MAJOR; minor repairs applied by both reviewers; R222 re-certified 13 cells and the combiner independently (max Ŝ = 0.48668); R223 recomputed the dominant terms at r = 2³² in exact/interval arithmetic).**
+   * **Theorem 3.4 (PROVED, computer-assisted).** For every prime r ≥ 2³² ≈ 4.3·10⁹, the r-generic line has sterile points in the non-residue cells. So **no finite ET covering handles all large primes whose least quadratic non-residue is r.**
+     * (J)26 Thm 3.1 had this only for an ineffective, tower-sized r₀.
+     * Certificate: the measure criterion (S) holds with max S = 0.48670 < 1/2, over a finite log-r grid plus a monotone tail.
+     * The dominant terms at r = 2³² are the level-1 Q term 0.350, the P term at K = 1 (0.023) and the all-N P tail (0.109). R223 reproduced them within 10⁻³, with the author's values on the conservative side.
+     * Full replay: scripts/se_certify.sh (~3.5 h).
+   * Cor 1.4 (PROVED, elementary via Minkowski; a standard Coppersmith-type trick). Divisors of n of size n^β in a unit class mod n^ρ number at most n^{max(0, β(1−β)−ρ)+o(1)}, with explicit lattice constants. It is the ℤ twin of (J)51's Lemmas 1.4/1.5, and it replaces the divisor function below the Coppersmith threshold.
+   * EVIDENCE (grid; reproduced by both reviewers). With Cor 1.4, the ℤ P-count has ET's exponent 2/5 with only a τ₃ envelope, tolerated up to η = 0.3. ET's own argument tolerates η ≈ 1/18, which is why the earlier r₀ was a tower.
+   * r = 13 and r = 17 (PROVED by finite computation; both reviewers redid level 1).
+     * r = 13: all six non-residue cells are covered at level 1, so there is no sterile 13-generic point of this kind.
+     * r = 17: cells 5 and 7 survive level 1, but the method cannot reach r = 17 (Assessment).
+   * Dictionary (I1): (J)51's Case B tuples and the ℤ P-data satisfy the same equations, but with different side conditions.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
