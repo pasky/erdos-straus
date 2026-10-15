@@ -4,6 +4,7 @@ usage: uv run --with cypari2 python scripts/review_r240_enum.py S [--all-routes 
   Output lines: "s a z y t  n_all  n_P8  n_lawfail  route"  (orientation a <= b; n_P8 = tuples with E(0)^4 = -1).
   --all-routes CAP: run every route of cost exponent <= CAP and require identical counts (cross-check).
   --compat-only: only patterns with eps(s; z, t) = (-1)^{s/4} (the ones that can carry P8 tuples by Thm 1.2).
+  --maxcost C: skip (print SKIP) patterns whose chosen route has cost exponent (+1 for factoring routes) > C.
   --cmp DIR: compare n_P8 with DIR/p_S.txt (author's file), fail on any mismatch / missing pattern.
 Exit code 1 on any law failure, route disagreement or mismatch.
 """
@@ -33,6 +34,7 @@ def main():
         cap = float(args[args.index("--all-routes") + 1])
     compat = "--compat-only" in args
     cmpdir = args[args.index("--cmp") + 1] if "--cmp" in args else None
+    maxcost = float(args[args.index("--maxcost") + 1]) if "--maxcost" in args else None
     bad = 0
     res = {}
     t0 = time.time()
@@ -47,6 +49,9 @@ def main():
                     continue
                 c = costs(s, a, z, y, t)
                 best = min(c, key=lambda r: (c[r] + (0 if r == 1 else 1), r))
+                if maxcost is not None and c[best] + (0 if best == 1 else 1) > maxcost:
+                    print(s, a, z, y, t, "SKIP", flush=True)
+                    continue
                 routes = [best]
                 if cap is not None:
                     routes = sorted(set([best] + [r for r in c if c[r] <= cap]))
@@ -82,6 +87,8 @@ def main():
             seen.add((a, z, y))
             if f[5] == "SKIP":
                 print("# author SKIP", line.strip(), "ours P8 =", res.get((a, z, y)))
+                continue
+            if (a, z, y) not in res and maxcost is not None:
                 continue
             if (a, z, y) not in res or res[(a, z, y)][2] != int(f[5]) or res[(a, z, y)][0] != t:
                 print("MISMATCH", line.strip(), "ours", res.get((a, z, y)))
