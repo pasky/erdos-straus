@@ -12,6 +12,7 @@ From-scratch scripts: `scripts/review_r255_*.py`. ES is not solved; nothing belo
 | Lemma 2.1 (specialisation) | SOUND |
 | Lemma 2.2 (normal form) | SOUND |
 | Lemma 2.3 (real place) | SOUND-AFTER-REPAIRS (minor: t = t′ case; label of consequence (ii)) |
+| Prop 3.1 (witness localisation) | SOUND |
 | Theorem 4.1 (rung 2, Type II) | SOUND (shape analysis redone; from-scratch exhaustive-per-(a,b) search, 0 violations; negative control fires) |
 
 ## Claim-by-claim
@@ -83,6 +84,19 @@ Re-derived independently.
   deg b ≤ 1: 1372; (7,9) deg a, b ≤ 3, |coeff| ≤ 1: 588. **0 violations** (deg(abd) = 2 always, f mod n constant always).
   Negative control n = Y² − 3 (indefinite): 3710 of 8414 families have non-constant witness, shapes (1,1,·), (1,0,1), …
   appear — so the search can detect escapes and positivity is indeed the operative hypothesis.
+
+### Prop 3.1 — SOUND
+* First form: in Theorem A's proof, (D̃(u)/φ(u)) = Π_{v∈S∪∞}(α, u − θ)_v; letting u → Y*, the odd S-places see 1 − θ and
+  the 2-places see −θ. The product formula for (α, 1 − θ) (unit outside S, since N(1 − θ) = ±4^J/c₀ and c₀ ∈ S) moves the
+  odd-S part to the 2-places and real places; real symbols are 1 (1 − θ, u − θ > 0). So (f(u)/n(u)) = Π_{v|2}(α, θ(θ − 1))_v
+  (the denominator g contributes (g/n) = +1). This first form needs neither k = 1 nor c₀ squarefree. ✓
+* Second form: real place (D odd) θ_r < 0 ⇒ β > 0 ✓. q | c₀ (q ∥ c₀): ϖ = 1/θ is a root of x^D + c₀, Eisenstein, so
+  A⊗ℚ_q is a totally ramified field; β = ϖ^{−2}(1 − ϖ); the tame symbol is ((αϖ^{−v(α)})^{−2}(1 − ϖ)^{−v(α)} mod 𝔮 / 𝔮) = 1. ✓
+  Other odd v: θ is a unit (N θ = ±1/c₀) and θ − 1 is a unit, so (α, β)_v = (β/v)^{v(α)}. ✓
+* From-scratch `scripts/review_r255_witness.py` (own Type II decomposition of Theorem B: a = 3, b = 2X² + 2X + 1,
+  d = 2X² − 2X + 1, c = 2(X² + X + 2)/11, identity checked): W = −1 with parts (2: −1, c₀: +1, other odd: −1); constant
+  sign changed: all +1. Matches the memo. (Observation: replacing f by −f never changes W here, since (−1, β) is trivial
+  at all places other than 2 — so W does not see the overall sign of the witness.)
 
 ## Defects
 
