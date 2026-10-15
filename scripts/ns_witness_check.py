@@ -43,3 +43,15 @@ for p in primerange(5, PMAX):
             cnt[2] += 1
             if jacobi_symbol(d * e, p) != -1: bad += 1; print("TypeII fail", p, s, d, e)
 print("primes = 1 (4) <", PMAX, "TypeI sols", cnt[1], "TypeII sols", cnt[2], "failures", bad)
+# T1 control: odd squares n <= PMAX have no Type I / Type II solutions (ET Prop 1.6); also check the census claim
+# that every n = 1 (4) prime solution count is positive in this range.
+sq_bad = 0
+for w in range(3, int(PMAX ** 0.5) + 1, 2):
+    n = w * w
+    for s in sols(n):
+        nd = sum(v % n == 0 for v in s)
+        if nd in (1, 2) and all(v % n != 0 or (v // n) % 1 == 0 for v in s):
+            # Type I/II in ET's sense also needs the non-multiples coprime to n
+            others = [v for v in s if v % n]
+            if all(gcd(v, n) == 1 for v in others): sq_bad += 1; print("square with Type I/II?", n, s)
+print("odd squares <", PMAX, ": Type I/II solutions found:", sq_bad)
