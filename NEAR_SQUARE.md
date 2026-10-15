@@ -12,18 +12,20 @@ Z_k := {m ∈ Ẑ : m² + k ∈ S}, S ⊂ Ẑ the sterile set (STERILE_STEER Pro
 
 ## Summary (checkpoint 1)
 1. **Above the squares nothing beats congruences (PROVED, Thm 2.2).** For p = m² + k, k > 0, ET's polynomial-solvability
-   theory in the variable m has new (Aurifeuillean) families, but every Type I/II polynomial family has a witness that is a
+   theory in the variable m has new (Aurifeuillean) families, but every ET-parametrised Type I/II polynomial family (R225
+   repair: the (x, y, z)-version needs primes m² + k along the class, cf. §2 Definition) has a witness that is a
    fixed character of n (Lemmas 1.1/1.3: every Type I solution has (d/n) = −1, every Type II (f/n) = −1), so its class
-   avoids Z_k^□ = {m ∈ Ẑ : m² + k a local square} (≠ ∅ iff k ≡ 0, 1, 5 mod 8). Every escaping shape dies by the
-   positive-definiteness of x² + ky² — the archimedean place of ℚ(√−k).
+   avoids Z_k^□ = {m ∈ Ẑ : m² + k a square in every ℤ_ℓ, a unit square in ℤ₂} (≠ ∅ iff k ≡ 0, 1, 5 mod 8). Every escaping
+   shape not excluded by a degree count dies by the positive-definiteness of x² + ky² — the archimedean place of ℚ(√−k).
 2. **Below the squares families escape (PROVED existence).** For p = m² − j escaping families exist (j = 8, 15, 24:
    80/161/263 algebraic candidates, of which 76/97/111 have computed non-empty classes and were verified on
    99 702 instances; the rest have period > 20 000 and were not checked — R-O221), reaching m with n ≡ 1 mod every L.
 3. **The deformed T1 is "square in K", not "square in ℚ" (PROVED ⊇, CONJECTURE =).** Integer T1 points above √j obstruct
    every family (Lemma 3.2 positivity + Thm 3.3), and the K-adic unit-square set Z_K⁺ = {m − √j ∈ (O_{K,v}^×)² ∀v} (and its
    closure) is sterile for
-   every family (Thm 3.4, Hilbert reciprocity in K = ℚ(√j)); at j = 8 the uncovered classes at L = 8064, 4480 are
-   exactly Z_K⁺ (CONJECTURE Y10-S).
+   every family (Thm 3.4, Hilbert reciprocity in K = ℚ(√j)); at j = 8 the classes left uncovered at L = 8064, 4480 by the
+   7 congruence families and the 76 escaping families found are exactly Z_K⁺ (R225 repair: a statement about the families
+   found; CONJECTURE Y10-S).
 4. **Clean levels (PROVED, Prop 4.1).** Level t is odd-clean along Q(m) = Am² + Bm + C (outside gcd-exceptional classes) iff 4A − tΔ is a square (R224's
    tk + 1 = c² is the case Q = m² + k, now with the converse). Per prime, T1-type = principal-form part of "clean"
    (82 % of clean words, 10⁵–10⁶).
@@ -76,7 +78,8 @@ So every Type I/II solution of an n ≡ 1 (4) carries a *witness* D (D = d for T
 k > 0, K = ℚ(√−k), π = m + √−k (so n = N(π) and ℤ/n ≅ O_K/π when π is a prime of degree one). For D ∈ ℤ[m],
 (D(m)/n) = (D(−√−k) / π)_K, the quadratic residue symbol of K. If D is constant this factors through the norm
 (it is (D/n)); if D(−√−k) ∉ ℚ·K^{×2} it is (by quadratic reciprocity in K) a ray-class character of the principal
-ideal (m + √−k), which does **not** factor through N(π) = n.
+ideal (m + √−k), which does **not** factor through N(π) = n (R225 repair: on all ideals; for the thin set of primes
+m² + k this last clause is a heuristic remark, unproved and unused).
 *Proof.* m ≡ −√−k (mod π). ∎
 Reading: T1 (k = 0) is the degenerate case where √−k = 0 and every polynomial witness is rational. For k ≠ 0 the
 T1 obstruction (a fixed character of n) disappears for families whose witness D is non-constant: the witness can
@@ -134,7 +137,8 @@ give m² + k = w². At 2, unit squares are 1 + 8ℤ₂ (Hensel), and m² + k ≡
 or 5 (m ≡ 2 mod 4) (mod 8). CRT. ∎ (For the other k, n = m² + k is never ≡ 1 mod 8 at odd n, so Mordell's classes
 already cover all odd n of the family; nothing to do.)
 
-Every impossibility above is the positivity of the binary norm form x² + ky² of ℚ(√−k) at a real point — the
+Every impossibility above that is not a degree count (R225 repair: Type I (0,1,1) Λ > 1 and Type II (1,0,1), (2,0,0) die
+by degrees) is the positivity of the binary norm form x² + ky² of ℚ(√−k) at a real point — the
 archimedean place (cf. (J)52) — e.g. (Λ − 1)·N(ρ + √−k) + N(r + √−k) = 0. For k < 0 all of them become possible.
 EVIDENCE (`scripts/ns_polyfam.py K 3`, roots in ½ℤ ∩ [−3, 3], 16 leading coefficients): 0 escaping families for
 k = 1 (and 16, 24: see §7); 80, 161, 263 for k = −8, −15, −24.
@@ -178,7 +182,8 @@ K = ℚ(√j), π_m := m − √j (so n(m) = N(π_m)), and
   Z_K⁺ := {m* ∈ Ẑ : π_{m*} is the square of a unit of O_{K,v} for every finite place v of K}
 (R-O221 repair: unit squares; then n(m*) ∈ Ẑ^×). Then no Type I/II polynomial family for n = m² − j has a class C
 (m ≡ g mod L) whose closure in Ẑ meets Z_K⁺; since the set of points covered by no family is closed, it contains the
-closure of Z_K⁺ (which also contains non-unit square points, e.g. the R-O221 examples j = 648, m* = 27).
+closure of Z_K⁺ (R225 repair: the closure stays inside the closed set {m : n(m) ∈ Ẑ^×}; non-unit square points such as
+j = 648, m = 27, 27 − 18√2 = (3 − 3√2)², n = 81, are NOT in it and are not covered by this theorem).
 *Proof.* Write D = D̃/g with D̃ ∈ ℤ[m], g ∈ ℕ, and α := D̃(√j) ∈ ℤ[√j] (no escape hypothesis is needed). Let m* ∈
 Z_K⁺ ∩ closure(C). As n(m*) is a unit everywhere, all m ∈ C close enough to m* have n(m) coprime to 2jg·N(α) (if α ≠ 0;
 α = 0 would make D̃(m) ≡ 0 mod π_m and (D(m)/n) = 0). For such m: (i) the prime ideals dividing (π_m) have degree one
@@ -217,7 +222,7 @@ while above them they gain nothing at the locally-square m (Thm 2.2; whether the
 ## 4. Deterministically clean levels (goal (a))
 
 Convention (THREE_SQUARES Prop 1.3): level t is *odd-clean* at odd n if (−t/r) = +1 for every odd prime r | tn + 1, r ∤ t
-(for n = p prime this is (r/p) = +1, so all level-t words have χ = +1 when moreover 2 ∤ tp + 1 or (2/p) = 1).
+(for n = p ≡ 1 (mod 4) prime this is (r/p) = +1 (R225 repair: p ≡ 1 mod 4 needed), so all level-t words have χ = +1 when moreover 2 ∤ tp + 1 or (2/p) = 1).
 
 **Prop 4.1 (classification for quadratic families; PROVED).** Let Q(m) = Am² + Bm + C ∈ ℤ[m], A > 0, Δ = B² − 4AC,
 t ≥ 1, E := 4A − tΔ. Identity: 4A(tQ(m) + 1) = t(2Am + B)² + E.
@@ -225,10 +230,11 @@ t ≥ 1, E := 4A − tΔ. Identity: 4A(tQ(m) + 1) = t(2Am + B)² + E.
 gcd(tQ(m) + 1, 2A) = 1 (and then χ = +1 on level t at primes, under the 2-condition above).
 (b) If E is not a perfect square and E ≠ −t·□, there is a prime r ∤ 2tAE with (−t/r) = −1 and (E/r) = −1; for every
 such r, level t is NOT odd-clean at Q(m) for all m in a residue class mod r (namely tX² ≡ −E, X = 2Am + B). If
-E = −t s² (s ≥ 0), tQ + 1 = t(X − s)(X + s)/(4A) is reducible and level t is not odd-clean on a class of m as well.
+−tE is a perfect square (R225 repair: E = −ts² with s ∈ ℚ, s ≥ 0, e.g. t = 4, E = −1), tQ + 1 = t(X − s)(X + s)/(4A) is reducible and level t is not odd-clean on a class of m as well.
 So, *generically* (R-O221 repair: the exceptional m of (a) are essential — Q = m² + 8, t = 1, E = 36, m = 3: n = 17,
 3 | 18 = n + 1, (−1/3) = −1): level t is odd-clean at all m outside the gcd-exceptional classes ⟺ 4A − tΔ is a perfect
-square; if it is not, uncleanness occurs on a positive-density set of classes.
+square; if it is not, uncleanness occurs on a positive-density set of classes (R225 repair: read as two one-way statements 
+— E = c² ⇒ clean outside the gcd-exceptional classes of (a); E ≠ □ ⇒ unclean on a full class mod r, r ∤ 2tAE).
 *Proof.* (a) r | tQ + 1, r ∤ 2Ac ⇒ tX² ≡ −c² (r), r ∤ X ⇒ −t ≡ (c/X)². (b) r with (−tE/r) = 1 (so tX² ≡ −E is
 solvable mod r) and (−t/r) = −1 exist by Dirichlet/Chebotarev in ℚ(√−t, √E) as soon as −t·E and −t are independent
 modulo squares, i.e. E ∉ □ ∪ (−t)□. ∎
@@ -244,7 +250,7 @@ discriminant −4t. So T1-type levels are, roughly, the principal-CLASS part of 
 equivalence also needs exclusions at 2 and at the conductor of ℤ[√−t], e.g. p = 17, t = 3: 52 is clean but 2 is inert
 in ℚ(√−3)).
 EVIDENCE (`scripts/ns_census.c`, all 34 392 primes p ≡ 1 (4) in (10⁵, 10⁶), 5 570 014 ordered words): 432 677 words lie on
-clean levels, 356 023 (82 %) of them on T1-type levels; 0 χ = −1 words on either (Lemma 1.4 and Lemma 1.2(a) at scale).
+clean levels (R225 repair: census definition — every prime of tp + 1, including 2, is a residue mod p), 356 023 (82 %) of them on T1-type levels; 0 χ = −1 words on either (Lemma 1.4 and Lemma 1.2(a) at scale).
 
 ## 5. Hardness beyond the adelic cell (goal (b); EVIDENCE)
 
@@ -262,7 +268,9 @@ levels, φ_T1 = on T1-type levels, K0 = p − ⌊√p⌋².
 * About half of the gradient survives removing all words on clean levels: residual of N₋/(N − N_cl): −0.041 ([5, 10)),
   −0.024 ([10, 17)), −0.019 ([17, 30)), −0.0093 ± 0.0014 ([30, 100)), −0.0045 ± 0.0008 ([100, 300)), +0.0022 (≥ 300); K0 = 24:
   −0.068 ± 0.010. So near-squares are depleted of χ = −1 words also on UNclean levels (descriptive; the per-bin SEs ignore cell-mean
-estimation and multiple testing). Mechanism not identified (tried:
+estimation and multiple testing). (R225: a partial mechanism — if K0 + u = s², gcd(m, s) = 1, then p + u = m² + s² has no
+prime ≡ 3 mod 4 and every word with that u (or v) has χ = +1, since χ = (−u/(tu − 1)); 0/1 176 exceptions, ≈ ¼ of the K0 < 30
+beyond-clean residual; see reviews/near-square-review.md.) Mechanism otherwise not identified (tried:
   T1-type levels with gcd(m, c) > 1, levels with tK0 + 1 = s·□ for small s where χ = (s/A) — neither is depleted in a
   sample of 800 primes m² + K, K < 30; `/tmp`-only script, not kept). Open (spark S2).
 * Hard primes. Of the 17 (J)45 hard primes plus 3361, two are m² − 3 with m ≡ 2 (4): 3361 = 58² − 3 and 1 249 921 =

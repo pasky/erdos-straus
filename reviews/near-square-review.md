@@ -1,5 +1,9 @@
 # R225 — hostile review of O221 (NEAR_SQUARE.md, checkpoint 1)
 
+**Repairs applied** (author quiet, no new commits on side-agent/near-square): D1–D9 applied directly in NEAR_SQUARE.md, each
+marked "(R225 repair)" / "(R225: …)"; D10 (citations) left to the author; AGENT_REPORT_O221 not edited (D2/D7 wording
+there still to be aligned).
+
 Reviewer: R225 side agent (branch side-agent/review-near-square, merged side-agent/near-square at review start).
 From-scratch scripts: `scripts/review_r225_*.py`. ES is not solved; nothing below changes that.
 
