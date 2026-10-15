@@ -141,7 +141,7 @@ On P₈ the law removes odd s, s ≡ 2 (4), and at s ≡ 0 (8) the patterns with
 *Validation (EVIDENCE).* (i) Theorem 1.2/1.4 checks of §1. (ii) Unfiltered dump s ≤ 12: the P₈-filtered, pattern-filtered counts
 equal the P₈ part of the full dump (70, 658, 3530 tuples at s = 4, 8, 12). (iii) s = 16 with the pattern filter off: all 514
 incompatible patterns have 0 tuples on P₈ (26 570 tuples, all in compatible patterns). (iv) Cross-method (candidate-search routes
-M2, M3, M5 forced, cost ≤ 9^{6.5}) vs the auto (factoring) counts: s = 12: 162 of 237 patterns covered, 0 mismatches; s = 16: 85 of
+M2, M3, M5 forced, cost ≤ 9^{6.5}) vs the auto (factoring) counts: s = 12: 214 of 237 patterns covered (cost ≤ 9^{8.5}), 0 mismatches; s = 16: 85 of
 215, 0 mismatches; s = 8 totals agree (658) for M2, M3, M5. (v) Independent Python brute force `zc_brute.py` (q = 9, s ≤ 5):
 per-pattern P₈ counts equal zc_enum at s = 4; law failures 0. (vi) `zc_certify9.sh 1` regenerates s ≤ 16 and Case A α ≤ 4
 byte-identically.
