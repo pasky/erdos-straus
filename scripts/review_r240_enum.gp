@@ -27,40 +27,54 @@ chk(s, a, z, y, t, m, w, C, g, v) = {
   if (E0 == -o, CNT[3]++);
   1;
 }
-\\ iterate monic T-free polynomials of degree d (lc lead), calling f
-itp(d, f, lead=1) = {
-  if (d == 0, f(lead*o); return);  \\ all coefficients are t_FFELT (never t_INT)
-  forvec(v = vector(d, i, [0, 8]), if (v[1] > 0, f(lead*o*x^d + sum(i = 1, d, EL[v[i]+1] * x^(i-1)))));
+\\ the k-th (0 <= k < nmon(d)) polynomial lead*(monic of degree d with nonzero constant term); all coefficients t_FFELT
+nmon(d) = if (d == 0, 1, 8 * 9^(d-1));
+mk(d, k, lead = 1) = {
+  my(P = lead * o * x^d, c);
+  if (d == 0, return(lead * o));
+  P += lead * EL[2 + k % 8]; k \= 8;
+  for (i = 1, d - 1, c = k % 9; k \= 9; P += lead * EL[c + 1] * x^i);
+  P;
 }
+\\ exact quotient N/D as a t_POL, or 0 if D does not divide N (N != 0); robust to scalar (t_INT / t_FFELT) inputs
+exq(N, D) = { my(n = Pol(o*N, 'x), d = Pol(o*D, 'x)); if (n % d != 0, 0, n \ d); }
 divs_deg(P, d) = {
   my(L = divisors(factor(P / pollead(P))), R = List());
-  for (i = 1, #L, if (poldegree(L[i]) == d, listput(R, L[i] / pollead(L[i]))));
+  for (i = 1, #L, if (poldegree(L[i]) == d, listput(R, Pol(o * L[i] / pollead(L[i]), 'x))));
   Vec(R);
 }
 pattern(s, a, z, y, t, route) = {
-  my(b = s - a - z, Ts = o*x^s, lam = if (a < b, 1, 2), dE = z + y + a);
+  my(b = s - a - z, Ts = o*x^s, lam = if (a < b, 1, 2), dE = z + y + a, m, w, g, v, C, E, Ep, P, Q, den, num, LE, Lm, Lw);
   CNT = vector(4);
   if (route == 1,
-    itp(z, m -> itp(a, w -> itp(y, g -> my(den = g*m*w - 1, C, v);
-      if (den != 0, my(num = w + g*Ts); if (num % den == 0, C = num / den; v = m*w*C - Ts; chk(s, a, z, y, t, m, w, C, g, v)))))));
+    for (i1 = 0, nmon(z) - 1, m = mk(z, i1);
+      for (i2 = 0, nmon(a) - 1, w = mk(a, i2);
+        for (i3 = 0, nmon(y) - 1, g = mk(y, i3);
+          den = g*m*w - 1;
+          if (den != 0, C = exq(w + g*Ts, den);
+            if (C != 0, v = m*w*C - Ts; chk(s, a, z, y, t, m, w, C, g, v)))))));
   if (route == 2,
-    itp(t, v -> my(P = Ts + v, Lm = divs_deg(P, z));
-      for (i = 1, #Lm, my(m = Lm[i], Q = P / m, Lw = divs_deg(Q, a));
-        for (j = 1, #Lw, my(w = Lw[j], C = Q / w, gq);
-          if ((w + C) % v == 0, gq = (w + C) / v; chk(s, a, z, y, t, m, w, C, gq, v))))), lam));
+    for (i1 = 0, nmon(t) - 1, v = mk(t, i1, lam); P = Ts + v; Lm = divs_deg(P, z);
+      for (i = 1, #Lm, m = Lm[i]; Q = exq(P, m); Lw = divs_deg(Q, a);
+        for (j = 1, #Lw, w = Lw[j]; C = exq(Q, w);
+          g = exq(w + C, v); if (g != 0, chk(s, a, z, y, t, m, w, C, g, v))))));
   if (route == 3,
-    itp(z, m -> itp(y, g -> my(P = 1 + Ts*m*g^2, LE = divs_deg(P, dE));
-      for (i = 1, #LE, my(E = LE[i], Ep, w, C, v);
-        if ((E + 1) % (m*g) == 0, w = (E + 1) / (m*g); Ep = P / E;
-          if ((Ep + 1) % (m*g) == 0, C = (Ep + 1) / (m*g); v = m*w*C - Ts; chk(s, a, z, y, t, m, w, C, g, v)))))));
+    for (i1 = 0, nmon(z) - 1, m = mk(z, i1);
+      for (i3 = 0, nmon(y) - 1, g = mk(y, i3); P = 1 + Ts*m*g^2; LE = divs_deg(P, dE);
+        for (i = 1, #LE, E = LE[i];
+          w = exq(E + 1, m*g); Ep = exq(P, E);
+          if (w != 0 && Ep != 0, C = exq(Ep + 1, m*g);
+            if (C != 0, v = m*w*C - Ts; chk(s, a, z, y, t, m, w, C, g, v)))))));
   if (route == 4,
-    itp(a, w -> itp(y, g -> my(P = g*Ts + w, LE = divs_deg(P, dE));
-      for (i = 1, #LE, my(E = LE[i], C = P / E, m, v);
-        if ((E + 1) % (g*w) == 0, m = (E + 1) / (g*w); v = m*w*C - Ts; chk(s, a, z, y, t, m, w, C, g, v))))));
+    for (i2 = 0, nmon(a) - 1, w = mk(a, i2);
+      for (i3 = 0, nmon(y) - 1, g = mk(y, i3); P = g*Ts + w; LE = divs_deg(P, dE);
+        for (i = 1, #LE, E = LE[i]; C = exq(P, E); m = exq(E + 1, g*w);
+          if (m != 0 && C != 0, v = m*w*C - Ts; chk(s, a, z, y, t, m, w, C, g, v))))));
   if (route == 5,
-    itp(z, m -> itp(a, w -> my(P = Ts + m*w^2, LE = divs_deg(P, dE));
-      for (i = 1, #LE, my(E = LE[i], v = P / E, C, g);
-        if ((Ts + v) % (m*w) == 0, C = (Ts + v) / (m*w);
-          if ((w + C) % v == 0, g = (w + C) / v; chk(s, a, z, y, t, m, w, C, g, v)))))));
+    for (i1 = 0, nmon(z) - 1, m = mk(z, i1);
+      for (i2 = 0, nmon(a) - 1, w = mk(a, i2); P = Ts + m*w^2; LE = divs_deg(P, dE);
+        for (i = 1, #LE, E = LE[i]; v = exq(P, E);
+          if (v != 0, C = exq(Ts + v, m*w);
+            if (C != 0, g = exq(w + C, v); if (g != 0, chk(s, a, z, y, t, m, w, C, g, v))))))));
   CNT;
 }

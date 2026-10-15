@@ -31,8 +31,7 @@ correct; q = 243: 121 = 11², correct. Depth-1 families (Prop 6.1 of (J)56) all 
 
 ## Theorem 1.4 (k = 1 Case A law)
 Re-derived. From E = a1'b1K − 1 and EF = T^α a1' + b1: b1KF = (E+1)F/a1' = (T^α a1' + b1 + F)/a1' = T^α + z and F + b1 = a1'z
-(z := (F + b1)/a1' is a polynomial because F + b1 ≡ EF + F·0 … more simply: EF ≡ −F (mod a1') and EF ≡ b1 (mod a1') — wait,
-EF = T^α a1' + b1 ≡ b1 and E ≡ −1 give −F ≡ b1 (mod a1')). Lemma 1.1 with (M, W, C, G, V, s) = (K, b1, F, a1', z, α):
+(z := (F + b1)/a1' is a polynomial: EF = T^α a1' + b1 ≡ b1 and E ≡ −1 (mod a1') give −F ≡ b1 (mod a1')). Lemma 1.1 with (M, W, C, G, V, s) = (K, b1, F, a1', z, α):
 μ_M = lc K, μ_W = 1, exponents match the stated formula. z(0) = b1(0)K(0)F(0) ≠ 0 and F(0) = b1(0)/E(0) ≠ 0 as claimed. λ-argument:
 lc(T^α a1' + b1) ∈ {1, 2} (sum of monics, never cancels for q odd), lc F = that / lc E ∈ F₃^*; λ = lc(F + b1) ∈ F₃^* unless
 deg F = β and lc F = −1, in which case deg F = α − β − κ = β makes the λ-exponent κ + 2β − α = 0. (deg F = α − β − κ uses
