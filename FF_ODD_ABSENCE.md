@@ -1,6 +1,6 @@
 # FF_ODD_ABSENCE — the odd-r / odd-s absence on the A = T slices, explained (O226, wave Z-c)
 
-Status: checkpoint 1 (O226). Builds on FF_STERILE_SMALL.md ((J)56; §§6–8: k = 1, slices u₀ ∉ F₃^*, tuples (B^{k=1})),
+Status: checkpoint 1 (O226): Thms 1.2, 1.4 (law), Prop 1.6, Cor 1.7 PROVED; Thm 2.2 (q = 9, k = 1 closed) PROVED, computer-assisted. Builds on FF_STERILE_SMALL.md ((J)56; §§6–8: k = 1, slices u₀ ∉ F₃^*, tuples (B^{k=1})),
 FF_STERILE_PUSH.md ((J)51), DEPTH_ASPECT.md Lemma 2.3 (Case A identities). Scripts `scripts/zc_*`.
 
 ## 0. Iteration log
