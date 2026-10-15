@@ -62,3 +62,35 @@ The family *escapes* if D mod (m² + k) has a non-zero m-coefficient, i.e. D(−
 (D(m)/n) is a fixed character ψ(n) and C avoids Z_k^□ := {m ∈ Ẑ : m² + k ∈ (Ẑ^odd)²}.
 Degrees: by ET Lemma 2.8, deg a + deg c + deg d = 2 (Type I), deg a + deg c + deg d + deg e = 2 (Type II).
 Charts: Type I: f = 4acd − n, b = (na + c)/f, e = (4a²d + 1)/f; Type II: f = 4acd − 1, e = (n + 4a²d)/f, b = ce − a.
+
+**Theorem 2.2 (no escaping families above the squares; PROVED).** Let k > 0. Every Type I or Type II polynomial family
+for n = m² + k is non-escaping: its witness satisfies (D(m)/n(m)) = ψ(n(m)) for a fixed Kronecker character ψ, so its
+class C contains no m ∈ Ẑ with m² + k ∈ (Ẑ^odd)². Consequently every finite set of polynomial families misses every
+m-class around a point of Z_k^□, i.e. misses infinitely many m whenever Z_k^□ ≠ ∅ (e.g. k ≡ 1 (8): m ≡ 0 (4) is
+2-adically admissible; Z_k^□ ≠ ∅ iff k ≢ 2, 3, 4, 6, 7 (mod 8) roughly — see Lemma 2.4).
+*Proof.* Write Λ for 4 × (product of the leading coefficients of a, c, d) and use real roots r, s, ρ (all rational).
+Type I (chart f = 4acd − n, f | na + c, f | 4a²d + 1). If d is constant, Lemma 1.1 gives ψ = (−4d/·). Otherwise
+(deg a, deg c, deg d) ∈ {(0,0,2), (1,0,1), (0,1,1)}.
+(0,0,2): d = λ(m² + um + v), na + c = a·m² + ak + c has no m-term. If deg f = 2, f ∝ na + c, so f has no m-term,
+u = 0 and d ≡ const (mod n): non-escaping. If deg f = 1 its root m₀ is a real root of a m² + ak + c > 0: impossible.
+If deg f = 0 then u = 0.
+(1,0,1): a = λ_a(m − r), d = λ_d(m − s). If Λ = 1, f = −(r + s)m + rs − k is linear, needs −(r + s) > 0, and its
+root m₀ = (rs − k)/(r + s) must be a root of na + c = λ_a(m² + k)(m − r) + c, so m₀ < r; but with r + s < 0,
+m₀ < r ⟺ rs − k > r² + rs ⟺ k < −r², impossible. (Λ = 1, r + s = 0 gives f = −r² − k < 0.) If Λ > 1, f is quadratic
+and divides the cubic na + c, so na + c = λ_a(m − ρ)(m² + αm + β) with f = (Λ − 1)(m² + αm + β); comparing
+coefficients, α = ρ − r, β = k + ρ² − ρr, s = −(Λ − 1)α/Λ − r, and the constant term of f gives
+(Λ − 1)(k + ρ²) = −(r² + k): LHS > 0 > RHS. Impossible.
+(0,1,1): c = λ_c(m − r), d = λ_d(m − s), na + c quadratic. Λ > 1: na + c = μf with μ = a/(Λ − 1) > 0; the m- and
+constant coefficients force k = −r². Λ = 1: as in (1,0,1), k < −r². Λ = 1, r + s = 0: f < 0.
+Type II (chart f = 4acd − 1, f | n + 4a²d). If deg e = 2 then a, c, d are constant and e = (n + 4a²d)/f ≡ 4a²d/f
+(mod n): non-escaping. If deg e = 1: f is linear with a real root, but n + 4a²d is positive definite when a or c is
+the linear one (a const & d linear: value at the root of f is m₁² + k + a/c > 0; c linear, a, d const or a linear:
+n + 4a²d > 0 everywhere) — impossible. If deg e = 0 (deg acd = 2): (a, c, d) with d quadratic forces (linear
+coefficient) u(a − ec) = 0 and (quadratic coefficient) a ≠ ec, so u = 0, non-escaping; (a const, c, d linear)
+forces k + s² = −e < 0; (a, c linear, d const) has D = de constant; (a, d linear) makes n + 4a²d cubic ≠ e·f;
+(a quadratic) makes it quartic. The remaining shapes have d and e constant. In every non-escaping case D ≡ D₀
+(mod n) for a rational D₀, and ψ = (D₀'/·) with D₀' the integer numerator–denominator product of D₀. ∎
+Every impossibility above is the positivity of the binary norm form x² + ky² of ℚ(√−k) at a real point — the
+archimedean place (cf. (J)52) — e.g. (Λ − 1)·N(ρ + √−k) + N(r + √−k) = 0. For k < 0 all of them become possible.
+EVIDENCE (`scripts/ns_polyfam.py K 3`, roots in ½ℤ ∩ [−3, 3], 16 leading coefficients): 0 escaping families for
+k = 1 (and 16, 24: see §7); 80, 161, 263 for k = −8, −15, −24.
