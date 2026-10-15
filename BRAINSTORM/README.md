@@ -434,3 +434,17 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z9_brandt_screen | how Brandt/class-number counts fail Prop 10.3 | L1 eigen-covariant functionals see only the mass of path classes; L2 planes up to genus (glue invisible); L3 Schiemann = problem itself | PROVED (L1 narrow); Assessment |
 | z9_heegner_layers | layer t of G_p as reductions of CM points of disc −4tp on X₀(2) | necessary ray-class condition mod t (norm A ≡ −1, A ∣ tp+1) on those CM points, plus the level-t ring condition; unifies (J)35 with Prop 10.3 | Assessment (algebra PROVED) |
 | GLOBAL_FANO.md (deep) | global pigeonhole over G_p | no global law; what a global Fano must act on (ray classes mod varying t); 105 has the graph but no path edge | PROVED parts + negative |
+
+## Synthesis VI (O238): cross-combinations of wave Z (memos s6_*, deep file SYNTHESIS_SPARKS6.md; not yet triaged)
+
+| memo | idea | result | label |
+|---|---|---|---|
+| s6_exp_classes_105 | windows 4^j − k on 4^s + k with algebraically forced budget (cyclotomic factors of 4^r + 1) | **ES for all 4^s + 105** (one exponential class + 13 ET classes, L = 360) — SHARP | PROVED (computer-assisted) |
+| s6_mixed_points_cuberoots | uniform reading of sterility (FF root-product law, window reciprocity, mixed points) | sterility is relative to the class menu; 105's mixed point = cube-root family 256u³ + 105 | Assessment (instance PROVED) |
+| s6_divisor_pigeonhole | P ∩ −P at a forced window | \|P\| > (q−1)/2 ⟹ cap 0; structure-free versions need Ω(K) ≳ q/4 (sharp) | PROVED + EVIDENCE |
+| s6_unique_forced_cap0 | when does the forced bit give cap 0 for all K | only m = 3 (2-elementary unit group) | PROVED |
+| s6_witness_onesided | is (q/p) = −1 necessary for cap 0 at q | no (non-square d); rates 34 % vs 18 % | PROVED obs. + EVIDENCE |
+| s6_numerator_windows | self-generated mute set for ν/n | works for all ν; window-shape T1 at squares iff 4 \| ν, ν ≡ 3 (4) or ν = □ (only-if proved) | PROVED + EVIDENCE |
+| s6_ydual_windows | 𝒟_e(M) vs windows | y-window (fixed mute set) vs x-window (self-generated): the pointwise/almost-all boundary | PROVED dictionary |
+| s6_window_independence | glue many forced windows | gcd(K_m, K_m′) \| (m − m′)/4: independent lotteries | PROVED (trivial); negative |
+| s6_exp_classes_primes | algebraic budget-forcing for primes | needs a thin family; B1/B2 for primes | Assessment (negative) |

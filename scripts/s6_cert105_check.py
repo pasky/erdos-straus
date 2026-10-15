@@ -36,8 +36,8 @@ assert pow(4,10,151)==32 and pow(4,15,151)==1    # s=34 (45) => (s-4)/3 = 10 (15
 from math import isqrt
 # exp class is not a congruence class in n (n = 59 mod 151 is a QR); T1 holds globally (Lemma-1.1 T1 / ET Prop 1.6):
 assert not any(isqrt(256*(32+151*t)**3+105)**2==256*(32+151*t)**3+105 for t in range(200000))
-for M,r,_,X in ET:
-    pass
+for cl in C['classes']:
+    if cl['fam']!='D': assert not any((a*a-cl['r'])%cl['M']==0 for a in range(1,4*cl['M'],2)), ('square in class',cl['M'],cl['r'])
 print('static checks ok',flush=True)
 # coverage of every s mod 360 at representatives s in [64, 424)
 def etclass(s):

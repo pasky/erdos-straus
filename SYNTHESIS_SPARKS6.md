@@ -69,3 +69,30 @@ s mod 4 754 520 (`s6_cover105.py`); the theorem needs the ET classes for the res
 density 9·10⁻⁵ (L ≈ 1.2·10⁹), k = 273 at 7·10⁻⁷, k = 297 at 6·10⁻⁷ (no candidate with growth ≤ 60). The window family
 4^j − k and the factors of 4^r + 1 are the only algebraic input used; Sophie-Germain/Aurifeuille shapes 4^r + 4w⁴ and Type I
 exponential classes are untried (spark).
+
+## 2. The mandatory cross-combinations (memos `BRAINSTORM/s6_*.md`)
+
+| item | memo | result | label |
+|---|---|---|---|
+| (i) mute set × Fano | s6_unique_forced_cap0 | the forced bit gives cap 0 for every K only when (ℤ/m)^* is 2-elementary, i.e. m = 3 (Mordell's n ≡ 2 (3)); the window analogue of "4 costs zero" is U = 1 | PROVED |
+| (i) mute set × pigeonhole | s6_divisor_pigeonhole | \|P\| > (q−1)/2 ⟹ cap 0 (P = divisors of K mod q); structure-free versions need Ω(K) ≳ q/4 (Cauchy–Davenport, sharp); ±-weighted zero-sum theory only yields the trivial relation | PROVED + EVIDENCE |
+| (i) × numerators | s6_numerator_windows | self-generated mute set works for every ν/n; window-shape T1 at odd squares for 4 \| ν, ν ≡ 3 (4), ν = □ (strictly more than (J)46's 4 \| ν) | PROVED (only-if) |
+| (ii) forced budget | s6_exp_classes_105 (+ §1) | algebraic forcing on 4^s + k; **ES for all 4^s + 105** | PROVED (computer-assisted) |
+| (iii) windows × words | s6_witness_onesided | cap-0 window = c-fibre word with m = (u+v)/c; the forced character is sufficient for some cap, not necessary for cap 0 (cap-0 rates 34 % vs 18 %) | PROVED obs. + EVIDENCE |
+| (iv) 𝒟_e(M) × windows | s6_ydual_windows | 𝒟_e(M) is the y-window (fixed mute set, almost-all side); x-window is self-generated (pointwise side); boundary = who owns the mute set | PROVED dictionary |
+| (v) sterility theory | s6_mixed_points_cuberoots | sterility is menu-relative; the 105 mixed point is a cube-root (3-adic) phenomenon resolved by the cyclotomic factorisation of 4^r + 1, the ℤ shadow of the FF root-product (Weil reciprocity) law | Assessment (105 instance PROVED) |
+| steering | s6_window_independence | gcd(K_m, K_m′) \| (m − m′)/4: windows are independent lotteries | PROVED (trivial) + Assessment |
+| steering | s6_exp_classes_primes | algebraic budget-forcing needs a thin family; for a single prime it is B2 | Assessment (negative) |
+
+## 3. Verdict (O238 checkpoint 1)
+1. **New theorem: ES holds for every n = 4^s + 105** (PROVED, computer-assisted; Thm 1.1). One exponential window class
+   (n = 256u³ + 105, u ≡ 32 (mod 151), window 151 = 4⁴ − 105) closes the gap left by (J)62's 13-class ET covering at L = 360.
+   (J)62's "mixed points" were an artefact of the fixed-modulus class menu: the hypothesis of EXPONENT_COVERING Thm 1.4
+   that is violated is "classes with fixed moduli".
+2. For ES at primes nothing changes: every route to cap 0 found here either is a finite congruence menu (m = 3), needs a
+   linear-in-q budget (pigeonhole), or needs a thin family with a moving algebraic factorisation. Cap 0 at a window
+   remains B2 (CAP_DOWN §4), and windows are independent lotteries.
+3. T1 checks: exp class contains no squares (global Lemma-1.1 T1, numerically to u < 3·10⁷); window-shape T1 classified
+   for all ν. TES/8/131: untouched (cap-0 statements; s6_numerator_windows records that 8/131 has forced windows at
+   some positive cap only).
+4. Open: k = 33, 273, 297 (exp menu 4^j − k too thin; Sophie-Germain shapes and Type I exponential classes untried).

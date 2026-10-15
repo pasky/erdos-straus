@@ -3,8 +3,8 @@
 ## Idea
 CAP_INTERPOLATION Prop 5.1: y = pA with A = (M + 1)/4 FIXED, p ≡ −4D (mod M), D ∈ 𝒟_e(M) (rad D | A). CAP_DOWN Lemma 1.1:
 x = K = (p + m)/4 MOVING with p. Both are Lemma 3.1 slices of the same equation, with the roles of x and y exchanged.
-**Prop (PROVED).** (a) y-window: for fixed M, ES^{(y,∞)} of shot shape y = pA holds iff −p/4 ∈ ⟨primes of A⟩ (mod M) (all
-exponents allowed at e = ∞: 𝒟_∞(M) = {D : rad D | A}); if ⟨primes of A⟩ is a proper subgroup of (ℤ/M)^*, a positive
+**Prop (PROVED).** (a) y-window: for fixed M, ES^{(y,e)} of shot shape y = pA at any cap needs −p/4 ∈ ⟨primes of A⟩ (mod M) (every
+D ∈ 𝒟_e(M) has rad D | A; the converse fails in general because odd exponents above 2v_s(A) are excluded at every e); if ⟨primes of A⟩ is a proper subgroup of (ℤ/M)^*, a positive
 proportion of residue classes of p fails at EVERY cap. (b) x-window: (K/q) = (p/q) is a character of p, so on the half of
 the classes where it is −1 the subgroup contains −1 for every p (forced).
 So the phase boundary between almost-all (sieve) and pointwise (forced) statements is exactly whether the mute set is a
