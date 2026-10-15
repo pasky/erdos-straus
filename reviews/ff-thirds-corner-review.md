@@ -19,7 +19,7 @@ line fixed). No result label changed. From-scratch scripts: scripts/review_r247_
 | Lemma 3.1 | SOUND |
 | Cor 3.2 | SOUND |
 | Prop 5.1 (Bezout form) | SOUND (MINOR-4: wording of the "iff") |
-| EVIDENCE: no Case B tuple covers x*_c, N ≤ 20 (k = 2), N ≤ 18 (k = 3) | SOUND as EVIDENCE; independently reproduced to N ≤ 17 (k = 2) and N ≤ 16 (k = 3), both c; MINOR-5: c = 2 log not committed |
+| EVIDENCE: no Case B tuple covers x*_c, N ≤ 20 (k = 2), N ≤ 18 (k = 3) | SOUND as EVIDENCE; independently reproduced to N ≤ 17 (k = 2) and N ≤ 16 (k = 3), both c; MINOR-5: c = 2 log was not committed (repaired) |
 | "no linear family of level ≤ 20 valid at x*_c" (with Case A theorem) | SOUND as EVIDENCE |
 | §3 calibration counts (EVIDENCE) | SOUND (reproduced exactly) |
 | §3 lottery model / extrapolation | Assessment, label OK; MINOR-8 (statistical weight), MINOR-9 (structured exclusion — gap closed by an R247 lemma) |
@@ -27,8 +27,9 @@ line fixed). No result label changed. From-scratch scripts: scripts/review_r247_
 | §6 interpretation | Assessment OK; MINOR-6 (garbled formula), MINOR-7 |
 | §7 restricted route exponent 0.000 | number SOUND (grid EVIDENCE, reproduced at q = 3, 9; q = 27 value is a grid artefact); **MAJOR-1: "degenerate corner, true count polynomial" interpretation is false — the zero set is a 2-dim part of the face b = 1/2** |
 
-No FATAL defects. Positive controls: 110 non-exact coverings at polynomial points found identically by a Liouville-free
-brute-force census, my Liouville-free full-mode search, my lop search and zt_lop.
+No FATAL defects. Positive controls: 110 non-exact coverings at polynomial points (k = 2, 3, levels ≤ 8) found identically by a
+Liouville-free brute-force census and my lop search; for k = 2 also identical with my Liouville-free full mode (levels ≤ 8)
+and with zt_lop (levels ≤ 12, 96 hits at 54 points).
 
 ## Claim-by-claim
 
