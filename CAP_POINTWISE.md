@@ -75,7 +75,7 @@ fixes it on √n₀). Conductors of the 8 characters: 1, 4, 8, 8, n₀, 4n₀, 8
 Fourier* 69 (2019), Thm 1.1, "sans aucune restriction": for Galois L ≠ ℚ and any conjugacy class C there is an
 unramified prime with Frobenius C and norm ≤ d_L^{12577}) gives q*(n) ≤ (2^{16}n⁴)^{12577}, hence
 **e*(n) < 2^{201232}·n^{50308} for every odd non-square n > 1** (and for every odd n with a prime factor ≡ 3 (4),
-e*(n) = 0). (Ahn–Kwon's unrestricted statement confirmed from the primary text by reviewer R-O236.)
+e*(n) = 0). (Ahn–Kwon's unrestricted statement reported as confirmed from the primary text by the O236 self-review subagent; not seen by me — parent to re-check.)
 (b) *Unconditional, effective (all odd n > 1).* In cases (b), (c) the conditions are implied by q lying in one
 fixed class a mod 8·rad(n) (choose a mod 8; a mod rad(n) coprime to it with (a/n₀) = −1 in case (b), n₀ := squarefree
 kernel of n — so (q/n) = (q/n₀) = −1 and q ∤ n; in case (c): (a/p) = −1 and a ≢ 0, −p mod ℓ for ℓ | a, ℓ ≠ p, possible
@@ -83,7 +83,7 @@ as ℓ ≥ 5). Linnik's theorem (effective; exponent 5 by Xylouris, Dissertation
 **e*(n) ≪ rad(n)^5 ≤ n^5 for every odd n > 1, with an effectively computable implied constant.**
 (c) *Under GRH* for ζ_L: the least unramified prime with prescribed Frobenius is ≪ (log d_L)² (Lagarias–Montgomery–
 Odlyzko, *Invent. Math.* 54 (1979); explicit versions: Oesterlé ≤ 70(log d_L)², Bach–Sorenson *Math. Comp.* 65 (1996)
-(4 log d_L + 2.5[L:ℚ] + 5)², Thm 5.1 — the Bach–Sorenson constant confirmed by reviewer R-O236). For non-square n of case (b),
+(4 log d_L + 2.5[L:ℚ] + 5)², Thm 5.1 — constant reported as confirmed by the O236 self-review subagent; parent to re-check). For non-square n of case (b),
 log d_L ≤ 4 log n + 16 log 2, so **e*(n) ≪ (log n)² under GRH**, explicitly e*(n) ≤ (16 log n + 70)² with the recalled
 Bach–Sorenson constant — slightly sharper than CAP_INTERPOLATION Thm 4.2(a) (C_ε(log p)^{2+ε}), with no Artin/Hooley
 step. (Odd squares, case (c): the extra exclusions q ≢ −p (mod ℓ) are not Frobenius conditions in L, so under GRH
