@@ -77,3 +77,30 @@ m ≡ 3 (8) or e₁ − e₂ odd; `--strict` imposes them; `--wmax W` ignores th
 The author's "superset" claim is confirmed independently (my enumeration is weaker than theirs and still finds 0).
 
 **Verdict Theorem W + Cor 1.7: SOUND** for the stated menu (root families in ℚ[Y], Y = 2^{s/D}). Scope caveat D3 below.
+
+## 3. Proposition 4.1 (windows at μ = 3 of 4^s + 297)
+
+Re-derived: Y = 4^{(s−3)/D}, n = 64Y^D + 297 (irreducible ✓), N(1) = 361(361 + m)/4, m ≡ 3 (4) ✓; roots of n, n + m have
+v₂(α) = −6/D, −4/D < 0 (when m ≡ 3 (8)) so all eᵢ = 0 ✓; m ≡ 7 (8): (2/m) = 1, so 2-powers are irrelevant ✓;
+q | 361 + m, q ≠ 19 ⇒ (q/m) = 1 ✓. So the LOCAL statement is right: *if 19 ∤ m*, any Rav decomposition near μ = 3 must
+carry 19 to an odd power in ρ₁ρ₂.
+Two holes (defect D4, MAJOR):
+(a) **19 | m is not treated.** Then N(1) = 361(361 + m)/4 is not prime to m and the Lemma 1.1 step "m | y′ + z′" fails
+    near μ = 3 (only m/19^α | y′ + z′ survives, and m/19^α may be ≡ 1 (4), killing the Jacobi argument). This case is not
+    vacuous at the limit: 4/361 = 1/95 + 1/3610 + 1/3610 has m = 4·95 − 361 = 19.
+(b) **Local ⇒ global step missing.** The proof shows a property of the Rav divisors on a small neighbourhood C′ ⊂ C of
+    μ = 3, but every small neighbourhood already lies in {s ≡ 3 (9)}; the claim "C ⊆ {s ≡ 3 (mod 9)}" is about the
+    whole class C and needs an argument at points of C far from μ = 3.
+Repair of (b) for 19 ∤ m (R257, checked by hand): fix primitive integer normalisations of the irreducible factors;
+then dᵢ = λᵢ·(factors), and at a *generic* point s ∈ C (19 ∤ n(n + m), i.e. 4^{s−3} mod 19 ∉ {1, c}, c the root of
+n + m mod 19) every factor value is a 19-unit, so v₁₉(dᵢ(Y)) = lᵢ := v₁₉(λᵢ), l₁ + l₂ + l₃ = 0; at Y = 1 only the
+n-factor (value 361) and nothing in the x-part (19 ∤ (361 + m)) carries 19, so v₁₉(ρ₁ρ₂) = l₁ + l₂ + 2[n ∈ d₁d₂].
+Jacobi forces this odd ⇒ l₁ ≠ l₂. As rational functions y = g d₁, z = g d₂, g = d₃(d₁ + d₂)/m, so at a generic point
+v₁₉(z) = l₃ + l₂ + min(l₁, l₂) and v₁₉(y) = l₃ + l₁ + min(l₁, l₂); the one with the larger lᵢ has valuation
+min − max < 0 — not integral. So C has no generic points; since 4^{s−3} mod 19 runs through the subgroup of μ₉ generated
+by 4^L, which has ≥ 3 elements unless 9 | L, this forces 9 | L, i.e. C ⊆ {s ≡ 3 (9)} ✓. Constant ratio x = tn with
+19 | ε = 4t − 1: pairs (λ₁n, λ₂) would need λ₁n + λ₂ ≡ 0 (19) for ≥ 2 values of n mod 19 (n ≡ 7Y^D + 12 is injective in
+Y^D), impossible since 19 ∤ t; pairs (λ₁, λ₂) die by Cor 1.7's Jacobi argument — fine, but should be said.
+(a) remains open: I found no quick argument for 19 | m.
+**Verdict Prop 4.1: GAP** (sound for 19 ∤ m after the repair above; 19 | m unproved). The "Consequently…" sentence and
+the *Reading* paragraph inherit the gap.
