@@ -1,6 +1,7 @@
 # Hostile review #2 of FF_ODD_ABSENCE.md (O226) — R241, round 1
 
-Reviewer: R241 (independent; no edits to the author's files in round 1). Scope: Lemma 1.1, Thm 1.2, Cor 1.3, Thm 1.4,
+Reviewer: R241 (independent; no edits to the author's files in round 1).
+**Bottom line: no FATAL, no MAJOR; 7 minor defects. All headline claims SOUND; Thm 2.2 independently re-certified (≤ 3.04 < 4 without any O226 enumeration input).** Scope: Lemma 1.1, Thm 1.2, Cor 1.3, Thm 1.4,
 Cor 1.5, Prop 1.6, Cor 1.7, Lemma 2.1, Thm 2.2 (certificate), consistency with (J)56 Thm 8.1.
 From-scratch scripts: `scripts/review_r241_*.py`.
 
@@ -14,7 +15,7 @@ From-scratch scripts: `scripts/review_r241_*.py`.
 | Prop 1.6 (sharpness) | SOUND (§3); its 'Exact scope' paragraph partially reproduced (q = 9, s ≤ 12) |
 | Cor 1.7 (k ≥ 2 parity law) | SOUND (§3); the bound-sum reductions 41.87 → 11.24, 1466.7 → 389.2 not re-run (not load-bearing) |
 | Lemma 2.1 (union bound on a sub-family of slices) | SOUND (§4) |
-| Thm 2.2 (q = 9, A = T, no finite linear covering) | SOUND (§4, §5: filters re-derived, exact counts s ≤ 16 fully and s = 20 largely reproduced from scratch, certificate re-summed independently: 3.01 / 3.89 < 4) |
+| Thm 2.2 (q = 9, A = T, no finite linear covering) | SOUND (§4, §5: filters re-derived, exact counts s ≤ 16 fully and s = 20 largely reproduced from scratch, certificate re-summed independently: 3.01 / 3.04 / 3.29 < 4) |
 | ES_q(T) no finite linear covering for all q = 3^r, r ≥ 2 | SOUND: Thm 2.2 (r = 2) + (J)56 Thm 8.1 (r ≥ 3); status lines elsewhere need updating (m-7) |
 
 ## §1. Lemma 1.1, Theorem 1.2, Corollary 1.3
@@ -125,9 +126,12 @@ E | 1 + T^s m'g'², each pattern counted only from its own complete route; ORDER
 No P₈ tuple at s ≢ 0 (4) (s ≤ 12, all patterns enumerated), and none in an ε-incompatible pattern (s ≤ 12). The (a, b)/(b, a)
 P₈ counts agree pattern by pattern (orientation convention confirmed). Σ_{s≤16} = 1.7598790.
 
-**s = 20.** (route bound ≈ 2.40 with R226's routes, 2.9 with the author's — load-bearing.) First pass (routes without R2, cost cap
-10⁵): 725 of the 950 compatible oriented patterns enumerated from scratch, **0 mismatches** with `data/zc/p_20.txt`
-(mine 7.88·10⁻⁵ on those patterns); see the update below for the R2 / cap-10⁶ pass.
+**s = 20** (route bound ≈ 2.40 with R226's routes, 2.9 with the author's — load-bearing). With the R2 route and cost cap 10⁶
+(24 separate processes; python-flint's factor() leaks ≈ 400 B/call): **920 of the 950** compatible oriented patterns enumerated
+from scratch (1 810 ordered patterns), including 5 of the author's 17 SKIP patterns (counts 0, 2, 4, 4, 4); on the 915 patterns
+where the author has an exact count: **0 mismatches**. My exact mass on the 920 patterns: 7.9694·10⁻⁵ (author 7.9715·10⁻⁵ on its
+933). The remaining 30 patterns under R226's routes: 0.125455. (a, b)/(b, a) symmetry holds in every enumerated pattern.
+Archived: `data/review_r241/` (per-pattern E(0) histograms, R226 bound dump, Case A counts).
 
 **Route bounds 24 ≤ s ≤ 80** from R226's reviewer code `review_fz1_sum.c` (written from the text of (J)56; per-pattern dump
 `R226_DUMP=s`), filtered and weighted by my own code (`review_r241_cert.py`: 4 | s, ε = (−1)^{s/4}, mult 2 for a < b,
@@ -142,16 +146,15 @@ linearised Lemma 4.1 + the exact R1 route: **≤ 0.022797** (author 0.025752). W
 0.155863 + 0.000274 = **0.156136** with my P₈ count (author 0.170463 with 268). With R226's own (weaker) routes instead:
 0.40985 (α = 8 alone 0.332).
 
-**Totals (×1.01, threshold 4):**
-* (A) author's inputs: 3.194887 (reproduced arithmetic: 1.01 × (2.9670390 + 0.025752 + 0.170463) = 3.194887).
-* (B) my exact s ≤ 16 + author's exact s = 20 (725 of its 933 exact patterns re-verified) + R226 bounds + my tail + Case A 0.156136:
-  1.01 × (1.7598790 + 0.0000797 + 0.0992923 + 0.9427013 + 0.022797 + 0.156136) ≈ **3.0107 < 4**.
-* (C) no O226-enumerator input at all at s = 20 (my 725 exact patterns, R226 bound on the other 225: 0.97022):
-  1.01 × (1.7598790 + 0.0000788 + 0.9702200 + 0.9427013 + 0.022797 + 0.156136) ≈ **3.8903 < 4**.
-* (D) as (B) but R226's own Case A routes (0.40985): ≈ 3.2669 < 4.
-All variants certify Thm 2.2. **Thm 2.2: SOUND.** The margin of the author-independent variant (C) is thin (≈ 2.7 %) but every
-ingredient is a rigorous upper bound, the inputs are integers or outward-rounded, and ×1.01 covers the printing precision of
-the R226 dump (7 significant digits).
+**Totals (×1.01, threshold 4)** — `scripts/review_r241_certify.sh` (fails closed; regenerates the R226 dump and checks it
+against the archive, recomputes tail and Case A, re-sums):
+* (A) author's inputs: 1.01 × (2.9670390 + 0.025752 + 0.170463) = 3.194887 (arithmetic reproduced).
+* (B) my exact s ≤ 16 + author's s = 20 file (exact lines; SKIP → R226 bound) + R226 bounds 24..80 + my tail + Case A 0.156136:
+  **3.010694 < 4**.
+* (C) **no O226-enumerator input**: my s = 20 counts on 920 patterns + R226 bounds on the other 30: **3.037119 < 4**.
+* (D) as (C) but Case A with R226's own (weaker) routes 0.40985 instead of (J)56's: **3.293370 < 4**.
+All variants certify Thm 2.2 with a wide margin; (D) uses no code of O226 or of the (J)56 author except data formats.
+**Thm 2.2: SOUND.**
 
 ## Defects
 
@@ -171,8 +174,9 @@ No FATAL, no MAJOR defect found. Minor:
   3.08·10⁶ at r = 2 (my run), with my port of R221's own Lemma 4.1 it gives 0.0228. *Repair:* state that the tail rests on
   Lemma 5.1 (as in Thm 5.2), and cite the independent value.
 * **m-5 (Thm 2.2 *Validation*, AGENT_REPORT trust points).** The s = 16 and s = 20 exact counts are load-bearing (route bounds
-  there: ≈ 2.1 and 2.4–2.9, either alone would break < 4), and s = 20 was "not cross-checked independently". *Repair:* add
-  this review's cross-check (§5: 725 of the 933 exact s = 20 patterns re-enumerated from scratch, 0 mismatches; s = 16 see §5).
+  there: ≈ 2.1 and 2.4–2.9, either alone would break < 4), and s = 20 was "not cross-checked independently". *Repair:* cite this
+  review's cross-check (§5: s ≤ 16 all patterns, s = 20 915 of the 933 exact patterns re-enumerated from scratch, 0 mismatches;
+  author-independent certificate 3.04 < 4).
 * **m-6 (Lemma 2.1 proof).** "the stated relative mass" should be "the relative mass of the tuple's maximal cylinder, which
   contains the validity sets of all families with that datum" ((J)51 Lemma 2.1 wording). Cosmetic.
 * **m-7 (cross-file status; for the parent).** FF_STERILE_SMALL §7 (end) and §8 ("Status … Open: … q = 9 with k = 1") still list
