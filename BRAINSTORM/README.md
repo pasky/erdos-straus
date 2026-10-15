@@ -351,3 +351,17 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | y10_clean_level_classification | levels clean along a whole quadratic family | ⟺ 4A − tΔ = □ (outside gcd-exceptional classes); per prime: T1-type = principal-form part of clean (82 % of clean words) | PROVED + EVIDENCE |
 | y10_hardness_beyond_clean | does near-squareness predict N₋/N beyond adelic cells? | yes, monotone in p − ⌊√p⌋²; half survives removing all clean levels (mechanism open) | EVIDENCE |
 | y10_hard_primes_m2minus3 | hard primes vs polynomial T1 points | 3361 and 1 249 921 are m² − 3 next to m₀ = 2 | EVIDENCE (anecdotal) |
+
+## Wave Z-a (O224): a 4-specific input from the 2-adic χ-fibre (memos z1_*, deep file FOUR_ADIC_INPUT.md; not yet triaged)
+
+| file | idea | outcome | labels |
+|---|---|---|---|
+| z1_fano_pigeonhole | why S_4 = {χ = −1}: Q mod 4 on L/2L, frieze parity puts 2 pentagon points on the 3-point even line W, isotropy puts 2 zeros there | third proof (after cells and FRIEZE_ES Thm 1.2) of MODEL_SPECIFIC Thm 3.1(a), new lattice mechanism; certificate = path edge + pointer to an endpoint of the 2-isogeny edge (R229 repair) | PROVED (known statement) |
+| z1_depth_bits | 2-adic density 4 vs 8 (brief angle 1) | one fair bit per extra power of 2 per isotropic pentagon vector: 7/12, 5/16, 31/192 exactly (PROVED at cell level); on actual words bits are strongly correlated (12 vs 0.82 predicted S₈-empty primes < 4000) | CERTIFIED + EVIDENCE |
+| z1_marking_isometry | is S_M a lattice (isometry-class) property? | not for any M with φ(M) > 2 (norm-one triples, PROVED); S₂, S₃ trivial; S₄ genus; S₆ class but not genus (EVIDENCE); interior markings unique (EVIDENCE) | PROVED + EVIDENCE |
+| z1_small_prime_pigeonhole | forced slices at ℓ-adic level | S_M genus-determined (for all n coprime to M) iff M ∈ {2, 3, 4}; not 7 (R229 repair) | PROVED |
+| z1_legendre_levels | tp = 4^a(8b+7) ⇒ every level-t word certifies (ℤ³ + Legendre) | character-free sub-lottery; fails at 73, 1201, 1489, 9649, 21169, 23041, 44641 (p ≡ 1 mod 4 < 10⁶); T1 in Legendre form | PROVED + EVIDENCE |
+| z1_glue_square_roots | Siegel–Weil on lattices ⊃ M_{v,t} in 𝔊⁻_p | gluing classes = square roots of −p/v mod A*; the fixed basis extends to a path basis ⟺ c ≡ ±1: genus shadow vs residue (B2) | PROVED (marked); negative |
+| z1_isogeny_pointer | 2-isogeny walks crossing into χ = −1 (brief angle 2) | no crossing (lattice/Hecke walks preserve χ); pointer automatic; expansion cannot prove the thin path-edge set non-empty | PROVED + EVIDENCE; negative |
+| z1_square_numerator | "4 = 2² is a square" (brief angle 3) | refuted by 9/p, 16/p; residue = v₂(M) = 2 (Fano) | dead |
+| FOUR_ADIC_INPUT.md (deep) | Fano theorem, 2^k bit law, requirements (i)–(iv), glued-plane form of path classes | 4-specific 2-adic input is used up by Thm 1.3; (i) = SQ₅ remains the lottery | see file |
