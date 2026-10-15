@@ -101,7 +101,8 @@ the maximum number of boxed children (out of r) of an alive parent at depths 2/3
 **Every prime r ≤ 13 has all cells covered at level 1; every prime 17 ≤ r ≤ 61 has surviving cells, and from depth 3 on the
 maximum number of boxed children of an alive parent is ≤ 5, from depth 4 on ≤ 3, for every r** (the r-ary sibling condition
 holds with margin ≥ r − 3). r = 19 complete to depth 6 (`data/z17/rtree19_d6.txt`): maximum 1 at depths 4–6 in C₂, C₁₀ and
-5 → 1 in C₃, C₁₃; alive fractions 0.5692 (C₂) and 0.6711 (C₃). The maximum is decreasing with depth in all data.
+5 → 1 in C₃, C₁₃; alive fractions 0.5692 (C₂) and 0.6711 (C₃). r = 23 complete to depth 6 (`data/z17/rtree23_d6.txt`):
+C₅ = C₁₄⁻¹: maxima 8, 5, 3, 2, 1 at depths 2–6, alive fraction 0.5795. The maximum is decreasing with depth in all data.
 
 ## 3. Localising the counts does not shrink the window (PROVED as a statement about route bounds; Assessment for constants)
 
