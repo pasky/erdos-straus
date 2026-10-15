@@ -8,7 +8,7 @@
 \\   4 WG : (w, g'),  E | g'T^s + w of degree z+y+a, C = cofactor               cost q^(a+y)
 \\   5 MW : (m', w),  E | T^s + m'w^2 of degree z+y+a, v = cofactor             cost q^(z+a)
 \\ where E := m'g'w - 1 (so E C = g'T^s + w, E v = T^s + m'w^2, E E' = 1 + T^s m'g'^2, E' = m'g'C - 1; re-derived in review).
-\ field: setq(p, r) (default q = 9); EL[1] = 0, EL[2..QQ] = the nonzero elements (same ordering as before for q = 9)
+\\ field: setq(p, r) (default q = 9); EL[1] = 0, EL[2..QQ] = the nonzero elements (same ordering as before for q = 9)
 setq(p, r) = { gg = ffgen([p, r], 'a); o = gg^0; QQ = p^r; EL = vector(QQ, k, sum(i = 0, r - 1, (((k-1) \ p^i) % p) * gg^i) * o); }
 setq(3, 2);
 TF(P) = polcoef(P, 0) != 0;
