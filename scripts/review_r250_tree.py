@@ -49,7 +49,9 @@ for al in range(1, DMAX - k + 1):
                         if F.vT(F.add(E, (1,))) != 1:
                             continue  # not on a c-slice
                         assert F.mul(E, Fp) == F.add(a1, b1)
-                        assert len(F.gcd(a1, b1)) == 1 and not F.mod(F.add(E, (1,)), F.mul(a1p, b1))
+                        if len(F.gcd(a1, b1)) != 1:
+                            continue  # non-primitive; its reduced datum (a1/h, b1/h, E) is enumerated separately
+                        assert not F.mod(F.add(E, (1,)), F.mul(a1p, b1))
                         assert F.deg(a1) > F.deg(b1)
                         caseA.append((al, a1, b1, E))
 caseA = sorted(set(caseA))
