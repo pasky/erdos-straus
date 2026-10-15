@@ -176,3 +176,21 @@ depth dep_c = v_T(E + 1 + cT) is recorded (covering x*_c needs dep_c ≥ N(s) + 
 The depths are geometric with ratio ≈ 1/3 (the "random digits" behaviour of a generic family), always ≤ a = max(a − 1, b)
 as Lemma 1.2 requires (asserted in the script), far below N(s) + 1 ≈ s/2. The single h = 3 outlier (dep 13 ≤ a ≤ 14) shows
 that the Liouville bound, not the randomness, is what separates the thirds corner from x*_c at large depth.
+
+## 5. The residual problem at x*_c in closed form (Bezout form)
+
+**Proposition 5.1 (case 1 at x*_c is a Bezout/Euclid object; PROVED, q = 3).** Let u = 1 + cT, k = 2, N ≥ 4, orientation A,
+case 1 (y ≤ N − 1). For a monic M (T ∤ M, d := deg M ≤ s − N − 2) let Z be the least residue of T^{−N} modulo M. Then
+the forced data of Prop 2.1 are
+  g' = c(T^N Z − 1)/M  (monic iff lc Z = c),   E = cT^{N+1}Z − (1 + cT),
+i.e. (Z, cg') is the Bezout pair of (T^N, M): T^N Z − cMg' = 1. A covering tuple exists for this M iff some factorisation
+M = m'w₁ with deg w₁ ≥ N + 1 − d (Cor 3.2) satisfies E | T^{s−2} + m'w₁², and then for s = 2N (resp. 2N − 1)
+  E | u² + m'·(T²Zw₁)²   (resp. E | u² + T·m'·(T²Zw₁)²).
+*Proof.* cMg' = T^NZ − 1 gives Mg' ≡ −c (mod T^N) (c² = 1) with deg g' = N + deg Z − d < N, so g' = trunc_N(−cM^{−1}) (unique
+such polynomial); lc g' = c·lc Z. E = TMg' − 1 = cT(T^NZ − 1) − 1. The divisibility is R4 (FF_STERILE_PUSH Lemma 1.6:
+Ev₁ = T^{s−2} + m'w₁²). Modulo E, T^{N+1}Z ≡ cu, so T^{2N+2}Z² ≡ u²; multiply T^{s−2} + m'w₁² by T^{2N+4−s}Z². ∎
+So the whole of Conjecture 0.2 beyond the searched levels is the statement that, for the ≈ 3^{N−2} polynomials M per level,
+the Euclid-determined E_M = cT^{N+1}(T^{−N} mod M) − (1 + cT) never divides T^{s−2} + m'w₁² for a split of M with a
+large w₁ (plus the much smaller case 2 and orientation B, which have the same shape). This is a deterministic but
+structureless (lottery-type) condition: the remainder −T^{s−2}M^{−1} mod E_M must be a small divisor of M. The calibration
+of §3 says such coincidences occur at rate poly(N)·3^{−N} per level.
