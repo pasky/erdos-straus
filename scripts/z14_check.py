@@ -97,12 +97,14 @@ WINCACHE = {}
 def check_window(t, L, u):
     from sympy import lambdify
     m, j, code, w, h = map(int, t[1:6])
-    if (m, code, w, h) not in WINCACHE:
+    assert code in (0, 1, 2) and w >= 1 and h >= 1 and j >= 1 and (code != 0 or h % 2 == 1)
+    key = (m, j, code, w, h)   # (R-O239 repair: j is part of the key; parameters validated for every leaf)
+    if key not in WINCACHE:
         tt, homs, var = win_pieces_sym(m, j, code, w, h)
-        assert m == c0 * 4 ** j * tt - k and m > 1 and m % 2 == 1 and j >= 1
         P = h * n_order(4, m) if code == 0 else 2 * n_order(2, m)
-        WINCACHE[(m, code, w, h)] = (tt, [lambdify(var, e) for e in homs], P)
-    tt, fns, P = WINCACHE[(m, code, w, h)]
+        WINCACHE[key] = (tt, [lambdify(var, e) for e in homs], P)
+    tt, fns, P = WINCACHE[key]
+    assert m == c0 * 4 ** j * tt - k and m > 1 and m % 2 == 1
     assert L % P == 0, 'window period does not divide L'
     rr = (u - j) % P                     # r mod P
     if code == 0:
@@ -149,7 +151,7 @@ def walk(e, c):
         md = l ** v
         u = u + M * (((c[l] - u) * pow(M, -1, md)) % md); M *= md
     if t[0] == 'S':
-        l = int(t[1]); v = e.get(l, 0); base = c.get(l, 0)
+        l = int(t[1]); assert l >= 2 and isprime(l); v = e.get(l, 0); base = c.get(l, 0)
         for j in range(l):
             e2 = dict(e); c2 = dict(c); e2[l] = v + 1; c2[l] = base + j * l ** v
             walk(e2, c2)
@@ -169,6 +171,7 @@ def walk(e, c):
         if u < 64: small.add(u)   # n_u = q itself would need ES(q) only; checked directly anyway
         return
     a, d = int(t[1]), int(t[2]); qs = [int(x) for x in t[3:]]
+    assert a >= 1 and d >= 1
     assert len(set(qs)) == len(qs) and qs
     for q in qs: assert L % ordq(q) == 0
     f = prod(qs); n = (c0 * pow(4, u, f) + k) % f
@@ -258,7 +261,7 @@ if EXPL:
         assert len(lf) == 1, ('leaf partition', s, len(lf))
         sol = explicit(s, lf[0])
         if sol is None:
-            assert s in small or es_explicit(c0 * 4 ** s + k), s
+            assert s in small, ('leaf class gives no solution outside the recorded exceptions', s)
             continue
         x, y, z = sol; n = c0 * 4 ** s + k
         assert min(x, y, z) > 0 and 4 * x * y * z == n * (x * y + y * z + z * x), s

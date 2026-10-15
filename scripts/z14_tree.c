@@ -110,9 +110,9 @@ static int win_fire(int wi) {
   if (W->code == 0) { if (t % W->h) return 0; u64 X = pw(4, t / W->h, m);
     for (int p = 0; p < W->npoly; p++) { u64 val = 0; int d = W->deg[p]; for (int i = 0; i <= d; i++) val = (val + (u128)modm(W->coef[p][i], m) * pw(X, i, m) % m * pw(W->w, d - i, m)) % m; B[nb++] = val; } }
   else if (W->code == 1) { if (t % 2) return 0; u64 a = pw(2, t / 2, m), w = W->w;
-    B[nb++] = (a * a + 2 * a * w + 2 * w * w) % m; B[nb++] = (a * a % m + m - 2 * a * w % m + 2 * w * w) % m; }
+    u64 a2 = (u128)a * a % m, aw = (u128)2 * a % m * w % m, w2 = (u128)2 * w * w % m; B[nb++] = (a2 + aw + w2) % m; B[nb++] = (a2 + m - aw + w2) % m; }
   else { if (t % 2 == 0) return 0; u64 b = pw(2, (t - 1) / 2, m), w = W->w;
-    B[nb++] = (2 * b * b + 2 * b * w + w * w) % m; B[nb++] = (2 * b * b % m + m - 2 * b * w % m + w * w) % m; }
+    u64 b2 = (u128)2 * b % m * b % m, bw = (u128)2 * b % m * w % m, w2 = (u128)w * w % m; B[nb++] = (b2 + bw + w2) % m; B[nb++] = (b2 + m - bw + w2) % m; }
   static u64 vals[1 << 16]; int nv = 1; vals[0] = 1;
   for (int p = 0; p < nb; p++) { u64 b = B[p]; if (b % m == 1 || b == 0) continue;
     // gcd check

@@ -146,7 +146,7 @@ def construct(win, s, c0, k, smallq=()):
     x = (n + m) // 4; N = n * x
     assert 4 * x - n == m
     from math import prod
-    assert prod(B) * 2 ** E == N * 1 or True
+    assert prod(B) * 2 ** E == N
     Bu = [b for b in B if gcd(b, m) == 1 and b % m != 1]
     # search eps by meet-in-middle on residues, keeping witnesses
     vals = {1: (1, 1)}
