@@ -93,3 +93,16 @@ Verdict: **SOUND** (Prop + sharpness PROVED, numerics EVIDENCE as labelled).
   *sign-forcing hypothesis*, not the window shape.
 Verdict: Theorem (sign-level only-if) **SOUND**; "works for every ν/n" and "window-shape T1 … strictly more than (J)46"
 readings **GAP** (D3).
+
+## s6_witness_onesided — check (`scripts/review_r246_witness.py`, from scratch)
+* Observation: for q ≡ 3 (4), p ≡ 1 (4): (−K/q) = −(p/q) = −(q/p); a square d forces (q/p) = −1, a non-square d does not.
+  Correct but, as a "PROVED observation", it only removes a Legendre obstruction; the actual content (cap-0 windows with
+  (q/p) = +1 exist) is shown by examples — e.g. p = 13, q = 3 ((3/13) = +1), K = 4, d = 2: 4/13 = 1/4 + 1/26 + 1/52.
+  Suggest stating it as "Example/EVIDENCE: non-necessity, witnessed by …".
+* Numerics reproduced: (q/p) = −1: cap 0 at 561, dead at cap ≤ 6 at 218; (q/p) = +1: cap 0 at 279 (53 with K odd), dead 784.
+  The pair TOTALS do not match: I get 1635 / 1530 (sum 3165 = 15 windows × 211 primes), the memo says 1655 / 1531 (sum
+  3186, not a multiple of 15) — transcription slip (D8, MINOR); rates become 34.3 % vs 18.2 % (unchanged to 2 digits).
+* "(q/p) = −1 forces firing at some cap" is **false without the 2-adic hypothesis**: 14 pairs with (q/p) = −1 are dead
+  at EVERY cap (E = q), all with K even and CAP_DOWN Thm 1.2's (E) failing (q ≡ 3 (8), v₂(K) odd). Needs "(and K odd or
+  (E))" (D5, MINOR; the correct statement is already CAP_DOWN Thm 1.2).
+Verdict: **SOUND-AFTER-REPAIRS** (EVIDENCE label appropriate).
