@@ -1,4 +1,5 @@
-"""R255 from-scratch test of MENU_LADDER Theorem 4.1 (Type II families on n = c0*Y^2 + k).
+"""(Optional 6th arg D != 2: n = c0*Y^D + k, report families with x, y, z integral at mu = 0 by Lemma 2.1.)
+R255 from-scratch test of MENU_LADDER Theorem 4.1 (Type II families on n = c0*Y^2 + k).
 For each pair (a, b) of small polynomials (positive lc, rational scalar), find ALL (c, d) in Q[Y] with
   c*n = 4abcd - a - b,  i.e.  m := 4abd - n divides a + b  (c = (a+b)/m)  and  4ab | n + m  (d = (n+m)/(4ab)).
 m ranges over (positive scalar) x (monic divisor of a+b over Q); the scalar is forced by the linear condition
@@ -84,8 +85,15 @@ def polys(maxdeg, R, lcs):
             for l in lcs:
                 yield [F(x) for x in low] + [F(l)]
 
-def search(c0, k, maxdeg_a, maxdeg_b, R, scalars):
-    n = [F(k), F(0), F(c0)]
+def integral_mu0(p):
+    """Lemma 2.1 test: p(1) in Z[1/2] and p(0) in Z_(2)"""
+    v1, v0 = ev(p, F(1)), ev(p, F(0))
+    d1 = v1.denominator
+    while d1 % 2 == 0: d1 //= 2
+    return d1 == 1 and v0.denominator % 2 == 1
+
+def search(c0, k, maxdeg_a, maxdeg_b, R, scalars, D=2):
+    n = [F(k)] + [F(0)] * (D - 1) + [F(c0)]
     base = list(polys(maxdeg_a, R, (1, 2)))
     A = [scal(F(s), p) for p in base for s in scalars]
     Bbase = list(polys(maxdeg_b, R, (1, 2)))
@@ -125,15 +133,20 @@ def search(c0, k, maxdeg_a, maxdeg_b, R, scalars):
                     _, fr = divmod_(f, n)
                     sh = (deg(a), deg(b), deg(c), deg(d), deg(m))
                     shapes[sh] = shapes.get(sh, 0) + 1
+                    if D != 2:
+                        x, y, z = mul(ab, d), mul(mul(mul(a, c), d), n), mul(mul(mul(b, c), d), n)
+                        if all(integral_mu0(t) for t in (x, y, z)): bad.append((a, b, c, d, m, fr))
+                        continue
                     if deg(mul(ab, d)) != 2 or deg(fr) >= 1:
                         bad.append((a, b, c, d, m, fr))
     return fams, shapes, bad, skipped
 
 if __name__ == '__main__':
     c0, k, da, db, R = map(int, sys.argv[1:6])
+    D = int(sys.argv[6]) if len(sys.argv) > 6 else 2
     scalars = [F(1), F(2), F(1, 2), F(3), F(1, 3), F(1, 4), F(4)]
-    fams, shapes, bad, skipped = search(c0, k, da, db, R, scalars)
+    fams, shapes, bad, skipped = search(c0, k, da, db, R, scalars, D)
     print(f'c0={c0} k={k} deg a<={da} deg b<={db} R={R}: families={fams} skipped(a+b with deg>=4 leftover)={skipped}')
     print('shapes (deg a, deg b, deg c, deg d, deg m): count', dict(sorted(shapes.items())))
-    print('VIOLATIONS (deg(abd)!=2 or nonconstant f mod n):', len(bad))
+    print('D=2: VIOLATIONS (deg(abd)!=2 or nonconstant f mod n) / D!=2: families with x,y,z integral at mu=0 (Lemma 2.1):', len(bad))
     for x in bad[:5]: print(x)
