@@ -1,0 +1,22 @@
+q=5: caseB s<=6: 171 tuples; k>=2 s<=7: 12 tuples in 6 patterns; caseA al<=4,deg<=3: 74 data (off-F3: 37); prop1.6: 24
+   s=1: E(0) distribution {1: 2}
+   s=2: E(0) distribution {1: 2, 2: 4, 3: 4}
+   s=3: E(0) distribution {1: 10}
+   s=4: E(0) distribution {1: 4, 2: 4, 3: 4}
+   s=5: E(0) distribution {1: 38}
+   s=6: E(0) distribution {1: 36, 2: 30, 3: 33}
+   cumulative failures after q=5: 0
+q=7: caseB s<=5: 76 tuples; k>=2 s<=6: 0 tuples in 0 patterns; caseA al<=4,deg<=3: 94 data (off-F3: 50); prop1.6: 28
+   s=1: E(0) distribution {1: 2}
+   s=2: E(0) distribution {1: 2}
+   s=3: E(0) distribution {1: 12, 2: 8, 3: 4, 4: 9, 5: 4}
+   s=4: E(0) distribution {1: 12}
+   s=5: E(0) distribution {1: 23}
+   cumulative failures after q=7: 0
+q=27: caseB s<=3: 16 tuples; k>=2 s<=3: 0 tuples in 0 patterns; caseA al<=2,deg<=2: 17 data (off-F3: 0); prop1.6: 4
+   s=1: E(0) distribution {1: 2}
+   s=2: E(0) distribution {1: 2}
+   s=3: E(0) distribution {1: 12}
+   cumulative failures after q=27: 0
+FAILURES: 0 []
+exit 0
