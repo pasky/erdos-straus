@@ -16,7 +16,7 @@ obstruction lives only at D = 1. Steering consequence: the gap between Theorem A
 explained by something else — degree/shape constraints of polynomial ES families (ET Lemma 2.8, NEAR_SQUARE Thm 2.2) and
 the finiteness of factorisation supply (Capelli). §2–§3 set up an exact normal form and a search for D ≥ 3.
 
-## 1. The descent class at μ = 0 is purely 2-adic, and is trivial only for D = 1
+## 1. The descent class at μ = 0 is purely 2-adic, and (tested D ≤ 10) obstructs only at D = 1
 
 **Proposition 1.1 (PROVED).** Let φ(Y) = c₀Y^D + k (c₀, k > 0, c₀ + k = 4^J, k ≡ 1 mod 8), A = ℚ[Y]/(φ), θ = class of Y,
 and let Y* ∈ Ẑ be the point Y* = 1 in ℤ_ℓ (ℓ odd), Y* = 0 in ℤ₂. Then Y* ∈ Ster(φ) (MENU_STERILITY Theorem A) iff
@@ -128,7 +128,8 @@ rung where escapes appear (D = 4) is the first where BOTH the integer T1 points 
 (Sophie Germain) exists in base 2 (Aurifeuille: only 4X⁴ + 1 among binomials, Capelli).
 
 ## 5. Searching the higher rungs for 15·2^s + 1 (EVIDENCE, negative)
-All searches test exactly Lemma 2.1 (+ positivity), so a hit would be a valid family near μ = 0; every hit would then be
+Coverage caveats (R-O245): `z18_tt.py` skips underdetermined and zero-resultant systems; `z18_crt.py` uses the reduced
+residue m = −n mod a₁b₁ only (no added multiples of a₁b₁). All searches test exactly Lemma 2.1 (+ positivity), so a hit would be a valid family near μ = 0; every hit would then be
 re-verified on actual s. Sanity: `z18_crt.py 3 1 4 0 2 3 <r-list>` recovers O240 Theorem B (b₁ = Y² + 2Y + 2, r = 1/6, λ = 3)
 and its mirror (b₁ = Y² − 2Y + 2, λ = 5).
 * `z18_crt.py` (Type I and II; a₁, b₁ primitive with |coeff| ≤ 3, deg a₁ ≤ 1, deg b₁ ≤ 4, m = −n mod a₁b₁ resp.
@@ -155,14 +156,15 @@ the set V_F of such μ is clopen.
 every μ ∈ Λ lies in some D_q or some V_F with F positive.
 **Proposition 6.3 (PROVED; Theorem A).** V_F ∩ S_D = ∅ for every degree-D root class, where S_D := {μ : Y*(μ) ∈ Ster(φ_D)}.
 Hence Λ ∩ (∩_D S_D) \ ∪_q D_q ≠ ∅ ⟹ no covering. (Note ∩_D S_D ⊆ S_1 = Sq^×-points.)
-**The converse fails for the natural sub-menus (PROVED).** O240 spark 6 / O238 spark 2 asked whether a covering exists iff
-Λ avoids ∩_D S_D. For the menu "ET + divisor + z14 windows" the answer is NO: for 15·4^s + 1, μ = 0 ∈ S_1 only
-(Computation 1.2: μ = 0 ∉ S_D for D = 2, 4, …), yet O239 Cor 2.8 proves no z14 window reaches it. For the menu
-"all root classes" two versions must be separated: the *per-rung* version (sterile set of the degree-D rung at a unit point
-= S_D) is FALSE at D = 2 (Theorem 4.1: Type II-sterile at μ = 0 although μ = 0 ∉ S_2); the *global* version (some rung
-reaches every point outside ∩_D S_D ∪ ∪_q D_q) is open, and at μ = 0 of (15,1) it is exactly CONJECTURE 6.4's negation. So the
-correct sterile set of a degree-D rung is S_D ∪ P_D with an **archimedean/positivity part P_D** (Thm 4.1, Lemma 2.3) and,
-for finite sub-menus, a magnitude part (O239 Cor 2.8, MENU_STERILITY Prop 4.3).
+**The pointwise converse fails for natural sub-menus (PROVED; R-O245 repair: scope narrowed).** O240 spark 6 / O238 spark 2
+asked whether a covering exists iff Λ avoids ∩_D S_D. Pointwise version: "every μ ∉ ∩_D S_D ∪ ∪_q D_q lies in some V_F".
+For the menu "ET + divisor + z14 windows" this is FALSE: for 15·4^s + 1, μ = 0 ∉ S_2, S_4 (Computation 1.2), μ = 0 is in no
+D_q (n → 16 at odd q), yet O239 Cor 2.8 proves no z14 window reaches μ = 0 — and since μ = 0 ∈ Λ, this also refutes the
+finite-cover equivalence for that menu. For the *Type II part* of the degree-2 rung the pointwise per-rung statement
+(reachable iff ∉ S_2) is FALSE at μ = 0 (Theorem 4.1); for the full rung 2 (Types I and II) it is open (Type I half of
+Thm 4.1 missing). The global version for all root classes is open; at μ = 0 of (15,1) it is CONJECTURE 6.4's negation.
+So per-rung sterile sets *contain* S_D together with positivity-forced points (Thm 4.1, Lemma 2.3) and, for finite
+sub-menus, magnitude-forced points (O239 Cor 2.8, MENU_STERILITY Prop 4.3); no classification is claimed.
 **CONJECTURE 6.4 (ladder-sterility of (15,1); Assessment, weak).** μ = 0 of 15·2^s + 1 is not reached by any root class
 of any degree. Evidence: §5 (empty searches), the failure of every SG window (O239), and the 2-adic failure pattern of all
 D = 4 algebraic families. Counter-evidence: no structural obstruction is known for D ≥ 3 (descent silent, T1 finite, witness
@@ -171,28 +173,29 @@ proving it needs a positivity/size theorem for all shapes, which this file only 
 
 ## 7. Goal (3): where the ladder stops for primes
 
-**Proposition 7.1 (slices collapse to ET; PROVED, elementary).** Let g be an auxiliary arithmetic function and F an identity
-polynomial in (n, g(n)) (e.g. g(n) = 2^{v₂(n−1)}, which realises the exponential families as slices u = (n − 1)/g(n) = c₀
-and is defined at EVERY odd n). If F is valid on {n : g(n) = g₀, n ≡ n₀ (mod M)} for some fixed g₀, then on that slice F is
-an ET class (polynomial in n); near a profinite unit-square point every such slice class contains odd squares (for
-g = 2^{v₂(n−1)}: 1 + 2^{e}u₀ ≡ 1 + c₀·2^e ≡ 4^J mod odd M when e ≡ 0 mod ord_M(2), and ≡ 1 (8) for e ≥ 3), where Type I/II
-solutions do not exist (ET Prop 1.6). Hence a family covering a positive-density slice near μ = 0 is impossible, and a
-finite menu of (n, g)-polynomial families can only beat Schinzel on the slices where u = (n − 1)/g(n) is held in a thin set —
-density 0 (MENU_STERILITY Prop 5.1).
-*Proof.* With g = g₀ fixed, the identity is polynomial in n on a residue class: Schinzel/Mordell (ET p. 7–8), applied at an
-odd square in the class. ∎
-**Answer to (3) (Assessment, sharpened).** The exponential ladder works only because the parameter Y = 2^{s/D} has the two
-decoupled specialisations Y → 1 (odd) / Y → 0 (2) *while u = c₀ is frozen*. At primes any parameter that decouples
-specialisations must vary along a set where the remaining datum (u) is frozen or thin; freezing u is a thin family. So
-the ladder stops exactly at the first rung that must see a positive-density prime set: there the only non-ET parameters
-whose slices are not residue classes are divisor/factorisation data of n ± small (B2), or norm-form representations
-(T1 survives on square-compatible classes, (J)3). No menu built from Y-type parameters can see all primes in a sterile
-Ẑ-cylinder.
+**Proposition 7.1 (valuation slices collapse to ET; PROVED, elementary; R-O245 repair: scope narrowed).** Let
+g(n) = 2^{v₂(n−1)} (defined at every odd n; the exponential families c₀2^s + 1 are the slices u := (n − 1)/g(n) = c₀) and let
+F be a Type I/II identity polynomial in (n, g) with positive values. Suppose F is valid on a set containing, for some
+e ≥ 3, the FULL slice progression P_e = {n ≡ 1 + 2^e u₀ (mod 2^e M), v₂(n − 1) = e} (u₀ odd). Then F restricted to P_e is a
+polynomial-in-n identity on an arithmetic progression, so P_e must contain no odd square (Schinzel/Mordell, ET p. 7–8;
+Type I/II solutions do not exist at squares, ET Prop 1.6). Near a profinite unit-square point (u₀ ≡ c₀, e ≡ 0 mod
+ord_M(2)·L) P_e does contain odd squares (1 + 2^e c₀ ≡ 4^J mod odd M; ≡ 1 mod 8 at 2), contradiction. ∎
+So (n, g)-polynomial families whose valid sets contain full slice progressions cannot reach unit-square points; the
+exponential families escape precisely because their valid set meets each slice in a single n (u frozen).
+**Answer to (3) (Assessment; R-O245: downgraded from PROVED).** Prop 7.1 + MENU_STERILITY Prop 5.1 (finitely many thin
+items miss a positive density of primes near (J)54 points) suggest that the ladder stops at the first rung that must see a
+positive-density prime set: a Y-type parameter decouples the 2-adic and odd specialisations only while the rest of n is
+frozen or thin. This is not a classification: arbitrary auxiliary functions g (fibres not progressions) are not covered,
+and the claim that only divisor data (B2) or norm-form data ((J)3, T1 on square-compatible classes) remain is a reading,
+not a theorem.
 
-## 8. Spark explored and closed: s-deformation
+## 8. Spark explored: s-deformation
 Exponential-polynomial parameters P(s, 2^{s/D}) with P ∈ ℚ[s, Y]: by Lemma 2.1 integrality near μ = 0 depends only on
-P(0, 1), P(0, 0), while positivity is decided at s → ∞ — so s-dependence *decouples integrality from positivity*, which
-would evade Lemma 2.3 and O239's positivity-based magnitude bound. But every parameter must stay polynomial in s: for
-windows this forces m(s) | (a + b) coefficientwise in Y, impossible (shown for SG pieces Q±(s, Y), t(s)); for the a-constant
-SG Type II shape d = (κQ + 1)/(4ac) is polynomial in s only if ac is constant, which freezes t. Assessment: no gain found;
-a general polynomial-curve statement on the shape varieties is open (spark).
+P(0, 1), P(0, 0), while positivity is decided at s → ∞ — so s-dependence *decouples integrality from positivity*.
+*Rung 2 stays closed (PROVED, Type II; R-O245 reviewer argument).* Theorem 4.1 applied for each fixed large s shows the
+remainders f mod n = F(s) and (4bcd − 1) mod n = G(s) are constant in Y; they lie in ℚ[s] (division by n = c₀Y² + k, which is
+s-free, creates no s-denominators), and f·(4bcd − 1) = 4c²dn + 1 ≡ 1 gives F·G = 1 in ℚ[s], so F, G are constants and the
+fixed-character contradiction of Thm 4.1 applies. *Higher rungs:* for windows polynomiality in s forces m(s) | (a + b)
+coefficientwise in Y (impossible for SG pieces Q±(s, Y), t(s)); for the a-constant SG Type II, d = (κQ + 1)/(4ac) is polynomial
+in s only if ac is constant, which freezes t. Assessment: no gain found; a polynomial-curve statement on the D ≥ 3 shape
+varieties is open (spark).

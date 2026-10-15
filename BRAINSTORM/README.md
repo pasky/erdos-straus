@@ -485,12 +485,12 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 
 | memo | idea | result | label |
 |---|---|---|---|
-| z18_descent_dies_at_D2 | Bruin–Stoll genus ladder for root menus X = 2^{s/D} | μ = 0 descent-sterile iff θ(θ−1) ∈ (A⊗ℚ₂)^{×2}; non-square for every D = 2…10, six families — descent obstruction lives only at D = 1 | PROVED + CERTIFIED (SHARP) |
+| z18_descent_dies_at_D2 | Bruin–Stoll genus ladder for root menus X = 2^{s/D} | μ = 0 descent-sterile iff θ(θ−1) ∈ (A⊗ℚ₂)^{×2}; non-square for every D = 2…10, six families — in the tested range descent obstructs only at D = 1 | PROVED + CERTIFIED (SHARP) |
 | z18_two_specialisations | integrality near μ = 0 | ⟺ values at Y = 1 in ℤ[1/2] and at Y = 0 in ℤ_(2): a family is an interpolation between n = 4^J and n = k | PROVED |
 | z18_witness_localisation | product formula on Theorem A | for k = 1, c₀ squarefree, c₀-places silent; W(f) = parity over primes of Res(f, φ) | PROVED |
 | z18_real_place | positivity of normal form n = σTT′ − T − T′ | even D: T, T′ have no real roots; linear shapes die | PROVED + EVIDENCE |
 | z18_rung2_positivity | D = 2 rung (c₀Y² + k) | every Type II family non-escaping ⟹ μ = 0 unreachable (not T1, not descent) | PROVED (Type II) |
 | z18_shape_search | exact shape varieties for 15·2^s + 1, D = 3…8 | 110–148 algebraic families at D = 4, none integral; none elsewhere | EVIDENCE (negative) |
-| z18_exp_cover_criterion | exponential Thm 1.4 | compactness criterion PROVED; "iff descent" false per rung and for z14 windows | PROVED |
-| z18_primes_slices | Y = 2^{v₂(n−1)} as a positive-density root parameter | slices collapse to ET ⟹ Schinzel; ladder stops at positive density | PROVED (negative, scoped) |
-| z18_s_deformation | coefficients polynomial in s | decouples integrality from positivity; blocked for known shapes by s-polynomiality | Assessment (spark) |
+| z18_exp_cover_criterion | exponential Thm 1.4 | compactness criterion PROVED; pointwise "iff descent" false for z14 windows and Type II rung 2 | PROVED |
+| z18_primes_slices | Y = 2^{v₂(n−1)} as a positive-density root parameter | full slice progressions collapse to ET ⟹ Schinzel; "ladder stops at positive density" | PROVED (narrow) + Assessment |
+| z18_s_deformation | coefficients polynomial in s | decouples integrality from positivity; rung 2 still closed (Type II); blocked for known shapes | PROVED (rung 2) + Assessment |

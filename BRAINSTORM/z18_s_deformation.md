@@ -4,8 +4,8 @@
 Allow parameters P(s, 2^{s/D}), P ∈ ℚ[s, Y]. Near μ = 0, s → 0 in Ẑ, so integrality depends only on P(0, 1), P(0, 0)
 (Lemma 2.1), while positivity is decided as s → ∞. This would evade every positivity-based obstruction (Lemma 2.3,
 Thm 4.1, O239's magnitude bound which needs positive relation terms).
-Note: Theorem 4.1 applied slice-wise gives a witness ≡ f₀(s) (mod n) with f₀ ∈ ℚ(s), whose Jacobi symbol is NOT a fixed
-character of n — so even rung 2 is not closed against s-deformation; what blocks the known shapes is polynomiality in s.
+Rung 2 stays closed (R-O245 reviewer argument, PROVED for Type II): slice-wise Thm 4.1 gives f mod n = F(s),
+(4bcd − 1) mod n = G(s) in ℚ[s] with F·G = 1, so both are constants and the fixed-character contradiction survives.
 ## Literature
 None found; closest: Sierpiński-type coverings with exponential parameters (EXPONENT_COVERING §0).
 ## Barrier screen

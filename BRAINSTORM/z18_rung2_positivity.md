@@ -4,8 +4,8 @@
 Root menus Y = 2^{s/2} for c₀·2^s + k (i.e. Y = 2^t for c₀·4^t + k) give n = c₀Y² + k, positive definite. NEAR_SQUARE Thm 2.2
 showed families above the squares are non-escaping; transplant the shape analysis.
 ## Result (MENU_LADDER Theorem 4.1, PROVED for Type II)
-Every Type II polynomial family on c₀Y² + k (c₀, k > 0) has witness ≡ rational constant (mod n): the five degree shapes of
-(a, b, d) are either "constant-witness" or killed by positivity at a real root of a or m. At a unit-square point the
+Every Type II polynomial family on c₀Y² + k (c₀, k > 0) has witness ≡ rational constant (mod n): the degree shapes of
+(a, b, d) (four with deg m ≤ 1, plus the deg m = 2 case added after review R-O245) are either "constant-witness" or killed by positivity at a real root of a or m. At a unit-square point the
 Kronecker character is +1, so no Type II root family of degree 2 reaches μ = 0. Type I: (0,0,2) verbatim, (1,0,1) open.
 Not a T1 effect: Y* is not in the closure of the Pell points (`scripts/z18_pell.py`, mod 17 parity), and not a descent
 effect (z18_descent_dies_at_D2).

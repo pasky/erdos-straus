@@ -29,7 +29,7 @@ def ok_int(poly, Ypow):
     return True
 hits = 0
 for D in range(1, Dmax+1):
-  for j in (-D, 0, D):
+  for j in (0,):   # R-O245: j = ±D would need the odd specialisation Y -> 2^{-j/D}, not 1 (bug fixed: only j = 0)
     n = pari(f'{c0}*2^({j})*Y^{D}+{k}')
     for cc, dd, al, be in itertools.product(range(1, ccmax+1), range(1, ddmax+1), range(almax+1), range(bemax+1)):
         c = pari(f'{cc}*Y^{al}'); d = pari(f'{dd}*Y^{be}')
