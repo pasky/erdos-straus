@@ -41,11 +41,12 @@ Both sides are instances of one situation: a *level quantity* N(m) = a·m² + b 
 words = divisors A | N(m) with A ≡ −1 (mod M), and for every odd prime r | A (r ∤ M automatically)
 (r/p) = (−M/r)   [t-side: THREE_SQUARES Lemma 1.1; u-side: p ≡ −u (mod r) and p ≡ 1 (4)].
 * t-side (n = m² + k): N = tn + 1 = t·m² + c₀, c₀ = tk + 1, M = t.  * u-side: N = n + u = m² + K, K = k + u, M = u.
-(General Q(m) = Am² + Bm + C: multiply by 4A and use X = 2Am + B; the t-side has a·b = t·E/… with E = 4A − tΔ.)
+(General Q(m) = Am² + Bm + C: 4A(tQ + 1) = tX² + E with X = 2Am + B, E = 4A − tΔ, so F = ℚ(√−tE); the same proofs apply
+with the generic condition adapted; only Q = m² + k is worked out below.)
 Define the **family field** F := ℚ(√−ab) (odd primes r ∤ 2ab divide some N(m) iff they split in F) and the **sign field**
   Σ_M := ℚ(ζ_M, √−M).
 For an odd A coprime to M let σ_A ∈ Gal(Σ_M/ℚ) be its Artin symbol (ζ_M ↦ ζ_M^A, √−M ↦ (−M/A)√−M). Then
-(i) A ≡ −1 (mod M) ⟺ σ_A|ℚ(ζ_M) = complex conjugation c_∞; (ii) χ(A) = ∏_{r|A}(r/p) = (−M/A) = σ_A(√−M)/√−M.
+(i) A ≡ −1 (mod M) ⟺ σ_A|ℚ(ζ_M) = complex conjugation c_∞ (for M ≤ 2 both sides are vacuous/true); (ii) χ(A) = ∏_{r|A}(r/p) = (−M/A) = σ_A(√−M)/√−M.
 So **an admissible odd A has χ(A) = −1 ⟺ σ_A = c_∞|Σ_M** — the "Frob = c_∞" of (J)50, now with the level field attached.
 Call m *generic* if gcd(m, b) = 1 (u-side, b = K) resp. gcd(m, c₀) = 1 (t-side). Then every odd prime r | N(m) is prime
 to ab (r | b, r | N ⇒ r | m; r | t ⇒ r ∤ tn + 1) and hence splits in F.
