@@ -75,3 +75,32 @@ v = (n+u)/A, t = (A+1)/u; A = ±ℓ ≠ −1 so t ≠ 0, u ≠ −n so v ≠ 0. 
 χ = (±ℓ/n) = (n/ℓ) = (−u/ℓ). The "iff" has a potential edge case (the only u ≡ −n (mod ℓ) in ±div(ℓ±1) being u = −n,
 which gives v = 0); it is vacuous: then ℓ ≡ ±1 (mod n) and (n/ℓ) = (ℓ/n) = (±1/n) = 1. Worth one sentence (D7).
 u | ℓ ± 1 automatic for |u| ∈ {1,2,3,4,6}, ℓ ≥ 5 (24 | ℓ² − 1); the ψ_u table checked.
+
+### Prop 3.2 (SQ_± prime-modulus layer, exponent 1/2) — SOUND-AFTER-REPAIRS (D5: the mass proof as written is wrong)
+The written justification "the class u = 1 for ℓ ≡ 3 (4) together with u = 2, ±3, 4, ±6 gives ≫ 1 per dyadic block of
+log ℓ" proves only S(X) = Σ_{X^{1/2}<ℓ≤X} ω_±/ℓ ≫ 1: a FIXED set of u contributes Σ_{X^{1/2}<ℓ≤X} O(1)/ℓ = O(1)
+(Mertens: log 2), i.e. dimension 0, which gives no saving at all in the Thm 1.2 machinery (needs S/k → ∞ with
+k ≍ log N/log X). The claim S ≫ log X is nevertheless TRUE, with a proof the document should give: for ℓ ≡ 3 (4) and
+odd u | ℓ + 1 (⟺ ℓ ≡ −1 mod 4u), every odd prime q | u has (q/ℓ) = 1 (same reciprocity as the T1 line of Thm 1.4),
+so (−u/ℓ) = −1 and −u is a firing class; classes −u (u < ℓ) are distinct. BV exactly as in Lemma 1.1 gives
+S(X) ≥ Σ_{u ≤ X^{1/5} odd} (log 2)/φ(4u) − O(1) ≫ log X. (By the same reciprocity: for ℓ ≡ 1 (4) and u | ℓ − 1 odd,
+(−u/ℓ) = +1 — those classes NEVER fire; for the mixed cases about half do.) The upper bound ω_± ≪ τ(ℓ²−1) = ℓ^{o(1)} is
+the divisor bound (needed only for T); "Titchmarsh divisor bound" is needed only for the upper estimate Σω_±/ℓ ≪ log X
+used in the Calibration. From-scratch `scripts/review_r230_sqpm.py`: Σ_{ℓ≤N} ω_±(ℓ)/ℓ = 1.92·log N (N = 10⁵),
+2.04·log N (10⁶) (author: 1.95, 2.06 — small definitional offset, immaterial).
+
+### Calibration "SQ_± provably HARDER on average" — overclaim (D6)
+Only the PRIME-MODULUS layer (A = ±ℓ) of SQ_± was sieved, and only the prime-modulus layer of ES (Vaughan's classes)
+is compared. An upper estimate on what one method yields for one layer proves nothing about which problem is harder
+on average; the campaign's own ES record (3/4, composite multiplier moduli, paper/es-threequarter-note) already shows
+that the prime-modulus exponent is method-dependent, and SQ_± words with composite A were not sieved at all. Must be
+"Assessment: by the prime-modulus large sieve, SQ_± has class dimension 1 vs 2 for ES", with "provably" removed here
+and in §5 item 3 ("signed twin harder on average than ES").
+
+### CONJECTURE PM-SQ_± — EVIDENCE label correct; numerics reproduced
+`scripts/review_r230_sqpm.py 1000000 40000` (independent: spf sieve, direct Jacobi (−A/n) on the constructed word,
+exact tuv − u − v = n): **0 exceptions among all 124 500 non-squares n ≡ 1 (8) ≤ 10⁶**, least |u| ≤ 19 throughout;
+odd squares ≤ 4·10⁴: no ticket in the COMPLETE search |u| ≤ n + 1 (T1 control; trivially forced by (n/ℓ) = 1).
+Adversarial (`scripts/review_r230_sqpm_adv.py Q 20 300 7`, n ≡ 1 mod 8∏_{3≤q≤Q}q): Q = 13, 23, 31 → min 14, 16, 22
+tickets (u, ℓ) with |u| ≤ 300, n up to 6.8·10¹⁶, least |u| ≤ 6 — consistent with the author's 10, 11, 21.
+(Note: the search is finite, |u| ≤ n + 1, since ℓ | n + u and u | ℓ ± 1; worth stating so "exception" is decidable.)
