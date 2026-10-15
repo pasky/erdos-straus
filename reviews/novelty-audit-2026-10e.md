@@ -336,3 +336,70 @@ Status: in progress.
 | (J)65 Thm 1.1 (edge is a loop of G_p/Frob ⟺ its lattice represents 2; r_L(m) count) | **KNOWN in substance** (confirmed) | Chenu–Smith Prop 1–2 + Lemma 1 (both directions, d general), Thm 2 (class-group count); Arpin et al. §5.3 (empirics); the edge/Gross-lattice packaging is the campaign's |
 | (J)65 depth = conic-marked walk; Heegner-layer dictionary | APPARENTLY NEW (ES-specific) | — |
 | (J)65 negative results (no parity law, L1–L3) | APPARENTLY NEW (ES-specific; scope as labelled) | — |
+
+---
+
+## 7. Function-field ES: root-product law, T-adic approximation, games ((J)67, (J)71, (J)72)
+
+### 7.1 Findings
+
+* **ES over F_q[T].** Repeated 10d's searches plus "Egyptian fractions polynomials over
+  finite field unit fractions F_q[T] Erdős–Straus analogue": still no paper on ES_q, its
+  linear coverings, or sterile points. (The only "unit fractions in rings" items are
+  Egyptian fractions in integral domains / norm-Euclidean rings, zbMATH 1374.11061
+  (2017) [title via zbMATH API], not the three-term problem.)
+* **Root-product law ((J)67 Lemma 1.1).** FF_ODD_ABSENCE.md itself states the
+  equivalence with Weil reciprocity on P¹ for T against W/C restricted to the divisors of
+  V, W, M; evaluated at roots this is the resultant reciprocity
+  Res(f, g) = (−1)^{deg f · deg g} Res(g, f) (textbook, e.g. any algebra text;
+  [memory]). Mechanism **KNOWN**; its use to constrain E(0)^s on ES_q tuples is
+  apparently new.
+* **Liouville / T-adic approximation ((J)71 Lemma 1.2, (J)72 Lemma 4.1/Thm 4.2).**
+  Mahler, "On a theorem of Liouville in fields of positive characteristic", Canad. J.
+  Math. 1 (1949) 397–400 [visited, CARMA Mahler archive PDF; text archived
+  `sources/lit2026e/mahler-1949-liouville-positive-char.txt`], Thm 1 (p. 397): for z
+  algebraic of degree n ≥ 2 over k(x), |z − a/b| ≥ c/|b|^n for a, b ∈ k[x]; Mahler also
+  shows the bound is attained in characteristic p (no Roth). Lasjaunias's survey "A survey
+  of Diophantine approximation in fields of power series" (Monatsh. Math. 130 (2000)
+  [snippet]) is the standard reference. (J)71's lemma is the degree-1 (rational target)
+  case: two distinct rationals differ by at least 1/(height product), the trivial
+  "Liouville for rationals", combined with the ES-specific identity E·C₁ = g′T^{s−1} + w₁
+  that turns covering into approximation of u by −w₁/C₁. → mechanism **KNOWN**
+  (Liouville/Mahler), the covering ⟺ approximation dictionary and its consequences
+  (lopsided tuples, thirds corner misses x*_c) APPARENTLY NEW.
+* **Schmidt games over function fields.** Kristensen, "Badly approximable systems of
+  linear forms over a field of formal series", JTNB 18 (2006) 421–444 [visited, numdam
+  PDF; excerpt archived `sources/lit2026e/kristensen-jtnb-2006-excerpt.txt`], defines
+  (α, β)-winning sets in L^{mn} over F_q((X^{−1})) (p. 426) and proves winning dimension
+  > 0 for badly approximable systems; Kleinbock–Shah? / Hussain (Res. Number Theory 2023,
+  HAW over formal power series) [snippets] extend this. McMullen, "Winning sets,
+  quasiconformal maps and Diophantine approximation" (GAFA 2010) [visited author PDF;
+  excerpt archived], p. 2: "Any winning set in ℝⁿ has Hausdorff dimension n" (after
+  Schmidt 1966 and Dani). **Bearing on (J)72 Thm 2.1 ("U_c closed and misses a ball ⇒ not
+  winning for any Schmidt-type game"):** immediate from the definition (player B's first
+  ball inside the missed ball; equivalently winning sets are dense / of full dimension in
+  every ball) — **KNOWN in substance (trivial)**; the content is only "U_c misses a ball",
+  which is ES-specific.
+* **Windowed König lemma ((J)72 Lemma 3.1).** The non-emptiness is König's lemma on a
+  finitely branching tree; the bound dim U_c ≥ log K/(m log 3) from "≥ K alive descendants
+  in every window of m levels" is the standard lower bound for Cantor-type constructions
+  (mass distribution principle; e.g. Falconer, *Fractal Geometry*, ch. 4 [memory, not
+  opened]). → KNOWN in substance; the percolation framing and the independence-model
+  thresholds p_d < 2/3 vs Σ p_d < 1 are campaign heuristics.
+* **(J)72 Prop 3.2 (counting-only certificates cannot beat the tail union bound).** An
+  adversary-construction statement specific to the campaign's covering trees; nothing
+  comparable found (searches on Schmidt games/percolation returned only the general
+  theory above). APPARENTLY NEW, elementary.
+
+### 7.2 Verdicts
+
+| Claim | Verdict | Notes |
+|---|---|---|
+| (J)67 Lemma 1.1 / Thm 1.2 / Thm 1.4 (root-product law) | mechanism **KNOWN** (Weil reciprocity on P¹ / resultant reciprocity, as the document says); ES_q consequences APPARENTLY NEW | — |
+| (J)67 Thm 2.2 (ES_9(T) no finite linear covering; CERTIFIED union bound) | APPARENTLY NEW | no ES_q literature |
+| (J)71 Lemma 1.2 (Liouville lemma) | mechanism KNOWN (Liouville for rationals; Mahler 1949 Thm 1 in k⟨x⟩); dictionary APPARENTLY NEW | cite Mahler 1949 / Lasjaunias 2000 as background |
+| (J)71 Prop 2.1/5.1 (Bezout reduction 3^{2N} → 3^N) | APPARENTLY NEW (algorithmic) | — |
+| (J)72 Lemma 3.1 (windowed König) | KNOWN in substance (König + Cantor-set dimension bound) | — |
+| (J)72 Thm 2.1 (game barrier) | KNOWN in substance (winning sets meet every ball: Schmidt 1966; McMullen 2010 p. 2; Kristensen 2006 for F_q((T⁻¹))) | the ES input is "U_c misses a ball" |
+| (J)72 Prop 3.2 (counting-only barrier) | APPARENTLY NEW, elementary | — |
+| (J)72 Lemma 4.1/Thm 4.2 (Liouville spectrum), Prop 5.1 (Frobenius x_u ↦ x_{u³}) | mechanism KNOWN (Liouville/Mahler; Frobenius maps rationals to rationals of p-th power height); statements APPARENTLY NEW | — |
