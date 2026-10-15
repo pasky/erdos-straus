@@ -24,7 +24,7 @@ Re-derivation (reviewer, independent):
 * Side claim "edges representing both 1 and 2 are ⟨1⟩ ⊥ [[2, 1], [1, (p+1)/2]] = word (1, (p+3)/2, 3)": re-derived — a norm-1
   vector splits, L = ⟨1⟩ ⊥ M; a norm-2 vector is either (±1, m) with Q(m) = 1, giving ⟨1, 1, p⟩ (isotropic at p for p ≡ 1 (4),
   so not in 𝔊⁻_p), or lies in M, giving M ≅ [[2, 1], [1, (p+1)/2]]; this class is in 𝔊⁻_p iff (−2/p) = −1 iff p ≡ 5 (8).
-  So the "79" is just the number of primes p ≡ 5 (8) in [5, 2000] (see recount below). Correct.
+  So the "79" is just the number of primes p ≡ 5 (8) in [5, 2000] (79 confirmed by direct count). Correct.
 
 From-scratch recertification (`scripts/review_r234_lib.py`, `review_r234_loops.py`, `review_r234_quat.py`; no z9/ce code):
 classes of det p enumerated from Minkowski-type reduced Grams and canonicalised by successive-minima bases; 𝔊⁻_p selected by the
