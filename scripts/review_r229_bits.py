@@ -30,3 +30,18 @@ for p in (131, 241):
     ws = [w for w in words(p) if any(x % 4 == 0 for x in (w[0], w[1], w[2], w[0]*w[1]-1, w[0]*w[2]-1))]
     vals = [x for t, u, v in ws for x in (t, u, v, t*u-1, t*v-1) if x % 4 == 0]
     print(p, "chi=-1 words mod reversal:", len(ws), "max v2 of 4-divisible entries:", max((x & -x).bit_length() - 1 for x in vals))
+
+# D11: prediction with the empirically observed per-word rates (separately for one-/two-iso words)
+cnt = {1: [0, 0], 2: [0, 0]}; per = []
+for p in range(5, PMAX, 4):
+    if not isprime(p): continue
+    ws = []
+    for t, u, v in words(p):
+        P = (t, u, v, t*u - 1, t*v - 1)
+        c4 = sum(x % 4 == 0 for x in P)
+        if c4: ws.append((c4, any(x % 8 == 0 for x in P)))
+    for c4, h in ws: cnt[c4][0] += 1; cnt[c4][1] += h
+    per.append(ws)
+r = {c: cnt[c][1] / cnt[c][0] for c in cnt}
+pred2 = sum(math.prod(1 - r[c] for c, _ in ws) for ws in per)
+print("observed rates one-iso %.3f two-iso %.3f; prediction with these rates: %.2f" % (r[1], r[2], pred2))

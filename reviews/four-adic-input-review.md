@@ -181,7 +181,9 @@ dependencies (norm-one triples share entries, Lemma 1 of z1_marking_isometry; wo
 so the 12-vs-0.82 gap measures departure from a straw-man; and the per-word cell probability already over-predicts the
 S₈ share (0.501 vs 0.583), which alone shifts the prediction. The causal sentence "the bit of a word is mostly a function of
 v₂(tp + 1)" is not quantified anywhere. *Repair:* label that sentence Assessment, and (optional) report the prediction
-recomputed with the observed per-word rate 0.501 instead of 1/2, 3/4, to separate "lower rate" from "correlation".
+recomputed with the observed per-word rate 0.501 instead of 1/2, 3/4, to separate "lower rate" from "correlation". R229 did this: observed rates 0.458 (one-iso) and 0.695 (two-iso)
+give a predicted 1.16 empty primes against 12 observed — so the correlation conclusion survives; the lower rate explains
+only a small part of the gap. Worth adding to §1.3.
 
 ## Claim 6: labels, requirements (ii)–(iv), novelty
 
