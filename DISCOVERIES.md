@@ -1393,6 +1393,13 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * verify.py (gl) rebuilds the q = 3 survivor tree from R248's from-scratch census.
    * Attribution (O243): Thm 2.1 is immediate from the definitions (winning sets meet every ball: Schmidt 1966, McMullen GAFA 2010; games over F_q((T⁻¹)): Kristensen JTNB 18 (2006)); Lemma 3.1 is König's lemma plus the standard Cantor-construction dimension bound; Prop 3.2 and the ES_q readings are apparently new.
 
+73. **Integrity check: the F_q[T] family model omits ET types I4 and II2, but on the sterility slices both are dominated by Case B, so the function-field no-covering theorems hold for all ET-type coverings (FF_INVERSION_CHECK.md (O244); review `reviews/ff-inversion-review.md` (R250): no FATAL or MAJOR; minors m-1..m-5 repaired, the two main-branch wording lines (STATUS, SYNTHESIS_SPARKS3) fixed by the orchestrator).**
+   * Trigger: O242 found that 24 of the 172 Case A balls at q = 3, A = T² have no mirror ball at 1/u, while every ℤ ET type is inversion-closed — a possible missing family type in the union bounds of (J)51, (J)56, (J)67.
+   * Lemma 1.1 (PROVED; R250 brute force): the ET parametrisation holds over F_q[T] (every monic solution is Type I, A·abd = eP + 1, or Type II, A·abd = P + e, e = (a + b)/c). Cor 1.3: "linear families" (FUNCTIONFIELD_ES2 §0.1, FUNCTIONFIELD_ES3 Lemma 1.1, whose A/B dichotomy is correct and complete for linear families) are exactly the images of II1, II3, I1, I2, I3; I4 ("Case A⁻¹") and II2 are omitted (Prop 1.4: I4 gives valid congruence families).
+   * **Lemma 2.1–2.4, Thm 2.5, Cor 2.6 (PROVED; R250 re-derived).** II2 is never valid at a slice point; I4 at u ⟹ Case A at 1/u; a Case A ball lies inside a Case B ball with the same E when α + v ≥ k; Case B is inversion-closed for every k. Hence on the c-slices and the k = 1 slices u(0) ∉ F₃^*, everything ET-covered is already covered by the linear families the proofs bound, and (J)51, (J)56, (J)67 and Conjecture 0.2 are statements about all seven ET types with the same constants. Off the slices, O(q, A) and "no finite covering" statements must keep "linear".
+   * EVIDENCE (R250 reproduced every number from scratch): at q = 3 depth 9, A + B has 24 unmirrored balls, A + B + I4 has 0, every A and I4 ball lies in a Case B ball, survivors unchanged; at q = 5 depth 6 no Case A balls on the c-slices.
+   * verify.py (gm) re-runs R250's from-scratch checks (depth 7).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

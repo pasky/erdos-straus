@@ -116,7 +116,7 @@ stated for general numerators in its source or its proof uses 4 only through "4 
 * Composition, Vieta/Pell moves, class-group pigeonhole on V_n ((J)36–(J)38): the surfaces are those of the shot
   family; replacing 4 by M changes only the congruence g ≡ −1 (mod M) — uniform in form.
 * Function-field and ℤ[ω] analogues: the analogous relaxation-vs-exact blindness (same numerator; R207 repair m5) holds there — FF: ES_q^{(s)} is a theorem at every P
-  ((J)30 Thm 3.5) while ES_q fails at some P (e.g. q = 5, A = T, degree ≤ 4; (J)4) and has no finite covering for
+  ((J)30 Thm 3.5) while ES_q fails at some P (e.g. q = 5, A = T, degree ≤ 4; (J)4) and has no finite linear covering (all ET types: FF_INVERSION_CHECK Cor 2.6) for
   q = 3^r, r ≥ 27 ((J)26); ℤ[ω]: TES^{□₃} holds at every 2-primary non-cube prime to 6 ((J)28 Thm 3.5, relative to Chebotarev) while TES
   fails at 16 2-primary split primes ((J)31 Thm 2.1, stated for 2-primary π); these are non-cubes prime to 6, so Thm 3.5
   covers them (PROVED by combination), and (J)28's EVIDENCE (2) explicitly solved TES^{□₃} at all 2-primary split

@@ -26074,4 +26074,36 @@ def check_gl():
 check_gl()
 
 
+def check_gm():
+    # (gm) FF_INVERSION_CHECK (O244/R250): integrity check of the F_q[T] family model. R250 from scratch: Lemma 1.1 (ET
+    # parametrisation over F_q[T]) vs a naive solution loop (q = 5, k = 2, n = 4); the q = 3, A = T^2 c-slice tree to depth 7:
+    # Case B is inversion-closed, A + B + I4 has no unmirrored ball, every Case A and I4 ball lies inside a Case B ball,
+    # survivors identical with and without I4 (so (J)51/(J)56/(J)67 hold for all ET-type coverings, Cor 2.6).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("FF_INVERSION subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r250_lemma11.py", "5", "2", "4", "1", "1"])
+    assert "brute force == parametrisation; Lemma 1.1/1.2 assertions all hold" in out, out[-2000:]
+    out = run(["review_r250_tree.py", "3", "7"])
+    for s in ("B       balls   50, without inverse ball: 0", "A+B+I4  balls   78, without inverse ball: 0",
+              "A balls inside a Case B ball: 16/16; I4 balls inside a Case B ball: 16/16",
+              "c=1 survivors d3..d7  A+B: [2, 6, 16, 44, 130]  A+B+I4: [2, 6, 16, 44, 130]  x*_c alive: True",
+              "c=2 survivors d3..d7  A+B: [2, 6, 16, 44, 130]  A+B+I4: [2, 6, 16, 44, 130]  x*_c alive: True"):
+        assert s in out, (s, out[-2000:])
+    print(f"== (gm) FF_INVERSION_CHECK R250: ET parametrisation over F_q[T] = naive solutions; q = 3 tree depth 7: "
+          f"I4/Case A dominated by Case B, survivors unchanged; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gm()
+
+
 print("\nall checks passed")

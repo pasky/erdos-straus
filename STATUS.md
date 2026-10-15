@@ -49,7 +49,7 @@ proof has an identifiable gap.
   * SQ₅ = (W) ∧ (S), with (W) trivial at primes, so the content is the sign half ((J)15, (J)20).
   * ES sign = Wu square / Zolotarev / theta multiplier dictionaries ((J)14, (J)15).
 * *Second half of the wave ((J)29–(J)36).*
-  * **Function fields: ONE mute place makes the ES variant a theorem at every P, unconditionally and effectively** (Bilharz/Weil; (J)30). This is true even where ES_q itself has no finite covering, so a global reciprocity argument can prove a statement that has no finite covering by its own families.
+  * **Function fields: ONE mute place makes the ES variant a theorem at every P, unconditionally and effectively** (Bilharz/Weil; (J)30). This is true even where ES_q itself has no finite covering, so a global reciprocity argument can prove a statement that has no finite (linear; by (J)73 also ET-type) covering by its own families.
   * **The gap between theorem and ES is an exponent cap** ((J)34). The self-mute ES^{(y)} is PROVED, and a shot is an ES solution iff Q | (r+1)/4 instead of rad(Q) | (r+1)/4. For a fixed mute set, bounded caps are finite searches (archimedean wall). With a growing set, cap 1 becomes an integral-point problem on Markoff-type cubic surfaces ((J)36). There ES^{[2]} is a continued-fraction condition, with ES at CF depth 3 (μ > 2n; (J)37). On V_n the B = 1 slot is a single explicit element, so composition cannot create ES points at fixed μ ((J)38).
   * Model-specific input ((J)31–(J)33, (J)35).
     * TES is a finite search with 16 certified non-Brauer–Manin failures. The 8/n analogue was already known (Pomerance–Weingartner; Bright–Loughran Rem 1.10).
