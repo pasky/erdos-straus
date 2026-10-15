@@ -23,6 +23,4 @@ for g in pari.factor(phi)[0]:
             h = pari.nfhilbert(nf, al, be, pr)
             key = '2' if p == 2 else ('c0k' if (c0*k) % p == 0 else 'other')
             tot[key] *= int(h)
-    for i in range(1, int(pari.polsturm(gm)) + 1):
-        tot['inf'] *= int(pari.nfhilbert(nf, al, be))  if False else 1
 print('W(f) [places above 2] =', tot['2'], '| odd above c0k:', tot['c0k'], '| other odd:', tot['other'])

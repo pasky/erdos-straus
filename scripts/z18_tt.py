@@ -46,14 +46,11 @@ for co in itertools.product(range(-R, R+1), repeat=e):
         if SC:
             T1 = pari.subst(T1, 'Y', pari(f'2^({SC})*Y')); T1 = T1/pari.content(T1)
         if D % 2 == 0 and pari.polsturm(T1) > 0: continue        # Lemma 2.3
-        if pari.gcd(T1, n) != 1 or not pari.polisirreducible(T1) and e > 1: pass
         r = -pari.lift(pari.Mod(n, T1)) if TYPE == 'II' else pari(-1)
         T = r + pari('U')*T1
         # condition: (n + S*T1) mod T == 0 ; T has leading coeff U*lc (U != 0)
-        rem = pari.lift(pari.Mod(1, 1)) if False else None
         num = n + pari('S')*T1 if TYPE == 'II' else n*pari('S')*T1 + 1
-        rr = pari(f'polresultant(0,0)') if False else None
-        rem = pari.Vec(pari(f'lift(Mod({num}, {T}))') if False else pari.divrem(num, T, 'Y')[1])
+        rem = pari.Vec(pari.divrem(num, T, 'Y')[1])
         # rem coefficients are rational functions in U, S: take numerators
         eqs = [pari.numerator(x) for x in rem if x != 0]
         if not eqs: continue
