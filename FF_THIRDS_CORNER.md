@@ -162,3 +162,17 @@ balanced patterns (thirds corner) — which cannot reach a polynomial point at a
 point of its cylinder: it is a "Liouville point", where the lottery is exponentially thinner (poly(N)·3^{−N} per level
 instead of λ_N).** This corrects the Assessment of FUNCTIONFIELD_ES3 §3 ("x*_c is not visibly special"): its controls
 (random lifts sharing six T-adic digits) are generic points, not low-height ones.
+
+## 4. The cyclotomic families explicitly (goal 1)
+
+`scripts/zt_cyclo.py` (python-flint): all tuples with s = 3^h + 1, v₁ = −1 (m'w₁C₁ = T^{3^h−1} − 1), exhaustive over the
+3^{#factors} assignments for h = 2, 3 and 2·10⁵ random assignments for h = 4; each tuple re-verified ((B)); for c = 1, 2 the
+depth dep_c = v_T(E + 1 + cT) is recorded (covering x*_c needs dep_c ≥ N(s) + 1):
+| h | s | N(s) + 1 | tuples | max dep_c | dep histogram (c = 1; c = 2 identical up to ±1 counts) |
+|---|---|---|---|---|---|
+| 2 | 10 | 6 | 12 | 4 | 6, 4, 1, 1 at dep 1..4 |
+| 3 | 28 | 15 | 1116 | 13 | 558, 374, 123, 39, 16, 2, 3 at dep 1..7, one tuple at dep 13 |
+| 4 | 82 | 42 | 2013 (sample) | 10 | geometric, ratio ≈ 1/3 |
+The depths are geometric with ratio ≈ 1/3 (the "random digits" behaviour of a generic family), always ≤ a = max(a − 1, b)
+as Lemma 1.2 requires (asserted in the script), far below N(s) + 1 ≈ s/2. The single h = 3 outlier (dep 13 ≤ a ≤ 14) shows
+that the Liouville bound, not the randomness, is what separates the thirds corner from x*_c at large depth.
