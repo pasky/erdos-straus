@@ -79,6 +79,10 @@ def gram_of(G, basis):
 
 
 def canon(G):
+    return canon_full(G)[0]
+
+
+def canon_full(G):
     """Canonical form of a positive definite ternary Gram (rational entries) up to isometry:
     lexicographically minimal (g11,g22,g33,g12,g13,g23) over all bases attaining the successive minima
     (in dim 3 every lattice has such a basis, and the set of such bases is isometry-invariant)."""
@@ -107,6 +111,7 @@ def canon(G):
     assert len(lam) == 3
     L = [[x for qq, x in sv if qq == lam[i]] for i in range(3)]
     best = None
+    allb = []
     for v1 in L[0]:
         for v2 in L[1]:
             if v2 == v1:
@@ -119,8 +124,11 @@ def canon(G):
                 key = (H[0][0], H[1][1], H[2][2], H[0][1], H[0][2], H[1][2])
                 if best is None or key < best:
                     best = key
+                    allb = [M]
+                elif key == best:
+                    allb.append(M)
     assert best is not None
-    return best
+    return best, allb
 
 
 def legendre(a, p):
