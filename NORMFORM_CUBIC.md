@@ -90,19 +90,18 @@ plain finiteness of the ES solution set at fixed n:
 ω₁,…,ω_k, N(x) = N_{K/ℚ}(Σx_iω_i), and identify ℚ^k ≅ K. Let ε ∈ O_K^× have infinite order and let T_ε be the identity
 component of the Zariski closure of ⟨ε⟩ in R_{K/ℚ}𝔾_m (acting on 𝔸^k by multiplication). Let F ∈ ℚ[x]^m be any
 polynomial map (ET coordinates (A, B, C, D), or (x, y, z)) and x₀ ∈ ℤ^k with N(x₀) = n ≠ 0. If F(ε^j x₀) is an ES solution
-for 4/n (Type I/II/any) for infinitely many j ∈ ℤ, then there are q ≥ 1 and r with F constant on T_ε·ε^r x₀ (Zariski closure
-of {ε^{qi + r}x₀ : i ∈ ℤ}).
+for 4/n (Type I/II/any) for infinitely many j ∈ ℤ, then for each coordinate F_i there are q ≥ 1, r with F_i constant on T_ε·ε^r x₀ (contained in the Zariski
+closure of {ε^{qi + r}x₀ : i ∈ ℤ}).
 If K is a cubic field (or real quadratic), T_ε·y = {N = n} (geometrically), so F is constant on the hypersurface N = n,
 i.e. (N − n) | (F_i − F_i(x₀)) for every coordinate.
 *Proof.* 4/n has finitely many solutions (x ≤ y ≤ z: x ≤ 3n/4, then y ≤ 2xn/(4x − n), z determined), and the ET
-coordinates (or x, y, z) are determined by the solution, so F takes values in a finite set V on the valid points. Each
-coordinate e(j) := F_i(ε^j x₀) is an exponential polynomial Σ_χ c_χ χ(ε)^j (expand F_i in the conjugate coordinates
-σ_1(x), …, σ_k(x); multiplication by ε scales σ_i by σ_i(ε)). h(j) := Π_{c ∈ V_i}(e(j) − c) is an exponential polynomial
-with infinitely many zeros, so by Skolem–Mahler–Lech its zero set contains a full progression {qi + r : i ∈ ℤ}; on it
-e takes finitely many values, and applying SML to each e − c restricted to the progression (again an exponential polynomial
-in i) and refining q, we get e(qi + r) = c for all i ∈ ℤ for one c (an exponential polynomial on ℤ vanishing on all of a
-progression of a progression vanishes on that progression's closure). Hence F_i − c vanishes on {ε^{qi}·ε^r x₀ : i ∈ ℤ},
-whose Zariski closure contains T_{ε^q}·ε^r x₀ = T_ε·ε^r x₀ (finite index does not change the identity component).
+coordinates (or x, y, z) are determined by the solution, so each coordinate F_i takes finitely many values on the infinite
+set J of valid j; fix a value c taken on an infinite J_c ⊂ J. e(j) := F_i(ε^j x₀) − c is an exponential polynomial
+Σ_χ c_χ χ(ε)^j (expand F_i in the conjugate coordinates σ_1(x), …, σ_k(x); multiplication by ε scales σ_s by σ_s(ε)) with
+infinitely many zeros, so by Skolem–Mahler–Lech its zero set contains an infinite progression {qi + r : i ≥ 0}; i ↦ e(qi + r)
+is again an exponential polynomial and vanishes for all i ≥ 0, hence (Vandermonde) for all i ∈ ℤ. So F_i − c vanishes on
+{ε^{qi}·ε^r x₀ : i ∈ ℤ}, whose Zariski closure contains T_{ε^q}·ε^r x₀ = T_ε·ε^r x₀ (finite index does not change the
+identity component). (q, r, c depend on i; the statement is per coordinate.)
 Cubic K: T_ε ⊂ T := R¹_{K/ℚ}𝔾_m (N(ε) = ±1; replace ε by ε²). T has character module X ⊗ ℚ = (permutation module on the 3
 embeddings)/(trivial), which is ℚ-irreducible because Gal acts transitively on 3 points (C₃ or S₃); so T has no proper
 non-trivial ℚ-subtori and T_ε = T (positive-dimensional since ⟨ε⟩ is infinite). T(ℂ) ≅ {t₁t₂t₃ = 1} acts simply
@@ -116,10 +115,12 @@ F (any of Type I, Type II, (x, y, z)) is, for infinitely many primes p, valid at
 a representation of p, then every coordinate of F lies in ℚ[N] (an ET identity in n). In particular a family valid on
 L ∩ U for a cusp neighbourhood U with εU ⊂ U, ε ≡ 1 (mod M), collapses.
 *Proof.* By Lemma 2.1, F_i ≡ c_i(p) on {N = p} for infinitely many p. Then dF_i ∧ dN vanishes on a Zariski-dense set (the
-union of these hypersurfaces), hence identically, so F_i and N are algebraically dependent. N − t is irreducible over
-ℚ̄(t) (over ℂ it is l₁l₂l₃ − t/c, and the generic fibre of a product of independent linear forms is irreducible), so ℚ(N)
-is algebraically closed in ℚ(x) (N is non-composite; e.g. Schinzel, *Polynomials with special regard to reducibility*,
-§3.3, or Bodin–Dèbes–Najib), whence F_i ∈ ℚ(N) ∩ ℚ[x] = ℚ[N]. ∎
+union of these hypersurfaces: on N = p, F_i − c_i(p) = (N − p)G, so dF_i = G·dN there), hence identically, so F_i and N are
+algebraically dependent (Jacobian criterion, char 0). N is non-composite: N − t = c·l₁l₂l₃ − t is irreducible over
+\overline{ℚ(t)} (it is linear in l₁ with coprime coefficients c·l₂l₃ and −t), so ℚ(N) is algebraically closed in ℚ(x)
+(standard, e.g. Schinzel, *Polynomials with special regard to reducibility*, §3.3), and F_i ∈ ℚ(N). Finally ℚ(N) ∩ ℚ[x] =
+ℚ[N]: if F_i = f(N)/g(N) in lowest terms with g non-constant, at a root τ of g the hypersurface N = τ is non-empty and
+g(N)F_i = f(N) gives f(τ) = 0, contradiction. ∎
 
 **What is left (exact).** A non-collapsing polynomial family for a cubic norm form can be valid, for each prime, only at
 finitely many points of each unit orbit, and (Thm 1.2′) on no lattice coset of an open cone with N* > 0. Unit fundamental
@@ -127,3 +128,56 @@ domains can be taken to be finite unions of (Shintani) open cones, so "evaluate 
 by Thm 1.2′ on each cone. The residual validity sets are *power-cusp shells*: regions {|l₁| ≍ |x|, |l₂ l₃| ≍ |x|^κ} with
 0 < κ < 2 (the depth along the orbit growing like a fixed multiple of log p), and thin sets near the zero directions Z_F of
 the top forms. §3 studies the shells.
+
+## 3. Type I without cones: the unit-group criterion
+
+Iteration (I2). §2 showed the cone hypothesis of Thm 1.2′ is where cusps/shells could hide. Trying to construct a shell
+family (weighted degrees with irrational weights on the conjugate coordinates l₁, l₂, l₃, where P's weighted leading part
+c·l₁l₂l₃ is *reducible* over ℚ̄, so (F1) is unavailable) led instead to a purely algebraic proof that needs no positivity
+region at all: the Type I equation factors as C·(4ABD − 1) = P·(A + B), and P either divides 4ABD − 1 — then A, B, D are
+*units modulo P* — or not. For a prime form P the ring ℚ[x]/(P) is a graded domain, whose only units are constants.
+
+**Theorem 3.1 (Type I collapse at one valid point; PROVED, elementary).** Let P ∈ ℚ[x₁,…,x_r] be prime with
+(ℚ[x]/(P))^× = ℚ^× (e.g. any homogeneous prime form: an irreducible binary form of any degree, a norm form, an irreducible
+indefinite binary quadratic). Let A, B, C, D ∈ ℚ[x] ∖ {0} satisfy 4ABCD = P(A + B) + C identically. Then either all of
+A, B, C, D lie in ℚ[P], or (up to swapping A and B) the family is degenerate: A + B = 0, or B = b, D = −1/(4b²), C = −bP
+with A arbitrary. Degenerate families are valid nowhere (B = −A, resp. D < 0). Hence **every polynomial Type I family for P
+that is valid at one point lies in ℚ[P]**.
+*Proof.* ℚ(P) ∩ ℚ[x] = ℚ[P] (if F = f(P)/g(P) in lowest terms with g non-constant, P = τ is non-empty for a root τ of g and
+f(τ) = 0, contradiction). Assume A + B ≠ 0 and wlog α ≥ β. The identity is C·(4ABD − 1) = P·(A + B).
+(e0) P ∤ 4ABD − 1. P is prime, so 4ABD − 1 | A + B ≠ 0. If A, B, D are all constant, C = P(A + B)/(4ABD − 1) ∈ ℚ[P].
+Otherwise deg(4ABD − 1) = α + β + δ ≤ deg(A + B) ≤ α, so B = b, D = d are constants and, if α ≥ 1, A + b = λ(4bdA − 1) with
+λ ∈ ℚ: either 4λbd ≠ 1 and A is constant, or 4λbd = 1, λ = −b, i.e. d = −1/(4b²), and then C = P(A + b)/(4bdA − 1) = −bP:
+the degenerate family. (Check: 4A·b·(−bP)·(−1/(4b²)) = AP = P(A + b) − bP.)
+(e1) P | 4ABD − 1. Then A, B, D are units mod P, hence A ≡ a, B ≡ b, D ≡ d (mod P) with 4abd = 1, and C·H = A + B with
+H := (4ABD − 1)/P ≠ 0 (if 4ABD = 1 then A + B = 0). So deg H = α + β + δ − deg P ≤ deg(A + B) ≤ α, i.e. β + δ ≤ deg P. A
+non-constant B ≡ b has β ≥ deg P (B − b = P·B₁), likewise D; so (β, δ) ∈ {(0, 0), (deg P, 0), (0, deg P)}, and in the last two
+cases B = b + κP resp. D = d + κP with κ ∈ ℚ. Write A = a + P·A₁ (A₁ ≠ 0 unless everything is constant). Using 4abd = 1:
+ (i) B = b, D = d: H = A₁/a, so A₁ | A + B = (a + b) + P·A₁, i.e. A₁ | a + b. If a + b ≠ 0, A₁ is constant and A ∈ ℚ[P].
+ If a + b = 0 then d = −1/(4a²) = −1/(4b²) and C = (A + B)/H = aP = −bP: the degenerate family.
+ (ii) B = b + κP, D = d: H = 4d(aκ + B·A₁). If α ≤ deg P, A₁ is constant. Otherwise deg H = α = deg(A + B), so A + B = G·H
+ with G ∈ ℚ, which rearranges to A₁·(4dG·B − P) = a + B − 4dGaκ; the bracket 4dGb + (4dGκ − 1)P is non-zero (b, d ≠ 0), and
+ both sides' other factors lie in ℚ[P], so A₁ ∈ ℚ(P) ∩ ℚ[x] = ℚ[P].
+ (iii) B = b, D = d + κP: H = 4b(aκ + A₁·D); as in (ii), A₁·(4bG·D − P) = a + b − 4bGaκ, so A₁ ∈ ℚ[P].
+In all non-degenerate cases A, B, D ∈ ℚ[P], and C = P(A + B)/(4ABD − 1) ∈ ℚ(P) ∩ ℚ[x] = ℚ[P]. Validity: degenerate families
+have B = −A or D < 0. ∎
+(The five rearrangements in (i)–(iii) are checked by sympy in scripts/z20_collapse_check.py, section "Thm 3.1".)
+
+**Corollary 3.2 (PROVED).** For every norm form N of every number field of degree ≥ 2 (and every irreducible binary form):
+every polynomial ET family, Type I or Type II, that is valid at a single point is an ET identity in n = N(x). No cone, no
+positivity region, no direction condition. In particular:
+ (a) the cubic norm-form rung collapses completely (binary cubic forms, ternary cubic norm forms, any signature);
+ (b) POINTWISE_BINARYFORM §4.3 (indefinite binary quadratics: can a family be valid on a cusp?) is settled negatively for
+ polynomial ET families (Type I by Thm 3.1, Type II by SYNTHESIS_SPARKS7 Thm 1.1), and so are §2's power-cusp shells;
+ (c) Thm 1.2′ (cones) is subsumed for homogeneous prime P; Lemma 2.1 remains the tool for families given only by
+ (x, y, z) ∈ ℚ[x]³ (whose ET coordinates need not be polynomial).
+
+**Remark 3.3 (the dictionary: Type I families ↔ units of ℚ[x]/(P)).** The proof shows what a non-collapsing Type I family
+needs: a factorisation 4ABD ≡ 1 in the unit group of the "zero-fibre algebra" ℚ[x]/(P) with non-constant A, B or D, or
+divisibility 4ABD − 1 | A + B. For a one-parameter menu n = φ(u) this algebra is MENU_STERILITY's A = ℚ[u]/(φ), an étale
+algebra with a huge unit group — exactly the algebra in which Theorem A (witness reciprocity) runs; e.g. MENU_STERILITY
+Thm B (n = 48X⁴ + 1) lives on units of ℚ[X]/(48X⁴ + 1). For norm forms in k variables the zero fibre {N = 0} is a cone over
+a geometrically reducible but ℚ-irreducible variety, and its coordinate ring has no units: nothing to factor with. Where
+units do exist — n = uv + 1 (u is a unit mod P), n = 4abd − a − b — the parameters encode a divisor of n ± const (B2).
+So, for polynomial ET families, *the menu ladder's positive-density rungs are sorted by (ℚ[x]/(P))^×*. (Assessment for the
+last sentence; the theorem is the precise statement.)
