@@ -7,6 +7,25 @@
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
 proof has an identifiable gap.
 
+**Wave Z: the first pointwise positive mechanism (for a relaxation), infinite ES families that no ET covering can reach, and sterility as menu-relative and percolation-type (2026-10-15; ledger (J)57–(J)77; tasks O224–O245, reviews R227–R255; every headline theorem had two independent hostile reviews ((J)62, (J)64, (J)66, (J)67, (J)69, (J)70, (J)74, (J)75), all others one; novelty audit O243): ES is not solved.**
+* *Pointwise caps (a relaxation, not ES).*
+  * **Self-generated mute set ((J)64).** For a prime window q = 4x − n with q ≡ 4 − n (8) and (q/n) = −1, reciprocity forces −1 ∈ ⟨primes of x⟩ mod q, which gives a solution of 4/n = 1/x + 1/y + 1/z with z of square denominator and exponent cap e < q. Hence the first unconditional effective pointwise cap: e*(n) ≪ rad(n)^5 for every odd n > 1, and ≤ (16 log n + 70)² under GRH.
+  * Improved to e*(n) ≪ n₀^{1/4+ε} for n ≡ 1 (8) (relative to Pollack 2014, ineffective) and e*(p) ≤ (p − 5)/8 for primes p ≡ 1 (8) (effective) ((J)66). ES itself is cap 0, and cap 0 at a window is exactly the B2 divisor event.
+  * The cap is a sieve-dimension knob with an exact class family 𝒟_e(M) ((J)59, (J)63); its e = 0 case is the classical ET Type II family (Chamberland 2026; O243).
+* *Infinite ES families beyond ET coverings (PROVED, computer-assisted).*
+  * ES holds for all 4^s + k for nine k ((J)62), for all 4^s + 105 ((J)69; every member Mordell-hard), and — the sharp ones — for **all 3·2^s + 1** ((J)74, (J)75, two independent certificates) and **all 7·4^s + 9** ((J)75). By (J)22 Cor 1.5 / (J)68 Lemma 3.1, the last two families provably have NO finite covering by Elsholtz–Tao/divisor classes.
+  * The missing ingredient is a Lemma-1.1 window whose exponent budget is forced by an algebraic factorisation (Sophie-Germain 4X⁴ + 1 = (2X² + 2X + 1)(2X² − 2X + 1), X = 2^{s/4}), i.e. an identity polynomial in an algebraic function of n. So B1-type sterility is menu-relative ((J)74). Its limits are mapped: window Jacobi sterility ((J)75: 15·4^s + 1 and five others are unreachable by ET + window menus), descent ((J)74 Theorem A), and archimedean sterility of rung 2 ((J)76). On primes every positive-density rung collapses to B1/B2.
+* *Sterility over ℤ and F_q[T].*
+  * Sterile Mordell points exist for every prime r ≥ 2^{21.44} ≈ 2.8·10⁶ (was 2³²; joint level-1 sweep, (J)70).
+  * Function fields: ES_q(T) has no finite linear covering for every q = 3^r, r ≥ 2, via a Weil-reciprocity root-product law ((J)67). An integrity check confirmed that the omitted ET types I4 and II2 are dominated on the sterility slices, so these theorems hold for all ET-type coverings ((J)73).
+  * At q = 3 the thirds corner provably misses x*_c (Liouville lemma; (J)71). Sterility is a percolation question: a windowed König lemma, a game barrier, and the observation that counting-only certificates collapse to the union bound ((J)72). That reduces Conjecture 0.2 and r = 17 to a sibling / uniform-multiplicity conjecture ((J)77).
+* *Dictionaries and steering.*
+  * The 4-specific 2-adic input is used up by a Fano-plane pigeonhole ((J)57).
+  * Three side numbers and forced/unforced words: CONJECTURE U collapses to ES-five on the automatic families ((J)58, (J)60).
+  * Near-square signs are Artin symbols in Σ_M = ℚ(ζ_M, √−M), with a complete clean-level classification ((J)61).
+  * 4 | ν is "ℚ(i) ⊂ ℚ(ζ_ν)" ((J)62). There is no global Fano law on the 2-isogeny graph ((J)65).
+* *Assessment.* Wave Z found the first genuinely pointwise positive mechanism (for the capped relaxation) and the first ES families that provably lie beyond every finite Elsholtz–Tao covering. Both escape B1 by moving to richer parameter menus (algebraic or forced-budget windows). Neither reaches primes: the exponent budget at a window and every positive-density rung of the menu ladder end at the B2 divisor lottery. ES remains open.
+
 **Wave Y: new geometric dictionaries, a sharpened barrier map, and function-field sterility nearly closed (2026-10-14/15; ledger (J)39–(J)56; tasks O204–O223, reviews R204–R226; headline theorems had two independent hostile reviews ((J)43, (J)51, (J)54) or one review per theorem ((J)56); all others one; novelty audit O223): ES is not solved.**
 * *Dictionaries for the ES sign (all PROVED, none an existence mechanism).*
   * Five-slice certificates are the vertices of a Farey pentagon / A₂ frieze ((J)40). The sign is fixed by the unique adjacent even edge ((J)42; mod-2 frieze rigidity is Morier-Genoud's). The "transport law" turned out to be the Ptolemy relation mod 8 ((J)45).
