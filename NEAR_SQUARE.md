@@ -111,3 +111,23 @@ a family can cover the Ẑ-neighbourhood of m₀ only if one of its coordinates 
 non-positive at m₀. Example (`scripts/ns_polyfam.py -8 3`): no family found covers m ≡ 3 (mod 8064), while 8 cover
 m ≡ −3, e.g. a = 1, c = (m + 1)/2, d = (m − 1)/2, f = 7, b = (2m² + m − 15)/14, e = (2m − 1)/7 on m ≡ 53 (mod 56)
 (c(−3) = −1, d(−3) = −2). The point m₀ and −m₀ give the same n but sit on different sides of the real roots.
+
+**Lemma 3.2 (positivity propagates down to the largest real root of n; PROVED).** Let n(m) ∈ ℝ[m] and let F be a
+polynomial family (Type I or II) whose coordinates are positive for all large m. Then every coordinate of F is
+positive on (ρ, ∞), where ρ is the largest real root of n (ρ = −∞ if none).
+*Proof.* Otherwise let m₁ > ρ be the largest real zero of a coordinate; at m₁ all coordinates are ≥ 0, n(m₁) > 0.
+Type I: if a, b or d vanish, 4abd = ne + 1 gives e = −1/n < 0; if c or e vanish, ce = a + b gives a = b = 0, already
+excluded; if f vanishes, ef = 4a²d + 1 gives 0 ≥ 1. Type II: if a, b or d vanish, 4abd = n + e gives e = −n < 0; c or
+e: a = b = 0 as before; f: ef = n + 4a²d gives 0 > 0. ∎
+**Theorem 3.3 (integer T1 points obstruct every polynomial family; PROVED).** Let n(m) ∈ ℤ[m] have positive leading
+coefficient and largest real root ρ. If m₀ ∈ ℤ, m₀ > ρ and n(m₀) is an odd perfect square, then no Type I/II polynomial
+family is valid on a class C ∋ m₀. Hence every finite set of polynomial families misses all m in some class
+m ≡ m₀ (mod L), i.e. infinitely many m.
+*Proof.* Lemma 3.2 makes F(m₀) positive; Prop 3.1 makes it an integral point of Σ_{n(m₀)}; ET Prop 1.6. For the
+second statement take L = lcm of the moduli of the finitely many families. ∎
+Remarks. (i) For n = qt + r this recovers ET/Schinzel's "square classes are not solvable by polynomials" (t₀ with
+qt₀ + r = w² lies above the root −r/q). (ii) For n = m² + k, k > 0, ρ = −∞, so every integer T1 point obstructs
+(subsumed by Thm 2.2). (iii) For k = −j < 0 the T1 points are m₀ = (d₁ + d₂)/2 with j = d₂² ... i.e. j = (m₀ − w)(m₀ + w),
+w odd; m₀ > √j obstructs, −m₀ < −√j does not (there n > 0 but it is the other real component) — matching the
+numerics (8 families cover m ≡ −3, none m ≡ 3, for j = 8). (iv) Numerics: max real root over all coordinates of all
+families found is 2.818, 3.865, 4.895 < √j = 2.828, 3.873, 4.899 (j = 8, 15, 24).
