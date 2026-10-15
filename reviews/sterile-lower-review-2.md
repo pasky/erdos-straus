@@ -77,3 +77,50 @@ L₀ = 800 crashes with an OverflowError in `val` (exp(e·L₀) with e > 1.28 fo
 but it means the document's comparison is 600-vs-800 with different rules, not like for like (m4).
 How much the tail matters: at b = 30.16 the first tail K is 27 and each tail term is ≈ 2G·r^{−1/2} ≈ 8·10⁻⁷; the certificate
 margin (≈ 0.0022) would tolerate G up to roughly 3, so the 2^800 tail is not delicate.
+
+### Combiner `zl_r0.py` and the 1/32-octave r-cells — SOUND
+Read line by line (diff vs SE's reviewed `se_r0.py`: new tables, tail module, step 1/32 below Bfine). Checks:
+* Uniformity inside an r-cell [2^b, 2^{b+1/32}): every table row bounds D on its whole N-cell (se_box uses N0 = DN(2^{j/q}),
+  N1 = UP(2^{(j+1)/q}) and every route bound is monotone in the right direction: lower bounds from N0, upper from N1 —
+  re-derived for each route, see the engine section below); N = r^K ranges over [2^{Kb}, 2^{K(b+1/32)}), covered by
+  `table_max` cell by cell (finest table first, fallback to coarser cells that *contain* x, fail-closed on a gap); weights
+  2r^{−k}, 2r^{−(K+1)/2} are maximal and the limit (r − 1)/(2r) minimal at r = 2^b ✓. No monotonicity in r of the table values
+  is needed (and none holds: e.g. P_q32 row 978 > row 979).
+* All cell endpoints K·b, (j + 1)/q are dyadic rationals, exact in binary, so `floor(x·q + 1e-12)` never selects a cell
+  starting above x ✓. Table values padded ×(1 + 10⁻⁹), S ×(1 + 10⁻⁶) + 10⁻²⁰ ✓. Tail used at the top of the N-range with all
+  aggregated exponents rounded up and capped at ≥ 0 (terms nondecreasing in N) ✓; for r ≥ 2^800 every term is in the tail and
+  decreasing in r (p ≤ (½ − e)·ln N₀ ≤ (½ − e)K ln r) ✓. Series cut-off as in SE (R223 m-A1) ✓. Exit 1 on any failure ✓.
+* Reproduced (author's code): plain 30.34375 → 0.494249, l2 30.15625 → 0.497826, both exit 0; plain 30.3125 → FAIL 0.500749;
+  l2 30.125 → FAIL 0.504155 ✓ (the "fails below" statements).
+Independent combiner `scripts/review_r232_combine.py` (mpmath, own table-cover logic, own admissibility check of every tail
+term, own series remainder rule): results in the Thm 2.1 section.
+
+### Thm 2.1 — SOUND (independently re-certified, both variants)
+**Independent level-1 tables.** `scripts/review_r232_box.py` is a from-scratch Python re-implementation of the box sums
+(Q: routes AD, fa, AC, CD, Ea, Ed, τ₃, fac, fca, fda + (c, d)-row aggregation; P: H, A, C, D, E, F, G, τ₃, I, J + (a, d)-row
+aggregation), every route re-derived by me (derivations in the next section), in **exact rational arithmetic**: integer
+cell enclosures N0 = ⌊2^{j/32}⌋, N1 = ⌊2^{(j+1)/32}⌋ + 1; integer box windows [X, 2X − 1] (slightly tighter than se_box's
+λX); Coppersmith (m, w, J) proposed in floating point but **every accepted J(w − 1) verified by an exact Fraction comparison**
+of w^w·n^{m(m+1)/2}·X^{w(w−1)/2} < D₀^{mw} (ℓ² variant: a rational upper bound for μ_w^w = (2√(w/π))^wΓ(w/2 + 1)); Σ1/a and
+τ₂, τ₃ envelopes in mpmath (40 digits) padded up 10⁻²⁵ relative. Validated per box and per row against exact enumeration
+(`scripts/review_r232_box_validate.py`) at N = 17³, 3¹¹, 17⁵, 10⁶ + 3, 999983, 2·10⁶ + 3, both modes: 0 violations
+(D_P = 32, 121 and D_Q = 73, 245 at 17³, 17⁵ reproduced).
+Tables `data/review_r232/{P,Q}_q32_cube.txt` (j = 965..1087, all r-cells 2^{30.15625}..2^{34}) and `{P,Q}_q32_l2.txt`
+(j = 965..1023). **Every one of my 364 cell bounds is below the author's** (mine/theirs: Q 0.940–0.954, P 0.818–0.898, both
+variants) — no cell of the author's tables is undercut by an independent valid bound, and the ratio is stable (no outlier).
+**Independent combination.** With my level-1 tables (b < 34) and SE's reviewed tables for every other term:
+| variant | B0 | tail | max S | at b | Q₁ | P₁ | P₃ |
+|---|---|---|---|---|---|---|---|
+| se_box-only (cube) | 30.34375 | author's zl_tail (2^800) | 0.465750 | 30.34375 | 0.42976 | 0.03066 | 0.00526 |
+| se_box-only (cube) | 30.34375 | **SE's reviewed se_tail (2^600, G = 873)** | 0.486841 | 30.34375 | 〃 | 〃 | 〃 |
+| ℓ² (Lemma 1.1) | 30.15625 | author's zl_tail | 0.469732 | 30.15625 | 0.43214 | 0.03201 | 0.00548 |
+| ℓ² (Lemma 1.1) | 30.15625 | SE's se_tail | 0.495274 | 30.15625 | — | — | — |
+| cube (control) | 30.15625 | zl_tail | FAIL 0.502062 | 30.15625 | 0.46261 | 0.03387 | 0.00548 |
+All runs pass for every r-cell up to 2^800 except the control (cube tables do *not* reach 2^{30.15625}, as the author says).
+The author's terms at b = 30.34375 (their code): Q₁ 0.45431, P₁ 0.03460, P₃ 0.00526, P₅ 7·10⁻⁵ → 0.49425 ✓.
+So both statements of Thm 2.1 are independently confirmed; moreover, with my (≈ 5 % tighter) level-1 tables the se_box-only
+bound r ≥ 2^{30.34375} holds even with SE's original, already-reviewed tail, i.e. without Lemma 1.2. (The SE-tail contribution
+is not monotone in b: it is large when the first tail K lands just above 2^600 — e.g. 0.12 for K = 19 at b ≈ 31.6 — which is
+why the scan over all b matters; my scan covers all b.)
+Not re-checked independently: `P_q1_hi.txt` rows 600..799 (se_box with box ratio 2^{9..12} at N ~ 2^{600..800}; my engine has
+λ = 2 only, infeasible there). They are used only for K·b ∈ [600, 800) in the zl-tail runs; the se-tail runs do not use them.

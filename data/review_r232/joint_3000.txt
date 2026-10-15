@@ -1,0 +1,2 @@
+brute force n <= 12: per-n divisor enumerators complete
+X=3000: P data 74908, Q data 110668, mismatching n: 0
