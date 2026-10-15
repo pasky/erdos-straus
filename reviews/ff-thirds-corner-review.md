@@ -31,6 +31,13 @@ No FATAL defects. Positive controls: 110 non-exact coverings at polynomial point
 Liouville-free brute-force census and my lop search; for k = 2 also identical with my Liouville-free full mode (levels ≤ 8)
 and with zt_lop (levels ≤ 12, 96 hits at 54 points).
 
+Additional defects found by the self-review audit (reviews/ff-thirds-corner-review-audit.md), both repaired:
+* MINOR-10: Prop 1.4's "covers x_u at every level it lives on" is false at the top level N = s − 1 (E + u = g₂T^{s−1},
+  T ∤ g₂ gives depth exactly s − 1, need N + 1 ≤ s − 1); correct at N(s), which is what "covers" means.
+* MINOR-11: the "42 structured hits" (§6, and my reproduction) come from lopsided searches, which omit non-lopsided exact
+  tuples; the census shows ≥ 16 more at N = 5..8, so the structured total is ≥ 58. Unstructured counts and the
+  "all at lc u = −1" conclusion are unaffected (exact tuples need lc u = −1, Prop 1.4).
+
 ## Claim-by-claim
 
 ### Setting / "covers at level N" (FUNCTIONFIELD_ES3 Lemmas 1.1, 2.1, 3.1)
@@ -155,7 +162,7 @@ for every level through 20 (checked by grep).
   (a, z, y, t) = (1/6, 1/3, 1/3, 1/6) with binding route R3c, (0.1, 0.4, 0.4, 0.1), (0.05, 0.45, 0.25, 0.25), …) and the
   12 more on two segments of the face t = 1/2 (e.g. (1/6, 0, 1/3, 1/2), binding T0; a = 0 or z = 0). These are non-degenerate patterns with w, m', g' all of linear degree;
   no polynomial-count argument covers them. The argmax printed by the script is just the first grid point found. So the
-  q = 3 restricted bound is critical along the entire boundary of the Liouville region (the constraint b ≥ s/2 + 1 is
+  q = 3 restricted bound is critical on a large (2-dimensional) part of the boundary of the Liouville region (the constraint b ≥ s/2 + 1 is
   exactly what makes it critical), and nothing beyond "critical, union bound inconclusive" can be read off; the report's
   SHARP/Results line "(critical, at a degenerate corner where true counts are polynomial)" must go.
   Repair: replace the last paragraph of §7 by "the restricted supremum is exactly 0, attained on a 2-dimensional part of the

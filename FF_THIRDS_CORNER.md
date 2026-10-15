@@ -62,7 +62,7 @@ u = 1 + cT − T² (and two degree-4 points); see Prop 1.4.
 **Proposition 1.4 (exact tuples at polynomial points; PROVED, q odd).** Let u be a polynomial, u(0) = 1, h = deg u ≥ 1.
 A tuple with w₁ = −uC₁ exists iff lc(u) = −1 and there are s ≥ 3 and a monic g₂ | (u − 1)/T (up to the unit) with
 v₁ := −(u − 1)/(Tg₂) satisfying u | T^{s−2} + v₁ (then m'C₁² := −(T^{s−2} + v₁)/u, any split with C₁ monic, T ∤ C₁,
-and g' = C₁g₂, w₁ = −uC₁; (R247 repair) for the converse also require T ∤ g₂, deg v₁ < s − 2 and v₁(0) ≠ 0). For such a tuple E = g₂T^{s−1} − u, so it covers x_u at every level it lives on.
+and g' = C₁g₂, w₁ = −uC₁; (R247 repair) for the converse also require T ∤ g₂, deg v₁ < s − 2 and v₁(0) ≠ 0). For such a tuple E = g₂T^{s−1} − u, so it covers x_u at every level N ≤ s − 2 it lives on, in particular at N(s) ((R247 repair) formerly "every level it lives on": at the top level N = s − 1 it fails, as T ∤ g₂).
 *Proof.* As in Lemma 1.2: w₁ + C₁ = (1 − u)C₁ = Tg'v₁ and gcd(C₁, Tv₁) = 1 give C₁ | g'; put g' = C₁g₂, then
 g₂v₁ = −(u − 1)/T and m'w₁C₁ = −um'C₁² = T^{s−2} + v₁. Leading coefficients: w₁ monic forces lc(u) = −1. Conversely the
 displayed data satisfy (B₁), and E = Tg'm'w₁ − 1 = Tg₂(T^{s−2} + v₁) − 1 = g₂T^{s−1} − u. ∎
@@ -237,7 +237,7 @@ constraint bites at every level, and the only escape — an exact family — is 
 
 **The leading coefficient as the archimedean sign (Assessment; a sharp analogy with (J)55).** In F_q[T] the place ∞ is the
 archimedean place and lc is its sign. Exact families at a polynomial point need lc(u) = −1 (Prop 1.4); in the calibration data of
-§3 (52 points of degree 2..4, levels 5..12) all 42 structured hits (dep ≥ s − 2; e.g. u = 1 ± T − T² at N = 6, 7, 10, 11, …)
+§3 (52 points of degree 2..4, levels 5..12) all 42 structured hits found by the lopsided search (dep ≥ s − 2; (R247 repair) the lop search omits non-lopsided exact tuples, so the true structured count is ≥ 58 — all at lc(u) = −1 anyway by Prop 1.4; e.g. u = 1 ± T − T² at N = 6, 7, 10, 11, …)
 are at points with lc(u) = −1, while the lc(u) = +1 points carry only 2 hits (both unstructured, N = 5) (EVIDENCE). Over ℤ, (J)55 found the same split on p = m² + k: for k > 0 every polynomial family meets a fixed
 character (sterile), for k < 0 escaping families exist. In both worlds a *low-height* point is sterile for polynomial/
 exact families exactly on one side of the archimedean sign, and on the other side exact identities (here E = −u, there
