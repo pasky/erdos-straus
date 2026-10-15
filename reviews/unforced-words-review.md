@@ -3,23 +3,27 @@
 Reviewer branch side-agent/review-unforced-words (merged side-agent/unforced-words). From-scratch scripts:
 `scripts/review_r233_*`. ES is not solved; nothing below changes that.
 
-## Summary verdicts (filled in progressively)
+**Overall: no FATAL or MAJOR defect. All proved statements re-derived and SOUND (some after MINOR repairs); every
+number I re-computed from scratch matches the author exactly.** Repairs not applied by me (all MINOR wording /
+label fixes; listed with exact text below for the author).
+
+## Summary verdicts
 
 | # | claim | verdict |
 |---|---|---|
 | 1 | Lemma 1.1 (n ≡ 5 (8) trivial) | SOUND |
 | 2 | Prop F, Cor 1.2 | SOUND (MINOR notation D2) |
-| 3 | Prop F′ (s = 3, 4, 7), Cor 3.1 | pending numerics |
-| 4 | Lemma 2.1, Flip Lemma 2.2 | pending |
-| 5 | Thm 3.2 (Dickson) | pending |
-| 6 | U2 sandwich, CONJECTURE U2 | pending |
-| 7 | Remark 4.1 | pending |
-| 8 | Prop 5.1 (Haar 3/4) | pending |
-| 9 | Lemma 5.2 | pending |
-| 10 | SHARP 1 (failures ⟹ ψ-odd part of n+1 = 3²) | pending |
-| 11 | Lemma 6.1 / 105 genus collapse | pending |
-| 12 | SQ_± split | pending |
-| 13 | labels | pending |
+| 3 | Prop F′ (s = 3, 4, 7), Cor 3.1 (K(p) ≥ 4, p+7, 7p+1 clean) | SOUND (brute force primes < 10⁵, 0 mismatches) |
+| 4 | Lemma 2.1, Flip Lemma 2.2 | SOUND-AFTER-REPAIRS (D4) |
+| 5 | Thm 3.2 (CONDITIONAL on Dickson) | SOUND-AFTER-REPAIRS (D3, D10); system admissible, no local obstruction |
+| 6 | N₋ ≤ U2 ≤ U; CONJECTURE U2 | SOUND; evidence extended to all n ≡ 1 (8) < 10⁷ |
+| 7 | Remark 4.1 tautology | SOUND (D8 on a side sentence) |
+| 8 | Prop 5.1 (Haar 3/4) | SOUND (k = 2…7, all odd classes; conceptual Hensel proof) |
+| 9 | Lemma 5.2 | SOUND (29 568 families, 0 mismatches) |
+| 10 | SHARP 1 (8/8 failures have ψ-odd part of n+1 = 3²) | data CONFIRMED; EVIDENCE; wording D6, D7 |
+| 11 | Lemma 6.1 / 105 genus collapse | SOUND-AFTER-REPAIRS (D5) |
+| 12 | SQ_± split | spot-checks match; D9 |
+| 13 | labels | mostly correct; D6, D7, D9, D10 |
 
 ## Claim 1 — Lemma 1.1: SOUND
 Re-derived. (1, n+2, 2): 2(n+2) − (n+2) − 2 = n. A = n+1, B = 1; sides N_t = n+1 (≡ 6 (8), so 2 ∥ N_t with
