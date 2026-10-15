@@ -8,8 +8,18 @@ only the JSON parameters are read).
 
 | claim | verdict |
 |---|---|
-| Thm 1.1 (ES for all 4^s + 105), Lemma 1.0, 1.0′ — the mathematics | SOUND (independently re-verified) |
-| Thm 1.1 — exposition / labels | SOUND-AFTER-REPAIRS (minor) |
+| Thm 1.1 (ES for all 4^s + 105), Lemma 1.0, 1.0′ — the mathematics | **SOUND** (independently re-verified from scratch, s ≤ 2000) |
+| Thm 1.1 — exposition (s ≥ 64, n ≥ 4⁴, "Mordell-hard for every s", attribution of the 13-class covering) | SOUND-AFTER-REPAIRS (minor) |
+| §1.2 / §3.1 / s6_mixed_points_cuberoots: "mixed points were a menu artefact", "sterility is menu-relative", "violated hypothesis of Thm 1.4" | **GAP** (overclaim + internal contradiction; no sterile point on Λ₁₀₅ was ever known; μ* is in an ET class) |
+| T1 for the exp class | SOUND (rigorous via CAP_DOWN §3; "new kind of T1" overclaimed) |
+| Novelty | not the first all-Mordell-hard infinite family ((J)22: 315·2^m + 1); new as stated in §2 below |
+| s6_unique_forced_cap0 | SOUND-AFTER-REPAIRS (minor) |
+| s6_divisor_pigeonhole | SOUND |
+| s6_numerator_windows | **GAP** (odd ν: K odd impossible; with the correct 2-adic forcing the odd-ν T1 claim is FALSE — ν = 3, 7, 9, 25 counterexamples; 4 \| ν part SOUND) |
+| s6_witness_onesided (EVIDENCE) | SOUND-AFTER-REPAIRS (minor; numerics reproduced) |
+| s6_ydual_windows | SOUND-AFTER-REPAIRS (minor) |
+| s6_window_independence (heuristic) | SOUND (heuristic test consistent) |
+| s6_exp_classes_primes | SOUND (Assessment) |
 
 ## 1. Headline Thm 1.1 — independent verification
 
@@ -169,3 +179,31 @@ non-polynomial identity closes the covering. Thm 1.4 applies verbatim to the enl
 remains open." Delete clause (c) about "absence of a fixed-modulus class at μ*".
 
 ## 10. s6_exp_classes_primes — SOUND (Assessment, negative). No defects beyond the cross-references above.
+
+## Numbered defects
+
+1. **MAJOR — s6_numerator_windows (memo; SYNTHESIS §2 row; README row; AGENT_REPORT).** For odd ν, odd n, m = νK − n odd forces
+   K even, so the K-odd mechanism is empty and "works for every ν/n" is false; the odd-ν "window-shape T1" is about the invalid
+   condition (K/q_i) = −1. Under the correct 2-adic forcing ((K′/q_i) = −1, K′ = odd part) forced windows exist at odd squares
+   for ν = 3, 7, 9, 25 (explicit, verified solutions in §5), refuting "strictly more T1-rigid than the problem". Label
+   "only-if" is the wrong direction. *Repair:* §5.
+2. **MAJOR — mixed-point / sterility framing (SYNTHESIS §0 I2, §1.2 last sentences, §3.1; s6_mixed_points_cuberoots (c) and
+   Assessment; s6_exp_classes_105 "Barrier screen"; AGENT_REPORT SHARP paragraph; README rows).** No sterile point on Λ₁₀₅ is
+   known ((J)62: μ* ∈ II2 (2, 23, 919)); "artefact", "sterile only for polynomial menus" and "violated hypothesis = fixed moduli"
+   are unsupported and mutually inconsistent. *Repair:* §9 wording; state that ET-alone coverability of 105 remains OPEN.
+3. **MINOR — Thm 1.1(a).** "(for s ≥ 64)" and "positivity (n ≥ 4⁴)" are unnecessary: moduli odd ⟹ pure periodicity for all
+   s ≥ 0; all coefficients ≥ 0 ⟹ positive for n ≥ 1. Say "for all s ≥ 0".
+4. **MINOR — attribution.** AGENT_REPORT: "(J)62's 13-class ET covering at L = 360 leaves exactly s ≡ 34 (mod 90)": (J)62
+   (SIGN_FIELDS §1.4) reports a general search leaving s ≡ 124 (mod 360); the 13-class covering with residual {34, 124, 214, 304}
+   is O238's (built with (J)62's z8 code). Reword.
+5. **MINOR — "Mordell-hard for every s"** (§0 I2, AGENT_REPORT): s ≥ 2 (106, 109 are not).
+6. **MINOR — T1 novelty** (s6_mixed_points_cuberoots Barrier screen): "new kind of T1 respect" — it is CAP_DOWN §3 (J)66; and the
+   members of 4^s + 105 are non-squares for s ≥ 5 by (a − 2^s)(a + 2^s) = 105.
+7. **MINOR — s6_unique_forced_cap0:** choose s ≡ −u₀ (u₀ ∈ U \ {1}) instead of "s generating a cyclic factor"; state the
+   setting (all primes of m ≡ 3 mod 4) for "U = 1 ⟹ (ℤ/m)^* = {±1}"; state the δ_n = 0 slice.
+8. **MINOR — s6_witness_onesided / s6_ydual_windows (b):** "(q/p) = −1 forces firing at some cap" needs Thm 1.1 (ii) or
+   CAP_DOWN Thm 1.2 (E)/Addendum. Pair totals 1 655/1 531 vs my 1 635/1 530.
+9. **MINOR — s6_window_independence:** cite the small-window rates (m = 3: 0.88 … 63: 0.22) for the "≤ 63" consistency check;
+   "heuristically" in the Consequence sentence.
+10. **MINOR — novelty sentence missing.** Add: not the first infinite all-Mordell-hard family ((J)22: 315·2^m + 1, 15015·2^m + 1);
+   members with s ≤ 29 are below published computational verification bounds.
