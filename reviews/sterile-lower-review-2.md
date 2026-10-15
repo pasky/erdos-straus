@@ -35,3 +35,19 @@ f | 4a²d + 1, f ≡ −n (4ad)) — a different loop structure from the lemma �
 defining equations and e-formula) and compared **as sets of tuples** per n: X = 300: 3301 P + 4909 Q data, X = 1000:
 17328 P + 25674 Q data (the author's totals), 0 mismatching n. (X = 3000: see below.)
 The cost model after the lemma is correctly labelled Assessment and is plausible (Σ_{acd≲X} X/(4acd) ≈ X(ln X)³/24).
+
+### Lemma 4.3 (U–V factorisation) — SOUND (MINOR m2: implicit q ≥ 1)
+Re-derived without M17D: e·[c(p²b + q²a) + rz²] − ab[(p + q)² + 4rdz²] = (a + b)(p²b + q²a) − ab(p + q)² + rz²(e − 4abd)
+= (qa − pb)² − rz²N = z²W² − rz²r^{2L−1} = 0, using ce = a + b, 4abd = N + e, W² = rN. Hence Gab = c(p²b + q²a) + rz² ∈ ℤ
+and Ge ∈ ℤ; gcd(e, ab) = 1 (a prime dividing e and a divides 4abd − e = N, so it is r, excluded by r ∤ ab) gives G ∈ ℤ —
+so the integrality does not even need M17D Remark 2.4. Ub = cq²a + rz², Va = cp²b + rz², UV·ab = ab(c²p²q² + Grz²) ✓.
+Size claim: U ≥ 1, c ≤ 2b/e, rz² = (qa − pb)²/N ≤ (|p| + q)²b²/N ✓ ⇒ e ≤ 4q²a ✓. The worked example (1, 78, 1, 16),
+u = 11/9 (p = −11, q = 9), N = 17³: z = 3, G = 124, U = 3, V = 9591 ✓.
+`scripts/review_r232_uv.py`: all in-cell P-data of N = r^{2L−1} for (r, L) ∈ {(3,2),(3,3),(3,4),(5,2),(5,3),(7,2),(11,2),(13,2),
+(17,2),(19,2)}, 30 random (p, q) with qa ≡ pb (mod W) each: 5700 instances, G integral, U, V > 0, UV identity, and
+e ≤ 4q²a whenever the size hypothesis holds (14 instances — it rarely holds since |p| ~ W): 0 failures.
+Positivity U, V > 0 uses q ≠ 0 resp. p ≠ 0 or z ≠ 0 (u = −p/q with q ≥ 1 is clearly intended) — m2.
+
+### Assessment 4.2 — SOUND as Assessment
+Spot-checked the quoted engine values: `data/se/P_q4.txt` rows 155 (2^{38.75}: 931), 244 (2^{61}: 538 ≈ "550"), 364 (2^{91}: 98),
+`P_q1_hi` row 600 (7.1·10⁻¹¹) ✓. The conclusion "box-sum certificates cannot reach r = 17" is an Assessment and is labelled so.
