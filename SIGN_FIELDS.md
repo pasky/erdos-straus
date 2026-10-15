@@ -57,8 +57,9 @@ k = 297: 4³ + 297 = 19². (Same pattern as (J)22 §4.2: every OPEN k has an int
   (2, 23, 919) (ord_919(4) = 153), so μ* is NOT sterile; but its neighbours with other 17-adic components are again
   uncovered (L = 42840). An adaptive "lifting" covering (`scripts/z8_adaptive.py`, ordered class lists, independent
   replay checker `scripts/z8_cert_tree.py`) drives the uncovered Haar measure of the exponent space down
-  monotonically — 8.3·10⁻³ (L = 360) → 1.2·10⁻³ (75 600) → 7·10⁻⁴ (982 800) → 8·10⁻⁵ (17 463 600) — without
-  terminating within the run (EVIDENCE that k = 105 is coverable, at large cost; not a certificate).
+  monotonically — 8.3·10⁻³ (L = 360) → 1.2·10⁻³ (75 600) → 7·10⁻⁴ (982 800) → 8·10⁻⁵ (1.7·10⁷) → 3·10⁻⁶ (2.3·10⁸)
+  → 8.5·10⁻⁸ (4.0·10¹², 89 classes, 342 114 uncovered residues) — after which the greedy stalled (no class with
+  M ≤ 10⁵ within its period-growth caps). EVIDENCE (weak) that k = 105 is coverable at very large cost; not a certificate.
 * Assessment. Mixed points are the exponential analogue of (J)22 §4.3's near-square points: an exponent that imitates
   *different* integer square points in different ℓ-adic components of Ẑ. They are where coverings get expensive;
   whether some mixed point is sterile (which would make "all 4^s + 105" uncoverable) is open. No mixed point found so far

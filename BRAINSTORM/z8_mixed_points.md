@@ -15,9 +15,9 @@ sterile; their sterility depends on the ET class supply (the non-square part of 
 
 **Cheap numerics.** k = 105 (`scripts/z8_point.py 1 105 300000 4 3:-2`): μ* = (4 off 3, −2 at 3) explains the residual
 class s ≡ 124 (360) / 844 (2520); n ≡ 19² resp. (41/4)² at unmixed primes; non-residue at q = 181 (ord 90) without an ET
-class; μ* itself lies in II2 (2, 23, 919). Adaptive lifting (`z8_adaptive.py`): uncovered Haar measure 8·10⁻³ → 8·10⁻⁵
-over 28 refinements, non-terminating within the run.
+class; μ* itself lies in II2 (2, 23, 919). Adaptive lifting (`z8_adaptive.py`): uncovered Haar measure 8·10⁻³ → 8.5·10⁻⁸
+over 75 refinements (period 4·10¹²), then the greedy stalled.
 
 **Assessment.** EVIDENCE + description. CONJECTURE (weak): every mixed point of 4^s + 105 lies in some ET class (no
-sterile point found), so a finite covering exists, but its period is ≥ 10⁸. A sterile mixed point would give a clean
+sterile point found), so a finite covering exists, but its period is ≥ 10¹² for this greedy. A sterile mixed point would give a clean
 uncoverability theorem — the pursuit is a finite-but-large computation, not a mechanism.

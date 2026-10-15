@@ -17,7 +17,7 @@ BRAINSTORM/z8_*.md (6, indexed in BRAINSTORM/README.md); scripts scripts/z8_*; c
    screen at L = 360), so the square half of (J)22's criterion holds and only the ET class supply can block a covering.
    The residual exponents are *mixed points* — CRT gluings in Ẑ of the integer square points 4⁴ + 105 = 19² and
    4⁻² + 105 = (41/4)² (μ* = 4 off the 3-adic component, −2 on it). An adaptive lifting covering drives the uncovered
-   Haar measure 8·10⁻³ → 3·10⁻⁶ (38 refinements, period 2.3·10⁸) without yet terminating. Either it terminates
+   Haar measure 8·10⁻³ → 8.5·10⁻⁸ (75 refinements, period 4·10¹², 342 114 uncovered residues), then the greedy stalled. Either it terminates
    (certificate for a fully Mordell-hard near-square family) or some mixed point is sterile (a first *non-square*
    sterile point in an exponential limit set). Worth a dedicated run.
 
