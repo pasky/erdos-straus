@@ -13,9 +13,7 @@ for a in range(3):
             q, r = sp.div(sp.Poly(sp.expand(n*K*(K+d)), X), sp.Poly(19*d, X))
             if not r.is_zero: continue
             y = sp.Poly(sp.expand(n*(K+d)), X)
-            res = [x0 for x0 in range(MOD) if y.eval(x0) % 19 == 0 and (q*19*d).eval(x0) % (19*d.subs(X, x0) if False else 1) == 0
-                   and sp.Rational(q.eval(x0)).q == 1 or False]
-            # integrality of z: q has denominators dividing 19*7^? -> test directly on residues mod MOD
+            # integrality of z: denominators of q divide MOD (asserted) -> integrality depends on X mod MOD
             den = sp.ilcm(*[sp.fraction(cf)[1] for cf in q.all_coeffs()])
             assert MOD % den == 0 or den == 1, den
             Qz = sp.Poly(sp.expand(q.as_expr()*den), X)
