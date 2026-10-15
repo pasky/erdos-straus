@@ -139,12 +139,12 @@ def run(P, M):
             N = [[(nrd(add(els[i], els[j])) - nrd(els[i]) - nrd(els[j])) / 2 if i != j else nrd(els[i]) for j in range(4)] for i in range(4)]
             Mmax = min(M, (p * p) // (4 * p) + 5)
             sv = short_vectors(N, Mmax * p)
+            trB = [trd(e_) for e_ in els]
             cnt = {}
             for q, x in sv:
                 if q % p == 0:
                     m = int(q // p)
-                    z = [sum(x[i] * B[i][j] for i in range(4)) for j in range(4)]
-                    tr = trd(from_vec(z))
+                    tr = sum(x[i] * trB[i] for i in range(4))
                     cnt.setdefault(m, [0, 0])
                     cnt[m][0] += 1
                     cnt[m][1] += (tr != 0)
