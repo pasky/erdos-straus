@@ -11,8 +11,8 @@ were recomputed with FROM-SCRATCH code (`scripts/review_r227_census.c`, `scripts
 | 2 | EVIDENCE: 70–80 % residual removal; K0 = 8 defective deformation; corr; N₋/U scale law; hard primes forced | numbers SOUND (all reproduced exactly); interpretation GAP (CONJECTURE D refuted in its stated form; residuals at K0 = 4, 12, 20, 28, 33 unmentioned/unexplained; B2 sentence must be qualified) |
 | 3 | CONJECTURE U | SOUND (EVIDENCE extended to 10⁷); MINOR wording on the SQ₅ implication |
 | 4 | refutation of N₋ ≥ U/2 | SOUND (all four counterexamples exact; complete list < 10⁷ given) |
-| 5 | Prop R | (pending) |
-| 6 | Prop C | (pending) |
+| 5 | Prop R | SOUND as a tautology; GAP in scope ("local-invariant" undefined; listed examples not shown to be local invariants); can be strengthened to the genus |
+| 6 | Prop C | SOUND (verified for general M); MINOR: the √p twist is redundant for certificates, (c) is a one-way inclusion |
 | 7 | uniform profinite sterility, Prop V | (pending) |
 | 8 | novelty vs (J)48/(J)53/(J)55/R225 | (pending) |
 
@@ -125,7 +125,7 @@ From scratch (`review_r227_census.c` mode 1, Jacobi ψ, zeros allowed in "clean"
 n ≡ 1 (4), 5 ≤ n < 10⁷: U(n) = 0 only at n = 105**, and N₋(n) = 0 only at n = 105 (i.e. χ-form SQ₅ also holds there);
 0 Lemma S violations. T1 control: all 1 580 odd squares < 10⁷ computed (not assumed) with U = N₋ = 0.
 * **D9 (MINOR) s5_unforced_words "CONJECTURE U is implied by SQ₅".** True only for SQ₅ in the form "∃ word with
-  χ = −1" (then N₋ ≥ 1 ⇒ U ≥ 1). DISCOVERIES (J)… also phrases SQ₅ as "χ not identically +1", which at composite n
+  χ = −1" (then N₋ ≥ 1 ⇒ U ≥ 1). DISCOVERIES (J)32 (line ≈ 861) also phrases SQ₅ as "χ not identically +1", which at composite n
   allows χ = 0 words — and χ = 0 words can be forced (ψ(r) = 0 counts as clean). Repair: state the implication from the
   χ = −1 form; note that the census shows N₋ ≥ 1 for every non-square n ≢ 105 < 10⁷, so the two forms agree on the range.
   The equivalence is also *only* "⇒" from SQ₅; U(105) = 0 is a computed fact.
@@ -137,3 +137,67 @@ Exact recomputation (independent enumeration): 5 270 849: N = 505, N₋ = 192, U
 928 779 primes ≡ 1 (4) below 3·10⁷ gives exactly these three prime failures, and min N₋/U below 5·10⁶ = 122/241 at
 3 103 073. Complete list of failures among all n ≡ 1 (4) < 10⁷: 110 897, 1 512 089, 2 152 097, 3 000 329,
 4 095 125 = 5³·181², 5 270 849, 9 948 977 (one prime). The steering note ("no involution") is correctly drawn.
+
+## Claim 5 — Prop R: SOUND as stated for rational local classes; scope GAP
+
+Re-derivation. Q_w = v x² + t y² + u z² − 2xy − 2yz, det = tuv − u − v = p. For odd ℓ ≠ p, L_w ⊗ ℤ_ℓ is unimodular, so
+ε_ℓ = 1; ε_p = χ(w) (CHI_FLIP Thm 1.1, ε_ℓ = (−A/ℓ)^{v_ℓ(n)}, valid for signed words — R219); ε_∞ from the signature
+(SPARKS4 L1); ternary ℚ_v-spaces are classified by (det, Hasse) ⇔ (det, isotropy); Hilbert reciprocity ε₂ε_pε_∞ = 1.
+So the family of ℚ_v-classes is a function of (ε₂, ε_∞), ε₂ of the ℤ₂-class, hence of the Gram matrix mod 8, i.e. of
+w mod 8. ✓ From scratch (`scripts/review_r227_propR.py`): all signed words with |t|, |u| ≤ 60 of all odd n < 400
+(19 055 words with gcd(A, n) = 1, primes and composites, Jacobi χ): χ is a function of (t, u, v mod 8, sign vector) —
+1 270 cells, 0 clashes.
+
+Defects.
+* **D10 (MAJOR, scope/label) s5_reciprocity_forcing Prop R and SYNTHESIS §4(ii); AGENT_REPORT "(Hilbert, Maslov,
+  Dedekind/Rademacher, theta multiplier)".** "Every function Φ of the local invariants of Q_w" is a tautology once
+  the local classes are shown to depend only on (ε₂, ε_∞); the content is entirely the three-bit law (SPARKS4). The
+  memo never defines "local-invariant index", and the listed examples are not shown to factor through the local
+  classes:
+  - "Hilbert symbols": individual symbols (a_i, a_j)_v of a diagonalisation are *not* isometry invariants (they depend
+    on the diagonalisation, and at odd ℓ ≠ p they can be −1 in pairs); only the Hasse invariant is. Say "Hasse
+    invariants".
+  - "Dedekind-sum residues via Rademacher–Grosswald": 12N·s(h, N) ≡ N + 1 − 2(h/N) (mod 8) involves a Jacobi symbol
+    (h/N), a *global* reciprocity quantity of the pair (h, N); it is a cell function only for those (h, N) whose
+    Jacobi symbol is itself expressible through (ε₂, ε_∞) (e.g. (−u/A) = χ). Dedekind sums themselves (not residues
+    mod 8) are not local. State exactly which (h, N).
+  - "theta multipliers": the multiplier of θ_{Q_w} depends on the level and the determinant of the *lattice*, not on
+    the ℚ_v-classes; it happens to be constant here (level 4p for every w, since det = p and adj(G) ≢ 0 mod p), which
+    makes it trivially a cell function, but not "via Prop R".
+  - "Maslov/inertia indices": fine if they mean the signature of Q_w ⊗ ℝ; the TRANSPORT_LAW (J)45 Maslov products are
+    along *paths of words* and the memo should say which index of which form is meant.
+  Repair: define "local invariant of w" := a function of the family of ℤ_v-isometry classes (L_w ⊗ ℤ_v)_v (the genus
+  of L_w). Then Prop R holds in that *stronger* form (my derivation, Assessment-level check): at odd ℓ ≠ p, unimodular
+  ⇒ class fixed by det; at p, det has v_p = 1 so the ℤ_p-class is fixed by ε_p; at 2 the ℤ₂-class of an odd-det
+  (unimodular) lattice is determined by its Gram matrix mod 8, a function of w mod 8. So **the genus of L_w is a
+  function of (w mod 8, sgn w)**, and every genus invariant (mass, Siegel–Weil average, theta multiplier, Hasse,
+  signature) is a cell function. Replace the list of examples by this definition, and say "non-local" = depends on
+  the class of L_w inside its genus (class number data, representation numbers) — which is exactly where (J)48/(J)39
+  put the counting input. Label: PROVED (with that definition); the reading "reciprocity relocates signs, never
+  creates points" is Assessment.
+* **D11 (MINOR) Prop R statement "p an odd prime".** The local computation also holds for odd composite n with
+  gcd(A, n) = 1 (my check covers composites); say so or keep prime but note it.
+
+## Claim 6 — Prop C: SOUND, with two scope remarks
+
+Re-derivation. p ∤ M ⇒ ℚ(√p) ⊄ ℚ(ζ_M) (p ramifies in ℚ(√p) only), so Gal(K_M/ℚ) = (ℤ/M)^× × {±1}, g = (−1, −1) of
+order 2; α = √p(ζ − ζ⁻¹) is g-fixed, α² = p(ζ − ζ⁻¹)² = p(θ² − 4) < 0 at every real embedding of ℚ(ζ)⁺ (|θ| < 2);
+[F_M : ℚ] = φ(M) = 2[ℚ(ζ)⁺ : ℚ] (M ≥ 3); CM ✓. (b) Frob_h = (h mod M, (p/h)) and (p/h) = (h/p) ✓; "splits completely
+in F_M" ⟺ Frob ∈ ⟨g⟩, and "not in ℚ(ζ)⁺(√p)" excludes Frob = 1 ✓. (d) θ = 0 for M = 4: F₄ = ℚ(√−4p) = ℚ(√−p) ✓;
+non-principal genus of −4p ✓.
+From scratch (`scripts/review_r227_propC.py`): actual splitting (root count of the characteristic polynomial of a
+primitive element of F_M mod h) vs the Frobenius prediction, for M ∈ {5, 7, 9, 15, 16, 20, 24} (odd M and non-
+squarefree M included), p ∈ {5, 13, 17, 29, 37, 41}, primes h < 1500: 9 128 checks, 0 mismatches. Remark: for
+M = 16, α alone generates only a quartic subfield (α² = p(√2 − 2) ∈ ℚ(√2)), so "F_M = ℚ(ζ_M)⁺(α)" must not be read as
+"F_M = ℚ(α)" — the author's formula is correct as written.
+
+Defects.
+* **D12 (MINOR) Prop C(c), reason for inertness.** For h prime, h | p + 4c²d and h ≡ −1 (mod 4cd): (p/h) = (−d/h) = −1
+  by BRIDGE_WORLDS Thm (i) (line ≈ 136); this is why the twist bit is automatic. The memo's "automatic … χ = ψ(h) = −1"
+  cites the wrong reason (h is not the A of a word). Consequence: **the √p-twist carries no information beyond (J)50**
+  — "Frob = g in K_{4cd}" ⟺ "Frob = c_∞ in ℚ(ζ_{4cd})" for primes dividing p + 4c²d. The CM field F_M is a
+  repackaging; state that explicitly (PROVED dictionary, zero new content). The brief's / table's "certificate primes ⟺
+  Frobenius c_∞σ_p" is only "⟹"; "⟸" needs h | p + 4c²d (B2), which the memo does say in the next bullet.
+* **D13 (MINOR) T1 reading.** "At p = m², g is not an element of Gal(K_M/ℚ)" is right, but the operative T1 fact is
+  again BRIDGE_WORLDS (i): h | m² + 4c²d makes −d a QR mod h, contradicting (−d/h) = −1. Cite it; the field-theoretic
+  phrase is a restatement (Assessment).
