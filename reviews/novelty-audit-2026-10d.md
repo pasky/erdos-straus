@@ -130,3 +130,59 @@ Archive of this pass: `sources/lit2026d/`.
 | (J)48 Prop A2 (χ = +1 classes = conic points mod p / S₄) | KNOWN in substance (sublattices of ℤ³ of index p² isotropic mod p ↔ isotropic lines; Brandt/Eichler level-p orders in the Hurwitz order, as in LPS) | already flagged in TWO_FIBRES |
 | (J)53 Lemma "T1 deforms": tp + 1 = tm² + c² | elementary; APPARENTLY NEW as an ES statement | see §5 for the polynomial-family side |
 | (J)53 CONJECTURE 3SQ | EVIDENCE; no literature analogue found | — |
+
+---
+
+## 3. The sibling numerator 7 and failure-free numerators ((J)46, (J)49, (J)41)
+
+### 3.1 Findings
+
+* **Pomerance–Weingartner, arXiv:2511.16817v2 = Ramanujan J. 69 (2026) Paper 31**
+  [archived `sources/pw.txt`, re-read].
+  * Cor 2.2 / Cor 2.4 (pp. 4–5): for m ≥ 4 and p prime, Type I ⟺ ∃ a, d, f with
+    f | ma²d + 1, mad | p + f; Type II ⟺ ∃ a, b, e with e | a + b, mab | p + e — ET's
+    parametrisation with 4 → m (also attributed to Aigner, J. Reine Angew. Math. 1964, and
+    Nakayama).
+  * **§6 (p. 20): "By sifting with the seven congruences in [ET, Proposition 1.9], with 4
+    replaced by m, we have verified the m = 5 case up to 10¹⁸, the m = 6, 7, 8 cases up to
+    10¹³ …".** So PW use exactly the m-analogues of the Mordell/ET polynomial congruence
+    families for m = 7; they do not print which classes mod 105 / 840 those families
+    leave uncovered.
+  * **Table 1 (p. 20): exceptions n ≤ N: m = 4 none (N = 10¹⁸); m = 5: 1; m = 6: 1;
+    m = 7: 1, 2 (N = 10¹³); m = 8: 1, 2, 3, 11, 17, 131, 241; m = 9: 1, 2, 5, 11, 19; …**
+    Hence the numerators with no non-trivial failure known are 4, 5, 6, 7 (and 3, which is
+    trivial since m ≤ k). Rem 8.3 (p. 22): "When m = 7, the first prime p > 7² without a
+    Type II solution is 127."
+  * ET arXiv:1107.1010 Rem 1.10 (p. 8) [archived `sources/lit2026/audit-elsholtz-tao-1107.1010.txt`]:
+    "The results in this paper would also extend (with minor changes) to the more general
+    situation in which the numerator 4 … is replaced by some other fixed positive integer".
+* **Math.StackExchange q. 3374919, "7/n as a sum of three unit fractions"** (2019; answer
+  2023) [visited]: the level-14 identity for odd n ≡ 2 (mod 7):
+  7/(14k − 5) = 1/(3k − 1) + 1/(2(3k − 1)) + 1/(2n(3k − 1)), with the remark that
+  Schinzel's square obstruction does not prevent it. So at least one of (J)49's level-14
+  identities is on record as folklore.
+* **Palamà, "Su di una congettura di Schinzel", Boll. UMI (3) 14 (1959) 82–94** [visited,
+  bdim.eu open PDF; text kept as `sources/lit2026d/palama-1959-bumi-signed-sums.txt`]:
+  concerns Schinzel's **signed** version (sums ±1/x₁ ± 1/x₂ ± 1/x₃), verified there for
+  m < 23; not about positive 7/n. Palamà 1958 (5/n) and B. M. Stewart 1964 (5/n for
+  n ≢ 1 (mod 278460)) are the classical numerator-5 covering results [secondary: ET
+  references; AIMS Math. 6 (2021) snippet]. **No published "7/n for all n ≢ 1 (mod 105)"
+  statement was found.**
+* **Not accessed:** Guy, *Unsolved Problems* D11 (only the front matter was retrievable);
+  Sierpiński, Mathesis 65 (1956); Aigner 1964; Webb, Časopis 101 (1976).
+* **Searches with no relevant hit:** "7/n sum of three unit fractions congruence classes
+  covered", "Schinzel conjecture m/n … 7/n except n congruent 1 modulo", "m/n … numerator 7
+  all primes except congruence class modulo 105", zbMATH (Palamà, Schinzel conjecture).
+
+### 3.2 Verdicts
+
+| Claim | Verdict | Notes |
+|---|---|---|
+| (J)49 Thm 3.1 (7/p for every odd prime p ≢ 1 (mod 105); uncovered set {1} at levels 14/42/70/210, {1, 211, 421, 631} at 840) | **KNOWN IN SUBSTANCE / folklore; exact printed statement not found** | the identities are PW Cor 2.2/2.4 instances; PW §6 sieve with "ET Prop 1.9, 4 → m" for m = 7 is the same covering (unprinted); one level-14 identity is on MSE 3374919. Ledger already disclaims novelty — keep, add the PW §6 and MSE pointers. |
+| (J)46 "7/p solvable at every prime ≤ 10⁸" (CERTIFIED) | **KNOWN (stronger)** | PW Table 1: no exception n ≤ 10¹³ other than 1, 2 |
+| (J)46/(J)49 "4, 5, 6, 7 are the failure-free numerators" (implicit) | KNOWN as EVIDENCE | PW Table 1 (p. 20) |
+| (J)49 SHARP 2 (full T1 for 4 \| M; fails for M = 3, 5, 6, 7, 11, 19) | **PARTIAL** | the 4 \| M half is ET §4 / Prop 1.6 with d ↦ hd, as stated; the failure certificates (7/9, 7/25, …) are trivial searches; "only 4 among failure-free numerators has full T1" APPARENTLY NEW as a statement |
+| (J)46 Prop 1.1/Cor 1.2 (shot families carry T1 iff −M is a discriminant) | APPARENTLY NEW (elementary) | — |
+| (J)46 Thm 4.2 ("Mordell's 840 = reach of universal one-slot χ-witnesses", A ∈ {2,3,5,7,8,15,20}) | APPARENTLY NEW as a characterisation | the six Mordell classes are classical (Mordell 1969; Yamamoto 1965) |
+| (J)41 Cor 2.1 (8/131 = 1/20 + 1/131 + 9/2620 etc.; M^□ certificates at the PW failures) | APPARENTLY NEW (finite computation) | failures themselves = PW Table 1 (already attributed in (J)31) |
+| (J)41 Thm 1.1(a) (M^□(n) at every odd non-square n, M ≡ 0 (4)) | APPARENTLY NEW, elementary (one Dirichlet prime + genus character) | no "square-numerator relaxation" found in the literature |

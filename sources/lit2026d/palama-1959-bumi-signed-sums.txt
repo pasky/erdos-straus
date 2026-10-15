@@ -1,0 +1,609 @@
+        B OLLETTINO
+U NIONE M ATEMATICA I TALIANA
+
+
+
+
+   Giuseppe Palamà
+
+   Su di una congettura di Schinzel.
+
+   Bollettino dell’Unione Matematica Italiana, Serie 3, Vol. 14
+   (1959), n.1, p. 82–94.
+   Zanichelli
+   <http://www.bdim.eu/item?id=BUMI_1959_3_14_1_82_0>
+
+
+
+
+   L’utilizzo e la stampa di questo documento digitale è consentito libe-
+   ramente per motivi di ricerca e studio. Non è consentito l’utilizzo del-
+   lo stesso per motivi commerciali. Tutte le copie di questo documento
+   devono riportare questo avvertimento.
+
+               Articolo digitalizzato nel quadro del programma
+              bdim (Biblioteca Digitale Italiana di Matematica)
+                                 SIMAI & UMI
+                            http://www.bdim.eu/
+                    Su di una congettura di Schinzel.
+                    Nota di G-IUSEPPE PALAMA (a Lecce)
+
+Snnto, - Ê contenuto nella breve mtrodueione che segne.
+
+
+    AV. SIERPINSKI, [I] ('), dice numeri A, i numeri razionali rela-
+tivi che soiio somme algebriche di s unità frazionarie. ï^oi qui,.
+con una lieve Avariante, adottiamo lo stesso simbolo As per indicarf
+invece i numeri razionali positivi mjn che sono somme délia forma
+
+
+
+
+ove gli xt sono interi positivi ed i segni H- e — possono essere
+scelti coiuunque. Se mjn si puö rappresentare con una di tali
+somme. —mjn si puö esprimere con la somma opposta.
+       ANDRÉ SCHINZEL., [I] V délia scuola di SIÉE PIN SKI ha formulato-
+l'ardita ipotesi che ogm numero razionale positivo m/n con n
+maggiore di un certo intero kMi, dipendente da m, è un A3.
+    Taie congettura è stata verificata, [1], per ogni m < 20. Noi
+qui stabiliamo un teorema dal quale segue senz'altro che la con-
+gettura di SCHINZEIJ, se si prescinde dal valore di k(m) che
+d'altronde, per gli m qui considerati. è facile determinare, è vera
+per ogni m < 23 e che dà un notevole contributo alla dimostra-
+zione (che per taluni m è veramente assai complicata^ corne ha
+rilevato il Prof. SIERPINSKI) délia congettura per un m qualsiasi,,
+corne si vedra anche in altro snccessivo
+
+
+    t. Innaiizi tutto diamo tutte le soiuzioni in numeri naturali
+délie seguenti equazioni indeterminate
+
+(1,)              mjn = l/xl H- \jx% :     mjn = ljxl — ljxi ;
+
+           ( ^    = 1/^4- l/Xj-i-i/rr3;     mjn = ljxl -+- l/x2— Vjxt\
+           [                 m n = ljxl — l/x2 — l/x a .
+
+       T risultati relativi alla prima délie (IJ e délie (2,) sono noti, [2]fc
+
+
+   (M I numeri tra parentesi quadre riraandano alla bibliografia riportata
+in fine.
+                  SI* 1M VNA    CONGETTI'HA Df   SCH1XZKL               88
+
+
+
+   2. Tenendo presente che nelle due equazioni (1,) per m = 1,
+deve esse rispettivemente Xj—w=fc/c, k intero > 0, si lia che tutte
+le soluzioni. se ne esistono. délie (1,) sono date da
+
+(lj)             x1 = {ndzk)/mJ         xt = (k'±: n)lm.
+con rispettivamente k<Zk\ k < fc', se, per fr, k' interi positivi
+complementari di n*. cioè se per
+
+               fcfc' = »* ;       \<k^<n,          1 < A- < «
+
+rispettivamente. i secondi ruembri délie | 1 2 | sono interi.
+
+   3. Con le formule délia précédente Sez., poichè nel la prima
+délie (2X) per wi~\ deve essere #,>%. si ha facilmente che tutte
+le sue soluzioni sono date da
+
+       xl = n -H k,       xt = (nxl -+- A)/k,     x% = [nxl -+- B)jk.
+
+quando k si fa variare nell'intervallo (1, '2n)\ A, B (con A < H\
+si assumano uguali a due fattori interi positivi complementari di
+n\n-*-kY purchè xt, xd siano interi. cioè quando è
+
+
+
+ed xt, x3 siano interi.
+
+   4. Se riteniamo ^ > 0, a mezzo dei risultati délia Sez. 2, tutte
+le soluzioni in numeri naturali delîa seconda délie |2,) per w—1.
+se innanzi tutto è x} > n, cioè se è
+
+                      xx = n -H fc, fc intero > 0.
+sono date da
+
+
+per
+
+
+e k variabile nelFintervallo (1, n), cioè per 1 <k <in, qualora x2
+e x3 risultino interi.
+   Che sia lecito ritenere k < n dériva dal fatto che in corrispon-
+denza di ogni valore di xi soddisfaciente a n<xï<2n con il metodo
+esposto si hanno tutte le soluzioni délia indicata equazione. Difatti
+se fosse ~k>n e risultasse n<jct<%n si avrebbe una soluzione già
+trovata precedentemente; se nella stessa ipotesi k>n.      risultasse
+<S±                           GIXJSEPPE   PALAMÀ
+
+
+
+iuvece O < xt < n, si avrebbe una soluzione che si ottiene con
+F alt ra ipotesi xi <; n, cioè quando si suppone
+
+                                xx = n — k,          k intero positivo < % ;
+e cl allora
+
+         xx — n — k.       xt = (nxx — A)/k,       x3 = (B — nx^jk
+
+danno tutte Ie soluzioni di
+
+                          1/» = l/a;, — l/xs-f-1/ac,,
+se per
+              l<fc<w,         0<A<:B            AB=z n2{n. -+- i)«,
+
+#;. e x3 risultano interi. L' ipotesi k>n, in quésto caso di xx~n—k,
+ci dà le soluzioni che si hanno nella successiva Sez.
+
+
+    5. In modo analogo si ha che tutte Ie soluzioni in numeri
+ïiaturali délia terza délie (2J per m = 1 sono date da
+
+         xx = n — kj       xt = {nxt ~+~ A)ik,       x a = (nxl -
+
+se x2 e #3 sono interi per
+
+
+
+
+    6. Mediante i risultati delle precedenti Sez. 3, 4, 5 si trovano
+tutte Ie soluzioui in numeri naturali delle (2^, quando esistouo.
+Si ha cioè:
+      a) Tutte Ie soluzioni in numeri naturali della prima delle
+(2X) sono date da
+
+      x1 = (n -h- fc)/m, xt = (nxl -+- A')/k,        xd — (nxx -
+
+se Ie Xi sono intere per
+
+              1 < k < 2n,       il'B' = w2av,       0 < ^ '^ ^ ' .
+
+      6) Tutte Ie soluzioni in numeri naturali, se esistono, delle
+
+         mjn — ljxl -h- ljxi — ljx9,       mjn = l/a:l — 1/aCj •+- l/ac3
+
+sono date da
+
+      xl = (n -+• k)/m,       x% = (nxl — A')/h,        x 3 = (Bf — nx^lk,
+                      SU Dl   UNA CONGETTURA Dl         SCHIXZEL                  85
+
+
+
+se tali frazioni sono intere per ogni fc, A', B' definiti da
+              1 <ç k < n,        A'B' = n9x^}            0 < A' < B' ;
+e da rispettivamente
+        x1 = (n — k)/m,       x% = (was, — -£')/&,         # 3 = \B' — nxj/k
+se questi valori di xt sono interi, quando k, A', Bf variano in
+modo che si abbia
+              1 < k < »,         0 < ^L' < JB' ,         il'S' = »ïaï1a.
+     c) Tutte Ie soluzioni in numeri naturali, se esistono, della
+terza delle (2X) sono date da
+        as, = (» — &) m       o:, = (M-CCJ -+- A')/k,      x3 = (»xx -+- B')/k,
+con
+
+
+se xt sono interi.
+
+   7. I risultati della précédente Sez. si possono condensare
+nell'unico seguente
+       TEOÜEMA I. -    Tutte Ie soluzioni intere relative^ (con Xj>>0), della
+                          mjn = 1/Xj -f- l/x B -+- l / x 8 ,
+sowo da/e da
+(17)      »! = (» 3b k)/m, x2 = (wx, =b
+
+ove A', B' sowo fattori complementari concordi di n'xf, cioè è
+
+
+ed t» cui se k fea iZ segno -+-. A' e B' possono avere entrambi il
+segno -+- od iZ se^na — ; ea* analogamente se k fta «7 se^rno — ;
+avendosi inoltre
+                                        oppure          1 <C fc
+a seconda che k, A' e B' hanno il segno •+- oppure no ; con
+                0 < | il' | < | JB' |    op^we           0 < J.'
+a seconda che A', B' hanno il segno — o rispettivamente il segno
+-+-, purchè xt siano interi.
+NB                        G i l SEP1MC PALAM À
+
+
+
+    S. A. mezzo del Teorema précédente si stabilisée agevolmente
+che non sono A3 i seguenti numeri razioiiali:
+20t2<), 2h2U. 22)31. 23/13. 24/59, 25/11, 26/41, 27/37,28/41, 29/37,
+30/37. 31,43, 32/il, 33/43. 34/43, 35/43, 30/47, 37/47, 38/47,39/53,
+40(49, 41/53. 42/47. 43/53, 44/61, 45/53. 46/53. 47/61, 48/53, 49/67.
+•~>n,r><K 51/59, 52/61. 53/61. 54/61. 55/67. 56/71, 57/67. 58/67,59/67,
+tHUiJ. 61179. 62/67. 63/73, 64/79, 65/79, 66/73, 67)79, 68)73,69/89,
+70/79, 71/93. 12\1<K 73/83, 74>83. 75/83, 76/89. 77/89.78/83, 79/97,
+so,U7, SI/103, S2/S9. S3/91. X4i97, 85/101. S6/97. 87/97, 88/97.
+sUilOU 901101, 91/103, 92/101, 93/103, 94/103, 95/109. 96/103,
+97/107. 9Sj103. 991107. 160,107.
+     Pertanto i denominatori delle precedenti frazioni danno uu
+limite inferiore di k[m), per m uguale al rispettivo numeratore,
+('H)ô si ha
+         fc(20) > 29, k{21) > 29, fc(-J2) > 31,..., Jk(100) > 107.
+    Vamio notati i limiti inferiori troppo bassi di k{m) per m = 23.
+m = 25.
+    Numerosi poi sono i numeri razionali m/n, eon m/n <C 3 (evi-
+doiitemeute gli m/w >> 3 non possono essere A^) e, per esempio
+nt < 100. che non sono A3. Eooone alcuni : 21/13, 24/31, 32/37.
+37/42, 40/47. 52/59. 67/59, 73/6*7, 88/S3, 92/97. 93/101. 94/101,
+99/101.
+
+     9. Se neiriuteuto di dimostrare la verità della congettura di
+St HixzEiv attribuiamo al numeratore della frazione min i succes-
+si \i numeri della serie naturale. e supponiamo diaver dimostrato
+tal*' verità per og'ni intero minore di m. se poniamo
+                            n — mh -*ir r
+^tl a r M fa assumere ciascun valore intero e positivo <\—^— ,
+ir. m) = l, ove al solito (r, in) sta per il M. C. D. di r ed m (se
+fosse (r, »i)=^l. la frazione m/w si ridurrebbe ad alfcra con i
+termini piû piccoli gik considerata precedentemente), e se infiiie
+poniamo
+             h = rh' -H s, con 0 < s < r,      {s. r) = 1
+ed h' intero positivo od eventualmente nullo, si ha che per dimo-
+strare la congettura di SCHINZEL occorre provare innanzi tutto
+die la frazione m/w, che assume la forma
+                               m
+                         mrh' H- sm rh. r '
+                          SU Dl UX; OOXGETTCRA DT SCHIJNT7EL                                     87
+
+
+•quando ad r e ad s si faimo percorrere i valori indicati, è un AZi
+-esclusa al più qualche frazione m n in cui il valore di n si ha
+con h' — 0.
+    Un contributo a quest'ultima dimostrazione si ottiene se appli-
+chiamo il Teor. I, considerando separatamente i due casi (le for-
+mule cui si perviene valgono qualunque siano (r, m) ed (s, r)|:
+       a)     n — mrh' -+- sm •+- r ;
+       b) n = mrh' -H sm - r
+e si assume rispettivamente                 le — zp r.
+   Difatti se
+       a)     n = wrü' -+- sw H- r,              /r — — r,
+dalle (17) si trae
+                                       x{ = rh' -+- s,
+
+                                nxx -+- A'                     nxx -+- JB'
+                      a
+                          *            •     •       «a           _     r
+
+
+
+con
+
+
+                 0<       i l ' K | ,3' ,        oppure          0 < A' < E'
+
+a seconda che .4', JB' sono entrambi negativi o entrambi positivi
+rispettivamente.
+
+   Ma in generale i valori che si possono attribuire ad A' sono
+
+               i' = ±l,            tir Xj,        -±: X{~,            nxl.       zb n
+
+-ai quali corrispondono rispettivamente i seguenti valori di B' :
+
+         B' = =b » 2 x, 2 ,        ± n-x,,          db n 2 ,          «a?!.      rh wXj2.
+
+      Si ha cosï rispettivamente sostituendo nelle (I9), se si pone
+
+                              — imh' H- l)x1 — smh' = V,
+
+        ax)    Xi — rh -h s,           x% == P             r    ~ >           xz — ±    nxxx,.
+
+nelle quali si corrispondono fra loro i segni superiori e fra loro
+gli inferiori: cosa analoga accade nelle formule che seguono;
+
+                                                               sism ziz 1)
+        a2)    xx = rh' -+- s,         x2~ P + h —                  ;      ,       xz ~ =t nx s :
+88                                      GIUSEPPE PALAMÀ
+
+
+                                               _ , _             S2(wdtl)
+      a3)        x, — r + s ,       xt— _f- x ^ s                       -       ,
+
+      a4|         Xi = r/i' -+- s,         xs =rz x3 — 2P ~                 7
+                                                                    r
+
+      a5)         ^=^'+8,               x2^=
+
+   Le formule a2) hanno interesse quaudo è $m ± 1 divisibile per
+r, posto allora
+                       sw ± 1 = rp,     p intero,
+si ha
+      at') iCj —rit' + s,    x% = — x'i(mh'-*-p H- 1), Xj^dbnx^,
+            essendo           n = wa;, -+- r,           « > i,      fc'=            0, 1,... .
+     Analogamente dalle formule a3), a4), a5) si ha
+      a3') per w =t 1 = rp
+a-j^rifi'-es,            oSg——x^poîj-t-l).             acj^qpJpjCj-»- ljw,                  iî~mxy-hr
+
+           s=0,      h ' = l , 2,...;      « = 1 , 2,..., r — 1 , ^ ' = 0 , 1, 2,... ;
+
+       a/)         per    m == rp
+
+      Xj = rh' -f- s,           x, = x 3 — — 2xi(jpx1 H- 1),                    n = rpxj rb r^
+
+                                          *' = 0, 1,... ;
+
+       a5')        quando si ha s -+- 1 = r è
+             xï = rh' -+- r — 1,               xz — — w(fe' -+- 1),             x% = x 1 x t>
+                              n = mxï -+- r,            h' = 0, 1,... ;
+       a
+           s")      quando invece è s = 1 si ha
+                   x1 = r/j' -f 1,         x2 = —        fe'^,    x-t = — XjX2,
+                              w = mxj -+- r,           h' = 1, 2 j . . . .
+
+
+    10. Analogamente nel caso
+       b) n = mrh' -+- sm — r,                      k = r,
+ se si pone
+                               SU Dl I NA CO:SGETTURA Dl SCHIN7EL
+
+
+dalle (19) si ha
+     &,)         per       A' = ± 1,              £ ' = =ir «-as,-,
+                                                       s-m =t 1
+
+
+         &,)     per       .4' = =fc xx,            B' = db w*a5j,
+
+     /yt        W?'    I O         T         O ~t~ Tl' t      ^"   =    -         T      —|— WY
+     JU\        * IV   T~ Oj       tA/ç,     Vjf —1— iV ^T^                 j     *^i    "^ fVtAJ^
+
+
+
+         bt)     per       il' = db x*,              B'= ±: nr,
+     -     *'                     — OH-Ji'f                        s-'(m±l)
+
+         64)     ^ ' = B' = iM,,
+
+                        xl = rh -+- s,              cc, = x% = 2Q -H
+
+         65)     ^L' — dr n,                B' ~ =t ^ ^
+
+
+
+
+    Anche ora Ie formulp 62). b3), 64), 65) danno luogo alle seguentl
+altre•
+      bt') Se sm ± 1 = rp,     p intero,
+
+           ccx =: r/i' -+- 5,              Xj = x^mh' -+- p — 1),                xz = =î= warâ,
+                  s = 2, 3,...,               n = mxx —r,              h' =: 0, 1,... ;
+
+II caso s—i è considerato in 65");
+      63') Se m+:l=rp,      p intero
+           xi = rh' -+- s,             xt = x}{pxx — 1),               x3 = r t (jpXi — l)w,
+n = mxx — r,             s = 0, h' = 1. 2, ... ; s = 1, ... , r — 1, J i ' = 0, 1,...;
+         &/)      Se m = rp
+         xy = rh' -+- s,            cc2 := ic3 = 2x1(pjcJ — 1),                 n = rpxx — r,
+                                              h' = 0, 1, ...;
+         fe5 )         Se s + l = r
+
+                x l = rh' -1- r — 1,               x% = (fc' -+- l)w,           x 3 — rc,a;,,
+                                 n =z mx1 — r,                h' = 0, 1,... ;
+U\)                           G1TSEPFF PALAMÀ
+
+
+
+
+      xt = rh'   +- 1,   x% = 7?'«.      ït 3 = —   tt]3*j,   « = wajj — r.
+
+                                h' = l. 2
+
+
+      I I . Dimostriamo o ra il seguente
+      TEOREMA II. - Posto n = mh dr r la frazione
+                                           m
+                               m/n =
+                                         mh dr r
+è ntt A 3 J per v = 1, 2,..., 10, quahinque sia m, prtmo o no con r.
+€. per ognuno degli r detti. per infiniU valori dt n.
+     Posto difatti fo = r/i' -+- s, (fe ^= 1, 2,... ed eventalmenie anche
+//' = 0: s = 0. 1, ... , r — 1), con r ed s primi fra loro o no, risulta
+                            n = rmh' -|- sm rtr r.
+    Ora w/(rmfe' + sw J : r) è un J.3 per s = 0, 1? r — 1, qualunque
+siano m ed r rispettivamente per Ie formule a4), b4); ab")< bb"}:
+°/)^ &s') delle precedenti Sez. 9 e 10. Pertanto il teorema è dimo-
+strato se proviamo che esso è vero per r = 4, s ^ 2 ; r = 5, s = 2. 3:
+r = 6, s = 2, 3, 4; ... ; r = 10, s — 2, 3,..., 8.
+    Ora se r = 4, s = 2 le formule a4), 64) danno soluzioui intere
+per h' =z 0. 1,....
+    Si noti poi che per m del tipo
+                          rp, rp q= 1,       2rp — r
+qualunque siano gli interi r e p e per s = 2, H, .., r — 2. in cia-
+scLino dei tre casi si hanno soluzioni e rispettivameute con Ie
+formule a4'), 64'); &3'), &3'); ct4), 64) con 7&' = 0) 1
+    Analogamente se r = 2/ + 1 , m — (2r' -f- l)p q= r' per s = 2,
+s -= 2r' — 1 le formule a2'), 6S') danno in entrambi i casi soluzione
+intera per h' — 0, 1,... .
+    Notato ciö si osservi che per r ~ 5 , potendo m avere una dell*3
+seguenti forme óp, 5p rp 1, 5p q= 2 in ciascuno di questi casi per
+s — 2 ed s = 3 si ha soluzione intera per h' z=~ 0, 1,... .
+    Se r = 6, poichè ei si puö limitare a considerare i casi
+                          m = 3p,        m = 3j9 =fc 1
+
+^si ha in ognuno di essi soluzione intera con h' = 0, 1,....
+                                   COÏSGETTURA Df   SCHl^t/^T                 Ui
+
+
+
+   Se r = 7, per Vosservazione            che précède si debboiio esaminare
+^oltanto i casi
+         m = lp ± 2,       s = 2, 8, 4, 5 ;     w = 7/> db 3,      s = 3, 4
+in ciascuno dei quali cou Ie nostre formule si ha soluzione intera,
+h' = 0,l,... .
+    Se r = 8, i casi da esaminare sono
+                            m = Sp ± 2,         8p -+• 3
+in ognuno dei quali con Ie nostre formule si ha pure soluzione
+intera, con h' = 0, 1
+   Se r = 9 i casi da esamiuare sono
+m = 9p dz 2,       9p =>_ 3 per s = 2, ... , 7 ; e m — 9p dt 4 per s ~ 3, ... , 0
+
+-e in ciascuno di essi si ha soluzione intera con ogni I J ' - O , 1
+    Se r == 10? i casi da considerare si riducono a
+          m = lOp i±r 2,      10p dr 3,       lOp -±. 4 per s = 2. ..., S,
+in ciascuno dei quali si ha eoluzione cou h' = 0, 1
+   Si ïioti perö che in quest' ultimo caso di r = 10, quando è
+             s = 3,    m = lOp =tr 2 ed m = lOp ± 4 :
+                s — 7,      m ~10p-£:2        ed m = lpp db 4.
+si procède corne nel seguente caso s = 3, m = lOp =b 4. Poichè è
+             a;, — 10//' H- 3,     » = (10p dr 4)(10fe' + 3 ) ± 10,
+SL h a
+
+
+                 (lOp dz 4)(10fc' -+- 3) ±: 10 ~ (5p db
+avendo posto hx = 2h\ Ora l'ultima frazione délia précédente è
+un A3 come si desume dalle formule relative al caso r ~ 5 , quando
+all'ft' di quelle formule si attribuiscono valori pari 0 , 2 , 4 , . . . .
+
+   12. Un teorema analogo a quello délia précédente Sez. sussiste
+anche per r= 12, 14, 18.
+   Premettiamo due osservaziom.
+   OSSERVAZIONE  I. - (cui si è già aceennato precedentemente}
+                                  lm—l 1
+La frazione min con n-=mh±r, r<          , sia tale che si abbia.
+
+                                 (r. m) = d 4= 1,
+92                            GIXJSEPPE PALAMÀ
+
+
+posto T — r'à, m = m'd, h = rh' -f-s, fr'^0, la frazione m/n diventa
+                               m'
+                     —>Y   , „ ,           T   ,,   m < m,
+                   m[r\dh) -f- »] zt r ^
+ossia, se si pone ancora
+                           s = «V -+- s",
+
+
+
+ed essa è un Az e Ie rispettive unità frazionarie ed il loro segno
+si determinano subito qualora si ammette di aver già fatto tale
+determinazione per ogni frazione con il numeratore minore di
+m ed h'>Q, con al più esclusa qualcuna di simili frazioni cho
+si ottengono con h' = 0.
+     OSSERVAZIONE II. - Se si è provato che
+                                        m
+                                       f
+                                   m(rh -+- s) =b r
+
+è un Ai7 per ogni r — 1,..., r, < r <;—~— , con Ie restrinzioni
+                                            L ^ J
+più volte dichiarate circa i valori di h', e se (s, r) — D e si pone
+s — s'D, r — r'D, essendo perö (r, m) — 1, la frazione m/n assume
+la forma
+                        1            m
+                        D * m{r'h' -+- s') db r' *
+
+   Ora essendo quest'ultima frazione un A% per Ie ipotesi fatte
+ed essendo l/x19 l/xt, l/x3 Ie rispettive unità frazionarie, con se,
+intero positivo ed xt, x3 interi relativi, è anche un Az la frazione
+min e si ha
+                        = \/Bxx -+- 1/Dx2 H- 1/Dx3.
+
+    13. TEOREMA III. - Se ogni frazione con il numeratore minore
+di m è un A3> con h ' > 0 (ad eccezione al più di qualcuna di tali
+frazioni che si ha con h' —0) e se la stessa cosa si verifica per un
+dato m con ogni
+                                    — 11
+
+ alïora
+                                     m
+                               m(rh0 + s ) ± r '
+     ':=l, 2,..., ed eventualmente anche h'=0) è un A3 per r=12, 14, 18.
+                   SK   TU T \ A   COXanTÏUEA DJ   SCHT>VEL                93
+
+
+
+   Difatti se utiüzziamo le due osservazioni precedenti e tenianjo
+presente che il teorema è vero qualunque sia r per s = 0 , 1, r—1.
+basta limitarsi a provare il teorema soltanto pe,r r — 12, s — 5 , 7;
+r = 14, s = 3, 5, 9, 11 ; r — 18, s = 5, 7, 11, 13. Dimostriamo per
+esempio che il teorema sussiste per r = 14, s = 3, 5, 9, 11,; analo-
+ghe sono Ie dimostrazioni degli altri casi. Le forme possibili di
+m sono
+
+I4p,   14p±l,   14p=ir2,    14pdb3,      14prb4,   14pdb5,    14p=b6,   14p—7
+
+per i primi due valori di m. per m — 14p — 7 e per m pari, si
+hanno subito soluzioni intere qualunque sia s; inoltre se
+
+    a) m = 14p ± 3 , s = 3, 5, 9, 11 si hanno soluzioni intere a
+mezzo rispettivamente delle a,), 5,); a2% 68'); a2'), 6S'); a j , 6j);
+
+     6) m —14£>r+3 5, s = 3, 5, 9, 11, soluzioni intere si hanno me-
+diante rispettivameute Ie at% &/); at), 6:); «1), 6^; atf), 6g').
+   In tutti i casi detti di r = 12, 14, 18 soluzioni intere si hanno
+per ogni ft/ = 0^ 1, ... .
+
+
+   14. Per dimostrare la, verità della congettura di SCHINZEL per
+m = 19, 20, 21, 22, 23, basta determinare il corrispondente k(m).
+   Ora essendo
+<lu)                        n = m{rh' - f s ) ± r,
+
+a noi intéressa per la determinazione di h(m) il caso
+
+                              fo' = 0,      s = l.
+
+   Per tali valori di W ed s la (ll4) diventa
+
+
+
+
+       a) se m= 19, per r <Ç
+
+dalla (2U) si ha
+                                   10 < ^ ^ 28.
+
+   Ora il Teor. I dà immediatamente soluzione per w—12, 13,... r 28;
+invece per w = l l , si ha che 19/11 non è un i 3 ; quindi
+
+                                    &(19) = 11.
+H4-                          till'SKPPK   PALAM À
+
+
+
+      Lu modo analoao si ottiene che
+       b) &(20) — 21* :
+       c) fc|21| — 2 9 ;
+       d) k{22) = 3 1 ,
+       e) k(2S) = 13.
+
+    15. I teoremi dimostrati danno un notevole contributo all».
+dimostrazione délia verita della congettura di SCHINZEL per altri
+valori di m.
+    Se per es. 2 4 < m < 3 7 , tenendo presente i teoremi precedent^
+la congettura di SCHINZEL è dimostrata se proviamo soltanto che
+soiio Az Ie frazioni che si hanno per ogni r ed s indicati a fiança
+di ciascun m, quando si sia determinato il corrispondente valore
+tli kim):
+in = 24. r= 11, s ^ 2, 3, 8, 9;
+m =25,    r = l l , s = 3, 5. 6, 8;
+m =i 56' r ~ 1 1 , s = 2j 4, 7, 9 ;
+   — 27, r — 11, s = 4, 5. 6, 7:
+m = 2N. r = l l . s = 4, 5, 6, 7; r = 13, 8 = 2,3.4,5,8,9,10,11:
+•m = 29, r = 11. s = 2, 4, 7, 9 ; r = 13, s = 5, 6, 7, 8 :
+ni = ;w, r = 1 1 , s = 3,. 5, 6, 8 ; r = 13, s = 2, 5, 8, 11 ;
+m = 31, r = 11, s = 2, S, 8, 9 ; r = 13, s = '2, 3, 4; 6, 7, 9, 10, 11 :
+m = 32, s = 13, s = 3, 4, 5, 6. 7, 8, 9, 10 ; r = 15, s = 2: 4. 11, 13 ;:
+m. = ^^, r — 18. s = 3, 4? 5, 6, 7, 8, 9, 10 ;
+m = 5^. r = 13, s~ 2, 3, 4, 6, 7, 9, 10, IL :
+nt = 35, r = 11, s = 2, 3, 8, 9 ; r = 13, s = 2, 5, S, 11 ;
+          r = l6, "s = 3, 7, 9, 13;
+m = ,V6*. r = 1 1 , s = 3, 5, 6, 8 ; r= 13, s = 5, 6, 7, 8 ;
+          r = 17, s = 2, 4, 6, 7, 10, 11, 13, 15;
+m = #7, r = 11. s = 2, 4, 7, Ü ; r - = 13, s = 2, 8, 4, 5, 8, 9, 10, 11 :
+          r = 15, s = 4 , 7 , 8 , l l ; -r- = 16 . s = o , 7," 9, 11;
+          r = l7, s = 2 , 3, 4, 5, 7, 8, 9, 10, 12, 13, 14, 15.
+
+   16. Il Teor. J consente di dare un nlteriore contributo alla
+questione che ci intéressa, corne si vedrà in altro sncccessivo
+Lavoro.
+                            BIBLIOGRAFIE
+| 1 | W. SIBRPIXSKI. Sur les décompositions de nombres rationnels en frac-
+      tions primaires, «Mathesis», LXV, (1956), pp. 16-32;
+/2] G. MIGNOSI. Sulla equazione dell'Ottïca, « RendieonM del 'Sent, della,
+      PacoltK di Sc. del la Univ. di Cagliari ». Fasc. Ott.-Dicem. 1931.
+
