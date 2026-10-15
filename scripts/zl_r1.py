@@ -44,6 +44,8 @@ def main():
     P1 = load('P_q1.txt', 1); P1.update({k: v for k, v in load('P_q1_hi.txt', 1, DZ).items() if k not in P1})
     P = [load('P_q32.txt', 32, DZ), load('P_q32_k3.txt', 32, DZ), load('P_q4.txt', 4), P1]   # P_q32_k3: se_box P 1984 2239 32 (O228 round 2)
     Q = [load('Q_q32.txt', 32, DZ), load('Q_q4.txt', 4)]
+    if os.environ.get('ZL_L2K3'):                       # zl_box (Lemma 1.1) tables: P 1984..2111 (K = 3), 3328..3519 (K = 5), q = 32
+        P.insert(0, load('P_q32_k3_l2.txt', 32, DZ)); P.insert(0, load('P_q32_k5_l2.txt', 32, DZ))
     LP, LQ = 800.0, 100.0
     tP, wP, _, _ = se_tail.tailP(32, LP); tQ, wQ, _, _ = se_tail.tailQ(16, LQ)
     tP, tQ = agg(tP), agg(tQ)

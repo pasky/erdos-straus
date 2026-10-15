@@ -8,3 +8,21 @@ x86_64
 a9e335c17687f288cf7aad7ca93b4940a559e068c9a2c93e1322a6c97782443a  scripts/se_r0.py
 tables: P_q1_hi.txt = se_box P 600 999 1 1 64 24 (stopped after j=841; rows 600..841 used up to j=799); P_q32.txt, Q_q32.txt = se_box P|Q 768 1087 32 1 64 24; P_q32_l2.txt, Q_q32_l2.txt = zl_box P|Q 928 1023 32 1 64 24
 certificates: ZL_L2=1 python3 scripts/zl_r0.py 30.15625 800 34 -> r0_certify.txt; python3 scripts/zl_r0.py 30.34375 800 34 -> r0_certify_plain.txt (se_box tables only)
+--- O228 round 2 (joint level-1 sweep, STERILE_LOWER §6) Thu Oct 15 14:28:09 UTC 2026 ---
+9f49f295d017cfb266525907b6818a03ac89152b51aa1c31be9deb77851105e2  scripts/zl_sweep.c
+2ac1915d46aeb256d90305904b2975f830b3a073ec52cfc41cc0f569bc503d88  scripts/zl_r1.py
+0f0d019fce679732d6b771b78c7aa965b4e3338c1da48040d161598fcd180ca0  scripts/zl_merge.py
+6accc52447748f6ec7ca573f23f7eb5d3014a9dca9ee763f2a97ea789f02b320  scripts/zl_boxa.c
+binaries (gcc -O2 -march=native): zl_sweep (orig. source, runs 29,28,27,26,25) sha 1712d178818b5f1f; zl_sweep2 (+ZL_ALO/NOP/BIN, run 24 part b) d679256c80d534a4; zl_sweep3 (+ZL_SHORT rho, run 24 part a) 7e6da5eb106a1289; zl_sweep4 (prime-table check fix, runs 23,22,21) 7578b4a67f9c8ed4. All validated by zl_sweep_check.py (0 mismatches) and/or identical ZL_DUMP md5 on [1e6,2e6).
+runs: zl_sweep X0 X1 A Y 32:
+ 29: 536870912 1196563654 40000 536870      (4853 s)  engine ACUT=40000  zl_boxa Q 928 965 32 1 64 24
+ 28: 268435456 536870912 65536 268435       (3053 s)  ACUT=65536 896..927
+ 27: 134217728 268435456 32768 134217       (1068 s)  ACUT=32768 864..895
+ 26: 67108864 134217728 131072 67108        (2422 s)  ACUT=131072 832..863
+ 25: 33554432 67108864 262144 8388          (4440 s)  ACUT=262144 800..831
+ 24: 16777216 33554432 524288 4194 = [ZL_SHORT=8 a<330000 incl. P (426 s)] + [ZL_NOP a in [330000,524288) (4415 s)], merged by zl_merge.py; ACUT=524288 768..799
+ 23: 8388608 16777216 8388610 2097 ZL_SHORT=8 (1801 s)  all rows -> engine 'none'
+ 22: 4194304 8388608 4194306 1048 ZL_SHORT=8 (537 s)    all rows
+ 21: 2097152 4194304 2097154 300 ZL_SHORT=8 (157 s)     all rows; cells j >= 686 pass with ZL_L2K3=1 (tables P_q32_k3_l2 = zl_box P 1984 2111 32, P_q32_k5_l2 = zl_box P 3328 3519 32)
+ extra se_box table P_q32_k3.txt = se_box P 1984 2239 32 1 64 24 (loaded by zl_r1 by default)
+certificates: python3 scripts/zl_r1.py data/zl/sweep_NN.txt A Y ENG > data/zl/r1_NN.txt ; 21: ZL_L2K3=1 ... > r1_21_l2.txt
