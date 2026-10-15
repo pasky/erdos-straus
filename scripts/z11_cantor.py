@@ -3,7 +3,8 @@
 # On C the l-adic component is exact, so a class of modulus M = 2^a M' meets C in a cylinder over supp(L_M): for each
 # pattern on supp(L_M) the value n mod M is determined.  Classes: ET families (mordell_lib.residue_table) and divisor
 # classes D_q, with odd prime powers Q <= QMAX whose ord_Q(4) is S-smooth.  Reports the uncovered patterns in {A,B}^S.
-# Usage: PYTHONPATH=scripts uv run python scripts/z11_cantor.py c0 k PA PB LMAX QMAX MMAX [extra labels l:v,...]
+# Usage: PYTHONPATH=scripts uv run python scripts/z11_cantor.py c0 k LMAX QMAX MMAX LABELS(comma list) [-v] [-g]
+# (labels = the integer square points, e.g. 4,-2,2,3 for k = 105; patterns are |LABELS|^|S|)
 import sys, time, functools, itertools
 from math import lcm
 from collections import defaultdict
@@ -12,7 +13,9 @@ from sympy import n_order, factorint, primerange
 from sympy.ntheory.modular import crt
 import mordell_lib as ML
 
-c0, k, PA, PB, LMAX, QMAX, MMAX = map(int, sys.argv[1:8])
+c0, k, LMAX, QMAX, MMAX = map(int, sys.argv[1:6])
+LAB = [int(x) for x in sys.argv[6].split(',')]  # label values, e.g. 4,-2,2,3
+NL = len(LAB)
 S = list(primerange(2, LMAX + 1))
 idx = {l: i for i, l in enumerate(S)}
 t0 = time.time()
@@ -34,7 +37,7 @@ def mu_mod(o, pat):  # pat: dict l -> 0/1
     f = factorint(o)
     if not f: return 0
     ms = [l ** e for l, e in f.items()]
-    rs = [(PA if pat[l] == 0 else PB) % (l ** e) for l, e in f.items()]
+    rs = [LAB[pat[l]] % (l ** e) for l, e in f.items()]
     return int(crt(ms, rs)[0])
 
 
@@ -67,7 +70,7 @@ for m, parts, sp in odd:
         W = ML.residue_table(M)
         if not W: continue
         nM += 1
-        for bits in itertools.product((0, 1), repeat=len(sp)):
+        for bits in itertools.product(range(NL), repeat=len(sp)):
             pat = dict(zip(sp, bits))
             r = nmod(M, a, parts, pat)
             if r in W and bits not in cov[sp]:
@@ -75,27 +78,28 @@ for m, parts, sp in odd:
 # divisor classes
 for q, Q, o, sp in pps:
     if Q != q or k % q == 0: continue
-    for bits in itertools.product((0, 1), repeat=len(sp)):
+    for bits in itertools.product(range(NL), repeat=len(sp)):
         pat = dict(zip(sp, bits))
         if nmod(q, 0, [(q, o)], pat) == 0 and bits not in cov[sp]:
             cov[sp].add(bits); wit[(sp, bits)] = (q, 0, ('D', (q,)))
 print('moduli tested %d, supports %d, %.1fs' % (nM, len(cov), time.time() - t0), flush=True)
 
 N = len(S)
-sig = np.arange(2 ** N, dtype=np.int64)
-covered = np.zeros(2 ** N, dtype=bool)
+sig = np.arange(NL ** N, dtype=np.int64)
+covered = np.zeros(NL ** N, dtype=bool)
+dig = lambda l: (sig // NL ** idx[l]) % NL
 for sp, pats in cov.items():
-    key = np.zeros(2 ** N, dtype=np.int64)
+    key = np.zeros(NL ** N, dtype=np.int64)
     for j, l in enumerate(sp):
-        key |= ((sig >> idx[l]) & 1) << j
-    tab = np.zeros(2 ** len(sp), dtype=bool)
+        key += dig(l) * NL ** j
+    tab = np.zeros(NL ** len(sp), dtype=bool)
     for bits in pats:
-        tab[sum(b << j for j, b in enumerate(bits))] = True
+        tab[sum(b * NL ** j for j, b in enumerate(bits))] = True
     covered |= tab[key]
 unc = np.nonzero(~covered)[0]
-print('patterns %d, uncovered %d' % (2 ** N, len(unc)))
+print('patterns %d, uncovered %d' % (NL ** N, len(unc)))
 for x in unc[:30]:
-    print('  B on', [l for l in S if (x >> idx[l]) & 1])
+    print('  ', ' '.join('%d:%d' % (l, LAB[(x // NL ** idx[l]) % NL]) for l in S))
 if '-v' in sys.argv:
     for sp, pats in sorted(cov.items(), key=lambda t: len(t[0])):
         if len(sp) <= 2: print(sp, sorted(pats), [wit[(sp, b)] for b in sorted(pats)][:4])
@@ -103,11 +107,11 @@ if '-g' in sys.argv and len(unc) == 0:
     # greedy minimal subcover of C_S by single (support, pattern) witnesses
     ents = []
     for (sp, bits), w in wit.items():
-        key = np.zeros(2 ** N, dtype=np.int64)
+        key = np.zeros(NL ** N, dtype=np.int64)
         for j, l in enumerate(sp):
-            key |= ((sig >> idx[l]) & 1) << j
-        ents.append((sp, bits, w, key == sum(b << j for j, b in enumerate(bits))))
-    left = np.ones(2 ** N, dtype=bool)
+            key += dig(l) * NL ** j
+        ents.append((sp, bits, w, key == sum(b * NL ** j for j, b in enumerate(bits))))
+    left = np.ones(NL ** N, dtype=bool)
     chosen = []
     while left.any():
         sp, bits, w, m = max(ents, key=lambda e: (int((e[3] & left).sum()), -e[2][0]))

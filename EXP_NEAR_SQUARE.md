@@ -50,3 +50,11 @@ MMAX 10⁵): the DFS follows one surviving lineage through all of H and dies at 
 (e.g. μ ≡ 38 mod 2⁶, 34 mod 3⁴, …) — not a mixed point. Such points are covered by classes whose periods involve larger ℓ
 (II2 887: ord 443; II2 1487: 743; II2 3035: 2·3·101; …). So the binding constraint for a finite tree is the
 **ℓ-range of the class periods**, not the mixed points; H must contain many primes ℓ (exponent 1).
+
+**Quaternary core.** The C tree (`z11_tree.c` on the z11_pool output, H = all ℓ ≤ 200) grinds in a region whose open path is
+a gluing of *all four* square points (labels A = 4 on {5, 7, 11, 23, 29, 31}, B = −2 on {3, 13, 17}, c = 2 on {19, 43}, d = 3
+on {41}, generic only at 83). So the true mixed-point set is the label Cantor set C₄ = Π_ℓ {4, −2, 2, 3}.
+`z11_cantor.py … 4,-2,2,3` (brute force over 4^|S|): ℓ ≤ 19: 2 of 65 536 patterns uncovered; ℓ ≤ 31: 4 of 4 194 304
+(all = σ₀ with 19:2, 29:−2 and 23, 31 ∈ {4, −2}). `z11_cantor_dfs.py` (primes in increasing order, QMAX 10⁶, MMAX 3·10⁵):
+survivors 4, 4, 1, 1, 2, 4, 1, 2, 4, 2, 4, 8, 8 up to ℓ = 41, then grow ×3 per prime (19 008 at ℓ = 79): for large ℓ the
+pool has too few classes whose period support is {ℓ} ∪ (small primes). Next: adaptive choice of the branching prime.
