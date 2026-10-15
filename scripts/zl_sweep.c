@@ -5,6 +5,8 @@
       m = 4a^2 d + 1 fully factored by a sieve in d (primes <= sqrt(m)); every divisor f <= X1 + 1 of m and every c with
       n = 4acd - f in [X0, X1) and n a + c >= a f.   (acd <= (n+1)/2 => d <= (2n+2)/(4a), f <= n + 2.)
    Counts are kept only for PRIME n (odd n, prime bitmap); 16-bit saturating (65535 = overflow -> caller fails closed).
+   Env (O228 round 2; unset = previous behaviour): ZL_ALO=a0 -> Q rows a in [a0, A) only; ZL_NOP=1 -> skip P;
+   ZL_BIN=file -> also write the raw uint16 arrays JP, JQ (odd n in [X0, X1)) for merging split runs (zl_merge.py).
    Usage: zl_sweep X0 X1 A Y q [all]     prints per cell [2^{j/q}, 2^{(j+1)/q}) (cells clipped to [X0,X1)):
       "C j lo hi maxP maxQ max(P+Q) nprimes"    ("all": count every odd n, no prime filter -- validation mode). */
 #include <stdio.h>
@@ -46,7 +48,8 @@ static u64 cof[L]; static uint32_t fp[L][MF]; static uint8_t fe[L][MF], nf[L];
 static u64 dv[1 << 16];
 static void sweepQ(void){
   u64 *delta = malloc(sizeof(u64) * npr), *nxt = malloc(sizeof(u64) * npr);
-  for(u64 a = 1; a < A; a++){
+  u64 ALO = getenv("ZL_ALO") ? strtoull(getenv("ZL_ALO"), 0, 10) : 1; if(ALO < 1) ALO = 1;
+  for(u64 a = ALO; a < A; a++){
     u64 dlo = Y / a + 1, dhi = (2 * X1 + 2) / (4 * a);
     if(dlo > dhi) continue;
     u64 mmax = 4 * a * a * dhi + 1, P = isqrt64(mmax); long np = 0;
@@ -100,8 +103,10 @@ int main(int argc, char **argv){
   for(long i = 1; i < npr && (u64)pr[i] * pr[i] < X1; i++){ u64 p = pr[i];
     u64 s = ((X0 + p - 1) / p) * p; if(s < p * p) s = p * p; if(!(s & 1)) s += p;
     for(; s < X1; s += 2 * p) isp[(s - X0) >> 1] = 0; }
-  sweepP(); fprintf(stderr, "P done\n");
+  if(!getenv("ZL_NOP")) sweepP(); fprintf(stderr, "P done\n");
   sweepQ(); fprintf(stderr, "Q done\n");
+  if(getenv("ZL_BIN")){ FILE *fb = fopen(getenv("ZL_BIN"), "wb"); if(!fb){ perror("ZL_BIN"); return 7; }
+    if(fwrite(JP, 2, M, fb) != M || fwrite(JQ, 2, M, fb) != M){ fprintf(stderr, "short write\n"); return 7; } fclose(fb); }
   /* cells */
   int j0 = (int)floor(q * log2((double)X0)) - 1, j1 = (int)ceil(q * log2((double)X1)) + 1;
   for(int j = j0; j <= j1; j++){
