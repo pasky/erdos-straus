@@ -147,3 +147,25 @@ checked with exact rationals against Def 1.1 (756 checks; cap formula of Lemma 3
   So "e*_win(p) ≤ 3 using windows ≤ 1000" for all p ≤ 10⁶ (EVIDENCE). (True e*(p) = 0 by ES itself; 7132 primes have
   no cap-0 window ≤ 1000, i.e. their Type II ES solutions need a larger window or Type I.)
 * T1 control: no odd square a² ≤ 10⁶ has any window (Cor 1.2 T1 check), as proved.
+
+## 4. Goal 4: Type I shape adds no forced dimension — the window dichotomy
+
+**Proposition 4.1 (Type I windows are not forced; PROVED, elementary).** Let p ≡ 1 (mod 4) be prime, k′ a prime with
+a := (pk′ + 1)/4 ∈ ℤ (so k′ ≡ 3 (mod 4)), and consider ES^{(y,e)}(p) solutions of Type I shape x = pa, y = a·w,
+z = aw/(k′w − 1) (w ≥ 1; every Type I-shape solution with a | y has this form, as 4/p − 1/(pa) = k′/a).
+(a) For every odd prime s | a: (s/k′) = (s/p). And (a/p) = +1 always (4a ≡ 1 mod p).
+(b) If every odd prime s | a has (s/p) = +1, and a is odd or k′ ≡ 7 (mod 8), there is no such solution for any
+e ≤ ∞. In particular this happens whenever a is an odd prime.
+*Proof.* (a) pk′ ≡ −1 (mod s), so (k′/s) = (−1/s)(p/s); reciprocity with k′ ≡ 3 (4): (s/k′) = (k′/s)(−1/s) = (p/s) = (s/p).
+(b) A solution needs D := k′w − 1 = G·q² with G = gcd(D, a), q odd, rad q | a (den z = D/G must be q², and
+rad q | y = aw with gcd(q, w) = 1). Then D is a product of primes of a, all squares mod k′ by (a) and the hypothesis
+on 2, while D ≡ −1 is not ((−1/k′) = −1). ∎
+*Check:* `scripts/z12_typeI.py 400 60 20000`: 612 symbol identities (a); in all 95 predicted-empty windows no solution
+with w ≤ 2·10⁴; solutions found in 149 of the others.
+**Dichotomy (PROVED; reading Assessment).** In a Type II window (x = (n+q)/4) the parity identity is (K/q) = −1:
+an *odd* number of prime factors of K are non-residues, which forces −1 ∈ ⟨S⟩ and hence ES^{(y,q)} (Thm 1.1). In a
+Type I window (x = pa) the parity identity is (a/p) = +1: an *even* number, possibly zero, so nothing is forced, and
+the window can be dead at every cap. The ES sign χ = −1 of the campaign ((J)10, (J)32) is exactly what makes Type II
+forced; Type I carries the opposite sign. So the cap opens no free Type I dimension at the subgroup level; Type I's
+contribution to ES^{(y,e)} is a genuine lottery (factorisation of (pk′+1)/4 into non-residues mod p), whereas
+Type II's subgroup level is free and only its exponent budget is a lottery (Lemma 2.1).
