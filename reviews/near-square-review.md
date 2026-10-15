@@ -20,6 +20,8 @@ From-scratch scripts: `scripts/review_r225_*.py`. ES is not solved; nothing belo
 | CONJECTURE Y10-S | correctly labelled; evidence real but thin (2- and 7-adic factors only) |
 | Escaping example 4/2801 and its family | SOUND |
 | §2 EVIDENCE (0 escaping families for k > 0) | SOUND (reproduced, wider grid) |
+| §4 census numbers | SOUND (reproduced; 40-prime subsample matched by independent code) |
+| §5 hardness (EVIDENCE) | SOUND as descriptive EVIDENCE; numbers reproduced; partial mechanism found (see below) |
 
 ## Claim-by-claim
 
@@ -171,3 +173,29 @@ families of a family file whose denominators divide L, computing their integrali
   (Z_k^□); the escaping families remove the 2-adic classes m ≡ 1, 5, 7 (8) and the 7-adic class m ≡ 4 (7) — a factor
   4 · 2 = 8 — and nothing else. Y10-S is a reasonable conjecture; the evidence is two levels built from 2, 3, 5, 7
   at one j. Label CONJECTURE is correct.
+
+### §4 census and §5 hardness (EVIDENCE)
+* Independent census `scripts/review_r225_census.py` (own word enumeration, own clean/T1 tests, sympy factoring):
+  0 mismatches with ns_census.c on all 17 primes p ≡ 1 (4) in [100000, 100400) and on a random 40-prime subsample of
+  (10⁵, 10⁶) (N, N₋, N_T1, N_T1₋, N_cl, N_cl₋ all equal). Full ns_census run reproduces the totals 34 392 primes,
+  5 570 014 words, 432 677 clean, 356 023 T1-type, 0 χ = −1 on either; T1-type ⊂ clean in the data (N_u = N_cl).
+* Independent analysis `scripts/review_r225_hardness.py` (own cell construction): RMAX = 31 reproduces every §5
+  number (corr −0.571; slopes −0.78 / +0.025; K0 bins −0.019, −0.050, −0.046, −0.042, −0.029, −0.015, −0.0067,
+  +0.0035; beyond-clean −0.0093 ± 0.0014, −0.0045 ± 0.0008; K0 = 24: −0.153 / −0.068 ± 0.010). The effect is stable
+  from RMAX = 13 to 31 (64 → 2 048 cells). At RMAX = 47 (21 658 cells, 12 364 singletons) everything shrinks by
+  ≈ 2–3×, but that is mostly the demeaning artefact of tiny cells (singletons have residual 0), not evidence of an
+  adelic explanation; a regression adjustment for (r/p), r > 31, would be the right test (not done).
+  Multiple testing: the headline −0.0045 ± 0.0008 (5.6σ naive) survives Bonferroni over the ~15 bins/offsets shown;
+  the per-offset K0 values (n = 36–100) do not need to be taken individually.
+* **Partial mechanism for the beyond-clean gradient (new, EVIDENCE + elementary argument; offered to the author).**
+  For every word, tp + 1 = (tu − 1)(tv − 1) and p + u = v(tu − 1), so p ≡ −u modulo w := tu − 1 and (p ≡ 1 mod 4)
+  χ = (w/p) = (p/w) = (−u/w) for odd w; with w ≡ −1 (mod u) reciprocity gives χ = (−1/w)(−1/u)(−1)^{(u−1)(w−1)/4}
+  (u, w odd). If K0 + u = s² with gcd(m, s) = 1 (m = ⌊√p⌋), then p + u = m² + s², so every odd prime of w is
+  ≡ 1 (mod 4); with p ≡ 1 (4) this forces u ≡ 1 (4) when u is odd (p + u ≡ 2 mod 4) and then χ = +1 (the 2-part also
+  works out: p + u ≡ 2 mod 8). Empirically (`scripts/review_r225_uside.py`, 806 primes with K0 < 30 and 300 with
+  K0 ≥ 300; words on non-clean levels only): **0 of 1 176 "u-side T1" words (K0 + u or K0 + v a coprime square) have
+  χ = −1**, vs. rate 0.68–0.70 for the rest. So near-squares carry a second, *u-side* deterministic family of
+  χ = +1 words (p + u a sum of two coprime squares), invisible to the t-level clean test. Size: in the K0 < 30
+  sample these words are 0.9 % of beyond-clean words, shifting N₋/(N − N_cl) by ≈ −0.006 of the ≈ −0.02…−0.04
+  residual, so they explain a minority; the general version ("all odd primes of tu − 1 are ≡ 1 mod 4", not only
+  via K0 + u = s²) is the natural next candidate. (The even-u case was not proved here; data show no exception.)
