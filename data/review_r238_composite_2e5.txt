@@ -1,0 +1,7 @@
+(1) non-squares n=1(4)<=200000: 49776 exact checks, bad=0, worst cap at least window (55, 37933, 223)
+(2) Thm 1.1' composite windows m<=300, n<=20000: 4118 exact checks, bad=0
+(3) odd squares a^2<=200000: windows found 0 (expect 0); Cor1.2(c) exact checks 58, bad=0
+
+real	0m7.665s
+user	0m7.616s
+sys	0m0.047s
