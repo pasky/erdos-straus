@@ -1,0 +1,955 @@
+PRIME SPLITTING IN ABELIAN NUMBER FIELDS AND LINEAR
+       COMBINATIONS OF DIRICHLET CHARACTERS
+
+                                         PAUL POLLACK
+
+       Abstract. Let     X  be a finite group of primitive Dirichlet characters. Let ξ =
+       P
+         χ∈X a   χ be a nonzero                                ZX
+                                element of the group ring [ ]. We investigate the smallest
+                                                                X
+               χ
+       prime q that is coprime to the conductor of each χ ∈ and that satisfies
+                                          X
+                                              aχ χ(q) 6= 0.
+                                           χ∈X
+       Our main result is a nontrivial upper bound on q valid for certain special forms ξ.
+       From this, we deduce upper bounds on the smallest unramified prime with a given
+       splitting type in an abelian number field. For example:
+           • Let p be a prime, and let χ be a Dirichlet character modulo p. Suppose that χ
+             has order n and that d is a divisor of n with d > 1. The least prime q for which
+             χ(q) is a primitive dth root of unity satisfies
+                                                                n
+                                   q n,ε pλ+ε , where λ =         · 2ω(d) .
+                                                                8d
+                    Q
+           • Let K/ be an abelian number field of degree n and conductor f . Let g be a
+             proper divisor of n. If there is any unramified rational prime q that splits into g
+             distinct prime ideals in OK , then the least such q satisfies
+                                                           n
+                                                 q n,ε f 8 +ε .
+       Our estimate also allows us to recover the upper bounds of Vinogradov–Linnik, Elliott,
+       and the present author on the least split-completely prime in an abelian number field.
+
+
+
+
+                                       1. Introduction
+1.1. Statement of the main result. In this paper, we study the smallest prime
+outside of a small finite set at which a given linear combination of Dirichlet characters
+is nonvanishing. Via class field theory for Q, results of this nature have applications to
+the study of prime splitting in abelian number fields. To facilitate a precise statement of
+both the problem and the results, we begin by reviewing some notation and terminology.
+   If χ1 and χ2 are primitive Dirichlet characters, we define their product χ1 χ2 as
+the primitive Dirichlet character which induces the function n 7→ χ1 (n)χ2 (n). With
+this definition, the conductor of χ1 χ2 always divides the least common multiple of the
+conductors of χ1 and χ2 , but is often smaller. By a group of Dirichlet characters,
+we mean a collection of primitive characters that forms a group with this notion of
+multiplication.
+   For each Dirichlet character χ, we let fχ denote the conductor of χ. If X is a finite
+group of Dirichlet characters, we define the conductor fX of X as the least common
+multiple of the conductors fχ , for χ ∈ X. We say that X is ramified at the prime q if
+q divides fX . By a form on X, we mean an element
+                                            X
+(1.1)                                  ξ=       aχ χ
+                                                   χ∈X
+
+
+  2010 Mathematics Subject Classification. Primary 11L40, Secondary 11R42, 11R44.
+                                                    1
+2                                    PAUL POLLACK
+
+of the group ring Z[X]. For each integer m and  P each form ξ, we define the evaluation
+of ξ at m in the obvious way, that is, ξ(m) := χ∈X aχ χ(m). Then ξ(0) = a1 , where 1
+denotes the unique primitive principal character (of conductor 1). It is important for
+the sequel to observe that (ξ1 ξ2 )(m) need not equal ξ1 (m)ξ2 (m) — indeed, this can fail
+even if ξ1 and ξ2 are characters themselves. However, equality does hold whenever m
+is coprime to fX .
+   It will be seen (see Proposition 1.5 below) that the least rational prime that splits
+completely in a P given abelian number field K/Q is precisely the smallest unramified
+prime q having χ χ(q) 6= 0; here the sum runs over a certain finite set of characters
+that is canonically associated to K (see Proposition 2.1). It will turn out that the
+nonvanishing of other Z-linear combinations of characters also yields useful arithmetic
+information. This leads us to the following problem:
+Problem 1.1. Given a nonzero form ξ ∈ Z[X], estimate the smallest prime q where
+ξ(q) 6= 0 (possibly satisfying certain other ramification-related restrictions).
+   It is not immediately obvious that this problem is well-posed; why must there be any
+such q? In fact, ξ(q) 6= 0 for infinitely many primes q. To see this, first observe that
+distinct χ ∈ X induce distinct characters modulo fX . Since ξ is not identically zero, the
+Artin–Dedekind theorem on linear independence of characters (see, e.g., [10, Theorem
+4.1, p. 283]) shows that ξ(m) 6= 0 for all m belonging to a certain coprime residue class
+modulo fX . Appealing now to Dirichlet’s theorem on primes in progressions, we see
+that this residue class contains infinitely many primes q.
+   The argument of the last paragraph shows that an upper bound in Problem 1.1
+follows from an upper bound on the least prime in a prescribed arithmetic progression.
+A bound of the latter type is given in a celebrated theorem of Linnik [11, 12]:
+Proposition 1.2. There is an absolute constant L with the following property: When-
+ever A and M are coprime, the smallest prime q ≡ A (mod M ) satisfies
+                                        q  M L.
+   Combined with the above remarks, Proposition 1.2 shows that the smallest prime
+q - fX for which ξ(q) 6= 0 is O(fXL ). Recent work of Xylouris [19] (improving on earlier
+results of Heath-Brown [7]) allows us to take L = 5.18 in Proposition 1.2.
+   The purpose of this paper is to present an alternative upper bound for the prime q
+described in Problem 1.1, valid for certain special forms. There is no loss of generality
+in assuming that the coefficient a1 of ξ is nonzero; if a1 vanishes, we can replace ξ by
+χ−1 ξ for any χ in the support of ξ. (Here and below, the support of ξ refers to the set
+of χ ∈ X with aχ 6= 0.) Our main theorem applies when the coefficient a1 of ξ is ±1.
+When ξ is ‘short’, in the sense that ξ is a linear combination with small coefficients of
+only a few characters, the resulting upper bound on q is smaller than the naive bound
+from Linnik’s theorem.
+   We need a few more definitions before we can state our result.
+Definition 1.3. Suppose that ξ is a form on X, written as (1.1). We define
+                                          Q     a
+    • the weight of ξ, denoted Wξ , as χ∈X fχ χ ,
+                                          P
+    • the length of ξ, denoted kξk, as χ∈X |aχ |.
+    • the positive part of ξ, denoted ξ + , as χ∈X: aχ >0 aχ χ; similarly, the negative
+                                                P
+
+       part of ξ, denoted ξ − , is defined as − χ∈X: aχ <0 aχ χ.
+                                               P
+
+  Our main result is the following. The proof is presented in §4, following preparatory
+work given in §3.
+                     PRIME SPLITTING IN ABELIAN NUMBER FIELDS                            3
+
+Theorem 1.4. Let X be a finite group of Dirichlet characters with conductor f and
+exponent dividing the positive integer n. Let ξ ∈ Z[X], and suppose that ξ(0) = ±1.
+Let
+                                W := max{Wξ+ , Wξ− },
+and let L be an upper bound on the length of ξ. For each ε > 0, the smallest prime q - f
+for which ξ(q) 6= 0 satisfies
+                                     q  W 1/4 f ε .
+Here the implied constant depends at most on n, ε, and L.
+Remark. It is perhaps more natural to state the theorem with n equal to the (precise)
+exponent of X and L equal to the length of ξ. However, the looser definitions of n and
+L used above will be convenient in the proof.
+1.2. Consequences. We now discuss applications. We begin by quoting the main
+result of [16], which we show in §2.1 to be a simple consequence of Theorem 1.4.
+Proposition 1.5. Let K/Q be an abelian extension of degree n and discriminant D.
+The smallest rational prime q that splits completely in K satisfies
+                                                1
+                                     q n,ε |D| 4 +ε
+for each ε > 0.
+  If we specialize Proposition 1.5 to the case of a cyclic extension of prime conductor,
+we immediately obtain the following result (due to Vinogradov and Linnik [17] when
+n = 2 and Elliott [5] when n > 2):
+Proposition 1.6. Let p be a prime, and let χ be a Dirichlet character modulo p of
+order n. The smallest prime q for which χ(q) = 1 satisfies
+                                              n−1
+                                     q n,ε p 4 +ε ,
+for each ε > 0.
+  Next, we turn to our new results. The statement of the next theorem assumes
+familiarity with the correspondence between abelian extensions of Q and groups of
+Dirichlet characters (which is reviewed at the start of §2.1). The proof is given in §2.2.
+We remind the reader that ω(d) denotes the number of distinct primes dividing d.
+Theorem 1.7. Let K/Q be an abelian extension of degree n and conductor f . Choose
+a basis χ1 , . . . , χk for the group of characters X associated to K. Suppose that each
+χi has order ni . For all 1 ≤ i ≤ k, choose a divisor di of ni , and suppose that at least
+one di > 1. The smallest prime q for which χi (q) is a primitive di th root of unity, for
+every 1 ≤ i ≤ k, satisfies
+                                                    k
+                                                         ! k          !
+                                               1   Y        Y 2ω(di )
+                      q  f λ+ε , where λ =           ni                .
+                                               8 i=1        i=1
+                                                                 di
+Here the implied constant depends at most on n and ε.
+  Theorem 1.7 is perhaps a bit difficult to appreciate in itself. So we record two
+consequences here that seem of independent interest. The first complements Elliott’s
+Proposition 1.6; we omit the proof, since it follows immediately from Theorem 1.7 upon
+restricting to extensions of prime conductor.
+4                                    PAUL POLLACK
+
+Corollary 1.8. Let p be a prime, and let χ be a Dirichlet character modulo p of order
+n. Suppose that d divides n and d > 1. Then the least prime q for which χ(q) is a
+primitive dth root of unity satisfies
+                                                   n
+                          q n,ε pλ+ε , where λ =     · 2ω(d) .
+                                                   8d
+  Our next result, proved in §2.3, complements Proposition 1.5.
+Corollary 1.9. Let K/Q be an abelian extension of degree n and conductor f . Let g
+be a divisor of n with g < n. Assume that there is at least one rational prime that does
+not ramify in K and that has g distinct prime ideal factors in OK . Then the smallest
+prime q of this type satisfies
+                                             n
+                                    q n,ε f 8 +ε .
+Remark. For each abelian extension K/Q of degree n, one has |D| ≥ f n/2 (compare
+                                             n         1             1
+with [3, Lemma 9.2.1, p. 431]). Hence, f 8 +ε ≤ |D| 4 f ε ≤ |D| 4 +ε . So combining
+Corollary 1.9 with the result of Proposition 1.5, we see that the smallest unramified
+                                                                  1
+prime that splits into g distinct prime ideals in OK is On,ε (|D| 4 +ε ), uniformly in g,
+provided that at least one prime of this kind exists.
+1.3. Sketch of the proof of Theorem 1.4. We conclude the introduction with a
+brief sketch of the proof of Theorem 1.4. We freely omit details at this point in order
+to give the flavor of the argument. In addition, we tell some ‘white lies’; for instance,
+in the actual proof,
+                 P our partial sums    ofPDirichlet coefficients are weighted conveniently.
+           +                        −
+   Write ξ = χ∈X aχ,+ χ and ξ = χ∈X aχ,− χ. Since ξ(0) = ±1, either a1,+ = 1
+or a1,− = 1; we can assume it is the former (replace ξ with −ξ otherwise). Since
+ξ = ξ + − ξ − , whenever ξ(q) = 0, we have
+                               X               X
+(1.2)                              aχ,+ χ(q) =     aχ,− χ(q).
+                              χ∈X             χ∈X
+
+Let us suppose that we were to have ξ(q) = 0 for all primes q. (We already know that
+this impossible, but it is insightful  to see where this Q assumption leads us.) Define a
+Dirichlet series G by setting χ∈X L(s, χ)aχ,+ = G(s) χ∈X L(s, χ)aχ,− . Taking Euler-
+                               Q
+
+product expansions of both sides and appealing to (1.2), we find that G represents a
+function that is analytic and nonzero for <(s) > 21 .
+  Define arithmetic functions f + and f − by setting
+                              ∞                                        ∞
+           Y                 X   f + (m)          Y                   X   f − (m)
+               L(s, χ)aχ,+ =          s
+                                            and       L(s,  χ) aχ,−
+                                                                    =          s
+                                                                                  .
+           χ∈X               m=1
+                                   m             χ∈X                  m=1
+                                                                            m
+
+Writing G(s) = m≥1 g(m)m−s , and using ? to denote Dirichlet convolution, the defi-
+                 P
+nition of G shows that
+                              X              X
+(1.3)                             f + (m) =     (g ? f − )(m)
+                              m≤y           m≤y
+
+for all y. But this cannot be: Since a1,+ = 1 and a1,− = 0, the product χ∈X L(s, χ)aχ,+
+                                                                       Q
+
+has a simple pole at s = 1 from the factor L(s, 1) = ζ(s), whereas G(s) χ∈X L(s, χ)aχ,−
+                                                                       Q
+is analytic at s = 1. Applying Perron’s P    formula, one derives from these facts that
+          +                                              −
+P
+   m≤y  f   (m) grows linearly with y while    m≤y (g ? f )(m) = o(y), as y → ∞. This
+contradiction proves (again) that ξ(q) is nonzero for some prime q.
+   To obtain a bound on the smallest such q, we replace the extravagant assumption
+that ξ(q) always vanishes with the more modest assumption that ξ(q) = 0 for all primes
+                     PRIME SPLITTING IN ABELIAN NUMBER FIELDS                           5
+
+q ≤ y. Keeping track of the dependencies in the error terms, Perron’s formula shows
+that the right-hand side of (1.3) is much smaller than the left once y is a little larger
+than W . To derive this, one uses the trivial bound of fχ on the partial sums of each
+nontrivial character χ. If one replaces the trivial bound with the Burgess bound, one
+can replace W here with W 1/4 . These ideas suffice to prove Theorem 1.4, modulo
+technical work necessary to handle the extra condition that q not divide fX .
+Remark. The ideas that go into the proof of Theorem 1.4 can be found in nascent
+form in the works of Vinogradov–Linnik [17] and Elliott [5] already alluded to. In
+                                              P considered only cyclic groups X of
+the language of the present paper, those authors
+prime conductor and the particular form ξ = χ∈X χ. (Thus, ξ + = ξ and ξ − = 0,
+and the product χ∈X L(s, χ)aχ,+ is the Dedekind zeta function of the number field
+                  Q
+corresponding to X. This allows for small technical simplifications over what is seen
+below.) The raison d’être of the present work is to place these earlier papers in a
+suitable general context.
+Additional notation. We continue to employ the Landau–Bachmann o and O no-
+tations, as well as the associated Vinogradov symbols  and , with their usual
+meanings. Any dependence of implied constants is indicated explicitly, usually with
+subscripts. Throughout, the letters p and q are reserved for prime variables. We write
+                                             X
+                                   τk (n) =        1
+                                            d1 ···dk =n
+
+for the k-fold Piltz divisor function. Thus, τ2 (n) is the usual number-of-divisors func-
+tion, which we write simply as τ (n).
+
+                          2. Proofs of the corollaries
+2.1. Proof of Proposition 1.5. For the convenience of the reader, we summarize the
+correspondence between finite groups of Dirichlet characters and finite abelian exten-
+sions of Q. For much more, see [18, Chapter 3].
+Proposition 2.1. Let X be a finite group of characters of conductor f . Identify each
+χ ∈ X with the induced character modulo f , and let H = ∩χ∈X ker χ E (Z/f Z)× =
+Gal(Q(ζf )/Q). Associate to X the fixed field Q(ζf )H . Then K/Q is an abelian exten-
+sion of degree #X and conductor f . Conversely, each abelian extension K/Q arises in
+this way from a unique character group X.
+   Suppose now that X is a finite group of characters and that K is the corresponding
+field. If q is any rational prime, then
+     (i) q ramifies in K precisely when q | fχ for some χ ∈ X,
+    (ii) the number of distinct prime ideal factors of q in OK is equal to the number of
+         χ ∈ X for which χ(q) = 1.
+Proof of Proposition 1.5. Let X be the group of Dirichlet characters corresponding to
+K. Then the exponent of X divides #X = [K : Q] = n. By Proposition 2.1, q splits
+                        P when χ(q) = 1 for all χ ∈ X. To detect this condition, we
+completely in K precisely
+introduce the form ξ = χ∈X χ ∈ Z[X]. We claim that if X is unramified at q, and q
+does not split completely in K, then ξ(q) = 0. Indeed, under these conditions, there is
+a ψ ∈ X with ψ(q)P6= 1. Since q is relatively
+                                         P prime to f = lcmχ∈X [fχ ], multiplication
+by ψ(q) permutes χ∈X χ(q); this forces χ∈X χ(q) = 0.
+   From the last paragraph, the smallest split-completely prime is bounded above by
+the smallest q - fX for which ξ(q) 6= 0. We estimate this using Theorem 1.4. In our
+6                                            PAUL POLLACK
+
+case, ξ + = ξ has weight χ∈X fχ = |D| (from the conductor-discriminant formula [18,
+                        Q
+
+Theorem 3.11, p. 27]) and ξ − = 0 has weight 1. Thus, W = |D|. We can take
+L = kξk = n. Now Theorem 1.4 shows that there is a suitable prime q n,ε |D|1/4 f ε ≤
+|D|1/4+ε .                                                                          
+
+2.2. Proof of Theorem 1.7. We need an easy lemma concerning the length of a
+product of two forms.
+Lemma 2.2. Length is submultiplicative. In other words, if ξ1 and ξ2 are two forms
+on X, then kξ1 ξ2 k ≤ kξ1 k · kξ2 k.
+                      P                 P
+Proof. Suppose ξ1 = χ∈X aχ,1 χ and ξ2 = χ∈X aχ,2 χ. Then
+                                    
+                  X X                 X X
+     kξ1 ξ2 k =    
+                      a ψ,1 a ρ,2
+                                   χ =
+                                           aψ,1 aρ,2
+                  χ∈X     ψ,ρ∈X                      χ∈X ψ,ρ∈X
+                          ψρ=χ                           ψρ=χ
+                                                                  !                   !
+                                                      X                   X
+                                                 ≤          |aψ,1 |             |aρ,2 |   = kξ1 k · kξ2 k.   
+                                                      ψ∈X                 ρ∈X
+
+Proof of Theorem 1.7. The proof is similar to that of Proposition 1.5. But for our
+‘detector’ form, we now choose
+                                                                          
+                    Yk                                          Y d /p
+(2.1)          ξ=      (1 + χdi i + χi2di + · · · + χni i −di ) (χi i − 1) .
+                        i=1                                            p|di
+
+To justify this choice, suppose that X does not ramify at q. If the order of χi (q) divides
+                                           n −1
+ni but not di , then χi (q) is a root of xxdii −1 = 1 + xdi + · · · + xni −di ; thus, ξ(q) = 0. Also,
+if the order of χi (q) is a proper divisor of di , then χi (q) is a root of xdi /p − 1 for some
+prime p dividing di , and again ξ(q) = 0. Combining these two observations, we see that
+ξ(q) vanishes unless χi (q) has order di for each i.
+   Before we can apply Theorem 1.4, we must check that ξ has constant term a1 = ±1.
+By hypothesis, X is the direct sum of the groups generated by χ1 , . . . , χk . So it is
+sufficient to show that for every i, each monomial appearing in the expansion of the
+product (taken in the polynomial ring Z[x])
+                                                            Y
+                         (1 + xdi + x2di + · · · + xni −di ) (xdi /p − 1)
+                                                                p|di
+
+has the form xm where either m = 0 or ni - m. In fact, if xm appears with a nonzero
+coefficient in this expansion, then either m ≤ ni − di < ni , or
+                                       X
+                                  m≡       di /p (mod di )
+                                              p∈S
+
+for some nonempty subset    S of the primes dividing di . But the right-hand sum is not
+divisible by di , since p∈S p1 is not an integer (its lowest-terms denominator is divisible
+                       P
+
+by every prime in S ). So di - m, and a fortiori, ni - m.
+   We are now in a position to apply Theorem 1.4. Since ξ + and ξ − have disjoint
+support, kξk = kξ + k + kξ − k. Moreover, since ξ + and ξ − have nonnegative coefficients,
+                              0 = ξ(1) = ξ + (1) − ξ − (1) = kξ + k − kξ − k.
+                         PRIME SPLITTING IN ABELIAN NUMBER FIELDS                                        7
+
+(The first equality uses our assumption that some di > 1.) Hence,
+                                                     1
+                                  kξ + k = kξ − k = kξk.
+                                                     2
+Examining the factors appearing in the definition of ξ and using the submultiplicativity
+of the length, we find that
+                             k
+                                    ! k            !     k
+                            Y   ni      Y               Y   2ω(di )
+                    kξk ≤                   2ω(di ) = n             = 8λ.
+                            i=1
+                                d i     i=1             i=1
+                                                             d i
+
+(In particular, kξk ≤ n, since 2ω(di ) ≤ τ (di ) ≤ di for each 1 ≤ i ≤ k.) Since each
+χ ∈ X has conductor dividing f , the weight of ξ + is bounded above by f kξ k ≤ f 4λ ,
+                                                                              +
+
+
+and similarly for ξ − . So W 1/4 ≤ f λ . Taking L = n, the bound claimed in Theorem 1.7
+now follows from Theorem 1.4.                                                        
+2.3. Proof of Corollary 1.9. Choose a basis χ1 . . . , χk for the character group X
+corresponding to K. Let ni denote the order of χi . Suppose that K is unramified at q0
+and that q0 splits into g distinct prime ideals in OK , where g < n. Since q0 does not
+split completely, some χi (q0 ) 6= 1. So by Theorem 1.7, there is a prime q n,ε f n/8+ε
+with the property that χi (q) and χi (q0 ) have the same multiplicative order for all
+1 ≤ i ≤ k. For this q, the multiset {χ0i (q), χ1i (q), . . . , χini −1 (q)} coincides with the
+multiset {χ0i (q0 ), χ1i (q0 ), . . . , χni i −1 (q0 )} for all 1 ≤ i ≤ k. Using that χ1 , . . . , χk are a
+basis for X, we deduce that the multiset {χ(q) : χ ∈ X} coincides with the multiset
+{χ(q0 ) : χ ∈ X}. In particular, the number 1 appears in these two multisets with the
+same multiplicity. So by Proposition 2.1(ii), q is unramified in K and also splits into g
+distinct prime ideals in OK .
+Remark. One can often improve the exponent n/8 in Corollary 1.9 by taking into
+account the factors 2ω(di ) /di featuring in Theorem 1.7. We have not pursued such an
+improvement, since our objective was to obtain an entirely uniform bound.
+2.4. Remarks concerning the optimality of Theorem 1.7. There are two points
+in the proof of Theorem 1.7 where one may wonder whether we are making optimal use
+of Theorem 1.4. The first is our crude estimation of W , where we pretend that all of the
+characters involved have conductor fX . This worst-case estimate is sharp only when
+one of ξ + or ξ − is supported on characters of conductor fX . This does sometimes occur;
+for example, it holds whenever fX is prime (as in the application to Corollary 1.8). But
+one can certainly construct families of pairs (X, ξ) where our worst-case assumption on
+the weights is indeed lossy. In such cases, a more careful application of Theorem 1.4
+may be advantageous.
+   The second concern is with our choice of the detector form ξ. There are many other
+possible candidates for ξ besides (2.1). For example, if we set Pn,d (x) := (xn − 1)/Φd (x)
+(where Φd (x) is the dth cyclotomic polynomial), then the form
+                                           k
+                                                 Pni ,di (χi ) ∈ Z[X]
+                                           Y
+(2.2)                                 ξ=
+                                           i=1
+
+will also detect when each χi (q) has order di . This is arguably a more intuitively
+appealing choice than (2.1). It turns out, however, that the choice (2.2) has larger
+length than (2.1). Since W is bounded in terms of the length of ξ in the proof of
+Theorem 1.7, the choice (2.1) is better. Perhaps surprisingly, the choice (2.1) is not
+only better than (2.2) but is in fact best possible. We prove this here for the special
+case when X is cyclic.
+8                                            PAUL POLLACK
+
+Theorem 2.3. Let X be a cyclic group of characters with generator χ. Suppose that X
+has order n and that d is a divisor of n. Finally, suppose that the form ξ ∈ Z[X] has the
+following ‘detector’ property: For all primes q, with at most finitely many exceptions,
+(2.3)                              χ(q) has order d ⇐⇒ ξ(q) 6= 0.
+Then
+                                          2ω(d)
+                                            kξk ≥ n ·
+                                                .
+                                            d
+  The proof depends on two lemmas. The first is the dual form of the usual Möbius
+inversion formula of elementary number theory. For a proof, see, for example, [14,
+Theorem A.22, p. 320].
+Lemma 2.4. Let D be a finite set of natural numbers that is divisor-closed, meaning
+that every divisor of an element of D also belongs to D. Suppose that the two functions
+f, g : D → C have the property that for all s ∈ D,
+                                            X
+                                    f (s) =    g(r).
+                                                           r∈D
+                                                            s|r
+
+Then for all r ∈ D,
+                                                    X
+                                       g(r) =              f (s)µ(s/r).
+                                                    s∈D
+                                                     r|s
+
+   The next lemma is a polynomial version of Theorem 2.3, possibly of independent
+interest.
+Lemma 2.5. Let A(x) = 0≤k<n ak xk ∈ Z[x] be a polynomial of degree smaller than
+                            P
+n that vanishes at all nth roots of unity with the exception of those of order d, where d
+divides n. Then
+                                   X                2ω(d)
+                                        |ak | ≥ n ·       .
+                                  0≤k<n
+                                                     d
+
+Proof. After dividing by a suitable power of x, we can assumePthat a0 6= 0. Let D
+denote the set of divisors of d. For each r ∈ D, set Ar (x) :=               k
+                                                                   0≤k<n ak x . Then
+                                                                 gcd(k,d)=r
+A(x) = r|d Ar (x). Moreover, if s ∈ D, then
+        P
+                 X            X      X          X           X
+(2.4)                A(ζ) =       ak     ζk = s     ak = s     Ar (1).
+                 ζ s =1            0≤k<n      ζ s =1              0≤k<n   r∈D
+                                                                    s|k    s|r
+
+
+P if s is a proper divisor of d, then A vanishes at all of the sth roots of unity, and so
+Now
+   ζ s =1 A(ζ) = 0. Also, since A vanishes at all nth roots of unity except those of order
+d,
+                          X          X               X
+                              A(ζ) =     A(ζ) = n        ak = a0 n.
+                          ζ d =1           ζ n =1                 0≤k<n
+                                                                    n|k
+
+So from (2.4), we find that for s ∈ D,
+                               (
+                  X               0      if s is a proper divisor of d,
+                      Ar (1) =
+                  r∈D
+                                  a0 n/d if s = d.
+                    s|r
+                     PRIME SPLITTING IN ABELIAN NUMBER FIELDS                            9
+
+By the dual form of the Möbius inversion formula, we deduce that for every r ∈ D,
+                                                        n
+                                      Ar (1) = a0 µ(d/r) .
+                                                        d
+                      2
+Using that |µ| = µ , we see that
+                                      X
+    |a0 | + |a1 | + · · · + |an−1 | ≥   |Ar (1)|
+                                  r|d
+
+                                        nX 2              nX 2               2ω(d)
+                              = |a0 |     µ (d/r) = |a0 |   µ (r) = |a0 |n ·       .
+                                        d                 d                   d
+                                          r|d                  r|d
+
+Since |a0 | ≥ 1, the lemma follows.                                                     
+Proof of Theorem 2.3. Since χ has order n, each nth root of unity is the valuePof χ(q) for
+infinitely many primes q (for example, by Dirichlet’s theorem). Write ξ = n−1           k
+                                                                                k=0 ak χ .
+Then ξ is not the zero element of Z[X]. (Otherwise, the detection property (2.3) implies
+that χ(q) has order d only finitely
+                                P many times.)     If q is a prime not dividing fχ , then
+ξ(q) = A(χ(q)), where A(x) := 0≤k<n ak x ∈ Z[x]. Since each nth root of unity is the
+                                            k
+
+value of χ(q) for infinitely many primes q not dividing fχ , condition (2.3) shows that
+A vanishes atPall of the nth roots of unity with the exception of those of exact order d.
+Since kξk = 0≤k<n |ak |, the desired lower bound on kξk follows from Lemma 2.5. 
+Remark. The proof of the non-cyclic analogue of Theorem 2.3 is entirely analogous,
+but the notation is much more unwieldy.
+
+               3. Preliminaries for the proof of Theorem 1.4
+   In this section, we present several results needed for the proof of Theorem 1.4. The
+first is a variant of Burgess’s character sum estimates [1, 2], due to Heath-Brown (see
+[7, Lemma 2.4] for a more precise statement). In this version of Burgess’s estimates,
+the restriction to characters of cubefree conductor present in Burgess’s work is replaced
+by a bound on the order of χ.
+Proposition 3.1. Suppose that χ is a primitive character of conductor fχ > 1 whose
+order divides the natural number n. Let ε > 0, and let r be a positive integer. Then for
+every pair of integers M and N with N > 0, we have
+                                                              r+1
+                             X                                      +ε
+                                        χ(m) r,n,ε N 1−1/r fχ4r2        .
+                         M <m≤M +N
+
+  The next lemma gives an application of Proposition 3.1 that will be required below.
+Lemma 3.2. Let X be a finite group of characters of exponent dividing n. Let ξ =
+   χ∈X aχ χ be a form on X with each aχ ≥ 0 and a1 = 0. Let W be an upper bound on
+P
+
+the weight Wξ and let L be an upper bound on the length kξk. Let 0 < η < 1, and let
+                                                    1
+(3.1)                              σ =1−                  .
+                                                1 + d1/ηe
+                              1
+(Thus, 23 ≤ σ < 1.) If y ≥ W 4 +η , then for every s on the line <(s) = σ,
+                                         !a
+                        Y X χ(m) χ                                2
+                                                         L 1−σ− η80
+                                               n,η,L |s| y         .
+                        χ∈X m≤y
+                                     ms
+10                                        PAUL POLLACK
+
+Proof. We introduce two parameters, a positive integer r and a positive real number ε,
+both of whose values will be specified in the course of the argument. For each χ in the
+support of ξ and each u ≥ 1, Proposition 3.1 shows that
+                                                      r+1
+                             X                            +ε
+                                χ(m) r,n,ε u1−1/r fχ4r2 .
+                                  m≤u
+
+We now apply partial summation. Using σ for the real part of s, we find that
+            X χ(m)                          Z y
+                         1 X                      1 X χ(m)
+                       =          χ(m) +  s                        du
+            m≤y
+                 ms      y s m≤y             1 u
+                                                 s+1
+                                                     m≤u
+                                                              m
+                                        r+1          r+1
+                                                              Z y
+                                1−1/r−σ 4r2 +ε             +ε
+                       r,n,ε y        fχ      + |s|fχ4r 2
+                                                                  u−σ−1/r du.
+                                                                               1
+
+Provided that σ + 1/r > 1, this last expression does not exceed
+           r+1
+                            Z ∞               r+1
+                 +ε               −σ−1/r            +ε
+          fχ4r 2
+                     1 + |s|     u       du = fχ4r2 (1 + |s|(σ + 1/r − 1)−1 ).
+                              1
+                                                     1
+Now take r := d1/ηe (so that r ≥ 2) and σ := 1 − r+1      . (This choice of σ is the same as
+that specified in the lemma statement.) We find that on the line <(s) = σ,
+                              X χ(m)                r+1
+                                                          +ε
+                                                     4r 2
+                                     s
+                                        η,n,ε |s|f χ        .
+                              m≤y
+                                  m
+
+Multiplying over those χ ∈ X, each taken with multiplicity aχ , gives
+                                  !a
+                    Y X χ(m) χ                         r+1
+
+                                s
+                                       η,n,ε,L |s|L W 4r2 +ε
+                   χ∈X m≤y
+                              m
+                                                    r+1            
+                                            L 1−σ          2 +ε σ−1
+                                       = |s| y       W  4r     y      .
+
+To complete the proof, it suffices to show that the final parenthesized expression is
+               2                  1
+bounded by y −η /80 . Since y ≥ W 4 +η , we have that
+                        r+1                  4     r+1          1
+                     W 4r2 +ε y σ−1 ≤ (y 1+4η ) 4r2 +ε y − r+1
+                                          −4ηr 2 +4ε(r 2 +r 3 )+2r+1         1−2r+8εr 3
+                                     =y       (4η+1)r 2 (r+1)          ≤ y (4η+1)r2 (r+1) ,
+where in the last step we used the bound η ≥ 1/r coming from our definition of r. Now
+select ε := 8r12 ; then
+             1 − 2r + 8εr3            1−r                  −r/2
+                              =                    ≤
+           (4η + 1)r2 (r + 1)   (4η + 1)r2 (r + 1)   (4η + 1)r2 (r + 1)
+                                          1                     1            1
+                              =−                     ≤−                  =−      .
+                                  2r(r + 1)(4η + 1)      (2r) · (2r) · 5    20r2
+Since r ≤ 2/η, this last expression is at most −η 2 /80, which finishes the proof.            
+     The next two lemmas collect well-known results on L(1, χ).
+Proposition 3.3. Let χ be a primitive character with conductor fχ > 1. Let ε > 0.
+Then
+                           fχ−ε ε |L(1, χ)|  log fχ .
+                      PRIME SPLITTING IN ABELIAN NUMBER FIELDS                               11
+
+Proof. For the upper bound, see (e.g.) [13, Lemma 10.15, p. 350]. For non-real char-
+acters χ, we have |L(1, χ)|  1/ log fχ (see [13, Theorem 11.4, pp. 362–363]), which
+is stronger than the lower bound claimed above. Finally, for real χ, the lower bound
+|L(1, χ)| ε fχ−ε is the celebrated theorem of Siegel [13, Theorem 11.14, p. 372]. 
+Lemma 3.4. Let χ be a primitive character of conductor fχ > 1, with order dividing
+                                         1
+                                             +η
+n. Suppose that 0 < η ≤ 1/3. If y ≥ fχ4 , then
+                      X χ(m)                            2
+                                                              
+                                 = L(1, χ) 1 + On,η (y −η /2 ) .
+                      m≤y
+                            m
+
+Proof. Under the hypotheses on χ and η appearing in the lemma statement, one can
+                                    1/4+η
+show that for all real numbers u ≥ fχ     ,
+                                                  2
+                                 X
+                                    χ(m) n,η u1−η .
+                                  m≤u
+
+                                                                                 1/4+η
+(See [16, Lemma 3], and compare with [9, eq. (12.57), p. 326].) So for y ≥ fχ            ,
+                  X χ(m) X χ(m)
+        L(1, χ) −         =
+                  m≤y
+                      m     m>y
+                                  m
+                                             Z ∞ X           !
+                              1X                                du          −η 2
+                          =−        χ(m) +              χ(m)     2
+                                                                     n,η y      .
+                              y m≤y           y    m≤u
+                                                                u
+                                                  −η 2 /8   2
+By Proposition 3.3, we have |L(1, χ)| η fχ    ≥ y −η /2 , and so
+                        X χ(m)                          2
+                                  = L(1, χ) + Oη,n (y −η )
+                       m≤y
+                             m
+                                                                2
+                                    = L(1, χ)(1 + Oη,n (y −η /2 )).
+This completes the proof of the lemma.                                                       
+  As in Elliott’s work [5], our argument invokes a standard variant of Perron’s theorem
+(proved, for instance, in [8, pp. 486–487]).
+Lemma 3.5. Let F (s) = ∞                  −s
+                            P
+                               n=1 f (n)n    be a Dirichlet series that converges absolutely
+in the half-plane <(s) > 1, and let ` be a positive integer. Then
+                         Z σ+i∞
+                      1                  xs        1X              x `
+                                  F (s) `+1 ds =         f (n) log
+                     2πi σ−i∞           s         `! n≤x            n
+
+for any choice of σ > 1.
+
+                              4. Proof of Theorem 1.4
+   We may assume that 0 < ε < 1/3. Let y := W 1/4 f ε . Our strategy is as follows:
+We suppose that the smallest q - f with ξ(q) 6= 0 exceeds y, and we prove that f is
+bounded (in terms of L, n, and ε). Consequently, Theorem 1.4 holds with an implied
+constant of 1 once f is large enough. On the other hand, since ξ(q) is nonvanishing for
+all primes q from a certain coprime progression modulo f , the smallest q in Theorem
+1.4 is bounded by a function of f . Thus, if f L,n,ε 1, then q L,n,ε 1. So enlarging
+the implied constant if necessary, the estimate of Theorem 1.4 holds in every case.
+12                                       PAUL POLLACK
+
+  Write ξ + = χ∈X aχ,+ χ and ξ − = χ∈X aχ,− χ. Since ξ(0) = ±1, either a1,+ = 1 or
+             P                        P
+
+a1,− = 1. Without loss of generality, we can assume that a1,+ = 1. (Otherwise, replace
+ξ with −ξ). Let G(s) be the Dirichlet series determined by the formal identity
+                        Y                       Y
+(4.1)                       L(s, χ)aχ,+ = G(s)     L(s, χ)aχ,− .
+                         χ∈X                        χ∈X
+                                P∞
+Lemma 4.1. Write G(s) = m=1 g(m)m−s . Then all of the following hold:
+    (i) The function g(·) is multiplicative.
+   (ii) If g(m) 6= 0 for the natural number m ≤ y, then each prime dividing m appears
+        to the second power or higher, except possibly for those primes dividing f .
+  (iii) For each natural number m,
+                                        |g(m)| ≤ τkξk (m).
+Proof. Expanding each L(s, χ) as an Euler product, we find that
+                 YY
+                        (1 + χ(p)p−s + χ(p2 )p−2s + . . . )aχ,+ (1 − χ(p)p−s )aχ,− .
+                                                                                  
+(4.2)     G(s) =
+                     p χ∈X
+
+Since G(s) has an Euler-product expansion, (i) immediate. We can read off from (4.2)
+that for each prime p,
+                        X
+                 g(p) =    (aχ,+ − aχ,− )χ(p) = ξ + (p) − ξ − (p) = ξ(p).
+                         χ∈X
+
+By assumption, ξ(p) = 0 for all p ≤ y, except possibly for those primes dividing f . So
+(ii) follows from the multiplicativity of g(·). Finally, (4.2) shows that each coefficient
+of G(s) is bounded in absolute value by the corresponding coefficient of
+                   YY
+                           (1 + p−s + p−2s + . . . )aχ,+ +aχ,− = ζ(s)kξk .
+                                                              
+                     p χ∈X
+
+In other words, |g(m)| ≤ τkξk (m), which is (iii).                                                 
+  We have arranged matters so that L(s, 1) = ζ(s) appears in the left-hand side of
+(4.1) to the power a1,+ = 1. So from (4.1), the two Dirichlet series
+                             !a                       !                 !a
+               Y X χ(m) χ,+                   X g(m) Y X χ(m) χ,−
+          ζ(s)            s
+                                    and
+               χ∈X m≤y
+                         m                    m≤y
+                                                  ms     χ∈X m≤y
+                                                                     ms
+              χ6=1
+
+share the same initial byc coefficients. Lemma 3.5 now implies that for any integer
+` ≥ 1,
+                                               
+          Z 2+i∞                         ! aχ,+
+        1              Y X χ(m)                 ys
+(4.3)            ζ(s)
+                                      s          s`+1 ds
+                                                
+       2πi 2−i∞        χ∈X m≤y
+                                    m
+                         χ6=1
+                                        Z 2+i∞                                !aχ,− !
+                                   1             X g(m) Y          X χ(m)                ys
+                                =                                                            ds.
+                                  2πi    2−i∞    m≤y
+                                                       ms    χ∈X   m≤y
+                                                                         ms             s`+1
+  For technical reasons related to issues of convergence, in what follows we fix the
+choice
+                                     ` := L + 2.
+Having fixed `, we proceed to estimate both sides of (4.3).
+                       PRIME SPLITTING IN ABELIAN NUMBER FIELDS                                 13
+
+Lemma 4.2. We have
+(4.4)                                            
+      Z 2+i∞                              !aχ,+
+ 1                  Y       X χ(m)                ys          Y
+                                                                         aχ,+
+                                                                                              2
+                                                                                          1− ε 2
+               ζ(s)                                    ds = y   L(1, χ)     + On,ε,L (y   80L ).
+2πi    2−i∞
+               
+                     χ∈X     m≤y
+                                    ms             s`+1
+                                                                χ∈X
+                     χ6=1                                       χ6=1
+
+Proof. Since X has conductor f , it is clear that Wξ+ = χ∈X fχ χ,+ ≤ f χ∈X aχ,+ ≤ f kξk ,
+                                                               a
+                                                        Q               P
+
+
+and similarly for Wξ− . Thus, W ≤ f kξk ≤ f L , and our choice of y satisfies
+                                                  1
+                            y = W 1/4 f ε ≥ W 4 +η ,     where η := ε/L.
+  Shift the line of integration to <(s) = σ, where σ is defined in terms of η by (3.1).
+We pick up a residue from the pole at s = 1, which contributes (recall Lemma 3.4)
+                                                        
+                            !aχ,+
+            Y X χ(m)                                                             
+                                                                          −η 2 /2
+                                     Y             aχ,+ 
+(4.5)     y                       =  y     L(1, χ)         1 + On,η,L (y         )  .
+            χ∈X m≤y
+                        m           
+                                        χ∈X
+                                                         
+              χ6=1                            χ6=1
+
+By Proposition 3.3, for each nonprincipal χ with aχ,+ > 0, we have
+                                L(1, χ)  log fχ ≤ log W  log y,
+and so the expression (4.5) is
+                              Y                           η2
+                           y    L(1, χ)aχ,+ + On,η,L (y 1− 4 ).
+                                   χ∈X
+                                   χ6=1
+
+  It remains to estimate the size of the integral after the shift to the line <(s) = σ.
+Apply Lemma 3.2 to the form ξ + − 1. Note that the weight of ξ + − 1 is the same as
+that of ξ + (which is bounded by W ) and that the length of ξ + − 1 is bounded by L.
+So Lemma 3.2 shows that the integral along the line <(s) = σ is
+               Z σ+i∞
+                                            2         yσ
+(4.6) n,η,L          |ζ(s)| · (|s|L y 1−σ−η /80 ) · `+1 |ds|
+                σ−i∞                                |s|
+                                                                2
+                                                                  Z σ+i∞
+                                                           1− η80
+                                                        =y               |ζ(s)| · |s|L−`−1 |ds|.
+                                                                       σ−i∞
+
+Recall that for <(s) ≥ 21 , one has ζ(s)  |s|(1 + 1/|s − 1|) (see [4, p. 79]). When
+<(s) = σ, we have |s − 1| ≥ |σ − 1| η 1; thus, ζ(s) η |s| on the entire line <(s) = σ.
+By this estimate and our choice of `,
+         Z σ+i∞                           Z σ+i∞               Z σ+i∞
+                            L−`−1                   L−`               |ds|
+                |ζ(s)| · |s|      |ds| η        |s|    |ds| =           2
+                                                                           η 1.
+          σ−i∞                             σ−i∞                 σ−i∞ |s|
+                                                                              η2
+Putting this back into (4.6), we get an upper bound of On,η,L (y 1− 80 ).
+  Piecing the above estimates together, we find that the left-hand side of (4.4) is
+                              Y                             η2
+                           y     L(1, χ)aχ,+ + On,η,L (y 1− 80 ).
+                                   χ∈X
+                                   χ6=1
+
+Since η = ε/L, the lemma follows.                                                               
+14                                         PAUL POLLACK
+
+Lemma 4.3. We have
+       Z 2+i∞ X                                      !aχ,− !
+    1              g(m) Y                 X χ(m)                   ys                           2
+                                                                                            1− ε 2
+                                                                       ds n,ε,L τ (f ) · y   80L .
+      2πi   2−i∞    m≤y
+                           ms   χ∈X       m≤y
+                                                ms                s`+1
+
+Proof. As in the proof of Lemma 4.2, we begin by shifting the line of integration to
+<(s) = σ, where σ is defined by (3.1) with η = ε/L. In contrast to the previous
+case, the present integrand is defined and analytic for <(s) > 0, and so we do not pick
+up any residues; thus, shifting the contour does not change the value of the integral.
+Proceeding as in the proof of Lemma 4.2 (but with Lemma 3.2 now applied to ξ − ), we
+see that the value of the shifted integral is
+                                             η 2 X |g(m)|
+(4.7)                            n,ε,L y 1− 80           .
+                                                 m≤y
+                                                     mσ
+   To estimate the sum on m, we use the results of Lemma 4.1 along     P with partial
+summation. We begin by showing that for u ≤ y, we have S(u) := m≤u |g(m)| L
+τ (f )u3/5 . By Lemma 4.1(ii), every m ≤ u for which g(m) is nonvanishing can be written
+as the product of a divisor of f and a squarefull integer. Since the number of squarefull
+numbers in [1, u] is O(u1/2 ), the number of m ≤ u with g(m) 6= 0 is O(τ (f )u1/2 ).
+Lemma 4.1(iii) implies that for every m ≤ u,
+                   |g(m)| ≤ τkξk (m) ≤ τ (m)kξk−1 ≤ τ (m)L−1 L u1/10 .
+(In the last step, we have used the well-known estimate τ (m) β mβ for all β > 0; see,
+for example, [6, Theorem 315, p. 343].) Thus,
+                                  X
+             |S(u)| ≤ max |g(m)|           1 L u1/10 · τ (f )u1/2 = τ (f )u3/5 ,
+                          m≤u
+                                           m≤u
+                                          g(m)6=0
+
+as claimed. Recalling that σ ≥ 23 , we find that
+                      Z y
+                                                         2 y
+     X                                                      Z
+                −σ          −2/3                 −2/3
+         |g(m)|m ≤         u     dS(u) = S(y)y        +        S(u)u−5/3 du
+     m≤y                1−                               3 1
+                                                             Z y            
+                                                      −1/15         −16/15
+                                        L τ (f ) y         +     u        du  τ (f ).
+                                                                           1
+
+Substituting this estimate into (4.7) completes the proof.                                            
+  Setting
+       Q the estimates of Lemmas 4.2 and 4.3 equal to each other, we get the upper
+                                                2    2
+bound χ∈X, χ6=1 L(1, χ)aχ,+
+                            n,ε,L τ (f ) · y −ε /80L . On the other hand, Proposition 3.3
+                                               2      2
+shows that χ∈X, χ6=1 L(1, χ)aχ,+ ε,L W −ε /640L (say). Comparing these estimates,
+            Q
+we get the lower bound
+                                           2    2         2        2
+                          τ (f ) n,ε,L y ε /80L · W −ε /640L
+                                      2    2          2       2        2       2
+                                ≥ y ε /80L · (y 4 )−ε /640L = y ε /160L ,
+using that y ≥ W 1/4 . Since also y ≥ f ε , another appeal to the maximal order of the
+divisor function gives
+                                                 2     2
+                                  τ (f ) ε,L y ε /320L .
+Comparing the last two displayed estimates shows that y is bounded in terms of n, ε,
+and L. So f is also bounded. The remarks at the start of this section now finish the
+proof of Theorem 1.4.
+                         PRIME SPLITTING IN ABELIAN NUMBER FIELDS                                      15
+
+Remark. The use of contour integration in the proof of Theorem 1.4 can be avoided,
+as was shown by Pintz [15] in a closely related context. Indeed, Pintz’s approach was
+followed by the author in [16]. However, it seems that the arrangement we have chosen
+above better highlights the similarities between our arguments and those of Elliott [5].
+                                      Acknowledgements
+   The author thanks Carl Pomerance for useful discussions. He is also grateful to En-
+rique Treviño and the referees for carefully reading through earlier drafts and proposing
+a number of corrections, clarifications, and simplifications.
+                                            References
+ [1] D. A. Burgess, On character sums and L-series. II, Proc. London Math. Soc. (3) 13 (1963),
+     524–536.
+ [2]          , The character sum estimate with r = 3, J. London Math. Soc. (2) 33 (1986), 219–226.
+ [3] H. Cohen, Advanced topics in computational number theory, Graduate Texts in Mathematics, vol.
+     193, Springer-Verlag, New York, 2000.
+ [4] H. Davenport, Multiplicative number theory, third ed., Graduate Texts in Mathematics, vol. 74,
+     Springer-Verlag, New York, 2000.
+ [5] P. D. T. A. Elliott, The least prime k-th-power residue, J. London Math. Soc. (2) 3 (1971),
+     205–210.
+ [6] G. H. Hardy and E. M. Wright, An introduction to the theory of numbers, sixth ed., Oxford
+     University Press, Oxford, 2008.
+ [7] D. R. Heath-Brown, Zero-free regions for Dirichlet L-functions, and the least prime in an arith-
+     metic progression, Proc. London Math. Soc. (3) 64 (1992), 265–338.
+ [8] A. Ivić, The Riemann zeta-function, Dover Publications Inc., Mineola, NY, 2003.
+ [9] H. Iwaniec and E. Kowalski, Analytic number theory, American Mathematical Society Colloquium
+     Publications, vol. 53, American Mathematical Society, Providence, RI, 2004.
+[10] S. Lang, Algebra, third ed., Graduate Texts in Mathematics, vol. 211, Springer-Verlag, New York,
+     2002.
+[11] U. V. Linnik, On the least prime in an arithmetic progression. I. The basic theorem, Rec. Math.
+     (Mat. Sbornik) N.S. 15 (57) (1944), 139–178.
+[12]          , On the least prime in an arithmetic progression. II. The Deuring-Heilbronn phenomenon,
+     Rec. Math. (Mat. Sbornik) N.S. 15 (57) (1944), 347–368.
+[13] H. L. Montgomery and R. C. Vaughan, Multiplicative number theory. I. Classical theory, Cam-
+     bridge Studies in Advanced Mathematics, vol. 97, Cambridge University Press, Cambridge, 2007.
+[14] M. B. Nathanson, Additive number theory: the classical bases, Graduate Texts in Mathematics,
+     vol. 164, Springer-Verlag, New York, 1996.
+[15] J. Pintz, Elementary methods in the theory of L-functions. VI. On the least prime quadratic
+     residue (mod p), Acta Arith. 32 (1977), 173–178.
+[16] P. Pollack, The smallest prime that splits completely in an abelian number field, Proc. Amer.
+     Math. Soc. (to appear).
+[17] A. I. Vinogradov and U. V. Linnik, Hyperelliptic curves and the least prime quadratic residue,
+     Dokl. Akad. Nauk SSSR 168 (1966), 259–261 (Russian).
+[18] L. C. Washington, Introduction to cyclotomic fields, second ed., Graduate Texts in Mathematics,
+     vol. 83, Springer-Verlag, New York, 1997.
+[19] T. Xylouris, On the least prime in an arithmetic progression and estimates for the zeros of Dirichlet
+     L-functions, Acta Arith. 150 (2011), 65–91.
+
+  Department of Mathematics, University of Georgia, Athens, Georgia, USA 30602
+  E-mail address: pollack@math.uga.edu
+
