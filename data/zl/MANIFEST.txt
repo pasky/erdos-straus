@@ -1,0 +1,10 @@
+date: Thu Oct 15 08:30:14 UTC 2026
+gcc (Debian 14.2.0-19) 14.2.0
+x86_64
+1c22a7e57802d48747b9f5048b66d77e51cff666dc50c09b7b5d321f8fe2a1c1  scripts/se_box.c
+2dbbc182b27d3af4c836632a571c29605a275b7baaed33b3db4de4b10edfcf7a  scripts/zl_box.c
+4917cce10a5daaa139426be6c5300f700072864da0f55d11dce5fd8cab74a33b  scripts/zl_tail.py
+664f1936585f291b9901ee3ee36e1204ba263e94de454b6b2f58cb24068d38f5  scripts/zl_r0.py
+a9e335c17687f288cf7aad7ca93b4940a559e068c9a2c93e1322a6c97782443a  scripts/se_r0.py
+tables: P_q1_hi.txt = se_box P 600 999 1 1 64 24 (stopped after j=841; rows 600..841 used up to j=799); P_q32.txt, Q_q32.txt = se_box P|Q 768 1087 32 1 64 24; P_q32_l2.txt, Q_q32_l2.txt = zl_box P|Q 928 1023 32 1 64 24
+certificates: ZL_L2=1 python3 scripts/zl_r0.py 30.15625 800 34 -> r0_certify.txt; python3 scripts/zl_r0.py 30.34375 800 34 -> r0_certify_plain.txt (se_box tables only)
