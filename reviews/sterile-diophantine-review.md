@@ -135,9 +135,70 @@ an exact-case analysis (tuples with −w₁/C₁ = u, i.e. w₁Q = −PC₁), wh
 
 **D6 (MINOR, Assessment remark false as stated).** "A T-adic Liouville number (heights growing super-exponentially) is protected
 on all but a density-zero set of levels." The unprotected window at a new convergent of height h' is (D_h, 3h'] with
-D_h ≈ h + h' ≈ h', i.e. ≈ (h', 3h']; at D = 3h' the unprotected levels number ≈ 2h' out of 3h', so the upper natural
-density of unprotected levels is ≥ 2/3 for *every* irrational u (the lower density can be 0; the logarithmic density is 0
-for super-exponential heights). Repair: "protected on a set of levels of logarithmic density 1 (upper natural density of
-unprotected levels is always ≥ 2/3)". z16_mahler_points' "relative length 2/9" (window (9ⁿ, 3·9ⁿ] inside (9ⁿ, 9ⁿ⁺¹]) is
+D_h ≈ h + h' ≈ h', i.e. ≈ (h', 3h']; precisely, for successive best approximants of heights h_k < h_{k+1}, D_k = δ(ρ_k, ρ_{k+1}) ≤ h_k + h_{k+1}
+(Lemma 4.1), and all D ∈ (D_k, min(D_{k+1}, 3h_{k+1})] are unprotected; at D = 3h_{k+1} (or D_{k+1}) this gives a fraction
+≥ (2h_{k+1} − h_k)/(3h_{k+1}) ≥ 1/3 of unprotected levels, → 2/3 when h_{k+1}/h_k → ∞. So the upper natural density of
+unprotected levels is ≥ 1/3 for *every* irrational u and ≥ 2/3 for exactly the Liouville-type points in question (the
+logarithmic density is 0 for super-exponential heights). Repair: "protected on a set of levels of logarithmic density 1;
+the unprotected levels have upper natural density ≥ 2/3". z16_mahler_points' "relative length 2/9" (window (9ⁿ, 3·9ⁿ] inside (9ⁿ, 9ⁿ⁺¹]) is
 consistent with this and already contradicts "density-zero" for that family; also note there the best height on
 (9ⁿ, 2·9ⁿ] may be < 9ⁿ (Lemma 4.1 only gives η ≥ 8·9ⁿ⁻¹), harmless.
+
+## Prop 5.1 (Frobenius, Case B) — SOUND; the "Case A not checked" caveat can be removed
+
+Re-derived. Char 3: f ↦ f³ is an injective ring endomorphism of F₃[T], F₃[[T]] and of R̂ (so x_u³ = x_{u³}). Validity
+(FUNCTIONFIELD_ES3 Lemma 1.1, k = 2): monic E | D = 1 + T^{N+1+γ}L'g', E ≡ −u (T^{N+1}), E ≡ −1 (L'), g' | L', T ∤ L'g',
+0 ≤ γ ≤ j = N + 1 − k, monic cofactor. Cubing: E³ monic, D³ = 1 + T^{3(N+1+γ)}L'³g'³ (char 3), E³ ≡ −u³ (T^{3N+3}),
+E³ + 1 = (E + 1)³ ≡ 0 (L'³), g'³ | L'³; with N'' = 3N + 2, γ'' = 3γ: N'' + 1 + γ'' = 3(N + 1 + γ) ✓, j'' = N'' + 1 − k =
+3(N + 1) − k ✓, γ'' ≤ j'' ⟸ 3γ ≤ 3(N + 1 − k) ≤ 3(N + 1) − k ✓. Converse of Lemma 1.1 applies. ✓
+Case A (author: "not done"; S5): the same works trivially — E | a₁ + b₁ ⇒ E³ | a₁³ + b₁³; a₀³, b₀³ monic, coprimality, the
+lc condition and E³ ≡ −1 (mod L'³) are preserved, and the required congruence E³ ≡ −u³ (mod T^{k + 3j}) is implied by
+E³ ≡ −u³ (mod T^{3(k + j)}). So Frobenius maps *every* linear family valid at a slice point x_u to one valid at x_{u³}, and
+**O ∩ X_c ⊇ Frob^{−1}(O)** holds without the "for Case B" qualifier (MINOR improvement, D12). The "wrong direction"
+assessment (balls shrink r ↦ r³; image leaves X_c) is correct.
+
+## EVIDENCE claims
+
+* q = 3 tree to depth 9: **CONFIRMED** from scratch (see top section; identical ball set and table).
+* r = 17 cell C₅ (and C₇) tree to depth 7: **CONFIRMED** with own tree code (`scripts/review_r248_ztree.py`, which never
+  materialises the 16·10⁶ alive cylinders: dead mass = Σ over boxes not inside a lower box) on boxes from the *R83
+  from-scratch engine* `scripts/review_m17_enum.c` (S/U levels 1, 3, 5 and P for K ≤ 7 regenerated here; P line counts 2, 32,
+  121, 258 = M17B D_P), plus stored P-data K = 9, 11, 13 and stored R83 level-7 S/U data (K = 9 regeneration timed out
+  at 15 min). Result identical to `data/z16/ztree17.txt`: boxes 4, 32, 50, 158, 161, 485; alive fraction .7647, .6851,
+  .6782, .6772, .6771, .6771; max boxed children 4, 4, 2, 2, 2, 1. Log `data/review_r248/ztree17_C5.txt`. dim bound
+  log 13/log 17 = 0.905 ✓ (arithmetic). Completeness through depth 7 rests on M17/M17B (odd K only, P/Q/U exhaust the
+  boxes), not re-reviewed here.
+* §6 rational-point alive fractions: not recomputed (low stakes; the author already states no signal).
+* §4 check (`z16_thm42_check.py`): passes, but see D7 (non-reduced representatives).
+
+## Percolation reading (Assessment) — mostly fine; two inaccuracies
+
+* The model's p_d must be the probability that an **alive** depth-d cylinder (child of an alive parent) is a ball; the
+  table's p_d (all distinct depth-d balls, including those inside already-dead cylinders) is a different quantity (D9).
+  The conditional values from the same data are: depth 3: 1/3; 4: 0/6; 5: 2/18; 6: 4/48; 7: 2/132; 8: 10/390; 9: 10/1140 —
+  still ≤ 1/3, so the conclusion stands.
+* "Survives with positive probability iff 3(1 − p_d) is eventually ≥ 1 + δ": for a varying environment this is sufficient,
+  not necessary (survival is governed by the growth of ∏ 3(1 − p_d), e.g. p_d ↑ 2/3 slowly can survive). Say "if". (D13)
+
+## Conjecture 3.3 ⟹ Conjecture 0.2 — the implication is SOUND for "O(3, T²) ≠ ∅"; two wording defects
+
+Re-derived: by the (complete, checked above) depth-3 census, each slice has an alive depth-3 cylinder V₀ (2 of 3 alive; the
+only depth ≤ 3 balls are the two s = 4 balls, Case A data have α ≥ 3, i.e. depth ≥ 5). Conj 3.3 gives (W) with m = 1, K = 1
+at every alive V of depth ≥ 3, Lemma 3.1 gives U_c ∩ V₀ ≠ ∅, and u ∈ U_c means no linear family is valid at x_u (Lemma 1.1:
+every family valid at a slice point is Case A or B and valid exactly on its ball), so O(3, T²) ≠ ∅. ✓
+* D10 (MINOR): FUNCTIONFIELD_ES2 Conjecture 0.2 is literally "x*_c ∈ O(3, T²)"; O(3, T²) ≠ ∅ is its *conclusion* (as
+  FUNCTIONFIELD_ES3 §2 Assessment calls it). Conj 3.3 does not decide x*_c. Write "⟹ O(3, T²) ≠ ∅ (the conclusion of
+  Conjecture 0.2)" throughout (§1 "Conjecture 0.2 (at the slice) is U_c ≠ ∅", Conj 3.3, §8, report).
+* D11 (MINOR): "The weaker 'eventually, for the alive cylinders along some path' suffices" is vacuous as a weakening: the
+  existence of an infinite path of alive cylinders is *equivalent* to U_c ≠ ∅ (König/compactness). State a genuinely weaker
+  hypothesis instead, e.g. "for all alive V of depth ≥ n₁ inside some alive V₀ of depth n₁".
+
+## §7 ℤ face — Assessment-level claims
+
+* "Lemma 3.1 holds verbatim on ℤ_r (r-ary tree)" ✓ (the proof uses only the tree structure).
+* "Prop 3.2 applies too … So the explicit-r₀ question is limited by the union-bound form of the argument, and any improvement
+  to r = 17 must use positional (sibling-type) information" — non sequitur, see D3: better per-level counts (the M17 route
+  "fails by constants") would also do.
+* ℤ gap principle: for p₁/q₁ ≠ p₂/q₂ agreeing r-adically to order D, r^D | p₁q₂ − p₂q₁ ≠ 0 gives r^D ≤ 2H₁H₂ — the
+  ℤ form is multiplicative (D log r ≤ log 2H₁H₂), not the additive "N ≤ H₁ + H₂"; the text's "|qa − pb| ≤ (|p| + q)·max(a, b)"
+  is the right shape. Fine as Assessment.
