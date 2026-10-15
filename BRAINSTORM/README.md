@@ -473,10 +473,24 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 
 | memo | idea | result | label |
 |---|---|---|---|
-| z15_proth_sophie_germain | Sophie-Germain window m = 11 through the ET-sterile point μ = 0 of 3·2^s + 1 | **ES for all 3·2^s + 1** (proved ET/divisor-uncoverable family) — SHARP; confirmed by R251, R252 | PROVED (hand-checkable; certificate) |
-| z15_witness_descent | witness symbol read as a Brauer/2-descent pairing on w² = φ(u) (Assessment) | Theorem A: sterile set of one-parameter menus ⊇ descent set (unit locus); unifies Schinzel, Thm 3.4 | PROVED |
-| z15_window_jacobi_mu0 | constant windows at glued rational points | m ≡ 7 (8) dead at μ = 0; restricted SG menu (λ | c^∞) at μ = 0 is finite (resultant); general λ: EVIDENCE (R252 D7) | PROVED + EVIDENCE |
+| z15_proth_sophie_germain | Sophie-Germain window m = 11 through the ET-sterile point μ = 0 of 3·2^s + 1 | **ES for all 3·2^s + 1** (proved ET/divisor-uncoverable family) — SHARP | PROVED (computer-assisted) |
+| z15_witness_descent | witness symbol = Brauer/2-descent pairing on w² = φ(u) | Theorem A: sterile set of one-parameter menus ⊇ descent set (unit locus); unifies Schinzel, Thm 3.4 | PROVED |
+| z15_window_jacobi_mu0 | constant windows at glued rational points | m ≡ 7 (8) dead at μ = 0; SG menu at μ = 0 is finite (resultant) | PROVED + EVIDENCE |
 | z15_near_square_algebraic | Thm 2.2 for m = 16v³ | Z_105^□ not sterile for polynomial-in-v families | PROVED |
 | z15_density_thin | thin menus vs (J)54 points | cannot help on positive-density prime sets; norm forms keep T1 | PROVED (thin) + Assessment |
 | z15_ff_frobenius | F_q[T] analogue | Frobenius kills Aurifeuille; Carlitz divisors as spark | Assessment |
 | z15_other_sterile_families | 7·4^s + 9, 15·2^s + 1, … | 7·4^s + 9: μ = 0 covered (m = 19), 2/1785 lifts left; c = 15, 63, 255: no SG window found at μ = 0 (stated bounds) | EVIDENCE |
+
+## Spark relay Z12 (O245): the menu ladder / genus ladder at unit-square points (memos z18_*, deep file MENU_LADDER.md; not yet triaged)
+
+| memo | idea | result | label |
+|---|---|---|---|
+| z18_descent_dies_at_D2 | Bruin–Stoll genus ladder for root menus X = 2^{s/D} | μ = 0 descent-sterile iff θ(θ−1) ∈ (A⊗ℚ₂)^{×2}; non-square for every D = 2…10, six families — in the tested range descent obstructs only at D = 1 | PROVED + CERTIFIED (SHARP) |
+| z18_two_specialisations | integrality near μ = 0 | ⟺ values at Y = 1 in ℤ[1/2] and at Y = 0 in ℤ_(2): a family is an interpolation between n = 4^J and n = k | PROVED |
+| z18_witness_localisation | product formula on Theorem A | for k = 1, c₀ squarefree, c₀-places silent; W(f) = parity over primes of Res(f, φ) | PROVED |
+| z18_real_place | positivity of normal form n = σTT′ − T − T′ | even D: T, T′ have no real roots; linear shapes die | PROVED + EVIDENCE |
+| z18_rung2_positivity | D = 2 rung (c₀Y² + k) | every Type II family non-escaping ⟹ μ = 0 unreachable (not T1, not descent) | PROVED (Type II) |
+| z18_shape_search | exact shape varieties for 15·2^s + 1, D = 3…8 | 110–148 algebraic families at D = 4, none integral; none elsewhere | EVIDENCE (negative) |
+| z18_exp_cover_criterion | exponential Thm 1.4 | compactness criterion PROVED; pointwise "iff descent" false for z14 windows and Type II rung 2 | PROVED |
+| z18_primes_slices | Y = 2^{v₂(n−1)} as a positive-density root parameter | full slice progressions collapse to ET ⟹ Schinzel; "ladder stops at positive density" | PROVED (narrow) + Assessment |
+| z18_s_deformation | coefficients polynomial in s | decouples integrality from positivity; rung 2 still closed (Type II); blocked for known shapes | PROVED (rung 2) + Assessment |
