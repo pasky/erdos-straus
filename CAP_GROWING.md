@@ -85,8 +85,9 @@ prime, (ℓ+1)/4 = uvw. If n ≡ −u v^{−1} (mod ℓ) then n ≡ −4u²w (mo
 *Remarks.* (i) The loglog improvement of the note does NOT transfer: it uses the composite moduli kℓ. (ii) PM-II is
 trivial for p ≡ 3 (mod 4) and for p ≡ 2 (mod 3) (h = 3, c = d = 1); the classes at h = 7 ((c,d) ∈ {(1,1),(1,2),(2,1)},
 classes 3, 6, 5) are exactly the non-residues mod 7, so **a PM-II failure is ≡ 1 (mod 12) and a QR mod 7** (3361 ≡ 1 mod 84
-and 3361 ≡ 1 mod 5, 7 as well). For h ≥ 11 the τ₃((h+1)/4) ≤ h^{o(1)} classes cannot cover the (h−1)/2 non-residues,
-so there is no further covering (B1). (iii) A pointwise PM-II would give Type II-ES at every p ≠ 3361: B2/B3 apply
+and 3361 ≡ 1 mod 5, 7 as well). Among primes h ≡ 3 (mod 4) ≤ 20 000 only h = 3, 7 have
+covering class sets (`scripts/z5_pm_cover.py 20000`; CERTIFIED in that range), and for large h the τ₃((h+1)/4) = h^{o(1)}
+classes cannot cover the (h−1)/2 non-residues — no further covering (B1). (iii) A pointwise PM-II would give Type II-ES at every p ≠ 3361: B2/B3 apply
 verbatim (BRIDGE_WORLDS §5); nothing here addresses that.
 
 ## 3. SQ_± on average, its prime-modulus core, and a calibration (goal 3)
