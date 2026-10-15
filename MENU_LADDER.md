@@ -40,6 +40,9 @@ menu of degree ≥ 2. Heuristic: J(ℚ₂)/2J(ℚ₂) has order ≈ 2^{g + #J[2]
 probability ≈ 2^{−g}·… — the genus ladder predicts rarity of descent-sterility, and in the data it is already absent at g = 0
 (D = 2), where A ⊗ ℚ₂ is a quadratic algebra and the test is a single Hilbert symbol.
 
+*Hand check (D = 2, c₀ = 15).* θ = ±σ/15 with σ = √−15 ∈ ℤ₂ (−15 ≡ 1 mod 16), σ ≡ −7 (mod 32) for one root; then
+θ(θ − 1) = −(1 ± σ)/15 has v₂ = v₂(1 + σ) = 1 resp. v₂(1 − σ) = 3 in the two components — odd, so a non-square in both ✓.
+
 *Consequence (steering).* O239's Prop 2.7 (no z14 window at μ = 0 for (15,1), …) and NEAR_SQUARE-type degree arguments are
 **finer** than descent: they use the specific shape of the menu, not the adelic point. The genus ladder therefore has to
 be climbed by *shapes*, not by descent.
