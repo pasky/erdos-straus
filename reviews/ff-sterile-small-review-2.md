@@ -12,16 +12,18 @@ check), `review_fz9_compare.py`, `review_fz9_rankin.py` + harness `review_fz9_rk
 
 | Claim | Verdict |
 |---|---|
-| §5.1 completeness of fz_enum's eight routes (incl. the factoring routes M11–M16) | **SOUND** (proved below; pattern-by-pattern agreement with my independent enumerator for all patterns s ≤ 17 [s = 18: see §1]) |
-| §5.2 exact masses (per level, Σ_{s≤18} = 0.592177, Σ_{s≤22} = 0.592201) | **SOUND** (s ≤ 17 independently reproduced exactly; s = 18–22 from the author's files, cross-checked only for consistency, see m-2) |
-| Lemma 5.1 (linearised Lemma 4.1) and its implementation in fz_tail (RANK = 1) | **SOUND** |
+| §5.1 completeness of fz_enum's eight routes (incl. the factoring routes M11–M16) | **SOUND** (proved in §1; my independent enumerators agree pattern by pattern for ALL 6 664 patterns 3 ≤ s ≤ 22) |
+| §5.2 exact masses (per level, Σ_{s≤18} = 0.592177, Σ_{s≤22} = 0.592201) | **SOUND** (independently reproduced, s ≤ 22; one presentation slip m-3) |
+| Lemma 5.1 (linearised Lemma 4.1) and its implementation in fz_tail (RANK = 1) | **SOUND** (proof re-derived; constants checked externally; unchecked truncation hypothesis m-4) |
 | Hybrid splice (exact s ≤ 22, bounds 23 ≤ s ≤ 80, tail s > 80) | **SOUND** (no double counting, no omitted pattern) |
 | Case A at q = 9 (0.17501 + 1.1·10⁻⁵) | **SOUND** |
-| Theorem 5.2 (certified total ≤ 3.58 < 8) and its corollaries | **SOUND-AFTER-REPAIRS** (minor: documentation of the regeneration command and of what is independently verified) |
-| §5.3 s₀ ≈ 80–85 at q = 3 (Assessment) | (see §6) |
+| Theorem 5.2 (certified total ≤ 3.58 < 8) and its corollaries | **SOUND** (fully independent reviewer-code certificate: ≤ 3.95 < 8, §1b); minor documentation repairs m-1, m-2, m-6 |
+| §5.3 s₀ ≈ 80–85 at q = 3 (Assessment) | **SOUND** (numbers reproduced; nit m-5) |
 | Labels (Conjecture 0.2 not claimed; ES not claimed) | **SOUND** |
 
-No FATAL, no MAJOR so far.
+No FATAL, no MAJOR; six MINOR (§7). Reviewed text: FF_STERILE_SMALL.md §5 as of author commit b5d5d862 (checkpoint 2); the
+author's later commits (checkpoints 3–4) leave §5 unchanged and only retype q in init_rankin/init_omstar (int → floating), which does
+not affect q = 9.
 
 ## 1. §5.1 — exact enumeration (`fz_enum.c`): completeness
 
@@ -146,3 +148,56 @@ geometric majorant, ratio (44/43)³/√3 < 1). Weight q^{2−k−α} = 9^{−α}
 * **Independent certificate (all components by reviewer code):** exact counts s ≤ 20 from my own enumerators (§1, §1b),
   my bound sum for 21 ≤ s ≤ 80 (`review_fz9_sum.c`), my tail ≤ 0.0703 (`review_fz9_tail.c`), R218's Case A 0.17500160 +
   my direct Lemma 2.1 tail 1.07·10⁻⁵: see §1b for the number (< 8 with a wide margin).
+
+## 6. §5.3 (q = 3, s₀ estimate; Assessment) and labels
+
+* The author's `fz_sum 1 200` reproduces every quoted per-level term (26.1, 68.1, 52.9, 26.3, 9.15, 2.43, 0.60, 0.15, 0.039,
+  0.011, 3.0·10⁻³) and the total 1466.71. Bound tail beyond s₀ (from the same run, to s = 200): 12.7 (s₀ = 60), 3.17 (70),
+  0.82 (80), 0.22 (90), 0.062 (100) — it crosses 0.5 at s₀ ≈ 84: "s₀ ≈ 80–85" is accurate. My independent `review_fz9_sum`
+  (R220 routes + own Lemma 4.1) gives slightly larger terms (26.1, 68.2, 53.9, 27.2, 9.61, 2.63, 0.69, 0.18, 0.050, 0.014),
+  i.e. s₀ a few units larger — same conclusion. The 10²⁰ / 10¹⁶ orders of magnitude are arithmetically right
+  (3^{42.5} ≈ 1.9·10²⁰, 3^{34} ≈ 1.7·10¹⁶). Nit (m-5): "≈ 2.7^s at q = 9 (≈ 9^{s/2})" — 9^{1/2} = 3. Also note that the
+  target 0.5 itself shrinks as the exact union is pushed further, so 80–85 is a lower estimate; this only strengthens the
+  "infeasible" Assessment. Labels correct (Assessment).
+* Labels elsewhere: Theorem 5.2 PROVED (computer-assisted) — justified (every input independently reproduced, §1b);
+  §5.2 CERTIFIED — justified; the Remark's "true sum ≈ 0.592 < 1" is correctly EVIDENCE; Conjecture 0.2 (FUNCTIONFIELD_ES2:
+  x*_c ∈ O(3, T²)) is explicitly not claimed; ES / ES_q are not claimed. The corollary "for every q = 3^r, r ≥ 2, k ≥ 2 no
+  finite linear covering" follows from Thm 5.2 + Thm 3.1 + (J)51 (r ≥ 4). **SOUND.**
+
+## 7. Defects
+
+No FATAL, no MAJOR.
+
+**m-1 (MINOR; Thm 5.2 proof, last parenthesis).** "`fz_certify9.sh 80 1 21` regenerates the enumeration" — with SEX = 21 the
+script enumerates only 3 ≤ s ≤ 21 and bounds s = 22 (≈ +1.2 by my bounds), so it does not reproduce 3.5774. *Repair:*
+"`fz_certify9.sh 80 1 22`" (and consider making SEX default to 22).
+
+**m-2 (MINOR; §4, paragraph "q = 9").** Stale after §5: "So (Σ) at q = 9 needs exact counts … for s up to ≈ 20–24 … Not
+attempted yet." *Repair:* end the paragraph with "→ done in §5 (Theorem 5.2: exact counts s ≤ 22 suffice)."
+
+**m-3 (MINOR; §5.2).** "against route bounds 0.22, 0.89, 0.68, 2.47, …, 4.6 (s = 12)" is aligned with s = 3, 4, 5, 6, …,
+12 while the exact list starts at s = 4 (exact s = 3 is 0; bound s = 4 is 0.89, not 0.22). *Repair:* "route bounds (s = 3, 4,
+5, 6, …, 12) 0.22, 0.89, 0.68, 2.47, …, 4.6".
+
+**m-4 (MINOR; Lemma 5.1 text / `fz_tail.c` init_rankin).** The linearisation is applied for all n at once, so the item set
+must be the FULL one; the code truncates at j ≤ 8S + 8, e·j ≤ 8S + 8 and drops gains < 10⁻¹⁸, which is harmless only because
+every omitted item has ratio ≤ min(1/(8S+8), ρ^{8S+8}) (gain ≤ min(1/e, y^e)) and this lies below the computed λ. That holds
+(R221 `review_fz9_rankin.py`: 0 violations for all 96 (ρ, n₀) at q = 9, S = 80), but neither the text nor the code states or
+checks it. *Repair:* add to Lemma 5.1: "(the code keeps the items with e·deg P ≤ 8S + 8; every omitted item has ratio
+≤ min(1/(8S+8), ρ^{8S+8}), which is checked to be < λ)" and add the fail-closed test
+`if (!(lam > fmin(1.0/NM, pow(rho, NM)))) exit(2);` in init_rankin.
+
+**m-5 (MINOR; §5.3).** "≈ 2.7^s at q = 9 (≈ 9^{s/2})": 9^{1/2} = 3; say "≈ 3^s (≈ 9^{s/2})" or drop the 2.7.
+
+**m-6 (MINOR, documentation; §5.1 Validation).** Record the independent reproduction: "R221 independently re-enumerated q = 9
+for all s ≤ 22 (own field model; factoring-free routes for s ≤ 18 and for cheap patterns, FLINT factoring routes otherwise):
+all patterns agree; a fully reviewer-code certificate gives (Σ) ≤ 3.95 < 8 (`reviews/ff-sterile-small-review-2.md`)."
+Optionally note the robustness: with the author's bounds exact counts through s = 18 already suffice (4.735 < 8).
+
+**Remark (no defect).** fz_sum's per-n Lemma 4.1 truncates items at e·j ≤ 2048 and n ≤ 2048. For each fixed n ≤ 2048 this is
+a valid relaxation of the integer problem (only items with e·deg P ≤ n can occur in F), though not literally "V_ρ(n) over all
+items" as stated; it is ≥ the integer optimum, which is all the Rankin bound needs. My own per-n implementation (items
+e·j ≤ n) is built on exactly this observation.
+
+Repairs: none applied — the author (O220) was still committing (checkpoint 4, §§7–8) when this review finished, and all
+defects are MINOR; for the parent to forward.
