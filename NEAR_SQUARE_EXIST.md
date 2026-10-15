@@ -117,7 +117,8 @@ definition) or *u-genus-clean* (pointwise form above, at u with A odd or at v wi
 computes within-cell residuals exactly as NEAR_SQUARE §5 / R225 (cells: p mod 8, (r/p) for r ≤ 31, lnr; 2 048 cells).
 * Check of the pointwise theorem: all primes p ≡ 1 (4) in (10⁵, 10⁶): 5 570 014 words (= ns_census), 432 677 t-clean,
   481 272 further words u-genus-flagged (8.6 % of all words; R225's two-squares subclass was 0.9 %), **0 flagged words
-  with χ = −1**. (Range 5–2·10⁵: 98 124 flagged beyond clean, 0 with χ = −1.)
+  with χ = −1**. (Range 5–2·10⁵: 98 124 flagged beyond clean, 0 with χ = −1. Range (10⁶, 10⁷): 293 005 primes, 63 398 127 words,
+  5 287 430 flagged beyond clean, 0 flagged words with χ = −1, 0 χ = −1 words on t-clean levels.)
 * Residual of N₋/(N − Ncl) → N₋/(N − Ncl − Nfl) by K0 = p − ⌊√p⌋²: [10, 17): −0.0235 → −0.0014; [17, 30): −0.019 → −0.015;
   [30, 100): −0.0093 ± 0.0014 → −0.0059 ± 0.0013; [100, 300): −0.0045 ± 0.0008 → −0.0025 ± 0.0007; ≥ 300: +0.0022 → +0.0013.
   So u-genus cleanness removes roughly 40–50 % of the beyond-t-clean gradient in the well-populated bins (R225's

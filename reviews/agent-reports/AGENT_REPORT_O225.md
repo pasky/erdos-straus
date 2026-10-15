@@ -17,7 +17,7 @@ z2_hardness.c, z2_hardness_an.py. **ES is not solved; no infinite case of ES is 
    against brute force (k ∈ {1, 8, 9, 16, 24}, u ≤ 80, t ≤ 60).
 3. **Pointwise genus form explains ≈ 40–50 % of the beyond-clean near-square gradient (EVIDENCE, §3).** If an imaginary
    quadratic F ⊂ Σ_u splits every odd prime of p + u, all odd-A words at u have χ = +1 (0 exceptions among 481 272 flagged
-   words, 10⁵ < p < 10⁶). Removing them shrinks the R225 residual −0.0093 → −0.0059 ([30, 100)), −0.0045 → −0.0025
+   words for 10⁵ < p < 10⁶, and among 5 287 430 for 10⁶ < p < 10⁷). Removing them shrinks the R225 residual −0.0093 → −0.0059 ([30, 100)), −0.0045 → −0.0025
    ([100, 300)), −0.0235 → −0.0014 ([10, 17)); K0 ∈ [5, 10) and K0 = 24 remain unexplained.
 
 ## Goals
@@ -40,8 +40,8 @@ z2_hardness.c, z2_hardness_an.py. **ES is not solved; no infinite case of ES is 
 ## Sparks (not pursued)
 * S1. Non-genus cleanness: the unexplained remainder of the gradient may be "c_∞ ∈ ⟨σ_r⟩·G² \ ⟨σ_r⟩" (Rédei/4-rank
   level) — test whether residual depletion concentrates on levels where ⟨σ_r⟩ ∌ c_∞ but no quadratic F separates.
-* S2. Sign fields for other numerators: for m/p the same Artin-symbol description should give χ-analogues; for 4 | M
-  Σ_M contains i, which may be the field-theoretic reason "full T1 holds for every 4 | M" ((J)46).
+* S2. Sign fields for other numerators M/p: the same Artin-symbol description should give the χ-analogue; check whether
+  the special role of 4 ((J)46, full T1 only for 4 | M) is visible as "i ∈ the relevant sign field" (speculative).
 * S3. Y10-S at large inert primes vs sterile Mordell points ((J)54): either polynomial families in m beat congruence
   sterility (would be a new B1-escape on quadratic families) or Y10-S fails; decide at a sterile r-generic point.
 * S4. Exponential near-squares n = 4^s + k: m = 2^s is a moving modulus with periodic residues; a covering in s (as in
