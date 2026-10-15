@@ -98,3 +98,33 @@ arXiv 1909.07779 §5) study 2-isogenous conjugate pairs = loops of G₂/Frob emp
 packaging through the Gross-type lattice L = (E⁰)^#(p) and the loop ⟺ "L represents 2" phrasing. The memo's "standard type of
 statement … not found in the campaign" undersells the attribution — MAJOR (attribution only), see D2.
 **Verdict C1: SOUND** (mathematics and certification); attribution must be repaired (D2).
+
+### C5. z9_order3_fano: TES χ₃ test (13 failure primes N ≤ 787; c_i = 2 radius; "bit failures")
+Radius re-derived: from T = c_iπ/(uv) + c_j/u + c_k/v and |T| ≥ 1 (T ∈ O ∖ 0), with m = min(|u|, |v|): m² − (|c_j| + |c_k|)m −
+|c_i||π| ≤ 0 and |c_j| + |c_k| ≤ 3, so m ≤ (3 + √(9 + 4|c_i||π|))/2 with **|c_i| = 2 when c_i = 2** — the repaired bound is correct.
+χ₃ invariance: α depends only on the ratios u₁/u₃, u₂/u₃, which are unchanged by the common scaling x_m ↦ (T/9)x_m, so χ₃ of a
+word equals the invariant a TES point built from it would carry; Thm 3.2(c) makes χ₃ = −⟨ω, 2⟩₂ necessary. Correct.
+From-scratch re-run (`scripts/review_r234_tes.py`: own ℤ[ω] arithmetic, divisor enumeration by norms, tame symbol at π, cubic
+character via r^{(N−1)/3}; no tf_core/tw_eis/z9 code), all 67 split primes 7 ≤ N ≤ 787:
+* calibration: 35 Type II TES solutions found (at 28 primes), all with χ₃ = 2 (the target) ✓; 0 solutions at the 13 failure primes ✓
+  (consistent with TES_FINITE Thm 2.1); 26 of the 54 solvable primes have no Type II solution ✓;
+* P(v_λ(T) ≥ k | χ₃), k = 1..4: χ₃ = 2: 0.2564, 0.0615, 0.0132, 0.0030; χ₃ = 0: 0.2264, 0.0527, 0.0110, 0.0016 — identical to the
+  author's to the printed digits; χ₃ = 1 and 2 have identical statistics ✓;
+* target-χ₃ words at the 13 failures: **214–685** (author: 428–1370); λ⁴ | T target words at exactly 61, 79, 97, 151, 211, 367, 769 ✓
+  (counts 3, 1, 1, 1, 2, 1, 1; author's 6, 2, 2, …). **The author's word counts are exactly 2× mine at every prime** (also the
+  totals, e.g. N = 97: 2620 vs 1310): z9_tes_words counts each word twice (the equation c_iπ + c_jv + c_ku = Tuv with (j, k, u, v) and
+  (k, j, v, u) is the same word). MINOR (D-list): halve the counts or define the counting convention; no conclusion changes.
+Label check: "TES failures are bit failures" is shown only in one Type II slice (Type I words, which are 75 % of all TES
+solutions per TES_FINITE, are not enumerated) and the "bit" reading is an analogy (the anchor condition "2-primary" is itself a
+mod-2 trit on three denominators, not a 2-adic depth). The memo labels it correctly (EVIDENCE one slice + Assessment), but
+GLOBAL_FANO §0 (I7) states it in bold as a conclusion ("So TES failures are **bit failures**") and the agent report lists it under
+SHARP — MINOR overclaim, add "(in the Type II slice; Assessment)" there.
+**Verdict C5: SOUND** as EVIDENCE (numbers reproduced exactly up to the 2× convention), reading = Assessment.
+
+### C6. §5 control 105
+Re-run (`scripts/review_r234_105.py`, own BFS over overlattices / classical index-2 sublattices): 105 has 11 words (ordered),
+**none 2-adically isotropic**; the 2-neighbour component of ⟨1, 3, 35⟩ has 4 vertex classes, 4 edge classes, degrees 1, 2, 2, 3,
+no path class. All as claimed. The weakened wording ("refutes forcing from graph existence alone") is the right scope.
+Comment (not a defect): the 105 graph is a graph of the *wrong* genus for the words (all 11 words have χ = +1, i.e. live in
+2-adically anisotropic genera with no 2-neighbour graph at all), so the control shows "words can avoid the graph's genus
+entirely", which for primes is excluded by CHI_FLIP/SQ₅ only conjecturally. **Verdict C6: SOUND.**
