@@ -126,9 +126,11 @@ E' monic, E' | D. Lemma 2.3's converse argument. (This is the swap τ^∨ of SIB
 **Theorem 2.5 (the missing types add nothing on the sterility slices; PROVED).** Let q be odd and let Σ be either
  (i) k ≥ 2 and the c-slices u ≡ 1 + cT (mod T²), c ≠ 0 (SP, SS §§3–5, SIBLING), or
  (ii) k = 1, q = 3^r, and the slices u(0) ∉ F₃^* (SS §§6–8, OA §2).
-For x_u ∈ Σ: if some family of the seven ET types (linear, I4 or II2) is valid at x_u, then some linear family is valid at x_u;
-if an I4 family is valid at x_u, then a Case B family is valid at x_u. For k ≤ 2 moreover every Case A family with E monic valid
-at x_u is dominated by a Case B family with the same E (Lemma 2.3). Hence O_ET(q, T^k) ∩ Σ = O(q, T^k) ∩ Σ, where O_ET is the
+For x_u ∈ Σ with k ≤ 2: if some family of the seven ET types (linear, I4 or II2) is valid at x_u, then some linear family is
+valid at x_u; if an I4 family is valid at x_u, then a Case B family is valid at x_u. For k ≥ 3 (case (i)): every x_u ∈ Σ at which
+some level-k ET-type family is valid lies in the covered set of the *level-2* linear families (the set whose measure SP/SS
+bound). For k ≤ 2 moreover every Case A family with E monic valid
+at x_u is dominated by a Case B family with the same E (Lemma 2.3). Hence O_ET(q, T^k) ∩ Σ = O(q, T^k) ∩ Σ for k ≤ 2, and O_ET(q, T^k) ∩ Σ ⊇ O(q, T²) ∩ Σ for k ≥ 3, where O_ET is the
 set of points at which no ET-type family is valid.
 *Proof.* II2: Lemma 2.1. I4, k = 2 (case (i)): by Lemma 2.2, F^A is a Case A family valid at x_{1/u}, and 1/u lies in the
 (−c)-slice. FE2 §0.2 step (1) uses only u ≡ 1 + cT (mod T²); applied at 1/u it gives T^α ∥ a1 with α ≥ 1 and T ∤ b1 for the
