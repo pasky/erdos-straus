@@ -405,3 +405,11 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z8_eight_failures_frobenius | 8/131, 8/241 as a missed ζ₈-bit | all 4-slots ≡ 4 mod 8 at these p | EVIDENCE |
 | z8_no_redei_abelian_levels | Rédei layer for near-square depletion | single abelian level sees only residues of prime factors: no forced non-genus layer | PROVED (trivial) + Assessment |
 | z8_chebotarev_family_level | level u(p) with F ⊄ Σ by construction | disjointness free; hitting a divisor of p + u is B2/B3 | Assessment (negative) |
+
+## Spark relay Z5 (O235): exponential near-squares — label points, ℓ-lines, c₀·4^s + k (memos z11_*, deep file EXP_NEAR_SQUARE.md; not yet triaged)
+
+| file | idea | outcome | labels |
+|---|---|---|---|
+| z11_label_cantor | mixed points = label points Π_ℓ{square points}; CRT of squares | only mixed primes can cover; binary core of 4^s + 105 covered by 10 classes; quaternary core open | PROVED + CERTIFIED + EVIDENCE |
+| z11_lines_branching | per-branch Ẑ tree (C) instead of global period | measure → 3·10⁻¹¹ but stuck nodes multiply; cause = ℓ-lines through square points (also k = 297, one square point); 3-line of 297 itself covered | EVIDENCE + diagnosis |
+| z11_unit_square_shapes | when c₀·4^s + k has a unit-square point | iff c₀ + k = 4^j: (3, 1), c₀ ≡ 7 mod 8 series uncoverable; survey c₀ = 2, 3, 5 | PROVED + EVIDENCE |
