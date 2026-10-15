@@ -101,6 +101,30 @@ relaxation of that window's exponent budget, so the subgroup-level success — w
 ES^{(y,e)} solution with e < q. This answers CAP_INTERPOLATION's "unconditionally no bound on e*(n) in terms of n is
 known" with a polynomial bound, and with an explicit (log n)² bound under GRH.
 
+## 2. Goal 2 (GRH, e* ≤ C log log p): where the window method stops
+
+**Lemma 2.1 (the cap below the covering threshold is a divisibility lottery; PROVED, trivial).** For a window m of n,
+cap(m) ≤ e ⟺ m | n + 4Q² for some Q ∈ Box_e(K) := {∏ s^{a_s} : a_s ≤ v_s(K) + e}, K = (n+m)/4.
+(Since 4K ≡ n (mod m).) For e = 0 this is the ES Type II window condition; for e ≥ ord-bound it is automatic (Thm 1.1).
+*Reading (Assessment).* Thm 1.1 uses only *subgroup-level* information (a Legendre symbol and cyclicity), which is
+Chebotarev-visible and therefore effective/GRH-controllable. Any cap e below the box-covering threshold
+(∏_s (v_s(K) + e + 1) ≳ |⟨S⟩| ≍ m for a balanced lattice) asks for m to divide one of the explicit integers
+n + 4Q², Q ∈ Box_e(K) — the B2 divisor lottery; no Frobenius/Kummer condition in a fixed field expresses "the
+discrete logarithm of −K lies in a box". So a GRH proof of e*(p) ≤ C log log p must certify the *lattice shape*
+of Λ_m = ker(ℤ^S → F_m^*) at a window m with |S| ≍ log m/log log m forced primes (those are the s with
+m ≡ −n (mod s), a Dirichlet condition of modulus P = ∏S ≈ m^{1/2}).
+**Where it breaks (Assessment, quantified).** Windows in the class mod P number ≍ X/(P log X) under GRH
+(X ≥ P²·polylog). Unbalanced lattices (λ₁ ≤ B) occur only at primes dividing one of the (2B+1)^{|S|} relation
+numbers ∏s^{c⁺} − ∏s^{c⁻}; these do not depend on n, but their prime factors are not known to equidistribute mod P,
+so the count of bad windows cannot be divided by P. With B^{|S|} ≲ X/P this gives λ_{|S|} ≲ X^{1/|S|}·P^{1−o(1)}, i.e.
+cap ≳ P — exactly the loss behind CAP_INTERPOLATION Thm 4.2(b) (e ≤ exp(O(√(log₂p log₃p)))). The window method
+reproduces, but does not improve, that bound. **The missing input is precise:** an equidistribution mod P (P ≈ X^{1/2})
+of the primes q ≤ X at which a short multiplicative relation among the first k primes holds. With it (heuristically
+true: these primes have density ≪ B^{k}/X and no reason to prefer classes mod P), λ_k ≲ k·X^{1/k} and
+e*(p) ≲ (log₂p)^{O(1)}; the C log log p conjecture would additionally need λ_k ≍ X^{1/k} with k ≍ log X/log₂X
+(box side ≍ log X ≍ log₂p). Nothing of this kind is known even under GRH (it is a statement about prime factors of a
+structured family of integers in progressions: B6 at level P).
+
 ## 3. Numerics (goal 3): window caps for all primes p ≡ 1 (mod 4) below 10⁶
 
 **Lemma 3.1 (exact cap of a window shot; PROVED).** In Thm 1.1/1.1′ with Q = ∏ s^{a_s} (actual exponents) and
