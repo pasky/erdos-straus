@@ -1,0 +1,32 @@
+Q=sum2 mode=IIA: families=18  in QQ[Q]=18  outside=0
+  outside & valid-in-theorem-sense: 0
+Q=sum2 mode=IID: families=144  in QQ[Q]=24  outside=120
+  outside & valid-in-theorem-sense: 0
+Q=sum2 mode=IA: families=12  in QQ[Q]=12  outside=0
+  outside & valid-in-theorem-sense: 0
+Q=sum2 mode=ID: families=867  in QQ[Q]=27  outside=840
+  outside & valid-in-theorem-sense: 0
+Q=eis mode=IIA: families=18  in QQ[Q]=18  outside=0
+  outside & valid-in-theorem-sense: 0
+Q=eis mode=IID: families=144  in QQ[Q]=24  outside=120
+  outside & valid-in-theorem-sense: 0
+Q=eis mode=IA: families=12  in QQ[Q]=12  outside=0
+  outside & valid-in-theorem-sense: 0
+Q=eis mode=ID: families=867  in QQ[Q]=27  outside=840
+  outside & valid-in-theorem-sense: 0
+Q=pell2 mode=IIA: families=18  in QQ[Q]=18  outside=0
+  outside & valid-in-theorem-sense: 0
+Q=pell2 mode=IID: families=138  in QQ[Q]=18  outside=120
+  outside & valid-in-theorem-sense: 0
+Q=pell2 mode=IA: families=0  in QQ[Q]=0  outside=0
+  outside & valid-in-theorem-sense: 0
+Q=pell2 mode=ID: families=738  in QQ[Q]=12  outside=726
+  outside & valid-in-theorem-sense: 0
+Q=u2p5v2 mode=IIA: families=18  in QQ[Q]=18  outside=0
+  outside & valid-in-theorem-sense: 0
+Q=u2p5v2 mode=IID: families=138  in QQ[Q]=18  outside=120
+  outside & valid-in-theorem-sense: 0
+Q=u2p5v2 mode=IA: families=0  in QQ[Q]=0  outside=0
+  outside & valid-in-theorem-sense: 0
+Q=u2p5v2 mode=ID: families=738  in QQ[Q]=12  outside=726
+  outside & valid-in-theorem-sense: 0

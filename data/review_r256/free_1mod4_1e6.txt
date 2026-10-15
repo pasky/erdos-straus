@@ -1,0 +1,1 @@
+N 1000000 Type-II-free non-squares with all prime factors = 1 (4): [3985]

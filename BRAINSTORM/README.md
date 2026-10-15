@@ -494,3 +494,16 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z18_exp_cover_criterion | exponential Thm 1.4 | compactness criterion PROVED; pointwise "iff descent" false for z14 windows and Type II rung 2 | PROVED |
 | z18_primes_slices | Y = 2^{v₂(n−1)} as a positive-density root parameter | full slice progressions collapse to ET ⟹ Schinzel; "ladder stops at positive density" | PROVED (narrow) + Assessment |
 | z18_s_deformation | coefficients polynomial in s | decouples integrality from positivity; rung 2 still closed (Type II); blocked for known shapes | PROVED (rung 2) + Assessment |
+
+## Synthesis VII (O247): cross-combinations of wave Z second half (memos s7_*, deep file SYNTHESIS_SPARKS7.md; not yet triaged)
+
+| memo | idea | result | label |
+|---|---|---|---|
+| s7_window_lottery | least Type II (cap-0) window m₀(p): structure vs lottery | m₀ ∈ {3, 7} off Mordell-hard classes (Mordell, window form); shuffle test: congruence data explain all inter-window correlation; m₀ ≤ 107 to 10⁷; Dickson all-fail classes to M = 99 | PROVED + EVIDENCE + CONDITIONAL |
+| s7_certified_caps | forced witness + forced small primes on lnr lines | per-class cap certificates; cap ≤ 1 on Haar ≈ 0.93–0.96 of lnr = 17; blind at r-generic points | PROVED (per class) + EVIDENCE |
+| s7_sibling_certificate | finite certificate for r = 17? | fixed windows on the r-generic line (include M17 P-boxes), parity law (ℤ-twin of (J)67); level-1 survivors match Comp 4.1 at r = 19, 23; Frobenius exactly critical; no certificate | PROVED + EVIDENCE (negative) |
+| s7_ff_nonlinear | Sophie-Germain / Carlitz / Frobenius-digit menus over F_q[T] | Baire: thin menus cannot touch open coverings; lifted digit identities = Galois conjugation (general digit identities open) | PROVED (negative) |
+| s7_normform_collapse | binary-form (norm-form) rung of the menu ladder | Type II families (valid at one point) in binary-form coordinates are identities in n (any irreducible Q); Type I too on cones, any level — closes POINTWISE_BINARYFORM §5's open question | PROVED (SHARP) |
+| s7_gaussian_square_windows | positive-density forced budget via p = a² + b² | K = S² forced at windows m ≍ p; cap-0 rate 10⁻⁴ = random windows (B3) | PROVED identity + EVIDENCE |
+| s7_lvalue_proxy | m₀ vs L(1, χ_p) | Spearman 0.35 (0.20 Mordell-hard): hardness = QR-richness | EVIDENCE / Assessment |
+| s7_typeII_free_controls | non-squares with f_II = 0 as T1 controls | Type II has x ≤ n/2; 103 such n ≤ 2·10⁵ (3985 = 5·797 window-free to 1.2·10⁷) | PROVED + EVIDENCE |
