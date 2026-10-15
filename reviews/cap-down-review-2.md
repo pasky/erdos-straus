@@ -12,7 +12,18 @@ from side-agent/cap-down (iteration Z7-1/Z7-2 + self-review repairs), BRAINSTORM
 | Lemma 1.1 (general Type II window with cap) | SOUND |
 | Thm 1.2 (even windows fire, (E)) incl. Def 1.1 compatibility of the 2^t in d | SOUND |
 | Prop 1.3 (one-prime witness d = K·s^{o/2}, cap ≤ (q−3)/4) | SOUND |
-(continued below as checks complete)
+| §1 "excluded case genuinely not forced / 2 unusable" (Assessment + verdict 1) | GAP (overstated; D1) |
+| Cor 2.1 (n₀^{1/4+ε} for n ≡ 1 (8), n₀^{1/2+ε} for n ≡ 5 (8); squares via d = n/p), rel. Pollack Thm 1.4 | SOUND |
+| Lemma 3.1 (all ES^{(y,e)} solutions at fixed x) | SOUND |
+| T1 for Lemma 1.1 (§3) | SOUND |
+| Prop 4.1(a) (sharpness at a single window) | SOUND |
+| Prop 4.1(b) (one-prime witness at composite windows) | SOUND-AFTER-REPAIRS (D3) |
+| Prop 6.1 (order-3 necessary condition) | SOUND (Reading = Assessment, correctly labelled) |
+| §5 numerics (39 175 primes cap 0 at m ≤ 63, record 87 481; 87 759 non-squares, only 3985 cap 1; squares) | SOUND, reproduced exactly; the 3985 explanation is wrong (D2) |
+| §1 forced-window statistics (means, maxima, 9161) | SOUND, reproduced exactly; reading needs D1 |
+| Novelty | No prior ES use of Pollack-type detector bounds found (quick search); related: Dahan 2026 Thm 4.6 |
+
+No FATAL defects. No MAJOR defects. Four MINOR defects (D1–D4) plus remarks.
 
 ## Detailed checks
 
