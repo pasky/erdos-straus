@@ -1,6 +1,6 @@
 # FF_THIRDS_CORNER — Conjecture 0.2 at q = 3: the thirds corner versus the sterile point x*_c (O227, wave Z-d1)
 
-Status: in progress (O227). ES is not solved here, nor any infinite case of ES or ES_q. Labels as in DISCOVERIES.md.
+Status: checkpoint 1 (O227), awaiting review; report reviews/agent-reports/AGENT_REPORT_O227.md. ES is not solved here, nor any infinite case of ES or ES_q. Labels as in DISCOVERIES.md.
 Builds on FUNCTIONFIELD_ES2.md §0.2 (Case A, Conjecture 0.2), FUNCTIONFIELD_ES3.md (Lemmas 1.1, 1.2, 2.1, 2.3; searches),
 FF_STERILE_PUSH.md (notation (B), Lemma 1.1, §5; reviews R217/R218), FF_STERILE_SMALL.md ((J)56). Scripts `scripts/zt_*`.
 
@@ -18,6 +18,11 @@ families sharing the tuple, FUNCTIONFIELD_ES3 Lemma 1.1 with Lemma 3.1).
   of low degree this is a Liouville-type statement: the approximation has quality m but "height" max(a − 1, b), so
   covering forces max(a − 1, b) ≥ m unless w₁ = −uC₁ exactly. At x*_c (m = N + 1 ≈ s/2) this kills the whole thirds corner
   (a ≈ b ≈ s/3), in particular every cyclotomic tuple (§1).
+* (I2) Barrier as steering wheel: the union-bound barrier at q = 3 assumes all patterns can reach the target. At a
+  polynomial point they cannot; the remaining (lopsided) patterns admit a complete search costing ≈ 3^N per level (§2).
+* (I3) A random-remainder lottery model over-predicted hits at control points by ≈ 10×; two more exact constraints
+  (second Liouville constraint Cor 3.2; parity laws, incl. O226's z ≡ t ≡ s) brought it to the right order (§3).
+* (I4) A proof attempt via the Bezout form (§5) found no further structure: the residual condition is a lottery.
 
 ## 1. The Liouville lemma
 
