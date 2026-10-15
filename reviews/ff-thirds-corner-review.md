@@ -39,3 +39,23 @@ E = Tg₂(T^{s−2} + v₁) − 1 = g₂T^{s−1} − u). The h = 1 reading (T �
   u'(0) ≠ 0). Repair: add "T ∤ g₂, deg v₁ < s − 2, v₁(0) ≠ 0" to the converse.
 Numerics: my full search (no Liouville input) finds exact tuples (w₁ = −uC₁) only at points with lc u = −1 (levels 3..8,
 54 points), consistent with Prop 1.4.
+
+### Prop 2.1 (complete search) — SOUND (one MINOR on the hypothesis N ≥ 3)
+Re-derived every step:
+* Covering in both orientations: Ê = TMg' − 1 in A (M = m'w₁) and B (M = m'C₁); EE' = 1 + T^sL'g' (re-derived), s ≥ N + 1,
+  so E ≡ −u ⟺ E' ≡ −u^{−1} (mod T^{N+1}) ⟺ Mg' ≡ α (mod T^N). Correct.
+* Orientation choice: non-exact ⇒ b − 1 + h ≥ N + 1 (A: deg M = s − b − 1 ≤ s − N − 3 + h) or a ≥ N + 2 (B: deg M =
+  s − a − 1 ≤ s − N − 3). Correct. Exact tuples are excluded only by Lemma 1.2(ii) and are impossible at x*_c.
+* Case 1 (y ≤ N − 1): g' = unique polynomial of degree < N with Mg' ≡ α; X₁ ≡ −g'T^{s−1} (mod Ê) with deg X₁ ≤ deg M <
+  deg Ê, so X₁ is the least residue. Correct; the tuple is a function of (M, s).
+* Case 2 (y ≥ N): deg M + deg v₁ = s − 3 − y + max(0, ±(a − b)) re-derived from y + t = max(a, b) (which I re-derived:
+  deg(w₁ + C₁) = max(a, b) − 1 in odd characteristic). Sign analysis: A, h = 1: b ≥ N + 1, a ≤ s − b ≤ N − 1 (s ≤ 2N,
+  true for k ≥ 2); A, h ≥ 2: a − b ≤ s − 2b ≤ 2h − 4; B: b ≤ s − a ≤ N − 2 < a. Correct. v₁ must range over ALL nonzero
+  polynomials (any leading coefficient) in the class −T^{s−2} mod M — the code does so (checked by my independent run).
+* MINOR-3: Lemma 1.2 needs N + 1 ≤ s − 1 with s ≥ 2N − k + 1, i.e. N ≥ k + 1, not "N ≥ 3": for k = 3, N = 3, s = 4 the
+  Liouville step is not available. Harmless (the k = 3 search starts at N = 4), but the hypothesis must read N ≥ k + 1.
+* Independent confirmation of completeness: see "Independent search" below — my enumerator does not split on deg g'
+  at all (it enumerates the small side as a PAIR (m', X₁), fixes v₁ by CRT modulo T^{min(N+1, s−2)}·m'X₁ from the two
+  necessary congruences v₁ ≡ −T^{s−2} (mod m'X₁) and v₁ ≡ −m'w₁²u^{−1} (A) / −um'C₁² (B) (mod T^{n₀}), and enumerates
+  every v₁ of that class with deg v₁ ≤ max(a, b) − 2), and in "full" mode drops the Liouville bound entirely (A only,
+  deg M ≤ s − 2, which reaches every tuple). A missed case in Prop 2.1 would show up as a full-mode hit not found by zt_lop.
