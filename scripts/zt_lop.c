@@ -24,7 +24,7 @@ static int P, K, H;
 static int INV[64];
 static poly U, ALPHA[2];
 static long long cand1, cand2, hits, verfail, tup2;
-static double exp1, exp2, TAUBAR[MD];
+static double exp1, exp2, TAUBAR[MD], exp1r, exp2r, NSTAR[MD];
 
 static void norm(poly *a){ while(a->d>=0 && a->c[a->d]==0) a->d--; }
 static void zero(poly *a){ a->d=-1; }
@@ -96,7 +96,11 @@ static void case1(int s,int orient,int Dmax){
       poly t1,Eh,one; one.d=0; one.c[0]=1; mul(&t1,&M,&g);
       poly Tt; Tt.d=t1.d+1; Tt.c[0]=0; for(int i=0;i<=t1.d;i++) Tt.c[i+1]=t1.c[i]; sub(&Eh,&Tt,&one);
       /* X1 = (-g T^{s-1}) mod Eh */
-      { double e=1.0; for(int i=0;i<Eh.d;i++) e/=P; exp1 += TAUBAR[dM]*e; }
+      { double e=1.0; for(int i=0;i<Eh.d;i++) e/=P; exp1 += TAUBAR[dM]*e;
+        /* refined model (FF_THIRDS_CORNER Cor 3.2 / §3): only divisors X1 of M of degree >= lo can occur */
+        int N_=Nof(s), y=Eh.d-1-dM, t=s-dM-1-y, lo;
+        if(orient==0) lo = (t>=N_+3-H) ? 0 : N_+1-dM; else lo = (t>=N_+3) ? 0 : N_+1-H-dM;
+        if(lo<0) lo=0; double ad=0; for(int r=lo;r<=dM;r++) ad+=NSTAR[r]*NSTAR[dM-r]/NSTAR[dM]; exp1r += ad*e; }
       poly Ts,X1,r; setmono(&Ts,s-1); pdivmod(NULL,&r,&Ts,&Eh); mul(&t1,&r,&g); pdivmod(NULL,&X1,&t1,&Eh);
       poly zz; zero(&zz); sub(&X1,&zz,&X1);
       if(X1.d<0 || X1.c[X1.d]!=1 || X1.c[0]==0) continue;
@@ -134,7 +138,10 @@ static void case2(int s,int orient,int D2){
           if(X1.d<0 || X1.c[X1.d]!=1 || X1.c[0]==0) continue;
           poly mq; pdivmod(&mq,&rem,&M,&X1); if(rem.d>=0) continue;
           poly sm,g; add(&sm,&X1,&X2); pdivmod(&g,&rem,&sm,&Tv); if(rem.d>=0) continue;
-          if(g.d>=0 && g.c[g.d]==1){ tup2++; double e=0.5; for(int i=0;i<Nof(s)-1;i++) e/=P; exp2+=e; }
+          if(g.d>=0 && g.c[g.d]==1){ tup2++; double e=0.5; for(int i=0;i<Nof(s)-1;i++) e/=P; exp2+=e;
+            int N_=Nof(s), a_,b_,z_=mq.d,t_=v1.d+2; if(orient==0){ a_=X1.d+1; b_=X2.d+1; } else { a_=X2.d+1; b_=X1.d+1; }
+            int c1 = (z_+2*a_-2>=N_+1) || (H+t_-2>=N_+1), c2 = (H+z_+2*b_-2>=N_+1) || (t_-2>=N_+1);
+            if(c1&&c2) exp2r+=e; }
           int ok = orient==0 ? verify(s,&mq,&g,&X1,&X2,1,"A2") : verify(s,&mq,&g,&X2,&X1,1,"B2");
           if(ok) hits++;
         } while(nk>0 && next_any(dg,nk));
@@ -151,7 +158,8 @@ int main(int argc,char**argv){
   if(U.c[0]!=1 || U.d<1 || U.c[1]==0){ fprintf(stderr,"need u(0)=1, u'(0)!=0\n"); return 1; }
   H=U.d;
   { double Ns[MD]; Ns[0]=1; for(int d=1;d<MD;d++){ double x=1; for(int i=0;i<d;i++) x*=P; Ns[d]=x*(P-1)/P; }
-    for(int d=0;d<MD/2;d++){ double t=0; for(int i=0;i<=d;i++) t+=Ns[i]*Ns[d-i]; TAUBAR[d]=t/Ns[d]; } }
+    for(int d=0;d<MD/2;d++){ double t=0; for(int i=0;i<=d;i++) t+=Ns[i]*Ns[d-i]; TAUBAR[d]=t/Ns[d]; }
+    for(int d=0;d<MD;d++) NSTAR[d]=Ns[d]; }
   printf("zt_lop p=%d k=%d u=",P,K); pr(&U); printf(" levels %d..%d\n",N1,N2);
   for(int N=N1; N<=N2; N++){
     if(N<3){ printf("N=%d skipped (Lemma 1.2 needs N+1<=s-1)\n",N); continue; }
@@ -159,13 +167,13 @@ int main(int argc,char**argv){
     poly one,t1; one.d=0; one.c[0]=1; sub(&t1,&one,&U); ALPHA[0].d=t1.d-1; for(int i=0;i<=ALPHA[0].d;i++) ALPHA[0].c[i]=t1.c[i+1]; norm(&ALPHA[0]);
     poly ui; sinv(&ui,&U,N+1); sub(&t1,&one,&ui); ALPHA[1].d=t1.d-1; for(int i=0;i<=ALPHA[1].d;i++) ALPHA[1].c[i]=t1.c[i+1]; norm(&ALPHA[1]);
     if(ALPHA[0].d>=N){ poly tmp=ALPHA[0]; tmp.d=N-1; norm(&tmp); ALPHA[0]=tmp; }
-    long long h0=hits; double e10=exp1, e20=exp2; long long t20=tup2;
+    long long h0=hits; double e10=exp1, e20=exp2, e1r0=exp1r, e2r0=exp2r; long long t20=tup2;
     for(int s=2*N-K+1; s<=2*N-K+2; s++){
       if(Nof(s)!=N || s<N+2) { fprintf(stderr,"bad s\n"); return 3; }
       int DA = s-N-3+H, DB = s-N-3, D2A = s-3-N+(2*H-4>0?2*H-4:0), D2B = s-3-N;
       case1(s,0,DA); case1(s,1,DB); if(D2A>=0) case2(s,0,D2A); if(D2B>=0) case2(s,1,D2B);
     }
-    printf("N=%d done: hits this level %lld (cumulative cand1 %lld cand2 %lld, division failures %lld) model: case1 %.3e case2 %.3e (case-2 region tuples %lld)\n",N,hits-h0,cand1,cand2,verfail,exp1-e10,exp2-e20,tup2-t20);
+    printf("N=%d done: hits this level %lld (cumulative cand1 %lld cand2 %lld, division failures %lld) model: case1 %.3e case2 %.3e (case-2 region tuples %lld) refined: case1 %.3e case2 %.3e\n",N,hits-h0,cand1,cand2,verfail,exp1-e10,exp2-e20,tup2-t20,exp1r-e1r0,exp2r-e2r0);
     fflush(stdout);
   }
   return 0;
