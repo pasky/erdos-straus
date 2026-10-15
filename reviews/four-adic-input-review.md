@@ -17,6 +17,9 @@ From-scratch scripts: `scripts/review_r229_*.py` (no reuse of the author's z1_* 
 | Prop 3.1 / z1_glue (marked extension criterion c ≡ ±1, D ∣ p + v) | SOUND |
 | z1_isogeny_pointer (a) no crossing | SOUND (D9: spine word has χ = +1 only for p ≡ 1 mod 4) |
 | Legendre Prop 1, Cor 2, 7 failures ≤ 10⁶, squares | SOUND (all numbers reproduced exactly) |
+| §1.3 EVIDENCE (bit correlation, 12 vs 0.82) | SOUND (reproduced exactly; D11 on interpretation) |
+| §2 Prop 2.1 / labels / requirements (ii)–(iv) | SOUND; (iv) and TES/ES_q handled honestly (D12 minor) |
+| novelty | Thm 1.3 = third proof of a known statement (D1); Prop 1.4 general-k law apparently new; Legendre levels a variant of TWO_FIBRES 3.1 (D13) |
 
 ## Claim 1: Lemma 1.1, Lemma 1.2, Theorem 1.3
 
@@ -164,3 +167,39 @@ All identical to the memo. Odd squares 9 ≤ m² ≤ 10⁸, levels ≤ 3000: 0 w
 (mod 4): A = p + 1, χ = (−(p+1)/p) = (−1/p), which is −1 for p ≡ 3 (mod 4) (⟨1, 1, 3⟩ is ℚ₂-isotropic). *Repair:* add
 "(p ≡ 1 mod 4, the only case of interest)".
 **D10 (MINOR, cosmetic).** Prop 3.1(1) "v | D + 1" is automatic; replace by "a basis with off-diagonal entry −1".
+
+## Claim 5: §1.3 EVIDENCE (bits correlated inside a prime)
+
+**From-scratch** (`scripts/review_r229_bits.py 4000`, own word enumeration with one representative per reversal pair):
+primes p ≡ 1 (mod 4) < 4000: 4785 χ = −1 words mod reversal, S₈ share 0.5014; independent-bit prediction Σ_p Π_w (1/2 or
+1/4) = 0.82 empty primes; observed 12 = {17, 113, 241, 257, 353, 593, 1249, 1489, 1601, 2081, 3169, 3361}. Exactly as
+claimed. At 131 (15 χ = −1 words mod reversal = 29 words, one palindrome) and 241 (6 = 12 words) every entry ≡ 0 (4) has
+v₂ = 2 ✓; (5, 1, 33) ∈ X₁₃₁, A = 4, A* = 164, 5·131 + 1 = 656 = 2⁴·41 ✓.
+**Verdict:** SOUND as EVIDENCE.
+**D11 (MINOR, interpretation).** The null model treats the words of one prime as independent but ignores *known*
+dependencies (norm-one triples share entries, Lemma 1 of z1_marking_isometry; words at one level t share v₂(tp + 1)),
+so the 12-vs-0.82 gap measures departure from a straw-man; and the per-word cell probability already over-predicts the
+S₈ share (0.501 vs 0.583), which alone shifts the prediction. The causal sentence "the bit of a word is mostly a function of
+v₂(tp + 1)" is not quantified anywhere. *Repair:* label that sentence Assessment, and (optional) report the prediction
+recomputed with the observed per-word rate 0.501 instead of 1/2, 3/4, to separate "lower rate" from "correlation".
+
+## Claim 6: labels, requirements (ii)–(iv), novelty
+
+**Prop 2.1** re-checked: (a) ✓ (Thm 1.3 + MODEL_SPECIFIC Lemma 3.0). (b) ✓; composite 105: X₁₀₅ has 11 words, none with
+χ = −1 (own Jacobi). (c) logically correct (P(131) true, 8/131 false ⇒ P ⇏ 8/p). TES/ES_q are stated as "not applicable,
+not checked" consistently in §0 (I1), §2(c), §4 — honest. The F_q[T] remark is labelled Assessment. (d) (iv) is stated as
+**failing** for P — honest, and consistent with (J)49. (e) ✓. Table row "spine t = 1 fails at 5013 primes p ≡ 1 (mod 8)
+< 10⁶": recomputed from scratch (19 552 such primes, 5013 with no χ = −1 word at t = 1) ✓.
+**D12 (MINOR, wording).** §2 *Reading*: "The (J)41 demand … is discharged by routing through Thm 1.3" overstates.
+What is shown is that the 4-specific *2-adic* part of ES-five is exhausted by Thm 1.3 (the reduction ES-five ⟺ SQ₅ was
+already MODEL_SPECIFIC §3 / CHI_FLIP C1, and with FRIEZE_ES Thm 1.2 the reason was already elementary). A proof of SQ₅
+still needs a non-square, non-105 input, which (J)41 would also count as "specific". *Repair:* "relocated to Thm 1.3
+(already implicit in MODEL_SPECIFIC §3); what remains (SQ₅) is numerator-free but still T1- and 105-sensitive".
+**D13 (MINOR, novelty).** z1_legendre_levels' use of Legendre–Gauss on |x × y|² = tn is a variant of TWO_FIBRES §3.1
+(three-squares obstruction on A or A*, "PROVED sufficient condition; nothing new"). The memo's Literature list omits
+it. *Repair:* cite TWO_FIBRES §3.1; new is the level-wise form (all words at a level) and the 7-prime failure list.
+**Novelty summary (Assessment).** Thm 1.3 is *not* just Morier-Genoud + CONSTRUCTIVE_ES restated: those give the two
+2-element sets (even pentagon classes; isotropic classes), but neither the identification of the pentagon with norms
+of five primitive vectors of L, nor the observation that both sets live on the same 3-point line W∖0. That pigeonhole is
+the new content; the statement is old (D1). Prop 1.4 for general k is apparently new (MODEL_SPECIFIC had k = 3, 4 by
+enumeration). Everything in §3 is negative steering and consistent with existing barrier files (B2, Prop 10.3).
