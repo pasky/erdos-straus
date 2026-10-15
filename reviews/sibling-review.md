@@ -172,6 +172,14 @@ any such family would have produced only redundant balls so far. Many of the orp
 add "(the covered set through depth 9 is nevertheless inversion-invariant: all 24 inverse cylinders are already covered)".
 Suggested m4.
 
+*Cross-reference (orchestrator FYI, O244 / FF_INVERSION_CHECK.md, under review R250 — not checked by me):* O244 explains the
+asymmetry as the FF model omitting ET types I4 ("Case A⁻¹") and II2, both dominated on the sterility slices by Case B (a Case A
+ball lies inside a same-E Case B ball when α + v ≥ k), with 0 unmirrored balls for A + B + I4 at depth 9 and unchanged survivors.
+My independent finding above (all 24 inverse cylinders already covered at lower depth, covered set inversion-invariant through
+depth 9) is consistent with that and gives a check of "survivors unchanged" through depth 9 that does not use O244's code. So the
+author's S3′ worry ("coverage at q = 3 is underestimated") is answered negatively there; SIBLING should cite O244 and change
+"Case A data break the inversion symmetry" to "the FF model omits I4/II2; the omitted balls are redundant (O244)".
+
 ## Numbered defects (consolidated)
 * **D1 (MAJOR)** SIBLING §3 Prop 3.1 (statement "every route-type bound for N_V(p*), localised or not, is ≥ 3^{2s/5−O(1)}", proof
   sentence "their localised forms only change the multiplicity factor"), §6 PROVED list, report SHARP 2, memo z17_window:
