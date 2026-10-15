@@ -359,3 +359,80 @@ Archive of this pass: `sources/lit2026d/`.
   "prime-modulus certificate" census found (searches in 10c and here).
 * **(J)46 Thm 2.3**: already attributed to Allcock–Gal–Mark Thm 5.1 for the 2-adic
   classification; no change.
+
+---
+
+## 8. Summary
+
+| # | Item | Verdict | Key reference |
+|---|---|---|---|
+| 1a | (J)42 Lemma 1.1 mod-2 rigidity (two adjacent even cluster variables) | **KNOWN** | Morier-Genoud arXiv:1907.12790 §3.5 p. 12 (the five width-2 friezes over F₂ = rotations of (1,1,1,0,0)) |
+| 1b | (J)42 "χ is a function of (c, m, s) mod 4" | **KNOWN in substance** | Girstmair IJNT 7 (2011) 1543–1555; stated in arXiv:1504.02618 §2 p. 2 (regular CF) |
+| 1c | (J)45 SHARP 2 signed product formula | PARTIAL | mechanism: Girstmair 2011, Eisenstein/Shallit/Bach–Shallit; signed Hilbert/Maslov form apparently new |
+| 1d | (J)40 Thm 2.1 Farey telescoping | PARTIAL (as recorded: Ventas) | + Bleicher JNT 4 (1972) "Farey sequence method" as the classical Egyptian-fraction ancestor |
+| 1e | (J)40 Cor 2.2, (J)42 Thm 1.2 proof, polygon-size uniqueness | APPARENTLY NEW | — |
+| 2 | (J)48 Thm A/B, Prop A2 | KNOWN in substance (one-class genus of I₃, local–global; Gauss DA 278–292, Mordell 1930, Ko 1937; Kim–Oh survey p. 3); ES specialisation new | as TWO_FIBRES §1 already says |
+| 3a | (J)49 Thm 3.1 (7/p, p ≢ 1 (105)) | KNOWN IN SUBSTANCE / folklore, no printed statement found | PW Cor 2.2/2.4 + PW §6 sieve "ET Prop 1.9 with 4 → m" (p. 12); MSE 3374919 (level-14 identity) |
+| 3b | (J)46 7/p ≤ 10⁸ | KNOWN (stronger) | PW Table 1 p. 13: m = 7 exceptions only 1, 2 up to 10¹³ |
+| 3c | (J)49 SHARP 2 (4 \| M ⇒ full T1) | PARTIAL | + **Schinzel 2000** (Funct. Approx. 28, 187–194): no polynomial identity m/(ax + b) for m ≡ 0 (4), b a QR mod a |
+| 4a | (J)51 Lemma 1.5 FF Coppersmith threshold d(n − d)/n | **KNOWN** | Cohn–Heninger arXiv:1008.1284 Thm 1.2 p. 3; Bernstein 2006 p. 1 |
+| 4b | (J)51 Lemma 1.4 FF Lenstra (≤ 2 per degree) | PARTIAL | Hales arXiv:2410.05030 Thm 1.3 (ℤ[x], 3 deg S ≥ deg N, algorithmic); constant 2 not found |
+| 4c | (J)54 Cor 1.4; FF_STERILE_SMALL Lemma 1.4 | KNOWN in substance | Howgrave-Graham/May form of Coppersmith (Cohn–Heninger Thm 1.1/1.2) + range splitting |
+| 4d | (J)51 Thm 3.1, (J)54 Thm 3.4, FF_STERILE_SMALL Thms | APPARENTLY NEW | no ES_q literature |
+| 5 | (J)55 Thm 2.2, 3.4, Prop 4.1; (J)53 T1 deformation | APPARENTLY NEW | Schinzel 2000 and Schuh 2024 (hal-04368730) treat only linear denominators ax + b; Thm 3.3 linear case = Schinzel 2000 |
+| 6 | (J)41/(J)43/(J)47 variants, wall, sieve cap | APPARENTLY NEW (elementary or standard methods); (J)43 B1 PARTIAL | no square-numerator relaxation found |
+| 7 | (J)50 uniform-cyclotomy residue law | **KNOWN** | Baumert–Mills–Ward, JNT 14 (1982), via Huczynska arXiv:2406.16805 Thm 1.2 |
+
+**Not accessed (limits):** Schinzel 2000 full text (Project Euclid PDF bot-walled; zbMATH
+review used), Schuh 2024 full text (HAL Anubis wall; HAL API abstract used), Girstmair
+IJNT 2011 full text (statement via his 2015 arXiv paper), Bleicher 1972 (via Eppstein),
+Gauss DA, Mordell 1930, Ko 1937, Guy D11, Sierpiński 1956, Aigner 1964, Conway–Sloane 1992.
+
+---
+
+## 9. Proposed ledger edits (for the orchestrator)
+
+1. **(J)42 Lemma 1.1**, append: "*Prior art (O223):* as a statement about F₂-friezes this is
+   Morier-Genoud, arXiv:1907.12790 §3.5 (p. 12): the five tame width-2 friezes over F₂ are
+   the rotations of (1, 1, 1, 0, 0). New is its use (the even edge) for the ES sign."
+2. **(J)42 Thm 1.2, consequence (R208 D15)**, append: "Known in substance: the Jacobi
+   symbol of a continued-fraction convergent depends only on the partial quotients mod 4
+   (Girstmair, IJNT 7 (2011) 1543–1555; stated in arXiv:1504.02618 §2) — here for the
+   minus (HJ) expansion."
+3. **(J)45 SHARP 2**, replace "classical in substance — the Jacobi symbol along a continued
+   fraction" by "classical in substance (Girstmair IJNT 2011; Eisenstein's even-quotient
+   algorithm, cf. Shallit 1990, Bach–Shallit 1996); the signed Hilbert-symbol/Maslov form is
+   apparently new as stated (O223)".
+4. **(J)40 Thm 2.1, prior-art sub-bullet**, add: "Farey telescoping for Egyptian fractions
+   in general is Bleicher's 'Farey sequence method' (JNT 4 (1972) 342–382)."
+5. **(J)48 Thm A** (heading line), add: "*Classical content (O223):* local–global for
+   representations by the one-class genus of I₃ (Gauss DA 278–292; Mordell 1930; Ko 1937;
+   e.g. Kim–Oh's survey, p. 3); the ES-specific input is CHI_FLIP's local computation.
+   Thm B likewise (maximal lattices + h(I₃) = 1)."
+6. **(J)49 Thm 3.1**, extend the novelty sentence: "…almost certainly folklore: PW §6
+   (p. 12) sieve m = 7 with the m-analogues of ET Prop 1.9's congruences, and one level-14
+   identity is on Math.SE q. 3374919; no printed 'p ≢ 1 (mod 105)' statement was found
+   (O223)."
+7. **(J)49 SHARP 2**, add after "by ET §4 via d ↦ hd": "; its polynomial-identity form for
+   every m ≡ 0 (mod 4) is Schinzel, Funct. Approx. 28 (2000) 187–194, condition (1)".
+8. **(J)46 "7/p … ≤ 10⁸ (CERTIFIED)"**, add: "(PW Table 1 already has no m = 7 exception
+   n ∈ [3, 10¹³].)"
+9. **(J)51 Lemmas 1.4/1.5**, append: "*Prior art (O223):* Lemma 1.5's threshold is
+   Cohn–Heninger arXiv:1008.1284 Thm 1.2 (the polynomial Coppersmith/Howgrave-Graham
+   theorem; Guruswami–Sudan for split moduli), and Bernstein (2006) notes that these
+   divisor-in-residue-class methods 'easily' transfer to F_q(t). Lemma 1.4's 1/3 regime
+   over polynomial rings is in Hales arXiv:2410.05030 Thm 1.3 (ℤ[x]); the per-degree
+   constant 2 was not found."
+10. **(J)54 Cor 1.4**: add "(Howgrave-Graham/May form of Coppersmith, cf. Cohn–Heninger
+    Thm 1.1)". Same remark for FF_STERILE_SMALL Lemma 1.4 when (J)56 is written.
+11. **(J)55 heading**, replace "citations (Schinzel 2000, Schuh 2023) still to be checked
+    before any novelty claim" by "citations checked (O223): Schinzel 2000 and Schuh 2024
+    (hal-04368730) concern only linear denominators ax + b; Thm 3.3 Rem (i) is their case,
+    Thms 2.2/3.4 and Prop 4.1 are apparently new".
+12. **(J)50 R216 upgrade** ("uniform-cyclotomy residue law … PROVED by a two-line
+    Jacobi-sum argument"), append: "= reduction mod h of Baumert–Mills–Ward's uniform
+    cyclotomy formulas (JNT 14 (1982); restated in arXiv:2406.16805 Thm 1.2) — KNOWN".
+13. **LITERATURE_2026.md**: add a "wave Y" block listing Morier-Genoud 1907.12790,
+    Girstmair 2011/2015, Cohn–Heninger 1008.1284, Bernstein 2006, Hales 2410.05030,
+    Schinzel 2000 (with the zbMATH statement), Schuh hal-04368730, Baumert–Mills–Ward 1982,
+    Bleicher 1972.
