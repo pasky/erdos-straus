@@ -1,5 +1,11 @@
 # R236 — hostile review #2 of O232 (SIGN_FIELDS.md, BRAINSTORM/z8_*.md, data/z8/)
 
+**Repairs applied (round 2):** after merging R235's branch (its repairs already covered D1, D5, D7 and the ν = 4 half of
+D9), R236 applied D2, D3, D4, D6, D8, the remaining D9 (level restriction of the "proper subset" claim), D10 (fixed
+`z8_numerators.py` t-range, counts 22/15, 16/6, 10), D11, D12 (8/113), D13, D14, D15, the Prop 2.1 non-unit-class note and
+the §4 simplification — to SIGN_FIELDS.md, memos z8_exp_near_square_cover / z8_numerator_sign_fields /
+z8_eight_failures_frobenius and AGENT_REPORT_O232, all marked "(R236 repair)".
+
 Reviewer: R236 (round 1, no edits to author files). Merged `side-agent/sign-fields` at 25fa4b4a (README conflict resolved
 as a union of both tables). From-scratch scripts: `scripts/review_r236_cert.py` (certificate checker, sympy only, no
 ec_cert/z8 import), `scripts/review_r236_misc.py` (Lemma 1.1 offsets, mod-840 table, integer square points, T1 control,

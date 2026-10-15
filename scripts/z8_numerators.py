@@ -15,7 +15,7 @@ nus = [int(x) for x in sys.argv[3:]]
 
 
 def words(n):
-    for t in range(1, n + 2):
+    for t in range(1, n + 3):  # (R236 repair: t = n + 2 gives the word (n + 2, 1, 1))
         N = t * n + 1
         # divisors A of N with A = -1 mod t, A >= t-1 (u >= 1 ... u = (A+1)/t)
         for A in range(t - 1 if t > 1 else 1, int(N ** .5) + 1, t if t > 1 else 1):
