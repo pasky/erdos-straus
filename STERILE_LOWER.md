@@ -147,6 +147,41 @@ Theorem 4.1 stand unchanged.
 3. Lemma 4.3 for a fixed rational u: U is a small positive integer (U ≤ 2q²a/e + 1/2), so covering data of u come in
    families indexed by U; a descent U ↦ U' (Vieta on Ga − cp²) preserving "W is a power of r" would prove sterility. None found.
 
+## 6. The joint level-1 sweep, run (O228 round 2): r₀ lowered to 2^27 (in progress, updated per octave)
+
+**6.1 Splitting the level-1 Q count.** For a prime r and parameters A, Y,
+  D_P(r) + D_Q(r) ≤ JP(r) + JQ_{A,Y}(r) + 2·#{(a, d) : ad ≤ Y} + B_A(r),
+where JP(r) = number of all P-data of r (a ≤ b) and JQ_{A,Y}(r) = number of Q-data of r (a ≤ b) with a < A and ad > Y, both
+computed exactly by the sweep; 2·#{ad ≤ Y} bounds the Q-data with ad ≤ Y (at most two per pair (a, d): M17C Lemma 2.1(iv), as
+SE route AD); B_A(r) is the `zl_boxa` bound (= `zl_box` restricted to Q-boxes whose a-enclosure [a₀, a₁] = [(P + F₀)/(4λ²CD),
+(λP + F₁)/(4CD)] has a₁ ≥ A) for the Q-data with a ≥ A. (D_P, D_Q count in-cell data; the sweep counts all data, a superset.)
+**PROVED** from Lemma 3.1, its converse halves, and the size bounds acd ≤ (r + 1)/2, f ≤ r + 2 (M17D Lemma 2.2(ii)), which give
+the sweep's ranges d ≤ (2X₁ + 2)/(4a), f ≤ X₁ + 1.
+
+**6.2 The sweep (`scripts/zl_sweep.c X0 X1 A Y 32`).** P: loop over triples (a, c, d) and the arithmetic progression
+N ≡ −4a²d (mod 4acd − 1), N ≥ ⌈4a²d − 2a/c⌉ (Lemma 3.1(i)); no factoring. Q: for each a < A a segmented sieve in d of
+m = 4a²d + 1 with all primes ≤ √m (one modular inverse per (a, p)); the leftover cofactor is prime; all divisors f ≤ X₁ + 1,
+then all c with n = 4acd − f ∈ [X₀, X₁) and na + c ≥ af (Lemma 3.1(ii)). Counters only at primes n (odd-n bitmap), 16-bit,
+saturation ⇒ failure. Output per 1/32-octave cell: max over primes r of JP, JQ and JP + JQ.
+*Validation (EVIDENCE for the implementation of PROVED statements):* `scripts/zl_sweep_check.py` compares, for every n, the
+sweep's counts with R223's per-n enumerators: n ∈ [1001, 2000) and [3001, 6000), "all" mode (every odd n, A = X₁, Y = 0) and
+prime mode (A = 20, Y = 30 resp. A = 40, Y = 200): 500 + 135 + 1500 + 353 values, **0 mismatches**.
+
+**6.3 Certificate (`scripts/zl_r1.py SWEEP A Y ENGINE`, fail-closed).** For each cell j (r ∈ [2^{j/32}, 2^{(j+1)/32})):
+level-1 terms ≤ 2(max JP + JQ + 2·#{ad ≤ Y} + B_A)/2^{j/32}; deeper terms (K, k ≥ 3, tails) exactly as `zl_r0.py`.
+
+| r-range | A | Y | sweep time | max over primes of JP + JQ | cells | max S |
+|---|---|---|---|---|---|---|
+| [2^29, 2^{30.15625}) | 40000 | 536870 | 4853 s | 75210 | 37 | 0.3266 |
+| [2^28, 2^29) | 65536 | 268435 | 3053 s | 61294 | 32 | 0.3584 |
+| [2^27, 2^28) | 32768 | 134217 | 1068 s | 29946 (at the worst cell) | 32 | 0.4732 |
+
+(logs `data/zl/r1_{29,28,27}.txt`, sweeps `data/zl/sweep_*.txt`, engine rows `data/zl/Qa_*_q32.txt`.)
+**Theorem 6.3 (PROVED, computer-assisted; inputs as Thm 2.1 plus M17C Lemma 2.1(iv)): (S) holds for every prime
+r ≥ 2^27 ≈ 1.34·10⁸.** (Thm 2.1 for r ≥ 2^{30.15625}; the table for 2^27 ≤ r < 2^{30.15625}.)
+Note: the exact level-1 counts are 30000–75000 for the worst primes (not "a few hundred": that was the typical value);
+still ≤ 10⁻⁴ r. What remains of the level-1 term is B_A (the engine for a ≥ A, ≈ 0.2–0.35) and the AD bound (≈ 0.05).
+
 ## 7. r = 17: the descent question for Lemma 4.3 (Assessment; written during O228 round 2)
 
 For a rational u = −p/q and fixed (c, d, z), the covering condition of M17D Lemma 2.1 plus 4abd = N + e, a + b = ce,
