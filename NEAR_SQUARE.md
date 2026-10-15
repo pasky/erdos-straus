@@ -135,9 +135,11 @@ families found is 2.818, 3.865, 4.895 < √j = 2.828, 3.873, 4.899 (j = 8, 15, 2
 K = ℚ(√j), π_m := m − √j (so n(m) = N(π_m)), and
   Z_K⁺ := {m* ∈ Ẑ : π_{m*} is a non-zero square in K_v for every finite place v of K}.
 Then no Type I/II polynomial family for n = m² − j has a class C (m ≡ g mod L) whose closure in Ẑ meets Z_K⁺.
-*Proof.* Let α := D(√j) ∈ K (D the witness). If α ∈ ℚ the family is non-escaping and Thm-2.2-type reasoning applies
-(N(π_{m*}) ∈ Ẑ^{×2}... is a local square, so the fixed character of n is +1 near m*). Otherwise, for m ∈ C large, n(m)
-odd: (i) the prime ideals dividing (π_m) have degree one (π_m is primitive: no rational prime divides m − √j), so
+(We use the m with gcd(n(m), 2j) = 1; the classes where a prime of 2j divides n are non-primitive or 2-adically trivial.)
+*Proof.* Let α := D(√j) ∈ K (D the witness). If α ∈ ℚ the family is non-escaping: (D(m)/n) = ψ(n(m)) for a fixed
+Kronecker character ψ, and n(m*) = N(π_{m*}) is a local square everywhere, so ψ(n(m)) ∈ {0, +1} for m ∈ C near m*.
+Otherwise, for m ∈ C large with gcd(n, 2j) = 1: (i) the prime ideals dividing (π_m) have degree one and are prime to the index of ℤ[√j] (an inert q dividing π_m would
+divide m − √j, impossible; ramified or index primes divide 2j), so
 (X/n) = (X/(π_m))_K for X ∈ ℤ (Jacobi symbol of K); (ii) D(m) ≡ α (mod π_m); (iii) by the Hilbert product formula,
 (α/(π_m))_K = ∏_{v | 2α∞} (α, π_m)_v (v | π_m cannot divide α, else (D(m)/n) = 0). If m* ∈ Z_K⁺ ∩ closure(C), choose
 m ∈ C, m > √j, so close to m* that π_m/π_{m*} is a square in K_v for the finitely many finite v | 2α (squares are
@@ -158,3 +160,13 @@ m ≡ 1, 3 (7)}. Z_K⁺ for K = ℚ(√2) predicts exactly: at 2, m − 2√2 �
 at 3 and 5 (inert) N(π) ≡ □, i.e. m ≡ 0 (3), m ≡ ±2 (5); at 7 = 𝔩𝔩′ (√8 ≡ ±1) both m ∓ 1 squares: m ≡ 3 (7)
 (m ≡ 1 (7) is the degenerate 7 | n class). So at these levels the polynomial-sterile set is exactly Z_K⁺ (CONJECTURE in
 general: CONJECTURE Y10-S below).
+
+**CONJECTURE Y10-S (sterile set below the squares).** For k = −j < 0, j not a square, an m* ∈ Ẑ (with n(m*) a 2-adic
+unit ≡ 1 mod 4) lies in the closure of the class of no polynomial family iff m* ∈ Z_K⁺ or m* is a positive integer T1
+point (Thm 3.3). Equivalently: the T1 obstruction for polynomial families on p = m² − j is "π = m − √j is a square in
+K", one level finer than the T1 obstruction for congruences ("n = N(π) is a square in ℚ").
+Status: Thm 3.3 + Thm 3.4 give "⊇". "⊆" is EVIDENCE at j = 8 for L = 8064 and 4480 (the families found so far have
+moduli built from 2, 3, 7, so the test cannot see finer levels); for j = 15, 24 the found families are too thin
+(30 % / 16 % of classes uncovered at L = 63360 / 132480), so no test. Consequence if true: ES for n = m² − j holds for every m
+outside an Ẑ-neighbourhood of Z_K⁺, i.e. polynomial families do *strictly* better than congruences below the squares
+and *exactly as well* above them (Thm 2.2).
