@@ -50,6 +50,9 @@ static void init_rankin(double q, long S) {   /* O220: q as double (was int) */
       while (need > 1e-12 && idx < ni) { double cap = left * it[idx].j, take = cap < need ? cap : need;
         val += take * it[idx].ratio; need -= take; left -= take / it[idx].j; if (left <= 1e-12) { idx++; if (idx < ni) left = it[idx].cnt; } }
       double lam = idx < ni ? it[idx].ratio : 1e-18;      /* omitted items have ratio < 1e-18 */
+      /* R221 repair m-4: items with e*j > NM (or j > NM) have ratio <= min(1/NM, rho^NM), dropped gains < 1e-18: all must lie below lam */
+      { double om = fmax(fmin(1.0 / NM, pow(rho, (double)NM)), 1e-18);
+        if (!(idx < ni) || !(lam > om)) { fprintf(stderr, "init_rankin: lambda %g not above omitted-item bound %g (k=%d u=%d)\n", lam, om, k, u); exit(2); } }
       lam = lam * (1 + 1e-9) + 1e-15; val = val * (1 + 1e-9) + 1e-9 + 1e-12 * n0s[u];   /* outward */
       RKl[k][u] = lam; RKc[k][u] = val - lam * n0s[u]; }
   }

@@ -1,5 +1,9 @@
 # R221 — hostile review of FF_STERILE_SMALL.md §5 (O220 checkpoint 2: Theorem 5.2, q = 9)
 
+**Repairs applied (round 2, R221):** m-1..m-6 applied to FF_STERILE_SMALL.md §§4–5, marked '(R221 repair)' (m-2 in §4, m-6 records the
+independent s ≤ 22 reproduction in §5.1, m-4 also adds the fail-closed omitted-item check to `scripts/fz_tail.c` init_rankin —
+`fz_tail 2 80 8 1e-3 1 1` unchanged: 7.9749116018·10⁻², 242 053 boxes, 0 failed).
+
 Reviewer: R221 (side agent, branch side-agent/review-ff-small-2). Scope: §5.1 (exact enumeration, `fz_enum.c`), §5.2
 (exact masses), Lemma 5.1 (linearised Lemma 4.1, `fz_tail.c` RANK = 1), Theorem 5.2 (`fz_hybrid.c`, `fz_certify9.sh`,
 log `data/fz/certify9.txt`), Case A at q = 9, §5.3 (q = 3 s₀ Assessment), labels. §§1–3 were reviewed by R220; §6 not reviewed.

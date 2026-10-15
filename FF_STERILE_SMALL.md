@@ -145,7 +145,7 @@ with rate q^{−s/10 + o(s)}; the obstruction at small q is entirely the finite 
 Σ_{s ≤ 8} = 9.22 > 8 and Σ_{s ≤ 20} = 37.6. (R220 repair m-6: "tail negligible" holds only with Lemma 4.1 in the
 routes — without it the term at s = 80 is 0.118 — and is EVIDENCE: no q = 9 tail certificate at this point; see §5.) So (Σ) at q = 9 needs **exact counts of Case B tuples for s up to ≈ 20–24**
 (or sharper small-s bounds); the bounds at s ≤ 12 are dominated by t ∈ {2, 3} (v₁ constant or linear: R1 counts
-triples of a *single* polynomial T^{s−2} + v₁, computable exactly by factoring) and by z = 0 patterns. Not attempted yet.
+triples of a *single* polynomial T^{s−2} + v₁, computable exactly by factoring) and by z = 0 patterns. (R221 repair m-2: done in §5 — Theorem 5.2, exact counts s ≤ 22.)
 At q = 3, (Σ) fails even with exact counts (FF_STERILE_PUSH §5: 94/27 > 2), so no union bound of this kind can work there.
 
 ## 5. q = 9: exact small-level counts close (Σ) (O220 checkpoint 2)
@@ -168,10 +168,16 @@ exactly (q = 3, s ≤ 15; q = 5, s ≤ 12; q = 7, s ≤ 10; 0 mismatches; auto m
 At q = 9: F₉ table axioms checked; the factoring routes agree with the candidate-search routes on all patterns of s ≤ 13 and
 on the 1053 patterns of 14 ≤ s ≤ 17 with search cost ≤ 9⁶; the self-checked binary reproduces the unchecked runs for all s ≤ 22 byte for byte.
 R220 independently enumerated q = 9 through s = 9 (covered mass 0.553), matching.
+(R221 repair m-6) R221 independently re-enumerated q = 9 for **all s ≤ 22** (own field model F₃[α]/(α² − α − 1), own polynomial
+code; factoring-free routes for s ≤ 18 and for cheap patterns, FLINT-factoring routes otherwise; full (B) check): all 7 040
+patterns agree count for count (`scripts/review_fz9_enum.c`, `review_fz9_flint.py`; `data/fz/review_r221_enum9_*.txt`). A certificate
+built only from reviewer code (these counts, R220's route code + R221's own Lemma 4.1 for 23 ≤ s ≤ 80, own linearised tail, R218's Case A)
+gives (Σ) ≤ 3.95 < 8 (`reviews/ff-sterile-small-review-2.md` §1b). Robustness: with the bounds of fz_sum, exact counts through s = 18
+already suffice (4.735 < 8).
 
 **5.2 Exact masses at q = 9 (CERTIFIED by exhaustive computation).** Σ_{s≤18} (tuples weighted by mult·9^{1−⌈s/2⌉}) = 0.592177;
 per-level terms: 0.222 (s = 4), 0.049, 0.198, 0.027, 0.055, 0.0018, 0.029, 0.0020, 0.0045, 1.8·10⁻⁴, 2.6·10⁻³, 5.2·10⁻⁵,
-8.3·10⁻⁵, 3.6·10⁻⁶, 1.5·10⁻⁴ (s = 18), against route bounds 0.22, 0.89, 0.68, 2.47, …, 4.6 (s = 12) — the bounds overcount
+8.3·10⁻⁵, 3.6·10⁻⁶, 1.5·10⁻⁴ (s = 18), against route bounds (s = 3, 4, 5, 6, …, 12; R221 repair m-3) 0.22, 0.89, 0.68, 2.47, …, 4.6 — the bounds overcount
 by factors 10³–10⁴ at s ≈ 12–18.
 
 **Lemma 5.1 (Lemma 4.1 linearised for the tail; PROVED).** V_ρ is concave and piecewise linear, so for any n₀,
@@ -179,6 +185,11 @@ V_ρ(n) ≤ V_ρ(n₀) + λ(n − n₀) for all n, λ the right derivative at n�
 unit). Hence for s ≥ S every divisor count in a tail box is ≤ exp(s(−D log ρ + λN + c⁺/S)), c = V_ρ(n₀) − λn₀, with D, N the
 box upper bounds of d'/s, n/s (the bound is increasing in d' and n). `fz_tail.c` (RANK = 1) uses 24 values of ρ and
 n₀ ∈ {S/2, S, 2S, 4S}, outward rounded; brute-force check of the linearised bound (q = 3, 4 ≤ n ≤ 11): 0 violations.
+(R221 repair m-4) The linearisation is used for all n at once, so V_ρ must be the knapsack over the FULL item set. The code keeps
+the items with e·deg P ≤ NM = 8S + 8 (and gain ≥ 10⁻¹⁸); every omitted item has ratio ≤ min(1/NM, ρ^{NM}) (its gain
+log(1 + y^e/S_{e−1}(y)), y = ρ^{deg P}, is ≤ min(1/e, y^e)), and `init_rankin` now checks fail-closed that this is < λ, so the
+omitted items change neither V_ρ(n₀) nor the right derivative. (R221 also verified the constants externally against an untruncated
+knapsack, `scripts/review_fz9_rankin.py`: 0 violations.)
 
 **Theorem 5.2 (no finite linear covering of ES₉(T^k), k ≥ 2; PROVED, computer-assisted: O216 certification standard plus
 exhaustive enumeration).** O(9, T^k) ≠ ∅ for every k ≥ 2, so ES₉(T^k, ·) has no finite linear covering. The covered relative
@@ -190,7 +201,7 @@ is more than half uncovered, and at most 3 c-slices have covered measure ≥ 0.9
 every pattern of each level listed, which fz_hybrid checks), exact mass 0.592201; route bounds (FF_STERILE_PUSH Lemma 1.6 +
 Lemmas 1.2–1.4, 4.1) for 23 ≤ s ≤ 80; total 3.2872203; tail s > 80 by `fz_tail.c` with Lemma 5.1: ≤ 0.079749 (242 053 boxes,
 none failed); Case A ≤ 0.17501 (α ≤ 40 exact, `fs_caseA.py`) + 1.1·10⁻⁵ (Lemma 2.1). Certified total (×1.01) 3.5774 < q − 1 = 8. ∎
-(With exact counts only for s ≤ 18 the same certificate gives 4.735; `fz_certify9.sh 80 1 21` regenerates the enumeration.)
+(With exact counts only for s ≤ 18 the same certificate gives 4.735; `fz_certify9.sh 80 1 22` regenerates the enumeration (R221 repair m-1: formerly “80 1 21”, which bounds s = 22 instead).)
 *Remark.* The exact per-level masses decay fast (1.8·10⁻⁵ at s = 22); the true left side of (Σ) is very likely ≈ 0.592 < 1,
 which would give every c-slice — but levels 23 ≤ s ≤ 80 are covered only by route bounds (mass 2.70), so this is EVIDENCE.
 With (J)51 and Theorem 3.1: **for every q = 3^r, r ≥ 2, and every k ≥ 2, ES_q(T^k) has no finite linear covering**; q = 3 stays
@@ -203,7 +214,7 @@ bound-sum to s = 200: 1466.7. So the bound tail Σ_{s>s₀} drops below 0.5 (the
 union through s = 21, FF_STERILE_PROOF §5) only at **s₀ ≈ 80–85**. Since union bounds fail at q = 3 even with exact counts
 (94/27 > 2), a proof along these lines needs the exact *union* of all cylinders of levels s ≤ s₀ ≈ 85. The true tuple counts are
 ≈ 3^{0.2s}–3^{0.4s} per level (FF_STERILE_PROOF §6, Cor. 4.2), i.e. up to ~10¹⁶ tuples at s ≈ 85, and the enumeration cost of
-fz_enum grows like ≈ 2.7^s at q = 9 (≈ 9^{s/2}); at q = 3 it would be ≈ 3^{s/2} ≈ 10²⁰ at s = 85. **Infeasible** (and it would
+fz_enum grows like ≈ 3^s at q = 9 (≈ 9^{s/2}; R221 repair m-5); at q = 3 it would be ≈ 3^{s/2} ≈ 10²⁰ at s = 85. **Infeasible** (and it would
 give only the conclusion of Conjecture 0.2 — no finite linear covering — not x*_c ∈ O). Conjecture 0.2 needs sharper bounds
 at moderate s (where the routes overcount by factors 10³–10⁴, §5.2) or a structural argument.
 
