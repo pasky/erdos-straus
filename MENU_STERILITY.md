@@ -86,3 +86,20 @@ while d ≡ −K forces (d/m) = (−1/m) = −1. ∎ So windows m ≡ 7 (mod 8) 
 `z15_proth_mu0.py`: 0 hits) are dead at μ = 0; j = 2 (m ≡ 3 (8)) needs an algebraic factorisation of 2^{s−2} + w with
 s ≡ 0, which the cyclotomic shapes (e | j) cannot give but Sophie Germain 4X⁴ + t⁴ (s − 2 ≡ 2 (4)) does, with
 v₂(f±(1/2)) = −1 odd. Theorem B is the first such window (t = 1).
+
+**Theorem C (ES for every 3·2^s + 1; PROVED, computer-assisted; certificate + independent checker).** For every s ≥ 0,
+4/(3·2^s + 1) is a sum of three unit fractions.
+*Proof.* (a) Sophie-Germain window-11 rules (polynomial in X = 2^{(s−4)/4}, n = 48X⁴ + 1, K = 3f₊f₋, f± = 2X² ± 2X + 1,
+d = 3^a f₊^b f₋^c, x = K, y = n(K + d)/11, z = nK(K + d)/(11d)) cover every s ≡ 0, 8, 12, 16, 20, 28, 32, 36 (mod 40)
+[(a,b,c) = (0,2,1), (0,0,2), (0,2,1), (0,2,0), (0,1,2), (0,2,0), (0,1,2), (0,0,2) respectively]: each is a polynomial identity
+(sympy), integer-valued on the relevant class X ≡ 2^{(r−4)/4} (mod 11) (forward differences), and positive (all factors
+f±, K + d are positive for real X). (b) Six ET/divisor classes (moduli 5, 7, 15, 61; `data/z15_cert_proth3_et.json`, built by
+`z15_cert_proth_make.py 3 360 3000 … 0,8,12,16,20,28,32,36` with the z8/ec_cover machinery) cover every other s mod 360 (s ≥ 10);
+non-divisor classes contain no odd square. (c) `z15_cert_proth_check.py` re-verifies (a), (b), coverage of all s mod 360 and an
+exact solution for every s ≤ 1500 (s = 0 by brute force). ∎
+*Scope / honesty.* A thin family (O(log X) members ≤ X); it contains the primes 3·2^s + 1 for s = 1, 2, 5, 6, 8, 12, 18, 30, 36,
+41, 66, 189, …, but nothing about ES for primes in general follows. Its significance for the campaign is structural:
+**3·2^s + 1 is PROVED to have no finite covering by ET/divisor classes (EXPONENT_COVERING Cor 1.5), yet ES holds for all of it**
+by adding ONE window (m = 11) with an algebraically forced budget (the Aurifeuillean factorisation 4X⁴ + 1 = f₊f₋).
+So a genuinely sterile point (unlike O238's 105, R246 D2) dissolves under the exponential-window menu. Literature: not checked
+whether ES for this Proth family is recorded anywhere (likely folklore-invisible; no claim of priority).
