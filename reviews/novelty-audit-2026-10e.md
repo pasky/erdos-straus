@@ -255,6 +255,13 @@ Status: in progress.
     es-threequarter-note do not cite it (grep: no "Chamberland" in
     `paper/es-threequarter-note.tex`). The e ≥ 1 family 𝒟_e(M) (odd s with
     v_s(D) even ≤ 2v_s(A) + 2e) is not in Chamberland.
+* **ET Prop 1.9 (arXiv:1107.1010, p. 8; archived `sources/lit2026/audit-elsholtz-tao-1107.1010.txt`)**,
+  second Type II family: "−4a²d mod f, where a, d, f ∈ ℕ are such that 4ad | f + 1",
+  attributed there to Vaughan 1970 [82] and Rosati, Boll. UMI (3) 9 (1954) [58]. With
+  f = M, A = (M + 1)/4 and D = a²d (d squarefree), "ad | A" ⟺ "D | A²" (prime-by-prime:
+  2v_s(a) + 1 ≤ 2v_s(A) ⟺ v_s(a) + 1 ≤ v_s(A)). So the e = 0 class family ℛ(M) is,
+  as a family of solvable classes, **Rosati 1954 / Vaughan 1970 as listed by ET**;
+  Chamberland 2026 adds the converse ("only if") for primes.
 * **Pomerance–Weingartner, Ramanujan J. 69 (2026) Paper 31 = arXiv:2511.16817**
   [re-read, `sources/pw.txt`], §4 (pp. 8–9): Vaughan's argument as reproduced by PW: for
   primes ℓ ≡ −1 (mod m), "there are at least f(ℓ) residue classes mod ℓ such that if n lies
@@ -284,7 +291,7 @@ Status: in progress.
 
 | Claim | Verdict | Notes |
 |---|---|---|
-| (J)63 Prop 5.1 at e = 0 (and the 3/4 note's ℛ(M) = {−4D : D \| A²}) | **KNOWN** | Chamberland, Integers 26 (2026) #A42, Thm 1 (p. 2): Type II ⟺ p = qr − 4s₁s₂, q ≡ 3 (4), s_i \| (q+1)/4; class count = Vaughan's f(ℓ) (PW §4) |
+| (J)63 Prop 5.1 at e = 0 (and the 3/4 note's ℛ(M) = {−4D : D \| A²}) | **KNOWN** | ET Prop 1.9 (p. 8), Type II family −4a²d mod f, 4ad \| f + 1 (Rosati 1954; Vaughan 1970); Chamberland, Integers 26 (2026) #A42, Thm 1 (p. 2): Type II ⟺ p = qr − 4s₁s₂, q ≡ 3 (4), s_i \| (q+1)/4; class count = Vaughan's f(ℓ) (PW §4) |
 | (J)63 Prop 5.1 for e ≥ 1 (𝒟_e(M)), Cor 5.2/Prop 5.3 (supply dimension e + 3) | APPARENTLY NEW | — |
 | (J)59 Prop 1.3 (overflow cube) | APPARENTLY NEW (elementary) | — |
 | (J)59 Thm 1.2/1.4 (exponents (e+1)/(e+2), (e+2)/(e+3)) | **PARTIAL** | method and "parameters → exponent 1 − 1/D" principle: Vaughan 1970, Viola 1973, Shen 1986, Elsholtz Trans. AMS 2001 (k-term analogue 1 − 1/(2^{k−1} − 1)); the capped variant is new |
