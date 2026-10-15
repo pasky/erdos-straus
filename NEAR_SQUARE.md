@@ -66,8 +66,7 @@ Charts: Type I: f = 4acd − n, b = (na + c)/f, e = (4a²d + 1)/f; Type II: f = 
 **Theorem 2.2 (no escaping families above the squares; PROVED).** Let k > 0. Every Type I or Type II polynomial family
 for n = m² + k is non-escaping: its witness satisfies (D(m)/n(m)) = ψ(n(m)) for a fixed Kronecker character ψ, so its
 class C contains no m ∈ Ẑ with m² + k ∈ (Ẑ^odd)². Consequently every finite set of polynomial families misses every
-m-class around a point of Z_k^□, i.e. misses infinitely many m whenever Z_k^□ ≠ ∅ (e.g. k ≡ 1 (8): m ≡ 0 (4) is
-2-adically admissible; Z_k^□ ≠ ∅ iff k ≢ 2, 3, 4, 6, 7 (mod 8) roughly — see Lemma 2.4).
+m-class around a point of Z_k^□, i.e. misses infinitely many m whenever Z_k^□ ≠ ∅, i.e. (Lemma 2.3) whenever k ≡ 0, 1, 5 (mod 8).
 *Proof.* Write Λ for 4 × (product of the leading coefficients of a, c, d) and use real roots r, s, ρ (all rational).
 Type I (chart f = 4acd − n, f | na + c, f | 4a²d + 1). If d is constant, Lemma 1.1 gives ψ = (−4d/·). Otherwise
 (deg a, deg c, deg d) ∈ {(0,0,2), (1,0,1), (0,1,1)}.
@@ -90,7 +89,25 @@ coefficient) u(a − ec) = 0 and (quadratic coefficient) a ≠ ec, so u = 0, non
 forces k + s² = −e < 0; (a, c linear, d const) has D = de constant; (a, d linear) makes n + 4a²d cubic ≠ e·f;
 (a quadratic) makes it quartic. The remaining shapes have d and e constant. In every non-escaping case D ≡ D₀
 (mod n) for a rational D₀, and ψ = (D₀'/·) with D₀' the integer numerator–denominator product of D₀. ∎
+**Lemma 2.3 (PROVED).** Z_k^□ ≠ ∅ ⟺ k ≡ 0, 1, 5 (mod 8). *Proof.* For odd ℓ, m = (k − 1)/2, w = (k + 1)/2 ∈ ℤ_ℓ
+give m² + k = w². At 2, unit squares are 1 + 8ℤ₂ (Hensel), and m² + k ≡ 1 (8) is solvable iff k ≡ 0 (m odd), 1 (4 | m)
+or 5 (m ≡ 2 mod 4) (mod 8). CRT. ∎ (For the other k, n = m² + k is never ≡ 1 mod 8 at odd n, so Mordell's classes
+already cover all odd n of the family; nothing to do.)
+
 Every impossibility above is the positivity of the binary norm form x² + ky² of ℚ(√−k) at a real point — the
 archimedean place (cf. (J)52) — e.g. (Λ − 1)·N(ρ + √−k) + N(r + √−k) = 0. For k < 0 all of them become possible.
 EVIDENCE (`scripts/ns_polyfam.py K 3`, roots in ½ℤ ∩ [−3, 3], 16 leading coefficients): 0 escaping families for
 k = 1 (and 16, 24: see §7); 80, 161, 263 for k = −8, −15, −24.
+
+## 3. Below the squares: k < 0 (p = m² − j)
+
+**Prop 3.1 (integer T1 points; PROVED, trivial).** Let F be a polynomial family on the class C = {m ≡ g mod L}, L a
+multiple of all coefficient denominators of F. If m₀ ∈ ℤ, m₀ ≡ g (mod L) and n(m₀) is an odd perfect square, then
+some coordinate of F(m₀) is ≤ 0.
+*Proof.* Integrality of a polynomial with denominators dividing L is L-periodic, so F(m₀) ∈ ℤ⁶ lies on Σ_{n(m₀)}; if all
+coordinates were positive it would be an N-point of Type I/II for the square n(m₀), contradicting ET Prop 1.6. ∎
+So for k < 0 the T1 points of the family (m₀ with m₀² − j = w², finitely many) are *archimedean-adelic* obstructions:
+a family can cover the Ẑ-neighbourhood of m₀ only if one of its coordinates has a real root above m₀... more precisely is
+non-positive at m₀. Example (`scripts/ns_polyfam.py -8 3`): no family found covers m ≡ 3 (mod 8064), while 8 cover
+m ≡ −3, e.g. a = 1, c = (m + 1)/2, d = (m − 1)/2, f = 7, b = (2m² + m − 15)/14, e = (2m − 1)/7 on m ≡ 53 (mod 56)
+(c(−3) = −1, d(−3) = −2). The point m₀ and −m₀ give the same n but sit on different sides of the real roots.
