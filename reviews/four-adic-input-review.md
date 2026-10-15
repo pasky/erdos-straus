@@ -3,7 +3,11 @@
 Reviewer branch: side-agent/review-four-adic (merged side-agent/four-adic-input at 03bbfb1b).
 From-scratch scripts: `scripts/review_r229_*.py` (no reuse of the author's z1_* code).
 
-## Summary verdicts (filled in incrementally)
+**Overall: no FATAL defect.** All mathematics re-derived and every numerical claim checked was reproduced exactly from
+scratch. Defects are framing/novelty (D1 MAJOR), one under-defined "PROVED classification" (D8 MAJOR-label), and minors.
+Repairs applied: none (the author's agent window is still open; defects to be forwarded).
+
+## Summary verdicts
 
 | claim | verdict |
 |---|---|
@@ -48,6 +52,10 @@ W (|W∖0| = 3); norms of (e₂, e₃, e₁, f, f*) = (t, u, v, nA, nA*); #{nonz
 (Hilbert symbol); isotropic ⟺ (−A/n) = −1; ≤ 2 entries ≡ 0 (4); (4 | some entry) ⟺ χ = −1. Split of χ = −1 words by
 number of 4-divisible pentagon classes: 24 522 one, 9 485 two. Restricting to 3 ≤ n < 1500 gives 35 179 words, matching
 the author's count. Lemma 1.2 diagonal check over all 64 ⟨a, b, c⟩, a, b, c ∈ {1, 3, 5, 7}: 0 failures.
+
+Also the §1 CERTIFIED side claims (five pentagon classes pairwise distinct; of the two non-pentagon classes one has even and
+one odd q): these depend only on (t, u, v) mod 2, so a check of the 8 parity patterns is a proof; re-checked on all 20 480
+odd-n triples with letters ≤ 32: 0 failures. (They could be labelled PROVED by finite parity check.)
 
 **Verdict:** mathematics SOUND (proof complete, every word covered, boundary words included).
 
@@ -205,3 +213,11 @@ it. *Repair:* cite TWO_FIBRES §3.1; new is the level-wise form (all words at a 
 of five primitive vectors of L, nor the observation that both sets live on the same 3-point line W∖0. That pigeonhole is
 the new content; the statement is old (D1). Prop 1.4 for general k is apparently new (MODEL_SPECIFIC had k = 3, 4 by
 enumeration). Everything in §3 is negative steering and consistent with existing barrier files (B2, Prop 10.3).
+
+## Defect tally
+FATAL: none. MAJOR: D1 (Thm 1.3 presented as first enumeration-free proof; FRIEZE_ES Thm 1.2 + R208 addition already
+prove the statement computation-free), D8 ("PROVED classification" of an undefined notion of forcing; precise PROVED
+replacement supplied). MINOR: D2 (Lemma 1.1 attribution), D3, D4 (Prop 1.4 label inconsistent §1.2 vs §4), D5 (n-class
+uniformity is provable), D6 (fair-bit sentence), D7 (S₆ genus split provable by one example at p = 17), D9 (spine
+word χ = +1 only for p ≡ 1 mod 4), D10, D11 (null model; rate-adjusted prediction 1.16 vs 12), D12 ("discharged"
+overstated), D13 (Legendre levels vs TWO_FIBRES §3.1).
