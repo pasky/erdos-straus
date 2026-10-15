@@ -81,3 +81,24 @@ Re-proved line by line; all five rearrangements and the degenerate family re-ver
   {0, ±1, ±2, ½, ¼, −¼}, κ ∈ {0, ±1}; C by exact division): for u³ + 2v³, u² + v², u² − 2v² − 1, u² + v: 875 Type I
   families each, 299 in ℚ[P], the other 576 are exactly the theorem's degenerate list, 0 others. Exactly as Thm 3.1 predicts.
   (The author's random search found no Type I family at all; this search is the informative complement.)
+
+### Cor 1.3′ and Cor 3.2 / the combined claim "every polynomial ET family for any norm form (any degree, any signature) or any irreducible binary form, valid anywhere, is an ET identity in n" — SOUND-AFTER-REPAIRS (scope wording)
+* Scope check of the two ingredients: Type II needs P* irreducible (Thm 1.1′); Type I needs P prime with constant units
+  (Thm 3.1). A *full* norm form N(x) = N_{K/ℚ}(Σ x_iω_i) (ω a ℚ-basis of K) and an irreducible binary form are homogeneous
+  and irreducible, so both hold. Irreducibility proof in Cor 1.3′ re-checked: the k linear forms L_σ = Σ x_iσ(ω_i) are
+  pairwise non-proportional (det(σ(ω_i)) ≠ 0), a ℚ-factor is c·Π_{σ∈S} L_σ with S Galois-stable by unique factorisation
+  over ℚ̄, and transitivity forces S = ∅ or all. Correct.
+* "Polynomial ET family" = quadruple (A, B, C, D) ∈ (ℚ[x] ∖ 0)⁴; the sextuple families of POINTWISE_BINARYFORM §1 are a
+  special case, so the claim covers them. Not covered (and correctly excluded in Cor 3.2(c)/report): rational-function
+  families and (x, y, z)-families whose ET coordinates are not polynomial.
+* "ET identity in n": A = f_A(N) etc. with f ∈ ℚ[t]; since N is non-constant (transcendental over ℚ) the identity holds in
+  ℚ[t]. Correct.
+* MINOR D5 (scope wording): "every norm form N of every number field" (Cor 3.2, report) must mean the FULL norm form in
+  [K:ℚ] variables (or any form that is irreducible over ℚ). Incomplete norm forms can be reducible:
+  N_{K/ℚ}(x + y√2) for K ⊋ ℚ(√2) of degree 4 equals (x² − 2y²)², which is not prime — then neither theorem applies
+  (and Thm 3.1's ℚ[x]/(P) is not a domain). Binary cubics such as x³ + 2y³ are covered as "irreducible binary forms".
+* Cor 3.2(b) (POINTWISE_BINARYFORM §4.3 settled for polynomial ET families): correct as stated — §4.3 asks whether a
+  family can be valid on a cusp; for polynomial ET families validity at a single point already forces ℚ[Q]. Rational
+  families in cusps remain open (the report's spark says so).
+* Cor 3.2(c): "Thm 1.2′ is subsumed for homogeneous prime P" — true, and in fact for every P with irreducible top part
+  (see D4 above).
