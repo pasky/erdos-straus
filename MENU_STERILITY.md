@@ -14,6 +14,10 @@ menu enters: it is a statement about the *parameter algebra* A = ℚ[u]/(φ) of 
 (I2) Plan: generalise Thm 3.4 to every φ (§1, "witness reciprocity"), identify the sterile set of a one-parameter menu as a
 2-descent object of the double cover w² = φ(u) (§2), read O238's 105 point and the near-square sets through it (§3),
 then attack the uncoverable Proth family 3·2^m + 1 of (J)22 with root menus (§4), and the (J)54 prime points (§5).
+(I3) Framing repair (orchestrator, R246 D2 on O238): no point of Λ₁₀₅ was ever shown sterile for ET/divisor classes, so the
+105 theorem is NOT an instance of "a sterile point dissolved". The test cases must be PROVED sterile points: (T-a) μ = 0 of
+c·2^s + 1 with c + 1 = 4^i (EXPONENT_COVERING Cor 1.5; e.g. 3·2^s + 1), and the c₀·4^s + k, c₀ + k = 4^j families of (J)68;
+(T-b) the (J)54 sterile Mordell points. "Sterile" below is always relative to an explicitly named menu.
 
 ## 1. Witness reciprocity for one-parameter menus (Theorem A)
 
