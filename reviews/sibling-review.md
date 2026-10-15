@@ -1,7 +1,7 @@
 # R249 — hostile review of O242 (SIBLING.md, BRAINSTORM/z17_*.md, AGENT_REPORT_O242.md)
 
 Reviewer: R249 (side-agent/review-sibling). Author branch merged: side-agent/sibling-conj.
-Status: round 1 complete (r = 19 depth-5 spot check still running).
+Status: round 1 complete.
 **Repairs applied (author quiet; branch unchanged since review start):** D1–D6, m1, m3, m4, m5 applied in SIBLING.md, the three memos
 z17_window/z17_uniform/z17_poisson and AGENT_REPORT_O242.md, each marked "(R249 repair …)". m6 folded into the D6 repair. No
 statement was strengthened; all repairs rescope, add a hypothesis, or correct numbers.
@@ -14,7 +14,7 @@ statement was strengthened; all repairs rescope, add a hypothesis, or correct nu
 | Prop 1.3 (Klein symmetry of Case B balls; parity law) | **SOUND** (re-derived; brute-force on own tuples s ≤ 17: 178 balls, as author; O241 ball list) |
 | Prop 3.1 (route-type counts do not localise; window (n, 5n]) | **GAP** (D1 MAJOR: central inequality false for the natural localised route R2L; proof sentence wrong; PROVED only for an explicit list; D2 citation label) |
 | Cor 4.1 (pair-count forms) | (i), (iii) **SOUND**; (ii) **SOUND-AFTER-REPAIRS** (D3: needs an alive depth-N₀ cylinder) |
-| Conjecture 4.2 + "PROVED consequence" + "sharp threshold at 17" | data **REPRODUCED** (r ≤ 31 to depth 4, r ≤ 61 to depth 3, all r ≤ 13 at level 1); label CONJECTURE correct; consequence **GAP** (D5 MAJOR: needs level-1 survival, certified only for r < 2·10⁴) ; D6 heuristic |
+| Conjecture 4.2 + "PROVED consequence" + "sharp threshold at 17" | data **REPRODUCED** (r = 17, 19 to depth 5, r ≤ 31 to depth 4, r ≤ 61 to depth 3, all r ≤ 13 at level 1); label CONJECTURE correct; consequence **GAP** (D5 MAJOR: needs level-1 survival, certified only for r < 2·10⁴) ; D6 heuristic |
 | §2.1/§2.3 Poisson calibration (EVIDENCE) | numbers **wrong** (D4: with-replacement model; exact 0.062 not 0.145, pairs ×1.5 too high, "0.40" → 0.105); conclusions survive (data even weaker); "no attraction" → mild excess of pairs |
 | §2.2 (siblings never share a key) | confirmed for the 12 Case-B–Case-B pairs at depth ≤ 8 (own code); the 2 others involve Case A |
 | §5 digit uniformity | counts 61/60/51 confirmed |
@@ -148,7 +148,8 @@ Results (all agree exactly with `data/z17/landscape_d4.txt`, `rtree19_d6.txt`, `
   d4 0.6782, 0.5698, 0.5800, 0.8002, 0.6621 ✓; d2/d3 for 37..61: 5/4, 3/3, 7/3, 14/3, 4/3, 8/3, 6/4 ✓. Histograms at r = 19, 23
   (d ≤ 4) identical to the author's. (Depth 4 for r ≥ 37 and depths 5–6 at r = 19, 23 not reproduced: the naive scan costs
   ≈ N log N, N = r^{2L−1}.) **Addendum:** r = 17 to depth 5 reproduced (D_P(9) = 604 as in M17; d5 max 2, hist {1: 81, 2: 1},
-alive fraction 0.6772 = M17's 56561/83521); r = 19 depth 5 running (≈ 2 h) — result appended if it finishes.
+alive fraction 0.6772 = M17's 56561/83521); r = 19 to depth 5 reproduced (617 P-data at K = 9; d5 max 1 in all four cells, hist {1: 67} in C₂/C₁₀ and {1: 75} in C₃/C₁₃,
+alive fractions 0.5692 / 0.6711 — identical to `data/z17/rtree19_d6.txt`). Depth 6 at r = 19 and depths 5–6 at r = 23 not reproduced.
 * Note: the bound 3 is **attained** (r = 23, d = 4, one parent with 3 boxed children): Conjecture 4.2 is fitted to the data
   maximum with zero slack; "≤ 5 at depth 3" is likewise attained (r = 19, 23).
 (D5, MAJOR — hidden hypothesis in a PROVED implication and in the headline "sharp threshold".) "Conjecture 4.2 for a prime r
