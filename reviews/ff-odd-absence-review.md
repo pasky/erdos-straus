@@ -96,3 +96,37 @@ patterns):**
 * Variant B (no author count used at s = 20: only my recounted patterns are exact, all other s = 20 patterns route-bounded):
   Case B 3.5850789, **total ×1.01 = 3.819107 < 4.** So the certificate does not depend on the un-cross-checked part of the
   author's s = 20 enumeration (the author's trust point).
+
+**Other checks.** Cor 1.7's archived-data claim reproduced from `data/fz/enum9/e_{3..22}.txt.gz` with my own awk filter
+(z ≡ t ≡ s mod 2): 1 830 compatible patterns (793 nonempty), 5 210 violating, all with count 0. Small-q law checks
+(`review_r240_law.py`, own GF(q) tables and division-route enumerator, w ↔ C orientation a ≤ b): q = 5 (s ≤ 6), 7 (s ≤ 5),
+9 (s ≤ 5), 27 (s ≤ 3): Case B unsimplified Lemma 1.1 form, simplified ε form, λ = 1/2 rule, degree identity z + a + b = s,
+y + t = max(a, b): 0 failures; k ≥ 2 tuples (q = 5 s ≤ 7, q = 9 s ≤ 5; few tuples) satisfy z ≡ t ≡ s; Case A (all (a1', b1, K)
+of total degree ≤ 3, α ≤ 4, lc K ∈ {1, 2}): Lemma 1.1 form and E(0)^α ∈ {±1} at q = 9, 27: 0 failures; Prop 1.6 construction
+for every monic D | T^s + 1 (s ≤ 8): 0 failures. With the GP enumerator: q = 27, s = 13 (160 patterns of cost ≤ 27³): 926 635
+tuples, 855 378 with E(0) ∉ F₃^*, law holds for all; q = 27, s = 12 (cost ≤ 27^{3.5}): 99 tuples, none off F₃^*; q = 7, s = 9 and
+q = 5, s = 10 (cheap patterns): law holds. Distribution at q = 9, s ≤ 5 (Python): odd s only E(0) = 1; s = 2: {1, ±i}; s = 4:
+all values except −1 — as the author reports. Not re-checked: the Cor 1.7 route-sum reductions (41.87 → 11.24, 1466.7 → 389.2;
+EVIDENCE, not used) and the q = 27, s = 13 "all 24 classes occur" count (EVIDENCE).
+
+## Defects
+
+No FATAL, no MAJOR.
+
+* **m-1 (MINOR, editorial; header lines 3–4).** The R-O226 insertion split the "Builds on" sentence: line 4 starts with a
+  dangling "FF_STERILE_PUSH.md ((J)51), DEPTH_ASPECT.md Lemma 2.3 (Case A identities)." Repair: move it back after
+  "Builds on FF_STERILE_SMALL.md ((J)56; …)".
+* **m-2 (MINOR, notation; Thm 1.4).** λ denotes lc z here, but in (J)56 Lemma 7.2 and in `zc_caseA9.py`/`caseA9_4.txt` λ ("lam")
+  is deg a1'; the proof then writes "λ_deg". t and z are also reused (deg z, the polynomial z vs. deg m'). Repair: call lc z ν
+  (say) and write deg a1' explicitly.
+* **m-3 (MINOR, citation; Thm 1.4 proof).** "deg F = α − β − κ" needs Lemma 7.2(a) of (J)56 (patterns β > α + deg a1' do not
+  occur; otherwise deg(T^α a1' + b1) = β). Repair: cite it at that step.
+* **m-4 (MINOR, citation; Prop 1.6 last sentence).** "carries a level-s Case B family" needs tuple ⇒ family. Repair: cite the
+  converse in FUNCTIONFIELD_ES3 Lemma 1.1 with L' = m'g' (so g' | L'), E = m'g'w − 1 (monic, E·E' = 1 + T^s m'g'² = D),
+  j = N = s − 1, γ = 0 (s = N + 1 + γ); then E ≡ −1 (mod L') and the cylinder is u ≡ −E (mod T^s).
+* **m-5 (MINOR, status bookkeeping).** The combined statement "ES_q(T) has no finite linear covering for every q = 3^r, r ≥ 2"
+  (Thm 2.2 + (J)56 Thm 8.1) is made only in the agent report; FF_ODD_ABSENCE should state it as a corollary, and on merge
+  FF_STERILE_SMALL §7 ("q = 9 (k = 1) is not closed") and §8 ("Open: … q = 9 with k = 1") need a forward pointer.
+* **m-6 (MINOR, trust point now discharged).** The s = 20 exact counts were not cross-checked by the author. R240's recount
+  (700 + cost-6 patterns, 0 mismatches) and variant B (total 3.819 < 4 without any author s = 20 count) close this; suggest
+  citing this review in the Thm 2.2 proof.
