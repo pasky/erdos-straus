@@ -84,3 +84,41 @@ unit T^k a0 b0 in the 2/3 case), opposite sides give E | 1 + T^k a0 b0. The norm
 γ ≤ j, gcd removal, WLOG deg a1 ≥ deg b1 by the symmetry a ↔ b of the family) lose nothing for linear families. The gap is
 one level up: the *definition* of a linear family (FE §6.2, fixed E) is narrower than the ET family notion, and
 Cor 1.3 shows that it omits exactly I4 and II2.
+
+## 2. On the slices the missing types are dominated by Case B
+
+Setting: A = T^k, q odd, slice points x_u. "Family valid at x_u" for linear families is FE3 Lemma 1.1 (stated for general k);
+for I4 it is Prop 1.4. Notation of FE3/FE2 §0.2 for a Case A family: a0 = g·a1, b0 = g·b1, gcd(a1, b1) = 1, E | a1 + b1,
+E ≡ −1 (mod g'·(a1b1)'), E ≡ −u (mod T^{k+j}), j = v_T(lcm(a0, b0)) = γ + v_T(a1b1).
+
+**Lemma 2.1 (II2 is never valid on a slice; PROVED).** For every k ≥ 1 and every slice point x_u, no II2(a, c, d) is valid at x_u.
+*Proof.* f = Aacd − 1 ≡ −1 (mod T), so all primes of f are ≠ T and x_u ≡ 1 at them: validity f | cP + a becomes f | a + c. As
+deg f = k + deg a + deg c + deg d > deg(a + c) (k ≥ 1), this forces a + c = 0, impossible for monic a, c (Lemma 1.1 makes all
+four parameters monic; q odd). ∎
+
+**Lemma 2.2 (I4 is the mirror of Case A; PROVED).** If I4(a, b, e) is valid at x_u, then the linear family
+F^A := (e; 0, a; 0, b) is a Case A family valid at x_{1/u}, with E = e monic and deg a ≠ deg b. Its ball u' ≡ −e
+(mod T^{k+j}) at 1/u has j = v_T(lcm(a, b)) ≤ v_T(ab), so 1/(I4 ball) ⊆ (ball of F^A). For gcd(a, b) = 1 the two balls are exact
+mirror images, and the I4 data with gcd(a, b) = 1 are exactly the Case A data (a1, b1, E) with E monic, deg a1 ≠ deg b1.
+*Proof.* Validity of F^A at x_{1/u} (FE §6.2): A·lcm(a, b) | P + e at x_{1/u} means T^{k+j} | u^{−1} + e, i.e. T^{k+j} | ue + 1,
+implied by T^{k+v_T(ab)} | ue + 1; and lcm(a, b)' | 1 + e, implied by (ab)' | e + 1. s = a + b ≠ 0, e | s, lc(s) = 1 = lc(e)
+since deg a ≠ deg b. Conversely, a Case A datum with gcd(a1, b1) = 1, E monic, deg a1 ≠ deg b1 satisfies the hypotheses of
+Prop 1.4 with (a, b, e) = (a1, b1, E) (gcd(E, Aa1b1) = 1 since T ∤ E and E ≡ −1 mod (a1b1)'). ∎
+
+**Lemma 2.3 (a Case A ball lies in a Case B ball with the same E; PROVED).** Let F be a Case A family valid at x_u with E monic,
+T^α ∥ a1, T ∤ b1 (after renaming), α ≥ 1, and put v := v_T(E + 1), H := (E + 1)/T^v. Suppose **α + v ≥ k** and v ≤ k + α. Put
+  s := α + v, L' := H/b1, g' := (a1)' = a1/T^α, j := ⌈(s − k)/2⌉, γ := ⌊(s − k)/2⌋.
+Then (E; 0, T^γ g'; 2, T^j L') is a Case B family (D = 1 + T^s L'g', E | D, D/E monic) valid at x_u, and at every point of the
+Case A ball of F; its ball u ≡ −E (mod T^{k+j}) contains the Case A ball.
+*Proof.* H is T-free; E ≡ −1 (mod (a1b1)') gives (a1)'·b1 | H, so L' is a T-free polynomial with E ≡ −1 (mod L') and
+g' | L' (gcd(a1', b1) = 1). Modulo E: T^v H = E + 1 ≡ 1 and b1 ≡ −a1 = −T^α g' (E | a1 + b1; b1 is a unit mod E because
+b1 | E + 1). Hence T^s L' g' = T^v H · T^α g'/b1 ≡ −1, i.e. E | D. D is monic (H, b1, g' monic), so D/E is monic. 0 ≤ γ ≤ j and
+s = k + j + γ. The Case A ball has depth k + j_A with j_A ≥ α, and j ≤ α because s − k ≤ 2α (v ≤ k + α); so E ≡ −u
+(mod T^{k+j}) on it. FE3 Lemma 1.1, converse (re-derived: A·T^jL' | P + E is the congruence pair E ≡ −u mod T^{k+j},
+E ≡ −1 mod L'; mod E, P ≡ 1, X ≡ T^{−k}, so s_F = T^γg' + X/(T^jL') ≡ (T^sL'g' + 1)/(T^{k+j}L') ≡ 0; lc(s_F) = 1 = lc(E) for
+n large) gives validity. ∎
+
+**Lemma 2.4 (Case B is inversion-closed; PROVED, any k ≥ 1, q odd).** If the Case B family with data (E, L', g', s, j, γ) is valid
+at x_w, then the one with (E' := D/E, L', g', s, j, γ) is valid at x_{1/w}.
+*Proof.* EE' = D ≡ 1 (mod T^s) and s ≥ k + j give E' ≡ −1/w (mod T^{k+j}); D ≡ 1 (mod L') and E ≡ −1 give E' ≡ −1 (mod L');
+E' monic, E' | D. Lemma 2.3's converse argument. (This is the swap τ^∨ of SIBLING Prop 1.3, stated there for k = 2.) ∎
