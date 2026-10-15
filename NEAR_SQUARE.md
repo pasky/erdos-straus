@@ -48,13 +48,11 @@ uncovered classes, matching exactly "m − √j is a local square in ℚ(√j)" 
 
 ## 1. The Jacobi constraint of a Type I solution (PROVED)
 
-**Lemma 1.1.** Let n be odd and (a, …, f) an N-point of Σᴵ_n with gcd(f, 2cd) = 1 (automatic if n = p is a prime,
-p > 4cd... see proof). Then (−4d / n) = −1 (Kronecker symbol).
-*Proof.* From n² + 4c²d = f(4bcd − n): every prime q | f has q ∤ 2cdn (q | n would give q | 4c²d), so −d ≡ (n/2c)²
-(mod q) and the Jacobi symbol (−d/f) = 1. As f is odd and positive, (−d/f) = (−4d/f) = χ(f) with χ = (−4d/·) a
-character mod 4d, odd (χ(−1) = sign(−4d) = −1). From 4acd = n + f, f ≡ −n (mod 4d), so 1 = χ(−n) = −χ(n). For n = p
-prime: a common prime of f and 2cd divides n + f − f = n (n odd, so not 2, and f is odd as n + f ≡ 0 mod 4), hence is
-p, impossible since cd ≤ acd < n. ∎
+**Lemma 1.1.** Let n be odd and (a, …, f) an N-point of Σᴵ_n. Then (−4d / n) = −1 (Kronecker symbol; = (d/n) if
+n ≡ 1 mod 4).
+*Proof* (R-O221 simplification: no gcd hypothesis). ef = 4a²d + 1 makes f odd and every prime q | f prime to 2ad with
+−d ≡ (2a)⁻² (mod q); so the Jacobi symbol (−d/f) = 1, i.e. χ(f) = 1 for the odd character χ = (−4d/·) mod 4d
+(χ(−1) = sign(−4d) = −1). From 4acd = n + f, f ≡ −n (mod 4d) (so gcd(n, 2d) = 1), hence 1 = χ(−n) = −χ(n). ∎
 This is ET Prop 1.6's mechanism in its bare form (for a square n, χ(n) = +1: contradiction). Consequences:
 * (Cor 1.2) A Type I polynomial family whose d is a constant is valid only on m-classes where the fixed character
   (−4d/·) takes the value −1 at m² + k; such a class contains no m ∈ Ẑ with m² + k a square in ℤ_ℓ for all ℓ | 2d,
@@ -62,13 +60,14 @@ This is ET Prop 1.6's mechanism in its bare form (for a square n, χ(n) = +1: co
 * The only escape is a *growing* d (H-A: moving modulus): (−4d(m)/n(m)) is then a "polynomial Jacobi symbol", which
   by reciprocity becomes a character *of m* (not of n), e.g. d = (m − r)/g gives (n(r)/·)-type characters of m.
 
-**Lemma 1.3 (Type II analogue; PROVED).** Let n ≡ 1 (mod 4) and (a, …, f) an N-point of Σᴵᴵ_n with gcd(f, 2dn) = 1
-(automatic for n = p prime). Then (de / n) = −1.
-*Proof.* (2.21): 4c²dn + 1 = f(4bcd − 1), so for q | f, −dn ≡ (2c)⁻² is a square: (−dn / f) = 1. f = 4acd − 1 ≡ −1
-(mod 4d), so (−d/f) = (−4d/f) = χ_{−4d}(−1) = −1, hence (n/f) = −1. Reciprocity with f ≡ 3 (4), n ≡ 1 (4):
-(f/n) = −1. From ef = n + 4a²d, f ≡ 4a²d·e⁻¹ (mod n) (gcd(e, n) = 1 as e | n + 4a²d and gcd(n, 2ad) = 1), so
-(de/n) = (f/n) = −1. ∎
-So every Type I/II solution of an n ≡ 1 (4) carries a *witness* D (D = d for Type I, D = de for Type II) with
+**Lemma 1.3 (Type II analogue; PROVED; R-O221 repair: the witness is f, and de only under gcd(n, 2ad) = 1).** Let
+n ≡ 1 (mod 4) and (a, …, f) an N-point of Σᴵᴵ_n. Then (f/n) = −1; if moreover gcd(n, 2ad) = 1 (automatic for n = p
+prime), (de/n) = −1.
+*Proof.* (2.21): 4c²dn + 1 = f(4bcd − 1), so f is odd, prime to dn, and −dn is a square mod every q | f: (−dn/f) = 1.
+f = 4acd − 1 ≡ −1 (mod 4d), so (−d/f) = χ_{−4d}(−1) = −1, hence (n/f) = −1, and by reciprocity (n ≡ 1 mod 4)
+(f/n) = −1. If gcd(n, 2ad) = 1: ef = n + 4a²d gives gcd(e, n) = 1 and f ≡ 4a²d·e⁻¹ (mod n), so (de/n) = (f/n). ∎
+(Counterexample to the unconditional de-form, R-O221: n = 21, (a, b, c, d, e, f) = (1, 2, 1, 3, 3, 11), (de/n) = 0.)
+So every Type I/II solution of an n ≡ 1 (4) carries a *witness* D (D = d for Type I, D = f for Type II) with
 (D/n) = −1 — the analogue of χ = −1 for five-slice words. (Check: `scripts/ns_witness_check.py`.)
 
 **Prop 1.4 (Hecke-character reading of polynomial witnesses; PROVED, elementary).** Let n = m² + k be a prime with

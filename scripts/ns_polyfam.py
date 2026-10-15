@@ -61,6 +61,7 @@ def classes(polys, extra_ok, mlo=10 ** 4):
     return L, good
 
 found = []
+skipped = 0
 OUT = open(sys.argv[3], "w") if len(sys.argv) > 3 else None
 def report(kind, D, params, L, good):
     if OUT: OUT.write(repr((kind, {k: [str(x) for x in v] for k, v in params.items()}, L, good)) + "\n")
@@ -107,5 +108,6 @@ for typ in (1, 2):
                         return n % 4 == 1 and all(ev(p, m).denominator == 1 and ev(p, m) > 0 for p in polys)
                     L, good = classes(polys, ok)
                     if good == []: continue
+                    if good is None: skipped += 1; continue      # period > 20000: classes not computed (R-O221 repair)
                     report("TypeI" if typ == 1 else "TypeII", D, dict(a=a, b=b, c=c, d=d, e=e, f=f), L, good)
-print("k =", K, "R =", R, "escaping families with integral classes:", len(found))
+print("k =", K, "R =", R, "escaping families with computed non-empty classes:", len(found), "; skipped (period > 20000):", skipped)
