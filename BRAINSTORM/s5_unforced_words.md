@@ -15,7 +15,7 @@ explained by U, and is there a structural inequality N₋ ≥ c·U?
 * **Hard primes = forced primes (EVIDENCE).** For all 13 primes < 10⁶ with N₊ ≥ 4N₋ ((J)48's hardest list), N₊ − N_forced
   ∈ {0, 2}: every χ = +1 word but at most 2 is forced by a clean side. Their forced fraction (0.78–0.89) is in the top
   0.1 % of all primes (median 0.11).
-* Over the 39 095 primes p ≡ 1 (mod 4), p < 10⁶:
+* Over the 39 095 primes p ≡ 1 (mod 4), 10³ < p < 10⁶ (R227 repair D7):
   * corr(N₋, U) = 0.966, versus corr(N₋, N) = 0.903.
   * N₋/U has mean 0.768 and sd 0.077.
   * At the 16 primes with U < 16, N₋ = U in 15 cases: every unforced word is a certificate.
@@ -24,7 +24,9 @@ explained by U, and is there a structural inequality N₋ ≥ c·U?
 * **CONJECTURE U (EVIDENCE).** For odd non-square n ≡ 1 (mod 4), U(n) = 0 ⟺ n = 105.
   * `scripts/s5_U.c`: the only n ≤ 2·10⁵ with U = 0 is 105, the SQ₅ exception. There, every word of X₁₀₅ lies on a
     clean side.
-  * Since N₋ ≤ U, CONJECTURE U is implied by SQ₅ (plus 105) and is weaker than it. The exception sets agree up to
+  * Since N₋ ≤ U, CONJECTURE U is implied by SQ₅ in its "∃ χ = −1 word" form (plus 105) and is weaker than it (R227
+    repair D9: the "χ not identically +1" form allows forced χ = 0 words at composites). R227 extended the census to
+    all non-square n < 10⁷: U = 0 and N₋ = 0 only at 105. The exception sets agree up to
     2·10⁵.
 * **"Unforced sign dominance" N₋ ≥ U/2 (REFUTED).**
   * It holds at every prime ≡ 1 (mod 4) below 5·10⁶ (minimum 122/241 = 0.506 at p = 3 103 073), which suggested an
@@ -48,7 +50,8 @@ explained by U, and is there a structural inequality N₋ ≥ c·U?
 | 9 768 361 | 105 | 24 | 24 | 0.77 | 2736 | 13 | 1 |
 | 17 287 201 | 119 | 30 | 34 | 0.71 | 6552 | 11 | 1 |
 
-Every block minimum has a forced fraction of 0.55–0.89 (median about 0.12) and N₋ = U or nearly. Most are p ≡ 1
+(R227: 7 of the 15 blocks b = 10..24 are omitted — 1 201, 5 569, 43 969, 76 441, 351 289, 1 095 481, 4 149 601 — same
+pattern.) Every block minimum has a forced fraction of 0.55–0.89 (all-prime median about 0.11 below 10⁶) and N₋ = U or nearly. Most are p ≡ 1
 (mod 840), i.e. squares modulo all small primes. K0 is generic, so these primes are not archimedeanly near squares,
 consistent with (J)48 D9.
 
@@ -74,7 +77,8 @@ None specific. The forced/unforced split is a refinement of THREE_SQUARES' clean
 * Tiny summaries are in SYNTHESIS_SPARKS5 §3.
 
 ## Assessment
-* PROVED: N₋ ≤ U.
+* PROVED: N₋ ≤ U. (R227 repair D18: U counts only ψ-clean forcing; R225's congruence-pinned u-sides also force
+  χ = +1 and lie inside U.)
 * EVIDENCE: hardness ≈ small U, the 13 hard primes are fully forced, and CONJECTURE U.
 * REFUTED (with explicit counterexamples): N₋ ≥ U/2.
 * A sharp descriptive law, not an existence mechanism.

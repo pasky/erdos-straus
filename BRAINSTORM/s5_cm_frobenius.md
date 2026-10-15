@@ -13,8 +13,9 @@ Let p ≡ 1 (mod 4) be prime, M ≥ 3, K_M = ℚ(ζ_M, √p) (p ∤ M), and g = 
 (b) A prime h ∤ pM satisfies h ≡ −1 (mod M) and (h/p) = −1 ⟺ Frob_h = g ⟺ h splits completely in F_M but not in
 ℚ(ζ_M)⁺(√p).
 (c) Hence, with M = 4cd: a prime-modulus Type II certificate of p ((J)44/(J)50, PM-II) is a prime h | p + 4c²d that
-splits completely in the CM field F_{4cd} and is inert in ℚ(√p). The inertness is automatic for a certificate:
-χ = ψ(h) = −1.
+splits completely in the CM field F_{4cd} and is inert in ℚ(√p). The inertness is automatic for a certificate
+(R227 repair D12: because h | p + 4c²d and h ≡ −1 (mod 4d) give (p/h) = (−d/h) = −1, BRIDGE_WORLDS Thm (i); so the √p
+twist adds nothing to (J)50, and (c) is only "⟹" — "⟸" needs h | p + 4c²d).
 (d) M = 4 gives F₄ = ℚ(√−p). This recovers the genus statement at level 4: h ≡ 3 (mod 4) with (h/p) = −1 ⟺ h splits in
 ℚ(√−p), h ≡ 3 (4), i.e. h lies in the non-principal genus of discriminant −4p.
 
