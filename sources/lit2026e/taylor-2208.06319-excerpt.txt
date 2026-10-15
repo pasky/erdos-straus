@@ -1,0 +1,120 @@
+Excerpt of L. R. Taylor, Gauss sums in algebra and topology, arXiv:2208.06319v1 (pdftotext), lines 1-30, 320-345, 555-615
+arXiv:2208.06319v1 [math.AT] 12 Aug 2022
+
+GAUSS SUMS IN ALGEBRA AND TOPOLOGY
+LAURENCE R. TAYLOR
+Abstract. We consider Gauss sums associated to functions T →
+R/Z which satisfy some sort of “quadratic” property and investigate their elementary properties. These properties and a Gauss
+sum formula from the nineteenth century due to Dirichlet give
+the Milgram Gauss sum formula computing the signature mod 8
+of a non–singular bilinear form over Q. Brown derived some results on the signature mod 8 of non–singular integral forms. Kirby
+and Melvin gave a formula for a generalization of this invariant to
+possibly non–singular forms and we further generalize it here. The
+Milgram Gauss sum formula and these formulas allow us to reprove
+Brown’s result without resort to Witt group calculations. Assuming a bit of algebraic topology, we reprove a theorem of Morita’s
+computing the signature mod 8 of an oriented Poincaré duality
+space from the Pontrjagin square without using Bockstein spectral sequences. Since we work with forms which may be singular,
+we also obtain a version of Morita’s theorem for Poincaré spaces
+with boundary. Finally we apply our results to the bilinear form
+Sq 1 x ∪ y on H 1 (M ; Z/2Z) of an orientable 3–manifold.
+
+1. Introduction.
+Gauss sums have a long and venerable history. A general version has
+a finite set T , a function ψ : T → R/Z and the associated Gauss sum
+X
+G(ψ) =
+e2πiψ(t) .
+t∈T
+
+Even more general notions would replace T by a measure space and
+the finite sum by an integral. The Gauss sum problem is to evaluate
+G(ψ) with the first examples going back to Gauss [6, Art.356].
+...
+
+for all large ℓ we would be done.
+If (x1 , x2 , x3 , x4 ) satisfies (1.17) for p odd and ℓ ≥ 1, then we can
+find a such that (x1 + apℓ )2 + x22 + x23 + x24 ≡ −1 mod pℓ+1 . If p = 2 and
+if (x1 , x2 , x3 , x4 ) satisfies (1.17) for p = 2 and ℓ ≥ 3, then we can find a
+so that (x1 + a2ℓ−1 )2 + x22 + x23 + x24 ≡ −1 mod 2ℓ+1 . This construction
+is just Hensel’s lemma for this simple case.
+Note (1, 1, 1, 2) satisfies (1.17) for p = 2, ℓ = 3. If p ≡ 1 mod 4,
+then −1 is a quadratic residue so we can solve x21 ≡ −1 mod p. If
+p ≡ 3 mod 4, x21 + x22 ≡ −1 mod p has solutions since there are p+1
+2
+non–residues.
+
+distinct values for −1 − x22 and only p−1
+2
+Brown [2] studied the case in which T is a Z/2Z vector space. Any
+2–linear function on a Z/2Z vector space is quadratic and Brown’s
+functions were assumed non–singular, although tame would have sufficed for many of his results. For example, Brown gave a different
+argument for β(ψ) ∈ Z/8Z. An element ω ∈ T is characteristic provided b(x, x) = b(ω, x) for all x ∈ T . Brown’s argument is to observe
+that characteristic elements exist and then ψω = −ψ. By (1.14), if ψ is
+tame, β(ψ) = ψ(ω) + β(ψω ) ∈ Q/Z, so 2β(ψ) = ψ(ω) ∈ Z/4Z ⊂ Q/Z.
+For later use, recall the Gauss sum formula of Dirichlet [5] that we
+require.
+Theorem 1.18. If m > 0 then
+
+√
+...
+2x, ν +2x) mod 8 and one checks that ψν does not depend on the choice
+of ν either. For det B odd (2.2) is a result of Blij [1]. The general case
+appears in Brumfiel&Morgan [3].
+If det B is even however, there are different choices for ν which give
+different enhancements and different values of B(ν, ν). Indeed, it is a
+theorem of Brumfiel&Morgan [3] and Wall [16] that any quadratic enhancement of a non–singular symmetric bilinear form can be obtained
+as ψL for an appropriate B and ν.
+
+We next turn to Brown [2] for other ways to obtain quadratic functions. Given a symmetric bilinear form, B : V × V → Z, define
+ψB : V ⊗ Z/2Z → Z/4Z ⊂ Q/Z
+
+GAUSS SUMS IN ALGEBRA AND TOPOLOGY
+
+11
+
+B(x, x)
+. This function is 2–linear, quadratic and the as4
+sociated bilinear form is B2 : (V ⊗ Z/2Z) × (V ⊗ Z/2Z) → Z/2Z obtained by reducing B mod 2. There is an obvious generalization: let
+Vm = V ⊗ Z/mZ and define
+by ψB (x) =
+
+ψB,m : Vm → Z/2mZ ⊂ Q/Z
+
+B(x, x)
+with ψB,m (x) =
+. In order for ψB,m to be defined on Vm it is
+2m
+necessary and sufficient that m be even. This quadratic enhancement,
+even for m = 2, need not be tame. It is non–singular if and only if
+det B is relatively prime to m. A further generalization is to recall that
+for any quadratic ψ : T →
+ Q/Z the function B ⊗ ψ : V ⊗ T → Q/Z
+defined by (B ⊗ ψ) v ⊗ x = B(v, v)ψ(x) is also quadratic [12, p.111].
+(One should also check that it really is defined. Note that the formula
+for B = h1i implies that ψ is quadratic so the formula does not work
+for non–quadratic enhancements.) If m is even, let 1m : Z/mZ → Q/Z
+1
+be defined by 1m (1) = 2m
+. Then B ⊗ 1m = ψB,m so this generalizes
+Brown’s construction.
+Theorem 2.4. If B is a symmetric form over Z with determinant ±1
+and if ψ is tame quadratic, then
+(2.4)
+
+β(B ⊗ ψ) = σ(B) · β(ψ) ∈ Q/Z .
+
+Proof. As Brown remarks, (1.12) shows that β(B ⊗ ψ) only depends on
+the Witt class of B. Now the Witt ring of Z is infinite cyclic generated
+by the form h1i. But h1i ⊗ ψ = ψ.
+
+Theorem 2.5. Another application of Dirichlet’s Gauss sum formula
+as in (2.1) shows that for positive even m, β(1m ) = 18 , so we get
+Brown’s theorem, β(ψB,2 ) = σ(B)
+.
+8
+Theorem 2.6. If m is odd, define 1m : Z/mZ → Q/Z by 1m (1) = m1 .
+If m > 0 and m ≡ 1 mod 4, β(1m ) = 0 and if m > 0, m ≡ 3 mod 4,
+β(1m ) = 41 .
+In a bit, we will give another proof of (2.4) that bypasses the Witt
+ring calculation, but before that, we generalize a formula of Melvin and
+Kirby [7, p.522] for computing β(ψB,2 ) and use it to compute β(B ⊗ ψ)

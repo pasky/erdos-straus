@@ -149,3 +149,51 @@ Status: in progress.
 | (J)69 Thm 1.1 (ES for all 4^s + 105) | **APPARENTLY NEW**; method lineage PARTIAL | partial covering + algebraic factorisation on the leftover exponent class = Izotov 1995 (via FFK 2008 pp. 3–4) for Sierpiński numbers; the ES identity class is new |
 | (J)68 Lemma 3.1 + uncoverable families (c₀ + k = 4^j) | APPARENTLY NEW instances of a known mechanism | Mordell/Schinzel square obstruction, exponential form already in (J)22 Cor 1.5 (Bertók–Hajdu) |
 | (J)68 Result 1.1 (binary core of 4^s + 105 covered, CERTIFIED) | APPARENTLY NEW (finite computation) | — |
+
+---
+
+## 3. The Fano pigeonhole and the 2^k bit law ((J)57)
+
+### 3.1 Findings
+
+* **The ℤ/4-valued form on L/2L is Brown's construction.** L. R. Taylor, "Gauss sums in
+  algebra and topology", arXiv:2208.06319v1 [visited; excerpt archived
+  `sources/lit2026e/taylor-2208.06319-excerpt.txt`], §2 p. 11: for a symmetric bilinear
+  form B on V, "ψ_B : V ⊗ ℤ/2ℤ → ℤ/4ℤ, ψ_B(x) = B(x, x)/4" is a well-defined quadratic
+  enhancement of B mod 2 (Brown's construction, E. H. Brown Jr., "Generalizations of the
+  Kervaire invariant", Ann. of Math. 95 (1972) [as cited by Taylor, ref. [2]]), and Brown's
+  theorem β(ψ_{B,2}) = σ(B)/8 (Thm 2.5) — the Gauss-sum (Brown) invariant of this
+  enhancement is the signature mod 8; over ℤ₂ its counterpart is the oddity of the
+  2-adic symbol (Conway–Sloane, SPLAG ch. 15 [memory]). The even classes (Q ≡ 0 mod 2)
+  form the hyperplane orthogonal to the characteristic class (Taylor p. 6, "characteristic"
+  element; Gaulter, JTNB 19 (2007) [snippet] for characteristic vectors of unimodular
+  lattices).
+* **Auditor's check of the core lemma** (5 lines). An odd unimodular ℤ₂-lattice of rank 3
+  diagonalises as ⟨a, b, c⟩ with units; on L/2L, Q mod 4 is the sum of the units over the
+  support. The even nonzero classes are the three supports of size 2 (a Fano line), and
+  Q ≡ 0 (mod 4) on a pair iff its two units are of opposite sign mod 4; the lattice is
+  isotropic iff the signs mod 4 are mixed (all-equal sign patterns ⟨1,1,1⟩, ⟨1,1,5⟩, …
+  are anisotropic), and then exactly two of the three pairs qualify. So "an isotropic odd
+  unimodular ℤ₂-lattice has exactly two nonzero classes with Q ≡ 0 (mod 4), both in W∖0"
+  is a routine consequence of the 2-adic diagonalisation, i.e. a zero count of Brown's
+  ℤ/4-enhancement fixed by its Gauss-sum invariant. The pentagon-parity half is
+  Morier-Genoud §3.5 (10d §1). The pigeonhole "two 2-subsets of a 3-set meet" is trivial.
+* **What is not in the literature found:** the identification of the five pentagon
+  entries t, u, v, A, A* with norms of specific lattice vectors (e₂, e₃, e₁, n·e₁^#,
+  n·e₃^#), which is what turns the two counts into S₄ = {χ = −1}; and the 2^k bit law
+  f_k = (2/3)2^{−(k−2)} + (1/3)(1 − (1 − 2^{−(k−2)})²) (ES/numerator-specific; the
+  numerator-8 failures 131, 241 themselves are PW Table 1, already attributed).
+* **Searches with no relevant hit:** "odd unimodular lattice L/2L quadratic form mod 4
+  characteristic vectors Fano plane isotropic 2-adic", "ternary quadratic form 2-adic
+  isotropic criterion mod 8 Fano plane pigeonhole", "Brown invariant ℤ/4-valued quadratic
+  enhancement Gauss sum number of zeros F₂ vector space" (the last found only Taylor).
+
+### 3.2 Verdicts
+
+| Claim | Verdict | Notes |
+|---|---|---|
+| (J)57 Thm 1.3, lattice half ("Q mod 4 on L/2L; exactly two Q ≡ 0 (4) classes, in W∖0") | **KNOWN in substance** (elementary 2-adic lattice theory) | Brown's ℤ/4-enhancement (Brown 1972; Taylor arXiv:2208.06319 §2) + diagonalisation of odd unimodular ℤ₂-lattices |
+| (J)57 Thm 1.3, frieze half (two adjacent even entries) | **KNOWN** | Morier-Genoud arXiv:1907.12790 §3.5 (already attributed via (J)42) |
+| (J)57 Thm 1.3, the dictionary (pentagon entries = norms of e₂, e₃, e₁, n·e₁^#, n·e₃^#) and S₄ = {χ = −1} via pigeonhole | APPARENTLY NEW proof of a known statement (as the ledger says: third proof of MODEL_SPECIFIC 3.1(a)) | — |
+| (J)57 Prop 1.4 (2^k bit law f_k) | APPARENTLY NEW | — |
+| (J)57 "pigeonhole forcing only for M ∈ {2, 3, 4}" | APPARENTLY NEW (ES-specific) | — |
