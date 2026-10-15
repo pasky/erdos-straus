@@ -96,7 +96,9 @@ static void case1(int s,int orient,int Dmax){
       poly t1,Eh,one; one.d=0; one.c[0]=1; mul(&t1,&M,&g);
       poly Tt; Tt.d=t1.d+1; Tt.c[0]=0; for(int i=0;i<=t1.d;i++) Tt.c[i+1]=t1.c[i]; sub(&Eh,&Tt,&one);
       /* X1 = (-g T^{s-1}) mod Eh */
-      { double e=1.0; for(int i=0;i<Eh.d;i++) e/=P; exp1 += TAUBAR[dM]*e;
+      int structured=0; if(orient==0){ poly EU; add(&EU,&Eh,&U); if(tval(&EU) >= s-2) structured=1; }
+      else { poly EU; mulmodT(&EU,&Eh,&U,s-2); EU.c[0]=(EU.c[0]+1)%P; norm(&EU); if(tval(&EU) >= s-2) structured=1; }
+      if(!structured){ double e=1.0; for(int i=0;i<Eh.d;i++) e/=P; exp1 += TAUBAR[dM]*e;
         /* refined model (FF_THIRDS_CORNER Cor 3.2 / §3): only divisors X1 of M of degree >= lo can occur */
         int N_=Nof(s), y=Eh.d-1-dM, t=s-dM-1-y, lo;
         if(orient==0) lo = (t>=N_+3-H) ? 0 : N_+1-dM; else lo = (t>=N_+3) ? 0 : N_+1-H-dM;
