@@ -52,3 +52,32 @@ does not contradict it because the solution is a *scaled* p-solution, which is n
 Scaling re-checked: q ≢ −p (mod ℓ) for ℓ | a, ℓ ≠ p, plus p ∤ K (p | K ⇒ p | q), gives gcd(K, n) = 1, hence
 gcd(Q₁, k) = 1, den(kz) = Q₁², rad Q₁ | y | ky, ℓ ∤ 2n, exponents unchanged. ✓ Class exists: ℓ ≡ 1 (4) ⇒ ℓ ≥ 5,
 two excluded residues 0, −p mod ℓ. ✓ (Using any p | a, p ≡ 1 (4).)
+
+### C5. Thm 1.3 (size of q*(n)) and the cited theorems — SOUND-AFTER-REPAIRS (citation MINORs D1, D2; improvement D3)
+* Field and discriminant: n₀ ≡ 1 (4) squarefree > 1 (all primes ≡ 1 (4)), L = ℚ(ζ₈, √n₀), [L:ℚ] = 8 (√n₀ ∉ ℚ(ζ₈)
+  since n₀ is odd > 1). Characters: 1, χ_{−4}, χ_8, χ_{−8}, χ_{n₀}, χ_{−4}χ_{n₀}, χ_8χ_{n₀}, χ_{−8}χ_{n₀}, conductors
+  1, 4, 8, 8, n₀, 4n₀, 8n₀, 8n₀ (gcd(n₀, 8) = 1). Conductor–discriminant: d_L = 2^{16} n₀⁴. ✓
+* (i)–(iii) ⟺ q unramified with one Frobenius: q mod 8 is Frob on ℚ(ζ₈); (q/n) = (q/n₀) (q ∤ n automatic, q ≡ 3 (4))
+  = (n₀/q) (n₀ ≡ 1 (4)) is Frob on ℚ(√n₀). One element of Gal(L/ℚ) ≅ (ℤ/2)³. ✓
+* **Ahn–Kwon: VERIFIED from the primary text** (arXiv:1807.00508v1, downloaded to `sources/r239/`; = Ann. Inst. Fourier
+  69 (2019) 1411–1458): "Theorem 1. For every finite extension K of ℚ, every finite Galois extension L (≠ ℚ) of K …
+  every conjugacy class C of G, there exists a prime ideal p in P(C) [unramified, degree one over ℚ, Frobenius C]
+  which satisfies N p ≤ d_L^{A₁} with A₁ = 12577." Abstract: "without any restriction". With K = ℚ this is exactly
+  what is used. 12577·16 = 201232, 12577·4 = 50308; e* ≤ q − 3 < d_L^{12577} ≤ 2^{201232} n^{50308}. ✓ (Numbering:
+  arXiv says "Theorem 1", author writes "Thm 1.1" — check the journal version; trivial.)
+* Linnik–Xylouris (b): Xylouris' L = 5 (Bonn dissertation 2011) — NOT accessed by me; the exponent-5 statement is the
+  standard citation and the effectivity of Linnik's implied constant is classical. Fine at "relative to cited theorems".
+  Note the modulus can be 8n₀ (the conditions only see q mod 8 and q mod n₀) — e* ≪ n₀⁵; harmless.
+* (c) GRH: **Bach–Sorenson** — primary text not accessible to me (AMS PDF behind bot-check; the CS tech-report
+  #1180 link I found is a different paper). The abstract (fetched from ams.org) confirms: E/K abelian, ERH, degree-1
+  prime with Frobenius σ and Np ≤ (1+o(1))(log Δ + 2n)²; for K = ℚ, p ≤ (1+o(1))(log Δ)²; explicit versions exist.
+  The explicit form (4 log d_L + 2.5 n_L + 5)² is confirmed by a *secondary* source: Ahn–Kwon §1 ("Bach and Sorenson
+  ([4]) … If GRH holds, then for any class C of G there is a prime p in K of degree 1 over ℚ with [L/K, p] = C and
+  N p ≤ (4 log d_L + 2.5 n_L + 5)²"). Theorem number "5.1" unverified. Arithmetic: 4(16 log 2 + 4 log n₀) + 20 + 5 =
+  16 log n₀ + 69.36 ≤ 16 log n + 70. ✓ L/ℚ is abelian, so even the abelian-only version applies.
+* Citation defect: the GRH (log d_L)² theorem is **Lagarias–Odlyzko 1977** (Durham proceedings, "Effective versions of
+  the Chebotarev density theorem"), not Lagarias–Montgomery–Odlyzko Invent. Math. 54 (1979), which is the
+  UNCONDITIONAL d_L^{A} bound (Ahn–Kwon §1, Theorems I and II). See D1.
+* Case (c) (odd squares): the author's restriction "under GRH only the Linnik-type bound" is unnecessary — see D3:
+  applying Thm 1.1 to d := n/p (non-square, squarefree kernel p) and scaling by k = p removes all exclusions, so all
+  three bounds of Thm 1.3 hold for odd squares with n₀ replaced by p.
