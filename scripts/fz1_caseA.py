@@ -4,8 +4,9 @@ Data (a1', b1, K) with T^alpha || a1 (WLOG), T not dividing a1' b1 K, E = a1' b1
 Routes (FF_STERILE_SMALL Lemma 7.2):
  (i)   (a1', b1, K)                                   2 N*(lam) N*(be) N*(ka)
  (ii)  (a1', K, F) -> b1 (A4)                         4 N*(lam) N*(ka) N*(f)
- (iii) (b1, K): E | T^alpha + b1^2 K, E == -1 (b1 K)  2 N*(be) N*(ka) clsr(max(alpha, 2be+ka), lam+be+ka, be+ka)
- (iv)  (a1', b1): E | T^alpha a1' + b1, E == -1 (a1' b1)   N*(lam) N*(be) clsr(alpha+lam, lam+be+ka, lam+be)
+ (iii) (b1, K): E | T^alpha + b1^2 K, E == -1 (b1 K)  4 N*(be) N*(ka) clsr(max(alpha, 2be+ka), lam+be+ka, be+ka)
+ (iv)  (a1', b1): E | T^alpha a1' + b1, E == -1 (a1' b1)   2 N*(lam) N*(be) clsr(alpha+lam, lam+be+ka, lam+be)
+       (factor 2: lc(E) in {1, 2} and the C(n, d) fallback of clsr counts monic divisors only)
  (v)   z, then (b1, K, F) | T^alpha + z               2 (q-1) q^zeta multinomial(alpha; be, ka, f)
  (vi)  (a1', z, K): b1 + F = a1' z, b1 F = (T^alpha + z)/K   4 (q-1) q^zeta N*(lam) N*(ka)
 clsr = FF_STERILE_SMALL Lemma 1.4 (q^j cls(n, d, rho + j)), cls = min(trivial, Lenstra 2, Coppersmith m + k, C(n, d)).
@@ -54,8 +55,8 @@ def run(q, AMAX, EX=None):
                 for la in range(0, max(f, be) + 1):
                     ze = max(f, be) - la
                     B = [2 * Ns(la) * Ns(be) * Ns(ka), 4 * Ns(la) * Ns(ka) * Ns(f),
-                         2 * Ns(be) * Ns(ka) * clsr(max(al, 2 * be + ka), la + be + ka, be + ka, 1),
-                         Ns(la) * Ns(be) * clsr(al + la, la + be + ka, la + be, 1),
+                         4 * Ns(be) * Ns(ka) * clsr(max(al, 2 * be + ka), la + be + ka, be + ka, 1),
+                         2 * Ns(la) * Ns(be) * clsr(al + la, la + be + ka, la + be, 1),
                          2 * (q - 1) * q**ze * (factorial(al) // (factorial(be) * factorial(ka) * factorial(f))),
                          4 * (q - 1) * q**ze * Ns(la) * Ns(ka)]
                     acc += EX[(al, la, be, ka)] if EX is not None and (al, la, be, ka) in EX else min(B)
