@@ -351,3 +351,13 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | y10_clean_level_classification | levels clean along a whole quadratic family | ⟺ 4A − tΔ = □ (outside gcd-exceptional classes); per prime: T1-type = principal-form part of clean (82 % of clean words) | PROVED + EVIDENCE |
 | y10_hardness_beyond_clean | does near-squareness predict N₋/N beyond adelic cells? | yes, monotone in p − ⌊√p⌋²; half survives removing all clean levels (mechanism open) | EVIDENCE |
 | y10_hard_primes_m2minus3 | hard primes vs polynomial T1 points | 3361 and 1 249 921 are m² − 3 next to m₀ = 2 | EVIDENCE (anecdotal) |
+
+## Wave Z-e (O229): bounded cap with a growing mute set, PM-II and SQ_± on average (memos z5_*, deep file CAP_GROWING.md; not yet triaged)
+
+| file | idea | outcome | labels |
+|---|---|---|---|
+| z5_cap_dimension | cap e of ES^{(y,e)} (free S) as a large-sieve dimension: Σω_e(ℓ)/ℓ ≍ (log X)^{e+1} | exceptional primes ≪ N exp(−c_e (log N)^{(e+1)/(e+2)}); e = 2 beats Vaughan's 2/3 | PROVED rel. BV + large sieve |
+| z5_pmII_vaughan | Vaughan's classes are prime-modulus Type II certificates | PM-II fails for ≪ N exp(−c log^{2/3} N) primes; covering moduli only h = 3, 7 (≤ 2·10⁴) | PROVED rel. Vaughan; CERTIFIED range |
+| z5_pm_sqpm | prime-modulus words of SQ_±: χ = (n/ℓ), free genus filter, shift slots n + u | exponent 1/2 only (signed twin harder on average); CONJECTURE PM-SQ_±, 0 exceptions ≤ 10⁶, adversarial ok — SHARP | PROVED + CONJECTURE/EVIDENCE |
+| z5_fixed_field_orbits | x-orbits with Δ_x = D₀m_k² in one real quadratic field | no free point (norms ±(16n)^i r²); ring class group ≍ m kills the CL luck | PROVED lemma + Assessment (negative) |
+| z5_pell_unit_T1 | Pell unit of ℚ(√n) as a T1-shaped existence mechanism | never acts on ES^{[2]} fibres (needs n | λ, reciprocity-killed); sign-blind | PROVED (squarefree n), negative |
