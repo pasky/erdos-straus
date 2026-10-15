@@ -9,6 +9,7 @@ Each pattern is enumerated by the cheapest of five complete routes (python-flint
   MC[z,b] : symmetric with C.
   WG[a,y] : (w, g'); C monic | g' T^s + w (E C = g'T^s + w), v = (w + C)/g', m' = (T^s + v)/(w C).
   CG[b,y] : symmetric.
+  MG[z,y] : (m', g'); E = m'g'w - 1 monic | 1 + T^s m'g'^2, w = (E+1)/(m'g'), C = (E'+1)/(m'g'), E' = (1 + T^s m'g'^2)/E.
 Every candidate is re-verified against the defining conditions; tuples are deduplicated (all ORDERED tuples, both
 orientations w <-> C counted separately). Output: per pattern, histogram of E(0) = w(0)/C(0) (as exponent of a fixed
 primitive element, or 'z' never), plus checks of the law E(0)^s = eps(s; z, t) = (-1)^{t + tz + z(1+s) + ts} and of the
@@ -162,6 +163,22 @@ def run_WG(s, a, y, sym):
                 else:
                     check_add(s, m, g, w, C)
 
+def run_MG(s, z, y):
+    """route R2: E = m'g'w - 1 is a monic divisor of 1 + T^s m' g'^2 (E E' = 1 + T^s m' g'^2, E' = m'g'C - 1)."""
+    for m in monics(z):
+        for g in monics(y):
+            L = m * g
+            Fp = 1 + T ** s * m * g * g
+            for E in monic_divisors(Fp):
+                w = exact_div(E + 1, L)
+                if w is None or w == 0:
+                    continue
+                Ep = Fp // E
+                C = exact_div(Ep + 1, L)
+                if C is None or C == 0:
+                    continue
+                check_add(s, m, g, w, C)
+
 def nmon(d):
     return 1 if d == 0 else (q - 1) * q ** (d - 1)
 
@@ -182,7 +199,7 @@ for s in range(smin, smax + 1):
         lam_needed = 'two' if a == b else 'one'
         cands = [(2 * nmon(t) if t else 2, ('V', t)),
                  (nmon(z) * nmon(a), ('MW', z, a)), (nmon(z) * nmon(b), ('MC', z, b)),
-                 (nmon(a) * nmon(y), ('WG', a, y)), (nmon(b) * nmon(y), ('CG', b, y))]
+                 (nmon(a) * nmon(y), ('WG', a, y)), (nmon(b) * nmon(y), ('CG', b, y)), (nmon(z) * nmon(y), ('MG', z, y))]
         c, k = min(cands)
         if c > MAXCOST:
             skipped.append((a, b, z, y, t)); continue
@@ -203,6 +220,8 @@ for s in range(smin, smax + 1):
             run_MW(s, k[1], k[2], True)
         elif k[0] == 'WG':
             run_WG(s, k[1], k[2], False)
+        elif k[0] == 'MG':
+            run_MG(s, k[1], k[2])
         else:
             run_WG(s, k[1], k[2], True)
         mine = set(keys[k]); covered |= mine
