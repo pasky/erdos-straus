@@ -144,7 +144,7 @@ comparison. `zt_lop` prints this model per level ("refined").
 degree 2..4 with u(0) = 1, u'(0) ≠ 0, levels 3..12, complete search: unstructured hits vs. model
 | levels | points with an unstructured hit | unstructured hits | model |
 |---|---|---|---|
-| 3..12 | 4 | 10 | 7.2 |
+| 3..12 | 4 | 10 | 7.2 (degenerate split: at N ≤ 4, s − 2 ≤ N + 1, so "dep ≥ s − 2" is not a structure test) |
 | 5..12 | 2 | 2 | 5.2 |
 | 6..12 | 0 | 0 | 2.8 |
 | 7..12 | 0 | 0 | 1.6 |
@@ -217,10 +217,9 @@ constraint bites at every level, and the only escape — an exact family — is 
   by the Frobenius family (1 + Tg')² = 1 + T²g'² (FF_STERILE_PUSH §4)**.
 
 **The leading coefficient as the archimedean sign (Assessment; a sharp analogy with (J)55).** In F_q[T] the place ∞ is the
-archimedean place and lc is its sign. Exact families at a polynomial point need lc(u) = −1 (Prop 1.4); the calibration of
-§3 shows that all structured, periodic coverings of low-height points occur at lc(u) = −1 (e.g. u = 1 ± T − T² at
-N = 3, 6, 7, 10, 11, …), while lc(u) = +1 points of degree ≤ 4 carry no structured hits and only 4 unstructured hits in
-total at levels ≤ 12. Over ℤ, (J)55 found the same split on p = m² + k: for k > 0 every polynomial family meets a fixed
+archimedean place and lc is its sign. Exact families at a polynomial point need lc(u) = −1 (Prop 1.4); in the calibration data of
+§3 (52 points of degree 2..4, levels 5..12) all 42 structured hits (dep ≥ s − 2; e.g. u = 1 ± T − T² at N = 6, 7, 10, 11, …)
+are at points with lc(u) = −1, while the lc(u) = +1 points carry only 2 hits (both unstructured, N = 5) (EVIDENCE). Over ℤ, (J)55 found the same split on p = m² + k: for k > 0 every polynomial family meets a fixed
 character (sterile), for k < 0 escaping families exist. In both worlds a *low-height* point is sterile for polynomial/
 exact families exactly on one side of the archimedean sign, and on the other side exact identities (here E = −u, there
 the k < 0 families) cover it. x*_c with c = −1 sits on the "wrong" side and is saved only by 2 ≠ 0.
