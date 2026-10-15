@@ -198,3 +198,26 @@ not examined). In ES the anchor is the real place
 here as the reason Thm 1.1 exists at all. (An order-3 variant would need a normalisation whose shot constant equals
 the window constant up to μ₃ — e.g. a cube; within the anchor calculus such a normalisation pins inv = 0 (Lagrangian),
 i.e. loses T1₃. Assessment, not proved.)
+
+## 7. Verdict (O237 checkpoint 1)
+
+1. **Even windows (Thm 1.2, PROVED):** the O236 restriction "K odd" was unnecessary. The general Type II divisor
+   d = 2^{v₂(K)}Q′² keeps the 2-adic denominator trivial, and every prime q ≡ 3 (4) with (q/n) = −1 fires, except
+   (n ≡ 5, q ≡ 3 (8), v₂(n+q) odd). In the excluded case the forced non-residue is 2 itself, which is unusable.
+2. **One-prime witness (Prop 1.3, PROVED):** d = K·s^{ord_q(s)/2} gives cap ≤ (q−3)/4 (was q − 3). It needs no
+   discrete logarithm and is sharp at a single window (Prop 4.1(a)).
+3. **Power saving (Cor 2.1, PROVED relative to Pollack IJNT 2014 Thm 1.4; ineffective):**
+   * e*(n) ≪_ε n₀^{1/4+ε} for non-square n ≡ 1 (8), where n₀ is the squarefree part. O236 had rad(n)^5 (Linnik).
+   * e*(n) ≪_ε n₀^{1/2+ε} for n ≡ 5 (8).
+   * Odd squares a²: p^{1/4+ε} or p^{1/2+ε} via d = n/p, according to whether p ≡ 1 or 5 (mod 8).
+   * The 1/4 exponent for n ≡ 1 (8) is exactly the 2-adic repair. For n ≡ 5 (8), 1/2 is a barrier of the method:
+     the problem becomes 2-dim Burgess (Assessment).
+4. **Negatives with scope:**
+   * Composite/CRT gluing does not improve the one-prime forced witness (Prop 4.1(b)).
+   * At order 3, the self-mute window needs the TES anchor constant 2 ∈ ⟨primes of x⟩μ₆ (Prop 6.1). That is a
+     subgroup-membership lottery, so there is no forced analogue in that shape.
+   * T1 holds for every Lemma-1.1 window at odd squares.
+5. **Numerics (EVIDENCE, exact checks):** every prime p ≡ 1 (4) ≤ 10⁶ has a cap-0 (Type II ES) window ≤ 63. Forced
+   windows give Prop 1.3 caps ≤ 47. The window proxy for e*(p) is therefore ES's Type II verification. The
+   provable/true gap is the odd-part discrete-log lottery (B2/B3).
+ES is untouched, and no infinite case of ES is claimed.
