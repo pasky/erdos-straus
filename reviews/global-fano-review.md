@@ -32,7 +32,7 @@ Loop test on the lattice side = isometry of the two vertex overlattices L + ℤx
 ### C2. Thm 2.1 / z9_depth_walks Lemma 1, Cor 2, Prop 3 (depth = conic-marked walk)
 Re-derivation (reviewer):
 * Vertex step. F = F_j has Q integral, B half-integral, det_B F = p/4, so b = 2B mod 2 on F/2F is alternating of rank 2 with
-  radical r, and q(r) = 1 (else F + ℤr/2 would be integral of det p/16). A hyperplane H ⊂ F/2F is classical (B|H integral) ⟺
+  radical r, and q(r) = 1 (q is nondegenerate because F is maximal at 2; numerically: exactly 3 classical index-2 sublattices at every vertex visited). A hyperplane H ⊂ F/2F is classical (B|H integral) ⟺
   b|H = 0 ⟺ r ∈ H (if r ∉ H, b|H is the nondegenerate quotient form). The 3 hyperplanes through r are {0, r, c, c + r} with
   q(c + r) = q(c) + 1, so each contains exactly one of the 3 conic points: hyperplanes ⟷ conic points. Hence "unique classical
   index-2 sublattice through z′" holds iff z̄′ ≠ r; the conic marking (q(z̄′) = 0) is one sufficient way to exclude r.
@@ -58,3 +58,24 @@ pointers of all χ = −1 words, odd primes 5 ≤ p ≤ 200, 0 violations, walk 
 The author's "1190" is over all odd primes 5..200, not only p ≡ 1 (4) — say so (MINOR, D-list).
 
 **Verdict C2: SOUND** (with the MINOR wording items below).
+
+### C3. §3 / z9_brandt_screen: L1 (PROVED, narrow), L2/L3 placements
+Re-derivation of L1 (reviewer). T_ℓ (ℓ ∤ 2p) acts on functions on X₀(2)^{ss}(𝔽̄_p) as the ℓ-isogeny adjacency; it commutes with Frob and
+w₂, so it acts on ⟨Frob, w₂⟩-invariant functions = ℂ[𝔊⁻_p]. The Brandt self-adjointness weights 1/e(E, C) (e = |End(E,C)^×/±1|)
+descend to w(L) = |orbit|/e = 4/(|Stab|·e). With Aut L = ±1 × SO(L), SO(L) ≅ N(E)/ℚ^× (Skolem–Noether) and
+[N(E) : ℚ^×E^×] = |Stab_{⟨Frob,w₂⟩}| (Atkin–Lehner elements of norm 2 and p), |Aut L| = 2e|Stab|, so w(L) = 8/|Aut L| — **the mass
+weights are indeed the right inner product**; the author's one-line proof silently uses this identification (MINOR: state it).
+Simplicity of the eigenvalue ℓ + 1: connectedness of the ℓ-isogeny graph on X₀(2)^{ss} (strong approximation) + Perron–Frobenius,
+or Ramanujan–Petersson for the cuspidal part (|a_ℓ| ≤ 2√ℓ < ℓ + 1). **But only for ℓ ∤ 2p**: the memo says "one ℓ ≠ p … true for
+every ℓ"; at ℓ = 2 the operator on 𝔊⁻_p is not the standard T_ℓ (level 2 sits at 2) — MINOR, restrict to ℓ ∤ 2p.
+The orbit-counting identity Σ_L #(ordered path bases)/|Aut L| = #{χ = −1 words} is correct (Aut L acts freely on ordered bases;
+the Gram determines (t, u, v); reversal counted as a separate word).
+L2: Siegel's Hauptsatz for representations of a rank-2 form by a rank-3 genus (m = n + 1) carries Siegel's factor ε = 1/2;
+"Σ r_L(M)/|Aut L| = mass · ∏ α_v(M)" omits it (MINOR; positivity, the only thing used, is unaffected). The local condition
+"−p v⁻¹ ≡ □ (mod tv − 1)" re-derived: adj M = [[t, 1], [1, v]] ≡ v⁻¹(x + vy)² (mod tv − 1), so the glue norm −p must be v⁻¹·□;
+this is only the odd part of the local condition (2- and p-adic conditions are not written) — MINOR. L3: Schiemann, Math. Ann.
+308 (1997) 507–517 does state that positive definite ternary integral forms are determined by their theta series (citation
+correct); placement is a correct Assessment.
+**Verdict C3: SOUND-AFTER-REPAIRS (minor): L1 PROVED as narrowed, with ℓ ∤ 2p and the weight identification made explicit; L2/L3
+are placements (Assessment), correctly labelled in GLOBAL_FANO §3 table ("PROVED placement" for L2 should read "placement of a
+PROVED local criterion", MINOR).**
