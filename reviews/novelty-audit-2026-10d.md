@@ -10,7 +10,7 @@ new" = not found in what was searched; it is not a priority certificate.
 
 Archive of this pass: `sources/lit2026d/`.
 
-(work in progress — sections filled in below, one target at a time)
+Status: complete (checkpoint 1); report `reviews/agent-reports/AGENT_REPORT_O223.md`.
 
 ---
 
@@ -21,12 +21,16 @@ Archive of this pass: `sources/lit2026d/`.
 * **Morier-Genoud, "Counting Coxeter's friezes over a finite field via moduli
   spaces", arXiv:1907.12790v2** (Algebraic Combinatorics 2021 [memory for the journal
   data]) [visited; archived `sources/lit2026d/arxiv-1907.12790-morier-genoud.{pdf,txt}`].
-  * Thm 1 (p. 2): the number of tame friezes of width w over F_q is an explicit
+  * Thm 1 (p. 1): the number of tame friezes of width w over F_q is an explicit
     polynomial in q; for width 2 it is 1 + q² (§3.5, p. 12).
   * **§3.5 (p. 12): "For q = 2 the five friezes … are defined by the coefficients
     (1, 1, 1, 0, 0) on the first row, up to cyclic permutation."** So every tame
     width-2 (pentagon) frieze over F₂ has exactly two zero entries, and they are
-    adjacent.
+    adjacent. (Check of the dictionary: the width-2 frieze rule a_i a_{i+1} = 1 + a_{i+3}
+    is the exchange relation x_{j−1}x_{j+1} = 1 + x_j with x_j = a_{2j}; the F₂ solutions
+    are the rotations of (x) = (1,1,0,1,0), so the two even entries form an exchange pair
+    e, e′ with the odd o = x_j between them, ee′ = 1 + o — exactly the "even edge" and
+    "opposite odd variable" of (J)42/(J)45. Auditor's own 5-line check.)
   * **Bearing on (J)42 Lemma 1.1** ("exactly two of the five cluster variables
     (h′, c, m, s, h) are even, and they are adjacent"). For odd N the pentagon frieze with
     boundary (1,1,1,1,N) reduces mod 2 to a Coxeter frieze over F₂ with all-ones boundary
