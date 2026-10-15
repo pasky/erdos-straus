@@ -1,0 +1,9 @@
+q=9: caseB s<=5: 173 tuples; k>=2 s<=5: 6 tuples in 3 patterns; caseA al<=4,deg<=3: 184 data (off-F3: 120); prop1.6: 50
+   s=1: E(0) distribution {1: 2}
+   s=2: E(0) distribution {1: 2, 3: 4, 6: 4}
+   s=3: E(0) distribution {1: 12}
+   s=4: E(0) distribution {1: 16, 3: 10, 4: 18, 5: 17, 6: 10, 7: 18, 8: 17}
+   s=5: E(0) distribution {1: 43}
+   cumulative failures after q=9: 0
+FAILURES: 0 []
+exit 0
