@@ -50,3 +50,42 @@ q ≡ 3 (8) gives t ≥ 1 and (E) ⟺ t even. ∎
 non-residue of S is the prime 2 itself, and using it costs a 2-exponent that is uncontrolled (c₂ ≤ 2t is required:
 2-adic denominators are not allowed in ES^{(y,e)}). Example of a dead case: K′ prime and −2^j ∉ ⟨K′⟩ for |j| ≤ t.
 *T1:* (q/a²) = 1, so no such window exists at an odd square (as in O236).
+
+**Proposition 1.3 (one-prime witness: cap ≤ (q−3)/4; PROVED).** In Thm 1.2 (and in CAP_POINTWISE Thm 1.1) let s be
+any odd prime with s | K′, b := v_s(K) odd and (s/q) = −1 (one exists: (K′/q) = −1). Let o := ord_q(s); then o/2 is
+odd and s^{o/2} ≡ −1 (mod q). **d := K·s^{o/2}** satisfies Lemma 1.1 with cap e = max(0, (o/2 − b)/2) ≤ (q − 3)/4.
+In particular cap 0 (an ES solution) whenever v_s(K) ≥ ord_q(s)/2 for such s (e.g. s ≡ −1 (mod q): the classical
+"K has a prime factor ≡ −1 (mod q)").
+*Proof.* F_q^* has order 2u, u odd, s is a non-residue, so v₂(o) = 1 and s^{o/2} = −1. d ≡ −K (mod q). Exponents:
+c₂ = t; c_{s′} = b_{s′} for s′ ≠ s; c_s = b + o/2, which is even (b, o/2 odd) and exceeds 2b iff o/2 > b, with overflow
+(c_s − 2b)/2 = (o/2 − b)/2. Lemma 1.1 applies; o ≤ q − 1, b ≥ 1. ∎
+So O236's bound e ≤ q − 3 improves to e ≤ (q−3)/4 with an explicit, discrete-log-free witness.
+*Check (`scripts/z13_even_windows.py 1000000`, data/z13_even_windows_1e6.txt; 12 s):* all 39 175 primes p ≡ 1 (4)
+≤ 10⁶: at the least Thm-1.2 window q_new(p), both the Thm 1.2 witness (BFS discrete log) and the Prop 1.3 witness
+are rebuilt and checked with exact rationals against Def 1.1 (square odd den, rad | y, coprime to p, cap as claimed,
+4e ≤ q − 3). Also all 18 633 non-squares n ≤ 2·10⁵, n ≡ 1 (4), all primes ≡ 1 (4) (data/z13_even_windows_all_2e5.txt).
+Odd squares: 0 windows. Statistics (EVIDENCE): p ≡ 1 (8): mean least window 13.46 (O236) → 7.62, max 227 → 131;
+p ≡ 5 (8): 21.33 → 14.64, max 199 → 191. Max Prop 1.3 cap at q_new: 32 (p ≡ 1 (8)), 47 (p ≡ 5 (8)). For p ≡ 5 (8) the
+least prime q ≡ 3 (4) with (q/p) = −1 is in the excluded case for 9161 of 19 623 primes (it is mostly q = 3 with
+v₂(p+3) odd).
+
+## 2. Goal 1: power savings for q*(n) via Pollack's detector-form theorem
+
+**Corollary 2.1 (PROVED relative to Pollack IJNT 2014 Thm 1.4; ineffective).** Let n be odd, not a square, all prime
+factors ≡ 1 (mod 4) (otherwise e*(n) = 0), n = n₀m² with n₀ > 1 squarefree. For every ε > 0:
+(a) if n ≡ 1 (mod 8): **e*(n) ≪_ε n₀^{1/4+ε} ≤ rad(n)^{1/4+ε}**;
+(b) if n ≡ 5 (mod 8): **e*(n) ≪_ε n₀^{1/2+ε}**.
+(In fact e*(n) ≤ (q−3)/4 for the prime q produced.)
+*Proof.* For q ≡ 3 (4) prime, q ∤ n automatically and (q/n) = (q/n₀) = χ_{n₀}(q), χ_{n₀} the primitive quadratic
+character of conductor n₀ (n₀ ≡ 1 (4) is a fundamental discriminant). (a) X = {1, χ₋₄, χ_{n₀}, χ_{−4n₀}}, f = 4n₀,
+exponent 2, ξ = (1 − χ₋₄)(1 − χ_{n₀}) = 1 + χ_{−4n₀} − χ₋₄ − χ_{n₀}: ξ(0) = 1, length 4, W_{ξ⁺} = W_{ξ⁻} = 4n₀. For q ∤ f,
+ξ(q) ≠ 0 ⟺ q ≡ 3 (4) and (q/n₀) = −1; by Thm 1.2 (n ≡ 1 (8): no exclusion) every such q is a window, so
+e*(n) < q ≪_ε (4n₀)^{1/4}(4n₀)^ε. (b) X = ⟨χ₋₄, χ₈, χ_{n₀}⟩, f = 8n₀, ξ = (1 − χ₋₄)(1 + χ₈)(1 − χ_{n₀}) detects
+q ≡ 7 (8), (q/n₀) = −1 (Thm 1.2 (E) holds); ξ⁺ = 1 + χ₈ + χ_{−4n₀} + χ_{−8n₀}, ξ⁻ = χ₋₄ + χ₋₈ + χ_{n₀} + χ_{8n₀},
+W = 256 n₀², W^{1/4} = 4n₀^{1/2}. ∎
+*Remarks.* (1) This replaces O236's Linnik exponent 5 by 1/4 (n ≡ 1 (8)) and 1/2 (n ≡ 5 (8)); the price is
+ineffectivity (Siegel, inside Pollack's proof). O236's Thm 1.3(a)/(b) remain the effective/explicit statements.
+(2) Without the even windows of Thm 1.2, the O236 class (one class mod 8) only gives n₀^{1/2+ε} for both residues:
+the 1/4 for n ≡ 1 (8) is exactly the 2-adic repair. (3) Odd squares (Cor 1.2(c) of O236, routed through p | a with
+exclusions q ≢ −p (mod ℓ)) are not covered: the exclusions are not detector forms of bounded length. (4) Exponent 1/4
+is Burgess's barrier (the method is Burgess + Vinogradov–Linnik); GRH gives (log n)² as before.
