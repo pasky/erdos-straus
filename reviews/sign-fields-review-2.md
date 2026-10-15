@@ -16,12 +16,12 @@ independent ES search s ≤ 10), further `scripts/review_r236_*.py` below.
 | Prop 2.1 | SOUND (MINOR: non-unit A*-class) |
 | Thm 2.2 (a)–(c) | SOUND (reformulation of classical T1, D11) |
 | Thm 2.2 (d) + "uniqueness of 4" | SOUND-AFTER-REPAIRS — **MAJOR D9**: u ≡ 3 (4) parenthetical false; uniqueness only for coprime slots at u ≡ 1 (4) |
-| 8/131, 8/241, 11/37 | SOUND (counts off by one, D10; conclusion unaffected) |
+| 8/131, 8/241, 11/37 | data SOUND (counts off by one, D10); interpretation overreaches (D12: 8/113 solvable without 8-slot) |
 | §3 Prop 3.1 + Assessment | SOUND (MINOR D13, D14) |
 | §4 Assessment | SOUND |
 | novelty | modest; nothing found in literature on 4^s + k |
 
-No FATAL defects. One MAJOR (D9), fourteen MINOR.
+No FATAL defects. MAJOR: D9; D12 (interpretive). Remaining thirteen MINOR.
 
 ## 1. Theorem 1.3 — SOUND
 
@@ -140,10 +140,14 @@ Defects:
 - **D11 (MINOR, novelty).** (a)–(c) are the classical quadratic-reciprocity T1 argument (Yamamoto/Schinzel-type: ν/n with
   4 | ν has no polynomial-family solution on square classes) restated as a containment ℚ(√−u) ⊂ ℚ(ζ_{νu}); label is
   correct (PROVED, elementary) but it is a reformulation, not new information — say so next to "(J)46 SHARP 2".
-- **D12 (MINOR, 8/131 reading).** "all forbidden-half Frobenii land in the complementary ℚ(ζ_{8u})-class" explains the
-  absence of *8-slots*; that this is the same as "8/131 unsolvable" needs "every 3-term decomposition of ν/p (p prime)
-  arises from a ν-slot of a word of p" — I did not verify this equivalence for general ν (it is the
-  Elsholtz–Tao-type Type I/II parametrisation for ν = 4); it should be proved or cited (DEDEKIND_ES / (J)32) rather than left implicit. (Unsolvability itself independently re-checked.)
+- **D12 (MINOR→MAJOR-for-interpretation, 8/131 reading).** "all forbidden-half Frobenii land in the complementary
+  ℚ(ζ_{8u})-class" explains the absence of *8-slots*. But "no word of p has an 8-slot" is **not** equivalent to "8/p
+  unsolvable": own check over primes p < 700 (`review_r236_slots.words/es3`) finds 8/p solvable with no 8-slot at
+  p = 113, 257, 353, 593 (e.g. 8/113 = 1/18 + 1/66 + 1/11187, 11187 = 99·113); for ν = 5 the equivalence held (p < 700).
+  So the failure of 8/131, 8/241 is the absence of 8-slots **plus** the absence of the other (split-slot) solutions,
+  and the sign-field picture accounts only for the first part. Repair: state "8-slot ⟹ 8/p solvable, not conversely
+  (8/113)" and present the 8/131 data as "consistent with", not "explains". (Unsolvability of 8/131, 8/241, 11/37 itself
+  re-checked independently.)
 
 ## 4. §3 non-genus layer — Prop 3.1 SOUND (trivial); Consequence SOUND as Assessment, with a sharper reason available
 
