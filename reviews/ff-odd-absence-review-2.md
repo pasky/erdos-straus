@@ -85,5 +85,30 @@ t' = s − 2 and deg(Tg'v₁) ≥ s − 1 > max(a', b')), so the λ-exponent is 
 T-free (m', w₁, C₁) of total degree ≤ s' + 1, g' any monic — a superset of (B)): q = 3 (s' ≤ 9), 5 (≤ 7), 7 (≤ 6), 9 (≤ 5):
 0 parity failures, 0 tuples with deg ≠ s'. (Small samples; the proof is what matters.) **SOUND.**
 
+## §4. Lemma 2.1 and the logic/filters of Theorem 2.2
+
+**Lemma 2.1 (normalisation).** The criterion of (J)56 §7 / (J)51 Lemma 2.1 is stated in *relative* slice units: each slice
+u₀ has relative measure 1, a Case B tuple's maximal cylinder u ≡ −E (mod T^{N+1}), N ≥ ⌈(s−1)/2⌉ (s = N + 1 + γ, γ ≤ N), has
+relative mass ≤ q^{−⌈(s−1)/2⌉} inside the single slice u₀ = −E(0), and a Case A datum's maximal cylinder (mod T^{1+α}) has
+relative mass q^{−α}. Hence Σ_{u₀∈P} covered(u₀) ≤ (left side) < |P| ⇒ min_{u₀∈P} covered(u₀) < 1 (countable subadditivity) ⇒ a
+positive-measure set of u in that slice lies in no validity set ⇒ O(9, T) ≠ ∅. The restriction to a subset P is legitimate:
+nothing in the argument needs the slices outside P, and the depth-1 families (Prop 6.1: u₀ ∈ F₃^*) never meet P ⊂ F₉^* ∖ F₃^*.
+"< |P|" is the right threshold (it is "< q − 3" of (J)56 with P = all off-F₃ slices). **SOUND** (inherits the (J)51/(J)56
+framework: every linear family is a Case A datum or a (B^{k=1}) tuple with the stated maximal cylinder).
+
+**Filters.** (a) *Slice filter*: −P₈ = P₈ (−1 = i²·… : (−ζ)⁴ = ζ⁴), so −E(0) ∈ P₈ ⟺ E(0)⁴ = −1 ⟺ (E(0) ∉ F₃ and E(0)⁴ ≠ 1);
+zc_enum's SLICEF = 2 test (E(0) ∉ {0, 1, 2}, E(0)⁴ ≠ 1, with E(0) = m'(0)g'(0)w(0) − 1, the T0 form of E) is equivalent. (b) *Level
+filter*: E(0) ∈ P₈ has order 8 and E(0)^{2s} = 1 ⇒ 4 ∣ s; Case A: E(0)^{2α} = 1 ⇒ 4 ∣ α. (c) *Pattern filter*: for 4 ∣ s,
+E(0)^s = (E(0)⁴)^{s/4} = (−1)^{s/4} must equal ε(s; z, t). The char-3 form used in the C code (extra λ^{z+s} with λ = −1 iff
+a = b) is identical because a = b ⇒ z + s = 2(z + a) is even. (d) *Orientation*: the files store a ≤ b with the a = b count
+containing both orders; mult 2 for a < b. Under w ↔ C, E(0) ↦ 1/E(0) (P₈ is inversion-closed), the pattern's (s, z, t) and
+hence ε are unchanged — so the (b, a) orientation is in P₈ and compatible exactly when (a, b) is. My ordered-tuple enumeration
+confirms this directly: per-pattern P₈ counts of (a, b) and (b, a) agree in every pattern (s ≤ 12), and the author's mass
+equals my ordered-tuple mass (§5). **All filters SOUND.**
+
+**Frobenius remark** in the statement of Thm 2.2 (covered measure constant on {ζ, ζ³}, {ζ⁵, ζ⁷}): correct (the (B^{k=1}) and Case A
+conditions are F₃-rational, σ(E) is the E of the conjugate datum, and coefficientwise Frobenius preserves Haar measure on
+F₉[[T]]), but unproved in the text; harmless (m-2).
+
 ## Defects
 (in progress)
