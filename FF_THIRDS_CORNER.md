@@ -140,7 +140,7 @@ deg Ê even. So level N contributes Σ_M #{admissible divisors of M}·3^{−deg 
 plus (case 2) the number of region tuples satisfying both Liouville constraints times (1/2)·3^{−(N−1)}. Candidates with
 Ê ≡ −u (mod T^{s−2}) ("structured": E = −u, Prop 1.4, and their relatives) are excluded from the model and from the
 comparison. `zt_lop` prints this model per level ("refined").
-*Calibration (`scripts/zt_ctl.sh` + `scripts/zt_calib.py`, log `data/zt_ctl_h4_N12.txt`).* At all 52 polynomial points of
+*Calibration (`scripts/zt_ctl.sh` + `scripts/zt_calib.py`, log `data/zt_ctl_h4_N12.txt`; Case B only — Case A at polynomial points other than x*_c is not excluded by FUNCTIONFIELD_ES2 §0.2 and was not examined).* At all 52 polynomial points of
 degree 2..4 with u(0) = 1, u'(0) ≠ 0, levels 3..12, complete search: unstructured hits vs. model
 | levels | points with an unstructured hit | unstructured hits | model |
 |---|---|---|---|
