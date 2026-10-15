@@ -145,7 +145,7 @@ comparison. `zt_lop` prints this model per level ("refined").
 degree 2..4 with u(0) = 1, u'(0) ≠ 0, levels 3..12, complete search: unstructured hits vs. model
 | levels | points with an unstructured hit | unstructured hits | model |
 |---|---|---|---|
-| 3..12 | 4 | 10 | 4.0 (degenerate split: at N ≤ 4, s − 2 ≤ N + 1, so "dep ≥ s − 2" is not a structure test) |
+| 3..12 | 4 | 10 | 3.9 (degenerate split: at N ≤ 4, s − 2 ≤ N + 1, so "dep ≥ s − 2" is not a structure test) |
 | 5..12 | 2 | 2 | 2.9 |
 | 6..12 | 0 | 0 | 1.5 |
 | 7..12 | 0 | 0 | 0.9 |
@@ -155,7 +155,7 @@ The model is of the right order and, at higher levels, slightly conservative (wi
 (e.g. u = 1 ± T − T² at N = 3, 6, 7, 10, 11, …) — the discrete-log mechanism of Prop 1.4.
 *At x*_c* (both c give identical model values): refined model per level 7.6·10⁻⁴ (N = 5), 6.9·10⁻⁴, 4.4·10⁻⁴, 3.7·10⁻⁴,
 3.1·10⁻⁴, 1.3·10⁻⁴, 2.0·10⁻⁴ (N = 11), 3.5·10⁻⁵, 2.3·10⁻⁵, 7.8·10⁻⁶, 9.9·10⁻⁶, 1.8·10⁻⁶, 6.8·10⁻⁷ (N = 17); total over
-levels 3..17: 3.0·10⁻³ per c (c = 2 run: 1.9·10⁻⁷ + 3.4·10⁻⁸… at N = 19, 20, earlier model version). The decay ratio tends to ≈ 1/3 (the model is poly(N)·3^{−N}: ≈ 3^{N−2} candidates M, each
+levels 3..17: 3.0·10⁻³ per c. The decay ratio tends to ≈ 1/3 (the model is poly(N)·3^{−N}: ≈ 3^{N−2} candidates M, each
 needing a residue of size 3^{−(N + deg M)} to hit one of poly(N) admissible divisors). Extrapolated mass beyond the searched
 levels (N > 20): ≈ 10⁻⁷.
 *Contrast with generic points.* For a random slice point the expected number of covering tuples per level is
