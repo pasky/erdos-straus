@@ -139,3 +139,33 @@ from scratch): per-window cap-0 rates at small m are much higher than the memo's
 claimed. MINOR: the memo quotes the 34 %/18 % (q < 120) rates next to the "≤ 63" fact; the consistency check needs the
 small-window rates (much larger), cite those. The sentence "no pigeonhole over windows exists because … almost coprime" is
 still phrased as a fact in the Consequence paragraph; prefix "heuristically".
+
+## 9. s6_mixed_points_cuberoots / "sterility is menu-relative" vs EXPONENT_COVERING Thm 1.4 — GAP (framing; overclaim)
+
+* **No sterile point was ever exhibited on Λ₁₀₅.** SIGN_FIELDS §1.4 ((J)62, re-read): "whether some mixed point is sterile …
+  is open. No mixed point found so far is sterile", and **μ* itself lies in the ET class II2 (2, 23, 919)**. (J)62's
+  obstruction was a computational *stall* (uncovered Haar measure 8.5·10⁻⁸, greedy out of candidates), not sterility.
+  Hence: "(J)62's 'mixed points' were an artefact of the fixed-modulus class menu" (§3.1), "(J)62's 'mixed points' are sterile
+  only for menus of polynomial-in-n ET identities" (AGENT_REPORT), and the memo's "(c) the absence of a fixed-modulus class at
+  μ* is a statement about the menu" are not supported — the last is factually wrong (μ* is in a fixed-modulus ET class).
+  Whether ET + divisor classes alone can cover 4^s + 105 is still OPEN after this work (by Thm 1.4 it is equivalent to
+  Λ₁₀₅ ∩ S′ = ∅, unknown).
+* **Which hypothesis of Thm 1.4 is "violated".** Thm 1.4 is a statement about the menu "ET + divisor classes"; its proof is
+  family- and menu-agnostic for clopen classes (EXPONENT_COVERING line 80). The exp class is the clopen set s ≡ 34 (mod 45) in
+  exponent space, so Thm 1.4's argument applies verbatim to the enlarged menu (ET + divisor + exponential classes): nothing is
+  violated, the menu is enlarged. The document is internally inconsistent: §0 (I2) and §3.1 say the violated hypothesis is
+  "classes with fixed moduli"; §1.2, the memo s6_exp_classes_105 and the self-review say (correctly) the classes ARE congruence
+  classes and the difference is that the identity is not polynomial in n.
+* "Sterility is menu-relative": true, but **by definition** (S′ := complement of the menu's union); the 105 theorem does not
+  illustrate a sterile point becoming non-sterile (none is known), it illustrates a covering that is cheaper with a richer menu.
+  Keep as Assessment only after rewording.
+* T1 remark "a new kind of T1 respect, global, not local": the global Lemma-1.1 T1 is CAP_DOWN §3 ((J)66), not new. Also on the
+  family itself T1 is local anyway: (J)62 certified Λ₁₀₅ ∩ Sq^× = ∅, and 4^s + 105 is a square only for s = 2, 3, 4.
+* Weil-reciprocity / FF root-product analogy: unverifiable analogy, fine as Assessment; it cites an unmerged branch
+  (side-agent/ff-odd-absence) — cite a merged document or mark as such.
+**Repair.** Replace "artefact of the fixed-modulus class menu" / "sterile only for polynomial menus" / "violated hypothesis = fixed
+moduli" by: "(J)62's ET search stalled near the mixed points (no sterile point known); adding one non-ET clopen class with a
+non-polynomial identity closes the covering. Thm 1.4 applies verbatim to the enlarged menu; whether the ET menu alone suffices
+remains open." Delete clause (c) about "absence of a fixed-modulus class at μ*".
+
+## 10. s6_exp_classes_primes — SOUND (Assessment, negative). No defects beyond the cross-references above.
