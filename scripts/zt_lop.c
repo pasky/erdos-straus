@@ -102,7 +102,8 @@ static void case1(int s,int orient,int Dmax){
         /* refined model (FF_THIRDS_CORNER Cor 3.2 / §3): only divisors X1 of M of degree >= lo can occur */
         int N_=Nof(s), y=Eh.d-1-dM, t=s-dM-1-y, lo;
         if(orient==0) lo = (t>=N_+3-H) ? 0 : N_+1-dM; else lo = (t>=N_+3) ? 0 : N_+1-H-dM;
-        if(lo<0) lo=0; double ad=0; for(int r=lo;r<=dM;r++) ad+=NSTAR[r]*NSTAR[dM-r]/NSTAR[dM]; exp1r += ad*e; }
+        /* parity (FUNCTIONFIELD_ES2 §3, q = 3: deg E, deg E' of every tuple are even) */
+        if(lo<0) lo=0; double ad=0; for(int r=lo;r<=dM;r++) ad+=NSTAR[r]*NSTAR[dM-r]/NSTAR[dM]; if(P!=3 || Eh.d%2==0) exp1r += ad*e; }
       poly Ts,X1,r; setmono(&Ts,s-1); pdivmod(NULL,&r,&Ts,&Eh); mul(&t1,&r,&g); pdivmod(NULL,&X1,&t1,&Eh);
       poly zz; zero(&zz); sub(&X1,&zz,&X1);
       if(X1.d<0 || X1.c[X1.d]!=1 || X1.c[0]==0) continue;
