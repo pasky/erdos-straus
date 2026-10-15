@@ -111,7 +111,7 @@ Status: in progress.
   Erdős–Straus", "Erdős–Straus conjecture numbers of special form covering congruences":
   no hit. This confirms the R236/R245/R246 quick searches and the (J)22 audits.
 * **Sierpiński-type coverings of the exponent** are classical for *primality*:
-  Sierpiński (Elem. Math. 15 (1960)) [memory], restated in **Filaseta–Finch–Kozek, "On
+  Sierpiński, Elem. Math. 15 (1960) 73–74 (as cited in FFK ref. [11]), restated in **Filaseta–Finch–Kozek, "On
   powers associated with Sierpiński numbers, Riesel numbers and Polignac's conjecture"**
   (J. Number Theory 128 (2008) [memory for journal data]) [visited, author PDF
   people.math.sc.edu/filaseta/papers/SierpinskiEtCoPap5.pdf; text archived
