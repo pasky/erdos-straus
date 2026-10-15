@@ -334,3 +334,87 @@ if __name__ == "__main__":
     print("T1 hits (should be 0):", check_T1())
     print("Prop 4.1(a):", check_prop41a())
     print("Prop 4.1(b) example:", check_prop41b_example())
+
+
+def check_excluded_case(nmax=3000, qmax=300, emax=40):
+    """Excluded case of Thm 1.2 (n ≡ 5, q ≡ 3 (8), v2(n+q) odd): (a) s = 2 witness d = K·2^{o/2} when o/2 <= t;
+    (b) exhaustive least Lemma-1.1 cap at q (exponents c_s < 2b_s + 2*emax + 2, periodic mod ord), count dead ones."""
+    stats = {"pairs": 0, "s2_witness_cap0": 0, "q3": 0, "q3_fire": 0, "dead": 0, "fire_other": 0}
+    dead_examples = []
+    for n in range(5, nmax + 1, 8):
+        if isqrt(n) ** 2 == n:
+            continue
+        for q in range(3, qmax, 8):
+            if not is_prime(q) or n % q == 0 or jacobi(q, n) != -1:
+                continue
+            K = (n + q) // 4
+            t = (K & -K).bit_length() - 1
+            if t % 2 == 0:
+                continue
+            stats["pairs"] += 1
+            o = ordmod(2, q)
+            assert o % 4 == 2
+            if o // 2 <= t:
+                d = K * 2 ** (o // 2)
+                x, y, z = lemma11_triple(n, q, d)
+                assert def11_cap(n, x, y, z) == 0
+                stats["s2_witness_cap0"] += 1
+            if q == 3:
+                stats["q3"] += 1
+                stats["q3_fire"] += o // 2 <= t
+            # exhaustive: residues reachable with cap <= emax
+            target = (-K) % q
+            reach = {1: 0}  # residue -> min cap
+            for s, b in factor(K).items():
+                opts = {}
+                cs = range(0, 2 * b + 1) if s == 2 else list(range(0, 2 * b + 1)) + list(range(2 * b + 2, 2 * b + 2 * emax + 1, 2))
+                for c in cs:
+                    cap = 0 if c <= 2 * b else (c - 2 * b) // 2
+                    r = pow(s, c, q)
+                    opts[r] = min(opts.get(r, 10 ** 9), cap)
+                new = {}
+                for r1, e1 in reach.items():
+                    for r2, e2 in opts.items():
+                        k = r1 * r2 % q
+                        new[k] = min(new.get(k, 10 ** 9), max(e1, e2))
+                reach = new
+            if target in reach:
+                stats["fire_other"] += 1
+            else:
+                stats["dead"] += 1
+                if len(dead_examples) < 5:
+                    dead_examples.append((n, q, K))
+    return stats, dead_examples
+
+
+if __name__ == "__main__":
+    print("Excluded case:", check_excluded_case())
+
+
+def check_prop61(trials=20000, seed=7):
+    """Prop 6.1 in the residue field O/r = F_p (r a degree-1 prime, p ≡ 1 (3), ω -> root of X^2+X+1):
+    given 9x = ωn + r (so 9x ≡ ωn), r | n + 18Q^3  ⇒  Q^3 ≡ -ω^2 x/2; and for a prime s | Q (s ∤ 3nr) with
+    g r = n + 18 Q^3: s | a=(g+ω^2)/9 ⟺ s | x, checked in a second residue field F_ell for s."""
+    rng = random.Random(seed)
+    ps = [p for p in range(7, 400) if is_prime(p) and p % 3 == 1]
+    for _ in range(trials):
+        p = rng.choice(ps)
+        w = next(u for u in range(2, p) if (u * u + u + 1) % p == 0)
+        n = rng.randrange(1, p)
+        x = w * n * pow(9, -1, p) % p
+        Q3 = (-n) * pow(18, -1, p) % p
+        assert Q3 == (-w * w * x) * pow(2, -1, p) % p
+        # s | a <=> s | x, in F_s: g r ≡ n (s | Q); a ≡ 0 <=> g ≡ -ω^2 ; x ≡ 0 <=> ωn + r ≡ 0
+        s = rng.choice(ps)
+        ws = next(u for u in range(2, s) if (u * u + u + 1) % s == 0)
+        r = rng.randrange(1, s)
+        ns = rng.randrange(1, s)
+        g = ns * pow(r, -1, s) % s
+        a0 = (g + ws * ws) % s == 0
+        x0 = (ws * ns + r) % s == 0
+        assert a0 == x0
+    return trials
+
+
+if __name__ == "__main__":
+    print("Prop 6.1 residue-field identities:", check_prop61())
