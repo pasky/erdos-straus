@@ -25902,4 +25902,35 @@ def check_gg():
 check_gg()
 
 
+def check_gh():
+    # (gh) EXP_NEAR_SQUARE (O235/R244): R244 from-scratch replay of the binary core of 4^s + 105 (all 2^8 label patterns
+    # over S = {2,3,5,11,17,19,29,47} covered by 10 ET/divisor classes, each class verified on an actual member up to
+    # 1401 bits) and the complete integer square points of 4^x + k (k = 105, 33, 273, 297; 4^4 + 273 = 23^2).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("EXP_NEAR_SQUARE subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r244_cantor105.py"])
+    assert "support union S = [2, 3, 5, 11, 17, 19, 29, 47]" in out and "patterns 256 uncovered 0" in out, out[-2000:]
+    assert out.count("exact solution verified for n = 4^") >= 10, out[-2000:]
+    out = run(["review_r244_squares.py"])
+    for line in ("k=105: square points (complete, by factoring) [-2, 2, 3, 4]",
+                 "k=273: square points (complete, by factoring) [2, 4]",
+                 "k=297: square points (complete, by factoring) [3]", "4^4+273 = 529 = 23^2: True"):
+        assert line in out, (line, out[-2000:])
+    print(f"== (gh) EXP_NEAR_SQUARE R244: binary core of 4^s + 105 covered (256 patterns, 10 classes, exact members); "
+          f"square points of 4^x + k complete; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gh()
+
+
 print("\nall checks passed")
