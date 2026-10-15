@@ -35,3 +35,20 @@ Re-derived line by line:
 Numerically confirmed from scratch (C8 below).
 Small slack (not a defect): a_s ≤ ord_q(s) − 1 and in fact a_s ≤ ord_q(s²)·… one can take a_s < ord_q(s); with
 b_s = v_s(K) ≥ 1 the true cap is ≤ q − 3 (Lemma 3.1). Fine.
+
+### C3. Thm 1.1′ (composite windows) and its Remark — SOUND
+G = ∏ (ℤ/q_i^{k_i})^*, each cyclic of order q_i^{k_i−1}(q_i − 1) = 2·odd (q_i ≡ 3 (4)), so G = E × U, E = 2-torsion
+= {±1}^r, and the E-component of an element is read off by the Legendre symbols mod q_i. (K/q_i) = (n/q_i) = (q_i/n) = −1
+for all i ⇒ E-component of K is (−1,…,−1) = image of −1 ∈ G; K^{ord(u)} = −1 ∈ H. Rest as C2. a_s < ord_m(s) | λ(m) ⇒
+e ≤ λ(m) − 2. ✓ Remark: m ≡ 3 (4) is a product of an odd number of primes ≡ 3 (4); if none were ≡ 4 − n (mod 8),
+all would be ≡ the other class c and m ≡ c^{odd} = c ≢ 4 − n (8). So some prime factor q_i ≤ m satisfies (i)–(iii);
+least composite window ≥ q*. ✓
+
+### C4. Cor 1.2 (all odd n) and the T1 reconciliation — SOUND (one MINOR wording issue, D3)
+(a) standard. (b) n non-square with all primes ≡ 1 (4): n₀ > 1, χ = (·/n₀) non-principal, so the required class mod
+8 rad n exists (Dirichlet). (c) n = a²: (q/n) = (q/a)² = 1 for q ∤ n, so (iii) never holds at n — "no window at an odd
+square" is a trivial consequence of the Jacobi symbol and is consistent with FROBENIUS_FIRING Thm 4.2(b)/T1. Cor 1.2(c)
+does not contradict it because the solution is a *scaled* p-solution, which is not Type II at every prime of a.
+Scaling re-checked: q ≢ −p (mod ℓ) for ℓ | a, ℓ ≠ p, plus p ∤ K (p | K ⇒ p | q), gives gcd(K, n) = 1, hence
+gcd(Q₁, k) = 1, den(kz) = Q₁², rad Q₁ | y | ky, ℓ ∤ 2n, exponents unchanged. ✓ Class exists: ℓ ≡ 1 (4) ⇒ ℓ ≥ 5,
+two excluded residues 0, −p mod ℓ. ✓ (Using any p | a, p ≡ 1 (4).)
