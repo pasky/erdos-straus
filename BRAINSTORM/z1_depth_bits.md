@@ -18,7 +18,10 @@ the published cell fractions. Uniform over n mod 16 (`z1_depth_bycls.py`).
 (b) EVIDENCE (`scripts/z1_bits_words.py 5 4000`): on actual words of primes p ≡ 1 (4) < 4000 the S_8 share of χ = −1 words is
 0.501, and independence of the bits would predict 0.82 primes with S_8(p) = ∅, against 12 observed. At 131 and 241
 (`z1_w131.py`) no entry divisible by 4 has v₂ ≥ 3; the 2-part of tp + 1 is split evenly between A and A*. Bits are shared
-by the words of one level (v₂(tp + 1)) and tied by the even-edge Ptolemy relation.
+by the words of one level (v₂(tp + 1)) and tied by the even-edge Ptolemy relation (Assessment, not quantified). (R229 repair, D11:
+the independent model ignores known dependencies such as shared norm-one triples; with the observed per-word rates 0.458/0.695
+instead of 1/2, 3/4, R229's prediction is 1.16 empty primes against 12, so the correlation conclusion survives.) The
+n-class uniformity in (a) is PROVED for every n mod 2^K (FOUR_ADIC_INPUT Prop 1.4, R229 repair D5).
 
 ## Barrier screen
 B3: for 4 the density conditional on χ = −1 is exactly 1, so there is no "main term" to force. The ES question is only

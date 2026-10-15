@@ -32,10 +32,11 @@ while (a+1)b − 1 ≡ 0 puts w₂ ∈ S_M. ∎ (First examples, from the scan r
 
 **Proposition 3.** (a) M = 2, 3, gcd(n, M) = 1: S_M = X_n (PROVED: if t, u, v are odd, A is even; mod 3, if 3 ∤ tuv and
 3 ∤ A, A*, then tu ≡ tv ≡ 2, so u ≡ v and n ≡ 2v − u − v ≡ 0). (b) M = 4: S_4 is a genus invariant (PROVED, χ). (c) M = 6,
-gcd(n, 6) = 1: S_6 is not a genus invariant (at primes 5 ≤ p < 3000 both χ-halves split: 8601/18927 χ = −1 words and 3984/8405
+gcd(n, 6) = 1: S_6 is not a genus invariant (PROVED by one example, R229 repair, D7: at p = 17 the χ = −1 words (1, 4, 7) ∈ S₆ and
+(2, 3, 4) ∉ S₆, and the χ = +1 words (1, 2, 19) ∈ S₆ and (1, 3, 10) ∉ S₆; pooled counts at primes 5 ≤ p < 3000 both χ-halves split: 8601/18927 χ = −1 words and 3984/8405
 χ = +1 words lie in S₆), but **no isometry class is mixed** for odd n < 300 coprime to 6 (EVIDENCE, `z1_marking2.py`). On the norm-one
-triples it is PROVED by a finite residue check: membership of w₁, w₂, w₃ in S₆ depends only on (a, b) mod 6, and for all 36
-residue pairs with n = ab − 1 coprime to 6 the three memberships agree (`scripts/z1_s6_residues.py`). (Self-review repair: an earlier
+triples it is PROVED by a finite residue check: membership of w₁, w₂, w₃ in S₆ depends only on (a, b) mod 6, and for all 21 residue pairs
+(among the 36) with n = ab − 1 coprime to 6 (R229 wording repair) the three memberships agree (`scripts/z1_s6_residues.py`). (Self-review repair: an earlier
 "{±1} argument" wrongly inferred that 6 ∤ a + 1 makes a + 1 a unit, e.g. a = 2, b = 3, n = 5.)
 **EVIDENCE 4 (`z1_interior_unique.py`).** For odd n < 600, isometric interior words (all letters ≥ 2) agree up to reversal
 (1715 classes, 0 exceptions). Up to n < 400 every multi-marked class found is a norm-one triple.

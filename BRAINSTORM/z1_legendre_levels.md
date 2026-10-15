@@ -8,7 +8,9 @@ level* of n. The "archimedean/ℤ³ input" here is the one-class genus of I₃ i
 For p ≡ 1 (mod 8) the Legendre levels are t = 4^a t′ with t′ ≡ 7 (mod 8); for p ≡ 5 (mod 8), t′ ≡ 3 (mod 8).
 
 ## Literature
-Legendre (1798) / Gauss DA §291 (three-square theorem); TWO_FIBRES Thm A, Thm B; THREE_SQUARES Lemma 1.1 (clean levels:
+Legendre (1798) / Gauss DA §291 (three-square theorem); TWO_FIBRES Thm A, Thm B, and **§3.1** (R229 repair, D13: the three-squares
+obstruction on A or A* is already there as a "PROVED sufficient condition; nothing new". New here is only the level-wise form,
+all words at a level, and the 7-prime failure list); THREE_SQUARES Lemma 1.1 (clean levels:
 the *other* deterministic extreme, levels where every word has χ = +1).
 
 ## Results

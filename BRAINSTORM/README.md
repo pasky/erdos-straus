@@ -356,10 +356,10 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 
 | file | idea | outcome | labels |
 |---|---|---|---|
-| z1_fano_pigeonhole | why S_4 = {χ = −1}: Q mod 4 on L/2L, frieze parity puts 2 pentagon points on the 3-point even line W, isotropy puts 2 zeros there | conceptual proof of MODEL_SPECIFIC Thm 3.1(a); certificate = path edge + pointer to an endpoint of the 2-isogeny edge | PROVED — SHARP |
+| z1_fano_pigeonhole | why S_4 = {χ = −1}: Q mod 4 on L/2L, frieze parity puts 2 pentagon points on the 3-point even line W, isotropy puts 2 zeros there | third proof (after cells and FRIEZE_ES Thm 1.2) of MODEL_SPECIFIC Thm 3.1(a), new lattice mechanism; certificate = path edge + pointer to an endpoint of the 2-isogeny edge (R229 repair) | PROVED (known statement) |
 | z1_depth_bits | 2-adic density 4 vs 8 (brief angle 1) | one fair bit per extra power of 2 per isotropic pentagon vector: 7/12, 5/16, 31/192 exactly (PROVED at cell level); on actual words bits are strongly correlated (12 vs 0.82 predicted S₈-empty primes < 4000) | CERTIFIED + EVIDENCE |
 | z1_marking_isometry | is S_M a lattice (isometry-class) property? | not for any M with φ(M) > 2 (norm-one triples, PROVED); S₂, S₃ trivial; S₄ genus; S₆ class but not genus (EVIDENCE); interior markings unique (EVIDENCE) | PROVED + EVIDENCE |
-| z1_small_prime_pigeonhole | forced slices at ℓ-adic level | only M ∈ {2, 3} (unconditional, all words) and 4 (on χ = −1); not 7 | PROVED |
+| z1_small_prime_pigeonhole | forced slices at ℓ-adic level | S_M genus-determined (for all n coprime to M) iff M ∈ {2, 3, 4}; not 7 (R229 repair) | PROVED |
 | z1_legendre_levels | tp = 4^a(8b+7) ⇒ every level-t word certifies (ℤ³ + Legendre) | character-free sub-lottery; fails at 73, 1201, 1489, 9649, 21169, 23041, 44641 (p ≡ 1 mod 4 < 10⁶); T1 in Legendre form | PROVED + EVIDENCE |
 | z1_glue_square_roots | Siegel–Weil on lattices ⊃ M_{v,t} in 𝔊⁻_p | gluing classes = square roots of −p/v mod A*; the fixed basis extends to a path basis ⟺ c ≡ ±1: genus shadow vs residue (B2) | PROVED (marked); negative |
 | z1_isogeny_pointer | 2-isogeny walks crossing into χ = −1 (brief angle 2) | no crossing (lattice/Hecke walks preserve χ); pointer automatic; expansion cannot prove the thin path-edge set non-empty | PROVED + EVIDENCE; negative |

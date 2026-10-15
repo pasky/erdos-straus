@@ -10,7 +10,8 @@ CONSTRUCTIVE_ES Thm 2.1, §5.1 (lattice operations preserve χ), Prop 3.1 (the m
 (1990), Ramanujan property of G_p; Kneser neighbours.
 
 ## Results
-(a) **No crossing (PROVED; CONSTRUCTIVE_ES 5.1).** The spine word (p + 2, 1, 1) has L ≅ ⟨1, 1, p⟩ ∈ 𝔊⁺_p. Every walk built from
+(a) **No crossing (PROVED; CONSTRUCTIVE_ES 5.1).** The spine word (p + 2, 1, 1) has L ≅ ⟨1, 1, p⟩ ∈ 𝔊⁺_p for
+p ≡ 1 (mod 4), the only case of interest (R229 repair, D9: χ = (−1/p), which is −1 for p ≡ 3 mod 4). Every walk built from
 Kneser ℓ-neighbours, Hecke correspondences, duals or rescalings preserves the rational similarity class of L ⊗ ℚ, hence C₀ ⊗ ℚ and χ. So no walk of any length
 goes from χ = +1 to χ = −1. The two Brandt modules even share no cusp eigensystem (EVIDENCE, CONSTRUCTIVE_ES 5.2). Angle 2
 as stated is ill-posed. The χ-change must change the rational similarity class (a different algebra).

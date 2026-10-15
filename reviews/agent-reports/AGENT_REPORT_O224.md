@@ -4,8 +4,9 @@ Branch side-agent/four-adic-input. Deep file `FOUR_ADIC_INPUT.md`; 8 memos `BRAI
 BRAINSTORM/README.md); scripts `scripts/z1_*`; data `data/z1/legendre_big.txt`. **ES is not solved, nor any infinite case.**
 
 ## SHARP:
-1. **Fano pigeonhole (PROVED, elementary; FOUR_ADIC_INPUT Thm 1.3, memo z1_fano_pigeonhole).** This is a conceptual 6-line
-   proof of MODEL_SPECIFIC Thm 3.1(a) (S_4 = {χ = −1}), which was previously proved by cell enumeration or Dedekind sums.
+1. **Fano pigeonhole (PROVED, elementary; FOUR_ADIC_INPUT Thm 1.3, memo z1_fano_pigeonhole).** This is a **third** proof of the
+   known statement MODEL_SPECIFIC Thm 3.1(a) (S_4 = {χ = −1}), after the cell enumeration and FRIEZE_ES Thm 1.2's even-edge Jacobi
+   proof (R229 repair, D1). New is the lattice-theoretic mechanism.
    * Q mod 4 is well defined on L/2L, and the even classes W ∖ 0 form a 3-point line of the Fano plane.
    * The five pentagon entries t, u, v, A, A* are, up to the odd factor n in the last two, the norms of e₁, e₂, e₃, n·e₁^#, n·e₃^#.
    * Frieze parity: exactly two entries are even, giving two distinct points of W ∖ 0.
@@ -59,6 +60,21 @@ BRAINSTORM/README.md); scripts `scripts/z1_*`; data `data/z1/legendre_big.txt`. 
   intro and outcome.
 * The reviewer independently reproduced the 35 179-word check, the mod-32 fractions, the Fano enumeration, the
   4785 / 0.5014 / 12-vs-0.82 statistics, and all seven Legendre failures over their full level ranges.
+
+## R229 hostile review (reviews/four-adic-input-review.md): no FATAL; all repairs applied, each marked "(R229 repair)"
+* D1 (MAJOR). Thm 1.3 is a **third** proof of a known statement (after MODEL_SPECIFIC/CHI_FLIP cells and FRIEZE_ES Thm 1.2,
+  computation-free). New is only the lattice-theoretic pigeonhole. SHARP 1 above should be read this way.
+* D2. Frieze parity is attributed to FRIEZE_ES Lemma 1.1 = Morier-Genoud §3.5.
+* D8 (MAJOR-label). "Forced" is now defined: S_M is genus-determined iff M ∈ {2, 3, 4} (PROVED). The conic remark is
+  relabelled heuristic.
+* D4, D5. Prop 1.4 is labelled consistently (PROVED at cell level). The n mod 2^K uniformity is PROVED.
+* D6. The reason the bit is fair is given.
+* D7. S₆ is proved not genus-determined by the p = 17 example.
+* D9. The spine statement is restricted to p ≡ 1 (mod 4).
+* D10. Prop 3.1(1) wording fixed.
+* D11. The causal sentence is now an Assessment, and R229's rate-adjusted null (1.16 vs 12) is added.
+* D12. "Discharged" is replaced by "relocated; SQ₅ is still T1/105-sensitive".
+* D13. The Legendre levels memo cites TWO_FIBRES §3.1.
 
 ## Verification done
 * Thm 1.3 / Lemma 1.1:
