@@ -12,7 +12,7 @@ review; no author activity during the review. No change to any certificate or cl
 parenthetical inside Thm 2.2(d); conclusion survives, strengthened). Rest MINOR.**
 
 ## Summary verdicts
-(filled in progressively; see sections below)
+
 
 | claim | verdict |
 |---|---|
