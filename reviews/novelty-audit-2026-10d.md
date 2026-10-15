@@ -329,3 +329,33 @@ Archive of this pass: `sources/lit2026d/`.
 | (J)43 Thm 5.1 (sub-polynomial exponent cap, BV + linear sieve) | APPARENTLY NEW result; standard method | — |
 | (J)43 §6 B1 (no finite set of *shot* classes covers p ≡ u (mod r), any unit u, r ≡ 1 (4)) | **PARTIAL** | mechanism = the classical Mordell/Schinzel obstruction (a profinite point ≡ 1 at all other primes; Schinzel 2000; ET Prop 1.6); new as a statement about shot classes at *non-residue* u. For full ET families at non-residue u the question is open in the literature (10c §2.2) — B1 does not touch it, since shot classes are a sub-family. |
 | (J)47 Thm 1.1/1.2 (cap-2 cell = one Markoff-type equation) | APPARENTLY NEW identification | Markoff-type machinery classical |
+
+---
+
+## 7. Remaining entries ((J)39, (J)44, (J)50, (J)52) — short pass
+
+* **Baumert–Mills–Ward, "Uniform cyclotomy", J. Number Theory 14 (1982) 67–82**, as
+  restated in Huczynska et al., "Beyond uniform cyclotomy", arXiv:2406.16805, Thm 1.2
+  (p. 2) [visited; text archived `sources/lit2026d/arxiv-2406.16805-huczynska-uniform-cyclotomy.txt`]:
+  if −1 is a power of p mod e, then q = r², r ≡ 1 (mod e), η = (r − 1)/e and
+  (0,0)_e = η² − (e − 3)η − 1, (0,i)_e = (i,0)_e = (i,i)_e = η² + η, (i,j)_e = η².
+  With q = h², e = m | h + 1, r = −h: e²η² = (h + 1)², e²η = −m(h + 1), so
+  **m²(0,0) ≡ 1 − 3m, m²(0,i) ≡ 1 − m, m²(i,j) ≡ 1 (mod h)** — exactly the R216
+  "uniform-cyclotomy residue law" of (J)50. **KNOWN** (one-line corollary of BMW 1982).
+* **(J)50 "semi-primitivity = h imitates ∞"** (h ≡ −1 (mod m) ⟺ Frob_h acts on ℚ(ζ_m) as
+  complex conjugation): textbook (the ledger already says "folklore level"). KNOWN.
+* **(J)44 Thm 3.1** (gcd(h^s + 1, h^t − 1) = 2 for t odd): standard elementary gcd identity
+  [memory: e.g. gcd(a^m + 1, a^n − 1) ∈ {1, 2} when n/gcd(m,n) is odd]. KNOWN; the ES
+  reading (supersingular/torus groups map to ±1) is the campaign's.
+* **(J)39 Thm 2.2 / Prop G″ of (J)48** (no finite combination of modular-form or
+  d_k/GL(m) coefficients equals N₋): the cusp-growth / size argument is standard; the
+  statements are ES-specific. APPARENTLY NEW as statements, classical method. Lemma 2.1's
+  constants 15/64, 5/64: APPARENTLY NEW (routine divisor-sum asymptotics, cf. ET Thm 1.1
+  for the analogous f(p) averages).
+* **(J)52 Selling/Voronoi memo** (path forms = obtuse superbases with conorms (1,1,0)):
+  Selling reduction / Voronoi conorms are classical (Conway–Sloane, "Low-dimensional
+  lattices VI", Proc. R. Soc. A 436 (1992) [memory]); the identification is APPARENTLY NEW.
+* **(J)50 CONJECTURE PM-II, p = 3361** ((J)44 §4.1): new computation; no comparable
+  "prime-modulus certificate" census found (searches in 10c and here).
+* **(J)46 Thm 2.3**: already attributed to Allcock–Gal–Mark Thm 5.1 for the 2-adic
+  classification; no change.
