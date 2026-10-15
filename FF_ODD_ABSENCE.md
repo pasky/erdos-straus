@@ -92,3 +92,30 @@ FF_STERILE_SMALL. ∎
 E(0)^s = (E(0)⁴)^{s/4} = (−1)^{s/4} for E(0) ∈ P₈). Exact masses (s ≤ 12, from §1's dump): the six slices carry 3.927 in total,
 of which 2.168 on {±i} (> 1 per slice: the union bound cannot work there) and 1.759 on P₈ (0.44 per slice). So P = P₈ with
 budget |P| = 4.
+
+**Theorem 2.2 (no finite linear covering of ES₉(T); PROVED, computer-assisted, O216 certification standard plus exhaustive
+enumeration).** For q = 9 and A = T (k = 1), O(9, T) ≠ ∅: ES₉(T, ·) has no finite linear covering. More precisely the covered
+relative measure summed over the four slices u₀ ∈ P₈ (u₀⁴ = −1) is ≤ 3.195 < 4, so at least one of them (and by Frobenius
+u₀ ↦ u₀³, which permutes families and preserves masses, at least one of the two Frobenius orbits {ζ, ζ³}, {ζ⁵, ζ⁷}, on each of
+whose two slices the covered measure is then < 1 — R: averaged) has positive uncovered measure.
+*Proof.* Lemma 2.1 with P = P₈. By Corollary 1.5 only levels n ≡ 0 (mod 4) and (Case B) only patterns with
+ε(s; a, z, t) = (−1)^{s/4} contribute. `scripts/zc_certify9.sh` (log `data/zc/certify9_k1.txt`):
+* Case B, 4 ≤ s ≤ 80, 4 ∣ s (`zc_sum9.c`): exact P₈-counts for s = 4, 8, 12, 16 (all compatible patterns) and s = 20 (933 of 950
+  compatible patterns exact; 17 patterns timed out at 60 s each and are bounded by the routes, mass 0.0993), produced by `zc_enum`
+  (fz1_enum + slice filter E(0)⁴ ≠ 1 + pattern filter; per-pattern driver `zc_drive.py` for s = 20): exact mass 1.759959
+  (s = 4: 1.62963, s = 8: 0.11645, s = 12: 0.01317, s = 16: 6.3·10⁻⁴, s = 20: 8.0·10⁻⁵); route bounds (fz1_sum.c `pattern_bound1`,
+  FF_STERILE_SMALL Lemma 7.1, unchanged) for the rest: total 2.9670390;
+* tail s > 80: `fz1_tail 2 80` (all patterns, all slices, so an upper bound) ≤ 0.025752 (183 363 boxes, none failed);
+* Case A (`zc_caseA9.py`, fz1_caseA.py restricted to 4 ∣ α by Theorem 1.4; α = 4 from the exact six-slice counts of
+  `fz1_caseA_enum`, an upper bound for P₈; α ≤ 40 exact rationals, tail Lemma 7.2(b)) ≤ 0.170463.
+Certified total ×1.01 = 3.1949 < 4. ∎
+*Remark (what did the work).* Without the law the k = 1 bound at q = 9 is 396 (s ≤ 80, all routes); the odd levels carry 2/3 of it.
+On P₈ the law removes odd s, s ≡ 2 (4), and at s ≡ 0 (8) the patterns with ε = −1 (s = 16: bound 8.48 → 2.12; s = 24: 1.74 →
+0.51); exact enumeration at s ≤ 20 then removes all but 1.11 (s ≥ 24) of the bound mass.
+*Validation (EVIDENCE).* (i) Theorem 1.2/1.4 checks of §1. (ii) Unfiltered dump s ≤ 12: the P₈-filtered, pattern-filtered counts
+equal the P₈ part of the full dump (70, 658, 3530 tuples at s = 4, 8, 12). (iii) s = 16 with the pattern filter off: all 514
+incompatible patterns have 0 tuples on P₈ (26 570 tuples, all in compatible patterns). (iv) Cross-method (candidate-search routes
+M2, M3, M5 forced, cost ≤ 9^{6.5}) vs the auto (factoring) counts: s = 12: 162 of 237 patterns covered, 0 mismatches; s = 16: 85 of
+215, 0 mismatches; s = 8 totals agree (658) for M2, M3, M5. (v) Independent Python brute force `zc_brute.py` (q = 9, s ≤ 5):
+per-pattern P₈ counts equal zc_enum at s = 4; law failures 0. (vi) `zc_certify9.sh 1` regenerates s ≤ 16 and Case A α ≤ 4
+byte-identically.
