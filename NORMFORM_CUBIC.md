@@ -76,3 +76,54 @@ Apply Theorems 1.1′/1.2′ with P = P*. ∎
 rational line E = 0 has degree exactly 2"; (F3) replaces it: E | P² + const forces E* | P*². Its (c2) μ = 2 case used a
 degree count; (F2) replaces it. Hence the comment "the top-part step fails for degree 3" (SYNTHESIS_SPARKS7 Cor 1.3) is
 wrong: the step was "P* prime", which holds in every degree.
+
+## 2. Unit orbits and cusps: what Thm 1.2′ does not cover, and the finiteness lemma
+
+Every cubic field has unit rank ≥ 1, so each n = N(x) ≠ 0 has infinitely many representations (unit orbits), accumulating
+at the "cusps" (directions where N* = 0). POINTWISE_BINARYFORM §4.3 left open, for indefinite binary quadratics, whether a
+family can be valid on a cusp; the cubic norm forms are cusp-rich in the same way. The tempting mechanism: a polynomial
+Type I family valid on L ∩ (a cusp neighbourhood that is forward-invariant under a unit ε ≡ 1 mod M) would prove ES for
+every prime of the class represented by N, since every unit orbit enters every such neighbourhood. This is killed by the
+plain finiteness of the ES solution set at fixed n:
+
+**Lemma 2.1 (orbit finiteness; PROVED, uses Skolem–Mahler–Lech).** Let K be a number field of degree k with ℚ-basis
+ω₁,…,ω_k, N(x) = N_{K/ℚ}(Σx_iω_i), and identify ℚ^k ≅ K. Let ε ∈ O_K^× have infinite order and let T_ε be the identity
+component of the Zariski closure of ⟨ε⟩ in R_{K/ℚ}𝔾_m (acting on 𝔸^k by multiplication). Let F ∈ ℚ[x]^m be any
+polynomial map (ET coordinates (A, B, C, D), or (x, y, z)) and x₀ ∈ ℤ^k with N(x₀) = n ≠ 0. If F(ε^j x₀) is an ES solution
+for 4/n (Type I/II/any) for infinitely many j ∈ ℤ, then there are q ≥ 1 and r with F constant on T_ε·ε^r x₀ (Zariski closure
+of {ε^{qi + r}x₀ : i ∈ ℤ}).
+If K is a cubic field (or real quadratic), T_ε·y = {N = n} (geometrically), so F is constant on the hypersurface N = n,
+i.e. (N − n) | (F_i − F_i(x₀)) for every coordinate.
+*Proof.* 4/n has finitely many solutions (x ≤ y ≤ z: x ≤ 3n/4, then y ≤ 2xn/(4x − n), z determined), and the ET
+coordinates (or x, y, z) are determined by the solution, so F takes values in a finite set V on the valid points. Each
+coordinate e(j) := F_i(ε^j x₀) is an exponential polynomial Σ_χ c_χ χ(ε)^j (expand F_i in the conjugate coordinates
+σ_1(x), …, σ_k(x); multiplication by ε scales σ_i by σ_i(ε)). h(j) := Π_{c ∈ V_i}(e(j) − c) is an exponential polynomial
+with infinitely many zeros, so by Skolem–Mahler–Lech its zero set contains a full progression {qi + r : i ∈ ℤ}; on it
+e takes finitely many values, and applying SML to each e − c restricted to the progression (again an exponential polynomial
+in i) and refining q, we get e(qi + r) = c for all i ∈ ℤ for one c (an exponential polynomial on ℤ vanishing on all of a
+progression of a progression vanishes on that progression's closure). Hence F_i − c vanishes on {ε^{qi}·ε^r x₀ : i ∈ ℤ},
+whose Zariski closure contains T_{ε^q}·ε^r x₀ = T_ε·ε^r x₀ (finite index does not change the identity component).
+Cubic K: T_ε ⊂ T := R¹_{K/ℚ}𝔾_m (N(ε) = ±1; replace ε by ε²). T has character module X ⊗ ℚ = (permutation module on the 3
+embeddings)/(trivial), which is ℚ-irreducible because Gal acts transitively on 3 points (C₃ or S₃); so T has no proper
+non-trivial ℚ-subtori and T_ε = T (positive-dimensional since ⟨ε⟩ is infinite). T(ℂ) ≅ {t₁t₂t₃ = 1} acts simply
+transitively on {N = n}(ℂ) = {l₁l₂l₃ = n/c}, which is irreducible. Real quadratic: T is 1-dimensional. ∎
+*(Several units.)* Infinitely many valid points in one orbit of a rank-2 unit group: Laurent's theorem (zero sets of
+exponential polynomials on ℤ^d are finite unions of cosets of subgroups; Astérisque 147–148, 1987) gives an infinite coset,
+hence an infinite-order unit, and the lemma applies. (Not needed below.)
+
+**Corollary 2.2 (orbit-tail families collapse; PROVED).** For a cubic (or real quadratic) norm form N: if a polynomial family
+F (any of Type I, Type II, (x, y, z)) is, for infinitely many primes p, valid at infinitely many points of one unit orbit of
+a representation of p, then every coordinate of F lies in ℚ[N] (an ET identity in n). In particular a family valid on
+L ∩ U for a cusp neighbourhood U with εU ⊂ U, ε ≡ 1 (mod M), collapses.
+*Proof.* By Lemma 2.1, F_i ≡ c_i(p) on {N = p} for infinitely many p. Then dF_i ∧ dN vanishes on a Zariski-dense set (the
+union of these hypersurfaces), hence identically, so F_i and N are algebraically dependent. N − t is irreducible over
+ℚ̄(t) (over ℂ it is l₁l₂l₃ − t/c, and the generic fibre of a product of independent linear forms is irreducible), so ℚ(N)
+is algebraically closed in ℚ(x) (N is non-composite; e.g. Schinzel, *Polynomials with special regard to reducibility*,
+§3.3, or Bodin–Dèbes–Najib), whence F_i ∈ ℚ(N) ∩ ℚ[x] = ℚ[N]. ∎
+
+**What is left (exact).** A non-collapsing polynomial family for a cubic norm form can be valid, for each prime, only at
+finitely many points of each unit orbit, and (Thm 1.2′) on no lattice coset of an open cone with N* > 0. Unit fundamental
+domains can be taken to be finite unions of (Shintani) open cones, so "evaluate at the reduced representative" is covered
+by Thm 1.2′ on each cone. The residual validity sets are *power-cusp shells*: regions {|l₁| ≍ |x|, |l₂ l₃| ≍ |x|^κ} with
+0 < κ < 2 (the depth along the orbit growing like a fixed multiple of log p), and thin sets near the zero directions Z_F of
+the top forms. §3 studies the shells.
