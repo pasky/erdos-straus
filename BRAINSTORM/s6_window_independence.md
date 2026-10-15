@@ -7,7 +7,7 @@ two windows share only primes below |m − m′|/4. Together with CAP_DOWN Prop 
 at different windows are driven by essentially disjoint sets of primes. (R-O238 self-review: this does NOT prove
 statistical independence nor rule out a pigeonhole across windows; "independent lotteries" below is a heuristic.)
 Consequence (Assessment): the probability that all windows ≤ Q fail is a product of per-window failure probabilities, the
-polylog lottery of B3 (average f(p) ≍ log³p); no pigeonhole over windows exists because the objects being pigeonholed
+polylog lottery of B3 (average f(p) ≍ log³p); heuristically (R245 repair) no pigeonhole over windows exists because the objects being pigeonholed
 (the K_m) are pairwise almost coprime.
 
 ## Literature

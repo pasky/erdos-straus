@@ -6,7 +6,13 @@ solves ν/n = 1/x + 1/y + 1/z (same algebra: ν/n − 1/K = m/(nK)). Forcing (Th
 ν = 4, n = 5, m = 67, K = 18 has (K/67) = −1 but no window solution at any cap; see CAP_DOWN Thm 1.2 for the even case):
 m = ∏ q_i, q_i ≡ 3 (4), (K/q_i) = −1 for all i ⟹ −1 ∈ ⟨primes of K⟩ and −K is a square there: ES_ν^{(y,e)}(n) with e < λ(m). Since νK ≡ n (q_i),
 (K/q_i) = (n/q_i)(ν/q_i): for ν = 4 the numerator is invisible ("4 is a square"); for other ν it enters.
-**Theorem (window-shape T1; PROVED, Jacobi reciprocity).** Let n = a², a odd, gcd(a, ν) = 1. If 4 | ν, or ν is odd with
+(R245 repair) For odd ν and odd n, m = νK − n odd forces K EVEN: the K-odd mechanism is empty for odd ν. The valid odd-ν
+mechanism is 2-adic (CAP_DOWN Thm 1.2): K = 2^t K′, (K′/q_i) = −1 for all i; at n = a² this reads (ν/q_i)(2/q_i)^t = −1, and
+forced windows at odd squares then EXIST for ν = 3 (a = 5, K = 34, m = 77), 7 (a = 5, K = 34, m = 213: 7/25 = 1/34 + 1/5666100 +
+17⁴/333300), 9 (a = 5, K = 26, m = 209), 25 (a = 7, K = 10, m = 201) (`scripts/review_r245_numwin2.py`). So the theorem below is
+PROVED only for 4 | ν (where it survives the 2-adic correction: 8 | νK ⟹ (2/m) = 1); its odd-ν clauses concern the invalid
+condition (K/q_i) = −1 and the "strictly more T1-rigid" conclusion is withdrawn.
+**Theorem (window-shape T1; PROVED for 4 | ν — R245 repair; odd-ν clauses refer to the invalid condition, see above).** Let n = a², a odd, gcd(a, ν) = 1. If 4 | ν, or ν is odd with
 ν ≡ 3 (mod 4), or ν is a square, no forced window exists for ν/a².
 *Proof.* At n = a², (K/q_i) = (ν/q_i), so forcing needs (ν/m) = (−1)^r (r = number of prime factors, Jacobi). ν square:
 (ν/q_i) = 1. ν odd: (m/ν) = (−a²/ν) = (−1)^{(ν−1)/2}, so (ν/m) = (−1)^{(ν−1)/2·(1 + (m−1)/2)}: if m ≡ 3 (4) (r odd) this is
@@ -29,5 +35,7 @@ window: 0 for ν ∈ {3, 4, 7, 8, 9, 11, 12, 15, 16, 19, 20, 23, 24} (as proved)
 (149/158, 133/183, 151/186, 67/113 within the small window range).
 
 ## Assessment
-PROVED (only-if); existence for ν ≡ 2 (4) and non-square ν ≡ 1 (4) EVIDENCE (Dirichlet should give it). Clean exact
+PROVED for 4 | ν (the "if" direction; R245 repair: the former label "only-if" was reversed, and the odd-ν part is refuted
+under the valid 2-adic forcing — counterexamples above; the counts in Cheap numerics allowed even K with (K/q_i) = −1, an
+invalid condition); existence for ν ≡ 2 (4) EVIDENCE (Dirichlet should give it). Clean exact
 statement of where the self-generated mute set sees T1. Not a route to cap 0.
