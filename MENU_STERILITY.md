@@ -33,8 +33,10 @@ The menu M₁[φ] := all such families (any degree, any class). M₁[linear] = E
 
 **Theorem A (witness reciprocity; PROVED).** No family of M₁[φ] has a class C whose closure in Ẑ meets Ster(φ).
 *Proof.* Let D = D̃/g with D̃ ∈ ℤ[u], g ∈ ℕ, and α := D̃(θ) ∈ A. If α is a zero divisor, a non-constant common factor h of
-D̃ and φ gives h(u) | gcd(D̃(u), φ(u)) with |h(u)| > 1 for large u; as g is fixed, h(u)/gcd(h(u), g^∞) > 1 for large u still
-divides gcd(D(u)·g, n), so (D/n) = 0 ≠ −1; hence α ∈ A^×. Let u* ∈ Ster(φ) ∩
+D̃ and φ gives h(u) | gcd(D̃(u), φ(u)) with |h(u)| > 1 for large u; take u ∈ C large and close to u* at the primes of 2g·lc(φ)
+(so that φ(u) is prime to g; R252 repair = R251 D4, applied by R252: the former "h(u)/gcd(h(u), g^∞) > 1 for large u" is false
+in general, e.g. h(u) = u, u = g^k); then h(u) | φ(u) (Gauss) and |h(u)| > 1, so a prime ∤ g divides gcd(D̃(u), n), whence
+(D/n) = 0 ≠ −1; hence α ∈ A^×. Let u* ∈ Ster(φ) ∩
 closure(C) with its γ, and let S be a finite set of primes containing 2, the primes of g, lc(φ), disc(φ), the conductor
 of the order ℤ[1/lc(φ)][θ] away from lc(φ) (R-O240 repair: ℤ[θ] need not be an order), and all primes below places where α or γ is not a unit. Pick u ∈ C, u larger than every real
 root of φ, with u ≡ u* modulo a high power of every ℓ ∈ S (possible by CRT as u* ∈ closure(C)); then φ(u) ≡ φ(u*) is
@@ -53,7 +55,8 @@ Special cases (all previously proved separately; Theorem A unifies them):
   an integer T1 point with φ(u₀) an odd square > 1 is NOT a unit point, hence not in Ster(φ); it is obstructed by NEAR_SQUARE
   Thm 3.3 directly — the "largest real root" there plays the role of total positivity of γ here.)
 * φ = m² − j: γ = 1 gives NEAR_SQUARE Thm 3.4 (Z_K⁺); Theorem A adds the twists by totally positive γ.
-* Two variables: the same computation with A = the norm-form algebra is the mechanism behind POINTWISE_BINARYFORM §4.1.
+* Two variables (analogy, Assessment — Theorem A is a one-parameter statement; R251 D5, applied by R252): the same computation
+  with A = the norm-form algebra is the mechanism behind POINTWISE_BINARYFORM §4.1.
 
 ## 4. Test case (T-a): the PROVED-sterile point μ = 0 of 3·2^s + 1
 
@@ -63,15 +66,16 @@ profinite unit square, so no finite set of ET/divisor classes covers {n_s : s �
 **Theorem B (an exponential class through a proved sterile point; PROVED, symbolic).** For every integer X ≡ 4 or 6 (mod 11)
 put n := 48X⁴ + 1. Then
   4/n = 1/(3(4X⁴ + 1)) + 11/(6n(2X² − 2X + 1)(X² + X + 2)) + 11/(2n(4X⁴ + 1)(X² + X + 2)),
-with all three denominators positive integers. Taking X = 2^{(s−4)/4}: ES holds for every n_s = 3·2^s + 1 with
+with all three denominators positive integers. (R252 repair = R251 D3: this is the window-11 rule with d = 9f₋, i.e.
+(a,b,c) = (2,0,1) in Theorem C's notation; Theorem C's table lists the equally valid (0,2,1) for the same classes.) Taking X = 2^{(s−4)/4}: ES holds for every n_s = 3·2^s + 1 with
 **s ≡ 0 or 12 (mod 40)**, s ≥ 4. In particular the class s ≡ 0 (mod 40) — a neighbourhood of the ET/divisor-sterile point
 μ = 0 — is covered by ONE exponential class.
 *Proof.* Identity: sympy `simplify` = 0 (`scripts/z15_proth_identity.py`); by hand it is CAP_DOWN Lemma 1.1 at the window
 m = 11 = 4·3·1⁴ − 1 with K = (n + 11)/4 = 3(4X⁴ + 1) = 3(2X² + 2X + 1)(2X² − 2X + 1) (Sophie Germain / Aurifeuille) and
 d = 9(2X² − 2X + 1), A = (K + d)/11 = 6(2X² − 2X + 1)(X² + X + 2)/11. Integrality: X² + X + 2 ≡ 0 (mod 11) ⟺ X ≡ 4, 6 (mod 11)
 (disc −7 ≡ 2²). 2^{(s−4)/4} ≡ 6 = 2⁹ (mod 11) ⟺ (s − 4)/4 ≡ 9 (mod 10) ⟺ s ≡ 0 (mod 40); ≡ 4 = 2² ⟺ s ≡ 12 (mod 40). ∎
-*Why it is not a contradiction.* The class {s ≡ 0 (40)} is the n-congruence class n ≡ 4 (mod 2⁴⁰ − 1), n ≡ 1 (mod 16),
-which contains odd squares; Schinzel/Thm 1.2 forbid identities *polynomial in n* there. The identity is polynomial in
+*Why it is not a contradiction.* The members with s ≡ 0 (40) lie in the n-congruence class n ≡ 4 (mod 2⁴⁰ − 1), n ≡ 1 (mod 16)
+(R252 D3 = R251 D2: "lie in", not "is"), which contains odd squares; Schinzel/Thm 1.2 forbid identities *polynomial in n* there. The identity is polynomial in
 X = ((n − 1)/48)^{1/4}. In Theorem A terms: φ(X) = 48X⁴ + 1, X* = 1/2 at odd ℓ, X* = 0 at 2; X* is the rational point
 (1/2, 2) of w² = φ(X) at odd places glued with the rational point (0, 1) at 2, and the witness algebra pairs non-trivially
 with that glued adelic point (the pairing reduces to the places above 2).
@@ -88,28 +92,38 @@ K ≡ 4^{i−1}, d(U) ≡ d(ρ) (mod m). The odd primes of the rational d(ρ) al
 product (with multiplicity, times the content) K(ρ) = N₀/4; an odd prime q of λ (numerator or denominator) divides K(U) on the
 whole class, so either q divides the content of K(U) (then q | K(ρ)) or q divides the class modulus and U → ρ q-adically, so again
 q | K(ρ). For an odd prime q | N₀,
-−m ≡ 4^i is a square mod q, so (q/m) = (−m/q) = 1 (Jacobi reciprocity, m ≡ 3 (4)). Hence (d(ρ)/m) = (2/m)^{v₂(d(ρ))},
+−m ≡ 4^i is a square mod q, so (q/m) = (−m/q) = 1 (Jacobi reciprocity, m ≡ 3 (4)). Moreover d(ρ) > 0 (R252 D4 = R251 D8,
+applied by R252; essential — with d(ρ) < 0 the conclusion would flip): K(U) = (c2^jU^e + 1 + m)/4 (resp. c(4X⁴ + t⁴) for SG) has
+positive coefficients, so no factor of K has a root on (0, ∞); normalising atoms to positive leading coefficient, every atom
+is positive at ρ > 0, and λ > 0 because d > 0 at large U. Hence (d(ρ)/m) = (2/m)^{v₂(d(ρ))},
 while d ≡ −K forces (d/m) = (−1/m) = −1. ∎ So windows m ≡ 7 (mod 8) (all m = c·2^j w − 1 with j ≥ 3, the shapes searched by
 `z15_proth_mu0.py`: 0 hits) are dead at μ = 0; j = 2 (m ≡ 3 (8)) needs an algebraic factorisation of 2^{s−2} + w with
 s ≡ 0, which the cyclotomic shapes (e | j) cannot give but Sophie Germain 4X⁴ + t⁴ (s − 2 ≡ 2 (4)) does, with
 v₂(f±(1/2)) = −1 odd. Theorem B is the first such window (t = 1).
 
-**Theorem C (ES for every 3·2^s + 1; PROVED, computer-assisted; certificate + independent checker).** For every s ≥ 0,
+**Theorem C (ES for every 3·2^s + 1; PROVED — hand-checkable (R251 D11, applied by R252); certificate + two independent
+checkers).** For every s ≥ 0,
 4/(3·2^s + 1) is a sum of three unit fractions.
 *Proof.* (a) Sophie-Germain window-11 rules (polynomial in X = 2^{(s−4)/4}, n = 48X⁴ + 1, K = 3f₊f₋, f± = 2X² ± 2X + 1,
 d = 3^a f₊^b f₋^c, x = K, y = n(K + d)/11, z = nK(K + d)/(11d)) cover every s ≡ 0, 8, 12, 16, 20, 28, 32, 36 (mod 40)
 [(a,b,c) = (0,2,1), (0,0,2), (0,2,1), (0,2,0), (0,1,2), (0,2,0), (0,1,2), (0,0,2) respectively]: each is a polynomial identity
 (sympy), integer-valued on the relevant class X ≡ 2^{(r−4)/4} (mod 11) (forward differences), and positive (all factors
 f±, K + d are positive for real X). (b) Six ET/divisor classes (moduli 5, 7, 15, 61; `data/z15_cert_proth3_et.json`, built by
-`z15_cert_proth_make.py 3 360 3000 … 0,8,12,16,20,28,32,36` with the z8/ec_cover machinery) cover every other s mod 360 (s ≥ 10);
-non-divisor classes contain no odd square. (c) `z15_cert_proth_check.py` re-verifies (a), (b), coverage of all s mod 360 and an
-exact solution for every s ≤ 1500 (s = 0 by brute force). ∎
+`z15_cert_proth_make.py 3 360 3000 … 0,8,12,16,20,28,32,36` with the z8/ec_cover machinery) cover every other s ≥ 1;
+non-divisor classes contain no odd square. By hand (R252 D2 = R251 D1, applied by R252; the true period is
+lcm(40, ord₇2, ord₅2, ord₁₅2, ord₆₁2) = 120, and no threshold s ≥ 10 is needed): s ≡ 1, 2 (mod 3) give 7 | n resp. n ≡ 6 (7)
+[(2n/7, 15n/7, 30n), (2(n+1)/7, 2n, 2n(n+1)/7)]; s ≡ 1, 2, 3 (mod 4) give n ≡ 7, 13 (15) resp. 5 | n [((4n+2)/15, 4n,
+4n(2n+1)/15), ((4n+8)/15, 4n, 2n(n+2)/15), (2n/5, 4n/5, 4n)]; s ≡ 0 (4) is (a) unless s ≡ 4, 24 (40); what remains is
+s ≡ 24, 84 (mod 120) ⊂ s ≡ 24 (mod 60), where 61 | n [(16n/61, 326n/61, 2608n)]; s = 0: 4/4 = 1/2 + 1/3 + 1/6.
+(c) `z15_cert_proth_check.py` re-verifies (a), (b), coverage of all s mod 360 and an exact solution for every s ≤ 1500
+(s = 0 by brute force); reviewers' from-scratch checkers `review_r251_proth3.py`, `review_r252_proth3.py` (s ≤ 2000) agree. ∎
 *Scope / honesty.* A thin family (O(log X) members ≤ X); it contains the primes 3·2^s + 1 for s = 1, 2, 5, 6, 8, 12, 18, 30, 36,
 41, 66, 189, …, but nothing about ES for primes in general follows. Its significance for the campaign is structural:
 **3·2^s + 1 is PROVED to have no finite covering by ET/divisor classes (EXPONENT_COVERING Cor 1.5), yet ES holds for all of it**
 by adding ONE window (m = 11) with an algebraically forced budget (the Aurifeuillean factorisation 4X⁴ + 1 = f₊f₋).
-So a genuinely sterile point (unlike O238's 105, R246 D2) dissolves under the exponential-window menu. Literature: not checked
-whether ES for this Proth family is recorded anywhere (likely folklore-invisible; no claim of priority).
+So a genuinely sterile point (unlike O238's 105, R246 D2) dissolves under the exponential-window menu. Literature: a quick web
+search (R252: three queries) found nothing on ES for 3·2^s + 1 or any k·2^s + 1 family; not exhaustive (no MathSciNet/zbMATH);
+no claim of priority.
 
 **4.1 Other proved-sterile families (EVIDENCE; `z15_hybrid_exp.py`, `z15_tree.py`, `z15_mu0_sg.py`, `z15_rules_at.py`).**
 * 7·4^s + 9 ((J)68 Lemma 3.1, ET/divisor-uncoverable at μ = 0): ET/divisor classes at L₀ = 360 leave {0, 90, 180, 200, 290};
@@ -120,27 +134,40 @@ whether ES for this Proth family is recorded anywhere (likely folklore-invisible
   of (J)68 §2), and no window with j ≤ 40, t ≤ 11, e ≤ 21 fires at s = 233480. 7·4^s + 9 is NOT decided (EVIDENCE).
 * 15·2^s + 1, 63·2^s + 1, 255·2^s + 1 (EXPONENT_COVERING Cor 1.5): **no** Sophie-Germain window m = 4ct⁴ − 1 fires at μ = 0 for
   t ≤ 301 (c = 15, 63), and the polynomial-window search (`z15_polywin_root.py 240 4 1 6 1/2`) finds nothing; for c = 3 only
-  t = 1 fires among t ≤ 41. Reason (PROVED, Prop 4.3 below): at μ = 0 every SG window condition is the divisibility
+  t = 1 fires among t ≤ 41. Reason (PROVED for the restricted SG menu of Prop 4.3, λ supported on primes of c — R252 D7):
+at μ = 0 every such SG window condition is the divisibility
   m(t) = 4ct⁴ − 1 | N(t) for an explicit polynomial N of degree ≤ 8 with small coefficients; since 4ct⁴ − 1 is irreducible
-  (c not a square), Res(N, m) ≠ 0 and m(t) | Res(N, m): **only finitely many t can fire**. The SG menu at μ = 0 is a finite menu.
+  (c not a square), Res(N, m) ≠ 0 and m(t) | Res(N, m): **only finitely many t can fire**. The restricted SG menu at μ = 0 is a finite menu (general λ: EVIDENCE, see Prop 4.3).
   For c = 3: (t, a, x, y) = (1, 0, 2, 1), (1, 2, 0, 1) are the only firings with "identically zero" excluded (z15_sg_mu0_complete).
   For c = 15, 63 the exhaustive resultant bound was not completed (bounds ~10⁸ in t): EVIDENCE only.
 
-**Prop 4.3 (finiteness of the SG menu at μ = 0; PROVED).** Let c + 1 = 4^i, c not a square. At μ = 0 of c·2^s + 1 the cap-0
-Sophie-Germain window with parameter t fires iff 4ct⁴ − 1 divides N_{a,x,y}(t) := Π q^{a_q}·g₊^x g₋^y + 4^{i−1}2^{x+y}
-(g± = 2t² ± 2t + 1) for some admissible exponents. m(t) = 4ct⁴ − 1 is irreducible over ℚ (t⁴ − 1/(4c) factors only if
+**Prop 4.3 (finiteness of the restricted SG menu at μ = 0; PROVED).** Let c + 1 = 4^i (c is then never a square for i ≥ 1).
+The *restricted SG menu* (R252 D7 = R251 D10, applied by R252) consists of the cap-0 Sophie-Germain windows m(t) = 4ct⁴ − 1
+with divisor d = Π_{q|c} q^{a_q}·f₊^x f₋^y, 0 ≤ a_q ≤ 2v_q(c), 0 ≤ x, y ≤ 2 (λ supported on the primes of c). At μ = 0 of
+c·2^s + 1 such a window fires iff 4ct⁴ − 1 divides N_{a,x,y}(t) := Π q^{a_q}·g₊^x g₋^y + 4^{i−1}2^{x+y}
+(g± = 2t² ± 2t + 1). m(t) = 4ct⁴ − 1 is irreducible over ℚ (t⁴ − 1/(4c) factors only if
 1/(4c) is a square or −4·(fourth power)). So either m | N in ℚ[t] (a polynomial family of windows, firing for every t) or
-Res(N, m) ≠ 0, and m(t) | N(t) ⟹ m(t) | Res(N, m) (Bezout over ℤ, gcd(m(t), 4c) = 1), bounding t. For c = 3 the first case
-cannot occur for any c (R-O240 repair): m has the positive real root τ = (4c)^{−1/4}, and N(τ) = Πq^{a_q}g₊(τ)^x g₋(τ)^y
+Res(N, m) ≠ 0, and m(t) | N(t) ⟹ m(t) | Res(N, m) (Bezout over ℤ, gcd(m(t), 4c) = 1), bounding t. The first case never occurs
+(R-O240 repair; wording R251 D9, applied by R252): m has the positive real root τ = (4c)^{−1/4}, and N(τ) = Πq^{a_q}g₊(τ)^x g₋(τ)^y
 + 4^{i−1}2^{x+y} > 0 since g± > 0 on ℝ; so Res(N, m) ≠ 0 always. (`z15_sg_mu0_complete.py 3` confirms for all 27 vectors.) ∎ (Derivation: near μ = 0,
 X ≡ 1/2, f± ≡ g±/2, K ≡ 4^{i−1} mod m; clear the unit 2^{x+y}.)
+*Scope (R252 D7, applied by R252).* Prop 4.1's menu allows any constant λ whose odd primes divide K(ρ), and at μ = 0
+4K(ρ) = 4^i + m(t) = c·g₊(t)g₋(t): λ may carry primes of the integers g±(t) (e.g. d = q·f₋ with q | g₊(t), valid on the
+neighbourhood X ≡ 1/2 mod q). Then N depends on a divisor of g±(t), is not a polynomial in t, and the resultant argument does
+not apply; finiteness of this *general* SG menu is Assessment (heuristically Σ_t τ(g₊g₋)²/t⁴ < ∞). EVIDENCE
+(`scripts/review_r252_sg_general.py`, any odd D | (c g₊ g₋)², x + y ≤ 4): no firing for c = 15, 63, 255, t ≤ 301; for c = 3 only
+t = 1.
 
 **4.2 Reading.** For the (J)22 / (J)68 unit-square points the obstruction to ET/divisor menus is that n* is a profinite unit
 square; Theorem A shows that for a root parametrisation n = φ(X) the obstruction is instead the *descent class* of X* − θ.
 At μ = 0, X* is the rational point ρ = 2^{−(j+2)/4} at odd places and 0 at 2, so (Theorem A) the only possible
 obstruction sits at the places of A above 2: it is (α, θ(θ − ρ))₂, and θ(θ − ρ) is NOT a 2-adic square in A ⊗ ℚ₂ for
-3θ³ + 1 = 0, 3θ⁵ + 1 = 0, 3θ⁷ + 1 = 0 (`z15_twoadic_mu0.py`), so Theorem A certifies no sterility there. Whether a window with
-the right witness α exists is then a finite arithmetic accident (Prop 4.3): it happens for 3·2^s + 1 (m = 11) and
+3θ³ + 1 = 0, 3θ⁵ + 1 = 0, 3θ⁷ + 1 = 0 (`z15_twoadic_mu0.py`), and — the case that matters for Theorem C — for the Sophie-Germain
+algebra φ = 48X⁴ + 1 (η = 2θ, 3η⁴ + 1 = 0): η(η − 1) is not a square in ℚ₂(η) (R251 D7, applied by R252; PARI,
+`scripts/review_r251_thmA_2adic.py`), as Theorem A + Theorem B require; since A has no real places and any other admissible γ
+differs by a local square at all odd places, hence a global square (Chebotarev), this single test is complete. So Theorem A
+certifies no sterility there. Whether a window with the right witness α exists is then an arithmetic accident, finite for the
+restricted SG menu (Prop 4.3; general λ: EVIDENCE): it happens for 3·2^s + 1 (m = 11) and
 7·4^s + 9 (m = 19), not (yet) for c = 15, 63, 255.
 
 ## 3. Question (3): near-square sterile sets under algebraic reparametrisation
@@ -192,15 +219,17 @@ supply of moving divisors that powered Theorem C collapses in characteristic p (
 | M₁[φ]: polynomial in u, n = φ(u) | classes of u (thin if deg φ ≥ 2) | Ster(φ): 2-descent classes u* − θ ∈ γ·□ (Theorem A, unit locus) + integer T1 points (Thm 3.3) | PROVED (⊇); equality on the unit locus open |
 | M₁, deg φ = 2 (near squares) | m-classes | Z_K⁺ (NEAR_SQUARE 3.4), Z_k^□ (2.2) | PROVED |
 | M₁ ∘ algebraic (m = 16v³) | v-classes | Z_k^□ NOT sterile (Prop 3.1) | PROVED |
-| M_exp: windows m = c·2^j w − k with algebraic budget (cyclotomic, Sophie Germain) | s-classes of c·b^s + k | μ = 0 of 3·2^s + 1, 7·4^s + 9 NOT sterile (Thm B, §4.1); constant windows m ≡ 7 (8) blocked at μ = 0 (Prop 4.1); SG menu finite at μ = 0 (Prop 4.3) | PROVED + EVIDENCE |
+| M_exp: windows m = c·2^j w − k with algebraic budget (cyclotomic, Sophie Germain) | s-classes of c·b^s + k | μ = 0 of 3·2^s + 1, 7·4^s + 9 NOT sterile (Thm B, §4.1); constant windows m ≡ 7 (8) blocked at μ = 0 (Prop 4.1); restricted SG menu (λ | c^∞) finite at μ = 0 (Prop 4.3; general λ: EVIDENCE, R252 D7) | PROVED + EVIDENCE |
 | M₂: binary/norm forms p = N(x) (positive density) | primes | element-square classes (actual squares) | PROVED d = 2 ((J)3), Assessment d ≥ 3 |
 | any thin menu on positive-density prime sets | primes near (J)54 points | everything ET misses (Prop 5.1) | PROVED |
 | divisor parameters (u | N_θ(p)) | all p | = B2 lottery | — |
 
-**4.3 T1 control explains the two dead residues (PROVED).** The SG window-11 menu fires at every s ≡ 0 (mod 4) except
+**4.3 T1 control explains the two dead residues (PROVED for the window-11 menu with d = 3^a f₊^b f₋^c, whose integrality
+depends only on X mod 33 — R252 D9, applied by R252).** The SG window-11 menu fires at every s ≡ 0 (mod 4) except
 s ≡ 4, 24 (mod 40), i.e. X ≡ 1, −1 (mod 11). These are exactly the neighbourhoods of the integer T1 points X = ±1 of
-φ(X) = 48X⁴ + 1: φ(±1) = 49 = 7² (s = 4: 3·2⁴ + 1 = 49). φ has no real root, so by NEAR_SQUARE Thm 3.3 (= Theorem A with
-not via Theorem A: φ(±1) = 49 is not a unit — R-O240 repair) no Type I/II polynomial-in-X family is valid on a class containing
-X = ±1 (divisor families by 7 do exist there, e.g. (2n/7, 15n/7, 30n) on X ≡ 1 (mod 7)). Numerically 48X⁴ + 1 is a square
+φ(X) = 48X⁴ + 1: φ(±1) = 49 = 7² (s = 4: 3·2⁴ + 1 = 49). φ has no real root, so by NEAR_SQUARE Thm 3.3 (not Theorem A: φ(±1) = 49 is not a
+unit — R-O240 repair; wording R251 D9, applied by R252) no Type I/II polynomial-in-X family is valid on a class containing
+X = ±1 (the dead classes are X ≡ ±1 (mod 33), which contain X = ±1; Thm 3.3 says nothing about rules valid only on subclasses
+avoiding X = ±1, e.g. additionally X ≡ 0 (mod 4), which the family X = 2^k does meet — R252 D9) (divisor families by 7 do exist there, e.g. (2n/7, 15n/7, 30n) on X ≡ 1 (mod 7)). Numerically 48X⁴ + 1 is a square
 for no X ≡ 4, 6 (mod 11), X < 2·10⁶, and for no X < 10⁵ except X = 1. These residues are handled by ET classes in Theorem C
 (they are not near a unit-square point of the s-family).

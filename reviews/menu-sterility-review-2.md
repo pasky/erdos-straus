@@ -1,5 +1,16 @@
 # R252 — hostile review #2 of O240 (MENU_STERILITY.md, memos z15_*)
 
+**Repairs applied (round 2, by R252; merged side-agent/review-menu-sterility (R251) and side-agent/menu-sterility (no new author
+commits)).** MENU_STERILITY.md: R252 D1–D5, D7–D9 and R251 D1–D5, D7–D11 (Thm A zero-divisor step; two-variable bullet → Assessment;
+Thm B ↔ table (2,0,1)/(0,2,1); "lie in"; Thm C hand coverage, period 120, no s ≥ 10, label "hand-checkable"; novelty search note;
+Prop 4.1 positivity of d(ρ); Prop 4.3 restated for the restricted menu λ | c^∞ with a Scope paragraph (general λ: Assessment +
+EVIDENCE); §4.1/§4.2/§7 adjusted; SG e = 4 2-adic test cited in §4.2; §4.3 garble + scope). Memos z15_window_jacobi_mu0,
+z15_witness_descent, z15_proth_sophie_germain; BRAINSTORM/README rows; AGENT_REPORT_O240 (R251 D6 "contains", Prop 4.3 scope,
+Prop 4.1 positivity, period 120, novelty). All marked "(R252 …, applied by R252)" / "(R251 Dk, applied by R252)".
+Reconciliation with R251 on Prop 4.3: R251's D10 (MINOR, "state the menu") and my D7 (MAJOR) describe the same scope issue; with
+the statement now restricted to λ supported on primes of c, Prop 4.3 is SOUND as stated (R251's verdict), and the general-λ
+claim is downgraded to Assessment + EVIDENCE (my D7). No disagreement remains.
+
 Reviewer: R252 (round 1, no edits to the author's files). Branch reviewed: side-agent/menu-sterility (merged at bf14ed4c).
 From-scratch scripts: `scripts/review_r252_*.py` (no z15_/z8/ec_cover imports).
 

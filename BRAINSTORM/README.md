@@ -473,9 +473,9 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 
 | memo | idea | result | label |
 |---|---|---|---|
-| z15_proth_sophie_germain | Sophie-Germain window m = 11 through the ET-sterile point μ = 0 of 3·2^s + 1 | **ES for all 3·2^s + 1** (proved ET/divisor-uncoverable family) — SHARP | PROVED (computer-assisted) |
-| z15_witness_descent | witness symbol = Brauer/2-descent pairing on w² = φ(u) | Theorem A: sterile set of one-parameter menus ⊇ descent set (unit locus); unifies Schinzel, Thm 3.4 | PROVED |
-| z15_window_jacobi_mu0 | constant windows at glued rational points | m ≡ 7 (8) dead at μ = 0; SG menu at μ = 0 is finite (resultant) | PROVED + EVIDENCE |
+| z15_proth_sophie_germain | Sophie-Germain window m = 11 through the ET-sterile point μ = 0 of 3·2^s + 1 | **ES for all 3·2^s + 1** (proved ET/divisor-uncoverable family) — SHARP; confirmed by R251, R252 | PROVED (hand-checkable; certificate) |
+| z15_witness_descent | witness symbol read as a Brauer/2-descent pairing on w² = φ(u) (Assessment) | Theorem A: sterile set of one-parameter menus ⊇ descent set (unit locus); unifies Schinzel, Thm 3.4 | PROVED |
+| z15_window_jacobi_mu0 | constant windows at glued rational points | m ≡ 7 (8) dead at μ = 0; restricted SG menu (λ | c^∞) at μ = 0 is finite (resultant); general λ: EVIDENCE (R252 D7) | PROVED + EVIDENCE |
 | z15_near_square_algebraic | Thm 2.2 for m = 16v³ | Z_105^□ not sterile for polynomial-in-v families | PROVED |
 | z15_density_thin | thin menus vs (J)54 points | cannot help on positive-density prime sets; norm forms keep T1 | PROVED (thin) + Assessment |
 | z15_ff_frobenius | F_q[T] analogue | Frobenius kills Aurifeuille; Carlitz divisors as spark | Assessment |

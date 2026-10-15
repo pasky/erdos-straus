@@ -17,7 +17,8 @@ B1/Thm 1.4: hypothesis "ET/divisor classes" (identities polynomial in n) is exac
 X = ((n−1)/48)^{1/4}. T1: the menu is dead exactly at the T1 points X = ±1 (n = 49). B2/B3/B6: thin family, nothing for primes.
 ## Cheap numerics
 `scripts/z15_proth_identity.py` (symbolic + s ≤ 4000), `z15_cert_proth_make.py`, `z15_cert_proth_check.py
-data/z15_cert_proth3_et.json 1500` (re-verifies all rules, classes, coverage mod 360, exact solutions s ≤ 1500; 2 s).
+data/z15_cert_proth3_et.json 1500` (re-verifies all rules, classes, coverage mod 360, exact solutions s ≤ 1500; 2 s). True period 120; coverage is hand-checkable (MENU_STERILITY Thm C proof;
+R252 D2 = R251 D1, applied by R252). Reviewers' from-scratch checkers `review_r251_proth3.py`, `review_r252_proth3.py` agree.
 ## Assessment
 PROVED (computer-assisted). First instance in the campaign of a *proved* ET/divisor-sterile point dissolving under a richer
 (exponential-window) menu. Scope: one thin family.

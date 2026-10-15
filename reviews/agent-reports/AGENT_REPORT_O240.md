@@ -13,17 +13,19 @@ Sophie Germain factorisation 4X⁴ + 1 = (2X² + 2X + 1)(2X² − 2X + 1), X = 2
 exactly the neighbourhoods of the integer T1 points X = ±1 (n = 49 = 7²) — and 6 ET/divisor classes (moduli 5, 7, 15, 61)
 cover the rest. Second sharp item: **Theorem A (witness reciprocity)**: the sterile set of the menu "identities polynomial
 in u on n = φ(u)" contains the 2-descent set {u* : γ(u* − θ) locally square everywhere, γ ∈ ℚ[u]/(φ) totally positive};
-it unifies Schinzel/Mordell and NEAR_SQUARE Thm 3.4 (integer T1 points with φ(u₀) > 1 stay with Thm 3.3 — R-O240 repair), and identifies one-parameter sterility with a Brauer/2-cover-
-descent pairing on w² = φ(u).
+it unifies Schinzel/Mordell and NEAR_SQUARE Thm 3.4 (integer T1 points with φ(u₀) > 1 stay with Thm 3.3 — R-O240 repair), and shows that the sterile set contains a 2-descent set on w² = φ(u) (R251 D6, applied by R252: one-sided
+inclusion, not an identification).
 
 ## Results
 * Theorem A (PROVED): witness reciprocity for M₁[φ], any φ (MENU_STERILITY §1).
 * Theorem B (PROVED, symbolic) and Theorem C (PROVED, computer-assisted): ES for all 3·2^s + 1. Checker
   `scripts/z15_cert_proth_check.py data/z15_cert_proth3_et.json 1500` (sympy; re-derives the SG rules, checks identities,
   integer-valuedness, positivity, ET classes incl. no odd squares in non-divisor classes, coverage of all s mod 360, exact
-  solutions s ≤ 1500; ~2 s). Builder `z15_cert_proth_make.py 3 360 3000 OUT 0,8,12,16,20,28,32,36`.
-* Prop 4.1 (PROVED): constant windows m ≡ 7 (mod 8) never fire at μ = 0 of c·2^s + 1, c + 1 = 4^i (Jacobi); this kills all
-  cyclotomic windows there and is why O238-style windows fail. Prop 4.3 (PROVED): the Sophie-Germain menu at μ = 0 is
+  solutions s ≤ 1500; ~2 s). True period 120; the coverage is hand-checkable (R251 D1/R252 D2, applied by R252). Two
+  hostile reviews (R251, R252) with from-scratch checkers confirm Theorem C (no FATAL/MAJOR on it). Builder `z15_cert_proth_make.py 3 360 3000 OUT 0,8,12,16,20,28,32,36`.
+* Prop 4.1 (PROVED): constant windows m ≡ 7 (mod 8) never fire at μ = 0 of c·2^s + 1, c + 1 = 4^i (Jacobi); the proof needs d(ρ) > 0 (positive coefficients of K; R251 D8/R252 D4, applied by R252); this kills all
+  cyclotomic windows there and is why O238-style windows fail. Prop 4.3 (PROVED for the restricted menu λ | c^∞ — R252 D7, applied by R252;
+  general λ with primes of g±(t): EVIDENCE, no firing for c = 15, 63, 255, t ≤ 301): the Sophie-Germain menu at μ = 0 is
   finite (resultant bound; m ∤ N identically since m has a positive real root where N > 0 — R-O240 repair). EVIDENCE: no SG window found at μ = 0 for c = 15, 63 (t ≤ 301), 255 (t ≤ 15).
 * Prop 3.1 (PROVED): NEAR_SQUARE Thm 2.2 does not extend to families polynomial in an algebraic function of m
   (O238's class as m = 16v³ meets Z_105^□) — answers O238 spark 5 negatively for the naive extension.
@@ -38,7 +40,7 @@ descent pairing on w² = φ(u).
 No FATAL; Theorems B/C re-run and confirmed (coverage of all s: ET periods divide 360, SG residues depend on s mod 40;
 Cor 1.5 + Thm 1.4 indeed exclude ET/divisor coverings). MAJOR repaired: Theorem A does not contain integer T1 points with
 φ(u₀) > 1 (not units; Thm 3.3 handles them; §4.3 attribution fixed, "Type I/II" qualifier added); Prop 4.3's general
-finiteness now proved (real-root argument); density conclusions of §5 narrowed. Minors: ℤ[θ] → ℤ[1/lc][θ]; squares
+finiteness now proved (real-root argument) — for the restricted menu λ | c^∞ only (R252 D7); density conclusions of §5 narrowed. Minors: ℤ[θ] → ℤ[1/lc][θ]; squares
 s = 0, 3, 4; 27 vectors; Prop 4.1 proof expanded (e | j, odd-prime support); checker always covers s < 10.
 
 ## Honest caveats for the reviewer
@@ -49,7 +51,7 @@ s = 0, 3, 4; 27 vectors; Prop 4.1 proof expanded (e | j, odd-prime support); che
 * "Primes to 10⁶" triple-check is not applicable to a family theorem; exact symbolic identities + exact solutions to
   s ≤ 1500 (rules) / s ≤ 4000 (Theorem B) replace it. T1: 48X⁴ + 1 is square only at X = ±1 (< 10⁵ checked; X ≡ 4, 6 (11)
   none < 2·10⁶), and the rules are provably dead there.
-* Novelty of "ES for all 3·2^s + 1" not literature-checked.
+* Novelty of "ES for all 3·2^s + 1": quick web search by R252 found nothing; not exhaustive.
 * Prop 4.3 for c = 15, 63 was not run to completion (resultant bounds ~10⁸ in t) — EVIDENCE only.
 * Theorem A gives only ⊇ for the sterile set; equality (analogue of CONJECTURE Y10-S) is open.
 
