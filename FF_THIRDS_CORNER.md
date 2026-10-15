@@ -135,8 +135,9 @@ Parity (FUNCTIONFIELD_ES2 §3, q = 3): all 348 census tuples have deg E, deg E',
 tuple is determined by M; it exists iff the remainder X₁ = (−g'T^{s−1}) mod Ê is a monic divisor of M (all other
 conditions then hold automatically: C₁ = (g'T^{s−1} + X₁)/Ê is monic with C₁(0) = −X₁(0), and w₁ + C₁ = Tg'(MC₁ − T^{s−2})).
 *Random-remainder model:* treat X₁ as uniform among the 3^{deg Ê} residues; by Cor 3.2 only divisors of degree in
-[N + 1 − deg M, deg M] can occur (orientation A; analogous bound in B and at other polynomial points), and parity forces
-deg Ê even. So level N contributes Σ_M #{admissible divisors of M}·3^{−deg Ê}, summed over the M of Prop 2.1 (case 1),
+[N + 1 − deg M, deg M] can occur (orientation A; analogous bound in B and at other polynomial points), parity forces
+deg Ê even (FUNCTIONFIELD_ES2 §3), and the pattern parity law z ≡ t ≡ s (mod 2) of O226 (FF_ODD_ABSENCE Cor 1.7, branch
+side-agent/ff-odd-absence, under review; checked here on all 348 census tuples) halves the admissible divisor degrees. So level N contributes Σ_M #{admissible divisors of M}·3^{−deg Ê}, summed over the M of Prop 2.1 (case 1),
 plus (case 2) the number of region tuples satisfying both Liouville constraints times (1/2)·3^{−(N−1)}. Candidates with
 Ê ≡ −u (mod T^{s−2}) ("structured": E = −u, Prop 1.4, and their relatives) are excluded from the model and from the
 comparison. `zt_lop` prints this model per level ("refined").
@@ -144,18 +145,19 @@ comparison. `zt_lop` prints this model per level ("refined").
 degree 2..4 with u(0) = 1, u'(0) ≠ 0, levels 3..12, complete search: unstructured hits vs. model
 | levels | points with an unstructured hit | unstructured hits | model |
 |---|---|---|---|
-| 3..12 | 4 | 10 | 7.2 (degenerate split: at N ≤ 4, s − 2 ≤ N + 1, so "dep ≥ s − 2" is not a structure test) |
-| 5..12 | 2 | 2 | 5.2 |
-| 6..12 | 0 | 0 | 2.8 |
-| 7..12 | 0 | 0 | 1.6 |
-The model is of the right order and, at higher levels, conservative (it over-predicts; P(0 | 2.8) ≈ 6 %). The structured hits
+| 3..12 | 4 | 10 | 4.0 (degenerate split: at N ≤ 4, s − 2 ≤ N + 1, so "dep ≥ s − 2" is not a structure test) |
+| 5..12 | 2 | 2 | 2.9 |
+| 6..12 | 0 | 0 | 1.5 |
+| 7..12 | 0 | 0 | 0.9 |
+The model is of the right order and, at higher levels, slightly conservative (without the O226 parity law it predicted
+5.2 / 2.8 / 1.6 for the last three rows). The structured hits
 (E = −u and Prop 1.4 types, all at points with lc(u) = −1, plus their "dep = s − 2" companions) recur periodically in N
 (e.g. u = 1 ± T − T² at N = 3, 6, 7, 10, 11, …) — the discrete-log mechanism of Prop 1.4.
-*At x*_c* (both c give identical model values): refined model per level 7.6·10⁻⁴ (N = 5), 8.5·10⁻⁴, 6.8·10⁻⁴, 6.8·10⁻⁴,
-5.6·10⁻⁴, 2.5·10⁻⁴, 2.6·10⁻⁴ (N = 11), 6.7·10⁻⁵, 4.6·10⁻⁵, 1.5·10⁻⁵, 1.3·10⁻⁵, 3.1·10⁻⁶, 1.2·10⁻⁶ (N = 17); total over
-levels 3..17: 4.2·10⁻³ per c. The decay ratio tends to ≈ 1/3 (the model is poly(N)·3^{−N}: ≈ 3^{N−2} candidates M, each
+*At x*_c* (both c give identical model values): refined model per level 7.6·10⁻⁴ (N = 5), 6.9·10⁻⁴, 4.4·10⁻⁴, 3.7·10⁻⁴,
+3.1·10⁻⁴, 1.3·10⁻⁴, 2.0·10⁻⁴ (N = 11), 3.5·10⁻⁵, 2.3·10⁻⁵, 7.8·10⁻⁶, 9.9·10⁻⁶, 1.8·10⁻⁶, 6.8·10⁻⁷ (N = 17); total over
+levels 3..17: 3.0·10⁻³ per c (c = 2 run: 1.9·10⁻⁷ + 3.4·10⁻⁸… at N = 19, 20, earlier model version). The decay ratio tends to ≈ 1/3 (the model is poly(N)·3^{−N}: ≈ 3^{N−2} candidates M, each
 needing a residue of size 3^{−(N + deg M)} to hit one of poly(N) admissible divisors). Extrapolated mass beyond the searched
-levels (N > 21): ≈ 10⁻⁷.
+levels (N > 20): ≈ 10⁻⁷.
 *Contrast with generic points.* For a random slice point the expected number of covering tuples per level is
 λ_N ≈ 0.22, 0.59, 0.37, 0.22, 0.096, 0.092 (N = 2..7, FUNCTIONFIELD_ES3 §2), and the union over levels is dominated by
 balanced patterns (thirds corner) — which cannot reach a polynomial point at all (Cor 1.3). **So x*_c is not a typical
