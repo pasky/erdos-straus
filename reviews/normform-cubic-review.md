@@ -180,5 +180,5 @@ The "rungs sorted by (ℚ[x]/(P))^×" sentence is correctly labelled Assessment.
 ### §2 "What is left" and AGENT_REPORT_O248 — SOUND (labels OK after D9/D10)
 "What is left" is labelled Assessment. Report summarises the document faithfully; its label list "Thm 1.1′ … §4
 identification: PROVED" should carry D8/D9 (the §4 pull-back needs the pointwise witness argument; its "relevant object"
-phrasing is Assessment). Report's iteration I4 self-correction (windows not a lower bound) is honest and correct for the
-example given: N(u + v + vθ... ) aside, (u, v, v) with u² − 2v² = 1 was not re-checked by the reviewer (outside scope).
+phrasing is Assessment). Report's iteration I4 self-correction (windows not a lower bound) is correct: for N = u³ + 2v³ + 4w³ − 6uvw,
+N(u + 1, v, v) − N(u, v, v) = 3(u² − 2v²) + 3u + 1 = 3u + 4 when u² − 2v² = 1 (re-derived by hand).
