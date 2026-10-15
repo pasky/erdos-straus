@@ -59,3 +59,26 @@ dependency is glibc `lgammal` (a few ulp) — absorbed by the 10⁻¹² pad and 
 SHA-256 of se_box.c, zl_box.c, zl_tail.py, zl_r0.py, se_r0.py match MANIFEST.txt; se_box.c / se_tail.py / se_r0.py identical to main.
 **MINOR (numbering):** zl_box.c header, its inline comment and zl_r0.py call this "Lemma 2.1"; the document calls it Lemma 1.1.
 **Verdict: SOUND.**
+
+### Lemma 1.2 (value-selected tail routes)
+Logic re-derived: SE §3.3 proves, for *each* box of the normalised mesh and *each* route, a term list Σ c N^e (ln N)^p valid for
+all N ≥ N₀ (the Coppersmith conditions are checked at L₀ with slope ≤ 0, so they depend on N₀ but not on which route is later
+chosen). Any per-box choice that is fixed (independent of N) gives a valid bound for D(N), N ≥ N₀. Monotonicity: d/dL[(e − h)L + p ln L]
+= (e − h) + p/L ≤ 0 for L ≥ L₀ iff p ≤ (h − e)L₀ — exactly the admissibility test; for the r-weights,
+d/d(ln r)[(Ke − (K+1)/2) ln r + p ln(K ln r)] ≤ Ke − (K+1)/2 + K(1/2 − e) = −1/2 < 0 once K ln r ≥ L₀. Correct.
+Independent numerics (`scripts/review_zl_tail.py`): imports SE's *reviewed* `se_tail.py` (unchanged from main), intercepts its
+per-box route choice, re-selects with my own admissibility test and 50-digit mpmath values, and recomputes G:
+| N₀ | G (new selection) | max e | G (SE selection) |
+|---|---|---|---|
+| 2^600 (P, M=32, SE_W=40) | 7.2603701 | 0.495954 | 873.569 |
+| 2^800 (P) | **0.013618405** | 0.479688 | **1.0108** |
+| 2^1000 (P) | 4.096·10⁻⁵ | 0.479688 | 1.256·10⁻³ |
+| 2^100 (Q, M=16) | 9.0188·10⁻⁶ | 0.750000 | 9.167·10⁻⁶ |
+All selected terms admissible; no box lacks an admissible route. The author's 7.26 / 1.36·10⁻² / 4.1·10⁻⁵ / 0.4797 are reproduced.
+**MINOR (attribution, §0 (I4), §1, report "873 → 0.0136"):** the comparison mixes two changes. At the same N₀ = 2^800, SE's own
+selection already gives G = 1.01; moving N₀ from 2^600 to 2^800 (made possible by the new table `P_q1_hi`, rows 600..799) accounts
+for ×860, value-selection for ×74. Both are legitimate, but the text should say so. Also, at N₀ = 2^600 the new selection raises the
+max exponent from 0.4797 to 0.4960 (harmless, still < 1/2; worth a word since SE quotes 0.4797 as "the" tail exponent).
+Consequence (see Thm 2.1 below): with tails from 2^800 the P tail term at r ≈ 2^30 is ≲ 10⁻⁴ even with G = 1.01, so Thm 2.1 does
+not actually *need* Lemma 1.2's new selection — only SE's §3.3 at N₀ = 2^800 plus the extra table.
+**Verdict: SOUND** (MINOR attribution fix).
