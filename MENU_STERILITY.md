@@ -132,3 +132,56 @@ obstruction sits at the places of A above 2: it is (α, θ(θ − ρ))₂, and �
 3θ³ + 1 = 0, 3θ⁵ + 1 = 0, 3θ⁷ + 1 = 0 (`z15_twoadic_mu0.py`), so Theorem A certifies no sterility there. Whether a window with
 the right witness α exists is then a finite arithmetic accident (Prop 4.3): it happens for 3·2^s + 1 (m = 11) and
 7·4^s + 9 (m = 19), not (yet) for c = 15, 63, 255.
+
+## 3. Question (3): near-square sterile sets under algebraic reparametrisation
+
+**Prop 3.1 (NEAR_SQUARE Thm 2.2 does not extend to algebraic functions of m; PROVED).** Let k = 105 (≡ 1 mod 8, so Z_105^□ ≠ ∅).
+The O238 identity (Lemma 1.0) composed with u = v² is a Type II family *polynomial in v* for n = m² + 105 with m = 16v³,
+valid on v² ≡ 32 (mod 151). The closure of its parameter set meets the pull-back of Z_105^□ = {m : m² + 105 ∈ (Ẑ^odd)²}.
+*Proof.* The v-space is Ẑ = Π_ℓ ℤ_ℓ (product), so it suffices to find, for every odd ℓ, v_ℓ ∈ ℤ_ℓ (with v_ℓ² ≡ 32 at ℓ = 151)
+such that 256v_ℓ⁶ + 105 is a non-zero square mod ℓ (then a unit square in ℤ_ℓ); at 2, m² + 105 ≡ 1 (mod 8) for even m. For
+ℓ < 400 this is checked (`z15_k105_escape.py`: no exception, ℓ = 3, 5, 7, 151 included); for ℓ ≥ 37 the genus-2 curve
+w² = 256v⁶ + 105 has ≥ ℓ + 1 − 4√ℓ − 2 − 6 > 0 affine points with w ≠ 0 (Weil). ∎
+So the polynomial-in-m sterile set Z_k^□ (k > 0) is not sterile for the menu "polynomial in an algebraic function of m":
+the family is polynomial in v = (m/16)^{1/3}, i.e. it lives on the curve m = 16v³, and Theorem A applied to
+φ(v) = 256v⁶ + 105 replaces the norm condition "m² + 105 is a square" by the descent condition on v − θ in ℚ[v]/(φ).
+(Unlike Theorem C this example does not cover a *proved* sterile point of an ET menu; it refutes the naive extension of
+Thm 2.2 only. The analogue for Z_K⁺ (k < 0, Thm 3.4) was not constructed: spark.)
+
+## 5. Question (2): the (J)54 sterile Mordell points (all primes in an r-generic cylinder)
+
+**Prop 5.1 (thin menus cannot help at positive-density targets; PROVED, elementary).** Let C ⊂ Ẑ be a residue class of units.
+Any finite union of (a) one-parameter families n = φ(u) with deg φ ≥ 2, (b) exponential families c·b^s + k, (c) more
+generally any sets with O(X^{1−δ}) elements ≤ X, contains a set of primes of relative density 0 in C. Hence if a finite
+ET/divisor menu provably misses a neighbourhood C of a point (as at the (J)54 sterile Mordell points, all r ≥ 2³²),
+adding finitely many thin items (root/exponential/window classes of Theorems B, C, O238) still misses a positive density
+of the primes in C (Dirichlet). ∎
+So the mechanism of Theorems B/C — the parameter lives on a thin curve where the descent class of the parameter differs
+from the square class of n — is *by construction* unavailable on a positive-density set of primes. The positive-density
+parametrisations of primes are norm-form/binary-form representations p = N(x) (Fermat, Hecke): there element squares
+x = y² give actual squares N(y)², which are Zariski-dense in every congruence class and sector, so the old T1 argument
+survives: POINTWISE_BINARYFORM Thm 3.2/Cor 3.4 (PROVED for positive definite binary quadratic forms; Assessment for higher
+norm forms, where the same argument needs Hecke equidistribution of prime elements in ray classes and sectors). The
+remaining "parameters" defined at every prime are divisors of polynomial expressions in p — exactly the moving-modulus
+divisor lottery B2. **Answer to (2): no algebraic/exponential window family passes through the (J)54 points in the
+sense needed (covering all primes near them); the obstruction is B2 + density, not T1.** (Assessment for the norm-form clause.)
+
+## 6. Question (4): function fields
+Prop 5.1 holds verbatim in F_q[T] (deg φ ≥ 2 in u ∈ F_q[T] gives q^{n/2}-sized images in degree n), so CONJECTURE 0.2's
+x*_c (a covering of *all* primes P near x*_c) cannot be dissolved by thin menus either. The F_q[T] analogue of Theorems B/C
+would concern a thin family (e.g. P_s = c·T^{q^s} + A, whose residues mod any M are eventually periodic in s): there
+Frobenius-power families give root parameters u = T^{q^{s'}}, but x^{q} + y^{q} = (x + y)^q, so the cyclotomic/Aurifeuillean
+supply of moving divisors that powered Theorem C collapses in characteristic p (Assessment; spark: Carlitz-module
+"cyclotomic" factors of T^{q^s} − T would be the natural replacement).
+
+## 7. The menu ladder (summary table)
+| menu (parameter complexity) | domain | sterile set contains | status |
+|---|---|---|---|
+| M₀: ET/divisor classes, polynomial in n | residue classes of n | profinite unit squares Sq^× (Schinzel; EXPONENT_COVERING 1.2/1.4) | PROVED |
+| M₁[φ]: polynomial in u, n = φ(u) | classes of u (thin if deg φ ≥ 2) | Ster(φ): 2-descent classes u* − θ ∈ γ·□ (Theorem A) | PROVED (⊇); = open |
+| M₁, deg φ = 2 (near squares) | m-classes | Z_K⁺ (NEAR_SQUARE 3.4), Z_k^□ (2.2) | PROVED |
+| M₁ ∘ algebraic (m = 16v³) | v-classes | Z_k^□ NOT sterile (Prop 3.1) | PROVED |
+| M_exp: windows m = c·2^j w − k with algebraic budget (cyclotomic, Sophie Germain) | s-classes of c·b^s + k | μ = 0 of 3·2^s + 1, 7·4^s + 9 NOT sterile (Thm B, §4.1); constant windows m ≡ 7 (8) blocked at μ = 0 (Prop 4.1); SG menu finite at μ = 0 (Prop 4.3) | PROVED + EVIDENCE |
+| M₂: binary/norm forms p = N(x) (positive density) | primes | element-square classes (actual squares) | PROVED d = 2 ((J)3), Assessment d ≥ 3 |
+| any thin menu on positive-density prime sets | primes near (J)54 points | everything ET misses (Prop 5.1) | PROVED |
+| divisor parameters (u | N_θ(p)) | all p | = B2 lottery | — |
