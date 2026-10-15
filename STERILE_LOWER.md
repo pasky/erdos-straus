@@ -1,6 +1,6 @@
 # STERILE_LOWER — lowering the explicit r₀ of STERILE_EXPLICIT, and the r = 17 line (O228, wave Z-d2)
 
-Status: checkpoint 1 (O228): Thm 2.1 (r₀ = 2^{30.15625}, certified) + Lemma 3.1 (joint level-1 parametrisation) + Comp. 4.1; under review (R231, R232). Checkpoint 2 (round 2): §6 Thm 6.3 (r₀ = 2^{21.4375} ≈ 2.84·10⁶, joint sweep), §7 (r = 17 descent: negative). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
+Status: checkpoint 1 (O228): Thm 2.1 (r₀ = 2^{30.15625}, certified) + Lemma 3.1 (joint level-1 parametrisation) + Comp. 4.1; hostile reviews R231 (`reviews/sterile-lower-review.md`) and R232 (`reviews/sterile-lower-review-2.md`): no FATAL/MAJOR, Thm 2.1 SOUND (both variants re-certified); minors applied as (R231 repair)/(R232 repair). Checkpoint 2 (round 2): §6 Thm 6.3 (r₀ = 2^{21.4375} ≈ 2.84·10⁶, joint sweep), §7 (r = 17 descent: negative). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
 Builds on STERILE_EXPLICIT.md (= SE; Thm 3.4, r₀ = 2³²), its reviews R222/R223, POINTWISE_MORDELL17*.md (= M17, M17B–D),
 FF_STERILE_PUSH.md / FF_STERILE_SMALL.md (division routes). Scripts `scripts/zl_*`, data `data/zl/`.
 
