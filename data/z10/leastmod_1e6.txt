@@ -1,0 +1,5 @@
+e=0: primes 5..1000000: 78496; no prime-modulus certificate with ℓ ≤ 3000: 1654; mean least ℓ 165.03, max 2999; odd squares hit: 0
+e=1: primes 5..1000000: 78496; no prime-modulus certificate with ℓ ≤ 3000: 1502; mean least ℓ 165.60, max 2999; odd squares hit: 0
+e=2: primes 5..1000000: 78496; no prime-modulus certificate with ℓ ≤ 3000: 1499; mean least ℓ 165.71, max 2999; odd squares hit: 0
+e=4: primes 5..1000000: 78496; no prime-modulus certificate with ℓ ≤ 3000: 1499; mean least ℓ 165.71, max 2999; odd squares hit: 0
+e=99: primes 5..1000000: 78496; no prime-modulus certificate with ℓ ≤ 3000: 1499; mean least ℓ 165.71, max 2999; odd squares hit: 0

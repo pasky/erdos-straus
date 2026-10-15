@@ -405,3 +405,11 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z8_eight_failures_frobenius | 8/131, 8/241 as a missed ζ₈-bit | all 4-slots ≡ 4 mod 8 at these p | EVIDENCE |
 | z8_no_redei_abelian_levels | Rédei layer for near-square depletion | single abelian level sees only residues of prime factors: no forced non-genus layer | PROVED (trivial) + Assessment |
 | z8_chebotarev_family_level | level u(p) with F ⊄ Σ by construction | disjointness free; hitting a divisor of p + u is B2/B3 | Assessment (negative) |
+## Wave Z4 (O234): the cap as a sieve knob, uniformly; pointwise e*(n); the exact family 𝒟_e(M) (memos z10_*, deep file CAP_INTERPOLATION.md; not yet triaged)
+
+| memo | idea | result | label |
+|---|---|---|---|
+| z10_uniform_cap | Gallagher instead of weighted BV; e = e(N) | c_e ≍ 1/(e log e); saturation at e ≍ log log N with N exp(−c log N/(log₂N log₃N)); matching Rankin ceiling for classes truncated to V < ℓ/4 (R237 D1: untruncated family gives a power saving at e = ∞) | PROVED rel. Gallagher + BV + LS; ceiling elementary |
+| z10_pointwise_cap | minimal cap e*(n) | covering barrier (log₂p)^{1−o(1)} i.o.; GRH: e*(p) ≤ (log p)^{2+ε}, ≤ exp(O(√(log₂p log₃p))) | PROVED / CONDITIONAL (GRH, sketch) |
+| z10_exact_family | solution depends only on D = c²d | ES^{(y,e)} ⟺ D ∈ 𝒟_e(M) (D \| A² lifted by even excess ≤ 2e); supply dimension e + 3, no tower; e = 0 = ℛ(M) — SHARP | PROVED; (e+3)/(e+4) Assessment |
+| z10_pmsq_1e7 | C rerun of PM-SQ_± | 0 exceptions ≤ 10⁷; record least \|u\| = 41 | EVIDENCE |

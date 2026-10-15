@@ -1,0 +1,1 @@
+p=1(4) primes < 1000000: 39175; max least r = 251 (at p = 172573); exact solutions checked: 40
