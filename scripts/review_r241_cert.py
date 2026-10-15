@@ -62,3 +62,25 @@ for p in parts:
     print(*p)
 cert = 1.01 * (total + tail + caseA)
 print(f'caseB(s<=80)={total:.8f} tail={tail} caseA={caseA} certified x1.01 = {cert:.6f} < 4: {cert < 4}')
+
+# ---- optional: fully independent s = 20 (argv[6] = R241 partial enumeration of s = 20; patterns not enumerated -> R226 bound)
+if len(sys.argv) > 6:
+    mine20 = {}
+    for l in open(sys.argv[6]):
+        if l.startswith('P '):
+            f = l.split(); s_, a, b, z, y, t = map(int, f[1:7])
+            if s_ == 20:
+                mine20[(a, b, z, y, t)] = sum(int(v) for k, v in (x.split(':') for x in f[7:]) if int(k) % 2 == 1)
+    ex, bd, nex, nbd = 0.0, 0.0, 0, 0
+    for (ss, a, z, y, t), bound in BND.items():
+        if ss != 20 or not compatible(20, z, t):
+            continue
+        b = 20 - a - z
+        k1, k2 = (a, b, z, y, t), (b, a, z, y, t)
+        if k1 in mine20 and k2 in mine20:
+            ex += (mine20[k1] + (mine20[k2] if a < b else 0)) / q ** 10; nex += 1
+        else:
+            bd += (2 if a < b else 1) * bound / q ** 10; nbd += 1
+    indep = total - ex20 - sk20 + ex + bd
+    print(f'independent s=20: exact {nex} oriented patterns (mass {ex:.6e}), R226 bound on {nbd} (mass {bd:.6f})')
+    print(f'fully independent caseB(s<=80)={indep:.8f}; with caseA={caseA}: certified x1.01 = {1.01 * (indep + tail + caseA):.6f}')
