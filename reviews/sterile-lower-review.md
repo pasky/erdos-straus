@@ -266,6 +266,14 @@ Binding term now: P at K = 3 (0.44 of S = 0.483 at j = 686; margin 0.017 ≈ 4 %
 So Thm 6.3's binding terms are independently re-certified with margin.
 **Verdict Thm 6.3: SOUND.**
 
+## Round-2 suggestion (not a defect): the existing sweep already reaches 2^21 with a tighter K = 3 bound
+I ran my P engine (ℓ², exact windows incl. e ∈ [(N₀ + 4A²D)/f_max, (N₁ + 4(2A−1)²(2D−1))/f_min], τ₃ route) on all 96 N-cells 2016..2111
+(K = 3 for r-cells 672..703): 0.48–0.57 × the zl_box table. With it, the author's own exact sweep of [2^21, 2^22) and SE's tables for
+K ≥ 5: **all 32 cells 672..703 pass, max S = 0.3653 (j = 672)** (`data/zl_review/myr1_21_myk3_all.txt`). So porting the exact e-window
+(SE Lemma 1.2's e ≤ N/(ACD) is ≈ 4× loose) into zl_box would extend Thm 6.3 to r ≥ 2^{21} with no new sweep, and with S ≈ 0.37 at 2^21
+the next octave [2^20, 2^21) (a ~1-minute sweep) is a realistic target. As it stands this is R231 EVIDENCE from a reviewer engine
+(validated by exhaustive enumeration, exact (Cop₂) checks), not part of the author's certificate.
+
 ## Round-2 defects (no FATAL, no MAJOR)
 * **r2-m1 (MINOR) zl_r1.py fails open on cell endpoints:** a sweep cell whose (lo, hi) does not match the float-computed
   ⌈2^{j/32}⌉ (or +1) is silently skipped (`continue`), and there is no contiguity check — a skipped cell would leave a gap that the
