@@ -123,7 +123,7 @@ E | 1 + T^s m'g'², each pattern counted only from its own complete route; ORDER
 | 12 | 7 000 | 0.01317173 | p_12 (237) | 0 |
 | 16 | 27 204 | 6.319645·10⁻⁴ | p_16 (215) | 0 |
 No P₈ tuple at s ≢ 0 (4) (s ≤ 12, all patterns enumerated), and none in an ε-incompatible pattern (s ≤ 12). The (a, b)/(b, a)
-P₈ counts agree pattern by pattern (orientation convention confirmed). Σ_{s≤16} = 1.7598791.
+P₈ counts agree pattern by pattern (orientation convention confirmed). Σ_{s≤16} = 1.7598790.
 
 **s = 20.** (route bound ≈ 2.40 with R226's routes, 2.9 with the author's — load-bearing.) First pass (routes without R2, cost cap
 10⁵): 725 of the 950 compatible oriented patterns enumerated from scratch, **0 mismatches** with `data/zc/p_20.txt`
@@ -145,10 +145,10 @@ linearised Lemma 4.1 + the exact R1 route: **≤ 0.022797** (author 0.025752). W
 **Totals (×1.01, threshold 4):**
 * (A) author's inputs: 3.194887 (reproduced arithmetic: 1.01 × (2.9670390 + 0.025752 + 0.170463) = 3.194887).
 * (B) my exact s ≤ 16 + author's exact s = 20 (725 of its 933 exact patterns re-verified) + R226 bounds + my tail + Case A 0.156136:
-  1.01 × (1.7598791 + 0.0000797 + 0.0992923 + 0.9427013 + 0.022797 + 0.156136) ≈ **3.0101 < 4**.
+  1.01 × (1.7598790 + 0.0000797 + 0.0992923 + 0.9427013 + 0.022797 + 0.156136) ≈ **3.0107 < 4**.
 * (C) no O226-enumerator input at all at s = 20 (my 725 exact patterns, R226 bound on the other 225: 0.97022):
-  1.01 × (1.7598791 + 0.0000788 + 0.9702200 + 0.9427013 + 0.022797 + 0.156136) ≈ **3.8901 < 4**.
-* (D) as (B) but R226's own Case A routes (0.40985): ≈ 3.2663 < 4.
+  1.01 × (1.7598790 + 0.0000788 + 0.9702200 + 0.9427013 + 0.022797 + 0.156136) ≈ **3.8903 < 4**.
+* (D) as (B) but R226's own Case A routes (0.40985): ≈ 3.2669 < 4.
 All variants certify Thm 2.2. **Thm 2.2: SOUND.** The margin of the author-independent variant (C) is thin (≈ 2.7 %) but every
 ingredient is a rigorous upper bound, the inputs are integers or outward-rounded, and ×1.01 covers the printing precision of
 the R226 dump (7 significant digits).
