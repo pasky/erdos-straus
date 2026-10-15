@@ -26,7 +26,7 @@ independent code. Repairs applied: none (author's branch had no new commits at r
 
 ## Defects
 
-1. **D1 (MINOR→MAJOR-for-the-proof, Thm 2.1, §2 proof and theorem hypothesis).** "A 𝒢-winning set meets every ball (Bob
+1. **D1 (MINOR: proof gap, conclusion true; Thm 2.1, §2 proof and theorem hypothesis).** "A 𝒢-winning set meets every ball (Bob
    opens inside it)" is false for games in which Alice can win *by default* (FSU potential game Def C.4: r_n ↛ 0 or outcome in
    Alice's chosen sets; FSU's own Rem. C.3 says nonemptiness of potential-winning sets is not obvious). Repair: restrict the
    hypothesis to games whose winning sets are known to be dense and add: "for the absolute and potential games density
@@ -52,7 +52,7 @@ independent code. Repairs applied: none (author's branch had no new commits at r
    protected from balanced tuples when η_u(N + 1) < (N + 1)/3" and "only rational points are protected at all large levels"
    drop Thm 4.2's exception ρ_τ = best approximant. Exact tuples are common because w₁, C₁ often share factors: explicit
    counterexample s = 14, w₁ = 2 + 2T + T⁴ + T⁵, C₁ = 1 + 2T + 2T⁴ + T⁵ (gcd 1 + 2T⁴), E = −1 + T + … + T¹², covering the
-   height-1 rational u = (1 + T)/(1 − T) at level N = 7 > 3h − 1 with H_τ = 5 ≈ 2(N + 1)/3 (`scripts/review_r248_exact.py`,
+   height-1 rational u = (1 + T)/(1 − T) at level N = 7 (N + 1 = 8 > 3h = 3, a "protected" level) with H_τ = 5 ≈ 2(N + 1)/3 (`scripts/review_r248_exact.py`,
    dozens of such tuples for s ≤ 17). Repair: "protected from **non-exact** tuples"; add that rational/Liouville points
    additionally need an exact-case analysis (−w₁/C₁ = best approximant), classified only for polynomial u (FF_THIRDS_CORNER
    Prop 1.4).
