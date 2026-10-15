@@ -11,6 +11,8 @@ From-scratch scripts: `scripts/review_r241_*.py`.
 | Thm 1.2 (Case B law) + Cor 1.3 | SOUND (§1; brute-force EVIDENCE reproduced from scratch) |
 | Thm 1.4 (Case A law) | SOUND, modulo the inherited input lc K = lc E ∈ F₃^* ((J)56 Lemma 7.2) (§2) |
 | Cor 1.5 (vanishing law) | SOUND (§2) |
+| Prop 1.6 (sharpness) | SOUND (§3); its 'Exact scope' paragraph partially reproduced (q = 9, s ≤ 12) |
+| Cor 1.7 (k ≥ 2 parity law) | SOUND (§3); the bound-sum reductions 41.87 → 11.24, 1466.7 → 389.2 not re-run (not load-bearing) |
 | (further claims) | (in progress) |
 
 ## §1. Lemma 1.1, Theorem 1.2, Corollary 1.3
@@ -67,6 +69,21 @@ P₈ part at α = 4 is only 174 (the author's use of 268 is a valid over-count).
 
 **Cor 1.5.** ord(−u₀) ∣ 2n is a restatement; q = 27: −u₀ ∉ {±1} has order 13 or 26 ⇒ 13 ∣ n; q = 9: ord 4 (±i) ⇒ 2 ∣ n, ord 8
 (P₈) ⇒ 4 ∣ n. **SOUND.**
+
+## §3. Proposition 1.6 and Corollary 1.7
+
+**Prop 1.6** re-checked by hand: (D+1)C = T^s + 1 + C = T^s + v, w + C = v = g'v; m'(0) = D(0) + 1 ≠ 0, C(0) = 1/D(0),
+v(0) = (D(0)+1)/D(0) ≠ 0, v nonconstant (deg C = s − deg D ≥ 1); E(0) = D(0); for D = T − ρ, ρ^s = −1 gives ρ ≠ 1 (q odd).
+Consistency with the law: z = 1, t = s − 1 gives ε = (−1)^{s²+2s−1} = (−1)^{s+1} = (−ρ)^s. **SOUND.** The "Exact scope" EVIDENCE
+(all allowed classes populated) is reproduced by my q = 9, s ≤ 12 run (§1) and by q = 7 (s ≤ 12: s ≡ 0 (3) all classes ≠ −1, else
+only E(0) = 1); the q = 27, s = 13 statement (118 443 tuples, all 24 classes) was **not** re-run (cost; it is EVIDENCE and not used).
+
+**Cor 1.7** re-derived: with (M, W, C, G, V, s) = (m', w₁, C₁, Tg', v₁, s − 2), W(0)/C(0) = −1 since w₁(0) + C₁(0) = 0. I also checked
+that deg(m'w₁C₁) = s − 2 is forced (if larger, deg v₁ = z + a' + b' > max(a', b') ≥ deg(w₁ + C₁) = 1 + y + deg v₁; if smaller,
+t' = s − 2 and deg(Tg'v₁) ≥ s − 1 > max(a', b')), so the λ-exponent is a' − b' and λ = 2 only when it is 0. Parity reduction
+(z even ⇒ s ≡ t(1+s) ⇒ s, t even; z odd ⇒ ts odd) verified. From-scratch brute force (`scripts/review_r241_k2parity.py`, all monic
+T-free (m', w₁, C₁) of total degree ≤ s' + 1, g' any monic — a superset of (B)): q = 3 (s' ≤ 9), 5 (≤ 7), 7 (≤ 6), 9 (≤ 5):
+0 parity failures, 0 tuples with deg ≠ s'. (Small samples; the proof is what matters.) **SOUND.**
 
 ## Defects
 (in progress)
