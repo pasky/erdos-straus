@@ -1,6 +1,6 @@
 # EXP_NEAR_SQUARE — exponential near-squares 4^s + k: mixed profinite points, k = 105, S-unit near-squares (task O235)
 
-Status: in progress (O235). **ES is not solved here, nor any infinite case of it unless stated with a complete proof and a
+Status: checkpoint 1 (O235), awaiting review. **ES is not solved here, nor any infinite case of it unless stated with a complete proof and a
 replayed certificate.** Labels as in DISCOVERIES.md. Builds on SIGN_FIELDS.md §1 (O232: Thm 1.3, Lemmas 1.1–1.2,
 §1.4), EXPONENT_COVERING.md ((J)22: Thm 1.4 compactness criterion), NEAR_SQUARE.md ((J)55). Memos BRAINSTORM/z11_*.md,
 scripts `scripts/z11_*`, certificates `data/z11/`.
