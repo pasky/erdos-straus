@@ -15,5 +15,15 @@ k=1 r=16 q=43046721 S=80 caseB_finite=7.0000303467e+00 tail=3.3674e-09 caseA=2.0
 k=1 r=17 q=129140163 S=80 caseB_finite=7.0000101139e+00 tail=1.9918e-11 caseA=2.0000e+00 certified_total(x1.01)=9.090011e+00 q-3=129140160 ratio=7.039e-08
 k=1 r=18 q=387420489 S=80 caseB_finite=7.0000033711e+00 tail=1.2008e-13 caseA=2.0000e+00 certified_total(x1.01)=9.090004e+00 q-3=387420486 ratio=2.346e-08
 k=1 r=19 q=1162261467 S=80 caseB_finite=7.0000011237e+00 tail=7.3458e-16 caseA=2.0000e+00 certified_total(x1.01)=9.090001e+00 q-3=1162261464 ratio=7.821e-09
-ALL OK
-(r = 3..19; r >= 20 not run: fz_sum.c helpers take q as int)
+k=1 r=20 q=3486784401 S=80 caseB_finite=7.0000003746e+00 tail=4.5457e-18 caseA=2.0000e+00 certified_total(x1.01)=9.090000e+00 q-3=3486784398 ratio=2.607e-09
+k=1 r=21 q=10460353203 S=80 caseB_finite=7.0000001249e+00 tail=2.8392e-20 caseA=2.0000e+00 certified_total(x1.01)=9.090000e+00 q-3=10460353200 ratio=8.690e-10
+k=1 r=22 q=31381059609 S=80 caseB_finite=7.0000000416e+00 tail=1.7869e-22 caseA=2.0000e+00 certified_total(x1.01)=9.090000e+00 q-3=31381059606 ratio=2.897e-10
+k=1 r=23 q=94143178827 S=80 caseB_finite=7.0000000139e+00 tail=1.1318e-24 caseA=2.0000e+00 certified_total(x1.01)=9.090000e+00 q-3=94143178824 ratio=9.656e-11
+k=1 r=24 q=282429536481 S=80 caseB_finite=7.0000000046e+00 tail=7.2072e-27 caseA=2.0000e+00 certified_total(x1.01)=9.090000e+00 q-3=282429536478 ratio=3.219e-11
+k=1 r=25 q=847288609443 S=80 caseB_finite=7.0000000015e+00 tail=4.6108e-29 caseA=2.0000e+00 certified_total(x1.01)=9.090000e+00 q-3=847288609440 ratio=1.073e-11
+k=1 r=26 q=2541865828329 S=80 caseB_finite=7.0000000005e+00 tail=2.9614e-31 caseA=2.0000e+00 certified_total(x1.01)=9.090000e+00 q-3=2541865828326 ratio=3.576e-12
+k=1 r=27 q=7625597484987 S=80 caseB_finite=7.0000000002e+00 tail=1.9087e-33 caseA=2.0000e+00 certified_total(x1.01)=9.090000e+00 q-3=7625597484984 ratio=1.192e-12
+k=1 r=28 q=22876792454961 S=80 caseB_finite=7.0000000001e+00 tail=1.2339e-35 caseA=2.0000e+00 certified_total(x1.01)=9.090000e+00 q-3=22876792454958 ratio=3.973e-13
+k=1 r=29 q=68630377364883 S=80 caseB_finite=7.0000000000e+00 tail=7.9977e-38 caseA=2.0000e+00 certified_total(x1.01)=9.090000e+00 q-3=68630377364880 ratio=1.324e-13
+k=1 r=30 q=205891132094649 S=80 caseB_finite=7.0000000000e+00 tail=5.1962e-40 caseA=2.0000e+00 certified_total(x1.01)=9.090000e+00 q-3=205891132094646 ratio=4.415e-14
+ALL OK (r = 3..30; r >= 20 also covered by Lemma 7.4, data/fz/largeq_k1.txt)

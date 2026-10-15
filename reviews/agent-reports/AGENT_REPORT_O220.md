@@ -1,3 +1,26 @@
+# AGENT_REPORT_O220 — checkpoint 4 (final for this session): A = T closed for all r ≥ 3
+
+## Results (FF_STERILE_SMALL §8)
+* **Theorem 8.1 (PROVED, computer-assisted):** for every q = 3^r with r ≥ 3, ES_q(T) (A = T, k = 1) has no finite linear covering.
+  - 3 ≤ r ≤ 19: Thm 7.3 (fz1_certify, unchanged).
+  - r ≥ 20: **Lemma 7.4**, a q-uniform bound K(q) whose terms are all nonincreasing in q. It uses DEPTH_ASPECT-style crude routes R1–R4,
+    min exponent ≤ ⌊2s/5⌋ ≤ ⌈(s−1)/2⌉, plus the Case A tail lemma. K(3^20) ≤ 4.19·10⁸ < 3^20 − 3 (`fz1_largeq.py`, exact rationals,
+    fail-closed tails).
+  - Cross-check: with overflow-safe helpers (q as a float type; value-preserving, all previously certified numbers reproduced to all
+    printed digits), `fz1_certify.sh 20 30` certifies r = 20..30 directly too (totals ≈ 9.09).
+* Combined status for q = 3^r: no finite linear covering for k ≥ 2, r ≥ 2 and for k = 1, r ≥ 3. Open: q = 3 (k ≥ 2, Conjecture 0.2)
+  and q = 9 (k = 1; exact counts suggest ≈ 4.6 < 6, but the bounds fail).
+
+## Sparks (carried forward)
+* **Odd-r absence (SHARP of checkpoint 3):** on the A = T slices u₀ ∉ F₃^*, q = 27 has no tuples with s ≤ 12 and no Case A data with
+  α ≤ 4, and q = 9 has no tuples at odd s ≤ 17. A descent explanation could close q = 9 with k = 1 and sharpen everything.
+* **Goal (3) (not started):** test whether the cyclotomic "thirds corner" tuples at q = 3 (exp(Ω(s/log s)) of them) cover x*_c
+  (Conjecture 0.2); a refutation would also be a result.
+* q = 9, k = 1: exact enumeration to s ≈ 22–24 plus sharper moderate-s bounds.
+* Transplant the division routes (Lemmas 1.1–1.3) and the T-adic class refinement (Lemma 1.4) to the ℤ box bounds of MORDELL17 ((J)26 r₀).
+
+---
+
 # AGENT_REPORT_O220 — checkpoint 3 (k = 1, A = T: decided for 3 ≤ r ≤ 19; q = 9 open)
 
 **SHARP:** on the A = T slices u₀ ∉ F₃^* the small-level families are *absent* when r is odd. At q = 27 there are no Case B tuples

@@ -6,7 +6,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 R1=$1; R2=$2; S=${3:-80}
-if [ "$R2" -gt 19 ]; then echo "r > 19 unsupported (int q in fz_sum.c helpers)"; exit 1; fi
+if [ "$R2" -gt 30 ]; then echo "r > 30: use fz1_largeq.py (Lemma 7.4)"; exit 1; fi
 gcc -O2 -o /tmp/fz1_sum_bin scripts/fz1_sum.c -lm
 gcc -O2 -o /tmp/fz1_tail_bin scripts/fz1_tail.c -lm
 ulimit -v 8000000

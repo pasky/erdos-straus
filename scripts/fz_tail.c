@@ -32,7 +32,7 @@ static double xlx(double x) { return x <= 0 ? 0 : x * log(x); }
 static int RANK = 1; static double RKl[NRK][NN0], RKc[NRK][NN0], RKlr[NRK];
 typedef struct { double ratio; int j; double cnt; } RKI;
 static int rkcmp(const void *x, const void *y) { double a = ((RKI *)x)->ratio, b = ((RKI *)y)->ratio; return a < b ? 1 : a > b ? -1 : 0; }
-static void init_rankin(int q, long S) {
+static void init_rankin(double q, long S) {   /* O220: q as double (was int) */
   int NM = 8 * S + 8; double *Ip = calloc(NM + 1, sizeof(double));
   for (int j = 1; j <= NM; j++) { long double sum = 0;
     for (int i = 1; i <= j; i++) if (j % i == 0) { int m = i, mu = 1, p; for (p = 2; p * p <= m; p++) if (m % p == 0) { m /= p; if (m % p == 0) { mu = 0; break; } mu = -mu; }
@@ -215,7 +215,7 @@ int main(int argc, char **argv) {
   int r = atoi(argv[1]); SMIN = atol(argv[2]); MINW = argc > 3 ? atoi(argv[3]) : 9; target = argc > 4 ? atof(argv[4]) : 1e-3;
   if (argc > 5) NEWR = REF = atoi(argv[5]);
   if (argc > 6) RANK = atoi(argv[6]);
-  if (RANK) init_rankin((int)lround(pow(3.0, r)), SMIN);
+  if (RANK) init_rankin(pow(3.0, r), SMIN);
   lq = r * log(3.0);
   for (int i = 0; i < 8; i++) for (int j = 0; j < 8; j++) for (int k = 0; k < 8; k++) rec(i / 8.0, j / 8.0, k / 8.0, 3);
   printf("r=%d S=%ld boxes=%ld failed=%ld tail(s>S) <= %.10e\n", r, SMIN, nboxes, nfail, total);

@@ -1,6 +1,6 @@
 # FF_STERILE_SMALL — the small-q sterility cases: q = 27 (r = 3), q = 9, and A = T (k = 1) (O220, wave Y-f)
 
-Status: checkpoint 3 (O220): Thm 3.1 (q = 27, k ≥ 2; R220), Thm 5.2 (q = 9, k ≥ 2), Thm 7.3 (A = T, q = 3^r, 3 ≤ r ≤ 19) PROVED (computer-assisted); q = 3 and (k = 1, q = 9) open.
+Status: checkpoint 4 (O220): Thm 3.1 (q = 27, k ≥ 2; R220), Thm 5.2 (q = 9, k ≥ 2), Thm 8.1 (A = T, all q = 3^r, r ≥ 3) PROVED (computer-assisted); open: q = 3 (k ≥ 2), q = 9 (k = 1).
 Builds on FF_STERILE_PUSH.md ((J)51; notation (B), Lemmas 1.1–1.6, 2.1, 2.2, Thm 3.1), DEPTH_ASPECT.md §2, FUNCTIONFIELD_ES*.md.
 Scripts `scripts/fz_*`.
 
@@ -287,3 +287,31 @@ q − 3 → ∞, so r ≥ 20 is EVIDENCE. **q = 9 (k = 1) is not closed:** exact
 even s; no tuples at odd s ≤ 17) and Case A ≤ 0.671 (exact α ≤ 6), but the route bounds for 19 ≤ s ≤ 80 add 53 > 6 − 4.6
 (CERTIFIED statement about the method; the exact masses decay like 10⁻⁵ at s = 18, so the true sum is very likely ≈ 4.6 < 6, EVIDENCE).
 Contrast: q = 3 has a finite covering ((J)4) — there are no slices u₀ ∉ F₃^*.
+
+## 8. A = T for all r ≥ 3 (O220 checkpoint 4)
+
+**Lemma 7.4 (q-uniform bound; PROVED).** For every q = 3^r ≥ 9 the left side of the k = 1 union bound over the q − 3 slices is
+≤ K(q) := Σ_{s≥2} 2(s+1)³·8^s·q^{e(s)} + Σ_{α≥1} (α+1)³·√8·3^{α/2}·q^{(1−α)/2}, e(s) := ⌊2s/5⌋ − ⌈(s−1)/2⌉ ≤ 0, and K is
+nonincreasing in q.
+*Proof.* Case B, per pattern (s; a, z, y, t) of (B^{k=1}): routes R1 (v, then an ordered triple factorisation of T^s + v:
+≤ q^t·3^s), R2 ((m', g'), then a monic divisor E of 1 + T^s m'g'², degree ≤ 3s since y + z ≤ s: ≤ q^{y+z}·2^{3s}), R3 ((w, g'),
+E ∣ g'T^s + w of degree ≤ 2s: ≤ q^{a+y}·4^s), R4 ((m', w), E ∣ T^s + m'w² of degree s: ≤ q^{z+a}·2^s) — each tuple is
+reconstructed from the data and E (Lemma 7.1; E monic in Case B), N* ≤ q^d, and a degree-n polynomial has ≤ 2^n monic
+divisors. With σ := a + y + z, t = s − σ and the least pairwise sum of (a, y, z) ≤ 2σ/3, min(t, y + z, a + y, a + z) ≤
+min(s − σ, 2σ/3) ≤ 2s/5, hence (integers) ≤ ⌊2s/5⌋: count ≤ 8^s q^{⌊2s/5⌋} per pattern, ≤ 2(s+1)³ patterns with orientation,
+mass q^{−⌈(s−1)/2⌉} each. e(s) ≤ 2s/5 − (s−1)/2 = 1/2 − s/10, and e(s) ≤ 0 for all s ≥ 2 (checked for s ≤ 600, and
+1/2 − s/10 < 0 beyond). Case A: Lemma 7.2(b) with weight q^{−α}. All exponents of q are ≤ 0, so every term is nonincreasing in q. ∎
+**Computation (`scripts/fz1_largeq.py 20`, log `data/fz/largeq_k1.txt`; exact rationals for s ≤ 600, α ≤ 200, geometric tails
+via e(s) ≤ 1/2 − s/10, fail-closed against underflow):** K(3^20) ≤ 4.192·10⁸ < 3^20 − 3 = 3.487·10⁹. Hence (Σ_{k=1}) holds for
+every q = 3^r with r ≥ 20.
+
+**Theorem 8.1 (A = T, all r ≥ 3; PROVED, computer-assisted).** For every q = 3^r with r ≥ 3, O(q, T) ≠ ∅: ES_q(T, ·) has no finite
+linear covering. *Proof.* 3 ≤ r ≤ 19: Theorem 7.3. r ≥ 20: Lemma 7.4. (Cross-check: `fz1_certify.sh 20 30` with the overflow-safe
+helpers also certifies r = 20..30 directly, totals ≤ 9.0904 < q − 3; `data/fz/certify_k1.txt`.) ∎
+*Implementation note.* `init_omstar`/`init_rankin` (fz_sum.c) and `init_rankin` (fz_tail.c, fz1_tail.c) now take q as a floating
+type (they took a C int, which overflowed for r ≥ 20 — the reason Thm 7.3 stopped at r = 19). The change is value-preserving for
+the certified cases: fz_sum 3 80 (3.018043069489), fz_hybrid q = 9 (3.287220339594), fz1_sum 4 80 (24.81244341985) and
+fz1_tail 4 80 (3.3028636616·10⁻⁵) are reproduced to all printed digits.
+**Status of ES_q(T^k) for q = 3^r (with (J)51 and this file):** no finite linear covering for k ≥ 2 and every r ≥ 2 (Thms 3.1, 5.2 +
+(J)51), and for k = 1 and every r ≥ 3 (Thm 8.1). Open: q = 3 with k ≥ 2 (Conjecture 0.2), and q = 9 with k = 1 (§7: exact counts give
+≈ 4.6 < 6, EVIDENCE; the bounds beyond s ≈ 19 are too weak). q = 3 with k = 1 has a finite covering ((J)4).

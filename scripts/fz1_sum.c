@@ -48,7 +48,7 @@ static long EX[260][260][260]; static char HAS[260][260][260];
 int main(int argc, char **argv) {
   int r = atoi(argv[1]), S = atoi(argv[2]); const char *dir = argc > 3 ? argv[3] : "-"; int every = argc > 4 ? atoi(argv[4]) : 10;
   lq = r * logl(3.0L); lfact[0] = 0; for (int i = 1; i < NF; i++) lfact[i] = lfact[i - 1] + logl((LD)i);
-  int q = (int)lroundl(powl(3.0L, r)); init_omstar(q); init_rankin(q);
+  long double q = powl(3.0L, r); init_omstar(q); init_rankin(q);
   LD cum = 0, cumex = 0; long cnt[19] = {0};
   for (int s = 2; s <= S; s++) {
     FILE *f = NULL; int nlines = 0, npat = 0;
