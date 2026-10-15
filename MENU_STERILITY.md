@@ -185,3 +185,10 @@ supply of moving divisors that powered Theorem C collapses in characteristic p (
 | M₂: binary/norm forms p = N(x) (positive density) | primes | element-square classes (actual squares) | PROVED d = 2 ((J)3), Assessment d ≥ 3 |
 | any thin menu on positive-density prime sets | primes near (J)54 points | everything ET misses (Prop 5.1) | PROVED |
 | divisor parameters (u | N_θ(p)) | all p | = B2 lottery | — |
+
+**4.3 T1 control explains the two dead residues (PROVED).** The SG window-11 menu fires at every s ≡ 0 (mod 4) except
+s ≡ 4, 24 (mod 40), i.e. X ≡ 1, −1 (mod 11). These are exactly the neighbourhoods of the integer T1 points X = ±1 of
+φ(X) = 48X⁴ + 1: φ(±1) = 49 = 7² (s = 4: 3·2⁴ + 1 = 49). φ has no real root, so by NEAR_SQUARE Thm 3.3 (= Theorem A with
+γ = (±1 − θ)⁻¹) no polynomial-in-X family whatsoever is valid on a class containing X = ±1. Numerically 48X⁴ + 1 is a square
+for no X ≡ 4, 6 (mod 11), X < 2·10⁶, and for no X < 10⁵ except X = 1. These residues are handled by ET classes in Theorem C
+(they are not near a unit-square point of the s-family).
