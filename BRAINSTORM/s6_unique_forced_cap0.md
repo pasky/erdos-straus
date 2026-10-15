@@ -5,8 +5,8 @@
 m) force cap 0 for EVERY K? **Prop (PROVED).** Let m ≡ 3 (mod 4) be a forced window (CAP_POINTWISE Thm 1.1′). Cap 0 is
 forced for all admissible K iff the odd part U of (ℤ/m)^* is trivial, iff λ(m) | 2 with m ≡ 3 (4), iff m = 3.
 *Proof.* If U = 1, (ℤ/m)^* = {±1}, every QNR prime of K is ≡ −1 and has exponent ≥ 1: −1 ∈ Σ_m(K). If U ≠ 1, take K = s
-a prime with s generating a cyclic factor of order 2·o, o > 1 odd (Dirichlet): Σ_m(s) = {1, s, s⁻¹} ∌ −1 (s ≢ −1 since
-s^o ≠ ... has order 2o > 2). λ(m) | 2 and m ≡ 3 (4) leave m = 3 only (m | 24). ∎
+a prime with s generating a cyclic factor of order 2·o, o > 1 odd (Dirichlet): Σ_m(s) = {1, s, s⁻¹} ∌ −1 (s has order 2o > 2, so
+s ≢ −1); such s is a forced K (a non-residue in every component) for n := 4s − m, s large in its class. λ(m) | 2 and m ≡ 3 (4) leave m = 3 only (m | 24). ∎
 With the 2-adic addendum (CAP_DOWN Thm 1.2 Addendum: q = 3 always fires, even in the excluded case), the window m = 3 is
 exactly the classical identity for n ≡ 2 (mod 3). So the "degree-2 accident" ((J)19, CAP_DOWN Prop 6.1) has a sharp
 form: the forced level equals cap 0 only where the unit group is 2-elementary, i.e. at Mordell's first congruence.
