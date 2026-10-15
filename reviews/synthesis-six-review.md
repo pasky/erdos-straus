@@ -1,5 +1,7 @@
 # R245 — hostile review #1 of O238 Synthesis VI (SYNTHESIS_SPARKS6.md + BRAINSTORM/s6_*.md)
 
+Repairs applied (R245, author quiet at review end): SYNTHESIS_SPARKS6.md §0 I2, Thm 1.1(a), §1.1 scope, §1.2, §2 table, §3.1, §3.3; memos s6_exp_classes_105, s6_mixed_points_cuberoots, s6_numerator_windows, s6_witness_onesided, s6_unique_forced_cap0, s6_window_independence; BRAINSTORM/README rows; AGENT_REPORT_O238 — all marked "(R245 repair)". Defects 1, 2, 3, 4, 5, 6, 7, 8 (qualifier), 9 (wording), 10 repaired textually; no mathematical change to Thm 1.1.
+
 Reviewer: R245 (side-agent/review-synthesis-six). Base: merge of side-agent/synthesis-six at a472a48b.
 From-scratch scripts: `scripts/review_r245_cert.py`, `scripts/review_r245_small.py` (no s6_*/z8/ec_cover code imported;
 only the JSON parameters are read).

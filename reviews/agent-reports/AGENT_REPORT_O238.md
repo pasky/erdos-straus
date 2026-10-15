@@ -4,14 +4,14 @@ Branch side-agent/synthesis-six. Deep file SYNTHESIS_SPARKS6.md; memos BRAINSTOR
 scripts scripts/s6_*; certificate data/s6_cert105_et.json (2 KB).
 
 **SHARP:** ES holds for every n = 4^s + 105 (s ≥ 0) — (J)62's open, Mordell-hard-for-all-s offset — PROVED (computer-
-assisted). (J)62's 13-class ET covering at L = 360 leaves exactly s ≡ 34 (mod 90); ONE exponential window class closes it:
+assisted). The 13-class ET covering at L = 360 (O238's, built with (J)62's z8 code; R245 repair) leaves exactly s ≡ 34 (mod 90); ONE exponential window class closes it:
 for u ≡ 32 (mod 151), n = 256u³ + 105, x = 64(u³+1), A = (64u³ + 2u² − 2u + 66)/151, y = nA, z = 32n(u+1)A solves
 4/n = 1/x + 1/y + 1/z (one-line identity: 4x − n = 151 and 2(32u+33)(u² − u + 1) = 151A), and s ≡ 34 (mod 45) gives
 u = 4^{(s−4)/3} ≡ 32 (mod 151). The class is CAP_DOWN Lemma 1.1 at the window 151 = 4⁴ − 105 with the divisor ratio
 2⁻⁵/(4^{r/3} + 1): the budget is forced by the cyclotomic factorisation of 4^r + 1. The class s ≡ 34 (45) is an ordinary
-residue class (even of n_s mod 4⁴⁵ − 1), but the identity is not polynomial in n (it uses u = ((n − 105)/256)^{1/3}). So (J)62's
-"mixed points" are sterile only for menus of polynomial-in-n (fixed-parameter) ET identities: that is the violated
-hypothesis of EXPONENT_COVERING Thm 1.4. Mixed point μ* ↔ the cube-root parameter u (3-adic component −2).
+residue class (even of n_s mod 4⁴⁵ − 1), but the identity is not polynomial in n (it uses u = ((n − 105)/256)^{1/3}). (R245 repair) No
+point of Λ₁₀₅ is known to be sterile ((J)62: μ* lies in II2 (2, 23, 919); the ET search stalled); EXPONENT_COVERING Thm 1.4
+applies verbatim to the enlarged menu, and ET-alone coverability of 105 remains OPEN. Mixed point μ* ↔ the cube-root parameter u (3-adic component −2).
 Relay suggestion: exponential classes for k = 33, 273, 297 (Sophie-Germain/difference shapes, Type I exponential classes;
 k = 33's residual is at μ = −2, where 4^{s+2} − 1 would be the natural factorisation).
 
@@ -22,9 +22,9 @@ k = 33's residual is at μ = −2, where 4^{s+2} − 1 would be the natural fact
   `s6_cert105_make.py` (z8 seeding, 13 classes; ~1 min). Search driver `s6_hybrid105.py 105 360 2000 20000 1e15 7 45`.
 * (i) s6_unique_forced_cap0 (PROVED): the forced bit gives cap 0 for every K only at m = 3. s6_divisor_pigeonhole (PROVED):
   |P| > (q−1)/2 ⟹ cap 0; structure-free strengthenings need Ω(K) ≳ q/4 (Cauchy–Davenport, sharp).
-* (i) × numerators, s6_numerator_windows (PROVED only-if; EVIDENCE for existence): the self-generated mute set works for
-  every ν/n; at odd squares forced windows are impossible iff-direction proved for 4 | ν, ν ≡ 3 (4), ν = □ — a strictly
-  larger set than (J)46's T1 numerators (window shape is more T1-rigid than ES_ν).
+* (i) × numerators, s6_numerator_windows (PROVED only-if; EVIDENCE for existence): (R245 repair) K odd needs ν
+  even; at odd squares forced windows are impossible for 4 | ν (PROVED); for odd ν the valid 2-adic forcing gives forced
+  windows at odd squares for ν = 3, 7, 9, 25, so the "more T1-rigid than ES_ν" claim is withdrawn.
 * (iii) s6_witness_onesided: (q/p) = −1 is not necessary for cap 0 at q (non-square d); cap-0 rates 34 % vs 18 % (EVIDENCE).
 * (iv) s6_ydual_windows: 𝒟_e(M) is the y-window (fixed mute set ⟹ almost-all side); x-windows own their mute set (pointwise).
 * (v) s6_mixed_points_cuberoots: sterility is menu-relative (Assessment; 105 instance PROVED).

@@ -448,11 +448,11 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | memo | idea | result | label |
 |---|---|---|---|
 | s6_exp_classes_105 | windows 4^j − k on 4^s + k with algebraically forced budget (cyclotomic factors of 4^r + 1) | **ES for all 4^s + 105** (one exponential class + 13 ET classes, L = 360) — SHARP | PROVED (computer-assisted) |
-| s6_mixed_points_cuberoots | uniform reading of sterility (FF root-product law, window reciprocity, mixed points) | sterility is relative to the class menu; 105's mixed point = cube-root family 256u³ + 105 | Assessment (instance PROVED) |
+| s6_mixed_points_cuberoots | uniform reading of sterility (FF root-product law, window reciprocity, mixed points) | sterility is relative to the class menu (by definition; R245 repair: no sterile point on Λ₁₀₅ known); 105's mixed point = cube-root family 256u³ + 105 | Assessment (instance PROVED) |
 | s6_divisor_pigeonhole | P ∩ −P at a forced window | \|P\| > (q−1)/2 ⟹ cap 0; structure-free versions need Ω(K) ≳ q/4 (sharp) | PROVED + EVIDENCE |
 | s6_unique_forced_cap0 | when does the forced bit give cap 0 for all K | only m = 3 (2-elementary unit group) | PROVED |
 | s6_witness_onesided | is (q/p) = −1 necessary for cap 0 at q | no (non-square d); rates 34 % vs 18 % | PROVED obs. + EVIDENCE |
-| s6_numerator_windows | self-generated mute set for ν/n | works for all ν; window-shape T1 at squares iff 4 \| ν, ν ≡ 3 (4) or ν = □ (only-if proved) | PROVED + EVIDENCE |
+| s6_numerator_windows | self-generated mute set for ν/n | (R245 repair) K odd ⟹ even ν only; window-shape T1 at odd squares PROVED for 4 \| ν; false for ν = 3, 7, 9, 25 under the valid 2-adic forcing | PROVED (4 \| ν) + counterexamples |
 | s6_ydual_windows | 𝒟_e(M) vs windows | y-window (fixed mute set) vs x-window (self-generated): the pointwise/almost-all boundary | PROVED dictionary |
 | s6_window_independence | glue many forced windows | gcd(K_m, K_m′) \| (m − m′)/4: almost coprime mute sets (independence heuristic) | PROVED (trivial) + Assessment |
 | s6_exp_classes_primes | algebraic budget-forcing for primes | needs a thin family; B1/B2 for primes | Assessment (negative) |

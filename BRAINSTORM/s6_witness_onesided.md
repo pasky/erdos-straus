@@ -7,7 +7,7 @@ window m = 4x − p = (a + b)/c; for c = 1 it is the word (t, u, v) = (4d, a, b)
 gm = n + 4Q²) suggests "(m/p) = −1 is necessary". It is not, for general d (non-square shots).
 **Observation (PROVED, elementary).** At a prime window q the Lemma-1.1 condition d ≡ −K (mod q) puts no constraint on
 (q/p) when d is not a square: (d/q) = (−K/q) is matched by the odd-exponent primes of d.
-So the forced level is one-sided: (q/p) = −1 forces firing at some cap; (q/p) = +1 windows fire by lottery.
+So the forced level is one-sided: (q/p) = −1 forces firing at some cap (R245 repair: under Thm 1.1 (ii) or CAP_DOWN Thm 1.2 (E)/Addendum — n = 5, q = 67 is dead); (q/p) = +1 windows fire by lottery.
 
 ## Literature
 NEAR_SQUARE Lemma 1.3 (witness f of Type II charts, gcd(n, 2ad) = 1); ET Prop 1.6; (J)58 three side numbers.

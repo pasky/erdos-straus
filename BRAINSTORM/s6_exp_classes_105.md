@@ -16,7 +16,7 @@ systems) for thin exponential families; algebraic factorisation of 2^{2r} + 1 (c
 
 ## Barrier screen
 B1: the classes are congruences (even on n, mod 4⁴⁵ − 1), but the identities are not polynomial in n: the "fixed ET
-parameters" hypothesis of EXPONENT_COVERING Thm 1.4 is violated, which is the whole point. The family is thin, so B1's Thm M (no covering for all n) is not in play. B2: the "divisor in a
+parameters" hypothesis of EXPONENT_COVERING Thm 1.4 is not met by the new class (R245 repair: nothing is violated — Thm 1.4's clopen argument applies verbatim to the enlarged menu ET + divisor + exponential classes; no point of Λ₁₀₅ is known to be sterile for the ET menu, and ET-alone coverability of 105 remains OPEN). The family is thin, so B1's Thm M (no covering for all n) is not in play. B2: the "divisor in a
 class" is supplied by an algebraic identity (u + 1 | u³ + 1), a non-formal input available only on the family. B3/B6: no
 counting. T1: the class contains no square (Lemma-1.1 T1, CAP_DOWN §3). Thm 9.1 / Prop 10.3: not applicable (finite
 certificate).
