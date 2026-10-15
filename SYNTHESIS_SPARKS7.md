@@ -61,8 +61,8 @@ along valid points P → ∞ in direction θ, and Q(P) = n > 0). Consequently no
 Q(A + B) + C. Put μ = max(α, β), so deg(A + B) = μ and s = deg(Q(A + B) + C) = max(μ + 2, γ).
 (a) γ > μ + 2. Then s = γ, so α = β = δ = 0, μ = 0, and C(4ABD − 1) = Q(A + B) has degree 2 < γ (or 4ABD = 1 and
 Q(A + B) = 0): impossible.
-(b) γ = μ + 2 = s. Then α + β + δ = 2 − γ + … gives α + β + δ = μ, so (α ≥ β, wlog α = μ) β = δ = 0 and α + 0 + 0 = μ: then
-s = μ + β + γ + δ = γ forces μ + 2 = γ = s = α + γ, so α = 0, γ = 2: A, B, D constants and C = Q(A + B)/(4ABD − 1) ∈ ℚ[Q].
+(b) γ = μ + 2. Then s = γ (no cancellation), and s = α + β + γ + δ forces α = β = δ = 0, so μ = 0 and γ = 2: A, B, D are
+constants, 4ABD ≠ 1 (else Q(A + B) = 0), and C = Q(A + B)/(4ABD − 1) ∈ ℚ[Q].
 (c) γ < μ + 2 = s. Wlog α = μ. Then β + γ + δ = 2 and 4A_top B_top C_top D_top = Q·(A + B)_top.
  (c1) α > β: (A + B)_top = A_top, so 4B_top C_top D_top = Q; one of B, C, D is quadratic with top ∝ Q, the others constants.
   • B quadratic (α ≥ 3): A·E = QB + C with E := 4BCD − Q of degree ≤ 1, E ≠ 0 (else QB + C = 0). deg(QB + C) = 4 = α + deg E.
@@ -82,7 +82,6 @@ s = μ + β + γ + δ = γ forces μ + 2 = γ = s = α + γ, so α = 0, γ = 2: 
     Q·G = C − 4CD·E_A E_B with G := (4CDκ − 1)E_B + (4CDκ' − 1)E_A (deg ≤ 1). If G ≠ 0, comparing degrees forces G constant and
     Q = (C − 4CD E_A E_B)/G, a product of linear forms up to constants: impossible. So G = 0 and E_A E_B = 1/(4D) is a nonzero
     constant, hence E_A, E_B are constants and A, B ∈ ℚ[Q]. ∎
-(The case (b) bookkeeping: if γ = μ + 2 then s = γ = α + β + γ + δ, so α = β = δ = 0 and μ = 0.)
 
 **Corollary 1.3 (PROVED).** Combining Theorems 1.1/1.2 with POINTWISE_BINARYFORM Thm 3.2/3.2′, Prop 5.1: every polynomial
 Type I family valid on a cone, and every polynomial Type II family at all, in the coordinates of an irreducible binary

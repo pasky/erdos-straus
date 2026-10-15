@@ -20,8 +20,9 @@ MENU_LADDER Prop 7.1; MENU_STERILITY §5.
 ## Barrier screen
 This *is* a barrier result (B1 for the norm-form menu). Hypotheses that a future escape must violate: degree-2 form
 (degree ≥ 3 norm forms: the "lower-order terms lie in ℚ[N]" step fails), polynomial ET coordinates (rational families have
-density-zero validity, Lemma 3.3 there), validity on a cone for Type I (families living near finitely many directions are
-density zero among prime points by Hecke). T1 is not used.
+density-zero validity, Lemma 3.3 there), validity on a cone for Type I (for positive definite Q, families living near finitely
+many directions are density zero among prime points by Hecke; for indefinite Q this fails near the null directions,
+POINTWISE_BINARYFORM §4.3 — R-O247 review fix). T1 is not used.
 
 ## Cheap numerics (scripts/s7_normform_check.py)
 Sympy confirms the four rearrangements used in the proofs. A random search (16 425 trials; B, C of degree ≤ 1, D of degree
@@ -29,5 +30,5 @@ Sympy confirms the four rearrangements used in the proofs. A random search (16 4
 controls), none outside ℚ[Q]. POINTWISE_BINARYFORM §6 (0 two-variable Type I families for u² + v², linear levels) agrees.
 
 ## Assessment
-PROVED (two theorems, elementary). Closes the open Type I question of POINTWISE_BINARYFORM §5 on cones and removes the
+PROVED (two theorems, elementary; R-O247 review: both sound, Thm 1.2 after editorial repairs). Closes the open Type I question of POINTWISE_BINARYFORM §5 on cones and removes the
 cone/definiteness hypotheses of its Prop 5.2. For ES at primes: one more hatch closed; next candidate is degree-3 norm forms.

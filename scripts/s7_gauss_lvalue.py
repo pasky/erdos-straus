@@ -20,8 +20,13 @@ def two_squares(p):
     return (b, c) if b % 2 else (c, b)
 
 def rank(v):
-    o = sorted(range(len(v)), key=lambda i: v[i]); r = [0] * len(v)
-    for k, i in enumerate(o): r[i] = k
+    # average ranks for ties (R-O247 review fix)
+    o = sorted(range(len(v)), key=lambda i: v[i]); r = [0.0] * len(v); k = 0
+    while k < len(o):
+        j = k
+        while j + 1 < len(o) and v[o[j + 1]] == v[o[k]]: j += 1
+        for t in range(k, j + 1): r[o[t]] = (k + j) / 2
+        k = j + 1
     return r
 
 def spearman(x, y):

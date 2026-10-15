@@ -5,12 +5,13 @@ Wave Z closed thin families by windows whose exponent budget is *forced* by an a
 For a prime p the brief asks whether *any* positive-density mechanism forces the budget at some window, and whether
 the least cap-0 window m₀(p) is a polylog lottery or has structure (Mordell-hard classes, least non-residues).
 Exact invariant: by CAP_DOWN Lemma 1.1 at cap 0 (c_s ≤ 2b_s ⟺ d | K²) and the Type II normal form
-(x prime to p, p | y, z), for a prime p ≡ 1 (4)
+(x prime to p, p | y, p | z), for a prime p ≡ 1 (4)
 
-  **m₀(p) := min{4x − p : 4/p = 1/x + 1/y + 1/z, p ∤ x} = min{m ≡ 3 (4) : ∃ d | K_m², d ≡ −K_m (mod m)}, K_m = (p+m)/4**
+  **m₀(p) := min{4x − p : 4/p = 1/x + 1/y + 1/z, p ∤ x, p | y, p | z} = min{m ≡ 3 (4) : ∃ d | K_m², d ≡ −K_m (mod m)}, K_m = (p+m)/4**
 
-(Type I solutions have p | x, so 4x − p ≥ 3p; hence m₀(p) = 4·x_min(p) − p, x_min the least first denominator of
-any ES decomposition.) The windows m = 3, 7, 11, … are the consecutive integers K_m = K₃, K₃ + 1, K₃ + 2, …
+(R-O247 review fix: the first version took the minimum over all solutions with p ∤ x and identified m₀ with 4·x_min − p;
+that is false, since a Type I solution can have p ∤ x — e.g. 4/16921 = 1/4233 + 1/6511516 + 1/5619249474036 has 4x − p = 11
+while the least Type II window is 15.) The windows m = 3, 7, 11, … are the consecutive integers K_m = K₃, K₃ + 1, K₃ + 2, …
 
 ## Literature
 Mordell's six classes mod 840 (Mordell 1967, Diophantine Equations §30); e-slice form and its B2 reduction:
@@ -41,8 +42,9 @@ Type II search; no distributional study of it was found in the campaign files (g
   actual 4540, 989, 405, 161, 57, 20, 7; shuffled (B = 47, four runs) 4536–4561, 958–995, 391–416, 149–167, 47–56,
   15–21, 3–9; (B = 13) 4540–4572, 1008–1056, 427–456, 175–200, 55–67, 17–23, 3–7.
   A naive model conditioning only on p mod 8 and the Legendre symbols (p/ℓ), ℓ | m, under-predicts the tail 3–9×
-  (M = 19: 48 vs 161): the correlation between windows is entirely carried by the shared small prime factors
-  (ℓ | K_m ⟺ p ≡ −m (mod ℓ)), i.e. by B1/Haar-CRT data.
+  (M = 19: 48 vs 161): within the resolution of four shuffles, the correlation between windows is carried by the shared
+  small prime factors (ℓ | K_m ⟺ p ≡ −m (mod ℓ)), i.e. by B1/Haar-CRT data (no residual correlation detected; not a proof
+  that none exists).
 
 **Proposition 1 (Mordell's theorem in window form; PROVED, elementary).** Let p ≡ 1 (4) be prime outside the classes
 1, 121, 169, 289, 361, 529 (mod 840). Then m₀(p) ∈ {3, 7}.
@@ -56,5 +58,5 @@ for p ≡ 3, 5, 6 (mod 7): d = 1, 4, 2. The excluded classes are exactly p ≡ 1
 EVIDENCE + PROVED (Prop 1) + CONDITIONAL (Dickson classes). The least window is a lottery in the precise sense that,
 once the congruence (small-prime) structure of the consecutive integers K₃, K₃ + 1, … is fixed, the rough parts act as
 independent draws; there is no residual correlation with the Mordell-hard classes beyond the congruence data that
-defines them, and no positive-density forcing mechanism is visible. m₀(p) grows like a small power of log p at the
+defines them (within the test's resolution), and no positive-density forcing mechanism is visible. m₀(p) grows like a small power of log p at the
 records. Answer to (i): "is m₀ ~ log p or structured?" — structured exactly to the extent of B1, lottery beyond.

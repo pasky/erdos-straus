@@ -15,7 +15,8 @@ It is useful only as a dictionary: ES-hardness of p ≈ "χ_p looks like the tri
 same data that makes L(1, χ_p) and h(p) large (and that defines the r-generic lines of (J)70).
 
 ## Cheap numerics (scripts/s7_gauss_lvalue.py)
-Primes p ≡ 1 (4) ≤ 10⁶: Spearman(m₀, P) = 0.199 overall, 0.226 inside the six Mordell-hard classes (2 370 primes).
+Primes p ≡ 1 (4) ≤ 10⁶: Spearman(m₀, P) = 0.349 overall, 0.197 inside the six Mordell-hard classes (2 370 primes)
+(average ranks for ties; the first version used tie-breaking by order and reported 0.199 / 0.226 — R-O247 review fix).
 Moderate and positive, as the congruence picture predicts (the shuffle test of s7_window_lottery already shows that the
 congruence data account for the inter-window correlations).
 
