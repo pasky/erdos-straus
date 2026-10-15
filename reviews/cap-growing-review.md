@@ -48,3 +48,24 @@ mixtures of ES-certificate classes (ℛ(M), (a,D), Case A, selector), whose mass
 classes with R > 1 certify only ES^{(y,e)} (den z = R² ≠ 1); they are outside that family, and indeed their mass
 (log)^{e+2} exceeds the cubic ES cap for e ≥ 2 — which is exactly the expected signature of a relaxation. See D1 for the
 wording that must make this scope explicit.
+
+### Lemma 2.1 (Vaughan's classes are PM-II certificates) — SOUND
+4uvw ≡ 1 (mod ℓ) ⇒ v^{−1} ≡ 4uw ⇒ −uv^{−1} ≡ −4u²w; (c,d,j) = (u,w,v) is a cube point (FIXED_MODULUS_SHOTS Lemma 1.1)
+with h = 4uwv − 1 = ℓ prime: exactly BRIDGE_WORLDS §5's prime-modulus Type II certificate.
+
+### Cor 2.2 (PM-II exceptions ≪ N exp(−c(log N)^{2/3})) — SOUND-AFTER-REPAIRS (D3: citation route)
+The deduction is right, but as written it rests on Vaughan 1970, which the campaign could NOT access
+(sources/vaughan-1970-access-log.md), and on PW Thm 1.3 (sources/pw.txt l. 69ff), whose §4 only says "as shown in [12]
+… at least f(p) residue classes mod p" without displaying them — so "Vaughan's sieve uses only the classes of Lemma
+2.1" cannot be checked against either source text. Better: Cor 2.2 is literally Thm 1.4 at e = 0 of this very document
+(R = 1: classes −4c₀²d₀ mod ℓ, Prop 1.3 with R = 1 is the cube lemma at the PRIME modulus ℓ — a PM-II certificate),
+which is PROVED relative to BV + large sieve only, and checked here. PW Thm 1.3 (m = 4) then serves as a consistency
+check, not as the proof.
+
+### Remark (ii), covering moduli {3, 7} — SOUND, and can be upgraded from CERTIFIED to PROVED (D4)
+`scripts/review_r230_pmcover.py 20000` (from scratch): among primes h ≡ 3 (4) ≤ 2·10⁴ exactly h = 3, 7 have class sets
+{−4c²d : cd | (h+1)/4} equal to all (h−1)/2 non-residues; every class is a QNR (T1). Residue facts checked: h = 7 classes
+{3, 5, 6} = QNRs mod 7; h = 3 class {2}; 3361 ≡ 1 (mod 84), ≡ 1 (mod 5). Moreover the number of classes is ≤ τ₃(K)
+(K = (h+1)/4) and τ(n) ≤ C₃n^{1/3}, C₃ = ∏_p max_a (a+1)p^{−a/3} = 3.5273, so τ₃(K) ≤ τ(K)² < 2K − 1 for K > 241;
+direct check K ≤ 242: τ₃(K) ≥ 2K − 1 only for K = 1, 2. Hence **h = 3, 7 are the only covering primes, for all h**
+(PROVED, elementary) — the "B1" assessment becomes a theorem.
