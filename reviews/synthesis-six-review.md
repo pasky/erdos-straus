@@ -42,3 +42,25 @@ would contradict Mordell: they are multiples of a fixed solution). Exponential c
 
 **Verdict on the mathematics of Thm 1.1: SOUND.** I could not find any gap: the proof is a finite, fully explicit certificate
 plus one cubic identity, and both halves re-verify from scratch.
+
+## 2. Thm 1.1 — T1 for the exponential class, labels, framing, novelty
+
+**T1 (exp class).** The doc's argument is correct and in fact *rigorous*, not just a sanity check: the exp-class solution is
+CAP_DOWN Lemma 1.1 at m = 151 ≡ 3 (mod 4) with K = x = 64(u³+1), d = K/(32(u+1)) = 2(u²−u+1) | K (so every prime of d
+divides K), A = (K + d)/151; gcd(K, n) | 4K − n = 151 and 151 ∤ d on the class (2·993 ≢ 0 mod 151), so gcd(K, n) = 1.
+CAP_DOWN §3 "T1 for Lemma 1.1" (Jacobi argument, re-read: correct) then shows 256u³ + 105 is never an odd square for
+u ≡ 32 (mod 151). Numerically confirmed for t < 10⁶ (`review_r245_t1.py`). For the actual members it is even more trivial:
+4^s + 105 = a² ⟺ (a − 2^s)(a + 2^s) = 105 ⟹ 2^{s+1} ∈ {104, 32, 16, 8} ⟹ s ∈ {2, 3, 4} (none ≡ 34 mod 45).
+
+**Mordell-hardness.** Correct for s ≥ 2 (n ≡ 1 mod 8, n ≡ (2^s)² mod 105), as SIGN_FIELDS §1.4 states (R236 repair). s = 0, 1
+(106, 109) are not.
+
+**Novelty ("first infinite family of ES, every member Mordell-hard mod 840?").** The doc does NOT literally claim "first", but the
+AGENT_REPORT/verdict phrasing ("Mordell-hard-for-all-s offset") invites it, so for the record: it is **not** the first such family.
+(J)22 (EXPONENT_COVERING §4) already proved ES for all 315·2^m + 1 (≡ 1 mod 2520 for m ≥ 3) and all 15015·2^m + 1 — every
+member Mordell-hard — and trivially n = 11·w with w in a fixed class mod 840 is an infinite Mordell-hard family (divisor class).
+What *is* new: (i) the first offset k on 4^s + k for which the ET-class search stalled (k = 105, (J)62 OPEN) is closed; (ii) the
+closing ingredient is an identity that is polynomial in the algebraic parameter u = 4^{(s−4)/3}, not in n (a "moving divisor"
+u + 1 | u³ + 1 of x = (n + 151)/4). Literature: a cursory web search (Jina) found nothing on ES for 4^s + 105 or for exponential
+offset families; I could not do a thorough search. Note also that members with s ≤ 29 (n < 3·10¹⁷) are already covered by
+the published computational verifications of ES (Salez 2014, n ≤ 10¹⁷) — irrelevant to correctness, worth one sentence.
