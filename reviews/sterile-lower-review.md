@@ -43,3 +43,19 @@ instances satisfying the size hypothesis: all identities hold, G always integral
 **Defect (MINOR):** the worked check says "u = 11/9 ∈ C₇"; but 11/9 ≡ 5 (mod 17) and the box −f = −63 ≡ 226 (mod 289) ≡ 5
 (mod 17), so u ∈ **C₅**. The numbers (z = 3, G = 124, U = 3, V = 9591, UV = 28773) are right.
 **Verdict: SOUND** (after the C₅ typo and explicit q ≥ 1).
+
+### Lemma 1.1 (ℓ²-Minkowski form of (Cop))
+Re-derived. The lattice of coefficient vectors (g_l X^l)_{l<w} has the triangular basis of SE Lemma 1.3, determinant
+Δ = n₁^{m(m+1)/2} X^{w(w−1)/2}. Minkowski for a compact symmetric convex body (closed ball, vol ≥ 2^w Δ suffices) gives g ≠ 0
+with ‖v‖₂ ≤ ρ, ρ^w = 2^w Γ(w/2+1) Δ / π^{w/2}. For |y| ≤ X: |g(y)| ≤ Σ|g_l|X^l = ‖v‖₁ ≤ √w‖v‖₂ ≤ μ_w Δ^{1/w}, with
+μ_w = 2√w Γ(w/2+1)^{1/w}/√π; (Cop₂) makes this < D₀^m ≤ E^m. Rest (E^m | g(y) ⇒ g(y) = 0, ≤ w − 1 roots, injectivity) as in SE.
+Constants (`scripts/review_zl_cop2.py`, 60-digit mpmath): μ₁ = 1, μ₂ = 1.5958, μ₁₀ = 5.7593, μ₂₄ = 12.713 (author: 1.60, 5.76, 12.7);
+μ_w < w for 2 ≤ w < 200; μ_w/w → √(2/(eπ)) ≈ 0.484. Random test of the *lemma itself* (not of the engine): 2509 random
+(smooth n ≤ 10¹³, s, σ, window) instances, (Cop₂) held in 232 632 (w, m) cases (w ≤ 24), **0 violations** of "≤ w − 1
+divisors", 789 tight. Cor 1.4 (window splitting with common D₀) transfers verbatim.
+Engine: `diff se_box.c zl_box.c` is exactly the header, the table LMK[w] = ½ln w + ln 2 + lgammal(w/2+1)/w − ½ln π padded up by
+a relative 10⁻¹² and capped at ln w, and `w*logl(w)` → `w*LMK[w]` in lhs0. This is (Cop₂) in logs. The only new numerical
+dependency is glibc `lgammal` (a few ulp) — absorbed by the 10⁻¹² pad and by se_box's 10⁻¹² (Cop) margin.
+SHA-256 of se_box.c, zl_box.c, zl_tail.py, zl_r0.py, se_r0.py match MANIFEST.txt; se_box.c / se_tail.py / se_r0.py identical to main.
+**MINOR (numbering):** zl_box.c header, its inline comment and zl_r0.py call this "Lemma 2.1"; the document calls it Lemma 1.1.
+**Verdict: SOUND.**
