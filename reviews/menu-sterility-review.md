@@ -1,5 +1,6 @@
 # R251 — hostile review #1 of O240 (MENU_STERILITY.md, memos z15_*)
 
+Repairs applied: none (author active at review time — last author commit 21:54; defects forwarded to the parent).
 Reviewer: R251 (side-agent/review-menu-sterility). Reviewed: merge of side-agent/menu-sterility at ccddde8b.
 From-scratch scripts: `scripts/review_r251_proth3.py` (Theorems B/C: rules, ET classes, coverage, exact solutions),
 `scripts/review_r251_brute.py` (rule-free ES search, small s). No z15_/z8/ec_cover code was imported or reused.
@@ -39,7 +40,7 @@ exactly; every author-listed (a,b,c) fires at its residue. ✔ Positivity: f± h
 
 **(iii) ET/divisor classes**, each rebuilt by hand:
 * n ≡ 0 (7): ES(7) = (2, 15, 210) scaled: (2n/7, 15n/7, 30n). n ≡ 0 (5): ES(5) = (2, 4, 20): (2n/5, 4n/5, 4n).
-  n ≡ 0 (61): ES(61) = (16, 326, 2608·61)/… : (16n/61, 326n/61, 2608n) (identity checked).
+  n ≡ 0 (61): ES(61) = (16, 326, 159088) scaled: (16n/61, 326n/61, 2608n) (identity checked).
 * n ≡ 6 (7): 4/n = 7/(2(n+1)) + 1/(2n) + 7/(2n(n+1)) [numerator 7n + (n + 1) + 7 = 8(n + 1)].
 * n ≡ 7 (15): x = (4n+2)/15, 4/n − 1/x = (n + 8)/(n(4n + 2)), minus 1/(4n) = 30/(4n(4n+2)) → z = 4n(2n+1)/15.
 * n ≡ 13 (15): x = (4n+8)/15, remainder (n + 32)/(4n(n + 2)), minus 1/(4n) → z = 2n(n + 2)/15.
