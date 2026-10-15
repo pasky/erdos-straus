@@ -62,3 +62,29 @@ zero((4*(a + P*A1)*b*Diii - 1) - P*4*b*(a*kap + A1*Diii), "3.1(e1)(iii) H = 4b(a
 Hiii = 4*b*(a*kap + A1*Diii)
 zero(((a + P*A1) + b - G*Hiii) - (-(A1*(4*b*G*Diii - P) - (a + b - 4*b*G*a*kap))), "3.1(e1)(iii) A+B=GH <=> A1(4bGD-P) = a+b-4bGa kappa")
 print('all identities verified')
+
+# ---- positive controls (hypotheses of the theorems violated -> non-collapsing VALID families exist)
+from fractions import Fraction as Fr
+u, v = symbols('u v')
+def valid_at(Pn, fam, pt, typ):
+    vals = [Fr(str(x.subs({u: pt[0], v: pt[1]}))) for x in (Pn,) + fam]
+    n, A_, B_, C_, D_ = vals
+    ok = n > 0 and all(t.denominator == 1 and t > 0 for t in (A_, B_, C_, D_))
+    if typ == 'I':
+        x, y, z = A_*B_*D_*n, A_*C_*D_, B_*C_*D_
+    else:
+        x, y, z = A_*B_*D_, A_*C_*D_*n, B_*C_*D_*n
+    return ok and Fr(4)/n == 1/x + 1/y + 1/z, (n, x, y, z)
+controls = [
+    ('reducible P=uv, Type I', u*v, (1, 1, 2*u, (v + 1)/4), 'I', (5, 7)),
+    ('P*=4(u-v)(u+v) split, units mod P, Type I', 4*u**2 - 4*v**2 - 1, (u - v, u + v, 2*u, 1), 'I', (5, 2)),
+    ('P*=4uv split, Type II', 4*u*v - u - 1, (u, 1, 1, v), 'II', (3, 4)),
+]
+for name, Pn, fam, typ, pt in controls:
+    A_, B_, C_, D_ = [S if hasattr(S, 'subs') else Rational(S) for S in fam]
+    lhs = 4*A_*B_*C_*D_
+    rhs = Pn*(A_ + B_) + C_ if typ == 'I' else A_ + B_ + C_*Pn
+    zero(lhs - rhs, f'control {name}: identity')
+    ok, sol = valid_at(Pn, (A_, B_, C_, D_), pt, typ)
+    assert ok, (name, sol)
+    print(f'ok: control {name}: valid at {pt}, (n,x,y,z) = {sol}; not in Q[P] (A, B not polynomials in P by degree/shape)')

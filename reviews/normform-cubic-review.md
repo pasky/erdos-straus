@@ -3,10 +3,27 @@
 Reviewer: R259 side agent (branch side-agent/review-normform, merged side-agent/normform-cubic at 7f070f22).
 From-scratch scripts: `scripts/review_r259_identities.py` (sympy: every rearrangement in Thms 1.1′/1.2′/3.1),
 `scripts/review_r259_search.py` (python-flint exact brute-force search for Type I/II families over 9 forms incl. controls).
-Status: IN PROGRESS (written claim by claim).
+Status: round 1 complete. No FATAL or MAJOR defect; 10 MINOR defects (D1–D10), all wording/scope/argument-completion.
 
 ## Verdict table
-(filled in below, claim by claim)
+| Claim | Verdict |
+|---|---|
+| Thm 1.1′ (Type II, irreducible top part, one valid point) | SOUND |
+| Thm 1.2′ (Type I, irreducible top part, cone) | SOUND-AFTER-REPAIRS (D1–D3, minor) |
+| Cor 1.3′ (norm forms / binary cubics collapse) | SOUND (scope wording D5) |
+| Remark 1.4 (SPARKS7 Cor 1.3 scope remark wrong) | SOUND |
+| Lemma 2.1 (orbit finiteness, SML) | SOUND-AFTER-REPAIRS (D6, minor) |
+| Cor 2.2 (orbit-tail families collapse) | SOUND-AFTER-REPAIRS (D7: rank-2 orbits need Laurent; "in particular" needs N unbounded on L ∩ U) |
+| Thm 3.1 (Type I unit criterion, one valid point) | SOUND (understated: covers every P with irreducible top part, D4) |
+| Cor 3.2 / combined claim (all polynomial ET families for full norm forms & irreducible binary forms valid anywhere are ET identities in n) | SOUND-AFTER-REPAIRS (D5: "norm form" = full norm form / ℚ-irreducible form) |
+| Remark 3.3 (dictionary) | SOUND as Assessment |
+| §4 identification (pull-back containment) | SOUND-AFTER-REPAIRS (D8: pointwise witness argument; D9/D10 labels) |
+| Labels overall | OK after D9/D10; nothing overclaimed at FATAL/MAJOR level |
+
+Key hypothesis answer (brief): "leading form" = top-degree homogeneous part P*; Thms 1.1′/1.2′ need irreducibility of P*,
+NOT of P, and this is sharp in the sense that P irreducible with P* reducible admits valid non-collapsing families
+(P = 4u² − 4v² − 1 Type I, P = 4uv − u − 1 Type II). Thm 3.1's unit hypothesis holds for every P with irreducible P*
+(and some others), fails for one-variable P and for P with split top part; with units the conclusion fails (same controls).
 
 ## Claim-by-claim
 
@@ -182,3 +199,52 @@ The "rungs sorted by (ℚ[x]/(P))^×" sentence is correctly labelled Assessment.
 identification: PROVED" should carry D8/D9 (the §4 pull-back needs the pointwise witness argument; its "relevant object"
 phrasing is Assessment). Report's iteration I4 self-correction (windows not a lower bound) is correct: for N = u³ + 2v³ + 4w³ − 6uvw,
 N(u + 1, v, v) − N(u, v, v) = 3(u² − 2v²) + 3u + 1 = 3u + 4 when u² − 2v² = 1 (re-derived by hand).
+
+## Numerics (from-scratch; EVIDENCE for consistency only)
+* `review_r259_identities.py` (sympy): all rearrangements in 1.1′ (b2), 1.2′ (c1 B/C/D, c2 μ = k), 3.1 (e0, e1 i–iii,
+  degenerate family) hold identically; three positive controls satisfy their identities and are valid at a point:
+  P = uv: (1, 1, 2u, (v + 1)/4) at (5, 7), n = 35; P = 4u² − 4v² − 1: (u − v, u + v, 2u, 1) at (5, 2), n = 83 (prime:
+  4/83 = 1/1743 + 1/30 + 1/70); P = 4uv − u − 1 Type II: (u, 1, 1, v) at (3, 4), n = 44.
+* `review_r259_search.py` (python-flint, exact division; S = c₀ + Σ ε_i x_i + κP):
+  | P | Type I: total / in ℚ[P] / degenerate list / other | Type II: total / in ℚ[P] / other |
+  |---|---|---|
+  | u³ + 2v³ | 875 / 299 / 576 / 0 | 119 / 119 / 0 |
+  | u² + v² | 875 / 299 / 576 / 0 | 119 / 119 / 0 |
+  | u² − 2v² − 1 (non-homog., P* irred.) | 875 / 299 / 576 / 0 | 119 / 119 / 0 |
+  | v + u² (P* = u² reducible, no units) | 875 / 299 / 576 / 0 | 119 / 119 / 0 |
+  | u³+2v³+4w³−6uvw (ℚ(∛2) norm; smaller S) | 44 / 44 / 0 / 0 | 15 / 15 / 0 |
+  | u² + v² + w² (smaller S) | 44 / 44 / 0 / 0 | 15 / 15 / 0 |
+  | control 4u² − 4v² − 1 | 895 / 299 / 576 / 20 (all valid somewhere) | 149 / 119 / 30 |
+  | control 4uv − u − 1 | 895 / 299 / 576 / 20 | 148 / 119 / 29 (incl. valid (u, 1, 1, v)) |
+  | control uv (reducible) | 1055 / 299 / 576 / 180 (none valid in [−4,4]², search space lacks v/4) | 119 / 119 / 0 |
+  Everything predicted by Thms 1.1′/3.1 holds; controls show the hypotheses are doing work.
+* `review_r259_orbit_closure.py`: Zariski closure of unit orbits = level set, ℚ(∛2) and ℚ(√2) (see Lemma 2.1).
+
+## Defects (all MINOR; none FATAL/MAJOR)
+1. **D1 (MINOR) Thm 1.2′ positivity paragraph.** Says all coordinates are positive at valid points; validity allows
+   (A, B, C) < 0 < D. Repair: add the R256 sentence — on U the signs are constant; replace (A, B, C) by −(A, B, C), which
+   preserves the Type I identity and the conclusion.
+2. **D2 (MINOR) Thm 1.2′ hypothesis.** "lattice coset L ⊂ ℤ^r" must be a coset of a full-rank sublattice. Repair: say so.
+3. **D3 (MINOR) Thm 1.2′ (c2) μ = k.** "Coefficient of P²" is a degree comparison (2k vs ≤ 2k − 1), not a coefficient
+   comparison (E_A, E_B ∉ ℚ[P]). Repair: one clause.
+4. **D4 (MINOR, understatement) Thm 3.1 / Cor 3.2(c).** (ℚ[x]/(P))^× = ℚ^× holds whenever P* is irreducible (gr of the
+   degree filtration is ℚ[x]/(P*), a graded domain), so Thm 3.1 subsumes Thm 1.2′ for every P of §1, not only homogeneous
+   P. Repair: add this to the "e.g." list and to Cor 3.2(c).
+5. **D5 (MINOR, scope) Cor 3.2 / report "every norm form".** Must be the full norm form (k variables, ℚ-basis of K) or
+   any ℚ-irreducible form; incomplete norm forms can be powers ((x² − 2y²)² for K ⊋ ℚ(√2)). Repair: say "full norm form".
+6. **D6 (MINOR) Lemma 2.1.** (a) state that (x, y, z) ↦ ET coordinates is finite-to-one (a, b, c, d divide x, y, z);
+   (b) drop the stale "(N(ε) = ±1; replace ε by ε²)".
+7. **D7 (MINOR) Cor 2.2.** (a) For totally real cubic K the "unit orbit" is a rank-2 orbit; Laurent's theorem IS needed
+   (delete "Not needed below", or restrict to cyclic orbits). (b) Restate for infinitely many values n (primes not needed);
+   the "in particular" additionally needs N(ε) = 1, εL = L and N unbounded on L ∩ U (U = {0 < N < 10} is an ε-invariant
+   open counterexample to the sentence as written).
+8. **D8 (MINOR) §4 pull-back of Thm A.** Thm A is stated for classes of the parameter; {N(x)} over an x-class is not an
+   n-class. Repair: insert the pointwise witness argument (see §4 above) and the choice of x near x* with N(x) large.
+9. **D9 (MINOR, label) §4.** "w² = n, not w² = N(u, v) is the relevant object / no 2-descent enters" → Assessment; keep
+   PROVED for the containment.
+10. **D10 (MINOR, label) §4 last paragraph.** Chebotarev/Hecke positive proportion: label Assessment or give the argument
+   (needs ω a ℤ-basis of O_K, principal degree-1 primes split in K(ζ_M)).
+
+Cited sources: SYNTHESIS_SPARKS7, POINTWISE_BINARYFORM §1/§4.3, MENU_STERILITY Thm A read and checked against usage.
+Skolem–Mahler–Lech: standard statement used correctly. Laurent (Astérisque 147–148) and Schinzel §3.3: NOT accessed;
+the statements as used are standard, and the reviewer supplied a self-contained argument for the Schinzel step.

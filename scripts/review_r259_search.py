@@ -144,6 +144,8 @@ if __name__ == '__main__':
         degen = [f for f in bad if is_degenerate(P, f, typ)]
         nondeg = [f for f in bad if f not in degen]
         print(f' Type {typ}: {len(fams)} families, {len(fams) - len(bad)} in Q[P], {len(degen)} degenerate (never-valid list), {len(nondeg)} other non-Q[P]')
+        nvalid = sum(1 for f in nondeg if find_valid2(R, P, f, 4)) if len(R.gens()) == 2 else 'n/a'
+        print(f'   non-collapsing families with a valid point in [-4,4]^2: {nvalid}')
         shown = 0
         for f in nondeg:
             val = find_valid2(R, P, f, 4)
