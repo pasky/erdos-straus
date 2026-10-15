@@ -50,3 +50,17 @@ for name, (Pf, xs) in forms.items():
             if not all(inQP(x, Pf, xs) for x in (Ap, Bp, Cp, Dp)):
                 bad += 1; print("  NON-COLLAPSING?", name, typ, Ap, Bp, Cp, Dp)
         print(f"{name} Type {typ}: trials {N}, polynomial families {hits}, outside Q[P]: {bad}")
+
+# ---- Thm 3.1 (Type I, unit-group criterion): the rearrangements of cases (i)-(iii), with d = 1/(4ab)
+a, b, A1, G = sp.symbols('a b A1 G'); d0 = 1 / (4 * a * b); Aa = a + P * A1
+t31 = {}
+t31['i: H = A1/a'] = sp.simplify((4 * Aa * b * d0 - 1) / P - A1 / a) == 0
+Bb = b + k * P; H = sp.simplify((4 * Aa * Bb * d0 - 1) / P)
+t31['ii: H'] = sp.simplify(H - 4 * d0 * (a * k + Bb * A1)) == 0
+t31['ii: GH=A+B'] = sp.simplify(sp.expand(H * G - (Aa + Bb)) - sp.expand(A1 * (4 * d0 * G * Bb - P) - (a + Bb - 4 * d0 * G * a * k))) == 0
+Dd = d0 + k * P; H = sp.simplify((4 * Aa * b * Dd - 1) / P)
+t31['iii: H'] = sp.simplify(H - 4 * b * (a * k + A1 * Dd)) == 0
+t31['iii: GH=A+B'] = sp.simplify(sp.expand(H * G - (Aa + b)) - sp.expand(A1 * (4 * b * G * Dd - P) - (a + b - 4 * b * G * a * k))) == 0
+Af = sp.Symbol('Afree')  # degenerate family: B=b, D=-1/(4b^2), C=-bP, A arbitrary
+t31['degenerate'] = sp.simplify(4 * Af * b * (-b * P) * (-1 / (4 * b**2)) - (P * (Af + b) + (-b * P))) == 0
+print("Thm 3.1 checks:", t31)
