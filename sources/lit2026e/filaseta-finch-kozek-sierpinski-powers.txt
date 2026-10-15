@@ -1,0 +1,1173 @@
+                 O N P OWERS A SSOCIATED WITH
+            S IERPI ŃSKI N UMBERS , R IESEL N UMBERS
+                 AND P OLIGNAC ’ S C ONJECTURE
+
+                 Michael Filaseta                                   Carrie Finch
+             Mathematics Department                           Mathematics Department
+            University of South Carolina                     University of South Carolina
+               Columbia, SC 29208                               Columbia, SC 29208
+                                            Mark Kozek
+                                     Mathematics Department
+                                    University of South Carolina
+                                       Columbia, SC 29208
+
+
+
+                                                    Abstract
+            We address conjectures of P. Erdős and conjectures of Y.-G. Chen concerning the numbers
+       in the title. We obtain a variety of related results, including a new smallest positive integer that
+       is simultaneously a Sierpiński number and a Riesel number and a proof that for every positive
+       integer r, there is an integer k such that the numbers k, k 2 , k 3 , . . . , k r are simultaneously
+       Sierpiński numbers.
+
+
+1     Introduction and Preliminaries
+A Sierpiński number is a positive odd integer k with the property that k · 2n + 1 is composite
+for all positive integers n. A Riesel number is a positive odd integer k with the property that
+k · 2n − 1 is composite for all positive integers n. In 1849, A. de Polignac [6] conjectured that
+every positive odd integer k can be written as a sum of a prime and a power of two. It is well known
+that Polignac’s conjecture is not true. What has become of interest here are positive odd integers
+k for which |k − 2n | is composite for all positive integers n. In this paper, we extend previous
+investigations involving k with one of these properties that are also an rth power for some r > 1.
+We also address situations where such conditions on k can simultaneously hold. We begin with
+some background.
+  2000 Mathematics Subject Classification: 11A07, 11B25, 05A18
+  The authors express their appreciation to the National Science Foundation and the National Security Agency for
+support during the research for this paper.
+
+
+                                                        1
+   The existence of k as in each of the three concepts above has historically been associated with
+covering systems. A covering system or covering, for short, is a finite system of congruences
+x ≡ aj (mod mj ), 1 ≤ j ≤ r, such that every integer satisfies at least one of the congruences.
+W. Sierpiński [11] observed the following implications:
+
+     n ≡ 1 (mod 2),          k ≡ 1 (mod 3)        =⇒           k · 2n + 1 ≡ 0 (mod 3)
+     n ≡ 2 (mod 4),          k ≡ 1 (mod 5)        =⇒           k · 2n + 1 ≡ 0 (mod 5)
+     n ≡ 4 (mod 8),          k ≡ 1 (mod 17)       =⇒           k · 2n + 1 ≡ 0 (mod 17)
+     n ≡ 8 (mod 16),         k ≡ 1 (mod 257)      =⇒           k · 2n + 1 ≡ 0 (mod 257)
+     n ≡ 16 (mod 32),        k ≡ 1 (mod 65537)    =⇒           k · 2n + 1 ≡ 0 (mod 65537)
+     n ≡ 32 (mod 64),        k ≡ 1 (mod 641)      =⇒           k · 2n + 1 ≡ 0 (mod 641)
+     n ≡ 0 (mod 64),         k ≡ −1 (mod 6700417) =⇒           k · 2n + 1 ≡ 0 (mod 6700417).
+
+The moduli appearing in the congruences involving k are 7 primes, the first (perhaps only) 5 Fermat
+                 n
+primes Fn = 22 + 1 for 0 ≤ n ≤ 4 and the two prime divisors of F5 . The congruences for n on
+the left form a covering of the integers, and hence it follows that any k satisfying the congruences
+on k above has the property that, for any positive integer n, the number k · 2n + 1 is divisible by
+one of these 7 primes. We add the condition k ≡ 1 (mod 2) to ensure that k is odd. Then the
+Chinese Remainder Theorem implies that there are infinitely many Sierpiński numbers given by
+
+         k ≡ 15511380746462593381         (mod 2 · 3 · 5 · 17 · 257 · 65537 · 641 · 6700417).
+
+This congruence establishes that a positive proportion of the positive integers are in fact Sierpiński
+numbers. For convenience in this paper, we will refer to the construction of Sierpiński numbers as
+above as Sierpiński’s construction. We also note that this construction of Sierpiński relies on the
+fact that F5 is composite.
+    In 1962, John Selfridge (unpublished) found what is believed to be the smallest Sierpiński
+number, namely k = 78557. His argument is based on the following implications:
+
+           n ≡ 0 (mod 2),           k ≡ 2 (mod 3)   =⇒         k · 2n + 1 ≡ 0 (mod 3)
+           n ≡ 1 (mod 4),           k ≡ 2 (mod 5)   =⇒         k · 2n + 1 ≡ 0 (mod 5)
+           n ≡ 3 (mod 9),           k ≡ 9 (mod 73) =⇒          k · 2n + 1 ≡ 0 (mod 73)
+           n ≡ 15 (mod 18),         k ≡ 11 (mod 19) =⇒         k · 2n + 1 ≡ 0 (mod 19)
+           n ≡ 27 (mod 36),         k ≡ 6 (mod 37) =⇒          k · 2n + 1 ≡ 0 (mod 37)
+           n ≡ 1 (mod 3),           k ≡ 3 (mod 7)   =⇒         k · 2n + 1 ≡ 0 (mod 7)
+           n ≡ 11 (mod 12),         k ≡ 11 (mod 13) =⇒         k · 2n + 1 ≡ 0 (mod 13).
+
+There have been attempts to prove that 78557 is the smallest Sierpiński number. In this regards,
+the web page
+
+                           http://www.seventeenorbust.com
+
+contains the current up-to-date information. The research for this page, under the name of Seven-
+teen or Bust, was started by L. Helm and D. Norris in March of 2002 when there were 17 numbers
+
+
+                                                  2
+< 78557 which were not yet eliminated from being Sierpiński numbers. The idea is to establish
+that each k < 78557 is not a Sierpiński number by finding a prime of the form k · 2n + 1. As of
+this writing, there remain 8 values of k < 78557 which are unresolved by the Seventeen or Bust
+project, namely
+
+                  10223, 19249, 21181, 22699, 24737, 33661, 55459, 67607.
+
+There are justifications for the belief that each of these 8 numbers is not a Sierpiński number.
+Recall that the Sierpiński numbers k found by Sierpiński have the property that for each positive
+integer n, the number k · 2n + 1 is divisible by one of 7 primes. Similarly, the Sierpiński numbers
+determined by the argument of Selfridge have this same property (though the primes are different).
+If one believes that Sierpiński numbers are related to coverings as the above examples suggest,
+then it would follow that the following conjecture of P. Erdős [8] (Section F13) holds.
+
+Conjecture 1. If k is a Sierpiński number, then the smallest prime divisor of k · 2n + 1 is bounded
+as n tends to infinity.
+
+It is of some interest to note also that the congruences n ≡ a (mod m), k ≡ b (mod p) appear-
+ing to the left of each implication above is such that ordp (2) = m. This further suggests that a
+Sierpiński number k should have the property that for each positive integer n, the number k · 2n + 1
+is divisible by a prime p for which ordp (2) = m is not too large. What is more important here
+is that m is a modulus of the related covering which in turn would suggest the prime divisors of
+m should not be large. Computations can be used to show that the 8 numbers k listed above are
+likely not Sierpiński numbers since each has the property that the prime divisors of k · 2n + 1 do
+not seem to belong to a finite list and do not seem to have the property that 2 has a small order or
+an order consisting of small prime divisors modulo these primes. For example, it is not difficult to
+check that 10223 · 2n + 1 is divisible by one of the primes 3, 5, 7 and 13 unless n ≡ 5 (mod 12).
+Although, one can (is bound) to find patterns among these n as well, like 11 divides every fifth one,
+a quick look at the prime divisors for n ≡ 5 (mod 12) reveals little to suggest 10223 is the result
+of a covering. For example, we find the following early examples of the smallest prime p dividing
+10223 · 2n + 1 and the orders of 2 modulo p among the n ≡ 5 (mod 12).
+
+                     n    smallest prime  factorization of order of 2
+                    77        619033                 2 · 25793
+                    101    45677096693         22 · 31 · 368363683
+                    137 1904660910466121 22 · 5 · 1559 · 4733 · 6453199
+                                              Table 1
+
+We keep such tables in this paper short; they are intended to indicate some of the behavior we
+observed for the k tested and, in general, a similar behavior was observed for many other choices
+of n but with the smallest prime not quite as large as those listed. One could consider other primes
+dividing 10223 · 2n + 1 besides the smallest prime with the hope that their orders would be smaller
+or involve smaller primes, but this also does not seem to help.
+    This discussion has seemingly caused us to go off course of the focus of this paper which is
+to consider Sierpiński and related numbers which are rth powers for some r > 1. But in fact, the
+
+
+                                                 3
+above leads exactly to this topic. A nice observation of A. Izotov [9] is that the given motivation
+for 10223 not being a Sierpiński number, and similarly for the other numbers below 78557 which
+have not yet been eliminated as Sierpiński numbers, is somewhat in error. More precisely, it is
+highly likely that Erdős’s Conjecture 1 is wrong.
+    To understand Izotov’s idea, we return to Sierpiński’s construction and simply remove the
+congruence n ≡ 2 (mod 4) and the corresponding condition k ≡ 1 (mod 5). So we have a
+simplified system of congruences on n which no longer covers the integers. Now, suppose we can
+find an odd number k that satisfies only the remaining conditions on k in Sierpiński’s construction
+and also that k = `4 for some integer ` > 1. Observe that if n = 4u + 2 for some nonnegative
+integer u, then
+                               4
+       k · 2n + 1 = 4 ` · 2u        + 1 = `2 · 22u+1 + ` · 2u+1 + 1 `2 · 22u+1 − ` · 2u+1 + 1 .
+                                                                                            
+                                                                                                   (1)
+
+Thus, whenever n ≡ 2 (mod 4), we obtain that k · 2n + 1 is composite and seemingly for reasons
+not associated with a covering but rather due to the fact that 4x4 + 1 has a nontrivial factorization
+in Z[x]. This is the idea. Some modifications are needed for if ` 6≡ 0 (mod 5) in this construction,
+then k = `4 ≡ 1 (mod 5) and k · 24u+2 + 1 will have 5 as a factor. In other words, we will be in the
+situation of Sierpiński’s original construction. It should be noted here that each of the congruences
+k ≡ b (mod p) in Sierpiński’s construction satisfies k ≡ `4 (mod p) for some integer `. In the
+case that b = 1, one can take ` = 1; in the last congruence where b = −1 and p = 6700417, one
+can take ` = 28 since 6700417 is a prime divisor of 232 + 1. We consider, however,
+
+                    ` ≡ 1 (mod 2)                  ` ≡ 2 (mod 3)
+                    ` ≡ 0 (mod 5)                  ` ≡ 13 (mod 17)
+                    ` ≡ 256 (mod 257)              ` ≡ 1 (mod 65537)
+                    ` ≡ 640 (mod 641)              ` ≡ 3376382 (mod 6700417).
+
+This particular choice of congruences gives the least ` based on Izotov’s construction. The solution
+to these congruences is
+
+            ` ≡ 734110615000775           (mod 2 · 3 · 5 · 17 · 257 · 65537 · 641 · 6700417).
+
+Thus, any ` of this form has the property that k = `4 is a Sierpiński number, and it seems likely that
+these give rise to counterexamples to Conjecture 1. We have already discussed how computations
+can suggest that a value of k is not a Sierpiński number based on a covering argument by producing
+k · 2n + 1 which have large prime divisors p each with 2 having a large order modulo p. Table 2
+below gives evidence then that k = `4 with ` = 734110615000775 does not arise from a covering
+argument, that is, that it is a true counterexample to Conjecture 1.
+
+                      n    smallest prime   factorization of order of 2
+                     14     271933097              2593 · 13109
+                                                 2
+                     118    2476352353          2 · 3 · 3391 · 7607
+                                          2
+                     334 376843822247957 2 · 7 · 79 · 733 · 1031 · 225431
+
+                                                  Table 2
+
+
+                                                     4
+Given that the k that was used to create Table 2 is considerably larger than the k used to create
+Table 1, one might suspect that the primes appearing in Table 2 should be larger. We note, however,
+that the k used in Table 2 only has a chance of producing a large smallest prime factor when n ≡ 2
+(mod 4) and in this case we know that k · 2n + 1 splits as a product of two numbers of relatively
+equal size. There was not an analogous splitting situation for the k used to create Table 1.
+    Before proceeding, we clarify that we are not suggesting that any of the remaining 8 values in
+the Seventeen or Bust project are actually Sierpiński numbers. One can easily check that none of
+these 8 values is of the form `r where r > 1, and it seems likely to us that the following revision
+of Conjecture 1 holds.
+Conjecture 10 . If k is a Sierpiński number that is not of the form `r for some integers ` ≥ 1 and
+r > 1, then the smallest prime divisor of k · 2n + 1 is bounded as n tends to infinity.
+     Motivated by the work of Izotov and in the spirit of Selfridge’s example of a Sierpiński number,
+in the next section we discuss small examples of Sierpiński and Riesel numbers and for Polignac’s
+conjecture that do not appear to arise from coverings. The constructions of examples for Riesel
+numbers and Polignac’s conjecture are new. In this regard, it is of some interest to note that the
+first edition of [8] (Springer-Verlag, New York, 1981, Section F13) mentions the following:
+
+    Erdős also formulates the following conjecture. Consider all the arithmetic progressions
+    of odd numbers, no term of which is of the form 2k +p. Is it true that all these progressions
+    can be obtained from covering congruences? Are there infinitely many integers, not of the
+    form 2k + p, which are not in such progressions?
+
+Our work suggests strongly that the answer to the second question is, “Yes.”
+    We turn to background on Riesel numbers and Polignac’s problem. First we clarify that the
+use of coverings for finding k such that k · 2n − 1 is composite for each positive integer n and
+the use of coverings for finding k such that |k − 2n | is composite for each positive integer n are
+essentially equivalent. More precisely, let k be an integer, and let P be a finite set of odd primes.
+Then k · 2n − 1 has a prime divisor from the set P for all positive integers n if and only if |k − 2n |
+has a prime divisor from the set P for all positive integers n. We state this as a lemma that allows
+us to move from one problem to the next. For later purposes in the paper, we state it with a little
+more generality.
+Lemma 1. Let S be the set of integers, the set of even integers or the set of odd integers, let P be
+a finite set of odd primes, and let k be an integer. Suppose that for every sufficiently large n ∈ S
+there is a p ∈ P for which
+                                      k · 2n − 1 ≡ 0 (mod p).                                     (2)
+Then for each n ∈ S there is a p ∈ P for which
+                                       k − 2n ≡ 0     (mod p).                                      (3)
+Similarly, if for every sufficiently large n ∈ S there is a p ∈ P satisfying (3), then for every n ∈ S
+there is a p ∈ P satisfying (2).
+Proof. We consider the first implication. Let n be an arbitrary element of S. Put
+                                     mp = ordp (2), for p ∈ P.
+
+
+                                                  5
+Set                                             Y        
+                                    N = 2M ·            mp − n.
+                                                  p∈P
+
+where M is an arbitrary integer. Observe that n ∈ S implies that N ∈ S. We take M sufficiently
+large so that N is large enough to guarantee that
+
+                                     k · 2N − 1 ≡ 0     (mod p)
+
+for some p ∈ P. This congruence implies
+
+                                    k · 2−n − 1 ≡ 0     (mod p).
+
+We multiply both sides of the congruence by 2n to obtain
+
+                                      k − 2n ≡ 0      (mod p).
+
+This establishes the first part of the lemma. The second part follows along similar lines.
+    We note that it is possible for k · 2n − 1 or |k − 2n | above to be an element of P. For that
+reason, we are not claiming that k is a Riesel number if and only if k is an odd positive integer
+for which |k − 2n | is composite for all positive integers n. We are not even claiming that this is
+true when we restrict ourselves to such k that can be obtained from coverings. However, the above
+lemma does allow us often to conclude that a k that has been shown to be a Riesel number is also
+an odd positive integer k for which |k − 2n | is composite for all positive integers n and vice-versa.
+A. Schinzel has also obtained a connection between Sierpiński numbers and Riesel numbers. The
+connection is not as direct as above, and we do not give the details here. The interested reader can
+see [7] or [12] for details.
+    H. Riesel [10] showed that if
+
+                                  k ≡ 509203 (mod 11184810),
+
+then k is what has been defined as a Riesel number. It is believed that 509203 is in fact the smallest
+Riesel number. As of this writing, there remain 70 odd positive integers k < 509203 which have
+not been established as being or not being Riesel numbers. Of these k, the number 2293 is the
+smallest. The web page
+
+                  http://www.prothsearch.net/rieselprob.html
+
+maintains up-to-date information.
+   Eric Brier (1998, unpublished) showed that there are infinitely many numbers which are si-
+multaneously Sierpiński and Riesel numbers. His example had 41 digits, and Yves Gallot (2002,
+unpublished) later found an example with 27 digits. We note here a smaller example with 24 digits.
+
+Theorem 1. A positive proportion of the positive integers are simultaneously Sierpiński and Riesel
+numbers. The number 143665583045350793098657 is one such number.
+
+
+
+
+                                                  6
+    The first part of this result is not new and follows from Brier’s work. For a proof of Theorem 1,
+we provide appropriate coverings. One covering will show that if k satisfies certain conditions,
+then k is a Sierpiński number. The other will show that if certain other conditions are satisfied
+by k, then k is a Riesel number. It will be an easy task to then justify that all the conditions can
+simultaneously be satisfied by k. We give the details to help clarify the approach we use throughout
+this paper.
+Proof. Each row of Table 3 indicates a residue class a (mod m) for n and a corresponding residue
+class b (mod p) for k such that, for every positive integer n ≡ a (mod m), the number k ·2n +1 is
+divisible by p. Each row of Table 4 indicates a residue class a (mod m) for n and a corresponding
+residue class b (mod p) for k such that, for every positive integer n ≡ a (mod m), the number
+k · 2n − 1 is divisible by p. For each table, the congruences x ≡ a (mod m) given by the residue
+classes a (mod m) for n form a covering. We justify these remarks.
+
+               classes for n classes for k            classes for n classes for k
+                1 (mod 2)     1 (mod 3)                2 (mod 5)    23 (mod 31)
+                0 (mod 3)     6 (mod 7)               8 (mod 10)    7 (mod 11)
+                4 (mod 9)    41 (mod 73)              5 (mod 15) 33 (mod 151)
+               10 (mod 18) 10 (mod 19)                14 (mod 30) 2 (mod 331)
+               16 (mod 36)   4 (mod 37)               56 (mod 60) 45 (mod 61)
+               34 (mod 36) 105 (mod 109)              26 (mod 60) 16 (mod 1321)
+                                               Table 3
+
+
+               classes for n     classes for k
+                                                      classes for n classes for k
+                0 (mod 2)         1 (mod 3)
+                                                      5 (mod 12)    11 (mod 13)
+                3 (mod 4)         2 (mod 5)
+                                                      9 (mod 24) 233 (mod 241)
+                5 (mod 8)        8 (mod 17)
+                                                      25 (mod 48) 48 (mod 97)
+               1 (mod 16)       129 (mod 257)
+                                               Table 4
+
+    Observe that the least common multiple of the moduli m for the residue classes a (mod m)
+for n in Table 3 is 180. We can establish then that the 12 congruences x ≡ a (mod m) form a
+covering by simply checking if each element of {0, 1, . . . , 179} satisfies one of the 12 congruences.
+Indeed, if this is the case, then an arbitrary integer u can be written in the form u = 180q + r where
+q ∈ Z and r ∈ {0, 1, . . . , 179} so that u and r are congruent modulo any of the 12 moduli m. It
+follows that u will satisfy whichever of these congruences that r satisfies. To justify the entries a
+(mod m) and b (mod p) in a row of Table 3, one checks that ordp (2) = m and that b2a + 1 ≡ 0
+(mod p). For if this holds, then
+        n ≡ a (mod m),         k ≡ b (mod p)      =⇒      k2n + 1 ≡ b2a + 1 ≡ 0 (mod p).
+In this manner, one can therefore justify that any k as in Table 3 is indeed a Sierpiński number.
+An analogous argument works to justify that any k as in Table 4 is a Riesel number, though the
+
+
+                                                  7
+argument in this case is somewhat easier since the number of congruences to consider is smaller
+and the least common multiple of the moduli for n in Table 4 is 48. Finally, observe that the
+prime moduli p appearing for the residue classes for k in Table 3 and Table 4 are distinct except
+in the case that p = 3. In this case, both tables indicate that we want k ≡ 1 (mod 3). We add
+the condition k ≡ 1 (mod 2). The Chinese Remainder Theorem and a calculation now establish
+Theorem 1.
+     Small numbers which are not the sum of a power of 2 and a prime are easy to come by. This
+list begins
+                       127, 149, 251, 331, 337, 373, 509.
+These numbers are all prime. The smallest composite number that is not a power of 2 plus a prime
+is 905. As mentioned in the opening paragraph, the real interest here is in odd positive integers
+k with the property that |k − 2n | is not prime for all positive integers n. As a consequence of
+Lemma 1, the smallest known such k is 509203. In 1950, J. G. van der Corput [13] and Erdős [5]
+independently showed that a positive proportion of the odd positive integers k have the property
+that |k − 2n | is not prime for all positive integers n. Erdős’s argument was based on a covering, and
+in fact his paper introduced the idea of applying covering systems to problems in number theory.
+    In the final two sections of this paper, we address two recent conjectures of Y.-G. Chen [3]:
+
+Conjecture 2. For any positive integer r, there exist infinitely many positive odd numbers k such
+that k r 2n + 1 has at least two distinct prime factors for all positive integers n.
+
+Conjecture 3. For any positive integer r, there exist infinitely many positive odd numbers k such
+that k r − 2n has at least two distinct prime factors for all positive integers n.
+
+He resolves these conjectures in the case that r is odd and in the case that r is twice and odd number
+and 3 - r. As he notes, the least r for which his arguments do not apply are r = 4 and r = 6. We
+will show that Conjecture 2 is true in general and that Conjecture 3 holds in the special cases r = 4
+and r = 6. Our arguments will in fact resolve Conjecture 3 for a set of integers r with positive
+density with each r divisible by 4 and another set r having positive density and each r divisible by
+6. The full strength of Conjecture 3 remains open.
+    Next, we turn to a result associated with Conjecture 2. We include the proof here as it draws
+from some of the discussion above and is fairly simple. The material in the third section can be
+viewed as a strengthening of the result below and its corollary.
+                                                                                   m
+Theorem 2. Suppose there exist at least r composite Fermat numbers Fm = 22 + 1. Then there
+are infinitely many positive odd integers k such that if t is a positive integer not divisible by 2r ,
+then k t is a Sierpiński number.
+
+Proof. We will use that Fm cannot be of the form us where u and s are positive integers and s > 1.
+                                          m
+To see this, assume otherwise. Then 22 = us − 1 has u − 1 as a factor. Hence, u = 2v + 1 for
+                                      m
+some integer v ≥ 1. This implies 22 + 1 = (2v + 1)s . The rest of the argument can be completed
+in a few different ways. In particular, we obtain an immediate contradiction from Bang’s theorem
+[1] that there is a primitive prime divisor of 2a + 1 for every integer a > 3.
+    Let m0 < m1 < · · · < mr−1 be positive integers for which Fmj is composite for each j. Since
+no Fmj is of the form us with s > 1, we deduce that each Fmj has at least two distinct prime
+
+
+                                                  8
+factors, say pj and qj . We use also that the Fermat numbers Fm , for m ≥ 0, are odd and pairwise
+coprime.
+    By the Chinese Remainder Theorem, there is an infinite arithmetic progression of positive
+integers k satisfying the following congruences:
+                  
+                  
+                   1 (mod 2)
+                  
+                  1 (mod F )
+                                m         for 0 ≤ m < mr−1 and m 6∈ {m0 , . . . , mr−1 }
+             k≡
+                  
+                   1 (mod pj )           for 0 ≤ j ≤ r − 1
+                   2mj −j
+                  
+                    2         (mod qj ) for 0 ≤ j ≤ r − 1.
+We prove that any such k satisfying these congruences, other than possibly the least one, also
+satisfies the condition in the theorem.
+    Let t be a positive integer not divisible by 2r . Then we can write t = 2w t0 where w and t0 are
+integers with 0 ≤ w ≤ r − 1, t0 > 0 and t0 odd. We want k t · 2n + 1 to be composite for each
+positive integer n. Fix a positive integer n. We complete the proof by showing that k t · 2n + 1 is
+divisible by some number from the set
+                                                                                  
+            S = Fm : 0 ≤ m < mw , m 6∈ {m0 , . . . , mw } ∪ pj : 0 ≤ j ≤ w ∪ qw .
+Since each k satisfying the congruences above, other than the least one, is greater than the product
+of the elements of S, we can deduce then that each such k satisfies that k t · 2n + 1 is composite for
+all positive integers n.
+    Fix i to be the nonnegative integer such that n = 2i n0 where n0 is an odd integer. Let
+                              
+                              Fi if i < mw and i 6∈ {m0 , m1 , . . . , mw }
+                              
+                         d = pj if i = mj for some j ∈ {0, 1, . . . , w}
+                              
+                                qw if i > mw .
+                              
+
+                                                  i                             i 0
+Observe that if i ≤ mw , then d divides 22 + 1 and, hence, 22 n + 1. Therefore,
+                                                i 0               i 0
+                        k t 2n + 1 ≡ k t 22 n + 1 ≡ 22 n + 1 ≡ 0                      (mod d).
+Now, suppose i > mw . Then
+                                 mw −w 2w t0          mw   t0              0
+                      k t ≡ 22                 ≡ 22              ≡ (−1)t ≡ −1          (mod d).
+                                       mw                               i
+Note that in this case d divides 22 + 1 and, hence, 22 − 1, since this latter number is the product
+                                           i 0
+of Fm for 0 ≤ m < i. Thus, d divides 22 n − 1, which implies
+                                               i 0
+                              k t 2n + 1 ≡ − 22 n − 1 ≡ 0 (mod d).
+                                                     
+
+Hence, for each positive integer n, the number k t 2n + 1 is divisible by an element of S. The
+theorem follows.
+   Given the current status of composite Fermat numbers at
+                     http://www.prothsearch.net/fermat.html
+                                                                                m
+there are 227 known positive integers m for which Fm = 22 + 1 is composite. By Theorem 2,
+there is a positive integer k such that k t is a Sierpiński number for every t < 2227 . Hence, we have
+
+
+                                                             9
+                                                                                       68
+Corollary 1. There is a k such that all of the numbers k, k 2 , k 3 , . . . , k 2·10        are simultaneously
+Sierpiński numbers.
+    We close this section with some open problems. First, related to the above corollary, we
+note that in the third section we will show that for any positive integer r, there is a k such that
+k, k 2 , k 3 , . . . , k r are simultaneously Sierpiński numbers. We do not know, however, whether there
+is a k such that the infinite list k, k 2 , k 3 , . . . are all simultaneously Sierpiński numbers. Note that
+this is the same as asking whether there is a positive odd integer k such that all of the numbers of
+the form 2i k j + 1, where i and j are positive integers, are composite.
+    Let f (x) be an arbitrary nonconstant polynomial in Z[x]. Must there be infinitely many inte-
+gers k such that f (k) · 2n + 1 is composite for all positive integers n? Suppose g(x) is another
+nonconstant polynomial in Z[x]. Are there infinitely many integers k such that f (k) · 2n + 1 and
+g(k) · 2n + 1 are both composite for all positive integers n?
+    Is it possible to find a method for determining whether a given k has the property that the
+smallest prime divisor of k · 2n + 1 is bounded? Can one even prove that the smallest prime divisor
+of 5 · 2n + 1 is not bounded as n tends to infinity? One can answer this question affirmatively if
+5 is replaced by a smaller positive integer. For example, given any x, there is a positive integer n
+such that 2n − 1 is divisible by every prime ≤ x. It follows that for this n, the smallest prime factor
+of 3 · 2n + 1 is > x. Thus, the smallest prime divisor of 3 · 2n + 1 cannot be bounded as n tends
+to infinity. A similar question along these lines is the following: can one prove that the smallest
+prime divisor of 11 · 2n − 1 is not bounded as n tends to infinity?
+
+
+2     Small Examples Associated With Conjecture 1
+We begin with a variation on Izotov’s construction described in the introduction to exhibit a rela-
+tively small odd positive integer ` such that k = `4 is a Sierpiński number and with the property
+that k seemingly does not arise from a covering system. Following the idea of Izotov, we deter-
+mine k such that whenever n 6≡ 2 (mod 4), the value of k · 2n + 1 is divisible by a prime from a
+fixed finite set P of primes. For n ≡ 2 (mod 4), we rely on the fact that k = `4 to deduce that
+k · 2n + 1 is composite based on (1). We obtain values of ` by applying the Chinese Remainder
+Theorem with congruences having moduli coming from the set P together with the congruences
+` ≡ 1 (mod 2) and ` ≡ 0 (mod 5). As before, the congruence ` ≡ 1 (mod 2) insures that k is
+odd, and the congruence ` ≡ 0 (mod 5) insures that the smallest prime divisor of k · 2n + 1 as
+n varies is not always from the set P ∪ {5}. To obtain a small value of `, we simply looked for
+an appropriate set P which had the property that the product of the primes in P is as small as we
+could find. As with other notable numbers mentioned in the introduction, there is no guarantee that
+the value of ` we found in this way is minimal, but the approach is a reasonable one for minimizing
+or at least reducing the size of `.
+    Our search led us to taking
+                                     P = {3, 17, 97, 241, 257, 673}.
+There are various congruences one can consider based on this choice of P. We searched through
+these to minimize ` and obtained the following:
+            n ≡ 1 (mod 2),         ` ≡ 2 (mod 3)           =⇒ k · 2n + 1 ≡ 0 (mod 3)
+
+
+                                                     10
+           n ≡ 4 (mod 8), ` ≡ 4 (mod 17)     =⇒                k · 2n + 1 ≡ 0 (mod 17)
+           n ≡ 32 (mod 48), ` ≡ 43 (mod 97)  =⇒                k · 2n + 1 ≡ 0 (mod 97)
+           n ≡ 0 (mod 24), ` ≡ 8 (mod 241)   =⇒                k · 2n + 1 ≡ 0 (mod 241)
+           n ≡ 8 (mod 16), ` ≡ 256 (mod 257) =⇒                k · 2n + 1 ≡ 0 (mod 257)
+           n ≡ 16 (mod 48), ` ≡ 4 (mod 673)  =⇒                k · 2n + 1 ≡ 0 (mod 637)
+
+In the above, k = `4 . As in the previous section, an implication with n ≡ a (mod m) and k ≡ b
+(mod p) is justified by checking that ordp (2) = m and b4 2a + 1 ≡ 0 (mod p). Observe that
+the least common multiple of the moduli for the congruences involving n above is 48. Also, 4
+divides 48. We can establish then that these 6 congruences, together with n ≡ 2 (mod 4), form a
+covering by simply checking if each element of {0, 1, . . . , 47} satisfies one of the 7 congruences.
+Combining the congruences on ` with ` ≡ 1 (mod 2) and ` ≡ 0 (mod 5), we obtain the following
+result.
+
+Theorem 3. If ` is a positive integer satisfying
+
+                     ` ≡ 44745755      (mod 2 · 3 · 5 · 17 · 97 · 241 · 257 · 673),
+
+then k = `4 is a Sierpiński number.
+
+    The number 44745755 should be compared to the 15 digit number arising from Izotov’s con-
+struction. What we cannot conclude but would nevertheless like to give some justification for is
+that k = 447457554 , which was constructed by making use of the fact that 4x4 + 1 factors in Z[x],
+cannot be obtained from a covering argument. As in the introduction, we give some evidence of
+this in Table 5 by looking at the smallest prime factors of k · 2n + 1 for various n and the order of
+2 modulo these primes.
+
+                   n       smallest prime    factorization of order of 2
+                  54          5719237                22 · 3 · 476603
+                                                   6
+                  90        64450569241           3 · 5 · 139 · 15901
+                  214 338100368290543455397 22 · 28175030690878621283
+                                               Table 5
+
+   We turn now to finding examples of Riesel numbers that do not appear to arise from coverings.
+What we use here is simply that k · 2n − 1 is composite if n = 2u and k = `2 where u and ` are
+positive integers with ` > 1 since
+
+                        k · 2n − 1 = `2 · 22u − 1 = ` · 2u + 1 ` · 2u − 1 .
+                                                                        
+
+
+The idea then is to find a collection of congruences for n such that whenever n is odd, then n
+satisfies at least one of the congruences. In other words, the congruences when combined with
+n ≡ 0 (mod 2) form a covering. This seemingly puts us in a better position than we were in with
+the Sierpiński numbers where the factorization of 4x4 + 1 left us with wanting to find a collection
+of congruences such that every integer n 6≡ 2 (mod 4) satisfies at least one of the congruences.
+However, the situation with Riesel numbers is actually more complicated. For Sierpiński numbers,
+
+
+                                                   11
+the congruences n ≡ 1 (mod 2) and ` ≡ 2 (mod 3) immediately gave us that whenever n ≡ 1
+(mod 2), the number `4 2n + 1 is divisible by 3. Thus, we were only left with finding a collection of
+congruences such that every integer n ≡ 3 (mod 4) satisfies at least one of the congruences. For
+Riesel numbers, such a simplification in the integers n that need to be considered is not possible.
+    Our investigations led us to a set P of 20 primes for the Riesel numbers, namely
+
+               P = {7, 17, 31,41, 71, 97, 113, 127, 151, 241, 257, 281,
+                              337, 641, 673, 1321, 14449, 29191, 65537, 6700417}.
+
+Rather than displaying a list of implications, we simplify our presentation with Table 6 which
+consists of two columns, one column for the congruence involving n and the second column for
+the corresponding congruence involving `. We split the table to conserve space. The least common
+
+         classes for n  classes for `             classes for n          classes for `
+          2 (mod 3)      4 (mod 7)                9 (mod 16)           223 (mod 257)
+          5 (mod 8)    12 (mod 17)               59 (mod 70)            9 (mod 281)
+          0 (mod 5)    30 (mod 31)               18 (mod 21)            52 (mod 337)
+         11 (mod 20) 15 (mod 41)                 33 (mod 64)            31 (mod 641)
+         14 (mod 35) 66 (mod 71)                 31 (mod 48)           236 (mod 673)
+         7 (mod 48)    84 (mod 97)                3 (mod 60)           34 (mod 1321)
+         15 (mod 28) 100 (mod 113)               75 (mod 84)         11729 (mod 14449)
+          2 (mod 7)    64 (mod 127)              69 (mod 105)         575 (mod 29191)
+         12 (mod 15) 92 (mod 151)                17 (mod 32)         2056 (mod 65537)
+         19 (mod 24) 153 (mod 241)                1 (mod 64)       5012354 (mod 6700417)
+
+                                                Table 6
+
+
+multiple of the moduli for the congruences involving n is 6720. Thus, one can confirm that the
+20 congruences on n together with n ≡ 0 (mod 2) form a covering of the integers simply by
+checking that each integer in the set {0, 1, . . . , 6719} satisfies at least one of the 21 congruences.
+Hence, if ` satisfies each of the congruences in the second column of Table 6 and the congruence
+` ≡ 1 (mod 2), then `2 is a Riesel number. We deduce
+
+Theorem 4. There are infinitely many squares that are Riesel numbers. One such Riesel number
+is
+               38968453038738811751593146208088870460669724698092 .
+
+As noted in the introduction, the first sentence of this theorem is not new; it is a consequence of the
+work of Y.-G. Chen [3]. The significance here is that the above square, say `2 , appears not to arise
+from a covering argument. The square is the least one that we found with our methods, though
+given the complexity of the covering, it is certainly possible that smaller ones exist. Analogous to
+before, in Table 7 we give some information on the factorization of `2 · 2n − 1 to support our belief
+that `2 cannot be obtained from a covering argument. The size of ` is rather large here and we
+quickly came to numbers that were hard to factor, so only two rows are indicated in the table. The
+computations for other values of n also suggest that the number ` does not arise from coverings;
+
+
+                                                  12
+                          n smallest prime          factorization of order of 2
+                         118  22138187                    2 · 7 · 1581299
+                         166   666829                     22 · 32 · 18523
+                                                 Table 7
+
+                         n   smallest prime factorization of order of 2
+                         7      13883               2 · 11 · 631
+                                               2
+                        314 9344182730989     2 · 3 · 111240270607
+                                                 Table 8
+
+for example, a quick sieve using the first 20000 primes indicated that for n ≤ 25000, there are at
+least 170 different values for the minimum prime factor of `2 2n − 1 and 59 different n for which
+`2 2n − 1 did not have a prime factor among the first 20000 primes.
+
+    Let k = `2 be the Riesel number in Theorem 4. Observe that `2 − 22u = (` + 2u )(` − 2u ). As
+each of ` + 1 and ` − 1 is not a power of 2, we have that |` − 2u | > 1 for each positive integer u.
+Take S to be the set of odd numbers in Lemma 1. One checks that k + p and k − p are not powers
+of 2 for each p ∈ P. We deduce that k has the property that |k − 2n | is composite for all positive
+integers n. Information on the factorization of `2 − 2n to support our belief that `2 cannot be
+obtained from a covering argument for this problem is given in Table 8. (Note also that Lemma 1
+with S = Z implies that if the least prime divisor of `2 − 2n is bounded a n tends to infinity, then
+the least prime divisor of `2 2n − 1 is bounded as n tends to infinity.)
+
+
+3    The Resolution of Conjecture 2
+In this section, we establish the following:
+Theorem 5. For every positive integer R, there exist infinitely many positive odd numbers k such
+that each of the numbers
+
+                            k2n + 1, k 2 2n + 1, k 3 2n + 1, . . . , k R 2n + 1
+
+has at least two distinct prime factors for each positive integer n.
+    Sierpińki’s construction relied upon the fact that F5 has two prime factors. Our proof of Theo-
+rem 2 showed how this idea could be extended but still relied on the existence of composite Fermat
+numbers, requiring us then to only obtain a result like Theorem 5 with R bounded. Thus, we will
+want to obtain a covering here by another method. We will introduce new congruences making use
+of primitive prime divisors of the Mersenne numbers Mn = 2n − 1. To clarify, a prime p is said
+to be a primitive prime divisor of 2n − 1, independent of the expression that may be used for n in
+the exponent, if p divides 2n − 1 and p does not divide 2t − 1 for every positive integer t < n. An
+important result due to Bang [1] is the following:
+Lemma 2. For each positive integer n > 6, there exists a primitive prime divisor of 2n − 1.
+
+
+                                                    13
+    Our next lemma clarifies the information about primitive prime divisors of 2n − 1 that we will
+use.
+Lemma 3. Let q be an odd prime and let s > 2 be an integer. Then there exists a primitive prime
+                s
+divisor p of 2q2 − 1. Furthermore, any such p satisfies the following:
+  (i) The order of 2 modulo p is q2s .
+
+ (ii) p - Fi for every i ≥ 0.
+                                                 s
+ (iii) There exists an integer e such that e2 ≡ −1 (mod p).
+                                                                                          s
+Proof. Lemma 2 implies the existence of a primitive prime divisor p of 2q2 − 1. To see (i), note
+                                                s
+that since p is a primitive prime divisor of 2q2 − 1, p does not divide 2t − 1 for all t < q2s . For (ii),
+combine (i) with the fact that prime divisors of Fi have order 2i+1 . To obtain (iii), notice that since
+s > 2, we obtain from (i) that p ≡ 1 (mod 8). This implies 2 is a square modulo p; that is, there
+is an integer a with a2 ≡ 2 (mod p). Let e = aq . One checks that ordp (e) = 2s+1 from which (iii)
+follows.
+    Once we have constructed our covering of the integers, our system of congruences that describe
+k, and our finite set of primes P, we will use the following lemma to guarantee the existence of at
+least two distinct prime divisors of k r 2n + 1 for each n.
+Lemma 4. Given P > 0, an integer r ≥ 3 and C and D nonzero integers, there is a positive
+integer Y = Y (P, r, C, D) such that if k is an odd integer with |k| > Y and n is a positive integer,
+then Ck r 2n + D has a prime factor that is greater than P .
+Proof. Fix P , r, C and D as in the lemma. It suffices to show that there are only finitely many
+ordered pairs (k, n) such that
+                                   Ck r 2n + D = pf11 · · · pft t ,                           (4)
+where the pi are all the distinct primes less ≤ P and the fi are nonnegative integers. We put
+n = rn1 + n0 and fi = rui + vi for each i ∈ {1, 2, . . . , t} where n1 , u1 , u2 , . . . , ut ∈ Z and
+n0 , v1 , v2 , . . . , vt ∈ {0, 1, . . . , r − 1}. Then
+
+                            pv11 · · · pvt t (pu1 1 · · · put t )r − 2n0 C(2n1 k)r = D.               (5)
+
+Observe that Axr − By r = D, where r ≥ 3 and A, B and D are nonzero integers, is a Thue
+equation which has finitely many solutions in integers x and y. We take A = pv11 · · · pvt t and
+B = 2n0 C. There are rt possibilities for A depending on the vi and r possibilities for B depending
+on n0 . We deduce that there are finitely many possibilities for pu1 1 · · · put t and 2n1 k in (5) and,
+consequently, finitely many pairs (k, n) satisfying (4).
+   To establish Theorem 5, we may suppose that k is an 8th power. In other words, it suffices to
+show that there exist infinitely many positive odd numbers k such that each of the numbers
+
+                           k 8 2n + 1, k 16 2n + 1, k 24 2n + 1, . . . , k 8R 2n + 1
+
+has at least two distinct prime factors for each positive integer n. We consider then the positive
+integers r ≤ 8R that are divisible by 8. Define integers s = s(r) and r0 = r0 (r), with r0 odd, by the
+
+
+                                                       14
+relation r = 2s r0 . Let q = q(r) be an odd prime with (r0 , q) = 1. We furthermore take the various
+q(r) as r varies so that they are distinct. We start our covering of the integers with the congruences
+
+                   n ≡ 2i    (mod 2i+1 ),          for 0 ≤ i ≤ max{s(r) + q(r) − 2},                                   (6)
+
+where the maximum is over the positive integers r ≤ 8R divisible by 8. For each i as above, fix a
+                           i
+prime divisor pi of Fi = 22 + 1. Observe that for each i, if
+
+                         n ≡ 2i      (mod 2i+1 )               and       k≡1           (mod pi ),
+
+then
+                                        k r 2n + 1 ≡ 0            (mod pi ).
+   The idea is to complete the covering system which began with the congruences in (6) by making
+use of different congruences depending on the value of r. With r fixed as above, we note that the
+congruences in (6) together with
+                                      n ≡ 0 (mod 2s+q−1 )
+form a covering of the integers. Recall here that s and q depend on r. Note that this covering of
+the integers only makes use of the congruences in (6) corresponding to 0 ≤ i ≤ s + q − 2. Also,
+every integer n that satisfies n ≡ 0 (mod 2s+q−1 ) must satisfy one of the q congruences
+
+                       n ≡ j2s+q−1        (mod 2s+q−1 q)                     for 0 ≤ j ≤ q − 1.
+
+Since q and r0 are coprime odd numbers, the set of residues classes modulo 2s+q−1 q represented by
+
+                               0, 2s+q−1 , 2 · 2s+q−1 , . . . , (q − 1)2s+q−1
+
+is identical to the set of residue classes modulo 2s+q−1 q represented by
+
+                            0, r0 2s+q−1 , r0 2 · 2s+q−1 , . . . , r0 (q − 1)2s+q−1 ,
+
+so it suffices to complete our covering with the q congruences
+
+                      n ≡ jr0 2s+q−1       (mod 2s+q−1 q),                     for 0 ≤ j ≤ q − 1.
+
+From Lemma 3, for each j ∈ {0, 1, . . . , q − 1}, there is a primitive prime divisor p̂j = p̂j (r) of
+                                                                     s+j
+the Mersenne number M2s+j q and an integer ej = ej (r) such that e2j ≡ −1 (mod p̂j ). We show
+that for each j ∈ {0, 1, . . . , q − 1} if
+                                                                                         q−1         j
+              n ≡ jr0 2s+q−1     (mod 2s+q−1 q)                and           k ≡ 2−j·2         e2j       (mod p̂j ),
+
+then
+                                       k r 2n + 1 ≡ 0             (mod p̂j ).
+Indeed, defining the integer N by n = 2s+q−1 qN + jr0 2s+q−1 , this follows from
+                                                   q−1     j    s 0      s+q−1 qN +jr 0 2s+q−1
+                      k r 2n + 1 ≡ (2−j·2                e2j )2 r 22                                     +1
+                                             s+j     0          s+j q        q−1−j N
+                                    ≡ (e2j         )r · (22             )2             +1
+
+
+                                                           15
+                                                       0
+                                         ≡ (−1)r + 1 ≡ 0                   (mod p̂j ).
+
+    We summarize the above. For each r ≤ 8R that is a multiple of 8, the congruences
+
+                  n ≡ 2i                           (mod 2i+1 ),              for 0 ≤ i ≤ s + q − 2,
+                                  0 s+q−1                     s+q−1
+                  n ≡ jr 2                         (mod 2             q)     for 0 ≤ j ≤ q − 1
+
+form a covering of the integers. If k satisfies the congruences
+
+                        k ≡ 1                          (mod pi ),          for 0 ≤ i ≤ s + q − 2,
+                                   −j·2q−1    2j
+                        k ≡ 2                ej        (mod p̂j )          for 0 ≤ j ≤ q − 1,
+
+then for each positive integer n, the number k r 2n + 1 is divisible by some prime in the set
+
+                                  Pr = {p0 , p1 , . . . , ps+q−2 , p̂0 , p̂1 , . . . , p̂q−1 }.
+
+Furthermore, Lemma 3 guarantees that the primes in Pr are distinct.
+    Recall that p̂j (r) is a prime, necessarily odd, for which 2 has order 2s+j q(r). Since the q(r)
+are distinct, we deduce that the values of p̂j (r) as j and r vary are all distinct. By the Chinese
+Remainder Theorem, there are infinitely many positive integers k satisfying
+
+ k ≡ 1                                (mod 2)
+ k ≡ 1                                (mod pi ),             for 0 ≤ i ≤ max{s(r) + q(r) − 2},
+          −j·2q(r)−1        2j
+ k ≡ 2                 ej (r)         (mod p̂j (r))          for r ∈ {8, 16, 24, . . . , 8R} and 0 ≤ j ≤ q(r) − 1.
+
+We deduce that any such k has the property that, for every positive integer n, the numbers
+
+                                k 8 2n + 1, k 16 2n + 1, k 24 2n + 1, . . . , k 8R 2n + 1
+
+each have a prime divisor from the set
+                                                           P = ∪ Pr ,
+where the union is over r ∈ {8, 16, 24, . . . , 8R}. We apply Lemma 4 for each r with P being the
+maximum element of P, C = 1 and D = 1. Hence, we see that if k is sufficiently large satisfying
+the congruences above, then for every positive integer n, the numbers
+
+                                k 8 2n + 1, k 16 2n + 1, k 24 2n + 1, . . . , k 8R 2n + 1
+
+each have a prime divisor in P and a prime divisor not in P. This establishes Theorem 5.
+
+
+4    New Cases of Conjecture 3
+In this section, we address the two special cases of Conjecture 3 with r = 4 and r = 6. Corollaries
+of the arguments below will address some other new cases of this conjecture. We begin with the
+case r = 4.
+
+
+
+                                                              16
+Theorem 6. There exist infinitely many positive odd numbers k such that
+
+                                                 k 4 − 2n
+
+has at least two distinct prime factors for each positive integer n.
+   With the intent of applying Lemma 1, we work with k 4 2n − 1. We make use of two simple
+lemmas.
+Lemma 5. Let r be a positive integer, let p be an odd prime, and let a be an arbitrary integer.
+Suppose that 2 is an rth power modulo p and that the order of 2 modulo p is m. Then there exists
+an integer b = b(p, a) such that if k ≡ b (mod p) and n ≡ a (mod m), then k r 2n − 1 is divisible
+by p.
+Proof. Let c be such that cr ≡ 2 (mod p). Since p is odd, p does not divide c. If n ≡ a (mod m),
+then                                                   r
+                          k r 2n − 1 ≡ k r 2a − 1 ≡ kca − 1 (mod p).
+The lemma follows by taking b ≡ c−a (mod p).
+Lemma 6. Let r be a positive integer, let p be an odd prime and let g = gcd(r, p − 1). Then 2 is
+an rth power modulo p if and only if 2(p−1)/g ≡ 1 (mod p).
+Proof. The condition 2(p−1)/g ≡ 1 (mod p) is equivalent to 2 being a gth power modulo p. There
+are integers x and y such that rx + (p − 1)y = g. If a is an integer for which 2 ≡ ag (mod p),
+then 2 ≡ arx+(p−1)y ≡ (ax )r (mod p), so 2 is an rth power modulo p. Since g|r, we also have that
+if 2 is an rth power modulo p, then 2 is a gth power modulo p. This completes the proof.
+    Lemma 5 motivates our approach. We take r = 4. If n ≡ 0 (mod 2) and k ≡ 1 (mod 3),
+then k r 2n − 1 is divisible by 3. We take a1 = 0, m1 = 2 and p1 = 3. For n ≡ 1 (mod 2), we find
+distinct odd primes p2 , . . . , pt , with 2 a fourth power modulo each pi , and build on the congruence
+n ≡ a1 (mod m1 ) to form a covering of the integers
+
+                                n ≡ ai      (mod mi )       for 1 ≤ i ≤ t,
+
+such that mi = ordpi (2) for each i. The tables in [2] provide an excellent source for finding the
+primes p for which 2 has a prescribed order m modulo p. One simply looks up the primitive
+prime factors of 2m − 1 appearing in these tables. Thus, [2] helped us determine the primes to
+initially consider as well as the moduli, with their multiplicities, that we could use for the covering.
+Lemma 6, with r = 4, enabled us to quickly simplify these lists so that only primes p for which
+2 is a fourth power modulo p were considered. We tabulate the results of our work in the 65
+rows of Table 9. In the ith row, we list a congruence on n of the form n ≡ ai (mod mi ), a list
+[e1 , e2 , e3 , e4 , e5 ] of exponents to clarify the factorization
+
+                                         mi = 2e1 3e2 5e3 7e4 11e5 ,
+
+and a prime pi . To conserve space in the tables, we note here that
+
+                               p40 = 2048568835297380486760231,
+                         p65 = 14768784307009061644318236958041601.
+
+
+                                                     17
+                          exponents of prime
+row      congruence                              prime pi
+                             factors of mi
+ 1      n ≡ 0 (mod 2)         [1,0,0,0,0]             3
+ 2      n ≡ 0 (mod 3)         [0,1,0,0,0]             7
+ 3      n ≡ 1 (mod 9)         [0,2,0,0,0]            73
+ 4      n ≡ 4 (mod 27)        [0,3,0,0,0]         262657
+ 5    n ≡ 49 (mod 108)        [2,3,0,0,0]         246241
+ 6    n ≡ 103 (mod 108)       [2,3,0,0,0]         279073
+ 7     n ≡ 13 (mod 81)        [0,4,0,0,0]           2593
+ 8     n ≡ 40 (mod 81)        [0,4,0,0,0]          71119
+ 9     n ≡ 67 (mod 81)        [0,4,0,0,0]        97685839
+10      n ≡ 0 (mod 7)         [0,0,0,1,0]            127
+11      n ≡ 1 (mod 21)        [0,1,0,1,0]            337
+12     n ≡ 16 (mod 63)        [0,2,0,1,0]          92737
+13     n ≡ 52 (mod 63)        [0,2,0,1,0]         649657
+14    n ≡ 25 (mod 126)        [1,2,0,1,0]      77158673929
+15     n ≡ 26 (mod 35)        [0,0,1,1,0]            71
+16      n ≡ 5 (mod 35)        [0,0,1,1,0]         122921
+17     n ≡ 47 (mod 70)        [1,0,1,1,0]            281
+18    n ≡ 103 (mod 105)       [0,1,1,1,0]          29191
+19    n ≡ 19 (mod 105)        [0,1,1,1,0]         106681
+20    n ≡ 55 (mod 105)        [0,1,1,1,0]         152041
+21    n ≡ 97 (mod 210)        [1,1,1,1,0]         664441
+22    n ≡ 181 (mod 210)       [1,1,1,1,0]        1564921
+23    n ≡ 223 (mod 315)       [0,2,1,1,0]         870031
+24    n ≡ 34 (mod 315)        [0,2,1,1,0]         983431
+25      n ≡ 0 (mod 5)         [0,0,1,0,0]            31
+26     n ≡ 11 (mod 15)        [0,1,1,0,0]            151
+27      n ≡ 2 (mod 45)        [0,2,1,0,0]            631
+28     n ≡ 38 (mod 45)        [0,2,1,0,0]          23311
+29     n ≡ 29 (mod 90)        [1,2,1,0,0]        18837001
+30      n ≡ 0 (mod 11)        [0,0,0,0,1]            23
+31      n ≡ 1 (mod 11)        [0,0,0,0,1]            89
+32      n ≡ 2 (mod 33)        [0,1,0,0,1]         599479
+33     n ≡ 47 (mod 66)        [1,1,0,0,1]          20857
+34      n ≡ 5 (mod 99)        [0,2,0,0,1]            199
+35     n ≡ 59 (mod 99)        [0,2,0,0,1]         153649
+36     n ≡ 50 (mod 99)        [0,2,0,0,1]      33057806959
+37     n ≡ 18 (mod 55)        [0,0,1,0,1]            881
+38     n ≡ 29 (mod 55)        [0,0,1,0,1]           3191
+39      n ≡ 7 (mod 55)        [0,0,1,0,1]         201961
+40    n ≡ 107 (mod 165)       [0,1,1,0,1]            p40
+                      Table 9, Part I
+
+
+                            18
+                                              exponents of prime
+              row         congruence                                      prime pi
+                                                 factors of mi
+              41    n ≡ 173 (mod 330)             [1,1,1,0,1]            415365721
+              42    n ≡ 239 (mod 495)             [0,2,1,0,1]                 991
+              43      n ≡ 9 (mod 44)              [2,0,0,0,1]                2113
+              44    n ≡ 383 (mod 396)             [2,2,0,0,1]         15975607282273
+              45     n ≡ 65 (mod 132)             [2,1,0,0,1]              4327489
+              46      n ≡ 43 (mod 88)             [3,0,0,0,1]                 353
+              47    n ≡ 263 (mod 264)             [3,1,0,0,1]                7393
+              48     n ≡ 17 (mod 144)             [4,2,0,0,0]                 577
+              49     n ≡ 89 (mod 144)             [4,2,0,0,0]          487824887233
+              50      n ≡ 3 (mod 16)              [4,0,0,0,0]                 257
+              51    n ≡ 107 (mod 288)             [5,2,0,0,0]                1153
+              52    n ≡ 251 (mod 288)             [5,2,0,0,0]          278452876033
+              53     n ≡ 35 (mod 162)             [1,4,0,0,0]               135433
+              54     n ≡ 89 (mod 162)             [1,4,0,0,0]            272010961
+              55    n ≡ 629 (mod 1296)            [4,4,0,0,0]               10369
+              56    n ≡ 413 (mod 432)             [4,3,0,0,0]            209924353
+              57     n ≡ 53 (mod 216)             [3,3,0,0,0]             33975937
+              58    n ≡ 125 (mod 216)             [3,3,0,0,0]        138991501037953
+              59    n ≡ 107 (mod 180)             [2,2,1,0,0]               54001
+              60     n ≡ 23 (mod 240)             [4,1,1,0,0]            394783681
+              61    n ≡ 143 (mod 240)             [4,1,1,0,0]           46908728641
+              62     n ≡ 39 (mod 160)             [5,0,1,0,0]               414721
+              63     n ≡ 79 (mod 160)             [5,0,1,0,0]         44479210368001
+              64    n ≡ 119 (mod 480)             [5,1,1,0,0]               23041
+              65    n ≡ 479 (mod 480)             [5,1,1,0,0]                 p65
+                                           Table 9, Part II
+
+
+Lemma 7. The congruences n ≡ ai (mod mi ) listed in Table 9 form a covering of the integers.
+Also, the primes pi are distinct, ordpi (2) = mi for each i, and 2 is a fourth power modulo pi for
+each i ≥ 2.
+
+    One can verify the second statement in Lemma 7 directly, in particular by making use of
+Lemma 6. We explain next a method for verifying the first part of Lemma 7.
+    The least common multiple of the moduli in Table 9 is 25 · 34 · 5 · 7 · 11 = 997920. To verify
+that the congruences on n form a covering one can check that each of 0, 1, . . . , 997919 satisfies one
+of these congruences (computationally, this is not difficult). To reduce the amount of work needed
+to verify Lemma 7, one can proceed as follows. The congruences in rows 30 to 47 of Table 9 are
+the only congruences where the moduli have 11 as a prime factor. To reduce the least common
+multiple of the moduli of the covering, one can first verify that these 18 congruences together
+with the congruences in rows 25 and 26 cover 5 modulo 18, that is that every integer which is 5
+modulo 18 satisfies one of the congruences on n in rows 30 to 47 or in rows 25 and 26. The least
+
+
+                                                  19
+common multiple of the moduli for these 20 congruences is 3960. One can check directly that the
+220 residues 18j + 5, for 0 ≤ j ≤ 219, modulo 3960 that correspond to 5 modulo 18 are covered
+by these 20 congruences. Once this is confirmed, we can replace the congruences in rows 30 to 47
+with n ≡ 5 (mod 18), eliminating 11 from the prime factors of our moduli and reducing the least
+common multiple of the moduli to 90720.
+     To further reduce the work needed to verify Lemma 7, we similarly observe that rows 10
+through 24 of Table 9 cover the residue 7 modulo 18 and these are the only congruences whose
+moduli have 7 as a prime factor. To verify that these 15 congruences cover 7 modulo 18, one need
+only check the 35 residues modulo 630 that make up 7 modulo 18. Once this is established, we
+can replace the congruences in rows 10 to 24 with n ≡ 7 (mod 18), eliminating 7 from the prime
+factors of our moduli and reducing the least common multiple of the moduli to 12960. From here,
+it is a simple computation to establish that these congruences do indeed cover the integers.
+     For each i ≥ 2, we choose ci so that c4i ≡ 2 (mod pi ). Recall that ordpi (2) = mi . One checks
+that, for such i, if
+                        n ≡ ai (mod mi ) and k ≡ c−a         i
+                                                               i
+                                                                 (mod pi ),
+then k 4 2n − 1 is divisible by pi . This was essentially our proof of Lemma 5.
+   Let k be an integer satisfying
+
+                              k ≡ ci−ai   (mod pi )       for 2 ≤ i ≤ 65
+
+and
+                                          k≡1       (mod 6).
+The Chinese Remainder Theorem guarantees the existence of infinitely many such integers k cor-
+responding to a congruence modulo M = 2p1 · · · p65 . We deduce that each such k has the property
+that k 4 2n + 1 has a prime factor in
+
+                                       P = {p1 , p2 , . . . , p65 }
+
+for each positive integer n.
+    To establish Theorem 6, we apply Lemma 1 with S = Z to deduce that there is an infinite
+arithmetic progression of odd integers k such that k 4 − 2n is divisible by at least one prime from
+P for each positive integer n.
+    Next, we address finding a prime divisor of k 4 − 2n that is not in P. We make use of the
+following theorem of Darmon and Granville [4].
+Theorem 7. Let A, B and C be nonzero integers. Let p, q and r be positive integers for which
+1
+p
+  + 1q + 1r < 1. Then the generalized Fermat equation Axp + By q = Cz r has only finitely many
+solutions in integers x, y and z with gcd(x, y, z) = 1.
+Lemma 8. Given P > 0, an integer r ≥ 2 and C and D nonzero integers, there is a positive
+integer Y = Y (P, r, C, D) such that if k is an odd integer with |k| > Y and n is a positive integer,
+then C2n + Dk r has a prime factor greater than P .
+Proof. Fix P , r, C and D as in the lemma. It suffices to show that there are only finitely many
+ordered pairs (k, n) with k odd such that
+
+                                     C2n + Dk r = pf11 · · · pft t ,                             (7)
+
+
+                                                   20
+where the pi are all the distinct primes less ≤ P and the fi are nonnegative integers. Suppose
+(7) holds with k odd. We put n = 5n1 + n0 and fi = 5ui + vi for each i ∈ {1, 2, . . . , t} where
+n1 , u1 , u2 , . . . , ut ∈ Z and n0 , v1 , v2 , . . . , vt ∈ {0, 1, . . . , 4}. Then
+                                               5
+                                 2n0 C 2n1 + Dk r = pv11 · · · pvt t (pu1 1 · · · put t )5 . (8)
+
+Observe that Ax5 +Dy r = Bz 5 , where r ≥ 2 and A, B and D are nonzero integers, is a generalized
+Fermat equation with the sum of the reciprocals of the exponents < 1 and, hence, has finitely many
+solutions in integers x, y and z, with gcd(x, y, z) = 1, by Theorem 7. Since k is odd, we have
+gcd(2n1 , k, pu1 1 · · · put t ) = 1. We take A = 2n0 C and B = pv11 · · · pvt t . There are 5 possibilities for
+A depending on n0 and 5t possibilities for B depending on the vj . We deduce that there are finitely
+many possibilities for 2n1 , k and pu1 1 · · · put t as in (8) and, consequently, finitely many pairs (k, n)
+satisfying (7).
+    Using Lemma 8, with P = max{pi }, r = 4, C = −1 and D = 1, we see that if k is
+sufficiently large, then for each positive integer n, we have that k 4 − 2n has a prime divisor outside
+the set P = {p1 , . . . , p65 }. Theorem 6 now follows.
+    We address some corollaries of the above. Rather than using Lemma 8, we could work with
+  4 n
+k 2 − 1 and appeal to Lemma 4. This would give the following.
+Corollary 2. There exist infinitely many positive odd numbers k such that
+
+                                                  k 4 2n − 1
+
+has at least two distinct prime factors for each positive integer n.
+    Using Lemma 1, one can take the k appearing in Corollary 2 to be the same as the k appearing
+in Theorem 6. Suppose that m is a positive integer relatively prime to p − 1 for all p ∈ P. Setting
+r = 4m, we get gcd(r, p − 1) = gcd(4, p − 1) for each p ∈ P. Lemma 6 now implies that 2 is an
+rth power for each p ∈ P with p > 3. Making use of the covering given in Lemma 7 and applying
+Lemma 5 and Lemma 8 or Lemma 4 as above, we obtain the following.
+Corollary 3. There is a set T of positive integers r having positive asymptotic density with the
+following properties:
+  (i) If r ∈ T , then 4|r.
+
+  (ii) For each r ∈ T , there exist infinitely many positive odd numbers k such that each of the
+       numbers
+                                           k r − 2n , k r 2n − 1
+       has at least two distinct prime factors for each positive integer n.
+    We now use the same idea to resolve the case r = 6.
+Theorem 8. There exist infinitely many positive odd numbers k such that
+
+                                                   k 6 − 2n
+
+has at least two distinct prime factors for each positive integer n.
+
+
+                                                      21
+    The procedure is analogous to the procedure used to prove Theorem 6, with the exception that
+we want r = 6 in Lemma 5 and Lemma 6. If an integer n is divisible by 2 or 3, then it satisfies one
+of the two congruences n ≡ 0 (mod 2) and n ≡ 0 (mod 3). We set k ≡ 1 (mod 3) and k ≡ 1
+(mod 7) so n satisfying these congruences also satisfy k 6 2n − 1 is divisible by at least one of 3 and
+7. Next, we take 2 to be a sixth power modulo any of the remaining primes p3 , . . . , pt . We identify
+such primes using the tables in [2] and Lemma 6 with r = 6. We make use of a table to display
+our covering as before. For this table, we set
+
+                           p28 = 432363203127002885506543172618401,
+                              p33 = 84179842077657862011867889681
+                     p41 = 3421249381705368039830334190046211225116161.
+
+Lemma 9. The congruences n ≡ ai (mod mi ) listed in Table 10 form a covering of the integers.
+Also, the primes pi are distinct, ordpi (2) = mi for each i, and 2 is a sixth power modulo pi for
+each i ≥ 3.
+
+   The least common multiple of the moduli in the tables is 25 · 3 · 52 · 7 = 16800; to verify that the
+congruences form a covering one checks that each of the residues modulo 16800 satisfies at least
+one of the congruences. Theorem 8 then follows.
+   Analogous to the case r = 4, we also obtain the following corollaries.
+
+Corollary 4. There exist infinitely many positive odd numbers k such that
+
+                                              k 6 2n − 1
+
+has at least two distinct prime factors for each positive integer n.
+
+Corollary 5. There is a set T 0 of positive integers r having positive asymptotic density with the
+following properties:
+
+  (i) If r ∈ T 0 , then 6|r.
+
+ (ii) For each r ∈ T 0 , there exist infinitely many positive odd numbers k such that each of the
+      numbers
+                                            k r − 2n , k r 2n − 1
+      has at least two distinct prime factors for each positive integer n.
+
+   In conclusion, we note that the r that are in the sets T and T 0 of Corollaries 3 and 5 are not
+covered by the work of Chen in [3].
+
+
+
+
+                                                  22
+                          exponents of prime
+row       congruence                               prime pi
+                             factors of mi
+ 1        n ≡ 0 (mod 2)        [1,0,0,0]                 3
+ 2        n ≡ 0 (mod 3)        [0,1,0,0]                 7
+ 3        n ≡ 0 (mod 5)        [0,0,1,0]                31
+ 4       n ≡ 1 (mod 20)        [2,0,1,0]                41
+ 5      n ≡ 11 (mod 40)        [3,0,1,0]              61681
+ 6        n ≡ 7 (mod 8)        [3,0,0,0]                17
+ 7      n ≡ 27 (mod 80)        [4,0,1,0]          4278255361
+ 8       n ≡ 3 (mod 16)        [4,0,0,0]               257
+ 9        n ≡ 3 (mod 7)        [0,0,0,1]               127
+10       n ≡ 2 (mod 35)        [0,0,1,1]             122921
+11      n ≡ 57 (mod 70)        [1,0,1,1]               281
+12      n ≡ 21 (mod 28)        [2,0,0,1]               113
+13      n ≡ 27 (mod 35)        [0,0,1,1]                71
+14     n ≡ 117 (mod 140)       [2,0,1,1]            7416361
+15      n ≡ 25 (mod 56)        [3,0,0,7]            15790321
+16      n ≡ 53 (mod 112)       [4,0,0,7]               5153
+17     n ≡ 109 (mod 112)       [4,0,0,7]         54410972897
+18      n ≡ 11 (mod 32)        [5,0,0,0]              65537
+19     n ≡ 123 (mod 160)       [5,0,1,0]             414721
+20      n ≡ 13 (mod 25)        [0,0,2,0]               601
+21       n ≡ 8 (mod 25)        [0,0,2,0]               1801
+22      n ≡ 53 (mod 200)       [3,0,2,0]             340801
+23      n ≡ 73 (mod 200)       [3,0,2,0]               401
+24      n ≡ 93 (mod 400)       [4,0,2,0]               1601
+25     n ≡ 293 (mod 400)       [4,0,2,0]            82471201
+26     n ≡ 153 (mod 200)       [3,0,2,0]          3173389601
+27     n ≡ 173 (mod 400)       [4,0,2,0]              25601
+28     n ≡ 373 (mod 400)       [4,0,2,0]                p28
+29     n ≡ 193 (mod 200)       [3,0,2,0]            2787601
+30      n ≡ 59 (mod 160)       [5,0,1,0]        44479210368001
+31     n ≡ 233 (mod 336)       [4,1,0,1]               2017
+32     n ≡ 169 (mod 240)       [4,1,1,0]         46908728641
+33     n ≡ 149 (mod 280)       [3,0,1,1]                p33
+34      n ≡ 65 (mod 224)       [5,0,0,1]       358429848460993
+35     n ≡ 177 (mod 224)       [5,0,0,1]               2689
+36      n ≡ 29 (mod 210)       [1,1,1,1]            1564921
+37     n ≡ 253 (mod 336)       [4,1,0,1]         25629623713
+38     n ≡ 113 (mod 224)       [5,0,0,1]           183076097
+39     n ≡ 289 (mod 480)       [5,1,1,0]              23041
+40    n ≡ 1429 (mod 1680)      [4,1,1,1]          4841172001
+                        Table 10, Part I
+
+
+                              23
+                                            exponents of prime
+            row         congruence                                       prime pi
+                                               factors of mi
+             41     n ≡ 69 (mod 560)             [4,0,1,1]                p41
+             42    n ≡ 209 (mod 224)             [5,0,0,1]                449
+             43    n ≡ 769 (mod 1120)            [5,0,1,1]             86800001
+             44    n ≡ 349 (mod 560)             [4,0,1,1]              557761
+             45     n ≡ 41 (mod 336)             [4,1,0,1]         1538595959564161
+             46     n ≡ 89 (mod 840)             [3,1,1,1]            755667361
+             47    n ≡ 229 (mod 560)             [4,0,1,1]               4481
+             48    n ≡ 369 (mod 1120)            [5,0,1,1]             16824641
+             49    n ≡ 509 (mod 560)             [4,0,1,1]              736961
+                                         Table 10, Part II
+
+
+References
+ [1] A. S. Bang, Taltheoretiske Undersgelser, Tidsskrift for Mat. 4 (1886), 70–80, 130–137.
+
+ [2] J. Brillhart, D. H. Lehmer, J. L. Selfridge, B. Tuckerman, and S. S. Wagstaff, Jr., Factoriza-
+     tions of bn ± 1, b = 2, 3, 5, 6, 7, 10, 11, 12 Up to High Powers, 3rd edition, Contemporary
+     Mathematics, Vol. 22, American Math. Soc., Providence, 2002 (available online).
+
+ [3] Y.-G. Chen, On integers of the forms k r − 2n and k r 2n + 1, J. Number Theory 98 (2003),
+     310–319.
+
+ [4] H. Darmon and A. Granville, On the equations z m = F (x, y) and Axp + By q = Cz r ,
+     Bull. London Math. Soc. 27 (1995), 513–544.
+
+ [5] P. Erdős, On integers of the form 2k + p and some related problems, Summa Brasil. Math. 2
+     (1950), 113–123.
+
+ [6] A. de Polignac, Recherches nouvelles sur les nombres premiers, C. R. Acad. Sci. Paris
+     Math. 29 (1849), 397–401, 738–739.
+
+ [7] M. Filaseta, Coverings of the integers associated with an irreducibility theorem of A. Schinzel,
+     Number theory for the millennium, II (Urbana, IL, 2000), A K Peters, Natick, MA, 2002, 1–
+     24.
+
+ [8] R. K. Guy, Unsolved Problems in Number Theory (3rd ed.), Problem Books in Mathematics,
+     Springer-Verlag, New York, 2004.
+
+ [9] A. S. Izotov, A note on Sierpiński numbers, Fibonacci Quart. 33 (1995), 206–207.
+
+[10] H. Riesel, Några stora primtal, Elementa 39 (1956), 258–260.
+
+[11] W. Sierpiński, Sur un problème concernant les nombres k · 2n + 1, Elem. Math. 15 (1960),
+     73–74.
+
+
+                                                 24
+[12] R. G. Stanton and H. Williams, Computation of some number-theoretic coverings, Lecture
+     Notes in Math., Combinatorial mathematics, VIII (Geelong, 1980), Vol. 884, Springer (1981),
+     8–13.
+
+[13] J. G. van der Corput, On de Polignac’s conjecture, Simon Stevin 27 (1950), 99–105.
+
+
+
+
+                                              25
+

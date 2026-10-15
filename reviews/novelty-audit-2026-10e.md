@@ -93,3 +93,59 @@ Status: in progress.
 | (J)66 Thm 1.2 (even windows forced) | APPARENTLY NEW, elementary | — |
 | (J)66 Cor 2.1 (e*(n) ≪ n₀^{1/4+ε}) | APPARENTLY NEW as a statement; = Pollack IJNT 2014 Thm 1.4 + Thm 1.2 | no ES application of Pollack found (OpenAlex citations) |
 | (J)66 Cor 2.2 (e*(p) ≤ (p − 5)/8, p ≡ 1 (8)) | APPARENTLY NEW as a statement; = Pollack JNT 2018 Thm 1 + genus theory | — |
+
+---
+
+## 2. Exponential families n = 4^s + k, c₀·4^s + k ((J)62, (J)68, (J)69)
+
+### 2.1 Findings
+
+* **No ES literature on exponential families.** zbMATH Open API, full list of the 70
+  documents matching "Erdős–Straus" [visited, API]: no title on Fermat/Mersenne/Proth or
+  exponential families; the special forms treated are residue classes (Mordell, Yamamoto,
+  Salez arXiv:1406.6307 (seven modular equations), Lopez arXiv:2206.10319/2404.01508,
+  Bradford Integers 2021/2025, Chamberland Integers 2026) and polynomial denominators
+  (Schinzel 2000, Ghermoul, Schuh). Web searches "Erdős–Straus conjecture Fermat numbers
+  2^n+1 …", "… Mersenne numbers powers of 2 plus constant", "Erdős–Straus 4^n + k unit
+  fractions exponential family", "Proth numbers k·2^n+1 Erdős–Straus …", "Monks Velingker
+  Erdős–Straus", "Erdős–Straus conjecture numbers of special form covering congruences":
+  no hit. This confirms the R236/R245/R246 quick searches and the (J)22 audits.
+* **Sierpiński-type coverings of the exponent** are classical for *primality*:
+  Sierpiński (Elem. Math. 15 (1960)) [memory], restated in **Filaseta–Finch–Kozek, "On
+  powers associated with Sierpiński numbers, Riesel numbers and Polignac's conjecture"**
+  (J. Number Theory 128 (2008) [memory for journal data]) [visited, author PDF
+  people.math.sc.edu/filaseta/papers/SierpinskiEtCoPap5.pdf; text archived
+  `sources/lit2026e/filaseta-finch-kozek-sierpinski-powers.txt`], §1 p. 2: the covering
+  n mod 2, 4, 8, …, 64 with the Fermat-prime moduli. The transfer of the covering idea from
+  "k·2^n + 1 composite" to "4/n_s solvable" (ET identity classes indexed by s mod L) is
+  not in the literature found.
+* **Izotov's partial covering + algebraic factorisation** (Izotov, Fibonacci Quart. 33
+  (1995) 206–207, as described in FFK §1 p. 3–4 [visited]): drop one congruence of the
+  covering and handle the uncovered exponent class n ≡ 2 (mod 4) by the Aurifeuillian
+  factorisation 4x⁴ + 1 = (2x² + 2x + 1)(2x² − 2x + 1) "for reasons not associated with a
+  covering". **Bearing on (J)69 Thm 1.1:** the proof architecture — a finite exponent
+  covering (13 ET classes mod 360) leaving one class s ≡ 34 (mod 90), closed by an identity
+  that uses the algebraic factorisation of u³ + 1 (and 4^r + 1) along that class — is the
+  ES analogue of Izotov's method. The ES identity itself (window 151 = 4⁴ − 105,
+  A = (64u³ + 2u² − 2u + 66)/151) is not in the literature. → method lineage to cite;
+  statement APPARENTLY NEW.
+* **"Uncoverable" exponential families via square points ((J)68 Lemma 3.1).** The
+  obstruction (an integer point where c₀·4^s + k is a unit square, which every ET class
+  must avoid by T1/Mordell) is the exponential transcription of the Mordell/Schinzel
+  quadratic-residue obstruction already attributed in (J)22 Cor 1.5 (Bertók–Hajdu
+  Hasse-type principle, arXiv:1407.6499 [abstract visited] for the exponential-Diophantine
+  side). The specific families 7·4^s + 9, 15·4^s + 1, … are elementary instances; nothing
+  ES-specific found.
+* **Skolem / Bertók–Hajdu.** Bertók–Hajdu, "A Hasse-type principle for exponential
+  Diophantine equations", arXiv:1407.6499 (Math. Comp. 2016 [snippet]) [abstract
+  visited]; Hajdu–Tijdeman, "Skolem's conjecture confirmed for a family of exponential
+  equations" [snippet]. Already cited by (J)22 for the square part; nothing further.
+
+### 2.2 Verdicts
+
+| Claim | Verdict | Notes |
+|---|---|---|
+| (J)62 Thm 1.3 (ES for all 4^s + k, nine k) | **APPARENTLY NEW** (modest; 5 of 9 k immediate from Mordell, as the ledger says) | no ES exponential-family literature; method = Sierpiński-type exponent covering (Sierpiński 1960; FFK 2008 §1) transplanted |
+| (J)69 Thm 1.1 (ES for all 4^s + 105) | **APPARENTLY NEW**; method lineage PARTIAL | partial covering + algebraic factorisation on the leftover exponent class = Izotov 1995 (via FFK 2008 pp. 3–4) for Sierpiński numbers; the ES identity class is new |
+| (J)68 Lemma 3.1 + uncoverable families (c₀ + k = 4^j) | APPARENTLY NEW instances of a known mechanism | Mordell/Schinzel square obstruction, exponential form already in (J)22 Cor 1.5 (Bertók–Hajdu) |
+| (J)68 Result 1.1 (binary core of 4^s + 105 covered, CERTIFIED) | APPARENTLY NEW (finite computation) | — |
