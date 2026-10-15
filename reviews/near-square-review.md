@@ -16,6 +16,10 @@ From-scratch scripts: `scripts/review_r225_*.py`. ES is not solved; nothing belo
 | Thm 3.4 (Z_K⁺ sterile, Hilbert reciprocity in ℚ(√j)) | SOUND-AFTER-REPAIRS (proof correct; the closure parenthetical is false) |
 | Prop 4.1 (clean levels ⟺ 4A − tΔ = □) | SOUND-AFTER-REPAIRS (two wording gaps in (b)/the "iff") |
 | Per-prime form (T1-type = principal-form part) | SOUND (label "roughly" appropriate) |
+| j = 8 coverage computation (uncovered = Z_K⁺ at L = 8064, 4480) | SOUND (reproduced with independent code) |
+| CONJECTURE Y10-S | correctly labelled; evidence real but thin (2- and 7-adic factors only) |
+| Escaping example 4/2801 and its family | SOUND |
+| §2 EVIDENCE (0 escaping families for k > 0) | SOUND (reproduced, wider grid) |
 
 ## Claim-by-claim
 
@@ -134,3 +138,36 @@ polynomially sterile is simply not decided by Thm 3.4.)
 * Per-prime form: tp + 1 − tm² = tK + 1 ✓; t = K ± 2 ✓ ((K ∓ 1)² identities); principal-form reading ✓ (tm² < tp + 1
   forces m < √p). The census "clean" (ns_census.c) also demands (2/p) = +1 when tp + 1 is even, while Prop 4.1 uses
   "odd-clean"; §4's EVIDENCE line should say which definition the 432 677 refers to (it is the census one, incl. 2).
+
+### Family-search numerics (§2 EVIDENCE, §7) — independent search
+`scripts/review_r225_famsearch.py K RMAX QMAX [dump]` is a from-scratch search over all 6 + 10 degree shapes with
+rational roots p/q (q ≤ QMAX, |p/q| ≤ RMAX), leading coefficients {1,2,3,4,6,8,12}/{1,2,3,4}, constants 1..12, ½, 3/2, ⅓, ¼,
+and (unlike ns_polyfam, which uses only products of linear factors) irreducible quadratics λ((m + u)² + v), v > 0.
+Results (escaping = witness non-constant mod m² + k):
+| k | grid | families found (I / II) | escaping |
+|---|---|---|---|
+| 1 | roots ⅓ℤ ∩ [−5, 5] | 454 / 4079 | 0 / 0 |
+| 9 | roots ⅓ℤ ∩ [−5, 5] | 118 / 4024 | 0 / 0 |
+| 5, 8 | roots ½ℤ ∩ [−3, 3] | 268 / 4054, 157 / 4034 | 0 / 0 |
+| −8 (control) | roots ½ℤ ∩ [−3, 3] | 1568 / 4093 | 900 / 65 |
+So with denominators 3 and roots up to ±5 and irreducible quadratic coordinates, still no escaping family for k > 0,
+consistent with Thm 2.2, while the same code finds many for k = −8 (the positive control works). (The k = 1 counts
+did not grow from the ½ℤ ∩ [−3, 3] grid to the ⅓ℤ ∩ [−5, 5] grid; most found families are the constant-shape
+congruence families and their dilates.)
+
+### j = 8 coverage (Thm 3.4 EVIDENCE, CONJECTURE Y10-S)
+`scripts/review_r225_kadic.py 8 L FAMFILE` (from scratch): (1) tests "m − 2√2 is a unit square in ℤ₂[√2] / ℤ_ℓ[√8]"
+by brute force (mod 2⁵ in ℤ₂[√2], i.e. beyond the Hensel precision 4√2; mod ℓ for odd ℓ); (2) enumerates all seven ET
+Prop 1.9 congruence families with modulus | L (re-implemented from the PDF statement); (3) adds the polynomial
+families of a family file whose denominators divide L, computing their integrality classes. Results:
+* Local conditions: m ≡ 3 (mod 8) [2-adic], m ≡ 0 (3), m ≡ 3 (7) — as claimed.
+* With the author's 76 escaping families (regenerated with ns_polyfam.py −8 3 as *data*; coverage computed by my code)
+  plus my 5 661 families: uncovered classes with n ≡ 1 (mod 4) are 96 at L = 8064 (= the 48 Z_K⁺ classes + the 48
+  degenerate classes m ≡ 1 (mod 7), 7 | n) and 64 at L = 4480 (32 + 32). Exactly the text's sets. ✓
+* With only my own 5 661 families the uncovered set is larger (192 / 128; extra classes such as m ≡ 7 (mod 8)), i.e. my
+  grid misses some of the author's families (leading coefficients with denominator 8) — this does not affect the
+  claim, but shows the "= Z_K⁺" evidence is sensitive to the family grid: it is a statement about the families found.
+* What the evidence actually discriminates: congruence families alone leave every odd m with n a square mod 3, 7
+  (Z_k^□); the escaping families remove the 2-adic classes m ≡ 1, 5, 7 (8) and the 7-adic class m ≡ 4 (7) — a factor
+  4 · 2 = 8 — and nothing else. Y10-S is a reasonable conjecture; the evidence is two levels built from 2, 3, 5, 7
+  at one j. Label CONJECTURE is correct.

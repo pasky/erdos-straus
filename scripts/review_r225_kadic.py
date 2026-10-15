@@ -110,7 +110,7 @@ for q in divs:   # family 7: n = -4a^2 d - e mod 4ade, (4ad, e) = 1
 mcov = {g for g in range(L) if (g * g - j) % L in cov}
 print('congruence families cover', len(mcov), 'of', L, 'm-classes')
 # ---- polynomial families from file ----
-nf = used = 0
+nf = used = 0; sets = set()
 if famfile:
     for line in open(famfile):
         parts = line.split(); nf += 1
@@ -120,9 +120,13 @@ if famfile:
             for c in p: den = den * c.denominator // gcd(den, c.denominator)
         if L % den: continue
         used += 1
+        ints = [[int(c * den) for c in p] for p in polys]
+        S = [g for g in range(den) if all(sum(c * pow(g, i, den) for i, c in enumerate(q)) % den == 0 for q in ints)]
+        if S: sets.add((den, tuple(S)))
+    for den, S in sets:
+        Sset = set(S)
         for g in range(L):
-            if g in mcov: continue
-            if all(sum(c * g ** i for i, c in enumerate(p)).denominator == 1 for p in polys): mcov.add(g)
+            if g % den in Sset: mcov.add(g)
 print('family file:', nf, 'families,', used, 'with denominators | L; total covered', len(mcov))
 unc = [g for g in range(L) if g not in mcov and (g * g - j) % 4 == 1]
 pred = [g for g in range(L) if meets_ZK(g)]
