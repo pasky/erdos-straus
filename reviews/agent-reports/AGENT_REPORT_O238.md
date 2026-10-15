@@ -8,9 +8,10 @@ assisted). (J)62's 13-class ET covering at L = 360 leaves exactly s ≡ 34 (mod 
 for u ≡ 32 (mod 151), n = 256u³ + 105, x = 64(u³+1), A = (64u³ + 2u² − 2u + 66)/151, y = nA, z = 32n(u+1)A solves
 4/n = 1/x + 1/y + 1/z (one-line identity: 4x − n = 151 and 2(32u+33)(u² − u + 1) = 151A), and s ≡ 34 (mod 45) gives
 u = 4^{(s−4)/3} ≡ 32 (mod 151). The class is CAP_DOWN Lemma 1.1 at the window 151 = 4⁴ − 105 with the divisor ratio
-2⁻⁵/(4^{r/3} + 1): the budget is forced by the cyclotomic factorisation of 4^r + 1, which is periodic in s but not a function of
-n_s mod any fixed M. So (J)62's "mixed points" are sterile only for fixed-modulus menus: the violated hypothesis is
-"fixed moduli" in EXPONENT_COVERING Thm 1.4. Mixed point μ* ↔ the cube-root parameter u (3-adic component −2).
+2⁻⁵/(4^{r/3} + 1): the budget is forced by the cyclotomic factorisation of 4^r + 1. The class s ≡ 34 (45) is an ordinary
+residue class (even of n_s mod 4⁴⁵ − 1), but the identity is not polynomial in n (it uses u = ((n − 105)/256)^{1/3}). So (J)62's
+"mixed points" are sterile only for menus of polynomial-in-n (fixed-parameter) ET identities: that is the violated
+hypothesis of EXPONENT_COVERING Thm 1.4. Mixed point μ* ↔ the cube-root parameter u (3-adic component −2).
 Relay suggestion: exponential classes for k = 33, 273, 297 (Sophie-Germain/difference shapes, Type I exponential classes;
 k = 33's residual is at μ = −2, where 4^{s+2} − 1 would be the natural factorisation).
 
@@ -27,9 +28,15 @@ k = 33's residual is at μ = −2, where 4^{s+2} − 1 would be the natural fact
 * (iii) s6_witness_onesided: (q/p) = −1 is not necessary for cap 0 at q (non-square d); cap-0 rates 34 % vs 18 % (EVIDENCE).
 * (iv) s6_ydual_windows: 𝒟_e(M) is the y-window (fixed mute set ⟹ almost-all side); x-windows own their mute set (pointwise).
 * (v) s6_mixed_points_cuberoots: sterility is menu-relative (Assessment; 105 instance PROVED).
-* Negatives: s6_window_independence (gcd(K_m, K_m′) | (m − m′)/4 — independent lotteries), s6_exp_classes_primes (algebraic
+* Negatives: s6_window_independence (gcd(K_m, K_m′) | (m − m′)/4 — almost coprime mute sets; independence only heuristic), s6_exp_classes_primes (algebraic
   budget forcing needs a thin family; for primes it is B2).
 * For ES at primes nothing new: cap 0 at a window stays B2. No claim about ES or any infinite set of primes.
+
+## Self-review (codex deep, R-O238) — repairs applied
+No FATAL; theorem re-verified (identity by hand, 4¹⁰ ≡ 32, coverage {34,124,214,304} mod 360, all moduli odd). MAJOR repaired:
+numerator-window forcing needs K odd (counterexample ν = 4, n = 5, m = 67); Cauchy–Davenport count must exclude zero log-images;
+the exp class is a congruence class (mod 4⁴⁵ − 1) — the novelty is the non-polynomial identity; window independence is a
+heuristic. Minor: u ≥ 1 in Lemma 1.0; checker's 2-part assumption (all moduli here odd).
 
 ## Honest caveats for the reviewer
 * The 13 ET classes are produced by (J)62's z8 code (`ec_cover.certificate`); my checker re-verifies them independently from

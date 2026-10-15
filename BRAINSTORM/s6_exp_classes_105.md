@@ -5,7 +5,8 @@ Mandatory (ii)+(v): force the exponent budget of a window algebraically. On n_s 
 x = K = 4^{j−1}(4^r + 1) (r = s − j): 2-budget 2j − 2 and the cyclotomic/Aurifeuillean factors G_e = 4^{r/e} + 1,
 A± = 2^g ∓ 2^{(g+1)/2} + 1 (g = r/e odd) are forced for every s, and their residues mod m_j are periodic in r. A cap-0
 relation 2^i·U ≡ −V (mod m_j) among them (CAP_DOWN Lemma 1.1, d = K·d₁/d₂) gives an *exponential class*: a congruence
-condition on s whose ES solution has a divisor d growing with s — not a fixed-modulus ET class.
+condition on s whose ES solution has a divisor d growing with s — a residue class, but with an identity that is not
+polynomial in n (R-O238 self-review: s ≡ 34 (45) is detectable mod 4⁴⁵ − 1; the novelty is the moving algebraic witness).
 
 ## Literature
 EXPONENT_COVERING Thm 1.4 / (J)22 (covering ⟺ limit set avoids the sterile set, for ET + divisor classes with fixed
@@ -14,8 +15,8 @@ systems) for thin exponential families; algebraic factorisation of 2^{2r} + 1 (c
 (2x² + 2x + 1)(2x² − 2x + 1)), standard (Brillhart et al., *Factorizations of bⁿ ± 1*, AMS 1988).
 
 ## Barrier screen
-B1: the classes ARE congruences on s, but not on n: the fixed-modulus hypothesis of EXPONENT_COVERING Thm 1.4 is violated,
-which is the whole point. The family is thin, so B1's Thm M (no covering for all n) is not in play. B2: the "divisor in a
+B1: the classes are congruences (even on n, mod 4⁴⁵ − 1), but the identities are not polynomial in n: the "fixed ET
+parameters" hypothesis of EXPONENT_COVERING Thm 1.4 is violated, which is the whole point. The family is thin, so B1's Thm M (no covering for all n) is not in play. B2: the "divisor in a
 class" is supplied by an algebraic identity (u + 1 | u³ + 1), a non-formal input available only on the family. B3/B6: no
 counting. T1: the class contains no square (Lemma-1.1 T1, CAP_DOWN §3). Thm 9.1 / Prop 10.3: not applicable (finite
 certificate).

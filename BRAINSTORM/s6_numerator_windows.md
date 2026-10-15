@@ -2,8 +2,9 @@
 
 ## Idea
 CAP_DOWN Lemma 1.1 holds verbatim for ν/n: with m := νK − n, d ≡ −K (mod m), A = (K + d)/m, (x, y, z) = (K, nA, nKA/d)
-solves ν/n = 1/x + 1/y + 1/z (same algebra: ν/n − 1/K = m/(nK)). Forcing (Thm 1.1′ mechanism): m = ∏ q_i, q_i ≡ 3 (4),
-(K/q_i) = −1 for all i ⟹ −1 ∈ ⟨primes of K⟩ and −K is a square there: ES_ν^{(y,e)}(n) with e < λ(m). Since νK ≡ n (q_i),
+solves ν/n = 1/x + 1/y + 1/z (same algebra: ν/n − 1/K = m/(nK)). Forcing (Thm 1.1′ mechanism; K ODD — R-O238 self-review: for even K the 2-exponent is bounded, c₂ ≤ 2v₂(K), and e.g.
+ν = 4, n = 5, m = 67, K = 18 has (K/67) = −1 but no window solution at any cap; see CAP_DOWN Thm 1.2 for the even case):
+m = ∏ q_i, q_i ≡ 3 (4), (K/q_i) = −1 for all i ⟹ −1 ∈ ⟨primes of K⟩ and −K is a square there: ES_ν^{(y,e)}(n) with e < λ(m). Since νK ≡ n (q_i),
 (K/q_i) = (n/q_i)(ν/q_i): for ν = 4 the numerator is invisible ("4 is a square"); for other ν it enters.
 **Theorem (window-shape T1; PROVED, Jacobi reciprocity).** Let n = a², a odd, gcd(a, ν) = 1. If 4 | ν, or ν is odd with
 ν ≡ 3 (mod 4), or ν is a square, no forced window exists for ν/a².

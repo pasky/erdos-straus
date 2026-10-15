@@ -446,5 +446,5 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | s6_witness_onesided | is (q/p) = −1 necessary for cap 0 at q | no (non-square d); rates 34 % vs 18 % | PROVED obs. + EVIDENCE |
 | s6_numerator_windows | self-generated mute set for ν/n | works for all ν; window-shape T1 at squares iff 4 \| ν, ν ≡ 3 (4) or ν = □ (only-if proved) | PROVED + EVIDENCE |
 | s6_ydual_windows | 𝒟_e(M) vs windows | y-window (fixed mute set) vs x-window (self-generated): the pointwise/almost-all boundary | PROVED dictionary |
-| s6_window_independence | glue many forced windows | gcd(K_m, K_m′) \| (m − m′)/4: independent lotteries | PROVED (trivial); negative |
+| s6_window_independence | glue many forced windows | gcd(K_m, K_m′) \| (m − m′)/4: almost coprime mute sets (independence heuristic) | PROVED (trivial) + Assessment |
 | s6_exp_classes_primes | algebraic budget-forcing for primes | needs a thin family; B1/B2 for primes | Assessment (negative) |

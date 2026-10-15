@@ -5,7 +5,7 @@ import sys, json
 from fractions import Fraction as F
 from math import comb
 import sympy as sp
-C=json.load(open(sys.argv[1])); SMAX=int(sys.argv[2]) if len(sys.argv)>2 else 1000
+C=json.load(open(sys.argv[1])); SMAX=max(100,int(sys.argv[2]) if len(sys.argv)>2 else 1000)   # always covers s<64
 n=sp.Symbol('n'); u=sp.Symbol('u')
 ET=[]
 for cl in C['classes']:
@@ -22,7 +22,7 @@ for cl in C['classes']:
         assert co[0]>0 and (len(co)==1 or 1+max(abs(c/co[0]) for c in co[1:])<4**4)
     Mp=M
     while Mp%2==0: Mp//=2
-    assert (4**360-1)%Mp==0 and M%4!=2
+    assert (4**360-1)%Mp==0 and (M//Mp)<=2**128   # 2-part divides 4^64: n_s mod M periodic for s>=64
     ET.append((M,r,[[F(c) for c in pp] for pp in cl['xyz']],X))
 # exponential class
 x=64*(u**3+1); A=(64*u**3+2*u**2-2*u+66)/151; N=256*u**3+105

@@ -19,7 +19,7 @@ no candidate is left): the window menu 4^j − k is too thin there (§1.4).
 
 ## 1. ES for every n = 4^s + 105 (deep item 1)
 
-**Lemma 1.0 (the exponential class; PROVED, symbolic).** For every integer u ≡ 32 (mod 151) put n := 256u³ + 105 and
+**Lemma 1.0 (the exponential class; PROVED, symbolic).** For every integer u ≥ 1 with u ≡ 32 (mod 151) put n := 256u³ + 105 and
 `  x = 64(u³ + 1),   A = (64u³ + 2u² − 2u + 66)/151,   y = nA,   z = 32n(u + 1)A.`
 Then A ∈ ℤ_{>0} and 4/n = 1/x + 1/y + 1/z.
 *Proof.* 4x − n = 151, so 4/n − 1/x = 151/(nx). And 1/(nA) + 1/(32n(u+1)A) = (32u + 33)/(32n(u+1)A); equality with
@@ -56,10 +56,12 @@ neighbourhood μ ≡ μ* (mod 45) (μ* ≡ 4 (mod 5), ≡ −2 ≡ 7 (mod 9)), a
 datum: on 3 | s − 4 the family is the CUBIC polynomial family n = 256u³ + 105 in u, on which the square-plus-constant
 obstruction of NEAR_SQUARE Thm 2.2 (Z_k^□, polynomial families in m on n = m² + k) does not apply as stated: n = m² + 105
 with m = 16u^{3/2}, not a polynomial in u (Assessment: whether Thm 2.2's witness argument extends to such sub-families was not
-examined; the identity itself is unconditional). So: **fixed-modulus
-classes see n_s only through n_s mod M; exponential classes see the algebraic factorisation of K = (n_s + m)/4, which is
-periodic in s but not a function of n_s mod any fixed M.** This violates the hypothesis of EXPONENT_COVERING Thm 1.4 and
-of the (J)22/(J)62 sterility criterion; sterility of a profinite point is a property of the class menu.
+examined; the identity itself is unconditional). So: **an ET class is a polynomial-in-n identity on a residue class n ≡ r (mod M). The exponential class is also a
+residue condition (s ≡ 34 (mod 45) is detectable as n_s mod 4⁴⁵ − 1, R-O238 self-review), but its identity is NOT
+polynomial in n: it uses the algebraic parameter u = ((n − 105)/256)^{1/3}, i.e. the moving divisor u + 1 of
+K = (n + 151)/4.** What is violated in EXPONENT_COVERING Thm 1.4 / the (J)22, (J)62 sterility criterion is "the identities
+are polynomial in n" (fixed ET parameters), not "the classes are congruences"; sterility of a profinite point is a
+property of the identity menu.
 
 **1.3 What did NOT work (EVIDENCE).** Exponential classes alone (j ≤ 7, e ≤ 45, divisor classes l < 2·10⁵) cover only 79 % of
 s mod 4 754 520 (`s6_cover105.py`); the theorem needs the ET classes for the rest. The closing class is the single
@@ -81,7 +83,7 @@ exponential classes are untried (spark).
 | (iii) windows × words | s6_witness_onesided | cap-0 window = c-fibre word with m = (u+v)/c; the forced character is sufficient for some cap, not necessary for cap 0 (cap-0 rates 34 % vs 18 %) | PROVED obs. + EVIDENCE |
 | (iv) 𝒟_e(M) × windows | s6_ydual_windows | 𝒟_e(M) is the y-window (fixed mute set, almost-all side); x-window is self-generated (pointwise side); boundary = who owns the mute set | PROVED dictionary |
 | (v) sterility theory | s6_mixed_points_cuberoots | sterility is menu-relative; the 105 mixed point is a cube-root (3-adic) phenomenon resolved by the cyclotomic factorisation of 4^r + 1, the ℤ shadow of the FF root-product (Weil reciprocity) law | Assessment (105 instance PROVED) |
-| steering | s6_window_independence | gcd(K_m, K_m′) \| (m − m′)/4: windows are independent lotteries | PROVED (trivial) + Assessment |
+| steering | s6_window_independence | gcd(K_m, K_m′) \| (m − m′)/4: windows have almost coprime mute sets (independence heuristic) | PROVED (trivial) + Assessment |
 | steering | s6_exp_classes_primes | algebraic budget-forcing needs a thin family; for a single prime it is B2 | Assessment (negative) |
 
 ## 3. Verdict (O238 checkpoint 1)
@@ -91,9 +93,9 @@ exponential classes are untried (spark).
    that is violated is "classes with fixed moduli".
 2. For ES at primes nothing changes: every route to cap 0 found here either is a finite congruence menu (m = 3), needs a
    linear-in-q budget (pigeonhole), or needs a thin family with a moving algebraic factorisation. Cap 0 at a window
-   remains B2 (CAP_DOWN §4), and windows are independent lotteries.
-3. T1 checks: exp class contains no squares (global Lemma-1.1 T1, numerically to u < 3·10⁷); window-shape T1 classified
-   for all ν. TES/8/131: untouched (cap-0 statements; s6_numerator_windows records that 8/131 has forced windows at
+   remains B2 (CAP_DOWN §4); different windows have almost coprime K's (heuristically independent lotteries, Assessment).
+3. T1 checks: exp class contains no squares (global Lemma-1.1 T1, numerically to u < 3·10⁷); window-shape T1
+   proved impossible-at-squares for 4 | ν, ν ≡ 3 (4), ν = □ (existence for the other ν only EVIDENCE). TES/8/131: untouched (cap-0 statements; s6_numerator_windows records that 8/131 has forced windows at
    some positive cap only).
 4. Open: k = 33, 273, 297 (exp menu 4^j − k too thin; Sophie-Germain shapes and Type I exponential classes untried).
 
