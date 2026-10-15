@@ -5,10 +5,42 @@ Scope: Thm 2.1, Lemmas 1.1, 1.2, the 1/32-octave combiner zl_r0.py, Lemma 3.1, C
 From-scratch scripts: scripts/review_r232_*.py.
 
 ## Summary verdicts
-(filled in as the review proceeds)
+**No FATAL, no MAJOR defect.** 7 MINOR (wording/attribution/provenance).
+| claim | verdict |
+|---|---|
+| Thm 2.1, se_box-only variant (r ≥ 2^{30.34375}) | **SOUND** — independently re-certified: own exact-arithmetic level-1 tables + own combiner give max S = 0.4658 (author's tail) / 0.4868 (SE's original reviewed tail) |
+| Thm 2.1, ℓ² variant (r ≥ 2^{30.15625}) | **SOUND** — independently re-certified: max S = 0.4697 / 0.4953; control (cube tables at 2^{30.15625}) fails as the author says |
+| Lemma 1.1 (ℓ²-Minkowski (Cop₂)) | SOUND (optional: ℓ¹ cross-polytope gives (w!)^{1/w}, ≈ 20 % better still) |
+| Lemma 1.2 (value-selected tails; 873 → 0.0136) | SOUND (m4: comparison mixes rule and N₀) |
+| 1/32-octave r-cells, combiner `zl_r0.py` | SOUND (fails closed; rounding directions correct; uniformity per cell correct) |
+| Lemma 3.1 (joint parametrisation) | SOUND (m1: tautological "a ≤ b ⇔ b ≥ a" in (ii)) |
+| Comp 4.1 (level-1 survivors) | SOUND — reproduced for all 2261 primes 3 ≤ r < 20000 by independent code |
+| Lemma 4.3 (U–V) | SOUND (m2: q ≥ 1 implicit) |
+| Assessments 3.0, 4.2, §3 cost model, r = 17 "undecided" | appropriately labelled |
 
 ## Defects
-(numbered; FATAL / MAJOR / MINOR)
+* **m1 (MINOR) — Lemma 3.1(ii), "a ≤ b ⇔ b ≥ a".** Tautological. Repair: "a ≤ b ⇔ na + c ≥ af ⇔ c ≥ a(f − n) (automatic if
+  f ≤ n)", mirroring (i)'s explicit condition.
+* **m2 (MINOR) — Lemma 4.3 hypotheses.** U, V > 0 (and hence U ≥ 1 in the size claim) need q ≥ 1 (u = −p/q in lowest terms,
+  q > 0). Repair: add "q ≥ 1" to the hypotheses. Also optional: G ∈ ℤ follows directly from Gab ∈ ℤ, Ge ∈ ℤ and gcd(e, ab) = 1
+  (r ∤ ab), so the M17D citation can be replaced by one line.
+* **m3 (MINOR) — numbering.** `zl_box.c` header/comment and `zl_r0.py` comment say "Lemma 2.1 of STERILE_LOWER" for what the
+  document calls Lemma 1.1. Repair: fix the comments.
+* **m4 (MINOR) — Lemma 1.2 / (I4) / §2 "the P tail of SE is gone".** "873 → 0.0136" compares SE's rule at N₀ = 2^600 with the
+  new rule at N₀ = 2^800; like-for-like the rule alone gives 873.6 → 7.26 at 2^600, and SE's rule cannot be evaluated at 2^800 by
+  the code (OverflowError in `val`). Repair: state both effects separately. Optional: record that with SE's *original* tail
+  the se_box-only certificate still needs the author's Lemma 1.2 (with the author's level-1 tables S ≈ 0.494 + 0.021 > 0.5 at
+  b = 30.34375) — whereas with R232's tighter level-1 tables it does not.
+* **m5 (MINOR) — Thm 2.1 attribution.** "relative to exactly the inputs of SE Thm 3.4" — the certificate also uses the new
+  Lemma 1.2 (both variants) and Lemma 1.1 (ℓ² variant). Repair: "relative to the inputs of SE Thm 3.4 plus Lemma 1.2 (and
+  Lemma 1.1 for 2^{30.15625})".
+* **m6 (MINOR) — provenance.** `zl_box` prints the header "# se_box …", so `P_q32_l2.txt`/`Q_q32_l2.txt` are not
+  self-identifying (only MANIFEST says they are zl_box output). I regenerated Q_q32_l2 row 971 with zl_box (exact match), so
+  the data are right. Repair: make zl_box print "# zl_box".
+* **m7 (MINOR) — P_q1_hi provenance.** MANIFEST: "se_box P 600 999 … (stopped after j=841)" — an interrupted run; rows 600..841
+  are complete and only ≤ 799 are used, but the document should say the run was truncated deliberately, and note that these rows
+  (box ratio 2^{9..13}) have not been independently re-checked (R232 could not, λ = 2 only; they are unused in the SE-tail
+  re-certification above, so Thm 2.1 does not depend on them).
 
 ## Detailed checks
 
