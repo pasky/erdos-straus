@@ -77,6 +77,16 @@ examples, all verified by the identity A·X₁X₂X₃ = P(X₁X₂ + X₂X₃ +
 **Remark 1.5 (II2).** The other non-linear ET type, II2(a, c, d): f := Aacd − 1, b := (cP + a)/f, solution (abd, acdP, bcdP), is
 valid on the class f | cP + a, i.e. P ≡ −a/c (mod f). Since f ≡ −1 (mod T) when T | A, it has no T-adic condition at all.
 
+**Lemma 1.6 (three bounded parameters; PROVED).** Call a family *3-bounded* if three of a, b, c, d are fixed and the fourth is a
+function of P (n → ∞). The 3-bounded families are exactly II1 (a, b, c fixed; linear), II2 ((a, c, d) or (b, c, d) fixed) and I4
+(a, b, c fixed, Type I). *Proof.* Type I, A·abcd = (a + b)P + c: (a, b, c) fixed gives I4. (a, b, d) fixed: c(Aabd − 1) = (a + b)P
+forces deg c ≥ n − O(1) for large n (P ∤ Aabd − 1), contradicting c | a + b. (a, c, d) fixed: b(Aacd − P) = aP + c makes b bounded
+too, so only finitely many P. (b, c, d): symmetric. Type II, A·abcd = cP + a + b: (a, b, c) gives II1; (a, c, d) gives
+b(Aacd − 1) = cP + a, II2; (a, b, d): c(Aabd − P) = a + b is impossible by degrees for large n. ∎
+*Scope.* ET's other four types fix two of a, b, c, d plus E_FF (Cor 1.3) and are linear. Families fixing other auxiliary
+combinations (two of a, b, c, d and some quantity other than E_FF, or fewer) are **not classified here**; the claim of this
+document is completeness relative to the seven ET types, which is also the scope of the ℤ box classification M17 Lemma 1.1.
+
 **What FE3 Lemma 1.1 classifies, and what it does not.** FE3 Lemma 1.1 (the A/B dichotomy) is correct and complete *for linear
 families*: re-derived here from scratch for all 16 type pairs (t_a, t_b) ∈ {0,1,2,3}²: at a slice point P ≡ 1 and
 X ≡ T^{−k} (mod E), so a ≡ a0 (types 0, 1) or (T^k a0)^{−1} (types 2, 3); same side gives E | a0 + b0 (after multiplying by the
@@ -210,3 +220,28 @@ P₈ = {u₀⁴ = −1} is inversion-closed) to each union bound, every certific
 SP Thm 3.1 (`data/fs/certify.txt`): Case A terms 0.064 (r = 4), 8.8·10⁻⁵ (r = 5), ≤ 10⁻⁵ beyond, against totals 2.18 / 0.25 /
 0.37 and budgets 80 / 1 (per c) / 1; SS Thm 7.3 (k = 1, `data/fz/certify_k1.txt`): Case A 0.068 (r = 3), 2.55 (r = 4), → 2.00,
 totals 9.47 / 27.6 / ≤ 15.5 against q − 3 = 24 / 78 / ≥ 240. This is a second, independent reason why no theorem breaks; Thm 2.5 is the exact one.
+
+## 4. Answers (O244 goals)
+
+**(1) Classification.** FE3 Lemma 1.1 (A/B dichotomy) is correct and complete for linear families; its normalisations (γ ≤ j,
+removal of g, the labelling a ↔ b, monic E on the c-slices) lose no generality (§1, re-derived). The *definition* of a linear
+family (fixed E = AX − P) is narrower than the ET family notion: Lemma 1.1 (ET parametrisation over F_q[T]), Cor 1.3 and Lemma 1.6
+show that the F_q[T] model omits exactly two of the seven ET types, **I4** (the "Case A⁻¹" of the brief, balls u ≡ −1/E) and
+**II2** (no T-adic condition). So the asymmetry of the O242 *ball list* is an artefact of the missing type I4.
+**(2) Exhaustive computations.** Every solution found (q = 3, 5, 9; k = 1, 2; all primes of the tested degrees in the tested
+cylinders) is Type I or II as in Lemma 1.1 (§3.1). On the slices, every ball of every ET-type family lies in a Case B ball
+(q = 3 to depth 9, complete; brute-force degree boxes at q = 3, 5, 9, §§3.2–3.3). No solution and no ball outside the counted
+families was found that is not dominated by a counted Case B ball.
+**(3) Consequences.** On the slices where the no-covering theorems live, I4 ⊆ Case B and II2 = ∅ (Thm 2.5): (J)51, (J)56, (J)67
+and Conjecture 0.2 stand verbatim and extend to "no finite covering by ET-type families" (Cor 2.6); their union bounds do not
+undercount (and even naive double counting of the Case A mass keeps every certificate closed, §3.4). What needs a remark:
+the definition of O(q, A) and any *global* EVIDENCE about it (FE2 §0.1, ffl_tree densities): these are for linear families only.
+
+**Why the asymmetry, in one paragraph.** By Lemma 1.1 every solution is Type II, A·abd = P + e, or Type I, A·abd = eP + 1, with
+e = (a + b)/c. For fixed (a, b, e) these are the classes P ≡ −e and P ≡ −1/e (mod Aab): ET's II1 and I4, swapped by P ↦ P^{−1}.
+Over ℤ both are counted, and at a prime r ∤ 4 they give M17's boxes (U) and (U⁻¹). In F_q[T] the monic condition forces lc(AX) =
+lc(P) for the smallest denominator X, so II1 keeps a *bounded* E = AX − P = e and is a linear family (it is Case A), while in I4
+E = AX − P = (aP + c)/b has degree n − (deg b − deg a): the ℤ ratio 4x/n = 1 + a/b ≠ 1 becomes a degree drop, and the fixed-E model
+drops I4. Case B (ℤ's (P) boxes, EE' = D) is closed under inversion by itself (swap E ↔ E'), so the only mirror pair split by the
+model is Case A / I4. On the sterility slices the split is invisible in the covered set, because every Case A ball sits inside a
+Case B ball with the same E (Lemma 2.3: E | 1 + T^{α+v}(H/b1)a1'), hence every I4 ball inside the mirror Case B ball.
