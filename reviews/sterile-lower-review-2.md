@@ -124,3 +124,26 @@ is not monotone in b: it peaks when the first tail K lands just above 2^600 — 
 0.037–0.038 with 1/32 r-cells, vs 0.018 (K = 21) at b = 30.34375 — which is why the scan over all b matters; mine covers all b.)
 Not re-checked independently: `P_q1_hi.txt` rows 600..799 (se_box with box ratio 2^{9..12} at N ~ 2^{600..800}; my engine has
 λ = 2 only, infeasible there). They are used only for K·b ∈ [600, 800) in the zl-tail runs; the se-tail runs do not use them.
+Spot reproduction of the author's tables with the author's engines (compiled afresh, gcc -O2; hashes of se_box.c, zl_box.c,
+zl_tail.py, zl_r0.py, se_r0.py match `data/zl/MANIFEST.txt`): `zl_box Q 971` = Q_q32_l2 row 971 and `se_box P 971` =
+P_q32 row 971, digit for digit.
+
+### Route derivations used by my engine (re-derived, each validated by the exact per-box test above)
+Q-datum: 4abcd = F(a + b) + c, a ≤ b, e = (a + b)/c; identities ef = 4a²d + 1, 4abd = eF + 1, fb = aF + c,
+f(4bcd − F) = F² + 4c²d (expand), and f = (aF + c)/b ≤ F + 2. Box (c, d, f) ∈ [C, 2C) × [D, 2D) × [P, 2P): a = (f + F)/(4cd)
+∈ [⌈(P + F₀)/(4(2C−1)(2D−1))⌉, ⌊(2P − 1 + F₁)/(4CD)⌋]. (AD) ≤ 2 per (a, d): f ≡ −F and e ≡ f⁻¹ (mod s = 4ad) have fixed
+classes and ef = as + 1 < s², so f < s or e < s, each case ≤ 1. (fa) d ≡ −(4a²)⁻¹ (mod f). (AC) f | aF + c, f ≡ −F (4ac).
+(CD) f | F² + 4c²d, f ≡ −F (4cd). (Ea) 4a | eF + 1, then b | (eF + 1)/(4a), b ≡ −a (mod e) [or d ≡ −(4a²)⁻¹ (mod e)].
+(Ed) 4d | eF + 1, a² ≡ −(4d)⁻¹ (mod e), ≤ 2^{ω(e)} classes (e odd). (τ₃) e in one class mod 4, then abd = (eF + 1)/4.
+(fac) 4a | f + F, then c ≡ −aF or d ≡ −(4a²)⁻¹ (mod f). (fca) 4c | f + F, a ≡ −cF⁻¹ (mod f) (gcd(f, F) = 1 as r ∤ c).
+(fda) 4d | f + F, a² ≡ −(4d)⁻¹ (mod f). Row: per (c, d) the data are divisors f of F² + 4c²d. All classes are units.
+P-datum: N/(4ad) < b ≤ N/(2ad), N/(4acd) < e ≤ N/(acd), 2a²d ≤ N, acd ≤ N (from f ≤ ef ≤ 3N); routes as in SE Table 2;
+J: given (c, e, d), {a, b} are the roots of t² − ce·t + (N + e)/(4d), so ≤ 2 (se_box's extra 2^{ω} factor in J is unneeded).
+Lemma 1.3/Cor 1.4 is used with the smallest admissible modulus and the largest integer factored (both monotone) ✓.
+
+## Labels
+All labels are appropriate: Thm 2.1 PROVED (computer-assisted) — now independently re-certified; Lemmas 1.1, 1.2, 3.1, 4.3
+PROVED (elementary, re-derived); Comp 4.1 CERTIFIED (independently reproduced for all primes < 20000); §3 cost model, 3.0,
+4.2 Assessment; "ES not solved" disclaimer present; r = 17 outcome "undecided" — correct, nothing proved about r = 17 beyond
+Comp 4.1 and Lemma 4.3. Spot value for "true count of a few hundred": D_Q(10000019) = 486 (r ∤ e), D_P(10000019) = 170 (my
+enumerator), so at 2^30 "a few hundred to ~10³" — fine as Assessment.
