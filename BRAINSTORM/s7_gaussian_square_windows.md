@@ -24,5 +24,6 @@ All primes p ≡ 1 (4) ≤ 10⁶: 78 239 Gaussian square windows, cap-0 rate 1.0
 ## Assessment
 EVIDENCE + PROVED identity. Positive-density forced budgets exist (norm-form structure) but only at windows of size ≍ p,
 where they are swamped by the residue lottery. Combined with s7_normform_collapse (Type I/II polynomial families in
-binary-form coordinates are ET identities in n), the norm-form route to forced budgets is closed at both ends: small
-windows have no algebraic structure, large ones have structure but no leverage.
+binary-form coordinates are ET identities in n), the polynomial norm-form route to forced budgets is closed at
+both ends (small windows: no polynomial ET families beyond identities in n; large ones: structure but no leverage); non-polynomial
+factor-selection procedures are not excluded.
