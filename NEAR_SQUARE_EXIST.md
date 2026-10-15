@@ -35,3 +35,35 @@ on which *every* word has χ = −1 — the hypothesis then says there are no wo
 u-side mechanism: **at 4 | u, χ = −1 is free and the whole content is "p + u has a divisor ≡ −1 (mod u)"; p + u a sum of
 two coprime squares kills that divisor (T1: p = m², u = 4 gives m² + 4).**
 
+## 2. Sign fields: the complete classification of sign-clean levels (goal 2)
+
+Both sides are instances of one situation: a *level quantity* N(m) = a·m² + b (a, b ∈ ℤ, a > 0) and a *level modulus* M,
+words = divisors A | N(m) with A ≡ −1 (mod M), and for every odd prime r | A (r ∤ M automatically)
+(r/p) = (−M/r)   [t-side: THREE_SQUARES Lemma 1.1; u-side: p ≡ −u (mod r) and p ≡ 1 (4)].
+* t-side (n = m² + k): N = tn + 1 = t·m² + c₀, c₀ = tk + 1, M = t.  * u-side: N = n + u = m² + K, K = k + u, M = u.
+(General Q(m) = Am² + Bm + C: multiply by 4A and use X = 2Am + B; the t-side has a·b = t·E/… with E = 4A − tΔ.)
+Define the **family field** F := ℚ(√−ab) (odd primes r ∤ 2ab divide some N(m) iff they split in F) and the **sign field**
+  Σ_M := ℚ(ζ_M, √−M).
+For an odd A coprime to M let σ_A ∈ Gal(Σ_M/ℚ) be its Artin symbol (ζ_M ↦ ζ_M^A, √−M ↦ (−M/A)√−M). Then
+(i) A ≡ −1 (mod M) ⟺ σ_A|ℚ(ζ_M) = complex conjugation c_∞; (ii) χ(A) = ∏_{r|A}(r/p) = (−M/A) = σ_A(√−M)/√−M.
+So **an admissible odd A has χ(A) = −1 ⟺ σ_A = c_∞|Σ_M** — the "Frob = c_∞" of (J)50, now with the level field attached.
+Call m *generic* if gcd(N(m), 2ab) = 1 is not needed but gcd(m, b) = 1 (u-side) resp. gcd(m, c₀) = 1 (t-side), i.e. every
+odd prime of N(m) prime to 2ab... precisely: every odd prime r | N(m) splits in F or divides 2ab only to the extent forced
+by r | gcd(N(m), ab); we take m with gcd(N(m), ab) | 2^∞.
+
+**Theorem 2.1 (sign-field criterion; PROVED).** Let n(m) = m² + k with k ≥ 1 (so F is imaginary), level (side, M) as above.
+(a) If F ⊄ Σ_M, there is a set of primes r of positive density with σ_r = c_∞ on Σ_M and r split in F; for each such r
+and every m in one of the two residue classes mod r with r | N(m) (all large m in those classes), the level carries the
+word with A = r (resp. A* = r) and χ = −1. In particular the level is NOT sign-clean on a positive density of m-classes,
+and these classes can be chosen inside any m-class C (CRT, r ∤ modulus of C).
+(b) If F ⊂ Σ_M, then for every generic m, every word at this level with A odd has χ = +1.
+*Proof.* (a) F and Σ_M are abelian; F ⊄ Σ_M ⇒ Gal(FΣ_M/ℚ) = Gal(F/ℚ) × Gal(Σ_M/ℚ) restricted appropriately, so
+(1, c_∞|Σ_M) is an element; Chebotarev. Then r ≡ −1 (mod M), r | N(m) on two classes mod r, χ(r) = (−M/r) = −1;
+u = (r + 1)/M (t-side) or t = (r + 1)/u (u-side), and the cofactor ≥ 1 for large m.
+(b) Every odd prime r | A divides N(m), is prime to M (A ≡ −1 mod M) and, m generic, splits in F; so
+σ_A = ∏σ_r^{e} ∈ Gal(Σ_M/F). If χ(A) = −1, then by (i)–(ii) σ_A = c_∞|Σ_M (Σ_M = ℚ(ζ_M)(√−M)), so c_∞ fixes F —
+impossible for F imaginary. ∎
+*Reading.* T1 (k = 0): F = ℚ(√−M) ⊂ Σ_M at every level, so c_∞ is forbidden everywhere. The deformation k ≠ 0 moves F;
+a level stays sign-clean exactly when the moved family field still sits inside the level's sign field. The obstruction
+is always the same: an admissible χ = −1 divisor is "Frobenius = complex conjugation", and an imaginary F refuses it —
+positivity once more ((J)52).
