@@ -26233,4 +26233,36 @@ def check_gq():
 check_gq()
 
 
+def check_gr():
+    # (gr) SYNTHESIS_SPARKS7 (O247/R256): R256 from scratch — Prop 2.1 (Mordell's theorem in window form: the least Type II
+    # window m0(p) is 3 or 7 off the six classes mod 840; all primes p = 1 (4) <= 10^6, records to m0 = 63 at 87481), the
+    # window criterion vs direct enumeration (brute), the 103 Type-II-free non-squares n = 1 (4) <= 2*10^5 (enlarged T1
+    # control set), and the parity law on the 17-generic line (every admissible r-exponent of a fixed-window witness odd).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("SYNTHESIS7 subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r256_m0.py", "m0", "1000000"])
+    assert "off-class violations: 0" in out and "(87481, 63)]" in out, out[-2000:]
+    out = run(["review_r256_m0.py", "brute"])
+    assert "brute check mismatches: 0" in out, out[-2000:]
+    out = run(["review_r256_m0.py", "free", "200000"])
+    assert "non-square n=1(4) <= 200000 with f_II=0: 103" in out and " 3985," in out, out[-2000:]
+    out = run(["review_r256_parity.py", "17", "20000", "12"])
+    assert "violations: 0" in out, out[-2000:]
+    print(f"== (gr) SYNTHESIS_SPARKS7 R256: Mordell = m0 in {{3, 7}} off six classes (p < 1e6); window criterion; 103 "
+          f"Type-II-free non-squares; r-generic parity law; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gr()
+
+
 print("\nall checks passed")
