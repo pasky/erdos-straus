@@ -26197,4 +26197,40 @@ def check_gp():
 check_gp()
 
 
+def check_gq():
+    # (gq) SIBLING (O242/R249): R249 from-scratch Case B enumeration (q = 3, A = T^2, s <= 13: 122 tuples): Lemma 1.1 (at most
+    # 2, in fact 1, distinct E per (key, parent)), the parity law (0 violations); and the inversion check on the depth-9 ball
+    # list: all 24 Case A balls without an inverse ball have their inverse cylinder inside a shallower ball (coverage is
+    # inversion-invariant; consistent with (J)73).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    with tempfile.TemporaryDirectory() as td:
+        f = os.path.join(td, "d.txt")
+        r = subprocess.run([sys.executable, "review_r249_dump.py", "13", f], capture_output=True, text=True, timeout=900,
+                           cwd=sdir, env=env)
+        assert r.returncode == 0, r.stderr[-2000:]
+        r = subprocess.run([sys.executable, "review_r249_check11.py", f], capture_output=True, text=True, timeout=900,
+                           cwd=sdir, env=env)
+        assert r.returncode == 0, r.stderr[-2000:]
+        assert "tuples 122" in r.stdout and "#(key,parent) with 2: 0" in r.stdout and "parity violations 0" in r.stdout, \
+            r.stdout[-2000:]
+        r = subprocess.run([sys.executable, "review_r249_inv.py", os.path.join(root, "data/z16/balls_d9.txt"), f],
+                           capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, r.stderr[-2000:]
+        assert "missing inverses 24 of which inverse cylinder already inside a lower-depth ball: 24" in r.stdout, \
+            r.stdout[-2000:]
+    print(f"== (gq) SIBLING R249: Lemma 1.1 (max 1 E per key/parent, 122 tuples), parity law, inversion-invariant coverage "
+          f"at depth 9; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gq()
+
+
 print("\nall checks passed")
