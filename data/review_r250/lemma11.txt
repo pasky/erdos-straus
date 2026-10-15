@@ -1,0 +1,10 @@
+q=3 k=1 n=3 cyl=(): primes 8, solutions Type I 64 / Type II 29, Type I with deg E_FF >= n/2: 16, P with no solution: 0; brute force == parametrisation; Lemma 1.1/1.2 assertions all hold
+q=3 k=1 n=4 cyl=(): primes 18, solutions Type I 337 / Type II 129, Type I with deg E_FF >= n/2: 139, P with no solution: 0; brute force == parametrisation; Lemma 1.1/1.2 assertions all hold
+q=3 k=2 n=4 cyl=(): primes 18, solutions Type I 68 / Type II 24, Type I with deg E_FF >= n/2: 29, P with no solution: 2; brute force == parametrisation; Lemma 1.1/1.2 assertions all hold
+q=5 k=1 n=3 cyl=(): primes 40, solutions Type I 172 / Type II 74, Type I with deg E_FF >= n/2: 50, P with no solution: 2; brute force == parametrisation; Lemma 1.1/1.2 assertions all hold
+q=5 k=2 n=3 cyl=(): primes 40, solutions Type I 31 / Type II 7, Type I with deg E_FF >= n/2: 10, P with no solution: 24; brute force == parametrisation; Lemma 1.1/1.2 assertions all hold
+q=9 k=1 n=2 cyl=(): primes 36, solutions Type I 24 / Type II 12, Type I with deg E_FF >= n/2: 12, P with no solution: 18; brute force == parametrisation; Lemma 1.1/1.2 assertions all hold
+q=9 k=2 n=3 cyl=(): primes 240, solutions Type I 59 / Type II 10, Type I with deg E_FF >= n/2: 24, P with no solution: 195; brute force == parametrisation; Lemma 1.1/1.2 assertions all hold
+q=3 k=2 n=5 cyl=(1, 1): primes 9, solutions Type I 29 / Type II 6, Type I with deg E_FF >= n/2: 16, P with no solution: 1; brute force == parametrisation; Lemma 1.1/1.2 assertions all hold
+q=9 k=2 n=3 cyl=(1,): primes 30, solutions Type I 2 / Type II 4, Type I with deg E_FF >= n/2: 1, P with no solution: 25; brute force == parametrisation; Lemma 1.1/1.2 assertions all hold
+q=5 k=2 n=4 cyl=(1, 1): primes 7, solutions Type I 4 / Type II 0, Type I with deg E_FF >= n/2: 4, P with no solution: 4; brute force == parametrisation; Lemma 1.1/1.2 assertions all hold

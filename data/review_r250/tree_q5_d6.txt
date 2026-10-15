@@ -1,0 +1,12 @@
+q=5 k=2 c-slices, ball depth <= 6
+Case A data 0, balls 0; I4 balls 0; Case B balls 42; |A cap B| = 0
+  A       balls    0, without inverse ball: 0
+  B       balls   42, without inverse ball: 0
+  I4      balls    0, without inverse ball: 0
+  A+B     balls   42, without inverse ball: 0
+  A+B+I4  balls   42, without inverse ball: 0
+  A balls inside a Case B ball: 0/0; I4 balls inside a Case B ball: 0/0
+  c=1 survivors d3..d6  A+B: [5, 25, 123, 610]  A+B+I4: [5, 25, 123, 610]  x*_c alive: True
+  c=2 survivors d3..d6  A+B: [5, 23, 115, 569]  A+B+I4: [5, 23, 115, 569]  x*_c alive: True
+  c=3 survivors d3..d6  A+B: [5, 23, 115, 569]  A+B+I4: [5, 23, 115, 569]  x*_c alive: True
+  c=4 survivors d3..d6  A+B: [5, 25, 123, 610]  A+B+I4: [5, 25, 123, 610]  x*_c alive: True
