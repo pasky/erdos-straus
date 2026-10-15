@@ -181,3 +181,14 @@ a geometrically reducible but ℚ-irreducible variety, and its coordinate ring h
 units do exist — n = uv + 1 (u is a unit mod P), n = 4abd − a − b — the parameters encode a divisor of n ± const (B2).
 So, for polynomial ET families, *the menu ladder's positive-density rungs are sorted by (ℚ[x]/(P))^×*. (Assessment for the
 last sentence; the theorem is the precise statement.)
+
+## 4. Goal (3): 2-descent on w² = N(u, v) is not the relevant object
+By Cor 3.2 the norm-form menu M[N] (polynomial ET families in x, valid somewhere) equals M₁[linear] ∘ N: ET identities in
+n composed with n = N(x). So its sterile set is the pull-back of the rung-0 sterile set (MENU_STERILITY Thm A with φ linear;
+Mordell/Schinzel): Ster(M[N]) = {x* ∈ Ẑ^r : N(x*) ∈ Ẑ^{×2}} (with N(x*) ≡ 1 mod 8 as in Thm A). The double cover that governs
+it is w² = n (genus 0), not w² = N(u, v). No 2-descent on the genus-1 (binary cubic) cover enters: the cover w² = N(u, v)
+would matter only for a menu whose parameter algebra is ℚ[x]/(N), and Thm 3.1 shows that algebra (no units) supports no
+Type I family. (PROVED, given Cor 3.2 and Thm A; the identification is immediate.)
+Consequence: the primes p = N(x) in square classes mod the joint modulus — a positive proportion of the primes represented by
+N, e.g. of Heath-Brown's primes x³ + 2y³ — are uncovered by every finite set of polynomial ET families for N, exactly as in
+one variable. (Same proof as POINTWISE_BINARYFORM Cor 3.4, now without Hecke, as the families are polynomials in n.)
