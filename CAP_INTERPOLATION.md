@@ -191,3 +191,59 @@ shape is known: Thm 4.2 of FROBENIUS_FIRING needs BV/Siegel–Walfisz at modulus
 **The gap.** GRH pointwise: exp(O(√(log₂p log₃p))); covering barrier: (log₂p)^{1−o(1)} i.o.; unconditional
 almost-all: e ≍ log₂N leaves ≤ N^{1 − c/(log₂N log₃N)} exceptions (Thm 2.1), and the large sieve cannot do better at
 any cap (Thm 3.1).
+
+## 5. The exact class family 𝒟_e(M): the cube is redundant, the cap adds exactly e dimensions (goals 2, 3)
+
+**Proposition 5.1 (exact dictionary at any modulus; PROVED, elementary).** Let M ≡ 3 (mod 4) (prime or composite),
+A := (M+1)/4, D ≥ 1, p a prime with p ∤ DM and **p ≡ −4D (mod M)**. Put E := (p + 4D)/M,
+`  x := (p + E)/4,   y := pA,   z := p·x·A/D.`
+Then x, y ∈ ℤ_{>0}, z ∈ ℚ_{>0} and 4/p = 1/x + 1/y + 1/z. This is an ES^{(y,e)}(p) solution iff **D ∈ 𝒟_e(M)**:
+`  rad D | A,  and for every prime s | D with t := v_s(D), σ := v_s(A):  t ≤ 2σ,  or (s odd, t even, t ≤ 2σ + 2e).`
+In particular 𝒟_0(M) = {D : D | A²}, which is exactly the ES class family ℛ(M) = {−4D : D | A²} of the 3/4 note
+(§"ceiling"); and the overflow cube (c₀R², d₀/R², j) of CAP_GROWING is the parametrisation D = c²d = c₀²d₀R²:
+**the solution depends only on D, so (c, d, j) is a redundant coordinate system and "further overflow parameters"
+R₁, R₂, … can only produce further D's of 𝒟_e(M).**
+*Proof.* E ∈ ℤ; M ≡ 3 (4) gives E ≡ −(p + 4D) ≡ −p (mod 4), so 4 | p + E. x + D = (p + E + 4D)/4 = E(M+1)/4 = EA,
+hence 1/y + 1/z = (x + D)/(pxA) = E/(px) = 4/p − 1/x. Valuations at s | D (s ≠ p; s ∤ M, since s | M and M | p + 4D
+would give s | p): v_s(E) = 0 (EM ≡ p mod s). If σ = 0 then v_s(x) = v_s(EA − D) = 0 and v_s(z) = −t < 0 while
+s ∤ y = pA: forbidden. If 1 ≤ σ < t: v_s(x) = σ (v_s(EA) = σ < t), v_s(z) = 2σ − t; this is ≥ 0 iff t ≤ 2σ, and
+otherwise Def 1.1 asks t even (s = 2 is never allowed in den z) and 2σ − t ≥ −2e. If t ≤ σ: v_s(x) ≥ t and
+v_s(z) ≥ σ ≥ 0. Primes s ∤ D have v_s(z) ≥ 0. And s | den z ⇒ s | A | y. ∎
+*Check (`scripts/z10_rfamily_check.py`, data/z10/rfamily_check.txt):* random M < 3·10⁵ (half of them with
+9·25-type square factors in A, i.e. σ ≥ 2), random D in and outside 𝒟_e(M) (exponents up to 2σ + 2e + 2, plus
+foreign primes), random prime p ≡ −4D: the predicate "D ∈ 𝒟_e(M)" agreed with Def 1.1 (exact rationals) in
+**3000/3000 cases at e = 2 and 2000/2000 at e = 0**. (`z10_cube_check.py`: 2000 cube solutions with exactness
+violated in 486 cases, composite M in 1505, all valid — Remark 1.3.)
+
+**Corollary 5.2 (supply dimension; PROVED, elementary).** Let F_e(M) := #{D ∈ 𝒟_e(M) : 4D < M} (distinct classes
+−4D mod M). The local count at a prime s ∥^σ A, s odd, is N(σ, e) = 2σ + 1 + e (t ∈ [0, 2σ] ∪ {2σ+2, …, 2σ+2e}), so
+`  Σ_{M≤Q, M≡3 (4)} F_e(M)/M ≍_e (log Q)^{e+3},     Σ_{ℓ≤X prime} F_e(ℓ)/ℓ ≫_e (log X)^{e+2}.`
+*Proof.* Upper: F_e(M) ≤ ∏_{s^σ∥A} N(σ, e) (N(σ,0) := 2σ+1 at s = 2), and Σ_{A≤Q} ∏N(σ,e)/A ≪ (log Q)^{e+3} (the
+Dirichlet series is ζ(w)^{e+3}·H(w), H absolutely convergent near w = 1). Lower: swap sums, Σ_D Σ_{A≤Q, A > D,
+core conditions} 1/A over D ≤ √Q with D = c₀²d₀R² (c₀, d₀ odd squarefree coprime, rad R | c₀, v(R) ≤ e), for which
+c₀d₀ | A suffices: ≥ ½ log Q·Σ_{D≤√Q} 1/(c₀d₀) ≫ (log Q)^{e+3}. Prime moduli: Prop 1.2 / CAP_GROWING Thm 1.4. ∎
+*Answers.* (i) **No unbounded tower of overflow dimensions at fixed e** (goal 2): within the shot form y = pA every
+ES^{(y,e)} certificate at every modulus is a class of 𝒟_e(M), whose total supply has dimension exactly e + 3 (upper
+bound above). Several overflow parameters are reparametrisations of D. (ii) Exponent table (prime-modulus large
+sieve / composite multipliers à la 3/4 note / mass-driven CRT ceiling):
+`  e:                  0      1      2      e`
+`  prime-modulus LS:   2/3    3/4    4/5    (e+2)/(e+3)    PROVED (CAP_GROWING Thm 1.4; Thm 2.1 uniform)`
+`  3/4-note multipliers: 3/4  4/5    5/6    (e+3)/(e+4)    Assessment: only the class supply changes (Cor 5.2)`
+`  KARY3-type ceiling:  3/4    4/5    5/6    (e+3)/(e+4)    Assessment (KARY3 itself does NOT apply for e ≥ 1)`
+KARY3 / LARGESIEVE3–4 / the sieve-limits note cap mixtures of ℛ(M), (a,D), Case-A and selector classes; 𝒟_e(M) ⊋
+𝒟_0(M) = ℛ(M) for e ≥ 1 (odd even-excess exponents), so those theorems do not apply to ES^{(y,e)} — exactly why
+Thm 1.4 can exceed 3/4 at e = 2 without contradiction (R230 D1). Their proofs are mass-driven (θ = 𝓑/(𝓑+1) with
+mass (log)^𝓑), so the analogue with 𝓑 = e + 3 is expected (Assessment, not re-proved). (iii) At e ≥ c log log N the
+supply is no longer polylogarithmic and the ceiling is Thm 3.1's log N/(λ log λ) (prime moduli; composite: Assessment).
+
+**Proposition 5.3 (what e = 0 lacks: the extra dimensions are exactly non-integrality of z; PROVED, from Prop 5.1).**
+For D ∈ 𝒟_e(M): z ∈ ℤ_{(s)} for all s iff D | A². The e additional local values t ∈ {2σ+2, …, 2σ+2e} are precisely
+those with v_s(z) = 2σ − t < 0. So at e = 0 the family is 𝒟_0 = ℛ(M) with no hidden overflow, and every integral
+solution of this shape is in ℛ(M).
+*Reading (Assessment, goal 3).* "R must be 1 at e = 0" is not a technical artefact: the overflow dimension IS the
+non-integrality. An overflow "into x" is impossible in this family (x = EA − D is always integral); a family with
+x ∉ ℤ is a different relaxation, not ES. For ES itself the full supply of integral solutions (Type I and II) has
+average count ≍ log³ p (Elsholtz–Tao Thm 1.1), and KARY3 caps every CRT architecture over ℛ(M), (a,D), Case-A,
+selector classes at 3/4: there is no fourth dimension to unlock at e = 0 inside CRT architectures. Escaping needs
+non-CRT input (STATUS "Exceptional-set exponent": tuple counts TC^alt, weights < 1, residue-dense (A*)) — none
+supplied by the cap.

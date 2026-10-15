@@ -1,0 +1,2 @@
+Mmax=300000 e=2: 3000 agree, 0 disagree; 1376 with D in 𝒟_e, 1624 outside
+Mmax=300000 e=0: 2000 agree, 0 disagree; 997 with D in 𝒟_e, 1003 outside
