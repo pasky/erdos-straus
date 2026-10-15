@@ -76,42 +76,50 @@ static u64 i3target(Pair *p) { // -n mod m
   return (m - n % m) % m;
 }
 // activate prime i; return 1 if leaf found (witness in wit)
-static int activate(int i) {
-  u64 mo; u64 x = mu_mod(Qnc[i], Qli[i], Qv_[i], &mo); u64 q = Qv[i];
-  u64 g = (pw(4, x, q) + K) % q; G[i] = g; actlog[alen++] = i;
+// value index: pairs by V = 4a^2 d (CSR)
+int *V2s, *V2i, *V3s, *V3i; u64 V2MAX, V3MAX;
+static int try2(int j, u64 q, int i) { Pair *p = &P2[j]; if (p->a % q == 0 || p->d % q == 0) return 0;
+  u64 mask; if (subset_hit(L2[j], L2len[j], p->m, p->m - 1, q, &mask)) { int o = sprintf(wit, "P %d %d", p->a, p->d); wit_list(wit + o, L2[j], L2len[j], mask, i); return 1; }
+  if (L2len[j] < LMAXG) { L2[j][L2len[j]++] = i; jlog[jlen++] = j; } return 0; }
+static int try3(int j, u64 q, int i) { Pair *p = &P3[j]; if (p->a % q == 0 || p->d % q == 0) return 0;
+  if (p->ready) { u64 mask; if (subset_hit(L3[j], L3len[j], p->m, p->tgt, q, &mask)) { int o = sprintf(wit, "I %d %d", p->a, p->d); wit_list(wit + o, L3[j], L3len[j], mask, i); return 1; } }
+  if (L3len[j] < LMAXG) { L3[j][L3len[j]++] = i; jlog[jlen++] = nP2 + j; } return 0; }
+static int activate(int i, u64 t4) {  // t4 = 4^mu mod q
+  u64 q = Qv[i];
+  u64 g = (t4 + K) % q; G[i] = g; actlog[alen++] = i;
   if (g == 0 && K % q) { sprintf(wit, "D %llu", (unsigned long long)q); return 1; }
-  u64 mg = (q - g) % q; // -g
-  for (int j = 0; j < nP2; j++) { Pair *p = &P2[j]; if (p->a % q == 0 || p->d % q == 0) continue;
-    if ((u128)4 * p->a * p->a % q * p->d % q == mg) {
-      u64 mask; int hit = subset_hit(L2[j], L2len[j], p->m, p->m - 1, q, &mask);
-      if (hit) { int o = sprintf(wit, "P %d %d", p->a, p->d); wit_list(wit + o, L2[j], L2len[j], mask, i); return 1; }
-      if (L2len[j] < LMAXG) { L2[j][L2len[j]++] = i; jlog[jlen++] = j; }
-    } }
-  u64 g2 = (u128)g * g % q;
-  for (int j = 0; j < nP3; j++) { Pair *p = &P3[j]; if (p->a % q == 0 || p->d % q == 0) continue;
-    if ((g2 + (u128)4 * p->a * p->a % q * p->d) % q == 0) {
-      if (p->ready) { u64 mask; int hit = subset_hit(L3[j], L3len[j], p->m, p->tgt, q, &mask);
-        if (hit) { int o = sprintf(wit, "I %d %d", p->a, p->d); wit_list(wit + o, L3[j], L3len[j], mask, i); return 1; } }
-      if (L3len[j] < LMAXG) { L3[j][L3len[j]++] = i; jlog[jlen++] = nP2 + j; }
-    } }
+  u64 v0 = (q - g) % q; if (!v0) v0 = q;
+  if (V2MAX / q > (u64)nP2) { for (int j = 0; j < nP2; j++) if ((u128)4 * P2[j].a * P2[j].a % q * P2[j].d % q == v0 % q && try2(j, q, i)) return 1; }
+  else for (u64 v = v0; v <= V2MAX; v += q) for (int t = V2s[v]; t < V2s[v + 1]; t++) if (try2(V2i[t], q, i)) return 1;
+  u64 g2 = (u128)g * g % q; v0 = (q - g2) % q; if (!v0) v0 = q;
+  if (V3MAX / q > (u64)nP3) { for (int j = 0; j < nP3; j++) if ((u128)4 * P3[j].a * P3[j].a % q * P3[j].d % q == v0 % q && try3(j, q, i)) return 1; }
+  else for (u64 v = v0; v <= V3MAX; v += q) for (int t = V3s[v]; t < V3s[v + 1]; t++) if (try3(V3i[t], q, i)) return 1;
   return 0;
 }
 static void undo_to(int j0, int a0) { while (jlen > j0) { int j = jlog[--jlen]; if (j < nP2) L2len[j]--; else L3len[j - nP2]--; } alen = a0; }
 // raise e[l] by one (c[l] already set); activate new primes; return 1 if leaf
 static int *readylog; int rlen = 0;
-static int raise_and_test(int l) {
-  e[l]++;
+// collect primes activated by raising e[l]; T[t] = 4^mu mod q at child 0 (c[l] = base), R[t] = multiplier per child step
+static int collect(int l, int *buf, u64 *T, u64 *R) { int n = 0; e[l]++; int bi = l * 64 + e[l]; u64 base = c[l], step = PW[l][e[l] - 1];
+  for (int t = 0; t < nbucket[bi]; t++) { int i = bucket[bi][t]; if (!active_ok(i)) continue;
+    u64 q = Qv[i], mo; u64 x0 = mu_mod(Qnc[i], Qli[i], Qv_[i], &mo); c[l] = base + step; u64 x1 = mu_mod(Qnc[i], Qli[i], Qv_[i], &mo); c[l] = base;
+    T[n] = pw(4, x0, q); R[n] = pw(4, (x1 + mo - x0) % mo, q); buf[n++] = i; }
+  e[l]--; return n; }
+static int raise_and_test(int l, int *buf, int nb, u64 *T, u64 *R) {
+  e[l]++; int hit0 = 0;
   // pairs becoming ready
   int bi = l * 64 + e[l];
   for (int t = 0; t < nbucket3[bi]; t++) { int j = bucket3[bi][t]; Pair *p = &P3[j];
     int ok = 1; for (int s = 0; s < p->nc; s++) if (p->v[s] > e[p->li[s]]) { ok = 0; break; }
     if (!ok || p->ready) continue;
     p->ready = 1; readylog[rlen++] = j; p->tgt = i3target(p);
-    u64 mask; if (L3len[j] && subset_hit(L3[j], L3len[j], p->m, p->tgt, 0, &mask)) { int o = sprintf(wit, "I %d %d", p->a, p->d); wit_list(wit + o, L3[j], L3len[j], mask, -1); return 1; } }
-  for (int t = 0; t < nbucket[bi]; t++) { int i = bucket[bi][t]; if (!active_ok(i)) continue; if (activate(i)) return 1; }
-  return 0;
+    u64 mask; if (!hit0 && L3len[j] && subset_hit(L3[j], L3len[j], p->m, p->tgt, 0, &mask)) { int o = sprintf(wit, "I %d %d", p->a, p->d); wit_list(wit + o, L3[j], L3len[j], mask, -1); hit0 = 1; } }
+  int hit = hit0;
+  for (int t = 0; t < nb; t++) { u64 t4 = T[t]; T[t] = T[t] * R[t] % Qv[buf[t]]; if (!hit && activate(buf[t], t4)) hit = 1; }
+  return hit;
 }
 static void lower(int l, int j0, int a0, int r0) { undo_to(j0, a0); while (rlen > r0) P3[readylog[--rlen]].ready = 0; e[l]--; }
+int *cbuf; u64 *cT, *cR;
 static void solve(int known) {
   nodes++;
   if (nodes > NODEMAX) { fprintf(stderr, "node budget\n"); fprintf(out, "ABORT\n"); fclose(out); exit(2); }
@@ -120,8 +128,8 @@ static void solve(int known) {
   int best = -1; double bs = -1; u64 bcost = 0;
   for (int l = 0; l < nH; l++) {
     if (e[l] >= CAP[l]) continue;
-    u64 base = c[l], step = PW[l][e[l]]; int k = 0;
-    for (u64 j = 0; j < HP[l]; j++) { c[l] = base + j * step; int j0 = jlen, a0 = alen, r0 = rlen; k += raise_and_test(l); lower(l, j0, a0, r0); }
+    u64 base = c[l], step = PW[l][e[l]]; int k = 0; int nb = collect(l, cbuf, cT, cR);
+    for (u64 j = 0; j < HP[l]; j++) { c[l] = base + j * step; int j0 = jlen, a0 = alen, r0 = rlen; k += raise_and_test(l, cbuf, nb, cT, cR); lower(l, j0, a0, r0); }
     c[l] = base;
     if (!k) continue;
     double s = (double)k / HP[l]; u64 cost = PW[l][e[l] + 1];
@@ -133,13 +141,14 @@ static void solve(int known) {
     return; }
   fprintf(out, "S %llu\n", (unsigned long long)HP[best]);
   u64 base = c[best], step = PW[best][e[best]]; double om = meas; meas /= HP[best]; curdepth++;
+  int *buf = malloc(sizeof(int) * (nq + 1)); u64 *T = malloc(8 * (nq + 1)), *R = malloc(8 * (nq + 1)); int nb = collect(best, buf, T, R);
   for (u64 j = 0; j < HP[best]; j++) {
     c[best] = base + j * step; int j0 = jlen, a0 = alen, r0 = rlen;
-    if (raise_and_test(best)) { fprintf(out, "%s\n", wit); leaves++; leafdepth[curdepth]++; covmeas += meas; }
+    if (raise_and_test(best, buf, nb, T, R)) { fprintf(out, "%s\n", wit); leaves++; leafdepth[curdepth]++; covmeas += meas; }
     else solve(1);
     lower(best, j0, a0, r0);
   }
-  c[best] = base; meas = om; curdepth--;
+  free(buf); free(T); free(R); c[best] = base; meas = om; curdepth--;
 }
 static int lidx(u64 l) { for (int t = 0; t < nH; t++) if (HP[t] == l) return t; return -1; }
 int main(int argc, char **argv) {
@@ -183,6 +192,16 @@ int main(int argc, char **argv) {
     if (nc == 0) { p->ready = 2; nroot3++; } else { // bucket on max-index component (any component suffices since we re-check)
       for (int s = 0; s < nc; s++) { int bi = p->li[s] * 64 + p->v[s]; if (nbucket3[bi] < 4096) bucket3[bi][nbucket3[bi]++] = nP3; } }
     nP3++; }
+  V2MAX = 0; for (int j = 0; j < nP2; j++) { u64 v = 4ULL * P2[j].a * P2[j].a * P2[j].d; if (v > V2MAX) V2MAX = v; }
+  V3MAX = 0; for (int j = 0; j < nP3; j++) { u64 v = 4ULL * P3[j].a * P3[j].a * P3[j].d; if (v > V3MAX) V3MAX = v; }
+  V2s = calloc(V2MAX + 2, sizeof(int)); V3s = calloc(V3MAX + 2, sizeof(int)); V2i = malloc(sizeof(int) * nP2); V3i = malloc(sizeof(int) * nP3);
+  for (int j = 0; j < nP2; j++) V2s[4ULL * P2[j].a * P2[j].a * P2[j].d + 1]++;
+  for (u64 v = 0; v <= V2MAX; v++) V2s[v + 1] += V2s[v];
+  { int *pos = malloc(sizeof(int) * (V2MAX + 2)); memcpy(pos, V2s, sizeof(int) * (V2MAX + 2)); for (int j = 0; j < nP2; j++) V2i[pos[4ULL * P2[j].a * P2[j].a * P2[j].d]++] = j; free(pos); }
+  for (int j = 0; j < nP3; j++) V3s[4ULL * P3[j].a * P3[j].a * P3[j].d + 1]++;
+  for (u64 v = 0; v <= V3MAX; v++) V3s[v + 1] += V3s[v];
+  { int *pos = malloc(sizeof(int) * (V3MAX + 2)); memcpy(pos, V3s, sizeof(int) * (V3MAX + 2)); for (int j = 0; j < nP3; j++) V3i[pos[4ULL * P3[j].a * P3[j].a * P3[j].d]++] = j; free(pos); }
+  cbuf = malloc(sizeof(int) * (nq + 1)); cT = malloc(8 * (nq + 1)); cR = malloc(8 * (nq + 1));
   L2len = calloc(nP2, sizeof(int)); L3len = calloc(nP3, sizeof(int)); L2 = malloc(sizeof(int *) * nP2); L3 = malloc(sizeof(int *) * nP3);
   for (int j = 0; j < nP2; j++) L2[j] = malloc(sizeof(int) * LMAXG);
   for (int j = 0; j < nP3; j++) L3[j] = malloc(sizeof(int) * LMAXG);
@@ -193,7 +212,7 @@ int main(int argc, char **argv) {
   for (int j = 0; j < nP3; j++) if (P3[j].ready == 2) { P3[j].ready = 1; P3[j].tgt = i3target(&P3[j]); }
   // root activation: primes with ord 1
   int rootleaf = 0;
-  for (int i = 0; i < nq; i++) if (Qnc[i] == 0) { if (activate(i)) rootleaf = 1; }
+  for (int i = 0; i < nq; i++) if (Qnc[i] == 0) { if (activate(i, 1 % Qv[i])) rootleaf = 1; }
   if (rootleaf) { fprintf(out, "%s\n", wit); fprintf(stderr, "root leaf\n"); return 0; }
   solve(0);
   fclose(out);
