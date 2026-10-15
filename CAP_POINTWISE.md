@@ -177,3 +177,28 @@ Type II's subgroup level is free and only its exponent budget is a lottery (Lemm
   solutions in total rebuilt and checked against Def 1.1 with exact rationals. `z12_selfmute.py 200000`
   (data/z12_selfmute_2e5.txt): all 49 776 odd non-squares n ≡ 1 (4) ≤ 2·10⁵ (composite n included), least window
   ≤ 263, solution verified exactly, cap ≤ 55 at the least window.
+* Mordell-hard classes (p mod 840 ∈ {1, 121, 169, 289, 361, 529}; `z12_qstar_hard.py 1000000`): mean q* = 22.7
+  (2370 primes, max 139) vs 17.1 elsewhere (36 805 primes, max 227) — q* only feels the small-prime residue pattern
+  (3, 7 are residues there), and the overall record is not Mordell-hard. Odd squares: e*(a²) = 0 numerically (ES);
+  windows never exist at a² (T1), Cor 1.2(c) routes through a prime p | a.
+
+## 5. Verdict (O236 checkpoint 1)
+
+1. **First unconditional effective pointwise cap (Thm 1.1, Cor 1.2, Thm 1.3; PROVED, elementary + Linnik/Ahn–Kwon):**
+   e*(n) < q*(n) for every odd n > 1, where q*(n) is a least prime in one Chebotarev class of ℚ(i, √2, √n); hence
+   e*(n) ≪ rad(n)^5 effectively (Linnik–Xylouris), e*(n) < 2^{201232}n^{50308} explicitly for squarefree n (Ahn–Kwon),
+   e*(n) ≪ (log n)² under GRH (explicit (16 log n + 70)² with the recalled Bach–Sorenson constant). Mechanism: the window
+   q = 4x − n generates its own mute set (primes of x); the Legendre identity (x/q) = −1 forces −1 ∈ ⟨primes of x⟩, so
+   the window fires at the subgroup level and the cap e absorbs the exponent budget. Deterministic; no averaging (B6
+   evaded), no counting (B3 evaded); the shot modulus g is solution-dependent and huge (B2 respected).
+2. **Composite windows (Thm 1.1′)** fire under the same sign condition on every prime factor.
+3. **Below the covering threshold the cap is a divisor lottery (Lemma 2.1).** GRH ⇒ C log log p is NOT reached by
+   window or fixed-S shots; the exact missing input is equidistribution mod P ≈ X^{1/2} of primes carrying a short
+   multiplicative relation among the first k primes (§2, Assessment). The window method reproduces but does not
+   improve exp(O(√(log₂p log₃p))).
+4. **Type I/Type II window dichotomy (Prop 4.1, PROVED):** Type II windows carry the forced parity (K/q) = −1, Type I
+   windows (a/p) = +1, so Type I-shape windows are never forced and are dead at every cap whenever (pk′+1)/4 is prime.
+5. Numerics (EVIDENCE): all primes p ≤ 10⁶ have q* ≤ 227 (q* ≤ 1.3 log²p); best window cap over m ≤ 1000 is ≤ 3;
+   cap at q* ≤ 41. e*(p) itself is 0 (ES).
+ES untouched; no infinite case of ES is claimed. The theorem is about ES^{(y,e)} with e ≈ n^{O(1)}, a relaxation
+that is far from ES (e = 0).
