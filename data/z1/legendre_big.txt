@@ -1,0 +1,12 @@
+no Legendre level <= 2000000: n=9649
+mode 2 N 9649 T 2000000: population 1, no-Legendre-word 1, no-Legendre-S8-word 1, worst least level 0 at n=0, words at Legendre levels (mode1 total) 0
+no Legendre level <= 2000000: n=21169
+mode 2 N 21169 T 2000000: population 1, no-Legendre-word 1, no-Legendre-S8-word 1, worst least level 0 at n=0, words at Legendre levels (mode1 total) 0
+no Legendre level <= 2000000: n=23041
+mode 2 N 23041 T 2000000: population 1, no-Legendre-word 1, no-Legendre-S8-word 1, worst least level 0 at n=0, words at Legendre levels (mode1 total) 0
+no Legendre level <= 2000000: n=44641
+mode 2 N 44641 T 2000000: population 1, no-Legendre-word 1, no-Legendre-S8-word 1, worst least level 0 at n=0, words at Legendre levels (mode1 total) 0
+mode 2 N 704761 T 2000000: population 1, no-Legendre-word 0, no-Legendre-S8-word 1, worst least level 7119 at n=704761, words at Legendre levels (mode1 total) 2
+  least level in [2^12,2^13): 1
+mode 2 N 940921 T 2000000: population 1, no-Legendre-word 0, no-Legendre-S8-word 1, worst least level 1415 at n=940921, words at Legendre levels (mode1 total) 2
+  least level in [2^10,2^11): 1
