@@ -362,3 +362,14 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | s5_cm_frobenius | (iv) Frob = c_∞ × (h±1)-worlds × supersingular | Prop C: certificate primes = primes splitting completely in the CM field F_M = ℚ(ζ_M)⁺(√(p(θ²−4))) with Frob = c_∞·σ_p; T1 = the twisted conjugation ceases to exist; Chebotarev + divisibility = B2 | PROVED dictionary; checked |
 | s5_sterile_uniform | (v) FF (J)56 vs ℤ (J)54 sterility | one profinite formulation; unavoidable global input = size/degree coupling of certificate modulus (box), not sign (SQ_±), not congruences (sterility) | PROVED (formal) + Assessment |
 | s5_scale_law | own: scale behaviour of the sign ratio | N₋/U stable ≈ 0.75 (0.770 at 1 mod 8, 0.739 at 5 mod 8) from 2¹⁰ to 2²⁴ while N₋/N drifts 0.59 → 0.67; drift = forced fraction ≈ 0.5/√log p | EVIDENCE (928 779 primes to 3·10⁷) |
+
+## Spark relay Z1 (O231): forced vs unforced words, CONJECTURE U (`z7_*`, deep file UNFORCED_WORDS.md; not yet triaged)
+| memo | angle | result | label |
+|---|---|---|---|
+| z7_automatic_families | words with a fixed small parameter (min ≤ 2; s = 3, 4, 7) | Prop F/F′: on families with fixed side X ∈ {p+1, p+2, 2p+1, p+3, 3p+1, p+4, 4p+1, p+7, 7p+1}, certificate ⟺ unforced ⟺ X unclean; n ≡ 5 (8) trivial | PROVED; 0 mismatches to 3·10⁷ |
+| z7_landau_depth | Landau depth K(p) of the fixed sides | K(p) < q(p); CONDITIONAL (Dickson): K(p) unbounded, so no bounded-min family proves U (U-analogue of B2); max K = 10 below 3·10⁷ | CONDITIONAL + EVIDENCE |
+| z7_family_parity | goal 2: parity across words sharing a side | Flip Lemma (family has a certificate ⟺ (−1,−1) in the divisor image mod X); family-exact forcing collapses U to ES-five; flip = e-slice B2 | PROVED (negative, exact scope) |
+| z7_double_unclean | U2 = words with A, B both unclean | N₋ ≤ U2 ≤ U; CONJECTURE U2 (only 105); N₋/U2 ≥ 0.62 to 3·10⁷ | PROVED sandwich + EVIDENCE |
+| z7_haar_strata | goal 3: the "¾" of N₋/U | Haar five-slice mass = 3/4 exactly (pointwise); large-min words obey it, deficit lives in automatic families; Lemma 5.2; **SHARP: all N₋ < U/2 failures at n ≡ 1 (8) have ψ-odd part of n+1 = 3²** | PROVED + EVIDENCE |
+| z7_symbol_blind | goal 1: what a U-proof must supply | ψ(tn+1) ≡ 1: the t-side is symbol-blind; non-certificate unforced words need tn+1 ∉ C_n (anti-Landau kernel); least-NR families fail i.o. | PROVED kernel + EVIDENCE |
+| z7_signed_3sq | goal 4: split on SQ_± and 3SQ | SQ_± records fully forced (0.84–0.94 vs 0.24–0.51); 105 = Jacobi genus collapse, per-prime forcing (Lemma 6.1) explains 3SQ's exception-freeness | EVIDENCE + PROVED lemma |

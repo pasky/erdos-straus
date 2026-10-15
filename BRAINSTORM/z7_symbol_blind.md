@@ -13,7 +13,7 @@ primes) is never visible to a symbol.
   particular u = q, the least NR prime) are non-certificates with clean tn + 1. This is a strong Landau-type constraint
   on a growing family, but it is not contradictory by any symbol argument (B1).
 * Type split of non-certificate unforced words (EVIDENCE, z7_ratio.c, p ≡ 1 (8)):
-  * (−,−) is 37–38 % at min ≥ 1, 61–65 % at min ≥ 3;
+  * (−,−) is 35–38 % at min ≥ 1, 63–71 % at min ≥ 3;
   * at p ≡ 5 (8), (−,−) is ≈ 48 % at min ≥ 1, 55 % at min ≥ 3.
 * Least-NR families (`scripts/z7_lnr_family.py 300000`, 6 457 primes ≡ 1 (8)):
   * a word with u or v = q: 96 %;
