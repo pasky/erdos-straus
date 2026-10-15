@@ -10,7 +10,7 @@ new" = not found in what was searched; it is not a priority certificate.
 
 Archive of this pass: `sources/lit2026e/`.
 
-Status: in progress.
+Status: complete (checkpoint 1); report `reviews/agent-reports/AGENT_REPORT_O243.md`.
 
 ---
 
@@ -453,3 +453,87 @@ Status: in progress.
 | (J)70 Comp 4.1 | APPARENTLY NEW (computation) | — |
 | (J)58 Lemma G / Lemma S | KNOWN in substance (elementary; Type II parametrisation + genus theory) | — |
 | (J)60 Prop F/F′, Prop 5.1, Lemma 5.2 | APPARENTLY NEW (elementary, ES-specific) | — |
+
+---
+
+## 9. Summary
+
+| # | Item | Verdict | Key reference |
+|---|---|---|---|
+| 1 | (J)63 Prop 5.1 at e = 0 / 3/4-note ℛ(M) = {−4D : D \| A²} | **KNOWN** | ET Prop 1.9 p. 8 (Rosati 1954; Vaughan 1970); Chamberland, Integers 26 (2026) #A42 Thm 1 (iff, primes) |
+| 2 | (J)65 Thm 1.1 (loop ⟺ represents 2) | **KNOWN in substance** (confirmed) | Chenu–Smith hal-03288075 Prop 1–2 + **Lemma 1 (converse)**, Thm 2; Arpin et al. 1909.07779 §5.3 (empirics) |
+| 3 | (J)57 Thm 1.3 lattice half | **KNOWN in substance** | Brown's ℤ/4-enhancement B(x,x)/4 on L/2L (Brown 1972; Taylor arXiv:2208.06319 §2) + 2-adic diagonalisation; frieze half = Morier-Genoud §3.5 |
+| 4 | (J)59 Thm 1.2/1.4 sieve ladder | **PARTIAL** | parameters → exponent principle: Vaughan 1970, Viola 1973, Shen 1986, Elsholtz Trans. AMS 2001 Thm 1.3 & p. 3210 |
+| 5 | (J)64 Thm 1.1 (self-generated mute set) | **PARTIAL** | Dahan arXiv:2608.24035 Prop 4.8 / Thm 4.6 = the necessary direction (−1 ∈ ⟨primes of K⟩ mod c) |
+| 6 | (J)61 Thm 2.1 sign-field criterion | KNOWN in substance (reformulation) | Bright–Loughran Thm 1.2/Cor 1.3; Yamamoto; ET Prop 1.6 |
+| 7 | (J)69 Thm 1.1 (4^s + 105) | APPARENTLY NEW; method lineage | Izotov 1995 partial covering + algebraic factorisation (FFK 2008 pp. 3–4) |
+| 8 | (J)62 Thm 1.3, (J)68 families | APPARENTLY NEW | no ES exponential-family literature (zbMATH full ES list, web) |
+| 9 | (J)66 Cor 2.1/2.2, (J)64 Thm 1.3 | APPARENTLY NEW as statements; standard inputs | no ES application of Pollack's theorems (OpenAlex citations) |
+| 10 | (J)67 root-product law; (J)71 Liouville lemma; (J)72 game barrier, windowed König | mechanisms KNOWN (Weil/resultant reciprocity; Liouville–Mahler 1949; winning sets meet every ball — Schmidt 1966, McMullen 2010, Kristensen 2006 for F_q((T⁻¹)); Cantor-set dimension bound); ES_q consequences APPARENTLY NEW | — |
+| 11 | (J)67 Thm 2.2, (J)70 Thm 6.3, (J)72 Prop 3.2 | APPARENTLY NEW | — |
+| 12 | (J)70 Lemma 3.1, (J)58 Lemma G/S | KNOWN in substance | ET Prop 1.9; Type II parametrisation; genus theory |
+
+**Not accessed (limits):** Vaughan 1970 (paywalled; see access log), Rosati 1954,
+Nakayama 1939, Izotov 1995 (via FFK only), Sierpiński 1960 (via FFK), Brown 1972 (via
+Taylor), Gross 1987, Falconer's book, Lasjaunias 2000 (snippet only), Hussain 2023
+(snippet only), Conway–Sloane SPLAG ch. 15. Semantic Scholar API was rate-limited;
+OpenAlex used for citation lists.
+
+---
+
+## 10. Proposed ledger edits (for the orchestrator)
+
+1. **(J)63 Prop 5.1**, append: "*Prior art (O243):* at e = 0 this dictionary is classical:
+   the class family −4D (mod M), D | A², is ET Prop 1.9's Type II family '−4a²d mod f,
+   4ad | f + 1' (p. 8; Rosati 1954, Vaughan 1970), and the 'only if' for primes is
+   Chamberland, Integers 26 (2026) #A42, Thm 1 (Type II ⟺ p = qr − 4s₁s₂, q ≡ 3 (4),
+   s₁, s₂ | (q + 1)/4). New: e ≥ 1 (𝒟_e(M)) and Cor 5.2/Prop 5.3."
+   Same citation should be added where `paper/es-threequarter-note.tex` (l. ≈ 1290)
+   introduces ℛ(M); and its "θ = 𝓑/(𝓑 + 1)" remark (l. ≈ 1286) should cite Elsholtz,
+   Trans. AMS 353 (2001), p. 3210 (parameter-count principle).
+2. **(J)59 Thm 1.2/1.4**, append: "The 'one more free parameter ⇒ exponent 1 − 1/D'
+   mechanism is Vaughan 1970 → Viola 1973 → Shen 1986 → Elsholtz, Trans. AMS 353 (2001)
+   Thm 1.3 (exponent 1 − 1/(2^{k−1} − 1) for k unit fractions; 'we use 2^{k−1}
+   parameters, while Vaughan used 4', p. 3210). Here the parameters come from the cap,
+   not from extra fractions (O243)."
+3. **(J)64 Thm 1.1**, append: "*Prior art (O243):* the necessary direction — a window
+   c ≡ 3 (4) succeeds only if −1 ∈ ⟨q mod c : q | K_c⟩, and a prime p | c, p ≡ 3 (4)
+   forces a prime of K_c that is a non-residue mod p — is Dahan, arXiv:2608.24035,
+   Prop 4.8 and Thm 4.6 (pp. 21–22; Dahan explicitly avoids the subgroup route because
+   membership does not bound exponents). Thm 1.1 is the converse in the capped variant."
+4. **(J)65 Thm 1.1**, extend the R234 attribution: "Chenu–Smith Prop 1–2 (forward),
+   **Lemma 1 (p. 6, converse: every ℤ[√−dp]-orientation comes from a (d, ε)-structure)**,
+   Thm 2 (class-group count); Arpin et al. §5.3 is empirical (proportions of 2-isogenous
+   conjugate pairs, p ≤ 100 193) (O243)."
+5. **(J)57 Thm 1.3**, append: "*Classical content (O243):* 'Q mod 4 is well defined on
+   L/2L' is Brown's ℤ/4-quadratic enhancement x ↦ B(x, x)/4 (E. H. Brown, Ann. Math. 95
+   (1972); cf. Taylor arXiv:2208.06319 §2), and 'an isotropic odd unimodular ℤ₂-lattice
+   of rank 3 has exactly two nonzero classes with Q ≡ 0 (4), both even' follows from the
+   diagonal form ⟨a, b, c⟩ (isotropic ⟺ the units are not all ≡ each other mod 4). New is
+   the pentagon dictionary that makes these counts give S₄ = {χ = −1}."
+6. **(J)61 Thm 2.1**, append: "(a reformulation: the sign is Bright–Loughran's local
+   Hilbert symbol (Thm 1.2/Cor 1.3; Yamamoto), read as an Artin symbol via reciprocity
+   (O243))."
+7. **(J)69 Thm 1.1**, append to Scope: "Method lineage (O243): a finite exponent covering
+   leaving one class, closed by an algebraic factorisation along that class, is the ES
+   analogue of Izotov's construction for Sierpiński numbers (Fibonacci Quart. 33 (1995);
+   Filaseta–Finch–Kozek, JNT 128 (2008) §1). No ES literature on exponential families was
+   found (zbMATH: all 70 'Erdős–Straus' documents; web)."
+8. **(J)62 Thm 1.3**, replace "No published treatment of 4^s + k was found (R236 web
+   search)" by "… (R236 web search; O243: zbMATH full list and web; the exponent
+   covering is Sierpiński's 1960 device for k·2^n + 1, cf. FFK 2008 §1)".
+9. **(J)67 Lemma 1.1**: add "(mechanism: Weil reciprocity on P¹ / resultant reciprocity;
+   O243)".
+10. **(J)71 Lemma 1.2**: add "(the Liouville inequality for rationals; cf. Mahler, Canad.
+    J. Math. 1 (1949) Thm 1 for the function-field Liouville theorem; O243)".
+11. **(J)72 Thm 2.1**: add "(immediate from the definitions — winning sets meet every
+    ball / have full dimension: Schmidt 1966, McMullen GAFA 2010 p. 2; games over
+    F_q((T⁻¹)): Kristensen JTNB 18 (2006) — O243)"; **Lemma 3.1**: "(König's lemma + the
+    standard Cantor-construction dimension bound)".
+12. **(J)70 Lemma 3.1**: add "(the two families are ET Prop 1.9's Type II '−4a²d mod f,
+    4ad | f + 1' and Type I '−f mod 4ad, f | 4a²d + 1', ET p. 8; O243)".
+13. **LITERATURE_2026.md**: add a "Wave Z additions (O243)" block: Chamberland 2026
+    (now with the ℛ(M) identification), Dahan 2608.24035 Prop 4.8, Elsholtz 2001 p. 3210
+    (parameter principle), Chenu–Smith Lemma 1, Arpin et al. §5.3, Taylor 2208.06319 /
+    Brown 1972, Filaseta–Finch–Kozek 2008 / Izotov 1995 / Sierpiński 1960, Mahler 1949,
+    Kristensen 2006, McMullen 2010.
