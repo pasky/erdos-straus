@@ -1,0 +1,722 @@
+                                                        DIVISORS IN RESIDUE CLASSES REVISITED
+
+                                                                                JONATHON HALES
+
+
+
+
+                                                 Abstract. In 1984, H. W. Lenstra described an algorithm finding divisors of N
+                                                 congruent to r mod S. When S 3 > N , this algorithm runs in polynomial time and
+                                                 hence factors N in time N 1/3+o(1) . Lenstra’s algorithm relies on a sign change in a
+                                                 constructed sequence and so cannot be adapted directly to larger euclidean number
+                                                 rings. We present a new method that generalizes to a larger class of euclidean rings
+arXiv:2410.05030v1 [math.NT] 7 Oct 2024
+
+
+
+
+                                                 and the polynomial ring Z[x]. The algorithm is implemented and timed confirming
+                                                 its polynomial run time.
+
+
+                                                                                1. Introduction
+                                            In 1984, H. W. Lenstra in [4] described an algorithm that finds all the divisors of
+                                          an integer N congruent to r mod S with (N, S) = (S, r) = 1. This can be rephrased
+                                          as finding all solutions in nonnegative integers x, y to the equation
+                                                                             (Sx + r)(Sy + r′ ) = N.
+                                          When S 3 > N , his algorithm runs in polynomial time.
+                                             Lenstra’s method relies critically on a sign change in a sequence of terms of the
+                                          form ai x + bi y for some integers ai , bi and so is not immediately adaptable to larger
+                                          number rings in which there is no natural ordering of the terms. We show how this
+                                          can be done for imaginary quadratic Euclidean domains in Section 2 and prove the
+                                          following.
+                                                                         √
+                                          Theorem 1.1. Let K = Q( d) for d = −1, −2, −3, −7, or −11, and OK its ring
+                                          of integers. If N, S, r ∈ OK such that gcd(N, S) = (S, r) = 1. Then there exists an
+                                          algorithm which outputs the divisors d of N of the form d = Sx + r for some x ∈ OK .
+                                          When |S|3 > |N | the algorithm runs O (log(|N |)) Elementary operations in OK .
+                                          Remark 1.2. Elementary operations refers to additions, multiplications, subtrac-
+                                          tions, integer divisions, and square roots extractions. The values of d referenced
+                                          in Theorem 1.1 constitute a complete list of negative integers such that OK is a
+                                          Euclidean domain with respect to the complex absolute value.
+                                             We then show in Section 3 how a slight modification of the algorithm referenced
+                                          in Theorem 1.1 can be adapted to finding divisors in Z[x] and prove the following.
+                                          Theorem 1.3. If N, S, r ∈ Z[x] are monic polynomials with gcd(N, S) = gcd(S, r) =
+                                          1 and 3 · deg(S) ≥ deg(N ), then there exists an algorithm which outputs the divisors
+                                          d of N of the form d = Sf + r for some f ∈ Z[x]. It runs in O (deg(N )) elementary
+                                          operations in Z[x].
+                                          Remark 1.4. Elementary operations again refers to additions, multiplications, sub-
+                                          tractions, integer divisions, and square roots extractions. If the polynomial N is not
+                                          monic, a version of Theorem 1.3 still exists but the factorization of the leading term
+                                          of N must be known. Otherwise, for some integer n = pq we could recover p and q in
+                                                                                          1
+2                                    JONATHON HALES
+
+polynomial time by thinking of n as a degree zero polynomial and searching for all
+of the divisors congruent to 0 mod 1.
+  In Section 4 we discuss Lenstra’s combinatorial model for counting the number of
+divisors an integer can have in a given residue class, and comment on how this model
+can be adapted to the case of larger number rings. We then conclude and highlight
+some areas of future work in Section 5.
+                                                        √ 
+                          2. The Algorithm in Q            d
+
+  The majority of this section is devoted to carefully detailing the modified Lenstra
+algorithm in Z[i]. The ideas behind this modification generalize easily to the other
+cases in Theorem 1.1 and we prove the appropriate lemmas. We will begin with a
+detailed description of Lenstra’s original method and conclude with a brief discussion
+on the difficulties of adapting this algorithm to other number rings which
+                                                                      √ still admit a
+Euclidean algorithm, but that our theorem does not apply to (like Z[ 2] for example).
+2.1. Lenstra’s Method. The key idea behind Lenstra’s method is to combine the
+equation
+(1)                              (Sx + r)(Sy + r′ ) = N
+with a sequence of congruence conditions of the form
+                                 ai x + b i y ≡ c i   mod S.
+If one can show that the absolute value of |ai x + bi y| is small relative to S, then the
+congruence can be converted to a finite number of equalities. The resulting equalities
+can be combined with Equation (1) to solve for x and y.
+   Specifically, assuming x, y satisfy Equation (1), then expanding and looking modulo
+S gives
+              a0 x + b0 y ≡ c0 mod S       and      a1 x + b1 y ≡ c1 mod S
+where a0 = S,a1 = r ,b0 = 0,b1 = r and c0 = 0,c1 ≡ (N − rr′ )/S. From these initial
+                        ′
+
+conditions we can chain these congruences into a larger sequence by observing the
+following. For any integer q, we have
+                     (a0 − qa1 )x + (b0 − qb1 )y ≡ c0 − qc1         mod S.
+Choosing q via the division algorithm gives a value a2 := a0 − qa1 so that a2 < a1 .
+This process is iterated, defining via the division algorithm integers qi so that
+                                    ai = ai−2 − qi ai−1
+with 0 ≤ ai < ai−1 for i even and 0 < ai ≤ ai−1 for i odd. This is to ensure that
+the sequence terminates (i.e. ai = 0) at an even index i. As before, to preserve the
+relation ai x + bi y ≡ ci mod S, the values bi , ci are defined as
+                  bi = bi−2 − qi bi−1         ci ≡ ci−2 − qi ci−1    mod S.
+  By induction the values of bi are nonnegative for i odd and nonpositive for i even.
+Lenstra was able to use this sign changing to show that there exists an even index i
+so that ai x + bi y ≥ 0 and ai+2 x + bi+2 y ≤ 0, and that one of the terms aj x + bi y with
+j = i, i + 1 or i + 2 must satisfy
+                                  −S < aj x + bj y < S
+for j even and
+                           2aj bj < aj x + bj y < aj bj + N/S 2
+                         DIVISORS IN RESIDUE CLASSES REVISITED                                3
+
+for j odd. If S 3 > N then in either case the additional information that aj x+bj y ≡ cj
+reduces the possible values of aj x + bj y to just 1 or 2 possible values.
+   Finally, x and y are recovered by solving the resulting quadratic equation (Sx +
+r)(Sy + r′ ) = N given the value of xaj + ybj where j is the critical index where the
+sign change occurs. Since j is unknown a priori (since x and y are unknown), each
+of the O(log(S)) terms is tested. In total this gives a O(log(N )2+ϵ ) for any ϵ > 0 for
+determining all positive divisors of N congruent to r mod S.
+2.2. The Algorithm in Z[i]. There are two main difficulties in adapting Lenstra’s
+algorithm to larger number rings. First, Lenstra uses the positivity of x, y in several
+key places to obtain his even and odd term inequalities. Second, there is no clear
+generalization of the sign change in Lenstra’s algorithm to help us restrict the terms
+ai x + bi y to a small set of known residue systems.
+   Our contribution is a new method that does not rely on a sign change argument to
+bound |ai x + bi y| by an explicit constant times |S|. This allows us to limit our search
+for solutions to equation (1) to just O(log(|S|)) candidates we check individually.
+Also of note, since this method bounds the terms ai x + bi y in absolute value, all
+integer solutions to equation (1) are found, not just those restricted to a particular
+quadrant (or sign in the rational integer case).
+   We begin with a brief reminder of how Euclidean division works in Z[i].
+Lemma 2.1. Let α = a0 + a1 i, β = b0 + b1 i ∈ Z[i] with β ̸= 0. Then there exists
+q, r ∈ Z[i] such that α = qβ + r with |r| ≤ √12 |β|.
+Proof. We write
+          α   a0 + a1 i   (a0 + a1 i)(b0 − b1 i)   a0 b 0 + a1 b 1 a1 b 0 − a0 b 1
+            =           =        2     2
+                                                 =                +                i.
+          β   b0 + b1 i         b0 + b1               b20 + b21       b20 + b21
+Pick the integers c, d closest to a0 bb20 +b
+                                          +a1 b1
+                                            2    and a1 bb02 −a0 b1
+                                                               2    respectively (ties broken by
+                                        0   1              0 +b1
+rounding down) and set q = c + di. Then
+                                          2
+                                   α              1    1   1
+                                     −q       ≤    2
+                                                     + 2 =
+                                   β              2   2    2
+so that
+                                                1
+                                     |α − βq| ≤ √ |β| .                                      □
+                                                 2
+  We can now present our modification of Lenstra’s algorithm.
+Algorithm 2.2.
+Inputs:
+      - Gaussian integers S, N, r with |S|3 > |N |, and gcd(N, S) = gcd(S, r) = 1.
+Outputs:
+      - A complete list of Gaussian integers d such that d divides N , and d ≡ r
+        mod S.
+ 1: Set r = r mod S, and initialize a0 = S, a1 = r ′ r −1 mod S, b0 = 0, b1 = 1,
+                        ′
+    c0 = 0, c1 = N −rr
+                    S
+                          r−1 mod S. Finally, set r′ = N r−1 mod S and set t = 1.
+ 2: If r|N , add r to the list of outputs. If r ′ |N , add N/r ′ to the list of outputs.
+ 3: while |at | > 0 do                                                               √
+ 4:    Calculate qt , rt via Lemma 2.1 so that at−1 = at qt + rt where |rt | ≤ |at / 2|.
+4                                         JONATHON HALES
+
+    5:Set t = t + 1, and at = rt−1 . In addition, set bt = bt−2 − qt−1 bt−1 and set
+      ct = ct−2 − qt−1 ct−1 mod S.
+ 6: for i = 1, . . . , t do
+ 7:   Calculate the Gaussian integers [γ1 , . . . , γm ] such that γk ≡ ci mod S and
+      |γk | < 12|S| holds for all k.
+ 8:   for j = 1, . . . , m do
+ 9:      Solve the system ai x + bi y = γj and (Sx + r)(Sy + r′ ) = N for x, y. If x, y
+         are elements of Z[i] add d = Sx + r to the list of outputs.
+10: Return the list of outputs.
+
+Proposition 2.3. Algorithm (2.2) is correct, and runs in O(log |N |) elementary op-
+erations on Gaussian integers of absolute value O(|N |). This proves Theorem (1.1)
+when d = −1.
+Proof. We first show correctness and begin with some properties of the sequences
+ak , bk , and possible solutions x, y. Our goal is to bound |ak x + bk y| by 12|S| for some
+k by arguing that there must be a term k such that |ak x| and |bk y| are roughly the
+same size. Lemma 2.4 shows us how to control the terms ak , bk , while Lemma 2.5
+will allow us to control |x|, |y| and |xy|.
+Lemma 2.4. For any k ≥ 0 we have
+                                    ak bk+1 − ak+1 bk = (−1)k S
+and                                                    
+                                                      1
+                                     |ak bk+1 | ≤ 2 − k |S|.
+                                                     2
+Proof. We argue inductively. By construction, a0 b1 − a1 b0 = S − 0 = S, and for any
+k ≥ 0 we have that
+               ak+1 bk+2 − ak+2 bk+1 = ak+1 (bk − qk+1 bk ) − (ak − qk+1 ak+1 )bk+1
+                                     = ak+1 bk − ak bk+1
+                                       = (−1)(−1)k S = (−1)k+1 S
+where the penultimate equality follows by the inductive hypothesis. This proves the
+first claim.
+   Next, for k = 0 we have |ak bk+1 | = |S| = 2 − 21k · |S|. For k = 1 we have that
+                                                       
+                                                   √
+a1 b2 − a2 b1 = −S. Since b1 = 1 and |a2 | ≤ |a1 |/ 2 ≤ |S|/2, we have
+                             |S|
+                      |a1 b2 | −  ≤ |a1 b2 | − |a2 b1 | ≤ |a1 b2 − a2 b1 | = |S|
+                              2
+so that |a1 b2 | ≤ 23 |S| = 2 − 21k |S|. Finally, for any k ≥ 1 we have that
+                                   
+
+         |S| = |ak bk+1 − ak+1 bk | ≥ |ak bk+1 | − |ak+1 bk |
+                                                                                  
+                                                  1                              1
+                                    ≥ |ak bk+1 | − |ak−1 bk | ≥ |ak bk+1 | − 1 − k |S|
+                                                  2                             2
+so that                                        
+                                            1
+                                         2− k       |S| ≥ |ak bk+1 |.                    □
+                                           2
+Lemma 2.5.√For nonzero x, y, r, r′ , S, N ∈ Z[i], if (Sx + r)(Sy + r′ ) = N with
+|r|, |r′ | < |S|/ 2 and |S|3 > |N |, then |x|, |y| ≤ 5|S| and |xy| < 9|S|.
+                       DIVISORS IN RESIDUE CLASSES REVISITED                        5
+
+Proof. We start with the equation
+                                                N
+                                   Sx + r =
+                                              Sy + r′
+so that
+                                         N       r
+                                 x=           ′
+                                                − .
+                                      S(Sy + r ) S
+The triangle inequalities then give
+                            |N |       |r|            |N |            |r|
+               |x| ≤              ′
+                                     +     ≤                 √ +
+                     |S|(|Sy| − |r |) |S|    |S|(|S| − |S|/ 2) |S|
+                                                  1      |N |     1
+                                           ≤        √      2
+                                                               +√
+                                             1 − 1/ 2 |S |         2
+                                                 √              !
+                                                    2        1
+                                           ≤ √           +√       |S|
+                                                 2−1          2
+                                              < 5|S|.
+The bound for |y| is analogous. Next, since
+                 N = (Sx + r)(Sy + r′ ) = S 2 xy + S(xr′ + yr) + rr′ ,
+the triangle inequality gives
+                       N − S(xr′ + yr) − rr′      N     xr′ + yr   rr′
+               |xy| =                          ≤     +           +     .
+                                 S2               S2        S      S2
+                       √
+Using |r|, |r′ | < |S|/ 2 gives that
+                                             1         1
+                               |xy| ≤ |S| + √ |x + y| + .
+                                              2        2
+Finally, since each |x|, |y| < 5|S|, we have that
+                                          10      1
+                            |xy| < |S| + √ |S| + |S| < 9|S|.                       □
+                                           2      2
+Combining the above lemmas allows us to prove the following.
+Lemma 2.6. Under the hypotheses of Lemma 2.5, there exists k with
+                                  |ak x + bk y| < 12|S|.
+Proof. Since the sequence ai begins at a0 = S and terminates at at = 0, and is
+strictly decreasing in absolute value, by Lemma 2.5, there exists k ≥ 1 so that
+5|ak | ≤ |y| < 5|ak−1 |. Then
+                                         1                    9
+        |ak x + bk y| ≤ |ak x| + |bk y| ≤ |xy| + 5|bk ak−1 | ≤ |S| + 10|S| < 12|S|. □
+                                         5                    5
+   We now prove correctness of Algorithm 2.2. If x, y are solutions to the equation
+(Sx + r)(Sy + r′ ) = N , we must show that the algorithm discovers it. We first note
+that for all k that ak x + bk y ≡ ck mod S. This is trivially true for k = 0, and for
+k = 1 we have from equation (1) that
+                           S(xr′ + yr) ≡ N − rr′        mod S 2
+so that
+                                          N − rr′ −1
+                          xr′ r−1 + y ≡          r         mod S
+                                            S
+6                                   JONATHON HALES
+
+and thus
+                                a1 x + b 1 y ≡ c 1   mod S.
+Now for k ≥ 1 we have that
+                   ak+1 x + bk+1 = (ak−1 − qk ak )x + (bk−1 − qk bk )y
+                                  = ak−1 x + bk−1 y − qk (ak x + bk y)
+                                  ≡ ck−1 − qk ck ≡ ck+1 mod S.
+By Lemma (2.6) one of the terms ak x + bk y is smaller in absolute value than 12|S|.
+Thus for some k, ak x + bk y is one of the terms γ∗ discovered in line 7. This means
+when γj = γ∗ in step 9, both x and y are discovered.
+   We now consider the run time. Both steps 1 and 2 are trivial. Each iteration of
+the loop entered in step 3 requires
+                                √      one (Gaussian) integer division, and one integer
+addition. Since |ak+1 | ≤ |ak |/ 2, this loop is entered at most O(log |S|), and similarly
+t = O(log(|S|)).
+   The loop entered in line 6 requires at most O(mt) additions, multiplications and
+square root extractions of Gaussian integers whose real and imaginary parts are
+bounded by O(|S|). Since t = O(log(|S|)), to prove the theorem we must show that
+m = O(1). Partitioning the complex plane into complete residue systems mod S
+consisting of squares of area |S|2 , gives at most a finite number (independent of |S|)
+of squares that can fit inside a circle of radius 12|S|. A crude upper bound would
+be for example 242 , the area of the square whose side length is the diameter of the
+circle. This completes the proof of Proposition 2.3.                                    □
+   We implemented Algorithm 2.2 in both Python and C++. For the C++ implemen-
+tation we used the GNU Multiple Precision Arithmetic Library (GMP). GMP is
+a free library for operations on signed integers of arbitrary size. For each integer
+10 ≤ k ≤ 50 we generated 2 random signed integers ui satisfying 10k ≤ |ui | < 10k+1
+and used these values of ui to generate the real and imaginary parts of a Gaussian
+integer N . In a similar manor we picked a Gaussian integer S whose (unsigned) real
+and imaginary parts belong
+                        √    to the interval [10k/3 , 10(k+1)/3 ) and a Gaussian integer
+r satisfying |r| ≤ |S|/ 2. If gcd(N, S) ̸= 1 or gcd(S, r) ̸= 1 or if |S|3 < |N | we
+reject this sample and try again using this same process. This was done until 100
+samples were selected for each k. The algorithm was then executed and timed on all
+100 inputs. The average of those run times is plotted for each k in Figure 1, and
+highlight the polynomial runtime of Algorithm 2.2.
+
+2.3. Other imaginary Quadratic Euclidean √         Domains. In this section OK will
+refer to the ring of integers for K := Q( d) for d = −1, −2, −3, −7, −11. We will be
+able to form a version of Algorithm 2.2 if we can prove the appropriate versions of
+Lemmas 2.4, 2.5, and 2.6 which we do now.
+Lemma 2.7. √
+                Given a, b ∈ OK with b ̸= 0, there exists q, r ∈ OK such that a = bq + r
+             15
+with |r| ≤ 4 |b|.
+                          √       √
+Proof. Write ab = c0 +c1 d ∈ Q[ d]. If d = −1, −2, pick s, t to be the closest integers
+to c0 and, c1 respectively, so that |c0 − s| ≤ 12 and |c1 − t| ≤ 21 . Then
+               a          √ 2                          √ 2 1           1   3
+                  − (s + t d) = (c0 − s) + (c1 − t) d ≤ + 2 = .
+                b                                               4      4   4
+                       DIVISORS IN RESIDUE CLASSES REVISITED                             7
+
+
+
+
+          Figure 1. Timings of Algorithm 2.2 with large real and imaginary
+          parts
+
+Thus                                          √          √
+                                    √           3          15
+                         |a − (s + t d)b| ≤       |b| ≤       |b|.
+                                               2          4
+  If d = −3, −7, −11, pick integers s, t so that 2t is as close to c1 as possible, and s
+has the same parity as t, and such that 2s is as close to c0 as possible. This gives that
+                      √ 2
+                                                 t √
+                                                        2
+           a s+t d                  s                          1     1     15
+              −             = c0 − + c1 −               d ≤ + 11 =
+           b        2               2            2             4     16    16
+so that                                 √   √
+                                    s+t d     15
+                                a−b       ≤      |b|.                                   □
+                                      2      4
+Corollary 2.8. For a0 , a1 ∈ OK if |a0 |, |a1 | = O(|S|), then the sequence of successive
+remainders ai+1 = ai−1 − qi ai terminates at at = 0 for some t = O(log |S|).
+    By the above Lemma, there exists algorithmic Euclidean division in OK so that
+for any given N, S, r ∈ OK we can define the sequences ak , bk , ck in√exactly the same
+way as√ lines 1-5 of Algorithm 2.2 (with the bound |rt | ≤ |at / 2| replaced with
+|rt | ≤ 415 |at |.)
+                                                                                k 
+Lemma 2.9. For k ≥ 0, ak bk+1 −ak+1 bk = (−1)k S and |ak bk+1 | ≤ 16 1 − 15   16
+                                                                                      |S|.
+
+Proof. Just as in the proof of Lemma
+                                         2.4, we have that ak bk+1 − ak+1 bk = (−1)k S.
+The bound of 16 1 − (15/16)k+1 is also proved similarly. Supposing that |ak−1 bk | ≤
+16 1 − (15/16)k |S| then
+                                                             15
+                    |S| = |ak bk+1 − ak+1 bk | ≥ |ak bk+1 | − |ak−1 bk |
+                                                             16
+so that
+                                                   
+                         15                     k
+                                                      |S| = 16 1 − (15/16)k+1 |S|
+                                                                            
+        |ak bk+1 | ≤ 1 +     · 16 1 − (15/16)
+                         16
+8                                    JONATHON HALES
+
+follows from induction. The base case |a0 b1 | = |S| = 16(1 − 15/16)|S| holds by
+construction.                                                                 □
+Lemma
+   √
+          2.10. For nonzero x, y, r, r′ , N ∈ OK , if (Sx+r)(Sy+r′ ) = N with |r|, |r′ | <
+|S| 415 and |S|3 > |N |, then |x|, |y| < 33|S| and |xy| < 66|S|.
+Proof. This is proven exactly the same way as Lemma 2.5 but with √12 replaced with
+√
+ 15/4.                                                                          □
+    Combining the above Lemmas gives
+Lemma 2.11. Under the hypotheses of Lemma 2.10, there exists k with
+                                   |ak x + bk y| < 530|S|.
+Proof. Since |a0 | = |S|, |at | = 0 and |y| ≤ 33|S| there exists a k with
+                                   33|ak | ≤ |y| ≤ 33|S|.
+This means that
+                                            1
+              |ak x + bk y| ≤ |ak x| + |bk y| ≤
+                                              |xy| + 33|ak−1 bk | < 530|S|
+                                           33
+where the final inequality follows from the above two Lemmas.                           □
+  Thus an algorithm very similar to Algorithm 2.2 can be used to find divisors in
+residue classes of OK in polynomial time whenever |S|3 ≥ |N |.
+2.4. Other Euclidean Number Rings. Can this new technique be extended to
+other Euclidean number rings besides the imaginary quadratics? The main idea
+behind both Lenstra’s algorithm and our adaptation is the ability to restrict a con-
+gruence equation to a small number of explicit residue class. This has the effect of
+changing the congruence information into a small list of equalities that can be checked
+quickly.                                          √
+    However, if K is not one of the fields Q( d) for d = −1, −2, −3, −7, −11, then
+either OK is not Euclidean (in which case we cannot hope to define the sequences
+ai , bi , ci ) or else by Dirichlet’s unit theorem there exists a unit u ∈ OK of infinite
+rank. In particular, this means we can pick u so that |u| < 1 (since u is not a
+root of unity). This means that even if we had knowledge of say x ≡ c mod S
+and |x| ≤ B for some bound B > |c|, then if there exists any γ ∈ OK such that
+|c + γS| < B, then |c + um γS| < B for infinitely many values of m. This means that
+the congruence condition does not limit our search for solutions to some finite list
+(let alone polynomial!).
+    However, the question of finding all solutions to (Sx + r)(Sy + r′ ) = N for S, r, N ∈
+Ok is well defined whenever OK is a unique factorization   √     domain. Can a different
+technique find solutions x, y in this case? The ring Z[ 2] seems like a good place to
+start if such a question has a positive answer.
+
+                              3. The Algorithm in Z[x]
+  The degree function in Z[x] shares many of the important properties of | · | in K.
+Namely, Z[x] is a Euclidean domain whose Euclidean function satisfies the (ultra-
+metric) triangle inequality and there are no units of infinite order. This means that
+we will be able to successfully prove analogues of Lemmas 2.4 through 2.6, and then
+successfully translate the bounded congruence constraints into a small number of
+                        DIVISORS IN RESIDUE CLASSES REVISITED                               9
+
+equations that can be checked individually. What follows in this section are the
+proofs of the modified Lemmas as well as a description of the algorithm finding all
+solutions (f, g) ∈ Z[x]2 to (Sf + r)(Sg + r′ ) = N for a given S, r, N with gcd(S, N ) =
+gcd(S, r) = 1 and 3 deg(S) ≥ deg(N ). We prove the algorithm’s correctness and
+runtime and hence prove Theorem 1.3. As before, set a0 = S, b0 = 0, c0 = 0 and
+                                      ′
+a1 ≡ r′ r−1 mod S, b1 = 1, c1 ≡ N −rr
+                                    S
+                                        r−1 mod S, and define ak+1 , bk+1 , ck+1 via the
+usual recurrence.
+Lemma 3.1. (Euclidean Division in Q(x)) Given polynomials A, B ∈ Q[x], there
+exists unique q, r ∈ Q[x] such that A = qB + r with deg(r) < deg(B). Further, if
+A, B ∈ Z[x] and the coefficient of the leading term of B divides the content of A (or
+the gcd of it’s coefficients) then q, r ∈ Z[x]. In particular, this is the case when B is
+a monic polynomial.
+Proof. This is simply long division of polynomials.                                       □
+Lemma 3.2. For all k we have ak bk+1 − ak+1 bk = (−1)k S and deg(ak bk+1 ) = deg(S).
+Proof. The proof of the first fact is exactly the same as in Lemmas 2.4 and 2.9.
+  For k = 0 we have deg(a0 b1 ) = deg(S) by construction, and for k = 1
+               deg(S) = deg(a1 b2 − a2 b1 ) = deg(a1 b2 − a2 ) = deg(a1 b2 )
+where the final equality follows from the fact that deg(a2 ) < deg(a1 ) ≤ deg(a1 b2 ).
+Finally, for k ≥ 1 we have that
+                 deg(S) = deg(ak+1 bk+2 − ak+2 bk+1 ) = deg(ak+1 bk+2 ).
+Again, the final equality holds since deg(ak+2 ) < deg(ak ), so that the inequality
+deg(ak+2 bk+1 ) < deg(ak bk+1 ) = deg(S) holds.                                  □
+Lemma 3.3. For f, g, r, r′ , N ∈ Z[x] nonzero, if
+                                 (Sf + r)(Sg + r′ ) = N
+with deg(r), deg(r′ ) < deg(S), and 3 deg(S) ≥ deg(N ), then deg(f ) + deg(g) ≤
+deg(S). In particular deg(f ), deg(g) ≤ deg(S).
+Proof. Since N = (Sf + r)(Sg + r′ ) = S 2 f g + S(f r′ + gr) + rr′ we have that
+           3 deg(S) ≥ deg(N ) ≥ deg(S 2 f g) = 2 deg(S) + deg(f ) + deg(g).               □
+Lemma 3.4. Under the hypotheses of Lemma 3.3, there exists k with
+                                deg(ak f + bk g) ≤ deg(S).
+Proof. Pick k so that deg(ak+1 ) ≤ deg(g) ≤ deg(ak ). This is possible since deg(a0 ) =
+deg(S) ≥ deg(g) and deg(at ) = 0 ≤ deg(g). Then
+              deg(ak+1 f + bk+1 g) ≤ max(deg(f g), deg(ak bk+1 ) ≤ deg(S)                 □
+Algorithm 3.5.
+Inputs:
+     - Polynomials S, N, r with deg(S)3 ≥ deg(N ), and gcd(N, S) = gcd(S, r) = 1, a
+        list L of the divisors of ℓ(N )/ (ℓ(S)2 ) in Z, where ℓ(p) is the leading coefficient
+        of p ∈ Z[x]. Note that if (ℓ(S)2 ) ∤ ℓ(N ) the list L is empty.
+Outputs:
+     - A complete list of polynomials d ∈ Z[x] such that d divides N , and d ≡ r
+        mod S.
+10                                 JONATHON HALES
+
+ 1: Set r = r      mod S, and initialize a0 = S, a1 = r′ r−1 mod S, b0 = 0, b1 = 1,
+                          ′
+    c0 = 0, c1 = N −rr S
+                            r−1 mod S. Finally, set r′ = N r−1 mod S and set t = 1.
+ 2: If r|N , add r to the list of outputs. If r ′ |N , add N/r ′ to the list of outputs.
+ 3: while at ̸= 0 do
+ 4:    Calculate qt , rt via Lemma 3.1 so that at−1 = at qt + rt and deg(rt ) < deg(at ).
+ 5:    Set t = t + 1, and at = rt−1 . In addition, set bt = bt−2 − qt−1 bt−1 and set
+       ct = ct−2 − qt−1 ct−1 mod S.
+ 6: for i = 1, . . . , t do
+ 7:    for d ∈ L do
+ 8:       Solve the system ai f + bi g = ci and (Sf + r)(Sg + r′ ) = N for f, g. If f, g
+          are elements of Z[x] add Sf + r to the   list of outputs. 
+                                                                  ℓ(N )
+ 9:       Solve the system ai f + bi g = ci + ℓ(ai )d + ℓ(bi ) ℓ(S)  2d  /ℓ(S)S and (Sf +
+                       ′
+          r)(Sg + r ) = N for f, g. If f, g are elements of Z[x] add Sf + r to the list
+          of outputs.
+10: Return the list of outputs.
+
+Proposition 3.6. Algorithm (3.5) is correct, and runs in O(|L| deg(N )) elementary
+operations on elements in Z[x]. This proves Theorem 1.3
+
+Proof. We first show correctness. To do this, we must show that if (Sf +r)(Sg +r′ ) =
+N is a solution that the algorithm recovers it. If either f or g is equal to 0, then the
+correct divisor is discovered in line 2. We now assume that neither f nor g is the zero
+polynomial.
+  By Lemma 3.4, there exists a value 0 ≤ ∗ ≤ t such that deg(a∗ f + b∗ g) ≤ deg(S)
+and a∗ f + b∗ g ≡ c∗ mod S. This means that a∗ f + b∗ g = c∗ + pS for some p ∈ Q[x]
+where either p = 0 or deg(p) = 0 (recall that the terms a∗ , b∗ may be in Q[x] and not
+Z[x]). If p = 0, the algorithm will recover f and g in line 8.
+  We now consider the case p ̸= 0. Since (Sf + r)(Sg + r′ ) = N , we have that
+                                                                               ℓ(N )
+ℓ(N ) = ℓ(S)2 ℓ(f )ℓ(g) meaning that ℓ(f ) = d∗ for some d∗ ∈ L and ℓ(g) = ℓ(S)   2 d . By
+                                                                                     ∗
+comparing the leading terms of both sides of the equation a∗ f + b∗ g = c∗ + pS we
+obtain
+                                                       
+                                                 ℓ(N )
+                           p = ℓ(ai )d + ℓ(bi )           /ℓ(S)
+                                                ℓ(S)2 d
+so that the algorithm will recover f, g in line 9.
+   We now examine the run time. Both steps 1 and 2 are trivial. Each iteration of
+the loop entered in step 3 requires one polynomial long division, one integer division,
+and two polynomial multiplications and subtractions. Since deg(ak+1 ) < deg(ak ),
+this loop is entered at most O(deg(S)) times. Similarly t ≤ deg(S).
+   The nested loop entered in lines 6 and 7 requires at most O(|L|t) additions, mul-
+tiplications and square root extractions of polynomials in Z[x]. This completes the
+proof of Proposition 3.6.                                                            □
+
+Remark 3.7. It is perhaps slightly unfair to consider square root extraction of a
+polynomial as an elementary operation. If p ∈ Z[x] we describe briefly how it can
+be determined if p is a square in Z[x], and if so, return the square-root in O(deg(p))
+elementary operations on integers (including 1 integer square root extraction). We
+write p = p0 + p1 x + · · · + pm xm . If p0 is not a square in Z[x], or if m is odd, then
+p is not a square in Z[x]. Otherwise, write p0 = a20 and n = m/2, and define the
+                        DIVISORS IN RESIDUE CLASSES REVISITED                           11
+
+recurrence relation                            Pi
+                                      pi+1 −    k=1 ak an+1−k
+                             ai+1 =                        .
+                                              2a0
+If ai ∈ Z for 0 ≤ i ≤ m and ai = 0 for n < i ≤ m, then set A = a0 + a1 x + · · · + an xn .
+Then A2 = p if and only if p is a square in Z[x]. This works because the recurrence
+                                                                              √
+relation defined above gives the coefficients of the power-series expansion of p as an
+element of C[[x]].
+   We also remark that it is easy √ to adapt Algorithm 3.5 to the case OK [x] for any
+imaginary quadratic field K = Q( d) of class number 1 (not just the Euclidean do-
+mains). In general for other number rings we will either not have unique factorization
+(i.e. the class number is larger than 1) or the rank of the unit group will be at least
+1 (so that L is not a finite list).
+                      4. A Note on Upper and Lower Bounds
+   In this section we discuss the known upper and lower bounds on the number of
+divisors an integer can have in a given residue class. We do this in two subsections
+dedicated to upper and lower bounds respectively. In the first section we summa-
+rize techniques due to Lenstra, and Coppersmith, Howgrave-Graham, and Nagaraj.
+We also briefly describe how their methods can be adapted to the number fields in
+Theorem 1.1. In the second section we describe the current state of the lower bound
+problem and summarize work due to Henri Cohen and provide some previously un-
+known examples (and families of examples).
+4.1. Upper Bounds. In Lenstra’s original paper [4], he attempts to answer the
+problem of how many outputs his algorithm can produce, and proved that for any
+integers N, S, r with gcd(N, S) = gcd(S, r) = 1 that the number of divisors of N
+congruent to r mod S is less than a constant c(α) depending only on α whenever
+S α > N and α > 1/4. Lenstra did this by proving the following general fact about
+weight functions of finite sets.
+Theorem 4.1 (H.W. Lenstra). Let V be a finite set, ω a weight function on V (a
+finite measure on P(V )) and α ∈ R, α > 1/4. Further let D be a system of subsets
+of V such that
+                      max {ω(D1 − D2 ), ω(D2 − D1 )} ≥ αω(V )
+for all D1 , D2 ∈ D. Then |D| ≤ c(α), where c(α) is a constant that depends only on
+α. In addition, c(1/3) = 12.
+   To apply Theorem 4.1 to the case of divisors in residue classes, for each positive
+integer N , Lenstra defines
+                          V (N ) := {pt : pt |N, p prime , t ≥ 1}
+with weight function defined via ω({pt }) = log(p). Then for the system of subsets of
+V (N )
+                             D := {V (d) : d|N, d ≡ r mod S}
+if d1 = Sx + r and d2 = Sy + r are positive divisors of N with x > y we have
+                                                                            
+                                       d1                        Sx + r
+     ω (V (d1 ) − V (d2 )) = log                   ≥ log
+                                   gcd(d1 , d2 )           gcd(Sx + r, Sy + r)
+                                                                 
+                                                           Sx + r
+                                                   ≥ log            ≥ log(S) ≥ αω(V ).
+                                                            x−y
+12                                 JONATHON HALES
+
+The second inequality follows from the fact that
+
+         gcd(Sx + r, Sy + r) = gcd(S(x − y), Sy + r) = gcd(x − y, Sy + r)
+
+since gcd(S, r) = 1. While a theoretical breakthrough, the upper bound c(α) is not
+given constructively, and a large portion of [4] is dedicated to proving that c(1/3) = 12
+and that c(α) = O ((α − 1/4)−2 ).
+   Twentey-three years later, Coppersmith, Howgrave-Grahm, and Nagaraj were able
+to modify the Coppersmith method of [2] to give a constructive upper bound, but
+importantly their model only applies to integers n sufficiently large (depending on
+α), showing that c(α) = O((α − 1/4)−3/2 ).
+
+Theorem 4.2 (Coppersmith, Howgrave-Grahm, Nagaraj). Given α > 1/4 there is
+an integer n0 > 0 such that for all integers n > n0 and s > nα and 0 < r < s < n
+with gcd(r, s) = gcd(s, n) = 1, the number of divisors d of n with d ≡ r mod s is
+bounded above by
+                                     2πα          4α
+                            2+            3/2
+                                              +         .
+                                (α − 1/4)       α − 1/4
+  While theoretically an improvement, the authors note that the upper bounds they
+obtain are often more than double the select values calculated by Lenstra. See table
+1 in [3]. The authors believed that this discrepancy was due to the fact that their
+method counts both positive and negative integers d such that d ≡ r mod s. Said
+another way, it counts positive divisors of n congruent to ±r mod s.
+  It is an interesting question to determine if Lenstra’s combinatorial model can be
+used to count all divisors (positive and negative) in a single residue class, or more
+generally, in the number rings Ok of Theorem 1.1. We offer a quick proposition as a
+partial solution.
+
+Proposition 4.3. For all ϵ > 0, there exists Nϵ so that for all N > Nϵ if S, r are any
+positive integers with S α+ϵ > N and gcd(S, N ) = gcd(S, r) = 1 then N has at most
+c(α) positive and negative divisors congruent to r mod S where c(α) is a constant
+that depends only on α.
+
+Proof. Fix ϵ > 0, set Nϵ = 21/ϵ and suppose that S, r, N satisfy the hypotheses of
+Proposition 4.3. As before, for positive integers d let
+
+                          V (d) := {pt : pt |N, p prime, t ≥ 1}
+
+and for negative integers d, define
+
+                                V (d) = {−1} ∪ V (|d|).
+
+Using the notation of Theorem 4.1, let V = V (−N ), and
+
+                      D := {V (d) : d ∈ Z, d|N, d ≡ r     mod S}.
+
+We also define ω({pt }) = log(p) and ω{−1} = 0 and now show that the hypotheses
+of Theorem 4.1 are met by this system.
+   Let d1 = Sx + r and d2 = Sy + r and without loss of generality we assume that
+|x| ≥ |y| and that if equality holds, then x > 0, and by the division algorithm, we
+                       DIVISORS IN RESIDUE CLASSES REVISITED                        13
+
+may also assume that |r| ≤ S/2. We calculate directly that
+                                                                       
+                                          |d1 |                S|x| − S/2
+         ω (V (d1 ) − V (d2 )) = log                   ≥ log
+                                       gcd(d1 , d2 )               2|x|
+                                                           
+                                                  |x| − 1/2
+                               ≥ log(S) + log                  ≥ log(S) − log(2).
+                                                      |x|
+Since S α+ϵ ≥ N we have that
+            log(S) − log(2) ≥ (α + ϵ) log(N ) − log(2) ≥ α log(N ) = ω(V ).
+The penultimate equality follows from the fact that
+                              ϵ log(N ) ≥ ϵ log(Nϵ ) ≥ log(2)
+by construction. Thus by Theorem 4.1 we have that |D| ≤ c(α) as desired.            □
+   Before continuing onto lower bounds, we offer two quick comments. First, Propo-
+sition 4.3 shows that the rough doubling of the bounds given by Coppersmith et al.
+is not due to counting both positive and negative divisors since a minor alteration
+to Lenstra’s model can account for both positive and negative divisors. Secondly,
+Proposition 4.3 can be easily modified to create an upper bound on the number of
+solutions to (Sx + r)(Sy + r) = N in OK for the number fields of Theorem 1.1,
+                             √ 1/ϵ                   √
+although Nϵ grows to 32 + 8 15       for field K = Q( −11).
+4.2. Lower Bounds. In addition to upper bounds, some work has gone into estab-
+lishing, via example, lower bounds for the maximum number of divisors a rational
+integer N can have in a single residue class r mod S, with (N, S) = (S, r) = 1, and
+S > N α for a fixed α. For example, the case of α = 12 is completely known, as the
+Lenstra upper bound c(1/2) = 2 is achieved by infinitely many tuples (N, S, r). In
+fact, for n ≥ 3 we have that for (N, S, r) = (N, N − 1, 1) that N has two divisors
+(namely 1 and N ) that are both congruent to 1 mod N − 1, and N − 1 > N 1/2 .
+   The case is much less clear when α is closer to 1/4, the threshold of both the
+Lenstra and Coppersmith et al. methods with significant work only invested in the
+case α = 1/3. In 1982 Henri Cohen showed in [1] that for any ℓ ≥ 3 that for
+             N (ℓ) = (2ℓ + 1)(ℓ2 + 1)(ℓ2 + ℓ + 1)(2ℓ2 − ℓ + 1)(2ℓ2 + ℓ + 1)
+             S(ℓ) = 2ℓ3 + ℓ2 + 2ℓ
+that S(ℓ)3 > N (ℓ) and that N (ℓ) has exactly 6 divisors congruent to 1 mod S(ℓ).
+Note that since S(ℓ)3 and N (ℓ) have the same leading term, that
+                                  α(ℓ) := logN (ℓ) (S(ℓ))
+rapidly approaches (from above) the limit 1/3.
+   For α ≥ 1/3 It’s currently an open problem as to whether 6 is the best possible,
+although there does seem to be some hope that 7 (or more) divisors may be obtainable.
+For example, if N = 104254876089000, and S = 105787, then N has 6 divisors
+congruent to 1 mod S, and α = logN (S) ≈ 0.3584 which is significantly larger than
+1/3. This might suggest that there is enough room to add an additional divisor and
+maintain the threshold of α > 1/3.
+   Additionally, for
+            N (x) = (x + 2)(x + 1)2 (x2 + x + 1)(x2 + x + 2)(x2 + 2x + 2)
+             S(x) = x3 + 3x2 + 4x + 3
+14                                     JONATHON HALES
+
+the integers N (x) have 7 divisors congruent to 1 mod S(x) among both positive and
+negative divisors for any x ≥ 2. These examples of (N, S, r) are new discoveries and
+do not belong to Cohen’s infinite family.
+                            5. Summary and Future Work
+  In this work we generalized Lenstra’s classical algorithm for finding divisors in
+residue classes to several imaginary quadratic rings as well as the polynomial ring
+Z[x]. This required a new approach as Lenstra’s original method critically relied on
+the total ordering of the integers and on a critical sign change that do not generalize
+to higher rings of integers. We proved that our generalization runs in polynomial
+time in log(|N |) and implemented our method providing numerical results.
+  In concluding, we offer three questions of future research:
+    (1) Can a generalization of our new method be applied to other √ Euclidean rings
+               non-finite unit group? For example in the ring Z[ 2] for any element
+        with a √
+        α ∈ Z[ 2] there√  is a unique (up to sign) associate
+                                                      √       of α = uα′ for some unit
+        u and α′ ∈ Z[ 2] such that 1 ≤ |α′ | √< 1 + 2. Can this allow us to prove a
+        version of Lemma 2.6 for the ring Z[ 2]?
+    (2) Because the discrepancy between the Lenstra and Coppersmith et al. upper
+        bounds for the number of divisors in a single residue class is not due to count-
+        ing both positive and negative divisors, why does the Lenstra method produce
+        such significantly smaller upper bounds?
+    (3) Can new examples of integers with many divisors in a single residue class?
+        Is Lenstra’s upper bound sharp for values of α < 1/2? Specifically, can an
+        integers N, S, r be found with gcd(N, S) = gcd(S, r) = 1 and S 3 > N so that
+        N has at least 7 divisors congruent to r mod S?
+                                         References
+[1] Henri COHEN. Diviseurs appartenant à une même classe résiduelle. Seminaire de Théorie des
+    Nombres de Bordeaux, 12:1–12, 1982-1983.
+[2] Don Coppersmith. Finding a small root of a univariate modular equation. In Ueli Maurer, editor,
+    Advances in Cryptology — EUROCRYPT ’96, pages 155–165, Berlin, Heidelberg, 1996. Springer
+    Berlin Heidelberg.
+[3] Don Coppersmith, Nick Howgrave-Graham, and S. V. Nagaraj. Divisors in residue classes, con-
+    structively. Cryptology ePrint Archive, Paper 2004/339, 2004.
+[4] Hendrik W. Lenstra and Faculteit der Wiskunde en Natuurwetenschappen. Divisors in residue
+    classes. 1983.
+
+
+     Email address:   hales.41@osu.edu
+

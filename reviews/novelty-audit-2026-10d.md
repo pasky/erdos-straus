@@ -186,3 +186,61 @@ Archive of this pass: `sources/lit2026d/`.
 | (J)46 Thm 4.2 ("Mordell's 840 = reach of universal one-slot χ-witnesses", A ∈ {2,3,5,7,8,15,20}) | APPARENTLY NEW as a characterisation | the six Mordell classes are classical (Mordell 1969; Yamamoto 1965) |
 | (J)41 Cor 2.1 (8/131 = 1/20 + 1/131 + 9/2620 etc.; M^□ certificates at the PW failures) | APPARENTLY NEW (finite computation) | failures themselves = PW Table 1 (already attributed in (J)31) |
 | (J)41 Thm 1.1(a) (M^□(n) at every odd non-square n, M ≡ 0 (4)) | APPARENTLY NEW, elementary (one Dirichlet prime + genus character) | no "square-numerator relaxation" found in the literature |
+
+---
+
+## 4. Function-field coverings and divisors in residue classes ((J)51, (J)54, FF_STERILE_SMALL)
+
+### 4.1 Findings (verified)
+
+* **Cohn–Heninger, "Ideal forms of Coppersmith's theorem and Guruswami–Sudan list
+  decoding", arXiv:1008.1284v2 = Adv. Math. Commun. 9 (2015) 311–339** [visited; archived
+  `sources/lit2026d/arxiv-1008.1284-cohn-heninger.{pdf,txt}`].
+  * **Thm 1.2 (p. 3, "A polynomial analogue"):** for monic f(x) of degree d over F[z] and
+    p(z) of degree n, one can find (in polynomial time, hence there are boundedly many)
+    all w(z) with deg w < β²n/d and deg gcd(f(w), p) ≥ βn. With f(x) = r + Q·x (d = 1,
+    after normalising), a divisor D of F of degree δ = βn in the class r mod Q is
+    D = r + Qw with deg w = δ − deg Q, so the theorem applies as soon as
+    δ − deg Q < δ²/n, i.e. **deg Q > δ(n − δ)/n — exactly (J)51 Lemma 1.5's threshold**.
+    The authors say the polynomial statement "appear[s] to be new" in 2010/2013 and that
+    for split p(z) it is the Guruswami–Sudan theorem.
+  * p. 4: "Bernstein noted that the Guruswami–Sudan theorem is the polynomial analogue
+    of a related theorem of Coppersmith, Howgrave-Graham, and Nagaraj" — i.e. of
+    divisors in residue classes.
+* **Bernstein, "Reducing lattice bases to find small-height values of univariate
+  polynomials" (2006/2008, in *Algorithmic Number Theory*, MSRI Publ. 44)** [visited
+  http://cr.yp.to/ntheory/smallheight-20060531.pdf; archived
+  `sources/lit2026d/bernstein-smallheight-2006.{pdf,txt}`]. Abstract + p. 1: unifies
+  Lenstra 1984, Konyagin–Pomerance, Coppersmith–Howgrave-Graham–Nagaraj (divisors in
+  residue classes) and Guruswami–Sudan; **"The theorems and algorithms can easily be
+  switched from Q to the rational function field F_q(t) … although better algorithms are
+  often available in the function-field case."** Table p. 2 and §6 (pp. 12–13): the
+  divisors-in-residue-classes threshold history (Lenstra 1/3, Konyagin–Pomerance 0.3,
+  CHN 1/4 + ε, ε removed by Lenstra).
+* **Hales, "Divisors in residue classes revisited", arXiv:2410.05030** [visited; archived
+  `sources/lit2026d/arxiv-2410.05030-hales.{pdf,txt}`]. Thm 1.3 (p. 1): Lenstra's
+  algorithm over **ℤ[x]** for monic N, S, r with 3 deg S ≥ deg N (algorithmic; no
+  per-degree count). §4 discusses Lenstra's counting model.
+* **Coppersmith–Howgrave-Graham–Nagaraj, Math. Comp. 77 (2008) 531–545** (ePrint 2004/339)
+  [abstract visited]: number of divisors of N ≡ r (mod s), s ≥ N^α, α > 1/4, is
+  O((α − 1/4)^{−3/2}); the size-N^β refinement (find all divisors ≥ N^β in a class mod
+  N^α once α > β(1 − β)) is the standard Howgrave-Graham/May form of Theorem 1.1 in
+  Cohn–Heninger (p. 2: |w| ≤ N^{β²/d}, gcd(f(w), N) ≥ N^β).
+* **Erdős–Straus over F_q[T].** Searches "Erdős–Straus conjecture polynomial ring finite
+  field analogue", "Egyptian fractions polynomials over finite fields 4/f", "unit fractions
+  function field analogue Erdős–Straus Mordell": no paper on ES_q, its coverings, or
+  sterile points. (Hits: covering systems in F_q[x], arXiv:2407.15146; Woods–Erdős for
+  polynomial rings; Guerrieri et al. "From ancient Egyptian fractions to modern algebra" —
+  Egyptian fractions in integral domains, not the 3-term ES_q problem [snippets].)
+
+### 4.2 Verdicts
+
+| Claim | Verdict | Notes |
+|---|---|---|
+| (J)51 Lemma 1.5 (FF Coppersmith–Howgrave-Graham, threshold deg Q > d(n − d)/n) | **KNOWN** | Cohn–Heninger arXiv:1008.1284 Thm 1.2 (p. 3) with d = 1; Bernstein 2006 p. 1 (function-field switch "easy"). The pigeonhole proof and the explicit count may be new as written; the threshold is not. |
+| (J)51 Lemma 1.4 (FF Lenstra: 3 deg Q > deg F ⇒ ≤ 2 divisors of a given degree in a unit class) | **PARTIAL** | the 1/3 regime over polynomial rings is Hales arXiv:2410.05030 Thm 1.3 (ℤ[x], algorithmic) and Bernstein's F_q(t) remark; the sharp per-degree constant 2 over F_q[T] was not found. |
+| (J)54 Cor 1.4 (ℤ: divisors of size n^β in a unit class mod n^ρ number ≤ n^{max(0, β(1−β)−ρ)+o(1)}) | **KNOWN in substance** | Howgrave-Graham/May form of Coppersmith (Cohn–Heninger Thm 1.1, p. 2) + splitting the range into n^{β(1−β)−ρ} blocks; the ledger already calls it "a standard Coppersmith-type trick". |
+| (J)51 Thm 3.1 (ES_q(T^k) has no finite linear covering for q = 3^r, r ≥ 4) | APPARENTLY NEW | no ES_q literature found |
+| (J)51 §4 (char 2 non-sterile by Frobenius) | APPARENTLY NEW, elementary | — |
+| (J)54 Thm 3.4 (explicit r₀ = 2³² for sterile Mordell points over ℤ) | APPARENTLY NEW | 10c §2 verdicts on sterile points stand (only the square obstruction is in the literature; Yamamoto/Ionascu–Wilson expect coverability at integer level) |
+| (J)56 / FF_STERILE_SMALL (branch side-agent/ff-sterile-small) | not audited in detail | same verdict template applies: lemmas from Cohn–Heninger/Bernstein KNOWN, sterility results APPARENTLY NEW |
