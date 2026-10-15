@@ -116,3 +116,42 @@ Verdict: **SOUND-AFTER-REPAIRS** (EVIDENCE label appropriate).
 * (b) is CAP_POINTWISE Thm 1.1 (needs K odd / (E) for the firing half, cf. D5).
 * "Phase boundary = who owns the mute set": a dictionary/Assessment, fairly labelled.
 Verdict: **SOUND** (PROVED dictionary; the Assessment part should be labelled as such, D9 MINOR).
+
+## s6_window_independence — check
+gcd(K_m, K_{m′}) | (m − m′)/4 is correct (K_m − K_{m′} = (m − m′)/4). The R-O238 self-review heuristic label is right.
+But "essentially disjoint sets of primes" / "no pigeonhole over windows exists because the K_m are pairwise almost
+coprime" overstate even the heuristic: the shared primes are exactly the SMALL ones (3 | K_m for a third of windows, …),
+which dominate |P| and hence the cap-0 events; correlation through them is not excluded (D10, MINOR). Average f(p) ≍ log³p
+matches ET Thm 1.1 (N log²N ≪ Σ f(p) ≪ N log²N log log N) up to the log log. Verdict: **SOUND** as PROVED (trivial) +
+Assessment, after toning down the "no pigeonhole exists" sentence to Assessment.
+
+## s6_mixed_points_cuberoots / "sterility is menu-relative" — check
+* μ* (4 at ℓ ≠ 3, −2 at ℓ = 3) reduces mod 45 to 34 (34 ≡ 7 ≡ −2 (9), ≡ 4 (5)): correct.
+* **"T1 respect global, not local" is FALSE for the exponential class (D4, MAJOR for the Assessment, MINOR for Thm 1.1).**
+  q = 18837001 is a prime factor of 2⁹⁰ − 1 = 4⁴⁵ − 1 with ord_q(4) = 45, and (n_s/q) = −1 for every s ≡ 34 (mod 45)
+  (`scripts/review_r246_localT1.py`). So the exponential class, read as a congruence class of n mod 4⁴⁵ − 1 (as the
+  author's own R-O238 self-review does), IS a non-square class — T1 is respected locally, exactly as for ET classes.
+  Only the larger cubic family 256u³ + 105, u ≡ 32 (151) (u not a power of 4) hits squares mod q and needs the global
+  Lemma-1.1 T1. Repair SYNTHESIS §1 "T1 control" ("no non-square congruence is certified here") and the memo's
+  "congruence-wise square-compatible … new kind of T1 respect": cite (n_s/18837001) = −1.
+* **Sterility framing (D2, MAJOR).** (i) The sterile set S′ of EXPONENT_COVERING Thm 1.4 is *defined* as the complement of
+  the union of ET + divisor classes, so "sterility is menu-relative" is a tautology, not a finding. (ii) No point of
+  Λ₁₀₅ was ever shown sterile: SIGN_FIELDS (J)62 says μ* itself lies in the II2 class (2, 23, 919), "no mixed point found
+  so far is sterile", and calls the stall "EVIDENCE (weak) that k = 105 is coverable at very large cost". Hence the 105
+  theorem does not show that a sterile point was overcome, nor that the stall was "an artefact" in any sense beyond
+  "the greedy ran out of budget". (iii) The question (J)62/(J)22 actually left open for k = 105 — does a finite covering by
+  ET + divisor classes exist, i.e. Λ₁₀₅ ∩ S′ = ∅? — is UNCHANGED by Thm 1.1 and must be stated as still OPEN. (iv)
+  Internal inconsistency on which hypothesis of Thm 1.4 fails: §0 (I2) and §3 item 1 say "classes with fixed moduli",
+  §1.2 / s6_exp_classes_105 / AGENT_REPORT say (correctly) the class IS a fixed-modulus congruence (mod 45 in s,
+  mod 4⁴⁵ − 1 in n) and what fails is "identity polynomial in n (an ET class)". Thm 1.4 is not "violated" — it is simply
+  not about non-ET identities. Repair: delete "fixed moduli" in §0 (I2), §3.1; replace "mixed points were an artefact /
+  sterility is menu-relative" by "ES on the family does not need Λ₁₀₅ ∩ S′ = ∅; whether a fixed-class covering exists
+  remains open".
+* Weil-reciprocity / FF root-product "dictionary": an analogy; labelled Assessment — acceptable, but the "ℤ shadow of
+  Weil reciprocity" phrasing in SYNTHESIS §2 (v) should not appear outside an Assessment.
+Verdict: instance (Thm 1.1) PROVED; reading **GAP** (D2, D4).
+
+## s6_exp_classes_primes — check
+"Every exponential class is a polynomial family in a root parameter" is correct for this one (n = 256u³ + 105), and the
+density-0 argument for finitely many polynomial families of degree ≥ 2 is standard. "B1 (POINTWISE_SIZE Thm M analogue)"
+is an analogy (Assessment). Verdict: **SOUND** as Assessment (negative).
