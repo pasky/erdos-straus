@@ -1,0 +1,30 @@
+depth 2: boxes 4, parents with k boxes {4: 1}, pairs 6, Poisson exp 6.0000
+depth 3: boxes 32, parents with k boxes {1: 5, 2: 4, 3: 5, 4: 1}, pairs 25, Poisson exp 29.1765
+depth 4: boxes 50, parents with k boxes {1: 40, 2: 5}, pairs 5, Poisson exp 4.2388
+   parent 787 children digits [0, 11]
+       0 [('P', 5, 849, 122, 24166)]
+       11 [('P', 9, 14302, 1, 797)]
+   parent 1671 children digits [0, 15]
+       15 [('P', 8, 557527, 465, 23)]
+       0 [('P*', 35, 108557, 16, 27), ('P*', 105, 325671, 48, 3)]
+   parent 2878 children digits [4, 14]
+       14 [('P', 5, 169, 2, 121402)]
+       4 [('P*', 5, 20517037, 9926, 1)]
+   parent 3354 children digits [11, 16]
+       16 [('P', 2, 789619, 3, 65)]
+       11 [('P*', 16, 379, 5, 16917)]
+   parent 3405 children digits [8, 10]
+       10 [('P*', 1, 365070, 52153, 281)]
+       8 [('P', 53, 88, 3, 21995)]
+depth 5: boxes 158, parents with k boxes {1: 154, 2: 2}, pairs 2, Poisson exp 2.5245
+   parent 15356 children digits [0, 11]
+       11 [('P*', 8, 19504587, 1565, 190)]
+       0 [('Q',), ('Qinv',)]
+   parent 83339 children digits [1, 16]
+       16 [('P*', 1, 182, 1, 162895435)]
+       1 [('P', 1, 549017951, 597408, 54), ('P', 3, 1647053853, 1792224, 6), ('P', 216, 919, 1, 149352)]
+depth 6: boxes 161, parents with k boxes {1: 159, 2: 1}, pairs 1, Poisson exp 0.1542
+   parent 718663 children digits [5, 13]
+       13 [('P*', 1371, 284065185, 2148, 22), ('P*', 457, 94688395, 716, 198)]
+       5 [('P', 3227, 379298513, 2852, 7)]
+depth 7: boxes 485, parents with k boxes {1: 485}, pairs 0, Poisson exp 0.0827

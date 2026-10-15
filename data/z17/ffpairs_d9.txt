@@ -1,0 +1,14 @@
+3 1 1 pairs 0 exp 0.000 triples 0 exp 0.0000
+3 2 1 pairs 0 exp 0.000 triples 0 exp 0.0000
+4 1 2 pairs 1 exp 0.333 triples 0 exp 0.0000
+4 2 2 pairs 1 exp 0.333 triples 0 exp 0.0000
+5 1 4 pairs 0 exp 0.667 triples 0 exp 0.0494
+5 2 4 pairs 0 exp 0.667 triples 0 exp 0.0494
+6 1 12 pairs 4 exp 2.444 triples 0 exp 0.3018
+6 2 12 pairs 4 exp 2.444 triples 0 exp 0.3018
+7 1 13 pairs 1 exp 0.963 triples 0 exp 0.0436
+7 2 13 pairs 1 exp 0.963 triples 0 exp 0.0436
+8 1 28 pairs 1 exp 1.556 triples 0 exp 0.0555
+8 2 28 pairs 1 exp 1.556 triples 0 exp 0.0555
+9 1 26 pairs 0 exp 0.446 triples 0 exp 0.0049
+9 2 26 pairs 0 exp 0.446 triples 0 exp 0.0049
