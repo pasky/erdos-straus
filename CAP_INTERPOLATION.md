@@ -86,7 +86,7 @@ c ≤ min c_e·(e+2)log(e+3). Let κ = e + 2 ≥ κ₀. *Large sieve.* Montgomer
 avoids, for each prime ℓ ∈ (X^{1/2}, X], the ω_e(ℓ) classes of Prop 1.2 (they are nonzero mod ℓ, and p > X > R, so
 p ∤ R; every hit is an ES^{(y,e)}(p) solution by Prop 1.3 + Remark 1.3). Hence |𝒩| ≤ 2N/L, L ≥ Σ over q = products
 of k distinct such ℓ (X^k ≤ N^{1/2}, k := ⌊log N/(2u)⌋) of ∏ω_e(ℓ)/ℓ ≥ (S^k − (k choose 2)T S^{k−2})/k!, with S = S_e(X),
-T = Σ(ω_e/ℓ)² ≤ X^{−3/10}S. If S ≥ k² then L ≥ S^k/(2k!) ≥ ½(S/k)^k.
+T = Σ(ω_e/ℓ)² ≤ X^{−3/10}S.
 *Choice of u.* Write A_κ := 2 log κ + log log(κ+2) + C₄ (C₄ ≥ log(40(C₂+1)), so u ≥ e^{A_κ} meets the hypothesis of
 Prop 1.2) and set log u := A_κ + 1 + λ/(κ+1), i.e. u = e^{C₄+1}κ² log(κ+2)·(log N)^{1/(κ+1)}. Prop 1.2 gives
 log S ≥ κ(log u − A_κ) ≥ κ, and log k ≤ λ − log(2u), so
@@ -95,8 +95,8 @@ log S ≥ κ(log u − A_κ) ≥ κ, and log k ≤ λ − log(2u), so
 κ + 1 ≤ λ/log(7λ) this follows from u ≥ (log N)^{1/(κ+1)}, otherwise from u ≥ e^{C₄}κ² ≥ e^{C₄}λ²/log²(7λ).
 Hence L ≥ S^k/(2k!) ≥ ½(S/k)^k and log L ≥ (κ+1)k − 1. With k ≥ log N/(2u) − 1:
 `  log L ≥ (κ+1)(log N)^{κ/(κ+1)}/(2e^{C₄+1}κ² log(κ+2)) − (κ+2) ≥ c (log N)^{κ/(κ+1)}/(κ log(κ+2))`
-(the subtracted κ + 2 ≤ λ + 4 is of lower order for κ ≤ λ + 2). Primes ≤ X number ≤ e^u with
-u ≤ e^{C₄+2}λ² log λ = (log N)^{o(1)}, negligible; and u ≤ log N/4, so k ≥ 1. ∎
+(the subtracted κ + 2 ≤ λ + 4 is of lower order for κ ≤ λ + 2). Primes ≤ X number ≤ e^u, and u ≤ e^{C₄+1}κ² log(κ+2)(log N)^{1/(κ+1)} ≤ ½ log N − (saving) for
+2 ≤ κ ≤ λ + 2 and N ≥ N₀ (at κ ≍ λ, u ≍ λ² log λ), so they are negligible; and u ≤ log N/4, so k ≥ 1. ∎
 *Remark 2.2.* (a) **c_e ≍ 1/(e log e)** — polynomial decay, not ((e+1)(e+2))^{−e} (O229's Thm 1.2 calibration: an
 artefact of BV's divisor weights and of restricting every coordinate to X^{1/(5(2e+3))}). (b) The saving
 (log N)^{κ/(κ+1)}/(κ log κ) = log N·exp(−λ/(κ+1))/(κ log κ) is maximal at κ ≍ λ, with value ≍ log N/(λ log λ):
