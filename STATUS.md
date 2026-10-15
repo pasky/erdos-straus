@@ -7,6 +7,24 @@
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
 proof has an identifiable gap.
 
+**Wave Y: new geometric dictionaries, a sharpened barrier map, and function-field sterility nearly closed (2026-10-14/15; ledger (J)39–(J)56; tasks O204–O223, reviews R204–R226; headline theorems had two independent hostile reviews ((J)43, (J)51, (J)54) or one review per theorem ((J)56); all others one; novelty audit O223): ES is not solved.**
+* *Dictionaries for the ES sign (all PROVED, none an existence mechanism).*
+  * Five-slice certificates are the vertices of a Farey pentagon / A₂ frieze ((J)40). The sign is fixed by the unique adjacent even edge ((J)42; mod-2 frieze rigidity is Morier-Genoud's). The "transport law" turned out to be the Ptolemy relation mod 8 ((J)45).
+  * **The χ = +1 side is the cubic lattice ℤ³** ((J)48). ES-five(p) ⟺ some path binary [[tv − 1, 1],[1, tu − 1]] of X_p is *not* a sum of three squares. T1 ⟺ every odd-square path lattice embeds in ℤ³. The classical content is the one-class genus of I₃.
+  * The sign counts are d₃-size objects: no holomorphic modular generating function exists, and no GL(m) cusp-form identity exists either, by size ((J)39, (J)48).
+* *Steering results (the barrier map sharpened).*
+  * **Numerator blindness ((J)41).** The □-relaxation M^□ is a theorem for every M ≡ 0 (4), while M/p fails at 278 known pairs (8/131 = 1/20 + 1/131 + 9/2620). Every relaxation/sieve/BM tool works uniformly in the numerator, so an ES proof needs a 4-specific input.
+  * Full T1 holds for every 4 | M. Among the failure-free numerators (3, 4, 5, 7), only 4 has it ((J)46, (J)49). 7/p holds for all primes p ≢ 1 (mod 105) by identities (folklore-level).
+  * **Positivity is T1's anchor, not the bottleneck ((J)52).** Several agents found independently that ES "imitates ∞": semi-primitivity of the modulus is Frob = c_∞ ((J)50), and positivity is the archimedean Hilbert factor ((J)42, (J)45). Yet the signed relaxation SQ_± is just as much a lottery. CONJECTURE SQ_± and CONJECTURE 3SQ ((J)53) are exception-free companions of SQ₅ (105 disappears).
+  * **T1 deforms to polynomially-near squares ((J)53, (J)55).** If p = m² + k and tk + 1 = c², then level t is forced to χ = +1. This explains a 6–7σ deficit at bounded p − m². For polynomial families on p = m² − j, the sterile set is a square class in ℚ(√j) (Thm 3.4; apparently new).
+  * Torsion and Frobenius ((J)44, (J)50): ES divisors live in the (h+1)-world, p in the (h−1)-world, and they meet only in the genus bit. CONJECTURE PM-II: 3361 is the only prime without a prime-modulus Type II certificate (exhaustive to 10⁸).
+  * Exponent caps ((J)43, (J)47): a second archimedean wall makes every slice of the cap-1 variants finite, but the band is unbounded (R200 M1 still open). The provable cap is now sub-polynomial (Thm 5.1: e ≤ y^{(2+η)log₃y/(A log₂y)}). The e = 2 cell is a Markoff-type class-group problem, not easier.
+  * Composition-free statements of the obstruction: (J)38's ε_μ is the (J)23 sieve shot with Q = t ((J)41).
+* *Proved theorems on the obstruction side (computer-assisted, multiply reviewed).*
+  * **Function fields: ES_q(T^k) has no finite linear covering for every q = 3^r with r ≥ 2 (k ≥ 2), and ES_q(T) none for r ≥ 3** ((J)51, (J)56). Previously r ≥ 27. Only q = 3 (CONJECTURE 0.2) remains, and it is not a feasible finite computation with these tools.
+  * **ℤ: sterile Mordell points exist on the r-generic line for every prime r ≥ 2³²** ((J)54; previously an ineffective tower). No finite ET covering handles all primes whose least QNR is r ≥ 2³². r = 13 is fully covered at level 1, and r = 17 is out of reach.
+* *Assessment.* Wave Y produced clean dictionaries and steering theorems, but no existence mechanism. Every route still ends at "an unclean divisor ≡ −1 (mod t)", the moving-modulus divisor lottery of B2. The best-localised remaining targets are a 4-specific input that uses the 2-adic χ-fibre ((J)32/(J)33/(J)46), and an explanation of near-square hardness ((J)53/(J)55) good enough to handle those primes deterministically.
+
 **Spark-relay wave: T1 as a family of obstructions, provable T1-bearing variants, and why ES itself stays finite (2026-10-13; ledger (J)13–(J)38; tasks O172–O203, reviews R172–R203; headline claims had two independent hostile reviews ((J)20, (J)22, (J)23, (J)26); the others one): ES is not solved.**
 * *Standing rule (new).* Every sharp finding immediately spawned a fresh "spark relay" brainstorm agent, which is how the wave chained: Kudla → supersingular/LD_p → degree-2 accident → Drinfeld → twisted T1 → template → unit orbits → fixed-modulus shots.
 * *T1 understood structurally.*
