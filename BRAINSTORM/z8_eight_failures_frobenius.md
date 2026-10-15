@@ -11,7 +11,8 @@ O225's forbidden half (the other half is A ≡ 3 mod 8, i.e. 4 ∥ the slot). 8/
 mod 4). The failures are consistent with a probability-½-per-word model.
 
 **Cheap numerics.** p = 131: 21 words, 14 with a 4-slot, all slots ≡ 4 (mod 8); p = 241: 6 of 15, all ≡ 4 (mod 8)
-(computed in this task). Under the ½-per-independent-word model, P(all 14 miss) ≈ 6·10⁻⁵ — but words share divisors
+(computed in this task). (R235 repair: 131 ≡ 3 mod 4, so its 4-slot words are those with (A/131) = +1, not the χ = −1 half;
+R235 counts 22 / 16 words (t, u ≤ v) — state the word convention.) Under the ½-per-independent-word model, P(all 14 miss) ≈ 6·10⁻⁵ — but words share divisors
 (A, A* are coupled; FOUR_SPECIFIC §2.1 notes a small-t bias v₂(tp + 1) = 2 for t ≡ 3 mod 8, p ≡ 1 mod 8), so the
 independence model is wrong; 131 ≡ 3 (mod 8) and 241 ≡ 1 (mod 8) sit in the classes where 8 has no e ∈ {1, 3} slice.
 
