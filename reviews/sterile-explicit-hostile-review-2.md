@@ -1,6 +1,11 @@
 # STERILE_EXPLICIT (O219) — independent hostile review #2 (R223)
 
-Reviewer: R223 (side agent, branch side-agent/review-sterile-explicit-2). Round 1, document not edited.
+Reviewer: R223 (side agent, branch side-agent/review-sterile-explicit-2).
+**Repairs applied (round 2, after merging R222's review and its m1–m8):** m-A1, m-B2, m-D1, m-D4, m-D5, m-D6 (self-contained form,
+alongside R222 m3), m-D7 (§5 → §4, also in AGENT_REPORT_O219) applied to STERILE_EXPLICIT.md marked '(R223 repair …)'; m-D2, m-D3, m-D8
+were already covered by R222 m6, m7 and the R222 edit of Prop 2.1; m-C1 is a code-comment request in se_tail.py (left to the author,
+R222 m2's written validity paragraph in §3.3 now documents the X_J < X_max step). Also corrected my own §A.2/§C wording "every integer N"
+→ "every N = r^K, in-cell" (R222 m1).
 Scope: STERILE_EXPLICIT.md as merged from side-agent/sterile-explicit; scripts se_box.c, se_tail.py, se_r0.py;
 data/se/*. From-scratch scripts: scripts/review_se2_*.py. The parallel review (R222) was NOT read before writing this.
 
@@ -53,7 +58,8 @@ Verdict A.1: **SOUND** (relative to M17 Lemma 1.1 for general r, which rests on 
 
 **A.2 Quantifier "for every prime r ≥ 2³²".** How infinitely many r are covered (`se_r0.py`, re-read line by line):
 1. r ∈ [2^b, 2^{b+1/4}), b = 32, 32.25, …, 600 (2273 ranges). For each odd K the term 2D_P(r^K)r^{−(K+1)/2} is bounded by
-   (max over the table cells covering N ∈ [2^{Kb}, 2^{K(b+1/4)})) × 2·2^{−b(K+1)/2}: the tables bound D_P(N) for **every** integer N in
+   (max over the table cells covering N ∈ [2^{Kb}, 2^{K(b+1/4)})) × 2·2^{−b(K+1)/2}: the tables bound D_P(N) for every N = r^K (in-cell data; R222 m1: the unit-class routes need gcd(e, abd) = 1, i.e. Lemma 1.1(iv),
+   so *not* every integer N — my earlier wording here was too broad) in
    a cell (se_box takes the box bounds at the cell's N-enclosure, and nothing in se_box depends on r), and the weight is maximal at
    the bottom of the r-range. Same for Q with weight 2·2^{−bk}. ✓
 2. For N ≥ 2^{600} (P) resp. 2^{100} (Q) the tail term lists Σ c N^e (ln N)^p (all e ≥ 0, p ≥ 0 after the m1 capping, hence
@@ -95,7 +101,7 @@ campaign" is a priority claim I cannot check; it is the standard "split the sear
 ## C. Independent re-implementation of the dominant terms (task focus (b))
 
 Scripts written without reusing the author's code paths (only the route *list* is shared, each route re-derived in §D):
-* `scripts/review_se2_boxbound.py P|Q j` — the dyadic box bound for every integer N ∈ [2^{j/4}, 2^{(j+1)/4}), in exact
+* `scripts/review_se2_boxbound.py P|Q j` — the dyadic box bound for every N = r^K ∈ [2^{j/4}, 2^{(j+1)/4}) (in-cell data, unit classes by Lemma 1.1(iv)), in exact
   Fractions; N-range enclosed by exact integer 4th roots; all logs/exps (ln 2, ln(a₁/a₀), divisor envelopes C_k(η)n^η, 2^{ω})
   in mpmath interval arithmetic rounded outward; every Coppersmith condition used is verified **exactly in big integers**
   (least J found by a float pre-screen, then checked/raised exactly). The e-modulus lower bound uses the exact strict inequality

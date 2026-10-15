@@ -1,6 +1,6 @@
 # STERILE_EXPLICIT — the function-field class-divisor machinery over ℤ: explicit sterile Mordell points (O219, spark relay Y9)
 
-Status: checkpoint 2 (O219): Theorem 3.4 (explicit r₀ = 2³²) certified; self-review `reviews/sterile-explicit-review.md` (no FATAL; M1, M2, m1–m3 repaired); hostile review R222 (`reviews/sterile-explicit-hostile-review.md`): no FATAL/MAJOR, Theorem 3.4 SOUND; minors m1–m8 applied as (R222 repair). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
+Status: checkpoint 2 (O219): Theorem 3.4 (explicit r₀ = 2³²) certified; self-review `reviews/sterile-explicit-review.md` (no FATAL; M1, M2, m1–m3 repaired); hostile review R222 (`reviews/sterile-explicit-hostile-review.md`): no FATAL/MAJOR, Theorem 3.4 SOUND; minors m1–m8 applied as (R222 repair); independent hostile review R223 (`reviews/sterile-explicit-hostile-review-2.md`): no FATAL/MAJOR, Theorem 3.4 SOUND-AFTER-REPAIRS, dominant terms recomputed in exact/interval arithmetic; minors applied as (R223 repair). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
 Builds on DEPTH_ASPECT.md §3 ((J)26 Thm 3.1, reviews R178/R187), FF_STERILE_PUSH.md (O216, Lemmas 1.1–1.6, 2.1),
 POINTWISE_MORDELL17*.md (= M17, M17B, M17C, M17D), STERILE_STEER.md. Scripts `scripts/se_*`.
 
@@ -23,8 +23,11 @@ POINTWISE_MORDELL17*.md (= M17, M17B, M17C, M17D), STERILE_STEER.md. Scripts `sc
   subintervals. Coppersmith's lattice works in each subinterval once modulus × (number of pieces) exceeds the threshold,
   so the count of divisors of size n^β in a class mod n^ρ is ≤ n^{max(0, β(1−β)−ρ)+o(1)} (Lemma 1.3 below, elementary;
   "Coppersmith interpolation"). With it (`scripts/se_rate2.py`, `se_rate2_subsets.py`; grid EVIDENCE):
-  **θ* = 2/5 exactly (grid EVIDENCE) — ET's exponent — using no τ-type divisor bound except τ₃(N + e) ≤ C₃(η)N^η for single
-  integers N + e, tolerated up to η = 0.3, and 2^{ω(e)} ≤ N^{o(1)} in route G** (R222 repair m6) (θ* = 0.400, 0.417, 0.450, 0.500 at η = 0.3, 0.35, 0.4, 0.5).
+  **θ* = 0.400 = 2/5 (1/60 grid, confirmed by R223's local refinement; EVIDENCE — "exactly" is not grid-provable, the objective
+  is not piecewise linear) — ET's exponent — using no τ-type divisor bound except τ₃(N + e) ≤ C₃(η)N^η for single
+  integers N + e, tolerated up to η = 0.3, and 2^{ω(e)} ≤ N^{o(1)} in route G** (R222 repair m6) (θ* = 0.400, 0.425, 0.450, 0.500 at η = 0.3, 0.35, 0.4, 0.5; (R223 repair m-D1) the 1/60 grid gave 0.417 at
+  η = 0.35, missing the corner (1/3, 0.258, 1/3, 0.075); near the threshold θ*(η) = 0.4 + (η − 0.3)/2 on [0.3, 0.4], so η = 0.3 is
+  exactly the break point — a tie of ET's point with (1/3, 0.233, 1/3, 0.1), `scripts/review_se2_rate.py`).
   Five class routes + the τ₃ route suffice (dropping any one raises θ* to ≥ 0.425). The only τ-dependent corner is
   e = N^{o(1)}, a ≈ b ≈ d ≈ N^{1/3}: literally the balanced triple factorisations of the integers (N + e)/4.
 
@@ -69,8 +72,8 @@ J ≥ 1 the number of such divisors is at most J·(w − 1) as soon as (Cop) hol
 Asymptotically (n → ∞, fixed 0 < β < 1 and ρ ≥ 0, D₀ = n^β, s = n^ρ, D₁ = 2D₀; if β − ρ − j ≤ 0 the trivial bound is used)
 (R222 repair m5; the size-restricted lattice is that of Coppersmith–Howgrave-Graham–Nagaraj, Math. Comp. 2008) this gives **≤ n^{max(0, β(1−β) − ρ) + o(1)}**: a class-divisor bound
 with no divisor-function loss that interpolates between the trivial bound (window/s + 1) and the Coppersmith range
-ρ > β(1 − β) (O216 Lemma 1.5's ℤ form; for ρ ≤ 1/4 it is new to the campaign, and it is what removes the binding corner
-of (I2)).
+ρ > β(1 − β) (O216 Lemma 1.5's ℤ form; (R223 repair m-B2) splitting the search window is the standard Coppersmith/Howgrave-Graham
+device — first used in the campaign here for ρ ≤ 1/4, where it removes the binding corner of (I2)).
 *Proof.* Cut [D₀, D₁] into J intervals of length (D₁ − D₀)/J and apply Lemma 1.3 to each, with the common lower bound D₀.
 Asymptotics: with w = τm, (Cop) reads (1/2 + o(1)) + τ²(β − ρ − j)/2 < τβ, j = log J/log n; optimising τ = β/(β − ρ − j)
 gives the condition ρ + j > β(1 − β). ∎
@@ -114,7 +117,9 @@ level (K+1)/2 weighs N^{−1/2}r^{−1/2}, this predicts an explicit r₀ around
 **3.1 Measure criterion (PROVED from M17 and (J)26's inputs, r-free).** For an odd prime r, the boxes of the seven ET
 families meeting the non-residue cells are P-boxes (level (K+1)/2, K odd) and Q-boxes (level k, k odd): √Q = ∅, Q⁻¹ = Q
 as sets, U ⊂ P (M17 Lemmas 1.1, 1.3, 5.1, 5.2; their proofs use only that r is an odd prime — R187's general-r re-derivation
-and brute force for r ≤ 23, DEPTH_ASPECT §3). Each P-datum (a ≤ b) gives ≤ 2 boxes, each Q-datum ≤ 2 (M17B Lemma 1.1). Hence if
+and brute force for r ≤ 23, DEPTH_ASPECT §3, for Lemmas 1.1, 2.1–2.3; (R223 repair m-D5) Lemmas 1.3, 5.1, 5.2 are *not* inputs of
+(J)26 (DEPTH_ASPECT §3: "Lemma 1.3 is not used", Lemma 5.2 optional) and were re-derived for general r by R223, with brute force
+for 13 primes 3 ≤ r ≤ 43, `scripts/review_se2_identities.py`). Each P-datum (a ≤ b) gives ≤ 2 boxes, each Q-datum ≤ 2 (M17B Lemma 1.1). Hence if
   S(r) := Σ_{k odd} 2D_Q(r^k) r^{−k} + Σ_{K odd} 2D_P(r^K) r^{−(K+1)/2} < (r − 1)/(2r),                         (S)
 some non-residue u is in no box, x(u) is sterile, and (M17 Cor 4.2 with 17 ↦ r) **no finite set of ET Prop 1.9 classes covers
 all sufficiently large primes whose least quadratic non-residue is r**. Here D_Q(F) = #{N-points of Σ^I_F, a ≤ b, r ∤ abcde}
@@ -145,21 +150,27 @@ E, F, G, τ₃ (η = 0.3), I; 2^{ω(e)} ≤ C_ω(0.1)e^{0.1}): every chosen term
 (1/L₀ + u) ln N. Coppersmith: (Cop) at J = ⌈N^κ⌉ reads ln(window/s) − κL + g(L)/(w(w−1)/2) < 0 with g linear in L; κ ≥ k₁ makes the
 slope ≤ 0 and κ > k₂ the value at L₀ negative, so X_J < (X_max + 1)/2 < X_max for all N ≥ N₀ and the count is ≤ (w − 1)(N^κ + 1).
 
-**3.4 Theorem (explicit r₀; PROVED, computer-assisted, relative to the same inputs as (J)26 Thm 3.1 minus Browning–Elsholtz
-and minus ET's non-explicit divisor bound: M17 Lemmas 1.1, 1.3, 2.1–2.3, 5.1, 5.2, M17B Lemma 1.1, M17C Lemma 2.1(iv), M17 Cor 4.2,
-all with r-free proofs (R83, R93, R187)).** **For every prime r ≥ 2³² ≈ 4.3·10⁹, (S) holds; hence the r-generic line contains
+**3.4 Theorem (explicit r₀; PROVED, computer-assisted, relative to the inputs of (J)26 Thm 3.1 minus Browning–Elsholtz
+and minus ET's non-explicit divisor bound, *plus* (R223 repair m-D5) M17 Lemmas 1.3, 5.1, 5.2, M17B Lemma 1.1, M17C Lemma 2.1(iv):
+in all, M17 Lemmas 1.1, 1.3, 2.1–2.3, 5.1, 5.2, M17B Lemma 1.1, M17C Lemma 2.1(iv), M17 Cor 4.2, all with r-free proofs (R83, R93,
+R187; general-r 1.3/5.1/5.2: R223 §A.1)).** **For every prime r ≥ 2³² ≈ 4.3·10⁹, (S) holds; hence the r-generic line contains
 a sterile point x(u), u a quadratic non-residue mod r, and no finite set of ET Prop 1.9 classes covers all sufficiently large
 primes whose least quadratic non-residue is r.** The uncovered measure in the non-residue cells is ≥ (r−1)/(2r) − 0.4868 > 0.0132
 (worst at r ≈ 2³²), and → 1/2 as r → ∞ (by (J)26 Thm 3.1; the certificate itself only gives S(r) ≤ S(2^{600}-range) beyond 2^{600};
-R222 repair m3). (Tables CERTIFIED: `data/se/`, `MANIFEST.txt`; floating point assumes glibc x87 libm accuracy of a few ulp,
+R222 repair m3; (R223 repair m-D6) self-contained: for r ≥ 2^{600} every term of S(r) is ≤ c·r^{Ke−(K+1)/2}(K ln r)^p with e ≤ 0.4797
+(P) resp. ≤ c·r^{k(e−1)}(k ln r)^p with e ≤ 0.75 (Q), so S(r) = O(r^{−1/4}·polylog r) → 0). (Tables CERTIFIED: `data/se/`, `MANIFEST.txt`; floating point assumes glibc x87 libm accuracy of a few ulp,
 se_box.c header; R222 repair m8.) Hostile review R222 (`reviews/sterile-explicit-hostile-review.md`): SOUND, 13 table cells and the
-combiner independently re-certified.
+combiner independently re-certified. Hostile review R223 (`reviews/sterile-explicit-hostile-review-2.md`): the dominant terms at
+r = 2³² recomputed by independent exact/interval code — Q (k = 1) 0.35036, P (K = 1) 0.02298, P tail 0.10930 (author: 0.35044,
+0.02460, 0.10932), i.e. S(b = 32) ≈ 0.4850 independently; the author's values are on the safe side box by box.
 *Proof (certificate).* `scripts/se_r0.py 32 600` (log `data/se/r0_certify.txt`): for every range r ∈ [2^b, 2^{b+1/4}),
 b = 32, 32.25, …, 600, it bounds each term of (S) by the certified table values (`data/se/P_q4.txt` (N ∈ [2^{31}, 2^{200}), quarter
 octaves), `P_q1.txt` (2^{200}..2^{600}, octaves), `Q_q4.txt` (2^{31}..2^{100})) taken at the worst N-cell of the range
 and the largest weight, and by the §3.3 tail term lists (top of the N-range) for N ≥ 2^{600} (P), 2^{100} (Q); K, k odd; every tail term
 is increasing in N (review repair m1: seven Q terms have negative exponents; the combiner caps them at 0, c·N^e ≤ c) and, multiplied by its weight, decreasing in r (e < 1/2 resp. < 1 and p ≤ (h − e)·ln N₀), which also covers
-r ≥ 2^{600}. Result (tables regenerated by `scripts/se_certify.sh` after the self-review repairs; provenance in `data/se/MANIFEST.txt`): max S = 0.48670 (b = 32), no failure (pre-repair tables: 0.48501); with b = 31 it fails (S = 0.58 at b = 31.5), so 2³² is where *this*
+r ≥ 2^{600}. (R223 repair m-A1) The K- and k-series are cut once a tail term is < 10^{−30} and charged 10^{−20} for the rest: after
+aggregation p ≤ 2 and successive odd-K tail terms shrink by ≈ 2^{(2·0.4797−1)b + 0.4797/2}·((K+2)/K)² < 1/2 for b ≥ 32 and the K reached
+(measured 0.155 at K = 19, 0.480 at K = 101, 201), so the remainder is < 10^{−30}. Result (tables regenerated by `scripts/se_certify.sh` after the self-review repairs; provenance in `data/se/MANIFEST.txt`): max S = 0.48670 (b = 32), no failure (pre-repair tables: 0.48501); with b = 31 it fails (S = 0.58 at b = 31.5), so 2³² is where *this*
 certificate stops. Dominant terms at r ≈ 2³²: Q at level 1 (k = 1) 0.350, P at K = 1 ≈ 0.025, P at K = 3 0.002, P tail (N ≥ 2^{600}) ≈ 0.1.
 Validation of the engine (EVIDENCE): `scripts/se_box_check.py` enumerates all P- resp. Q-data exactly for N = 17³, 3¹¹, 17⁵, 10⁶ + 3,
 999983, 2·10⁶ + 3 (P) and 17³, 17⁴, 17⁵, 10⁶ + 3 (Q), buckets them into se_box's boxes and rows, and finds every per-box and per-row
@@ -168,11 +179,13 @@ bound ≥ the true count (0 violations; it reproduces D_P = 32, 121 and D_Q = 73
 r ≈ 10⁴. *Now:* r₀ = 2³². *What limits it:* the level-1 Q term 2D_Q(r)/r — Type I solutions of 4/r counted with exponent 0.6–0.65
 but with polylog many boxes; at r ≈ 10⁹ the bound is ~0.7r against a true count of a few hundred. r = 13, 17 are far out of reach:
 at r = 13 *all* non-residue cells are covered at level 1 (POINTWISE_MORDELL §1), so no 13-generic point in a non-residue cell is sterile;
-at r = 17 two of eight cells survive level 1, and any union bound needs a P-count with constant ≲ 2.5 at θ = 0.4 (M17D §1).
+at r = 17 two of eight cells survive level 1, and the cell-wide union bound needs a P-count D_P(K) ≤ A·17^{0.4K} with no log loss and
+A ≲ 2.5 from K = 15 on, given the exact data through K = 13 (M17D §1, Comp. 1.3; R223 repair m-D4). (Both level-1 statements
+re-checked from scratch, `scripts/review_se2_level1.py`: r = 13 survivors ∅, r = 17 survivors {5, 7}.)
 *Note (O220 "division trick", relayed by the orchestrator):* its ℤ analogue — a divisor 4a > e-window of N + e fixes e mod 4a — is
 exactly the divisibility averaging Σ_a ((E₁ − E₀)/(4a) + 1) already used by routes A, F, G, I, J and Q's fac/fca/fda.
 
-## 5. Feedback to F_q[T] (O216's open q = 27; EVIDENCE, grid steering only)
+## 4. Feedback to F_q[T] (R223 repair m-D7: was numbered §5; there is no other §4) (O216's open q = 27; EVIDENCE, grid steering only)
 
 Two ℤ ingredients have F_q[T] twins that O216 did not use. (i) Coppersmith interpolation: fixing the top j coefficients of
 the unknown x in E = σ₀ + xQ splits the class into q^j sub-classes, each above the O216 Lemma 1.5 threshold once

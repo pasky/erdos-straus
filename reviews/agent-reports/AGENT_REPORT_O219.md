@@ -34,12 +34,12 @@ tables regenerated. Minors (negative Q tail exponents — capped at 0; τ notati
 **A fresh hostile review by the parent is still needed**, especially of se_box.c route bounds and se_tail.py's all-N argument.
 
 ## Files
-STERILE_EXPLICIT.md (§0 log, §1 lemmas, §2 route table, §3 certificate/Theorem 3.4, §5 FF feedback); scripts se_box.c (engines,
+STERILE_EXPLICIT.md (§0 log, §1 lemmas, §2 route table, §3 certificate/Theorem 3.4, §4 FF feedback (renumbered from §5, R223)); scripts se_box.c (engines,
 validation mode), se_box_check.py (exact counts vs per-box bounds: 0 violations), se_cop_check.py (Cor 1.4 vs brute force: 0
 violations), se_tail.py, se_r0.py, se_certify.sh, se_rate*.py / se_ff_rate.py / se_proto.py (steering only); data/se/.
 
 ## Sparks
 * Lower r₀ further: a sharper level-1 Q count (Type I solutions of 4/r for prime r) — e.g. exploit r prime, or certify level 1
   per-r for r in [10⁶, 2³²) by enumeration plus the general bound for k, K ≥ 3 (the K = 3 P term is fine from r ≈ 10⁸).
-* Rigorous FF certificate of §5 for q = 27 (now superseded by O220?) and the q = 3, 9 thirds corner with a sub-exponential count.
+* Rigorous FF certificate of §4 (was §5) for q = 27 (now superseded by O220?) and the q = 3, 9 thirds corner with a sub-exponential count.
 * The P tail threshold 2^{600} costs ≈ 0.1 of S at r = 2³²; a finer tail mesh (M = 48) would buy room for b = 31.
