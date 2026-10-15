@@ -12,7 +12,7 @@ check), `review_fz9_compare.py`, `review_fz9_rankin.py` + harness `review_fz9_rk
 
 | Claim | Verdict |
 |---|---|
-| §5.1 completeness of fz_enum's eight routes (incl. the factoring routes M11–M16) | **SOUND** (proved in §1; my independent enumerators agree pattern by pattern for ALL 6 664 patterns 3 ≤ s ≤ 22) |
+| §5.1 completeness of fz_enum's eight routes (incl. the factoring routes M11–M16) | **SOUND** (proved in §1; my independent enumerators agree pattern by pattern for ALL 7 040 patterns 3 ≤ s ≤ 22) |
 | §5.2 exact masses (per level, Σ_{s≤18} = 0.592177, Σ_{s≤22} = 0.592201) | **SOUND** (independently reproduced, s ≤ 22; one presentation slip m-3) |
 | Lemma 5.1 (linearised Lemma 4.1) and its implementation in fz_tail (RANK = 1) | **SOUND** (proof re-derived; constants checked externally; unchecked truncation hypothesis m-4) |
 | Hybrid splice (exact s ≤ 22, bounds 23 ≤ s ≤ 80, tail s > 80) | **SOUND** (no double counting, no omitted pattern) |
