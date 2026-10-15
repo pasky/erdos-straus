@@ -384,3 +384,14 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z5_pm_sqpm | prime-modulus words of SQ_±: χ = (n/ℓ), free genus filter, shift slots n + u | exponent 1/2 only (signed twin harder on average); CONJECTURE PM-SQ_±, 0 exceptions ≤ 10⁶, adversarial ok — SHARP | PROVED + CONJECTURE/EVIDENCE |
 | z5_fixed_field_orbits | x-orbits with Δ_x = D₀m_k² in one real quadratic field | no free point (norms ±(16n)^i r²); ring class group ≍ m kills the CL luck | PROVED lemma + Assessment (negative) |
 | z5_pell_unit_T1 | Pell unit of ℚ(√n) as a T1-shaped existence mechanism | never acts on ES^{[2]} fibres (needs n | λ, reciprocity-killed); sign-blind | PROVED (squarefree n), negative |
+
+## Spark relay Z1 (O231): forced vs unforced words, CONJECTURE U (`z7_*`, deep file UNFORCED_WORDS.md; not yet triaged)
+| memo | angle | result | label |
+|---|---|---|---|
+| z7_automatic_families | words with a fixed small parameter (min ≤ 2; s = 3, 4, 7) | Prop F/F′: on families with fixed side X ∈ {p+1, p+2, 2p+1, p+3, 3p+1, p+4, 4p+1, p+7, 7p+1}, certificate ⟺ unforced ⟺ X unclean; n ≡ 5 (8) trivial | PROVED; 0 mismatches to 3·10⁷ |
+| z7_landau_depth | Landau depth K(p) of the fixed sides | K(p) < q(p); CONDITIONAL (Dickson): K(p) unbounded, so no bounded-min family proves U (U-analogue of B2); max K = 10 below 3·10⁷ | CONDITIONAL + EVIDENCE |
+| z7_family_parity | goal 2: parity across words sharing a side | Flip Lemma (family has a certificate ⟺ (−1,−1) in the divisor image mod X); family-exact forcing collapses U to ES-five; flip = e-slice B2 | PROVED (negative, exact scope) |
+| z7_double_unclean | U2 = words with A, B both unclean | N₋ ≤ U2 ≤ U; CONJECTURE U2 (only 105); N₋/U2 ≥ 0.62 to 3·10⁷ | PROVED sandwich + EVIDENCE |
+| z7_haar_strata | goal 3: the "¾" of N₋/U | Haar five-slice mass = 3/4 exactly (pointwise); large-min words obey it, deficit lives in automatic families; Lemma 5.2; **SHARP: all N₋ < U/2 failures at n ≡ 1 (8) have ψ-odd part of n+1 = 3²** | PROVED + EVIDENCE |
+| z7_symbol_blind | goal 1: what a U-proof must supply | ψ(tn+1) ≡ 1: the t-side is symbol-blind; non-certificate unforced words need tn+1 ∉ C_n (anti-Landau kernel); least-NR families fail i.o. | PROVED kernel + EVIDENCE |
+| z7_signed_3sq | goal 4: split on SQ_± and 3SQ | SQ_± records fully forced (0.84–0.94 vs 0.24–0.51); 105 = Jacobi genus collapse, per-prime forcing (Lemma 6.1) explains 3SQ's exception-freeness | EVIDENCE + PROVED lemma |
