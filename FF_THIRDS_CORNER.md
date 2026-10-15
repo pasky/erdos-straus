@@ -83,8 +83,8 @@ b − 1 + h ≥ N + 1 use A: deg M = a + z − 1 = s − b − 1 ≤ D_A. Otherw
 In both orientations Ê = TMg' − 1 (E = L'w − 1 = Tg'm'w₁ − 1; same for E'), Ê·X₂ = g'T^{s−1} + X₁ (Lemma 1.1), and
 covering is Ê ≡ τ (mod T^{N+1}) (E ≡ −u ⟺ E' ≡ −u^{−1}, as EE' = 1 + T^sL'g' and s ≥ N + 1), i.e. Mg' ≡ α (mod T^N).
 Case 1: deg g' < N gives g' = trunc_N(αM^{−1}); deg X₁ < deg Ê gives X₁ as the stated remainder.
-Case 2: y + t = max(a, b) (FF_STERILE_PUSH Lemma 1.1(ii)) gives deg M + deg v₁ = (s − max(a,b) − 1) + (max(a,b) − y − 2) +
-(max(a, b) − b or − a) = s − 3 − y + max(0, a − b) (A; symmetric for B). In B, a ≥ N + 2 > b; in A with h = 1, b ≥ N + 1 > a;
+Case 2: y + t = max(a, b) (FF_STERILE_PUSH Lemma 1.1(ii)) gives, in A, deg M + deg v₁ = (s − b − 1) + (max(a, b) − y − 2)
+= s − 3 − y + max(0, a − b), and symmetrically s − 3 − y + max(0, b − a) in B. In B, a ≥ N + 2 > b; in A with h = 1, b ≥ N + 1 > a;
 in A with h ≥ 2, a − b ≤ s − 2b ≤ 2h − 4 (s ≤ 2N). With y ≥ N the bound follows. M | m'w₁C₁ = T^{s−2} + v₁ gives the
 congruence for v₁ and X₂ = (T^{s−2} + v₁)/M; X₁ + X₂ = Tg'v₁ gives X₁ ≡ −X₂ (mod Tv₁). ∎
 Every candidate is then re-verified from scratch ((B₁), monicity, T-coprimality, E ≡ −u mod T^{N+1}); only verified tuples are
@@ -100,3 +100,28 @@ exactly zt_lop's hits plus exact tuples (98 census tuples, 76 hits, 0 mismatchin
 reached NMAX. Levels ≤ 2 have no Case B tuple at x*_c (FUNCTIONFIELD_ES3 Lemma 2.1: N + γ ≥ 3 and the s = 4 tuples cover
 u ≡ 1 + cT + 2T² only). With the Case A theorem (FUNCTIONFIELD_ES2 §0.2): no linear family of level ≤ NMAX is valid at
 x*_c. Previously: level ≤ 8 (FUNCTIONFIELD_ES3).
+
+## 3. The second Liouville constraint, and a calibrated lottery model
+
+**Lemma 3.1 (covering criterion without E; PROVED).** For a tuple of parameter s and N ≥ 1 with N + 1 ≤ s − 2, and a
+polynomial u with u(0) = 1:  E ≡ −u (mod T^{N+1})  ⟺  **m'w₁² + u·v₁ ≡ 0 (mod T^{N+1})**  ⟺  u·m'C₁² + v₁ ≡ 0 (mod T^{N+1}).
+*Proof.* E·C₁ ≡ w₁ (mod T^{s−1}) (Lemma 1.1) and C₁(0) ≠ 0 give E ≡ w₁/C₁ (mod T^{s−1}), so covering ⟺ w₁ + uC₁ ≡ 0
+(mod T^{N+1}). From m'w₁C₁ = T^{s−2} + v₁, C₁ ≡ v₁/(m'w₁) (mod T^{s−2}); multiply by m'w₁ (a T-unit). The third form is the
+same computation with w₁ = v₁/(m'C₁) (mod T^{s−2}), multiplied by uC₁·m'C₁/… (i.e. w₁ + uC₁ ≡ 0 ⟺ v₁ + u m'C₁² ≡ 0). ∎
+
+**Corollary 3.2 (second Liouville constraint at x*_c; PROVED, q = 3; the exact case for general odd q is left open).**
+A tuple covering x*_c (k = 2, N = N(s) ≥ 4) satisfies, besides max(a − 1, b) ≥ N + 1 (Cor 1.3),
+  max(z + 2a − 2, t − 1) ≥ N + 1   and   max(z + 2b − 1, t − 2) ≥ N + 1.
+In orientation A, case 1 of Prop 2.1 (b ≥ N + 1, y ≤ N − 1) this forces **deg w₁ = a − 1 ≥ N + 1 − deg M**: the small
+side w₁ is a divisor of M = m'w₁ of degree at least N + 1 − deg M (so deg M ≥ (N + 1)/2).
+*Proof.* Lemma 3.1 with u = 1 + cT: the polynomials m'w₁² + (1 + cT)v₁ and (1 + cT)m'C₁² + v₁ are ≡ 0 mod T^{N+1}, so each
+is 0 or has degree ≥ N + 1. If m'w₁² = −(1 + cT)v₁: gcd(m'w₁, v₁) = 1 (a common prime divides T^{s−2}, and T ∤ v₁) forces
+v₁ = λ ∈ F₃^*, w₁ = 1, m' = −λ(1 + cT), so λ = −c, m' = T + c, and T + c | T^{s−2} − c forces (−c)^{s−2} = c, i.e. c = 1 and
+s even (q = 3: c² = 1). Then C₁ = (T^{s−2} − 1)/(T + 1), 1 + C₁ = T(T^{s−3} + 1)/(T + 1) = Tg'v₁ = −Tg' gives
+lc(g') = −1: not monic. If (1 + cT)m'C₁² = −v₁: v₁ = λ, C₁ = 1, m' = −λ/(1 + cT) is not a polynomial. Degrees:
+deg m'w₁² = z + 2a − 2, deg (1 + cT)v₁ = t − 1, deg (1 + cT)m'C₁² = z + 2b − 1, deg v₁ = t − 2.
+Case 1 of orientation A: Mg' ≡ −c (mod T^N) with deg(Mg') = deg M + y; if deg M + y ≤ N − 1 then Mg' = −c, so
+M = g' = 1, c = −1 and E = T − 1, which is not a tuple (FUNCTIONFIELD_ES3 Lemma 2.2, Z = 0). So y ≥ N − deg M and
+t = b − y = s − deg M − 1 − y ≤ s − N − 1 ≤ N − 1 < N + 2; hence z + 2a − 2 = deg M + (a − 1) ≥ N + 1. ∎
+*Remark.* The proof of Cor 3.2 uses c² = 1; for general odd q the exact case m'w₁² = −(1 + cT)v₁ needs (−c)^{s−2} = c and
+lc(g') = 1 to be rechecked; not needed here.
