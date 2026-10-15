@@ -1,0 +1,108 @@
+Excerpt: Chenu–Smith, Higher-degree supersingular group actions, HAL hal-03288075 (pdftotext), lines 1-20, 85-112, 286-310, 500-530
+Higher-degree supersingular group actions
+Mathilde Chenu1,2 and Benjamin Smith2,1
+1 Laboratoire d’Informatique (LIX), CNRS, École polytechnique, Institut Polytechnique de Paris, Palaiseau, France
+2
+
+Inria, Palaiseau, France
+
+Abstract We investigate the isogeny graphs of supersingular elliptic curves over F 𝑝2 equipped with a 𝑑-isogeny
+to their Galois conjugate. These curves are interesting because they
+p are, in a sense, a generalization of curves
+defined over F 𝑝 , and there is an action of the ideal class group of Q( −𝑑𝑝) on the isogeny graphs. We investigate
+constructive and destructive aspects of these graphs in isogeny-based cryptography, including generalizations of
+the CSIDH cryptosystem and the Delfs–Galbraith algorithm.
+Keywords: Isogeny-based cryptography, Supersingular elliptic curves, Endomorphisms
+2010 Mathematics Subject Classification: 94A60, 11Y40
+
+1 INTRODUCTION
+Supersingular isogeny graphs of elliptic curves over F 𝑝2 , with their rich number-theoretic and combinatorial
+properties, are at the heart of an increasing number of pre- and post-quantum cryptosystems. Identifying and
+exploiting special subgraphs of supersingular isogeny graphs is key to understanding their mathematical properties,
+...
+𝜓, we have two returning 𝑑-isogenies:
+𝜓 ( 𝑝) : E ( 𝑝) → E
+
+b : E ( 𝑝) → E .
+𝜓
+
+and
+
+Definition 1. Let E/F 𝑝2 be an elliptic curve equipped with a 𝑑-isogeny 𝜓 : E → E ( 𝑝) to its conjugate. We say
+that (E, 𝜓) is a (𝑑, 𝜖)-structure if
+b = 𝜖𝜓 ( 𝑝) with 𝜖 ∈ {1, −1} .
+𝜓
+Each (𝑑, 𝜖)-structure (E, 𝜓) has an associated endomorphism
+
+𝜇 := 𝜋 𝑝 ◦ 𝜓 ∈ End(E) .
+We say that (E, 𝜓) is ordinary resp. supersingular if E is ordinary resp. supersingular.1
+Proposition 1. If (E, 𝜓) is a (𝑑, 𝜖)-structure and 𝜇 is its associated endomorphism, then
+𝜇2 = [𝜖 𝑑]𝜋 E .
+If 𝜋 E is the Frobenius endomorphism of E and 𝑡 E is its trace, then there exists an integer 𝑟 such that [𝑟] 𝜇 = [ 𝑝] +𝜖 𝜋 E
+in End(E), 𝑑𝑟 2 = 2𝑝 + 𝜖𝑡 E in Z, and the characteristic polynomial of 𝜇 is 𝑃 𝜇 (𝑇) = 𝑇 2 − 𝑟𝑑𝑇 + 𝑑𝑝.
+b (because
+Proof. We have 𝜓𝜋 𝑝 = 𝜋 𝑝 𝜓 ( 𝑝) , so 𝜇2 = 𝜋 𝑝 𝜓𝜋 𝑝 𝜓 = 𝜋 𝑝 (𝜋 𝑝 𝜓 ( 𝑝) )𝜓 = 𝜋 E (𝜓 ( 𝑝) 𝜓). Now 𝜓 ( 𝑝) = 𝜖 𝜓
+(E, 𝜓) is a (𝑑, 𝜖)-structure), so 𝜓 ( 𝑝) 𝜓 = [𝜖 𝑑], and therefore 𝜇2 = [𝜖 𝑑]𝜋 E . For the rest: 𝜇 has degree 𝑑𝑝, so
+it satisfies a quadratic polynomial 𝑃 𝜇 (𝑇) = 𝑇 2 − 𝑎𝑇 + 𝑑𝑝 for some integer 𝑎. The first assertion then implies
+[𝑎] 𝜇 = 𝜇2 + [𝑑𝑝] = [𝜖 𝑑]𝜋 E + [𝑑𝑝]. Squaring, we obtain
+( [𝑎] 𝜇) 2 = [𝑑] 2 (𝜋 2E + 𝑝 2 ) + 2[𝑑𝑝] [𝜖 𝑑]𝜋 E = [𝑑] 2 (𝑡 E 𝜋 E ) + 2[𝑑𝑝] [𝜖 𝑑]𝜋 E = [𝜖 𝑑]𝜋 E ( [𝜖 𝑑]𝑡 E + 2𝑑𝑝) ,
+so 𝑎 2 = 𝜖 𝑑𝑡 E + 2𝑑𝑝, hence 𝑑 | 𝑎 2 . But 𝑑 is squarefree, so 𝑑 | 𝑎, and then 𝑟 = 𝑎/𝑑 satisfies the given conditions. 
+Remark 1. In the situation of Proposition 1: if E is ordinary, then Z[𝜇] and Z[𝜋 E ] are orders in Q(𝜋 E ) of
+...
+For each prime ℓ ≠ 𝑝, we write Γℓ (D𝑑, 𝜖 ( 𝑝)) for the subgraph of Γ(D𝑑, 𝜖 ( 𝑝)) where the edges are ℓ-isogenies.
+Observe that the quadratic twist gives an isomorphism of graphs Γ(D𝑑, 𝜖 ( 𝑝))  Γ(D𝑑,−𝜖 ( 𝑝)).
+Proposition 2. Let (E, 𝜓) be a (𝑑, 𝜖)-structure with associated endomorphism 𝜇. If E is supersingular, then
+1. 𝜇2 = [−𝑑𝑝].
+2. The trace of Frobenius satisfies 𝑡 E = −2𝜖 𝑝, and in particular E (F 𝑝2 )  (Z/( 𝑝 + 𝜖)Z) 2 .
+
+Proof. With the notation of Proposition 1: The curve E is supersingular if and only if 𝑝 | 𝑡 E . Now 𝑝 ∤ 𝑑, so 𝑝 | 𝑟
+by Proposition 1. The characteristic polynomial 𝑃 𝜇 (𝑇) of 𝜇 has discriminant (𝑟𝑑) 2 − 4𝑑𝑝; this discriminant cannot
+p
+be positive, so |𝑟 | ≤ 2 𝑝/𝑑. Since 𝑝 | 𝑟, we have 𝑟 = 0, so 𝜇2 = [−𝑑𝑝], and 𝑡 E = −2𝑝
+
+𝜖 = −2𝜖 𝑝.
+
+Proposition 2 tells us that if (E, 𝜓) is a supersingular (𝑑, 𝜖)-structure, then 𝜖 is completely determined by the
+F 𝑝2 -isogeny class of E. Further, 𝑡 E can only be ±2𝑝: the special supersingular traces −𝑝, 0, and 𝑝 (corresponding
+to non-quadratic twists of curves of 𝑗-invariant 0 and 1728, if these are supersingular) cannot occur.
+
+4
+
+4.1 ORIENTATIONS
+Proposition 2 tells us that the associated endomorphism of each supersingular (𝑑, 𝜖)-structure acts like a square
+root of −𝑑𝑝 in the endomorphism ring. We can make this notion more precise using orientations, as described by
+Colò and Kohel in [16] and Onuki in [38]. Before going further, we recall some generalities.
+Let 𝐾 be an imaginary quadratic field, O𝐾 its ring of integers, and O an order in 𝐾. A 𝐾-orientation on an
+elliptic curve E/F 𝑝2 is a homomorphism 𝜄 : 𝐾 → End0 (E); we call the pair (E, 𝜄) a 𝐾-oriented elliptic curve.
+...
+
+max ( 𝑝) is a principal homogeneous space (or torsor) under Cl(O ),
+Theorem 2 makes this precise: it shows that D𝑑,
+𝐾
+𝜖
+p
+sub ( 𝑝) is not empty then it is a principal homogeneous space under Cl(Z[ −𝑑𝑝]).
+and that if D𝑑,
+𝜖
+p
+Theorem 2. Let 𝐾 = Q( −𝑑𝑝), with maximal order O𝐾 , and let 𝜖 = ±1.
+max ( 𝑝).
+• The class group Cl(O𝐾 ) acts freely and transitively on D𝑑,
+𝜖
+p
+sub ( 𝑝).
+sub
+• If D𝑑, 𝜖 ( 𝑝) ≠ 0, then Cl(Z[ −𝑑𝑝]) acts freely and transitively on D𝑑,
+𝜖
+p
+Proof. Let O = O𝐾 or Z[ −𝑑𝑝]. Since 𝑝 does not split in 𝐾, Theorem 1 tells us that Cl(O) acts freely and
+pr
+transitively on 𝜌(Ell(O)) ⊆ SS O ( 𝑝). Given the isomorphism of Proposition 3, it only remains to prove that
+pr
+pr
+𝜌(Ell(O)) = SS O ( 𝑝). For any (E, 𝜄) in SS O ( 𝑝), Proposition 3.3 of [38] tells us that (E, 𝜄) or (E, 𝜄) ( 𝑝) is in
+pr
+𝜌(Ell(O)). In our case, both are in 𝜌(Ell(O)), so the action on SS O ( 𝑝) is free: since E [𝔡] = E [𝑑] ∩ ker 𝜇 = ker 𝜓,
+p
+pr
+
