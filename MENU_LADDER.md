@@ -70,3 +70,53 @@ Consequences: (i) T, T′ both linear is impossible for every D (for odd D the t
 with t − t′ of the wrong sign — direct check); (ii) the CRT shape "a constant, m linear" (`scripts/z18_quad.py`) never passes
 positivity (0 of 5041–33489 grid points, every tested D and (c₀, k)): for D = 4 directly, b = Y² + pY + q and the cofactor
 Y² − pY + p² − q cannot both have real roots (would need 3p² < 4q < p²).
+
+## 3. Witness localisation at μ = 0
+
+**Proposition 3.1 (PROVED).** Let k = 1, c₀ odd squarefree, D ≥ 1, φ = c₀Y^D + 1, β := θ(θ − 1). For a root family through
+μ = 0 with witness polynomial f (Type II: f = 4acd − 1; Type I: −d), α := f(θ) must satisfy
+  W(f) := Π_{v|2}(α, β)_v = −1, equivalently Π_{v odd, v ∤ c₀} ((β mod v)/v)^{v(α)} = −1.
+*Proof.* The first form is MENU_STERILITY Theorem A's computation at μ = 0 (u ≡ 1 at odd S-places where ρ − θ = 1 − θ is
+an S-unit, u → 0 at 2; MENU_STERILITY §4.2). Product formula Π_v(α, β)_v = 1: real places of A are the negative real root
+(D odd), where β > 0 ⇒ symbol 1. At q | c₀: 1/θ is a root of x^D + c₀, Eisenstein at q, so q is totally ramified with
+uniformiser ϖ = 1/θ and β = ϖ^{−2}(1 − ϖ); the tame symbol (α, β)_𝔮 = ((−1)^{v(α)v(β)} α^{v(β)} β^{−v(α)} mod 𝔮 / 𝔮) has
+v(β) = −2, so it equals ((1 − ϖ)^{−v(α)} mod 𝔮 / 𝔮) = 1. At the remaining odd v, β is a unit (N(θ − 1) = ±16/c₀) and the
+symbol is ((β mod v)/v)^{v(α)}. ∎
+`scripts/z18_witness2.py` evaluates W(f) with PARI `nfhilbert`; O240 Theorem B's witness gives W = −1 (2-part −1,
+c₀-part +1, other odd −1), its sign-flipped constant gives +1. **Reading:** the witness condition is a coin-flip parity over
+the primes of Res(f, φ); it does not obstruct anything structurally (consistent with §1).
+
+## 4. The first two rungs: D = 1 and D = 2 are sterile at μ = 0 (Type II)
+
+**Theorem 4.1 (PROVED).** Let c₀, k > 0, k ≡ 1 (mod 8), c₀ + k = 4^J, n = c₀Y² + k. Every Type II polynomial family on n
+(a, b, c, d ∈ ℚ[Y] with positive leading coefficients, cn = 4abcd − a − b) is *non-escaping*: its witness f = 4acd − 1 is
+≡ a rational constant f₀ (mod n) in ℚ[Y]. Consequently no Type II root family of degree D = 2 (Y = 2^{s/2}, i.e. the
+family c₀·4^t + k with Y = 2^t) contains μ = 0 in the closure of its class.
+*Proof.* m := 4abd − n = (a + b)/c ∈ ℚ[Y] has positive leading coefficient. If deg(abd) > 2 then deg m = deg(abd) ≤
+max(deg a, deg b), forcing (say) a, c, d constant and b ∝ n + const of degree 2 — contradiction; if deg(abd) < 2 then
+lc(m) = −c₀ < 0. So deg(abd) = 2, deg m ≤ 1. Shapes (deg a, deg b, deg d), up to a ↔ b:
+(0,0,2): m | a + b constant ⇒ m, c constant; f = c(n + m)/b − 1 ≡ cm/b − 1 (mod n).
+(2,0,0): m constant ⇒ a ∝ n + m, f = c(n + m)/b − 1 ≡ cm/b − 1. m linear with root Y₀: a(Y₀) = −b and
+4a(Y₀)bd = n(Y₀) give −4b²d = n(Y₀) > 0, impossible (b, d positive constants).
+(1,1,0): m constant: at the root of a, n + m = 0, impossible (n, m > 0). m linear with root Y₀: n(Y₀) = 4a(Y₀)b(Y₀)d =
+−4d·a(Y₀)² ≤ 0, impossible.
+(1,0,1): at the root Y_a of a, m(Y_a) = −n(Y_a) < 0; but m is a positive constant, or linear with c = (a + b)/m constant
+and m(Y_a) = b/c > 0. Impossible.
+So f ≡ f₀ ∈ ℚ (mod n) whenever a family exists. Then (f(Y)/n(Y)) = (f₀′/n(Y)) (f₀′ = numerator·denominator of f₀) is a
+Kronecker character of n(Y); near μ = 0, n(Y) → 4^J at odd places and → k ≡ 1 (8) at 2, a profinite unit square, so the
+symbol is +1, contradicting the Type II witness lemma (NEAR_SQUARE Lemma 1.3: = −1). ∎
+*Scope.* Type II only; the Type I analogue (NEAR_SQUARE Thm 2.2's (0,0,2)/(1,0,1)/(0,1,1) analysis transplanted to
+c₀Y² + k) is not written — (0,0,2) goes through verbatim, (1,0,1) needs NEAR_SQUARE's Λ-argument redone: open.
+*Not T1.* The rung-2 obstruction is archimedean (positivity), not integral-point: Y* is NOT in the profinite closure of the
+Pell points 15Y² + 1 = w² (Y_j ≡ 1 mod 17 forces j odd, hence Y_j odd; `/tmp`-free check in §5), and Y* ∉ Ster (§1).
+
+**Corollary 4.2 (the ladder at unit-square points; PROVED/EVIDENCE as marked).**
+| D | curve w² = c₀Y^D + k | integer T1 points | descent at μ = 0 | root menu reaches μ = 0? |
+|---|---|---|---|---|
+| 1 | line | dense (Schinzel) | obstructs (Prop 1.1) | no (PROVED, Cor 1.5) |
+| 2 | conic (Pell) | infinitely many, not dense at Y* (c₀ = 15) | silent | no for Type II (Thm 4.1) |
+| 3, ≥ 5 odd | genus ≥ 1 | finitely many (Siegel) | silent | (15,1): no family found (EVIDENCE §5) |
+| 4 | genus 1 | finitely many | silent | yes for (3,1), (7,9), (23,41), (39,25) (SG, O239/O240); no z14 window for (15,1), (31,33), (7,57), (63,1), (47,17), (55,9) (O239 Cor 2.8) |
+So the ladder's first two rungs are sterile for structural reasons (Schinzel at D = 1, positivity at D = 2), and the
+rung where escapes appear (D = 4) is the first where BOTH the integer T1 points become finite AND a factorisation supply
+(Sophie Germain) exists in base 2 (Aurifeuille: only 4X⁴ + 1 among binomials, Capelli).
