@@ -1,0 +1,18 @@
+k=1 r=3 q=27 S=80 caseB_finite=9.3056215907e+00 tail=4.7309e-05 caseA=5.7299e-02 certified_total(x1.01)=9.456597e+00 q-3=24 ratio=3.940e-01
+k=1 r=4 q=81 S=80 caseB_finite=2.4812443420e+01 tail=3.3029e-05 caseA=2.4069e+00 certified_total(x1.01)=2.749160e+01 q-3=78 ratio=3.525e-01
+k=1 r=5 q=243 S=80 caseB_finite=1.3168011087e+01 tail=1.8217e-05 caseA=2.1302e+00 certified_total(x1.01)=1.545117e+01 q-3=240 ratio=6.438e-02
+k=1 r=6 q=729 S=80 caseB_finite=8.9347203282e+00 tail=4.4668e-06 caseA=2.0428e+00 certified_total(x1.01)=1.108731e+01 q-3=726 ratio=1.527e-02
+k=1 r=7 q=2187 S=80 caseB_finite=7.6253728180e+00 tail=4.3606e-06 caseA=2.0142e+00 certified_total(x1.01)=9.735979e+00 q-3=2184 ratio=4.458e-03
+k=1 r=8 q=6561 S=80 caseB_finite=7.2051766109e+00 tail=6.4000e-07 caseA=2.0047e+00 certified_total(x1.01)=9.302005e+00 q-3=6558 ratio=1.418e-03
+k=1 r=9 q=19683 S=80 caseB_finite=7.0677628784e+00 tail=7.6008e-06 caseA=2.0016e+00 certified_total(x1.01)=9.160039e+00 q-3=19680 ratio=4.654e-04
+k=1 r=10 q=59049 S=80 caseB_finite=7.0224138970e+00 tail=5.6026e-06 caseA=2.0005e+00 certified_total(x1.01)=9.113174e+00 q-3=59046 ratio=1.543e-04
+k=1 r=11 q=177147 S=80 caseB_finite=7.0074332630e+00 tail=8.9275e-07 caseA=2.0002e+00 certified_total(x1.01)=9.097685e+00 q-3=177144 ratio=5.136e-05
+k=1 r=12 q=531441 S=80 caseB_finite=7.0024715165e+00 tail=7.7049e-06 caseA=2.0001e+00 certified_total(x1.01)=9.092563e+00 q-3=531438 ratio=1.711e-05
+k=1 r=13 q=1594323 S=80 caseB_finite=7.0008217784e+00 tail=1.0690e-07 caseA=2.0000e+00 certified_total(x1.01)=9.090850e+00 q-3=1594320 ratio=5.702e-06
+k=1 r=14 q=4782969 S=80 caseB_finite=7.0002736222e+00 tail=6.0681e-07 caseA=2.0000e+00 certified_total(x1.01)=9.090284e+00 q-3=4782966 ratio=1.901e-06
+k=1 r=15 q=14348907 S=80 caseB_finite=7.0000910859e+00 tail=5.8424e-07 caseA=2.0000e+00 certified_total(x1.01)=9.090095e+00 q-3=14348904 ratio=6.335e-07
+k=1 r=16 q=43046721 S=80 caseB_finite=7.0000303467e+00 tail=3.3674e-09 caseA=2.0000e+00 certified_total(x1.01)=9.090031e+00 q-3=43046718 ratio=2.112e-07
+k=1 r=17 q=129140163 S=80 caseB_finite=7.0000101139e+00 tail=1.9918e-11 caseA=2.0000e+00 certified_total(x1.01)=9.090010e+00 q-3=129140160 ratio=7.039e-08
+k=1 r=18 q=387420489 S=80 caseB_finite=7.0000033711e+00 tail=1.2008e-13 caseA=2.0000e+00 certified_total(x1.01)=9.090003e+00 q-3=387420486 ratio=2.346e-08
+k=1 r=19 q=1162261467 S=80 caseB_finite=7.0000011237e+00 tail=7.3458e-16 caseA=2.0000e+00 certified_total(x1.01)=9.090001e+00 q-3=1162261464 ratio=7.821e-09
+ALL OK (r = 3..19; r >= 20 not certified: fz_sum.c helpers take q as int, overflow for q > 2^31)

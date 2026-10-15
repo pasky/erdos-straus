@@ -10,13 +10,13 @@ Routes (FF_STERILE_SMALL Lemma 7.2):
  (vi)  (a1', z, K): b1 + F = a1' z, b1 F = (T^alpha + z)/K   4 (q-1) q^zeta N*(lam) N*(ka)
 clsr = FF_STERILE_SMALL Lemma 1.4 (q^j cls(n, d, rho + j)), cls = min(trivial, Lenstra 2, Coppersmith m + k, C(n, d)).
 Tail alpha > AMAX (Lemma 7.2(b)): count <= (alpha+1)^3 sqrt(8) q^{(alpha+1)/2} 3^{alpha/2}.
-usage: fz1_caseA.py r[,r...] [AMAX=40]"""
+usage: fz1_caseA.py r[,r...] [AMAX=40] [exact_file]"""
 import sys, math
 from fractions import Fraction as Fr
 from math import comb, factorial
 from functools import lru_cache
 
-def run(q, AMAX):
+def run(q, AMAX, EX=None):
     Ns = lambda d: 1 if d <= 0 else q**d - q**(d - 1)
     @lru_cache(None)
     def cop(n, d, rho):
@@ -58,7 +58,7 @@ def run(q, AMAX):
                          Ns(la) * Ns(be) * clsr(al + la, la + be + ka, la + be, 1),
                          2 * (q - 1) * q**ze * (factorial(al) // (factorial(be) * factorial(ka) * factorial(f))),
                          4 * (q - 1) * q**ze * Ns(la) * Ns(ka)]
-                    acc += min(B)
+                    acc += EX[(al, la, be, ka)] if EX is not None and (al, la, be, ka) in EX else min(B)
         tot += Fr(acc, q**al)
     a0 = AMAX + 1
     rho = ((a0 + 2) / (a0 + 1))**3 * math.sqrt(3 / q)
@@ -67,6 +67,14 @@ def run(q, AMAX):
 
 if __name__ == '__main__':
     AMAX = int(sys.argv[2]) if len(sys.argv) > 2 else 40
+    EX = None
+    if len(sys.argv) > 3:   # exact counts from fz1_caseA_enum (filtered): lines "A alpha lam be ka count"; complete levels only
+        EX = {}; lev = {}
+        for l in open(sys.argv[3]):
+            f = l.split(); k = tuple(map(int, f[1:5])); EX[k] = int(f[5]); lev[k[0]] = lev.get(k[0], 0) + 1
+        for al, n in lev.items():   # every pattern of a listed level must be present
+            need = sum(1 for be in range(al + 1) for ka in range(al - be + 1) for la in range(max(al - be - ka, be) + 1))
+            if n != need: sys.exit(f"incomplete Case A level {al}: {n} of {need}")
     for r in [int(x) for x in sys.argv[1].split(',')]:
-        q = 3**r; tot, tail = run(q, AMAX)
+        q = 3**r; tot, tail = run(q, AMAX, EX)
         print(f"r={r} q={q} k=1: Case A exact-pattern mass (alpha<={AMAX}) = {float(tot)*(1+1e-12):.10e}  tail <= {tail:.10e}")
