@@ -25569,4 +25569,39 @@ def check_fX():
 check_fX()
 
 
+def check_fY():
+    # (fY) CAP_GROWING (O229/R230): R230 from-scratch — overflow cube Prop 1.3 (den z = R^2, rad R | y; brute force over
+    # all primes l = 3 (4) < 2000, e <= 3) and Thm 1.4 class distinctness/QNR (l < 2*10^4); PM-II covering moduli are
+    # exactly h = 3, 7 (h <= 2*10^4, PROVED for all h via tau_3); CONJECTURE PM-SQ_± 0 exceptions for n = 1 (8) <= 2*10^5,
+    # no ticket at odd squares <= 2*10^4 (T1).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("CAP_GROWING subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r230_cube.py", "2000"])
+    for e, n in ((1, 14472), (2, 25398), (3, 38982)):
+        assert f"LMAX=2000 emax={e}: hypothesis cases {n} all den=R^2 ok" in out, out[-2000:]
+    for e in range(4):
+        assert f"Thm1.4 triples e={e}, l<20000: classes distinct, all QNR" in out, out[-2000:]
+    out = run(["review_r230_pmcover.py", "20000"])
+    assert "h <= 20000: covering h = [3, 7]; all classes QNR" in out and "K with tau3(K) >= 2K-1: [1, 2]" in out, out
+    out = run(["review_r230_sqpm.py", "200000", "20000"])
+    assert "non-squares n = 1 (8) <= 200000: 24776, exceptions: [] (0)" in out, out[-2000:]
+    assert "odd squares <= 20000 with a ticket (complete |u| <= n+1 search): []" in out, out[-2000:]
+    print(f"== (fY) CAP_GROWING R230: overflow cube exact (den z = R^2) for l < 2000, e <= 3; Thm 1.4 classes distinct "
+          f"QNR; PM-II covering moduli = {{3, 7}}; PM-SQ_± 0 exceptions n = 1 (8) <= 2e5, none at odd squares; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fY()
+
+
 print("\nall checks passed")
