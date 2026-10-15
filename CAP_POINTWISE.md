@@ -172,3 +172,8 @@ the window can be dead at every cap. The ES sign χ = −1 of the campaign ((J)1
 forced; Type I carries the opposite sign. So the cap opens no free Type I dimension at the subgroup level; Type I's
 contribution to ES^{(y,e)} is a genuine lottery (factorisation of (pk′+1)/4 into non-residues mod p), whereas
 Type II's subgroup level is free and only its exponent budget is a lottery (Lemma 2.1).
+* **Exact verification of Thm 1.1 (EVIDENCE for the code; the theorem is proved):** `z12_window_scan.py 1000000 230 1`
+  (data/z12_window_scan_1e6_exact.txt): for every prime p ≡ 1 (4) ≤ 10⁶ the q*-window solution and 127 735 window
+  solutions in total rebuilt and checked against Def 1.1 with exact rationals. `z12_selfmute.py 200000`
+  (data/z12_selfmute_2e5.txt): all 49 776 odd non-squares n ≡ 1 (4) ≤ 2·10⁵ (composite n included), least window
+  ≤ 263, solution verified exactly, cap ≤ 55 at the least window.
