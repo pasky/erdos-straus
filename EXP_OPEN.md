@@ -95,3 +95,33 @@ divisor classes and constant-gap / constant-ratio exponential classes of any deg
 the 30·4^t + 1 half is irrelevant there since μ = 0 lies in the even half). NOT covered: families in which no denominator
 has constant gap or ratio (all of 4x − n, 4y − n, 4z − n non-constant and none of x, y, z a constant multiple of n), i.e.
 MENU_LADDER's general T, T′ normal form with T′ non-constant. CONJECTURE 6.4 is reduced to these *moving-gap* families.
+
+## 2. Moving-gap families: the binomial menu (II-ac) — a new cubic escape for 3·2^s + 1, none for 15·2^s + 1
+
+(I3) Theorem W leaves the moving-gap families. The cheapest ones are again *binomial*: in Type II
+(x, y, z) = (abd, acdn, bcdn), cn = 4abcd − a − b, the identity cn + a = b·(4acd − 1) shows that **with a, c constant**
+the witness f = 4acd − 1 is a polynomial factor of the binomial c·c₀Y^D + (ck + a); the gap m = (a + b)/c moves (b is a
+polynomial). Call this menu (II-ac) (its mirror (II-bc) is the same with a ↔ b). Capelli: the binomial is reducible iff
+K := (ck + a)/(cc₀) ∈ ℚ^p (p | D odd prime) or K ∈ 4ℚ⁴ (4 | D), i.e. a = c′(c₀u^p − kv^p), c = c′v^p (resp.
+a = c′(4c₀u⁴ − kv⁴), c = c′v⁴). By Lemma 2.1 of MENU_LADDER the family f = κP (P a monic factor product) is valid near
+μ = 0 iff d = (f + 1)/(4ac) and b = (cn + a)/f are integral at Y = 1 (ℤ[1/2]) and Y = 0 (ℤ_(2)); positivity is automatic
+(P has no positive root). Test (exact, `scripts/z19_iiac.py`): v₂(κ) is forced by f(0) ∈ ℤ_(2)^×, so v₂(f(1)) = e is forced,
+and the odd part w of f(1) must satisfy w ≡ −2^{−e} (mod q), q = odd(a)·odd(c), w | odd(c·4^J + a) — a short arithmetic
+progression, no factoring needed.
+
+**Proposition 2.1 (a cubic-root family through the unit-square point of 3·2^s + 1; PROVED, verified exactly).**
+For s ≡ 0 (mod 36), s ≥ 18, put Y = 2^{s/3}, n = 3Y³ + 1 = 3·2^s + 1, a = 80, c = 1,
+  d = (21Y + 64)/320, b = (Y² − 3Y + 9)/7, x = abd, y = acdn, z = bcdn.
+Then 4/n = 1/x + 1/y + 1/z. *Proof.* cn + a = 3(Y³ + 27) = 3(Y + 3)(Y² − 3Y + 9) and 4acd − 1 = 21(Y + 3), so
+cn + a = b(4acd − 1), which is the Type II identity. Integrality: 320 | 21Y + 64 iff 64 | Y and Y ≡ 1 (mod 5), i.e.
+s/3 ≥ 6 and 4 | s/3; 7 | Y² − 3Y + 9 iff Y ≡ 1 (mod 7), i.e. 3 | s/3. Positivity is clear. (Checked numerically for
+s = 36, 72, …, 180.) ∎
+*Significance.* The class s ≡ 0 (mod 36) contains μ = 0, the profinite unit-square point of 3·2^s + 1, and the family has
+moving gap 4x − n = a + b = 80 + (Y² − 3Y + 9)/7 and root degree D = 3. So (i) the cubic rung of MENU_LADDER's ladder is
+NOT sterile at a unit-square point (for (3, 1)); (ii) the escape uses a *cyclotomic* factor Y + 3 of Y³ + 3³ — the shape
+that EXP_105 Prop 2.7 / Theorem W prove useless for constant-gap windows — because the fixed modulus is now 4ac = 320 and
+the 2-adic condition reads f(0) = 63 ≡ −1 (mod 64) while f(1) = 84 ≡ −1 (mod 5). It is a second, independent mechanism
+beside the Sophie-Germain window m = 11 (MENU_STERILITY Theorem B).
+
+**Computation 2.2 (EVIDENCE, `z19_iiac.py c₀ k 10⁸ 60 13 1,2 10`: c′ ≤ 60, u, v ≤ 10, p ≤ 13 and SG, D ∈ {e, 2e}).**
+(3, 1): exactly the family of Prop 2.1 (and its D = 6 reparametrisation). (7, 9): none. **(15, 1): none.**
