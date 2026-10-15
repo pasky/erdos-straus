@@ -94,4 +94,44 @@ My own engine (Python, dyadic λ = 2 boxes, integer windows, rational arithmetic
 Hardy–Ramanujan exponent patterns up to 2¹³⁰ (my own C_k(η) envelope beyond), Coppersmith candidates verified in exact integer
 arithmetic, routes as re-derived in 4.1) bounds D_P(N) / D_Q(F) for **every** integer in the cell. If my (valid) bound ≤ the
 author's table value, the author's value is independently certified. Results (author / reviewer):
-RESULTS_PLACEHOLDER
+| cell (bits) | P: author / reviewer | Q: author / reviewer |
+|---|---|---|
+| j=128 (32–32.25) — the binding r-range | 5.282e7 / 4.632e7 (1.140) | 7.526e8 / 7.239e8 (1.040) |
+| j=129 | 5.162e7 / 4.872e7 (1.060) | 8.207e8 / 7.925e8 (1.036) |
+| j=131 | 7.349e7 / 5.416e7 (1.357) | 1.090e9 / 1.055e9 (1.033) |
+| j=160 (40) | 9.363e8 / 8.185e8 (1.144) | 2.339e10 / 2.263e10 (1.033) |
+| j=200 (50) | 2.630e10 / 2.323e10 (1.132) | 1.471e12 / 1.435e12 (1.025) |
+| j=300 (75) | 5.166e13 / 4.688e13 (1.102) | 4.587e16 / 4.571e16 (1.004) |
+All 12 cells: **author ≥ reviewer, so these cells — including the one carrying 0.375 of the 0.487 at b = 32 (Q k = 1 and
+P K = 1) — are independently certified.** With my bound the level-1 Q term at r ∈ [2³², 2^{32.25}) is 0.337 (author 0.350).
+Replay: the author's se_box (hashes match MANIFEST.txt) reproduces P j = 128–131 and Q j = 128, 129 bit-for-bit.
+*Box ratios λ > 2.* All P_q1 cells (bits 200–600) and P_q4 j ≥ 512 use λ = 2^s, s = 2…9, a code path the author's
+`se_box_check.py` never exercised (it runs s = 1). `scripts/review_se_boxcheck.py` runs the author's binary in SE_EXACT/SE_DUMP
+mode with s = 1, 2, 3, 4 for P at N = 17⁵, 7⁷, 3¹³, 101³, 23⁵ and Q at F = 17³, 23³, 9973, 99991, 7⁵, buckets the reviewer's exact
+enumeration into the dumped boxes and rows: **0 violations** (every occupied box and row dumped and bounded). I could not
+independently re-certify a λ ≥ 8 cell at its real size (bits ≥ 192: ~10⁶ boxes in my exact-arithmetic Python); one λ = 4 cell
+(P j = 600, bits 150) is RESULT_600.
+
+### 4.3 Combiner (from scratch, `scripts/review_se_combine.py`)
+Independent of se_r0.py: exact rational location of table cells, per-monomial maxima of the tail list over each N-range (handles
+the seven negative-exponent Q monomials exactly instead of capping), explicit geometric remainder with the monomial-wise ratio
+2^{2(max(e,0)(b+¼) − hb)}((K+2)/K)^p computed at the stopping index, mpmath/float64-log evaluation with 1e−9 inflation.
+Over all 2273 ranges b = 32, …, 600: **0 failures, max Ŝ = 0.486679 at b = 32** (author 0.486702; the difference is the
+author's extra (1+1e−6) and capping). Top terms at b = 32: Q₁ 0.3504, P₁₉ 0.0923, P₁ 0.0246, P₂₁ 0.0143, P₃ 0.0023, P₂₃ 0.0022
+— so "P tail ≈ 0.1" in §3.4 is right, and the margin 0.0133 is ~2.7% of S.
+
+### 4.4 se_tail.py (all-N tail): audit
+Line-by-line (same derivation work as 4.1, now with normalised boxes N^{x}, u = 1/M, valid for every N ≥ N₀ because each bound is a
+fixed finite list of monomials with box-independent constants):
+* P (M = 32, N₀ = 2^600): capped exponents (a ≤ N^{(1−x_d)/2}, d ≤ N^{1−2x_a}, acd ≤ N) valid; pe = ¼N^{1−s₃}; Σ1/a ≤ 1 + u ln N ≤
+  (1/L₀ + u) ln N for N ≥ N₀; f ∈ [3N^{s₃}, 4N^{s₃′}]; n ≤ 3N (C), ≤ 5N^{1+2x_c′+x_d′} (D), ≤ 2N^{1+x_c′} (E), m ≤ ½N^{1−x_a}
+  (F), ½N^{1−x_d} (G); e ≥ ¼N^{1−s₃′}; b ∈ [¼N^{1−x_a′−x_d′}, ½N^{1−x_a−x_d}]; 2^{ω(e)} ≤ C_ω(0.1)e^{0.1} with
+  C_ω = ∏_{p<1024}2p^{−0.1} over primes with p^{0.1} < 2; τ₃ factor C₃(0.3)(N/2)^{0.3}. All valid.
+* Q (M = 16, N₀ = 2^100): a ≤ ½N^{1+u−x_c−x_d} (uses f ≤ F+2 ≤ N^{1+u}), a ≥ ¼N^{1−x_c−x_d−2u}; the AC integer
+  aF + c ≤ 1.51N^{2−x_c−x_d} ≤ N^{2+u−x_c−x_d} (needs c ≤ F/d ≤ N^{1−x_d} and N^u ≥ 1.51 — true, N^u ≥ 2^{6.25}, but this
+  argument is **not written anywhere**; MINOR); CD n ≤ 5F² (c²d ≤ (cd)² ≤ F²); fac Σ_{a₀≤a≤a₁}1/a ≤ 1 + ln(2N^{3u}) ≤ 1 + ln 8 + 3u ln N;
+  fca, AD valid.
+* tail cop(): the linear-in-L argument (g(L) = g₀ + s₀(L−L₀) < 0 for L ≥ L₀; J = ⌈N^κ⌉ with κ ≥ k₁ (slope) and κ > k₂ (value);
+  then window/(sJ) < X_max, X_J < (X_max+1)/2 < X_max) is correct; count ≤ (w−1)(N^κ+1) is what is emitted. ✓
+* Decrease in r and the r ≥ 2^{600.25} extension: see §1. ✓
+**Verdict on the numerics: SOUND** (MINOR documentation defects below).
