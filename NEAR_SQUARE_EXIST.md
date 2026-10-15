@@ -77,8 +77,7 @@ gcd(c₀, t) = 1, c₀ ∈ {s², 2s²}; c₀ = 2s² forces t odd and √2 ∈ �
 **Corollary 2.3 (u-side classification; PROVED for words with A odd).** For n = m² + k, k ≥ 1, u ≥ 1, write
 K = k + u = f²K₀ (K₀ squarefree). The u-level is sign-clean at generic m (Thm 2.1(b)) iff
  (a) every odd prime of K₀ divides u, and
- (b) K₀ ≡ 3 (4): no condition; K₀ ≡ 1 (4): u ≡ 1 (4) or 4 | u; K₀ = 2K₁, K₁ ≡ 1 (4): u ≡ 2 (8)·… precisely u = 2u′ with
-     u′ ≡ 1 (4), or 8 | u; K₀ = 2K₁, K₁ ≡ 3 (4): u = 2u′ with u′ ≡ 3 (4), or 8 | u;
+ (b) K₀ ≡ 3 (4): no condition; K₀ ≡ 1 (4): u ≡ 1 (4) or 4 | u; K₀ = 2K₁, K₁ ≡ 1 (4): u = 2u′ with u′ ≡ 1 (4), or 8 | u; K₀ = 2K₁, K₁ ≡ 3 (4): u = 2u′ with u′ ≡ 3 (4), or 8 | u;
 otherwise it carries an admissible χ = −1 word on a positive density of m-classes (Thm 2.1(a)).
 *Proof.* F ⊂ Σ_u ⟺ the character (D_F/·) is trivial on V := Gal(ℚ(ζ_{8uK})/Σ_u) = {c : c ≡ 1 (mod u), (−u/c) = 1}.
 For c ≡ 1 (mod u) the value (−u/c) depends only on c mod 8, and the 2-adic image V₂ of V is {1, 5} (u ≡ 1 (4)),
