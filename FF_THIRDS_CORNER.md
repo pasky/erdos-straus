@@ -47,3 +47,21 @@ s ≥ 4; s = 3 has no tuple, FUNCTIONFIELD_ES3 Lemma 2.1 (R173 repair D1)). Then
 *The cyclotomic tuples (R217/R218 M2 family).* Over F₃ with s = 3^h + 1 and v₁ = −1: lc(v) = −1 = lc(w + C)/lc(g') forces
 lc(w + C) = 2, i.e. a = b; so 2(a − 1) ≤ s − 2, max(a − 1, b) = a ≤ s/2 < N(s) + 1. By Cor 1.3 **no cyclotomic tuple
 covers x*_c**, for any h, any c. The same holds for every tuple with a = b (equal-degree w, C).
+
+*Check (EVIDENCE, `scripts/zt_liouville.py` on the exact census `bsE_famcount 3 2 17 print`, 348 tuples, s ≤ 17).*
+Every tuple re-verified ((B), Lemma 1.1); Lemma 1.2 tested at all 80 polynomial points u of degree 1..4 with u(0) = 1:
+0 violations. Lopsided tuples (max(a − 1, b) ≥ N(s) + 1) are not rare at small s (e.g. 26/38 at s = 16); the exclusion is an
+asymptotic statement about the thirds corner, not a small-s thinning. 24 tuples satisfy the exact alternative (ii), all at
+u = 1 + cT − T² (and two degree-4 points); see Prop 1.4.
+
+**Proposition 1.4 (exact tuples at polynomial points; PROVED, q odd).** Let u be a polynomial, u(0) = 1, h = deg u ≥ 1.
+A tuple with w₁ = −uC₁ exists iff lc(u) = −1 and there are s ≥ 3 and a monic g₂ | (u − 1)/T (up to the unit) with
+v₁ := −(u − 1)/(Tg₂) satisfying u | T^{s−2} + v₁ (then m'C₁² := −(T^{s−2} + v₁)/u, any split with C₁ monic, T ∤ C₁,
+and g' = C₁g₂, w₁ = −uC₁). For such a tuple E = g₂T^{s−1} − u, so it covers x_u at every level it lives on.
+*Proof.* As in Lemma 1.2: w₁ + C₁ = (1 − u)C₁ = Tg'v₁ and gcd(C₁, Tv₁) = 1 give C₁ | g'; put g' = C₁g₂, then
+g₂v₁ = −(u − 1)/T and m'w₁C₁ = −um'C₁² = T^{s−2} + v₁. Leading coefficients: w₁ monic forces lc(u) = −1. Conversely the
+displayed data satisfy (B₁), and E = Tg'm'w₁ − 1 = Tg₂(T^{s−2} + v₁) − 1 = g₂T^{s−1} − u. ∎
+*Reading.* For h = 1 (u = 1 − T, the only lc = −1 case) T ≡ 1 (mod u), so T^{s−2} + v₁ ≡ 1 + 1 = 2 ≢ 0: **x*_c escapes the
+exact tuples because T is trivial modulo u — the same "2 ≠ 0" as the char-2 Frobenius family of FF_STERILE_PUSH §4.**
+For h ≥ 2 with lc(u) = −1 the condition T^{s−2} ≡ −v₁ (mod u) is a discrete-logarithm condition in (F_q[T]/u)^*; it holds
+for s in an arithmetic progression as soon as −v₁ ∈ ⟨T⟩. E.g. u = 1 + cT − T² is covered this way (s = 5, 6, 13, 14 in the census).
