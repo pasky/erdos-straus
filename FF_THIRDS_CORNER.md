@@ -107,7 +107,7 @@ x*_c. Previously: level ≤ 8 (FUNCTIONFIELD_ES3).
 polynomial u with u(0) = 1:  E ≡ −u (mod T^{N+1})  ⟺  **m'w₁² + u·v₁ ≡ 0 (mod T^{N+1})**  ⟺  u·m'C₁² + v₁ ≡ 0 (mod T^{N+1}).
 *Proof.* E·C₁ ≡ w₁ (mod T^{s−1}) (Lemma 1.1) and C₁(0) ≠ 0 give E ≡ w₁/C₁ (mod T^{s−1}), so covering ⟺ w₁ + uC₁ ≡ 0
 (mod T^{N+1}). From m'w₁C₁ = T^{s−2} + v₁, C₁ ≡ v₁/(m'w₁) (mod T^{s−2}); multiply by m'w₁ (a T-unit). The third form is the
-same computation with w₁ = v₁/(m'C₁) (mod T^{s−2}), multiplied by uC₁·m'C₁/… (i.e. w₁ + uC₁ ≡ 0 ⟺ v₁ + u m'C₁² ≡ 0). ∎
+same computation with w₁ ≡ v₁/(m'C₁) (mod T^{s−2}), multiplied by the T-unit m'C₁. ∎
 
 **Corollary 3.2 (second Liouville constraint at x*_c; PROVED, q = 3; the exact case for general odd q is left open).**
 A tuple covering x*_c (k = 2, N = N(s) ≥ 4) satisfies, besides max(a − 1, b) ≥ N + 1 (Cor 1.3),
@@ -118,10 +118,47 @@ side w₁ is a divisor of M = m'w₁ of degree at least N + 1 − deg M (so deg 
 is 0 or has degree ≥ N + 1. If m'w₁² = −(1 + cT)v₁: gcd(m'w₁, v₁) = 1 (a common prime divides T^{s−2}, and T ∤ v₁) forces
 v₁ = λ ∈ F₃^*, w₁ = 1, m' = −λ(1 + cT), so λ = −c, m' = T + c, and T + c | T^{s−2} − c forces (−c)^{s−2} = c, i.e. c = 1 and
 s even (q = 3: c² = 1). Then C₁ = (T^{s−2} − 1)/(T + 1), 1 + C₁ = T(T^{s−3} + 1)/(T + 1) = Tg'v₁ = −Tg' gives
-lc(g') = −1: not monic. If (1 + cT)m'C₁² = −v₁: v₁ = λ, C₁ = 1, m' = −λ/(1 + cT) is not a polynomial. Degrees:
+lc(g') = −1: not monic. If (1 + cT)m'C₁² = −v₁: gcd(C₁, v₁) = 1 forces C₁ = 1, v₁ = −(1 + cT)m', and
+m'w₁ = T^{s−2} + v₁ gives m'(w₁ + 1 + cT) = T^{s−2}, so m' = 1, w₁ = T^{s−2} − 1 − cT; then w₁ + C₁ = T(T^{s−3} − c) =
+Tg'v₁ = −Tg'(1 + cT) gives lc(g') = −c, so c = −1 and (1 − T) | T^{s−3} + 1, false at T = 1. Degrees:
 deg m'w₁² = z + 2a − 2, deg (1 + cT)v₁ = t − 1, deg (1 + cT)m'C₁² = z + 2b − 1, deg v₁ = t − 2.
 Case 1 of orientation A: Mg' ≡ −c (mod T^N) with deg(Mg') = deg M + y; if deg M + y ≤ N − 1 then Mg' = −c, so
 M = g' = 1, c = −1 and E = T − 1, which is not a tuple (FUNCTIONFIELD_ES3 Lemma 2.2, Z = 0). So y ≥ N − deg M and
 t = b − y = s − deg M − 1 − y ≤ s − N − 1 ≤ N − 1 < N + 2; hence z + 2a − 2 = deg M + (a − 1) ≥ N + 1. ∎
 *Remark.* The proof of Cor 3.2 uses c² = 1; for general odd q the exact case m'w₁² = −(1 + cT)v₁ needs (−c)^{s−2} = c and
 lc(g') = 1 to be rechecked; not needed here.
+*Check (EVIDENCE).* `scripts/zt_lemma31.py`: on all 348 census tuples (s ≤ 17) and all polynomial u of degree 1..4 with
+u(0) = 1 (27 840 pairs), the T-adic agreement depths of E + u, m'w₁² + uv₁ and um'C₁² + v₁ (capped at s − 2) coincide.
+Parity (FUNCTIONFIELD_ES2 §3, q = 3): all 348 census tuples have deg E, deg E', deg D even.
+
+**The lottery at a polynomial point (Assessment, with a calibration that is EVIDENCE).** In case 1 of Prop 2.1 the whole
+tuple is determined by M; it exists iff the remainder X₁ = (−g'T^{s−1}) mod Ê is a monic divisor of M (all other
+conditions then hold automatically: C₁ = (g'T^{s−1} + X₁)/Ê is monic with C₁(0) = −X₁(0), and w₁ + C₁ = Tg'(MC₁ − T^{s−2})).
+*Random-remainder model:* treat X₁ as uniform among the 3^{deg Ê} residues; by Cor 3.2 only divisors of degree in
+[N + 1 − deg M, deg M] can occur (orientation A; analogous bound in B and at other polynomial points), and parity forces
+deg Ê even. So level N contributes Σ_M #{admissible divisors of M}·3^{−deg Ê}, summed over the M of Prop 2.1 (case 1),
+plus (case 2) the number of region tuples satisfying both Liouville constraints times (1/2)·3^{−(N−1)}. Candidates with
+Ê ≡ −u (mod T^{s−2}) ("structured": E = −u, Prop 1.4, and their relatives) are excluded from the model and from the
+comparison. `zt_lop` prints this model per level ("refined").
+*Calibration (`scripts/zt_ctl.sh` + `scripts/zt_calib.py`, log `data/zt_ctl_h4_N12.txt`).* At all 52 polynomial points of
+degree 2..4 with u(0) = 1, u'(0) ≠ 0, levels 3..12, complete search: unstructured hits vs. model
+| levels | points with an unstructured hit | unstructured hits | model |
+|---|---|---|---|
+| 3..12 | 4 | 10 | 7.2 |
+| 5..12 | 2 | 2 | 5.2 |
+| 6..12 | 0 | 0 | 2.8 |
+| 7..12 | 0 | 0 | 1.6 |
+The model is of the right order and, at higher levels, conservative (it over-predicts; P(0 | 2.8) ≈ 6 %). The structured hits
+(E = −u and Prop 1.4 types, all at points with lc(u) = −1, plus their "dep = s − 2" companions) recur periodically in N
+(e.g. u = 1 ± T − T² at N = 3, 6, 7, 10, 11, …) — the discrete-log mechanism of Prop 1.4.
+*At x*_c* (both c give identical model values): refined model per level 7.6·10⁻⁴ (N = 5), 8.5·10⁻⁴, 6.8·10⁻⁴, 6.8·10⁻⁴,
+5.6·10⁻⁴, 2.5·10⁻⁴, 2.6·10⁻⁴ (N = 11), 6.7·10⁻⁵, 4.6·10⁻⁵, 1.5·10⁻⁵, 1.3·10⁻⁵, 3.1·10⁻⁶, 1.2·10⁻⁶ (N = 17); total over
+levels 3..17: 4.2·10⁻³ per c. The decay ratio tends to ≈ 1/3 (the model is poly(N)·3^{−N}: ≈ 3^{N−2} candidates M, each
+needing a residue of size 3^{−(N + deg M)} to hit one of poly(N) admissible divisors). Extrapolated mass beyond the searched
+levels (N > 21): ≈ 10⁻⁷.
+*Contrast with generic points.* For a random slice point the expected number of covering tuples per level is
+λ_N ≈ 0.22, 0.59, 0.37, 0.22, 0.096, 0.092 (N = 2..7, FUNCTIONFIELD_ES3 §2), and the union over levels is dominated by
+balanced patterns (thirds corner) — which cannot reach a polynomial point at all (Cor 1.3). **So x*_c is not a typical
+point of its cylinder: it is a "Liouville point", where the lottery is exponentially thinner (poly(N)·3^{−N} per level
+instead of λ_N).** This corrects the Assessment of FUNCTIONFIELD_ES3 §3 ("x*_c is not visibly special"): its controls
+(random lifts sharing six T-adic digits) are generic points, not low-height ones.
