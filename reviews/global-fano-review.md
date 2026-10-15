@@ -196,3 +196,21 @@ written: every p has the triangle (a, b, c, e) = (1, 2, p + 5, −1) ≅ ⟨1, 1
 classes, all χ = +1; they have no **χ = −1** triangle class. (ii) "At 312 some triangle class is not a path class" must say "some χ = −1
 triangle class" — with any χ it holds at all 329 primes trivially (⟨1, 1, p⟩). The scope sentence in the Assessment is correct.
 **Verdict C8: SOUND** (EVIDENCE; minor wording).
+
+### C7. z9_pointer_parity ("no parity law": 47.6 % even P(p); odd vertices; both-end pointers at 17 primes)
+From-scratch spot-check (`scripts/review_r234_pointers.py`, all 116 primes p ≡ 1 (4), p ≤ 1500): P(p), path loops, odd-degree vertices
+of the path subgraph and "both-end" counts agree with `data/z9/stats_p1mod4_1e4.txt` **at every prime (0 mismatches)**; even P(p) at
+56/116 = 48.3 %; no odd vertex only at 5, 13 in this range (2521 is beyond it; the author's data file shows it); both-end absent at
+5, 13, 37, 193, 421, 577, 673, 1153, 1249, 1489 (= the author's list below 1500). The aggregate 47.6 % (290/609) is read off the data
+file. EVIDENCE label is fine.
+Definitional defect (MINOR, D11). The author's "pointer to both ends" uses the pointed **vertex classes**, so it is identically
+impossible on loop path classes. Reviewer lemma (PROVED): *L ∈ 𝔊⁻_p is a loop ⟺ Aut(L) swaps the two isotropic classes of L/2L.*
+(⇒: a trace-zero ε ∈ E(L) with nrd ε = 2p lies locally at 2 in w·E₂^× (w = [[0, 1], [2, 0]]: trace zero and v₂(nrd) = 1 force
+ε = [[a, b], [2c, −a]] with a even, bc odd), at p in the maximal order of the division algebra, so ε normalises E(L), and conjugation
+by ε is an isometry of L = (E⁰)^#(p) exchanging the two maximal overorders. ⇐: an automorphism exchanging the ends comes from a
+normaliser element exchanging the two maximal orders, i.e. an isogeny E → E/C composed with an isomorphism E/C ≅ E or E^{(p)}.)
+Numerically: Aut(L) swaps the ends exactly at the loop classes at all 116 primes. So "which end a pointer points at" is
+well-defined **only for non-loop path classes**, and at 5, 13, 2521 (all path classes loops) the both-end statistic is vacuous;
+most of the 17 "absences" are primes where nearly all path classes are loops (e.g. 193: 4 of 5). Repair: restrict the pointer
+statistics to non-loop path classes and say so.
+**Verdict C7: SOUND** as EVIDENCE for "no parity law" (the parity statistic is unaffected); the pointer statistic needs the scope fix.
