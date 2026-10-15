@@ -23,7 +23,7 @@ axioms asserted), `review_fz1_prop61.py`, `review_fz1_tuples.py`, `review_fz1_en
 | Theorem 7.3 (3 ≤ r ≤ 19; ≤ 9.47 at r = 3, ≤ 27.7 at r = 4) | **SOUND** (independently re-certified for every 3 ≤ r ≤ 19 with R226 code and R226's own exact q = 27 enumeration: r = 3 ≤ 18.03 < 24, r = 4 ≤ 31.89 < 78; stale scope text m-3) |
 | Lemma 7.4 / Theorem 8.1 (r ≥ 20, K(3^20) ≤ 4.19·10⁸) | **SOUND** (monotonicity re-derived term by term; K(3^20) ≤ 4.19188·10⁸ re-evaluated in exact rationals; orientation unstated, m-4) |
 | q = 9, k = 1 CERTIFIED negative statement about the method | **SOUND** (53.0 reproduced; exact inputs not archived, m-6; R226 exact s ≤ 14: 3.92790) |
-| odd-s / odd-r absence (EVIDENCE) | **SOUND as EVIDENCE** (confirmed: q = 9 odd s ≤ 13, q = 27 s ≤ 12) |
+| odd-s / odd-r absence (EVIDENCE) | **SOUND as EVIDENCE** (confirmed: q = 9 odd s ≤ 15, q = 27 s ≤ 12) |
 
 ## 1. Prop 6.1 and Cor 6.2
 
@@ -174,9 +174,9 @@ as advertised — use `math.inf` or exact rationals.
 *CERTIFIED negative statement about the method.* The author's routes give Σ_{19 ≤ s ≤ 80} = 53.03 (`fz1_sum 2 80 -`: 396.25 −
 343.22), R226's routes 43.5; either way > 6 − 4.6, so the union-bound method with these routes cannot close q = 9. Reproduced.
 The exact inputs (Case B 3.929 for s ≤ 18, Case A 0.671 for α ≤ 6) are **not archived** (no `data/fz/enum1_9`; m-6). R226's
-own exact filtered q = 9 counts (s ≤ 14, `data/fz1_review/enum9`) give Case B mass **3.92790** for s ≤ 14 (s = 2: 1.5556,
+own exact filtered q = 9 counts (s ≤ 15, `data/fz1_review/enum9`) give Case B mass **3.92790** for s ≤ 14 (s = 2: 1.5556,
 4: 2.0000, 6: 0.1701, 8: 0.1704, 10: 0.0126, 12: 0.0190, 14: 0.0003), consistent with 3.929 for s ≤ 18.
-*Odd s at q = 9* (EVIDENCE): R226's enumeration confirms 0 filtered tuples for every odd s ≤ 13 (and the q = 9 naive
+*Odd s at q = 9* (EVIDENCE): R226's enumeration confirms 0 filtered tuples for every odd s ≤ 15 (and the q = 9 naive
 enumeration for odd s ≤ 5), while even s carry mass. *Odd r* (q = 27, s ≤ 12: none) confirmed (§5). Correctly labelled EVIDENCE /
 Spark; nothing in the proofs depends on it.
 

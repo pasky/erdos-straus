@@ -11,3 +11,4 @@ q=9 s=11 t0=3 D=4: factorisations 91131, tuples(a<=b) 190, filtered (E(0) not in
 q=9 s=12 t0=4 D=4: factorisations 102795, tuples(a<=b) 6378, filtered (E(0) not in F_3) 5352, time 13s
 q=9 s=13 t0=5 D=4: factorisations 207771, tuples(a<=b) 524, filtered (E(0) not in F_3) 0, time 51s
 q=9 s=14 t0=5 D=5: factorisations 1082571, tuples(a<=b) 1122, filtered (E(0) not in F_3) 724, time 169s
+q=9 s=15 t0=6 D=5: factorisations 2027355, tuples(a<=b) 1130, filtered (E(0) not in F_3) 0, time 654s
