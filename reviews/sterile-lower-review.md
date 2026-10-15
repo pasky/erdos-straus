@@ -97,7 +97,9 @@ lists, my selection) at N₀ = 2^800; Q at 2^100. Results:
 | se_box tables only | 30.34375 | **0.49424867** (b = 30.34375) | 0.494249 | b = 30.3125: 0.50075 |
 Both certificates are reproduced to all printed digits, 0 failures over b up to 800 (r ≥ 2^800 by monotonicity).
 Table provenance: recompiled `se_box.c`/`zl_box.c` (gcc 14, x86-64 long double) reproduce the rows j = 965 (Q, P; ℓ²), 965 (Q, se),
-971 (P, Q, se) **bit-for-bit** (full regeneration of the four 1/32 tables: see below).
+971 (P, Q, se) **bit-for-bit**; full regeneration of `P_q32`, `Q_q32` (se_box, j = 768..1087) and `P_q32_l2`, `Q_q32_l2`
+(zl_box, j = 928..1023) with the MANIFEST parameters is **bit-identical** to the committed tables (all 832 rows).
+ℓ² gain measured at j = 965: Q −6.6 %, P −6.1 % (author: −5 % to −7 %).
 Combiner checks (zl_r0.py, by reading): the r-cell rule is sound — within [2^b, 2^{b+1/32}) no monotonicity in r is used:
 the weight 2r^{−k} resp. 2r^{−(K+1)/2} is maximal at r = 2^b and the table maximum is over all N-cells meeting
 [2^{Kb}, 2^{K(b+1/32)}); straddling ranges take max(table part, tail at top); fails closed on gaps (exit 1), on
