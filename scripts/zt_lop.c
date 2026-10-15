@@ -141,6 +141,7 @@ static void case2(int s,int orient,int D2){
           if(X1.d<0 || X1.c[X1.d]!=1 || X1.c[0]==0) continue;
           poly mq; pdivmod(&mq,&rem,&M,&X1); if(rem.d>=0) continue;
           poly sm,g; add(&sm,&X1,&X2); pdivmod(&g,&rem,&sm,&Tv); if(rem.d>=0) continue;
+          if(g.d < Nof(s)) continue; /* y <= N-1 is case 1 (avoid double reporting) */
           if(g.d>=0 && g.c[g.d]==1){ tup2++; double e=0.5; for(int i=0;i<Nof(s)-1;i++) e/=P; exp2+=e;
             int N_=Nof(s), a_,b_,z_=mq.d,t_=v1.d+2; if(orient==0){ a_=X1.d+1; b_=X2.d+1; } else { a_=X2.d+1; b_=X1.d+1; }
             int c1 = (z_+2*a_-2>=N_+1) || (H+t_-2>=N_+1), c2 = (H+z_+2*b_-2>=N_+1) || (t_-2>=N_+1);
