@@ -14,6 +14,8 @@ From-scratch scripts: `scripts/review_r225_*.py`. ES is not solved; nothing belo
 | Lemma 2.3 (Z_k^□ ≠ ∅ ⟺ k ≡ 0, 1, 5 mod 8) | SOUND |
 | Prop 3.1, Lemma 3.2, Thm 3.3 (positivity propagation, integer T1 points) | SOUND |
 | Thm 3.4 (Z_K⁺ sterile, Hilbert reciprocity in ℚ(√j)) | SOUND-AFTER-REPAIRS (proof correct; the closure parenthetical is false) |
+| Prop 4.1 (clean levels ⟺ 4A − tΔ = □) | SOUND-AFTER-REPAIRS (two wording gaps in (b)/the "iff") |
+| Per-prime form (T1-type = principal-form part) | SOUND (label "roughly" appropriate) |
 
 ## Claim-by-claim
 
@@ -111,3 +113,24 @@ near 27 is in Z_K⁺'s neighbourhood structure either. (27 − 18√2 = (3 − 3
 polynomially sterile is simply not decided by Thm 3.4.)
 * Remark (i) re-derived: inert ℓ: x ∈ F_{ℓ²}^× is a square iff N(x) is a square in F_ℓ ✓; ramified odd ℓ | j₀ with
   ℓ ∤ m: π ≡ m (mod 𝔩), so Z_K⁺ adds (m/ℓ) = 1 while N(π) ≡ m² is automatically a square ✓; split: both m ∓ s squares ✓.
+
+### Prop 4.1
+* Identity 4A(tQ + 1) = t(2Am + B)² + E: expanded by hand ✓.
+* (a) re-derived: for an odd r | tQ + 1, r ∤ t: gcd(tQ + 1, 2A) = 1 gives r ∤ 2A; if r | c then tX² ≡ 0 so r | X,
+  contradicting gcd(X, c) = 1; if r | X then r | c, same. So −t ≡ (c/X)² (mod r). ✓ The m² + 8, t = 1, m = 3
+  example (X = 6, c = 6; 3 | 18, (−1/3) = −1) shows the exceptional classes are essential ✓.
+* (b) re-derived: (−t/r) = (E/r) = −1 ⇒ (−tE/r) = 1 ⇒ tX² ≡ −E solvable, and X = 2Am + B hits it on a class mod r ✓;
+  existence of r by Chebotarev in ℚ(√−t, √E) needs −t, E, −tE all non-squares ✓.
+  Gap 1 (MINOR): the exceptional case should read "−tE is a perfect square" (equivalently E ∈ −t·ℚ^{×2}), not
+  "E = −ts² with s ≥ 0 an integer": e.g. t = 4, E = −1 has −tE = 4 but is not of the form −4s². The reducible-case
+  argument works verbatim with rational s.
+  Gap 2 (MINOR): the "⟺" sentence quantifies over "m outside the gcd-exceptional classes", which are defined via c
+  and so only exist when E = c². State it as: (E = □) ⇒ clean outside the exceptional classes of (a); (E ≠ □) ⇒
+  unclean on a full residue class mod r (r ∤ 2tAE), in particular on m with gcd(tQ(m) + 1, 2A) = 1 when that is
+  possible (CRT).
+  Also: the convention line "for n = p prime this is (r/p) = +1" needs p ≡ 1 (mod 4) ((−t/r) = (p/r) = (r/p)).
+* Examples checked: m² + k ⇒ E = 4(1 + tk) ✓; 2m² + k ⇒ 8(1 + tk) = □ ⟺ 1 + tk = 2□, k = 1: t = 1, 7, 17, 31 ✓;
+  m² + m + k ⇒ E = 4 + t(4k − 1) ✓; m² + kj² ⇒ Pell c² − tkj² = 1 ✓.
+* Per-prime form: tp + 1 − tm² = tK + 1 ✓; t = K ± 2 ✓ ((K ∓ 1)² identities); principal-form reading ✓ (tm² < tp + 1
+  forces m < √p). The census "clean" (ns_census.c) also demands (2/p) = +1 when tp + 1 is even, while Prop 4.1 uses
+  "odd-clean"; §4's EVIDENCE line should say which definition the 432 677 refers to (it is the census one, incl. 2).
