@@ -78,3 +78,29 @@ pattern(s, a, z, y, t, route) = {
             if (C != 0, g = exq(w + C, v); if (g != 0, chk(s, a, z, y, t, m, w, C, g, v))))))));
   CNT;
 }
+\\ ---- Case A (k = 1) at q = 9: data (a1', b1, K), a1', b1 monic, lc K in {1, 2}, T not dividing a1'b1K, E = a1'b1K - 1,
+\\ F = (T^al a1' + b1)/E.  Route: z := (F + b1)/a1' (lc arbitrary, z(0) != 0, deg z <= tmax), then ordered factorisations
+\\ T^al + z = b1 * K * F (identity b1 K F = T^al + z, re-derived in the review), a1' = (F + b1)/z.  Every candidate is re-verified.
+\\ Returns a Map pattern [al, deg a1', be, ka] -> [n_all, n_offF3, n_P8, lawfail]
+caseA(al, tmax) = {
+  my(M = Map(), P, Ld, b1, K, Fp, a1, E, E0, key, cur, z, R, lk);
+  for (t = 0, tmax, for (lz = 2, 9, for (i1 = 0, nmon(t) - 1, z = mk(t, i1, EL[lz]);
+    P = o*x^al + z; if (P == 0 || poldegree(P) < 0, next);
+    Ld = divisors(factor(P / pollead(P)));
+    for (i = 1, #Ld, b1 = Pol(o*Ld[i] / pollead(Ld[i]), 'x); R = exq(P, b1);
+      my(Lk = divisors(factor(R / pollead(R))));
+      for (j = 1, #Lk, for (c = 1, 2, K = Pol(c * o * Lk[j] / pollead(Lk[j]), 'x); Fp = exq(R, K);
+        if (Fp == 0, next);
+        a1 = exq(Fp + b1, z); if (a1 == 0 || pollead(a1) != o || polcoef(a1, 0) == 0, next);
+        E = a1*b1*K - 1; if (E == 0, next);
+        if (E*Fp != o*x^al*a1 + b1, next);
+        if (pollead(E) != o && pollead(E) != 2*o, next);
+        if (polcoef(b1, 0) == 0 || polcoef(K, 0) == 0, next);
+        E0 = polcoef(E, 0) * o; if (E0 == 0, next);
+        key = [al, poldegree(a1), poldegree(b1), poldegree(K)];
+        cur = if (mapisdefined(M, key), mapget(M, key), [0, 0, 0, 0]);
+        cur[1]++; if (E0 != o && E0 != -o, cur[2]++); if (E0^4 == -o, cur[3]++);
+        if (E0^(2*al) != o, cur[4]++);
+        mapput(M, key, cur)))))));
+  M;
+}
