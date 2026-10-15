@@ -15,7 +15,7 @@ primitive element, or 'z' never), plus checks of the law E(0)^s = eps(s; z, t) =
 unsimplified Lemma 1.1 form.
 usage: review_r241_enum.py p r smin smax [maxcost]   -> prints lines 'P s a b z y t k0:count k1:count ...' and 'LAWFAIL'.
 """
-import sys, itertools, time
+import sys, itertools, time, os
 import flint
 
 p, r, smin, smax = map(int, sys.argv[1:5])
@@ -175,6 +175,9 @@ for s in range(smin, smax + 1):
                 pats.append((a, b, z, y, max(a, b) - y))
     keys = {}
     skipped = []
+    if os.environ.get('R241_P8COMPAT'):   # q = 9 certificate mode: only patterns that can carry P8 tuples (4 | s, eps = (-1)^{s/4})
+        pats = [pp for pp in pats if s % 4 == 0 and
+                (-1 if (pp[4] + pp[4] * pp[2] + pp[2] * (1 + s) + pp[4] * s) % 2 else 1) == (-1) ** (s // 4)]
     for (a, b, z, y, t) in pats:
         lam_needed = 'two' if a == b else 'one'
         cands = [(2 * nmon(t) if t else 2, ('V', t)),
