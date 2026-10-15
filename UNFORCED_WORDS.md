@@ -122,3 +122,33 @@ So **no proof of CONJECTURE U (or of ES-five) can use only words of bounded mini
 of B2's "fixed finite slice sets fail i.o. under H" and of SQ_±'s Dickson-conditional "no finite t-set". The
 hypothesis a U-proof must violate is boundedness of the family; the escape is H-A (growing family). The observed depth
 grows slowly: max K = 10 below 3·10⁷.
+
+## 4. A sharper unforcedness: U2 (A and B both unclean)
+Since A | N_t, N_u and B | N_t, N_v, a word whose A and B both contain a ψ-odd prime is unforced. Let U2 = #such
+words. Then **N₋ ≤ U2 ≤ U (PROVED)**: a certificate has ψ(A) = ψ(B) = −1. A word in U ∖ U2 has one of A, B clean, and
+the side containing the other factor is unclean only through v or u.
+**Numerics (EVIDENCE; z7_types.c, all 464 288 primes p ≡ 1 (8) < 3·10⁷).**
+* U2 ≥ 1 everywhere.
+* Σ N₋/Σ U2 = 0.873 and Σ U2/Σ U = 0.882.
+* min N₋/U2 = 0.620 (p = 23 125 409: 364/587). At the three primes where N₋ ≥ U/2 fails (5 270 849, 17 188 937,
+  21 387 257), N₋/U2 = 192/275, 164/245, 126/191 ≈ 0.70.
+* Over n ≡ 1 (8) ≤ 2·10⁵ (composites too), U2 = 0 only at n = 105.
+
+**CONJECTURE U2 (EVIDENCE as above):** for odd non-square n ≡ 1 (4), U2(n) = 0 ⟺ n = 105. It is intermediate between
+CONJECTURE U and SQ₅ (N₋ ≤ U2). Its bridge inequality "N₋ ≥ U2/2" is unrefuted to 3·10⁷ at primes ≡ 1 (8), with
+margin (min 0.62). It is only EVIDENCE, and in view of §2 probably a distributional fact rather than an injection.
+For n ≡ 5 (8), U2 ≥ 1 by Lemma 1.1's word? No: there A = n + 1 is unclean (2 | A) but B = 1 is clean. Use instead
+(1, 3, (n+3)/2): A = 2 and B = (n+1)/2. B ≡ 3 (4) is not automatic, so U2 at n ≡ 5 (8) is not covered by Lemma 1.1. It is
+not needed, since ES-five is classical there.
+
+**Remark 4.1 (the forcing hierarchy; R227 D18 in this language).** Forcing notions interpolate between U and N₋:
+ψ-clean side (Lemma S) ⊂ congruence-pinned sides (R225/R227 D4–D5: (−1/·)-clean or defective N_u with A ≡ −1 (mod u)
+pinning A mod 4 or mod 8) ⊂ *family-exact forcing*: "the X-family has no certificate" (Flip Lemma 2.2 criterion). With
+family-exact forcing on all three sides, "unforced" means "each of its three families contains a certificate". The
+corresponding U_fam satisfies U_fam ≥ 1 ⟺ N₋ ≥ 1, tautologically, since a certificate lies in its own families. So the
+sharper the forcing notion, the closer "U ≥ 1" is to ES-five itself. CONJECTURE U is the *coarsest* member, and its
+gap to ES-five is exactly the words whose three families are certificate-free for non-clean reasons: R227's
+congruence-pinned sides, and more generally sides whose ψ-odd primes sit only in classes that Lemma 2.2 cannot move.
+The same mechanism can also force χ = −1 on a whole family (R227 D4/D5; Prop F′'s s = 4, 7 families consist entirely
+of certificates). In every case the forcing is a function of (N_X's factorization, X mod 8): the three-bit law on a
+family.
