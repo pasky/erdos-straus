@@ -68,3 +68,31 @@ Defects:
   violating x₂ ≡ 1 (8)" (or restrict the lemma to k ≡ 1 mod 8, where 1 + k ≡ 2 mod 8 is never a power of 4).
 - **D4 (MINOR, Lemma 1.1).** The lemma is stated for s ≥ 2; members s = 0, 1 are covered only by the certificates (they
   are, check 6). One clause suffices.
+
+## 2. §1.4 OPEN offsets, k = 105, mixed points — SOUND-AFTER-REPAIRS (EVIDENCE parts correctly labelled)
+
+Re-derived (`review_r236_misc.py` (b),(c); `review_r236_screen.py`, own screen: primes q < 3·10⁶ with 4^L ≡ 1 (q), residue
+s killed if 4^s + k ≡ 0 or a non-residue mod q; validity: ν(μ)_q mod q depends only on μ mod ord_q(4) | L):
+* Non-trivial offsets ≤ 300: exactly 13, k ≡ 9 (24) ✓; 9 certified + {33, 105, 273, 297} ✓ (the OPEN status itself is
+  search EVIDENCE; I did not re-run the class search).
+* k = 105: n_s mod 840 for s ≥ 2 runs through all six Mordell classes {1, 121, 169, 289, 361, 529} ✓; n_s ≡ 4^s (mod 105) ✓.
+* Screen k = 105, L = 360: 28 admissible primes, **no residue survives** ⇒ Λ₁₀₅ ∩ Sq^× = ∅ ✓ (2-component 105 ≡ 1 (8)
+  is a unit square, so only odd q matter — correct).
+* Screen k = 33, L = 360: exactly s ≡ 358 ≡ −2 survives ✓; at L = 3960 (11 | L) nothing survives ✓ (so the square half
+  (EH) also holds for k = 33 — the text could say so).
+* Mixed point: 124 mod 360 and 844 mod 2520 are the CRT of (4 at 2, 5, 7; −2 at 3) ✓. q = 181: ord 90 = 2·3²·5,
+  μ* ≡ 34 (90), n ≡ 85, non-residue ✓. q = 919: ord 153 = 3²·17, μ* ≡ 106 (153), n ≡ 551, non-residue ✓ (necessary for the
+  claimed II2 class; the specific family (2, 23, 919) not re-checked). "No ET class of modulus ≤ 2·10⁶ hits it" and the
+  adaptive-lifting measures: not re-run (EVIDENCE, labelled as such).
+
+Defects:
+- **D5 (MINOR, factual omission, §1.4 first bullet list).** k = 273 has a second integer square point 4⁴ + 273 = 529 = 23²
+  (besides 4² + 273 = 17²). Repair: add it.
+- **D6 (MINOR, overreading).** "Same pattern as (J)22 §4.2: every OPEN k has an integer square point" is not
+  discriminating here: 6 of the 9 *certified* k also have one (9: 25; 57: 121; 129: 65²; 153: 169; 201: 35²; 225: 289).
+  Only 81, 177, 249 have none. Repair: state the full table, or drop the "pattern" sentence (in the memo z8_exp_near_square_cover
+  too).
+- **D7 (MINOR, wording).** "at q with ord_q(4) a 2·3-power, n ≡ 4⁻² + 105": true only for ord = 3^b or 2·3^b (μ* ≡ 4 ≡ −2
+  needs 2^a | 6); for ord = 4·3^b, 8·3^b the value is generic. Repair: "ord_q(4) ∈ {3^b, 2·3^b}".
+- **D8 (MINOR).** "every member [of 4^s + 105] lies in one of Mordell's six hard classes" — for s ≥ 2 (s = 0, 1 give 106,
+  109). Add "(s ≥ 2)".
