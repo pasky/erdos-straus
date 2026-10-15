@@ -11,6 +11,7 @@ from sympy import n_order, factorint, isprime
 ML.residue_table = functools.lru_cache(maxsize=None)(ML.residue_table)
 c0, k, L, Mmax0, Mmax, LCAP = map(int, sys.argv[1:7])
 GMAX = 30
+L0 = L
 
 
 @functools.lru_cache(None)
@@ -72,23 +73,22 @@ while True:
     cands = {}
     for u in sample:
         for q in primes:
-            if nval(u, q) == 0: cands[(q, 'D', (q,))] = {0}
+            if nval(u, q) == 0: cands[(q, 'D', (q,), 0)] = 1
         for M in Ms:
             W = ML.residue_table(M); r = nval(u, M)
-            if r in W and (M,) + tuple(W[r][:1]) not in cands:
+            if r in W:
                 fam, P = W[r]
-                cands[(M, fam, P)] = None
-    for (M, fam, P) in cands:
+                cands[(M, fam, P, r)] = 1
+    for (M, fam, P, r) in cands:
         g = lcm(L, LM(M)) // L
         if g > GMAX or g * len(U) > 400000: continue
-        R = {0} if fam == 'D' else set(ML.cls_modulus_residues(fam, P)[1])
+        R = {r}
         cov = sum(1 for u in U for x in range(u, u + g * L, L) if nval(x, M) in R)
         key = (-cov / g, g, M)
         if best is None or key < best[0]: best = (key, (M, fam, P, R))
     if best is None:
         print('no candidate class with M <= %d' % Mmax); sys.exit(1)
     M, fam, P, R = best[1]
-    if fam != 'D': R = set(ML.cls_modulus_residues(fam, P)[1])
     classes.append((M, fam, P, R))
     g = lcm(L, LM(M)) // L
     U = [x for u in U for x in range(u, u + g * L, L) if nval(x, M) not in R]
@@ -97,7 +97,19 @@ while True:
     if L > LCAP:
         print('L cap exceeded'); sys.exit(1)
 if len(sys.argv) > 7:
-    chosen = [(M, (fam, P), sorted(s for s in range(L) if nval(s, M) in R)) for M, fam, P, R in classes]
-    chosen = [c for c in chosen if c[2]]
-    json.dump(EC.certificate(c0, L, chosen, 4, k), open(sys.argv[7], 'w'))
-    print('certificate written', sys.argv[7])
+    # ordered class list; each class certified by explicit polynomials on its single residue r (mod M)
+    out = {'c0': c0, 'k': k, 'b': 4, 'L0': L0, 'classes': []}
+    for M, fam, P, R in classes:
+      for r in sorted(R):
+        if fam == 'D':
+            cert = EC.certificate(c0, 1, [(M, (fam, P), [0])], 4, k)['classes'][0]
+        else:
+            # find an exponent representative with n = r mod M (exists: the class was chosen at one)
+            srep = next((x for x in range(64, 64 + LM(M)) if nval(x, M) == r), None)
+            if srep is None: continue
+            cert = EC.certificate(c0, LM(M), [(M, (fam, P), [srep])], 4, k)['classes'][0]
+            assert cert['r'] == r
+        cert['L_M'] = LM(M)
+        out['classes'].append(cert)
+    json.dump(out, open(sys.argv[7], 'w'))
+    print('certificate written', sys.argv[7], 'final L', L)
