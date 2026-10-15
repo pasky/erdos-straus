@@ -74,8 +74,7 @@ d > n₀ can prove U_c ≠ ∅ unless it proves the tail union bound Σ_{d > n�
 *Proof.* State it with ">" (the case "=" can leave one point). Greedy: for d = n₀ + 1, n₀ + 2, … the uncovered part of A
 is a finite union of depth-(d − 1) cylinders, i.e. of depth-d cylinders; place min(n_d, their number) depth-d cylinders on
 uncovered ones (the rest anywhere). As long as nothing runs out, the uncovered mass after stage d is μ_A − Σ_{n₀<d'≤d} n_{d'}3^{−(d'−2)},
-a multiple of 3^{−(d−2)}. The partial sums increase to a limit > μ_A, so at the first stage d* where the partial sum exceeds
-μ_A − 3^{−(d*−2)}·0, i.e. reaches ≥ μ_A, the number of uncovered depth-d* cylinders is ≤ n_{d*}: A is covered. ∎
+a multiple of 3^{−(d−2)}. The partial sums increase to a limit > μ_A, so at the first stage d* where the partial sum reaches ≥ μ_A, the number of uncovered depth-d* cylinders is ≤ n_{d*}: A is covered. ∎
 *Reading.* The union-bound barrier of FF_STERILE_PUSH / STERILE_EXPLICIT §4 (exponent +0.167, after O219's refinements
 0.000 at the thirds corner) cannot be bypassed by any Cantor/game cleverness that only knows counts per depth. What Lemma 3.1
 exploits is *where* the balls are: they must not exhaust a whole alive cylinder within a window.
@@ -103,3 +102,55 @@ natural one is the sibling condition (Conjecture 3.3).
 **Conjecture 3.3 (sibling conjecture; CONJECTURE, EVIDENCE to depth 9).** No cylinder of X_c of depth n ≥ 3 that is alive has
 all three children in 𝔅. (By Lemma 3.1 this implies U_c ≠ ∅, hence Conjecture 0.2.) The weaker "eventually, for the alive
 cylinders along some path" suffices.
+
+## 4. The Liouville spectrum: which levels a point protects from balanced tuples (PROVED)
+
+For u ∈ F₃[[T]] and a rational ρ = P/Q (P, Q ∈ F₃[T] coprime, T ∤ Q) put H(ρ) := max(deg P, deg Q), δ(u, ρ) := v_T(u − ρ), and
+  η_u(D) := min{H(ρ) : δ(u, ρ) ≥ D}   (least height of a rational agreeing with u to order D).
+For a Case B tuple τ (notation of FF_THIRDS_CORNER) put ρ_τ := −w₁/C₁ and H_τ := max(a − 1, b − 1).
+
+**Lemma 4.1 (gap principle; PROVED).** For rationals ρ₁ ≠ ρ₂ (denominators prime to T), δ(ρ₁, ρ₂) ≤ H(ρ₁) + H(ρ₂). Hence for
+D > 2η, at most one rational of height ≤ η agrees with u to order D.
+*Proof.* ρ₁ − ρ₂ = (P₁Q₂ − P₂Q₁)/(Q₁Q₂), a nonzero numerator of degree ≤ H₁ + H₂, and Q₁Q₂ is a T-unit. ∎
+
+**Theorem 4.2 (protected levels; PROVED).** If τ (parameter s) covers x_u at level N with N + 1 ≤ s − 1, then for every rational
+ρ ≠ ρ_τ:  H_τ ≥ min(N + 1, δ(u, ρ)) − H(ρ). In particular
+  H_τ ≥ N + 1 − η_u(N + 1),   unless ρ_τ is the (then unique, if 2η_u(N+1) < N + 1) least-height approximant of u at order N + 1.
+*Proof.* By FF_THIRDS_CORNER Lemma 1.1, EC₁ = g'T^{s−1} + w₁, so E ≡ w₁/C₁ (mod T^{s−1}); covering (E ≡ −u mod T^{N+1}) gives
+δ(u, ρ_τ) ≥ N + 1. Then δ(ρ_τ, ρ) ≥ min(N + 1, δ(u, ρ)), and Lemma 4.1 with H(ρ_τ) ≤ H_τ (w₁, C₁ coprime up to a common
+factor, which only lowers the height). ∎
+*Reading.* At the thirds corner H_τ ≈ s/3 ≈ 2(N + 1)/3, so a level N is **protected** from balanced tuples when
+η_u(N + 1) < (N + 1)/3 (up to O(1)): u then has a rational approximant of height < (N + 1)/3 at order N + 1. FF_THIRDS_CORNER
+Lemma 1.2 is the case u polynomial, η_u ≤ deg u for all orders. M17D Lemma 2.2(iii) is the ℤ twin (rational u = −p/q, P- and
+Q-data with z ≠ 0 have max(a, b) ≥ W/(|p| + q)).
+
+**Corollary 4.3 (only rational points are protected at all large levels; PROVED).** If η_u(D) < D/2 − 1 for all D ≥ D₀
+(in particular if all large levels are protected), then u is rational, of height η_u(D₀).
+*Proof.* Let ρ_D realise η_u(D). For D ≥ D₀, ρ_D and ρ_{D+1} both agree with u to order D and H(ρ_D) + H(ρ_{D+1}) < D,
+so ρ_D = ρ_{D+1} by Lemma 4.1. Hence ρ_D = ρ is constant and δ(u, ρ) = ∞. ∎
+*Remark (Assessment; T-adic continued fractions).* For irrational u, η_u is a step function that jumps at the convergent
+depths; on a stretch where the best approximant has height h and holds up to order D_h, the protected levels are
+3h < N + 1 ≤ D_h, and each new convergent of height h' opens an *unprotected window* N + 1 ∈ (D_h, 3h']. A T-adic
+"Liouville number" (heights growing super-exponentially) is protected on all but a density-zero set of levels; a generic
+u (η_u(D) = D/2 + O(1), metric Dirichlet) is protected nowhere. This makes Liouville-type points the natural candidates for
+explicit sterile points beyond rationals (spark).
+
+**Corollary 4.4 (rational points; PROVED).** Let u = P/Q ∈ X_c, H(u) = h. A tuple covering x_u at level N ≥ 2h with
+N + 1 ≤ s − 1 has H_τ ≥ N + 1 − h or ρ_τ = u ("exact": w₁Q = −PC₁). (FF_THIRDS_CORNER Prop 1.4 classifies the exact case
+for polynomial u.) ∎ Immediate from Theorem 4.2 with ρ = u.
+
+## 5. Frobenius: covering propagates from u to u³ (PROVED for Case B)
+
+**Proposition 5.1 (PROVED).** Let (E, L', j, γ, g') be a Case B family valid at the slice point x_u (k ≥ 1, FUNCTIONFIELD_ES3
+Lemma 1.1). Then (E³, L'³, j'', 3γ, g'³) with j'' := 3(N + 1) − k, N = k + j − 1, is a Case B family valid at x_{u³}, of level
+N'' = 3N + 2. So Frob maps every Case B tuple ball B(−E, N + 1) into the tuple ball B(−E³, 3N + 3).
+*Proof.* In characteristic 3, f ↦ f³ is an injective ring endomorphism of F₃[T] and of F₃[[T]]. E³ is monic, T ∤ L'³,
+g'³ | L'³; E ≡ −u (T^{N+1}) gives E³ ≡ −u³ (T^{3N+3}) = (T^{N''+1}); E ≡ −1 (L') gives E³ ≡ −1 (L'³);
+E | D = 1 + T^{N+1+γ}L'g' gives E³ | D³ = 1 + T^{3(N+1+γ)}L'³g'³ = 1 + T^{N''+1+3γ}L'³g'³. Finally 3γ ≤ j'' since
+γ ≤ j = N + 1 − k gives 3γ ≤ 3(N + 1) − 3k ≤ 3(N + 1) − k. The converse part of Lemma 1.1 applies. ∎
+*Consequences and limits.* x_u³ = x_{u³} lies in the slice u ≡ 1 (mod T²) (the c = 0 slice), not in X_c. So: **if a cube
+point x_{u³} is in O(3, T²) for Case B, then x_u is (Case B-)uncovered** — O ∩ X_c ⊇ Frob^{−1}(O ∩ Frob(X_c)) for Case B.
+This is a renormalisation in the *wrong* direction for §2 (it maps covered to covered, levels N ↦ 3N + 2, i.e. ball radii
+r ↦ r³/3^?·… are shrunk, not enlarged), and Case A at the image needs a separate check (not done). The tuple equations
+themselves are not Frobenius-stable: (B₁) needs w₁ + C₁ = T·g'v₁ with T ∤ g', while cubing gives T³; the char-2
+Frobenius family of FF_STERILE_PUSH §4 is the case where the valuation bookkeeping closes.
