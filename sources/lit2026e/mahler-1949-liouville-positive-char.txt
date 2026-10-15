@@ -1,0 +1,324 @@
+ON A THEOREM OF LIOUVILLE IN FIELDS OF
+POSITIVE CHARACTERISTIC
+K. MAHLER
+
+A classical theorem of J. Liouville1 states that if z is a real algebraic number of
+degree n > 2, then there exists a constant c > 0 such that
+v.
+
+I
+
+G
+
+I
+
+2>l |&|»
+
+\z — -
+
+^
+
+C
+
+i~~r
+
+for every pair of integers a, b with & :£ 0.
+This theorem has an analogue in function fields. Let ft be an arbitrary field,
+x an indeterminate, k[x] the ring of all polynomials in x with coefficients in
+ft, ft(#) the field of all rational functions in x with coefficients in ft, and k<x>
+the field of all formal series
+z = a / x / + a / _ i x / _ 1 + a/_2X / - 2 +. • .
+in x where the coefficients a/, a/_i, a/_2, . . . are in ft. Thus k(x) is the quotient
+field of k[x] and a subfield of ft<x>.
+A valuation |z| in k<x> is now defined by putting |o| = 0 ; but \z\ = ef if
+z = a/xf+ a,f-ixf~1+ a / _ 2 x / _ 2 + . . . and a^ 0. If z lies in ft[x], then log |z|
+is simply the degree of z.
+With this notation, the analogue to Liouville's theorem states:
+THEOREM 1. If the element zof k<x> is algebraic of degree n > 2 over ft(x),
+then there exists a constant c > 0 such that
+
+I
+#I ^ c
+I ' 61 |&| n
+for all pairs of elements a and b + 0 of k[x].
+Proof. Denote by
+f(y) = a0yn+ aiyn~1 + . . . + an,
+
+where <z04= 0,
+
+a polynomial in y with coefficients in k[x] which is irreducible over ft(x) and
+vanishes for y = z; further put
+g{y) = aoyn"1+(a(fii + ai)yn~2+(a0z2+
+
+a±z + a2)yn~~z+. . .
+
++ (aoSn"1+a1^-2+. . .+an_i).
+Received April 28, 1949.
+iC.i?. ^caJ. 5a. Pam, vol. 18 (1844), 883-885, 910-911.
+397
+
+398
+
+K. MAHLER
+
+Then
+
+f(y)
+
+_f(y)-m
+
+y —z
+identically in y, and therefore
+
+y —z
+
+y —z
+
+= g{y)
+
+_f(y)
+g(y)
+
+Put
+max (|a 0 |, |ai| , . . . , \an\) = cu max (1, |z|) = c2
+and take
+y =
+1
+
+where a and b 4 0 are in k[x
+If
+>
+
+C2=
+
+Z ,
+
+then
+a\
+z — 61
+
+(1)
+Next let
+
+since l»l > i.
+
+> « • * ! * •
+
+< ci9
+so that
+<
+
+<
+
+CiC2n~l
+
+The expression
+bn
+
+= a»an+ aia^b
+
+f\j)
+
++ . . . + anbn
+
+lies in k [x] and does not vanish since f(y) is irreducible and at least of the
+second degree. Therefore
+
+i
+
+(2)
+
+Mi)l* 'l' ©
+'©
+«©
+a
+
+z
+
+=
+
+~
+
+b
+
+If we now put
+
+c = m m ( C2,
+
+> IM"n.
+i
+CiCi»" 1 ^!"
+
+I,
+
+then the assertion of the theorem is contained in (1) and (2).
+
+ON A THEOREM OF LIOUVILLE
+
+399
+
+In the case of a real algebraic number of degree n > 3, Liouville's theorem
+is not the best-possible, and it was first improved by A. Thue, 2 who showed
+that, for every € > 0, there is a constant c(e) > 0 such that
+a
+
+>
+
+z
+
+*(*)
+
+|*|i + 1 + É
+
+b
+for all pairs of integers a and b 4: 0. Still better inequalities were given by
+C. L. Siegel3 and F. J. Dyson. 4 A similar improvement is possible in the case
+of the analogue of Liouville's theorem for algebraic functions, if the constant
+field k is the field of all complex numbers, or, more generally, any field of
+characteristic 0, as was proved by B. P. Gill.5
+It is then of some interest to note that the analogue of Liouville's theorem for
+algebraic functions cannot be improved if the ground field k is of characteristic p
+where p is a positive prime number. Indeed, the following result holds.
+THEOREM 2.
+Let k be any field of characteristic p,xan indeterminate, and z
+the element
+z = x~x+ x~p+ x~p2+ x~p9+. . .
+of k<x>.
+Then z is of exact degree p over k(x), and there exists an infinite
+sequence of pairs of elements an and bn^ 0 of k[x] such that
+=
+
+bn
+Proof. If a,b,c,...
+
+l&nj-*,
+
+lim
+»->co
+
+\bn\
+
+are elements of k<x>,
+
+=
+
+oo.
+
+then
+
+(a + b + c + . . . ) p = ap+ bp+ c*+. . . ,
+by a well-known property of fields of characteristic p.
+z = X-I+(X-P+
+
+x~
+
+p2
+
++ x~pl+.
+
+Hence, in particular,
+
+. .) = ar 1 +(:)c- 1 + x~p+ x~p'+.
+
+. .)p
+
+and so z is a root of the algebraic equation 6
+(3)
+of degree p over k(x).
+
+zp-
+
+z + x~l = 0
+
+Put, for n = 1, 2, 3, . . . ,
+an=
+
+n
+XP -\x-i+x-P+.
+
+. m+x-Pn~1)j
+
+0n=
+
+n
+XP ~i
+
+*Norske Vid. Selsk. Scr. (1908), Nr. 7.
+*Math. ZeiL, vol. 10 (1921), 173-213.
+*Acta Math., vol. 79 (1947), 225-240.
+*Ann. of Math. (2) 31 (1930), 207-218.
+6
+I am indebted to E. Artin for the remark that z is algebraic if k is of characteristic p.
+is of characteristic 0, then z is, of course, transcendental over k(x).
+
+If k
+
+400
+
+K. MAHLER
+
+so that
+an
+\bn\ = epn \ and z — —
+= \x-*>n+x-*n+1+.
+bn
+
+. . = e-*n= \bn\
+
+The assertion will therefore be proved if we can show that z is of exact degree
+p. But, by Theorem 1, z cannot be of lower degree than p, unless it is of
+degree 1 and lies in k(x). Suppose then that
+A
+z = — ,
+B
+where A and B =t= 0 are elements of k[x]. Since the fractions an/bn are all
+different,
+— =t= s, Abnbn
+for all sufficiently large n.
+a
+M~ p = z — —
+b
+n
+
+anB * 0, \Abn-
+
+anB\ > 1,
+
+But then
+=
+
+n
+
+Abn- anB
+Bbn
+
+A __ an
+~B
+bn
+
+=
+
+|B| >
+
+\bn\p~\
+
+whence
+
+>
+
+\B\ M
+
+contrary to the fact that
+lim |6„!
+
+=
+
+CO .
+
+It would be of interest to investigate whether the analogue of Liouville's
+theorem remains still the best-possible for elements k<x> not in k(x) which
+are of a degree less than p over k(x).
+Institute for Advanced Study,
+Princeton, N.J.
+
+

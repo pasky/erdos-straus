@@ -1,0 +1,92 @@
+Simon KRISTENSEN
+Badly approximable systems of linear forms over a field of formal series
+Tome 18, no 2 (2006), p. 421-444.
+<http://jtnb.cedram.org/item?id=JTNB_2006__18_2_421_0>
+
+© Université Bordeaux 1, 2006, tous droits réservés.
+L’accès aux articles de la revue « Journal de Théorie des Nombres de Bordeaux » (http://jtnb.cedram.org/), implique l’accord
+avec les conditions générales d’utilisation (http://jtnb.cedram.
+org/legal/). Toute reproduction en tout ou partie cet article sous
+quelque forme que ce soit pour tout usage autre que l’utilisation à
+fin strictement personnelle du copiste est constitutive d’une infraction pénale. Toute copie ou impression de ce fichier doit contenir la
+présente mention de copyright.
+
+cedram
+Article mis en ligne dans le cadre du
+Centre de diffusion des revues académiques de mathématiques
+http://www.cedram.org/
+
+Journal de Théorie des Nombres
+de Bordeaux 18 (2006), 421-444
+
+Badly approximable systems of linear forms over
+a field of formal series
+par Simon KRISTENSEN
+Résumé. Nous montrons que la dimension de Hausdorff de l’ensemble des systèmes mal approchables de m formes linéaires en n
+variables sur le corps des séries de Laurent à coefficients dans un
+corps fini est maximale. Ce résultat est un analogue de la généralisation multidimensionnelle de Schmidt du théorème de Jarník
+sur les nombres mal approchables.
+Abstract. We prove that the Hausdorff dimension of the set of
+badly approximable systems of m linear forms in n variables over
+the field of Laurent series with coefficients from a finite field is
+maximal. This is an analogue of Schmidt’s multi-dimensional generalisation of Jarník’s Theorem on badly approximable numbers.
+
+1. Introduction
+Let F denote the finite field of q = pr elements, where p is a prime and
+r is a positive integer. We define
+(1.1)
+
+L=
+
+
+∞
+X
+
+
+
+
+a−i X −i : n ∈ Z, ai ∈ F, an 6= 0
+
+
+
+∪ {0}.
+
+
+
+i=−n
+
+Under usual addition and multiplication, this set is a field, sometimes called
+the field of formal Laurent series with coefficients from F or the field of
+formal power series with coefficients from F. An absolute value k·k on L
+...
+{x ∈ Lmn : kx − ck∞ ≤ ρ} ,
+where c and ρ are understood to be fixed, although changing these quantities could well have no effect on the set.
+
+Simon Kristensen
+
+426
+
+The sets of particular interest to us are sets S such that White can always
+win the (α, β; S)-game.
+Definition. A set S ⊆ Lmn is said to be (α, β)-winning for some α, β ∈
+(0, 1) if White can always win the (α, β; S)-game. The set S is said to be
+α-winning for some α ∈ (0, 1) if S is (α, β)-winning for any β ∈ (0, 1).
+It is a fairly straightforward matter to see that if S is α-winning for some
+α and α0 ∈ (0, α], then S is α0 -winning. Hence, we may define the maximal
+α for which a set is α-winning.
+Definition. Let S ⊆ Lmn and let S ∗ = {α ∈ (0, 1) : S is α-winning}. The
+winning dimension of S is defined as
+(
+
+0
+sup S ∗
+
+windim S =
+
+if S ∗ = ∅,
+otherwise.
+
+We will first prove that the winning dimension of B(m, n) is strictly positive. This will subsequently be used to deduce that the Hausdorff dimension
+of B(m, n) is maximal. In order to do this, we study inequalities defined
+by slightly different matrices. For any A ∈ Lmn , we define the matrices
+

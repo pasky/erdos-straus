@@ -1,0 +1,143 @@
+Excerpt: Arpin et al., Adventures in Supersingularland, arXiv:1909.07779v1, lines 1-30, 180-215, 2262-2335
+Adventures in Supersingularland
+Sarah Arpin, Catalina Camacho-Navarro, Kristin Lauter,
+Joelle Lim, Kristina Nelson, Travis Scholl, Jana Sotáková
+
+arXiv:1909.07779v1 [math.NT] 17 Sep 2019
+
+September 2019
+Dedicated to Alice Silverberg
+Abstract
+In this paper, we study isogeny graphs of supersingular elliptic curves. Supersingular
+isogeny graphs were introduced as a hard problem into cryptography by Charles, Goren,
+and Lauter for the construction of cryptographic hash functions ([CGL06]). These are large
+expander graphs, and the hard problem is to find an efficient algorithm for routing, or pathfinding, between two vertices of the graph. We consider four aspects of supersingular isogeny
+graphs, study each thoroughly and, where appropriate, discuss how they relate to one another.
+First, we consider two related graphs that help us understand the structure: the ‘spine’
+S, which is the subgraph of G` (Fp ) given by the j-invariants in Fp , and the graph G` (Fp ),
+in which both curves and isogenies must be defined over Fp . We show how to pass from
+the latter to the former. The graph S is relevant for cryptanalysis because routing between
+vertices in Fp is easier than in the full isogeny graph. The Fp -vertices are typically assumed
+to be randomly distributed in the graph, which is far from true. We provide an analysis of
+the distances of connected components of S.
+Next, we study the involution on G` (Fp ) that is given by the Frobenius of Fp and give
+heuristics on how often shortest paths between two conjugate j-invariants are preserved by
+this involution (mirror paths). We also study the related question of what proportion of
+conjugate j-invariants are `-isogenous for ` = 2, 3. We conclude with experimental data on
+the diameters of supersingular isogeny graphs when ` = 2 and compare this with previous
+results on diameters of LPS graphs and random Ramanujan graphs.
+
+1
+
+...
+
+invariant in Fp2 has a short path to the spine, then the involution can be applied to that path to
+produce a path from j to its conjugate j p . We call such paths mirror-paths. In Section 4.1 we
+study the distance between Galois conjugate pairs of vertices, that is, pairs of j-invariants of the
+form j, j p . Our data suggests these vertices are closer to each other than a random pair of vertices
+in G2 (Fp ). In Section 4.2 we test how often the shortest path between two conjugate vertices goes
+through the spine S, or equivalently, contains a j-invariant in Fp . We find conjugate vertices are
+more likely than a random pair of vertices to be connected by a shortest path through the spine.
+Finally, we examine the distance between arbitrary vertices and the spine S in Section 4.3.
+Section 5 provides heuristics on how often conjugate j-invariants are `-isogenous for ` = 2, 3,
+a question motivated by the study of mirror paths provided in Section 4.
+Another known family of Ramanujan graphs are certain Cayley graphs constructed by LubotzkyPhilips-Sarnak (LPS graphs [LPS88]). The relationship between LPS graphs and supersingular
+isogeny graphs is studied in [CFL+ 18]. Sardari [Sar19] provides an analysis of the diameters of
+LPS graphs, and in Section 6 of this paper, we provide heuristics and a discussion of the diameters
+of supersingular 2-isogeny graphs.
+Our experiments and data suggest a noticeable difference in the Supersingluar Isogeny Graphs
+G` (Fp ) depending on the congruence class of the prime p (mod 12). It has been known since the
+introduction of Supersingular Isogeny Graphs into cryptography [CGL06] that the congruence class
+of the prime p has an important role to play in the properties of the graph. In particular it was
+shown there how the existence of short cycles in the graph depends explicitly on the congruence
+conditions on p. In this paper, we extend this observation and find significant differences in
+the graphs depending on the congruence class of p. In summary, the data seems to suggest the
+following:
+• p ≡ 1, 7 mod 12:
+– smaller 2-isogeny graph diameters (Section 6.1),
+– larger number of spinal components (Section 3.5.2),
+– larger proportion of 2-isogenous conjugate pairs (Section 5.3.1),
+• p ≡ 5, 11 mod 12:
+– larger 2-isogeny graph diameters,
+– smaller number of spinal components,
+– smaller proportion of 2-isogenous conjugate pairs.
+To accompany the experimental results of this paper, we have made the Sage code for all the
+computations available, along with a short discussion of the different algorithms included. The
+code is posted at
+https://github.com/krstnmnlsn/Adventures-in-Supersingularland-Data.
+
+...
+5.3
+
+Experimental data: 2-isogenies
+
+We collected data on supersingular j-invariants over Fp2 for all primes 5 ≤ p ≤ 100193 (a total of
+9,605 primes). For each p, we collected all of the Fp2 \ Fp j-invariants and counted those that are
+also 2-isogenous. The plot shown in Figure 5.2 shows the proportion of conjugate pairs that are
+2-isogenous.
+
+Figure 5.2: Proportion of 2-Isogenous Pairs of Conjugate j-Invariants in G` (Fp ). Points are of
+the form (p, y) where p is a prime and y is the proportion of conjugate pairs of j-invariants which
+are 2-isogeneous.
+With a few exceptions, all of the proportions computed are positive and strictly less than 1.
+The small primes (roughly p < 5000) have a wide range of proportions, between 0 and 1. This is
+expected due to the small number of points on their G` (Fp ) graphs. For example: there are some
+primes p such that all of the pairs of conjugates are 2-isogenous. On the other hand, if Fp2 \Fp = ∅,
+which can happen for small primes, then the proportion will be trivially zero. Notably, the only
+examples of p for which the proportion is zero are p = 101, 131.
+To avoid small prime phenomena, we focused on analyzing the data we collected for 10007 ≤
+38
+
+p ≤ 100193 (a total of 8378 primes). When referring to this data, we will use the phrase “main
+data”. When referring to all of the data collected for 5 ≤ p ≤ 100193, we use the phrase “all data”.
+The graph of proportions for the main data can be found in Figure 5.3.
+
+Figure 5.3: Proportion of 2-isogenous conjugate pairs in G2 (Fp ) for p > 10000
+In this collection of data, for primes 10007 ≤ p ≤ 100193, we found there to be a mean
+proportion of 0.032780 with standard deviation of 0.019134.
+We then sorted the data by congruence conditions to look for patterns. The biggest difference
+appeared when we re-sorted the data according to the congruence class of the primes modulo 12.
+5.3.1
+
+Primes Modulo 12
+
+In Table 1, we summarize the differences between the different congruence classes modulo 12. Note
+the similar, higher means for p ≡ 1, 7 mod 12 and the similar, lower means for p ≡ 5, 11 mod 12.
+
+Total # of primes:
+Mean:
+Standard Deviation:
+
+p ≡ 1 (mod 12)
+2079
+0.043551
+0.019815
+
+p ≡ 5 (mod 12)
+2104
+0.021969
+0.010206
+
+Total # of primes:
+Mean:
+Standard Deviation:
+
+p ≡ 7 (mod 12)
+2101
+0.043375
+0.020140
+
+p ≡ 11 (mod 12)
+2094
+0.022244
+0.010512
+
+Table 1: Proportions of 2-isogenous conjugates, 10007 ≤ p ≤ 100193, sorted by p mod 12
+
+These distributions are skewed according to the congruence class, as we can also see from the
+graph in Figure 5.4.
+There appears to be a correlation between primes p ≡ 1, 7 mod 12 and between primes p ≡
+5, 11 mod 12. A two-sample t-test confirms these correlations at the 99.8% level.
+
+5.4
+

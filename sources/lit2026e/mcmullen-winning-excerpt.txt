@@ -1,0 +1,60 @@
+Winning sets, quasiconformal maps and
+Diophantine approximation
+Curtis T. McMullen∗
+11 August, 2009
+
+Abstract
+This paper describes two new types of winning sets in Rn , defined
+using variants of Schmidt’s game. These strong and absolute winning
+sets include many Diophantine sets of measure zero and first category,
+and have good behavior under countable intersections. Most notably,
+they are invariant under quasiconformal maps, while classical winning
+sets are not.
+
+Contents
+1
+2
+3
+4
+
+1
+
+Introduction . . . . . . . . . . . . . . . . . . . . . . . . . 1
+Transport of strategies . . . . . . . . . . . . . . . . . . . 5
+Diophantine sets . . . . . . . . . . . . . . . . . . . . . . 8
+Counterexamples . . . . . . . . . . . . . . . . . . . . . . 12
+
+Introduction
+
+Winning sets. Suppose two players, A and B, take turns choosing a
+nested sequence of closed Euclidean balls
+B1 ⊃ A1 ⊃ B2 ⊃ A2 ⊃ B3 · · ·
+in Rn whose diameters satisfy, for fixed 0 < α, β < 1,
+|Ai | = α|Bi | and |Bi+1 | = β|Ai |.
+∗
+
+(1.1)
+
+Research supported in part by the NSF. 2000 Mathematics Subject Classification:
+11J, 37F30.
+
+1
+
+Following Schmidt [Sch], we say E ⊂ Rn is an
+T (α, β)-winning set if
+player A has a strategy which guarantees that Ai meets E. We say
+E is an α-winning set if it is (α, β)-winning for all 0 < β < 1, and a
+winning set if it is α-winning for some α > 0.
+Winning sets have many useful properties; for example:
+1. Any winning set in Rn has Hausdorff dimension n.
+2. A countable intersection of α-winning sets is α-winning.
+3. Winning sets are preserved by bi-Lipschitz homeomorphisms of
+Rn .
+See [Sch] and [Dani3, Prop 5.3]. However, as we will see in §4:
+Theorem 1.1 Winning sets are generally not preserved by quasisymmetric maps.
+Here a map φ : Rn → Rn is k-quasisymmetric if for any ball
+B(x, r) ⊂ Rn , there exists an s > 0 such that
+B(φ(x), s) ⊂ φ(B(x, r)) ⊂ B(φ(x), ks).
+
+(1.2)
+
