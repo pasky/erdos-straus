@@ -351,3 +351,8 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | y10_clean_level_classification | levels clean along a whole quadratic family | ⟺ 4A − tΔ = □ (outside gcd-exceptional classes); per prime: T1-type = principal-form part of clean (82 % of clean words) | PROVED + EVIDENCE |
 | y10_hardness_beyond_clean | does near-squareness predict N₋/N beyond adelic cells? | yes, monotone in p − ⌊√p⌋²; half survives removing all clean levels (mechanism open) | EVIDENCE |
 | y10_hard_primes_m2minus3 | hard primes vs polynomial T1 points | 3361 and 1 249 921 are m² − 3 next to m₀ = 2 | EVIDENCE (anecdotal) |
+
+## Synthesis V (O230): cross-combinations of wave Y ((J)39–(J)56) (`s5_*`, deep file SYNTHESIS_SPARKS5.md; not yet triaged)
+| file | question | finding | label |
+|---|---|---|---|
+| s5_three_sides | (J)48 × (J)53/(J)55: the three side numbers tp+1 = AB, p+u = Av, p+v = Bu | Lemma S: χ = genus character on every side; u-side deformation u(K+u) = □; exact three-side cleanliness explains ≈ 70–80 % of the residual near-square depletion (K0 = 16, 24 fully); K0 = 8 unexplained | Lemma S + deformations PROVED; census EVIDENCE (169 410 primes to 5·10⁶, 0 violations) |
