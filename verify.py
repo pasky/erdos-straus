@@ -25874,4 +25874,32 @@ def check_gf():
 check_gf()
 
 
+def check_gg():
+    # (gg) FF_ODD_ABSENCE (O226; reviews R240, R241): root-product (Weil reciprocity) law E(0)^s = eps checked from scratch
+    # at q = 5 (R240); Thm 2.2 (q = 9, A = T: no finite linear covering) independently re-summed by R241 from its own
+    # exact P8 enumerations (fails closed): certified 3.0107 / fully independent 3.0371 / R226-Case-A variant 3.2934, all < 4.
+    # With (J)56 Thm 8.1: ES_q(T) has no finite linear covering for every q = 3^r, r >= 2.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "scripts/review_r240_law.py", "5"], capture_output=True, text=True, timeout=900,
+                       cwd=root, env=env)
+    assert r.returncode == 0 and "FAILURES: 0 []" in r.stdout, ("FF_ODD law", r.stdout[-2000:], r.stderr[-2000:])
+    r = subprocess.run(["bash", "scripts/review_r241_certify.sh"], capture_output=True, text=True, timeout=1500,
+                       cwd=root, env=env)
+    assert r.returncode == 0, ("FF_ODD certify", r.stdout[-2000:], r.stderr[-2000:])
+    out = r.stdout
+    assert "R226 bounds: identical to archived" in out and out.rstrip().endswith("ALL OK"), out[-2000:]
+    assert "certified x1.01 = 3.010694 < 4: True" in out and "variant R226 Case A routes: 3.293370" in out, out[-2000:]
+    print(f"== (gg) FF_ODD_ABSENCE R240/R241: root-product law at q = 5; q = 9, A = T certified 3.0107 < 4 (independent "
+          f"3.0371, variant 3.2934); seconds = {perf_counter() - t0:.1f}")
+
+
+check_gg()
+
+
 print("\nall checks passed")
