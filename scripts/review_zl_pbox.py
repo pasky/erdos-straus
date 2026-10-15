@@ -38,6 +38,24 @@ def logC(eta):
     return s
 ETAS = [mpf(i) / 100 for i in range(10, 52, 2)]
 LCS = [(eta, logC(eta)) for eta in ETAS]
+def logC3(eta):
+    s = mpf(0); p = 2
+    while p < 3 ** (1 / eta) + 1:                 # binom(k+2,2) p^{-eta k} <= 1 for all k once p^eta >= 3
+        if all(p % q for q in range(2, int(p ** .5) + 1)):
+            best = mpf(0); k = 0
+            while True:
+                k += 1; v = mlog(mpf((k + 1) * (k + 2)) / 2) - eta * k * mlog(p)
+                if v > best: best = v
+                elif k > 80: break
+            s += best
+        p += 1
+    return s
+LCS3 = None
+def tau3max(nmax):
+    global LCS3
+    if LCS3 is None: LCS3 = [(eta, logC3(eta)) for eta in ETAS]
+    ln = mlog(nmax); return int(mfloor(min(mp.e ** (lc + eta * ln) for eta, lc in LCS3) * UPF))
+
 def taumax(nmax):
     ln = mlog(nmax); return int(mfloor(min(mp.e ** (lc + eta * ln) for eta, lc in LCS) * UPF))
 
@@ -109,6 +127,8 @@ def box(A, C, D):
     v["G"] = pairG * om * min(cop(m2, E0, A, 2 * A - 1), cop(m2, E0, b0, b1)) * UPF
     v["I"] = nC * pairF * UPF
     v["J"] = 2 * nC * pairG * UPF
+    # tau3: e == -N (mod 4) in [E0, E1]; then (a, b, d) an ordered factorisation of (N+e)/4 into three factors
+    v["tau3"] = (pe + 1) * tau3max(math.floor((N1 + E1) / 4)) * UPF
     k = min(v, key=lambda k: v[k])
     return v[k], k
 

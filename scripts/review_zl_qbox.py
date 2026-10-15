@@ -15,6 +15,8 @@ JR = [int(x) for x in sys.argv[1].split("-")] if sys.argv[1] != "validate" else 
 j = JR[0]; variant = sys.argv[2]; W = int(sys.argv[3]) if len(sys.argv) > 3 and sys.argv[1] != "validate" else 24
 F0 = int(mfloor(mpf(2) ** (mpf(j) / 32)))            # every integer F in the cell satisfies F0 <= F <= F1
 F1 = int(mfloor(mpf(2) ** (mpf(j + 1) / 32))) + 1
+import os
+ACUT = int(os.environ.get('ACUT', '0'))
 PI_LO = Fr(314159265358979, 10 ** 14)                 # < pi
 
 def mu2w(w):
@@ -90,6 +92,7 @@ def box(C, D, P):
     if P > F1 + 2: return None
     aL = max(1, -(-(P + F0) // (4 * (2 * C - 1) * (2 * D - 1)))); aU = (2 * P - 1 + F1) // (4 * C * D)
     if aU < aL: return None
+    if aU < ACUT: return None          # (round 2) all data of the box have a <= aU < ACUT: counted exactly by the sweep / AD bound
     nA, nC, nD = aU - aL + 1, C, D
     bL = max(aL, Fr(aL * F0 + C, 2 * P - 1)); bU = Fr(aU * F1 + 2 * C - 1, P)
     if bU < aL: return None

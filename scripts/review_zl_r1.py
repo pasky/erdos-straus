@@ -47,7 +47,7 @@ def deeper(b, bh, P, Q, tP, tQ):
             else:
                 rho = exp((2 * ee * bbh - 2 * bb) * LN2) * (mpf(Kl + 2) / Kl) ** p
                 t0 = 2 * c * exp((Kl * ee * bbh - bb * Kl) * LN2) * (Kl * bbh * LN2) ** p
-            if not rho < mpf(1) / 2: raise SystemExit("remainder ratio")
+            if not rho < mpf(95) / 100: raise SystemExit("remainder ratio")   # geometric remainder t0*rho/(1-rho), rigorous for any rho < 1
             rem += t0 * rho / (1 - rho)
         S += rem * PAD
     return S, parts
@@ -59,6 +59,10 @@ def main():
          table("data/zl/P_q1_hi.txt", 1, jmax=799)]
     if l2: P += [table("data/zl/P_q32_k3_l2.txt", 32), table("data/zl/P_q32_k5_l2.txt", 32)]
     Q = [table("data/se/Q_q4.txt", 4)]
+    if os.environ.get("MYK3"):     # independent: reviewer's own K=3 table + SE's reviewed tables only (no author k3/k5 tables)
+        P = [table(os.environ["MYK3"], 32), table("data/se/P_q4.txt", 4), table("data/se/P_q1.txt", 1),
+             table("data/zl/P_q1_hi.txt", 1, jmax=799)]
+        print("MYK3: K=3 cells from", os.environ["MYK3"], "; K>=5 from SE tables / P_q1_hi")
     tP = agg(json.load(open("data/zl_review/tailP800_new.json")), Fr(1, 2), mpf(800) * LN2)
     tQ = agg(json.load(open("data/zl_review/tailQ100_new.json")), Fr(1), mpf(100) * LN2)
     ADY = 2 * sum(Y // a for a in range(1, Y + 1))
