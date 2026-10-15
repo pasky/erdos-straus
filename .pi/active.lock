@@ -1,0 +1,10 @@
+{
+  "agentId": "exp-near-square",
+  "sessionId": "/home/pasky/.pi/agent/sessions/--home-pasky-projects-math-erdos-straus-claude-agent-worktree-0037--/2026-10-15T09-28-06-292Z_01a13ee3-e994-7703-97c0-e6a830669ecc.jsonl",
+  "parentSessionId": "/home/pasky/.pi/agent/sessions/--home-pasky-projects-math-erdos-straus-claude--/2026-10-15T07-40-29-445Z_01a13e81-6385-745f-ba9c-26a839561f79.jsonl",
+  "pid": 2325377,
+  "branch": "side-agent/exp-near-square",
+  "startedAt": "2026-10-15T09:28:04.824Z",
+  "tmuxWindowId": "@1093",
+  "tmuxWindowIndex": 29
+}

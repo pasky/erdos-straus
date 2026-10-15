@@ -44,3 +44,9 @@ larger ℓ. Classes with period support in {ℓ ≤ 23} ∪ {ℓ} cover 26/29 re
 62/113. So the neighbourhood of σ₀ needs a genuinely multi-ℓ tree; no single fibre is full at this class supply.
 The *tree* must split one prime at a time (single ℓ-steps scored by covered fraction): z11_tree's multi-prime jumps import
 large ℓ greedily and exhaust the node budget (200 000 nodes, H = 2⁶3⁴5³7²·∏_{11≤ℓ≤47}ℓ).
+
+**Tree v2 diagnosis.** `z11_tree2.py` (single-prime splits scored by covered fraction, H = all ℓ ≤ 47, pool QMAX 3·10⁵,
+MMAX 10⁵): the DFS follows one surviving lineage through all of H and dies at a point that is *generic* at every ℓ
+(e.g. μ ≡ 38 mod 2⁶, 34 mod 3⁴, …) — not a mixed point. Such points are covered by classes whose periods involve larger ℓ
+(II2 887: ord 443; II2 1487: 743; II2 3035: 2·3·101; …). So the binding constraint for a finite tree is the
+**ℓ-range of the class periods**, not the mixed points; H must contain many primes ℓ (exponent 1).
