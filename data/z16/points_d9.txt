@@ -1,0 +1,10 @@
+height 1: 6 rational points in X_1 ∪ X_2, alive to depth 9: 4 (0.667)
+height 2: 36 rational points in X_1 ∪ X_2, alive to depth 9: 20 (0.556)
+height 3: 324 rational points in X_1 ∪ X_2, alive to depth 9: 160 (0.494)
+height 4: 2916 rational points in X_1 ∪ X_2, alive to depth 9: 1496 (0.513)
+c=1 1+cT+T^9+T^81: alive to depth 9: True
+c=1 1+cT+T^3+T^9+T^27: alive to depth 9: True
+c=1 1+cT: alive to depth 9: True
+c=2 1+cT+T^9+T^81: alive to depth 9: True
+c=2 1+cT+T^3+T^9+T^27: alive to depth 9: True
+c=2 1+cT: alive to depth 9: True

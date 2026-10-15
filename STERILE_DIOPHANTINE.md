@@ -150,7 +150,40 @@ E | D = 1 + T^{N+1+γ}L'g' gives E³ | D³ = 1 + T^{3(N+1+γ)}L'³g'³ = 1 + T^{
 γ ≤ j = N + 1 − k gives 3γ ≤ 3(N + 1) − 3k ≤ 3(N + 1) − k. The converse part of Lemma 1.1 applies. ∎
 *Consequences and limits.* x_u³ = x_{u³} lies in the slice u ≡ 1 (mod T²) (the c = 0 slice), not in X_c. So: **if a cube
 point x_{u³} is in O(3, T²) for Case B, then x_u is (Case B-)uncovered** — O ∩ X_c ⊇ Frob^{−1}(O ∩ Frob(X_c)) for Case B.
-This is a renormalisation in the *wrong* direction for §2 (it maps covered to covered, levels N ↦ 3N + 2, i.e. ball radii
-r ↦ r³/3^?·… are shrunk, not enlarged), and Case A at the image needs a separate check (not done). The tuple equations
+This is a renormalisation in the *wrong* direction for §2 (it maps covered to covered, ball depth N + 1 ↦ 3N + 3, i.e. radius r ↦ r³: balls shrink), and Case A at the image needs a separate check (not done). The tuple equations
 themselves are not Frobenius-stable: (B₁) needs w₁ + C₁ = T·g'v₁ with T ∤ g', while cubing gives T³; the char-2
 Frobenius family of FF_STERILE_PUSH §4 is the case where the valuation bookkeeping closes.
+
+## 6. Numerics at chosen points (EVIDENCE; `scripts/z16_points.py`, balls `data/z16/balls_d9.txt`, log `data/z16/points_d9.txt`)
+
+Alive to depth 9 (Case A + B complete through ball depth 9), rational points u = P/Q ∈ X₁ ∪ X₂ by height:
+h = 1: 4/6 (0.667); h = 2: 20/36 (0.556); h = 3: 160/324 (0.494); h = 4: 1496/2916 (0.513); cylinder average 0.517.
+x*_c, 1 + cT + T⁹ (+T⁸¹) and 1 + cT + T³ + T⁹ + T²⁷ are alive to depth 9 for both c. *Reading:* at depth ≤ 9 low-height
+rationals are not visibly more sterile than average. This is expected, not a counterexample to §4: coverage at depth ≤ 9 is
+dominated by levels N ≤ 5 (p₃..p₆ carry 0.85 of the mass), where a height-h point is protected only for N + 1 > 3h. The
+Liouville advantage of FF_THIRDS_CORNER (x*_c uncovered to level 20) lives at high levels, which the complete tree cannot reach.
+
+## 7. The ℤ face (goal 2)
+
+* The ℤ Liouville lemma is already PROVED: M17D Lemmas 2.1–2.3 (O139) — a rational point u = −p/q lies in a P/Q-box of level L
+  iff qa ≡ pb (mod 17^L); non-resonant data (z ≠ 0) have max(a, b) ≥ W/(|p| + q); rays (z = 0, exact) need u < 0 (the sign;
+  FF twin: lc(u) = −1, FF_THIRDS_CORNER Prop 1.4). Its proofs are r-free. M17D §3 certified chosen rational points pointwise
+  to P-level 10. Theorem 4.2 above is the FF form with the general profile η_u; the ℤ form with η_u (least height of a rational
+  agreeing r-adically to order D) holds by the same gap principle |qa − pb| ≤ (|p| + q)·max(a, b).
+* Lemma 3.1 holds verbatim on ℤ_r (r-ary tree): a sterile point exists if no alive cylinder has all r children in boxes.
+  For r = 17 this asks that 17 boxes of one level never fill an alive cylinder — percolation threshold p < 16/17 in the
+  independence model, against the measure route's need for Σ p < 0.677 (M17C/M17D) that fails by constants. Prop 3.2 applies
+  too: global box counts (D_P, D_Q) alone cannot do better than the cell-wide union bound. **So the explicit-r₀ question
+  (r₀ = 2³² in STERILE_EXPLICIT) is limited by the union-bound form of the argument, and any improvement to r = 17 must use
+  positional (sibling-type) information about where the boxes sit.** (Assessment.)
+* Not attempted: a ℤ sibling census (all P/Q boxes of levels ≤ 5 at r = 17 exist in data/m17b; a 17-sibling count there is a cheap
+  follow-up, spark S2).
+
+## 8. Conclusions (exact scope)
+
+PROVED: Theorem 2.1 (no game proves Conjecture 0.2: U_c is closed, nowhere winning); Lemma 3.1 (windowed König: a local window
+condition at visited alive cylinders suffices, with dimension bound); Proposition 3.2 (global per-depth counts collapse to the
+tail union bound — the matching barrier for Cantor/game arguments); Lemma 4.1, Theorem 4.2, Corollaries 4.3, 4.4 (Liouville
+spectrum: protected levels, only rational points protected at all large levels); Proposition 5.1 (Frobenius propagation, Case B).
+EVIDENCE: alive fraction 0.517 at depth 9, Σ distinct-ball mass 0.955, sibling condition holds to depth 9 (§3, §6).
+CONJECTURE: 3.3 (sibling). Conjecture 0.2 remains CONJECTURE.
