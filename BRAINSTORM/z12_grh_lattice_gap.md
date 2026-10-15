@@ -3,8 +3,8 @@
 **Idea.** Use many windows (GRH) and a box of exponents of k forced small mute primes (q ≡ −p mod s).
 **Result.** Below the box-covering threshold, cap ≤ e ⟺ the window divides one of the explicit integers n + 4Q²,
 Q ∈ Box_e (Lemma 2.1, trivial): a divisor lottery, not a Frobenius condition. Certifying a balanced exponent
-lattice costs the factor P = ∏S (bad windows cannot be divided by the window density 1/P), giving cap ≳ P and
+lattice costs the factor P = ∏S (bad windows cannot be divided by the window density 1/P), so this sufficient covering argument needs cap ≈ P (not a necessity theorem),
 reproducing exp(O(√(log₂p log₃p))) (CAP_INTERPOLATION Thm 4.2(b)).
 **Missing input (precise).** Equidistribution mod P ≈ X^{1/2} of primes q ≤ X at which a short multiplicative
 relation among the first k primes holds. With it: e*(p) ≤ (log₂p)^{O(1)} under GRH (heuristic Assessment).
-**Label.** Assessment (negative, with exact missing input).
+**Label.** Assessment (tentative limitation of whole-lattice covering; R-O236 repair 5).

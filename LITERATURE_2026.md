@@ -595,6 +595,10 @@ nonresidues** (Pollack, arXiv:1508.05035; Linnik–Vinogradov; Burgess).
   on the factorisation of the single integer `x`, and nothing controls it
   pointwise. Prime `x` is useless (only `q|p+4` works), as notes §8.3
   already records.
+  (O236 correction: for PRIME q the subgroup condition `−x ∈ ⟨primes of x⟩` is
+  forced — (x/q) = −1 puts a non-residue among the primes of x, so −1 is in the
+  group (POINTWISE_SIZE Cor 8.3(b)); what is uncontrolled is the exponent budget
+  |f_r| ≤ v_r(x). Relaxing that budget is ES^{(y,e)}: CAP_POINTWISE Thm 1.1.)
 * **Prospect:** negative for ES. For the seed conjecture it gives only
   "which branches are open", not a guarantee.
 

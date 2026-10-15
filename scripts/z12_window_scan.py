@@ -95,7 +95,7 @@ if __name__ == "__main__":
     H_qstar_cap = collections.Counter()
     H_min_prime = collections.Counter()
     H_min_all = collections.Counter()
-    rec_q, rec_cap, nowin = [], [], []
+    rec_q, rec_cap, nowin, rat = [], [], [], []
     first0 = collections.Counter()
     cnt = verified = 0
     for p in primerange(5, N + 1):
@@ -113,13 +113,15 @@ if __name__ == "__main__":
         assert r[0] <= qs - 3
         H_qstar_cap[r[0]] += 1
         rec_q.append((qs, p)); rec_q.sort(reverse=True); rec_q = rec_q[:6]
+        from math import log
+        rat.append((round(qs / log(p) ** 2, 3), qs, p)); rat.sort(reverse=True); rat = rat[:4]
         rec_cap.append((r[0], qs, p)); rec_cap.sort(reverse=True); rec_cap = rec_cap[:6]
         if VER and cnt % VER == 0:
             assert shot_cap(p, qs, r[1]) == r[0]
             verified += 1
         best_p, best_a, f0 = r[0], r[0], None
         for m, isp in W:
-            rr = window_cap(p, m, best_a)
+            rr = window_cap(p, m, best_p if isp else best_a)  # R-O236 fix: prime windows bounded by best_p
             if rr is None:
                 continue
             if rr[0] < best_a:
@@ -140,7 +142,8 @@ if __name__ == "__main__":
     print("cap at least prime window q*:", sorted(H_qstar_cap.items()))
     print("min cap over prime windows <= M0:", sorted(H_min_prime.items()))
     print("min cap over all windows <= M0:", sorted(H_min_all.items()))
-    print("least cap-0 window:", dict(first0))
+    print("least cap-0 window (square-shot family only):", dict(first0))
     print("records q*(p):", rec_q)
     print("records cap at q*:", rec_cap)
+    print("records q*/log^2 p:", rat)
     print("odd squares a^2 <= N with any window (T1 => 0):", sq_win)

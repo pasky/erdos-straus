@@ -418,6 +418,6 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 
 | memo | idea | result | label |
 |---|---|---|---|
-| z12_window_cap | Type II window q = 4x − n with mute set = primes of x | (x/q) = −1 forces −1 ∈ ⟨S⟩: ES^{(y,e)}(n) with e < q*(n); e*(n) ≪ rad(n)^5 (Linnik), explicit (Ahn–Kwon), ≪ log²n (GRH) — SHARP | PROVED |
+| z12_window_cap | Type II window q = 4x − n with mute set = primes of x | (x/q) = −1 forces −1 ∈ ⟨S⟩: ES^{(y,e)}(n) with e < q*(n); e*(n) ≪ rad(n)^5 (Linnik), explicit (Ahn–Kwon), ≪ log²n (GRH, non-square n); first polynomial cap — SHARP | PROVED |
 | z12_typeI_dichotomy | same trick in Type I shape | (a/p) = +1: no forced firing; dead at every cap if (pk′+1)/4 prime | PROVED + EVIDENCE |
-| z12_grh_lattice_gap | GRH + box covering toward C log log p | below covering threshold = divisor lottery; P-loss pinned to equidistribution of relation primes mod P | Assessment |
+| z12_grh_lattice_gap | GRH + box covering toward C log log p | below covering threshold = divisor lottery; P-loss of whole-lattice covering pinned to equidistribution of relation primes mod P | Assessment (tentative) |
