@@ -14,11 +14,25 @@ ES is not solved; no infinite case of ES or ES_q is claimed. Conjecture 0.2 is N
    only by lopsided or exact tuples. So x*_c IS special in its cylinder (corrects FUNCTIONFIELD_ES3 §3 Assessment).
 3. **Complete level-by-level search is now ~3^N per level instead of ~3^{2N}** (Prop 2.1: the small side M = m'w₁ forces
    g', E, w₁ in case 1 — in closed Bezout form Z = T^{−N} mod M, E = cT^{N+1}Z − (1 + cT), Prop 5.1). Result: **no Case B
-   tuple covers x*_c at any level N ≤ 20 (both c; N = 21 see below)**, previously N ≤ 8.
+   tuple covers x*_c at any level N ≤ 20 (k = 2, both c)**, and none at N ≤ 18 for k = 3; previously N ≤ 8 (k = 2), 7 (k = 3).
 4. **Leading coefficient = archimedean sign** (Assessment, analogy with (J)55): exact (structured, periodic) coverings of
    polynomial points need lc(u) = −1; at lc(u) = −1 x*_{−1} is saved only by 2 ≠ 0 (T ≡ 1 mod T − 1), the same bit that
    makes characteristic 2 covered. q = 3, A = T is covered because depth-1 cylinders make Liouville vacuous and the exact
    families E = −u(0) ∈ {1, 2} exhaust F₃^*.
+
+## Replay
+```
+gcc -O2 -o /tmp/zt_lop scripts/zt_lop.c
+/tmp/zt_lop 3 2 3 20 1,1   # and 1,2; k = 3: /tmp/zt_lop 3 3 4 18 1,c   (N = 20: ~1 h per c)
+gcc -O2 -o /tmp/fc scripts/bsE_famcount.c -lm && /tmp/fc 3 2 17 print > /tmp/fc.txt
+PYTHONPATH=scripts uv run python scripts/zt_liouville.py /tmp/fc.txt 4
+PYTHONPATH=scripts uv run python scripts/zt_lemma31.py /tmp/fc.txt 4
+PYTHONPATH=scripts uv run python scripts/zt_lop_xcheck.py /tmp/fc.txt /tmp/zt_lop 8 4
+PYTHONPATH=scripts uv run python scripts/zt_bezout_check.py
+scripts/zt_ctl.sh /tmp/zt_lop 12 4 > /tmp/ctl.txt && PYTHONPATH=scripts uv run python scripts/zt_calib.py /tmp/ctl.txt 5
+uv run --with python-flint python scripts/zt_cyclo.py 200000
+cd scripts && uv run python zt_rate_lop.py 1,2,3 60
+```
 
 ## Results (labels)
 * Lemma 1.1, Lemma 1.2, Cor 1.3, Prop 1.4 (exact tuples at polynomial points: need lc u = −1 and a discrete-log condition
@@ -26,13 +40,14 @@ ES is not solved; no infinite case of ES or ES_q is claimed. Conjecture 0.2 is N
   PROVED. Checks: census (bsE_famcount s ≤ 17, 348 tuples) — Lemma 1.2 at 80 polynomial points: 0 violations; Lemma 3.1 on
   27 840 (tuple, u) pairs: 0 mismatches; zt_lop vs census at all 80 polynomial points of degree ≤ 4, levels 3..8: identical;
   Prop 5.1 identities on 3000 random cases.
-* x*_c uncovered at all levels 3 ≤ N ≤ NMAX (k = 2, both c): EVIDENCE (complete search, one code beyond level 8, census
-  cross-checked to level 8). With Case A (ES2 theorem): no linear family of level ≤ NMAX is valid at x*_c.
+* x*_c uncovered at all levels 3 ≤ N ≤ 20 (k = 2, both c) and 4 ≤ N ≤ 18 (k = 3): EVIDENCE (complete search, one code beyond level 8, census
+  cross-checked to level 8). With Case A (ES2 theorem): no linear family of level ≤ 20 is valid at x*_c (k = 2). Level 21 exceeded the 8 h budget (c = 1 killed; c = 2 may still be running — see data/zt_lop_xstar_c2.txt).
 * Cyclotomic tuples (h = 2, 3 exhaustive, h = 4 sampled): max depth of agreement with −(1 + cT) is 4 / 13 / 10 against the
   required 6 / 15 / 42 (EVIDENCE, consistent with Cor 1.3).
 * Lottery model at polynomial points (Assessment) calibrated on 52 polynomial points of degree 2..4, levels 5..12 (EVIDENCE):
-  model 5.2 vs 2 unstructured hits; levels 6..12: 2.8 vs 0 — right order, conservative. At x*_c the model is ≈ 4·10⁻³ per c
-  over levels 3..17, decaying ≈ ×1/3 per level; extrapolated mass beyond level 21 ≈ 10⁻⁷. Generic points: λ_N ≈ 0.1 per level.
+  model 2.9 vs 2 unstructured hits; levels 6..12: 1.5 vs 0 (with O226's parity law z ≡ t ≡ s mod 2; without it 5.2 / 2.8)
+  — right order, slightly conservative. At x*_c the model is ≈ 3·10⁻³ per c
+  over levels 3..17, decaying ≈ ×1/3 per level; extrapolated mass beyond level 20 ≈ 10⁻⁷. Generic points: λ_N ≈ 0.1 per level.
 * Route bounds restricted to the patterns allowed at x*_c (§7, grid EVIDENCE): q = 3 exponent +0.167 → exactly 0.000 (critical,
   at a degenerate corner where true counts are polynomial).
 
@@ -51,4 +66,5 @@ ES is not solved; no infinite case of ES or ES_q is claimed. Conjecture 0.2 is N
   sign of u decides exact families. Could give explicit sterile Mordell points with u ∈ ℤ.
 * Higher-degree polynomial points: the periodic structured families at lc(u) = −1 (discrete-log in (F₃[T]/u)^*) — classify
   which polynomial points are covered; conjecture: all lc(u) = +1 polynomial points not covered at level ≤ 5 are sterile.
-* O226's parity law (z ≡ t ≡ s mod 2) is now in the model; a T-adic higher-digit version might cut the case-1 candidates.
+* O226's parity law (z ≡ t ≡ s mod 2) is now in the model (it improved calibration); a higher T-adic-digit version of its root-product law might cut the case-1 candidates or give a non-lottery obstruction at x*_c.
+* zt_lop case 2 enumerates (M, v₁, K) naively (≈ N·3^{N} inner steps); a divisor-based loop would make level 22–23 feasible.
