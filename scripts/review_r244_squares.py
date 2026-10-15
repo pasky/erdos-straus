@@ -101,3 +101,27 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+def lemma31_check(C0=130, KM=1100):
+    """brute force: integer x in [-12, 40) with nu(x) in Sq^x (odd part of c0*4^x+k a unit square = 4^j, k ≡ 1 mod 8)
+    versus the document's criterion c0 + k = 4^j. Reports disagreements."""
+    dis = []
+    for c0 in range(1, C0):
+        for k in range(1, KM, 8):
+            pts = []
+            for x in range(-12, 40):
+                v = Fraction(c0) * Fraction(4) ** x + k
+                num, den = v.numerator, v.denominator
+                if num & (num - 1) == 0 and den & (den - 1) == 0 and (num.bit_length() - den.bit_length()) % 2 == 0:
+                    pts.append(x)
+            crit = any(c0 + k == 4 ** j for j in range(12))
+            if bool(pts) != crit:
+                dis.append((c0, k, pts))
+    return dis
+
+
+if __name__ == '__main__' and len(sys.argv) > 1 and sys.argv[1] == 'l31':
+    d = lemma31_check()
+    print('Lemma 3.1 disagreements (c0, k, unit-square x):', len(d), d[:12])
+    print('residues of c0 mod 4 among disagreements:', sorted(set(c % 4 for c, _, _ in d)))
