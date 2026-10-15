@@ -95,7 +95,7 @@ b(b−1)(b−2)/(M(M−1)(M−2)), two given balls are siblings with probability
 * §2.1 "expected pairs b(b−1)/2/#parents": exact is C(b, 2)·2/(M − 1) = b(b−1)/(3·#parents − 1), i.e. the author's
   expectations are ≈ 1.5× too large at q = 3: exact 0.25, 0.46, 1.65, 0.64, 1.04, 0.30 (d = 4..9; total 4.34) against observed
   1, 0, 4, 1, 1, 0 (total 7, author's expectation total 6.4). So the q = 3 data show **mild attraction** (7 vs 4.3; Poisson tail
-  P(X ≥ 7 | 4.34) ≈ 0.15, driven by d = 6 — two of the four d = 6 pairs are Case A + Case B, §2.2), not "neither repulsion nor
+  P(X ≥ 7 | 4.34) ≈ 0.15, driven by d = 6, where §2.2 reports Case A + Case B pairs), not "neither repulsion nor
   attraction". (At r = 17 the factor is (r−1)/r·r/(r−1) ≈ 1, so the r = 17 row is essentially right.)
 * "No triple among all q = 3 parents (expected 0.40 over depths 5–9)": the script's C(b,3)/npar² omits the factor 2/9
   ("three distinct children of one parent"), and 0.40 is the d = 6–9 sum. Exact (depths 5–9, all parents): **0.105**.
@@ -111,3 +111,38 @@ Repair (D4, MINOR): replace the numbers as above (or label the model as the with
     9 alive: E3 0.0006 E>=2 0.154 | all parents: E3 0.0011, E[sibling pairs] exact 0.297 (author C(b,2)/npar = 0.446)
     depths 3-9 alive parents: E[triples] exact 0.0620 (binomial p^3 model: 0.1453), P(none)~0.940; E[>=2] 2.389
     all parents, depths 5-9: E[triples] exact 0.1052
+
+### §2.4 r-landscape and Conjecture 4.2 (uniform multiplicity ≤ 3 from depth 4) — data REPRODUCED; label CONJECTURE correct;
+### the "PROVED consequence" has a hidden hypothesis (D5); the "out of reach" heuristic is internally inconsistent (D6)
+From-scratch engine: `scripts/review_r249_rbox.c` (P: naive scan of all a ≤ b, ab ≤ N/2, e = (−N mod 4ab), both orientations,
+r ∤ cd; Q: Σ^I_F via e | 4a²d + 1 with e ≡ −F^{−1} (mod 4ad), ad ≤ F/2 + 1/4 (re-derived from e ≤ a + b ≤ 2b), boxes −4a²d and
+−4b²d, r ∤ e; every datum verified against its defining equation) + `scripts/review_r249_rtree.py` (alive tree in the
+non-residue cells; boxed children counted only below alive parents). Box types P, Q (Q⁻¹ = Q, √Q = ∅, U ⊂ P) are taken from
+M17/M17B Lemma 1.1 and M17 Lemmas 1.3, 5.1, 5.2, whose proofs I re-read and found r-free (Jacobi reciprocity with
+f ≡ −1 mod 4d; nothing uses 17 beyond being an odd prime) — so the reduction itself is shared with the author, the
+enumeration is independent (different algorithm: the author uses the ET four-regime factoring enumerator).
+Results (all agree exactly with `data/z17/landscape_d4.txt`, `rtree19_d6.txt`, `rtree23_d6.txt` where they overlap):
+* r ∈ {5, 7, 11, 13}: every non-residue cell is a level-1 box. ✓
+* surviving cells: 17: {5, 7}; 19: {2, 3, 10, 13}; 23: {5, 14}; 29: 6/14; 31: {3, 6, 21, 26}; 37: 6; 41: 14; 43: 10; 47: 6;
+  53: 8; 59: 10; 61: 14 ✓ (all twelve).
+* max boxed children of an alive parent, d2/d3/d4: 17: 4/4/2; 19: 7/5/2; 23: 8/5/3; 29: 5/4/2; 31: 10/2/2 ✓, min alive fraction at
+  d4 0.6782, 0.5698, 0.5800, 0.8002, 0.6621 ✓; d2/d3 for 37..61: 5/4, 3/3, 7/3, 14/3, 4/3, 8/3, 6/4 ✓. Histograms at r = 19, 23
+  (d ≤ 4) identical to the author's. (Depth 4 for r ≥ 37 and depths 5–6 at r = 19, 23 not reproduced: the naive scan costs
+  ≈ N log N, N = r^{2L−1}; r = 17 and r = 19 at depth 5 are running, see addendum.)
+* Note: the bound 3 is **attained** (r = 23, d = 4, one parent with 3 boxed children): Conjecture 4.2 is fitted to the data
+  maximum with zero slack; "≤ 5 at depth 3" is likewise attained (r = 19, 23).
+(D5, MAJOR — hidden hypothesis in a PROVED implication and in the headline "sharp threshold".) "Conjecture 4.2 for a prime r
+implies that the r-generic line contains sterile points" needs **a non-residue cell surviving level 1** at that r (Conj 4.2
+quantifies over surviving cells and is vacuous if there are none). Survival is CERTIFIED only for 17 ≤ r < 20000 (STERILE_LOWER
+Comp. 4.1); for 2·10⁴ ≤ r < 2^{21.44} ≈ 2.84·10⁶ it is not established anywhere I could find (STERILE_LOWER Thm 6.3 covers
+r ≥ 2^{21.44} only). So "Conjecture 4.2 on 17 ≤ r < 2^{21.44} would give sterile r-generic points for every prime r ≥ 17" is
+CONDITIONAL also on level-1 survival in [2·10⁴, 2^{21.44}). Repair: add the hypothesis (or fold "some non-residue cell survives
+level 1" into Conj 4.2 for r ≥ 2·10⁴), in §4, §6, the memo z17_uniform and SHARP 1 of the report. (Very likely true and cheap
+to certify: level-1 boxes come from ES solutions of 4/r, a handful against (r − 1)/2 cells; a level-1 sweep to 2.84·10⁶ with a
+√r-type enumerator would close it.)
+(D6, MINOR — Assessment.) "≈ N^{2/5}/r^{L−1} = r^{0.6−0.2L} points per class on average (ET exponent), so true for L ≥ 4 on
+average": the ET exponent is an *upper bound*; if it were the true average, a Poisson count over the ≈ r^{L−2} classes of a cell
+would give ≈ r^{L−2}·λ⁴/24 = r^{0.2L+0.4}/24 classes with ≥ 4 boxes — growing in L, i.e. Conjecture 4.2 would be heuristically
+*false* at large depth. The heuristic supporting 4.2 is the true growth of D_P, which at r = 17 is ≈ ×1.8 ≈ 17^{0.2} per level
+(D_P(7..13) = 258, 604, 836, 1463), far below 17^{0.8}. Repair: replace the sentence by the observed growth, and say that with
+the ET exponent as the true rate the conjecture would fail.
