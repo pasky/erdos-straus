@@ -165,15 +165,43 @@ class Field:
                 return False
         return True
 
-    def monic_divisors(self, f):
-        """all monic divisors of nonzero f, by recursive trial division with monic polys (small degrees only)."""
-        f = self.monic(f); n = self.deg(f)
-        out = []
-        for d in range(n + 1):
-            for g in self.monics(d):
-                if self.divides(g, f):
-                    out.append(g)
+    def irreducibles(self, d):
+        if not hasattr(self, '_irr'):
+            self._irr = {}
+        if d not in self._irr:
+            self._irr[d] = [f for f in self.monics(d) if self.irreducible(f)]
+        return self._irr[d]
+
+    def factor(self, f):
+        """monic factorisation {irreducible: exponent} of nonzero f, trial division by irreducibles of degree <= deg/2."""
+        f = self.monic(f); out = {}; d = 1
+        while 2 * d <= self.deg(f):
+            for p in self.irreducibles(d):
+                while True:
+                    qt, r = self.divmod(f, p)
+                    if r:
+                        break
+                    out[p] = out.get(p, 0) + 1; f = qt
+            d += 1
+        if self.deg(f) > 0:
+            out[f] = out.get(f, 0) + 1
         return out
+
+    def monic_divisors(self, f):
+        """all monic divisors of nonzero f (from the factorisation)."""
+        divs = [(1,)]
+        for p, e in self.factor(f).items():
+            new = []
+            for dv in divs:
+                x = dv
+                for _ in range(e + 1):
+                    new.append(x); x = self.mul(x, p)
+            divs = new
+        return divs
+
+    def monic_divisors_slow(self, f):
+        f = self.monic(f); n = self.deg(f)
+        return [g for d in range(n + 1) for g in self.monics(d) if self.divides(g, f)]
 
 
 if __name__ == '__main__':
@@ -197,4 +225,8 @@ if __name__ == '__main__':
             from sympy import mobius, divisors
             exp = sum(mobius(n // d) * q ** d for d in divisors(n)) // n
             assert cnt == exp, (q, n, cnt, exp)
+        for _ in range(100):
+            f = F.trim(rnd.randrange(q) for _ in range(1 + rnd.randrange(7 if q < 9 else 5)))
+            if f:
+                assert sorted(F.monic_divisors(f)) == sorted(F.monic_divisors_slow(f))
         print("GF(%d) ok" % q)
