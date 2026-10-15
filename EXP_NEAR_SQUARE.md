@@ -93,9 +93,9 @@ the tree must split on ℓ′; the child on the line (μ_ℓ′ = x) is pure at 
 ℓ′ − 1 off-line children are new 2-dimensional lines. Covering converges only if fibres are nearly complete.
 
 **Line coverage (CERTIFIED finite computation of coverage, witnesses not replayed; `z11_line.py 1 297 3 3 9 10⁶ 3·10⁵`).**
-On the 3-line X_{3,3} of k = 297, every residue μ₃ mod 3^e (e ≤ 9) other than the point itself at precision 3⁰, 3¹ is
-covered by classes with any order support (QMAX 10⁶, MMAX 3·10⁵); with QMAX 3·10⁵, MMAX 10⁵ one residue (μ₃ ≡ 42 mod 3⁵)
-remained. So this line is covered (no sterile point on it) — but only by classes whose periods involve large primes ℓ′,
+On the 3-line X_{3,3} of k = 297 (μ_ℓ′ = 3 exactly for ℓ′ ≠ 3, μ₃ ∈ ℤ₃ free) the whole of ℤ₃ is covered by classes
+with v₃(L_M) ≤ 2 and arbitrary other order support (QMAX 10⁶, MMAX 3·10⁵; no residue left at any precision 3², …, 3⁹);
+with the smaller supply QMAX 3·10⁵, MMAX 10⁵ one residue (μ₃ ≡ 42 mod 3⁵) remained. So this line is covered (no sterile point on it) — but only by classes whose periods involve large primes ℓ′,
 which a tree of Ẑ must split on. The obstruction to a *small* covering is combinatorial (branching), not sterility.
 
 ## 3. Other shapes (goal 3)

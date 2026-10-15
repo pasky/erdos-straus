@@ -5,7 +5,7 @@ prime digit at a time, leaves = one class with L_M | L). Measure falls fast (k =
 8.5·10⁻⁸) but stuck nodes multiply ×10–100 per level — also for k = 297, which has a single square point and no mixed points.
 **Mechanism.** Stuck nodes sit near the ℓ-line X_{x,ℓ} = {μ_ℓ′ = x for ℓ′ ≠ ℓ}: pure (square) at every q with ℓ ∤ ord_q(4),
 generic at the others — the exponential analogue of the r-generic lines of (J)26/(J)54, but with infinitely many generic
-primes. The lines themselves are covered (z11_line.py: 3-line of 297 fully covered to precision 3⁹), but only by classes
+primes. The lines themselves are covered (z11_line.py: 3-line of 297 fully covered, by classes with v₃(L_M) ≤ 2), but only by classes
 whose periods contain large new primes ℓ′; splitting on ℓ′ leaves the on-line child pure (survives) plus ℓ′ − 1 off-line
 2-D lines. Convergence needs fibre coverage ≥ 1 − 1/ℓ′, which the q ≤ 10⁶ supply does not give.
 **Barrier screen.** B1 over Ẑ: qualitative obstruction gone (no unit squares), quantitative one is a branching process.

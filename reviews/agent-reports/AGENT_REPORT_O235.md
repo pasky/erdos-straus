@@ -14,7 +14,7 @@ check_cantor); data/z11/ (one check log). **ES is not solved; no new infinite ES
    per-branch Ẑ tree (C) drives uncovered measure to 3·10⁻¹¹ for k = 105, 2·10⁻¹¹ for k = 297, but stuck nodes multiply
    ×10–100 per level (supercritical branching). k = 297 has ONE square point (no mixed points) and diverges equally: stuck
    nodes lie near X_{3,3} = {μ_ℓ′ = 3 ∀ℓ′ ≠ 3}, square at every q with 3 ∤ ord_q(4). The line itself is fully covered
-   (z11_line, 3-adic precision 9), but only by classes with large new ℓ′ in their period — the tree must split on ℓ′,
+   (z11_line: classes with v₃(L_M) ≤ 2), but only by classes with large new ℓ′ in their period — the tree must split on ℓ′,
    the on-line child is pure and survives. Sharp question: is there a measure argument on ℓ-lines like (J)26's? Heuristic
    says no (Σ τ²/q over q with ℓ | ord diverges) ⇒ coverings exist but are huge.
 3. **Lemma 3.1 (PROVED, elementary): c₀·4^s + k has a unit-square point iff c₀ + k = 4^j**; non-trivial cases (3, 1) and
