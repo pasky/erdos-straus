@@ -1,6 +1,6 @@
 # FF_THIRDS_CORNER — Conjecture 0.2 at q = 3: the thirds corner versus the sterile point x*_c (O227, wave Z-d1)
 
-Status: checkpoint 1 (O227), awaiting review; report reviews/agent-reports/AGENT_REPORT_O227.md. ES is not solved here, nor any infinite case of ES or ES_q. Labels as in DISCOVERIES.md.
+Status: checkpoint 1 (O227), reviewed by R247 (reviews/ff-thirds-corner-review.md; repairs marked "(R247 repair)", incl. new Lemma 3.3); report reviews/agent-reports/AGENT_REPORT_O227.md. ES is not solved here, nor any infinite case of ES or ES_q. Labels as in DISCOVERIES.md.
 Builds on FUNCTIONFIELD_ES2.md §0.2 (Case A, Conjecture 0.2), FUNCTIONFIELD_ES3.md (Lemmas 1.1, 1.2, 2.1, 2.3; searches),
 FF_STERILE_PUSH.md (notation (B), Lemma 1.1, §5; reviews R217/R218), FF_STERILE_SMALL.md ((J)56). Scripts `scripts/zt_*`.
 
@@ -40,8 +40,8 @@ coefficients: 1 = −c, so c = −1 and w₁ = (T − 1)C₁. Then w₁ + C₁ =
 (FF_STERILE_PUSH Lemma 1.1(iii)) v₁ is a constant, = 1 since C₁, g' are monic. Now m'w₁C₁ = (T − 1)m'g'² = T^{s−2} + 1;
 at T = 1 this reads 0 = 2, false for q odd. ∎
 
-**Corollary 1.3 (the thirds corner misses x*_c; PROVED).** If a tuple covers x*_c (k ≥ 2, s ≥ 4 so that
-N(s) + 1 ≤ s − 1), then max(a − 1, b) ≥ N(s) + 1 ≥ s/2 + 1. Equivalently its pattern lies in the *lopsided region*
+**Corollary 1.3 (the thirds corner misses x*_c; PROVED).** If a tuple covers x*_c (k ≥ 2, s ≥ k + 2 so that
+N(s) + 1 ≤ s − 1; (R247 repair) formerly "s ≥ 4", which is right only for k = 2), then max(a − 1, b) ≥ N(s) + 1 ≥ s/2 + 1. Equivalently its pattern lies in the *lopsided region*
   b ≥ N(s) + 1   (then a + z ≤ s − N(s) − 1 ≤ s/2 − 1)   or   a ≥ N(s) + 2   (then b + z ≤ s/2 − 2).
 In particular no tuple with max(a, b) ≤ s/2 covers x*_c: the thirds corner (a, z, y, t)/s → (1/3, 1/3, 1/3, 0), where the
 Lemma 1.6 route bounds of FF_STERILE_PUSH have exponent +0.167 above the critical 1/2 at q = 3, and every cyclotomic tuple
@@ -62,7 +62,7 @@ u = 1 + cT − T² (and two degree-4 points); see Prop 1.4.
 **Proposition 1.4 (exact tuples at polynomial points; PROVED, q odd).** Let u be a polynomial, u(0) = 1, h = deg u ≥ 1.
 A tuple with w₁ = −uC₁ exists iff lc(u) = −1 and there are s ≥ 3 and a monic g₂ | (u − 1)/T (up to the unit) with
 v₁ := −(u − 1)/(Tg₂) satisfying u | T^{s−2} + v₁ (then m'C₁² := −(T^{s−2} + v₁)/u, any split with C₁ monic, T ∤ C₁,
-and g' = C₁g₂, w₁ = −uC₁). For such a tuple E = g₂T^{s−1} − u, so it covers x_u at every level it lives on.
+and g' = C₁g₂, w₁ = −uC₁; (R247 repair) for the converse also require T ∤ g₂, deg v₁ < s − 2 and v₁(0) ≠ 0). For such a tuple E = g₂T^{s−1} − u, so it covers x_u at every level it lives on.
 *Proof.* As in Lemma 1.2: w₁ + C₁ = (1 − u)C₁ = Tg'v₁ and gcd(C₁, Tv₁) = 1 give C₁ | g'; put g' = C₁g₂, then
 g₂v₁ = −(u − 1)/T and m'w₁C₁ = −um'C₁² = T^{s−2} + v₁. Leading coefficients: w₁ monic forces lc(u) = −1. Conversely the
 displayed data satisfy (B₁), and E = Tg'm'w₁ − 1 = Tg₂(T^{s−2} + v₁) − 1 = g₂T^{s−1} − u. ∎
@@ -74,7 +74,7 @@ for s in an arithmetic progression as soon as −v₁ ∈ ⟨T⟩. E.g. u = 1 + 
 ## 2. A complete level-by-level search at polynomial points (Liouville makes it cheap)
 
 **Proposition 2.1 (complete search; PROVED).** Let u be a polynomial with u(0) = 1, c := u'(0) ≠ 0, h = deg u, k ≥ 2,
-N ≥ 3, s ∈ {2N − k + 1, 2N − k + 2} (the parameters of level N). Every tuple of parameter s covering x_u is either exact
+N ≥ k + 1 ((R247 repair) formerly "N ≥ 3"; Lemma 1.2 needs N + 1 ≤ s − 1 with s ≥ 2N − k + 1), s ∈ {2N − k + 1, 2N − k + 2} (the parameters of level N). Every tuple of parameter s covering x_u is either exact
 (Lemma 1.2(ii), classified by Prop 1.4) or is found by the following finite procedure (`scripts/zt_lop.c`).
 Orientation A (X₁ = w₁, X₂ = C₁, Ê = E, τ = −u, α = (1 − u)/T) and orientation B (X₁ = C₁, X₂ = w₁, Ê = E',
 τ = −u^{−1}, α = (1 − u^{−1})/T), with M := m'X₁:
@@ -83,7 +83,7 @@ Orientation A (X₁ = w₁, X₂ = C₁, Ê = E, τ = −u, α = (1 − u)/T) an
 * Case 2 (y ≥ N). For every monic M (T ∤ M) and v₁ (T ∤ v₁) with v₁ ≡ −T^{s−2} (mod M) and
   deg M + deg v₁ ≤ s − N − 3 + max(0, 2h − 4) (orientation A; s − N − 3 for B): X₂ = (T^{s−2} + v₁)/M, and X₁ ranges
   over the monic divisors of M with X₁ ≡ −X₂ (mod Tv₁); g' = (X₁ + X₂)/(Tv₁).
-*Proof.* Non-exact covering tuples satisfy max(a − 1, b − 1 + h) ≥ N + 1 (Lemma 1.2; N + 1 ≤ s − 1 as N ≥ 3). If
+*Proof.* Non-exact covering tuples satisfy max(a − 1, b − 1 + h) ≥ N + 1 (Lemma 1.2; N + 1 ≤ s − 1 as N ≥ k + 1). If
 b − 1 + h ≥ N + 1 use A: deg M = a + z − 1 = s − b − 1 ≤ D_A. Otherwise a ≥ N + 2, use B: deg M = b + z − 1 ≤ D_B.
 In both orientations Ê = TMg' − 1 (E = L'w − 1 = Tg'm'w₁ − 1; same for E'), Ê·X₂ = g'T^{s−1} + X₁ (Lemma 1.1), and
 covering is Ê ≡ τ (mod T^{N+1}) (E ≡ −u ⟺ E' ≡ −u^{−1}, as EE' = 1 + T^sL'g' and s ≥ N + 1), i.e. Mg' ≡ α (mod T^N).
@@ -103,7 +103,7 @@ exactly zt_lop's hits plus exact tuples (98 census tuples, 76 hits, 0 mismatchin
 **Result at x*_c (EVIDENCE: complete computer search, one code beyond level 8).** `zt_lop 3 2 3 NMAX 1,c`
 (logs `data/zt_lop_xstar_c*.txt`, `data/zt_lop_xstar_k3_c*.txt`): **no Case B tuple covers x*_c at any level
 3 ≤ N ≤ 20 (k = 2, c = 1 and c = 2)** and none at any level 4 ≤ N ≤ 18 for k = 3 (A = T³; levels ≤ 7 were already excluded
-by FUNCTIONFIELD_ES3 §4). Level 21 (k = 2) was not completed within the 8-hour budget (≈ 10¹¹ candidates). Levels ≤ 2 have no Case B tuple at x*_c (FUNCTIONFIELD_ES3 Lemma 2.1: N + γ ≥ 3 and the s = 4 tuples cover
+by FUNCTIONFIELD_ES3 §4). (R247: independently reproduced with a different enumeration, `scripts/review_r247_search.c`, for N ≤ 17 (k = 2) and N ≤ 16 (k = 3), both c; the c = 2 log is now committed.) Level 21 (k = 2) was not completed within the 8-hour budget (≈ 10¹¹ candidates). Levels ≤ 2 have no Case B tuple at x*_c (FUNCTIONFIELD_ES3 Lemma 2.1: N + γ ≥ 3 and the s = 4 tuples cover
 u ≡ 1 + cT + 2T² only). With the Case A theorem (FUNCTIONFIELD_ES2 §0.2): no linear family of level ≤ 20 (k = 2) is valid at
 x*_c. Previously: level ≤ 8 (FUNCTIONFIELD_ES3).
 
@@ -155,10 +155,20 @@ degree 2..4 with u(0) = 1, u'(0) ≠ 0, levels 3..12, complete search: unstructu
 | 5..12 | 2 | 2 | 2.9 |
 | 6..12 | 0 | 0 | 1.5 |
 | 7..12 | 0 | 0 | 0.9 |
-The model is of the right order and, at higher levels, slightly conservative (without the O226 parity law it predicted
+The model is consistent with the data within the (large) Poisson error of 2 events ((R247 repair) formerly "of the right
+order and, at higher levels, slightly conservative"; P(0 | 1.5) = 0.22) (without the O226 parity law it predicted
 5.2 / 2.8 / 1.6 for the last three rows). The structured hits
 (E = −u and Prop 1.4 types, all at points with lc(u) = −1, plus their "dep = s − 2" companions) recur periodically in N
 (e.g. u = 1 ± T − T² at N = 3, 6, 7, 10, 11, …) — the discrete-log mechanism of Prop 1.4.
+**Lemma 3.3 ((R247 repair) no structured tuples at x*_c; PROVED, q = 3, s ≥ 5).** No tuple satisfies
+E ≡ −(1 + cT) (mod T^{s−2}). So excluding "structured" candidates from the model is not a choice at x*_c (in particular at
+x*_{−1}, which has lc u = −1). *Proof (R247).* T^{s−2} | w₁ + uC₁; non-exact forces max(a − 1, b) ≥ s − 2, so (i) a = 1, z = 0,
+(ii) b = s − 2, (a, z) ∈ {(1, 1), (2, 0)}, or (iii) a = s − 1, b = 1, z = 0. In (i), (ii) v₁ (deg ≤ s − 3, resp. ≤ s − 4) is
+the truncation of −m'w₁²u^{−1} below degree s − 2. (i): v₁u = −1 + (−c)^{s−2}T^{s−2} and Tv₁ | 1 + T^{s−2} + v₁; if
+(−c)^{s−2} = −1 this gives g' = −c, monic only for c = −1, contradiction; if +1 then v₁ | 2, impossible. (ii): the
+T^{s−3} coefficient vanishes (s ≥ 5) only for m' = T + c resp. w₁ = T + c, where m'w₁² = −uv₁ exactly: Cor 3.2's first exact
+case resp. gcd(w₁, v₁) ≠ 1. (iii): w₁ = T^{s−2} − u, v₁ = −u: Cor 3.2's second exact case. ∎ Census check (R247,
+`scripts/review_r247_structured_xstar.py`): max v_T(E + 1 + cT) − (s − 2) = 0 over all tuples s ≤ 16, only at s = 4.
 *At x*_c* (both c give identical model values): refined model per level 7.6·10⁻⁴ (N = 5), 6.9·10⁻⁴, 4.4·10⁻⁴, 3.7·10⁻⁴,
 3.1·10⁻⁴, 1.3·10⁻⁴, 2.0·10⁻⁴ (N = 11), 3.5·10⁻⁵, 2.3·10⁻⁵, 7.8·10⁻⁶, 9.9·10⁻⁶, 1.8·10⁻⁶, 6.8·10⁻⁷ (N = 17); total over
 levels 3..17: 3.0·10⁻³ per c. The decay ratio tends to ≈ 1/3 (the model is poly(N)·3^{−N}: ≈ 3^{N−2} candidates M, each
@@ -191,8 +201,9 @@ that the Liouville bound, not the randomness, is what separates the thirds corne
 case 1 (y ≤ N − 1). For a monic M (T ∤ M, d := deg M ≤ s − N − 2) let Z be the least residue of T^{−N} modulo M. Then
 the forced data of Prop 2.1 are
   g' = c(T^N Z − 1)/M  (monic iff lc Z = c),   E = cT^{N+1}Z − (1 + cT),
-i.e. (Z, cg') is the Bezout pair of (T^N, M): T^N Z − cMg' = 1. A covering tuple exists for this M iff some factorisation
-M = m'w₁ with deg w₁ ≥ N + 1 − d (Cor 3.2) satisfies E | T^{s−2} + m'w₁², and then for s = 2N (resp. 2N − 1)
+i.e. (Z, cg') is the Bezout pair of (T^N, M): T^N Z − cMg' = 1. A covering tuple exists for this M iff lc Z = c and some factorisation
+M = m'w₁ with deg w₁ ≥ N + 1 − d (Cor 3.2) satisfies E | T^{s−2} + m'w₁² ((R247 repair) "lc Z = c" added; converse: put
+v₁ := (T^{s−2} + m'w₁²)/E, C₁ := Tg'v₁ − w₁), and then (one direction only; the converse needs gcd(Z, 1 + cT) = 1) for s = 2N (resp. 2N − 1)
   E | u² + m'·(T²Zw₁)²   (resp. E | u² + T·m'·(T²Zw₁)²).
 *Proof.* cMg' = T^NZ − 1 gives Mg' ≡ −c (mod T^N) (c² = 1) with deg g' = N + deg Z − d < N, so g' = trunc_N(−cM^{−1}) (unique
 such polynomial); lc g' = c·lc Z. E = TMg' − 1 = cT(T^NZ − 1) − 1. The divisibility is R4 (FF_STERILE_PUSH Lemma 1.6:
@@ -220,8 +231,8 @@ vacuous at depth 1, and F₃^* = {1, 2} is exhausted by the two constants ((J)4;
 are not reached, (J)56). For k ≥ 2 every cylinder has depth N + 1 ≥ 3 > deg(1 + cT) + 1, so at x*_c the Liouville
 constraint bites at every level, and the only escape — an exact family — is killed by one bit:
 * c = +1: lc(u) = +1, and both exact types (E = −u, w₁ = −uC₁) need lc(u) = −1 (Prop 1.4, Lemma 1.2(ii)).
-* c = −1: the would-be exact family E = −u = T − 1 needs T − 1 | 1 + T^s L'g' with L' | T − 1 + 1…, and T ≡ 1 (mod T − 1)
-  turns every such condition into 2 ≡ 0: **the same "2 ≠ 0" that makes odd characteristic sterile and characteristic 2 covered
+* c = −1: the would-be exact tuple w₁ = −uC₁ = (T − 1)C₁ needs (T − 1)m'g'² = T^{s−2} + 1 (Lemma 1.2), and T ≡ 1
+  (mod T − 1) turns this into 0 = 2 ((R247 repair) garbled formula replaced): **the same "2 ≠ 0" that makes odd characteristic sterile and characteristic 2 covered
   by the Frobenius family (1 + Tg')² = 1 + T²g'² (FF_STERILE_PUSH §4)**.
 
 **The leading coefficient as the archimedean sign (Assessment; a sharp analogy with (J)55).** In F_q[T] the place ∞ is the
@@ -230,7 +241,8 @@ archimedean place and lc is its sign. Exact families at a polynomial point need 
 are at points with lc(u) = −1, while the lc(u) = +1 points carry only 2 hits (both unstructured, N = 5) (EVIDENCE). Over ℤ, (J)55 found the same split on p = m² + k: for k > 0 every polynomial family meets a fixed
 character (sterile), for k < 0 escaping families exist. In both worlds a *low-height* point is sterile for polynomial/
 exact families exactly on one side of the archimedean sign, and on the other side exact identities (here E = −u, there
-the k < 0 families) cover it. x*_c with c = −1 sits on the "wrong" side and is saved only by 2 ≠ 0.
+the k < 0 families) can cover it ((R247 repair) "can": lc(u) = −1 is necessary, not sufficient — Prop 1.4's
+discrete-log condition must also hold). x*_c with c = −1 sits on the "wrong" side and is saved only by 2 ≠ 0.
 
 **ℤ face of the Liouville lemma (Assessment).** On the r-generic line of (J)26/(J)54 (x_q = 1 off r, x_r = u) take u a
 small integer. A covering datum needs an ET divisor f ≡ −u (mod r^{N+1}) (shape of the Type II congruences); a positive
@@ -248,7 +260,10 @@ on the patterns allowed at x*_c by Cor 1.3 and Cor 3.2 (normalised a ≤ b: b �
 | 9 | +0.096 | 0.000 | (0, 0.2, 0.3, 0.5) |
 | 27 | 0.000 | −0.007 | (0.38, 0.12, 0.12, 0.38) |
 So the whole super-critical excess of the q = 3 union bound lives in patterns that provably cannot reach x*_c. On the
-admissible patterns the route bounds are exactly critical, and the maximiser is a degenerate corner (w, m' of degree o(s))
-where the true count is only polynomial (given small m', w₁, v₁ is fixed mod m'w₁ and the congruence w₁ + C₁ ≡ 0 (mod Tv₁)
-leaves O(1) tuples per (m', w₁) on average) — consistent with the poly(N)·3^{−N} lottery of §3. Union bounds therefore
+admissible patterns the route bounds are exactly critical. (R247 repair: the former claim "the maximiser is a degenerate
+corner where the true count is only polynomial" was false.) The zero set is large: at G = 60, 314 of the 961 grid points of
+the boundary face b = y + t = 1/2 of the Liouville region (a 2-dimensional region, e.g. (1/6, 1/3, 1/3, 1/6), (0.1, 0.4,
+0.4, 0.1)) and 12 points on segments of t = 1/2 (e.g. (1/6, 0, 1/3, 1/2)); the printed maximiser is just the first grid
+point found. These patterns have w, m', g' of linear degree; no sub-critical count is known for them (R247,
+`scripts/review_r247_rate_face.py`; the q = 27 value −0.007 is a grid artefact, local refinement gives −0.0024). Union bounds therefore
 cannot settle x*_c either way (a single point has measure 0), but they no longer contradict it.

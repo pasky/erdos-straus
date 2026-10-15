@@ -1,0 +1,19 @@
+zt_lop p=3 k=2 u=[1,2] levels 3..21
+N=3 done: hits this level 0 (cumulative cand1 5 cand2 4, division failures 0) model: case1 0.000e+00 case2 0.000e+00 (case-2 region tuples 0) refined: case1 0.000e+00 case2 0.000e+00
+N=4 done: hits this level 0 (cumulative cand1 21 cand2 24, division failures 0) model: case1 3.384e-02 case2 0.000e+00 (case-2 region tuples 0) refined: case1 0.000e+00 case2 0.000e+00
+N=5 done: hits this level 0 (cumulative cand1 69 cand2 92, division failures 0) model: case1 2.510e-02 case2 0.000e+00 (case-2 region tuples 0) refined: case1 7.621e-04 case2 0.000e+00
+N=6 done: hits this level 0 (cumulative cand1 213 cand2 280, division failures 0) model: case1 1.162e-02 case2 1.646e-02 (case-2 region tuples 8) refined: case1 8.524e-04 case2 0.000e+00
+N=7 done: hits this level 0 (cumulative cand1 645 cand2 872, division failures 0) model: case1 7.919e-03 case2 1.646e-02 (case-2 region tuples 24) refined: case1 6.799e-04 case2 0.000e+00
+N=8 done: hits this level 0 (cumulative cand1 1941 cand2 2596, division failures 0) model: case1 6.547e-03 case2 1.829e-03 (case-2 region tuples 8) refined: case1 6.768e-04 case2 0.000e+00
+N=9 done: hits this level 0 (cumulative cand1 5829 cand2 7820, division failures 0) model: case1 3.895e-03 case2 1.219e-03 (case-2 region tuples 16) refined: case1 5.594e-04 case2 0.000e+00
+N=10 done: hits this level 0 (cumulative cand1 17493 cand2 23388, division failures 0) model: case1 1.760e-03 case2 1.626e-03 (case-2 region tuples 64) refined: case1 2.470e-04 case2 0.000e+00
+N=11 done: hits this level 0 (cumulative cand1 52485 cand2 70104, division failures 0) model: case1 7.719e-04 case2 1.084e-03 (case-2 region tuples 128) refined: case1 1.244e-04 case2 1.355e-04
+N=12 done: hits this level 0 (cumulative cand1 157461 cand2 210060, division failures 0) model: case1 4.051e-04 case2 1.242e-04 (case-2 region tuples 44) refined: case1 6.689e-05 case2 0.000e+00
+N=13 done: hits this level 0 (cumulative cand1 472389 cand2 630468, division failures 0) model: case1 2.175e-04 case2 7.527e-05 (case-2 region tuples 80) refined: case1 4.575e-05 case2 0.000e+00
+N=14 done: hits this level 0 (cumulative cand1 1417173 cand2 1890612, division failures 0) model: case1 7.076e-05 case2 2.383e-05 (case-2 region tuples 76) refined: case1 1.407e-05 case2 6.272e-07
+N=15 done: hits this level 0 (cumulative cand1 4251525 cand2 5669708, division failures 0) model: case1 3.221e-05 case2 2.927e-05 (case-2 region tuples 280) refined: case1 7.108e-06 case2 6.272e-06
+N=16 done: hits this level 0 (cumulative cand1 12754581 cand2 17007032, division failures 0) model: case1 1.329e-05 case2 6.969e-06 (case-2 region tuples 200) refined: case1 2.684e-06 case2 4.182e-07
+N=17 done: hits this level 0 (cumulative cand1 38263749 cand2 51019608, division failures 0) model: case1 5.281e-06 case2 2.091e-06 (case-2 region tuples 180) refined: case1 1.105e-06 case2 1.162e-07
+N=18 done: hits this level 0 (cumulative cand1 114791253 cand2 153056344, division failures 0) model: case1 2.239e-06 case2 1.812e-06 (case-2 region tuples 468) refined: case1 4.584e-07 case2 1.936e-07
+N=19 done: hits this level 0 (cumulative cand1 344373765 cand2 459166800, division failures 0) model: case1 9.133e-07 case2 1.182e-06 (case-2 region tuples 916) refined: case1 1.864e-07 case2 3.381e-07
+N=20 done: hits this level 0 (cumulative cand1 1033121301 cand2 1377497084, division failures 0) model: case1 4.201e-07 case2 1.187e-07 (case-2 region tuples 276) refined: case1 7.732e-08 case2 1.291e-08

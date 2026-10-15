@@ -41,15 +41,16 @@ cd scripts && uv run python zt_rate_lop.py 1,2,3 60
   27 840 (tuple, u) pairs: 0 mismatches; zt_lop vs census at all 80 polynomial points of degree ≤ 4, levels 3..8: identical;
   Prop 5.1 identities on 3000 random cases.
 * x*_c uncovered at all levels 3 ≤ N ≤ 20 (k = 2, both c) and 4 ≤ N ≤ 18 (k = 3): EVIDENCE (complete search, one code beyond level 8, census
-  cross-checked to level 8). With Case A (ES2 theorem): no linear family of level ≤ 20 is valid at x*_c (k = 2). Level 21 exceeded the 8 h budget (c = 1 killed; c = 2 may still be running — see data/zt_lop_xstar_c2.txt).
+  cross-checked to level 8). With Case A (ES2 theorem): no linear family of level ≤ 20 is valid at x*_c (k = 2). Level 21 exceeded the 8 h budget (c = 1 killed; c = 2 was still running at R247 review time; (R247 repair) the c = 2 log through N = 20 is now committed as data/zt_lop_xstar_c2.txt).
 * Cyclotomic tuples (h = 2, 3 exhaustive, h = 4 sampled): max depth of agreement with −(1 + cT) is 4 / 13 / 10 against the
   required 6 / 15 / 42 (EVIDENCE, consistent with Cor 1.3).
 * Lottery model at polynomial points (Assessment) calibrated on 52 polynomial points of degree 2..4, levels 5..12 (EVIDENCE):
   model 2.9 vs 2 unstructured hits; levels 6..12: 1.5 vs 0 (with O226's parity law z ≡ t ≡ s mod 2; without it 5.2 / 2.8)
-  — right order, slightly conservative. At x*_c the model is ≈ 3·10⁻³ per c
+  — consistent within the large Poisson error (R247 repair; formerly "right order, slightly conservative"). At x*_c the model is ≈ 3·10⁻³ per c
   over levels 3..17, decaying ≈ ×1/3 per level; extrapolated mass beyond level 20 ≈ 10⁻⁷. Generic points: λ_N ≈ 0.1 per level.
-* Route bounds restricted to the patterns allowed at x*_c (§7, grid EVIDENCE): q = 3 exponent +0.167 → exactly 0.000 (critical,
-  at a degenerate corner where true counts are polynomial).
+* Route bounds restricted to the patterns allowed at x*_c (§7, grid EVIDENCE): q = 3 exponent +0.167 → exactly 0.000 (critical
+  on a 2-dimensional part of the face b = 1/2 and on segments of t = 1/2; (R247 repair) formerly "at a degenerate corner where
+  true counts are polynomial", which was false).
 
 ## What did not work / limits
 * No structural proof of Conjecture 0.2: after both Liouville constraints the residual condition (Prop 5.1) is a

@@ -1,6 +1,11 @@
 # R247 — hostile review of O227 (FF_THIRDS_CORNER.md, branch side-agent/ff-thirds-corner)
 
-Reviewer: R247. Status: round 1 complete. From-scratch scripts: scripts/review_r247_*.
+Reviewer: R247. Status: round 1 complete.
+
+**Repairs applied** (author quiet since 18:58, status "awaiting review"; all marked "(R247 repair)" in FF_THIRDS_CORNER.md /
+AGENT_REPORT_O227.md): MINOR-1, -2, -3, -4, -6, -7, -8; MINOR-5 (c = 2 log copied from the author's worktree, N ≤ 20,
+0 hits, into data/zt_lop_xstar_c2.txt); MINOR-9 (new Lemma 3.3, R247 proof); MAJOR-1 (§7 interpretation rewritten, report
+line fixed). No result label changed. From-scratch scripts: scripts/review_r247_*.
 
 ## Summary verdicts
 | claim | verdict |
