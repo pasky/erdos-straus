@@ -1222,6 +1222,25 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * R225 found a partial second mechanism ("u-side T1"): if p + u is a sum of two coprime squares, the words with that u have χ = +1 (proved for odd u). 0 of 1 176 such words have χ = −1. These explain a minority of the residual gradient.
    * Assessment. Polynomial (B1-type) coverings of near-square families meet a K-adic T1. Near-square hardness now has two explicit deterministic mechanisms (t-side and u-side), both forms of T1's norm identity.
 
+56. **Wave Y-f: function-field sterility closed for every q = 3^r except q = 3 (and q = 9 at k = 1) (FF_STERILE_SMALL.md (O220); three hostile reviews, one per theorem: `reviews/ff-sterile-small-review.md` (R220, §§1–3, q = 27), `reviews/ff-sterile-small-review-2.md` (R221, §5, q = 9), `reviews/ff-sterile-small-review-3.md` (R226, §§6–8, A = T): no FATAL, no MAJOR in any; minor repairs applied; each reviewer re-certified its inequality with its own code).**
+   * Lemmas 1.1–1.4 (PROVED, elementary).
+     * The division trick: a monic factor of degree > deg v₁ determines v₁ by Euclidean division (v₁ ≡ −T^{s−2} mod every factor of m′w₁C₁). Routes that paid for v₁ and then for a factor paid twice.
+     * A T-adic refinement of class-divisor bounds below the Coppersmith threshold, at cost q^j for j extra digits. It is known in substance (O223: Howgrave-Graham/May, Cohn–Heninger).
+     * Lemma 2.1: Case A count ≤ (α+1)³ q^{(α−1)/2} 3^{α/2}.
+     * Lemma 4.1 / Cor 4.2: fixed-q divisor bounds are q^{o(n)}, so the continuum exponent is 2/5 for every odd q. At small q the barrier is purely the finite part of the union bound.
+   * **Thm 3.1 (PROVED, computer-assisted; R220 re-certified, total ≤ 3.0556 < 26).** q = 27, k ≥ 2: ES₂₇(T^k) has no finite linear covering.
+   * **Thm 5.2 (PROVED, computer-assisted; R221 re-enumerated all 7 040 patterns for s ≤ 22 and gave an independent certificate ≤ 3.95 < 8).** q = 9, k ≥ 2: ES₉(T^k) has no finite linear covering.
+     * Method: an exact enumeration that factors F over F₉ and runs over divisors (about 1000× faster than candidate search) up to s = 22, then route bounds and a linearised Rankin tail.
+     * **With (J)51: for every k ≥ 2 and every q = 3^r with r ≥ 2, ES_q(T^k) has no finite linear covering. Only q = 3 (CONJECTURE 0.2) remains.**
+   * **Thms 7.3 / 8.1 (PROVED, computer-assisted; R226 re-certified 3 ≤ r ≤ 19 with its own code and re-derived the monotone large-q bound).** For A = T (k = 1) and every q = 3^r with r ≥ 3, ES_q(T) has no finite linear covering.
+     * Prop 6.1: depth-1 families occur only in the classes u₀ ∈ {−1, −2}. So on the q − 3 slices u₀ ∉ F₃^* all cylinders have depth ≥ 2.
+     * r ≥ 20 is handled by a q-uniform bound K(q) with all terms nonincreasing in q: K(3²⁰) ≤ 4.19·10⁸ < 3²⁰ − 3.
+     * Contrast: q = 3, A = T HAS a covering ((J)4).
+   * Negative / open (CERTIFIED statements about the method; Assessments).
+     * q = 9 with k = 1 is not closed (bounds 53 > room; the exact masses suggest ≈ 4.6 < 6).
+     * q = 3: the bound tail drops below 0.5 only at s₀ ≈ 80–85, and an exact union to s₀ is infeasible (~10²⁰). So Conjecture 0.2 is not a feasible finite computation with these tools; R220 m-8 tempered the report's spark.
+   * EVIDENCE (R226 confirmed). On the A = T slices off F₃^*, small-level tuples are absent at odd r (q = 27: none with s ≤ 12; q = 9: none at odd s ≤ 17). This looks like a Galois/descent constraint (unexplained spark).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

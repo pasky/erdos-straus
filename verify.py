@@ -25446,4 +25446,38 @@ def check_fU():
 check_fU()
 
 
+def check_fV():
+    # (fV) FF_STERILE_SMALL (O220; reviews R220, R221, R226): reviewer-only fail-closed re-certifications —
+    # q = 27, k >= 2 (R220: total <= 3.0556 < 26) and A = T, k = 1 at q = 27, 81 (R226: totals 18.03 < 24, 31.89 < 78).
+    # With (J)51 and the R221-reviewed q = 9 theorem: ES_q(T^k) has no finite linear covering for all q = 3^r, r >= 2
+    # (k >= 2), and ES_q(T) none for r >= 3.
+    from time import perf_counter
+    import os
+    import re
+    import subprocess
+    import tempfile
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run(["bash", "scripts/review_fz_certify.sh", "3", "80"], capture_output=True, text=True,
+                       timeout=1800, env=env, cwd=root)
+    assert r.returncode == 0, ("FF_SMALL q=27 certify", r.stdout[-2000:], r.stderr[-2000:])
+    m = re.search(r"r=3 S=80 .* total=([0-9.e+-]+) \(q-1=26\)", r.stdout)
+    assert m and float(m.group(1)) < 3.06, r.stdout[-2000:]
+    with tempfile.TemporaryDirectory() as td:
+        src = open(os.path.join(root, "scripts/review_fz1_certify.sh")).read()
+        assert src.count("OUT=data/fz1_review/certify.txt") == 1
+        tmp_sh = os.path.join(td, "cert.sh")
+        open(tmp_sh, "w").write(src.replace('cd "$(dirname "$0")/.."', 'cd "' + root + '"')
+                                    .replace("OUT=data/fz1_review/certify.txt", "OUT=" + os.path.join(td, "c.txt")))
+        r = subprocess.run(["bash", tmp_sh, "3", "4"], capture_output=True, text=True, timeout=1800, env=env, cwd=root)
+    assert r.returncode == 0, ("FF_SMALL k=1 certify", r.stdout[-2000:], r.stderr[-2000:])
+    assert "ALL OK r=3..4" in r.stdout and "total(x1.01)=18.029516 q-3=24" in r.stdout and "total(x1.01)=31.889841 q-3=78" in r.stdout, r.stdout[-2000:]
+    print(f"== (fV) FF_STERILE_SMALL R220/R226: q = 27 (k >= 2) total {float(m.group(1)):.4f} < 26; A = T (k = 1) "
+          f"q = 27, 81 totals 18.03 < 24, 31.89 < 78; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fV()
+
+
 print("\nall checks passed")
