@@ -3,7 +3,11 @@
 Reviewer: R225 side agent (branch side-agent/review-near-square, merged side-agent/near-square at review start).
 From-scratch scripts: `scripts/review_r225_*.py`. ES is not solved; nothing below changes that.
 
-## Verdict summary (filled in claim by claim)
+**Overall: no FATAL defect. All PROVED theorems (Lemmas 1.1/1.3, Thm 2.2, Lemma 2.3, Lemma 3.2, Thms 3.3/3.4,
+Prop 4.1) re-derived independently and correct as mathematics; one false side-claim inside Thm 3.4's statement (D1),
+several wording/scope repairs. All checked numerics reproduced with from-scratch code.**
+
+## Verdict summary
 
 | claim | verdict |
 |---|---|
@@ -197,5 +201,68 @@ families of a family file whose denominators divide L, computing their integrali
   χ = −1**, vs. rate 0.68–0.70 for the rest. So near-squares carry a second, *u-side* deterministic family of
   χ = +1 words (p + u a sum of two coprime squares), invisible to the t-level clean test. Size: in the K0 < 30
   sample these words are 0.9 % of beyond-clean words, shifting N₋/(N − N_cl) by ≈ −0.006 of the ≈ −0.02…−0.04
-  residual, so they explain a minority; the general version ("all odd primes of tu − 1 are ≡ 1 mod 4", not only
-  via K0 + u = s²) is the natural next candidate. (The even-u case was not proved here; data show no exception.)
+  residual, so they explain a minority. The general u-level statement is: for odd u ≡ 1 (4) and odd w, χ = (−1/w);
+  so any u for which p + u has no prime factor ≡ 3 (mod 4) has χ = +1 on all its words — K0 + u = s² is the
+  near-square way to force this. That u-level "clean" test (the analogue of Prop 4.1 on the u-side) is the natural next
+  candidate for the remaining gradient. (The even-u case was not proved here; the data show no exception.)
+
+### Novelty / literature
+* Thm 3.3 Remark (i) correctly identifies the linear case with the Mordell/Schinzel/ET "square classes are not
+  polynomially solvable" theorem (ET §10 / Prop 1.6 read from the PDF). For non-linear n(m) I found two items the
+  text does not cite: A. Schinzel, "On sums of three unit fractions with polynomial denominators", Funct. Approx.
+  28 (2000) 187–194 (Project Euclid, full text not accessible to me), and B. R. Schuh, "Restrictions on polynomial
+  solutions of diophantine equations with sums of three unit fractions" (HAL hal-04368730, 2023/24; blocked by an
+  anti-bot wall, not read). Ghermoul arXiv:2508.07383 (multivariable polynomial families) is unrelated in substance.
+  I could not determine whether Schinzel's or Schuh's results already cover quadratic n(m); the author should check
+  both before calling Thm 2.2/3.3 new. The Hilbert-reciprocity-in-ℚ(√j) description of the sterile set (Thm 3.4,
+  Y10-S) did not turn up anywhere in my searches. (Not verified: Webb's / Elsholtz's polynomial-identity papers — not
+  in sources/.)
+
+## Defects
+
+**D1 (MAJOR — false statement inside a PROVED theorem; peripheral).** Thm 3.4 statement, last clause: "(which also
+contains non-unit square points, e.g. the R-O221 examples j = 648, m* = 27)". False: Z_K⁺ ⊂ U = {m : n(m) ∈ Ẑ^×}, U is
+closed, so closure(Z_K⁺) ⊂ U, while n(27) = 81 for j = 648 (indeed 81 | m² − 648 for every m ≡ 27 mod 9). *Repair:*
+delete the parenthetical; optionally note "closure(Z_K⁺) ⊆ {n(m) ∈ Ẑ^×}; non-unit square points such as j = 648,
+m = 27 (27 − 18√2 = (3 − 3√2)²) are not covered by Thm 3.4".
+
+**D2 (MINOR — scope).** Summary item 1, Thm 2.2 statement, AGENT_REPORT SHARP 2 ("every Type I/II polynomial family
+in m"): the theorem is for ET-parametrised families (a, …, f) ∈ ℚ[m]⁶; the reduction from (x, y, z) ∈ ℚ[m]³ uses
+primality of n(m) along C (ET §10 uses p prime to split Type I/II and to remove non-primitive classes), i.e. a
+Bunyakovsky-type input for m² + k. §2's Definition says this, but the Summary/report should say "ET-parametrised" (or
+"conditional on infinitely many primes m² + k in C" for the (x, y, z) version).
+
+**D3 (MINOR — overstated mechanism).** §2 after Lemma 2.3: "Every impossibility above is the positivity of the binary
+norm form x² + ky²". Not every one: Type I (0,1,1) Λ > 1 (deg(4a²d + 1) = 1 < deg f) and Type II (1,0,1), (2,0,0)
+die by degree count; Type I (1,0,1)/(0,1,1) Λ = 1 and Type II (0,1,1) are k < −r², k + s² = −e (positivity, fine).
+*Repair:* "every non-degree-count impossibility …". Also tidy the Type II deg e = 1 sentence ("c linear, a, d const or
+a linear: n + 4a²d > 0 everywhere" — the a-linear case is m² + k + 4dλ²(m − r)² > 0; the c-linear case m² + k + 4a²d).
+
+**D4 (MINOR).** Prop 4.1(b): replace "If E = −ts² (s ≥ 0)" by "If −tE is a perfect square (E ∈ −t·ℚ^{×2})"
+(t = 4, E = −1 is otherwise unclassified); the "⟺" sentence refers to gcd-exceptional classes that only exist when
+E = c² — restate as two one-way statements (see claim section). Convention line: "(for n = p prime this is
+(r/p) = +1 …)" needs p ≡ 1 (mod 4).
+
+**D5 (MINOR).** §4 EVIDENCE line: the census "clean" (ns_census.c) includes the 2-condition ((2/p) = +1 if tp + 1 is
+even), unlike Prop 4.1's "odd-clean". Say which; the 432 677 / 82 % figures are for the census definition.
+
+**D6 (MINOR).** Z_k^□ is defined as "m² + k a local square" (Summary) and as "m² + k ∈ (Ẑ^odd)²" (§2/Thm 2.2); Lemma
+2.3's odd-ℓ witnesses can be non-unit squares (ℓ | k + 1). Use one definition ("a square in every ℤ_ℓ, a unit square in
+ℤ₂"); the Thm 2.2 argument works for it (the symbol is then 0 or +1, never −1).
+
+**D7 (MINOR).** Summary item 3 / AGENT_REPORT SHARP 1 "the classes left uncovered … are exactly the classes meeting
+Z_K⁺": true for the families found (reproduced), but the set depends on the family grid (my own grid without
+denominator-8 leading coefficients leaves 192 classes at L = 8064, including m ≡ 7 mod 8). Say "by the 7 congruence
+families and the 76 escaping families found"; the evidence discriminates only the 2-adic (4 → 1) and 7-adic (2 → 1)
+refinements at a single j.
+
+**D8 (MINOR).** Prop 1.4's last clause ("does not factor through N(π) = n") is unproved for the thin set of primes
+m² + k (needs a Chebotarev statement along a quadratic progression); label it a remark or drop it. Not used.
+
+**D9 (MINOR — §5).** (a) The RMAX sensitivity test cannot go beyond 31 with cells (singletons); say the "unmodelled
+adelic effect at r > 31" caveat is untested, or do a regression adjustment. (b) Add the u-side mechanism (claim
+section above) as a partial explanation of the beyond-clean gradient: words with K0 + u = s² have χ = +1
+deterministically (0 / 1 176 exceptions), explaining ≈ ¼ of the K0 < 30 beyond-clean residual.
+
+**D10 (MINOR — citations).** Cite/check Schinzel 2000 and Schuh 2023 (see Novelty) before novelty claims for Thm
+2.2/3.3 in the quadratic setting.
