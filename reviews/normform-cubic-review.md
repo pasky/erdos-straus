@@ -29,3 +29,22 @@ P = 4uv − u − 1 has the valid Type II family (A, B, C, D) = (u, 1, 1, v) (n 
 So irreducibility of the *top part* is the hypothesis that does the work; irreducibility of P alone is not enough. The
 hypothesis is sufficient, not necessary: P = v + u² (P* = u² reducible) also collapses, trivially, since ℚ[u, v] = ℚ[P][u]
 and a u-degree count over the domain ℚ[P] kills u-dependence (reviewer's argument; search confirms).
+
+### Thm 1.2′ (Type I, P* irreducible, valid on a lattice coset in an open cone) — SOUND-AFTER-REPAIRS (minor)
+Re-derived every case; all algebraic rearrangements verified symbolically (review_r259_identities.py: (c1) B/C/D cases,
+(c2) μ = k expansion incl. the "P²-coefficient" step).
+* The "coefficient of P²" step in (c2) μ = k is not a coefficient comparison in a polynomial ring in P (E_A, E_B ∉ ℚ[P]);
+  it is a degree argument: (4CDκκ′ − κ − κ′)P² has degree 2k while P·G and C − 4CD·E_A·E_B have degree ≤ 2k − 1. Correct,
+  but should be said (MINOR D3).
+* (c1) B-case: E* | P*² ⇒ E* = λP*^i by unique factorisation (P* prime), 0 < deg E* < k impossible. Correct; this is
+  genuinely degree-free (the degree-2 proof's "Q on a rational line" is replaced correctly).
+* (c2) 0 < μ < k: γ, δ ≤ k − μ < k, μ < k, so P* divides a product of forms of degree < k. Correct.
+* Positivity paragraph: it says every coordinate "is positive" at valid points. Validity (POINTWISE_BINARYFORM §1) allows
+  the sign pattern (A, B, C) < 0 < D; the R256 repair to SYNTHESIS_SPARKS7 Thm 1.2 handles it by the dilation
+  (A, B, C) ↦ −(A, B, C) (preserves the Type I identity and the conclusion). That repair was not carried over (MINOR D1).
+* The cone/direction argument needs L to be a coset of a *full-rank* sublattice of ℤ^r (otherwise L need not have points
+  tending to infinity in an open set of directions). Implicit; state it (MINOR D2).
+Edge case: P irreducible, P* reducible — the conclusion FAILS: P = 4u² − 4v² − 1 (P* = 4(u − v)(u + v)) carries the Type I
+family (A, B, C, D) = (u − v, u + v, 2u, 1), valid on the open cone u > |v| (e.g. (u, v) = (1, 0): n = 3,
+4/3 = 1/(abdn) + 1/(acd) + 1/(bcd) = 1/3 + 1/2 + 1/2), and not in ℚ[P]. So again P* irreducible is the operative
+hypothesis. (Search found 18 such non-ℚ[P] families, all with valid points.)
