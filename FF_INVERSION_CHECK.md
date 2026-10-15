@@ -122,3 +122,37 @@ n large) gives validity. ∎
 at x_w, then the one with (E' := D/E, L', g', s, j, γ) is valid at x_{1/w}.
 *Proof.* EE' = D ≡ 1 (mod T^s) and s ≥ k + j give E' ≡ −1/w (mod T^{k+j}); D ≡ 1 (mod L') and E ≡ −1 give E' ≡ −1 (mod L');
 E' monic, E' | D. Lemma 2.3's converse argument. (This is the swap τ^∨ of SIBLING Prop 1.3, stated there for k = 2.) ∎
+
+**Theorem 2.5 (the missing types add nothing on the sterility slices; PROVED).** Let q be odd and let Σ be either
+ (i) k ≥ 2 and the c-slices u ≡ 1 + cT (mod T²), c ≠ 0 (SP, SS §§3–5, SIBLING), or
+ (ii) k = 1, q = 3^r, and the slices u(0) ∉ F₃^* (SS §§6–8, OA §2).
+For x_u ∈ Σ: if some family of the seven ET types (linear, I4 or II2) is valid at x_u, then some linear family is valid at x_u;
+if an I4 family is valid at x_u, then a Case B family is valid at x_u. For k ≤ 2 moreover every Case A family with E monic valid
+at x_u is dominated by a Case B family with the same E (Lemma 2.3). Hence O_ET(q, T^k) ∩ Σ = O(q, T^k) ∩ Σ, where O_ET is the
+set of points at which no ET-type family is valid.
+*Proof.* II2: Lemma 2.1. I4, k = 2 (case (i)): by Lemma 2.2, F^A is a Case A family valid at x_{1/u}, and 1/u lies in the
+(−c)-slice. FE2 §0.2 step (1) uses only u ≡ 1 + cT (mod T²); applied at 1/u it gives T^α ∥ a1 with α ≥ 1 and T ∤ b1 for the
+labelling with deg a1 ≥ deg b1, and E + 1 ≡ cT (mod T²) gives v = 1. So α + v ≥ 2 = k and v ≤ k + α: Lemma 2.3 gives a Case B
+family valid at x_{1/u}, and Lemma 2.4 one valid at x_u. Case (ii): at 1/u, u(0)^{−1} ∉ F₃^*, so SS Lemma 7.2(a) gives α ≥ 1,
+and e(0) = −u(0)^{−1} ≠ −1 gives v = 0; α + v ≥ 1 = k, and conclude as before. k ≥ 3 in case (i) — the data of linear families,
+of I4 and of Case B tuples do not depend on k except through the ball depth:
+ a Case A or I4 datum has ball depth k + (fixed), so its level-k ball lies in its level-2 ball (same centre);
+ a level-k Case B datum (E, L', g', s, j, γ), s = k + j + γ, is a level-2 datum with j₂ = j + k − 2, γ₂ = γ (γ₂ ≤ j₂), with the
+ same ball (depth 2 + j₂ = k + j).
+So covered_k(A ∪ B ∪ I4) ⊆ covered_2(A ∪ B ∪ I4) = covered_2(A ∪ B) (the k = 2 case), and the k ≥ 3 statements of SP/SS (which
+are proved by bounding the k = 2 covered measure — "N(s) and the Case A exponent only grow with k", SP Thm 3.1 proof) hold with
+I4 and II2 included. ∎
+
+**Corollary 2.6 (the PROVED no-covering theorems survive; PROVED).** (J)51 (SP Thm 3.1), (J)56 (SS Thms 3.1, 5.2, 7.3, 8.1) and
+(J)67 (OA Thm 2.2) each exhibit a positive-measure subset of Σ outside every linear validity set. By Thm 2.5 these points are
+outside the validity sets of all seven ET-type families. So each theorem holds verbatim with "linear covering" replaced by
+"covering by families of the seven ET types", with the same certified constants: **no repair is needed, the union bounds do not
+undercount** (on Σ the I4 mass is covered twice over, and for k ≤ 2 even the Case A terms of (Σ) are redundant — the certified
+totals are conservative by at most their Case A part). The same holds for Conjecture 0.2 (x*_c ∈ O ⟺ x*_c ∈ O_ET) and for
+O140 Prop 4.1 (the point x ≡ 1: I4 would need Aab | e + 1 with deg e ≤ max(deg a, deg b), forcing e = −1, not monic; II2 needs
+f | a + c, impossible as in Lemma 2.1).
+*What is affected.* (1) The definition of O(q, A) (FE2 §0.1) and every *global* statement about it away from the slices: at a
+general point of R̂^* (P ≢ 1 off T) I4 and II2 families can be valid where no linear family is, so EVIDENCE such as the ffl_tree
+"uncovered density" (FE2 §0.1, FE §6.3) is an upper bound for the ET-uncovered density, not an equality. (2) Wording: statements
+"ES_q(T^k) has no finite covering" must keep the word "linear" or cite Cor 2.6. (3) Positive results (FE Thm 6.3, (J)4) are
+unaffected (they exhibit coverings).
