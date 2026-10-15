@@ -1,6 +1,6 @@
 # STERILE_LOWER — lowering the explicit r₀ of STERILE_EXPLICIT, and the r = 17 line (O228, wave Z-d2)
 
-Status: checkpoint 1 (O228): Thm 2.1 (r₀ = 2^{30.15625}, certified) + Lemma 3.1 (joint level-1 parametrisation) + Comp. 4.1; not yet reviewed. **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
+Status: checkpoint 1 (O228): Thm 2.1 (r₀ = 2^{30.15625}, certified) + Lemma 3.1 (joint level-1 parametrisation) + Comp. 4.1; under review (R231, R232). Checkpoint 2 (round 2): §6 Thm 6.3 (r₀ = 2^{21.4375} ≈ 2.84·10⁶, joint sweep), §7 (r = 17 descent: negative). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
 Builds on STERILE_EXPLICIT.md (= SE; Thm 3.4, r₀ = 2³²), its reviews R222/R223, POINTWISE_MORDELL17*.md (= M17, M17B–D),
 FF_STERILE_PUSH.md / FF_STERILE_SMALL.md (division routes). Scripts `scripts/zl_*`, data `data/zl/`.
 
@@ -147,40 +147,58 @@ Theorem 4.1 stand unchanged.
 3. Lemma 4.3 for a fixed rational u: U is a small positive integer (U ≤ 2q²a/e + 1/2), so covering data of u come in
    families indexed by U; a descent U ↦ U' (Vieta on Ga − cp²) preserving "W is a power of r" would prove sterility. None found.
 
-## 6. The joint level-1 sweep, run (O228 round 2): r₀ lowered to 2^27 (in progress, updated per octave)
+## 6. The joint level-1 sweep, run (O228 round 2): r₀ lowered to 2^{21.4375} ≈ 2.84·10⁶
 
 **6.1 Splitting the level-1 Q count.** For a prime r and parameters A, Y,
   D_P(r) + D_Q(r) ≤ JP(r) + JQ_{A,Y}(r) + 2·#{(a, d) : ad ≤ Y} + B_A(r),
 where JP(r) = number of all P-data of r (a ≤ b) and JQ_{A,Y}(r) = number of Q-data of r (a ≤ b) with a < A and ad > Y, both
 computed exactly by the sweep; 2·#{ad ≤ Y} bounds the Q-data with ad ≤ Y (at most two per pair (a, d): M17C Lemma 2.1(iv), as
 SE route AD); B_A(r) is the `zl_boxa` bound (= `zl_box` restricted to Q-boxes whose a-enclosure [a₀, a₁] = [(P + F₀)/(4λ²CD),
-(λP + F₁)/(4CD)] has a₁ ≥ A) for the Q-data with a ≥ A. (D_P, D_Q count in-cell data; the sweep counts all data, a superset.)
-**PROVED** from Lemma 3.1, its converse halves, and the size bounds acd ≤ (r + 1)/2, f ≤ r + 2 (M17D Lemma 2.2(ii)), which give
-the sweep's ranges d ≤ (2X₁ + 2)/(4a), f ≤ X₁ + 1.
+(λP + F₁)/(4CD)] has a₁ ≥ A) for the Q-data with a ≥ A; if A > (X₁ + 1)/2 + 1 then B_A = 0, since every Q-datum of F has
+a ≤ acd ≤ (F + 1)/2 (M17D Lemma 2.2(ii)). (D_P, D_Q count in-cell data; the sweep counts all data, a superset.)
+**PROVED** from Lemma 3.1, its converse halves, and acd ≤ (r + 1)/2, f ≤ r + 2 (M17D Lemma 2.2(ii)), which give the sweep's
+ranges d ≤ (2X₁ + 2)/(4a), f ≤ X₁ + 1.
 
 **6.2 The sweep (`scripts/zl_sweep.c X0 X1 A Y 32`).** P: loop over triples (a, c, d) and the arithmetic progression
-N ≡ −4a²d (mod 4acd − 1), N ≥ ⌈4a²d − 2a/c⌉ (Lemma 3.1(i)); no factoring. Q: for each a < A a segmented sieve in d of
-m = 4a²d + 1 with all primes ≤ √m (one modular inverse per (a, p)); the leftover cofactor is prime; all divisors f ≤ X₁ + 1,
-then all c with n = 4acd − f ∈ [X₀, X₁) and na + c ≥ af (Lemma 3.1(ii)). Counters only at primes n (odd-n bitmap), 16-bit,
-saturation ⇒ failure. Output per 1/32-octave cell: max over primes r of JP, JQ and JP + JQ.
+N ≡ −4a²d (mod 4acd − 1), N ≥ ⌈4a²d − 2a/c⌉ (Lemma 3.1(i)); no factoring. Q: for each a < A, m = 4a²d + 1 is factored
+completely — by a segmented sieve in d with all primes ≤ √m (one modular inverse per (a, p); the leftover cofactor is prime),
+or, for short rows (`ZL_SHORT`), number by number (trial division below 2^10, deterministic Miller–Rabin with the 12 prime
+bases ≤ 37, Brent–Pollard ρ); then all divisors f ≤ X₁ + 1 and all c with n = 4acd − f ∈ [X₀, X₁), na + c ≥ af
+(Lemma 3.1(ii)). Counters only at primes n (odd-n sieve bitmap), 16-bit, saturation ⇒ failure; the prime-table and
+divisor-buffer limits exit with an error (one false alarm of the prime-table check was fixed: fail-closed, not a wrong count).
+Split runs (`ZL_ALO`, `ZL_NOP`, `ZL_BIN`) are merged per prime by `zl_merge.py` (exact integer cell endpoints).
 *Validation (EVIDENCE for the implementation of PROVED statements):* `scripts/zl_sweep_check.py` compares, for every n, the
 sweep's counts with R223's per-n enumerators: n ∈ [1001, 2000) and [3001, 6000), "all" mode (every odd n, A = X₁, Y = 0) and
-prime mode (A = 20, Y = 30 resp. A = 40, Y = 200): 500 + 135 + 1500 + 353 values, **0 mismatches**.
+prime mode, for the binaries actually used (sieve version and ρ version with every row forced short): **0 mismatches**; on
+n ∈ [10⁶, 2·10⁶), A = 20000, Y = 1500 the sieve version, the ρ version (all rows short / ZL_SHORT = 4) and the final binary
+give byte-identical per-n dumps (2.9·10⁷ counted data); a split run merged = the unsplit run (all cell lines identical).
 
 **6.3 Certificate (`scripts/zl_r1.py SWEEP A Y ENGINE`, fail-closed).** For each cell j (r ∈ [2^{j/32}, 2^{(j+1)/32})):
-level-1 terms ≤ 2(max JP + JQ + 2·#{ad ≤ Y} + B_A)/2^{j/32}; deeper terms (K, k ≥ 3, tails) exactly as `zl_r0.py`.
+level-1 terms ≤ 2(max_r (JP + JQ) + 2·#{ad ≤ Y} + B_A)/2^{j/32}; deeper terms (K, k ≥ 3, tails) exactly as `zl_r0.py`, with the
+extra certified P tables `data/zl/P_q32_k3.txt` (se_box, N ∈ [2^62, 2^70), 1/32-octaves) and, for octave 21,
+`P_q32_k3_l2.txt`, `P_q32_k5_l2.txt` (zl_box, N ∈ [2^62, 2^66) and [2^104, 2^110)).
 
-| r-range | A | Y | sweep time | max over primes of JP + JQ | cells | max S |
+| r-octave | A | Y | sweep (s) | max_r JP + JQ | max S | log |
 |---|---|---|---|---|---|---|
-| [2^29, 2^{30.15625}) | 40000 | 536870 | 4853 s | 75210 | 37 | 0.3266 |
-| [2^28, 2^29) | 65536 | 268435 | 3053 s | 61294 | 32 | 0.3584 |
-| [2^27, 2^28) | 32768 | 134217 | 1068 s | 29946 (at the worst cell) | 32 | 0.4732 |
+| [2^29, 2^{30.15625}) | 40000 | 536870 | 4853 | 75210 | 0.3266 | r1_29 |
+| [2^28, 2^29) | 65536 | 268435 | 3053 | 61294 | 0.3584 | r1_28 |
+| [2^27, 2^28) | 32768 | 134217 | 1068 | 46749 | 0.4732 | r1_27 |
+| [2^26, 2^27) | 131072 | 67108 | 2422 | 40243 | 0.3786 | r1_26 |
+| [2^25, 2^26) | 262144 | 8388 | 4440 | 38092 | 0.3130 | r1_25 |
+| [2^24, 2^25) | 524288 | 4194 | 426 + 4415 (split) | 33174 | 0.2891 | r1_24 |
+| [2^23, 2^24) | all rows | 2097 | 1801 | 23092 | 0.2536 | r1_23 |
+| [2^22, 2^23) | all rows | 1048 | 537 | 20008 | 0.4173 | r1_22 |
+| [2^{21.4375}, 2^22) | all rows | 300 | 157 | 16084 | 0.4832 | r1_21_l2 (cells j ≥ 686) |
 
-(logs `data/zl/r1_{29,28,27}.txt`, sweeps `data/zl/sweep_*.txt`, engine rows `data/zl/Qa_*_q32.txt`.)
-**Theorem 6.3 (PROVED, computer-assisted; inputs as Thm 2.1 plus M17C Lemma 2.1(iv)): (S) holds for every prime
-r ≥ 2^27 ≈ 1.34·10⁸.** (Thm 2.1 for r ≥ 2^{30.15625}; the table for 2^27 ≤ r < 2^{30.15625}.)
-Note: the exact level-1 counts are 30000–75000 for the worst primes (not "a few hundred": that was the typical value);
-still ≤ 10⁻⁴ r. What remains of the level-1 term is B_A (the engine for a ≥ A, ≈ 0.2–0.35) and the AD bound (≈ 0.05).
+**Theorem 6.3 (PROVED, computer-assisted; inputs as Thm 2.1 plus M17C Lemma 2.1(iv) and M17D Lemma 2.2(ii)):
+(S) holds for every prime r ≥ 2^{21.4375} ≈ 2.84·10⁶.** Hence for every such r the r-generic line contains a sterile point,
+and no finite set of ET Prop 1.9 classes covers all sufficiently large primes whose least quadratic non-residue is r.
+(Thm 2.1 for r ≥ 2^{30.15625}; the table for 2^{21.4375} ≤ r < 2^{30.15625}; the cells are contiguous.)
+*What stops it now:* the K = 3 term (P-data of N = r³, uniform engine bound): the deeper terms alone are 0.47–0.58 for
+j ≤ 685 (b ≤ 21.4); with exact level 1 the cells j = 681 (0.4997) pass and j = 685 (0.5013), 682 (0.567) fail. Going lower needs the
+level-2 analogue of the sweep (N = r³: Lemma 3.1(i) with N restricted to cubes) — Spark 2 of §5.
+*Correction to §§0, 2 (not rewritten during review):* the exact level-1 counts of the worst primes are 1.6·10⁴–7.5·10⁴, not "a few
+hundred" (that is the typical size); still ≤ 6·10⁻³·r.
 
 ## 7. r = 17: the descent question for Lemma 4.3 (Assessment; written during O228 round 2)
 
