@@ -119,8 +119,10 @@ whether ES for this Proth family is recorded anywhere (likely folklore-invisible
 
 **Prop 4.3 (finiteness of the SG menu at μ = 0; PROVED).** Let c + 1 = 4^i, c not a square. At μ = 0 of c·2^s + 1 the cap-0
 Sophie-Germain window with parameter t fires iff 4ct⁴ − 1 divides N_{a,x,y}(t) := Π q^{a_q}·g₊^x g₋^y + 4^{i−1}2^{x+y}
-(g± = 2t² ± 2t + 1) for some admissible exponents; each such N is coprime to 4ct⁴ − 1 in ℚ[t] (irreducible quartic vs. a
-product of the quadratics g±, which are not its factors), so m(t) ≤ |Res(N, m)| bounds t. ∎ (Derivation: near μ = 0,
+(g± = 2t² ± 2t + 1) for some admissible exponents. m(t) = 4ct⁴ − 1 is irreducible over ℚ (t⁴ − 1/(4c) factors only if
+1/(4c) is a square or −4·(fourth power)). So either m | N in ℚ[t] (a polynomial family of windows, firing for every t) or
+Res(N, m) ≠ 0, and m(t) | N(t) ⟹ m(t) | Res(N, m) (Bezout over ℤ, gcd(m(t), 4c) = 1), bounding t. For c = 3 the first case
+never occurs (`z15_sg_mu0_complete.py 3`, all 81 exponent vectors). ∎ (Derivation: near μ = 0,
 X ≡ 1/2, f± ≡ g±/2, K ≡ 4^{i−1} mod m; clear the unit 2^{x+y}.)
 
 **4.2 Reading.** For the (J)22 / (J)68 unit-square points the obstruction to ET/divisor menus is that n* is a profinite unit
