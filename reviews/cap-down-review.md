@@ -1,5 +1,10 @@
 # R242 — hostile review #1 of O237 (CAP_DOWN.md, branch side-agent/cap-down)
 
+**Repairs applied (R242, author quiet after checkpoint):** MINOR-1 (CAP_DOWN §7 item 1, z13_even_windows memo), MINOR-2
+(CAP_DOWN Cor 2.1 Remark 1: Pollack JNT 2018 citation; new **Cor 2.2**: e*(p) ≤ (p−5)/8 for primes p ≡ 1 (8), e*(a²) ≤ (p−5)/8
+for p | a, p ≡ 1 (8), effective/explicit; z13_pollack_quarter memo), MINOR-3 (z13_pollack_quarter memo). All marked '(R242 repair)'.
+AGENT_REPORT_O237 left untouched (author's report).
+
 Reviewer: R242. Scope: CAP_DOWN.md §§1–7, memos BRAINSTORM/z13_*.md, report AGENT_REPORT_O237.md.
 From-scratch scripts: scripts/review_r242_*.py. Labels as in DISCOVERIES.md. ES is not solved here.
 
@@ -133,8 +138,7 @@ are dead, e.g. (5, 67))".
 (2018) 403–414, Thm 1 (elementary, genus theory; proof read): for every prime p ≥ 5 there is a prime q ≡ 3 (4) with
 (q/p) = −1, and for p ≡ 1 (4) the proof gives q ≤ (p+1)/2. Combined with Thm 1.2 (no exclusion for p ≡ 1 (8)) and
 Prop 1.3 this gives, **effectively and explicitly, e*(p) ≤ ((p+1)/2 − 3)/4 = (p−5)/8 for every prime p ≡ 1 (8)**, and by
-Remark 3 **e*(a²) ≤ (p−5)/8 for odd a with a prime factor p ≡ 1 (8)** (d = a²/p has squarefree part p and d ≡ 1 (8);
-the d-solution uses q | (2-free part of a reduced-form coefficient), so q ∤ d automatically as q ≡ 3 (4)). These
+Remark 3 **e*(a²) ≤ (p−5)/8 for odd a with a prime factor p ≡ 1 (8)** (d = a²/p has squarefree part p and d ≡ 1 (8); (q/d) = (q/p) = −1, and q ∤ d as q ≡ 3 (4)). These
 supersede CAP_POINTWISE Thm 1.3(a)/(b) (n^{50308}, rad(n)^5) on those classes. Also the same paper §1 states
 n₃(p) ≤ p^{1/4+o(1)} (ineffective, via [IJNT 2014]) — i.e. Cor 2.1(a) for prime n is a one-line consequence of
 Thm 1.2 plus a stated literature bound; cite it. Repair: add a Cor 2.2 (PROVED relative to Pollack JNT 2018 Thm 1)

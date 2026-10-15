@@ -83,7 +83,10 @@ e*(n) < q ≪_ε (4n₀)^{1/4}(4n₀)^ε. (b) X = ⟨χ₋₄, χ₈, χ_{n₀}�
 q ≡ 7 (8), (q/n₀) = −1 (Thm 1.2 (E) holds); ξ⁺ = 1 + χ₈ + χ_{−4n₀} + χ_{−8n₀}, ξ⁻ = χ₋₄ + χ₋₈ + χ_{n₀} + χ_{8n₀},
 W = 256 n₀², W^{1/4} = 4n₀^{1/2}. ∎
 *Remarks.* (1) This replaces O236's Linnik exponent 5 by 1/4 (n ≡ 1 (8)) and 1/2 (n ≡ 5 (8)); the price is
-ineffectivity (Siegel, inside Pollack's proof). O236's Thm 1.3(a)/(b) remain the effective/explicit statements.
+ineffectivity (Siegel, inside Pollack's proof). O236's Thm 1.3(a)/(b) remain the effective/explicit statements
+for general n — but see Cor 2.2 for primes p ≡ 1 (8) and squares (R242 repair). For prime n, the analytic input of (a)
+is stated in the literature: Pollack, *The least prime quadratic nonresidue in a prescribed residue class mod 4*,
+J. Number Theory 187 (2018) 403–414, §1: n₃(p) ≤ p^{1/4+o(1)}, ineffective (R242 repair: citation added).
 (2) Without the even windows of Thm 1.2, the O236 class (one class mod 8) only gives n₀^{1/2+ε} for both residues:
 the 1/4 for n ≡ 1 (8) is exactly the 2-adic repair. (3) *Divisor routes (after R239's simpler route for squares).* If d | n, rad(n/d) | d, then gcd(K_d, n/d) = 1
 (K_d is prime to d), so scaling a Thm-1.2 solution for d by k = n/d keeps den z, rad den z | ky, and coprimality to n:
@@ -93,6 +96,15 @@ so **e*(a²) ≪_ε p^{1/4+ε} if a has a prime factor p ≡ 1 (8), and ≪_ε p
 n ≡ 5 (8) gets exponent 1/4 (in terms of the squarefree part of d) whenever some u | n with rad u | n/u, u ≡ 5 (8),
 yields d = n/u non-square. (4) Exponent 1/4
 is Burgess's barrier (the method is Burgess + Vinogradov–Linnik); GRH gives (log n)² as before.
+
+**Corollary 2.2 (effective and explicit for primes p ≡ 1 (8) and some squares; PROVED relative to Pollack, JNT 187
+(2018), Thm 1; R242 repair).** (a) For every prime p ≡ 1 (mod 8): **e*(p) ≤ (p − 5)/8.** (b) For every odd a with a
+prime factor p ≡ 1 (mod 8): **e*(a²) ≤ (p − 5)/8.**
+*Proof.* Pollack's Thm 1 (genus theory for discriminant −4p; elementary, effective) gives, for p ≡ 1 (4), a prime
+q ≡ 3 (4) with (q/p) = −1 and q ≤ (p+1)/2 (his proof: q divides an odd coefficient a ≤ (p+1)/2 of a reduced form in the
+non-principal genus). (a) Thm 1.2 has no exclusion for p ≡ 1 (8), and Prop 1.3 gives e*(p) ≤ (q−3)/4 ≤ (p−5)/8.
+(b) d := a²/p is a non-square with squarefree part p, d ≡ 1 (8), (q/d) = (q/p) = −1, q ∤ d; apply (a)'s argument to d
+and Remark (3). ∎ (Supersedes O236 Thm 1.3(a)/(b) on these classes.)
 
 (Z7-2) Can (b) reach 1/4? Hypothesis to violate: "bad windows (n ≡ 5, q ≡ 3 (8), v₂(n+q) odd) are dead". Tried:
 (i) all D₁ at fixed x (Lemma 3.1 below: includes the c_p ∈ {0, 2} "Type-I-at-x" family −4 ∈ box); (ii) odd prime
@@ -202,8 +214,10 @@ i.e. loses T1₃. Assessment, not proved.)
 ## 7. Verdict (O237 checkpoint 1)
 
 1. **Even windows (Thm 1.2, PROVED):** the O236 restriction "K odd" was unnecessary. The general Type II divisor
-   d = 2^{v₂(K)}Q′² keeps the 2-adic denominator trivial, and every prime q ≡ 3 (4) with (q/n) = −1 fires, except
-   (n ≡ 5, q ≡ 3 (8), v₂(n+q) odd). In the excluded case the forced non-residue is 2 itself, which is unusable.
+   d = 2^{v₂(K)}Q′² keeps the 2-adic denominator trivial, and every prime q ≡ 3 (4) with (q/n) = −1 is a *forced*
+   window, except (n ≡ 5, q ≡ 3 (8), v₂(n+q) odd). In the excluded case the forced non-residue is 2 itself, which is
+   unusable; (R242 repair) excluded windows are not forced but often still fire (R242 scan, n ≤ 2·10⁵, q ≤ 200:
+   36 446 of 37 522 excluded pairs fire at some cap, 1 076 are dead, e.g. n = 5, q = 67).
 2. **One-prime witness (Prop 1.3, PROVED):** d = K·s^{ord_q(s)/2} gives cap ≤ (q−3)/4 (was q − 3). It needs no
    discrete logarithm and is sharp at a single window (Prop 4.1(a)).
 3. **Power saving (Cor 2.1, PROVED relative to Pollack IJNT 2014 Thm 1.4; ineffective):**
