@@ -96,3 +96,8 @@ exponential classes are untried (spark).
    for all ν. TES/8/131: untouched (cap-0 statements; s6_numerator_windows records that 8/131 has forced windows at
    some positive cap only).
 4. Open: k = 33, 273, 297 (exp menu 4^j − k too thin; Sophie-Germain shapes and Type I exponential classes untried).
+
+**1.5 Sum-of-powers windows (EVIDENCE, negative).** `scripts/s6_hybrid_pow.py` adds windows m = 4^j w^h − k (w ≤ 6, h ∈ {3, 5, 7},
+m < 10⁷), with K = 4^{j−1}(X^h + w^h), X = 4^{r/h}, atoms X + w and (X^h + w^h)/(X + w). k = 33 and 273 are unchanged; k = 297
+improves from 6·10⁻⁷ to 9.8·10⁻⁸ and stalls. The k = 33 residual sits at μ = −2 (n ≈ (23/4)²), where the natural algebraic
+input would be 4^{s+2} − 1 (a difference), reachable only with negative windows — another shape is needed (spark).
