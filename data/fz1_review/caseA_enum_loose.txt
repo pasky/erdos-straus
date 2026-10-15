@@ -1,0 +1,16 @@
+LOOSE mode: all slices with u0 != 1 (T not dividing K), lc(E) in {1,2} only
+q=5 alpha<=3: data on slices u0 not in {-1,-2}: 69; per alpha: {1: 7, 2: 25, 3: 37}
+  Lemma 7.2(a) claim failures: 0 (outside the pattern range: 0) []
+  author routes (i)-(vi) violations 0, max count/bound [0.375, 0.5, 0.25, 1.0, 0.25, 0.031]; own routes violations 0, max [0.375, 0.5, 0.25, 0.031]
+LOOSE mode: all slices with u0 != 1 (T not dividing K), lc(E) in {1,2} only
+q=7 alpha<=2: data on slices u0 not in {-1,-2}: 18; per alpha: {1: 8, 2: 10}
+  Lemma 7.2(a) claim failures: 0 (outside the pattern range: 0) []
+  author routes (i)-(vi) violations 0, max count/bound [0.167, 0.5, 0.5, 1.0, 0.167, 0.014]; own routes violations 0, max [0.167, 0.5, 0.167, 0.014]
+LOOSE mode: all slices with u0 != 1 (T not dividing K), lc(E) in {1,2} only
+q=9 alpha<=2: data on slices u0 not in {-1,-2}: 35; per alpha: {1: 6, 2: 29}
+  Lemma 7.2(a) claim failures: 0 (outside the pattern range: 0) []
+  author routes (i)-(vi) violations 0, max count/bound [0.25, 0.5, 0.5, 1.0, 0.125, 0.01]; own routes violations 0, max [0.25, 0.5, 0.125, 0.01]
+LOOSE mode: all slices with u0 != 1 (T not dividing K), lc(E) in {1,2} only
+q=3 alpha<=4: data on slices u0 not in {-1,-2}: 75; per alpha: {1: 6, 2: 11, 3: 28, 4: 30}
+  Lemma 7.2(a) claim failures: 0 (outside the pattern range: 0) []
+  author routes (i)-(vi) violations 0, max count/bound [0.5, 0.5, 0.5, 0.5, 0.5, 0.125]; own routes violations 0, max [0.5, 0.5, 0.5, 0.125]
