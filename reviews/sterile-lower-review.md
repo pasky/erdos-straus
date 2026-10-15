@@ -206,3 +206,11 @@ Correct. Q: rows a < A, d ∈ [⌊Y/a⌋ + 1, ⌊(2X₁+2)/(4a)⌋] (⇔ ad > Y)
 trial division < 2^10 + deterministic MR (12 bases ≤ 37, valid < 3.3·10²⁴) + Brent ρ; at most one prime factor ≥ 2^32 (m < 2^64);
 divisors f ≤ X₁ + 1, c from ⌈(X₀ + f)/(4ad)⌉, condition na + c ≥ af (b ≥ a). Overflow paths (MF, dv, sieve root) exit non-zero;
 16-bit counters saturate at 65535 and zl_r1 fails on mp or mq = 65535. Correct as read.
+
+## 7. r = 17: conic Γ_{c,d,z} (Assessment)
+Re-derived: with X = qa − pb = zW, cX² = cz²rN and 4rcdz²ab − rz²(a + b) = rz²c(4abd − e) = rz²cN, so Γ holds; conversely
+N := X²/(rz²), e := (a+b)/c give N = 4abd − e. `scripts/review_zl_conic.py`: Γ and N = X²/(rz²) hold on 1132 (datum, p, q)
+instances over r ∈ {3, 5, 7, 17}, r | X always. "Γ forces r | X and r | N" tacitly needs r ∤ c (in-cell); then
+v_r(X²) = 1 + 2v_r(z) + v_r(4abcd − a − b) forces v_r(4abcd − a − b) odd, so r | N also when r | z — fine, say "r ∤ c".
+Vieta partners a′ = bV/(cq²) = 748098/81 = 83122/9, b′ = aU/(cp²) = 3/121 confirmed (a·a′ = (cp²b² + rz²b)/(cq²)). The S-unit
+remarks (ii) are Assessment and labelled so. **Verdict §7: SOUND as Assessment** (nit: hypothesis r ∤ c).
