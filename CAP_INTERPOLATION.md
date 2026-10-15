@@ -252,3 +252,50 @@ average count ≍ log³ p (Elsholtz–Tao Thm 1.1), and KARY3 caps every CRT arc
 selector classes at 3/4: there is no fourth dimension to unlock at e = 0 inside CRT architectures. Escaping needs
 non-CRT input (STATUS "Exceptional-set exponent": tuple counts TC^alt, weights < 1, residue-dense (A*)) — none
 supplied by the cap.
+
+## 6. PM-SQ_± to 10⁷ (goal 4) and the numerics ledger
+
+**PM-SQ_± (CONJECTURE, EVIDENCE extended).** `scripts/z10_sqpm.c` (C; least |u| with an odd prime ℓ | n + u,
+|u| | ℓ ± 1, (−u/ℓ) = −1 — CAP_GROWING Lemma 3.1): **all 1 248 419 non-squares n ≡ 1 (mod 8), n ≤ 10⁷, have a
+prime-modulus χ = −1 word with |u| ≤ 41; 0 exceptions; all 1580 odd squares ≡ 1 (8) unfired (T1).**
+Least-|u| histogram: 1: 833 904, 2: 349 852, 3: 53 078, 4: 5555, 5: 2618, 6: 2497, 7: 333, 8: 203, 9: 91, 10: 159,
+11: 42, 12: 21, 13: 5, 14: 28, 15: 15, 16: 3, 18: 5, 19: 4, 21: 1, 23: 1, 24: 2, 27: 1, **41: 1 (n = 8 452 161)**.
+To 10⁶ the max is 19 (n = 33 201; O229's "max |u| 10" was a 300-sample). Independent check (sympy, exact word
+identity tuv − u − v = n and Jacobi (−A/n) = −1): n = 33 201 → least u ∈ {19, 20}; n = 8 452 161 → word
+(t, u, v) = (4, 41, 51 854), A = 163, χ = −1. *Reading (Assessment).* The record least |u| grows slowly (19 → 41
+from 10⁶ to 10⁷); the tail P(least |u| > U) is roughly geometric in the number of usable slots, consistent with
+O229's heuristic that no finite u-set suffices (Dickson-type), while exceptions stay absent.
+
+**Numerics ledger (all EVIDENCE; exact rational identities wherever a solution is produced).**
+* `z10_cube_check.py 400000 2000 4 3`: 2000 overflow-cube solutions (1505 at composite M, 486 violating O229's
+  exactness hypothesis), all valid ES^{(y,4)} (Remark 1.3, §5).
+* `z10_rfamily_check.py` (random, e = 2 / 0) and `z10_rfamily_exh.py 1200 e` (**exhaustive: all M ≡ 3 (4) < 1200, all
+  D < M/4 coprime to M, e = 0, 1, 3: 36 458/36 458 agreements each**): "D ∈ 𝒟_e(M)" ⟺ Def 1.1 (Prop 5.1).
+* `z10_t1.py 3000 3`: no 𝒟_e class contains a square (7820 classes, exhaustive).
+* `z10_mass.py 4000000 6`: prime-modulus supply S_e(X) (V < ℓ/4, no cuts), X = 2^{10} … 4·10⁶, e = 0…6, ∞:
+  `X = 2^20: 5.06 5.83 6.12 6.22 6.25 6.25 6.25 | ∞ 6.25     X = 4·10^6: 5.84 6.87 7.30 7.47 7.53 7.54 7.54 | ∞ 7.54`
+  — at these X the knob saturates at e ≈ 4–5 ≈ log X/(2 log 3)/… (the cap is invisible once 9^{e+1} > ℓ); this is the
+  small-X shadow of Remark 2.2(b).
+* `z10_leastmod.py 1000000 3000`: least prime certifying modulus ℓ ≤ 3000 of 𝒟_e, all 78 496 primes 5 ≤ p ≤ 10⁶:
+  uncovered 1654 (e = 0), 1502 (e = 1), 1499 (e ≥ 2); odd squares hit: 0 for every e (T1).
+* `z10_grh_r.py 1000000 40`: the Thm 4.2(a) certifying prime (least r ≡ 11 (12), (p/r) = −1, ⟨3⟩ ⊇ squares) is ≤ 251 for
+  all primes p ≡ 1 (4) below 10⁶ (max r/log²p = 8.9, at p = 5); adversarial p ≡ 1 (mod 8∏_{3≤q≤40} q) (log p ≈ 31–34):
+  r = 47 or 71; 391 + 5 shot solutions Q = 3^a verified exactly (den z a power of 9).
+
+## 7. Verdict (O234 checkpoint 1)
+
+1. **Uniformity (Thm 2.1, PROVED rel. Gallagher's PNT + BV + large sieve):** ES^{(y,e)} fails for
+   ≤ N exp(−c(log N)^{(e+2)/(e+3)}/((e+2)log(e+3))) primes, uniformly in 0 ≤ e ≤ log log N: c_e ≍ 1/(e log e).
+   Saturation at e ≍ log log N: exceptions ≤ N exp(−c log N/(log₂N log₃N)).
+2. **Ceiling (Thm 3.1, PROVED, elementary):** the prime-modulus large sieve with cube classes gives no better at any
+   cap, e = ∞ included — although ES^{(y)} is true for every p. The sieve side never meets "all n ≥ n₀".
+3. **Pointwise (§4):** covering barrier e ≥ (log log p)^{1−o(1)} for infinitely many p (Prop 4.1, PROVED) — the same
+   scale as the sieve saturation; under GRH e*(p) ≤ C_ε(log p)^{2+ε} and e*(p) ≤ exp(O(√(log₂p log₃p)))
+   (Thm 4.2, CONDITIONAL, citation-level proof sketch). Unconditionally no bound of e*(n) in terms of n is known.
+4. **Exact family (Prop 5.1, PROVED):** at every modulus M ≡ 3 (4) the ES^{(y,e)} certificates of shot shape are the
+   classes −4D, D ∈ 𝒟_e(M) (D | A² lifted by even excess ≤ 2e); the cube is a redundant parametrisation; supply
+   dimension exactly e + 3 (Cor 5.2) — no tower at fixed e; composite-multiplier exponent (e+3)/(e+4) and its CRT
+   ceiling are Assessments (KARY3 does not literally apply for e ≥ 1). At e = 0 the family is ℛ(M): the extra
+   dimensions are exactly non-integrality of z (Prop 5.3).
+5. **PM-SQ_±:** 0 exceptions to 10⁷, record least |u| = 41.
+ES untouched; no infinite case of ES is claimed.
