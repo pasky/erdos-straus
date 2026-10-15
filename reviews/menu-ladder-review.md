@@ -16,6 +16,11 @@ From-scratch scripts: `scripts/review_r255_*.py`. ES is not solved; nothing belo
 | Lemma 6.1, Theorem 6.2 (compactness, s₀ large) | SOUND |
 | Prop 6.3 | SOUND (one implicit step, D6) |
 | §6 "pointwise converse fails" | SOUND for the pointwise statement; GAP for the added finite-cover refutation (D5) |
+| Prop 7.1 (slices collapse to ET) | SOUND-AFTER-REPAIRS (primitivity, D8) |
+| §7 Answer (Assessment) | label appropriate |
+| §5 searches (EVIDENCE) | labels appropriate; independently corroborated at D = 4 |
+| §8 rung-2 s-deformation (PROVED, Type II) | SOUND |
+| Cor 4.2 table | SOUND as labelled (inherits D7) |
 | Theorem 4.1 (rung 2, Type II) | SOUND (shape analysis redone; from-scratch exhaustive-per-(a,b) search, 0 violations; negative control fires) |
 
 ## Claim-by-claim
@@ -130,6 +135,35 @@ notation only.) See D6.
   (`scripts/review_r255_s1points.py 15 1 …`): the QR constraints from the primes of 4^60 − 1 already force μ ≡ 0 (mod 60);
   mod 2^a the survivors are {0, 3, 19}, killed by μ ≡ 0 (mod 10). This is not a proof for all moduli. See D5.
 
+### Prop 7.1 — SOUND-AFTER-REPAIRS
+On P_e, g ≡ 2^e, so F is a polynomial-in-n identity on the progression n ≡ 1 + 2^e u₀ (mod 2^{e+1}M) (M odd). Near the
+unit-square point this class contains a square coprime to its modulus (mod M: ≡ 4^J; mod 2^{e+1}: 1 + 2^e ≡ 1 (8) is an odd
+square for e ≥ 3). ET p. 8 (checked in sources/elsholtz-tao-1107.1010.pdf): "a primitive congruence class n = r mod q which is a
+perfect square cannot be solved by polynomials ([44], [68]; also follows from Proposition 1.6)"; ET Prop 1.6 (vanishing of
+f_I, f_II at odd squares) is quoted correctly. ✓ But the general sentence "P_e must contain no odd square" is false as
+written — non-primitive classes containing odd squares ARE polynomially solvable (n ≡ 0 (mod 3) ∋ 9: 4/n = 1/(n/3) +
+1/(4n/3) + 1/(4n)). In the application the squares are units, so the proof is fine. See D8.
+
+### §5 — labels appropriate
+All §5 statements are EVIDENCE with stated ranges, and the coverage caveats (skipped underdetermined/zero-resultant systems,
+reduced residue only) are disclosed. Hand checks: σ = 4/11 at D = 4: 4(15Y⁴ + 1) + 11 = 15(4Y⁴ + 1) ✓; no κ | 75 with
+κ ≡ −1 (mod 176) ✓. Independent corroboration with a different search shape (`review_r255_rung2.py c0 k 2 2 2 4`: for each
+small (a, b), ALL Type II (c, d) ∈ ℚ[Y] on c₀Y⁴ + k, then x, y, z tested by Lemma 2.1 at μ = 0): (3,1) finds 8 integral
+families, all O240 Theorem B and rescalings/mirrors (sanity ✓); (15,1): 2352 algebraic Type II families, **0 integral at
+μ = 0**. Consistent with "Status of 15·2^s + 1: NOT decided" — correctly not overclaimed.
+
+### §8 rung 2 under s-deformation — SOUND
+An identity in s and 2^{s/2} on an infinite progression holds in ℚ[s, Y] (exponential polynomials vanishing on an AP vanish).
+Positivity of P(s, 2^{s/2}) for large s forces the top Y-coefficient (in ℚ[s]) to be eventually positive, so for each fixed
+large s Theorem 4.1's hypotheses hold in Y (degrees in Y are eventually constant). Remainders mod n (n s-free with constant
+leading coefficient) lie in ℚ[s]; F·G = 1 by the key identity of D4, so F is constant. ✓ "Higher rungs": Assessment, fine.
+
+### Cor 4.2 / Assessment
+The table is labelled row by row. Base-4 results (O239, 15·4^s + 1) are used for the base-2 family 15·2^s + 1; this is legitimate
+for non-existence near μ = 0 (restrict a base-2 class near μ = 0 to even s), but deserves a word (D9). The "fourth kind
+(positivity) of obstruction" reading in the memo is an Assessment and is supported by the negative control in my rung-2 search
+(indefinite n gives escaping witnesses).
+
 ## Defects
 
 1. (MINOR) §1 "Heuristic" line: "J(ℚ₂)/2J(ℚ₂) has order ≈ 2^{g + #J[2](ℚ₂)}" is wrong. The correct formula is
@@ -156,3 +190,8 @@ notation only.) See D6.
    φ_{D,r} = c₀b^r Y^D + k.
 7. (MINOR) §6 / Cor 4.2 cite O239 Cor 2.8 as PROVED; it lives on side-agent/exp-105 (under review) and is stated for the
    z14 menu with UNSPLIT SG pieces. Repair: add "(O239 Cor 2.8, unsplit pieces; pending review)".
+8. (MINOR) Prop 7.1 proof: "P_e must contain no odd square" — must read "no odd square coprime to the modulus (P_e is then a
+   primitive square class)"; counterexample to the literal sentence: n ≡ 0 (mod 3). The application is unaffected.
+9. (MINOR) Cor 4.2 table / §5 quote O239 results proved for 15·4^s + 1 (base 4) as statements about 15·2^s + 1. Add one
+   line: a base-2 class near μ = 0 restricts to a base-4 class near μ = 0 (s ↦ 2s), so base-4 non-existence implies base-2
+   non-existence for the corresponding sub-menu.
