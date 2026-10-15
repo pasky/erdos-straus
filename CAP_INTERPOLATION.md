@@ -147,9 +147,7 @@ proves ES^{(y,e)}(p) by *covering* (F_r^*)² with the cap-e box at a single cert
 needs e ≥ (log r)^{1−o(1)} ≥ (log log p)^{1−o(1)} for these p.
 *Proof.* A shot (Q, r) with r prime needs (−p/r) = 1 with r ≡ 3 (4), i.e. (p/r) = −1 for p ≡ 1 (4). Let
 W := 8∏_{3≤r≤R} r; by Dirichlet/Linnik there are primes p ≡ 1 (mod W) with log p ≤ C log W ≤ C′R; for them
-(p/r) = (r/p)… = (p mod r / r) = 1 for all odd r ≤ R, so every certifying prime is > R ≥ log p/C′. (With Linnik the
-constant C′ is absolute; "(1 − o(1)) log p" needs p ≤ W^{1+o(1)}, available for a positive proportion of R by
-Bombieri–Vinogradov — I state the weaker log p/C′, which suffices for the (log log p)^{1−o(1)} claim.) The cap
+(p/r) = (1/r) = 1 (as p ≡ 1 mod r) for all odd r ≤ R, so every certifying prime is > R ≥ log p/C′. (Linnik: C′ absolute; log W = (1+o(1))R by the PNT.) The cap
 bound is Prop 3.1(c) of EXPONENT_CAP (box ∏(κ_i + e + 1) ≥ (r−1)/2 with ∏ s^{κ_i} ≤ r). ∎
 *Reading.* The almost-all saturation scale of §2 (e ≍ log log N) and the pointwise covering threshold
 ((log log p)^{1−o(1)}, for some p) are the SAME scale. So "ES^{(y, C log log p)} for every prime p" is the natural
