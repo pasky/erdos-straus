@@ -1,6 +1,6 @@
 """R240 driver for scripts/review_r240_enum.gp (PARI/GP via cypari2): exact per-pattern counts of k = 1 Case B tuples at q = 9.
 
-usage: uv run --with cypari2 python scripts/review_r240_enum.py S [--all-routes CAP] [--compat-only] [--cmp DIR]
+usage: uv run --with cypari2 python scripts/review_r240_enum.py S [--q p^r] [--all-routes CAP] [--compat-only] [--cmp DIR]
   Output lines: "s a z y t  n_all  n_P8  n_lawfail  route"  (orientation a <= b; n_P8 = tuples with E(0)^4 = -1).
   --all-routes CAP: run every route of cost exponent <= CAP and require identical counts (cross-check).
   --compat-only: only patterns with eps(s; z, t) = (-1)^{s/4} (the ones that can carry P8 tuples by Thm 1.2).
@@ -30,6 +30,9 @@ def costs(s, a, z, y, t):
 def main():
     args = sys.argv[1:]
     s = int(args[0])
+    if "--q" in args:  # other fields (law check / off-F3 counts only; n_P8 is meaningful for q = 9 only)
+        qp, qr = map(int, args[args.index("--q") + 1].split("^"))
+        pari("setq(%d, %d)" % (qp, qr))
     cap = None
     if "--all-routes" in args:
         cap = float(args[args.index("--all-routes") + 1])
@@ -39,6 +42,7 @@ def main():
     mincost = float(args[args.index("--mincost") + 1]) if "--mincost" in args else None
     bad = 0
     res = {}
+    n_off_tot = [0]
     t0 = time.time()
     for a in range(s + 1):
         for z in range(s + 1 - a):
@@ -71,14 +75,15 @@ def main():
                     bad += 1
                 res[(a, z, y)] = (t, n_all, n_p8)
                 print(s, a, z, y, t, n_all, n_p8, lawf, best, ("routes=" + ",".join(map(str, routes))) if cap is not None else "",
-                      flush=True)
+                      "off=%d" % dup, flush=True)
+                n_off_tot[0] += dup
     # summaries
     tot_all = sum(v[1] for v in res.values())
     tot_p8 = sum(v[2] for v in res.values())
     p8_incompat = sum(v[2] for (a, z, y), v in res.items() if s % 4 or eps(s, z, v[0]) != (-1) ** (s // 4))
     mass = sum((2 if a < s - a - z else 1) * v[2] for (a, z, y), v in res.items()) / 9 ** (s // 2)
     print(f"# s={s}: patterns={len(res)} tuples(a<=b)={tot_all} P8(a<=b)={tot_p8} P8 in eps-incompatible patterns={p8_incompat} "
-          f"P8 mass (mult 2 for a<b, weight 9^-{s//2}) = {mass:.9e}  time={time.time()-t0:.0f}s", flush=True)
+          f"P8 mass (mult 2 for a<b, weight 9^-{s//2}) = {mass:.9e}  E(0) not +-1: {n_off_tot[0]}  time={time.time()-t0:.0f}s", flush=True)
     if p8_incompat:
         bad += 1
     if cmpdir:

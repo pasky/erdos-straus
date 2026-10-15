@@ -45,11 +45,11 @@ def main():
                 continue
             f = l.split()
             s, a, z, y, t = map(int, f[:5])
-            if (s, a, z, y) in exact:
-                die("dup exact " + l)
             if f[5] == "SKIP":
-                exact[(s, a, z, y)] = None
+                exact.setdefault((s, a, z, y), None)  # a SKIP never overrides a count (files may be partial runs)
                 continue
+            if exact.get((s, a, z, y)) is not None:
+                die("dup exact " + l)
             n_all, n_p8, lawf = int(f[5]), int(f[6]), int(f[7])
             if lawf:
                 die("law failure " + l)

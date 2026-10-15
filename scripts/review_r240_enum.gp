@@ -8,12 +8,12 @@
 \\   4 WG : (w, g'),  E | g'T^s + w of degree z+y+a, C = cofactor               cost q^(a+y)
 \\   5 MW : (m', w),  E | T^s + m'w^2 of degree z+y+a, v = cofactor             cost q^(z+a)
 \\ where E := m'g'w - 1 (so E C = g'T^s + w, E v = T^s + m'w^2, E E' = 1 + T^s m'g'^2, E' = m'g'C - 1; re-derived in review).
-gg = ffgen([3,2], 'a);
-o = gg^0;
-EL = vector(9, k, ((k-1)%3 + ((k-1)\3)*gg) * o);
+\ field: setq(p, r) (default q = 9); EL[1] = 0, EL[2..QQ] = the nonzero elements (same ordering as before for q = 9)
+setq(p, r) = { gg = ffgen([p, r], 'a); o = gg^0; QQ = p^r; EL = vector(QQ, k, sum(i = 0, r - 1, (((k-1) \ p^i) % p) * gg^i) * o); }
+setq(3, 2);
 TF(P) = polcoef(P, 0) != 0;
 ismon(P) = pollead(P) == o;
-\\ result accumulators (global): CNT[1] = all slices, CNT[2] = P8 (E(0)^4 = -1), CNT[3] = law failures, CNT[4] = duplicates
+\\ result accumulators (global): CNT[1] = all slices, CNT[2] = P8 (E(0)^4 = -1), CNT[3] = law failures, CNT[4] = E(0) not in {1, -1}
 chk(s, a, z, y, t, m, w, C, g, v) = {
   my(E0);
   if (poldegree(m) != z || poldegree(w) != a || poldegree(C) != s-a-z || poldegree(g) != y || poldegree(v) != t, return(0));
@@ -23,17 +23,18 @@ chk(s, a, z, y, t, m, w, C, g, v) = {
   E0 = (polcoef(w,0)*o) / (polcoef(C,0)*o);
   CNT[1]++;
   if (E0^4 == -o, CNT[2]++);
+  if (E0 != o && E0 != -o, CNT[4]++);
   if (E0^s != (-1)^(t + t*z + z*(1+s) + t*s) * o, CNT[3]++);
   if (E0 == -o, CNT[3]++);
   1;
 }
 \\ the k-th (0 <= k < nmon(d)) polynomial lead*(monic of degree d with nonzero constant term); all coefficients t_FFELT
-nmon(d) = if (d == 0, 1, 8 * 9^(d-1));
+nmon(d) = if (d == 0, 1, (QQ - 1) * QQ^(d-1));
 mk(d, k, lead = 1) = {
   my(P = lead * o * x^d, c);
   if (d == 0, return(lead * o));
-  P += lead * EL[2 + k % 8]; k \= 8;
-  for (i = 1, d - 1, c = k % 9; k \= 9; P += lead * EL[c + 1] * x^i);
+  P += lead * EL[2 + k % (QQ - 1)]; k \= (QQ - 1);
+  for (i = 1, d - 1, c = k % QQ; k \= QQ; P += lead * EL[c + 1] * x^i);
   P;
 }
 \\ exact quotient N/D as a t_POL, or 0 if D does not divide N (N != 0); robust to scalar (t_INT / t_FFELT) inputs
@@ -84,7 +85,7 @@ pattern(s, a, z, y, t, route) = {
 \\ Returns a Map pattern [al, deg a1', be, ka] -> [n_all, n_offF3, n_P8, lawfail]
 caseA(al, tmax) = {
   my(M = Map(), P, Ld, b1, K, Fp, a1, E, E0, key, cur, z, R, lk);
-  for (t = 0, tmax, for (lz = 2, 9, for (i1 = 0, nmon(t) - 1, z = mk(t, i1, EL[lz]);
+  for (t = 0, tmax, for (lz = 2, QQ, for (i1 = 0, nmon(t) - 1, z = mk(t, i1, EL[lz]);
     P = o*x^al + z; if (P == 0 || poldegree(P) < 0, next);
     Ld = divisors(factor(P / pollead(P)));
     for (i = 1, #Ld, b1 = Pol(o*Ld[i] / pollead(Ld[i]), 'x); R = exq(P, b1);
