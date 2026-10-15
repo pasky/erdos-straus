@@ -1,0 +1,18 @@
+N 1000000 mode primes
+n mod 8 = 1 {'cnt': 19552, 'new<old': 5890, 'q14bad': 0, 'sum_old': 263080, 'sum_new': 148928} mean qold 13.46 qnew 7.62
+n mod 8 = 5 {'cnt': 19623, 'new<old': 6601, 'q14bad': 9161, 'sum_old': 418649, 'sum_new': 287237} mean qold 21.33 qnew 14.64
+max (1, 'best_cap_at_qnew') = 16 at n = 73417
+max (1, 'prop14_cap') = 32 at n = 880993
+max (1, 'qnew') = 131 at n = 880993
+max (1, 'qold') = 227 at n = 867793
+max (1, 'wit_cap') = 49 at n = 73417
+max (5, 'best_cap_at_qnew') = 37 at n = 2221
+max (5, 'prop14_cap') = 47 at n = 636469
+max (5, 'qnew') = 191 at n = 636469
+max (5, 'qold') = 199 at n = 4349
+max (5, 'wit_cap') = 79 at n = 47189
+odd-square windows (must be 0): 0
+
+real	0m11.995s
+user	0m11.885s
+sys	0m0.080s
