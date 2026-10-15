@@ -158,3 +158,55 @@ general point of R̂^* (P ≢ 1 off T) I4 and II2 families can be valid where no
 "uncovered density" (FE2 §0.1, FE §6.3) is an upper bound for the ET-uncovered density, not an equality. (2) Wording: statements
 "ES_q(T^k) has no finite covering" must keep the word "linear" or cite Cor 2.6. (3) Positive results (FE Thm 6.3, (J)4) are
 unaffected (they exhibit coverings).
+
+## 3. Computations (EVIDENCE; logs in `data/zi/`)
+
+**3.1 Every solution is ET-parametrised (Lemma 1.1, FE Lemma 1.2), exhaustive.** `scripts/zi_solutions.py q k n CYL` enumerates
+*all* monic solutions for every monic prime P of degree n in the T-adic cylinder CYL, without using FE Lemma 1.3: for each monic X
+of degree n − k, (EY − M)(EZ − M) = M² (M = PX, E = AX − P) over all divisors of M² times all units; then every solution is
+re-parametrised by the construction in the proof of Lemma 1.1 and the identities are asserted (own GF(q) tables, `scripts/zi_gf.py`;
+q = 9 as F₃[i]/(i² + 1), axioms checked). No violation of Lemma 1.1 or of FE Lemma 1.2 (no second denominator of degree ≤ n − k):
+| q, k, n, cylinder | primes | solutions Type I / Type II | Type I with deg E_FF ≥ n/2 | P with no solution |
+|---|---|---|---|---|
+| 3, 2, 6, P ≡ 1 + T (T²) | 18 | 127 / 35 | 85 | 0 |
+| 3, 2, 7, P ≡ 1 + T (T²) | 50 | 570 / 155 | 307 | 0 |
+| 3, 2, 7, P ≡ 1 + 2T (T²) | 54 | 725 / 328 | 209 | 0 |
+| 5, 2, 4, P ≡ 1 + T (T²) | 7 | 4 / 0 | 4 | 4 |
+| 9, 2, 3, P(0) = 1 | 30 | 2 / 4 | 1 | 25 |
+| 9, 1, 3, P(0) = 3 (= i) | 30 | 55 / 11 | 25 | 3 |
+Type I solutions with large E_FF are I4-shaped (Prop 1.4); some primes have *only* such solutions (e.g. 2 of 18 at q = 3, n = 6).
+At finite n this is only illustrative (every single solution lies in *some* linear family, Prop 1.4), but it shows that the
+I4 shape is common, not exotic.
+
+**3.2 The q = 3 depth-9 tree with I4 (`scripts/zi_tree.py data/z16/balls_d9.txt 9`).** Ball sets on the two c-slices, depth ≤ 9:
+Case A 26 balls (route_A4, complete), Case B 146 (census, complete), I4 26 (mirrors of Case A). Missing inverses: A + B: 24
+(the O242 observation), **A + B + I4: 0**. Of the 26 I4 balls, 24 are new as balls, but survivor counts at depths 3–9 are
+identical with and without I4 (2, 6, 16, 44, 130, 380, 1130 per slice) and x*_c stays alive: **every Case A ball and every I4
+ball lies inside a Case B ball** (26/26 and 26/26; `scripts/zi_AinB.py` lists, for each Case A datum, the Case B tuples with the
+*same* E whose ball contains it — this is how Lemma 2.3 was found; `data/zi/AinB_d9.txt`).
+
+**3.3 Lemmas 2.2–2.4 by brute force (`scripts/zi_slicecheck.py`, `data/zi/slicecheck.txt`).** All Case A data with g = 1 in a
+degree box (a1, b1 monic coprime of degree ≤ D, E every divisor of a1 + b1 with admissible lc), ball depth ≤ DMAX. For each: the
+I4 mirror re-checked against Prop 1.4; the Lemma 2.3 Case B datum built and E | D, D monic, E ≡ −1 (mod L'), g' | L', depth checked;
+the Lemma 2.4 swap E' = D/E checked to give a ball containing the I4 ball.
+| q, k, slices, D, DMAX | Case A data (monic E, deg ≥ 1) | Lemma 2.3 holds | outside hypotheses (α + v < k) | I4 balls in census B balls |
+|---|---|---|---|---|
+| 3, 2, c-slices, 6, 9 | 32 | 32 | 0 | 16 / 16 (independent census s ≤ 16) |
+| 9, 1, u(0) ∉ F₃^*, 2, 12 | 12 | 12 | 0 | — |
+| 5, 2, c-slices, 4, 12 | 0 | — | — | — |
+| 3, 2, *all units u*, 4, 9 | 60 | 52 | 8 | — |
+| 5, 2, all units, 3, 8 | 56 | 48 | 8 | — |
+| 9, 2, all units, 2, 8 | 24 | 16 | 8 | — |
+| 3, 3, all units, 4, 10 | 60 | 44 | 16 | — |
+0 failures of Lemma 2.3 whenever its hypotheses hold. The "all units" rows show where the domination argument stops: off the
+sterility slices (u(0) ≠ 1, v = 0, α = 1 < k) Case A data — and hence I4 data — exist to which Lemma 2.3 does not apply. Whether
+those I4 balls are covered by other linear families is not examined (it concerns only global EVIDENCE such as ffl_tree densities,
+Cor 2.6 (1)).
+
+**3.4 Robustness without Thm 2.5 (Assessment on the certified totals).** Even if one simply added the I4 mass (= the Case A mass;
+inversion preserves Haar measure and maps the slice families Σ of each theorem to themselves: c ↦ −c, resp. u₀ ↦ 1/u₀, and
+P₈ = {u₀⁴ = −1} is inversion-closed) to each union bound, every certificate would still close: OA Thm 2.2: 3.195 + 1.01·0.1705
+≈ 3.37 < 4; SS Thm 5.2 (q = 9, k ≥ 2): 3.577 + 1.01·0.1750 ≈ 3.75 < 8; SS Thm 3.1 (q = 27): Case A ≤ 0.0097, total far below 26;
+SP Thm 3.1: Case A parts are ≤ the Case A terms in `data/fs/certify.txt`, totals 2.18 / 0.25 / 0.37 / … against 80 / 1 / 1 / …
+(the r ≥ 5 per-c statements keep their constants up to the added Case A part); SS Thms 7.3/8.1 (k = 1): Case A → 2.00 at most,
+totals ≤ 9.74 + 2.0 < q − 3 for r ≥ 3. This is a second, independent reason why no theorem breaks; Thm 2.5 is the exact one.
