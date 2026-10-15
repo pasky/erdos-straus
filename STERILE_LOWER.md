@@ -26,7 +26,7 @@ FF_STERILE_PUSH.md / FF_STERILE_SMALL.md (division routes). Scripts `scripts/zl_
   Q's fac/fca/fda (SE §3.4 note). Nothing new to transplant there; the FF gain came from degree rigidity
   (y + t = max(a, b) exactly), which over ℤ is only an inequality up to constants — exactly where the polylog box count lives.
 * (I3) **Local engine tweaks, measured on the dominant Q₁ boxes (`se_box` dumps at N = 2^24, 2^28, 2^32).**
-  (a) Finer boxes (ratio 2^{1/2}, 2^{1/4}): worse (+2 %, +69 % at N = 2^20; the per-box "+1" and the per-pair minimum 1
+  (a) Finer boxes (ratio 2^{1/2}, 2^{1/4}): worse (Q: +1 %, +69 %; P: +14 %, +69 % at N = 2^20; the per-box "+1" and the per-pair minimum 1
   dominate). (b) Exact max τ(n), τ₃(n) for n ≤ X instead of SE's envelope min_η C_k(η)X^η: the envelope is within 10 % of
   the true maximum for X ∈ [2^20, 2^80] (e.g. X = 2^64: max τ = 184320, envelope 1.87·10⁵) — no gain. (c) Excluding small
   e (exact enumeration of e ≤ E by sieving eF + 1): removing all boxes with e-range ⊂ [1, 4096] lowers the Q₁ bound only
