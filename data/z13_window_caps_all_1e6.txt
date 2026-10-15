@@ -1,0 +1,9 @@
+N 1000000 M 1000 mode all count 87759 verified 87759
+best-cap histogram: {0: 87758, 1: 1}
+max least cap-0 window: (103, 119785)  max least cap<=1 window: (51, 496609)
+n with best cap >= 1 (n, cap, window): [(3985, 1, 19)] ... total 1
+odd squares with a Lemma-1.1 window m <= 400, cap <= 3 (T1: must be 0): 0
+
+real	0m6.795s
+user	0m6.765s
+sys	0m0.031s

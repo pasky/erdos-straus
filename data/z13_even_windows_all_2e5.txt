@@ -1,0 +1,16 @@
+N 200000 mode all
+n mod 8 = 1 {'cnt': 9280, 'new<old': 2797, 'q14bad': 0, 'sum_old': 122264, 'sum_new': 69420} mean qold 13.18 qnew 7.48
+n mod 8 = 5 {'cnt': 9353, 'new<old': 3143, 'q14bad': 4357, 'sum_old': 198663, 'sum_new': 136259} mean qold 21.24 qnew 14.57
+max (1, 'best_cap_at_qnew') = 16 at n = 73417
+max (1, 'qnew') = 83 at n = 106177
+max (1, 'qold') = 163 at n = 55465
+max (1, 'wit_cap') = 49 at n = 73417
+max (5, 'best_cap_at_qnew') = 37 at n = 2221
+max (5, 'qnew') = 151 at n = 2221
+max (5, 'qold') = 199 at n = 4349
+max (5, 'wit_cap') = 79 at n = 47189
+odd-square windows (must be 0): 0
+
+real	0m2.067s
+user	0m2.010s
+sys	0m0.057s
