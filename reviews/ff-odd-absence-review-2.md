@@ -96,7 +96,7 @@ nothing in the argument needs the slices outside P, and the depth-1 families (Pr
 "< |P|" is the right threshold (it is "< q − 3" of (J)56 with P = all off-F₃ slices). **SOUND** (inherits the (J)51/(J)56
 framework: every linear family is a Case A datum or a (B^{k=1}) tuple with the stated maximal cylinder).
 
-**Filters.** (a) *Slice filter*: −P₈ = P₈ (−1 = i²·… : (−ζ)⁴ = ζ⁴), so −E(0) ∈ P₈ ⟺ E(0)⁴ = −1 ⟺ (E(0) ∉ F₃ and E(0)⁴ ≠ 1);
+**Filters.** (a) *Slice filter*: −P₈ = P₈ ((−ζ)⁴ = ζ⁴), so −E(0) ∈ P₈ ⟺ E(0)⁴ = −1 ⟺ (E(0) ∉ F₃ and E(0)⁴ ≠ 1);
 zc_enum's SLICEF = 2 test (E(0) ∉ {0, 1, 2}, E(0)⁴ ≠ 1, with E(0) = m'(0)g'(0)w(0) − 1, the T0 form of E) is equivalent. (b) *Level
 filter*: E(0) ∈ P₈ has order 8 and E(0)^{2s} = 1 ⇒ 4 ∣ s; Case A: E(0)^{2α} = 1 ⇒ 4 ∣ α. (c) *Pattern filter*: for 4 ∣ s,
 E(0)^s = (E(0)⁴)^{s/4} = (−1)^{s/4} must equal ε(s; z, t). The char-3 form used in the C code (extra λ^{z+s} with λ = −1 iff
@@ -111,4 +111,27 @@ conditions are F₃-rational, σ(E) is the E of the conjugate datum, and coeffic
 F₉[[T]]), but unproved in the text; harmless (m-2).
 
 ## Defects
-(in progress)
+
+No FATAL, no MAJOR defect found. Minor:
+
+* **m-1 (FF_ODD_ABSENCE §1, Thm 1.2 *Check*, and AGENT_REPORT_O226 Results 1).** "q = 9, s ≤ 12: 8 915 tuples; q = 5, 7, 27, s ≤ 9:
+  305, 645, 340" are counts of tuples with a ≤ b (a = b both orders) and 2 ≤ s; the number of ordered tuples is 15 701 (q = 9).
+  *Repair:* say "oriented tuples (deg w ≤ deg C), 2 ≤ s ≤ 12".
+* **m-2 (Thm 2.2 statement, parenthetical Frobenius sentence).** Correct but unproved inside a PROVED statement. *Repair:* move
+  to a Remark with the one-line proof (the data conditions are F₃-rational; σ maps the datum of E to that of σ(E) and the cylinder
+  u ≡ −E to u ≡ −σ(E); coefficientwise σ preserves Haar measure), or label it.
+* **m-3 (Thm 1.4 statement).** "lc K = lc E ∈ {1, 2}" is an input from (J)56 Lemma 7.2 / DEPTH_ASPECT Lemma 2.4, and the conclusion
+  E(0)^α ∈ F₃^* uses it. *Repair:* cite it explicitly as the source of that hypothesis (the proof as written reads as if it were
+  part of the definition).
+* **m-4 (Thm 2.2 proof, tail bullet).** This is the first use of `fz1_tail` at r = 2, and at q = 9 the tail bound exists only
+  because of the linearised Lemma 4.1 (FF_STERILE_SMALL Lemma 5.1, RANK = 1): R226's reviewer tail without Rankin gives
+  3.08·10⁶ at r = 2 (my run), with my port of R221's own Lemma 4.1 it gives 0.0228. *Repair:* state that the tail rests on
+  Lemma 5.1 (as in Thm 5.2), and cite the independent value.
+* **m-5 (Thm 2.2 *Validation*, AGENT_REPORT trust points).** The s = 16 and s = 20 exact counts are load-bearing (route bounds
+  there: ≈ 2.1 and 2.4–2.9, either alone would break < 4), and s = 20 was "not cross-checked independently". *Repair:* add
+  this review's cross-check (§5: 725 of the 933 exact s = 20 patterns re-enumerated from scratch, 0 mismatches; s = 16 see §5).
+* **m-6 (Lemma 2.1 proof).** "the stated relative mass" should be "the relative mass of the tuple's maximal cylinder, which
+  contains the validity sets of all families with that datum" ((J)51 Lemma 2.1 wording). Cosmetic.
+* **m-7 (cross-file status; for the parent).** FF_STERILE_SMALL §7 (end) and §8 ("Status … Open: … q = 9 with k = 1") still list
+  q = 9, k = 1 as open; STATUS/DISCOVERIES need the update "ES_q(T): no finite linear covering for every q = 3^r, r ≥ 2
+  ((J)56 Thm 8.1 + O226 Thm 2.2)" when O226 is merged.
