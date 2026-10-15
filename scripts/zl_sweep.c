@@ -7,6 +7,8 @@
    Counts are kept only for PRIME n (odd n, prime bitmap); 16-bit saturating (65535 = overflow -> caller fails closed).
    Env (O228 round 2; unset = previous behaviour): ZL_ALO=a0 -> Q rows a in [a0, A) only; ZL_NOP=1 -> skip P;
    ZL_BIN=file -> also write the raw uint16 arrays JP, JQ (odd n in [X0, X1)) for merging split runs (zl_merge.py).
+   ZL_SHORT=k (round 2b): rows with fewer than (#sieving primes)/k values of d are factored number by number (trial division
+   by primes < 2^10, deterministic Miller-Rabin, Brent-Pollard rho) instead of by the sieve.
    Usage: zl_sweep X0 X1 A Y q [all]     prints per cell [2^{j/q}, 2^{(j+1)/q}) (cells clipped to [X0,X1)):
       "C j lo hi maxP maxQ max(P+Q) nprimes"    ("all": count every odd n, no prime filter -- validation mode). */
 #include <stdio.h>
@@ -42,10 +44,41 @@ static void sweepP(void){
     }
 }
 
+
+static inline u64 mulm(u64 a, u64 b, u64 m){ return (u64)((u128)a * b % m); }
+static u64 powm(u64 a, u64 e, u64 m){ u64 r = 1 % m; a %= m; while(e){ if(e & 1) r = mulm(r, a, m); a = mulm(a, a, m); e >>= 1; } return r; }
+static int isprime64(u64 n){ if(n < 2) return 0; static const u64 B[] = {2,3,5,7,11,13,17,19,23,29,31,37};
+  for(int i = 0; i < 12; i++){ if(n % B[i] == 0) return n == B[i]; }
+  u64 d = n - 1; int s = 0; while(!(d & 1)){ d >>= 1; s++; }
+  for(int i = 0; i < 12; i++){ u64 x = powm(B[i], d, n); if(x == 1 || x == n - 1) continue; int ok = 0;
+    for(int r = 1; r < s; r++){ x = mulm(x, x, n); if(x == n - 1){ ok = 1; break; } } if(!ok) return 0; }
+  return 1; }
+static u64 gcdu(u64 a, u64 b){ while(b){ u64 t = a % b; a = b; b = t; } return a; }
+static u64 rho(u64 n){ if(!(n & 1)) return 2;
+  for(u64 c = 1; ; c++){ u64 y = 2, x, g = 1, q = 1, ys = 2; u64 r = 1, m = 128;
+    do { x = y; for(u64 i = 0; i < r; i++) y = (mulm(y, y, n) + c) % n; u64 k = 0;
+      do { ys = y; for(u64 i = 0; i < m && i < r - k; i++){ y = (mulm(y, y, n) + c) % n; q = mulm(q, x > y ? x - y : y - x, n); }
+        g = gcdu(q, n); k += m; } while(k < r && g == 1); r <<= 1; } while(g == 1);
+    if(g == n){ do { ys = (mulm(ys, ys, n) + c) % n; g = gcdu(x > ys ? x - ys : ys - x, n); } while(g == 1); }
+    if(g != n) return g; } }
+static int nfx; static u64 fxp[64];
+static void fact_rec(u64 n){ if(n == 1) return; if(isprime64(n)){ fxp[nfx++] = n; return; } u64 g = rho(n); fact_rec(g); fact_rec(n / g); }
+/* full factorisation of m into (fp[k], fe[k]) slot k: trial division by primes < 2^10, then MR + rho */
+static void factor_one(u64 m, uint32_t *P, uint8_t *E, uint8_t *nfo, u64 *cofo);
+
 #define L 32768
 #define MF 16
 static u64 cof[L]; static uint32_t fp[L][MF]; static uint8_t fe[L][MF], nf[L];
 static u64 dv[1 << 16];
+static void factor_one(u64 m, uint32_t *P, uint8_t *E, uint8_t *nfo, u64 *cofo){
+  int n = 0;
+  for(long i = 1; i < npr && pr[i] < 1024; i++){ u64 p = pr[i]; if(m % p) continue; uint8_t e = 0; while(m % p == 0){ m /= p; e++; }
+    P[n] = (uint32_t)p; E[n] = e; n++; }
+  nfx = 0; fact_rec(m);
+  for(int i = 0; i < nfx; i++){ u64 p = fxp[i]; if(p == 0) continue; uint8_t e = 1; for(int j = i + 1; j < nfx; j++) if(fxp[j] == p){ e++; fxp[j] = 0; }
+    if(p >= (1ULL << 32)){ /* a large prime factor: at most one (m < 2^64), keep it as the cofactor */ *cofo = p; continue; }
+    if(n >= MF){ fprintf(stderr, "MF overflow (rho)\n"); exit(5); } P[n] = (uint32_t)p; E[n] = e; n++; }
+  *nfo = (uint8_t)n; }
 static void sweepQ(void){
   u64 *delta = malloc(sizeof(u64) * npr), *nxt = malloc(sizeof(u64) * npr);
   u64 ALO = getenv("ZL_ALO") ? strtoull(getenv("ZL_ALO"), 0, 10) : 1; if(ALO < 1) ALO = 1;
@@ -56,12 +89,15 @@ static void sweepQ(void){
     while(np < npr && pr[np] <= P) np++;
     if(np == npr && (u64)pr[npr - 1] < P){ fprintf(stderr, "prime table too small\n"); exit(3); }
     u64 a2 = (4 * a * a);
+    int shortrow = getenv("ZL_SHORT") && (double)(dhi - dlo + 1) * atof(getenv("ZL_SHORT")) < (double)np;
+    if(!shortrow)
     for(long i = 1; i < np; i++){ u64 p = pr[i]; if(a % p == 0){ delta[i] = ~0ULL; continue; }
       delta[i] = (p - inv_mod(a2 % p, p)) % p; u64 s = dlo % p; nxt[i] = dlo + (delta[i] + p - s) % p; }
     for(u64 d0 = dlo; d0 <= dhi; d0 += L){
       u64 len = (dhi - d0 + 1 < L) ? dhi - d0 + 1 : L;
       for(u64 k = 0; k < len; k++){ cof[k] = a2 * (d0 + k) + 1; nf[k] = 0; }
-      for(long i = 1; i < np; i++){ if(delta[i] == ~0ULL) continue; u64 p = pr[i];
+      if(shortrow) for(u64 k = 0; k < len; k++){ u64 c1 = 1; factor_one(cof[k], fp[k], fe[k], &nf[k], &c1); cof[k] = c1; }
+      if(!shortrow) for(long i = 1; i < np; i++){ if(delta[i] == ~0ULL) continue; u64 p = pr[i];
         u64 d = nxt[i];
         for(; d < d0 + len; d += p){ u64 k = d - d0; uint8_t e = 0; while(cof[k] % p == 0){ cof[k] /= p; e++; }
           if(e == 0){ fprintf(stderr, "sieve root error a=%llu p=%llu\n", (unsigned long long)a, (unsigned long long)p); exit(4); }
