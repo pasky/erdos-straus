@@ -5,7 +5,7 @@
 primes p ≡ 1 (mod 4) the observed N₋/N is far lower and creeps up slowly. Split the words into forced (on a clean side,
 s5_three_sides) and unforced (U, s5_unforced_words).
 
-## Data (EVIDENCE; s5_sides.c, all 1 029 thousand primes p ≡ 1 (mod 4), 5 < p < 3·10⁷, dyadic blocks)
+## Data (EVIDENCE; s5_sides.c, all 928 779 primes p ≡ 1 (mod 4), 5 < p < 3·10⁷ (220 667 727 ordered words), dyadic blocks)
 | block 2^b | primes | forced fraction | N₋/N | N₋/U | forced·√(log p) |
 |---|---|---|---|---|---|
 | b = 10 | 66 | 0.209 | 0.591 | 0.747 | 0.56 |
@@ -17,7 +17,7 @@ s5_three_sides) and unforced (U, s5_unforced_words).
 * Split by p mod 8, cumulative over the ranges (≤ 10⁵ / ≤ 10⁶ / (10⁵, 5·10⁶) / (5·10⁶, 3·10⁷)):
   * N₋/U = 0.769 / 0.771 / 0.770 / 0.770 for p ≡ 1 (8);
   * N₋/U = 0.733 / 0.737 / 0.738 / 0.740 for p ≡ 5 (8).
-* Words: 32.9 M in (10⁵, 5·10⁶) and about 160 M in total.
+
 
 ## Law (EVIDENCE + heuristic)
 * **N₋/U is scale-stable (0.747 → 0.754 over 2¹⁰ to 2²⁴), while N₋/N drifts (0.59 → 0.67).** The whole drift is the
