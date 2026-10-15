@@ -115,3 +115,17 @@ reviewed at q = 27.
 R218's author-independent `review_fs2_caseA.py` at q = 9: Σ_{α≤40} = 0.17500159866 (fz_caseA: 0.17500159866); with α ≤ 60:
 0.17500159876. Lemma 2.1 tail: direct summation Σ_{41≤α≤400} (α+1)³9^{−(α+1)/2}3^{α/2} = 1.0707·10⁻⁵ ≤ 1.0749·10⁻⁵ (script's
 geometric majorant, ratio (44/43)³/√3 < 1). Weight q^{2−k−α} = 9^{−α} at k = 2. **SOUND.**
+
+## 5. Theorem 5.2 — certification (`fz_certify9.sh`, log `data/fz/certify9.txt`)
+
+* Fail-closed: `set -euo pipefail`; fz_hybrid exits 1 on a malformed/incomplete level file; fz_tail exits 1 on any failed
+  box (and its output is parsed only on success); fz_caseA failure aborts the command substitution; the final Python check
+  rejects non-finite/negative components and exits 1 unless 1.01·(finite + tail + Case A) < 8. Margin ×1.01 dominates all
+  floating-point error (long double finite part with ≤ 10⁴ logs per term; tail outward-rounded). **SOUND.**
+* Arithmetic of the statement: 1.01·(3.2872203 + 0.079749 + 0.17501 + 0.0000107) = 3.5774 ✓; average uncovered fraction
+  ≥ (8 − 3.58)/8 = 0.5525 ✓; #{c : covered ≥ θ} ≤ 3.58/θ, so ≤ 3 slices with covered ≥ 0.95 ✓ and ≤ 7 with covered ≥ 1/2,
+  i.e. at least one slice more than half uncovered ✓ (FF_STERILE_PUSH Lemma 2.1). k ≥ 2 from k = 2 as in (J)51.
+* The regeneration path is mis-documented (m-1): `fz_certify9.sh 80 1 21` regenerates only s ≤ 21 and then bounds s = 22.
+* **Independent certificate (all components by reviewer code):** exact counts s ≤ 20 from my own enumerators (§1, §1b),
+  my bound sum for 21 ≤ s ≤ 80 (`review_fz9_sum.c`), my tail ≤ 0.0703 (`review_fz9_tail.c`), R218's Case A 0.17500160 +
+  my direct Lemma 2.1 tail 1.07·10⁻⁵: see §1b for the number (< 8 with a wide margin).
