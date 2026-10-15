@@ -65,7 +65,7 @@ def main():
             if not f or f[0] != 'C': continue
             j, lo, hi, mp, mq, ms, cnt = int(f[1]), int(f[2]), int(f[3]), int(f[4]), int(f[5]), int(f[6]), int(f[7])
             b = j / 32; rlo, rhi = math.ceil(2 ** b), math.ceil(2 ** ((j + 1) / 32))
-            if lo != rlo or hi != rhi: continue        # partial cell (clipped by the sweep range): not certified here
+            if not (hi == rhi and (lo == rlo or (lo == rlo + 1 and rlo % 2 == 0))): continue   # partial cell: not certified here (sweep starts at odd X0)
             if ms >= 131070 or mp == 65535 or mq == 65535: bad += 1; print(f"FAIL j={j}: counter overflow"); continue
             if j not in eng: sys.exit(f"missing engine row j={j}")
             L1 = 2 * (ms + ADY + eng[j]) / 2 ** b
