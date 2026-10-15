@@ -103,3 +103,31 @@ No genericity needed in the pointwise form (the hypothesis "F splits every odd p
   ≈ 40 % in the two best-populated bins". (ii) Unreported small bins: K0 = 1 overshoots (−0.0081 → **+0.0159 ± 0.0083**,
   flagged fraction residual +0.021) and K0 ∈ [2, 5) does not move (−0.0112 → −0.0110). Both should be in the table: the
   K0 = 1 overshoot says that at K0 = 1 the genus flag over-corrects, i.e. it is not a calibrated "explanation" there.
+
+### §4.1 Galois form of ES-five — SOUND (restatement of Thm 2.1(i)/(ii) for odd A; σ_N in §4.2 is defined only when N is
+prime to the conductor of Σ_u — for even N and u ≢ 3 (4) "σ_N" needs the odd part; MINOR wording).
+
+### §4.2 Lemma (single-level forcing) — group statement SOUND; its application is Assessment, not PROVED (D3, MAJOR label)
+* The lemma: x ≠ 1 forced by s ⟺ x = s. Proof re-done: "⇐" take the whole multiset; "⇒" the multiset {s} has sub-products
+  1 and s only. ✓ Trivial but correct. |Gal(Σ_M/ℚ)| = 2 for M ∈ {1, 2, 3, 4} ✓ (ℚ(i), ℚ(√−2), ℚ(√−3), ℚ(i)). t = 3:
+  odd A ≡ 2 (3) ⇒ χ = (−3/A) = (A/3) = −1 ✓; forced iff v₂(3p + 1) odd ✓ (odd part ≡ (−1)^e mod 3).
+* **D3 (MAJOR, label).** The step from the lemma to "the only χ = −1 word a congruence condition on N(m) can force is
+  A = N" and to "every deterministic mechanism working level by level is a congruence covering" needs REALISABILITY:
+  for every m-class in which σ_N(m) ≠ c_∞ one must exhibit m in the class whose prime factors of N(m) have a Frobenius
+  multiset avoiding c_∞ in all sub-products (e.g. N(m) = r × primes with trivial symbol). That is a
+  Chebotarev-in-polynomial-values / almost-prime statement for m² + K with prescribed Frobenius of every factor — not
+  proved anywhere in the document (and not known in this strength). Moreover "mechanism" is undefined (a mechanism could
+  use sizes of divisors, several levels at once, or the actual integer N(m)). Repair: keep "Lemma 4.2 (PROVED)" for the
+  group statement only; label the two consequences "Assessment (heuristic: assumes every Frobenius pattern compatible
+  with σ_N is realised in every class)". The "Thm 2.2 / B1" reference should read "NEAR_SQUARE Thm 2.2 / B1" (this
+  document has no Thm 2.2) — MINOR.
+
+### §4.3 E1–E4 — correctly labelled (iteration log + Assessment); algebra re-checked
+* E1: p + u = (m + a)(m + b) for u = (a + b)m + ab − k ✓. a = 0, b = 1: v ≡ −k(k + 1) (mod m − k) ✓. "v < m" is not
+  quite right (A ≥ u − 1 gives only v ≤ m(m + 1)/(m − k − 1) ≈ m + k + 2), but the next candidate 2(m − k) − k(k + 1)
+  exceeds that bound once m > k² + 4k + 3, so the conclusion (v = m − k² − 2k, finitely many m) stands — MINOR.
+* E2: (r/p) = (k/r) for r | m ✓; r(js − k) = k + s with s = (r + 1)/t gives r ≤ k + s, s ≈ k/j ⇒ bounded r ✓.
+* E3: u ≡ −(c² + k) (mod A) and u | A + 1 ⇒ u = A − c² − k with u | c² + k + 1 (or bounded A when u > A) ✓.
+* E4: the density-0 statement is CRT-exact (∏(1 − |G_r|/r) → 0 since Σ τ(r + 1)/r ≍ log² R, Titchmarsh) ✓;
+  Z_k^□ (NEAR_SQUARE: m² + k a local square everywhere) has (p/r) = +1 for all r, while G_r needs (p/r) = (−u/r) = −1 ✓.
+* The overall "Conclusion for goal 4" is labelled Assessment ✓; with D3 it should not lean on Lemma 4.2 as if proved.
