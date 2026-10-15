@@ -100,7 +100,7 @@ which a tree of Ẑ must split on. The obstruction to a *small* covering is comb
 
 ## 3. Other shapes (goal 3)
 
-**Lemma 3.1 (integer unit-square points for c₀·4^s + k; PROVED, elementary).** Let c₀, k > 0, k odd. ν(x) for x ∈ ℤ is
+**Lemma 3.1 (integer unit-square points for c₀·4^s + k; PROVED, elementary).** Let c₀, k > 0, k odd, **4 ∤ c₀ and k ≡ 1 (mod 8)** (R244 repair: for 4 | c₀ the criterion fails, e.g. 12·4^s + 1 = 3·4^{s+1} + 1 has a unit-square point at x = −1; normalise 4 ∤ c₀ by shifting s; k ≡ 1 (8) is the 2-adic condition ν₂ = k ∈ Sq^×). ν(x) for x ∈ ℤ is
 a profinite unit square iff c₀·4^x + k = 4^j for some j ≥ 0 (odd part a unit at every odd prime ⇒ the root is ±2^j),
 which forces x = 0 when c₀ is odd (x > 0: LHS odd ≠ 4^j unless j = 0, impossible; x = −a < 0: c₀ + k·4^a = 4^{a+j}
 with c₀ odd forces a + j = 0, then k < 0) and is impossible for c₀ ≡ 2 (mod 4). So: **unit-square point ⟺ c₀ + k = 4^j.**
@@ -127,21 +127,21 @@ factorisations k = (y − w)(y + w) with w = 2^a3^b, y = ±2^i3^j — finitely m
 ## 4. Which k admit a covering? (goal 4; CONJECTURE + Assessment)
 
 Exact criterion (PROVED, EXPONENT_COVERING Thm 1.4): a finite covering of {c₀4^s + k} exists iff Λ ∩ S′ = ∅.
-Known pieces of S′ ∩ Λ: (a) unit squares — occur iff c₀ + k = 4^j (Lemma 3.1), PROVED sterile. (b) Nothing else is known.
+Known pieces of S′ ∩ Λ: (a) unit squares — *integer* ones occur iff c₀ + k = 4^j (Lemma 3.1, 4 ∤ c₀), PROVED sterile; whether Λ meets Sq^× at non-integer μ ∈ Ẑ is OPEN (the (EH_k)-type question of EXPONENT_COVERING §2; R244 repair: formerly read as a full classification). (b) Nothing else is known.
 Non-unit square points x are covered by D_q (q | s_x) on the clopen set {μ_ℓ ≡ x mod ℓ^{v_ℓ(ord_q 4)}, ℓ | ord_q(4)};
 the sets around them that the D_q switch off are the *label points* (Lemma 1.2) and the *ℓ-lines* (§2).
 * Heuristic for non-sterility (Assessment): a non-constant label point has a positive-density set of mixed primes
   (any q with ℓ^j | ord_q(4) at a level where two labels differ, and one more prime factor); the expected number of ET
   classes containing it, Σ_q τ((q+1)/4)²/q over those q, diverges. Same for ℓ-lines (the q with ℓ | ord_q(4)). So no sterile
   point is expected; every computed point was covered (μ* in II2 919; binary core Result 1.1; the 3-line of 297).
-* **CONJECTURE E (weak; exponential coverability).** For c₀ ≥ 1 and k ≥ 1 with c₀4^s + k non-trivial, a finite covering by ET
+* **CONJECTURE E (weak; exponential coverability).** For c₀ ≥ 1 with 4 ∤ c₀ (R244 repair: false without it, e.g. (12, 1), (28, 9)) and k ≥ 1 with c₀4^s + k non-trivial, a finite covering by ET
   and divisor classes exists iff c₀ + k is not a power of 4. In particular k = 33, 105, 273, 297 (c₀ = 1) are coverable.
   Evidence: certified/surveyed coverings for 9 + 7 + 11 + 9 offsets; Λ ∩ Sq^× = ∅ screens; binary core of 105; line of 297.
   Counter-evidence: none, but the computed coverings for the open k do not terminate (§2): the conjecture predicts
   coverings that are *large* — trees whose class periods involve many primes ℓ ≥ 200.
 * What this says about B1. B1 (no finite covering of all n, POINTWISE_SIZE Thm M) uses only that the parameter space
-  contains a T1 point. For an exponential family the parameter space is Ẑ (exponents) and its image avoids Sq^× unless
-  c₀ + k = 4^j, so the *qualitative* B1 obstruction disappears; what remains is *quantitative*: the square points that
+  contains a T1 point. For an exponential family the parameter space is Ẑ (exponents) and its image is not known to meet Sq^× (R244 repair: only integer unit-square points are classified) unless
+  c₀ + k = 4^j, so the *qualitative* B1 obstruction is not known to persist (R244 repair: was "disappears"); what remains is *quantitative*: the square points that
   Λ does contain (non-unit) force every covering to contain a covering of neighbourhoods of their label set and lines,
   whose cost is governed by a branching process (fibre completeness ≥ 1 − 1/ℓ). So "finite coverings exist but are
   huge" is the expected shape of B1 over Ẑ-parameter spaces; certificates are practical only when the square points are

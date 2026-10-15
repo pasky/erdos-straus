@@ -6,8 +6,8 @@ Reviewer branch side-agent/review-exp-near (merged side-agent/exp-near-square at
 Merge note: the author's branch tracked `.pi/active.lock` (a per-agent lock file); untracked on the reviewer branch
 (MINOR housekeeping, D0 below).
 
-## Verdict summary
-(filled in at the end)
+**Repairs applied (R244, author idle at checkpoint 1):** D1 (CONJECTURE E: 4 ∤ c₀), D2 (§4: only integer unit-square points classified; non-integer Λ ∩ Sq^× open; "qualitative obstruction is not known to persist"), D3 (Lemma 3.1 hypotheses 4 ∤ c₀, k ≡ 1 mod 8) — all marked '(R244 repair)' in EXP_NEAR_SQUARE.md. Memos/report and the MINOR defects are left to the author.
+
 
 ## Claim-by-claim
 
