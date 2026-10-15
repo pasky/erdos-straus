@@ -146,3 +146,15 @@ would give ≈ r^{L−2}·λ⁴/24 = r^{0.2L+0.4}/24 classes with ≥ 4 boxes �
 *false* at large depth. The heuristic supporting 4.2 is the true growth of D_P, which at r = 17 is ≈ ×1.8 ≈ 17^{0.2} per level
 (D_P(7..13) = 258, 604, 836, 1463), far below 17^{0.8}. Repair: replace the sentence by the observed growth, and say that with
 the ET exponent as the true rate the conjecture would fail.
+
+### Prop 1.3 check / spark S3′ (note for O244, not main scope)
+`scripts/review_r249_inv.py` on O241's `data/z16/balls_d9.txt` (172 balls, depth ≤ 9, both slices) + my own Case B tuples
+(s ≤ 16): my Case B enumeration reproduces **exactly** the 148 Case B balls of depth ≤ 9 in that list (none missing, none extra);
+the other 24 are Case A, and these are precisely the 24 balls without an inverse ball (author's count confirmed). **But every one
+of the 24 inverse cylinders already lies inside a ball of smaller depth** (depths 3–7). So through depth 9 the *covered set*
+⋃𝔅 is invariant under u ↦ 1/u; the asymmetry is in the list of balls, not in coverage. For S3′ ("if a Case A⁻¹ type is missing,
+coverage at q = 3 is underestimated"): the depth ≤ 9 data show **no** coverage underestimate from a hypothetical inverse family —
+any such family would have produced only redundant balls so far. Many of the orphan Case A balls are themselves redundant
+(e.g. 11200 ⊂ ball 112). The author's sentence "Case A data break the inversion symmetry" is correct for ball lists and should
+add "(the covered set through depth 9 is nevertheless inversion-invariant: all 24 inverse cylinders are already covered)".
+Suggested m4.
