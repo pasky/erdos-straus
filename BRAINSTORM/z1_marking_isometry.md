@@ -27,16 +27,16 @@ gcd(n, M) = 1 carrying two isometric words, one in S_M and one not. Hence S_M is
 *Proof.* Pick a unit x mod M with x ≢ ±1 (exists iff (ℤ/M)^* ≠ {±1} iff φ(M) > 2). Take a + 1 ≡ x, b ≡ x⁻¹ (mod M),
 with a even if M is odd (for even M, x is odd so a is even automatically); then ab is even and n = ab − 1 is odd, and
 n ≡ (x − 1)x⁻¹ − 1 = −x⁻¹ is a unit mod M. M ∤ a (x ≢ 1), M ∤ a+1, M ∤ b (units), M ∤ b + 1 (x⁻¹ ≢ −1); so w₁ ∉ S_M,
-while (a+1)b − 1 ≡ 0 puts w₂ ∈ S_M. ∎ (First examples: M = 5, n = 3: (1, 2, 5) ∉ S₅ ∋ (2, 1, 4); M = 8, n = 5:
-(1, 3, 4) ∉ S₈ ∋ (3, 1, 3).)
+while (a+1)b − 1 ≡ 0 puts w₂ ∈ S_M. ∎ (First examples, from the scan rather than this construction: M = 5, n = 3: (1, 2, 5) ∈ S₅ ∌ (2, 1, 4); M = 8, n = 5:
+(1, 3, 4) ∉ S₈ ∋ (3, 1, 3). Self-review repair: the M = 5 memberships were stated the wrong way round.)
 
 **Proposition 3.** (a) M = 2, 3, gcd(n, M) = 1: S_M = X_n (PROVED: if t, u, v are odd, A is even; mod 3, if 3 ∤ tuv and
 3 ∤ A, A*, then tu ≡ tv ≡ 2, so u ≡ v and n ≡ 2v − u − v ≡ 0). (b) M = 4: S_4 is a genus invariant (PROVED, χ). (c) M = 6,
 gcd(n, 6) = 1: S_6 is not a genus invariant (at primes 5 ≤ p < 3000 both χ-halves split: 8601/18927 χ = −1 words and 3984/8405
 χ = +1 words lie in S₆), but **no isometry class is mixed** for odd n < 300 coprime to 6 (EVIDENCE, `z1_marking2.py`). On the norm-one
-triples this is PROVED by the {±1} argument: if (ℤ/M)^* = {±1} and M ∤ a, a+1, b, b+1 then a+1 ≡ ±1 forces a+1 ≡ −1,
-b ≡ ±1 forces b ≡ 1, and (a+1)b − 1 ≡ −2 ≢ 0, (b+1)a − 1 ≡ 2(−2) − 1 = −5; for M = 6 that is ≡ 1 (mod 6); the cases
-where w₁ ∈ S_M are symmetric (check: `z1_marking2.py` finds no exception).
+triples it is PROVED by a finite residue check: membership of w₁, w₂, w₃ in S₆ depends only on (a, b) mod 6, and for all 36
+residue pairs with n = ab − 1 coprime to 6 the three memberships agree (`scripts/z1_s6_residues.py`). (Self-review repair: an earlier
+"{±1} argument" wrongly inferred that 6 ∤ a + 1 makes a + 1 a unit, e.g. a = 2, b = 3, n = 5.)
 **EVIDENCE 4 (`z1_interior_unique.py`).** For odd n < 600, isometric interior words (all letters ≥ 2) agree up to reversal
 (1715 classes, 0 exceptions). Up to n < 400 every multi-marked class found is a norm-one triple.
 
@@ -57,7 +57,8 @@ words), `scripts/z1_marking2.py 300` (n coprime to M, M ≤ 30: mixed classes ex
 `scripts/z1_interior_unique.py 600`.
 
 ## Assessment
-PROVED (Lemma 1, Prop 2, Prop 3(a),(b)); EVIDENCE (Prop 3(c), uniqueness of interior markings). The 4-vs-8 difference
-at lattice level is real but small: on interior words every S_M is a class function (one marking), and the split shows up
+PROVED (Lemma 1, Prop 2, Prop 3(a),(b), Prop 3(c) on norm-one triples); EVIDENCE (Prop 3(c) in general, uniqueness of interior
+markings). The "⟺ M ∈ {2, 3, 4, 6}" statement is conditional on EVIDENCE 4. The 4-vs-8 difference
+at lattice level is real but small: on interior words every S_M is a class function (one marking, EVIDENCE 4), and the split shows up
 only on norm-one lattices. The useful output is the steering rule: requirement (ii) and T1 are automatic for any argument
 that works with the χ = −1 genus of path lattices; the whole difficulty is requirement (i). Promise 1/5.

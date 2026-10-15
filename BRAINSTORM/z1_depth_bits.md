@@ -11,7 +11,8 @@ MODEL_SPECIFIC Thm 3.1(b) (the cell fractions 7/12, 5/16 were recorded without e
 TRANSPORT_LAW / (J)45 (ee′ ∈ {1 + o, N + o, 1 + No}), Pomerance–Weingartner (8/n failures).
 
 ## Results
-(a) CERTIFIED (all cells mod 32, `scripts/z1_depth_cells.py 5`): χ = −1 cells have one (2/3) or two (1/3) isotropic pentagon
+(a) PROVED at cell level for all k (FOUR_ADIC_INPUT Prop 1.4: the two even entries are independent uniform even residues in
+each parity pattern), CERTIFIED for k ≤ 5 (all cells mod 32, `scripts/z1_depth_cells.py 5`): χ = −1 cells have one (2/3) or two (1/3) isotropic pentagon
 vectors, and the S_{2^k} share is f_k = (2/3)2^{−(k−2)} + (1/3)(1 − (1 − 2^{−(k−2)})²): f₃ = 7/12, f₄ = 5/16, f₅ = 31/192, exactly
 the published cell fractions. Uniform over n mod 16 (`z1_depth_bycls.py`).
 (b) EVIDENCE (`scripts/z1_bits_words.py 5 4000`): on actual words of primes p ≡ 1 (4) < 4000 the S_8 share of χ = −1 words is
@@ -26,6 +27,6 @@ level and by much more through correlation. This explains 8/131 and 8/241 withou
 Thm 1.3. No Planck-scale positivity mechanism appears for either numerator. B6: pointwise statements only.
 
 ## Assessment
-CERTIFIED (a), EVIDENCE (b). The answer to angle (1) is negative but precise: 4 costs zero 2-adic bits, 8 costs one fair bit
+PROVED/CERTIFIED (a), EVIDENCE (b). The answer to angle (1) is negative but precise: 4 costs zero 2-adic bits, 8 costs one fair bit
 per isotropic pentagon vector, and in practice these bits are strongly correlated inside one prime. A Siegel/mass main term
 cannot separate the numerators at the level that matters, because for 4 the issue is not a density. Promise 1/5.

@@ -7,14 +7,14 @@ BRAINSTORM/README.md); scripts `scripts/z1_*`; data `data/z1/legendre_big.txt`. 
 1. **Fano pigeonhole (PROVED, elementary; FOUR_ADIC_INPUT Thm 1.3, memo z1_fano_pigeonhole).** This is a conceptual 6-line
    proof of MODEL_SPECIFIC Thm 3.1(a) (S_4 = {χ = −1}), which was previously proved by cell enumeration or Dedekind sums.
    * Q mod 4 is well defined on L/2L, and the even classes W ∖ 0 form a 3-point line of the Fano plane.
-   * The five pentagon entries t, u, v, A, A* are the norms of e₁, e₂, e₃, n·e₁^#, n·e₃^#.
+   * The five pentagon entries t, u, v, A, A* are, up to the odd factor n in the last two, the norms of e₁, e₂, e₃, n·e₁^#, n·e₃^#.
    * Frieze parity: exactly two entries are even, giving two distinct points of W ∖ 0.
-   * An isotropic odd unimodular ℤ₂-lattice has exactly two points with Q ≡ 0 (mod 4), and they also lie in W ∖ 0.
+   * An isotropic odd unimodular ℤ₂-lattice has exactly two nonzero points with Q ≡ 0 (mod 4), and they also lie in W ∖ 0.
    * Two 2-subsets of a 3-set meet.
 
    Reading: a certificate is a path-shaped 2-isogeny edge plus a pentagon vector pointing at one endpoint (the two isotropic
    classes are the two maximal overorders of CONSTRUCTIVE_ES Thm 1.2(b)), and the pointer always exists.
-2. **The 2^k bit law (CERTIFIED by all cells mod 32).** S_{2^k} covers f_k = (2/3)2^{−(k−2)} + (1/3)(1 − (1 − 2^{−(k−2)})²) of
+2. **The 2^k bit law (PROVED at cell level for every k; CERTIFIED by all cells mod 32 for k ≤ 5).** S_{2^k} covers f_k = (2/3)2^{−(k−2)} + (1/3)(1 − (1 − 2^{−(k−2)})²) of
    the χ = −1 cells: 7/12, 5/16, 31/192. These are exactly MODEL_SPECIFIC's unexplained 140/240 and 600/1920. So each extra
    power of 2 costs one fair bit per isotropic pentagon vector, and 4 costs none.
 3. **The bits are correlated (EVIDENCE).** On actual words of primes p ≡ 1 (4) < 4000, independent bits would predict 0.82
@@ -33,8 +33,8 @@ BRAINSTORM/README.md); scripts `scripts/z1_*`; data `data/z1/legendre_big.txt`. 
 * **Steering / negative results.**
   * Lattice side.
     * S_M is not even an isometry-class property for any M with φ(M) > 2 (PROVED via norm-one triples, z1_marking_isometry).
-    * Siegel–Weil on lattices containing M_{v,t} sees only the square-root class of −p/v mod A*, while the path needs
-      class ±1 (PROVED, z1_glue_square_roots).
+    * Siegel–Weil on lattices containing M_{v,t} sees only the square-root class of −p/v mod A*, while extending the fixed
+      basis of M to a path basis needs glue ±1 (PROVED, marked statement, z1_glue_square_roots).
     * Path classes are "glued planes": a divisor form in the plane's class plus glue residue ±1 (Prop 3.1).
   * Walks and numerator arithmetic.
     * No lattice/Hecke/isogeny walk crosses χ (z1_isogeny_pointer).
@@ -43,6 +43,22 @@ BRAINSTORM/README.md); scripts `scripts/z1_*`; data `data/z1/legendre_big.txt`. 
     * Levels with tp = 4^a(8b+7) are a character-free sub-lottery (every word there certifies by Thm A + Legendre).
     * It fails at 73, 1201, 1489, 9649, 21169, 23041, 44641 (all p ≡ 1 (4) < 10⁶ checked, full level range for the failures).
     * At odd squares it yields T1 in Legendre form (0 words at Legendre levels, all odd squares ≤ 10⁸, levels ≤ 3000).
+
+## Self-review (deep reviewer, `review` tool, since 53204707): no FATAL; all findings accepted and repaired
+* Gluing (MAJOR). "L_c is a path lattice iff c ≡ ±1" was false unmarked (p = 11, c = 4 gives the path (4, 1, 4) in another
+  basis), and the root count 2^{ω−1} − 1 failed at 2-power moduli. Now stated as the marked extension criterion, with no count.
+* Prop 3.1 (MAJOR). A pointwise "≍ log²p path classes" was an overclaim (it would imply SQ₅), and the minima relation was false.
+  Both were removed and replaced by an on-average heuristic.
+* S₆ norm-one proof. An invalid unit inference was replaced by a finite residue check (`z1_s6_residues.py`).
+* Prop 1.4. The finite certification is upgraded to a proof for all k (independent uniform even entries per parity pattern).
+* Isogeny memo. The false "expander resolution threshold" was replaced by the correct limitation (expansion cannot prove a
+  thin target non-empty).
+* Wording: "same t" coupling claim; M = 5 example memberships reversed; small-prime example contained 5; "exactly two
+  nonzero classes"; 320 (not 4096) triples; 3 ≤ n < 1500; supersingular reading restricted to prime n; interior-marking
+  uniqueness kept conditional; "not determined by χ" instead of "no character description"; TES/ES_q "not checked" carried to
+  intro and outcome.
+* The reviewer independently reproduced the 35 179-word check, the mod-32 fractions, the Fano enumeration, the
+  4785 / 0.5014 / 12-vs-0.82 statistics, and all seven Legendre failures over their full level ranges.
 
 ## Verification done
 * Thm 1.3 / Lemma 1.1:
@@ -55,13 +71,13 @@ BRAINSTORM/README.md); scripts `scripts/z1_*`; data `data/z1/legendre_big.txt`. 
 * Items a reviewer should re-derive:
   * Lemma 1.1 case analysis;
   * that Lemma 1.2 (CONSTRUCTIVE_ES Lemma 1.1: "exactly two classes") applies to every word;
-  * Prop 2's unit construction (gcd(n, M) = 1, n odd);
-  * the gluing computation in z1_glue_square_roots.
+  * Prop 2's unit construction (gcd(n, M) = 1, n odd; confirmed by the self-review);
+  * the marked gluing statement in z1_glue_square_roots (repaired).
 
 ## Labels
 * PROVED: Thm 1.3, Lemma 1.1, z1 Props (marking Prop 2/3(a,b), small-prime classification, Legendre Prop 1/Cor 2, gluing,
   no-crossing).
-* CERTIFIED: Prop 1.4.
+* PROVED (cell level) / CERTIFIED (k ≤ 5): Prop 1.4.
 * EVIDENCE: bit correlation, Legendre failures, S₆ class-invariance, uniqueness of interior markings.
 * Assessment: tree-depth reading of 2^k slices, F_q[T] remark.
 

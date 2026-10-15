@@ -16,8 +16,8 @@ identities), z1_marking_isometry Prop 3.
   (Chevalley), so the forced meeting is unconditional. Over ℤ₂, isotropy mod 4 is a genuine condition, the Hasse sign,
   and that is why the M = 4 meeting is conditional on χ = −1.
 * M = 4: forced exactly on the χ = −1 fibre (FOUR_ADIC_INPUT Thm 1.3).
-* ℓ ≥ 5: the conic has ℓ + 1 points of ℓ² + ℓ + 1, and no forcing: (1, 2, 5) ∈ X_3 has pentagon (1, 2, 5, 1, 4), which avoids
-  5 and 7. The S_ℓ slices split both χ-halves (MODEL_SPECIFIC Thm 3.1(c)).
+* ℓ ≥ 5: the conic has ℓ + 1 points of ℓ² + ℓ + 1, and no forcing: (1, 3, 3) ∈ X_3 has pentagon (1, 3, 3, 2, 2), which avoids
+  5 and 7 (self-review repair: the first example contained 5). The S_ℓ slices split both χ-halves (MODEL_SPECIFIC Thm 3.1(c)).
 * M = 8, 16, …: one further fair bit per level (z1_depth_bits). M = 6: S_6 needs a common entry divisible by 2 and 3, and
   it is not forced (S₆(p) = ∅ at 25 primes ≤ 10⁵, MODEL_SPECIFIC).
 So **the only numerators whose five slices are forced by finite-field/2-adic pigeonhole are 2, 3 (trivially, all words)

@@ -12,7 +12,7 @@ L = L_w with Gram G = [[v, −1, 0], [−1, t, −1], [0, −1, u]] (det n), bas
 ## 0. Iteration log
 (I1) The target property must satisfy (i) true for 4 at every prime, (ii) not a mechanism for 8/131, 8/241, 11/37, TES, ES_q
 failures, (iii) false at odd squares. First observation (memo z1_marking_isometry): any argument that produces a path class
-in the χ = −1 genus satisfies (ii) and (iii) automatically, because S_4 is a genus invariant while S_8 is not even an isometry
+in the χ = −1 genus satisfies (iii) and the 8/131, 8/241 part of (ii) automatically (TES and ES_q were not checked), because S_4 is a genus invariant while S_8 is not even an isometry
 invariant (Prop 2 there). So everything rests on (i).
 (I2) Before attacking (i), I asked *why* the five 4-slices are exactly a character fibre (MODEL_SPECIFIC Thm 3.1(a) was proved
 by enumerating 320 cells). Found a 3-line conceptual proof: pigeonhole in the Fano plane ℙ(L/2L) (§1). It also explains
@@ -26,7 +26,7 @@ Let L₂ = L ⊗ ℤ₂. It is unimodular (det n odd) and odd. The map q: L/2L �
 (Q(x + 2y) = Q(x) + 4B(x, y) + 4Q(y)). Since Q(x) ≡ Σ G_ii x_i (mod 2), the set W = {x̄ : q(x̄) even} is a 2-dimensional
 subspace, so W ∖ 0 has exactly **3** elements (a line of the Fano plane ℙ(L/2L)).
 
-The five pentagon entries are norms of five explicit primitive vectors of L. Put f = Ae₁ + ue₂ + e₃ and
+The five pentagon entries are, up to the odd factor n in the last two, the norms of five explicit primitive vectors of L. Put f = Ae₁ + ue₂ + e₃ and
 f* = e₁ + ve₂ + A*e₃ (rows 1 and 3 of adj G = nG⁻¹, so f = n·e₁^#, f* = n·e₃^#, which lie in L). Then
 Q(e₁) = v, Q(e₂) = t, Q(e₃) = u, Q(f) = n²(G⁻¹)₁₁ = nA, Q(f*) = nA*.
 Each vector has a coordinate equal to 1, so all five are primitive. As n is odd, 4 | A ⟺ q(f̄) = 0, and likewise for A*.
@@ -40,7 +40,9 @@ are u and A* (A = tu − 1 is odd), with vectors e₃ and f* ≡ e₁ + e₂. Th
 case the two classes are distinct, and they lie in W because their norms are even. ∎
 
 **Lemma 1.2 (CONSTRUCTIVE_ES Lemma 1.1).** An odd unimodular ternary ℤ₂-lattice is isotropic iff Q(x) ≡ 0 (mod 4) for some
-primitive x. In that case exactly two classes x̄ ∈ L/2L satisfy q(x̄) = 0. (They lie in W ∖ 0.)
+primitive x. In that case exactly two **nonzero** classes x̄ ∈ L/2L satisfy q(x̄) = 0 (three with 0 itself). (They lie in W ∖ 0.)
+This applies to every word, boundary words included: det G = n is odd, so L₂ is unimodular, and it is odd because the three
+diagonal entries t, u, v cannot all be even (then n would be even).
 
 **Theorem 1.3 (the five 4-slices are the χ = −1 fibre: a conceptual proof of MODEL_SPECIFIC Thm 3.1(a); PROVED).** For every
 word w of odd n, w ∈ S_4 ⟺ χ(w) = −1. Moreover at most two entries of P(w) are divisible by 4.
@@ -54,21 +56,29 @@ isotropy test, and CHI_FLIP's reciprocity. (b) "Why 4" in one sentence: **q = Q 
 on L/2L, and in the Fano plane the 2 isotropic points and the 2 even pentagon points must meet on the 3-point line W.**
 For any odd M, "M | entry" is unrelated to the 2-adic structure. For M = 2^k with k ≥ 3, "2^k | entry" is a condition on
 L/2^{k−1}L, not on L/2L (see §1.2). (c) The two isotropic classes are the classes x̄_i of CONSTRUCTIVE_ES Thm 1.2(b): the
-two maximal overorders C₀(L + ℤx_i/2) ⊃ E(L), i.e. the two endpoints of the Eichler edge (the two ends of the supersingular
-2-isogeny). So **a five-slice certificate is a word together with a pentagon vector that points at an endpoint of its
+two maximal overorders C₀(L + ℤx_i/2) ⊃ E(L) (a local statement, valid for every odd n). For prime n = p with χ = −1 these are
+the two endpoints of the Eichler edge, i.e. the two ends of the supersingular 2-isogeny. So **a five-slice certificate is a word together with a pentagon vector that points at an endpoint of its
 2-isogeny edge**, and Thm 1.3 says such a pointer exists whenever the edge does (i.e. χ = −1).
-CERTIFIED (`scripts/z1_fano.py`): over all 4096 cells with letters 1..8 and n odd, the five pentagon classes are always
+CERTIFIED (`scripts/z1_fano.py`): over all 320 triples with letters 1..8 and n odd (of 512 triples), the five pentagon classes are always
 distinct, |iso ∩ pentagon| ∈ {1, 2} when χ = −1, and one non-pentagon class always has odd q.
 
 ### 1.2 Numerators 2^k: one fair bit per further level (CERTIFIED by cells)
 For k ≥ 2, Q mod 2^{k} is well defined on L/2^{k−1}L. Given an isotropic pentagon vector x, the lifts x + 2y change Q(x) mod 8
 by 4(B(x, y) + Q(y)), which is affine-linear in ȳ. So "8 | entry" is a further 2-adic bit attached to each isotropic pentagon
 vector. A χ = −1 word has one or two isotropic pentagon vectors (Thm 1.3).
-**Proposition 1.4 (CERTIFIED: all cells mod 32, `scripts/z1_depth_cells.py 5`).** Among χ = −1 cells, the share with one
+**Proposition 1.4 (PROVED at cell level for every k ≥ 2; CERTIFIED for k ≤ 5 by all cells mod 32, `scripts/z1_depth_cells.py 5`;
+proof supplied by the self-review).** Count cells (t, u, v) mod 2^K (K ≥ k) with n odd. Among χ = −1 cells, the share with one
 (resp. two) isotropic pentagon vectors is 2/3 (resp. 1/3). The share in S_{2^k} equals
-  f_k = (2/3)·2^{−(k−2)} + (1/3)·(1 − (1 − 2^{−(k−2)})²),
-i.e. f₃ = 7/12, f₄ = 5/16, f₅ = 31/192 (exact; one-iso cells: 1/2, 1/4, 1/8; two-iso cells: 3/4, 7/16, 15/64). The same
+  f_k = (2/3)·2^{−(k−2)} + (1/3)·(1 − (1 − 2^{−(k−2)})²) = (4/3)(2s − s²), s = 2^{−(k−1)},
+i.e. f₃ = 7/12, f₄ = 5/16, f₅ = 31/192 (one-iso cells: 1/2, 1/4, 1/8; two-iso cells: 3/4, 7/16, 15/64). The same
 fractions hold in each class n mod 16 (`z1_depth_bycls.py`).
+*Proof.* Split the cells by the parity pattern of Lemma 1.1. In each pattern the two even pentagon entries are independent
+uniform even residues mod 2^K, by an invertible change of coordinates mod 2^K. Use (t, u, v) itself when t is even (even pair
+(t, u) or (t, v)), (t, u, v) ↦ (t, A, A*) when t, u, v are odd, and (t, u, v) ↦ (t, u, A*) when t is odd and u is even (and
+symmetrically). n is automatically odd in each pattern. For two independent uniform even residues x, y: P(4 | x) = 1/2 and
+P(2^k | x) = 2^{−(k−1)} = s. Condition on "at least one divisible by 4" (probability 3/4). This gives shares (2·¼)/(¾) = 2/3
+for exactly one and 1/3 for both, and P(some entry divisible by 2^k | χ = −1) = (1 − (1 − s)²)/(3/4) = (4/3)(2s − s²). ∎
+(This is a statement about cells, not about the words of a given n; see §1.3.)
 This explains the "unexplained" cell fractions of MODEL_SPECIFIC Thm 3.1(b) (140/240 = 7/12 for m = 8, 600/1920 = 5/16 for
 m = 16): **every further power of 2 in the numerator costs one fair bit per isotropic pentagon vector, and 4 costs none.**
 (Assessment, not proved: on the Bruhat–Tits tree of PGL₂(ℚ₂) = SO(L ⊗ ℚ₂), depth-k pentagon vectors point at vertices at
@@ -86,7 +96,7 @@ edge ((J)45: ee′ ∈ {1 + o, N + o, 1 + No}), so many words share one bit.
 far from independent across the words of one prime. That is why 8/n fails at 131 and 241 although 29 and 12 χ = −1 words
 exist there. Any "main term at Planck scale" argument for 8 would have to beat this correlation. For 4 no such
 argument is needed; the problem is only whether a χ = −1 word exists at all (SQ₅).
-CERTIFIED at word level (`scripts/z1_thm13_check.py 1500`): all 35 179 words of all odd n < 1500 have exactly two even pentagon
+CERTIFIED at word level (`scripts/z1_thm13_check.py 1500`): all 35 179 words of all odd 3 ≤ n < 1500 have exactly two even pentagon
 entries, at most two entries divisible by 4, and (4 | some entry) ⟺ χ = −1 (sympy Jacobi), with 0 violations.
 
 ## 2. The requirements (i)–(iv) after Theorem 1.3
@@ -99,8 +109,8 @@ z1_legendre_levels Cor 2). PROVED. P also fails at the composite 105 (CHI_FLIP �
 non-squareness.
 (c) (ii) holds for P in the strong sense: P(131) and P(241) are true (29 resp. 12 χ = −1 words), while 8/131 and 8/241 are
 false. So P does not imply 8/p. What 8/p additionally needs is one 2-adic bit per isotropic pentagon vector (§1.2), and at 131,
-241 every bit fails (§1.3). For 11/37 there is no character description of S₁₁ (MODEL_SPECIFIC Thm 3.1(c)), so P has no
-11-analogue at all. TES and ES_q: P is a statement about the path lattices of X_p over ℤ and has no transcription there in
+241 every bit fails (§1.3). For 11/37, S₁₁ is not determined by χ (MODEL_SPECIFIC Thm 3.1(c); other characters are not
+excluded there), so P has no evident 11-analogue. TES and ES_q: P is a statement about the path lattices of X_p over ℤ and has no transcription there in
 this file. So (ii) for those failure sets is "not applicable", not "checked". (Consistency remark, Assessment: over
 F_q[T] with q odd, 4 is a unit, so ES_q has no 2-adic place and Thm 1.3 has nothing to act on. That fits the existence of
 sterile points for ES_q ((J)26, (J)51, (J)56) and the absence of an odd-square obstruction there (FUNCTIONFIELD_ES Prop 4.1).
@@ -130,10 +140,14 @@ levels at 7 primes ≤ 10⁶. Every 2-adic *coarsening* of the target contains �
 **Proposition 3.1 (path classes as glued planes; PROVED, z1_glue_square_roots).** A positive ternary lattice L of det p
 (unimodular away from p) is a path lattice iff it contains a primitive plane M with
 (1) a basis of Gram [[v, −1], [−1, t]], so D := det M = tv − 1 and v | D + 1 (a *divisor form* in M's class), and
-(2) gluing class c ≡ ±1 (mod D) with respect to that basis (L/(M ⊕ M^⊥) ≅ ℤ/D, generator ↦ c·e₂^#), equivalently D | p + v.
+(2) gluing class c ≡ ±1 (mod D) with respect to that ordered basis. Here z generates M^⊥ with a fixed sign, |z|² = pD, and c is
+defined by y = −c·e₂^# + z/D ∈ L. This is the *marked* statement: it says when the fixed basis (e₁, e₂) extends to a path basis.
+A completion with c = ±1 exists iff D | p + v. Other completions L_c can still be path lattices through a different marking
+(self-review example: p = 11, v = t = 4, D = 15, c = 4 gives the path Gram of (4, 1, 4) in the basis (e₂, e₁, e₂ + e₃)).
 Siegel–Weil / mass formulas on 𝔊⁻_p see only the genus of (M, c), i.e. whether −p·v⁻¹ is a square mod D. Condition (2) is a
-residue condition (B2, Prop 10.3), and (1) is a second divisor event at the binary level. Path lattices are the "elongated"
-classes of 𝔊⁻_p (two small successive minima, λ₁λ₂ ≍ D, λ₃ ≍ p/D), of which there are ≍ log²p among ≍ p/16 classes.
+residue condition (B2, Prop 10.3), and (1) is a second divisor event at the binary level. Heuristically, and on average over p,
+path lattices are a thin subset of 𝔊⁻_p: the number of words is ≍ log²p on average (no pointwise statement is claimed; a
+pointwise lower bound would already be SQ₅), against ≈ p/16 classes.
 
 *Construction attempts, each pushed against the barrier it met (iteration record).*
 1. **Global 2-adic forcing** (brief angle 4, Hilbert symbol). Thm 1.3 is a pigeonhole *inside one word*. A global analogue
@@ -146,7 +160,8 @@ classes of 𝔊⁻_p (two small successive minima, λ₁λ₂ ≍ D, λ₃ ≍ p
    (TWO_FIBRES Thm A). For the word (1, 3, (p+3)/2) this is p = X² + 2Y² (y = (1, 1, 0) forces x = (x₁, 1 − x₁, x₃), and
    (2x₁ − 1)² + 2x₃² = p), which is always solvable for p ≡ 1, 3 (mod 8). Every such consequence is a genus statement that is
    true, so no contradiction can arise from ℤ³ data word by word (Prop 10.3). *Modification tried:* combine several words
-   through z = x × y (|z|² = tp): different words have different t, hence different z-norms, and no relation links them.
+   through z = x × y (|z|² = tp). Words at the same level share the z-norm tp (e.g. (1, 2, 75) and (1, 3, 38) at p = 73), but
+   they give different planes z^⊥, and no relation forcing a contradiction was found.
 3. **Mass at Planck scale** (angle 1): z1_depth_bits and z1_glue_square_roots. For 4 the conditional 2-adic density is 1, so
    nothing is to be forced. The count of χ = −1 words is the SQ₅ lottery itself.
 4. **Isogeny walks** (angle 2): z1_isogeny_pointer (no crossing; pointer automatic; path edges below expander resolution).
@@ -157,8 +172,8 @@ classes of 𝔊⁻_p (two small successive minima, λ₁λ₂ ≍ D, λ₃ ≍ p
   frieze parity plus the mod-4 isotropy test, and identifies a certificate as "path-shaped 2-isogeny edge + pointer to an
   endpoint". Prop 1.4 (CERTIFIED): the fair-bit law for numerators 2^k (7/12, 5/16, 31/192, …). It explains MODEL_SPECIFIC's cell
   fractions and puts 4 at zero bits.
-* **Negative (precise):** after Thm 1.3 no 4-specific 2-adic input is left. The requirements (ii) and (iii) are automatic for
-  any proof of SQ₅, and (iv) is not available from this mechanism. Requirement (i) is SQ₅, whose obstruction is the thin
+* **Negative (precise):** after Thm 1.3 no 4-specific 2-adic input is left. The requirement (iii) and the 8/p part of (ii) are automatic
+  for any proof of SQ₅ (TES and ES_q: not checked), and (iv) is not available from this mechanism. Requirement (i) is SQ₅, whose obstruction is the thin
   path-shape set (Prop 3.1: divisor form + glue residue), i.e. B2. None of the four brief angles produces a forcing
   mechanism. Each fails at an identified hypothesis (table §2, list §3).
 * **EVIDENCE:** inside one prime the depth bits for 8 are strongly correlated (12 observed against 0.82 predicted S₈-empty

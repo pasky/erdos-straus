@@ -3,7 +3,8 @@
 ## Idea
 MODEL_SPECIFIC Thm 3.1(a) ("w ∈ S_4 ⟺ χ(w) = −1") was proved by enumerating 320 cells mod 8 (via Dedekind sums, or via
 CHI_FLIP's mod-8 lemma). Look for the conceptual reason inside the 2-adic lattice L_w ⊗ ℤ₂, using the five pentagon entries
-as norms of five explicit primitive vectors e₁, e₂, e₃, f = n e₁^#, f* = n e₃^# (norms v, t, u, nA, nA*).
+as the norms (up to the odd factor n in the last two) of five explicit primitive vectors e₁, e₂, e₃, f = n e₁^#, f* = n e₃^#
+(norms v, t, u, nA, nA*).
 
 ## Literature
 CONSTRUCTIVE_ES Lemma 1.1 (mod-4 isotropy test, two classes), CHI_FLIP Thm 1.1 (χ = −ε₂), TRANSPORT_LAW / (J)45 (the unique
@@ -13,9 +14,9 @@ found in the campaign files (`git grep -i fano` before this memo: no hit in a la
 ## Result (PROVED; full proof in FOUR_ADIC_INPUT.md §1, Thm 1.3)
 q = Q mod 4 is well defined on L/2L; W = {q even} is a 2-plane, so W ∖ 0 is a 3-point line of the Fano plane.
 (a) Frieze parity: exactly two pentagon entries are even, giving two distinct points of W ∖ 0 (Lemma 1.1 there).
-(b) Isotropic L₂ has exactly two points with q = 0, both in W ∖ 0 (CONSTRUCTIVE_ES Lemma 1.1).
+(b) Isotropic L₂ has exactly two nonzero points with q = 0, both in W ∖ 0 (CONSTRUCTIVE_ES Lemma 1.1).
 (c) Two 2-subsets of a 3-set meet, so χ = −1 ⇒ some pentagon entry ≡ 0 (mod 4). The converse is the mod-4 isotropy test.
-The two isotropic points are the two endpoints of the Eichler edge (CONSTRUCTIVE_ES Thm 1.2(b)), so a certificate is a
+For prime n = p the two isotropic points are the two endpoints of the Eichler edge (CONSTRUCTIVE_ES Thm 1.2(b)), so a certificate is a
 word plus a pentagon vector pointing at an endpoint of its 2-isogeny edge, and the pointer always exists.
 
 ## Barrier screen
@@ -25,7 +26,7 @@ through it reduces ES-five to SQ₅ ("some path lattice of det p is 2-adically i
 does not imply 8/n (see z1_depth_bits).
 
 ## Cheap numerics
-`scripts/z1_fano.py`: all cells with letters 1..8, n odd: pentagon classes always 5 distinct points; |iso ∩ pentagon| ∈ {1, 2}
+`scripts/z1_fano.py`: all 320 triples with letters 1..8 and n odd: pentagon classes always 5 distinct points; |iso ∩ pentagon| ∈ {1, 2}
 when χ = −1; one non-pentagon point always has odd q.
 
 ## Assessment
