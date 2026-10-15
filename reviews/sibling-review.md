@@ -1,7 +1,10 @@
 # R249 — hostile review of O242 (SIBLING.md, BRAINSTORM/z17_*.md, AGENT_REPORT_O242.md)
 
 Reviewer: R249 (side-agent/review-sibling). Author branch merged: side-agent/sibling-conj.
-Status: round 1 complete (r = 19 depth-5 spot check still running). Repairs applied: none (author's branch is unchanged since the review started; parent to decide on forwarding vs. reviewer repairs).
+Status: round 1 complete (r = 19 depth-5 spot check still running).
+**Repairs applied (author quiet; branch unchanged since review start):** D1–D6, m1, m3, m4, m5 applied in SIBLING.md, the three memos
+z17_window/z17_uniform/z17_poisson and AGENT_REPORT_O242.md, each marked "(R249 repair …)". m6 folded into the D6 repair. No
+statement was strengthened; all repairs rescope, add a hypothesis, or correct numbers.
 
 ## Summary verdicts
 | claim | verdict |

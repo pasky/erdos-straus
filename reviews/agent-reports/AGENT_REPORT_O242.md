@@ -11,9 +11,11 @@ sterility are NOT proved.**
    next level (≤ 5 at depth 3), for every r. With SD Lemma 3.1 the bound "≤ 3" (even "≤ r − 1") for one r gives sterile
    r-generic points with dim ≥ log(r−3)/log r. STERILE_LOWER proves sterility for r ≥ 2^{21.44} and shows level 1 leaves room
    exactly for r ≥ 17 (r ≤ 13: every non-residue cell covered at level 1, re-derived here). So **one uniform multiplicity
-   statement would give sterile points for every prime r ≥ 17 — a sharp threshold at 17.** It is a B2-type pointwise bound
+   statement would give sterile points for every prime r ≥ 17 — a sharp threshold at 17** (R249 repair D5: provided some
+   non-residue cell survives level 1, CERTIFIED only for r < 2·10⁴; open for 2·10⁴ ≤ r < 2^{21.44}). It is a B2-type pointwise bound
    (Type II points with a/b in a thin class), on average true for L ≥ 4 (ET exponent: r^{0.6−0.2L} per class).
-2. **Counts do not localise (Prop 3.1, PROVED for route bounds).** Inside a cylinder of depth n, every route-type bound
+2. **Counts do not localise (Prop 3.1, PROVED for an explicit route list; "every route-type" is Assessment — R249 repair D1: the
+   localised route R2L gives N_V(p*) ≤ 3^{s/5+o(s)} for n > 2s/5, but its relative mass still exceeds 1).** Inside a cylinder of depth n, every route-type bound
    (SP Lemma 1.6 routes + sharp divisor bounds + the localised Bezout route) is ≥ 3^{2s/5} at the Elsholtz–Tao point, so it
    controls balls inside V only from level (5 + o(1))n on — the same threshold as the global bound. Answer to R248 D3 in
    quantitative form: counts *could* suffice globally (exponent 2/5 < 1/2), but the window (n, 5n] inside the cylinders that
@@ -21,7 +23,8 @@ sterility are NOT proved.**
    ≈ 40 + 4.5n.
 3. **The q = 3 sibling data are Poisson (EVIDENCE + calibration).** Sibling pairs among all balls/boxes match b(b−1)/2/#parents
    at q = 3 (depth ≤ 9) and r = 17 (depth ≤ 7); independent placement predicts 0.145 full alive parents over depths 3–9
-   (P(none) 0.86) — so SD's "never 3 children" is weak evidence by itself — but ≤ 10⁻³ beyond depth 9.
+   (P(none) 0.86; R249 repair D4: exact uniform placement of distinct balls gives 0.062, P(none) 0.94, and pair expectations
+   ≈ 1.5× lower than tabulated — mild excess of pairs at d = 6) — so SD's "never 3 children" is weak evidence by itself — but ≤ 10⁻³ beyond depth 9.
 
 ## Results (labels)
 * PROVED: Lemma 1.1 (function-field Lenstra per key: ≤ 2 balls per (m', g', s, a) in a parent — the modulus T^N m'g' always

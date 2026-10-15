@@ -4,7 +4,7 @@
 At every prime 17 ≤ r ≤ 61 (depth 4), r = 19 (depth 6), r = 17 (depth 7) an alive parent never holds more than 3 boxes of the
 next level from depth 4 on (≤ 5 at depth 3, ≤ 14 at depth 2). Conjecture (SIBLING 4.2): ≤ 3 for all r ≥ 17, depth ≥ 4. With
 SD Lemma 3.1 this gives sterile points with dim ≥ log(r−3)/log r for every r ≥ 17, closing [17, 2^{21.44}) (STERILE_LOWER
-covers r ≥ 2^{21.44} by measure); r ≤ 13 have every non-residue cell covered at level 1. A sharp threshold at 17.
+covers r ≥ 2^{21.44} by measure); r ≤ 13 have every non-residue cell covered at level 1. A sharp threshold at 17 (R249 repair D5: given level-1 survival, CERTIFIED only for r < 2·10⁴).
 
 ## Literature
 STERILE_LOWER Comp. 4.1 (level-1 survivors exactly for r ≥ 17, r < 20000), Thm 6.3; M17D Lemma 2.1 (lattice form).
