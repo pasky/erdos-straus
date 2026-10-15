@@ -27,6 +27,7 @@ for line in sys.stdin:
     if sg:
         eps = F.NEG[eps]
     ok &= F.pw(E0, s) == eps
+    ok &= F.pw(E0, s) == (F.NEG[1] if sg else 1)   # simplified Thm 1.2 form (lambda factor trivial), any odd q
     n += 1
     dist[(s, E0)] += 1
     if not ok:
@@ -36,3 +37,4 @@ for line in sys.stdin:
 print(f"q={q}: {n} tuples checked, {bad} failures")
 for s in sorted(set(k[0] for k in dist)):
     print(s, dict(sorted((e, c) for (ss, e), c in dist.items() if ss == s)))
+sys.exit(1 if bad else 0)

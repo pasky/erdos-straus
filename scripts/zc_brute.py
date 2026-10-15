@@ -50,3 +50,4 @@ for s in range(s0, s1 + 1):
     for k in sorted(tot):
         print(*k, prim[k], tot[k])
 print("law failures:", bad)
+sys.exit(1 if bad else 0)

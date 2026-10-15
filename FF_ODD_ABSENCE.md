@@ -1,6 +1,7 @@
 # FF_ODD_ABSENCE — the odd-r / odd-s absence on the A = T slices, explained (O226, wave Z-c)
 
-Status: checkpoint 1 (O226): Thms 1.2, 1.4 (law), Prop 1.6, Cor 1.7 PROVED; Thm 2.2 (q = 9, k = 1 closed) PROVED, computer-assisted. Builds on FF_STERILE_SMALL.md ((J)56; §§6–8: k = 1, slices u₀ ∉ F₃^*, tuples (B^{k=1})),
+Status: checkpoint 1 (O226): Thms 1.2, 1.4 (law), Prop 1.6, Cor 1.7 PROVED; Thm 2.2 (q = 9, k = 1 closed) PROVED, computer-assisted. Builds on FF_STERILE_SMALL.md ((J)56; §§6–8: k = 1, slices u₀ ∉ F₃^*, tuples (B^{k=1})).
+Hostile deep review (codex, self-requested): no FATAL; MAJOR (λ = 2 for a = b outside char 3) and minors repaired in place ("R-O226 repair").
 FF_STERILE_PUSH.md ((J)51), DEPTH_ASPECT.md Lemma 2.3 (Case A identities). Scripts `scripts/zc_*`.
 
 ## 0. Iteration log
@@ -30,20 +31,22 @@ solve for (W(0)/C(0))^s; the (−1)^{2(…)} factors of the squared W-product dr
 
 **Theorem 1.2 (k = 1 Case B law; PROVED).** Let q be odd and (m', g', w, C) a k = 1 Case B tuple (B^{k=1}) of parameter s
 (FF_STERILE_SMALL §6: m'wC = T^s + v, w + C = g'v, m', g', w, C monic, T ∤ m'g'wCv; z, a, y, t degrees; λ = lc(v) = lc(w + C)
-∈ {1, −1}, λ = −1 iff a = b). Its cylinder lies on the slice u₀ = −E(0) with E(0) = w(0)/C(0) (from Ev = T^s + m'w² at T = 0),
+= 1 if a ≠ b, = 2 if a = b (R-O226 repair: formerly "λ ∈ {±1}", true only in characteristic 3). Its cylinder lies on the slice u₀ = −E(0) with E(0) = w(0)/C(0) (from Ev = T^s + m'w² at T = 0),
 and
-  E(0)^s = ε(s; a, z, t) := (−1)^{t + tz + z(1+s) + ts} · λ^{z + s}  ∈ {±1}.
+  E(0)^s = ε(s; z, t) := (−1)^{t + tz + z(1+s) + ts}  ∈ {±1}.
 In particular **E(0)^{2s} = 1: E(0) ∈ μ_{2s}(F_q) = μ_{gcd(2s, q−1)}**, and E(0) ≠ −1 (E(0) = −1 means w(0) + C(0) = 0, i.e.
 T ∣ g'v).
-*Proof.* Lemma 1.1 with M = m', W = w, G = g', V = v (μ_M = μ_W = 1, λ² = 1). ∎
+*Proof.* Lemma 1.1 with M = m', W = w, G = g', V = v (μ_M = μ_W = 1). The λ-exponent is z + 2a − s = a − b: if a ≠ b then λ = 1,
+and if a = b the exponent is 0. ∎ (In characteristic 3 the scripts use the equivalent form with the trivial factor λ^{z+s}, λ = −1 iff
+a = b: for a = b, z + s = 2(z + a) is even. `zc_law_check.py` checks the unsimplified Lemma 1.1 identity.)
 *Check (EVIDENCE, `scripts/zc_law_check.py` on the dump of `zc_enum`; tuples re-verified against (B^{k=1}) independently in
 Python, `scripts/zc_field.py`):* q = 9, s ≤ 12: 8 915 tuples; q = 5, 7, 27, s ≤ 9: 305, 645, 340 tuples; 0 failures of the exact sign
-formula. (Distribution of E(0) at q = 9: odd s only E(0) = 1; s ≡ 2 (4): {1, ±i}; s ≡ 0 (4): all eight values except −1 — the
+formula, both the unsimplified Lemma 1.1 form and the simplified Thm 1.2 form. (Distribution of E(0) at q = 9: odd s only E(0) = 1; s ≡ 2 (4): {1, ±i}; s ≡ 0 (4): all eight values except −1 — the
 law is sharp at q = 9, s ≤ 12.)
 
 **Corollary 1.3 (vanishing theorem for Case B; PROVED).** Let q = 3^r. On the slices u₀ ∈ F_q^* ∖ F₃^* there is no k = 1 Case B
 tuple of parameter s with gcd(s, (q − 1)/2) = 1. More precisely a tuple of pattern (s; a, z, y, t) can lie on the slice u₀ only if
-(−u₀)^s = ε(s; a, z, t).
+(−u₀)^s = ε(s; z, t).
 *Proof.* μ_{gcd(2s, q−1)} = μ₂ = F₃^* when gcd(2s, q − 1) = 2, i.e. gcd(s, (q−1)/2) = 1. ∎
 Instances: q = 9 ((q−1)/2 = 4): **every odd s is empty**; s ≡ 2 (mod 4) only on u₀ = ±i, and only patterns with ε = −1;
 s ≡ 0 (mod 8): only patterns with ε = +1. q = 27 ((q−1)/2 = 13): every s with 13 ∤ s is empty (explains O220's "no tuples
@@ -95,8 +98,9 @@ off F₃^* is exactly 13, and for q = 9 the populated classes are: none at odd s
 **Corollary 1.7 (parity law for k ≥ 2; PROVED).** For q odd and a Case B tuple (B) of FF_STERILE_PUSH (k ≥ 2; m'w₁C₁ = T^{s−2} + v₁,
 w₁ + C₁ = Tg'v₁, T ∤ m'w₁C₁v₁) of pattern (s; a, z, y, t): w₁(0) = −C₁(0) (from w₁ + C₁ = Tg'v₁ at T = 0), so Lemma 1.1 with
 (M, W, C, G, V, s) = (m', w₁, C₁, Tg', v₁, s − 2) gives the **pattern parity law**
-  (−1)^{s'} = (−1)^{t' + t'z + z(1+s') + t's'} · λ^{z+s'},  s' = s − 2, t' = t − 2, λ = −1 iff a = b;
-patterns violating it are empty. *Check:* the archived exact q = 9 counts `data/fz/enum9/e_{3..22}.txt.gz` (O220/R221): all 5 210
+  (−1)^{s'} = (−1)^{t' + t'z + z(1+s') + t's'},  s' = s − 2, t' = t − 2  ⟺  **z ≡ t ≡ s (mod 2)**
+(the λ-exponent of Lemma 1.1 is z + 2(a−1) − (s−2) = a − b again; the parity reduction: z even forces s ≡ t(1+s), i.e. s, t even;
+z odd forces ts odd); patterns violating it are empty. *Check:* the archived exact q = 9 counts `data/fz/enum9/e_{3..22}.txt.gz` (O220/R221): all 5 210
 violating patterns have count 0 (1 830 compatible patterns). *Effect on the route-bound sums* (`scripts/zc_sum_k2.c`, = fz_sum with
 the filter; filter off reproduces fz_sum): q = 9, s ≤ 80: 41.87 → 11.24; q = 3, s ≤ 120: 1466.7 → 389.2 (the s₀ of FF_STERILE_SMALL
 §5.3, where the bound tail drops below 0.5, moves from 84 to 74, tails up to s = 160). This does not rescue union bounds at q = 3 (they fail
@@ -113,7 +117,7 @@ over u₀ ∈ P and average. The rest (positive uncovered measure ⇒ O ≠ ∅ 
 FF_STERILE_SMALL. ∎
 
 **Choice of P at q = 9.** F₉^* ∖ F₃^* = {±i} ∪ P₈, P₈ := {u₀ : u₀⁴ = −1} (the four primitive 8th roots; −P₈ = P₈). By Corollary
-1.5 a family of level n lies on P₈ only if 4 ∣ n, and (Case B) only if its pattern has ε(s; a, z, t) = (−1)^{s/4} (since
+1.5 a family of level n lies on P₈ only if 4 ∣ n, and (Case B) only if its pattern has ε(s; z, t) = (−1)^{s/4} (since
 E(0)^s = (E(0)⁴)^{s/4} = (−1)^{s/4} for E(0) ∈ P₈). Exact masses (s ≤ 12, from §1's dump): the six slices carry 3.927 in total,
 of which 2.168 on {±i} (> 1 per slice: the union bound cannot work there) and 1.759 on P₈ (0.44 per slice). So P = P₈ with
 budget |P| = 4.
@@ -125,7 +129,7 @@ relative measure summed over the four slices u₀ ∈ P₈ (u₀⁴ = −1) is �
 A = T is defined over F₃; so the covered measure is constant on the orbits {ζ, ζ³}, {ζ⁵, ζ⁷}, and both slices of one orbit
 have covered measure < 1.)
 *Proof.* Lemma 2.1 with P = P₈. By Corollary 1.5 only levels n ≡ 0 (mod 4) and (Case B) only patterns with
-ε(s; a, z, t) = (−1)^{s/4} contribute. `scripts/zc_certify9.sh` (log `data/zc/certify9_k1.txt`):
+ε(s; z, t) = (−1)^{s/4} contribute. `scripts/zc_certify9.sh` (log `data/zc/certify9_k1.txt`):
 * Case B, 4 ≤ s ≤ 80, 4 ∣ s (`zc_sum9.c`): exact P₈-counts for s = 4, 8, 12, 16 (all compatible patterns) and s = 20 (933 of 950
   compatible patterns exact; 17 patterns timed out at 60 s each and are bounded by the routes, mass 0.0993), produced by `zc_enum`
   (fz1_enum + slice filter E(0)⁴ ≠ 1 + pattern filter; per-pattern driver `zc_drive.py` for s = 20): exact mass 1.759959

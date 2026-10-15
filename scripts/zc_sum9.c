@@ -6,6 +6,7 @@
    usage: zc_sum9 SMIN SMAX [DIR|-]   prints per-s parts and the total over s in [SMIN, SMAX]. */
 #define NO_MAIN1
 #include "fz1_sum.c"
+static char SEEN[260][260][260];
 int eps_ok(int s, int a, int z, int t) {
   int b = s - a - z, e = (t + t * z + z * (1 + s) + t * s) & 1;
   if (a == b && ((z + s) & 1)) e ^= 1;
@@ -21,11 +22,16 @@ int main(int argc, char **argv) {
   for (int s = S0; s <= S; s++) {
     FILE *f = NULL; int nlines = 0, npat = 0;
     if (strcmp(dir, "-")) { char fn[512]; snprintf(fn, sizeof fn, "%s/p_%d.txt", dir, s); f = fopen(fn, "r"); }
-    memset(HAS, 0, sizeof HAS);
+    memset(HAS, 0, sizeof HAS); memset(SEEN, 0, sizeof SEEN);
     if (f) { char line[256]; while (fgets(line, sizeof line, f)) { int ss, a, z, y, t; char m[32];
         if (sscanf(line, "%d %d %d %d %d %31s", &ss, &a, &z, &y, &t, m) != 6 || ss != s) { fprintf(stderr, "bad line %s", line); return 1; }
         if (!eps_ok(s, a, z, t)) { fprintf(stderr, "incompatible pattern in file: %s", line); return 1; }
-        nlines++; if (!strcmp(m, "SKIP")) continue; EX[a][z][y] = atol(m); HAS[a][z][y] = 1; } fclose(f); }
+        /* R-O226 repair: fail closed on malformed / inconsistent / duplicate lines */
+        if (a < 0 || z < 0 || y < 0 || a + z > s || s - a - z < a || y > s - a - z || t != s - a - z - y) { fprintf(stderr, "bad pattern %s", line); return 1; }
+        if (SEEN[a][z][y]) { fprintf(stderr, "duplicate %s", line); return 1; } SEEN[a][z][y] = 1;
+        nlines++; if (!strcmp(m, "SKIP")) continue;
+        char *ep; long cnt = strtol(m, &ep, 10); if (*ep || cnt < 0) { fprintf(stderr, "bad count %s", line); return 1; }
+        EX[a][z][y] = cnt; HAS[a][z][y] = 1; } fclose(f); }
     LD ex = 0, bd = 0, all = 0, w = expl(-((s - 1 + 1) / 2) * lq);
     for (int a = 0; a <= s; a++) for (int z = 0; a + z <= s; z++) { int b = s - a - z; if (b < a) continue;
       for (int y = 0; y <= b; y++) { int t = b - y, am; LD mult = (a == b ? 1 : 2);

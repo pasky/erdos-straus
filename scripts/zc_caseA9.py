@@ -76,7 +76,11 @@ if __name__ == '__main__':
     if len(sys.argv) > 3 and sys.argv[3] != '-':   # exact counts from fz1_caseA_enum (filtered): lines "A alpha lam be ka count"; complete levels only
         EX = {}; lev = {}
         for l in open(sys.argv[3]):
-            f = l.split(); k = tuple(map(int, f[1:5])); EX[k] = int(f[5]); lev[k[0]] = lev.get(k[0], 0) + 1
+            f = l.split(); k = tuple(map(int, f[1:5]))
+            al_, la_, be_, ka_ = k   # R-O226 repair: fail closed on malformed / duplicate / invalid rows
+            if f[0] != 'A' or len(f) != 6 or k in EX or int(f[5]) < 0 or not (0 <= be_ <= al_ and 0 <= ka_ <= al_ - be_ and 0 <= la_ <= max(al_ - be_ - ka_, be_)):
+                sys.exit(f"bad Case A row: {l.strip()}")
+            EX[k] = int(f[5]); lev[k[0]] = lev.get(k[0], 0) + 1
         for al, n in lev.items():   # every pattern of a listed level must be present
             need = sum(1 for be in range(al + 1) for ka in range(al - be + 1) for la in range(max(al - be - ka, be) + 1))
             if n != need: sys.exit(f"incomplete Case A level {al}: {n} of {need}")
