@@ -109,3 +109,8 @@ for every level through 20 (checked by grep).
   (it exists untracked in the author's worktree, complete through N = 20 with 0 hits; a zt_lop process for N = 21 was still
   running at review time). The committed c1 log ends at N = 20 (0 hits each level). Repair: commit the c2 log (and
   record whether level 21 finished).
+* zt_lop vs R247 searcher (`scripts/review_r247_xcheck.py`, log `data/review_r247_xcheck_k2.txt`): at all 54 points,
+  k = 2: my full mode (no Liouville input, levels 3..8) = my lop mode ∪ exact tuples, and my lop mode = zt_lop **as sets of
+  tuples** at levels 3..12: 98 full-mode hits (24 exact), 96 lop hits, 96 zt_lop hits, 0 mismatching points.
+* §4 cyclotomic h = 2 row reproduced from my census (`scripts/review_r247_cyclo_h2.py`): 12 tuples, dep histogram
+  6, 4, 1, 1 at dep 1..4 for both c. h = 3, 4 rows not re-run.
