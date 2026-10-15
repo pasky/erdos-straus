@@ -142,8 +142,8 @@ Defects:
   correct (PROVED, elementary) but it is a reformulation, not new information — say so next to "(J)46 SHARP 2".
 - **D12 (MINOR, 8/131 reading).** "all forbidden-half Frobenii land in the complementary ℚ(ζ_{8u})-class" explains the
   absence of *8-slots*; that this is the same as "8/131 unsolvable" needs "every 3-term decomposition of ν/p (p prime)
-  arises from a ν-slot of a word of p" — true by the Elsholtz–Tao-type parametrisation for Type I/II solutions, but it
-  should be cited (DEDEKIND_ES / (J)32) rather than left implicit. (Unsolvability itself independently re-checked.)
+  arises from a ν-slot of a word of p" — I did not verify this equivalence for general ν (it is the
+  Elsholtz–Tao-type Type I/II parametrisation for ν = 4); it should be proved or cited (DEDEKIND_ES / (J)32) rather than left implicit. (Unsolvability itself independently re-checked.)
 
 ## 4. §3 non-genus layer — Prop 3.1 SOUND (trivial); Consequence SOUND as Assessment, with a sharper reason available
 
