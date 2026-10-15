@@ -73,3 +73,21 @@ D₁₁ (x = 2: μ₅), D₁₃ (x = 3: μ₂, μ₃) — and each depends only 
 a different label on exactly those ℓ. This is the whole mechanism of "mixed points": **they are the points where the
 divisor classes of the square points are switched off by the label at the ℓ's of ord_{s_x}(4), and all pure primes
 see squares.**
+
+## 2. Why the trees diverge: ℓ-lines through square points (diagnosis)
+
+Tree runs (C, `z11_tree.c`, pool `z11_pool.py` with H ⊇ all ℓ ≤ 200, QMAX 10⁶, MMAX 3·10⁵, LCAP 3·10⁵), uncovered Haar
+measure / stuck nodes at depth cap D:
+| k | D = 10 | D = 12 | D = 14 |
+|---|---|---|---|
+| 105 | 9.0·10⁻⁹ / 80 | 3.6·10⁻¹⁰ / 959 | 3.3·10⁻¹¹ / 157 269 |
+| 297 | 1.2·10⁻⁸ / 62 | 4.3·10⁻¹⁰ / 1 748 | 2.3·10⁻¹¹ / 128 092 |
+The measure falls ~×20 per level but the stuck nodes multiply ~×10–100 per level: a supercritical branching process.
+k = 297 has a **single** square point (4³ + 297 = 19²; checked −12 ≤ x < 60), so it has no mixed points at all, yet
+diverges the same way. Its stuck nodes are labelled "3" at every split prime except ℓ = 3 (and a few others): they lie
+near the **ℓ-line through the square point** X_{x,ℓ} = {μ : μ_ℓ′ = x for all ℓ′ ≠ ℓ, μ_ℓ ∈ ℤ_ℓ free}. On X_{3,3}:
+ν(μ) ≡ 19² at every q with 3 ∤ ord_q(4) (≈ 5/8 of primes, pure) and ν_q = 4³ζ + 297, ζ = 4^{μ−3} ∈ μ_{3^j}(F_q), at
+q with 3^j ∥ ord_q(4) (generic). This is the exponential analogue of the r-generic lines of (J)26/(J)54 (x_q = 1 for
+q ≠ r), but with infinitely many generic primes. Mechanism of divergence: to use a class whose period contains a new ℓ′
+the tree must split on ℓ′; the child on the line (μ_ℓ′ = x) is pure at the new primes (Lemma 1.2) and survives, and the
+ℓ′ − 1 off-line children are new 2-dimensional lines. Covering converges only if fibres are nearly complete.
