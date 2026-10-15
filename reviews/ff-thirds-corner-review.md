@@ -59,3 +59,23 @@ Re-derived every step:
   necessary congruences v₁ ≡ −T^{s−2} (mod m'X₁) and v₁ ≡ −m'w₁²u^{−1} (A) / −um'C₁² (B) (mod T^{n₀}), and enumerates
   every v₁ of that class with deg v₁ ≤ max(a, b) − 2), and in "full" mode drops the Liouville bound entirely (A only,
   deg M ≤ s − 2, which reaches every tuple). A missed case in Prop 2.1 would show up as a full-mode hit not found by zt_lop.
+
+### Lemma 3.1 — SOUND
+Re-derived: E ≡ w₁/C₁ (mod T^{s−1}); C₁ ≡ v₁/(m'w₁) and w₁ ≡ v₁/(m'C₁) (mod T^{s−2}); multiply by the T-units m'w₁,
+m'C₁ (T ∤ m', w₁, C₁ by (B)). Valid for N + 1 ≤ s − 2. Numerically confirmed on the brute-force census (below).
+
+### Cor 3.2 — SOUND
+Re-derived both exact cases (q = 3, c² = 1): (1) v₁ = λ, m' = T + c, (−c)^{s−2} = c ⇒ c = 1, s even, then
+1 + C₁ = T(T^{s−3} + 1)/(T + 1) = −Tg' ⇒ lc g' = −1; (2) C₁ = 1, m' = 1, lc g' = −c ⇒ c = −1, (1 − T) | T^{s−3} + 1
+false at T = 1. Degree bookkeeping correct. The case-1 consequence: deg M + y ≤ N − 1 ⇒ Mg' = −c ⇒ M = g' = 1,
+E = T − 1 (not a tuple); so y ≥ N − d, t = b − y ≤ s − N − 1 ≤ N − 1, hence d + (a − 1) ≥ N + 1. Correct (needs N ≥ 4 for
+N + 1 ≤ s − 2 — stated). The q-general remark is honest.
+
+### Prop 5.1 (Bezout form) — SOUND (MINOR wording)
+Re-derived: cMg' = T^NZ − 1 ⇒ Mg' ≡ −c (mod T^N), deg g' = N + deg Z − d < N, so g' is the case-1 g'; E = cT^{N+1}Z − u;
+R4 gives Ev₁ = T^{s−2} + m'w₁². Converse (my derivation): if g' is monic and E | T^{s−2} + m'w₁², put
+v₁ := (T^{s−2} + m'w₁²)/E, C₁ := Tg'v₁ − w₁; then E·C₁ = g'T^{s−1} + w₁ (direct expansion), m'w₁C₁ = T^{s−2} + v₁ and C₁ is
+monic of degree s − 2 − d (since d < s − 2). So the "iff" holds once lc Z = c is imposed.
+* MINOR-4: the "iff" sentence should include "lc Z = c" (stated earlier in the display but not in the iff), and the
+  final "E | u² + m'(T²Zw₁)²" is only a consequence (⇒): the converse needs Z to be a unit mod E, i.e. gcd(Z, 1 + cT) = 1
+  (gcd(E, u) = gcd(Z, u)). As written ("and then") it is a one-way statement, which is correct; just don't use it as a test.
