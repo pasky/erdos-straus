@@ -40,7 +40,7 @@ From-scratch scripts: scripts/review_r232_*.py.
 * **m7 (MINOR) — P_q1_hi provenance.** MANIFEST: "se_box P 600 999 … (stopped after j=841)" — an interrupted run; rows 600..841
   are complete and only ≤ 799 are used, but the document should say the run was truncated deliberately, and note that these rows
   (box ratio 2^{9..13}) have not been independently re-checked (R232 could not, λ = 2 only; they are unused in the SE-tail
-  re-certification above, so Thm 2.1 does not depend on them).
+  re-certification above, so Thm 2.1 *as re-certified by R232* does not depend on them).
 
 ## Detailed checks
 
@@ -65,7 +65,8 @@ Brute force (`scripts/review_r232_joint.py`): per-n enumerators by *divisors* (f
 f | 4a²d + 1, f ≡ −n (4ad)) — a different loop structure from the lemma — themselves validated against a naive 4-fold
 (a, b, c, d) search for n ≤ 12; then the lemma's two sweeps implemented literally (every produced tuple asserted against the
 defining equations and e-formula) and compared **as sets of tuples** per n: X = 300: 3301 P + 4909 Q data, X = 1000:
-17328 P + 25674 Q data (the author's totals), 0 mismatching n. (X = 3000: see below.)
+17328 P + 25674 Q data (the author's totals), X = 3000: 74908 P + 110668 Q data — 0 mismatching n in all three
+(`data/review_r232/joint_3000.txt`).
 The cost model after the lemma is correctly labelled Assessment and is plausible (Σ_{acd≲X} X/(4acd) ≈ X(ln X)³/24).
 
 ### Lemma 4.3 (U–V factorisation) — SOUND (MINOR m2: implicit q ≥ 1)
