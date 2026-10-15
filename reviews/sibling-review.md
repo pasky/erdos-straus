@@ -171,3 +171,29 @@ any such family would have produced only redundant balls so far. Many of the orp
 (e.g. 11200 ⊂ ball 112). The author's sentence "Case A data break the inversion symmetry" is correct for ball lists and should
 add "(the covered set through depth 9 is nevertheless inversion-invariant: all 24 inverse cylinders are already covered)".
 Suggested m4.
+
+## Numbered defects (consolidated)
+* **D1 (MAJOR)** SIBLING §3 Prop 3.1 (statement "every route-type bound for N_V(p*), localised or not, is ≥ 3^{2s/5−O(1)}", proof
+  sentence "their localised forms only change the multiplicity factor"), §6 PROVED list, report SHARP 2, memo z17_window:
+  false for the localised route R2L (fix m′, then g′w₁ in its class mod T^{n−1}): ≤ 3^{s/5 + max(0, 2s/5 − n) + o(s)}. Repair:
+  state the result for relative mass, exponent ≥ min(n − s/10, s/10) − o(s), for an explicit list (all SP Lemma 1.6 rows,
+  modulus-localisations, R4L, R2L and the one/two-factor variants); downgrade "every route-type count / counts do not localise /
+  must be fed by positional information" to Assessment.
+* **D2 (MINOR)** §3: SS Cor 4.2's "unique maximiser (1/5,1/5,1/5,2/5)" is EVIDENCE (grid) there, cited as fact. Not needed; drop or
+  label.
+* **D3 (MINOR)** Cor 4.1(ii): add "and some depth-N₀ cylinder is alive" (or Π_N ≤ 2 for 9 ≤ N < N₀).
+* **D4 (MINOR)** §2.1, §2.3, memo z17_poisson, report SHARP 3: replace with exact uniform-placement numbers (0.062 / P(none) 0.94 /
+  E[≥2] 2.39; pair expectations C(b,2)·2/(M−1): 0.25, 0.46, 1.65, 0.64, 1.04, 0.30; all-parent triples 0.105 over d = 5–9);
+  "neither repulsion nor attraction" → "no repulsion; mild excess of pairs (7 vs 4.3), concentrated at d = 6".
+* **D5 (MAJOR)** §4 "Consequence (PROVED)", §6, memo z17_uniform, report SHARP 1: the implication needs a non-residue cell surviving
+  level 1, certified only for r < 2·10⁴; add the hypothesis (or certify level 1 up to 2^{21.44}).
+* **D6 (MINOR)** §4 "Why it is out of reach": the ET-exponent average r^{0.6−0.2L} would, if true, make Conj 4.2 heuristically false at
+  large depth (≈ r^{0.2L+0.4}/24 classes with ≥ 4 boxes); the supporting heuristic is the true slow growth of D_P (≈ 17^{0.2} per level).
+* **m1** Lemma 1.2 proof: "at most ⌈√(r/2)⌉ + 1 values (3 for r ≤ 17)" — the formula gives 4 at r = 17; correct count ⌈√(r/2)⌉.
+  Header "PROVED, any prime r ≥ 5" vs "six" (r ≤ 17): state the general bound 2⌈√(r/2)⌉.
+* **m3** §3 explicit form: with the quoted decay the tail condition gives s₁ ≈ 65 + 8n (depth ≈ 33 + 4n), not 80 + 9n; ±10 more with
+  the parity filter. Assessment only.
+* **m4** §1 check of Prop 1.3: add that the 24 orphan Case A balls have inverse cylinders already covered at lower depth, so the
+  covered set through depth 9 is inversion-invariant (relevant to S3′ / O244).
+* **m5** §2.4: "5 → 1 in C₃, C₁₃" (r = 19) skips the depth-4 value 2 (data file: 5, 2, 1, 1 at d = 3..6); say "5, 2, 1, 1".
+* **m6** §2.4/Conj 4.2: say explicitly that the bound 3 (and 5 at depth 3) is attained (r = 23, d = 4), i.e. no slack in the data.
