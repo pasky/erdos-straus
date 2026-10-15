@@ -107,3 +107,32 @@ checker; no author code) → `data/review_r239_windows_1e6.txt`, 13 s:
   q = 223), each solution exact-checked. ✓ (matches §4 bullet)
 * 1073 odd squares a² ≤ 10⁸ with all primes ≡ 1 (4): no window at a² (T1 ✓), and the D3 route (Thm 1.1 at d = a²/p,
   scale by p) produces an exact ES^{(y,e)}(a²) solution in every case (worst q = 199).
+
+### C8. Prop 4.1 (Type I windows not forced) and the dichotomy — SOUND-AFTER-REPAIRS (D4)
+(a) re-derived: pk′ ≡ −1 (s) ⇒ (k′/s) = (−1/s)(p/s); reciprocity with k′ ≡ 3 (4): (s/k′) = (k′/s)(−1/s) = (p/s) = (s/p).
+s ≠ k′, p automatically. (a/p) = 1 from 4a ≡ 1 (p). ✓
+(b) re-derived for the stated family (a | y). ✓ BUT the family is narrower than the dichotomy text and §5.4 suggest
+("Type I-shape windows … are dead at every cap whenever (pk′+1)/4 is prime"): ES^{(y,e)} solutions with x = pa and
+a ∤ y exist and are not covered by the proof. My brute force found 479 such solutions (with a ∤ y) in live windows.
+The claim nevertheless remains TRUE in general — my proof: put h = gcd(a, y), a = h a₁, y = h y₁; then
+z = h a₁ y₁/D with D := k′y₁ − a₁, gcd(D, y₁) = gcd(a₁, y₁) = 1, gcd(D, a₁) = gcd(k′, a₁) = 1, so den z = D/gcd(D, h)
+and the Def 1.1 conditions force every prime of D to divide h | a. Under the hypothesis of (b) every such prime is a
+square mod k′, so (D/k′) = 1, while D ≡ −a₁ (mod k′) and (−a₁/k′) = −(a₁/k′) = −1 (a₁ | a, same hypothesis). Contradiction.
+The author's case is a₁ = 1. `scripts/review_r239_typeI.py 300 60 200000`: 466 symbol identities (a); 72 predicted-dead
+windows, **0 solutions for ANY y ≤ 2·10⁵** (not only a | y); 129 of 189 other windows have solutions.
+Dichotomy reading: Assessment, fine.
+
+### C9. Remarks 1.4 / 1.5, novelty — SOUND (with one understatement, D5)
+* B6: the certificate is one prime in one Chebotarev class — genuinely pointwise. ✓ B3: nothing counted. ✓
+  B2: g = (n + 4Q²)/q ≈ 4Q²/q, solution-dependent; EXPONENT_CAP Thm 2.1 (g ≤ 2nQ₁²(n + Q₁²)) is consistent since
+  Q₀ | K-type bound (v_s(Q₀) ≤ b_s) and Q₁ ≤ K^{O(q)}. ✓
+* Consistency with CAP_INTERPOLATION Prop 4.1 (prime shot moduli ≥ log p/C′ for infinitely many p): here (Q, q) is itself
+  a prime-modulus shot with (p/q) = −1, so q* ≫ log p on those p — consistent with numerics (q* ≍ log²p-ish). ✓
+* Novelty vs POINTWISE_SIZE Cor 8.3(b): Cor 8.3(b) already contains the subgroup statement (for p ≡ 1 (8) via Lemma 8.2);
+  Thm 1.1 re-proves it for all n ≡ 1 (4) directly by Jacobi reciprocity, and adds the overflow-dictionary connection. The
+  author's attribution in Remark 1.5 and §5.1 is honest.
+* Novelty vs FROBENIUS_FIRING Thm 4.2: **understated** — Thm 1.1 + Dirichlet gives an elementary, effective proof of
+  FROBENIUS_FIRING Thm 4.2(a) *verbatim* (x = K is prime to n, n | y, n | numerator of z, gcd(Q, n) = 1: Type II shape at
+  every prime of n) and, with D3, of 4.2(c); the linear sieve + Bombieri–Vinogradov proof becomes unnecessary. This should be
+  said (D5), and CAP_INTERPOLATION Thm 4.2(a) (GRH, (log p)^{2+ε}, Hooley machinery) is superseded by Thm 1.3(c) for all
+  non-square n (not just "slightly sharper").
