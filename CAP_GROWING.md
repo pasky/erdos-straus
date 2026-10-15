@@ -71,3 +71,61 @@ e·S/k ≥ e², giving L ≥ exp(k) and |𝒩| ≪ N exp(−c_e'(log N)^{(e+1)/(
   regime (bounded e, unbounded S) differs from ES on average *quantitatively*: the cap raises the sieve dimension from
   log² to log^{e+1}. By the large sieve's own ceiling (Σ_{q≤N^{1/2}} ∏ω/ℓ with ω ≤ (log ℓ)^{O(1)} is
   exp(O((log N)^{1−δ}))) no fixed cap gives power saving by this method.
+
+## 2. PM-II on average (goal 2)
+
+**Lemma 2.1 (Vaughan's classes are prime-modulus Type II certificates; PROVED, elementary).** Let ℓ ≡ 3 (mod 4) be
+prime, (ℓ+1)/4 = uvw. If n ≡ −u v^{−1} (mod ℓ) then n ≡ −4u²w (mod ℓ), i.e. ℓ | n + 4c²d with (c, d) = (u, w) and
+4cd = 4uw | ℓ + 1: a Type II certificate with PRIME modulus h = ℓ (BRIDGE_WORLDS §5 notation).
+*Proof.* 4uvw ≡ 1 (mod ℓ) gives v^{−1} ≡ 4uw. ∎
+**Corollary 2.2 (PM-II for almost all primes; PROVED relative to Vaughan 1970 / Pomerance–Weingartner Thm 1.3).**
+`  #{p ≤ N prime : p has no prime-modulus Type II certificate} ≪ N exp(−c (log N)^{2/3}).`
+*Proof.* Vaughan's large sieve (as described in paper/vaughan-loglog-note.tex §1: classes −uv^{−1} mod primes
+ℓ ≡ 3 (4), multiplier k = 1) uses only the classes of Lemma 2.1; an exceptional prime p > X avoids all of them. ∎
+*Remarks.* (i) The loglog improvement of the note does NOT transfer: it uses the composite moduli kℓ. (ii) PM-II is
+trivial for p ≡ 3 (mod 4) and for p ≡ 2 (mod 3) (h = 3, c = d = 1); the classes at h = 7 ((c,d) ∈ {(1,1),(1,2),(2,1)},
+classes 3, 6, 5) are exactly the non-residues mod 7, so **a PM-II failure is ≡ 1 (mod 12) and a QR mod 7** (3361 ≡ 1 mod 84
+and 3361 ≡ 1 mod 5, 7 as well). For h ≥ 11 the τ₃((h+1)/4) ≤ h^{o(1)} classes cannot cover the (h−1)/2 non-residues,
+so there is no further covering (B1). (iii) A pointwise PM-II would give Type II-ES at every p ≠ 3361: B2/B3 apply
+verbatim (BRIDGE_WORLDS §5); nothing here addresses that.
+
+## 3. SQ_± on average, its prime-modulus core, and a calibration (goal 3)
+
+Notation of SYNTHESIS_SPARKS4 §2: words (t, u, v), tuv − u − v = n, A = tu − 1, χ = (−A/n); n ≡ 1 (mod 8) is the
+content (Prop 2.1(c) there handles n ≢ 1 mod 8).
+
+**Lemma 3.1 (prime-modulus words; PROVED, elementary).** Let n ≡ 1 (mod 4), ℓ an odd prime, u ∈ ℤ∖{0, −n}. There is
+a word with A = ±ℓ and this u iff ℓ | n + u and u | ℓ + 1 (A = ℓ) or u | ℓ − 1 (A = −ℓ); then
+**χ = (n/ℓ) = (−u/ℓ)**. Hence such a word with χ = −1 exists iff for some prime ℓ with **(n/ℓ) = −1**, the residue
+n mod ℓ lies in R(ℓ) := {−u mod ℓ : u ∈ ±div(ℓ+1) ∪ ±div(ℓ−1)}.
+*Proof.* v = (n + u)/A and t = (A + 1)/u must be nonzero integers; χ = (−A/n) = (±ℓ/n) = (ℓ/n) = (n/ℓ) by Jacobi
+reciprocity (n ≡ 1 mod 4, (−1/n) = 1), and n ≡ −u (mod ℓ). ∎
+So the prime-modulus layer of SQ_± fires at ℓ on ω_±(ℓ) := #{r ∈ R(ℓ) : (r/ℓ) = −1} ≤ 2(τ(ℓ+1) + τ(ℓ−1)) classes;
+note the **free** genus filter: any prime with (n/ℓ) = −1 converts every hit n ≡ −u into a χ = −1 word.
+For |u| ∈ {1, 2, 3, 4, 6} the condition u | ℓ ± 1 is automatic, giving additive-shift slots "n + u has a prime factor
+ℓ with ψ_u(ℓ) := (−u/ℓ) = −1" (u = 1: ℓ ≡ 3 mod 4; ±2: (∓2/ℓ) = −1; u = −1, −4 never) — the shift-dual of the
+|t|n ± 1 slot table.
+
+**Proposition 3.2 (SQ_± almost always, exponent 1/2; PROVED relative to Montgomery's large sieve and the
+Titchmarsh divisor bound).** #{n ≤ N : n ≡ 1 (8), no prime-modulus χ = −1 word} ≪ N exp(−c (log N)^{1/2}).
+*Proof.* As Thm 1.2 with a = 1: Σ_{X^{1/2}<ℓ≤X} ω_±(ℓ)/ℓ ≫ log X (already the class u = 1 for ℓ ≡ 3 (4) together with
+u = 2, ±3, 4, ±6 gives ≫ 1 per dyadic block of log ℓ; the class count of R(ℓ) is ≥ 1 for every ℓ ≥ 5), and
+ω_±(ℓ) ≪ τ(ℓ²−1). ∎
+*Calibration (Assessment).* SQ_± is "empirically far easier" than ES-five (SYNTHESIS_SPARKS4 §2.5), yet its
+prime-modulus class mass is only Σω_±/ℓ ≍ log X (measured: 1.95·log N at N = 10⁵, 2.06·log N at 10⁶), against
+(log X)² for Vaughan's ES classes. So **by the large-sieve method the signed twin is provably HARDER on average
+(exponent 1/2 < 2/3)**: its ease is pointwise (many cheap genus slots with Landau-type failure probability), not a
+richer class structure. A lottery-breaker tested on SQ_± (SPARKS4 steering rule) should therefore not be expected to
+transfer its *average* strength to ES, nor conversely.
+
+**CONJECTURE PM-SQ_± (EVIDENCE).** Every non-square n ≡ 1 (mod 8) has a word with A = ±(prime) and χ = −1.
+* `scripts/z5_sqpm_prime.py 1000000`: **0 exceptions among all non-squares n ≡ 1 (8) ≤ 10⁶**; 0 odd squares marked (T1).
+* `scripts/z5_sqpm_verify.py` (independent direct search + exact identity tuv − u − v = n, Jacobi symbol): 300 random
+  n ≤ 10⁶ (max |u| needed 10), 100 random n ≤ 10¹¹ (max |u| 3).
+* Adversarial (`scripts/z5_sqpm_adversarial.py Q 20 300`): n ≡ 1 (mod 8∏_{3≤q≤Q} q) — every small prime has
+  (n/q) = +1 and cannot fire — Q = 13, 23, 31 (n up to ≈ 1.6·10¹³): min 10, 11, 21 tickets with |u| ≤ 300, least |u| ≤ 8.
+  Contrast PM-II (exception 3361, stacked residues kill its small-h tickets): here the tickets come from LARGE prime
+  factors of n + u with |u| tiny, which stacking cannot touch.
+* Heuristic (Assessment): expected tickets ≈ 2 log n (Poisson failure ≈ n^{−2}, summable), so finitely many exceptions
+  are expected; the slots |u| ≤ 6 alone fail with probability ≍ (log n)^{−9/2}. As for the t-slots (SPARKS4 §2.4), no
+  finite u-set should suffice (Dickson-type construction; not carried out here).
