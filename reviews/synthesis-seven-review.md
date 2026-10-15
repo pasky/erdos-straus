@@ -88,3 +88,71 @@ that no window m ≤ M fires when each rough part is prime (divisor residues of 
 admissible at every prime ≤ 500 (above that #forms ≤ 26 < ℓ). Negative control r = 10¹² + 1: windows 3, 7 fire. **SOUND**
 (CONDITIONAL on Dickson, as labelled). Minor: "m₀ is unbounded under Dickson" needs a class for every M, which the script
 only exhibits for five M; cite redteam-automorphic-2 Thm 2.2(iii) for the general statement (D6).
+
+**Permutation test (EVIDENCE).** Independent re-implementation (`review_r256_shuffle.py`; groups = (block of 2000 primes, m,
+R mod m, bit length of R), windows m ≤ 51). Actual tails at N = 10⁶ reproduce the memo exactly (4540, 989, 405, 161, 57, 20, 7).
+Shuffled, 40 permutations each:
+* B = 47, N = 10⁶: mean (sd) 4542.8 (9.2), 985.3 (11.1), 408.7 (8.2), 160.4 (7.2), 51.0 (4.2), 14.4 (2.4), 4.2 (1.4). Fits for
+  M ≤ 19; the deep tail is above the model at M = 35 (actual 20, 0/40 shuffles ≥ 20) and M = 27 (6/40).
+* B = 47, **N = 4·10⁶** (30 permutations; `shuffle_4e6_B47_30.txt`): every tail fits (M = 27: 146 vs 152.9 ± 9.8; M = 35: 48
+  vs 48.5 ± 5.8; M = 47: 11 vs 9.3 ± 1.8). So the 10⁶ deep-tail excess is a fluctuation, and the EVIDENCE claim survives.
+* B = 13, N = 10⁶: the model **does not fit**: M = 11: actual 405 vs 436.7 ± 13.5 (40/40 shuffles ≥ actual), M = 19: 161 vs
+  189.3 ± 11.8 (39/40). The memo's own B = 13 ranges (427–456, 175–200) already exclude the actual values; the text does
+  not say so (D7).
+* Control "m-only" shuffle (R mod m not preserved): tails collapse (M = 19: 14–15 vs 161), so preserving R mod m is essential,
+  as the memo's design assumes.
+Verdict: **SOUND as EVIDENCE for B = 47**, with wording repairs (D7).
+
+## 3. Parity law and r-generic windows (s7_sibling_certificate Lemmas 1–2)
+
+Re-derived. At the r-generic point K_m ≡ 1/4 (mod m), v_ℓ(K_m) = v_ℓ((1+m)/4) for ℓ ≠ r, v_r(K_m) = v_r(u+m) ✓. For odd
+ℓ | (1+m)/4: (m/ℓ) = (−1/ℓ) and Jacobi reciprocity with (m−1)/2 odd gives (ℓ/m) = (−1/ℓ)(m/ℓ) = 1 ✓; ℓ = 2 needs 8 | 1+m,
+(2/m) = 1 ✓. χ(−1/4) = −1 ✓. If c ≥ 1 then r | u + m with (u/r) = −1, so (−m/r) = −1 and (r/m) = (−1/r)(m/r) = (−m/r) = −1 ✓;
+hence χ(r)^c = −1 ⇒ c odd. For c = 0 the same character computation is already contradictory (χ(δ) = 1 ≠ −1), so the T1
+remark is not needed (D9). The law holds for **every** admissible c, not only the least.
+From scratch (`review_r256_parity.py`): r = 17, m ≤ 2·10⁵, c ≤ 16: 464 firing windows, every admissible c odd, every
+firing window has (−m/17) = −1; same for r = 19, 23 (m ≤ 5·10⁴). m = 11 at r = 17: admissible c ∈ {3, 5, 7, 13, 15}, least
+c = 3 ✓ (the P-datum example). Level-1 windows at r = 17: {3, 7, 23, 39} ✓ (cells 14, 10, 11, 12 ✓).
+Level-1 survivors with the full fixed-divisor test (`review_r256_level1.py`, m ≤ 3·10⁵, windows + mirrors): r = 13 {2, 5, 7, 8},
+r = 17 {3, 5, 6, 7}, r = 19 {2, 3, 10, 13}, r = 23 {5, 14} — identical to the memo's ratio-test sets, and the r = 19, 23 sets
+equal STERILE_LOWER Comp 4.1 (read on main) ✓. **SOUND** (Lemma 1, Lemma 2 PROVED; numerics EVIDENCE).
+"Exact ℤ-twin of (J)67's root-product law" is an analogy (both are μ₂/quadratic-character obstructions on exponents), not a
+proved correspondence: should read "analogue" (D9). Frobenius criticality (3^k(N+1) − 1 levels, ball contains 1 iff N = 0)
+re-checked: ✓ given (J)72 Prop 5.1.
+
+## 4. Certified caps on lnr = 17 (s7_certified_caps Lemma 1)
+
+Re-derived from CAP_DOWN Lemma 1.1 (read on main): for d = K·s^g·∏_{ℓ∈F} ℓ^{j_ℓ}, c_ℓ = b_ℓ + j_ℓ ∈ [0, 2b_ℓ] since b_ℓ ≥ 1
+(also for ℓ = 2, giving condition (ii)); c_s = b_s + g ≤ 2b_s for g ∈ {−1, 0, 1}; g = 2e′+1 with b_s odd gives c_s even and
+c_s/2 − b_s = (2e′+1−b_s)/2 ≤ e′; all other primes of K have c = b. d ≡ −K (mod q) ⟺ s^g∏ℓ^j ≡ −1 since gcd(K, q) = 1 ✓.
+Existence of s: (K/q) = (p/q) = (q/p) = −1 (p ≡ 1 (4)), and 2 is never the forced non-residue because p ≡ 1 (8) makes K odd
+for q ≡ 3 (8) and (2/q) = 1 for q ≡ 7 (8) ✓. The hypothesis depends on p mod 8·q·∏_{ℓ≤L}ℓ ✓.
+**What is PROVED per class:** for every prime p in a certified class, e*(p) ≤ e, i.e. an ES^{(y,e)}(p) solution (CAP_DOWN
+normalisation) exists — not ES itself unless e = 0. The 0.93–0.96 figure is a Monte Carlo Haar measure (EVIDENCE); as Haar
+measure of a finite union of congruence classes it equals the relative prime density on the line (Dirichlet), so "explicit
+positive-density classes with cap ≤ 1" is correct as stated.
+From scratch (`review_r256_capdensity.py`, Haar sampler: p ≡ 1 (8), QR mod 3…13, NR mod 17, uniform above; forced windows =
+primes q ≡ 3 (4), 19 ≤ q ≤ Q, (p/q) = −1): Q = 200: cap 0 / ≤ 1 / ≤ 2 = 0.764 / 0.922 / 0.938 (author 0.770 / 0.928 / —);
+Q = 400: 0.873 / 0.954 / 0.964 (author 0.875 / 0.959) ✓. Forced + F-only (all windows m ≡ 3 (4) ≤ Q, composite and < 19
+included): cap 0 = 0.999 (Q = 200), 1.000 (Q = 400) — a bit higher than the author's 0.982 / 0.997, presumably a different
+unforced-window set (unspecified in the memo; D8). Count check: 4 945 primes p ≡ 1 (4), p ≤ 2·10⁷ with lnr = 17 ✓.
+**SOUND** for Lemma 1 and the per-class statement; "cap 0 on Haar-almost all of the line" is an overstatement (D8).
+
+## 5. (iv) Function-field menus (s7_ff_nonlinear) — Assessment
+
+Lemma 1 is elementary (finite union of closed nowhere-dense sets is closed nowhere dense; "Baire" only needed for countable
+unions, fine in the compact Hausdorff Â). Lemma 2 proof ✓ (a basic open set mod M, CRT at ℓ ∤ M with φ mod ℓ not surjective
+gives an open set missing φ(F_q[T])); for φ = X⁴ + 1 (char 3) non-surjectivity holds at every ℓ since 4 | q^{deg ℓ} − 1 is false
+only… (x ↦ x⁴ is never a bijection of F_{3^k}^* as 2 | 3^k − 1), so the Sophie-Germain example satisfies the hypothesis ✓.
+Lemma 3 re-derived: π^p = Σ θ^{ip}U_i(θ^p)^p = Σ T^i U_i^p = P ✓; 4^p = 4 in F_p ✓; π ↦ P^{σ⁻¹} under θ ↦ T ✓.
+Application caveat: "U ⊆ C ∪ ⋃T_i ⇒ U ⊆ C" must be applied with T_i = closures of thin images and with the covered target
+dense in U ∖ C (all polynomials; for primes, Dirichlet for F_q[T] on unit cylinders). Implicit; harmless. **SOUND as
+Assessment** (labels appropriate: PROVED lemmas, Assessment conclusion).
+
+## 6. (v) Enlarged T1 control set (s7_typeII_free_controls)
+
+Lemma 1 re-derived: m/x = 1/Y + 1/Z ≤ 2 ⇒ x ≤ n/2 ⇒ m ≤ n ✓ (ET's Type II requires gcd(x, n) = 1 — ET p. 3, checked in the
+PDF — matching the memo). From scratch (`review_r256_m0.py free 200000`): **103** non-square n ≡ 1 (4) ≤ 2·10⁵ with
+f_II(n) = 0; the list is identical to the memo's displayed members (21, 57, 93, 105, …, 1705, 3985, 4585, …); 101/103 are
+divisible by 3 or 7 (exceptions 1705, 3985) ✓. `review_r256_free1mod4.py 10⁶`: 3985 is the **only** Type-II-free non-square
+≤ 10⁶ with all prime factors ≡ 1 (4) ✓. **SOUND.**
