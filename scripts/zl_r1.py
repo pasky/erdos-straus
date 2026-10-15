@@ -55,11 +55,17 @@ def main():
         sf, A, Y, ef = args[i], int(args[i + 1]), int(args[i + 2]), args[i + 3]
         ADY = 2 * Dsum(Y)
         eng = {}
-        for line in open(ef):
-            f = line.split()
-            if f and f[0].isdigit(): eng[int(f[0])] = float(f[1]) * (1 + 1e-9)
-        hdr = open(ef).readline()
-        if f"ACUT={A}" not in hdr and os.environ.get("ZL_ENG_HDR", "1") == "1": sys.exit(f"{ef}: header lacks ACUT={A}: {hdr}")
+        if ef == 'none':
+            # all rows a < A swept: a Q-datum of F has a <= acd <= (F+1)/2 (M17D Lemma 2.2(ii)), so none has a >= A if A > (X1+1)/2
+            X1s = max(int(l.split()[3]) for l in open(sf) if l.startswith('C '))
+            if not A > (X1s + 1) // 2 + 1: sys.exit("ENGFILE none needs A > (X1+1)/2 + 1")
+            eng = None
+        else:
+            for line in open(ef):
+                f = line.split()
+                if f and f[0].isdigit(): eng[int(f[0])] = float(f[1]) * (1 + 1e-9)
+            hdr = open(ef).readline()
+            if f"ACUT={A}" not in hdr: sys.exit(f"{ef}: header lacks ACUT={A}: {hdr}")
         for line in open(sf):
             f = line.split()
             if not f or f[0] != 'C': continue
@@ -67,12 +73,13 @@ def main():
             b = j / 32; rlo, rhi = math.ceil(2 ** b), math.ceil(2 ** ((j + 1) / 32))
             if not (hi == rhi and (lo == rlo or (lo == rlo + 1 and rlo % 2 == 0))): continue   # partial cell: not certified here (sweep starts at odd X0)
             if ms >= 131070 or mp == 65535 or mq == 65535: bad += 1; print(f"FAIL j={j}: counter overflow"); continue
-            if j not in eng: sys.exit(f"missing engine row j={j}")
-            L1 = 2 * (ms + ADY + eng[j]) / 2 ** b
+            if eng is not None and j not in eng: sys.exit(f"missing engine row j={j}")
+            ej = 0.0 if eng is None else eng[j]
+            L1 = 2 * (ms + ADY + ej) / 2 ** b
             S = (L1 + deeper(P, Q, tP, tQ, b, b + 1 / 32, LP, LQ)) * (1 + 1e-6) + 1e-20
             lim = 0.5 - 2 ** (-b - 1)
             ok = S < lim
-            print(f"j={j} b={b:.5f} primes={cnt} maxPQ={ms} ADY={ADY} engQ={eng[j]:.4e} L1={L1:.5f} S={S:.6f} {'ok' if ok else 'FAIL'}")
+            print(f"j={j} b={b:.5f} primes={cnt} maxPQ={ms} ADY={ADY} engQ={ej:.4e} L1={L1:.5f} S={S:.6f} {'ok' if ok else 'FAIL'}")
             if not ok: bad += 1
             if S > worst[0]: worst = (S, b)
             done.append(j)
