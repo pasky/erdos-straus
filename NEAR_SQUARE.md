@@ -13,7 +13,7 @@ Z_k := {m ∈ Ẑ : m² + k ∈ S}, S ⊂ Ẑ the sterile set (STERILE_STEER Pro
 ## Summary (checkpoint 1)
 1. **Above the squares nothing beats congruences (PROVED, Thm 2.2).** For p = m² + k, k > 0, ET's polynomial-solvability
    theory in the variable m has new (Aurifeuillean) families, but every Type I/II polynomial family has a witness that is a
-   fixed character of n (Lemmas 1.1/1.3: every Type I solution has (d/n) = −1, every Type II (de/n) = −1), so its class
+   fixed character of n (Lemmas 1.1/1.3: every Type I solution has (d/n) = −1, every Type II (f/n) = −1), so its class
    avoids Z_k^□ = {m ∈ Ẑ : m² + k a local square} (≠ ∅ iff k ≡ 0, 1, 5 mod 8). Every escaping shape dies by the
    positive-definiteness of x² + ky² — the archimedean place of ℚ(√−k).
 2. **Below the squares families escape (PROVED existence).** For p = m² − j escaping families exist (j = 8, 15, 24:
@@ -24,7 +24,7 @@ Z_k := {m ∈ Ẑ : m² + k ∈ S}, S ⊂ Ẑ the sterile set (STERILE_STEER Pro
    closure) is sterile for
    every family (Thm 3.4, Hilbert reciprocity in K = ℚ(√j)); at j = 8 the uncovered classes at L = 8064, 4480 are
    exactly Z_K⁺ (CONJECTURE Y10-S).
-4. **Clean levels (PROVED, Prop 4.1).** Level t is odd-clean along Q(m) = Am² + Bm + C iff 4A − tΔ is a square (R224's
+4. **Clean levels (PROVED, Prop 4.1).** Level t is odd-clean along Q(m) = Am² + Bm + C (outside gcd-exceptional classes) iff 4A − tΔ is a square (R224's
    tk + 1 = c² is the case Q = m² + k, now with the converse). Per prime, T1-type = principal-form part of "clean"
    (82 % of clean words, 10⁵–10⁶).
 5. **Hardness (EVIDENCE, §5).** Within adelic cells, exact cleanliness explains N₋/N (corr −0.57) and T1-type adds

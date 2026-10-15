@@ -2,7 +2,7 @@
 
 ## Idea
 Witness (D(m)/n) = (D(√j)/(m − √j))_K is a product of Hilbert symbols at v | 2α∞ (α = D(√j)). If m − √j is a local
-square at every finite place and totally positive, every such product is +1: no family can certify near m. So the
+unit square at every finite place (R-O221: units, so that all coprimality conditions hold nearby) and totally positive, every such product is +1: no family can certify near m. So the
 sterile set of polynomial families is ⊇ Z_K⁺ (Thm 3.4), strictly smaller than the sterile set of congruences
 (Z^□: N(m − √j) a local square). The deformed T1 is "square in K", not "square in ℚ".
 

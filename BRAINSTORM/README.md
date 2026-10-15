@@ -347,7 +347,7 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | y10_hecke_witness | witness (D(m)/p) = (D(−√−k)/(m + √−k))_K | escape ⟺ D(−√−k) ∉ ℚ; never happens for k > 0 | PROVED dictionary |
 | y10_below_squares | p = m² − j | escaping families exist (e.g. j = 8, m ≡ 53 mod 56, reaching n ≡ 1 mod every L) | PROVED existence |
 | y10_t1_points_positivity | positivity propagates to the largest real root of n | integer T1 points above the root obstruct every polynomial family (Thm 3.3); m₀ vs −m₀ differ | PROVED |
-| y10_kadic_sterile | sterile set of polynomial families on m² − j | ⊇ Z_K⁺ = {m − √j a local square in ℚ(√j)} (Thm 3.4); = at j = 8, L = 8064/4480 | PROVED ⊇; CONJECTURE Y10-S — SHARP |
-| y10_clean_level_classification | levels clean along a whole quadratic family | ⟺ 4A − tΔ = □; per prime: T1-type = principal-form part of clean (82 % of clean words) | PROVED + EVIDENCE |
+| y10_kadic_sterile | sterile set of polynomial families on m² − j | ⊇ closure of Z_K⁺ = {m − √j a local unit square in ℚ(√j)} (Thm 3.4); = at j = 8, L = 8064/4480 | PROVED ⊇; CONJECTURE Y10-S — SHARP |
+| y10_clean_level_classification | levels clean along a whole quadratic family | ⟺ 4A − tΔ = □ (outside gcd-exceptional classes); per prime: T1-type = principal-form part of clean (82 % of clean words) | PROVED + EVIDENCE |
 | y10_hardness_beyond_clean | does near-squareness predict N₋/N beyond adelic cells? | yes, monotone in p − ⌊√p⌋²; half survives removing all clean levels (mechanism open) | EVIDENCE |
 | y10_hard_primes_m2minus3 | hard primes vs polynomial T1 points | 3361 and 1 249 921 are m² − 3 next to m₀ = 2 | EVIDENCE (anecdotal) |

@@ -8,7 +8,7 @@ give (each verified family is an identity valid on a residue class of m).
 1. **The sterile set of polynomial ES families on p = m² − j is "m − √j is a square in ℚ(√j)", one level finer than
    the congruence sterile set "p is a square in ℚ".** Thm 3.4 (PROVED, Hilbert reciprocity in K = ℚ(√j)): the K-adic
    square set Z_K⁺ meets no family's class. At j = 8 the classes left uncovered by all congruence families plus all 76
-   escaping families found are *exactly* the Z_K⁺ classes at L = 8064 and 4480 (2-adic m ≡ 3 mod 8 from
+   escaping families found are *exactly* the classes meeting Z_K⁺ (unit squares) at L = 8064 and 4480 (2-adic m ≡ 3 mod 8 from
    m − 2√2 ≡ (a + b√2)² mod 4√2; inert 3, 5; split 7 = both m ∓ 1 squares). CONJECTURE Y10-S: equality in general.
 2. **Sign of k = the archimedean place.** Above the squares (k > 0) every Type I/II polynomial family in m has a
    witness that is a fixed character of n — polynomial families are no stronger than congruences at locally-square m
@@ -16,11 +16,20 @@ give (each verified family is an identity valid on a residue class of m).
    Below (k < 0) escaping families exist (e.g. 4/2801 = 1/29421704 + 1/702 + 1/283608 from the family a = 1,
    c = (m+1)/2, d = (m−1)/2, f = 7 on m ≡ 53 mod 56, whose class contains m with n ≡ 1 mod every L).
 3. **Witness dictionary (PROVED, Lemmas 1.1/1.3).** Every Type I solution of n ≡ 1 (4) has (d/n) = −1, every Type II
-   (de/n) = −1 — ET Prop 1.6's mechanism as a per-solution χ = −1 witness; on p = m² + k it is the quadratic residue
+   (f/n) = −1 (and (de/n) = −1 if gcd(n, 2ad) = 1) — ET Prop 1.6's mechanism as a per-solution χ = −1 witness; on p = m² + k it is the quadratic residue
    symbol (D(−√−k)/(m + √−k)) of ℚ(√−k) (Prop 1.4).
 4. **Positivity propagation (PROVED, Lemma 3.2/Thm 3.3).** Coordinates of any family are positive above the largest
    real root of n; so any integer point above it where n is an odd square kills every family on its class (recovers
    ET/Schinzel for linear n; distinguishes m₀ = 3 from −3 for m² − 8).
+
+## Self-review (R-O221, deep reviewer subagent; repairs applied, marked "R-O221" in NEAR_SQUARE.md)
+No FATAL. MAJOR items repaired: Lemma 1.3's de-witness needs gcd(n, 2ad) = 1 (counterexample n = 21) — the witness is
+now f; Thm 3.4 restated for unit squares (closure included; coprimality and denominators handled); Conjecture Y10-S
+restricted to n(m*) ∈ Ẑ^×; Prop 4.1's "iff" is generic (gcd-exceptional classes are essential: m² + 8, m = 3); Thm 2.2
+gained the a ≤ b normalisation (reviewer: all 6 + 10 degree distributions covered, impossibility algebra correct) and a
+positivity kill of the Type II (a, c linear) shape; "escape" algebraic vs character-theoretic distinguished; family
+counts corrected (80/161/263 candidates, 76/97/111 with computed classes and verified; script now reports skips);
+overclaims ("true sterile set", "exactly as well") removed; §5 relabelled descriptive. Lemma 1.1 now unconditional.
 
 ## Deliverables vs task
 (a) Classification of deterministically clean levels for quadratic families: 4A − tΔ = □ (Prop 4.1, PROVED both

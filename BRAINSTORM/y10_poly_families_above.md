@@ -8,7 +8,7 @@ exist (Type I with f = m² + 2m + 3, c = 1, d = 2 is valid for m ≡ 2 (mod 4): 
 Question: can polynomial families in m reach the locally-square m (where congruence families provably cannot)?
 
 ## Result (NEAR_SQUARE §1–2)
-* Lemma 1.1/1.3 (PROVED): every Type I solution has witness (d/n) = −1, every Type II solution (de/n) = −1
+* Lemma 1.1/1.3 (PROVED): every Type I solution has witness (d/n) = −1, every Type II solution (f/n) = −1 (and (de/n) = −1 when gcd(n, 2ad) = 1; R-O221)
   (n ≡ 1 mod 4) — ET Prop 1.6's mechanism in bare form; checked on 1 561 solutions of primes < 800.
 * Thm 2.2 (PROVED): for k > 0 every Type I/II polynomial family has a witness ≡ constant (mod m² + k), hence a fixed
   character of n, hence its class avoids Z_k^□ = {m ∈ Ẑ : m² + k ∈ (Ẑ^odd)²} (non-empty iff k ≡ 0, 1, 5 mod 8).
@@ -25,7 +25,7 @@ families are no stronger than congruences at the locally-square m. T1: k = 0 is 
 squares deforms to the vanishing of *escaping* families for k > 0. Nothing here says anything at a single p (B6).
 
 ## Cheap numerics
-`scripts/ns_polyfam.py K 3`: escaping families with integral classes: 0 for k = 1, 16, 24; 80/161/263 for
+`scripts/ns_polyfam.py K 3`: escaping families with integral classes: 0 for k = 1, 16, 24; 80/161/263 algebraic candidates (76/97/111 with computed classes, verified) for
 k = −8, −15, −24. `scripts/ns_witness_check.py 800`: 0 failures.
 
 ## Assessment
