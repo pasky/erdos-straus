@@ -25693,4 +25693,46 @@ def check_ga():
 check_ga()
 
 
+def check_gb():
+    # (gb) SIGN_FIELDS (O232; reviews R235, R236): two independent from-scratch certificate checkers re-certify
+    # Thm 1.3 — ES for ALL n = 4^s + k, k in {9, 57, 81, 129, 153, 177, 201, 225, 249} (PROVED, computer-assisted;
+    # five k are Mordell-immediate, 153 = Mordell + D_13, only 57, 177, 225 are genuine coverings); odd squares in the
+    # families sit in divisor classes; independent ES solutions for s <= 14 for all 13 non-trivial k (incl. OPEN 33, 105,
+    # 273, 297); every non-D class is a non-square class (T1).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    ks = (9, 57, 81, 129, 153, 177, 201, 225, 249)
+
+    def run(args, cwd):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=cwd, env=env)
+        assert r.returncode == 0, ("SIGN_FIELDS subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r236_cert.py"] + [f"../data/z8/cert_c1_k{k}.json" for k in ks] + ["300"], sdir)
+    for k in ks:
+        assert f"cert_c1_k{k}.json: n = 1*4^s + {k}," in out, (k, out[-2000:])
+    assert out.count("-> COVERED; exact to s = 300; small []") == 9, out[-2000:]
+    out = run(["scripts/review_r235_cert.py", "400"], root)
+    assert out.count(" OK  L=") == 9, out[-2000:]
+    for k in ks:
+        assert f"data/z8/cert_c1_k{k}.json OK" in out, (k, out[-2000:])
+    out = run(["review_r235_brute.py", "14"], sdir)
+    for k in (9, 33, 57, 81, 105, 129, 153, 177, 201, 225, 249, 273, 297):
+        assert f"{k} ES ok for s <= 14" in out, (k, out[-2000:])
+    out = run(["review_r236_misc.py"], sdir)
+    assert "(d) no non-D class is a square class mod M: OK" in out, out[-2000:]
+    assert "(b) k=105 n mod 840: [1, 121, 169, 289, 361, 529]; hard s mod 6: [0, 1, 2, 3, 4, 5]" in out, out[-2000:]
+    print(f"== (gb) SIGN_FIELDS R235/R236: ES certified for all 4^s + k, k in {list(ks)} (two independent checkers, "
+          f"exact to s = 400); ES s <= 14 for the 13 non-trivial k; T1 classes OK; 4^s + 105 Mordell-hard for every s; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_gb()
+
+
 print("\nall checks passed")
