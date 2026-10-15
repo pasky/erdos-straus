@@ -163,7 +163,8 @@ proof of Thm 3.1 (which uses ℓ > 4V) does not apply as written).
 ## 4. The pointwise side: the minimal cap e*(n), and where it meets the sieve
 
 Define **e*(n)** := min{e : ES^{(y,e)}(n) has a solution} ∈ ℤ_{≥0} ∪ {∞}. ES(n) ⟺ e*(n) = 0; FROBENIUS_FIRING
-Thm 4.2 gives e*(n) < ∞ for every odd n > 1 (ineffective: no bound in terms of n). PHASE_DIAGRAM Thm 5.1 is a
+Thm 4.2 gives e*(n) < ∞ for every odd n > 1 (ineffective: no bound in terms of n; (R239 repair) superseded by CAP_POINTWISE
+Thm 1.1/1.3: e*(n) ≤ q*(n) − 3, effective polynomial bound e*(n) < 2^{201232}n^{50308}, and (16 log n + 70)² under GRH). PHASE_DIAGRAM Thm 5.1 is a
 *family-form* statement (for fixed n, solutions at every large scale y with e ≤ y^{o(1)}); it bounds e*(n) only by
 the ineffective x₀(n)^{o(1)}. The almost-all statements of §2 are bounds on #{p ≤ N : e*(p) > e}.
 
@@ -327,7 +328,8 @@ O229's heuristic that no finite u-set suffices (Dickson-type), while exceptions 
    log log N ≤ e ≤ (log N)^{1+ε} is OPEN for the full family.) The sieve never meets "all n ≥ n₀".
 3. **Pointwise (§4):** covering barrier e ≥ (log log p)^{1−o(1)} for infinitely many p (Prop 4.1, PROVED) — the same
    scale as the sieve saturation; under GRH e*(p) ≤ C_ε(log p)^{2+ε} and e*(p) ≤ exp(O(√(log₂p log₃p)))
-   (Thm 4.2, CONDITIONAL, citation-level proof sketch). Unconditionally no bound of e*(n) in terms of n is known.
+   (Thm 4.2, CONDITIONAL, citation-level proof sketch). Unconditionally no bound of e*(n) in terms of n is known. (R239 repair: superseded by CAP_POINTWISE Thm 1.3 — effective
+unconditional e*(n) ≪ rad(n)^5 and e*(n) < 2^{201232}n^{50308}; under GRH e*(n) ≤ (16 log n + 70)², which also supersedes (a) here.)
 4. **Exact family (Prop 5.1, PROVED):** at every modulus M ≡ 3 (4) the ES^{(y,e)} certificates of shot shape are the
    classes −4D, D ∈ 𝒟_e(M) (D | A² lifted by even excess ≤ 2e); the cube is a redundant parametrisation; supply
    dimension exactly e + 3 (Cor 5.2) — no tower at fixed e; composite-multiplier exponent (e+3)/(e+4) and its CRT
