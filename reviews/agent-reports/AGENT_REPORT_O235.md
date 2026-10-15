@@ -12,12 +12,12 @@ check_cantor); data/z11/ (one check log). **ES is not solved; no new infinite ES
    (CERTIFIED, independent replay `z11_check_cantor.py`, support {2,3,5,11,17,19,29,47}). Quaternary core {4,−2,2,3}: open.
 2. **ℓ-lines through square points, exponential analogue of (J)26's r-generic lines (diagnosis + EVIDENCE, §2).** The
    per-branch Ẑ tree (C) drives uncovered measure to 3·10⁻¹¹ for k = 105, 2·10⁻¹¹ for k = 297, but stuck nodes multiply
-   ×10–100 per level (supercritical branching). k = 297 has ONE square point (no mixed points) and diverges equally: stuck
+   ×12–164 per two levels (supercritical-looking branching; Assessment for one heuristic, double-precision measures — R244 repairs D8–D10). k = 297 has ONE square point (no mixed points) and diverges equally: stuck
    nodes lie near X_{3,3} = {μ_ℓ′ = 3 ∀ℓ′ ≠ 3}, square at every q with 3 ∤ ord_q(4). The line itself is fully covered
-   (z11_line: classes with v₃(L_M) ≤ 2), but only by classes with large new ℓ′ in their period — the tree must split on ℓ′,
+   (z11_line: classes with v₃(L_M) ≤ 2; CERTIFIED by R244 replay — D7), but only by classes with large new ℓ′ in their period — the tree must split on ℓ′,
    the on-line child is pure and survives. Sharp question: is there a measure argument on ℓ-lines like (J)26's? Heuristic
    says no (Σ τ²/q over q with ℓ | ord diverges) ⇒ coverings exist but are huge.
-3. **Lemma 3.1 (PROVED, elementary): c₀·4^s + k has a unit-square point iff c₀ + k = 4^j**; non-trivial cases (3, 1) and
+3. **Lemma 3.1 (PROVED, elementary; k ≡ 1 mod 8, 4 ∤ c₀ — R244 repairs D1/D3): c₀·4^s + k has an *integer* unit-square point iff c₀ + k = 4^j**; non-trivial cases (3, 1) and
    c₀ ≡ 7 (mod 8), k = 4^j − c₀ (7·4^s + 9, 15·4^s + 1, 23·4^s + 41, …) have **no finite ET/divisor covering**.
 
 ## Goals
@@ -28,13 +28,15 @@ check_cantor); data/z11/ (one check log). **ES is not solved; no new infinite ES
 * (2) k = 33, 273, 297: same picture (tree tables in §2; 273 also has 4⁴ + 273 = 23², missed by O232; 297 has one point).
 * (3) c₀ ∈ {2, 3, 5} surveyed (EVIDENCE, not replayed; probably many Mordell-immediate — R236 D1 caveat applies);
   Lemma 3.1. 4^a·9^b + k NOT done.
-* (4) CONJECTURE E (weak): coverable iff c₀ + k ≠ 4^j; B1 over Ẑ-parameter spaces becomes quantitative (branching).
+* (4) CONJECTURE E (weak; 4 ∤ c₀ — R244 repair D1, false as first stated for 4 | c₀): coverable iff c₀ + k ≠ 4^j; B1 over Ẑ-parameter spaces: the qualitative obstruction is not known to persist (non-integer Λ ∩ Sq^× open — R244 repair D2), the quantitative one looks like branching (Assessment, D10).
 
 ## Caveats for the reviewer
 * z11_tree.c / z11_tree2.py emit stream certificates but no run terminated, so there is NO z11_check stream checker
   (nothing to check). The "uncovered measure" numbers are from the C tree (double precision, depth-capped).
 * z11_cantor*.py, z11_line.py, z11_fiber.py trust mordell_lib.residue_table (no replay except Result 1.1).
-* Line result for k = 297 is a coverage computation without witness replay.
+* Line result for k = 297: replayed by R244 (review_r244_line297.py).
+* (R244 repair D12) Survey caveat quantified: 2/7, 5/11, 8/9 of covered offsets (c₀ = 2, 3, 5) are Mordell-immediate.
+* (R244 repair D13) integer square points of each k are provably complete by factoring (EXP_NEAR_SQUARE §1).
 * Survey (c₀ = 2, 3, 5) used the O232 search (no ec_cert run).
 * Large pools were built in /tmp (500 MB), not committed.
 
