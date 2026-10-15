@@ -26,6 +26,14 @@ CRT) with n_s mod M computed directly, and for each class one actual member 4^s 
 exactly. Remark (not a defect): the subcover is not minimal — II1 35288 receives 0 first hits when the classes are tried
 in the listed order, so 9 classes suffice.
 
+Side claim "with ℓ ≤ 23 only two patterns remain (B exactly on {3,13,17} or {3,13,17,23})" — partially replayed
+(`scripts/review_r244_core23.py`, own pool D_q q ≤ 10⁶, II2 prime f ≤ 3·10⁵, II1 M ≤ 3·10⁵, support ⊂ {ℓ ≤ 23}): 4 patterns
+left, {3,17}, {3,17,23}, {3,13,17}, {3,13,17,23}. Targeted searches over the remaining families (M ≤ 3·10⁵) close the first
+two: {3,17,23} by I4 (a,b,e) = (1, 59825, 59), M = 239 300 (L-support {2,5,13,23}); {3,17} by II2 (6216, 1, 99455) with
+**composite** f = 5·19891 (L = 19890 = 2·3²·5·13·17; exact solution verified at s = 75274). I1, I2, I3, II3 give nothing for
+{3,17}. So the author's claim is consistent with an independent pool (the two residual patterns were not re-searched in the
+I-families; this side claim is pool-relative EVIDENCE anyway).
+
 ### C2. Lemma 1.2 (CRT of squares at label points) — **SOUND-AFTER-REPAIRS** (minor: proof gap at q | k, citation, one overclaim nearby)
 Re-derivation. For odd q the q-component ν(μ)_q = 4^μ + k depends on μ only through μ mod ord_{q^e}(4) (mod q^e). If all
 ℓ | ord_q(4) carry the exact integer label x, then μ ≡ x (mod ord_q(4)), so ν(σ) ≡ 4^x + k = s_x² (mod q) (s_x ∈ ℤ[1/2],
@@ -45,7 +53,7 @@ Defects: D2 (q | k not covered by the proof), D3 (citation), D4 ("true mixed-poi
 ### C3. Lemma 3.1 (unit-square point ⟺ c₀ + k = 4^j) and "no finite ET/divisor covering" — **SOUND-AFTER-REPAIRS**
 Re-derivation. ν(x) (x ∈ ℤ) has odd components the rational N = c₀4^x + k; N ∈ (ℤ_q^×)² for all odd q ⟺ N is a square
 of ±2^j (j ∈ ℤ) — a rational that is a square in ℚ_q for almost all q is a square, and the unit condition kills odd
-primes. 2-component: ν₂ = k (limit of c₀4^s + k, s → ∞ 2-adically… i.e. s → ∞ in ℕ), so additionally **k ≡ 1 (mod 8)** is
+primes. 2-component: ν₂ = k (the 2-adic limit of c₀4^s + k as s → ∞), so additionally **k ≡ 1 (mod 8)** is
 needed (D5). Case analysis: c₀ odd — x > 0 gives N odd > 1; x = −a < 0 gives c₀ + k·4^a odd > 1; so x = 0, c₀ + k = 4^j ✓.
 c₀ ≡ 2 (mod 4) — x ≥ 0: N odd > 1; x < 0: c₀ + k4^a ≡ 2 (mod 4) ✓ impossible. **c₀ ≡ 0 (mod 4) is not treated and the
 stated equivalence is false there**: c₀ = 4c₁ gives a unit-square point at x = −1 iff c₁ + k = 4^j. Brute force
