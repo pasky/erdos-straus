@@ -59,3 +59,27 @@ direct factorisation.
 **D3 (MINOR).** UNFORCED_WORDS.md §3, Thm 3.2 proof: "M = 8·∏_{3 ≤ ℓ ≤ 2K+1} ℓ^{a_ℓ} … (also 2^{a_2} > K + 1)" —
 as written the 2-part of M is 8, so for K ≥ 15 (s+1 = 16) (s+1) ∤ M and L_s is not integral. Repair: M =
 2^{a_2}·∏_{3≤ℓ≤2K+1} ℓ^{a_ℓ} with a_2 ≥ 3 and 2^{a_2} > K+1.
+
+## Census (from scratch): `scripts/review_r233_census.c` + `scripts/review_r233_post.py`
+Global enumeration of all positive words (t, u, v) with n = tuv − u − v, binned by n; χ by a fresh Jacobi routine,
+cleanliness of N_t = AB, N_u = Av, N_v = Bu via an SPF sieve. Runs: (a) all non-square n ≡ 1 (8) < 10⁷
+(1 248 419 n, composites included, 29 s); (b) all 464 288 primes p ≡ 1 (8) < 3·10⁷ (31 s). Outputs /tmp/r233_*.txt
+(not committed; regenerate with `review_r233_census N 0|1`). Results:
+* U = 0 or U2 = 0: only n = 105 (N = 11, N₋ = U = U2 = 0) in (a); none in (b). **This extends CONJECTURE U2's evidence
+  from 2·10⁵ to all n ≡ 1 (8) < 10⁷.**
+* N₋ ≤ U2 ≤ U: 0 violations in (a) and (b).
+* (b): Σ N₋/Σ U2 = 0.873, Σ U2/Σ U = 0.882, min N₋/U2 = 0.620 at 23 125 409 (364/587) — exact match.
+  (a) adds composites: min N₋/U2 = 0.609 at 7 303 841 (182/299), Σ ratios 0.891 / 0.886. So "N₋ ≥ U2/2 unrefuted"
+  also holds for composites < 10⁷ (the document only states primes).
+* Failures 2N₋ < U at n ≡ 1 (8): (a) 110 897, 1 512 089, 2 152 097, 3 000 329, 5 270 849, 9 948 977; (b) 5 270 849,
+  17 188 937, 21 387 257 — the author's 8, with R227's (N, N₋, U) values reproduced (e.g. 5 270 849: 505/192/389).
+  ψ-odd part of n+1 is exactly {3: 2} in **all 8** (by factorisation). SHARP 1's data: CONFIRMED.
+* Landau triple ⟺ (least min of an unforced word ≥ 3 or U = 0): 0 mismatches in (b) and in (a) (the author checked
+  composites only to 2·10⁵).
+* Landau depth histogram on (b): identical to §3 (356 992 / 96 788 / 7 619 / 1 965 / 715 / 153 / 37 / 6 / 8 / 4 / 1),
+  least-min = K+1 at every K ∈ {2, 3, 6, 7, 9, 10}, exceedances 41/715 (K = 4), 29/153 (K = 5), 3/8 (K = 8),
+  maximal excess 9 — exact match.
+* Profile split of p+1 (b): odd-exp 320 343 / 0.564 / 0 failures; clean 107 296 / 0.600; 3²: 25 666 / 0.475 / 3;
+  other-even 10 983 / 0.549 — exact match. Composites (a): odd-exp 754 595 / min 0.545 / 0; clean 414 515 / 0.56;
+  3²: 49 890 / 0.454 / 6; other-even 29 419 / **0.505** / 0. The proposed CONJECTURE (N₋ ≥ U/2 when n+1 has a ψ-odd
+  prime of odd exponent) survives on composites < 10⁷ (min 0.545); "other even profiles" come within 0.005 of failing.
