@@ -1439,6 +1439,13 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment (iii)/(iv): no finite certificate for r = 17 from fixed windows; over F_q[T] thin (nowhere-dense) menus cannot help an open covering problem (Baire).
    * verify.py (gr) re-runs R256's from-scratch window checks.
 
+79. **Spark relay Z13: the norm-form rung collapses in every degree — polynomial ET families over any full norm form or irreducible-top form are ET identities in n (NORMFORM_CUBIC.md + BRAINSTORM/z20_*.md (O248); review `reviews/normform-cubic-review.md` (R259): no FATAL or MAJOR; minors D1–D10 (scope: "leading form" = top-degree part P*, "norm form" = full norm form; Lemma 2.1/Cor 2.2 argument completion; labels) repaired by the reviewer, marked (R259 repair)).**
+   * Thms 1.1′/1.2′ (PROVED; R259 SOUND): (J)78's collapse theorems use only that the top-degree homogeneous part P* is prime in a UFD, so they hold for every P with irreducible P*, in any degree and number of variables; (J)78's remark that "the degree-3 step fails" was wrong.
+   * **Thm 3.1 (Type I unit criterion; PROVED).** Writing Type I as C(4ABD − 1) = P(A + B): if P is prime and ℚ[x]/(P) has only constant units (true for every P with irreducible P*), every polynomial Type I family valid at ONE point lies in ℚ[P], apart from an explicit never-valid family. Combined (Cor 3.2): every polynomial ET family for a full norm form (any degree, any signature) or an irreducible binary form, valid anywhere, is an ET identity in n. This is sharp: P irreducible with split P* (4u² − 4v² − 1, 4uv − u − 1) admits valid non-collapsing families (R259 controls). Dictionary (Assessment): non-collapsing Type I families need units of the zero-fibre algebra ℚ[x]/(P), which for one-variable menus is (J)74 Theorem A's algebra ℚ[u]/(φ).
+   * Lemma 2.1 / Cor 2.2 (PROVED after R259 D6/D7; rank-2 orbits via Laurent): families valid at infinitely many points of a unit orbit are constant on {N = n} (Skolem–Mahler–Lech) and collapse. §4: the descent obstruction of the norm-form menu is the pull-back of profinite unit squares (containment).
+   * Assessment. The positive-density "norm-form data" hatch of (J)76 is closed for polynomial ET families in every degree; a non-collapsing positive-density family would need units in the zero-fibre algebra or non-polynomial (B2-type) structure. No relay.
+   * verify.py (gs) re-runs R259's identity checks and exact family searches.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

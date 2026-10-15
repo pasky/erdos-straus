@@ -26265,4 +26265,37 @@ def check_gr():
 check_gr()
 
 
+def check_gs():
+    # (gs) NORMFORM_CUBIC (O248/R259): R259 from scratch — every rearrangement in Thms 1.1'/1.2'/3.1 verified (sympy), the
+    # split-top control is valid and non-collapsing; exact brute-force family search (python-flint): for P = u^3 + 2v^3 every
+    # Type I/II family is in Q[P] or on the never-valid list (0 non-collapsing valid), while the control
+    # P = 4u^2 - 4v^2 - 1 (P irreducible, top part split) has 18 valid non-collapsing Type I families (positive control).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "review_r259_identities.py"], capture_output=True, text=True, timeout=900,
+                       cwd=sdir, env=env)
+    assert r.returncode == 0 and "all identities verified" in r.stdout and r.stdout.count("\nok") >= 22, r.stdout[-2000:]
+
+    def srch(args):
+        r = subprocess.run(["uv", "run", "--with", "python-flint", "python", "review_r259_search.py"] + args,
+                           capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, (args, r.stderr[-2000:])
+        return r.stdout
+    out = srch(["cubic_u3+2v3"])
+    assert "Type I: 875 families, 299 in Q[P], 576 degenerate (never-valid list), 0 other non-Q[P]" in out, out[-1500:]
+    assert "Type II: 119 families, 119 in Q[P]" in out, out[-1500:]
+    out = srch(["ctrl_4u2-4v2-1", "I"])
+    assert "non-collapsing families with a valid point in [-4,4]^2: 18" in out, out[-1500:]
+    print(f"== (gs) NORMFORM_CUBIC R259: collapse identities; u^3 + 2v^3: no non-collapsing family; split-top control has 18; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_gs()
+
+
 print("\nall checks passed")
