@@ -18,10 +18,10 @@ axioms asserted), `review_fz1_prop61.py`, `review_fz1_tuples.py`, `review_fz1_en
 | Reduction (Σ_{k=1}) on the q − 3 slices ⟹ O(q, T) ≠ ∅ ⟹ no finite linear covering of ES_q(T) | **SOUND** (excluding the slices u₀ ∈ F₃^* is harmless, §2) |
 | Lemma 7.1 (k = 1 Case B structure, 19 routes) | **SOUND** (documentation: Lemma 1.4 hypothesis, m-2) |
 | Lemma 7.2 (k = 1 Case A, T ∤ K, T ∤ z, route (ix), tail (b)) | **SOUND** |
-| Theorem 7.3 (3 ≤ r ≤ 19; ≤ 9.47 at r = 3, ≤ 27.7 at r = 4) | see §5 (filled in below) |
-| Lemma 7.4 / Theorem 8.1 (r ≥ 20, K(3^20) ≤ 4.19·10⁸) | see §6 |
-| q = 9, k = 1 CERTIFIED negative statement about the method | see §7 |
-| odd-s / odd-r absence (EVIDENCE) | see §7 |
+| Theorem 7.3 (3 ≤ r ≤ 19; ≤ 9.47 at r = 3, ≤ 27.7 at r = 4) | **SOUND** (independently re-certified for every 3 ≤ r ≤ 19 with R226 code and R226's own exact q = 27 enumeration: r = 3 ≤ 18.03 < 24, r = 4 ≤ 31.89 < 78; stale scope text m-3) |
+| Lemma 7.4 / Theorem 8.1 (r ≥ 20, K(3^20) ≤ 4.19·10⁸) | **SOUND** (monotonicity re-derived term by term; K(3^20) ≤ 4.19188·10⁸ re-evaluated in exact rationals; orientation unstated, m-4) |
+| q = 9, k = 1 CERTIFIED negative statement about the method | **SOUND** (53.0 reproduced; exact inputs not archived, m-6; R226 exact s ≤ 14: 3.92790) |
+| odd-s / odd-r absence (EVIDENCE) | **SOUND as EVIDENCE** (confirmed: q = 9 odd s ≤ 13, q = 27 s ≤ 12) |
 
 ## 1. Prop 6.1 and Cor 6.2
 
