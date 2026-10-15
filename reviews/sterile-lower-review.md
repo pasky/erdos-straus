@@ -214,3 +214,21 @@ instances over r ∈ {3, 5, 7, 17}, r | X always. "Γ forces r | X and r | N" ta
 v_r(X²) = 1 + 2v_r(z) + v_r(4abcd − a − b) forces v_r(4abcd − a − b) odd, so r | N also when r | z — fine, say "r ∤ c".
 Vieta partners a′ = bV/(cq²) = 748098/81 = 83122/9, b′ = aU/(cp²) = 3/121 confirmed (a·a′ = (cp²b² + rz²b)/(cq²)). The S-unit
 remarks (ii) are Assessment and labelled so. **Verdict §7: SOUND as Assessment** (nit: hypothesis r ∤ c).
+
+## 6.2 (cont.) Exact counts: sweep vs independent per-n enumeration
+`scripts/review_zl_pern.c` (from scratch; P by loops over (a, b, d); Q by loops over (c, d) and the progression f ≡ −n (mod 4cd),
+1 ≤ f ≤ n + 2, a = (f + n)/(4cd), b = (an + c)/f, checking b ≥ a, c | a + b and 4abcd = n(a + b) + c in 128-bit) — it never lists
+divisors of 4a²d + 1 and does not use Lemma 3.1. It splits Q into a < A ∧ ad > Y (= the sweep's JQ), ad ≤ Y, a ≥ A ∧ ad > Y, and
+records the largest number of Q-data sharing one (a, d). Sanity: n ∈ [300, 600): 3301 + 4909 data (= round 1).
+I recompiled `zl_sweep.c` (gcc -O2 -march=native) and re-ran the certified octaves with ZL_BIN dumps, with the MANIFEST parameters:
+* octave 21 (ZL_SHORT=8, A = 2097154, Y = 300): cell file **identical** to `data/zl/sweep_21.txt`;
+* octave 24 as a split run (ZL_SHORT=8, A = 330000, with P) + (ZL_NOP, ZL_ALO = 330000, A = 524288, sieve rows), merged by
+  `zl_merge.py`: **identical** to `data/zl/sweep_24.txt`.
+Samples (`scripts/review_zl_sample.py` reads the uint16 dumps itself, sums split runs itself, and takes the argmax-(JP + JQ) prime of
+every cell — the number the certificate uses — plus seeded random primes):
+| octave | primes compared | of which cell argmax | JP, JQ mismatches | max #Q-data per (a, d) | max Q(ad ≤ Y) vs 2#{ad ≤ Y} | max Q(a ≥ A) |
+|---|---|---|---|---|---|---|
+| [2^21, 2^22) incl. all cells j = 686..703 of [2^{21.4375}, 2^22) (100 random in it) | 218 | 18 | **0** | 2 | 1402 ≤ 3534 | 0 |
+| [2^24, 2^25) (split run) | 132 | 32 | **0** | 2 | 8260 ≤ 71276 | 117 (≪ engine row ≈ 10⁶) |
+So the per-cell maxima entering the certificate are exact counts, independently confirmed at the argmax primes; and the AD bound
+"≤ 2 per (a, d)" is attained but never exceeded in 350 primes.
