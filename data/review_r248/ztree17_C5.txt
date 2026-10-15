@@ -1,0 +1,8 @@
+P sources: {1: 'R83', 3: 'R83', 5: 'R83', 7: 'R83', 9: 'stored', 11: 'stored', 13: 'stored'}
+depth 1: boxes 0, new 0, alive 1 (frac 1.0000), max boxed children 0, hist {0: 1}
+depth 2: boxes 4, new 4, alive 13 (frac 0.7647), max boxed children 4, hist {0: 0, 4: 1}
+depth 3: boxes 32, new 23, alive 198 (frac 0.6851), max boxed children 4, hist {0: 2, 1: 4, 2: 3, 3: 3, 4: 1}
+depth 4: boxes 50, new 34, alive 3332 (frac 0.6782), max boxed children 2, hist {0: 167, 1: 28, 2: 3}
+depth 5: boxes 158, new 83, alive 56561 (frac 0.6772), max boxed children 2, hist {0: 3250, 1: 81, 2: 1}
+depth 6: boxes 161, new 100, alive 961437 (frac 0.6771), max boxed children 2, hist {0: 56462, 1: 98, 2: 1}
+depth 7: boxes 485, new 272, alive 16344157 (frac 0.6771), max boxed children 1, hist {0: 961165, 1: 272}
