@@ -1,0 +1,14 @@
+cell C_5: alive at depth 1: 1
+depth 2: boxes 4 (rel.mass 0.23529), alive 13 (frac 0.7647), alive parents by #boxed children {4: 1}
+depth 3: boxes 32 (rel.mass 0.11073), alive 198 (frac 0.6851), alive parents by #boxed children {0: 2, 1: 4, 2: 3, 3: 3, 4: 1}
+depth 4: boxes 50 (rel.mass 0.01018), alive 3332 (frac 0.6782), alive parents by #boxed children {0: 167, 1: 28, 2: 3}
+depth 5: boxes 158 (rel.mass 0.00189), alive 56561 (frac 0.6772), alive parents by #boxed children {0: 3250, 1: 81, 2: 1}
+depth 6: boxes 161 (rel.mass 0.00011), alive 961437 (frac 0.6771), alive parents by #boxed children {0: 56462, 1: 98, 2: 1}
+depth 7: boxes 485 (rel.mass 0.00002), alive 16344157 (frac 0.6771), alive parents by #boxed children {0: 961165, 1: 272}
+cell C_7: alive at depth 1: 1
+depth 2: boxes 4 (rel.mass 0.23529), alive 13 (frac 0.7647), alive parents by #boxed children {4: 1}
+depth 3: boxes 32 (rel.mass 0.11073), alive 198 (frac 0.6851), alive parents by #boxed children {0: 2, 1: 4, 2: 3, 3: 3, 4: 1}
+depth 4: boxes 50 (rel.mass 0.01018), alive 3332 (frac 0.6782), alive parents by #boxed children {0: 167, 1: 28, 2: 3}
+depth 5: boxes 158 (rel.mass 0.00189), alive 56561 (frac 0.6772), alive parents by #boxed children {0: 3250, 1: 81, 2: 1}
+depth 6: boxes 161 (rel.mass 0.00011), alive 961437 (frac 0.6771), alive parents by #boxed children {0: 56462, 1: 98, 2: 1}
+depth 7: boxes 485 (rel.mass 0.00002), alive 16344157 (frac 0.6771), alive parents by #boxed children {0: 961165, 1: 272}
