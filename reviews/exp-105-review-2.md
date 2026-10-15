@@ -1,5 +1,14 @@
 # EXP_105 (O239) — hostile review #2 (R254), round 1
 
+**Repairs applied (round 2, R254; after merging R253's branch side-agent/review-exp-105-2 and side-agent/exp-105).**
+D1 and the novelty sentence of D6 were already applied by R253. Applied by R254 in EXP_105.md, marked '(R254 repair)':
+D2 (Obs 2.1: corrected non-contradiction reason), D3 (Prop 2.4: "near μ = 0" made precise, fixed *odd* primes, 2-power
+remark), D4 (§2: explicit definition of the z14 window menu incl. unsplit Y-pieces; Cor 2.8 statement scoped to it;
+compactness step spelled out incl. ET/D_q/n-splitting at μ = 0), D5 (Cor 2.5 EVIDENCE sentence → PROVED by Cor 2.8),
+D6 (pointer to EXPONENT_COVERING §5.4). AGENT_REPORT_O239 Caveats: menu pointer, novelty, review status.
+Correction to my D4 text: R253 is right that the magnitude bound does NOT extend to sub-products mixing primes of both SG
+numerators (my "the magnitude bound to sub-products" was too generous); the R253-repaired caveat in Cor 2.8 stands.
+
 Reviewer: R254 (side-agent/review-exp-105). Round 1: no edits to the author's files. From-scratch scripts:
 `scripts/review_r254_cert.py` (certificate checker), `scripts/review_r254_small.py` (independent small-member search),
 `scripts/review_r254_closedform.py` (closed forms of the μ = 0 Sophie-Germain leaves). None imports z14_/z8/ec_cover.

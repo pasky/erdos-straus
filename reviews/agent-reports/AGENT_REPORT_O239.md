@@ -48,6 +48,11 @@ All three certificates re-pass `--explicit 1000` after the repairs.
 ## Caveats
 * Checker trusts sympy (isprime, n_order, cyclotomic_poly, lambdify on integer inputs). Search code is heuristic.
 * "No covering" statements in SHARP 3 are relative to the z14 window menu (unsplit SG numerators in the finite check).
+  (R254 repair: the menu is now defined explicitly in EXP_105 §2 "The z14 window menu"; richer menus — split Y-pieces, O245 — are not covered.)
+* Novelty (R254 repair): no prior proof of ES for all 3·2^m + 1 or all 7·4^s + 9 was found (brief web search; see
+  EXPONENT_COVERING §5.4, non-exhaustive).
+* Independent reviews: R253 (reviews/exp-105-review.md) and R254 (reviews/exp-105-review-2.md) — headline SOUND, only MINOR
+  wording repairs (applied, marked R253/R254).
 * Scratch in /tmp/z14 (prime list 4 MB, tree outputs) kept for possible repair rounds; delete when the branch is closed.
 
 ## Sparks
