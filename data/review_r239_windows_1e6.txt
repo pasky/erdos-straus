@@ -1,0 +1,8 @@
+primes p=1 mod 4 <= 1000000 : 39175
+record q*: (227, 867793)  max q*/log^2 p: (2.835328228175707, 4349, 199)
+mincap at q* histogram: {0: 24266, 1: 9012, 2: 2448, 3: 912, 4: 699, 5: 998, 6: 91, 7: 191, 8: 26, 9: 13, 10: 190, 11: 153, 12: 5, 13: 2, 14: 4, 15: 1, 16: 47, 17: 65, 18: 2, 19: 27, 25: 4, 31: 10, 34: 1, 37: 5, 40: 1, 41: 2}  record: (41, 575717, 167)
+Thm-construction bound violations (need mincap <= e_thm <= q-3): 0
+best cap over Thm1.1' windows m<=1000: {0: 32043, 1: 6887, 2: 238, 3: 7}
+best cap over ALL odd windows m<=1000: {0: 34933, 1: 4184, 2: 57, 3: 1}
+best cap over PRIME Thm1.1 windows q<=1000: {0: 31850, 1: 7063, 2: 255, 3: 7}
+exact Def 1.1 checks: 39760
