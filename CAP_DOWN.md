@@ -126,3 +126,43 @@ concerns δ_p = 0 (Lemma 1.1 is the case D₁ = n·d).
 cap: d ≡ −K gives (d/m) = (−1/m)(4K/m) = −(a²/m) = −1, while for every prime s | d (s | K): if s odd, m ≡ −a² (mod s)
 so (s/m) = (m/s)(−1)^{(s−1)/2} = 1 ((m−1)/2 odd); if s = 2, K is even and m ≡ −a² ≡ 7 (8), (2/m) = 1. So (d/m) = 1.
 Contradiction. (The δ_p ≠ 0 part of Lemma 3.1 is not covered by this argument; ES(a²) does have solutions.)
+
+## 4. Goal 3 (multi-window gluing): the forced overflow never cancels under CRT
+
+**Proposition 4.1 (PROVED, elementary).** (a) At a single forced prime window q the one-prime bound of Prop 1.3 is
+sharp: if K′ = s is prime with ord_q(s) = q − 1, the least Lemma-1.1 cap at q is exactly (q−3)/4.
+(b) At a forced composite window m = ∏ q_i^{k_i} (CAP_POINTWISE Thm 1.1′, all factors of the forced type) the
+one-prime witness d = K·s^j needs s^j ≡ −1 (mod m), i.e. j an odd multiple of every ord_{q_i^{k_i}}(s)/2, so its cap is
+(lcm_i ord(s)/2 − b_s)/2 ≥ the cap of each factor: CRT gluing of windows multiplies the odd parts of the orders, never
+cancels them.
+*Proof.* (a) S = {s}, b = 1: d = s^c ≡ −s needs s^{c−1} = −1, c − 1 ≡ (q−1)/2 (mod q−1), so c − 1 is odd and ≥ (q−1)/2
+(c − 1 ∈ [−1, 1] is impossible for q > 3); c = 1 + (q−1)/2 is even, cap (c − 2)/2 = (q−3)/4. (b) −1 ≡ (−1, …, −1) in
+∏ (ℤ/q_i^{k_i})^*; each component has 2-part ℤ/2, so s^j = −1 componentwise iff j ≡ o_i/2 (mod o_i) for all i. ∎
+*Reading (Assessment).* The forced mechanism lives entirely in the 2-torsion E = (ℤ/2)^r of (ℤ/m)^*; the overflow
+is the *odd* part of a discrete logarithm. Gluing windows (composite m, or several x — impossible anyway: one solution
+has one x and K(m) = (n+m)/4 is affine, not multiplicative, in m) acts on E and multiplies odd orders. Cancelling
+overflow means a short relation ∏ s^{δ_s} = −1 in the odd part, i.e. the lattice/B2 lottery (CAP_POINTWISE Lemma 2.1).
+**Where T1/B2 bite.** Cap 0 at window m is −1 ∈ Σ_m(K) with |δ_s| ≤ v_s(K) (Lemma 3.1, δ_n = 0) — B2 with the modulus m
+part of the solution; at n = a² no window has a Lemma-1.1 solution at any cap (T1, §3). So any gluing that lowers the
+cap must (i) leave the forced 2-torsion level (which is all that is provable pointwise) and (ii) be false at odd
+squares on the Type II side — consistent with the fact that only divisor routes (Cor 2.1 Remark 3) reach squares.
+
+## 5. Goal 4 (numerics): exact window caps with the full Lemma 1.1 family
+
+`scripts/z13_window_caps.py N M EMAX VER [all]` computes, for each n, the least Lemma-1.1 cap over ALL windows
+m ≤ M, m ≡ 3 (4), gcd(m, n) = 1 = gcd(K, n) (no forcing assumed; K even allowed), and rebuilds the best solution
+with exact rationals against Def 1.1 (VER = 1: every n).
+* Primes p ≡ 1 (4) ≤ 10⁶ (39 175; data/z13_window_caps_1e6.txt, 1.4 s): **best cap 0 for all**, i.e. a Type II ES
+  solution at a window ≤ **63** (record p = 87 481); cap ≤ 1 already at m ≤ 51. (O236's "max 3" was the square-shot
+  sub-family d = Q², K odd; the general divisor d of Lemma 1.1 collapses it to 0.)
+* All non-square n ≡ 1 (4) ≤ 10⁶ with all prime factors ≡ 1 (4) (87 759; data/z13_window_caps_all_1e6.txt, 7 s):
+  cap 0 for all but **n = 3985 = 5·797** (best cap 1, at m = 19; ES(3985) holds via 5 | n — the gcd(K, n) = 1 rule
+  removes windows); least cap-0 window ≤ 103.
+* Odd squares a² ≤ 10⁶: no window m ≤ 400 with any cap ≤ 3 (T1 of §3, as proved).
+* Forced windows only (data/z13_even_windows_1e6.txt): Prop 1.3 cap at the least forced window ≤ 32 (p ≡ 1 (8)),
+  ≤ 47 (p ≡ 5 (8)); best Lemma-1.1 cap at that window ≤ 16 / 37.
+*Reading (EVIDENCE + Assessment).* "Cap ≤ 1 impossible via windows" never happens below 10⁶ for primes; the window
+proxy for e*(p) is just ES's Type II verification with tiny windows. The gap between what is provable pointwise
+(cap ≈ ord_q(s)/4 at the least forced window) and the truth (cap 0 at m ≤ 63) is the whole lottery: the forced level
+uses one character value; cap 0 needs a short relation among the primes of K mod m (B2/B3). Mordell-hard classes:
+not separated by these statistics (O236 found q* only mildly larger there).

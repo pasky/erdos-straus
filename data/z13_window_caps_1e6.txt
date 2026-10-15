@@ -1,0 +1,9 @@
+N 1000000 M 1000 mode primes count 39175 verified 39175
+best-cap histogram: {0: 39175}
+max least cap-0 window: (63, 87481)  max least cap<=1 window: (51, 496609)
+n with best cap >= 2 (n, cap, window): [] ... total 0
+odd squares with a Lemma-1.1 window m <= 400, cap <= 3 (T1: must be 0): 0
+
+real	0m1.391s
+user	0m1.354s
+sys	0m0.033s
