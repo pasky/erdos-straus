@@ -59,6 +59,8 @@ def omega_max(E):           # 2^{max omega(e)} over odd e <= E (odd primorials)
         p += 2
 
 L2 = False
+import os
+ACUT = int(os.environ.get('R232_ACUT', '1'))   # round 2: bound only the Q-data with a >= ACUT
 MUW = {}
 def muw_pow_up(w):          # rational >= mu_w^w = (2 sqrt(w/pi))^w Gamma(w/2+1)
     if w not in MUW: MUW[w] = up((2 * mp.sqrt(mp.mpf(w) / mp.pi)) ** w * mp.gamma(mp.mpf(w) / 2 + 1))
@@ -106,7 +108,7 @@ def boxQ(F0, F1, C, D, P):
     nC, nD, nP = C, D, P
     C1, D1, P1 = 2 * C - 1, 2 * D - 1, 2 * P - 1            # largest values in the box
     if P > F1 + 2: return None                              # f = (Fa + c)/b <= F + c/b <= F + 2
-    a0 = cl(Fr(P + F0, 4 * C1 * D1)); a1 = fl(Fr(P1 + F1, 4 * C * D)); a0 = max(a0, 1)
+    a0 = cl(Fr(P + F0, 4 * C1 * D1)); a1 = fl(Fr(P1 + F1, 4 * C * D)); a0 = max(a0, 1, ACUT)   # ACUT: count only data with a >= ACUT
     nA = a1 - a0 + 1
     if nA <= 0: return None
     E0 = Fr(4 * a0 * a0 * D + 1, P1); E1 = Fr(4 * a1 * a1 * D1 + 1, P)     # e = (4a^2 d + 1)/f
@@ -195,4 +197,4 @@ if __name__ == '__main__':
     N0 = iroot(2 ** j, q)               # <= 2^{j/q} <= every N in the cell
     N1 = iroot(2 ** (j + 1), q) + 1     # > 2^{(j+1)/q} > every N in the cell
     tot, share = cell_bound(mode, N0, N1)
-    print(j, f"{float(tot):.10e}", 'l2' if L2 else 'cube', ' '.join(f"{k}:{float(share[k] / tot):.2f}" for k in sorted(share)), flush=True)
+    print(j, f"{float(tot):.10e}", 'l2' if L2 else 'cube', f"ACUT={ACUT}" if mode == 'Q' else '', ' '.join(f"{k}:{float(share[k] / tot):.2f}" for k in sorted(share)), flush=True)
