@@ -1,0 +1,2 @@
+r=3 q=27: own Case A mass alpha<=40 <= 8.5046561433e+00, tail <= 4.648e-14
+r=4 q=81: own Case A mass alpha<=40 <= 6.7328384475e+00, tail <= 1.079e-23

@@ -1,0 +1,13 @@
+q = 3^20: CaseB(s<=400) = 4.191879e+08, tail <= 2.258e-07; CaseA(alpha<=100) = 3.919784e+01, tail <= 0.000e+00
+K(3^20) <= 4.191880e+08  vs  q - 3 = 3486784398:  OK  (ratio 0.1202)
+largest Case B terms (s, value): [(25, '1.092e+08'), (35, '8.929e+07'), (15, '8.266e+07'), (45, '5.737e+07'), (55, '3.187e+07')]
+(info) r=10: 8 >= q^(1/10), K(q) = infinity (Case B series diverges)
+(info) r=11: 8 >= q^(1/10), K(q) = infinity (Case B series diverges)
+(info) r=12: 8 >= q^(1/10), K(q) = infinity (Case B series diverges)
+(info) r=13: 8 >= q^(1/10), K(q) = infinity (Case B series diverges)
+(info) r=14: 8 >= q^(1/10), K(q) = infinity (Case B series diverges)
+(info) r=15: 8 >= q^(1/10), K(q) = infinity (Case B series diverges)
+(info) r=16: 8 >= q^(1/10), K(q) = infinity (Case B series diverges)
+(info) r=17: 8 >= q^(1/10), K(q) = infinity (Case B series diverges)
+(info) r=18: 8 >= q^(1/10), K(q) = infinity (Case B series diverges)
+(info, floats) K(3^20) = 4.192e+08 < 3^20 - 3: first r where Lemma 7.4's bound alone suffices
