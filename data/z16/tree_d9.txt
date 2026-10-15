@@ -1,0 +1,16 @@
+c=1
+  depth 3: balls     1 (rel.mass 0.3333)  survivors      2 (frac 0.6667, ratio 2.000)  parents by #forbidden children [0, 1, 0, 0]
+  depth 4: balls     2 (rel.mass 0.2222)  survivors      6 (frac 0.6667, ratio 3.000)  parents by #forbidden children [2, 0, 0, 0]
+  depth 5: balls     4 (rel.mass 0.1481)  survivors     16 (frac 0.5926, ratio 2.667)  parents by #forbidden children [4, 2, 0, 0]
+  depth 6: balls    12 (rel.mass 0.1481)  survivors     44 (frac 0.5432, ratio 2.750)  parents by #forbidden children [14, 0, 2, 0]
+  depth 7: balls    13 (rel.mass 0.0535)  survivors    130 (frac 0.5350, ratio 2.955)  parents by #forbidden children [42, 2, 0, 0]
+  depth 8: balls    28 (rel.mass 0.0384)  survivors    380 (frac 0.5213, ratio 2.923)  parents by #forbidden children [120, 10, 0, 0]
+  depth 9: balls    26 (rel.mass 0.0119)  survivors   1130 (frac 0.5167, ratio 2.974)  parents by #forbidden children [370, 10, 0, 0]
+c=2
+  depth 3: balls     1 (rel.mass 0.3333)  survivors      2 (frac 0.6667, ratio 2.000)  parents by #forbidden children [0, 1, 0, 0]
+  depth 4: balls     2 (rel.mass 0.2222)  survivors      6 (frac 0.6667, ratio 3.000)  parents by #forbidden children [2, 0, 0, 0]
+  depth 5: balls     4 (rel.mass 0.1481)  survivors     16 (frac 0.5926, ratio 2.667)  parents by #forbidden children [4, 2, 0, 0]
+  depth 6: balls    12 (rel.mass 0.1481)  survivors     44 (frac 0.5432, ratio 2.750)  parents by #forbidden children [14, 0, 2, 0]
+  depth 7: balls    13 (rel.mass 0.0535)  survivors    130 (frac 0.5350, ratio 2.955)  parents by #forbidden children [42, 2, 0, 0]
+  depth 8: balls    28 (rel.mass 0.0384)  survivors    380 (frac 0.5213, ratio 2.923)  parents by #forbidden children [120, 10, 0, 0]
+  depth 9: balls    26 (rel.mass 0.0119)  survivors   1130 (frac 0.5167, ratio 2.974)  parents by #forbidden children [370, 10, 0, 0]

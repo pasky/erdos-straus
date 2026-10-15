@@ -6,13 +6,14 @@ Complete for ball depth <= DMAX when SMAX >= 2(DMAX-1) and alpha <= DMAX-2.
 For each c and depth n: survivors S_n (cylinders mod T^n not inside any ball of depth <= n), forbidden balls of
 depth n, and the number of surviving parents at depth n-1 with exactly j = 0..3 forbidden children ("sibling
 profile"; j = 3 kills the parent).  Also the branching ratio S_n / S_{n-1}.
-usage: PYTHONPATH=scripts uv run python scripts/z16_tree.py CENSUS DMAX"""
+usage: PYTHONPATH=scripts uv run python scripts/z16_tree.py CENSUS DMAX [BALLFILE]  (BALLFILE: dump "depth digits")"""
 import sys, re
 from collections import defaultdict
 import bsE_caseA as CA
 
 P = 3
 cen, DMAX = sys.argv[1], int(sys.argv[2])
+DUMP = sys.argv[3] if len(sys.argv) > 3 else None
 balls = defaultdict(set)          # depth -> set of tuples (u mod T^depth) as digit tuples
 def addball(E, depth):
     E = list(E) + [0] * depth
@@ -27,6 +28,10 @@ for line in open(cen):
 for al in range(1, DMAX - 1):
     for (a1, b1, E) in CA.route_A4(P, al):
         addball(E, al + 2)
+if DUMP:
+    with open(DUMP, "w") as fh:
+        for d in sorted(balls):
+            for u in sorted(balls[d]): fh.write("%d %s\n" % (d, "".join(map(str, u))))
 for c in (1, 2):
     surv = {(1, c)}
     print(f"c={c}")
