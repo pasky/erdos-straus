@@ -9,7 +9,14 @@ From-scratch scripts: `scripts/review_r252_*.py` (no z15_/z8/ec_cover imports).
 | Theorem B (window-11 SG identity, s ≡ 0, 12 mod 40) | SOUND |
 | **Theorem C (ES for every 3·2^s + 1)** | **SOUND** (minor presentation defects only) |
 | (vii) consistency with (J)22 Cor 1.5 | SOUND |
-| (pending below) Theorem A, Prop 4.1, Prop 4.3, Prop 3.1, Prop 5.1, labels, novelty | see sections |
+| Theorem A (witness reciprocity, unit locus) | SOUND (MINOR wording D5, D6) |
+| Prop 4.1 (m ≡ 7 (8) windows dead at μ = 0) | SOUND-AFTER-REPAIRS (D4: positivity of d(ρ) is essential and unstated) |
+| Prop 4.3 (SG menu at μ = 0 finite) | GAP (D7, MAJOR: proved only for λ supported on primes of c) |
+| Prop 3.1 (Thm 2.2 fails for m = 16v³) | SOUND |
+| Prop 5.1 (thin menus vs positive density) | SOUND |
+| §4.1 7·4^s + 9 μ = 0 covered by SG(19) | SOUND (re-checked from scratch) |
+| §4.3 T1 explains dead residues | SOUND for the mod-33 window menu (D9 scope) |
+| Labels | correct except Prop 4.3 (D7) |
 
 ## 1. Theorem B / Theorem C (HEADLINE) — independent re-derivation
 
@@ -132,5 +139,68 @@ suggests finiteness — Assessment). Repair: define the SG menu explicitly as λ
 general-λ menu as EVIDENCE (or prove finiteness for it); adjust §4.1 "Reason (PROVED, Prop 4.3)" and §4.2 "finite arithmetic
 accident" accordingly. Also MINOR D8: garbled sentence "For c = 3 the first case cannot occur for any c (R-O240 repair)".
 
-## Defects
-(collected at the end)
+## 5. Prop 3.1 (Thm 2.2 fails for algebraic-parameter families) — SOUND
+
+Re-derived: m = 16v³ ⟹ m² = 256u³ with u = v², so SYNTHESIS_SPARKS6 Lemma 1.0 (re-read on main: x = 64(u³+1), y = nA, z = 32n(u+1)A,
+A = (64u³ + 2u² − 2u + 66)/151, u ≡ 32 (151)) is Type II (n | y, z), polynomial in v, on v² ≡ 32 (151) (32 is a QR mod 151).
+`scripts/review_r252_prop31.py`: (a) for every odd ℓ < 2000 there is v mod ℓ (with v² ≡ 32 at ℓ = 151) making 256v⁶ + 105 a NONZERO
+square mod ℓ (Hensel ⟹ unit square); (b) the family identity holds exactly at all 40 integers v < 3000 in the class. Weil step:
+w² = 256v⁶ + 105 is smooth of genus 2 off ℓ | 2·3·5·7 (disc of av⁶ + b is supported on 2, 3, a, b), lc = 16² a square ⟹ 2 points at
+∞, ≤ 6 with w = 0, so ≥ ℓ + 1 − 4√ℓ − 8 > 0 affine points with w ≠ 0 for ℓ ≥ 37 ✓. At 2: m ≡ 0 (16) ⟹ n ≡ 1 (8) ✓. Gluing over the
+product Ẑ ✓. Consistency: the only integer T1 point m = 16v³, m² + 105 = □ is v = 1 (n = 361 = 19²), and v = 1 ∉ {v² ≡ 32 (151)} ✓.
+
+## 6. Prop 5.1 (thin menus vs positive-density prime sets) — SOUND (elementary; correctly scoped)
+
+Trivial counting + Dirichlet: a finite union of sets with O(X^{1−δ}) elements ≤ X has relative density 0 in any unit class, so the
+primes in the ET-missed neighbourhood C stay missed with positive relative density. The add-on "answer to (2)" is correctly limited to
+thin items; the norm-form discussion is properly labelled (PROVED d = 2 under (J)3's hypotheses; Assessment d ≥ 3). The function-field
+transfer (§6) needs Dirichlet for 𝔽_q[T] (Kornblum) — true; the rest of §6 is Assessment as labelled.
+
+## 7. §4.1 / §4.3 spot checks
+* 7·4^s + 9 at μ = 0 (`scripts/review_r252_c7.py`, from scratch): n = 112X⁴ + 9, X = 2^{(s−2)/2}, K = 7f₊f₋, window m = 19; window-19
+  rules with d = 7^a f₊^b f₋^c cover every s ≡ 0 (mod 90) (checked over the full period, ord₁₃₃(2) = 18) and exact solutions at
+  s = 90, …, 450 ✓. So "μ = 0 of 7·4^s + 9 is covered by SG(19)" is SOUND (PROVED-level, though filed under EVIDENCE in §4.1 because
+  the family as a whole is not decided — fine, but the §7 table could say "PROVED (μ = 0 neighbourhood)").
+  I did not re-check the L* = 128520 / 1413720 stuck-lift numerics (EVIDENCE as labelled).
+* §4.3 "T1 control explains the two dead residues (PROVED)": correct for the window-11 menu as defined — integrality of all such
+  rules depends on X mod 33, the dead classes are X ≡ ±1 (mod 33), which contain the integers X = ±1 with φ(±1) = 49 and φ has no
+  real root, so Thm 3.3 applies (positivity on all of ℝ). Caveat to add: Thm 3.3 says nothing about polynomial-in-X rules valid only on
+  subclasses avoiding X = ±1 (e.g. additionally X ≡ 0 (mod 4)); the family X = 2^k does lie in such subclasses (k ≥ 2). So "explains"
+  applies to the mod-33 window menu only (MINOR D9). Also garbled text "(= Theorem A with not via Theorem A: …)" (MINOR D8).
+
+## 8. Labels and novelty
+* Labels: Theorem C PROVED (computer-assisted) ✓; Theorem A PROVED ✓ (with D5 wording); Prop 4.1 PROVED after D4; Prop 4.3 PROVED
+  only for the restricted menu (D7); Props 3.1, 5.1 PROVED ✓; §4.1 numerics EVIDENCE ✓; §4.2/§6 interpretation Assessment ✓.
+  The "Status: … unreviewed" header and "no infinite case of ES for primes is claimed" are accurate.
+* Novelty: quick web search (Jina; queries "Erdos-Straus conjecture Proth numbers 3*2^n+1", "Erdős–Straus equation 4/n numbers of the
+  form k*2^n+1", "Erdos Straus Fermat/Mersenne numbers") found nothing on ES for 3·2^s + 1 or any k·2^s + 1 family. Not exhaustive
+  (no MathSciNet/zbMATH access). Note that for this specific family the result is elementary once found: 96 of 120 residues fall to
+  textbook divisor/ET identities and the rest to a single Aurifeuillean identity, so it may well be "folklore-invisible" rather than
+  new — the author's "no claim of priority" is the right stance. Its campaign significance (a proved ET/divisor-uncoverable family on
+  which ES nonetheless holds) is real and correctly stated.
+
+## Defects (numbered)
+* **D7 (MAJOR)** Prop 4.3 / §4.1 / §4.2 / memo z15_window_jacobi_mu0: "SG menu at μ = 0 is finite (PROVED)" covers only λ supported on
+  primes of c; Prop 4.1's own menu allows λ with primes of K(ρ) = c·g₊(t)g₋(t)/4, for which N is not polynomial in t and the resultant
+  argument fails. Repair: state the restricted menu explicitly in Prop 4.3; label general-λ finiteness Assessment, cite R252 numerics
+  (general λ: no firing for c = 15, 63, 255, t ≤ 301; c = 3 only t = 1).
+* **D4 (MINOR but essential)** Prop 4.1 proof: positivity of d(ρ) is used silently; it is needed (negative d breaks the claim). Insert:
+  "K(U) = aU^e + b with a, b > 0 has no positive real root, so (atoms normalised with positive leading coefficient) every atom is positive
+  at ρ > 0, and λ > 0 since d > 0 for large U; hence d(ρ) > 0."
+* **D5 (MINOR)** Theorem A proof, zero-divisor step: "h(u)/gcd(h(u), g^∞) > 1 for large u" is false in general; replace by "for u ∈ C
+  close to u* at the primes of 2g·lc, φ(u) is prime to g and |h(u)| > 1, so some prime ∤ g divides gcd(D̃(u), φ(u))".
+* **D1 (MINOR)** Theorem B uses d = 9f₋ = (2,0,1) while Theorem C's table lists (0,2,1) for s ≡ 0, 12 (40); both valid — say so.
+* **D2 (MINOR)** Theorem C(b): the true period is 120 (lcm(40, 3, 4, 60)) and no "s ≥ 10" threshold is needed; better, insert the
+  by-hand coverage (mod 7 kills s ≢ 0 (3); mod 15/5 kills s ≢ 0 (4); left ∩ SG-dead = s ≡ 24, 84 (120) ⊂ s ≡ 24 (60) = n ≡ 0 (61)),
+  which makes Theorem C checkable without a computer.
+* **D3 (MINOR)** Theorem B "Why it is not a contradiction": "{s ≡ 0 (40)} is the n-congruence class …" → "is the intersection of the
+  family with the n-congruence class …".
+* **D6 (MINOR)** memo z15_witness_descent barrier screen still says squares are built in via γ = 1/(u₀ − θ) (retracted for φ(u₀) > 1);
+  "2-descent/Brauer pairing" identification should be marked Assessment.
+* **D8 (MINOR)** garbled sentences: Prop 4.3 "For c = 3 the first case cannot occur for any c (R-O240 repair)"; §4.3 "(= Theorem A with
+  not via Theorem A: …)".
+* **D9 (MINOR)** §4.3: restrict "T1 control explains the two dead residues" to the mod-33 window-11 menu (subclasses avoiding X = ±1
+  are not excluded by Thm 3.3).
+* Cosmetic: section order in MENU_STERILITY.md is §1, §4, §3, §5, §6, §7, then "4.3" after §7.
+
+No FATAL defects. The HEADLINE (Theorem C) is SOUND.
