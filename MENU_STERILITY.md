@@ -52,3 +52,37 @@ Special cases (all previously proved separately; Theorem A unifies them):
   whenever φ(u₀) ≡ 1 (8) — NEAR_SQUARE Thm 3.3 (the "largest real root" of Lemma 3.2 is exactly total positivity of γ).
 * φ = m² − j: γ = 1 gives NEAR_SQUARE Thm 3.4 (Z_K⁺); Theorem A adds the twists by totally positive γ.
 * Two variables: the same computation with A = the norm-form algebra is the mechanism behind POINTWISE_BINARYFORM §4.1.
+
+## 4. Test case (T-a): the PROVED-sterile point μ = 0 of 3·2^s + 1
+
+Recall (EXPONENT_COVERING Cor 1.5, PROVED): for n_s = 3·2^s + 1 the limit point ν(0) (n ≡ 4 at every odd ℓ, n ≡ 1 at 2) is a
+profinite unit square, so no finite set of ET/divisor classes covers {n_s : s ≡ 0 (mod L)} for any L.
+
+**Theorem B (an exponential class through a proved sterile point; PROVED, symbolic).** For every integer X ≡ 4 or 6 (mod 11)
+put n := 48X⁴ + 1. Then
+  4/n = 1/(3(4X⁴ + 1)) + 11/(6n(2X² − 2X + 1)(X² + X + 2)) + 11/(2n(4X⁴ + 1)(X² + X + 2)),
+with all three denominators positive integers. Taking X = 2^{(s−4)/4}: ES holds for every n_s = 3·2^s + 1 with
+**s ≡ 0 or 12 (mod 40)**, s ≥ 4. In particular the class s ≡ 0 (mod 40) — a neighbourhood of the ET/divisor-sterile point
+μ = 0 — is covered by ONE exponential class.
+*Proof.* Identity: sympy `simplify` = 0 (`scripts/z15_proth_identity.py`); by hand it is CAP_DOWN Lemma 1.1 at the window
+m = 11 = 4·3·1⁴ − 1 with K = (n + 11)/4 = 3(4X⁴ + 1) = 3(2X² + 2X + 1)(2X² − 2X + 1) (Sophie Germain / Aurifeuille) and
+d = 9(2X² − 2X + 1), A = (K + d)/11 = 6(2X² − 2X + 1)(X² + X + 2)/11. Integrality: X² + X + 2 ≡ 0 (mod 11) ⟺ X ≡ 4, 6 (mod 11)
+(disc −7 ≡ 2²). 2^{(s−4)/4} ≡ 6 = 2⁹ (mod 11) ⟺ (s − 4)/4 ≡ 9 (mod 10) ⟺ s ≡ 0 (mod 40); ≡ 4 = 2² ⟺ s ≡ 12 (mod 40). ∎
+*Why it is not a contradiction.* The class {s ≡ 0 (40)} is the n-congruence class n ≡ 4 (mod 2⁴⁰ − 1), n ≡ 1 (mod 16),
+which contains odd squares; Schinzel/Thm 1.2 forbid identities *polynomial in n* there. The identity is polynomial in
+X = ((n − 1)/48)^{1/4}. In Theorem A terms: φ(X) = 48X⁴ + 1, X* = 1/2 at odd ℓ, X* = 0 at 2; X* is the rational point
+(1/2, 2) of w² = φ(X) at odd places glued with the rational point (0, 1) at 2, and the witness algebra pairs non-trivially
+with that glued adelic point (the pairing reduces to the places above 2).
+*T1 control.* 3·2^s + 1 is a square only for s = 0, 3 (25); neither lies in the class. Exact numeric re-check of the solution
+for all s ≡ 0, 12 (mod 40), s ≤ 4000 (`z15_proth_identity.py`).
+
+**Why the first searches missed it (PROVED obstruction for the naive window menu).** Prop 4.1. Let c + 1 = 4^i, n_s = c·2^s + 1,
+and let a constant-window Lemma-1.1 class (window m ≡ 3 (4), atoms = factors in ℤ[U] of K(U) = (n + m)/4, U = 2^{(s−j)/e},
+divisor d = λ·Πatoms^{k}) contain a neighbourhood of μ = 0. Then m ≡ 3 (mod 8) and v₂(d(ρ)) is odd, where ρ = 2^{−j/e}.
+*Proof.* Near μ = 0, U ≡ ρ (mod m) and n ≡ c + 1 = 4^i (mod m), so K ≡ 4^{i−1}, and d(U) ≡ d(ρ) (mod m), a rational number
+whose odd primes all divide N₀ := 4^i + m (they divide K(U) on the class, hence K(ρ) = N₀/4). For an odd prime q | N₀,
+−m ≡ 4^i is a square mod q, so (q/m) = (−m/q) = 1 (Jacobi reciprocity, m ≡ 3 (4)). Hence (d(ρ)/m) = (2/m)^{v₂(d(ρ))},
+while d ≡ −K forces (d/m) = (−1/m) = −1. ∎ So windows m ≡ 7 (mod 8) (all m = c·2^j w − 1 with j ≥ 3, the shapes searched by
+`z15_proth_mu0.py`: 0 hits) are dead at μ = 0; j = 2 (m ≡ 3 (8)) needs an algebraic factorisation of 2^{s−2} + w with
+s ≡ 0, which the cyclotomic shapes (e | j) cannot give but Sophie Germain 4X⁴ + t⁴ (s − 2 ≡ 2 (4)) does, with
+v₂(f±(1/2)) = −1 odd. Theorem B is the first such window (t = 1).
