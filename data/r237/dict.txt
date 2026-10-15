@@ -1,0 +1,6 @@
+partA M<1500: tests=6965312 agree=6965312 disagree=0 (in-family (D,e) pairs=51990)
+  out-of-scope p|M solution: 3 A= 1 x= 2 y= 3 z= 2 e= 0
+  out-of-scope p|M solution: 3 A= 1 x= 2 y= 3 z= 2 e= 1
+  out-of-scope p|M solution: 3 A= 1 x= 2 y= 3 z= 2 e= 2
+partB p<60, A<40, x<=3pA: (solution,e) pairs with p!|x: 336, failures 0; with p|x: 203; with p|M=4A-1: 347 (both outside Prop 5.1's hypothesis p !| DM)
+T1 M<1500 e=3: classes 3200, failures 0

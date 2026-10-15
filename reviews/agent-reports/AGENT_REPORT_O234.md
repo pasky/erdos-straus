@@ -14,7 +14,9 @@ ES is claimed.**
    composite moduli (Cor 5.2) — no tower at fixed e; the extra dimensions are exactly non-integrality of z
    (Prop 5.3: nothing hidden at e = 0); T1 for every e and M ((−D/M) = −1). KARY3 does not literally apply for
    e ≥ 1 (that is why (e+2)/(e+3) > 3/4 is no contradiction); the (e+3)/(e+4) analogue is now a concrete target.
-2. **The knob saturates at e ≍ log log N, with a matching ceiling that holds even at e = ∞ (Thms 2.1, 3.1).**
+2. (R237 D1: the ceiling below holds only for classes truncated to V < ℓ/4; with the full 𝒟_e family the prime-modulus
+   large sieve gives a power saving at e = ∞ and at e ≥ (log N)^{1+ε} — CAP_INTERPOLATION Remark 3.2.)
+   **The knob saturates at e ≍ log log N, with a matching ceiling that holds even at e = ∞ (Thms 2.1, 3.1).**
    Uniformly in e ≤ log log N: exceptions ≤ N exp(−c(log N)^{(e+2)/(e+3)}/((e+2)log(e+3))) — c_e ≍ 1/(e log e)
    (O229 feared ((e+1)(e+2))^{−e}). At e ≍ log log N: N exp(−c log N/(log₂N log₃N)). Rankin: the prime-modulus large
    sieve with cube classes cannot beat this at ANY cap — although ES^{(y)} = ES^{(y,∞)} is a pointwise THEOREM. A
