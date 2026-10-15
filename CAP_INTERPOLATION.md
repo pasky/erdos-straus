@@ -103,3 +103,33 @@ artefact of BV's divisor weights and of restricting every coordinate to X^{1/(5(
 **the knob saturates at e ≍ log log N.** (c) The d₀-coordinate is included in κ = e + 2; Vaughan's prime-modulus
 case is κ = 2 (e = 0), exponent 2/3. (d) T1: all classes are QNRs mod ℓ (CAP_GROWING Thm 1.4 T1, which does not use
 exactness), odd squares are never hit; the bound is consistent with the ≍ √N odd squares ≤ N.
+
+## 3. The ceiling: the prime-modulus large sieve cannot beat log N/(log₂N·log₃N), at any cap
+
+Let ω_∞(ℓ) be the number of distinct classes −4V(τ) mod ℓ over ALL cube triples τ at ℓ (any cap, V(τ) < ℓ/4) — the
+largest class family of this architecture; every capped/truncated family is a subfamily.
+
+**Theorem 3.1 (ceiling; PROVED, elementary: Rankin + Mertens + PNT).** There is an absolute C such that for N ≥ 16
+and any choice of ω(ℓ) ≤ ω_∞(ℓ) classes (from the cube family) at the primes ℓ ≤ N^{1/2}, ℓ ≡ 3 (4):
+`  log L ≤ C log N/(log₂N·log₃N),   L := Σ_{q≤N^{1/2}} μ²(q) ∏_{ℓ|q} ω(ℓ)/(ℓ − ω(ℓ)).`
+So the large-sieve bound 2N/L for ES^{(y,e)} is ≥ N exp(−C log N/(log₂N log₃N)) for every e ≤ ∞: Theorem 2.1 is
+optimal for this architecture up to the constant, and **no cap — not even e = ∞ — gives a power saving, let alone
+"all p ≥ p₀"**, although ES^{(y,∞)} = ES^{(y)} is TRUE for every p (FROBENIUS_FIRING Thm 4.2).
+*Proof.* The classes are distinct non-residues (Remark 2.2(d)), so ω ≤ (ℓ−1)/2 and ω/(ℓ−ω) ≤ 2ω/ℓ. Rankin with
+σ ∈ (0, ½]: L ≤ N^{σ/2}∏_ℓ(1 + 2ω(ℓ)ℓ^{−1−σ}) ≤ N^{σ/2}exp(2Σ_ℓ ω_∞(ℓ)ℓ^{−1−σ}). Each class comes from a triple
+with q_τ := 4c₀d₀ | ℓ + 1 and ℓ > 4V(τ) ≥ q_τ, so
+Σ_ℓ ω_∞(ℓ)ℓ^{−1−σ} ≤ Σ_τ Σ_{n ≡ −1 (q_τ), n > 4V} n^{−1−σ} ≤ Σ_τ 2(4V)^{−σ}/(σq_τ) ≤ σ^{−1}Σ_τ V(τ)^{−σ}/(c₀d₀).
+The last sum is the Euler product ∏_{s odd}(1 + s^{−1−σ} + s^{−1−2σ}/(1 − s^{−2σ})) (s | d₀; or s | c₀ with
+v_s(R) = ρ ≥ 0, weight s^{−1−2σ(1+ρ)}). Its logarithm is ≤ Σ_s s^{−1−σ} + Σ_s log(1 + 1/(2σ s log s)) (using
+s^{2σ} − 1 ≥ 2σ log s) ≤ log(1/σ) + O(1) + Σ_{s≤1/σ}[log 2 + log(1/(σs))] + (2σ)^{−1}Σ_{s>1/σ} 1/(s log s)
+≤ log(1/σ) + C/(σ log(1/σ)) (PNT: Σ_{p≤y} log(y/p) = ∫₁^y π(t)dt/t ≪ y/log y; Σ_{p>y} 1/(p log p) ≪ 1/log y).
+Hence log L ≤ (σ/2) log N + exp(C′/(σ log(1/σ))) for σ ≤ σ₀. Take σ := 2C′/(λ log λ): then
+C′/(σ log(1/σ)) = λ log λ/(2 log(λ log λ/(2C′))) ≤ 0.6λ for large N, so log L ≤ C′ log N/(λ log λ) + (log N)^{0.6}. ∎
+*Remarks.* (a) Where the mass sits: the optimum of Thm 2.1 at κ ≍ λ uses X = exp(≍ λ² log λ) and moduli
+4m ≤ exp(≍ λ log λ); the dual Rankin parameter σ ≍ 1/(λ log λ) is the reciprocal of log(modulus). (b) The ceiling
+is about the large-sieve bound L, not about the true exceptional set: heuristically the probability of avoiding all
+cube classes at ℓ ≤ N^{1/2} is ≈ exp(−S_∞(N^{1/2})) = exp(−exp(c√(log N/log₂N))) (de Bruijn's Σ 1/rad), far below
+the sieve's output. The sieve's loss is structural (B6 made quantitative): one prime ℓ per factor of q, each
+contributing only ω(ℓ)/ℓ = ℓ^{−1+o(1)}. (c) Scope: prime moduli. Composite moduli (3/4-note multipliers) add
+dimension at bounded e (§5) but do not change log S by more than O(log u) at e ≍ λ, so the ceiling's order should
+persist (Assessment).
