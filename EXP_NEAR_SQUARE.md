@@ -146,3 +146,13 @@ the sets around them that the D_q switch off are the *label points* (Lemma 1.2) 
   whose cost is governed by a branching process (fibre completeness ≥ 1 − 1/ℓ). So "finite coverings exist but are
   huge" is the expected shape of B1 over Ẑ-parameter spaces; certificates are practical only when the square points are
   isolated by small-period D_q's (the nine certified k).
+
+## 5. Regenerating the scratch pools (deleted from /tmp to save disk)
+Nothing committed depends on them. To rebuild them (single core, ≤ 8 GB; ulimit -v 8000000):
+* `mkdir -p /tmp/z11 && gcc -O2 -o /tmp/z11/tree scripts/z11_tree.c`
+* k = 105, H ⊇ ℓ ≤ 200 (~6 min, 527 MB): `PYTHONPATH=scripts uv run python scripts/z11_pool.py 1 105 200 1000000 300000 300000 /tmp/z11/p200.bin`
+  (same with k = 297 → p200_297.bin, ~6 min); small pools ℓ ≤ 47 (~40 s, 31 MB each):
+  `… z11_pool.py 1 K 47 300000 100000 300000 /tmp/z11/p47_K.bin`.
+* Tree with depth cap D (§2 table): `/tmp/z11/tree /tmp/z11/p200.bin 300000000 /tmp/z11/t.txt D` (D = 14: ~10 min for k = 105);
+  `SHOWSTUCK=100000` prints stuck nodes, labelled by `scripts/z11_stuck_labels.py stuck.txt 4,-2,2,3`.
+* Survey outputs for c₀ = 2, 3, 5 are kept in data/z11/survey_c*.txt (16 KB).
