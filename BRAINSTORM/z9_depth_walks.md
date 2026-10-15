@@ -17,8 +17,8 @@ Continue while defined: F_j needs Q(x/2^{j−1}) ≡ 0 (mod 4), and L_{j+1} need
 F_{k/2}, which lies at distance k/2 − 1 edges beyond F₁. For odd k it ends with the edge L_{(k+1)/2}.
 
 Since all lattices are global and the edges are classes of 𝔊⁻_p (CONSTRUCTIVE_ES Thm 2.1), this is a walk in G_p itself. In
-quaternion terms the walk is the set of Eichler orders and maximal orders along which the pentagon element ε_x ∈ E⁰
-(nrd ε_x = p·Q(x)) stays divisible by 2^j.
+quaternion terms (Assessment, not proved here) the walk should be the chain of Eichler and maximal orders along which the
+pentagon element ε_x ∈ E⁰ (nrd ε_x = p·Q(x)) stays divisible by 2^j.
 *Proof.* Edge → vertex: x/2^{j−1} =: z ∈ L_j is primitive with Q(z) ≡ 0 (4). So L_j + ℤz/2 is one of the two maximal
 overlattices (CONSTRUCTIVE_ES Thm 1.2(b)), i.e. an endpoint of the edge. Vertex → edge: in F = F_j, with z′ = z/2 and Q(z′) even,
 z̄′ ∈ F/2F is a nonzero point of the conic {q = 0}. It is nonzero because z/4 ∉ F_j: F_j = L_j + ℤz/2, and z/4 = l + mz/2
@@ -35,8 +35,8 @@ mismatches.
 **Corollary 2 (8/p as a level-4 problem; PROVED from Lemma 1 + MODEL_SPECIFIC Lemma 3.0 / Thm 3.1).** A word is in S₈ iff it
 has a pentagon vector whose walk has ≥ 2 steps, i.e. the certificate edge L₁ is continued through the pointed endpoint
 F₁ by a second edge L₂ ≠ L₁. The walk L₁ ∪ L₂ is a cyclic 4-isogeny, i.e. a point of X₀(4) (an Eichler order of level 4),
-and it contains the pentagon element. So **an 8/p five-slice certificate = a path-shaped 2-edge + a pentagon element
-fixing a non-backtracking 2-walk**. 2^k/p asks for a walk of k − 1 half-steps (level 2^{⌈(k−1)/2⌉+1} data). This makes
+and x ∈ L₁ ∩ L₂. So **an 8/p five-slice certificate = a path-shaped 2-edge + a pentagon vector lying in both edge
+lattices of a non-backtracking 2-walk through the pointed endpoint**. 2^k/p asks for a walk of k − 1 half-steps (level 2^{⌈(k−1)/2⌉+1} data). This makes
 O224's Assessment precise. The distance "k − 2" is measured in half-steps beyond F₁.
 
 **Proposition 3 (where the bits are correlated; PROVED, elementary).** Use the parity patterns of O224 Lemma 1.1.
@@ -44,12 +44,12 @@ O224's Assessment precise. The distance "k − 2" is measured in half-steps beyo
 all words with the same t.
 (ii) t, u, v odd: the even entries are A and A*, with v₂(A) + v₂(A*) = v₂(tp + 1) =: s and both ≥ 1. If both are
 ≥ 2, the two pointers point at **opposite** endpoints (two distinct isotropic classes, Lemma 1.1). Their walks then run in
-opposite directions, with total length s − 2 half-steps beyond the edge. In particular 8 ∤ A·A*/gcd-free: **max(v₂A,
+opposite directions, with total length s − 2 half-steps beyond the edge. In particular **max(v₂A,
 v₂A*) ≥ 3 ⟹ s ≥ 4**, and for s = 4 only the lopsided split (1, 3) or (3, 1) works.
 (iii) t odd, u even: the even entries are u and A* (v₂(u) is a letter, v₂(A*) = v₂(tv − 1)).
 So the "bit" of a word is decided by v₂ of a letter or by s = v₂(tp + 1), which depends only on (t, p) mod 2^s. At p = 131
-(≡ 3 mod 8) the odd t ≤ 13 give s = 2, 1, 4, 1, 2, ·, 3 (t = 1, 3, 5, 7, 9, 13). Only t = 5 has s ≥ 4, and there the split is (2, 2)
-(O224 §1.3: (5, 1, 33)). This is the mechanism behind O224's 12-vs-0.82 excess of S₈-empty primes: one bit per letter t, not
+(≡ 3 mod 8) the odd t = 1, 3, 5, 7, 9, 11, 13 give s = 2, 1, 4, 1, 2, 1, 3. Among them only t = 5 has s ≥ 4, and its
+all-odd word (5, 1, 33) has the split (2, 2) (O224 §1.3). This is the mechanism behind O224's 12-vs-0.82 excess of S₈-empty primes: one bit per letter t, not
 per word.
 
 ## Literature

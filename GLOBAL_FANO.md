@@ -52,7 +52,7 @@ walk in G_p of exactly k − 1 half-steps. The vertex step uses the local Fano s
 {q = 0} with three points, which are the three edges at the vertex, and the polar radical r is its nucleus; the classical index-2 sublattices are the three
 hyperplanes through r. CERTIFIED in coordinates on all 1190 pentagon pointers of all χ = −1 words, p ≤ 200 (`scripts/z9_depth_walk.py`).
 **Corollary 2.2.** Word ∈ S₈ ⟺ some pentagon walk has ≥ 2 half-steps, i.e. the pointer continues the certificate edge through
-the pointed endpoint into a second edge. Equivalently, the pentagon element fixes a cyclic 4-isogeny (a point of X₀(4)). This makes
+the pointed endpoint into a second edge. The two edges form a cyclic 4-isogeny (a point of X₀(4)), and x ∈ L₁ ∩ L₂. This makes
 O224's tree-depth Assessment exact (the distance is k − 2 half-steps beyond the pointed endpoint).
 **Proposition 2.3 (correlation).** With all letters odd, v₂A + v₂A* = v₂(tp + 1) =: s, and the two pointers, if both exist, run in
 opposite directions. So 8 | A or 8 | A* forces s ≥ 4, and for s = 4 only a lopsided split works. With t even, the depth of e₂ is v₂(t).
