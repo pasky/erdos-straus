@@ -41,8 +41,8 @@ certificate). Output:
 * Exact solutions with verified 4xyz = n(xy + yz + zx), all entries > 0, for every 0 ≤ s ≤ 1500 (62 moving, 1429 ET,
   10 brute force for s ≤ 9 with my own brute-force search).
 * T1: 63·2^s + 1 = t² for s < 4000 only at s = 0 (n = 64, even) and s = 8 (127²). By hand: t ± 1 = 2A, 2(A + 1) with
-  A(A + 1) = 63·2^{s−2}; consecutive integers with odd part 63 split as {63, 64} or {7·9 split…} — only 63·64 (s = 8)
-  works. s = 8 is handled by brute force and lies in the divisor class D₁₂₇ (n ≡ 0 mod 127). No T1 tension.
+  A(A + 1) = 63·2^{s−2}; the odd one of A, A + 1 is o | 63 and the even one is (63/o)·2^{s−2}; checking o ∈ {1, 3, 7, 9, 21, 63}
+  only o = 63, 64 = 2^6 works (s = 8). s = 8 is handled by brute force and lies in the divisor class D₁₂₇ (n ≡ 0 mod 127). No T1 tension.
 
 **Verdict Theorem 3.1: SOUND** (computer-assisted proof replayed from scratch; minor wording issues D1–D2 below).
 **Verdict Theorem 2.3: SOUND.** The class is genuinely outside the ET/divisor menu: x = 85b = (63Y³ + 3Y² − 9Y + 28)/4 is
