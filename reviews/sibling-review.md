@@ -74,3 +74,40 @@ the PROVED upper bound; drop "unique maximiser" or label it EVIDENCE.
 union-bound terms over both slices without the parity filter, so using them for one cylinder is conservative. Decay 3^{−0.127 s}
 per level ⇒ tail ≈ 7.7·term(s₁); tail < 3^{2−n} gives s₁ ≈ 65 + 8n, not 80 + 9n (depth ≈ 33 + 4n rather than 40 + 4.5n; with
 OA's parity factor ≈ 4 another ≈ 10 levels lower). Order of magnitude unaffected (m3).
+
+### Cor 4.1 (pair-count forms) — (i), (iii) SOUND; (ii) GAP (missing hypothesis, D3)
+(i): a full alive parent of depth N gives C(3, 2) = 3 pairs, so Π_N ≤ 2 ∀N ≥ 9 is (W) with m = 1, K = 1 at every alive depth
+N ≥ 9; an alive depth-9 cylinder exists (SD §3 tree, complete for ball depth ≤ 9 — needs s ≤ 16 plus Case A α ≤ 7, both inside the
+census s ≤ 17), so SD Lemma 3.1 with n₀ = 9 applies. ("no full alive parent before" is not used.) SOUND.
+(ii) as stated ("Π_N(c) = 0 ∀N ≥ N₀ ≥ 9 ⟹ dim_H U_c ≥ log 2/log 3") needs an alive cylinder of depth N₀; for N₀ > 9 nothing
+in the hypothesis or the data supplies one (if every depth-N₀ cylinder were dead the hypothesis holds vacuously-strongly and
+U_c = ∅). Repair (D3, MINOR): add "and Π_N(c) ≤ 2 for 9 ≤ N < N₀" (then (i)'s argument keeps an alive depth-N₀ cylinder) or
+"and some depth-N₀ cylinder of X_c is alive". (iii): starts from an alive class of depth 7 in C₅ (r = 17 tree complete to depth 7,
+O241) — SOUND; K = 1 resp. 14, m = 1, transplanted Lemma 3.1 is formally identical in ℤ_17.
+
+### §2.1 / §2.3 pair statistics and Poisson calibration (EVIDENCE / Assessment) — numbers wrong, conclusions survive (D4)
+From-scratch recomputation `scripts/review_r249_poisson.py` (log below) with the *exact* uniform model: the b_d balls of depth d
+are b_d **distinct** cylinders among M = 3^{d−2}; a given parent has all three children with probability
+b(b−1)(b−2)/(M(M−1)(M−2)), two given balls are siblings with probability 2/(M − 1).
+* §2.3 "expected number of alive full parents over depths 3–9 = 0.145, P(none) ≈ 0.86": the author's `A·p³` (independent
+  children, p = b/M) counts impossible configurations (0.037 at d = 3 with b = 1 ball, 0.022 at d = 4 with b = 2). Exact:
+  **0.062, P(none) ≈ 0.94**; E[alive parents with ≥ 2 ball children] = **2.39** (author 2.90; observed 2).
+* §2.1 "expected pairs b(b−1)/2/#parents": exact is C(b, 2)·2/(M − 1) = b(b−1)/(3·#parents − 1), i.e. the author's
+  expectations are ≈ 1.5× too large at q = 3: exact 0.25, 0.46, 1.65, 0.64, 1.04, 0.30 (d = 4..9; total 4.34) against observed
+  1, 0, 4, 1, 1, 0 (total 7, author's expectation total 6.4). So the q = 3 data show **mild attraction** (7 vs 4.3; Poisson tail
+  P(X ≥ 7 | 4.34) ≈ 0.15, driven by d = 6 — two of the four d = 6 pairs are Case A + Case B, §2.2), not "neither repulsion nor
+  attraction". (At r = 17 the factor is (r−1)/r·r/(r−1) ≈ 1, so the r = 17 row is essentially right.)
+* "No triple among all q = 3 parents (expected 0.40 over depths 5–9)": the script's C(b,3)/npar² omits the factor 2/9
+  ("three distinct children of one parent"), and 0.40 is the d = 6–9 sum. Exact (depths 5–9, all parents): **0.105**.
+Effect: every correction makes the depth ≤ 9 data *weaker* evidence for the sibling conjecture, which is the author's own
+conclusion; the "Poisson-like" description should become "consistent with uniform placement, mild excess of pairs at d = 6".
+Repair (D4, MINOR): replace the numbers as above (or label the model as the with-replacement approximation and drop d = 3, 4).
+    3 alive: E3 0.0000 E>=2 0.000 | all parents: E3 0.0000, E[sibling pairs] exact 0.000 (author C(b,2)/npar = 0.000)
+    4 alive: E3 0.0000 E>=2 0.167 | all parents: E3 0.0000, E[sibling pairs] exact 0.250 (author C(b,2)/npar = 0.333)
+    5 alive: E3 0.0082 E>=2 0.291 | all parents: E3 0.0123, E[sibling pairs] exact 0.462 (author C(b,2)/npar = 0.667)
+    6 alive: E3 0.0413 E>=2 0.895 | all parents: E3 0.0696, E[sibling pairs] exact 1.650 (author C(b,2)/npar = 2.444)
+    7 alive: E3 0.0053 E>=2 0.340 | all parents: E3 0.0098, E[sibling pairs] exact 0.645 (author C(b,2)/npar = 0.963)
+    8 alive: E3 0.0066 E>=2 0.542 | all parents: E3 0.0124, E[sibling pairs] exact 1.038 (author C(b,2)/npar = 1.556)
+    9 alive: E3 0.0006 E>=2 0.154 | all parents: E3 0.0011, E[sibling pairs] exact 0.297 (author C(b,2)/npar = 0.446)
+    depths 3-9 alive parents: E[triples] exact 0.0620 (binomial p^3 model: 0.1453), P(none)~0.940; E[>=2] 2.389
+    all parents, depths 5-9: E[triples] exact 0.1052
