@@ -17,3 +17,16 @@ for s ≥ a/2, n_s mod M depends only on s mod L_M, so the class pulls back to a
 2. Mixed points: classify the Ẑ-points that evade all divisor classes of the integer square points; test sterility.
 3. k = 33, 273, 297; then c₀ ∈ {2, 3, 5} and 4^a·9^b + k.
 4. Conceptual: which k admit a covering.
+
+## 1. Tree coverings: first runs (k = 105)
+`scripts/z11_tree.py c0 k H QMAX MMAX LCAP NODEMAX`: pool = classes whose odd prime powers q^e ≤ QMAX have ord_{q^e}(4) | H.
+* H = 2⁶3⁴5²·7·11·13·17, QMAX 10⁶, MMAX 3·10⁵: 439 nodes, 372 leaves, **8 stuck nodes** (no pool class). Stuck nodes, in
+  ℓ-adic labels (A: μ_ℓ = 4, B: μ_ℓ = −2, lower case = agreement only mod ℓ^j): 2:A 3:b2 5:A 7:A 11:A 13:B 17:B — binary
+  A/B gluings. z8_point (any M ≤ 3·10⁵) finds classes for the binary point (A off {3, 13, 17}, B on them):
+  II2 M = 23087 (ord = 7·17·97), II2 125119 (3²·7·331), … — always with a *new* large ℓ (97, 331, 317, 41, 29) in the period.
+* Larger H (all ℓ ≤ 43) with the greedy split: node budget exhausted (greedy imports many ℓ, then stalls). Heuristic issue.
+
+**Reformulation (binary Cantor core).** Integer square points of 4^x + 105: x = 2, 3, 4 (11², 13², 19²) and x = −2
+((41/4)²); no others for −6 ≤ x ≤ 40 (checked). On the Cantor set C = Π_ℓ {4, −2} ⊂ Ẑ, the ℓ-component is exact, so a class of
+modulus M meets C in a cylinder over supp(L_M) (exponents of ℓ irrelevant). Covering C is a finite boolean problem over
+{A, B}^S for the finite set S of ℓ involved: script `z11_cantor.py`.
