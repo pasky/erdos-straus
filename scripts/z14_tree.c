@@ -32,7 +32,7 @@ int *L2len, *L3len; int **L2, **L3; int LMAXG = 64;
 // join log
 int *jlog; int jlen = 0, jcap = 1 << 24;
 int *actlog; int alen = 0;
-int e[MAXL]; u64 c[MAXL];
+int e[MAXL]; u64 c[MAXL]; int FORCE[MAXL];
 u64 nodes = 0, NODEMAX, leaves = 0, stuck = 0; int maxdepth, curdepth = 0;
 double meas = 1.0, covmeas = 0.0; FILE *out;
 u64 stuckdepth[512]; u64 leafdepth[512];
@@ -176,7 +176,8 @@ static void solve(int known) {
   if (nodes % 1000000 == 0) fprintf(stderr, "nodes %llu leaves %llu stuck %llu covered %.12f\n", (unsigned long long)nodes, (unsigned long long)leaves, (unsigned long long)stuck, covmeas);
   (void)known;
   int best = -1; double bs = -1; u64 bcost = 0;
-  for (int l = 0; l < nH; l++) {
+  for (int l = 0; l < nH; l++) if (e[l] < FORCE[l]) { best = l; break; }   // forced prefix splits (env FORCE=l:e,...)
+  if (best < 0) for (int l = 0; l < nH; l++) {
     if (e[l] >= CAP[l]) continue;
     u64 base = c[l], step = PW[l][e[l]]; int k = 0; int nb = collect(l, cbuf, cT, cR);
     for (u64 j = 0; j < HP[l]; j++) { c[l] = base + j * step; int j0 = jlen, a0 = alen, r0 = rlen; k += raise_and_test(l, cbuf, nb, cT, cR); lower(l, j0, a0, r0); }
@@ -227,7 +228,8 @@ int main(int argc, char **argv) {
   for (int i = 0; i < nq; i++) for (int t = 0; t < Qnc[i]; t++) nbucket[Qli[i][t] * 64 + Qv_[i][t]]++;
   for (int bi = 0; bi < MAXL * 64; bi++) { bucket[bi] = malloc(sizeof(int) * (nbucket[bi] + 1)); nbucket[bi] = 0; }
   for (int i = 0; i < nq; i++) for (int t = 0; t < Qnc[i]; t++) { int bi = Qli[i][t] * 64 + Qv_[i][t]; bucket[bi][nbucket[bi]++] = i; }
-  if (wf) load_windows(wf);
+  if (wf && *wf) load_windows(wf);
+  if (getenv("FORCE")) { char *s2 = strdup(getenv("FORCE")); for (char *t = strtok(s2, ","); t; t = strtok(NULL, ",")) { u64 l; int v; sscanf(t, "%llu:%d", (unsigned long long *)&l, &v); int i = lidx(l); if (i >= 0) FORCE[i] = v; } }
   // pairs
   P2 = malloc(sizeof(Pair) * 200000); P3 = malloc(sizeof(Pair) * 200000); nP2 = nP3 = 0;
   for (int a = 1; 4 * a <= A2; a++) for (int d = 1; 4 * a * d <= A2; d++) { Pair *p = &P2[nP2++]; p->a = a; p->d = d; p->m = 4 * a * d; p->tgt = p->m - 1; p->nc = 0; p->ready = 1; }
