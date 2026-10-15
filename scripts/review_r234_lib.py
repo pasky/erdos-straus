@@ -96,18 +96,21 @@ def canon_full(G):
     V1 = [x for q, x in sv if q == l1]
     # lambda2: least Q of a vector independent of V1[0] -- need independence from *some* v1 attaining l1;
     # successive minima are basis-independent: lambda2 = min{Q(y): y indep of some l1-vector}... use the rank definition.
-    def rank(vs):
-        import sympy
-        return sympy.Matrix(vs).rank() if vs else 0
-    qs = sorted(set(q for q, x in sv))
+    # greedy (matroid) computation of successive minima over vectors sorted by norm
     lam = []
-    for q in qs:
-        S = [x for qq, x in sv if qq <= q]
-        rk = rank(S)
-        while len(lam) < rk:
-            lam.append(q)
-        if len(lam) == 3:
-            break
+    indep = []
+    for q, x in sv:
+        if len(indep) == 0:
+            ok = True
+        elif len(indep) == 1:
+            y = indep[0]
+            ok = any(x[a] * y[b] - x[b] * y[a] for a in range(3) for b in range(3))
+        else:
+            ok = det3([indep[0], indep[1], list(x)]) != 0
+        if ok:
+            indep.append(list(x)); lam.append(q)
+            if len(lam) == 3:
+                break
     assert len(lam) == 3
     L = [[x for qq, x in sv if qq == lam[i]] for i in range(3)]
     best = None

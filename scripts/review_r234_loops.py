@@ -5,8 +5,11 @@ import sys
 from review_r234_lib import *
 
 lo, hi = int(sys.argv[1]), int(sys.argv[2])
+import time
+T0 = time.time()
 tot = dict(edges=0, loops=0, rep2=0, bad=0, path=0, pathloops=0, both12=0, both12_notpath=0)
 for p in primes_1mod4(lo, hi):
+    print('p', p, dict(tot), flush=True) if p % 100 < 4 else None
     cls = [k for k in classes_det_p(p) if aniso_at_p(key_to_gram(k), p)]
     paths = set()
     for w in words(p):
@@ -31,4 +34,4 @@ for p in primes_1mod4(lo, hi):
             tot['both12'] += 1
             if k not in paths:
                 tot['both12_notpath'] += 1
-print(lo, hi, tot)
+print(lo, hi, tot, 'secs', round(time.time() - T0))

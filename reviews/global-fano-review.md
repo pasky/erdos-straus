@@ -79,3 +79,22 @@ correct); placement is a correct Assessment.
 **Verdict C3: SOUND-AFTER-REPAIRS (minor): L1 PROVED as narrowed, with ℓ ∤ 2p and the weight identification made explicit; L2/L3
 are placements (Assessment), correctly labelled in GLOBAL_FANO §3 table ("PROVED placement" for L2 should read "placement of a
 PROVED local criterion", MINOR).**
+**Result: all 9489 edge classes of all p ≡ 1 (4), 5 ≤ p ≤ 2000: loop ⟺ r_L(2) > 0 with 0 mismatches; 1191 loops; 1573 path
+classes, 449 of them loops; 79 classes representing both 1 and 2, all path classes** — every number reproduces the author's
+exactly (incl. p = 5, 13 below the p ≥ 11 hypothesis). (Runtime 126 s.) The trace-zero/representation identity
+r_L(m) = #{x ∈ E(L) : nrd x = mp} (all x, any trace) is checked separately with an independently built Eichler order (even Clifford
+algebra C₀(L), its unique index-2 overorder found by brute force over the 15 candidates): see the C1 addendum below.
+
+Enrichment statistic (spot-check): from the author's data file the pooled shares are 449/1573 = 28.5 % vs 1191/9489 = 12.6 %
+(p ≤ 2000, reproduced independently above), 26.7 % vs 10.2 % (p ≤ 3000), 22.6 % vs 5.8 % (p ≤ 10⁴). The "4×" is the ≤ 10⁴ pooled
+ratio of *shares*; it is dominated by small primes (pooling weights primes by their class counts) and drifts with the range
+(2.3× at 2000, 2.6× at 3000, 3.9× at 10⁴) — MINOR: state it as range-dependent and pooled.
+
+Novelty: the core implication "d-isogeny E → E^{(p)} ⟺ trace-zero μ ∈ End E with μ² = −dp, via p | trace and |trace| ≤ 2√(dp)"
+is **Chenu–Smith, "Higher-degree supersingular group actions" (MathCrypt 2021 / HAL hal-03288075), Prop. 1–2** (verified in
+the PDF: μ = π_p∘ψ, P_μ = T² − rdT + dp, p | r and |r| ≤ 2√(p/d) ⟹ r = 0); the count of such curves via Cl(ℤ[√−dp]) is their
+Thm 2 (so "layer m is class-number sized ≍ h(−4mp)" is known for squarefree m). Arpin et al. ("Adventures in Supersingularland",
+arXiv 1909.07779 §5) study 2-isogenous conjugate pairs = loops of G₂/Frob empirically. New in O233: only the level-2 (edge)
+packaging through the Gross-type lattice L = (E⁰)^#(p) and the loop ⟺ "L represents 2" phrasing. The memo's "standard type of
+statement … not found in the campaign" undersells the attribution — MAJOR (attribution only), see D2.
+**Verdict C1: SOUND** (mathematics and certification); attribution must be repaired (D2).
