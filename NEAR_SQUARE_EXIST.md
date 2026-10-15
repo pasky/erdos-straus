@@ -138,7 +138,8 @@ prime factors of m² + K equal to c_∞.
 
 **4.2 Single-level forcing gives only boundary words (PROVED, elementary).** Let G be a finite abelian group, x ∈ G, and
 call x *forced by s ∈ G* if every finite multiset of elements of G with product s has a sub-multiset with product x.
-Then x is forced by s iff x = s (take the one-element multiset {s}). Applied to G = Gal(Σ_u/ℚ) (or Gal(Σ_t/ℚ)) and the
+Then x ≠ 1 is forced by s iff x = s (take the one-element multiset {s}). (When F ⊄ Σ_M the Frobenii of the prime
+factors of N(m) range over all of G by Chebotarev, so restricting the multisets to "admissible" Frobenii does not help.) Applied to G = Gal(Σ_u/ℚ) (or Gal(Σ_t/ℚ)) and the
 prime factors of N: the only χ = −1 word that a congruence condition on N(m) can *force* is A = N itself (v = 1 on the
 u-side, the cofactor on the t-side), i.e. σ_N = c_∞ — and σ_N is a function of m modulo a fixed modulus. For
 |Gal(Σ_M/ℚ)| = 2 (M ∈ {1, 2, 3, 4} on either side) "some prime factor has σ_r = c_∞" is forced by σ_N = c_∞; these are
