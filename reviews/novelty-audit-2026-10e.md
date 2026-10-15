@@ -232,3 +232,63 @@ Status: in progress.
 | (J)61 Thm 2.1 (sign-field criterion) | **KNOWN in substance** (reformulation) | the sign is the local Hilbert-symbol obstruction of Bright–Loughran Thm 1.2 / Yamamoto 1965 / ET Prop 1.6, read as an Artin symbol via quadratic reciprocity |
 | (J)61 Cor 2.2/2.3 (complete clean-level classification on m² + k) | APPARENTLY NEW | ES-specific; no near-square ES literature beyond Schinzel 2000/Schuh 2024 (linear) |
 | (J)62 Prop 2.1/Thm 2.2 (numerator Frobenius sets; 4 \| ν) | KNOWN in substance (as labelled) | add Schinzel 2000 condition (1) for 4 \| m; Thm 2.2(d) uniqueness of ν = 4 APPARENTLY NEW as stated |
+
+---
+
+## 5. Large-sieve exceptional sets for the capped variant; the class family 𝒟_e(M) ((J)59, (J)63)
+
+### 5.1 Findings
+
+* **Chamberland, "The Erdős–Straus conjecture and the structure of primes", Integers 26
+  (2026) #A42** [visited: Zenodo record 10.5281/zenodo.19403738, full PDF read; already
+  archived as `sources/lit2026/chamberland-integers-26-A42-2026.pdf`]. **Theorem 1
+  (p. 2):** a prime p has a Type II solution (p ∤ a, p | b, p | c) iff
+  p = qr − 4s₁s₂ with q ≡ 3 (mod 4) and s₁, s₂ | (q + 1)/4; in the proof (p. 3)
+  q = 4b/p − 1, i.e. b = p(q + 1)/4, and Table 2 (p. 6) lists the resulting classes
+  mod q for q ≤ 23.
+  * **Bearing on (J)63 Prop 5.1 at e = 0** (and on the 3/4 note's
+    ℛ(M) = {−4D : D | A²}): with M = q, A = (q + 1)/4 and D = s₁s₂ (every divisor of A² is
+    such a product), Chamberland's Theorem 1 is exactly "p ≡ −4D (mod M), D | A² ⟺ a
+    Type II solution with y = pA". So **the e = 0 dictionary is published** (Chamberland
+    2026, Thm 1; the identity (4) is his reverse direction). LITERATURE_2026 already lists
+    the paper as "a reformulation"; the ledger entry for (J)63 Prop 5.1 and the
+    es-threequarter-note do not cite it (grep: no "Chamberland" in
+    `paper/es-threequarter-note.tex`). The e ≥ 1 family 𝒟_e(M) (odd s with
+    v_s(D) even ≤ 2v_s(A) + 2e) is not in Chamberland.
+* **Pomerance–Weingartner, Ramanujan J. 69 (2026) Paper 31 = arXiv:2511.16817**
+  [re-read, `sources/pw.txt`], §4 (pp. 8–9): Vaughan's argument as reproduced by PW: for
+  primes ℓ ≡ −1 (mod m), "there are at least f(ℓ) residue classes mod ℓ such that if n lies
+  in one of them, then m/n is a sum of 3 unit fractions", f(ℓ) = ⌊½ Σ_{t | (ℓ+1)/m}
+  |μ(t)| τ((ℓ + 1)/(tm))⌋, followed by the large sieve. For m = 4,
+  Σ_{t | A} μ²(t) τ(A/t) = τ(A²) (prime-power check: (a + 1) + a = 2a + 1), so Vaughan's
+  class count is ½τ(A²) = ½|ℛ(ℓ)|: the e = 0 class family is Vaughan's, as (J)59 Cor 2.2
+  already says (Vaughan 1970 itself still not accessed, see `sources/vaughan-1970-access-log.md`).
+  PW Thm 1.3: the numerator-m analogue with N/exp(C(log₂N/φ(m))^{1/3}).
+* **Elsholtz, "Sums of k unit fractions", Trans. AMS 353 (2001) 3209–3227** [zbMATH
+  review Zbl 0982.11016 visited via API; paper not opened (AMS/JSTOR walls)]:
+  E_{m,k}(N) ≪ N/exp(C_{m,k}(log N)^{1 − 1/(2^{k−1} − 1)}) for m > k ≥ 3, by Vaughan's
+  large sieve with 2^{k−1} parameters instead of Viola's k (Acta Arith. 22 (1973)) or
+  Shen's k + 1 (Chinese Ann. Math. B 7 (1986)); k = 3 gives Vaughan's 2/3. ET
+  (arXiv:1107.1010, archived) p. 9 confirms the Viola/Shen/Elsholtz lineage.
+  * **Bearing on (J)59 Thm 1.2/1.4 and (J)63 Thm 2.1.** The principle "each extra free
+    divisor parameter raises the large-sieve exponent 1 − 1/D" is exactly Vaughan →
+    Viola → Shen → Elsholtz for k-term representations. (J)59's ladder
+    (e+1)/(e+2), (e+2)/(e+3) is the same mechanism with the extra parameters supplied by
+    the exponent cap instead of extra unit fractions; the uniformity in e
+    ((J)63 Thm 2.1, c_e ≍ 1/(e log e) via Gallagher) has no counterpart found.
+* **Searches:** "Elsholtz Sums of k unit fractions Transactions AMS 2001 exceptional set",
+  "Viola 1973 sum of k unit fractions m/n exceptional set large sieve"; nothing on a
+  denominator-exponent-capped variant.
+
+### 5.2 Verdicts
+
+| Claim | Verdict | Notes |
+|---|---|---|
+| (J)63 Prop 5.1 at e = 0 (and the 3/4 note's ℛ(M) = {−4D : D \| A²}) | **KNOWN** | Chamberland, Integers 26 (2026) #A42, Thm 1 (p. 2): Type II ⟺ p = qr − 4s₁s₂, q ≡ 3 (4), s_i \| (q+1)/4; class count = Vaughan's f(ℓ) (PW §4) |
+| (J)63 Prop 5.1 for e ≥ 1 (𝒟_e(M)), Cor 5.2/Prop 5.3 (supply dimension e + 3) | APPARENTLY NEW | — |
+| (J)59 Prop 1.3 (overflow cube) | APPARENTLY NEW (elementary) | — |
+| (J)59 Thm 1.2/1.4 (exponents (e+1)/(e+2), (e+2)/(e+3)) | **PARTIAL** | method and "parameters → exponent 1 − 1/D" principle: Vaughan 1970, Viola 1973, Shen 1986, Elsholtz Trans. AMS 2001 (k-term analogue 1 − 1/(2^{k−1} − 1)); the capped variant is new |
+| (J)59 Cor 2.2 (PM-II exceptional set via Vaughan's classes) | KNOWN in substance | = Vaughan 1970 (classes are prime-modulus Type II certificates, as the ledger says) |
+| (J)63 Thm 2.1 (uniform in e ≤ log log N) | APPARENTLY NEW | Gallagher input standard |
+| (J)63 Thm 3.1/Rem 3.2 (Rankin ceiling; N^{3/4} at e = ∞) | APPARENTLY NEW (campaign variant) | — |
+| (J)63 Thm 4.2 (GRH cap) | superseded by (J)64 (c); standard inputs | — |
