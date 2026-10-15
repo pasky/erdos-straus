@@ -1,0 +1,1605 @@
+                                                      IDEAL FORMS OF COPPERSMITH’S THEOREM
+                                                        AND GURUSWAMI-SUDAN LIST DECODING
+
+
+                                                                     HENRY COHN AND NADIA HENINGER
+arXiv:1008.1284v2 [math.NT] 25 Jun 2013
+
+
+
+
+                                                   Abstract. We develop a framework for solving polynomial equations with
+                                                   size constraints on solutions. We obtain our results by showing how to apply a
+                                                   technique of Coppersmith for finding small solutions of polynomial equations
+                                                   modulo integers to analogous problems over polynomial rings, number fields,
+                                                   and function fields. This gives us a unified view of several problems arising
+                                                   naturally in cryptography, coding theory, and the study of lattices. We give
+                                                   (1) a polynomial-time algorithm for finding small solutions of polynomial
+                                                   equations modulo ideals over algebraic number fields, (2) a faster variant of the
+                                                   Guruswami-Sudan algorithm for list decoding of Reed-Solomon codes, and (3)
+                                                   an algorithm for list decoding of algebraic-geometric codes that handles both
+                                                   single-point and multi-point codes. Coppersmith’s algorithm uses lattice basis
+                                                   reduction to find a short vector in a carefully constructed lattice; powerful
+                                                   analogies from algebraic number theory allow us to identify the appropriate
+                                                   analogue of a lattice in each application and provide efficient algorithms to find
+                                                   a suitably short vector, thus allowing us to give completely parallel proofs of
+                                                   the above theorems.
+
+
+                                                                                1. Introduction
+                                              Many important problems in areas ranging from cryptanalysis to coding theory
+                                          amount to solving polynomial equations with side constraints or partial information
+                                          about the solutions. One of the most important cases is solving equations given
+                                          size bounds on the solutions. Coppersmith’s algorithm is a celebrated technique for
+                                          finding small solutions to polynomial equations modulo integers, and it has many
+                                          important applications in cryptography, particularly in the cryptanalysis of the RSA
+                                          cryptosystem.
+                                              In this paper, we show how the ideas of Coppersmith’s theorem can be extended
+                                          to a more general framework encompassing the original number-theoretic problem,
+                                          list decoding of Reed-Solomon and algebraic-geometric codes, and the problem of
+                                          finding solutions to polynomial equations modulo ideals in rings of algebraic integers.
+                                          These seemingly different problems are all perfectly analogous when viewed from
+                                          the perspective of algebraic number theory.
+                                              Coppersmith’s algorithm provides a key example of the power of lattice basis
+                                          reduction. To extend the method beyond the integers, we examine the analogous
+                                          structures for polynomial rings, number fields, and function fields. Ideals over
+                                          number fields have a natural embedding into a lattice, and thus we can find a
+
+                                             Date: June 25, 2013.
+                                             An extended abstract of this paper was published in the Proceedings of the Second Symposium
+                                          on Innovations in Computer Science (Beijing, January 7–9, 2011), Tsinghua University Press, pages
+                                          298–308. N.H. was supported by an internship at Microsoft Research New England and an NSF
+                                          Graduate Research Fellowship.
+                                                                                           1
+2                        HENRY COHN AND NADIA HENINGER
+
+
+short vector simply by applying the LLL algorithm to this canonical embedding. In
+contrast to integer lattices, it turns out that lattice basis reduction is much easier
+over a lattice of polynomials, and in fact a shortest vector can always be found in
+polynomial time. Recasting the list decoding problem in this framework allows us
+to take advantage of very efficient reduction algorithms and thus achieve the fastest
+known list decoding algorithm for Reed-Solomon codes.
+    To extend this approach to function fields, we must overcome certain technical
+difficulties. Along the way, we prove a more general result about finding short vectors
+under arbitrary non-Archimedean norms, which may have further applications
+beyond list decoding of algebraic-geometric codes. As an illustration of the generality
+of our approach, we give the first list decoding algorithm that works for all algebraic-
+geometric codes, not just those defined using a single-point divisor.
+    In the remainder of the introduction, we set up our framework with a brief review
+of Coppersmith’s theorem, and then state our theorems on polynomial rings, number
+fields, and function fields.
+1.1. Coppersmith’s theorem. The following extension of Coppersmith’s theorem
+[15] was developed by Howgrave-Graham [27] and May [39].
+Theorem 1.1 ([15, 27, 39]). Let f (x) be a monic polynomial of degree d with
+coefficients modulo an integer N > 1, and suppose 0 < β ≤ 1. In time polynomial
+in log N and d, one can find all integers w such that
+                                               2
+                                     |w| ≤ N β /d
+and
+                                 gcd(f (w), N ) ≥ N β .
+   Note that when β = 1, this amounts to finding all sufficiently small solutions of
+f (w) ≡ 0 (mod N ), and the general theorem amounts to solving f (w) ≡ 0 (mod B),
+where B is a large, unknown factor of N .
+   We give a brief example to illustrate the power of this theorem in cryptography
+[15, 27]. Imagine that an adversary has obtained through a side-channel attack some
+knowledge about one of the prime factors p of an RSA modulus N = pq, for example
+some of its most significant bits. We denote this known quantity by r. Then we
+may write p = r + w, where the bound on w depends on how many bits of p are
+known. Suppose more than half of the bits have leaked, i.e., 0 ≤ w ≤ N 1/4−o(1) (we
+assume, as is typical, that p and q are both N 1/2+o(1) ). Now let f (x) = x + r and
+β = 1/2 + o(1). Theorem 1.1 tells us that we can in polynomial time learn w, and
+hence p, thereby factoring N .
+   Further applications of this theorem in cryptography include other partial key
+recovery attacks against RSA [9, 11], attacks on stereotyped messages and improper
+padding [15], and the proof of security for the RSA-OAEP+ padding scheme [46].
+See [40] for many other applications.
+   It is remarkable that Theorem 1.1 allows us to solve polynomial equations
+modulo N without knowing the factorization of N , and this fact is critical for
+the cryptanalytic applications. However, even if one already has the factorization,
+Theorem 1.1 remains nontrivial if N has many prime factors. To solve an equation
+modulo a composite number, one generally solves the equation modulo each prime
+power factor of the modulus and uses the Chinese remainder theorem to construct
+solutions for the original modulus. (Recall that modulo a prime, such equations can
+                                   IDEAL FORMS. . .                                   3
+
+
+be solved in polynomial time, and we can use Hensel’s lemma to lift the solutions
+to prime power moduli.) The number of possible solutions can be exponential in
+the number of prime factors, in which case it is infeasible to enumerate all of the
+roots and then select those that are within the desired range. In fact, the problem
+of determining whether there is a root in an arbitrary given interval is NP-complete
+[37]. Of course, if N has only two prime factors, then there can be only d2 solutions
+modulo N , but our methods are incapable of distinguishing between numbers with
+two or many prime factors.
+   It is not even obvious that the number of roots modulo N of size at most N 1/d is
+polynomially bounded in terms of the number of digits of N . From this perspective,
+the exponent 1/d is optimal without further assumptions, because f (x) = xd will
+have exponentially many roots modulo N = k d of absolute value at most N 1/d+ε
+(specifically, the 2N ε such multiples of k). Theorem 1.1 can be seen as a constructive
+bound on the number of solutions. See [16] for further discussion of this argument
+and [30] for non-constructive bounds.
+
+1.2. A polynomial analogue. To introduce our analogies, we will begin with the
+simplest and most familiar case: polynomials.
+    There is an important analogy in number theory between the ring Z of integers and
+the ring F [z] of univariate polynomials over a field F . To formulate the analogue of
+Coppersmith’s theorem, one just needs to recognize that the degree of a polynomial
+is the appropriate measure of its size. Thus, the polynomial version of Coppersmith’s
+theorem should involve finding low-degree solutions of polynomial equations over
+                                                                         Pd
+F [z] modulo a polynomial p(z). That is, given a polynomial f (x) = i=0 fi (z)xi
+with coefficients fi (z) ∈ F [z], we seek low-degree polynomials w(z) ∈ F [z] such that
+f (w(z)) ≡ 0 (mod p(z)).
+    In the following theorem, we assume that we can efficiently represent and manip-
+ulate elements of F , and that we can find roots in F [z] of polynomials over F [z].
+For example, that holds if we can factor bivariate polynomials over F in polynomial
+time. This assumption holds for many fields, including Q and even number fields
+[32] as well as all finite fields [23] (with a randomized algorithm in the latter case).
+Theorem 1.2. Let f (x) be a monic polynomial in x of degree d over F [z] with
+coefficients modulo p(z), where degz p(z) = n > 0. In polynomial time, for 0 < β ≤ 1,
+we can find all w(z) ∈ F [z] such that
+                                 degz w(z) < β 2 n/d
+and
+                            degz gcd(f (w(z)), p(z)) ≥ βn.
+   In the case when p(z) factors completely into linear factors, this theorem is
+equivalent to the influential Guruswami-Sudan theorem on list decoding of Reed-
+Solomon codes [26]. See Section 4.2 for the details of the equivalence. The above
+statement of Theorem 1.2, as well as the extension to higher-degree irreducible
+factors, appear to be new.
+   It has long been recognized that the Coppersmith and Guruswami-Sudan theorems
+are in some way analogous, although we are unaware of any previous, comparably
+explicit statement of the analogy. Boneh used Coppersmith’s theorem in work on
+Chinese remainder theorem codes inspired by the Guruswami-Sudan theorem [10],
+and in a brief aside in the middle of [6], Bernstein noted that the Guruswami-Sudan
+4                        HENRY COHN AND NADIA HENINGER
+
+
+theorem is the polynomial analogue of a related theorem of Coppersmith, Howgrave-
+Graham, and Nagaraj [17]. Alekhnovich [2] formulated the problem of list-decoding
+of Reed-Solomon codes in terms of finding a Gröbner basis for a polynomial ideal,
+and he gave an algorithm for finding a short vector in a polynomial lattice to do so.
+See also [25] for a general ideal-theoretic setting for coding theory, and [48] for a
+survey of relationships between list decoding and number-theoretic codes.
+1.3. Number fields. A number field is a finite extension of the field Q of rational
+numbers. Thus it is natural to investigate how a statement over the rationals,
+the simplest number field, extends to more general number fields. We extend our
+analogy by adapting Coppersmith’s theorem to the number field case.
+   Every number field K is of the form
+           K = Q(α) = {a0 + a1 α + · · · + an−1 αn−1 : a0 , . . . , an−1 ∈ Q},
+where α is an algebraic number of degree n (i.e., a root of an irreducible polynomial
+of degree n over Q). The degree of K is defined to be n. Within K, there is a ring
+OK called the ring of algebraic integers in K. It plays the same role within the field
+K as the ring Z of integers plays within Q. Sometimes OK is of the form Z[α], but
+sometimes it does not even have a single generator.
+   Recall that an ideal in a ring is a non-empty subset closed under addition and
+under multiplication by arbitrary elements of the ring. (Intuitively, it is a subset
+modulo which one can reduce elements of the ring.) For example, the multiples of
+any fixed element form an ideal, called a principal ideal. In Z every ideal is of that
+form, but that is not usually true in OK .
+   In OK , we study the solutions of polynomial equations modulo ideals, the analogue
+of such equations modulo integers in Z. To measure the size of a nonzero ideal I in
+OK , we will use its norm N (I) = |OK /I|, i.e., the size of the quotient ring.
+   A final conceptual issue that makes this case more subtle is that a number field
+of degree n has n absolute values | · |i corresponding to its n embeddings into C (as
+we will explain in Section 5), and to obtain the theorem it is necessary to bound
+them all simultaneously.
+   The number field analogue of Coppersmith’s theorem is as follows:
+Theorem 1.3. Let K be a number field of degree n with ring of integers OK ,
+f (x) ∈ OK [x] a monic polynomial of degree d, and I ( OK an ideal in OK . Assume
+that we are given OK and I explicitly by integral bases. For 0 < β ≤ 1 and
+λ1 , . . . , λn > 0, in time polynomial in the input length and exponential in n2 we can
+find all w ∈ OK with |w|i < λi such that
+                               N (gcd(f (w)OK , I)) > N (I)β ,
+provided that                        Y                2
+                                          λi < N (I)β /d .
+                                      i
+Furthermore, in polynomial time we can find all such w provided that
+                       Y                    2         2
+                           λi < (2 + o(1))−n /2 N (I)β /d .
+                           i
+
+    Equivalently, we can find small solutions of equations f (x) ≡ 0 (mod J), where
+the ideal J is a large divisor of I. Using improved lattice basis reduction algorithms
+[3] we can achieve a running time that is slightly subexponential in n2 . Note also that
+                                  IDEAL FORMS. . .                                  5
+
+
+gcd(f (w)OK , I) is the largest ideal that contains both the principal ideal f (w)OK
+and I; in other words, it is their sum f (w)OK + I.
+    When n is fixed, our algorithm runs in polynomial time, but the dependence
+on n is exponential. That appears to be unavoidable using our techniques, but it
+is not a serious drawback. Many number-theoretic algorithms behave poorly for
+high-degree number fields, and most computations are therefore done in low-degree
+cases. Even for a fixed number field K, Theorem 1.3 remains of interest.
+    Similar ideas to Theorem 1.3 were developed independently by Coxon for list
+decoding of number field codes [18]. His algorithm is more flexible than our
+theorem in allowing weighted list decoding, but he does not develop an analogue of
+Coppersmith’s theorem. Similar results were also achieved by Biasse and Quintin [7].
+    Several problems over number fields have been proposed as the basis for cryp-
+tosystems; see, for example, [12] for a survey of problems over quadratic number
+fields. More recently, Peikert and Rosen [42] and Lyubashevsky, Peikert, and Regev
+[36] developed lattice-based cryptographic schemes using lattices representing the
+canonical embeddings of ideals in number fields. As a special case, Theorem 1.3
+can be used to solve certain cases of the bounded-distance decoding problem for
+                                                                                2
+suchplattices, and improving our approximation factor from (2 + o(1))−n /2 to
+2−n |∆K |, where ∆K is the discriminant of K, would solve the problem in general;
+see Section 5.3 for more details.
+    In addition, number fields have many applications to purely classical problems,
+the most prominent example being the number field sieve factoring algorithm. All
+sieve algorithms require generating smooth numbers, and in this context Boneh
+[10] showed how to use Coppersmith’s theorem to find smooth integer solutions of
+polynomials in short intervals. Using Theorem 1.3 analogously, one can do the same
+over number fields.
+    We prove Theorem 1.3 in Section 5.
+
+1.4. Function fields. Algebraic number theorists have developed a more sophis-
+ticated version of the analogy between the ring of integers and polynomial rings.
+In this analogy, the analogues of number fields are called function fields; they are
+the fields of rational functions on algebraic curves over finite fields. The parallels
+between number fields and function fields are truly astonishing, and this analogy
+has played a crucial role in the development of number theory over the last century.
+   We now complete our analogy in this paper by extending Coppersmith’s theorem
+to the function field case. See Section 6 for a detailed review of the setting and
+notation.
+Theorem 1.4. Let X be a smooth, projective, absolutely irreducible algebraic curve
+over Fq , and let K be its function field over Fq . Let D be a divisor on X whose
+support supp(D) is contained in the Fq -rational points X (Fq ), let S be a subset of
+X (Fq ) that properly contains supp(D), let OS be the subring of K consisting of
+functions with poles only in S, and let L(D) be the Riemann-Roch space
+                      L(D) = {0} ∪ {f ∈ K ∗ : (f ) + D  0}.
+Let f (x) ∈ OS [x] be a monic polynomial of degree d, and let I be a proper ideal in
+OS .
+   Then in probabilistic polynomial time, we can find all w ∈ L(D) such that
+                           N (gcd(f (w)OS , I)) ≥ N (I)β ,
+6                        HENRY COHN AND NADIA HENINGER
+
+
+provided that
+                                                  2
+                                q deg(D) < N (I)β /d .
+
+    In the case when S contains only a single point, the function field version of Cop-
+persmith’s theorem is equivalent to the Guruswami-Sudan theorem on list-decoding
+of algebraic-geometric codes, as we will outline in Section 6. The Guruswami-Sudan
+theorem and the earlier Shokrollahi-Wasserman theorem [45] are specialized to that
+case, which covers many but not all algebraic-geometric codes. Our theorem extends
+list decoding to the full range of such codes.
+    We assume that we can efficiently compute bases of Riemann-Roch spaces for
+divisors in X . That can be done in many important cases (for example, for a
+smooth plane curve, or even one with ordinary multiple points [28]), and it is a
+reasonable assumption because even the encoding problem for algebraic-geometric
+codes requires a basis of a Riemann-Roch space. Note also that although our
+algorithm is probabilistic, it is guaranteed to give the correct solution in expected
+polynomial time; in other words, it is a “Las Vegas” algorithm.
+    Alekhnovich’s polynomial module approach to list decoding has been adapted to
+a special class of algebraic-geometric codes by Beelen and Brander [5]. Their work is
+thus closer in spirit to ours than the Guruswami-Sudan and Shokrollahi-Wasserman
+papers are, but they focus on the process of interpolation and view modules as a
+means to compute interpolating polynomials.
+    We prove Theorem 1.4 in Section 6.
+
+1.5. Analogies in number theory. The connections we have described are not
+isolated phenomena. Many theorems in number theory and algebraic geometry have
+parallel versions for the integers and for polynomial rings, or more generally for
+number fields and function fields, and translating statements or techniques between
+these settings can lead to valuable insights.
+    One particular advantage of this sort of arbitrage is that proving results for
+polynomial rings is usually easier. For example, the prime number theorem for
+Z is a deep theorem, but the analogue for the polynomial ring Fq [z] over a finite
+field is much simpler. It says that asymptotically a 1/n fraction of the q n monic
+polynomials of degree n are irreducible, and in fact the error term is on the order
+of q n/2 (see Lemma 14.38 in [22]). Proving a similarly strong version of the prime
+number theorem for Z would amount to proving the Riemann hypothesis. Similarly,
+the ABC conjecture for Z is a profound unsolved problem, while for polynomials
+rings it has an elementary proof [38].
+    Thus, polynomial rings are worlds in which many of the fondest dreams of
+mathematicians have come true. If a result cannot be proved in such a setting,
+then it is probably not even worth trying to prove it in Z. If it can be proved
+for polynomial rings, then the techniques may not apply to the integers, but they
+often provide inspiration for how a proof might work if technical obstacles can be
+overcome.
+    Similarly, in computer science many computational problems that appear to
+be difficult for integers are tractable for polynomials. For example, factoring
+polynomials can be done in polynomial time for many fields, while for integers the
+problem seems to be hard. The polynomial analogue of the shortest vector problem
+for lattices can be solved exactly in polynomial time [21], while for integer lattices
+                                        IDEAL FORMS. . .                                           7
+
+
+the problem is NP-hard [1]. This difference in the difficulty of lattice problems is at
+the root of the poor running time in Theorem 1.3 for number fields of high degree.
+   The analogies that we develop here between cryptanalysis and coding theory
+extend further. For example, multivariate versions of Coppersmith’s theorem
+correspond to list decoding of Parvaresh-Vardy and Guruswami-Rudra codes [14].
+
+
+                                      2. Preliminaries
+   One of the main steps in Coppersmith’s theorem uses lattice basis reduction to
+find a short vector in a lattice. In this section, we review preliminaries on integral
+lattices and introduce the analogues that we will use in our generalizations.
+
+2.1. Integer lattices. Recall that a lattice in Rm is a discrete subgroup of rank
+m. Equivalently, it is the set of integer linear combinations of a basis of Rm .
+   The determinant det(L) of a lattice L is the absolute value of the determinant of
+any basis matrix; it is not difficult to show that it is independent of the choice of
+basis. One way to see why is that the determinant is the volume of the quotient
+Rm /L, or equivalently the volume of a fundamental parallelotope.
+   One of the fundamental problems in lattice theory is finding short vectors in
+lattices, with respect to the `p norm
+
+                                               m
+                                                             !1/p
+                                               X
+                                                         p
+                                    |v|p =           |vi |          .
+                                               i=1
+
+Most often we use the `2 norm, which is of course the usual Euclidean distance.
+The LLL lattice basis reduction algorithm [34] can be used to find a short vector in
+a lattice.
+
+Theorem 2.1 ([34]). Given a basis of a lattice L in Qm , a nonzero vector v ∈ L
+satisfying
+                                  |v|2 ≤ 2(m−1)/4 det(L)1/m
+can be found in polynomial time.
+
+   Note that the LLL algorithm’s input is a rational lattice, and the rationality plays
+an important role in the running time analysis. In the proof of Theorem 1.3, we must
+apply it to a lattice whose basis vectors are not in Qm ; however, for our purposes
+using a close rational approximation suffices. Specifically, we simply approximate
+the given basis b1 , . . . , bm with rational vectors b01 , . . . , b0m . It is easy to check that
+using a polynomial number of digits suffices to approximate the determinant. (The
+number of digits depends polynomially on the dimension m and the P                     logarithmic
+sizes of the entries in the basis vectors.) Then we find a short vector                   ci b0i with
+ci ∈ Z, where the coefficients ci have only polynomially many digits because they
+are the output of the polynomial-time
+                                P            algorithm LLL algorithm. If b0i approximates
+bi to enough digits, then         ci bi will have essentially the same length, and again
+a polynomial number of digits suffices. Strictly speaking, this process makes the
+approximation factor slightly worse, but the difference is insignificant, and we could
+use a better version of the LLL algorithm to achieve the same 2(m−1)/4 as in the
+theorem statement.
+8                        HENRY COHN AND NADIA HENINGER
+
+
+2.2. Polynomial lattices. A lattice is a module over the ring Z of integers. In
+other words, not only is it an abelian group under addition, but we can also multiply
+lattice vectors by integers and thus take arbitrary integer combinations of them.
+More generally, a module for a ring R is an abelian group in which we can multiply
+by elements of R (in a way that satisfies the associative and distributive laws). In
+other words, an R-module is exactly like an R-vector space, except that R is not
+required to be a field, as it is in the definition of a vector space.
+   The module Rm with componentwise scalar multiplication is called a free R-
+module of rank m. Every lattice is a free Z-module, and free R-modules will be the
+analogous structure for the ring R.
+   For example, if R is the polynomial ring F [z] over a field F , then we define a
+polynomial lattice to be a free module over F [z] of finite rank. A polynomial lattice
+will usually be generated by a basis of vectors whose coefficients are polynomials in
+z. Vectors in our polynomial lattice will be linear combinations of the basis vectors
+(where the coefficients are also polynomials in z).
+   An appropriate definition of the length (i.e., degree) of such a lattice vector is
+the maximum degree of its coordinates:
+(2.1)              degz (v1 (z), v2 (z), . . . , vm (z)) = max degz vi (z).
+                                                           i
+This defines a non-Archimedean norm. In fact, for lattices with a norm defined as
+above, it is possible to find the exact shortest vector in polynomial time (see, for
+example, [21]).
+    Lattices of polynomials have been well studied because of their applications to
+the study of linear systems [29]. There are several notions of basis reduction for
+such lattices. A basis is column-reduced (or, as appropriate, row-reduced) if the
+degree of the determinant of the lattice (i.e., of a basis matrix) is equal to the sum
+of the degrees of its basis vectors. Such bases always contain a minimal vector for
+the lattice, and m-dimensional column reduction can be carried out in mω+o(1) D
+field operations [24], where ω is the exponent of matrix multiplication and D is the
+greatest degree occurring in the original basis of the lattice.
+    In particular, for an m-dimensional lattice L with the norm (2.1), the above
+algorithms are guaranteed to find a nonzero vector v for which
+                                          1
+(2.2)                            deg v ≤    deg det L,
+                                         m
+where det L denotes the determinant of a lattice basis.
+2.3. Finding short vectors under general non-Archimedean norms. The
+above algorithms are specialized to norms defined by (2.1), but there are other
+non-Archimedean norms, and we will need to use them in the proof of Theorem 1.4
+in the function field setting. In fact, we will show that for all non-Archimedean
+norms, one can find a vector satisfying the equivalent of (2.2) in a lattice by solving
+a system of linear equations. Solving this system may be less efficient than a
+specialized algorithm, but it allows us to give a general approach that will work in
+polynomial time for any norm.
+   Let R = F [z] be a polynomial ring over a field F , and for r ∈ R define
+                                      |r| = C degz (r)
+for some arbitrary constant C > 1; we take |0| = 0 as a special case. Note that
+|z| = C, and thus we can write |r| = |z|degz (r) .
+                                      IDEAL FORMS. . .                                    9
+
+
+  Suppose we have any norm | · | on Rm that satisfies the following three properties:
+   (1) For all v ∈ Rm , |v| ≥ 0, and |v| = 0 if and only if v = 0.
+   (2) For all v, w ∈ Rm , |v + w| ≤ max(|v|, |w|).
+   (3) For all v ∈ Rm and r ∈ R, |rv| = |r||v|.
+Note that taking
+                      |(v1 (z), v2 (z), . . . , vm (z)| = C maxi degz vi (z)
+defines such a norm, but the extra generality will prove useful in Section 6.
+    Let M ⊆ Rm be a submodule of rank m (so the quotient F -vector space Rm /M
+is finite-dimensional), and let d = dimF (Rm /M ).
+Lemma 2.2. For any R-basis b1 , . . . , bm of Rm , there exists a nonzero vector v ∈ M
+such that                         p
+                        |v| ≤ m |b1 | . . . |bm | |z|d/m .
+Proof. We will construct a nonzero vector satisfying |v| ≤ q c for some constant c
+to be determined, and then we will optimize the choice of c. Let |bi | = |z|ni , and
+consider the space of polynomials
+                       (                                       )
+                         X
+                  V =       ri bi : ri ∈ R and degz ri ≤ c − ni .
+                             i
+
+Every v ∈ V satisfies |v| ≤ |z|c , and V is an F -vector space. To compute its
+dimension, note that ri is determined by bc      P− ni c + 1 > c − ni coefficients. Because
+b1 , . . . , bm is an R-basis, dimF V > mc − i ni .
+                             P
+    If we take c = d + i ni /m, then dimF V > d. Thus, there exists a nonzero
+element v of V that maps to zero in the d-dimensional quotient space Rm /M and
+hence lies in M . It satisfies
+                                            p
+                                |v| ≤ q c = m |b1 | . . . |bm | |z|d/m ,
+as desired.                                                                               
+Lemma 2.3. Under the hypothesis of Lemma 2.2, a vector satisfying
+                              p
+                        |v| ≤ m |b1 | . . . |bm | |z|d/m
+can be found in polynomial time (given an R-basis of M ).
+Proof. In the notation of the proof of Lemma 2.2, we will        P show that we can find
+small coefficients r1 , . . . , rm ∈ R (not all zero) such that i ri bi is in M . Suppose
+w1 , . . . , w m Pis an R-basis of M . Then the elements of M are those that can be
+written as           si wi with si ∈ R. Given a polynomial bound for the degrees of
+s1 , . . . , sm , we could determine the coefficients ri and si by solving linear equations
+over F for their coefficients. To specify these equations, we write w1 , . .P      . , wm as
+R-linear combinations of b1 , . . . , bm . Define the matrix W over R by wj = i Wij bi
+for each j. Then                      X           X
+                                          ri bi =    sj wj
+                                      i            j
+amounts to r = W s, where s and r are the column vectors with entries si and ri ,
+respectively.
+   Thus, s determines r in a simple way, and all we need is to choose s1 , . . . , sm so
+that setting r = W s yields degz ri ≤ c − ni , with c and ni defined as in the proof of
+10                       HENRY COHN AND NADIA HENINGER
+
+
+Lemma 2.2. It is not difficult to bound the degrees of the polynomials si as follows.
+Let W
+    f be the adjoint matrix of W (so W W  f = det(W )I). Then
+
+                                       W
+                                       f r = det(W )s.
+It follows that for each i,
+                                                               
+                degz det(W ) + degz si ≤ max degz W
+                                                  fij + degz rj .
+                                               j
+
+However, the entries W       f have degree bounded by m − 1 times the maximum
+                      fij of W
+degree of an entry of W (because they are given by determinants of (m − 1) × (m − 1)
+submatrices of W ). Thus, degz si is polynomially bounded, and we can locate a
+suitable vector v by solving a system of polynomially many linear equations over
+F.                                                                                
+   Note that for a rank m submodule M of Rm , the degree of the determinant
+of a basis matrix B for M is the dimension of the quotient Rm /M . Thus, in
+Lemma 2.2, if |b1 | = · · · = |bm | = 1, then the norm of a minimal vector is bounded
+by | det(B)|1/m . The exponential approximation factor that occurs in LLL lattice
+basis reduction does not occur here.
+
+                              3. Coppersmith’s theorem
+   We now review how Coppersmith’s method works over the integers, as this
+provides a template for the techniques we will apply later. We will follow the
+exposition of May [40].
+   Let f (x) be a monic univariate polynomial of degree d, and N an integer of
+potentially unknown factorization. We wish to find all small integers w such that
+gcd(f (w), N ) is large.
+   To do so, we will choose some positive integer k (to be determined later) and
+look at integer combinations of the polynomials xj f (x)i N k−i . If B divides both N
+and f (w), then B k will divide wj f (w)i N k−i and thus also any linear combination
+of such polynomials.
+   Let                         X                         X
+                        Q(x) =    ai,j xj f (x)i N k−i =   q i xi ,
+                                 i,j                         i
+for some coefficients ai,j and qi to be determined. We will choose Q so that the
+small solutions to our original congruence become actual solutions of Q(x) = 0 in
+the integers. This will allow us to find w by factoring Q(x) over the rationals. The
+construction of Q tells us that
+(3.1)                            Q(w) ≡ 0      (mod B k ).
+If in addition we have a lower bound N β on the size of B, and we can show that
+(3.2)                            |Q(w)| < N βk ≤ B k ,
+then Q(w) = 0 and we may find w by factoring Q. In fact, this observation tells us
+that we can find all such w in this way. A similar observation will appear in all of
+our proofs.
+   In the case of the integers, we introduce the bound |w| < X on our roots, and
+the triangle inequality tells us that
+                                           X
+(3.3)                             |Q(w)| ≤   |qi |X i .
+                                               i
+                                      IDEAL FORMS. . .                              11
+
+
+To finish the theorem, we will show that if X is sufficiently small, then we can
+choose Q so that its coefficients qi satisfy
+                                  X
+(3.4)                                 |qi |X i < N βk .
+                                      i
+   We are now ready to prove Coppersmith’s theorem for the integers.
+Proof of Theorem 1.1. Having outlined the general technique above, it remains to
+be shown that we can construct a polynomial Q(x) whose coefficients satisfy the
+bound in (3.4).
+  The polynomial Q(x) will be a linear combination of the polynomials
+                    xj f (x)i N k−i   for   0 ≤ i < k and 0 ≤ j < d
+and
+                              xj f (x)k for 0 ≤ j < t.
+   The right-hand side of (3.3) is the `1 norm of the vector of coefficients of the
+polynomial Q(xX), which in turn will be a linear combination of the polynomials
+(xX)j f (xX)i N k−i . Finding our desired Q(x) is thus equivalent to finding a suitably
+short vector in the lattice L spanned by the coefficient vectors of the polynomials
+(xX)j f (xX)i N k−i . Once we find this short vector, we can divide each coefficient
+by the power of X introduced in the normalization to find the coefficients of Q, and
+test each of the roots of Q to see if it is a solution.
+   To compute the determinant of this lattice, we can order the basis vectors by
+the degrees of the polynomials they represent to obtain an upper triangular matrix
+whose determinant is the product of the terms on the diagonal:
+                        Y          Y
+          det(L) =            Xi        N dj = X (dk+t−1)(dk+t)/2 N dk(k+1)/2 .
+                    0≤i<dk+t       0≤j≤k
+
+  Set m = dk + t. We can use the LLL algorithm [34] to find a vector v whose `2
+norm is bounded by
+                          |v|2 ≤ 2(m−1)/4 det(L)1/m .
+                                        √
+By the Cauchy-Schwarz inequality, |v|1 ≤ m |v|2 , and hence whenever |w| < X,
+                                √
+                      |Q(w)| ≤ m2(m−1)/4 det(L)1/m .
+We assume m ≥ 7, and use the weaker bound
+                            |Q(w)| ≤ 2(m−1)/2 det(L)1/m .
+   To prove inequality (3.2), we must show that
+                                                 1/m
+                  2(m−1)/2 X m(m−1)/2 N dk(k+1)/2      < N βk .
+This inequality is equivalent to
+(3.5)                    (2X)(m−1)/(2k) N d(k+1)/(2m) < N β .
+   Applying Lemma 3.1 below with ` = log2 2X and n = log2 N , we obtain parame-
+ters k and t such that (3.5) holds for
+                                                2
+                                      2X < N β /d−ε .
+To eliminate ε from the statement of the theorem, take ε < log1 N . Then it suffices
+                                                                  2
+                   2
+to take X ≤ 41 N β /d . We can divide the interval [−4X, 4X] into four intervals
+of width 2X and solve the problem for each interval by finding solutions for the
+12                       HENRY COHN AND NADIA HENINGER
+
+
+polynomials f (x − 3X), f (x − X), f (x + X), and f (x + 3X). Thus, we achieve a
+            2
+bound of N β /d , as desired.                                                 
+  We end with a brief lemma that will tell us how to optimize our parameters in
+equation (3.5).
+                                                                         2     
+                                                                         β
+Lemma 3.1. The inequality ` m−1 + nd  k+1
+                                           < nβ is satisfied when ` < n     − ε   ,
+                        j 2k    k 2m                                    d
+           2β 2d           βm
+m ≥ max ε , β , and k = d − 1 .
+
+   Note that for the application above, we must have k ≥ 1 and t = m − dk ≥ 0.
+The hypotheses of the lemma achieve this. Furthermore, we want m and k to be
+                                                                            2
+polynomially bounded. Without loss of generality, we can assume that N β /d ≥ 2,
+and hence β 2 ≥ d/n. Thus, as long as ε is not too small, m and k need not be too
+large.
+   Lemma 3.1 amounts to optimizing how large ` can be. As intuition, note that
+                                                                  nβ
+if we set the two terms ` m−1 2k   and nd k+1
+                                           2m roughly equal to 2 , then we have
+   2        2                              2
+`m ≈ ndk ≈ nβmk and hence ` ≈ nβ /d. The proof amounts to making this
+precise.
+                                                                  2    
+Proof. It suffices to show that these values of m and k satisfy n βd − ε m−1   nβ
+                                                                          2k < 2
+              nβ
+and nd k+1
+        2m ≤ 2 .
+                                          k
+  The first inequality is equivalent to m−1  > βd − βε . Similarly, the second is
+                                        j       k
+                     β                    βm                    β
+equivalent to k+1
+               m ≤ d . If we set k =
+                                                         k+1
+                                           d − 1 , then m ≤ d , so the second
+inequality is satisfied. If in addition we take m ≥ 2β        εm
+                                                     ε , then β ≥ 2 and hence
+k > βm          βm    εm                 m    βm  εm
+      d − 2 ≥ d − β . It follows that k m−1 > d − β , which is equivalent to
+the first inequality.                                                     
+   Note that improving the approximation factor for the length of the short lattice
+vector that we find will only improve the constants and running time of the theorem,
+                                                                    2
+and will not provide an asymptotic improvement to the bound N β /d on |w|.
+
+             4. Polynomials and Reed-Solomon list decoding
+   In this section, we prove Theorem 1.2 using an approach analogous to that of
+the previous section. Guruswami and Sudan’s technique for list decoding of Reed-
+Solomon codes [26] is similar in that it involves constructing a bivariate polynomial
+that vanishes to high order at particular points. To construct such a polynomial,
+they write each vanishing condition as a set of linear equations on the coefficients of
+the polynomial under construction. The linear equations can be solved to obtain
+the desired polynomial, and the polynomial factored to obtain its roots.
+   Similarly, the polynomials used in Coppersmith’s method are constructed so as
+to vanish to high order, the condition ensured by equation (3.1). The conceptual
+difference is that this condition follows from the form of the lattice basis, rather
+than being imposed as linear constraints. With the right definition of lattice basis
+reduction in the polynomial setting, we can emulate the proof from the integer case.
+   We regard f (x) as a polynomial in x with coefficients that are polynomials in the
+variable z. To prove Theorem 1.2, we would like to construct a polynomial Q(x) over
+F [z] from the polynomials xj f (x)i p(z)k−i . If b(z) divides both p(z) and f (w(z)),
+                                       IDEAL FORMS. . .                                13
+
+
+then b(z)k divides w(z)j f (w(z))i p(z)k−i and thus also any linear combination of
+such polynomials.
+   Instead of an integer combination of these polynomials, we will allow coefficients
+that are polynomials in z. Let
+                           X                              X
+                   Q(x) =     ai,j (z)xj f (x)i p(z)k−i =   qi (z)xi .
+                              i,j                                       i
+
+  If we have an upper bound ` on the degree of our root w(z), then the degree of
+Q(w(z)) will be bounded by
+                         degz Q(w(z)) ≤ max (degz qi (z) + `i).
+                                                    i
+
+If similarly we have a lower bound nβ on the degree of b(z), then if we know that
+both
+                            Q(w(z)) ≡ 0 (mod b(z)k )
+and
+(4.1)                      degz Q(w(z)) < nβk ≤ k degz b(z),
+then we may conclude that
+                                         Q(w(z)) = 0.
+
+4.1. Proof of Theorem 1.2. We will show how finding a short vector in a lattice
+of polynomials will allow us to construct a polynomial Q(x) satisfying (4.1).
+   Let ` be the upper bound on the degree of the roots w(z) we would like to find.
+Using the same idea to bound the length of the vector as in the integer case, we will
+form a lattice of the coefficient vectors of
+                (z ` x)j f (z ` x)i p(z)k−i    for       0 ≤ j < d and 0 ≤ i < k
+and
+                             (z ` x)j f (z ` x)k        for   0 ≤ j < t.
+As always, we view them as polynomials in powers of x with coefficients that are
+polynomials in z. Once we find this short vector, we can divide each coefficient by
+the power of z ` introduced in the normalization to find the coefficients of Q, and
+test each of the roots of Q to see if it is a solution.
+    Let M be the F [z]-module spanned by the coefficient vectors of these polynomials,
+with the degree of a vector defined by (2.1).
+    The matrix of coefficient vectors of the basis is upper triangular, so its determinant
+is the product of the diagonal entries. Set m = kd + t. Then
+                                              m−1
+                                              X               k
+                                                              X
+                        deg det M = `               i + nd          i
+                                              i=0             i=0
+                                    m(m − 1)       k(k + 1)
+                                      =`      + nd          .
+                                        2              2
+  Since the dimension of our lattice is m, by Theorem 2.3 we can find a vector of
+degree at most
+                                                      
+                        1     m(m − 1)        k(k + 1)
+                            `            + nd            .
+                        m          2             2
+14                        HENRY COHN AND NADIA HENINGER
+
+
+     To prove (4.1), we would
+                             like
+                                  this bound to be less than βkn. By Lemma 3.1, we
+                           2                                                        2
+can achieve any ` ≤ n βd − ε . If we take ε < n12 d then this becomes ` < βdn , as
+desired, because β can be taken to have denominator n.
+   Note that we cannot achieve degree equal to β 2 n/d (as opposed to strict in-
+equality): for the equation xd ≡ 0 (mod p(z)d ), there are infinitely many solutions
+x = c p(z) if the field F is infinite, so it is impossible to list them all in polynomial
+time.
+4.2. Reed-Solomon list decoding and noisy polynomial interpolation. A
+Reed-Solomon code is determined by evaluating a polynomial w(z) ∈ Fq [z] of
+degree at most ` at a collection of distinct points (x1 , . . . , xn ) to obtain a codeword
+(w(x1 ), . . . , w(xn )). In the Reed-Solomon decoding problem, we are provided with
+(y1 , . . . , yn ), where at most e entries in the codeword have changed, and we wish
+to recover w(z) by finding a polynomial of degree at most ` that fits at least n√− e
+points (xi , yi ). Guruswami and Sudan [26] showed how to correct up to e = n − n`
+errors by providing a list of all possible decodings.
+    In the noisy polynomial interpolation problem, at each xi a set {yi1 , . . . , yid } of
+values is specified, and the goal is to find a low-degree polynomial passing through a
+point from each set. This problem has been proposed as a cryptographic primitive,
+for example by Naor and Pinkas [41], and studied by Bleichenbacher and Nguyen
+[8].
+    We can use Theorem 1.2 to solve both problems, and in particular recover the
+exact decoding rates of Guruswami and Sudan. The input to our problem is a
+collection of points
+                                {(xi , yij ) : 1 ≤ i ≤ n, 1 ≤ j ≤ d}.
+                     Q
+We set p(z) = i (z − xi ), and we define a monic polynomial f (x) of degree d in x
+by
+                                         n Y   d            n
+                                        X                   Y  z − xk
+                              f (x) =            (x − yij )            .
+                                        i=1 j=1
+                                                               xi − xk
+                                                   k=1
+                                                   k6=i
+                                                          Q
+We have constructed f (x) by interpolation so that f (x) ≡ j (x−yij ) (mod (z −xi )).
+Thus, f (yij ) = 0 whenever z = xi .
+   To correct e errors, we seek a polynomial w(z) of degree at most ` such that for
+at least n − e values of i, there exists a j such that w(xi ) = yij . In other words,
+f (w(z)) must be divisible by at least n − e factors z − xi , which is equivalent to
+                           degz gcd(f (w(z)), p(z)) ≥ n − e.
+By Theorem 1.2, we can solve this problem in polynomial time if ` < n(1 − e/n)2 /d
+(since β = 1 − e/n in the notation√ of the theorem). That is equivalent to the
+Guruswami-Sudan bound e < n − n`d.
+4.3. Running time. The Guruswami-Sudan algorithm consists of two parts: con-
+structing the polynomial Q(x), and finding the roots of Q(x) in Fq [z]. In this paper,
+we do not address the second part, but we improve the running time of the first
+part, which has been the bottleneck in the algorithm.
+   The time to construct Q is dominated by the lattice basis reduction step, which
+depends on the dimension m of the lattice and the maximum degree D of a coefficient
+polynomial. In our construction, we have D = O(nk).
+                                   IDEAL FORMS. . .                                 15
+
+
+   Using the fastest row reduction algorithm (see Section 2.2), the running time is
+                         O Dmω+o(1) = O nkmω+o(1) .
+                                                       
+
+With cubic-time matrix multiplication we achieve O(nkm3 ), and with fast matrix
+multiplication [49] we achieve O(nkm2.3727 ).
+  The fastest previous algorithm proposed for this problem from Beelen and
+Brander [4] runs in time O(m4 kn log2 n log log n).
+
+                                 5. Number fields
+5.1. Background on number fields. See [33] for a beautiful introduction to
+computational algebraic number theory, or [13] for a more comprehensive treatment.
+   Recall that number fields are finite extensions of the field Q of rational numbers.
+Each number field K is generated by some algebraic number α, and the elements
+of the number field are polynomials in α with rational coefficients. If the minimal
+polynomial p(x) of α (the lowest-degree polynomial over Q, not identically zero,
+for which α is a root) has degree n, then every element of K = Q(α) will be a
+polynomial in α of degree at most n − 1. In other words,
+             Q(α) = {a0 + a1 α + · · · + an−1 αn−1 : a0 , . . . , an−1 ∈ Q}.
+The degree of K is defined to be n. It is the dimension of K as a Q-vector space.
+   The minimal polynomial p(x) must be irreducible over Q, and thus it has n
+distinct complex roots α1 , . . . , αn (one of which is α). Not all√of these roots will
+necessarily be in the field K = Q(α). For example, the field Q( 3 2) is contained in
+R and thus does not contain either of the complex roots of x3 − 2.
+   For each i from 1 to n, we can define an embedding σi of K into C by mapping
+α to αi and extending by additivity and multiplicativity. All embeddings into C
+arise in this way. If p has r1 real roots and r2 pairs of complex conjugate (non-real)
+roots, then there will be r1 real embeddings and 2r2 complex embeddings.
+   The Archimedean absolute values on K are defined by
+                                     |γ|i = |σi (γ)|
+(where | · | on the right side is the familiar absolute value on C, and | · |i does not
+denote the `i norm). For each i, this valuation has all the usual properties of the
+absolute value on Q. These absolute values are not necessarily distinct, since they
+coincide for complex conjugate roots of p(x): if αi = αj , then |γ|i = |γ|j for all γ.
+Otherwise, the absolute values are all distinct.
+   The ring of algebraic integers OK in K consists of all the elements of K that are
+roots of monic polynomials over Z. It is the natural analogue of Z in K (note that
+OQ = Z).√ In simple cases, OK may √    equal Z[α], but that is not always true. When
+K = Q( 5), we have OK = Z[(1 + 5)/2], and for some number fields the ring of
+integers cannot even be generated by a single element.
+   The norm of an element γ ∈ K is defined as the product
+                               N (γ) = σ1 (γ) . . . σn (γ)
+in C. (In fact, N (γ) is rational for γ ∈ K, and it is integral for γ ∈ OK .) If γ ∈ OK
+and γ 6= 0, then |N (γ)| = |OK /γOK |. More generally, for any nonzero ideal I
+in OK , we define its norm N (I) to be |OK /I|. The norm is multiplicative; i.e.,
+N (IJ) = N (I)N (J).
+16                        HENRY COHN AND NADIA HENINGER
+
+
+   The norm is a natural measure of size for both ideals and individual elements
+in OK . It might be tempting to use the norm as our measure of the size of the
+roots of the polynomial in Theorem 1.3. However, that does not work, because OK
+typically
+        √ has infinitely many units √ (elements of norm 1). For example, the powers
+of (1 + 5)/2 are units in Z[(1 + 5)/2], which means the equation x2 ≡ 0 (mod 4)
+has infinitely many
+                 √ solutions     of norm at most N (4)1/2 = N (2) = 4, namely the
+                         k
+numbers 2((1 + 5)/2) for k ∈ Z. Thus, bounding the norm alone is insufficient
+even to guarantee that there will be only finitely many solutions, but bounding all
+the absolute values suffices.
+   The ring OK has an integral basis ω1 , . . . , ωn (i.e.,
+                                                     P a basis such that every element
+of OK can be expressed uniquely in the form i ai ωi with ai ∈ Z). We assume
+we are given such a basis, because finding one is computationally difficult (see
+Theorem 4.4 in [33]). Any reasonably explicit description of OK will yield an
+integral basis. Fortunately, such a description is known for many concrete examples
+of number fields, such as cyclotomic fields. Furthermore, if we are working with a
+fixed number field, finding an integral basis for OK can be done with only a fixed
+amount of preprocessing. We also assume that ideals in OK are given in terms of
+integral bases. It is not difficult to convert any other description of an ideal (such
+as generators over OK ) to an integral basis.
+   If we do not know the full ring OK of integers, we could nevertheless work
+with an order in K, i.e., a finite-index subring of OK . Everything we need works
+just as well for orders, with one exception, namely that the norm is no longer
+multiplicative for ideals. Fortunately, it remains multiplicative for invertible ideals
+(see Proposition 4.6.8 in [13]), and Coppersmith’s theorem generalizes to invertible
+ideals. Specifically, we can find small roots of polynomial equations modulo an
+invertible ideal I, or modulo any invertible ideal B that contains I and satisfies
+N (B) ≥ N (I)β .
+   Polynomials over number fields can be factored in polynomial time [31].
+
+5.1.1. Modules and canonical embeddings. The analogue of a lattice for OK is a
+finitely generated OK -submodule of the r-dimensional K-vector space K r . Recall
+that an OK -submodule is a non-empty subset that is closed under addition and
+under multiplication by any element in OK .
+   Unlike the case of Z-lattices, OK -lattices may not have bases over OK . However,
+an OK -lattice Λ always has a pseudo-basis, i.e., a collection of vectors v1 , . . . , vs ∈ Λ
+and ideals I1 , . . . , Is ⊆ OK such that
+
+                                  Λ = I1 v1 + · · · + Is vs .
+
+The key difference from Z is that the ideals may not be principal (i.e., they may
+not simply be the multiples of single elements of OK ).
+   A natural approach to finding a short vector in an OK -lattice would be to find an
+algorithm to reduce a pseudo-basis. Fieker and Pohst [19] developed an OK -analogue
+of the LLL lattice basis reduction algorithm, but they were unable to prove that
+their algorithm runs in polynomial time. More recently, Fieker and Stehlé [20] have
+given a polynomial-time algorithm to find a reduced pseudo-basis in an OK -module.
+Their algorithm runs in two parts. The first applies LLL to an embedding of the
+OK -module as a Z-lattice to find a full-rank set of short module elements, and the
+second uses this collection of module elements to reduce the pseudo-basis.
+                                   IDEAL FORMS. . .                                     17
+
+
+   As our application only requires finding a short vector in the module, we do not
+need the second step of the Fieker-Stehlé algorithm. The remainder of this section
+describes how to use LLL to find a short vector in an OK -lattice.
+   Although OK -lattices are an algebraic analogue of Z-lattices, their geometry is
+not as easy to see directly from the definition. It might seem natural simply to use
+one of the absolute values to define the `2 norm for vectors, but that breaks the
+symmetry between them. Instead, it is important to treat each absolute value on
+an equal footing, and the canonical embedding (defined below) allows us to do so.
+   We will describe the embedding in several steps. First, we embed OK itself as an
+n-dimensional lattice in Rr1 ⊕ C2r2 by mapping γ ∈ OK to (σ1 (γ), . . . , σn (γ)). An
+integral basis ω1 , . . . , ωn of OK is mapped to the rows of the matrix
+                                                                    
+                                    σ1 (ω1 ) σ2 (ω1 ) · · · σn (ω1 )
+                                              ..                    
+                                   σ1 (ω2 )      .         σn (ω2 ) 
+                        σ(ω) =  .
+                                                                ..  ,
+                                                                     
+                                   ..                 ..
+                                                          .      . 
+                                   σ1 (ωn ) σ2 (ωn ) · · · σn (ωn )
+so OK is mapped to the Z-linear combinations of the rows.
+   The discriminant ∆K of K is defined by
+                                  ∆K = det σ(ω)2 .
+It is an integer that measures the size of the ring of integers in K.
+   The canonical embedding of the principal ideal generated by an element γ is
+generated by the rows of the matrix product
+                                            
+            σ1 (ω1 ) σ2 (ω1 ) · · · σn (ω1 ) σ1 (γ)                         
+                      ..                    
+                                                        σ2 (γ)
+          σ1 (ω2 )       .         σn (ω2 ) 
+                                                                             
+                                                                           .
+                                                                             
+         
+          .                   .        .                      . .
+          ..                    ..     .. 
+                                                                  .        
+           σ1 (ωn ) σ2 (ωn ) · · · σn (ωn )                           σn (γ)
+
+    More generally, suppose we have an ideal B generated by an integral basis
+b1 , . . . , bn . Let MB be the matrix defined by
+                                         X        
+                                    bi =      MB ij ωj .
+                                       j
+
+The canonical embedding of B is generated by the rows of
+                                                                                     
+         σ1 (b1 ) σ2 (b1 ) · · · σn (b1 )          σ1 (ω1 ) σ2 (ω1 ) · · ·   σn (ω1 )
+                   . ..                                    ..                      
+        σ1 (b2 )                σn (b2 ) 
+                                           = MB  σ1 (ω2 )
+                                                                .           σn (ω2 ) 
+σ(b) = 
+        .                          .             .                             ..  .
+                                                                                      
+        ..                 . ..    .. 
+                                          
+                                                  ..                 ..
+                                                                         .        . 
+         σ1 (bn ) σ2 (bn ) · · · σn (bn )         σ1 (ωn ) σ2 (ωn ) · · ·  σn (ωn )
+                                                                             p
+Note that the absolute value of the determinant of σ(b) equals | det MB | |∆K |,
+and | det MB | = |OK /B| = N (B).
+                                                                                r
+   Finally, we can easily extend the canonical embedding from OK to OK              by
+embedding each of the r coordinates independently. Given a pseudo-basis v1 , . . . , vr
+with corresponding ideals I1 , . . . , Ir , the canonical embedding of the lattice is
+18                        HENRY COHN AND NADIA HENINGER
+
+
+generated by the rows of the block matrix whose ij block of size n × n is equal to
+                                                              
+                             σ1 (vij )
+                                      σ2 (vij )               
+                   MIi σ(ω)                                   ,
+                                                              
+                                                . ..          
+                                                      σn (vij )
+where vij is the j-th component of vi .
+   The inner product on Rr1 ⊕ C2r2 is given by the usual dot product on R and the
+Hermitian inner product on C (i.e., hx, yi = xy for x, y ∈ C). Thus, it is positive
+definite.
+   The canonical embedding’s image lies within an n-dimensional real subspace,
+because the complex embeddings come in conjugate pairs. In fact, we can transform it
+into a simple real embedding. To do so, consider the r2 pairs of complex embeddings.
+For each pair (σj (γ), σk (γ)) of complex embeddings
+                                             √         that √
+                                                            are conjugates of each other,
+we can map the √   pair (σj (γ), σk (γ)) to ( 2 Re(σj (γ)), 2 Im(σj (γ))). The reason
+for the factor of 2 is to ensure that the inner product is preserved. Furthermore,
+the absolute value of the determinant is preserved.
+   Once we have a real embedding of our OK -lattice, we can apply the LLL algorithm
+to find a short vector in the real embedded lattice, which will correspond to a
+short vector in the original OK -lattice. Unfortunately, using LLL in the canonical
+embedding does not preserve the OK -structure, so it does not produce a reduced
+pseudo-basis over OK , but a short vector is sufficient for our purposes here.
+
+5.2. Proof of Theorem 1.3. The following lemma is the analogue of the statement
+over the integers that a multiple of n that is strictly less than n in absolute value
+must be zero.
+Lemma 5.1. For a nonzero ideal I in OK and an element γ ∈ I, if |N (γ)| < N (I)
+then γ = 0.
+Proof. Consider the principal ideal γOK generated by a nonzero element γ of I.
+The ideal I contains γOK , and thus |OK /I| ≤ |OK /γOK |. Because N (I) = |OK /I|
+and |N (γ)| = |OK /γOK |, we have |N (γ)| ≥ N (I), as desired.                 
+
+Proof of Theorem 1.3. As in the previous proofs, we will construct a polynomial
+Q(x) in the OK -module generated by
+                     xj f (x)i I k−i   for   0 ≤ i < k and 0 ≤ j < d
+and
+                                xj f (x)k    for   0 ≤ j < t.
+                                       k−i
+Note that because of the ideals I , this is really a pseudo-basis rather than a
+basis.
+   Let m = dk + t. To represent this module, we will write down an nm × nm
+matrix whose rows are a Z-basis for a weighted version of the module’s canonical
+embedding. Finding a short vector in this lattice will correspond to finding a Q
+that satisfies our bounds.
+   Our lattice is constructed much as before, except that in place of a single entry
+for each coefficient of xj f (x)i I k−i , we will have an n × n block matrix. Let fsij
+be the coefficient of xs in xj f (x)i . Then we form the ideal fsij I k−i , which has an
+                                          IDEAL FORMS. . .                             19
+
+
+integral basis b1 , . . . , bn . We incorporate the bounds λi on each absolute value into
+our canonical embedding for the s-th coefficient of xj f (x)i I k−i by using
+                            s
+                              λ1 σ1 (b1 ) λs2 σ2 (b1 ) · · · λsn σn (b1 )
+                                                                          
+                            s                 ..                         
+                            λ1 σ1 (b2 )
+                                                 .          λsn σn (b2 ) 
+                                                                          .
+                                 ..                    ..        ..      
+                                  .                       .       .      
+                                s          s                  s
+                             λ1 σ1 (bn ) λ2 σ2 (bn ) · · · λn σn (bn )
+This is equal to the product of the matrix with λs1 , . . . , λsn on the diagonal with the
+canonical embedding σ(b), so the absolute value of the determinant of the block is
+                                       p
+                          λs1 . . . λsn |∆K | |N (fsij )| N (I)k−i .
+    Now consider a vector v in this lattice and the polynomial Q(x) = j qj xj that
+                                                                             P
+
+it represents. If |w|i < λi for all i, then we can bound |N (Q(w))| using the `1 norm
+by applying the arithmetic mean-geometric mean inequality. We have
+                                              Y X
+                              |N (Q(w))| =              qj w j ,
+                                                        i         j           i
+
+and hence
+                                                        1X X
+                               |N (Q(w))|1/n ≤                qj w j
+                                                        n i j        i
+
+                                                        1 XX
+                                                    ≤         |qj |i λji .
+                                                        n i j
+
+Thus,
+                                                     n     
+                                               1
+                                     |N (Q(w))| ≤|v|1 .
+                                               n
+     As in the integer case, LLL produces a nonzero vector v whose `1 norm is bounded
+by
+                          XX                  √                                   1
+                                   |vi |j ≤       nm2(nm−1)/4 | det(M )| nm .
+                           i   j
+
+Note that here, |vi |j denotes the j-th number field norm applied to the i-th entry of
+v.
+   Now it remains to compute the determinant of our weighted canonical embedding.
+The lattice basis we produced in our construction is block upperQ  triangular, so the
+determinant is the product of the blocks on the diagonal. Letting i λi = X, we get
+                                 Y        p       Y
+                    | det M | =        X i |∆K |        N (I)dj
+                                     0≤i<m                            0≤j≤k
+                                    p     m
+                                   = |∆K | X m(m−1)/2 N (I)dk(k+1)/2 .
+     Thus, we have
+                     √                 p         1                             1
+                                                                              nm
+            |v|1 <       nm2(nm−1)/4       |∆K | n X m(m−1)/2 N (I)dk(k+1)/2      .
+
+Recall that if |w|i < λi for all i, then
+                                                                 1
+                                      |N (Q(w))| ≤                 |v|n .
+                                                                nn 1
+20                        HENRY COHN AND NADIA HENINGER
+
+
+     We will compute a c so that
+                                                         2
+                        1 √
+                                          n p        m−1
+                                  (nm−1)/4
+                              nm2               |∆ K |      < c.
+                       nn
+Then by the same analysis as in the proof of Theorem 1.1, we can prove the theorem
+with a bound of
+                                   1       2
+                                     N (I)β /d−ε
+                 Q                 c
+on the product i λi . A simple asymptotic analysis shows that we can take
+               2
+c = (2 + o(1))n /2 as m → ∞. Thus, we achieve a bound of
+                                          2        2
+                             (2 + o(1))−n /2 N (I)β /d−ε .
+                                                                        2        2
+As before, we can take ε = 1/ log N (I) to achieve in fact (2 + o(1))−n /2 N (I)β /d .
+   Note that so far, everything runs in polynomial time, with no exponential depen-
+                                                               2
+dence on n. Unfortunately, removing the factor of (2 + o(1))−n /2 is computationally
+expensive. We can use the same trick as in Theorem 1.1. In the canonical embedding
+of OK , the region we would like to cover is a box of dimensions 2λ1 × · · · × 2λn
+(the factor of 2 comes from including positive and negative signs). The proof so far
+shows that we can deal with a box that is a factor of (2 + o(1))−n/2 smaller in each
+                                                         2
+coordinate. We can cover the large box with (2 + o(1))n /2 of the smaller ones and
+compute the solutions in each smaller box in polynomial time, but the total running
+time becomes exponential in n2 .                                                   
+5.3. Solving the closest vector problem in ideal lattices. In [42], Peikert and
+Rosen proposed using the closest vector problem for ideal lattices as a hard problem
+for use in constructing lattice-based cryptosystems. In [36], Lyubashevsky, Peikert,
+and Regev gave hardness reductions for such cryptosystems via the bounded-distance
+decoding problem, defined for the `∞ norm as follows. Given an ideal I in OK , a
+distance δ, and an element y ∈ K, find y + w ∈ I such that |w|∞ < δ, where | · |∞
+denotes the `∞ norm on K (i.e., the maximum of the n absolute values).
+   If y ∈ OK , then we can define f (x) = x + y and find the roots w of f (x) ≡ 0
+(mod I) satisfying
+                           |w|∞ < (2 + o(1))−n/2 N (I)1/n .
+This amounts to taking d = 1, β = 1, and λ1 = · · · = λn = (2 + o(1))−n/2 N (I)1/n .
+Because we are using the `∞ norm, the minimal nonzero norm of I is at most
+ p              1/n
+    |∆K |N (I)       . Thus, our algorithm can handle distances δ less than (2 +
+o(1))−n/2 |∆K |−1/(2n) times the minimal norm of I. (Of course, this is somewhat
+worse than using LLL directly.) Note also that if y 6∈ OK , then we can rescale y
+and I by a positive integer to reduce to the previous p case.
+                        2
+   If the (2 + o(1))−n /2 could be improved to 2−n |∆K |, then we could solve the
+bounded-distance decoding problem up to half the minimal distance, by the same
+argument as above with λ1 = · · · = λn = |∆K |1/(2n) N (I)1/n /2. This suggests that
+it will be difficult to remove the multiplicative factor entirely.
+
+                                6. Function Fields
+   Much as number fields are finite extensions of Q, function fields are finite
+extensions of the field Fq (x) of rational functions over a finite field Fq . They
+arise naturally from algebraic curves over Fq , as the field of rational functions on
+                                     IDEAL FORMS. . .                                    21
+
+
+the curve. For example, for a plane curve defined by the polynomial equation
+f (x, y) = 0, the function field will be Fq (x, y)/(f (x, y)) (i.e., rational functions of x
+and y, where the variables satisfy f (x, y) = 0). See [47] and [43] for background on
+function fields, and [35] for a beautiful account of the analogies between number
+fields and function fields.
+    More generally, let X be an algebraic curve over Fq . Specifically, it must be a
+smooth, projective curve that remains irreducible over the algebraic closure of Fq .
+Our function field K will be the field of rational functions on X defined over Fq .
+(Note that we are assuming Fq is the full field of constants in K; in other words,
+each element of K is either in Fq or transcendental over Fq .)
+    Let X (Fq ) be the set of points on X with coordinates in Fq . Every point p ∈ X (Fq )
+gives a valuation vp on K, which measures the order of vanishing at that point.
+Poles are treated as zeros of negative order. The corresponding absolute value on
+K is defined by
+                                       |f |p = q −vp (f ) .
+(Note that this is not the `p norm on a vector; in this section, the `p norm will not be
+used.) In other words, high-order zeros make a function small, while poles make it
+large. Not every absolute value on K is of this form—there is a slight generalization
+that corresponds to points defined over finite extensions of Fq (more precisely, Galois
+orbits of such points). For our purposes we can restrict our attention to the absolute
+values defined above, but in fact all our results generalize naturally to places of
+degree greater than 1.
+    In the number field case, the Archimedean absolute values (which come from the
+complex embeddings) play a special role, although there are infinitely many non-
+Archimedean absolute values as well, namely the p-adic absolute values measuring
+divisibility by primes. In the function field case, there are no Archimedean absolute
+values, and any set of absolute values can play that role.
+    Let S be a nonempty subset of X (Fq ), and let OS be the subring of K consisting
+of all rational functions whose poles are confined to the set S. The ring OS is
+analogous to the ring of algebraic integers in a number field; in this analogy, the
+condition of having no poles outside S amounts to the condition that an algebraic
+integer has no primes in its denominator, because the valuations from points outside
+S correspond to the p-adic valuations.
+    For example, if X is the projective line (i.e., the ordinary line completed with
+a point at infinity), then K is simply the field Fq (z) of rational functions in one
+variable. If we let S = {∞} be the set consisting solely of the point at infinity, then
+OS is the set of rational functions that have poles only at infinity. In other words,
+it is the polynomial ring Fq [z]. (A polynomial of degree d has a pole of order d at
+infinity.)
+    The norm of an element f ∈ OS is defined by
+                                                Y
+                                      N (f ) =      |f |p ,
+                                              p∈S
+
+and the norm of a nonzero ideal I is defined by N (I) = |OS /I|. As in the number
+field case, the norm of the principal ideal f OS is N (f ).
+6.1. Background on algebraic-geometric codes. Algebraic-geometric codes
+are a natural generalization of Reed-Solomon codes. They are of great importance
+in coding theory, because for certain finite fields they beat the Gilbert-Varshamov
+22                        HENRY COHN AND NADIA HENINGER
+
+
+bound (which is the performance of a random code, and which aside from algebraic-
+geometric codes is the best bound known). See Section 8.4 in [47].
+   To define an algebraic-geometric code on X , we specify for each point in S the
+maximum allowable order of a pole there, and we allow no poles outside of S. The
+space of functions satisfying these restrictions is a finite-dimensional Fq -vector space,
+and we can produce an error-correcting code by looking at the evaluations of these
+functions at a fixed set of points (disjoint from S).
+   This is typically described using the language of algebraic geometry. A divisor
+D on X is a formal Z-linear combination of finitely many points on X ; the support
+of D is the set of points with nonzero coefficients. (We will restrict our attention to
+divisors supported at points in X (Fq ).) The divisor D is called effective, denoted
+D  0, if all its coefficients are nonnegative. For every function f ∈ K ∗ , the
+principal divisor (f ) is the sum of the zeros and poles of f , with their orders as
+coefficients. (The identically zero function does not define a principal divisor, since
+it has a zero of infinite order at every point.) The degree deg(D) of D is the sum of
+its coefficients, and the degree of a principal divisor is always zero.
+   Given a divisor D, the Riemann-Roch space L(D) is defined by
+                        L(D) = {0} ∪ {f ∈ K ∗ : (f ) + D  0}.
+In other words, if the coefficient of p in D is k, then f can have a pole of order at
+most k at the point p. The space L(D) is a finite-dimensional Fq -vector space, and
+the famous Riemann-Roch theorem describes its dimension:
+                 dimFq L(D) = deg(D) − g + 1 + dimFq L(W − D),
+where g is a nonnegative integer called the genus of the curve and W is a particular
+divisor called the canonical divisor. It follows that dimFq L(D) ≥ deg(D) − g + 1,
+and equality holds if deg(D) > 2g − 2.
+    To translate the definition of an algebraic-geometric code to this language, let D
+be the divisor with support in S whose coefficients specify the allowed order of a pole
+at each point, and let p1 , . . . , pn be distinct points in X (Fq ) but not in S. Then the
+corresponding algebraic-geometric code consists of the codewords (w(p1 ), . . . , w(pn ))
+for w ∈ L(D).
+    In the case of the projective line, let S = {∞}, so OS = Fq [z], and let D = d∞.
+Then L(D) is the space of polynomials in Fq [z] of degree at most d. Thus, this
+construction yields Reed-Solomon codes as a special case.
+    Theorem 1.4 corresponds to list decoding of algebraic-geometric codes in much
+the same way as Theorem 1.2 does for Reed-Solomon codes. The evaluation points
+p1 , . . . , pn correspond to prime ideals P1 , . . . , Pn in OS , where Pi consists of the
+functions vanishing at pi , and we can let I be the product P1 . . . Pn . If the received
+codeword is (y1 , . . . , yn ) ∈ Fnq , then we define the linear polynomial f so that
+f (x) ≡ x − yi (mod Pi ) for all i. (The Chinese remainder theorem lets us solve
+this interpolation problem.) Thus, for w ∈ OS , f (w) is in the ideal Pi if and only
+if w(pi ) = yi . We have N (I) = q n , and gcd(f (w)OS , I) is divisible by Pi exactly
+when w(pi ) = yi . Therefore the inequality
+
+                             N (gcd(f (w)OS , I)) ≥ N (I)β
+simply means that w(pi ) = yi for at least βn values of i. Thus, Theorem 1.4 solves
+the list decoding problem.
+                                   IDEAL FORMS. . .                                  23
+
+
+6.2. Proof of Theorem 1.4. The first obstacle to proving Theorem 1.4 is identify-
+ing the right sort of lattice to consider. For comparison, in the number field case, we
+use the canonical embedding to reduce from OK -lattices to Z-lattices, because Z is a
+principal ideal domain and hence Z-lattices are structurally simpler. In the function
+field case, Fq [z]-lattices are the analogous structures, but Fq [z] has infinitely many
+embeddings as a subring of OS , while Z has only one embedding into OK . We must
+identify an embedding of a special sort, namely one that treats all the absolute
+values from points in S evenhandedly. Lemma 6.1 accomplishes this.
+    One we have identified a suitable embedding of Fq [z] into OS , we are faced with
+two more difficulties. The first is that we must consider lattices with more general
+non-Archimedean norms than those studied in the literature, because we must take
+into account all the absolute values from S, and the known algorithms for basis
+reduction no longer apply. However, we can prove the needed results in our more
+general framework (Lemma 2.3).
+    The final difficulty comes from attempting to control the zeros and poles of
+functions in K. In the simplest function field, namely the rational function field
+Fq (z), we can specify the (finitely many) zeros and poles arbitrarily, subject to just
+one constraint, that the total order of all the zeros must equal that of the poles. For
+example, z 2 /(z − 1) has a zero of order two at 0, a pole of order one at 1, and a
+pole of order one at ∞ (because the function grows linearly as z becomes large).
+    In more complicated function fields, there are additional subtle constraints on
+the zeros and poles, which interfere with our ability to construct auxiliary functions
+in the proof (specifically, the placeholder X that measures the size of the desired
+solution of the equation). We circumvent this difficulty in Lemma 6.2, using a
+technique based on the strong approximation theorem. This allows us to control the
+behavior of a function at all the points in S except one, if we are willing to allowed
+uncontrolled behavior at that single point. Furthermore, we can uniformly bound
+the bad behavior at the uncontrolled point in terms of the genus of the function
+field. This approach introduces error terms into our bounds, but they are small
+enough that they disappear entirely in the final result.
+    We now turn to the details of the proof. To identify an appropriate embedding
+of Fq [z] into OS , we would like to choose z ∈ OS so that |z|p is independent of p for
+p ∈ S. In that case, the absolute values | · |p with p ∈ S will all restrict to the same
+absolute value on the ring R = Fq [z], which we will denote | · |.
+    When |S| = 1, we can choose any nonconstant element z of OS . When |S| > 1,
+it is not as trivial, but fortunately there is always such an element:
+Lemma 6.1. There exists an integer a ≥ 1 and an element z ∈ OS such that
+vp (z) = −a for all p ∈ S, and we can find such an element in probabilistic polynomial
+time.
+Proof. Let ∆a be the divisor            X
+                                              ap
+                                        p∈S
+with coefficient a for each p ∈ S, and let g be the genus of the curve X . If
+a|S| > 2g − 2, then by the Riemann-Roch theorem,
+                           dimFq L(∆a ) = a|S| − (g − 1).
+Furthermore, if a|S| > 2g − 1, then for each p ∈ S,
+                            dimFq L(∆a − p) = a|S| − g.
+24                          HENRY COHN AND NADIA HENINGER
+
+
+Thus, if |S| < q, then L(∆a ) cannot be contained in the union of L(∆a − p) over all
+p ∈ S, and therefore there exists a function with poles of order exactly a at each
+point in S. If |S| < q/2, then it is easy to find such a function by random sampling,
+since at least half the elements in L(∆a ) will work. (Recall that as mentioned in
+Section 1.4, we assume that we can efficiently compute bases of Riemann-Roch
+spaces.)
+    This proof requires |S| < q, but the same idea works if we pass to a finite
+extension Fqi of Fq , and |S| < q i then suffices. Thus, if we take i large enough,
+there exists a function defined over Fqi with poles of equal order a at the points
+in S (and no poles elsewhere). Now multiplying the i conjugates of this function
+over Fq produces such a function over Fq , as desired, with poles of order ai. Taking
+q i > 2|S| gives an efficient algorithm as well.                                   
+   For the rest of this section, let z be such a function and let R = Fq [z]. Then
+the ring OS is a free R-module of rank a|S| by Theorem 1.4.11 in [47], as is every
+nonzero ideal in OS .
+   As in the previous proofs, we will construct a polynomial Q(x) in the OS -module
+M generated by
+                       xj f (x)i I k−i    for   0 ≤ i < k and 0 ≤ j < d
+and
+                                    xj f (x)k   for       0 ≤ j < t.
+Let m = dk + t.
+   The module M is a submodule of the OS -module P of polynomials of degree
+less than m, which is a free OS -module of rank m and hence a free R-module of
+rank ma|S|. Thus, as in the setting of Lemmas 2.2 and 2.3, we are working with an
+R-module contained in a free R-module.
+   We want Q(x) to have the property that for w ∈ L(D),
+                                      N (Q(w)) < N (I)βk .
+In fact, we will bound N (Q(w)) by
+                                      Y                                     |S|
+                      N (Q(w)) =            |Q(w)|p ≤          max |Q(w)|p          ,
+                                                               p∈S
+                                      p∈S
+
+and we will ensure that
+                                                  |S|
+                                    max |Q(w)|p             < N (I)βk .
+                                    p∈S
+
+     Let q0 , . . . , qm−1 denote the coefficients of Q, so
+                                                   m−1
+                                                   X
+                                          Q(x) =           qi xi .
+                                                   i=0
+
+Then
+                                    |Q(w)|p ≤ max |qi |p |w|ip .
+                                                      i
+Suppose the divisor D is given by
+                                                 X
+                                            D=            λp p.
+                                                 p∈S
+                                    IDEAL FORMS. . .                                  25
+
+
+Then |w|p ≤ q λp for w ∈ L(D), and thus
+
+                               |Q(w)|p ≤ max |qi |p q iλp .
+                                             i
+
+   To emulate the analysis from Sections 3 and 4, we would like to find X ∈ OS
+such that vp (X) = −λp for all p ∈ S. However, such an element does not always
+exist. Instead, we will construct an element with the desired valuations at all but
+one point in S. This approach is a special case of the strong approximation theorem
+(Theorem 1.6.5 in [47] or Theorem 6.13 in [43]), but as we need only a weaker
+conclusion and must consider computational feasibility, we will give a direct proof
+along the same lines as Lemma 6.1.
+
+Lemma
+P          6.2. SupposeP q ≥ 2|S|. Then for any point p0 ∈ S and each divisor
+       µ
+   p∈S p  p satisfying   p∈S µp ≥ 0 and µp0 = 0, there exists an element X ∈ OS
+such that vp (X) = −µp for all p ∈ S \ {p0 }, and vp0 (X) = −2g, where g is the genus
+of X . Furthermore, we can construct such an X in probabilistic polynomial time.
+                  P
+Proof. Let ∆ = p∈S µp p + 2gp0 . Then deg(∆) ≥ 2g, and it follows from Riemann-
+Roch that dimFq L(∆) = deg(∆) − (g − 1) and that dimFq L(∆ − p) = dimFq L(∆) − 1
+for all p ∈ S. We are looking for an element X in L(∆) but not L(∆ − p) for any
+p ∈ S. By assumption we can construct these Riemann-Roch spaces, and because
+|S| ≤ q/2 at least half the elements of X will have the desired property, so we can
+find one by random sampling.                                                       
+
+   The assumption that q ≥ 2|S| will hold in most applications: most algebraic-
+geometric codes use a small set S, and in fact |S| cannot be much larger than
+                                                √
+q because S ⊆ X (Fq ) and |X (Fq )| ≤ q + 2g q + 1 (see Theorem 5.2.3 in [47]).
+However, if |S| > q/2, then we can simply pass to a finite extension of Fq . Thus,
+without loss of generality we can assume that q ≥ 2|S|.
+   By assumption in Theorem 1.4, the support of D is a proper subset of S, so
+we can let p0 ∈ S be a point such that λp0 = 0. Because of the limitations of the
+strong approximation theorem, we require such a point to make the remainder of
+the proof work. This is not an obstacle to the applicability of the theorem, because
+algebraic-geometric codes will generally not use every point in X (Fq ) for poles or
+evaluation points, and if they do we can pass to a finite extension of Fq to generate
+more points. Note also that we can assume deg(D) ≥ 0, because otherwise L(D) is
+the empty set.
+   Now, Lemma 6.2 lets us construct an element X ∈ OS such that vp (X) = −λp
+for p ∈ S \ {p0 }. This element has the property that vp (X i ) = −iλp for p ∈ S \ {p0 }.
+Unfortunately, the valuation at p0 grows linearly with i as well, and that will
+damage our bounds. However, we can avoid that problem by applying Lemma 6.2
+to construct elements Xi so that vp (Xi ) = −iλp for p ∈ S \ {p0 } while maintaining
+vp0 (Xi ) = −2g. Of course we set X0 = 1.
+   In terms of the elements Xi , we have
+
+                                |Q(w)|p ≤ max |qi Xi |p
+                                                 i
+
+for p ∈ S \ {p0 }. Furthermore, this inequality holds for p = p0 because vp0 (w) ≥
+0 ≥ vp0 (Xi ).
+26                         HENRY COHN AND NADIA HENINGER
+
+
+     Define the norm of a polynomial i ci xi ∈ P (with ci ∈ OS ) by
+                                     P
+
+                              X
+                                 ci xi = max max |ci |p .
+                                                 i       p∈S
+                                  i
+Note that this defines a non-Archimedean norm on the free R-module P satisfying
+all three properties required in Section 2.3 (with the absolute value | · | on R). Here,
+we crucially use the fact that we have only one absolute value on R; if that were
+not the case, then property 3 would fail.
+    Let T : P → P be the linear transformation that multiplies the degree i term by
+Xi . Then
+                       max |Q(w)|p ≤ max max |qi Xi |p = |T Q|.
+                        p∈S               p∈S        i
+
+Thus, it will suffice to construct a nonzero polynomial Q ∈ M such that |T Q||S| <
+N (I)βk .
+   Now we can apply Lemma 2.3. We need to determine two things: the geometric
+mean C of the norms of an R-basis of P and the dimension of the quotient P/T M.
+Then there exists a nonzero Q ∈ M such that
+              |T Q| ≤ C|z|dimFq (P/T M)/(a|S|m) = Cq dimFq (P/T M)/(|S|m) ,
+because these R-modules have rank a|S|m and |z| = q a .
+  Let b1 , . . . , ba|S| be any R-basis of OS , and let
+                                       a|S|
+                                         Y
+                                                           1
+                                                         a|S|
+                                 C=          max |bi |p        .
+                                              p∈S
+                                        i=1
+
+Then the elements bi xj ∈ P (with 1 ≤ i ≤ a|S| and 0 ≤ j < m) form an R-basis of
+P, and the geometric mean of their norms is C because |bi xj | is independent of the
+degree j.
+    To compute the dimension of P/T M, note that the generators of M are triangular
+(i.e., given by polynomials of each degree). Thus, we merely need to add the
+dimensions of the quotients of OS by the ideals of leading coefficients. From the
+polynomials Xdi+j xj f (x)i I k−i , we see that the leading coefficients form the ideal
+Xdi+j I k−i . Thus,
+             q dimFq P/T M = |P/T M|
+                                                m−1
+                                                Y
+                           = N (I)dk(k+1)/2              N (Xi )
+                                                i=0
+                                              Y                           m−1
+                                                                            Y
+                           = N (I)dk(k+1)/2               q λp m(m−1)/2           |Xi |p0 .
+                                                 p∈S                        i=0
+
+In other words,
+                  q dimFq P/T M ≤ N (I)dk(k+1)/2 q deg(D)m(m−1)/2 q 2mg .
+   Now applying Lemma 2.3 shows that we can find a nonzero polynomial Q ∈ M
+such that
+                 |T Q||S| ≤ Cq 2g q deg(D)(m−1)/2 N (I)dk(k+1)/(2m) .
+We want to achieve |T Q||S| < N (I)βk . Let N (I) = q n and
+                                            2
+                                                logq Cq 2g .
+                                                           
+                         ` = deg(D) +
+                                         m−1
+                                        IDEAL FORMS. . .                                        27
+
+                                                         |S|     βk
+Then Lemma
+           applies, and shows that we can achieve |T Q| < N (I) whenever
+           3.1
+        β2
+`<n     d −ε     , which is equivalent to
+                                     2                  β2
+                               Cq 2g m−1 q deg(D) < N (I) d −ε .
+We can take the denominator of β to be a divisor of n (because N (I) = q n ). Thus,
+      2
+N (I)β /d is an integral power of q 1/(nd) , as of course is q deg(D) , and to prove the
+bound in Theorem 1.4 it suffices to prove it to within a factor of less than q 1/(nd) .
+                                                                                    2
+   Now let ε < 1/(2n2 d) and m > 1 + 4nd(2g + logq C). Then N (I)ε and Cq 2g m−1
+are both strictly less than q 1/(2nd) . Thus, our algorithm works as long as
+                                                        2
+                                     q deg(D) < N (I)β /d .
+This completes the proof of Theorem 1.4.
+
+                                   Acknowledgements
+   We are grateful to Amanda Beeson, Keith Conrad, Abhinav Kumar, Victor Miller,
+Vincent Neiger, Chris Peikert, Bjorn Poonen, Nigel Smart, and Madhu Sudan for
+helpful conversations, comments, and references.
+
+                                         References
+ [1] M. Ajtai, The shortest vector problem in L2 is NP-hard for randomized reductions, Proceedings
+     of the Thirtieth Annual ACM Symposium on Theory of Computing (Dallas, Texas, United
+     States, May 24–26, 1998), Association for Computing Machinery, New York, NY, 1998,
+     pp. 10–19.
+ [2] M. Alekhnovich, Linear Diophantine equations over polynomials and soft decoding of Reed-
+     Solomon codes, IEEE Trans. Inform. Theory 51 (2005), 2257–2265.
+ [3] M. Ajtai, R. Kumar, and D. Sivakumar, A sieve algorithm for the shortest lattice vector
+     problem, Proceedings of the Thirty-Third Annual ACM Symposium on Theory of Computing
+     (Hersonissos, Greece, July 6–8, 2001), Association for Computing Machinery, New York, NY,
+     2001, pp. 601–610.
+ [4] P. Beelen and K. Brander, Key equations for list decoding of Reed-Solomon codes and how to
+     solve them, J. Symbolic Computation 45 (2010), 773–786.
+ [5]         , Efficient list decoding of a class of algebraic-geometry codes, Adv. Math. Commun. 4
+     (2010), 485–518.
+ [6] D. J. Bernstein, List decoding for binary Goppa codes, Coding and Cryptology, Lecture Notes
+     in Computer Science, vol. 6639, Springer-Verlag, Berlin, Heidelberg, 2011, pp. 62–80.
+ [7] J.-F. Biasse and G. Quintin, An algorithm for list decoding number field codes, 2012 IEEE
+     International Symposium on Information Theory Proceedings, IEEE, 2012, pp. 91–95.
+ [8] D. Bleichenbacher and P. Q. Nguyen, Noisy polynomial interpolation and noisy Chinese
+     remaindering, Advances in Cryptology – EUROCRYPT 2000, Lecture Notes in Computer
+     Science, vol. 1807, Springer-Verlag, Berlin, Heidelberg, 2000, pp. 53–69.
+ [9] J. Blömer and A. May, New partial key exposure attacks on RSA, Advances in Cryptology
+     – CRYPTO 2003, Lecture Notes in Computer Science, vol. 2729, Springer-Verlag, Berlin,
+     Heidelberg, 2003, pp. 27–43.
+[10] D. Boneh, Finding smooth integers in short intervals using CRT decoding, Proceedings of
+     the Thirty-Second Annual ACM Symposium on Theory of Computing (Portland, Oregon,
+     United States, May 21–23, 2000), Association for Computing Machinery, New York, NY, 2000,
+     pp. 265–272.
+[11] D. Boneh, G. Durfee, and Y. Frankel, An attack on RSA given a small fraction of the private
+     key bits, Advances in Cryptology – ASIACRYPT ’98, Lecture Notes in Computer Science,
+     vol. 1514, Springer-Verlag, Berlin, Heidelberg, 1998, pp. 25–34.
+28                          HENRY COHN AND NADIA HENINGER
+
+
+[12] J. Buchmann, T. Takagi, and U. Vollmer, Number field cryptography, High Primes and
+     Misdemeanours: Lectures in Honour of the 60th Birthday of Hugh Cowie Williams, Fields
+     Institute Communications, vol. 41, American Mathematical Society, Providence, RI, 2004,
+     pp. 111–121.
+[13] H. Cohen, A Course in Computational Algebraic Number Theory, Graduate Texts in Mathe-
+     matics, vol. 138, Springer-Verlag, Berlin, Heidelberg, 1993.
+[14] H. Cohn and N. Heninger, Approximate common divisors via lattices, to appear in Proceedings
+     of ANTS 2012, arXiv:1108.2714.
+[15] D. Coppersmith, Small solutions to polynomial equations, and low exponent RSA vulnerabili-
+     ties, J. Cryptology 10 (1997), 233–260.
+[16]          , Finding small solutions to small degree polynomials, Cryptography and Lattices,
+     Lecture Notes in Computer Science, vol. 2146, Springer-Verlag, Berlin, Heidelberg, 2001,
+     pp. 20–31.
+[17] D. Coppersmith, N. Howgrave-Graham, and S. V. Nagaraj, Divisors in residue classes,
+     constructively, Math. Comp. 77 (2008), 531–545.
+[18] N. Coxon, List decoding of number field codes, Des. Codes Cryptogr., to appear (published
+     online with doi:10.1007/s10623-013-9803-x).
+[19] C. Fieker and M. E. Pohst, On lattices over number fields, Algorithmic Number Theory,
+     Lecture Notes in Computer Science, vol. 1122, Springer-Verlag, Berlin, Heidelberg, 1996,
+     pp. 133–139.
+[20] C. Fieker and D. Stehlé, Short bases of lattices over number fields, Algorithmic Number
+     Theory, Lecture Notes in Computer Science, vol. 6197, Springer-Verlag, Berlin, Heidelberg,
+     2010, pp. 157–173.
+[21] J. von zur Gathen, Hensel and Newton methods in valuation rings, Math. Comp. 42 (1984),
+     637–661.
+[22] J. von zur Gathen and J. Gerhard, Modern Computer Algebra, second edition, Cambridge
+     University Press, Cambridge, England, 2003.
+[23] J. von zur Gathen and E. Kaltofen, Factorization of multivariate polynomials over finite
+     fields, Math. Comp. 45 (1985).
+[24] P. Giorgi, C.-P. Jeannerod, and G. Villard, On the complexity of polynomial matrix com-
+     putations, Proceedings of the 2003 International Symposium on Symbolic and Algebraic
+     Computation (Philadelphia, Pennsylvania, United States, August 3–6, 2003), Association for
+     Computing Machinery, New York, NY, 2003, pp. 135–142.
+[25] V. Guruswami, A. Sahai, and M. Sudan, “Soft-decision” decoding of Chinese remainder
+     codes, Proceedings of the 41st Annual Symposium on Foundations of Computer Science
+     (Redondo Beach, California, United States, November 12–14, 2000), IEEE Computer Society,
+     Los Alamitos, CA, 2000, pp. 159–168.
+[26] V. Guruswami and M. Sudan, Improved decoding of Reed-Solomon and algebraic-geometry
+     codes, IEEE Trans. Inform. Theory 45 (1999), 1757–1767.
+[27] N. Howgrave-Graham, Approximate integer common divisors, Cryptography and Lattices,
+     Lecture Notes in Computer Science, vol. 2146, Springer-Verlag, Berlin, Heidelberg, 2001,
+     pp. 51–66.
+[28] M.-D. Huang and D. Ierardi, Efficient algorithms for the Riemann-Roch problem and for
+     addition in the Jacobian of a curve, J. Symb. Comput. 18 (1994), 519–539.
+[29] T. Kailath, Linear Systems, Prentice-Hall, Inc., Upper Saddle River, NJ, 1980.
+[30] S. V. Konyagin and T. Steger, On polynomial congruences, Math. Notes 55 (1994), 596–600.
+[31] A. K. Lenstra, Factoring polynomials over algebraic number fields, Computer Algebra, Lecture
+     Notes in Computer Science, vol. 162, Springer-Verlag, Berlin, Heidelberg, 1983, pp. 245–254.
+[32]          , Factoring multivariate polynomials over algebraic number fields, SIAM J. Comput.
+     16 (1987), 591–598.
+[33] H. W. Lenstra, Algorithms in algebraic number theory, Bull. Amer. Math. Soc. 26 (1992),
+     211–24.
+[34] A. K. Lenstra, H. W. Lenstra, and L. Lovász, Factoring polynomials with rational coeficients,
+     Math. Ann. 261 (1982), 515–534.
+[35] D. Lorenzini, An invitation to arithmetic geometry, Graduate Studies in Mathematics, vol. 9,
+     American Mathematical Society, Providence, RI, 1996.
+                                       IDEAL FORMS. . .                                         29
+
+
+[36] V. Lyubashevsky, C. Peikert, and O. Regev, On ideal lattices and learning with errors over
+     rings, Advances in Cryptology – EUROCRYPT 2010, Lecture Notes in Computer Science,
+     vol. 6110, Springer-Verlag, Berlin, Heidelberg, 2010, pp. 1–23.
+[37] K. Manders and L. Adleman, NP-complete decision problems for quadratic polynomials,
+     Proceedings of the Eighth Annual ACM Symposium on Theory of Computing (Hershey,
+     Pennsylvania, United States, May 3–5, 1976), Association for Computing Machinery, New
+     York, NY, 1976, pp. 23–29.
+[38] R. C. Mason, Diophantine Equations over Function Fields, London Mathematical Society
+     Lecture Note Series, vol. 96, Cambridge University Press, Cambridge, England, 1984.
+[39] A. May, New RSA vulnerabilities using lattice reduction methods, Ph.D. thesis, University of
+     Paderborn, 2003.
+[40] A. May., Using LLL-reduction for solving RSA and factorization problems, The LLL Algorithm
+     (P. Q. Nguyen and B. Vallée, eds.), Springer-Verlag, Berlin, Heidelberg, 2010, pp. 315–348.
+[41] M. Naor and B. Pinkas, Oblivious transfer and polynomial evaluation, Proceedings of the
+     Thirty-First Annual ACM Symposium on Theory of Computing (Atlanta, Georgia, United
+     States, May 1–4, 1999), Association for Computing Machinery, New York, NY, 1999, pp. 245–
+     254.
+[42] C. Peikert and A. Rosen, Lattices that admit logarithmic worst-case to average-case connection
+     factors, Proceedings of the Thirty-Ninth Annual ACM Symposium on Theory of Computing
+     (San Diego, California, United States, June 11–13, 2007), Association for Computing Machinery,
+     New York, NY, 2007, pp. 478–487.
+[43] M. Rosen, Number Theory in Function Fields, Graduate Texts in Mathematics, vol. 210,
+     Springer-Verlag, New York, 2002.
+[44] R. M. Roth and G. Ruckenstein, Efficient decoding of Reed-Solomon codes beyond half the
+     minimum distance, IEEE Trans. Inform. Theory 46 (2000), 246–257.
+[45] M. A. Shokrollahi and H. Wasserman, List decoding of algebraic-geometric codes, IEEE Trans.
+     Inform. Theory 45 (1999), 432–437.
+[46] V. Shoup, OAEP reconsidered, Advances in Cryptology – CRYPTO 2001, Lecture Notes in
+     Computer Science, vol. 2139, Springer-Verlag, Berlin, Heidelberg, 2001, pp. 239–259.
+[47] H. Stichtenoth, Algebraic Function Fields and Codes, second edition, Graduate Texts in
+     Mathematics, vol. 254, Springer-Verlag, Berlin, Heidelberg, 2010.
+[48] M. Sudan, Ideal error-correcting codes: Unifying algebraic and number-theoretic algorithms,
+     Applied Algebra, Algebraic Algorithms and Error-Correcting Codes, Lecture Notes in Com-
+     puter Science, vol. 2227, Springer-Verlag, Berlin, Heidelberg, 2001, pp. 36–45.
+[49] V. Vassilevska Williams, Multiplying matrices faster than Coppersmith-Winograd, Proceedings
+     of the Fourty-Fourth ACM Symposium on Theory of Computing (New York, New York,
+     United States, May 20–22, 2012), Association for Computing Machinery, New York, NY, 2012,
+     pp. 887–898.
+
+   Microsoft Research New England, One Memorial Drive, Cambridge, MA 02142
+   E-mail address: cohn@microsoft.com
+
+  Department of Computer and Information Science, University of Pennsylvania,
+Philadelphia, PA 19104
+  E-mail address: nadiah@cs.princeton.edu
+

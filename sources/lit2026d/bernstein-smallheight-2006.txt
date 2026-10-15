@@ -1,0 +1,1072 @@
+                      REDUCING LATTICE BASES
+                    TO FIND SMALL-HEIGHT VALUES
+                     OF UNIVARIATE POLYNOMIALS
+
+
+                                  DANIEL J. BERNSTEIN
+
+
+        Abstract. This paper generalizes several previous results on finding divisors
+        in residue classes (Lenstra, Konyagin, Pomerance, Coppersmith, Howgrave-
+        Graham, Nagaraj), finding divisors in intervals (Rivest, Shamir, Coppersmith,
+        Howgrave-Graham), finding modular roots (Hastad, Vallée, Girault, Toffin,
+        Coppersmith, Howgrave-Graham), finding high-power divisors (Boneh, Durfee,
+        Howgrave-Graham), and finding codeword errors beyond half distance (Sudan,
+        Guruswami, Goldreich, Ron, Boneh) into a unified algorithm that, given f and
+        g, finds all rational numbers r such that f (r) and g(r) both have small height.
+
+
+
+
+                                    1. Introduction
+    Consider the fraction (r 3 −s)/n, where n is a large integer with no known factors.
+Usually there is no cancellation between the numerator r 3 −s and the denominator
+n. In other words, the height of (r 3 − s)/n is usually max r 3 − s , n . Here the
+height of a rational number m/n is, by definition, max{|m| , |n|}/ gcd{m, n}.
+    However, if r is a cube root of s modulo n, then one can remove n from both
+the numerator
+       3       and denominator. In other words, the height of (r 3 − s)/n is only
+max (r − s)/n , 1 . The problem of finding a cube root of s modulo n can thus
+be viewed as the problem of finding small-height values of the polynomial (x3 −s)/n.
+    Many other useful properties of numbers r can be recast in the form “f (r) has
+small height” for various polynomials f . For example, the problem of factoring n
+can be viewed as the problem of finding all r such that r/n has small height.
+    There is a surprisingly fast method, using lattice-basis reduction, to find all
+numbers r such that both r and f (r) have small height. This paper presents a
+very general statement of the method (see Theorem 2.3); asymptotically optimal
+parameters (see Section 3); and an exposition of various applications of the method
+(see Sections 4, 5, and 7). The theorems and algorithms can easily be switched
+from Q to the rational function field Fq (t) over a finite field Fq , although better
+algorithms are often available in the function-field case.
+    I have made no attempt to cover analogous methods for higher-degree global
+fields or for polynomials in more variables. There are several papers on small-
+height values of bivariate polynomials, but each application seems to pose a new
+optimization problem. I will leave it to future writers to unify the literature on this
+topic.
+
+   Date: 2006.05.31. Permanent ID of this document: 82f82c041b7e2bdce94a5e1f94511773.
+   2000 Mathematics Subject Classification. Primary 11Y16. Secondary 94B35.
+   The author was supported by the National Science Foundation under grant DMS–0140542,
+and by the Alfred P. Sloan Foundation.
+                                               1
+2                                  DANIEL J. BERNSTEIN
+
+
+History. The following table fits previous results into the framework of Theorem
+2.3. Notation: f is the polynomial with useful small-height values; d is the degree
+of f ; m is the lattice rank; k is the highest f exponent used in defining the lattice.
+Results improve primarily as m increases, secondarily as k increases.
+    Find              f (r)       k       m     Notes
+    divisors, in      (r + uw)/n  1       3     1984 Lenstra [24], for proving
+    u + vZ, of n      where                     primality
+                      wv ∈ 1 + nZ
+    divisors, in an   (r + w)/n   1       3     1986 Rivest Shamir [31], for
+    interval, of n    for one w                 breaking cryptosystems;
+                                                independent of [24]
+    roots of p(x)     p(r)/n        1     d+1   1988 Håstad [18, Section 3]; first use
+    mod n                                       of nonlinear f ; independently: 1989
+                                                Vallée Girault Toffin [34] (using the
+                                                dual lattice; more difficult)
+    roots of p(x)     p(r)/n        big   big   1996 Coppersmith [8] (using dual),
+    mod n                                       for breaking cryptosystems; first
+                                                use of increasing m; first use of
+                                                increasing k; simplified: 1997
+                                                Howgrave-Graham [19] (explicitly
+                                                avoiding dual)
+    divisors, in an   (r + w)/n     big   big   1996 Coppersmith [9] (in a much
+    interval, of n                              more complicated way); simplified:
+                                                1997 Howgrave-Graham [19]
+    divisors, in      (r + w)/n     2     5     1997 Konyagin Pomerance [22,
+    1 + vZ, of n                                Algorithm 3.2]; independent of [8]
+    divisors, in      (r + uw)/n    big   big   1998 Coppersmith
+    u + vZ, of n                                Howgrave-Graham Nagaraj [20,
+                                                Section 5.5]
+    large values of (r + w)/n       1     big   1999 Goldreich Ron Sudan [14]
+    gcd{x + w, n}                               (using dual), for error correction;
+                                                previous function-field version:
+                                                1997 Sudan [33]; independent of [8]
+    high-power      (r + w)d /n     big   big   1999 Boneh Durfee
+    divisors, in an                             Howgrave-Graham [7]
+    interval, of n
+    large values of (r + w)/n       big   big   2000 Boneh [5], for error correction;
+    gcd{x + w, n}                               independently: 2001
+                                                Howgrave-Graham [21, Section 3];
+                                                previous function-field version:
+                                                1999 Guruswami Sudan [17]
+    large values of p(r)/n          big   big   2000 Boneh [5, Section 4]
+    gcd{p(x), n}
+It was recognized in [19] and [7] that “r + w divides n” and “(r + w)d divides n”
+could be handled by the same technique as “p(r) is divisible by n.” Meanwhile,
+“gcd{r + w, n} is large” appeared independently in [14]. A unified “gcd{p(r), n} is
+large” algorithm finally appeared, with insufficient fanfare, in [5, Section 4].
+   REDUCING LATTICE BASES TO FIND SMALL-HEIGHT VALUES OF POLYNOMIALS                            3
+
+
+Index of theorems in this paper. Algorithms in this paper are expressed in
+two ways: as theorems stating that the algorithms produce the desired results,
+and as “cost” theorems stating that there exist low-cost algorithms (in a particular
+cost measure) producing the desired results. Readers who want to understand what
+the algorithms achieve, without worrying at first about how the algorithms work,
+should start with the cost theorems, such as Theorem 4.4.
+   The following chart has three rows for algorithms aimed at specific applications:
+“roots mod n,” “divisors of n,” and “codeword errors.” It also has two rows for
+more general algorithms that can be used for other applications: an “f (r), g(r) ∈ Z”
+row generalizing “roots mod n,” and a “g(r) ∈ Z” row generalizing all of these
+applications.
+   Algorithms in the “any k; any m” column have two parameters (k, m) affecting
+their speed and output; the user can tune these parameters for the application
+at hand. Algorithms in the “good k; good m” column fix choices of (k, m) that
+work reasonably well for a wide variety of applications, although they are often not
+exactly optimal. Readers who find themselves overwhelmed by the flexibility of k
+and m should start with the algorithms in the “good k; good m” column.
+
+                                  4.1                    / 4.2                  roots mod n
+                                   O GG                     O GG
+                                       GG                       GG
+                                         GG                       GG
+                                           G#                       G#
+                                                  4.3                / 4.4
+                                                   O                    O
+
+             2.4                  / 3.3                  / 3.4                f (r), g(r) ∈ Z
+             @ GG                         GG                     GG
+                 GG                         GG                     GG
+                   GG                         GG                     GG
+                     G#                         G#                     G#
+                            2.6                  / 3.7                  / 3.8
+
+
+       any k; any
+                GG m        any k; good
+                                     GG m        good k; good
+                                                           GG m
+                  GG                   GG                    GG
+                    GG                   GG                    GG
+                      G#                   G#                    G#
+                       cost                 cost                  cost
+
+
+                                  5.1                    / 5.2                  divisors of n
+                                   O GG                     O GG
+                                       GG                       GG
+                                         GG                       GG
+                                           G#                       G#
+                                                  5.3                / 5.4
+                                                   O                    O
+
+             2.3 G                / 3.1                  / 3.2                    g(r) ∈ Z
+                  GG                      GG                     GG
+                    GG                      GG                     GG
+                      GG                      GG                     GG
+                        #                       G#                     G#
+                            2.5                  / 3.5                  / 3.6
+
+                                                           
+                                  7.1 G                  / 7.2                codeword errors
+                                       GG                        GG
+                                         GG                        GG
+                                           GG                        GG
+                                             #                        G# 
+                                              7.3                       / 7.4
+4                                     DANIEL J. BERNSTEIN
+
+
+                                   2. The general method
+   This section explains how to find all rational numbers r such that f (r) and
+g(r) simultaneously have small height. Here f, g ∈ Q[x] are polynomials, each of
+positive degree, each with positive leading coefficient. Write d = deg f , and assume
+for simplicity that deg g = 1.
+   Theorem 2.2 below gives a more precise definition of “small height.” The height
+bound depends on two integer parameters k ≥ 1 and m ≥ dk + 1. A typical special
+case is k = 1 and m = 2d. See Section 3 for further comments on the choice of k
+and m.
+
+The lattice. Define L ⊂ Q[x] as the Z-module
+            Z          + Zg              +    Zg 2                  +   ···   +    Zg d−1
+       +    Zf         + Zgf             +    Zg 2 f                +   ···   +    Zg d−1 f
+       +    Zf 2       + Zgf 2           +    Zg 2 f 2              +   ···   +    Zg d−1 f 2
+       +    ···
+       +    Zf k−1     + Zgf k−1         +    Zg 2 f k−1            +   ···   +    Zg d−1 f k−1
+       +    Zf k       +     ···         +    Zg m−dk−1 f k .
+For example, if k = 1 and m = d + 1, then L = Z + Zg + Zg 2 + · · · + Zg d−1 + Zf ;
+if k = 1 and m = 2d, then L = Z + Zg + Zg 2 + · · · + Zg d−1 + Zf + · · · + Zg d−1 f .
+    The basis elements 1, g, . . . , g d−1 , f, . . . , g m−dk−1 f k have degrees 0, 1, 2, . . . , m−1
+respectively. Thus L is a lattice
+                                p of rank m under the usual coefficient-vector metric
+on Q[x], namely ϕ 7→ |ϕ| = ϕ20 + ϕ21 + ϕ22 + · · ·, where ϕ = ϕ0 + ϕ1 x + ϕ2 x2 + · · · .
+    The basis elements have leading coefficients 1, g1 , g12 , . . . , g1m−dk−1 fdk , where g1 is
+the leading coefficient of g and fd is the leading coefficient of f . Thus
+                           kd(d−1)/2+(m−dk)(m−dk−1)/2 dk(k−1)/2+k(m−dk)
+                 det L = g1                             fd
+                           m(m−1)/2 d
+                        = g1        (g1 /fd )dk(k+1)/2−mk .
+                                                             d(d−1) d    d(2d−1) d
+For example, if k = 1 and m = 2d, then det L = g1                  fd = g1      (g1 /fd )−d .
+Theorem 2.1. Let d, k, m be positive integers with m ≥ dk + 1. Let f ∈ Q[x] be a
+polynomial of degree d with leading coefficient fd > 0. Let g ∈ Q[x] be a polynomial
+of degree 1 with leading coefficient g1 > 0. Define L as above. If ϕ ∈ L, r ∈ Q, and
+             k             max{d−1,m−dk−1}
+gcd{1, f (r)} gcd{1, g(r)}                   > (1, r, . . . , rm−1 ) |ϕ|, then ϕ(r) = 0.
+                                                                                                d−1
+   For example, if k = 1, m = 2d, ϕ ∈ L, r ∈ Q, and gcd{1, f (r)} gcd{1, g(r)}          >
+ (1, r, . . . , r2d−1 ) |ϕ|, then ϕ(r) = 0.
+   The reader should interpret gcd{1, f (r)} > · · · as “f (r) has small denominator”;
+gcd{1, g(r)} > · · · as “g(r) has small denominator”; and (1, r, . . . , rm−1 ) < · · · as
+“f (r) and g(r) have small numerators.” Theorem 2.1 can thus be summarized as
+“ϕ(r) = 0 if f (r) and g(r) both have small height.”
+                                                                k                 max{d−1,m−dk−1}
+Proof. |ϕ(r)| ≤ (1, r, . . . , rm−1 ) |ϕ| < gcd{1, f (r)} gcd{1, g(r)}                  .
+                                d−1 k−1      k             m−dk−1 k
+But ϕ ∈ Z + Zg + · · · + Zg        f     + Zf + · · · + Zg         f by definition of L,
+so ϕ(r) ∈ Z + Zg(r) + · · · + Zg(r)d−1 f (r)k−1 + Zf (r)k + · · · + Zg(r)m−dk−1 f (r)k ⊆
+               k                max{d−1,m−dk−1}
+Z gcd{1, f (r)} gcd{1, g(r)}                    . Thus ϕ(r) = 0.                       
+    REDUCING LATTICE BASES TO FIND SMALL-HEIGHT VALUES OF POLYNOMIALS                        5
+
+
+Theorem 2.2. Let d, k, m be positive integers with m ≥ dk + 1. Let f ∈ Q[x] be a
+polynomial of degree d with leading coefficient fd > 0. Let g ∈ Q[x] be a polynomial
+of degree 1 with leading coefficient g1 > 0. Define L as above. Let ϕ ∈ L be a
+nonzero vector such that |ϕ| ≤ 2(m−1)/2 (det L)1/m . If r ∈ Q and
+                             k              max{d−1,m−dk−1}
+               gcd{1, f (r)} gcd{1, g(r)}
+                    > (1, r, . . . , rm−1 ) (2g1 )(m−1)/2 (g1d /fd )dk(k+1)/2m−k
+then ϕ(r) = 0.
+                         (m−1)/2
+Proof. (det L)1/m = g1             (g1d /fd )dk(k+1)/2m−k . Apply Theorem 2.1.              
+  For example, if k = 1 and m = 2d, then ϕ(r) = 0 for every r ∈ Q such that
+                           d−1
+gcd{1, f (r)} gcd{1, g(r)}     > (1, r, . . . , r2d−1 ) (2g1 )d−1/2 (g1d /fd )−1/2 .
+Theorem 2.3. Let d, k, m be positive integers with m ≥ dk + 1. Let f ∈ Q[x]
+be a polynomial of degree d with leading coefficient fd > 0. Let g ∈ Q[x] be a
+polynomial of degree 1 with leading coefficient g1 > 0. Define L as above. Let
+ϕ ∈ L be a nonzero vector such that |ϕ| ≤ 2(m−1)/2 (det L)1/m . Define γ =
+m1/2k (2g1 )(m−1)/2k (g1d /fd )d(k+1)/2m−1 . If r ∈ Q, |r| ≤ 1, gcd{1, f (r)} > γ, and
+g(r) ∈ Z, then ϕ(r) = 0.
+    For example, if k = 1 and m = 2d, then ϕ(r) = 0 for every r ∈ Q such that
+|r| ≤ 1, g(r) ∈ Z, and gcd{1, f (r)} > γ, where γ = (2d)1/2 (2g1 )d−1/2 (g1d /fd )−1/2 .
+
+Proof. γ k = m1/2 (2g1 )(m−1)/2 (g1d /fd )dk(k+1)/2m−k ; (1, r, . . . , rm−1 ) ≤ m1/2 ; and
+gcd{1, g(r)} = 1. Apply Theorem 2.2.                                                      
+Theorem 2.4. Let d, k, m be positive integers with m ≥ dk + 1. Let f ∈ Q[x]
+be a polynomial of degree d with leading coefficient fd > 0. Let g ∈ Q[x] be a
+polynomial of degree 1 with leading coefficient g1 > 0. Define L as above. Let
+ϕ ∈ L be a nonzero vector such that |ϕ| ≤ 2(m−1)/2 (det L)1/m . Assume that g1 <
+(g1d /fd )2k/(m−1)−dk(k+1)/m(m−1) /2m1/(m−1) . If r ∈ Q, |r| ≤ 1, f (r) ∈ Z, and
+g(r) ∈ Z, then ϕ(r) = 0.
+    For example, if k = 1 and m = 2d, then ϕ(r) = 0 for every r ∈ Q such that
+|r| ≤ 1, f (r) ∈ Z, and g(r) ∈ Z, provided that 2g1 < (g1d /2dfd )1/(2d−1) .
+
+Proof. By assumption m1/2k (2g1 )(m−1)/2k (g1d /fd )d(k+1)/2m−1 < 1 = gcd{1, f (r)}.
+Apply Theorem 2.3.                                                                
+Computation. It is easy to compute the rational numbers r identified in Theorems
+2.2, 2.3, and 2.4:
+      • Feed the basis vectors 1, g, . . . , g d−1 , f, . . . , g m−dk−1 f k of L to a lattice-
+         basis-reduction algorithm, such as the Lenstra-Lenstra-Lovasz algorithm,
+         to obtain a nonzero vector ϕ ∈ L such that |ϕ| ≤ 2(m−1)/2 (det L)1/m . See
+         [23] or [25]. The theorems now state that all desired numbers r are roots
+         of ϕ.
+      • Compute the rational roots of ϕ, by approximating the real (or 2-adic)
+         roots of ϕ to high precision. See, e.g., [26]. By construction ϕ has degree
+         at most m − 1, so it has at most m − 1 roots.
+      • Check each root r to see whether it satisfies the stated conditions.
+6                                 DANIEL J. BERNSTEIN
+
+
+Each step is reasonably fast if f , g, k, and m are reasonably small.
+   One way to measure the complexity of this algorithm is to measure its output
+size, i.e., to count the number of qualifying r’s. Theorems 2.5 and 2.6 state bounds
+on this measure of algorithm complexity. I will leave it to the reader to formulate
+theorems regarding other measures.
+Theorem 2.5. Let d, k, m be positive integers with m ≥ dk + 1. Let f ∈ Q[x] be a
+polynomial of degree d with leading coefficient fd > 0. Let g ∈ Q[x] be a polynomial
+of degree 1 with leading coefficient g1 > 0. Then there are at most m − 1 values
+r ∈ Q such that |r| ≤ 1, gcd{1, f (r)} > m1/2k (2g1 )(m−1)/2k (g1d /fd )d(k+1)/2m−1 ,
+and g(r) ∈ Z.
+   Take, for example, k = 1 and m = 2d: there are at most 2d − 1 values r ∈ Q
+such that |r| ≤ 1, gcd{1, f (r)} > (2d)1/2 (2g1 )d−1/2 (g1d /fd )−1/2 , and g(r) ∈ Z.
+Proof. Apply lattice-basis reduction to Theorem 2.3.
+   In more detail: Define γ = m1/2k (2g1 )(m−1)/2k (g1d /fd )d(k+1)/2m−1 , and define L
+as above. There is a nonzero vector ϕ ∈ L such that |ϕ| ≤ 2(m−1)/2 (det L)1/m . By
+Theorem 2.3, each qualifying value r ∈ Q is a root of ϕ. The degree of ϕ is at most
+m − 1 by construction of L, so there are at most m − 1 roots of ϕ.                    
+Theorem 2.6. Let d, k, m be positive integers with m ≥ dk + 1. Let f ∈ Q[x]
+be a polynomial of degree d with leading coefficient fd > 0. Let g ∈ Q[x] be
+a polynomial of degree 1 with leading coefficient g1 > 0. Assume that g1 <
+(g1d /fd )2k/(m−1)−dk(k+1)/m(m−1) /2m1/(m−1) . Then there are at most m − 1 values
+r ∈ Q such that |r| ≤ 1, f (r) ∈ Z, and g(r) ∈ Z.
+   Take, for example, k = 1 and m = 2d: if 2g1 < (g1d /2dfd )1/(2d−1) then there are
+at most 2d − 1 values r ∈ Q such that |r| ≤ 1, f (r) ∈ Z, and g(r) ∈ Z.
+Proof. Apply lattice-basis reduction to Theorem 2.4.                                     
+
+                3. Parameter choice and other optimizations
+   This section discusses the choice of k amd m in Section 2, and other ways to
+speed up the computation of the desired numbers r.
+   The history of this subject—see Section 1—shows each application progressing
+from simple choices of k and m to near-optimal choices of k and m. It turns out
+to be possible to unify all of these application-specific optimizations into a few
+straightforward formulas: Theorem 3.2 states near-optimal choices of k and m for
+Theorem 2.3, and Theorem 3.4 states near-optimal choices of k and m for Theorem
+2.4. Future applications should be able to reuse these unified theorems, rather than
+wasting time redoing the same optimizations from scratch.
+Parameter choice for Theorem 2.3. Theorem 2.3 assumes that gcd{1, f (r)} >
+γ, where γ = m1/2k (2g1 )(m−1)/2k (g1d /fd )d(k+1)/2m−1 . How small can one make this
+lower bound γ by varying m and k?
+   Assume that g1 and 1/fd exceed 1. Theorem 3.1        p then says that γ is smaller
+              1/2k       αd(1+1/2k)      d
+than β = m         (2g1 )           fd /g1 , where α =    1 + (lg(1/fd ))/ lg((2g1 )d ), if
+m is chosen as ⌈αd(k + 1)⌉. This choice of m approximately balances the factors
+(2g1 )(m−1)/2k and (g1d /fd )d(k+1)/2m in Theorem 2.3. Note that α ≥ 1, so m ≥ dk+d.
+Note also that m is not difficult to compute: comparing αd(k + 1) to an integer
+boils down to comparing integer powers of fd and 2g1 .
+   REDUCING LATTICE BASES TO FIND SMALL-HEIGHT VALUES OF POLYNOMIALS                    7
+
+
+   As k increases (slowing down the computation of ϕ), β converges to (2g1 )αd fd /g1d ,
+which is very close to a lower bound on γ. The quantity (2g1 )αd is the doubly-
+geometric average of (2g1 )d and (2g1 )d /fd . Theorem 3.2 considers the special case
+k = ⌈αd ⌈lg 2g1 ⌉ /2⌉, which balances the desire for a small β against the desire for
+small lattice ranks.                                                         √
+   For comparison: If k = √
+                             1, the  optimal   choice of m  is approximately   2αd for
+                            2αd      d
+large αd, with γ ≈ (2g1 )       fd /g1 . √Allowing larger k thus changes the exponent
+of 2g1 by a factor of approximately 2.
+Theorem 3.1. Let f ∈ Q[x] be a polynomial of positive degree d with leading coef-
+ficient fd ∈ (0, 1]. Let g ∈ Q[x] be a polynomial of degree
+                                                        p 1 with leading coefficient
+g1 ≥ 1. Let k be a positive integer. Define α =            1 + (lg(1/fd ))/ lg((2g1 )d ),
+m = ⌈αd(k + 1)⌉, β = m1/2k (2g1 )αd(1+1/2k) fd /g1d , and L as above. Let ϕ ∈ L
+be a nonzero vector such that |ϕ| ≤ 2(m−1)/2 (det L)1/m . If r ∈ Q, |r| ≤ 1,
+gcd{1, f (r)} ≥ β, and g(r) ∈ Z, then ϕ(r) = 0.
+Proof. First m − 1 ≤ αd(k + 1) so (2g1 )(m−1)/2k ≤ (2g1 )αd(k+1)/2k . Second 1/m ≤
+1/αd(k + 1) so (g1d /fd )d(k+1)/2m ≤ (g1d /fd )1/2α < ((2g1 )d /fd )1/2α = (2g1 )αd/2 by
+choice of α. Thus m1/2k (2g1 )(m−1)/2k (g1d /fd )d(k+1)/2m fd /g1d < β. Apply Theorem
+2.3.                                                                                   
+Theorem 3.2. Let f ∈ Q[x] be a polynomial of positive degree d with leading
+coefficient fd ∈ (0, 1]. Let g ∈pQ[x] be a polynomial of degree 1 with leading
+coefficient g1 ≥ 1. Define α = 1 + (lg(1/fd ))/ lg((2g1 )d ), k = ⌈αd ⌈lg 2g1 ⌉ /2⌉,
+m = ⌈αd(k + 1)⌉, and L as above. Let ϕ ∈ L be a nonzero vector such that
+|ϕ| ≤ 2(m−1)/2 (det L)1/m . If r ∈ Q, |r| ≤ 1, gcd{1, f (r)} ≥ 2m1/2k (2g1 )αd fd /g1d ,
+and g(r) ∈ Z, then ϕ(r) = 0.
+Proof. By construction k ≥ αd(lg 2g1 )/2, so 1 ≥ (lg 2g1 )αd/2k, so 2 ≥ (2g1 )αd/2k .
+Thus gcd{1, f (r)} ≥ β where β = m1/2k (2g1 )αd(1+1/2k) fd /g1d . Apply Theorem
+3.1.                                                                              
+Parameter choice for Theorem 2.4. Theorem 2.4 assumes that g1 is smaller
+than (g1d /fd )2k/(m−1)−dk(k+1)/m(m−1) /2m1/(m−1) . How large can one make this
+exponent 2k/(m − 1) − dk(k + 1)/m(m − 1) by varying m and k?
+   Theorem 3.3 chooses m = dk + d, achieving exponent k/(dk + d − 1), which
+is reasonably close to optimal. As k increases (slowing down the computation
+of ϕ),
+      thed exponent
+                     converges to 1/d. Theorem 3.4 considers the special case
+                d
+k = lg(g1 /2 fd ) /d , which balances the desire for a large exponent against the
+desire for small lattice ranks.
+Theorem 3.3. Let f ∈ Q[x] be a polynomial of positive degree d with leading
+coefficient fd > 0. Let g ∈ Q[x] be a polynomial of degree 1 with leading coefficient
+g1 > 0. Let k be a positive integer. Define m = dk + d and L = Z + Zg +
+· · · + Zg d−1 + Zf + Zgf + · · · + Zg d−1 f + · · · + Zf k + Zgf k + · · · + Zg d−1 f k .
+Let ϕ ∈ L be a nonzero vector such that |ϕ| ≤ 2(m−1)/2 (det L)1/m . Assume that
+g1 < (g1d /fd )k/(m−1) /2m1/(m−1) . If r ∈ Q, |r| ≤ 1, f (r) ∈ Z, and g(r) ∈ Z, then
+ϕ(r) = 0.
+Proof. d(k+1)/m = 1 so 2k/(m−1)−dk(k+1)/m(m−1) = 2k/(m−1)−k/(m−1) =
+k/(m − 1). Apply Theorem 2.4.                                     
+8                                  DANIEL J. BERNSTEIN
+
+
+Theorem 3.4. Let f ∈ Q[x] be a polynomial of positive degree d with leading
+coefficient fd ∈ (0, 1/8d ). Let g∈ Q[x] be a polynomial     of degree 1 with leading
+                                          d   d
+                                                        
+coefficient g1 ≥ 1/4. Define k = lg(g1 /2 fd ) /d , m = dk + d, and L = Z + Zg +
+· · · + Zg d−1 + Zf + Zgf + · · · + Zg d−1 f + · · · + Zf k + Zgf k + · · · + Zg d−1 f k . Let
+ϕ ∈ L be a nonzero vector such that |ϕ| ≤ 2(m−1)/2 (det L)1/m . If r ∈ Q, |r| ≤ 1,
+f (r) ∈ Z, and g(r) ∈ Z, then ϕ(r) = 0.
+Proof. First g1d /2d fd > (1/4)d /(2/8)d = 1, so k is a positive integer. Next m =
+d(k + 1) ≥ 2, so lg m ≤ m − 1, so 1 ≤ 2/m1/(m−1) . Next m − 1 = dk + d − 1 ≥
+lg(g1d /2d fd ) + d − 1 ≥ ((d − 1)/d) lg(g1d /2d fd ) + d − 1 = ((m − 1 − dk)/d) lg(g1d /fd )
+so d(m − 1) ≥ (m − 1 − dk) lg(g1d /fd ) so 1 ≥ (1/d − k/(m − 1)) lg(g1d /fd ); i.e.,
+                                                                                  1/d
+(g1d /fd )1/d−k/(m−1) ≤ 2. Next g1 = (g1d /fd )1/d−k/(m−1) (g1d /fd )k/(m−1) fd (1) <
+(2)(g1d /fd )k/(m−1) (1/8)(2/m1/(m−1) ) = (g1d /fd )k/(m−1) /2m1/(m−1) . Finally apply
+Theorem 3.3.                                                                              
+Computation. Theorems 3.1, 3.2, 3.3, and 3.4, like Theorems 2.3 and 2.4, can
+easily be converted into algorithms to compute the set of r’s. Theorems 3.5, 3.6,
+3.7, and 3.8, like Theorems 2.5 and 2.6, measure the complexity of these algorithms
+by stating bounds on the output size.
+Theorem 3.5. Let f ∈ Q[x] be a polynomial of positive degree d with leading coef-
+ficient fd ∈ (0, 1]. Let g ∈ Q[x] be a polynomial of p  degree 1 with leading coefficient
+g1 ≥ 1. Let k be a positive integer. Define α = 1 + (lg(1/fd ))/ lg((2g1 )d ) and
+m = ⌈αd(k + 1)⌉. Then there are at most m − 1 values r ∈ Q such that |r| ≤ 1,
+gcd{1, f (r)} ≥ m1/2k (2g1 )αd(1+1/2k) fd /g1d , and g(r) ∈ Z.
+Proof. Apply lattice-basis reduction to Theorem 3.1.                                       
+Theorem 3.6. Let f ∈ Q[x] be a polynomial of positive degree d with leading
+coefficient fd ∈ (0, 1]. Let g ∈pQ[x] be a polynomial of degree 1 with leading
+coefficient g1 ≥ 1. Define α = 1 + (lg(1/fd ))/ lg((2g1 )d ), k = ⌈αd ⌈lg 2g1 ⌉ /2⌉,
+and m = ⌈αd(k + 1)⌉. Then there are at most m − 1 values r ∈ Q such that |r| ≤ 1,
+gcd{1, f (r)} ≥ 2m1/2k (2g1 )αd fd /g1d , and g(r) ∈ Z.
+  The bound m − 1 is approximately (lg((2g1 )d ) + lg(1/fd ))d/2. The limit on
+gcd{1, f (r)} is approximately fd /g1d times the doubly-geometric average of (2g1 )d
+and (2g1 )d /fd .
+Proof. Apply lattice-basis reduction to Theorem 3.2.                                       
+Theorem 3.7. Let f ∈ Q[x] be a polynomial of positive degree d with leading
+coefficient fd > 0. Let g ∈ Q[x] be a polynomial of degree 1 with leading coefficient
+g1 > 0. Let k be a positive integer. Define m = dk + d. Assume that g1 <
+(g1d /fd )k/(m−1) /2m1/(m−1) . Then there are at most m − 1 values r ∈ Q such that
+|r| ≤ 1, f (r) ∈ Z, and g(r) ∈ Z.
+Proof. Apply lattice-basis reduction to Theorem 3.3.                                       
+Theorem 3.8. Let f ∈ Q[x] be a polynomial of positive degree d with leading
+coefficient fd ∈ (0, 1/8d ). Let g ∈ Q[x] be a polynomial of degree 1 with leading
+coefficient g1 ≥ 1/4. Then there are fewer than lg(g1d /fd ) + d − 1 values r ∈ Q such
+that |r| ≤ 1, f (r) ∈ Z, and g(r) ∈ Z.
+Proof. Apply lattice-basis reduction to Theorem 3.4, using m < lg(g1d /fd ) + d.           
+   REDUCING LATTICE BASES TO FIND SMALL-HEIGHT VALUES OF POLYNOMIALS                   9
+
+
+Combining Theorem 3.3 with brute force. Theorem 3.3, applied to f and g,
+finds all rational numbers r ∈ [−1, 1] with f (r), g(r) ∈ Z. The same theorem,
+applied to f (x+2) and g(x+2), finds all rational numbers r ∈ [1, 3] with f (r), g(r) ∈
+Z. With c such computations, involving c lattices of rank m = dk + d, one can
+cover an r interval of length 2c.
+   One can view Theorem 3.3 as searching the rationals r with g(r) ∈ Z, to see
+which ones also have f (r) ∈ Z. In an interval of length 2c, there are approximately
+2cg1 < c(g1d /fd )k/(dk+d−1) rationals r with g(r) ∈ Z, so the number of r’s searched
+per unit time is approximately (g1d /fd )k/(dk+d−1) divided by the time to handle a
+lattice of rank dk+d. Given f and g, one can choose k to (approximately) maximize
+this ratio. This idea appears in [8].
+Smaller improvements. Another way to expand the number of r’s searched is to
+perform several rational-root calculations per lattice, searching for roots of shifts of
+ϕ. For example, the roots of ϕ − 2, ϕ − 1, ϕ, ϕ + 1, ϕ + 2 include all r ∈ Q such that
+|r| ≤ 1, f (r) ∈ Z, and g(r) ∈ Z, provided that g1 < 3(g1d /fd )k/(m−1) /2m1/(m−1) ;
+note the 3 here. I learned this idea from Lenstra.
+   The choice of m in Theorem 3.1 is not exactly optimal. It is better to have the
+computer run through all pairs (k, m), in increasing order of the r computation
+time, until finding a pair (k, m) where the bound in Theorem 2.3 is satisfactory.
+Similar comments apply to Theorem 3.3.
+   I quoted lattice-basis reduction in Section 2 as producing nonzero vectors ϕ ∈ L
+such that |ϕ| is at most 2(m−1)/2 (det L)1/m . Slower reduction algorithms can shrink
+the factor 2(m−1)/2 ; even without this extra work, lattice-basis reduction often
+produces a vector ϕ with |ϕ| < (det L)1/m . Bounds that depend on ϕ, as in
+Theorem 2.1, are slightly better than bounds that depend solely on det L.
+   In Theorems 2.3, 2.4, 3.1, and 3.3, the lattice L can be replaced by a slightly
+smaller lattice, namely Z + Zg + Zg(g − 1)/2 + Zg(g − 1)(g − 2)/6 + · · · . The point is
+that g(r)(g(r) − 1)/2 etc. are integers if g(r) is an integer. This idea was published
+in [11], with credit to Howgrave-Graham and Lenstra independently.
+   A few years earlier, Howgrave-Graham in [20, Section 4.5.2] had made the similar
+observation that f could often be replaced by f /d!, after suitable tweaking of the
+coefficients of f .
+   Another slight improvement is to change the metric used to define the lattice,
+replacing 1, x, x2 , . . . , xm−1 with Chebyshev polynomials. This idea was published
+by Coppersmith in [11, page 24], with partial credit (of unclear scope) to Boneh.
+
+               4. Example: roots mod n given their high bits
+   This section explains how to search an interval [−H, H] for integer roots of an
+integer polynomial p modulo n, if H is not too large. For example, this section
+explains how to search the interval [t − H, t + H] for cube roots of s modulo n, if
+H is not too large; here p = (x + t)3 − s.
+   As in previous sections, the search method is parametrized by an exponent k.
+Theorem 4.2 uses a particular k that works well for most applications; Theorem
+4.1 is more general and allows k to be tuned for the reader’s application. The
+subsequent theorems in this section measure the cost of the resulting computations.
+   The choice of k in Theorem 4.2 allows H up to about n1/d . For example, one can
+find cube roots of s modulo n in any interval of length about n1/3 . This generalizes
+the obvious fact that one can quickly compute r from r 3 mod n if 0 ≤ r < n1/3 .
+10                               DANIEL J. BERNSTEIN
+
+
+For comparison, the simpler choice k = 1 allows H up to only about n2/d(d+1) ; for
+example, about n1/6 for d = 3.
+Theorem 4.1. Let n be a positive integer. Let p ∈ Z[x] be a monic polynomial
+of positive degree d. Let k be a positive integer. Define m = dk + d. Let H be a
+positive integer smaller than nk/(m−1) /2m1/(m−1) . Define f = p(Hx)/n ∈ Q[x],
+g = Hx ∈ Q[x], and L = Z + Zg + · · · + Zg d−1 + Zf + Zgf + · · · + Zg d−1 f +
+· · · + Zf k + Zgf k + · · · + Zg d−1 f k . Let ϕ ∈ L be a nonzero vector such that
+|ϕ| ≤ 2(m−1)/2 (det L)1/m . If s ∈ Z, p(s) ∈ nZ, and |s| ≤ H, then ϕ(s/H) = 0.
+Proof. Define r = s/H. By hypothesis r ∈ Q, |r| ≤ 1, f (r) = p(s)/n ∈ Z,
+g(r) = s ∈ Z, and g1 = H < nk/(m−1) /2m1/(m−1) = (g1d /fd )k/(m−1) /2m1/(m−1) .
+Apply Theorem 3.3.                                                          
+
+Theorem 4.2. Let n be a positive integer. Let p ∈ Z[x] be a monic polynomial
+of positive degree d. Let H be a positive integer smaller than n1/d /8. Define k =
+⌈(lg n)/d⌉ − 1 and m = dk + d. Define f = p(Hx)/n ∈ Q[x], g = Hx ∈ Q[x], and
+L = Z+Zg+· · ·+Zg d−1 +Zf +Zgf +· · ·+Zg d−1 f +· · ·+Zf k +Zgf k +· · ·+Zg d−1 f k .
+Let ϕ ∈ L be a nonzero vector such that |ϕ| ≤ 2(m−1)/2 (det L)1/m . If s ∈ Z,
+p(s) ∈ nZ, and |s| ≤ H, then ϕ(s/H) = 0.
+Proof. The leading coefficient fd of f is H d /n ∈ (0, 1/8d ). The leading coefficient
+g1 of g is H > 1/4. The quotient g1d /2
+                                        d
+                                          fd is H d /2d (H d         d
+                                                         /n) = n/2 . Consequently
+                                               d   d
+k = ⌈(lg n − d)/d⌉ = ⌈⌈lg n − d⌉ /d⌉ = lg(g1 /2 fd ) /d .
+   Define r = s/H. By hypothesis r ∈ Q, |r| ≤ 1, f (r) = p(s)/n ∈ Z, and
+g(r) = s ∈ Z. Apply Theorem 3.4.                                                    
+
+Theorem 4.3. Let n be a positive integer. Let p ∈ Z[x] be a monic polynomial
+of positive degree d. Let k be a positive integer. Define m = dk + d. Let H be a
+positive integer smaller than nk/(m−1) /2m1/(m−1) . Then there are at most m − 1
+integers s ∈ {−H, −H + 1, . . . , −1, 0, 1, . . . , H − 1, H} such that p(s) ∈ nZ.
+Proof. Apply lattice-basis reduction to Theorem 4.1.                                    
+
+Theorem 4.4. Let n be a positive integer. Let p ∈ Z[x] be a monic polynomial of
+positive degree d. Let H be a positive integer smaller than n1/d /8. Then there are
+fewer than lg n + d − 1 integers s ∈ {−H, −H + 1, . . . , −1, 0, 1, . . . , H − 1, H} such
+that p(s) ∈ nZ.
+Proof. Apply lattice-basis reduction to Theorem 4.2, using m < lg n + d.                
+
+History. As indicated in Section 1, the n2/d(d+1) result was first published by
+Håstad, and the n1/d result was first published by Coppersmith. Both authors
+used their results to break various naive forms of the RSA cryptosystem.
+   The results also have a positive application to cryptography: viz., compressing
+RSA (or Rabin) signatures. Instead of transmitting a cube root (or square root)
+of s modulo n, one can transmit the top 2/3 (or 1/2) of the bits of the root.
+However, this application is now obsolete, because Bleichenbacher in [4] proposed
+a different compression mechanism allowing substantially faster decompression and
+verification: compress the cube root to an integer v such that the remainder v 3 s mod
+n is a cube in Z.
+   REDUCING LATTICE BASES TO FIND SMALL-HEIGHT VALUES OF POLYNOMIALS                    11
+
+
+A numerical example. Define n = 2844847044114666594769924451263. How
+do we find, near the integer 1249180057712313741000000000000, a square root
+of 1982518464324230691670577165029 modulo n? In other words: Define p =
+(x + 1249180057712313741000000000000)2 − 1982518464324230691670577165029.
+How do we find a small root of p modulo n?
+   Choose k = 2 and H = 1012 /2. Define d = deg p = 2 and m = dk + d = 6. Then
+m(2H)m−1 = 6 · 1060 < n2 so H < nk/(m−1) /2m1/(m−1) . Define f = p(Hx)/n,
+g = Hx, and L = Z + Zg + Zf + Zgf + Zf 2 + Zgf 2 .
+   Reduce the basis 1, g, f, gf, f 2 , gf 2 to find a nonzero vector in L of length at most
+2(m−1)/2 (det L)1/m = 25/2 H 5/2 /n ≈ 0.352: for example, the vector ϕ = 3gf 2 −
+14990160692547764892644746695414f 2 +16455550604884219114654409906953gf −
+707310791602022640421396682594225363949260f + (· · · )g + (· · · )1 =
+     (93750000000000000000000000000000000000000000000000000000000/n2)x5
+   − (40296668463375000000000000000000000000000000000000000000000/n2)x4
+    − (8521407708770506207316875000000000000000000000000000000000/n2)x3
+    + (7549559148957274134432151119009658000000000000000000000000/n2)x2
+   + (85256085569824577108175046901012420957509825119500000000000/n2)x
+   − (73391645786690147620682490399407175727933183364776412308271/n2)1,
+of length approximately 0.019.
+   The only rational root of ϕ is 372834385559/H. Check that p(372834385559)
+is a multiple of n, i.e., that 1249180057712313741372834385559 is a square root of
+1982518464324230691670577165029 modulo n.
+   Theorem 4.1 guaranteed that this procedure would find every integer root of p
+modulo n in the interval [−H, H]. (Theorem 2.1 guaranteed an even wider interval
+after |ϕ| turned out to be noticeably smaller than 2(m−1)/2 (det L)1/m .) This is
+much faster than separately checking each of the 1012 + 1 integers in this interval.
+
+                    5. Example: constrained divisors of n
+   This section explains how to search for small integers s such that
+      • u + s divides n; or, more generally,
+      • u + vs divides n, where v is coprime to n; or, more generally,
+      • (u + vs)d divides n, where v is coprime to n.
+For example, by choosing d = 1 and choosing v as a large power of 2, one can search
+for divisors of n having specified low bits.
+   As in previous sections, the search method is parametrized by an exponent k.
+Theorem 5.2 uses a particular k that works well for most applications; Theorem
+5.1 is more general and allows k to be tuned for the reader’s application. The
+remaining theorems in this section measure the cost of the resulting computations.
+   Section 6 combines this search method with brute force to search a somewhat
+wider range of s. Conclusion in a nutshell: if v ≥ n1/4 , and v is coprime to n, then
+one can quickly find all divisors of n in (u + vZ) ∩ [1, n1/2 ].
+Theorem 5.1. Let d, n, u, v, w, H be positive integers p such that vw − 1 ∈ nZ
+             d
+and n ≥ H . Let k be a positive integer. Define α = (lg 2d n)/ lg 2d H d , m =
+⌈αd(k + 1)⌉, f = (uw +Hx)d /n ∈ Q[x], g = Hx ∈ Q[x], λ = m1/2kd (2H)α(1+1/2k) ,
+and L as above. Let ϕ ∈ L be a nonzero vector such that |ϕ| ≤ 2(m−1)/2 (det L)1/m .
+If s ∈ Z, |s| ≤ H, u + vs ≥ λ, and n ∈ (u + vs)d Z, then ϕ(s/H) = 0.
+12                               DANIEL J. BERNSTEIN
+
+
+   The polynomial (uw + Hx)d /n used here is better than (u + vHx)d /n when
+v > 1: it has a smaller leading coefficient, so it produces a smaller lattice L.
+Proof. By hypothesis u + vs ≥ λ > 0. Note that u + vs divides uw + s. Indeed,
+u + vs divides (u + vs)w = uw + s + (vw − 1)s; but u + vs also divides (u + vs)d ,
+hence n, hence vw − 1.
+   Define r = s/H. Then f (r) = (uw + s)d /n. The numerator (uw + s)d and the
+denominator n are both divisible by (u + vs)d , so gcd{1, f (r)} ≥ (u + vs)d /n ≥
+λd /n = m1/2k (2H)αd(1+1/2k) /n.                          p
+   By hypothesis g1 = H ≥ 1; 1/fd = n/H d ≥ 1; α = 1 + lg(1/fd )/ lg((2g1 )d );
+r ∈ Q; |r| = |s| /H ≤ 1; gcd{1, f (r)} ≥ m1/2k (2g1 )αd(1+1/2k) fd /g1d ; and g(r) = s ∈
+Z. Apply Theorem 3.1.                                                                  
+Theorem 5.2. Let d,p   n, u, v, w, H be positive integers such that vw − 1 ∈ nZ and
+       d
+n ≥ H . Define α = (lg 2d n)/ lg 2d H d , k = ⌈αd ⌈lg 2H⌉ /2⌉, m = ⌈αd(k + 1)⌉,
+f = (uw + Hx)d /n ∈ Q[x], g = Hx ∈ Q[x], and L as above. Let ϕ ∈ L be a
+nonzero vector such that |ϕ| ≤ 2(m−1)/2 (det L)1/m . If s ∈ Z, |s| ≤ H, u + vs ≥
+21/d m1/2kd (2H)α , and n ∈ (u + vs)d Z, then ϕ(s/H) = 0.
+   The lattice rank m here is larger than (d/2) lg 2d n. It is only slightly larger for
+typical values of d, n, H.
+Proof. By hypothesis 2H ≥ 2 so lg 2H ≥ 1; hence k is a positive integer. Also
+2k ≥ αd lg 2H so 21/d ≥ (2H)α/2k so u + vs ≥ λ where λ = m1/2kd (2H)α(1+1/2k) .
+Apply Theorem 5.1.                                                          
+Theorem 5.3. Let d, n, u, v, H be positive integers p
+                                                    such that gcd{v, n} = 1 and
+       d
+n ≥ H . Let k be a positive integer. Define α = (lg 2d n)/ lg 2d H d and m =
+⌈αd(k + 1)⌉. Then there are at most m − 1 integers s ∈ {−H, . . . , −1, 0, 1, . . . , H}
+such that u + vs ≥ m1/2kd (2H)α(1+1/2k) and n ∈ (u + vs)d Z.
+Proof. Find a positive integer w with vw − 1 ∈ nZ. Apply lattice-basis reduction
+to Theorem 5.1.                                                                
+Theorem 5.4. Let pd, n, u, v, H be positive integers such that gcd{v, n} = 1 and n ≥
+  d
+H . Define α = (lg 2d n)/ lg 2d H d , k = ⌈αd ⌈lg 2H⌉ /2⌉, and m = ⌈αd(k + 1)⌉.
+Then there are at most m − 1 integers s ∈ {−H, . . . , −1, 0, 1, . . . , H} such that
+u + vs ≥ 21/d m1/2kd (2H)α and n ∈ (u + vs)d Z.
+Proof. Find a positive integer w with vw − 1 ∈ nZ. Apply lattice-basis reduction
+to Theorem 5.2.                                                                
+History. As indicated in Section 1, results of this type were developed in two
+contexts independently. The first context is proving primality of n: the Adleman-
+Pomerance-Rumely method in [3] exhibits some arithmetic progressions and proves,
+using factors of unit groups of extensions of Z/n, that every divisor of n is in one
+of those progressions. The second context is factoring an RSA public key n given
+part of the secret key: for example, finding a divisor of n given the low bits of the
+divisor.
+   In the first context, Lenstra in [24] showed how to find all divisors of n in an
+arithmetic progression u + vZ with lg v > (1/3) lg n. Konyagin and Pomerance in
+[22, Algorithm 3.2] improved (1/3) lg n to 0.3 lg n, in the special case u = 1. This
+    REDUCING LATTICE BASES TO FIND SMALL-HEIGHT VALUES OF POLYNOMIALS                                         13
+
+
+0.3 lg n result, for any u, follows from Theorem 2.3 with m = 5 and k = 2; I have not
+checked whether the resulting algorithm is equivalent to the Konyagin-Pomerance
+algorithm.
+   In the second context, Rivest and Shamir in [31] gave a heuristic outline of
+a method to find a divisor of n given about (1/3) lg n high bits of the divisor.
+Coppersmith in [9] proved that a much more complicated bivariate algorithm would
+find a divisor of n given (0.25 + ǫ) lg n high bits of the divisor. Howgrave-Graham
+in [19] achieved (0.25 + ǫ) lg n with the simpler algorithm shown here. Each of these
+authors commented that the method also applied to low bits, but they did not
+generalize to other arithmetic progressions.
+   These two threads in the literature were finally combined in [20, Section 5.5]
+and [12]: Coppersmith, Howgrave-Graham, and Nagaraj improved the Konyagin-
+Pomerance 0.3 lg n to (0.25 + ǫ) lg n. Lenstra subsequently pointed out that the ǫ
+could be eliminated; see Section 6 for further discussion.
+   Boneh, Durfee, and Howgrave-Graham in [7] pointed out, at least for v = 1, the
+further generalization from divisors u + vs to divisors (u + vs)d . As d increases,
+the allowable range of H shrinks, but the range of√interesting divisors shrinks more
+quickly. At an extreme, for d larger than about lg n, this method finds d-power
+divisors of n more quickly than the elliptic-curve method.
+
+
+A numerical example. Consider the problem of finding p ≈ 1814430925000000
+such that p2 divides n = 3767375198243112483228974667456105955144630367.
+                                                                                                        6
+   Define
+      p d = 2, u = 1814430925000000, v = 1, w = 1, k = 2, and H = 10 . Define
+α = (lg 4n)/ lg 4H 2 ≈ 1.91424 and m = ⌈αd(k + 1)⌉ = 12. Then u−H ≥ λ where
+λ = m1/2kd (2H)α(1+1/2k) . Define f = (uw + Hx)d /n = (u + Hx)2 /n, g = Hx, and
+L = Z + Zg + Zf + Zgf + Zf 2 + Zgf 2 + Zg 2 f 2 + Zg 3 f 2 + Zg 4 f 2 + Zg 5 f 2 + Zg 6 f 2 +
+Zg 7 f 2 .
+   Reduce the basis 1, g, f, gf, f 2 , gf 2 , g 2 f 2 , g 3 f 2 , g 4 f 2 , g 5 f 2 , g 6 f 2 , g 7 f 2 to find a
+nonzero vector in L of length at most 2(m−1)/2 (det L)1/m : for example, the vector
+
+8654285929051698536731156579739732909254403370124466963870118306516f 2
+             − 6050109444904732893967670609502978242326457349320354f
+                    − 2725541201878729584772216355507217441762891101136805gf 2
+                                   − 1321737599339233171981104958040247284
+                                   − 6668878229472208312826600694772455332gf
+                                              + 751073287899629272340418092672916546g 2 f 2
+                                                             − 832523980748052892274g
+                                                                     − 165577708623278785839g 3 f 2
+                                                                                              + 22814g 4 f 2 ,
+
+of length approximately 2.3 · 10−38 . The only rational root of this polynomial is
+339897/H. Check that 18144309253398972 is a divisor of n.
+   Theorem 5.1 guaranteed that this procedure would find all divisors (u + s)2 of n
+with −H ≤ s ≤ H. In fact, Theorem 2.3 guaranteed that k = 2 and m = 7 would
+have done the same job, and that k = 1 and m = 5 would have worked for the
+smaller interval −450000 ≤ s ≤ 450000.
+14                                DANIEL J. BERNSTEIN
+
+
+                  6. Partitioning an arithmetic progression
+   Consider the problem of finding all divisors of n in (u + vZ) ∩ [1, n1/2 ]. Here
+u, v, n are positive integers with v ≥ n1/4 and gcd{v, n} = 1.
+   One can use Theorem 5.2 to find all divisors of n in the arithmetic progression
+u − vH, u − v(H − 1), . . . , u + v(H − 1), u + vH. But there is a limitation here:
+the smallest entry u − vH must exceed 2m1/2k (2H)α , approximately the doubly-
+geometric average of n and H d . Another way to view the lower bound on u − vH is
+as follows: if the smallest entry u − vH is approximately n1/α then the number of
+                                            2
+entries is limited to approximately n1/α . In particular, if this method is searching
+for divisors around n1/2 , then it will search at most about n1/4 entries in a specified
+arithmetic progression.
+   This might not sound like a serious limitation: by hypothesis v ≥ n1/4 , so there
+are at most n1/4 elements of (u+vZ)∩[1, n1/2 ]. But one cannot search n1/4 elements
+unless the smallest element searched is close to n1/2 .
+   The point of this section is that one can cover (u+vZ)∩[1, n1/2 ] with O((lg n)1/2 )
+arithmetic progressions and O((lg n)1/2 ) extra integers, where each progression
+meets the conditions of Theorem 5.2. Consequently, one can quickly find all the
+divisors of n in (u + vZ) ∩ [1, n1/2 ]. See Theorem 6.4 for a bound on the cost of this
+computation.
+   My bounds here are completely explicit. Various constants can be improved; my
+goal in selecting constants was not to obtain optimal cost bounds, but to simplify
+the statements and the proofs as far as possible while still achieving O((lg n)1/2 ).
+
+Theorem 6.1. Let n be an integer with n ≥ 224 . Let v be a positive
+                                                               p integer with
+gcd{v, n} = 1. Let H be an integer with 2 ≤ H ≤ n. Define α = (lg 2n)/√lg 2H.
+                                            α
+Let z be an integer with z ≥ 4(2H) . Then there are at most 2 lg 2n + lg 2n
+divisors of n in {z, z + v, z + 2v, . . . , z + 2vH}.
+                           √
+Proof. The difference√2r 2 − 4r 2 − 2r is positive for all real numbers r ≥ 5: its
+value
+   √ √
+       at r = 5 is 25 2 − 100 − 10 > 27 − 110 > 0; its√ derivative      √        at r = 5 is
+  5 2                                                              r 2          2
+2       2 log 2 − 40 − 2 > 0; and√its second derivative        is 2 ( 2 log 2) − 8 > 0 for
+                           √                        √
+                                                      2 lg 2n
+                                                                           √
+r ≥ 5. In particular, lg 2n ≥ 25 = 5, so 2                    ≥ 4 lg 2n + 2 lg 2n.
+    Define k = ⌈αp     ⌈lg 2H⌉ /2⌉. By hypothesis H ≥ 2 so lg 2H ≥ lg 4 = 2 so
+                                              √
+2k ≥ α lg 2H =           (lg 2n) lg 2H ≥ 2 lg 2n. Furthermore H ≤ n so α ≥ 1 so
+α ⌈lg 2H⌉ /2 ≥ 1 so k ≤ 2α ⌈lg 2H⌉ /2√= α ⌈lg 2H⌉ ≤ 2α lg 2H so α(k + 1) ≤
+2α2 lg 2H + α = 2 lg 2n + α ≤ 2 lg 2n + lg 2n.
+    Define m = ⌈α(k +        1)⌉. Again α ≥ 1 so α(k + 1) ≥ 1; thus m ≤ 2α(k + 1) ≤
+            √              √
+                             2 lg 2n
+4 lg 2n + 2 lg 2n ≤ 2                ≤ 22k . Consequently z ≥ 2m1/2k (2H)α .
+    Define d = 1 and u = z + vH. By Theorem 5.4, there are at most m − 1
+divisors of n in {u − vH, . . . , u − v, u, u + v, . . . , u + vH} ∩ [2m1/2k (2H)
+                                                                                √
+                                                                                    α
+                                                                                      , ∞) =
+{z, z + v, z + 2v, . . . , z + 2vH}. Finally m − 1 ≤ α(k + 1) ≤ 2 lg 2n + lg 2n.           
+
+Theorem 6.2. Let n, u, v √ be integers with v ≥ n1/4 ≥ 264 and gcd{v,
+                                                                   √n} = 1. Let i
+be an integer with 8 ≤ i ≤ lg n/2. Then there are at most 2 lg 2n + lg 2n divisors
+of n in (u + vZ) ∩ [n1/2−2/i , n1/2−2/(i+1) ].
+
+Proof. Define H = n1/4−2/(i+1) /2 . Note that n1/4−2/(i+1) ≥ n1/4−2/9 = n1/36 ≥
+                                    
+                                                           p
+4, so H ≥ 2; and H ≤ n1/4−2/(i+1) ≤ n. Define α = (lg 2n)/ lg 2H. Define
+    REDUCING LATTICE BASES TO FIND SMALL-HEIGHT VALUES OF POLYNOMIALS                             15
+
+
+z as the smallest element of (u + vZ) ∩ [n1/2−2/i , ∞). Note that z ≥ n1/2−2/i ≥
+n1/2−2/8 = n1/4 ≥ 264 .
+   I claim that z + 2Hv + v > n1/2−2/(i+1) . Proof: H + 1 > n1/4−2/(i+1) /2, so
+z + 2Hv + v ≥ (1 + 2H + 1)n1/4 > n1/4−2/(i+1) n1/4 = n1/2−2/(i+1) .
+   I also claim that z ≥ 4(2H)α . Proof:√i2 ≥ (i+1)(i−1); so 2/(i+1) ≥ 2(i−1)/i2 ;
+so 2/(i + 1) − 2(i − 2)/i2 ≥ 2/i2 ≥ 2/( lg n/2)2 = 8/ lg n; so
+                        2                
+         1 2                       1      2
+           −      lg n − 2 −          −         (lg 2n) lg n
+         2    i                    4 i+1
+                                                                     
+                 2       2(i − 2)         2          1 2          1     2
+           =          −             (lg n) − 4         −     +      −         lg n + 4
+                i+1         i2                       2    i       4 i+1
+                                 
+               8        2         1         1                23
+           ≥      (lg n) − 4          +          lg n + 4 =     lg n + 4 ≥ 0;
+             lg n                 2         4                4
+so α2 (lg 2H)2 = lg 2n lg 2H ≤ (lg 2n)(1/4 − 2/(i + 1)) lg n ≤ ((1/2 − 2/i) lg n − 2)2 ;
+so α lg 2H ≤ |(1/2 − 2/i) lg n − 2| = (1/2 − 2/i) lg n − 2 ≤ lg z − 2.    √
+   By Theorem 6.1, {z, z + v, . . . , z + 2vH} has at most 2 lg 2n + lg 2n divisors of
+n. Finally (u + vZ) ∩ [n1/2−2/i , n1/2−2/(i+1) ] ⊆ {z, z + v, . . . , z + 2vH}.      
+                                                        1/4
+Theorem 6.3. Let n, u, v be                 with v ≥ n
+                                   integers
+                                     √                      ≥ 275 and gcd{v, n}√= 1. Let
+i be an integer with 1 ≤ i ≤ 16 lg n . Then there are at most 2 lg 2n + lg 2n + 1
+divisors of n in (u + vZ) ∩ [n1/2 /2i/4 , n1/2 /2(i−1)/4 ].
+                                                      √                   √
+Proof. Define H = n1/4 /2(i+13)/4 . Note that ( lg n − 8)2 ≥ ( 4 · 75 − 8)2 ≥ 82,
+                                        
+            √
+so lg n−16 lg n ≥ 82−82 = 18, so lg n−i ≥ 17, so n1/4p       /2(i+13)/4 = 2(lg n−i−13)/4 ≥
+24/4 = 2, so H ≥ 2; and H ≤ n1/4 ≤ n. Define α = (lg 2n)/ lg 2H. Define z as
+the smallest element of (u + vZ) ∩ [n1/2 /2i/4 , ∞).
+   I claim that z + 2Hv + 2v > n1/2 /2(i−1)/4 . Proof: H + 1 > n1/4 /2(i+13)/4 , and
+1 + 2−9/4 ≥ 21/4 , so z + 2(H + 1)v > n1/2 /2i/4 + 2−9/4 n1/2 /2i/4 ≥ n1/2 /2(i−1)/4 .
+   I claim that z ≥ 4(2H)α . Proof: ((1/2) lg n − i/4 − 2)2 − (lg 2n)(lg n − i − 9)/4 =
+(i/4 + 2)2 + (i + 9)/4 ≥ 0; so α2 (lg 2H)2 = (lg 2n) lg 2H ≤ (lg 2n)(lg n − i − 9)/4 ≤
+((1/2) lg n − i/4 − 2)2 ; and (1/2) lg n − i/4 − 2 ≥ (lg n − i)/4 − 2 ≥ 17/4 − 2 ≥ 0,
+so α lg 2H ≤ |(1/2) lg n − i/4 − 2| = (1/2) lg n − i/4 − 2 ≤ lg z − 2. √
+   By Theorem 6.1, {z, z + v, . . . , z + 2vH} has at most √       2 lg 2n + lg 2n divisors
+of n, so {z, z + v, . . . , z + 2vH + v} has at most 2 lg 2n + lg 2n + 1 divisors of n.
+Finally (u + vZ) ∩ [n1/2 /2i/4 , n1/2 /2(i−1)/4 ] ⊆ {z, z + v, . . . , z + 2Hv + v}.     
+Theorem 6.4. Let n, u, v be integers with v ≥ n1/4 ≥ 275 and gcd{v, n} = 1.
+Define ℓ = lg 2n. Then there are at most 33ℓ1.5 + 4.5ℓ + 10ℓ0.5 + 2 divisors of n in
+(u + vZ) ∩ [1, n1/2 ].
+                                                                          1/4
+Proof. There is  √at most one divisor of n in (u + vZ) ∩ [1,                         v ≥ n1/4 .
+                                                                     √ n ], since 1/2−2/(s+1)
+    Write s =        lg n/2 . Then s ≥ 8. Also s + 1 > lg n/2, so n                                >
+        √
+  1/2−4/ lg n
+n              . Apply Theorem 6.2 for each i ∈ {8, 9, . . . , s} to cover the intervals
+   1/2−2/8    1/2−2/9
+[n         ,n          ], [n1/2−2/9 , n1/2−2/10 ], . . . , [n1/2−2/s , n1/2−2/(s+1) ]: there are
+at most (s − 7)(2ℓ + ℓ0.5√) divisors of n in (u + vZ) ∩ [n1/2−2/8 , n1/2−2/(s+1) ] ⊇
+(u + vZ) ∩ [n1/4  , n√
+                       1/2−4/ lg n
+                                   ].              √                √
+    Write t = 16 lg n . Then t/4 ≥ 4 lg n = (4/ lg n) lg n, so n1/2 /2t/4 ≤
+                             
+        √
+n1/2−4/ lg n . Apply Theorem 6.3 for each i ∈ {1, 2, . . . , t} to cover the intervals
+[n1/2 /21/4 , n1/2 /20/4 ], [n1/2 /22/4 , n1/2 /21/4 ], . . . , [n1/2 /2t/4 , n1/2 /2(t−1)/4 ]: there
+16                                DANIEL J. BERNSTEIN
+
+
+are at most t(2ℓ +√ℓ0.5 + 1) divisors of n in (u + vZ) ∩ [n1/2 /2t/4 , n1/2 /20/4 ] ⊇
+(u + vZ) ∩ [n1/2−4/ lg n , n1/2 ].
+   Add all of these bounds: there are at most 1+(s−7)(2ℓ+ℓ0.5 )+t(2ℓ+ℓ0.5 +1) ≤
+1 + (ℓ0.5 /2 − 7)(2ℓ + ℓ0.5 ) + (1 + 16ℓ0.5 )(2ℓ + ℓ0.5 + 1) = 33ℓ1.5 + 4.5ℓ + 10ℓ0.5 + 2
+divisors of n in (u + vZ) ∩ [1, n1/2 ].                                                
+
+History. Coppersmith, Howgrave-Graham, and Nagaraj in [20, Section 5.5] and
+[12] explained how to construct lattices of total rank O(ǫ−3/2 ) that would handle all
+v ≥ n1/4+ǫ for all sufficiently large n. It is not clear whether one can take ǫ ≈ 1/ lg n
+here: Coppersmith, Howgrave-Graham, and Nagaraj did not give simple formulas
+for their partition of [1/4, 1/2] as a function of ǫ, and did not quantify “sufficiently
+large” as a function of ǫ.
+   Lenstra constructed lattices of total rank O((lg n)2 ) handling all v ≥ n1/4 , and
+asked whether one could achieve O((lg n)3/2 ). I constructed O((lg n)1/2 ) lattices of
+total rank O((lg n)3/2 ) handling all v ≥ n1/4 ; see Theorem 6.4.
+   The essential difference between the Coppersmith-Howgrave-Graham-Nagaraj
+proof and Lenstra’s proof is in the analysis of how much progress is made by a
+(2H + 1)-entry arithmetic progression starting at z. The Coppersmith-Howgrave-
+Graham-Nagaraj proof has an advantage in handling small divisors: it chooses
+H much larger than z/v, producing a large lower bound on lg 2Hv and thus on
+lg(z + 2Hv), as in Theorem 6.2 here. Lenstra’s proof has an advantage in handling
+large divisors: it allows H to be as small as, e.g., 0.1z/v, and then observes that
+lg(z + 2Hv) ≥ lg 1.2z > lg z + 0.25, as in Theorem 6.3 here. My proof combines
+these advantages, and does some extra work to make all the bounds explicit.
+   Coppersmith, Howgrave-Graham, and Nagaraj tuned their choices of (k, m) more
+tightly than I have done, and they computed particularly good partitions (at least
+for the number-of-outputs cost measure) for several specific values of ǫ. As usual,
+I am leaving this level of optimization to the reader.
+
+     7. Example: codeword errors past half the minimum distance
+   Fix a positive integer H. Fix finitely many distinct primes p1 , p2 , . . . . Assume
+that the product n = p1 p2 · · · is much larger than H. The residue representation
+of an integer s ∈ [−H, H] is, by definition, the vector (s mod p1 , s mod p2 , . . . ).
+   If s′ 6= s then there must be many differences between the residue representations
+of s and s′ . Define the distance between s and s′ as the sum of lg pi for all i
+such that s mod pi 6= s′ mod pi . Then the distance between s and s′ is exactly
+lg n − lg gcd{s′ − s, n}, which is at least lg n − lg 2H since gcd{s′ − s, n} ≤ 2H.
+   Thus the residue representation can tolerate some errors. For any vector v, there
+is at most one s whose representation has distance < (lg n − lg 2H)/2 from v.
+   This section explainsp     how to efficiently recover s from a vector at any distance
+up to about lg n − (lg 2n) lg 2H. One first interpolates the vector into an integer
+u ∈ {0, 1, . . . , n − 1}, and then finds s such that gcd{u − s, n} is large. For distances
+above (lg n−lg 2H)/2, there might be several possibilities for s; this section explains
+how to find them all.
+   Theorem 7.2 uses a particular parameter k that works well for most applications;
+Theorem 7.4 measures the cost of the resulting computation. Theorem 7.1 is more
+general and allows k to be tuned for the reader’s application; Theorem 7.3 measures
+the cost of the resulting computation. The simplest case k = 1, m = 2 of Theorem
+   REDUCING LATTICE BASES TO FIND SMALL-HEIGHT VALUES OF POLYNOMIALS                17
+
+
+7.1 finds all s with gcd{u − s, n} > (4Hn)1/2 , i.e., with distance smaller than
+(lg n − lg 4H)/2; there is at most one such s.
+
+Theorem 7.1. Let n,p  u, H be positive integers such that n ≥ H. Let k be a positive
+integer. Define α = (lg 2n)/ lg 2H, m = ⌈α(k + 1)⌉, λ = m1/2k (2H)α(1+1/2k) ,
+f = (Hx − u)/n ∈ Q[x], g = Hx ∈ Q[x], d = 1, and L as above. Let ϕ ∈ L
+be a nonzero vector such that |ϕ| ≤ 2(m−1)/2 (det L)1/m . If s ∈ Z, |s| ≤ H, and
+gcd{u − s, n} ≥ λ, then ϕ(s/H) = 0.
+
+  Compare to the case v = 1, w = 1, d = 1 of Theorem 5.1.
+
+Proof.
+p      Define r = s/H. By hypothesis g1 = H ≥ 1; 1/fd = n/H ≥ 1; α =
+  1 + lg(1/fd )/ lg(2g1 ); r ∈ Q; |r| = |s| /H ≤ 1; g(r) = s ∈ Z; and f (r) = (s−u)/n,
+so gcd{1, f (r)} ≥ λ/n = m1/2k (2g1 )α(1+1/2k) fd /g1 . Apply Theorem 3.1.          
+
+Theorem
+p            7.2. Let n, u, H be positive integers such that n ≥ H. Define α =
+  (lg 2n)/ lg 2H, k = ⌈α ⌈lg 2H⌉ /2⌉, m = ⌈α(k + 1)⌉, f = (Hx − u)/n ∈ Q[x],
+g = Hx ∈ Q[x], d = 1, and L as above. Let ϕ ∈ L be a nonzero vector such that
+|ϕ| ≤ 2(m−1)/2 (det L)1/m . If s ∈ Z, |s| ≤ H, and gcd{u − s, n} ≥ 2m1/2k (2H)α ,
+then ϕ(s/H) = 0.
+
+Proof. By hypothesis 2H ≥ 2 so lg 2H ≥ 1; hence k is a positive integer. Also
+2k ≥ α lg 2H so 2 ≥ (2H)α/2k so gcd{u − s, n} ≥ λ where λ = m1/2k (2H)α(1+1/2k) .
+Apply Theorem 7.1.                                                            
+
+Theorem 7.3. Let n, u, H beppositive integers such that n ≥ H. Let k be a
+positive integer. Define α = (lg 2n)/ lg 2H and m = ⌈α(k + 1)⌉. Then there
+are at most m − 1 integers s ∈ {−H, . . . , 0, 1, . . . , H} such that gcd{u − s, n} ≥
+m1/2k (2H)α(1+1/2k) .
+
+Proof. Apply lattice-basis reduction to Theorem 7.1.                                
+
+Theorem
+p            7.4. Let n, u, H be positive integers such that n ≥ H. Define α =
+  (lg 2n)/ lg 2H, k = ⌈α ⌈lg 2H⌉ /2⌉, and m = ⌈α(k + 1)⌉. Then there are at most
+m − 1 integers s ∈ {−H, . . . , 0, 1, . . . , H} with gcd{u − s, n} ≥ 2m1/2k (2H)α .
+
+Proof. Apply lattice-basis reduction to Theorem 7.2.                                
+
+History. The rational-function-field version of the simple case k = 1, m = 2 is the
+“Berlekamp-Massey algorithm” for decoding “Reed-Solomon codes.”
+    The fact that one can efficiently correct larger errors was pointed out in the
+function-field case by Sudan in [33], and in the number-field case by Goldreich,
+Ron, and Sudan in [14]. These results are tantamount√to optimizing m in Theorem
+                             produces an asymptotic 2 exponent improvement, as
+2.3 with k = 1. Increasing k √
+discussed in Section 3; this 2 improvement was pointed out in the function-field
+case by Guruswami and Sudan in [17], and in the number-field case by Boneh in
+[5].
+    Algorithms that may produce several values of s are often called “list decoding”
+algorithms. Of course, the resulting list is most useful when it has just one value
+of s.
+18                                          DANIEL J. BERNSTEIN
+
+
+A numerical example. Define H = 1000000, n = 101 · 103 · 107 · 109 · 113 · 127 ·
+131 · 137 · 139 · 149 · 151 · 157 · 163 · 167 · 173 · 179 · 181 · 191 · 193 · 197 · 199, and u =
+476534584519360044215357448296811494656848207. The goal here is to find every
+s ∈ [−H, H] with residue representation close to (u mod 101, . . . , u mod 199) =
+(94, 43, 17, 71, 103, 77, 64, 25, 114,
+                                     p 9, 106, 16, 62, 134, 75, 13, 155, 26, 138, 21, 105).
+   Choose k = 3. Define α = (lg 2n)/ lg 2H ≈ 2.697 and m = ⌈α(k + 1)⌉ = 11.
+Define f = (Hx − u)/n, g = Hx, and L = Z + Zf + Zf 2 + Zf 3 + Zgf 3 + Zg 2 f 3 +
+Zg 3 f 3 + Zg 4 f 3 + Zg 5 f 3 + Zg 6 f 3 + Zg 7 f 3 .
+   Reduce the lattice basis 1, f, f 2 , f 3 , gf 3 , g 2 f 3 , g 3 f 3 , g 4 f 3 , g 5 f 3 , g 6 f 3 , g 7 f 3 to find
+a nonzero vector in L of length at most 2(m−1)/2 (det L)1/m : for example, the vector
+           (25587000000000000000000000000000000000000000000000000/n3)x8
+         − (11721491973000000000000000000000000000000000000000000/n3)x7
+         − (16962979598492916000000000000000000000000000000000000/n3)x6
+          − (9080495056404508812155000000000000000000000000000000/n3)x5
+         − (16268872584260106363071226779000000000000000000000000/n3)x4
+          − (4786092732625488403021583597543361000000000000000000/n3)x3
+         − (68525665600669610580610714527465995863869000000000000/n3)x2
+          − (4866470374300829151096400546244449180155160401000000/n3)x
+         + (19654220351564720341671319570621613333314080770830407/n3)1.
+The only rational root of this polynomial is s/H where s = 476511. The vector
+(94, 33, 40, 72, 103, 7, 64, 25, 19, 9, 106, 16, 62, 60, 69, 13, 119, 157, 187, 165, 105) is the
+residue representation of s; the distance from s to u is approximately 79.41.
+   Theorem 7.1 guaranteed that this procedure would find every s within distance
+lg n − lg λ ≈ 84.8 of u; here λ = m1/2k (2H)α(1+1/2k) . Even better, Theorem
+2.3 guaranteed that this procedure would find every s within distance − lg γ ≈
+88.28 of u; here γ = m1/2k (2H)(m−1)/2k n(k+1)/2m−1 . Both bounds are far above
+(lg n − lg 2H)/2 ≈ 65.16.
+
+                                                 References
+ [1] —, Annual ACM symposium on theory of computing: proceedings of the 31st symposium
+     (STOC ’99) held in Atlanta, GA, May 1–4, 1999, Association for Computing Machinery,
+     New York, 1999. ISBN 1–58113–067–8. MR 2001f:68004. See [14].
+ [2] —, Proceedings of the 32nd annual ACM symposium on theory of computing, Association for
+     Computing Machinery, New York, 2000. ISBN 1–58113–184–4. See [5].
+ [3] Leonard M. Adleman, Carl Pomerance, Robert S. Rumely, On distinguishing prime numbers
+     from composite numbers, Annals of Mathematics 117 (1983), 173–206. ISSN 0003–486X. MR
+     84e:10008. Citations in this paper: §5.
+ [4] Daniel Bleichenbacher, Compressing Rabin signatures, in [29] (2004), 126–128. Citations in
+     this paper: §4.
+ [5] Dan Boneh, Finding smooth integers in short intervals using CRT decoding, in [2] (2000),
+     265–272; see also newer version [6]. Citations in this paper: §1, §1, §1, §7.
+ [6] Dan Boneh, Finding smooth integers in short intervals using CRT decoding, Journal of
+     Computer and System Sciences 64 (2002), 768–784; see also older version [5]. ISSN 0022–0000.
+     MR 1 912 302. URL: http://crypto.stanford.edu/~dabo/abstracts/CRTdecode.html.
+ [7] Dan Boneh, Glenn Durfee, Nick Howgrave-Graham, Factoring N = pr q for large r, in [35]
+     (1999), 326–337. URL: http://crypto.stanford.edu/~dabo/abstracts/prq.html. Citations
+     in this paper: §1, §1, §5.
+ [8] Don Coppersmith, Finding a small root of a univariate modular equation, in [27] (1996),
+     155–165; see also newer version [10]. MR 97h:94008. Citations in this paper: §1, §1, §1, §3.
+    REDUCING LATTICE BASES TO FIND SMALL-HEIGHT VALUES OF POLYNOMIALS                           19
+
+
+ [9] Don Coppersmith, Finding a small root of a bivariate integer equation; factoring with high
+     bits known, in [27] (1996), 178–189; see also newer version [10]. MR 97h:94009. Citations in
+     this paper: §1, §5.
+[10] Don Coppersmith, Small solutions to polynomial equations, and low exponent RSA
+     vulnerabilities, Journal of Cryptology 10 (1997), 233–260; see also older version [8] and [9].
+     ISSN 0933–2790. MR 99b:94027.
+[11] Don Coppersmith, Finding small solutions to small degree polynomials, in [32] (2001), 20–31.
+     MR 2003f:11034. URL: http://cr.yp.to/bib/entries.html#2001/coppersmith. Citations in
+     this paper: §3, §3.
+[12] Don Coppersmith, Nick Howgrave-Graham, S. V. Nagaraj, Divisors in residue classes,
+     constructively (2004). URL: http://eprint.iacr.org/2004/339. Citations in this paper: §5,
+     §6.
+[13] Michael Darnell (editor), Cryptography and coding: proceedings of the 6th IMA International
+     Conference held at the Royal Agricultural College, Cirencester, December 17–19, 1997,
+     Lecture Notes in Computer Science, 1355, Springer-Verlag, 1997. ISBN 3–540–63927–6. MR
+     99g:94019. See [19].
+[14] Oded Goldreich, Dana Ron, Madhu Sudan, Chinese remaindering with errors, in [1] (1999),
+     225–234; see also newer version [15]. MR 2001i:68050. URL: http://theory.lcs.mit.edu/
+     ~madhu/papers.html. Citations in this paper: §1, §1, §7.
+[15] Oded Goldreich, Dana Ron, Madhu Sudan, Chinese remaindering with errors, IEEE
+     Transactions on Information Theory 46 (2000), 1330–1338; see also older version [14]. ISSN
+     0018–9448. MR 2001k:11005. URL: http://theory.lcs.mit.edu/~madhu/papers.html.
+[16] Ronald L. Graham, Jaroslav Nešetřil (editors), The mathematics of Paul Erdős. I, Algorithms
+     and Combinatorics, 13, Springer-Verlag, Berlin, 1997. ISBN 3–540–61032–4. MR 97f:00032.
+     See [22].
+[17] Venkatesan Guruswami, Madhu Sudan, Improved decoding of Reed-Solomon and algebraic-
+     geometry codes, IEEE Transactions on Information Theory 45 (1999), 1757–1767. ISSN 0018–
+     9448. MR 2000j:94033. URL: http://theory.lcs.mit.edu/~madhu/bib.html. Citations in
+     this paper: §1, §7.
+[18] Johan Håstad, Solving simultaneous modular equations of low degree, SIAM Journal on
+     Computing 17 (1988), 336–341. ISSN 0097–5397. MR 89e:68049. URL: http://www.nada.
+     kth.se/~johanh/papers.html. Citations in this paper: §1.
+[19] Nicholas Howgrave-Graham, Finding small roots of univariate modular equations revisited,
+     in [13] (1997), 131–142. MR 99j:94049. Citations in this paper: §1, §1, §1, §5.
+[20] Nicholas Howgrave-Graham, Computational mathematics inspired by RSA, Ph.D. thesis,
+     1998. URL: http://cr.yp.to/bib/entries.html#1998/howgrave-graham. Citations in this
+     paper: §1, §3, §5, §6.
+[21] Nicholas Howgrave-Graham, Approximate integer common divisors, in [32] (2001), 51–66. MR
+     2003h:11160. URL: http://cr.yp.to/bib/entries.html#2001/howgrave-graham. Citations
+     in this paper: §1.
+[22] Sergei Konyagin, Carl Pomerance, On primes recognizable in deterministic polynomial time,
+     in [16] (1997), 176–198. MR 98a:11184. URL: http://cr.yp.to/bib/entries.html#1997/
+     konyagin. Citations in this paper: §1, §5.
+[23] Arjen K. Lenstra, Hendrik W. Lenstra, Jr., László Lovász, Factoring polynomials with
+     rational coefficients, Mathematische Annalen 261 (1982), 515–534. ISSN 0025–5831. MR
+     84a:12002. URL: http://cr.yp.to/bib/entries.html#1982/lenstra-lll. Citations in this
+     paper: §2.
+[24] Hendrik W. Lenstra, Jr., Divisors in residue classes, Mathematics of Computation 42
+     (1984), 331–340. ISSN 0025–5718. MR 85b:11118. URL: http://www.jstor.org/sici?sici=
+     0025-5718(198401)42:165<331:DIRC>2.0.CO;2-6. Citations in this paper: §1, §1, §5.
+[25] Hendrik W. Lenstra, Jr., Lattices (2006); chapter in this book. Citations in this paper: §2.
+[26] Rüdiger Loos, Computing rational zeros of integral polynomials by p-adic expansion, SIAM
+     Journal on Computing 12 (1983), 286–293. ISSN 0097–5397. MR 85b:11123. Citations in this
+     paper: §2.
+[27] Ueli M. Maurer (editor), Advances in cryptology—EUROCRYPT ’96: Proceedings of
+     the Fifteenth International Conference on the Theory and Application of Cryptographic
+     Techniques held in Saragossa, May 12–16, 1996, Lecture Notes in Computer Science, 1070,
+     Springer-Verlag, Berlin, 1996. ISBN 3–540–61186–X. MR 97g:94002. See [8], [9].
+20                                   DANIEL J. BERNSTEIN
+
+
+[28] Teo Mora (editor), Applied algebra, algebraic algorithms and error-correcting codes:
+     proceedings of the sixth international conference (AAECC-6) held in Rome, July 4–8, 1988,
+     Lecture Notes in Computer Science, 357, Springer-Verlag, Berlin, 1989. ISBN 3–540–51083–4.
+     MR 90d:94002. See [34].
+[29] Tatsuaki Okamoto (editor), Topics in cryptology—CT-RSA 2004: the cryptographers’ track
+     at the RSA Conference 2004, San Francisco, CA, USA, February 23–27, 2004, proceedings,
+     Lecture Notes in Computer Science, Springer, Berlin, 2004. ISBN 3–540–20996–4. MR
+     2005d:94157. See [4].
+[30] Franz Pichler (editor), Advances in cryptology—EUROCRYPT ’85: proceedings of a
+     workshop on the theory and application of cryptographic techniques (EUROCRYPT ’85)
+     held in Linz, April 1985, Lectures Notes in Computer Science, 219, Springer-Verlag, 1986.
+     ISBN 3–540–16468–5. MR 87d:94003. See [31].
+[31] Ronald L. Rivest, Adi Shamir, Efficient factoring based on partial information, in [30] (1986),
+     31–34. MR 851 581. Citations in this paper: §1, §5.
+[32] Joseph H. Silverman (editor), Cryptography and lattices: proceedings of the 1st International
+     Conference (CaLC 2001) held in Providence, RI, March 29–30, 2001, Lecture Notes
+     in Computer Science, 2146, Springer-Verlag, Berlin, 2001. ISBN 3–540–42488–1. MR
+     2002m:11002. See [11], [21].
+[33] Madhu Sudan, Decoding of Reed Solomon codes beyond the error-correction bound, Journal
+     of Complexity 13 (1997), 180–193. ISSN 0885–064X. MR 98f:94024. URL: http://theory.
+     lcs.mit.edu/~madhu/bib.html. Citations in this paper: §1, §7.
+[34] Brigitte Vallée, Marc Girault, Philippe Toffin, How to guess ℓth roots modulo n by reducing
+     lattice bases, in [28] (1989), 427–442. MR 90k:11168. URL: http://cr.yp.to/bib/entries.
+     html#1989/vallee. Citations in this paper: §1.
+[35] Michael Wiener (editor), Advances in cryptology—CRYPTO ’99, Lecture Notes in Computer
+     Science, 1666, Springer-Verlag, Berlin, 1999. ISBN 3–5540–66347–9. MR 2000h:94003. See [7].
+
+   Department of Mathematics, Statistics, and Computer Science, The University of
+Illinois at Chicago, Chicago, IL 60607–7045
+   E-mail address: djb@cr.yp.to
+

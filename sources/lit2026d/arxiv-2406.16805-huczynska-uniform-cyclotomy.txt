@@ -1,0 +1,1102 @@
+                                                                    Beyond uniform cyclotomy
+                                                   Sophie Huczynska1, Laura Johnson2, and Maura B. Paterson3
+                                               1 School of Mathematics and Statistics, University of St Andrews, St Andrews, KY16 9SS,
+
+                                                                                      Scotland, UK
+                                                        2 School of Mathematics, University of Bristol, Bristol, BS8 1UG, UK
+                                           3 School of Computing and Mathematical Sciences, Birkbeck, University of London, Malet St,
+arXiv:2406.16805v2 [math.NT] 24 Feb 2025
+
+
+
+
+                                                                               London, WC1E 7HX, UK
+
+
+                                                        MSC codes: Primary 11T22, Secondary 05B25, 05B10
+
+
+                                                                                       Abstract
+                                                      Cyclotomy, the study of cyclotomic classes and cyclotomic numbers, is an area
+                                                  of number theory first studied by Gauss. It has natural applications in discrete
+                                                  mathematics and information theory. Despite this long history, there are signifi-
+                                                  cant limitations to what is known explicitly about cyclotomic numbers, which limits
+                                                  the use of cyclotomy in applications. The main explicit tool available is that of uni-
+                                                  form cyclotomy, introduced by Baumert, Mills and Ward in 1982. In this paper, we
+                                                  present an extension of uniform cyclotomy which gives a direct method for evaluat-
+                                                  ing all cyclotomic numbers over GF(q n ) of order dividing (q n − 1)/(q − 1), for any
+                                                  prime power q and n ≥ 2, which does not use character theory nor direct calculation
+                                                  in the field. This allows the straightforward evaluation of many cyclotomic num-
+                                                  bers for which other methods are unknown or impractical, extending the currently
+                                                  limited portfolio of tools to work with cyclotomic numbers. Our methods exploit
+                                                  connections between cyclotomy, Singer difference sets and finite geometry.
+
+
+                                           1      Introduction
+                                           Cyclotomy, the study of cyclotomic classes and cyclotomic numbers, is an area of num-
+                                           ber theory first studied by Gauss [12]. It is of considerable theoretical interest and has
+                                           important applications, both to other areas of pure mathematics such as combinatorics
+                                           and graph theory, and beyond pure mathematics to communications, information secu-
+                                           rity and experiment design. Many constructions for difference sets, difference families,
+                                           strongly regular graphs, binary sequences, codes and other combinatorial structures are
+                                           based on cyclotomy [5, 7, 8, 10, 11, 19, 23, 27, 29, 31, 33]. Work on evaluating cyclotomic
+                                           numbers has been carried out for many decades [1, 12, 16, 17, 25, 30, 32, 34].
+                                               Despite this long history however, there are very significant limitations to what is
+                                           known explicitly about cyclotomic numbers. Expressions for cyclotomic numbers are
+                                           most commonly given via character sums (typically, Jacobi sums). However, results are
+                                           currently not known for orders beyond order 24 [3] and not all known results are given
+
+                                                                                            1
+explicitly [11]. Moreover the expressions obtained from character sums are awkward to
+work with or evaluate explicitly, require the use of tables, and many contain sign ambigu-
+ity. (We note that in [21], methods for fast computation of Gauss sums were presented;
+these may be used to obtain cyclotomic numbers via Jacobi sums.) It was as recently as
+1987 [15] that an expression without sign ambiguity was obtained for the cyclotomic num-
+bers of order 4. Hence, although cyclotomic classes have very useful structural properties
+which make them desirable to use in various applications, practictioners are generally
+limited to using specific small values of e, via direct calculation in the finite fields.
+     The cyclotomic classes of order e of GF(q n ) (e | q n −1), written Cie (0 ≤ i ≤ e−1), are
+the multiplicative cosets of the subgroup of index e in GF(q n )∗ . The cyclotomic number
+(i, j)e counts the number of solutions to the equation zi + 1 = zj where zi ∈ Cie , zj ∈ Cje .
+     To date, the main theoretical approach that offers a direct approach to the evaluation
+of cyclotomic numbers is uniform cyclotomy. Uniform cyclotomy (sometimes called the
+semi-primitive case) has been used to construct a variety of structures including strongly
+regular graphs [5, 11, 19], cyclic codes [33], constacyclic codes [10], linear codes with small
+hull [7, 27], external difference families [29], partial geometric designs [8] and many more.
+The following definition was introduced by Baumert, Mills and Ward in [2].
+
+Definition 1.1. The cyclotomic numbers (i, j)e over GF(q) are uniform if (0, i)e =
+(i, 0)e = (i, i)e = (0, 1)e for i 6= 0, and (i, j)e = (1, 2)e for 0 6= i 6= j 6= 0.
+
+    The cyclotomic numbers of order 2 are known explicitly [12, 25]. They are uniform
+precisely when f is even, in which case (0, 0)2 = (f −2)/2 and (0, 1)2 = (1, 0)2 = (1, 1)2 =
+f /2. The following result is proved in [2]:
+
+Theorem 1.2. Let q be a power of a prime p and let q = ef + 1, e ≥ 3. The cyclotomic
+numbers of order e over GF(q) are uniform if and only if −1 is a power of p modulo e.
+If this holds, then either p = 2 or f is even; q = r 2 with r ≡ 1 mod e; and setting
+η = r−1
+      e
+        , we have:
+
+  (i) (0, 0)e = η 2 − (e − 3)η − 1
+
+ (ii) (0, i)e = (i, 0)e = (i, i)e = η 2 + η for i 6= 0
+
+(iii) (i, j)e = η 2 for 0 6= i 6= j.
+
+    Thus, if the cyclotomic numbers of order e are uniform over GF(q), then q is a square;
+say q = p2s for some s ∈ N. It is shown in [2] that the cyclotomic numbers of order
+e | ps + 1 are uniform, by first establishing the following:
+
+Theorem 1.3. Consider GF(p2s ) and let p2s = ef + 1. If e = ps + 1 then:
+
+  (i) (0, 0)e = f − 1
+
+ (ii) (0, i)e = (i, 0)e = (i, i)e = 0 for all 0 < i < e
+
+(iii) (i, j)e = 1 for 0 < i 6= j ≤ e.
+
+
+
+
+                                                 2
+    What underpins this uniform cyclotomy result, is the guaranteed presence of a sub-
+field. Consider the proof of Theorem 1.3 in [2]. Let α be a primitive element of GF(q);
+then αe is a generator of GF(ps ), i.e. the cyclotomic class C0e = hαe i is GF(ps )∗ (see
+Definition 2.1). Closure under subtraction guarantees that αes+i + 1 = αet is impossible
+for 0 < i < e, and hence (i, 0)e = (0, i)e = (i, i)e = 0 for all non-zero i. For i 6= j both
+nonzero, consideration of the equation αes+i + 1 = αet+j leads to forming the quadratic
+extension field of GF(ps ) by adjoining αj ; the uniqueness of the representation for αi in
+this field guarantees (i, j)e = 1 for all 0 < i 6= j < e.
+    We present an alternative characterisation of the uniformity condition in Theorem 1.2
+which motivates this paper:
+
+Theorem 1.4. Let p be a prime, s ∈ N and let p2s = ef + 1 for some e, f ∈ N, e ≥ 3.
+
+  (i) −1 ≡ px mod e for some x ∈ N if and only if −1 ≡ pt mod e for some t | s, i.e.
+      if and only if e | pt + 1 for some t | s.
+
+ (ii) Let t | s. If e | pt + 1, then e | (p2s − 1)/(pd − 1) for any d | t.
+
+Proof. (i) Suppose that −1 ≡ px mod e for some x ∈ N. Let r be the smallest positive
+integer such that −1 ≡ pr mod e. Use the Division Algorithm to write s = ar + b for
+some a, b ∈ Z with 0 ≤ b < r. Now, p2s ≡ 1 mod e, so ps ≡ ±1 mod e. Then
+
+                        ±1 ≡ ps ≡ par+b ≡ (pr )a · pb ≡ ±pb      mod e.
+
+So pb ≡ ±1 mod e. We claim that b = 0. Suppose b > 0. By minimality of r, pb 6≡ −1
+mod e. So pb ≡ 1 mod e, and hence the sequence p0 , p1 , p2 , . . . taken modulo e contains
+only the elements of {1, p, p2, . . . , pb−1 } taken modulo e, repeated with period b. By
+minimality of r, pi 6≡ −1 mod e for all 0 ≤ i ≤ b − 1 and so pi 6≡ −1 mod e for all i ≥ 0,
+a contradiction. So b = 0 and r | s. Hence we can take t = r. The reverse direction is
+immediate.
+(ii) Let t | s and suppose d | t. Then we have the integer factorisation:
+
+                         p2s − 1
+                                                 t      2s      
+                                         t        p −1    p −1
+                                  = (p + 1) d                        .
+                          pd − 1                  p −1     p2t − 1
+
+
+    In this paper, we present results which extend uniform cyclotomy. We give a combina-
+torial characterisation and direct evaluation method for all cyclotomic numbers of order
+e(≥ 2) where e | (q n − 1)/(q − 1), for any n ≥ 2 and any prime power q. By Theorem
+1.4, taking q = ps and n = 2 yields the uniform cyclotomy result of [2] with e | ps + 1,
+while for the other uniform cyclotomy cases where e | pt + 1 and t is a proper divisor of
+s, we take q = pd and n = 2s/d for suitable d | t. While the expressions in the n > 2
+cases are not quite as simple as in the n = 2 case, we provide an explicit theoretical
+description allowing straightforward direct evaluation working in Ze (e ∈ N), which does
+not involve character sums nor computation in the finite field. This allows evaluation of
+many cyclotomic numbers for which no direct methods are known.
+    A key computational contribution of the paper is to extend the currently limited
+portfolio of tools available to work with cyclotomic numbers, and to provide greater
+
+                                               3
+breadth without increasing computational requirements. Depending on the parameters
+used, and methods of storage/lookup, the computation complexity of our approach is
+comparable to the naive method of direct evaluation in the finite field, though likely
+to be better in some small cases. However, in practice, practitioners do not typically
+perform the general computation outside of a very narrow window. Hence one important
+contribution of our approach is to give a practical and accessible method for working
+directly with a wider range of cyclotomic numbers than is currently considered. Our
+approach facilitates human/computer interaction and can be applied at different levels of
+computer involvement (from using the computer to produce the initial Singer difference
+set, to using it to perform the whole calculation). The algorithm is straightforward to
+implement and does not require calculations in extension fields or any other techniques
+that would require a computer algebra package.
+
+
+2     Background
+2.1    Cyclotomy
+We follow the definitions of [25]. Throughout, let q be a power of a prime p and let
+GF(q) denote the (unique up to isomorphism) finite field of order q. Let α be a primitive
+element of GF(q).
+Definition 2.1. Let q = ef + 1 where e, f ∈ N. The cyclotomic classes Cie in GF(q) of
+order e (0 ≤ i ≤ e − 1) are defined to be:
+                                  Cie = {αes+i : 0 ≤ s ≤ f − 1}.
+Note that C0e is the multiplicative subgroup of GF(q) of cardinality f .
+Definition 2.2. Let q = ef + 1 where e, f ∈ N. The cyclotomic numbers (i, j)e with
+0 ≤ i, j ≤ e − 1 are defined to be the number of solutions to the equation
+                                           zi = zj − 1
+where zi ∈ Cie and zj ∈ Cje . This is the number of ordered pairs (s, t) with 0 ≤ s, t ≤ f −1
+such that
+                                       αes+i = αet+j − 1
+    The following properties are known for cyclotomic numbers (see [25, 29]):
+Lemma 2.3.        (i) For any m, n ∈ Z, (i, j)e = (i + me, j + ne)e
+ (ii) (i, j)e = (e − i, j − i)e
+(iii) (i, j)e equals (j, i)e if p = 2 or if p is odd and f is even, and (i + 2e , j + 2e )e if p is
+      odd and f is odd
+ (iv) (i, j)e = (pi, pj)e
+      Pe−1
+  (v)    i=0 (i, j)e = f − δ0j where δ0j = 1 if j = 0 and 0 if j 6= 0.
+    Character sum expressions are known for many cyclotomic numbers of order up to e =
+24 [3]. Some upper bounds on cyclotomic numbers are also known [6] and a congruence
+expression is given in [26]. We will provide a method to directly evaluate cyclotomic
+numbers by exploiting connections with linear algebra and finite geometry.
+
+                                                4
+2.2    The vector space viewpoint
+Let q be a power of some prime p and n ∈ N with n ≥ 2. We may consider GF(q n ) as
+a dimension-n vector space over GF(q) with basis {1, α, α2, . . . , αn−1}, where α is a primi-
+tive element of GF(q n ). So GF(q n ) = {a0 + a1 α + · · · + an−1 αn−1 : ai ∈ GF(q), 0 ≤ i ≤ n − 1}
+and in particular each element αk of GF(q)∗ (0 ≤ k ≤ q − 1) has a unique expression
+as a nonzero polynomial in α over GF(q), of degree at most n − 1. The polynomial
+a0 + a1 α + · · · an−1 αn−1 may be expressed as the n-tuple (a0 , . . . , an−1 ). We will work in
+the projective space PG(n − 1, q), i.e. we will take the non-zero n-tuples and identify two
+n-tuples if they differ by a scalar factor. This is equivalent to considering the factor ring
+GF(q n )∗ /GF(q)∗ .
+    Viewing GF(q n ) as a vector space allows us to work with its vector subspaces. Of
+particular interest are the subspaces of codimension 1 (hence dimension n − 1). When
+we take the quotient of one of these spaces by the scalars, we obtain a hyperplane of
+PG(n − 1, q). A classic combinatorial application of these hyperplanes is in constructing
+Singer difference sets (see [4, 24, 25]). A hyperplane may be defined by a suitable linear
+equation in the coordinates. For example, we could take a0 = 0, or an−1 = 0, or Trn/1 (a0 +
+a1 α + · · · + an−1 αn−1 ) = 0 [9]. Multiplying elements of GF(q n ) by α is a GF(q)-linear
+operation that maps hyperplanes to hyperplanes, and in fact permutes all the hyperplanes
+of PG(n − 1, q) in a single cycle.
+
+Definition 2.4. Let G be a group of order n, written additively. A k-subset D of G
+forms an (n, k, λ)-Difference Set (DS) if the multiset {x − y : x, y ∈ D, x 6= y} comprises
+λ copies of each non-identity element of G.
+
+   We have the following well-known result of Singer [24]:
+
+Theorem   2.5   (Singer). Modulo   the scalars, the elements of a hyperplanenform a multi-
+          q n −1 q n−1 −1 q n−2 −1
+plicative q−1 , q−1 , q−1 -difference set in the cyclic group of order qq−1    −1
+                                                                                  induced by
+α on the equivalence classes.
+
+   Multiplication by α induces a single cycle on the points, as well as on the hyperplanes.
+                                 i
+Taking each power
+                i suchthat α is in this set yields a corresponding difference set in the
+additive group Z qn −1 , + . This is known as a Singer difference set [9]. It is said to be in
+                    q−1
+                                                                                     n
+standard form if it contains 0 and 1. If we construct Dev(D) = {i + D : 0 ≤ i ≤ qq−1
+                                                                                   −1
+                                                                                      − 1}
+             
+in Z qn −1 , + , we obtain a collection of Singer difference sets with the same parameters
+      q−1
+[4]. Addition of an integer modulo (q n − 1)/(q − 1) cyclically permutes these difference
+sets in a single cycle. Further, Dev(D) forms a symmetric    balanced incomplete block
+                                   q n −1 q n−1 −1 q n−2 −1
+design (BIBD) with parameters q−1 , q−1 , q−1 .
+    Note that a different collection of equivalent difference sets may be obtained via a
+different choice of primitive element α, but that all such difference sets are related (for
+any two such Singer DSs D1 and D2 , there is some integer t such that tD1 is equivalent
+to D2 [4]).
+    The following straightforward process to calculate a Singer difference set from a given
+primitive polynomial is given in VI.18 of [9].
+
+
+                                              5
+Construction 2.6. Let f (x) = xn + ni=1 ai xn−i bePa primitive polynomial of degree
+                                          P
+n over GF(q). Define the recurrence relation γr = − ni=1 ai γr−i . Take arbitrary initial
+values; using γ0 = 0, γ1 = 0 will yield a difference set in standard form. Then the set of
+                   n −1
+integers {0 ≤ i ≤ qq−1  : γi = 0} is a Singer difference set.
+   Let e = (q n − 1)/(q − 1) and f = q − 1; then q n = ef + 1. Since GF(q)∗ = C0e , the
+elements of the factor ring GF(q n )∗ /GF(q)∗ correspond to the set of e projective points
+                 P = {C0e , αC0e , α2 C0e , . . . , αe−1C0e } = {Cie : 0 ≤ i ≤ e − 1}.
+A hyperplane of PG(n − 1, q) consists of (q n−1 − 1)/(q − 1) points, hence there are
+(q n−1 − 1)/(q − 1) elements αi C0e of P that lie in a given hyperplane. The set of
+values i corresponding
+                         to the classes Cie whose union forms the hyperplane yield the
+     n−1       n−2
+ e, q q−1−1 , q q−1−1 Singer difference set I in (Ze , +).
+    The following structure will play an important role in what follows; for more details,
+see [9].
+Definition 2.7. A finite projective plane (FPP) is a finite set of points, a finite set of
+lines and an incidence relation between them, such that:
+    (i) any two distinct points are incident with exactly one line
+ (ii) any two distinct lines are incident with exactly one point
+(iii) there exists a quadrangle (four distinct points of which no three are collinear).
+   When n = 3, a Singer difference set D has parameters (q 2 + q + 1, q + 1, 1), and the
+development of a Singer difference set forms a finite projective plane ΠD of order q whose
+points are the elements of Zq2 +q+1 and whose lines are given by {i + D : 0 ≤ i ≤ q 2 + q}.
+
+
+3      Determining cyclotomic structure and cyclotomic
+       numbers
+A major application of cyclotomic classes and cyclotomic numbers is in the construction
+of difference structures. This approach was introduced for difference families by Wilson
+[31] and for difference sets by Storer [25]; it has since been considerably extended. We are
+therefore interested both in evaluation of the cyclotomic numbers and characterisation of
+the difference structure of cyclotomic classes; these can be fruitfully related.
+    For two subsets A, B of a group G written additively, we define the following multisets:
+∆(A) = {x − y : x 6= y ∈ A} and ∆(A, B) = {x − y : x ∈ A, y ∈ B}. A useful link is the
+following result (see [13]):
+Lemma 3.1.        (i) ∆(C0e ) = ∪fs=1
+                                   −1                 e−1
+                                      (αes − 1)C0e = ∪i=0 (i, 0)e Cie
+                                e−1
+ (ii) For 0 < j < e, ∆(Cje ) = ∪i=0          e
+                                    (i, 0)e Ci+j
+
+(iii) For 0 < j < e, ∆(Cje , C0e ) = ∪fs=0
+                                        −1                   e−1
+                                           (αes+j − 1)C0e = ∪i=0 (i, j)e Cie
+                           e              e−1
+ (iv) For 0 < j, ℓ < e, ∆(Cj+ℓ , Cℓe ) = ∪i=0          e
+                                              (i, j)e Ci+ℓ
+   These are generally used to determine which classes appear in the multiset of differ-
+ences. Instead we will use difference set structure to determine the cyclotomic numbers.
+
+                                                  6
+3.1    Cyclotomic numbers of order e where e = (q n − 1)/(q − 1)
+We first consider the fundamental case on which we will build our subsequent results.
+    Let e = (q n − 1)/(q − 1). We observe that for each 0 ≤ k ≤ e − 1, all elements that
+occur in ∆(Cke , C0e ) = {αes+k − αet : 0 ≤ s, t ≤ f − 1} are contained in the subspace
+Span(1, αk ) of the vector space GF(q n ). In PG(n − 1, q) this corresponds to the unique
+line through the points 1 and αk . Since Span(1, αk ) is a two-dimensional vector space
+over GF(q), it has q 2 − 1 non-zero elements and upon factoring-out by GF(q)∗ we obtain
+a set comprising the q + 1 points of the line.
+
+Definition 3.2. Consider GF(q n ) as a vector space of dimension n at least 2 over GF(q),
+let e = (q n − 1)/(q − 1) and let α be a primitive element of GF(q n ). For 1 ≤ k ≤ e − 1,
+define
+                   Sk = {j : αj ∈ Span(1, αk ), 0 ≤ j ≤ e − 1} ⊆ (Ze , +).
+
+    Note that 0 ∈ Sk for all 1 ≤ k ≤ e − 1. In the n = 2 case, Span(1, αk ) = GF(q 2 )
+for any 1 ≤ k ≤ e − 1, so Sk = Zq+1 . In the n = 3 case, we observe that PG(2, q) is a
+projective plane, so the line Sk is in fact a hyperplane of that plane and so Sk is a Singer
+difference set. For n ≥ 4, the line Sk lies in any hyperplane that contains the points 0
+and k, and hence will be properly contained in the corresponding Singer difference sets.
+In Section 3.3 we will discuss how Sk may be obtained from these by taking appropriate
+intersections.
+    We now present a structural theorem which will be key in what follows.
+
+Theorem 3.3. Consider the finite field GF(q n ) and let e = (q n −1)/(q −1). View GF(q n )
+as the vector space GF(q)n over GF(q). Let α be a primitive element of GF(q n ). Then:
+
+  (i) ∆(Cke , C0e ) contains only classes Cje where j ∈ Sk .
+
+ (ii) Cke and C0e do not occur in ∆(Cke , C0e ).
+
+(iii) The other classes Cje with j ∈ Sk , j 6∈ {0, k}, occur precisely once each in ∆(Cke , C0e ),
+      i.e.
+                                   ∆(Cke , C0e ) = ∪j∈Sk \{0,k} Cje .
+
+ (iv) For 0 ≤ i 6= j ≤ e − 1,
+                                     ∆(Cie , Cje ) = ∪h∈Si,j \{i,j} Che
+      where Si,j = {h : αh ∈ Span(αi , αj ), 0 ≤ h ≤ e − 1} = j + Si−j .
+
+Proof. (i) By Lemma 3.1, ∆(Cke , C0e ) is the multiset union of the f cyclotomic classes
+(αes+k − 1)C0e (0 ≤ s ≤ f − 1). Since C0e = hαe i = GF(q)∗ , the cyclotomic class
+Cke = {αes+k : 0 ≤ s ≤ f − 1} = {αes αk : 0 ≤ s ≤ f − 1} = αk GF(q)∗ . So all elements
+αes+k − 1 (0 ≤ s ≤ f − 1) are of the form aαk + b for some a, b ∈ GF(q)∗ , i.e. lie
+in Span(1, αk ). The same holds for all elements of (αes+k − 1)C0e , hence all classes in
+∆(Cke , C0e ) are from the set of classes Cje where j ∈ Sk .
+(ii) Let x ∈ Cke where k 6= 0. If x − 1 = y ∈ Cke then x − y = 1. Since ∆(Cke ) = αk ∆(C0e )
+contains only elements of Cke , this implies 1 = x − y ∈ ∆(Cke ), a contradiction. If
+x − 1 = a ∈ C0e then x = a + 1 ∈ C0e , a contradiction.
+(iii) Let x 6= y ∈ Cke and suppose x − 1, y − 1 ∈ Cje for some 1 ≤ j 6= k ≤ e − 1. Then
+
+                                                 7
+(x − 1) − (y − 1) = x − y ∈ Cje ; however x − y ∈ Cke , a contradiction since j 6= k. Hence
+no class occurs more than once. Observe that Span(1, αk ) has q 2 − 1 nonzero elements;
+factoring out by GF(q)∗ there are q + 1 cyclotomic classes forming the subspace, i.e.
+|Sk | = q + 1. From above, C0e and Cke do not occur in ∆(Cke , C0e ); therefore the q − 1 = f
+remaining classes must occur without repetition.
+(iv) This follows from (iii) since ∆(Cie , Cje ) = αj ∆(Ci−j , C0 ).
+   This yields the following characterization of the cyclotomic numbers in this setting:
+Theorem 3.4. Consider the finite field GF(q n ) and let e = (q n − 1)/(q − 1). Let α be a
+primitive element of GF(q n ). Then the cyclotomic numbers of order e are as follows:
+  (i) (0, 0)e = f − 1
+ (ii) (0, i)e = (i, 0)e = (i, i)e = 0 for all 1 ≤ i ≤ e − 1
+(iii) For 1 ≤ j ≤ e − 1 and i 6∈ {0, j}, (i, j)e equals 1 if i ∈ Sj \ {0, j} and 0 otherwise
+ (iv) For 1 ≤ i, j ≤ e − 1 with i 6= j,
+                          (
+                           1, if {i, j} occur together in some Sh (0 < h < e)
+                (i, j)e =
+                           0, otherwise
+                                       e
+Proof.
+Pe−1 Part (i) holds since C0 ∪ {0} is a subfield. Part(ii) holds by Lemma 2.3 since
+  i=0 (i, 0)e = f − 1 and (i, 0)e = (0, i)e = (e − i, e − i)e . For (iii), it is known that
+                    e−1
+∆(Cje , C0e ) = ∪i=0    (i, j)e Cie . Theorem 3.3 shows that for 0 < j < e, each Cie with i ∈
+Sj \ {0, j} occurs precisely once in ∆(Cje , C0e ), and no other classes occur. For (iv), let
+h ∈ {1, . . . , e − 1}. For any nonzero j ∈ Sh , we obtain precisely q − 1 nonzero cyclotomic
+numbers (i, j)e = 1, where each i ∈ Sh \ {0, j}. Running through each of the q nonzero
+values of j ∈ Sh , we obtain q(q − 1) cyclotomic numbers, corresponding to all possible
+ordered pairs of distinct non-zero elements from Sh .
+   When n = 2, we immediately recover the uniform cyclotomy situation.
+Corollary 3.5. Consider the finite field GF(q 2 ); let e = (q 2 − 1)/(q − 1) = q + 1 and
+f = q − 1. Let α be a primitive element of GF(q 2 ). Then for 1 ≤ k ≤ e − 1,
+                                               [
+                               ∆(Cke , C0e ) =          Cje
+                                                j∈Zq+1 \{0,k}
+
+. The cyclotomic numbers are as follows:
+  (i) (0, 0)e = f − 1
+ (ii) (0, i)e = (i, 0)e = (i, i)e = 0 for all 1 ≤ i ≤ e − 1
+(iii) For 1 ≤ i, j ≤ e − 1 with i 6= j, (i, j)e = 1.
+Proof. Here, for any 1 ≤ k ≤ e − 1, Span(1, αk ) is a subspace of dimension 2, hence is
+the whole of GF(q 2 ), and hence Sk = Zq+1 = {0, 1, . . . , q} = {0, 1, . . . , e − 1}. Every pair
+of distinct nonzero elements {i, j} with 1 ≤ i 6= j ≤ e − 1 occurs together in this set.
+   Observe that, for n > 2, the property that all (i, j)e are equal for 1 ≤ i 6= j ≤ e − 1
+no longer holds, although there are now just two possible values (0 or 1) for such (i, j)e .
+
+                                                8
+3.2    Cyclotomic numbers of order e = (q n − 1)/(q − 1) where n = 3
+       and n = 4
+When n = 3 and n = 4, the set Sk (1 ≤ k ≤ e − 1) has a particularly nice form.
+
+Theorem 3.6. Consider the finite field GF(q 3 ); let e = (q 3 − 1)/(q − 1) and f = q − 1.
+Let α be a primitive element of GF(q 3 ) and let I be a corresponding Singer difference set
+in Ze . Then for 1 ≤ k ≤ e − 1,
+                                                  [
+                                ∆(Cke , C0e ) =         Cje
+                                                   j∈Sk \{0,k}
+
+
+where Sk is the unique Singer difference set in the finite projective plane πI = Dev(I)
+containing 0 and k.
+
+Proof. Only the claim about Sk requires justification. Since GF(q 3 ) is a vector space of
+dimension 3 over GF(q), the two-dimensional subspace Span(1, αk ) has codimension 1
+and hence is a hyperplane. Its corresponding set of powers Sk is a Singer difference set
+by construction, and its development is a finite projective plane. Since Sk is the line of
+the FPP containing the pair 0 and k, it is uniquely determined.
+
+Corollary 3.7. Consider the finite field GF(q 3 ). Let e = (q 3 − 1)/(q − 1) and f = q − 1.
+Let α be a primitive element of GF(q 3 ); let I be a corresponding Singer difference set in
+Ze and let Sj be the unique line in the FPP Dev(I) = πI containing {0, j}. Then
+
+  (i) (0, 0)e = f − 1
+
+ (ii) (0, i)e = (i, 0)e = (i, i)e = 0 for all 1 ≤ i ≤ e − 1
+
+(iii) For 1 ≤ j ≤ e − 1 and i 6∈ {0, j}, (i, j)e equals 1 if i ∈ Sj \ {0, j}, and equals 0
+      otherwise
+
+ (iv) For 1 ≤ i, j ≤ e − 1 with i 6= j,
+                          (
+                           1, if {i, j} occur together in some Sk (0 < k < e)
+                (i, j)e =
+                           0, otherwise
+
+     In Section 2, a straightforward algorithm was given for producing the Singer difference
+set via a recurrence relation using modular arithmetic, starting from a given primitive
+polynomial. For any j with 1 ≤ j ≤ q − 1 there is a single pair of elements x and y in
+the difference set with y − x = j mod e. Translating each element of the difference set
+by −x results in a difference set containing 0 and j, i.e. this translated difference set is
+none other than Sj . This can be used to obtain the corresponding cyclotomic numbers
+(i, j)e without any use of character sums or direct computation in the extension field.
+
+Example 3.8. Consider GF(27); we will obtain the cyclotomic numbers of order e = 13.
+For the general case of cyclotomic numbers of order 13, we are aware only of the result
+of [34] which performs some analysis of the corresponding Jacobi sums via a quaternary
+quadratic decomposition, and no direct method for evaluation.
+
+                                               9
+   Let q = 3 = n and let e = 13 and f = 2. Take the primitive polynomial x3 + 2x2 + 1.
+The recurrence relation is γr = γr−1 +2γr−3, which yields the sequence 0011102112101 . . ..
+Then I = {0, 1, 5, 11} is the corresponding Singer difference set in standard form, and
+the other elements of Dev(I) containing 0 are the translates of I by its negatives, i.e.
+−1 + I = {12, 0, 4, 10}, −5 + I = {8, 9, 0, 6} and −11 + I = {2, 3, 7, 0}. From above,
+                                13
+      ∆(C113 , C013 ) = C513 ∪ C11 , ∆(C513 , C013 ) = C113 ∪ C11
+                                                               13      13
+                                                                  , ∆(C11 , C013 ) = C113 ∪ C513 ,
+      ∆(C213 , C013 ) = C313 ∪ C713 , ∆(C313 , C013 ) = C213 ∪ C713 , ∆(C713 , C013 ) = C213 ∪ C313 ,
+      ∆(C413 , C013 ) = C10
+                         13    13
+                            ∪ C12      13
+                                  , ∆(C10 , C013 ) = C413 ∪ C12
+                                                             13      13
+                                                                , ∆(C12 , C013 ) = C413 ∪ C10
+                                                                                           13
+                                                                                              ,
+      ∆(C613 , C013 ) = C813 ∪ C913 , ∆(C813 , C013 ) = C613 ∪ C913 , ∆(C913 , C013 ) = C613 ∪ C813 .
+Hence (0, 0)13 = 1, (5, 1)13 = (11, 1)13 = (3, 2)13 = (7, 2)13 = (2, 3)13 = (7, 3)13 =
+(10, 4)13 = (12, 4)13 = (1, 5)13 = (11, 5)13 = (8, 6)13 = (9, 6)13 = (2, 7)13 = (3, 7)13 =
+(6, 8)13 = (9, 8)13 = (6, 9)13 = (8, 9)13 = (4, 10)13 = (12, 10)13 = (1, 11)13 = (5, 11)13 =
+(4, 12)13 = (10, 12)13 = 1 and all other (i, j)13 = 0.
+Example 3.9. Consider GF(64) = GF(43 ); we will obtain the cyclotomic numbers of or-
+der 21. We are aware of no direct method for e = 21 in general. Here e = (43 − 1)/(4 − 1) = 21,
+we have f = 3 and the Singer difference set has size (42 − 1)/(4 − 1) = 5. Take primitive
+polynomial x3 + x2 + x + γ 2 ∈ GF(4)[x], where γ is a primitive element of GF(4) (i.e.
+γ 2 = γ + 1). The sequence from the recurrence relation is
+                    0, 0, 1, 1, 0, γ, 1, γ 2, γ 2 , γ 2 , γ, γ 2 , γ 2 , 1, 0, γ 2, 0, γ 2 , 1, γ, 1
+so the Singer difference set is {0, 1, 4, 14, 16}. The other 0-containing translates of I
+are −1 + I = {0, 3, 13, 15, 20}, −4 + I = {0, 10, 12, 17, 18}, −14 + I = {0, 2, 7, 8, 11} and
+−16 + I = {0, 5, 6, 9, 19}. Here (0, 0)21 = f − 1 = 2 and all (0, i)21 = (i, 0)21 = (i, i)21
+for 0 < i < 21. Using S1 = {0, 1, 4, 14, 16}, we have that ∆(C121 , C021 ) = C421 ∪ C14
+                                                                                      21    21
+                                                                                         ∪ C16
+and (4, 1)21 = (14, 1)21 = (16, 1)21 , while all other (x, 1)21 = 0 (0 < x < 21). The other
+(i, j)21 (0 < i 6= j < 21) can be calculated in a similar way from the listed sets.
+   When n = 4, we require an additional step, but still obtain a straightforward process.
+Theorem 3.10. Consider the finite field GF(q 4 ) and let e = (q 4 −
+                                                                   1)/(q   − 1). Let α be a
+                         4                                          q 4 −1 q 3 −1
+primitive element of GF(q ) and let I be a corresponding Singer q−1 , q−1 , q + 1 -DS.
+     Let 1 ≤ k ≤ e − 1 and let Bk1 , . . . , Bkq+1 be the q + 1 blocks of Dev(I) (each of size
+(q 3 − 1)/(q − 1)) that contain {0, k}. Then Sk is the intersection of any two of these, and
+                                                      [
+                                  ∆(Ck , C0 ) =             Cj .
+                                                            j∈Sk \{0,k}
+
+Proof. Only the claim about Sk requires proof. For n ≥ 2, since Dev(I) is a symmetric
+                                                                n−2
+(v, k, λ)-BIBD, every pair of DSs intersect in precisely λ = q q−1−1 points. For two such
+DSs containing 0 and k, the intersection of the corresponding hyperplanes will contain
+Span(1, αk ), hence the intersection of the difference sets will contain Sk . When n = 4,
+λ = q + 1 and so the intersection of any two DSs containing {0, k} will yield precisely
+the elements of Sk . Alternatively, in PG(3, q) a hyperplane is in fact a plane, and any
+two planes intersect in a unique line. Thus any two distinct translations of the Singer
+difference set that contain {0, k} intersect in Sk . In Section 3.3 we discuss how to find
+appropriate translations.
+
+                                                          10
+Corollary 3.11. Consider the finite field GF(q 4 ). Let e = (q 4 − 1)/(q − 1) and f = q − 1.
+Let α be a primitive element of GF(q 4 ); let I be a corresponding Singer difference set in
+Ze and let Ik be the intersection of any two blocks in Dev(I) containing {0, k}. Then
+
+  (i) (0, 0)e = f − 1
+
+ (ii) (0, i)e = (i, 0)e = (i, i)e = 0 for all 1 ≤ i ≤ e − 1
+
+(iii) For 1 ≤ j ≤ e − 1 and i 6∈ {0, j}, (i, j)e equals 1 if i ∈ Ij \ {0, j}, and equals 0
+      otherwise.
+
+Example 3.12. Consider GF(625); we will obtain the cyclotomic numbers of order (54 −
+1)/(5 − 1) = 156. No general results for e = 156 exist in the literature. Take q = 5 and
+n = 4 with e = 156 and f = 4, and take the primitive polynomial x4 + 4x2 + 4x + 2.
+From Construction 18.29 of [9], a corresponding Singer difference set is
+
+           I = {0, 1, 2, 4, 13, 20, 23, 24, 29, 31, 34, 38, 41, 44, 46, 58, 72, 73, 77, 88,
+
+                        89, 95, 97, 98, 111, 120, 124, 139, 144, 150, 152}.
+Consider k = 1: here I ∩ (−1 + I) = S1 = {0, 1, 23, 72, 88, 97}. Hence (23, 1)156 =
+(72, 1)156 = (88, 1)156 = (97, 1)156 = 1 and all other (i, 1)156 = 0. For k = 2, the
+intersection of I and −2 + I is the set S2 = {0, 2, 29, 44, 95, 150}, hence (29, 2)156 =
+(44, 2)156 = (95, 2)156 = (150, 2)156 = 1 and all other (i, 2)156 = 0. The other cyclotomic
+numbers may be obtained similarly; in Section 3.3 we discuss how to find suitable shifts of
+I for other values of k. Lemma 2.3 can be applied to simplify computation. For example,
+we may apply (i, j)156 = (5i, 5j)156 to the k = 1 case to obtain (115, 5)156 = (48, 5)156 =
+(128, 5)156 = (17, 5)156 = 1, as an alternative to calculating S5 directly via intersection.
+
+3.3    Cyclotomic numbers of order (q n − 1)/(q − 1) for general n
+For n greater than 4, more care is required to obtain Sk by intersection, since an arbitrary
+collection of n − 2 hyperplanes may intersect in a space of dimension greater than 1.
+    We present a procedure which yields Sk (1 ≤ k ≤ e − 1) for any n ≥ 3 via the
+intersection of n − 2 appropriately-chosen Singer difference sets, when αk is not in a
+subfield of GF(q n ).
+
+Lemma 3.13. Let α be a primitive element of GF(q n ), and suppose that k with 1 ≤ k ≤ e
+is such that αk does not lie in a proper subfield of GF(q n ). Let H0 be the unique hyperplane
+of PG(n−1, q) spanned by {α0, αk , α2k , . . . α(n−2)k } and for 1 ≤ i ≤ n−1 let Hi = α−ik H0 .
+Then for r < n − 1, ∩ri=0 Hi is the subspace of PG(n − 1, q) of dimension n − r − 2 spanned
+by the set of points {α0 , α1 , . . . , αn−r−2 }.
+
+Proof. As αk does not lie in a proper subfield of GF(q n ), its minimal polynomial has
+degree n, and so the elements α0 , αk , α2k , . . . α(n−2)k are linearly independent, and hence
+span a unique hyperplane H0 of PG(n − 1, q). As Hi with 1 ≤ r ≤ n − 1 can be obtained
+from H0 by repeated multiplication by α, they are also hyperplanes.
+   Next we prove the intersection property. When r = 1, the result is immediate. Now
+suppose the result holds for r = s, for some 1 ≤ s < n, i.e. that ∩si=0 Hi is the subspace
+
+                                                 11
+of dimension n − s − 1 given by Span{α0, αk , . . . , α(n−s−2)k }. As Hs+1 is a hyperplane,
+we have that ∩s+1
+                i=0 Hi has dimension either n − s − 1 or n − s − 2. If dim(∩i=0 Hi ) =
+                                                                                            s+1
+                    s+1
+n − s − 1, then ∩i=0 Hi is precisely Span{α0 , αk , . . . , α(n−s−2)k }, which implies that Hs+1
+contains {α0, αk , . . . , α(n−s−2)k }. By construction, it also contains α−k , . . . , α−sk and thus
+Hs ⊆ Hs+1 . Since |Hs | = |Hs+1| we have Hs = Hs+1 . But this is contradiction, since
+Hs = αk Hs+1 and multiplication by αk does not fix any hyperplane when k < e.
+Theorem 3.14. Let n ≥ 3. Consider the finite field GF(q n ) and let e = (q n − 1)/(q − 1).
+Let α be a primitive element of GF(q n ). For 1 ≤ k ≤ e − 1 such that αk does not lie in
+a subfield of GF(q n ), the following process yields Sk :
+  (i) Let I be any Singer difference set corresponding to α.
+
+ (ii) Form the intersection L of the following n − 2 translates of I:
+                                                n−3
+                                                \
+                                           L=          (−ik + I).
+                                                 i=0
+
+
+(iii) Define the element x ∈ L ∩ (−k + L).
+
+ (iv) Then Sk = −x + L.
+In particular, this accounts for all 1 ≤ k ≤ e − 1 when n is prime.
+Proof. First consider k = 1; the elements {α0 , α, . . . , αn−1} span a hyperplane H0 and the
+corresponding Singer DS I contains {0, 1, . . . , n − 1}. By Lemma 3.13, the intersection
+of H0 with the hyperplanes {H1 , . . . , Hn−3 } is a subspace of dimension n − (n − 3) − 1 =
+2 given by Span(1, α), and correspondingly the intersection of I with the sets −1 +
+H, . . . , −(n − 3) + H is S1 .
+    Now consider an arbitrary 1 ≤ k ≤ e − 1 such that αk is not in a proper subfield.
+Here αk has minimal polynomial of degree n, the elements {α0 , αk , . . . , α(n−1)k } span a
+hyperplane H, and the corresponding Singer difference set D contains {0, k, 2k, . . . , (n −
+1)k}. As above, intersecting D with its translates {−k + D, −2k + D, . . . , −(n − 3)k + D}
+yields the line through 0 and k, namely Sk . However, it is in fact sufficient to take any
+hyperplane H ′ of GF(q n ) and the translates of H ′ by k. These are related to H and
+its translates by k via a linear transformation, hence they have the same intersection
+properties (in particular they intersect in a line L). L is obtained from the line through 0
+and k by this linear transformation (multiplication by a power of α), and so also possesses
+a unique internal difference of k. Let x be the unique element in L ∩ (−k + L); then
+−x + L is the translate of L containing 0 and k, namely Sk .
+    The following result yields Sk in the case when αk lies in a subfield GF(q d ) of GF(q n ).
+In this case k is a multiple of (q n − 1)/(q d − 1).
+Theorem 3.15. Let n ≥ 3. Consider GF(q n ) and let α be a primitive element of GF(q n ).
+Let d | n (d > 1). Let e = (q n −1)/(q −1), e′ = (q d −1)/(q −1) and g = (q n −1)/(q d −1) =
+e/e′ .
+    Let γ be the primitive element of GF(q d ) given by γ = αg . Take the Singer difference
+set I in Ze corresponding to α and the Singer difference set I ′ in Ze′ corresponding to
+
+                                                 12
+γ. For 0 < a < e − 1, let Sa = {j : αj ∈ Span(1, αa), 0 ≤ j ≤ e − 1} ⊆ Ze and for
+0 < b < e′ − 1, let Sb′ = {j : γ j ∈ Span(1, γ b ), 0 ≤ j ≤ e′ − 1} ⊆ Ze′ (where both spans are
+over GF(q)) as in Definition 3.2.
+   Then for k = xg (1 ≤ x ≤ q d − 2)
+
+                                          Sk = gSx′ .
+
+Proof. Let 0 < k < e − 1 be such that αk ∈ GF(q d ). Then g | k, i.e. k = xg for some
+1 ≤ x ≤ q d − 2. To determine Sxg , the indices of the span over GF(q) of {1, αxg }, we
+determine the span over GF(q) of {1, γ x }. Consider the cyclotomic classes of order e′
+                     ′
+of GF(q d ), i.e. Cie (0 ≤ i ≤ e′ − 1). By Theorem 3.3, Span{1, γ x } is the union of the
+cyclotomic classes of order e′ indexed by Sx′ , obtainable using the Singer difference set I ′ .
+Since γ = αg , multiplying Sx′ by g yields Sxg .
+    We note that in order to apply Theorem 3.15 we need a difference set arising from the
+minimal polynomial of γ. The Conway polynomials [20] or their recent alternative [18] are
+a natural choice for the minimal polynomials of α and γ for this purpose, as by construc-
+tion these are designed to be compatible in this way. Tables of these polynomials are avail-
+able on Frank Lübeck’s website http://www.math.rwth-aachen.de/~ Frank.Luebeck/data/ConwayPol
+Theorem 3.16. Let n ≥ 3. Consider the finite field GF(q n ). Let e = (q n − 1)/(q − 1)
+and f = q − 1. Let α be a primitive element of GF(q n ); let I be a corresponding Singer
+difference set in Ze . Let 1 ≤ k ≤ e − 1. Then
+                                                [
+                                  ∆(Ck , C0 ) =     Cj
+                                                j∈Sk \{0,k}
+
+where Sk is characterized in Theorems 3.14 and 3.15, namely
+  (i) if αk does not lie in a subfield of GF(q n ) then
+                                                   n−3
+                                                   \
+                                     Sk = x + (          (−ik + I))
+                                                   i=0
+
+                  n−3                     n−3
+      where x ∈ (∩i=0 (−ik + I)) ∩ (−k + ∩i=0 (−ik + I));
+                  n      d
+ (ii) if αk = αy(q −1)/(q −1) lies in GF(q d ) (d > 1, d | n) then
+                                                 n      
+                                                  q −1
+                                        Sk =               Sy′
+                                                  qd − 1
+
+      where Sy′ = {j : γ j ∈ Span(1, γ y ), 0 ≤ j ≤ e′ − 1}.
+Moreover
+ (a) (0, 0)e = f − 1
+
+ (b) (0, i)e = (i, 0)e = (i, i)e = 0 for all 1 ≤ i ≤ e − 1
+
+ (c) For 1 ≤ j ≤ e − 1 and i 6∈ {0, j}, (i, j)e equals 1 if i ∈ Sj \ {0, j}, and equals 0
+     otherwise.
+
+                                              13
+Example 3.17. We consider GF(729) as a degree 6 extension over GF(3); here e =
+(36 − 1)/(3 − 1) = 364. We illustrate the use of Theorem 3.16 to determine Sk for
+1 ≤ k ≤ 363, and hence the cyclotomic numbers of order 364; there is no result in the
+literature for the case e = 364. Take primitive polynomial x6 + 2x4 + x3 + x2 + x + 2 for
+GF(729) over GF(3) and primitive polynomial x3 + x2 + 2x + 1 for GF(27) over GF(3)
+(α is a root of the former and γ = α28 is a root of the latter).
+     For k such that αk is not in a subfield, we determine Sk as described in Theorem 3.14:
+                                                               5 −1
+we take the corresponding Singer difference set I (of size 33−1     = 121) and intersect it with
+its translates −k+I, −2k+I, −3k+I to obtain L, then shift by L∩(−k+L). For example,
+for k = 1 this yields S1 = {0, 1, 27, 322} and for k = 2 we obtain S2 = {0, 2, 90, 349}.
+Hence (27, 1)364 = (322, 1)364 = 1 and (x, 1)364 = 0 for all other 1 ≤ x ≤ 363; similarly
+(90, 2)364 = (349, 2)364 = 1 and (x, 2)364 = 0 for all other 1 ≤ x ≤ 363.
+     Now, consider k such that αk lies in the subfield GF(27) = hγi. In the notation of
+Theorem 3.15, e′ = 13 and g = 28, so any such k has the form 28x for some 1 ≤ x ≤ 26.
+A suitable Singer difference set is I ′ = {0, 1, 8, 10}; since GF(27) is a degree 3 extension
+over GF(3), each Sx′ will be a translate of I ′ . For k = 28, S1′ = {0, 1, 8, 10} and so
+S28 = {0, 28, 224, 280}. Consider k = 56 = 28.2; here S2′ = {0, 2, 5, 6}, and so S56 =
+28{0, 2, 5, 6} = {0, 56, 140, 168}. Hence (224, 28)364 = (280, 28)364 = 1 and (x, 28)364 = 0
+for all other 1 ≤ x ≤ 363; similarly (140, 56)364 = (168, 56)364 = 1 and (x, 56)364 = 0 for
+all other 1 ≤ x ≤ 363.
+
+
+4         Cyclotomic numbers of order ǫ | (q n − 1)/(q − 1)
+We next show how to use a partitioning construction to obtain results for cyclotomic
+numbers of order ǫ dividing (q n − 1)/(q − 1). The following lemma is from [13].
+
+Lemma 4.1. Let q n = ef + 1 and let ǫ | e. For 0 ≤ j ≤ ǫ − 1,
+                                                       e
+                                                           −1
+                                           Cjǫ = ∪i=0
+                                                   ǫ   e
+                                                      Ciǫ+j .
+
+In particular C0ǫ = C0e ∪ Cǫe ∪ · · · ∪ Cǫ(e e −1) .
+                                              ǫ
+
+
+     Combining this with the previous section, we have the following.
+
+Theorem 4.2. Consider the finite field GF(q n ), where n ≥ 2. Let e = (q n − 1)/(q − 1)
+and let α be a primitive element of GF(q n ). Let q n = ef + 1 and let ǫ | e. Then
+
+    (i)
+                                                                e
+                                                                ǫ
+                                                                  −1
+                                                                X      X
+                                  (0, 0)ǫ = (f − 1) +                          (r, ǫs)e
+                                                                s=1 r≡0 mod ǫ,
+                                                                     1≤r≤e−1
+
+ (ii) For all 0 < i < e,
+                                                                        e
+                                                                        ǫ
+                                                                          −1
+                                                                        X        X
+                         (i, 0)ǫ = (0, i)ǫ = (e − i, e − i)ǫ =                            (r, ǫs)e
+                                                                        s=1 r≡i mod ǫ,
+                                                                             1≤r≤e−1
+
+
+                                                       14
+(iii) For 0 < i 6= j < e,
+                                                               e
+                                                               ǫ
+                                                                 −1
+                                                               X        X
+                                                   (i, j)ǫ =                (r, ǫs + j)e
+                                                               s=0 r≡i mod ǫ
+                                                                   1≤r≤e−1
+
+
+Proof. For (i) and (ii), we determine the cyclotomic classes of order ǫ in ∆(C0ǫ ). By
+                                         ef
+                                              −1     ǫ−1
+Lemma 3.1, ∆(C0ǫ ) = ∪s=1    ǫ
+                                (αǫs − 1)C0ǫ = ∪i=0      (i, 0)ǫ Ciǫ . By Lemma 4.1, ∆(C0ǫ ) =
+  e                 e     e
+    −1    e           −1    −1    e         e
+(∪s=0
+  ǫ
+       ∆(Csǫ )) ∪ (∪t=1
+                    ǫ
+                         ∪s=0
+                          ǫ
+                               ∆(C(s+t)ǫ , Csǫ )). Each Cie in ∆(C0e ) corresponds to an occur-
+                            e
+                                −1
+rence of Ciǫ mod ǫ in ∪s=0
+                       ǫ       e
+                           ∆(Csǫ ), and each Cie in the multiset ∆(Ctǫe , C0e ) (1 ≤ t ≤ (e/ǫ)−1)
+                                                     e                           e
+                                                       −1 sǫ                       −1
+corresponds to an occurrence of Ciǫ mod ǫ in ∪s=0    ǫ
+                                                         α ∆(Ctǫe , C0e ) = ∪s=0 ǫ       e
+                                                                                      ∆(C(s+t)ǫ    e
+                                                                                                , Csǫ ).
+                                                  e           e    e               e
+Hence the ef /ǫ − 1 classes of order e in ∆(C0 ) and ∆(Ctǫ , C0 ) (0 < t < ǫ ) determine the
+classes of order ǫ in ∆(C0ǫ ). For (i), since C0e is a subfield, ∆(C0e ) comprises f − 1 copies
+of C0e and no copies of any other class, yielding f − 1 copies of C0ǫ . The other occurrences
+of C0ǫ in ∆(C0ǫ ) will correspond to occurrences of Cre in ∆(Csǫ  e
+                                                                     , C0e ) (1 ≤ s ≤ eǫ − 1) where
+0 < r < e and ǫ | r; these are counted by (r, ǫs)e . Similarly, for (ii), the occurrences of
+Cre in ∆(C0ǫ ) with 0 < r < e and r ≡ i mod ǫ account for the cyclotomic numbers (i, 0)ǫ
+                                                                      n
+(and hence (0, i)ǫ = (−i, −i)ǫ by Lemma 2.3, as p = 2 or f | q ǫ−1 and f is even).
+                                                                               ef
+                                                                                ǫ−1
+      For (iii), for 0 < j < ǫ, consider ∆(Cjǫ , C0ǫ ) = ∪s=0
+                                                           ǫ
+                                                              (αǫs+j − 1)C0ǫ = ∪i=0 (i, j)ǫ Ciǫ =
+  e        e
+      −1     e −1
+∪s=0
+ ǫ
+     ∪t=0
+      ǫ
+          ∆(Csǫ+j , Ctǫe ). Each Cie in the multiset ∆(Ctǫ+j
+                                                        e
+                                                             , C0e ) corresponds to an occur-
+                                e
+                                    −1
+rence of Ciǫ mod ǫ in ∪s=0
+                       ǫ      e
+                           ∆(C(s+t)ǫ+j    e
+                                       , Csǫ ). These account for all ef /ǫ classes of order ǫ
+                    ǫ
+occurring in ∆(Cj ) and are counted by (r, ǫs + j)e where 0 < r < ǫ and r ≡ i mod ǫ.
+   When n = 2, we obtain an explicit expression for the uniform cyclotomy case which
+coincides with that of [2], showing that the cyclotomic numbers of order ǫ | q + 1 in
+GF(q 2 ) are uniform. It also coincides with the standard results [25] for ǫ = 2.
+
+Corollary 4.3. Let q be a power of a prime p and consider GF(q 2 ). Let q 2 = ef + 1 with
+e = q + 1 and f = q − 1. If ǫ ≥ 2 is a divisor of e, then
+
+  (i) (0, 0)ǫ = (f − 1) + ( eǫ − 1)( eǫ − 2) = ( eǫ )2 + (ǫ − 3) eǫ − 1
+
+ (ii) (i, 0)ǫ = (0, i)ǫ = (ǫ − i, ǫ − i)ǫ = eǫ ( eǫ − 1)
+
+(iii) (i, j)ǫ = ( eǫ )2 .
+
+Proof. In the case n = 2, each ∆(Csǫ      e
+                                            , C0e ) (1 ≤ s ≤ eǫ − 1) contains one copy each of
+the classes Ci where i ∈ {1, . . . , e − 1} \ {sǫ}. Each of the classes Cie where ǫ | i yields
+                e
+
+a copy of C0ǫ in ∆(C0ǫ ). In the interval [1, e − 1] = {1, 2, . . . ( eǫ − 1)ǫ + (ǫ − 1)} there
+are eǫ − 1 multiples of ǫ, so each of the ( eǫ − 1) multisets ∆(Csǫ   e
+                                                                        , C0e ) contributes ( eǫ − 2)
+copies of C0 to the count for (0, 0)ǫ (the other part of this is from ∆(C0e )). For (ii), when
+             ǫ
+
+0 < j < ǫ, there are eǫ elements in [1, e − 1] congruent to j mod ǫ, and each occurs once
+per ∆(Csǫe
+           , C0e ) as 1 ≤ s ≤ eǫ − 1. Finally for (iii), for any 1 ≤ r ≤ e − 1 with r ≡ i mod ǫ,
+if 1 ≤ j ≤ e − 1 with i 6= j then all (r, sǫ + j) equal 1 (since r 6∈ {0, sǫ + j}). Hence there
+are eǫ occurrences of each Crǫ in each ∆(Csǫ    e
+                                                   , C0e ).
+
+
+
+
+                                                                   15
+Example 4.4. When q = 25, e = 6, f = 4 and ǫ = 3, Theorem 1.2 applies since −1 ≡ 53
+mod 3. In Theorem 1.2 we take r = −5; then η = −2 and so (0, 0)3 = 22 − 1 = 3,
+(i, 0)3 = 4 − 2 = 2 (i 6= 0) and (i, j)3 = (−2)2 = 4 (0 < i 6= j < 3). Since 3 | 6,
+we may alternatively apply Corollary 4.3 from which e/ǫ = 2, (0, 0)3 = 3 + 0 = 3,
+(i, 0)3 = 2 × 1 = 2 (i 6= 0) and (i, j)3 = 22 = 4 (0 < i 6= j < 3). When ǫ = 2 < 3, we
+cannot apply Theorem 1.2, but Corollary 4.3 (with (q − 1)/ǫ = 12) yields the expected
+results (0, 0)2 = (12 − 2)/2 = 5 and (1, 0)2 = 12/2 = 6.
+
+    As mentioned at the outset, Theorem 4.2 also applies to the uniform cyclotomy situ-
+ation in GF(p2s ) where we consider the cyclotomic numbers of order ǫ | pt + 1 where t is
+a proper divisor of s. We illustrate with an example.
+
+Example 4.5. Consider GF(81). Here q = p2s where p = 3 and s = 2. Corollary 4.3
+shows that the cyclotomic numbers of order dividing (p4 − 1)/(p2 − 1) = p2 + 1 = 10 are
+uniform. Now consider the situation where ǫ = p + 1 = 4; by Theorem 1.2, ǫ satisfies the
+criteria to be uniform, but 4 ∤ p2 +1. Observe that p+1 | (p4 −1)/(p−1) = (p2 +1)(p+1).
+So we may use Theorem 4.2 with e = (34 − 1)/(3 − 1) = 40, f = 2 and ǫ = 4 to obtain
+the cyclotomic numbers of order 4, proceeding via the cyclotomic numbers of order 40.
+Obtaining the cyclotomic numbers of order 40 is itself of interest, since no general results
+for e = 40 exist in the literature.
+    Using the primitive polynomial x4 + 2x3 + 2, we obtain the difference set
+
+                        I = {0, 1, 2, 8, 16, 18, 23, 25, 28, 29, 34, 37, 38}.
+
+This is a degree 4 extension so the sets Sk (0 < k < 39) are obtained by intersecting
+two translates of this difference set. For example S1 = I ∩ (−1 + I), where −1 + I =
+{0, 1, 7, 15, 17, 22, 24, 27, 28, 33, 36, 37, 39}. The complete list of sets Sk are as follows:
+
+            {0, 1, 28, 37}, {0, 2, 18, 25}, {0, 3, 4, 31}, {0, 5, 11, 19}, {0, 6, 14, 35},
+
+          {0, 7, 22, 24}, {0, 8, 29, 34}, {0, 9, 12, 13}, {0, 10, 20, 30}, {0, 15, 17, 33},
+                         {0, 16, 23, 38}, {0, 21, 26, 32}, {0, 27, 36, 39}.
+Apply Theorem 4.2 (i) to see that, since no S4s (0 < s < 10) contains an element 4t with
+0 < s 6= t < 10, we have (0, 0)4 = f −1 = 1. To apply Theorem 4.2 (ii), note that for each
+r ∈ {1, 2, 3}, precisely 6 of the cyclotomic numbers (r, 4s)40 (0 < s < 10) are nonzero
+(specifically, have value 1). For example for r = 1, (29, 8)40 = (9, 12)40 = (13, 12)40 =
+(1, 28)40 = (37, 28)40 = (21, 32)40 = 1, while for r = 2, (34, 8)40 = (38, 16)40 = (10, 20)40 =
+(30, 20)40 = (22, 24)40 = (26, 32)40 = 1. This indicates that (0, i)4 = (i, 0)4 = (i, i)4 = 6
+for all 0 < i < 4. Finally, using Theorem 4.2 (iii), we can verify that (i, j)4 = 4 for
+all 0 < i 6= j < 4. For example for (2, 1)4 we use the fact that (32, 21)40 = (2, 25)40 =
+(28, 25)40 = (34, 29)40 = 1. Hence the cyclotomic numbers of order p + 1 = 4 are uniform.
+Theorem 1.2 yields the same result upon taking r = 9 and η = 2.
+
+    Since the previous section gives a process for obtaining the component cyclotomic
+numbers of order e, Theorem 4.2 gives an explicit method to find the cyclotomic numbers
+of any order dividing (q n − 1)/(q − 1) where q is a prime power and n ∈ N with n ≥ 2.
+Lemma 2.3 often significantly reduces the calculation required.
+
+                                                 16
+Example 4.6. We demonstrate the use of Theorem 4.2 to directly obtain the cyclotomic
+numbers of order 13 in GF(729). As mentioned previously, no direct result for cyclotomic
+numbers of order 13 is known in general. Set q = 9 and n = 3 in Theorem 4.2, i.e. consider
+GF(729) as a degree 3 extension over GF(9). We use the primitive poynomial x3 + x + w
+where w is given by y 2 + 2y + 2. Here e = 91, f = 8 and we take ǫ = 13. We proceed
+via the cyclotomic numbers of order 91 in GF(729); we use the Singer difference set
+I = {0, 1, 3, 9, 27, 49, 56, 61, 77, 81} ⊆ Z91 and its 0-containing translates {−i + I : i ∈ I}:
+           {10, 11, 13, 19, 37, 59, 66, 71, 87, 0}, {14, 15, 17, 23, 41, 63, 70, 75, 0, 4},
+           {30, 31, 33, 39, 57, 79, 86, 0, 16, 20}, {35, 36, 38, 44, 62, 84, 0, 5, 21, 25},
+           {42, 43, 45, 51, 69, 0, 7, 12, 28, 32}, {64, 65, 67, 73, 0, 22, 29, 34, 50, 54},
+           {82, 83, 85, 0, 18, 40, 47, 52, 68, 72}, {88, 89, 0, 6, 24, 46, 53, 58, 74, 78},
+                                {90, 0, 2, 8, 26, 48, 55, 60, 76, 80}.
+Here (0, 0)13 = f −1 = 7, since for each 13s (1 ≤ s ≤ 6), the
+                                                           Punique
+                                                               P translate of I contain-
+ing 0 and 13s contains no other 13t (1 ≤ t ≤ 6), and hence 6s=1 r≡0 mod 13, (r, 13s)91 = 0.
+                                                                             1≤r≤90
+By similarly evaluating the cyclotomic numbers of the form (r, 13s)91 where r ≡ i mod 13
+(0 < i < 91) using the difference sets listed above, the cyclotomic numbers of the form
+(x, 0)13 (x 6= 0) are found to be (1, 0)13 = 4, (2, 0)13 = 4, (3, 0)13 = 4, (4, 0)13 = 2,
+(5, 0)13 = 4, (6, 0)13 = 4, (7, 0)13 = 6, (8, 0)13 = 6, (9, 0)13 = 4, (10, 0)13 = 2, (11, 0)13 = 4.
+The cyclotomic numbers of the form (x, 1)13 are given by (0, 1)13 = 4, (1, 1)13 = 2,
+(2, 1)13 = 2, (3, 1)13 = 6, (4, 1)13 = 6, (5, 1)13 = 5, (6, 1)13 = 4, (7, 1)13 = 6, (8, 1)13 = 2,
+(9, 1)13 = 6, (10, 1)13 = 6, (11, 1)13 = 5 and (12, 1)13 = 2. The same process yields all of
+the other cyclotomic numbers of order 13.
+
+
+5     Applications to difference structures
+In this section, we briefly discuss applications of our results in the setting of difference
+structures. There has been much interest in the literature in using cyclotomic classes and
+their unions to form various types of difference families and difference sets, beginning
+with the work of Wilson [31] in the 1970s.
+    The following structure was introduced in [22], motivated by an application in infor-
+mation security. For a subset S of a group G, we denote by λS the multiset comprising
+λ copies of S.
+Definition 5.1. Let G be an abelian group of order n, written additively. A collection
+of m disjoint k-subsets D ′ = {D1 , . . . , Dm } of G forms an (n, m, k, λ)-Strong External
+Difference Family (SEDF) of G if the following multiset equation holds for each Di ∈ D ′ :
+                              [
+                                 ∆(Di , Dj ) = λ(G \ {0}).
+                                 j:j6=i
+
+    SEDFs have attracted particular interest since only one set of parameters with m > 2
+is known. Constructions achieving these parameters were found independently by two
+sets of authors in [14] and [29]. The construction in [29] uses the cyclotomic classes of
+order 11 in GF(243).
+
+                                                 17
+Example 5.2. Cyclotomic numbers of order 11 in GF(243) were required in [29] to estab-
+lish existence of the (243, 11, 22, 20)-SEDF. While a treatment of the e = 11 cyclotomic
+numbers using Jacobi sums is given in [17], it is very cumbersome to use. Consequently
+the authors presented four pages of direct calculations in the field (given in [28]) to es-
+tablish that the values of (0, 0)11 = 1 and (i, 0)11 = 2 (1 ≤ i ≤ 10). We show how our
+approach offers a shorter, alternative method of evaluation.
+    Take q = 3, n = 5, e = 121, f = 2 and ǫ = 11 in Theorem 3.16, and use the Singer
+difference set
+
+ I = {1, 3, 4, 7, 9, 11, 12, 13, 21, 25, 27, 33, 34, 36, 39, 44, 55, 63, 64, 67, 68, 70, 71, 75, 80, 81,
+
+                  82, 83, 85, 89, 92, 99, 102, 103, 104, 108, 109, 115, 117, 119}
+given in [9] (or generated by Construction 2.6). By Theorem 3.14, we obtain
+
+                      L = I ∩ (−11 + I) ∩ (−22 + I) = {33, 70, 81, 108};
+
+here
+                                       L ∩ (−11 + L) = {70}
+and translation of L by −70 yields S11 = {0, 11, 38, 84}. Similarly, upon intersection
+of I, −22 + I and −44 + I and appropriate translation, S22 = {0, 1, 22, 52}. Hence
+(38, 11)121 = (84, 11)121 = 1 = (1, 22)121 = (52, 22)121 and all other (x, 11)121 and (x, 22)121
+equal 0 (1 ≤ x ≤ 120).
+    Repeated application of (i, j)e = (3i, 3j)e from Lemma 2.3 yields all other cyclo-
+tomic numbers (i, j)e with ǫ | j which take nonzero values: (10, 33)121 = (114, 33) =
+(53, 44)121 = (28, 44)121 = (58, 55)121 = (90, 55)121 = (3, 66)121 = (35, 66)121 = (9, 77)121 =
+(105, 77)121 = (81, 88)121 = (98, 88)121 = (30, 99)121 = (100, 99)121 = (27, 110)121 =
+(73, 110)121 = 1. Observe that of these 20 nonzero cyclotomic numbers (r, sǫ) (1 ≤
+s ≤ eǫ − 1 = 10), none have ǫ | r and for each 1 ≤ i ≤ 10 there are precisely 2 values of
+r ≡ i mod 13. Theorem 4.2 applies to show that (0, 0)11 = f − 1 = 1 and (i, 0)11 = 2 for
+all 1 ≤ i ≤ 10.
+
+
+6      Conclusion
+The sparsity of cyclotomic number results for specific orders e (indeed, the lack of results
+for e > 24), and the cumbersome nature of obtaining explicit results from the character
+theory approach for all but small e, has been a limiting factor on the practical use of
+cyclotomy. Until now, uniform cyclotomy has been the only explicit theoretical tool
+available, but is somewhat limited in its scope. In this paper, we have presented a
+generalisation of uniform cyclotomy which is expressed in purely combinatorial terms,
+and applies to all cyclotomic numbers of order e | (q n − 1)/(q − 1) over GF(q n ), for
+any prime power q and n ≥ 2. We have presented a direct method of obtaining such
+cyclotomic numbers, which requires neither use of character theory nor direct calculation
+with field elements. We hope that this will go some way towards demystifying cyclotomy
+for practitioners, and will facilitate an easier and more effective use of cyclotomy in
+various applications, as well as leading to further research in this direction.
+
+
+                                                   18
+Acknowledgements
+We thank Jim Davis for helpful discussions. We thank the anonymous referee for their
+careful reading and helpful comments.
+
+
+References
+ [1] L. D. Baumert and H. Fredricksen, The cyclotomic numbers of order eighteen with
+     applications to difference sets, Math. Comp. 21 (1967), 204–219.
+
+ [2] L.D. Baumert, W. H. Mills and R. L. Ward, Uniform cyclotomy, J. Number Theory
+     14 (1982), 67–82.
+
+ [3] B. Berndt, R.J. Evans and K.S. Williams, Gauss and Jacobi Sums, Canad. Math.
+     Soc. Ser. Monogr. Adv. Texts, Wiley-Intersci. Publ. John Wiley & Sons, Inc., 1998.
+
+ [4] G. Berman, Finite projective plane geometries and difference sets, Trans. Amer.
+     Math. Soc. 74 (1953) 492-499.
+
+ [5] A. E. Brouwer, R. M. Wilson and Q. Xiang, Cyclotomy and strongly regular graphs,
+     J. Algebraic Combin.10 (1999) 25–28.
+
+ [6] K. Betsumiya, M. Hirasaka, T. Komatsu, Takao and A.Munemasa, Upper bounds
+     on cyclotomic numbers, Linear Algebra Appl. 438 (2013) 111–120.
+
+ [7] C. Carlet, C. Li and S. Mesnager, Linear codes with small hulls in semi-primitive
+     case, Des. Codes Cryptogr. 87(2019) 3063–3075.
+
+ [8] Y. Chang, F. Cheng and J. Zhou, Partial geometric difference sets and partial geo-
+     metric difference families, Discrete Math.341 (2018) 2490–2498.
+
+ [9] C. J. Colbourn and J. H. Dinitz, Handbook of Combinatorial Designs (Second edi-
+     tion), Chapman and Hall/CRC, 2007.
+
+[10] W. Fang, J. Wen and F. Fu, A q-polynomial approach to constacyclic codes, Finite
+     Fields Appl. 47 (2017), 161–182.
+
+[11] T, Feng, K. Momihara and Q. Xiang, Constructions of strongly regular Cayley graphs
+     and skew Hadamard difference sets from cyclotomic classes, Combinatorica 35 (2015)
+     413–434.
+
+[12] C. F. Gauss, Disquitiones Arithmeticae, Yale University Press (1966), Section V11.
+
+[13] S. Huczynska and L. Johnson, Internal and external partial difference families and
+     cyclotomy, Discrete Math. 346 (2023), 113295.
+
+[14] J. Jedwab and S. Li, Constructions and non-existence of strong external difference
+     families, J. Algebraic Comb., 49 (2019), 21-48.
+
+
+
+
+                                          19
+[15] S.A. Katre, A.R. Rajwade, Resolution of the sign ambiguity in the determination
+     of the cyclotomic numbers of order 4 and the corresponding Jacobsthal sum, Math.
+     Scand. 60 (1987) 52–62.
+
+[16] E. Lehmer, On the number of solutions of uk + D ≡ w 2 ( mod p), Pacific J.
+     Math.5(1955), 103–118.
+
+[17] P. A. Leonard and K. S. Williams, The cyclotomic numbers of order eleven, Acta
+     Arithmetica. 26 (1975), 365-383.
+
+[18] F. Luebeck, Standard generators of finite fields and their cyclic subgroups. J. Sym-
+     bolic Comput.117(2023), 51-67.
+
+[19] K. Momihara, Q. Wang and Q. Xiang, Cyclotomy, difference sets, sequences with
+     low correlation, strongly regular graphs and related geometric substructures, Radon
+     Ser. Comput. Appl. Math., 23 De Gruyter, Berlin, 2019, 173–198.
+
+[20] W. Nickel, Endliche Körper in dem gruppentheoretischen Programmsystem GAP,
+     Diploma thesis, RWTH Aachen (1988)
+
+[21] D. K. Nguyen and B. Schmidt, Fast computation of Gauss sums and resolution of
+     the roots of unity ambiguity, Acta Arith. 140 (2009), 205-232.
+
+[22] M. B. Paterson and D. R. Stinson, Combinatorial characterizations of algebraic ma-
+     nipulation detection codes involving generalized difference families, Discrete Math.,
+     339(12): 2891-2906, 2016.
+
+[23] B. Schmidt and C. White, All two-weight irreducible cyclic codes?, Finite Fields
+     Appl. 8 (2002), 1-17.
+
+[24] J. Singer, A theorem of finite projective geometry and some applications to number
+     theory, Trans. Amer. Math. Soc. 43 (1938) 377-385.
+
+[25] T. Storer, Cyclotomy and difference sets, Lectures in Advanced Mathematics, No. 2
+     Markham Publishing Co., Chicago, IL, 1967, vii+134 pp.
+
+[26] F. Thaine, Families of irreducible polynomials of Gaussian periods and matrices of
+     cyclotomic numbers, Math. Comp. 69 (2000) 1653–1666.
+
+[27] Y. Wang and R. Tao, Constructions of linear codes with small hulls from association
+     schemes, Adv. Math. Commun.16(2022) 349–364.
+
+[28] J. Wen, M. Yang, K. Feng, The (n, m, k, λ)-strong external difference family with
+     m ≥ 5 exists, arXiv:1612.09495 (2016)
+
+[29] J. Wen, M. Yang, F. Fu and K. Feng, Cyclotomic construction of strong external
+     difference families in finite fields, Des. Codes Cryptogr. 86 (2018) 1149–1159.
+
+[30] A. L. Whiteman, The cyclotomic numbers of order sixteen, Trans. Amer. Math. Soc.
+     86 (1957), 401–413.
+
+
+                                           20
+[31] R. M. Wilson, Cyclotomy and difference families in elementary abelian groups, J.
+     Number Theory 4 (1972), 17-47.
+
+[32] L. L. Xia and J. Yang, Cyclotomic problem, Gauss sums and Legendre curve, Sci.
+     China Math. 56 (2013), 1485-1508.
+
+[33] S. Yang, Z. Yao and C. Zhao, The weight enumerator of the duals of a class of cyclic
+     codes with three zeros, Appl. Algebra Engrg. Comm. Comput. 26 (2015) 347–367.
+
+[34] Y. Zee, The Jacobi sums of orders thirteen and sixty and related quadratic decom-
+     positions, Math. Z.115 (1970), 259–272.
+
+
+
+
+                                           21
+
