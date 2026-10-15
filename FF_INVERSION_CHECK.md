@@ -105,12 +105,12 @@ implied by T^{k+v_T(ab)} | ue + 1; and lcm(a, b)' | 1 + e, implied by (ab)' | e 
 since deg a ≠ deg b. Conversely, a Case A datum with gcd(a1, b1) = 1, E monic, deg a1 ≠ deg b1 satisfies the hypotheses of
 Prop 1.4 with (a, b, e) = (a1, b1, E) (gcd(E, Aa1b1) = 1 since T ∤ E and E ≡ −1 mod (a1b1)'). ∎
 
-**Lemma 2.3 (a Case A ball lies in a Case B ball with the same E; PROVED).** Let F be a Case A family valid at x_u with E monic,
-T^α ∥ a1, T ∤ b1 (after renaming), α ≥ 1, and put v := v_T(E + 1), H := (E + 1)/T^v. Suppose **α + v ≥ k** and v ≤ k + α. Put
+**Lemma 2.3 (a Case A ball lies in a Case B ball with the same E; PROVED).** Let F be a Case A family valid at x_u with E monic of positive
+degree, T^α ∥ a1, T ∤ b1 (after renaming), α ≥ 1, and put v := v_T(E + 1), H := (E + 1)/T^v. Suppose **α + v ≥ k** and v ≤ k + α. Put
   s := α + v, L' := H/b1, g' := (a1)' = a1/T^α, j := ⌈(s − k)/2⌉, γ := ⌊(s − k)/2⌋.
 Then (E; 0, T^γ g'; 2, T^j L') is a Case B family (D = 1 + T^s L'g', E | D, D/E monic) valid at x_u, and at every point of the
 Case A ball of F; its ball u ≡ −E (mod T^{k+j}) contains the Case A ball.
-*Proof.* H is T-free; E ≡ −1 (mod (a1b1)') gives (a1)'·b1 | H, so L' is a T-free polynomial with E ≡ −1 (mod L') and
+*Proof.* H is T-free and monic (deg E ≥ 1); E ≡ −1 (mod (a1b1)') gives (a1)'·b1 | H, so L' is a T-free polynomial with E ≡ −1 (mod L') and
 g' | L' (gcd(a1', b1) = 1). Modulo E: T^v H = E + 1 ≡ 1 and b1 ≡ −a1 = −T^α g' (E | a1 + b1; b1 is a unit mod E because
 b1 | E + 1). Hence T^s L' g' = T^v H · T^α g'/b1 ≡ −1, i.e. E | D. D is monic (H, b1, g' monic), so D/E is monic. 0 ≤ γ ≤ j and
 s = k + j + γ. The Case A ball has depth k + j_A with j_A ≥ α, and j ≤ α because s − k ≤ 2α (v ≤ k + α); so E ≡ −u
