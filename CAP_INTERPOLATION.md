@@ -133,3 +133,61 @@ the sieve's output. The sieve's loss is structural (B6 made quantitative): one p
 contributing only ω(ℓ)/ℓ = ℓ^{−1+o(1)}. (c) Scope: prime moduli. Composite moduli (3/4-note multipliers) add
 dimension at bounded e (§5) but do not change log S by more than O(log u) at e ≍ λ, so the ceiling's order should
 persist (Assessment).
+
+## 4. The pointwise side: the minimal cap e*(n), and where it meets the sieve
+
+Define **e*(n)** := min{e : ES^{(y,e)}(n) has a solution} ∈ ℤ_{≥0} ∪ {∞}. ES(n) ⟺ e*(n) = 0; FROBENIUS_FIRING
+Thm 4.2 gives e*(n) < ∞ for every odd n > 1 (ineffective: no bound in terms of n). PHASE_DIAGRAM Thm 5.1 is a
+*family-form* statement (for fixed n, solutions at every large scale y with e ≤ y^{o(1)}); it bounds e*(n) only by
+the ineffective x₀(n)^{o(1)}. The almost-all statements of §2 are bounds on #{p ≤ N : e*(p) > e}.
+
+**Proposition 4.1 (covering barrier at the log log scale; PROVED, elementary + EXPONENT_CAP Prop 3.1(c)).** For
+infinitely many primes p, every shot certificate (Q, r) of p has r > (1 − o(1)) log p; hence any argument that
+proves ES^{(y,e)}(p) by *covering* (F_r^*)² with the cap-e box at a single certifying prime r (EXPONENT_CAP Prop 3.1)
+needs e ≥ (log r)^{1−o(1)} ≥ (log log p)^{1−o(1)} for these p.
+*Proof.* A shot (Q, r) with r prime needs (−p/r) = 1 with r ≡ 3 (4), i.e. (p/r) = −1 for p ≡ 1 (4). Let
+W := 8∏_{3≤r≤R} r; by Dirichlet/Linnik there are primes p ≡ 1 (mod W) with log p ≤ C log W ≤ C′R; for them
+(p/r) = (r/p)… = (p mod r / r) = 1 for all odd r ≤ R, so every certifying prime is > R ≥ log p/C′. (With Linnik the
+constant C′ is absolute; "(1 − o(1)) log p" needs p ≤ W^{1+o(1)}, available for a positive proportion of R by
+Bombieri–Vinogradov — I state the weaker log p/C′, which suffices for the (log log p)^{1−o(1)} claim.) The cap
+bound is Prop 3.1(c) of EXPONENT_CAP (box ∏(κ_i + e + 1) ≥ (r−1)/2 with ∏ s^{κ_i} ≤ r). ∎
+*Reading.* The almost-all saturation scale of §2 (e ≍ log log N) and the pointwise covering threshold
+((log log p)^{1−o(1)}, for some p) are the SAME scale. So "ES^{(y, C log log p)} for every prime p" is the natural
+pointwise target where the two sides meet (CONJECTURE-level target; numerically trivial, since e*(p) = 0 for all
+tested p by ES itself).
+
+**Theorem 4.2 (pointwise cap under GRH; CONDITIONAL on GRH for the Dedekind zeta functions of the fields
+L = ℚ(ζ_{4P}, √p, ζ_m, s₁^{1/m}, …, s_k^{1/m}); proof at citation level (Hooley/Lenstra + Lagarias–Odlyzko), to be
+hostile-reviewed).** There is an absolute C such that for every prime p,
+`  (a) e*(p) ≤ C (log p)^{2.1}          (k = 1, S = {3}, p ≠ 3);`
+`  (b) e*(p) ≤ exp(C √(log log p · log log log p))      (k ≍ √(log₂p/log₃p) mute primes).`
+*Proof sketch.* p ≡ 3 (4): e* = 0 (shot Q = 1). Let p ≡ 1 (4); S = first k odd primes ≠ p, P = ∏S. Count primes
+r ∈ (x/2, x] with (i) r ≡ −1 (mod 4P), (ii) (p/r) = −1, (iii) for no odd prime q | r − 1 are all s ∈ S q-th powers
+mod r, (iv) λ₁(Λ_r) > B (k ≥ 2 only; Λ_r as in PHASE_DIAGRAM Thm 5.1). For such r: each s is a QR (as in
+FROBENIUS_FIRING Thm 4.2), so (iii) gives ⟨S⟩ = (F_r^*)², and (ii) makes −p/4 a square; hence r | p + 4Q² with
+Q ∈ ⟨S⟩, rad Q | (r+1)/4, and the overflow exponents are ≤ v_s(Q). For k = 1 take Q = s^a, a < (r−1)/2: e ≤ r/2.
+For k ≥ 2 Minkowski II gives exponents ≤ 2kλ_k ≤ 2k·x/B^{k−1} (PHASE_DIAGRAM Thm 5.1 Step 4).
+Counting (Hooley's scheme, GRH): *small q ≤ ξ₁ = (1/6)log x*: inclusion–exclusion over m | ∏_{q≤ξ₁} q, 2^{π(ξ₁)} ≤ x^{0.12}
+fields, each with |C| = 1 and Lagarias–Odlyzko error ≪ √x log(pPmx); main term δ·x/(φ(4P)·2·log x) with
+δ = ∏_{q≤ξ₁, q∤2P}(1 − 1/(q^k(q−1))) ≥ 0.3 (linear disjointness as in FROBENIUS_FIRING Thm 4.4; m sharing a prime with
+the conductor of ℚ(√p) only kills terms). *Medium q ∈ (ξ₁, ξ]*: upper bound #{r ≡ −1 (4P) split in ℚ(ζ_q, s₁^{1/q})}
+≤ li(x)/(φ(4P)q(q−1)) + O(√x log(Pqx)) — no p-dependence. *Large q > ξ*: k = 1: Hooley (BT on (ξ, √x log x], and
+r | s^t − 1 with t ≤ √x/log x beyond), total ≪ x log₂x/log²x; k ≥ 2: index ≥ ξ ⇒ |Γ_r| ≤ x/ξ, and
+#{r : |Γ_r| ≤ Y} ≤ 6^k Y^{1+1/k}·3 log P (PHASE_DIAGRAM Thm 5.1 Step 2). *(iv)*: #{r : λ₁ ≤ B} ≤ (3B)^{k+1} log P.
+Parameters. (a) k = 1, P = 3: main ≍ x/log x; the small range needs x^{0.38} ≫ log p·log²x, i.e. x ≥ (log p)^{2.1}·C;
+the rest is n-free. So r ≤ C(log p)^{2.1} and e ≤ r/2. (b) ξ := √x/(P log³x): medium error ≪ x/(φ(P) log² x);
+large range needs (x/ξ)^{1+1/k}6^k log P ≪ x/(φ(P) log² x), true when log x ≥ C k log k (as P = e^{(1+o(1))k log k});
+B := (x/(P log³x))^{1/(k+1)}/3. Small range: x ≥ (P log p)^{2.1}. Take log x := max(Ck log k·?, 2.1(log₂p + log P))
+with k := ⌊√(log₂p/log₃p)⌋: log x ≍ log₂p, and e ≤ 2k·x/B^{k−1} ≤ exp(2 log x/(k+1) + O(k log k)) =
+exp(O(√(log₂p·log₃p))). ∎
+*Remarks.* (1) Min-form vs family-form: (b) bounds the SMALLEST solution's cap (y ≈ p·(log p)^{O(1)}, so also
+e ≤ exp(O(√(log₂y log₃y)))). In family form (scale y → ∞ at fixed p) the same argument gives only
+e ≤ exp(O(√(log y·log₂y))) — PHASE_DIAGRAM Thm 5.1 Remark (2)'s prediction, now under GRH; the cell
+"ES^{(y,polylog)}" (family form) stays OPEN even under GRH by this method. (2) General odd n: the same with S =
+first k odd primes not dividing n; (a)/(b) hold with log p replaced by log n as long as P(n) := ∏S stays
+≤ (log n)^{O(1)} (resp. e^{O(k log k)}); for n divisible by all primes ≤ w, S must start above w (Def 1.1 forbids
+mute primes dividing n), and the bound degrades — the same issue as R210 m8. (3) Unconditionally nothing of this
+shape is known: Thm 4.2 of FROBENIUS_FIRING needs BV/Siegel–Walfisz at modulus 4 rad(n)P, i.e. x ≥ exp(n^{ε}).
+**The gap.** GRH pointwise: exp(O(√(log₂p log₃p))); covering barrier: (log₂p)^{1−o(1)} i.o.; unconditional
+almost-all: e ≍ log₂N leaves ≤ N^{1 − c/(log₂N log₃N)} exceptions (Thm 2.1), and the large sieve cannot do better at
+any cap (Thm 3.1).
