@@ -14,6 +14,10 @@ imports), `scripts/review_r235_brute.py` (independent ES solver via (ay − d)(a
 | Lemma 1.2 (no integer unit-square points, c₀ = 1) | SOUND |
 | §1.4 OPEN list, k = 105 hardness, Λ₁₀₅ ∩ Sq^× = ∅ at L = 360 | SOUND-AFTER-REPAIRS (D3, D4 minor) |
 | §1.4 mixed point μ* for k = 105 (EVIDENCE) | SOUND as EVIDENCE |
+| Prop 2.1 (ν-slots as Frobenius set C_ν) + decompositions | SOUND |
+| Thm 2.2 (a)–(c) | SOUND (D6 minor hypothesis) |
+| Thm 2.2 (d) uniqueness of 4 | SOUND-AFTER-REPAIRS (D5: the u ≡ 3 (4) parenthetical is wrong) |
+| §2 numerics, 8/131, 8/241 | SOUND-AFTER-REPAIRS (D7: χ sign at 131, word count) |
 
 ## 1. Theorem 1.3 — headline
 
@@ -82,6 +86,45 @@ separately by the screen). Fine.
   "2·3-power" should be spelled "of the form 3^b or 2·3^b" (part of D4). The adaptive-covering Haar measures are EVIDENCE
   produced by author code; not replayed (scope: EVIDENCE only, claim is explicitly weak and not a certificate).
 
+## 4. §2 — Prop 2.1, Thm 2.2 (`scripts/review_r235_words.py 2000`, `scripts/review_r235_t1.py 60`)
+
+**Decompositions** re-derived from AA* = tn + 1, Av = n + u, A*u = n + v: e.g. ν | u = νw:
+tn + A* + 1 = tn + tv = t(n + v) = tuA* = νtwA*, giving ν/n = 1/(wA*) + 1/(tnw) + 1/(tnwA*); ν | A = νw:
+nA* + n + v = ntv + v = v(tn + 1) = vAA* = νwvA*. Exact-rational check of all u/v/A/A* slots for every word of every prime
+< 2000 and odd square ≤ 59², ν ∈ {3, 4, 5, 7, 8, 12}: 0 failures.
+
+**Prop 2.1.** Re-derived: ν | u impossible (gcd), ν | A excluded, ν | v ⇒ ν | Av = n + u excluded; ν | t ⟺ ν | tu = A + 1;
+ν | A* ⟺ (multiplying tv − 1 by the units u, A) (A + 1)(n + u) ≡ uA ⟺ An ≡ −(n + u). Combined with A ≡ −1 (mod u) and
+CRT (gcd(ν, u) = 1) this is the stated C_ν. The two ν-classes are distinct since u ≢ 0 (mod ν). Brute-force comparison of
+"ν divides a slot" with "A mod ν ∈ C_ν" on every word satisfying the hypotheses (primes < 2000 + odd squares ≤ 59²,
+ν ∈ {3, 4, 5, 7, 8, 12}): **0 mismatches. SOUND.** (Note: "ν-word" = ν divides a *single* slot; split divisibility, e.g.
+3 | t, 4 | A* for ν = 12, is not a ν-word — fine as a definition, but say so.)
+
+**Thm 2.2 (a)–(c).** (a): odd A | m² + u, gcd(m, u) = 1 ⇒ every prime r | A has (−u/r) = 1, r ∤ 4u, so splits in ℚ(√−u);
+σ_A fixes √−u while c moves it. ✓ (b): conductor of ℚ(√−u) divides 4u | νu when 4 | ν; u = 1 forces i ∈ ℚ(ζ_ν) ⟺ 4 | ν ✓.
+(c): Chebotarev (Dirichlet + one quadratic condition suffices) gives r ≡ −1 (mod νu), (−u/r) = 1; m odd with
+m² ≡ −u (mod r) exists; A = r, t = (r + 1)/u ≡ 0 (mod ν), v = (m² + u)/r: tuv − u − v = Av − u = m² ✓. **SOUND.**
+Numerics: ν-words at odd squares 3² … 59²: 0 for ν = 4, 8, 12; 782/521/280 for ν = 3/5/7 ✓. Among coprime ν-words at
+odd squares (ν = 3, 5, 7, 11) every odd-A one has √−u ∉ ℚ(ζ_{νu}), **including A*-slot ones** (which (a) does not
+address). Reason (reviewer): for ν odd, gcd(ν, u) = 1, √−u ∈ ℚ(ζ_{νu}) ⟺ √−u ∈ ℚ(ζ_u), and then χ_{−u}(A) = χ_{−u}(−1) = −1
+for every A ≡ −1 (mod u), contradicting splitting: the whole level is empty for odd A, not just the t-slot. Worth stating.
+
+**Thm 2.2 (d).** For u ≡ 1 (mod 4), n ≡ 1 (mod 4): n + u ≡ 2 (mod 4), so the A*-class −(n + u)/n is ≡ 2 (mod 4), not a
+unit mod ν; the coprime slot set is the single element c of the c-fibre (a coset of (ℤ/ν)^×, size φ(ν)); χ_{−u} is
+non-trivial on that coset's group because √−u ∉ ℚ(ζ_u) but ∈ ℚ(ζ_{4u}); so forbidden half has relative size 1/2; c is in
+it; equality ⟺ φ(ν) = 2 ⟺ ν = 4 (given 4 | ν). ✓ And Σ_u = ℚ(ζ_u, √−u) = ℚ(ζ_{4u}) for u ≡ 1 (4), so "4-word ⟺ σ_A = c
+on Σ_u" ✓. **But the u ≡ 3 (mod 4) parenthetical is wrong (D5)**: then n + u ≡ 0 (mod 4), so the hypothesis ν ∤ n + u
+of Prop 2.1 fails for ν = 4 and the v-slot opens: for odd A, v = (n + u)/A has v₂(v) = v₂(n + u) ≥ 2, so **every** odd-A
+word at an odd level u ≡ 3 (4) is a 4-word, and (reciprocity) has χ = (A/n) = −1. Checked: 355 such words at primes
+p ≡ 1 (4) < 2000, all with 4 | v and χ = −1. So at u ≡ 3 (4) the 4-slot set is the *whole* c-fibre = the whole forbidden
+set — the identity "4-slots = T1-forbidden set" holds at every odd u, it is not "even smaller".
+
+**8/131, 8/241.** Own brute force: 8/131 and 8/241 have no representation as a sum of three unit fractions ✓. Words
+(t, u ≤ v): 22 for 131 (doc: 21), 16 for 241; 4-slot words 14 (131) and 6 (241) ✓; every slot value divisible by 4 is
+≡ 4 (mod 8), no 8-slot ✓. But 131 ≡ 3 (mod 4): all 14 4-slot words of 131 have (A/131) = **+1** (the other 8 have −1), so
+"(χ = −1)" is false with the convention χ(w) = (A/n); DEDEKIND Thm 4.5 and Thm 2.2(d) are stated for n ≡ 1 (mod 4) only.
+At 241 ≡ 1 (mod 4) all six have χ = −1 ✓.
+
 ## Defects
 **D1 (MINOR, presentation/novelty; SIGN_FIELDS §1 Thm 1.3 and AGENT_REPORT headline).** Five of the nine offsets
 (k = 9, 81, 129, 201, 249) have **no** member in Mordell's six classes mod 840 for s ≥ 2, so ES for them is an immediate
@@ -103,3 +146,20 @@ needed beyond optionally noting that the k = 225 class mod 2716 is an I1 class w
 **D4 (MINOR; SIGN_FIELDS §1.4, k = 33 parenthesis and mixed-point bullet).** (a) "the screen leaves exactly s ≡ −2 (mod L)
 at every L tested" — false at L = 60, 120 (extra survivor s ≡ 34 mod 60, a mixed point); state the tested L list, or say
 "for every L divisible by 9 tested (180, 360, …)". (b) "ord_q(4) a 2·3-power" → "ord_q(4) ∈ {3^b, 2·3^b}".
+
+**D5 (MAJOR — wrong statement inside a PROVED theorem; SIGN_FIELDS Thm 2.2(d), parenthetical "for u ≡ 3 (mod 4) the whole
+c-fibre is forbidden and the ratio below is even smaller").** For ν = 4, n ≡ 1 (4), u ≡ 3 (4): 4 | n + u, Prop 2.1 does not
+apply, and every odd-A word at level u is a 4-word via 4 | v (and has χ = −1). So for ν = 4 slot set = forbidden set also at
+u ≡ 3 (4). Repair: restrict (d) explicitly to u ≡ 1 (mod 4), and replace the parenthetical by "for u ≡ 3 (mod 4),
+4 | n + u, Prop 2.1 does not apply; there the v-slot makes every odd-A word a 4-word, and the whole c-fibre is both the
+4-slot set and the forbidden set — so the coincidence for ν = 4 holds at every odd u (= DEDEKIND Thm 4.5). For other 4 | ν
+at u ≡ 3 (4) the slot set is a proper subset (not analysed)." The headline conclusion (uniqueness of 4) survives and is
+in fact strengthened.
+
+**D6 (MINOR; Thm 2.2 preamble).** "every odd A at level u has σ_A ∈ Gal(Σ_{ν,u}/ℚ(√−u))" needs gcd(A, ν) = 1 (σ_A undefined
+otherwise). Add the hypothesis; also note in (a) that for ν odd the conclusion is stronger (whole level empty, see §4).
+
+**D7 (MINOR; SIGN_FIELDS §2 "The failures", memo z8_eight_failures_frobenius).** 131 ≡ 3 (mod 4): its 4-slot words have
+(A/131) = +1, not −1; the sign-field "forbidden half" language of (d) is for n ≡ 1 (mod 4). Repair: "14 carry a 4-slot
+(for n ≡ 3 (4) these are the words with (A/n) = +1, i.e. (−A/n) = −1)", and state the word-count convention (21 vs. the
+reviewer's 22 words (t, u ≤ v) — say which word is excluded and why).
