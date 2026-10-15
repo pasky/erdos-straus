@@ -69,3 +69,9 @@ check, not as the proof.
 (K = (h+1)/4) and τ(n) ≤ C₃n^{1/3}, C₃ = ∏_p max_a (a+1)p^{−a/3} = 3.5273, so τ₃(K) ≤ τ(K)² < 2K − 1 for K > 241;
 direct check K ≤ 242: τ₃(K) ≥ 2K − 1 only for K = 1, 2. Hence **h = 3, 7 are the only covering primes, for all h**
 (PROVED, elementary) — the "B1" assessment becomes a theorem.
+
+### Lemma 3.1 (prime-modulus SQ_± words, χ = (n/ℓ)) — SOUND
+v = (n+u)/A, t = (A+1)/u; A = ±ℓ ≠ −1 so t ≠ 0, u ≠ −n so v ≠ 0. (−1/n) = 1 and Jacobi reciprocity with n ≡ 1 (4) give
+χ = (±ℓ/n) = (n/ℓ) = (−u/ℓ). The "iff" has a potential edge case (the only u ≡ −n (mod ℓ) in ±div(ℓ±1) being u = −n,
+which gives v = 0); it is vacuous: then ℓ ≡ ±1 (mod n) and (n/ℓ) = (ℓ/n) = (±1/n) = 1. Worth one sentence (D7).
+u | ℓ ± 1 automatic for |u| ∈ {1,2,3,4,6}, ℓ ≥ 5 (24 | ℓ² − 1); the ψ_u table checked.
