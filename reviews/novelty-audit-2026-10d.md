@@ -291,3 +291,41 @@ Archive of this pass: `sources/lit2026d/`.
 | (J)55 Thm 3.4 (K-adic unit-square set Z_K⁺ sterile, Hilbert reciprocity in ℚ(√j)) | **APPARENTLY NEW** | nothing found |
 | (J)55 Prop 4.1 / (J)53 "T1 deforms": tp + 1 = tm² + c² | APPARENTLY NEW (elementary) | — |
 | (J)55 escaping families for k < 0 (e.g. 4/2801) | APPARENTLY NEW (computation) | — |
+
+---
+
+## 6. ES-variants: square numerators, mute primes, exponent caps ((J)41, (J)43, (J)47)
+
+### 6.1 Findings
+
+* **Searches:** "4/n = 1/x + 1/y + a/z generalization Erdős–Straus non-unit numerator",
+  "Erdős–Straus relaxation rational z square denominator solvable for all n",
+  "Erdős–Straus Brauer–Manin relaxed equation square numerator always solvable",
+  "Egyptian fraction … exponent of denominator bounded" — **no relaxation of ES of the
+  type 4/n = 1/x + 1/y + Q²/z (or den z | y^e) found.** The nearest published relatives
+  are (i) Bright–Loughran's integral Hasse principle / strong approximation results
+  (arXiv:1908.02526, already archived and cited), which concern the same surface with
+  integrality relaxed at a set of places, not a square-numerator overflow, and (ii)
+  numerator-variants m/n (PW; Sierpiński; Schinzel), which change the left side.
+* **Methods behind (J)43 Thm 5.1** (Bombieri–Vinogradov + Iwaniec's linear sieve on
+  "n + 4Q² has a prime divisor ≡ −1 (mod 4kλ)") are standard; the result (sub-polynomial
+  exponent cap) is campaign-specific. Elsholtz–Tao §§6–8 [archived] use the same family
+  of divisor-in-progression counts on average over n, not for a fixed n with a growing
+  modulus.
+* **(J)43 Prop 4.1's N^{1/4} face.** The quoted threshold is the Lenstra /
+  Coppersmith–Howgrave-Graham–Nagaraj threshold (Bernstein 2006 table, p. 2; CHN 2008) —
+  correctly attributed in the ledger.
+* **(J)47 Markoff-type equation 4na² + B² + E = c·a·B·E.** Markoff-type surfaces
+  x² + y² + z² = axyz + … and their Vieta/Pell orbits are classical (Markoff; Mordell;
+  Ghosh–Sarnak arXiv:1706.06712 as already cited in (J)36). Search "Erdős–Straus Markoff
+  type equation" found no ES paper; the specific identification is apparently new.
+
+### 6.2 Verdicts
+
+| Claim | Verdict | Notes |
+|---|---|---|
+| (J)41 Thm 1.1 / (J)43 Prop 1.1 (□-relaxation and the shot normal form k(4ab − n) = b + aQ₁²) | APPARENTLY NEW (elementary) | no square-numerator relaxation in the literature |
+| (J)43 Thm 2.1 (sharp archimedean wall Q₁ ≤ (16k³n + 1)/(4k − 1)) | APPARENTLY NEW | — |
+| (J)43 Thm 5.1 (sub-polynomial exponent cap, BV + linear sieve) | APPARENTLY NEW result; standard method | — |
+| (J)43 §6 B1 (no finite set of shot classes covers p ≡ u (mod r)) | **KNOWN in substance** for the square/non-square dichotomy (Schinzel 2000; ET Prop 1.6); the shot-class version is new as stated | — |
+| (J)47 Thm 1.1/1.2 (cap-2 cell = one Markoff-type equation) | APPARENTLY NEW identification | Markoff-type machinery classical |
