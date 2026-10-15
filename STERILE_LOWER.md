@@ -81,3 +81,56 @@ capped at 0; for r ≥ 2^800 every N = r^K is in the tail and every weighted ter
 The P tail of SE (≈ 0.11 at 2^32) is gone. So r₀ is now set by **one number: the certified bound for the level-1 count
 D_Q(r) of Type I N-points of 4/r**, which must be ≤ 0.22 r; the engine gives ≈ 0.22 r at r = 2^{30.16} against a true count
 of a few hundred.
+
+## 3. Below 2^30: the level-1 terms must be certified per r — and can be, jointly (amortised polylog per prime)
+
+**Assessment 3.0 (why uniform box bounds stop near 2^30).** With exact level 1 the remaining terms of (S) are
+P(K = 3) + P(K = 5) + … + Q(k ≥ 3) ≈ 0.16 (b = 24), 0.45 (b ≈ 22), 1.3 (b = 20) (table (I1)). So a certificate down to
+r ≈ 2^{22.5} needs only the *level-1* counts D_Q(r), D_P(r) to be ≤ ~0.15 r, which they are by 5–6 orders of magnitude
+(true values: a few hundred), but the uniform engine bound for D_Q(r) is ≈ 10·r^{0.6}·ln r, i.e. 2.3·(r/2) at 2^24
+((I3): no local tweak changes this by more than ~10 %). Exact per-r enumeration costs ≍ r per prime (≈ 0.4r pairs (a, d) for
+P, (r/2)·ln r for Q), i.e. ≍ X² over all primes up to X: hopeless for X ≈ 2^30.
+
+**Lemma 3.1 (joint parametrisation of level-1 data; PROVED, elementary).** (i) For positive integers a, c, d put f = 4acd − 1.
+Every positive integer N ≡ −4a²d (mod f) gives a P-datum (a, b, c, d, e) of N with b = (Nc + a)/f, e = (N + 4a²d)/f, and
+a ≤ b ⇔ cN ≥ 4a²cd − 2a; conversely every P-datum of N arises so from its own (a, c, d). (ii) For positive integers
+a, d, f with f | 4a²d + 1 and every c ≥ 1 with n := 4acd − f > 0, (a, b, c, d) with b = (na + c)/f is a Q-datum of n
+(e = (4a²d + 1)/f); a ≤ b ⇔ b ≥ a; conversely every Q-datum arises so (f = 4acd − n).
+*Proof.* (i) f ∣ Nc + a since Nc + a ≡ −4a²cd + a = −af (mod f); 4abd = (4acdN + 4a²d)/f = ((f + 1)N + 4a²d)/f = N + e;
+ce = c(N + 4a²d)/f = (a(f + 1) + Nc)/f = a + b. b ≥ a ⇔ Nc + a ≥ a(4acd − 1). Converse: SE Lemma 1.1(i)–(ii).
+(ii) e·f = 4a²d + 1, and fb = na + c with na + c ≡ 4a²cd + c = c(4a²d + 1) ≡ 0 (mod f); then 4abcd = n(a + b) + c is
+f·b·4acd/f … directly: 4acd·b = (n + f)b = nb + na + c. Converse: SE §3.2 (ef = 4a²d + 1, f = 4acd − F). ∎
+*Check (EVIDENCE):* `scripts/zl_joint_check.py X` counts P- and Q-data of every n ∈ [X, 2X) both ways (joint loops over
+(a, c, d) resp. (a, d, f, c) vs. R223's per-n enumerators): X = 300 and X = 1000, **0 mismatches** (3301 + 4909 resp.
+17328 + 25674 data).
+**Consequence (Assessment, cost model).** The level-1 counts of *all* N in a dyadic range [X, 2X) are obtained in one sweep:
+P: Σ_{(a,c,d): acd ≲ X} (X/(4acd) + 1) ≈ X(ln X)²/2 + X(ln X)³/24 steps, no factoring; Q: one divisor list of 4a²d + 1 per pair
+(a, d), ad ≤ X (sieve in d for fixed a), then Σ τ(4a²d + 1)(X/(4ad) + 1) increments. That is **polylog per prime** instead of
+≍ r: ≈ 10^{11}–10^{12} elementary steps for [2^29, 2^30], less below. Combined with the existing uniform bounds for
+K, k ≥ 3, this would certify (S) for every prime r ≥ ≈ 2^{22.5} (≈ 6·10⁶; P at K = 3 becomes binding below). Not run here
+(multi-day, sieve engineering for large a); flagged as the concrete next step (SHARP 1).
+
+## 4. Small r and the r = 17 line
+
+**Computation 4.1 (level-1 survivors; CERTIFIED by exhaustive exact enumeration, `scripts/zl_level1_survivors.py`, R223's
+enumerators, output `data/zl/level1_survivors.txt`).** For every prime 3 ≤ r ≤ 13 *all* non-residue cells are covered at
+level 1; for **every prime 17 ≤ r < 20000 some non-residue cell survives level 1** (r = 17: {5, 7}; r = 19: {2, 3, 10, 13};
+r = 23: {5, 14}; least surviving fraction 2/11 at r = 23; it tends to 1 quickly, e.g. 9898/9996 at r = 19993). So the
+dichotomy "r ≤ 13: finite ET covering at level 1; r ≥ 17: level 1 leaves room" is exact up to 2·10⁴. This is necessary,
+not sufficient, for sterility: deeper levels are controlled by (S) only for r ≥ 2^{30.16} (Thm 2.1).
+
+**Assessment 4.2 (r = 17 is out of reach of every box-sum certificate).** M17D §1 needs D_P(17^K) ≤ 2.5·17^{0.4K} from K = 15
+(N ≈ 2^{61}) with no log loss; SE's engine gives D_P(N) ≈ 600√N there (G = bound/√N ≈ 600 for N ∈ [2^{40}, 2^{100}], < 1 only
+beyond 2^{170}, 7·10⁻¹¹ at 2^{600}). With weights 17^{−(K+1)/2} this is Σ_K 2G/√17 ≫ 1: off by ≈ 10⁴, and the true counts are
+≈ 10⁻⁶ of the bound. Pointwise (M17D §2–3): for a rational u = −p/q every covering datum satisfies, besides M17D's
+"unbalanced" constraint, the exact identity below; it restricts but does not count covering data to zero.
+**Lemma 4.3 (U–V factorisation; PROVED, elementary).** Let (a, b, c, d, e) be a P-datum of N = r^{2L−1}, W = r^L, with
+qa − pb = zW. Put G := ((p + q)² + 4rdz²)/e (an integer: M17D Remark 2.4 with 17 ↦ r), U := Ga − cp², V := Gb − cq². Then
+Ub = cq²a + rz², Va = cp²b + rz² (so U, V > 0 are integers) and **UV = c²p²q² + G·r·z²**. In particular, if a ≤ b and
+b ≤ N/(2(|p| + q)²), then e ≤ 4q²a.
+*Proof.* Remark 2.4 reads e[c(p²b + q²a) + rz²] = ab·eG, i.e. c(p²b + q²a) + rz² = Gab; so Ub = Gab − cp²b = cq²a + rz² and
+symmetrically; multiply: UV·ab = (cq²a + rz²)(cp²b + rz²) = ab·(c²p²q² + rz²·G) after substituting Gab. For the last claim,
+U ≥ 1 gives 1 ≤ cq²a/b + rz²/b ≤ 2q²a/e + (qa − pb)²/(Nb) ≤ 2q²a/e + (|p| + q)²b/N ≤ 2q²a/e + 1/2. ∎
+(Check: u = 11/9 ∈ C₇ at level 2 via (1, 78, 1, 16): z = 3, G = 124, U = 3, V = 9591, UV = 28773 = 9801 + 124·17·9.)
+Outcome for goal (2): **undecided** (no sterile point proved, no covering found); M17D's Conjecture 4.2 and conditional
+Theorem 4.1 stand unchanged.
