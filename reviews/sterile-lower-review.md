@@ -181,3 +181,128 @@ ced7e8b9: "§6 sweep certificate, r ≥ 2^27"), which is **not** reviewed here. 
 | Comp 4.1 (r ≤ 13 covered; 17 ≤ r < 20000 survivors; r = 17: {5, 7}) | SOUND — recomputed for all r < 20000 |
 | Lemma 4.3 (UV = c²p²q² + Grz², e ≤ 4q²a) | SOUND (m1, m2) |
 | Assessments 3.0 / 4.2, r = 17 "undecided", labels | SOUND (m6, m8, m9) |
+
+---------------------------------------------------------------------------------------------------------------------------
+# Round 2 (R231): STERILE_LOWER §6–7 (Thm 6.3, r₀ = 2^{21.4375})
+
+**Repairs applied (round 2, author quiet ≥ 3 h):** r2-m1 in `scripts/zl_r1.py` (exact endpoints, exit on mismatch, contiguity
+check; all nine r1 logs reproduced byte-identically; a corrupted-endpoint file and a file with a missing cell now exit 1) + MANIFEST
+note; r2-m3 and r2-m5 as wording in STERILE_LOWER §6.3 and §7, marked '(R231 repair …)'. Not applied: r2-m2 (sweep header — needs
+a zl_sweep change and re-runs), r2-m4 (zl_boxa comment — would change a certified binary's sha for a comment).
+
+Merged `side-agent/sterile-lower` at cf13d705 (checkpoint 2). New scripts (from scratch): `scripts/review_zl_pern.c` (per-n
+level-1 counter), `scripts/review_zl_r1.py` (certificate re-check); `review_zl_pbox.py` gained in-cell validation for N = r^K.
+
+## 6.1 Splitting the level-1 count
+Re-derived. (a) Q-data with ad ≤ Y: at most 2 per (a, d) — M17C Lemma 2.1(iv): f | t = 4a²d + 1, f ≡ −F (mod s), s = 4ad,
+s² > t, gcd(t, s) = 1; a divisor f ≤ √t < s is the least residue of its class, a divisor f > √t is fixed by its cofactor t/f < s in
+the class t·(−F)^{−1}: ≤ 1 of each kind. Correct (and c, hence the datum, is fixed by f). (b) Q-data with a ≥ A: zl_boxa skips a
+box only if its upper a-enclosure a₁ = UP((λP + F₁)/(4CD)) < ACUT, so all a ≥ A data stay in non-skipped boxes; row aggregation
+min(agg, inner) still bounds them (agg bounds the whole row). Correct. (c) Range facts: a ≤ b ⇒ f ≤ F + 2/e ≤ F + 2 (from
+f − 1/e ≤ 2acd, shown in round 1) and 4acd = f + F ⇒ acd ≤ (F + 1)/2 — the sweep's d ≤ (2X₁+2)/(4a), f ≤ X₁ + 1, and the
+'none' criterion (no Q-datum has a > (F+1)/2) follow. The AD and engine pieces may double-count data with ad ≤ Y and a ≥ A: harmless.
+**Verdict 6.1: SOUND.**
+
+## 6.2 zl_sweep.c (code reading)
+P: triples (a, c, d) with 4a² − 2a < X₁, 4a²d − 2a < X₁; progression N ≡ −4a²d (mod f), start ⌈4a²d − 2a/c⌉ = 4a²d − ⌊2a/c⌋
+(a ≤ b ⇔ cN ≥ 4a²cd − 2a), odd N only (f odd ⇒ step 2f); c-loop stops once f > 4a²d and f − 4a²d ≥ X₁ (least positive member).
+Correct. Q: rows a < A, d ∈ [⌊Y/a⌋ + 1, ⌊(2X₁+2)/(4a)⌋] (⇔ ad > Y), sieve root d ≡ −(4a²)^{−1} (mod p) for odd p ∤ a up to
+√m_max (prime table size checked, exit 3), leftover cofactor prime (two leftover factors > √m_max would exceed m); short rows by
+trial division < 2^10 + deterministic MR (12 bases ≤ 37, valid < 3.3·10²⁴) + Brent ρ; at most one prime factor ≥ 2^32 (m < 2^64);
+divisors f ≤ X₁ + 1, c from ⌈(X₀ + f)/(4ad)⌉, condition na + c ≥ af (b ≥ a). Overflow paths (MF, dv, sieve root) exit non-zero;
+16-bit counters saturate at 65535 and zl_r1 fails on mp or mq = 65535. Correct as read.
+
+## 7. r = 17: conic Γ_{c,d,z} (Assessment)
+Re-derived: with X = qa − pb = zW, cX² = cz²rN and 4rcdz²ab − rz²(a + b) = rz²c(4abd − e) = rz²cN, so Γ holds; conversely
+N := X²/(rz²), e := (a+b)/c give N = 4abd − e. `scripts/review_zl_conic.py`: Γ and N = X²/(rz²) hold on 1132 (datum, p, q)
+instances over r ∈ {3, 5, 7, 17}, r | X always. "Γ forces r | X and r | N" tacitly needs r ∤ c (in-cell); then
+v_r(X²) = 1 + 2v_r(z) + v_r(4abcd − a − b) forces v_r(4abcd − a − b) odd, so r | N also when r | z — fine, say "r ∤ c".
+Vieta partners a′ = bV/(cq²) = 748098/81 = 83122/9, b′ = aU/(cp²) = 3/121 confirmed (a·a′ = (cp²b² + rz²b)/(cq²)). The S-unit
+remarks (ii) are Assessment and labelled so. **Verdict §7: SOUND as Assessment** (nit: hypothesis r ∤ c).
+
+## 6.2 (cont.) Exact counts: sweep vs independent per-n enumeration
+`scripts/review_zl_pern.c` (from scratch; P by loops over (a, b, d); Q by loops over (c, d) and the progression f ≡ −n (mod 4cd),
+1 ≤ f ≤ n + 2, a = (f + n)/(4cd), b = (an + c)/f, checking b ≥ a, c | a + b and 4abcd = n(a + b) + c in 128-bit) — it never lists
+divisors of 4a²d + 1 and does not use Lemma 3.1. It splits Q into a < A ∧ ad > Y (= the sweep's JQ), ad ≤ Y, a ≥ A ∧ ad > Y, and
+records the largest number of Q-data sharing one (a, d). Sanity: n ∈ [300, 600): 3301 + 4909 data (= round 1).
+I recompiled `zl_sweep.c` (gcc -O2 -march=native) and re-ran the certified octaves with ZL_BIN dumps, with the MANIFEST parameters:
+* octave 21 (ZL_SHORT=8, A = 2097154, Y = 300): cell file **identical** to `data/zl/sweep_21.txt`;
+* octave 24 as a split run (ZL_SHORT=8, A = 330000, with P) + (ZL_NOP, ZL_ALO = 330000, A = 524288, sieve rows), merged by
+  `zl_merge.py`: **identical** to `data/zl/sweep_24.txt`.
+Samples (`scripts/review_zl_sample.py` reads the uint16 dumps itself, sums split runs itself, and takes the argmax-(JP + JQ) prime of
+every cell — the number the certificate uses — plus seeded random primes):
+| octave | primes compared | of which cell argmax | JP, JQ mismatches | max #Q-data per (a, d) | max Q(ad ≤ Y) vs 2#{ad ≤ Y} | max Q(a ≥ A) |
+|---|---|---|---|---|---|---|
+| [2^21, 2^22) incl. all cells j = 686..703 of [2^{21.4375}, 2^22) (100 random in it) | 218 | 18 | **0** | 2 | 1402 ≤ 3534 | 0 |
+| [2^22, 2^23) (A = 4194306, Y = 1048; file identical to sweep_22) | 112 | 32 | **0** | 2 | 3334 ≤ 14900 | 0 |
+| [2^24, 2^25) (split run) | 132 | 32 | **0** | 2 | 8260 ≤ 71276 | 117 (≪ engine row ≈ 10⁶) |
+| [2^27, 2^28) (A = 32768, Y = 134217, max-S octave; file identical to sweep_27) | 62 | 32 | **0** | 2 | 38743 ≤ 3210940 | 3079 (≪ engine 2.6·10⁷) |
+So the per-cell maxima entering the certificate are exact counts, independently confirmed at the argmax primes; and the AD bound
+"≤ 2 per (a, d)" is attained but never exceeded in 524 primes. The reproduced files cover every binary version listed in MANIFEST
+(octave 27: original source; 24: sweep2 + sweep3 features; 21, 22: sweep4), so the uncommitted older sources are immaterial.
+
+## 6.3 Certificate (zl_r1.py) and the deeper terms
+Code reading of `zl_r1.py`: level-1 term 2(maxPQ_j + 2·Dsum(Y) + eng_j)/2^{j/32} — weight 2r^{−1} for both P (K = 1) and Q (k = 1),
+maximal at r = 2^b, maxima over all primes of the cell: correct; Dsum is the exact divisor-sum count; engine rows ×(1 + 10⁻⁹), header
+ACUT checked, missing row ⇒ exit; saturated counters ⇒ FAIL; 'none' requires A > (X₁ + 1)//2 + 1 — correct since no Q-datum of F
+has a > (F + 1)/2 and every row a < A is swept (rows with a > (X₁+1)/2 are empty anyway). Deeper terms (K, k ≥ 3, tails) are the
+zl_r0 loop started at 3, with the extra tables P_q32_k3 (se_box) and, for octave 21, P_q32_k3_l2 / P_q32_k5_l2 (zl_box).
+From-scratch re-check `scripts/review_zl_r1.py` (exact integer cell endpoints ⌈2^{j/32}⌉ computed by integer powers — mismatch is an
+error, contiguity asserted; brute-force Dsum; deeper terms in 40-digit arithmetic with min over covering cells and a rigorous geometric
+remainder; tails from my round-1 dumps):
+| octave | cells | max S (mine) | author |
+|---|---|---|---|
+| 21 (l2 K = 3/5 tables), j ≥ 686 | 686..703 | 0.48324804 | 0.483248 |
+| 22 / 23 | 704..735 / 736..767 | 0.41731622 / 0.2536038 | 0.417317 / 0.253604 |
+| 24 (my own split-run merge) | 768..799 | 0.28907003 | 0.289070 |
+| 25 / 26 / 27 | 800..831 / 832..863 / 864..895 | 0.31304676 / 0.37862811 / 0.47317016 | 0.313047 / 0.378628 / 0.473171 |
+| 28 / 29 | 896..927 / 928..964 | 0.3583574 / 0.32656367 | 0.358358 / 0.326564 |
+Cells 686..964 are present and contiguous, joining Thm 2.1 at j = 965 (r₀ = 2^{965/32} = 2^{30.15625}); 2·Dsum(Y) matches the MANIFEST
+Y in every octave (3534, 14900, 32722, 71276, 154190, 1512438, 3210940, 6794016, 14332240). Cells 672..685 of octave 21 fail
+(0.4997 at 681 passes but is not contiguous), as the theorem says.
+Binding term now: P at K = 3 (0.44 of S = 0.483 at j = 686; margin 0.017 ≈ 4 % of that term). Tables: rows 2058, 2059 (P_q32_k3_l2),
+2058 (P_q32_k3), 3430 (P_q32_k5_l2), 864 (Qa_32768, zl_boxa ACUT=32768) regenerated **bit-identical**. Independent engines:
+* **K = 3**, my P engine (now with a τ₃ route: e ≡ −N (mod 4) in the e-window × explicit τ₃ envelope C₃(η)n^η, and validated on in-cell
+  data of N = 101³, 127³, 131³, 23⁵, 10⁶+3, 3·10⁶+17 — 0 window/box/row violations) for all 54 N-cells 2058..2111 (K = 3 of r-cells
+  686..703): my bound / author's ℓ² table = 0.49 … 0.57. With *only* my K = 3 table, SE's P_q4/P_q1 for K ≥ 5 and the exact sweep:
+  **max S = 0.2883 on cells 686..703** (`MYK3=…`, log `data/zl_review/myr1_21_myk3.txt`).
+* **Engine part a ≥ A** (octave 27, the max-S octave): my Q engine with the same box-skipping rule (skip boxes whose exact a-upper bound
+  < ACUT) gives 0.974 … 0.982 × the `Qa_32768_q32` rows in all 32 cells; with my rows instead of the author's, max S = 0.4629.
+So Thm 6.3's binding terms are independently re-certified with margin.
+**Verdict Thm 6.3: SOUND.**
+
+## Round-2 suggestion (not a defect): the existing sweep already reaches 2^21 with a tighter K = 3 bound
+I ran my P engine (ℓ², exact windows incl. e ∈ [(N₀ + 4A²D)/f_max, (N₁ + 4(2A−1)²(2D−1))/f_min], τ₃ route) on all 96 N-cells 2016..2111
+(K = 3 for r-cells 672..703): 0.48–0.57 × the zl_box table. With it, the author's own exact sweep of [2^21, 2^22) and SE's tables for
+K ≥ 5: **all 32 cells 672..703 pass, max S = 0.3653 (j = 672)** (`data/zl_review/myr1_21_myk3_all.txt`). So porting the exact e-window
+(SE Lemma 1.2's e ≤ N/(ACD) is ≈ 4× loose) into zl_box would extend Thm 6.3 to r ≥ 2^{21} with no new sweep, and with S ≈ 0.37 at 2^21
+the next octave [2^20, 2^21) (a ~1-minute sweep) is a realistic target. As it stands this is R231 EVIDENCE from a reviewer engine
+(validated by exhaustive enumeration, exact (Cop₂) checks), not part of the author's certificate.
+
+## Round-2 defects (no FATAL, no MAJOR)
+* **r2-m1 (MINOR) zl_r1.py fails open on cell endpoints:** a sweep cell whose (lo, hi) does not match the float-computed
+  ⌈2^{j/32}⌉ (or +1) is silently skipped (`continue`), and there is no contiguity check — a skipped cell would leave a gap that the
+  text ("the cells are contiguous") does not detect. No gap exists (my exact re-check asserts endpoints and contiguity for 686..964).
+  *Repair:* skip only the documented partial cells (lo ≠ rlo at a range start, hi = X₁ ≠ rhi at the end), exit 1 otherwise, and assert
+  that the certified j form one interval ending at 964.
+* **r2-m2 (MINOR) provenance of A, Y:** sweep files carry no header; zl_r1 takes A, Y from the command line, and both the AD term and the
+  'none' criterion depend on them. Verified externally (identical re-runs with MANIFEST parameters; ADY values) — but *repair:* zl_sweep
+  should print "# X0 X1 A Y q env…" and zl_r1/zl_merge check it.
+* **r2-m3 (MINOR, wording) remainder of the K-series below 2^32:** the 10⁻²⁰ charge after the first term < 10⁻³⁰ was justified in SE
+  (R223) by "ratio < 1/2 for b ≥ 32"; at b ≈ 21.4 the per-step ratio is ≈ 2^{2·0.48·b − b}·((K+2)/K)^p ≈ 0.6–0.65, still < 1, so the
+  remainder is ≤ 2·10⁻³⁰ and the charge stays valid. Say so in §6.3 (my combiner uses an explicit geometric bound and agrees).
+* **r2-m4 (nit):** zl_boxa.c still says "Lemma 2.1"; P_q32_k3_l2 / P_q32_k5_l2 headers read "# se_box" (both already noted in MANIFEST).
+* **r2-m5 (nit) §7:** "Γ forces r | X and r | N" needs r ∤ c (in-cell); with it, v_r(X²) = 1 + 2v_r(z) + v_r(4abcd − a − b) shows r | N
+  even when r | z.
+* **6.2 text:** "16-bit, saturation ⇒ failure" — true in zl_r1; zl_merge sums in Python ints and rejects saturated inputs: fine.
+
+Round-1 repairs (author commit 403e272b) checked: m1–m9 applied as suggested, computation unchanged (zl_box.c only comments/header).
+
+## Round-2 summary
+| claim | verdict |
+|---|---|
+| 6.1 splitting (sweep + 2·#{ad ≤ Y} + engine for a ≥ A; 'none' when all rows swept) | SOUND |
+| 6.2 zl_sweep exact counts (P AP sweep, Q sieve/ρ), split-run merge | SOUND — 524 primes in octaves 21, 22, 24, 27 match an independent per-n counter exactly; four octave files reproduced bit-identically |
+| 6.3 combiner zl_r1.py | SOUND-AFTER-REPAIRS (r2-m1, r2-m2: fail-open/provenance hardening; no actual error) |
+| Thm 6.3, (S) for r ≥ 2^{21.4375} | **SOUND** — reproduced cell by cell; binding K = 3 and engine terms re-certified with own engines (max S 0.288 / 0.463) |
+| §7 conic Γ / descent (Assessment) | SOUND (nit r2-m5) |

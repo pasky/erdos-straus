@@ -38,6 +38,24 @@ def logC(eta):
     return s
 ETAS = [mpf(i) / 100 for i in range(10, 52, 2)]
 LCS = [(eta, logC(eta)) for eta in ETAS]
+def logC3(eta):
+    s = mpf(0); p = 2
+    while p < 3 ** (1 / eta) + 1:                 # binom(k+2,2) p^{-eta k} <= 1 for all k once p^eta >= 3
+        if all(p % q for q in range(2, int(p ** .5) + 1)):
+            best = mpf(0); k = 0
+            while True:
+                k += 1; v = mlog(mpf((k + 1) * (k + 2)) / 2) - eta * k * mlog(p)
+                if v > best: best = v
+                elif k > 80: break
+            s += best
+        p += 1
+    return s
+LCS3 = None
+def tau3max(nmax):
+    global LCS3
+    if LCS3 is None: LCS3 = [(eta, logC3(eta)) for eta in ETAS]
+    ln = mlog(nmax); return int(mfloor(min(mp.e ** (lc + eta * ln) for eta, lc in LCS3) * UPF))
+
 def taumax(nmax):
     ln = mlog(nmax); return int(mfloor(min(mp.e ** (lc + eta * ln) for eta, lc in LCS) * UPF))
 
@@ -109,6 +127,8 @@ def box(A, C, D):
     v["G"] = pairG * om * min(cop(m2, E0, A, 2 * A - 1), cop(m2, E0, b0, b1)) * UPF
     v["I"] = nC * pairF * UPF
     v["J"] = 2 * nC * pairG * UPF
+    # tau3: e == -N (mod 4) in [E0, E1]; then (a, b, d) an ordered factorisation of (N+e)/4 into three factors
+    v["tau3"] = (pe + 1) * tau3max(math.floor((N1 + E1) / 4)) * UPF
     k = min(v, key=lambda k: v[k])
     return v[k], k
 
@@ -150,11 +170,12 @@ def P_data(n):
             b += 1
         a += 1
 
-def validate(N):
+def validate(N, r=None):
     global F0, F1
     F0 = F1 = N
     cnt, rows, data = {}, {}, []
     for (a, b, c, d, e) in P_data(N):
+        if r and (a % r == 0 or b % r == 0 or c % r == 0 or d % r == 0): continue     # in-cell data of N = r^K only
         key = (1 << (a.bit_length() - 1), 1 << (c.bit_length() - 1), 1 << (d.bit_length() - 1))
         cnt[key] = cnt.get(key, 0) + 1; rows[(key[0], key[2])] = rows.get((key[0], key[2]), 0) + 1
         data.append((key, a, b, c, d, e))
@@ -171,7 +192,11 @@ def validate(N):
     return bad
 
 if sys.argv[1] == "validate":
-    sys.exit(1 if sum(validate(int(x)) for x in sys.argv[3].split(",")) else 0)
+    tot = 0
+    for x in sys.argv[3].split(","):
+        if "^" in x: r, K = map(int, x.split("^")); tot += validate(r ** K, r)
+        else: tot += validate(int(x))
+    sys.exit(1 if tot else 0)
 for j in range(JR[0], JR[-1] + 1):
     F0 = int(mfloor(mpf(2) ** (mpf(j) / 32))); F1 = int(mfloor(mpf(2) ** (mpf(j + 1) / 32))) + 1
     main()

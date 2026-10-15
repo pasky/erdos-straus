@@ -12,6 +12,11 @@ import zl_r0
 from zl_r0 import load, table_max, agg, tailw, DZ
 import zl_tail as se_tail
 
+def ceil_pow(j, q=32):                         # least integer n with n >= 2^{j/q}, exact (R231 repair r2-m1)
+    n = max(1, int(2 ** (j / q)) - 2)
+    while n ** q < 2 ** j: n += 1
+    return n
+
 def Dsum(Y):                                   # #{(a,d) : a d <= Y} exactly
     s = 0; a = 1
     while a <= Y:
@@ -73,7 +78,9 @@ def main():
             if not f or f[0] != 'C': continue
             j, lo, hi, mp, mq, ms, cnt = int(f[1]), int(f[2]), int(f[3]), int(f[4]), int(f[5]), int(f[6]), int(f[7])
             b = j / 32; rlo, rhi = math.ceil(2 ** b), math.ceil(2 ** ((j + 1) / 32))
-            if not (hi == rhi and (lo == rlo or (lo == rlo + 1 and rlo % 2 == 0))): continue   # partial cell: not certified here (sweep starts at odd X0)
+            rlo, rhi = ceil_pow(j), ceil_pow(j + 1)        # (R231 repair r2-m1) exact integer endpoints, not float ceil
+            if not (hi == rhi and (lo == rlo or (lo == rlo + 1 and rlo % 2 == 0))):   # (R231 repair r2-m1) was a silent 'continue'
+                sys.exit(f"cell j={j}: sweep endpoints {lo},{hi} != exact {rlo},{rhi} (zl_sweep only emits full cells)")
             if ms >= 131070 or mp == 65535 or mq == 65535: bad += 1; print(f"FAIL j={j}: counter overflow"); continue
             if eng is not None and j not in eng: sys.exit(f"missing engine row j={j}")
             ej = 0.0 if eng is None else eng[j]
@@ -85,6 +92,8 @@ def main():
             if not ok: bad += 1
             if S > worst[0]: worst = (S, b)
             done.append(j)
+    if done != list(range(min(done), max(done) + 1)) if done else True:   # (R231 repair r2-m1) certified cells must be contiguous
+        sys.exit(f"certified cells not contiguous / none: {done}")
     print(f"cells certified: {len(done)} (j = {min(done) if done else None}..{max(done) if done else None}); max S = {worst[0]:.6f}; failures {bad}")
     sys.exit(1 if bad else 0)
 

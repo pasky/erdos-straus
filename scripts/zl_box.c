@@ -1,4 +1,4 @@
-/* zl_box.c -- O228 (STERILE_LOWER.md Lemma 2.1): se_box.c (O219) with the cube-Minkowski factor w^w of (Cop) replaced by the
+/* zl_box.c -- O228 (STERILE_LOWER.md Lemma 1.1; R231 m4 / R232 m3 repair: was 'Lemma 2.1'): se_box.c (O219) with the cube-Minkowski factor w^w of (Cop) replaced by the
    l2-ball factor (sqrt(w)*2*Gamma(w/2+1)^{1/w}/sqrt(pi))^w (never larger than w^w). Everything else identical. */
 /* se_box.c -- O219 (STERILE_EXPLICIT.md §3). Rigorous (outward-rounded, fail-closed) upper bound for
    D_P(N) = #{P-data (a,b,c,d,e): 4abd = N+e, a+b = ce, a <= b, r ∤ abcd} valid for EVERY odd N in [2^j, 2^{j+1}),
@@ -61,7 +61,7 @@ static R cop(R ln, R smin, R D0, R D1){
   for(int w=2; w<=W; w++){
     if(best <= (R)(w-1)) break;           /* J>=1 so J(w-1) >= w-1 */
     for(int m=1; m<=w; m++){
-      R lhs0 = w*LMK[w] + (R)m*(m+1)/2*ln;   /* + w(w-1)/2 * ln X  <  m w lD0;  LMK[w] = log of the l2-Minkowski factor (Lemma 2.1 of STERILE_LOWER) */
+      R lhs0 = w*LMK[w] + (R)m*(m+1)/2*ln;   /* + w(w-1)/2 * ln X  <  m w lD0;  LMK[w] = log of the l2-Minkowski factor (Lemma 1.1 of STERILE_LOWER) */
       R rhs = (R)m*w*lD0;
       R lXmax = (rhs - lhs0)/((R)w*(w-1)/2);
       lXmax -= 1e-12L*(fabsl(rhs)+fabsl(lhs0)+1)/((R)w*(w-1)/2);   /* safety margin */
@@ -153,7 +153,7 @@ int main(int argc, char **argv){
   int j0 = atoi(argv[2]), j1 = atoi(argv[3]), qq = atoi(argv[4]), g = atoi(argv[5]), T = atoi(argv[6]); if(argc>7) W = atoi(argv[7]);
   initLMK();
   for(int i=0;i<NETA;i++){ ETA[i] = 0.10L + 0.02L*i; LC2[i] = lC(ETA[i],2); LC3[i] = lC(ETA[i],3); }
-  printf("# se_box %c j0=%d j1=%d q=%d g=%d T=%d W=%d LDBL_MANT_DIG=%d\n", mode, j0, j1, qq, g, T, W, LDBL_MANT_DIG);
+  printf("# zl_box %c j0=%d j1=%d q=%d g=%d T=%d W=%d LDBL_MANT_DIG=%d\n", mode, j0, j1, qq, g, T, W, LDBL_MANT_DIG);
   if(LDBL_MANT_DIG < 64){ fprintf(stderr,"needs 64-bit long double mantissa\n"); return 2; }
   for(int j=j0;j<=j1;j++){
     if(g != 1){ fprintf(stderr,"only g=1 (integral dyadic boxes) is certified\n"); return 2; }

@@ -60,7 +60,7 @@ def main():
     P1.update({k: v for k, v in load('P_q1_hi.txt', 1, DZ).items() if k not in P1})
     P = [load('P_q32.txt', 32, DZ), load('P_q4.txt', 4), P1]
     Q = [load('Q_q32.txt', 32, DZ), load('Q_q4.txt', 4)]
-    if __import__('os').environ.get('ZL_L2'):              # zl_box (l2-Minkowski, Lemma 2.1) tables take precedence where present
+    if __import__('os').environ.get('ZL_L2'):              # zl_box (l2-Minkowski, Lemma 1.1) tables take precedence where present
         P.insert(0, load('P_q32_l2.txt', 32, DZ)); Q.insert(0, load('Q_q32_l2.txt', 32, DZ))
     LP, LQ = 800.0, 100.0                                  # tail thresholds (bits)
     Bfine = float(sys.argv[3]) if len(sys.argv) > 3 else 34.0
