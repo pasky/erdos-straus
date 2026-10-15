@@ -1,0 +1,2 @@
+q=9 k=1 primitive slices: caseB(s<=80)=2.9670390099e+00 tail(s>80)=2.5752e-02 caseA=1.704632e-01 certified_total(x1.01)=3.194887 < 4: True
+ALL OK
