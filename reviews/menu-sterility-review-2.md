@@ -73,5 +73,64 @@ intersection of the family with" that class (true: ord of 2 modulo (2⁴⁰ − 
 needed for the finite residue bookkeeping, which is small enough to be done by hand (done above). Label "PROVED (computer-
 assisted)" is correct; it could even be "PROVED" with the by-hand coverage argument of (iv) inserted.
 
+## 2. Theorem A (witness reciprocity) — SOUND (minor wording repair)
+
+Re-derived line by line.
+* Witness. Lemma 1.1 gives (−4d/n) = −1 = (−d/n) for odd n; Lemma 1.3 needs n ≡ 1 (4). Ster(φ) imposes φ(u*) ≡ 1 (8) so both
+  apply at the approximating u. ✓ (The Jacobi symbol with negative top D = −d is fine.)
+* Valuations: φ(u) = lc·N_{A/ℚ}(u − θ), so v_q(φ(u)) = Σ_{𝔮|q} f_𝔮 v_𝔮(u − θ) for q ∤ lc — this holds for the places of the étale
+  algebra (maximal order) regardless of whether ℤ[θ] is an order; the "conductor" clause added in the R-O240 repair is harmless
+  but unnecessary. (X/𝔮) = (X/q)^{f_𝔮} for X ∈ 𝔽_q^× ✓. D̃(u) ≡ D̃(θ) = α (mod 𝔮) when 𝔮 | u − θ, θ 𝔮-integral for 𝔮 ∤ lc ✓.
+* Tame symbol at odd 𝔮 with α a unit: (α, π)_𝔮 = (α/𝔮)^{v_𝔮(π)} ✓; places with α or γ non-units are put in S ✓.
+* Reciprocity: Π_v (α, u−θ)_v = 1 per component field; (α, γ)_v = 1 off S ✓; at v | ℓ ∈ S, γ(u − θ) = γ(u* − θ)·(u−θ)/(u*−θ) is a
+  square (u* − θ ∈ (A⊗ℚ_ℓ)^× because φ(u*) ∈ ℤ_ℓ^×; squares open) ✓; real places: γ ≫ 0 and u − θ > 0 (u > all real roots) ✓;
+  complex places trivial ✓. The g-part identically ✓. Need φ(u) > 0 for the Jacobi symbol — u large, lc > 0 ✓.
+* Choice of u: u ∈ C with u ≡ u* to high ℓ-power for ℓ ∈ S is compatible with C because u* ∈ closure(C) ✓.
+* Zero-divisor step: the sentence "h(u)/gcd(h(u), g^∞) > 1 for large u" is FALSE as stated (h(u) = u, g = 2, u = 2^k), but the needed
+  version holds: take u ∈ C near u* (with S₀ ⊇ primes of 2g·lc chosen first); then φ(u) is prime to g, h(u) | φ(u) (Gauss), |h(u)| > 1,
+  so a prime outside g divides gcd(D̃(u), n) and (D/n) = 0. MINOR D5.
+* Special cases: (deg 1) I checked that with A = ℚ the condition "γ·φ(u*)/q ∈ ℚ_ℓ^{×2} ∀ℓ, γ > 0, φ(u*) a unit" forces q/γ to be a
+  rational square, hence φ(u*) ∈ Sq^× — exactly EXPONENT_COVERING's set ✓. (deg 2, γ = 1) = NEAR_SQUARE Thm 3.4's Z_K⁺ ✓ (same proof,
+  re-read on main). Integer point with φ(u₀) = 1 ✓; squares > 1 correctly excluded after the self-repair.
+* Stale text (MINOR D6): memo z15_witness_descent "Barrier screen" still says "T1: built in (squares are γ = 1/(u₀ − θ))", which the
+  repair retracted for φ(u₀) > 1; MENU_STERILITY §7 table row "+ integer T1 points (Thm 3.3)" is correct. Also the descriptive
+  "Brauer/2-descent pairing" language and the Bruin–Stoll fake-Selmer remark are interpretation (fine as Assessment), not proved
+  identifications; label the "= 2-descent object" phrase Assessment.
+* Consistency check (free): Theorem B's family is polynomial in X on X ≡ 6 (11), whose closure contains X* (= 1/2 at odd ℓ,
+  0 at 2; 1/2 ≡ 6 mod 11), φ(X*) unit, ≡ 1 (8). So Theorem A + B ⟹ X* ∉ Ster(48X⁴ + 1). With γ forced to (ρ − θ)⁻¹ up to global
+  squares (an element locally a square at almost all places is a square), this says θ(θ − 1/2) is not a square in A ⊗ ℚ₂ —
+  consistent with §4.2 (the author's 2-adic test covers 3θ^e + 1, e = 3, 5, 7, not the SG algebra; not needed).
+
+## 3. Prop 4.1 (constant windows m ≡ 7 (8) dead at μ = 0) — SOUND-AFTER-REPAIRS (missing sign step)
+
+Re-derived: near μ = 0, n ≡ 4^i, K ≡ 4^{i−1} (mod m), gcd(m, nK) = 1, so y ∈ ℤ forces d ≡ −K and (d/m) = −1. K(ρ) = (4^i + m)/4 ✓
+(2^j ρ^e = 1). Odd primes of atom values and of λ divide N₀ = 4^i + m (the case split for λ is unnecessary: q | K(U) on the class and
+U → ρ q-adically in the closure give q | K(ρ) directly). For q | N₀: (q/m) = (−m/q) = 1 ✓ (m ≡ 3 mod 4).
+**Gap (D4, essential but one-line):** the proof computes (d(ρ)/m) = (2/m)^{v₂(d(ρ))}, silently assuming d(ρ) > 0. If d(ρ) < 0 the
+conclusion flips (my `scripts/review_r252_prop41.py`: with negative d, windows m ≡ 7 (8) DO satisfy the congruence, 3721 instances
+for m < 3000; with positive d: 0 counterexamples to the claim). Repair: K(U) = (c2^jU^e + 1 + m)/4 is aU^e + b with a, b > 0, so no
+factor of K has a positive real root; normalise atoms to positive leading coefficient, then atoms(ρ) > 0, and λ > 0 since d > 0 for
+large U. Same for SG (K = c(4X⁴ + t⁴) has no real roots). With this line the proposition is SOUND.
+Scope note: "(all m = c·2^j w − 1 with j ≥ 3 …) are dead" ✓ (m ≡ −1 mod 8). The consistency with Theorem B: m = 11 ≡ 3 (8), rules
+used at s ≡ 0 (40) are (0,2,1), (2,0,1) with v₂(d(1/2)) = −3, −1 (odd) ✓; (0,0,2) (v₂ = −2) is used only at s ≡ 8, 36 (40),
+not near μ = 0 ✓.
+
+## 4. Prop 4.3 (SG menu at μ = 0 finite) — GAP (menu scope; the proof covers a restricted menu)
+
+The resultant/Bezout argument is correct for the menu it treats: d = (Π_{q|c} q^{a_q})·f₊^x f₋^y. Checked: 4ct⁴ − 1 irreducible iff c
+not a square (and c = 4^i − 1 is never a square for i ≥ 1, so that hypothesis is automatic); m(t) | N(t), Res ≠ 0 ⟹ m(t) | Res ✓;
+N(τ) > 0 at the real root τ ⟹ m ∤ N ✓; derivation of N (X ≡ 1/2, f± ≡ g±/2, K ≡ 4^{i−1}) ✓.
+**Defect D7 (MAJOR, scope/consistency).** Prop 4.1 allows an arbitrary constant λ (whose odd primes divide K(ρ)); Prop 4.3 silently
+restricts λ to primes of c (`z15_sg_mu0_complete.py`: "atoms q | c"). But at μ = 0, K(ρ)·4 = 4^i + m(t) = c·g₊(t)·g₋(t), so λ may
+legitimately carry any primes of the integers g±(t) (e.g. d = q·f₋ with q | g₊(t): q | f₊(X) on the neighbourhood X ≡ 1/2 (mod q),
+and d | K²). These are constant windows near μ = 0 but N then depends on a divisor of g±(t) — not a polynomial in t, and the
+resultant argument does not apply. So "the SG menu at μ = 0 is a FINITE menu (PROVED)" is proved only for the restricted menu.
+Evidence check (`scripts/review_r252_sg_general.py c 301`): with the GENERAL λ (any odd D | (c g₊ g₋)², x + y ∈ {0..4}), nothing
+fires for c = 15, 63, 255 (t ≤ 301), and for c = 3 only t = 1 (with extra general-λ variants D = 75, 3). So the negative EVIDENCE for
+c = 15, 63, 255 survives the enlarged menu, but the finiteness claim does not have a proof for it (heuristically Σ τ(t⁴)/t⁴ < ∞
+suggests finiteness — Assessment). Repair: define the SG menu explicitly as λ supported on primes of c (PROVED finite), and add the
+general-λ menu as EVIDENCE (or prove finiteness for it); adjust §4.1 "Reason (PROVED, Prop 4.3)" and §4.2 "finite arithmetic
+accident" accordingly. Also MINOR D8: garbled sentence "For c = 3 the first case cannot occur for any c (R-O240 repair)".
+
 ## Defects
 (collected at the end)
