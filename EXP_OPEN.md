@@ -158,3 +158,21 @@ covering, and Theorem W (and O239 Cor 2.8) prove that no constant-gap / window c
 μ = 0. The class s ≡ 0 (mod 24) above contains μ = 0. So **a moving-gap, cubic-root, cyclotomic (Y³ + 3³) Type II
 class dissolves a unit-square point that every window provably misses.** The gap 4x − n = 3(Y² − 3Y + 9) is itself the
 cyclotomic factor. Whether 63·2^s + 1 is fully coverable (ET + windows + this class) is the next step (§3).
+
+## 3. ES for every 63·2^s + 1
+
+**Theorem 3.1 (PROVED, computer-assisted; certificate `data/z19/cert63_et.json`, independent checker
+`scripts/z19_cert63_check.py`).** For every s ≥ 0, 4/(63·2^s + 1) is a sum of three unit fractions.
+*Proof.* (a) s ≡ 0 (mod 24), s ≥ 24: Theorem 2.3. (b) Every other residue s mod 2520 (s ≥ 10) lies in one of 18
+ET/divisor classes (moduli 5, 11, 15, 19, 29, 39, 87, 119, 127, 344, 584, 1016, 5620, 51944), each a polynomial
+identity in n on a residue class n ≡ r (mod M) whose odd part has ord(2) | 2520 (built by `z19_cert_make.py 63 2520
+300000 … 24 0`, the O240 machinery; ET/divisor classes alone leave exactly s ≡ 0 mod 2520, `z15_tree.py 63 1 1 2520 …`).
+(c) s ≤ 9: brute force. The checker verifies every identity symbolically, integer-valuedness on each class (forward
+differences), positivity (Cauchy bound below 63·2^10), the period, integrality of Theorem 2.3's b, c on s ≡ 0 (mod 24)
+over a full period of 2^{s/3} mod 340, coverage of all residues mod 2520, that no non-divisor ET class contains an odd
+square (T1 control), and an explicit verified solution for every s ≤ 1000 (950 ET, 41 moving class, 10 brute). ∎
+*Scope / honesty.* A thin family. It is the first family with a profinite unit-square point **that no window / constant-gap
+class can reach (Theorem W) and that is nevertheless closed** — the closing class is a moving-gap Type II family from the
+binomial menu II-ad. T1 respected: the integer square 63·2^8 + 1 = 127² lies in the divisor class D₁₂₇ (s ≡ 1 mod 7) and
+is solved by brute force anyway (s < 10). Literature: not searched yet for this specific family (the campaign's prior web
+searches found no ES result for any k·2^m + 1 family; non-exhaustive).
