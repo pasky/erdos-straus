@@ -127,7 +127,34 @@ m ≡ m₀ (mod L), i.e. infinitely many m.
 second statement take L = lcm of the moduli of the finitely many families. ∎
 Remarks. (i) For n = qt + r this recovers ET/Schinzel's "square classes are not solvable by polynomials" (t₀ with
 qt₀ + r = w² lies above the root −r/q). (ii) For n = m² + k, k > 0, ρ = −∞, so every integer T1 point obstructs
-(subsumed by Thm 2.2). (iii) For k = −j < 0 the T1 points are m₀ = (d₁ + d₂)/2 with j = d₂² ... i.e. j = (m₀ − w)(m₀ + w),
-w odd; m₀ > √j obstructs, −m₀ < −√j does not (there n > 0 but it is the other real component) — matching the
+(subsumed by Thm 2.2). (iii) For k = −j < 0 the T1 points are the m₀ with j = (m₀ − w)(m₀ + w), w odd; m₀ > √j obstructs, −m₀ < −√j does not (there n > 0 but it is the other real component) — matching the
 numerics (8 families cover m ≡ −3, none m ≡ 3, for j = 8). (iv) Numerics: max real root over all coordinates of all
 families found is 2.818, 3.865, 4.895 < √j = 2.828, 3.873, 4.899 (j = 8, 15, 24).
+
+**Theorem 3.4 (the K-adic square set is sterile for every polynomial family; PROVED).** Let k = −j < 0, j not a square,
+K = ℚ(√j), π_m := m − √j (so n(m) = N(π_m)), and
+  Z_K⁺ := {m* ∈ Ẑ : π_{m*} is a non-zero square in K_v for every finite place v of K}.
+Then no Type I/II polynomial family for n = m² − j has a class C (m ≡ g mod L) whose closure in Ẑ meets Z_K⁺.
+*Proof.* Let α := D(√j) ∈ K (D the witness). If α ∈ ℚ the family is non-escaping and Thm-2.2-type reasoning applies
+(N(π_{m*}) ∈ Ẑ^{×2}... is a local square, so the fixed character of n is +1 near m*). Otherwise, for m ∈ C large, n(m)
+odd: (i) the prime ideals dividing (π_m) have degree one (π_m is primitive: no rational prime divides m − √j), so
+(X/n) = (X/(π_m))_K for X ∈ ℤ (Jacobi symbol of K); (ii) D(m) ≡ α (mod π_m); (iii) by the Hilbert product formula,
+(α/(π_m))_K = ∏_{v | 2α∞} (α, π_m)_v (v | π_m cannot divide α, else (D(m)/n) = 0). If m* ∈ Z_K⁺ ∩ closure(C), choose
+m ∈ C, m > √j, so close to m* that π_m/π_{m*} is a square in K_v for the finitely many finite v | 2α (squares are
+open); then (α, π_m)_v = 1 there, and at the two real places π_m > 0, so (α, π_m)_∞ = 1. Hence (D(m)/n(m)) = +1,
+contradicting Lemmas 1.1/1.3. ∎
+Remarks. (i) Z_K⁺ ⊊ Z_k^□ (= {m : N(π_m) a local square}): at a split prime ℓ = 𝔩𝔩′ both m − s and m + s (s² = j in ℤ_ℓ)
+must be squares (density 1/4 instead of 1/2); at inert and ramified ℓ the conditions agree with Z_k^□ up to the
+ramified residue condition. So **below the squares the sterile set of polynomial families shrinks from "n is a local
+square" to "π = m − √j is a local square in K"** — T1 deformed is a square *in K*, not in ℚ. (ii) For k > 0 (K imaginary)
+the same proof gives only Z_K ⊆ Z_k^□; Thm 2.2 shows the true sterile set is the larger Z_k^□ ∪ (Z_k), because no
+escaping family exists: with a complex place there is no sign at ∞ to absorb the positivity constraint. (iii) The
+integer T1 point m₀ = 3 (j = 8) lies in Z_K⁺ (3 − 2√2 = (1 − √2)²); m₀ = 4 (j = 15) does not (4 − √15 ∈ 6·K^{×2} is not a
+square at 2), but is excluded by Thm 3.3 (size: 4/1 is not a sum of three unit fractions).
+EVIDENCE (`scripts/ns_padic_cover.py -8 L /tmp/fam_-8.txt`, all seven ET congruence families with modulus | L plus
+the 76 escaping families of `ns_polyfam.py -8 3`): the uncovered m-classes with n ≡ 1 (4) are, at L = 8064 = 2⁷·3²·7,
+the 96 classes {m ≡ 3 (8), m ≡ 0 (3), m ≡ 1, 3 (7)}, and at L = 4480 = 2⁷·5·7 the 64 classes {m ≡ 3 (8), m ≡ ±2 (5),
+m ≡ 1, 3 (7)}. Z_K⁺ for K = ℚ(√2) predicts exactly: at 2, m − 2√2 ≡ (a + b√2)² mod 4√2 forces a, b odd, i.e. m ≡ 3 (8);
+at 3 and 5 (inert) N(π) ≡ □, i.e. m ≡ 0 (3), m ≡ ±2 (5); at 7 = 𝔩𝔩′ (√8 ≡ ±1) both m ∓ 1 squares: m ≡ 3 (7)
+(m ≡ 1 (7) is the degenerate 7 | n class). So at these levels the polynomial-sterile set is exactly Z_K⁺ (CONJECTURE in
+general: CONJECTURE Y10-S below).
