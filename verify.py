@@ -26106,4 +26106,36 @@ def check_gm():
 check_gm()
 
 
+def check_gn():
+    # (gn) MENU_STERILITY (O240; reviews R251, R252): Theorem C — ES holds for EVERY n = 3*2^s + 1 (PROVED,
+    # computer-assisted), a family with NO finite ET/divisor covering ((J)22 Cor 1.5): one Sophie-Germain window m = 11
+    # (4X^4 + 1 = (2X^2+2X+1)(2X^2-2X+1), X = 2^{(s-4)/4}) covers s = 0 (4) except s = 4, 24 (40), six ET/divisor classes
+    # (moduli 5, 7, 15, 61) the rest; two independent from-scratch checkers (coverage mod 120; exact solutions s <= 2000).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("MENU_STERILITY subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r252_proth3.py", "2000"])
+    for s in ("SG-covered s mod 40: [0, 8, 12, 16, 20, 28, 32, 36]", "ET identities: OK", "period: 120",
+              "uncovered residues mod 120 : []", "exact ES solutions s<= 2000: failures []"):
+        assert s in out, (s, out[-2000:])
+    out = run(["review_r251_proth3.py"])
+    for s in ("Thm B identity OK", "ET classes: identities, integrality, positivity OK", "uncovered s mod 120 : []",
+              "author rule table confirmed; dead s mod 40: [4, 24]"):
+        assert s in out, (s, out[-2000:])
+    print(f"== (gn) MENU_STERILITY R251/R252: ES for all 3*2^s + 1 (SG window 11 + 6 ET classes), coverage mod 120, exact "
+          f"to s = 2000; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gn()
+
+
 print("\nall checks passed")
