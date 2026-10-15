@@ -25779,7 +25779,8 @@ def check_gd():
     # q = 4 - n (8), (q/n) = -1 gives ES^{(y,e)}(n) with e <= q - 3), hence the first unconditional effective pointwise
     # cap e*(n) << rad(n)^5 (Linnik-Xylouris). R239 from scratch: all primes p = 1 (4) <= 10^6 (record q* = 227,
     # construction bound never violated, 39 760 exact Def 1.1 checks); all non-squares n = 1 (4) <= 2*10^5 and the
-    # 1073 odd squares a^2 <= 10^8 (no window at a^2 = T1; the d = n/p route works). R238: composite windows exact.
+    # 362 odd squares a^2 <= 10^7 here (R239 did 1073 up to 10^8; no window at a^2 = T1; the d = n/p route works).
+    # R238: composite windows exact.
     from time import perf_counter
     import os
     import subprocess
@@ -25797,14 +25798,14 @@ def check_gd():
     assert "Thm-construction bound violations (need mincap <= e_thm <= q-3): 0" in out, out[-2000:]
     assert "best cap over Thm1.1' windows m<=1000: {0: 32043, 1: 6887, 2: 238, 3: 7}" in out, out[-2000:]
     assert "exact Def 1.1 checks: 39760" in out, out[-2000:]
-    out = run(["review_r239_composite_squares.py", "200000", "100000000"])
+    out = run(["review_r239_composite_squares.py", "200000", "10000000"])  # 1e7 keeps memory ~0.4 GB (1e8 needs ~3.7 GB)
     assert "odd non-squares n=1(4) <= 200000: 49776; least window record (263, 4701)" in out, out[-2000:]
-    assert "odd squares (all primes 1 mod 4) <= 100000000: 1073, all verified via d=n/p route" in out, out[-2000:]
+    assert "odd squares (all primes 1 mod 4) <= 10000000: 362, all verified via d=n/p route" in out, out[-2000:]
     out = run(["review_r238_composite.py", "200000"])
     assert "49776 exact checks, bad=0" in out and "4118 exact checks, bad=0" in out, out[-2000:]
     assert "windows found 0 (expect 0); Cor1.2(c) exact checks 58, bad=0" in out, out[-2000:]
     print(f"== (gd) CAP_POINTWISE R238/R239: self-generated mute set exact (q* <= 227 for p < 1e6, 39760 Def 1.1 "
-          f"checks, construction bound holds); non-squares <= 2e5 and 1073 odd squares <= 1e8 (T1: no window at "
+          f"checks, construction bound holds); non-squares <= 2e5 and 362 odd squares <= 1e7 (T1: no window at "
           f"squares); composite windows exact; seconds = {perf_counter() - t0:.1f}")
 
 
