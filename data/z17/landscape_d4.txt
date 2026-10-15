@@ -1,0 +1,16 @@
+r= 5 nonres cells  2  surviving level 1:  0  max boxed children d2/d3/d4: 0/0/0
+r= 7 nonres cells  3  surviving level 1:  0  max boxed children d2/d3/d4: 0/0/0
+r=11 nonres cells  5  surviving level 1:  0  max boxed children d2/d3/d4: 0/0/0
+r=13 nonres cells  6  surviving level 1:  0  max boxed children d2/d3/d4: 0/0/0
+r=17 nonres cells  8  surviving level 1:  2  max boxed children d2/d3/d4: 4/4/2  min alive frac d4 0.6782
+r=19 nonres cells  9  surviving level 1:  4  max boxed children d2/d3/d4: 7/5/2  min alive frac d4 0.5698
+r=23 nonres cells 11  surviving level 1:  2  max boxed children d2/d3/d4: 8/5/3  min alive frac d4 0.5800
+r=29 nonres cells 14  surviving level 1:  6  max boxed children d2/d3/d4: 5/4/2  min alive frac d4 0.8002
+r=31 nonres cells 15  surviving level 1:  4  max boxed children d2/d3/d4: 10/2/2  min alive frac d4 0.6621
+r=37 nonres cells 18  surviving level 1:  6  max boxed children d2/d3/d4: 5/4/2  min alive frac d4 0.8468
+r=41 nonres cells 20  surviving level 1: 14  max boxed children d2/d3/d4: 3/3/2  min alive frac d4 0.9131
+r=43 nonres cells 21  surviving level 1: 10  max boxed children d2/d3/d4: 7/3/2  min alive frac d4 0.8261
+r=47 nonres cells 23  surviving level 1:  6  max boxed children d2/d3/d4: 14/3/1  min alive frac d4 0.6974
+r=53 nonres cells 26  surviving level 1:  8  max boxed children d2/d3/d4: 4/3/2  min alive frac d4 0.9186
+r=59 nonres cells 29  surviving level 1: 10  max boxed children d2/d3/d4: 8/3/1  min alive frac d4 0.8594
+r=61 nonres cells 30  surviving level 1: 14  max boxed children d2/d3/d4: 6/4/2  min alive frac d4 0.8980

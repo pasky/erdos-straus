@@ -1,0 +1,10 @@
+d=3: p_d=0.3333  E[#alive parents with 3 balls]=0.0370  E[>=2]=0.259  observed (SD table) >=2: 0
+d=4: p_d=0.2222  E[#alive parents with 3 balls]=0.0219  E[>=2]=0.252  observed (SD table) >=2: 0
+d=5: p_d=0.1481  E[#alive parents with 3 balls]=0.0195  E[>=2]=0.356  observed (SD table) >=2: 0
+d=6: p_d=0.1481  E[#alive parents with 3 balls]=0.0520  E[>=2]=0.949  observed (SD table) >=2: 2
+d=7: p_d=0.0535  E[#alive parents with 3 balls]=0.0067  E[>=2]=0.364  observed (SD table) >=2: 0
+d=8: p_d=0.0384  E[#alive parents with 3 balls]=0.0074  E[>=2]=0.561  observed (SD table) >=2: 0
+d=9: p_d=0.0119  E[#alive parents with 3 balls]=0.0006  E[>=2]=0.160  observed (SD table) >=2: 0
+depths 3..9: E[triples] = 0.145 (P(no triple) = 0.86), E[>=2] = 2.90, observed >=2: 2 (both at d = 6), triples: 0
+beyond depth 9, geometric: E[triples] = 0.0009
+beyond depth 9, flat 30: E[triples] = 0.0001
