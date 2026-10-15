@@ -59,3 +59,29 @@ Re-derived line by line.
   (k ∈ {1, 4, 8, 9, 16, 24}, u ≤ 100, t ≤ 80, m ≤ 300). Predicted-dirty levels not yet dirty at m ≤ 300: 4–13 per
   (k, side), the first suitable r being large — same phenomenon the author reports. DK table re-confirmed on all
   prime n in that run (0 mismatches).
+
+### Remark 2.4 (even A) — SOUND only under the literal (vacuous) genericity; GAP closable for u ≡ 1 (4) (proof below)
+* u ≡ 3 (4) argument re-derived: Σ_u = ℚ(ζ_u) (−u ≡ 1 mod 4), σ_{A₀}|ℚ(ζ_u) = σ_{−2^{−a}} must fix F; a even ⇒
+  contradiction; a odd ⇒ 2 inert in F ⇒ K₀ ≡ 3 (8). The step "N ≡ 4 (8)" needs **K odd, i.e. k ≡ 0 (4)** (then m odd,
+  f odd, N = m² + K ≡ 1 + 3 = 4 mod 8). For k ≡ 1 (4), K is even and literal genericity excludes every m — vacuous.
+* With the repaired (odd-prime) genericity of D1 the even-A claims are FALSE at k ≡ 1 (4) (`review_r228_evenA.py`, prime n
+  only, Euler χ cross-checked with the DK table):
+  – t-side, k = 1, t = 3 (tk + 1 = 4 = □): p = 37 = 6² + 1, word (t, u, v) = (3, 1, 19), A = 2, χ = (2/37) = −1;
+    190 such words at prime n, m ≤ 400 (A = 2 whenever (2/p) = −1, i.e. m ≡ 2 mod 4). Also k = 1, t = 35; k = 9, t = 11, 75.
+  – u-side, k = 9, u = 3 (u ≡ 3 mod 4, K = 12, F = ℚ(√−3) ⊂ Σ_3): p = 109 = 10² + 9, word (1, 3, 56), A = 2,
+    χ = (2/109) = −1; 130 such words; also u = 39, 99.
+  So the report's "even A: t-side fully" holds only because those levels have no literal-generic m. **D2 (MAJOR,
+  overclaim):** state Remark 2.4 (both sides) for k ≡ 0 (mod 4) (K resp. c₀ odd), and say explicitly that for k ≡ 1 (4)
+  on odd levels only odd-A words are sign-clean (even-A χ = −1 words do occur, e.g. A = 2 at t = 3, k = 1).
+  (For k ≡ 0 (4), t odd: tk + 1 = c² forces 8 | k, so (2/p) = +1 and Prop 4.1(a)'s prime 2 is fine — the t-side claim is
+  then true, as the author says.)
+* **u ≡ 1 (4), K odd (the author's EVIDENCE case) — PROVED here (R228), offered as a repair.** Then N ≡ 2 (4), A = 2A₀,
+  A₀, v odd, t = (A + 1)/u ≡ 3 (4); by the DK table χ = −1 ⟺ 4 | A* = tv − 1 ⟺ v ≡ 3 (4). Now v·A = N and A ≡ −1 (mod u)
+  give v ≡ −N (mod u); F = ℚ(√−K₀) ⊂ Σ_u gives K₀ | u (Cor 2.3(a), K₀ odd squarefree) and, u ≡ 1 (4), either
+  K₀ ≡ 1 or 3 (4). Every prime of v splits in F (generic m), so χ_F(v) = 1.
+  – K₀ ≡ 3 (4): χ_F(v) = (v/K₀) = (−N/K₀) = (−m²/K₀) = (−1/K₀) = −1 (N ≡ m² mod K₀, gcd(m, K₀) = 1): contradiction —
+    there are NO even-A words at all.
+  – K₀ ≡ 1 (4): χ_F(v) = (−1/v)(v/K₀) = (−1/v)(−1/K₀) = (−1/v), so v ≡ 1 (4) and χ = +1. ∎
+  Brute force agrees (`review_r228_evenA2.py`: all k ≡ 0 (4) ≤ 60, predicted-clean u ≤ 150, odd m ≤ 400, all n:
+  67 levels with u ≡ 1 (4) carrying 3 065 even-A words, 18 levels with u ≡ 3 (4) carrying 840; **0 with χ = −1**).
+  Hence for k ≡ 0 (4) Cor 2.3 is a classification for ALL words; suggested wording accordingly.
