@@ -198,3 +198,26 @@ x² + ty² — while "clean" ⟺ every prime of tp + 1 splits in ℚ(√−t) �
 discriminant −4t. So T1-type levels are the principal-genus-class part of the clean levels.
 EVIDENCE (`scripts/ns_census.c`, all 34 392 primes p ≡ 1 (4) in (10⁵, 10⁶), 5 570 014 ordered words): 432 677 words lie on
 clean levels, 356 023 (82 %) of them on T1-type levels; 0 χ = −1 words on either (Lemma 1.4 and Lemma 1.2(a) at scale).
+
+## 5. Hardness beyond the adelic cell (goal (b); EVIDENCE)
+
+Data: `scripts/ns_census.c 100000 1000000` (34 392 primes p ≡ 1 (4)), `scripts/ns_hardness.py census RMAX`. Adelic cell
+= (p mod 8, (r/p) for odd r ≤ RMAX, lnr capped); all residuals are within-cell. φ_cl = fraction of words on clean
+levels, φ_T1 = on T1-type levels, K0 = p − ⌊√p⌋².
+* Within cells (RMAX = 31, 2 048 cells), corr(φ_cl, N₋/N) = −0.57; regression of N₋/N on (φ_cl, φ_T1): slopes −0.78, +0.02.
+  **Given exact cleanliness, the T1-type (principal-form) indicator adds nothing.** The R224 coin model is the adelic
+  approximation of φ_cl; φ_cl itself is exact (Legendre symbols of all prime factors of tp + 1).
+* Archimedean gradient. Residual of N₋/N by K0: −0.019 (K0 = 1, 61 primes), −0.050 ([2, 5)), −0.046 ([5, 10)), −0.042
+  ([10, 17)), −0.029 ([17, 30)), −0.015 ([30, 100), 1 828), −0.0067 ([100, 300), 5 344), +0.0035 (≥ 300, 26 414). By
+  offset: K0 = 24: −0.153 (36 primes), 16: −0.056, 4: −0.050, 9: −0.013, 1: −0.019, 25: +0.003, 36: +0.019 — ordered by the
+  number of small T1-type levels {t : tK0 + 1 = □} (24: t = 1, 2, 5, 7, 12, …; 25, 36: first t = 23, 35).
+* About half of the gradient survives removing all words on clean levels: residual of N₋/(N − N_cl): −0.041 ([5, 10)),
+  −0.024 ([10, 17)), −0.019 ([17, 30)), −0.0093 ± 0.0014 ([30, 100)), −0.0045 ± 0.0008 ([100, 300)), +0.0022 (≥ 300); K0 = 24:
+  −0.068 ± 0.010. So near-squares are depleted of χ = −1 words also on UNclean levels. Mechanism not identified (tried:
+  T1-type levels with gcd(m, c) > 1, levels with tK0 + 1 = s·□ for small s where χ = (s/A) — neither is depleted in a
+  sample of 800 primes m² + K, K < 30; `/tmp`-only script, not kept). Open (spark S2).
+* Hard primes. Of the 17 (J)45 hard primes plus 3361, two are m² − 3 with m ≡ 2 (4): 3361 = 58² − 3 and 1 249 921 =
+  1118² − 3 (both with m ≡ ±2 mod 3, 5, 7: adelically next to the T1 point m₀ = 2, n(2) = 1, of the family m² − 3);
+  372 121 = 610² + 21. The other 15 sit at generic distance (min(p − m², (m+1)² − p)/√p spread over (0.15, 1)).
+  Assessment: hardness is driven by the adelic pattern (square mod small primes) and, *pre-asymptotically*, by
+  T1 points of polynomial families: m² − 3 is the cheapest way to be a square mod every small prime simultaneously.
