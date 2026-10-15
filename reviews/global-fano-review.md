@@ -157,3 +157,17 @@ in Cl(ℤ[√−tp]) (Gross–Zagier/Dorman-type, here for an Eichler order of l
 Assessment — correct; but GLOBAL_FANO §4 bolds it as the description of certificate edges. MINOR: say "(Assessment; the
 class-group identification is not proved)".
 **Verdict C4: SOUND-AFTER-REPAIRS (minor)**: forward algebra PROVED; converse correctly withdrawn; dictionary = Assessment.
+
+**C4 addendum (reviewer lemma + primitive re-run).** All 5 non-path witnesses for p ≤ 200, t ≤ 6 (p = 61, 89, 101, 173 ×2) have
+**t = 4 and ε = 2ε₁ imprimitive** (ε₁ a spine element of nrd p; all five classes are ⟨1⟩ ⊥ binary). Re-run requiring ε/2 ∉ E(L)
+(`H.PRIM = True`): p ≤ 200, t ≤ 6: 174 classes, condition holds at 78, ring condition at the same 78, **0 non-path classes**.
+This is explained by a short sign lemma (reviewer, PROVED): *let ℓ be an odd prime, E_ℓ ≅ M₂(ℤ_ℓ), i, j ∈ E⁰ with i² ≡ j² ≡ 1
+(mod ℓ) and ij + ji = −2. Then (1 − i)(1 − j) ∈ ℓE_ℓ or (1 + i)(1 + j) ∈ ℓE_ℓ.* Proof: mod ℓ, ī ~ diag(1, −1);
+j̄ = [[x, y], [z, −x]] with x² + yz = 1, and īj̄ + j̄ī = 2x = −2 gives x = −1, yz = 0; then (1 − ī)(1 − j̄) = [[0, 0], [−2z, 0]] and
+(1 + ī)(1 + j̄) = [[0, 2y], [0, 0]]. ∎ Since (i, j) ↦ (−i, −j) preserves ε = −(1 + ij), ij + ji and all norms, **for t = 1 or t an odd
+prime the class condition of (a) (with i, j ∈ End(E, C)) is also sufficient edge-wise** (then C₀(L_w) ⊂ E(L) has index 2, so
+E(L) = E(L_w) and L ≅ L_w). The ring condition is a genuine extra condition only through (i) the 2-part of t, including imprimitive
+ε (the t = 4 witnesses above), and (ii) incompatible sign choices at ≥ 2 distinct odd primes ℓ ∥ t (and prime powers ℓ^k, k ≥ 2,
+not analysed). So the author's sign-flip example ((3, 1, 7), p = 13) shows nothing edge-wise — at t = 3 the edge-wise converse is
+true — and the doc should state the converse as: TRUE for t = 1 and t odd prime (sign lemma), FALSE in general (t = 4, p = 61
+above), open for primitive ε with composite t (see the t ≤ 15 re-run below).

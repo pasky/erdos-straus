@@ -130,6 +130,7 @@ def run(P, M):
     bad = 0; checked = 0
     for p in primes_1mod4(5, P):
         cls = [k for k in classes_det_p(p) if aniso_at_p(key_to_gram(k), p)]
+        print('p', p, 'checks so far', checked, 'bad', bad, flush=True)
         for k in cls:
             G = key_to_gram(k)
             GLOBAL_G = G
@@ -138,7 +139,9 @@ def run(P, M):
             els = [from_vec(b) for b in B]
             N = [[(nrd(add(els[i], els[j])) - nrd(els[i]) - nrd(els[j])) / 2 if i != j else nrd(els[i]) for j in range(4)] for i in range(4)]
             Mmax = min(M, (p * p) // (4 * p) + 5)
-            sv = short_vectors(N, Mmax * p)
+            N2 = [[int(2 * N[a][b]) for b in range(4)] for a in range(4)]
+            assert all(2 * N[a][b] == N2[a][b] for a in range(4) for b in range(4))
+            sv = [(Fr(q, 2), x) for q, x in short_vectors(N2, 2 * Mmax * p)]
             trB = [trd(e_) for e_ in els]
             cnt = {}
             for q, x in sv:

@@ -21,6 +21,7 @@ def in_order(B, z):
 
 
 VERB = False
+PRIM = False
 
 def run(P, T):
     stats = dict(classes=0, path=0, cond=0, cond_nonpath=0, ring=0, ring_nonpath=0, algebra_checks=0)
@@ -43,6 +44,8 @@ def run(P, T):
             for t in range(1, T + 1):
                 for qe, e in tz:
                     if qe != t * p:
+                        continue
+                    if PRIM and any(t % (q * q) == 0 and in_order(B, Q.scal(e, Fr(1, q))) for q in range(2, 4)):
                         continue
                     for qj, jj in tz:
                         A = qj
