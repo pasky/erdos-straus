@@ -1,0 +1,4 @@
+symbol identities (a): 466
+predicted-dead windows: 72  violations (any y <= 200000): 0
+other windows: 189  with a solution found: 129
+solutions with a not dividing y (general-y family): 479

@@ -413,3 +413,11 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z10_pointwise_cap | minimal cap e*(n) | covering barrier (log₂p)^{1−o(1)} i.o.; GRH: e*(p) ≤ (log p)^{2+ε}, ≤ exp(O(√(log₂p log₃p))) | PROVED / CONDITIONAL (GRH, sketch) |
 | z10_exact_family | solution depends only on D = c²d | ES^{(y,e)} ⟺ D ∈ 𝒟_e(M) (D \| A² lifted by even excess ≤ 2e); supply dimension e + 3, no tower; e = 0 = ℛ(M) — SHARP | PROVED; (e+3)/(e+4) Assessment |
 | z10_pmsq_1e7 | C rerun of PM-SQ_± | 0 exceptions ≤ 10⁷; record least \|u\| = 41 | EVIDENCE |
+
+## Spark relay Z6 (O236): pointwise minimal cap e*(n) (memos z12_*, deep file CAP_POINTWISE.md; not yet triaged)
+
+| memo | idea | result | label |
+|---|---|---|---|
+| z12_window_cap | Type II window q = 4x − n with mute set = primes of x | (x/q) = −1 forces −1 ∈ ⟨S⟩: ES^{(y,e)}(n) with e < q*(n); e*(n) ≪ rad(n)^5 (Linnik), explicit (Ahn–Kwon), ≪ log²n (GRH, non-square n); first polynomial cap — SHARP | PROVED |
+| z12_typeI_dichotomy | same trick in Type I shape | (a/p) = +1: no forced firing; dead at every cap if (pk′+1)/4 prime | PROVED + EVIDENCE |
+| z12_grh_lattice_gap | GRH + box covering toward C log log p | below covering threshold = divisor lottery; P-loss of whole-lattice covering pinned to equidistribution of relation primes mod P | Assessment (tentative) |

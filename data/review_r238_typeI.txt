@@ -1,0 +1,2 @@
+P=400 K=60 Y=20000: symbol identities 612, violations 0; predicted-empty windows 95
+  Def1.1 solutions there with a|y: 0; with a not | y (outside Prop 4.1 scope): 0 e.g. []
