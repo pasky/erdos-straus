@@ -243,4 +243,5 @@ Archive of this pass: `sources/lit2026d/`.
 | (J)51 Thm 3.1 (ES_q(T^k) has no finite linear covering for q = 3^r, r ≥ 4) | APPARENTLY NEW | no ES_q literature found |
 | (J)51 §4 (char 2 non-sterile by Frobenius) | APPARENTLY NEW, elementary | — |
 | (J)54 Thm 3.4 (explicit r₀ = 2³² for sterile Mordell points over ℤ) | APPARENTLY NEW | 10c §2 verdicts on sterile points stand (only the square obstruction is in the literature; Yamamoto/Ionascu–Wilson expect coverability at integer level) |
-| (J)56 / FF_STERILE_SMALL (branch side-agent/ff-sterile-small) | not audited in detail | same verdict template applies: lemmas from Cohn–Heninger/Bernstein KNOWN, sterility results APPARENTLY NEW |
+| FF_STERILE_SMALL Lemma 1.4 (branch side-agent/ff-sterile-small, O220; refined class bound below the Coppersmith threshold, extra exponent max(0, d(n − d)/n − ρ)) | **KNOWN in substance** | the F_q[T] twin of (J)54 Cor 1.4: Cohn–Heninger Thm 1.2 + splitting the class into q^{d(n−d)/n−ρ} subclasses |
+| FF_STERILE_SMALL Lemmas 1.1–1.3 (Euclidean-division routes), Thms 3.1/5.2/8.1 (q = 27, q = 9, A = T) | APPARENTLY NEW | ES-specific; no ES_q literature |
