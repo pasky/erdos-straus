@@ -86,7 +86,9 @@ static int odo(u8 *c, int lo, int hi, int nz0) {
   return 0;
 }
 static poly TS2;     /* T^{s-2} */
-static int S_, A_, Z_, Y_, T_, B_, LC; static int SLICEF = 0; static int DUMP = 0;
+static int S_, A_, Z_, Y_, T_, B_, LC; static int SLICEF = 0; static int DUMP = 0; static int PATF = 0;
+/* zc (O226): eps of FF_ODD_ABSENCE Thm 1.2; PATF = 1 keeps only patterns with 4 | s and eps = (-1)^{s/4} */
+static int zc_eps_ok(int s, int a, int z, int t) { int b = s - a - z, e = (t + t * z + z * (1 + s) + t * s) & 1; if (a == b && ((z + s) & 1)) e ^= 1; if (s % 4) return 0; return e == ((s / 4) & 1); }
 /* full check of a candidate (m', w1, C1, v1); g' computed. returns 1 if valid tuple of the pattern */
 static int check(const poly *m, const poly *w1, const poly *C1, const poly *v1) {
   if (m->d != Z_ || w1->d != A_ || C1->d != B_ || v1->d != T_) return 0;
@@ -98,6 +100,7 @@ static int check(const poly *m, const poly *w1, const poly *C1, const poly *v1) 
   if (SLICEF) {   /* FF_STERILE_SMALL §7: only tuples whose cylinder lies in a slice u0 = -E(0) outside F_3^*: E(0) not in F_3 */
     int e0 = MUL[MUL[m->c[0]][g.c[0]]][w1->c[0]]; e0 = ADD[e0][NEG[1]];
     if (e0 == 0 || e0 == 1 || e0 == ADD[1][1]) return 0;
+    if (SLICEF == 2) { int p4 = MUL[MUL[e0][e0]][MUL[e0][e0]]; if (p4 == 1) return 0; }   /* zc (O226): q = 9 primitive slices only */
   }
   if (DUMP) { /* zc (O226): dump tuple: s a z y t | E0 | m' | w | C | g' | v  (coefficients low->high, field codes) */
     int e0 = ADD[MUL[MUL[m->c[0]][g.c[0]]][w1->c[0]]][NEG[1]];
@@ -389,7 +392,7 @@ static double costF(int mode) {
   return 1e9;
 }
 int main(int argc, char **argv) {
-  int q = atoi(argv[1]); if (q != 3 && q != 5 && q != 7 && q != 9 && q != 27) { fprintf(stderr, "q unsupported\n"); return 2; } int s0 = atoi(argv[2]), s1 = atoi(argv[3]); double cap = atof(argv[4]); int meth = argc > 5 ? atoi(argv[5]) : 0; USEF = argc > 6 ? atoi(argv[6]) : 1; if (argc > 7) FOV = atof(argv[7]); if (argc > 8) SLICEF = atoi(argv[8]); if (argc > 9) DUMP = atoi(argv[9]);
+  int q = atoi(argv[1]); if (q != 3 && q != 5 && q != 7 && q != 9 && q != 27) { fprintf(stderr, "q unsupported\n"); return 2; } int s0 = atoi(argv[2]), s1 = atoi(argv[3]); double cap = atof(argv[4]); int meth = argc > 5 ? atoi(argv[5]) : 0; USEF = argc > 6 ? atoi(argv[6]) : 1; if (argc > 7) FOV = atof(argv[7]); if (argc > 8) SLICEF = atoi(argv[8]); if (argc > 9) DUMP = atoi(argv[9]); if (argc > 10) PATF = atoi(argv[10]);
   field_init(q); lgq = log(q);
   for (int x = 0; x < q; x++) for (int y = 0; y < q; y++) { int p = 1; for (int k = 0; k < PCH; k++) p = MUL[p][y]; if (p == x) PROOT[x] = y; }
   for (int s = s0; s <= s1; s++) {
@@ -397,7 +400,7 @@ int main(int argc, char **argv) {
     for (int a = 0; a <= s; a++) for (int z = 0; a + z <= s; z++) {
       int b = s - a - z; if (b < a) continue;
       for (int y = 0; y <= b; y++) {
-        int t = b - y; A_ = a; Z_ = z; Y_ = y; T_ = t; B_ = b; LC = (a < b) ? 1 : ADD[1][1];
+        int t = b - y; if (PATF && !zc_eps_ok(s, a, z, t)) continue; A_ = a; Z_ = z; Y_ = y; T_ = t; B_ = b; LC = (a < b) ? 1 : ADD[1][1];
         /* methods: 2, 3, 5 (candidate search); 11, 12, 13, 14, 16 (factoring: modes 1, 2, 3, 4, 6) */
         int ms[8] = {2, 3, 5, 11, 12, 13, 14, 16}; double cs[8] = {cost2(), cost3(), cost5(), costF(1), costF(2), costF(3), costF(4), costF(6)};
         int m = meth; double c = 1e9;

@@ -49,3 +49,30 @@ Instances: q = 9 ((q−1)/2 = 4): **every odd s is empty**; s ≡ 2 (mod 4) only
 s ≡ 0 (mod 8): only patterns with ε = +1. q = 27 ((q−1)/2 = 13): every s with 13 ∤ s is empty (explains O220's "no tuples
 s ≤ 12"). q = 3^r with r odd: (q−1)/2 is odd, so parity plays no role and only s sharing a factor with (q−1)/2 survive; e.g. q = 243
 ((q−1)/2 = 121): only 11 ∣ s. q = 81 ((q−1)/2 = 40): every s prime to 10 is empty.
+
+**Theorem 1.4 (k = 1 Case A law; PROVED).** Let q = 3^r and let (a1', b1, K) be k = 1 Case A data (FF_STERILE_SMALL Lemma 7.2:
+T^α ∥ a1 = T^α a1', a1', b1 monic, lc K = lc E ∈ {1, 2}, T ∤ a1'b1K, E = a1'b1K − 1, F = (a1 + b1)/E a polynomial) whose
+cylinder lies on a slice u₀ = −E(0) ∉ F₃^*. Then E(0) = b1(0)/F(0) and
+  E(0)^α = (−1)^{t + tκ + κ(1+α) + tα} · λ^{κ + 2β − α} · (lc K)^{α − t} ∈ F₃^*,
+(t = deg z, λ = lc z, z := (F + b1)/a1', β = deg b1, κ = deg K); in particular **E(0)^{2α} = 1**.
+*Proof.* E ≡ −1 (mod a1') and EF = T^α a1' + b1 give F + b1 ≡ 0 (mod a1'), so z is a polynomial, and
+b1·K·F = T^α + z, F + b1 = a1'·z (DEPTH_ASPECT Lemma 2.3 (A0), (A3): pure algebra from E = a1'b1K − 1, EF = T^α a1' + b1).
+At T = 0: E(0)F(0) = b1(0) ≠ 0 and E(0) ≠ 0 (E(0) = −u₀), so F(0) ≠ 0 and z(0) = b1(0)K(0)F(0) ≠ 0. Lemma 1.1 with
+(M, W, C, G, V, s) = (K, b1, F, a1', z, α) gives the formula (μ_W = 1, μ_M = lc K). lc K ∈ F₃^*. For λ: lc(T^α a1' + b1) ∈ {1, 2}
+(sum of monics; deg F = α − β − κ ≥ 0 forces α + λ_deg ≥ β), so lc F ∈ F₃^*; hence λ = lc(F + b1) ∈ F₃^* unless deg F = β
+and lc F = −1 (top coefficients cancel). In that case deg F = α − β − κ = β, i.e. κ + 2β − α = 0, and λ does not occur.
+So the right side lies in F₃^* = {±1}. ∎
+*Check (EVIDENCE):* `zc_caseA_enum` (fz1_caseA_enum + dump), all Case A data unfiltered: q = 9, α ≤ 6 (745 data, plus a partial
+α = 7) and q = 27, α ≤ 4 (+ partial α = 5): E(0)^{2α} = 1 in every case; the cancellation case λ ∉ F₃ occurs (4 data at q = 9) and
+is harmless as proved. q = 9 distribution: odd α only E(0) = 1; α ≡ 2 (4): {1, ±i}; α ≡ 0 (4): all values ≠ −1 — the same
+shape as Case B.
+
+**Corollary 1.5 (the vanishing law; PROVED).** For q = 3^r, on the slices u₀ ∈ F_q^* ∖ F₃^* every k = 1 linear family (Case A of
+depth α, or Case B of parameter s; FF_STERILE_SMALL Prop 6.1 handles depth 1) has cylinder in a slice with (−u₀)^{2n} = 1,
+n = α resp. s. Hence the slice u₀ carries **no family of level n unless ord(−u₀) ∣ 2n**. For q = 27 the first possible level is
+n = 13 (ord(−u₀) ∈ {13, 26} for −u₀ ∉ F₃); for q = 9 the slices u₀ = ±i need 2 ∣ n and the four primitive slices
+(u₀⁴ = −1) need 4 ∣ n.
+This explains both O220 observations exactly (q = 27: nothing for s ≤ 12, α ≤ 4; q = 9: nothing at odd s).
+*Interpretation.* The law is a reciprocity statement: the "local symbol" w(0)/C(0) of the curve-data at T = 0 is a product of
+local symbols at the other places (roots of v, w, m', and ∞), where the defining equation makes every symbol a power of T^s.
+Galois descent plays no role (the law is the same over every field); the F₃-flavour comes only from lc's ∈ {±1}.
