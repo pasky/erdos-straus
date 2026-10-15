@@ -148,8 +148,8 @@ For s ≡ 0 (mod 24), s ≥ 6, put Y = 2^{s/3}, n = 63Y³ + 1 = 63·2^s + 1, a =
   b = (63Y³ + 3Y² − 9Y + 28)/340,  c = (21Y + 64)/340,  x = abd, y = acdn, z = bcdn.
 Then 4/n = 1/x + 1/y + 1/z with x, y, z positive integers.
 *Proof.* n + 4a²d = 63Y³ + 1701 = 63(Y + 3)(Y² − 3Y + 9). Put f = 3(Y² − 3Y + 9), f′ = 21(Y + 3), so ff′ = n + 1700.
-Then 4abd − n = 85·4b − n = f and 4acd − 1 = 85·4c − 1 = f′ − ... more precisely 340c − 1 = 21Y + 63 = f′, so
-(4abd − n)(4acd − 1) = n + 4a²d, which expands to c·n = 4abcd − a − b (Type II identity). Integrality: 340 = 4·5·17;
+Then 4abd − n = 340b − n = f and 4acd − 1 = 340c − 1 = 21Y + 63 = f′, so (4abd − n)(4acd − 1) = n + 4a²d; since
+(4abd − n)(4acd − 1) = 4ad(4abcd − b − cn) + n, this is c·n = 4abcd − a − b (Type II identity). Integrality: 340 = 4·5·17;
 Y ≡ 0 (4), and Y ≡ 1 (mod 5) and (mod 17) iff 4 | s/3 and 8 | s/3; then 21Y + 64 ≡ 85 ≡ 0 and
 63Y³ + 3Y² − 9Y + 28 ≡ 85 ≡ 0 (mod 5·17), both ≡ 0 (mod 4). Positivity is clear. ∎ (`z19_binom_verify.py 63 1 II-ad 5 17 3
 "Y**2-3*Y+9" 3 400`: identity and integrality verified at all j = s/3 ≡ 0 (mod 8), j ≤ 400.)
