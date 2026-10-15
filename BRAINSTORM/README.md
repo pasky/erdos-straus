@@ -356,3 +356,5 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | file | question | finding | label |
 |---|---|---|---|
 | s5_three_sides | (J)48 × (J)53/(J)55: the three side numbers tp+1 = AB, p+u = Av, p+v = Bu | Lemma S: χ = genus character on every side; u-side deformation u(K+u) = □; exact three-side cleanliness explains ≈ 70–80 % of the residual near-square depletion (K0 = 16, 24 fully); K0 = 8 unexplained | Lemma S + deformations PROVED; census EVIDENCE (169 410 primes to 5·10⁶, 0 violations) |
+| s5_reciprocity_forcing | (ii) Maslov/Dedekind index × SQ_±; (iii) anti-T1 auxiliary field | Prop R: every local-invariant index of a word is a function of (w mod 8, sgn w), so index sums are cell-occupation sums; reciprocity relocates signs, never creates points; anti-T1 = the five-slice cells = ES itself | PROVED (negative, exact scope) |
+| s5_gcd_sides | own: interaction of side numbers | gcd(tp+1, p+u) = tu−1 = A; ES-five ⟺ some such gcd is ψ-odd (two-moving-modulus form of H-A) | PROVED (dictionary); checked p < 1500 |
