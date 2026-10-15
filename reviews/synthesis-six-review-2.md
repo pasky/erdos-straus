@@ -71,3 +71,25 @@ has cap 0. Verdict: **SOUND** (two MINOR wording points, D6).
 * ±-weighted Davenport constant D_{±}(ℤ/n) = ⌊log₂ n⌋ + 1 matches Adhikari–Chen–Friedlander–Konyagin–Pappalardi (2006)
   (from memory; paper not in sources/).
 Verdict: **SOUND** (Prop + sharpness PROVED, numerics EVIDENCE as labelled).
+
+## s6_numerator_windows — check
+* Lemma-1.1 algebra for ν/n (m = νK − n, ν/n − 1/K = m/(nK)): correct.
+* The Theorem's Jacobi computation (n = a²: (K/q_i) = (ν/q_i); ν square; ν odd via (m/ν) = (−a²/ν) and reciprocity;
+  4 | ν via m ≡ −a² ≡ 3 (4), (2/m) = 1 when 8 | ν since m ≡ 7 (8)) re-derived line by line: **correct as a statement about
+  the sign condition** ("(K/q_i) = −1 for all i" is impossible at n = a² in those cases). The only-if direction is all
+  that is claimed; fine.
+* **But the mechanism and the reading are broken for odd ν (D3, MAJOR).** A forced window has m = ∏ q_i odd. For odd ν
+  and odd n, νK = m + n is even, so **K is always even** — exactly the case the memo's own R-O238 repair excludes ("K ODD").
+  Hence (1) "the self-generated mute set works for every ν/n" is false/vacuous for odd ν at odd n; (2) the even-K
+  forced windows really can fail: `scripts/review_r246_numwin_even.py` (non-squares n < 4000, prime q ≡ 3 (4) < 200,
+  sign condition (K/q) = −1, gcd(K, qn) = 1) finds forced-sign windows with NO Lemma-1.1 d at any cap: ν = 3: 173/7479
+  (e.g. n = 5, q = 19, K = 8: −8 ≡ 11 ∉ ⟨2⟩ = {1,2,4,8,16,13,7} mod 19), ν = 5: 120/4616 (n = 21, q = 19, K = 8),
+  ν = 7: 100/3168; (3) the memo's numerics for ν ∈ {5, 13, 17, 21} (`s6_numerator_windows.py` does not check K's
+  parity) count sign-forced windows with K even, which are not guaranteed to produce solutions; (4) "the window shape is
+  strictly more T1-rigid than the problem" is FALSE as a statement about window-shape solutions: `scripts/review_r246_numwin.py`
+  finds integral window solutions (x = K, y = nA, z = nKA/d, m odd with all prime factors ≡ 3 (4), gcd(m, n) = 1) at odd
+  squares for ν = 3, 7, 9, 11, 19 — e.g. 3/49 = 1/20 + 1/98 + 1/980 (m = 11), 7/25 = 1/4 + 1/50 + 1/100 (m = 3),
+  9/169 = 1/20 + 1/338 + 1/3380 (m = 11) — while the control ν = 4 gives none (CAP_DOWN §3 T1). What is rigid is the
+  *sign-forcing hypothesis*, not the window shape.
+Verdict: Theorem (sign-level only-if) **SOUND**; "works for every ν/n" and "window-shape T1 … strictly more than (J)46"
+readings **GAP** (D3).
