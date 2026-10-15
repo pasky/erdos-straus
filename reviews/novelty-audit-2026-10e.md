@@ -412,3 +412,44 @@ Status: in progress.
 | (J)72 Thm 2.1 (game barrier) | KNOWN in substance (winning sets meet every ball: Schmidt 1966; McMullen 2010 p. 2; Kristensen 2006 for F_q((T⁻¹))) | the ES input is "U_c misses a ball" |
 | (J)72 Prop 3.2 (counting-only barrier) | APPARENTLY NEW, elementary | — |
 | (J)72 Lemma 4.1/Thm 4.2 (Liouville spectrum), Prop 5.1 (Frobenius x_u ↦ x_{u³}) | mechanism KNOWN (Liouville/Mahler; Frobenius maps rationals to rationals of p-th power height); statements APPARENTLY NEW | — |
+
+---
+
+## 8. Sterile Mordell points and the remaining entries ((J)70, (J)58, (J)60)
+
+### 8.1 Findings
+
+* **(J)70 Thm 2.1/6.3 (sterile points for every prime r ≥ 2^{21.44}).** 10c §2 found that
+  the only published covering obstruction is the square (Mordell/Schinzel) one, and that
+  Yamamoto 1965 / Ionascu–Wilson 2011 expect coverability at integer level. Repeated
+  searches "Erdős–Straus no finite set of congruence classes covers primes least
+  quadratic nonresidue", "Erdős–Straus Mordell classes cannot cover all primes profinite
+  obstruction … finite covering": only Lopez arXiv:2404.01508 (a conjectural *complete*
+  congruence system, i.e. the opposite expectation), Tao's blog and folklore pages.
+  → APPARENTLY NEW (and it is at odds with Lopez's conjecture only in the sense that
+  Lopez's system is not a finite ET-class covering; no contradiction).
+* **(J)70 Lemma 3.1 (joint parametrisation).** "P-data of N ↔ (a, c, d) with
+  N ≡ −4a²d (mod 4acd − 1)" is ET Prop 1.9's Type II family "−4a²d mod f, 4ad | f + 1"
+  with f = 4acd − 1 (Rosati 1954; Vaughan 1970); "Q-data n = 4acd − f, f | 4a²d + 1" is ET
+  Prop 1.9's first Type I family "n = −f mod 4ad, f | 4a²d + 1" (Nakayama 1939) — ET p. 8.
+  → **KNOWN in substance** (as class families); the joint amortised enumeration is the
+  campaign's.
+* **(J)70 Comp 4.1** (level-1 coverage for r ≤ 13; survivors for 17 ≤ r < 20 000):
+  finite computation, APPARENTLY NEW.
+* **(J)58 three side numbers.** Lemma G (gcd(tp + 1, p + u) = tu − 1 = A on a word) and
+  "χ = ψ(A)" are elementary consequences of the Type II parametrisation (ET §2; Yamamoto's
+  reciprocity conditions, Bright–Loughran Cor 1.3). Lemma S (a ψ-clean side forces
+  χ = +1) is genus theory. → KNOWN in substance (elementary); CONJECTURE U is ES-specific.
+* **(J)60 Prop 5.1** (2-adic Haar mass of the five-slice set = 3/4) and Lemma 5.2 (Div(n+1)
+  certificate count): elementary local computations, nothing comparable found;
+  APPARENTLY NEW.
+
+### 8.2 Verdicts
+
+| Claim | Verdict | Notes |
+|---|---|---|
+| (J)70 Thm 2.1/6.3 (S) for r ≥ 2^{21.44}; sterile points on every r-generic line | **APPARENTLY NEW** | only the square obstruction is published (10c §2); Lopez 2404.01508 conjectures the opposite kind of statement for a non-ET system |
+| (J)70 Lemma 3.1 | KNOWN in substance | ET Prop 1.9 (p. 8): Type II −4a²d mod f, 4ad \| f + 1 (Rosati; Vaughan); Type I n = −f mod 4ad, f \| 4a²d + 1 (Nakayama) |
+| (J)70 Comp 4.1 | APPARENTLY NEW (computation) | — |
+| (J)58 Lemma G / Lemma S | KNOWN in substance (elementary; Type II parametrisation + genus theory) | — |
+| (J)60 Prop F/F′, Prop 5.1, Lemma 5.2 | APPARENTLY NEW (elementary, ES-specific) | — |
