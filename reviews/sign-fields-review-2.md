@@ -96,3 +96,44 @@ Defects:
   needs 2^a | 6); for ord = 4·3^b, 8·3^b the value is generic. Repair: "ord_q(4) ∈ {3^b, 2·3^b}".
 - **D8 (MINOR).** "every member [of 4^s + 105] lies in one of Mordell's six hard classes" — for s ≥ 2 (s = 0, 1 give 106,
   109). Add "(s ≥ 2)".
+
+## 3. §2 numerator sign fields — Prop 2.1 SOUND; Thm 2.2 (a)–(c) SOUND; (d) SOUND-AFTER-REPAIRS (one false parenthetical)
+
+**Re-derivations.** Write A·A* = t(tuv − u − v) + 1 = tn + 1, Av = n + u, A*u = n + v.
+* Slot decompositions (all five) re-derived: e.g. ν | u = νw: tn + A* + 1 = AA* + A* = A*tu, so
+  1/(wA*) + 1/(tnw) + 1/(tnwA*) = A*tu/(tnwA*) = ν/n ✓; ν | A = νw: nA* + n + v = v(nt + 1) = vAA* ✓; ν | t = νw:
+  t/n = (n + u + v)/(nuv) = 1/(uv) + 1/(nv) + 1/(nu) ✓ (this is the "(J)32" slot — the text should just display it).
+  `review_r236_slots.py` checks all five in exact rationals for every word of all primes < 600 and odd squares < 40².
+* Prop 2.1: ν | v ⟹ ν | n + u ✓; ν | t ⟺ A ≡ −1 (ν) ✓; ν | A* ⟺ uA(tv − 1) = (A + 1)(n + u) − uA ≡ 0 ⟺ An ≡ −(n + u)
+  (ν) ✓; t-slot and A*-slot classes coincide only if ν | u ✓. Numerically: 9 502 (word, ν, side) coprime instances,
+  ν ∈ {3, 4, 5, 7, 8, 12}, 0 misclassifications. Note: when gcd(ν, n + u) > 1 the class −(n + u)/n is not a unit and
+  C_ν reduces to {−1}; the definition of C_ν should say "(the second class only if gcd(ν, n + u) = 1)". MINOR.
+* Thm 2.2(a)–(c): odd r | m² + u, gcd(m, u) = 1 ⇒ r ∤ u and (−u/r) = 1 ✓; σ_A fixes √−u; c moves it ✓. (b) conductor of
+  ℚ(√−u) divides 4u ✓, u = 1 forces i ∈ ℚ(ζ_ν) ⟺ 4 | ν ✓. (c) Σ_{ν,u} = ℚ(ζ_{νu}) · ℚ(√−u) linearly disjoint, Chebotarev
+  gives r ≡ −1 (νu) split in ℚ(√−u); then t = (r + 1)/u ≡ 0 (ν), Av − u = m² ✓. Numerics: 0 violations of (a) (odd A,
+  coprime) at odd squares 3² … 59²; words with a ν-slot at these squares: ν = 4, 8, 12: 0; ν = 3: 411, 5: 273, 7: 140 ✓.
+* Thm 2.2(d) for u ≡ 1 (mod 4), 4 | ν: Gal(ℚ(ζ_{νu})/ℚ) = (ℤ/ν)^× × (ℤ/u)^×; on the c-fibre b = −1 the character of
+  ℚ(√−u) (u = u′s², u′ ≡ 1 (4)) is χ_{−4}(a)·(−1/u′) = χ_{−4}(a): half/half ✓; A*-class ≡ −(1 + u) ≡ 2 (4) non-unit ✓;
+  coprime slot = {a ≡ −1}, size 1/φ(ν); 1/φ(ν) = 1/2 with 4 | ν ⟺ ν = 4 ✓.
+* 8/131, 8/241, 11/37 (own word enumerator, u ≤ v): every 4-slot value is ≡ 4 (mod 8) at 131 and 241 ✓; no 8-slot, no
+  11-slot at 37 ✓; own exhaustive search (x ≤ 3n/ν) confirms 8/131, 8/241, 11/37 have no 3-term solution ✓.
+
+Defects:
+- **D9 (MAJOR, Thm 2.2(d) parenthetical and the following bold sentence).** "for u ≡ 3 (mod 4) the whole c-fibre is
+  forbidden and the ratio below is even smaller" is false for ν = 4, and the bold claim "for every other T1-numerator
+  (8, 12, 16, …) it is a proper Chebotarev subset of the forbidden half" is false at some levels. For n ≡ 1 (4) and
+  u ≡ 3 (4), 4 | n + u, so Prop 2.1's hypothesis ν ∤ n + u fails for ν = 4: every odd A gives 4 | v = (n + u)/A, i.e.
+  **every** c-fibre element is a 4-word (v-slot) — word set = forbidden set = whole fibre, the coincidence holds. The same
+  happens for ν = 8 (resp. 12, …) at every level u with ν | n + u (e.g. n ≡ 1 (8), u ≡ 7 (8): 8 | v for every odd A;
+  checked for all words of primes p ≡ 1 (8) below 400). So "ν = 4 is unique" is a statement about the *coprime*
+  slot set at levels u ≡ 1 (4) only; with the v/u-slots (non-coprime) numerators 8, 12, … also realise the full
+  forbidden set on the levels u ≡ −n (mod ν). Repair: delete the parenthetical; replace by "for u ≡ 3 (4), 4 | n + u and
+  the v-slot makes every odd A a 4-word (the whole c-fibre, = the forbidden set); for general 4 | ν the same holds at
+  levels ν | n + u"; restrict the bold sentence to "levels u ≡ 1 (4) with ν ∤ n + u".
+- **D10 (MINOR, counting bug in `scripts/z8_numerators.py`).** `words()` loops t ≤ n + 1 and misses the word
+  (n + 2, 1, 1) (A = A* = n + 1). Hence "21 words of 131 / 14 with a 4-slot" should be 22 / 15 (the missed word has
+  A = 132 ≡ 4 (8), so the 8/131 conclusion is unaffected), "9 words of 37" should be 10, and ν-slot counts at squares for
+  odd ν (e.g. 3 | m² + 2) are slightly undercounted. Conclusions unaffected. Repair: range(1, n + 3).
+- **D11 (MINOR, novelty).** (a)–(c) are the classical quadratic-reciprocity T1 argument (Yamamoto/Schinzel-type: ν/n with
+  4 | ν has no polynomial-family solution on square classes) restated as a containment ℚ(√−u) ⊂ ℚ(ζ_{νu}); label is
+  correct (PROVED, elementary) but it is a reformulation, not new information — say so next to "(J)46 SHARP 2".
