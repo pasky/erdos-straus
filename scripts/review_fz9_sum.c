@@ -51,7 +51,9 @@ static int copm(long n, long d, long rho) {
 static LD lbin0(long n, long d) { return lfac[n] - lfac[d] - lfac[n - d]; }
 /* ---- R221: Lemma 4.1 ---- */
 #define NRH 48
+#ifndef NV
 #define NV 400
+#endif
 static LD VR[NRH + 1][NV + 1]; static int RANKON = 1;
 typedef struct { LD ratio; long j, e; LD cnt; } ITM;
 static int icmp(const void *x, const void *y) { LD a = ((const ITM *)x)->ratio, b = ((const ITM *)y)->ratio; return a < b ? 1 : a > b ? -1 : 0; }

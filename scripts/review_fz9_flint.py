@@ -174,6 +174,13 @@ def run_group(s, kind, key, pats, counts):
             counts[p] += 1
 
 
+def _worker(args):
+    s, kind, key, pats = args
+    c = {p: 0 for p in pats}
+    run_group(s, kind, key, pats, c)
+    return c
+
+
 def main():
     s = int(sys.argv[1]); fn = sys.argv[2]; force = len(sys.argv) > 3 and sys.argv[3] == '1'
     FK = int(sys.argv[4]) if len(sys.argv) > 4 else None
@@ -192,8 +199,12 @@ def main():
         groups.setdefault(k, []).append((a, z, y, t))
     counts = {p: 0 for p in todo}
     t0 = time.time()
-    for (kind, key), pats in sorted(groups.items(), key=lambda kv: kv[0]):
-        run_group(s, kind, key, pats, counts)
+    # each group in a fresh worker process (python-flint leaks memory over ~10^7 factorisations)
+    import multiprocessing as mp
+    with mp.get_context('fork').Pool(1, maxtasksperchild=1) as pool:
+        for part in pool.imap(_worker, [(s, kind, key, pats) for (kind, key), pats in sorted(groups.items(), key=lambda kv: kv[0])]):
+            for p, c in part.items():
+                counts[p] += c
     print(f'# s={s} flint patterns={len(todo)} groups={len(groups)} time={time.time() - t0:.0f}s', file=sys.stderr)
     for p in sorted(rows):
         c = rows[p] if rows[p] is not None else counts[p]
