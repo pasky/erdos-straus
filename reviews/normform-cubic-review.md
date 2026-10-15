@@ -102,3 +102,43 @@ Re-proved line by line; all five rearrangements and the degenerate family re-ver
   families in cusps remain open (the report's spark says so).
 * Cor 3.2(c): "Thm 1.2′ is subsumed for homogeneous prime P" — true, and in fact for every P with irreducible top part
   (see D4 above).
+
+### Lemma 2.1 (orbit finiteness via Skolem–Mahler–Lech) — SOUND-AFTER-REPAIRS (minor)
+* Finiteness of solutions of 4/n and finite-to-one-ness of (x, y, z) ↦ ET coordinates (a, b, c, d all divide x, y or z,
+  so are bounded): correct; the latter should be stated (MINOR D6a).
+* e(j) = F_i(ε^j x₀) − c is a constant-coefficient exponential polynomial in j with non-zero roots (products of
+  σ_s(ε)); SML on j ≥ 0 or j ≤ 0 (one of them has infinitely many zeros) gives an infinite progression; vanishing on
+  {qi + r : i ≥ 0} ⇒ all grouped coefficients vanish ⇒ vanishing for all i ∈ ℤ. Correct.
+* Orbit closure: the orbit map g ↦ g·y is a morphism, so closure(⟨ε^q⟩)·y ⊂ closure(⟨ε^q⟩y), and closure(⟨ε^q⟩) has
+  finite index in closure(⟨ε⟩), hence contains T_ε. Correct.
+* Cubic K: with N(ε) = 1, T_ε ⊂ T = R¹_{K/ℚ}𝔾_m; X(T) ⊗ ℚ = (permutation module on 3 embeddings)/(trivial), ℚ-irreducible
+  for C₃ (≅ ℚ(ζ₃)) and S₃ (standard rep); ℚ-subtori ↔ Galois-stable quotients, so T_ε = T. T acts simply transitively on
+  the irreducible {l₁l₂l₃ = n/c}; N − n is irreducible over ℂ, so (N − n) | (F_i − c). Correct.
+  The leftover "(N(ε) = ±1; replace ε by ε²)" in the proof contradicts nothing but is redundant since the statement now
+  assumes N(ε) = 1 (MINOR D6b).
+* From-scratch numerical check (review_r259_orbit_closure.py): K = ℚ(∛2), ε = ∛2 − 1 (N(ε) = 1), x₀ ∈ {(1,0,0), (1,1,0),
+  (3,1,1)} (n = 1, 3, 15), sub-progressions q ∈ {1, 2}: the polynomials of degree ≤ D (D = 3, 4, 5) vanishing on 60 orbit
+  points are exactly (N − n)·(degree ≤ D − 3) (dimensions 1, 4, 10); same for ℚ(√2), ε = 3 + 2√2. Consistent with
+  "Zariski closure of any infinite sub-progression of the orbit = {N = n}".
+* Scope: the lemma is stated for cubic (and real quadratic) K only; for degree ≥ 4 with intermediate fields (e.g.
+  K ⊃ ℚ(√2), ε = 1 + √2 with N_{K/ℚ}(ε) = 1) T_ε is a proper subtorus and the conclusion fails. The text correctly restricts.
+
+### Cor 2.2 (orbit-tail families collapse) — SOUND-AFTER-REPAIRS (minor)
+* Jacobian step (dF_i ∧ dN vanishes on the Zariski-dense union of infinitely many level sets ⇒ algebraic dependence),
+  N − t irreducible over ℚ(t)‾ (linear in l₁ with coprime coefficients), ℚ(N) algebraically closed in ℚ(x), and
+  ℚ(N) ∩ ℚ[x] = ℚ[N]: correct. (I could not check the exact section of the Schinzel citation; the statement used —
+  "N − t absolutely irreducible over ℚ(t) ⇒ ℚ(N) algebraically closed in ℚ(x)" — is standard and easy: if F is algebraic
+  over ℚ(N) then ℚ(N, F) is a finite extension inside ℚ(x), and the generic fibre N = t, being geometrically irreducible,
+  forces degree 1.)
+* MINOR D7a ("several units" is needed): "one unit orbit" for a totally real cubic is an orbit of a rank-2 group; infinitely
+  many valid points there need not lie in a single cyclic orbit (e.g. ε₁^j ε₂^{j²}·x₀). The text calls Laurent's theorem
+  "Not needed below", but Cor 2.2 needs it in that case (or restrict the hypothesis to a cyclic orbit). Laurent's theorem
+  (zero sets of constant-coefficient exponential polynomials on ℤ^d are finite unions of cosets) — Astérisque 147–148:
+  source NOT accessed by the reviewer; the statement is the standard one (equivalent to the S-unit theorem setting).
+* MINOR D7b: Cor 2.2 is stated for "infinitely many primes p", but the proof only uses infinitely many distinct values n
+  (Lemma 2.1 holds for any n ≠ 0). The "in particular" (family valid on L ∩ U, εU ⊂ U, ε ≡ 1 mod M) needs exactly that:
+  validity on all of L ∩ U gives valid orbit tails at every point of L ∩ U, and N takes infinitely many values on L ∩ U
+  (U open, L full rank) — not that infinitely many *primes* are represented in L ∩ U (which is the unproved accessibility
+  issue the author flags). Restate for infinitely many values n; then the "in particular" is proved as written, provided
+  N(ε) = 1 and εL = L are added.
+* Superseded for ET families by Thm 3.1; its genuine remaining content is (x, y, z)-families (correctly noted, Cor 3.2(c)).
