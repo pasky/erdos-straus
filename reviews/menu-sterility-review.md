@@ -10,7 +10,15 @@ From-scratch scripts: `scripts/review_r251_proth3.py` (Theorems B/C: rules, ET c
 | Theorem B (window-11 identity, s ≡ 0, 12 mod 40) | SOUND |
 | Theorem C (ES for every 3·2^s + 1) | SOUND (minor presentation defects) |
 | Theorem C vs (J)22 Cor 1.5 consistency | SOUND |
-| (pending) | |
+| Theorem A (witness reciprocity, unit locus, ⊇) | SOUND (passes a new 2-adic consistency test against Thm B) |
+| Prop 4.1 (m ≡ 7 (8) dead at μ = 0) | SOUND-AFTER-REPAIRS (D8: positivity of d(ρ) unstated, but true) |
+| Prop 4.3 (SG menu at μ = 0 finite) | SOUND (c = 3 enumeration reproduced) |
+| Prop 3.1 | SOUND |
+| Prop 5.1 | SOUND (elementary) |
+| labels | essentially correct; minor overstatements D5, D6, D11 |
+
+No FATAL, no MAJOR defect. **Headline (Theorem C: ES for every 3·2^s + 1) independently confirmed**: every rule
+rebuilt by hand, coverage proved by hand mod 120, exact solutions s ≤ 2000, rule-free search s ≤ 60.
 
 ## Theorem B / Theorem C — independent verification
 
@@ -60,7 +68,8 @@ for every 40 | L, the SG rule there cannot coincide (on its class) with any fini
 indeed is not polynomial in n: y has degree 8 in X with non-zero X³ coefficient (6n·f₋(X² + X + 2) contains odd powers
 of X), while polynomials in n = 48X⁴ + 1 are polynomials in X⁴. The theorem is not a contradiction with Cor 1.5. ✔
 
-**Verdict Theorem B: SOUND. Theorem C: SOUND.** Defects listed below (D1–D3) are MINOR.
+**Verdict Theorem B: SOUND. Theorem C: SOUND.** (Proth primes in the family re-checked: s = 1, 2, 5, 6, 8, 12, 18,
+30, 36, 41, 66, 189 for s < 200, as stated.) Defects D1–D3 below are MINOR.
 
 **Literature / novelty (Theorem C).** Three web searches (Jina: "Erdős–Straus Proth numbers 3·2^n+1",
 "Erdős–Straus n = k·2^m + 1 exponential family", "Erdős–Straus Sophie Germain Aurifeuillean") found no statement of ES
@@ -125,3 +134,57 @@ correct (two points at ∞ since 256 is a square; ≤ 6 with w = 0; ℓ − 1 �
 Primes in a unit class C have counting function ≍ X/log X (Dirichlet/PNT in APs), thin sets O(X^{1−δ}); a finite ET menu
 missing a sterile point misses a clopen neighbourhood. Correct and correctly called "elementary". The norm-form paragraph
 is properly hedged (Assessment for d ≥ 3).
+
+## Numbered defects (all MINOR unless stated)
+
+**D1 (MINOR, Thm C proof (b)/(c), memo, report).** The overall period is 120 (lcm(40, ord₅2, ord₇2, ord₁₅2, ord₆₁2) =
+lcm(40, 4, 3, 4, 60)), not 360; "coverage of all s mod 360 (s ≥ 10)" is correct but obscures a two-line hand proof.
+*Repair:* add the hand coverage argument: s ≡ 1, 2 (3) → 7 | n, n ≡ 6 (7); s ≡ 1, 2, 3 (4) → n ≡ 7, 13 (15), 5 | n;
+s ≡ 0 (4) → SG unless s ≡ 4, 24 (40); the rest is s ≡ 24, 84 (120) ⊂ s ≡ 24 (60) ⇒ 61 | n. Drop "s ≥ 10" (every s ≥ 1
+is covered by these rules; s = 0 is 1/2 + 1/3 + 1/6).
+
+**D2 (MINOR, §4 "Why it is not a contradiction").** "The class {s ≡ 0 (40)} is the n-congruence class n ≡ 4 (2⁴⁰ − 1),
+n ≡ 1 (16)" — the family members are *contained in* that class (equality is false). *Repair:* "lies in".
+
+**D3 (MINOR, Theorem C table vs Theorem B).** Theorem B's divisor d = 9f₋ is (a,b,c) = (2,0,1); the Theorem C table uses
+(0,2,1) at s ≡ 0, 12. Both fire (verified), but say so, otherwise a reader checking Theorem B against the table is confused.
+
+**D4 (MINOR, Thm A proof, zero-divisor case).** "h(u)/gcd(h(u), g^∞) > 1 for large u" is false in general (h(u) = u,
+u = g^k ∈ C). Only one u is needed. *Repair:* "for some (indeed most) large u ∈ C".
+
+**D5 (MINOR, Thm A special cases, last bullet; memo z15_witness_descent "T1: built in (squares are γ = 1/(u₀ − θ))").**
+"Two variables … POINTWISE_BINARYFORM §4.1" is listed under "Special cases (all previously proved separately; Theorem A
+unifies them)", but Theorem A is a one-parameter statement; and the memo's T1 sentence contradicts the R-O240 repair
+(only φ(u₀) = 1 is a unit point). *Repair:* mark the two-variable bullet "analogy (Assessment)"; fix the memo sentence to
+"integer points with φ(u₀) = 1; odd squares > 1 stay with Thm 3.3".
+
+**D6 (MINOR, AGENT_REPORT/README).** "identifies one-parameter sterility with a Brauer/2-cover-descent pairing" overstates
+a one-sided inclusion (Ster(φ) ⊆ sterile set). *Repair:* "shows the sterile set contains a 2-descent set".
+
+**D7 (MINOR, §4.2 and memo z15_witness_descent "Cheap numerics").** The 2-adic test is run for 3θ^e + 1, e = 3, 5, 7
+(cyclotomic parametrisations), and the memo concludes "indeed Theorem C covers it" — but Theorem C's dissolving family is
+the Sophie-Germain one, φ = 48X⁴ + 1 (η = 2θ, 3η⁴ + 1 = 0, e = 4), which was not tested. *Repair:* add the e = 4 test;
+reviewer's PARI computation (`scripts/review_r251_thmA_2adic.py`): η(η − 1) is NOT a square in ℚ₂(η) (single prime,
+e = 4, f = 2 in the quadratic extension), exactly as Theorem A + Theorem B require; and note that by Chebotarev the
+single-γ test is the complete test here (A has no real places).
+
+**D8 (MINOR→should be fixed, Prop 4.1 proof).** The conclusion (d(ρ)/m) = (2/m)^{v₂(d(ρ))} needs d(ρ) > 0; with the
+opposite sign the Proposition would be false (script `review_r251_prop41.py`: the sign carries the whole content).
+*Repair:* insert "K(U) = (c2^jU^e + 1 + m)/4 has positive coefficients, so no atom vanishes on (0, ∞); hence each atom
+has constant sign there and d(ρ) has the sign of d at large U, i.e. d(ρ) > 0."
+
+**D9 (MINOR, Prop 4.3 proof; §4.3).** Garbled sentences: "For c = 3 the first case cannot occur for any c (R-O240
+repair)" and "by NEAR_SQUARE Thm 3.3 (= Theorem A with not via Theorem A: φ(±1) = 49 is not a unit — R-O240 repair)".
+*Repair:* "The first case never occurs (R-O240 repair): …" and "by NEAR_SQUARE Thm 3.3 (not Theorem A: φ(±1) = 49 is
+not a unit — R-O240 repair)".
+
+**D10 (MINOR, Prop 4.3 scope).** The finiteness concerns cap-0 SG windows m = 4ct⁴ − 1 with d = Π_{q|c} q^{a_q} f₊^x f₋^y,
+exponents ≤ 2 (as enumerated); state this menu explicitly in the statement (the word "admissible" is undefined there).
+
+**D11 (MINOR, label).** Theorem C is labelled "computer-assisted"; after D1 the proof is fully hand-checkable (6 ET
+identities + 8 window identities mod 11 + a mod-120 case split). Keeping the label is harmless; optionally "PROVED
+(hand-checkable; certificate re-verified)".
+
+## Not checked / limits
+* Mordell/Schinzel and Bruin–Stoll were not re-read (only used through EXPONENT_COVERING / as literature pointers).
+* §4.1 (7·4^s + 9 stuck nodes) and §6 (function fields) not re-run (EVIDENCE / Assessment labels are appropriate).
