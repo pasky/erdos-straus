@@ -7,12 +7,15 @@ Reviewer: R254 (side-agent/review-exp-105). Round 1: no edits to the author's fi
 ## Summary verdicts
 | Claim | Verdict |
 |---|---|
-| Thm 2.2 (ES for all 3·4^s + 1) | (filled below) |
-| Thm 2.3 (ES for all 3·2^m + 1) | |
-| Thm 2.6 (ES for all 7·4^s + 9) — HEADLINE | |
-| Prop 2.4 / Cor 2.5 | |
-| Prop 2.7 / Cor 2.8 | |
-| Labels / scope / novelty | |
+| Thm 2.2 (ES for all 3·4^s + 1) | **SOUND** (certificate replayed from scratch; MINOR wording D1) |
+| Thm 2.3 (ES for all 3·2^m + 1) | **SOUND** |
+| Thm 2.6 (ES for all 7·4^s + 9) — HEADLINE | **SOUND** (PROVED, computer-assisted, label justified) |
+| Obs 2.1 | SOUND-AFTER-REPAIRS (D2: wrong/false justification sentence; mechanism claim itself verified) |
+| Prop 2.4 / Cor 2.5 | **SOUND** (re-derived; MINOR precision D3) |
+| Prop 2.7 / Cor 2.8 | **SOUND relative to the z14 menu** (re-derived + from-scratch exhaustive μ = 0 search); MINOR D4 (menu must be defined in the text; n-splitting) |
+| Labels / scope / novelty | SOUND; MINOR D5 (stale EVIDENCE sentence), D6 (literature sentence) |
+
+No FATAL or MAJOR defects found.
 
 ## 1. Certificate replay (from scratch)
 

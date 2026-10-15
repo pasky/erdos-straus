@@ -18,6 +18,7 @@ import sympy as sp
 from sympy import isprime, n_order, factorint, totient
 
 c0, k, path, SMAX = int(sys.argv[1]), int(sys.argv[2]), sys.argv[3], int(sys.argv[4])
+NO_N = '--no-n' in sys.argv  # drop the n-piece from window relations (tests Obs 2.1's mechanism claim)
 toks = [ln.split() for ln in open(path) if ln.strip()]
 pos = [0]
 LEAVES = []  # (u, L, tok)
@@ -148,7 +149,7 @@ def wleaf(u, L, t):
     E = 2 * j - 2 + v2c
     ys = [peval(p, vX, m) for p in polys]
     nm = (c0 * pow(4, u % o4, m) + k) % m
-    vals = [q for q, v in factorint(co).items() for _ in range(v)] + [nm] + ys
+    vals = [q for q, v in factorint(co).items() for _ in range(v)] + ([] if NO_N else [nm]) + ys
     rel = find_rel(vals, m, E)
     assert rel, ('window does not fire', u, L, t)
     return j + 1  # r >= 1 guaranteed for s >= j+1
@@ -229,8 +230,8 @@ def explicit(s, t):
     assert prod(ys) == 4 ** r + tt
     x = (n + m) // 4; assert 4 * x - n == m and x == c0 * 4 ** (j - 1) * (4 ** r + tt)
     v2c = (c0 & -c0).bit_length() - 1; co = c0 >> v2c; E = 2 * j - 2 + v2c
-    vals = [q for q, v in factorint(co).items() for _ in range(v)] + [n] + ys
-    N = n * x; assert 2 ** E * prod(vals) == N
+    vals = [q for q, v in factorint(co).items() for _ in range(v)] + ([] if NO_N else [n]) + ys
+    N = n * x; assert 2 ** E * prod(vals) * (n if NO_N else 1) == N
     eps, i = find_rel(vals, m, E)
     d1 = 2 ** i * prod(v for v, e in zip(vals, eps) if e == 1); d2 = prod(v for v, e in zip(vals, eps) if e == -1)
     assert N % d1 == 0 and N % d2 == 0 and (d1 + d2) % m == 0
