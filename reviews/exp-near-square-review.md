@@ -82,3 +82,37 @@ levels for 105 (×28, ×73 for 297) — not "~×20 measure / ×10–100 nodes pe
 with a shrinking measure ratio does support the qualitative "tree does not close at this supply / heuristic" reading,
 but "supercritical branching process" is an Assessment drawn from 3 data points of a greedy heuristic, not EVIDENCE of
 non-termination of every tree. Density "≈ 5/8 of primes" with 3 ∤ ord_q(4) ✓ (3 | ord_q(4) ⟺ 3 | ord_q(2), density 3/8).
+
+### C5. CONJECTURE E (coverable ⟺ c₀ + k ≠ 4^j) and §4 — **FATAL as stated (false for 4 | c₀); after repair a legitimate CONJECTURE; §4 contains a MAJOR overclaim**
+* **Counterexample.** (c₀, k) = (12, 1): 12·4^s + 1 = 3·4^{s+1} + 1 is non-trivial (≡ 1 mod 24), c₀ + k = 13 is not a power of
+  4, yet ν(−1) = 3 + 1 = 4 (odd part), ν₂ = 1: a profinite unit square, so by Thm 1.4 + T1 **no finite ET/divisor covering
+  exists** — contradicting the "if" direction. Same for (28, 9), (28, 57), (48, 1), (60, 49), (92, 41), … (C3). Repair:
+  normalise 4 ∤ c₀ (WLOG, by shifting s), or state the criterion as "c₀·4^x + k ∉ 4^ℤ for every x ∈ ℤ".
+* **Overclaim in §4 (MAJOR).** "Known pieces of S′ ∩ Λ: (a) unit squares — occur iff c₀ + k = 4^j (Lemma 3.1), PROVED" and
+  "its image avoids Sq^× unless c₀ + k = 4^j". Lemma 3.1 classifies only **integer** exponents x ∈ ℤ; non-integer
+  μ ∈ Ẑ with ν(μ) ∈ Sq^× are not excluded. "Λ ∩ Sq^× = ∅ whenever c₀ + k ≠ 4^j" is exactly the open (EH_k)-type statement of
+  EXPONENT_COVERING §2 (there labelled open even for b = 2). It must be labelled CONJECTURE (it is the Sq^× half of
+  CONJECTURE E). My from-scratch screen (`scripts/review_r244_sqscreen.py 40 400 80640 2000000`: c₀ ≤ 40, 4 ∤ c₀, k ≤ 400,
+  k ≡ 1 (8), gcd(c₀, k) = 1, all q ≤ 2·10⁶ with ord_q(4) | 80 640 = 2⁸·3²·5·7) finds no surviving residue except the integer
+  square points and their 2-adic shadows x + L/2 (which a period with 2⁸ ∥ L cannot separate) — consistent with the
+  conjecture, but not a proof (shadows never die at finite L in such a screen).
+* **Consistency with certified results.** (J)22: base-4 subfamilies of K·2^m + 1 are (c₀, k) = (K, 1) (even m) and (2K, 1)
+  (odd m); E predicts obstruction iff K = 4^j − 1 — exactly Cor 1.5's list (obstruction point m = 0 is even) ✓; (J)22's
+  certified families (e.g. 315·2^m + 1) are predicted coverable ✓; (J)22's 18 OPEN k are not contradictions. (J)62 (Thm 1.3):
+  c₀ = 1, k ≡ 9 (24) never has 1 + k = 4^j (4^j mod 24 ∈ {1, 4, 16}), so E predicts *every* non-trivial 4^s + k coverable —
+  consistent with the 9 certified k, but note the strength of the claim. No contradiction found.
+* **Evidence count overstated.** "certified/surveyed coverings for 9 + 7 + 11 + 9 offsets": of the 9 (J)62 k, 5 are
+  Mordell-immediate and one is Mordell + D₁₃ (R236 D1); of the 27 survey coverings, 15 are Mordell-immediate (my mod-840 check,
+  C6). Genuine non-Mordell evidence: 3 certified + 12 unreplayed.
+* "certificates are practical only when the square points are isolated by small-period D_q's (the nine certified k)" —
+  contradicted by SIGN_FIELDS R236 repair: 81, 177, 249 have no integer square point at all, and 5 of 9 are Mordell-immediate
+  (MINOR, D11).
+
+### C6. Survey c₀ ∈ {2, 3, 5}, k ≤ 300 — **EVIDENCE label correct; caveat must be quantified**
+Non-trivial counts recomputed (n_s ≡ 1 mod 24 for large s): 12, 13, 12 ✓. Mordell-immediate among the "covered" (n_s mod 840
+never in {1, 121, 169, 289, 361, 529}; period 6 in s): c₀ = 2: {65, 185}; c₀ = 3: {25, 49, 145, 217, 265}; c₀ = 5: {17, 65, 113,
+137, 161, 185, 233, 257} (8 of 9). No open k is Mordell-immediate (sanity ✓). So the non-Mordell "covered" offsets are only
+c₀ = 2: 41, 89, 113, 137, 209; c₀ = 3: 97, 121, 169, 193, 241, 289; c₀ = 5: 281 — unreplayed. The square-point-count
+correlation (open 2.4 vs covered 0.8) is confounded by the Mordell-immediate ones (covered for a reason unrelated to
+square points) — restrict to non-Mordell k before drawing it (D12). (3, 1) PROVED uncoverable ✓ (Lemma 3.1). c₀ = 5:
+5 + k ∈ 4^ℤ only for k ∈ {11, 59, 251}, none ≡ 1 (8) ✓ — no proved obstruction, consistent with the table.
