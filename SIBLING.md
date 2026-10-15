@@ -102,3 +102,62 @@ the maximum number of boxed children (out of r) of an alive parent at depths 2/3
 maximum number of boxed children of an alive parent is ≤ 5, from depth 4 on ≤ 3, for every r** (the r-ary sibling condition
 holds with margin ≥ r − 3). r = 19 complete to depth 6 (`data/z17/rtree19_d6.txt`): maximum 1 at depths 4–6 in C₂, C₁₀ and
 5 → 1 in C₃, C₁₃; alive fractions 0.5692 (C₂) and 0.6711 (C₃). The maximum is decreasing with depth in all data.
+
+## 3. Localising the counts does not shrink the window (PROVED as a statement about route bounds; Assessment for constants)
+
+The reviewer of O241 (R248, D3) notes that SD Prop 3.2 does not say that only positional input can work: better *counts*
+would do. Here is the quantitative form of what counts can do *inside a cylinder*, which is where Lemma 3.1 needs them.
+
+Let V be a cylinder of depth n in X_c and N_V(p) the number of Case B tuples of pattern p = (s; a, z, y, t) with B_τ ⊂ V
+(so N(s) ≥ n). Their mass relative to V is N_V(p)·3^{n−N(s)}. *Route-type bounds* are those of SP Lemma 1.6 (R1: fix v₁;
+R2: (m', g'); R3: (w₁, g'); R4: (m', w₁); then a class-divisor bound) with the sharp divisor bound SS Lemma 4.1, plus their
+localised refinements: the condition B_τ ⊂ V adds T^n to the modulus of the class-divisor step, and in the Bezout form
+(TC Prop 2.1, case 1) it determines g' modulo T^{n−1} once M = m'w₁ (or m'C₁) is fixed (route R4L: M, then g' in its class).
+
+**Proposition 3.1 (window (n, 5n]; PROVED for the route bounds).** At the Elsholtz–Tao point p* = (s; s/5 + 1, s/5, s/5, 2s/5)
+(5 | s; SS Cor 4.2: the unique maximiser of min_route, value 2s/5) every route-type bound for N_V(p*), localised or not,
+is ≥ 3^{2s/5 − O(1)}. Hence route-type bounds certify "relative mass of level-N(s) balls in V < 1" only for
+N(s) > (5 + o(1))n, and this threshold is already reached by the *global* bound (SS Cor 4.2: ≤ 3^{(2/5)s + o(s)} tuples in all).
+So localisation gains nothing at the exponent level: inside a cylinder of depth n the levels n < N ≤ (5 + o(1))n are out of
+reach of every route-type count, and Lemma 3.1 must be fed there by positional information.
+*Proof.* A route bound is (number of fixed data of the given degrees) × (a multiplicity bound ≥ 1 whenever a datum exists).
+At p*: R1 fixes v₁, 3^{t−2} ≍ 3^{2s/5} choices; R2 (m', g'): 3^{z+y} = 3^{2s/5}; R3 (w₁, g'): 3^{a−1+y} ≍ 3^{2s/5};
+R4 (m', w₁): 3^{z+a−1} ≍ 3^{2s/5}; their localised forms only change the multiplicity factor. R4L fixes M (deg a + z − 1)
+and then g' in a class mod T^{n−1}: 3^{a+z−1}·3^{max(0, y−n+1)} ≥ 3^{2s/5 − 1}. The mirror routes (C₁ for w₁) have the same
+degrees at p* up to O(1) (b = 3s/5 + 1 − 1 enters only R3C/R4C, which are larger). Relative mass ≤ 1 needs
+2s/5 − O(1) ≤ N(s) − n = s/2 − n + O(1), i.e. s ≥ 10n − O(1). ∎
+*Explicit form (Assessment on the CERTIFIED bound terms of SS §5.3).* The certified q = 3 per-level bound terms decay like
+≈ 3^{−0.12 s} for s ≥ 60 (2.43, 0.60, 0.15, 0.039 at s = 60, 70, 80, 90). A cylinder V of depth n needs Σ_{s>s₁} terms
+< 3^{2−n}, i.e. s₁ ≈ 80 + 9n: complete control of all balls inside V down to depth ≈ 40 + 4.5n. For n = 3 that is depth ≈ 54
+(the complete trees stop at 9; a complete search at a single polynomial point stops at level 20, TC §2).
+
+## 4. Conditional statements (PROVED) and the uniform-multiplicity conjecture
+
+Write Π_N(c) for the number of unordered pairs of distinct balls of depth N + 1 lying in a common alive cylinder of depth N
+of X_c (an "alive sibling pair"), and Π_L^{(r)}(v) for the r-adic analogue (pairs of boxes of level L in one alive class mod
+r^{L−1} of the cell C_v).
+
+**Corollary 4.1 (pair counts suffice; PROVED from SD Lemma 3.1 and SD §3 data).** (i) If Π_N(c) ≤ 2 for every N ≥ 9, then
+U_c ≠ ∅ (Conjecture 0.2 holds on X_c). (ii) If Π_N(c) = 0 for every N ≥ N₀ ≥ 9, then dim_H U_c ≥ log 2/log 3.
+(iii) At r = 17: if every alive class of depth L − 1 ≥ 7 in C₅ holds at most 16 boxes of level L, C₅ contains a sterile point;
+if at most 3, dim_H ≥ log 14/log 17.
+*Proof.* A full alive parent contributes C(3, 2) = 3 pairs, so (i) excludes full parents at depths ≥ 9; the complete tree to
+depth 9 (SD §3) has alive cylinders at depth 9 and no full alive parent before; Lemma 3.1 (m = 1, K = 1) from an alive
+depth-9 cylinder. (ii) Every alive parent has ≤ 1 ball child, so K = 2 in Lemma 3.1. (iii) Same with the r = 17 tree
+(complete to depth 7, alive classes exist) and K = 17 − 16, resp. K = 14. ∎
+(The content is in the hypotheses; Cor 4.1 only records that a pair count, not a triple count, is the natural target, and that
+"Π_N ≤ 2" has slack: the Poisson model expects Π_N ≈ 0 beyond depth 9.)
+
+**Conjecture 4.2 (uniform multiplicity on the r-generic line; CONJECTURE, EVIDENCE §2.4).** For every prime r ≥ 17, every
+non-residue cell C_v surviving level 1 and every alive class of depth L − 1 ≥ 3 of C_v, at most 3 boxes of level L lie in it
+(and at most r − 1 at depths L − 1 ∈ {1, 2}).
+*Consequence (PROVED from SD Lemma 3.1 transplanted to ℤ_r, SD §7).* Conjecture 4.2 for a prime r implies that the r-generic
+line contains sterile points, with dim_H ≥ log(r − 3)/log r. Since sterile r-generic points are proved for r ≥ 2^{21.44}
+(STERILE_LOWER Thm 6.3, branch side-agent/sterile-lower) and level 1 leaves room exactly for r ≥ 17 (STERILE_LOWER Comp. 4.1,
+r < 20000; §2.4 here re-derives it for r ≤ 61), **Conjecture 4.2 on 17 ≤ r < 2^{21.44} would give sterile r-generic points
+for every prime r ≥ 17, and r ≤ 13 have none in non-residue cells** — a sharp threshold. Data: r ≤ 61 through depth 4,
+r = 19 through 6, r = 17 through 7: the bound 3 holds at every depth ≥ 4 (it fails only at depth 3: ≤ 5).
+*Why it is out of reach (Assessment).* Lemma 1.2 bounds the boxes of one key (c, d) in a class by 6; Conjecture 4.2 needs the
+number of keys per class bounded, i.e. a uniform bound for N-points of Σ^II_{r^{2L−1}} with a/b in a prescribed class modulo
+r^{L−1} — a divisor-in-class problem whose modulus is part of the solution (barrier B2), with ≈ N^{2/5}/r^{L−1} = r^{0.6−0.2L}
+points per class on average (ET exponent), so true for L ≥ 4 on average, unknown pointwise.
