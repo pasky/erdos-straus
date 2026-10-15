@@ -686,3 +686,13 @@ Schindler–Stange, arXiv:2504.20289, Thm 1.1 p. 1).
 
 Statements about them are taken from the cited secondary sources (BL, EST,
 Jiang, Wikipedia, OEIS, arXiv abstracts) and are marked as such above.
+
+## Wave Y additions (novelty audit O223, `reviews/novelty-audit-2026-10d.md`; PDFs/extracts in `sources/lit2026d/`)
+* Morier-Genoud, arXiv:1907.12790 (friezes over finite rings; §3.5: width-2 friezes over F₂) — prior art for (J)42 Lemma 1.1.
+* Girstmair, IJNT 7 (2011) 1543–1555 and arXiv:1504.02618 — Jacobi symbols along continued fractions; (J)42, (J)45.
+* Cohn–Heninger, arXiv:1008.1284 (polynomial Coppersmith/Howgrave-Graham, Thm 1.2); Bernstein (2006); Hales, arXiv:2410.05030 — (J)51 Lemmas 1.4/1.5, (J)54 Cor 1.4.
+* Schinzel, Funct. Approx. 28 (2000) 187–194; Schuh, hal-04368730 (2024) — polynomial (linear-denominator) ES identities; (J)49, (J)55.
+* Baumert–Mills–Ward, JNT 14 (1982) (uniform cyclotomy); restated in arXiv:2406.16805 — (J)50.
+* Bleicher, JNT 4 (1972) 342–382 (Farey sequence method for Egyptian fractions) — (J)40.
+* Ventas, arXiv:2605.04551 (2026) — Type I slice via three-term ceiling continued fractions; (J)9, (J)40 (found by R205).
+
