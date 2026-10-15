@@ -101,7 +101,10 @@ non-squareness.
 false. So P does not imply 8/p. What 8/p additionally needs is one 2-adic bit per isotropic pentagon vector (§1.2), and at 131,
 241 every bit fails (§1.3). For 11/37 there is no character description of S₁₁ (MODEL_SPECIFIC Thm 3.1(c)), so P has no
 11-analogue at all. TES and ES_q: P is a statement about the path lattices of X_p over ℤ and has no transcription there in
-this file. So (ii) for those failure sets is "not applicable", not "checked".
+this file. So (ii) for those failure sets is "not applicable", not "checked". (Consistency remark, Assessment: over
+F_q[T] with q odd, 4 is a unit, so ES_q has no 2-adic place and Thm 1.3 has nothing to act on. That fits the existence of
+sterile points for ES_q ((J)26, (J)51, (J)56) and the absence of an odd-square obstruction there (FUNCTIONFIELD_ES Prop 4.1).
+The TES analogue, an order-3 input at √−3 over ℤ[ω], was not examined.)
 (d) (iv) fails for P: S₇ is not a character fibre, and S₇(p) = ∅ at 10 primes ≤ 10⁵ (FOUR_SPECIFIC). z1_small_prime_pigeonhole:
 the pigeonhole forcing exists only for M ∈ {2, 3, 4}.
 (e) (i) for P is CONJECTURE SQ₅ (EVIDENCE to 10⁸, DEDEKIND/HJ_DEEP; 10⁷ with boundary words, MODEL_SPECIFIC).
