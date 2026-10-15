@@ -91,8 +91,9 @@ splits in ℚ(√−u) and every odd A at level u has σ_A ∈ Gal(Σ_{ν,u}/ℚ
 every odd m with r | m² + u and m² + u ≥ r, A = r is a t-slot ν-word of m² (v = (m² + u)/r): T1 fails at this level.
 So **"full T1 ⟺ 4 | ν" ((J)46 SHARP 2) is, on the t-slots, the statement ℚ(i) ⊂ ℚ(ζ_ν)**: for 4 | ν every sign field
 Σ_{ν,u} collapses to the cyclotomic field ℚ(ζ_{νu}), and c is forbidden at squares.
-(d) **Uniqueness of 4 (PROVED).** Let 4 | ν, u odd prime to ν, n ≡ 1 (mod 4). The class −(n + u)/n ≡ −(1 + u) (mod 4) is
-not a unit, so the coprime part of C_ν is the single class σ = c on ℚ(ζ_{νu}), of relative size 1/φ(ν) in the c-fibre
+(d) **Uniqueness of 4 (PROVED).** Let 4 | ν, u ≡ 1 (mod 4) prime to ν, n ≡ 1 (mod 4) (so √−u ∉ ℚ(ζ_u): the c-fibre is
+split half/half by √−u; for u ≡ 3 (mod 4) the whole c-fibre is forbidden and the ratio below is even smaller). The class
+−(n + u)/n ≡ −(1 + u) ≡ 2 (mod 4) is not a unit, so the coprime part of C_ν is the single class σ = c on ℚ(ζ_{νu}), of relative size 1/φ(ν) in the c-fibre
 over ℚ(ζ_u); the T1-forbidden part {σ(√−u) = −√−u} has relative size 1/2. They coincide iff φ(ν) = 2, i.e. ν = 4.
 **For ν = 4 the word condition is exactly the sign condition σ_A = c on Σ_u = ℚ(ζ_u, √−u) (O225); for every other
 T1-numerator (8, 12, 16, …) it is a proper Chebotarev subset of the forbidden half, cut out by the extra field
@@ -106,3 +107,40 @@ all forbidden-half Frobenii land in the complementary ℚ(ζ_{8u})-class; same a
 lottery miss). Assessment: the sign-field picture makes 4's special status *visible* (it is the unique numerator whose
 slot set is a full quadratic-character half, so genus theory — T1 — and the word condition are the same thing) but
 does not make ES easier: the χ = −1 half is still reached by a Frobenius lottery (B2).
+
+## 3. The non-genus layer (goal 3, O225 spark S1)
+
+Layers at a level u for p (A odd): genus-clean (an imaginary quadratic F ⊂ Σ_u splits every odd r | p + u; O225)
+⊂ *group-clean* (c ∉ ⟨σ_r : r | p + u⟩ ⊂ G = Gal(Σ_u/ℚ)) ⊂ clean (no divisor A of p + u with σ_A = c). Genus-clean ⟺
+c ∉ ⟨σ_r⟩·G² (a quadratic character separates); S1 asked whether depletion sits in ⟨σ_r⟩G² \ ⟨σ_r⟩ ("Rédei layer").
+
+**Prop 3.1 (PROVED, elementary).** Whether level u carries a χ = −1 word of p (A odd) is a function of the multiset of pairs
+(σ_r, v_r(p + u)) over the odd primes r ∤ u of p + u, and σ_r depends only on r mod 4u. In particular it involves no
+Frobenius in any non-abelian extension of ℚ: Rédei symbols / 4-rank data of F = ℚ(√−(k + u)) (Frobenii in dihedral
+degree-8 fields) do not enter.
+*Proof.* A = ∏ r^{a_r}, 0 ≤ a_r ≤ v_r; admissibility and χ are σ_A = ∏σ_r^{a_r} = c (O225 (i)–(ii)); Σ_u ⊂ ℚ(ζ_{4u}). ∎
+**Consequence (Assessment, not a theorem).** On p = m² + k, the only constraints on that multiset that hold for *all*
+m in a congruence class are (i) every σ_r lies in the image H_F of Gal(Σ_uF/F) (r splits in F; O225 genus layer) and
+(ii) ∏σ_r^{v_r} = σ_{p+u}, a congruence function of m. By O225 Lemma 4.2 such constraints force "c absent from all
+sub-products" only when c ∉ H_F, i.e. genus-cleanness. A *forced* Rédei layer would need a level field that is not
+abelian over ℚ (H-D); sign fields are abelian, so the residual near-square depletion of R225/O225 §3 is not a forcing
+statement at any single level — it can only be a statistical shading of the lottery (or a multi-level correlation).
+NOT DONE: the numerical test of whether group-clean-not-genus levels are enriched at small K0 (the infrastructure is
+`scripts/z2_hardness.c`; adding the group-clean flag is a ~30-line change; left as spark).
+
+## 4. Chebotarev-in-a-family levels (goal 4)
+
+Attempt (construction-first). Choose the level from p: u = u(p) with F_{K(p)} ⊄ Σ_{u(p)} (always possible: e.g. any u
+with k + u having an odd prime factor ∤ u, Cor 2.3 of O225), so Chebotarev supplies a positive density of primes r with
+σ_r = c and r split in F. To get a word we need such an r (or a product) **dividing p + u**. For a prime A = r:
+r | p + u and r ≡ −1 (mod u) ⟺ u ≡ −p (mod r) and u | r + 1; with u < r this is u = r − (p mod r) and u | r + 1, i.e.
+**p mod r ∈ {r − d : d | r + 1, (−d/r) = −1}** — a congruence condition on p per prime r. (Iteration log.)
+(F1) bounded r ≤ R: a finite congruence covering — B1 (fails on Z_k^□ / T1-type classes; O225 §4.4 E4 is this sieve).
+(F2) bounded A (composite): the same with A | p + u for A ≤ R: a fixed finite slice set — B2 Thm 2.2 (fails i.o. under H).
+(F3) u(p) chosen *first*, then "some A | p + u(p) with σ_A = c": the divisor lottery at one integer — B2/B3; the
+     disjointness F ⊄ Σ only guarantees the target class is non-empty, not hit.
+(F4) violate "one level": run over all u ≤ U(p) and use the multiplicativity across levels (p + u for consecutive u are
+     coprime-ish) — this is the averaged count Σ_u #{A}, main term ≍ log³p with no pointwise lower bound (B3/B6).
+**Verdict (Assessment).** Every version stops at B2 (bounded divisors ⇒ fixed slice menu) or B3 (growing divisors ⇒
+main-term certificate with uncontrolled error). Linear disjointness of Σ_{M(p)} and F(p) is cheap and never the issue; the
+issue is that Chebotarev counts primes, while a word needs a *divisor of one specific integer*.
