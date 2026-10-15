@@ -61,6 +61,44 @@ on leading coefficients for n > deg(Aacd) (lc −1 vs +1), stronger than stated.
 
 **"What FE3 Lemma 1.1 classifies" (16 type pairs) — SOUND.** Same/opposite side residues re-derived (P ≡ 1, X ≡ T^{−k} mod E).
 
+**Lemma 2.1 (II2 never valid on a slice) \u2014 SOUND.** f = T^k acd \u2212 1 \u2261 \u22121 (mod T), so P \u2261 1 (mod f) at x_u and validity
+becomes f | a + c; a + c \u2260 0 (monic, q odd) and deg(a + c) \u2264 max(deg a, deg c) < deg f. Holds for every A with T | A (or any A
+at the point x \u2261 1).
+
+**Lemma 2.2 (I4 at u \u21d2 Case A at 1/u) \u2014 SOUND.** T^{k+j} | u\u207b\u00b9 + e \u21d4 T^{k+j} | 1 + ue; lcm(a, b)' | (ab)' | e + 1; types (0, 0):
+s = a + b, lc(s) = 1 = lc(e) since deg a \u2260 deg b and e is monic (forced in Type I). One unstated point: E = e has positive degree
+on every slice used (e constant monic means e = 1, centre u \u2261 \u22121, which is on no c-slice and has u\u2080 = \u22121 \u2208 F\u2083^*), so Lemma 2.3's
+\"deg E \u2265 1\" is satisfied (MINOR m-4).
+
+**Lemma 2.3 (Case A ball \u2286 Case B ball with the same E) \u2014 SOUND.** Re-proved line by line: H monic T-free; E \u2261 \u22121 mod
+g'(a1b1)' gives a1'b1 | H (coprime factors), so L' = H/b1 is T-free with a1' | L'; mod E: T^vH \u2261 1, b1 \u2261 \u2212T^\u03b1a1' and b1 is a
+unit (b1 | E + 1), so T^sL'a1' \u2261 \u22121; D = 1 + T^sL'a1' monic; s = k + j + \u03b3 with 0 \u2264 \u03b3 \u2264 j needs exactly s \u2265 k; j \u2264 \u03b1 \u2264 j_A needs
+exactly v \u2264 k + \u03b1. The Case B family (E; 0, T^\u03b3a1'; 2, T^jL') then satisfies FE3 Lemma 1.1(i) on the whole Case A ball (the
+L'-condition is a condition on E only). Note the original g of the Case A family plays no role (its ball is only smaller).
+*From-scratch checks* (`scripts/review_r250_domination.py`, log `data/review_r250/domination.txt`): every Case A datum with
+g = 1 in the degree box, the Case B datum built and all conditions asserted; **plus an end-to-end check that does not use FE3
+Lemma 1.1**: a polynomial P in the Case A ball (\u2261 1 modulo all T-free moduli involved; with PRIME = 1 irreducible) is solved
+explicitly by the Case A family and by the Lemma 2.3 Case B family, and a P' in the I4 ball by the I4 family and by the swapped
+Case B family of Lemma 2.4 (monic denominators and the identity A\u00b7XYZ = P(XY + YZ + ZX) asserted):
+| q, k, slices, D, DMAX | data (unordered, g = 1) | Lemma 2.3 hyp. hold | outside hyp. | 2.3/2.4/end-to-end OK |
+|---|---|---|---|---|
+| 3, 2, c, 6, 9 (P prime) | 16 | 16 | 0 | 16/16/16 |
+| 9, 1, u\u2080 \u2209 F\u2083^*, 2, 12 (P prime) | 6 | 6 | 0 | 6/6/6 |
+| 9, 1, u\u2080 \u2209 F\u2083^*, 3, 12 | 14 | 14 | 0 | 14/14/14 |
+| 5, 2, c, 4, 12 (P prime) | 0 | \u2014 | \u2014 | \u2014 |
+| 9, 2, c, 3, 12 | 2 | 2 | 0 | 2/2/2 |
+| 3, 3, c, 6, 10 | 16 | 16 | 0 | 16/16/16 |
+| 3, 2, all, 4, 9 | 30 | 26 | 4 | 26/26/26 |
+| 5, 2, all, 3, 8 | 28 | 24 | 4 | 24/24/24 |
+| 9, 2, all, 2, 8 | 12 | 8 | 4 | 8/8/8 |
+| 3, 3, all, 4, 10 | 30 | 22 | 8 | 22/22/22 |
+The author's counts are ordered pairs (32 = 2\u00b716 etc.); mine agree. The \"outside\" data are all off-slice (v = 0, \u03b1 < k), as
+the author says. Observation: on the c-slices \u03b1 \u2265 2 always (\u03b1 = 1 forces b1 = 1, F = 1, E = Ta1' + 1, v_T(E + 1) = 0 \u2260 1), so
+Lemma 2.3 applies directly at k = 3 as well (row 3, 3, c); not needed by the document.
+
+**Lemma 2.4 (Case B inversion-closed) \u2014 SOUND.** EE' = D \u2261 1 mod T^s, s \u2265 k + j; D \u2261 1 and E \u2261 \u22121 mod L' give E' \u2261 \u22121; E'
+monic divides D; E' is non-constant (E' = 1 would give \u22121/w \u2261 1). Checked in all rows above, including end-to-end.
+
 ## 2. Defects
 
 (in progress)
