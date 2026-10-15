@@ -199,3 +199,36 @@ u, t ≡ 3 (mod 8) → N_X ≡ 0 (8), giving 0.81–0.85.)
   computation; the 2-adic mass explains N₋/N at large min instead (Prop 5.1).
 * At large min, ≈ 12–15 % of all words are forced, i.e. roughly half of the Haar non-certificate quarter. Forcing does
   not deplete certificates there; it only sorts non-certificates.
+
+## 6. Goal 4: the split on SQ_± and 3SQ
+**Credit.** Prop F's t-side half (t = 1, 2, 3, 4: "slot holds ⟺ tn + 1 has a prime in the non-split class") and the
+Dickson argument of Thm 3.2 restricted to t are in SYNTHESIS_SPARKS4 §2.3–2.4 (signed words; positivity costs nothing at
+t ≤ 4). New here: the u/v-sides (Prop F for p + 1, p + 2; F′ for p + 3, p + 4, p + 7, 7p + 1), the equivalence with
+*unforcedness*, and the version with all three coordinates bounded.
+
+**SQ_± (signed words).** Lemma S holds verbatim for signed words with |N_X| (ψ(−1) = 1 for n ≡ 1 (4); a zero side
+counts as clean), so N₋^± ≤ U^±. Census over |t| ≤ 60 (`scripts/z7_sqpm_split.py`, EVIDENCE):
+
+| n (record) | version | least |t| cert | forced fraction | N₋/U | control n + 8: forced, N₋/U |
+|---|---|---|---|---|---|
+| 4 884 441 | signed incl. positive (record 18) | 18 | 0.93 | 14/20 | 0.39, 0.66 |
+| 97 185 | signed incl. positive (record 15) | 15 | 0.84 | 16/20 | 0.24, 0.59 |
+| 9 817 305 | strictly signed (record 54) | 54 | 0.94 | 4/10 | 0.47, 0.48 |
+| 297 465 | strictly signed (record 30) | 30 | 0.94 | 6/8 | 0.51, 0.53 |
+| 60 369 | strictly signed (record 19) | 19 | 0.93 | 14/16 | 0.39, 0.54 |
+
+The records reproduce SPARKS4 §2.5 exactly (18, 15, 54, 30, 19). **SQ_± hardness is forcedness too:** every record n
+has forced fraction 0.84–0.94, against 0.24–0.51 at the controls. One difference from ES-five: at the strictly-signed
+record 9 817 305, unforced words appear already at |t| = 7, but the first certificate only at |t| = 54. So in the
+signed problem the gap between "unforced" and "certificate" is visible as a gap in |t|. This is the same
+congruence-pinned forcing as R227 D18, now on signed sides.
+**3SQ (exception-free at 105) explained by the split.** At composite n, Jacobi cleanliness is *genus-collapsed*:
+ψ = ∏_{ℓ | n} ψ_ℓ^{v_ℓ(n)} with ψ_ℓ = (·/ℓ). A side can be ψ-clean while every one of its primes is ψ_ℓ-odd for two
+different ℓ. At n = 105 every prime factor of every side of all 11 words (2, 53, 107, 79, 211, 3) has
+(r/3) = (r/5) (and (r/7) = +1). This is why U(105) = 0. Yet each word has exactly two local signs ε_ℓ = (−A/ℓ) equal to −1
+(e.g. (107, 1, 1): A = 106, (ε₃, ε₅, ε₇) = (−1, +1, −1)). That is precisely the "ramified at two odd primes" of (J)53, so
+105 is not a 3SQ exception. **Lemma 6.1 (PROVED).** For ℓ ∥odd n and a side N_X all of whose prime factors r ≠ ℓ
+have (r/ℓ) = +1, every word on that side has ε_ℓ = (−1/ℓ). (Proof: A | N_X (or B, with (A/ℓ) = (B/ℓ) since AB ≡ 1
+(mod ℓ)), so (A/ℓ) = 1.) Hence per-prime forcing can force ε_ℓ = −1, i.e. *non*-embedding, when ℓ ≡ 3 (4). That is
+what happens at 105 (ℓ = 3, 7). So 3SQ is the per-prime refinement of the forced/unforced split, in which the Jacobi
+collapse that creates SQ₅/CONJECTURE U's exception 105 disappears. At primes, 3SQ = ES-five and the split is unchanged.
