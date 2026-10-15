@@ -65,3 +65,20 @@ mod M is a primitive odd-square class, not polynomial-solvable by Mordell/Schinz
 exclude coverings using other sufficient conditions (e.g. classes with ES proved for each member by a non-polynomial
 argument), and of course says nothing about ES for these n_s. With these scope words the claim is PROVED (relative to
 the reviewed Thm 1.4 and ET's quotation of Mordell/Schinzel, which I could not access directly).
+
+### C4. §2 tree EVIDENCE and the 297 line — **SOUND as EVIDENCE after label/number repairs**
+(a) Line X_{3,3} of 4^s + 297 — replayed from scratch (`scripts/review_r244_line297.py 1000000 ii1`, no mordell_lib): all 9
+residues μ₃ mod 9 are covered by classes with v₃(L_M) ≤ 2 — D₃₇, D₇, II2(2,1,7), D₁₉ (the square point itself), and for
+μ₃ ≡ 6 (9) the composite II1(11, 6702, 959), M = 294 888, L = 2790 = 2·3²·5·31 (prime-modulus D/II2 classes with q ≤ 10⁶ do
+NOT cover 6 mod 9; a composite class with new ℓ′ ∈ {5, 31} is needed — consistent with the author's diagnosis). Each
+witness was verified by an exact solution of an actual member 4^s + 297 with s on the line. So the claim is now replayed;
+the author's own label "CERTIFIED finite computation of coverage, witnesses not replayed" was self-contradictory (D7).
+(b) Tree table. `z11_tree.c` reports "uncovered measure" as 1.0 − covmeas, a double sum of up to ~10⁷ leaf measures:
+catastrophic cancellation at the 10⁻¹¹ level (worst-case accumulated rounding ≈ N·1.1·10⁻¹⁶ ≈ 10⁻⁹ for N ≈ 10⁷ leaves;
+typical error much smaller). The robust figure is Σ_{stuck} meas (D8). The "stuck" count conflates genuinely stuck
+nodes (no pool class can refine) with depth-capped nodes. Per-level factors are overstated: the table steps by TWO levels,
+so measure falls ×25 then ×11 per two levels (≈ ×5, ×3.3 per level), and the open-node count grows ×12 then ×164 per two
+levels for 105 (×28, ×73 for 297) — not "~×20 measure / ×10–100 nodes per level" (D9). The growth of the node-count ratio
+with a shrinking measure ratio does support the qualitative "tree does not close at this supply / heuristic" reading,
+but "supercritical branching process" is an Assessment drawn from 3 data points of a greedy heuristic, not EVIDENCE of
+non-termination of every tree. Density "≈ 5/8 of primes" with 3 ∤ ord_q(4) ✓ (3 | ord_q(4) ⟺ 3 | ord_q(2), density 3/8).
