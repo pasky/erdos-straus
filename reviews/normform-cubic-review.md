@@ -48,3 +48,36 @@ Edge case: P irreducible, P* reducible — the conclusion FAILS: P = 4u² − 4v
 family (A, B, C, D) = (u − v, u + v, 2u, 1), valid on the open cone u > |v| (e.g. (u, v) = (1, 0): n = 3,
 4/3 = 1/(abdn) + 1/(acd) + 1/(bcd) = 1/3 + 1/2 + 1/2), and not in ℚ[P]. So again P* irreducible is the operative
 hypothesis. (Search found 18 such non-ℚ[P] families, all with valid points.)
+
+### Thm 3.1 (Type I unit-group criterion, valid at one point) — SOUND
+Re-proved line by line; all five rearrangements and the degenerate family re-verified symbolically from scratch
+(review_r259_identities.py, "3.1" lines).
+* Dichotomy. (e0) P ∤ 4ABD − 1 ⇒ (P prime, P | C(4ABD − 1)) P | C, and C/P·(4ABD − 1) = A + B, so 4ABD − 1 | A + B.
+  Degree count deg(4ABD − 1) = α + β + δ ≤ deg(A + B) ≤ α gives β = δ = 0; then C/P = λ is a constant (both sides have
+  degree α ≥ 1) and A(1 − 4λbd) = λ + b: either A constant (contradiction) or 4λbd = 1, λ = −b, d = −1/(4b²), C = −bP.
+  Correct. (e1) P | 4ABD − 1 ⇒ A, B, D units of ℚ[x]/(P) ⇒ constant mod P (this is the ONLY use of the unit hypothesis).
+  H ≠ 0 (else A + B = 0), β + δ ≤ k, and a non-constant B ≡ b has β ≥ k: correct; (β, δ) ∈ {(0,0), (k,0), (0,k)} with
+  B − b, D − d of degree exactly k, hence κP. Correct.
+* Sub-cases (i)–(iii), including A₁ = 0 (A = a constant; then (i) has H = 0, excluded; (ii)/(iii) have H constant and
+  C = (A + B)/H ∈ ℚ[P]): correct. In (ii)/(iii) with α > k, deg H = α forces C = G constant; the brackets
+  4dGb + (4dGκ − 1)P and 4bGd + (4bGκ − 1)P are non-zero (G ≠ 0 as A + B ≠ 0, and b, d ≠ 0); then A₁ ∈ ℚ(P) ∩ ℚ[x].
+  Correct. ℚ(P) ∩ ℚ[x] = ℚ[P] (root τ of g, P − τ has a ℚ̄-zero as P is non-constant): correct.
+* Degenerate families are never valid: validity forces abd, acd, bcd > 0, hence d > 0 and a, b of one sign
+  (POINTWISE_BINARYFORM §1), excluding D = −1/(4b²) < 0 and A + B = 0. Correct. Note validity is used ONLY to exclude the
+  degenerate list, so the theorem is really "every non-degenerate Type I family lies in ℚ[P]".
+* What "(ℚ[x]/(P))^× = ℚ^×" covers (checked): (1) every homogeneous prime P — ℚ[x]/(P) is an ℕ-graded domain with degree-0
+  part ℚ, and in a graded domain a unit's lowest and highest components multiply to 1, so units are homogeneous of degree 0;
+  correct. (2) MORE: every P with irreducible top part P* (homogeneous or not): the initial ideal of (P) for the degree
+  filtration is (P*), so gr(ℚ[x]/(P)) = ℚ[x]/(P*) is a graded domain and σ(f)σ(g) = σ(fg) = 1 forces filtration degree 0
+  (reviewer's argument). E.g. P = u² − 2v² − 1 qualifies (also directly: over ℚ̄ the ring is ℚ̄[t, t⁻¹], t = u + v√2, and
+  Galois sends t to t⁻¹, so only constants descend). Hence Thm 3.1 subsumes Thm 1.2′ *entirely*, not only "for
+  homogeneous prime P" as Cor 3.2(c) says (MINOR D4: understatement). (3) NOT covered: one-variable P of degree ≥ 2
+  (ℚ[u]/(φ) is a field / étale algebra, every non-zero-divisor is a unit — consistent with O145 Prop 3.4's one-variable
+  families outside ℚ[P]); P with split top part such as 4u² − 4v² − 1, where u − v is a unit mod P.
+* Necessity of the unit hypothesis (from-scratch control): P = 4u² − 4v² − 1 is prime, has units u ± v mod P, and carries
+  the valid non-ℚ[P] Type I family (u − v, u + v, 2u, 1) (search: 20 non-collapsing Type I families, all valid somewhere).
+  So the unit criterion is sharp in the sense that dropping it breaks the conclusion.
+* Brute force (review_r259_search.py; A ≤ B, D ∈ S, |S| = 215 polynomials c₀ + linear(±1, 0) + κP, c₀ ∈
+  {0, ±1, ±2, ½, ¼, −¼}, κ ∈ {0, ±1}; C by exact division): for u³ + 2v³, u² + v², u² − 2v² − 1, u² + v: 875 Type I
+  families each, 299 in ℚ[P], the other 576 are exactly the theorem's degenerate list, 0 others. Exactly as Thm 3.1 predicts.
+  (The author's random search found no Type I family at all; this search is the informative complement.)
