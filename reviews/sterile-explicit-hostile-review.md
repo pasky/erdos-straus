@@ -114,7 +114,7 @@ author's table value, the author's value is independently certified. Results (au
 | j=160 (40) | 9.363e8 / 8.185e8 (1.144) | 2.339e10 / 2.263e10 (1.033) |
 | j=200 (50) | 2.630e10 / 2.323e10 (1.132) | 1.471e12 / 1.435e12 (1.025) |
 | j=300 (75) | 5.166e13 / 4.688e13 (1.102) | 4.587e16 / 4.571e16 (1.004) |
-All 12 cells: **author ≥ reviewer, so these cells — including the one carrying 0.375 of the 0.487 at b = 32 (Q k = 1 and
+All 12 cells above, and P j = 600 below: **author ≥ reviewer, so these cells — including the one carrying 0.375 of the 0.487 at b = 32 (Q k = 1 and
 P K = 1) — are independently certified.** With my bound the level-1 Q term at r ∈ [2³², 2^{32.25}) is 0.337 (author 0.350).
 Replay: the author's se_box (hashes match MANIFEST.txt) reproduces P j = 128–131 and Q j = 128, 129 bit-for-bit.
 *Box ratios λ > 2.* All P_q1 cells (bits 200–600) and P_q4 j ≥ 512 use λ = 2^s, s = 2…9, a code path the author's
@@ -122,7 +122,7 @@ Replay: the author's se_box (hashes match MANIFEST.txt) reproduces P j = 128–1
 mode with s = 1, 2, 3, 4 for P at N = 17⁵, 7⁷, 3¹³, 101³, 23⁵ and Q at F = 17³, 23³, 9973, 99991, 7⁵, buckets the reviewer's exact
 enumeration into the dumped boxes and rows: **0 violations** (every occupied box and row dumped and bounded). I could not
 independently re-certify a λ ≥ 8 cell at its real size (bits ≥ 192: ~10⁶ boxes in my exact-arithmetic Python); one λ = 4 cell
-(P j = 600, bits 150) is RESULT_600.
+(P j = 600, bits 150, author λ = 4) gives author 5.926e22 / reviewer 4.758e22 (1.246): OK.
 
 ### 4.3 Combiner (from scratch, `scripts/review_se_combine.py`)
 Independent of se_r0.py: exact rational location of table cells, per-monomial maxima of the tail list over each N-range (handles
@@ -187,7 +187,7 @@ fixed finite list of monomials with box-independent constants):
 
 ## Not done / limits of this review
 * I did not rerun the 3.5 h certificate. I re-certified 12 table cells independently (bits 32–75); the λ ≥ 4 cells (P bits ≥ 128
-  in P_q4, all of P_q1) were validated only by the small-N per-box test (λ = 2…16) and by code audit; P j = 600 (λ = 4): RESULT_600.
+  in P_q4, all of P_q1) were validated only by the small-N per-box test (λ = 2…16) and by code audit; P j = 600 (author λ = 4) was re-certified (13 cells total).
 * The tail monomial lists were produced by the author's se_tail.py (fed as data to my combiner); their derivation is checked by
   audit (§4.4), not by an independent implementation.
 * CHN (2008) and Browning–Elsholtz were not available in sources/.
