@@ -63,3 +63,46 @@ k = 297: 4³ + 297 = 19². (Same pattern as (J)22 §4.2: every OPEN k has an int
   *different* integer square points in different ℓ-adic components of Ẑ. They are where coverings get expensive;
   whether some mixed point is sterile (which would make "all 4^s + 105" uncoverable) is open. No mixed point found so far
   is sterile.
+
+## 2. Sign fields for numerators ν (goal 2, O225 spark S2)
+
+Words w = (t, u, v), tuv − u − v = n, A = tu − 1, A* = tv − 1 (NEAR_SQUARE_EXIST notation). A **ν-word** is a word with
+ν dividing one of t, u, v, A, A*; each gives an explicit decomposition of ν/n (PROVED, direct expansion):
+ν | u = νw: ν/n = 1/(wA*) + 1/(tnw) + 1/(tnwA*); ν | A = νw: ν/n = 1/(wv) + 1/(wvA*) + 1/(nwA*) (v, A* ↔ u, A for the
+mirror slots; ν | t via (J)32). Exact check: `scripts/z8_numerators.py` (all words of primes < 2000 and odd squares < 3600,
+ν ∈ {3, 4, 5, 7, 8, 11, 12}; every u/v/A/A* slot verified in exact rationals). For ν = 4 and n ≡ 1 (mod 4), DEDEKIND_ES
+Thm 4.5 says: 4-word ⟺ χ(w) = (A/n) = −1.
+
+Level u (u-side): A | n + u, A ≡ −1 (mod u); t = (A + 1)/u, v = (n + u)/A. Let σ_A ∈ Gal(ℚ(ζ_{νu})/ℚ) be the Artin symbol
+(A coprime to νu), c the complex conjugation, and Σ_{ν,u} := ℚ(ζ_{νu}, √−u) (the *ν-sign field*; Σ_{4,u} ⊇ O225's Σ_u).
+
+**Prop 2.1 (Frobenius form of the ν-slots; PROVED, elementary).** Let gcd(ν, u) = gcd(ν, n) = 1, ν ∤ n + u, and A coprime
+to ν. Then w is a ν-word ⟺ σ_A|ℚ(ζ_{νu}) ∈ C_ν(n, u) := {σ : σ|ℚ(ζ_u) = c, σ|ℚ(ζ_ν) ∈ {−1, −(n + u)/n}}; the class −1
+is the slot ν | t (σ_A = c on all of ℚ(ζ_{νu})), the class −(n + u)/n is the slot ν | A*.
+*Proof.* ν | A and ν | u are excluded; ν | v ⟹ ν | Av = n + u, excluded. tu = A + 1 with u invertible mod ν gives
+ν | t ⟺ A ≡ −1 (mod ν), i.e. (with A ≡ −1 mod u) A ≡ −1 (mod νu). ν | tv − 1 ⟺ (A + 1)(n + u) ≡ uA (mod ν) ⟺ An ≡ −(n + u). ∎
+(The script asserts this classification on every coprime word of the test range: 0 failures.)
+
+**Theorem 2.2 (T1 as a containment; PROVED).** Let n = m² be an odd square, gcd(m, u) = 1, so every odd prime r | m² + u
+splits in ℚ(√−u) and every odd A at level u has σ_A ∈ Gal(Σ_{ν,u}/ℚ(√−u)).
+(a) If √−u ∈ ℚ(ζ_{νu}), no odd A at level u lies in the t-slot class (σ_A = c on ℚ(ζ_{νu}) would move √−u).
+(b) √−u ∈ ℚ(ζ_{νu}) for every u ≥ 1 ⟺ 4 | ν. (⇐: disc ℚ(√−u) divides 4u. ⇒: u = 1 needs i ∈ ℚ(ζ_ν).)
+(c) If √−u ∉ ℚ(ζ_{νu}) (e.g. ν odd, u = 1), Chebotarev in Σ_{ν,u} gives primes r ≡ −1 (mod νu) split in ℚ(√−u); for
+every odd m with r | m² + u and m² + u ≥ r, A = r is a t-slot ν-word of m² (v = (m² + u)/r): T1 fails at this level.
+So **"full T1 ⟺ 4 | ν" ((J)46 SHARP 2) is, on the t-slots, the statement ℚ(i) ⊂ ℚ(ζ_ν)**: for 4 | ν every sign field
+Σ_{ν,u} collapses to the cyclotomic field ℚ(ζ_{νu}), and c is forbidden at squares.
+(d) **Uniqueness of 4 (PROVED).** Let 4 | ν, u odd prime to ν, n ≡ 1 (mod 4). The class −(n + u)/n ≡ −(1 + u) (mod 4) is
+not a unit, so the coprime part of C_ν is the single class σ = c on ℚ(ζ_{νu}), of relative size 1/φ(ν) in the c-fibre
+over ℚ(ζ_u); the T1-forbidden part {σ(√−u) = −√−u} has relative size 1/2. They coincide iff φ(ν) = 2, i.e. ν = 4.
+**For ν = 4 the word condition is exactly the sign condition σ_A = c on Σ_u = ℚ(ζ_u, √−u) (O225); for every other
+T1-numerator (8, 12, 16, …) it is a proper Chebotarev subset of the forbidden half, cut out by the extra field
+ℚ(ζ_{νu}) ⊋ Σ_u that no genus/T1 mechanism controls.**
+Numerics (EVIDENCE, `scripts/z8_numerators.py 2000 60 3 4 5 7 8 11 12`): ν-words at odd squares 3² … 59²: 0 for
+ν = 4, 8, 12; for ν = 3, 5, 7, 11 many, and every coprime odd-A violator has √−u ∉ ℚ(ζ_{νu}) as (a)/(c) predict (the
+coprime violators with √−u ∈ ℚ(ζ_{νu}) all have A even — O225's Remark 2.4 caveat, (a) is for odd A).
+**The failures.** 8/131: of the 21 words of 131, 14 carry a 4-slot (χ = −1) and every such slot is ≡ 4 (mod 8) —
+all forbidden-half Frobenii land in the complementary ℚ(ζ_{8u})-class; same at 8/241 (6 words with a 4-slot, all
+≡ 4 mod 8). 11/37: none of the 9 words of 37 has an 11-slot (11 is odd: no containment, T1 fails, and 37 is a
+lottery miss). Assessment: the sign-field picture makes 4's special status *visible* (it is the unique numerator whose
+slot set is a full quadratic-character half, so genus theory — T1 — and the word condition are the same thing) but
+does not make ES easier: the χ = −1 half is still reached by a Frobenius lottery (B2).
