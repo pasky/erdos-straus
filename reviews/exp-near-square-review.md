@@ -1,7 +1,7 @@
 # R244 — hostile review of O235 (EXP_NEAR_SQUARE.md, memos z11_*, report AGENT_REPORT_O235)
 
 Reviewer branch side-agent/review-exp-near (merged side-agent/exp-near-square at 3caecd49). From-scratch scripts:
-`scripts/review_r244_*.py`. Work in progress — sections added claim by claim.
+`scripts/review_r244_*.py`. Round 1 complete; verdict table at the end.
 
 Merge note: the author's branch tracked `.pi/active.lock` (a per-agent lock file); untracked on the reviewer branch
 (MINOR housekeeping, D0 below).
