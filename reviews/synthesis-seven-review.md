@@ -142,8 +142,8 @@ unforced-window set (unspecified in the memo; D8). Count check: 4 945 primes p �
 
 Lemma 1 is elementary (finite union of closed nowhere-dense sets is closed nowhere dense; "Baire" only needed for countable
 unions, fine in the compact Hausdorff Â). Lemma 2 proof ✓ (a basic open set mod M, CRT at ℓ ∤ M with φ mod ℓ not surjective
-gives an open set missing φ(F_q[T])); for φ = X⁴ + 1 (char 3) non-surjectivity holds at every ℓ since 4 | q^{deg ℓ} − 1 is false
-only… (x ↦ x⁴ is never a bijection of F_{3^k}^* as 2 | 3^k − 1), so the Sophie-Germain example satisfies the hypothesis ✓.
+gives an open set missing φ(F_q[T])); for φ = X⁴ + 1 (char 3) non-surjectivity holds at every ℓ, because x ↦ x⁴ is never
+injective on F_{3^k}^* (2 | 3^k − 1), so the Sophie-Germain example satisfies the hypothesis ✓.
 Lemma 3 re-derived: π^p = Σ θ^{ip}U_i(θ^p)^p = Σ T^i U_i^p = P ✓; 4^p = 4 in F_p ✓; π ↦ P^{σ⁻¹} under θ ↦ T ✓.
 Application caveat: "U ⊆ C ∪ ⋃T_i ⇒ U ⊆ C" must be applied with T_i = closures of thin images and with the covered target
 dense in U ∖ C (all polynomials; for primes, Dirichlet for F_q[T] on unit cylinders). Implicit; harmless. **SOUND as
@@ -156,3 +156,30 @@ PDF — matching the memo). From scratch (`review_r256_m0.py free 200000`): **10
 f_II(n) = 0; the list is identical to the memo's displayed members (21, 57, 93, 105, …, 1705, 3985, 4585, …); 101/103 are
 divisible by 3 or 7 (exceptions 1705, 3985) ✓. `review_r256_free1mod4.py 10⁶`: 3985 is the **only** Type-II-free non-square
 ≤ 10⁶ with all prime factors ≡ 1 (4) ✓. **SOUND.**
+
+## 7. Consequences of Thms 1.1/1.2 (Cor 1.3, (I6), memo Assessment)
+
+* **Removes the hypotheses of POINTWISE_BINARYFORM Prop 5.2** (positive definite Q, A_F ≠ ∅): correct. Prop 5.2's forms are
+  definite, hence irreducible; Thm 1.1 needs only irreducibility and one valid point, and does not use O145 Prop 3.2. Only
+  gap: Prop 5.2 concludes F ∈ ℚ[n]⁶ (six coordinates); Thm 1.1 gives a, b, c, d — add e, f (D4). ✓
+* **Answers POINTWISE_BINARYFORM §5–6 negatively on cones**: correct for the question as posed there ("genuinely two-variable
+  Type I families with non-constant level" for a form Q, polynomial ET coordinates, valid on a cone). For definite Q it extends
+  to "valid at a positive proportion of prime points of a class" via Thm 3.2(c)/Lemma 3.1 + Hecke (as Cor 1.3's scope says). ✓
+  But **O145's own open items are NOT settled**: ident_form_families §6 (on main) lists (a) one-variable Type I families with
+  non-constant level c(t), d(t) on P = t² + k, (b) quadratic P with t-dependent leading coefficient, (c) "whether some 2-variable
+  identity on a binary form exists". Thm 1.2 answers (c) on cones only. (a), (b) are one-variable, non-homogeneous problems to
+  which neither the top-form argument nor the cone hypothesis applies — and one-variable Type I families outside ℚ[P] do exist
+  there (O145 Prop 3.4, k = 21, 37). Likewise POINTWISE_BINARYFORM §7's "Open: Type I analogue of O145 Prop 3.2" (a statement on
+  lines) is bypassed, not proved. (I6)'s parenthesis "(Type I families with non-constant level; O145)" overclaims (D3).
+* **"Closes the degree-2 norm-form hatch of (J)76"**: SYNTHESIS does not use these words; what it states (Cor 1.3: the M₂ rung
+  collapses to rung 0 on every congruence class) is correct *for polynomial ET-coordinate families* of a binary quadratic form,
+  Type I on cones, and its "Remaining scope" list is accurate and complete as far as I can see (cusps of indefinite forms, non-
+  polynomial ET coordinates of (x, y, z)-families off square classes, rational families, degree ≥ 3, plus §2's "factor-selection
+  procedures that are not polynomial ET families"). MENU_LADDER's "norm-form data remain" (an Assessment) also covers
+  procedures that use (u, v) non-polynomially (floor/factorisation in (u, v): POINTWISE_BINARYFORM §4.4(i); unbounded families
+  of forms: §4.2); these are untouched. Recommend Cor 1.3 list §4.4(i) and §4.2 explicitly in its remaining scope (D3).
+  One more check: the collapse to "rung 0" is meaningful on non-square classes: ℚ[Q]-families are one-variable ET identities
+  whose integrality set is a union of residue classes of n, i.e. Mordell/ET classes ✓.
+* T1/105 control remark ("predicts nothing at odd squares beyond ET Prop 1.6") ✓ — a negative theorem.
+
+**Verdict Cor 1.3: SOUND-AFTER-REPAIRS (scope wording D3, D4).**
