@@ -137,8 +137,30 @@ Re-proved line by line; all five rearrangements and the degenerate family re-ver
   source NOT accessed by the reviewer; the statement is the standard one (equivalent to the S-unit theorem setting).
 * MINOR D7b: Cor 2.2 is stated for "infinitely many primes p", but the proof only uses infinitely many distinct values n
   (Lemma 2.1 holds for any n ≠ 0). The "in particular" (family valid on L ∩ U, εU ⊂ U, ε ≡ 1 mod M) needs exactly that:
-  validity on all of L ∩ U gives valid orbit tails at every point of L ∩ U, and N takes infinitely many values on L ∩ U
-  (U open, L full rank) — not that infinitely many *primes* are represented in L ∩ U (which is the unproved accessibility
+  validity on all of L ∩ U gives valid orbit tails at every point of L ∩ U, and one needs N to take infinitely many
+  values on L ∩ U. That is NOT automatic for an ε-invariant open U: U = {0 < N < 10} ∩ (any ε-stable region) is open and
+  ε-invariant, and a family valid there only becomes constant on finitely many level sets (no collapse). Add "N unbounded
+  on L ∩ U" (true for the power-cusp regions {0 < N ≤ g(|x|)}, g → ∞) — not that infinitely many *primes* are represented in L ∩ U (which is the unproved accessibility
   issue the author flags). Restate for infinitely many values n; then the "in particular" is proved as written, provided
   N(ε) = 1 and εL = L are added.
 * Superseded for ET families by Thm 3.1; its genuine remaining content is (x, y, z)-families (correctly noted, Cor 3.2(c)).
+
+### §4 identification (descent pull-back; "w² = n, not w² = N(u, v)") — SOUND-AFTER-REPAIRS (argument to be written; label split)
+* M[N] = M₁[linear] ∘ N: immediate from Cor 3.2. Correct.
+* Pull-back of MENU_STERILITY Thm A with φ linear: for φ(u) = u, A = ℚ, and condition (ii) forces γ ∈ ℚ_{>0} with
+  γ·n* ∈ ℚ_ℓ^{×2} for all ℓ, i.e. v_ℓ(γ) even for all ℓ, γ a square; so Ster(linear) = {n* ∈ Ẑ^{×2}, n* ≡ 1 (8)}, matching
+  the text. BUT Thm A is stated for a family valid at all large u of a *class C of the parameter*; the set {N(x) : x in a
+  class of x} is not a class of n, so Thm A does not apply verbatim (MINOR D8). Repair: use the pointwise form of the
+  witness computation, which for linear φ is one line — at a valid n ≡ 1 (8) the witness gives (D(n)/n) = −1
+  (POINTWISE_BINARYFORM Lemma 1.1), while for D = D̃/g, D̃ ∈ ℤ[n], (D̃(n)/n) = (D̃(0)/n) = +1 and (g/n) = +1 by
+  reciprocity as soon as n is a square modulo 8·|D̃(0)·g| (if D̃(0) = 0 then (D/n) = 0 ≠ −1 for n > |D̃|-content). Then choose
+  x in the class, close to x* at the finitely many relevant primes, with N(x) large and positive (possible since the
+  class is a full-rank coset and N takes large positive values near x* in the real topology on an open cone). With this
+  pointwise lemma the containment statement is PROVED.
+* "The double cover carrying the obstruction is w² = n (genus 0), not w² = N(u, v)": the mathematical content (the
+  obstructed set is the pull-back of the rung-0 set) is proved after D8; the phrasing "is not the relevant object /
+  no 2-descent on the genus-1 cover enters" is interpretation and should be labelled Assessment (MINOR D9, label).
+* "positive proportion … for full norm forms it follows from Chebotarev/Hecke": plausible and essentially standard
+  (principal degree-1 primes of O_K splitting completely in K(ζ_M) have N𝔭 = p ≡ 1 (mod M), a square class); it is unlabelled
+  — label it Assessment or give the 2-line argument incl. that the ω_i must be a ℤ-basis of O_K (else the
+  representable set is an order's) (MINOR D10). The x³ + 2y³ caveat is correct.
