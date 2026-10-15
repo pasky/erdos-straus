@@ -88,3 +88,45 @@ Archive of this pass: `sources/lit2026d/`.
 | (J)42 D15 consequence "χ is a function of (c, m, s) mod 4" | **KNOWN in substance** | Girstmair IJNT 7 (2011); stated explicitly in arXiv:1504.02618 §2 |
 | (J)42 polygon-size uniqueness (r = 3 only) | APPARENTLY NEW | ES-specific; nothing found |
 | (J)45 SHARP 2 (signed Hilbert-symbol product formula) | PARTIAL | mechanism classical (Girstmair 2011; Eisenstein/Shallit/Bach–Shallit); signed/Maslov form apparently new as stated |
+
+---
+
+## 2. Three squares, the Hurwitz order, path lattices in ℤ³ ((J)48, (J)53)
+
+### 2.1 Findings
+
+* **Kim–Oh, "Representations of integral quadratic forms by sums of squares"** (survey,
+  author copy https://www.math.snu.ac.kr/~bkoh/sos.pdf) [visited; archived
+  `sources/lit2026d/kim-sums-of-squares-survey.{pdf,txt}`], p. 3: "If ℓ_p → L_p for all
+  p, or equivalently ℓ → gen(L), then … ℓ → K for some K ∈ gen(L)", and the
+  Mordell–Ko values g[n] = n + 3 (n ≤ 5) are "an immediate consequence of local
+  representation theory and the fact that the class number of I_n is one for
+  1 ≤ n ≤ 8". So **a positive binary (or ternary) ℤ-lattice is represented by
+  x² + y² + z² iff it is represented locally everywhere** — textbook.
+* **Mordell 1930 / Schinzel 2013** [visited: Schinzel, Bull. Pol. Acad. Sci. Math. 61
+  (2013) 23–28, archived `sources/lit2026d/schinzel-binary-five-squares.pdf`], p. 23:
+  Mordell (Quart. J. Math. 1 (1930) 276–288) proved that a positive binary
+  f = aX² + 2hXY + bY² is a sum of **four** squares of integral linear forms iff
+  Δ = ab − h² is a sum of three squares. This is the same "binary form ↔ its determinant"
+  mechanism; the three-squares case is Gauss, *Disq. Arith.* art. 278–292 [memory; not
+  opened] — the representation of a binary form of determinant D by x² + y² + z² as the
+  orthogonal complement of a vector of norm D.
+* **Hurwitz order / B_{2,∞}.** That ℤi + ℤj + ℤk is the trace-zero part of the Hurwitz
+  order and that B_{2,∞} has one class of maximal orders is textbook (Voight, *Quaternion
+  Algebras*, ch. 11 [memory]); Venkov's quaternionic proof of the three-squares theorem
+  uses exactly this [memory]. The maximal-lattice argument of Thm B (norm-maximal
+  lattices on I₃ ⊗ ℚ form one genus, gen(I₃) has one class) is O'Meara 91:2 + class
+  number one, as TWO_FIBRES itself states.
+* **ES-specific search.** "Erdős–Straus sum of three squares binary form", "Egyptian
+  fractions quaternion order supersingular", "Erdős–Straus quaternion": no hit beyond
+  the campaign's own sources. Nothing found linking 4/n to x² + y² + z² as lattices.
+
+### 2.2 Verdicts
+
+| Claim | Verdict | Notes |
+|---|---|---|
+| (J)48 Thm A (χ = +1 ⟺ path binary T_w (or n·G_w) is a Gram of integer vectors in ℤ³) | **KNOWN in substance; ES specialisation APPARENTLY NEW** | local–global for representations by the one-class genus of I₃ (Gauss DA 278–292; Mordell 1930; Ko 1937; Kim–Oh survey p. 3). The new input is only CHI_FLIP's local computation (χ = Hasse invariant at p). TWO_FIBRES §1 already says this; the ledger line should carry it. |
+| (J)48 Thm B (odd-square-determinant path lattices are index-m sublattices of ℤ³) | **KNOWN in substance** (maximal lattices + h(I₃) = 1); the ES reading (T1 as an embedding) is new | same remark |
+| (J)48 Prop A2 (χ = +1 classes = conic points mod p / S₄) | KNOWN in substance (sublattices of ℤ³ of index p² isotropic mod p ↔ isotropic lines; Brandt/Eichler level-p orders in the Hurwitz order, as in LPS) | already flagged in TWO_FIBRES |
+| (J)53 Lemma "T1 deforms": tp + 1 = tm² + c² | elementary; APPARENTLY NEW as an ES statement | see §5 for the polynomial-family side |
+| (J)53 CONJECTURE 3SQ | EVIDENCE; no literature analogue found | — |
