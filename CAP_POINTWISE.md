@@ -1,11 +1,11 @@
 # CAP_POINTWISE — the minimal exponent cap e*(n) pointwise (task O236, spark relay Z6)
 
-Status: in progress (O236). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
+Status: CLAIMED (O236 checkpoint 1; reviewed R238 + R239, repairs applied, no FATAL/MAJOR open) (R239 repair). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
 Builds on EXPONENT_CAP ((J)34: Def 1.1, Prop 1.2), CAP_INTERPOLATION (O234, §4: e*(n), Prop 4.1, Thm 4.2),
 POINTWISE_SIZE §8 (windows q = 4x − p, Cor 8.3(b)), LITERATURE_2026 (vii) "test case". Scripts `scripts/z12_*`.
 
 Normalisation (checked against EXPONENT_CAP Def 1.1): ES^{(y,e)}(n) is 4/n = 1/x + 1/y + 1/z, x, y ∈ ℤ_{>0},
-z ∈ ℚ_{>0}, den z = q², q odd, gcd(q, n) = 1, rad q | y, v_ℓ(q) ≤ e. **e*(n) := min{e : ES^{(y,e)}(n)}; ES(n) ⟺
+z ∈ ℚ_{>0}, den z = r², r odd, gcd(r, n) = 1, rad r | y, v_ℓ(r) ≤ e (R239 repair: letter r, since q denotes the window prime below). **e*(n) := min{e : ES^{(y,e)}(n)}; ES(n) ⟺
 e*(n) = 0.** Hence "numerically e*(p) = 0 for all p ≤ 10^{17}" is just the known ES verification; the numerics of
 goal (3) are only informative for *restricted constructions* (§3).
 
@@ -52,6 +52,11 @@ additionally q ≢ −p (mod ℓ) for every prime ℓ | a, ℓ ≠ p. Apply Thm 
 and 4/n = 1/(kx) + 1/(ky) + 1/(kz) (k = n/p) keeps den(kz) = Q₁², rad Q₁ | ky (Q₁ := the denominator root of the p-solution, built from primes of K, hence prime to n).
 *T1 check.* For n = a², (q/n) = 1 for every q ∤ n, so condition (iii) is never met at n itself: Thm 1.1 never fires at
 an odd square (consistent with T1 / FROBENIUS_FIRING Thm 4.2(b)); (c) routes through the non-square divisor p.
+*(R239 repair) Simpler route for (c), no exclusions.* Put d := n/p = p^{2v_p(a)−1}·(a/p^{v_p(a)})²: d ≡ 1 (4), non-square,
+squarefree part p. Apply Thm 1.1 to d with any prime q satisfying (i)–(iii) for d (i.e. q ≡ 4 − d (8), (q/p) = −1).
+Then gcd(K_d, qd) = 1 (Thm 1.1), in particular p ∤ K_d, so scaling by k = p (4/n = 1/(px) + 1/(py) + 1/(pz)) keeps
+den(pz) = Q₁², rad Q₁ | py, Q₁ prime to 2n. So for odd squares q*(n) may be taken as a least prime in one Frobenius class
+of ℚ(i, √2, √p). Checked exactly for all 1073 such a² ≤ 10⁸ (`scripts/review_r239_composite_squares.py`).
 
 **Theorem 1.1′ (composite windows; PROVED, elementary).** Thm 1.1 holds verbatim for any positive integer m
 (in place of q) with m ≡ 4 − n (mod 8), gcd(m, n) = 1, **every prime factor q_i of m satisfying q_i ≡ 3 (mod 4) and
@@ -75,7 +80,8 @@ fixes it on √n₀). Conductors of the 8 characters: 1, 4, 8, 8, n₀, 4n₀, 8
 Fourier* 69 (2019), Thm 1.1, "sans aucune restriction": for Galois L ≠ ℚ and any conjugacy class C there is an
 unramified prime with Frobenius C and norm ≤ d_L^{12577}) gives q*(n) ≤ (2^{16}n⁴)^{12577}, hence
 **e*(n) < 2^{201232}·n^{50308} for every odd non-square n > 1** (and for every odd n with a prime factor ≡ 3 (4),
-e*(n) = 0). (R238 repair: Ahn–Kwon Thm 1.1 checked by R238 against the primary text — "for every finite extension K of ℚ,
+e*(n) = 0). (R239 repair) By the simpler route of Cor 1.2(c) the same holds for odd squares n = a² with n₀ := p | a
+(field ℚ(i, √2, √p), d_L = 2^{16}p⁴): **e*(n) < 2^{201232}·n^{50308} for every odd n > 1.** (R238 repair: Ahn–Kwon Thm 1.1 checked by R238 against the primary text — "for every finite extension K of ℚ,
 every finite Galois extension L (≠ ℚ) of K … there exists a prime ideal p in P(C) [unramified, degree one, Frobenius C]
 which satisfies N_{K/ℚ}p ≤ d_L^{A₁} with A₁ = 12577".)
 (b) *Unconditional, effective (all odd n > 1).* In cases (b), (c) the conditions are implied by q lying in one
@@ -83,14 +89,17 @@ fixed class a mod 8·rad(n) (choose a mod 8; a mod rad(n) coprime to it with (a/
 part of n (R238 repair) — so (q/n) = (q/n₀) = −1 and q ∤ n; in case (c): (a/p) = −1 and a ≢ 0, −p mod ℓ for ℓ | a, ℓ ≠ p, possible
 as ℓ ≥ 5). Linnik's theorem (effective; exponent 5 by Xylouris, Dissertation Bonn 2011) gives q*(n) ≪ (8 rad n)^5, so
 **e*(n) ≪ rad(n)^5 ≤ n^5 for every odd n > 1, with an effectively computable implied constant.**
-(c) *Under GRH* for ζ_L: the least unramified prime with prescribed Frobenius is ≪ (log d_L)² (Lagarias–Montgomery–
-Odlyzko, *Invent. Math.* 54 (1979); explicit versions: Oesterlé ≤ 70(log d_L)², Bach–Sorenson *Math. Comp.* 65 (1996)
+(c) *Under GRH* for ζ_L: the least unramified prime with prescribed Frobenius is ≪ (log d_L)² (Lagarias–Odlyzko,
+"Effective versions of the Chebotarev density theorem", Algebraic Number Fields (Durham 1975), Academic Press 1977 —
+(R239 repair: not Lagarias–Montgomery–Odlyzko *Invent. Math.* 54 (1979), which is the UNCONDITIONAL d_L^{A} bound made
+explicit by Ahn–Kwon; cf. Ahn–Kwon §1, Theorems I/II); explicit versions: Oesterlé ≤ 70(log d_L)², Bach–Sorenson *Math. Comp.* 65 (1996)
 (4 log d_L + 2.5[L:ℚ] + 5)² — (R238 repair) formula confirmed second-hand (quoted in Ahn–Kwon, AIF 69 (2019) p. 1412: degree-one
 prime, GRH for ζ_L); Bach–Sorenson's primary text and theorem number were not accessed). For non-square n of case (b),
 log d_L ≤ 4 log n + 16 log 2, so **e*(n) ≪ (log n)² under GRH**, explicitly e*(n) ≤ (16 log n + 70)² with the recalled
-Bach–Sorenson constant — slightly sharper than CAP_INTERPOLATION Thm 4.2(a) (C_ε(log p)^{2+ε}), with no Artin/Hooley
-step. (Odd squares, case (c): the extra exclusions q ≢ −p (mod ℓ) are not Frobenius conditions in L, so under GRH
-only the Linnik-type bound of (b) is claimed there.)
+Bach–Sorenson constant — this supersedes CAP_INTERPOLATION Thm 4.2(a) (C_ε(log p)^{2+ε}, primes p ≥ p₀ only, via
+Hooley's Artin scheme) for every odd non-square n (R239 repair: "supersedes", not "slightly sharper"). (R239 repair) Odd
+squares: by the simpler route of Cor 1.2(c) (field ℚ(i, √2, √p), p | a), e*(a²) ≤ (16 log p + 70)² ≤ (16 log n + 70)²
+under GRH as well; the earlier caveat (exclusions q ≢ −p (mod ℓ) not Frobenius conditions) is void on that route.
 *Proof.* Thm 1.1 / Cor 1.2 with the cited bounds. ∎
 
 **Remark 1.4 (how B6 and B3 are evaded; Assessment).** B6 (averages over p say nothing at a single p) is evaded
@@ -210,9 +219,10 @@ Type II's subgroup level is free and only its exponent budget is a lottery (Lemm
    the new step is connecting it to the overflow dictionary):**
    e*(n) < q*(n) for every odd n > 1, where for non-square n q*(n) is a least prime in one Frobenius class of
    ℚ(i, √2, √n₀) (n₀ the squarefree part), and for odd squares a least prime in one class mod 8·rad(n) (Cor 1.2(c))
-   (R238 repair); hence
-   e*(n) ≪ rad(n)^5 effectively (Linnik–Xylouris), e*(n) < 2^{201232}n^{50308} explicitly for non-square n (Ahn–Kwon),
-   e*(n) ≪ (log n)² under GRH for non-square n (explicit (16 log n + 70)² with the recalled Bach–Sorenson constant). Mechanism: the window
+   (R238 repair) — or, by the simpler route of Cor 1.2(c), a least prime in one Frobenius class of ℚ(i, √2, √p), p | a
+   (R239 repair); hence
+   e*(n) ≪ rad(n)^5 effectively (Linnik–Xylouris), e*(n) < 2^{201232}n^{50308} explicitly for every odd n > 1 (Ahn–Kwon),
+   e*(n) ≪ (log n)² under GRH for every odd n > 1 (R239 repair: squares included via Cor 1.2(c) simpler route) (explicit (16 log n + 70)² with the recalled Bach–Sorenson constant). Mechanism: the window
    q = 4x − n generates its own mute set (primes of x); the Legendre identity (x/q) = −1 forces −1 ∈ ⟨primes of x⟩, so
    the window fires at the subgroup level and the cap e absorbs the exponent budget. Deterministic; no averaging (B6
    evaded), no counting (B3 evaded); the shot modulus g is solution-dependent and huge (B2 respected).

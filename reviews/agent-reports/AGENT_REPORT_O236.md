@@ -11,8 +11,10 @@ Take a prime window q = 4x − n with q ≡ 4 − n (mod 8), (q/n) = −1, and l
 x = (n+q)/4. Since 4x ≡ n (mod q), firing needs only −1 ∈ ⟨primes of x⟩ mod q. Reciprocity gives (x/q) = −1, which
 forces that (cyclic group of order 2·odd). So ES^{(y,e)}(n) holds with e < q. Hence:
 e*(n) ≪ rad(n)^5 effectively (Linnik–Xylouris) for every odd n > 1;
-e*(n) < 2^{201232} n^{50308} explicitly for non-square n (Ahn–Kwon d_L^{12577}, L = ℚ(i, √2, √n₀));
-e*(n) ≪ (log n)² under GRH, explicitly (16 log n + 70)² for non-square n.
+e*(n) < 2^{201232} n^{50308} explicitly for every odd n > 1 (Ahn–Kwon d_L^{12577}, L = ℚ(i, √2, √n₀), n₀ := squarefree
+*part* of n for non-square n; for odd squares n = a², L = ℚ(i, √2, √p), p | a, via Thm 1.1 at d = n/p and scaling by p);
+e*(n) ≪ (log n)² under GRH, explicitly (16 log n + 70)² for every odd n > 1 (same fields). (R239 repair, per R238 m1 + R239 D3:
+the window field is not ℚ(i, √2, √n), and n₀ is the squarefree part, not the kernel rad n.)
 **Dictionary:** the cap e is exactly the overflow of the window's exponent budget (Lemma 3.1: cap = max_s (a_s − v_s(x))⁺).
 The subgroup level of a Type II window is forced; only the budget is a lottery.
 **Dichotomy (Prop 4.1):** Type I windows carry the opposite forced sign, (a/p) = +1, so they are never forced and are

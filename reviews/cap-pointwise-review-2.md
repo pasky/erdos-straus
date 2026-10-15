@@ -1,6 +1,13 @@
 # R239 — hostile review #2 of O236 (CAP_POINTWISE.md), round 1
 
 Reviewer: R239 (independent; no edits to author's files in round 1). Scripts: `scripts/review_r239_*.py`.
+**Repairs applied (round 2, R239):** merged side-agent/review-cap-pointwise (R238: M1, m1–m5 already in). Applied in
+CAP_POINTWISE.md, marked "(R239 repair)": D1 (GRH citation → Lagarias–Odlyzko 1977), D3 (simpler odd-square route in
+Cor 1.2(c); Thm 1.3(a),(c) and §5.1 extended to all odd n > 1), D5 remainder ("supersedes" CAP_INTERPOLATION Thm 4.2(a);
+one-line notes in CAP_INTERPOLATION.md §4 l.166 and §6 item 3), D6 (header letter r), D7 (status line). D2, D4 and the
+FROBENIUS_FIRING half of D5 were already covered by R238 m5, m3, m4. AGENT_REPORT_O236 SHARP field statement fixed per R238 m1
+(+ D3). *Self-correction:* in round 1 I accepted "n₀ := squarefree kernel" without noticing R238's M1 (kernel = rad n is
+wrong for n = 325); my C5 discriminant check was done for n₀ squarefree and holds for the squarefree PART.
 Status: ROUND 1 COMPLETE. No FATAL or MAJOR defect found. Headline survives.
 
 ## Summary verdicts
@@ -90,7 +97,7 @@ two excluded residues 0, −p mod ℓ. ✓ (Using any p | a, p ≡ 1 (4).)
   the Chebotarev density theorem"), not Lagarias–Montgomery–Odlyzko Invent. Math. 54 (1979), which is the
   UNCONDITIONAL d_L^{A} bound (Ahn–Kwon §1, Theorems I and II). See D1.
 * Case (c) (odd squares): the author's restriction "under GRH only the Linnik-type bound" is unnecessary — see D3:
-  applying Thm 1.1 to d := n/p (non-square, squarefree kernel p) and scaling by k = p removes all exclusions, so all
+  applying Thm 1.1 to d := n/p (non-square, squarefree part p) and scaling by k = p removes all exclusions, so all
   three bounds of Thm 1.3 hold for odd squares with n₀ replaced by p.
 
 ### C6. Lemma 3.1 (cap = max_s (a_s − b_s)⁺) and Lemma 2.1 — SOUND
@@ -165,14 +172,14 @@ asymptotic (1+o(1))(log Δ + 2n)²) and Ahn–Kwon §1 (primary text, `sources/r
 re-check.)" in (a) by "verified from arXiv:1807.00508, Theorem 1 (R239)".
 
 **D3 (MINOR, improvement + wording).** Cor 1.2(c) and Thm 1.3 for odd squares: the exclusions q ≢ −p (mod ℓ) are
-unnecessary. For n = a² (all primes ≡ 1 (4)) and p | a put d := n/p — non-square, squarefree kernel p, d ≡ 1 (4).
+unnecessary. For n = a² (all primes ≡ 1 (4)) and p | a put d := n/p — non-square, squarefree part p, d ≡ 1 (4).
 Apply Thm 1.1 to d: K_d = (d + q)/4 is prime to qd (Thm 1.1), in particular p ∤ K_d, so the solution scaled by k = p
 has den(pz) = Q₁², rad Q₁ | py, primes prime to 2n. Conditions on q: (i)–(iii) for d, i.e. one Frobenius class of
 ℚ(i, √2, √p). Hence Thm 1.3(a) (with n₀ := p) and Thm 1.3(c) ((16 log p + 70)² under GRH) hold for odd squares as
 well, and the GRH caveat in (c) can be deleted. Verified exactly for all 1073 such squares ≤ 10⁸
 (`scripts/review_r239_composite_squares.py`). Independently of this repair, §5.1's "q*(n) is a least prime in one
 Chebotarev class of ℚ(i, √2, √n)" is false as written for squares (√n ∈ ℚ); with the repair it reads ℚ(i, √2, √n₀)
-with n₀ the squarefree kernel of n, or of n/p for squares.
+with n₀ the squarefree PART of n (R238 M1), or p for squares.
 
 **D4 (MINOR, scope of Prop 4.1).** Prop 4.1(b) is proved only for solutions with a | y ("every Type I-shape solution
 with a | y has this form"), yet the Dichotomy paragraph and §5.4 say Type I windows are "dead at every cap". Solutions
