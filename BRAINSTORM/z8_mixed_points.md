@@ -6,7 +6,7 @@ ord_q(4) only involves the first (second) set of ℓ, n_q is the square n_{ℓ�
 generic value. Such μ* are the natural candidates for sterile points of Λ_k — and the place where coverings get expensive.
 
 **Literature.** (J)22 §4.3 (single near-square points); Sierpiński numbers with "partial coverings" and the role of
-algebraic factorisations (Filaseta–Finch–Kozek, J. Number Theory 2008: Sierpiński numbers whose covering must mix
+algebraic factorisations (Filaseta–Finch–Kozek, J. Number Theory 128 (2008) — cited from memory, not re-checked: Sierpiński numbers whose covering must mix
 algebraic and congruence pieces) — analogous mixing phenomenon.
 
 **Barrier screen.** Not a barrier itself; it is the exponential analogue of B1's square point. Unlike Sq^× points,
