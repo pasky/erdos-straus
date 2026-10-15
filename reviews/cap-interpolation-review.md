@@ -72,7 +72,9 @@ brute-force square search, 0 failures.
 ### Cor 5.2, Prop 5.3 — SOUND-AFTER-REPAIRS (D2)
 Local count N(σ, e) = 2σ + 1 + e at odd s (t ∈ [0, 2σ] ∪ {2σ+2, …, 2σ+2e}) and 2σ + 1 at s = 2 ✓; Dirichlet series
 ζ^{e+3}H ✓; the lower bound via D = c₀²d₀R² (injective: d₀ = squarefree part, c₀ = rad of √(D/d₀)) and c₀d₀ | A ⇒
-D ∈ 𝒟_e(M) ✓. Prop 5.3 (z ∈ ℤ ⟺ D | A² inside 𝒟_e) is immediate from the valuation table ✓. Only the scope wording is
+D ∈ 𝒟_e(M) ✓. Prop 5.3 (z ∈ ℤ ⟺ D | A² inside 𝒟_e) is immediate from the valuation table ✓. Note (relevant to D1): the upper bound
+#{classes} ≤ |𝒟_e(M)| = ∏ N(σ, e) holds for the FULL (untruncated) family, since 𝒟_e(M) is finite for finite e — so "no
+tower at fixed e" is robust; only e = ∞ (where 𝒟_∞(M) is infinite) escapes it. Only the scope wording is
 wrong (D2).
 
 ### Input (G) — Gallagher's Theorem 7: checked against the source; SOUND-AFTER-REPAIRS (D3)
