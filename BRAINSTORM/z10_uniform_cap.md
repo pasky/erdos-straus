@@ -11,12 +11,14 @@ Gallagher's PNT gives relative error e^{−cκ} per modulus — no weights at al
 * Thm 2.1 (PROVED rel. Gallagher's PNT, BV, large sieve): #{p ≤ N : ES^{(y,e)}(p) fails} ≤
   N exp(−c(log N)^{(e+2)/(e+3)}/((e+2)log(e+3))) uniformly for e ≤ log log N — c_e ≍ 1/(e log e), not ((e+1)(e+2))^{−e}.
 * Saturation at e ≍ log log N: ≤ N exp(−c log N/(log₂N log₃N)) for every e ≥ log log N.
-* Thm 3.1 (ceiling, PROVED, Rankin): the prime-modulus large sieve with cube classes cannot do better at ANY cap,
-  e = ∞ included, although ES^{(y)} is a pointwise theorem. B6 made quantitative.
+* Thm 3.1 (ceiling, PROVED, Rankin): the prime-modulus large sieve with cube classes TRUNCATED to V < ℓ/4 cannot do
+  better at any cap. (R237 repair D1: the truncation is not forced — Prop 5.1 has no size condition — and the full
+  family gives a power saving at e = ∞ and e ≥ (log N)^{1+ε}, CAP_INTERPOLATION Remark 3.2; log log N ≤ e ≤ (log N)^{1+ε}
+  OPEN.)
 
 ## Barrier screen
 B6 exactly (averages); Thm 3.1 is a theorem about the method's bound, not the true exceptional set (heuristically
 exp(−exp(c√(log N/log₂N))) density). T1: all classes are non-residues; squares never hit.
 
 ## Assessment
-Clean, modest: closes O229's spark 3 (uniformity) with a matching ceiling. Not a route to ES.
+Clean, modest: closes O229's spark 3 (uniformity) with a matching ceiling for the truncated family (R237 D1). Not a route to ES.

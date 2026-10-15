@@ -409,7 +409,7 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 
 | memo | idea | result | label |
 |---|---|---|---|
-| z10_uniform_cap | Gallagher instead of weighted BV; e = e(N) | c_e ≍ 1/(e log e); saturation at e ≍ log log N with N exp(−c log N/(log₂N log₃N)); matching Rankin ceiling at every cap (even e = ∞) | PROVED rel. Gallagher + BV + LS; ceiling elementary |
+| z10_uniform_cap | Gallagher instead of weighted BV; e = e(N) | c_e ≍ 1/(e log e); saturation at e ≍ log log N with N exp(−c log N/(log₂N log₃N)); matching Rankin ceiling for classes truncated to V < ℓ/4 (R237 D1: untruncated family gives a power saving at e = ∞) | PROVED rel. Gallagher + BV + LS; ceiling elementary |
 | z10_pointwise_cap | minimal cap e*(n) | covering barrier (log₂p)^{1−o(1)} i.o.; GRH: e*(p) ≤ (log p)^{2+ε}, ≤ exp(O(√(log₂p log₃p))) | PROVED / CONDITIONAL (GRH, sketch) |
 | z10_exact_family | solution depends only on D = c²d | ES^{(y,e)} ⟺ D ∈ 𝒟_e(M) (D \| A² lifted by even excess ≤ 2e); supply dimension e + 3, no tower; e = 0 = ℛ(M) — SHARP | PROVED; (e+3)/(e+4) Assessment |
 | z10_pmsq_1e7 | C rerun of PM-SQ_± | 0 exceptions ≤ 10⁷; record least \|u\| = 41 | EVIDENCE |
