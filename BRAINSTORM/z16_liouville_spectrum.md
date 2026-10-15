@@ -4,8 +4,12 @@
 Generalise O227's Liouville lemma from polynomial points to all u via the approximation profile
 η_u(D) = least height of a rational agreeing with u to order D. Theorem (STERILE_DIOPHANTINE Thm 4.2, PROVED): a tuple covering
 x_u at level N has height H_τ ≥ N + 1 − η_u(N + 1) unless −w₁/C₁ is the best approximant itself. Level N is *protected*
-from the thirds corner (H_τ ≈ 2(N + 1)/3) when η_u(N + 1) < (N + 1)/3. Cor 4.3 (PROVED): only rational points are protected at
-all large levels; T-adic Liouville numbers are protected outside thin windows (D_h, 3h'] at each new convergent.
+from **non-exact** thirds-corner tuples (H_τ ≈ 2(N + 1)/3) when η_u(N + 1) < (N + 1)/3. Cor 4.3 (PROVED): only rational points are
+protected (from non-exact tuples) at all large levels; T-adic Liouville numbers are protected outside windows (D_h, 3h'] at each
+new convergent — a set of levels of logarithmic density 1 but upper natural density of unprotected levels ≥ 1/3, ≥ 2/3 for
+Liouville-type u (R248 repair D6). (R248 repair D5, MAJOR) Exact tuples (−w₁/C₁ = best approximant, often with gcd(w₁, C₁) ≠ 1)
+are common and balanced: e.g. s = 14, ρ_τ = (1 + T)/(1 − T), H_τ = 5, covering that height-1 point at level 7. Rational points
+need an exact-case analysis, classified only for polynomial u (FF_THIRDS_CORNER Prop 1.4).
 
 ## Literature
 Mahler, On a theorem of Liouville in fields of positive characteristic, Canad. J. Math. 1 (1949) 397–400; Lasjaunias, A survey
@@ -22,5 +26,6 @@ can close it (a point has measure 0). B6: pointwise by construction.
 STERILE_DIOPHANTINE §6.
 
 ## Assessment
-PROVED (Lemma 4.1, Thm 4.2, Cor 4.3, 4.4); continued-fraction window description Assessment. Explains exactly which points
-can be "Liouville-sterile": rational ones (all levels) and Liouville-type ones (most levels).
+PROVED (Lemma 4.1, Thm 4.2, Cor 4.3, 4.4); continued-fraction window description Assessment. Explains which points are
+protected from *non-exact* tuples: rational ones (all levels) and Liouville-type ones (log-density-1 set of levels); exact
+tuples remain (R248 repair D5).

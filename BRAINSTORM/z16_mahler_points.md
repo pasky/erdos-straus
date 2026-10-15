@@ -1,7 +1,7 @@
 # z16_mahler_points — algebraic T-adic Liouville points as explicit sterile candidates (O241)
 
 ## Idea
-By z16_liouville_spectrum, a point protected from balanced tuples at almost all levels must be T-adically Liouville. In
+By z16_liouville_spectrum, a point protected from balanced non-exact tuples (R248 repair D5: exact tuples need separate analysis) at almost all levels must be T-adically Liouville. In
 characteristic p such points can be *algebraic* (Mahler 1949): u = 1 + cT + Σ_{n≥1} T^{9^n} satisfies an Artin–Schreier-type
 equation u⁹ − u = (1 + cT)⁹ − (1 + cT) − T⁹, and its truncations (height 9^n) agree with u to order 9^{n+1}: protected on
 (3·9^n, 9^{n+1}], unprotected on (9^n, 3·9^n]. Candidates for explicit points of O(3, T²) beyond rationals, with an algebraic

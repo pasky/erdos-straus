@@ -14,10 +14,10 @@ FF_STERILE_PUSH §4.
 ## Barrier screen
 u³ ≡ 1 (mod T³): Frobenius leaves the c-slices (lands in the c = 0 slice), and shrinks balls (depth N + 1 ↦ 3N + 3), so it is
 a renormalisation in the wrong direction for games. The tuple equations are not Frobenius-stable (w₁ + C₁ = T·g'v₁ needs
-v_T = 1, cubing gives 3) — the same valuation bit that separates char 2 (covered) from odd char. Case A not checked.
+v_T = 1, cubing gives 3) — the same valuation bit that separates char 2 (covered) from odd char. Case A works the same way (R248 repair D12).
 
 ## Cheap numerics
 None (the proposition is an identity check).
 
 ## Assessment
-PROVED (Case B), modest. Records a structural symmetry of the obstructed set; no route to O ≠ ∅.
+PROVED (all linear families; Case A by R248 repair D12), modest. Records a structural symmetry of the obstructed set; no route to O ≠ ∅.

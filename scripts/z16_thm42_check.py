@@ -21,15 +21,25 @@ def val(a):  # T-adic valuation of a polynomial, inf for 0
         if x: return i
     return 10 ** 9
 def deg(a): return len(a) - 1
-rats = []
+def pmod(a, b):
+    a = a[:]; inv = 1 if b[-1] == 1 else 2
+    while a and len(a) >= len(b):
+        f = a[-1] * inv % 3; sh = len(a) - len(b)
+        for i, x in enumerate(b): a[sh + i] = (a[sh + i] - f * x) % 3
+        a = trim(a)
+    return a
+def pgcd(a, b):
+    while b: a, b = b, pmod(a, b)
+    return a
+rats = []  # (R248 repair D7) reduced representatives only: gcd(P, Q) = 1, Q monic-normalised by Q(0) = 1
 for h in range(0, H + 1):
     for Pp in itertools.product(range(3), repeat=h + 1):
         for Q in itertools.product(range(3), repeat=h + 1):
             Pp_, Q_ = trim(list(Pp)), trim(list(Q))
             if not Q_ or Q_[0] == 0 or not Pp_: continue
-            if max(deg(Pp_), deg(Q_)) != h: continue
+            if max(deg(Pp_), deg(Q_)) != h or Q_[0] != 1 or deg(pgcd(Pp_, Q_)) > 0: continue
             rats.append((Pp_, Q_, h))
-pairs = viol = lem = 0
+pairs = viol = lem = exact = 0
 for line in open(cen):
     m = re.match(r"s=(\d+) a=.* w=\[([0-9,]*)\] C=\[([0-9,]*)\] .* E=\[([0-9,]*)\]", line)
     if not m: continue
@@ -43,6 +53,6 @@ for line in open(cen):
         D = min(val(sub(mul(mE, Q), Pp)), s - 1)     # delta(-E, P/Q), capped
         if D < N + 1: continue
         pairs += 1
-        if not sub(mul(Pp, C1), mul([-x for x in w1], Q)): continue   # rho == -w1/C1
+        if not sub(mul(Pp, C1), mul([-x for x in w1], Q)): exact += 1; continue   # rho == -w1/C1
         if Ht < min(N + 1, D) - h: viol += 1
-print(f"Lemma 1.1 depth failures: {lem}; (tuple, rational) pairs with rho in the tuple ball: {pairs}; Thm 4.2 violations: {viol}")
+print(f"Lemma 1.1 depth failures: {lem}; (tuple, rational) pairs with rho in the tuple ball: {pairs} (of which exact rho = rho_tau: {exact}); Thm 4.2 violations: {viol}")

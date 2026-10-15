@@ -461,10 +461,10 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 
 | memo | idea | result | label |
 |---|---|---|---|
-| z16_game_barrier | Schmidt/absolute/potential games for U_c | U_c closed, misses a ball ⟹ never winning; games need a shrink constant κ | PROVED negative |
-| z16_windowed_konig | Cantor/König tree instead of games | windowed local mass condition suffices (+ dim bound); global per-depth counts collapse to the tail union bound | PROVED reduction + EVIDENCE |
-| z16_sibling | no alive cylinder has 3 covered children | implies Conjecture 0.2; holds to depth 9 (never 3, two 2s) | CONJECTURE |
-| z16_liouville_spectrum | approximation profile η_u decides protected levels | H_τ ≥ N + 1 − η_u(N+1); only rationals protected at all large levels | PROVED |
-| z16_frobenius | u ↦ u³ maps Case B coverings to coverings | covered ⟹ covered (levels N ↦ 3N + 2), leaves the c-slice | PROVED (Case B) |
+| z16_game_barrier | Schmidt/absolute/potential games for U_c | U_c closed, misses a ball ⟹ never winning (listed games); shrink-constant diagnosis Assessment | PROVED negative |
+| z16_windowed_konig | Cantor/König tree instead of games | windowed local mass condition suffices (+ dim bound); per-depth count bounds collapse to their tail union bound (sharper counts or positional input needed) | PROVED reduction + EVIDENCE |
+| z16_sibling | no alive cylinder has 3 covered children | implies O(3, T²) ≠ ∅; holds to depth 9 (never 3, two 2s) | CONJECTURE |
+| z16_liouville_spectrum | approximation profile η_u decides protected levels | H_τ ≥ N + 1 − η_u(N+1) unless exact; only rationals protected (from non-exact tuples) at all large levels; exact tuples common | PROVED |
+| z16_frobenius | u ↦ u³ maps Case B coverings to coverings | covered ⟹ covered (levels N ↦ 3N + 2), leaves the c-slice | PROVED (Case A + B) |
 | z16_mahler_points | algebraic T-adic Liouville points (Mahler) | protected outside windows (9ⁿ, 3·9ⁿ]; alive to depth 9 | Assessment |
 | z16_zz_sibling | r = 17 sterile point as 17-ary percolation | ≤ 4 of 17 children boxed through depth 7; alive 0.6771 | EVIDENCE + Assessment |

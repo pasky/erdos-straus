@@ -14,9 +14,12 @@ S. Kristensen, Badly approximable systems of linear forms over a field of formal
 421–444 (function-field Bad is winning); B. de Mathan, Approximations diophantiennes dans un corps local, Bull. SMF Mém. 21 (1970).
 
 ## Barrier screen
-The failure is structural, before B1–B6: winning sets are dense (Bob opens anywhere), U_c is closed and misses the s = 4
+The failure is structural, before B1–B6: winning sets of the Schmidt, strong, absolute and potential (H = points) games are
+dense (for absolute/potential via FSU Thm C.8 and Prop 4.4(ii); R248 repair D1 — Alice's default wins make "Bob opens
+anywhere" insufficient for those two), U_c is closed and misses the s = 4
 ball, so U_c is never winning (STERILE_DIOPHANTINE Thm 2.1, PROVED). The hypothesis games need and we lack: a *shrinking
-constant* — Bad = ⋃_κ Bad(κ); winning gives only ⋃_k U_c^{(k)} (balls shrunk by k digits), strictly weaker than U_c ≠ ∅.
+constant* — Bad = ⋃_κ Bad(κ); heuristically (Assessment, R248 repair D2) winning gives at most ⋃_k U_c^{(k)} (balls shrunk by k digits), strictly weaker than U_c ≠ ∅;
+each U_c^{(k)} is itself closed and not winning.
 A renormalisation Φ with Φ^{−1}(B) ⊂ shrunk tuple ball would bridge it; Frobenius (z16_frobenius) goes the wrong way.
 T1/B5 not engaged (FF model). Prop 10.3/Thm 9.1: not applicable.
 
@@ -24,5 +27,6 @@ T1/B5 not engaged (FF model). Prop 10.3/Thm 9.1: not applicable.
 None needed (the obstruction is a two-line topological fact); the covered depth-3 ball is in `data/z16/tree_d9.txt`.
 
 ## Assessment
-PROVED negative (exact scope: every game whose first move is an arbitrary ball). Positive-dimension Cantor arguments are not
+PROVED negative (exact scope: Schmidt, strong, absolute, potential (H = points) games; R248 repair D1 — not "every game whose
+first move is an arbitrary ball"). The κ-shrinking diagnosis is Assessment. Positive-dimension Cantor arguments are not
 affected — see z16_windowed_konig.

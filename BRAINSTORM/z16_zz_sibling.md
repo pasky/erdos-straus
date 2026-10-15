@@ -10,8 +10,9 @@ POINTWISE_MORDELL17/17B/17C/17D (box tables, lattice form of membership, pointwi
 Lyons–Peres ch. 5.
 
 ## Barrier screen
-Prop 3.2 of STERILE_DIOPHANTINE: with per-level box counts only, the tree route collapses to the cell-wide union bound — so
-the explicit-r₀ certificates cannot be improved this way without positional input. Gap principle: two boxes in one parent
+Prop 3.2 of STERILE_DIOPHANTINE: with per-level box-count bounds only, the tree route collapses to the cell-wide union bound
+for those bounds — so improving the explicit-r₀ certificates needs either sharper per-level counts (the r = 17 measure route
+fails by constants) or positional input (R248 repair D3). Gap principle: two boxes in one parent
 give |a_ib_j − a_jb_i| ≥ 17^{L−1}, compatible with P-data sizes (ab ≲ 17^{2L−1}/4). B6 not engaged (pointwise in u, fixed r).
 T1 not engaged (generic line, not odd squares).
 

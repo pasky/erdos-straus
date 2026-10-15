@@ -2,39 +2,51 @@
 
 Branch side-agent/sterile-diophantine (merged side-agent/ff-thirds-corner for reading). Main file STERILE_DIOPHANTINE.md;
 memos BRAINSTORM/z16_*.md (7); scripts scripts/z16_*; data data/z16/. ES is not solved; no infinite case of ES or ES_q is
-claimed; **Conjecture 0.2 (O(3, T²) ≠ ∅) is NOT proved.**
+claimed; **neither Conjecture 0.2 (x*_c ∈ O(3, T²)) nor its conclusion O(3, T²) ≠ ∅ is proved.**
+Hostile review R248 (`reviews/sterile-diophantine-review.md`): no FATAL; MAJOR D3, D5 and minors D1–D14 applied in document,
+memos and this report, marked "(R248 repair)". Both EVIDENCE tables reproduced independently by R248.
 
 ## SHARP
 1. **Sterility is a percolation question, not a measure question.** Windowed König lemma (PROVED, Lemma 3.1): U_c ≠ ∅ as soon as
    no alive cylinder has all three children covered at the next depth (more generally: a local mass condition in a window of
-   m levels at the cylinders visited; gives dim ≥ log K/(m log 3)). No summation over levels. In the independence model the
-   threshold is p_d < 2/3 per depth, versus Σ p_d < 1 for the measure route. Data: q = 3 slices, complete to depth 9: never 3,
+   m levels at the cylinders visited; gives dim ≥ log K/(m log 3)). No summation over levels. In the independence model
+   p_d ≤ 2/3 − δ per depth suffices (R248 repair D13: "if", not "iff"; p_d = conditional ball fraction among children of
+   alive parents, D9: 1/3, 0/6, 2/18, 4/48, 2/132, 10/390, 10/1140 at depths 3–9), versus Σ p_d < 1 for the measure route. Data: q = 3 slices, complete to depth 9: never 3,
    twice 2 covered children; **r = 17 cell C₅, complete to depth 7: at most 4 of 17 children boxed (1 at depth 7)**, alive
-   fraction plateau 0.6771. So the sterile-point questions at q = 3 (Conj 0.2) and at r = 17 (M17 open problem) both reduce to a
+   fraction plateau 0.6771. So the sterile-point questions at q = 3 (O(3, T²) ≠ ∅, the conclusion of Conj 0.2 — R248 repair D10) and at r = 17 (M17 open problem) both reduce to a
    *sibling conjecture* that holds with large margins in all data (Conjecture 3.3; z16_sibling, z16_zz_sibling).
 2. **Matching barrier for games and Cantor arguments (PROVED).** (a) Thm 2.1: U_c is closed and misses a ball, so it is not
-   winning for any Schmidt-type game (Schmidt, absolute, potential, hyperplane, strong); games only ever give ⋃_k U_c^{(k)}
-   (balls shrunk by k digits) — the missing hypothesis is a shrink constant κ (Bad = ⋃_κ Bad(κ)). (b) Prop 3.2: an argument
-   that knows only per-depth ball counts (route bounds, class-divisor bounds, any counting certificate) cannot beat the tail
-   union bound: an adversary with the same counts covers the alive set iff the tail mass exceeds it. **Hence the q = 3 union-
-   bound barrier (+0.167 / 0.000 exponents) and the r₀ = 2³² limit of STERILE_EXPLICIT can only be passed with positional
-   input (where balls sit), e.g. sibling/pair-correlation bounds.**
+   winning for the Schmidt, strong, absolute and potential (H = points) games (R248 repair D1: density of absolute/potential-
+   winning sets via FSU Thm C.8 + Prop 4.4(ii)). Assessment (R248 repair D2): games give at most ⋃_k U_c^{(k)} (balls shrunk by
+   k digits; each U_c^{(k)} is itself closed and not winning) — the missing hypothesis is a shrink constant κ (Bad = ⋃_κ Bad(κ)). (b) Prop 3.2: an argument
+   fed only by per-depth count bounds n_d cannot beat the tail union bound for those n_d: an adversary with the same counts
+   covers the alive set when the tail mass exceeds it (equality case: R248 repair D4). (R248 repair D3, MAJOR) This does not
+   say the true counts fail the tail bound. **So the q = 3 union-bound barrier (+0.167 / 0.000 exponents) and the r₀ = 2³² limit
+   of STERILE_EXPLICIT can be passed either by sharper per-depth counts or by positional input (where balls sit, e.g. sibling/
+   pair-correlation bounds; class-divisor counts in a prescribed class are positional); Cantor/game cleverness on top of fixed
+   per-depth counts adds nothing.**
 3. **Liouville spectrum (PROVED, Thm 4.2/Cor 4.3).** A tuple covering x_u at level N has height H_τ ≥ N + 1 − η_u(N + 1)
-   (η_u = least height of a rational agreeing with u to order N + 1) unless it is the best approximant itself; balanced tuples
-   are excluded at levels with η_u(N + 1) < (N + 1)/3; only rational points are protected at all large levels.
+   (η_u = least height of a rational agreeing with u to order N + 1) unless it is the best approximant itself; balanced **non-exact**
+   tuples are excluded at levels with η_u(N + 1) < (N + 1)/3; only rational points are protected (from non-exact tuples) at all
+   large levels. (R248 repair D5, MAJOR) Exact tuples are common and can be balanced (w₁, C₁ sharing a factor): e.g. s = 14,
+   ρ_τ = (1 + T)/(1 − T), H_τ = 5, covers that height-1 point at level 7; rational points need an exact-case analysis, classified
+   only for polynomial u. Liouville-type points: protected levels have logarithmic density 1, not natural density (D6).
    Generalises O227 Lemma 1.2 (polynomials) and is the FF twin of M17D Lemma 2.2(iii) (ℤ, O139).
 
 ## Results (labels)
 * PROVED: Thm 2.1 (game barrier), Lemma 3.1 (windowed König + dimension), Prop 3.2 (global counts collapse to tail union
   bound), Lemma 4.1 / Thm 4.2 / Cor 4.3 / Cor 4.4 (Liouville spectrum, rational points), Prop 5.1 (char-3 Frobenius maps valid
-  Case B families at x_u to valid ones at x_{u³}, level N ↦ 3N + 2; Case A not checked).
+  families at x_u to valid ones at x_{u³}, level N ↦ 3N + 2; Case A added, R248 repair D12). Cor 4.4 without N ≥ 2h (D8).
 * EVIDENCE: `z16_tree.py` (Case A via bsE_caseA.route_A4 + Case B census s ≤ 17, complete for ball depth ≤ 9): distinct-ball
-  mass per depth .333 .222 .148 .148 .054 .038 .012 (Σ 0.955 < 1; census "cumulative 1.75" counts tuples sharing balls), alive
+  mass per depth .333 .222 .148 .148 .054 .038 .012 (includes balls inside dead cylinders; Σ 0.955 is not a covered mass, R248
+  repair D9; conditional fractions as in SHARP 1), alive
   fraction 0.517 at depth 9 for both c. `z16_ztree.py` (r = 17, P K ≤ 13 from data/m17b, Q/U k ≤ 7 regenerated by m17_enum):
-  table in §7. `z16_thm42_check.py`: Thm 4.2 on 2636 (tuple, rational) pairs, 0 violations. `z16_points.py`: rational points of
+  table in §7. `z16_thm42_check.py` (R248 repair D7: reduced rationals only): Thm 4.2 on 654 (tuple, rational) pairs (94 exact), 0 violations
+  (R248 independently: 560 + 94, min slack 0). `z16_points.py`: rational points of
   height 1–4 are alive to depth 9 at roughly the average rate (0.67, 0.56, 0.49, 0.51), as expected, because low levels dominate
   at that depth (no Liouville signal visible below depth 9 — stated, not hidden).
-* CONJECTURE: 3.3 sibling conjecture (⟹ Conjecture 0.2). Assessment: percolation reading, Mahler-point candidates.
+* CONJECTURE: 3.3 sibling conjecture (⟹ O(3, T²) ≠ ∅, not x*_c ∈ O; weaker sufficient form for alive V ⊂ V₀ of depth ≥ n₁,
+  R248 repairs D10, D11). Assessment: percolation reading, Mahler-point candidates.
 * Goal 2 (ℤ face): the ℤ Liouville lemma already exists (M17D Lemmas 2.1–2.3, O139); new here is only the tree/percolation
   reading and the r = 17 sibling census. No explicit sterile ℤ point for smaller r was obtained.
 
@@ -66,4 +78,4 @@ cp $REPO/data/m17b/qu7_o93/*.txt $REPO/data/m17b/p*.txt .; cd $REPO; python3 scr
 * S3 Rational-target Cantor set: the R_h-points (height ≤ h) are separated at depth 2h + 1; count non-exact tuples meeting R_h.
 * S4 Mahler points u = 1 + cT + Σ T^{9ⁿ} (u⁹ − u polynomial): use the Artin–Schreier relation with Prop 5.1 to transport
   coverings between u and u⁹ = u + π; push zt_lop-type complete searches to such points (protected windows (3·9ⁿ, 9^{n+1}]).
-* S5 Case A under Frobenius (complete Prop 5.1), and whether the c = 0 slice has cube points in O.
+* S5 Whether the c = 0 slice has cube points in O (Case A under Frobenius is now done, R248 repair D12).
