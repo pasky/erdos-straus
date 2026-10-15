@@ -47,3 +47,14 @@ statement about tuples (B^{k=1}). See MINOR m-1 for the step "tuple ⇒ family".
 Re-derived. In (B) of FF_STERILE_PUSH, w = Tw₁, C = TC₁, v = T²v₁, deg w₁ = a − 1, deg C₁ = b − 1, deg v₁ = t − 2, s ≥ 3 (a ≥ 1,
 t ≥ 2) so s' = s − 2 ≥ 1 and v₁(0) ≠ 0. w₁(0) = −C₁(0) from w₁ + C₁ = Tg'v₁. λ-exponent z + 2(a−1) − (s−2) = a − b. Parity:
 z even ⇒ s ≡ t(1+s) ⇒ s, t even; z odd ⇒ 1 + ts ≡ 0 ⇒ s, t odd; conversely both cases satisfy the identity. **SOUND.**
+
+## Lemma 2.1 (union bound on a sub-family of slices)
+The criterion of (J)56 §7 is Σ(masses) < q − 3 with every slice normalised to relative measure 1 (cylinder of depth N + 1 inside
+a depth-1 slice has relative mass q^{−N}, N ≥ ⌈(s−1)/2⌉ for Case B, = α for Case A). Each family's cylinder lies in exactly one
+slice (depth ≥ 2 off F₃^*, Cor 6.2 of (J)56), so Σ_{u₀∈P} covered(u₀) ≤ Σ_{families on P} mass < |P| forces some u₀ ∈ P to have
+covered relative measure < 1; the countable union of all valid cylinders then misses a positive-measure set, so O(9, T) ≠ ∅.
+Restricting to P only drops nonnegative terms of other slices — no hidden normalisation issue. The w ↔ C swap (mult 2 for a < b)
+maps E(0) ↦ 1/E(0) and preserves (s, z, t) hence ε; P₈ is closed under inversion, so counting oriented tuples with
+E(0) ∈ P₈ and doubling is exact. Case A data counted on all six (or all) slices are upper bounds for P₈. The Frobenius remark is
+correct (coefficient Frobenius is a measure-preserving bijection of the slice set mapping valid families to valid families since
+A = T ∈ F₃[T]); it is not used by the proof. **SOUND.**
