@@ -1,6 +1,16 @@
 # Hostile review R237 of O234 — CAP_INTERPOLATION.md (+ BRAINSTORM/z10_*.md, AGENT_REPORT_O234)
 
-Reviewer: R237 (side-agent/review-cap-interp). Status: round 1, in progress.
+Reviewer: R237 (side-agent/review-cap-interp). Status: round 1 complete.
+**Repairs applied** (author quiet after 5accf4fd): D1–D6 folded into CAP_INTERPOLATION.md (marked '(R237 repair Dn)',
+new Remark 3.2), D1/D2 propagated to BRAINSTORM/z10_uniform_cap.md, z10_exact_family.md, BRAINSTORM/README.md and a note
+in AGENT_REPORT_O234.md.
+
+**Bottom line.** The exact dictionary (Prop 5.1, both directions), T1, Cor 5.2, Lemma 1.1, Prop 1.2 and Thm 2.1
+(uniform c_e ≍ 1/(e log e), PROVED rel. Gallagher Thm 7 — checked against the 1970 paper — + BV + LS) are sound; Thm 4.2
+(GRH) holds up under re-derivation and may keep CONDITIONAL. The one substantive error is the headline of Thm 3.1:
+its "ceiling at ANY cap, e = ∞ included" is a property of the counting truncation V < ℓ/4, not of the architecture —
+with the full 𝒟_e(ℓ) family the prime-modulus large sieve gives a POWER saving at e = ∞ (MAJOR D1). Numerics (PM-SQ to
+10⁷, records 19 and 41; Thm 4.2(a) prime ≤ 251) reproduced exactly from scratch.
 From-scratch scripts: `scripts/review_r237_*.py`; outputs `data/r237/`. Author scripts were NOT reused.
 
 ## Summary verdicts
@@ -11,7 +21,7 @@ From-scratch scripts: `scripts/review_r237_*.py`; outputs `data/r237/`. Author s
 | T1 for 𝒟_e(M) | SOUND |
 | Cor 5.2 (dimension e + 3, no tower) | SOUND-AFTER-REPAIRS (D2 scope) |
 | Prop 5.3 | SOUND-AFTER-REPAIRS (D2 scope) |
-| Thm 3.1 (ceiling "at ANY cap, incl. e = ∞") | **GAP/FALSE as interpreted** (D1): the inequality is correct for the *truncated* family V < ℓ/4, but that family is not "the largest class family of this architecture"; with the full 𝒟_e(ℓ) the prime-modulus large sieve gives a POWER saving at e = ∞ (and at e ≥ (log N)^{1+ε}) |
+| Thm 3.1 (ceiling "at ANY cap, incl. e = ∞") | **FALSE as interpreted → SOUND-AFTER-REPAIRS (scoped)** (D1): the inequality is correct for the *truncated* family V < ℓ/4, but that family is not "the largest class family of this architecture"; with the full 𝒟_e(ℓ) the prime-modulus large sieve gives a POWER saving at e = ∞ (and at e ≥ (log N)^{1+ε}) |
 | Input (G) (Gallagher Thm 7) | SOUND-AFTER-REPAIRS (D3: statement/range mis-quoted; the consequence used is valid) |
 | Lemma 1.1 (Rankin lower bound) | SOUND |
 | Prop 1.2 (uniform cube supply) | SOUND-AFTER-REPAIRS (D3: add log T ≥ √log x to the hypotheses) |
