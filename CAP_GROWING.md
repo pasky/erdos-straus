@@ -14,8 +14,9 @@ Pell unit of ℚ(√n)) lands on the known two layers: (i) a fibre/class-group l
 wall ⇒ infinite main term) and B2 (no fixed slice set) — but neither violation supplies existence. Pointwise: no proof.
 (Z2) Steering: the hypothesis B6 ("averages over n say nothing pointwise") is the one a growing-S argument CAN use
 honestly — on average over n the cap e is a *dimension* parameter. Modification: ask how the exceptional set of
-ES^{(y,e)} shrinks with e. Result (§1): Vaughan's exponent 2/3 becomes (e+1)/(e+2) — the cap is a sieve-dimension
-knob, interpolating between Vaughan (e = 1) and the pointwise theorem ES^{(y)} (e = ∞).
+ES^{(y,e)} shrinks with e. Result (§1): Vaughan's exponent 2/3 becomes (e+2)/(e+3) (overflow certificate cube, Prop 1.3/Thm 1.4;
+shots alone give (e+1)/(e+2)) — the cap is a sieve-dimension knob, from Vaughan (e = 0) towards the pointwise
+theorem ES^{(y)} (e = ∞, fixed S).
 (Z3) PM-II: Vaughan's classes are prime-modulus Type II certificates, so PM-II inherits Vaughan's bound (§2).
 (Z4) SQ_±: its prime-modulus classes number only ≍ τ(ℓ²−1) per ℓ, so the same machinery gives exponent 1/2 —
 the "easier" signed twin is *provably harder on average* by this method (§3).
@@ -163,3 +164,28 @@ S'_e(X) ≫_e (log X)^{e+2}; the large-sieve step is unchanged with a = e + 2. �
 *Reading.* The cap e adds e dimensions to Vaughan's two (c and d of the Type II cube). ES^{(y,e)} with free mute set
 is therefore on average a sieve problem of dimension ≍ (log)^{e+2}; ES itself is the case e = 0. Pointwise nothing
 changes (B6).
+
+## 4. Construction attempts for the pointwise e = 2 layer (goal 1; negative, see memos)
+* Fixed-field x-orbits (BRAINSTORM/z5_fixed_field_orbits): Δ_x = D₀m_k² along (x₀ + √D₀)ε^k keeps one field, but the
+  only elements forced into O_{m_k} have norms ±(16n)^i r² (never −E, E ≡ 3 mod 4: T1 shape), and the ring class
+  group ≍ m_k makes the expected hits along an orbit converge. The Cohen–Lenstra luck of MARKOFF_ES §6 lives *across*
+  fields; fixing the field destroys it.
+* Pell unit of ℚ(√n) (BRAINSTORM/z5_pell_unit_T1): T1-shaped (exists ⟺ n non-square) but acts on an ES^{[2]} fibre
+  only if n | λ, which reciprocity forbids; it is a sign-blind (real) tool.
+* Polynomial families at fixed n (log Z1): λ constant needs 4λ²nA(s)⁴ + 1 reducible (Capelli), i.e. A(s) − θ reducible
+  over ℚ(θ), θ⁴ = −1/(4λ²n); for quadratic A this is a rational point on an n-dependent plane cubic — an n-specific
+  lottery, not a mechanism (not pursued).
+* The (e+1)-free layer: an ES^{[2]} Pell orbit gives ES^{(y,e)} iff some orbit B is (e+1)-free — k-free values of
+  binary recurrences are open for every fixed k (Wieferich-type); abc controls the powerful part, not every exponent.
+
+## 5. Verdict (O229 checkpoint 1)
+1. **R200 M1 on average (PROVED rel. BV + large sieve):** ES^{(y,e)} with bounded cap and free mute set fails for
+   ≪ N exp(−c_e (log N)^{(e+2)/(e+3)}) primes (Thm 1.4, via the overflow cube Prop 1.3; shots alone: (e+1)/(e+2)).
+   The cap is a sieve-dimension knob; e = 0 is Vaughan. Pointwise R200 M1 remains OPEN (two layers: class group
+   across fields + (e+1)-free values on Pell orbits; §4).
+2. **PM-II (PROVED rel. Vaughan):** fails for ≪ N exp(−c (log N)^{2/3}) primes; failures are ≡ 1 (mod 12) and QR mod 7
+   (only covering moduli ≤ 2·10⁴: h = 3, 7). No structural reason for p > 3361 (would be pointwise Type II-ES).
+3. **SQ_± (PROVED + CONJECTURE):** the prime-modulus layer has χ = (n/ℓ) (free genus filter), exponent 1/2 on average
+   (signed twin harder on average than ES); CONJECTURE PM-SQ_± (0 exceptions ≤ 10⁶, adversarial-robust). Power saving
+   is beyond the large sieve for all three (class counts ω(ℓ) = (log ℓ)^{O(1)}). No pointwise strengthening found.
+ES untouched.
