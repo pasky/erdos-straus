@@ -395,3 +395,14 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z7_haar_strata | goal 3: the "¾" of N₋/U | Haar five-slice mass = 3/4 exactly (pointwise); large-min words obey it, deficit lives in automatic families; Lemma 5.2; **SHARP: all N₋ < U/2 failures at n ≡ 1 (8) have ψ-odd part of n+1 = 3²** | PROVED + EVIDENCE |
 | z7_symbol_blind | goal 1: what a U-proof must supply | ψ(tn+1) ≡ 1: the t-side is symbol-blind; non-certificate unforced words need tn+1 ∉ C_n (anti-Landau kernel); least-NR families fail i.o. | PROVED kernel + EVIDENCE |
 | z7_signed_3sq | goal 4: split on SQ_± and 3SQ | SQ_± records fully forced (0.84–0.94 vs 0.24–0.51); 105 = Jacobi genus collapse, per-prime forcing (Lemma 6.1) explains 3SQ's exception-freeness | EVIDENCE + PROVED lemma |
+
+## Spark relay Z2 (O232): sign fields — exponential near-squares, numerators, non-genus layer (memos z8_*, deep file SIGN_FIELDS.md; not yet triaged)
+
+| file | idea | outcome | labels |
+|---|---|---|---|
+| z8_exp_near_square_cover | exponent coverings of n = 4^s + k (m = 2^s) | ES certified for all 4^s + k, k ∈ {9, 57, 81, 129, 153, 177, 201, 225, 249}; open 33, 105, 273, 297 | PROVED (computer-assisted) + EVIDENCE |
+| z8_mixed_points | CRT-glued integer square points in Ẑ as sterile candidates | explain the residual classes of 4^s + 105 (every member Mordell-hard); none sterile so far; uncovered measure → 8.5·10⁻⁸, greedy stalls | EVIDENCE |
+| z8_numerator_sign_fields | ν-sign field ℚ(ζ_{νu}, √−u) | t-slot T1 ⟺ √−u ∈ ℚ(ζ_{νu}); for all u ⟺ 4 \| ν; ν = 4 unique with slot set = full forbidden half | PROVED — SHARP (dictionary) |
+| z8_eight_failures_frobenius | 8/131, 8/241 as a missed ζ₈-bit | all 4-slots ≡ 4 mod 8 at these p | EVIDENCE |
+| z8_no_redei_abelian_levels | Rédei layer for near-square depletion | single abelian level sees only residues of prime factors: no forced non-genus layer | PROVED (trivial) + Assessment |
+| z8_chebotarev_family_level | level u(p) with F ⊄ Σ by construction | disjointness free; hitting a divisor of p + u is B2/B3 | Assessment (negative) |
