@@ -93,3 +93,19 @@ monic of degree s − 2 − d (since d < s − 2). So the "iff" holds once lc Z 
   54 points (deg 1..4, u(0) = 1, u'(0) ≠ 0), k = 2 levels 3..8 and k = 3 levels 4..8, the census coverings minus exact
   ones coincide with my lop-mode hits: 156 covering records (46 exact), 0 mismatching (k, u). **Positive control: 110
   non-exact coverings at polynomial points are found by both methods.**
+
+### EVIDENCE claim "no Case B tuple covers x*_c at N ≤ 20 (k = 2), N ≤ 18 (k = 3)" — SOUND as EVIDENCE (reproduced to 17 / 16)
+My searcher (lop mode; completeness of lop mode = Lemma 1.2 only, which I re-proved and which is confirmed against the
+Liouville-free census and full mode) at u = 1 + cT: **0 hits at every level 3 ≤ N ≤ 17 for k = 2, c = 1 and c = 2, and
+4 ≤ N ≤ 16 for k = 3, c = 1, 2** (`data/review_r247_xstar_k*_c*.txt`; candidate counts grow ×3 per level, e.g. 2.27·10⁷ v₁-
+candidates at N = 17). This is an independent reproduction well beyond the requested 12–14 / 11–12. Levels 18..20 (k = 2)
+and 17..18 (k = 3) rest on zt_lop alone, whose correctness I have cross-checked against my code at 54 polynomial points to
+level 12 (below). I did not re-run zt_lop at N = 20; the logs `data/zt_lop_xstar_c*.txt` do show "hits this level 0"
+for every level through 20 (checked by grep).
+* The consequence "no linear family of level ≤ 20 (k = 2) is valid at x*_c" follows from this EVIDENCE plus the Case A
+  theorem (FUNCTIONFIELD_ES2 §0.2 proof R166-D1, which I re-read: it is a proof at u = 1 + cT exactly, all levels) and the
+  A/B dichotomy of FUNCTIONFIELD_ES3 Lemma 1.1. Label EVIDENCE is correct (not PROVED: computer search, one code beyond 17).
+* MINOR-5 (provenance): the k = 2, c = 2 log `data/zt_lop_xstar_c2.txt` is NOT committed on side-agent/ff-thirds-corner
+  (it exists untracked in the author's worktree, complete through N = 20 with 0 hits; a zt_lop process for N = 21 was still
+  running at review time). The committed c1 log ends at N = 20 (0 hits each level). Repair: commit the c2 log (and
+  record whether level 21 finished).
