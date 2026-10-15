@@ -34,7 +34,9 @@ so L_{j+1} ≠ L_j; and z′/2 ∉ F_j (as above), so F_{j+1} = L_{j+1} + ℤz�
 Counting: Q(x/2^j) = 2^{k−2j}·odd. The edge → vertex step from L_j needs k − 2(j − 1) ≥ 2. The vertex → edge step from F_j
 needs k − 2j ≥ 1. Both stop exactly after k − 1 steps in total. ∎
 CERTIFIED in coordinates (`scripts/z9_depth_walk.py 200`): all 1190 pentagon pointers (4 | entry) of all χ = −1 words of all
-primes p ≤ 200. The walk built explicitly by HNF over 2^{−12}ℤ has exactly k − 1 steps, never backtracks, and x/2^j stays primitive; 0
+odd primes 5 ≤ p ≤ 200 (R234 repair: not only p ≡ 1 (4); R234 re-certified with independent code). (R234 remark: for primitive x
+with 4 | Q(x), x/2 ≡ r would force B(x, L) ⊂ 2ℤ, i.e. x ∈ 2L at 2; so without the marking every pointer has a unique continuation,
+checked on all 720 depth-2 pointers p ≤ 200 — the marking is the whole content of the step count.) The walk built explicitly by HNF over 2^{−12}ℤ has exactly k − 1 steps, never backtracks, and x/2^j stays primitive; 0
 mismatches.
 
 **Corollary 2 (8/p as a level-4 problem; PROVED from Lemma 1 + MODEL_SPECIFIC Lemma 3.0 / Thm 3.1).** A word is in S₈ iff it

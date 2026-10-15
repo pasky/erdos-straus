@@ -3,7 +3,7 @@
 ## Idea
 Look for global structure of the certificate (path-shaped) edges inside the supersingular 2-isogeny graph G_p. First thing
 the data shows (`scripts/z9_stats.py`, all 609 primes p ≡ 1 (mod 4), p ≤ 10⁴): path edges are strongly enriched in loops of
-the type graph G_p/Frob (22.6 % of path classes are loops against 5.8 % of all edges; up to 3000: 26.7 % vs 10.2 %).
+the type graph G_p/Frob (22.6 % of path classes are loops against 5.8 % of all edges; up to 3000: 26.7 % vs 10.2 %; R234 repair: pooled shares, ratio 3.9× at 10⁴, 2.6× at 3000, 2.3× at 2000 — range-dependent).
 Explain it exactly.
 
 **Lemma 1 (PROVED, short; Deuring + CONSTRUCTIVE_ES Prop 3.1).** Let p ≥ 11, (E, C) a supersingular 2-isogeny, L = L(E, C) ∈ 𝔊⁻_p
@@ -41,6 +41,10 @@ Deuring correspondence; Kohel's thesis (1996) for the structure of the ℓ-isoge
 the 𝔽_p-subgraph (spine); Arpin et al., "Adventures in supersingularland" (2022), loops and the Frobenius involution on G_p;
 Gross (1987), Prop 3.1-type theta series of the Gross lattice. The loop ⟺ "represents 2" equivalence is a standard type of
 statement (loops of G_p/Frob correspond to 2-isogenies to the conjugate). This edge-lattice formulation was not found in the campaign.
+(R234 repair, attribution: the vertex-level statement with the same trace argument is Chenu–Smith, "Higher-degree supersingular
+group actions" (MathCrypt 2021, hal-03288075), Prop 1–2 (d-isogeny ψ: E → E^{(p)} ⟹ μ = π∘ψ, μ² = −dp, p | trace ⟹ trace 0); their
+Thm 2 counts such curves via Cl(ℤ[√−dp]) (= "layer m ≍ h(−4mp)" for squarefree m). Label: PROVED, known in substance; new: the
+level-2 edge form via L = (E⁰)^#(p).)
 
 ## Barrier screen
 B2: inside each layer, path-ness is "mp + 1 (resp. tp + 1) has a divisor ≡ −1 mod the letter". The layer is form-class data

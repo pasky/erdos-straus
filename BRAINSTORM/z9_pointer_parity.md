@@ -24,6 +24,8 @@ as a fixed residue of P(p). It is not (below). T1 is vacuous: at odd squares the
 * P(p) even for 47.6 % of primes: no parity law. The minimum is P(p) ≥ 1 throughout (ES-five holds there, as known).
 * H_p has no odd-degree vertex at 3 primes (5, 13, 2521; all path classes there are loops), so (b) forces nothing even in principle.
 * Pointer digraph: classes whose words point at both endpoints occur at most primes, but not at all (none at 17 primes, e.g. 37, 193, 421).
+  (R234 repair: "which end" is well-defined only on non-loop path classes — L is a loop ⟺ Aut(L) swaps the two isotropic classes
+  (a trace-zero element of norm 2p normalises E(L)); checked at all 116 primes ≤ 1500. At 5, 13, 2521 the statistic is vacuous.)
   There is no sink or source law.
 * The only robust structural regularity found is the loop enrichment. It is explained exactly by z9_frobenius_layers Lemma 1 (letters are small,
   so path edges sit in layers 1, 2).

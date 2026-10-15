@@ -37,7 +37,8 @@ Covers all 67 split primes 7 ≤ N(π) ≤ 787 (2-primary π), 13 of them TES fa
 * χ₃ takes all three values. The classes 1 and 2 have identical statistics (an involution exchanges them), and 0 is
   slightly different. **P(v_λ(T) ≥ k | χ₃)** for k = 1..4: χ₃ = 2: 0.256, 0.062, 0.013, 0.003; χ₃ = 0: 0.226, 0.053, 0.011,
   0.0016. In this slice the λ-adic valuation of T depends only weakly on χ₃. Each further λ costs a factor 4–5, and χ₃ = target does **not** force λ⁴ | T (in ES, χ = −1 forces 4 | entry with probability 1).
-* At every one of the 13 failure primes there are 428–1370 words with χ₃ = target. At 7 of them (61, 79, 97, 151, 211, 367,
+* At every one of the 13 failure primes there are 428–1370 words with χ₃ = target (R234 repair: the script counts every word twice,
+  as (j, k, u, v) and (k, j, v, u); distinct words: 214–685; all rates/fractions unaffected; R234 reproduced every rate exactly). At 7 of them (61, 79, 97, 151, 211, 367,
   769) some target words even have λ⁴ | T; these fail only at the 2-primary normalisation of the anchor. So **the TES
   failures are not "no target-character word" failures**: they are bit failures (λ-adic and anchor levels), the
   analogue of 8/131, 8/241, not of an ES-five failure.

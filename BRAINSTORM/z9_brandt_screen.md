@@ -5,19 +5,19 @@ Goal (4) of O233: a Brandt-matrix count is form-class data. Say exactly how it e
 "global data on G_p" are available, and they behave differently.
 
 **(L1) Hecke-equivariant linear data (PROVED, elementary; CONSTRUCTIVE_ES 5.2 in this form).** Let Λ be a linear functional on
-ℂ[𝔊⁻_p] with Λ∘T_ℓ = (ℓ + 1)Λ for one ℓ ≠ p for which ℓ + 1 is a simple eigenvalue (true for every ℓ by Ramanujan–Deligne).
+ℂ[𝔊⁻_p] with Λ∘T_ℓ = (ℓ + 1)Λ for one ℓ ∤ 2p (R234 repair: ℓ = 2 sits at the level) for which ℓ + 1 is a simple eigenvalue (true for every such ℓ: connectedness + Ramanujan–Deligne).
 Then Λ is a multiple of the mass functional f ↦ Σ_L f(L)/|Aut L|. So every functional with this eigen-covariance sees the path indicator 1_path only through
 m(p) := Σ_{L path} 1/|Aut L|. (Review repair: this is all that is PROVED. Arbitrary trace-formula quantities or Brandt power
 sums need not have this covariance, and nothing is claimed about them.) Separately: the mass-weighted number of path *bases*,
 Σ_L #(path bases of L)/|Aut L|, equals the number of χ = −1 words by orbit counting. Full-rank (degree-3) Siegel–Weil gives
 nothing beyond this tautology. This number differs from m(p) by class-dependent basis multiplicities. Assessment: L1 data does not
 obviously go beyond the word count. That is B6 in spectral form, not a theorem about all Brandt/class-number approaches.
-*Proof of the first claim.* T_ℓ is self-adjoint for the mass inner product, so ker(T_ℓ − (ℓ+1)) is the constants, and
+*Proof of the first claim.* (R234 repair: the Brandt weights 1/e(E, C) descend to the ⟨Frob, w₂⟩-quotient as |orbit|/e = 8/|Aut L|, using |Aut L| = 2e·|Stab|.) T_ℓ is self-adjoint for the mass inner product, so ker(T_ℓ − (ℓ+1)) is the constants, and
 Λ = ⟨·, g⟩ with T_ℓ g = (ℓ+1)g. ∎
 
 **(L2) Degree-2 data (binary sublattices).** Path-ness needs a primitive plane M = [[v, −1], [−1, t]] with glue ±1 (O224 Prop 3.1,
-marked form). Degree-2 Siegel–Weil gives Σ_L r_L(M)/|Aut L| = mass · ∏_v α_v(M), positive whenever M is locally represented. That
-holds for every M whose genus condition (−p·v⁻¹ a square mod tv − 1) holds. So level L2 guarantees **planes**, and the remaining
+marked form). Degree-2 Siegel–Weil gives Σ_L r_L(M)/|Aut L| = ε · mass · ∏_v α_v(M) (R234 repair: Siegel's ε = 1/2 for rank 2 in rank 3), positive whenever M is locally represented. That
+holds for every M whose genus condition (−p·v⁻¹ a square mod tv − 1, plus the 2- and p-adic conditions; R234 repair) holds. So level L2 guarantees **planes**, and the remaining
 condition is the glue residue, which is exactly a Prop 10.3-type residue condition: the class sees the root only modulo
 squares, and the path needs the specific roots ±1. This is the precise point of failure: **L2 = genus of (M, c) = Prop 10.3's
 quadratic shadow; the certificate condition is the ray-class (residue ±1) refinement.**

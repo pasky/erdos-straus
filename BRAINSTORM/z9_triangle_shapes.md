@@ -21,8 +21,9 @@ there is no 𝔊⁻.
 
 ## Cheap numerics (EVIDENCE; `scripts/z9_triangle.py 5 5000`)
 All 329 primes p ≡ 1 (4), 5 ≤ p ≤ 5000:
-* 327 have a χ = −1 triangle class; the two exceptions (109, 229) have none at all.
-* At 312 some triangle class is not a path class.
+* 327 have a χ = −1 triangle class; the two exceptions (109, 229) have none (R234 repair: no χ = −1 triangle; they do have χ = +1
+  triangles — (1, 2, p + 5, −1) ≅ ⟨1, 1, p⟩ exists at every p).
+* At 312 some χ = −1 triangle class is not a path class (R234 repair: "χ = −1" added; with any χ this holds at all 329).
 * At **47 primes the χ = −1 triangle classes exist but none is a path class** (first ones: 61, 181, 349, 421, 541).
 So the triangle shape and the path shape are decoupled. Widening the target to "near-orthogonal" adds a separate lottery
 that does not certify ES.
