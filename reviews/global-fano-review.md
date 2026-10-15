@@ -1,5 +1,7 @@
 # R234 — hostile review of O233 (GLOBAL_FANO.md, BRAINSTORM/z9_*.md)
 
+Repairs applied: R234 repairs D1–D12 applied directly (author quiet since 11:04), marked "(R234 repair)" in GLOBAL_FANO.md, BRAINSTORM/z9_*.md, AGENT_REPORT_O233.md, BRAINSTORM/README.md.
+
 Reviewer: R234 side agent. Status: round 1 complete. No FATAL; 1 MAJOR (attribution, D2); 11 MINOR.
 
 ## Summary verdicts

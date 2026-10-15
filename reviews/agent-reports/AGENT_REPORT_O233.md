@@ -5,12 +5,14 @@ Branch side-agent/global-fano (merged side-agent/four-adic-input first, as instr
 No positive ES-type claim is made.
 
 ## SHARP:
-1. **Loops = representations of 2 (PROVED, short; CERTIFIED on 9489 edges, p ≤ 2000).**
+1. **Loops = representations of 2 (PROVED, short; CERTIFIED on 9489 edges, p ≤ 2000).** (R234 repair: known in substance —
+   Chenu–Smith 2021 Prop 1–2 / Thm 2; new is the edge-lattice form. The "4×" is a pooled ≤ 10⁴ ratio, 2.3× at ≤ 2000.)
    * For p ≥ 11, an edge (E, C) of G_p is a loop of G_p/Frob (E/C ≅ E^{(p)}) ⟺ its lattice L ∈ 𝔊⁻_p represents 2.
    * More generally, for m < p/4, r_L(m) = #{x ∈ End(E, C) : deg x = mp}. Every such x has trace 0 because p | trd on the ramified prime.
    * Consequence: certificate edges sit in the "Frobenius layers" of their letters, so they are near the spine. This explains a 4×
      enrichment of path edges among loops (22.6 % vs 5.8 %, all p ≡ 1 (4) ≤ 10⁴). (z9_frobenius_layers)
-2. **TES failures are bit failures, not character failures (EVIDENCE, one Type II slice).**
+2. **TES failures are bit failures, not character failures (EVIDENCE, one Type II slice).** (R234 repair: word counts below are
+   2× the distinct words — 214–685 target words; the reading is Assessment.)
    * In the TES analogue of ES's slice-T words, the cubic symbol χ₃ at π does not control the λ-adic divisibility of the numerator.
    * At all 13 TES failure primes with N ≤ 787 there are hundreds of words with the target χ₃. At 7 of them some target words even have
      λ⁴ | T and fail only at the 2-primary anchor.
@@ -19,6 +21,8 @@ No positive ES-type claim is made.
 3. **Heegner-layer dictionary (Assessment; algebra PROVED).**
    * Layer t of G_p is the supersingular reduction, at the ramified prime p, of the CM points of X₀(2) with CM by orders ⊇ ℤ[√−tp]
      (ε = −(1 + ij), ε² = −tp).
+   * (R234 repair: edge-wise the condition is also sufficient for t = 1 and t an odd prime, false at t = 4, 8, 12, 15; the ideal-class
+     identification is unproved.)
    * Inside a layer, a certificate requires (necessary) that the attached ideal class contain an ideal of norm A ≡ −1 (mod t) with
      A | tp + 1. That is WINDMILL Prop 10.3's residue event. The level-t ring condition must be added (review repair).
    * This puts CONSTRUCTIVE_ES ((J)35) and the ℤ[√−tp] class-group framework on one geometric object. It is the precise place where a

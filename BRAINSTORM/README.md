@@ -400,7 +400,7 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 
 | file | idea | outcome | labels |
 |---|---|---|---|
-| z9_frobenius_layers | why path edges are 4× enriched in loops of G_p/Frob | loop ⟺ edge lattice represents 2 (⟺ E/C ≅ E^(p)); layers r_L(m) > 0 = compatible degree-m isogeny E^(p) → E; path edges sit in the layers of their letters | PROVED; CERTIFIED (9489 edges, p ≤ 2000) |
+| z9_frobenius_layers | why path edges are 4× enriched in loops of G_p/Frob | loop ⟺ edge lattice represents 2 (⟺ E/C ≅ E^(p)); layers r_L(m) > 0 = compatible degree-m isogeny E^(p) → E; path edges sit in the layers of their letters | PROVED (known in substance: Chenu–Smith 2021, R234); CERTIFIED (9489 edges, p ≤ 2000; R234 recertified) |
 | z9_pointer_parity | parity/degree/pointer laws for path edges over G_p | none: P(p) even 47.6 %, no forced odd vertex (609 primes ≤ 10⁴) | EVIDENCE; negative |
 | z9_depth_walks | O224's depth bits on the tree | depth-k pentagon vector = conic-marked non-backtracking walk of k − 1 half-steps in G_p; 8/p = marked X₀(4) refinement; bits constrained (not determined) by v₂ of a letter or v₂(tp+1) | PROVED; CERTIFIED (1190 pointers) |
 | z9_order3_fano | "Q mod 3 on L/√−3L" for TES | no order-3 Fano: χ₃ does not control v_λ(T); target words exist at all 13 TES failures ≤ 787 → TES failures are bit failures | EVIDENCE (one Type II slice); Assessment |
