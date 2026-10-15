@@ -11,6 +11,9 @@ From-scratch scripts: `scripts/review_r229_*.py` (no reuse of the author's z1_* 
 | Lemma 1.2 (= CONSTRUCTIVE_ES Lemma 1.1, applies to every word) | SOUND |
 | Thm 1.3 (S₄ = {χ = −1}, Fano pigeonhole) | SOUND as mathematics; novelty framing SOUND-AFTER-REPAIRS (D1) |
 | Prop 1.4 (2^k bit law, cell level, all k) | SOUND (label inconsistency D4; n-class uniformity provable, D5) |
+| marking Lemma 1, Prop 2 (S_M not isometry-invariant for φ(M) > 2) | SOUND |
+| marking Prop 3 (M = 2, 3, 4 PROVED; M = 6 norm-one PROVED, general EVIDENCE) | SOUND (D7: S₆ genus split can be PROVED by one example) |
+| small-prime pigeonhole "classification M ∈ {2, 3, 4}" | SOUND-AFTER-REPAIRS (D8: "forced" undefined; precise PROVED form supplied) |
 
 ## Claim 1: Lemma 1.1, Lemma 1.2, Theorem 1.3
 
@@ -94,3 +97,38 @@ non-zero; the actual proof of Prop 1.4 does not use this picture (it varies the 
 vector c, and B(x, y) + Q(y) ≡ B(x + c, y) (mod 2) is the zero functional only if x̄ = c̄; but q(c̄) is odd (c̄ = (1,1,1) in a
 diagonal basis, q = a₁ + a₂ + a₃) while q(x̄) = 0, so the functional is non-zero and the bit is fair. Also "affine-linear" →
 "linear".
+
+## Claim 3: z1_marking_isometry (Lemma 1, Props 2, 3) and z1_small_prime_pigeonhole
+
+**Re-derivation.** Lemma 1: n = (a+1)(b+1) − (a+1) − (b+1) = ab − 1 = (a+1)b − 1 − b. For w₁ = (1, a+1, b+1),
+Gram [[b+1, −1, 0], [−1, 1, −1], [0, −1, a+1]]: e₂ has norm 1, e₁ + e₂ and e₃ + e₂ are orthogonal to e₂ with norms b, a and
+inner product −1; (e₁ + e₂, e₂, e₃ + e₂) is a unimodular basis change. w₂, w₃ likewise. ✓ Prop 2: a ≡ x − 1, b ≡ x⁻¹,
+n ≡ −x⁻¹ (unit); entries of P(w₁) = {1, a+1, b+1, a, b} ≡ {1, x, x⁻¹ + 1, x − 1, x⁻¹}, none ≡ 0 iff x ≢ ±1; P(w₂) ∋
+(a+1)b − 1 ≡ 0. Parity: M odd → choose a even by CRT; M even → x odd, a ≡ x − 1 even. ✓ Prop 3(a) M = 3: tu ≡ tv ≡ 2
+forces u ≡ v and n ≡ 2v − 2v ≡ 0. ✓ The quoted examples (M = 5, n = 3: (1,2,5) ∈ S₅ ∌ (2,1,4); M = 8, n = 5:
+(1,3,4) ∉ S₈ ∋ (3,1,3)) verified by hand.
+
+**From-scratch check** (`scripts/review_r229_marking.py 120`, own canonical form for positive ternary lattices = lex-min
+Gram over bases drawn from vectors of norm ≤ max diag, which contains a successive-minima basis; own Fincke–Pohst):
+Lemma 1 on all 411 factorisations n + 1 = ab, odd n < 120: 0 failures. Prop 2 construction for every M ≤ 60 with
+φ(M) > 2: 0 failures. All 356 path classes of odd n < 120: S_M mixes an isometry class (n coprime to M) for exactly
+M ∈ {5, 7, 8, …, 30} ∖ {6}, never for M ∈ {2, 3, 4, 6}; interior words isometric only up to reversal (0 exceptions).
+`scripts/review_r229_s6.py`: the 21 residue pairs (a, b) mod 6 with gcd(ab − 1, 6) = 1 give agreeing S₆-memberships on
+w₁, w₂, w₃ (lifts to 10 × 10 representatives each, 0 disagreements); the author's "36 residue pairs" means "the pairs
+among the 36 with n coprime to 6" (wording only).
+
+**Verdict:** Lemma 1, Prop 2 SOUND; Prop 3 SOUND (labels honest; the "⟺ M ∈ {2, 3, 4, 6}" is correctly marked conditional
+on EVIDENCE 4 — only its M = 6 part actually needs it, the M = 2, 3, 4 directions are unconditional).
+
+### Defects (claim 3)
+**D7 (MINOR, label can be upgraded).** Prop 3(c) "S₆ is not a genus invariant" is supported by pooled counts over all
+p < 3000, which do not by themselves exhibit one n with both behaviours in one genus. A single example makes it PROVED:
+p = 17, χ = −1 words (1, 4, 7) (P = (1, 4, 7, 3, 6) ∈ S₆) and (2, 3, 4) (P = (2, 3, 4, 5, 7) ∉ S₆); χ = +1 words (1, 2, 19)
+∈ S₆, (1, 3, 10) ∉ S₆ (Jacobi signs recomputed). At a prime the genus of a path lattice is fixed by χ. *Repair:* cite this example.
+**D8 (MAJOR-label, small-prime pigeonhole).** The memo's Assessment "PROVED classification of forced pentagon slices" and
+§2(d)'s "the pigeonhole forcing exists only for M ∈ {2, 3, 4}" do not define "forced". As written the ℓ ≥ 5 part is one
+example ((1, 3, 3) ∈ X₃), and the ℓ = 3 "conic language" is not a counting pigeonhole (5 points, a 4-point conic, 13
+points in ℙ²(𝔽₃): no forced meeting by counting; the real proof is the residue argument of Prop 3(a)). *Repair:* state the
+PROVED theorem that the files actually contain: "For M ≥ 2, S_M ∩ X_n is a union of genera of path lattices for every n
+coprime to M iff M ∈ {2, 3, 4} (S₂ = S₃ = X_n, S₄ = χ-fibre). ⇐: Prop 3(a), Thm 1.3. ⇒: φ(M) > 2 by Prop 2 (not even
+isometry-invariant); M = 6 by the p = 17 example of D7." Drop or relabel the conic remark as heuristic.
