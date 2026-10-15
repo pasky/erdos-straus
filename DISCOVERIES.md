@@ -1271,6 +1271,17 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment. The cap is honestly a B6-limited knob: each unit of cap buys one sieve dimension on average, nothing pointwise. Relay O234 (let the cap grow with N and meet (J)43's pointwise sub-polynomial cap) was spawned.
    * verify.py (fY) re-runs R230's from-scratch checks.
 
+60. **Spark relay Z1: forced vs unforced words — CONJECTURE U collapses to ES-five on the automatic families (UNFORCED_WORDS.md + BRAINSTORM/z7_*.md (O231); review `reviews/unforced-words-review.md` (R233): no FATAL or MAJOR; minor wording/label defects D1–D10, repaired by the author, marked (R233 repair)).**
+   * Lemma 1.1 (PROVED): CONJECTURE U is trivial for n ≡ 5 (8) (the word (1, n + 2, 2) has no clean side).
+   * **Prop F/F′ (PROVED; R233 brute force, primes < 10⁵).** For p ≡ 1 (8), on every family with a fixed side X ∈ {p + 1, p + 2, 2p + 1, p + 3, 3p + 1, p + 4, 4p + 1, p + 7, 7p + 1}: certificate ⟺ unforced ⟺ X unclean. Consequence: U(p) = 0 or N₋(p) = 0 forces Landau depth K(p) ≥ 4 plus p + 7, 7p + 1 clean. So CONJECTURE U is NOT weaker than ES-five on these families; its extra content lives only on words with min(t, u, v) ≥ 3. (The t-side for t ≤ 4 was in SYNTHESIS_SPARKS4 §2.3.)
+   * Thm 3.2 (CONDITIONAL on Dickson's conjecture): for every K, infinitely many p have all words with min ≤ K forced, so no bounded-min family proves U (a U-analogue of B2).
+   * Lemma 5.2 (PROVED): on the Div(n + 1) family the certificate count is (τ/2)(1 − ∏_{ψ(r)=−1}[e_r even]/(e_r + 1)): exactly half when some ψ-odd prime has odd exponent, 1/3 for 3². EVIDENCE: every failure of N₋ ≥ U/2 at n ≡ 1 (8) (8/8: R227's list below 10⁷ plus the primes below 3·10⁷) has ψ-odd part of n + 1 exactly 3². New CONJECTURE: N₋ ≥ U/2 whenever a ψ-odd prime of n + 1 has odd exponent.
+   * Prop 5.1 (PROVED): the 2-adic Haar mass of the five-slice set on X_p(ℤ₂) is exactly 3/4 for every p ≡ 1 (4). Words with large min(t, u, v) follow it at every scale (EVIDENCE to 3·10⁷), so O230's "N₋/U ≈ ¾" is a mixture of strata; the deficit and its drift sit in the min ≤ 2 automatic families, where the sign is a Landau event on p + 1, p + 2, 2p + 1.
+   * CONJECTURE U2 (EVIDENCE; R233 extended to all n ≡ 1 (8) < 10⁷): words with A and B both unclean exist for every non-square n ≡ 1 (8) except 105; N₋ ≤ U2 ≤ U (PROVED).
+   * 105 is a Jacobi genus collapse (PROVED): every side prime of 105's words has (r/3) = (r/5), so U = 0, yet every word has two local signs ε_ℓ = −1; per-prime forcing (Lemma 6.1) explains why 3SQ has no 105 exception.
+   * Assessment. The relay chain (J)58 → (J)60 ends tautologically: on the automatic families "unforced" is "certificate", and family-exact forcing collapses U to ES-five (Remark 4.1). No relay was spawned.
+   * verify.py (fZ) re-runs R233's from-scratch checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

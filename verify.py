@@ -25604,4 +25604,55 @@ def check_fY():
 check_fY()
 
 
+def check_fZ():
+    # (fZ) UNFORCED_WORDS (O231/R233): R233 from-scratch — census of all non-square n = 1 (8) <= 10^6: N_- <= U2 <= U,
+    # U = U2 = 0 only at 105, the only N_- < U/2 failure (110 897) has psi-odd part of n+1 = 3^2, Landau triple <=>
+    # min >= 3 (0 mismatches); Prop F/F' (s = 1, 2, 3, 4, 7) exact on primes < 10^5; Lemma 5.2 on 29 568 families;
+    # 2-adic Haar mass of the five-slice set = 3/4 (mod 2^k, k <= 7).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("UNFORCED subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "r233c")
+        r = subprocess.run(["gcc", "-O2", "-o", exe, os.path.join(sdir, "review_r233_census.c"), "-lm"],
+                           capture_output=True, text=True, timeout=120)
+        assert r.returncode == 0, r.stderr[-2000:]
+        r = subprocess.run([exe, "1000000", "0"], capture_output=True, text=True, timeout=900, env=env)
+        assert r.returncode == 0, r.stderr[-2000:]
+        cen = os.path.join(td, "census.txt")
+        open(cen, "w").write(r.stdout)
+        rows = [list(map(int, l.split())) for l in r.stdout.split("\n") if l.strip()]
+        assert len(rows) == 124500, len(rows)
+        assert all(x[2] <= x[4] <= x[3] for x in rows), "N- <= U2 <= U violated"
+        assert [x[0] for x in rows if x[3] == 0 or x[4] == 0] == [105]
+        out = run(["review_r233_post.py", cen])
+        assert "110897 1 psi-odd part of n+1: {3: 2}" in out and out.count("psi-odd part") == 1, out[-2000:]
+        assert "Landau-triple <=> minmin>=3 mismatches: 0 of 124500" in out, out[-2000:]
+    out = run(["review_r233_propF.py", "100000"])
+    for s in (1, 2, 3, 4, 7):
+        for k in ("t", "u"):
+            assert f"({s}, '{k}') [2384, 0, 0, 0]" in out, (s, k, out[-2000:])
+    out = run(["review_r233_lemma52.py", "20000"])
+    assert "families checked 29568 formula mismatches 0 five-slice<->chi=-1 mismatches 0" in out, out[-2000:]
+    out = run(["review_r233_haar.py"])
+    for k, m in ((3, 80), (5, 1280), (7, 20480)):
+        assert f"{k} p=1(4): {{({m}, np.float64(0.75))}}  p=3(4): {{({m}, np.float64(0.75))}}" in out, out[-2000:]
+    print(f"== (fZ) UNFORCED_WORDS R233: n = 1 (8) <= 1e6: N- <= U2 <= U, U = U2 = 0 only at 105, N- < U/2 only at "
+          f"110897 (n+1 psi-odd part 3^2); Prop F/F' exact (s = 1,2,3,4,7); Lemma 5.2; Haar 3/4; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fZ()
+
+
 print("\nall checks passed")
