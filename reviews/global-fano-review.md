@@ -211,6 +211,7 @@ by ε is an isometry of L = (E⁰)^#(p) exchanging the two maximal overorders. �
 normaliser element exchanging the two maximal orders, i.e. an isogeny E → E/C composed with an isomorphism E/C ≅ E or E^{(p)}.)
 Numerically: Aut(L) swaps the ends exactly at the loop classes at all 116 primes. So "which end a pointer points at" is
 well-defined **only for non-loop path classes**, and at 5, 13, 2521 (all path classes loops) the both-end statistic is vacuous;
-most of the 17 "absences" are primes where nearly all path classes are loops (e.g. 193: 4 of 5). Repair: restrict the pointer
+among the 17 "absences" the loop share of path classes is 1/1, 2/2, 3/4, 4/5, 3/6, 4/9, 4/7, 8/11, 2/5, 4/8, 2/2, 10/15, 4/8, 0/4,
+2/7, 2/8, 2/4 (author's data, p = 5 … 9601) — i.e. the statistic is partly, not wholly, a loop artefact (3361 is a genuine case). Repair: restrict the pointer
 statistics to non-loop path classes and say so.
 **Verdict C7: SOUND** as EVIDENCE for "no parity law" (the parity statistic is unaffected); the pointer statistic needs the scope fix.
