@@ -192,3 +192,33 @@ class is z = 20 (u³ = 20 + 21²/63 = 27). Enumeration E ≤ 40, a₁ ≤ 2001, 
 (3, 1) → T = 80 (Prop-2.1-type); (7, 9) → one limit candidate T = 180 that fails the factor-shape test; **(15, 1) → no
 limit candidate at all.** (A proof for all (E, a₁, j, j′) would need the exponential-Diophantine equations
 (k + T(E))/c₀ = u^p; not attempted.)
+
+## 4. 4^s + 297 (33, 273): what windows can and cannot do near the square point
+
+Setting: n_s = 4^s + 297, single integer square point s = 3 (4³ + 297 = 19²), μ = 3 ∈ Ẑ; the stuck nodes of all trees
+sit near the 3-line X_{3,3} = {μ_ℓ = 3 (ℓ ≠ 3)} with μ₃ ≢ 3 (mod 9) (EXP_NEAR_SQUARE §2, EXP_105 §1); μ₃ ≡ 3 (mod 9) is
+D₁₉ (ord₁₉4 = 9).
+
+**Proposition 4.1 (Theorem W at a non-unit square point; PROVED, same proof as §1).** Let C be a constant-gap
+(window m) or constant-ratio root class for 4^s + 297 — any root degree D, any polynomial divisors (all algebraic
+factorisations, fixed-prime splits, mixed sub-products, the n-atom) — whose closure contains μ = 3. Then the
+pieces of C split the prime 19 off n; in particular C ⊆ {s ≡ 3 (mod 9)} ⊆ D₁₉-region up to finitely many s.
+Consequently **no constant-gap/ratio class with period prime to 3 meets the 3-line at all** (such a class containing a line
+point contains μ = 3, and 19 cannot be split off uniformly on it).
+*Proof.* Reparametrise Y = 4^{(s−3)/D}, n = 64Y^D + 297; near μ = 3, Y → 1 at odd places and → 0 at 2, so Lemma 2.1
+and Lemma 1.1 apply verbatim with N(1) = 361(361 + m)/4. Every odd q | 361 + m has (q/m) = 1 (m ≡ −19² mod q,
+m ≡ 3 mod 4), and if 19 is not split off, the n-piece contributes its limit 361 = 19² (n = 64Y^D + 297 is irreducible:
+297/64 is not ± a p-th power nor 4β⁴). 2-adic sizes (Lemma 1.3): N(0) = 297(297 + m)/4 is a unit when m ≡ 3 (mod 8),
+and the roots of n and of n + m have v₂(α) = −6/D resp. −4/D < 0, so every factor P has v₂(P(1)/P(0)) = 0: all eᵢ = 0.
+Then (ρ₁ρ₂/m) = 1 ≠ (−1/m); if m ≡ 7 (mod 8), (2/m) = 1 and the same contradiction holds. Constant ratio: as Cor 1.7. ∎
+*Reading.* O239's "windows with r < 0" (j > 3, pieces S-integral at s = 3) are covered: they evaluate at the rational point
+s = 3 and die by Jacobi unless they see 19, i.e. unless they are refinements of D₁₉. At a genuine line point
+(μ₃ ≢ 3 mod 9) a class can only work through primes with 3 | ord_q(4) — exactly as the certified ET line covering
+(EXP_NEAR_SQUARE §2) does. Windows bring nothing structurally new there; they can only add *supply*.
+**Computation 4.2 (EVIDENCE; `z14_tree` with the 132 primes q ≤ 10⁹ whose ord_q(4) is 3-smooth, splits on 2, 3 only).**
+A covering of 4^s + 297 by ET/divisor classes with {2, 3}-supported periods (which would make the tree 2-dimensional) does
+not exist at this supply: uncovered measure 1.2·10⁻² (μ₃ ≡ 6 mod 9 and parts of μ₃ ≡ 2 mod 3 stuck at depth 13).
+**Status of 297 / 33 / 273: NOT decided.** Method assessment: Prop 4.1 decides the *window* question negatively (windows
+cannot attack the line structurally); deciding 297 needs a supply-efficient covering of the off-line children, not a new
+class shape. (Binomial moving-gap menus of §2 are tied to unit-square points via Capelli at Y* = 1 and were not tried at
+μ = 3 — spark.)
