@@ -19,8 +19,10 @@ weights h(q) ≤ κ^{ω(q)}). That step is NOT uniform: Cauchy–Schwarz against
 exp(−cκ) per modulus, with no weight problem. Result: c_e ≍ 1/(e log e), uniformly (§1–2, Thm 2.1).
 (Z4-2) Letting e = e(N) grow: the bound (log N)^{κ/(κ+1)}/(κ log κ) is maximised at κ ≍ log log N, where it
 equals log N/(log₂N·log₃N). A Rankin computation shows this is the CEILING of the prime-modulus large sieve with
-the overflow-cube classes at ANY cap, including e = ∞ (Thm 3.1). So the knob saturates at e ≍ log log N, and the
-sieve side never reaches "all n ≥ n₀" — not even for ES^{(y)} = e = ∞, which is a pointwise THEOREM.
+the overflow-cube classes *truncated to V < ℓ/4* at any cap (Thm 3.1). So within the truncated family the knob
+saturates at e ≍ log log N. (R237 repair D1: the truncation is NOT forced by the architecture — Prop 1.3/Prop 5.1 have
+no size condition on D — and with the full family 𝒟_e(ℓ) the prime-modulus large sieve gives a power saving at
+e = ∞ and at e ≥ (log N)^{1+ε}; see Remark 3.2. The large sieve never reaches "all n ≥ n₀" in any case.)
 (Z4-3) Goal 1 from the pointwise side: … (§4).
 (Z4-0, after R230) Calibration fixed by R230 D1: "e = 0 is Vaughan's 2/3" is a statement about the *prime-modulus*
 large sieve only; ES's record is (log N)^{3/4} (composite multipliers kℓ, 3/4 note) and KARY3 caps CRT methods for
@@ -100,21 +102,23 @@ Hence L ≥ S^k/(2k!) ≥ ½(S/k)^k and log L ≥ (κ+1)k − 1. With k ≥ log 
 *Remark 2.2.* (a) **c_e ≍ 1/(e log e)** — polynomial decay, not ((e+1)(e+2))^{−e} (O229's Thm 1.2 calibration: an
 artefact of BV's divisor weights and of restricting every coordinate to X^{1/(5(2e+3))}). (b) The saving
 (log N)^{κ/(κ+1)}/(κ log κ) = log N·exp(−λ/(κ+1))/(κ log κ) is maximal at κ ≍ λ, with value ≍ log N/(λ log λ):
-**the knob saturates at e ≍ log log N.** (c) The d₀-coordinate is included in κ = e + 2; Vaughan's prime-modulus
+**the knob saturates at e ≍ log log N** — for the truncated family D < ℓ/4 used here (R237 repair D1; Remark 3.2). (c) The d₀-coordinate is included in κ = e + 2; Vaughan's prime-modulus
 case is κ = 2 (e = 0), exponent 2/3. (d) T1: all classes are QNRs mod ℓ (CAP_GROWING Thm 1.4 T1, which does not use
 exactness), odd squares are never hit; the bound is consistent with the ≍ √N odd squares ≤ N.
 
-## 3. The ceiling: the prime-modulus large sieve cannot beat log N/(log₂N·log₃N), at any cap
+## 3. The ceiling: the prime-modulus large sieve with TRUNCATED cube classes cannot beat log N/(log₂N·log₃N), at any cap
 
 Let ω_∞(ℓ) be the number of distinct classes −4V(τ) mod ℓ over ALL cube triples τ at ℓ (any cap, V(τ) < ℓ/4) — the
-largest class family of this architecture; every capped/truncated family is a subfamily.
+largest *truncated* class family; every capped family truncated to V < ℓ/4 is a subfamily. (R237 repair D1: it is
+NOT the largest class family of the architecture: the certificates at ℓ are all −4D, D ∈ 𝒟_e(ℓ), of any size —
+Prop 5.1 — and V < ℓ/4 only serves distinctness. See Remark 3.2.)
 
 **Theorem 3.1 (ceiling; PROVED, elementary: Rankin + Mertens + PNT).** There is an absolute C such that for N ≥ 16
 and any choice of ω(ℓ) ≤ ω_∞(ℓ) classes (from the cube family) at the primes ℓ ≤ N^{1/2}, ℓ ≡ 3 (4):
 `  log L ≤ C log N/(log₂N·log₃N),   L := Σ_{q≤N^{1/2}} μ²(q) ∏_{ℓ|q} ω(ℓ)/(ℓ − ω(ℓ)).`
-So the large-sieve bound 2N/L for ES^{(y,e)} is ≥ N exp(−C log N/(log₂N log₃N)) for every e ≤ ∞: Theorem 2.1 is
-optimal for this architecture up to the constant, and **no cap — not even e = ∞ — gives a power saving, let alone
-"all p ≥ p₀"**, although ES^{(y,∞)} = ES^{(y)} is TRUE for every p (FROBENIUS_FIRING Thm 4.2).
+So the large-sieve bound 2N/L for ES^{(y,e)} with truncated classes is ≥ N exp(−C log N/(log₂N log₃N)) for every
+e ≤ ∞: Theorem 2.1 is optimal for the truncated family up to the constant. (R237 repair D1: the former claim "no cap —
+not even e = ∞ — gives a power saving" is FALSE for the untruncated family, Remark 3.2.)
 *Proof.* The classes are distinct non-residues (Remark 2.2(d)), so ω ≤ (ℓ−1)/2 and ω/(ℓ−ω) ≤ 2ω/ℓ. Rankin with
 σ ∈ (0, ½]: L ≤ N^{σ/2}∏_ℓ(1 + 2ω(ℓ)ℓ^{−1−σ}) ≤ N^{σ/2}exp(2Σ_ℓ ω_∞(ℓ)ℓ^{−1−σ}). Each class comes from a triple
 with q_τ := 4c₀d₀ | ℓ + 1 and ℓ > 4V(τ) ≥ q_τ, so
@@ -134,6 +138,21 @@ contributing only ω(ℓ)/ℓ = ℓ^{−1+o(1)}. (c) Scope: prime moduli. Compos
 dimension at bounded e (§5) but do not change log S by more than O(log u) at e ≍ λ, so the ceiling's order should
 persist (Assessment).
 
+**Remark 3.2 (R237 repair D1: the untruncated family beats the "ceiling"; (a) PROVED, elementary; (b) reviewer sketch).** Prop 5.1 (and
+CAP_GROWING Prop 1.3) certify every class −4D mod ℓ with D ∈ 𝒟_e(ℓ), with NO size condition on D. For ℓ ≡ 11 (mod 12),
+3 | K = (ℓ+1)/4, so D = 9^j ∈ 𝒟_∞(ℓ) for all j ≥ 0 (and ∈ 𝒟_e(ℓ) for j ≤ e + v₃(K)); these give ord_ℓ(9) ≥ ord_ℓ(3)/2
+distinct classes. The primes ℓ ∈ (y, 2y] with ord_ℓ(3) ≤ T divide ∏_{j≤T}(3^j − 1), so there are ≤ T² log 3/(2 log y) of
+them; with T = y^{1/2}/log y almost all ℓ ≡ 11 (12) in (y, 2y] have ω(ℓ) ≥ ℓ^{1/2}/(2 log ℓ). (a) e = ∞: the single-prime
+part of L already gives L ≥ Σ_{ℓ ≤ N^{1/2}, ℓ ≡ 11 (12)} ω(ℓ)/ℓ ≫ N^{1/4}/log²N, so the prime-modulus large sieve with
+the full family yields #{p ≤ N : ES^{(y)}(p) fails} ≪ N^{3/4} log²N — a POWER saving (of course ES^{(y)} is a theorem;
+the point is that Thm 3.1's "ceiling" is a property of the truncation, not of the architecture). Numerically ω(ℓ) =
+(ℓ−1)/2 for most ℓ ≡ 11 (12) and Σ_{ℓ<3·10⁵} ω/(ℓ−ω) ≈ 5900 ≍ Q/log Q (R237 `scripts/review_r237_fullfamily.py`).
+(b) e ≥ (log N)^{1+ε} (reviewer sketch): ω(ℓ) ≥ e + 1 for almost all ℓ ≡ 11 (12) in (e³, 2e³]; with q = products of
+k ≍ log N/(6 log e) such primes, log(S/k) ≫ ε log log N, so log L ≫_ε log N: again a power saving.
+(c) OPEN: whether the ceiling log N/(log₂N log₃N) persists for the full 𝒟_e(ℓ) when log log N ≤ e ≤ (log N)^{1+ε}
+(for finite e the full family is finite, |𝒟_e(ℓ)| ≤ ∏_{s^σ∥K}(2σ+1+e), but its members are not < ℓ/4, so the
+proof of Thm 3.1 (which uses ℓ > 4V) does not apply as written).
+
 ## 4. The pointwise side: the minimal cap e*(n), and where it meets the sieve
 
 Define **e*(n)** := min{e : ES^{(y,e)}(n) has a solution} ∈ ℤ_{≥0} ∪ {∞}. ES(n) ⟺ e*(n) = 0; FROBENIUS_FIRING
@@ -149,7 +168,7 @@ needs e ≥ (log r)^{1−o(1)} ≥ (log log p)^{1−o(1)} for these p.
 W := 8∏_{3≤r≤R} r; by Dirichlet/Linnik there are primes p ≡ 1 (mod W) with log p ≤ C log W ≤ C′R; for them
 (p/r) = (1/r) = 1 (as p ≡ 1 mod r) for all odd r ≤ R, so every certifying prime is > R ≥ log p/C′. (Linnik: C′ absolute; log W = (1+o(1))R by the PNT.) The cap
 bound is Prop 3.1(c) of EXPONENT_CAP (box ∏(κ_i + e + 1) ≥ (r−1)/2 with ∏ s^{κ_i} ≤ r). ∎
-*Reading.* The almost-all saturation scale of §2 (e ≍ log log N) and the pointwise covering threshold
+*Reading.* The almost-all saturation scale of §2 (e ≍ log log N; for the truncated class family — R237 repair D5) and the pointwise covering threshold
 ((log log p)^{1−o(1)}, for some p) are the SAME scale. So "ES^{(y, C log log p)} for every prime p" is the natural
 pointwise target where the two sides meet (CONJECTURE-level target; numerically trivial, since e*(p) = 0 for all
 tested p by ES itself).
@@ -187,8 +206,8 @@ first k odd primes not dividing n; (a)/(b) hold with log p replaced by log n as 
 mute primes dividing n), and the bound degrades — the same issue as R210 m8. (3) Unconditionally nothing of this
 shape is known: Thm 4.2 of FROBENIUS_FIRING needs BV/Siegel–Walfisz at modulus 4 rad(n)P, i.e. x ≥ exp(n^{ε}).
 **The gap.** GRH pointwise: exp(O(√(log₂p log₃p))); covering barrier: (log₂p)^{1−o(1)} i.o.; unconditional
-almost-all: e ≍ log₂N leaves ≤ N^{1 − c/(log₂N log₃N)} exceptions (Thm 2.1), and the large sieve cannot do better at
-any cap (Thm 3.1).
+almost-all: e ≍ log₂N leaves ≤ N^{1 − c/(log₂N log₃N)} exceptions (Thm 2.1), and the large sieve with truncated classes
+cannot do better at any cap (Thm 3.1); with the untruncated family see Remark 3.2 (R237 repair D5).
 
 ## 5. The exact class family 𝒟_e(M): the cube is redundant, the cap adds exactly e dimensions (goals 2, 3)
 
@@ -273,7 +292,8 @@ O229's heuristic that no finite u-set suffices (Dickson-type), while exceptions 
 * `z10_mass.py 4000000 6`: prime-modulus supply S_e(X) (V < ℓ/4, no cuts), X = 2^{10} … 4·10⁶, e = 0…6, ∞:
   `X = 2^20: 5.06 5.83 6.12 6.22 6.25 6.25 6.25 | ∞ 6.25     X = 4·10^6: 5.84 6.87 7.30 7.47 7.53 7.54 7.54 | ∞ 7.54`
   — at these X the knob saturates at e ≈ 4–5 ≈ log X/(2 log 3)/… (the cap is invisible once 9^{e+1} > ℓ); this is the
-  small-X shadow of Remark 2.2(b).
+  small-X shadow of Remark 2.2(b) — and an artefact of the truncation V < ℓ/4 (R237 repair D1: without it, the e = ∞
+  supply at ℓ ≡ 11 (12) is typically (ℓ−1)/2, Remark 3.2).
 * `z10_leastmod.py 1000000 3000`: least prime certifying modulus ℓ ≤ 3000 of 𝒟_e, all 78 496 primes 5 ≤ p ≤ 10⁶:
   uncovered 1654 (e = 0), 1502 (e = 1), 1499 (e ≥ 2); odd squares hit: 0 for every e (T1).
 * `z10_grh_r.py 1000000 40`: the Thm 4.2(a) certifying prime (least r ≡ 11 (12), (p/r) = −1, ⟨3⟩ ⊇ squares) is ≤ 251 for
@@ -285,8 +305,10 @@ O229's heuristic that no finite u-set suffices (Dickson-type), while exceptions 
 1. **Uniformity (Thm 2.1, PROVED rel. Gallagher's PNT + BV + large sieve):** ES^{(y,e)} fails for
    ≤ N exp(−c(log N)^{(e+2)/(e+3)}/((e+2)log(e+3))) primes, uniformly in 0 ≤ e ≤ log log N: c_e ≍ 1/(e log e).
    Saturation at e ≍ log log N: exceptions ≤ N exp(−c log N/(log₂N log₃N)).
-2. **Ceiling (Thm 3.1, PROVED, elementary):** the prime-modulus large sieve with cube classes gives no better at any
-   cap, e = ∞ included — although ES^{(y)} is true for every p. The sieve side never meets "all n ≥ n₀".
+2. **Ceiling (Thm 3.1, PROVED, elementary):** the prime-modulus large sieve with cube classes TRUNCATED to V < ℓ/4 gives
+   no better at any cap. (R237 repair D1: without the truncation — which the architecture does not require — the
+   e = ∞ family gives a power saving N^{3/4+o(1)}, as does e ≥ (log N)^{1+ε}; Remark 3.2. The range
+   log log N ≤ e ≤ (log N)^{1+ε} is OPEN for the full family.) The sieve never meets "all n ≥ n₀".
 3. **Pointwise (§4):** covering barrier e ≥ (log log p)^{1−o(1)} for infinitely many p (Prop 4.1, PROVED) — the same
    scale as the sieve saturation; under GRH e*(p) ≤ C_ε(log p)^{2+ε} and e*(p) ≤ exp(O(√(log₂p log₃p)))
    (Thm 4.2, CONDITIONAL, citation-level proof sketch). Unconditionally no bound of e*(n) in terms of n is known.
