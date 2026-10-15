@@ -6,6 +6,7 @@
 import sys, itertools
 from fractions import Fraction as F
 k = int(sys.argv[1]); RMAX = int(sys.argv[2]); QMAX = int(sys.argv[3])
+DUMP = sys.argv[4] if len(sys.argv) > 4 else None; allfam = []
 def trim(p):
     while p and p[-1] == 0: p.pop()
     return p
@@ -67,7 +68,7 @@ for da, dc, dd in [(0, 0, 2), (1, 0, 1), (0, 1, 1)]:
                 e, r2 = divmod_(add(sc(4, mul(mul(a, a), d)), [F(1)]), f)
                 if r2 or not pos(e): continue
                 if add(mul(c, e), sc(-1, add(a, b))): continue
-                found['I'] += 1
+                found['I'] += 1; allfam.append(('I', a, b, c, d, e, f))
                 if escaping(d): esc['I'] += 1; ex.append(('I', a, b, c, d, e, f))
 # Type II : (deg a, deg c, deg d, deg e) sum 2, chart f = 4acd-1, e = (n+4a^2 d)/f, b = ce - a
 for da, dc, dd in [(0, 0, 0), (1, 0, 0), (0, 1, 0), (0, 0, 1), (2, 0, 0), (0, 2, 0), (0, 0, 2), (1, 1, 0), (1, 0, 1), (0, 1, 1)]:
@@ -82,7 +83,10 @@ for da, dc, dd in [(0, 0, 0), (1, 0, 0), (0, 1, 0), (0, 0, 1), (2, 0, 0), (0, 2,
                 b = add(mul(c, e), sc(-1, a))
                 if not pos(b): continue
                 if add(sc(4, mul(mul(a, b), d)), sc(-1, add(N, e))): continue
-                found['II'] += 1
+                found['II'] += 1; allfam.append(('II', a, b, c, d, e, f))
                 if escaping(f): esc['II'] += 1; ex.append(('II', a, b, c, d, e, f))
 print('k', k, 'RMAX', RMAX, 'QMAX', QMAX, 'families', found, 'escaping', esc)
 for t in ex[:5]: print('  example', t[0], [[str(x) for x in p] for p in t[1:]])
+if DUMP:
+    with open(DUMP, 'w') as fh:
+        for t in allfam: fh.write(t[0] + ' ' + ' '.join(','.join(str(x) for x in p) for p in t[1:]) + '\n')

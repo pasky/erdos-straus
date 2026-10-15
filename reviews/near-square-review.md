@@ -12,6 +12,8 @@ From-scratch scripts: `scripts/review_r225_*.py`. ES is not solved; nothing belo
 | Prop 1.4 (Hecke reading) | SOUND-AFTER-REPAIRS (minor: the "does not factor through N(π)" clause is unproved) |
 | Thm 2.2 (no escaping families for k > 0) | SOUND (for ET-parametrised families; wording repairs) |
 | Lemma 2.3 (Z_k^□ ≠ ∅ ⟺ k ≡ 0, 1, 5 mod 8) | SOUND |
+| Prop 3.1, Lemma 3.2, Thm 3.3 (positivity propagation, integer T1 points) | SOUND |
+| Thm 3.4 (Z_K⁺ sterile, Hilbert reciprocity in ℚ(√j)) | SOUND-AFTER-REPAIRS (proof correct; the closure parenthetical is false) |
 
 ## Claim-by-claim
 
@@ -72,3 +74,40 @@ k ≡ 0, 1, 5 (mod 8), with the stated m-classes. The parenthetical (other k: n 
 mod-8 identities) is correct. SOUND. Note: the witness Z_k^□ points produced at odd ℓ | (k + 1) are non-unit squares;
 this is harmless (the symbol is then 0 ≠ −1) but the summary's "local square" and §2's "(Ẑ^odd)²" should be
 stated as the same set ("square in ℤ_ℓ for every ℓ, unit square at 2").
+
+### Prop 3.1, Lemma 3.2, Thm 3.3
+* Lemma 3.2 re-derived: at the largest zero m₁ > ρ of a coordinate all coordinates are ≥ 0 and n(m₁) > 0; the six
+  vanishing cases give e = −1/n, a = b = 0, 0 ≥ 1 (Type I) and e = −n, a = b = 0, 0 = n + 4a²d > 0 (Type II). Uses only
+  identities (2.1), (2.2), (2.7) / (2.13), (2.14), (2.19), which hold identically in m. Correct. (Coordinates are
+  non-zero polynomials because they are positive at large m.)
+* Thm 3.3: integer-valued-at-large-t ⇒ integer-valued at all t (binomial basis) is correct and removes Prop 3.1's
+  denominator hypothesis; F(m₀) is then an N-point for the odd square n(m₀) (n(m₀) = 1 included: Lemma 1.1 gives
+  (−4d/1) = 1 ≠ −1), contradiction. Correct.
+* Remark (iii): T1 points j = 8: 3; j = 15: 4, 8; j = 24: 5, 7 — checked. The example family a = 1, c = (m + 1)/2,
+  d = (m − 1)/2, f = 7, b = (2m² + m − 15)/14, e = (2m − 1)/7 on m ≡ 53 (56): I verified (2.1)–(2.9) symbolically by
+  hand (4acd − n = 7, b = (na + c)/7, e = (4a²d + 1)/7, ce = a + b) and integrality on m ≡ 53 (mod 56); at m = 53:
+  (a, b, c, d, e, f) = (1, 404, 27, 26, 15, 7), (x, y, z) = (abdn, acd, bcd) = (29 421 704, 702, 283 608) for n = 2801
+  (prime, ≡ 1 mod 4); 4/2801 = 1/29421704 + 1/702 + 1/283608 holds exactly (`scripts/review_r225_kadic.py`). The class
+  m ≡ 53 ≡ −3 (mod 56) contains m ≡ −3 (mod 56L) with n ≡ 1 (mod L) for every L: correct ("escape" from congruences).
+
+### Thm 3.4 (Z_K⁺ sterile)
+Re-derived step by step:
+* (i) For gcd(n(m), 2j) = 1: every q | n splits in K and is prime to the index [O_K : ℤ[√j]] (which divides 2f, j = f²j₀,
+  and f | j); q ∤ π_m in ℤ[√j] (coefficient of √j is −1), so (π_m) = ∏𝔮^{v_q(n)} with one prime above each q, and
+  ℤ/q^e ≅ O_K/𝔮^e. Hence (X/n) = (X/(π_m))_K for X ∈ ℤ. ✓ (gcd(n, 2j) = 1 is what makes the order harmless.)
+* (ii) D̃(m) − D̃(√j) is divisible by m − √j in ℤ[√j][m] evaluated at integer m. ✓  α = 0 ⇒ (m² − j) | D̃ ⇒ (D/n) = 0. ✓
+* (iii) For β ∈ O_K and π_m coprime to 2β: (β/(π_m))_K = ∏_{𝔮 | π_m}(β, π_m)_𝔮 = ∏_{v | 2β∞}(β, π_m)_v by the product
+  formula (tame symbols at 𝔮 ∤ 2β; trivial symbols at finite v ∤ 2βπ_m). ✓
+* Approximation: n(m*) ∈ Ẑ^× (norm of a unit), so integers m ∈ C ℓ-adically close to m* at the finitely many ℓ | 2jgN(α)
+  have n(m) coprime to 2jgN(α); unit squares are open in O_{K,v}^×, so π_m is a square in K_v for v | 2αg; m > √j
+  makes π_m totally positive. Then (D(m)/n) = (D̃(m)/n)(g/n) = (α/π_m)(g/π_m) = +1. Since π_{m*} is a 2-adic unit
+  square, n(m*) is a unit square in ℚ₂, so n(m) ≡ 1 (mod 8) and Lemma 1.1 (as (d/n) = −1) and Lemma 1.3 both apply. ✓
+  No escape hypothesis is used. The order ℤ[√j], gcd(n, 2j) = 1 and the denominator g are all handled correctly.
+* "Closure": classes are clopen in Ẑ, so "closure(C) meets Z_K⁺" = "C ∋ a point of Z_K⁺"; the uncovered set is closed. ✓
+**Defect (see D3):** the parenthetical "(which also contains non-unit square points, e.g. the R-O221 examples
+j = 648, m* = 27)" is false. Z_K⁺ ⊂ U := {m ∈ Ẑ : n(m) ∈ Ẑ^×}, and U is closed (each condition ℓ ∤ n(m) is clopen),
+so closure(Z_K⁺) ⊂ U; but n(27) = 729 − 648 = 81. Concretely every m ≡ 27 (mod 9) has 81 | m² − 648, so no integer
+near 27 is in Z_K⁺'s neighbourhood structure either. (27 − 18√2 = (3 − 3√2)² is a non-unit square; whether 27 is
+polynomially sterile is simply not decided by Thm 3.4.)
+* Remark (i) re-derived: inert ℓ: x ∈ F_{ℓ²}^× is a square iff N(x) is a square in F_ℓ ✓; ramified odd ℓ | j₀ with
+  ℓ ∤ m: π ≡ m (mod 𝔩), so Z_K⁺ adds (m/ℓ) = 1 while N(π) ≡ m² is automatically a square ✓; split: both m ∓ s squares ✓.
