@@ -125,3 +125,35 @@ right (A or B divides N_X; (A/ℓ) = (B/ℓ) since AB ≡ 1 (mod ℓ)). Every wo
 **D5 (MINOR).** §6: "every prime factor of every side of all 11 words … has (r/3) = (r/5) (and (r/7) = +1)" is false
 for r = 3, which divides the sides 108 and 159 of (1, 3, 54), (1, 54, 3): (3/3) = 0, (3/5) = −1, (3/7) = −1. It is
 harmless (ψ(3) = 0 counts as clean, and those words also have the side 106). Repair: "every prime factor r ∤ 105 …".
+
+## Claim 10 — SHARP 1 (failures ⟹ ψ-odd part of n+1 = 3²) and §5 strata: SOUND as EVIDENCE; wording D6, D7
+Data fully reproduced (see Census). `scripts/review_r233_strata.py 5270849`: the union of the six automatic families
+(437 words) has N₋/U = 148/333, so min ≥ 3 has 44/56 — exact. Window check of the §5 table with my census
+(`review_r233_census N 1 lo hi`): (10⁴, 3·10⁴): m ≥ 1 0.572, m ≥ 3 0.761, m ≥ 10 0.719, N₋/U 0.765 / 0.902;
+(10⁶, 1.3·10⁶): 0.618 / 0.756 / 0.733 / m ≥ 50 0.740, N₋/U 0.771 / 0.872 — all exact.
+"Why 3" is right: 3 | n+1 with n ≡ 1 (4) gives ψ(3) = (n/3) = (2/3) = −1 (composites too).
+**D6 (MINOR, overclaim).** §5 bold header "every N₋ ≥ U/2 failure at n ≡ 1 (8) sits on a defective n + 1" and §7
+"The O230 refutation of N₋ ≥ U/2 is explained" state as a law what is 8/8 EVIDENCE in a finite range, and the 3²
+profile is far from sufficient (3 failures among 25 666 primes; 6 among 49 890 n < 10⁷). Repair: "all 8 known
+failures (all n ≡ 1 (8) < 10⁷, primes < 3·10⁷) …; the 3² defect is necessary in this range, not sufficient (EVIDENCE)".
+**D7 (MINOR).** §5 "carry the Haar sign law … with no visible drift": the m ≥ 10 column drifts 0.719 → 0.736
+(saturating), and N₋/N stays below 3/4 at m ≥ 10, 50. Say "slight upward drift, saturating ≈ 0.74". "The stability is
+a coincidence of the window, not a law" should be labelled Assessment (it is an extrapolation of two drifting strata).
+
+## Claim 7 — Remark 4.1 (tautology): SOUND; D8
+U_fam ≥ 1 ⟺ N₋ ≥ 1: a certificate is in its own three families; conversely a family certificate is a certificate.
+Each inclusion of the hierarchy is right (a clean side, or a congruence-pinned side, makes its whole family
+certificate-free). **D8 (MINOR).** Last sentence "In every case the forcing is a function of (N_X's factorization,
+X mod 8): the three-bit law on a family" is false for family-exact forcing: by Lemma 2.2 it depends on the classes of
+the divisors of N_X modulo the full X (e.g. s = 5: Prop F′ fails exactly because of classes mod 5). Restrict the
+sentence to the 2-adically pinned cases (s ∈ {3, 4, 7}, 4 | s, s ≡ 7 (8); R227 D4/D5).
+
+## Claim 12 — SQ_± split: SOUND (spot-checks), D9
+From-scratch `scripts/review_r233_sqpm.py [strict] 60 n…` (signed divisors of tn+1, u, v ≠ 0, Lemma S asserted for
+signed words): 4 884 441 incl+: W 298, 14/20, forced 0.93, least |t| cert 18; 97 185: 16/20, 0.84, 15;
+9 817 305 strict: 4/10, 0.94, cert 54, first unforced |t| = 7; 297 465: 6/8, 0.94, 30; 60 369: 14/16, 0.93, 19;
+controls 4 884 449 (0.39, 142/216 = 0.66) and 60 377 strict (0.38, 60/112 = 0.54; document 0.39 — rounding).
+All match. **D9 (MINOR).** "One difference from ES-five: at … 9 817 305, unforced words appear already at |t| = 7" —
+the same gap is present at the incl+ record 97 185 (first unforced |t| = 7, first certificate 15) and at 4 884 441
+(16 vs 18), and unforced non-certificates are ubiquitous in ES-five as well; the "difference" is not established.
+Also "SQ_± hardness is forcedness" rests on 5 records + 1 control each (EVIDENCE, |t| ≤ 60 truncation): label it so.

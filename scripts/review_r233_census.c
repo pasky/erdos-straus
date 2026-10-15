@@ -29,8 +29,11 @@ static int clean(int64_t x, int64_t n) {
     }
     return 1;
 }
+static double SN[5], SM[5], SU[5]; /* strata: min=1, 2, 3..9, 10..49, >=50 */
+static int bin(int64_t m) { return m == 1 ? 0 : m == 2 ? 1 : m < 10 ? 2 : m < 50 ? 3 : 4; }
 int main(int argc, char **argv) {
     N = atoll(argv[1]); int primes_only = atoi(argv[2]);
+    int64_t lo = argc > 3 ? atoll(argv[3]) : 0, hi = argc > 4 ? atoll(argv[4]) : 0;
     int64_t S = 2 * N + 8;
     spf = calloc(S + 1, 4);
     for (int64_t i = 2; i <= S; i++) if (!spf[i]) for (int64_t j = i; j <= S; j += i) if (!spf[j]) spf[j] = i;
@@ -75,10 +78,15 @@ int main(int argc, char **argv) {
                     }
                     if (unf) { U[k]++; int64_t mn = t < u ? t : u; if (v < mn) mn = v; if (mn < mm[k]) mm[k] = mn; }
                     if (u2) U2[k]++;
+                    if (n >= lo && n < hi) { int64_t mn = t < u ? t : u; if (v < mn) mn = v; int b = bin(mn);
+                        SN[b]++; SM[b] += (chi == -1); SU[b] += unf; }
                 }
             }
         }
     }
+    if (hi) for (int m0 = 0; m0 < 5; m0++) { double a = 0, b = 0, c = 0;
+        for (int j = m0; j < 5; j++) { a += SN[j]; b += SM[j]; c += SU[j]; }
+        fprintf(stderr, "stratum min>=%d: N=%.0f N-/N=%.3f N-/U=%.3f\n", (int[]){1, 2, 3, 10, 50}[m0], a, b / a, b / c); }
     for (int64_t k = 0; k < M; k++) if (ok[k])
         printf("%lld %d %d %d %d %d\n", (long long)(8 * k + 1), Nt[k], Nm[k], U[k], U2[k], mm[k] == (1 << 30) ? 0 : mm[k]);
     return 0;
