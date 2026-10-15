@@ -61,3 +61,10 @@ indeed is not polynomial in n: y has degree 8 in X with non-zero X³ coefficient
 of X), while polynomials in n = 48X⁴ + 1 are polynomials in X⁴. The theorem is not a contradiction with Cor 1.5. ✔
 
 **Verdict Theorem B: SOUND. Theorem C: SOUND.** Defects listed below (D1–D3) are MINOR.
+
+**Literature / novelty (Theorem C).** Three web searches (Jina: "Erdős–Straus Proth numbers 3·2^n+1",
+"Erdős–Straus n = k·2^m + 1 exponential family", "Erdős–Straus Sophie Germain Aurifeuillean") found no statement of ES
+for 3·2^s + 1; standard sources (Mordell's 840-classes, ET 2011) do not contain it. Note that on s ≡ 0 (mod 12) the family
+lies in Mordell's hard class n ≡ 529 = 23² (mod 840), so it is not covered by the classical congruence identities, and
+the naive window m = 3 is dead for even s (all odd primes of 3Y² + 1 are ≡ 1 mod 3). Not exhaustive — the document's
+"no claim of priority" is the right label.
