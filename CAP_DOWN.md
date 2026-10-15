@@ -11,8 +11,7 @@ gcd(q₀, n) = 1, rad q₀ | y, v_ℓ(q₀) ≤ e).
 combinations of Dirichlet characters*, IJNT 10 (2014) 885–903, **Thm 1.4** (read from the author's PDF
 pollack-math.net/generalsplit6.pdf): X a finite group of primitive characters, conductor f, exponent | n;
 ξ ∈ ℤ[X] with ξ(0) = ±1 (coefficient of the trivial character), length ≤ L; W := max(W_{ξ⁺}, W_{ξ⁻}),
-W_η := ∏ f_χ^{a_χ}. Then the least prime q ∤ f with ξ(q) ≠ 0 is ≪_{n,ε,L} W^{1/4} f^ε (ineffective: Siegel, p. 19 of
-the PDF). First screen: the O236 window class is (χ₋₄, χ_{±8}, χ_{n₀})(q) = (−1, −1, −1), a single Frobenius class
+W_η := ∏ f_χ^{a_χ}. Then the least prime q ∤ f with ξ(q) ≠ 0 is ≪_{n,ε,L} W^{1/4} f^ε (ineffective: Siegel, Prop 3.3, printed p. 11). First screen: the O236 window class is (χ₋₄, χ_{±8}, χ_{n₀})(q) = (−1, −1, −1), a single Frobenius class
 in a (ℤ/2)³ group; its detector ξ = (1−χ₋₄)(1−χ_{±8})(1−χ_{n₀}) has two characters of conductor ≍ n₀ in each of ξ±,
 so W ≍ n₀² and Pollack gives only q* ≪ n₀^{1/2+ε} (already a power improvement over rad(n)⁵). Hypothesis of the
 "1/4" obstruction: the accepted Frobenius set is a single class mod 8. The 1/4 exponent needs ξ = (1−χ₋₄)(1−χ_{n₀}),
@@ -97,7 +96,8 @@ is Burgess's barrier (the method is Burgess + Vinogradov–Linnik); GRH gives (l
 
 (Z7-2) Can (b) reach 1/4? Hypothesis to violate: "bad windows (n ≡ 5, q ≡ 3 (8), v₂(n+q) odd) are dead". Tried:
 (i) all D₁ at fixed x (Lemma 3.1 below: includes the c_p ∈ {0, 2} "Type-I-at-x" family −4 ∈ box); (ii) odd prime
-powers q^{2j+1} and odd products of bad primes (they do reach v₂ even, but the window is then ≥ q³ ≫ n^{1/2});
+powers q^{2j+1} and odd products of bad primes (they do reach v₂ even, but then the window is q^{2j+1} with j up to 3, or a product of three bad
+primes, and the available bounds give only n₀^{3/4+ε} or worse — no gain over 1/2);
 (iii) n-primes inside D₁. In every variant the forced non-residue of a bad window is the prime 2 itself, and every
 use of it needs a 2-exponent ≈ ord_q(2)/2, while c₂ ≤ 2v₂(K) is mandatory (no 2-adic denominators in ES^{(y,e)}).
 Detector side: accepting only {q ≡ 7 (8)} ∪ {q ≡ 3 (8), v₂(n+q) even} forces two conductor-n₀ characters into each
@@ -105,7 +105,9 @@ of ξ± (W ≥ n₀²; a short-form ξ with max(‖α⁺‖, ‖α⁻‖) ≤ 1 
 equivalently the main-term sum is a character sum of χ_{−4n₀}(a² − 2b²) over a box, i.e. a 2-dim Burgess problem with
 nontrivial range only at side ≥ n₀^{1/4} (x ≥ n₀^{1/2}). So (b) stays at 1/2 (Assessment: method barrier, not a proof
 of necessity). *Remark:* if 2-adic denominators were allowed (variant ES^{(y,e)}_2 with den z = 4^j q₀²), the
-one-prime witness d = K·2^{o₂/2} fires at every q ≡ 3 (4), (q/n) = −1, and (a) would hold for all non-square n.
+excluded windows would fire too: there q ≡ 3 (8), so 2 is a non-residue, o₂ := ord_q(2) has o₂/2 odd, and
+d = K·2^{o₂/2} has c₂ = t + o₂/2 even (t odd), 2-adic den 2^{(o₂/2 − t)⁺}·… of even exponent (R-O237 self-review repair:
+only in the excluded case; elsewhere the Thm 1.2 witnesses apply); so (a) would hold for all non-square n in that variant.
 
 ## 3. The full fixed-x picture and the cap-0 slice
 
@@ -119,29 +121,33 @@ b := v_s(N): den exponent (c_s − 2b)⁺ (cases c < b, c = b, c > b). It must v
 n) and be even and ≤ 2e at odd s | x; rad den z | y is automatic (s | y when c_s > b ≥ 1). ∎
 *Reading.* Writing D₁ = N·∏ s^{δ_s}: **−1 ≡ ∏_{s | 2nx} s^{δ_s} (mod m)** with |δ_s| ≤ v_s(nx), plus overflow
 δ_s ∈ v_s(x) + 2ℤ_{>0} at odd s | x (cap = (δ_s − v_s(x))/2). For n = p prime and e = 0 the δ_p = 0 part is the
-campaign's e-slice condition −1 ∈ Σ_m(K) (Type II, p | y); δ_p = ±1 are the solutions with p ∤ y ("Type I at x"),
-which via p ≡ 4x (mod m) read −4^{±1}·(box element) ≡ 1 — not touched by the forced parity, which only ever
+campaign's e-slice condition −1 ∈ Σ_m(K) (c_p = 1: p divides both y and z, Type II); δ_p = +1 (c_p = 2) gives p | y, p ∤ z, and δ_p = −1 (c_p = 0) gives
+p ∤ y, p | z (R-O237 self-review repair; e.g. n = 5, x = 2, D₁ = 50: y = 20, z = 4). These p-divides-one-of-y,z families
+read −4^{∓1}·(box element) ≡ 1 via p ≡ 4x (mod m) and are not touched by the forced parity, which only ever
 concerns δ_p = 0 (Lemma 1.1 is the case D₁ = n·d).
 **T1 for Lemma 1.1 (PROVED).** At n = a² no window m (any m ≡ 3 (4), coprime to n) has a Lemma-1.1 solution at any
 cap: d ≡ −K gives (d/m) = (−1/m)(4K/m) = −(a²/m) = −1, while for every prime s | d (s | K): if s odd, m ≡ −a² (mod s)
 so (s/m) = (m/s)(−1)^{(s−1)/2} = 1 ((m−1)/2 odd); if s = 2, K is even and m ≡ −a² ≡ 7 (8), (2/m) = 1. So (d/m) = 1.
-Contradiction. (The δ_p ≠ 0 part of Lemma 3.1 is not covered by this argument; ES(a²) does have solutions.)
+Contradiction. (The δ_p ≠ 0 part of Lemma 3.1 is not covered by this argument.)
 
-## 4. Goal 3 (multi-window gluing): the forced overflow never cancels under CRT
+## 4. Goal 3 (multi-window gluing): the one-prime forced witness does not improve under CRT
 
 **Proposition 4.1 (PROVED, elementary).** (a) At a single forced prime window q the one-prime bound of Prop 1.3 is
 sharp: if K = s is an odd prime with ord_q(s) = q − 1 (q > 3), the least Lemma-1.1 cap at q is exactly (q−3)/4.
-(b) At a forced composite window m = ∏ q_i^{k_i} (CAP_POINTWISE Thm 1.1′, all factors of the forced type) the
-one-prime witness d = K·s^j needs s^j ≡ −1 (mod m), i.e. j an odd multiple of every ord_{q_i^{k_i}}(s)/2, so its cap is
-(lcm_i ord(s)/2 − b_s)/2 ≥ the cap of each factor: CRT gluing of windows multiplies the odd parts of the orders, never
-cancels them.
+(b) (R-O237 self-review repair: hypotheses added, formula corrected.) Let m = ∏ q_i^{k_i} be a forced composite window
+(CAP_POINTWISE Thm 1.1′) and s | K an odd prime with b := v_s(K) odd and o_i := ord_{q_i^{k_i}}(s) even for every i
+(this need not exist: forcing makes K, not one prime of K, a non-residue in every component — e.g. n = 5,
+m = 567 = 3⁴·7, K = 11·13). Then the one-prime witness d = K·s^j needs s^j ≡ −1 (mod m), i.e. j an odd multiple of
+L := lcm_i(o_i/2), and its least cap is max{0, (L − b)/2} ≥ the corresponding cap max{0, (o_i/2 − b)/2} at each
+component modulus q_i^{k_i} with the same K. (Comparison with the separate windows q_i, whose K_i = (n+q_i)/4 differ, is
+not claimed.)
 *Proof.* (a) S = {s}, b = 1: d = s^c ≡ −s needs s^{c−1} = −1, c − 1 ≡ (q−1)/2 (mod q−1), so c − 1 is odd and ≥ (q−1)/2
-(c − 1 ∈ [−1, 1] is impossible for q > 3); c = 1 + (q−1)/2 is even, cap (c − 2)/2 = (q−3)/4. *Check* (/tmp-level script, 2006 cases q ∈ {11, …, 83}, n prime ≤ 4·10⁵ with K prime primitive mod q):
+(c − 1 ∈ [−1, 1] is impossible for q > 3); c = 1 + (q−1)/2 is even, cap (c − 2)/2 = (q−3)/4. *Check* (`scripts/z13_check_sharp41.py`, 2006 cases q ∈ {11, …, 83}, n prime ≤ 4·10⁵ with K prime primitive mod q):
 the exhaustive Lemma-1.1 cap at q equals (q−3)/4 in all. (b) −1 ≡ (−1, …, −1) in
 ∏ (ℤ/q_i^{k_i})^*; each component has 2-part ℤ/2, so s^j = −1 componentwise iff j ≡ o_i/2 (mod o_i) for all i. ∎
 *Reading (Assessment).* The forced mechanism lives entirely in the 2-torsion E = (ℤ/2)^r of (ℤ/m)^*; the overflow
 is the *odd* part of a discrete logarithm. Gluing windows (composite m, or several x — impossible anyway: one solution
-has one x and K(m) = (n+m)/4 is affine, not multiplicative, in m) acts on E and multiplies odd orders. Cancelling
+has one x and K(m) = (n+m)/4 is affine, not multiplicative, in m) acts on E and combines odd orders by lcm. Cancelling
 overflow means a short relation ∏ s^{δ_s} = −1 in the odd part, i.e. the lattice/B2 lottery (CAP_POINTWISE Lemma 2.1).
 **Where T1/B2 bite.** Cap 0 at window m is −1 ∈ Σ_m(K) with |δ_s| ≤ v_s(K) (Lemma 3.1, δ_n = 0) — B2 with the modulus m
 part of the solution; at n = a² no window has a Lemma-1.1 solution at any cap (T1, §3). So any gluing that lowers the
@@ -168,24 +174,26 @@ proxy for e*(p) is just ES's Type II verification with tiny windows. The gap bet
 uses one character value; cap 0 needs a short relation among the primes of K mod m (B2/B3). Mordell-hard classes:
 not separated by these statistics (O236 found q* only mildly larger there).
 
-## 6. Goal 5 (order 3 over ℤ[ω]): the TES anchor constant is exactly what is not self-generated
+## 6. Goal 5 (order 3 over ℤ[ω]): a necessary condition — the TES anchor constant must be self-generated
 
 Setting: SYNTHESIS_SPARKS2 §3 (TES(n): 9/n = ω/x + ω²/y + 2/z; shot Prop 3.1: g | n + 18Q³, g ≡ g₀ = 10 + ω (mod 18),
 cofactor E = (n + 18Q³)/g, x = (ωn + E)/9, y = na, a = (g + ω²)/9, z = nxa/Q³).
 **Proposition 6.1 (self-mute window at order 3; PROVED, elementary).** Take the cofactor to be a small prime window
-E = r (so x = (ωn + r)/9 is fixed by r) and let the mute primes be S := primes of x (for s | Q, s ∤ 3n: s | a ⟺ s | x, the
+E = r (so x = (ωn + r)/9 is fixed by r) and let the mute primes be S := primes of x not above 3 (as in SYNTHESIS_SPARKS2; assume x prime to 3,
+else restrict further) (for s | Q, s ∤ 3n: s | a ⟺ s | x, the
 TES analogue of "s | K ⟺ g ≡ −1 (mod s)"). Then r | n + 18Q³ with Q ∈ ⟨S⟩ mod r forces
 `  Q³ ≡ −ω²x/2 (mod r),   hence   2 ∈ ⟨S⟩·μ₆ (mod r).`
-*Proof.* 9x ≡ ωn (mod r) gives n ≡ 9ω²x, so −n/18 ≡ −ω²x/2; Q³, x ∈ ⟨S⟩. For s | a ⟺ s | x: gr ≡ n (mod s), so s | a ⟺
+*Proof.* 9x ≡ ωn (mod r) gives n ≡ 9ω²x, so −n/18 ≡ −ω²x/2; Q³ ∈ ⟨S⟩ and x ∈ ⟨S⟩·μ₆ (x is a unit times a product of primes of x; R-O237 self-review repair).
+This is only a NECESSARY condition: firing needs −ω²x/2 ∈ ⟨S⟩³. For s | a ⟺ s | x: gr ≡ n (mod s), so s | a ⟺
 g ≡ −ω² ⟺ n + ω²r ≡ 0 ⟺ s | ω²(ωn + r) = 9ω²x. ∎
 *Reading (Assessment).* In ES the window n + m = 4x and the shot n + 4Q² carry the SAME constant 4, which cancels:
 the condition is −K ∈ ⟨S⟩², and only the 2-torsion (−1) must be generated — forced by reciprocity. In TES the window
 9x = ωn + r and the shot n + 18Q³ differ by 2ω (μ₃-part harmless if a forced non-cube puts μ₃ in ⟨S⟩), and the
-residual constant **2 — the numerator of TES's 2/z, i.e. its tame anchor — must lie in the group generated by the
-primes of x**. That is not a character value of n (cubic reciprocity sees only the cubic class of 2, constant on the
+residual constant **2 — the numerator of TES's 2/z, i.e. its tame anchor — must lie in ⟨primes of x⟩·μ₆ (mod r)**. That is not a character value of n (cubic reciprocity sees only the cubic class of 2, constant on the
 class of r mod 18, R193), but membership of a fixed element in a self-generated subgroup: a lottery, dead e.g. whenever
-x is a prime element with 2 ∉ ⟨x⟩μ₆ (mod r). So the self-generated-mute trick does not transfer to order 3 in
-the TES normalisation; the obstruction is precisely the anchor constant. In ES the anchor is the real place
+x is a prime element with 2 ∉ ⟨x⟩μ₆ (mod r). So within this window shape the self-generated-mute trick has no forced order-3 analogue: the necessary condition is
+already a subgroup-membership lottery, and the constant that must be generated is the anchor numerator (other shapes
+not examined). In ES the anchor is the real place
 (positivity) and the wild partner's constant 4 = 2² is invisible at order 2 — the "degree-2 accident" of (J)19 reappears
 here as the reason Thm 1.1 exists at all. (An order-3 variant would need a normalisation whose shot constant equals
 the window constant up to μ₃ — e.g. a cube; within the anchor calculus such a normalisation pins inv = 0 (Lagrangian),

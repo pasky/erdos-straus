@@ -61,7 +61,7 @@ def witness(n, q):
 
 
 def witness2(n, q):
-    """Prop 1.4: d = K * s^(o/2) for a non-residue prime s | K' with odd v_s(K); cap = max(0, (o/2 - b)/2)."""
+    """Prop 1.3: d = K * s^(o/2) for a non-residue prime s | K' with odd v_s(K); cap = max(0, (o/2 - b)/2)."""
     K = (n + q) // 4; fs = factorint(K); best = None
     for s, b in fs.items():
         if s == 2 or b % 2 == 0 or jacobi_symbol(s, q) != -1:
@@ -70,7 +70,7 @@ def witness2(n, q):
         e = max(0, (o // 2 - b) // 2)
         if best is None or e < best[0]:
             best = (e, s, o)
-    assert best is not None, 'no odd-exponent non-residue prime: Prop 1.4 violated'
+    assert best is not None, 'no odd-exponent non-residue prime: Prop 1.3 violated'
     e, s, o = best
     d = K * s ** (o // 2); A = (K + d) // q; assert (K + d) % q == 0
     check(n, K, n * A, Fraction(n * K * A, d), e)
