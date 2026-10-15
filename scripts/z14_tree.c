@@ -18,7 +18,7 @@ static u64 pw(u64 b, u64 e, u64 m) { u64 r = 1 % m; b %= m; while (e) { if (e & 
 static i64 egcd_inv(i64 a, i64 m) { i64 g = m, x = 0, x1 = 1, a1 = a % m; if (a1 < 0) a1 += m; i64 b = a1; while (b) { i64 t = g / b, r = g - t * b; g = b; b = r; i64 y = x - t * x1; x = x1; x1 = y; } if (x < 0) x += m; return x; }
 // (x above: inverse of a mod m, valid when gcd = 1)
 int nH; u64 HP[MAXL]; int CAP[MAXL]; u64 PW[MAXL][64];
-u64 K; int A2, A3;
+u64 K, C0 = 1; int A2, A3;
 // primes
 int nq; u64 *Qv, *Qo; unsigned char *Qnc; unsigned char (*Qli)[12]; unsigned char (*Qv_)[12];
 u64 *G; // g value when active
@@ -68,7 +68,7 @@ static int wit_list(char *b, int *lst, int n, u64 mask, int extra) {
 static u64 i3target(Pair *p) { // -n mod m
   u64 mw; u64 x = mu_mod(p->nc, p->li, p->v, &mw); // mu mod ord_w(4)
   u64 m = p->m, w = p->w, two = m / w;
-  u64 nw = w > 1 ? (pw(4, x, w) + K) % w : 0;
+  u64 nw = w > 1 ? ((u128)(C0 % w) * pw(4, x, w) + K) % w : 0;
   u64 n2 = K % two;
   // CRT n mod two and mod w
   u64 n;
@@ -86,8 +86,8 @@ static int try3(int j, u64 q, int i) { Pair *p = &P3[j]; if (p->a % q == 0 || p-
   if (L3len[j] < LMAXG) { L3[j][L3len[j]++] = i; jlog[jlen++] = nP2 + j; } return 0; }
 static int activate(int i, u64 t4) {  // t4 = 4^mu mod q
   u64 q = Qv[i];
-  u64 g = (t4 + K) % q; G[i] = g; actlog[alen++] = i;
-  if (g == 0 && K % q) { sprintf(wit, "D %llu", (unsigned long long)q); return 1; }
+  u64 g = ((u128)(C0 % q) * t4 + K) % q; G[i] = g; actlog[alen++] = i;
+  if (g == 0 && K % q && C0 % q) { sprintf(wit, "D %llu", (unsigned long long)q); return 1; }
   u64 v0 = (q - g) % q; if (!v0) v0 = q;
   if (V2MAX / q > (u64)nP2) { for (int j = 0; j < nP2; j++) if ((u128)4 * P2[j].a * P2[j].a % q * P2[j].d % q == v0 % q && try2(j, q, i)) return 1; }
   else for (u64 v = v0; v <= V2MAX; v += q) for (int t = V2s[v]; t < V2s[v + 1]; t++) if (try2(V2i[t], q, i)) return 1;
@@ -95,6 +95,55 @@ static int activate(int i, u64 t4) {  // t4 = 4^mu mod q
   if (V3MAX / q > (u64)nP3) { for (int j = 0; j < nP3; j++) if ((u128)4 * P3[j].a * P3[j].a % q * P3[j].d % q == v0 % q && try3(j, q, i)) return 1; }
   else for (u64 v = v0; v <= V3MAX; v += q) for (int t = V3s[v]; t < V3s[v + 1]; t++) if (try3(V3i[t], q, i)) return 1;
   return 0;
+}
+
+// ---- exponential window classes (see z14_win.py) ----
+typedef struct { u64 m; int j, E, code, w, h; u64 P; int npoly; int deg[16]; i64 coef[16][64]; int nc; unsigned char li[12], v[12]; } Win;
+Win *WN; int nW = 0; int **bucketW; int *nbucketW; u64 winfires = 0;
+static u64 modm(i64 a, u64 m) { i64 r = a % (i64)m; return r < 0 ? (u64)(r + (i64)m) : (u64)r; }
+static int win_fire(int wi) {
+  Win *W = &WN[wi]; u64 mP; u64 mu = mu_mod(W->nc, W->li, W->v, &mP); u64 m = W->m;
+  u64 t = (mu + W->P * 64 - (u64)W->j) % W->P;   // r mod P
+  u64 nm = ((u128)(C0 % m) * pw(4, mu, m) + K) % m;              // ord_m(4) | P
+  u64 B[24]; int nb = 0; B[nb++] = nm;
+  { u64 c = C0; while (c % 2 == 0) c /= 2; for (u64 p = 3; p * p <= c || c > 1; p += 2) { if (p * p > c) p = c; while (c % p == 0) { B[nb++] = p % m; c /= p; } } }
+  if (W->code == 0) { if (t % W->h) return 0; u64 X = pw(4, t / W->h, m);
+    for (int p = 0; p < W->npoly; p++) { u64 val = 0; int d = W->deg[p]; for (int i = 0; i <= d; i++) val = (val + (u128)modm(W->coef[p][i], m) * pw(X, i, m) % m * pw(W->w, d - i, m)) % m; B[nb++] = val; } }
+  else if (W->code == 1) { if (t % 2) return 0; u64 a = pw(2, t / 2, m), w = W->w;
+    B[nb++] = (a * a + 2 * a * w + 2 * w * w) % m; B[nb++] = (a * a % m + m - 2 * a * w % m + 2 * w * w) % m; }
+  else { if (t % 2 == 0) return 0; u64 b = pw(2, (t - 1) / 2, m), w = W->w;
+    B[nb++] = (2 * b * b + 2 * b * w + w * w) % m; B[nb++] = (2 * b * b % m + m - 2 * b * w % m + w * w) % m; }
+  static u64 vals[1 << 16]; int nv = 1; vals[0] = 1;
+  for (int p = 0; p < nb; p++) { u64 b = B[p]; if (b % m == 1 || b == 0) continue;
+    // gcd check
+    u64 g1 = b, g2 = m; while (g2) { u64 tt = g1 % g2; g1 = g2; g2 = tt; } if (g1 != 1) continue;
+    u64 bi = (u64)egcd_inv((i64)b, (i64)m); int n0 = nv; if (3 * nv > (1 << 16)) break;
+    for (int q = 0; q < n0; q++) { vals[nv++] = (u128)vals[q] * b % m; vals[nv++] = (u128)vals[q] * bi % m; } }
+  u64 i2 = (m + 1) / 2, start = pw(i2, W->E, m);
+  for (int q = 0; q < nv; q++) { u64 x = (u128)vals[q] * start % m; for (int i = -W->E; i <= W->E; i++) { if (x == m - 1) return 1; x = x * 2 % m; } }
+  return 0;
+}
+static int win_check(int l) { int bi = l * 64 + e[l];
+  for (int t = 0; t < nbucketW[bi]; t++) { int wi = bucketW[bi][t]; Win *W = &WN[wi]; int ok = 1;
+    for (int s = 0; s < W->nc; s++) if (W->v[s] > e[W->li[s]]) { ok = 0; break; }
+    if (!ok) continue;
+    if (win_fire(wi)) { winfires++; sprintf(wit, "W %llu %d %d %d %d", (unsigned long long)W->m, W->j, W->code, W->w, W->h); return 1; } }
+  return 0; }
+static void load_windows(const char *fn) {
+  FILE *f = fopen(fn, "r"); if (!f) { fprintf(stderr, "no window file\n"); exit(1); }
+  WN = malloc(sizeof(Win) * 20000); bucketW = calloc(MAXL * 64, sizeof(int *)); nbucketW = calloc(MAXL * 64, sizeof(int));
+  for (int bi = 0; bi < MAXL * 64; bi++) bucketW[bi] = malloc(sizeof(int) * 2048);
+  Win W; unsigned long long m, P;
+  while (fscanf(f, "%llu %d %d %d %d %d %llu %d", &m, &W.j, &W.E, &W.code, &W.w, &W.h, &P, &W.npoly) == 8) {
+    W.m = m; W.P = P;
+    for (int p = 0; p < W.npoly; p++) { int nco; fscanf(f, "%d", &nco); W.deg[p] = nco - 1; for (int i = 0; i < nco; i++) { long long cc; fscanf(f, "%lld", &cc); W.coef[p][i] = cc; } }
+    u64 y = P; int nc = 0, ok = 1;
+    for (int l = 0; l < nH && y > 1; l++) if (y % HP[l] == 0) { int v = 0; while (y % HP[l] == 0) { y /= HP[l]; v++; } if (v > CAP[l] || nc >= 12) { ok = 0; break; } W.li[nc] = l; W.v[nc] = v; nc++; }
+    if (!ok || y > 1 || nc == 0) continue;
+    W.nc = nc; WN[nW] = W;
+    for (int s = 0; s < nc; s++) { int bi = W.li[s] * 64 + W.v[s]; if (nbucketW[bi] < 2048) bucketW[bi][nbucketW[bi]++] = nW; }
+    nW++; }
+  fclose(f); fprintf(stderr, "windows loaded: %d\n", nW);
 }
 static void undo_to(int j0, int a0) { while (jlen > j0) { int j = jlog[--jlen]; if (j < nP2) L2len[j]--; else L3len[j - nP2]--; } alen = a0; }
 // raise e[l] by one (c[l] already set); activate new primes; return 1 if leaf
@@ -114,6 +163,7 @@ static int raise_and_test(int l, int *buf, int nb, u64 *T, u64 *R) {
     if (!ok || p->ready) continue;
     p->ready = 1; readylog[rlen++] = j; p->tgt = i3target(p);
     u64 mask; if (!hit0 && L3len[j] && subset_hit(L3[j], L3len[j], p->m, p->tgt, 0, &mask)) { int o = sprintf(wit, "I %d %d", p->a, p->d); wit_list(wit + o, L3[j], L3len[j], mask, -1); hit0 = 1; } }
+  if (!hit0 && nW && win_check(l)) hit0 = 1;
   int hit = hit0;
   for (int t = 0; t < nb; t++) { u64 t4 = T[t]; T[t] = T[t] * R[t] % Qv[buf[t]]; if (!hit && activate(buf[t], t4)) hit = 1; }
   return hit;
@@ -156,6 +206,7 @@ int main(int argc, char **argv) {
   const char *pf = argv[1]; K = atoll(argv[2]); u64 B = atoll(argv[3]); A2 = atoi(argv[4]); A3 = atoi(argv[5]);
   NODEMAX = atoll(argv[6]); maxdepth = atoi(argv[7]); out = fopen(argv[8], "w");
   if (getenv("SHOWSTUCK")) dbgshow = atoi(getenv("SHOWSTUCK"));
+  const char *wf = getenv("WINFILE"); if (getenv("C0")) C0 = atoll(getenv("C0"));
   nH = 0; for (u64 l = 2; l <= B; l++) { int pr = 1; for (u64 d = 2; d * d <= l; d++) if (l % d == 0) pr = 0; if (pr) { HP[nH] = l; CAP[nH] = 1; nH++; } }
   for (int l = 0; l < nH; l++) { PW[l][0] = 1; for (int t = 1; t < 64; t++) PW[l][t] = (PW[l][t - 1] < (1ULL << 40)) ? PW[l][t - 1] * HP[l] : PW[l][t - 1]; }
   CAP[lidx(2)] = 8; CAP[lidx(3)] = 5; if (B >= 5) CAP[lidx(5)] = 3; if (B >= 7) CAP[lidx(7)] = 2; if (B >= 11) CAP[lidx(11)] = 2; if (B >= 13) CAP[lidx(13)] = 2;
@@ -176,6 +227,7 @@ int main(int argc, char **argv) {
   for (int i = 0; i < nq; i++) for (int t = 0; t < Qnc[i]; t++) nbucket[Qli[i][t] * 64 + Qv_[i][t]]++;
   for (int bi = 0; bi < MAXL * 64; bi++) { bucket[bi] = malloc(sizeof(int) * (nbucket[bi] + 1)); nbucket[bi] = 0; }
   for (int i = 0; i < nq; i++) for (int t = 0; t < Qnc[i]; t++) { int bi = Qli[i][t] * 64 + Qv_[i][t]; bucket[bi][nbucket[bi]++] = i; }
+  if (wf) load_windows(wf);
   // pairs
   P2 = malloc(sizeof(Pair) * 200000); P3 = malloc(sizeof(Pair) * 200000); nP2 = nP3 = 0;
   for (int a = 1; 4 * a <= A2; a++) for (int d = 1; 4 * a * d <= A2; d++) { Pair *p = &P2[nP2++]; p->a = a; p->d = d; p->m = 4 * a * d; p->tgt = p->m - 1; p->nc = 0; p->ready = 1; }
@@ -206,7 +258,7 @@ int main(int argc, char **argv) {
   for (int j = 0; j < nP2; j++) L2[j] = malloc(sizeof(int) * LMAXG);
   for (int j = 0; j < nP3; j++) L3[j] = malloc(sizeof(int) * LMAXG);
   jlog = malloc(sizeof(int) * jcap); actlog = malloc(sizeof(int) * (nq + 1)); readylog = malloc(sizeof(int) * (nP3 + 1));
-  fprintf(stderr, "k=%llu B=%llu: %d split primes, %d active-capable q, %d II2 pairs, %d I3 pairs\n", (unsigned long long)K, (unsigned long long)B, nH, nq, nP2, nP3);
+  fprintf(stderr, "c0=%llu k=%llu B=%llu: %d split primes, %d active-capable q, %d II2 pairs, %d I3 pairs\n", (unsigned long long)C0, (unsigned long long)K, (unsigned long long)B, nH, nq, nP2, nP3);
   memset(e, 0, sizeof e); memset(c, 0, sizeof c);
   // root: ready pairs with w-order 1 (w = 1 or w | 3)
   for (int j = 0; j < nP3; j++) if (P3[j].ready == 2) { P3[j].ready = 1; P3[j].tgt = i3target(&P3[j]); }
@@ -217,6 +269,7 @@ int main(int argc, char **argv) {
   solve(0);
   fclose(out);
   fprintf(stderr, "nodes %llu leaves %llu stuck %llu uncovered measure %.3e\n", (unsigned long long)nodes, (unsigned long long)leaves, (unsigned long long)stuck, 1.0 - covmeas);
+  fprintf(stderr, "window leaves %llu\n", (unsigned long long)winfires);
   fprintf(stderr, "depth: leaves/stuck:"); for (int d = 0; d <= maxdepth && d < 512; d++) if (leafdepth[d] || stuckdepth[d]) fprintf(stderr, " %d:%llu/%llu", d, (unsigned long long)leafdepth[d], (unsigned long long)stuckdepth[d]);
   fprintf(stderr, "\n");
   return stuck ? 1 : 0;

@@ -10,13 +10,20 @@
 # prime q of f, and for I3 also ord_w(4) | L, w = odd part of 4cd.  Then for every integer s = u mod L, s >= s_min,
 # the class identity gives an explicit positive solution (checked symbolically once per family below); members below
 # s_min are checked directly with an explicit solution.
-# Usage: PYTHONPATH=scripts uv run python scripts/z14_check.py k cert.txt[.gz] [--allow-stuck]
+#   "W m j code w h"   leaf, exponential window class (see below)
+# Family n_s = c0*4^s + k.
+# Usage: PYTHONPATH=scripts uv run python scripts/z14_check.py [c0,]k cert.txt[.gz] [--allow-stuck]
+# Window class W: m = c0*4^j*t - k (t = w^h for code 0, 4w^4 for code 1, w^4 for code 2), x = (n+m)/4 = c0*4^{j-1}(4^r+t),
+# r = s - j; N = n*x is written as an explicit product of pieces (2^E, odd primes of c0, n, and the algebraic factors of
+# 4^r + t: homogenised cyclotomic pieces for code 0 (h | r), Sophie Germain pieces for codes 1 (r even) / 2 (r odd)).
+# The checker verifies symbolically that the pieces multiply to N, finds itself a relation d1 + d2 = 0 (mod m) between
+# sub-products (from residues, which are periodic with period P | L), and then y = N(d1+d2)/(m d2), z = N(d1+d2)/(m d1).
 import sys, gzip
 from fractions import Fraction as Fr
 from math import gcd, prod
 from sympy import isprime, n_order, factorint, symbols, simplify, divisors
 
-k = int(sys.argv[1]); path = sys.argv[2]
+c0, k = map(int, sys.argv[1].split(',')) if ',' in sys.argv[1] else (1, int(sys.argv[1])); path = sys.argv[2]
 ALLOW = '--allow-stuck' in sys.argv  # report exact uncovered measure instead of failing
 UNC = [Fr(0)]
 fh = gzip.open(path, 'rt') if path.endswith('.gz') else open(path)
@@ -59,10 +66,73 @@ def ordq(q):
 
 
 def val(f, ordf, u):
-    return (pow(4, u, f) + k) % f
+    return (c0 * pow(4, u, f) + k) % f
 
 
-stats = {'stuck': 0, 'leaves': 0, 'D': 0, 'P': 0, 'I': 0, 'direct': 0, 'nodes': 0}
+def win_pieces_sym(m, j, code, w, h):
+    """symbolic pieces (sympy exprs in R = 2^{r/h} etc.) -- returns (list of (name, residue-function)), and checks the
+    product identity N = n*x symbolically."""
+    from sympy import Symbol, cyclotomic_poly, expand, divisors as sdiv, Poly
+    T = Symbol('T')   # T = 4^r
+    if code == 0:
+        X = Symbol('X'); t = w ** h   # T = X^h
+        polys = [Poly(cyclotomic_poly(2 * e, X), X) for e in sdiv(h)]
+        homs = [expand(sum(cf * X ** i * w ** (p.degree() - i) for (i,), cf in p.terms())) for p in polys]
+        prodY = expand(prod(homs)); assert expand(prodY - (X ** h + t)) == 0
+        return t, homs, X
+    if code == 1:
+        a = Symbol('a'); t = 4 * w ** 4   # T = a^4
+        homs = [a * a + 2 * a * w + 2 * w * w, a * a - 2 * a * w + 2 * w * w]
+        assert expand(prod(homs) - (a ** 4 + t)) == 0
+        return t, homs, a
+    b = Symbol('b'); t = w ** 4      # T = 4 b^4
+    homs = [2 * b * b + 2 * b * w + w * w, 2 * b * b - 2 * b * w + w * w]
+    assert expand(prod(homs) - (4 * b ** 4 + t)) == 0
+    return t, homs, b
+
+
+WINCACHE = {}
+def check_window(t, L, u):
+    from sympy import lambdify
+    m, j, code, w, h = map(int, t[1:6])
+    if (m, code, w, h) not in WINCACHE:
+        tt, homs, var = win_pieces_sym(m, j, code, w, h)
+        assert m == c0 * 4 ** j * tt - k and m > 1 and m % 2 == 1 and j >= 1
+        P = h * n_order(4, m) if code == 0 else 2 * n_order(2, m)
+        WINCACHE[(m, code, w, h)] = (tt, [lambdify(var, e) for e in homs], P)
+    tt, fns, P = WINCACHE[(m, code, w, h)]
+    assert L % P == 0, 'window period does not divide L'
+    rr = (u - j) % P                     # r mod P
+    if code == 0:
+        assert rr % h == 0; V = pow(4, rr // h, m)
+    elif code == 1:
+        assert rr % 2 == 0; V = pow(2, rr // 2, m)
+    else:
+        assert rr % 2 == 1; V = pow(2, (rr - 1) // 2, m)
+    ys = [int(f(V)) % m for f in fns]
+    nm = (c0 * pow(4, u, m) + k) % m
+    oc = c0
+    while oc % 2 == 0: oc //= 2
+    E = 2 * j - 2 + ((c0 & -c0).bit_length() - 1)
+    pieces = [p for p, v in factorint(oc).items() for _ in range(v)] if oc > 1 else []
+    res = [p % m for p in pieces] + [nm] + ys
+    # pieces multiply to N/2^E: c0_odd * n * (4^r + t) = c0_odd * n * x / (c0 * 4^{j-1}) * ... checked symbolically above
+    # search: -1 = 2^i * prod res_i^{eps_i}, eps in {-1,0,1}, |i| <= E, all used residues invertible
+    from itertools import product as iprod
+    for eps in iprod((-1, 0, 1), repeat=len(res)):
+        v = 1; ok = True
+        for r_, e_ in zip(res, eps):
+            if e_ == 0: continue
+            if gcd(r_, m) != 1: ok = False; break
+            v = v * pow(r_, e_, m) % m
+        if not ok: continue
+        for i in range(-E, E + 1):
+            if v * pow(2, i, m) % m == m - 1:
+                return [s for s in range(u, j + 2, L) if s >= 0]   # s - j < 1 members: check directly
+    raise AssertionError('window does not fire at u=%d' % u)
+
+
+stats = {'W': 0, 'stuck': 0, 'leaves': 0, 'D': 0, 'P': 0, 'I': 0, 'direct': 0, 'nodes': 0}
 small = set()   # exponents s that must be checked directly
 ESQ = {}
 
@@ -87,24 +157,27 @@ def walk(e, c):
         stats['stuck'] += 1; UNC[0] += Fr(1, L)
         return
     stats['leaves'] += 1; stats[t[0]] += 1
+    if t[0] == 'W':
+        for s_ in check_window(t, L, u): small.add(s_)
+        return
     if t[0] == 'D':
-        q = int(t[1]); assert k % q and L % ordq(q) == 0 and val(q, 0, u) == 0
+        q = int(t[1]); assert k % q and c0 % q and L % ordq(q) == 0 and val(q, 0, u) == 0
         if q not in ESQ: ESQ[q] = es_explicit(q); assert ESQ[q], q
         if u < 64: small.add(u)   # n_u = q itself would need ES(q) only; checked directly anyway
         return
     a, d = int(t[1]), int(t[2]); qs = [int(x) for x in t[3:]]
     assert len(set(qs)) == len(qs) and qs
     for q in qs: assert L % ordq(q) == 0
-    f = prod(qs); n = (pow(4, u, f) + k) % f
+    f = prod(qs); n = (c0 * pow(4, u, f) + k) % f
     if t[0] == 'P':
         assert (f + 1) % (4 * a * d) == 0 and (n + 4 * a * a * d) % f == 0
         cc = (f + 1) // (4 * a * d)
         # positivity: b = c e - a > 0 iff e > a/c; e = (n_s + 4a^2 d)/f >= n_s/f; safe if n_s > a f
         s = u
-        if 4 ** s + k <= a * f: small.add(s)  # only the least member can be small (L >= ...); others checked below
+        if c0 * 4 ** s + k <= a * f: small.add(s)  # only the least member can be small (L >= ...); others checked below
         if L < 400:  # several members may be small
             for s in range(u, 400, L):
-                if 4 ** s + k <= a * f: small.add(s)
+                if c0 * 4 ** s + k <= a * f: small.add(s)
     else:
         m = 4 * a * d; w = m
         while w % 2 == 0: w //= 2
@@ -113,7 +186,7 @@ def walk(e, c):
         ow = n_order(4, w) if w > 1 else 1
         assert L % ow == 0
         # n mod m for s >= j/2: n mod 2^j = k mod 2^j
-        nm = (pow(4, u, w) + k) % w if w > 1 else 0
+        nm = (c0 * pow(4, u, w) + k) % w if w > 1 else 0
         two = m // w
         n2 = k % two
         nm_full = next(x for x in range(n2, m, two) if x % w == nm) if w > 1 else n2
@@ -128,7 +201,7 @@ walk({}, {})
 assert next(lines, None) is None, 'trailing data'
 # direct check of small members
 for s in sorted(small):
-    N = 4 ** s + k
+    N = c0 * 4 ** s + k
     sol = es_explicit(N)
     assert sol, ('no direct ES solution', s)
     stats['direct'] += 1
