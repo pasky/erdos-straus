@@ -106,3 +106,22 @@ the weight 2r^{−k} resp. 2r^{−(K+1)/2} is maximal at r = 2^b and the table m
 non-admissible tails, and on non-finite terms. Rounding: tables ×(1 + 10⁻⁹), S ×(1 + 10⁻⁶) — ample (margin 2·10⁻³).
 **MINOR (provenance):** the `_l2` tables carry the header "# se_box …" (zl_box.c did not change its printf); only MANIFEST
 distinguishes them. Suggest zl_box print "zl_box" in the header.
+`P_q1_hi` rows j = 600, 700, 799 regenerated with se_box: bit-identical.
+
+### Independent re-certification of the level-1 table cells (own engines)
+The tables are produced by se_box (reviewed by R222/R223) and zl_box (se_box + Lemma 1.1). To make the dominant terms independent
+of that code I wrote two box engines from scratch, `scripts/review_zl_qbox.py` (D_Q(F)) and `scripts/review_zl_pbox.py` (D_P(N)),
+for primes in [2^{j/32}, 2^{(j+1)/32}) (k = K = 1, the only cells taken from the new 1/32 tables). Own derivations:
+* Q: f = 4acd − F ∈ [1, F + 2] (b ≥ a gives f ≤ F + 2/e), ef = 4a²d + 1, fb = aF + c, 4abd = eF + 1, f(4bcd − F) = F² + 4c²d,
+  c ≡ −aF, 4a²d ≡ −1 (mod f); boxes (c, d, f) dyadic with exact integer a-, b-, e-windows; routes H, AC (f | aF + c, class −F mod 4ac),
+  CD (f | F² + 4c²d, class −F mod 4cd), Ea (pairs (e, a), b or d in a unit class mod e), Ed (pairs (e, d), 2^{ω(e)} root classes),
+  fac, fca; row aggregation by τ(F² + 4c²d). (No AD, fa, τ₃, fda — fewer routes only weakens my bound.)
+* P: f = 4acd − 1, ef = N + 4a²d, bf = Nc + a, ff' = 4c²dN + 1, gcd(e, abd) = 1, b ≤ N/(4ad − 2), 4a²d ≤ 2N; exact windows
+  e ∈ [(N₀ + 4A²D)/f_max, (N₁ + 4(2A−1)²(2D−1))/f_min]; routes H, A, C, D, E, F, G, I, J; row aggregation by τ(N + 4a²d) (≤ τ-envelope at 3N).
+* Class-divisor counts: min(trivial, explicit τ envelope C₂(η)n^η (η = 0.10, …, 0.50), Lemma 1.3/Cor 1.4) where (Cop) resp. (Cop₂) is
+  **verified in exact rational arithmetic** for the chosen (w, m, J) (μ_w^{2w} = 4^w w^w Γ(w/2+1)² π^{−w} bounded with a rational π_lo < π;
+  w ≤ 24). Pair counts/harmonic sums in 40-digit mpmath inflated by 10⁻²⁵.
+* Validation (`validate` mode): for primes 17, 1009, 10007, 65537, 100003, 1000003, 3000017 all P- and Q-data are enumerated exactly; every
+  datum lies inside the computed windows of its box, every box bound and every row bound dominates the true count: 0 violations.
+Results: P (K = 1), j = 965..970 with (Cop₂), 971..1087 with (Cop): my bound / author's table = 0.44 … 0.56 in every one of the 123 cells
+(my e-window is ≈ 4× tighter than SE Lemma 1.2's N/(ACD)). Q (k = 1): see the next paragraph.
