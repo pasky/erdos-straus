@@ -145,7 +145,7 @@ t ≤ 5 (6): search ε, j ∈ E(L)⁰ with nrd ε = tp, j ⊥ ε, nrd j = A | tp
 p ≤ 110: 69 classes, 49 path classes; the condition holds at 44 classes, of which **3 are not path classes** (p = 61, 89, 101);
 the ring condition holds at 41, never at a non-path class (consistent with Cor 2.2(iv) ⟹ (i)); every path class with letter t ≤ 5
 is found. Explicit example: **p = 61, L = ⟨1⟩ ⊥ [[7, −3], [−3, 10]]** (not a path class), t = 4, A = 7, A* = 35 (the numbers of the
-χ = −1 word (4, 2, 9), whose path class is the different class [[2, −1, 0], [−1, 4, −1], [0, −1, 9]]-type key (2, 4, 9, −1, 0, −1)):
+χ = −1 word (4, 2, 9), whose path class [[9, −1, 0], [−1, 4, −1], [0, −1, 2]] is a different class, canonical key (2, 4, 9, −1, 0, −1)):
 ε, j, i all lie in E(L) but (1 − i)(1 − j) ∉ 4E(L). So the author's repaired reading (necessary, not sufficient) is not just
 cautious but **necessary at the edge level**: the "ideal of norm A ≡ −1 (mod t) dividing tp + 1" condition is satisfied by
 non-certificate edges. The author's own counterexample ((3, 1, 7), p = 13 with i, j ↦ −i, −j) is only a *data-level* failure on a
