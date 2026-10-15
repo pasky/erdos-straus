@@ -104,3 +104,26 @@ with n ≡ 1 (4), gcd(m, b) = 1, all words incl. even A, χ from the sign table;
 u ≤ 80 and t ≤ 60: predicted sign-clean = empirically sign-clean in every case; the 14 levels predicted dirty but not yet
 dirty at m ≤ 500 all became dirty by m ≤ 3000 (the first suitable prime r is large). Without the gcd restriction the
 predicted-clean levels show χ = −1 exactly at non-generic m (e.g. k = 24, u = 25, m = 63 = 7·9, 7 | K = 49).
+
+**Pointwise form (PROVED; the proof of Thm 2.1(b) uses only the one m).** For a single prime p ≡ 1 (4) and level u:
+if some imaginary quadratic F ⊂ Σ_u splits every odd prime factor of p + u, every word with this u and A odd has χ = +1
+(and likewise for the v-side with A* odd). R225's "p + u = m² + s²" is the case F = ℚ(i) (u ≡ 1 (4)). By Cor 2.3 the
+admissible F are ℚ(√−K₀) with K₀ | 2·rad(u_odd) satisfying (b) — a finite list per u.
+
+## 3. Hardness: how much of the near-square gradient is u-side genus cleanness (EVIDENCE)
+
+`scripts/z2_hardness.c LO HI` (all words, u ≤ v with multiplicity) flags a word if its level is t-clean (ns_census
+definition) or *u-genus-clean* (pointwise form above, at u with A odd or at v with A* odd); `scripts/z2_hardness_an.py`
+computes within-cell residuals exactly as NEAR_SQUARE §5 / R225 (cells: p mod 8, (r/p) for r ≤ 31, lnr; 2 048 cells).
+* Check of the pointwise theorem: all primes p ≡ 1 (4) in (10⁵, 10⁶): 5 570 014 words (= ns_census), 432 677 t-clean,
+  481 272 further words u-genus-flagged (8.6 % of all words; R225's two-squares subclass was 0.9 %), **0 flagged words
+  with χ = −1**. (Range 5–2·10⁵: 98 124 flagged beyond clean, 0 with χ = −1.)
+* Residual of N₋/(N − Ncl) → N₋/(N − Ncl − Nfl) by K0 = p − ⌊√p⌋²: [10, 17): −0.0235 → −0.0014; [17, 30): −0.019 → −0.015;
+  [30, 100): −0.0093 ± 0.0014 → −0.0059 ± 0.0013; [100, 300): −0.0045 ± 0.0008 → −0.0025 ± 0.0007; ≥ 300: +0.0022 → +0.0013.
+  So u-genus cleanness removes roughly 40–50 % of the beyond-t-clean gradient in the well-populated bins (R225's
+  two-squares mechanism: ≈ ¼ at K0 < 30). It does not remove all of it: K0 ∈ [5, 10) stays at −0.036 ± 0.006 and K0 = 24 at
+  −0.058 (36 primes). The flagged fraction itself is higher at small K0 (within-cell residual of Nfl/N: +0.021 at [10, 17),
+  +0.003 at [30, 100), −0.001 at ≥ 300), as Cor 2.3 predicts (p + u = m² + (K0 + u) with K0 + u ∈ K₀·□ for small K0).
+* Assessment: the "hardness of near-squares" is, to a large part, *u-side* T1 deformed into genus theory of
+  ℚ(√−(K0 + u)) inside the sign field ℚ(ζ_u, √−u). The remainder is not explained by any genus-level condition tested
+  here (candidates: non-genus — Rédei/4-rank — cleanness, c_∞ ∉ ⟨σ_r⟩ but ∈ ⟨σ_r⟩·G², and the even-A words).
