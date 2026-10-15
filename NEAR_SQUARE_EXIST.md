@@ -1,6 +1,6 @@
 # NEAR_SQUARE_EXIST — near-square primes: from the hardness explanation towards existence (task O225, wave Z-b)
 
-Status: in progress (O225). **ES is not solved here, nor any infinite case of it unless explicitly stated with a complete
+Status: checkpoint 1 (O225), awaiting review. **ES is not solved here, nor any infinite case of it unless explicitly stated with a complete
 proof.** Labels as in DISCOVERIES.md. Builds on NEAR_SQUARE.md ((J)55, R225), THREE_SQUARES.md ((J)53), DEDEKIND_ES.md
 Thm 4.5 (the sign table). Memos BRAINSTORM/z2_*.md, scripts `scripts/z2_*`.
 
