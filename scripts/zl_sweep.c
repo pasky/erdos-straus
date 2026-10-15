@@ -19,7 +19,7 @@
 typedef uint64_t u64; typedef unsigned __int128 u128;
 static u64 X0, X1, A, Y; static int ALL = 0;
 static uint16_t *JP, *JQ; static uint8_t *isp;      /* index (n - X0) >> 1, n odd */
-static uint32_t *pr; static long npr;
+static uint32_t *pr; static long npr; static u64 PMAXG;
 static inline void inc(uint16_t *J, u64 n){ u64 i = (n - X0) >> 1; if((ALL || isp[i]) && J[i] != 65535) J[i]++; }
 static void primes_upto(u64 B){ uint8_t *s = calloc(B + 1, 1); pr = malloc(sizeof(uint32_t) * (B / 2 + 10)); npr = 0;
   for(u64 i = 2; i <= B; i++){ if(s[i]) continue; pr[npr++] = (uint32_t)i; for(u64 j = i * i; j <= B; j += i) s[j] = 1; } free(s); }
@@ -87,7 +87,7 @@ static void sweepQ(void){
     if(dlo > dhi) continue;
     u64 mmax = 4 * a * a * dhi + 1, P = isqrt64(mmax); long np = 0;
     while(np < npr && pr[np] <= P) np++;
-    if(np == npr && (u64)pr[npr - 1] < P){ fprintf(stderr, "prime table too small\n"); exit(3); }
+    if(P > PMAXG){ fprintf(stderr, "prime table too small\n"); exit(3); }   /* all primes <= PMAXG are in pr[] */
     u64 a2 = (4 * a * a);
     int shortrow = getenv("ZL_SHORT") && (double)(dhi - dlo + 1) * atof(getenv("ZL_SHORT")) < (double)np;
     if(!shortrow)
@@ -134,7 +134,7 @@ int main(int argc, char **argv){
   u64 M = (X1 - X0 + 1) / 2 + 1;
   JP = calloc(M, 2); JQ = calloc(M, 2); isp = malloc(M);
   u64 Pmax = isqrt64((A > 1 ? A : 1) * (2 * X1 + 2) + 1) + 2; if(Pmax < isqrt64(X1) + 2) Pmax = isqrt64(X1) + 2;
-  primes_upto(Pmax);
+  primes_upto(Pmax); PMAXG = Pmax;
   for(u64 i = 0; i < M; i++) isp[i] = 1;              /* odd n in [X0, X1): sieve */
   for(long i = 1; i < npr && (u64)pr[i] * pr[i] < X1; i++){ u64 p = pr[i];
     u64 s = ((X0 + p - 1) / p) * p; if(s < p * p) s = p * p; if(!(s & 1)) s += p;
