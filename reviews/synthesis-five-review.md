@@ -10,7 +10,7 @@ s5_reciprocity_forcing (D10, D11), s5_cm_frobenius (D12), s5_sterile_uniform (D1
 DISCOVERIES/AGENT_REPORT not edited (parent's ledger; AGENT_REPORT SHARP 2 and the Prop R example list need the same
 wording when the parent writes the (J) entry).
 
-**Overall: no FATAL. 6 MAJOR (D4, D5, D10, D14, D15, D18), the rest MINOR.** Every number in the synthesis was
+**Overall: no FATAL. 6 MAJOR (D4, D5, D10, D14, D15, D18), D6 borderline, the rest MINOR.** Every number in the synthesis was
 reproduced exactly with independent code; the defects are in interpretation, scope and labels. ES is not solved.
 
 ## Summary verdicts
