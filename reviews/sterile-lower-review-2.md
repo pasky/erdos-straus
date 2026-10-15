@@ -120,7 +120,7 @@ All runs pass for every r-cell up to 2^800 except the control (cube tables do *n
 The author's terms at b = 30.34375 (their code): Q₁ 0.45431, P₁ 0.03460, P₃ 0.00526, P₅ 7·10⁻⁵ → 0.49425 ✓.
 So both statements of Thm 2.1 are independently confirmed; moreover, with my (≈ 5 % tighter) level-1 tables the se_box-only
 bound r ≥ 2^{30.34375} holds even with SE's original, already-reviewed tail, i.e. without Lemma 1.2. (The SE-tail contribution
-is not monotone in b: it is large when the first tail K lands just above 2^600 — e.g. 0.12 for K = 19 at b ≈ 31.6 — which is
-why the scan over all b matters; my scan covers all b.)
+is not monotone in b: it peaks when the first tail K lands just above 2^600 — K = 19 at b = 31.5625..31.59375 contributes
+0.037–0.038 with 1/32 r-cells, vs 0.018 (K = 21) at b = 30.34375 — which is why the scan over all b matters; mine covers all b.)
 Not re-checked independently: `P_q1_hi.txt` rows 600..799 (se_box with box ratio 2^{9..12} at N ~ 2^{600..800}; my engine has
 λ = 2 only, infeasible there). They are used only for K·b ∈ [600, 800) in the zl-tail runs; the se-tail runs do not use them.
