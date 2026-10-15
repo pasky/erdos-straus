@@ -1,6 +1,6 @@
 # STERILE_LOWER — lowering the explicit r₀ of STERILE_EXPLICIT, and the r = 17 line (O228, wave Z-d2)
 
-Status: in progress (O228). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
+Status: checkpoint 1 (O228): Thm 2.1 (r₀ = 2^{30.15625}, certified) + Lemma 3.1 (joint level-1 parametrisation) + Comp. 4.1; not yet reviewed. **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
 Builds on STERILE_EXPLICIT.md (= SE; Thm 3.4, r₀ = 2³²), its reviews R222/R223, POINTWISE_MORDELL17*.md (= M17, M17B–D),
 FF_STERILE_PUSH.md / FF_STERILE_SMALL.md (division routes). Scripts `scripts/zl_*`, data `data/zl/`.
 
@@ -134,3 +134,15 @@ U ≥ 1 gives 1 ≤ cq²a/b + rz²/b ≤ 2q²a/e + (qa − pb)²/(Nb) ≤ 2q²a/
 (Check: u = 11/9 ∈ C₇ at level 2 via (1, 78, 1, 16): z = 3, G = 124, U = 3, V = 9591, UV = 28773 = 9801 + 124·17·9.)
 Outcome for goal (2): **undecided** (no sterile point proved, no covering found); M17D's Conjecture 4.2 and conditional
 Theorem 4.1 stand unchanged.
+
+## 5. Sparks (not pursued here)
+
+1. **Run §3** (SHARP 1): a C sweep of Lemma 3.1 over dyadic ranges [2^{22}, 2^{30.16}], recording max over primes r of
+   (D_P(r) + D_Q(r))/r per 1/32-octave, plus the existing tables for K, k ≥ 3 → expected r₀ ≈ 2^{22.5}. For Q the only
+   non-trivial part is listing divisors of 4a²d + 1 for ad ≤ X (sieve in d for a ≤ X^{1/2}; for a > X^{1/2} use cd < X^{1/2}
+   and enumerate via (c, d) instead).
+2. Then the binding term is P at K = 3 (N = r³): the same joint idea for level 2 (all N = r³ with r in a range are sparse, so
+   Lemma 3.1(i) applies with N restricted to cubes: count triples (a, c, d) with r³ ≡ −4a²d (mod 4acd − 1) — a cubic-residue
+   condition; cost per r is no longer polylog). Pushing below 2^{22} needs a better K = 3 bound or this.
+3. Lemma 4.3 for a fixed rational u: U is a small positive integer (U ≤ 2q²a/e + 1/2), so covering data of u come in
+   families indexed by U; a descent U ↦ U' (Vieta on Ga − cp²) preserving "W is a power of r" would prove sterility. None found.
