@@ -106,3 +106,25 @@ pr
 p
 pr
 
+...
+[p. 6]
+If (E, 𝜓) is a supersingular (𝑑, 𝜖)-structure and 𝜇 is the associated endomorphism, then
+p
+𝜄 𝜓 : Q( −𝑑𝑝) −→ End0 (E)
+p
+−𝑑𝑝 ↦−→ 𝜇
+p
+is a Z[ −𝑑𝑝]-orientation by Proposition 2. We call this the natural orientation.
+
+p
+Lemma 1. If E/F 𝑝2 is a supersingular elliptic curve with #E (F 𝑝2 ) = ( 𝑝 + 𝜖) 2 and 𝜄 is a Z[ −𝑑𝑝]-orientation on
+E, then 𝜄 is the natural orientation for some (𝑑, 𝜖)-structure (E, 𝜓).
+p
+Proof. Let 𝜇 := 𝜄( −𝑑𝑝) in End(E). We have deg(𝜇) = 𝑑𝑝 and 𝑝 ∤ 𝑑, so 𝜇 factors over F 𝑝2 into the composition of
+a 𝑑-isogeny and a 𝑝-isogeny. Since E is supersingular, the 𝑝-isogeny is isomorphic to 𝜋 𝑝 , and so 𝜇 = 𝜋 𝑝 𝜓 for some
+b = 𝜖𝜓 ( 𝑝) . Now [−𝑑𝑝] = 𝜇2 = 𝜋 𝑝 𝜓𝜋 𝑝 𝜓 = 𝜓 ( 𝑝) 𝜋 2𝑝 𝜓 = 𝜓 ( 𝑝) 𝜓𝜋 2𝑝 ,
+𝑑-isogeny 𝜓 : E → E ( 𝑝) . It remains to show that 𝜓
+2
+b = 𝜖𝜓 ( 𝑝) . 
+and 𝜋 𝑝 = [−𝜖 𝑝] because E is supersingular with #E (F 𝑝2 ) = ( 𝑝+𝜖) 2 , so [𝑑] = 𝜖𝜓 ( 𝑝) 𝜓, and therefore 𝜓
+Lemma 2. Let (E, 𝜓) and (E ′, 𝜓 ′ ) be (𝑑, 𝜖)-structures with natural orientations 𝜄 𝜓 and 𝜄 𝜓′ , respectively. If
