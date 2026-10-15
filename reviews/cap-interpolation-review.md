@@ -22,7 +22,8 @@ From-scratch scripts: `scripts/review_r237_*.py`; outputs `data/r237/`. Author s
 | Thm 4.2(a) (GRH, e*(p) ≤ C_ε(log p)^{2+ε}) | SOUND-AFTER-REPAIRS: re-derived; CONDITIONAL is the right label once the Lagarias–Odlyzko error term and the disjointness are written out (D6); no downgrade to Assessment needed |
 | Thm 4.2(b) (GRH, exp(O(√(log₂p log₃p)))) | SOUND-AFTER-REPAIRS (parameters re-checked; relies on PHASE_DIAGRAM Thm 5.1 Steps 2–4 incl. the R209/R210 negative-exponent shift, which must be cited explicitly, D6) |
 | KARY3 consistency | SOUND (no contradiction) |
-| (further claims) | see below (to be filled) |
+| PM-SQ_± to 10⁷ (records 19 → 41) | CONFIRMED independently (identical histogram) |
+| Thm 4.2(a) numerics (r ≤ 251 below 10⁶) | CONFIRMED independently |
 
 ## Claim-by-claim
 
@@ -136,6 +137,16 @@ e ≥ 1, 𝒟_e(M) ⊋ ℛ(M) (the even-excess exponents certify only the relaxa
 statement about a weaker problem; at e = 1 it ties 3/4; at e = 0 it is 2/3 < 3/4. No contradiction ✓. The (e+3)/(e+4)
 rows are correctly labelled Assessment.
 
+### Numerics rechecked from scratch
+* PM-SQ_± (`scripts/review_r237_pmsq.py`, own SPF sieve + Legendre via Euler, every hit converted to the explicit word
+  (t, u, v), A = ±ℓ, with tuv − u − v = n and Jacobi(−A, n) = −1 asserted): to 10⁶ max least |u| = 19, first at
+  **n = 33 201, word (8, 19, 220), A = 151** (two n with 19); to 10⁷: **1 248 419 non-squares, 0 exceptions, histogram
+  identical to the author's bin by bin, record 41 at n = 8 452 161, word (4, 41, 51 854), A = 163**; intermediate records
+  24 (n = 1 779 145), 27 (n = 3 142 825); 1580 odd squares 9 ≤ n ≤ 10⁷ never fire (T1) (`data/r237/pmsq_1e6.txt`,
+  `pmsq_1e7.txt`). Label EVIDENCE correct.
+* Thm 4.2(a) prime (`scripts/review_r237_grh_r.py 1000000`): all 39 175 primes p ≡ 1 (4) < 10⁶: max least r = 251
+  (p = 172 573) — matches; 40 sampled solutions D = 9^a verified exactly (den z a power of 9, 3 | y).
+
 ### Thm 3.1 — the inequality is correct for V < ℓ/4; the "any cap, e = ∞ included" reading is FALSE (D1)
 See D1.
 
@@ -154,15 +165,16 @@ prime-modulus large sieve** — a power saving. Numerically ω(ℓ) = (ℓ−1)/
 (`scripts/review_r237_fullfamily.py 300000`, `data/r237/fullfamily.txt`; exact solution with D = 729 > ℓ = 11:
 p = 43, (x, y, z) = (78, 129, 1118/81)). The same mechanism (classes −4·9^j, j ≤ e, distinct once ord_ℓ(9) > e)
 gives ω(ℓ) ≥ e + 1 at almost all ℓ ≡ 11 (12) ≥ e³, and with q = products of k ≍ log N/(2 log e³) such primes,
-log(S/k) ≍ log(e/log N): a power saving for every **e ≥ (log N)^{1+ε}**. So "no cap — not even e = ∞ — gives a power
+log(S/k) ≍ log(e/log N): a power saving for every **e ≥ (log N)^{1+ε}** (reviewer sketch: S ≍ e/log e from ℓ ∈ (e³, 2e³],
+k ≍ log N/(6 log e), log L ≥ k log(S/k) − 1 ≍ ε log N/(6(1+ε))). So "no cap — not even e = ∞ — gives a power
 saving", "the knob saturates at e ≍ log log N" and "matching Rankin ceiling at every cap (even e = ∞)" are false for
 the architecture as defined by Prop 1.3/5.1.
 *What survives:* Thm 3.1 is a correct bound for sieves using only classes with D < ℓ/4 (the truncation Thm 2.1 uses,
 D ≤ X^{1/5}). Whether the ceiling log N/(λ log λ) holds for the full 𝒟_e(ℓ) when e ≤ C log log N (or up to log N) is
 OPEN — it is plausible for e ≤ c log ℓ / log 9 at the relevant ℓ, since then D < ℓ automatically for one-prime powers,
 but products of several s^{2σ+2e} need not be < ℓ.
-*Repair:* restate Thm 3.1 for the truncated family ("classes −4D with D < ℓ/4", or more generally D ≤ ℓ^{O(1)}?—only
-D < ℓ/4 is proved); delete "at ANY cap", "e = ∞ included", "the largest class family of this architecture" and the
+*Repair:* restate Thm 3.1 for the truncated family (classes −4D with D ∈ 𝒟_∞(ℓ), D < ℓ/4 — that is what the proof
+uses, via ℓ > 4V ≥ q_τ); delete "at ANY cap", "e = ∞ included", "the largest class family of this architecture" and the
 B6-moral "not even for a true statement" (the opposite is true: at e = ∞ the large sieve does give a power saving, just
 not "all p ≥ p₀" — the large sieve can never give that, which is the trivial part of B6); replace "saturates at
 e ≍ log log N" by "saturates at e ≍ log log N *within the truncated family*"; add the full-family power saving at
