@@ -169,3 +169,25 @@ finite R suffices, and r must grow with m (B6 at a single m).
   single-level forcing decides. I found no mechanism that uses the difference p − m² = k beyond the genus layer: the
   near-square input (known signs (r/p) = (k/r) for r | m, and F_K = ℚ(√−(k + u)) for every u) is all *genus* information,
   and §4.2 shows genus information alone forces only boundary words.
+
+## 5. CONJECTURE Y10-S "⊆" (goal 3): tools and an inconclusive first test
+
+**5.1 The Type I (1,0,1), Λ = 1 families form a 3-parameter set (PROVED, direct expansion).** For n = m² − j and rational
+(x, α, λ) with c := −α·n(x) > 0, λ > 0 and κ := α/λ + λn(x)/α − 2x > 0, put
+  a = λ(m − x) + α,  d = (m − x)/(4cλ) − 1/(4α²),  f = 4acd − n = κ(m − x),  b = (na + c)/f,  e = (4a²d + 1)/f.
+Then f divides na + c and 4a²d + 1 in ℚ[m] (both vanish at m = x: n(x)α = −c and 4α²·(−1/(4α²)) = −1), so this is a
+Type I polynomial family wherever it is integral; witness D = d, α_K = d(√j) = (√j − x)/(4cλ) − 1/(4α²). (Identities
+re-checked numerically in `scripts/z2_split_cover.py`.) Every (1,0,1) Λ = 1 family is of this form (x = root of f,
+α = a(x)); the (0,1,1) shape has an analogous parametrisation.
+**5.2 Where "⊆" is hard.** At an inert prime ℓ of K = ℚ(√j), m ∉ Z_K⁺ at ℓ means n(m) is a non-residue mod ℓ — the Mordell
+setting. For ℓ ≤ 13 classical congruence families cover these classes, but for primes ℓ ≥ 2³² there are sterile
+r-generic Mordell points ((J)54): no finite set of congruence families covers all n that are non-residues at ℓ and
+residues below ℓ. So "⊆" at large inert ℓ requires *polynomial families in m* to cover classes that no congruence
+family in n covers — a genuinely new B1-escape claim; Y10-S is better restricted for now to split and ramified ℓ, where
+the j = 8 evidence lives (7-adic: m ≡ 4 (7) is covered only by escaping families).
+**5.3 First test at the split prime ℓ = 17 (j = 8; inconclusive).** `z2_split_cover.py 8 17 200000 1` searches the
+5.1 families with {2, 3, 7, 17}-smooth parameters (200 000 parameter triples, |x| ≤ 12): only 12 are valid with
+denominators dividing 8·2856, and none covers any of the 15 target classes (m ∈ Z_K⁺ at 2, 3, 7; all residues mod 17).
+So the shape-(1,0,1) grid is far too thin to probe 17-adic coverage; a test needs a search organised by target class
+(e.g. interpolate families through actual Type I solutions of primes in the target class — note that through a given
+solution only finitely many 5.1-families pass, by a degree count in x). NOT DONE.
