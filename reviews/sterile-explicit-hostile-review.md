@@ -1,7 +1,9 @@
 # R222 — hostile review #1 of O219 (STERILE_EXPLICIT.md)
 
 Reviewer: R222 side agent (worktree branch side-agent/review-sterile-explicit, merged side-agent/sterile-explicit at d539a4a2).
-Status: round 1 complete. Scripts: `scripts/review_se_*` (from scratch; none of the author's code is imported).
+Status: round 1 complete.
+**Repairs applied** (author quiet ≥ 2 h): m1–m8 applied directly to STERILE_EXPLICIT.md (marked "(R222 repair mN)"; §5 moved after §3.4)
+and m4/m6/m7 to AGENT_REPORT_O219.md. No mathematical content or certified number changed. Scripts: `scripts/review_se_*` (from scratch; none of the author's code is imported).
 
 ## Summary verdicts
 | claim | verdict |

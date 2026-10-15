@@ -1,15 +1,16 @@
 # STERILE_EXPLICIT — the function-field class-divisor machinery over ℤ: explicit sterile Mordell points (O219, spark relay Y9)
 
-Status: checkpoint 2 (O219): Theorem 3.4 (explicit r₀ = 2³²) certified; self-review `reviews/sterile-explicit-review.md` (no FATAL; M1, M2, m1–m3 repaired); awaiting parent review. **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
+Status: checkpoint 2 (O219): Theorem 3.4 (explicit r₀ = 2³²) certified; self-review `reviews/sterile-explicit-review.md` (no FATAL; M1, M2, m1–m3 repaired); hostile review R222 (`reviews/sterile-explicit-hostile-review.md`): no FATAL/MAJOR, Theorem 3.4 SOUND; minors m1–m8 applied as (R222 repair). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
 Builds on DEPTH_ASPECT.md §3 ((J)26 Thm 3.1, reviews R178/R187), FF_STERILE_PUSH.md (O216, Lemmas 1.1–1.6, 2.1),
 POINTWISE_MORDELL17*.md (= M17, M17B, M17C, M17D), STERILE_STEER.md. Scripts `scripts/se_*`.
 
 ## 0. Iteration log
 
-* (I1) Dictionary. O216's Case B tuples (m', g', w, C, v) with m'wC = T^s + v, w + C = g'v are *literally* the ℤ
-  P-data of M17 (N-points of Σ^II_N, N = r^K): 4d·a·b = N + e, a + b = c·e. So (m', g', w, C, v) ↔ (4d, c, a, b, e),
+* (I1) Dictionary. O216's Case B tuples (m', g', w, C, v) with m'wC = T^s + v, w + C = g'v satisfy *literally the defining
+  equations* of the ℤ P-data of M17 ((R222 repair m7) the side conditions differ: (B) has T ∥ w, T ∥ C, T² | v — the centre-1
+  regime — while in-cell ℤ data have r ∤ abcde; so identities and routes transfer, counted sets and box geometry do not) (N-points of Σ^II_N, N = r^K): 4d·a·b = N + e, a + b = c·e. So (m', g', w, C, v) ↔ (4d, c, a, b, e),
   E = L'w − 1 ↔ f = 4acd − 1, Lemma 1.1(i) Ev = T^s + m'w² ↔ ef = N + 4a²d (ET (2.19)), and the FF degree identity
-  y + t = max(a, b) ↔ the size relation ce = a + b ∈ (b, 2b]. Every FF route has a ℤ twin (§1, Table 1.2).
+  y + t = max(a, b) ↔ the size relation ce = a + b ∈ (b, 2b]. Every FF route has a ℤ twin (§2, Table 2) (R222 repair m4: was "Table 1.2").
 * (I2) Continuum steering (`scripts/se_rate.py`, EVIDENCE/Assessment). With sizes a = N^α, c = N^γ, d = N^δ, e = N^ε
   (α + γ + δ + ε = 1 up to O(1/log N), 2α + δ ≤ 1), and a divisor loss τ(m) ≤ C(η)m^η charged where no class
   bound applies, the best route exponent θ*(η) = max_pattern min_route is 0.400 (η = 0), 0.417 (0.1), 0.467 (0.2),
@@ -22,8 +23,8 @@ POINTWISE_MORDELL17*.md (= M17, M17B, M17C, M17D), STERILE_STEER.md. Scripts `sc
   subintervals. Coppersmith's lattice works in each subinterval once modulus × (number of pieces) exceeds the threshold,
   so the count of divisors of size n^β in a class mod n^ρ is ≤ n^{max(0, β(1−β)−ρ)+o(1)} (Lemma 1.3 below, elementary;
   "Coppersmith interpolation"). With it (`scripts/se_rate2.py`, `se_rate2_subsets.py`; grid EVIDENCE):
-  **θ* = 2/5 exactly — ET's exponent — using no divisor bound at all except one: τ₃(N + e) ≤ C₃(η)N^η for single
-  integers N + e, tolerated up to η = 0.3** (θ* = 0.400, 0.417, 0.450, 0.500 at η = 0.3, 0.35, 0.4, 0.5).
+  **θ* = 2/5 exactly (grid EVIDENCE) — ET's exponent — using no τ-type divisor bound except τ₃(N + e) ≤ C₃(η)N^η for single
+  integers N + e, tolerated up to η = 0.3, and 2^{ω(e)} ≤ N^{o(1)} in route G** (R222 repair m6) (θ* = 0.400, 0.417, 0.450, 0.500 at η = 0.3, 0.35, 0.4, 0.5).
   Five class routes + the τ₃ route suffice (dropping any one raises θ* to ≥ 0.425). The only τ-dependent corner is
   e = N^{o(1)}, a ≈ b ≈ d ≈ N^{1/3}: literally the balanced triple factorisations of the integers (N + e)/4.
 
@@ -65,7 +66,8 @@ LLL, as we count and do not search.)
 
 **Corollary 1.4 (Coppersmith interpolation; PROVED).** Under the hypotheses of Lemma 1.3 except (Cop), for every integer
 J ≥ 1 the number of such divisors is at most J·(w − 1) as soon as (Cop) holds with X replaced by X_J := (D₁ − D₀)/(2sJ) + 1/2.
-Asymptotically (n → ∞, D₀ = n^β, s = n^ρ, D₁ = 2D₀) this gives **≤ n^{max(0, β(1−β) − ρ) + o(1)}**: a class-divisor bound
+Asymptotically (n → ∞, fixed 0 < β < 1 and ρ ≥ 0, D₀ = n^β, s = n^ρ, D₁ = 2D₀; if β − ρ − j ≤ 0 the trivial bound is used)
+(R222 repair m5; the size-restricted lattice is that of Coppersmith–Howgrave-Graham–Nagaraj, Math. Comp. 2008) this gives **≤ n^{max(0, β(1−β) − ρ) + o(1)}**: a class-divisor bound
 with no divisor-function loss that interpolates between the trivial bound (window/s + 1) and the Coppersmith range
 ρ > β(1 − β) (O216 Lemma 1.5's ℤ form; for ρ ≤ 1/4 it is new to the campaign, and it is what removes the binding corner
 of (I2)).
@@ -97,13 +99,14 @@ Units: the classes −1 (mod 4ad), (4cd), (4ac) and −a (mod e) are units (Lemm
 route F is (N+e)/(4a)·(−a)^{−1} mod e, a unit. *Proof:* each row's data and the displayed divisibility determine the
 datum (Lemma 1.1); the pair counts are Σ_a #{e ∈ (E₀, E₁] : e ≡ −N (mod 4a)} ≤ Σ_a ((E₁ − E₀)/(4a) + 1). ∎
 
-**Proposition 2.1 (continuum exponent; Assessment from a grid, EVIDENCE — to be replaced by the certificate of §3).**
+**Proposition 2.1 (continuum exponent; Assessment from a grid, EVIDENCE; reproduced from scratch by R222, `scripts/review_se_rate.py`.
+(R222 repair m4: the §3 certificate does not replace it — it proves tail exponent ≤ 0.4797, not 2/5.))**
 In normalised sizes (α, γ, δ, ε) the minimum over the routes of Table 2 is ≤ 2/5 everywhere when τ₃(m) ≤ C₃(η)m^η is
 used with η ≤ 0.3, and equals 2/5 at ET's point (1/5, 1/5, 1/5, 2/5). For Q-data (Type I N-points of 4/r^k, weight r^{−k})
-the analogous routes give 0.65 (grid; `/tmp`-prototype, to be committed), margin ≈ 1/3, with no divisor bound at all.
+the analogous routes give 0.65 (grid; `scripts/se_rateQ.py`), margin ≈ 1/3, with no divisor bound at all.
 *Prototype (non-rigorous floating point, `scripts/se_proto.py`):* the box sum bound for D_P(N) is 48, 7.6·10³, 3.8·10⁵,
 1.2·10⁷, 2.5·10⁸ at N = 17, 17³, 17⁵, 17⁷, 17⁹ (true: 2, 32, 121, 258, 604) and 2.2·10¹⁰, 3.8·10¹² at N = 10¹⁵, 10²⁰;
-bound/√N peaks ≈ 7·10² near N ≈ 10¹⁵ and then decays (local exponent 0.45 between 10¹⁵ and 10²⁰). Since each P-box of
+bound/√N peaks ≈ 7·10² near N ≈ 10¹⁵ (certified engine, P_q4.txt: 931 at N ≈ 2^{38.75}; R222) and then decays (local exponent 0.45 between 10¹⁵ and 10²⁰). Since each P-box of
 level (K+1)/2 weighs N^{−1/2}r^{−1/2}, this predicts an explicit r₀ around 10⁸–10⁹ once certified (§3).
 
 ## 3. The certificate: an explicit r₀
@@ -117,7 +120,8 @@ some non-residue u is in no box, x(u) is sterile, and (M17 Cor 4.2 with 17 ↦ r
 all sufficiently large primes whose least quadratic non-residue is r**. Here D_Q(F) = #{N-points of Σ^I_F, a ≤ b, r ∤ abcde}
 and D_P(N) as in §1 (in-cell data are primitive; M17 §6, Lemma 5.1).
 
-**3.2 Explicit tables (`scripts/se_box.c`; CERTIFIED by fail-closed outward-rounded computation).** For every odd N in a
+**3.2 Explicit tables (`scripts/se_box.c`; CERTIFIED by fail-closed outward-rounded computation).** For every N = r^K
+(r an odd prime; in-cell, r-free data — the unit-class routes need Lemma 1.1(iv); R222 repair m1: was "every odd N") in a
 range [2^{j/q}, 2^{(j+1)/q}), se_box bounds D_P(N) (mode P) and D_Q(N) (mode Q) by a sum over boxes of ratio 2^t of the minimum
 of the route bounds of Table 2 (P) resp. Table 3.2Q (below), with cop() = min(trivial, Cor 1.4 with (Cop) re-verified for the
 chosen J, explicit τ(n) ≤ C₂(η)n^η), plus *row aggregation*: for a whole row of boxes with the same (a, d) (P) resp. (c, d) (Q)
@@ -135,25 +139,21 @@ square-root classes for a.
 condition is linear in L = ln N: slope ≤ 0 and value < 0 at ln N₀ are checked). P (M = 32, N₀ = 2^{600}, routes H, A, C, D,
 E, F, G, τ₃ (η = 0.3), I; 2^{ω(e)} ≤ C_ω(0.1)e^{0.1}): every chosen term has e ≤ 0.4797 < 1/2 and is decreasing relative to
 √N for N ≥ N₀. Q (M = 16, N₀ = 2^{100}, routes AD, AC, CD, fac, fca): every term has e ≤ 0.7500001 < 1, decreasing relative to N.
+*Validity of the term lists (R222 repair m2).* Windows: b ∈ [¼N^{1−x_a′−x_d′}, ½N^{1−x_a−x_d}], e ≥ ¼N^{1−s₃′}, f ∈ [3N^{s₃}, 4N^{s₃′}]
+(primes: capped upper exponents); integers factored: ≤ 3N (C), 5N^{1+2x_c′+x_d′} (D), 2N^{1+x_c′} (E), ½N^{1−x_a} (F), ½N^{1−x_d} (G),
+5F² (Q-CD, c²d ≤ (cd)² ≤ F²), and for Q-AC aF + c ≤ 1.51N^{2−x_c−x_d} ≤ N^{2+u−x_c−x_d} (c ≤ F/d, N^u ≥ 2^{6.25}); Σ1/a ≤ 1 + u ln N ≤
+(1/L₀ + u) ln N. Coppersmith: (Cop) at J = ⌈N^κ⌉ reads ln(window/s) − κL + g(L)/(w(w−1)/2) < 0 with g linear in L; κ ≥ k₁ makes the
+slope ≤ 0 and κ > k₂ the value at L₀ negative, so X_J < (X_max + 1)/2 < X_max for all N ≥ N₀ and the count is ≤ (w − 1)(N^κ + 1).
 
-## 5. Feedback to F_q[T] (O216's open q = 27; EVIDENCE, grid steering only)
-
-Two ℤ ingredients have F_q[T] twins that O216 did not use. (i) Coppersmith interpolation: fixing the top j coefficients of
-the unknown x in E = σ₀ + xQ splits the class into q^j sub-classes, each above the O216 Lemma 1.5 threshold once
-ρ + j > d(n − d)/n, so the class count is ≤ q^{(d(n−d)/n − ρ)⁺ + o(s)}. (ii) Divisibility-averaged pairs:
-#{(v₁, w₁) : w₁ ∣ T^{s−2} + v₁} ≤ q^{max(deg v₁, deg w₁)} (v₁ is fixed mod w₁), not q^{deg v₁ + deg w₁} — the twin of
-Σ_a (E/(4a) + 1) in route F. Adding both to O216's continuum optimiser (`scripts/se_ff_rate.py`, grid 60):
-max_p min_route − 1/2 = **0.000 (q = 3), 0.000 (q = 9), −0.083 (q = 27)**, against +0.167, +0.096, 0.000 in O216 §3.
-So at the exponent level the union bound now *closes q = 27* (O216's r = 3 gap), and q = 3, 9 sit exactly on the
-square-root line at the thirds corner (1/3, 1/3, 1/3, 0) (deg v₁ = o(s)), where O216's cyclotomic family shows the true
-count is exp(Ω(s/log s)) — so q = 3, 9 need a sub-exponential refinement there. Not certified (needs an fs_tail-type
-rigorous version with the FF Lemma 1.5 split); flagged as a spark.
 **3.4 Theorem (explicit r₀; PROVED, computer-assisted, relative to the same inputs as (J)26 Thm 3.1 minus Browning–Elsholtz
 and minus ET's non-explicit divisor bound: M17 Lemmas 1.1, 1.3, 2.1–2.3, 5.1, 5.2, M17B Lemma 1.1, M17C Lemma 2.1(iv), M17 Cor 4.2,
 all with r-free proofs (R83, R93, R187)).** **For every prime r ≥ 2³² ≈ 4.3·10⁹, (S) holds; hence the r-generic line contains
 a sterile point x(u), u a quadratic non-residue mod r, and no finite set of ET Prop 1.9 classes covers all sufficiently large
 primes whose least quadratic non-residue is r.** The uncovered measure in the non-residue cells is ≥ (r−1)/(2r) − 0.4868 > 0.0132
-(worst at r ≈ 2³²), and → 1/2 as r → ∞.
+(worst at r ≈ 2³²), and → 1/2 as r → ∞ (by (J)26 Thm 3.1; the certificate itself only gives S(r) ≤ S(2^{600}-range) beyond 2^{600};
+R222 repair m3). (Tables CERTIFIED: `data/se/`, `MANIFEST.txt`; floating point assumes glibc x87 libm accuracy of a few ulp,
+se_box.c header; R222 repair m8.) Hostile review R222 (`reviews/sterile-explicit-hostile-review.md`): SOUND, 13 table cells and the
+combiner independently re-certified.
 *Proof (certificate).* `scripts/se_r0.py 32 600` (log `data/se/r0_certify.txt`): for every range r ∈ [2^b, 2^{b+1/4}),
 b = 32, 32.25, …, 600, it bounds each term of (S) by the certified table values (`data/se/P_q4.txt` (N ∈ [2^{31}, 2^{200}), quarter
 octaves), `P_q1.txt` (2^{200}..2^{600}, octaves), `Q_q4.txt` (2^{31}..2^{100})) taken at the worst N-cell of the range
@@ -171,3 +171,16 @@ at r = 13 *all* non-residue cells are covered at level 1 (POINTWISE_MORDELL §1)
 at r = 17 two of eight cells survive level 1, and any union bound needs a P-count with constant ≲ 2.5 at θ = 0.4 (M17D §1).
 *Note (O220 "division trick", relayed by the orchestrator):* its ℤ analogue — a divisor 4a > e-window of N + e fixes e mod 4a — is
 exactly the divisibility averaging Σ_a ((E₁ − E₀)/(4a) + 1) already used by routes A, F, G, I, J and Q's fac/fca/fda.
+
+## 5. Feedback to F_q[T] (O216's open q = 27; EVIDENCE, grid steering only)
+
+Two ℤ ingredients have F_q[T] twins that O216 did not use. (i) Coppersmith interpolation: fixing the top j coefficients of
+the unknown x in E = σ₀ + xQ splits the class into q^j sub-classes, each above the O216 Lemma 1.5 threshold once
+ρ + j > d(n − d)/n, so the class count is ≤ q^{(d(n−d)/n − ρ)⁺ + o(s)}. (ii) Divisibility-averaged pairs:
+#{(v₁, w₁) : w₁ ∣ T^{s−2} + v₁} ≤ q^{max(deg v₁, deg w₁)} (v₁ is fixed mod w₁), not q^{deg v₁ + deg w₁} — the twin of
+Σ_a (E/(4a) + 1) in route F. Adding both to O216's continuum optimiser (`scripts/se_ff_rate.py`, grid 60):
+max_p min_route − 1/2 = **0.000 (q = 3), 0.000 (q = 9), −0.083 (q = 27)**, against +0.167, +0.096, 0.000 in O216 §3.
+So at the exponent level the union bound now *closes q = 27* (O216's r = 3 gap), and q = 3, 9 sit exactly on the
+square-root line at the thirds corner (1/3, 1/3, 1/3, 0) (deg v₁ = o(s)), where O216's cyclotomic family shows the true
+count is exp(Ω(s/log s)) — so q = 3, 9 need a sub-exponential refinement there. Not certified (needs an fs_tail-type
+rigorous version with the FF Lemma 1.5 split); flagged as a spark.
