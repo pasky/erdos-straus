@@ -39,8 +39,8 @@ BRAINSTORM/z8_*.md (6, indexed in BRAINSTORM/README.md); scripts scripts/z8_*; c
 
 ## Caveats for the reviewer
 * Thm 2.2(d) is stated for u ≡ 1 (mod 4); for u ≡ 3 (mod 4) the whole c-fibre is forbidden (statement adjusted).
-* z8_adaptive.py's certificate path and z8_cert_tree.py (replay checker) are written but have not yet produced/checked a
-  terminating certificate; treat them as untested beyond syntax until the k = 105 run finishes.
+* z8_adaptive.py's certificate path and z8_cert_tree.py (replay checker) are written but never produced a terminating certificate (the k = 105 run stalled), so the
+  replay checker is untested beyond syntax.
 * Memo z8_mixed_points cites Filaseta–Finch–Kozek from memory (flagged in the memo).
 * I briefly ran 5 search processes in parallel once (house rule: ≤ 2 cores); afterwards ≤ 2.
 
