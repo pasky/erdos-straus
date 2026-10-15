@@ -42,6 +42,7 @@ for p in primerange(5, PMAX):
             e = (a + b) // c; assert c * e == a + b
             cnt[2] += 1
             if jacobi_symbol(d * e, p) != -1: bad += 1; print("TypeII fail", p, s, d, e)
+            if jacobi_symbol(4 * a * c * d - 1, p) != -1: bad += 1; print("TypeII f-witness fail", p, s)
 print("primes = 1 (4) <", PMAX, "TypeI sols", cnt[1], "TypeII sols", cnt[2], "failures", bad)
 # T1 control: odd squares n <= PMAX have no Type I / Type II solutions (ET Prop 1.6); also check the census claim
 # that every n = 1 (4) prime solution count is positive in this range.
