@@ -98,8 +98,8 @@ a, d, f with f | 4a²d + 1 and every c ≥ 1 with n := 4acd − f > 0, (a, b, c,
 (e = (4a²d + 1)/f); a ≤ b ⇔ b ≥ a; conversely every Q-datum arises so (f = 4acd − n).
 *Proof.* (i) f ∣ Nc + a since Nc + a ≡ −4a²cd + a = −af (mod f); 4abd = (4acdN + 4a²d)/f = ((f + 1)N + 4a²d)/f = N + e;
 ce = c(N + 4a²d)/f = (a(f + 1) + Nc)/f = a + b. b ≥ a ⇔ Nc + a ≥ a(4acd − 1). Converse: SE Lemma 1.1(i)–(ii).
-(ii) e·f = 4a²d + 1, and fb = na + c with na + c ≡ 4a²cd + c = c(4a²d + 1) ≡ 0 (mod f); then 4abcd = n(a + b) + c is
-f·b·4acd/f … directly: 4acd·b = (n + f)b = nb + na + c. Converse: SE §3.2 (ef = 4a²d + 1, f = 4acd − F). ∎
+(ii) e·f = 4a²d + 1, and f ∣ na + c as na + c ≡ 4a²cd + c = c(4a²d + 1) ≡ 0 (mod f); then
+4abcd = (n + f)b = nb + na + c = n(a + b) + c, and a + b = (af + na + c)/f = c(4a²d + 1)/f = ce. Converse: SE §3.2 (ef = 4a²d + 1, f = 4acd − F). ∎
 *Check (EVIDENCE):* `scripts/zl_joint_check.py X` counts P- and Q-data of every n ∈ [X, 2X) both ways (joint loops over
 (a, c, d) resp. (a, d, f, c) vs. R223's per-n enumerators): X = 300 and X = 1000, **0 mismatches** (3301 + 4909 resp.
 17328 + 25674 data).
@@ -120,12 +120,12 @@ dichotomy "r ≤ 13: finite ET covering at level 1; r ≥ 17: level 1 leaves roo
 not sufficient, for sterility: deeper levels are controlled by (S) only for r ≥ 2^{30.16} (Thm 2.1).
 
 **Assessment 4.2 (r = 17 is out of reach of every box-sum certificate).** M17D §1 needs D_P(17^K) ≤ 2.5·17^{0.4K} from K = 15
-(N ≈ 2^{61}) with no log loss; SE's engine gives D_P(N) ≈ 600√N there (G = bound/√N ≈ 600 for N ∈ [2^{40}, 2^{100}], < 1 only
-beyond 2^{170}, 7·10⁻¹¹ at 2^{600}). With weights 17^{−(K+1)/2} this is Σ_K 2G/√17 ≫ 1: off by ≈ 10⁴, and the true counts are
+(N ≈ 2^{61}) with no log loss; SE's engine gives D_P(N) ≈ 550√N there (G = bound/√N ≈ 930 at 2^{39}, 550 at 2^{61}, 100 at 2^{91}, < 1 only
+from ≈ 2^{159} on, 7·10⁻¹¹ at 2^{600}; `data/se/P_q4.txt`). With weights 17^{−(K+1)/2} this is Σ_K 2G/√17 ≫ 1: off by ≈ 10⁴, and the true counts are
 ≈ 10⁻⁶ of the bound. Pointwise (M17D §2–3): for a rational u = −p/q every covering datum satisfies, besides M17D's
 "unbalanced" constraint, the exact identity below; it restricts but does not count covering data to zero.
-**Lemma 4.3 (U–V factorisation; PROVED, elementary).** Let (a, b, c, d, e) be a P-datum of N = r^{2L−1}, W = r^L, with
-qa − pb = zW. Put G := ((p + q)² + 4rdz²)/e (an integer: M17D Remark 2.4 with 17 ↦ r), U := Ga − cp², V := Gb − cq². Then
+**Lemma 4.3 (U–V factorisation; PROVED, elementary).** Let (a, b, c, d, e) be a P-datum of N = r^{2L−1}, W = r^L, r ∤ ab, with
+qa − pb = zW (p, q, z ∈ ℤ). Put G := ((p + q)² + 4rdz²)/e (an integer: M17D Remark 2.4 with 17 ↦ r), U := Ga − cp², V := Gb − cq². Then
 Ub = cq²a + rz², Va = cp²b + rz² (so U, V > 0 are integers) and **UV = c²p²q² + G·r·z²**. In particular, if a ≤ b and
 b ≤ N/(2(|p| + q)²), then e ≤ 4q²a.
 *Proof.* Remark 2.4 reads e[c(p²b + q²a) + rz²] = ab·eG, i.e. c(p²b + q²a) + rz² = Gab; so Ub = Gab − cp²b = cq²a + rz² and
