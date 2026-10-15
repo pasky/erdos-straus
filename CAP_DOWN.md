@@ -86,8 +86,13 @@ W = 256 n₀², W^{1/4} = 4n₀^{1/2}. ∎
 *Remarks.* (1) This replaces O236's Linnik exponent 5 by 1/4 (n ≡ 1 (8)) and 1/2 (n ≡ 5 (8)); the price is
 ineffectivity (Siegel, inside Pollack's proof). O236's Thm 1.3(a)/(b) remain the effective/explicit statements.
 (2) Without the even windows of Thm 1.2, the O236 class (one class mod 8) only gives n₀^{1/2+ε} for both residues:
-the 1/4 for n ≡ 1 (8) is exactly the 2-adic repair. (3) Odd squares (Cor 1.2(c) of O236, routed through p | a with
-exclusions q ≢ −p (mod ℓ)) are not covered: the exclusions are not detector forms of bounded length. (4) Exponent 1/4
+the 1/4 for n ≡ 1 (8) is exactly the 2-adic repair. (3) *Divisor routes (after R239's simpler route for squares).* If d | n, rad(n/d) | d, then gcd(K_d, n/d) = 1
+(K_d is prime to d), so scaling a Thm-1.2 solution for d by k = n/d keeps den z, rad den z | ky, and coprimality to n:
+e*(n) ≤ e*_win(d). Hence Cor 2.1 applies with n replaced by any such non-square d (bound in terms of the squarefree
+part of d, exponent 1/4 if d ≡ 1 (8)). Odd squares n = a²: d = n/p (p | a) has squarefree part p and d ≡ p (mod 8),
+so **e*(a²) ≪_ε p^{1/4+ε} if a has a prime factor p ≡ 1 (8), and ≪_ε p^{1/2+ε} for any p | a otherwise.** Likewise
+n ≡ 5 (8) gets exponent 1/4 (in terms of the squarefree part of d) whenever some u | n with rad u | n/u, u ≡ 5 (8),
+yields d = n/u non-square. (4) Exponent 1/4
 is Burgess's barrier (the method is Burgess + Vinogradov–Linnik); GRH gives (log n)² as before.
 
 (Z7-2) Can (b) reach 1/4? Hypothesis to violate: "bad windows (n ≡ 5, q ≡ 3 (8), v₂(n+q) odd) are dead". Tried:
