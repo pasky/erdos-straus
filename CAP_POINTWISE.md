@@ -80,10 +80,13 @@ fixed class a mod 8·rad(n) (choose a mod 8; a mod rad(n) coprime to it with (a/
 kernel of n — so (q/n) = (q/n₀) = −1 and q ∤ n; in case (c): (a/p) = −1 and a ≢ 0, −p mod ℓ for ℓ | a, ℓ ≠ p, possible
 as ℓ ≥ 5). Linnik's theorem (effective; exponent 5 by Xylouris 2011) gives q*(n) ≪ (8 rad n)^5, so
 **e*(n) ≪ rad(n)^5 ≤ n^5 for every odd n > 1, with an effectively computable implied constant.**
-(c) *Under GRH* for ζ_L: Bach–Sorenson (*Math. Comp.* 65 (1996); as recalled: a prime with prescribed Frobenius and
-norm ≤ (4 log d_L + 2.5[L:ℚ] + 5)², to be checked against the paper) gives for squarefree n
-q*(n) ≤ (16 log n + 4·16 log 2 + 25)² ≤ (16 log n + 70)², so **e*(n) ≤ (16 log n + 70)² under GRH** — explicit,
-slightly sharper than CAP_INTERPOLATION Thm 4.2(a) (C_ε(log p)^{2+ε}), and with no Artin/Hooley step.
+(c) *Under GRH* for ζ_L: the least unramified prime with prescribed Frobenius is ≪ (log d_L)² (Lagarias–Montgomery–
+Odlyzko, *Invent. Math.* 54 (1979); explicit versions: Oesterlé ≤ 70(log d_L)², Bach–Sorenson *Math. Comp.* 65 (1996)
+(4 log d_L + 2.5[L:ℚ] + 5)² — both as recalled, not re-checked, papers not accessible here). For squarefree n,
+log d_L = 4 log n + 16 log 2, so **e*(n) ≪ (log n)² under GRH**, explicitly e*(n) ≤ (16 log n + 70)² with the recalled
+Bach–Sorenson constant — slightly sharper than CAP_INTERPOLATION Thm 4.2(a) (C_ε(log p)^{2+ε}), with no Artin/Hooley
+step. (Non-squarefree n: the primes q | n must be avoided; under GRH the Chebotarev count ≫ X/log X − O(√X log(d_L X))
+exceeds ω(n) ≤ log n for X ≫ (log n)²(log log n)², so e*(n) ≪ (log n·log log n)².)
 *Proof.* Thm 1.1 / Cor 1.2 with the cited bounds. ∎
 
 **Remark 1.4 (how B6 and B3 are evaded; Assessment).** B6 (averages over p say nothing at a single p) is evaded
