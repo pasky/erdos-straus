@@ -1,6 +1,7 @@
 # NORMFORM_CUBIC — the degree-3 norm-form rung of the menu ladder (task O248, spark relay Z13)
 
-Status: O248 work in progress (unreviewed). **ES is not solved here; no infinite case of ES for primes is claimed.**
+Status: O248; R259 hostile review (reviews/normform-cubic-review.md): all claims SOUND or SOUND-AFTER-REPAIRS, no FATAL/MAJOR;
+minor repairs D1–D10 applied in place, marked (R259 repair). **ES is not solved here; no infinite case of ES for primes is claimed.**
 Labels as in DISCOVERIES.md. Memos `BRAINSTORM/z20_*.md`; scripts `scripts/z20_*`.
 
 ## 0. Iteration log
@@ -36,10 +37,12 @@ degree < s); so γ + k = s, α + β + δ = k and 4A*B*D* = P*. By (F1) exactly o
 Note: positivity is used only through A + B ≠ 0 (as in the degree-2 Remark).
 
 **Theorem 1.2′ (Type I, any degree, any level; PROVED, elementary).** Let a polynomial Type I family for P be valid at all
-points of a lattice coset L ⊂ ℤ^r lying in an open cone Γ ⊂ ℝ^r (outside a bounded set). Then A, B, C, D ∈ ℚ[P].
+points of a lattice coset L ⊂ ℤ^r (R259 repair: of a full-rank sublattice) lying in an open cone Γ ⊂ ℝ^r (outside a bounded set). Then A, B, C, D ∈ ℚ[P].
 *Proof.* Positivity: the zero sets of A*, B*, C*, D*, P* on the sphere are proper algebraic subsets, so Γ ∩ S^{r−1} contains a
 non-empty open set U avoiding them; along points of L tending to infinity in a direction θ ∈ U every coordinate is
-~ |x|^{deg}·X*(θ) and is positive, as is P(x) = n, so A*, B*, C*, D*, P* > 0 on U. Hence no top-degree cancellation occurs in
+~ |x|^{deg}·X*(θ) and is positive, as is P(x) = n, so A*, B*, C*, D*, P* > 0 on U (R259 repair: validity also allows the
+sign pattern (A, B, C) < 0 < D; on U the signs are those of the top parts and constant, and (A, B, C) ↦ −(A, B, C) preserves
+the Type I identity and the conclusion, so we may assume the positive pattern). Hence no top-degree cancellation occurs in
 A + B or in P(A + B) + C. Put μ = max(α, β): deg(A + B) = μ, s = max(μ + k, γ).
 (a) γ > μ + k: s = γ forces α = β = δ = 0, then C(4ABD − 1) = P(A + B) has degree k < γ, or 4ABD = 1 and P(A + B) = 0: impossible.
 (b) γ = μ + k: s = γ forces α = β = δ = 0, γ = k; 4ABD ≠ 1 and C = P(A + B)/(4ABD − 1) ∈ ℚ[P].
@@ -56,7 +59,8 @@ A + B or in P(A + B) + C. Put μ = max(α, β): deg(A + B) = μ, s = max(μ + k,
   • μ = 0: C(4ABD − 1) = P(A + B). (γ, δ) = (k, 0): C ∈ ℚ[P]; (0, k): D ∈ ℚ[P]; 0 < γ < k: 4AB·C*D* = P*(A + B) contradicts (F1).
   • 0 < μ < k: P* divides 4A*B*C*D*, all factors of degree < k: contradicts (F2).
   • μ = k, γ = δ = 0: P* | A*B*, so wlog A* = κP* (F2); then B*(4CDκ − 1) = κP*, so B* = κ'P*. Write A = κP + E_A, B = κ'P + E_B
-    with deg E_A, deg E_B < k. Coefficient of P²: 4CDκκ' = κ + κ'. The rest: P·G = C − 4CD·E_A·E_B with
+    with deg E_A, deg E_B < k. Coefficient of P²: 4CDκκ' = κ + κ' (R259 repair: a degree comparison, not a coefficient comparison — otherwise
+    (4CDκκ' − κ − κ')P² of degree 2k is the only term of degree 2k). The rest: P·G = C − 4CD·E_A·E_B with
     G := (4CDκ − 1)E_B + (4CDκ' − 1)E_A, deg G < k. If G ≠ 0 the left side has degree k + deg G ≥ k ≥ 1, so the right side is
     non-constant, deg E_A + deg E_B = k + deg G, and P*·G* = −4CD·E_A*·E_B* with deg E_A*, deg E_B* < k: contradicts (F2).
     So G = 0, E_A·E_B = 1/(4D) is a nonzero constant, E_A, E_B are constants, A, B ∈ ℚ[P]. ∎
@@ -97,25 +101,29 @@ closure of {ε^{qi + r}x₀ : i ∈ ℤ}).
 If K is a cubic field (or real quadratic), T_ε·y = {N = n} (geometrically), so F is constant on the hypersurface N = n,
 i.e. (N − n) | (F_i − F_i(x₀)) for every coordinate.
 *Proof.* 4/n has finitely many solutions (x ≤ y ≤ z: x ≤ 3n/4, then y ≤ 2xn/(4x − n), z determined), and the ET
-coordinates (or x, y, z) are determined by the solution, so each coordinate F_i takes finitely many values on the infinite
+coordinates (or x, y, z) are determined by the solution up to finitely many choices (R259 repair: a, b, c, d divide x, y or z), so each coordinate F_i takes finitely many values on the infinite
 set J of valid j; fix a value c taken on an infinite J_c ⊂ J. e(j) := F_i(ε^j x₀) − c is an exponential polynomial
 Σ_χ c_χ χ(ε)^j (expand F_i in the conjugate coordinates σ_1(x), …, σ_k(x); multiplication by ε scales σ_s by σ_s(ε)) with
 infinitely many zeros, so by Skolem–Mahler–Lech its zero set contains an infinite progression {qi + r : i ≥ 0}; i ↦ e(qi + r)
 is again an exponential polynomial and vanishes for all i ≥ 0, hence (Vandermonde) for all i ∈ ℤ. So F_i − c vanishes on
 {ε^{qi}·ε^r x₀ : i ∈ ℤ}, whose Zariski closure contains T_{ε^q}·ε^r x₀ = T_ε·ε^r x₀ (finite index does not change the
 identity component). (q, r, c depend on i; the statement is per coordinate.)
-Cubic K: T_ε ⊂ T := R¹_{K/ℚ}𝔾_m (N(ε) = ±1; replace ε by ε²). T has character module X ⊗ ℚ = (permutation module on the 3
+Cubic K: T_ε ⊂ T := R¹_{K/ℚ}𝔾_m (as N(ε) = 1). T has character module X ⊗ ℚ = (permutation module on the 3
 embeddings)/(trivial), which is ℚ-irreducible because Gal acts transitively on 3 points (C₃ or S₃); so T has no proper
 non-trivial ℚ-subtori and T_ε = T (positive-dimensional since ⟨ε⟩ is infinite). T(ℂ) ≅ {t₁t₂t₃ = 1} acts simply
 transitively on {N = n}(ℂ) = {l₁l₂l₃ = n/c}, which is irreducible. Real quadratic: T is 1-dimensional. ∎
 *(Several units.)* Infinitely many valid points in one orbit of a rank-2 unit group: Laurent's theorem (zero sets of
 exponential polynomials on ℤ^d are finite unions of cosets of subgroups; Astérisque 147–148, 1987) gives an infinite coset,
-hence an infinite-order unit, and the lemma applies. (Not needed below.)
+hence an infinite-order unit, and the lemma applies. (R259 repair: this IS needed in Cor 2.2 for totally real cubic K,
+whose norm-one unit group has rank 2: infinitely many valid points need not lie in one cyclic orbit, e.g. ε₁^j ε₂^{j²}x₀.
+Laurent's paper was not checked by the R259 reviewer; the statement for constant-coefficient exponential polynomials is the standard one.)
 
 **Corollary 2.2 (orbit-tail families collapse; PROVED).** For a cubic (or real quadratic) norm form N: if a polynomial family
-F (any of Type I, Type II, (x, y, z)) is, for infinitely many primes p, valid at infinitely many points of one unit orbit of
+F (any of Type I, Type II, (x, y, z)) is, for infinitely many primes p (R259 repair: or any infinitely many values n ≠ 0;
+primality is not used), valid at infinitely many points of one unit orbit of
 a representation of p, then every coordinate of F lies in ℚ[N] (an ET identity in n). In particular a family valid on
-L ∩ U for a cusp neighbourhood U with εU ⊂ U, ε ≡ 1 (mod M), collapses.
+L ∩ U for a cusp neighbourhood U with εU ⊂ U, ε ≡ 1 (mod M), collapses (R259 repair: provided N(ε) = 1, εL = L and N is
+unbounded on L ∩ U; e.g. U = {0 < N < 10} ∩ (ε-stable region) is ε-invariant but gives only finitely many level sets).
 *Proof.* By Lemma 2.1, F_i ≡ c_i(p) on {N = p} for infinitely many p. Then dF_i ∧ dN vanishes on a Zariski-dense set (the
 union of these hypersurfaces: on N = p, F_i − c_i(p) = (N − p)G, so dF_i = G·dN there), hence identically, so F_i and N are
 algebraically dependent (Jacobian criterion, char 0). N is non-composite: N − t = c·l₁l₂l₃ − t is irreducible over
@@ -141,7 +149,8 @@ region at all: the Type I equation factors as C·(4ABD − 1) = P·(A + B), and 
 
 **Theorem 3.1 (Type I collapse at one valid point; PROVED, elementary).** Let P ∈ ℚ[x₁,…,x_r] be prime with
 (ℚ[x]/(P))^× = ℚ^× (e.g. any homogeneous prime form: an irreducible binary form of any degree, a norm form, an irreducible
-indefinite binary quadratic). Let A, B, C, D ∈ ℚ[x] ∖ {0} satisfy 4ABCD = P(A + B) + C identically. Then either all of
+indefinite binary quadratic; R259 repair: more generally every P whose top-degree
+part P* is irreducible over ℚ, since gr(ℚ[x]/(P)) = ℚ[x]/(P*) is then a graded domain). Let A, B, C, D ∈ ℚ[x] ∖ {0} satisfy 4ABCD = P(A + B) + C identically. Then either all of
 A, B, C, D lie in ℚ[P], or (up to swapping A and B) the family is degenerate: A + B = 0, or B = b, D = −1/(4b²), C = −bP
 with A arbitrary. Degenerate families are valid nowhere (B = −A, resp. D < 0). Hence **every polynomial Type I family for P
 that is valid at one point lies in ℚ[P]**.
@@ -166,14 +175,15 @@ In all non-degenerate cases A, B, D ∈ ℚ[P], and C = P(A + B)/(4ABD − 1) �
 have B = −A or D < 0. ∎
 (The five rearrangements in (i)–(iii) are checked by sympy in scripts/z20_collapse_check.py, section "Thm 3.1".)
 
-**Corollary 3.2 (PROVED).** For every norm form N of every number field of degree ≥ 2 (and every irreducible binary form):
+**Corollary 3.2 (PROVED).** For every norm form N of every number field of degree ≥ 2 (R259 repair: the FULL norm form in
+[K:ℚ] variables, or any ℚ-irreducible form; incomplete norm forms can be powers, e.g. (x² − 2y²)² for K ⊋ ℚ(√2)) (and every irreducible binary form):
 every polynomial ET family, Type I or Type II, that is valid at a single point is an ET identity in n = N(x). No cone, no
 positivity region, no direction condition. In particular:
  (a) the cubic norm-form rung collapses completely (binary cubic forms, ternary cubic norm forms, any signature);
  (b) POINTWISE_BINARYFORM §4.3 (indefinite binary quadratics: can a family be valid on a cusp?) is settled for polynomial
  ET families: a cusp-valid family is an ET identity in n (Type I by Thm 3.1, Type II by SYNTHESIS_SPARKS7 Thm 1.1), i.e.
  nothing beyond rung 0; the same for §2's power-cusp shells;
- (c) Thm 1.2′ (cones) is subsumed for homogeneous prime P; Lemma 2.1 remains the tool for families given only by
+ (c) Thm 1.2′ (cones) is subsumed for homogeneous prime P (R259 repair: and for every P with irreducible top part, see Thm 3.1); Lemma 2.1 remains the tool for families given only by
  (x, y, z) ∈ ℚ[x]³ (whose ET coordinates need not be polynomial).
 
 **Remark 3.3 (the dictionary: Type I families ↔ units of ℚ[x]/(P)).** The proof shows what a non-collapsing Type I family
@@ -193,9 +203,15 @@ Mordell/Schinzel): no family of M[N] is valid on a class of x whose closure meet
 (This is a containment — the obstructed set; it is NOT claimed that all other points are covered. R-O248 self-review fix.)
 The double cover carrying the obstruction is w² = n (genus 0), not w² = N(u, v): no 2-descent on the genus-1 (binary
 cubic) cover enters, because Thm 3.1 shows ℚ[x]/(N) (no non-constant units) supports no non-collapsing valid Type I family
-(collapsing ones exist, e.g. A = B = 1, C = 2, D = (P + 1)/4). (PROVED, given Cor 3.2 and Thm A.)
+(collapsing ones exist, e.g. A = B = 1, C = 2, D = (P + 1)/4). (PROVED, given Cor 3.2 and Thm A, for the containment;
+R259 repair: the "w² = n, not w² = N(u, v) / no 2-descent enters" reading is Assessment. Thm A is stated for classes of the
+parameter, and {N(x) : x in an x-class} is not an n-class; use its pointwise form for φ linear: at a valid n ≡ 1 (8) the
+witness gives (D(n)/n) = −1 resp. (n/f) = −1, while for D = D̃/g, D̃ ∈ ℤ[n], reciprocity gives (D̃(0)/n) = (g/n) = +1
+(resp. the Type II analogue) as soon as n is a square modulo a fixed modulus depending on the family; then pick x in the class,
+close to x* at the finitely many relevant primes, with N(x) large and positive.)
 Consequence: primes p = N(x) lying in square classes mod the joint modulus are uncovered by every finite set of polynomial
 ET families for N, exactly as in one variable (each family is an ET identity in n, valid only off square classes of n).
 Whether such primes form a positive proportion of the primes represented by N is a prime-distribution question: for full
-norm forms it follows from Chebotarev/Hecke (degree-1 primes of K in a ray class); for a restricted binary form such as
+norm forms it follows from Chebotarev/Hecke (degree-1 primes of K in a ray class; R259 repair: Assessment — needs ω a ℤ-basis
+of O_K and principal degree-1 primes splitting in K(ζ_M)); for a restricted binary form such as
 Heath-Brown's x³ + 2y³ it needs a Heath-Brown-type theorem with congruence conditions — not established here.

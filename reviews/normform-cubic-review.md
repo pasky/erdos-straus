@@ -3,6 +3,8 @@
 Reviewer: R259 side agent (branch side-agent/review-normform, merged side-agent/normform-cubic at 7f070f22).
 From-scratch scripts: `scripts/review_r259_identities.py` (sympy: every rearrangement in Thms 1.1′/1.2′/3.1),
 `scripts/review_r259_search.py` (python-flint exact brute-force search for Type I/II families over 9 forms incl. controls).
+Repairs applied: author branch quiet (last commit 7f070f22), so D1–D10 were applied directly to NORMFORM_CUBIC.md,
+each marked '(R259 repair)' (memos/report untouched; D5/D9 also concern AGENT_REPORT_O248 wording — parent to forward).
 Status: round 1 complete. No FATAL or MAJOR defect; 10 MINOR defects (D1–D10), all wording/scope/argument-completion.
 
 ## Verdict table
