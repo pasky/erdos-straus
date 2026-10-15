@@ -161,3 +161,24 @@ r = 19 through 6, r = 17 through 7: the bound 3 holds at every depth ≥ 4 (it f
 number of keys per class bounded, i.e. a uniform bound for N-points of Σ^II_{r^{2L−1}} with a/b in a prescribed class modulo
 r^{L−1} — a divisor-in-class problem whose modulus is part of the solution (barrier B2), with ≈ N^{2/5}/r^{L−1} = r^{0.6−0.2L}
 points per class on average (ET exponent), so true for L ≥ 4 on average, unknown pointwise.
+
+## 5. Higher root-product laws (goal (2)): none visible
+
+OA's law E(0)^s = ±1 is a tame-symbol (Weil reciprocity) statement and constrains only the residue-field image of E; for
+k ≥ 2 that image is fixed (E(0) = −1) and the law degenerates to the parity law z ≡ t ≡ s, which Prop 1.3 turns into a
+symmetry, not a restriction. Constraints on the T-adic digits 1..N of E would have to come from wild (Artin–Schreier–Witt)
+symbols, Res(f dg/g); the residue theorem applied to g = W/C with f built from T and V reproduces Newton identities plus
+relations that involve the coefficients of v₁ (tuple-dependent unknowns), not a law for E mod T^{N+1} alone (Assessment, no
+theorem). Numerically the child digit of the 172 depth ≤ 9 balls is uniform (61/60/51 for digits 2/0/1, both parities of the
+depth), so no law of the type "digit N of a ball centre avoids a value" exists in the data.
+
+## 6. Conclusions (exact scope)
+
+PROVED: Lemma 1.1 (≤ 2 balls per key (m', g', s, a) in a parent, q odd), Lemma 1.2 (≤ 6 P-boxes per key (c, d) in a class,
+r ≤ 17), Prop 1.3 (Klein symmetry of the Case B ball set via the parity law), Prop 3.1 (route-type counts, localised or not,
+control a depth-n cylinder only from level (5 + o(1))n on), Cor 4.1 (pair-count forms of the sibling route), the consequence of
+Conjecture 4.2 (sterile r-generic points for every r ≥ 17 it holds for).
+EVIDENCE: sibling pairs are Poisson at q = 3 and r = 17; siblings never share a key; Case A breaks the inversion symmetry;
+Poisson calibration (depth ≤ 9 data weak, future triples ≲ 10⁻³); r-landscape r ≤ 61 to depth 4, r = 19, 23 to depth 6:
+max boxed children ≤ 3 from depth 4 on, for every r. CONJECTURE: 4.2 (uniform multiplicity). SD Conjecture 3.3 and
+Conjecture 0.2 remain CONJECTURES; r = 17 sterility remains open.
