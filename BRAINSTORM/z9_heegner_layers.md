@@ -11,16 +11,18 @@ the CM point. This puts CONSTRUCTIVE_ES ((J)35) and WINDMILL_REDUCTION's ℤ[√
 (a) (PROVED, algebra.) For a word w = (t, u, v) with χ = −1, inside E = E(L_w): ε = −(1 + ij) has ε² = −tp (CONSTRUCTIVE_ES Cor 3.2).
 Also j ⊥ ε (trd(εj̄) = 0), nrd j = A, and i = (1 + ε)j/A. *Check:* j⁻¹ = −j/A, so i = −(1 + ε)j⁻¹ = (1 + ε)j/A. Then
 trd(i) = 0 ⟺ trd(εj) = 0, and nrd i = (1 + tp)A/A² = A*.
-Conversely, by CONSTRUCTIVE_ES Cor 2.2(iv), the edge (E, C) is a certificate iff its Eichler order contains ε with ε² = −tp and a
-trace-zero j ⊥ ε with nrd j = A, A | tp + 1, A ≡ −1 (mod t), and (1 + ε)j ∈ A·End(E). (The level-t ring condition of (iv) is
-(1 − i)(1 − j) ∈ tEnd E, and it reduces to this.)
+Converse (review repair: the earlier "iff" dropped the level-t ring condition and was false, e.g. (t, u, v) = (3, 1, 7), p = 13,
+with i, j replaced by −i, −j): by CONSTRUCTIVE_ES Cor 2.2(iv), applied to the curve E of the edge, a certificate needs ε with
+ε² = −tp, a trace-zero j ⊥ ε with nrd j = A, A | tp + 1, A ≡ −1 (mod t), i = (1 + ε)j/A integral, **and** the level-t ring
+condition (1 − i)(1 − j) ∈ t·End E. That condition is not implied by the others. Cor 2.2(iv) is existential over curves, so
+this is a sufficient condition attached to a given edge, not an established edge-wise equivalence.
 (b) (Standard, cited: Deuring lifting; Gross 1987 §§3–4; Gross–Zagier, "On singular moduli".) Pairs ((E, C), ε) with ε ∈ End(E, C),
 ε² = −tp, are reductions of CM points of X₀(2) by orders containing ℤ[√−tp]. The weighted count over all edges equals the
 optimal-embedding count, an Eichler class-number expression ≍ h(−4tp) (up to bounded local factors at 2 and t).
 (c) (Assessment, matches WINDMILL Prop 10.3's setting.) Write E ⊃ ℤ[ε] ⊕ ℤ[ε]j as in B = K ⊕ Kj, K = ℚ(√−tp). Then the CM point
 carries an ideal class 𝔞 ∈ Cl(ℤ[√−tp]) (the class of the ℤ[ε]-module structure), and the condition in (a) reads:
 **𝔞 contains an ideal of norm A ≡ −1 (mod t) dividing tp + 1, with the complementary norm A* = (tp + 1)/A.** This is exactly the
-residue condition of WINDMILL Prop 10.3, which a class function sees only through the genus character (·/ℓ), ℓ | t.
+residue condition of WINDMILL Prop 10.3 (as a necessary condition; together with the level-t ring condition of (a) it is the certificate condition), which a class function sees only through the genus character (·/ℓ), ℓ | t.
 
 So **the global object on which a "global Fano" would have to act is, layer by layer, the set of CM points of discriminant
 −4tp on X₀(2) mod p. The condition to force is a ray-class (mod t) condition on their ideal classes.** The layer itself is
@@ -38,8 +40,8 @@ B2 exactly: the modulus t of the ray-class condition is the layer index, which i
 points of a layer are equidistributed in the genus (Duke/Iwaniec-type equidistribution of Heegner points across
 supersingular points as tp → ∞, Michel 2004), and equidistribution sees the genus shadow only. Remark 10.4: a mechanism on ray
 classes mod t would see the condition, and here the ray class is attached to a CM point on a modular curve. That is an H-A/H-D
-hatch with a concrete object: Galois action of the ring class field of conductor t over ℚ(√−p)?? *Not pursued*. In
-particular the ring class field of ℤ[t√−p] contains ℤ[√−tp] only when t is a square. T1: at m² there are no supersingular
+hatch with a concrete object: the action of Gal(ray class field mod t of ℚ(√−tp)) on the layer-t CM points (not pursued;
+the field changes with t, which is the moving-modulus problem again). T1: at m² there are no supersingular
 reductions (no B_{m²,∞}).
 
 ## Cheap numerics

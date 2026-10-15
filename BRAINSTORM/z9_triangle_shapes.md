@@ -28,5 +28,5 @@ So the triangle shape and the path shape are decoupled. Widening the target to "
 that does not certify ES.
 
 ## Assessment
-Negative. The only certificate shape is the path. Its near-orthogonal sibling is neither forced by it nor forces it.
+Negative. The only certificate shape is the path. Its near-orthogonal sibling is neither forced by it nor forces it at the level of classes (this rules out same-class conversion, not every conceivable triangle → path mechanism).
 Promise 0/5.

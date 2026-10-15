@@ -1,7 +1,7 @@
 """z9 (O233) library: canonical forms of positive ternary integer Grams, the supersingular 2-isogeny graph
 modulo Frobenius on the lattice side (vertices = Gross forms of maximal orders of B_{p,inf}, stored as even
 Hessian Grams of det 2p; edges = classes of G^-_p, classical det-p lattices anisotropic at p), path words and
-their pointers.  Exact integer arithmetic throughout."""
+their pointers.  Integer arithmetic for all lattice data; the short-vector / coset search windows in coset_min use floating-point bounds (with slack)."""
 from math import isqrt, gcd
 from itertools import product
 

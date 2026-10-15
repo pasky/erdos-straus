@@ -26,7 +26,7 @@ none representing 2. Edges representing both 1 and 2 (79) are all path-shaped. T
 the word (1, (p+3)/2, 3), χ = (−2/p), i.e. Mordell's q = 2.
 
 **Reading.** For a path word w = (t, u, v), L_w represents its three letters, so the certificate edge lies in Frobenius
-layers t, u and v at once. "Layer m" means that some degree-m isogeny E^{(p)} → E is compatible with C. Letters are small
+layers t, u and v at once. "Layer m" (for m < p/4) means that some degree-m isogeny E^{(p)} → E is compatible with C; for larger m the trace-zero qualification is needed (e.g. m = p: Verschiebung is always compatible, yet r_L(p) = 0 for p ≡ 1 (4)). Letters are small
 (t·u·v ≈ p), so path edges live in low layers. Layers 1 and 2 are the spine and the loops. Each layer is a deterministic,
 class-number-sized edge set: Σ_L r_L(m)/|Aut L| is an Eichler class-number expression of size ≍ √(mp) up to logs. Inside layer m, a path edge with
 letter m is a divisor event:

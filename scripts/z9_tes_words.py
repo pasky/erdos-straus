@@ -27,7 +27,9 @@ def vlam(x):
 
 def words(pi):
     out = set()
-    R = ((3 + math.sqrt(9 + 4 * math.sqrt(norm(pi)))) / 2) ** 2 + 1
+    # case |u| <= |v|: |u|^2 <= |c_i||pi| + (|c_j| + |c_k|)|u| with |c_i| <= 2, |c_j| + |c_k| <= 3
+    # (review fix O233: the earlier radius assumed |c_i| = 1 and missed words with c_i = 2)
+    R = ((3 + math.sqrt(9 + 8 * math.sqrt(norm(pi)))) / 2) ** 2 + 1
     small = disk(R)
     for i, j, k in permutations(range(3)):
         ci, cj, ck = C[i], C[j], C[k]

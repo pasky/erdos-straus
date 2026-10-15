@@ -30,8 +30,9 @@ set, and full-rank Siegel–Weil makes that mass the word count itself (tautolog
 up to genus, but the glue residue ±1 is missing. Class-wise data (Schiemann) is complete but is the problem itself.
 (I5) **Widen the target shape** (z9_triangle_shapes): the other near-orthogonal shape (cyclic plumbings) is decoupled. At 47 of 329
 primes ≤ 5000 the χ = −1 triangle classes exist but none is a path class. A triangle word carries no Egyptian identity.
-(I6) **Depth bits** (goal 2): proved that a depth-k pentagon vector is a non-backtracking walk of k − 1 half-steps in G_p
-(§2), so 8/p is the X₀(4) refinement. The bits are functions of v₂(t) or of v₂(tp + 1) and its split (Prop 2.3).
+(I6) **Depth bits** (goal 2): proved that a depth-k pentagon vector gives a *conic-marked* non-backtracking walk of k − 1
+half-steps in G_p (§2), so 8/p is a marked X₀(4) refinement. The bits are constrained (not determined) by v₂ of a letter or
+by v₂(tp + 1) (Prop 2.3).
 (I7) **Order-3 Fano** (goal 3, the sharp test; z9_order3_fano): in TES's Type II word family the cubic symbol χ₃ does not control
 λ-adic divisibility of the numerator. At all 13 failure primes with N ≤ 787 there are hundreds of target-χ₃ words, and at 7 of them even target words with
 λ⁴ | T (killed by the 2-primary anchor). So TES failures are **bit failures** (8/131-type), not character failures.
@@ -47,22 +48,24 @@ Frobenius distance.
 
 ## 2. Depth = walk length; 8/p is a level-4 problem (PROVED + CERTIFIED; z9_depth_walks)
 **Theorem 2.1.** A primitive x in an edge lattice L with v₂(Q(x)) = k ≥ 2 determines the alternating chain
-L₁ = L, F_j = L_j + ℤx/2^j, L_{j+1} = (the unique classical index-2 sublattice of F_j containing x/2^j). It is a non-backtracking
-walk in G_p of exactly k − 1 half-steps. The vertex step uses the local Fano structure at a vertex: F/2F carries the conic
+L₁ = L, F_j = L_j + ℤx/2^j, L_{j+1} = (the unique classical index-2 sublattice of F_j containing x/2^j), where the vertex step is taken only if
+Q(x/2^j) is even (conic marking; review repair: without the marking a continuation exists whenever x/2^j ≢ r, e.g.
+p = 5, w = (1, 3, 4), x = e_1). The marked walk is non-backtracking and has exactly k − 1 half-steps (walk length, not
+graph distance). The vertex step uses the local Fano structure at a vertex: F/2F carries the conic
 {q = 0} with three points, which are the three edges at the vertex, and the polar radical r is its nucleus; the classical index-2 sublattices are the three
 hyperplanes through r. CERTIFIED in coordinates on all 1190 pentagon pointers of all χ = −1 words, p ≤ 200 (`scripts/z9_depth_walk.py`).
-**Corollary 2.2.** Word ∈ S₈ ⟺ some pentagon walk has ≥ 2 half-steps, i.e. the pointer continues the certificate edge through
-the pointed endpoint into a second edge. The two edges form a cyclic 4-isogeny (a point of X₀(4)), and x ∈ L₁ ∩ L₂. This makes
+**Corollary 2.2.** Word ∈ S₈ ⟺ some pentagon vector has a marked walk of ≥ 2 half-steps, i.e. x/2 is a conic point of the
+pointed endpoint. The marked continuation and the certificate edge form a cyclic 4-isogeny (a point of X₀(4)). This makes
 O224's tree-depth Assessment exact (the distance is k − 2 half-steps beyond the pointed endpoint).
 **Proposition 2.3 (correlation).** With all letters odd, v₂A + v₂A* = v₂(tp + 1) =: s, and the two pointers, if both exist, run in
 opposite directions. So 8 | A or 8 | A* forces s ≥ 4, and for s = 4 only a lopsided split works. With t even, the depth of e₂ is v₂(t).
-So the bit is a function of a letter or of (t, p) mod 2^s and is shared by all words with that t. This is the mechanism of O224's
-excess of S₈-empty primes.
+The necessary condition s ≥ 4 is shared by all words with that t, but the split is not (p = 293, t = 3: (3, 37, 3) ∈ S₈,
+(3, 7, 15) ∉ S₈). This is a qualitative source of O224's excess of S₈-empty primes, not a quantitative explanation.
 
 ## 3. What global data can and cannot see (z9_brandt_screen)
 | level | data | sees | status |
 |---|---|---|---|
-| L1 | Hecke-equivariant / trace-formula / mass | Σ_path 1/|Aut| = word count (full-rank Siegel–Weil is a tautology) | PROVED (linear algebra) |
+| L1 | linear functionals with Hecke eigen-covariance (Λ∘T_ℓ = (ℓ+1)Λ) | only the mass m(p) of the path classes (the mass-weighted count of path bases = word count, a tautology) | PROVED for such functionals; general trace-formula claims: Assessment |
 | L2 | degree-2 Siegel–Weil on planes M = [[v,−1],[−1,t]] | M up to genus; glue residue ±1 invisible (Prop 10.3 shadow) | PROVED placement (O224 Prop 3.1) |
 | L3 | class-wise theta series (Schiemann) | everything, but "∃ class" is the problem itself | B2 |
 | layers | r_L(m), m small; spine, loops | deterministic sets ≍ h(−4mp) | PROVED (Thm 1.1) |
@@ -72,7 +75,7 @@ ray-class condition mod t on CM points, and t is part of the solution.
 ## 4. The Heegner-layer dictionary (Assessment with PROVED algebra; z9_heegner_layers)
 In E(L_w): ε = −(1 + ij), ε² = −tp, j ⊥ ε, nrd j = A, i = (1 + ε)j/A (PROVED). By Deuring lifting, ((E, C), ε) is the reduction at the
 ramified prime p of a CM point of X₀(2) with CM by an order containing ℤ[√−tp]. **Certificate edges in layer t are the reductions
-whose ideal class contains an ideal of norm A ≡ −1 (mod t) with A | tp + 1.** This puts CONSTRUCTIVE_ES ((J)35) and WINDMILL's
+whose ideal class contains an ideal of norm A ≡ −1 (mod t) with A | tp + 1** (Assessment; necessary-condition reading — the level-t ring condition (1 − i)(1 − j) ∈ t·End E must be imposed in addition, review repair). This puts CONSTRUCTIVE_ES ((J)35) and WINDMILL's
 ℤ[√−tp] framework (Prop 10.3 / Rem 10.4) on one geometric object. Equidistribution of these CM points among supersingular points
 (Michel 2004 type) sees the genus only.
 
@@ -81,7 +84,7 @@ whose ideal class contains an ideal of norm A ≡ −1 (mod t) with A | tp + 1.*
 * **Composite 105 (CERTIFIED, inline computation with `z9_lib`).** For n = 105 the analogue graph *does* exist: the 2-neighbour component of
   ⟨1, 3, 35⟩ (2-adically isotropic, det 105) has 4 vertex classes and 4 edge classes. But none of the 11 words of 105 is
   2-adically isotropic, so there is no path edge. **Any global forcing argument must use primality beyond the existence of a
-  2-isogeny-type graph**, so it cannot be a statement about 3-regular graphs with mass (p − 1)/24 alone.
+  2-isogeny-type graph** (the coarse 105 graph has degrees 1, 2, 2, 3; this refutes forcing from graph existence alone, not every theorem that uses the prime-case regularity and mass (p − 1)/24).
 * **TES (goal 3).** The order-3 analogue has no Fano: §0 (I7). It is consistent with TES's 16 certified failures and with ES-five's
   absence of failures to 10⁸: ES's numerator 4 is at the character level (zero bits), TES's 9 = λ⁴ is not (Assessment).
 

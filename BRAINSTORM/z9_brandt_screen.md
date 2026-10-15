@@ -6,12 +6,12 @@ Goal (4) of O233: a Brandt-matrix count is form-class data. Say exactly how it e
 
 **(L1) Hecke-equivariant linear data (PROVED, elementary; CONSTRUCTIVE_ES 5.2 in this form).** Let Λ be a linear functional on
 ℂ[𝔊⁻_p] with Λ∘T_ℓ = (ℓ + 1)Λ for one ℓ ≠ p for which ℓ + 1 is a simple eigenvalue (true for every ℓ by Ramanujan–Deligne).
-Then Λ is a multiple of the mass functional f ↦ Σ_L f(L)/|Aut L|. So any trace-formula identity, any Brandt-matrix power sum,
-any count over cycles or walks weighted Hecke-equivariantly, sees the path indicator 1_path only through
-m(p) := Σ_{L path} 1/|Aut L|. Moreover m(p) is not a class-number quantity: by degree-3 Siegel–Weil (rank of the represented form = rank
-of L) the mass-weighted number of path bases is exactly the word count N₋(p) (up to a fixed normalisation). Siegel–Weil in
-full rank is a tautology, so it has no main term and no error term to exploit. Hence **level L1 reproduces the word count
-and nothing more**. This is B6 in its sharpest form: the "average over the genus" at full rank is the quantity itself.
+Then Λ is a multiple of the mass functional f ↦ Σ_L f(L)/|Aut L|. So every functional with this eigen-covariance sees the path indicator 1_path only through
+m(p) := Σ_{L path} 1/|Aut L|. (Review repair: this is all that is PROVED. Arbitrary trace-formula quantities or Brandt power
+sums need not have this covariance, and nothing is claimed about them.) Separately: the mass-weighted number of path *bases*,
+Σ_L #(path bases of L)/|Aut L|, equals the number of χ = −1 words by orbit counting. Full-rank (degree-3) Siegel–Weil gives
+nothing beyond this tautology. This number differs from m(p) by class-dependent basis multiplicities. Assessment: L1 data does not
+obviously go beyond the word count. That is B6 in spectral form, not a theorem about all Brandt/class-number approaches.
 *Proof of the first claim.* T_ℓ is self-adjoint for the mass inner product, so ker(T_ℓ − (ℓ+1)) is the constants, and
 Λ = ⟨·, g⟩ with T_ℓ g = (ℓ+1)g. ∎
 
@@ -42,7 +42,7 @@ None needed beyond CONSTRUCTIVE_ES 5.2 (simple Eisenstein eigenvalue checked at 
 the raw count P(p)).
 
 ## Assessment
-PROVED (L1 claim, standard linear algebra). L2 and L3 are precise placements of known results. Negative for any
-"Brandt-matrix / class-number count" route: it either collapses to the word count (L1), stops at the genus of the plane (L2),
-or is the problem itself (L3). Promise 0/5. Value: it pins down where a global Fano would have to act. It would have to act on the glue
+PROVED: the L1 eigen-covariance claim (standard linear algebra). L2 and L3 place known results. Assessment (not a theorem)
+for "Brandt-matrix / class-number count" routes in general: each of the three natural levels collapses, to the mass m(p)
+(L1), to the genus of the plane (L2), or to the problem itself (L3). Promise 0/5. Value: it pins down where a global Fano would have to act. It would have to act on the glue
 residue of a binary plane, i.e. on ray-class data mod tv − 1, and that is the modulus that is part of the solution (B2).
