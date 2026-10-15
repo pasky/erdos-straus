@@ -1,7 +1,8 @@
 """z20_collapse_check: (1) symbolic checks of the rearrangements in NORMFORM_CUBIC Thms 1.1'/1.2' with P a free symbol
 (degree-free); (2) random search for polynomial Type II / Type I families over P = u^3 + 2v^3 and over the ternary norm
 form of Q(cbrt 2), P3 = u^3 + 2v^3 + 4w^3 - 6uvw, solving exactly for A; counts solutions with A,B,C,D not all in Q[P].
-Expected (theorem): every solution with A+B != 0 has all of A,B,C,D in Q[P].
+Expected (Thms 1.1'/3.1): every solution has all of A,B,C,D in Q[P], except never-valid degenerate families
+(A+B=0, or B=b, D=-1/(4b^2), C=-bP); the search skips A+B=0 and reports the rest. Symbolic checks are asserted.
 """
 import sympy as sp, random, sys
 P, A, B, C, D, E, k, kp, EA, EB = sp.symbols('P A B C D E k kp EA EB')
@@ -17,13 +18,13 @@ chk['I c1 D'] = sp.simplify(4 * A * B * C * Dexpr - P * (A + B) - C - (4 * B * C
 Ae, Be = k * P + EA, kp * P + EB                   # I c2, mu = k
 G = (4 * C * D * k - 1) * EB + (4 * C * D * kp - 1) * EA
 chk['I c2'] = sp.expand(4 * C * D * Ae * Be - P * (Ae + Be) - C - ((4 * C * D * k * kp - k - kp) * P**2 + P * G + 4 * C * D * EA * EB - C)) == 0
-print("symbolic checks:", chk)
+print("symbolic checks:", chk); assert all(chk.values())
 
 u, v, w = sp.symbols('u v w')
 forms = {'u3+2v3': (u**3 + 2 * v**3, (u, v)), 'N3(cbrt2)': (u**3 + 2 * v**3 + 4 * w**3 - 6 * u * v * w, (u, v, w))}
 def rp(rng, xs, deg):
     if rng.random() < 0.3: return sp.Integer(rng.choice([-2, -1, 1, 2]))
-    mons = [m for m in sp.itermonomials(xs, deg)]
+    mons = sorted(sp.itermonomials(xs, deg), key=sp.default_sort_key)
     return sp.expand(sum(rng.randint(-2, 2) * m for m in mons if rng.random() < 0.6))
 def inQP(x, Pf, xs):  # x in Q[P]? degree must be multiple of deg P; check by trying x = sum c_i P^i
     d = sp.Poly(x, *xs).total_degree(); kdeg = sp.Poly(Pf, *xs).total_degree()
@@ -63,4 +64,4 @@ t31['iii: H'] = sp.simplify(H - 4 * b * (a * k + A1 * Dd)) == 0
 t31['iii: GH=A+B'] = sp.simplify(sp.expand(H * G - (Aa + b)) - sp.expand(A1 * (4 * b * G * Dd - P) - (a + b - 4 * b * G * a * k))) == 0
 Af = sp.Symbol('Afree')  # degenerate family: B=b, D=-1/(4b^2), C=-bP, A arbitrary
 t31['degenerate'] = sp.simplify(4 * Af * b * (-b * P) * (-1 / (4 * b**2)) - (P * (Af + b) + (-b * P))) == 0
-print("Thm 3.1 checks:", t31)
+print("Thm 3.1 checks:", t31); assert all(t31.values())
