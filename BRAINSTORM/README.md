@@ -351,3 +351,14 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | y10_clean_level_classification | levels clean along a whole quadratic family | ⟺ 4A − tΔ = □ (outside gcd-exceptional classes); per prime: T1-type = principal-form part of clean (82 % of clean words) | PROVED + EVIDENCE |
 | y10_hardness_beyond_clean | does near-squareness predict N₋/N beyond adelic cells? | yes, monotone in p − ⌊√p⌋²; half survives removing all clean levels (mechanism open) | EVIDENCE |
 | y10_hard_primes_m2minus3 | hard primes vs polynomial T1 points | 3361 and 1 249 921 are m² − 3 next to m₀ = 2 | EVIDENCE (anecdotal) |
+
+## Spark relay Z2 (O232): sign fields — exponential near-squares, numerators, non-genus layer (memos z8_*, deep file SIGN_FIELDS.md; not yet triaged)
+
+| file | idea | outcome | labels |
+|---|---|---|---|
+| z8_exp_near_square_cover | exponent coverings of n = 4^s + k (m = 2^s) | ES certified for all 4^s + k, k ∈ {9, 57, 81, 129, 153, 177, 201, 225, 249}; open 33, 105, 273, 297 | PROVED (computer-assisted) + EVIDENCE |
+| z8_mixed_points | CRT-glued integer square points in Ẑ as sterile candidates | explain the residual classes of 4^s + 105 (every member Mordell-hard); none sterile so far; uncovered measure → 8·10⁻⁵ | EVIDENCE |
+| z8_numerator_sign_fields | ν-sign field ℚ(ζ_{νu}, √−u) | t-slot T1 ⟺ √−u ∈ ℚ(ζ_{νu}); for all u ⟺ 4 \| ν; ν = 4 unique with slot set = full forbidden half | PROVED — SHARP (dictionary) |
+| z8_eight_failures_frobenius | 8/131, 8/241 as a missed ζ₈-bit | all 4-slots ≡ 4 mod 8 at these p | EVIDENCE |
+| z8_no_redei_abelian_levels | Rédei layer for near-square depletion | single abelian level sees only residues of prime factors: no forced non-genus layer | PROVED (trivial) + Assessment |
+| z8_chebotarev_family_level | level u(p) with F ⊄ Σ by construction | disjointness free; hitting a divisor of p + u is B2/B3 | Assessment (negative) |
