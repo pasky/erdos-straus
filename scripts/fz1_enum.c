@@ -19,7 +19,7 @@
 typedef unsigned char u8;
 typedef struct { int d; u8 c[MAXD]; } poly;
 static int Q, PCH;
-static u8 ADD[9][9], MUL[9][9], NEG[9], INV[9];
+static u8 ADD[27][27], MUL[27][27], NEG[27], INV[27];
 static void field_init(int q) {
   Q = q;
   if (q == 9) {
@@ -29,6 +29,15 @@ static void field_init(int q) {
       ADD[x][y] = (a1 + a2) % 3 + 3 * ((b1 + b2) % 3);
       int re = ((a1 * a2 - b1 * b2) % 3 + 3) % 3, im = (a1 * b2 + a2 * b1) % 3;   /* i^2 = -1 */
       MUL[x][y] = re + 3 * im;
+    }
+  } else if (q == 27) {   /* F_27 = F_3[x]/(x^3 - x - 1); element c0 + 3 c1 + 9 c2 */
+    PCH = 3;
+    for (int x = 0; x < 27; x++) for (int y = 0; y < 27; y++) {
+      int a[3] = {x % 3, x / 3 % 3, x / 9}, b[3] = {y % 3, y / 3 % 3, y / 9}, p[5] = {0};
+      ADD[x][y] = (a[0] + b[0]) % 3 + 3 * ((a[1] + b[1]) % 3) + 9 * ((a[2] + b[2]) % 3);
+      for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++) p[i + j] += a[i] * b[j];
+      for (int k = 4; k >= 3; k--) { p[k - 2] += p[k]; p[k - 3] += p[k]; p[k] = 0; }   /* x^3 = x + 1 */
+      MUL[x][y] = p[0] % 3 + 3 * (p[1] % 3) + 9 * (p[2] % 3);
     }
   } else {
     PCH = q;
@@ -77,7 +86,7 @@ static int odo(u8 *c, int lo, int hi, int nz0) {
   return 0;
 }
 static poly TS2;     /* T^{s-2} */
-static int S_, A_, Z_, Y_, T_, B_, LC;
+static int S_, A_, Z_, Y_, T_, B_, LC; static int SLICEF = 0;
 /* full check of a candidate (m', w1, C1, v1); g' computed. returns 1 if valid tuple of the pattern */
 static int check(const poly *m, const poly *w1, const poly *C1, const poly *v1) {
   if (m->d != Z_ || w1->d != A_ || C1->d != B_ || v1->d != T_) return 0;
@@ -86,6 +95,10 @@ static int check(const poly *m, const poly *w1, const poly *C1, const poly *v1) 
   poly p, f; pmul(&p, m, w1); pmul(&p, &p, C1); padd(&f, &TS2, v1); if (!peq(&p, &f)) return 0;
   poly sm, g, rm; padd(&sm, w1, C1); pdivmod(&g, &rm, &sm, v1);
   if (rm.d >= 0 || g.d != Y_ || g.c[g.d] != 1 || !g.c[0]) return 0;
+  if (SLICEF) {   /* FF_STERILE_SMALL §7: only tuples whose cylinder lies in a slice u0 = -E(0) outside F_3^*: E(0) not in F_3 */
+    int e0 = MUL[MUL[m->c[0]][g.c[0]]][w1->c[0]]; e0 = ADD[e0][NEG[1]];
+    if (e0 == 0 || e0 == 1 || e0 == ADD[1][1]) return 0;
+  }
   return 1;
 }
 static double lgq; static int USEF = 1;
@@ -200,7 +213,7 @@ static void ppowmod(poly *r, const poly *a, unsigned long e, const poly *m) {
   while (e) { if (e & 1) pmulmod(&res, &res, &base, m); e >>= 1; if (e) pmulmod(&base, &base, &base, m); }
   pdivmod(NULL, r, &res, m);
 }
-static int PROOT[9];   /* p-th root in F_q: x^{q/p} */
+static int PROOT[27];   /* p-th root in F_q: x^{q/p} */
 #define MAXF 128
 typedef struct { poly f[MAXF]; int e[MAXF]; int n; } fact;
 static unsigned long long rng = 88172645463325252ULL;
@@ -369,7 +382,7 @@ static double costF(int mode) {
   return 1e9;
 }
 int main(int argc, char **argv) {
-  int q = atoi(argv[1]), s0 = atoi(argv[2]), s1 = atoi(argv[3]); double cap = atof(argv[4]); int meth = argc > 5 ? atoi(argv[5]) : 0; USEF = argc > 6 ? atoi(argv[6]) : 1; if (argc > 7) FOV = atof(argv[7]);
+  int q = atoi(argv[1]); if (q != 3 && q != 5 && q != 7 && q != 9 && q != 27) { fprintf(stderr, "q unsupported\n"); return 2; } int s0 = atoi(argv[2]), s1 = atoi(argv[3]); double cap = atof(argv[4]); int meth = argc > 5 ? atoi(argv[5]) : 0; USEF = argc > 6 ? atoi(argv[6]) : 1; if (argc > 7) FOV = atof(argv[7]); if (argc > 8) SLICEF = atoi(argv[8]);
   field_init(q); lgq = log(q);
   for (int x = 0; x < q; x++) for (int y = 0; y < q; y++) { int p = 1; for (int k = 0; k < PCH; k++) p = MUL[p][y]; if (p == x) PROOT[x] = y; }
   for (int s = s0; s <= s1; s++) {
