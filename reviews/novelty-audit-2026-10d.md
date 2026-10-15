@@ -327,5 +327,5 @@ Archive of this pass: `sources/lit2026d/`.
 | (J)41 Thm 1.1 / (J)43 Prop 1.1 (□-relaxation and the shot normal form k(4ab − n) = b + aQ₁²) | APPARENTLY NEW (elementary) | no square-numerator relaxation in the literature |
 | (J)43 Thm 2.1 (sharp archimedean wall Q₁ ≤ (16k³n + 1)/(4k − 1)) | APPARENTLY NEW | — |
 | (J)43 Thm 5.1 (sub-polynomial exponent cap, BV + linear sieve) | APPARENTLY NEW result; standard method | — |
-| (J)43 §6 B1 (no finite set of shot classes covers p ≡ u (mod r)) | **KNOWN in substance** for the square/non-square dichotomy (Schinzel 2000; ET Prop 1.6); the shot-class version is new as stated | — |
+| (J)43 §6 B1 (no finite set of *shot* classes covers p ≡ u (mod r), any unit u, r ≡ 1 (4)) | **PARTIAL** | mechanism = the classical Mordell/Schinzel obstruction (a profinite point ≡ 1 at all other primes; Schinzel 2000; ET Prop 1.6); new as a statement about shot classes at *non-residue* u. For full ET families at non-residue u the question is open in the literature (10c §2.2) — B1 does not touch it, since shot classes are a sub-family. |
 | (J)47 Thm 1.1/1.2 (cap-2 cell = one Markoff-type equation) | APPARENTLY NEW identification | Markoff-type machinery classical |
