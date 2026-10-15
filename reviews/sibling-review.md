@@ -4,7 +4,20 @@ Reviewer: R249 (side-agent/review-sibling). Author branch merged: side-agent/sib
 Status: in progress.
 
 ## Summary verdicts
-(filled claim by claim below)
+| claim | verdict |
+|---|---|
+| Lemma 1.1 (≤ 2 balls per key (m′, g′, s, a) in a parent; 3 deg Q > deg F) | **SOUND** (re-derived; 274 tuples s ≤ 15, max 1) |
+| Lemma 1.2 (≤ 6 P-boxes per (c, d) per class, r ≤ 17) | **SOUND** (m1: "⌈√(r/2)⌉ + 1" should be ⌈√(r/2)⌉) |
+| Prop 1.3 (Klein symmetry of Case B balls; parity law) | **SOUND** (re-derived; brute-force on own tuples s ≤ 16 and O241 balls) |
+| Prop 3.1 (route-type counts do not localise; window (n, 5n]) | **GAP** (D1 MAJOR: central inequality false for the natural localised route R2L; proof sentence wrong; PROVED only for an explicit list; D2 citation label) |
+| Cor 4.1 (pair-count forms) | (i), (iii) **SOUND**; (ii) **SOUND-AFTER-REPAIRS** (D3: needs an alive depth-N₀ cylinder) |
+| Conjecture 4.2 + "PROVED consequence" + "sharp threshold at 17" | data **REPRODUCED** (r ≤ 31 to depth 4, r ≤ 61 to depth 3, all r ≤ 13 at level 1); label CONJECTURE correct; consequence **GAP** (D5 MAJOR: needs level-1 survival, certified only for r < 2·10⁴) ; D6 heuristic |
+| §2.1/§2.3 Poisson calibration (EVIDENCE) | numbers **wrong** (D4: with-replacement model; exact 0.062 not 0.145, pairs ×1.5 too high, "0.40" → 0.105); conclusions survive (data even weaker); "no attraction" → mild excess of pairs |
+| §2.2 (siblings never share a key) | confirmed for the 12 Case-B–Case-B pairs at depth ≤ 8 (own code); the 2 others involve Case A |
+| §5 digit uniformity | counts 61/60/51 confirmed |
+| Labels overall | Prop 3.1 and the Conj 4.2 consequence over-labelled (D1, D5); everything else correctly labelled |
+
+No FATAL defect. Two MAJOR (D1, D5), both repairable by rescoping/adding a hypothesis.
 
 ## Claim-by-claim
 
