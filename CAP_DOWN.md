@@ -130,13 +130,14 @@ Contradiction. (The δ_p ≠ 0 part of Lemma 3.1 is not covered by this argument
 ## 4. Goal 3 (multi-window gluing): the forced overflow never cancels under CRT
 
 **Proposition 4.1 (PROVED, elementary).** (a) At a single forced prime window q the one-prime bound of Prop 1.3 is
-sharp: if K′ = s is prime with ord_q(s) = q − 1, the least Lemma-1.1 cap at q is exactly (q−3)/4.
+sharp: if K = s is an odd prime with ord_q(s) = q − 1 (q > 3), the least Lemma-1.1 cap at q is exactly (q−3)/4.
 (b) At a forced composite window m = ∏ q_i^{k_i} (CAP_POINTWISE Thm 1.1′, all factors of the forced type) the
 one-prime witness d = K·s^j needs s^j ≡ −1 (mod m), i.e. j an odd multiple of every ord_{q_i^{k_i}}(s)/2, so its cap is
 (lcm_i ord(s)/2 − b_s)/2 ≥ the cap of each factor: CRT gluing of windows multiplies the odd parts of the orders, never
 cancels them.
 *Proof.* (a) S = {s}, b = 1: d = s^c ≡ −s needs s^{c−1} = −1, c − 1 ≡ (q−1)/2 (mod q−1), so c − 1 is odd and ≥ (q−1)/2
-(c − 1 ∈ [−1, 1] is impossible for q > 3); c = 1 + (q−1)/2 is even, cap (c − 2)/2 = (q−3)/4. (b) −1 ≡ (−1, …, −1) in
+(c − 1 ∈ [−1, 1] is impossible for q > 3); c = 1 + (q−1)/2 is even, cap (c − 2)/2 = (q−3)/4. *Check* (/tmp-level script, 2006 cases q ∈ {11, …, 83}, n prime ≤ 4·10⁵ with K prime primitive mod q):
+the exhaustive Lemma-1.1 cap at q equals (q−3)/4 in all. (b) −1 ≡ (−1, …, −1) in
 ∏ (ℤ/q_i^{k_i})^*; each component has 2-part ℤ/2, so s^j = −1 componentwise iff j ≡ o_i/2 (mod o_i) for all i. ∎
 *Reading (Assessment).* The forced mechanism lives entirely in the 2-torsion E = (ℤ/2)^r of (ℤ/m)^*; the overflow
 is the *odd* part of a discrete logarithm. Gluing windows (composite m, or several x — impossible anyway: one solution
