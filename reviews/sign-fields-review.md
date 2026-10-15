@@ -10,6 +10,10 @@ imports), `scripts/review_r235_brute.py` (independent ES solver via (ay − d)(a
 | claim | verdict |
 |---|---|
 | Thm 1.3 (ES for all 4^s + k, nine k) | SOUND (label PROVED, computer-assisted, justified) |
+| Lemma 1.1 (non-trivial k ≡ 9 mod 24 for c₀ = 1) | SOUND |
+| Lemma 1.2 (no integer unit-square points, c₀ = 1) | SOUND |
+| §1.4 OPEN list, k = 105 hardness, Λ₁₀₅ ∩ Sq^× = ∅ at L = 360 | SOUND-AFTER-REPAIRS (D3, D4 minor) |
+| §1.4 mixed point μ* for k = 105 (EVIDENCE) | SOUND as EVIDENCE |
 
 ## 1. Theorem 1.3 — headline
 
@@ -44,6 +48,40 @@ a square (factor pairs (1,81), (3,27) give 2^{s+1} ∈ {80, 24}).
 
 Verdict Thm 1.3: **SOUND**. Defects are presentational only (see D1, D2 below).
 
+## 2. Lemma 1.1, Lemma 1.2
+
+**Lemma 1.1.** For s ≥ 2, c₀4^s ≡ 0 (mod 16), so n_s ≡ k (mod 8); 4 ≡ 1 (mod 3) gives n_s ≡ c₀ + k (mod 3). Mordell's six
+classes 1, 121, 169, 289, 361, 529 (mod 840) are all ≡ 1 (mod 24), and every odd n outside them is ES-solvable by
+Mordell's identities. For c₀ = 1: k ≡ 1 (8), k ≡ 0 (3) ⟺ k ≡ 9 (24). Correct. (Implicitly k odd; s ∈ {0, 1} are finitely
+many members and are irrelevant to "non-trivial".) **SOUND.** Note "non-trivial" only means "not killed by Lemma 1.1";
+five of the nine certified k are nevertheless Mordell-trivial for all s (D1).
+
+**Lemma 1.2.** Re-derived: with EXPONENT_COVERING's conventions (2-component of ν(μ) is the constant k, odd components
+4^μ + k), for ℓ ≥ 0 the odd components are the odd integer N = 4^ℓ + k ≥ 4, which has an odd prime factor q, so ν(ℓ)_q is
+not a unit — squareness is not even needed (the author's "N = s² with s a power of 2" detour is correct but redundant). For
+ℓ = −a < 0, (1 + k4^a)/4^a is a q-adic unit for all odd q iff the odd integer 1 + k4^a is 1, impossible for k ≥ 1. **SOUND.**
+It only excludes *integer* ℓ; non-integer μ ∈ Ẑ can still be unit-square points — the doc says so ("(EH)" is checked
+separately by the screen). Fine.
+
+## 3. §1.4 OPEN offsets and k = 105 (`scripts/review_r235_k105.py`)
+
+* Integer square points (search ℓ ∈ [−79, 79]): k = 33: ℓ = 2 (7²), 4 (17²), −2 (23²/16) ✓. k = 105: 2, 3, 4, −2 ✓.
+  **k = 273: ℓ = 2 (17²) AND ℓ = 4 (4⁴ + 273 = 529 = 23²) — the doc omits ℓ = 4 (D3).** k = 297: ℓ = 3 (19²) ✓.
+* k = 105: every member s ≥ 2 lies in Mordell's hard set, all six residues occur (checked s < 400) ✓; n_s ≡ (2^s)² (mod 105) ✓.
+* Unit-square screen, L = 360 (own code, same logic: survivor ⟺ for every prime q < 3·10⁶ with q | 4³⁶⁰ − 1, n_s mod q is a
+  non-zero QR). **0 survivors**; in fact primes ≤ 181 already suffice. The deduction Λ₁₀₅ ∩ Sq^× = ∅ is valid: for any
+  μ ∈ Ẑ, ν(μ)_q mod q = 4^{μ mod ord_q 4} + 105, so the residue s = μ mod 360 transfers the kill. **CERTIFIED, SOUND.**
+* k = 33 screen: for L = 180, 360, 720 the only survivor is s ≡ −2 ✓, and ord₂₃(4) = 11 so D₂₃ needs 11 | L ✓. But for
+  L = 60 and 120 there is a second survivor (s ≡ 34 mod 60, s ≡ 94 mod 120) — a mixed point (≡ 4 at 3, 5; ≡ 2 mod 4),
+  killed once 9 | L. "At every L tested" is therefore true only if no L with 9 ∤ L ≥ 60 was tested (D4). (It actually
+  supports the author's mixed-point picture.)
+* Mixed point μ* for k = 105: 124 ≡ (4 mod 8, −2 mod 9, 4 mod 5) ✓; 844 ≡ (4, −2, 4, 4) mod (8, 9, 5, 7) ✓.
+  ord₁₈₁(4) = 90 = 2·3²·5, μ* ≡ 34 (mod 90), n ≡ 85 (mod 181), (85/181) = −1 ✓. ord₉₁₉(4) = 153, μ* ≡ 106 (mod 153),
+  n ≡ 551 ≡ −4·2²·23 (mod 919), and 4·2·23 | 920: μ* lies in the ET family II2 (a, d, f) = (2, 23, 919) ✓.
+  The reading "q with ord_q(4) a 2·3-power ⇒ n ≡ (41/4)²" is right only for ord = 3^b or 2·3^b (needs 4 ≡ −2 mod 2^a, a ≤ 1);
+  "2·3-power" should be spelled "of the form 3^b or 2·3^b" (part of D4). The adaptive-covering Haar measures are EVIDENCE
+  produced by author code; not replayed (scope: EVIDENCE only, claim is explicitly weak and not a certificate).
+
 ## Defects
 **D1 (MINOR, presentation/novelty; SIGN_FIELDS §1 Thm 1.3 and AGENT_REPORT headline).** Five of the nine offsets
 (k = 9, 81, 129, 201, 249) have **no** member in Mordell's six classes mod 840 for s ≥ 2, so ES for them is an immediate
@@ -53,3 +91,15 @@ s ≡ 3 (6) ones are multiples of 17 — divisor classes. The genuinely non-clas
 mod 2015), k = 177 (s ≡ 5 mod 6, class mod 39), k = 225 (s ≡ 0 mod 6 via mod 39, s ≡ 9, 21 mod 24 via mod 2019, 2716).
 Repair: state in Thm 1.3 that for k ∈ {9, 81, 129, 201, 249} the result is Mordell's theorem, and headline the four
 offsets with hard-class members.
+
+**D2 (MINOR, label hygiene; SIGN_FIELDS Thm 1.3 statement).** "certificates checked by ec_cert.py" — ec_cert's T1 test
+is a sanity check, not a proof step; the proof is identity + integrality + positivity + periodicity + coverage + small
+cases. Also ec_cert uses m₀ = v₂(M) (= 2 for k = 225) where ⌈v₂(M)/2⌉ = 1 suffices — harmless (conservative). No repair
+needed beyond optionally noting that the k = 225 class mod 2716 is an I1 class whose 2-part needs s ≥ 1.
+
+**D3 (MINOR; SIGN_FIELDS §1.4 first bullet list).** k = 273 has a second integer square point 4⁴ + 273 = 23² (factor pair
+(7, 39) of 273). Repair: "k = 273: 4² + 273 = 17², 4⁴ + 273 = 23²".
+
+**D4 (MINOR; SIGN_FIELDS §1.4, k = 33 parenthesis and mixed-point bullet).** (a) "the screen leaves exactly s ≡ −2 (mod L)
+at every L tested" — false at L = 60, 120 (extra survivor s ≡ 34 mod 60, a mixed point); state the tested L list, or say
+"for every L divisible by 9 tested (180, 360, …)". (b) "ord_q(4) a 2·3-power" → "ord_q(4) ∈ {3^b, 2·3^b}".
