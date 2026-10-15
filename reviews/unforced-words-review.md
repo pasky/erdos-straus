@@ -157,3 +157,28 @@ All match. **D9 (MINOR).** "One difference from ES-five: at … 9 817 305, unfor
 the same gap is present at the incl+ record 97 185 (first unforced |t| = 7, first certificate 15) and at 4 884 441
 (16 vs 18), and unforced non-certificates are ubiquitous in ES-five as well; the "difference" is not established.
 Also "SQ_± hardness is forcedness" rests on 5 records + 1 control each (EVIDENCE, |t| ≤ 60 truncation): label it so.
+
+## Other checks
+* §1 numerics: 10 508 Landau-triple primes among the 464 288; decade fractions 3.29 % / 2.68 % / 2.20 %; largest least-min
+  at a Landau triple 18 (p = 26 685 649) — all reproduced.
+* Memos: z7_landau_depth's "K(p) < q(p)" (ψ(p+q) = ψ(q) = −1) is right; z7_symbol_blind's (a) "⟺" is right under
+  gcd(uv, n) = 1 (D4). Citations (Burgess 1962; Iwaniec, Acta Arith. 21 (1972) 203–234; Linnik's p − 1 = x² + y²) are
+  used only in Assessment context; I did not open the sources (not in sources/).
+
+## Defects (all MINOR)
+* **D1** — none (numbering kept for cross-reference).
+* **D2** §1 Cor 1.2: "by Lemma S's formula ψ(r) = (−X/r)" — in this document X is the side number (p+1, …), in Lemma S
+  X is the coordinate value s; literally (−(p+1)/r) = 0. Repair: "ψ(r) = (−s/r) for the side p+s or sp+1".
+* **D3** §3 Thm 3.2 proof: 2-part of M is 8, so (s+1) ∤ M once s+1 = 16 (K ≥ 15). Repair: M = 2^{a_2}∏ℓ^{a_ℓ},
+  2^{a_2} > K+1, a_2 ≥ 3.
+* **D4** §2 Lemma 2.1: add hypothesis gcd(uv, n) = 1 (automatic at primes ≥ 5); counterexample n = 105, (1, 3, 54).
+  Label the closing "congruence covering cannot supply it" sentence as Assessment.
+* **D5** §6 (and z7_signed_3sq): "(r/3) = (r/5) (and (r/7) = +1)" fails for r = 3 (sides 108, 159). Repair: r ∤ 105.
+* **D6** §5 bold header + §7 "explained": restate as 8/8 EVIDENCE in range, 3² necessary-in-range, not sufficient.
+* **D7** §5 "no visible drift" at large min: m ≥ 10 drifts 0.719 → 0.736; label the "coincidence of the window"
+  reading as Assessment.
+* **D8** §4 Remark 4.1 last sentence: family-exact forcing depends on divisor classes mod X, not on X mod 8.
+* **D9** §6: the |t| gap between first unforced word and first certificate is not specific to strictly-signed
+  9 817 305 (97 185: 7 vs 15); label "SQ_± hardness is forcedness" EVIDENCE (5 records, 1 control each, |t| ≤ 60).
+* **D10** §3 after Thm 3.2: "So no proof of CONJECTURE U (or of ES-five) can use only words of bounded minimum
+  parameter" — prefix "Under Dickson's conjecture,".
