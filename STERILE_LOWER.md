@@ -146,3 +146,21 @@ Theorem 4.1 stand unchanged.
    condition; cost per r is no longer polylog). Pushing below 2^{22} needs a better K = 3 bound or this.
 3. Lemma 4.3 for a fixed rational u: U is a small positive integer (U ≤ 2q²a/e + 1/2), so covering data of u come in
    families indexed by U; a descent U ↦ U' (Vieta on Ga − cp²) preserving "W is a power of r" would prove sterility. None found.
+
+## 7. r = 17: the descent question for Lemma 4.3 (Assessment; written during O228 round 2)
+
+For a rational u = −p/q and fixed (c, d, z), the covering condition of M17D Lemma 2.1 plus 4abd = N + e, a + b = ce,
+W² = rN is equivalent to: **(a, b) is an integral point of the conic**
+  Γ_{c,d,z}: c(qa − pb)² − 4rcdz²·ab + rz²(a + b) = 0,   **and (qa − pb)/(rz) = ±r^{L−1}**
+(PROVED, elementary: given (a, b) on Γ put X = qa − pb, N := X²/(rz²), e := (a + b)/c; then Γ reads cX² = rz²(4abcd − (a + b)),
+i.e. N = 4abd − e; the second condition says N = r^{2L−1}; integrality of e, N and r ∤ ab are extra conditions.) Mod r and
+mod r², Γ already forces r | X and N ≡ 0 (mod r), so the conic family is exactly "coverings of u by P-data of N = r·w² at
+modulus W = rw" with w arbitrary — the levels are the points where w is a power of r. Consequences (Assessment):
+(i) A descent would have to be an automorphism of Γ preserving "w ∈ r^ℕ". The obvious ones (Vieta involutions in a or b)
+do not even preserve integrality: on the known covering (1, 78, 1, 16) of 11/9 at level 2 (c = 1, d = 16, z = 3) they give
+a′ = bV/(cq²) = 748098/81 and b′ = aU/(cp²) = 3/121. (ii) Along an infinite orbit of integral points of a fixed Γ, w satisfies a
+binary linear recurrence, and "w = ±r^k" is an S-unit equation with finitely many, effectively bounded solutions (Baker) — but
+Γ ranges over infinitely many (c, d, z), with no uniformity. So sterility of a rational point is a *uniform S-unit problem
+over a two-parameter family of conics*; nothing in reach decides it. (iii) Lemma 4.3's U = Ga − cp² is the value of a linear
+form at a point of Γ; U ≥ 1 is what forces e ≤ 4q²a, a sieve-type restriction, not an exclusion.
+Outcome: no descent found; r = 17 stays undecided (Conjecture M17D 4.2 unchanged).
