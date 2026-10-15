@@ -124,6 +124,9 @@ factor, which only lowers the height). ∎
 Lemma 1.2 is the case u polynomial, η_u ≤ deg u for all orders. M17D Lemma 2.2(iii) is the ℤ twin (rational u = −p/q, P- and
 Q-data with z ≠ 0 have max(a, b) ≥ W/(|p| + q)).
 
+*Check (EVIDENCE, `scripts/z16_thm42_check.py` on the census s ≤ 17, all rationals of height ≤ 3):* 2636 (tuple, rational in
+its ball) pairs, 0 violations; Lemma 1.1's agreement δ(−E, −w₁/C₁) ≥ s − 1 on all 348 tuples.
+
 **Corollary 4.3 (only rational points are protected at all large levels; PROVED).** If η_u(D) < D/2 − 1 for all D ≥ D₀
 (in particular if all large levels are protected), then u is rational, of height η_u(D₀).
 *Proof.* Let ρ_D realise η_u(D). For D ≥ D₀, ρ_D and ρ_{D+1} both agree with u to order D and H(ρ_D) + H(ρ_{D+1}) < D,
