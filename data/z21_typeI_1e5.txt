@@ -1,0 +1,3 @@
+{'pairs': 62179, 'alive': 45491, 'es': 24575, 'maxtw': 32, 'built': 45491}
+least-twist histogram (alive levels): {1: 24575, 2: 5371, 3: 4937, 4: 2475, 5: 3304, 6: 453, 7: 1291, 8: 654, 9: 1004, 10: 32, 11: 439, 12: 132}
+T1 control: odd squares x levels checked, none alive: 6083

@@ -136,3 +136,43 @@ Claude's window root (p + 4Q² ≡ 0). So "keeping Astra's level y = ph" = "a di
 Claude root Q²", and the Claude ES shot is the sub-case d = Q₀², Q₀ | h, Q₀ ≡ ±Q.
 *Proof.* q/(ph) = 1/x + 1/z ⟺ x = (ph + d)/q, z = ph·x/d with d | (ph)² (standard). −ph ≡ −p/4 and pm² ≡ −1. ∎
 (Checked by brute force on all 31 360 (p, q) pairs of the run above: 14 883 slices carry ES.)
+
+**Proposition 3.3 (T1 for Astra's state space; PROVED).** Let n = a² (a odd > 1) replace p.
+(a) No Astra source exists at n: q | a²m² + 1 with q ≡ 3 (4) is impossible (every divisor of X² + 1 is a product of
+primes ≡ 1 (4) and possibly 2). On the surface of Thm 3.1, g | (aM)² + Y² with gcd(aM, Y) = 1 forces g ≡ 1 (4): the
+Astra source, the Claude shot and the ES Type II point die simultaneously (EXPONENT_CAP Prop 1.3 "T1 in these
+coordinates").
+(b) No twisted Type I state exists at any level e ≡ 3 (4) prime to a: for an odd prime s | H = (a²e+1)/4,
+a²e ≡ −1 (mod s) gives (e/s) = (−1/s), so (s/e) = (−1/s)(e/s) = 1; and 2 | H forces e ≡ 7 (8), (2/e) = 1. So H has no
+prime factor in −K, and by the proof of Cor 2.2 no r | H² has e | n² + 4r for any n.
+*Check* (`scripts/z21_typeI.py 100000 100 1000000`, 6 s; data/z21_typeI_1e5.txt): all 62 179 pairs (p ≤ 10⁵ prime
+≡ 1 (4), prime level e ≡ 3 (4), e ≤ 100): Cor 2.2's prediction (prime factor s | H with (s/p) = −1) agreed with brute
+force (some r | H² with −4r a nonzero square mod e) in every case; 45 491 levels alive; at each alive level the
+least-twist state was built and checked exactly (4/p identity, τ = n); ES at the level (n = 1) in 24 575; least twist
+≤ 32. T1: all 6083 (odd square a² ≤ 10⁶) × level pairs dead, as proved.
+
+## 4. Astra's fixtures in Claude language
+
+`scripts/z21_fixtures.py` (data/z21_fixtures_translated.txt) re-checks every numeric triple of the verbatim
+extraction data/z21_astra_fixtures.txt (141 records from 13 Astra files; two extraction slips repaired: a W(4p)
+state mislabelled W(49p), and a 5209 record labelled 193) with exact rationals: **all 50 distinct triples are
+exact ES points of their input pm²**. Translation (τ = twist; "level e / r" = Type I certificate of Thm 2.1 with
+n = 1; "window w / d" = Type II window divisor d | K², d ≡ −K (mod w), K = x):
+| p | Astra route | Claude reading of the exit |
+|---|---|---|
+| 97 | sources q = 19, m = 3; q = 1171, m = 13 | Type I levels e = 7 (H = 170, r = 5), e = 15 (H = 364, r = 26 or 56); one Type II window w = 15, d = 392 |
+| 193 | source q = 79, m = 3 (window 23/9); floors m = 2 (window 2/4·… = 2), m = 7 (C = 3: window 3/49); 24→3→1, 7→45360→3→1 | Type I e = 3 (H = 145, r = 5 or 29), e = 7 (H = 338, r = 26), e = 143 (H = 6900, r = 250); Type II w = 15 (d = 8), w = 7 (d = 20) |
+| 3361 | sources q = 11 (m = 3, 19), q = 67 (m = 26), q = 271 (m = 457) | Type I e = 7 (r = 68), e = 39 (r = 29), e = 119 (r = 17820); Type II w = 39 (d = 125) |
+| 5209 | composite-q seed q = 157915, m = 24 → floor m = 7, C = 3 → borrowing b = 50 | Type I e = 31 (H = 40370, r = 550 = 11·50: borrowed content), e = 119 (r = 2112), e = 95 (r = 261) |
+| 233689 | grid / offset repairs, m = 8 | Type I e = 7 (H = 408956, r = 19), e = 119 (r = 446) |
+| 2521 | q = 2123 | Type I e = 35 (r = 13851) |
+| 15241 | composite q = 17·27179, m = 24 → 7 → fold → 2 → 1 | the fold state is **Claude's window shot at window R = 11 with the even root Q = 2** (twist 2, p-divisible anchor, Lemma 1.2); exit Type I e = 15 (H = 57154, r = 41) |
+| 313 | Type II moments, q = 7, m = 19 | Type II window w = 7, d = 25 = 5²: a **cap-0 square shot** (Q = 5) of CAP_POINTWISE Lemma 3.1 |
+| 1129 | birational, m = 5 | Type I e = 3 (H = 847, r = 539) |
+**Reading (Assessment).** Every Astra exit is a *classical* small-modulus ET certificate: 25 of the 30 twist-1 points
+are Type I at levels e ∈ {3, 7, 15, 31, 35, 39, 95, 119, 143}, 5 are Type II at windows w ∈ {7, 15, 39}. The
+genealogy (source → floors → borrowing/fold) is a *route to* the level/window, and by Thm 2.1 the exit at level e
+depends on the route only through one divisor r | H² (Astra's own remark [A:STR §11.4]: "inherited first
+integrality is not inherited exit forcing"). In particular the fold of [A:FORCED_FOLD §2] is a Claude window shot
+with the *least* root instead of a subgroup element: it trades Claude's self-muteness (rad τ | y) for size
+(τ ≤ (R−1)/2).
