@@ -9,7 +9,8 @@ memos BRAINSTORM/z23_*.md (7, indexed in BRAINSTORM/README.md); scripts scripts/
   Its only Type II solutions are 4/3361 = 1/850 + 1/(3361·25) + 1/(3361·170) and 1/841 + 1/(3361·290) + 1/(3361·8410);
   all four slices 99, 679, 1159, 33639 have −3361 a non-square. So the ASTRA_BRIDGE Thm 3.4 lattice framework
   (Cl(−4p), Astra line Y = 1, Claude lines k | h) cannot see Type II at 3361 at all. Reason (PROVED): a Type II
-  slice g | p + 4a²d is split iff the ET parameter d is a square mod g.
+  slice g | p + 4a²d is split iff the ET parameter d is a square mod g. 3361 is the only such prime ≤ 10⁷ (only the 160 primes
+  ≤ 10⁷ with empty d = 1 locus can be candidates; 159 of them have a split-slice solution).
 * **The meeting point (2k, 1) is a finite set, empty for 99 primes ≤ 10⁶ (Prop 1.1, PROVED + CERTIFIED).**
   Thm 3.4(c)'s ES points = {(a, b, k) : a + b = k(4ab − p)} ⟷ {(a, g) : g | p + 4a², g ≡ −1 (4a)}, ES point
   4/p = 1/(ab) + 1/(pka) + 1/(pkb); finite since (4a−1)(4b−1) ≤ 4p+1. Empty for exactly 99 of 39 175 primes p ≡ 1 (4)

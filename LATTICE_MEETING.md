@@ -49,6 +49,8 @@ exactly 99**: 13, 37, 97, 181, 193, 541, 673, 757, 1033, 1093, 1297, 1621, 1777,
 in one orientation; its mean count over p ≤ 10⁵ is 13.4, while the full *ordered* locus has mean 24.4 — reviewer recount.)
 Odd squares ≤ 10⁶: all empty. Independent cross-check (k-scan of `scripts/z23_shape.py`'s `least_k` up to the proven
 bound k ≤ a + b ≤ (p+4)/3, divisors g ≤ √(4k²p+1)): identical emptiness verdict on all 1125 primes p ≡ 1 (4) ≤ 2·10⁴ (25 empty).
+Extension (`scripts/z23_split.py 10000000 60`, 165 s, same existence scan): 160 primes p ≡ 1 (4) ≤ 10⁷ have 𝓜(p) = ∅
+(61 in (10⁶, 10⁷]): emptiness keeps thinning in proportion but does not stop.
 
 **Consequence for the O251 descent (PROVED from Prop 1.1 + certified list).** For each of the 99 primes, no sequence of
 moves inside the slice lattices of ℤ[√−p] (composition, reduction, translation, Vieta partner) can end at a point
@@ -102,7 +104,8 @@ For each of the 99 primes with 𝓜(p) = ∅, the least ET parameter d with a Ty
 checked exactly): d = 2 for 96 primes, d = 3 for 31081, d = 5 for 3361 and 7681. **Lattice visibility (R-O251 repair of a
 FATAL slip: an earlier version claimed all rescues sit on slice lattices of ℤ[√−p]).** Requiring a *split* slice (g or D
 with −p a square mod it): 98 of the 99 primes have such a Type II solution (least such d: 2 for 88, 3 for 8, 5 for 2);
-**p = 3361 has none**: exhaustively over all d ≤ (p+1)/3 its Type II solutions are exactly (a, b, c, d) = (5, 34, 1, 5)
+**p = 3361 has none** (and it is the only such prime ≤ 10⁷: of the 160 empty-𝓜 primes ≤ 10⁷, 159 have a split-slice
+Type II solution with d ≤ 60 — least such d: 2 for 148, 3 for 9, 5 for 2): exhaustively over all d ≤ (p+1)/3 its Type II solutions are exactly (a, b, c, d) = (5, 34, 1, 5)
 (slices 99, 679) and (1, 29, 10, 29) (slices 1159, 33639), and −3361 is a non-square modulo each of these four slices.
 So at p = 3361 **no Type II solution is visible in any slice lattice L_ρ(g) ⊂ ℤ[√−p]** (CERTIFIED): the Astra–Claude
 lattice framework of ASTRA_BRIDGE Thm 3.4 misses Type II entirely there (Type I solutions are not addressed).
