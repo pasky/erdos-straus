@@ -87,3 +87,23 @@ genus property (not preserved by all reduction moves)".
 (b) is a reading (WINDMILL 10.3 parallel), appropriately not claimed as a theorem beyond the swap computation.
 
 **Verdict C4: SOUND-AFTER-REPAIRS** (m2, m3 wording only).
+
+### C5. Prop 3.1 (parity budget)
+Re-derived: (a) 4h = g + 1 ≡ 1 (g) ⇒ h ≡ (2⁻¹)² is a square mod every prime ℓ | g (composite g fine) ✓; D likewise
+(4bcd = D + 1) ✓. (b) 4x ≡ p (m), m odd (≡ 3 (4)), p ∤ m (else p | x) ⇒ (x/ℓ) = (p/ℓ) ✓. Type I level: x = pH,
+(4H − 1)/(pH) = 1/y + 1/z, e = 4H − 1 ⇒ 4H ≡ 1 (e) ✓ (ASTRA_BRIDGE Prop 5.1(b) says the same for the slice). (c) ✓.
+The proposition is correct but definitional: "forced" is *defined* by a Legendre symbol of the coordinate, and every
+slice coordinate is 4⁻¹ mod its modulus. PROVED is fine; it is a near-tautology and should not be sold as more.
+**Defect m5:** "forced at ℓ … if (u/ℓ) = −1: then, ℓ ≡ 3 (4) being prime, … −1 ∈ ⟨u⟩" — the hypothesis ℓ ≡ 3 (4)
+is neither part of the definition nor needed (any odd prime: a non-residue has order with full 2-part of ℓ − 1, hence
+even order, hence −1 ∈ ⟨u⟩); window primes ℓ | m can be ≡ 1 (4). Repair: drop "ℓ ≡ 3 (4) being".
+**Defect M1 (MAJOR, recurrence of a retracted claim):** the Reading after Prop 3.1 ends "where WINDMILL Prop 10.3 and
+Cor 1.5 already show the class carries no information about the meeting", and BRAINSTORM/z23_parity_budget.md says the
+4-rank/Rédei invariant is something "Cor 1.5 shows is irrelevant". This is exactly the non-sequitur the R-O251 repair
+retracted in Cor 1.5's own Reading ("does not exclude class data constraining or guiding the norms produced").
+Neither Cor 1.5 (tautological norm-dependence) nor WINDMILL 10.3 (class functions see N𝔞 mod t only up to squares)
+says anything about 4-rank/Rédei data of the slice lattice and the meeting. Repair: replace by "… on a non-quadratic
+invariant of the slice (4-rank / Rédei symbol), about which nothing is proved here; WINDMILL 10.3 limits class
+functions of N𝔞 mod t to the genus shadow, and Cor 1.5 is only norm-dependence of E." Same edit in the memo.
+
+**Verdict C5: SOUND-AFTER-REPAIRS** (Prop correct; Reading overclaims — M1, m5).
