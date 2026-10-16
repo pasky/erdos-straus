@@ -30,8 +30,9 @@ odd s | K). Classification (§2): at cap 0 they give only classical windows (m |
 p² + 2^c); at cap e ≥ 1 with K odd the only new relation is K^o ≡ −1, i.e. m | p^o + 4^o (o odd), with cap ≤
 b_max(o − 1)/2 (K even: m | p^J + 2^c). This decouples the cap from the window SIZE (q can be ≈ p^o). Barrier hit:
 p^o + 4^o ≡ 1 (mod 4) for every p, and at p = a² it is a sum of two coprime squares — beyond finitely many fixed small
-prime factors (classical congruence classes, B1), the existence of a prime factor ≡ 3 (mod 4) is a Landau-type event
-(R-O250 review fix: not "never congruence-forced").
+prime factors (classical congruence classes, B1), the existence of a prime factor ≡ 3 (mod 4) for o bounded is a
+Landau-type event (R-O250 review fix: not "never congruence-forced"; R261 repair: "for o bounded" — for unbounded o
+Prop 2.3 always supplies one).
 
 ## 1. Bounded windows are dead at every cap (conditional), via a Jacobi transfer
 
@@ -84,8 +85,9 @@ composite, 284 have a live window ≤ 11 — the rough parts are what carries th
 Write K = 2^t K′ (K′ odd). Call a certificate **uniform** if δ_s = j·b_s for every odd s | K (one integer j),
 δ₂ = a (|a| ≤ t), δ_p = ε ∈ {−1, 0, 1}. Admissible j: j ∈ {−1, 0, 1} (cap 0), j ≥ 3 odd (cap (j − 1)·max b_s/2, since
 jb_s ≡ b_s (mod 2)), j ≥ 2 even only if K′ is a perfect square. These are exactly the certificates that use nothing
-about K beyond K itself, 2^t and p ("self-generated" in the strongest sense; every forced argument so far — CAP_POINTWISE
-Thm 1.1's −K = h², h a power of K — is of this kind up to reduction of exponents).
+about K beyond K itself, 2^t and p ("self-generated" in the strongest sense; CAP_POINTWISE
+Thm 1.1's −K = h², h a power of K, and CAP_DOWN Thm 1.2 are of this kind up to reduction of exponents; CAP_DOWN
+Prop 1.3's one-prime witness is not uniform — R261 repair).
 
 **Proposition 2.1 (classification; PROVED, elementary).** Mod m, p ≡ 4K = 2^{t+2}K′, so a uniform vector has value
 2^a K′^j p^ε ≡ 2^w p^J with w := a − j(t + 2), J := j + ε. Hence a uniform certificate exists at m iff m divides the
@@ -98,18 +100,20 @@ no divisor ≡ 3 (mod 4).
 (c) cap ≥ 1, K odd: N = p^j + 4^j (j odd ≥ 3, ε = 0); ε = ±1 gives p^{j±1} + 4^j, a sum of two coprime squares, with
 no divisor ≡ 3 (mod 4). If K is an odd square (the only case allowing even j) there is no uniform certificate at all:
 K and p ≡ 4K have Jacobi symbol +1 mod m, −1 has −1 (R-O250 review fix).
-(d) cap ≥ 1, K even: N = p^J + 2^c with J = j + ε and j(t + 2) − t ≤ c ≤ j(t + 2) + t, for every admissible j ≥ 2
+(d) cap ≥ 1, K even, K′ > 1 (if K′ = 1, j is vacuous and only (b) applies — R261 repair): N = p^J + 2^c with J = j + ε and j(t + 2) − t ≤ c ≤ j(t + 2) + t, for every admissible j ≥ 2
 (j even needs K′ a square; e.g. p = 13, m = 387, K = 100, (δ₂, δ₅, δ_p) = (−1, 4, 1): cap 1, m = 387 | 13³ + 2⁹ = 2709 = 7·387 — R-O250
 review fix: j = 2 was missing).
 *Proof.* Substitution K′ ≡ p·2^{−(t+2)} and the bounds |a| ≤ t: for j ≥ 1, w ∈ [−t − j(t+2), t − j(t+2)] ⊂ (−∞, −2j];
 for j = 0, w = a. Sums of two coprime squares have only prime factors ≡ 1 (4) (and 2), while m ≡ 3 (mod 4). ∎
 **Corollary 2.2 (residues mod 8; PROVED).** For p ≡ 1 (mod 8) every p-dependent N in (a)–(d) is ≡ 1 (mod 4) (for
 p + 1 read (p + 1)/2), except 2p + 1 and p + 2 (≡ 3 (mod 8)), which occur only with t ≥ 1, i.e. m ≡ −p ≡ 7 (mod 8).
-So p mod 8 alone forces no uniform certificate; for N ≡ 1 (4) a divisor m ≡ 3 (4) exists iff N has a prime factor
+So p mod 8 alone forces no uniform certificate of bounded order j (R261 repair: uniform certificates of unbounded
+order j = o exist for every p ≡ 1 (8), at every forced window q ≡ 3 (8), by Prop 2.3 and Dirichlet); for N ≡ 1 (4) a divisor m ≡ 3 (4) exists iff N has a prime factor
 ≡ 3 (mod 4). ∎ (R-O250 review fix: the first version claimed "never congruence-forced", which is FALSE: congruences
-mod a fixed q | N force such a factor, e.g. 3 | p + 4 for p ≡ 17 (24), 4/17 = 1/5 + 1/170 + 1/34. The correct
-reading: uniform certificates are congruence-forced only through finitely many fixed small prime factors of N, i.e.
-classical ET/Mordell classes, finite coverings subject to B1/T1; beyond any finite menu the event is Landau-type.)
+mod a fixed q | N force such a factor, e.g. 3 | p + 4 for p ≡ 17 (24), 4/17 = 1/5 + 1/170 + 1/34.)
+*Reading (Assessment, not part of the proof — R261 repair; "congruence-forced" is not formalised, and e.g. 2p + 1 ≡ 3 (4)
+always has a prime factor ≡ 3 (4) with no fixed prime, failing only via the condition m ≡ 7 (8)).* Uniform certificates are congruence-forced only through finitely many fixed small prime factors of N, i.e.
+classical ET/Mordell classes, finite coverings subject to B1/T1; beyond any finite menu the event is Landau-type.
 So the self-generated level forces −1 ∈ ⟨S⟩ (the subgroup) but no bounded-exponent *uniform* representation beyond
 classical classes; the forced cap of CAP_POINTWISE/CAP_DOWN comes from reducing exponents modulo orders, which is
 where q (not o) enters.
@@ -136,10 +140,11 @@ prime q ≡ 3 (4), q ≤ y} (an explicit Chebotarev-defined set).
 
 **Lemma 3.1 (PROVED; CAP_DOWN Thm 1.2 + Prop 1.3).** For every prime p: e*(p) = 0 if p ≢ 1 (mod 8) (p ≡ 3 (4) and
 p ≡ 5 (8) are classical), and e*(p) ≤ (q₃(p) − 3)/4 if p ≡ 1 (8). Hence {p : e*(p) > C} ⊆ 𝒫(4C + 3). Moreover
-𝒫(y) ∩ [1, y] = ∅, since q₃(p) ≤ (p + 1)/2 (Pollack, JNT 187 (2018) Thm 1; CAP_DOWN Cor 2.2).
+𝒫(y) ∩ [1, y] = ∅, since q₃(p) ≤ (p + 1)/2 (Pollack, JNT 187 (2018), proof of Thm 1 — the statement itself gives q₃(p) < p, which already suffices here;
+CAP_DOWN Cor 2.2; R261 repair).
 
 **Theorem 3.2 (PROVED relative to Montgomery's arithmetic large sieve and the prime number theorem for primes
-≡ 3 (mod 4)).** Let 𝒜(N, y) := {n ≤ N : every prime factor of n is ≡ 3 (mod 4) and ≤ y}. For Q ≥ 2:
+≡ 3 (mod 4); via Lemma 3.1 also CAP_DOWN Thm 1.2/Prop 1.3 and, for the display only, Pollack — R261 repair).** Let 𝒜(N, y) := {n ≤ N : every prime factor of n is ≡ 3 (mod 4) and ≤ y}. For Q ≥ 2:
 `  #(𝒫(y) ∩ [1, Q]) ≤ (N + Q²)/|𝒜(N, y)|     for every N ≥ 1.`
 Consequently:
 (a) for A > 1: #{p ≤ X : e*(p) > (log X)^A/4} ≤ X^{2/A + o(1)} — a power saving for every A > 2;
@@ -157,12 +162,13 @@ q₃(p) > X^{ε/2}; summing over X, X^{1/2}, X^{1/4}, … gives (b). ∎
 the restriction to q ≡ 3 (mod 4) costs the polylog (𝒜 has density only ≍ (log N)^{−1/2} even without smoothness;
 a sharper lower bound for |𝒜| would improve (b)). (2) Pointwise the unconditional record stays p^{1/4+ε}
 (ineffective, CAP_DOWN Cor 2.1) and (p − 5)/8 (effective); under GRH (log p)^{2+ε}. Theorem 3.2 says the GRH-quality
-bound holds unconditionally outside X^{1+o(1)}·X^{−(1 − 2/A)} primes, and p^ε outside a polylog set. (3) Compared with
+bound (up to the exponent: A > 2 vs 2 + ε — R261 repair) holds unconditionally outside X^{1+o(1)}·X^{−(1 − 2/A)} primes, and p^ε outside a polylog set. (3) Compared with
 CAP_INTERPOLATION Remark 3.2(b) (reviewer sketch: power saving for e ≥ (log N)^{1+ε} via the class large sieve), (a)
 is weaker in range (A > 2) but complete, and its exceptional set is explicit and Chebotarev-defined (𝒫(4e + 3)).
 (4) Bounded C: 𝒫(4C + 3) has positive relative density 2^{−π(4C+3; 4, 3)} among p ≡ 1 (8), so the forced level never
 gives "bounded cap outside a thin set"; by Thm 1.3 nor does any bounded-window method (conditionally), and by
-CAP_DOWN Prop 4.1(a) the worst case at a single window is exactly (q − 3)/4.
+CAP_DOWN Prop 4.1(a) the worst case at a single window in the δ_p = 0 slice is exactly (q − 3)/4 (R261 repair: the
+full Lemma-3.1 family can be smaller, p = 593, q = 11; R261 scan: 338 of 4 661 Prop-4.1(a) cases, p < 4·10⁵, q ≤ 83).
 
 ## 4. Many generators: what a bounded or logarithmic cap would need (Assessment, with one exact step)
 
@@ -177,7 +183,7 @@ law of Cor 1.2 in averaged form. ∎
 *Reading (Assessment; R-O250 review fix — the first version used a wrong one-sided bound and overstated a necessity).*
 For odd s | K the exponent set is a base interval [−b_s, b_s] plus an overflow progression of step 2, so with
 χ(s) = e(θ_s): |Σ_{δ∈D_s} χ(s)^δ| ≤ min(2b_s + 1, 1/‖θ_s‖) + min(C, 1/‖2θ_s‖) — resonance occurs near χ(s) = ±1, not
-only near 1 (e.g. p = 157, q = 7, K = 41, C = 20, χ(3) = e(1/6) breaks any bound of the form min(|D_s|, 2/‖θ_s‖)). A
+only near 1 (e.g. p = 157, q = 7, K = 41, C = 20, χ the order-6 character with χ(3) = e(1/6), so χ(41) = χ(−1) = −1 and |Σ_{D_41} χ(41)^δ| = 21 — R261 repair — breaks any bound of the form min(|D_s|, 2/‖θ_s‖)). A
 deterministic cap ≤ C at q follows if the sum over all χ with χ² ≠ 1 is smaller than the trivial-plus-quadratic term;
 this needs the discrete logarithms of the generators mod q − 1 to avoid simultaneous small denominators — a
 Diophantine-genericity condition on discrete logs (cf. the "balanced exponent lattice" of BRAINSTORM/z12_grh_lattice_gap,
@@ -217,7 +223,7 @@ None of (A), (B), (C) was reached pointwise. What was obtained:
 2. **Thm 1.3 (CONDITIONAL on Dickson):** for every M, infinitely many primes have no window certificate with m ≤ M at
    ANY cap (e = ∞ included): no finite window menu covers every prime (scope: p ∤ x); checked on explicit p (M = 11, 19).
 3. **Prop 2.1 / Cor 2.2 (PROVED):** the self-generated (uniform) certificates are classified; for p ≡ 1 (8), p mod 8
-   alone forces none (each needs a prime factor ≡ 3 (4) of an N ≡ 1 (4), or a class 7 (8) divisor of an N ≡ 3 (8));
+   alone forces none of bounded order (R261 repair; each needs a prime factor ≡ 3 (4) of an N ≡ 1 (4), or a class 7 (8) divisor of an N ≡ 3 (8));
    congruence forcing happens only via fixed small primes of N, i.e. classical classes (R-O250 review fix).
    **Prop 2.3 (PROVED):** the odd-order witness — at a forced window the cap is ≤ (o − 1)/2·max v_s(K) with o the
    odd order of p/4, independent of the window size; a bounded cap would follow from the Landau-type (U), which is

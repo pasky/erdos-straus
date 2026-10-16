@@ -1,5 +1,9 @@
 # R261 — hostile review of CAP_BOUNDED.md (O250, checkpoint 1)
 
+**Repairs applied** (author quiet since checkpoint 1): D1–D8 applied directly to CAP_BOUNDED.md on this branch, each
+marked "(R261 repair)" (12 markers). The ledger part of D7 (DISCOVERIES (J)66, CAP_DOWN §7 item 2 on main) is left to
+the parent.
+
 Reviewer: R261 side agent (branch side-agent/review-cap-bounded, merged side-agent/cap-bounded at 6c42e1dc).
 From-scratch scripts: `scripts/review_r261_*.py` (no reuse of `scripts/z22_*`).
 Self-test of the checker: `review_r261_selftest.py 400 23 2` — least Lemma-3.1 cap via residue DP vs. direct
