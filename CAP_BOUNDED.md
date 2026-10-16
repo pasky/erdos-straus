@@ -92,35 +92,41 @@ integer N := numerator of 2^w p^J + 1 (cleared of powers of 2 and p; (w, J) and 
 units). The possibilities are:
 (a) cap 0, K odd (t = a = 0): N = p + 4 ((j, ε) = (±1, 0)) or p + 1 ((0, ±1)); the others give p² + 4 or 5, which have
 no divisor ≡ 3 (mod 4).
-(b) cap 0, K even: N ∈ {2^c p + 1 (0 ≤ c ≤ t), p + 2^c (1 ≤ c ≤ 2t + 2), p² + 2^c (c odd ≤ 2t + 2), 2^c + 1}.
+(b) cap 0, K even: N ∈ {2^c p + 1 (0 ≤ c ≤ t), p + 2^c (1 ≤ c ≤ 2t + 2), p² + 2^c (c odd, 3 ≤ c ≤ 2t + 1),
+2^c + 1 (1 ≤ c ≤ 2t + 2)} (R-O250 review fix: ranges; even c in p² + 2^c gives a sum of two squares).
 (c) cap ≥ 1, K odd: N = p^j + 4^j (j odd ≥ 3, ε = 0); ε = ±1 gives p^{j±1} + 4^j, a sum of two coprime squares, with
-no divisor ≡ 3 (mod 4). If K is a square also N = p^{j±1} + 4^j, j even.
-(d) cap ≥ 1, K even: N = p^J + 2^c with J = j + ε ∈ {j − 1, j, j + 1} and c = −w ≥ 2j ≥ 6.
+no divisor ≡ 3 (mod 4). If K is an odd square (the only case allowing even j) there is no uniform certificate at all:
+K and p ≡ 4K have Jacobi symbol +1 mod m, −1 has −1 (R-O250 review fix).
+(d) cap ≥ 1, K even: N = p^J + 2^c with J = j + ε and j(t + 2) − t ≤ c ≤ j(t + 2) + t, for every admissible j ≥ 2
+(j even needs K′ a square; e.g. p = 13, m = 387, K = 100, (δ₂, δ₅, δ_p) = (−1, 4, 1): cap 1, N | 13³ + 2⁷·… — R-O250
+review fix: j = 2 was missing).
 *Proof.* Substitution K′ ≡ p·2^{−(t+2)} and the bounds |a| ≤ t: for j ≥ 1, w ∈ [−t − j(t+2), t − j(t+2)] ⊂ (−∞, −2j];
 for j = 0, w = a. Sums of two coprime squares have only prime factors ≡ 1 (4) (and 2), while m ≡ 3 (mod 4). ∎
-**Corollary 2.2 (no uniform certificate is congruence-forced at p ≡ 1 (8); PROVED).** For p ≡ 1 (mod 8) every N in
-(a)–(d) that depends on p is ≡ 1 (mod 4), except 2p + 1 and p + 2 (≡ 3 (mod 8)) and p + 1 ((p + 1)/2 ≡ 1 (4)). For
-N ≡ 1 (4) a divisor m ≡ 3 (4) exists iff N has a prime factor ≡ 3 (mod 4) — a Landau-type event, not determined by any
-congruence on p. For 2p + 1 and p + 2 the relation needs t ≥ 1, i.e. m ≡ −p ≡ 7 (mod 8), while N ≡ 3 (mod 8):
-again not forced (it needs a prime factor ≡ 7 (8) or a pair 3·5 (8)). ∎
-So the self-generated level, which forces −1 ∈ ⟨S⟩ (the subgroup), forces no bounded-exponent *uniform*
-representation; the forced cap of CAP_POINTWISE/CAP_DOWN comes from reducing exponents modulo orders, which is where
-q (not o) enters.
+**Corollary 2.2 (residues mod 8; PROVED).** For p ≡ 1 (mod 8) every p-dependent N in (a)–(d) is ≡ 1 (mod 4) (for
+p + 1 read (p + 1)/2), except 2p + 1 and p + 2 (≡ 3 (mod 8)), which occur only with t ≥ 1, i.e. m ≡ −p ≡ 7 (mod 8).
+So p mod 8 alone forces no uniform certificate; for N ≡ 1 (4) a divisor m ≡ 3 (4) exists iff N has a prime factor
+≡ 3 (mod 4). ∎ (R-O250 review fix: the first version claimed "never congruence-forced", which is FALSE: congruences
+mod a fixed q | N force such a factor, e.g. 3 | p + 4 for p ≡ 17 (24), 4/17 = 1/5 + 1/170 + 1/34. The correct
+reading: uniform certificates are congruence-forced only through finitely many fixed small prime factors of N, i.e.
+classical ET/Mordell classes, finite coverings subject to B1/T1; beyond any finite menu the event is Landau-type.)
+So the self-generated level forces −1 ∈ ⟨S⟩ (the subgroup) but no bounded-exponent *uniform* representation beyond
+classical classes; the forced cap of CAP_POINTWISE/CAP_DOWN comes from reducing exponents modulo orders, which is
+where q (not o) enters.
 
 **Proposition 2.3 (odd-order witness: the cap does not depend on the window size; PROVED).** Let q ≡ 3 (mod 4) be a
 prime with q ∤ p, q ≡ 4 − p (mod 8) (K_q odd) and (q/p) = −1. Let o be the odd part of ord_q(p/4) (equivalently the
 least odd o with q | p^o + 4^o; it exists iff (q/p) = −1). Then the window q carries the uniform certificate
 δ_s = o·b_s (j = o), and **e*(p) ≤ (o − 1)/2 · max_{s | K_q} v_s(K_q).** In particular e*(p) ≤ max_s v_s(K_q) whenever
-q | p² − 4p + 16 = (p − 2)² + 12 (o = 3), and e*(p) = 0 if q | p + 4 (o = 1, the classical window).
+q | p² − 4p + 16 = (p − 2)² + 12 (then o ∈ {1, 3}; R-O250 review fix), and e*(p) = 0 if q | p + 4 (o = 1, the classical window).
 *Proof.* K ≡ p/4 (mod q), (K/q) = (p/q) = −1 and the 2-part of F_q^* is {±1}, so ord_q(K) = 2o with o odd and
 K^o ≡ −1, i.e. ∏ s^{o b_s} ≡ −1: a uniform certificate with j = o, admissible (o odd), of cap (o − 1)b_s/2 at s. ∎
 *Reading.* Prop 1.3 of CAP_DOWN bounds the cap by the order of one non-residue prime s | K (≤ (q − 3)/4); Prop 2.3
 bounds it by the odd order of the single element p/4, which is small exactly for the prime factors of p^o + 4^o
 with o small — windows that can be as large as p^o. A bounded cap for every p would follow from: **(U) for every
 prime p ≡ 1 (8) some p^o + 4^o, o ≤ O₀ odd, has a prime factor q ≡ 3 (mod 8) with K_q of bounded multiplicity.**
-(U) is a simultaneous Landau-type statement; heuristically each fixed o fails with probability ≍ (o log p)^{−1/2}, so
-(U) with a fixed O₀ should fail for infinitely many p (the failure density ∏_o (o log p)^{−1/2} is not summable over p
-for any fixed O₀). Assessment: Prop 2.3 is a second explicit witness (useful numerically, §5), not a route to (A).
+(U) is a simultaneous Landau-type statement about correlated polynomial values (all share the factor p + 4); a naive
+independence heuristic suggests it fails for infinitely many p for each fixed O₀, but this is speculative (no
+probability model is claimed; R-O250 review fix). Assessment: Prop 2.3 is a second explicit witness (useful numerically, §5), not a route to (A).
 
 ## 3. Goal (C) outside explicit thin sets: the forced cap plus Linnik's large sieve
 
