@@ -113,3 +113,47 @@ correctly. From scratch: q₃(p) ≤ (p+1)/2 for all p ≡ 1 (4) < 10⁶ (max q�
 * Remark (2)'s "GRH-quality" is loose: GRH gives (log p)^{2+ε}, Thm 3.2(a) gives a power saving only for exponent
   A > 2 — "GRH-quality up to the exponent" would be precise (MINOR, D6). Remark (4): density 2^{−π(4C+3;4,3)} of
   𝒫(4C+3) among p ≡ 1 (8) correct (reciprocity: (q/p) = (p/q), independent conditions on p mod q).
+
+## 4. §4 Lemma 4.1 and Assessment — SOUND (Lemma) / Assessment correctly labelled
+
+Orthogonality formula correct (χ(−1) real). Trivial + quadratic terms re-derived: for s a non-residue mod q,
+Σ_{δ∈D_s} (−1)^δ/|D_s| = 1 − 2ω_s, and χ₂(−1) = −1 ⇒ |Box|/(q−1)·(1 − ∏_{NR}(1 − 2ω_s)) ✓. ω_s values re-derived:
+b_s = 1: (C+2)/(C+3) ✓; b_s even: b_s/(2b_s + 1 + C) ✓; 2: t/(2t+1); p: 2/3. Exponential-sum bound
+min(2b+1, 1/‖θ‖) + min(C, 1/‖2θ‖) is valid (geometric sums; even 1/(2‖·‖) would do).
+The example "p = 157, q = 7, K = 41, C = 20, χ(3) = e(1/6)" is obscure (3 is not a generator of the box): 157 ≡ 3,
+41 ≡ −1 (mod 7); χ is the order-6 character with χ(3) = e(1/6), so χ(41) = χ(−1) = −1 and Σ_{δ∈D_41}(−1)^δ = −(C+1)
+= −21 in modulus 21 > 2/‖1/2‖ = 4. The point stands; the wording should name χ(41) = −1 (MINOR, D7).
+The (log q)^{O(1)} counting heuristic and "no GRH route" are Assessment and labelled so. OK.
+
+## 5. §5 EVIDENCE — fully reproduced from scratch
+
+`review_r261_numerics.py sample 20513 1` (own enumeration of Mordell-hard p ≤ 10⁷, own forced/unforced split, own exact
+cap DP, own explicit witnesses; output `data/review_r261_numerics_full.txt`, 2.5 min) — **every figure of §5 agrees
+exactly**: 20 513 hard primes; forced windows 205 130, cap-0 0.551, cap ≤ 1 0.745; unforced 903 879, 0.127 / 0.200;
+q-bins [0,100), [100,200), [200,300): 0.684/0.317, 0.396/0.166, 0.274/0.127; cap at least forced window
+{0: 17 584, 1: 2 123, 2: 221, 3: 84, >3: 501} = 85.7 / 10.3 / 1.1 / 0.4 / 2.4 %; explicit-witness histogram identical
+(0: 44.1 %, 1: 22.4 %, 2: 19.9 %, 3–5: 11.8 %, ≥ 6: 1.8 %; max 17).
+`review_r261_numerics.py four`: 3361, 2 782 921, 7 071 121, 8 925 841 have no cap-0 among their first 10 forced
+windows (caps up to 3 listed, None = > 3) and first cap-0 forced window 383 (#20), 311 (#16), 179 (#11), 419 (#20);
+least cap-0 window over all m ≡ 3 (4): 3, 3, 39, 11 — all as claimed. Explicit-witness maxima: 7 581 841 → 17 (at
+q = 71, Prop 1.3/2.3 min), 545 449 → 10 (q = 43 or 127) ✓.
+Caveat (already acknowledged by the author): the forced/unforced aggregate compares the first 10 forced windows with
+ALL unforced ones ≤ 1000; only the per-bin ratios are meaningful. "§6 item 6: every Mordell-hard p ≤ 10⁷ has cap 0 at
+one of its first 20 forced prime windows" ✓ (max index 20).
+
+## 6. p = 593, q = 11 and CAP_DOWN Prop 4.1(a) / the (J)66 ledger
+
+Rechecked: K = 151 prime, ord_11(151) = 10 (primitive), (11/593) = −1. δ_p = 0 slice: least cap 2 = (q−3)/4
+(δ_151 = 5); full Lemma-3.1 family: δ_p = −1, δ_151 = 0 gives cap 0: **4/593 = 1/151 + 1/8154 + 1/4 835 322** (exact).
+Mechanism: with δ_p = ±1 the condition becomes K^{c±1} ≡ −4^{∓1} (mod q), i.e. the discrete log of −4 enters.
+Scan (`review_r261_sharp.py 400000`; all p ≡ 1 (4) prime < 4·10⁵, q ∈ {11, …, 83} prime ≡ 3 (4), K prime primitive
+mod q): **4 661 cases; slice cap = (q−3)/4 in all (Prop 4.1(a) as stated is correct); full family strictly smaller in
+338 (7.3 %)**, e.g. (p, q) = (593, 11), (2441, 11), (7193, 11).
+* CAP_DOWN Prop 4.1(a) itself says "least Lemma-1.1 cap" — correct, no repair to the proposition.
+* **Ledger wording needs a correction (MINOR, D8):** DISCOVERIES (J)66 ("cap ≤ (q − 3)/4, sharp at a single window")
+  and CAP_DOWN §7 item 2 ("is sharp at a single window (Prop 4.1(a))") read as statements about the window's true cap
+  (which is what e*(p) sees). Suggested text: "sharp at a single window within the Lemma-1.1 (δ_p = 0) family; the full
+  Lemma-3.1 family can do strictly better (p = 593, q = 11: cap 0 via δ_p = −1)". Full-family sharpness for some K is
+  supported numerically (4 323 of the 4 661 cases still need (q−3)/4) but is not proved.
+* Same issue inside CAP_BOUNDED: §3 Remark (4) says "by CAP_DOWN Prop 4.1(a) the worst case at a single window is
+  exactly (q − 3)/4" without the slice qualifier — contradicts the author's own §1 Remark (3) (MINOR, D8).
