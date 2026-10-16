@@ -48,3 +48,21 @@ unordered mean is 12.19, so the sentence "the scan a ≤ √p + 2 sees each unor
 false — it sees every unordered pair at least once, ~9 % of them in both orientations (defect m1).
 
 **Verdict C2: SOUND** (one MINOR wording defect m1).
+
+### C3. Thm 1.4 (slice criterion, surjection) and Cor 1.5 (norm-only)
+Citation checked against sources/elsholtz-tao-1107.1010.pdf: ET Prop 2.6 states every Type II solution of 4/n is
+π_n^II(a,b,c,d,e,f) = (abd, acdn, bcdn) with (2.15) 4abcd = a + b + nc, unique under gcd(a,b,c) = 1 — the document's
+4-parameter form is exactly this (with the gcd normalisation dropped, which is why the map is not injective). ✓
+Proof re-derived: forward 4a²d ≡ −(4ak)²p = −(4h)²p ≡ −p (mod g); b integral since 4a²d ≡ 0 (mod 4ad); p ∤ x is
+automatic (p | x, y, z would give 4 = Σ 1/(·/p) ≤ 3 — worth one line, not stated); converse
+(4acd−1)(4abd−p) = 4a²d + p, −4k²p ≡ (4acd)²d ≡ d, d ≤ k ≤ h < g. ✓ The case d_k = 0 is correctly excluded.
+From-scratch brute force (`scripts/review_r262_slice.py 6000 3000`): **all** 286 750 slices g ≡ 3 (4) ≤ 3000,
+gcd(g, p) = 1, p ≡ 1 (4) ≤ 6000 — *including non-split slices*, which the author's check skipped — brute-force set of
+Type II solutions with y = ph (x ∈ (ph/g, ph/(g−h)], Z = hx/(gx − ph)) equals the image of the k-map: **0 mismatches**;
+ES slices: 5 894 split (= the document's count) + 1 991 non-split; 1 889 non-injective collisions (the p = 29, g = 15
+example reproduced). So the parenthetical "(The check covers split g only …)" can now be upgraded.
+Lattice reading: Y_k ≡ 2kρ ⇒ Y_k² ≡ −4k²p ≡ d_k ✓; norm of √d + 2k√−p ✓; s²-reduction ✓.
+Cor 1.5: correct and (as the R-O251 repair now says) essentially tautological, since E(𝔤) is defined through N𝔤.
+"one primitive ideal per root ρ mod g" correct for odd g prime to p. The Assessment label on the reading is right.
+
+**Verdict C3: SOUND.**
