@@ -239,3 +239,11 @@ No FATAL defect. ES is not claimed and nothing in the document claims an infinit
   non-anchor coordinates), which Astra distinguishes from arbitrary coprime-anchor states. Footnote the K-notation clash
   (bridge K = window x; Astra FORCED_FOLD K = slice h).
 * m15 (Prop 3.3(a)): "the ES Type II point" → "the ES shot (surface point)".
+
+## Numerics (all from-scratch, exact rationals; outputs in data/review_r260_numerics.txt, data/review_r260_fixtures.txt)
+* `review_r260_typeI.py 3000 151 12` — Thm 2.1 both sides independently, Cor 2.2, Prop 3.3(b).
+* `review_r260_lattice.py 3000 400 400 400` — direct shot enumeration vs lattice enumeration vs sources; Thm 3.1, 3.4, Prop 3.2.
+* `review_r260_fixtures.py ../erdos-straus-astra data/z21_fixtures_translated.txt <13 files>` — independent extraction;
+  `review_r260_capcheck.py data/review_r260_fixtures.txt` — ES^{(y,e)} test of every twisted triple.
+* `review_r260_sec56.py 3000 400 199` — Props 5.1, 5.2(b), 6.1 (literal saturation test), 6.2.
+Each run < 5 s, under `ulimit -v 8000000` and `timeout`.
