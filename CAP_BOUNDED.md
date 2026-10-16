@@ -26,11 +26,12 @@ certificate supported on {s ≤ y} ∪ {2} with δ_p = 0 exists at any window an
 (m/p) = −1. Hypothesis satisfied: "bounded support" (the certificate uses only primes from a set fixed in advance).
 → The support must grow with p; §1 makes this a theorem (conditional, any cap) for bounded windows.
 (Z22-2) *Uniform (self-generated) elements.* Use only elements polynomial in K, p, 2 (exponents δ_s = j·b_s on all
-odd s | K). Classification (§2): at cap 0 they give only the classical windows m | p + 4, m | (p+1)/2, m | p + 2,
-m | 2p + 1; at cap e ≥ 1 the only new relation is K^o ≡ −1, i.e. m | p^o + 4^o (o odd), with cap ≤ b_max(o − 1)/2.
-This decouples the cap from the window SIZE (q can be ≈ p^o). Barrier hit: p^o + 4^o ≡ 1 (mod 4) for every p, and at
-p = a² it is a sum of two coprime squares — the existence of a prime factor ≡ 3 (mod 4) is a Landau-type event, never
-congruence-forced (T1/B5).
+odd s | K). Classification (§2): at cap 0 they give only classical windows (m | p + 4, p + 1, 2^c p + 1, p + 2^c,
+p² + 2^c); at cap e ≥ 1 with K odd the only new relation is K^o ≡ −1, i.e. m | p^o + 4^o (o odd), with cap ≤
+b_max(o − 1)/2 (K even: m | p^J + 2^c). This decouples the cap from the window SIZE (q can be ≈ p^o). Barrier hit:
+p^o + 4^o ≡ 1 (mod 4) for every p, and at p = a² it is a sum of two coprime squares — beyond finitely many fixed small
+prime factors (classical congruence classes, B1), the existence of a prime factor ≡ 3 (mod 4) is a Landau-type event
+(R-O250 review fix: not "never congruence-forced").
 
 ## 1. Bounded windows are dead at every cap (conditional), via a Jacobi transfer
 
