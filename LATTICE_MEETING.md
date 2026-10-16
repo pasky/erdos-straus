@@ -10,8 +10,16 @@ Throughout p ≡ 1 (mod 4) is prime. Scripts `scripts/z23_*`.
 asked where they could end. Answer (§1): the end set (Y = 1 points over *all* slices of Cl(−4p)) is a finite,
 explicitly enumerable set, and it is **empty** for 99 primes p ≤ 10⁶ (13, 37, 97, 181, 193, …). So no walk inside
 Cl(−4p) can terminate for those p, whatever its moves. Hypothesis of the obstruction: the walk stays in ℤ[√−p]
-(ET parameter d = 1 / square). Modification: let the walk change the order/field — ES Type II with ET parameter d
-is the meeting set of the forms pM² + dY² (disc −4dp), §1.3.
+(ET parameter d = 1 / square). Modification: allow other targets on the same lines — Thm 1.4: *all* of Type II at slice g is the
+square-class meeting Y_k² ≡ d (mod g), d | k ("height √d"); the 99 primes are rescued at d ∈ {2, 3, 5} (§1.4).
+(I2) Built the composition move (§2.1) and looked for an invariant carrying k | h along it. Found instead that the
+ES predicate is a function of the norm alone (Cor 1.5): the class coordinate is irrelevant. Hypothesis of this
+obstruction: the walk's state is an ideal (class) — modification: carry extra state (h's divisors). Controlled lifts
+u ≡ 1 (mod 4h) keep h | h′ (§2.2) but ES only propagates *down* that tower.
+(I3) Fixed-line reduction (§2.3): for k | 6 every move preserves admissibility (genus regime = B1); for k ∤ 6 the
+walk needs ray-class data mod 4k = the B2 datum itself. (I4) Looked for two forced slots: impossible (§3).
+(I5) Numerics (§4): the class-group walk reaches any nonempty target in a few steps (expander), so the walk adds
+nothing; existence is the whole problem.
 
 ## 1. The meeting locus is finite, explicit, and sometimes empty
 
@@ -169,3 +177,27 @@ O(log p) moves" is **equivalent** (on GRH, line by line) to "the line carries an
 "4k²p + d has a divisor ≡ −1 (mod 4k) for some d | k". On the d = 1 locus of Cl(−4p) this fails for all k at the 99
 certified primes of §1; per line it fails with frequency 26 % (k = 1) … 73 % (k = 5) at p ≤ 3000.
 The walk contributes reachability, never existence.
+
+## 5. Verdict (O251)
+
+1. **Meeting locus (PROVED + CERTIFIED).** Thm 3.4(c)'s meeting set (2k, 1) is the finite set {a + b = k(4ab − p)}
+   (Prop 1.1) and is **empty for 99 primes p ≤ 10⁶** (13, 37, 97, …; all ≡ 1 mod 12). So no descent in the slice
+   lattices of ℤ[√−p] can terminate at height 1 for those p.
+2. **The right meeting set (PROVED, Thm 1.4).** ES Type II at slice g ⟺ some vertical line k | h has height class
+   with Y_k² ≡ d (mod g), d | k (formally the point (2k, √d)); bijective with the Type II solutions with y = ph
+   (89 117 slices checked). The 99 primes are rescued at d = 2 (96), 3 (1), 5 (2).
+3. **Class-blindness (PROVED, Cor 1.5).** The ES predicate on ideals of norm g depends only on g (and p mod g, and
+   the factorisation of (g+1)/4); no class or fixed-modulus ray class enters. Composition moves are, for ES, the
+   integer moves g → gℓ; controlled lifts (u ≡ 1 mod 4h) propagate ES only downwards (§2.2).
+4. **Fixed-line reduction (PROVED, §2.3).** Claude points on line k = forms [g, 2Y, D] of disc −16k²p; admissibility
+   is a genus condition iff k | 6 (B1 regime), else it is the B2 datum.
+5. **Parity budget (PROVED, Prop 3.1).** Slices and Type I levels are unforced at every prime; a Type II point has at
+   most one forced slot (the window). No "two forced slots" point exists.
+6. **Walks (EVIDENCE + literature).** Worst-start distance to an ES class ≤ 4–8 generator steps whenever one exists
+   (p ≤ 3000, k ∈ {1, 2, 3, 5}); under GRH this is forced by expansion (JMV 2009). "Y = 1 within O(log p) moves" is
+   therefore equivalent to existence on the line — the B2 event; the descent contributes no existence information.
+**Assessment.** The lattice-meeting / class-group-walk route to ES is closed in the precise sense of items 3–6:
+the walk's state (an ideal class, or a form) is provably irrelevant to the target predicate, and the predicate itself
+is "4k²p + d has a divisor ≡ −1 (mod 4k), d | k" (B2, with B1 for k | 6). What would reopen it: a move whose
+*output norm* is forced to have h′ with a prescribed divisor structure *and* p mod g′ in the box S_{g′} — i.e. a
+joint-factorisation identity (hatch H-A), not a class-group statement. ES is not solved; no infinite case claimed.
