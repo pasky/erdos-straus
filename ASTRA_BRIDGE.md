@@ -64,14 +64,31 @@ In Claude's language H = (pe+1)/4 is the **Type I e-slice** integer (brief: N = 
 k′ = e, a = H), and Z/n² = pH is the Type I coordinate x = pa.
 
 **Theorem 2.1 (certified state ⟺ twisted Type I window; PROVED, elementary).** Fix e ≡ 3 (4), H = (pe+1)/4 and n ≥ 1
-with gcd(n, e) = 1. The following are in bijection:
-(a) divisors r | H² with e | n² + 4r;
-(b) rational points (u, v, pH) of p with u = U/n², gcd(U, n) = 1, n²v ∈ ℤ (so twist τ | n);
-via U = (n²H + r)/e, v = HU/r, and conversely r = eU − n²H. **ES at level e** (an integral point with x = pH) is the
-case n = 1: a divisor r | H² with r ≡ −4⁻¹ (mod e), i.e. the classical Type I criterion "−1 ∈ Σ_e(H)" of the brief.
-*Proof.* (a)⇒(b): 4(n²H + r) = n²(pe + 1) + 4r ≡ n² + 4r ≡ 0 (mod e) and gcd(4, e) = 1, so U ∈ ℤ_{>0}. gcd(r, e) = 1
-(4H ≡ 1 mod e), and eHU = n²H² + rH ≡ 0 (mod r), so r | HU: v ∈ ℤ, hence n²v ∈ ℤ. n²/U + 1/v = (n²H + r)/(HU) = e/H =
-4/p − 1/(pH). gcd(U, n): a prime ℓ | U, n has ℓ | r = eU − n²H, and then ℓ | eU − r … ; use instead gcd(r, n) = 1
-(ℓ | r, n ⇒ ℓ | n² + 4r ⇒ … ℓ | e·(n²+4r)/e — and ℓ | n, ℓ | r give ℓ | eU, ℓ ∤ e ⇒ ℓ | U); so gcd(U, n) = gcd(r, n)
-[A:STR (29)], and the twist is n/… ≤ n. (R-self: the bijection must therefore be stated on the subset gcd(r, n) = 1 —
-see the corrected statement below.)
+with gcd(n, e) = 1. The maps U = (n²H + r)/e, v = HU/r and r = eU − n²H are inverse bijections between
+(a) divisors r | H² with e | n² + 4r and gcd(r, n) = 1 (Astra's closure gate [A:STR (30)]);
+(b) rational points (U/n², v, pH) of p with U, v ∈ ℤ_{>0}, gcd(U, n) = 1 (so τ = n exactly).
+**ES at level e** (an integral point with x = pH) is n = 1: a divisor r | H² with r ≡ −4⁻¹ (mod e), the classical
+Type I criterion (brief: −1 ∈ Σ_e(N), N = (pe+1)/4). So Astra's twist at a fixed level is a square root of the class
+−4r, i.e. **twisting = replacing the target class −4⁻¹ by its square class −4⁻¹·(ℤ/e)^{*2}**.
+*Proof.* (a)⇒(b): 4(n²H + r) = n²(pe+1) + 4r ≡ n² + 4r ≡ 0 (mod e), gcd(4, e) = 1, so U ∈ ℤ_{>0}. gcd(r, e) = 1
+(as 4H ≡ 1 mod e), and eHU = n²H² + rH ≡ 0 (mod r) because r | H²; so r | HU and v ∈ ℤ. n²/U + 1/v =
+(n²H + r)/(HU) = e/H = 4/p − 1/(pH). For a prime ℓ | n: ℓ | U ⇒ ℓ | eU − n²H = r, and ℓ | r ⇒ ℓ | eU ⇒ ℓ | U (ℓ ∤ e);
+so gcd(U, n) = gcd(r, n) = 1. (b)⇒(a): r := eU − n²H; 1/v = e/H − n²/U = r/(HU) gives r > 0 and r | HU. r ≡ −n²H, so
+4r ≡ −n² (mod e). gcd(r, n) = gcd(U, n) = 1 as above. Finally r | HU ⇒ r | eHU = n²H² + rH ⇒ r | n²H² ⇒ r | H². ∎
+
+**Corollary 2.2 (which levels carry a twisted state; PROVED).** Let e ≡ 3 (4) be prime. Some n ≥ 1 admits a twisted
+state at level e ⟺ H = (pe+1)/4 has a prime factor s with (s/e) = −1 ⟺ H has a prime factor s with (s/p) = −1
+(Kronecker symbol at s = 2). Then the least such twist is < e. Since (H/p) = +1 always (4H ≡ 1 mod p), H has an even
+number of p-non-residue prime factors (with multiplicity); the condition is "at least two".
+*Proof.* ⇒: −r ≡ (n/2)² is a nonzero square mod e and (−1/e) = −1, so (r/e) = −1; some prime s | r | H² has (s/e) = −1.
+⇐: put r := s; (−4s/e) = (−1/e)(s/e) = 1, so n² ≡ −4s (mod e) has a root n₀ ∈ [1, e−1]; s ≠ e (gcd(H, e) = 1), so one of
+n₀, e − n₀ is prime to s. Symbol: for odd s | H, pe ≡ −1 (mod s) gives (e/s) = (−1/s)(p/s) and reciprocity with
+e ≡ 3 (4) gives (s/e) = (−1/s)(e/s) = (p/s) = (s/p) (CAP_POINTWISE Prop 4.1(a)). For s = 2: 2 | H ⟺ pe ≡ 7 (8) ⟺
+e ≡ 7p (8); then (2/e) = −1 ⟺ e ≡ 3 (8) ⟺ p ≡ 5 (8) ⟺ (2/p) = −1. ∎
+**Reading.** The levels that carry *no* Astra state at any twist are exactly the levels killed at *every* Claude cap by
+CAP_POINTWISE Prop 4.1(b) (its side condition "a odd or k′ ≡ 7 (8)" is the s = 2 case of Cor 2.2). So the Astra and
+Claude relaxations agree on which Type I levels are alive. Astra's *inherited certificate* [A:SATURATION §2] is
+precisely what supplies the non-residue factor (r₀ ∈ −K) that Claude's Prop 4.1 showed is never forced by
+H ≡ 4⁻¹ alone; Astra's saturation theorem [A:SATURATION §3] is CAP_POINTWISE Lemma 2.1's box-covering criterion
+(mixed-radix version) applied at a Type I level: cover the class −H/c of K = (ℤ/e)^{*2} by the exponent box of the
+source primes of H with caps J_q = ⌊(2h_q − v_q(c))/w_q⌋. That is a B2 event (divisor of H² in one class mod e).
