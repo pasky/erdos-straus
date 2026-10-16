@@ -26338,4 +26338,33 @@ def check_gt():
 check_gt()
 
 
+def check_gu():
+    # (gu) ASTRA_BRIDGE (O249/R260): dictionary between Astra's square removal and Claude's window/cap. R260 from scratch:
+    # Thm 2.1 (Astra certified states (e, H, r) at twist n <-> twisted Type I points), Cor 2.2 (prime level alive iff
+    # H = (pe+1)/4 has a p-non-residue prime factor), Prop 3.3(b) (T1); Thm 3.1/3.4 lattice meeting point (Astra sources =
+    # points (m, 1), Claude odd-overflow shots = points (2k, Y), k | h, ES = intersections), with internal assertions.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("ASTRA_BRIDGE subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r260_typeI.py", "3000", "151", "12"])
+    assert "Thm2.1: 8018 (p,e) pairs (composite e incl.), n<= 12: side(a)==side(b) always" in out, out[-2000:]
+    assert "brute force (n<=3e) == criterion" in out and "no state on either side" in out, out[-2000:]
+    out = run(["review_r260_lattice.py", "1000", "200", "200", "200"])
+    assert "'es': 364" in out and "'ready': 364" in out and "'lat': 13507" in out and "'odd': 13507" in out, out[-2000:]
+    print(f"== (gu) ASTRA_BRIDGE R260: certified states <-> twisted Type I points (8018 pairs), Cor 2.2 criterion, T1; "
+          f"lattice meeting point (ES shots = ES-ready sources, 364); seconds = {perf_counter() - t0:.1f}")
+
+
+check_gu()
+
+
 print("\nall checks passed")
