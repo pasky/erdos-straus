@@ -54,8 +54,8 @@ unreached remainder, flagged in §4; does not affect the distances reported for 
 
 ## Sparks (not pursued)
 * Reciprocity across d: in ℚ(√−p, √d) relate solvability at d and d′ (z23_biquadratic_height). Expect B2/B5 to block forcing.
-* Is the d = 1 locus empty for infinitely many p? Heuristically |𝓜(p)| grows (mean 13.4 at p ≤ 10⁵) and emptiness
-  thins (22 / 23 / 54 per decade-block); a proof of infinitude would be a B1-type statement (Landau-type sieve on
+* Is the d = 1 locus empty for infinitely many p? Heuristically |𝓜(p)| grows (ordered mean 24.4 at p ≤ 10⁵) and emptiness
+  thins (22 / 23 / 54 / 61 per decade-block up to 10⁷); a proof of infinitude would be a B1-type statement (Landau-type sieve on
   p + 4a², a ≤ √p/2 simultaneously) — plausible via a Selberg sieve upper bound? Not attempted.
 * Upward controlled lifts: choose u | (4k²p + d)/g with u ≡ 1 (mod 4h) — a divisor-of-a-given-integer event; maybe
   combine with Astra's forced factors (CRT-prescribed ℓ | h) to make one lift forced.

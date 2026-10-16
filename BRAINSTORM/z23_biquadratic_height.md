@@ -6,7 +6,7 @@ LATTICE_MEETING Thm 1.4: ES at slice g ⟺ some line k | h has height class Y_k 
 i.e. g is (the norm of) a divisor of β in F_d lying over ℚ(√d). Spark: treat all d simultaneously in the multiquadratic field
 ℚ(√−p, √2, √3, √5, …) and ask whether a reciprocity law (Hilbert symbols in F_d) links the solvability for d and d′.
 ## Literature
-ET Prop 1.3; Hilbert symbol product formula (Neukirch, ANT V.3); Rédei-type biquadratic symbols (Stevenhagen,
+ET Prop 2.6; Hilbert symbol product formula (Neukirch, ANT V.3); Rédei-type biquadratic symbols (Stevenhagen,
 "Rédei reciprocity", 2018 survey) — not checked for applicability.
 ## Barrier screen
 Each d is its own B2 event (divisor of 4k²p + d ≡ −1 mod 4k). Reciprocity relates *quadratic* symbols of
