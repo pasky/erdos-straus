@@ -507,3 +507,14 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | s7_gaussian_square_windows | positive-density forced budget via p = a² + b² | K = S² forced at windows m ≍ p; cap-0 rate 10⁻⁴ = random windows (B3) | PROVED identity + EVIDENCE |
 | s7_lvalue_proxy | m₀ vs L(1, χ_p) | Spearman 0.35 (0.20 Mordell-hard): hardness = QR-richness | EVIDENCE / Assessment |
 | s7_typeII_free_controls | non-squares with f_II = 0 as T1 controls | Type II has x ≤ n/2; 103 such n ≤ 2·10⁵ (3985 = 5·797 window-free to 1.2·10⁷) | PROVED + EVIDENCE |
+
+### z23 — O251 lattice meeting point / class-group slice moves (deep file LATTICE_MEETING.md)
+| memo | idea | outcome | label |
+|---|---|---|---|
+| z23_empty_meeting_locus | Thm 3.4(c)'s meeting point (2k, 1) as a target set | finite {a + b = k(4ab − p)}; empty for 99 primes ≤ 10⁶; rescued at height √d, d ∈ {2,3,5} | PROVED + CERTIFIED (SHARP) |
+| z23_norm_blind_predicate | carry k ∣ h along composition in Cl(−4p) | ES at slice g ⟺ ∃ k ∣ h: (−4k²p mod g) ∣ k; depends on the norm only, not the class | PROVED (SHARP) |
+| z23_controlled_lift_tower | lifts g → gu, u ≡ 1 (4h), keep h ∣ h′ | ES propagates only down the tower (divisor lattice of 4k²p + d) | PROVED (negative) |
+| z23_fixed_line_genus | Vieta/Gauss reduction on a fixed line k | k ∣ 6: genus regime (B1); else ray class mod 4k = B2 datum; reduction moves nothing in practice | PROVED + EVIDENCE |
+| z23_parity_budget | two forced slots | slices/levels never forced (4h ≡ 1); ≤ 1 forced slot per point | PROVED (negative) |
+| z23_expander_walk | how far is an ES class | ≤ 4–8 steps when it exists (expander, JMV 2009): walk adds reachability only | EVIDENCE |
+| z23_biquadratic_height | all ET d at once in ℚ(√−p, √d) | reciprocity could only correlate failures (B2/B5) | CONJECTURE-level spark |
