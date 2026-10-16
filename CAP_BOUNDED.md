@@ -68,3 +68,8 @@ same computation shows: if p ≡ 1 (mod L), a certificate at window m ≤ M must
 the rough part R_m := K_m/((m+1)/4) that is a non-residue mod p. (3) Consequence for goal (A): a proof of e*(p) ≤ C
 must, for some p, use windows m → ∞ together with non-residue primes from the rough part of K_m — at a single prime
 window the worst case over K is exactly the forced level (q − 3)/4 (CAP_DOWN Prop 4.1(a)). That is the B2 lottery.
+*Check (`scripts/z22_dickson_check.py M TMAX N`, exhaustive cap ≤ λ(m) + 2 per window, δ_p included):* M = 11:
+p = 807 330 585 601, 1 482 496 646 401, 2 412 770 976 001 (all R_m prime): 3/3 windows dead each (least forced
+window 19, 23, 31). M = 19: p = 4 714 845 095 999 745 907 201, 11 787 094 675 874 034 316 801: 5/5 windows dead
+(least forced window 47). Control (`z22_dickson_control.py 11 300`): among 300 primes p = Lt + 1 with some R_m
+composite, 284 have a live window ≤ 11 — the rough parts are what carries the certificates.
