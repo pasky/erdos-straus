@@ -81,3 +81,35 @@ is automatic from q | p^o + 4^o with o odd — fine.
 *From-scratch check* (same script): all p ≡ 1 (8) < 6000, all primes q ≡ 3 (8) < 2000 with (q/p) = −1 (7 395 pairs):
 o (odd part of ord_q(p/4)) = least odd k with q | p^k + 4^k; the j = o certificate rebuilt with exact rationals passes
 Def 1.1 at exactly cap (o−1)/2·max b_s (and fails at one less when > 0); the exact least cap at q is ≤ that. 0 failures.
+
+## 3. Lemma 3.1 and Thm 3.2
+
+**Lemma 3.1 — SOUND (citation MINOR, D5).** p ≡ 3 (4) and p ≡ 5 (8) classical (checked: 4/p = 1/(2k+2) + 1/(p(k+1))
++ 1/(2p(k+1)) for p = 8k + 5). For p ≡ 1 (8), CAP_DOWN Thm 1.2 has no exclusion and Prop 1.3 gives (q₃ − 3)/4; so
+e*(p) > C ⇒ q₃(p) > 4C + 3 ⇒ p ∈ 𝒫(4C+3). Pollack JNT 187 (2018): I read the PDF (sources/). **Theorem 1 as stated
+gives only q < p**; the bound q ≤ (p+1)/2 for p ≡ 1 (4) is in its *proof* (q | a ≤ C ≤ (p+1)/2). CAP_DOWN Cor 2.2 says
+"his proof"; CAP_BOUNDED Lemma 3.1 says "Thm 1". Harmless — q < p already gives 𝒫(y) ∩ [1, y] = ∅ — but cite
+correctly. From scratch: q₃(p) ≤ (p+1)/2 for all p ≡ 1 (4) < 10⁶ (max q₃/p = 0.6 at p = 5) (`review_r261_sieve.py`).
+
+**Thm 3.2 — SOUND (PROVED relative to the cited inputs; label MINOR D5).** Re-derived line by line:
+* *Display.* For p ∈ 𝒫(y), p > y: every n ∈ 𝒜(N, y) is a product of residues and p ∤ n, so 𝒜 avoids ω(p) = (p+1)/2
+  classes. Montgomery's arithmetic large sieve (any ω(ℓ) < ℓ; Montgomery–Vaughan constant N − 1 + Q² ≤ N + Q²) with
+  L ≥ Σ_{p ∈ 𝒫(y) ∩ (y, Q]} (p+1)/(p−1) ≥ #(𝒫(y) ∩ (y, Q]) gives the display; p ≤ y excluded by Lemma 3.1. The
+  exceptional set is defined with all q ≡ 3 (4), q ≤ y (not only primes in a sieve range) and p ≡ 1 (8) — consistent
+  with Lemma 3.1's inclusion. OK. (Small-parameter sanity check of the display: trivially satisfied, as expected.)
+* *(a).* e* > y/4 ⇒ q₃ > y + 3 ⇒ p ∈ 𝒫(y). k = π(y; 4, 3) ≥ y/(3 log y), r = ⌊log N/log y⌋, |𝒜| ≥ C(k, r) ≥ (k/r)^r;
+  k/r ≥ y/(3 log N) = (log X)^{A−1}/6 = (log N)^{A−1}/(3·2^A) ✓; r log(k/r) = (1 − 1/A − o(1)) log N, the floor costing a
+  factor ≤ y = X^{o(1)}. Count ≤ 2X²/X^{2−2/A−o(1)} = X^{2/A+o(1)} ✓. Needs A > 1 (k/r → ∞); non-trivial only for A > 2,
+  as stated. o(1) depends on A only — uniformity fine.
+* *(b).* Z := N^{1/r} = X^{2/r} ≤ X^{ε/2} = y since r ≥ 4/ε ✓; distinct r-subsets of the ≍ Z/log Z primes ≡ 3 (4) in
+  (Z/2, Z] give distinct products ≤ N, so |𝒜| ≫_ε N/(log N)^r ✓; count ≪_ε (log X)^r. p ∈ (X^{1/2}, X] with
+  e*(p) > p^ε ⇒ q₃(p) > 4p^ε + 3 > X^{ε/2} ✓; the sum over scales X^{2^{−k}} is a convergent geometric series in
+  (log X)^r, and scales below the PNT threshold contribute O_ε(1) in total (disjoint ranges) ✓. Note: in (b) p > X^{1/2}
+  ≥ y automatically for ε ≤ 1, so Pollack is not even needed there; it is needed only for the display as stated.
+* *Comparison with CAP_INTERPOLATION Rem 3.2(b)*: that is a reviewer sketch (power saving for #{p ≤ N : ES^{(y,e)}(p)
+  fails} once e ≥ (log N)^{1+ε}, via ω(ℓ) ≥ e + 1 from the class family 9^j at ℓ ≡ 11 (12)); Thm 3.2(a) needs A > 2 for a
+  power saving. The author's Remark (3) ("weaker in range but complete, explicit Chebotarev exceptional set") is
+  accurate; no contradiction between the two. Rem 3.2(a) (e = ∞: N^{3/4} log²N) is consistent with Thm 3.2 too.
+* Remark (2)'s "GRH-quality" is loose: GRH gives (log p)^{2+ε}, Thm 3.2(a) gives a power saving only for exponent
+  A > 2 — "GRH-quality up to the exponent" would be precise (MINOR, D6). Remark (4): density 2^{−π(4C+3;4,3)} of
+  𝒫(4C+3) among p ≡ 1 (8) correct (reciprocity: (q/p) = (p/q), independent conditions on p mod q).
