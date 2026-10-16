@@ -11,6 +11,6 @@ Sparks:
 2. Windows of the input pm² (Astra's twisted input) inherit (q/pm²) = (q/p): Claude's window theorem applies to N = pm²
    with K = (pm² + q)/4 depending on m — a free parameter shaping the factorisation of K. The obstacle is that x = K is
    prime to m, so the solution never descends to p; is there a window-type construction at N = pm² whose x IS ≡ 0 mod m²?
-3. Prop 6.2: CRT-forced Type I levels have forced membership but the square-denominator version needs ℓ-content ≍
-   discrete log. Does allowing *two* prescribed non-residues ℓ₁, ℓ₂ (with r = ℓ₁ℓ₂Y²) remove the odd-exponent problem?
+3. Prop 6.2: CRT-forced Type I levels have forced membership; the square-denominator construction tried in §6.2
+   (Assessment, not an obstruction theorem) needed ℓ-content ≍ discrete log. Does allowing *two* prescribed non-residues ℓ₁, ℓ₂ (with r = ℓ₁ℓ₂Y²) remove the odd-exponent problem?
    (c_{ℓ_i} = 1 + 2a_i still odd — no; but r = ℓ₁^{2a+1}ℓ₂ with a forced relation might.)

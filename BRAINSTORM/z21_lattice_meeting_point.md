@@ -1,8 +1,9 @@
 # z21 — one lattice per slice: Astra's line Y = 1 meets Claude's lines M | 2h at ES (O249 spark memo)
 
 Status: memo (Assessment unless stated). Source: ASTRA_BRIDGE Thm 3.4 (PROVED).
-For a slice g ≡ 3 (4), h = (g+1)/4, ρ² ≡ −p (mod g): L_ρ(g) = {Y ≡ ρM (mod g)}. Astra sources = (m, 1); Claude shots
-= (2k, Y), k | h, overflow Y (self-mute: rad Y | h); ES = (2k, 1), k | h.
+For a slice g ≡ 3 (4), h = (g+1)/4, ρ² ≡ −p (mod g): L_ρ(g) = {Y ≡ ρM (mod g)}. Astra sources = (m, 1); Claude shots with odd overflow
+= (2k, Y), k | h, gcd(Y, 2k) = 1, overflow Y (self-mute: rad Y | h); ES *shots* = (2k, 1), k | h (gcd(g, p) = 1, one root
+branch; the ideal-class reading needs primitive points).
 Sparks (not pursued):
 1. **Moving the slice.** Every move inside a fixed L_ρ(g) is a lattice translation; ES needs the slice g itself to
    satisfy 4k | g + 1 for a k with 2kρ ≡ 1. Is there a natural map g → g′ (e.g. composition of the ideal above g with

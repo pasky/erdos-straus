@@ -155,8 +155,9 @@ primes ≡ 1 (4) and possibly 2). On the surface of Thm 3.1, g | (aM)² + Y² wi
 Astra source, the Claude shot and the ES Type II point die simultaneously (EXPONENT_CAP Prop 1.3 "T1 in these
 coordinates").
 (b) No twisted Type I state exists at any level e ≡ 3 (4) prime to a: for an odd prime s | H = (a²e+1)/4,
-a²e ≡ −1 (mod s) gives (e/s) = (−1/s), so (s/e) = (−1/s)(e/s) = 1; and 2 | H forces e ≡ 7 (8), (2/e) = 1. So H has no
-prime factor in −K, and by the proof of Cor 2.2 no r | H² has e | n² + 4r for any n.
+a²e ≡ −1 (mod s) gives (e/s) = (−1/s), so (s/e) = (−1/s)(e/s) = 1; and 2 | H forces e ≡ 7 (8), (2/e) = 1. So every prime factor of H has
+Jacobi symbol +1 mod e, hence so does every r | H², whereas e | n² + 4r (gcd(n, e) = 1) forces (r/e) = (−1/e) = −1
+(Jacobi; valid for composite e). So no r works for any n.
 *Check* (`scripts/z21_typeI.py 100000 100 1000000`, 6 s; data/z21_typeI_1e5.txt): all 62 179 pairs (p ≤ 10⁵ prime
 ≡ 1 (4), prime level e ≡ 3 (4), e ≤ 100): Cor 2.2's prediction (prime factor s | H with (s/p) = −1) agreed with brute
 force (some r | H² with −4r a nonzero square mod e) in every case; 45 491 levels alive; at each alive level the
