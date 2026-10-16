@@ -1,0 +1,141 @@
+p=97; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=2; kind=source; data: q=1171, m=13, s=14, h=293, f=15, j=1, c'=1, d'=26; triple=?; N=161161
+p=97; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=2; kind=endpoint; data: q=1171, m=13; triple=(35308,26,364); N=97
+p=97; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=8; kind=source; data: q=1171, m=13, s=14; b=1, m'=1, q'=7; triple=(28,2716,194); N=97
+p=97; file=SQUARE_REMOVAL_OPERATIONS.md; sec=4.3; kind=source; data: q=19, m=3, H=73, e=3, h=?; obstruction=square divisors of H all 1 mod3 rather than -H=2; triple=?; N=873
+p=97; file=SQUARE_REMOVAL_OPERATIONS.md; sec=4.4; kind=endpoint; data: q=19, m=3, e=7, H=170, r=5; triple=(25,850,16490); N=97
+p=97; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=2; kind=source; data: q=1171, m=13, s=14, L=14, e0=31, C0=68, k=3, t0=25, obstruction=25 does not divide 198; triple=?; N=161161
+p=97; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=2; kind=endpoint; data: q=1171, m=13, s=14, H=73, e=7; triple=(28,182,35308); N=97
+p=97; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=4; kind=source; data: q=1171, m=13, s=14; b=1, m'=1, q'=7; triple=(28,2716,194); N=97
+p=97; file=SQUARE_REMOVAL_TYPEII_MOMENTS.md; sec=6; kind=obstruction; data: source=(97,7,13), gate=(11), fails; triple=?; N=?
+p=97; file=SQUARE_REMOVAL_OPERATIONS.md; sec=4.4; kind=endpoint; data: q=19, m=3, e=7, H=170, r=5; triple=(25,850,16490); N=97
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=3.3; kind=source; data: q=79, m=3, s=22, h=20, A=440, e=3, H=145, R=15, W=38280, g=3, r=5; triple=(440,764280,34740); N=1737
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=3.3; kind=state; data: from=(440,764280,34740); triple=(440,251865,38280); N=1737
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=3.3; kind=state; data: from=(440,251865,38280); triple=(450,251865,13050); N=1737
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=3.3; kind=endpoint; data: q=79, m=3, e=3, H=145, r=5; triple=(50,27985,1450); N=193
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=4; kind=source; data: q=79, m=3, s=22, h=20, A=440, K=20, T=90, u=50, D=7, W=19300, g=9, t=10; triple=(440,764280,34740); N=1737
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=4; kind=state; data: from=(440,764280,34740); triple=(450,19300,34740); N=1737
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=4; kind=state; data: from=(450,19300,34740); triple=(450,12420,11985300); N=1737
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=4; kind=endpoint; data: q=79, m=3, K=20, T=90; triple=(50,1380,1331700); N=193
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=5; kind=source; data: q=79, m=3, s=22, h=20, A=440, e=7, H=338, r=52; triple=(440,764280,34740); N=1737
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=5; kind=obstruction; data: p=233689 comparator source has m=8; no endpoint data here; triple=?; N=?
+p=233689; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=5; kind=source; data: q=787163, m=8, s=d=19, h=196791, e=7, H=408956, R=r=19; triple=?; N=?
+p=233689; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=5; kind=state; data: (O249 repair: N restored from Astra STR §5 "p=233689, m=8") A=3739029; triple=(3739029,6116385195776,5150647052544); N=233689*8^2
+p=233689; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=5; kind=endpoint; data: m=8, e=7, H=408956, r=19; triple=(58425,1257539700,95568518684); N=233689
+p=3361; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=6; kind=source; data: q=11, m=19, s=110302, h=3, T=3249, u=1212, D=1487, W=1357844; triple=?; N=?
+p=3361; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=6; kind=obstruction; data: q=11, m=19, s=110302, h=3, T=3249, u=1212, D=1487 prime, W=1357844; no exit to pn^2 for 1<=n<19 in three content-balanced families; triple=?; N=?
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=11.3; kind=state; data: m=3, C=23, A=440; triple=(440,? ,?); N=1737
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=11.3; kind=state; data: m=2, C=8, A=195; triple=(195,22620,111940); N=772
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=11.3; kind=state; data: m=1, C=7, A=50; triple=?; N=193
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=11.3; kind=source; data: q=347, m=13, A=8178, C=95, e=3, H=145, g=1, r=29, n=5; triple=(1218,152250,699625); N=193*25
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=11.3; kind=endpoint; data: q=347, m=13, e=3, H=145, n=5; triple=(58,290,27985); N=193
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=14.2; kind=source; data: q=5851, m=24, s=19, h=1463, A=27797, C=20, e=31, H=1496, R=r=11, g=1, n=7; triple=(440,? ,?); N=193*24^2
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=14.2; kind=endpoint; data: m=7, C=3, certificate=(31,1496,11); triple=(2365,15760360,14147672); N=193*7^2
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=14.2; kind=obstruction; data: e=31, H=1496, r=11, m=7; strict cross descent cannot lower defect below 3; no balanced dual gate for 1<=n<7; triple=?; N=193*7^2
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=15.1; kind=source; data: m=3, A=442, B1=25857, B2=587106, C=31, e=7, H=338, r=52, d=2, rho=13, k=2, raw_n=4; triple=(442,25857,587106); N=1737
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=15.1; kind=endpoint; data: e=7, H=338, r=52; triple=(195,20280,260936); N=772
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=16.3; kind=source; data: m=7, C=3, A=2365, a=5, H1=3040, R1=35, g1=7, rho=50, A'=2370, e2=3, H2=145, R2=r2=5; triple=(2365,15760360,14147672); N=9457
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=16.3; kind=state; data: m=7, C=3, A=2365; triple=(2365,28749280,10065440); N=9457
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=16.3; kind=state; data: A'=2370; triple=(2370,28749280,1008672); N=9457
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=16.3; kind=state; data: A'=2370, e2=3, H2=145; triple=(2370,1371265,3367770); N=9457
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=16.3; kind=state; data: e2=3, H2=145; triple=(2450,1371265,71050); N=9457
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=16.3; kind=endpoint; data: e2=3, H2=145; triple=(50,27985,1450); N=193
+p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=18; kind=source; data: q=157915=5*31583, m0=24, s=19, h=39479, A0=750101, C0=20, gcd(h,24)=1, e=31, H=40370, R=r=11, g=1, n=7; triple=?; N=5209*24^2
+p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=18; kind=state; data: m=7, C=3, A=63811, certificate=(31,40370,11); triple=(63811,11475132130,10304079170); N=5209*7^2
+p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=18.1; kind=obstruction; data: e=31, H=40370; all old-anchor divisors g=1,11,5801,63811 and k=1..6 fail; persistent-a family only a=5,11 eligible and both fail; triple=?; N=5209*7^2
+p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=18.2; kind=source; data: H=40370; rho,A',C'=(11,63811,3),(1468,63858,191),(7407895,302775,955859); no smaller normalized cross successor; triple=?; N=5209*7^2
+p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=19.2; kind=state; data: m=7, C=3, e=31, H=40370, r0=11, b=50, r=550, 7^2*50-1=31*79; triple=(63811,11475132130,10304079170); N=255241
+p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=19.2; kind=state; data: from=(63811,11475132130,10304079170); triple=(64680,4747512,10304079170); N=255241
+p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=19.2; kind=endpoint; data: m=1, C=71; triple=(1320,96888,210287330); N=5209
+p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=19.3; kind=source; data: q=157915, m0=24, s=19, h=39479, A0=750101, e=31, H=40370, r0=11; triple=(750101,2250591038784,118452159936); N=3000384
+p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=19.3; kind=state; data: from=(750101,2250591038784,118452159936); triple=(750101,1585653505920,121125502080); N=3000384
+p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=19.3; kind=state; data: from=(750101,1585653505920,121125502080); triple=(760320,55807488,121125502080); N=3000384
+p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=19.3; kind=endpoint; data: e=31,H=40370,r=550; triple=(1320,96888,210287330); N=5209
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=19.4; kind=source; data: q=5851, m0=24, e=31, H=1496, r0=11, ell=8, b=16, r=176; triple=(440,33660,2598552); N=193*3^2
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=19.4; kind=state; data: m=3, C=23, certificate=(31,1496,176); triple=(440,33660,2598552); N=1737
+p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=20; kind=source; data: (O249 repair: extractor labelled p=193; N=255241=5209·49) m=7, C=3, A=63811, a=11, f=17, e=119, H=154968, R=77, g=7, r_old=11, r_new=2112; triple=(63811,11475132130,10304079170); N=255241
+p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=20; kind=state; data: from=(63811,11475132130,10304079170); triple=(63811,39554187288,6292785576); N=255241
+p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=20; kind=state; data: from=(63811,39554187288,6292785576); triple=(64680,39554187288,4745895); N=255241
+p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=20; kind=endpoint; data: m=1, r_new=2112; triple=(1320,807228312,96855); N=5209
+p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=21.2; kind=obstruction; data: e=31, H=1496=2^3*11*17, G=<2>={1,2,4,8,16} mod31; divisor coset index j-k in {-2,-1,0,1,2}, required -H in coset 3; no integral endpoint retaining coordinate 193*1496; triple=?; N=193
+p=193; file=SQUARE_CERTIFICATE_SATURATION.md; sec=4; kind=source; data: m=3, A=442, B=25857, Z=587106, e=7, H=338, r0=52, H=2*13^2; no candidate in (81); triple=(442,25857,587106); N=1737
+p=193; file=SQUARE_CERTIFICATE_SATURATION.md; sec=4; kind=obstruction; data: e=7,H=338,r0=52,m=3; H^2/r0=13^3, B mod7 only ±1, n=1,2 require residues 4,2; triple=?; N=1737
+p=193; file=SQUARE_CERTIFICATE_SATURATION.md; sec=4; kind=state; data: from=(442,25857,587106); r=26; triple=(468,6084,587106); N=1737
+p=193; file=SQUARE_CERTIFICATE_SATURATION.md; sec=4; kind=endpoint; data: e=7,H=338,r=26; triple=(52,676,65234); N=193
+p=193; file=SQUARE_CERTIFICATE_SATURATION.md; sec=5; kind=obstruction; data: e=31,H=1496,r0=11; all full exits excluded by fixed-level coset obstruction; triple=?; N=193
+p=193; file=SQUARE_REMOVAL_OPERATIONS.md; sec=2.1; kind=source; data: q=11,m=19,s=6334,h=3; triple=?; N=193*19^2
+p=193; file=SQUARE_REMOVAL_OPERATIONS.md; sec=2.2; kind=state; data: N=140697,s=1366,h=26; triple=?; N=140697
+p=193; file=SQUARE_REMOVAL_OPERATIONS.md; sec=2.2; kind=endpoint; data: R=338,S=74498; triple=(52,772,5018); N=193
+p=193; file=SQUARE_REMOVAL_OPERATIONS.md; sec=4.2; kind=source; data: q=79,m=3,s=22,h=20; triple=(440,764280,34740); N=1737
+p=193; file=SQUARE_REMOVAL_OPERATIONS.md; sec=4.2; kind=endpoint; data: R=338,S=74498; triple=(52,772,5018); N=193
+p=193; file=SQUARE_REMOVAL_OPERATIONS.md; sec=4.4; kind=endpoint; data: q=79,m=3,e=7,H=338,r=26; triple=(52,676,65234); N=193
+p=3361; file=SQUARE_REMOVAL_OPERATIONS.md; sec=2.4; kind=obstruction; data: every prime q=3 mod4 source and every m; one-pair after division by m^2 cannot reach any positive integral target, allows either type/arbitrary levels; Type-II target cofactors H={25,170,290,8410}; triple=?; N=3361*m^2
+p=193; file=SQUARE_REMOVAL_OPERATIONS.md; sec=4.3; kind=endpoint; data: q=103,h=26,t=13; triple=(52,772,5018); N=193
+p=193; file=SQUARE_REMOVAL_OPERATIONS.md; sec=4.4; kind=endpoint; data: q=79,m=3,e=7,H=338,r=26; triple=(52,676,65234); N=193
+p=3361; file=SQUARE_REMOVAL_OPERATIONS.md; sec=4.5; kind=source; data: q=11,m=19,s=110302,h=3,e=39,H=32770=2*5*29*113,r=29,H^2/r=37030100,u=841,v=950330,pH=110139970; triple=?; N=3361*19^2
+p=3361; file=SQUARE_REMOVAL_OPERATIONS.md; sec=4.5; kind=endpoint; data: q=11,m=19,e=39,H=32770,r=29; triple=(841,950330,110139970); N=3361
+p=3361; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=3.2; kind=source; data: q=11,m=19; reduced m=3, s=2750,h=3 nongenuine; triple=?; N=3361*9
+p=3361; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=3.2; kind=endpoint; data: q=11,m=3,L=2750,e0=917,C0=307,k=3,t0=54,B=2970=54*55; triple=(990,5555,336066390); N=3361
+p=3361; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=3.3; kind=source; data: q=67,m=26,s=33911,h=17; triple=?; N=3361*26^2
+p=3361; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=3.3; kind=endpoint; data: q=67,m=26; triple=(850,73525,19769402); N=3361
+p=233689; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=6.3; kind=obstruction; data: minimal m=7; smaller norm factors printed for m=1..6; 233689*49+1=2*1231*4651; nearest grid fails all source-supported L, arbitrary exponents and determinant lifts; 141530 divisors checked; neither h divisible by49; triple=?; N=233689*49
+p=233689; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=6.3; kind=source; data: q=4651,m=7,s=2462,h=1163, prime support(qmsh)={2,7,1163,1231,4651}, all supported L=735, budget divisors=33935; triple=?; N=?
+p=233689; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=6.4; kind=source; data: q=4651,m=7,s=2462,h=1163,L=2,k=29213=131*223,u=58426,D=15,e0=7,C0=204478,t0=13,t=223,e=119,C=3476124; triple=?; N=233689*49
+p=233689; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=6.4; kind=endpoint; data: e=119,C=3476124; printed 4/233689=1/58426+1/910744488+1/1624663882872; triple=(58426,910744488,1624663882872); N=233689
+p=3361; file=SQUARE_REMOVAL_TYPEII_MOMENTS.md; sec=2.2; kind=source; data: q=271,m=457,h=68,s=2590190; triple=?; N=3361*457^2
+p=3361; file=SQUARE_REMOVAL_TYPEII_MOMENTS.md; sec=2.2; kind=endpoint; data: q=271,m=457; triple=(850,84025,571370); N=3361
+p=193; file=SQUARE_REMOVAL_TYPEII_MOMENTS.md; sec=2.1; kind=source; data: q=79,m=3,s=22,h=20,A1=97,A2=101,H1=49/2,H2=51/2,K=25; triple=?; N=1737
+p=193; file=SQUARE_REMOVAL_TYPEII_MOMENTS.md; sec=2.1; kind=endpoint; data: TypeII; triple=(50,1930,4825); N=193
+p=313; file=SQUARE_REMOVAL_TYPEII_MOMENTS.md; sec=3; kind=source; data: q=7,m=19,s=16142,h=2; family p=313+6720t,d=1+21t; triple=?; N=313*19^2
+p=313; file=SQUARE_REMOVAL_TYPEII_MOMENTS.md; sec=3; kind=endpoint; data: t=0,d=1; triple=(80,4695,15024); N=313
+p=15241; file=POSITIVE_SOURCE_FORCED_FOLD.md; sec=5; kind=source; data: q=462043=17*27179,m0=24,s=19,h=115511,A0=2194709, gcd(24,h)=1,H=118118; triple=?; N=15241*24^2
+p=15241; file=POSITIVE_SOURCE_FORCED_FOLD.md; sec=5; kind=state; data: (O249 repair of extraction: Astra prints Y in W(4p), twist 2, from the m=7 floor A=186703); triple=(15252,21154508,20165534751); N=4*15241
+p=15241; file=POSITIVE_SOURCE_FORCED_FOLD.md; sec=5; kind=endpoint; data: sigma=15,Hsigma=57154,g=41; triple=(3813,5315322,871084114); N=15241
+p=15241; file=POSITIVE_SOURCE_FORCED_FOLD.md; sec=5; kind=obstruction; data: half-level sigma=15 at p=193 gives g=1 and fails sigma|(1+4g); triple=?; N=193
+p=193; file=POSITIVE_COFACTOR_SUPPLY.md; sec=2; kind=state; data: (O249 repair: N restored from Astra COFACTOR_SUPPLY §2 "Y ∈ W(4·193)"; R=11,Q=2 window shot) q=1123,m=8,s=11,h=281,sh=3091; triple=(204,3860,49215); N=4*193
+p=193; file=POSITIVE_COFACTOR_SUPPLY.md; sec=2; kind=state; data: sigma=3,gcd(49215,145)=5; triple=(50,1450,27985); N=193
+p=193; file=POSITIVE_COFACTOR_SUPPLY.md; sec=2; kind=source; data: q=79,m=3,s=22,h=20,R=11,Q=2; triple=?; N=1737
+p=193; file=POSITIVE_BIRATIONAL_SQUARE_REMOVAL.md; sec=7; kind=source; data: q=5851,m=24; projected m=7,M=49,C=3; triple=?; N=193*7^2
+p=193; file=POSITIVE_BIRATIONAL_SQUARE_REMOVAL.md; sec=7; kind=endpoint; data: u=50,v=1450,z=27985; triple=(50,1450,27985); N=193
+p=5209; file=POSITIVE_BIRATIONAL_SQUARE_REMOVAL.md; sec=8; kind=source; data: m=7,M=49,C=3,e=31,H=40370,r=11; triple=?; N=255241
+p=5209; file=POSITIVE_BIRATIONAL_SQUARE_REMOVAL.md; sec=8; kind=obstruction; data: all-level old-anchor obstruction at p=5209 floor; all levels and strict output twists excluded for displayed anchor; triple=?; N=255241
+p=5209; file=POSITIVE_BIRATIONAL_SQUARE_REMOVAL.md; sec=8; kind=endpoint; data: u=1305,v=618570,z=644426226; triple=(1305,618570,644426226); N=5209
+p=193; file=POSITIVE_BIRATIONAL_SQUARE_REMOVAL.md; sec=8; kind=source; data: m=7,M=49,C=3,e=31,H=1496,r=11; d=5,u=51; triple=?; N=?
+p=2521; file=TWIST_FLOOR_CERTIFICATE_GATEWAY.md; sec=6.2; kind=obstruction; data: supplied minimal floor b=p+2,s=3,J=(p+3)/4=631,H=(3p+1)/4=1891=31*61; every divisor r of H^2 is 1 mod3; all e=3 cross continuation fails every n; triple=?; N=?
+p=2521; file=TWIST_FLOOR_CERTIFICATE_GATEWAY.md; sec=6.2; kind=source; data: source-only multiplier=5,s=3->S=15,H_S=(15*2521+1)/4=9454=29*326,t=29; old H=1891; triple=?; N=?
+p=2521; file=SQUARE_GATEWAY_COMPATIBILITY.md; sec=1; kind=source; data: s=15,H=9454=2*29*163,t=29; integral macro twist 15->165->11; triple=?; N=?
+p=2473; file=POSITIVE_COFACTOR_SUPPLY.md; sec=4; kind=source; data: q=31,m=3,h=8,s=718, pm^2+1=22258=2*31*359, gcd(3,8)=1; triple=?; N=?
+p=2473; file=POSITIVE_COFACTOR_SUPPLY.md; sec=4; kind=obstruction; data: only source norm divisors 3 mod4 are R=31,359; (R,Q,G,K,c,n)=(31,5,83,21,1,5),(359,60,47,12,12,5); neither decreases m=3; triple=?; N=?
+p=2473; file=POSITIVE_COFACTOR_SUPPLY.md; sec=4; kind=obstruction; data: R=31,U=626=2*313; divisors residues mod31={1,2,3,6}, no Q residues {5,26}; R=359,U=708=2^2*3*59; no residues {60,299}; triple=?; N=?
+p=193; file=SQUARE_REMOVAL_FORCED_FACTOR.md; sec=4.1; kind=source; data: t=5,q=2707 mod19300, selected q=2707,h=677,J=725,D=29, roots=1023,1684,m=3730=5*746,s=991943; triple=?; N=193*3730^2
+p=193; file=SQUARE_REMOVAL_FORCED_FACTOR.md; sec=4.1; kind=endpoint; data: q=2707,m=3730,t=5; triple=?; N=193*746^2
+p=193; file=SQUARE_REMOVAL_FORCED_FACTOR.md; sec=4.2; kind=source; data: q=307,m=235,h=77,s=34718,J=125,D=5; triple=?; N=193*235^2
+p=193; file=SQUARE_REMOVAL_FORCED_FACTOR.md; sec=4.2; kind=endpoint; data: q=307,m=235,t=5; triple=(276125,173590,193*235^2*173590); N=193*47^2
+p=193; file=SQUARE_REMOVAL_FORCED_FACTOR.md; sec=4.2; kind=obstruction; data: m=5, pm^2+1=4826=2*19*127; candidates q=19,127; neither q congruent -193=7 mod100; t=5 cannot be fully removed; triple=?; N=4825
+p=193; file=SQUARE_REMOVAL_OPERATIONS.md; sec=4.5; kind=obstruction; data: e=7,H=338,r=26 endpoint; triple=(52,676,65234); N=193
+p=97; file=SQUARE_REMOVAL_OPERATIONS.md; sec=3.1; kind=endpoint; data: q=19,m=3,e=7,H=170,r=5; triple=(25,850,16490); N=97
+p=3361; file=SQUARE_REMOVAL_OPERATIONS.md; sec=4.5; kind=obstruction; data: q=11,m=19,e=m and e=2m+1 both fail; triple=?; N=3361*19^2
+p=193; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=2; kind=obstruction; data: q=79,m=3,L=22,e0=31,C0=68,k=3,t0=25; 25 does not divide 198; triple=?; N=1737
+p=193; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=3.1; kind=source; data: q=79,m=3,s=22,h=20,L=20 then 10,e=31,C=68 then 23,k=3,t=5; triple=?; N=1737
+p=193; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=3.1; kind=endpoint; data: q=79,m=3; triple=(50,1450,27985); N=193
+p=3361; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=3.2; kind=obstruction; data: q=11,m=19; least-root m=3 nongenuine; q candidates at twist 3 cannot restore genuine source; triple=?; N=3361*19^2
+p=193; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=7; kind=obstruction; data: (q,m)=(79,3): u=49,A=3,B=193*49; square divisors residues all 1 mod3, not -B=2; triple=?; N=1737
+p=193; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=7; kind=obstruction; data: (q,m)=(11,19): u=53,A=19,B=193*53; nine square-divisor residues={1,2,3,7,9,10,11,15,16}, not -B=12; triple=?; N=?
+p=3361; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=7; kind=obstruction; data: q=11,m=19,u=917,A=307,B=3361*7*131; 27 square-divisor residues omit -B=243; triple=?; N=?
+p=193; file=SQUARE_REMOVAL_TYPEII_MOMENTS.md; sec=2.1; kind=endpoint; data: same-source rational moments; triple=(50,1930,4825); N=193
+p=3361; file=SQUARE_REMOVAL_TYPEII_MOMENTS.md; sec=2.2; kind=obstruction; data: q=271 least source roots nongenuine; lift m=457 required for genuine source; triple=?; N=3361*457^2
+p=313; file=SQUARE_REMOVAL_TYPEII_MOMENTS.md; sec=3; kind=endpoint; data: family p=313+6720t,d=1+21t; triple=(80d,15pd,48pd); N=p
+p=15241; file=POSITIVE_SOURCE_FORCED_FOLD.md; sec=5; kind=state; data: optional integral checkpoints twists 7->14->2; then 2->1; triple=?; N=?
+p=193; file=POSITIVE_ES_CAMPAIGN.md; sec=overview; kind=obstruction; data: e=31,H=1496; mod-31 coset obstruction excludes every endpoint retaining pH; triple=?; N=193
+p=2521; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=4; kind=source; data: m=4, pm^2+1=11*19*193, q=2123=11*193,s=19,h=531=3^2*59,L=513=3^3*19,k=2,D=1583,e0=35,C0=43,t0=27,B=2052=27*76; triple=?; N=2521*4^2
+p=2521; file=SQUARE_REMOVAL_SOURCE_SELECTION.md; sec=4; kind=endpoint; data: q=2123; printed 4/2521=1/1026+1/1634+1/55610739; triple=(1026,1634,55610739); N=2521
+p=5569; file=POSITIVE_ES_CAMPAIGN.md; sec=overview; kind=endpoint; data: reviewed a=1 Type-I endpoint tuple=(1,798,17,82); denominator triple not printed here; triple=?; N=5569
+p=3361; file=POSITIVE_ES_CAMPAIGN.md; sec=overview; kind=obstruction; data: all-source one-pair obstruction; triple=?; N=3361
+p=5209; file=POSITIVE_ES_CAMPAIGN.md; sec=overview; kind=source; data: m=7,A=63811,e=31,H=40370,r=11,C=3; triple=?; N=5209*49
+p=233689; file=POSITIVE_ES_CAMPAIGN.md; sec=overview; kind=obstruction; data: nearest-grid obstruction details in SQUARE_REMOVAL_SOURCE_SELECTION.md sec=6; triple=?; N=233689*49
+p=193; file=SQUARE_REMOVAL_FINITE_CHAIN.md; sec=4; kind=source; data: t1=t2=5,(q1,q2)=(307,2707),(h1,h2)=(77,677),(T1,T2)=(25,5),(J1,J2)=(125,725),(D1,D2)=(5,29), least roots=(72,1023),L=840; triple=?; N=?
+p=193; file=SQUARE_REMOVAL_FINITE_CHAIN.md; sec=4; kind=obstruction; data: r congruences=52 mod307,746 mod2707,1 mod6255480; CRT r=284830770841 mod5198610398520; twists 7120769271025->1424153854205->284830770841; residual twist not asserted prime and chain does not give p endpoint; triple=?; N=?
+p=1129; file=POSITIVE_BIRATIONAL_SQUARE_REMOVAL.md; sec=3; kind=source; data: N=28225,s=2566,h=3; triple=(7698,217276050,84675); N=28225
+p=1129; file=POSITIVE_BIRATIONAL_SQUARE_REMOVAL.md; sec=3; kind=state; data: scalar denominators at p=(7698/25,8691042,3387); weights (28225,2566)->(28225,11/7)->(6/7903,11/7),(u,v,1)~(6,12419,7903); triple=?; N=1129
+p=1129; file=POSITIVE_BIRATIONAL_SQUARE_REMOVAL.md; sec=3; kind=endpoint; data: printed 4/1129=1/956263+1/462+1/726; triple=(956263,462,726); N=1129
+p=73; file=POSITIVE_BIRATIONAL_SQUARE_REMOVAL.md; sec=4; kind=source; data: q=11,m=5,e=3,r=7,c=6,L=20,d=5/7; triple=?; N=?
+p=73; file=POSITIVE_BIRATIONAL_SQUARE_REMOVAL.md; sec=4; kind=state; data: output=(4015,30,330/7), includes nonintegral denominator 330/7; triple=(4015,30,330/7); N=?

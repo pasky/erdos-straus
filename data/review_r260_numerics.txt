@@ -1,0 +1,7 @@
+Thm2.1: 8018 (p,e) pairs (composite e incl.), n<= 12: side(a)==side(b) always; 40202 states, 6982 at n=1
+Cor2.2: prime e<= 151: alive 2902, dead 1107; brute force (n<=3e) == criterion; max least twist 65
+Prop3.3(b): 796 (a^2, e) pairs, n<= 12: no state on either side
+{'shots': 125248, 'odd': 78764, 'even': 46484, 'even_sq': 46484, 'es': 1193, 'lat': 78764, 'src': 125604, 'even_src': 62993, 'ready': 1193, 'gen_ready': 250, 'slices': 7697, 'slice_es': 1745}
+Prop5.1: 4377 admissible (p,q) with (K/q)=-1,(h/q)=+1; Prop5.2(b): 4370 least-root shots exact, den z=Q1^2, max twist 191; p=5,q=103,Q=30: den z=20
+Prop6.2: 546 (p,l) cases, least e: l|H, (l/e)=-1, -4^-1 in <primes of H>
+Prop6.1: 2243 (p,e,r0) tested, saturation holds in 156, inequality phi(e)<=2^w tau(H^2) in all; max saturated e 171
