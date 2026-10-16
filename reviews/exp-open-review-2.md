@@ -1,5 +1,7 @@
 # EXP_OPEN (O246) — hostile review #2 (R258), round 1
 
+Repairs applied: none (round 1, R258 does not edit).
+
 Reviewer R258. Round 1: no edits to the author's files. Scripts written from scratch: `scripts/review_r258_*.py`
 (no z19_/z15_/z14_ imports). Document reviewed: EXP_OPEN.md at side-agent/exp-open (merged into this branch).
 
@@ -9,7 +11,11 @@ Reviewer R258. Round 1: no edits to the author's files. Scripts written from scr
 | Theorem 3.1 (ES for every 63·2^s + 1) + Theorem 2.3 | **SOUND** (minor wording defects D1–D3) |
 | Theorem W, Lemmas 1.1–1.5, Comp 1.6 | **SOUND** (scope wording D4; implicit shrinkings D5) |
 | Cor 1.7 (constant ratio) | **SOUND** |
-| Prop 2.1, Reduction 2.5, Prop 4.1, Comp 4.2, labels, novelty | (pending) |
+| Prop 2.1 (cubic family for 3·2^s + 1) | **SOUND** (wrong "iff", D6) |
+| Reduction 2.5 (algebra) | **SOUND** (enumeration = EVIDENCE, correctly labelled) |
+| Prop 4.1 (windows vs 297's 3-line) | **GAP** (MAJOR D7: case 19 \| m, resp. 19 \| 4t − 1, not covered) |
+| Comp 2.2, Map 2.4, Comp 4.2 | EVIDENCE labels appropriate (D8 wording) |
+| Labels / novelty | OK apart from Prop 4.1's PROVED; novelty: no prior result found (D9) |
 
 ## 1. Theorem 3.1 / Theorem 2.3 — SOUND
 
@@ -98,3 +104,59 @@ Defects:
   Y = 2^t force the remainder to vanish; families involving other exponentials or s itself are not covered)".
 * **D5 (MINOR)** L1.1/L1.2 use "Y ≡ 1 (mod m)" and "dᵢ(Y) ≡ dᵢ(1) (mod m)"; the latter needs Y ≡ 1 modulo m times the
   odd denominators of dᵢ. Both are achieved by shrinking C (μ = 0 stays inside); say so once.
+
+## 3. Prop 2.1 — SOUND (with D6)
+cn + a = 3Y³ + 81 = 3(Y + 3)(Y² − 3Y + 9), 4acd − 1 = 320d − 1 = 21(Y + 3), so b(4acd − 1) = cn + a ✓ (Type II).
+320 | 21Y + 64 ⇔ 64 | Y and Y ≡ 1 (5) ⇔ s/3 ≥ 6, 4 | s/3 ✓. f(0) = 63 ≡ −1 (64), f(1) = 84 ≡ −1 (5) ✓.
+`scripts/review_r258_misc.py` verifies the identity exactly at every admissible s < 400: the family is valid exactly on
+s ≡ 0, 12 (mod 36), s ≥ 36.
+* **D6 (MINOR)** "7 | Y² − 3Y + 9 iff Y ≡ 1 (mod 7)" is false: Y ≡ 2 (mod 7) also works (4 − 6 + 9 = 7). The stated class
+  s ≡ 0 (mod 36) is correct (sufficient), but the true class is s ≡ 0, 12 (mod 36). Also "s ≥ 18" is vacuous beyond
+  s ≥ 36. Repair: "7 | Y² − 3Y + 9 iff Y ≢ 4 (mod 7); we use Y ≡ 1".
+
+## 4. Reduction 2.5 — algebra SOUND
+B = n + 4a²d has 2-adic-unit roots (k + T odd, c₀ odd) ✓; f(0)f′(0) = k + T odd so f(0) unit, f(1) ∈ ℤ, f(1) > 0 ✓;
+f ≡ −n, f′ ≡ −1 mod q ✓; expanding (jq − 4^J)(j′q − 1) = 4^J + 2^E a₁²d₁ and dividing by q = a₁d₁ gives
+jj′a₁d₁ = 2^E a₁ + j + 4^J j′ ✓. For j = j′ = 1, k = 1: T = z(z + c₀ + 2), (1 + T)/c₀ = z + (1 + z)²/c₀ ✓; (63,1),
+z = 20: 63·(27 − 20) = 21² ✓, a = 5, d = (20 + 65)/5 = 17 ✓ (= Theorem 2.3). A nontrivial factorisation of B is needed
+(f or f′ constant collapses to an ET / constant-gap class) — the text should say this one line, but it is correct.
+The enumeration (E ≤ 40, …) is EVIDENCE and labelled so ✓. Not replayed (`z19_iiad_limit.py` is not committed — D8).
+
+## 5. Prop 4.1 — GAP
+Re-derived: n = 64Y^D + 297 irreducible (−297/64 = −(3/4)³·11) ✓; N(0) = 297(297 + m)/4 a unit for m ≡ 3 (8) ✓;
+roots of n, n + m have negative v₂ ⇒ all eᵢ = 0 ✓; m ≡ 7 (8) ⇒ (2/m) = 1 ✓; "not splitting 19" ⇒ 19² sits in one ρᵢ,
+a square ✓; splitting 19 needs an integer-valued λ·n/19·P(Y) on C, impossible on a C containing s ≢ 3 (mod 9) because
+n and x vanish mod 19 at ≤ 2 of the 9 residues of Y^D in ⟨4⟩ ⊂ 𝔽₁₉^× — correct, but the text only says "19 cannot be
+split off uniformly"; spell it out.
+* **D7 (MAJOR, GAP)** The transfer "Lemma 1.1 … apply verbatim" needs gcd(N(1), m) = 1. In §1 this holds
+  (gcd(4^{J−1}(4^J + m), m) = 1), but here N(1) = 361(361 + m)/4 and **gcd(N(1), m) = gcd(361, m) > 1 whenever 19 | m**
+  (m = 19, 95, 171, … are ≡ 3 mod 4). Then (i) Lemma 1.1's "m | y′ + z′" fails (only the 19-free part m′ of m is forced),
+  (ii) the sentence "every odd q | 361 + m has (q/m) = 1" is false for q = 19 ((19/m) = 0), and (iii) the Jacobi
+  contradiction must be run with m′ = m/19^{v}, which is ≡ 1 (mod 4) when v is odd, so (−1/m′) = +1 and the argument
+  gives nothing. Same hole in the constant-ratio clause: ε = 4t − 1 ≡ 0 (mod 19) for t ≡ 5 (mod 19), and N(1) = 361t.
+  Consequence: Prop 4.1 and its "Consequently no constant-gap/ratio class with period prime to 3 meets the 3-line" are
+  PROVED only for 19 ∤ m (resp. 19 ∤ 4t − 1). Repair: add the hypothesis 19 ∤ m and relabel the remaining case OPEN,
+  or give a separate argument (e.g. evaluate at a limit point of C with μ₃ ≢ 3 (mod 9), where 19 ∤ n·x, which then
+  forces 19 | d₁ + d₂ at Y-residues of order dividing 9 but ≠ 1 — not obviously contradictory). Note Theorem W (§1)
+  does NOT have this problem.
+
+## 6. Computations / labels / novelty
+* **D8 (MINOR)** Comp 4.2 "does not exist at this supply": a depth-13 `z14_tree` run that stalls shows *non-discovery*,
+  not non-existence, unless the tree search is exhaustive over the given supply (the text does not claim exhaustiveness). Rephrase "was not found (depth 13, uncovered measure 1.2·10⁻²)". Not replayed (no log in the branch).
+  Reduction 2.5 cites `scripts/z19_iiad_limit.py`: it is not among the committed z19_* scripts
+  (z19_binom, z19_binom_verify, z19_cert63_check, z19_cert_make, z19_gap_mu0, z19_iiac, z19_thmW). Commit it or drop
+  the reference.
+* Labels: Theorem 3.1 PROVED (computer-assisted) — justified (independent replay above). Comp 1.6 CERTIFIED — justified
+  (independent replay). Prop 4.1 PROVED — should be PROVED-for-19 ∤ m only (D7). Comp 2.2 / Map 2.4 EVIDENCE ✓.
+  The 18 ET classes were verified directly as polynomial identities on residue classes, which does not depend on
+  matching them to ET Prop 1.9's parametrisation (fam tags ignored).
+* **D9 (MINOR, novelty)** Short web search (3 queries: ES + Proth / k·2^n + 1 / exponential families) found no ES result
+  for 63·2^s + 1 or any k·2^s + 1 family; non-exhaustive. Add to Scope: (i) Mordell's mod-840 identities already handle
+  all s ≢ 0 (mod 4) (n_s ≡ 1 mod 168, n_s mod 5 = 3·2^s + 1 ≠ 1), so the new content is s ≡ 0 (mod 4), n ≡ 169 (mod
+  840); (ii) ES is verified numerically to 10^17 (Salez), covering s ≤ 50 independently.
+
+## Bottom line
+The HEADLINE (Theorem 3.1: ES for every 63·2^s + 1) is **SOUND** — independently re-checked from scratch (identities,
+integer-valuedness, positivity, periods, coverage mod 2520, moving class integrality for all s ≡ 0 mod 24, explicit
+solutions s ≤ 1500, squares/T1). Theorem W + Cor 1.7 are **SOUND** and the finite check replays exactly. The one
+substantive defect is **D7 (MAJOR GAP) in Prop 4.1** (19 | m windows at 297's square point). D1–D6, D8, D9 are wording.
