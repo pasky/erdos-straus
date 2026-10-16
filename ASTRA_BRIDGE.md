@@ -151,6 +151,30 @@ force (some r | H² with −4r a nonzero square mod e) in every case; 45 491 lev
 least-twist state was built and checked exactly (4/p identity, τ = n); ES at the level (n = 1) in 24 575; least twist
 ≤ 32. T1: all 6083 (odd square a² ≤ 10⁶) × level pairs dead, as proved.
 
+**Theorem 3.4 (lattice picture: Astra = horizontal line, Claude = vertical lines, ES = intersection; PROVED).**
+Fix g ≡ 3 (4) (prime or composite), h = (g+1)/4, a root ρ of ρ² ≡ −p (mod g), and L_ρ(g) = {(M, Y) ∈ ℤ² : Y ≡ ρM (mod g)}
+(index g; (pM² + Y²)/g is on it a binary form of discriminant −4p).
+(a) Astra sources with slice g ⟷ points (m, 1) ∈ L_ρ(g) (the class m ≡ ρ⁻¹); genuine ⟺ gcd(m, h) = 1.
+(b) Claude shot data with modulus g ⟷ points (2k, Y) ∈ L_ρ(g) with **k | h**, Y > 0, gcd(Y, 2k) = 1, gcd(hY/k, p) = 1,
+via Q = (h/k)·Y (so Q₀ = h/k, Q₁ = Y, Prop 1.3's D = (4k²p + Y²)/g). The solution has y = ph and **den z = Y²**: overflow
+= Y; it is ES^{(y,e)} ⟺ rad Y | h and max v_ℓ(Y) ≤ e.
+(c) ES shots with modulus g ⟷ (a) ∩ (b) = points (2k, 1) with k | h, i.e. 2kρ ≡ 1, i.e. g | 4k²p + 1 with 4k | g + 1.
+*Proof.* (b) ⇒: Prop 1.3 point (2k, Q₁) ∈ L_ρ with ρ = 2Q (Thm 3.1(b)), 4Q₀k = g + 1. ⇐: D·g = 4k²p + Y² ≡ Y² (mod 4k)
+and g ≡ −1 (mod 4k) (4k | 4h) give D ≡ −Y² (mod 4k); Prop 1.3's converse (gcd(Y, k) = 1) gives the shot with
+Q₀ = (g+1)/(4k) = h/k and overflow Y; den z = Y² by Prop 1.2 (its hypotheses: Q odd — Y odd as gcd(Y, 2) = 1, and
+h/k odd or not, see check), and the ES^{(y,e)} conditions are Prop 1.2(i)–(ii) with v_ℓ(Q) = v_ℓ(Y) for ℓ | Y
+(gcd(Y, k) = 1 and ℓ | h/k allowed: then v_ℓ(Q) = v_ℓ(h/k) + v_ℓ(Y) ≤ v_ℓ(4h) + e ⟺ v_ℓ(Y) ≤ v_ℓ(k) + e = e). (a) Thm 3.1(a).
+(c) Y = 1. ∎
+*Check* (`scripts/z21_lattice.py 3000 400 400`, data/z21_lattice.txt): all primes p ≡ 1 (4) ≤ 3000, all g ≡ 3 (4) ≤ 400
+with a root (composite g included), all k | h, all Y ≤ 400 in the class: 168 858 shots built, den z = Y² exactly in
+every case (1193 ES); 125 604 Astra sources exact.
+**Reading (Assessment).** In one rank-2 lattice per slice, Astra fixes Y = 1 and moves M along a residue class
+(prohibited from the divisors of 2h by genuineness), Claude fixes M among the divisors 2k of 2h and lets Y float
+(self-muteness: rad Y | h). ES is the meeting point (2k, ±1). Both "moves" are within L_ρ(g) for a *fixed* slice g;
+changing g changes the lattice — this is the solution-dependent modulus of B2. Reduction theory of L_ρ(g) (the
+reduced form of discriminant −4p in the class of the ideal above g) controls the *sizes* of (M, Y) but not the
+divisibility k | h — the B2 condition lives in the arithmetic of h = (g+1)/4, not in the lattice geometry.
+
 ## 4. Astra's fixtures in Claude language
 
 `scripts/z21_fixtures.py` (data/z21_fixtures_translated.txt) re-checks every numeric triple of the verbatim
