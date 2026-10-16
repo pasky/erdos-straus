@@ -107,3 +107,39 @@ invariant of the slice (4-rank / Rédei symbol), about which nothing is proved h
 functions of N𝔞 mod t to the genus shadow, and Cor 1.5 is only norm-dependence of E." Same edit in the memo.
 
 **Verdict C5: SOUND-AFTER-REPAIRS** (Prop correct; Reading overclaims — M1, m5).
+
+### C6. §4 — Cayley distances (EVIDENCE), JMV citation, z23_cayley limitation
+Citation (checked against arXiv:0811.0647 = J. Number Theory 129(6) (2009) 1491–1504; bibliographic data ✓):
+JMV Thm 1.1 (ray class groups of number fields, generators prime ideals of norm ≤ x) and Thm 3.2 (Cl(O_D) for an
+*arbitrary* imaginary quadratic order, generators ideals of prime norm < M with M ≥ (log|D|)^B, B > 2) give, under
+GRH, the expander bound (1.7). Thm 3.2 covers the non-maximal orders of conductor 2k used here ✓; expansion ⇒
+diameter O(log h) ⇒ any nonempty target within O(log|Δ|) steps ✓.
+From-scratch exact re-run (`scripts/review_r262_cayley.py 3000 40 1,2,3,5`: ideal multiplication by ℤ-lattice HNF,
+no skipped steps; group axioms spot-tested; same generator set ℓ ≤ 40, ℓ ∤ 2kp, both roots):
+| k | mean #classes | no ES class | exact worst-start hist | lines with unreached classes |
+|---|---|---|---|---|
+| 1 | 55.5 ✓ | 55 ✓ | {1: 41, 2: 91, 3: 22, 4: 2} (doc: 32/94/28/2) | 0 |
+| 2 | 111.0 ✓ | 72 ✓ | max 7 (doc ≤ 8) | 2 (p = 193, 577) |
+| 3 | 144.6 ✓ | 109 ✓ | max 6 ✓ | 2 (p = 1061, 1493) |
+| 5 | 268.6 ✓ | 153 ✓ | max 5 ✓ | 0 |
+Class counts and no-ES counts match exactly. **Defect m6:** the document's distance histograms are distances in a
+*subgraph* (z23_cayley's `compose` only handles coprime leading coefficients and drops the edge otherwise), so they
+are upper bounds, not "worst-start distances" for the stated generator set; e.g. k = 1 true histogram is 41/91/22/2.
+Harmless for the qualitative EVIDENCE, but the table should say "upper bounds (edges dropped when composition skipped)"
+or be replaced by exact numbers. **Defect M2 (MAJOR as a factual statement about the data):** "'Unreached remainder':
+… a code limitation, not a mathematical statement" is **false for at least 4 of the 5 lines**: with exact composition,
+the prime forms of norm ≤ 40 generate only an index-2 subgroup of the class group of disc −16k²p for (k, p) =
+(2, 193), (2, 577), (3, 1061), (3, 1493) (h = 16, 32, 104, 88; reached 8, 16, 52, 44), and all ES classes lie in one coset —
+no walk with those generators reaches the other coset at any length. (Independently, ⟨ℓ ≤ 40⟩ ≠ Cl on 17 of the
+844 (k, p) lines.) Consequently the Reading "When an ES class exists on a line, it is a few generator steps from
+*every* class — as it must be" is contradicted by the document's own data at fixed generators ℓ ≤ 40. Repair: say
+the generators ℓ ≤ 40 are far below the JMV/Bach regime ((log|Δ|)^{2+ε} ≈ 150–200, Bach 6 log²|Δ| ≈ 900 here) and
+need not generate Cl; report the 4 lines as genuine non-generation, and drop "as it must be" (JMV predicts nothing
+for ℓ ≤ 40). **Defect m7:** "reach an ES class within O(log p) moves ⟺ (GRH) the line carries an ES class" must name the
+generator set (all prime ideals of norm ≤ (log|Δ|)^{2+ε} prime to the conductor 2k, Δ = −16k²p, so the implicit
+constant and the generator bound depend on k); as written "O(log p) moves" is unspecified.
+T1 at odd squares: Cor 1.2(a)/ET Prop 1.6 make "no ES class" a theorem; fine.
+z23_descent (all 1565 starting forms already reduced) not re-run; it is a weak statement (b = 2Y small vs g by
+construction of the least-root shot) and labelled EVIDENCE.
+
+**Verdict C6: SOUND-AFTER-REPAIRS** (numbers reproduce; M2 mis-attribution + overclaimed reading; m6, m7).
