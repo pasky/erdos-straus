@@ -102,3 +102,49 @@ data). Result: 94 exact triples overall (56 twist-1, 38 twisted). Comparison wit
 the level e = (4H − 1)/p (automatically ≡ 3 (4)) or Type II at the window w = 4x − p. So "every Astra exit is a
 classical … ET certificate" is true of *every* ES solution of every prime and carries no information about Astra; only
 the word "small" (an observation on ≈ 30 points) does. Thm 2.1's memorylessness is the real content and is proved.
+
+## §1 slot dictionary (Def 1.1, Lemmas 1.2, 1.3, table) — **SOUND** after R-O249
+
+Re-derived: {m : m²x, m²y, m²z ∈ ℤ} = τℤ, so W(pm²) = m²·{points with τ | m}; Lemma 1.2 (den x = den y = 1, den z = r² ⇒ τ = r;
+anchor r²z prime to r for r > 1); the window-shot anchor pK(g+1)/(4Q₀²) = p·x·h/Q₀² is [FORCED_FOLD (5)] Z = p(U/c)(K/c)
+with Astra's K = (G+1)/4 = Claude's h and c = Q₀ (notation clash: the bridge's K is the window x, Astra's K is the slice h —
+harmless but worth a footnote). Lemma 1.3: source identity, C = s + 1, C = m²(4x − p) ✓; scalar-removal remark ✓ (m² | s and
+4sh ≡ 1 + s (mod m²) force m = 1). The p = 5, q = 3, m = 5 caveat ✓ (s = 42, h = 1). The repaired scope (sources vs window
+shots, not programmes) is correct; the 193·5² point is the unique Claude-capped twisted Astra fixture even on my larger
+extraction (above). "[A:STR §11.4] reachable subclass": Astra calls m² | B₁, B₂ "a weaker closed arithmetic property" and
+warns "Do not confuse arbitrary coprime-anchor states with either reachable subclass" — the bridge's gloss is acceptable
+but should say "Astra's weaker closed class (m² | both non-anchor coordinates)" (m14).
+
+## Prop 3.2, Prop 3.3 — **SOUND**
+
+3.2: q/(ph) = 1/x + 1/z ⟺ x = (ph + d)/q, d | (ph)² (complete parametrisation); shot ⟺ d = Q₀² (q·x = ph + Q₀²) ✓;
+−ph ≡ −p/4 ≡ (2m)⁻² (pm² ≡ −1) ✓, asserted for all 125 604 sources in my run; slice-ES brute force over divisors of (ph)²
+for all 7697 (p, g) with composite g (1745 carry ES). 3.3(a): odd divisors of (aM)² + Y² with gcd = 1 are ≡ 1 (4) ✓;
+(b) Jacobi argument ✓ (numerics above). Wording: "the ES Type II point" in (a) should read "the ES *shot* (surface point)";
+it is not a statement about all Type II solutions of a² (m15).
+
+## Prop 5.1 — **SOUND** (label nuance m9)
+(K/q) = (p/q) = (q/p) = −1 and (h/q) = (4⁻¹/q) = 1 ✓ (asserted on 4377 admissible (p, q), q ≤ 400). (a) is a *group* statement
+(−1 ∈ ⟨primes of K⟩, possibly via 2); the forced ES^{(y,e)} *state* needs CAP_DOWN's (E) — the Transfer paragraph states this
+correctly, (a)'s word "forced" should point to it. (b)'s "nothing forces −1 ∈ ⟨primes of h⟩" is an Assessment (no
+dead-slice theorem is proved; dead slices are frequent empirically: 5952 of 7697 in my run), not part of the PROVED label.
+
+## Prop 5.2 — **SOUND**
+(a) ✓ (gcd(m, s) = 1 automatic; m ∤ ph). (b) ✓: den z exponent 2(a − b)⁺ at all ℓ | Q incl. 2 when gcd(Q, pq) = 1; my run:
+4370 least-root shots (p ≤ 3000, admissible prime q ≤ 400) exact with den z = Q₁², Q₁ ≤ (q−1)/2 (max 191); the 7 skipped had
+gcd(Q, p) > 1, all with q ≥ 2p; p = 5, q = 103, Q = 30 gives den z = 20 ✓. Pollack IJNT 2014 Thm 1.4 (sources/ PDF read):
+"the smallest prime q ∤ f for which ξ(q) ≠ 0 satisfies q ≪ W^{1/4} f^ε", ξ = (1 − χ₋₄)(1 − χ_p) has ξ(0) = 1, W = 4p, f = 4p:
+gives p^{1/4+ε} ✓ (ineffective as stated in CAP_DOWN). Typo: the parenthesis "(O249 self-check: …" is never closed.
+**Reading (m10, fidelity):** "Astra's 'strict twist decrease' is progress only through its final step" — Astra never presents
+the decrease as progress; [STR §11.2] calls (m, C) "a terminating invariant. It is not a theorem that a transition always
+exists." The real point (small-twist points are free, so only *availability of moves from every state* matters) should be
+phrased as agreeing with Astra's own caveat, not as a correction of it.
+
+## §5.3 macro table, §5.4 heights — **SOUND** (attribution m13)
+Quotes checked: borrowing (67) ✓, first pivot (27) ✓, fold (1)–(3) ✓, FORCED_FACTOR "t | m, t² | (p+q)/4 … iff gcd(t,p(p−1))=1"
+✓, TWIST_HEIGHT_COMPRESSION Thm 1 (H ≥ r²B(p,r), **p, r distinct odd primes** — the bridge drops "prime r") ✓, FIXED_DEFECT
+F_p = ⌊9p⁴/8⌋ ✓, r^{32/11} ✓. §5.4's bound τ²·pUK ≤ τ²p(p+q)(p+q²+q)/(16q) ✓ (K ≤ (p+q²+q)/(4q) from 4Q² < q²).
+**Attribution:** Astra [STR §21.2 (78)] already states the n = 1 case of Thm 2.1 ("such an endpoint exists if and only if
+there is r | H² with e | 4r+1"), and §11.2 (28)–(30) is the (a)⇒(b) half with "the exact closure gate, necessary and
+sufficient". Thm 2.1's genuinely new content is the converse (every point with x-twist n and coordinate pH is a certified
+state) and the coset reading. Say so.
