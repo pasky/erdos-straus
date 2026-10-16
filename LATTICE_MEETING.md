@@ -41,68 +41,72 @@ k(p + 4ab − p)/(pkab) = 4/p. (ii)⇔(iii): with m = 4ab − p, gm = 16ka²b �
 **Corollary 1.2 (T1 and the classical covering; PROVED).** (a) For n = c², c odd, the analogue of 𝓜 is empty:
 g ≡ 3 (4) has a prime factor ℓ ≡ 3 (4); ℓ | c² + (2a)² forces ℓ | c and ℓ | a, contradicting g ≡ −1 (mod 4a). (b) If p ≡ 2 (3) then (a, g) = (1, 3) ∈ 𝓜(p). So 𝓜(p) = ∅ forces p ≡ 1 (12).
 
-**Certified computation (CERTIFIED; `scripts/z23_meet.py`, exhaustive by Prop 1.1's bound, every point
-checked as an exact ES identity).** Among the 39 175 primes p ≡ 1 (4), p ≤ 10⁶, **𝓜(p) = ∅ for exactly 99**:
-13, 37, 97, 181, 193, 541, 673, 757, 1033, 1093, 1297, 1621, 1777, 2293, 2473, 3361, 3877, 6481, … (22 below 10⁴,
-23 in (10⁴, 10⁵], 54 in (10⁵, 10⁶]); all ≡ 1 (12). Mean |𝓜(p)| over p ≤ 10⁵: 13.4. Odd squares ≤ 10⁶: all empty. Independent
-cross-check (k-scan of `scripts/z23_shape.py`'s `least_k` up to the proven bound k ≤ a + b ≤ (p+4)/3, divisors g ≤ √(4k²p+1)):
-identical emptiness verdict on all 1125 primes p ≡ 1 (4) ≤ 2·10⁴ (25 empty).
+**Certified computation (CERTIFIED; `scripts/z23_meet.py`, exhaustive for *existence* by Prop 1.1's bound on
+min(a, b), every point checked as an exact ES identity).** Among the 39 175 primes p ≡ 1 (4), p ≤ 10⁶, **𝓜(p) = ∅ for
+exactly 99**: 13, 37, 97, 181, 193, 541, 673, 757, 1033, 1093, 1297, 1621, 1777, 2293, 2473, 3361, 3877, 6481, … (22 below
+10⁴, 23 in (10⁴, 10⁵], 54 in (10⁵, 10⁶]); all ≡ 1 (12). (R-O251 repair: the scan a ≤ √p + 2 sees each unordered {a, b} once
+in one orientation; its mean count over p ≤ 10⁵ is 13.4, while the full *ordered* locus has mean 24.4 — reviewer recount.)
+Odd squares ≤ 10⁶: all empty. Independent cross-check (k-scan of `scripts/z23_shape.py`'s `least_k` up to the proven
+bound k ≤ a + b ≤ (p+4)/3, divisors g ≤ √(4k²p+1)): identical emptiness verdict on all 1125 primes p ≡ 1 (4) ≤ 2·10⁴ (25 empty).
 
 **Consequence for the O251 descent (PROVED from Prop 1.1 + certified list).** For each of the 99 primes, no sequence of
 moves inside the slice lattices of ℤ[√−p] (composition, reduction, translation, Vieta partner) can end at a point
-(2k, 1) with k | h: there is none. Claude points (2k, Y), Y > 1, k | h, exist at every slice (any k | h, Y ≡ 2kρ).
+(2k, 1) with k | h: there is none. Claude points (2k, Y), Y > 1, k | h, exist at every split slice (any k | h, Y ≡ 2kρ).
 So "Y = 1 reachable for every p" is **false** in Cl(−4p); it is a lottery among finitely many candidates (B1/B2:
 Prop 1.1(iii) is "p + 4a² has a divisor ≡ −1 (mod 4a)", a = 1, …, √p/2).
 
-### 1.3 All of Type II on one vertical line: the meeting point at height √d
+### 1.3 All of Type II at one slice; the lattice reading at height √d
 
-**Theorem 1.4 (slice criterion, all ET d; PROVED — a lattice repackaging of ET Prop 1.3 / EXP_OPEN row II-ad).**
-Let g ≡ 3 (4), gcd(g, p) = 1, −p a square mod g, h = (g+1)/4, ρ any root. For k | h let Y_k ≡ 2kρ (mod g) be the
-height class of the vertical line M = 2k of L_ρ(g) (Claude's overflow class) and
-  d_k := Y_k² mod g = (−4k²p) mod g ∈ [0, g−1]   (independent of the root ρ).
-Then the map k ↦ (a, b, c, d) = (h/k, ·, k/d_k, d_k) is a **bijection** between {k | h : d_k ≥ 1, d_k | k} and the Type II
-solutions (x, y, z) with y = ph, p ∤ x, namely x = abd, z = bcdp, b = (p + m)/(4ad), m = (p + 4a²d)/g.
+**Theorem 1.4 (slice criterion, all ET d; PROVED — a repackaging of the ET Type II description, ET Prop 2.6 in
+sources/elsholtz-tao-1107.1010.pdf, in the 4-parameter form (abd, acdp, bcdp), cp + a + b = 4abcd, of EXP_OPEN row II-ad).**
+Let g ≡ 3 (4), gcd(g, p) = 1, h = (g+1)/4, and for k | h put d_k := (−4k²p) mod g ∈ [0, g−1]. Then the map
+k ↦ (a, b, c, d) = (h/k, (p+m)/(4ad), k/d_k, d_k), m = (p + 4a²d)/g, is a **surjection** from {k | h : d_k ≥ 1, d_k | k}
+onto the Type II solutions (x, y, z) = (abd, acdp, bcdp) with y = ph, p ∤ x. In particular **ES has a Type II solution with
+y = ph ⟺ ∃ k | h with d_k | k.** (R-O251 repair: an earlier version said "bijection"; it is not injective — p = 29,
+g = 15: k = 2 and k = 4 both give (x, y, z) = (8, 116, 232).)
 *Proof.* If d := d_k | k, put a = h/k, c = k/d; then h = acd, g = 4acd − 1 and 4a²d ≡ −16a²k²p = −(4h)²p ≡ −p (mod g),
 so g | p + 4a²d, g ≡ −1 (mod 4ad); exactly as in Prop 1.1(iii)⇒(ii) (with 4ad in place of 4a), m ≡ −p (mod 4ad),
-b ∈ ℤ_{>0} and a + b = c(4abd − p), i.e. cp + a + b = 4abcd: ET's Type II identity 4/p = 1/(abd) + 1/(acdp) + 1/(bcdp).
-Conversely by ET Prop 1.3 every Type II solution with p ∤ x is (abd, acdp, bcdp) with cp + a + b = 4abcd and
-gcd conditions making (a, b, c, d) unique; y = ph gives h = acd; then g = 4acd − 1 | p + 4a²d (expand
-(4acd − 1)(4abd − p) = 4ad(4abcd − cp − b) + p = 4a²d + p), so −4k²p ≡ 4k²·4a²d = (4acd)²d ≡ d (mod g) for k := cd,
-and d < g, so d_k = d | k. The two maps are mutually inverse (k = cd, a = h/k). ∎
-*Check* (`scripts/z23_alld.py 6000 3000`, 25 s): all primes p ≡ 1 (4) ≤ 6000, all slices g ≤ 3000 with a root (89 117):
-the set of k with d_k | k reproduced exactly the set of Type II solutions with y = ph found by brute force over
-δ | (ph)², δ ≡ −ph (mod g) (ASTRA_BRIDGE Prop 3.2) — 0 mismatches of sets; 5894 slices carry ES; every
-solution checked as an exact identity.
+b ∈ ℤ_{>0} and a + b = c(4abd − p), i.e. cp + a + b = 4abcd: the identity 4/p = 1/(abd) + 1/(acdp) + 1/(bcdp).
+Conversely every Type II solution with p ∤ x has this form for some (a, b, c, d) (ET Prop 2.6); y = ph gives h = acd;
+(4acd − 1)(4abd − p) = 4ad(4abcd − cp − b) + p = 4a²d + p gives g | p + 4a²d, so for k := cd,
+−4k²p ≡ 4k²·4a²d = (4acd)²d ≡ d (mod g), and d ≤ k < g, so d_k = d | k and k maps to the solution. ∎
+*Check* (`scripts/z23_alld.py 6000 3000`, 25 s): all primes p ≡ 1 (4) ≤ 6000, all slices g ≤ 3000 at which −p is a square
+(89 117): the image set of the map equals the brute-force set of Type II solutions with y = ph (δ | (ph)²,
+δ ≡ −ph mod g, ASTRA_BRIDGE Prop 3.2) — 0 set mismatches; 5894 slices carry ES; every solution checked exactly.
+(The check covers split g only; the proof does not use a root.)
 
-**Reading.** On the vertical line M = 2k of L_ρ(g): Astra/Thm 3.4 ES is the point at height Y = 1 (d = 1); Claude's
-capped points are heights Y with rad Y | h; a general Type II solution is the line's height class Y_k satisfying
-**Y_k² ≡ d (mod g) with d | k**: formally the lattice point (2k, √d). Indeed √d + 2k√−p has relative norm d + 4k²p ≡ 0
-(mod g) in ℚ(√−p, √d): the ET parameter d is the field ℚ(√−dp) ⊂ ℚ(√−p, √d), and ET's (2c, 1) point of the slice lattice
-of ℤ[√−dp] (4c²dp + 1 = gD) is (2k, √d)/√d. d a perfect square s² reduces to d = 1 ((a, b, c) ↦ (as, bs, cs)), so
-the Type II set of p is ⋃_{d₀ squarefree} 𝓜_{d₀}(p), one finite set per imaginary quadratic field ℚ(√−d₀p).
-**What the criterion uses (vs WINDMILL Prop 10.3).** d_k is the residue −4k²p mod g, i.e. the class of the element
-2k√−p in O/𝔤 ≅ ℤ/g squared — *finer* than the ideal class of 𝔤 and finer than any ray class mod a fixed modulus;
-and k ranges over divisors of (N𝔤 + 1)/4. So the ES predicate on ideals 𝔤 is "some divisor k of (N𝔤+1)/4 has
-(−4k²p mod N𝔤) | k": a function of (N𝔤, p mod N𝔤) and the factorisation of N𝔤 + 1 — not of the class [𝔤]. B2 verbatim.
+**Lattice reading (split slices only).** If −p is a square mod g with root ρ, d_k = Y_k² mod g where Y_k ≡ 2kρ is the
+height class of the vertical line M = 2k of L_ρ(g) (Claude's overflow class). Then: Astra/Thm 3.4 ES = height Y = 1
+(d = 1); Claude's capped points = heights Y with rad Y | h; a general Type II solution at a split slice = a line whose
+height class satisfies **Y_k² ≡ d (mod g), d | k** — formally the point (2k, √d) (√d + 2k√−p has relative norm d + 4k²p in
+ℚ(√−p, √d)). For a Type II solution, −p ≡ 4a²d (mod g), so its slice g is split **iff d is a square modulo g** (g ≡ −1
+mod 4ad is prime to 2ad); for non-square d this can fail at both slices g, D, and then the solution is invisible in every
+slice lattice of ℤ[√−p] (§1.4). d = s² reduces to d = 1 ((a, b, c) ↦ (as, bs, cs)).
+**What the criterion uses (vs WINDMILL Prop 10.3).** d_k is the residue −4k²p mod g, and k ranges over divisors of
+(g+1)/4: a function of (g, p mod g) and the factorisation of g + 1. B2 verbatim.
 
-**Corollary 1.5 (the ES predicate on ideals factors through the norm; PROVED).** For a primitive ideal 𝔤 ⊂ ℤ[√−p] with
-N𝔤 = g ≡ 3 (4), gcd(g, 2p) = 1, put E(𝔤) := "some Type II solution has y = p(g+1)/4" (equivalently some ES point
-(2k, √d) on a vertical line of L_ρ(g), Thm 1.4). Then E(𝔤) depends only on g: E(𝔤) ⟺ **∃ k | (g+1)/4, d | k with
-g | 4k²p + d**. In particular E is constant on the primitive ideals of norm g (one per root ρ mod g), which in general lie in
-several ideal classes; no function of the class [𝔤] ∈ Cl(−4p), nor of its ray class modulo any fixed modulus, enters.
-*Proof.* Thm 1.4: d_k = (−4k²p) mod g is root-free, and d_k = d with d | k ≤ h < g ⟺ g | 4k²p + d. ∎
-*Reading.* The class group is not merely "unable to see" the meeting condition (WINDMILL Prop 10.3: classes see only
-the genus shadow); in the slice coordinates the meeting condition **does not involve the class at all**. A
-composition/class-group walk 𝔤 → 𝔤𝔩 is, for the purpose of ES, the integer walk g → gℓ. The Claude overflow Y_k
-(the *least* height on the line) is root-dependent for composite g, but ES is not a statement about least heights.
+**Corollary 1.5 (the ES predicate on slice ideals factors through the norm; PROVED).** For a primitive ideal 𝔤 ⊂ ℤ[√−p]
+with N𝔤 = g ≡ 3 (4), gcd(g, 2p) = 1, let E(𝔤) := "some Type II solution has y = p(g+1)/4". Then E(𝔤) ⟺ **∃ k | (g+1)/4,
+d | k with g | 4k²p + d**; in particular E is constant on the primitive ideals of norm g (one per root ρ mod g), which in
+general lie in several classes.
+*Proof.* Thm 1.4, and d_k = d with d | k ≤ h < g ⟺ g | 4k²p + d. ∎
+*Reading (Assessment; R-O251 repair: an earlier version presented this as proving class-group methods irrelevant —
+a non sequitur, since E is defined through y = p(g+1)/4 and so trivially depends on g only).* What the corollary does
+show: a mechanism whose state is the class of 𝔤 can influence ES only through *which norms* it produces; the class
+alone, without the norm, decides nothing. It does not exclude class data constraining or guiding the norms produced
+(e.g. via representations by a form); no such constraint relevant to the divisor event was found here.
 
-### 1.4 Which fields rescue the empty primes (CERTIFIED; `scripts/z23_rescue.py 1000000 200`)
+### 1.4 Rescues of the empty primes (CERTIFIED; `scripts/z23_rescue.py 1000000 200`, `scripts/z23_split.py 1000000 60`)
 For each of the 99 primes with 𝓜(p) = ∅, the least ET parameter d with a Type II solution (exhaustive in a for each d,
-solution checked exactly): d = 2 for 96 primes, d = 3 for 31081, d = 5 for 3361 and 7681. In the lattice picture (Thm 1.4) the
-rescue still happens on a slice lattice L_ρ(g) ⊂ ℤ[√−p], but at **height √d** instead of 1: the vertical line k = cd
-has Y_k² ≡ d (mod g), d ∈ {2, 3, 5}, d | k. So ASTRA_BRIDGE Thm 3.4(c)'s meeting point (2k, 1) is the square-d part
-of ES only, and it misses all Type II solutions at these 99 primes; the correct meeting set is the *square-class*
-meeting Y_k² ≡ d | k of Thm 1.4. E.g. p = 13: (a, b, c, d) = (1, 2, 1, 2), 4/13 = 1/4 + 1/26 + 1/52 (slice g = 4acd − 1 = 7 | 13 + 8 = p + 4a²d).
+checked exactly): d = 2 for 96 primes, d = 3 for 31081, d = 5 for 3361 and 7681. **Lattice visibility (R-O251 repair of a
+FATAL slip: an earlier version claimed all rescues sit on slice lattices of ℤ[√−p]).** Requiring a *split* slice (g or D
+with −p a square mod it): 98 of the 99 primes have such a Type II solution (least such d: 2 for 88, 3 for 8, 5 for 2);
+**p = 3361 has none**: exhaustively over all d ≤ (p+1)/3 its Type II solutions are exactly (a, b, c, d) = (5, 34, 1, 5)
+(slices 99, 679) and (1, 29, 10, 29) (slices 1159, 33639), and −3361 is a non-square modulo each of these four slices.
+So at p = 3361 **no Type II solution is visible in any slice lattice L_ρ(g) ⊂ ℤ[√−p]** (CERTIFIED): the Astra–Claude
+lattice framework of ASTRA_BRIDGE Thm 3.4 misses Type II entirely there (Type I solutions are not addressed).
+E.g. p = 13: (a, b, c, d) = (1, 2, 1, 2), 4/13 = 1/4 + 1/26 + 1/52, slice g = 7 | 13 + 8, split (−13 ≡ 1 = 1² mod 7), height
+class Y_2² ≡ 2 (mod 7).
 
 ## 2. Coordinates of the moves
 
