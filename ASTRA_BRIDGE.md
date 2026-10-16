@@ -161,8 +161,9 @@ via Q = (h/k)·Y (so Q₀ = h/k, Q₁ = Y, Prop 1.3's D = (4k²p + Y²)/g). The 
 (c) ES shots with modulus g ⟷ (a) ∩ (b) = points (2k, 1) with k | h, i.e. 2kρ ≡ 1, i.e. g | 4k²p + 1 with 4k | g + 1.
 *Proof.* (b) ⇒: Prop 1.3 point (2k, Q₁) ∈ L_ρ with ρ = 2Q (Thm 3.1(b)), 4Q₀k = g + 1. ⇐: D·g = 4k²p + Y² ≡ Y² (mod 4k)
 and g ≡ −1 (mod 4k) (4k | 4h) give D ≡ −Y² (mod 4k); Prop 1.3's converse (gcd(Y, k) = 1) gives the shot with
-Q₀ = (g+1)/(4k) = h/k and overflow Y; den z = Y² by Prop 1.2 (its hypotheses: Q odd — Y odd as gcd(Y, 2) = 1, and
-h/k odd or not, see check), and the ES^{(y,e)} conditions are Prop 1.2(i)–(ii) with v_ℓ(Q) = v_ℓ(Y) for ℓ | Y
+Q₀ = (g+1)/(4k) = h/k and overflow Y; den z = Y² by the valuation normalisation of [A:FORCED_FOLD §2] (valid also at ℓ = 2: for ℓ | Q,
+a = v_ℓ(Q), b = v_ℓ(h), the identity g·x = ph + Q² with ℓ ∤ pg gives den exponent 2(a − b)⁺; here gcd(Q, h) = h/k, so
+the reduced root is Q/(h/k) = Y), and the ES^{(y,e)} conditions are Prop 1.2(i)–(ii) with v_ℓ(Q) = v_ℓ(Y) for ℓ | Y
 (gcd(Y, k) = 1 and ℓ | h/k allowed: then v_ℓ(Q) = v_ℓ(h/k) + v_ℓ(Y) ≤ v_ℓ(4h) + e ⟺ v_ℓ(Y) ≤ v_ℓ(k) + e = e). (a) Thm 3.1(a).
 (c) Y = 1. ∎
 *Check* (`scripts/z21_lattice.py 3000 400 400`, data/z21_lattice.txt): all primes p ≡ 1 (4) ≤ 3000, all g ≡ 3 (4) ≤ 400
