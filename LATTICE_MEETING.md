@@ -31,8 +31,7 @@ k(p + 4ab − p)/(pkab) = 4/p. (ii)⇔(iii): with m = 4ab − p, gm = 16ka²b �
 4a(a + b) = 4a² + p + m = m(g + 1) = 4a·km. Finiteness: m ≥ 1 and m | a + b give 4ab − p ≤ a + b. ∎
 
 **Corollary 1.2 (T1 and the classical covering; PROVED).** (a) For n = c², c odd, the analogue of 𝓜 is empty:
-g ≡ 3 (4) has a prime factor ℓ ≡ 3 (4) with odd exponent... more simply, ℓ | c² + (2a)², ℓ ≡ 3 (4) forces ℓ | c and
-ℓ | a, contradicting g ≡ −1 (mod 4a). (b) If p ≡ 2 (3) then (a, g) = (1, 3) ∈ 𝓜(p). So 𝓜(p) = ∅ forces p ≡ 1 (12).
+g ≡ 3 (4) has a prime factor ℓ ≡ 3 (4); ℓ | c² + (2a)² forces ℓ | c and ℓ | a, contradicting g ≡ −1 (mod 4a). (b) If p ≡ 2 (3) then (a, g) = (1, 3) ∈ 𝓜(p). So 𝓜(p) = ∅ forces p ≡ 1 (12).
 
 **Certified computation (CERTIFIED; `scripts/z23_meet.py`, exhaustive by Prop 1.1's bound, every point
 checked as an exact ES identity).** Among the 39 175 primes p ≡ 1 (4), p ≤ 10⁶, **𝓜(p) = ∅ for exactly 99**:
@@ -45,5 +44,74 @@ moves inside the slice lattices of ℤ[√−p] (composition, reduction, transla
 So "Y = 1 reachable for every p" is **false** in Cl(−4p); it is a lottery among finitely many candidates (B1/B2:
 Prop 1.1(iii) is "p + 4a² has a divisor ≡ −1 (mod 4a)", a = 1, …, √p/2).
 
-### 1.3 Leaving Cl(−4p): ET's d and the forms pM² + dY²
-(next step)
+### 1.3 All of Type II on one vertical line: the meeting point at height √d
+
+**Theorem 1.4 (slice criterion, all ET d; PROVED — a lattice repackaging of ET Prop 1.3 / EXP_OPEN row II-ad).**
+Let g ≡ 3 (4), gcd(g, p) = 1, −p a square mod g, h = (g+1)/4, ρ any root. For k | h let Y_k ≡ 2kρ (mod g) be the
+height class of the vertical line M = 2k of L_ρ(g) (Claude's overflow class) and
+  d_k := Y_k² mod g = (−4k²p) mod g ∈ [0, g−1]   (independent of the root ρ).
+Then the map k ↦ (a, b, c, d) = (h/k, ·, k/d_k, d_k) is a **bijection** between {k | h : d_k ≥ 1, d_k | k} and the Type II
+solutions (x, y, z) with y = ph, p ∤ x, namely x = abd, z = bcdp, b = (p + m)/(4ad), m = (p + 4a²d)/g.
+*Proof.* If d := d_k | k, put a = h/k, c = k/d; then h = acd, g = 4acd − 1 and 4a²d ≡ −16a²k²p = −(4h)²p ≡ −p (mod g),
+so g | p + 4a²d, g ≡ −1 (mod 4ad); exactly as in Prop 1.1(iii)⇒(ii) (with 4ad in place of 4a), m ≡ −p (mod 4ad),
+b ∈ ℤ_{>0} and a + b = c(4abd − p), i.e. cp + a + b = 4abcd: ET's Type II identity 4/p = 1/(abd) + 1/(acdp) + 1/(bcdp).
+Conversely by ET Prop 1.3 every Type II solution with p ∤ x is (abd, acdp, bcdp) with cp + a + b = 4abcd and
+gcd conditions making (a, b, c, d) unique; y = ph gives h = acd; then g = 4acd − 1 | p + 4a²d (expand
+(4acd − 1)(4abd − p) = 4ad(4abcd − cp − b) + p = 4a²d + p), so −4k²p ≡ 4k²·4a²d = (4acd)²d ≡ d (mod g) for k := cd,
+and d < g, so d_k = d | k. The two maps are mutually inverse (k = cd, a = h/k). ∎
+*Check* (`scripts/z23_alld.py 6000 3000`, 25 s): all primes p ≡ 1 (4) ≤ 6000, all slices g ≤ 3000 with a root (89 117):
+the set of k with d_k | k reproduced exactly the set of Type II solutions with y = ph found by brute force over
+δ | (ph)², δ ≡ −ph (mod g) (ASTRA_BRIDGE Prop 3.2) — 0 mismatches of sets; 5894 slices carry ES; every
+solution checked as an exact identity.
+
+**Reading.** On the vertical line M = 2k of L_ρ(g): Astra/Thm 3.4 ES is the point at height Y = 1 (d = 1); Claude's
+capped points are heights Y with rad Y | h; a general Type II solution is the line's height class Y_k satisfying
+**Y_k² ≡ d (mod g) with d | k**: formally the lattice point (2k, √d). Indeed √d + 2k√−p has relative norm d + 4k²p ≡ 0
+(mod g) in ℚ(√−p, √d): the ET parameter d is the field ℚ(√−dp) ⊂ ℚ(√−p, √d), and ET's (2c, 1) point of the slice lattice
+of ℤ[√−dp] (4c²dp + 1 = gD) is (2k, √d)/√d. d a perfect square s² reduces to d = 1 ((a, b, c) ↦ (as, bs, cs)), so
+the Type II set of p is ⋃_{d₀ squarefree} 𝓜_{d₀}(p), one finite set per imaginary quadratic field ℚ(√−d₀p).
+**What the criterion uses (vs WINDMILL Prop 10.3).** d_k is the residue −4k²p mod g, i.e. the class of the element
+2k√−p in O/𝔤 ≅ ℤ/g squared — *finer* than the ideal class of 𝔤 and finer than any ray class mod a fixed modulus;
+and k ranges over divisors of (N𝔤 + 1)/4. So the ES predicate on ideals 𝔤 is "some divisor k of (N𝔤+1)/4 has
+(−4k²p mod N𝔤) | k": a function of (N𝔤, p mod N𝔤) and the factorisation of N𝔤 + 1 — not of the class [𝔤]. B2 verbatim.
+
+**Corollary 1.5 (the ES predicate on ideals factors through the norm; PROVED).** For a primitive ideal 𝔤 ⊂ ℤ[√−p] with
+N𝔤 = g ≡ 3 (4), gcd(g, 2p) = 1, put E(𝔤) := "some Type II solution has y = p(g+1)/4" (equivalently some ES point
+(2k, √d) on a vertical line of L_ρ(g), Thm 1.4). Then E(𝔤) depends only on g: E(𝔤) ⟺ **∃ k | (g+1)/4, d | k with
+g | 4k²p + d**. In particular E is constant on the 2^{ω(g)−1}·(…) ideals of norm g, which in general lie in several
+ideal classes; no function of the class [𝔤] ∈ Cl(−4p), nor of its ray class modulo any fixed modulus, enters.
+*Proof.* Thm 1.4: d_k = (−4k²p) mod g is root-free, and d_k = d with d | k ≤ h < g ⟺ g | 4k²p + d. ∎
+*Reading.* The class group is not merely "unable to see" the meeting condition (WINDMILL Prop 10.3: classes see only
+the genus shadow); in the slice coordinates the meeting condition **does not involve the class at all**. A
+composition/class-group walk 𝔤 → 𝔤𝔩 is, for the purpose of ES, the integer walk g → gℓ. The Claude overflow Y_k
+(the *least* height on the line) is root-dependent for composite g, but ES is not a statement about least heights.
+
+## 2. Coordinates of the moves
+
+**2.1 Composition (PROVED, standard Dirichlet composition).** L_ρ(g) = gℤ + (ρ + √−p)ℤ = 𝔤_ρ, the point (M, Y) being
+the element Y + M√−p. For gcd(g, ℓ) = 1 and β = u + v√−p ∈ 𝔩_σ, multiplication by β maps 𝔤_ρ → 𝔤_ρ𝔩_σ = (gℓ)_{ρ'}
+(ρ' ≡ ρ (g), ρ' ≡ σ (ℓ)) by (M, Y) ↦ (uM + vY, uY − pvM). A Claude point (2k, Y) goes to a point with even M iff v is
+even; the new line is k' = ku + vY/2, and it is a Claude line iff 4k' | gℓ + 1. Nothing in the map relates k' to the
+divisors of (gℓ + 1)/4 (Cor 1.5: only g, ℓ and the factorisation of gℓ + 1 matter).
+
+**2.2 The controlled lift and downward closure (PROVED).** For u ≥ 1: h | h' := (gu + 1)/4 ⟺ u ≡ 1 (mod 4h)
+(as g ≡ −1 mod 4h). Then for every k | h, d_k(gu) ≡ d_k(g) (mod g), and since an ES value d_k(gu) | k is < g:
+**ES via (k, d) at gu ⇒ ES via the same (k, d) at g.** Conversely ES via (k, d) at g lifts to gu iff gu | 4k²p + d. So
+for fixed (k, d) the ES slices are the divisors of N_{k,d} := 4k²p + d that are ≡ −1 (mod 4k): the "tower" of
+controlled lifts is the divisor lattice of one integer, and ES propagates only *down* it. A lift never creates ES on
+an old line; ES at gu on a *new* line k' ∤ h is an independent event (B2).
+
+**2.3 Vieta partner = Gauss reduction on a fixed line (PROVED).** Fix k. Points (2k, Y) of L_ρ(g) with partner
+D := (4k²p + Y²)/g are the positive definite forms [g, 2Y, D] of discriminant −16k²p (order of conductor 2k in
+ℚ(√−p)); translating Y ↦ Y + tg and swapping g ↔ D are the Gauss reduction moves (SL₂(ℤ) action, class fixed). The
+point is a Claude point at slice g iff g ≡ −1 (mod 4k), and its partner D ≡ −Y² (mod 4k) is again a Claude slice iff
+Y² ≡ 1 (mod 4k). Hence:
+(a) for k | 6 ((ℤ/4k)^* of exponent 2) *every* reduction move preserves Claude-admissibility, which is then a genus
+condition on the form; ES on the line k is "some *reduced* form [g, 2, D] of disc −16k²p lies in the genus
+g ≡ −1 (4k)" ⟺ 4k²p + 1 has a divisor ≡ −1 (mod 4k) — for k = 1: a prime factor ≡ 3 (mod 4) (B1: fails with
+probability ≍ (log p)^{−1/2} by Landau);
+(b) for k ∤ 6, a reduction move leaves the Claude set unless Y'² ≡ 1 (mod 4k): the walk must use the specific heights,
+i.e. ray-class (mod 4k) information, exactly the escape route of WINDMILL Prop 10.3 — and that information is the
+B2 datum "divisor of 4k²p + d in a class mod 4k".
+Note [g, 2, D] with g ≤ D is already reduced: the ES forms on line k are reduced forms with b = 2, i.e. the
+factorisations of 4k²p + 1; the cap/overflow Y of a Claude point is b/2 of a (not necessarily reduced) form.
