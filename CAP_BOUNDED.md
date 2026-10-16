@@ -73,3 +73,47 @@ p = 807 330 585 601, 1 482 496 646 401, 2 412 770 976 001 (all R_m prime): 3/3 w
 window 19, 23, 31). M = 19: p = 4 714 845 095 999 745 907 201, 11 787 094 675 874 034 316 801: 5/5 windows dead
 (least forced window 47). Control (`z22_dickson_control.py 11 300`): among 300 primes p = Lt + 1 with some R_m
 composite, 284 have a live window ≤ 11 — the rough parts are what carries the certificates.
+
+## 2. Uniform (self-generated) certificates: classification and the odd-order witness
+
+Write K = 2^t K′ (K′ odd). Call a certificate **uniform** if δ_s = j·b_s for every odd s | K (one integer j),
+δ₂ = a (|a| ≤ t), δ_p = ε ∈ {−1, 0, 1}. Admissible j: j ∈ {−1, 0, 1} (cap 0), j ≥ 3 odd (cap (j − 1)·max b_s/2, since
+jb_s ≡ b_s (mod 2)), j ≥ 2 even only if K′ is a perfect square. These are exactly the certificates that use nothing
+about K beyond K itself, 2^t and p ("self-generated" in the strongest sense; every forced argument so far — CAP_POINTWISE
+Thm 1.1's −K = h², h a power of K — is of this kind up to reduction of exponents).
+
+**Proposition 2.1 (classification; PROVED, elementary).** Mod m, p ≡ 4K = 2^{t+2}K′, so a uniform vector has value
+2^a K′^j p^ε ≡ 2^w p^J with w := a − j(t + 2), J := j + ε. Hence a uniform certificate exists at m iff m divides the
+integer N := numerator of 2^w p^J + 1 (cleared of powers of 2 and p; (w, J) and (−w, −J) give the same N up to
+units). The possibilities are:
+(a) cap 0, K odd (t = a = 0): N = p + 4 ((j, ε) = (±1, 0)) or p + 1 ((0, ±1)); the others give p² + 4 or 5, which have
+no divisor ≡ 3 (mod 4).
+(b) cap 0, K even: N ∈ {2^c p + 1 (0 ≤ c ≤ t), p + 2^c (1 ≤ c ≤ 2t + 2), p² + 2^c (c odd ≤ 2t + 2), 2^c + 1}.
+(c) cap ≥ 1, K odd: N = p^j + 4^j (j odd ≥ 3, ε = 0); ε = ±1 gives p^{j±1} + 4^j, a sum of two coprime squares, with
+no divisor ≡ 3 (mod 4). If K is a square also N = p^{j±1} + 4^j, j even.
+(d) cap ≥ 1, K even: N = p^J + 2^c with c = −w ≥ 2j ≥ 6 or 2^c p^{|J|} + 1-type with c ≥ 2.
+*Proof.* Substitution K′ ≡ p·2^{−(t+2)} and the bounds |a| ≤ t: for j ≥ 1, w ∈ [−t − j(t+2), t − j(t+2)] ⊂ (−∞, −2j];
+for j = 0, w = a. Sums of two coprime squares have only prime factors ≡ 1 (4) (and 2), while m ≡ 3 (mod 4). ∎
+**Corollary 2.2 (no uniform certificate is congruence-forced at p ≡ 1 (8); PROVED).** For p ≡ 1 (mod 8) every N in
+(a)–(d) that depends on p is ≡ 1 (mod 4), except 2p + 1 and p + 2 (≡ 3 (mod 8)) and p + 1 ((p + 1)/2 ≡ 1 (4)). For
+N ≡ 1 (4) a divisor m ≡ 3 (4) exists iff N has a prime factor ≡ 3 (mod 4) — a Landau-type event, not determined by any
+congruence on p. For 2p + 1 and p + 2 the relation needs t ≥ 1, i.e. m ≡ −p ≡ 7 (mod 8), while N ≡ 3 (mod 8):
+again not forced (it needs a prime factor ≡ 7 (8) or a pair 3·5 (8)). ∎
+So the self-generated level, which forces −1 ∈ ⟨S⟩ (the subgroup), forces no bounded-exponent *uniform*
+representation; the forced cap of CAP_POINTWISE/CAP_DOWN comes from reducing exponents modulo orders, which is where
+q (not o) enters.
+
+**Proposition 2.3 (odd-order witness: the cap does not depend on the window size; PROVED).** Let q ≡ 3 (mod 4) be a
+prime with q ∤ p, q ≡ 4 − p (mod 8) (K_q odd) and (q/p) = −1. Let o be the odd part of ord_q(p/4) (equivalently the
+least odd o with q | p^o + 4^o; it exists iff (q/p) = −1). Then the window q carries the uniform certificate
+δ_s = o·b_s (j = o), and **e*(p) ≤ (o − 1)/2 · max_{s | K_q} v_s(K_q).** In particular e*(p) ≤ max_s v_s(K_q) whenever
+q | p² − 4p + 16 = (p − 2)² + 12 (o = 3), and e*(p) = 0 if q | p + 4 (o = 1, the classical window).
+*Proof.* p/4 ≡ K has order 2o·(power of 2 part)… since (K/q) = (p/q) = −1 and q ≡ 3 (4), ord_q(K) = 2o with o odd, so
+K^o ≡ −1, i.e. ∏ s^{o b_s} ≡ −1: a uniform certificate with j = o, admissible (o odd), of cap (o − 1)b_s/2 at s. ∎
+*Reading.* Prop 1.3 of CAP_DOWN bounds the cap by the order of one non-residue prime s | K (≤ (q − 3)/4); Prop 2.3
+bounds it by the odd order of the single element p/4, which is small exactly for the prime factors of p^o + 4^o
+with o small — windows that can be as large as p^o. A bounded cap for every p would follow from: **(U) for every
+prime p ≡ 1 (8) some p^o + 4^o, o ≤ O₀ odd, has a prime factor q ≡ 3 (mod 8) with K_q of bounded multiplicity.**
+(U) is a simultaneous Landau-type statement; heuristically each fixed o fails with probability ≍ (o log p)^{−1/2}, so
+(U) with a fixed O₀ should fail for infinitely many p (the failure density ∏_o (o log p)^{−1/2} is not summable over p
+for any fixed O₀). Assessment: Prop 2.3 is a second explicit witness (useful numerically, §5), not a route to (A).
