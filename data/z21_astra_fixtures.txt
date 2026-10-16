@@ -19,7 +19,7 @@ p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=4; kind=endpoint; data: q=79, m=3,
 p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=5; kind=source; data: q=79, m=3, s=22, h=20, A=440, e=7, H=338, r=52; triple=(440,764280,34740); N=1737
 p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=5; kind=obstruction; data: p=233689 comparator source has m=8; no endpoint data here; triple=?; N=?
 p=233689; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=5; kind=source; data: q=787163, m=8, s=d=19, h=196791, e=7, H=408956, R=r=19; triple=?; N=?
-p=233689; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=5; kind=state; data: A=3739029; triple=(3739029,6116385195776,5150647052544); N=?
+p=233689; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=5; kind=state; data: (O249 repair: N restored from Astra STR §5 "p=233689, m=8") A=3739029; triple=(3739029,6116385195776,5150647052544); N=233689*8^2
 p=233689; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=5; kind=endpoint; data: m=8, e=7, H=408956, r=19; triple=(58425,1257539700,95568518684); N=233689
 p=3361; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=6; kind=source; data: q=11, m=19, s=110302, h=3, T=3249, u=1212, D=1487, W=1357844; triple=?; N=?
 p=3361; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=6; kind=obstruction; data: q=11, m=19, s=110302, h=3, T=3249, u=1212, D=1487 prime, W=1357844; no exit to pn^2 for 1<=n<19 in three content-balanced families; triple=?; N=?
@@ -91,7 +91,7 @@ p=15241; file=POSITIVE_SOURCE_FORCED_FOLD.md; sec=5; kind=source; data: q=462043
 p=15241; file=POSITIVE_SOURCE_FORCED_FOLD.md; sec=5; kind=state; data: (O249 repair of extraction: Astra prints Y in W(4p), twist 2, from the m=7 floor A=186703); triple=(15252,21154508,20165534751); N=4*15241
 p=15241; file=POSITIVE_SOURCE_FORCED_FOLD.md; sec=5; kind=endpoint; data: sigma=15,Hsigma=57154,g=41; triple=(3813,5315322,871084114); N=15241
 p=15241; file=POSITIVE_SOURCE_FORCED_FOLD.md; sec=5; kind=obstruction; data: half-level sigma=15 at p=193 gives g=1 and fails sigma|(1+4g); triple=?; N=193
-p=193; file=POSITIVE_COFACTOR_SUPPLY.md; sec=2; kind=source; data: q=1123,m=8,s=11,h=281,sh=3091; triple=(204,3860,49215); N=?
+p=193; file=POSITIVE_COFACTOR_SUPPLY.md; sec=2; kind=state; data: (O249 repair: N restored from Astra COFACTOR_SUPPLY §2 "Y ∈ W(4·193)"; R=11,Q=2 window shot) q=1123,m=8,s=11,h=281,sh=3091; triple=(204,3860,49215); N=4*193
 p=193; file=POSITIVE_COFACTOR_SUPPLY.md; sec=2; kind=state; data: sigma=3,gcd(49215,145)=5; triple=(50,1450,27985); N=193
 p=193; file=POSITIVE_COFACTOR_SUPPLY.md; sec=2; kind=source; data: q=79,m=3,s=22,h=20,R=11,Q=2; triple=?; N=1737
 p=193; file=POSITIVE_BIRATIONAL_SQUARE_REMOVAL.md; sec=7; kind=source; data: q=5851,m=24; projected m=7,M=49,C=3; triple=?; N=193*7^2

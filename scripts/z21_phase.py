@@ -26,7 +26,7 @@ for p in primerange(5, P + 1):
             continue
         if q0 is None:
             q0 = q
-        if q > QM and q0 is not None:
+        if q > QM and q != q0:
             break
         root = next(z for z in range(1, q) if (z * z + p) % q == 0)
         z = root if root % 2 == 0 else q - root
@@ -54,8 +54,12 @@ for p in primerange(5, P + 1):
             s = (p * m * m + 1) // q
             x = F(s * h, m * m)
             assert x.denominator == m * m and F(4, p) == 1 / x + F(1, p * s * h) + F(1, p * h)
-        best = Q1 if best is None else min(best, Q1)
+        if q <= QM:
+            best = Q1 if best is None else min(best, Q1)
+        if q > QM:
+            break
+    best = 'none<=QM' if best is None else best
     mintw_hist[best] = mintw_hist.get(best, 0) + 1
     st['es_sq'] += (best == 1)
 print(st)
-print('min least-root twist over admissible q <=', QM, ':', dict(sorted(mintw_hist.items())[:15]))
+print('min least-root twist over admissible q <=', QM, ':', dict(sorted(mintw_hist.items(), key=lambda kv: (isinstance(kv[0], str), kv[0]))[:15]))

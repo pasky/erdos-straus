@@ -25,7 +25,7 @@ sub-relaxations of the same ES^□-type space, sitting in different coordinate s
 ("states at twist m") are exactly m²·(rational points with τ | m), and *full square removal* = a point with τ = 1 =
 an ES solution.
 
-**Lemma 1.2 (Claude's capped solutions are Astra states with p-divisible anchor; PROVED, trivial).** Let (x, y, z) be
+**Lemma 1.2 (Claude's capped solutions are Astra states; window shots have p-divisible anchor; PROVED, trivial).** Let (x, y, z) be
 an ES^{(y,e)}(p) solution (EXPONENT_CAP Def 1.1: x, y ∈ ℤ, den z = r², r odd, gcd(r, p) = 1, rad r | y, v_ℓ(r) ≤ e).
 Then τ = r and cap = max_ℓ v_ℓ(r); hence **cap 0 ⟺ τ = 1 ⟺ ES**, and cap ≤ e ⟹ τ is e-th-power-free-ish
 (v_ℓ(τ) ≤ e) but τ itself is unbounded. In Astra's normalisation (r²x, r²y, r²z) ∈ W(pr²) has distinguished anchor
@@ -35,7 +35,9 @@ already identifies its shot with EXPONENT_CAP Prop 1.3 (Q₀ = c, Q₁ = n, k = 
 *Proof.* den x = den y = 1, den z = r², so lcm = r², τ = r. Anchor: the coordinates r²x, r²y are ≡ 0 (mod r²).
 Shot formula of EXPONENT_CAP §1 with den z = Q₁² (Prop 1.2). ∎
 
-**Lemma 1.3 (Astra's sources and reachable states have p-free anchor; PROVED).** Astra's source (q ≡ 3 (4),
+**Lemma 1.3 (Astra's *sources* have p-free anchor; PROVED).** (R-O249 repair M1: an earlier version claimed this for all
+reachable states; false — Astra's reachable states include p-divisible anchors, e.g. (450, 19300, 34740) at 193·3² with
+anchor 19300 = 100·193 [A:STR §4], and the fold states of [A:FORCED_FOLD].) Astra's source (q ≡ 3 (4),
 qs = pm² + 1, h = (q+1)/4, A = sh) is 4/p = 1/(A/m²) + 1/(psh) + 1/(ph): the twisted coordinate is the **p-free**
 one, x = A/m². More generally an Astra state (A, B₁, B₂) ∈ W(pm²) with gcd(A, m) = 1 and m² | B₁, B₂ (the
 "reachable subclass" [A:STR §11.4]) is a rational point x = A/m² (den exactly m²), y, z ∈ ℤ, and Astra's **defect**
@@ -48,13 +50,18 @@ source: 4sh − pm² = s(q+1) − (qs − 1) = s + 1. ∎
 4sh = pm² + 1 + s ≡ 1 + s (mod m²), so m² | s + 1 as well: m = 1. Hence every Astra square removal is a *move*,
 never a scalar division of the source itself.
 
-So the three relaxations of ES that occur are the *slot* of the square denominator in a rational point:
+So the relaxations differ in the *slot* and side condition of the square denominator. (R-O249 repair M1: this is a
+comparison of Astra's **sources** with Claude's **window shots**, not a disjointness of the two programmes: an Astra
+certified state can be a Claude capped point, e.g. 4/193 = 25/1218 + 1/6090 + 1/27985 from (1218, 152250, 699625) at
+193·5² [A:STR §11.3] is ES^{(y,1)} with y = 6090 ≡ 0 (mod 5), and Astra's next cross step takes it to cap 0.)
 | slot of den = τ² | extra condition | name | provable? |
 |---|---|---|---|
 | p-free coordinate x | none (gcd(A, m) = 1 "genuine") | Astra source / state | yes, one Dirichlet prime ((J)28 ES^□) |
-| p-divisible coordinate z | rad τ | y, v(τ) ≤ e | Claude ES^{(y,e)} | e ≥ q−3 forced at every window (J)64 |
+| p-divisible coordinate z (window shot) | rad τ ∣ y, v(τ) ≤ e, τ odd, gcd(τ, p) = 1 | Claude ES^{(y,e)} | cap ≤ (q−3)/4 forced at windows ((J)64, (J)66) |
 | — | τ = 1 | ES | open |
-Astra's *genuineness* gcd(m, h) = 1 is the exact opposite of Claude's *self-muteness* rad τ | y.
+For a source with gcd(m, p) = 1, Astra's *genuineness* gcd(m, h) = 1 makes rad m divide neither integral coordinate
+(psh, ph): the opposite of Claude's *self-muteness* rad τ ∣ y. (Without gcd(m, p) = 1 this fails: p = 5, q = 3, m = 5 is
+genuine with 5 ∣ 210, 5 — but then τ is not prime to p, as ES^{(y,e)} requires.)
 
 ## 2. Astra's certified states = twisted Type I windows (the level/certificate dictionary)
 
@@ -86,11 +93,15 @@ n₀, e − n₀ is prime to s. Symbol: for odd s | H, pe ≡ −1 (mod s) gives
 e ≡ 3 (4) gives (s/e) = (−1/s)(e/s) = (p/s) = (s/p) (CAP_POINTWISE Prop 4.1(a)). For s = 2: 2 | H ⟺ pe ≡ 7 (8) ⟺
 e ≡ 7p (8); then (2/e) = −1 ⟺ e ≡ 3 (8) ⟺ p ≡ 5 (8) ⟺ (2/p) = −1. ∎
 **Reading.** The levels that carry *no* Astra state at any twist are exactly the levels killed at *every* Claude cap by
-CAP_POINTWISE Prop 4.1(b) (its side condition "a odd or k′ ≡ 7 (8)" is the s = 2 case of Cor 2.2). So the Astra and
-Claude relaxations agree on which Type I levels are alive. Astra's *inherited certificate* [A:SATURATION §2] is
+CAP_POINTWISE Prop 4.1(b) (its side condition "a odd or k′ ≡ 7 (8)" is the s = 2 case of Cor 2.2). Since Prop 4.1(b) is
+only a *sufficient* dead test, this gives **Claude-alive ⊆ Astra-alive**, strictly (R-O249 repair M2: an earlier
+version claimed equality. Counterexample p = 5, e = 7, H = 9: Astra state n = 4, r = 3, 4/5 = 16/21 + 1/63 + 1/45, but
+no ES^{(y,E)} point retains the coordinate 45 for any E — the reviewer's proof: 7/9 = 1/y + 1/z forces 7y − 9 = 3^c,
+c ≡ 5 (6), den z = 3^{c−4}, never a square; reviews/astra-bridge-9bcb149a-hostile.md M2). Astra's *inherited certificate* [A:SATURATION §2] is
 precisely what supplies the non-residue factor (r₀ ∈ −K) that Claude's Prop 4.1 showed is never forced by
-H ≡ 4⁻¹ alone; Astra's saturation theorem [A:SATURATION §3] is CAP_POINTWISE Lemma 2.1's box-covering criterion
-(mixed-radix version) applied at a Type I level: cover the class −H/c of K = (ℤ/e)^{*2} by the exponent box of the
+H ≡ 4⁻¹ alone; Astra's saturation theorem [A:SATURATION §3] is a sufficient whole-subgroup covering condition,
+analogous to the box-covering discussion of EXPONENT_CAP §3 / CAP_POINTWISE §2 (not the same criterion as the exact
+Lemma 2.1), applied at a Type I level: cover the class −H/c of K = (ℤ/e)^{*2} by the exponent box of the
 source primes of H with caps J_q = ⌊(2h_q − v_q(c))/w_q⌋. That is a B2 event (divisor of H² in one class mod e).
 
 ## 3. Astra sources = points of Claude's overflow/modulus surface with the congruence switched off
@@ -133,7 +144,8 @@ therefore the task of moving into the line k | h by moves that change (m, s, q) 
 **Proposition 3.2 (ES at Astra's retained slice; PROVED, classical).** An ES solution with y = ph (h = (q+1)/4)
 exists ⟺ some d | (ph)² satisfies d ≡ −ph (mod q); and for every source root, −ph ≡ (2m)⁻² ≡ Q² (mod q) where Q is
 Claude's window root (p + 4Q² ≡ 0). So "keeping Astra's level y = ph" = "a divisor of (ph)² in the square class of the
-Claude root Q²", and the Claude ES shot is the sub-case d = Q₀², Q₀ | h, Q₀ ≡ ±Q.
+Claude root Q²", and the Claude ES shot is the sub-case d = Q₀², Q₀ | h, Q₀² ≡ Q² (mod q) (R-O249 repair M3: not Q₀ ≡ ±Q for composite q —
+p = 17, q = 39: Q = 8, Q₀ = 5).
 *Proof.* q/(ph) = 1/x + 1/z ⟺ x = (ph + d)/q, z = ph·x/d with d | (ph)² (standard). −ph ≡ −p/4 and pm² ≡ −1. ∎
 (Checked by brute force on all 31 360 (p, q) pairs of the run above: 14 883 slices carry ES.)
 
@@ -152,10 +164,10 @@ least-twist state was built and checked exactly (4/p identity, τ = n); ES at th
 ≤ 32. T1: all 6083 (odd square a² ≤ 10⁶) × level pairs dead, as proved.
 
 **Theorem 3.4 (lattice picture: Astra = horizontal line, Claude = vertical lines, ES = intersection; PROVED).**
-Fix g ≡ 3 (4) (prime or composite), h = (g+1)/4, a root ρ of ρ² ≡ −p (mod g), and L_ρ(g) = {(M, Y) ∈ ℤ² : Y ≡ ρM (mod g)}
+Fix g ≡ 3 (4) (prime or composite) with gcd(g, p) = 1, h = (g+1)/4, a root ρ of ρ² ≡ −p (mod g) (a fixed root branch), and L_ρ(g) = {(M, Y) ∈ ℤ² : Y ≡ ρM (mod g)}
 (index g; (pM² + Y²)/g is on it a binary form of discriminant −4p).
 (a) Astra sources with slice g ⟷ points (m, 1) ∈ L_ρ(g) (the class m ≡ ρ⁻¹); genuine ⟺ gcd(m, h) = 1.
-(b) Claude shot data with modulus g ⟷ points (2k, Y) ∈ L_ρ(g) with **k | h**, Y > 0, gcd(Y, 2k) = 1, gcd(hY/k, p) = 1,
+(b) Claude shot data with modulus g, **odd overflow** and root branch ρ (2Q ≡ ρ) ⟷ points (2k, Y) ∈ L_ρ(g) with **k | h**, Y > 0, gcd(Y, 2k) = 1, gcd(hY/k, p) = 1,
 via Q = (h/k)·Y (so Q₀ = h/k, Q₁ = Y, Prop 1.3's D = (4k²p + Y²)/g). The solution has y = ph and **den z = Y²**: overflow
 = Y; it is ES^{(y,e)} ⟺ rad Y | h and max v_ℓ(Y) ≤ e.
 (c) ES shots with modulus g ⟷ (a) ∩ (b) = points (2k, 1) with k | h, i.e. 2kρ ≡ 1, i.e. g | 4k²p + 1 with 4k | g + 1.
@@ -163,9 +175,13 @@ via Q = (h/k)·Y (so Q₀ = h/k, Q₁ = Y, Prop 1.3's D = (4k²p + Y²)/g). The 
 and g ≡ −1 (mod 4k) (4k | 4h) give D ≡ −Y² (mod 4k); Prop 1.3's converse (gcd(Y, k) = 1) gives the shot with
 Q₀ = (g+1)/(4k) = h/k and overflow Y; den z = Y² by the valuation normalisation of [A:FORCED_FOLD §2] (valid also at ℓ = 2: for ℓ | Q,
 a = v_ℓ(Q), b = v_ℓ(h), the identity g·x = ph + Q² with ℓ ∤ pg gives den exponent 2(a − b)⁺; here gcd(Q, h) = h/k, so
-the reduced root is Q/(h/k) = Y), and the ES^{(y,e)} conditions are Prop 1.2(i)–(ii) with v_ℓ(Q) = v_ℓ(Y) for ℓ | Y
-(gcd(Y, k) = 1 and ℓ | h/k allowed: then v_ℓ(Q) = v_ℓ(h/k) + v_ℓ(Y) ≤ v_ℓ(4h) + e ⟺ v_ℓ(Y) ≤ v_ℓ(k) + e = e). (a) Thm 3.1(a).
+the reduced root is Q/(h/k) = Y), and the ES^{(y,e)} conditions are Prop 1.2(i)–(ii) for ℓ | Y
+(gcd(Y, k) = 1 and ℓ | h/k allowed: v_ℓ(Q) = v_ℓ(h/k) + v_ℓ(Y) ≤ v_ℓ(4h) + e ⟺ v_ℓ(Y) ≤ v_ℓ(k) + e = e). (a) Thm 3.1(a).
 (c) Y = 1. ∎
+*Scope (R-O249 repair M3).* Even-overflow shots are outside (b): p = 5, Q = 2, g = 3 gives (3, 5, 15/4), normalised
+point (2, 2), not primitive. They are Astra twist-2 states (the 15241 fold, 193 COFACTOR_SUPPLY) but never ES^{(y,e)}
+points (odd root required). The forward map (2k, Y) ↦ shot remains valid for non-primitive points; the converse
+direction of Prop 1.3 used here assumes Q₁ odd. Sources/shots are matched within one root branch ρ.
 *Check* (`scripts/z21_lattice.py 3000 400 400`, data/z21_lattice.txt): all primes p ≡ 1 (4) ≤ 3000, all g ≡ 3 (4) ≤ 400
 with a root (composite g included), all k | h, all Y ≤ 400 in the class: 168 858 shots built, den z = Y² exactly in
 every case (1193 ES); 125 604 Astra sources exact.
@@ -179,9 +195,13 @@ divisibility k | h — the B2 condition lives in the arithmetic of h = (g+1)/4, 
 ## 4. Astra's fixtures in Claude language
 
 `scripts/z21_fixtures.py` (data/z21_fixtures_translated.txt) re-checks every numeric triple of the verbatim
-extraction data/z21_astra_fixtures.txt (141 records from 13 Astra files; two extraction slips repaired: a W(4p)
-state mislabelled W(49p), and a 5209 record labelled 193) with exact rationals: **all 50 distinct triples are
-exact ES points of their input pm²**. Translation (τ = twist; "level e / r" = Type I certificate of Thm 2.1 with
+extraction data/z21_astra_fixtures.txt (141 records from 13 Astra files; four extraction slips repaired and marked
+in the data: a W(4p) state mislabelled W(49p), a 5209 record labelled 193, and two rows with N = ? restored from the
+Astra text (233689·8², 4·193)) with exact rationals, now **asserting** exactness and the Type II divisor conditions:
+**all 51 distinct numeric triples are exact ES points of their input pm²** (two symbolic/non-integral rows are
+reported as skipped). (R-O249 repair M5: the earlier version ignored the prime 2 in the self-muteness flag, silently
+skipped two rows and printed rather than asserted failures.) Only one twisted fixture is a Claude ES^{(y,e)} point
+(193, twist 5, (1218, 152250, 699625)); the twist-2 fixtures are not (even τ). Translation (τ = twist; "level e / r" = Type I certificate of Thm 2.1 with
 n = 1; "window w / d" = Type II window divisor d | K², d ≡ −K (mod w), K = x):
 | p | Astra route | Claude reading of the exit |
 |---|---|---|
@@ -250,14 +270,18 @@ the element −4⁻¹ itself. Each Astra operation acts on this datum as follows
 | Astra operation | action at fixed level | Claude reading |
 |---|---|---|
 | closure / re-rooting [A:STR §11.2] | change n within ±√(−4r) mod e | choice of lift; no information |
-| pure borrowing [A:STR §19.1] | r → r·b, b | H²/r, ℓ²b ≡ 1 (mod e) | move inside D_e(H) = {r | H² mod e}; B2 at modulus e |
-| saturation [A:SATURATION §3] | mixed-radix cover of −H/c by source-prime box | CAP_POINTWISE Lemma 2.1 box covering (Type I) |
-| level change / CRT forced factor [A:FORCED_FACTOR, FINITE_CHAIN] | new e with prescribed t | H | new lottery; content t costs e ≡ −p⁻¹ (mod t) |
-| fold [A:FORCED_FOLD §2] | Type I state → window shot at a prime R | r with least root (size), not ⟨S⟩ (self-mute) |
-| first pivot [A:STR §11.1] | R | m²A², e = (4R + m²)/C | divisor of m²A² in a class mod the defect C (B2) |
-None of them changes the *cap* of a Claude state: a Claude state lives in the p-divisible-anchor slot and its exit
-condition is −K ∈ Box_0(K) at its window (Lemma 3.1 of CAP_POINTWISE), which no fixed-level Astra move touches.
-**No cap-descent move e → e′ < e is obtained** (negative, scope: the operations listed).
+| pure borrowing [A:STR §19.1] | r → r·b with b ∣ H²/r, ℓ²b ≡ 1 (mod e) | move inside D_e(H) = {r ∣ H² mod e}; B2 at modulus e |
+| saturation [A:SATURATION §3] | mixed-radix cover of −H/c by source-prime box | sufficient whole-subgroup covering (analogous to EXPONENT_CAP §3) |
+| CRT forced factor [A:FORCED_FACTOR, FINITE_CHAIN] | forces t ∣ m and t² ∣ J = (p+q)/4 (gcd(t, p(p−1)) = 1); the subsequent level and its closure gates are not re-derived here | new lottery at the new level |
+| fold [A:FORCED_FOLD §2] | Type I state → window shot at a prime R ∣ r | least root (size), not ⟨S⟩ (self-mute) |
+| first pivot [A:STR §11.1] | R ∣ m²A², e = (4R + m²)/C | divisor of m²A² in a class mod the defect C (B2) |
+(R-O249 repair M1: an earlier sentence "none of them changes the cap of a Claude state" was false — the Astra cross
+step from (1218, 152250, 699625), a cap-1 Claude point, reaches cap 0.) What is true: by Thm 2.1 a cross step at level e
+uses the input only through one divisor r ∣ H², and its twist-1 output exists iff the classical Type I certificate at e
+exists. So these operations can *reach* cap 0 from a capped point, but each such success is a B2 hit at the new level,
+not a forced descent. **No forced cap-descent move e → e′ < e is obtained** (Assessment; scope: the operations in the
+table. Not analysed: the height-floor gateway with g = s > 1 and no inherited certificate [A:GATEWAY_COMPATIBILITY §1],
+to which Thm 2.1 does not apply, and the composite-R cofactor-supply rule [A:COFACTOR_SUPPLY].)
 
 ## 6. The bet (bounded cap for every p via forced membership + forced factors): gate-by-gate, and where it stops
 
@@ -271,7 +295,7 @@ whose modulus is part of the solution". Unwinding Thm 2.1/3.1 and §5.3:
 | ES-ready source (Thm 3.1(c)) | 4k²p + 1 | q ≡ −1 mod 4k (classical Type II line) |
 | first pivot [A:STR (27)] | m²A² | R ≡ −m²/4 mod C (C = defect) |
 | borrowing [A:STR (67)] | H²/r₀ | m⁻² mod e |
-| fold supply [A:FORCED_FOLD (1)] | r (inherited) | prime R | r, R ≡ 3 (4), (C/R) = 1, R < 2 min(m, p) |
+| fold supply [A:FORCED_FOLD (1)] | r (inherited) | prime R ∣ r, R ≡ 3 (4), (C/R) = 1, R < 2 min(m, p) |
 | universal favourable source | (choice of e or q) + one of the above | — |
 So the Astra and Claude programmes hit the *same* wall from two sides: Claude relaxes the box (exponents b_s + e)
 and keeps the class; Astra relaxes the class (coset −4⁻¹K) and keeps the box (Thm 2.1). Their common refinement is
@@ -288,57 +312,63 @@ So the only fully forced Astra exit applies at levels so small that H's factoris
 integer (pe + 1)/4 — the classical Type I search; CRT-prescribed content t | H forces e ≡ −p⁻¹ (mod t), and the least
 such level is a residue of size ≍ t for generic p, while t contributes at most τ(t²) = t^{o(1)} to the box.
 
-**Proposition 6.2 (Type I aliveness can be forced; the exit cannot be, by these means; PROVED).** Let ℓ be a prime
+**Proposition 6.2 (Type I aliveness and subgroup membership can be forced; PROVED).** Let ℓ be a prime
 with (ℓ/p) = −1 (Kronecker) and let e ≡ 3 (4) be a prime with pe ≡ −1 (mod 4ℓ) (infinitely many, Dirichlet;
 ℓ = 2 needs p ≡ 5 (8) and then pe ≡ −1 (mod 8)). Then ℓ | H, the level e carries an Astra twisted state of twist
 < e (Cor 2.2), and −4⁻¹ ∈ ⟨primes of H⟩ mod e (the Type I analogue of CAP_POINTWISE Thm 1.1's group step).
 *Proof.* ℓ | H by construction; (ℓ/e) = (ℓ/p) = −1 by Cor 2.2's symbol computation; ℓ has even order in the cyclic group
 (ℤ/e)^* of order 2·odd, so −1 ∈ ⟨ℓ⟩, and H ∈ ⟨primes of H⟩, so −H ≡ −4⁻¹ is in it. ∎
-*Why it does not give a bounded cap.* Writing −H = ℓ·Y² with Y ∈ ⟨primes of H⟩ (possible: −H/ℓ is a square lying in a
+*Why it does not give a bounded cap (Assessment; R-O249 repair M4: not a proof that the exit cannot be forced).* Writing
+−H ≡ ℓ·Y² (mod e) with Y ∈ ⟨primes of H⟩ (possible: −H/ℓ is a square lying in a
 cyclic subgroup of even order), the point (U, HU/r, pH), r = ℓY² (Thm 2.1's formulas with n = 1, r not dividing H²)
 has den(HU/r) = ∏_s s^{(c_s − 2b_s)⁺}, c_s = v_s(r), b_s = v_s(H) (computation as in CAP_DOWN Lemma 1.1), and the
 ℓ-exponent c_ℓ = 1 + 2a_ℓ is odd: the denominator is a square (a Claude-type ES^{(y,·)} point with y := U) only if
 2a_ℓ + 1 ≤ 2b_ℓ, which needs ℓ-content b_ℓ comparable to the discrete-log exponent a_ℓ < ord_e(ℓ) | e − 1.
 Prescribing ℓ^B | H costs e ≡ −p⁻¹ (mod ℓ^B), so e ≳ ℓ^B/p ≫ B for generic p. Forced content and forced
 membership pull in opposite directions: **membership is forced at the level of the group (size ≍ e), content only at
-the level of the box (size ≤ τ(H²) = e^{o(1)} for e ≥ p)**. This is B3 (the scale constraint) at a single level.
+the level of the box (size ≤ τ(H²) = e^{o(1)} for e ≥ p)**. This is analogous to B3 at a single level (B3 itself is about
+bounded-multiplicity main-term certificates; no such certificate is in play here). It obstructs *covering* arguments,
+not the possibility that the one target lies in a small box (short relations / small orders are not excluded).
 
-### 6.3 Verdict on the bet (negative, with scope)
-No bounded cap e*(p) ≤ C, and no new positive-density cap-0 set (cap 0 on positive density is already classical:
-Mordell's identities cover all p outside six classes mod 840), follows from combining Claude's forced subgroup
-membership with Astra's forced-factor source preparation. Scope of the negative: certificates assembled from
-(i) a window/level chosen by finitely many Frobenius/congruence conditions (incl. CRT-prescribed content),
-(ii) Legendre-identity subgroup forcing, (iii) box covering by valuations, and (iv) Astra's fixed-level moves
-(§5.3); the obstruction is Prop 6.1/6.2 (group size ≍ level, forced box ≤ level^{o(1)}) plus Thm 2.1
-(fixed-level moves are memoryless). What would break it: a mechanism forcing the *discrete logarithm* of the
+### 6.3 Verdict on the bet (Assessment: no bounded-cap proof obtained by this attempt)
+This attempt obtained no bounded cap e*(p) ≤ C and no new positive-density cap-0 set (cap 0 on positive density is
+already classical: Mordell's identities cover all p outside six classes mod 840) from combining Claude's forced
+subgroup membership with Astra's forced-factor source preparation. What is PROVED is narrower: whole-subgroup
+covering (saturation) is impossible above levels p^{O(1/log log p)} (Prop 6.1); aliveness and membership can be
+forced (Prop 6.2) but this attempt found no way to force the *representative*; and a cross step at a fixed level
+sees its input only through one divisor r (Thm 2.1). These do **not** exclude a single target lying in a small box
+(short multiplicative relations, small orders), nor genealogies that force the arithmetic data of the final level. What would break it: a mechanism forcing the *discrete logarithm* of the
 target (not just its membership) into a box of size level^{o(1)} — e.g. equidistribution of short multiplicative
 relations among primes of K mod the window (CAP_POINTWISE §2's missing input), or an algebraic identity making the
 level divide a value of a factorable polynomial ((J)74's Sophie-Germain mechanism, which works on thin families only).
 
 ## 7. Verdict (O249 checkpoint 1)
 
-1. **Slot dictionary (PROVED, §1).** Both programmes live in one space: rational points of 4/p with square
-   denominators (Astra: integral points of W(pm²)). Astra twists the **p-free** coordinate (genuine:
-   gcd(m, h) = 1); Claude twists a **p-divisible** coordinate and demands self-muteness rad τ | y. Astra twist =
-   Claude overflow Q₁ (FORCED_FOLD (6) already matched them on one move); Claude cap = max exponent of Q₁.
+1. **Slot dictionary (PROVED, §1; scope repaired R-O249 M1).** Both programmes live in one space: rational points of
+   4/p with square denominators (Astra: integral points of W(pm²)). Astra's *sources* twist the **p-free** coordinate
+   (genuine: gcd(m, h) = 1); Claude's *window shots* twist a **p-divisible** coordinate with self-muteness rad τ ∣ y.
+   The programmes are not disjoint: Astra's reachable states include p-divisible anchors and at least one Claude
+   capped point (193, twist 5, ES^{(y,1)}). Astra twist = Claude overflow Q₁; Claude cap = max exponent of Q₁.
    "Twist 1 ⟺ cap 0 ⟺ ES" holds trivially; intermediate measures do **not** correspond.
 2. **The orchestrator's congruence identification is true but slot-crossed (Thm 3.1).** Astra's q is Claude's
    *slice* g (the ≡ 3 (4) divisor in y = p(g+1)/4), Astra's s is Prop 1.3's D, Astra's twist is Prop 1.3's 2k.
    Astra sources are the points of Claude's overflow/modulus surface Dg = pM² + Y² with Y = 1 and the shot
    congruence switched off; **the ES-ready sources are exactly m | (q+1)/2 (the classical Type II line), and
-   genuineness excludes them** (Thm 3.1(c),(d); 9415/9415 checked).
+   genuineness excludes them apart from the trivial m = 2 case** (Thm 3.1(c),(d); 9415/9415 checked; e.g. p = 5,
+   q = 3, m = 2 is genuine and ES-ready).
 3. **Certified states = twisted Type I windows (Thm 2.1).** Twist at level e = square root of −4r; ES = class −4⁻¹.
-   Levels carrying any Astra state = levels where H = (pe+1)/4 has a p-non-residue prime factor = complement of
-   CAP_POINTWISE Prop 4.1's dead levels (Cor 2.2; 62 179 pairs checked). T1: Astra's whole state space (sources
-   and certified states) is empty at odd squares (Prop 3.3).
-4. **Fixtures (§4).** All 50 Astra triples re-verified exactly; every Astra exit is a classical small-modulus
-   certificate (25 Type I at e ≤ 143, 5 Type II at w ≤ 39); the 15241 fold is a Claude window shot (R = 11, Q = 2);
-   the 313 Type II exit is a cap-0 square shot.
-5. **Transfers (§5).** The same admissible prime is *forced as a window* and *unforced as a slice* (Prop 5.1):
-   Astra's unforced object is Claude's forced object. Without self-muteness, small/prime twists are free
-   (Prop 5.2), so Astra's twist decrease carries no information until twist 1. No Astra macro yields a Claude
-   cap-descent move (§5.3, scoped).
-6. **The bet (§6): negative with scope.** Each Astra gate is a B2 event (table 6.1); saturation fires only at
-   levels p^{o(1)} (Prop 6.1); Type I aliveness and subgroup membership can be forced by CRT (Prop 6.2) but the
-   square-denominator/cap version needs content ≍ discrete log, which the level size forbids (B3 at one level).
+   Levels carrying any Astra state = levels where H = (pe+1)/4 has a p-non-residue prime factor (Cor 2.2; 62 179
+   pairs checked) ⊇ Claude-alive levels, strictly (R-O249 M2: p = 5, e = 7). T1: Astra sources and certified Type I
+   states are empty at odd squares (Prop 3.3; not a claim about arbitrary W(a²m²)).
+4. **Fixtures (§4).** All 51 distinct numeric Astra triples re-verified exactly (script now asserts); every Astra exit is
+   a classical small-modulus certificate (25 Type I at e ≤ 143, 5 Type II at w ≤ 39); the 15241 fold and the 193
+   COFACTOR_SUPPLY state are window shots at R = 11 with Q = 2 (twist 2: an Astra state, not an ES^{(y,e)} point,
+   which needs odd τ); the 313 Type II exit is a cap-0 square shot.
+5. **Transfers (§5).** The same admissible prime is *forced as a window* and *unforced as a slice* (Prop 5.1).
+   Without self-muteness, small/prime twists are free (Prop 5.2), so Astra's twist decrease carries no information
+   until twist 1. No *forced* cap-descent move was found among the analysed macros (§5.3, Assessment, scoped).
+6. **The bet (§6): no bounded-cap proof obtained (Assessment).** Each Astra gate is a B2 event (table 6.1);
+   saturation can fire only at levels p^{O(1/log log p)} (Prop 6.1, PROVED); Type I aliveness and subgroup
+   membership can be forced by CRT (Prop 6.2, PROVED); forcing the representative was not achieved, and nothing
+   here excludes it.
 ES untouched; no infinite case of ES claimed.

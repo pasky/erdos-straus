@@ -26,6 +26,7 @@ def classify_at_p(p, t):
         w = 4 * x - p
         d = w * y1 - x
         sq = isqrt(d) ** 2 == d
+        assert x * x % d == 0 and (d + x) % w == 0
         out.append(f"TypeII window w={w}{'(prime)' if isprime(w) else ''} K=x={x} d={d} d|K^2={x*x % d == 0} "
                    f"d=-K(w)={(d + x) % w == 0} square-shot={sq} slices g={4*y1-1},{4*z1-1}")
     elif len(pdiv) == 1:
@@ -57,6 +58,8 @@ for line in open('data/z21_astra_fixtures.txt'):
     parts = [ev(x) for x in mt.group(1).split(',')]
     N = ev(mN.group(1))
     if None in parts or N is None or len(parts) != 3:
+        if 'triple=(' in line and '?' not in mt.group(1):
+            print('SKIPPED (non-numeric N or triple):', line.strip()[:160])
         continue
     recs.append((p, tuple(parts), N, line.split(';')[1].strip() + ' ' + line.split(';')[2].strip()))
 
@@ -67,6 +70,7 @@ for p, t, N, src in recs:
         continue
     seen.add(key)
     ok = F(4, N) == sum(F(1, v) for v in t)
+    assert ok, (p, t, N)
     m2 = N // p
     m = isqrt(m2)
     if m * m * p != N:
@@ -88,6 +92,8 @@ for p, t, N, src in recs:
                 info += f" window(rational)=4x-p={4*xi - p}"
             others = [int(pts[j]) for j in range(3) if j != i]
             r_ = isqrt(xi.denominator)
-            selfmute = all(any(o % l == 0 for o in others) for l in range(3, r_ + 1) if r_ % l == 0 and isprime(l))
-            info += f" self-mute(rad tau | other coord)={selfmute}"
+            primes_tau = [l for l in range(2, r_ + 1) if r_ % l == 0 and isprime(l)]
+            mute_any = all(any(o % l == 0 for o in others) for l in primes_tau)
+            capped = mute_any and r_ % 2 == 1 and r_ % p != 0
+            info += f" rad(tau)|some-int-coord={mute_any} ES^(y,e)-admissible(odd tau, p-free, one coord carries rad)={capped and any(all(o % l == 0 for l in primes_tau) for o in others)}"
     print(info, "|", src)
