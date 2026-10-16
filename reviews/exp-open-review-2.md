@@ -1,6 +1,19 @@
 # EXP_OPEN (O246) — hostile review #2 (R258), round 1
 
-Repairs applied: none (round 1, R258 does not edit).
+Repairs applied (round 2, by R258, after merging side-agent/review-exp-open and side-agent/exp-open @13a03832):
+EXP_OPEN.md and AGENT_REPORT_O246.md, marked inline.
+- Thm 2.3 "s ≥ 24" (D2 / R257 D1(ii)).
+- Prop 2.1: exact class s ≡ 0, 12 (mod 36), s ≥ 36, with the "iff" corrected (D6 / R257 D2).
+- Thm 3.1(b): the certificate leaves s ≡ 0, 840, 1680 (mod 2520) uncovered; the s ≥ v₂(M) period note; only squares
+  s = 0, 8 (D1, D3 / R257 D1).
+- Scope: Mordell's mod-840 identities handle s ≢ 0 (mod 4); Salez 10^17; literature line (D9).
+- §1 Setting: menu defined as root families in ℚ[2^{s/D}], plus Scope wording (D4 / R257 D3).
+- Lemma 1.1 shrinking; Lemma 1.2 q-adic continuity (D5 / R257 D5).
+- Prop 4.1: restricted to constant ratio (all t) and to windows with 19 ∤ m; 19 | m labelled OPEN; R257's generic-point
+  local ⇒ global argument added; Reading and Status lines qualified (D7 / R257 D4).
+- Comp 4.2: "NOT FOUND", not "does not exist" (D8).
+- Reduction 2.5: the nontrivial-factorisation remark. The author committed z19_iiad_limit.py (D8).
+The 19 | m case of Prop 4.1 remains OPEN; it was not repaired, only relabelled.
 
 Reviewer R258. Round 1: no edits to the author's files. Scripts written from scratch: `scripts/review_r258_*.py`
 (no z19_/z15_/z14_ imports). Document reviewed: EXP_OPEN.md at side-agent/exp-open (merged into this branch).

@@ -3,6 +3,9 @@
 Status: O246 checkpoint in progress. **ES is not solved here, nor any infinite case of it unless stated with a complete
 proof and a replayed certificate.** Labels as in DISCOVERIES.md. Scripts `scripts/z19_*`, data `data/z19/`.
 Builds on EXP_105 (O239: Prop 2.4–Cor 2.8), MENU_STERILITY (O240: Prop 4.1, 4.3), MENU_LADDER (O245: Lemma 2.1, CONJ 6.4).
+Reviews: reviews/exp-open-review.md (R257), reviews/exp-open-review-2.md (R258). Round-2 repairs applied by R258 are
+marked inline. Main change: Prop 4.1 is now PROVED only for windows with 19 ∤ m; the case 19 | m is OPEN (R257 D4 / R258 D7).
+Theorem 3.1 and Theorem W are unchanged in substance; both reviewers re-checked them from scratch and found them SOUND.
 
 ## 0. Iteration log
 (I1) 15·2^s + 1 = (15·4^t + 1) ∪ (30·4^t + 1). The odd half 30·4^t + 1 has no unit-square point (EXP_NEAR_SQUARE Lemma 3.1,
@@ -21,15 +24,17 @@ negative result for the menu; it steers constructions to *moving-gap* families (
 
 Setting. c₀ odd, k ≡ 1 (mod 8), c₀ + k = 4^J (J ≥ 1), n_s = c₀2^s + k, μ = 0 the profinite unit-square point. A *root
 family through μ = 0* is: D ≥ 1, a clopen neighbourhood C = {s ≡ 0 (mod L), s ≥ s₀} (D | L), and x, y, z ∈ ℚ[Y] with
-4/n = 1/x + 1/y + 1/z identically, n = c₀Y^D + k, all three positive integers at Y = 2^{s/D} for every s ∈ C. (Every
-exponential-polynomial identity near μ = 0 has this form after reparametrisation; a shift Y ↦ 2^{−r/D}Y with D | r is
-absorbed.) It has *constant gap m* if 4x − n = m ∈ ℤ (constant), and *constant ratio t* if x = t·n, t ∈ ℕ.
+4/n = 1/x + 1/y + 1/z identically, n = c₀Y^D + k, all three positive integers at Y = 2^{s/D} for every s ∈ C. (This is
+the *definition* of the menu studied here (R257 D3 / R258 D4, applied by R258): ℚ-polynomials in a single root
+Y = 2^{s/D}. Rational functions of Y reduce to it, because integer values at Y = 2^t force the division remainder to
+vanish. A shift Y ↦ 2^{−r/D}Y with D | r is absorbed. Families that use other exponentials (3^s, …), coefficients that
+are polynomials in s, or other parametrisations are NOT covered by anything in §1.) It has *constant gap m* if 4x − n = m ∈ ℤ (constant), and *constant ratio t* if x = t·n, t ∈ ℕ.
 Recall MENU_LADDER Lemma 2.1: R ∈ ℚ[Y] is integer-valued on (a smaller) C iff R(1) ∈ ℤ[1/2] and R(0) ∈ ℤ_(2).
 
 **Lemma 1.1 (reduction to polynomial divisors; PROVED).** Given a constant-gap family, put N = n·x ∈ ℚ[Y]. After
 shrinking C there are d₁, d₂ ∈ ℚ[Y], integer-valued and positive on C, with d₁d₂ | N in ℚ[Y] and m | d₁ + d₂ on C.
 *Proof.* m/N = 1/y + 1/z. For s ∈ C let g = gcd(y, z), y = gy′, z = gz′: mgy′z′ = N(y′ + z′) and gcd(y′z′, y′ + z′) = 1
-give y′z′ | N and m | (N/y′z′)(y′ + z′). Near μ = 0, Y ≡ 1 (mod m) so N ≡ N(1) = 4^{J−1}(4^J + m) (mod m), coprime to
+give y′z′ | N and m | (N/y′z′)(y′ + z′). Near μ = 0 (after shrinking C to s ≡ 0 mod D·ord_m(2); R258 D5), Y ≡ 1 (mod m) so N ≡ N(1) = 4^{J−1}(4^J + m) (mod m), coprime to
 m; hence m | y′ + z′. Write y/z = U/V with U, V ∈ ℤ[Y] coprime in ℚ[Y]; then y′ = κU(Y)/h(s) with κ ∈ ℚ fixed and
 h(s) | Res(U, V)·(content), and h(s) depends only on Y modulo a fixed integer; on a smaller neighbourhood (Y ≡ 1 at the odd
 part, Y ≡ 0 at the 2-part) h is constant. So d₁ := y′, d₂ := z′ are polynomials in Y. Finally d₁d₂ | N(Y) for infinitely
@@ -42,8 +47,9 @@ fixed-prime split of any piece, every sub-product mixing pieces, the n-atom, and
 m | ρ₁ + ρ₂ in ℤ[1/2], and necessarily **m ≡ 3 (mod 8) and e₁ − e₂ odd.**
 *Proof.* Positivity: n and n + m = c₀Y^D + k + m have no root in (0, ∞), so every factor of N with positive leading
 coefficient is positive at Y = 1; d₁, d₂, d₃ have positive leading coefficient (positive on C). ρ₁ρ₂ρ₃ = N(1) =
-4^{J−1}M, all ρᵢ ∈ ℤ[1/2] (Lemma 2.1) give the factorisation of the odd part. Y ≡ 1 (mod m) on a neighbourhood gives
-m | ρ₁ + ρ₂. n ≡ k ≡ 1 (mod 4) forces m = 4x − n ≡ 3 (mod 4). Every prime q | M has −m ≡ 4^J (mod q), so
+4^{J−1}M, all ρᵢ ∈ ℤ[1/2] (Lemma 2.1) give the factorisation of the odd part. m | ρ₁ + ρ₂ follows from q-adic continuity
+for each q | m: Y → 1 in ℤ_q along a neighbourhood, dᵢ(Y) ∈ ℤ_q, and q^v ℤ_q is closed. A literal congruence mod m
+would not suffice, because the dᵢ may have denominators (R257 D5 / R258 D5, applied by R258). n ≡ k ≡ 1 (mod 4) forces m = 4x − n ≡ 3 (mod 4). Every prime q | M has −m ≡ 4^J (mod q), so
 (m/q) = (−1/q) and (q/m) = (m/q)(−1)^{(q−1)/2} = 1; hence (aᵢ/m) = 1, and ρ₁ ≡ −ρ₂ gives (2/m)^{e₁−e₂} = (−1/m) = −1. ∎
 
 **Lemma 1.3 (2-adic size of the limits; PROVED).** Assume m ≡ 3 (mod 8). Then each dᵢ(0) is a 2-adic unit and
@@ -91,7 +97,7 @@ and (2/ε) = 1; if t is odd no odd power of 2 occurs. So (ρ₁ρ₂/ε) = 1 ≠
 sub-products mixing primes of both SG factors, Aurifeuillean splittings of Φ_n-pieces, quintic/sextic/any root windows,
 composite windows m, the n-atom, and Type-I-shaped windows (x/n constant), for every root degree D. Hence:
 **15·2^s + 1 (and 31·4^s + 33, 7·4^s + 57, 63·4^s + 1, 47·4^s + 17, 55·4^s + 9) has no finite covering by ET classes,
-divisor classes and constant-gap / constant-ratio exponential classes of any degree** (compactness as in EXP_105 Cor 2.8;
+divisor classes and constant-gap / constant-ratio root families in ℚ[2^{s/D}] of any degree D** (compactness as in EXP_105 Cor 2.8;
 the 30·4^t + 1 half is irrelevant there since μ = 0 lies in the even half). NOT covered: families in which no denominator
 has constant gap or ratio (all of 4x − n, 4y − n, 4z − n non-constant and none of x, y, z a constant multiple of n), i.e.
 MENU_LADDER's general T, T′ normal form with T′ non-constant. CONJECTURE 6.4 is reduced to these *moving-gap* families.
@@ -110,12 +116,14 @@ and the odd part w of f(1) must satisfy w ≡ −2^{−e} (mod q), q = odd(a)·o
 progression, no factoring needed.
 
 **Proposition 2.1 (a cubic-root family through the unit-square point of 3·2^s + 1; PROVED, verified exactly).**
-For s ≡ 0 (mod 36), s ≥ 18, put Y = 2^{s/3}, n = 3Y³ + 1 = 3·2^s + 1, a = 80, c = 1,
+For s ≡ 0 or 12 (mod 36), s ≥ 36 (R257 D2 / R258 D6, applied by R258), put Y = 2^{s/3}, n = 3Y³ + 1 = 3·2^s + 1, a = 80, c = 1,
   d = (21Y + 64)/320, b = (Y² − 3Y + 9)/7, x = abd, y = acdn, z = bcdn.
 Then 4/n = 1/x + 1/y + 1/z. *Proof.* cn + a = 3(Y³ + 27) = 3(Y + 3)(Y² − 3Y + 9) and 4acd − 1 = 21(Y + 3), so
 cn + a = b(4acd − 1), which is the Type II identity. Integrality: 320 | 21Y + 64 iff 64 | Y and Y ≡ 1 (mod 5), i.e.
-s/3 ≥ 6 and 4 | s/3; 7 | Y² − 3Y + 9 iff Y ≡ 1 (mod 7), i.e. 3 | s/3. Positivity is clear. (Checked numerically for
-s = 36, 72, …, 180.) ∎
+s/3 ≥ 6 and 4 | s/3; 7 | Y² − 3Y + 9 = (Y − 1)(Y − 2) + 7 iff Y ≡ 1 or 2 (mod 7), i.e. s/3 ≢ 2 (mod 3). Together these
+give exactly s ≡ 0, 12 (mod 36), s ≥ 36. The earlier version said "iff Y ≡ 1", which is false; its class s ≡ 0 (mod 36)
+is only the sufficient sub-class (R258 repair). Positivity is clear. (Checked numerically for s = 36, 72, …, 180;
+replayed in review_r257_prop21.py and review_r258_misc.py.) ∎
 *Significance.* The class s ≡ 0 (mod 36) contains μ = 0, the profinite unit-square point of 3·2^s + 1, and the family has
 moving gap 4x − n = a + b = 80 + (Y² − 3Y + 9)/7 and root degree D = 3. So (i) the cubic rung of MENU_LADDER's ladder is
 NOT sterile at a unit-square point (for (3, 1)); (ii) the escape uses a *cyclotomic* factor Y + 3 of Y³ + 3³ — the shape
@@ -144,7 +152,7 @@ u, v ≤ 10, p ≤ 13 and SG, D ∈ {e, 2e}; every hit replayed by `z19_binom_ve
 * **(63, 1): II-ad hit (a, d) = (5, 17), D = 3** — see Theorem 2.3. **(15, 1): none.**
 
 **Theorem 2.3 (a moving-gap family through the unit-square point of 63·2^s + 1; PROVED, elementary; replayed).**
-For s ≡ 0 (mod 24), s ≥ 6, put Y = 2^{s/3}, n = 63Y³ + 1 = 63·2^s + 1, a = 5, d = 17 and
+For s ≡ 0 (mod 24), s ≥ 24 (s = 0 fails: c = 85/340; R257 D1 / R258 D2, applied by R258), put Y = 2^{s/3}, n = 63Y³ + 1 = 63·2^s + 1, a = 5, d = 17 and
   b = (63Y³ + 3Y² − 9Y + 28)/340,  c = (21Y + 64)/340,  x = abd, y = acdn, z = bcdn.
 Then 4/n = 1/x + 1/y + 1/z with x, y, z positive integers.
 *Proof.* n + 4a²d = 63Y³ + 1701 = 63(Y + 3)(Y² − 3Y + 9). Put f = 3(Y² − 3Y + 9), f′ = 21(Y + 3), so ff′ = n + 1700.
@@ -166,16 +174,25 @@ cyclotomic factor. Whether 63·2^s + 1 is fully coverable (ET + windows + this c
 *Proof.* (a) s ≡ 0 (mod 24), s ≥ 24: Theorem 2.3. (b) Every other residue s mod 2520 (s ≥ 10) lies in one of 18
 ET/divisor classes (moduli 5, 11, 15, 19, 29, 39, 87, 119, 127, 344, 584, 1016, 5620, 51944), each a polynomial
 identity in n on a residue class n ≡ r (mod M) whose odd part has ord(2) | 2520 (built by `z19_cert_make.py 63 2520
-300000 … 24 0`, the O240 machinery; ET/divisor classes alone leave exactly s ≡ 0 mod 2520, `z15_tree.py 63 1 1 2520 …`).
+300000 … 24 0`, the O240 machinery). The 18 certificate classes leave exactly s ≡ 0, 840, 1680 (mod 2520) uncovered.
+All three are ≡ 0 (mod 24), so they fall under (a). A larger `z15_tree.py 63 1 1 2520 …` supply leaves only s ≡ 0
+(mod 2520); that is EVIDENCE and not part of the proof (R257 D1 / R258 D1, applied by R258). n_s mod M is periodic only
+for s ≥ v₂(M); here max v₂(M) = 3, so the cut s ≥ 10 is safe (R258 D3).
 (c) s ≤ 9: brute force. The checker verifies every identity symbolically, integer-valuedness on each class (forward
 differences), positivity (Cauchy bound below 63·2^10), the period, integrality of Theorem 2.3's b, c on s ≡ 0 (mod 24)
 over a full period of 2^{s/3} mod 340, coverage of all residues mod 2520, that no non-divisor ET class contains an odd
 square (T1 control), and an explicit verified solution for every s ≤ 1000 (950 ET, 41 moving class, 10 brute). ∎
 *Scope / honesty.* A thin family. It is the first family with a profinite unit-square point **that no window / constant-gap
 class can reach (Theorem W) and that is nevertheless closed** — the closing class is a moving-gap Type II family from the
-binomial menu II-ad. T1 respected: the integer square 63·2^8 + 1 = 127² lies in the divisor class D₁₂₇ (s ≡ 1 mod 7) and
-is solved by brute force anyway (s < 10). Literature: not searched yet for this specific family (the campaign's prior web
-searches found no ES result for any k·2^m + 1 family; non-exhaustive).
+binomial menu II-ad. T1 respected: the only squares in the family are s = 0 (n = 64) and s = 8 (n = 127²). This follows
+because A(A + 1) = 63·2^{s−2} forces {A, A + 1} = {63, 64}. The integer square 63·2^8 + 1 = 127² lies in the divisor class
+D₁₂₇ (s ≡ 1 mod 7) and is solved by brute force anyway (s < 10) (R257 D1(iii)).
+*Where the new content lies* (R258 D9, applied by R258): n_s ≡ 1 (mod 168) and n_s ≡ 3·2^s + 1 ≢ 1 (mod 5), so n_s ≡ 169
+(mod 840) iff s ≡ 0 (mod 4). Mordell's classical mod-840 identities therefore already settle every s ≢ 0 (mod 4). The new
+content of Theorem 3.1 is the case s ≡ 0 (mod 4), and its essential part is the neighbourhood s ≡ 0 (mod 840) of μ = 0.
+Numerical verification of ES up to 10^17 (Salez 2014) independently covers s ≤ 50.
+Literature: both reviewers ran brief web searches (R257, R258; 3 queries each). Neither found an ES result for
+63·2^s + 1 or for any k·2^s + 1 family; the search is non-exhaustive.
 
 **Map 2.4 (EVIDENCE; `z19_binom.py c₀ k MENU 30 8 7 1,2` for every c₀ ≡ 7 (mod 8), k = 4^J − c₀ ≡ 1 (mod 8), J ≤ 4).**
 Families with a profinite unit-square point and a binomial-menu class through it: (3, 1) [II-ac, II-ad, I-ac],
@@ -184,7 +201,8 @@ Families with a profinite unit-square point and a binomial-menu class through it
 (55, 9) and all other J = 4 pairs. (Hits are necessary-and-sufficient for validity near μ = 0; each was spot-replayed.)
 
 **Reduction 2.5 (II-ad at the limit; PROVED algebra, used as a fast EVIDENCE filter `scripts/z19_iiad_limit.py`).** In
-II-ad, B = n + T, T = 4a²d, the roots of B are 2-adic units, so v₂(f(1)/f(0)) ≥ 0 and X := f(1), X′ := f′(1) are
+II-ad (with a nontrivial factorisation B = f·f′: if f or f′ is constant the class collapses to an ET / constant-gap class;
+R258 repair), B = n + T, T = 4a²d, the roots of B are 2-adic units, so v₂(f(1)/f(0)) ≥ 0 and X := f(1), X′ := f′(1) are
 positive integers with X ≡ −4^J, X′ ≡ −1 (mod q), q = odd(a)·odd(d), XX′ = 4^J + T. Writing X = jq − 4^J,
 X′ = j′q − 1, a = 2^α a₁, d = 2^δ d₁, E = 2 + 2α + δ: **jj′a₁d₁ = 2^E a₁ + j + 4^J j′**, and Capelli needs
 (k + T)/c₀ ∈ ℚ^p ∪ 4ℚ⁴. For j = j′ = 1, k = 1, c₀ = 4^J − 1 this reads c₀(u^p − z) = (1 + z)², z = 2^E a₁: the (63, 1)
@@ -199,26 +217,43 @@ Setting: n_s = 4^s + 297, single integer square point s = 3 (4³ + 297 = 19²), 
 sit near the 3-line X_{3,3} = {μ_ℓ = 3 (ℓ ≠ 3)} with μ₃ ≢ 3 (mod 9) (EXP_NEAR_SQUARE §2, EXP_105 §1); μ₃ ≡ 3 (mod 9) is
 D₁₉ (ord₁₉4 = 9).
 
-**Proposition 4.1 (Theorem W at a non-unit square point; PROVED, same proof as §1).** Let C be a constant-gap
-(window m) or constant-ratio root class for 4^s + 297 — any root degree D, any polynomial divisors (all algebraic
-factorisations, fixed-prime splits, mixed sub-products, the n-atom) — whose closure contains μ = 3. Then the
-pieces of C split the prime 19 off n; in particular C ⊆ {s ≡ 3 (mod 9)} ⊆ D₁₉-region up to finitely many s.
-Consequently **no constant-gap/ratio class with period prime to 3 meets the 3-line at all** (such a class containing a line
-point contains μ = 3, and 19 cannot be split off uniformly on it).
-*Proof.* Reparametrise Y = 4^{(s−3)/D}, n = 64Y^D + 297; near μ = 3, Y → 1 at odd places and → 0 at 2, so Lemma 2.1
-and Lemma 1.1 apply verbatim with N(1) = 361(361 + m)/4. Every odd q | 361 + m has (q/m) = 1 (m ≡ −19² mod q,
-m ≡ 3 mod 4), and if 19 is not split off, the n-piece contributes its limit 361 = 19² (n = 64Y^D + 297 is irreducible:
-297/64 is not ± a p-th power nor 4β⁴). 2-adic sizes (Lemma 1.3): N(0) = 297(297 + m)/4 is a unit when m ≡ 3 (mod 8),
-and the roots of n and of n + m have v₂(α) = −6/D resp. −4/D < 0, so every factor P has v₂(P(1)/P(0)) = 0: all eᵢ = 0.
-Then (ρ₁ρ₂/m) = 1 ≠ (−1/m); if m ≡ 7 (mod 8), (2/m) = 1 and the same contradiction holds. Constant ratio: as Cor 1.7. ∎
-*Reading.* O239's "windows with r < 0" (j > 3, pieces S-integral at s = 3) are covered: they evaluate at the rational point
+**Proposition 4.1 (Theorem W at a non-unit square point; PROVED for 19 ∤ m, OPEN for 19 | m; R257 D4 / R258 D7, applied
+by R258).** Let C be a root class for 4^s + 297 whose closure contains μ = 3. Here "root class" allows any root degree D
+and any polynomial divisors (all algebraic factorisations, fixed-prime splits, mixed sub-products, the n-atom). Suppose C
+is either (i) a constant-ratio class (x = t·n, t ∈ ℕ, arbitrary), or (ii) a constant-gap class (window m) with **19 ∤ m**.
+Then the pieces of C split the prime 19 off n; in particular C ⊆ {s ≡ 3 (mod 9)} ⊆ D₁₉-region up to finitely many s.
+Consequently **no constant-ratio class, and no constant-gap class with 19 ∤ m, of period prime to 3 meets the 3-line at
+all**: such a class containing a line point contains μ = 3, and 19 cannot be split off uniformly on it.
+**Windows with 19 | m (m = 19, 95, 171, …) are NOT covered.** For them gcd(N(1), m) = gcd(361, m) > 1, so Lemma 1.1's
+step "m | y′ + z′" and the Jacobi step both fail. Only the 19-free part m′ of m survives, and m′ ≡ 1 (mod 4) when
+v₁₉(m) is odd. This case is not vacuous at the limit: 4/361 = 1/95 + 1/3610 + 1/3610 has m = 19. OPEN.
+*Proof (local part).* Reparametrise Y = 4^{(s−3)/D}, n = 64Y^D + 297; near μ = 3, Y → 1 at odd places and → 0 at 2.
+Then Lemma 2.1 and Lemma 1.1 apply with N(1) = 361(361 + m)/4. Lemma 1.1 needs gcd(N(1), m) = 1, which holds iff
+19 ∤ m. Every odd q | 361 + m with q ≠ 19 has (q/m) = 1 (m ≡ −19² mod q, m ≡ 3 mod 4). If 19 is not split off, the
+n-piece contributes its limit 361 = 19². Here n = 64Y^D + 297 is irreducible: 297/64 is not ± a p-th power nor 4β⁴.
+2-adic sizes (Lemma 1.3): N(0) = 297(297 + m)/4 is a unit when m ≡ 3 (mod 8). The roots of n and of n + m have
+v₂(α) = −6/D resp. −4/D < 0, so every factor P has v₂(P(1)/P(0)) = 0, and all eᵢ = 0. Then (ρ₁ρ₂/m) = 1 ≠ (−1/m). If
+m ≡ 7 (mod 8), (2/m) = 1 and the same contradiction holds. Hence 19 occurs to an odd power in ρ₁ρ₂.
+*Proof (local ⇒ global; R257's repair, applied by R258).* Fix primitive integral normalisations of the irreducible
+factors and write dᵢ = λᵢ·(factors), lᵢ := v₁₉(λᵢ), with l₁ + l₂ + l₃ = 0. Call s ∈ C *generic* if 19 ∤ n(n + m), i.e.
+4^{s−3} mod 19 avoids the ≤ 2 bad residues. At a generic point every factor value is a 19-unit (by Gauss, a factor
+vanishing mod 19 would make n or n + m vanish mod 19), so v₁₉(dᵢ(Y)) = lᵢ. At Y = 1 only the n-factor carries 19, because
+19 ∤ (361 + m). So v₁₉(ρ₁ρ₂) = l₁ + l₂ + 2[n ∈ d₁d₂], and the local part forces l₁ ≠ l₂. Now y = g·d₁, z = g·d₂ with
+g = d₃(d₁ + d₂)/m. At a generic point v₁₉(y) = min(l₁, l₂) − l₂ and v₁₉(z) = min(l₁, l₂) − l₁, and one of these is
+negative. So C has no generic points. As s runs through C = {s ≡ 3 mod L}, 4^{s−3} mod 19 runs through the subgroup
+generated by 4^L, which has ≥ 3 elements unless 9 | L. Hence 9 | L, i.e. C ⊆ {s ≡ 3 (mod 9)}.
+Constant ratio (all t): if 19 ∤ ε = 4t − 1, argue as in Cor 1.7 plus the same generic-point argument. If 19 | ε, a pair
+(λ₁n, λ₂) would need λ₁n + λ₂ ≡ 0 (mod 19) at ≥ 2 distinct values of n mod 19 (n ≡ 7Y^D + 12 is injective in Y^D). That
+forces 19 | λ₁, λ₂, which is impossible since λ₁λ₂ | t and 19 ∤ t. A pair (λ₁, λ₂) of constants dies by Cor 1.7's Jacobi
+argument, since 19 ∤ t. ∎
+*Reading.* (For windows with 19 ∤ m; R258 repair.) O239's "windows with r < 0" (j > 3, pieces S-integral at s = 3) are covered: they evaluate at the rational point
 s = 3 and die by Jacobi unless they see 19, i.e. unless they are refinements of D₁₉. At a genuine line point
 (μ₃ ≢ 3 mod 9) a class can only work through primes with 3 | ord_q(4) — exactly as the certified ET line covering
 (EXP_NEAR_SQUARE §2) does. Windows bring nothing structurally new there; they can only add *supply*.
 **Computation 4.2 (EVIDENCE; `z14_tree` with the 132 primes q ≤ 10⁹ whose ord_q(4) is 3-smooth, splits on 2, 3 only).**
-A covering of 4^s + 297 by ET/divisor classes with {2, 3}-supported periods (which would make the tree 2-dimensional) does
-not exist at this supply: uncovered measure 1.2·10⁻² (μ₃ ≡ 6 mod 9 and parts of μ₃ ≡ 2 mod 3 stuck at depth 13).
-**Status of 297 / 33 / 273: NOT decided.** Method assessment: Prop 4.1 decides the *window* question negatively (windows
+A covering of 4^s + 297 by ET/divisor classes with {2, 3}-supported periods (which would make the tree 2-dimensional) was
+NOT FOUND at this supply by the depth-13 tree search (R257/R258: this is non-discovery, not non-existence; R258 D8 applied): uncovered measure 1.2·10⁻² (μ₃ ≡ 6 mod 9 and parts of μ₃ ≡ 2 mod 3 stuck at depth 13).
+**Status of 297 / 33 / 273: NOT decided.** Method assessment: Prop 4.1 decides the *window* question negatively for 19 ∤ m (windows with 19 | m remain OPEN; R258 repair) (windows
 cannot attack the line structurally); deciding 297 needs a supply-efficient covering of the off-line children, not a new
 class shape. (Binomial moving-gap menus of §2 are tied to unit-square points via Capelli at Y* = 1 and were not tried at
 μ = 3 — spark.)
