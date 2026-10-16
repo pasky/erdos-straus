@@ -66,3 +66,24 @@ Cor 1.5: correct and (as the R-O251 repair now says) essentially tautological, s
 "one primitive ideal per root ρ mod g" correct for odd g prime to p. The Assessment label on the reading is right.
 
 **Verdict C3: SOUND.**
+
+### C4. §2 — composition coordinates, controlled lifts, fixed-line reduction, k | 6 genus statement
+2.1: L_ρ(g) = gℤ + (ρ + √−p)ℤ ⟺ Y ≡ ρM (g) ✓; (Y + M√−p)(u + v√−p) = (uY − pvM) + (uM + vY)√−p ✓; product of
+primitive ideals of coprime norms is primitive of norm gℓ with root ρ′ by CRT ✓ (the image β𝔤 is a sublattice of
+index N(β)/ℓ in 𝔤𝔩 — "maps into", fine). **Defect m3:** "goes to a point with even M iff v is even" is only true for
+odd Y; Claude points can have even Y (Y is any representative of 2kρ mod g). Correct statement: M′ even ⟺ vY even.
+2.2: h | (gu+1)/4 ⟺ u ≡ 1 (4h) ✓ (g ≡ −1 (4h) is a unit); d_k(gu) ≡ d_k(g) (mod g) ✓; d_k(gu) | k ⇒ d_k(gu) < g ⇒
+d_k(gu) = d_k(g) ✓; lifting condition gu | 4k²p + d ✓. "ES propagates only down" is PROVED as stated.
+2.3: disc of [g, 2Y, D] = 4Y² − 4(4k²p + Y²) = −16k²p ✓ (order of conductor 2k in ℚ(√−p), since ℤ[√−p] has disc −4p) ✓;
+D ≡ −Y² (4k) ✓; (a) exponent-2 argument via m₁m₂ = N(α₁ᾱ₂/N𝔞), principal values x² + 4k²py² ≡ x² ≡ 1 (4k) ✓
+(needs 𝔞 invertible in the order — true for primitive forms). From-scratch numerical check
+(`scripts/review_r262_genus.py`, all reduced primitive forms of disc −16k²p, p ≡ 1 (4) < 400): for k ∈ {1,2,3,6}
+0 forms with non-congruent coprime values; for k ∈ {4,5,7} every form fails — consistent with "iff k | 6" and with
+WINDMILL Prop 10.3 (exponent 2 ⟺ 4k | 24). The reviewer counter-example p = 5, g = 43, Y = 61 recomputed:
+[43,122,87] → [43,36,8] → [8,−36,43] ✓. Landau analogy correctly labelled heuristic. "[g, 2, D], g ≤ D is reduced" ✓.
+**Defect m2:** the iteration log (§0, I3, line 20) still says "for k | 6 *every move preserves* admissibility" — the
+statement the R-O251 repair retracted in §2.3(a). Repair: "for k | 6 admissibility of coprime first coefficients is a
+genus property (not preserved by all reduction moves)".
+(b) is a reading (WINDMILL 10.3 parallel), appropriately not claimed as a theorem beyond the swap computation.
+
+**Verdict C4: SOUND-AFTER-REPAIRS** (m2, m3 wording only).
