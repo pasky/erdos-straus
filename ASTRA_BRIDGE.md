@@ -265,17 +265,6 @@ Astra's "strict twist decrease" is progress only through its final step (twist 1
 of the twist is free but its *exponents* are forced only up to the order of the subgroup. The two relaxations meet
 only at ES; neither contains a bounded-cap/bounded-twist statement that is both nontrivial and provable.
 
-### 5.4 Heights (Astra's compression problem) — what Claude's results do and do not say
-*Bound (PROVED, elementary).* The least-root window shot of Prop 5.2(b), scaled to an integral point at pτ²
-(τ = Q/c, c = gcd(Q, K)), is (τ²U, τ²pK, pUK/c²), so its height is ≤ τ²·pUK ≤ τ²·p(p+q)(p+q²+q)/(16q): height
-O_{p,q}(τ²) with τ < q/2. *Reading (Assessment).* Astra's height problem lives in the opposite regime: twists r → ∞ at
-fixed p, where [A:TWIST_HEIGHT_COMPRESSION Thm 1] forces height ≥ r²B(p, r) ≍ r^{5/2}/2 for non-scalable witnesses
-and every scaled ES solution has height ≤ F_p r² [A:TWIST_FIXED_DEFECT §1]; the O_{p,s}(r^{32/11}) compression is a
-statement about that regime. Claude's window/cap results produce *small* twists directly (τ < q₀/2, or self-mute with
-cap < q) and say nothing about compressing a given large twist. Claude's overflow rigidity (EXPONENT_CAP Thm 2.1,
-g ≤ 2nQ₁²(n + Q₁²)) is the shot-family analogue of Astra's height wall (both archimedean); no quantitative transfer
-between them was attempted.
-
 ### 5.3 Astra's macros in Claude language (Astra → Claude)
 
 By Thm 2.1, at a fixed level (e, H) a certified state is a divisor r | H² in the coset −4⁻¹(ℤ/e)^{*2}, and the exit is
@@ -295,6 +284,17 @@ exists. So these operations can *reach* cap 0 from a capped point, but each such
 not a forced descent. **No forced cap-descent move e → e′ < e is obtained** (Assessment; scope: the operations in the
 table. Not analysed: the height-floor gateway with g = s > 1 and no inherited certificate [A:GATEWAY_COMPATIBILITY §1],
 to which Thm 2.1 does not apply, and the composite-R cofactor-supply rule [A:COFACTOR_SUPPLY].)
+
+### 5.4 Heights (Astra's compression problem) — what Claude's results do and do not say
+*Bound (PROVED, elementary).* The least-root window shot of Prop 5.2(b), scaled to an integral point at pτ²
+(τ = Q/c, c = gcd(Q, K)), is (τ²U, τ²pK, pUK/c²), so its height is ≤ τ²·pUK ≤ τ²·p(p+q)(p+q²+q)/(16q): height
+O_{p,q}(τ²) with τ < q/2. *Reading (Assessment).* Astra's height problem lives in the opposite regime: twists r → ∞ at
+fixed p, where [A:TWIST_HEIGHT_COMPRESSION Thm 1] forces height ≥ r²B(p, r) ≍ r^{5/2}/2 for non-scalable witnesses
+and every scaled ES solution has height ≤ F_p r² [A:TWIST_FIXED_DEFECT §1]; the O_{p,s}(r^{32/11}) compression is a
+statement about that regime. Claude's window/cap results produce *small* twists directly (τ < q₀/2, or self-mute with
+cap < q) and say nothing about compressing a given large twist. Claude's overflow rigidity (EXPONENT_CAP Thm 2.1,
+g ≤ 2nQ₁²(n + Q₁²)) is the shot-family analogue of Astra's height wall (both archimedean); no quantitative transfer
+between them was attempted.
 
 ## 6. The bet (bounded cap for every p via forced membership + forced factors): gate-by-gate, and where it stops
 
