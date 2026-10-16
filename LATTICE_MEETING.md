@@ -44,7 +44,9 @@ g ≡ 3 (4) has a prime factor ℓ ≡ 3 (4); ℓ | c² + (2a)² forces ℓ | c 
 **Certified computation (CERTIFIED; `scripts/z23_meet.py`, exhaustive by Prop 1.1's bound, every point
 checked as an exact ES identity).** Among the 39 175 primes p ≡ 1 (4), p ≤ 10⁶, **𝓜(p) = ∅ for exactly 99**:
 13, 37, 97, 181, 193, 541, 673, 757, 1033, 1093, 1297, 1621, 1777, 2293, 2473, 3361, 3877, 6481, … (22 below 10⁴,
-23 in (10⁴, 10⁵], 54 in (10⁵, 10⁶]); all ≡ 1 (12). Mean |𝓜(p)| over p ≤ 10⁵: 13.4. Odd squares ≤ 10⁶: all empty.
+23 in (10⁴, 10⁵], 54 in (10⁵, 10⁶]); all ≡ 1 (12). Mean |𝓜(p)| over p ≤ 10⁵: 13.4. Odd squares ≤ 10⁶: all empty. Independent
+cross-check (k-scan of `scripts/z23_shape.py`'s `least_k` up to the proven bound k ≤ a + b ≤ (p+4)/3, divisors g ≤ √(4k²p+1)):
+identical emptiness verdict on all 1125 primes p ≡ 1 (4) ≤ 2·10⁴ (25 empty).
 
 **Consequence for the O251 descent (PROVED from Prop 1.1 + certified list).** For each of the 99 primes, no sequence of
 moves inside the slice lattices of ℤ[√−p] (composition, reduction, translation, Vieta partner) can end at a point

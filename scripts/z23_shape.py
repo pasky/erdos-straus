@@ -21,17 +21,18 @@ def least_k(n, KM):
     return None
 
 
-P, KM = int(sys.argv[1]), int(sys.argv[2])
-fails, hist = [], {}
-for p in primerange(5, P + 1):
-    if p % 4 != 1:
-        continue
-    k = least_k(p, KM)
-    if k is None:
-        fails.append(p)
-    else:
-        hist[k] = hist.get(k, 0) + 1
-print('primes: fails (no k<=%d):' % KM, len(fails), fails[:30])
-print('least-k histogram (top):', sorted(hist.items())[:12], 'max k', max(hist))
-t1 = [a * a for a in range(3, isqrt(P) + 1, 2) if least_k(a * a, KM) is not None]
-print('odd squares that fire (must be none):', t1)
+if __name__ == "__main__":
+    P, KM = int(sys.argv[1]), int(sys.argv[2])
+    fails, hist = [], {}
+    for p in primerange(5, P + 1):
+        if p % 4 != 1:
+            continue
+        k = least_k(p, KM)
+        if k is None:
+            fails.append(p)
+        else:
+            hist[k] = hist.get(k, 0) + 1
+    print('primes: fails (no k<=%d):' % KM, len(fails), fails[:30])
+    print('least-k histogram (top):', sorted(hist.items())[:12], 'max k', max(hist))
+    t1 = [a * a for a in range(3, isqrt(P) + 1, 2) if least_k(a * a, KM) is not None]
+    print('odd squares that fire (must be none):', t1)
