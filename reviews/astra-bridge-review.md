@@ -23,8 +23,8 @@ Cor 2.2: ⇒ (r/e) = (−1/e) = −1 so a prime s | r | H² has (s/e) = −1; �
 right: Cor 2.2's dead condition is literally CAP_POINTWISE Prop 4.1(b)'s hypothesis (2 | H with (2/p) = 1 ⟺ e ≡ 7 (8)),
 and Prop 4.1(b) (with its R238 arbitrary-y remark) kills every point with coordinate pH. Strictness (p=5, e=7, x = 45):
 Prop 4.1's arbitrary-y remark applied to D = 7y − 9 gives D = 3^c, and the internal reviewer's c ≡ 5 (6) argument is right
-(7y ≡ 9 mod 3^c with v₃(y) = 2 needs 3^c | 7y − 9 exactly …; I re-derived: v₃(D) = c and v₃(9y) = 4 ⇒ den z = 3^{c−4}, so
-c even is needed for a square, but y = (3^c + 9)/7 ∈ ℤ needs 3^c ≡ −9 ≡ 5 (mod 7), i.e. c ≡ 5 (mod 6): odd). SOUND.
+(re-derived: y = (3^c + 9)/7 ∈ ℤ needs 3^c ≡ 5 (mod 7), i.e. c ≡ 5 (mod 6); then v₃(y) = 2, v₃(9y) = 4 and
+den z = 3^{c−4} with c − 4 odd). SOUND.
 
 From-scratch check `scripts/review_r260_typeI.py 3000 151 12` (2.7 s): side (b) enumerated **independently** of the
 theorem (t = ev − H with t | n²H², which I derive from gcd(Hv, t) | H²; all v, not just those coming from r | H²) for
