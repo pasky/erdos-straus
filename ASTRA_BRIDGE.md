@@ -233,3 +233,59 @@ the element −4⁻¹ itself. Each Astra operation acts on this datum as follows
 None of them changes the *cap* of a Claude state: a Claude state lives in the p-divisible-anchor slot and its exit
 condition is −K ∈ Box_0(K) at its window (Lemma 3.1 of CAP_POINTWISE), which no fixed-level Astra move touches.
 **No cap-descent move e → e′ < e is obtained** (negative, scope: the operations listed).
+
+## 6. The bet (bounded cap for every p via forced membership + forced factors): gate-by-gate, and where it stops
+
+### 6.1 Each Astra gate is one B2 event
+B2 (redteam-automorphic-2 Thm 2.2): a fixed-p encoding reduces to "an integer N_θ(p) has a divisor in a residue class
+whose modulus is part of the solution". Unwinding Thm 2.1/3.1 and §5.3:
+| Astra gate (their name) | N_θ(p) | class / modulus |
+|---|---|---|
+| endpoint / retained-level exit [A:STR §21.2] | H² = ((pe+1)/4)² | −4⁻¹ mod e (Type I e-slice) |
+| ES at the source slice (Prop 3.2) | (ph)², h = (q+1)/4 | Q² ≡ −ph mod q |
+| ES-ready source (Thm 3.1(c)) | 4k²p + 1 | q ≡ −1 mod 4k (classical Type II line) |
+| first pivot [A:STR (27)] | m²A² | R ≡ −m²/4 mod C (C = defect) |
+| borrowing [A:STR (67)] | H²/r₀ | m⁻² mod e |
+| fold supply [A:FORCED_FOLD (1)] | r (inherited) | prime R | r, R ≡ 3 (4), (C/R) = 1, R < 2 min(m, p) |
+| universal favourable source | (choice of e or q) + one of the above | — |
+So the Astra and Claude programmes hit the *same* wall from two sides: Claude relaxes the box (exponents b_s + e)
+and keeps the class; Astra relaxes the class (coset −4⁻¹K) and keeps the box (Thm 2.1). Their common refinement is
+ES, and their union is still a B2 lottery at a solution-dependent modulus.
+
+### 6.2 Two precise scope statements
+
+**Proposition 6.1 (saturation fires only at levels e = p^{o(1)}; PROVED).** If Astra's saturation hypothesis
+[A:SATURATION (2)] holds at level e (odd, e ≡ 3 (4)), then φ(e) ≤ 2^{ω(e)}·τ(H²), H = (pe+1)/4. Hence
+e ≤ exp(O(log(pe)/log log(pe))), i.e. e ≤ p^{O(1/log log p)}.
+*Proof.* K = (ℤ/e)^{*2} has order φ(e)/2^{ω(e)} (e odd). Hypothesis (2) gives |K| = ∏ d_i with d_i ≤ J_{q_i} + 1 ≤
+2h_{q_i} + 1, and ∏ (2h_q + 1) = τ(H²). The divisor bound τ(N) ≤ N^{O(1/log log N)} and φ(e) ≫ e/log log e give the rest. ∎
+So the only fully forced Astra exit applies at levels so small that H's factorisation is that of a *given*
+integer (pe + 1)/4 — the classical Type I search; CRT-prescribed content t | H forces e ≡ −p⁻¹ (mod t), and the least
+such level is a residue of size ≍ t for generic p, while t contributes at most τ(t²) = t^{o(1)} to the box.
+
+**Proposition 6.2 (Type I aliveness can be forced; the exit cannot be, by these means; PROVED).** Let ℓ be a prime
+with (ℓ/p) = −1 (Kronecker) and let e ≡ 3 (4) be a prime with pe ≡ −1 (mod 4ℓ) (infinitely many, Dirichlet;
+ℓ = 2 needs p ≡ 5 (8) and then pe ≡ −1 (mod 8)). Then ℓ | H, the level e carries an Astra twisted state of twist
+< e (Cor 2.2), and −4⁻¹ ∈ ⟨primes of H⟩ mod e (the Type I analogue of CAP_POINTWISE Thm 1.1's group step).
+*Proof.* ℓ | H by construction; (ℓ/e) = (ℓ/p) = −1 by Cor 2.2's symbol computation; ℓ has even order in the cyclic group
+(ℤ/e)^* of order 2·odd, so −1 ∈ ⟨ℓ⟩, and H ∈ ⟨primes of H⟩, so −H ≡ −4⁻¹ is in it. ∎
+*Why it does not give a bounded cap.* Writing −H = ℓ·Y² with Y ∈ ⟨primes of H⟩ (possible: −H/ℓ is a square lying in a
+cyclic subgroup of even order), the point (U, HU/r, pH), r = ℓY² (Thm 2.1's formulas with n = 1, r not dividing H²)
+has den(HU/r) = ∏_s s^{(c_s − 2b_s)⁺}, c_s = v_s(r), b_s = v_s(H) (computation as in CAP_DOWN Lemma 1.1), and the
+ℓ-exponent c_ℓ = 1 + 2a_ℓ is odd: the denominator is a square (a Claude-type ES^{(y,·)} point with y := U) only if
+2a_ℓ + 1 ≤ 2b_ℓ, which needs ℓ-content b_ℓ comparable to the discrete-log exponent a_ℓ < ord_e(ℓ) | e − 1.
+Prescribing ℓ^B | H costs e ≡ −p⁻¹ (mod ℓ^B), so e ≳ ℓ^B/p ≫ B for generic p. Forced content and forced
+membership pull in opposite directions: **membership is forced at the level of the group (size ≍ e), content only at
+the level of the box (size ≤ τ(H²) = e^{o(1)} for e ≥ p)**. This is B3 (the scale constraint) at a single level.
+
+### 6.3 Verdict on the bet (negative, with scope)
+No bounded cap e*(p) ≤ C, and no new positive-density cap-0 set (cap 0 on positive density is already classical:
+Mordell's identities cover all p outside six classes mod 840), follows from combining Claude's forced subgroup
+membership with Astra's forced-factor source preparation. Scope of the negative: certificates assembled from
+(i) a window/level chosen by finitely many Frobenius/congruence conditions (incl. CRT-prescribed content),
+(ii) Legendre-identity subgroup forcing, (iii) box covering by valuations, and (iv) Astra's fixed-level moves
+(§5.3); the obstruction is Prop 6.1/6.2 (group size ≍ level, forced box ≤ level^{o(1)}) plus Thm 2.1
+(fixed-level moves are memoryless). What would break it: a mechanism forcing the *discrete logarithm* of the
+target (not just its membership) into a box of size level^{o(1)} — e.g. equidistribution of short multiplicative
+relations among primes of K mod the window (CAP_POINTWISE §2's missing input), or an algebraic identity making the
+level divide a value of a factorable polynomial ((J)74's Sophie-Germain mechanism, which works on thin families only).
