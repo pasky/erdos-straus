@@ -289,3 +289,31 @@ membership with Astra's forced-factor source preparation. Scope of the negative:
 target (not just its membership) into a box of size level^{o(1)} — e.g. equidistribution of short multiplicative
 relations among primes of K mod the window (CAP_POINTWISE §2's missing input), or an algebraic identity making the
 level divide a value of a factorable polynomial ((J)74's Sophie-Germain mechanism, which works on thin families only).
+
+## 7. Verdict (O249 checkpoint 1)
+
+1. **Slot dictionary (PROVED, §1).** Both programmes live in one space: rational points of 4/p with square
+   denominators (Astra: integral points of W(pm²)). Astra twists the **p-free** coordinate (genuine:
+   gcd(m, h) = 1); Claude twists a **p-divisible** coordinate and demands self-muteness rad τ | y. Astra twist =
+   Claude overflow Q₁ (FORCED_FOLD (6) already matched them on one move); Claude cap = max exponent of Q₁.
+   "Twist 1 ⟺ cap 0 ⟺ ES" holds trivially; intermediate measures do **not** correspond.
+2. **The orchestrator's congruence identification is true but slot-crossed (Thm 3.1).** Astra's q is Claude's
+   *slice* g (the ≡ 3 (4) divisor in y = p(g+1)/4), Astra's s is Prop 1.3's D, Astra's twist is Prop 1.3's 2k.
+   Astra sources are the points of Claude's overflow/modulus surface Dg = pM² + Y² with Y = 1 and the shot
+   congruence switched off; **the ES-ready sources are exactly m | (q+1)/2 (the classical Type II line), and
+   genuineness excludes them** (Thm 3.1(c),(d); 9415/9415 checked).
+3. **Certified states = twisted Type I windows (Thm 2.1).** Twist at level e = square root of −4r; ES = class −4⁻¹.
+   Levels carrying any Astra state = levels where H = (pe+1)/4 has a p-non-residue prime factor = complement of
+   CAP_POINTWISE Prop 4.1's dead levels (Cor 2.2; 62 179 pairs checked). T1: Astra's whole state space (sources
+   and certified states) is empty at odd squares (Prop 3.3).
+4. **Fixtures (§4).** All 50 Astra triples re-verified exactly; every Astra exit is a classical small-modulus
+   certificate (25 Type I at e ≤ 143, 5 Type II at w ≤ 39); the 15241 fold is a Claude window shot (R = 11, Q = 2);
+   the 313 Type II exit is a cap-0 square shot.
+5. **Transfers (§5).** The same admissible prime is *forced as a window* and *unforced as a slice* (Prop 5.1):
+   Astra's unforced object is Claude's forced object. Without self-muteness, small/prime twists are free
+   (Prop 5.2), so Astra's twist decrease carries no information until twist 1. No Astra macro yields a Claude
+   cap-descent move (§5.3, scoped).
+6. **The bet (§6): negative with scope.** Each Astra gate is a B2 event (table 6.1); saturation fires only at
+   levels p^{o(1)} (Prop 6.1); Type I aliveness and subgroup membership can be forced by CRT (Prop 6.2) but the
+   square-denominator/cap version needs content ≍ discrete log, which the level size forbids (B3 at one level).
+ES untouched; no infinite case of ES claimed.
