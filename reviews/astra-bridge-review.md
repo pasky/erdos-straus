@@ -212,8 +212,10 @@ No FATAL defect. ES is not claimed and nothing in the document claims an infinit
   is "all points with x-twist n and coordinate pH".
 * m3 (§7 items 1–2; AGENT_REPORT SHARP): "Astra twist = Claude overflow Q₁" and "Astra's twist m is Prop 1.3's 2k" read as
   contradictory. Clean statement: on L_ρ(g) an Astra source (m, 1) has denominator M² (twist in the M-coordinate), a Claude
-  shot point (2k, Y) has denominator Y² (twist in the Y-coordinate; 2k is the growing modulus); at ES both twists are 1 only
-  because Y = 1, and M = 2k is then the classical modulus.
+  shot point (2k, Y) has denominator Y² (twist in the Y-coordinate; 2k is the growing modulus). Moreover a lattice point
+  is a *parameter*, not a rational point: at the "meeting point" (2k, 1) the two readings give **different** rational points
+  sharing only y = ph — e.g. p = 5, g = 3, (2, 1): Astra's source (7/4, 35, 5) (twist 2) and Claude's ES shot (2, 5, 10).
+  Say "ES shots are the parameters where both readings exist", not that the Astra source *is* the ES point.
 * m4 (Thm 3.1(d) title "excludes exactly"): the classical line m | 2h is a small part of the non-genuine set gcd(m, h) > 1;
   say "genuineness excludes this line (except m = 2, where every source is ES-ready)".
 * m5 (Thm 3.4(c)): "2kρ ≡ 1, i.e. g | 4k²p + 1" — the converse only gives 2k⁻¹ ≡ *some* root; for composite g add "for some
