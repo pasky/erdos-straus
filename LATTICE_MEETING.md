@@ -88,9 +88,11 @@ composition/class-group walk 𝔤 → 𝔤𝔩 is, for the purpose of ES, the in
 
 ### 1.4 Which fields rescue the empty primes (CERTIFIED; `scripts/z23_rescue.py 1000000 200`)
 For each of the 99 primes with 𝓜(p) = ∅, the least ET parameter d with a Type II solution (exhaustive in a for each d,
-solution checked exactly): d = 2 for 96 primes, d = 3 for 31081, d = 5 for 3361 and 7681. So every one of them is
-rescued in a *different imaginary quadratic field* ℚ(√−2p), ℚ(√−3p), ℚ(√−5p): the meeting point leaves the field of
-the slice lattices. E.g. p = 13: (a, b, c, d) = (1, 2, 1, 2), 4/13 = 1/4 + 1/26 + 1/52 (slice g = 4acd − 1 = 7 | 13 + 8 = p + 4a²d).
+solution checked exactly): d = 2 for 96 primes, d = 3 for 31081, d = 5 for 3361 and 7681. In the lattice picture (Thm 1.4) the
+rescue still happens on a slice lattice L_ρ(g) ⊂ ℤ[√−p], but at **height √d** instead of 1: the vertical line k = cd
+has Y_k² ≡ d (mod g), d ∈ {2, 3, 5}, d | k. So ASTRA_BRIDGE Thm 3.4(c)'s meeting point (2k, 1) is the square-d part
+of ES only, and it misses all Type II solutions at these 99 primes; the correct meeting set is the *square-class*
+meeting Y_k² ≡ d | k of Thm 1.4. E.g. p = 13: (a, b, c, d) = (1, 2, 1, 2), 4/13 = 1/4 + 1/26 + 1/52 (slice g = 4acd − 1 = 7 | 13 + 8 = p + 4a²d).
 
 ## 2. Coordinates of the moves
 
