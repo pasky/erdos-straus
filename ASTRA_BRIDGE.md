@@ -161,7 +161,7 @@ n = 1; "window w / d" = Type II window divisor d | K², d ≡ −K (mod w), K = 
 | p | Astra route | Claude reading of the exit |
 |---|---|---|
 | 97 | sources q = 19, m = 3; q = 1171, m = 13 | Type I levels e = 7 (H = 170, r = 5), e = 15 (H = 364, r = 26 or 56); one Type II window w = 15, d = 392 |
-| 193 | source q = 79, m = 3 (window 23/9); floors m = 2 (window 2/4·… = 2), m = 7 (C = 3: window 3/49); 24→3→1, 7→45360→3→1 | Type I e = 3 (H = 145, r = 5 or 29), e = 7 (H = 338, r = 26), e = 143 (H = 6900, r = 250); Type II w = 15 (d = 8), w = 7 (d = 20) |
+| 193 | source q = 79, m = 3 (window 23/9); floors m = 2 (window 2), m = 7 (C = 3: window 3/49); 24→3→1, 7→45360→3→1 | Type I e = 3 (H = 145, r = 5 or 29), e = 7 (H = 338, r = 26), e = 143 (H = 6900, r = 250); Type II w = 15 (d = 8), w = 7 (d = 20) |
 | 3361 | sources q = 11 (m = 3, 19), q = 67 (m = 26), q = 271 (m = 457) | Type I e = 7 (r = 68), e = 39 (r = 29), e = 119 (r = 17820); Type II w = 39 (d = 125) |
 | 5209 | composite-q seed q = 157915, m = 24 → floor m = 7, C = 3 → borrowing b = 50 | Type I e = 31 (H = 40370, r = 550 = 11·50: borrowed content), e = 119 (r = 2112), e = 95 (r = 261) |
 | 233689 | grid / offset repairs, m = 8 | Type I e = 7 (H = 408956, r = 19), e = 119 (r = 446) |
@@ -176,3 +176,56 @@ depends on the route only through one divisor r | H² (Astra's own remark [A:STR
 integrality is not inherited exit forcing"). In particular the fold of [A:FORCED_FOLD §2] is a Claude window shot
 with the *least* root instead of a subgroup element: it trades Claude's self-muteness (rad τ | y) for size
 (τ ≤ (R−1)/2).
+
+## 5. Transfers
+
+### 5.1 Window versus slice: the same prime is forced in one slot and unforced in the other
+
+**Proposition 5.1 (PROVED).** Let q ≡ 3 (4) be prime with (q/p) = −1 (Astra-admissible = Claude window symbol).
+(a) *As a Claude window* (x = K = (p+q)/4): (K/q) = −1, so −1 ∈ ⟨primes of K⟩ mod q and −K is the square of an
+element of that subgroup (CAP_POINTWISE Thm 1.1; CAP_DOWN Thm 1.2 for the 2-adic side condition) — forced.
+(b) *As Astra's slice* (y = ph, h = (q+1)/4): ES at the slice needs d | (ph)², d ≡ −ph (mod q) (Prop 3.2). Here
+(h/q) = (4⁻¹/q) = +1, so the primes of h contain an *even* number (possibly zero) of non-residues: nothing forces
+−1 ∈ ⟨primes of h⟩. The prime p itself is a non-residue ((p/q) = −1) but may enter d only with exponent ≤ 2.
+So the slice is a "+1-parity" object like a Type I level (CAP_POINTWISE Prop 4.1 dichotomy), the window a
+"−1-parity" object.
+*Proof.* (a) is CAP_POINTWISE Thm 1.1's group step. (b) 4h ≡ 1 (mod q). ∎
+**Transfer (Claude → Astra).** Every Astra-admissible prime with q ≡ 4 − p (8) (or q ≡ 7 (8), or v₂(p+q) even, CAP_DOWN
+Thm 1.2) *also* carries a forced self-mute state when used as a window: a point with x = K, y = p(g+1)/4, den z = Q₁²,
+rad Q₁ | y, cap ≤ (q−3)/4 (CAP_DOWN Prop 1.3). [A:FORCED_FOLD] already uses admissible primes as windows (its R),
+but with the *least* root Q < R/2 instead of the forced subgroup element; this is the size/self-muteness trade-off.
+
+### 5.2 Phase diagram of the relaxations (what is free, what is forced, what is open)
+
+**Proposition 5.2 (PROVED, elementary).** For every prime p ≡ 1 (4):
+(a) *(non-self-mute, prime twist — free.)* For any Astra-admissible q and any prime m in a root class of pm² ≡ −1
+(mod q) with m ∤ ph (infinitely many, Dirichlet), the source is a rational point with y, z ∈ ℤ and den x = m², m prime
+(twist m, "cap 1" without self-muteness).
+(b) *(non-self-mute, small twist — free.)* For any Astra-admissible q, the least-root window shot (Q the even
+representative of a root of −p mod q, halved [A:FORCED_FOLD (3)]) is a point with x, y ∈ ℤ and den z = Q₁²,
+Q₁ ≤ (q−1)/2; so the minimal twist is < q₀(p)/2, q₀(p) := least prime ≡ 3 (4) with (q/p) = −1 (≪_ε p^{1/4+ε}
+ineffectively by Pollack IJNT 2014 Thm 1.4 applied to (1 − χ₋₄)(1 − χ_p); ≪ (log p)² under GRH).
+(c) *(self-mute, cap < q — forced.)* CAP_POINTWISE Thm 1.1, CAP_DOWN: e*(p) ≤ (p − 5)/8 etc.
+(d) *(self-mute, bounded cap — open; twist 1 = cap 0 = ES — open.)*
+*Proof.* (a) Lemma 1.3 and gcd(m, sh) = 1 (gcd(m, h) = 1 as m ∤ h; gcd(m, s) = 1 as qs ≡ 1 mod m). (b) FORCED_FOLD
+(3)–(5): Q ≤ (q−1)/2, Q₁ = Q/gcd(Q, K) ≤ Q. ∎
+**Reading.** Without self-muteness every *size* question about the twist is trivial (prime twist, twist < q₀/2), so
+Astra's "strict twist decrease" is progress only through its final step (twist 1). With self-muteness the size
+of the twist is free but its *exponents* are forced only up to the order of the subgroup. The two relaxations meet
+only at ES; neither contains a bounded-cap/bounded-twist statement that is both nontrivial and provable.
+
+### 5.3 Astra's macros in Claude language (Astra → Claude)
+
+By Thm 2.1, at a fixed level (e, H) a certified state is a divisor r | H² in the coset −4⁻¹(ℤ/e)^{*2}, and the exit is
+the element −4⁻¹ itself. Each Astra operation acts on this datum as follows (all PROVED by unwinding the cited formulas):
+| Astra operation | action at fixed level | Claude reading |
+|---|---|---|
+| closure / re-rooting [A:STR §11.2] | change n within ±√(−4r) mod e | choice of lift; no information |
+| pure borrowing [A:STR §19.1] | r → r·b, b | H²/r, ℓ²b ≡ 1 (mod e) | move inside D_e(H) = {r | H² mod e}; B2 at modulus e |
+| saturation [A:SATURATION §3] | mixed-radix cover of −H/c by source-prime box | CAP_POINTWISE Lemma 2.1 box covering (Type I) |
+| level change / CRT forced factor [A:FORCED_FACTOR, FINITE_CHAIN] | new e with prescribed t | H | new lottery; content t costs e ≡ −p⁻¹ (mod t) |
+| fold [A:FORCED_FOLD §2] | Type I state → window shot at a prime R | r with least root (size), not ⟨S⟩ (self-mute) |
+| first pivot [A:STR §11.1] | R | m²A², e = (4R + m²)/C | divisor of m²A² in a class mod the defect C (B2) |
+None of them changes the *cap* of a Claude state: a Claude state lives in the p-divisible-anchor slot and its exit
+condition is −K ∈ Box_0(K) at its window (Lemma 3.1 of CAP_POINTWISE), which no fixed-level Astra move touches.
+**No cap-descent move e → e′ < e is obtained** (negative, scope: the operations listed).
