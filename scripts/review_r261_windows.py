@@ -8,7 +8,7 @@ Also: rebuild(p, m, vec) -> (x, y, z) and check_def11 -> independent exact check
 """
 import sys
 from fractions import Fraction
-from math import gcd
+from math import gcd, isqrt
 from sympy import factorint, jacobi_symbol, isprime, primerange
 from sympy.ntheory import n_order
 
@@ -69,11 +69,7 @@ def check_def11(p, x, y, z, e):
     if Fraction(4, p) != Fraction(1, x) + Fraction(1, y) + z ** -1:
         return False
     den = z.denominator
-    r = round(den ** 0.5)
-    while r * r > den:
-        r -= 1
-    while (r + 1) ** 2 <= den:
-        r += 1
+    r = isqrt(den)
     if r * r != den or r % 2 == 0 or gcd(r, p) != 1:
         return False
     for l, v in factorint(r).items():
