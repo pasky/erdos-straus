@@ -252,7 +252,8 @@ representative of a root of −p mod q, halved [A:FORCED_FOLD (3)]; assume gcd(Q
 the denominator is 20, not a square) is a point with x, y ∈ ℤ and den z = Q₁²,
 Q₁ ≤ (q−1)/2; so the minimal twist is < q₀(p)/2 whenever q₀(p) < 2p, q₀(p) := least prime ≡ 3 (4) with (q/p) = −1 (≪_ε p^{1/4+ε}
 ineffectively by Pollack IJNT 2014 Thm 1.4 applied to (1 − χ₋₄)(1 − χ_p); ≪ (log p)² under GRH).
-(c) *(self-mute, cap < q — forced.)* CAP_POINTWISE Thm 1.1, CAP_DOWN: e*(p) ≤ (p − 5)/8 etc.
+(c) *(self-mute, cap < q — forced.)* CAP_POINTWISE Thm 1.1 (cap ≤ q − 3 at windows with q ≡ 4 − p (8)), CAP_DOWN
+(cap ≤ (q−3)/4; e*(p) ≤ (p − 5)/8 for p ≡ 1 (8)).
 (d) *(self-mute, bounded cap — open; twist 1 = cap 0 = ES — open.)*
 *Proof.* (a) Lemma 1.3 and gcd(m, sh) = 1 (gcd(m, h) = 1 as m ∤ h; gcd(m, s) = 1 as qs ≡ 1 mod m). (b) FORCED_FOLD
 (3)–(5) (their hypothesis Q < p): Q ≤ (q−1)/2, Q₁ = Q/gcd(Q, K) ≤ Q. ∎
@@ -263,6 +264,17 @@ admissible q ≤ 200 the least-root twist is 1 (an ES square shot) for 4508 prim
 Astra's "strict twist decrease" is progress only through its final step (twist 1). With self-muteness the size
 of the twist is free but its *exponents* are forced only up to the order of the subgroup. The two relaxations meet
 only at ES; neither contains a bounded-cap/bounded-twist statement that is both nontrivial and provable.
+
+### 5.4 Heights (Astra's compression problem) — what Claude's results do and do not say
+*Bound (PROVED, elementary).* The least-root window shot of Prop 5.2(b), scaled to an integral point at pτ²
+(τ = Q/c, c = gcd(Q, K)), is (τ²U, τ²pK, pUK/c²), so its height is ≤ τ²·pUK ≤ τ²·p(p+q)(p+q²+q)/(16q): height
+O_{p,q}(τ²) with τ < q/2. *Reading (Assessment).* Astra's height problem lives in the opposite regime: twists r → ∞ at
+fixed p, where [A:TWIST_HEIGHT_COMPRESSION Thm 1] forces height ≥ r²B(p, r) ≍ r^{5/2}/2 for non-scalable witnesses
+and every scaled ES solution has height ≤ F_p r² [A:TWIST_FIXED_DEFECT §1]; the O_{p,s}(r^{32/11}) compression is a
+statement about that regime. Claude's window/cap results produce *small* twists directly (τ < q₀/2, or self-mute with
+cap < q) and say nothing about compressing a given large twist. Claude's overflow rigidity (EXPONENT_CAP Thm 2.1,
+g ≤ 2nQ₁²(n + Q₁²)) is the shot-family analogue of Astra's height wall (both archimedean); no quantitative transfer
+between them was attempted.
 
 ### 5.3 Astra's macros in Claude language (Astra → Claude)
 
