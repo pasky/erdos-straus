@@ -169,20 +169,24 @@ CAP_DOWN Prop 4.1(a) the worst case at a single window is exactly (q − 3)/4.
 exponent sets D_s (as in the header), the number of certificates is
 `  #{δ ∈ ∏ D_s : ∏ s^{δ_s} ≡ −1} = (1/(q−1)) Σ_χ χ(−1) ∏_{s∈S} Σ_{δ∈D_s} χ(s)^δ.`
 The trivial and the quadratic character together give |Box|/(q−1)·(1 − ∏_{s NR}(1 − 2ω_s)), ω_s := share of
-odd exponents in D_s (the product has sign (−1)^ν, ν := #{s ∈ S non-residue mod q}, since ω_s > 1/2 once C ≥ 0 and b_s = 1); for the cap-C box at b_s = 1, ω_s = (C + 2)/(C + 3) and this is
-the parity law of Cor 1.2 in averaged form. ∎
-*Reading.* A cap ≤ C at q follows deterministically as soon as the non-quadratic characters cancel, i.e. no
-χ ≠ 1, χ² ≠ 1 has χ(s) close to 1 for most s ∈ S: |∏_s Σ_δ χ(s)^δ| ≤ ∏_s min(|D_s|, 2/‖θ_s‖) with χ(s) = e(θ_s).
-For K divisible by all primes ≤ y (window q ≡ −p (mod 4P(y)), q ≍ P(y)^{O(1)}), |Box| = (C + 3)^{π(y)} exceeds q once
-C ≳ y^{O(1)} = (log q)^{O(1)}, and the needed cancellation is a **Diophantine genericity of the discrete logs of the
-primes ≤ y modulo q − 1** (no k ≠ 0 with ‖k·ind(s)/(q−1)‖ ≲ 1/C for all s ≤ y). That is precisely the "balanced
-exponent lattice" input isolated in BRAINSTORM/z12_grh_lattice_gap; GRH controls Frobenius classes in fixed Kummer
-fields (bounded-index quotients F_q^*/(F_q^*)^ℓ), never the archimedean size of discrete logs, and for a fixed small
-generator set the good q are prime factors of explicit integers (iteration Z22-1). So (C) with O(log p)^{O(1)} — let
-alone (A) — needs an input of a new kind; the forced level (one character, CAP_POINTWISE) is all that reciprocity
-supplies. (Assessment.)
+odd exponents in D_s, ν := #{s ∈ S non-residue mod q}. (R-O250 review fix: for odd s | K with b_s = 1 the cap-C set
+D_s = {−1, 0, 1, 3, …, 2C + 1} has ω_s = (C + 2)/(C + 3) > 1/2; for 2 and p, whose sets do not grow with C, and for even
+b_s (ω_s = b_s/(2b_s + 1 + C) < 1/2) the signs differ, so in general the product has no fixed sign.) This is the parity
+law of Cor 1.2 in averaged form. ∎
+*Reading (Assessment; R-O250 review fix — the first version used a wrong one-sided bound and overstated a necessity).*
+For odd s | K the exponent set is a base interval [−b_s, b_s] plus an overflow progression of step 2, so with
+χ(s) = e(θ_s): |Σ_{δ∈D_s} χ(s)^δ| ≤ min(2b_s + 1, 1/‖θ_s‖) + min(C, 1/‖2θ_s‖) — resonance occurs near χ(s) = ±1, not
+only near 1 (e.g. p = 157, q = 7, K = 41, C = 20, χ(3) = e(1/6) breaks any bound of the form min(|D_s|, 2/‖θ_s‖)). A
+deterministic cap ≤ C at q follows if the sum over all χ with χ² ≠ 1 is smaller than the trivial-plus-quadratic term;
+this needs the discrete logarithms of the generators mod q − 1 to avoid simultaneous small denominators — a
+Diophantine-genericity condition on discrete logs (cf. the "balanced exponent lattice" of BRAINSTORM/z12_grh_lattice_gap,
+whose limitation is labelled tentative there). For a window with K divisible by all primes ≤ y, the box has
+≥ (C + 3)^{π(y)−1} elements, so if also q ≍ P(y)^{O(1)} the counting threshold is C ≈ y^{O(1)} = (log q)^{O(1)}.
+GRH/Chebotarev control Frobenius classes in fixed Kummer fields (bounded-index quotients F_q^*/(F_q^*)^ℓ); we see no
+way for them to control the archimedean size of discrete logs, so we expect (C) at (log p)^{O(1)} — let alone (A) — to
+need an input of a different kind (Assessment, not a theorem).
 
-## 5. Numerics (EVIDENCE): forced windows carry the caps; explicit witnesses do not stay bounded
+## 5. Numerics (EVIDENCE): forced windows carry the caps; the tested explicit witnesses grow
 
 `scripts/z22_forced_caps.py N Q0 EMAX KFIRST VER 1` — Mordell-hard primes (p mod 840 ∈ {1, 121, 169, 289, 361, 529},
 all ≡ 1 (8)); prime windows q ≡ 3 (4), q ≤ Q₀ = 1000; for each p the first KFIRST = 10 forced windows ((q/p) = −1) and
