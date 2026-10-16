@@ -226,5 +226,5 @@ None of (A), (B), (C) was reached pointwise. What was obtained:
 5. **§4 (Assessment):** the natural sufficient input for (C)/(A) via many generators is Diophantine genericity of
    discrete logarithms of the generators modulo the window — not a Frobenius statement; we see no GRH/Chebotarev route.
 6. **§5 (EVIDENCE):** forced windows carry the caps (cap-0 rate ≈ 2× unforced within 100-wide q-bins); every Mordell-hard
-   p ≤ 10⁷ has cap 0 at one of its first 20 forced prime windows; explicit witnesses grow (max 17 to 10⁷).
+   p ≤ 10⁷ has cap 0 at one of its first 20 forced prime windows; the two tested explicit witnesses reach larger maxima (10 to 10⁶, 17 to 10⁷).
 ES is untouched, and no infinite case of ES is claimed.
