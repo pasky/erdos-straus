@@ -41,7 +41,7 @@ gcd(g, p) = 1 is automatic in (iii) (needed for g to be a slice; not stated in t
 ℓ | c² + (2a)² ⇒ ℓ | a, contradicting g ≡ −1 (4a)) and (b) ((a, g) = (1, 3)) correct.
 Numerics: 99 empty among 39 175 primes ≤ 10⁶, 22/23/54, all ≡ 1 (12), odd squares ≤ 10⁶ all empty — reproduced.
 Independent second method (no Prop 1.1): complete Type II enumeration with the criterion "𝓜(p) ≠ ∅ ⟺ some Type II
-solution has gcd(x, y/p, z/p) a perfect square" (ET Prop 2.6 uniqueness + dilation d ↦ d/s²): agrees on all 2 262
+solution has gcd(x, y/p, z/p) a perfect square" (ET Prop 2.6 uniqueness + dilation d ↦ d/s²): agrees on all 1 125
 primes p ≡ 1 (4) ≤ 2·10⁴.
 Mean-count remark (§1, R-O251 repair): reproduced ordered mean 24.37 and scan mean 13.35 (p ≤ 10⁵), **but** the
 unordered mean is 12.19, so the sentence "the scan a ≤ √p + 2 sees each unordered {a, b} once in one orientation" is
