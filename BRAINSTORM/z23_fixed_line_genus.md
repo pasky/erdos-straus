@@ -2,12 +2,14 @@
 
 ## Idea
 On a vertical line M = 2k the Vieta partner g ↔ D = (4k²p + Y²)/g plus Y ↦ Y + tg is Gauss reduction of [g, 2Y, D]
-(disc −16k²p, order of conductor 2k). Claude admissibility of the partner needs Y² ≡ 1 (mod 4k): automatic iff
-(ℤ/4k)^* has exponent 2 iff k | 6. Then the "descent" is a genus-preserving walk and ES on the line is: some reduced
+(disc −16k²p, order of conductor 2k). Claude admissibility of the partner needs Y² ≡ 1 (mod 4k), automatic for units Y iff k | 6. For k | 6, values coprime
+to 4k of one form are congruent mod 4k, so admissibility of coprime first coefficients is a genus property — but
+reduction translations can produce even Y / non-coprime coefficients (reviewer: p = 5, g = 43, Y = 61 → [8, −36, 43]), so
+it is NOT preserved by every move (R-O251). ES (d = 1) on the line is: some reduced
 form [g, 2, D] with g ≡ −1 (4k) — i.e. 4k²p + 1 has a divisor ≡ −1 (mod 4k).
 ## Literature
 Cox §2–3 (reduction, genus theory); WINDMILL_REDUCTION Prop 10.3 (t | 24 exception); Landau: integers with all prime
-factors ≡ 1 (4) have density ≍ (log x)^{−1/2}.
+factors ≡ 1 (4) have density ≍ (log x)^{−1/2} (for 4p + 1 only a heuristic analogy).
 ## Barrier screen
 k | 6: B1 (fixed finite set of congruence/genus conditions: k = 1 fails iff 4p + 1 has no prime factor ≡ 3 (4)).
 k ∤ 6: admissibility is a ray-class (mod 4k) condition = the B2 datum. T1: no ES form at squares (Prop 1.1 Cor 1.2).

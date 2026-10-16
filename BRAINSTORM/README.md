@@ -511,10 +511,10 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 ### z23 — O251 lattice meeting point / class-group slice moves (deep file LATTICE_MEETING.md)
 | memo | idea | outcome | label |
 |---|---|---|---|
-| z23_empty_meeting_locus | Thm 3.4(c)'s meeting point (2k, 1) as a target set | finite {a + b = k(4ab − p)}; empty for 99 primes ≤ 10⁶; rescued at height √d, d ∈ {2,3,5} | PROVED + CERTIFIED (SHARP) |
-| z23_norm_blind_predicate | carry k ∣ h along composition in Cl(−4p) | ES at slice g ⟺ ∃ k ∣ h: (−4k²p mod g) ∣ k; depends on the norm only, not the class | PROVED (SHARP) |
+| z23_empty_meeting_locus | Thm 3.4(c)'s meeting point (2k, 1) as a target set | finite {a + b = k(4ab − p)}; empty for 99 primes ≤ 10⁶; 98 rescued on split slices (height √d), p = 3361 has no Type II solution on any slice lattice of ℤ[√−p] | PROVED + CERTIFIED (SHARP) |
+| z23_norm_blind_predicate | carry k ∣ h along composition in Cl(−4p) | ES at slice g ⟺ ∃ k ∣ h: (−4k²p mod g) ∣ k; a class-based mechanism acts only through the norms it produces | PROVED + Assessment |
 | z23_controlled_lift_tower | lifts g → gu, u ≡ 1 (4h), keep h ∣ h′ | ES propagates only down the tower (divisor lattice of 4k²p + d) | PROVED (negative) |
-| z23_fixed_line_genus | Vieta/Gauss reduction on a fixed line k | k ∣ 6: genus regime (B1); else ray class mod 4k = B2 datum; reduction moves nothing in practice | PROVED + EVIDENCE |
+| z23_fixed_line_genus | Vieta/Gauss reduction on a fixed line k | k ∣ 6: genus property of coprime coefficients (B1), not preserved by all moves; else B2 datum; reduction moves nothing in practice | PROVED + EVIDENCE |
 | z23_parity_budget | two forced slots | slices/levels never forced (4h ≡ 1); ≤ 1 forced slot per point | PROVED (negative) |
 | z23_expander_walk | how far is an ES class | ≤ 4–8 steps when it exists (expander, JMV 2009): walk adds reachability only | EVIDENCE |
 | z23_biquadratic_height | all ET d at once in ℚ(√−p, √d) | reciprocity could only correlate failures (B2/B5) | CONJECTURE-level spark |

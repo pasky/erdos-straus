@@ -13,7 +13,8 @@ Each d is its own B2 event (divisor of 4k²p + d ≡ −1 mod 4k). Reciprocity r
 d, p, g — genus information, which Cor 1.5/Prop 10.3 show cannot decide divisor-class events. B5: at odd squares all
 symbols are satisfiable yet Type II is empty. So a reciprocity link would at best correlate failures, not force success.
 ## Cheap numerics
-`scripts/z23_rescue.py`: the 99 empty-d=1 primes are rescued at d = 2 except three (d = 3, 5, 5); no d = 2 failure among
-them suggests independence of the d = 1 and d = 2 events at these p (not tested systematically).
+`scripts/z23_rescue.py`: the 99 empty-d=1 primes are rescued at d = 2 except three (d = 3, 5, 5); that d = 2 rescues 96/99
+suggests the d = 1 and d = 2 events are not strongly correlated at these p (not tested systematically). Note also
+(z23_split) that non-square d need not be a square mod the slice: p = 3361's solutions all have non-split slices.
 ## Assessment
 CONJECTURE-level spark, not pursued; B2/B5 make a forcing outcome unlikely (Assessment).

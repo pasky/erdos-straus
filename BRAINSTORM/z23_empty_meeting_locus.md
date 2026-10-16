@@ -14,7 +14,10 @@ many a ≤ √p/2. T1: empty at odd squares (Cor 1.2(a)). Hypothesis that kills 
 height Y = 1 (square ET d). Violating it: heights √d (z23_norm_blind_predicate, LATTICE_MEETING Thm 1.4).
 ## Cheap numerics
 `scripts/z23_meet.py 1000000`: exactly 99 of 39 175 primes p ≡ 1 (4) ≤ 10⁶ have 𝓜(p) = ∅ (13, 37, 97, 181, 193, …),
-all ≡ 1 (12); independent k-scan agrees on p ≤ 2·10⁴. `scripts/z23_rescue.py`: rescued at ET d = 2 (96), 3 (1), 5 (2).
+all ≡ 1 (12); independent k-scan agrees on p ≤ 2·10⁴. `scripts/z23_rescue.py`: rescued at ET d = 2 (96), 3 (1), 5 (2). `scripts/z23_split.py`: 98 of them have a Type II
+solution on a *split* slice (−p a square mod g); **p = 3361 has none** — its only Type II solutions
+(1/850 + 1/(3361·25) + 1/(3361·170), 1/841 + 1/(3361·290) + 1/(3361·8410)) have all four slices non-split (brute force).
 ## Assessment
 PROVED (Prop 1.1) + CERTIFIED (list). Negative for the O251 descent as posed: "Y = 1 reachable for every p" is false.
-Corrective: the full meeting set is the square-class meeting Y_k² ≡ d | k.
+Corrective: the full Type II set at a slice is "(−4k²p mod g) | k" (square-class meeting Y_k² ≡ d | k at split
+slices); and at p = 3361 even that is invisible in ℤ[√−p]'s slice lattices (CERTIFIED).
