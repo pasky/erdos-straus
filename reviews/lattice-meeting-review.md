@@ -3,7 +3,7 @@
 Reviewer: R262 side agent, branch side-agent/review-lattice-meeting, merged side-agent/lattice-meeting at start.
 From-scratch scripts: `scripts/review_r262_*.py` (none reuse z23_* code).
 
-## Verdict summary (filled in claim by claim)
+## Verdict summary
 Repairs applied: none (author branch side-agent/lattice-meeting active 11 min before this review finished; defects are
 wording/attribution only and are left to the author).
 
