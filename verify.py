@@ -26298,4 +26298,44 @@ def check_gs():
 check_gs()
 
 
+def check_gt():
+    # (gt) EXP_OPEN (O246; reviews R257, R258): Theorem 3.1 — ES for EVERY n = 63*2^s + 1 (a family with a profinite
+    # unit-square point, beyond every window class by Theorem W): 18 ET/divisor classes cover s mod 2520 except
+    # {0, 840, 1680}, closed by a moving-gap cubic Type II class (s = 0 mod 24: Y = 2^{s/3}, a = 5, d = 17,
+    # b = (63Y^3 + 3Y^2 - 9Y + 28)/340, c = (21Y + 64)/340). Theorem W's finite check: no constant-gap/ratio relation at mu = 0
+    # for the six listed families, positive controls (3,1), (7,9), (23,41), (39,25) recovered. Two independent checkers.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=root, env=env)
+        assert r.returncode == 0, ("EXP_OPEN subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["scripts/review_r258_cert63.py", "1500"])
+    for s in ("A: 18 ET/divisor classes: identity, integer-valuedness, positivity (n >= 64513), period | 2520  OK",
+              "B: residues s mod 2520 uncovered by ET/divisor classes: [0, 840, 1680]",
+              "C: moving-gap identity (symbolic), integrality on every Y = 2^{8j} (j>=1) via Y = 0 mod 4, 1 mod 85, positivity OK",
+              "D: exact solutions s = 0..1500 OK"):
+        assert s in out, (s, out[-2000:])
+    out = run(["scripts/review_r257_cert63.py", "data/z19/cert63_et.json", "1000"])
+    assert "exact solutions verified for all 0 <= s <= 1000" in out, out[-2000:]
+    out = run(["scripts/review_r257_thmW.py"])
+    for fam in ("(15, 1)", "(31, 33)", "(7, 57)", "(63, 1)", "(47, 17)", "(55, 9)"):
+        line = [l for l in out.split("\n") if l.startswith(fam)]
+        assert line and line[0].rstrip().endswith("hits m: {}"), (fam, out[-2000:])
+    for fam, m in (("(3, 1)", "{11: 12}"), ("(7, 9)", "{19: 6}"), ("(23, 41)", "{51: 4}"), ("(39, 25)", "{131: 4}")):
+        line = [l for l in out.split("\n") if l.startswith(fam)]
+        assert line and ("hits m: " + m) in line[0], (fam, out[-2000:])
+    print(f"== (gt) EXP_OPEN R257/R258: ES for all 63*2^s + 1 (18 ET classes + moving-gap cubic class), two checkers; "
+          f"Theorem W finite check with positive controls; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gt()
+
+
 print("\nall checks passed")
