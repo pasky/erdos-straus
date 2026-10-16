@@ -32,7 +32,7 @@ memos BRAINSTORM/z23_*.md (7, indexed in BRAINSTORM/README.md); scripts scripts/
 4. §3 Prop 3.1 (PROVED): slices and Type I levels are unforced at every prime (4h ≡ 1); a Type II point has ≤ 1 forced
    slot (the window). Goal (3)'s "two forced slots" point does not exist.
 5. §4 (EVIDENCE + JMV 2009 under GRH): worst-start Cayley distance to an ES class ≤ 4–8 steps whenever one exists
-   (p ≤ 3000, k ∈ {1,2,3,5}; 5 lines uncertified); lines without ES classes 26–73 %. ES class = sub-event of the
+   (p ≤ 3000, k ∈ {1,2,3,5}, generators ℓ ≤ 40; exact per R262; 4 lines with an unreachable coset); lines without ES classes 26–73 %. ES class = sub-event of the
    divisor event (needs d square mod g). The Gauss-reduction descent from the least-root window
    shot is the identity (all 1565 starting forms already reduced). Walks add reachability, never existence.
 6. Verdict (§5, Assessment): the class-group walk route, as posed, yields no existence mechanism (Cor 1.5 + §2–§4, 3361); what would
@@ -45,12 +45,17 @@ reading a non sequitur; §4 target sets conflated; mean |𝓜| miscounted 13.4 v
 citation = Prop 2.6, Landau as heuristic, BFS caveat, memo contradiction). All repaired, marked R-O251. The 99-prime
 list, the 96/1/2 histogram and all tables were independently reproduced by the reviewer.
 
+R262 hostile review (reviews/lattice-meeting-review.md): no FATAL, all headline numbers reproduced; M1 (§3 Reading /
+z23_parity_budget re-stated the Cor 1.5 non-sequitur), M2 (§4 unreached classes = genuine non-generation; JMV scope),
+m1–m7 + suggestions — all applied, marked R262 repair.
+
 ## Numerics (all exact; each ≤ 25 s; ulimit -v 8 GB, ≤ 2 cores)
 z23_meet (p ≤ 10⁶ exhaustive by Prop 1.1 bound; odd squares ≤ 10⁶ empty), z23_shape (k-scan cross-check, p ≤ 2·10⁴),
 z23_alld (p ≤ 6000, g ≤ 3000: criterion = brute force), z23_rescue (99 primes), z23_cayley (p ≤ 3000; T1 odd squares no
 ES class), z23_descent (p ≤ 2·10⁴), z23_split (99 empties; brute-force all Type II solutions of 3361).
-Known limitation: z23_cayley's composition skips a step when both outer coefficients share ℓ (5 lines with an
-unreached remainder, flagged in §4; does not affect the distances reported for reached classes).
+Known limitation (R262 repair): z23_cayley's distances are upper bounds (edges dropped on skipped compositions);
+exact values from the reviewer's re-run are in §4; 4 lines have an index-2 coset unreachable with generators ℓ ≤ 40
+(genuine non-generation, not a code artefact).
 
 ## Sparks (not pursued)
 * Reciprocity across d: in ℚ(√−p, √d) relate solvability at d and d′ (z23_biquadratic_height). Expect B2/B5 to block forcing.
