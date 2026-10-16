@@ -1,0 +1,49 @@
+p=97 N=p*1^2 triple=(35308, 26, 364) exact=True tau=1 ENDPOINT TypeI level e=15 H=364 r=26 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_STRUCTURAL.md sec=2
+p=97 N=p*1^2 triple=(28, 2716, 194) exact=True tau=1 ENDPOINT TypeII window w=15 K=x=28 d=392 d|K^2=True d=-K(w)=True square-shot=False slices g=111,7 | file=SQUARE_REMOVAL_STRUCTURAL.md sec=8
+p=97 N=p*1^2 triple=(25, 850, 16490) exact=True tau=1 ENDPOINT TypeI level e=7 H=170 r=5 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_OPERATIONS.md sec=4.4
+p=97 N=p*1^2 triple=(28, 182, 35308) exact=True tau=1 ENDPOINT TypeI level e=15 H=364 r=56 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_SOURCE_SELECTION.md sec=2
+p=193 N=p*3^2 triple=(440, 764280, 34740) exact=True tau=3 twisted-slot=['p-free'] dens=[9] window(rational)=4x-p=23/9 self-mute(rad tau | other coord)=False | file=SQUARE_REMOVAL_STRUCTURAL.md sec=3.3
+p=193 N=p*3^2 triple=(440, 251865, 38280) exact=True tau=3 twisted-slot=['p-free', 'p-free'] dens=[9, 3] | file=SQUARE_REMOVAL_STRUCTURAL.md sec=3.3
+p=193 N=p*3^2 triple=(450, 251865, 13050) exact=True tau=1 ENDPOINT TypeI level e=3 H=145 r=5 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_STRUCTURAL.md sec=3.3
+p=193 N=p*1^2 triple=(50, 27985, 1450) exact=True tau=1 ENDPOINT TypeI level e=3 H=145 r=5 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_STRUCTURAL.md sec=3.3
+p=193 N=p*3^2 triple=(450, 19300, 34740) exact=True tau=3 twisted-slot=['p-div'] dens=[9] self-mute(rad tau | other coord)=False | file=SQUARE_REMOVAL_STRUCTURAL.md sec=4
+p=193 N=p*3^2 triple=(450, 12420, 11985300) exact=True tau=1 ENDPOINT TypeI level e=143 H=6900 r=250 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_STRUCTURAL.md sec=4
+p=193 N=p*1^2 triple=(50, 1380, 1331700) exact=True tau=1 ENDPOINT TypeI level e=143 H=6900 r=250 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_STRUCTURAL.md sec=4
+p=233689 N=p*1^2 triple=(58425, 1257539700, 95568518684) exact=True tau=1 ENDPOINT TypeI level e=7 H=408956 r=19 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_STRUCTURAL.md sec=5
+p=193 N=p*2^2 triple=(195, 22620, 111940) exact=True tau=2 twisted-slot=['p-free'] dens=[4] window(rational)=4x-p=2 self-mute(rad tau | other coord)=True | file=SQUARE_REMOVAL_STRUCTURAL.md sec=11.3
+p=193 N=p*5^2 triple=(1218, 152250, 699625) exact=True tau=5 twisted-slot=['p-free'] dens=[25] window(rational)=4x-p=47/25 self-mute(rad tau | other coord)=True | file=SQUARE_REMOVAL_STRUCTURAL.md sec=11.3
+p=193 N=p*1^2 triple=(58, 290, 27985) exact=True tau=1 ENDPOINT TypeI level e=3 H=145 r=29 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_STRUCTURAL.md sec=11.3
+p=193 N=p*7^2 triple=(2365, 15760360, 14147672) exact=True tau=7 twisted-slot=['p-free'] dens=[49] window(rational)=4x-p=3/49 self-mute(rad tau | other coord)=False | file=SQUARE_REMOVAL_STRUCTURAL.md sec=14.2
+p=193 N=p*3^2 triple=(442, 25857, 587106) exact=True tau=3 twisted-slot=['p-free'] dens=[9] window(rational)=4x-p=31/9 self-mute(rad tau | other coord)=False | file=SQUARE_REMOVAL_STRUCTURAL.md sec=15.1
+p=193 N=p*2^2 triple=(195, 20280, 260936) exact=True tau=2 twisted-slot=['p-free'] dens=[4] window(rational)=4x-p=2 self-mute(rad tau | other coord)=True | file=SQUARE_REMOVAL_STRUCTURAL.md sec=15.1
+p=193 N=p*7^2 triple=(2365, 28749280, 10065440) exact=True tau=7 twisted-slot=['p-free', 'p-free'] dens=[49, 7] | file=SQUARE_REMOVAL_STRUCTURAL.md sec=16.3
+p=193 N=p*7^2 triple=(2370, 28749280, 1008672) exact=True tau=7 twisted-slot=['p-free', 'p-free'] dens=[49, 7] | file=SQUARE_REMOVAL_STRUCTURAL.md sec=16.3
+p=193 N=p*7^2 triple=(2370, 1371265, 3367770) exact=True tau=7 twisted-slot=['p-free'] dens=[49] window(rational)=4x-p=23/49 self-mute(rad tau | other coord)=False | file=SQUARE_REMOVAL_STRUCTURAL.md sec=16.3
+p=193 N=p*7^2 triple=(2450, 1371265, 71050) exact=True tau=1 ENDPOINT TypeI level e=3 H=145 r=5 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_STRUCTURAL.md sec=16.3
+p=5209 N=p*7^2 triple=(63811, 11475132130, 10304079170) exact=True tau=7 twisted-slot=['p-free'] dens=[49] window(rational)=4x-p=3/49 self-mute(rad tau | other coord)=False | file=SQUARE_REMOVAL_STRUCTURAL.md sec=18
+p=5209 N=p*7^2 triple=(64680, 4747512, 10304079170) exact=True tau=1 ENDPOINT TypeI level e=31 H=40370 r=550 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_STRUCTURAL.md sec=19.2
+p=5209 N=p*1^2 triple=(1320, 96888, 210287330) exact=True tau=1 ENDPOINT TypeI level e=31 H=40370 r=550 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_STRUCTURAL.md sec=19.2
+p=5209 N=p*24^2 triple=(750101, 2250591038784, 118452159936) exact=True tau=24 twisted-slot=['p-free'] dens=[576] window(rational)=4x-p=5/144 self-mute(rad tau | other coord)=False | file=SQUARE_REMOVAL_STRUCTURAL.md sec=19.3
+p=5209 N=p*24^2 triple=(750101, 1585653505920, 121125502080) exact=True tau=24 twisted-slot=['p-free'] dens=[576] window(rational)=4x-p=5/144 self-mute(rad tau | other coord)=False | file=SQUARE_REMOVAL_STRUCTURAL.md sec=19.3
+p=5209 N=p*24^2 triple=(760320, 55807488, 121125502080) exact=True tau=1 ENDPOINT TypeI level e=31 H=40370 r=550 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_STRUCTURAL.md sec=19.3
+p=193 N=p*3^2 triple=(440, 33660, 2598552) exact=True tau=3 twisted-slot=['p-free'] dens=[9] window(rational)=4x-p=23/9 self-mute(rad tau | other coord)=False | file=SQUARE_REMOVAL_STRUCTURAL.md sec=19.4
+p=5209 N=p*7^2 triple=(63811, 39554187288, 6292785576) exact=True tau=7 twisted-slot=['p-free', 'p-free'] dens=[49, 7] | file=SQUARE_REMOVAL_STRUCTURAL.md sec=20
+p=5209 N=p*7^2 triple=(64680, 39554187288, 4745895) exact=True tau=1 ENDPOINT TypeI level e=119 H=154968 r=2112 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_STRUCTURAL.md sec=20
+p=5209 N=p*1^2 triple=(1320, 807228312, 96855) exact=True tau=1 ENDPOINT TypeI level e=119 H=154968 r=2112 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_STRUCTURAL.md sec=20
+p=193 N=p*3^2 triple=(468, 6084, 587106) exact=True tau=1 ENDPOINT TypeI level e=7 H=338 r=26 (r|H^2, e|4r+1) | file=SQUARE_CERTIFICATE_SATURATION.md sec=4
+p=193 N=p*1^2 triple=(52, 676, 65234) exact=True tau=1 ENDPOINT TypeI level e=7 H=338 r=26 (r|H^2, e|4r+1) | file=SQUARE_CERTIFICATE_SATURATION.md sec=4
+p=193 N=p*1^2 triple=(52, 772, 5018) exact=True tau=1 ENDPOINT TypeII window w=15 K=x=52 d=8 d|K^2=True d=-K(w)=True square-shot=False slices g=15,103 | file=SQUARE_REMOVAL_OPERATIONS.md sec=2.2
+p=3361 N=p*1^2 triple=(841, 950330, 110139970) exact=True tau=1 ENDPOINT TypeI level e=39 H=32770 r=29 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_OPERATIONS.md sec=4.5
+p=3361 N=p*1^2 triple=(990, 5555, 336066390) exact=True tau=1 ENDPOINT TypeI level e=119 H=99990 r=17820 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_SOURCE_SELECTION.md sec=3.2
+p=3361 N=p*1^2 triple=(850, 73525, 19769402) exact=True tau=1 ENDPOINT TypeI level e=7 H=5882 r=68 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_SOURCE_SELECTION.md sec=3.3
+p=233689 N=p*1^2 triple=(58426, 910744488, 1624663882872) exact=True tau=1 ENDPOINT TypeI level e=119 H=6952248 r=446 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_SOURCE_SELECTION.md sec=6.4
+p=3361 N=p*1^2 triple=(850, 84025, 571370) exact=True tau=1 ENDPOINT TypeII window w=39 K=x=850 d=125 d|K^2=True d=-K(w)=True square-shot=False slices g=99,679 | file=SQUARE_REMOVAL_TYPEII_MOMENTS.md sec=2.2
+p=193 N=p*1^2 triple=(50, 1930, 4825) exact=True tau=1 ENDPOINT TypeII window w=7(prime) K=x=50 d=20 d|K^2=True d=-K(w)=True square-shot=False slices g=39,99 | file=SQUARE_REMOVAL_TYPEII_MOMENTS.md sec=2.1
+p=313 N=p*1^2 triple=(80, 4695, 15024) exact=True tau=1 ENDPOINT TypeII window w=7(prime) K=x=80 d=25 d|K^2=True d=-K(w)=True square-shot=True slices g=59,191 | file=SQUARE_REMOVAL_TYPEII_MOMENTS.md sec=3
+p=15241 N=p*2^2 triple=(15252, 21154508, 20165534751) exact=True tau=2 twisted-slot=['p-div'] dens=[4] self-mute(rad tau | other coord)=True | file=POSITIVE_SOURCE_FORCED_FOLD.md sec=5
+p=15241 N=p*1^2 triple=(3813, 5315322, 871084114) exact=True tau=1 ENDPOINT TypeI level e=15 H=57154 r=41 (r|H^2, e|4r+1) | file=POSITIVE_SOURCE_FORCED_FOLD.md sec=5
+p=5209 N=p*1^2 triple=(1305, 618570, 644426226) exact=True tau=1 ENDPOINT TypeI level e=95 H=123714 r=261 (r|H^2, e|4r+1) | file=POSITIVE_BIRATIONAL_SQUARE_REMOVAL.md sec=8
+p=193 N=p*47^2 triple=(276125, 173590, 1850195995750) exact=True tau=47 twisted-slot=['p-free'] dens=[2209] window(rational)=4x-p=268023/2209 self-mute(rad tau | other coord)=False | file=SQUARE_REMOVAL_FORCED_FACTOR.md sec=4.2
+p=2521 N=p*1^2 triple=(1026, 1634, 55610739) exact=True tau=1 ENDPOINT TypeI level e=35 H=22059 r=13851 (r|H^2, e|4r+1) | file=SQUARE_REMOVAL_SOURCE_SELECTION.md sec=4
+p=1129 N=p*5^2 triple=(7698, 217276050, 84675) exact=True tau=5 twisted-slot=['p-free'] dens=[25] window(rational)=4x-p=2567/25 self-mute(rad tau | other coord)=False | file=POSITIVE_BIRATIONAL_SQUARE_REMOVAL.md sec=3
+p=1129 N=p*1^2 triple=(956263, 462, 726) exact=True tau=1 ENDPOINT TypeI level e=3 H=847 r=539 (r|H^2, e|4r+1) | file=POSITIVE_BIRATIONAL_SQUARE_REMOVAL.md sec=3

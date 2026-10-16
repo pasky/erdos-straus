@@ -52,7 +52,7 @@ p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=19.3; kind=state; data: from=(750
 p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=19.3; kind=endpoint; data: e=31,H=40370,r=550; triple=(1320,96888,210287330); N=5209
 p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=19.4; kind=source; data: q=5851, m0=24, e=31, H=1496, r0=11, ell=8, b=16, r=176; triple=(440,33660,2598552); N=193*3^2
 p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=19.4; kind=state; data: m=3, C=23, certificate=(31,1496,176); triple=(440,33660,2598552); N=1737
-p=193; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=20; kind=source; data: m=7, C=3, A=63811, a=11, f=17, e=119, H=154968, R=77, g=7, r_old=11, r_new=2112; triple=(63811,11475132130,10304079170); N=255241
+p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=20; kind=source; data: (O249 repair: extractor labelled p=193; N=255241=5209·49) m=7, C=3, A=63811, a=11, f=17, e=119, H=154968, R=77, g=7, r_old=11, r_new=2112; triple=(63811,11475132130,10304079170); N=255241
 p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=20; kind=state; data: from=(63811,11475132130,10304079170); triple=(63811,39554187288,6292785576); N=255241
 p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=20; kind=state; data: from=(63811,39554187288,6292785576); triple=(64680,39554187288,4745895); N=255241
 p=5209; file=SQUARE_REMOVAL_STRUCTURAL.md; sec=20; kind=endpoint; data: m=1, r_new=2112; triple=(1320,807228312,96855); N=5209
@@ -88,7 +88,7 @@ p=193; file=SQUARE_REMOVAL_TYPEII_MOMENTS.md; sec=2.1; kind=endpoint; data: Type
 p=313; file=SQUARE_REMOVAL_TYPEII_MOMENTS.md; sec=3; kind=source; data: q=7,m=19,s=16142,h=2; family p=313+6720t,d=1+21t; triple=?; N=313*19^2
 p=313; file=SQUARE_REMOVAL_TYPEII_MOMENTS.md; sec=3; kind=endpoint; data: t=0,d=1; triple=(80,4695,15024); N=313
 p=15241; file=POSITIVE_SOURCE_FORCED_FOLD.md; sec=5; kind=source; data: q=462043=17*27179,m0=24,s=19,h=115511,A0=2194709, gcd(24,h)=1,H=118118; triple=?; N=15241*24^2
-p=15241; file=POSITIVE_SOURCE_FORCED_FOLD.md; sec=5; kind=state; data: m=7,A=186703=11^2*1543,1543 prime; triple=(15252,21154508,20165534751); N=15241*7^2
+p=15241; file=POSITIVE_SOURCE_FORCED_FOLD.md; sec=5; kind=state; data: (O249 repair of extraction: Astra prints Y in W(4p), twist 2, from the m=7 floor A=186703); triple=(15252,21154508,20165534751); N=4*15241
 p=15241; file=POSITIVE_SOURCE_FORCED_FOLD.md; sec=5; kind=endpoint; data: sigma=15,Hsigma=57154,g=41; triple=(3813,5315322,871084114); N=15241
 p=15241; file=POSITIVE_SOURCE_FORCED_FOLD.md; sec=5; kind=obstruction; data: half-level sigma=15 at p=193 gives g=1 and fails sigma|(1+4g); triple=?; N=193
 p=193; file=POSITIVE_COFACTOR_SUPPLY.md; sec=2; kind=source; data: q=1123,m=8,s=11,h=281,sh=3091; triple=(204,3860,49215); N=?
