@@ -117,3 +117,38 @@ prime p ≡ 1 (8) some p^o + 4^o, o ≤ O₀ odd, has a prime factor q ≡ 3 (mo
 (U) is a simultaneous Landau-type statement; heuristically each fixed o fails with probability ≍ (o log p)^{−1/2}, so
 (U) with a fixed O₀ should fail for infinitely many p (the failure density ∏_o (o log p)^{−1/2} is not summable over p
 for any fixed O₀). Assessment: Prop 2.3 is a second explicit witness (useful numerically, §5), not a route to (A).
+
+## 3. Goal (C) outside explicit thin sets: the forced cap plus Linnik's large sieve
+
+Let q₃(p) := least prime q ≡ 3 (mod 4) with (q/p) = −1, and 𝒫(y) := {p ≡ 1 (mod 8) prime : (q/p) = +1 for every
+prime q ≡ 3 (4), q ≤ y} (an explicit Chebotarev-defined set).
+
+**Lemma 3.1 (PROVED; CAP_DOWN Thm 1.2 + Prop 1.3).** For every prime p: e*(p) = 0 if p ≢ 1 (mod 8) (p ≡ 3 (4) and
+p ≡ 5 (8) are classical), and e*(p) ≤ (q₃(p) − 3)/4 if p ≡ 1 (8). Hence {p : e*(p) > C} ⊆ 𝒫(4C + 3). Moreover
+𝒫(y) ∩ [1, y] = ∅, since q₃(p) ≤ (p + 1)/2 (Pollack, JNT 187 (2018) Thm 1; CAP_DOWN Cor 2.2).
+
+**Theorem 3.2 (PROVED relative to Montgomery's arithmetic large sieve and the prime number theorem for primes
+≡ 3 (mod 4)).** Let 𝒜(N, y) := {n ≤ N : every prime factor of n is ≡ 3 (mod 4) and ≤ y}. For Q ≥ 2:
+`  #(𝒫(y) ∩ [1, Q]) ≤ (N + Q²)/|𝒜(N, y)|     for every N ≥ 1.`
+Consequently:
+(a) for A > 1: #{p ≤ X : e*(p) > (log X)^A/4} ≤ X^{2/A + o(1)} — a power saving for every A > 2;
+(b) for ε > 0: #{p ≤ X : e*(p) > p^ε} ≪_ε (log X)^{⌈4/ε⌉} — a polylogarithmic exceptional set.
+*Proof.* For p ∈ 𝒫(y) with p > y, every n ∈ 𝒜(N, y) is a product of quadratic residues mod p and p ∤ n, so 𝒜
+avoids the (p + 1)/2 classes {0} ∪ {non-residues} mod p; with ω(p) = (p+1)/2, ω/(p − ω) > 1, and the large sieve
+|𝒜| ≤ (N + Q²)/Σ_{r ≤ Q} μ²(r)∏_{ℓ|r} ω(ℓ)/(ℓ − ω(ℓ)) (only r prime kept) gives the display; p ≤ y is excluded by
+Lemma 3.1. (a) y = (log X)^A, N = X², k := π(y; 4, 3) ≥ y/(3 log y) (large y), r := ⌊log N/log y⌋: products of r
+distinct primes from {q ≡ 3 (4), q ≤ y} lie in 𝒜, so |𝒜| ≥ (k/r)^r ≥ ((log N)^{A−1}/(3·2^A))^{r} = N^{1 − 1/A − o(1)}.
+With Lemma 3.1 (e*(p) > (log X)^A/4 ⇒ q₃(p) > (log X)^A): the count is ≤ 2X²/N^{1−1/A−o(1)} = X^{2/A+o(1)}.
+(b) y = X^{ε/2}, N = X², r := ⌈4/ε⌉: products of r distinct primes ≡ 3 (4) from (N^{1/r}/2, N^{1/r}] (≤ y) give
+|𝒜| ≫_ε N/(log N)^r, so #{p ≤ X : q₃(p) > X^{ε/2}} ≪_ε (log X)^r. A prime p ∈ (X^{1/2}, X] with e*(p) > p^ε has
+q₃(p) > X^{ε/2}; summing over X, X^{1/2}, X^{1/4}, … gives (b). ∎
+*Remarks.* (1) Linnik's large-sieve theorem for the least non-residue (≪_ε 1 exceptions to n₂(p) ≤ X^ε) is the model;
+the restriction to q ≡ 3 (mod 4) costs the polylog (𝒜 has density only ≍ (log N)^{−1/2} even without smoothness;
+a sharper lower bound for |𝒜| would improve (b)). (2) Pointwise the unconditional record stays p^{1/4+ε}
+(ineffective, CAP_DOWN Cor 2.1) and (p − 5)/8 (effective); under GRH (log p)^{2+ε}. Theorem 3.2 says the GRH-quality
+bound holds unconditionally outside X^{1+o(1)}·X^{−(1 − 2/A)} primes, and p^ε outside a polylog set. (3) Compared with
+CAP_INTERPOLATION Remark 3.2(b) (reviewer sketch: power saving for e ≥ (log N)^{1+ε} via the class large sieve), (a)
+is weaker in range (A > 2) but complete, and its exceptional set is explicit and Chebotarev-defined (𝒫(4e + 3)).
+(4) Bounded C: 𝒫(4C + 3) has positive relative density 2^{−π(4C+3; 4, 3)} among p ≡ 1 (8), so the forced level never
+gives "bounded cap outside a thin set"; by Thm 1.3 nor does any bounded-window method (conditionally), and by
+CAP_DOWN Prop 4.1(a) the worst case at a single window is exactly (q − 3)/4.
