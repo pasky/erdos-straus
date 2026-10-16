@@ -49,3 +49,7 @@ Not done: primes to 10⁶ for the dictionary checks (the claims are proved; the 
   at the next level (would remove the §6.2 difficulty)? (z21_gates_are_B2.md)
 * Windows of the twisted input pm²: K = (pm² + q)/4 is shaped by m, but x = K is prime to m, so nothing descends;
   a window-type construction with x ≡ 0 (mod m²) would be new.
+
+(R260 external review, reviews/astra-bridge-review.md: no FATAL; one MAJOR — item 4's "every exit is a classical
+small-modulus certificate" is tautological and the fixture list is a sample (≥ 21 further exact triples in the same files);
+"Astra's twist m is Prop 1.3's 2k" holds as a surface coordinate only. Repairs applied in ASTRA_BRIDGE.md, marked (R260 repair).)

@@ -3,7 +3,12 @@
 Reviewer: R260 side agent (branch side-agent/review-astra-bridge), merged side-agent/astra-bridge at c467ce3f.
 Astra (../erdos-straus-astra, d7300f8) read only; no Astra script run. From-scratch scripts: scripts/review_r260_*.py.
 
-(work in progress — sections are filled one claim at a time)
+**Repairs applied** (author quiet — no commits after c467ce3f): M1 and m1–m15 repaired directly in ASTRA_BRIDGE.md, each marked
+"(R260 repair)" (18 marks); AGENT_REPORT_O249 gets a pointer line. No mathematical statement changed its truth value; the
+repairs are scope, label, attribution and fidelity fixes.
+
+**Overall verdict: no FATAL; one MAJOR (M1, §4 census/tautology); all core theorems (2.1, 2.2, 3.1, 3.2, 3.3, 3.4, 5.1, 5.2,
+6.1, 6.2) re-derived and SOUND, Thm 3.4 after minor repairs.** ES not claimed; no infinite case claimed.
 
 ## Thm 2.1 / Cor 2.2 (certified states ⟷ twisted Type I points) — **SOUND** (minor wording only)
 
