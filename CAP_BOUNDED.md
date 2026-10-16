@@ -91,7 +91,7 @@ no divisor ≡ 3 (mod 4).
 (b) cap 0, K even: N ∈ {2^c p + 1 (0 ≤ c ≤ t), p + 2^c (1 ≤ c ≤ 2t + 2), p² + 2^c (c odd ≤ 2t + 2), 2^c + 1}.
 (c) cap ≥ 1, K odd: N = p^j + 4^j (j odd ≥ 3, ε = 0); ε = ±1 gives p^{j±1} + 4^j, a sum of two coprime squares, with
 no divisor ≡ 3 (mod 4). If K is a square also N = p^{j±1} + 4^j, j even.
-(d) cap ≥ 1, K even: N = p^J + 2^c with c = −w ≥ 2j ≥ 6 or 2^c p^{|J|} + 1-type with c ≥ 2.
+(d) cap ≥ 1, K even: N = p^J + 2^c with J = j + ε ∈ {j − 1, j, j + 1} and c = −w ≥ 2j ≥ 6.
 *Proof.* Substitution K′ ≡ p·2^{−(t+2)} and the bounds |a| ≤ t: for j ≥ 1, w ∈ [−t − j(t+2), t − j(t+2)] ⊂ (−∞, −2j];
 for j = 0, w = a. Sums of two coprime squares have only prime factors ≡ 1 (4) (and 2), while m ≡ 3 (mod 4). ∎
 **Corollary 2.2 (no uniform certificate is congruence-forced at p ≡ 1 (8); PROVED).** For p ≡ 1 (mod 8) every N in
@@ -108,7 +108,7 @@ prime with q ∤ p, q ≡ 4 − p (mod 8) (K_q odd) and (q/p) = −1. Let o be t
 least odd o with q | p^o + 4^o; it exists iff (q/p) = −1). Then the window q carries the uniform certificate
 δ_s = o·b_s (j = o), and **e*(p) ≤ (o − 1)/2 · max_{s | K_q} v_s(K_q).** In particular e*(p) ≤ max_s v_s(K_q) whenever
 q | p² − 4p + 16 = (p − 2)² + 12 (o = 3), and e*(p) = 0 if q | p + 4 (o = 1, the classical window).
-*Proof.* p/4 ≡ K has order 2o·(power of 2 part)… since (K/q) = (p/q) = −1 and q ≡ 3 (4), ord_q(K) = 2o with o odd, so
+*Proof.* K ≡ p/4 (mod q), (K/q) = (p/q) = −1 and the 2-part of F_q^* is {±1}, so ord_q(K) = 2o with o odd and
 K^o ≡ −1, i.e. ∏ s^{o b_s} ≡ −1: a uniform certificate with j = o, admissible (o odd), of cap (o − 1)b_s/2 at s. ∎
 *Reading.* Prop 1.3 of CAP_DOWN bounds the cap by the order of one non-residue prime s | K (≤ (q − 3)/4); Prop 2.3
 bounds it by the odd order of the single element p/4, which is small exactly for the prime factors of p^o + 4^o
