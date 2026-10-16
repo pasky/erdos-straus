@@ -11,7 +11,18 @@ enumeration of all D₁ = ∏ s^{c_s} (c_s ∈ [0, 2b_s + 2E + 2]) checked again
 | Claim | Verdict |
 |---|---|
 | Lemma 1.1 / Cor 1.2 | SOUND |
-| Thm 1.3 (+ explicit examples) | SOUND (CONDITIONAL on Dickson, as labelled) |
+| Thm 1.3 (+ explicit examples M = 11, 19; control 284/300) | SOUND (CONDITIONAL on Dickson, as labelled); examples independently confirmed |
+| Prop 2.1 (classification) | SOUND (brute force 191 182 pairs, 0 mismatches) |
+| Cor 2.2 | SOUND-AFTER-REPAIRS (residues correct; verbal conclusion over-broad/mis-labelled: D2, D3) |
+| Prop 2.3 (odd-order witness) | SOUND (7 395 pairs rebuilt, 0 failures) |
+| Lemma 3.1 (§3) | SOUND (citation precision D5) |
+| Thm 3.2 (a), (b) | SOUND — PROVED relative to Montgomery's large sieve + PNT in APs (+ Pollack for the display) |
+| §4 Lemma 4.1 / Assessment | SOUND / correctly labelled Assessment (example wording D7) |
+| §5 EVIDENCE | SOUND — every figure reproduced exactly from scratch |
+| p = 593, q = 11 vs CAP_DOWN Prop 4.1(a) | CONFIRMED; Prop 4.1(a) itself correct (slice); ledger wording needs correction (D8) |
+
+**No FATAL, no MAJOR defect.** The headline results (Thm 1.3 conditional; Thm 3.2 proved relative to standard
+inputs) stand as labelled. All defects below are MINOR (wording/labels/citations).
 
 ## 1. Lemma 1.1, Cor 1.2, Thm 1.3
 
@@ -157,3 +168,42 @@ mod q): **4 661 cases; slice cap = (q−3)/4 in all (Prop 4.1(a) as stated is co
   supported numerically (4 323 of the 4 661 cases still need (q−3)/4) but is not proved.
 * Same issue inside CAP_BOUNDED: §3 Remark (4) says "by CAP_DOWN Prop 4.1(a) the worst case at a single window is
   exactly (q − 3)/4" without the slice qualifier — contradicts the author's own §1 Remark (3) (MINOR, D8).
+
+## 7. Numbered defects (all MINOR)
+
+**D1 (MINOR) — none for §1.** (Placeholder kept for numbering stability: §1 Lemma 1.1, Cor 1.2, Thm 1.3 have no defect.)
+
+**D2 (MINOR, Cor 2.2 / §6 item 3 / §0 Z22-2).** "p mod 8 alone forces no uniform certificate" is literally false given
+Prop 2.3: every prime p ≡ 1 (8) has uniform certificates (j = o) at every forced window q ≡ 3 (8), and such q exist
+(Dirichlet). *Repair:* "p mod 8 alone forces no uniform certificate *of bounded order j* (equivalently, at a fixed
+N-family); uniform certificates of unbounded order always exist (Prop 2.3)". Likewise §0 Z22-2's "the existence of a
+prime factor ≡ 3 (mod 4) is a Landau-type event" should read "… for p^o + 4^o with o bounded".
+
+**D3 (MINOR, Cor 2.2, text after ∎).** The "correct reading" (congruence forcing only via fixed small primes of N;
+beyond any finite menu Landau-type) is an Assessment inside a PROVED corollary; "congruence-forced" is undefined and the
+dichotomy is unproved (N = 2p + 1 ≡ 3 (4) always has a prime factor ≡ 3 (4) with no fixed prime; it fails to give a
+window only via the mod-8 condition m ≡ 7 (8)). *Repair:* move it out of the proof, label "(Assessment)".
+
+**D4 (MINOR, Prop 2.1).** Degenerate K′ = 1 (K a power of 2): j is vacuous; (d) should exclude it (only the cap-0
+list (b) applies). *Repair:* add "(K′ > 1 in (c), (d))".
+
+**D5 (MINOR, §3 Lemma 3.1 and Thm 3.2 header).** Pollack JNT 187 (2018) Thm 1 *states* q < p; the bound
+q ≤ (p+1)/2 is from its proof. *Repair:* "Pollack, JNT 187 (2018), proof of Thm 1 (Thm 1 itself: q < p, which already
+suffices here)". Thm 3.2's label should list Pollack/CAP_DOWN Thm 1.2 + Prop 1.3 among its inputs (as the memo does),
+noting that (a), (b) do not actually need Pollack (p ≤ y is negligible in (a) and impossible in (b)'s ranges).
+
+**D6 (MINOR, §3 Remark (2)).** "GRH-quality bound … outside X^{2/A+o(1)} primes": GRH gives (log p)^{2+ε}, while a
+power saving needs A > 2. *Repair:* "GRH-quality up to the exponent (A > 2 vs 2 + ε)".
+
+**D7 (MINOR, §4 Reading).** The example "p = 157, q = 7, K = 41, C = 20, χ(3) = e(1/6)": state that χ is the order-6
+character with χ(3) = e(1/6), so χ(41) = χ(−1) = −1 and |Σ_{D_41}(−1)^δ| = 21 > 4.
+
+**D8 (MINOR, §3 Remark (4); background ledger).** "by CAP_DOWN Prop 4.1(a) the worst case at a single window is
+exactly (q − 3)/4" needs "in the δ_p = 0 slice" (the author's own §1 Remark (3) and p = 593 show the full family can
+be smaller; 338/4 661 Prop-4.1(a) cases). **Ledger:** DISCOVERIES (J)66 and CAP_DOWN §7 item 2 "sharp at a single
+window" → "sharp at a single window within the Lemma-1.1 (δ_p = 0) family; the full Lemma-3.1 family can be strictly
+smaller (p = 593, q = 11: δ_p = −1 gives cap 0)". CAP_DOWN Prop 4.1(a) itself is correctly stated (Lemma-1.1 cap).
+
+**D9 (MINOR, §2 preamble).** "every forced argument so far … is of this kind [uniform] up to reduction of exponents":
+CAP_DOWN Prop 1.3 (one-prime witness d = K·s^{o/2}) is not uniform (only one prime overflows). *Repair:* "CAP_POINTWISE
+Thm 1.1 / CAP_DOWN Thm 1.2 are of this kind up to reduction of exponents; Prop 1.3 is the one-prime variant".
