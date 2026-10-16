@@ -86,6 +86,12 @@ the genus shadow); in the slice coordinates the meeting condition **does not inv
 composition/class-group walk 𝔤 → 𝔤𝔩 is, for the purpose of ES, the integer walk g → gℓ. The Claude overflow Y_k
 (the *least* height on the line) is root-dependent for composite g, but ES is not a statement about least heights.
 
+### 1.4 Which fields rescue the empty primes (CERTIFIED; `scripts/z23_rescue.py 1000000 200`)
+For each of the 99 primes with 𝓜(p) = ∅, the least ET parameter d with a Type II solution (exhaustive in a for each d,
+solution checked exactly): d = 2 for 96 primes, d = 3 for 31081, d = 5 for 3361 and 7681. So every one of them is
+rescued in a *different imaginary quadratic field* ℚ(√−2p), ℚ(√−3p), ℚ(√−5p): the meeting point leaves the field of
+the slice lattices. E.g. p = 13: (a, b, c, d) = (1, 2, 1, 2), 4/13 = 1/4 + 1/26 + 1/52 (slice g = 4acd − 1 = 7 | 13 + 8 = p + 4a²d).
+
 ## 2. Coordinates of the moves
 
 **2.1 Composition (PROVED, standard Dirichlet composition).** L_ρ(g) = gℤ + (ρ + √−p)ℤ = 𝔤_ρ, the point (M, Y) being
