@@ -1,6 +1,6 @@
 # LATTICE_MEETING — moving the slice in Cl(−4p): the meeting point, composition moves, and what a descent can see (O251)
 
-Status: in progress (O251). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
+Status: CLAIMED (O251 checkpoint 1; reviewer pass on 074c1b47: 1 FATAL + 5 MAJOR, all repaired, marked R-O251). **ES is not solved here, nor any infinite case of ES.** Labels as in DISCOVERIES.md.
 Builds on ASTRA_BRIDGE Thm 3.4 (branch side-agent/astra-bridge): for a slice g ≡ 3 (4), gcd(g, p) = 1, h = (g+1)/4,
 ρ² ≡ −p (mod g), L_ρ(g) = {(M, Y) : Y ≡ ρM (mod g)}; Claude points (2k, Y), k | h; Astra points (m, 1); ES = (2k, 1).
 Throughout p ≡ 1 (mod 4) is prime. Scripts `scripts/z23_*`.
@@ -10,10 +10,11 @@ Throughout p ≡ 1 (mod 4) is prime. Scripts `scripts/z23_*`.
 asked where they could end. Answer (§1): the end set (Y = 1 points over *all* slices of Cl(−4p)) is a finite,
 explicitly enumerable set, and it is **empty** for 99 primes p ≤ 10⁶ (13, 37, 97, 181, 193, …). So no walk inside
 Cl(−4p) can terminate for those p, whatever its moves. Hypothesis of the obstruction: the walk stays in ℤ[√−p]
-(ET parameter d = 1 / square). Modification: allow other targets on the same lines — Thm 1.4: *all* of Type II at slice g is the
-square-class meeting Y_k² ≡ d (mod g), d | k ("height √d"); the 99 primes are rescued at d ∈ {2, 3, 5} (§1.4).
+(ET parameter d = 1 / square). Modification: allow other targets on the same lines — Thm 1.4: *all* of Type II at slice g is
+"(−4k²p mod g) | k", at split slices the square-class meeting Y_k² ≡ d, d | k ("height √d"); 98 of the 99 primes are
+rescued on split slices, but p = 3361 has no Type II solution on any slice lattice of ℤ[√−p] (§1.4, R-O251).
 (I2) Built the composition move (§2.1) and looked for an invariant carrying k | h along it. Found instead that the
-ES predicate is a function of the norm alone (Cor 1.5): the class coordinate is irrelevant. Hypothesis of this
+ES predicate is a function of the norm alone (Cor 1.5): the class enters only through the norms it produces. Hypothesis of this
 obstruction: the walk's state is an ideal (class) — modification: carry extra state (h's divisors). Controlled lifts
 u ≡ 1 (mod 4h) keep h | h′ (§2.2) but ES only propagates *down* that tower.
 (I3) Fixed-line reduction (§2.3): for k | 6 every move preserves admissibility (genus regime = B1); for k ∤ 6 the
@@ -105,6 +106,8 @@ with −p a square mod it): 98 of the 99 primes have such a Type II solution (le
 (slices 99, 679) and (1, 29, 10, 29) (slices 1159, 33639), and −3361 is a non-square modulo each of these four slices.
 So at p = 3361 **no Type II solution is visible in any slice lattice L_ρ(g) ⊂ ℤ[√−p]** (CERTIFIED): the Astra–Claude
 lattice framework of ASTRA_BRIDGE Thm 3.4 misses Type II entirely there (Type I solutions are not addressed).
+Independent brute force (all x ∈ (p/4, p/2], δ | x², in `z23_split.py`): the Type II solutions of 3361 are exactly
+4/3361 = 1/850 + 1/(3361·25) + 1/(3361·170) and 1/841 + 1/(3361·290) + 1/(3361·8410) (841 = 29²), none with a split slice.
 E.g. p = 13: (a, b, c, d) = (1, 2, 1, 2), 4/13 = 1/4 + 1/26 + 1/52, slice g = 7 | 13 + 8, split (−13 ≡ 1 = 1² mod 7), height
 class Y_2² ≡ 2 (mod 7).
 
@@ -119,8 +122,9 @@ divisors of (gℓ + 1)/4 (Cor 1.5: only g, ℓ and the factorisation of gℓ + 1
 **2.2 The controlled lift and downward closure (PROVED).** For u ≥ 1: h | h' := (gu + 1)/4 ⟺ u ≡ 1 (mod 4h)
 (as g ≡ −1 mod 4h). Then for every k | h, d_k(gu) ≡ d_k(g) (mod g), and since an ES value d_k(gu) | k is < g:
 **ES via (k, d) at gu ⇒ ES via the same (k, d) at g.** Conversely ES via (k, d) at g lifts to gu iff gu | 4k²p + d. So
-for fixed (k, d) the ES slices are the divisors of N_{k,d} := 4k²p + d that are ≡ −1 (mod 4k): the "tower" of
-controlled lifts is the divisor lattice of one integer, and ES propagates only *down* it. A lift never creates ES on
+for fixed (k, d) the ES slices are the divisors of N_{k,d} := 4k²p + d that are ≡ −1 (mod 4k): the controlled lifts
+carrying ES via (k, d) stay inside this congruence-filtered divisor set of one integer (with the extra quotient
+condition u ≡ 1 mod 4h), and ES propagates only *down* them. A lift never creates ES on
 an old line; ES at gu on a *new* line k' ∤ h is an independent event (B2).
 
 **2.3 Vieta partner = Gauss reduction on a fixed line (PROVED).** Fix k. Points (2k, Y) of L_ρ(g) with partner
@@ -128,11 +132,14 @@ D := (4k²p + Y²)/g are the positive definite forms [g, 2Y, D] of discriminant 
 ℚ(√−p)); translating Y ↦ Y + tg and swapping g ↔ D are the Gauss reduction moves (SL₂(ℤ) action, class fixed). The
 point is a Claude point at slice g iff g ≡ −1 (mod 4k), and its partner D ≡ −Y² (mod 4k) is again a Claude slice iff
 Y² ≡ 1 (mod 4k). Hence:
-(a) for k | 6 ((ℤ/4k)^* of exponent 2) *every* reduction move preserves Claude-admissibility, which is then a genus
-condition on the form; ES with d = 1 on the line k is "some *reduced* form [g, 2, D] of disc −16k²p lies in the genus
-g ≡ −1 (4k)" ⟺ 4k²p + 1 has a divisor ≡ −1 (mod 4k) — for k = 1: a prime factor ≡ 3 (mod 4) (B1: fails with
-probability ≍ (log p)^{−1/2} by Landau);
-(b) for k ∤ 6, a reduction move leaves the Claude set unless Y'² ≡ 1 (mod 4k): the walk must use the specific heights,
+(a) for k | 6 ((ℤ/4k)^* of exponent 2): all values coprime to 4k of one primitive form of disc −16k²p are congruent
+mod 4k (for values m₁ = N(α₁)/N𝔞, m₂ = N(α₂)/N𝔞, m₁m₂ = N(α₁ᾱ₂/N𝔞) is a value of the principal form x² + 4k²py² ≡ x² ≡ 1),
+so "first coefficient ≡ −1 (mod 4k)" is a class (genus) property **for first coefficients coprime to 4k**. It is *not*
+preserved by every reduction move: translations can make Y even and the new first coefficient non-coprime to 4k
+(R-O251 repair, reviewer's example p = 5, g = 43, k = 1, Y = 61: [43, 122, 87] → [43, 36, 8] → [8, −36, 43]). ES with d = 1
+on the line k ⟺ 4k²p + 1 has a divisor ≡ −1 (mod 4k) — for k = 1: a prime factor ≡ 3 (mod 4) (B1; heuristically
+failing with probability ≍ (log p)^{−1/2}, by analogy with Landau's density for integers — not proved for 4p + 1);
+(b) for k ∤ 6, a swap move leaves the Claude set unless Y'² ≡ 1 (mod 4k): the walk must use the specific heights,
 i.e. ray-class (mod 4k) information, exactly the escape route of WINDMILL Prop 10.3 — and that information is the
 B2 datum "divisor of 4k²p + d in a class mod 4k".
 Note [g, 2, D] with g ≤ D is already reduced: the ES forms on line k are reduced forms with b = 2, i.e. the
@@ -140,7 +147,7 @@ factorisations of 4k²p + 1; the cap/overflow Y of a Claude point is b/2 of a (n
 
 ## 3. The slots of a meeting point: at most one forced slot (goal 3)
 
-A Type II solution (ET Prop 1.3) is (x, y, z) = (abd, acdp, bcdp) with cp + a + b = 4abcd. It has three *slots*:
+A Type II solution (ET Prop 2.6, 4-parameter form) is (x, y, z) = (abd, acdp, bcdp) with cp + a + b = 4abcd. It has three *slots*:
 the window m = 4x − p with coordinate x, and the slices g = 4acd − 1, D = 4bcd − 1 with coordinates y/p = acd = h,
 z/p = bcd = h_D. Call a slot (modulus μ, coordinate u) **forced at a prime ℓ | μ** if (u/ℓ) = −1: then, ℓ ≡ 3 (4) being
 prime, the image of u in (ℤ/ℓ)^* has even order and −1 ∈ ⟨u⟩ ⊆ ⟨primes of u⟩ (this is the group step of
@@ -161,8 +168,10 @@ lattice), where WINDMILL Prop 10.3 and Cor 1.5 already show the class carries no
 ## 4. Numerics: the class-group walk is free; existence is everything (goal 4)
 
 Since E(𝔤) depends only on N𝔤 (Cor 1.5), "walk to Y = 1" can only mean: on a fixed line k (forms of disc −16k²p,
-§2.3), walk in the class group of the order of conductor 2k from the start class to an **ES class** (a class
-containing a form [g, 2Y, D] with g ≡ −1 (4k), g | 4k²p + d, d | k).
+§2.3), walk in the class group of the order of conductor 2k from the start class to an **ES class**: a class containing a
+form [g, 2Y, D] with g ≡ −1 (4k), Y² ≡ d (mod g), d | k (so g | 4k²p + d *and* d is a square mod g). (R-O251 repair: an
+ES slice g | 4k²p + d at which d is a non-square mod g is an ES event with **no** class on this line — e.g. p = 541,
+k = 2: (d, g) = (2, 39), (2, 111), √2 exists mod neither — so the target set here is a proper subset of the divisor event.)
 *Check* (`scripts/z23_cayley.py 3000 40 1,2,3,5`, 5 s; generators: prime forms of norm ℓ ≤ 40, both orientations;
 multi-source BFS from the ES classes, reporting the *worst* start class):
 | line k | primes p ≤ 3000 | mean #classes | lines with **no** ES class | worst-start distance to an ES class (when one exists) |
@@ -172,15 +181,15 @@ multi-source BFS from the ES classes, reporting the *worst* start class):
 | 3 | 211 | 144.6 | 109 | ≤ 6 (2 cases with an unreached remainder) |
 | 5 | 211 | 268.6 | 153 | ≤ 5 |
 ("Unreached remainder": the composition routine skips a step when the class's first and last coefficients both
-share ℓ; a code limitation, not a mathematical statement.) T1: odd squares c² ≤ 3000 — no ES class on any tested
+share ℓ; a code limitation, not a mathematical statement — for those 5 lines no all-start bound is certified.) T1: odd squares c² ≤ 3000 — no ES class on any tested
 line, as Cor 1.2(a) proves. The Gauss-reduction "descent" of §2.3 is trivial in practice: from the least-root window
 shot (`scripts/z23_descent.py 20000 1000`) every starting form [g₀, 2Y, D] was already reduced (1565/1565 lines,
 p ≤ 2·10⁴), so reduction moves nothing; 629 of them were ES at the start.
 **Reading.** When an ES class exists on a line, it is a few generator steps from *every* class — as it must be:
 class-group Cayley graphs with generators of norm ≤ (log |Δ|)^{2+ε} are expanders under GRH (Jao–Miller–Venkatesan,
-J. Number Theory 129 (2009) 1491–1504), so any nonempty target set is reached in O(log |Δ|) steps. Hence "Y = 1 within
-O(log p) moves" is **equivalent** (on GRH, line by line) to "the line carries an ES class", i.e. to the B2 event
-"4k²p + d has a divisor ≡ −1 (mod 4k) for some d | k". On the d = 1 locus of Cl(−4p) this fails for all k at the 99
+J. Number Theory 129 (2009) 1491–1504), so any nonempty target set is reached in O(log |Δ|) steps. Hence "reach an ES class
+within O(log p) moves" is **equivalent** (on GRH, line by line) to "the line carries an ES class", i.e. to the B2 event
+"4k²p + d has a divisor g ≡ −1 (mod 4k) for some d | k with d a square mod g" (for "Y = 1" itself: d = 1). On the d = 1 locus of Cl(−4p) this fails for all k at the 99
 certified primes of §1; per line it fails with frequency 26 % (k = 1) … 73 % (k = 5) at p ≤ 3000.
 The walk contributes reachability, never existence.
 
@@ -189,21 +198,24 @@ The walk contributes reachability, never existence.
 1. **Meeting locus (PROVED + CERTIFIED).** Thm 3.4(c)'s meeting set (2k, 1) is the finite set {a + b = k(4ab − p)}
    (Prop 1.1) and is **empty for 99 primes p ≤ 10⁶** (13, 37, 97, …; all ≡ 1 mod 12). So no descent in the slice
    lattices of ℤ[√−p] can terminate at height 1 for those p.
-2. **The right meeting set (PROVED, Thm 1.4).** ES Type II at slice g ⟺ some vertical line k | h has height class
-   with Y_k² ≡ d (mod g), d | k (formally the point (2k, √d)); bijective with the Type II solutions with y = ph
-   (89 117 slices checked). The 99 primes are rescued at d = 2 (96), 3 (1), 5 (2).
-3. **Class-blindness (PROVED, Cor 1.5).** The ES predicate on ideals of norm g depends only on g (and p mod g, and
-   the factorisation of (g+1)/4); no class or fixed-modulus ray class enters. Composition moves are, for ES, the
+2. **The right meeting set (PROVED, Thm 1.4).** Type II with y = ph ⟺ ∃ k | h with (−4k²p mod g) | k (a surjection
+   onto the solutions, not a bijection); at split slices: height class Y_k² ≡ d (mod g), d | k (formally (2k, √d)).
+   89 117 split slices checked. The 99 primes are rescued at d = 2 (96), 3 (1), 5 (2); 98 of them on a split slice,
+   but **p = 3361 has no Type II solution on any slice lattice of ℤ[√−p]** (CERTIFIED, §1.4).
+3. **Norm-only predicate (PROVED, Cor 1.5; its reading is Assessment).** The ES predicate on slice ideals of norm g
+   is "∃ k | (g+1)/4, d | k: g | 4k²p + d"; a class-based mechanism can act only through the norms it produces. Composition moves are, for ES, the
    integer moves g → gℓ; controlled lifts (u ≡ 1 mod 4h) propagate ES only downwards (§2.2).
 4. **Fixed-line reduction (PROVED, §2.3).** Claude points on line k = forms [g, 2Y, D] of disc −16k²p; admissibility
-   is a genus condition iff k | 6 (B1 regime), else it is the B2 datum.
+   (for coprime first coefficients) is a genus condition iff k | 6 (B1 regime), else it is the B2 datum; reduction
+   moves need not preserve admissibility (§2.3(a) repair).
 5. **Parity budget (PROVED, Prop 3.1).** Slices and Type I levels are unforced at every prime; a Type II point has at
    most one forced slot (the window). No "two forced slots" point exists.
 6. **Walks (EVIDENCE + literature).** Worst-start distance to an ES class ≤ 4–8 generator steps whenever one exists
-   (p ≤ 3000, k ∈ {1, 2, 3, 5}); under GRH this is forced by expansion (JMV 2009). "Y = 1 within O(log p) moves" is
-   therefore equivalent to existence on the line — the B2 event; the descent contributes no existence information.
-**Assessment.** The lattice-meeting / class-group-walk route to ES is closed in the precise sense of items 3–6:
-the walk's state (an ideal class, or a form) is provably irrelevant to the target predicate, and the predicate itself
-is "4k²p + d has a divisor ≡ −1 (mod 4k), d | k" (B2, with B1 for k | 6). What would reopen it: a move whose
+   (p ≤ 3000, k ∈ {1, 2, 3, 5}; 5 lines with an uncertified remainder); under GRH this is forced by expansion (JMV 2009). "Y = 1 within O(log p) moves" is
+   therefore equivalent to existence of an ES class on the line (a sub-event of the B2 divisor event); the descent contributes no existence information.
+**Assessment.** The lattice-meeting / class-group-walk route to ES, as posed, gives no existence mechanism (items 3–6):
+the walk's state (an ideal class, or a form) enters the target predicate only through the norms it produces, the
+predicate itself is "4k²p + d has a divisor ≡ −1 (mod 4k), d | k" (B2, with B1 for k | 6), and at p = 3361 no Type II
+target lies in the slice lattices of ℤ[√−p] at all, so any Cl(−4p)-confined Type II mechanism must fail there. What would reopen it: a move whose
 *output norm* is forced to have h′ with a prescribed divisor structure *and* p mod g′ in the box S_{g′} — i.e. a
 joint-factorisation identity (hatch H-A), not a class-group statement. ES is not solved; no infinite case claimed.

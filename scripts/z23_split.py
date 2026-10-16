@@ -52,3 +52,18 @@ for s in first_split.values():
     hist[s[3]] = hist.get(s[3], 0) + 1
 print('empty-d1 primes with a split-slice Type II solution (d <=', DM, '):', len(first_split), 'least-d hist', sorted(hist.items()))
 print('no split-slice solution with d <=', DM, ':', nosplit)
+
+# independent brute force for the primes without a split-slice solution: ALL Type II solutions via
+# x in (p/4, p/2], m = 4x - p, delta | x^2, delta = -x (mod m); slices 4y' - 1, 4z' - 1.
+from sympy import divisors
+for p in nosplit:
+    sols = set()
+    for x in range(p // 4 + 1, p // 2 + 1):
+        m = 4 * x - p
+        for de in divisors(x * x):
+            if (x + de) % m == 0:
+                y1, z1 = (x + de) // m, (x + x * x // de) // m
+                assert F(4, p) == F(1, x) + F(1, p * y1) + F(1, p * z1)
+                sols.add((x,) + tuple(sorted((y1, z1))))
+    vis = [s for s in sols if split(p, 4 * s[1] - 1) or split(p, 4 * s[2] - 1)]
+    print('brute force p =', p, ': Type II solutions', sorted(sols), ' with a split slice:', vis)
