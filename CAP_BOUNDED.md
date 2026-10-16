@@ -98,7 +98,7 @@ no divisor ≡ 3 (mod 4).
 no divisor ≡ 3 (mod 4). If K is an odd square (the only case allowing even j) there is no uniform certificate at all:
 K and p ≡ 4K have Jacobi symbol +1 mod m, −1 has −1 (R-O250 review fix).
 (d) cap ≥ 1, K even: N = p^J + 2^c with J = j + ε and j(t + 2) − t ≤ c ≤ j(t + 2) + t, for every admissible j ≥ 2
-(j even needs K′ a square; e.g. p = 13, m = 387, K = 100, (δ₂, δ₅, δ_p) = (−1, 4, 1): cap 1, N | 13³ + 2⁷·… — R-O250
+(j even needs K′ a square; e.g. p = 13, m = 387, K = 100, (δ₂, δ₅, δ_p) = (−1, 4, 1): cap 1, m = 387 | 13³ + 2⁹ = 2709 = 7·387 — R-O250
 review fix: j = 2 was missing).
 *Proof.* Substitution K′ ≡ p·2^{−(t+2)} and the bounds |a| ≤ t: for j ≥ 1, w ∈ [−t − j(t+2), t − j(t+2)] ⊂ (−∞, −2j];
 for j = 0, w = a. Sums of two coprime squares have only prime factors ≡ 1 (4) (and 2), while m ≡ 3 (mod 4). ∎
