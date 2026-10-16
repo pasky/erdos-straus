@@ -148,3 +148,92 @@ F_p = ⌊9p⁴/8⌋ ✓, r^{32/11} ✓. §5.4's bound τ²·pUK ≤ τ²p(p+q)(p
 there is r | H² with e | 4r+1"), and §11.2 (28)–(30) is the (a)⇒(b) half with "the exact closure gate, necessary and
 sufficient". Thm 2.1's genuinely new content is the converse (every point with x-twist n and coordinate pH is a certified
 state) and the coset reading. Say so.
+
+## §6 Props 6.1, 6.2, gate table — **SOUND** (labels m11, m12)
+6.1 re-derived: for odd e, |ker(x ↦ x²)| = 2^{ω(e)}, so |K| = φ(e)/2^{ω(e)}; (2) gives |K| = ∏ d_i ≤ ∏ (J_{q_i} + 1) ≤
+∏_{q | H} (2h_q + 1) = τ(H²) (w_q ≥ 1, v_q(c) ≥ 0); divisor bound + φ(e) ≫ e/log log e: if e ≥ p then e is absolutely bounded,
+otherwise e ≤ p^{O(1/log log p)} ✓. From scratch (`scripts/review_r260_sec56.py`): I implemented [SATURATION §2–§3] literally
+(w_q, c from v_q(r₀) parity, J_q, a_q = q^{w_q}, all orderings, relative indices) for 80 primes p, all e ≡ 3 (4) ≤ 199
+(composite incl.), one certificate r₀ per level: 2243 cases, saturation holds in 156 (max e = 171), φ(e) ≤ 2^{ω(e)}τ(H²) in all.
+**m11:** "So the only fully forced Astra exit applies at levels so small …" misdescribes Astra: saturation is *one* forced
+mechanism; Astra also has the source-forced macro [STR §16], the prescribed borrowing rule for certificates (31, H, 11)
+with 10 | H, i.e. p ≡ 9 (40) [STR §19.2], the forced-factor exit [STR §17.3] and the fold [FORCED_FOLD §2]. Replace by
+"saturation, Astra's whole-subgroup forced exit, applies only at …".
+6.2 ✓ (cyclic group of order 2·odd; non-residue ℓ has even order ⇒ −1 ∈ ⟨ℓ⟩; −H ≡ −4⁻¹): asserted for 546 (p, ℓ) pairs at
+the least admissible prime e. The "Why it does not give a bounded cap" paragraph is correctly labelled Assessment and the
+S ∩ G² = S² step (−H/ℓ is a square of an element of ⟨primes of H⟩) is right since G has 2-part of order 2.
+**m12:** §6.1 "Each Astra gate is one B2 event" and verdict item 6 carry no label; they are an Assessment (a re-encoding;
+the B2 statement of redteam-automorphic-2 Thm 2.2 is about the E1–E6 encodings, not Astra's). The fold-supply row (prime
+R | r with R ≡ 3 (4), (C/R) = 1, R < 2 min(m, p)) is a prime-factor/quadratic-residue/size condition, not "a divisor in a
+residue class whose modulus is part of the solution"; mark it as such or drop it from the B2 table.
+
+## Summary verdict per claim
+
+| claim | verdict |
+|---|---|
+| §1 slot dictionary (Def 1.1, L 1.2, L 1.3, table; R-O249 scope) | SOUND (m14) |
+| Thm 2.1 | SOUND (m2, m13 attribution) |
+| Cor 2.2 | SOUND (m1) |
+| Thm 3.1(a),(b) | SOUND |
+| Thm 3.1(c),(d) | SOUND (m4) |
+| Prop 3.2 | SOUND |
+| Prop 3.3 | SOUND (m15) |
+| Thm 3.4 | SOUND-AFTER-REPAIRS (m5, m6) |
+| conventions Astra q = slice g, s = D, m = 2k | SOUND as coordinates; m3 (twists sit in different coordinates) |
+| §4 fixtures: 51 triples exact | SOUND |
+| §4 "every exit is a classical small-modulus certificate" + census | GAP (M1: tautology + incomplete extraction) |
+| Prop 5.1 | SOUND (m9) |
+| Prop 5.2 | SOUND (m10, typo) |
+| §5.3, §5.4 | SOUND (m13) |
+| Prop 6.1 | SOUND (m11) |
+| Prop 6.2 + Assessment | SOUND |
+| §6.1 B2 table | Assessment, unlabelled (m12) |
+| fidelity to Astra | mostly faithful; m10, m11, m13, m14 |
+
+No FATAL defect. ES is not claimed and nothing in the document claims an infinite case.
+
+## Defects
+
+**MAJOR**
+* **M1 (§4 Reading; §7 item 4; AGENT_REPORT item 4).** (i) "Every Astra exit is a *classical* small-modulus ET certificate"
+  is a tautology: for prime p every ES solution is Type I at the level e = (4H−1)/p or Type II at w = 4x − p. (ii) The
+  census "25 of the 30 twist-1 points … 5 Type II …" is over an extraction that misses ≥ 21 exact triples present in the same
+  13 Astra files (list in §4 above; e.g. 193·5² (1207, 2655400, 7218200), 2521·11² (94540, 394460, 2883857614), the 2521 exit
+  (652, 18908, 23833534)); with them the level set gains e = 11, 23 and the window set w = 3. *Repair:* replace the Reading by
+  "Every ES solution of a prime is Type I or Type II; what Thm 2.1 adds is that the Type I exit at level e depends on the route
+  only through one divisor r | H². Observed: all Astra twist-1 exits in these files have level ≤ 143 / window ≤ 39 (EVIDENCE,
+  N points)", and either complete the extraction (e.g. a regex pass as in scripts/review_r260_fixtures.py, plus the
+  equation-form triples) or say "a sample of 51 triples".
+
+**MINOR**
+* m1 (Cor 2.2, Reading, §7.3): "carries an Astra state"/"Astra-alive" = a certificate-satisfying state *exists* (Thm 2.1(b)),
+  not that an Astra genealogy reaches it. Add one clause.
+* m2 (Thm 2.1): gcd(n, e) = 1 is automatic on side (b) (ℓ | gcd(n,e) ⇒ ℓ | 4r, but r | H² is prime to e); state it, so (b)
+  is "all points with x-twist n and coordinate pH".
+* m3 (§7 items 1–2; AGENT_REPORT SHARP): "Astra twist = Claude overflow Q₁" and "Astra's twist m is Prop 1.3's 2k" read as
+  contradictory. Clean statement: on L_ρ(g) an Astra source (m, 1) has denominator M² (twist in the M-coordinate), a Claude
+  shot point (2k, Y) has denominator Y² (twist in the Y-coordinate; 2k is the growing modulus); at ES both twists are 1 only
+  because Y = 1, and M = 2k is then the classical modulus.
+* m4 (Thm 3.1(d) title "excludes exactly"): the classical line m | 2h is a small part of the non-genuine set gcd(m, h) > 1;
+  say "genuineness excludes this line (except m = 2, where every source is ES-ready)".
+* m5 (Thm 3.4(c)): "2kρ ≡ 1, i.e. g | 4k²p + 1" — the converse only gives 2k⁻¹ ≡ *some* root; for composite g add "for some
+  root branch".
+* m6 (Thm 3.4 proof / Prop 1.2 use): note explicitly that EXPONENT_CAP Prop 1.2 is stated for Q odd and that Q = (h/k)Y may be
+  even; the valuation argument given covers it (I confirm numerically), so this is a citation-hygiene point.
+* m7 (§4 opening): "re-checks every numeric triple" → "every triple of the extraction file" (see M1).
+* m8 = M1(i).
+* m9 (Prop 5.1): "(a) forced" is a group statement; the forced *state* needs CAP_DOWN (E). "(b) nothing forces" is an
+  Assessment inside a PROVED proposition — split the label.
+* m10 (Prop 5.2 Reading; fidelity): rephrase "Astra's strict twist decrease is progress only through its final step" as
+  agreeing with Astra's own statement that (m, C) is a terminating invariant without a transition-existence theorem
+  [STR §11.2]. Also close the unbalanced parenthesis "(O249 self-check: …".
+* m11 (after Prop 6.1; fidelity): "the only fully forced Astra exit" → "saturation (Astra's whole-subgroup forced exit)";
+  Astra has other forced macros (STR §16, §17.3, §19.2; FORCED_FOLD).
+* m12 (§6.1, §7 item 6): label the gate table Assessment; fix or drop the fold-supply row (not a residue-class event).
+* m13 (Thm 2.1, attribution): credit [STR §21.2 (78)] (n = 1 case, verbatim the classical criterion) and [STR §11.2 (28)–(30)]
+  ((a)⇒(b), "necessary and sufficient" gate); the new part is the converse/coset reading. §5.4: add "r prime" to the
+  TWIST_HEIGHT_COMPRESSION hypothesis.
+* m14 (Lemma 1.3): "the 'reachable subclass' [A:STR §11.4]" → Astra's "weaker closed arithmetic property" (m² | both
+  non-anchor coordinates), which Astra distinguishes from arbitrary coprime-anchor states. Footnote the K-notation clash
+  (bridge K = window x; Astra FORCED_FOLD K = slice h).
+* m15 (Prop 3.3(a)): "the ES Type II point" → "the ES shot (surface point)".
