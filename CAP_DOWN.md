@@ -233,7 +233,8 @@ i.e. loses T1₃. Assessment, not proved.)
    usable only when ord_q(2)/2 ≤ v₂(K) (then cap 0; always at q = 3 — R243 repair, Thm 1.2 Addendum); (R242 repair) excluded windows are not forced but often still fire (R242 scan, n ≤ 2·10⁵, q ≤ 200:
    36 446 of 37 522 excluded pairs fire at some cap, 1 076 are dead, e.g. n = 5, q = 67).
 2. **One-prime witness (Prop 1.3, PROVED):** d = K·s^{ord_q(s)/2} gives cap ≤ (q−3)/4 (was q − 3). It needs no
-   discrete logarithm and is sharp at a single window (Prop 4.1(a)).
+   discrete logarithm and is sharp at a single window within the Lemma-1.1 (δ_p = 0) family (Prop 4.1(a)); the full
+   Lemma-3.1 family can do strictly better (p = 593, q = 11: cap 0 via δ_p = −1; R261, CAP_BOUNDED §6).
 3. **Power saving (Cor 2.1, PROVED relative to Pollack IJNT 2014 Thm 1.4; ineffective):**
    * e*(n) ≪_ε n₀^{1/4+ε} for non-square n ≡ 1 (8), where n₀ is the squarefree part. O236 had rad(n)^5 (Linnik).
    * e*(n) ≪_ε n₀^{1/2+ε} for n ≡ 5 (8).

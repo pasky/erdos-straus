@@ -26396,4 +26396,36 @@ def check_gv():
 check_gv()
 
 
+def check_gw():
+    # (gw) CAP_BOUNDED (O250/R261): R261 from scratch — the Dickson-type example p = 807 330 585 601 (Thm 1.3, M = 11) has
+    # no window certificate at windows 3, 7, 11 at any cap; the least-cap residue DP agrees with direct enumeration
+    # (221 pairs); the single-window sharpness of CAP_DOWN Prop 4.1(a) holds in the delta_p = 0 slice but the full
+    # Lemma-3.1 family is strictly smaller in some cases (e.g. p = 593, q = 11: cap 0).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("CAP_BOUNDED subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r261_windows.py", "807330585601", "11", "20"])
+    lines = [l for l in out.split("\n") if l.strip()]
+    assert len(lines) == 3 and all(l.rstrip().endswith("cap None") for l in lines), out
+    out = run(["review_r261_selftest.py", "400", "23", "2"])
+    assert "pairs 221 mismatches 0" in out, out[-1000:]
+    out = run(["review_r261_sharp.py", "50000"])
+    assert "cases 899 slice cap = (q-3)/4 in all; full family strictly smaller in 66" in out, out[-1500:]
+    assert "(593, 11, 151, 2, 0)" in out, out[-1500:]
+    print(f"== (gw) CAP_BOUNDED R261: Dickson example dead at windows <= 11 (any cap); cap DP = enumeration; "
+          f"Prop 4.1(a) slice-sharp, full family smaller (593, 11); seconds = {perf_counter() - t0:.1f}")
+
+
+check_gw()
+
+
 print("\nall checks passed")
