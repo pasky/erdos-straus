@@ -158,8 +158,8 @@ CAP_DOWN Prop 4.1(a) the worst case at a single window is exactly (q − 3)/4.
 **Lemma 4.1 (character-sum form of the box count; PROVED, standard).** At a prime window q with generator set S and
 exponent sets D_s (as in the header), the number of certificates is
 `  #{δ ∈ ∏ D_s : ∏ s^{δ_s} ≡ −1} = (1/(q−1)) Σ_χ χ(−1) ∏_{s∈S} Σ_{δ∈D_s} χ(s)^δ.`
-The trivial and the quadratic character together give |Box|/(q−1)·(1 + (−1)^{ν}·∏_{s NR}(1 − 2ω_s)), ω_s := share of
-odd exponents in D_s, ν := #{s ∈ S non-residue mod q}; for the cap-C box at b_s = 1, ω_s = (C + 2)/(C + 3) and this is
+The trivial and the quadratic character together give |Box|/(q−1)·(1 − ∏_{s NR}(1 − 2ω_s)), ω_s := share of
+odd exponents in D_s (the product has sign (−1)^ν, ν := #{s ∈ S non-residue mod q}, since ω_s > 1/2 once C ≥ 0 and b_s = 1); for the cap-C box at b_s = 1, ω_s = (C + 2)/(C + 3) and this is
 the parity law of Cor 1.2 in averaged form. ∎
 *Reading.* A cap ≤ C at q follows deterministically as soon as the non-quadratic characters cancel, i.e. no
 χ ≠ 1, χ² ≠ 1 has χ(s) close to 1 for most s ∈ S: |∏_s Σ_δ χ(s)^δ| ≤ ∏_s min(|D_s|, 2/‖θ_s‖) with χ(s) = e(θ_s).
