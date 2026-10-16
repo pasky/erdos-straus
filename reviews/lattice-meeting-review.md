@@ -4,6 +4,40 @@ Reviewer: R262 side agent, branch side-agent/review-lattice-meeting, merged side
 From-scratch scripts: `scripts/review_r262_*.py` (none reuse z23_* code).
 
 ## Verdict summary (filled in claim by claim)
+Repairs applied: none (author branch side-agent/lattice-meeting active 11 min before this review finished; defects are
+wording/attribution only and are left to the author).
+
+| claim | verdict |
+|---|---|
+| C1 3361 CERTIFIED (two solutions, four non-split slices) + "only such prime ≤ 10⁷" + PROVED split ⟺ d square mod g | **SOUND** |
+| C2 Prop 1.1 / Cor 1.2, 99-prime list (and 160 ≤ 10⁷) | **SOUND** (m1) |
+| C3 Thm 1.4 (surjection), Cor 1.5 (norm-only; reading Assessment) | **SOUND** |
+| C4 §2 composition coordinates, controlled lifts (ES only down), §2.3 k \| 6 genus statement | **SOUND-AFTER-REPAIRS** (m2, m3) |
+| C5 Prop 3.1 (≤ 1 forced slot) | **SOUND-AFTER-REPAIRS** (Prop fine; Reading M1, m5) |
+| C6 §4 EVIDENCE, JMV citation, z23_cayley limitation | **SOUND-AFTER-REPAIRS** (M2, m6, m7) |
+| Labels | correct except the §3/§4 Readings flagged in M1/M2 |
+
+No FATAL. Every headline number was reproduced by from-scratch code (`scripts/review_r262_*.py`).
+
+## Numbered defects
+1. **M1 (MAJOR)** LATTICE_MEETING §3 Reading, last sentence ("WINDMILL Prop 10.3 and Cor 1.5 already show the class
+   carries no information about the meeting") + BRAINSTORM/z23_parity_budget.md Barrier screen ("Cor 1.5 shows is
+   irrelevant"): re-states the non-sequitur retracted by R-O251 in Cor 1.5's own Reading. Repair in C5 below.
+2. **M2 (MAJOR)** §4 "Unreached remainder … a code limitation, not a mathematical statement": false for ≥ 4 of 5 lines —
+   prime forms of norm ≤ 40 generate an index-2 subgroup at (k, p) = (2,193), (2,577), (3,1061), (3,1493), ES classes in
+   one coset. Also §4 Reading "as it must be" and §5 item 6 "under GRH this is forced by expansion" — JMV says nothing
+   about generators ℓ ≤ 40 (below (log|Δ|)^{2+ε}). Repair in C6 below.
+3. m1 §1 Certified-computation R-O251 parenthesis: the a ≤ √p + 2 scan sees each unordered pair *at least* once (~9 % in
+   both orientations; unordered mean 12.19 vs scan mean 13.35). Repair: "at least once".
+4. m2 §0 (I3): "for k | 6 every move preserves admissibility" — retracted in §2.3(a); align wording.
+5. m3 §2.1: "even M iff v is even" ⇒ "iff vY is even" (Claude points may have even Y).
+6. m5 §3 forced-slot definition: drop "ℓ ≡ 3 (4) being" (not needed, not implied for window primes).
+7. m6 §4 table: distances are upper bounds from a subgraph (skipped compositions); exact k = 1 histogram 41/91/22/2,
+   k = 2 max 7. Mark as upper bounds or replace.
+8. m7 §4/§5: "within O(log p) moves" must name the generator set (prime ideals of norm ≤ (log|Δ|)^{2+ε} prime to 2k)
+   and the k-dependence of Δ = −16k²p.
+9. (suggestion) §1.3 "(The check covers split g only …)" can cite the R262 check over all 286 750 slices incl. non-split.
+10. (suggestion) Thm 1.4 proof: add the one line "p ∤ x is automatic" (p | x, y, z would force 4 ≤ 3).
 
 ## Claim-by-claim
 
@@ -133,7 +167,7 @@ the prime forms of norm ≤ 40 generate only an index-2 subgroup of the class gr
 no walk with those generators reaches the other coset at any length. (Independently, ⟨ℓ ≤ 40⟩ ≠ Cl on 17 of the
 844 (k, p) lines.) Consequently the Reading "When an ES class exists on a line, it is a few generator steps from
 *every* class — as it must be" is contradicted by the document's own data at fixed generators ℓ ≤ 40. Repair: say
-the generators ℓ ≤ 40 are far below the JMV/Bach regime ((log|Δ|)^{2+ε} ≈ 150–200, Bach 6 log²|Δ| ≈ 900 here) and
+the generators ℓ ≤ 40 are far below the JMV/Bach regime ((log|Δ|)^{2+ε} ≈ 115–200, Bach 6 log²|Δ| ≈ 700–1200 for these Δ) and
 need not generate Cl; report the 4 lines as genuine non-generation, and drop "as it must be" (JMV predicts nothing
 for ℓ ≤ 40). **Defect m7:** "reach an ES class within O(log p) moves ⟺ (GRH) the line carries an ES class" must name the
 generator set (all prime ideals of norm ≤ (log|Δ|)^{2+ε} prime to the conductor 2k, Δ = −16k²p, so the implicit
