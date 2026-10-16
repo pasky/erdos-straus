@@ -17,13 +17,14 @@ mechanism; or (C) e*(p) = O(log p) / O(p^ε) unconditionally.
 ## 0. Iteration log
 
 (Z22-1) *Brief's idea: a smooth K, or a K divisible by all primes ≤ y.* Choose the window so that K ≡ 0 (mod P(y)),
-P(y) = ∏_{s ≤ y} s (q ≡ −p (mod 4P(y))). Counting: the cap-C box over the primes ≤ y has (C+3)^{π(y)} elements, the
-group has q ≥ P(y) ≈ e^y elements, so covering needs C ≳ y — independent of p! Barrier hit: the box is then a FIXED
-finite set of rationals a/b (independent of p), and "−1 ∈ box mod q" ⟺ q | a + b: a fixed finite set of q, hence a
-congruence covering of p mod 4P(y) (B1), which T1 kills at p ≡ 1 (mod 4P(y)): there every s ≤ y is ≡ ±1 … more
-precisely q ≡ −1 (mod s) and (s/q) = +1, so no box element is −1. Hypothesis satisfied: "bounded support" (the
-certificate uses only primes from a set fixed in advance). → The support must grow with p; §1 makes this a theorem
-(conditional, any cap) for bounded windows.
+P(y) = ∏_{s ≤ y} s (q ≡ −p (mod 4P(y))). Counting: the full cap-C box has 3(2t+1)∏_{s | K odd}(2b_s + 1 + C) elements
+(t = v₂K; ≥ (C+3)^{π(y)−1} here); the group has q − 1 elements, and K ≥ P(y) ≈ e^y (q itself may be small if p is
+large — R-O250 review fix), so if q ≍ P(y)^{O(1)} covering needs C ≳ y^{O(1)}, independent of p. Barrier hit (R-O250
+review fix: the box is NOT a fixed finite set — the valuations b_s = v_s(K) are unbounded — so the obstruction is the
+Jacobi one, not finiteness): at p ≡ 1 (mod 4P(y)) every s ≤ y has (s/p) = +1, so by the parity law (Cor 1.2) no
+certificate supported on {s ≤ y} ∪ {2} with δ_p = 0 exists at any window and any cap, and one with δ_p = ±1 needs
+(m/p) = −1. Hypothesis satisfied: "bounded support" (the certificate uses only primes from a set fixed in advance).
+→ The support must grow with p; §1 makes this a theorem (conditional, any cap) for bounded windows.
 (Z22-2) *Uniform (self-generated) elements.* Use only elements polynomial in K, p, 2 (exponents δ_s = j·b_s on all
 odd s | K). Classification (§2): at cap 0 they give only the classical windows m | p + 4, m | (p+1)/2, m | p + 2,
 m | 2p + 1; at cap e ≥ 1 the only new relation is K^o ≡ −1, i.e. m | p^o + 4^o (o odd), with cap ≤ b_max(o − 1)/2.
@@ -52,11 +53,11 @@ certificate at any cap (e = ∞ included). Equivalently, every ES^{(y)} solution
 *Proof.* Let Λ := lcm(1, …, M + 1) and L := 16·Λ·∏_{ℓ ≤ M+1} ℓ, so v_ℓ(L) ≥ v_ℓ(m + 1) + 1 for every prime ℓ ≤ M + 1
 and v₂(L) ≥ v₂(m + 1) + 2, for every m ≤ M. For each window m ≤ M, m ≡ 3 (4), put L_m := L/(m + 1) and consider the
 linear forms f(t) = Lt + 1 and f_m(t) = L_m t + 1. They are distinct and the family is admissible: for ℓ ≤ M + 1 every
-form is ≡ 1 (mod ℓ) (ℓ | L_m); for ℓ > M + 1 the ≤ M/4 + 1 < ℓ forms have at most one root each. Dickson gives
+form is ≡ 1 (mod ℓ) (ℓ | L_m); for ℓ > M + 1 the 1 + ⌊(M + 1)/4⌋ < ℓ forms have at most one root each. Dickson gives
 infinitely many t with p := f(t) and all R_m := f_m(t) prime. Fix such t. Then p ≡ 1 (mod 8) and p + m = (m + 1)R_m,
 so K_m = ((m + 1)/4)·R_m, R_m > M + 1 is prime, and gcd(m, p) = 1 (p ≡ 1 (mod m)), K_m < p. Symbols mod p of all
 generators: every prime ℓ ≤ M + 1 has (ℓ/p) = 1 (p ≡ 1 (mod 8ℓ)); this covers 2, the primes of (m + 1)/4, and the
-primes of m, so (m/p) = 1. For R_m: R_m ≡ 1 (mod 4) and R_m ≡ 1 (mod m) (all primes of m divide L_m), and
+primes of m, so (m/p) = 1. For R_m: R_m ≡ 1 (mod 4) and R_m ≡ 1 (mod m) (m | Λ and gcd(m, m + 1) = 1, so m | L_m), and
 p = (m + 1)(R_m − 1) + 1 ≡ −m (mod R_m), so (R_m/p) = (p/R_m) = (−m/R_m) = (m/R_m) = (R_m/m) = 1. Hence the left side
 of Corollary 1.2 is +1 for every exponent vector: no certificate exists at window m, at any cap. The windows of
 ES^{(y)} solutions with p ∤ x are exactly m = 4x − p (CAP_DOWN Lemma 3.1; x > p/4 always). ∎
@@ -65,12 +66,15 @@ Prop 4.1 (Linnik) and redteam-automorphic-2 Thm 2.2(iii) are the cap-limited / c
 arguments; the point here is "every cap, e = ∞ included, and every exponent vector": for these p the window
 picture is literally that of n = 1 (K_m ≡ (m + 1)/4 on all small primes, R_m ≡ 1 (mod m)). (2) Unconditionally the
 same computation shows: if p ≡ 1 (mod L), a certificate at window m ≤ M must put an odd exponent on a prime factor of
-the rough part R_m := K_m/((m+1)/4) that is a non-residue mod p. (3) Consequence for goal (A): a proof of e*(p) ≤ C
-must, for some p, use windows m → ∞ together with non-residue primes from the rough part of K_m — at a single prime
-window the worst case over K is exactly the forced level (q − 3)/4 (CAP_DOWN Prop 4.1(a)). That is the B2 lottery.
+the rough part R_m := K_m/((m+1)/4) that is a non-residue mod p. (3) Consequence for goal (A) (scope: Lemma-3.1
+certificates, p ∤ x; R-O250 review fix): no finite menu of windows covers every prime at any cap; a certificate-based
+proof of e*(p) ≤ C must, for infinitely many p (conditionally), use windows m > M for every M, with non-residue primes
+from the rough part of K_m. (This does not say bounded windows fail on a positive-density set: the Dickson primes may
+have density 0.) At a single prime window, in the δ_p = 0 slice, the worst case over K is the forced level (q − 3)/4
+(CAP_DOWN Prop 4.1(a)); with δ_p ≠ 0 it can be smaller (p = 593, q = 11, K = 151: slice cap 2, δ_p = −1 gives cap 0).
 *Check (`scripts/z22_dickson_check.py M TMAX N`, exhaustive cap ≤ λ(m) + 2 per window, δ_p included):* M = 11:
 p = 807 330 585 601, 1 482 496 646 401, 2 412 770 976 001 (all R_m prime): 3/3 windows dead each (least forced
-window 19, 23, 31). M = 19: p = 4 714 845 095 999 745 907 201, 11 787 094 675 874 034 316 801: 5/5 windows dead
+window 19, 23, 31). M = 19: p = 4 714 845 095 999 745 907 201, 11 787 094 675 874 034 316 801 (p and R_m BPSW probable primes, SymPy): 5/5 windows dead
 (least forced window 47). Control (`z22_dickson_control.py 11 300`): among 300 primes p = Lt + 1 with some R_m
 composite, 284 have a live window ≤ 11 — the rough parts are what carries the certificates.
 

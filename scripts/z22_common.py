@@ -65,7 +65,7 @@ def verify(p, m, vec, e):
     assert Fraction(4, p) == Fraction(1, x) + Fraction(1, y) + 1 / z
     Dn = z.denominator
     r = isqrt(Dn)
-    assert r * r == Dn and r % 2 == 1 and gcd(r, p) == 1 and y % max(1, 1) == 0
+    assert r * r == Dn and r % 2 == 1 and gcd(r, p) == 1
     for l, v in factorint(r).items():
         assert y % l == 0 and v <= e
     return x, y, z
