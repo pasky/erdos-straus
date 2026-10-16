@@ -92,3 +92,47 @@ precisely what supplies the non-residue factor (r₀ ∈ −K) that Claude's Pro
 H ≡ 4⁻¹ alone; Astra's saturation theorem [A:SATURATION §3] is CAP_POINTWISE Lemma 2.1's box-covering criterion
 (mixed-radix version) applied at a Type I level: cover the class −H/c of K = (ℤ/e)^{*2} by the exponent box of the
 source primes of H with caps J_q = ⌊(2h_q − v_q(c))/w_q⌋. That is a B2 event (divisor of H² in one class mod e).
+
+## 3. Astra sources = points of Claude's overflow/modulus surface with the congruence switched off
+
+A Type II rational point 4/p = 1/x + 1/(py′) + 1/(pz′) carries two "levels": its **window** w := 4x − p (Claude's
+q or m: CAP_POINTWISE, CAP_DOWN) and its **slice** g := 4y′ − 1 (Claude's shot modulus g, y = p(g+1)/4,
+EXPONENT_CAP §1). In ES both are integers. The two relaxations twist different ones:
+* Astra source (q, m): slice g = q integral (y = ph, h = (q+1)/4), window w = (s+1)/m² **twisted** (Lemma 1.3);
+* Claude shot (Q, g): window m_c = (p + 4Q²)/g and slice g integral, third coordinate z twisted (den Q₁²).
+So the orchestrator's identification "Astra q = Claude window q" is a coincidence of congruences; slot-wise
+**Astra's q is Claude's slice g**, and Astra's cofactor s is Claude's D of EXPONENT_CAP Prop 1.3(b).
+
+**Theorem 3.1 (the surface D·g = pM² + Y²; PROVED).** Let g ≡ 3 (4) (prime or composite) and consider integer points
+(M, Y, D) with D·g = pM² + Y², gcd(Y, M) = 1. For a root ρ of ρ² ≡ −p (mod g) put L_ρ := {(M, Y) : Y ≡ ρM (mod g)}.
+(a) Y = 1, M = m: an Astra source (q, m, s) = (g, m, D) [A:CAMPAIGN source identity], lying in L_ρ with ρ ≡ m⁻¹.
+(b) M = 1, Y = 2Q: a Claude shot datum (Q, g), window D = m_c; in L_ρ with ρ ≡ 2Q. The EXPONENT_CAP Prop 1.3 point
+(M, Y) = (2k, Q₁), Q = Q₀Q₁, 4Q₀k = g + 1, lies in the **same** lattice L_ρ (Q₁ ≡ 4Q₀k·Q₁ = 2Q·2k mod g): Prop 1.3 is a
+change of lattice point inside L_ρ, and its shot congruence is D ≡ −Q₁² (mod 4k).
+(c) **(ES-ready sources.)** For an Astra source with m even: s ≡ −1 (mod 2m) ⟺ q ≡ −1 (mod 2m) ⟺ m | (q+1)/2 = 2h.
+In that case (Q₁ = 1, k = m/2, D = s) satisfies Prop 1.3's converse hypotheses, and (if gcd(Q₀, p) = 1, Q₀ := h/k) the
+resulting shot is an **honest ES solution sharing Astra's coordinate y = ph**. Conversely every ES shot (Q₁ = 1,
+EXPONENT_CAP Prop 1.2 with e = 0) is the source (q, m, s) = (g, 2k, D) with m | 2h.
+(d) **(Genuineness excludes exactly this line.)** If gcd(m, h) = 1 and m is even, (c) applies only for m = 2.
+*Proof.* (a) Lemma 1.3; pm² ≡ −1 gives ρ := m⁻¹ with ρ² ≡ −p. (b) gm_c = p + 4Q²; Q₁(1 − 4Q₀k) = −gQ₁ ≡ 0. (c) For m
+even, 2m | m², so qs = pm² + 1 ≡ 1 (mod 2m) and gcd(q, 2m) = 1; hence s ≡ −1 ⟺ q ≡ −1 (mod 2m). With k = m/2:
+D·g = 4k²p + 1 and D ≡ −1 (mod 4k), gcd(1, k) = 1: EXPONENT_CAP Prop 1.3 converse gives Q₀ = (4kp + j)/(4D) ∈ ℤ,
+j = (D+1)/k, g = 4Q₀k − 1, g | p + 4Q₀², overflow 1, so (Prop 1.2, e = 0) an ES solution with y = p(g+1)/4 = ph, and
+Q₀k = h. Conversely Prop 1.3(b) with Q₁ = 1 reads Dg = 4k²p + 1 and 4Q₀k = g + 1, so k | h. (d) m | 2h and
+gcd(m, h) = 1 force m | 2. ∎
+*Check* (`scripts/z21_dict.py 100000 100 600`, 11 s): all primes p ≡ 1 (4) ≤ 10⁵, all admissible prime q ≤ 100, all
+lifts m ≤ 600 of both root classes: 2 345 942 Astra identities exact; of 1 173 678 even-m sources, 9415 are ES-ready,
+the equivalence s ≡ −1 (2m) ⟺ m | 2h held in all, all 9415 Prop 1.3 solutions are exact ES solutions with y = ph,
+and none is genuine with m > 2.
+**Reading (Assessment).** Astra's genuineness condition gcd(m, h) = 1 is chosen so that the source is *not* already
+an ES point; the classical Type II line "4k²p + 1 has a divisor ≡ −1 (mod 4k)" (FIXED_MODULUS_SHOTS Lemma 1.1) is,
+in Astra coordinates, the set of maximally non-genuine sources m | 2h. Square removal from a genuine source is
+therefore the task of moving into the line k | h by moves that change (m, s, q) — a B2 event in disguise
+((c): the condition is a divisibility q ≡ −1 (mod 2m) with a solution-dependent modulus).
+
+**Proposition 3.2 (ES at Astra's retained slice; PROVED, classical).** An ES solution with y = ph (h = (q+1)/4)
+exists ⟺ some d | (ph)² satisfies d ≡ −ph (mod q); and for every source root, −ph ≡ (2m)⁻² ≡ Q² (mod q) where Q is
+Claude's window root (p + 4Q² ≡ 0). So "keeping Astra's level y = ph" = "a divisor of (ph)² in the square class of the
+Claude root Q²", and the Claude ES shot is the sub-case d = Q₀², Q₀ | h, Q₀ ≡ ±Q.
+*Proof.* q/(ph) = 1/x + 1/z ⟺ x = (ph + d)/q, z = ph·x/d with d | (ph)² (standard). −ph ≡ −p/4 and pm² ≡ −1. ∎
+(Checked by brute force on all 31 360 (p, q) pairs of the run above: 14 883 slices carry ES.)
