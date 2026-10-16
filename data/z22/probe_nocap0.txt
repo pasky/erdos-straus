@@ -1,0 +1,4 @@
+3361 forced windows tried 20 first cap-0 forced window (383, 0) caps [1, 1, 1, None, 2, None, None, None, None, 3, 2, 3] least cap-0 window (any m) 3
+2782921 forced windows tried 16 first cap-0 forced window (311, 0) caps [1, 1, None, None, 2, 1, 1, 2, 2, 2, 1, 1] least cap-0 window (any m) 3
+7071121 forced windows tried 11 first cap-0 forced window (179, 0) caps [1, 1, 3, 1, 3, 1, 1, 1, 3, 2, 0] least cap-0 window (any m) 39
+8925841 forced windows tried 20 first cap-0 forced window (419, 0) caps [2, 1, 1, None, 1, 3, 1, 1, None, 1, 2, 3] least cap-0 window (any m) 11

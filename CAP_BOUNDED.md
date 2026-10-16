@@ -171,3 +171,22 @@ fields (bounded-index quotients F_q^*/(F_q^*)^ℓ), never the archimedean size o
 generator set the good q are prime factors of explicit integers (iteration Z22-1). So (C) with O(log p)^{O(1)} — let
 alone (A) — needs an input of a new kind; the forced level (one character, CAP_POINTWISE) is all that reciprocity
 supplies. (Assessment.)
+
+## 5. Numerics (EVIDENCE): forced windows carry the caps; explicit witnesses do not stay bounded
+
+`scripts/z22_forced_caps.py N Q0 EMAX KFIRST VER 1` — Mordell-hard primes (p mod 840 ∈ {1, 121, 169, 289, 361, 529},
+all ≡ 1 (8)); prime windows q ≡ 3 (4), q ≤ Q₀ = 1000; for each p the first KFIRST = 10 forced windows ((q/p) = −1) and
+all unforced ones; exact Lemma-3.1 caps up to EMAX = 3 (δ_p included); 300 solutions rebuilt per run with exact
+rationals against Def 1.1 (`z22_common.verify`). Outputs `data/z22/forced_caps_hard_1e6.txt`, `…_1e7.txt` (5 min).
+* p ≤ 10⁷ (20 513 hard primes): **cap-0 rate 0.551 at forced windows vs 0.127 at unforced ones** (cap ≤ 1: 0.745 vs
+  0.200); per q-bin [0,100), [100,200), [200,300): 0.684/0.317, 0.396/0.166, 0.274/0.127 — forcing doubles to
+  quadruples the hit rate, and both decay with q (the lottery of §4: |Box|/q).
+* Cap at the least forced window: 0 for 85.7 %, 1 for 10.3 %, 2 for 1.1 %, 3 for 0.4 %, > 3 for 2.4 %.
+* Every hard p ≤ 10⁷ has cap 0 at one of its first 10 forced windows except 3361, 2 782 921, 7 071 121, 8 925 841;
+  these have cap 0 at their forced windows q = 383, 311, 179, 419 (index 20, 16, 11, 20; `z22_probe.py`,
+  `data/z22/probe_nocap0.txt`, verified), and cap-0 windows m = 3, 3, 39, 11 among all windows.
+* **Explicit witnesses** (CAP_DOWN Prop 1.3 and Prop 2.3, min over the first 10 forced windows): max 10 for p ≤ 10⁶
+  (p = 545 449), max 17 for p ≤ 10⁷ (p = 7 581 841); histogram 0: 44 %, 1: 22 %, 2: 20 %, 3–5: 12 %, ≥ 6: 1.8 %.
+  The odd-order witness alone (K-odd windows) has a heavy tail (up to 186), as predicted by the Landau heuristic of
+  Prop 2.3. So the exact cap at forced windows is almost always 0 or 1, while every discrete-log-free witness drifts
+  upward: the gap is the short-relation lottery among the primes of K (§4, z12_grh_lattice_gap).
