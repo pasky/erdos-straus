@@ -190,11 +190,12 @@ need an input of a different kind (Assessment, not a theorem).
 
 `scripts/z22_forced_caps.py N Q0 EMAX KFIRST VER 1` — Mordell-hard primes (p mod 840 ∈ {1, 121, 169, 289, 361, 529},
 all ≡ 1 (8)); prime windows q ≡ 3 (4), q ≤ Q₀ = 1000; for each p the first KFIRST = 10 forced windows ((q/p) = −1) and
-all unforced ones; exact Lemma-3.1 caps up to EMAX = 3 (δ_p included); 300 solutions rebuilt per run with exact
-rationals against Def 1.1 (`z22_common.verify`). Outputs `data/z22/forced_caps_hard_1e6.txt`, `…_1e7.txt` (5 min).
+all unforced ones; exact Lemma-3.1 caps up to EMAX = 3 (δ_p included); the first 300 exact forced-window
+certificates of each run are rebuilt as solutions and checked with exact rationals against Def 1.1 (`z22_common.verify`;
+the explicit-witness caps below are computed, not rebuilt). Outputs `data/z22/forced_caps_hard_1e6.txt`, `…_1e7.txt` (5 min).
 * p ≤ 10⁷ (20 513 hard primes): **cap-0 rate 0.551 at forced windows vs 0.127 at unforced ones** (cap ≤ 1: 0.745 vs
-  0.200); per q-bin [0,100), [100,200), [200,300): 0.684/0.317, 0.396/0.166, 0.274/0.127 — forcing roughly doubles the hit
-  rate at equal q (the aggregate ratio 4.3 is inflated because only the first 10 forced windows, i.e. small q, enter),
+  0.200); per q-bin [0,100), [100,200), [200,300): 0.684/0.317, 0.396/0.166, 0.274/0.127 — within these 100-wide bins forcing roughly
+  doubles the hit rate (the aggregate ratio 4.3 is inflated because only the first 10 forced windows, i.e. small q, enter),
   and both decay with q (the lottery of §4: |Box|/q).
 * Cap at the least forced window: 0 for 85.7 %, 1 for 10.3 %, 2 for 1.1 %, 3 for 0.4 %, > 3 for 2.4 %.
 * Every hard p ≤ 10⁷ has cap 0 at one of its first 10 forced windows except 3361, 2 782 921, 7 071 121, 8 925 841;
@@ -203,8 +204,9 @@ rationals against Def 1.1 (`z22_common.verify`). Outputs `data/z22/forced_caps_h
 * **Explicit witnesses** (CAP_DOWN Prop 1.3 and Prop 2.3, min over the first 10 forced windows): max 10 for p ≤ 10⁶
   (p = 545 449), max 17 for p ≤ 10⁷ (p = 7 581 841); histogram 0: 44 %, 1: 22 %, 2: 20 %, 3–5: 12 %, ≥ 6: 1.8 %.
   The odd-order witness alone (K-odd windows) has a heavy tail (up to 186), as predicted by the Landau heuristic of
-  Prop 2.3. So the exact cap at forced windows is almost always 0 or 1, while every discrete-log-free witness drifts
-  upward: the gap is the short-relation lottery among the primes of K (§4, z12_grh_lattice_gap).
+  Prop 2.3. So the exact cap at forced windows is almost always 0 or 1, while the two tested discrete-log-free witnesses
+  attain larger observed maxima as p grows (10 → 17): the gap is the short-relation lottery among the primes of K
+  (§4, z12_grh_lattice_gap).
 
 ## 6. Verdict (O250 checkpoint 1)
 
@@ -212,16 +214,17 @@ None of (A), (B), (C) was reached pointwise. What was obtained:
 1. **Lemma 1.1 / Cor 1.2 (PROVED):** Jacobi transfer (s/m) = (s/p) for every prime s | K_m — the parity law of all
    window certificates (Lemma 3.1 family, δ_p included).
 2. **Thm 1.3 (CONDITIONAL on Dickson):** for every M, infinitely many primes have no window certificate with m ≤ M at
-   ANY cap (e = ∞ included): bounded windows are useless for bounded caps; checked on explicit p (M = 11, 19).
-3. **Prop 2.1 / Cor 2.2 (PROVED):** the self-generated (uniform) certificates are classified; for p ≡ 1 (8) none is
-   congruence-forced (each needs a prime factor ≡ 3 (4) of an N ≡ 1 (4), or the wrong class mod 8).
+   ANY cap (e = ∞ included): no finite window menu covers every prime (scope: p ∤ x); checked on explicit p (M = 11, 19).
+3. **Prop 2.1 / Cor 2.2 (PROVED):** the self-generated (uniform) certificates are classified; for p ≡ 1 (8), p mod 8
+   alone forces none (each needs a prime factor ≡ 3 (4) of an N ≡ 1 (4), or a class 7 (8) divisor of an N ≡ 3 (8));
+   congruence forcing happens only via fixed small primes of N, i.e. classical classes (R-O250 review fix).
    **Prop 2.3 (PROVED):** the odd-order witness — at a forced window the cap is ≤ (o − 1)/2·max v_s(K) with o the
    odd order of p/4, independent of the window size; a bounded cap would follow from the Landau-type (U), which is
    expected to fail i.o.
 4. **Thm 3.2 (PROVED rel. the large sieve):** e*(p) ≤ (log p)^A/4 outside X^{2/A+o(1)} primes, and e*(p) ≤ p^ε
    outside ≪_ε (log X)^{⌈4/ε⌉} primes, with explicit Chebotarev exceptional sets 𝒫(y).
-5. **§4 (Assessment):** the precise missing input for (C)/(A) via many generators is Diophantine genericity of discrete
-   logarithms of small primes modulo the window — not a Frobenius statement, hence out of reach of GRH/Chebotarev.
-6. **§5 (EVIDENCE):** forced windows carry the caps (cap-0 rate ≈ 2× unforced at equal q); every Mordell-hard
+5. **§4 (Assessment):** the natural sufficient input for (C)/(A) via many generators is Diophantine genericity of
+   discrete logarithms of the generators modulo the window — not a Frobenius statement; we see no GRH/Chebotarev route.
+6. **§5 (EVIDENCE):** forced windows carry the caps (cap-0 rate ≈ 2× unforced within 100-wide q-bins); every Mordell-hard
    p ≤ 10⁷ has cap 0 at one of its first 20 forced prime windows; explicit witnesses grow (max 17 to 10⁷).
 ES is untouched, and no infinite case of ES is claimed.
