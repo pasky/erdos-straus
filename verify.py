@@ -26367,4 +26367,33 @@ def check_gu():
 check_gu()
 
 
+def check_gv():
+    # (gv) LATTICE_MEETING (O251/R262): R262 from scratch — p = 3361 has exactly two Type II solutions and all four slices
+    # (1159, 33639, 99, 679) are non-split (-3361 a non-square), so no Type II solution lies on a slice lattice of
+    # Z[sqrt(-p)] (CERTIFIED); the meeting locus M(p) = {(a, g) : g | p + 4a^2, g = -1 (4a)} is empty for exactly 99
+    # primes p = 1 (4) <= 10^6 (all = 1 mod 12) and for no odd square (T1).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("LATTICE_MEETING subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r262_3361.py"])
+    assert "p = 3361 #unordered Type II solutions: 2" in out and out.count("-p sq? False") == 4, out[-2000:]
+    out = run(["review_r262_meet.py", "1000000"])
+    assert "primes p=1(4) <= 1000000 : 39175  empty M(p): 99" in out and "all = 1 mod 12: True" in out, out[-2000:]
+    assert "odd squares c^2 <= 1000000 with nonempty locus: []" in out, out[-2000:]
+    print(f"== (gv) LATTICE_MEETING R262: 3361 Type II invisible to slice lattices; meeting locus empty for 99 primes "
+          f"<= 1e6; T1; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gv()
+
+
 print("\nall checks passed")
