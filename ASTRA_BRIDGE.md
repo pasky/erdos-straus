@@ -202,13 +202,17 @@ but with the *least* root Q < R/2 instead of the forced subgroup element; this i
 (mod q) with m ∤ ph (infinitely many, Dirichlet), the source is a rational point with y, z ∈ ℤ and den x = m², m prime
 (twist m, "cap 1" without self-muteness).
 (b) *(non-self-mute, small twist — free.)* For any Astra-admissible q, the least-root window shot (Q the even
-representative of a root of −p mod q, halved [A:FORCED_FOLD (3)]) is a point with x, y ∈ ℤ and den z = Q₁²,
-Q₁ ≤ (q−1)/2; so the minimal twist is < q₀(p)/2, q₀(p) := least prime ≡ 3 (4) with (q/p) = −1 (≪_ε p^{1/4+ε}
+representative of a root of −p mod q, halved [A:FORCED_FOLD (3)]; assume gcd(Q, p) = 1, automatic when q < 2p — (O249 self-check: at p = 5, q = 103, Q = 30
+the denominator is 20, not a square) is a point with x, y ∈ ℤ and den z = Q₁²,
+Q₁ ≤ (q−1)/2; so the minimal twist is < q₀(p)/2 whenever q₀(p) < 2p, q₀(p) := least prime ≡ 3 (4) with (q/p) = −1 (≪_ε p^{1/4+ε}
 ineffectively by Pollack IJNT 2014 Thm 1.4 applied to (1 − χ₋₄)(1 − χ_p); ≪ (log p)² under GRH).
 (c) *(self-mute, cap < q — forced.)* CAP_POINTWISE Thm 1.1, CAP_DOWN: e*(p) ≤ (p − 5)/8 etc.
 (d) *(self-mute, bounded cap — open; twist 1 = cap 0 = ES — open.)*
 *Proof.* (a) Lemma 1.3 and gcd(m, sh) = 1 (gcd(m, h) = 1 as m ∤ h; gcd(m, s) = 1 as qs ≡ 1 mod m). (b) FORCED_FOLD
-(3)–(5): Q ≤ (q−1)/2, Q₁ = Q/gcd(Q, K) ≤ Q. ∎
+(3)–(5) (their hypothesis Q < p): Q ≤ (q−1)/2, Q₁ = Q/gcd(Q, K) ≤ Q. ∎
+*Check* (`scripts/z21_phase.py 100000 200`, data/z21_phase_1e5.txt): all 4783 primes p ≡ 1 (4) ≤ 10⁵: q₀ ≤ 71, the
+least-root shot at q₀ is exact with twist ≤ 22; the prime-twist source at q₀ is exact (den x = m², m prime). Over
+admissible q ≤ 200 the least-root twist is 1 (an ES square shot) for 4508 primes, ≤ 9 for all.
 **Reading.** Without self-muteness every *size* question about the twist is trivial (prime twist, twist < q₀/2), so
 Astra's "strict twist decrease" is progress only through its final step (twist 1). With self-muteness the size
 of the twist is free but its *exponents* are forced only up to the order of the subgroup. The two relaxations meet
