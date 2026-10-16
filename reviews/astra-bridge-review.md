@@ -74,3 +74,31 @@ Conventions vs EXPONENT_CAP Prop 1.3 (brief's question): **Astra's q is Claude's
 **s = D** — yes, literally (above); **twist m = 2k** — only as a *coordinate*: on L_ρ an Astra source has denominator M² = m²
 (the twist is the M-coordinate) whereas a Claude shot point has denominator Y² (the twist is the Y-coordinate; 2k is the
 "growing modulus", not a twist). So the two programmes twist *different lattice coordinates*; see m3.
+
+## §4 fixtures — numerics **SOUND**; extraction **incomplete**; the "Reading" is **near-tautological** (m7, m8)
+
+From-scratch `scripts/review_r260_fixtures.py` does its *own* extraction: it regex-scans every Astra *.md for integer
+triples (a, b, c), computes N = 4/(1/a+1/b+1/c) and keeps those with N = p·n², p ≡ 1 (4) prime (no use of the author's
+data). Result: 94 exact triples overall (56 twist-1, 38 twisted). Comparison with the author's 51:
+* all 51 author triples are exact (I confirm); 6 of them are written as equations "4/p = 1/a + …" and so escape my regex
+  (I grep-confirmed each in Astra: SOURCE_SELECTION (9) at 2521, TYPEII_MOMENTS l.127 at 3361, SOURCE_SELECTION l.407 at
+  233689, FORCED_FACTOR l.207 at 193·47², BIRATIONAL (11) at 1129, SOURCE_SELECTION at 3361);
+* **21 exact triples inside the author's own 13 files are missing from the author's "verbatim extraction"**, e.g. 193·5²
+  (1207, 2655400, 7218200) and (1224, 84150, 7218200) [STR], 193·2² (200, 5790, 115800) [STR], 193·3² (696, 1160, 251865)
+  [TWIST_FLOOR_CERTIFICATE_GATEWAY], 2521·11² (94540, 394460, 2883857614) and the 2521 exit (652, 18908, 23833534)
+  [GATEWAY_COMPATIBILITY], 5209·7² (63945, 30309930, 31576885074) [BIRATIONAL], and ES points at p = 13, 73, 281, 349,
+  8353, 8737, 13633 [SOURCE_SELECTION, BIRATIONAL]. So "re-checks every numeric triple" is true of the extraction file only.
+* Spot re-verification against Astra text: 5209 e = 31, H = 40370 = 2·5·11·367, r = 550 = 11·50, 4·550+1 = 31·71 [STR §19.2
+  (70)–(71)] ✓; 15241 exit (3813, 5315322, 871084114): H = 57154, e = 15, r = 15·3813 − 57154 = 41 ✓; 193 e = 7 (H = 338)
+  and Type II w = 7, 15 ✓; borrowing rule (67) quoted correctly in §5.3 ✓.
+* "Only one twisted fixture is a Claude ES^{(y,e)} point (193·5², (1218, 152250, 699625))" — **survives** on my larger set
+  (`scripts/review_r260_capcheck.py`: every other twisted point has an even root, a non-square denominator, two
+  non-integral coordinates, or a radical dividing no integral coordinate).
+* Levels/windows of the twist-1 points in the 13 files on my extraction additionally include Type I e = 11 (p = 13) and
+  e = 23 (p = 73, 13633), and Type II w = 3 (p = 349): the "25 of 30 … e ∈ {3,…,143}, 5 … w ∈ {7,15,39}" census is of the
+  incomplete list; the qualitative "small modulus" observation survives (max level 143 in scope).
+
+**Tautology (m8).** For a prime p every ES solution has p dividing exactly one or two denominators, hence is Type I at
+the level e = (4H − 1)/p (automatically ≡ 3 (4)) or Type II at the window w = 4x − p. So "every Astra exit is a
+classical … ET certificate" is true of *every* ES solution of every prime and carries no information about Astra; only
+the word "small" (an observation on ≈ 30 points) does. Thm 2.1's memorylessness is the real content and is proved.
