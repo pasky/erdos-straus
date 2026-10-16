@@ -78,8 +78,8 @@ and k ranges over divisors of (N𝔤 + 1)/4. So the ES predicate on ideals 𝔤 
 **Corollary 1.5 (the ES predicate on ideals factors through the norm; PROVED).** For a primitive ideal 𝔤 ⊂ ℤ[√−p] with
 N𝔤 = g ≡ 3 (4), gcd(g, 2p) = 1, put E(𝔤) := "some Type II solution has y = p(g+1)/4" (equivalently some ES point
 (2k, √d) on a vertical line of L_ρ(g), Thm 1.4). Then E(𝔤) depends only on g: E(𝔤) ⟺ **∃ k | (g+1)/4, d | k with
-g | 4k²p + d**. In particular E is constant on the 2^{ω(g)−1}·(…) ideals of norm g, which in general lie in several
-ideal classes; no function of the class [𝔤] ∈ Cl(−4p), nor of its ray class modulo any fixed modulus, enters.
+g | 4k²p + d**. In particular E is constant on the primitive ideals of norm g (one per root ρ mod g), which in general lie in
+several ideal classes; no function of the class [𝔤] ∈ Cl(−4p), nor of its ray class modulo any fixed modulus, enters.
 *Proof.* Thm 1.4: d_k = (−4k²p) mod g is root-free, and d_k = d with d | k ≤ h < g ⟺ g | 4k²p + d. ∎
 *Reading.* The class group is not merely "unable to see" the meeting condition (WINDMILL Prop 10.3: classes see only
 the genus shadow); in the slice coordinates the meeting condition **does not involve the class at all**. A
@@ -107,7 +107,7 @@ D := (4k²p + Y²)/g are the positive definite forms [g, 2Y, D] of discriminant 
 point is a Claude point at slice g iff g ≡ −1 (mod 4k), and its partner D ≡ −Y² (mod 4k) is again a Claude slice iff
 Y² ≡ 1 (mod 4k). Hence:
 (a) for k | 6 ((ℤ/4k)^* of exponent 2) *every* reduction move preserves Claude-admissibility, which is then a genus
-condition on the form; ES on the line k is "some *reduced* form [g, 2, D] of disc −16k²p lies in the genus
+condition on the form; ES with d = 1 on the line k is "some *reduced* form [g, 2, D] of disc −16k²p lies in the genus
 g ≡ −1 (4k)" ⟺ 4k²p + 1 has a divisor ≡ −1 (mod 4k) — for k = 1: a prime factor ≡ 3 (mod 4) (B1: fails with
 probability ≍ (log p)^{−1/2} by Landau);
 (b) for k ∤ 6, a reduction move leaves the Claude set unless Y'² ≡ 1 (mod 4k): the walk must use the specific heights,
@@ -115,3 +115,49 @@ i.e. ray-class (mod 4k) information, exactly the escape route of WINDMILL Prop 1
 B2 datum "divisor of 4k²p + d in a class mod 4k".
 Note [g, 2, D] with g ≤ D is already reduced: the ES forms on line k are reduced forms with b = 2, i.e. the
 factorisations of 4k²p + 1; the cap/overflow Y of a Claude point is b/2 of a (not necessarily reduced) form.
+
+## 3. The slots of a meeting point: at most one forced slot (goal 3)
+
+A Type II solution (ET Prop 1.3) is (x, y, z) = (abd, acdp, bcdp) with cp + a + b = 4abcd. It has three *slots*:
+the window m = 4x − p with coordinate x, and the slices g = 4acd − 1, D = 4bcd − 1 with coordinates y/p = acd = h,
+z/p = bcd = h_D. Call a slot (modulus μ, coordinate u) **forced at a prime ℓ | μ** if (u/ℓ) = −1: then, ℓ ≡ 3 (4) being
+prime, the image of u in (ℤ/ℓ)^* has even order and −1 ∈ ⟨u⟩ ⊆ ⟨primes of u⟩ (this is the group step of
+CAP_POINTWISE Thm 1.1).
+
+**Proposition 3.1 (parity budget; PROVED).** (a) Slices are never forced: 4h ≡ 1 (mod g) gives (h/ℓ) = 1 for every
+prime ℓ | g, and likewise for D. (b) The window is forced at ℓ | m exactly when (p/ℓ) = −1 (4x ≡ p mod m). (c) Hence
+a Type II point has at most one forced slot, and the meeting point (2k, 1) of Thm 3.4 — whose slot g is a slice —
+is never forced at g. The same holds at a Type I level e (x = pH, 4H ≡ 1 mod e: ASTRA_BRIDGE Prop 5.1(b)).
+*Proof.* Immediate from the displayed congruences and quadratic characters being multiplicative. ∎
+**Reading (Assessment).** The question "is there a point with two forced slots?" has answer no for structural
+reasons: the slice congruence 4·(coordinate) ≡ 1 is the defining equation of a slice. The only forced slot is the
+window, and Claude's forced results (CAP_POINTWISE, CAP_DOWN) are window results; the meeting needs, in addition, the
+slice event k | h (Thm 3.4) or d_k | k (Thm 1.4), which is +1-parity at every prime of g. A parity mechanism (hatch
+H-B) would have to act on a non-quadratic invariant of the slice (e.g. the 4-rank / Rédei symbol of the slice
+lattice), where WINDMILL Prop 10.3 and Cor 1.5 already show the class carries no information about the meeting.
+
+## 4. Numerics: the class-group walk is free; existence is everything (goal 4)
+
+Since E(𝔤) depends only on N𝔤 (Cor 1.5), "walk to Y = 1" can only mean: on a fixed line k (forms of disc −16k²p,
+§2.3), walk in the class group of the order of conductor 2k from the start class to an **ES class** (a class
+containing a form [g, 2Y, D] with g ≡ −1 (4k), g | 4k²p + d, d | k).
+*Check* (`scripts/z23_cayley.py 3000 40 1,2,3,5`, 5 s; generators: prime forms of norm ℓ ≤ 40, both orientations;
+multi-source BFS from the ES classes, reporting the *worst* start class):
+| line k | primes p ≤ 3000 | mean #classes | lines with **no** ES class | worst-start distance to an ES class (when one exists) |
+|---|---|---|---|---|
+| 1 | 211 | 55.5 | 55 | ≤ 4 (1: 32, 2: 94, 3: 28, 4: 2) |
+| 2 | 211 | 111.0 | 72 | ≤ 8 (mostly 2–3; 3 cases with an unreached remainder) |
+| 3 | 211 | 144.6 | 109 | ≤ 6 (2 cases with an unreached remainder) |
+| 5 | 211 | 268.6 | 153 | ≤ 5 |
+("Unreached remainder": the composition routine skips a step when the class's first and last coefficients both
+share ℓ; a code limitation, not a mathematical statement.) T1: odd squares c² ≤ 3000 — no ES class on any tested
+line, as Cor 1.2(a) proves. The Gauss-reduction "descent" of §2.3 is trivial in practice: from the least-root window
+shot (`scripts/z23_descent.py 20000 1000`) every starting form [g₀, 2Y, D] was already reduced (1565/1565 lines,
+p ≤ 2·10⁴), so reduction moves nothing; 629 of them were ES at the start.
+**Reading.** When an ES class exists on a line, it is a few generator steps from *every* class — as it must be:
+class-group Cayley graphs with generators of norm ≤ (log |Δ|)^{2+ε} are expanders under GRH (Jao–Miller–Venkatesan,
+J. Number Theory 129 (2009) 1491–1504), so any nonempty target set is reached in O(log |Δ|) steps. Hence "Y = 1 within
+O(log p) moves" is **equivalent** (on GRH, line by line) to "the line carries an ES class", i.e. to the B2 event
+"4k²p + d has a divisor ≡ −1 (mod 4k) for some d | k". On the d = 1 locus of Cl(−4p) this fails for all k at the 99
+certified primes of §1; per line it fails with frequency 26 % (k = 1) … 73 % (k = 5) at p ≤ 3000.
+The walk contributes reachability, never existence.
