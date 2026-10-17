@@ -180,7 +180,7 @@ Prop 4.1), so W pins the covering scale between (log₂p)^{1−o(1)} and (log₂
 
 **Proposition 4.5 (cap 0 at a forced window in lattice form; PROVED).** Let q be a forced window, S := primes of K,
 Λ_± := {δ ∈ ℤ^S : ∏ s^{δ_s} ≡ ±1 (mod q)} ⊃ Λ_+ := {δ : ∏ s^{δ_s} ≡ 1} (index 2 by forcing). Then cap(q) = 0 ⟺ the box
-∏[−b_s, b_s] meets the odd coset Λ_± ∖ Λ_+. det Λ_+ = |⟨S⟩| ≥ … and if τ(K²) < |⟨S⟩|/2 the box is smaller than a fundamental
+∏[−b_s, b_s] meets the odd coset Λ_± ∖ Λ_+. det Λ_+ = |⟨S mod q⟩| and det Λ_± = |⟨S mod q⟩|/2; if τ(K²) < |⟨S mod q⟩|/2 the box is smaller than a fundamental
 domain of Λ_±, so a hit is an atypically short vector in a prescribed coset (an inhomogeneous "shortcut").
 *Proof.* Definitions (cap-0 certificate = δ in the box with ∏ s^δ ≡ −1). ∎
 *Reading (Assessment).* Beyond the covering threshold, cap 0 is a closest-vector event of probability ≈ τ(K²)/q per window
