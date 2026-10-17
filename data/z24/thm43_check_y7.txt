@@ -1,0 +1,1 @@
+y 7 P 105 hard p <= 300000 windows found 765 certificates verified exactly 765 max cap 22 at (217081, 12659, 57435, {3: 1, 5: 1, 7: 1, 547: 1}, (5, 23, 21))
