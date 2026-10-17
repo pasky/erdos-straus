@@ -518,3 +518,13 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z23_parity_budget | two forced slots | slices/levels never forced (4h ≡ 1); ≤ 1 forced slot per point | PROVED (negative) |
 | z23_expander_walk | how far is an ES class | ≤ 4–8 steps when it exists (expander, JMV 2009): walk adds reachability only | EVIDENCE |
 | z23_biquadratic_height | all ET d at once in ℚ(√−p, √d) | reciprocity could only correlate failures (B2/B5) | CONJECTURE-level spark |
+
+### z28 — O257 non-congruential lifts + numerator-model laboratory (deep file NONCONG_LIFTS.md)
+| memo | idea | outcome | label |
+|---|---|---|---|
+| z28_slice_vs_witness_level | classify lifts by the level they read | slice-level ⟹ O253 Cor 3.3; polynomial ⟹ Schinzel collapse; only witness-level (size-dependent modulus) escapes = B2 | PROVED |
+| z28_espectrum_share | lifts sharing the source's factored number | exactly 4 share relations; validity ⟺ (θ, e) ∈ Spec(p): only the e-value is transported | PROVED (negative) |
+| z28_complete_levels | levels where visibility suffices | k = 4: 7-smooth rule (CERTIFIED ≤ 6000); k = 8, 12: none ≤ 400k; **Thm 2.6: x_{ℓ,2} uncovered for all 4 ∣ k ≥ 8, for k = 4 iff ℓ ∉ {3, 5}** ⟹ no complete level through ℓ ≡ ±3 (8) | PROVED + CERTIFIED |
+| z28_matched_profile | sources sharing p's non-residue primes | Lemma: B-smooth witnesses become visible; 0/1347 sources total at Mordell primes ≤ 10⁵; false in k = 8, 12, 16 models | PROVED + CERTIFIED (negative) |
+| z28_size_information | do source sizes inform p's divisor events? | permutation test: no signal beyond size | EVIDENCE (negative) |
+| z28_lottery_margin | exact E_k to 10⁸, f_k/log³ | exceptions where expected count is O(1); k = 4 margin ×2 (mean), ×6 (min); screen refutes only threshold-free laws | EVIDENCE |

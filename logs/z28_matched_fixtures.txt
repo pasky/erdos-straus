@@ -1,0 +1,10 @@
+p=97 k=4 B=7 W=600 |W(p)|=8 sources=4 witnesses=68 visible=57 det=43 share=0 | sources with >=1 det=4 total=0 vis-sufficient=0
+   73(+24):5/6/7 313(-216):16/20/21 433(-336):13/17/22 577(-480):9/14/18
+p=193 k=4 B=7 W=600 |W(p)|=6 sources=3 witnesses=60 visible=49 det=30 share=0 | sources with >=1 det=3 total=0 vis-sufficient=0
+   337(-144):10/18/22 457(-264):12/18/20 673(-480):8/13/18
+p=313 k=4 B=7 W=600 |W(p)|=21 sources=4 witnesses=55 visible=43 det=24 share=0 | sources with >=1 det=4 total=0 vis-sufficient=1
+   73(+240):6/6/7 97(+216):3/6/8 433(-120):7/16/22 577(-264):8/15/18
+p=3361 k=4 B=7 W=600 |W(p)|=15 sources=3 witnesses=89 visible=66 det=18 share=0 | sources with >=1 det=3 total=0 vis-sufficient=0
+   3049(+312):3/22/29 3529(-168):9/25/30 3889(-528):6/19/30
+p=5209 k=4 B=7 W=600 |W(p)|=36 sources=2 witnesses=63 visible=39 det=4 share=0 | sources with >=1 det=1 total=0 vis-sufficient=0
+   4729(+480):0/20/33 5569(-360):4/19/30
