@@ -153,3 +153,32 @@ Otherwise the remark's list of averaged results (Garaev–Karatsuba, KSWX §3.3,
 reading of the sources checked in Claim 1. Also not mentioned but harmless: Burgess (fixed modulus, averaging over a
 free short interval) — it is used implicitly via E3 (least QNR).
 
+## Claim 8 — Verdict, "gap = p^{1/2}": **SOUND-AFTER-REPAIRS** (verdict stands; the quantitative headline is mis-framed)
+
+The qualitative verdict (H-B not feasible with known inputs; SHARP: none; Assessment label) is supported by
+Claims 1–7 and I agree with it. Problems with the *numbers* attached to it:
+
+**MAJOR-3 (the p^{1/2} is not the best known pointwise error for (★), and is not derived as an error for (★)).**
+(a) (u,B,C) ↦ (x,y,z) = (uBC, pBC, puC) is an injective map into Type II solutions of 4/p = 1/x + 1/y + 1/z
+(check: 4/p − 1/(uBC) = (u+B)/(p·uBC)); hence R(p) ≤ f_II(p) ≪ p^{2/5+O(1/log log p)} (Elsholtz–Tao Prop 1.7,
+verified in the local PDF) and therefore, with no cancellation at all,
+  |E(p)| = |R(p) − M(p)| ≪ p^{2/5+o(1)}.
+So the "best known pointwise error scale" for (★) is already p^{2/5+o(1)}, *smaller* than the Weil scale
+p^{1/2+o(1)} that §2 ("Answer…") and Verdict (ii) present as the closest pointwise estimate. (Even the naive bound
+R ≤ 2Σ_{u ≤ √p/2+1} τ(p+u) gives p^{1/2+o(1)}, i.e. the "Weil gap" is no better than counting divisors.)
+(b) No derivation is given (here or, as far as I can see, in (J)6 §3.4) that Thm 13 yields |E(p)| ≪ p^{1/2+o(1)}:
+(★) is not a box count on 𝓗; splitting by height C produces ≍ p sub-counts, each with Weil error p^{1/2}. The
+p^{1/2} is the error of a *single box count* on 𝓗 — a benchmark of the method, not a bound for E(p).
+Repair: in §2 (Assessment 2.2, ledger row 1, "Answer…") and Verdict (ii) replace "error ≍ p^{1/2} against
+(log p)²" by: "the best known pointwise bound is |E(p)| ≪ p^{2/5+o(1)}, from the divisor bound (ET Prop 1.7) with
+no cancellation; the best class-aware *cancellation* tool, Weil on 𝓗, has error p^{1/2+o(1)} even for a single box
+and does not by itself bound E(p). Either way the shortfall is a power of p." Also: "≍ p^{1/2}" with a
+p^{o(1)} error should read p^{1/2+o(1)} (§2 Answer, Verdict (ii); minor m11).
+
+**Minor (m12).** Verdict (iii) "for complete-sum methods the restricted events are no easier than (★) (Lemma 2.1)"
+— Lemma 2.1 only shows the (u,C) trial set stays ≍ p log U; restate as "in the (u,C)/(u,B) parametrisation" (cf.
+m3).
+Checked and fine: §3 item 2 (p = 173, q = 7, K = 45: 5·9⁻¹ ≡ −1 (mod 7), no divisor ≡ 6 ✓; the "(q−1)/2"
+obstruction ✓; Ω(K_q) ≤ log₃ p, so the stated log₂ is safe); Remark 5.1 ((u/p) = +1 for u ≤ 7 when p ≡ 1 (840) ✓;
+CONJECTURE label ✓); Graham–Ringrose/Montgomery are correctly flagged "from memory".
+
