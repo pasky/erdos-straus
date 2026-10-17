@@ -14,9 +14,9 @@ Serre 1981, Schinzel 1977: citation checks below are from the reviewer's knowled
 | Cor 1.4 | SOUND-AFTER-REPAIRS | (a), (c) correct; (b) is an "⟺ up to k^{O(1)}" whose two directions carry different constants (D3) |
 | Prop 2.1 | SOUND | (a) re-derived (Frob_𝔔 ∈ Gal(K_m/ℚ(ζ_m)) ↪ Hom(⟨S⟩, μ_m); conjugation by σ_u gives b ↦ ub; ψ^m = 1 ⟺ ψ = χ_m^j\|_{U_q}, θ_s = 2jb_s/m since m odd). (b) b = a mod m checked numerically (40 q, all m \| N, m < 200: 0 mismatches). Scope can be widened (D4) |
 | Prop 2.2 | SOUND (honestly scoped) | proof complete; the fake has L′_min = N₂ − 1 exactly in 12/12 real-q tests (data/review_r269/prop22_fake.txt; L_true ≈ 20). It is an information statement about abstract vectors and is labelled as such; it is not a barrier for statistical arguments (the text says so). D4, D5 |
-| Assessment 2.3 | SOUND as Assessment | the |C|-linear GRH error is not the only available form; the conclusion survives the refined forms, but for a different reason (D6) |
+| Assessment 2.3 | SOUND as Assessment | the \|C\|-linear GRH error is not the only available form; the conclusion survives the refined forms, but for a different reason (D6) |
 | Prop 2.4 | SOUND | trivial; (b) duplicates 2.1(c) |
-| Lemma 2.5 | SOUND | degree 2φ(lcm(8P,ℓ))ℓ^k re-derived; |C| ≤ 1 and C is a (central) conjugacy class; Serre's Thm 4 form (|C|/|G|)(log d + n log x)√x = |C|√x(log d/n + log x) and Prop 6 (log d/n ≤ Σ_ram log r + log n) quoted correctly (from memory; PDFs not in sources/). Densities match numerically (D7) |
+| Lemma 2.5 | SOUND | degree 2φ(lcm(8P,ℓ))ℓ^k re-derived; \|C\| ≤ 1 and C is a (central) conjugacy class; Serre's Thm 4 form (\|C\|/|G|)(log d + n log x)√x = \|C\|√x(log d/n + log x) and Prop 6 (log d/n ≤ Σ_ram log r + log n) quoted correctly (from memory; PDFs not in sources/). Densities match numerically (D7) |
 
 ## Defects
 
@@ -58,7 +58,7 @@ H with H ∩ C ≠ ∅; Bellaïche, "Théorème de Chebotarev et complexité de 
 the Littlewood complexity λ(1_C)). For the Kummer part (abelian over ℚ(ζ_m)) λ(1_C) is at most the Fourier ℓ¹-norm of a union
 of φ(m) ℓ¹-balls of radius εm in (ℤ/m)^k, ≲ φ(m)(c log(2εm + 2))^k — far smaller than |C| ≈ φ(m)(2εm)^k/k!. The conclusion
 "GRH in the class controls little beyond the index condition" nevertheless survives at the §4 parameters, because
-(c log M)^k = exp(k log(c log M)) with k ≍ y/log y, y = log₂p·log₃p, M ≥ 1/ε ≥ y, is ≥ exp((1 + o(1))log₂p·log₄p/1) ≫ log p
+(c log M)^k = exp(k log(c log M)) with k ≍ y/log y, y = log₂p·log₃p, M ≥ 1/ε ≥ y, is ≈ exp(log₂p·log₄p) ≫ log p
 (and the balance-deciding orders are ≍ N in any case, §6). *Repair:* add one sentence acknowledging the refined error terms and
 this computation; otherwise the "(log p)^{O(1)} bad elements" heuristic looks like an artefact of the crude form.
 
