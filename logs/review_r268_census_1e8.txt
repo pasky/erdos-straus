@@ -1,0 +1,7 @@
+N=100000000: primes p=1(4) <= N: 2880504
+sieve done 4s
+b1 residual after sieve: 24; c1 residual: 501
+b1 FAILURES: [193, 2521, 66529]
+c1 FAILURES: [409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321, 1134241, 1724209, 1726201, 5212561, 8813281]
+intersection: []
+total 13s

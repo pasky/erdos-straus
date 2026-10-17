@@ -1,0 +1,15 @@
+n = 9 Type II eq. solutions (any gcd): 0
+n = 25 Type II eq. solutions (any gcd): 0
+n = 49 Type II eq. solutions (any gcd): 0
+n = 81 Type II eq. solutions (any gcd): 0
+n = 121 Type II eq. solutions (any gcd): 0
+n = 169 Type II eq. solutions (any gcd): 0
+n = 225 Type II eq. solutions (any gcd): 0
+n = 289 Type II eq. solutions (any gcd): 0
+n = 361 Type II eq. solutions (any gcd): 0
+n = 441 Type II eq. solutions (any gcd): 0
+n = 529 Type II eq. solutions (any gcd): 0
+n = 625 Type II eq. solutions (any gcd): 0
+n = 729 Type II eq. solutions (any gcd): 0
+n = 841 Type II eq. solutions (any gcd): 0
+Prop 1.4: primes 5..219: MP(p) != image: 0 ; image points with x >= y: 747 of 1449

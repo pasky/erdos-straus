@@ -1,0 +1,14 @@
+k=4 l=3: non-residues [2]; covered [2]; r=2 covered: True
+k=4 l=5: non-residues [2, 3]; covered [2, 3]; r=2 covered: True
+k=4 l=7: non-residues [3, 5, 6]; covered [3, 5, 6]; r=2 covered: False
+k=4 l=11: non-residues [2, 6, 7, 8, 10]; covered [7, 8, 10]; r=2 covered: False
+k=4 l=13: non-residues [2, 5, 6, 7, 8, 11]; covered [6, 11]; r=2 covered: False
+k=4 l=17: non-residues [3, 5, 6, 7, 10, 11, 12, 14]; covered [10, 11, 12, 14]; r=2 covered: False
+k=4 l=19: non-residues [2, 3, 8, 10, 12, 13, 14, 15, 18]; covered [8, 12, 18]; r=2 covered: False
+k=8 l=3: non-residues [2]; covered []; r=2 covered: False
+k=8 l=5: non-residues [2, 3]; covered []; r=2 covered: False
+k=8 l=7: non-residues [3, 5, 6]; covered [6]; r=2 covered: False
+k=8 l=11: non-residues [2, 6, 7, 8, 10]; covered []; r=2 covered: False
+k=8 l=13: non-residues [2, 5, 6, 7, 8, 11]; covered [6, 11]; r=2 covered: False
+k=8 l=17: non-residues [3, 5, 6, 7, 10, 11, 12, 14]; covered []; r=2 covered: False
+k=8 l=19: non-residues [2, 3, 8, 10, 12, 13, 14, 15, 18]; covered []; r=2 covered: False

@@ -1,0 +1,1 @@
+support-1 (a prime) failures <=1e6 (excl. the 3 b=1 failures): 749 ; D-form prime-w failures: 120 ; max least t: (14930, 297889)

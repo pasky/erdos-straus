@@ -1,0 +1,34 @@
+  b1 fails at n = 9 composite
+  b1 fails at n = 25 composite
+  b1 fails at n = 33 composite
+  b1 fails at n = 49 composite
+  b1 fails at n = 81 composite
+  b1 fails at n = 105 composite
+  b1 fails at n = 121 composite
+  b1 fails at n = 145 composite
+  b1 fails at n = 169 composite
+  b1 fails at n = 193 prime
+  b1 fails at n = 225 composite
+  b1 fails at n = 289 composite
+(1) triple-loop vs t-form existence mismatches n<300: 0
+(2) n = 193 b1 (c,d)-enum count: 0  t-form count: 0
+(2) n = 2521 b1 (c,d)-enum count: 0  t-form count: 0
+(2) n = 66529 b1 (c,d)-enum count: 0  t-form count: 0
+(2) n = 197 b1 (c,d)-enum count: 5  t-form count: 5
+(2) n = 2549 b1 (c,d)-enum count: 13  t-form count: 13
+(2) n = 66541 b1 (c,d)-enum count: 13  t-form count: 13
+(3) n = 9 b1 count 0 c1 count 0
+(3) n = 25 b1 count 0 c1 count 0
+(3) n = 49 b1 count 0 c1 count 0
+(3) n = 81 b1 count 0 c1 count 0
+(3) n = 121 b1 count 0 c1 count 0
+(3) n = 169 b1 count 0 c1 count 0
+(3) n = 225 b1 count 0 c1 count 0
+(3) n = 289 b1 count 0 c1 count 0
+(3) n = 361 b1 count 0 c1 count 0
+(3) n = 441 b1 count 0 c1 count 0
+(3) n = 529 b1 count 0 c1 count 0
+(3) n = 105 b1 count 0 c1 count 0
+(4) k=8 b1 fails (all primes<8000): 61 ; both fail: 35 [3, 5, 11, 17, 19, 53, 101, 113, 131, 241, 257, 353, 491, 593, 683, 739, 1061, 1129, 1163, 1249, 1283, 1459, 1489, 1601, 2081, 2243, 2521, 2531, 3169, 3221, 3361, 4481, 5281, 5521, 6563]
+    p=1(4) only: b1 fails 39 ; both fail 22 [5, 17, 53, 101, 113, 241, 257, 353, 593, 1061, 1129, 1249, 1489, 1601, 2081, 2521, 3169, 3221, 3361, 4481, 5281, 5521]
+    131 in both: True  241 in both: True

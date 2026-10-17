@@ -1,0 +1,16 @@
+/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0031/scripts/review_r268_perj.py:26: SymPyDeprecationWarning: 
+
+The `sympy.ntheory.residue_ntheory.legendre_symbol` has been moved to `sympy.functions.combinatorial.numbers.legendre_symbol`.
+
+See https://docs.sympy.org/latest/explanation/active-deprecations.html#deprecated-ntheory-symbolic-functions
+for details.
+
+This has been deprecated since SymPy version 1.13. It
+will be removed in a future version of SymPy.
+
+  if legendre_symbol(d % p, p) == -1:
+(1) Lemma 2.2(a): 2075 divisor-form hits p<4000, exceptions 0; (b): 29636 levels (d/p)=-1, exceptions 0
+(2) primes: 39175  failure rates j=1..24: 0.128 0.389 0.474 0.523 0.604 0.691 0.676 0.718 0.765 0.769 0.784 0.815 0.809 0.834 0.853 0.844 0.856 0.878 0.863 0.882 0.898 0.883 0.892 0.907
+    pairwise joint/product: mean 1.0040, max 1.269 at (1, 4), min 0.937
+    all 24 fail: 10; independence prediction 6.57
+(3) odd j>=3 odd-prime support-1 successes: 0

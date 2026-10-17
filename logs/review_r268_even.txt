@@ -1,0 +1,8 @@
+n=131: #sol(4/n)=32, all-even 0, #sol(8/n)=0; solutions of 4/n with ALL denominators odd: 0
+n=241: #sol(4/n)=8, all-even 0, #sol(8/n)=0; solutions of 4/n with ALL denominators odd: 0
+n=17: #sol(4/n)=4, all-even 0, #sol(8/n)=0; solutions of 4/n with ALL denominators odd: 0
+n=11: #sol(4/n)=9, all-even 0, #sol(8/n)=0; solutions of 4/n with ALL denominators odd: 0
+n=113: #sol(4/n)=13, all-even 1, #sol(8/n)=1; solutions of 4/n with ALL denominators odd: 0
+n=193: #sol(4/n)=6, all-even 3, #sol(8/n)=3; solutions of 4/n with ALL denominators odd: 0
+n=233: #sol(4/n)=19, all-even 9, #sol(8/n)=9; solutions of 4/n with ALL denominators odd: 0
+of the 34 k=8 two-line failures (5<=p<8000), 8/p has NO solution at all at 4 : [11, 17, 131, 241]

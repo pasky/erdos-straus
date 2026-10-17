@@ -528,3 +528,17 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z28_matched_profile | sources sharing p's non-residue primes | Lemma: B-smooth witnesses become visible; 0/1347 sources total at Mordell primes ≤ 10⁵; false in k = 8, 12, 16 models | PROVED + CERTIFIED (negative) |
 | z28_size_information | do source sizes inform p's divisor events? | permutation test: no signal beyond size | EVIDENCE (negative) |
 | z28_lottery_margin | exact E_k to 10⁸, f_k/log³ | exceptions where expected count is O(1); k = 4 margin ×2 (mean), ×6 (min); screen refutes only threshold-free laws | EVIDENCE |
+## Synthesis VIII (O258): cross-combinations of wave AA (memos s8_*, deep file SYNTHESIS_SPARKS8.md; not yet triaged)
+
+| memo | idea | result | label |
+|---|---|---|---|
+| s8_mutual_shift_pairs | Type II = pairs x \| cn + y, y \| cn + x with 4c \| N | b = 1 / c = 1 lines = the two 2-adic faces of MP(p); b = 1 duality (Prop 1.3) | PROVED |
+| s8_volume_dfi | DFI Kloosterman fractions at one p | DFI is uniform in a = p; failure is O(1) points per box (completion error ≥ (XY)^{1/2}) | PROVED + Assessment |
+| s8_twisted_hyperbola_thue | Thue/Minkowski on Xε ≡ u (p) | height free, class tied to the height: not a lattice problem | PROVED equivalence + Assessment |
+| s8_b1_line_census | one shift family p + 4d, divisor ≡ −1 (4d) | fails only at 193, 2521, 66529 ≤ 10⁸; b = 1 ∪ c = 1 never fails ≤ 10⁸ | EVIDENCE + CONJECTURE (SHARP) |
+| s8_perj_lottery | per-j failure and cross-j correlation | near-independent (ratio 1.004); large primes private to one j (Lemma 2.3): pigeonhole across j void | PROVED + EVIDENCE |
+| s8_forced_visibility | route lifts through forced windows | (K_q/p) = (q/p); every cap-0 certificate has (uv/p) = −1 — same parity, no totality | PROVED |
+| s8_signed_genus_wall | signed → positive Type I move | d > 0 ⟹ (d/p) = −1, d < 0 ⟹ (\|d\|/p) = +1; no \|d\|-preserving move, no Vieta | PROVED |
+| s8_profinite_proximity | smooth p − 1 = near the T1 point 1 | a few per cent beyond squareness; mostly QR-richness | EVIDENCE (weak) |
+| s8_numerator_two_lines | k = 8 analogue of the two lines | fails at 34 primes < 8000 incl. 131, 241: 4-specific | EVIDENCE |
+| s8_numerator_size_screen | (vi) is the 4-specific step a size inequality? | k-model = ES with (k/4) \| gcd(x, y, z); O257's inequality = 2-adic parity of d; threshold forms are stronger than ES | PROVED (trivial) + Assessment |

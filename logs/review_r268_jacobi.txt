@@ -1,0 +1,3 @@
+Lemma 3.1: windows 13500, (a) exceptions 0; (b) cap-0 certificates (ordered (u,v)) 30996, exceptions 0
+Lemma 4.1 (primes p=1(4)<3000, c<5, 0<|d|<30, gcd(p,cd)=1): 4772 positive, 10787 signed points, exceptions 0
+odd squares: positive points {}  signed points {9: 3, 25: 15, 49: 18, 81: 12, 121: 32, 169: 34, 225: 11, 289: 37, 361: 48, 441: 14}
