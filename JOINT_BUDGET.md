@@ -174,3 +174,69 @@ mod 4ab; hence ord_{4ab}(p) is even (Prop 4.3 is the case k = 1). *Proof.* Lemma
 (ab/p) = (2/p)^{v₂(ab)}(p/odd(ab)) = 1: contradiction. ∎ So the cyclotomic depth k*(p) is always even, and a bounded
 cyclotomic menu C_{≤k₀} is "4ab | p^k − 1 for some even k ≤ k₀" plus the class condition: a divisor event on the fixed
 polynomials p^k − 1.
+
+## 5. The obstruction theorem (exact scope)
+
+**Definition 5.1.** A *joint-factorisation (JF) family* on a set of primes P assigns to p ∈ P an auxiliary vector
+u = u(p) ∈ ℤ^r and a Type I/II point whose ET coordinates are Θ(u, p) for a fixed Θ ∈ ℚ[u, X]⁴ satisfying the ET identity
+on the relation locus. Its *auxiliary relation* is one of:
+(R0) none — u ranges over a congruence/positivity region and the rule only selects u;
+(R1) polynomial: p = φ(u), φ ∈ ℤ[u];
+(R2) reciprocity-guided: u contains a window or level m chosen by prescribed residue symbols (m/p)_ℓ;
+(R3) archimedean / ℚ(√p): windows m with p + m = c·w² or m | A² − pB² (near squares, CF norms of √p, Pell data);
+(R4) divisibility: u | p^k − 1 for some k ≤ k₀ (factors of p ± 1, ord_p(g), Lucas ranks of apparition) — with the
+certificate's class modulus 4ab built from such u.
+
+**Theorem 5.2 (JF trichotomy).** Every JF family is, according to its relation:
+(a) *(R0), and (R1) with a variable of degree 1 and constant coefficient:* a u-indexed union of ET congruence classes; no
+side acquires an algebraic factor depending on p (Theorem A, Cor A.1). Firing at p is the moving-modulus event
+"p mod M(u) ∈ R(u) for some u". [PROVED]
+(b) *(R1), φ* irreducible:* an ET identity in n, missing infinitely many primes of every square class. [PROVED; (J)79 +
+Mordell–Schinzel]. *(R1), r = 1:* density 0. [PROVED] *(R1), φ linear in u_r with non-constant coefficient α(u′):*
+firing ⟺ α(u′) | p − ψ(u′), an unforced divisor event (Prop 2.1(c)). [PROVED reduction]
+(c) *(R2):* the forced information is the image of ⟨primes of K⟩ in H₀/H₀^ℓ (genus/character data); for ℓ = 2 it never
+determines −1 ∈ Σ_m(K) (§4.1), and every bounded window set fails infinitely often [CONDITIONAL on Dickson, (J)83 Thm
+1.3]; structure-free completion needs Ω(K) ≥ (|H₀| − 1)/2 (Prop 3.2, Cor 3.3). [PROVED + CONDITIONAL]
+(d) *(R3):* every window is unforced, (p/m) = +1 when c = 1 (Prop 4.2). [PROVED]
+(e) *(R4):* no class modulus divides p − 1 (or p + 1 when p ≡ 1 (4)) (Prop 4.3); p is a non-square mod every class
+modulus (Remark 4.4); a bounded menu (k₀ fixed) is a bounded witness-producing program and fails for infinitely many
+p ≡ 1 (24) [CONDITIONAL on H, POINTWISE_SIZE Thm C]. [PROVED + CONDITIONAL]
+In the brief's words: every JF family of type (R0)–(R4) is polynomial in n ((b)), genus-detectable ((c), (d), and the
+mod-(p^k − 1) sign of (e)), thin ((b)), or fires only through an unforced divisor event ((a), (b) last case, (e)).
+**Not covered (the residual H-A core):** (R1) with φ* reducible and φ of degree ≥ 2 in every variable; (R4) with k₀
+growing with p; (R2) windows chosen by an unbounded rule *together with* a structured K (the (J)64/(J)66 regime, where the
+cap is proved but cap 0 is the lottery); and any auxiliary not of polynomial, character, archimedean-ℚ(√p) or
+divisibility type (none is known that is canonically attached to every prime).
+
+## 6. Numerics (all re-runnable; outputs in data/z26/)
+
+* `scripts/z26_checks.py` (data/z26/checks.txt; 14 s): (a) Theorem A — sympy factor_list of all seven side shapes for 60
+  random polynomial slice choices in (u₁, u₂): 0 violations. (b) Prop 3.2 — 3000 random (m, K), m prime < 80: (3.1) held
+  in 374, Σ_m(K) = H₀ in all 374 (brute force). (c) Prop 4.2 — 368 689 windows (CF norms of √p and near-square windows
+  w² − p, primes p ≡ 1 (4) < 2·10⁵, hypotheses as stated): all (p/m) = +1. (A first run flagged 5 windows with p | m,
+  outside the hypotheses; the check now enforces gcd(m, p) = 1.) (d) Remark 4.4 — all 3188 Type II points of primes
+  p ≡ 1 (4) < 3000: p is a non-square mod 4ab in every case.
+* `scripts/z26_cyclo_depth.py 300000 hard` (data/z26/cyclo_depth_3e5_hard.txt; 130 s): all 765 Mordell-hard primes
+  (p mod 840 ∈ {1, 121, 169, 289, 361, 529}) ≤ 3·10⁵, all 28 153 Type II points enumerated (window form), each checked
+  exactly against 4/p = 1/(abd) + 1/(acdp) + 1/(bcdp); Prop 4.3 violations 0; odd squares ≤ 3·10⁵ with a Type II point: 0
+  (T1 control). Cyclotomic depth k*(p) = min ord_{4ab}(p): histogram {2: 268, 4: 86, 6: 87, 8: 21, 10: 119, 12: 99, 14: 4,
+  16: 28, 18: 17, 20: 2, 22: 13, 24: 2, 28: 6, 30: 8, 40: 2, 42: 2, > 60: 1} — always even (Remark 4.4) and unbounded in
+  range (p = 210 961 has k* > 60; 296 041 and 80 809 have 42). EVIDENCE that every bounded cyclotomic menu fails, as Thm C
+  predicts under H; at N = 2·10⁴ the maximum was 22.
+
+## 7. The budget, quantified
+
+| setting | window | forced data on K | needed for cap 0 | outcome |
+|---|---|---|---|---|
+| 3·2^s + 1 ((J)74) | m = 11 fixed | K = 3F₊F₋, residues of F± functions of X mod 11 | −1 = product of ≤ 2 blocks | PROVED (thin) |
+| 63·2^s + 1 ((J)80) | moving gap 3Φ₆-type | n + 4a²d = 63(Y+3)(Y²−3Y+9) | gap = cyclotomic factor | PROVED (thin) |
+| general p, (R0)/(R1c) | any | p-free content only (Thm A) | −1 ∈ Σ_m(K) | unforced divisor event |
+| general p, (R2) forced window | (m/p) = −1 | one bit: (K/m) = −1 ⇒ −1 ∈ H₀ | box: Σ 2v_s(K) ≳ |H₀| (Prop 3.2) | cap ≤ (m−3)/4 proved (CAP_DOWN 1.3), cap 0 lottery |
+| general p, congruence-forced F | m ≡ −p (4F) | F with Ω(F) = E | m ≤ F + 1 ⇒ one ET class (Lemma 3.1) | B1 |
+| general p, (R3) | near-square/CF | p + m = c w² | (c/p) = −1 | c = 1: never forced (Prop 4.2) |
+| general p, (R4) | 4ab | p^k ≡ 1 | k even, unbounded (§6) | B2 under H |
+
+The thin families succeed because the window is FIXED while the auxiliary (X, Y) moves: residues of algebraic factors
+mod the fixed window are then functions of the auxiliary, and a covering in the auxiliary closes the family. For
+general p the window must move (any fixed finite window set fails, conditionally), and Theorem A removes all algebraic
+factors; what remains is one character bit (forcing) against a box that needs ≍ |H₀| exponent units.
