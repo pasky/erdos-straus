@@ -71,3 +71,21 @@ saving is a *bilinear* saving over varying moduli n — it is precisely cancella
 moduli, not "at the level of a single S(h, k)". Defect M2.
 **§1.7 table: SOUND-AFTER-REPAIRS** — rows 1, 3, 4 fine as Assessment; row 2 must be rewritten per M2 (fixed a = p is part of
 the obstruction for every box with XY = o(p)). The four-coordinate equivalence itself is sound.
+
+---
+## Claim C — §2.1, Lemma 2.2, Lemma 2.3, per-j statistics
+
+**§2.1: SOUND.** Re-derived: with a = s, c = j, s(4jd − 1) = jp + 1; since jp ≡ j (mod 4j) for p ≡ 1 (4), s ≡ −(j+1) = 3j − 1
+(mod 4j); conversely gcd(3j − 1, 4j) = 1 for j even, so the class pins w ≡ −1 (mod 4j), and w ≥ 4j − 1 ≥ 3 gives d ≥ 1. For odd j,
+3j − 1 is even ⇒ s = 2 ⇒ 4j | 3j − 3 ⇒ j = 1. (So the precise statement: odd prime s forces j even; s = 2 occurs only at j = 1,
+p ≡ 5 (8).) Reviewer data: 0 odd-prime support-1 successes at odd j ∈ [3, 23], all p ≡ 1 (4) ≤ 10⁶.
+**Lemma 2.2: SOUND.** (a) re-derived line by line: (−cp/w) = 1, (−1/w) = −1, (c′/w) = (w/c′)(−1)^{(c′−1)/2} = 1 using w ≡ −1 (c′)
+and (w−1)/2 odd, (2/w) = 1 when 2 | c (w ≡ 7 (8)), reciprocity (w/p) = (p/w) for p ≡ 1 (4); gcd(w, p) = 1 needs gcd(d, p) = 1
+(stated). (b) (−4d/·) is periodic mod 4d (−4d ≡ 0 (4) is a discriminant), and (−4d/p) = (d/p). Burgess exponent 1/(4√e) and
+GRH (Ankeny/Bach ≤ 2 log²p) are correctly quoted. Reviewer check (`scripts/review_r268_perj.py`): 2075 divisor-form hits for p ≡ 1 (4)
+< 4000, all with (w/p) = −1; 29 636 levels with (d/p) = −1, all with χ_{−4d}(p + 4d) = −1.
+**Lemma 2.3: SOUND** (trivial). The p + 4d version holds already for odd ℓ > D (p + 4d is odd), so "ℓ > 4D" is merely weak.
+The "Reading" is an Assessment (unlabelled) — defect m5.
+**Per-j statistics: SOUND (EVIDENCE).** Reviewer's own recomputation (all 39 175 primes p ≡ 1 (4) ≤ 10⁶, j ≤ 24): rates
+0.128, 0.389, 0.474, 0.523, …, 0.907 (identical to 3 decimals); pairwise joint/product mean 1.0040, max 1.269 at (j, j′) = (1, 4),
+min 0.937; all 24 fail at 10 primes vs 6.57 predicted. All match the author.
