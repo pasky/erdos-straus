@@ -522,7 +522,7 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 ### z27 — O256 balanced relation lattices: from Hypothesis W to GRH (deep file BALANCED_LATTICE.md)
 | memo | idea | outcome | label |
 |---|---|---|---|
-| z27_pretentious_dual | dual of the relation lattice = characters; balance ⟺ no ℓ¹-pretentious character on S | Frobenius sees only orders ≤ x^{O(1/k)}; extremal character has order ≍ N (99 %+ divisible by P⁺(N)) | PROVED + EVIDENCE (SHARP) |
+| z27_pretentious_dual | dual of the relation lattice = characters; balance ⟺ no ℓ¹-pretentious character on S | in the class, GRH-Frobenius affords essentially only the index condition; extremal character has order ≍ N (99 %+ divisible by P⁺(N)) | PROVED + EVIDENCE (SHARP) |
 | z27_fejer_blind_count | class-blind count of pretentious primes (Fejér pairs) | ≤ 48(6xε)^{(k+1)/(k−1)} log P/log x; P-loss exact, = CAP_INTERPOLATION 4.2(b) | PROVED |
 | z27_sparsity_hypothesis | weakest replacement of W | GRH + EQ ⇒ (log₂p)^{13/2+o(1)}; GRH + S (p-free, class-free) ⇒ (log₂p)^{9/2+o(1)}; EQ uniform at toy scale | CONDITIONAL + EVIDENCE |
 | z27_small_exponent_windows | composite windows with U_m of tiny exponent | Linnik adversary on the finite menu Q(E): needs E ≥ (log p)^{c log₃p} | PROVED obstruction |

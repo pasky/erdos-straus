@@ -9,7 +9,7 @@ BRAINSTORM/z27_*.md (6); scripts scripts/z27_dual.py, scripts/z27_eqcheck.py; da
    𝔻_min = min_{ψ≠1} Σ_{s∈S} ‖arg ψ(s²)/2π‖. *q is balanced ⟺ no nontrivial character of U_q is ℓ¹-pretentious to 1 on the k
    forced primes at the Minkowski scale N^{−1/k}.*
 2. **The balance-deciding character has order ≍ N, divisible by P⁺(q−1) (EVIDENCE, §6):** in > 99 % of q (k = 3, 4, 5; q ≤ 10⁷),
-   identical to the uniform-discrete-log model; orders in the GRH-visible range ≤ N^{3/(2k+4)}: ≤ 0.07 %. Combined with the
+   identical to the uniform-discrete-log model; orders ≤ N^{3/(2k+4)} (nominal small-order range): ≤ 0.07 %. Combined with the
    **indistinguishability Prop 2.2 (PROVED, abstract-vector form)**: Frobenius data in ℚ(ζ_m, S^{1/m}), m ≤ M, is a function of the discrete logs mod
    the M-smooth part of q − 1, and is compatible, among abstract generating vectors with the same projections, with L_min ≥ (M-rough part) − 1. ⇒ The brief's
    Hooley/Kummer route, as an accounting of Frobenius classes in the class −p mod 8P, certifies essentially only the index

@@ -16,7 +16,8 @@ L_min(q) := least L with W_L := {∏ g_s^{j_s} : 0 ≤ j_s ≤ L} = U_q (FORCED_
 (I1) *Brief's route: certify balance by Frobenius in Kummer fields.* §1 turns balance into a statement about ALL characters of
 U_q (ℓ¹-pretentious distance to 1 on S). §2: Frobenius of q in ℚ(ζ_m, S^{1/m}) sees exactly the characters of order dividing
 m; under GRH (Lagarias–Odlyzko) one certifies "no ε-pretentious character of order ≤ M" for a positive proportion of q in
-the class, but only up to M = x^{O(1/k)}. Barrier: the characters of order ≤ M are a fraction ≤ M²/N of all characters, and
+the class, but (R-O256 repair 4) in the class −p mod 8P it can afford essentially only the index condition (Assessment 2.3,
+Lemma 2.5). Barrier: the characters of order ≤ M are a fraction ≤ M²/N of all characters, and
 the extremal (balance-deciding) character has order ≍ N in practice (§6). Hypothesis violated by the brief's route:
 "imbalance is driven by small-order (index) obstructions".
 
@@ -166,7 +167,7 @@ that for all large x, every y with P := ∏_{3≤s≤y} s ≤ x^{1/2}, every ε 
 `  #{q ∈ (x/2, x] ∩ Bad₁(ε) : q ≡ a (8P)}  ≤  (C/φ(8P))·#{q ∈ (x/2, x] ∩ Bad₁(ε)}  +  x^{1/2}(log x)^A.`
 EQ involves no p: it says that the primes at which some character of large order is ε-pretentious to 1 on S do not
 over-concentrate (beyond a constant factor and a square-root error) in any class modulo the product of S itself. It is an
-*upper-bound* statement (Brun–Titchmarsh/Bombieri–Vinogradov shape at a single modulus ≈ √x), much weaker in form than
+*upper-bound* statement (Brun–Titchmarsh/Bombieri–Vinogradov shape at a single modulus ≈ √x), different in form from (no logical comparison is proved with)
 Hypothesis W (an existence statement in the p-dependent class −p mod P with χ_p(q) = −1, at a near-optimal L).
 
 **Theorem 4.1 (CONDITIONAL on GRH + EQ; PROVED relative to them).** Assume GRH for Dirichlet L-functions and for the Dedekind
@@ -279,6 +280,6 @@ uniformly over compatible discrete-log vectors, certifies L_min below the M-roug
    fraction of characters.
 2. **GRH + one isolated hypothesis does it.** GRH + EQ (no over-concentration of large-order pretentious primes in classes mod
    8P) ⇒ e*(p) ≤ (log₂p)^{13/2+o(1)} (Thm 4.1); GRH + S (a p-free, class-free sparsity statement, the random-model prediction)
-   ⇒ (log₂p)^{9/2+o(1)} (Thm 4.2). Both are strictly weaker in form than Hypothesis W and involve no p. Neither is standard.
+   ⇒ (log₂p)^{9/2+o(1)} (Thm 4.2). Both are alternative sufficient hypotheses to W (no logical comparison proved) and involve no p. Neither is standard.
 3. (i) Almost all p: nothing new (Remark 4.3). (ii) Cap 0: balance is irrelevant (Prop 5.1; B2). (iii) Numerics: §6.
 4. **Bounded/slowly growing cap is not ES**: all statements are at cap ≥ 1; cap 0 is the B2 divisor event.

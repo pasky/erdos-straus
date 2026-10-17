@@ -10,7 +10,7 @@ Lagarias–Odlyzko 1977 (GRH Chebotarev).
 L_min ≥ (M-rough part) − 1). B2/B3/B5/B6: see BALANCED_LATTICE §5 (cap ≥ 1 only; T1-step false at squares).
 **Cheap numerics** (`scripts/z27_dual.py`, data/z27/dual_1e6.txt, dual_1e7.txt; k = 3, 4, 5; q ≤ 10⁶ and q ∈ [9·10⁶, 10⁷]).
 Conditioned on generation (𝔻_min > 0): the extremal character ψ_min has order exactly N in ≈ 75 % of q, order ≥ N^{0.9} in ≈ 87 %, order ≤ N^{1/2} in ≤ 0.3 %, order
-≤ N^{3/(2k+4)} (GRH-visible) in ≤ 0.07 %; P⁺(N) | ord ψ_min in 99.4–100 %. ν = 𝔻_min N^{1/k} quantiles match the uniform-random
+≤ N^{3/(2k+4)} (nominal small-order range) in ≤ 0.07 %; P⁺(N) | ord ψ_min in 99.4–100 %. ν = 𝔻_min N^{1/k} quantiles match the uniform-random
 discrete-log model to two decimals.
 **Assessment.** PROVED dictionary + PROVED (abstract-vector) indistinguishability + EVIDENCE: the balance-deciding character is (almost always)
 of order ≍ N, outside every Kummer field of manageable degree. The brief's Hooley-type route ("imbalance = small-ℓ index
