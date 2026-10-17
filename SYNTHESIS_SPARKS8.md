@@ -198,3 +198,38 @@ signed points live where |d| is a residue (the T1 side; they exist at odd square
 A signed→positive transfer must multiply d by a non-residue *and* produce the divisor in the new class — B2 again, plus the
 "find a non-residue" step, which is cheap (Burgess/GRH) but unhelpful by itself. **Verdict (iv): closed (PROVED obstruction for
 |d|-preserving moves, no Vieta structure).** This makes O254's spark 2 precise and negative.
+
+## 5. Own (v): profinite proximity to the T1 point 1 (EVIDENCE, weak)
+AMPLIFY_EXCEPTION Thm 3.2: p ≡ □ (mod L) ⟹ no ET witness with modulus H | L. Every p is ≡ 1 = 1² (mod p − 1), so p − 1's
+divisors are always invisible moduli. A large smooth part of p − 1 makes p profinitely close to the T1 point 1, not just to
+the square classes. Data: (1) all three b = 1 failures have p − 1 11-smooth (above). (2) p ∈ [10⁴, 4·10⁴]: mean b = 1 / c = 1
+counts 16.0 / 19.3 (11-smooth part S < 50), 13.7 / 16.5 (50 ≤ S < 500), 11.3 / 14.5 (S ≥ 500). Most of this is the known
+QR-richness effect (s7_lvalue_proxy). (3) A controlled test inside the six Mordell square classes mod 840, p ∈ [10⁶, 3·10⁶],
+≈ 700 primes each: class 1 has mean b = 1 count 19.63 against 20.25–20.89 for the other five square classes (≈ 3 standard errors
+below their mean), and c = 1 count 23.53 against 23.96–25.10. So proximity to 1 itself, beyond squareness, costs a few
+per cent. Label: EVIDENCE (weak); no mechanism claimed.
+
+## 6. Verdict (O258 checkpoint 1)
+* (i) Least residue × height-dependent target: one statement in four coordinates (Props 1.2–1.5). Each candidate tool fails at
+  an identified hypothesis (§1.7 table). DFI is uniform in a = p; the binding obstruction is the O(1)-per-box volume (Lemma 1.6),
+  not the fixed numerator. No route.
+* (ii) Support-1 lottery = b = 1 line. Exact duality (Prop 1.3), visibility and forced levels (Lemma 2.2), privacy of large
+  primes across j (Lemma 2.3: pigeonhole across j is void). **SHARP (EVIDENCE + CONJECTURE): the b = 1 line fails at exactly
+  three primes ≤ 10⁸ (193, 2521, 66529), and b = 1 ∪ c = 1 never fails ≤ 10⁸.** No deterministic mechanism. Any mechanism must be
+  4-specific (the k = 8 analogue fails at 131, 241, …) and must use primality (105 fails).
+* (iii) Forced windows and the T1-adversary channel are the same Legendre parity (Lemma 3.1). Routing lifts through forced
+  windows adds no totality.
+* (iv) Positivity is the genus wall (Lemma 4.1). |d|-preserving signed→positive moves are impossible, and there is no Vieta
+  structure.
+* Overall: no ES progress. Genuine new content: Prop 1.3 (the b = 1 duality), Lemma 2.3, Lemma 3.1(b), Lemma 4.1 in this
+  packaging (classical in substance — ET Prop 1.6 / (J)52 — but it closes (iv) cleanly), and the b = 1 census.
+
+## 7. Sparks (not pursued)
+1. **Why is b = 1 so much more robust than (★)?** Both are "p + t has a divisor ≡ −1 (mod T)" with (t, T) = (4d, 4d) and
+   (j, 4j). In the b = 1 case the forced levels are exactly the non-residues d of p (Lemma 2.2(b)), a p-global set; for (★) the
+   parity at level j is a congruence on p mod j. A precise variance comparison of the two counts could explain the gap.
+2. A 2-adic random model on MP(p) (§1 reading): b = 1 ∪ c = 1 fails iff every pair with an even coordinate has v₂(x) = 1 and
+   v₂(N) ≤ 1. Do the "v₂(N) = 1" near-misses carry Type I or other-type solutions? An exact identity there would add a third
+   line.
+3. Extend the b = 1 census beyond 10⁸ with a segmented sieve, and test smooth-(p − 1) primes up to 10¹⁵ directly with bounded
+   windows (cheap: about 10⁵ such primes).
