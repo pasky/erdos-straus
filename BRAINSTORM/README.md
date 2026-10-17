@@ -532,3 +532,4 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | s8_signed_genus_wall | signed → positive Type I move | d > 0 ⟹ (d/p) = −1, d < 0 ⟹ (\|d\|/p) = +1; no \|d\|-preserving move, no Vieta | PROVED |
 | s8_profinite_proximity | smooth p − 1 = near the T1 point 1 | a few per cent beyond squareness; mostly QR-richness | EVIDENCE (weak) |
 | s8_numerator_two_lines | k = 8 analogue of the two lines | fails at 34 primes < 8000 incl. 131, 241: 4-specific | EVIDENCE |
+| s8_numerator_size_screen | (vi) is the 4-specific step a size inequality? | k-model = ES with (k/4) \| gcd(x, y, z); O257's inequality = 2-adic parity of d; threshold forms are stronger than ES | PROVED (trivial) + Assessment |

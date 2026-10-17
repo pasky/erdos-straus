@@ -28,6 +28,11 @@ about the lottery margin. It will not yield a proof.
   witnesses). Closed.
 * (iv) Lemma 4.1 (PROVED; classical in substance, the Type I form of (J)52's three-bit law): d > 0 ⟹ (d/p) = −1, d < 0 ⟹
   (|d|/p) = +1. No |d|-preserving signed→positive move; no Vieta structure (linear in each variable). Closed.
+* (vi) (parent's extra item; memo s8_numerator_size_screen, §8): for 4 | k, k/n is ES restricted to solutions with
+  (k/4) | gcd(x, y, z) (k-witnesses = 4-witnesses with (k/4) | d). O257's size inequality at x_{ℓ,2} = local condition at the
+  primes of k + the k-free bound e ≤ a + b; 2-adically, the surviving Mordell witness has d a 2-adic unit. So it is the same
+  step as (J)57's bit law: "d may be odd". Threshold-form k-uniform proofs are stronger than ES. A proof must spend the step on
+  v₂(d); at 131, 241 every solution of 4/p has an odd denominator. Not sharp.
 * (v) Profinite proximity to 1 (smooth p − 1): weak EVIDENCE of a few per cent beyond squareness.
 
 ## Labels / caveats for the reviewer

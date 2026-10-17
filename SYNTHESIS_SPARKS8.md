@@ -233,3 +233,18 @@ per cent. Label: EVIDENCE (weak); no mechanism claimed.
    line.
 3. Extend the b = 1 census beyond 10⁸ with a segmented sieve, and test smooth-(p − 1) primes up to 10¹⁵ directly with bounded
    windows (cheap: about 10⁵ such primes).
+
+## 8. Mandatory (vi) (added by the parent): is the 4-specific step a numerator-size inequality? (memo s8_numerator_size_screen)
+For 4 | k, k/n = 1/x + 1/y + 1/z ⟺ 4/n = Σ 1/((k/4)x). So **the numerator-k model is ES restricted to solutions with
+(k/4) | gcd(x, y, z)**; in ET coordinates the k-witnesses are the 4-witnesses with (k/4) | d (PROVED, trivial; surely
+classical). At a fixed slice the k-condition differs from k = 4 only at the primes of k/4, and the size bound e ≤ a + b is
+k-free. O257's inequality b₀(k − 4/g) ≤ 3 at x_{ℓ,2} is therefore the conjunction of a local condition (x ≡ 1 at the primes of
+k forces e ≡ −1 (mod kab₀)) with that k-free size bound. 2-adically: the only k = 4 witness there, Mordell's (1, 6, e = 7),
+has d = (x + 7)/24 a 2-adic unit, so d is odd. (J)57's 2-adic bit law and O257's size inequality are thus two readings of one
+step — "d may be odd" — and neither is reciprocity. Of the screened arguments, (J)41 has no 4-specific step (its thresholds
+compare p with M), and Mordell's identities use completeness (a density count). A "k-uniform + threshold P₀(k)" organisation is
+strictly stronger than ES (8/p ⟹ 4/p), so it buys nothing. In the step form, the model exceptions (131, 241, …: every
+solution of 4/p has an odd denominator, `s8_even_denominators.py`) say a proof must spend its 4-specific step on v₂ of the
+cofactor d. Near the T1 point this is the 2-adic shape of §1 (b = 1 ∪ c = 1 fails only where every relevant v₂ ≤ 1).
+`s8_xlr_points.py` generalises Thm 2.6 to x_{ℓ,r}: the covered non-residues are those whose CRT window is small
+(r ≡ −small), and coverage thins quickly in k. Assessment: not sharp; no new lever.
