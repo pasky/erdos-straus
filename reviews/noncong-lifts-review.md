@@ -140,7 +140,7 @@ II-2 n ≡ −ka²d (mod kacd − 1); II-3 n ≡ −ka²d − e (mod kade), gcd(
 I-2 n ≡ −f (mod kac), n ≡ −c/a (mod f); I-3 n ≡ −f (mod kcd), n² ≡ −kc²d (mod f). Their moduli need not be multiples of k
 (II-2: f = kacd − 1 is coprime to k). `scripts/review_r267_families.py` tests the point x_{ℓ,r} against them and
 **verifies each hit on an actual prime by building the solution and checking k/n exactly**:
-* k = 4, x_{11,2}: II-2 (a, c, d) = (4, 9, 1): every n ≡ 79 (mod 143) has 4/n = 1/(4b) + 1/(36n) + 1/(4·9·b·n/…)
+* k = 4, x_{11,2}: II-2 (a, c, d) = (4, 9, 1): every n ≡ 79 (mod 143) has 4/n = 1/(4b) + 1/(36n) + 1/(9bn)
   (b = 9e − 4, e = (n + 64)/143); 79 ≡ 2 (11), ≡ 1 (13) so x_{11,2} lies in this class. Check n = 79:
   79 + 1 = 4·4·5·1 ✓.
 * k = 4, x_{13,5}: II-2 (1, 5, 2): n ≡ 31 (mod 39) (n = 31: 4/31 = 1/8 + 1/310 + 1/1240 ✓). This is why Salez's
@@ -163,3 +163,74 @@ point-classification separating 4 from every 4 | k ≥ 8", "for every 4 | k ≥ 
 do not survive passing to polynomial-family lifts, which the document's own Prop 1.3 treats as an equally legitimate
 "visible-only" lift class of level M₀: for k = 8 the points x_{3,2}, x_{5,2} *are* covered, for k = 4 x_{11,2} is, and
 the k = 4 dictionary changes (12 complete). See D-M1.
+
+### §4: model screen and size information
+
+* **§4.1 (CERTIFIED claim).** Reproduced from scratch (`review_r267_matched.py` with k as parameter): 8/131 sources
+  59 (3/3 visible), 251 (10/10), 419 (7/7); 8/241: 409 (6/7), 601 (6/6), 769 (6/7); 12/12241: 11689 (13/19), 12409 (8/10),
+  12841 (7/15); 16/3361: 3049 (1/2), 3529 (5/6), 3889 (0/1); 16/33601: all seven sources identical to the log. p has no
+  witness in each case ✓. The logic is trivial once stated (any law whose antecedent holds at a model exception is
+  refuted there) and the scope caveat (R-O257 M5) is present. **SOUND.** Note 16/3361 ← 3889 is "vis-sufficient"
+  only vacuously (0 visible witnesses) — the log's `vis-sufficient=1` should say so.
+* **§4.2 (EVIDENCE).** The document's own wording is honest ("descriptive, not a statistical test; independence is not
+  established"). The hit rate of "some X of p divisible by D" is dominated by the distribution of D (small D hit almost
+  surely), so matched/unmatched/shuffled differences mainly measure D-size differences (the author notes this for a′b′d′
+  only). The report's "size-information permutation test: source sizes carry no signal" overstates (D8).
+  **SOUND as EVIDENCE (descriptive).**
+
+### Novelty, labels, resources
+
+* Thm 1.2(ii), Prop 1.3: classical (Mordell–Schinzel, ET Prop 1.6, Schinzel 2000), correctly attributed after R266.
+  Prop 1.4: elementary algebra; new packaging. Thm 2.6: I know no prior statement in this form; the relevant literature
+  is ET Prop 1.9 (classification of polynomial-solvable classes) and Salez's filters — against which Thm 2.6 is a
+  statement about the *slice* sub-family only (D-M1). Relative to (J)41: Thm 2.6 is indeed a non-numerator-blind
+  statement, but only for fixed-slice classes; with all ET families the k = 8 points x_{3,2}, x_{5,2} are covered, so the
+  "4 vs 8 separation at ℓ = 3, 5" is not a separation of polynomial solvability.
+* Labels: PROVED / CERTIFIED / EVIDENCE are used correctly for the mathematics; the overclaims are in the Readings and
+  in the report's SHARP 1/2 (D-M1).
+* Resources: the self-reported 5-process burst (≈ 1 min) violated the ≤ 2-core rule (D9). My runs: ≤ 1 core, all under
+  `ulimit -v 8000000` and `timeout`.
+
+## Defects
+
+**D-M1 (MAJOR) — fixed-slice scope of Thm 2.6 / §2.4 / §4.1 readings and of the Def 1.1 dichotomy.**
+Location: §2.4 (definition of complete; "Completeness of L is exactly 'visibility at level L is sufficient for a
+determined lift'" is right, but the Reading and the adelic-points bullet equate slice coverage with Salez's S_ℓ and
+Mordell coverage), §5 Thm 2.6 (c) and *Reading* ("a proved point-classification separating 4 from every 4 | k ≥ 8",
+"for every 4 | k ≥ 8 no prime ℓ ≡ ±3 (8) ever is [complete-capable]"), §4.1 last sentence, report SHARP 1–2,
+memo z28_complete_levels. Problem: ET's non-slice polynomial families (II-2, II-3, I-1..I-3; moduli such as kacd − 1
+coprime to k) cover x_{3,2} and x_{5,2} for k = 8 (n ≡ 281 (504), n ≡ 7 (15)), x_{11,2} for k = 4 (n ≡ 79 (143)), make
+L = 12 complete for k = 4, and explain why the §2.4 scan disagrees with Salez at ℓ = 13. These are exactly Prop 1.3's
+"polynomial lifts" — visible-only lifts of fixed level M₀ whose target slice varies with p — so they belong to the
+lift picture the document analyses; Def 1.1's dichotomy (congruence-mediated with a fixed output vs witness-level) is
+not exhaustive (such lifts are neither). Repair: (1) rename "complete" → "slice-complete" (complete for determined
+lifts = fixed target slice, O253 Thm 3.1), and say so in Thm 2.6(c); (2) add a remark with the family examples above
+and state that Thm 2.6's 4-vs-8 separation is a statement about fixed-slice classes only — for polynomial-family
+coverage it fails at ℓ = 3, 5 for k = 8 and at ℓ = 11 for k = 4; (3) delete "= Salez's S₁₁" (coincidence) and
+note S₁₃ ≠ slice set; (4) in the §2.4/§4.1 Assessments replace "the only 4-specific resource … is exhausted on 𝓜" by
+"the only 4-specific resource *for determined (fixed-slice) lifts* …", and note that for polynomial-family lifts
+levels through 11·13 are not useless for 𝓜 (e.g. Mordell primes ≡ 79 (143) are all solved by one family);
+(5) add to Def 1.1 a third class ("fixed level, slice varying polynomially with p" = Prop 1.3), so the dichotomy is
+explicitly "fixed slice / polynomial family / witness-level".
+
+**D1 (MINOR)** §5 (c) and Reading: "for every 4 | k ≥ 8 (including ℓ = 3, 5)" holds only for ℓ ∤ k (k = 12 excludes
+ℓ = 3; there x_{3,2} IS in the slice class (1, 6, e = 7), H = 72; k = 20 excludes 5). Repair: write "(ℓ = 3, 5 whenever
+ℓ ∤ k)".
+**D2 (MINOR)** §5 mechanism: "b₀(k − 4/g) ≤ 3" is only the Type II branch; the Type I branch that needs k ≥ 8 is
+g + 2b₀ ≥ (k/2)gb₀ and uses k even (integrality). 4 | k is not used in (a)/(b) (only even k ≥ 8 resp. k = 4);
+numerically (a) holds for every k ∈ [6, 32] with ℓ ∤ k (my scan). Repair: state the hypotheses actually used.
+**D3 (MINOR)** §5 (b), Type II g = 1, c = 1: h = 1 (b₀ = 0) is dropped silently. Add "h = 1 gives b₀ = 0".
+**D4 (MINOR)** §2.4 single-prime bullet: "k = 8 has none at all, because already ℓ = 3, 5, 7 carry uncovered points" is
+a non sequitur (levels supported on 2 and on primes ≡ ±1 (8) are untouched; Thm 2.6(c) itself says so). Repair:
+"k = 8 has no complete level divisible by 3, 5 or 7 (EVIDENCE for 7; PROVED for 3, 5 by Thm 2.6) and none ≤ 3200 at all".
+**D5 (MINOR)** §1 after Prop 1.3: "p = m² ± j: Thm 2.2 (j > 0) and Thm 3.4 (j < 0; ℚ(√j))" mismatches NEAR_SQUARE's
+convention (p = m² + k: Thm 2.2 for k > 0 with sterile set {m : m² + k ∈ (Ẑ^odd)²}, nonempty iff k ≡ 0, 1, 5 (8);
+Thm 3.4 for k = −j < 0, j non-square, K = ℚ(√j), sterile set Z_K⁺). Repair: restate accordingly; only the j < 0 case
+lives in ℚ(√j).
+**D6 (MINOR)** §2.3 means not reproducible: no log/script; my counts (and the author's own `z28_lab cnts` output) give
+0.1535 for k = 4 (text 0.159), uniformly ≈ 4 % lower for all k. Repair: state estimator and range, add a log; update
+numbers (ratios and minima unchanged).
+**D7 (MINOR)** Computation 3.2: counts treat (a, b) as unordered; say so.
+**D8 (MINOR)** Report: "size-information permutation test: source sizes carry no signal" → "descriptive hit rates; no
+visible difference; D-size confounded".
+**D9 (MINOR, process)** 5-process burst over the 2-core limit (self-reported).
