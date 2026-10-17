@@ -129,3 +129,37 @@ already ℓ = 3, 5, 7 carry uncovered points").
   Not rerun to 10⁵ (Python cost). **SOUND (CERTIFIED for the fixtures; aggregate consistent).**
 * The *Reading* "exactly as §2.4 predicts" overstates: §2.4 predicts that visibility is not sufficient, not the 30 %
   rate. Cosmetic.
+
+### Scope test: what Thm 2.6 / "complete" do NOT cover — non-slice polynomial families (leads to D-M1)
+
+NONCONG's "witness class" is the **fixed-slice** class (θ, a, b, c fixed, d free), modulus H = kab. The classical
+notion behind "Mordell's theorem", Salez's S_ℓ and ET Prop 1.9 ("solvable by polynomials") also contains the
+one-parameter families with (a, c, d) or (a, d, e) fixed (Type II) and (a, d, e), (a, c, f), (c, d, f) fixed (Type I).
+Re-derived for numerator k from n = kabd − e / ne + 1 = kabd, ce = a + b:
+II-2 n ≡ −ka²d (mod kacd − 1); II-3 n ≡ −ka²d − e (mod kade), gcd(kad, e) = 1; I-1 n ≡ −(ka²d+1)/e (mod kad);
+I-2 n ≡ −f (mod kac), n ≡ −c/a (mod f); I-3 n ≡ −f (mod kcd), n² ≡ −kc²d (mod f). Their moduli need not be multiples of k
+(II-2: f = kacd − 1 is coprime to k). `scripts/review_r267_families.py` tests the point x_{ℓ,r} against them and
+**verifies each hit on an actual prime by building the solution and checking k/n exactly**:
+* k = 4, x_{11,2}: II-2 (a, c, d) = (4, 9, 1): every n ≡ 79 (mod 143) has 4/n = 1/(4b) + 1/(36n) + 1/(4·9·b·n/…)
+  (b = 9e − 4, e = (n + 64)/143); 79 ≡ 2 (11), ≡ 1 (13) so x_{11,2} lies in this class. Check n = 79:
+  79 + 1 = 4·4·5·1 ✓.
+* k = 4, x_{13,5}: II-2 (1, 5, 2): n ≡ 31 (mod 39) (n = 31: 4/31 = 1/8 + 1/310 + 1/1240 ✓). This is why Salez's
+  S₁₃ = {5, 6, 8, 11} ≠ the slice-covered set {6, 11} that NONCONG's scan finds (it reports {2, 5, 7, 8} uncovered at 13);
+  the agreement at ℓ = 11 ({7, 8, 10}) quoted in §2.4 is a coincidence of two different notions.
+* **k = 8, x_{3,2}: II-3 (a, d, e) = (3, 3, 7): every n ≡ 281 (mod 504) is solvable** (c = (n + 223)/504, b = 7c − 3;
+  n = 281: 8/281 = 1/36 + 1/(9·281) + 1/(12·281) ✓); 281 ≡ 1 (8), 2 (9), 1 (7).
+* **k = 8, x_{5,2}: II-2 (1, 2, 1): every n ≡ 7 (mod 15) is solvable** (n = 7 ✓, 97 ✓).
+* k = 8, x_{13,2}: II-2 (9, 2, 1), n ≡ 67 (mod 143) ✓.
+* No family hit (parameters ≤ 40): k = 4 at x_{19,2}, x_{29,2}; k = 8 at x_{11,2}, x_{7,3}; k = 16 at x_{3,2}, x_{5,2};
+  k = 12 at x_{5,2}.
+Level deficits with all families allowed (`scripts/review_r267_famcomplete.py`; T1 still holds: 0 square classes
+covered): k = 4: L = 12 becomes complete (slice-only deficit 1 → 0; the classical n ≡ 2 (3) family), L = 3432 = 24·143:
+40 → 12; k = 8: L = 120: 18 → 5, 840: 96 → 15, 5040: 136 → 26 (still incomplete).
+
+**Consequence.** Thm 2.6 is a correct theorem about fixed-slice classes, and "complete" (H = kab | L) is a correct
+definition for O253's *determined* lifts (which choose a fixed target slice). But the headline readings — "a proved
+point-classification separating 4 from every 4 | k ≥ 8", "for every 4 | k ≥ 8 no prime ℓ ≡ ±3 (8) is complete-capable",
+"(c) no level through ℓ is complete", "Mordell completeness is the only 4-specific resource and is exhausted on 𝓜" —
+do not survive passing to polynomial-family lifts, which the document's own Prop 1.3 treats as an equally legitimate
+"visible-only" lift class of level M₀: for k = 8 the points x_{3,2}, x_{5,2} *are* covered, for k = 4 x_{11,2} is, and
+the k = 4 dictionary changes (12 complete). See D-M1.
