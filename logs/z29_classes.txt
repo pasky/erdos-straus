@@ -1,0 +1,15 @@
+class samples: first n primes p >= X with p = 1 (mod M); mean log10 p; means of N1, Nc1; N1/(log p)^2; dispersion
+X=1e6   M=24        n=300 log10p~ 6.01 N1  22.29 (/log^2 0.117, disp 2.27, min 3)  Nc1  13.31 (/log^2 0.070, min 1)  ratio 1.67
+X=1e6   M=1800      n=300 log10p~ 6.30 N1  22.52 (/log^2 0.107, disp 2.41, min 6)  Nc1  13.66 (/log^2 0.065, min 0)  ratio 1.65
+X=1e6   M=176400    n=300 log10p~ 7.91 N1  33.57 (/log^2 0.101, disp 3.77, min 8)  Nc1  19.67 (/log^2 0.059, min 5)  ratio 1.71
+X=1e8   M=24        n=300 log10p~ 8.00 N1  42.03 (/log^2 0.124, disp 2.88, min 14)  Nc1  24.89 (/log^2 0.073, min 3)  ratio 1.69
+X=1e8   M=1800      n=300 log10p~ 8.01 N1  38.89 (/log^2 0.114, disp 2.82, min 10)  Nc1  22.42 (/log^2 0.066, min 6)  ratio 1.73
+X=1e8   M=176400    n=300 log10p~ 8.31 N1  37.32 (/log^2 0.102, disp 2.80, min 11)  Nc1  21.61 (/log^2 0.059, min 6)  ratio 1.73
+X=1e10  M=24        n=300 log10p~10.00 N1  69.68 (/log^2 0.131, disp 3.59, min 32)  Nc1  39.23 (/log^2 0.074, min 16)  ratio 1.78
+X=1e10  M=1800      n=300 log10p~10.00 N1  65.07 (/log^2 0.123, disp 2.68, min 33)  Nc1  36.16 (/log^2 0.068, min 17)  ratio 1.80
+X=1e10  M=176400    n=300 log10p~10.01 N1  57.43 (/log^2 0.108, disp 2.56, min 26)  Nc1  33.17 (/log^2 0.062, min 14)  ratio 1.73
+X=1e10  M=64033200  n=200 log10p~10.55 N1  59.48 (/log^2 0.101, disp 2.91, min 30)  Nc1  33.83 (/log^2 0.057, min 14)  ratio 1.76
+X=1e12  M=24        n=300 log10p~12.00 N1 103.29 (/log^2 0.135, disp 3.40, min 53)  Nc1  55.88 (/log^2 0.073, min 26)  ratio 1.85
+X=1e12  M=1800      n=300 log10p~12.00 N1  96.84 (/log^2 0.127, disp 3.68, min 61)  Nc1  53.74 (/log^2 0.070, min 27)  ratio 1.80
+X=1e12  M=176400    n=300 log10p~12.00 N1  89.21 (/log^2 0.117, disp 3.64, min 44)  Nc1  49.41 (/log^2 0.065, min 28)  ratio 1.81
+X=1e12  M=64033200  n=200 log10p~12.02 N1  82.38 (/log^2 0.108, disp 2.59, min 41)  Nc1  46.85 (/log^2 0.061, min 24)  ratio 1.76

@@ -106,6 +106,55 @@ prime up to 10¹⁵ has a b = 1 solution with s ≤ 95 (positives are certified 
 the T1 point 1 as primes of that size can be. So smoothness of p − 1 is a small-p effect: it makes small pairs (s, t) dead,
 and at large p there are enough pairs with a large prime factor (Cor 1.3, §3).
 
+## 3. The heuristic model: main term, dispersion, and a finite-failure prediction
+
+**Lemma 3.1 (incidence form and main term; PROVED, elementary, as PARITY_AUDIT Lemma 2.1).** For p ≡ 1 (4) prime,
+  N₁(p) = #{(c, d) ∈ ℕ² : (4cd − 1) | p + 4d},
+and each incidence is a distinct ES solution (ad, acdp, cdp). The Haar main term is
+  M₁(p) := Σ_{c,d ≥ 1, 4cd − 1 ≤ p + 4d} 1/(4cd − 1) = (log p)²/8 + O(log p).
+For the c = 1 line, PARITY_AUDIT's R(p) = #{(u, B, C) : 4uBC = p + u + B} has the same main term (log p)²/8. But (u, B, C)
+and (B, u, C) give the same triple {uBC, pBC, puC}, so the number of distinct (★) solutions is N_{c1}(p) = (R(p) + ε)/2,
+ε ∈ {0, 1}, with main term (log p)²/16.
+*Proof.* By SYNTHESIS_SPARKS8 Prop 1.3, w = 4cd − 1 | cp + 1 ⟺ w | p + 4d (as gcd(w, 4d) = 1 and
+4d(cp + 1) − pw = p + 4d... precisely 4d(cp + 1) = c·4d·p + 4d ≡ p + 4d (mod w) since 4cd ≡ 1), and a = (cp + 1)/w ≥ 1. The
+triple determines (a, c, d) (d = gcd(x, z/p)…, or directly: x = ad, z = cdp, y = az, so a = y/z, then d = x/a, c = z/(dp)). Main
+term: for fixed d, c runs to (p + 4d + 1)/(4d), giving Σ_c 1/(4cd − 1) = (1/(4d))(log(p/(4d)) + O(1)) + O(1/d²), and
+Σ_{d ≤ p/4} (1/(4d)) log(p/(4d)) = (log p)²/8 + O(log p); d > p/4 contributes O(1). For (★): the swap (u, B) ↦ (B, u) is an
+involution on R's incidences with at most one fixed point (u = B forces u | p, u = 1, 2 = p + 2 − 4C·… impossible: u = B = 1
+needs 4C = p + 2, odd), and swapped incidences give the same unordered triple. ∎
+**So the b = 1 line has twice as many independent trials as (★).** Per distinct solution, the main terms are (log p)²/8 and
+(log p)²/16. Empirically (class samples, `logs/z29_classes.txt`): N₁/(log p)² = 0.117, 0.124, 0.131, 0.135 at p ≈ 10⁶, 10⁸,
+10¹⁰, 10¹² (p ≡ 1 (24)), and N_{c1}/(log p)² ≈ 0.070–0.074. The ratio N₁/N_{c1} is 1.67, 1.69, 1.78, 1.85, tending to 2 as
+the O(log p) terms fade. Add Prop 1.4 (the b = 1 nontrivial class p ≡ 1 (24) is half the size of the (★) class p ≡ 1 (8)),
+and this answers "why is the shift-4d family far more robust than (★)": **twice the main term (the b = 1 incidences are
+asymmetric; (★) incidences come in swapped pairs) and half the exposed classes.** Class hardness hits both lines equally
+(below). It is not the explanation.
+
+**3.2 Dependence on the smooth part of p − 1 (EVIDENCE).** Mean N₁/(log p)² in the classes p ≡ 1 (mod M_σ) (§4), at
+p ≈ 10¹²: 0.135 (M = 24), 0.127 (M₅ = 1800), 0.117 (M₇ = 176 400), 0.108 (M₁₁ = 64 033 200). So p ≡ 1 (M₁₁) costs 20 % of the
+mean, and (★) loses 16 % in the same classes. The loss is the Haar mass of the pairs frozen by Prop 4.1. It is O(log p) in
+absolute terms (pairs with one coordinate ≤ σ), hence a vanishing fraction of (log p)²/8 as p → ∞.
+
+**3.3 Dispersion and the zero tail (EVIDENCE; `z29_model.py`, all 15 648 primes p ≡ 1 (24) ≤ 10⁶ plus 20 000 / 4 000
+consecutive p ≡ 1 (4) from 10⁸ / 10¹⁰; `logs/z29_model.txt`).** N₁ is overdispersed: var/mean = 1.2–2.3 at p ≤ 10⁶,
+2.7 at 10⁸, 3.2 at 10¹⁰. Clumping comes from p + s with many divisors. The relative spread √(D/μ) still shrinks:
+0.33, 0.25, 0.22. Model: N₁ | p ~ negative binomial with the bin mean (scaled by log² p) and dispersion D, so
+P(N₁ = 0) = D^{−μ/(D−1)}. Back-test ≤ 10⁶ (bins with ≥ 30 primes): predicted zeros 1.18, observed 2 (2521, 66529);
+predicted #{N₁ ≤ 2} = 16.4, observed 33. So the model underestimates the lower tail by a factor ≈ 2 (up to 5 in the largest
+bins). The same model for (★) (class p ≡ 1 (8)): predicted zeros 3.4, observed 7 in the same bins. That is the same factor 2,
+so the model is consistently optimistic by about 2 for both lines.
+**3.4 Prediction.** With μ = 0.125 (log p)² and D = 3.24 (the largest observed), the expected number of b = 1 failures
+beyond X is 0.037 (X = 10⁶), 1.1·10⁻⁴ (10⁸), 1.4·10⁻¹⁰ (10¹¹). Depressing μ by 20 % everywhere (every prime treated as
+in the hardest class M₁₁) gives 0.68, 0.013, 8·10⁻⁷. Even with the factor 2–5 tail correction, the expected count beyond
+10¹¹ is < 10⁻⁵. For (★) the same model gives 1.8 (beyond 10⁸) and 0.003 (beyond 10¹¹), or 50 / 0.86 with the 20 % depression;
+tested in §3.5.
+**Conjecture 3.5 (finitely many b = 1 failures; CONJECTURE, heuristic + EVIDENCE to 10¹¹).** The b = 1 line (López's Type A)
+holds for every prime p ≡ 1 (mod 4) except 193, 2521, 66529. Heuristic basis: main term (log p)²/8 (Lemma 3.1) and
+overdispersion D = O(1) give P(fail) ≈ exp(−c (log p)²). The only known mechanism for correlated failure, Dickson-type
+freezing (Thm 4.2), acts on O(σ) shifts, costs only O(log p · log σ) of the mean, and cannot be applied to all ≍ √p shifts.
+*Caveat (Assessment).* The negative-binomial model is calibrated only up to 10¹⁰ and is known to be optimistic by about 2 in
+the tail. No proof idea follows from it: it is the polylog lottery of B3 with a better constant.
+
 ## 4. Why the hard primes have smooth p − 1: the T1 point 1 at small shifts
 
 For σ ≥ 3 let M_σ := Π_{ℓ ≤ σ + 1} ℓ^{e_ℓ}, e_ℓ := ⌊log_ℓ(σ + 1)⌋ + 1 (so v_ℓ(M_σ) > v_ℓ(m) for every m ≤ σ + 1). Call s the
