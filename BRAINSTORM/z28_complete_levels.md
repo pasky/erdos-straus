@@ -6,10 +6,11 @@ levels L is visibility *sufficient*, i.e. every non-square unit class mod L lies
 level transport.
 **Results.** (i) CERTIFIED: for k = 4 the complete levels with L ≤ 1600 are all 7-smooth, and a 7-smooth L is complete
 iff (3 | L ⟹ 8 | L) and (7 | L ⟹ 24 | L) (L ≤ 6000; "if" PROVED by monotonicity + 16 base levels). For k = 8, 12 there is
-no complete level km, m ≤ 400. (ii) **Thm 2.6 (PROVED):** the point x_{ℓ,2} (2 at ℓ, 1 elsewhere) lies in no witness
+no complete level km, m ≤ 400. (ii) **Thm 2.6 (PROVED; NONCONG_LIFTS §5):** the point x_{ℓ,2} (2 at ℓ, 1 elsewhere) lies in no witness
 class for every 4 | k ≥ 8 and odd ℓ ∤ k; for k = 4 it is covered iff ℓ ∈ {3, 5} (Mordell's slices (1,6), (1,5), (2,5)).
 So no level divisible by a prime ℓ ≡ ±3 (8) is complete — for k ≥ 8 including 3, 5; for k = 4 for all such ℓ ≥ 11.
-(iii) For p ∈ 𝓜, p is a square modulo every 7-smooth level, so every complete level is invisible to p.
+(iii) For p ∈ 𝓜, p is a square modulo every 7-smooth level, so every complete level *found* (all 7-smooth, ≤ 6000) is
+invisible to p; levels through ℓ ≡ ±1 (8), ℓ ≥ 17, are only computationally excluded (≤ 1600).
 **Literature.** Mordell's six classes mod 840 (Mordell 1969); Salez arXiv:1406.6307 (S₁₁ = {7, 8, 10}, filters);
 MODEL_SPECIFIC §4.1 (O197: uncovered classes mod 840/9240/120120 for m = 4…12); POINTWISE_MORDELL (Σ_r coverings,
 sterile points).
@@ -18,6 +19,6 @@ Thm 2.6 shows it cannot extend to ℓ ≡ ±3 (8), ℓ ≥ 11 for ES. T1: built 
 *non*-numerator-blind statement (4 vs 8 differ), via an inequality b₀(k − 4/g) ≤ 3 — numerator size, not reciprocity.
 **Cheap numerics.** `scripts/z28_complete_levels.py`, `z28_adelic_fast.py`, `z28_adelic_scan.py`, `z28_x2_check.py`
 (hits exactly the four Mordell classes for k = 4, ℓ ∈ {3, 5}; none otherwise, k ≤ 32, ℓ < 60, a ≤ b ≤ 300).
-**Assessment.** PROVED (Thm 2.6) + CERTIFIED/EVIDENCE. The only 4-specific resource the lift picture has is Mordell
-completeness, and it is exhausted on 𝓜. Spark: extend Thm 2.6 to x_{ℓ,r}, r = least non-residue (the Case-A
+**Assessment.** PROVED (Thm 2.6) + CERTIFIED/EVIDENCE. In the computed range the only 4-specific resource the lift picture shows
+is Mordell completeness, and it is exhausted on 𝓜. Spark: extend Thm 2.6 to x_{ℓ,r}, r = least non-residue (the Case-A
 parametrisation L = ckas − (a + c)/b₀, L | a + rc bounds L ≤ poly(r)), giving "complete levels are 7-smooth" for k = 4.

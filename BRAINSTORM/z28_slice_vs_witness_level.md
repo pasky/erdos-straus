@@ -1,7 +1,7 @@
 # z28_slice_vs_witness_level — which lifts escape the T1 adversary (O257; NONCONG_LIFTS §1)
 
 **Idea.** Classify lifts "source witness w′ at q ↦ witness at p" by the information about p they use. A lift that is
-congruence-mediated of level M(w′) and valid for every prime in the class of p mod M forces k a b | M and p ≢ □ (mod M).
+congruence-mediated of level M(w′) (gcd(p, M) = 1) and valid for every prime in the class of p mod M forces k a b | M and p ≢ □ (mod M).
 If M depends only on the slice σ(w′) (bounded), O253 Cor 3.3 applies; the only escape is a level that grows with the
 *size* d′ of the source solution (witness-level), whose validity is then a divisor event of N_θ(p) with modulus built
 from d′ — B2. Polynomial lifts (output polynomial in p on a class) are Schinzel identities and collapse to slice

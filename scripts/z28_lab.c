@@ -24,7 +24,7 @@ static int factor(u64 m, u64 *P, int *E){ int r=0; while(m>1 && m<=(u64)SPFN){ u
 static int merge(u64 *P,int *E,int r,u64 *P2,int *E2,int r2){ for(int i=0;i<r2;i++){ int f=0; for(int j=0;j<r;j++) if(P[j]==P2[i]){E[j]+=E2[i];f=1;break;} if(!f){P[r]=P2[i];E[r]=E2[i];r++;} } return r; }
 /* search divisors u of B^2 (exponents 2E) with u<=B and u ≡ target mod A. mode 0: stop at first; mode 1: emit all */
 static u64 gA,gB,gT; static int gR; static u64 gP[64]; static int gE[64]; static long gfound; static u64 gx; static long gn; static int gmode;
-static void emit(u64 u){ u128 v=(u128)gB*gB/u; u64 y=(u+gB)/gA; u128 z=(v+gB)/gA; printf("%llu %llu %llu\n",(unsigned long long)gx,(unsigned long long)y,(unsigned long long)z); }
+static void emit(u64 u){ u128 v=(u128)gB*gB/u; u64 y=(u+gB)/gA; u128 z=(v+gB)/gA; char buf[48]; int i=47; buf[i]=0; u128 t=z; do{ buf[--i]=(char)('0'+(int)(t%10)); t/=10; }while(t); printf("%llu %llu %s\n",(unsigned long long)gx,(unsigned long long)y,buf+i); }
 static int rec(int i,u64 u){ if(i==gR){ if(u%gA==gT){ if(gmode==0){gfound++; return 1;} if((u+gB)/gA>=gx){ gfound++; if(gmode==1) emit(u);} } return 0; }
   u64 q=gP[i]; for(int e=0;e<=2*gE[i];e++){ if(rec(i+1,u)) return 1; if(e<2*gE[i]){ if(u>gB/q) break; u*=q; } } return 0; }
 static long solve(long n,int k,int mode){ u64 Pn[64]; int En[64]; int rn=factor(n,Pn,En); gfound=0; gmode=mode; gn=n;

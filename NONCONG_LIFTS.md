@@ -30,13 +30,15 @@ then gives a witness). A law "q ∈ S_k ⟹ p ∈ S_k" is *proved by Λ* if Λ i
 the hypothesis q ∈ S_k supplies *some* witness, not a chosen one; O253 Cor 3.3 scope).
 
 **Definition 1.1 (information level).** Λ is *congruence-mediated of level M* if its output depends on p only
-through p mod M, where M = M(w′) is an even integer computed from w′, and its proof establishes validity for
+through p mod M, where M = M(w′) is an even integer computed from w′ with gcd(p, M) = 1, and its proof establishes validity for
 *every* prime p′ ≡ p (mod M) (with the same w′). The level is *slice-level* if M depends only on σ(w′) (then
 M ≤ C(σ(w′)) is bounded on each slice — the determined lifts of O253 Thm 3.1 have M = αH′), and *witness-level*
 if it genuinely depends on the size parameter d′ (equivalently on q, since q = (N′ − e′) or (N′ − 1)/e′ with
 N′ = kH′-multiple k a′b′d′).
 
-**Theorem 1.2 (level dichotomy; PROVED).** Let 4 | k, p an odd prime, M even, and suppose a slice (θ, a, b, c) is
+**Theorem 1.2 (level dichotomy; PROVED).** Let 4 | k, p an odd prime, M even with gcd(p, M) = 1 (R-O257 F1: without
+it the class of p mod M may contain no other prime — k = 4, p = 17, M = 34, slice (1, 6, 1) is a counterexample to
+both conclusions), and suppose a slice (θ, a, b, c) is
 valid at every prime p′ ≡ p (mod M). Then (i) k a b | M, and (ii) p is *not* congruent to a square modulo M.
 Consequently: (a) a slice-level lift must, at every supplied source witness, see a non-square residue of p modulo
 M(σ(w′)), and O253 Cor 3.3 applies verbatim (lcm of invisible slice-levels is invisible); (b) a witness-level lift
@@ -46,7 +48,9 @@ built from the size d′ of the source solution (B2), and Theorem 1.2(ii) is the
 *Proof.* (i) For each prime ℓ | kab, ℓ ≠ p, pick t_ℓ (mod ℓ) with t_ℓ ≢ 0 and p + t_ℓM ≢ 0 (mod ℓ): for ℓ = 2 any odd
 t works (M even, p odd); for odd ℓ | M any t ≢ 0 works (p + tM ≡ p ≢ 0); for odd ℓ ∤ M exactly one class t is bad,
 leaving ≥ ℓ − 2 ≥ 1 non-zero good classes. (ℓ = p does not divide kab: p ∤ ab by ET normalisation at a prime, and
-p ∤ k.) By CRT and Dirichlet there is a prime p′ = p + tM with gcd(t, kab) = 1. Validity at p and p′:
+p ∤ k.) The progression {p + tM : t ≡ t_ℓ (mod ℓ) ∀ℓ | kab} is p + M·(t₀ + s·rad(kab)), whose difference
+M·rad(kab) is coprime to its first term (primes of M do not divide p since gcd(p, M) = 1; primes ℓ | kab, ℓ ∤ M, do
+not divide p + t_ℓM by the choice of t_ℓ); so by Dirichlet there is a prime p′ = p + tM with gcd(t, kab) = 1. Validity at p and p′:
 Type II: kab | (p′ + e) − (p + e) = tM, so kab | M. Type I: kab | (p′e + 1) − (pe + 1) = tMe and gcd(e, kab) = 1
 (from kab·d = pe + 1), so kab | M. (ii) Then the slice is an ET witness at p with modulus H = kab | M; if p ≡ □ (mod M)
 then the classical square-class obstruction (O253 Thm 3.2 = Mordell–Schinzel / ET Prop 1.6, with full T1 for
@@ -58,7 +62,9 @@ density 0 among integers ≤ X, by the sieve; not needed below). ∎
 So the T1 adversary is *exactly* the statement that slice-level information about p is a finite set of residues,
 and the only congruence-mediated escape is to let the level grow with the size of the source solution.
 
-**Proposition 1.3 (polynomial lifts collapse to slice level; PROVED modulo the cited theorem).** Suppose that on a
+**Proposition 1.3 (polynomial lifts collapse to slice level; PROVED modulo the cited theorem).** Let 4 | k (for
+k = 5 it is false: n = 5t + 4, denominators (t + 1, 2n(t + 1), 2n(t + 1)) give an identity on the square class 4 mod 5).
+Suppose that on a
 source slice σ′ and a class p ≡ r (mod M₀) a lift outputs a solution k/p = 1/X(t) + 1/Y(t) + 1/Z(t), p = M₀t + r,
 with X, Y, Z ∈ ℤ[t] of positive leading coefficient, valid for all large t (the output depends on d′ only through
 p, which on a fixed slice is affine in d′). Then r is not a square modulo M₀ (Schinzel, Funct. Approx. 28 (2000),
@@ -70,12 +76,16 @@ The same holds one level finer for polynomials in m = ⌊√p⌋ on p = m² ± j
 Thm 3.4 (j < 0; Hilbert reciprocity in ℚ(√j)) every such family misses the ℚ(√j)-adic unit-square set — an
 *archimedean* lift has its own T1 adversary, now in ℚ(√j) (DISCOVERIES (J)55).
 
-**Proposition 1.4 (exact-share lifts = e-spectrum transport; PROVED, algebra).** Call a witness-level lift
-*exact-share* if N_θ(p) = λ·N_θ′(q) identically in q (p = αq + β, λ ∈ ℚ_{>0} independent of q). The complete list:
+**Proposition 1.4 (exact-share lifts = e-spectrum transport; PROVED, algebra; repaired after R-O257 F2).** Let
+α ≥ 1, β be integers. Call a witness-level lift *exact-share* if N_θ(p) = λ·N_θ′(q) identically in q
+(p = αq + β, λ ∈ ℚ_{>0} independent of q). The complete list (for integral α, β; for rational α, β e.g. (I←II) becomes
+e(αe′ − β) = 1, λ = αe — example q = 37, p = (q + 2)/3 = 13, e′ = e = 3, λ = 1, slice (1, 5, 2, 2) at both):
 (II←II) λ = α, e = αe′ − β; (II←I) e′ | α, λ = α/e′, e = α/e′ − β; (I←II) e = 1, αe′ − β = 1, λ = α;
-(I←I) e(α − βe′) = e′, λ = αe/e′. For an exact-share relation, *every* slice (a, b, c) of type θ with
-(a + b)/c = e is automatically compatible (kab | N_θ(p) = λN′ is the witness condition itself), so the lift is valid
-at w′ iff (θ, e) ∈ Spec(p) := {(type, e) of witnesses of p}. A share law "q ∈ S_k ⟹ p ∈ S_k" is total iff
+(I←I) e(α − βe′) = e′, λ = αe/e′. For an exact-share relation the target number λN′ = N_θ(p) and the target e are
+fixed by (w′, relation) alone. A *reselecting* share lift — one allowed to output any slice (a, b, c) of type θ with
+(a + b)/c = e and kab | λN′ — therefore succeeds at w′ iff (θ, e) ∈ Spec(p) := {(type, e) of witnesses of p}; a lift
+prescribing one particular slice can fail even then (q = 23, w′ = (II, 1, 6, 7, 1), e′ = 1, p = 17, e = 7, λ = 1:
+(1, 6, 1) works, (1, 13, 2) with e = 7 needs 52 | 24). A reselecting share law "q ∈ S_k ⟹ p ∈ S_k" is total iff
 f(Spec(q)) ⊆ Spec(p) for the relevant shift map f — the source witness contributes *only its e-value*.
 *Proof.* Compare coefficients of q in N_θ(αq + β) = λN_θ′(q): (II←II) αq + β + e = λ(q + e′); (II←I)
 αq + β + e = λ(qe′ + 1); (I←II) (αq + β)e + 1 = λ(q + e′); (I←I) (αq + β)e + 1 = λ(qe′ + 1). ∎
@@ -118,7 +128,7 @@ sufficient for a determined lift".
 * k = 4, all L = 4m ≤ 1600 and all 7-smooth L ≤ 6000: the complete levels are 7-smooth (no level ≤ 1600 involving a
   prime ≥ 11 is complete), and a 7-smooth L (4 | L) is complete **iff (3 | L ⟹ 8 | L) and (7 | L ⟹ 24 | L)**
   (CERTIFIED for L ≤ 6000; the "if" direction is PROVED for all L: the 16 base levels 4·s, 8·s, s | 105 are
-  checked, and completeness passes to any L′ with the same prime support and v₂(L′) ≥ v₂(L) when 8 | L or
+  checked, and completeness passes to any multiple L′ of L with the same prime support when 8 | L or
   v₂(L′) = v₂(L), because a non-square class mod L′ reduces to a non-square class mod L (squareness mod ℓ^v, ℓ odd,
   is squareness mod ℓ; mod 2^v, v ≥ 3, it is ≡ 1 (8)) and a covering class mod H | L lifts.) L = 840 is Mordell's theorem.
 * k = 8 and k = 12: **no complete level L = km with m ≤ 400**; at L = 105k and 210k the deficiencies for
@@ -137,12 +147,14 @@ sufficient for a determined lift".
   Since a point lies in a class of modulus H | L iff its residue mod L does, **if x_{ℓ,r} is uncovered by all slices
   then no level divisible by ℓ is complete** — so (EVIDENCE) k = 4 has complete levels only on {2, 3, 5, 7}, and
   k = 8 has none at all, because already ℓ = 3, 5, 7 carry uncovered points.
-*Reading (Assessment).* "Visibility is sufficient" holds for ES exactly at Mordell's levels, and there it is a
-4-specific fact (no complete level at all for k = 8, 12). But for p ∈ 𝓜, p is a square modulo every 7-smooth level,
-so **at every complete level p is invisible**: the 4-specific resource "complete levels" is used up precisely on
-the Mordell classes. Every visible level of a Mordell-class prime involves a prime ℓ ≥ 11, and no such level ≤ 1600
-is complete. This is O253's T1 adversary in its sharpest form: for p ∈ 𝓜, determined lifts need favourable
-witnesses, never merely visible ones.
+*Reading (Assessment; scope per R-O257 M3).* In the range computed, "visibility is sufficient" holds for ES only at
+Mordell-type 7-smooth levels, and that is a 4-specific fact (no complete level km, m ≤ 400, for k = 8, 12). For p ∈ 𝓜,
+p is a square modulo every 7-smooth level, so at every complete level found (all ≤ 6000 among 7-smooth ones, all
+≤ 1600 in general) p is invisible: in this range the 4-specific resource "complete levels" is used up precisely on the
+Mordell classes. Every visible level of a Mordell-class prime involves a prime ℓ ≥ 11; Thm 2.6 (§5) proves that
+levels through ℓ ≡ ±3 (mod 8), ℓ ≥ 11, are never complete; for levels through ℓ ≡ ±1 (mod 8) (17, 23, 31, …) only
+the computations (≤ 1600) are available. Within these bounds: for p ∈ 𝓜, determined lifts need favourable
+witnesses, not merely visible ones.
 
 ## 3. Goal (3): sources forced to share p's non-residue primes
 
@@ -188,7 +200,9 @@ use a 4-specific input (or a threshold, §2.3):
 (S1) "q ∈ S, q profile-matched to p (ℓ ≤ 7), q ≡ p (8), |p − q| ≤ 600 ⟹ p ∈ S";
 (S2) "some visible source witness exists ⟹ some witness transports" (Lemma 3.1 makes visibility automatic for
 B-smooth moduli, so (S2) is the visibility-sufficiency question of §2.4);
-(S3) any exact-share law (Prop 1.4), any slice-level or witness-level lift law of §1 from a soluble source.
+(S3) the reselecting exact-share laws of Prop 1.4 with α = 1, |β| ≤ 600 and profile-matched sources, as computed.
+(R-O257 M5: these counterexamples refute only laws whose antecedent holds at the listed exceptions; a scheme with extra
+hypotheses, or one never targeting these primes, is not refuted.)
 The only 4-specific resource the laboratory exhibits is *Mordell completeness* (§2.4), and it is exhausted on 𝓜.
 
 **4.2 Size information (EVIDENCE, `scripts/z28_size_info.py`).** The most naive witness-level lift reads a size number
@@ -196,13 +210,13 @@ D of a source witness (D ∈ {d′, c′d′, x′-part a′b′d′}) and asks 
 a multiple of D. Over the 83 Mordell-class primes 100 < p ≤ 3·10⁴ (k = 4, sources within ±400, q ≡ p (8)), hit rates
 are the same for profile-matched sources and for unmatched sources in the same window (same sizes):
 d′: 64.6% vs 69.6%; c′d′: 51.6% vs 50.4%; a′b′d′: 4.4% vs 3.9% (6–7·10³ matched trials, 3–4·10⁴ unmatched;
-trials cluster by p, so differences of a few % are not significant). A shuffled control with sources of a
-*different* target agrees for d′, c′d′ (67.7%, 54.0%) and differs for a′b′d′ (11.7%) only through a size
-confound (the partners are of different size). So **the sizes of a source solution carry no detectable
-information about the target's divisor events** beyond what they share with any integer of the same size —
-the B2 lottery in the form "the source's factorisation is independent of p's".
+trials cluster by p; no null distribution or clustered error was computed, so these are descriptive rates only). A shuffled control with sources of a
+*different* target gives 67.7%, 54.0% for d′, c′d′ and 11.7% for a′b′d′ (the last difference is *plausibly* a size
+confound — partners have different size — not tested). Assessment (descriptive, not a statistical test): **no
+visible signal** that the sizes of a profile-matched source solution know more about p's divisor events than
+unmatched sources of the same window — consistent with the B2 lottery; independence is not established.
 
-### 2.5 A proved separation: the point x_{ℓ,2}
+## 5. A proved separation: the point x_{ℓ,2} (complements §2.4)
 
 For an odd prime ℓ let x_{ℓ,2} ∈ Ẑ be the point with x = 2 in ℤ_ℓ and x = 1 in ℤ_q for every prime q ≠ ℓ (q = 2
 included). It lies in the witness class (θ, a, b, c) iff its residue mod H = kab does, i.e. iff
@@ -256,8 +270,9 @@ occur exactly for k = 4, ℓ ∈ {3, 5}, and they are exactly the four classes o
 (421121, 542081, 1146881, 1570241) have, among all their ET witnesses, those with H | 60480 = exactly the Mordell pair
 (II/I, 1, 6, e = 7) for k = 4 and **none** for k = 8, 16 (k = 12 has (1, 6) at H = 72, consistent: 3 | 12 is excluded).
 
-*Reading.* This is the first *proved* structural 4-vs-8 separation in the lift language: for k = 4 the small
+*Reading.* A proved point-classification separating 4 from every 4 | k ≥ 8 (ℓ ∤ k): for k = 4 the small
 non-residue primes 3, 5 are "complete-capable" (Mordell), for every 4 | k ≥ 8 no prime ℓ ≡ ±3 (8) ever is. The
 reason is an inequality (the slice must satisfy b₀(k − 4/g) ≤ 3), i.e. the archimedean size of 4 — numerator
-smallness, not a reciprocity law. For ES it confirms the §2.4 Assessment with proof for half of all primes:
-for a Mordell-class p whose visible primes are all ≡ ±3 (mod 8) and ≥ 11, no level at which p is visible is complete.
+smallness, not a reciprocity law. For ES it proves part of the §2.4 Assessment: for a Mordell-class p, every level
+containing some prime ℓ ≡ ±3 (mod 8), ℓ ≥ 11, is incomplete (levels supported on 2, 3, 5, 7 and primes ≡ ±1 (8) are
+not covered by Thm 2.6).

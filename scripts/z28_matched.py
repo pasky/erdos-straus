@@ -10,7 +10,8 @@ from z28_witness import reps, is_square_mod
 
 def profile_match(p, q, B):
     if (p - q) % 8: return False
-    return all(legendre_symbol(p % l, l) == legendre_symbol(q % l, l) for l in primerange(3, B + 1) if p % l and q % l)
+    return all((p % l == 0) == (q % l == 0) and (p % l == 0 or legendre_symbol(p % l, l) == legendre_symbol(q % l, l))
+               for l in primerange(3, B + 1))
 
 def analyse(p, k, B, W, verbose=True):
     Rp = reps(p, k); Hp = [r[6] for r in Rp]; spec = {(r[0], r[5]) for r in Rp}

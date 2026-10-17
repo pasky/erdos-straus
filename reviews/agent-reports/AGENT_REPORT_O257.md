@@ -6,7 +6,8 @@ Branch merged `side-agent/amplify-exception` and later `main` (R266 attribution 
 classical Mordell–Schinzel / ET Prop 1.6 obstruction, campaign T1). **ES is not solved; no total law was found.**
 
 ## SHARP:
-1. **Thm 2.6 (PROVED, elementary; numerically confirmed): a proved 4-vs-8 separation in the lift language.** Let 4 | k,
+1. **Thm 2.6 (PROVED, elementary; NONCONG_LIFTS §5; numerically confirmed; proof re-derived line by line by the
+   self-requested hostile review): a proved point classification separating 4 from every 4 | k ≥ 8.** Let 4 | k,
    ℓ ∤ k odd prime, x_{ℓ,2} ∈ Ẑ the point "2 at ℓ, 1 at every other prime (incl. 2)". For every k ≥ 8, x_{ℓ,2} lies in
    *no* Type I/II witness class; for k = 4 it is covered iff ℓ ∈ {3, 5}, exactly by Mordell's slices (1, 6, e = 7) and
    (1, 5, c = 2, e = 3) / (2, 5, e = 7). Consequence: no level divisible by a prime ℓ ≡ ±3 (8) is *complete* (= visibility
@@ -15,12 +16,13 @@ classical Mordell–Schinzel / ET Prop 1.6 obstruction, campaign T1). **ES is no
    a ≤ b ≤ 300, k ∈ {4, …, 32}, ℓ < 60 — hits exactly the four Mordell classes.
 2. **Complete-level dictionary (CERTIFIED).** "Visibility is sufficient at level L" ⟺ L complete. k = 4: complete levels
    ≤ 1600 are 7-smooth, and a 7-smooth L is complete iff (3 | L ⟹ 8 | L) and (7 | L ⟹ 24 | L) (≤ 6000; "if" PROVED).
-   k = 8, 12: no complete level ≤ 400k. Since every Mordell-class prime is a square modulo every 7-smooth level, **the
-   only 4-specific resource of the lift picture (Mordell completeness) is exhausted exactly on 𝓜**.
-3. **Level dichotomy (PROVED; T1 part classical).** A congruence-mediated lift valid on the class of p mod M forces
+   k = 8, 12: no complete level ≤ 400k. Since every Mordell-class prime is a square modulo every 7-smooth level, **in
+   the computed range the only 4-specific resource of the lift picture (Mordell completeness) is exhausted exactly on
+   𝓜**; Thm 2.6 makes this a theorem for levels through ℓ ≡ ±3 (8), ℓ ≥ 11 (ℓ ≡ ±1 (8) open beyond 1600).
+3. **Level dichotomy (PROVED; T1 part classical; needs gcd(p, M) = 1).** A congruence-mediated lift valid on the class of p mod M forces
    kab | M and p ≢ □ (mod M). Slice-level M ⟹ O253 Cor 3.3; polynomial lifts collapse (Schinzel); the only escape is a
    level growing with the source's size d′ — and the natural such lifts (exact sharing of the factored number) transport
-   only the e-spectrum (Prop 1.4: four share relations, validity ⟺ (θ, e) ∈ Spec(p)).
+   only the e-spectrum (Prop 1.4, integral α, β: four share relations; a *reselecting* share lift succeeds ⟺ (θ, e) ∈ Spec(p)).
 
 ## What was done
 * §1: Def 1.1 (slice-level / witness-level), Thm 1.2, Prop 1.3 (polynomial collapse; archimedean lifts → NEAR_SQUARE),
@@ -44,9 +46,10 @@ classical Mordell–Schinzel / ET Prop 1.6 obstruction, campaign T1). **ES is no
 * Extend Thm 2.6 to x_{ℓ,r}, r = least non-residue: Case A becomes L = ckas − (a + c)/b₀ with L | a + rc, which
   bounds L ≤ poly(r); with n(ℓ) < √ℓ + 1 this would prove "for k = 4 complete levels are exactly the 7-smooth ones
   of the rule" (full classification), and an analogous statement for every 4 | k.
-* For k = 8: is there *any* complete level (supported on 2 and primes ≡ ±1 (8))? Thm 2.6 + one more point at ℓ = 7
-  (scan: r ∈ {3, 5} uncovered) would give "k = 8 has no complete level", a clean structural reason for E_8 ≠ ∅-type
-  behaviour of covering arguments.
+* For k = 8: is there *any* complete level (supported on 2 and primes ≡ ±1 (8))? (scan: at ℓ = 7, r ∈ {3, 5} uncovered;
+  at 17, 23, 31 most non-residues uncovered.)
+* (Corrected after review) Thm 2.6-type points at ℓ = 7 and at every ℓ ≡ ±1 (8) would be needed before any
+  "no complete level" statement for k = 8; one more point at ℓ = 7 does not suffice.
 * Witness-level lifts that are not exact-share (target number shares only the factor d′ with the source) — the size
   test says they are lotteries; a version with a reciprocity-forced factor (à la (J)64 windows) is untested.
 * Numerator-size inequality as the 4-specific input: the inequality b₀(k − 4/g) ≤ 3 is where 4 differs from 8 — look for

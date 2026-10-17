@@ -3,8 +3,8 @@
 **Idea.** The most natural size-reading lift shares the source's factored number: N_θ(p) = λ·N_θ′(q) identically in q
 (p = αq + β). Then the source's full factorisation k a′b′d′ is available at p. Does that give information?
 **Result (PROVED, algebra).** Exactly four share relations exist ((II←II) e = αe′ − β; (II←I) e′ | α, e = α/e′ − β;
-(I←II) e = 1, αe′ − β = 1; (I←I) e(α − βe′) = e′). For each, every slice with the target e is automatically
-compatible, so validity at w′ ⟺ (θ, e) ∈ Spec(p): the source contributes only its e-value. A share law is total iff
+(I←II) e = 1, αe′ − β = 1; (I←I) e(α − βe′) = e′). For each (α, β integral), a *reselecting* lift (free to output any slice with the target e) succeeds at w′ ⟺
+(θ, e) ∈ Spec(p): the source contributes only its e-value (a lift prescribing one slice can fail even then; R-O257 F2). A share law is total iff
 f(Spec(q)) ⊆ Spec(p) (Spec = set of (type, e) of witnesses).
 **Literature.** ET parametrisation (Prop 1.3); "joint factorisation" hatch H-A of the barrier map; BRAINSTORM
 corr_joint_factorisation.md (different: correlations of Type I/II events at one p).

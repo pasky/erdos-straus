@@ -1,12 +1,13 @@
 """O257 helpers: all solutions (via the C solver z28_lab) and their ET slice representations for prime n.
 A representation of a Type II solution (x, y, z) = (abd, acdn, bcdn) [Type I: (abdn, acd, bcd)] is any d with
 a^2 d = X Y/Z, b^2 d = X Z/Y, c^2 d = Y Z/X integral squares (X, Y, Z the n-free parts); modulus H = k a b."""
-import subprocess, os
+import subprocess, os, atexit
 from math import isqrt, gcd
 from functools import lru_cache
-LAB = '/tmp/z28_lab'
-if not os.path.exists(LAB):
+LAB = f'/tmp/z28_lab_{os.getpid()}'   # per-process build of the reviewed source
+if True:   # always rebuild from the reviewed source (R-O257 minor: stale binary risk)
     subprocess.run(['gcc', '-O2', '-o', LAB, os.path.join(os.path.dirname(__file__), 'z28_lab.c')], check=True)
+    atexit.register(lambda: os.path.exists(LAB) and os.remove(LAB))
 
 @lru_cache(maxsize=None)
 def sols(n, k=4):
@@ -42,12 +43,18 @@ def reps(n, k=4):
     return tuple(res)
 
 def is_square_mod(r, L):
-    """r (coprime to L) is a square mod L."""
+    """r is congruent to a square modulo L (any r, not only units): local test at every prime power l^v || L."""
     from sympy import factorint
     for l, v in factorint(L).items():
+        m = l**v; t = r % m
+        if t == 0: continue
+        j = 0
+        while t % l == 0: t //= l; j += 1
+        if j % 2: return False
+        rest = v - j
         if l == 2:
-            if v == 2 and r % 4 != 1: return False
-            if v >= 3 and r % 8 != 1: return False
-        elif pow(r % l, (l - 1) // 2, l) != 1:
+            if rest >= 3 and t % 8 != 1: return False
+            if rest == 2 and t % 4 != 1: return False
+        elif pow(t % l, (l - 1) // 2, l) != 1:
             return False
     return True
