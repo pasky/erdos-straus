@@ -111,15 +111,16 @@ and at large p there are enough pairs with a large prime factor (Cor 1.3, §3).
 **Lemma 3.1 (incidence form and main term; PROVED, elementary, as PARITY_AUDIT Lemma 2.1).** For p ≡ 1 (4) prime,
   N₁(p) = #{(c, d) ∈ ℕ² : (4cd − 1) | p + 4d},
 and each incidence is a distinct ES solution (ad, acdp, cdp). The Haar main term is
-  M₁(p) := Σ_{c,d ≥ 1, 4cd − 1 ≤ p + 4d} 1/(4cd − 1) = (log p)²/8 + O(log p).
+  M₁(p) := Σ_{c,d ≥ 1, 3(4cd − 1) ≤ p + 4d} 1/(4cd − 1) = (log p)²/8 + O(log p)
+(the factor 3: every incidence has cofactor g = (p + 4d)/w ≡ 3 (mod 4), so g ≥ 3).
 For the c = 1 line, PARITY_AUDIT's R(p) = #{(u, B, C) : 4uBC = p + u + B} has the same main term (log p)²/8. But (u, B, C)
 and (B, u, C) give the same triple {uBC, pBC, puC}, so the number of distinct (★) solutions is N_{c1}(p) = (R(p) + ε)/2,
 ε ∈ {0, 1}, with main term (log p)²/16.
 *Proof.* By SYNTHESIS_SPARKS8 Prop 1.3 (López Thm 7), with w = 4cd − 1: w | cp + 1 ⟺ w | p + 4d, because 4cd ≡ 1 (mod w)
 gives 4d(cp + 1) ≡ p + 4d (mod w) and gcd(w, 4d) = 1; then a = (cp + 1)/w ≥ 1. Distinctness: 8d ≤ p + 3 and a < p, so
 p ∤ x = ad while p | y, z. So x is identified, z = min(y, z) = cdp, a = y/z, d = x/a, c = z/(dp). Main
-term: for fixed d, c runs to (p + 4d + 1)/(4d), giving Σ_c 1/(4cd − 1) = (1/(4d))(log(p/(4d)) + O(1)) + O(1/d²), and
-Σ_{d ≤ p/4} (1/(4d)) log(p/(4d)) = (log p)²/8 + O(log p); d > p/4 contributes O(1). For (★): the swap (u, B) ↦ (B, u) is an
+term: d ≤ (p + 3)/8, and for fixed d, c runs to (p + 4d + 3)/(12d), giving Σ_c 1/(4cd − 1) = (1/(4d))(log(p/(12d)) + O(1)) +
+O(1/d²); summing, Σ_{d ≤ (p+3)/8} (1/(4d)) log(p/(12d)) = (log p)²/8 + O(log p). For (★): the swap (u, B) ↦ (B, u) is an
 involution on R's incidences with at most one fixed point (u = B forces u | p, u = 1, 2 = p + 2 − 4C·… impossible: u = B = 1
 needs 4C = p + 2, odd), and swapped incidences give the same unordered triple. ∎
 **So the b = 1 line has twice as many independent trials as (★).** Per distinct solution, the main terms are (log p)²/8 and
