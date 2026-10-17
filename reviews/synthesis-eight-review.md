@@ -37,3 +37,37 @@ complete per-p decision for the primes the sieve leaves). Logs `logs/review_r268
 * T1 / 105 controls: both lines fail at every odd square 9, …, 529 and at 105 (confirmed).
 * k = 8 analogue (c n + a + 1 = 8acd; n + a + b = 8abd), own code: over **all primes 5 ≤ p < 8000**: b = 1 fails at 60, both
   fail at 34 incl. 131 and 241 — **matches** (the count is 61 / 35 if p = 3 is included; see defect m1).
+
+---
+## Claim B — Props 1.2–1.5, Lemma 1.6, DFI paragraph, §1.7 table
+
+**Prop 1.2: SOUND-AFTER-REPAIRS** (defect m2). The bijection (x, y) = (a, b), N = 4cd is a rewriting; re-derived. The b = 1
+bullet adds "w ≤ (cn + 1)/2", which is false for odd n ≡ 3 (4): at n = 3 the only b = 1 solution is (a, c, d) = (1, 2, 1) with
+w = cn + 1 = 7. The side condition is also unnecessary (any w ≡ −1 (4c), w | cn + 1 gives d = (w+1)/(4c) ≥ 1, a ≥ 1).
+**Prop 1.3: SOUND.** Re-derived independently (reviewer's t-form above is the same identity with t := cg − 1); the "Reading"
+(b = 1 ⟺ a coordinate ≡ 0 (4); c = 1 ⟺ N ≡ 0 (4); union fails ⟺ every even coordinate has v₂ = 1 and v₂(N) ≤ 1) is correct
+for primes p > 3 (MP-pairs are coprime there: gcd | p and p | x, y forces p = 3). The T1 sentence cites ET Prop 1.6, which is
+stated for *Type II solutions* (n ∤ x, i.e. abd coprime to n); the MP statement needs vanishing of the *equation*
+cn + a + b = 4abcd without coprimality (defect m3). Reviewer check (`scripts/review_r268_squares.py`): no solution of the
+equation, any gcd, at every odd square 9 … 841 — so the statement is right, but the citation does not literally cover it.
+**Prop 1.4: SOUND-AFTER-REPAIRS** (defect m4). (a) "0 ≤ (k+1)y − n < y" fails at the endpoint y = n/k (value y, least residue 0);
+harmless for prime n. (b) The displayed correspondence "MP(p) ∩ {x < y} ↔ {(x, s) : x | s + 1, s | p + x}" is wrong as stated:
+the right-hand set maps onto ALL of MP(p) (reviewer check, primes 5 … 219: image = MP(p) exactly, and 747 of 1449 image points
+have x ≥ y). Either drop "∩ {x < y}" (correct and cleaner: MP(p) ↔ {(x, s)}, s = (p + x)/y) or add the condition (s − 1)x < p.
+(c) The proof's "x | (k + 2)n − ... i.e." is a placeholder; the clean line is (k+1)(n + y) = (k + 2)n + x.
+**Prop 1.5: SOUND.** Re-derived: (4cud − 1)ε = cp + u, and (4cdu − 1)(4cdv − 1) = 4c²dp + 1 ⟺ cp + u + v = 4cuvd. The
+"what fails" paragraph is correctly labelled Assessment.
+**Lemma 1.6: GAP (label).** First sentence (CRT density Σ 1/(xy) ≍ 1; for primes it is Σ 1/φ(xy), still ≍ 1) is PROVED and
+trivial. The "Consequently any completion count … leaves an error ≍ (XY)^{1/2}" part is NOT a theorem: (i) the "complete
+exponential sum S(h, k) of length ≍ XY" is never defined — the moduli xy vary with the pair, so there is no single completion;
+(ii) the triangle-inequality computation gives an *upper* bound (XY)^{1/2+o(1)} for one particular strategy, not a lower bound
+on the error of "any completion"; (iii) "needs cancellation across frequencies" is a heuristic conclusion. Defect M1.
+**DFI paragraph: GAP (misdescribed citation).** Checked against sources/dfi-1997-kloosterman-fractions.pdf. DFI's bounds are
+stated "for any positive integer a" but are **explicitly a-dependent**: Thm 1 has the factor (1 + a/MN)^{1/2}, Thm 2 the factor
+(a + MN)^{3/8}, Thm 3 (a + MN)^{14/29}; the paper itself says the improvement over the trivial bound needs "a ≪ MN, a condition
+usually satisfied in applications". So "uniform in the numerator a" is inaccurate; with a ≍ p it is nontrivial only for boxes
+with MN ≳ p (Thm 2 needs roughly MN ≫ p and M, N not too unbalanced), and trivial for boxes XY = o(p). Second error: DFI's
+saving is a *bilinear* saving over varying moduli n — it is precisely cancellation across many incomplete sums with different
+moduli, not "at the level of a single S(h, k)". Defect M2.
+**§1.7 table: SOUND-AFTER-REPAIRS** — rows 1, 3, 4 fine as Assessment; row 2 must be rewritten per M2 (fixed a = p is part of
+the obstruction for every box with XY = o(p)). The four-coordinate equivalence itself is sound.
