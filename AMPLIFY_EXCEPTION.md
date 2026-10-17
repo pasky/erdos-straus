@@ -114,7 +114,9 @@ B ∩ E ≠ ∅ for every B ∈ 𝔅(p₀).
 (a) E(N) ≥ τ_N := the least size of a set hitting every block B ⊆ [1, N], and τ_N ≥ #{B ⊆ [1,N]}/μ_N, where μ_N is
 the maximal number of such blocks containing one integer. Thm 1.1 applies to τ_N; Thm 1.3 applies with "successor"
 replaced by "hit of a block" (the hit is an unknown element of E, so the law must be available at *every* element
-of E, which it is if stated for all p₀ ∈ P_E, using (K3) for composite hits).
+of E, which it is if stated for all p₀ ∈ P_E, using (K3) for composite hits). Caveat (review): when a hit is
+composite, the law is re-applied to its prime factors, whose sizes need not satisfy the size/degree hypotheses of
+Thm 1.3; those hypotheses must be verified for the extracted primes, not for the hit.
 (b) (Route D.) If every p ∈ P_E has a block Q(p) ⊆ [2, p) with Q(p) ∩ E ≠ ∅, then P_E = ∅ (least element of E is
 prime, by (K3); its block contains a smaller element of E). This needs neither (K1) nor (K4).
 (c) Disjoint blocks of bounded length L inside every window (p, p + f(p)] give Thm 1.3(c) with f + L.
@@ -124,7 +126,7 @@ prime, by (K3); its block contains a smaller element of E). This needs neither (
 
 ## 2. Obstruction theorems (what classes of laws can never work)
 
-**Proposition 2.1 (an (A)-law is a total reduction; PROVED, elementary).** A law "p₀ ∈ E ⟹ F(p₀) ⊆ E" with
+**Proposition 2.1 (an (A)-law is a total reduction; (a) PROVED, elementary; (b) Assessment).** A law "p₀ ∈ E ⟹ F(p₀) ⊆ E" with
 F(p₀) defined from p₀ alone (input-only) is the same statement as the family of reductions
 "ES(q) ⟹ ES(p₀)" for q ∈ F(p₀). Consequently: (a) if some q ∈ F(p₀) is *known* to be soluble, the law (if proved)
 is a proof of ES(p₀); (b) if F(p₀) satisfies (1.1), F(p₀) necessarily contains integers covered by the
@@ -132,9 +134,11 @@ small-modulus Elsholtz–Tao classes used in Vaughan's sieve (otherwise F(p₀) 
 count is the bound in (K4)), so the law, made explicit, turns an *explicit small-modulus witness* at some q into a
 witness at p₀. The amplification route therefore does not avoid proving ES(p₀): it relocates the difficulty into
 the reduction step, which must turn small-modulus data at q into a witness at p₀ (cf. Thm 2.3).
-*Proof.* (a) Contrapositive of the law at that q. (b) Vaughan's proof (cited from memory: an upper-bound sieve) bounds E(N) by the number of n ≤ N avoiding an
-explicit family of classes (each class ⊆ S by an explicit identity); if F(p₀) avoided all of them it would obey
-the same upper bound and (1.1) would fail (Thm 1.1(b)). ∎
+*Proof.* (a) Contrapositive of the law at that q. (b) is an Assessment, not a theorem: it presupposes that the
+bound (K4) is proved as an upper bound for the avoider set of an explicit family of soluble classes, so that any F
+obeying (1.1) must meet that family. This is the structure of Vaughan's large-sieve argument as we recall it
+(cited from memory, not re-verified here); with that structure the argument is: if F(p₀) avoided all the classes it
+would obey the same upper bound and (1.1) would fail (Thm 1.1(b)). ∎
 
 **Theorem 2.2 (slice isolation: witness transports never amplify; PROVED).** Call (a,b,c) the *slice* of a witness
 and let 𝒢 be the graph on primes with q ~ p iff some witness w ∈ W(q) transports to W(p) by one of the two known
