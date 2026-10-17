@@ -193,7 +193,7 @@ it is a model mechanism (Assessment)." — consistent with the author's own 193 
 **M2 (MAJOR, heuristic premise) — §3.4 ("D = 3.24 (the largest observed)") and Conjecture 3.5 ("overdispersion D = O(1)"),
 memo z29_nb_tail_model.** D grows with p in the author's data and mine (2.20 → 2.67 → 3.26 → 3.62 at 10⁶ → 10¹²).
 *Repair:* state D(p) ≈ 0.8 + 0.1 log p as EVIDENCE on 10⁶–10¹²; replace "D = O(1)" by the needed hypothesis
-"D/log D = o((log p)·μ/(log p)²)", i.e. D ≲ c log p suffices; add the sensitivity row (D linear in log p: 8·10⁻⁶ beyond 10⁸,
+"μ·log D/(D − 1) ≥ (1 + ε) log p" (with μ ≍ (log p)² this holds for D ≲ c·log p, and fails for D ≍ (log p)²); add the sensitivity row (D linear in log p: 8·10⁻⁶ beyond 10⁸,
 5·10⁻¹⁰ beyond 10¹¹; with −20 % μ: 1.8·10⁻³, 2.7·10⁻⁶) from `logs/review_r270_nb.txt`. Conclusions unchanged.
 
 **m1 — §0 (I1), Prop 1.4, memo z29_lopez_typeA.** López 2404.01508v3 §2: "In the previous article it was shown that any prime
