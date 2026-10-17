@@ -1,6 +1,6 @@
 # JOINT_BUDGET — joint-factorisation families for every prime: the algebraic budget at general p (task O254)
 
-Status: in progress (O254, hatch H-A, direction 3). **ES is not solved here, nor any new infinite case of it.**
+Status: checkpoint 1 (O254, hatch H-A, direction 3); report reviews/agent-reports/AGENT_REPORT_O254.md. **ES is not solved here, nor any new infinite case of it.**
 Labels as in DISCOVERIES.md. Scripts `scripts/z26_*`, memos `BRAINSTORM/z26_*.md`.
 Builds on: the slice table (reviews/redteam-automorphic-2 Lemma 2.1, "RT2"), CAP_DOWN Lemma 1.1 (window form),
 MENU_STERILITY / EXP_105 / EXP_OPEN (thin families, Theorem W), NORMFORM_CUBIC (J)79, POINTWISE_SIZE Thm C/M,
@@ -60,8 +60,8 @@ p-free, so "f mod q_θ(u) ∈ R_θ(p)" depends on p only through p mod q_θ(u) (
 N′(u, p) mod q_θ(u)·den is a function of p mod q_θ(u)·den. ∎
 
 **Remark 1.3 (coordinates that depend on p as well; PROVED).** If all four ET coordinates are polynomials Θ(u, X)
-(not only the slice θ), then for each fixed u the family is a polynomial ET family in n = X alone, hence ((J)79 with
-P = X) an ET identity in n, valid on one congruence class mod some M(u). So the conclusion of Cor A.1 holds for every
+(not only the slice θ), then for each fixed u the family is a polynomial ET family in n = X alone, i.e. an ET identity in n,
+integral and positive exactly on a union of congruence classes mod some M(u) (for X large). So the conclusion of Cor A.1 holds for every
 family polynomial in (u, p) with p free. Theorem A says where the splittings of such identities come from: only from
 slice coordinates that depend on p (e.g. d = (p + e)/(4ab) makes 4c²dp + 1 = (4acd − 1)(4bcd − 1)), i.e. from the
 classical identities themselves.
