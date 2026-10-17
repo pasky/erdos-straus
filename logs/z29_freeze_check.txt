@@ -1,0 +1,2 @@
+sigma=7 M=176400: primes p=1 (M) < 2000000000: 2467; shift-s pairs 16719; mismatches 0; (s, p) with Q_s prime: 2776, of which with a pair: 0
+sigma=11 M=64033200: primes p=1 (M) < 2000000000: 8; shift-s pairs 47; mismatches 0; (s, p) with Q_s prime: 24, of which with a pair: 0

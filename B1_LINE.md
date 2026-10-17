@@ -141,3 +141,6 @@ prime. For those, p ≡ 1 (mod M_σ), hence p ≡ 1 (mod 4), and Prop 4.1(b) kil
   need ≍ √p simultaneous prime cofactors, and the forms 1 + (M/(1+s))k cannot all be prime for s up to a power of p (the
   modulus M_σ would exceed p). So B2's finite-slice obstruction does not apply to the line itself. The line can only fail by a
   large deviation of many independent large-shift events (§3).
+(Check of Prop 4.1: `z29_freeze_check.py 2·10⁹`, all primes p ≡ 1 (mod M₇ = 176 400) and (mod M₁₁ = 64 033 200) below
+2·10⁹: 16 719 + 47 shift-s pairs, the two descriptions agree exactly; in all 2 776 + 24 cases with Q_s prime there is no
+pair; `logs/z29_freeze_check.txt`.)
