@@ -111,3 +111,21 @@ already ℓ = 3, 5, 7 carry uncovered points").
   quoted means (0.159, 0.072, 0.043, 0.030, 0.025, 0.019) are uniformly ≈ 4 % higher than mine — and also higher
   than the author's own `z28_lab cnts 4 16000 48000` output, which gives 0.1535 under the obvious estimator (D6).
   Qualitatively **SOUND (EVIDENCE)**; the numbers need provenance.
+
+### §3: Lemma 3.1 and Computation 3.2
+
+* **Lemma 3.1.** Re-derived. One unstated point checked: q ∤ H′ for a witness at a prime q ∤ k (Type I: qe + 1 = kabd;
+  Type II: q | a ⟹ q | e ⟹ q | b ⟹ q + e = kabd ≥ kq(a+b)/2 > q + e, contradiction), so "non-square mod ℓ^v" is a
+  statement about a unit and the Legendre/mod-8 transfer is legitimate. **SOUND.**
+* **Computation 3.2.** Own enumerator `scripts/review_r267_matched.py` (complete solution lists via the B²-divisor
+  criterion, ET representation recovered from each solution, own general squareness test, det ⟹ visible asserted).
+  My raw counts are exactly twice the author's because I count (a, b) and (b, a) separately; halved, **all 16 fixture
+  entries agree exactly** (97: 5/6/7, 16/20/21, 13/17/22, 9/14/18; 193: 10/18/22, 12/18/20, 8/13/18; 313: 6/6/7,
+  3/6/8, 7/16/22, 8/15/18; 3361: 3/22/29, 9/25/30, 6/19/30; 5209: 0/20/33, 4/19/30). The convention "(a, b) unordered"
+  should be stated (D7).
+  Aggregate: 273 Mordell primes ≤ 10⁵ and 1347 matched sources (W = 1000) ✓. Witness-level aggregate recomputed for the
+  83 Mordell primes ≤ 3·10⁴ (413 sources, 21550 witnesses): visible 65.2 %, transporting/visible 29.6 %, **0 total
+  sources, 0 sources with visibility sufficient** — same rates as the author's 10⁵ aggregate (64.6 %, 29.6 %, 0, 0).
+  Not rerun to 10⁵ (Python cost). **SOUND (CERTIFIED for the fixtures; aggregate consistent).**
+* The *Reading* "exactly as §2.4 predicts" overstates: §2.4 predicts that visibility is not sufficient, not the 30 %
+  rate. Cosmetic.
