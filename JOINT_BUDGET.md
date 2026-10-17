@@ -142,7 +142,8 @@ continued-fraction norm of √p (m = |P_k² − pQ_k²|, gcd(Q_k, m) = 1) or any
 (p/m) = +1 and is unforced.
 *Proof.* 4K = p + m ≡ p (mod m) and p ≡ cw² (mod m), so (K/m) = (p/m) = (c/m). Reciprocity (p ≡ 1 (4), m odd positive):
 (p/m) = (m/p), and m ≡ cw² (mod p) gives (m/p) = (c/p). For m | A² − pB²: p ≡ (A/B)² (mod m). ∎
-*Reading.* Forced windows are exactly the m with an odd-exponent prime inert in ℚ(√p); every object built from the
+*Reading.* Forced windows are exactly the m with (p/m) = −1, i.e. an odd number of primes inert in ℚ(√p) divide m to
+an odd power; every object built from the
 arithmetic/archimedean geometry of ℤ[√p] (CF of √p, Pell units, small norms, "next square" windows) produces only
 split/ramified windows. This is the structural reason why near-square primes (many small norms) are hard ((J)53/(J)55)
 and why CF/Pell auxiliaries cannot supply the forcing (candidate (i), CF/Pell part, closed).
