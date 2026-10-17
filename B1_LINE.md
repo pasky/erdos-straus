@@ -16,7 +16,12 @@ López's "Type A" form (du, dv, duv) (M. A. López, arXiv:2206.10319, 2022/v4 20
 of shape (du, dv, duv) exists iff ∃ t ≥ 0 and w | k + 1 + t with w ≡ −1 (mod 3 + 4t) — exactly our window form with
 m = 3 + 4t, since k + 1 + t = (p + m)/4). López reports that ≤ 4369 only 193 and 2521 fail; López, arXiv:2404.01508 (2024)
 §2 says 193, 2521 are the only primes < 9000 without Type A, that 66529 is "another case", identifies Type A with ET's
-a = 1 or b = 1, and conjectures Type A ∪ Type B covers all primes (checked to 104729). Not found: the claim that
+a = 1 or b = 1, and conjectures Type A ∪ Type B covers all primes (checked to 104729). López 2404.01508 also has (verified, `sources/lit2026f/Lopez-2024-TypeB-Thm7.md`): Thm 7 = the divisor form
+(p ≡ −4d mod 4dn − 1, i.e. SYNTHESIS_SPARKS8 Prop 1.3); Thm 4 / Type B = the c = 1 line (★); Conjecture 1 = "Type A ∪
+Type B covers every prime" (= O258's union observation). Gardes' thesis lists 2521, 66529 as problem primes (per R268 M4).
+**Re-scoped novelty:** the b = 1 line, its divisor form, the exceptions 193/2521/66529 and the union conjecture are López's.
+Potentially new here: the census beyond 10⁸ (§2), the pair genus law in this form (§1), the smooth-(p − 1) structure
+theorem and the Dickson obstruction for the least shift (§4), and the heuristic model (§3). Not found: the claim that
 {193, 2521, 66529} is the complete exception list to 10⁸, or any finiteness conjecture/heuristic for it. So Conjecture 2.5
 of SYNTHESIS_SPARKS8 is a (natural) strengthening of a question López left open; our census extends his computations.
 (I2) Census engine rebuilt on the mutual-shift form (Lemma 1.1; independent of O258's window code): ≤ 10⁸ in 2 s, ≤ 10¹⁰
