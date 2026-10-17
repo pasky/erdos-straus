@@ -14,4 +14,4 @@ moduli.
 **Cheap numerics.** `z29_freeze_check.py 2e9` (p ≡ 1 mod 176 400 and mod 64 033 200): exact agreement, and no pair whenever
 Q_s is prime. Census record 215 at p = 22 010 483 881 with p − 1 = 2³·3²·5·7·11·19·23²·79 (all primes < 41 are QRs mod p).
 **Assessment.** PROVED (Prop 4.1) + CONDITIONAL (Thm 4.2). It explains the smooth-(p − 1) pattern mechanistically.
-Prediction: the least shift grows (like a power of log p), while full failures stay finite (§3).
+Prediction: the least shift is unbounded (census: record 119 ≤ 10⁸, 215 at 2.2·10¹⁰), while full failures stay finite (§3).
