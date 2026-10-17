@@ -6,6 +6,10 @@ Branch merged `side-agent/amplify-exception` and later `main` (R266 attribution 
 classical Mordell–Schinzel / ET Prop 1.6 obstruction, campaign T1). **ES is not solved; no total law was found.**
 
 ## SHARP:
+(R267 repair, D-M1/D8: SHARP 1–2 concern **fixed-slice** classes (determined lifts) only. With ET's non-slice polynomial
+families, x_{3,2}, x_{5,2} are covered for k = 8 (n ≡ 281 mod 504, n ≡ 7 mod 15) and x_{11,2} for k = 4 (n ≡ 79 mod 143),
+and L = 12 is complete for k = 4; so "4 vs 8 separation" holds for slices, not for polynomial solvability. The size test
+of §4.2 is descriptive (D-size confounded), not a permutation test showing "no signal". See reviews/noncong-lifts-review.md.)
 1. **Thm 2.6 (PROVED, elementary; NONCONG_LIFTS §5; numerically confirmed; proof re-derived line by line by the
    self-requested hostile review): a proved point classification separating 4 from every 4 | k ≥ 8.** Let 4 | k,
    ℓ ∤ k odd prime, x_{ℓ,2} ∈ Ẑ the point "2 at ℓ, 1 at every other prime (incl. 2)". For every k ≥ 8, x_{ℓ,2} lies in

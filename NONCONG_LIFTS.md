@@ -79,6 +79,9 @@ it on a square class. ∎
 The same holds one level finer for polynomials in m = ⌊√p⌋ on p = m² ± j: by NEAR_SQUARE Thm 2.2 (j > 0) and
 Thm 3.4 (j < 0; Hilbert reciprocity in ℚ(√j)) every such family misses the ℚ(√j)-adic unit-square set — an
 *archimedean* lift has its own T1 adversary, now in ℚ(√j) (DISCOVERIES (J)55).
+(R267 repair, D5: in NEAR_SQUARE's convention p = m² + k: Thm 2.2 covers k > 0, sterile set {m : m² + k ∈ (Ẑ^odd)²},
+non-empty iff k ≡ 0, 1, 5 (8); Thm 3.4 covers k = −j < 0, j non-square, sterile set Z_K⁺ with K = ℚ(√j). Only the
+second case lives in ℚ(√j).)
 
 **Proposition 1.4 (exact-share lifts = e-spectrum transport; PROVED, algebra; repaired after R-O257 F2).** Let
 α ≥ 1, β be integers. Call a witness-level lift *exact-share* if N_θ(p) = λ·N_θ′(q) identically in q
@@ -120,6 +123,9 @@ i.e. "invisible to every slice-level lift built from small moduli".
 k = 4: **23**, k = 8: 4, k ≥ 12: 0 or 1. On Mordell-class primes (p mod 840 ∈ 𝓜) the mean drops by a factor ≈ 3
 for k = 4 and ≈ 4 for k = 8, and the minimum is the same. So the k = 4 lottery sits a factor ≈ 2.2 above k = 8 in mean
 and ≈ 6 in minimum at this height; exceptions in the models live where the expected count is O(1).
+(R267 repair, D6: R267's independent count, and the author's own `z28_lab cnts 4 16000 48000` averaged as
+mean(f/log³p), give 0.1535 for k = 4 and 0.0692, 0.0412, 0.0288, 0.0243, 0.0181 for k = 8, …, 24 — the quoted means
+are ≈ 4 % high and have no log; the minima and the ratios are confirmed.)
 Consequence for screening: a k-uniform law *with a k-dependent threshold* ("every p > P₀(k) …") is not refuted by
 model exceptions (Schinzel's conjecture itself is such a law). The screen refutes only threshold-free laws — the
 form every lift law of O253 has.
@@ -188,6 +194,8 @@ q = p − δ, |δ| ≤ W, q prime, q ≡ p (8), matched Legendre profile at ℓ 
 witnesses; "det" = p has a witness with H | H′ (O253 Thm 3.1), "share" = exact-share lift (Prop 1.4).
 Entries q(δ): det / visible / all. (Rerun after review R-O257 M1/M2/minor: general squareness test incl. non-unit residues,
 128-bit printing in the solver, profile test comparing zero symbols; two fixture entries changed by one.)
+(R267 note, D7: witnesses are counted with (a, b) unordered; an ordered count doubles every entry. All 16 entries
+and the 273/1347 counts were reproduced independently by R267.)
 ```
 97   (W=600): 73(+24):5/6/7  313(-216):16/20/21  433(-336):13/17/22  577(-480):9/14/18
 193  (W=600): 337(-144):10/18/22  457(-264):12/18/20  673(-480):8/13/18
@@ -220,6 +228,9 @@ B-smooth moduli, so (S2) is the visibility-sufficiency question of §2.4);
 (R-O257 M5: these counterexamples refute only laws whose antecedent holds at the listed exceptions; a scheme with extra
 hypotheses, or one never targeting these primes, is not refuted.)
 The only 4-specific resource the laboratory exhibits is *Mordell completeness* (§2.4), and it is exhausted on 𝓜.
+(R267 repair, D-M1: "for determined, i.e. fixed-slice, lifts". With ET's non-slice polynomial families more
+classes are covered — e.g. for k = 8 every n ≡ 7 (mod 15) and every n ≡ 281 (mod 504) is solvable — so the screen
+says nothing about polynomial-family completeness.)
 
 **4.2 Size information (EVIDENCE, `scripts/z28_size_info.py`).** The most naive witness-level lift reads a size number
 D of a source witness (D ∈ {d′, c′d′, x′-part a′b′d′}) and asks for a witness of p whose p-free denominator abd is
@@ -245,6 +256,8 @@ H | x + e (II) resp. H | xe + 1 (I) for the integer x ≡ x_{ℓ,2} (mod H), e =
 (c) Hence, if 2 is a non-residue mod ℓ (ℓ ≡ ±3 mod 8), **no level L with ℓ | L is complete** — for every 4 | k ≥ 8
 (including ℓ = 3, 5), and for k = 4 for every such ℓ ≥ 11 (11, 13, 19, 29, 37, 43, …). For k = 8 a complete level
 would have to be supported on 2 and primes ≡ ±1 (mod 8).
+(R267 repair, D1: "including ℓ = 3, 5" requires ℓ ∤ k — for k = 12, x_{3,2} does lie in the slice class (1, 6, e = 7),
+H = 72; for k = 20 the prime 5 is excluded. "Complete" = slice-complete, see the §2.4 R267 note.)
 *Proof.* Write m = v_ℓ(ab). Every prime q | kab other than ℓ sees x ≡ 1 (mod q^{v_q(kab)}).
 *Case 0 (m = 0).* Type II: e ≡ −1, Type I: e ≡ −1 (mod kab); so e ≥ kab − 1 > a + b ≥ e (k ≥ 4), impossible.
 *Case A (ℓ ∤ a, b = ℓ^m b₀, m ≥ 1; the case ℓ ∤ b is symmetric).* Put L = ℓ^m; ℓ ∤ e (II: e ≡ −2, I: 2e ≡ −1 mod ℓ).
@@ -266,6 +279,7 @@ This proves (a). (b) For k = 4 the only surviving branches are Type II, Case A, 
 *Type II.* 4ab₀ + 1 ≤ Lh ≤ 4 + 4b₀/g forces a = 1 (a ≥ 2 gives 8b₀ + 1 ≤ 4 + 4b₀). If g = 1: c = (L − 1)/2,
 b₀ = hc − 1, and 4b₀ = 4(hc − 1) must divide Lh − 1 = 2(hc − 1) + h + 1 > 0, so h + 1 ≥ 2(hc − 1), i.e.
 h(2c − 1) ≤ 3: c = 1 (L = 3), h ∈ {2, 3}, where h = 2 fails (4 ∤ 5) and h = 3 gives b₀ = 2, slice (1, 6), e = 7;
+(R267 note, D3: h = 1 at c = 1 gives b₀ = 0 and is discarded.)
 or c = 2 (L = 5), h = 1, b₀ = 1, slice (1, 5, c = 2), e = 3. If g ≥ 2: b₀(4 − 4/g) ≤ 3 forces b₀ = 1, and
 c = (Lg − 1)/2 ≤ g + 1 (h ≥ 1) gives g(L − 2) ≤ 3, so L = 3 and g = 3 (Lg odd): c = 4, h = 1, Lh = 3 ≢ 1 (mod 4).
 *Type I.* Here g + 2b₀ ≥ 2gb₀ leaves g = 1, or g = 2 with b₀ = 1. If g = 1: since 8ab₀ > 2Lb₀,

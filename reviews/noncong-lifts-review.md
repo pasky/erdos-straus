@@ -1,5 +1,7 @@
 # R267 — hostile review of O257 NONCONG_LIFTS.md (non-congruential lifts, numerator-model laboratory)
 
+**Repairs applied** (author quiet): R267 repair notes in NONCONG_LIFTS.md (D-M1 at §1 after Thm 1.2, §2.4 ×4, §4.1, §5 Reading; D1, D2, D3, D4, D5, D6, D7) and AGENT_REPORT_O257.md (SHARP scope). Author text otherwise untouched.
+
 Reviewer branch `side-agent/review-noncong-lifts`, merged `side-agent/noncong-lifts` at 3b74594d.
 From-scratch code: `scripts/review_r267_*.{c,py}` (none of the author's scripts reused).
 ES is OPEN; nothing reviewed proves ES or an infinite case of it.
