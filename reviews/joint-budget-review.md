@@ -126,3 +126,43 @@ Remark 4.4 says "every Type II point" only, while Thm 5.2(e) asserts "p is a non
 Thm C applicability to bounded cyclotomic menus: checked against POINTWISE_SIZE §1.1 — computing p^j − 1 (j ≤ k₀, P2),
 DIVISORS, then c | a + b and the test 4ab | p + e (or pe + 1) are all (P1)–(P8) instructions; plus a final exactness
 check it is a correct bounded witness-producing program, so Thm C (H) applies. Correct.
+
+### §5 Theorem 5.2 (JF trichotomy) — SOUND-AFTER-REPAIRS (scope/framing, no false mathematics)
+Each item re-traced to its source: (a) = Remark 1.3 + Theorem A; (b) = (J)79 Thm 1.1′/3.1 + Schinzel, Prop 2.1(a),
+Prop 2.1(c); (c) = §4.1 + Prop 3.2/Cor 3.3 + CAP_BOUNDED Thm 1.3; (d) = Prop 4.2; (e) = Prop 4.3, Remark 4.4,
+POINTWISE_SIZE Thm C. Every PROVED tag is backed, every CONDITIONAL tag names its hypothesis. Problems:
+* (a), (b)-last and (d) are reformulations, not impossibility statements: ES itself has the shape "u-indexed union of ET
+  classes, firing = moving-modulus event" (u = (a, b, c), class p ≡ −e (mod 4ab)). The theorem therefore excludes no
+  proof strategy by itself; its genuine negative content is (b)-Schinzel ((J)79), (c)/(e) conditional on Dickson/H
+  ((J)83, Thm C) — all pre-existing. Needs an explicit sentence (D1).
+* (e) "p is a non-square mod every class modulus" is proved in the text only for Type II (D5).
+* (R3) is defined as a *window* rule; archimedean/ℚ(√p) data used as other coordinates (e.g. a = ⌊√p⌋, d or the class
+  modulus 4ab from CF data, Type I windows) are covered by none of (R0)–(R4), yet the "Not covered" list implicitly counts
+  "archimedean-ℚ(√p)" auxiliaries as covered (D6).
+* (c) "the forced information is the image of ⟨primes of K⟩ in H₀/H₀^ℓ" — what (J)64 gives is one bit, the image of K
+  (with multiplicities) in G/G², i.e. (K/m) = −1; "image of ⟨primes of K⟩ in H₀/H₀²" is a different (and not forced)
+  object. Imprecise wording (MINOR, D8).
+The "Not covered" list is otherwise honest and accurate: (R1) residual, growing k₀, the (J)64/(J)66 regime.
+
+### §6 numerics — SOUND (spot-checked from scratch)
+`scripts/review_r263_sec4.py depth …` (own window enumeration, each point verified exactly, sympy n_order):
+p = 210 961 (≡ 121 mod 840): 46 ordered Type II points, k* = 72, all orders even — matches. p = 80 809 and 296 041:
+k* = 42 — matches. All 53 Mordell-hard primes < 2·10⁴: max k* = 22 (histogram {2:13, 4:6, 6:6, 8:3, 10:11, 12:9, 14:1,
+16:2, 22:2}), all orders even — matches the author's "at N = 2·10⁴ the maximum was 22". T1 control: no odd square
+t², t < 400, has a Type II point. Labels: EVIDENCE, correctly hedged in JOINT_BUDGET ("growing in range"). But the
+report's proposed ledger line says "EVIDENCE: cyclotomic depth unbounded" — overclaim relative to the text (D7).
+Note the k* statistic is a min over Type II points only (the report says so; §6 should say so too).
+
+### Novelty / prior art — MAJOR attribution gap (D2)
+* Theorem A: Gauss's lemma + a sign; new as a stated lemma, elementary.
+* §3 window form, Prop 3.2, Cor 3.3: **already in LONGSHOT_PIGEONHOLE.md (O135, reviewed R135, DISCOVERIES item 9)**:
+  Lemma 1.1 there is the window form (−1 ∈ Σ_e(N)); Prop 1.4 there is the Kneser covering criterion in a strictly more
+  general form (any target t₀, condition over all H ∌ t₀ with min(2v_i + 1, o_H(g_i)), sharpness example 1.4(c)), and
+  1.4(b) is Cor 3.3's PROVED part (Ω(N) ≥ (φ(e) − 1)/2); its §2.1 Lemma 2.1 (CRT forcing costs e^{(1+o(1))k log k}
+  against 3^{k+1}) is precisely the "exponential budget gap" that Cor 3.3 states only as Assessment — there it is
+  PROVED. JOINT_BUDGET cites none of this; the report credits only the Cauchy–Davenport remark of SPARKS7 s6.
+  Prop 3.2 is the special case t₀ = −1 ∈ H₀, H ranging over subgroups of H₀ (equivalent after restricting to H₀).
+* Prop 4.2: elementary and, as far as I can find in DISCOVERIES/STATUS, new as stated; related to (J)61 (near-square
+  signs as Artin symbols) and (J)53/(J)55 — should be cross-referenced.
+* Prop 4.3 / Remark 4.4: immediate corollaries of Lemma CT (notes Lemma 77.6); new as stated, small.
+* Thm 5.2: synthesis (the report says so honestly).
