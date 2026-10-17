@@ -47,3 +47,25 @@ parametrisation-dependent: it says the *naive* (u, C) trial set stays of size �
 complete-sum treatment of (a⁴) at polylog U must face ≍ p trials (Verdict (iii) should say "for the (u,C)/(u,B)
 parametrisations", see Claim 8).
 
+## Claim 2 — exact single-p events (§0) and Lemma 0.1: **SOUND**
+
+Re-derived: (tu − 1)(tv − 1) = t(tuv − u − v) + 1 = tp + 1 ✓; min(u,v) ≤ (√(tp+1) + 1)/t ≤ √(p+1) + 1 ✓ (the
+bound is decreasing in t); AB ≡ 1 (mod p) gives ψ(A) = ψ(B) so the u ↔ v swap preserves the sign ✓; hence
+E_a(p; √p + 2) ⟺ ES-five(p) given (J)9 Thm 4.5 ✓. (a⁴): (4uC − 1)(4BC − 1) = 4Cp + 1 ✓, min(u,B) ≤ (√(4p+1)+1)/4 ✓,
+two-variable form R(p) = #{(u,B) : 4uB | p + u + B} ✓, swap form (cofactor of g ≡ −1 (mod 4C) in 4Cp + 1 is again
+≡ −1 (mod 4C)) ✓. Window conditions match CAP_POINTWISE Thm 1.1 (i)–(iii) ✓.
+Minor (m4): the "class/size layer" of (a) alone is trivially satisfiable (u = 1, A = any divisor of p + 1;
+(u−1)(v−1) = p + 1 always has solutions). The text says so only in §5; say it in §0 where the two layers are
+introduced, otherwise "two layers" suggests both are obstacles.
+
+## Claim 4 — Lemma 3.2: **SOUND** (two cosmetic remarks)
+
+Re-derived. χ_{−4u} = Kronecker (−4u/·) is a character mod 4u because −4u ≡ 0 (mod 4) is a discriminant, and it is
+odd because −4u < 0 ✓. For ℓ | m² + u, ℓ ∤ 2u: (−u/ℓ) = 1 ✓; any f ≡ −1 (mod 4u) is coprime to 4u so all its prime
+factors are such ℓ ✓. Prime case: −u ≡ p (mod ℓ) and reciprocity for p ≡ 1 (4) ✓. Free χ-shadow at p ≡ 1 (8) ✓;
+p = 13, u = 5 counterexample ✓ ((5/13) = −1, 18 = 2·3², χ_{−20}(3) = +1).
+From scratch (`scripts/review_pa_lemma32.py`): no hit for any square m² (m < 300, odd *and even*), u ≤ 60; 92 143
+pairs (p ≡ 1 (8) < 4·10⁴, QNR u < 200) all have the required ℓ; 362 counterexamples for p ≡ 5 (8) < 2000, u < 50.
+Minor (m5): oddness of m is never used — the lemma holds for every square. Minor (m6): in the prime-case sentence
+add "u < p" (needed for ℓ ≠ p, as in the χ-shadow paragraph).
+
