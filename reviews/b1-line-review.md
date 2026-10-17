@@ -76,3 +76,25 @@ pairs, 7 857 (★) pairs, 2 147 overlaps — exactly the author's counts — 0 v
 (S′T/p) = −(2/p)^k, (xy/p) = −1, (x′y/p) = −(2/p)^k; free pairs occur only in (p mod 8, k mod 2) = (5, odd) (2 260 b = 1,
 3 399 (★)); 181 has the (★) pair (3, 8). Prop 1.4: 12 | p + 7, 24 | p + 11, 8 | p + 3 ✓, and no b = 1 failure off 1 (24)
 / no (★) failure at 5 (8) for p < 2·10⁴. The b = 1 half is López 2022 (C3, m1).
+
+### C7. Prop 4.1 (freezing) and Thm 4.2 (Dickson ⟹ least shift unbounded) — SOUND (proofs); the "explains the records" reading is an OVERCLAIM (M2)
+Definition: e_ℓ = ⌊log_ℓ(σ + 1)⌋ + 1 gives v_ℓ(M_σ) > v_ℓ(m) for all m ≤ σ + 1 ✓; my values M₃ = 72, M₅ = 1800,
+M₇ = 176 400, M₁₁ = 64 033 200 match. Re-proof: (1 + s) | p − 1 ⇒ (1 + s) | p + s; v_ℓ((p − 1)/(1 + s)) ≥ 1 for ℓ ≤ σ + 1
+⇒ primes of Q_s exceed σ + 1; for ℓ | s, v_ℓ((p − 1)/(1 + s)) = v_ℓ(p − 1) > v_ℓ(s) ⇒ Q_s ≡ 1 (s). tu = p + s ≡ 1 (s)
+(s | p − 1) ⇒ u ≡ −1 ⟺ t ≡ −1 (mod s) ✓. (a): needs st | M_σ, which uses gcd(s, t) = 1 (Lemma 1.1, p prime) — fine but
+unstated; the proof covers 3 ≤ s < t only, s = 1 is vacuous (no b = 1 pair has a coordinate 1, as 4 ∤ p + 1) — trivial
+gap, state it. (b): g ≡ −1 (mod s), g | 1 + s ⇒ g = s − 1 | s + 1 ⇒ s = 3, g = 2, t ∈ {2, 2Q₃}, 4 ∤ 3t ✓.
+Thm 4.2: forms 1 + M_σk and 1 + (M_σ/(1 + s))k (3 ≤ s ≤ σ) are distinct, have positive leading coefficients, and equal 1
+at k = 0, hence are admissible ✓. Under Dickson, M_σ | p − 1 (so p ≡ 1 (4)), every Q_s prime, shifts 1, 2 carry no pair
+(C1), shifts 3..σ dead by (b) ⇒ least shift > σ ✓. Correctly labelled CONDITIONAL.
+Numerics (from scratch, `logs/review_r270_freeze.txt`): all primes ≡ 1 (mod M₇) and (mod M₁₁) below 2·10⁹: 16 719 + 47
+shift-≤σ pairs, predicted set = actual set, Q_s ≡ 1 (s) with all primes > σ + 1, no pair in all 2 776 + 24 cases with Q_s prime,
+no surviving pair with st | M_σ; 0 discrepancies (counts identical to the author's). Dickson examples
+(`logs/review_r270_dickson.txt`): 2 250 primes p = 1 + 1800k (k < 3·10⁶) with Q₃, Q₄, Q₅ all prime; the first 60 have least
+shift ≥ 7 > σ = 5, as Thm 4.2 predicts. Amusingly, 2521 = 1 + 72·35 with Q₃ = 631 prime is itself a σ = 3 Dickson prime.
+**But** the §4 bullet "Unconditionally, Prop 4.1 explains the census records" is not supported: of the six record primes
+I re-verified (`logs/review_r270_records.txt`; least shifts 95, 119, 111, 104, 215, 116 all reproduced, witnesses exact),
+four (1 683 049, 277 977 001, 6 098 002 681, 58 441 300 009) have 3 ∥ p − 1, so not even M₃ = 72 | p − 1 and Prop 4.1 applies
+to NO shift; 22 010 483 881 has M₃ | p − 1 but M₄ = M₅ = 1800 ∤ p − 1 (5 ∥ p − 1), so Prop 4.1 freezes only shift 3 of the 214
+empty shifts; only 345 601 (M₅ | p − 1) is in scope, and only for s ≤ 5. The QR claim (every prime < 41 is a QR mod
+22 010 483 881; 41 is not) is correct. See M2.

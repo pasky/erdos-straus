@@ -1,0 +1,2 @@
+sigma=3 M=72: 1042 Dickson primes with k<20000; first 60: b=1 failures [2521]; least shifts [4, 7, 8, 11, 12, 16, 23] min 4 all witnesses exact: True examples [73, 433, 2089, 2161, 2521]
+sigma=5 M=1800: 2250 Dickson primes with k<3000000; first 60: b=1 failures []; least shifts [7, 8, 11, 12, 15, 24] min 7 all witnesses exact: True examples [176401, 221401, 347401, 1344601, 1600201]
