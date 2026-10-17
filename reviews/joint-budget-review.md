@@ -54,3 +54,34 @@ case cites the wrong result: with u_r = (p − ψ(u′))/α the family's coordin
 parameters DO depend on p, so Theorem A (p-free slices) does not apply — Remark 1.3 does (and sides can split, e.g. the
 ET-variety example right below). See defect D3.
 (d) Residual correctly stated as "no claim".
+
+### §3 window form — SOUND
+Type II with e = m: 4abd = p + m, cm = a + b ⇔ ab | K, m | a + b. Reduction to coprime (a, b): a prime ℓ | gcd(a, b, m)
+divides K and m, hence 4K − m = p; excluded by gcd(m, p) = 1, so dividing by gcd(a, b) keeps m | a + b. The
+exponent-vector description of Σ_m(K) is then exact. From-scratch brute force (`scripts/review_r263_kneser.py` part 1):
+all primes p ≡ 1 (4) < 1200, all windows m ≡ 3 (4), m < 2p, gcd(m, p) = 1 (26 430 windows): "∃ a, b (any gcd) with
+ab | K, m | a + b" ⇔ "−1 ∈ Σ_m(K)": 0 mismatches; every hit verified exactly as 4/p = 1/(abd) + 1/(acdp) + 1/(bcdp).
+
+### Lemma 3.1 — SOUND (near-tautological, as the author says)
+a + b ≤ ab + 1 ≤ F + 1 < 4F. Correct.
+
+### Prop 3.2 (Kneser threshold) — SOUND
+Re-derived. (ℤ/m)^× cyclic; Σ = Σ_s A_s with A_s symmetric progressions; 0 ∈ Σ so H := Stab(Σ) ⊆ Σ ⊆ H₀, and Σ ≠ H₀ ⇒
+H ≠ H₀. In G/H the image has trivial stabiliser (Stab(Σ̄) = Stab(Σ)/H), so Kneser for k summands gives
+|Σ̄| ≥ Σ|Ā_s| − (k − 1). If ℓ_s ∉ H and Ā_s wrapped around (2b_s + 1 ≥ ord ℓ̄_s), Ā_s is the non-trivial subgroup ⟨ℓ̄_s⟩
+and Σ̄ + Ā_s = Σ̄ (Ā_s + Ā_s = Ā_s), contradicting trivial stabiliser; so |Ā_s| = 2b_s + 1 for ℓ_s ∉ H, giving
+|Σ̄| ≥ 1 + Σ_{s∉H} 2b_s ≥ [H₀ : H] against |Σ̄| ≤ [H₀ : H] − 1. The Kneser statement used is the standard one
+(|A + B| ≥ |A + H| + |B + H| − |H|, H = Stab(A + B), iterated). "(K/m) = −1 ⇒ −1 ∈ H₀": H₀ ⊄ squares ⇒ [G : H₀] odd ⇒
+|H₀| even ⇒ −1 ∈ H₀ (unique involution of a cyclic group). Correct.
+From-scratch brute force (part 3): 40 000 random (m prime in [5, 110), K with 1–6 primes < 400, exponents ≤ 8, half
+biased to primes of small order mod m); (3.1) checked over ALL proper subgroups H < H₀ (via divisors of |H₀|): held in
+17 379 cases, Σ_m(K) = H₀ in all 17 379 (6 259 of them with m ≡ 3 (4), −1 ∈ H₀). The author's R-review example
+p = 809, m = 31, K = 210 reproduced (Σ_31(K) = (ℤ/31)^× while 2Ω(K) = 8 < 29).
+
+### Cor 3.3 — SOUND; labels correct
+PROVED part: 2Ω(K) ≤ 2 log₂ K, so H = {1} in (3.1) with H₀ = G fails once m > 2 log₂ K + 2. Correct.
+Assessment part is correctly labelled. Its one checkable numeric claim ("least element of −p mod 4F is ≥ F for a
+proportion ≥ 3/4 of admissible p mod 4F") checked for all F < 3000 (`scripts/review_r263_cor33.py`, p ≡ 1 (4),
+gcd(p, 4F) = 1): minimum proportion exactly 0.75 (at F = 4). Correct. Small imprecision: "(2^E − 2)/2 − E prime
+factors" presumes H₀ = G; if the forced primes generate a small H₀ the need is |H₀|-sized, not m-sized (the
+"exponential gap" sentence should say "when H₀ = (ℤ/m)^×"). MINOR.
