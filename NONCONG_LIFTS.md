@@ -201,3 +201,55 @@ trials cluster by p, so differences of a few % are not significant). A shuffled 
 confound (the partners are of different size). So **the sizes of a source solution carry no detectable
 information about the target's divisor events** beyond what they share with any integer of the same size —
 the B2 lottery in the form "the source's factorisation is independent of p's".
+
+### 2.5 A proved separation: the point x_{ℓ,2}
+
+For an odd prime ℓ let x_{ℓ,2} ∈ Ẑ be the point with x = 2 in ℤ_ℓ and x = 1 in ℤ_q for every prime q ≠ ℓ (q = 2
+included). It lies in the witness class (θ, a, b, c) iff its residue mod H = kab does, i.e. iff
+H | x + e (II) resp. H | xe + 1 (I) for the integer x ≡ x_{ℓ,2} (mod H), e = (a + b)/c.
+
+**Theorem 2.6 (PROVED, elementary).** Let 4 | k and ℓ ∤ k an odd prime.
+(a) If k ≥ 8, x_{ℓ,2} lies in no Type I/II witness class.
+(b) If k = 4, x_{ℓ,2} lies in a witness class iff ℓ ∈ {3, 5}; the classes are (II/I, a = 1, b = 6, e = 7) for ℓ = 3 and
+(II, 1, 5, c = 2, e = 3), (I, 2, 5, c = 1, e = 7) for ℓ = 5 (Mordell's identities).
+(c) Hence, if 2 is a non-residue mod ℓ (ℓ ≡ ±3 mod 8), **no level L with ℓ | L is complete** — for every 4 | k ≥ 8
+(including ℓ = 3, 5), and for k = 4 for every such ℓ ≥ 11 (11, 13, 19, 29, 37, 43, …). For k = 8 a complete level
+would have to be supported on 2 and primes ≡ ±1 (mod 8).
+*Proof.* Write m = v_ℓ(ab). Every prime q | kab other than ℓ sees x ≡ 1 (mod q^{v_q(kab)}).
+*Case 0 (m = 0).* Type II: e ≡ −1, Type I: e ≡ −1 (mod kab); so e ≥ kab − 1 > a + b ≥ e (k ≥ 4), impossible.
+*Case A (ℓ ∤ a, b = ℓ^m b₀, m ≥ 1; the case ℓ ∤ b is symmetric).* Put L = ℓ^m; ℓ ∤ e (II: e ≡ −2, I: 2e ≡ −1 mod ℓ).
+Type II: e ≡ −1 (mod kab₀), e ≡ −2 (mod L), ce = a + Lb₀. Mod L, a ≡ ce ≡ −2c, so a + 2c = Lg (g ≥ 1) and ℓ ∤ c. Then
+c(e + 2) = L(g + b₀), so c | g + b₀; with h := (g + b₀)/c, e = Lh − 2 and Lh ≡ 1 (mod kab₀). As Lh ≥ 3,
+Lh ≥ kab₀ + 1, and Lh = 2L(g + b₀)/(Lg − a) (c = (Lg − a)/2). If a ≤ Lg/2: Lh ≤ 4(g + b₀)/g ≤ 4 + 4b₀/g, so
+kb₀ + 1 ≤ 4 + 4b₀/g, i.e. b₀(k − 4/g) ≤ 3 — impossible for k ≥ 8. If a > Lg/2: Lg − a = 2c ≥ 2 gives Lh ≤ L(g + b₀),
+and kab₀ + 1 > (k/2)Lgb₀, so g + b₀ > (k/2)gb₀ ≥ 2gb₀ — impossible for k ≥ 4.
+Type I: e ≡ −1 (mod kab₀) gives 2e + 1 ≡ −1 (mod 2kab₀); 2e ≡ −1 (mod L) and ce = a + Lb₀ give 2a + c = Lg, ℓ ∤ c,
+c(2e + 1) = L(g + 2b₀), h := (g + 2b₀)/c, 2e + 1 = Lh ≡ −1 (mod 2kab₀), so Lh ≥ 2kab₀ − 1, with Lh = L(g + 2b₀)/(Lg − 2a).
+If 2a ≤ Lg/2: Lh ≤ 2 + 4b₀/g, so 2kb₀ − 1 ≤ 2 + 4b₀ — impossible for k ≥ 4. If 2a > Lg/2: Lh ≤ L(g + 2b₀) and
+2kab₀ − 1 > (k/2)Lgb₀ − 1, so g + 2b₀ ≥ (k/2)gb₀ — impossible for k ≥ 8 (4gb₀ > g + 2b₀).
+*Case B (a = ℓ^i a₀, b = ℓ^j b₀, 1 ≤ i ≤ j, n := j − i).* ℓ ∤ e and ce = ℓ^i(a₀ + ℓ^n b₀) force c = ℓ^i c₀,
+c₀e = a₀ + ℓ^n b₀, and e ≡ −1 (mod ka₀b₀). If n = 0, e ≥ ka₀b₀ − 1 > a₀ + b₀, impossible. If n ≥ 1, the Case A
+computation with (a, b₀, L, c) → (a₀, b₀, ℓ^n, c₀) applies verbatim (it used only the congruences mod ka₀b₀ and mod
+ℓ^n, which are implied), and in addition the congruence mod ℓ^{i+j} = ℓ^{2i+n} forces ℓ^{2i} | h.
+This proves (a). (b) For k = 4 the only surviving branches are: Type II, Case A, a ≤ Lg/2 with b₀(4 − 4/g) ≤ 3, and
+Type I, Case A, 2a > Lg/2 with g + 2b₀ ≥ 2gb₀. Type II: 4(1 + b₀/g) ≥ 4ab₀ + 1 forces a = 1 (a ≥ 2 would need
+4g + 4b₀ ≥ 8gb₀ + g, false); if g = 1 then c = (L − 1)/2, b₀ = hc − 1 and 4(hc − 1) | Lh − 1 = 2(hc − 1) + h + 1, so
+h + 1 ≥ 2(hc − 1), i.e. h(2c − 1) ≤ 3: (c, h) = (1, 3), L = 3, b₀ = 2 (slice (1, 6), e = 7), or (c, h) = (2, 1), L = 5,
+b₀ = 1 (slice (1, 5, c = 2), e = 3); if g ≥ 2 then b₀ = 1, c = (Lg − 1)/2 ≤ g + 1 gives g(L − 2) ≤ 3, leaving only
+L = 3, g = 3, c = 4, h = 1, Lh = 3 ≢ 1 (mod 4). Type I: if c ≥ 2, Lh ≤ L(1 + 2b₀)/2·… — precisely, g = 1:
+L(1 + 2b₀)/c ≥ 8ab₀ − 1 > 2Lb₀ − 1 forces c = 1, a = (L − 1)/2, and 4(L − 1)b₀ | L(1 + 2b₀) + 1; the quotient t
+satisfies L + 1 + 4b₀t = 2Lb₀(2t − 1)·… which for t = 1 reads b₀ = (L + 1)/(2L − 4): L = 3, b₀ = 2 (slice (1, 6), e = 7)
+or L = 5, b₀ = 1 (slice (2, 5), e = 7); t ≥ 2 gives b₀ < 1. g = 2 forces b₀ = 1, c ∈ {2, 4} and 8a | Lh + 1 with
+a = L − c/2 ≥ L − 2, impossible for L ≥ 3; g ≥ 3 violates g + 2b₀ ≥ 2gb₀. In Case B the extra condition ℓ^{2i} | h
+kills h ∈ {1, 3, 5} for ℓ^n ∈ {3, 5}. So only ℓ ∈ {3, 5} (L = ℓ, m = 1) survive, with the listed classes, which do
+contain x_{ℓ,2} (e.g. x = 17: 17 + 3 ≡ 0 (20), 17·7 + 1 = 120 ≡ 0 (40); x = 5 ≡ 2 (3), 5 ≡ 1 (8): 5 + 7 ≡ 0 (24)).
+(c) If 2 is a non-residue mod ℓ and ℓ | L, the class of x_{ℓ,2} mod L is a non-square unit class; a covering class
+of modulus H | L would contain x_{ℓ,2} itself. ∎
+*Numerical check (CERTIFIED, `scripts/z28_x2_check.py`, a ≤ b ≤ 300, k ∈ {4, 8, …, 32}, ℓ < 60, ℓ ∤ k):* hits
+occur exactly for k = 4, ℓ ∈ {3, 5}, and they are exactly the four classes of (b).
+
+*Reading.* This is the first *proved* structural 4-vs-8 separation in the lift language: for k = 4 the small
+non-residue primes 3, 5 are "complete-capable" (Mordell), for every 4 | k ≥ 8 no prime ℓ ≡ ±3 (8) ever is. The
+reason is an inequality (the slice must satisfy b₀(k − 4/g) ≤ 3), i.e. the archimedean size of 4 — numerator
+smallness, not a reciprocity law. For ES it confirms the §2.4 Assessment with proof for half of all primes:
+for a Mordell-class p whose visible primes are all ≡ ±3 (mod 8) and ≥ 11, no level at which p is visible is complete.
