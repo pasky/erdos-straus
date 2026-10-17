@@ -1,0 +1,3 @@
+S<50       n= 819  mean b1=16.00  mean c1=19.26  min b1=3 min c1=0
+50<=S<500  n= 433  mean b1=13.70  mean c1=16.49  min b1=1 min c1=2
+S>=500     n= 224  mean b1=11.32  mean c1=14.53  min b1=1 min c1=2

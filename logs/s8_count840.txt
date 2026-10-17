@@ -1,0 +1,6 @@
+p=  1 mod 840: n=720  mean b1-line count=19.63  mean c1-line count=23.53
+p=121 mod 840: n=699  mean b1-line count=20.40  mean c1-line count=24.29
+p=169 mod 840: n=710  mean b1-line count=20.25  mean c1-line count=24.57
+p=289 mod 840: n=717  mean b1-line count=20.56  mean c1-line count=25.10
+p=361 mod 840: n=692  mean b1-line count=20.86  mean c1-line count=23.96
+p=529 mod 840: n=720  mean b1-line count=20.89  mean c1-line count=24.65

@@ -50,6 +50,13 @@ int main(int argc,char**argv){
     for(ll p=P0+((5-P0%4+4)%4);p<=P;p+=4){ if(spf[p]!=p) continue; cnt++; ll r[4]; firstB(p,r);
       if(!r[1]) printf("fail B1 p=%lld\n",p); if(!r[3]) printf("fail C1 p=%lld\n",p); }
     printf("primes p=1(4) in [%lld,%lld]: %lld\n",P0,P,cnt);
+  } else if(!strcmp(argv[1],"count840")){ ll P0=atoll(argv[2]), P=atoll(argv[3]); sieve(2*P+10);
+    int cls[6]={1,121,169,289,361,529}; double sb[6]={0}, sc[6]={0}; ll nn[6]={0};
+    for(ll p=P0+((5-P0%4+4)%4);p<=P;p+=4){ if(spf[p]!=p) continue; int ci=-1; for(int i=0;i<6;i++) if(p%840==cls[i]) ci=i; if(ci<0) continue;
+      ll b1=0,c1=0, mmax=(p+4)/3; for(ll m=3;m<=mmax;m+=4){ ll K=(p+m)/4; int k=fac(K,pr,ex); int nd=gendiv(pr,ex,k,dv);
+        for(int i=0;i<nd;i++){ ll a=dv[i]; if((a+1)%m==0) b1++; if(a<m){ ll b=m-a; if(b>a && K%(a*b)==0 && gcdl(a,b)==1) c1+=2; else if(b==a && a==1 && K%1==0) c1++; } } }
+      nn[ci]++; sb[ci]+=b1; sc[ci]+=c1; }
+    for(int i=0;i<6;i++) printf("p=%3d mod 840: n=%lld  mean b1-line count=%.2f  mean c1-line count=%.2f\n",cls[i],nn[i],sb[i]/nn[i],sc[i]/nn[i]);
   } else if(!strcmp(argv[1],"list")){ ll mxn=0; for(int i=2;i<argc;i++){ ll v=atoll(argv[i]); if(v>mxn) mxn=v;} sieve(2*mxn+10);
     for(int i=2;i<argc;i++){ ll n=atoll(argv[i]); ll r[6]; first(n,r); printf("n=%lld",n); for(int e=0;e<6;e++) printf(" %s=%lld",nm[e],r[e]); printf("\n"); }
   } else if(!strcmp(argv[1],"perj")){ ll P=atoll(argv[2]); int J=atoi(argv[3]); sieve((ll)J*P+2);

@@ -1,0 +1,11 @@
+§3: prime windows q<80, p=1(4)<2e4: 13500 windows, (K/p)=(q/p) at 13500; 15498 cap-0 certificates, chi_p(uv) != -1 at 0
+§4: p=1(4)<3000, c<5, |d|<30: positive Type I points 1934 (with (d/p) != -1: 8); signed points 2816 (with (|d|/p) != +1: 1)
+  T1 n=9: positive 0, signed 2
+  T1 n=25: positive 0, signed 7
+  T1 n=49: positive 0, signed 9
+  T1 n=81: positive 0, signed 6
+  T1 n=121: positive 0, signed 12
+  T1 n=169: positive 0, signed 13
+  T1 n=225: positive 0, signed 6
+  T1 n=441: positive 0, signed 6
+exceptions above are exactly the 9 degenerate cases p | d (Jacobi 0), excluded by the lemma's hypothesis gcd(p, cd) = 1
