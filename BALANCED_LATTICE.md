@@ -161,7 +161,7 @@ On the other hand, Σ_{q ∈ (x/2, x]} (Π(q) − (B + 1)^k) = Σ_{h ≠ 0} w(h)
 **Proposition 3.2 (the visible remainder; PROVED).** If ψ ≠ 1 has 𝔻_S(ψ) < ε and ord ψ ≤ 1/ε, then 𝔻_S(ψ) = 0 and there is a
 prime ℓ ≤ 1/ε, ℓ | N, with every s ∈ S an ℓ-th power mod q. Hence {q : 𝔻_min(q) < ε} ⊂ Bad₁(ε) ∪ Bad₂(1/ε), Bad₂(z) :=
 {q : ∃ prime ℓ ≤ z, ℓ | N, S ⊂ (F_q^*)^ℓ}, and Bad₂ is a finite union of Chebotarev sets (Lemma 2.5).
-*Proof.* Angles of ψ lie in (1/d)ℤ, so each nonzero ‖θ_s‖ ≥ 1/d > ε. Then ψ is trivial on H; take ψ^{d/ℓ}. ∎
+*Proof.* Angles of ψ lie in (1/d)ℤ, so each nonzero ‖θ_s‖ ≥ 1/d ≥ ε > 𝔻_S(ψ) (R269 repair). Then ψ is trivial on H; take ψ^{d/ℓ}. ∎
 
 **Corollary 3.3 (the P-loss, exact; PROVED + arithmetic).** In a single class a mod 8P the GRH count of candidate windows is
 ≍ x/(φ(8P) log x). Prop 3.1 bounds Bad₁ in that class only by its total, so it excludes Bad₁ from the class only when
