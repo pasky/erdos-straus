@@ -14,7 +14,20 @@ From-scratch scripts: `scripts/review_r266_*.py` (no author code reused). ES rem
 | Thm 3.2 (T1 adversary) | SOUND mathematically (minor proof wording D-T32b); **novelty overclaimed → D-T32a (MAJOR)** |
 | Cor 3.3 (joint recombination) | SOUND within its stated scope; modest new packaging of a classical fact |
 | Fixture / Mordell numerics (§3.1) | SOUND (all spot checks reproduced exactly) |
-| (in progress) | |
+| Thm 1.1 (counting criterion) | SOUND (the "iff" is relative to an unspecified c₀ and to counting alone; D-R) |
+| Rem 1.2 | SOUND |
+| Thm 1.3 (a) polylog ceiling | SOUND (= Astra RESET §4 test 3, uncredited: D-ASTRA) |
+| Thm 1.3 (b) threshold b ≥ rA | SOUND (sufficiency and model both checked; quantifier of "never suffices" D-NS) |
+| Thm 1.3 (c) additive gaps | SOUND for sufficiency; converse is counting-only (stated in doc, oversold in R1: D-R) |
+| Thm 1.3 (d) growing branching | SOUND |
+| Thm 1.4 | SOUND (weak but correct; 1.4(d) = Astra test 1) |
+| Thm 1.5 | SOUND-AFTER-REPAIRS ((c) needs prime blocks: D-T15) |
+| Prop 2.1 | (a) SOUND; (b) correctly labelled Assessment |
+| Thm 2.2 | SOUND (transport algebra re-derived) |
+| Thm 2.4 | SOUND |
+| Prop 3.4 | SOUND (patterns and m = 3 reproduced; D-T25b) |
+| Prop 3.5 | SOUND (folklore; it is the core's §5 "NOT SUCCESS" category, which R2 should say: D-R) |
+| R1–R8 table | SOUND-AFTER-REPAIRS (D-R, D-T32a, D-ASTRA) |
 
 ## Defects
 
@@ -78,9 +91,81 @@ still holds because of the recorded facts p ∤ ab, p ∤ e (II), p ∤ c (I). R
 automatic; for ℓ = p use p ∤ abe (II) resp. p ∤ abc (I)", or first replace L by its prime-to-p part (H is
 coprime to p).
 
-(further defects below)
+**D-R (MAJOR for the comparison — R1–R8 table oversells in places).** Location: AGENT_REPORT_O253.md table.
+(i) R1: "F ⊆ E contradicts Vaughan iff ∀c > 0 …" and "one forced successor in (p, p + f(p)] suffices iff
+f = e^{o((log p)^{2/3})}": the document itself proves only "if"; the "only if" halves are "no contradiction by
+counting against (K4) with an unspecified constant" (Thm 1.1(b), 1.3(c) last sentence), and for (c) no model is
+constructed (it would need primes ≡ 1 (840) in intervals of length e^{c(log p)^{2/3}}, far below any known
+short-interval result). Repair: "suffices iff (for the converse: relative to Vaughan with unspecified c₀ and
+counting alone)"; for (c) "suffices if …; for larger f no counting contradiction (no model)". (ii) R1/R4 "never
+suffices" for Thm 1.3(a) should carry the doc's caveat "(when all outputs stay among primes of 𝓜; otherwise Rem 1.2
+already gives a contradiction)". (iii) R2(i): Prop 3.5 is a classical fixed-modulus progression (Thm 2.2(a) with
+H ≤ X) into the relaxation E_X; under core §5 this is explicitly "NOT SUCCESS (classical Type-I/II congruence
+progressions relabelled as propagation)". R2 should say so in one clause, otherwise a side-by-side reader sees a
+"total" law. (iv) R4/R6/SHARP: attribution per D-T32a. (v) R7 "every congruence-mediated reduction is blocked by
+the T1 adversary" → add "that must accept every supplied source witness (favourable-witness proofs and
+size-reading lifts are not covered)". (vi) R5: the core asks for tests on all Mordell-class primes ≤ 10^5; the
+recombination gate was run only on the 49 such primes with (p+1)/2 prime — say so explicitly ("other Mordell
+primes not tested"). Everything numerical in R5 that I re-ran is exact.
+
+**D-NS (MINOR — quantifier in the definition of "never suffices").** Location: §1 preamble vs Thm 1.3(b). The
+preamble defines "never suffices" as: a set E′ satisfying (K1)–(K4′) "consistent with the conclusion of every law
+of the given shape". In 1.3(a) the model is E′ = T(p₀) for the *given* law (strong, per-law). In 1.3(b) the model
+is an abstract configuration with its *own* edge map: it shows that the shape (b, r, A) does not force a
+contradiction, not that a given law σ with these properties has a model (a given σ may have many more successors).
+Repair: define both notions ("per-law" vs "shape-level") and label 1.3(b),(d) as shape-level.
+
+**D-T15 (MINOR).** Thm 1.5(c) ("disjoint blocks of bounded length L inside every window (p, p + f(p)] give
+Thm 1.3(c) with f + L"): if a hit is composite the chain cannot continue upward (the law is only for primes and
+the hit's prime factors are ≤ hit/3, typically far below p). Repair: "blocks consisting of primes (or a law
+available at every n ∈ E)", consistent with the caveat already added to 1.5(a).
+
+**D-41 (MINOR — repeats the defect R207 D1 found in (J)41).** Location: end of Thm 2.5 ("a k-uniform argument is
+refuted by these finite computations") and R6/R7. Finite computations at p < 2000 (and, for (b), p > 3k) refute
+only k-uniform arguments *without a threshold*; an argument valid for p > p₀(k) (p₀(8) > 241, say) is untouched.
+Repair: "refutes k-uniform arguments whose validity range includes the tested p (no threshold)", cf. R207 D1.
+
+**D-P35 (MINOR).** Prop 3.5 last sentence "by Thm 3.2 the residues at primes ℓ with (p₀/ℓ) = 1 carry no
+information at all" is rhetoric; Thm 3.2 says only that no ET witness of p₀ has modulus supported there.
+Repair: replace by that statement or mark Assessment.
 
 ## Per-claim notes
+
+### §1 (Thm 1.1–1.5, Rem 1.2) and §2 (Prop 2.1, Thm 2.2–2.4)
+Re-derived by hand; numerical parts in `scripts/review_r266_thm13.py` → `logs/review_r266_thm13.txt`.
+* Thm 1.1: (a) contradiction at c = c₀; ∀c is needed because c₀ is unspecified; limsup (not lim) suffices since
+  (K4) holds for every N. (b) a finite limsup implies a finite sup, so F satisfies (K4)'s inequality with (C₁, c₁).
+  (c) partial summation is right; the example F(N) = ⌊N e^{−√(log N)}⌋ is a genuine counting function (derivative
+  of N e^{−√L} is e^{−√L}(1 − 1/(2√L)) ∈ (0, 1), so increments ≤ 1), has Σ1/n < ∞ and satisfies (1.1). The "iff" is
+  meaningful only as stated in (b): relative to an unspecified c₀ and to counting alone (an explicit c₀ would make
+  every F with c₁ < c₀ contradictory). Fine in the document, oversold in R1 (D-R).
+* Rem 1.2: all four landing criteria correct (n < p₀ is applied at p₀ = min E, which is prime by (K3)).
+* Thm 1.3(a): generation-k elements ≥ p₀^{μ^k}; the union bound needs no distinctness. (d): every q ≤ N, q ≠ p₀,
+  has a parent ≤ N^{1/μ} with ≤ N^{δ/μ} children; unrolling gives ≤ K + 2 terms each ≤ N^{δΣμ^{−j}} = N^{δ/(μ−1)}.
+  Correct. (b) sufficiency: |T_{k+1}| ≥ (b/r)|T_k| (edges from T_k ≥ b|T_k|, in-degree ≤ r); for b/r ≥ A, T(N) ≥
+  N/(A p₀), positive lower density, contradicting E(N) = o(N). Model: children of a level-k parent lie in
+  [X_{k+1}, (1+δ)X_{k+1}] ⊆ (p, Ap] because A > (1+δ)²; cyclic slot assignment gives distinct children (m_{k+1} ≥ b)
+  and in-degree ≤ ⌈b m_k/m_{k+1}⌉ ≤ r. I built the model from scratch for (b, r, A) = (3, 1, 4), (5, 2, 3), (2, 3, 2)
+  with primes ≡ 1 (840) near 10^6–10^{10}: out-degree exactly b and window (p, Ap] at every parent, max in-degree
+  1, 2, 2 (≤ r), level sizes as predicted. The "iff b ≥ rA" is a genuine shape-level threshold (D-NS).
+  (c): chain bound p_i ≤ p₀ + i f(N) gives ≥ (N − p₀)/f(N) chain elements; the ∀c liminf condition is equivalent
+  (diagonal argument) to "log f(N) = o((log N)^{2/3}) along one sequence", as R1 states. Converse counting-only.
+* Thm 1.4: (b) R(N) ≤ (1 + log₂ N)^s is right; it is very weak (Astra's Rankin semigroup bound, RESET §4 test 2,
+  is the relevant complement: the whole semigroup generated by a sparse prime set is still sparse, so composites
+  never add counting power beyond Thm 1.1 applied to E itself). "Sharp: R = {p₀^k}" is a statement about the
+  combinatorial inequality only (p₀^k ∈ E is not known) — harmless, but say so.
+* Thm 1.5(a),(b): correct (route D = least-element argument). (c): D-T15.
+* Prop 2.1(a): contrapositive, correct; (b) properly an Assessment (Vaughan's method cited from memory).
+* Thm 2.2(a): Type II H | q−p ⇒ H | p + e; Type I ⇒ H | pe + 1; switched: p(qe + 1) ≡ p + e and p(q + e) ≡ 1 + pe
+  (mod H) — all verified; isolation of exceptional primes is immediate (W(p) = ∅). (b) tautology argument correct.
+* Thm 2.4: p ≡ 9 (16) ⇒ (p−1)/2 ≡ 4 (8) even, (p+1)/2 ≡ 5 (8) ∉ 𝓜; I re-checked that every n ≡ 5 (8) has the
+  polynomial solution 4/n = 1/((n+3)/4) + 1/(n(n+3)/8) + 1/(n(n+3)/4), so (K2)'s "all integers" reading is right here.
+  (b) the sieve dimension 2·6/192 = 1/16 is right; correctly flagged heuristic.
+* Prop 3.4: (a) the valuation case analysis is complete (one zero valuation: (≥2,0,0) = ET Type I, (≥2,≥2,0) =
+  Type II, (≥2,1,0) mixed; no zero: p·W(p)); from scratch for 3 ≤ p < 80 only (2,1,0), (2,1,1), (2,2,1) occur and
+  (2,1,0) occurs for every p. (b) identity re-derived: 1/u + 1/v = m(A + pB′)/((A + pB′) z p²) = m/(p²z) = 4/p² − 1/z.
+  (c) re-derived (p² + 3 ≡ 4 (8), all odd prime divisors ≡ 1 (3)); from scratch: no p ≡ 1 (3), p < 3000, has divisors
+  A, B′ of (p²+3)/4 with 3 | A + pB′.
 
 ### Thm 3.1, Thm 3.2, Cor 3.3, §3.1 numerics
 From scratch: `scripts/review_r266_t1.py` (own witness/representation enumeration on top of the complete
