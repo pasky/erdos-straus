@@ -210,3 +210,29 @@ No source is total at any fixture; at 3361 the source 281 (3361 = 12·281 − 11
 5209 5197(x1):9/104 2609(x2):10/40 1733(x3):8/59 1301(x4):7/38 1303(x4):10/53
 233689 116849(x2):34/167 77893(x3):27/197 77899(x3):85/225
 ```
+
+**Theorem 3.2 (the T1 adversary: invisible witnesses; PROVED).** Let p be odd and L ≥ 1. If p is congruent to a
+square modulo L (for odd p this is automatically an *odd* square when 2 | L; for odd L replace m by m + L), then
+*no* ET witness at p has modulus H dividing L. Consequently a source witness w′ with p ≡ □ (mod αH′(w′)) is
+*invisible*: no determined lift (Thm 3.1) can use it, and the recombination law from that source is not
+provable by determined lifts. For p ∈ 𝓜 prime (p ≡ 1 (8), (p/3) = (p/5) = (p/7) = 1) every source witness whose
+αH′ is supported on {2, 3, 5, 7} ∪ {ℓ : (p/ℓ) = 1} is invisible; e.g. every source n′ ≡ 3 (4) has the invisible
+witness H′ = 4 (Type II, a = b = 1, e = 1).
+*Proof.* Let m be odd with m² ≡ p (mod L). If p had a witness with H | L, the same slice would give an ET witness
+at every n ≡ p (mod H) (Thm 3.1(a)), in particular at n = m², contradicting ET Prop 1.6 (odd squares have no
+Type I/II solutions). ∎
+
+**Corollary 3.3 (joint recombination; PROVED).** Combining several sources (any finite Q(p), any number of shifts,
+all witnesses jointly) pins p modulo L = lcm(α_iH′_i). Since "p ≡ □ (mod L)" is a local condition at each prime
+power of L, the lcm of invisible moduli is invisible. Hence a joint determined recombination over Q(p) is total
+**only if some single source in Q(p) has no invisible witness at all.** Disjunction over many shifts does not help.
+
+**Numerics (CERTIFIED, `scripts/z25_sqadv.py`, `z25_joint_run.py`).** (i) Consistency of the lemma: for every
+fixture p ≤ 5209, none of p's own ET moduli H has p ≡ □ (mod H). (ii) Every source (all primes (p + j)/g,
+|j| ≤ 12, g | 24) at every fixture ≤ 5209 has ≥ 2 invisible witnesses (e.g. 3361 ← 281 (×12): 11 of 17 invisible;
+97 ← 43 (×2): 11 of 14). (iii) The joint search finds an adversarial tuple at every fixture ≤ 5209 (all 5–14
+sources at once; e.g. at 97 with 14 sources the lcm of the chosen moduli is 2^7·3^2, and 97 ≡ 1 (mod 8), 97 ≡ 7² (mod 9)).
+So route (D) through congruence-mediated recombination is dead at every fixture, for every witness choice
+pattern, for the exact reason T1: the adversary feeds witnesses whose moduli only see residues of p that are
+squares. A route-(D) law must use an input that sees a *non-residue* prime of p, and no such input is forced by
+"q ∈ S".

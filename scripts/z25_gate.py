@@ -94,3 +94,36 @@ if __name__ == '__main__':
             zero += (k == 0)
             print(p, v, f"{k}/{n}", flush=True)
         print('primes p in Mordell classes with v=(p+1)/2 prime:', tot, 'gate total:', full, 'gate empty:', zero)
+
+
+def joint_fixture(p, srcs):
+    """Joint (multi-source) determined lifts: the tuple of source witnesses pins p mod L = lcm(alpha_i H'_i).
+    Law total iff for EVERY tuple p has an ET witness with H | L.  Search for an adversarial tuple (DFS)."""
+    from math import lcm
+    _, rp = Hset(p)
+    Hp = sorted({r[5] for r in rp})
+    opts = []
+    for src, g in srcs:
+        _, rs = Hset(src)
+        mods = {}
+        for r in rs:
+            mods.setdefault(r[6], set()).add(g * r[5])
+        # a witness is usable by the adversary only through the lcm of all its reps' moduli? no: the
+        # prover may pick any rep, so the information is the lcm of all its rep moduli
+        ms = sorted({lcm(*v) for v in mods.values()})
+        opts.append([m for m in ms if not any(m % H == 0 for H in Hp)])
+    if any(not o for o in opts):
+        return None
+    opts.sort(key=len)
+    sys.setrecursionlimit(10000)
+    def dfs(i, L):
+        if any(L % H == 0 for H in Hp):
+            return None
+        if i == len(opts):
+            return []
+        for m in opts[i]:
+            r = dfs(i + 1, lcm(L, m))
+            if r is not None:
+                return [m] + r
+        return None
+    return dfs(0, 1)
