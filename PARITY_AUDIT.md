@@ -28,8 +28,8 @@ for U = p^θ with θ < 1/2 (in particular U = (log p)^C) E_a is a genuine restri
 for t ≥ 1. Since χ(w) = ψ(A) = ψ(B) (Lemma S of (J)58), u and v play symmetric roles. ∎
 
 *Swap form.* A ≡ −1 (mod u), A | p + u ⟺ (t, u, v) with p = tuv − u − v ⟺ "tp + 1 has a divisor ≡ −1 (mod t)"
-((J)6 (★): R(p) = #{(j,f) : f | p + j, f ≡ −1 (mod 4j)} is the same count in Type II normalisation). At fixed p
-the heuristic number of words is ≈ (log p)²/8 for (★) (EVIDENCE: R(p) = 44, 52, 68 at p ≈ 10⁸, 10⁹, 10¹⁰; (J)6 §3.3), i.e. **polylog many events in a family
+(its 4-normalised Type II analogue is (J)6's (★), below). At fixed p
+the heuristic number of solutions is ≈ (log p)²/8 for (★) (EVIDENCE: R(p) = 44, 52, 68 at p ≈ 10⁸, 10⁹, 10¹⁰; (J)6 §3.3), i.e. **polylog many events in a family
 of ≍ p parameter values**.
 
 **Event (b) — window event ((J)64 = CAP_POINTWISE §1; POINTWISE_SIZE §8, Thm 8.1).** For a prime q ≡ 3 (mod 4),
@@ -50,13 +50,14 @@ PROVED cap e*(n) < q.
 If f = 4uC − 1 and B = (p + u)/f, then p = 4uBC − u − B, i.e. a Type II ES solution (Rosati/ET (A)3 form; this is
 (J)6's (★): R(p) = #{(j, f) : f | p + j, f ≡ −1 (mod 4j)}). No sign layer is left: every hit is an ES solution.
 The range lemma holds verbatim ((4uC − 1)(4BC − 1) = 4Cp + 1 gives min(u, B) ≤ √p/2 + 1), so E_a⁴(p; √p) is the full
-(A)3 event and θ < 1/2 is a restriction. Swapping (f + 1 = 4uC): E_a⁴ ⟺ ∃ C, ∃ divisor of 4Cp + 1 that is ≡ −1
+(A)3 event (which itself fails at sparse primes, §5) and θ < 1/2 is a restriction. Swapping (f + 1 = 4uC): E_a⁴ ⟺ ∃ C, ∃ divisor of 4Cp + 1 that is ≡ −1
 (mod 4C) — the N_t-side form. In two variables: **R(p) = #{(u, B) : uB | p + u + B, (p+u+B)/(uB) ≡ 0 (mod 4)}**.
 This is what "divisors in moving residue classes" means here: the modulus 4u is tied to the shift u.
 
 **What "known theorem reaches it" would mean.** A statement, for every large p (or a thin infinite set of p, or
 under GRH), giving E_a(p; p^θ) with θ < 1/2, or E_b(p; p^θ) with θ < 1, or any positive lower bound for the
-counts behind them. Note E_b with Q ≈ 3p is ES itself restricted to windows (POINTWISE_SIZE Thm 8.1).
+counts behind them. Note: the *full* window event (Rat_q(K_q) ∩ {−1, −p} ≠ ∅ over all q ≡ 3 (4) with p ∤ K_q) is equivalent to ES
+(POINTWISE_SIZE Thm 8.1); E_b is a strict sub-event (QNR windows, v = 1, target −1) and fails at many primes (§5).
 
 ## 1. The audit table (deliverable 1)
 
