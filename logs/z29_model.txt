@@ -1,0 +1,32 @@
+== b = 1 line (nontrivial class p = 1 mod 24: 15648 primes)
+ bin(log10 p)   n     mean   mean/log^2p  disp   obs#0  NB-pred#0  Poi-pred#0  obs#<=2  NB-pred#<=2
+   3.0          35     4.97    0.086     1.71      1      0.862     0.2680      10       7.27
+   3.5          94     7.91    0.104     1.23      0      0.088     0.0409       3       2.36
+   4.0         263    10.41    0.106     1.74      0      0.124     0.0099       6       3.07
+   4.5         775    13.45    0.110     1.95      1      0.070     0.0015       8       2.22
+   5.0        2191    16.81    0.113     2.03      0      0.026     0.0002       3       1.10
+   5.5        6360    20.65    0.116     2.26      0      0.012     0.0000       3       0.63
+   8.0        4913    42.36    0.125     2.69      0      0.000     0.0000       0       0.00
+  10.0        1003    69.19    0.130     3.24      0      0.000     0.0000       0       0.00
+== c = 1 line (*) (nontrivial class p = 1 mod 8: 31513 primes)
+ bin(log10 p)   n     mean   mean/log^2p  disp   obs#0  NB-pred#0  Poi-pred#0  obs#<=2  NB-pred#<=2
+   3.0          70     5.44    0.094     1.00      0      0.340     0.3402       7       6.77
+   3.5         188     6.52    0.085     1.25      2      0.616     0.3125      13      11.91
+   4.0         539     8.36    0.086     1.45      1      0.598     0.1458      23      13.88
+   4.5        1550    10.30    0.084     1.63      1      0.590     0.0628      32      16.06
+   5.0        4397    12.39    0.083     1.87      1      0.658     0.0226      35      19.69
+   5.5       12771    14.70    0.083     2.03      2      0.583     0.0068      34      20.41
+   8.0        9948    27.39    0.081     2.88      0      0.002     0.0000       0       0.12
+  10.0        2013    42.24    0.080     3.31      0      0.000     0.0000       0       0.00
+b=1: expected failures beyond 1e+06 (mu = 0.125 log^2 p, D = 3.24, NB): 0.0371
+      same with mu depressed by 20% everywhere (hard-class depression, §3): 0.68
+b=1: expected failures beyond 1e+08 (mu = 0.125 log^2 p, D = 3.24, NB): 0.00011
+      same with mu depressed by 20% everywhere (hard-class depression, §3): 0.0132
+b=1: expected failures beyond 1e+11 (mu = 0.125 log^2 p, D = 3.24, NB): 1.36e-10
+      same with mu depressed by 20% everywhere (hard-class depression, §3): 8.09e-07
+c=1: expected failures beyond 1e+06 (mu = 0.080 log^2 p, D = 3.31, NB): 19.6
+      same with mu depressed by 20% everywhere (hard-class depression, §3): 186
+c=1: expected failures beyond 1e+08 (mu = 0.080 log^2 p, D = 3.31, NB): 1.79
+      same with mu depressed by 20% everywhere (hard-class depression, §3): 49.5
+c=1: expected failures beyond 1e+11 (mu = 0.080 log^2 p, D = 3.31, NB): 0.00291
+      same with mu depressed by 20% everywhere (hard-class depression, §3): 0.863

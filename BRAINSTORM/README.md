@@ -542,3 +542,14 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | s8_profinite_proximity | smooth p − 1 = near the T1 point 1 | a few per cent beyond squareness; mostly QR-richness | EVIDENCE (weak) |
 | s8_numerator_two_lines | k = 8 analogue of the two lines | fails at 34 primes < 8000 incl. 131, 241: 4-specific | EVIDENCE |
 | s8_numerator_size_screen | (vi) is the 4-specific step a size inequality? | k-model = ES with (k/4) \| gcd(x, y, z); O257's inequality = 2-adic parity of d; threshold forms are stronger than ES | PROVED (trivial) + Assessment |
+
+## Spark relay O259: the b = 1 line (memos z29_*, deep file B1_LINE.md; not yet triaged)
+
+| memo | idea | result | label |
+|---|---|---|---|
+| z29_lopez_typeA | literature: is the b = 1 line known? | yes: López 2022/2024 Type A (Thm 7 = divisor form), Type B = (★), Conj 1 = union; 193, 2521, 66529 known | literature |
+| z29_pair_genus_law | T1 as Jacobi law on pairs {S, T} | (ST/p) = −1, (S′T/p) = −(2/p)^k; 2-adic escape shared with (★) and only on trivial classes | PROVED (non-discriminating) |
+| z29_dickson_least_shift | why smooth p − 1 is hard | M_σ \| p − 1 freezes shifts ≤ σ (Prop 4.1); least shift unbounded under Dickson (Thm 4.2); full line out of reach of the construction | PROVED + CONDITIONAL |
+| z29_forced_level_characters | force the class −1 at a forced level d | χ₋₄(p + 4d) = +1 always: no level is forced by characters; needs a prime ≡ 3 (4) in p + 4d (Landau event) | PROVED (negative) |
+| z29_twice_the_trials | why b = 1 ≫ (★) in robustness | same incidence main term (log p)²/8, but (★) incidences pair up by a swap: half the distinct trials, twice the exposed classes | PROVED + EVIDENCE |
+| z29_nb_tail_model | calibrated tail model, finite failures | NB(μ = (log p)²/8, D ≈ 3) ×2-optimistic in back-test; expected failures beyond 10¹¹ < 10⁻⁵ | CONJECTURE (heuristic) |
