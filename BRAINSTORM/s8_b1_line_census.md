@@ -11,3 +11,8 @@ so any mechanism must be 4-specific. Being a subfamily, it inherits B2/B3: CONJE
 b = 1 ∪ c = 1: no failure ≤ 10⁸. Support-1 with prime s: 752 failures ≤ 10⁶.
 **Assessment.** EVIDENCE + CONJECTURE 2.5. SHARP flag: a single shift family {p + 4d} carries ES at every prime
 p ≡ 1 (4) ≤ 10⁸ except three.
+
+**R268 repair (M4, m1).** Prior art: López, arXiv:2404.01508 — Type A = b = 1 line; his Thm 7 is the divisor form; 193, 2521
+(and 66529) are reported there as Type-A failures; his Conjecture 1 is b = 1 ∪ c = 1 (checked to 104 729). The k = 8 counts
+60 / 34 are over all primes 5 ≤ p < 8000; over p ≡ 1 (4) they are 39 / 22 (131 ≡ 3 (4) is not in the comparable class).
+Census independently reproduced to 10⁸ by R268 (`scripts/review_r268_census.py`).

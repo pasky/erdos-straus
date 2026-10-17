@@ -4,6 +4,14 @@ Branch side-agent/synthesis-eight. Deep file SYNTHESIS_SPARKS8.md; memos BRAINST
 scripts scripts/s8_lines.c (census engine), s8_check_b1.py (independent brute force), s8_mp_check.py, s8_genus_checks.py,
 s8_proximity.py; logs logs/s8_* (tiny). **ES is not solved; no infinite case claimed.**
 
+**R268 review (reviews/synthesis-eight-review.md): no FATAL; MAJOR M1–M4; repairs applied by the reviewer.** The census is
+independently reproduced to 10⁸ (different algorithm). SHARP re-scoped (R268 repair M4): López, arXiv:2404.01508, already has
+the divisor form of Prop 1.3 (his Thm 7, Type A = b = 1 line), the Type-A exceptions 193, 2521 (and 66529), and the union
+conjecture (his Conjecture 1, checked to 104 729); new here is the 10⁸ census with exact failure sets, and Conjecture 2.5 as a
+sharpening. R268 repair M2: DFI is NOT uniform in the numerator (explicit (a + MN)^{3/8} etc.; nontrivial only for a ≪ MN).
+R268 repair M3: the (vi) "one step, two readings" holds for fixed-slice classes only (R267 D-M1). k = 8 counts are over all
+primes 5 ≤ p < 8000 (39/22 over p ≡ 1 (4)) (m1).
+
 SHARP: **The b = 1 line of Type II — equivalently, "∃ d ≥ 1: p + 4d has a divisor ≡ −1 (mod 4d)" (Prop 1.3 duality) — fails at
 exactly three primes p ≡ 1 (4) ≤ 10⁸: 193, 2521, 66529 (all with p − 1 11-smooth). The union of the b = 1 and c = 1 (= (★)) lines
 never fails ≤ 10⁸** (complete window decisions in C, failures confirmed by an independent brute force; T1 squares and 105

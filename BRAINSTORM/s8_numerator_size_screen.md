@@ -40,3 +40,10 @@ v₂(d) — as at x_{ℓ,2}, where the size inequality leaves only witnesses wit
 9 test n.
 **Assessment.** PROVED dictionary (numerator model = ES with (k/4) | gcd) + Assessment. Not sharp: it relocates O257's
 inequality to 2-adic information on d, which (J)57 already treats as the 4-specific resource. No new lever.
+
+**R268 repair (M3, m9, m10).** (1) Following R267 D-M1: Thm 2.6 separates k = 4 from k ≥ 8 at x_{ℓ,2} only for FIXED-SLICE
+classes; ET's polynomial families give k = 8 coverage of x_{3,2} (n ≡ 281 mod 504) and x_{5,2}, and k = 4 coverage of x_{11,2}.
+The "one step, two readings" conclusion is therefore slice-only. (2) The k = 4 witnesses at x_{ℓ,2} are (1, 6, e = 7) of Type II
+and I at ℓ = 3 and (II, 1, 5, c = 2, e = 3), (I, 2, 5, c = 1, e = 7) at ℓ = 5 — all with d a 2-adic unit. (3) Among primes
+5 ≤ p < 8000, 8/p is unsolvable exactly at 11, 17, 131, 241; "every solution has an odd denominator" means "no solution has all
+denominators even". The identification with (J)57's v₂ evidence is an Assessment.
