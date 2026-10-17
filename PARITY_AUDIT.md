@@ -99,7 +99,7 @@ theorem statement; proofs not re-checked).
 | C2 | Matomäki, IJNT 12 (2016) 323–340, abstract; IJNT 6 (2010) 1113–1116 (`matomaki-ijnt2016-…`) | every [x, x + √x(log x)^{7/3+δ}] contains an x^ε-smooth integer; every [x, x + C√x] an x^{1/(5√e)+ε}-smooth one | every x | if some p + u, u ≤ U, were (log p)^{O(1)}-smooth with ω ≳ log₂(4u), subset products could hit −1 (mod 4u) ((J)6 I3) | needs U = (log p)^{O(1)}; known U ≈ p^{1/2}(log p)^{7/3+δ}: **exponent gap 1/2** (and smoothness x^ε, not polylog) |
 | C3 | Younis, arXiv:2409.05761, abstract (`younis-2409.05761-…`) | smooth-number density in [x, x + x^θ] for θ > 17/30, y ≥ exp((log x)^{2/3+ε}); **under RH**: θ > 1/2, y ≥ (log x)^K | every x; RH | as C2 | even RH stops at θ = 1/2: gap p^{1/2} survives RH |
 
-### 1D. Parity breaking and level of distribution beyond 1/2 (all averaged)
+### 1D. Parity breaking and level of distribution beyond 1/2 (averaged, or pointwise in the modulus but over free primes (D11); R265 repair)
 
 | # | result | statement (summary — full hypotheses in the excerpt) | regime | gives at a single p | exact gap |
 |---|---|---|---|---|---|
@@ -113,6 +113,7 @@ theorem statement; proofs not re-checked).
 | D8 | Maynard, *Primes with restricted digits*, Invent. 217 (2019), arXiv:1604.01041, Thm 1.1 (`maynard-1604.01041-…`) | #{p ∈ 𝒜} ≍ #𝒜/log X; Harman sieve, Type I level X^{50/77}, Type II via circle method | primes in a thin set up to X | — | as D1 |
 | D9 | Assing–Blomer–Li, arXiv:2005.13915 (Adv. Math. 393 (2021) per the agent, unverified), Thm 1.1 (`assing-blomer-li-…`) | Σ_{Y<n≤X} Λ(n)τ(σn + f) = main + O((log X)^{−A}X) (GRH: X^{1−δ}), **uniform in the shift f** (σ = +1: X + f ≍ X; σ = −1: dual problem Σ_{n<f} Λ(n)τ(f − n), f > X) | one integer f, averaged over primes n | with σ = +1, f = p, X ≍ p: Σ_{q≤X} Λ(q)τ(p + q) — the **class-free** window sum of event (b), pointwise in p, but only over all windows q ≍ p | no class condition; the class-restricted version (d ≡ −1 (mod q)) has polylog main term, below any power-saving error (§2); length ≍ p, not p^θ |
 | D10 | Drappeau, PLMS 2017, arXiv:1504.05549 (abstract; `drappeau-1504.05549-…`) | power saving in Σ_{p≤x} τ(p − 1) under GRH | over p ≤ x | — | averaged over p |
+| D11 | Ramaré–Walker, *Products of primes in arithmetic progressions: a footnote in parity breaking*, J. Théor. Nombres Bordeaux 30 (2018) 219–225, arXiv:1610.05804; Szabó, *On the existence of products of primes in arithmetic progressions*, arXiv:2208.05762 (abstracts checked by R265) (R265 repair) | for q ≤ x^{1/16}, **every** invertible class a mod q contains a product of exactly three primes each ≤ x^{1/3} (R–W); every invertible class contains a product of three primes each ≤ q^{6/5+ε} (Szabó) | **pointwise in (q, a)**, unconditional, parity-breaking existence | a product of primes ≡ −1 (mod q) exists, but not one built from the prime factors of K_q (resp. of p + u) | the divisibility constraint, not size: the primes are free (untied averaging over primes ≤ q^{6/5}), whereas (b)/(a⁴) need primes dividing one prescribed integer |
 
 ### 1E. Pointwise precedents for ternary representation problems, ES-specific literature, and the pointwise inputs we already use
 
@@ -200,9 +201,12 @@ the difficulty of (★) is proved here.
 **Remark 3.1 (tied averaging; Assessment, the structural reason behind §2).** Every result in §1 that beats
 Weil/Selberg–Hooley averages over a variable *independent* of the modulus: the residue a with the modulus fixed
 (Garaev, KSWX §3.3), the moduli q ≤ x^θ with the integers n ≤ x free (D2–D7), or the sequence variable (D1, D6, D8,
-A3–A5, E2). At a single p the only free variables are u (event (a⁴)), C (t-side) and q (event (b)), and each of them is
-*also* the modulus of the class condition (4u, 4C, q). This is B2 seen from the literature side: no known
-averaging theorem lets the modulus and the averaged variable move together with a fixed algebraic tie a = a(q).
+A3–A5, E2), or free primes at a fixed modulus (D11). (R265 repair, MAJOR-1:) At a single p, one of two things
+happens. Either the averaged variable is itself the modulus of the class condition ((u,C), (u,B) and q
+coordinates), or, on the fixed-modulus hyperbola 𝓗 mod 4p where x, y *are* free, the class condition depends on the
+height of the point: x ≡ y ≡ −1 (mod 4C) with C = (xy − 1)/(4p). These are two descriptions of one obstruction. No
+known theorem handles either a moving tied modulus or a height-dependent target with error below the main term.
+This is B2 seen from the literature side.
 
 **Lemma 3.2 (T1 for the events; PROVED, the χ-shadow of (J)6 Lemma 1.3).** Let n = m² be an odd square and u ≥ 1.
 Then n + u has no divisor f ≡ −1 (mod 4u). Hence (a⁴) fails at every u for odd squares. At a prime p ≡ 1 (4), a hit
@@ -244,8 +248,9 @@ p = 13, u = 5, p + u = 2·3², and χ_{−20}(3) = +1.) Only the full class −1
    one residue on 𝓗 (area p^{1+o(1)} instead of p^{3/2}), which the literature calls out of reach (Shparlinski §3.1,
    §6.3), *and* arithmetic (not box) target sets (Lemma 2.1 shows restricting u does not shrink 𝓡). The
    residue-averaged box results are only a benchmark (§2 ledger, row 2).
-4. *An almost-all-residues theorem (Garaev; KSWX §3.3) made pointwise by an averaging variable that is free at one
-   p.* **Missing:** the free variable (Remark 3.1). The candidates u, C, q are all tied to the modulus.
+4. *An almost-all-residues theorem (Garaev–Karatsuba; KSWX §3.3) made pointwise at one p.* **Missing (R265 repair):**
+   in the (u,C), (u,B) and q coordinates the averaged variable is tied to the modulus. On 𝓗 mod 4p, x and y are free
+   but the target is height-dependent (Remark 3.1). The almost-all-residue box statements handle neither.
 5. *Exact-identity route à la Borwein–Choi (E1).* **Missing:** an identity expressing the Type II count through
    class numbers. Finite fixed-level σ_k-combinations are excluded ((J)7 Thm 9.1: counts vanishing at odd squares), and
    class-group invariants see only the χ-shadow ((J)5 Prop 10.3). Other identities are not excluded by any theorem. The growing-level identity of (J)10 Prop 4.1 is the only T1-compatible
@@ -256,13 +261,16 @@ p = 13, u = 5, p + u = 2·3², and χ_{−20}(3) = +1.) Only the full class −1
 
 **Verdict (Assessment).** Hatch H-B is **not feasible with known inputs**. The audit confirms (J)6 from the
 literature side, and sharpens it in three ways.
-(i) Parity is not the binding constraint. Every parity-breaking theorem found is averaged over a sequence or over
-moduli, and the single-p events are unit-coefficient divisor events.
-(ii) For the cited methods, the binding constraint is the square-root error scale of complete sums at fixed modulus.
-The best class-aware pointwise estimate, Weil in modular-hyperbola form, has error ≍ p^{1/2} against a (log p)²
-main term, and the literature regards beating the area-p^{3/2} threshold for a single residue as out of reach. Only residue-averaged results reach the log-power scale, and at a single p no averaging
-variable is free of the modulus (Remark 3.1).
-(iii) For complete-sum methods, the restricted events (u ≤ (log p)^A, q ≤ p^θ) are no easier than the full (★)
+(i) Parity is not the binding constraint. Every parity-breaking theorem found is either averaged over a sequence
+or over moduli, or (D11, R265 repair) pointwise in the modulus but over *free* primes. The single-p events are
+unit-coefficient divisor events of prescribed integers.
+(ii) (R265 repair) For the cited methods, the binding constraint is a power-of-p shortfall at fixed modulus. The best
+known pointwise bound is |E(p)| ≪ p^{2/5+o(1)} (divisor bound, Lemma 2.1′), against a (log p)² main term. The best
+class-aware cancellation tool, Weil on 𝓗, has error p^{1/2+o(1)} even for a single box and does not by itself bound
+E(p). The literature regards beating the area-p^{3/2} threshold for a single residue as out of reach. Only
+residue-averaged results reach the log-power scale. At one p, the averaged variable is either tied to the modulus
+or faces a height-dependent target (Remark 3.1).
+(iii) For complete-sum methods in the (u,C)/(u,B) parametrisation (R265 repair, m12), the restricted events (u ≤ (log p)^A, q ≤ p^θ) are no easier than the full (★)
 (Lemma 2.1). They
 are easier only combinatorially, through subset products, and that route needs factorisation statistics in every
 short interval of polylog length, where the best pointwise results stop at length p^{1/2} (gap exponent 1/2, also
@@ -274,7 +282,9 @@ modulus tied to the variable.
 
 **None.** No result found reaches a single-p statement of type (a) or (b): not for all large p, not for a thin
 infinite set of p that are not already covered by congruences (B1), not under GRH/RH. Specifically:
-* Every existence statement found is averaged (over n ≤ x, p ≤ x, moduli q ≤ x^θ, or residues a) — §1A, 1D, E2.
+* Every existence statement found is averaged (over n ≤ x, p ≤ x, moduli q ≤ x^θ, or residues a) — §1A, 1D, E2 — or
+  pointwise in the modulus but over free primes (D11, Ramaré–Walker/Szabó), never over divisors of a prescribed
+  integer (R265 repair).
 * Every pointwise-in-p statement is an upper bound (A1, A2, D4's G(a)), class-blind (C1, B6), or concerns
   intervals of length ≥ p^{1/2} (C2, C3), or stops at the sign/window layer (E3).
 * The one pointwise ternary representation theorem (Borwein–Choi, E1) is unconditional up to one possible exception
