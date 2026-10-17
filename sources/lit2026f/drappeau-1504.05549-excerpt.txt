@@ -1,0 +1,5 @@
+S. Drappeau, "Sums of Kloosterman sums in arithmetic progressions, and the error term in the dispersion method", Proc. London Math. Soc. (3) 114 (2017), 684–732; arXiv:1504.05549.
+[abstract only accessed]
+Abstract: bound for quintilinear sums of Kloosterman sums with congruence conditions on smooth variables (generalizing Deshouillers–Iwaniec); key to power-saving in dispersion method. Under GRH for Dirichlet L-functions: power-saving error in Titchmarsh divisor problem sum_{p<=x} tau(p-1). Unconditionally isolates possible Siegel-zero contribution (always negative). Power saving in sum_{n<=x} tau_k(n) tau(n+1) (Fouvry–Tenenbaum, Bykovskii–Vinogradov).
+Regime: Titchmarsh = sum over p<=x of #{d | p-1}, i.e. primes in APs a=1 averaged over ALL moduli d up to x (handled via Fouvry/BFI level beyond 1/2 + divisor switching). Not pointwise.
+Note R. Li arXiv:2505.09629 (2025): minorant for primes with level 10/19 to smooth moduli (refines Baker–Irving, Stadlmann) [abstract only].

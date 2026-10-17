@@ -1,0 +1,8 @@
+A. Pascadi, "Smooth numbers in arithmetic progressions to large moduli", arXiv:2304.11696 (2023).
+[accessed arXiv HTML]
+Abstract: smooth numbers equidistributed in APs to moduli of size x^{66/107-o(1)}; overcomes x^{3/5} barrier (BFI, Fouvry–Tenenbaum, Drappeau, Maynard).
+Theorem 1.1. a in Z\{0}, A,eps>0. Exists C(A,eps): for x>2, (log x)^C <= y <= x^{1/C},
+  sum_{q<=x^{66/107-eps},(q,a)=1} | Psi(x,y;a,q) - Psi_q(x,y)/phi(q) | <<_{a,A,eps} Psi(x,y)/(log x)^A.
+Theorem 1.4 (conditional exponent): alpha = (5-4theta_max)/(8-6theta_max) - eps, residue a1*conj(a2), |a_i| small; bound Psi(x,y)(H(u)^{-delta}(log x)^{-A} + y^{-delta}).
+Theorem 1.5: same exponent for 1-bounded completely multiplicative f supported on y-smooth integers (Siegel–Walfisz).
+Regime: FIXED (small) residue a, ABSOLUTE values summed over ALL moduli q <= x^{66/107} (no factorability needed: smooth numbers supply flexible factorization themselves). Smooth numbers are a dense-ish multiplicative set — no parity issue.

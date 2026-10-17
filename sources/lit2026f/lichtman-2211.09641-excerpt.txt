@@ -1,0 +1,9 @@
+J. D. Lichtman, "Primes in arithmetic progressions to large moduli, and shifted primes without large prime factors", arXiv:2211.09641 (2022); Research in the Mathematical Sciences (2025) [journal per later versions — verify].
+[accessed arXiv PDF via reader]
+Theorem 1.1. For fixed nonzero a in Z and beta > (15/32)·sqrt(e)^{-1}... i.e. beta > 15/(32 sqrt e) = 0.2843..., exists C>1 with
+  sum_{x<p<=2x, P^+(p-a) <= x^beta} 1 >> x/(log x)^C.   (improves Baker–Harman 0.2961)
+Corollary 1.2: >= x^{0.3389} Carmichael numbers up to x.
+Theorem 1.4. Fix nonzero a. eps>0, Q,R,S with QR < x^{1/2+eps}, QS^2 < x^{1/2-2eps}, S^2 < R < x^{1/32-eps}. Coefficients |lambda_q|,|nu_q|,|eta_q|,|mu_q| <= tau(q)^{B0}. Then for all A>0:
+  sum_{q<=Q} sum_{r<=R} sum_{s<=S} sum_{t<=S, (qrst,a)=1} lambda_q nu_r eta_s mu_t ( pi(x;qrst,a) - pi(x)/phi(qrst) ) <<_{a,eps,A} x/(log x)^A.
+ => quadrilinear forms of moduli up to x^{17/32-eps} (Q,R,S)=(x^{15/32+2eps},x^{1/32-eps},x^{1/64-2eps}); beyond Maynard's 11/21, BFI's 29/56 (for general bilinear).
+Regime: fixed a, averaged over moduli with quadrilinear (factorable) coefficient structure. Detects: smooth shifted primes p-a (lower bound count up to x).

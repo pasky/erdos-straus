@@ -1,0 +1,11 @@
+J. Maynard, "Primes in arithmetic progressions to large moduli II: Well-factorable estimates", arXiv:2006.07088 (2020); Mem. Amer. Math. Soc. 306 (2025), no. 1543.
+[accessed arXiv PDF via reader]
+Abstract: mean value theorems for primes of size x in APs to moduli as large as x^{3/5-eps} when summed with suitably well-factorable weights; extends BFI (x^{4/7-eps}).
+Theorem A (BFI). a in Z; lambda_q well-factorable of level Q <= x^{4/7-eps}: sum_{q<=Q,(a,q)=1} lambda_q (pi(x;q,a) - pi(x)/phi(q)) <<_{a,A,eps} x/(log x)^A.
+Definition 2 (triply well factorable of level Q): for any Q=Q1Q2Q3 there are sequences gamma^(1),gamma^(2),gamma^(3) |.|<=1 supported on [1,Qi] with lambda_q = sum_{q1q2q3=q} gamma^(1)_{q1} gamma^(2)_{q2} gamma^(3)_{q3}.
+Theorem 1.1. a in Z, A,eps>0, lambda_q triply well factorable of level Q <= x^{3/5-eps}:
+  sum_{q<=Q,(a,q)=1} lambda_q ( pi(x;q,a) - pi(x)/phi(q) ) <<_{a,A,eps} x/(log x)^A.
+ ("x^{3/5-eps} is the limit of the current method.")
+Theorem 1.2. a in Z; lambda^+_d = well-factorable upper-bound LINEAR sieve weights of level D <= x^{7/12-eps}:
+  sum_{q<=x^{7/12-eps},(q,a)=1} lambda^+_q ( pi(x;q,a) - pi(x)/phi(q) ) <<_{a,A,eps} x/(log x)^A.
+Regime: FIXED residue a (|a| bounded), averaged over q with factorable sieve weights (signed sum, not absolute values). Detects: upper-bound sieve on shifted primes p-a (e.g. twin-prime-type / Titchmarsh-type upper bounds).

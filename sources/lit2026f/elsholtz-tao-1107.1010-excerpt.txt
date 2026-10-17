@@ -1,0 +1,11 @@
+C. Elsholtz, T. Tao, "Counting the number of solutions to the Erdos-Straus equation on unit fractions", J. Aust. Math. Soc. 94 (2013), 50-105; arXiv:1107.1010.
+
+f_I(p) is essentially (up to factor 2) the number of quadruples (a,c,d,f) in N^4 with 4acd = p + f, f | 4a^2 d + 1 [Type I]; Type II: 4acde = p + 4a^2 d + e, acde <= 3p/2.
+
+Theorem 1.1 (Average value). For N large:
+  N log^3 N << sum_{n<=N} f_I(n) << N log^3 N;  N log^3 N << sum_{n<=N} f_II(n) << N log^3 N;
+  N log^2 N << sum_{p<=N} f_I(p) << N log^2 N log log N;  N log^2 N << sum_{p<=N} f_II(p) << N log^2 N.
+ (Averaged over p; tools: Brun-Titchmarsh, Bombieri-Vinogradov, Erdos-type bound on sum tau(P(n)).)
+Proposition 1.4. For A,B>1 and k << (AB)^{O(1)}: sum_{a<=A} sum_{b<=B} tau(k a b^2 + 1) << AB log(A+B) log(1+k).
+Proposition 1.7 (Upper bounds, pointwise). For any n: f_I(n) << n^{3/5+O(1/log log n)}, f_II(n) << n^{2/5+O(1/log log n)}; hence for any prime p, f(p) << p^{3/5+O(1/log log p)}. "Proposition 1.7 appears to be the limit of what one can obtain purely from the divisor bound alone." (cf. Browning-Elsholtz: f(n) << n^{2/3+eps}.)
+Proposition 1.6: f_I(n)=f_II(n)=0 for odd perfect squares n (quadratic reciprocity obstruction).

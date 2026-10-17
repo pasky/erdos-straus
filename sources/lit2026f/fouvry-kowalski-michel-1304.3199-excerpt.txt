@@ -1,0 +1,13 @@
+E. Fouvry, E. Kowalski, Ph. Michel, "On the exponent of distribution of the ternary divisor function", Mathematika 61 (2015), no. 1, 121-144; arXiv:1304.3199.
+
+Abstract: We show that the exponent of distribution of the ternary divisor function d3 in arithmetic progressions to prime moduli is at least 1/2+1/46, improving results of Heath-Brown and Friedlander-Iwaniec. Furthermore, when averaging over a fixed residue class, we prove that this exponent is increased to 1/2+1/34.
+
+Theorem 1.1. For every non-zero integer a, every eps,A>0, every x>=2 and every prime q coprime with a, satisfying q <= x^{1/2+1/46-eps},
+  sum_{n<=x, n=a mod q} d3(n) = (1/phi(q)) sum_{n<=x,(n,q)=1} d3(n) + O( (x/q)(log x)^{-A} ),
+implied constant depending only on eps, A (not on a). [POINTWISE, single prime modulus.]
+Theorem 1.2. For every non-zero a, eps>0, A>0:
+  sum_{q <= x^{9/17-eps}, q prime, q !| a} | sum_{n<=x, n=a (q)} d3(n) - (1/phi(q)) sum_{(n,q)=1, n<=x} d3(n) | = O(x/(log x)^A)   [averaged over q, fixed a; 9/17=1/2+1/34].
+Heath-Brown [Acta Arith. 47 (1986) 29-56, Thm 2] (averaged over all q<=Q): sum_{q<=Q} max_y max_{(a,q)=1}|...| = O(x^{40/51+eps} Q^{7/17}), i.e. on average for q <= x^{11/21-eps}.
+Previous pointwise exponents (per later literature, e.g. Aydemir-Boran arXiv:2601.12601 intro): Friedlander-Iwaniec (Ann. Math. 121 (1985)) 1/2+1/230; Heath-Brown (1986) 1/2+1/82 (general moduli).
+Later: P. Sharma, arXiv:2303.06087: exponent 1/2+1/30 for d3 to squarefree and prime-power moduli (delta-symbol, bilinear sums with GL(2) coefficients).
+Aydemir-Boran arXiv:2601.12601: d3 averaged over reduced residue classes a mod PRIME q: exponent 8/11 (Nguyen: 2/3), via Petrow-Young.

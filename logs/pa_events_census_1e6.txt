@@ -1,0 +1,7 @@
+N=1000000: primes p=1 mod 4: 39175
+(a4) u_min: none<=sqrt(p)+2: 9; median 1, 99% 5, max 131 at p=427249
+  (a4) failures (first 20): [409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321]
+(b') q_min (full target -1: q | u+v, uv | K): none: 2458; median 11, 99% 4111, max 141971
+(b) q_min (B2 sub-event, q<3p): none: 8272; median 7, 99% 19759, max 141971 at p=993793
+  reference: log N = 13.8, (log N)^2 = 191
+T1 control: odd squares 9..1000000: 499, with an (a4) hit at some u <= sqrt(n)+2: 0

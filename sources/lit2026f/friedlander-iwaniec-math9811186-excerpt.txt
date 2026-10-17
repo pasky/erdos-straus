@@ -1,0 +1,18 @@
+J. Friedlander, H. Iwaniec, "Asymptotic sieve for primes", Ann. of Math. (2) 148 (1998), no. 3, 1041–1065; arXiv:math/9811186.
+Also: J. Friedlander, H. Iwaniec, "The polynomial X^2+Y^4 captures its primes", Ann. of Math. 148 (1998), 945–1040; arXiv:math/9811185.
+Also: J. Friedlander, H. Iwaniec, "Opera de Cribro", AMS Colloq. Publ. 57 (2010).
+[accessed: arXiv PDF math/9811186; arXiv abs math/9811185; AMS endmatter TOC PDF]
+
+Asymptotic sieve: sequence A=(a_n)>=0, a_n=0 unless squarefree; A_d(x) = g(d)A(x) + r_d(x).
+(R) [Type I] sum_{d<=D} mu^2(d)|r_d(t)| <= A(x)(log x)^{-2^{22}} for all t<=x, with (R1) x^{2/3} < D(x) < x.
+(B) [Type II / bilinear] sum_m | sum_{N<n<=2N, mn<=x} gamma(n) mu(mn) a_{mn} | <= A(x)(log x)^{-2^{22}}
+   for every N with (B1) Delta^{-1} sqrt(D) < N < delta^{-1} sqrt(x), where (B2) gamma(n)=gamma(n,C)=sum_{d|n,d<=C} mu(d), for every C with (B3) 1<=C<=x D^{-1}.
+Theorem 1. Under these (+ standard density hypotheses (1.4),(1.6),(1.8),(1.9) on g):
+   sum_{p<=x} a_p log p = H A(x) { 1 + O( log delta(x) / log Delta(x) ) }.
+ ("with (R) alone one cannot capture the primes, even for D(x)=x^{1-eps}" — Bombieri/Selberg parity; (B) is the parity-breaking axiom; needs D somewhat larger than x^{2/3+eps}.)
+Theorems 2,3: remove squarefree support; (B*) variant with (n,Pi)=1.
+
+X^2+Y^4 (abstract): sum_{a^2+b^4<=x} Lambda(a^2+b^4) = 4 pi^{-1} kappa x^{3/4}(1+O(loglog x/log x)), kappa = Gamma(1/4)^2/(6 sqrt(2 pi)).
+
+Opera de Cribro TOC: Ch.16 "Asymptotic Sieve and the Parity Principle" (16.2 The Basic Theorem, 16.4 The Parity Phenomenon, 16.5 The Dichotomy in Action); Ch.17 "Combinatorial Identities"; Ch.18 "Asymptotic Sieve for Primes" (18.2 Coupled Exponents of Distribution, 18.3 Finessing Bombieri's Sieve, 18.4 Sifting for Primes in Lacunary Sequences); Ch.19 Equidistribution of Quadratic Roots (19.4 linear, 19.5 bilinear forms); Ch.20 Marching over Gaussian Primes (20.3 absolute level, 20.4 level of bilinear distribution); Ch.21 Primes Represented by Polynomials; Ch.22 Level of Distribution of Arithmetic Sequences.
+Regime: counts primes in a (possibly thin) sequence up to x; Type I averaged over d<=D, Type II bilinear over all factorizations. Never a single fixed integer.

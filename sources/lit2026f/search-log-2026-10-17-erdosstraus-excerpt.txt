@@ -1,0 +1,7 @@
+Search log (2026-10-17): arXiv API + erdosproblems.com/242 sweep for Erdős–Straus items dated >= 2026-09-20.
+arXiv API queries (sortBy submittedDate & lastUpdatedDate): all:"Erdos-Straus", all:"Erdos Straus", abs:"Erdős-Straus"/"Erdős–Straus", all:Straus, all:"unit fraction(s)", ti:"unit fractions", all:Egyptian (+cat:math.NT), all:"three unit fractions", abs:"4/n", abs:"4/p".
+New ES-relevant hits since 2026-09-20: NONE new submissions. Only update: 2605.04551v3 (Ventas, revised 2026-10-15; heuristic, see ventas-2605.04551v3-excerpt.txt).
+Latest ES items (already audited earlier): 2609.29250v1 (2026-09-24, Congruence Classes ... II: Wild Solutions); 2605.23601v2 (rev. 2026-09-19); 2609.09204 (v2 withdrawn); 2608.24035; 2608.16977; 2606.10922.
+Off-topic unit-fraction hits: 2609.32140 (Erdős #306 semiprime unit fractions, 2026-09-26), 2607.04157v2 (rev. 2026-10-08, approximating 1 by unit fractions).
+erdosproblems.com/242: page "last edited 07 May 2026"; forum thread newest post 13 Feb 2026 (Bradford 2602.11774 claim, critiqued by StijnC/Tao). No posts >= 2026-09-20.
+Not accessed: ResearchGate 338282492 "A simple solution of Erdös Straus conjecture" (CAPTCHA; RG id ~2020, search date 2026-09-21 likely re-index), academia.edu 142879613 / 143802483 (login wall; 2025).
