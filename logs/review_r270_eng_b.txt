@@ -1,0 +1,3 @@
+pairs (useful) with st<=300000: 196918
+LATE 6154089841 s=79 t=42944
+range [5000000001,10000000000] L=300000 primes==1(4): 110048294 fallback: 102 failures: 0
