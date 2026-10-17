@@ -126,3 +126,35 @@ from 10¹²): N₁/L² = 0.119, 0.125, 0.130, 0.135 (author 0.117, 0.124, 0.131,
 = 1.66, 1.73, 1.77, 1.84 (author 1.67, 1.69, 1.78, 1.85) ✓. Class means at 10¹² (`logs/review_r270_classes.txt`, 300 primes
 each): p ≡ 1 mod 24 / M₅ / M₇ / M₁₁: N₁/L² = 0.135 / 0.127 / 0.117 / 0.108, N_{c1}/L² = 0.073 / 0.070 / 0.065 / 0.061 —
 exactly the §3.2 figures (−20 % and −16 %) ✓. Label EVIDENCE is appropriate.
+
+### C10. §3.3–3.6 NB model, prediction, Conjecture 3.5 — labels SOUND; heuristic premise "D = O(1)" GAP (M2)
+NB algebra: variance μD ⇒ r = μ/(D − 1), P(0) = (1 + μ/r)^{−r} = D^{−μ/(D−1)} ✓. Back-test arithmetic checked against
+`logs/z29_model.txt`: Σ predicted zeros 0.862 + 0.088 + 0.124 + 0.070 + 0.026 + 0.012 = 1.18 vs 2 observed; ≤ 2: 16.65 vs 33;
+(★): 3.39 vs 7 ✓. Prediction recomputed from scratch (`scripts/review_r270_nb.py`, `logs/review_r270_nb.txt`; density
+e^L/(8L) dL of primes ≡ 1 (24), justified by Prop 1.4): fixed D = 3.24, μ = 0.125L² gives 0.033 / 9.4·10⁻⁵ / 1.1·10⁻¹⁰
+beyond 10⁶ / 10⁸ / 10¹¹ (author 0.037 / 1.1·10⁻⁴ / 1.4·10⁻¹⁰; quadrature-level differences), −20 % μ: 0.62 / 0.012 / 6.7·10⁻⁷ ✓.
+Poisson tail checks e^{−1.7} ≈ 0.18, e^{−3.5} ≈ 0.03 ✓.
+**Problem:** the dispersion is not O(1). In the author's own table D rises 1.7–2.3 (≤ 10⁶) → 2.69 (10⁸) → 3.24 (10¹⁰), and
+my class-(1 mod 24) samples give D = 2.20, 2.67, 3.26, **3.62** at 10⁶, 10⁸, 10¹⁰, 10¹² — roughly D ≈ 0.78 + 0.10·log p. So
+(i) D = 3.24 is not "the largest observed" once one looks at 10¹², and it is not a conservative constant for extrapolation
+beyond 10¹⁰; (ii) Conjecture 3.5's stated heuristic basis "overdispersion D = O(1)" is contradicted by the data. With
+D linear in L the predictions become 8·10⁻⁶ (> 10⁸), 5·10⁻¹⁰ (> 10¹¹); with additionally −20 % μ: 1.8·10⁻³ and 2.7·10⁻⁶ —
+still negligible, so the CONCLUSION survives at this scale, but the asymptotic finiteness argument needs
+μ·log D/(D − 1) ≥ (1 + ε)L, i.e. D/log D ≲ c·log p; if D grew like (log p)² the same NB model would predict infinitely many
+failures. The premise should be stated as an explicit growth hypothesis on D, with the data. Labels (CONJECTURE,
+Assessment, EVIDENCE) are otherwise correctly applied; the §3.6 wording "if anything, pessimistic … merely consistent"
+is self-contradictory within two sentences but correctly retracted.
+
+### C11. §5 forcing negative — SOUND (one wording slip, m6)
+χ₋₄(p + 4d) = χ₋₄(p) = +1 trivially (p + 4d ≡ p ≡ 1 (4)); χ₋₄ is odd on (ℤ/4d)^* ✓; any w ≡ −1 (mod 4d) is ≡ 3 (4) hence
+has a prime factor ≡ 3 (4) dividing p + 4d ✓. The cited O258 value χ_{−4d}(p + 4d) = (d/p) checked numerically for all
+p ≡ 1 (4) < 3000, d < 300, p ∤ d: 62 923 cases, 0 failures (`review_r270_checks.py chi`). (a) duality for elementary
+2-groups is standard ✓; d ∈ {1, 2, 3, 6} ⟺ (ℤ/4d)^* of exponent 2 ✓. The scope statement (total-product character data only)
+is honest. Slip: in (c) for c = 1, p + 1 is even so χ₋₄(p + 1) = 0; the forced object is the odd part (p + 1)/2 ≡ 3 (4) ⟺
+p ≡ 5 (8).
+
+### C12. Resource note — cannot verify; no disclosure in the documents
+Neither B1_LINE.md nor AGENT_REPORT_O259 mentions any > 2-core usage; the report only says "≈ 2 × 55 CPU-min" for 10¹¹. If a
+3-core burst happened (as the brief indicates), it should be disclosed in the report (m7). Reviewer's own disclosure: all
+R270 heavy runs used ≤ 2 processes under `ulimit -v 8000000` + `timeout`; one 1.5-s test run (the (★) engine to 10⁸) briefly
+overlapped two background jobs.
