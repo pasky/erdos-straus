@@ -266,8 +266,8 @@ a fresh B2 lottery at (p² + m)/4. Even if proved it gives F(p₀) = {p₀^k}, g
 ### 3.3 The progression law (idea 2) — total, but only into a relaxation
 
 **Proposition 3.5 (PROVED; folklore-level).** Let M_X = lcm{H = 4ab ≤ X}. If p₀ ∈ E then every n with n ≡ p₀
-or n·p₀ ≡ 1 (mod M_X) lies in E_X := {n : n has no ET witness with H ≤ X}. (Thm 2.2(a).) Growth: density 2/φ(M_X)·…,
-i.e. ≫ N/M_X — far beyond (1.1) — but into E_X ⊋ E.
+or n·p₀ ≡ 1 (mod M_X) lies in E_X := {n : n has no ET witness with H ≤ X}. (Thm 2.2(a).) Growth: ≥ N/M_X − 1 elements up to N
+— far beyond (1.1) — but into the relaxation E_X ⊋ E.
 **Obstruction (PROVED).** The law cannot be upgraded to E on any positive proportion of the progression without
 proving ES(p₀): by (K4), #{n ≤ N, n ≡ p₀ (M_X), n ∈ E} ≤ C₀N exp(−c₀(log N)^{2/3}) = o(N/M_X) once
 log M_X ≤ (c₀/2)(log N)^{2/3}; so the upgraded law would contradict (K4) (Thm 1.1), i.e. it is ES(p₀) itself.
