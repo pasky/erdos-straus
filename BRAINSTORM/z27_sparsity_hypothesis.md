@@ -14,9 +14,10 @@ small-order primes); no standard named conjecture is known to me that implies EQ
 primes in progressions).
 **Barrier screen.** Cap ≥ 1 only (cap 0 = B2, Prop 5.1); step false at n = m² (no forced windows: (q/m²) = 1) — T1-compliant.
 **Cheap numerics** (`scripts/z27_eqcheck.py`, data/z27/eqcheck_y7.txt; all 19 609 primes q ≡ 3 (8) ≤ 10⁶, 48 classes mod 840):
-Bad₁-type q (ν < t and ord ψ_min > N^{1/k}/t) are spread evenly: χ² = 49.0 / 29.0 / 30.4 (df 47) at t = 0.3/0.5/0.7, max/mean
-equal to a random relabelling. The full set ν < t (including small-order/index-degenerate q) is NOT uniform (χ² = 214 at
-t = 0.3) — exactly the Chebotarev-visible part, which GRH handles. (y = 11: see BALANCED_LATTICE §6.)
+existential Bad₁ q (some ψ with 𝔻 < tN^{−1/k} and order > N^{1/k}/t) are spread evenly: χ² = 49.5 / 28.0 / 29.8 (df 47) at
+t = 0.3/0.5/0.7, permutation p = 0.33/0.97/0.86. The full pretentious set (including small-order/index-degenerate q) is NOT
+uniform (χ² = 214, p = 0.003 at t = 0.3) — exactly the Chebotarev-visible part, which GRH handles (Lemma 2.5). (y = 11:
+BALANCED_LATTICE §6.)
 **Assessment.** CONDITIONAL theorems (PROVED relative to GRH + EQ, resp. GRH + S); EVIDENCE for EQ at toy scale. The honest
 answer to "W → GRH": GRH alone does not suffice by this method; GRH + a precisely isolated sparsity/equidistribution
 statement about near-dependence of the first k primes mod q does.
