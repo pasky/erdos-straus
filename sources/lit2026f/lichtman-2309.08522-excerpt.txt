@@ -1,0 +1,12 @@
+J. D. Lichtman, "Primes in arithmetic progressions to large moduli, and Goldbach beyond the square-root barrier", arXiv:2309.08522 (2023).
+[accessed arXiv HTML v1]
+Abstract: primes have level of distribution 66/107 ≈ 0.617 using triply well-factorable weights (prior record 3/5, Maynard); 5/8 under Selberg's eigenvalue conjecture. New upper bounds for twin primes and Goldbach representations G(a); first use of level beyond square-root barrier for Goldbach.
+Theorem 1.1. pi_2(x) <~ 3.2290 Pi_2(x).
+Theorem 1.2. For any sufficiently large even a: G(a) <~ 3.3907 Pi_a(a).   [UPPER BOUND at a single even integer a]
+Corollary 1.5. nonzero a, lambda_q triply well-factorable of level x^vartheta, vartheta < 66/107:
+  sum_{q<=x^vartheta,(a,q)=1} lambda_q (pi(x;q,a) - pi(x)/phi(q)) <<_{a,A,eps} x/(log x)^A.
+Theorem 1.7. lambda_q triply well-factorable of level x^vartheta, vartheta = (5-4theta)/(8-6theta) - eps (theta = Selberg exceptional-eigenvalue exponent; Kim–Sarnak theta<=7/32 gives 66/107):
+ (1.6) sup_{0<|a|<x^eps} sum_{q<=x^vartheta,(a,q)=1} lambda_q (pi(x;q,a) - pi(x)/phi(q)) <<_{A,eps} x/(log x)^A.
+ (1.7) with vartheta_1 = (5-theta)/8 - eps (=153/256 ≈ 0.597 under Kim–Sarnak), uniformly 0<|a|<x^{1+eps}.
+Mechanism: Heath-Brown identity, dispersion, Deshouillers–Iwaniec quintilinear Kloosterman forms with explicit a-dependence a^theta (after Assing–Blomer–Li, Drappeau–Pratt–Radziwill).
+Regime: averaged over moduli q<=x^vartheta with (triply) well-factorable SIGNED weights; residue a may be as large as x^{1+eps} (uniformity is what makes the single-integer Goldbach UPPER bound possible). Only upper-bound sieve consequences; no lower bound / no parity breaking.

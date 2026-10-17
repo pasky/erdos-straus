@@ -1,0 +1,9 @@
+A. Ventas, "A Ceiling Continued Fraction Approach to the Erdős-Straus Conjecture: Heuristic finiteness of counterexamples", arXiv:2605.04551v3 (v1 2026-05-06; v3 2026-10-15), 17 pp., math.NT.
+v3 comment: failure model now uses omega_3(p+i) (distinct prime factors q≡3 mod 4) instead of tau(p+i); exponent changes log p -> log log p; computations unchanged.
+Thm 2.4 (Divisors of External Sources): Let p≡1 (mod 4) prime, 1<=i<p. If p+i has a divisor d≡3 (mod 4) with 4i | (p+d), then FCT(p,(p+d)/i) gives a direct three-term solution. [rigorous sufficient condition; i=2 case ⇔ q | p+2 with q≡5 mod 8]
+Thm 2.1 (Sum by Pairs), Prop 2.3, Thm 2.7 (Grid of Congruences): algebraic/congruence constructions.
+Heuristic 3.2 (Asymptotic upper bound): For M(p)=floor(sqrt(p)/2), the dependence among consecutive FCT sources does not produce a positive cumulative correction of the same order as D_{M(p)}(p). Thus log Q_{M(p)} <= -D_{M(p)}(p) + o(D_{M(p)}(p)).  [D ~ (1/4) log p log log p]
+Sec 4: "for every fixed 0<c<1/4 and all sufficiently large p, P(E_p) <= p^{-c log log p}" -> first Borel–Cantelli -> "probability zero (within the model)" of infinitely many counterexamples.
+Conclusion (author): "The principal unresolved point is the effect of sequential conditioning on the joint behaviour of the shifted integers p+i. Establishing a rigorous bound ... would remove the central heuristic assumption ... the required uniform control remains a theoretical problem."
+Computations: 10^9 Mordell-type primes at scales 10^17, 10^52, 10^131, no counterexamples.
+STATUS: NOT a proof claim. Probability space over primes is a model; Heuristic 3.2 is assumed, not proved. No pointwise theorem.

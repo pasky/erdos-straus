@@ -1,0 +1,5 @@
+D. Coppersmith, N. Howgrave-Graham, S. V. Nagaraj, "Divisors in residue classes, constructively", Math. Comp. 77 (2008), no. 261, 531-545; preprint IACR ePrint 2004/339. (abstract read from ePrint page; full PDF blocked by captcha)
+
+Abstract: Let r, s, n be integers satisfying 0 <= r < s < n, s >= n^alpha, alpha > 1/4, and gcd(r,s)=1. Lenstra showed that the number of integer divisors of n equivalent to r (mod s) is upper bounded by O((alpha-1/4)^{-2}). We re-examine this problem; showing how to explicitly construct all such divisors and incidentally improve this bound to O((alpha-1/4)^{-3/2}).
+
+Regime: SINGLE n, any n; UPPER bound on count + lattice (Coppersmith) algorithm, polynomial time for fixed alpha>1/4. No existence statement.

@@ -1,0 +1,12 @@
+P. Erdős and R. R. Hall, "Proof of a conjecture about the distribution of divisors of integers in residue classes", Math. Proc. Cambridge Philos. Soc. 79 (1976), 281-287. doi:10.1017/S0305004100052270 (read from OCR of renyi.hu/~p_erdos/1976-40.pdf; formula OCR partly garbled)
+
+Introduction: Let k be a positive integer and F(x,k) denote the number of integers n<x which have a divisor in every residue class prime to k. Erdős [Proc. ... ] proved that for every fixed eps>0, F(x,k) ~ x when k < 2^{(1-eps) loglog x}  [i.e. k < (log x)^{(1-eps) log 2}], and conjectured the following result, which we prove.
+
+THEOREM. Let c be any fixed real number and k, x satisfy
+   k = 2^{loglog x + (c+o(1)) sqrt(loglog x)}.   (1)
+Then as x -> oo,  F(x,k) ~ x (2 pi)^{-1/2} \int_c^oo e^{-y^2/2} dy.   (2)
+[limits of the integral garbled in OCR; reconstructed from the authors' remark (3): card{n<x : (nu(n) - loglog x)/sqrt(loglog x) > c} ~ x (2pi)^{-1/2} \int_c^oo e^{-y^2/2} dy, "so that an intuitive statement of the theorem is that the numbers with sufficient divisors to fill the required residue classes almost surely will do so."]
+Remark: previously proved by Hall ("A conjecture of Erdős in number theory", Acta Arith.) conditionally on a no-Siegel-zero hypothesis for L-functions mod k; this paper unconditional.
+Key Lemma: subset-sum covering of a finite abelian group G of even order N by t random elements (extension of Erdős–Rényi Thm 2).
+Regime: ALMOST ALL n <= x (density statement); modulus k up to (log x)^{log 2 - eps} (sharp threshold ~ 2^{omega(n)}). Nothing for a single prescribed n (e.g. n prime has only divisors 1,n).
+Conditional predecessor: R. R. Hall, "A conjecture of Erdős in number theory", Acta Arith. 29 (1976) (bibliotekanauki.pl/articles/1393485.pdf; text extraction failed, not read).

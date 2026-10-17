@@ -1,0 +1,19 @@
+K. Ford, "The distribution of integers with a divisor in a given interval", Annals of Math. (2) 168 (2008), 367-433. arXiv:math/0401223 (v5). (read from arXiv PDF)
+
+H(x,y,z) = #{n<=x : n has a divisor d in (y,z]}. H(x,y,z;A) same restricted to n in A. P_lambda = {q+lambda : q prime}.
+Notation (1.2): z = e^eta y = y^{1+u}, eta=(log y)^{-beta}, beta = log4 - 1 + xi/sqrt(loglog y); delta = 1 - (1+loglog2)/log2 = 0.086071...; G(beta) explicit.
+
+Theorem 1 (v): x>100000, 100<=y<=z-1, y<=sqrt x:
+ H(x,y,z)/x ≍ eta                                    (y+1 <= z <= z0(y))
+            ≍ beta / (max(1,-xi) (log y)^{G(beta)})   (z0(y) <= z <= 2y)
+            ≍ u^delta (log(2/u))^{-3/2}               (2y <= z <= y^2)
+            ≍ 1                                       (z >= y^2).
+Corollary 2: c>1, 1/(c-1) <= y <= x/c: H(x,y,cy) ≍_c x / ((log Y)^delta (loglog Y)^{3/2}), Y=min(y,x/y)+3.
+ -> almost all n have NO divisor in (y,2y] (density -> 0).
+
+Theorem 6 (shifted primes, UPPER bound). lambda fixed nonzero, 1<=y<=sqrt x, y+1<=z<=x:
+ H(x,y,z;P_lambda) <<_lambda H(x,y,z)/log x            if z >= y+(log y)^{2/3};
+                    <<_lambda (x/log x) sum_{y<d<=z} 1/phi(d)  if y<z<=y+(log y)^{2/3}.
+Theorem 7 (shifted primes, LOWER bound). For fixed lambda != 0 and 0<=a<b<=1: H(x, x^a, x^b; P_lambda) >>_{a,b,lambda} x/log x.
+ ("Lower bounds are much more difficult, depending heavily on the distribution of primes in APs. The special case z=y+1 ... counts primes <= x in the progression -lambda mod (floor y + 1).")
+Regime: counting / positive-proportion statements over n<=x (resp. shifted primes q+lambda, q<=x); nothing about a single prescribed n. No residue-class condition on the divisor.

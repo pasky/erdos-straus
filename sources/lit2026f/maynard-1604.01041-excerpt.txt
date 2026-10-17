@@ -1,0 +1,6 @@
+J. Maynard, "Primes with restricted digits", Invent. Math. 217 (2019), 127–218; arXiv:1604.01041.
+[accessed arXiv HTML v2]
+Theorem 1.1. X>=4, A = {n<X with no decimal digit equal to a0}. Then #{p in A} ≍ #A/log X ≍ X^{log 9/log 10}/log X.
+Theorem 1.2. base q large, B ⊆ {0..q-1}, #B = s <= q^{23/80}: analogous asymptotic-order count for primes with no base-q digit in B.
+Mechanism (parity-breaking): Harman's sieve. Type I (Prop 7.1): sum_{q<Q,(q,10)=1} | #{a in A: q|a} - kappa #A/q | << #A/(log X)^A for Q <= X^{50/77}(log X)^{-2A-2} (level 50/77 > 1/2 for the digit set). Type II (Prop 7.2): asymptotic for A weighted by bilinear/prime-factorization indicators when some sub-product of prime factors lies in [X^{9/25+eps}, X^{17/40-eps}] (circle method: decorrelate Diophantine large-Fourier conditions from digit conditions; L^1 / large-deviation bounds on Fourier transform of A).
+Regime: counts primes in a THIN sequence (digit-restricted) up to X; lower bound ≍ (not asymptotic) via Harman minorant. Nothing pointwise.

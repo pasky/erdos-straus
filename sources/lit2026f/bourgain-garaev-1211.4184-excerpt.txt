@@ -1,0 +1,17 @@
+J. Bourgain, M. Z. Garaev, "Sumsets of reciprocals in prime fields and multilinear Kloosterman sums", Izv. Ross. Akad. Nauk Ser. Mat. 78 (2014), no. 4, 19-72 (Engl.: Izv. Math. 78 (2014), 656-707); arXiv:1211.4184.
+
+Abstract: We obtain new results on additive properties of the set I^{-1}={x^{-1}: x in I} where I is an arbitrary interval in F_p, p a large prime. We combine our results with multilinear exponential sum estimates and obtain new results on incomplete multilinear Kloosterman sums.
+
+Setting: S = sum_{x1 in I1} sum_{x2 in I2} alpha1(x1) alpha2(x2) e_p(a x1^* x2^*), |alpha_i|<=1, fixed prime p. Easy (Weil) if some N_i > p^{1/2+c}; "the most nontrivial case is N_i < p^{1/2}". Karatsuba [24,25]: very short initial intervals; Bourgain [5]: arbitrary position provided N1N2 > p^{1/2+eps} (explicit version: Baker).
+
+Theorem 1. J_{2k} = #{x1^{-1}+..+xk^{-1} = x_{k+1}^{-1}+..+x_{2k}^{-1}, xi in I} < (|I|^{2k^2/(k+1)} + |I|^{2k}/p)|I|^{o(1)}.
+Theorem 7. For any intervals I1,I2 with |I1| > p^{1/18}, |I2| > p^{5/12+eps}:
+  max_{(a,p)=1} |sum_{x1 in I1} sum_{x2 in I2} alpha1(x1)alpha2(x2) e_p(a x1^* x2^*)| < p^{-delta}|I1||I2|, delta=delta(eps)>0.  (Note |I1||I2| = p^{1/2-1/36+eps}.)
+Theorem 8 (I1=[1,N1], I2=[1,N2]): uniformly in k1,k2 in Z+, (a,p)=1:
+  |S| < C(k1,k2)(log p)^{...} (N1^{k1-1}p^{-1/2} ... ) -- bound of form (N1^{-k1}p^{1/2}+N1^{-1}... )^{1/(2k1k2)}... x N1N2 [garbled in extraction; see paper].
+Corollary 2. I1=[1,N1], I2=[1,N2], where for i=1 or i=2, N_i not in union_{j>=1} [p^{1/(2j)-eps}, p^{1/(2j)+eps}]. Then
+  max_{(a,p)=1} |sum_{x1<=N1} sum_{x2<=N2} alpha1(x1)alpha2(x2) e_p(a x1^* x2^*)| < p^{-delta} N1N2, delta=delta(eps)>0.
+  [Initial intervals: nontrivial for ARBITRARILY SHORT N1,N2 = p^{c}, except near p^{1/(2j)}.]
+Theorem 9. I1,I2 intervals of sizes N1,N2 in arbitrary position:
+  max_{(a,p)=1}|S| << p^{1/8} N1^{3/4} N2^{3/4} (N1^3/p + 1)^{1/16} (N2^3/p + 1)^{1/16}  (<<< hides p^{o(1)}).
+(All pointwise in a single prime p.)
