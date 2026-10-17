@@ -542,3 +542,12 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | s8_profinite_proximity | smooth p − 1 = near the T1 point 1 | a few per cent beyond squareness; mostly QR-richness | EVIDENCE (weak) |
 | s8_numerator_two_lines | k = 8 analogue of the two lines | fails at 34 primes < 8000 incl. 131, 241: 4-specific | EVIDENCE |
 | s8_numerator_size_screen | (vi) is the 4-specific step a size inequality? | k-model = ES with (k/4) \| gcd(x, y, z); O257's inequality = 2-adic parity of d; threshold forms are stronger than ES | PROVED (trivial) + Assessment |
+### z27 — O256 balanced relation lattices: from Hypothesis W to GRH (deep file BALANCED_LATTICE.md)
+| memo | idea | outcome | label |
+|---|---|---|---|
+| z27_pretentious_dual | dual of the relation lattice = characters; balance ⟺ no ℓ¹-pretentious character on S | in the class, GRH-Frobenius affords essentially only the index condition; extremal character has order ≍ N (99 %+ divisible by P⁺(N)) | PROVED + EVIDENCE (SHARP) |
+| z27_fejer_blind_count | class-blind count of pretentious primes (Fejér pairs) | ≤ 48(6xε)^{(k+1)/(k−1)} log P/log x; P-loss exact, = CAP_INTERPOLATION 4.2(b) | PROVED |
+| z27_sparsity_hypothesis | weakest replacement of W | GRH + EQ ⇒ (log₂p)^{13/2+o(1)}; GRH + S (p-free, class-free) ⇒ (log₂p)^{9/2+o(1)}; EQ uniform at toy scale | CONDITIONAL + EVIDENCE |
+| z27_small_exponent_windows | composite windows with U_m of tiny exponent | Linnik adversary on the finite menu Q(E): needs E ≥ (log p)^{c log₃p} | PROVED obstruction |
+| z27_smooth_shift_crt | (q−1) smooth ⇒ every ℓ-part visible | joint CRT law still invisible; smooth shifted primes with u → ∞ unknown | Assessment (dead) |
+| z27_large_sieve_sunits | large sieve over moduli for the S-unit box | S-units too sparse (M = P^{2H} ≫ Q²) | PROVED (negative) |

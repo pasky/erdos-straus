@@ -1,0 +1,10 @@
+y 7 S [3, 5, 7] k 3 q in (1000, 300000) #q 6450 Minkowski cap (k!)^(1/k)=1.817
+index-degenerate (D_min=0): true 127  random 131
+nu = D_min*N^(1/k) quantiles 0/1/10/50/90/100%%  true  : 0.058/0.292/0.574/1.016/1.374/1.661
+                                               random: 0.064/0.263/0.572/1.022/1.371/1.692
+true   ord(psi_min): =N 0.765  >=N^0.9 0.833  <=N^0.5 0.003  <=N^(3/(2k+4)) 0.0000   [log ord/log N quantiles 0.315/0.629/0.854/1.000/1.000/1.000]
+random ord(psi_min): =N 0.766  >=N^0.9 0.832  <=N^0.5 0.002  <=N^(3/(2k+4)) 0.0000   [log ord/log N quantiles 0.301/0.640/0.856/1.000/1.000/1.000]
+ord(psi_min) = P+(N)-free? frac with P+(N) | ord(psi_min): 0.994
+worst q (q, nu, ord, N, P+N): [(237971, 0.058, 118985, 118985, 449), (240883, 0.076, 40147, 120441, 2113), (45587, 0.114, 22793, 22793, 991), (59387, 0.122, 29693, 29693, 1291), (136859, 0.123, 68429, 68429, 1669)]
+classes mod 8P: 48  per-class BEST nu: min 1.481 median 1.575 ; per-class WORST nu: min 0.000 median 0.000
+classes with smallest best-nu (bestnu, worstnu, class, #q): [(1.481, 0.311, 83, 132), (1.504, 0.25, 659, 134), (1.507, 0.14, 803, 132), (1.518, 0, 307, 125)]
