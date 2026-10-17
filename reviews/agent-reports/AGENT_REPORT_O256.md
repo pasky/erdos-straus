@@ -34,8 +34,9 @@ BRAINSTORM/z27_*.md (6); scripts scripts/z27_dual.py, scripts/z27_eqcheck.py; da
 * Prop 5.1 (the guaranteed forced sub-box {0,1}^S cannot cover the §4 windows at cap 0; balance at positive cap says nothing
   about cap 0) — PROVED (narrowed after self-review: small windows CAN be covered at cap 0, e.g. p = 409, q = 11). T1: the route needs χ_n(q) = −1, impossible at n = m² (no forced windows).
 * Numerics (EVIDENCE, §6): ν = 𝔻_min N^{1/k} matches the random model; ord ψ_min ≍ N; every class mod 840 has ν ≥ 1.48;
-  EQ-type uniformity of Bad₁ over classes mod 840 (χ² 29–49, df 47) and mod 9240 (χ² 404–475, df 479); the full pretentious
-  set incl. index-degenerate q is non-uniform (χ² 214, df 47) — the Chebotarev-visible part.
+  EQ-type uniformity of existential Bad₁ over classes mod 840 (permutation p = 0.33/0.97/0.86) and mod 9240
+  (p = 0.033/0.44/0.93; the 0.033 cell has 72 events in 480 classes); the full pretentious set incl. index-degenerate q is
+  class-correlated (p = 0.003 at k = 3, 4) — the Chebotarev-visible part.
 
 ## Answers to the brief
 GRH alone → (log₂p)^C: **no, by this route** (exact reason: SHARP 2 + Prop 3.1/Cor 3.3). GRH + named standard hypothesis: none

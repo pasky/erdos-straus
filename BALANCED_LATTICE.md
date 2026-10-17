@@ -276,8 +276,9 @@ discrete-log vector (random-lattice model). ν := 𝔻_min·N^{1/k} (Minkowski: 
   𝔻 < ε" (including small-order and index-degenerate q): χ² = 214 / 96 / 65, p = 0.003 / 0.003 / 0.007 — strongly class-correlated
   (ℓ | N needs q ≡ 1 (ℓ)), exactly the Chebotarev-visible part that GRH handles (Lemma 2.5). (The existential/minimiser distinction
   matters rarely: e.g. q = 74 419 has a degenerate order-3 minimiser and a qualifying order-12 403 character with 𝔻 ≈ 0.0079.)
-  eqcheck_y11.txt (480 classes mod 9240, q ≤ 2·10⁶): see file (first, minimiser-based version: Bad₁-type χ² = 474.8 / 403.9,
-  df 479, at t = 0.5 / 0.7). EVIDENCE for EQ only at P ≤ 1155, nowhere near P ≈ √x.
+  eqcheck_y11.txt (all 37 217 q ≤ 2·10⁶, 480 classes mod 9240): Bad₁ at t = 0.3 / 0.5 / 0.7: 72 / 653 / 2513 q, χ² = 543.5 /
+  474.2 / 405.8 (df 479), permutation p = 0.033 / 0.44 / 0.93; full set p = 0.003 / 0.12 / 0.71. The one marginal value (72
+  events spread over 480 classes, max 3 per class) is the sparsest cell; not significant after the 6 tests per k. EVIDENCE for EQ only at P ≤ 1155, nowhere near P ≈ √x.
 * *T1 control:* not applicable to these p-free statistics; the construction's T1 step (no forced windows at n = m²) is
   algebraic (§5). Odd-square cap-0 absence was checked in z24.
 
