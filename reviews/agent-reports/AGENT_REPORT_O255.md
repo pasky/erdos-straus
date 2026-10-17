@@ -7,7 +7,7 @@ files, ~150 KB total, no PDFs); scripts `scripts/pa_*.py`; logs `logs/pa_*`. **E
 * Fixed the exact single-p events (§0): (a) ES-five on the u-side, E_a(p;U): ∃ u ≤ U, A | p+u, A ≡ −1 (mod u),
   (A/p) = −1; its sign-free 4-normalisation (a⁴) = (J)6's (★) (Type II (A)3); (b) windows q (QNR, q ≡ 4 − p (8)),
   sub-event d | (p+q)/4, d ≡ −1 (mod q). Lemma 0.1: min(u,v) ≤ √p + 2, so θ = 1/2 is the whole of ES-five.
-* Literature table (§1, 33 rows): divisors in classes / intervals (Lenstra, CHN, Erdős–Hall, Ford, Koukoulopoulos);
+* Literature table (§1, 32 rows): divisors in classes / intervals (Lenstra, CHN, Erdős–Hall, Ford, Koukoulopoulos);
   fixed-modulus Kloosterman and modular hyperbola (Weil via Shparlinski, KMS 2017/2020, Blomer–Pascadi 2026, KSWX,
   Bourgain–Garaev, Selberg–Hooley/FKM, DFI, Bettin–Chandee); pointwise short-interval results (Huxley/Li–Yang,
   Matomäki, Younis); parity-breaking and large moduli (FI, BFI, Maynard I–III and digits, Lichtman, Pascadi,
