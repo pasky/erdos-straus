@@ -1,6 +1,6 @@
 # PARITY_AUDIT — hatch H-B: parity-breaking literature audit and single-prime feasibility (task O255)
 
-Status: in progress (O255). **ES is not solved here or anywhere.** Labels as in DISCOVERIES.md
+Status: checkpoint 1 (O255; all four deliverables + numerics written; awaiting parent review). **ES is not solved here or anywhere.** Labels as in DISCOVERIES.md
 (PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment). Literature excerpts in
 `sources/lit2026f/`. "Cited" = external theorem whose statement we read in the source (or an archived
 abstract/excerpt); proof not re-checked.
@@ -108,7 +108,7 @@ theorem statement; proofs not re-checked).
 | D6 | Merikoski, JEMS 25 (2023), arXiv:1908.08816, Thms 1–2; Grimmelt–Merikoski, arXiv:2505.00493, Thms 1.1, 1.4–1.5 (`merikoski-*`, `grimmelt-*`) | P⁺(n² + 1) > n^{1.279} (1.312 under Selberg; G–M 1.312 unconditionally); Type II for Σ a_m b_n #{ℓ ∼ x : ℓ² + 1 ≡ 0 (mn)} via Deshouillers–Iwaniec | n averaged over [X, 2X] | the nearest analogue of "prime factors of the polynomial values p + 4a²d at one p" — but the polynomial variable, not a fixed prime, is averaged | single-p version would need the sum over n to collapse to one value |
 | D7 | Drappeau, Compositio 151 (2015), arXiv:1307.7554 Thms 1–2; Fouvry–Radziwiłł, Ann. ENS 55 (2022), arXiv:1811.08672 Cors 1.1–1.2 (`drappeau-1307.7554-…`, `fouvry-radziwill-…`) | smooth numbers to level 3/5 (\|a\| ≤ x^δ); α ⋆ β with β Siegel–Walfisz on N ≥ exp((log x)^ε) to level 1/2 + 1/66 for \|a\| ≤ x/12; τ_k to 17/33 | average over q | — | as D2 |
 | D8 | Maynard, *Primes with restricted digits*, Invent. 217 (2019), arXiv:1604.01041, Thm 1.1 (`maynard-1604.01041-…`) | #{p ∈ 𝒜} ≍ #𝒜/log X; Harman sieve, Type I level X^{50/77}, Type II via circle method | primes in a thin set up to X | — | as D1 |
-| D9 | Assing–Blomer–Li, arXiv:2005.13915 (Adv. Math. 393 (2021) per the agent, unverified), Thm 1.1 with σ = −1 (`assing-blomer-li-…`) | Σ_{Y<n≤X} Λ(n)τ(f − n) asymptotic, error (log X)^{−A} (GRH: X^{1−δ}), **uniform in the single integer f** | one integer f, averaged over primes n < f | the closest "dual Titchmarsh at one integer" — the shape of event (b) summed over *all* windows q < f with no class condition | no class condition; and a class-restricted version has polylog main term, below any power-saving error (§2) |
+| D9 | Assing–Blomer–Li, arXiv:2005.13915 (Adv. Math. 393 (2021) per the agent, unverified), Thm 1.1 (`assing-blomer-li-…`) | Σ_{Y<n≤X} Λ(n)τ(σn + f) = main + O((log X)^{−A}X) (GRH: X^{1−δ}), **uniform in the shift f** (σ = +1: X + f ≍ X; σ = −1: dual problem Σ_{n<f} Λ(n)τ(f − n), f > X) | one integer f, averaged over primes n | with σ = +1, f = p, X ≍ p: Σ_{q≤X} Λ(q)τ(p + q) — the **class-free** window sum of event (b), pointwise in p, but only over all windows q ≍ p | no class condition; the class-restricted version (d ≡ −1 (mod q)) has polylog main term, below any power-saving error (§2); length ≍ p, not p^θ |
 | D10 | Drappeau, PLMS 2017, arXiv:1504.05549 (abstract; `drappeau-1504.05549-…`) | power saving in Σ_{p≤x} τ(p − 1) under GRH | over p ≤ x | — | averaged over p |
 
 ### 1E. Pointwise precedents for ternary representation problems, ES-specific literature, and the pointwise inputs we already use
