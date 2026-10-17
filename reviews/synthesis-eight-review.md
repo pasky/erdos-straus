@@ -155,3 +155,40 @@ x_{ℓ,r} check (`review_r268_xlr.py`) is likewise slice-only. → **defect M3**
 and the "4-specific step = v₂(d)" reading are fixed-slice statements; at the level of profinite points, k = 8 is NOT separated
 from k = 4 at x_{3,2}, x_{5,2}, so the "one step, two readings" conclusion is unsupported beyond slices. The PROVED dictionary
 ((k/4) | d) is unaffected.
+
+---
+## Claim G — Conjecture 2.5, its stated limits, and novelty
+
+**Label: CONJECTURE + EVIDENCE to 10⁸ is correct** (data reproduced independently, Claim A). Limits paragraph:
+* "stronger than ES at p ≡ 1 (4)" — correct. "fails at odd squares and at 105, so a proof must use primality" — correct; in
+  fact the b = 1 line also fails at the composites 33 and 145 (`logs/review_r268_brute.txt`), worth listing.
+* "numerator-8 analogue fails at 60 primes < 8000; union at 34 incl. 131, 241" — reproduced for **all primes 5 ≤ p < 8000**
+  (61/35 with p = 3). But Conj. 2.5 is about p ≡ 1 (4); restricted to p ≡ 1 (4) the k = 8 counts are **39 / 22**, and 131 ≡ 3 (4)
+  is not in the comparable class (241 is). Repair m1. "Any proof must therefore be 4-specific" is an overstatement: failure of
+  the k = 8 analogue at finitely many observed primes does not exclude a k-uniform argument of threshold type (p > P₀(k));
+  say "cannot be numerator-blind for all p" (m12).
+* "heuristic count ≍ log²p (means 16 at p ≈ 2·10⁴ and 20 at p ≈ 2·10⁶ in the Mordell classes)": the two quoted numbers come from
+  different sub-populations (S < 50 subgroup at 10⁴–4·10⁴ vs Mordell classes at 10⁶–3·10⁶), so their ratio 1.25 is not a growth
+  test and actually looks inconsistent with log² (which predicts ×2.1). Reviewer's growth check over random primes p ≡ 1 (4)
+  (`logs/review_r268_growth.txt`): means 7.5, 13.5, 21.3, 29.7, 39.8, 51.0 at p ≈ 1.5·10³ … 1.5·10⁸, with mean/log²p =
+  0.139, 0.146, 0.150, 0.147, 0.146, 0.144 — **the log²p heuristic is well supported (≈ 0.145 log²p)**; replace the quoted
+  numbers (m13).
+
+**Novelty: MAJOR prior-art omission (M4).** Quick web check found **M. A. López, "A Complete Congruence System for the
+Erdős–Straus Conjecture", arXiv:2404.01508 (v3)**, read via its HTML version:
+* López's *Type A* solutions (du, dv, duv) are exactly the b = 1 line (and its mirror a = 1); *Type B* (duv, dup, dvp) are
+  exactly the c = 1 line ((★)). (His text: "Type A … when a = 1 or b = 1 … When c = 1 we obtain, precisely, the Type B".)
+* **His Theorem 7: Type A for prime p ⟺ ∃ d, n: p ≡ −4d (mod 4dn − 1)** — i.e. p + 4d has a divisor 4dn − 1 ≡ −1 (mod 4d): this
+  is **the divisor form of Prop 1.3** (the "b = 1 duality"). His Prop. on bounds gives d ≤ ⌊(p + 3)/8⌋ (the author's D-range).
+  Type B ⟺ p ≡ −n (mod 4dn − 1).
+* He reports that **among primes < 9000 only 193 and 2521 lack Type A solutions, and "66529 is another case"**; 23929 and 83449
+  lack Type B.
+* **His Conjecture 1: every prime has a Type A or Type B solution** — this is exactly the author's "b = 1 ∪ c = 1 never fails",
+  verified there for the first 10 000 primes (≤ 104 729).
+Hence the §6 list of "Genuine new content" (Prop 1.3, the b = 1 census) and the report's SHARP headline must be re-scoped:
+the duality/divisor form, the three exceptional primes (at least 193, 2521, 66529 as Type-A failures) and the union
+conjecture are in López 2024. Genuinely new here: (1) the census extension from 1.05·10⁵ to 10⁸ with the statement "exactly
+three b = 1 failures and exactly 14 c = 1 failures ≤ 10⁸, disjoint"; (2) the MP(p) 2-adic reading (Prop 1.2/1.3 "Reading");
+(3) Lemma 2.2 (visibility/forced levels) and Lemma 2.3 as stated; (4) the per-j statistics and k = 8 controls. Conjecture 2.5
+(b = 1 alone, with an explicit finite exception set) is a natural sharpening of López's data but should be attributed as such.
+(Gardes' thesis, found in the same search, also lists 2521 and 66529 among problem primes for another method; not checked.)
