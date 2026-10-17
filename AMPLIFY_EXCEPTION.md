@@ -22,7 +22,19 @@ Known facts used as the "contradiction targets":
 Throughout, a *law* assigns to each p₀ ∈ P_E a set F(p₀) (or a successor map σ) and asserts F(p₀) ⊆ E.
 "Suffices" means: the law together with (K1)–(K4) implies P_E = ∅. "Never suffices (relative to K)" means: there
 is a set E′ satisfying (K1)–(K4) [and (K4′)] that is consistent with the conclusion of every law of the given shape —
-so no contradiction can be derived from the law and the listed facts alone.
+so no contradiction can be derived from the law and the listed facts alone. (R266 repair: two strengths occur. *Per-law*:
+for the given law σ a model E′ exists (Thm 1.3(a), E′ = T(p₀)). *Shape-level*: some law with the stated
+properties has a model (Thm 1.3(b) model, Thm 1.3(d)); this shows only that the stated properties do not force
+a contradiction.)
+
+*Prior art (R266 repair).* Thm 1.3(a) is test 3 and Thm 1.4(d) is test 1 of Astra's POSITIVE_ES_RESEARCH_RESET.md
+§4 (d7300f8); its test 2 (a Rankin bound: the multiplicative semigroup of a sparse prime set is still sparse)
+complements Thm 1.4(b),(c), and its "sharper first target" Σ_{P_E}1/p = ∞ is the criterion Thm 1.1(c) improves.
+The all-witness transport hypothesis and the remark that a known-soluble factor makes the lift a proof of W(p) ≠ ∅
+(Thm 2.2(b), Prop 2.1(a)) are in Astra EXCEPTION_PROPAGATION_GLOBAL.md §1, §8. Astra's
+EXCEPTION_PROPAGATION_OPERATIONS.md §5–6 repairs every witness at 97 (and 157 → 313) by target-dependent positive
+recombination; those lifts use the known targets at p, so they are not determined lifts and do not contradict
+§3.1. Thm 3.2 is classical in substance (see there).
 
 **Theorem 1.1 (counting; PROVED).** Let F ⊆ E (any integers, prime or composite).
 (a) If for every c > 0
@@ -101,7 +113,8 @@ p ≤ (1+δ)X_k < X_{k+1} ≤ c ≤ (1+δ)X_{k+1} = A X_k ≤ A p. The count is 
 **Theorem 1.4 (composite outputs; PROVED).** (a) (K4) bounds *all* exceptional integers, so composite outputs count
 in Thm 1.1 at full weight; no conversion is needed. (b) Composite → prime conversion is lossy by a logarithm: if
 R ⊆ E has R(N) elements ≤ N, then P_E ∩ [1, N] has ≥ log R(N)/log(1 + log₂N) elements (an integer ≤ N supported
-on s given primes is determined by ≤ s exponents ≤ log₂N). Sharp: R = {p₀^k} has R(N) ≍ log N and one prime.
+on s given primes is determined by ≤ s exponents ≤ log₂N). Sharp: R = {p₀^k} has R(N) ≍ log N and one prime (as a
+statement about the inequality; p₀^k ∈ E is not known — R266 repair).
 (c) From a single seed, a composite output n ∈ E either is a power of p₀ (≤ log N/log p₀ of them up to N) or forces a
 *new* exceptional prime (a prime factor ≠ p₀, by (K3)). So every composite-output law of growth beyond log N is in
 fact a prime-amplification law (via the prime-factor map), and must be judged by Thm 1.3 on primes, with the
@@ -119,7 +132,8 @@ composite, the law is re-applied to its prime factors, whose sizes need not sati
 Thm 1.3; those hypotheses must be verified for the extracted primes, not for the hit.
 (b) (Route D.) If every p ∈ P_E has a block Q(p) ⊆ [2, p) with Q(p) ∩ E ≠ ∅, then P_E = ∅ (least element of E is
 prime, by (K3); its block contains a smaller element of E). This needs neither (K1) nor (K4).
-(c) Disjoint blocks of bounded length L inside every window (p, p + f(p)] give Thm 1.3(c) with f + L.
+(c) Disjoint blocks of bounded length L, consisting of primes (R266 repair: a composite hit has prime factors far
+below p, so the chain would not continue), inside every window (p, p + f(p)] give Thm 1.3(c) with f + L.
 *Proof.* (a) E ∩ [1,N] hits every block inside [1,N]; a hitting set of size τ hits ≤ τμ_N blocks. (b),(c) immediate. ∎
 
 ---------------------------------------------------------------------------------------------------------------
@@ -197,11 +211,14 @@ and exceptional p < 400, p² is exceptional only at (11,2), (12,5), (13,2), (14,
 (b) the *truncated* recombination law "every prime factor q > k of (p² − 1)/4 is in S_k ⟹ p ∈ S_k" fails for every
 k ∈ [10, 25] (e.g. k = 10, p = 61: (61² − 1)/4 = 930 = 2·3·5·31, 10/31 soluble, 10/61 not). This refutes only the
 truncated law: the untruncated k-analogue is vacuous in these models because 2 ∈ E_k. The {(p−1)/2, (p+1)/2} law
-(no truncation) fails for every k ∈ [8, 25] except 9 (e.g. k = 8, p = 131);
+(no truncation) fails for every k ∈ [8, 25] except 9 (e.g. k = 8, p = 131); (R266 repair: these populations are
+the exceptional p > 3k, as in the script; without that restriction the {(p∓1)/2} law fails also at k = 9 (p = 19:
+9/9, 9/10 soluble, 9/19 not) and the truncated law also at k = 8, 9, vacuously, e.g. k = 8, p = 17);
 (c) for k = 8 there is no exceptional prime in (241, 2000), so every k-uniform law forcing an exceptional prime
 successor in (p, 8p] is false at p = 241 (8·241 = 1928). This refutes only laws whose window was exhausted.
 Consequence: a proof of any of these law shapes must use the numerator 4 (cf. numerator blindness (J)41); a
-k-uniform argument is refuted by these finite computations.
+k-uniform argument is refuted by these finite computations (R266 repair: only one whose validity range includes the
+tested p, i.e. without a threshold p > p₀(k); cf. R207 D1 on (J)41).
 
 ---------------------------------------------------------------------------------------------------------------
 
@@ -223,7 +240,9 @@ for each source witness, the number N_θ(p) = p + e (Type II) or pe + 1 (Type I)
 *Proof.* (a) (Review repair: "every p′" means every *prime* p′ in the class, by Dirichlet infinitely many; at
 composite members the transferred triple is still a solution of 4/p′ but need not be ET-normalised, e.g. slice
 (1,2,3), H = 8, Type I works at 7 and gives (60, 6, 12) at 15 with gcd(15, 6·12) > 1.) If 4ab | p′ + e for two
-primes p′ of the class differing by a multiple of αH′ only — take p′ and p′ + tαH′ with gcd(t, 4ab) = 1, both prime —
+primes p′ of the class differing by a multiple of αH′ only — take p′ and p′ + tαH′ with gcd(t, 4ab) = 1, both prime
+(R266 repair: such t exist — fix t mod each odd ℓ | 4ab, ℓ ∤ αH′, outside the residues 0 and −p′(αH′)^{−1}, possible
+as ℓ ≥ 3, note 2 | αH′, then apply Dirichlet) —
 then 4ab | tαH′, so 4ab | αH′; if 4ab | p′e + 1 for both, 4ab | tαH′e with gcd(e, 4ab) = 1, so 4ab | αH′. Conversely
 if p has a witness with H | αH′ the same slice works at every prime p′ of the class (d = (p′+e)/H resp. (p′e+1)/H
 is a positive integer, and for prime p′ every solution is ET). (b) Totality must hold
@@ -244,7 +263,13 @@ these counts.
 233689 116849(x2):34/167 77893(x3):27/197 77899(x3):85/225
 ```
 
-**Theorem 3.2 (the T1 adversary: invisible witnesses; PROVED).** Let p be odd and L ≥ 1. If p is congruent to a
+**Theorem 3.2 (the T1 adversary: invisible witnesses; PROVED; classical in substance).** (R266 repair:
+attribution.) This is the Mordell–Schinzel square-class obstruction in local form: a witness slice with H | L is a
+polynomial ES identity on the class p mod L, and "a primitive congruence class n = r mod q which is a perfect square
+cannot be solved by polynomials (this also follows from Proposition 1.6)" (Elsholtz–Tao p. 8, citing Mordell and
+Schinzel; ET p. 6: this rules out finite covering-congruence strategies); in the campaign it is T1, DISCOVERIES (C)2
+and (C)7. Only the CRT normalisation below and the recombination reading (Cor 3.3) are added here.
+Let p be an odd prime (more generally: odd p and an ET-normalised witness; R266 repair) and L ≥ 1. If p is congruent to a
 square modulo L (for odd p this is automatically an *odd* square when 2 | L; for odd L replace m by m + L), then
 *no* ET witness at p has modulus H dividing L. Consequently a source witness w′ with p ≡ □ (mod αH′(w′)) is
 *invisible*: no determined lift (Thm 3.1) can use it, and the recombination law from that source is not
@@ -257,14 +282,16 @@ correction: for general α it can be visible — p = 1201 = 17·71 − 6, source
 e = (a+b)/c, H = 4ab | L. Note: since p is prime the witness is ET-normalised, so p ∤ x = abd (Type II) resp. p ∤ yz = (acd)(bcd)
 (Type I); hence p ∤ ab, and p ∤ c in Type I. In Type II also p ∤ e: e ≥ p would give 4ab ≤ p + e ≤ 2e ≤ 2(a + b), so
 a = b = 1 and e ≤ 2 < p. Choose, by CRT, an odd m with m² ≡ p (mod L) and additionally
-m ≢ 0 (mod ℓ) for every prime ℓ | c·e not dividing L (for ℓ | L this is automatic, since m² ≡ p ≢ 0 (mod ℓ)).
+m ≢ 0 (mod ℓ) for every prime ℓ | c·e not dividing L (for ℓ | L, ℓ ≠ p, this is automatic, since
+m² ≡ p ≢ 0 (mod ℓ); if p | L then p ‖ L and p | m, and one uses p ∤ ab, p ∤ e (Type II), p ∤ c (Type I) recorded
+above — R266 repair).
 Put n = m², so n ≡ p (mod H). Type II: d′ = (n + e)/H is a positive integer and (x, y, z) = (abd′, nacd′, nbcd′)
 solves 4/n (direct check: the sum is c(n + e)/(nabcd′)); gcd(n, ab) = gcd(p, ab) = 1 and gcd(n, d′) | gcd(n, e) = 1,
 so gcd(n, x) = 1: an ET Type II solution of an odd square. Type I: d′ = (ne + 1)/H, (x, y, z) = (nabd′, acd′, bcd′);
 gcd(n, abd′) = 1 because H d′ ≡ 1 (mod n), and gcd(n, c) = 1 by the choice of m: an ET Type I solution. Either
 contradicts ET Prop 1.6. ∎
 
-**Corollary 3.3 (joint recombination; PROVED).** Combining several sources (any finite Q(p), any number of shifts,
+**Corollary 3.3 (joint recombination; PROVED; folklore-level application of T1 — R266 repair).** Combining several sources (any finite Q(p), any number of shifts,
 all supplied witnesses jointly) pins p modulo L = lcm(α_iH′_i). Since "p ≡ □ (mod L)" is a local condition at each
 prime power of L (for odd p and 2-powers: p ≡ 1 (8) is a square mod every 2^k), the lcm of invisible moduli is
 invisible. Hence a joint determined recombination over Q(p) that must work for *every supplied tuple* of source
@@ -308,7 +335,7 @@ p ∤ A + pB′, hence v_p(u) = 2, v_p(v) = 1, v_p(z) = 0), A, B′ | z with A +
 are ≡ 1 (3) and A + pB′ ≡ 2 (3). (Mordell-type; m = 7, 11, … do occur, e.g. p = 13, z = 44, m = 7.)
 (d) (EVIDENCE) The naive descent 4/p = 1/(pX) + j/X (j = (4X − 1)/p, X = x/p²) works for only ≈ 25–45% of mixed
 solutions (`z25_mixed_check.py`). (CERTIFIED) In the numerator model k = 8 the law is false: 8/11 ∉ S_8 while
-8/121 = 1/18 + 1/99 + 1/2178 (a mixed solution); likewise for all exceptions p < 400 of 8 ≤ k ≤ 14 except (14, 29).
+8/121 = 1/18 + 1/99 + 1/2178 (a mixed solution); likewise for all exceptions p < 400 of 8 ≤ k ≤ 14 except (11, 2), (13, 2), (14, 2), (14, 29) (R266 repair).
 *Assessment.* A proof of the square law must be 4-specific and must exclude mixed solutions at exceptional p —
 a fresh B2 lottery at (p² + m)/4. Even if proved it gives F(p₀) = {p₀^k}, growth log N (Thm 1.4).
 
@@ -322,4 +349,6 @@ proving ES(p₀): by (K4), #{n ≤ N, n ≡ p₀ (M_X), n ∈ E} ≤ C₀N exp(�
 log M_X ≤ (c₀/2)(log N)^{2/3}; so the upgraded law would contradict (K4) (Thm 1.1), i.e. it is ES(p₀) itself.
 The visible obstruction at p₀ is exactly the finite set of classes of modulus ≤ X (B1/B3); the progression
 members acquire fresh large-modulus witnesses (B2). The hypothesis "finite data" cannot be violated here: what p₀
-"knows" is only its residues, and by Thm 3.2 the residues at primes ℓ with (p₀/ℓ) = 1 carry no information at all.
+"knows" is only its residues, and by Thm 3.2 no ET witness of p₀ has modulus supported on primes ℓ with
+(p₀/ℓ) = 1 (and on 2 when p₀ ≡ 1 (8)) (R266 repair: replaces "carry no information at all"). Under core §5 this
+progression law is in the "NOT SUCCESS" category (classical congruence progression), listed only as a relaxation.
