@@ -1,0 +1,4 @@
+(a) Theorem A violations: 0
+(b) Kneser: tested/(3.1) held/violations: (3000, 374, 0)
+(c) Prop 4.2: windows checked/violations: (368689, 0)
+(d) Remark 4.4: Type II points p<3000 / p square mod 4ab: (3188, 0)
