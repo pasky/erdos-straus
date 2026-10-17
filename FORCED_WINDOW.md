@@ -275,3 +275,36 @@ every VER-th certificate is rebuilt into 4/p = 1/x + 1/y + 1/z and checked with 
   one of the 480 classes contains q with ρ ≤ 1.47** (data/z24/balanced_y7.txt, balanced_y11.txt). Unbalanced primes exist
   (ρ up to 6.4) but do not fill classes — EVIDENCE for W at these (tiny) parameters, where the P-loss is not yet visible.
 * *T1 control:* odd squares a² ≤ 10⁶ (499): no window m ≤ 200 with a cap-0 (δ_n = 0) certificate (as proved, CAP_DOWN §3).
+
+## 7. Verdict (O252 checkpoint 1)
+
+Targets of the task, answered:
+* **(A) cap 0 for every p, conditional on standard hypotheses: NOT reached, and the obstruction is located exactly.**
+  Cap-0 certificates are least-residue events at level ≥ 2 (Prop 2.1): (−p mod 4uv) must divide u + v. No equidistribution
+  hypothesis (BV, EH, GRH, Montgomery) has content at level ≥ 1, and covering routes at cap 0 need a window with
+  τ(K²) ≥ φ(m)/2 (Thm 3.1), which pins m ≤ p^{O(1/log log p)}, i.e. a pointwise statement about integers in polylog-short
+  intervals near p/4 (Cor 3.3: ω(K) ≥ α log log p, α > 1), where the only deterministic tool (CRT) falls short by the factor
+  ≍ log₃ p, plus a balanced relation lattice (Prop 4.1/4.5). The brief's (i) "smooth K" and (ii) "subset products" are the right
+  two ingredients, but (i) is needed in its divisor-richness form at polylog scale (smoothness itself is irrelevant: §6), and (ii)
+  cannot be an all-q theorem (Prop 5.2) — it must be a statement about some window in a class (Hypothesis W at cap 0, which is a
+  restatement of the problem). Every combination we found is ES-in-disguise at cap 0.
+* **(B) cap ≤ log p for every p conditionally:** already implied by GRH alone (CAP_POINTWISE Thm 1.3(c): (16 log p + 70)²;
+  CAP_INTERPOLATION Thm 4.2(b): exp(O(√(log₂p log₃p)))). New: **Theorem 4.3 — GRH + Hypothesis W (a Linnik-type statement for the
+  p-independent set of primes q whose relation lattice of the first k odd primes is balanced) ⇒ e*(p) ≤ (log log p)^{2+o(1)}**
+  (Cor 4.4), turning the Assessment of z12_grh_lattice_gap into a conditional theorem; W is not ES in disguise (it sees p only
+  through one quadratic character and one class mod P) and holds at small scale in every class (§6). The covering method cannot
+  go below (log log p)^{1−o(1)} (Prop 4.1(iii) + CAP_INTERPOLATION Prop 4.1). Bounded cap via covering is impossible at windows
+  ≥ p^θ (Thm 3.1(c)) and via bounded windows (CAP_BOUNDED Thm 1.3, Dickson).
+* **(C) unconditional cap ≤ C on a positive-density set by a forced mechanism:** already in CAP_BOUNDED Lemma 3.1 — the
+  one-prime witness at the least forced window gives e*(p) ≤ (q₃(p) − 3)/4, so {p ≡ 1 (8) : e*(p) ≤ C} contains the
+  Chebotarev set {q₃(p) ≤ 4C + 3} of relative density 1 − 2^{−π(4C+3; 4, 3)}; nothing averaged. No improvement here.
+* **(D) the necessary input, measured:** (D1) covering routes ⟺ (up to a factor 2, Prop 4.1) a balanced relation lattice at a
+  window whose box is ≥ the window; at cap 0 this needs τ(K²) ≥ φ(m)/2 at m ≤ p^{O(1/log log p)}: a polylog-short-interval
+  divisor-richness statement (Cor 3.3; CRT shortfall log₃ p) plus balance. (D2) non-covering (target-specific) routes at cap 0 are
+  the level-≥-2 least-residue events of Prop 2.1; cap e ≥ 1 lowers the level (Prop 2.2), which is the structural reason why
+  every provable statement of the campaign has cap ≥ 1. (D3) the forcing–generation gap (§5): forcing reaches primes ≤ (1+o(1)) log q,
+  all-q generation needs ≥ c log q log log q (false below, GRH) and is known from ≍ log² q (GRH).
+* **Numerics (EVIDENCE):** least cap-0 windows ≤ 107 for all p ≡ 1 (4) ≤ 10⁷ (record p = 8 803 369); certificates use
+  |δ| ≤ 1 (90 % hard / 97 % all) and support ≤ 2 (91 % / 99 %): the exponent budget and smoothness are not the mechanism;
+  forced windows succeed ≈ always once τ(K²) ≥ 4m. T1 control clean.
+ES is untouched; no infinite case of ES is claimed.
