@@ -2,7 +2,7 @@
 
 Reviewer: R264 side agent (branch side-agent/review-forced-window). Reviewed commit: merge of side-agent/forced-window
 (O252 checkpoint 1, after self-review R-O252). From-scratch scripts: `scripts/review_r264_*.py` (no author code reused).
-Status: IN PROGRESS.
+Status: COMPLETE (round 1).
 
 ## Summary verdicts
 
@@ -134,6 +134,17 @@ the qualitative claim stands. Balance (`review_r264_balance.py`): y = 7: 1 012 p
 1.079/1.241/1.449/2.037/3.462/6.432, all 48 classes hit, max over classes of min ρ = 1.3718 ✓; y = 11: 4 451 primes,
 27 non-generating, quantiles 1.132/1.296/1.449/1.776/2.551/5.746, all 480 classes, max-min ρ = 1.4715 ✓ — exact agreement.
 T1 control (`review_r264_t1.py`): 499 odd squares, windows ≤ 200, no cap-0 certificate ✓ (positive control p = 241 fires).
+
+**Labels and §7 verdict — SOUND.** Every PROVED item re-derived; Thm 4.3 correctly CONDITIONAL on W (GRH only sizes the
+candidate set, not a hypothesis); Cor 4.4 correctly "CONDITIONAL on W + Assessment for the exponent"; Prop 5.1/5.2 correctly
+relative to GRH (Dirichlet / Dedekind); numerics EVIDENCE. §7(C) checked against CAP_BOUNDED Lemma 3.1 on main
+(e*(p) ≤ (q₃(p) − 3)/4; relative density 1 − 2^{−π(4C+3;4,3)} among p ≡ 1 (8) by independence of the quadratic characters) ✓.
+No claim of ES or of an infinite case of ES. Memos z24_*: consistent with the main file; the "ET family s | jp + 1,
+s ≡ 3j − 1 (4j)" in z24_budget_not_mechanism checked (j = (s+1)/m) ✓; z24_crt_shortfall inherits D4.
+
+**Overall: SOUND-AFTER-REPAIRS (12 MINOR defects, no FATAL/MAJOR).** The sharp headline (Thm 4.3 + Cor 4.4: W ⇒
+e*(p) ≤ (log log p)^{2+o(1)}) is a correct conditional theorem; W as repaired is not refutable by the CRT trick that killed
+the first version, I found no other falsification, and it is not ES in disguise (it only yields cap ≤ L − 1).
 
 ## Defects
 
