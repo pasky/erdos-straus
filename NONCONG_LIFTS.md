@@ -252,6 +252,9 @@ contain x_{ℓ,2} (representative x = 17 in both cases: 17 ≡ 1 (8), 17 ≡ 2 (
 of modulus H | L would contain x_{ℓ,2} itself. ∎
 *Numerical check (CERTIFIED, `scripts/z28_x2_check.py`, a ≤ b ≤ 300, k ∈ {4, 8, …, 32}, ℓ < 60, ℓ ∤ k):* hits
 occur exactly for k = 4, ℓ ∈ {3, 5}, and they are exactly the four classes of (b).
+*Independent check on actual primes (complete solution lists):* the first four primes n ≡ x_{3,2} (mod 60480 = 2⁶·3³·5·7)
+(421121, 542081, 1146881, 1570241) have, among all their ET witnesses, those with H | 60480 = exactly the Mordell pair
+(II/I, 1, 6, e = 7) for k = 4 and **none** for k = 8, 16 (k = 12 has (1, 6) at H = 72, consistent: 3 | 12 is excluded).
 
 *Reading.* This is the first *proved* structural 4-vs-8 separation in the lift language: for k = 4 the small
 non-residue primes 3, 5 are "complete-capable" (Mordell), for every 4 | k ≥ 8 no prime ℓ ≡ ±3 (8) ever is. The
