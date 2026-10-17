@@ -138,7 +138,7 @@ n ≤ x in an AP, so it belongs with A4/A5).
 R(p) = Σ_{(u,C)∈𝓡} 1[(4uC − 1) | p + u], 𝓡 := {(u,C) ∈ ℕ² : 4uC − 1 ≤ p + u}, and |𝓡| = (p/4) log p + O(p).
 Writing 1[m | n] = m^{−1}Σ_{h mod m} e(hn/m):
   R(p) = M(p) + E(p),  M(p) := Σ_𝓡 1/(4uC − 1),  E(p) := Σ_𝓡 m^{−1}Σ_{0<h<m} e(h(p+u)/m)  (m = 4uC − 1),
-and M(p) = (log p)²/8 + O(log p). The restriction u ≤ U keeps |𝓡_U| = (p/4) log U + O(p) and M_U(p) =
+and M(p) = (log p)²/8 + O(log p). For 1 ≤ U ≤ p the restriction u ≤ U keeps |𝓡_U| = (p/4) log U + O(p) and M_U(p) =
 (log U)(log p)/4 − (log U)²/8 + O(log p).
 *Proof.* (u, C) determines B = (p + u)/(4uC − 1), and B ≥ 1 ⟺ (u,C) ∈ 𝓡. For fixed u, C ranges up to
 (p + u + 1)/(4u), so |𝓡| = Σ_{u ≤ p} (p/(4u) + O(1)) and M = Σ_u Σ_{C ≤ p/(4u)} 1/(4uC) + O(log p)
@@ -149,33 +149,37 @@ Check (`scripts/pa_lemma21_check.py`): the (u,C)-identity equals brute force for
 p = 10⁴+7, 10⁵+3, 10⁶+3, 10⁷+19: M = 10.34, 16.17, 23.33, 31.81 vs (log p)²/8 = 10.61, 16.57, 23.86, 32.47 and
 |𝓡| = 0.92–0.96 × (p/4) log p (R = 22, 20, 16, 42).
 
-**Assessment 2.2 (the p^{1/2} is a square-root barrier, not a weak bound).** E(p) is a sum over ≍ p log p pairs
-of complete exponential sums; R(p) and M(p) are both ≍ (log p)², so the *true* E(p) is polylog. Any argument that
-bounds E(p) by cancellation among the 𝓡-terms without using their arithmetic gets at best |𝓡|^{1/2} ≍ p^{1/2}:
-the same p^{1/2} that (J)6 found for Weil on 𝓗 = {xy ≡ 1 (4p)}. Restricting to u ≤ (log p)^A does **not**
-shrink 𝓡 (C still runs to p/(4u)), so event (a⁴) at polylog U is no easier for analytic methods than (★) itself.
-Pre-factoring (summing over the actual divisors of p + u) shrinks the trial count to Σ_{u≤U} τ(p+u) ≈ U log p,
-but then each u-term is a character sum over the divisors of one integer, Σ_{f | p+u} χ(f), χ mod 4u, which has no
-analytic structure to exploit; with the class fixed, the main term is ≍ log U·log p against U log p trials.
+**Assessment 2.2 (what the p^{1/2} is, and what it is not).** Positivity R(p) ≥ 1 needs only E(p) > −M(p), with
+M(p) ≍ (log p)². The known pointwise tools bound E(p) through complete exponential sums (Weil on 𝓗 = {xy ≡ 1
+(4p)}, (J)6 §3.4) and give error p^{1/2+o(1)}: square-root cancellation in each complete sum, the (J)6 number. This
+is the error scale of the *cited methods*, not a proved limit of every analytic approach. Under an independent-
+incidence model the summands 1[m | p+u] − 1/m have total variance ≈ M(p), so nothing intrinsic forces fluctuations
+of size p^{1/2}. (That R(p) ≍ (log p)² pointwise is itself only EVIDENCE.) Two structural remarks (Assessment):
+restricting to u ≤ (log p)^A does **not** shrink the trial region (|𝓡_U| ≍ p log U, since C still runs to
+p/(4u)), so (a⁴) at polylog U is no easier for complete-sum methods than (★) itself. Pre-factoring (summing over the
+actual divisors of p + u) shrinks the trials to Σ_{u≤U} τ(p+u) ≈ U log p, but each u-term is then a character sum
+over the divisors of one integer, Σ_{f | p+u} χ(f) with χ mod 4u, for which no analytic tool exists.
 
 **The ledger (best known *pointwise-in-p* inputs, by category).**
 
 | category | best known at a single p | needed | gap |
 |---|---|---|---|
-| class-aware counts on 𝓗 (Weil, Shparlinski Thm 13; B1) | box counts with error p^{1/2+ε}; every-residue solvability of xy ≡ a (p) with \|x\|,\|y\| ≤ Cp^{3/4}, i.e. area p^{3/2} | error O(1) in (★); even the class-free relaxation "4Cp + 1 has a factorisation with both factors ≤ p^{1/2+ε}, C ≤ p^{o(1)}" needs area p^{1+o(1)} | **p^{1/2}** (area exponent 3/2 vs 1; side exponent 3/4 vs 1/2). This is the (J)6 number; nothing better is known pointwise |
-| the same, averaged over the residue a (Garaev via Shparlinski §3.2; KSWX §3.3) | almost all a: x, y ≤ p^{1/2}(log p)^{1+ε}, area p(log p)^{2+2ε} | the single residue a = 1 (with the 4C-classes attached) | only a **log-power** gap — but it is an almost-all-a statement, and at one p the residue does not vary (§3, "tied averaging") |
+| class-aware counts on 𝓗 (Weil, Shparlinski Thm 13; B1) | box counts with error p^{1/2+ε} (asymptotics only for boxes of area ≫ p^{3/2+ε}) | E(p) > −M(p), M(p) ≍ (log p)², on a height-dependent arithmetic subset of 𝓗 | **factor ≍ p^{1/2}/(log p)²** between the cited error scale and the main term (the (J)6 number); no pointwise improvement of the area-p^{3/2} threshold is known |
+| box benchmark, averaged over the residue a (Garaev via Shparlinski §3.2; KSWX §3.3) | almost all a: xy ≡ a (p) solvable with x, y ≤ p^{1/2}(log p)^{1+ε}, area p(log p)^{2+2ε}; every a: only \|x\|,\|y\| ≤ Cp^{3/4} (area p^{3/2}) | — (benchmark only: (★) is not a box-solvability question; at a = 1 the point (1,1) exists trivially; the obstruction is the height-dependent class condition) | shows that the p^{3/2} → p^{1+o(1)} box-area improvement is known only on average over residues (§3, "tied averaging") |
 | divisor statistics of the u-side family {p + u} (Huxley; Li–Yang Thm 1.2; C1) | Σ_{u≤U} τ(p+u) ~ U log p for U ≥ p^{0.3145} | the class −1 (mod 4u) at U ≤ (log p)^A | no class information; exponent 0.3145 in the length, plus the class layer |
-| divisor statistics of the t-side family {4Cp + 1} (Selberg–Hooley, FKM; B6) | asymptotic for C ≤ X iff X ≥ p^{1/2+ε} | class −1 (mod 4C) | exponent 1/2 in the length, plus the class layer |
+| divisor statistics of the t-side family {4Cp + 1} (Selberg–Hooley, FKM; B6) | asymptotic for C ≤ X once X ≥ p^{1/2+ε} (sufficient range of the cited theorem) | class −1 (mod 4C) | exponent 1/2 in the length, plus the class layer |
 | structured (smooth) members of a short family (Matomäki 2016; Younis; C2–C3) | an x^ε-smooth integer in every [x, x + √x(log x)^{7/3+δ}]; under RH smooth-number asymptotics for length x^{1/2+ε}, y ≥ (log x)^K | a (log p)^{O(1)}-smooth p + u with u ≤ (log p)^{O(1)} (route (J)6 I3) | **p^{1/2}** in the length, unconditionally and under RH |
-| Type II / bilinear at a fixed prime (KMS 2017/2020, KSWX, Bourgain–Garaev; B2–B5) | power savings q^{1/64} … M^{1/4} of trivial bounds of bilinear forms | (★) has unit coefficients; error O(1) against trivial ≍ p | saving needed p^{1−o(1)}; Type II is not the missing input ((J)6 Assessment 2.2) |
+| Type II / bilinear at a fixed modulus (KMS 2017/2020, Blomer–Pascadi 2026, KSWX, Bourgain–Garaev; B2–B5) | power savings q^{1/64}, c^{1/32} (Blomer–Pascadi, at the √c range) … M^{1/4} of trivial bounds of bilinear forms | (★) has unit coefficients; error O(1) against trivial ≍ p | saving needed p^{1−o(1)}; Type II is not the missing input ((J)6 Assessment 2.2) |
 
 **Answer to "which estimate gets closest, and by how much".** Pointwise in p, the closest class-aware estimate is
-Weil's bound in its modular-hyperbola form (Shparlinski Thm 13; every-residue solvability at area p^{3/2}). It is
-short by **exactly p^{1/2}** (exponent 1/2 in area), with no log-power refinement known; the literature calls
-going below area p^{3/2} "out of reach" and ties it to the 60-year-old Selberg–Hooley 2/3 barrier. The only results
-that reach area p^{1+o(1)} (log-power gap) average over the residue class (Garaev; KSWX §3.3). Class-blind statistics
-reach shorter families (p^{0.3145}, Li–Yang) but carry no class information. Under RH/GRH the length barrier
-stays at p^{1/2} (Younis), and GRH helps only the sign/window layer (least non-residue, (J)64).
+Weil's bound in its modular-hyperbola form (Shparlinski Thm 13). Its error scale p^{1/2+o(1)} exceeds the main term
+(log p)² by a factor ≍ p^{1/2} (exponent 1/2), with no log-power refinement known. The literature calls going below
+box area p^{3/2} "out of reach" for a single residue and ties it to the Selberg–Hooley 2/3 barrier (Shparlinski
+§3.1). The only box results at area p^{1+o(1)} average over the residue class (Garaev; KSWX §3.3), and they are a
+benchmark, not a reduction of (★). Class-blind statistics reach shorter families (u-side p^{0.3145}, Li–Yang) but
+carry no class information. Under RH the short-interval length barrier for smooth numbers stays at p^{1/2}
+(Younis). GRH helps only the sign/window layer (least non-residue, (J)64). These are statements about the cited
+methods. No lower bound for the difficulty of (★) is proved here.
 
 ## 3. Feasibility verdict on hatch H-B (deliverable 3)
 
