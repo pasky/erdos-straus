@@ -69,3 +69,18 @@ pairs (p ≡ 1 (8) < 4·10⁴, QNR u < 200) all have the required ℓ; 362 count
 Minor (m5): oddness of m is never used — the lemma holds for every square. Minor (m6): in the prime-case sentence
 add "u < p" (needed for ℓ ≠ p, as in the χ-shadow paragraph).
 
+## Claim 6 — Dyachenko 2511.07465 assessment (row E4, §4): **SOUND** (one fairness repair)
+
+Checked against `sources/dyachenko-2511.07465.pdf` (pdftotext). Abstract (l.25) and intro (l.71, 95, 112) cite
+"Theorem 10.21"; §10 is "Experimental data [tab.3]" and contains no theorems; the claim is Theorem 9.21 (p. 28) ✓.
+9.21(III) defines L = {(u,v) : ub′ + vc′ ≡ 0 (mod g)} with b′ = b/g_b, c′ = c/g_c built from (b, c, δ) satisfying
+(I), which already includes (4b − 1)(4c − 1) = 4Pδ + 1 — i.e. a solution is an input ✓. Prop 9.25 is the elementary
+"a lattice with diagonal period d′ meets every d′ × d′ box" ✓. The return step (§9.10, l.1550; "Connection with
+§7.3", l.1633) needs v with u² − v² = 4A/α, a factorisation of 4A/α in a parity/size class — the divisor event,
+not proved ✓. Lemmas/Theorems D.33, D.16 exist (the paper calls them both "Lemma" and "Theorem"; cosmetic).
+MINOR (m7): the quotation of §11 is truncated in a way that slightly over-favours the audit: the sentence reads
+"is certainly not proven **constructively** in the present work", and the next bullet claims "for any fixed odd
+prime P, the existence of a solution is strictly proven". Quote both (the fixed-P claim is vacuous — it is the
+finite verification / trivially true for each P — but the author does still claim it). Repair: replace the E4
+quote by the two bullets verbatim and add "the fixed-P claim adds nothing beyond computation for that P".
+
