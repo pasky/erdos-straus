@@ -17,7 +17,7 @@ from collections import defaultdict
 
 N, M, VER = map(int, sys.argv[1:4]); HARD = len(sys.argv) > 5 and sys.argv[5] == 'hard'
 HARDC = {1, 121, 169, 289, 361, 529}
-LIM = (N + M) // 4 + 2
+LIM = (N + max(M, 200)) // 4 + 2   # also covers the T1 square control (m <= 200)
 spf = list(range(LIM + 1))
 for i in range(2, isqrt(LIM) + 1):
     if spf[i] == i:
