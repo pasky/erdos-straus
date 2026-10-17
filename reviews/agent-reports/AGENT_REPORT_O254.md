@@ -11,9 +11,9 @@ SHARP: (mild; flag only if useful)
   ℚ[u, p]). The only non-trivial input is d > 0: with signed slices (d = −w²) the Type I side p² + 4c²d splits
   identically (Remark 1.2). So "positivity" is exactly what forbids an algebraic budget at a general prime; every
   thin-family success ((J)74/(J)75/(J)80) needs p = φ(u).
-* **Prop 4.2 (PROVED):** every window built from ℤ[√p] (CF norms of √p, Pell data, near squares m = w² − p, any
-  m | A² − pB²) has (p/m) = +1, i.e. is never Jacobi-forced: forced windows are exactly those carrying ℚ(√p)-inert
-  primes, which no norm/archimedean construction from ℤ[√p] can produce. A clean structural reason for near-square
+* **Prop 4.2 (PROVED):** every window built from ℤ[√p] (CF norms of √p with gcd(Q_k, m) = 1, near squares m = w² − p,
+  any m | A² − pB² with gcd(B, m) = 1) has (p/m) = +1, i.e. is never Jacobi-forced (p + m = c·w² is forced iff (c/p) = −1:
+  the non-residue must come from c, an (R2) choice). A clean structural reason for near-square
   hardness.
 * **Prop 4.3 / Remark 4.4 (PROVED):** p is a non-square modulo every Type II class modulus 4ab (so no class modulus
   divides p − 1, and ord_{4ab}(p) is always even). Auxiliaries that hand over divisors of p − 1 (ord_p(g), Lucas ranks,
@@ -33,8 +33,15 @@ SHARP: (mild; flag only if useful)
 6. Numerics (§6): Theorem A sympy (0 violations), Kneser brute force (374/374), Prop 4.2 on 368 689 windows (0
    violations after restricting to the stated hypothesis gcd(m, p) = 1 — the first run's 5 flags were p | m), Remark 4.4
    on all 3188 Type II points p < 3000; cyclotomic depth k*(p) over all 28 153 Type II points of the 765 Mordell-hard
-   primes ≤ 3·10⁵ (each checked exactly; T1 control: no odd square ≤ 3·10⁵ has a Type II point): always even, unbounded
-   (k* > 60 at p = 210 961).
+   primes ≤ 3·10⁵ (each checked exactly, p non-square mod 4ab at every point; T1 control: no odd square ≤ 3·10⁵ has a
+   Type II point): always even, growing in range (k* = 72 at p = 210 961).
+
+## Self-review (codex deep review before reporting; all repaired)
+Theorem A restated for the numerators of the divided rows; Cor 3.3 and Thm 5.2(c) now say the counting criterion (3.1) is
+sufficient only (box fills by luck: p = 809, m = 31, K = 210); Thm 5.2(a) restricted to identities in free X ((R3) is a
+relation type); (R3) restricted to c = 1 / norm windows with gcd(B, m) = 1 (general c forced iff (c/p) = −1); 5.2(b) r = 1
+needs deg φ ≥ 2; 5.2(c) "never determines" restricted to m ≥ 7; C_k = {ord | k}; cyclotomic script now checks
+non-squareness at every point, cap raised to 400 (k* = 72 exact at 210 961); "unbounded" → "growing in range".
 
 ## Labels / honesty notes for the reviewer
 * Most results are elementary; Theorem 5.2 is largely a *synthesis* of Theorem A + (J)79 + (J)83 + POINTWISE_SIZE Thm C

@@ -36,8 +36,8 @@ the D-rows of RT2 Lemma 2.1, with the slice parameters positive on a non-empty o
 numbers of RT2 are N_θ(X) ∈ {X² + 4c²d, aX + c, (eX+1)/(4a), (eX+1)/(4d), 4c²dX + 1, cX + a, X + 4a²d, (X+e)/(4a),
 (X+e)/(4d)} (Type I rows first, then Type II).
 
-**Theorem A (side irreducibility; PROVED, elementary).** For every polynomial slice choice θ(u), the side number
-factors in ℚ[u, X] as N_θ = g(u)·N′(u, X) with g ∈ ℚ[u] independent of X and N′ irreducible in ℚ[u, X]
+**Theorem A (side irreducibility; PROVED, elementary).** For every polynomial slice choice θ(u), the side number (for the
+four rows divided by 4a or 4d: its numerator eX + 1, resp. X + e, the denominator being X-free) factors in ℚ[u, X] as N_θ = g(u)·N′(u, X) with g ∈ ℚ[u] independent of X and N′ irreducible in ℚ[u, X]
 (N′ of X-degree equal to that of N_θ).
 *Proof.* Linear rows: N = αX + β with α, β ∈ ℚ[u], α ≠ 0. Put g = gcd(α, β) in the UFD ℚ[u]; then N′ = (α/g)X + β/g is
 primitive of degree 1 in X over ℚ[u], hence irreducible in ℚ[u][X] (Gauss). Quadratic row: N = X² + 4c²d is monic in X;
@@ -128,13 +128,14 @@ the subgroup ⟨ℓ̄_s⟩ ≠ 0 and Σ̄ = Σ̄ + Ā_s would have non-trivial s
 and |Ā_s| = 2b_s + 1, while |Ā_s| = 1 for ℓ_s ∈ H. Hence |Σ̄| ≥ 1 + Σ_{s ∉ H} 2b_s ≥ [H₀ : H] by (3.1); but Σ̄ ⊊ H₀/H
 (Σ ≠ H₀ is a union of H-cosets inside H₀), so |Σ̄| ≤ [H₀ : H] − 1: contradiction. ∎
 **Corollary 3.3 (the budget gap; PROVED part + Assessment).** (PROVED) (3.1) at H = {1} needs Σ_s 2v_s(K) ≥ |H₀| − 1;
-if H₀ = (ℤ/m)^× this is 2Ω(K) ≥ m − 2, impossible once m > 2 log₂ K + 2. So structure-free certificates exist only at
-windows m = O(log p), or when every prime of K has small order mod m (|H₀| small: the z22 / CAP_DOWN Prop 1.3 shape
+if H₀ = (ℤ/m)^× this is 2Ω(K) ≥ m − 2, impossible once m > 2 log₂ K + 2. So the counting criterion (3.1) can certify
+only windows m = O(log p), or windows where every prime of K has small order mod m (|H₀| small: the z22 / CAP_DOWN Prop 1.3 shape
 m | s^j ± 1, which Lemma 3.1 pins to a congruence class).
 (Assessment) Forcing Ω(K) ≥ E by a congruence on the window (F | K, Ω(F) = E, F ≥ 2^E) puts m in the class −p mod 4F,
-whose least element is ≥ F for a proportion ≥ 3/4 of residues p mod 4F; there 2Ω(K) ≥ m − 2 would need the unforced
-cofactor to supply ≥ (2^E − 2)/2 − E prime factors. The forced budget grows like log m, the structure-free need like m:
-an exponential gap. Algebraic factorisation (thin families) closes it only because m stays fixed (11, 19, …) while the
+whose least element is ≥ F for a proportion ≥ 3/4 of residues p mod 4F; there criterion (3.1) would need the unforced
+cofactor to supply ≥ (2^E − 2)/2 − E prime factors. The forced budget grows like log m, the criterion's need like m: an
+exponential gap. (3.1) is only sufficient: the box can fill by luck (R-review example: p = 809, m = 31, K = 210 = 2·3·5·7,
+2Ω(K) = 8 < 29, yet Σ_31(K) = (ℤ/31)^×, certificate a = 10, b = 21); that luck is the B2 lottery, not a forced budget. Algebraic factorisation (thin families) closes it only because m stays fixed (11, 19, …) while the
 factor residues are functions of the family parameter mod m.
 
 ## 4. Non-polynomial auxiliaries (V4–V6)
@@ -155,9 +156,10 @@ continued-fraction norm of √p (m = |P_k² − pQ_k²|, gcd(Q_k, m) = 1) or any
 *Proof.* 4K = p + m ≡ p (mod m) and p ≡ cw² (mod m), so (K/m) = (p/m) = (c/m). Reciprocity (p ≡ 1 (4), m odd positive):
 (p/m) = (m/p), and m ≡ cw² (mod p) gives (m/p) = (c/p). For m | A² − pB²: p ≡ (A/B)² (mod m). ∎
 *Reading.* Forced windows are exactly the m with (p/m) = −1, i.e. an odd number of primes inert in ℚ(√p) divide m to
-an odd power; every object built from the
-arithmetic/archimedean geometry of ℤ[√p] (CF of √p, Pell units, small norms, "next square" windows) produces only
-split/ramified windows. This is the structural reason why near-square primes (many small norms) are hard ((J)53/(J)55)
+an odd power; every window of the listed shapes (c = 1: CF norms of √p with gcd(Q_k, m) = 1, next-square windows,
+m | A² − pB² with gcd(B, m) = 1) is unforced. General c is NOT excluded: p + m = c·w² is forced iff (c/p) = −1 (e.g.
+p = 17, m = 7, c = 6, w = 2, which even fires: (a, b) = (1, 6)) — but then the non-residue is supplied by c, i.e. by an
+(R2)-type choice. This is the structural reason why near-square primes (many small norms) are hard ((J)53/(J)55)
 and why CF/Pell auxiliaries cannot supply the forcing (candidate (i), CF/Pell part, closed).
 
 **Proposition 4.3 (Fermat-type auxiliaries are anti-forcing; PROVED).** Let p be an odd prime and (a, b, c, d, e) a
@@ -170,7 +172,7 @@ p ≡ 3 (4). ∎
 Prop 77.3). Auxiliaries that hand over a divisor of p − 1 — ord_p(g), the Lucas rank of apparition when (D/p) = 1,
 Pocklington/primality-certificate data, factors of p − 1 — pin p to the sterile point locally; they can enter a
 certificate only through moduli not dividing p − 1. Divisors of p^k − 1 with k ≥ 2 (the cyclotomic menu C_k:
-4ab | p^k − 1, i.e. ord_{4ab}(p) ≤ k) are allowed, but a bounded menu C_{≤k₀} is a bounded witness-producing program
+4ab | p^k − 1, i.e. ord_{4ab}(p) | k; C_{≤k₀} := ∪_{k≤k₀} C_k = {ord_{4ab}(p) ≤ k₀}) are allowed, but a bounded menu C_{≤k₀} is a bounded witness-producing program
 (FACTOR p^j − 1, j ≤ k₀; test divisors), so by POINTWISE_SIZE Thm C it fails for infinitely many p ≡ 1 (24),
 CONDITIONAL on H. Numerics in §6.
 
@@ -187,25 +189,28 @@ polynomials p^k − 1.
 **Definition 5.1.** A *joint-factorisation (JF) family* on a set of primes P assigns to p ∈ P an auxiliary vector
 u = u(p) ∈ ℤ^r and a Type I/II point whose ET coordinates are Θ(u, p) for a fixed Θ ∈ ℚ[u, X]⁴ satisfying the ET identity
 on the relation locus. Its *auxiliary relation* is one of:
-(R0) none — u ranges over a congruence/positivity region and the rule only selects u;
+(R0) none — u ranges over a congruence/positivity region and the rule only selects u; here and in (R2), (R4) the ET
+identity is required to hold identically in ℚ[u, X] ("p free"); in (R1), (R3) only on the relation locus;
 (R1) polynomial: p = φ(u), φ ∈ ℤ[u];
 (R2) reciprocity-guided: u contains a window or level m chosen by prescribed residue symbols (m/p)_ℓ;
-(R3) archimedean / ℚ(√p): windows m with p + m = c·w² or m | A² − pB² (near squares, CF norms of √p, Pell data);
+(R3) archimedean / ℚ(√p): windows m with p + m = w² or m | A² − pB², gcd(B, m) = 1 (near squares, CF norms of √p,
+Pell data); (p + m = c·w² with general c is (R3) only when (c/p) = +1, otherwise the forcing comes from c, as in (R2));
 (R4) divisibility: u | p^k − 1 for some k ≤ k₀ (factors of p ± 1, ord_p(g), Lucas ranks of apparition) — with the
 certificate's class modulus 4ab built from such u.
 
 **Theorem 5.2 (JF trichotomy).** Every JF family is, according to its relation:
-(a) *(R0), (R2)–(R4), and (R1) with a variable of degree 1 and constant coefficient (i.e. p free in Θ):* a u-indexed union
+(a) *(R0), (R2), (R4) (identity in free X), and (R1) with a variable of degree 1 and constant coefficient:* a u-indexed union
 of ET congruence classes (Remark 1.3); no p-independent slice acquires an algebraic factor depending on p (Theorem A); the
 relation only selects which classes are tried. Firing at p is the moving-modulus event
 "p mod M(u) ∈ R(u) for some u". [PROVED]
 (b) *(R1), φ* irreducible:* an ET identity in n, missing infinitely many primes of every square class. [PROVED; (J)79 +
-Mordell–Schinzel]. *(R1), r = 1:* density 0. [PROVED] *(R1), φ linear in u_r with non-constant coefficient α(u′):*
+Mordell–Schinzel]. *(R1), r = 1, deg φ ≥ 2:* density 0. [PROVED] *(R1), φ linear in u_r with non-constant coefficient α(u′):*
 firing ⟺ α(u′) | p − ψ(u′), an unforced divisor event (Prop 2.1(c)). [PROVED reduction]
-(c) *(R2):* the forced information is the image of ⟨primes of K⟩ in H₀/H₀^ℓ (genus/character data); for ℓ = 2 it never
-determines −1 ∈ Σ_m(K) (§4.1), and every bounded window set fails infinitely often [CONDITIONAL on Dickson, (J)83 Thm
-1.3]; structure-free completion needs Ω(K) ≥ (|H₀| − 1)/2 (Prop 3.2, Cor 3.3). [PROVED + CONDITIONAL]
-(d) *(R3):* every window is unforced, (p/m) = +1 when c = 1 (Prop 4.2). [PROVED]
+(c) *(R2):* the forced information is the image of ⟨primes of K⟩ in H₀/H₀^ℓ (genus/character data); for ℓ = 2 and every
+prime window m ≥ 7 it does not determine −1 ∈ Σ_m(K) (§4.1; at m = 3 it does — Mordell's class), and every bounded window set fails infinitely often [CONDITIONAL on Dickson, (J)83 Thm
+1.3]; completion by the counting criterion (3.1) needs 2Ω(K) ≥ |H₀| − 1 (Prop 3.2, Cor 3.3; sufficient, not necessary). [PROVED + CONDITIONAL]
+(d) *(R3) (as defined: c = 1 or norm windows):* every window is unforced, (p/m) = +1 (Prop 4.2); the identity holds only on
+the relation locus, so (a) does not apply, and the firing is the window's own divisor event. [PROVED]
 (e) *(R4):* no class modulus divides p − 1 (or p + 1 when p ≡ 1 (4)) (Prop 4.3); p is a non-square mod every class
 modulus (Remark 4.4); a bounded menu (k₀ fixed) is a bounded witness-producing program and fails for infinitely many
 p ≡ 1 (24) [CONDITIONAL on H, POINTWISE_SIZE Thm C]. [PROVED + CONDITIONAL]
@@ -218,7 +223,7 @@ divisibility type (none is known that is canonically attached to every prime).
 
 ## 6. Numerics (all re-runnable; outputs in data/z26/)
 
-* `scripts/z26_checks.py` (data/z26/checks.txt; 14 s): (a) Theorem A — sympy factor_list of all seven side shapes for 60
+* `scripts/z26_checks.py` (data/z26/checks.txt; 14 s): (a) Theorem A — sympy factor_list of all seven side shapes (numerators for the divided rows) for 60
   random polynomial slice choices in (u₁, u₂): 0 violations. (b) Prop 3.2 — 3000 random (m, K), m prime < 80: (3.1) held
   in 374, Σ_m(K) = H₀ in all 374 (brute force). (c) Prop 4.2 — 368 689 windows (CF norms of √p and near-square windows
   w² − p, primes p ≡ 1 (4) < 2·10⁵, hypotheses as stated): all (p/m) = +1. (A first run flagged 5 windows with p | m,
@@ -227,10 +232,11 @@ divisibility type (none is known that is canonically attached to every prime).
 * `scripts/z26_cyclo_depth.py 300000 hard` (data/z26/cyclo_depth_3e5_hard.txt; 130 s): all 765 Mordell-hard primes
   (p mod 840 ∈ {1, 121, 169, 289, 361, 529}) ≤ 3·10⁵, all 28 153 Type II points enumerated (window form), each checked
   exactly against 4/p = 1/(abd) + 1/(acdp) + 1/(bcdp); Prop 4.3 violations 0; odd squares ≤ 3·10⁵ with a Type II point: 0
-  (T1 control). Cyclotomic depth k*(p) = min ord_{4ab}(p): histogram {2: 268, 4: 86, 6: 87, 8: 21, 10: 119, 12: 99, 14: 4,
-  16: 28, 18: 17, 20: 2, 22: 13, 24: 2, 28: 6, 30: 8, 40: 2, 42: 2, > 60: 1} — always even (Remark 4.4) and unbounded in
-  range (p = 210 961 has k* > 60; 296 041 and 80 809 have 42). EVIDENCE that every bounded cyclotomic menu fails, as Thm C
-  predicts under H; at N = 2·10⁴ the maximum was 22.
+  (T1 control). For every point p is a non-square mod 4ab (Remark 4.4) and every order ≤ 400 is even. Cyclotomic depth
+  k*(p) = min ord_{4ab}(p): histogram {2: 268, 4: 86, 6: 87, 8: 21, 10: 119, 12: 99, 14: 4, 16: 28, 18: 17, 20: 2, 22: 13,
+  24: 2, 28: 6, 30: 8, 40: 2, 42: 2, 72: 1} — growing in range (p = 210 961 has k* = 72, confirmed independently by the
+  reviewer; 296 041 and 80 809 have 42). Finite data cannot show unboundedness; it is EVIDENCE consistent with Thm C (under H, every
+  bounded cyclotomic menu fails i.o.); at N = 2·10⁴ the maximum was 22.
 
 ## 7. The budget, quantified
 
@@ -242,7 +248,7 @@ divisibility type (none is known that is canonically attached to every prime).
 | general p, (R2) forced window | (m/p) = −1 | one bit: (K/m) = −1 ⇒ −1 ∈ H₀ | box: Σ 2v_s(K) ≳ #H₀ (Prop 3.2) | cap ≤ (m−3)/4 proved (CAP_DOWN 1.3), cap 0 lottery |
 | general p, congruence-forced F | m ≡ −p (4F) | F with Ω(F) = E | m ≤ F + 1 ⇒ one ET class (Lemma 3.1) | B1 |
 | general p, (R3) | near-square/CF | p + m = c w² | (c/p) = −1 | c = 1: never forced (Prop 4.2) |
-| general p, (R4) | 4ab | p^k ≡ 1 | k even, unbounded (§6) | B2 under H |
+| general p, (R4) | 4ab | p^k ≡ 1 | k even, growing (k* = 72 at 210 961, §6) | B2 under H |
 
 The thin families succeed because the window is FIXED while the auxiliary (X, Y) moves: residues of algebraic factors
 mod the fixed window are then functions of the auxiliary, and a covering in the auxiliary closes the family. For

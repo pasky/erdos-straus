@@ -4,16 +4,18 @@
 For p ≡ 1 (mod 4) enumerate ALL Type II points (window form): windows e ≡ 3 (mod 4), K = (p+e)/4,
 pairs (a, b) with ab | K and e | a + b  (c = (a+b)/e, d = K/(ab)); ET class modulus M = 4ab, p ≡ -e (mod M).
 Record k(sol) = ord_M(p) (capped at KCAP) and k*(p) = min over solutions.
-Checks: (i) exact identity 4/p = 1/(abd) + 1/(acdp) + 1/(bcdp) for every solution (Fractions);
+Checks (every point): (i) exact identity 4/p = 1/(abd) + 1/(acdp) + 1/(bcdp) for every solution (Fractions);
         (ii) Prop 4.3: M never divides p - 1 nor p + 1;
+        (iv) Remark 4.4: p is a non-square mod 4ab and (if computed) ord is even;
         (iii) T1 control: odd squares n = m^2 ≡ 1 (4) have no Type II point (ET Prop 1.6).
 Usage: z26_cyclo_depth.py N [hard|all]
 """
 import sys
 from fractions import Fraction
 from collections import Counter
+from sympy.ntheory.residue_ntheory import is_quad_residue
 
-KCAP = 60
+KCAP = 400
 HARD = {1, 121, 169, 289, 361, 529}
 
 
@@ -75,7 +77,7 @@ def is_prime(n, spf):
 def main():
     N = int(sys.argv[1]); mode = sys.argv[2] if len(sys.argv) > 2 else 'hard'
     spf = spf_sieve(N + N // 3 + 8)
-    hist = Counter(); worst = []; nsol_tot = 0; viol43 = 0; badid = 0; nprimes = 0
+    hist = Counter(); worst = []; nsol_tot = 0; viol43 = 0; badid = 0; nprimes = 0; sqviol = 0; oddord = 0
     for p in range(5, N + 1, 4):
         if not is_prime(p, spf):
             continue
@@ -91,7 +93,12 @@ def main():
                 viol43 += 1
             if Fraction(1, a*b*d) + Fraction(1, a*c*d*p) + Fraction(1, b*c*d*p) != Fraction(4, p):
                 badid += 1
-            kmin = min(kmin, order_capped(p, M))
+            k = order_capped(p, M)
+            if is_quad_residue(p % M, M):
+                sqviol += 1
+            if k <= KCAP and k % 2:
+                oddord += 1
+            kmin = min(kmin, k)
         nsol_tot += len(pts)
         hist[kmin] += 1
         worst.append((kmin, p, len(pts)))
@@ -103,7 +110,7 @@ def main():
             t1 += 1
     worst.sort(reverse=True)
     print(f"N={N} mode={mode} primes={nprimes} TypeII points={nsol_tot} identity failures={badid} "
-          f"Prop4.3 violations={viol43} odd squares with TypeII={t1}")
+          f"Prop4.3 violations={viol43} odd squares with TypeII={t1} p-square-mod-4ab={sqviol} odd-orders={oddord}")
     print("k*(p) histogram (k* = min ord_{4ab}(p) over Type II points; %d = >%d):" % (KCAP + 1, KCAP),
           dict(sorted(hist.items())))
     print("largest k*:", worst[:12])
