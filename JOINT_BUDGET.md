@@ -59,6 +59,13 @@ condition on p modulo a modulus M(u) depending only on u, i.e. the family is a u
 p-free, so "f mod q_θ(u) ∈ R_θ(p)" depends on p only through p mod q_θ(u) (RT2: R_θ(p) depends on p mod q_θ). f = g₁N′:
 N′(u, p) mod q_θ(u)·den is a function of p mod q_θ(u)·den. ∎
 
+**Remark 1.3 (coordinates that depend on p as well; PROVED).** If all four ET coordinates are polynomials Θ(u, X)
+(not only the slice θ), then for each fixed u the family is a polynomial ET family in n = X alone, hence ((J)79 with
+P = X) an ET identity in n, valid on one congruence class mod some M(u). So the conclusion of Cor A.1 holds for every
+family polynomial in (u, p) with p free. Theorem A says where the splittings of such identities come from: only from
+slice coordinates that depend on p (e.g. d = (p + e)/(4ab) makes 4c²dp + 1 = (4acd − 1)(4bcd − 1)), i.e. from the
+classical identities themselves.
+
 **Reading.** If p is a free variable, an auxiliary parameter space — however large, however the slice parameters are
 chosen as polynomials in it — adds no algebraic factorisation to any side. The algebraic budget is exactly: p-free
 numbers g(u) (whose divisors are as unforced as θ itself) plus the irreducible cofactor as a single block. Firing at p is
@@ -188,8 +195,9 @@ on the relation locus. Its *auxiliary relation* is one of:
 certificate's class modulus 4ab built from such u.
 
 **Theorem 5.2 (JF trichotomy).** Every JF family is, according to its relation:
-(a) *(R0), and (R1) with a variable of degree 1 and constant coefficient:* a u-indexed union of ET congruence classes; no
-side acquires an algebraic factor depending on p (Theorem A, Cor A.1). Firing at p is the moving-modulus event
+(a) *(R0), (R2)–(R4), and (R1) with a variable of degree 1 and constant coefficient (i.e. p free in Θ):* a u-indexed union
+of ET congruence classes (Remark 1.3); no p-independent slice acquires an algebraic factor depending on p (Theorem A); the
+relation only selects which classes are tried. Firing at p is the moving-modulus event
 "p mod M(u) ∈ R(u) for some u". [PROVED]
 (b) *(R1), φ* irreducible:* an ET identity in n, missing infinitely many primes of every square class. [PROVED; (J)79 +
 Mordell–Schinzel]. *(R1), r = 1:* density 0. [PROVED] *(R1), φ linear in u_r with non-constant coefficient α(u′):*
