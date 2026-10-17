@@ -100,3 +100,44 @@ prime up to 10¹⁵ has a b = 1 solution with s ≤ 95 (positives are certified 
 95 reached at 345 601 = 2⁹·3³·5² + 1, although these primes are profinitely as close to
 the T1 point 1 as primes of that size can be. So smoothness of p − 1 is a small-p effect: it makes small pairs (s, t) dead,
 and at large p there are enough pairs with a large prime factor (Cor 1.3, §3).
+
+## 4. Why the hard primes have smooth p − 1: the T1 point 1 at small shifts
+
+For σ ≥ 3 let M_σ := Π_{ℓ ≤ σ + 1} ℓ^{e_ℓ}, e_ℓ := ⌊log_ℓ(σ + 1)⌋ + 1 (so v_ℓ(M_σ) > v_ℓ(m) for every m ≤ σ + 1). Call s the
+*shift* of a pair {s, t} with s < t (the min coordinate of Lemma 1.1).
+
+**Proposition 4.1 (p ≡ 1 mod M_σ freezes the small shifts; PROVED).** Let p ≡ 1 (mod 4) be prime with M_σ | p − 1, and let
+3 ≤ s ≤ σ. Put Q_s := (p + s)/(1 + s). Then Q_s is an integer, Q_s ≡ 1 (mod s), all prime factors of Q_s exceed σ + 1, and
+the b = 1 pairs with shift s are exactly the divisors t > s of p + s = (1 + s)·Q_s with
+  t ≡ −1 (mod s)  and  4 | st.
+Writing t = g·m with g | 1 + s and m | Q_s, this is m ≡ −g⁻¹ (mod s). In particular:
+(a) every pair whose two coordinates both divide M_σ is dead (no Haar-small pair survives);
+(b) if Q_s is prime, there is no pair with shift s;
+(c) a pair with shift s exists only if Q_s has a divisor m in one of the classes −g⁻¹ (mod s), g | 1 + s, g ≢ −1 (mod s)
+    or m ≢ 1 — a divisor-in-a-class event (B2) for an integer Q_s ≡ 1 (mod s) whose primes are all > σ + 1.
+*Proof.* p + s = (1 + s) + (p − 1) and v_ℓ(p − 1) ≥ v_ℓ(M_σ) > v_ℓ(1 + s) for ℓ ≤ σ + 1, so (1 + s) | p + s and
+Q_s = 1 + (p − 1)/(1 + s) ≡ 1 (mod ℓ) for all ℓ ≤ σ + 1; for ℓ | s also ℓ ∤ 1 + s and v_ℓ((p − 1)/(1 + s)) ≥ v_ℓ(M_σ) > v_ℓ(s),
+so Q_s ≡ 1 (mod s). By Lemma 1.1 a pair with shift s is a divisor t > s of p + s with u := (p + s)/t ≡ −1 (mod s) and
+4 | st. Now t·u = (1 + s)Q_s ≡ 1 (mod s), so u ≡ t⁻¹ and u ≡ −1 ⟺ t ≡ −1 (mod s). With t = gm (gcd(1 + s, Q_s) = 1),
+t ≡ −1 ⟺ m ≡ −g⁻¹. (a) If s, t | M_σ then p ≡ 1 (mod st), so st | 1 + s + t, impossible for 3 ≤ s < t. (b) If Q_s is prime,
+m ∈ {1, Q_s} and m ≡ 1 (mod s) in both cases, so g ≡ −1 (mod s) with g | 1 + s, g ≤ 1 + s. Then g = s − 1 and s − 1 | s + 1,
+so s = 3, g = 2, t ∈ {2, 2Q_3}. Then t ≡ 2 (mod 4) and s = 3, so 4 ∤ st. (c) is the restatement. ∎
+
+**Theorem 4.2 (least shift is unbounded under Dickson; CONDITIONAL on Dickson's prime k-tuples conjecture).** For every σ
+there are infinitely many primes p ≡ 1 (4) such that the b = 1 line has no pair of shift ≤ σ.
+*Proof.* Consider the linear forms in k: p = 1 + M_σ k and Q_s = 1 + (M_σ/(1 + s))k for 3 ≤ s ≤ σ. At k = 0 all forms equal 1, so
+no prime divides all their values: the tuple is admissible. Dickson's conjecture gives infinitely many k with all forms
+prime. For those, p ≡ 1 (mod M_σ), hence p ≡ 1 (mod 4), and Prop 4.1(b) kills every shift s ≤ σ. (Shifts s with s ≢ 0, 3
+(mod 4) carry no pair anyway, Lemma 1.1.) ∎
+*Reading.*
+* This is B2's "fixed finite slice sets fail i.o. under H" (redteam-automorphic-2 Thm 2.2), now in its sharpest b = 1 form.
+  The extremal primes are exactly those with p − 1 divisible by the full M_σ (the T1 point 1 in Ẑ) and with every shifted
+  cofactor Q_s prime. **This is the mechanism behind "the three failures have p − 1 11-smooth".** Smoothness of p − 1
+  freezes every small shift into the rigid form Q_s ≡ 1 (mod s) and kills all pairs supported on small primes (Prop 4.1(a)).
+  What remains at shift s is one divisor-in-a-class event for Q_s.
+* Unconditionally, Prop 4.1 explains the census records. 22 010 483 881 (least shift 215, §2) has p − 1 = 2³·3²·5·7·11·19·23²·79,
+  and every prime < 41 is a QR mod p.
+* Theorem 4.2 does NOT reach the full line. The full line uses all shifts s ≤ 1 + √(p + 1). A Dickson-type construction would
+  need ≍ √p simultaneous prime cofactors, and the forms 1 + (M/(1+s))k cannot all be prime for s up to a power of p (the
+  modulus M_σ would exceed p). So B2's finite-slice obstruction does not apply to the line itself. The line can only fail by a
+  large deviation of many independent large-shift events (§3).
