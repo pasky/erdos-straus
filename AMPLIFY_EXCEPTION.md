@@ -254,8 +254,9 @@ provable by determined lifts. For p ∈ 𝓜 prime (p ≡ 1 (8), (p/3) = (p/5) =
 correction: for general α it can be visible — p = 1201 = 17·71 − 6, source 71, αH′ = 68 supports the Type I witness
 (1, 17, 6, 53) at 1201.)
 *Proof (repaired after review: ET normalisation at the square).* Suppose p has an ET witness with slice (a,b,c),
-e = (a+b)/c, H = 4ab | L. Note p ∤ ab, p ∤ c, p ∤ e (each would force a ≤ b ≤ 1-type size contradictions from
-Hd = p + e resp. Hd = pe + 1 with e ≤ a + b). Choose, by CRT, an odd m with m² ≡ p (mod L) and additionally
+e = (a+b)/c, H = 4ab | L. Note: since p is prime the witness is ET-normalised, so p ∤ x = abd (Type II) resp. p ∤ yz = (acd)(bcd)
+(Type I); hence p ∤ ab, and p ∤ c in Type I. In Type II also p ∤ e: e ≥ p would give 4ab ≤ p + e ≤ 2e ≤ 2(a + b), so
+a = b = 1 and e ≤ 2 < p. Choose, by CRT, an odd m with m² ≡ p (mod L) and additionally
 m ≢ 0 (mod ℓ) for every prime ℓ | c·e not dividing L (for ℓ | L this is automatic, since m² ≡ p ≢ 0 (mod ℓ)).
 Put n = m², so n ≡ p (mod H). Type II: d′ = (n + e)/H is a positive integer and (x, y, z) = (abd′, nacd′, nbcd′)
 solves 4/n (direct check: the sum is c(n + e)/(nabcd′)); gcd(n, ab) = gcd(p, ab) = 1 and gcd(n, d′) | gcd(n, e) = 1,
