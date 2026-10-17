@@ -1,0 +1,6 @@
+A. Pascadi, "Large sieve inequalities for exceptional Maass forms and the greatest prime factor of n^2+1", arXiv:2404.04239 (2024; v3 Jan 2026).
+[accessed arXiv HTML]
+Abstract: new large sieve inequalities for Fourier coefficients rho_{j,a}(n) of exceptional Maass forms of a given level, weighted by sequences with sparse Fourier transforms (incl. two types arising in the dispersion method); first savings in exceptional spectrum for sequences as long as the level; improved bounds for multilinear forms of Kloosterman sums.
+Theorem 1. For infinitely many n in Z+, the greatest prime factor of n^2+1 is larger than n^{1.3}. (improves Merikoski's 1.279)
+Theorems 2,3: large sieve with exponential phases a_m=e(m alpha) / with dispersion coefficients.
+Regime: averaged over levels/moduli (Kloosterman sums over c); application counts n<=x (prime factors of polynomial values), NOT a single n.

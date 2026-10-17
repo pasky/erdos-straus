@@ -1,0 +1,16 @@
+I. E. Shparlinski, "Modular hyperbolas", Japanese J. Math. 7 (2012), no. 2, 235-294; arXiv:1103.2879.
+H_{a,m} = {(x,y): xy = a mod m}.
+
+Sec 3.1 (verbatim-ish): "A classical conjecture asserts that for any fixed eps>0 and sufficiently large p, for every integer a there are integers x,y with |x|,|y| <= p^{1/2+eps} such that xy = a (mod p); see [91,97,98,99]. ... Unfortunately, this is known only with |x|,|y| <= C p^{3/4} for some absolute constant C>0, which is shown in [92]."
+
+Theorem 13. Let X={U+1,...,U+X}, m>=X>=1, U>=0 arbitrary. For every x in X let Y_x={V_x+1,...,V_x+Y}, m>=Y>=1. Then for any m>1 and gcd(a,m)=1,
+  sum_{(x,y) in H_{a,m}, x in X, y in Y_x} 1 = phi(m)/m^2 * XY + O(m^{1/2+o(1)}).
+[Proof: completion + Weil/Estermann Kloosterman bound.]
+
+After (10): "It seems that improving Theorem 13 or even just the asymptotic formula (10) and making them nontrivial for XY < m^alpha with some fixed alpha < 3/2 is out of reach at the present time. In particular, this exponent is related to the fact that an asymptotic formula for the sum of tau(n) for n<=X in an AP n = a (mod m) is known only for m <= X^{2/3-eps} ... discovered by A. Selberg and C. Hooley ... resisted any improvement for more than half a century."
+
+Almost all a (Sec 3.2): congruence a = xy (mod m) solvable for all but o(m) values of a with 1<=x,y<= m^{1/2}(log m)^{1+eps} (Garaev [98]); sharp up to log power (divisor-in-interval, Ford): almost all classes NOT represented with x,y <= m^{1/2}(log m)^{kappa-eps}.
+Theorem 16. X={1..X}, Y={V+1..V+Y}: sum_{gcd(a,m)=1} |#H_{a,m}(X,Y) - phi(m)XY/m^2|^2 <= X(X+Y) m^{o(1)}  (uniformity on average over a for X,Y>=m^{1/2+eps}).
+
+Sec 4.4: T_{a,p}(Z;U,V)=#points in square of side Z. Thm 13 gives T=(1+o(1))Z^2/p for Z>=p^{3/4+eps}; T=o(Z) for p^{1/2+eps}<=Z=o(p). "These results seem to be the limit of what can be achieved within the standard exponential sum techniques." Theorem 30 ([51] Cilleruelo-Garaev): T_{a,p}(Z;U,V) <= Z^{4/3+o(1)}p^{-1/3}+Z^{o(1)} (any U,V); <= Z^{3/2+o(1)}p^{-1/2}+Z^{o(1)} if U=V.
+Sec 6.3: obtaining every-a representation xy=a (mod p) with |x|,|y|<=p^gamma, gamma<3/4, "is still an open problem (and apparently is very hard)".

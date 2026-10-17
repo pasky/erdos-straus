@@ -1,0 +1,9 @@
+V. Blomer, A. Pascadi, "Bilinear forms with Kloosterman sums via quadratic characters", arXiv:2607.24311 (27 Jul 2026), preprint.
+
+Abstract: We prove new bounds for bilinear forms with Kloosterman sums, valid for all moduli c. In the critical range where the summation length is the square root of the modulus, the saving over the trivial bound is c^{-1/32}, improving on all previous approaches even for prime moduli. This is based on a new connection to quadratic character sums. Applications to moments of twisted L-functions and to the large sieve for exceptional Maass forms.
+
+Theorem 1.1. Let c in Z+, N in Z cap [1,c], I,J subset Z intervals with |I|,|J| <= N. For any complex (alpha_m)_{m in I}, (beta_n)_{n in J} and any a in (Z/cZ)^x:
+  sum_{m in I, n in J, (m,n,c)=1} alpha_m beta_n S(am,n;c) << ||alpha|| ||beta|| N c^{1/2+o(1)} ( c^{13/32}/N^{7/8} + c^{5/16}/N^{11/16} + c^{1/9}/N^{1/3} ).
+If I=J={1..N}, also holds without (m,n,c)=1.
+Remark 1.2: at N=sqrt(c): << ||alpha|| ||beta|| c^{1-1/32+o(1)} (doubles KMS saving p^{-1/64}). Beats trivial bound in N in (c^{13/28+eps}, c^{7/12-eps}). "for prime c=p, the record [lower range] remains N > p^{3/8} due to Kowalski-Michel-Sawin [20]." Milicevic-Qin-Wu (arXiv:2511.07550) general moduli: saving c^{-1/100} at sqrt range, N > c^{1/2-1/42}.
+(Pointwise in modulus c.)

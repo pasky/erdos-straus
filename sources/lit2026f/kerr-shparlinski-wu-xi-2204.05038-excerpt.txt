@@ -1,0 +1,23 @@
+B. Kerr, I. E. Shparlinski, X. Wu, P. Xi, "Bounds on bilinear forms with Kloosterman sums", arXiv:2204.05038 (v5, Apr 2023); published J. London Math. Soc. (2) 108 (2023) [venue from memory, not verified].
+
+Abstract: new bounds on bilinear forms with Kloosterman sums, improving FKM14, BFKMM17, KMS19/20, Shparlinski19; rely on new estimates for Type II bilinear forms with INCOMPLETE Kloosterman sums; bilinear forms with one variable from an arbitrary set via additive combinatorics over prime fields. Applications: 4th moment of Dirichlet L-functions (Wu), moments of short Kloosterman sums, divisor function in a family of APs.
+
+K_q(m,n)=sum_{x in Z_q^*} e_q(mx+n x^{-1}); S_{q,a}(alpha,beta)=sum_{m in I, n in J} alpha_m beta_n K_q(m,an), I,J intervals of length M,N.
+Theorem 2.1 (any q, type I, beta=1_J): S_{q,a}(alpha) << ||alpha||_2 M^{1/2} N q^{1/2+o(1)} Delta_1, Delta_1 any of
+ (2.1a) M^{-1/4}N^{-1}q^{1/2}d^{-1/4} + q^{1/2}N^{-1}M^{-1/2} + N^{-1/2};  (2.1b) M^{-1/2}(N^{-3/4}q^{1/2}+d^{1/2})+N^{-1/2};  (2.1c) M^{-1/2}(N^{-1}q^{1/2}+(qd)^{1/4})+N^{-1/2}, d=gcd(a,q).
+ At M,N=q^{1/2+o(1)}: |S| <= q^{11/8+o(1)}, saving 1/8 (vs 1/24 KMS, 1/16 Shparlinski).
+
+KEY (fixed modulus, Kloosterman fractions): W_{q,a}(alpha,gamma;r,c)=sum_{m in I} sum_{k in Z_q^*, <ck>_r<=K} alpha_m gamma_k e_q(a m k^{-1}); gamma arbitrary weight.
+Theorem 2.4. q,r positive integers, r|q, I interval as in (1.1). For any M,K>=1, K<=r:
+ W_{q,a}(alpha,gamma;r,c) << ||alpha||_2 ||gamma||_inf M^{1/2} K q^{1+o(1)} r^{-1} Delta_2, uniformly in a in Z_q^*, c in Z_r^*, Delta_2 any of
+ (2.2a) (Mq/r)^{-1/4} + M^{-1/2} + (Kq/r)^{-1/2};
+ (2.2b) M^{-1/2}(1+(K/r)^{-1/4}+K^{-1}r^{1/2}) + (Kq/r)^{-1/2};
+ (2.2c) M^{-1/2}(1+K^{-1/2}r^{1/4}+K^{-1}r^{3/4}) + (Kq/r)^{-1/2}.
+ "In the typical case (r,c)=(q,1) ... (2.2a) produces a non-trivial bound essentially in the full range M,K >= q^eps."
+ [i.e. sum_{m in I} sum_{k<=K} alpha_m gamma_k e_q(a m kbar) << ||alpha||_2 ||gamma||_inf M^{1/2}K q^{o(1)} (M^{-1/4}+K^{-1/2}).]
+
+Arbitrary sets (prime p): W#_{p,a}=sum_{m in Mset} sum_{k in K-interval} alpha_m gamma_k e_p(a m k^{-1}).
+ Shparlinski [45, Thm 2.1]: << M^{3/4}(K^{7/8}p^{1/8}+K^{1/2}p^{1/4})p^{o(1)}.
+Theorem 2.5: r fixed, Mset arbitrary of size M, K interval length K>=p^{1/r}: W# << M K p^{o(1)} (1/M + p^{1+1/r}/(M K^2))^{7/(24 r)}.
+Corollary 2.9: S#_p(alpha)=sum_{m in Mset, n in J} alpha_m K_p(m,n) << M N p^{1/2-eta} if M>=p^eps, N>=p^{1/2-delta}.
+Sec 3.3: tau(n) in AP n=a mod q: Selberg-Hooley q<=X^{2/3-eps} (pointwise); Thm 3.2 beats Selberg-Hooley ON AVERAGE over a in an interval of length A >> q^{3/8+eps} at q~X^{2/3}.

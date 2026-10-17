@@ -1,0 +1,8 @@
+P. Erdős and R. R. Hall, "On some unconventional problems on the divisors of integers", J. Austral. Math. Soc. Ser. A 25 (1978), 479-485. (read from renyi.hu/~p_erdos/1978-26.pdf)
+
+Not about residue classes per se. Relevant definition: t_k(n) = min{t>=1 : n | t(t+1)...(t+k-1)}. For primes p>k, t_k(p) = p+1-k (so t_2(p)=p-1: maximal).
+THEOREM 3. sum_{n<=x} t_2(n) << x^2 (logloglog x)/(loglog x).
+Authors conjecture RHS can be x^2 (log x)^{-a} for any fixed a < log 2; a>1 impossible since t_2(p)=p-1.
+Proof idea: n=mq with q squarefree composed of primes in (z,y]; if m lies in an "eps-good" class mod q (h ≡ -r^{-1}(q/d)^{-1} mod d, d|q, 1<=r<=eps d) then t=rmq/d gives n | t(t+1), t<=eps n.
+Regime: average over n<=x.
+Theorem 1: max_{m<=x} #{i : (d_i,d_{i+1})=1} > exp((loglog x)^{2-eps}).

@@ -1,0 +1,9 @@
+J. Merikoski, "On the largest prime factor of n^2+1", J. Eur. Math. Soc. 25 (2023), 1253–1284; arXiv:1908.08816.  [NB first name Jori]
+[accessed arXiv PDF via reader]
+Theorem 1. The largest prime factor of n^2+1 is greater than n^{1.279} for infinitely many integers n. (1.23 with Selberg 3/16 only; uses Kim–Sarnak.)
+Theorem 2. Under Selberg's eigenvalue conjecture 1.279 -> 1.312.
+Mechanism: Harman's sieve + linear sieve on S = sum_{x<=n<=2x} sum_{p|n^2+1, p~P} 1-type sums. Type I (de la Bretèche–Drappeau): level D = x^{1/(2-4theta)-eps} P^{-theta/(1-2theta)}. NEW Type II: asymptotic for
+  sum_{m~M,n~N} a_m b_n sum_{l~x, l^2+1 ≡ 0 (mod mn)} 1, MN=P,
+via Deshouillers–Iwaniec bounds for linear forms of Kloosterman sums sum_r sum_{m,n} A_{m,r}B_{n,r} sum_c g S(mr,±n;c), applied individually for each r.
+Regime: moduli = prime divisors p~P of n^2+1 averaged over n~x; detects large prime factors of polynomial values.
+Follow-ups (abstracts accessed): Grimmelt–Merikoski arXiv:2505.00493 (1.312 unconditional, see separate file); R. Li arXiv:2406.07575: G–M yields x^{1.317}.

@@ -26428,4 +26428,165 @@ def check_gw():
 check_gw()
 
 
+def check_gx():
+    # (gx) JOINT_BUDGET (O254/R263): R263 from scratch — Theorem A (ES side numbers irreducible over polynomial slice
+    # parameters with p free; d = -w^2 splits, Remark 1.2), window equivalence + Kneser threshold Prop 3.2 brute force,
+    # Prop 4.2 (Z[sqrt p]-windows never Jacobi-forced), Prop 4.3 / Remark 4.4 (p non-square mod every Type II 4ab),
+    # cyclotomic depth k* = 72 at 210961 (EVIDENCE), T1 odd squares have no Type II point.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("JOINT_BUDGET subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r263_thmA.py"])
+    assert "Theorem A: tests 360 violations 0" in out, out[-1500:]
+    assert "Remark 1.2 (d=-w^2) irreducible? False (expected False); #X-factors 2" in out, out[-1500:]
+    assert "Remark 1.3 identity holds: True" in out, out[-1500:]
+    out = run(["review_r263_kneser.py"])
+    assert "window equivalence: windows checked 26430 mismatches 0" in out, out[-1500:]
+    assert "Sigma!=H0 among them 0" in out, out[-1500:]
+    out = run(["review_r263_sec4.py"])
+    assert "Prop 4.2 general c instances 92665 violations 0" in out, out[-1500:]
+    assert "Type II points p<3000 p=1(4): 6376 Prop4.3 viol 0 Rem4.4 viol 0" in out, out[-1500:]
+    assert "p 210961 121 TypeII pts 46 k* = 72 all even: True" in out, out[-1500:]
+    assert "odd squares <= 399^2 with a Type II point: 0" in out, out[-1500:]
+    print(f"== (gx) JOINT_BUDGET R263: Thm A irreducibility (360 sides), Kneser threshold, Z[sqrt p]-windows unforced, "
+          f"p non-square mod 4ab, k*(210961) = 72, T1 clean; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gx()
+
+
+def check_gy():
+    # (gy) FORCED_WINDOW (O252/R264): R264 from scratch — every prime p ≡ 1 (4) ≤ 10^7 has a cap-0 window ≤ 107 (record
+    # p = 8803369), forced windows with tau(K^2) >= 4m fail 5 of 2133 times (EVIDENCE); Prop 2.1 (cap-0 certificates =
+    # least-residue events, three window sets coincide for p ≤ 2·10^4) and Lemma 1.1 (parity certificates rebuilt; sufficient
+    # only); Thm 4.3 mechanics at y = 7 (cap ≤ L_min − 1, exact rebuilds); T1 odd squares; Thm 3.2 CRT-window proportions (D3).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("FORCED_WINDOW subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r264_leastwin.py", "10000000", "400", "500"])
+    assert "primes p≡1(4) checked: 332180; exact rebuilds: 665; max m0 = 107 at p = 8803369" in out, out[:1500]
+    assert "m0=3: 296430 (forced p≡2(3): 166169, unforced: 130261)" in out, out[:1500]
+    assert "forced windows with tau(K^2) >= 4m: 2133 tries, 5 failures" in out, out[-1500:]
+    out = run(["review_r264_prop21.py", "20000", "300"])
+    assert "Prop 2.1: A==B==C for all p≡1(4) ≤ 20000; 50958 certificates checked forward" in out, out[:1500]
+    assert "Lemma 1.1: 4580 (p,q) parity certificates rebuilt exactly; 133 with parity-cap>0 but cap(q)=0" in out, out[-1500:]
+    out = run(["review_r264_thm43.py", "300000", "20000", "1"])
+    assert "4356 (p, q) pairs" in out and "all certificates have cap ≤ L_min(q) - 1 and exact ES rebuild" in out, out[-1500:]
+    out = run(["review_r264_t1.py", "998001", "200"])
+    assert "odd squares 1 < a^2 <= 998001: 499; windows <= 200; hits: 0" in out, out[-1500:]
+    out = run(["review_r264_misc.py"])
+    assert "y=13: P=30030, h=30030: fraction of classes with least CRT window >= h: 0.750" in out, out[-1500:]
+    assert "y=13: P=30030, h=510509: fraction of classes with least CRT window >= h: 0.000" in out, out[-1500:]
+    print(f"== (gy) FORCED_WINDOW R264: least cap-0 window ≤ 107 for p ≤ 10^7 (record 8803369); Prop 2.1 least-residue form; "
+          f"Lemma 1.1 parity certificates; Thm 4.3 mechanics y = 7; T1 clean; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gy()
+
+
+def check_gz():
+    # (gz) AMPLIFY_EXCEPTION (O253/R266): R266 from scratch — numerator models k/n (complete search, self-tested against
+    # naive enumeration): E_8 ∩ primes < 2000 = {2, 3, 11, 17, 131, 241}, E_12 has 16 primes up to 1873; Thm 3.2 (p ≡ □ mod L
+    # ⇒ no ET witness with H | L; classical Mordell–Schinzel/ET Prop 1.6 in local form) on 35 435 representations; odd squares
+    # have no ET Type I/II solutions; Thm 2.3 (121); the 3361 ← 281 gate 0/17 (11 invisible); fixture sources never total.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2",
+               PYTHONPATH=os.path.join(root, "scripts"))
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=root, env=env)
+        assert r.returncode == 0, ("AMPLIFY_EXCEPTION subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["scripts/review_r266_ek.py", "selftest"])
+    assert "selftest mismatches: 0" in out, out[-1000:]
+    out = run(["scripts/review_r266_ek.py", "ek"])
+    assert "k=8 #E_k primes<2000 = 6 max=241 list=[2, 3, 11, 17, 131, 241]" in out, out[:1500]
+    assert "k=12 #E_k primes<2000 = 16 max=1873" in out, out[:1500]
+    out = run(["scripts/review_r266_t1.py", "thm32", "3000"])
+    assert "Thm 3.2 check, primes 5<=p<3000: reps tested 35435, violations 0" in out, out[-1000:]
+    out = run(["scripts/review_r266_t1.py", "squares"])
+    lines = [l for l in out.split("\n") if l.startswith("n=")]
+    assert len(lines) == 20 and all(l.endswith("ET Type I/II solutions: 0") for l in lines), out[-1500:]
+    assert "(121^2-1)/4 = 3660 {2: 2, 3: 1, 5: 1, 61: 1} all prime factors soluble: True" in out, out[-500:]
+    out = run(["scripts/review_r266_t1.py", "gate", "3361:281:12"])
+    assert "3361 <- 281 (x12): witnesses 17, pass(single rep) 0, pass(lcm of reps) 0, invisible(some rep) 11" in out, out
+    out = run(["scripts/review_r266_t1.py", "fixtures", "97", "193", "3361"])
+    assert out.count("total_sources=0") == 3, out[-1500:]
+    print(f"== (gz) AMPLIFY_EXCEPTION R266: numerator models E_8, E_12 exact; Thm 3.2 local square obstruction (35435 reps); "
+          f"odd squares no ET solutions; 3361<-281 gate 0/17; no total fixture source; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gz()
+
+
+def check_ha():
+    # (ha) PARITY_AUDIT (O255/R265): R265 from scratch — census in C (compiled into a tempdir): the ES-five event (a4)
+    # fails at exactly 9 primes p ≡ 1 (4) ≤ 10^6 (409, 577, 5569, ...), the window sub-event fails at 8272 primes;
+    # brute force R(409) = R(577) = R(5569) = 0; T1 odd squares no (a4) hit; Lemma 3.2 (no square hits; chi-shadow
+    # free at p ≡ 1 (8); fails at p ≡ 5 (8), e.g. (13, 5)).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "pa_census")
+        r = subprocess.run(["gcc", "-O2", "-o", exe, os.path.join(sdir, "review_pa_census.c"), "-lm"],
+                           capture_output=True, text=True)
+        assert r.returncode == 0, r.stderr[-2000:]
+        r = subprocess.run([exe, "1000000"], capture_output=True, text=True, timeout=600)
+        assert r.returncode == 0, r.stderr[-1000:]
+        out = r.stdout
+    assert "a4 failures: 409 577 5569 9601 23929 83449 102001 329617 712321" in out, out[:1000]
+    assert "#p=1(4): 39175  a4 fail: 9" in out, out[:1000]
+    assert "#p=1(840): 395  u<=2: 238   need u>=n_p: 3" in out, out[-1000:]
+    assert "windows: sub-event fails 8272, full target -1 fails 2458, max least q(sub) 141971" in out, out[-1000:]
+    with open(os.path.join(root, "logs", "review_pa_census_1e6.txt")) as f:
+        assert f.read() == out, "census differs from logs/review_pa_census_1e6.txt"
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("PARITY_AUDIT subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_pa_small.py"])
+    for s in ("R_brute 409 0", "R_brute 577 0", "R_brute 5569 0", "least u a4 at 427249 131",
+              "odd squares tested 499 a4 hits 0"):
+        assert s in out, (s, out[-1000:])
+    out = run(["review_pa_lemma32.py"])
+    assert "square hits (m<300,u<=60): [] 0" in out and "chi-shadow tests 92143 fails 0" in out, out[-1000:]
+    assert "p=5(8) counterexamples: [(13, 5)," in out, out[-1000:]
+    print(f"== (ha) PARITY_AUDIT R265: (a4) fails at 9 primes ≤ 10^6, window sub-event at 8272; R = 0 brute force at 409/577/5569; "
+          f"Lemma 3.2; T1 clean; seconds = {perf_counter() - t0:.1f}")
+
+
+check_ha()
+
+
 print("\nall checks passed")

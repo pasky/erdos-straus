@@ -1,0 +1,8 @@
+É. Fouvry, E. Kowalski, Ph. Michel, "On the exponent of distribution of the ternary divisor function", Mathematika 61 (2015), 121–144; arXiv:1304.3199.
+[accessed arXiv PDF via reader]
+Theorem 1.1. For every nonzero a, eps,A>0, x>=2, every PRIME q coprime to a with q <= x^{1/2+1/46-eps}:
+  sum_{n≡a (q), n<=x} d3(n) = (1/phi(q)) sum_{(n,q)=1, n<=x} d3(n) + O(x/(q (log x)^A)).   [single modulus, single residue]
+Theorem 1.2: averaged over prime moduli with fixed residue: exponent 1/2+1/34 (uniform for small |a|, Remark 1.3).
+Prior single-modulus d3: Friedlander–Iwaniec (Annals 1985) 1/2+1/230; Heath-Brown (1986) 1/2+1/82. For tau=d2: single modulus q <= x^{2/3-eps} (Selberg, Hooley, Linnik, 1950s) — classical barrier.
+Single-modulus beyond 2/3 for tau: only special moduli — Irving (2015, smooth q); R. Khan arXiv:1510.03377 (q=p^k, k>=7); Liu–Shparlinski–Zhang arXiv:1602.03583 (q=p^k, uniform k); Wu–Xi (2021); Zhong–Zhang arXiv:2505.10341 (2025; prime powers, beyond 3/4, Delta_{n,l} > 3/4+5/32 at l=2). Recent GL(2)/GL(3) analogues: Yin–Zhu arXiv:2605.09322 (lambda_f*1, smooth squarefree q, 1/2+1/70); Wang–Zhu arXiv:2609.16700 (prime-power moduli, 1/2+7/458). [abstracts only]
+Relevance: these ARE single-modulus statements but for divisor-type functions (Type I/ bilinear smooth), NOT primes; no parity breaking involved.

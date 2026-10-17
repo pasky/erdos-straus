@@ -21,7 +21,7 @@ is not excluded (R-O252 review repair) — and numerically the least cap-0 windo
 in 90 % of certificates, support ≤ 2 in 91 %). Hypothesis violated: "the budget comes from forced divisibility".
 (F2) *Modification: let the budget come from the box's dimension, not its exponents (many distinct primes, cap e > 0).*
 CRT in a window interval of length h gives ω(K) ≥ (1 − o(1)) log h/log log h. Box (e + 3)^{ω} ≥ h exactly when
-log(e + 3) ≳ log log h: the deterministic covering scale is cap ≍ log h (§3, Thm 3.2); for cap-0 covering at windows ≍ h the CRT
+log(e + 3) ≳ log log h: the deterministic covering scale is cap = (log h)^{1+o(1)} (§3, Thm 3.2; R264 repair: not ≍ log h); for cap-0 covering at windows ≍ h the CRT
 choice falls short of the box/window threshold by a factor ≍ log₃ p in ω(K) (Cor 3.3) — a measured gap for that strategy.
 (F3) *Box size is not covering.* Covering needs the relation lattice of the generators to be balanced (§4: covering ⟺ box-norm
 covering radius ≤ 1 up to a factor 2, Prop 4.1). With CRT-forced generators (∏S ≤ q) the Minkowski bound forces
@@ -38,7 +38,7 @@ forcing reaches only ≍ log q.
 
 ## 1. The covering problem at a forced prime window
 
-**Lemma 1.1 (parity split; PROVED, elementary).** Let q be a forced prime window, K odd (q ≡ 3 (8)). Let O := {s | K : b_s odd}
+**Lemma 1.1 (parity split; PROVED, elementary).** Let q be a forced prime window, K odd (q ≡ 3 (8), p ≡ 1 (8); R264 repair). Let O := {s | K : b_s odd}
 and c := ∏_{s∈O} s. Then (c/q) = (K/q) = −1, and for every choice of exponent vectors j ∈ ℤ_{≥0}^{primes of K} with
 `  δ_s := −ε_s + 2j_s  (ε_s = 1 if s ∈ O, else 0),   0 ≤ j_s ≤ ⌊(b_s + ε_s)/2⌋ + e,`
 δ_s ∈ D_s(e). Hence cap(q) ≤ e as soon as the **one-sided box**
@@ -91,7 +91,7 @@ varies — B2/B6 in window coordinates (redteam-automorphic-2 Thm 2.2: "the modu
 
 **Proposition 2.2 (cap ≥ 1 decouples overflow from the p-congruence; PROVED).** For a cap-e certificate the p-condition at
 s ∈ supp δ is v_s(K) ≥ |δ_s| (non-overflow) or v_s(K) ∈ {δ_s − 2i : 1 ≤ i ≤ e} ∩ ℤ_{≥1} (overflow). In particular CAP_DOWN
-Prop 1.3's one-prime witness at a prime window q | s^j + 1 (j odd, s odd prime) needs only s ∥ K, i.e. p ≡ −q (mod 4s),
+Prop 1.3's one-prime witness at a prime window q | s^j + 1 (j odd, s odd prime) is valid as soon as s ∥ K (sufficient; R264 repair), i.e. p ≡ −q (mod 4s),
 p ≢ −q (mod s²) — a modulus 4s² independent of j — and gives cap ≤ (j − 1)/2.
 *Proof.* Lemma 1.1 of CAP_DOWN with d = K·s^j; s ∥ K: c_s = 1 + j is even (j odd) and the overflow is (1 + j − 2)/2 =
 (j − 1)/2. ∎
@@ -130,8 +130,9 @@ m ≤ (log p)^{O(1)}, where the AVERAGE τ(K²) ≍ log² p is comparable to m, 
 P(y) := ∏_{s ≤ y} s ≤ h. For every p ≡ 1 (mod 4) with p > 4h there is a window m ≤ 4h (m ≡ 3 (mod 4), gcd(m, p) = 1) with
 P(y) | K_m; then ω(K_m) ≥ π(y) = (1 + o(1)) log h/log log h and F_e(K_m) ≥ 3(e + 3)^{π(y) − 1}. Consequently the forced sub-box clears
 the covering threshold of every window m ≤ 4h (F_e(K_m) ≥ 2h ≥ φ(m)/2) as soon as **log(e + 3) ≥ (1 + o(1)) log log h**, while at cap 0 the CRT box
-3^{π(y)} = h^{(log 3 + o(1))/log log h} is smaller than the window range 4h by a factor h^{1 − o(1)} (and smaller than the CRT
-window m itself whenever m ≥ h, which happens for a positive proportion of residue classes of p mod 4P(y)).
+3^{π(y)} = h^{(log 3 + o(1))/log log h} is smaller than the window range 4h by a factor h^{1 − o(1)} (and smaller than the least CRT
+window m = (−p mod 4P(y)) whenever m ≥ h^ε, i.e. for 1 − o(1) of the classes of p mod 4P(y); R264 repair: m ≥ h can fail for
+all classes when h ≥ 4P(y), since m < 4P(y)).
 *Proof.* Among h consecutive integers K ∈ (p/4, p/4 + h] one is ≡ 0 (mod P(y)); m := 4K − p ∈ (0, 4h], m ≡ −p ≡ 3 (mod 4);
 gcd(m, p) = gcd(4K, p) = 1 since 0 < K < p. y = (1 + o(1)) log h by the PNT. For odd s | P(y), 2b_s + 1 + e ≥ e + 3; for s = 2,
 2b + 1 ≥ 3 (no overflow at 2). ∎
@@ -144,7 +145,7 @@ window m ≍ h (as the CRT window is for a positive proportion of p) needs
 expected number of K in the interval with ω(K) ≥ α log log p, α = A/log 3, is (log p)^{A − (α log α − α + 1) + o(1)}
 (Sathe–Selberg/large deviations of ω), maximal ≈ (log p)² at α = 3, A = 3 log 3 — so the divisor-rich window exists
 heuristically; pointwise, no theorem about intervals of length (log p)^{O(1)} goes beyond the CRT bound.)
-*Reading.* Cap ≍ log log p is exactly where deterministic box size meets window size (Thm 3.2); this matches, from the
+*Reading.* Cap (log log p)^{1+o(1)} (R264 repair: not ≍) is exactly where deterministic box size meets window size (Thm 3.2); this matches, from the
 constructive side, the covering barrier e ≥ (log log p)^{1−o(1)} (CAP_INTERPOLATION Prop 4.1, EXPONENT_CAP Prop 3.1(c)). Box size
 is necessary for covering, not sufficient: §4.
 
@@ -174,17 +175,20 @@ X(p) := C·φ(8P)² log⁴ p. For every sufficiently large prime p ≡ 1 (mod 8)
 q ≡ 3 (mod 8), q ≡ −p (mod P) (a reduced class, as p ∤ P) and (q/p) = −1.
 
 **Theorem 4.3 (CONDITIONAL on Hypothesis W; PROVED relative to it).** If W(y, L) holds for p (with y ≤ log p, integer L ≥ 1),
-then e*(p) ≤ L − 1, via a Type-II-shaped ES^{(y,L−1)} solution with x = K_q ≤ (p + X(p))/4. (GRH for Dirichlet L-functions is
+then e*(p) ≤ L − 1, via a Type-II-shaped ES^{(·,L−1)} solution (EXPONENT_CAP Def 1.1; R264 repair: that 'y' is the solution variable, not the prime bound) with x = K_q ≤ (p + X(p))/4. (GRH for Dirichlet L-functions is
 used only to size the candidate set: the primes q ≤ X(p) with q ≡ 3 (8), q ≡ −p (P), (q/p) = −1 number ≫ X/(φ(8P) log X) for a
 suitable absolute C, so W asks that one of them be balanced. R-O252 review repair: GRH is not a hypothesis of the theorem.)
 *Proof.* The prime q of W is a forced window ((q/p) = −1), q ≡ 3 (mod 8) and p ≡ 1 (mod 8) make K_q odd, and P | K_q. Apply
 Lemma 1.1 with j_s = 0 for s ∤ P; for s | P the admissible range is j_s ≤ ⌊(b_s + ε_s)/2⌋ + e with ⌊(b_s + ε_s)/2⌋ ≥ 1
 (b_s ≥ 1), so with e := L − 1 the box ∏_{s|P}[0, L] is admissible, and by Prop 4.1(i) it contains the target t = −c ∈ U_q.
+(R264 remark: only the discrete covering W_L = U_q is used, so "balanced" in Def 4.2 may be weakened to W_L = U_q, which is what
+§6's L_min tests.)
 *GRH count.* With χ_p := (·/p), the weighted count Σ_{q≤X, q ≡ a (8P)} ½(1 − χ_p(q)) log q equals ½ψ(X; 8P, a) − ½φ(8P)^{−1}
 Σ_{χ mod 8P} χ̄(a) ψ(X, χχ_p) + O(√X) (prime powers), with ψ(X; 8P, a) = X/φ(8P) + O(√X log²(8PX)) and ψ(X, χχ_p) ≪ √X log²(8PpX)
 (χχ_p non-principal as p ∤ 8P); this is ≫ X/φ(8P) for X = X(p) with C large. ∎
 **Corollary 4.4 (what a "random-lattice" W gives; CONDITIONAL on W + Assessment for the exponent).** If W(y, L) holds with L as
-large as the typical ℓ^∞ covering radius of a lattice of determinant (q − 1)/2 in dimension k, L ≍ ((q−1)/2)^{1/k}·(log k)^{O(1)},
+large as the typical ℓ^∞ covering radius of a lattice of determinant (X(p) − 1)/2 in dimension k, L = L(p) := ⌈(X(p)/2)^{1/k}·(log k)^{A}⌉
+(fixed A; R264 repair: L must not depend on q),
 then choosing y := log log p·log₃ p (so log X(p) = (2 + o(1))y + O(log log p)) gives
 `  e*(p) ≤ exp(log X·(log y)/y·(1 + o(1))) = (log log p)^{2 + o(1)}.`
 *Proof of the arithmetic.* k = (1 + o(1)) y/log y and log X = 2y(1 + o(1)) + 4 log log p + O(log y) = 2y(1 + o(1)) (as
@@ -195,8 +199,8 @@ claimed to have density one. For fixed y the unbalanced primes contain positive-
 cubes mod q — of density ≍ 3^{−k}; and the trivial bound on primes carrying a short relation, ≤ (3B)^{k+1} log P of them
 (CAP_INTERPOLATION Thm 4.2(iv)), excludes only relations shorter than B, which does not give balance at the near-optimal L of
 Cor 4.4.) Even granting a small exceptional set, nothing prevents it from filling the relevant class mod P (the "P-loss" of
-z12_grh_lattice_gap); this is why GRH alone reaches only exp(O(√(log₂p log₃p))) (CAP_INTERPOLATION Thm 4.2(b)) and not
-(log₂p)^{2+o(1)}. Hypothesis W is not ES in disguise: balance is a property of q alone; p enters only through one quadratic
+z12_grh_lattice_gap); this is why the GRH method of CAP_INTERPOLATION Thm 4.2(b) (a global count of short-relation primes against the class main term)
+reaches only exp(O(√(log₂p log₃p))) and not (log₂p)^{2+o(1)} (R264 repair: no GRH barrier below that is claimed). Hypothesis W is not ES in disguise: balance is a property of q alone; p enters only through one quadratic
 character and a class mod P; and W says nothing at cap 0. The lower bound for the method is (log log p)^{1−o(1)} i.o. (Prop 4.1(iii) + CAP_INTERPOLATION
 Prop 4.1), so W pins the covering scale between (log₂p)^{1−o(1)} and (log₂p)^{2+o(1)}.
 
@@ -227,13 +231,15 @@ fields L below, via Lagarias–Odlyzko).** For every odd
 prime ℓ there are c_ℓ > 0 and infinitely many primes q ≡ 3 (mod 4), q ≡ 1 (mod ℓ), such that every prime s ≤ c_ℓ log q·log log q
 is an ℓ-th power mod q; for them ⟨s² : s ≤ y⟩ ≠ U_q at y = c_ℓ log q log log q, so no box of any size over these generators covers U_q.
 *Proof.* Let S = primes ≤ y, M := ℚ(ζ_ℓ, S^{1/ℓ}), L := M(i). i ∉ M: i ∉ ℚ(ζ_ℓ) (ℓ odd) and [M : ℚ(ζ_ℓ)] is a power of ℓ,
-hence odd; so Gal(L/ℚ) contains an element nontrivial on ℚ(i) and trivial on M. [L:ℚ] ≤ 2(ℓ − 1)ℓ^{π(y)}, log d_L ≤ [L:ℚ]·log(4ℓ∏S)·O(1) = [L:ℚ]·O(y + log ℓ).
+hence odd; so Gal(L/ℚ) contains an element nontrivial on ℚ(i) and trivial on M. [L:ℚ] ≤ 2(ℓ − 1)ℓ^{π(y)}, log d_L ≤ [L:ℚ](log 2ℓ + θ(y) + log [L:ℚ]) (Hensel/Serre bound; R264 repair: L/ℚ is wildly ramified at ℓ,
+so the earlier '[L:ℚ]·O(y + log ℓ)' is not right for large ℓ), hence log log d_L = π(y) log ℓ + O_ℓ(log y).
 A prime with Frobenius = complex-conjugation-type on ℚ(i) and trivial on ℚ(ζ_ℓ, S^{1/ℓ}) is ≡ 3 (mod 4), ≡ 1 (mod ℓ), and has every
-s ∈ S an ℓ-th power. Under GRH the least one is ≪ (log d_L)² (Lagarias–Odlyzko, as in CAP_POINTWISE Thm 1.3(c)), so
-log q ≤ 2π(y) log ℓ + O(log y), i.e. y ≥ c_ℓ log q log log q; letting y → ∞ gives infinitely many q. ∎
+s ∈ S an ℓ-th power. Under GRH the least one is ≪ (log d_L)² (Lagarias–Montgomery–Odlyzko 1979, explicit form Bach–Sorenson; as in CAP_POINTWISE
+Thm 1.3(c)), so log q ≤ 2π(y) log ℓ + O_ℓ(log y) (ℓ = 2 analogue: Montgomery's GRH bound n₂(q) ≫ log q log log q i.o.), i.e. y ≥ c_ℓ log q log log q; letting y → ∞ gives infinitely many q. ∎
 **The forcing–generation gap (PROVED pieces + Assessment).** A window q at which K_q is forced to contain all primes ≤ y has
 y ≤ (1 + o(1)) log q for a positive proportion of p (Thm 3.2's CRT: q ≥ P(y) unless −p mod 4P(y) is small); generation of U_q
-by primes ≤ y holds for all q only from y ≍ log² q on (Bach, GRH, subgroup level) and our bounded-exponent covering from
+by primes ≤ y is known for all q from y ≍ log² q on (Bach, GRH, subgroup level; R264 repair: failure is shown only at
+c log q log log q) and our bounded-exponent covering from
 (log q)^{2+ε}–(log q)⁴ on (Prop 5.1), and it is FALSE for infinitely many q at y = c log q log log q (Prop 5.2). So every
 forced-window covering argument must choose its window among many (as Hypothesis W does); no "for all q" generation theorem can be
 plugged in. GRH supplies Frobenius control in the fixed Kummer fields of Prop 5.2 (index-ℓ obstructions, Chebotarev-visible), but
@@ -258,7 +264,8 @@ balance (Prop 4.1) is a Diophantine property of discrete logarithms, not a Frobe
   ≥ q^δ. A window certificate is the purely multiplicative membership −1 ∈ Box (equivalently d₁ + d₂ ≡ 0 with d₁, d₂ in one
   multiplicative box: the additive form is a single 2-term relation, not a sumset of a subgroup); the box has size q^{o(1)} at
   windows q ≥ p^θ (Thm 3.1) and the subgroup level is already free (Thm 1.1 of CAP_POINTWISE). No step where sum–product enters.
-* *Konyagin–Shparlinski type "every residue is a short product of small primes"*: these choose the primes freely; here the
+* *Konyagin–Shparlinski type "every residue is a short product of small primes"* (R264 repair: no specific theorem identified;
+  recalled, not re-checked — likewise Soundararajan, Harper, Matomäki–Radziwiłł, BGK, Shkredov, Bach, Erdős–Rényi above/below): these choose the primes freely; here the
   generator set is the p-dependent set of primes of K_q (ω ≈ log log p), or a CRT-forced set capped at y ≈ log q (above).
 * *Burgess/Ankeny/Bach*: control the least non-residue / generation (subgroup level), which is already free at forced windows;
   they say nothing about the box level.
@@ -286,6 +293,8 @@ every VER-th certificate is rebuilt into 4/p = 1/x + 1/y + 1/z and checked with 
   (max 8); support size 1 in 11 807 (58 %: a single prime power s^a | K with s^a ≡ −1 (mod m) — a prime s ≡ −1 in all but
   3 hard cases, e.g. p = 3 498 049, m = 7, δ₁₇ = −3), 2 in 6 820, 3 in 1 770, 4 in 116;
   mean budget share Σ|δ_s|/Ω(K) = 0.47. All primes: max|δ| = 1 in 97 %, support 1 in 92 %.
+  (R264 repair: these are statistics of the certificate the script records; minimising over ALL certificates at m₀ (R264
+  from-scratch rerun) gives max|δ| ≤ 1 in 98.5 % hard / 99.9 % all, support 1 in 62.8 % / 92.9 %, support ≤ 2 in 96.9 % / 99.8 %.)
 * **Smoothness is not what distinguishes the successful windows (in this first-success sample; interpretation).** At m₀ versus all scanned windows m ≤ m₀: mean Ω 3.61 vs 3.12, ω 3.08 vs 2.60,
   u 1.93 vs 1.65, log τ(K²) 3.61 vs 3.07 — successful K have ≈ 0.5 more prime factors, not a smooth profile. The least smooth
   K at m₀ are primes (9 hard cases, e.g. p = 55 609, m₀ = 19, K = 13 907 ≡ −1 (mod 19)); the largest prime used in the
