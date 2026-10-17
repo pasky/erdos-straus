@@ -6,6 +6,7 @@
  *         z28_lab exn K1 K2 N        -> same for ALL n in [2,N]
  *         z28_lab sol k n            -> all solutions x<=y<=z (one per line)
  *         z28_lab cnt k n            -> number of solutions
+ *         z28_lab cnts k N0 N1        -> "p f_k(p)" for primes p in [N0,N1]
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -40,6 +41,8 @@ static int isprime(long n){ if(n<2) return 0; return spf[n]==n; }
 int main(int argc,char**argv){ if(argc<4){fprintf(stderr,"usage\n");return 1;}
   if(!strcmp(argv[1],"ex")||!strcmp(argv[1],"exn")){ int K1=atoi(argv[2]),K2=atoi(argv[3]); long N=atol(argv[4]); int all=!strcmp(argv[1],"exn"); sieve(3*N+10);
     for(int k=K1;k<=K2;k++){ printf("k=%d:",k); long c=0; for(long n=2;n<=N;n++){ if(!all && !isprime(n)) continue; if(!solve(n,k,0)){ printf(" %ld",n); c++; } } printf(" #%ld\n",c); fflush(stdout);} return 0; }
+  if(!strcmp(argv[1],"cnts")){ int k=atoi(argv[2]); long N0=atol(argv[3]),N1=atol(argv[4]); sieve(3*N1+10);
+    for(long n=N0;n<=N1;n++){ if(!isprime(n)) continue; printf("%ld %ld\n",n,solve(n,k,2)); } return 0; }
   int k=atoi(argv[2]); long n=atol(argv[3]); sieve(3*n+10);
   if(!strcmp(argv[1],"sol")){ solve(n,k,1); return 0; }
   if(!strcmp(argv[1],"cnt")){ long c=0; gmode=2; c=solve(n,k,2); printf("%ld\n",c); return 0; }
