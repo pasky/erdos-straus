@@ -16,6 +16,10 @@ N_θ(p) = k·a·b·d, where N_II(p) = p + e, N_I(p) = pe + 1; the solution is
 for k ≥ 4: k/p = (1/x′ + 1/y′ + 1/z′)/p needs k ≤ 3).
 **Full T1 for 4 | k** (DISCOVERIES (J)49 SHARP 2, PROVED: ET §4 via d ↦ hd; Schinzel 2000): no odd square m² has a
 Type I/II solution of k/m². Hence O253 Thm 3.2 holds verbatim for every k ≡ 0 (mod 4) with H = kab.
+(Attribution, per R266 D-T32a: O253 Thm 3.2 is the classical Mordell–Schinzel square-class obstruction in local
+form — ET Prop 1.6 and ET p. 8, Schinzel 2000; campaign T1, DISCOVERIES (C)2/(C)7. Only Cor 3.3's recombination
+packaging is O253's. Below, Thm 1.2(ii) and Prop 1.3 are therefore classical in substance; what is new here is the
+slice-level / witness-level split and its consequences.)
 The models k = 8, 12, 16, 20, 24 therefore share T1 *and* the T1 adversary with ES, and have genuine exceptions.
 
 ## 1. What a lift is, and which lifts escape Cor 3.3
@@ -45,7 +49,8 @@ leaving ≥ ℓ − 2 ≥ 1 non-zero good classes. (ℓ = p does not divide kab:
 p ∤ k.) By CRT and Dirichlet there is a prime p′ = p + tM with gcd(t, kab) = 1. Validity at p and p′:
 Type II: kab | (p′ + e) − (p + e) = tM, so kab | M. Type I: kab | (p′e + 1) − (pe + 1) = tMe and gcd(e, kab) = 1
 (from kab·d = pe + 1), so kab | M. (ii) Then the slice is an ET witness at p with modulus H = kab | M; if p ≡ □ (mod M)
-then O253 Thm 3.2 (with full T1 for 4 | k replacing ET Prop 1.6) gives a Type I/II solution of an odd square,
+then the classical square-class obstruction (O253 Thm 3.2 = Mordell–Schinzel / ET Prop 1.6, with full T1 for
+4 | k) gives a Type I/II solution of an odd square,
 impossible. (a) is (i)+(ii) plus O253 Cor 3.3. (b) is (i) restated; the remark on thinness is an Assessment
 (a random integer ≍ q has a prime factor ℓ with (p/ℓ) = −1 unless all its prime factors are p-residues, a set of
 density 0 among integers ≤ X, by the sieve; not needed below). ∎
