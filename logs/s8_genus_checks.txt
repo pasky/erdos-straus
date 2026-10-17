@@ -9,3 +9,4 @@
   T1 n=225: positive 0, signed 6
   T1 n=441: positive 0, signed 6
 exceptions above are exactly the 9 degenerate cases p | d (Jacobi 0), excluded by the lemma's hypothesis gcd(p, cd) = 1
+Lemma 2.2: p=1(4)<6000: D-form hits 3312, (w/p)!=-1 at 0; levels with (d/p)=-1: 63974, Jacobi (-d/N)=-1 at 63974

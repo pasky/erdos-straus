@@ -154,3 +154,47 @@ two k = 8 lines fails at 34 primes < 8000, including 131 and 241 (`s8_check_b1.l
 4-specific. Value: it confines the ES lottery for p ≡ 1 (4) to ONE shift family {p + 4d}. The heuristic count is ≍ log²p
 (means 16 at p ≈ 2·10⁴ and 20 at p ≈ 2·10⁶ in the Mordell classes). Failure is then a polylog lottery, as for (★), but with
 much better constants in range.
+(Lemma 2.2 checked: all 3312 D-form hits for p ≡ 1 (4) < 6000 have (w/p) = −1; at all 63 974 levels with (d/p) = −1,
+χ_{−4d}(p + 4d) = −1; `logs/s8_genus_checks.txt`.)
+
+## 3. Mandatory (iii): forced windows × the T1 adversary — one parity, two readings
+
+**Lemma 3.1 (PROVED, Jacobi transfer of (J)83 Lemma 1.1).** Let p ≡ 1 (4), q ≡ 3 (4) a prime window, K = (p + q)/4.
+(a) (K/p) = (q/p). So q is forced ⟺ K carries an odd number (with multiplicity) of T1-visible primes s (those with (s/p) = −1).
+(b) Every cap-0 certificate (u, v) at q (Prop 2.1 of FORCED_WINDOW; level 4uv, uv | K, q | u + v) has (uv/p) = −1. So the level
+4uv always contains a visible prime, and p is a non-square mod 4uv — whether or not q is forced.
+*Proof.* (a) 4K ≡ q (mod p) gives (K/p) = (q/p). (b) u ≡ −v (mod q) gives (uv/q) = (−v²/q) = −1. Transfer ((J)83: (s/q) = (s/p)
+for s | K) gives (uv/p) = −1. ∎ (Checked on all 15 498 cap-0 certificates at prime windows q < 80, p < 2·10⁴: 0 exceptions.)
+*Reading — what (iii) asked.* (J)86's dictionary ("usable information sits at primes where p is a non-residue") and (J)64's
+forced windows are the same Legendre parity. Forcing at q makes K supply an odd number of visible primes, and every certificate
+consumes an odd number of them into its level. The window q itself is never in the level: it is the residue −p mod 4uv. So a
+lift routed "through a forced window" is visible at level 4uv by construction, but the forced data (q/p) = −1 only guarantee
+that visible primes exist in K. They do not choose (u, v). O257 (NONCONG_LIFTS Thm 1.2, read-only on its branch) needs, for a
+determined lift at level M, that p be a non-square mod M — automatically true here — and sufficiency needs *favourable*
+witnesses (its §2.4: for p in Mordell classes no complete level exists). So routing through forced windows adds no totality.
+The recombination still has to pick the favourable (u, v), which is the B2 event of Prop 2.1. **Verdict (iii): no new lever;
+the two channels are identical (PROVED), so neither can rescue the other.**
+
+## 4. Mandatory (iv): positivity × signed slices — the genus wall
+
+Type I side numbers (RT2): f | p² + 4c²d, f ≡ −p (mod 4c|d|); signed slices allow d < 0 (JOINT_BUDGET Remark 1.2).
+
+**Lemma 4.1 (the sign flips the genus condition; PROVED, Jacobi; the χ·s_∞ three-bit law of (J)52 at Type I level).** Let
+p ≡ 1 (4), gcd(p, cd) = 1, and f ≥ 1 with f | p² + 4c²d and f ≡ −p (mod 4c|d|). Then
+  d > 0 ⟹ (d/p) = −1,   d < 0 ⟹ (|d|/p) = +1.
+In particular positive d is never a square (Type I at d = w² is impossible), and the split signed slices d = −w² of JOINT_BUDGET
+Remark 1.2 are on the "wrong" side of the wall.
+*Proof.* gcd(f, 4cd) = gcd(p, 4cd) = 1. For a prime ℓ | f, ℓ | p² + 4c²d and ℓ ∤ 2cdp, so −d is a square mod ℓ:
+χ_D(ℓ) = 1 for the Kronecker character χ_D, D = −4d, of modulus dividing 4|d|. Hence χ_D(f) = 1. But f ≡ −p (mod 4c|d|), so
+χ_D(f) = χ_D(−1)χ_D(p) = sign(D)·(D/p). With p ≡ 1 (4), (D/p) = (−d/p) = (d/p). So d > 0 (D < 0): (d/p) = −1; d < 0: (|d|/p) = 1. ∎
+(Checked: 1934 positive and 2816 signed Type I points, p < 3000, c < 5, |d| < 30; the only exceptions are the 9 degenerate p | d
+cases. At odd squares 9 … 441 there are signed points (2–13 each) and no positive ones.)
+**Corollary 4.2 (no reflection preserves |d|; PROVED).** A move from signed Type I points to positive ones that keeps |d|
+(or its square class mod p) is impossible: it would have to change (|d|/p) from +1 to −1. Vieta jumping is unavailable
+anyway: the Type I equation p(a + b) + c = 4abcd, and 4xyz = p(xy + yz + zx), are linear in each variable, so the only
+involutions are coordinate permutations.
+*Reading (Assessment).* Positivity is not an extra constraint layered on a split algebra. It is the genus wall itself. Split
+signed points live where |d| is a residue (the T1 side; they exist at odd squares), positive points where d is a non-residue.
+A signed→positive transfer must multiply d by a non-residue *and* produce the divisor in the new class — B2 again, plus the
+"find a non-residue" step, which is cheap (Burgess/GRH) but unhelpful by itself. **Verdict (iv): closed (PROVED obstruction for
+|d|-preserving moves, no Vieta structure).** This makes O254's spark 2 precise and negative.
