@@ -50,14 +50,15 @@ Consequently (FORCED_WINDOW Prop 4.1): L_min(q) ≤ ⌈k^{3/2}/min(1, 𝔻_min)�
 1/min(1, 𝔻_min). (If H ≠ U_q, L_min = ∞ and 𝔻_min = 0: the statement extends with 1/0 = ∞.)
 *Proof.* Lower: let y ∈ Λ* ∖ {0} and z ∈ ℝ^S with y·z ≡ ½ (mod 1). If z = λ + b with λ ∈ Λ, b ∈ [−r, r]^S, then y·b ≡ ½
 and |y·b| ≤ r|y|₁, so r ≥ 1/(2|y|₁). Nonzero vectors of Λ* are either in ℤ^S (|y|₁ ≥ 1) or lifts of ψ ≠ 1 (|y|₁ ≥ 𝔻_S(ψ)).
-Upper: μ_∞ ≤ μ_2 ≤ k/(2λ₁^{(2)}(Λ*)) (Banaszczyk, *Math. Ann.* 296 (1993), Thm 2.1: μ_2(Λ)·λ₁(Λ*) ≤ k/2) and
+Upper: μ_∞ ≤ μ_2 ≤ k/(2λ₁^{(2)}(Λ*)) (Banaszczyk, *Math. Ann.* 296 (1993), his formally proved covering-radius transference bound μ_2(Λ)·λ₁(Λ*) ≤ k/2, valid for every k; R269 repair: theorem number not verified, Thm 2.2 to the reviewer's recollection) and
 λ₁^{(2)} ≥ λ₁^{(1)}/√k. Prop 4.1(i) of FORCED_WINDOW needs μ_{(L,…,L)} ≤ 1, i.e. μ_∞ ≤ L/2; Prop 4.1(ii) gives μ_∞ ≤ (L+1)/2
 when W_L = U_q. ∎
 **Corollary 1.4 (scales; PROVED).** (a) (Minkowski for the cross-polytope, vol = 2^k r^k/k!; R-O256 repair 1: needs
 |H| > k!, so that the Minkowski vector has ℓ¹-norm < 1 and is not in ℤ^S) if H = U_q and N > k!, 𝔻_min(q) ≤ (k!/|H|)^{1/k}
 ≤ (k/e)(e√k)^{1/k}|H|^{−1/k} (k! ≤ e·k^{k+1/2}e^{−k}): some nontrivial character is always ℓ¹-pretentious at scale k|H|^{−1/k}.
 (b) Hence **q is balanced at the random-lattice scale (L_min ≤ k^{O(1)}N^{1/k}) ⟺ (up to k^{O(1)}) no ψ ≠ 1 of U_q has
-𝔻_S(ψ) ≤ N^{−1/k}k^{−C}**, i.e. the Minkowski-extremal character is not much more pretentious than forced by pigeonhole.
+𝔻_S(ψ) ≤ N^{−1/k}k^{−C}**; precisely (R269 repair): 𝔻_min ≥ k^{−C}N^{−1/k} ⇒ L_min ≤ ⌈k^{C+3/2}N^{1/k}⌉, and
+L_min ≤ k^{C}N^{1/k} ⇒ 𝔻_min ≥ 1/(L_min + 1) ≥ k^{−C}N^{−1/k}/2; i.e. the Minkowski-extremal character is not much more pretentious than forced by pigeonhole.
 (c) Exact zero: 𝔻_S(ψ) = 0 for some ψ ≠ 1 ⟺ H ≠ U_q ⟺ for some prime ℓ | N all s ∈ S are ℓ-th powers mod q (the index
 obstruction of FORCED_WINDOW Prop 5.2).
 *Proof.* (a) Minkowski's first theorem: a symmetric convex body of volume > 2^k·det(Λ*) = 2^k/|H| contains a nonzero point
@@ -113,7 +114,10 @@ regime x ≍ φ(8P)² log⁴ p used in §4. So GRH can afford only (log p)^{O(1)
 index condition alone (Prop 2.4(a)), while for εm ≥ 1 a single level m already carries ≈ φ(m)(2εm)^k bad vectors,
 exponential in k. In short (Assessment, not a theorem): **GRH-Chebotarev in the
 class −p mod 8P controls little beyond the index condition**, i.e. characters of order ≲ 1/ε with 𝔻 = 0, plus at most
-(log p)^{O(1)} further Kummer vectors; a negligible part of Û_q (|Û_q| = N ≍ x).
+(log p)^{O(1)} further Kummer vectors; a negligible part of Û_q (|Û_q| = N ≍ x). (R269 repair: refined GRH error terms —
+Murty–Murty–Saradha 1988, Bellaïche 2016 (Littlewood complexity) — replace |C| by roughly the Fourier ℓ¹-norm of 1_C, ≲ φ(m)(c log(2εm + 2))^k
+for the Kummer part; at k ≍ y/log y, M ≥ y this is still ≈ exp(log₂p·log₄p) ≫ log p, so the conclusion stands. The vector count
+above is for characters of exact order m.)
 
 **Proposition 2.4 (PROVED).** (a) If ψ ≠ 1 has order d and 𝔻_S(ψ) < 1/d, then 𝔻_S(ψ) = 0 (angles lie in (1/d)ℤ); so for
 ε ≤ 1/M "no ψ ≠ 1 of order ≤ M with 𝔻 < ε" is exactly "no prime ℓ ≤ M, ℓ | N, with S ⊂ (F_q^*)^ℓ" (take ψ^{d/ℓ}).
@@ -126,7 +130,8 @@ and fix σ₀ := (class a mod 8P, sign of χ_p). For odd primes ℓ ≤ z,
 *Proof.* For odd ℓ, ℚ(ζ_n, a^{1/ℓ}) is abelian over ℚ only if a² is an ℓ-th power in ℚ (Schinzel, *Abelian binomials, power
 residues and exponential congruences*, Acta Arith. 32 (1977)); for a = ∏_{s∈S} s^{e_s} with ℓ ∤ e this fails, so by Kummer theory
 [ℚ(ζ_n, S^{1/ℓ}) : ℚ(ζ_n)] = ℓ^k for every n with ℓ | n; and √p ∉ ℚ(ζ_{lcm(8P,ℓ)},
-S^{1/ℓ}) because that field's maximal abelian subfield is ℚ(ζ_{lcm(8P,ℓ)}) (Schinzel again) and p ∤ 8Pℓ. Hence
+S^{1/ℓ}) because that field's maximal abelian subfield is ℚ(ζ_{lcm(8P,ℓ)}) (R269 repair: Gal = (ℤ/ℓ)^k ⋊ (ℤ/n)^* with u acting by multiplication by u mod ℓ; for u ≢ 1 (ℓ) the
+commutators (u − 1)v exhaust (ℤ/ℓ)^k, so the abelianisation is (ℤ/n)^*) and p ∤ 8Pℓ. Hence
 |G| = [F_ℓ : ℚ] = 2φ(lcm(8P, ℓ))ℓ^k ≥ 2φ(8P)ℓ^k. The q in question are those whose Frobenius restricts to σ₀ on ℚ(ζ_{8P}, √p),
 to the identity on ℚ(ζ_ℓ, S^{1/ℓ}): F_ℓ is the compositum, so this is a set C with |C| ≤ 1 (empty if σ₀ forces q ≢ 1 (mod ℓ)).
 Serre's GRH form of Lagarias–Odlyzko (Publ. IHÉS 54 (1981), Thm 4) gives the count (|C|/|G|)(li(x) − li(x/2)) +
@@ -136,7 +141,9 @@ O(|C|√x(log d_F/n_F + log x)), and log d_F/n_F ≤ log n_F + Σ_{r ram} log r 
 ## 3. What class-blind counting gives: a Fejér pair count, and the P-loss in exact form
 
 **Proposition 3.1 (class-blind count of pretentious primes; PROVED, elementary).** Let x ≥ 16, 0 < ε < 1, P = ∏S, and
-`  Bad₁(ε) := {q prime : some ψ ≠ 1 of U_q has 𝔻_S(ψ) < ε and ord(ψ) > 1/ε}.`
+`  Bad₁(ε) := {q prime : some ψ ≠ 1 of U_q has 𝔻_S(ψ) < ε and ord(ψ) > 1/ε}`
+(R269 repair: q ranges over primes q ≡ 3 (mod 4), q ∤ P, as in the Notation; Thms 4.1/4.2 need only q ≡ 3 (mod 8), and EQ, S
+may be read with that restriction.)
 Let B ≥ 1 be an integer with (B + 1)^k ≥ 2x(2B + 1)ε. Then
 `  #{q ∈ (x/2, x] ∩ Bad₁(ε)}  ≤  4B(2B + 1)·xε·log P / log(x/2).`
 With B := ⌈(6xε)^{1/(k−1)}⌉ (valid once 6xε ≥ 1) the right side is ≤ 48·(6xε)^{(k+1)/(k−1)} log P/log(x/2).
@@ -185,10 +192,11 @@ zeta functions of ℚ(ζ_{lcm(8P,ℓ)}, √p, S^{1/ℓ}) (ℓ odd prime), and Hy
 `  e*(p) ≤ (log₂ p)^{13/2 + o(1)}.`
 *Proof.* p ≢ 1 (8): e* = 0 (classical, as in FORCED_WINDOW). Let p ≡ 1 (8), y := log₂p·log₃p, S = odd primes ≤ y, k = |S|,
 P = ∏S, x := C₀φ(8P)² log⁴ p (C₀ large). Then log P = (1 + o(1))y, k = (1 + o(1))y/log y, log x = (2 + o(1))y.
-*Good class count (GRH):* G := #{q ∈ (x/2, x] : q ≡ 3 (8), q ≡ −p (P), (q/p) = −1} ≥ c₂ x/(φ(8P) log x) (FORCED_WINDOW
+*Good class count (GRH):* G := #{q ∈ (x/2, x] : q ≡ 3 (8), q ≡ −p (P), (q/p) = −1} = (1 + O(C₀^{−1/2}))(li(x) − li(x/2))/(2φ(8P)) ≥ c₂ x/(φ(8P) log x) (R269 repair: the asymptotic form is what the Bad₂
+comparison below uses; FORCED_WINDOW
 Thm 4.3, dyadic version). *Bad₂:* by Lemma 2.5 with z := 1/ε (ε fixed below), the q in the class with some prime
 ℓ ≤ z, ℓ | N, S ⊂ (F_q^*)^ℓ number ≤ ((li(x) − li(x/2))/(2φ(8P)))Σ_{ℓ≥3} ℓ^{−k} + O(z√x log p) (R-O256 repair 3; the
-log p term dominates the error of Lemma 2.5 since k log z, log P, log x = y^{1+o(1)} = o(log p)). Σ_{ℓ≥3} ℓ^{−3} < 0.05, so the
+log p term dominates the error of Lemma 2.5 since k log z, log P, log x = y^{1+o(1)} = o(log p)). Σ_{ℓ≥3} ℓ^{−k} ≤ Σ_{ℓ≥3} ℓ^{−3} < 0.05 (and → 0 as k → ∞; R269 repair), so the
 main term is ≤ G/8, and the error is ≍ G·z log x/log p = G·y^{O(1)}/log p = o(G) since G ≍ √x log² p/log x and z = y^{O(1)}. *Bad₁ (EQ + Prop 3.1):* the class contains
 ≤ (C/φ(8P))·48(6xε)^{(k+1)/(k−1)} log P/log(x/2) + x^{1/2}(log x)^A elements of Bad₁(ε). The error term is ≤ G/8 since
 √x/φ(8P) ≍ log² p ≫ (log x)^{A+1} = y^{O(1)}. The main term is ≤ G/8 for
@@ -212,7 +220,8 @@ grids; the exact expectation is a divisor sum Σ_{d|N} φ(d)A_k(d, ε)/d^k): S i
 known at the required square-root level: its index-degenerate part alone
 (index ≥ x^{3/(2k)}) is known only with exponent 1 − 1/(2k) − O(1/k²) in place of 1/2 (Prop 3.1 / PHASE_DIAGRAM Step 2), and
 GRH-Chebotarev cannot reach it (per prime ℓ the error is already ≍ √x log x).
-**Theorem 4.2 (CONDITIONAL on GRH + S; PROVED relative to them).** e*(p) ≤ (log₂p)^{9/2+o(1)} for p ≥ p₀.
+**Theorem 4.2 (CONDITIONAL on GRH + S; PROVED relative to them).** (R269 repair: GRH as in Thm 4.1 — Dirichlet L-functions
+and the Dedekind zeta functions of ℚ(ζ_{lcm(8P,ℓ)}, √p, S^{1/ℓ}), ℓ odd prime.) e*(p) ≤ (log₂p)^{9/2+o(1)} for p ≥ p₀.
 *Proof.* As Thm 4.1 with ε := x^{−3/(2k)}: the class contains ≤ x^{1/2}(log x)^A ≤ G/8 elements of Bad₁(ε) (no EQ needed: the
 total is already below the class main term G ≍ √x log² p/log x), Bad₂(1/ε) is handled by Lemma 2.5 as before (1/ε = y^{3+o(1)}), and
 L = ⌈k^{3/2}x^{3/(2k)}⌉ = y^{3/2+3+o(1)}. ∎
@@ -222,7 +231,8 @@ first k odd primes are nearly multiplicatively dependent through a character of 
 dependence analogue of bounding the primes q for which a fixed integer has small order (Erdős–Murty / Kurlberg–Pomerance
 type), in rank k ≍ log x/log log x and at the square-root level. Neither EQ nor S is a standard named hypothesis; I know of no
 standard conjecture (GRH, Elliott–Halberstam, Artin-type) that implies either, because Bad₁ is neither a set of primes in
-progressions nor a Chebotarev set (Prop 2.2).
+progressions nor determined by Frobenius data in Kummer–cyclotomic fields of degree (log p)^{O(1)} (Prop 2.2, in its
+abstract-vector sense; R269 repair: Prop 2.2 does not show that Bad₁ is not a Chebotarev set).
 **Remark 4.3 (almost all p under GRH alone; CONDITIONAL on GRH, Assessment-level bookkeeping).** EQ holds trivially *on
 average over classes*: at most φ(8P)/C classes a can carry more than (C/φ(8P))·#Bad₁. Since −p mod 8P equidistributes as p
 varies, GRH alone gives e*(p) ≤ (log₂p)^{13/2+o(1)} for all p outside a set of relative density O(1/C) (any fixed C; freeze
@@ -257,10 +267,11 @@ in a p-dependent class, and EQ/S are exactly the statements that make that avera
 (q ≡ 3 (8), S = odd primes ≤ y), the order of the extremal character ψ_min, P⁺(N), and the same for a uniformly random
 discrete-log vector (random-lattice model). ν := 𝔻_min·N^{1/k} (Minkowski: ν ≤ (k!)^{1/k}; balance ⟺ ν not small).
 * **ν matches the random model** (data/z27/dual_1e6.txt, 3000 random q ≤ 10⁶ each; dual_1e7.txt, 400 q ∈ [9·10⁶, 10⁷] each):
-  quantiles 1/10/50/90 % true vs random: k = 3, q ≤ 10⁶: 0.267/0.563/1.011/1.375 vs 0.265/0.577/1.026/1.372; k = 4:
+  quantiles (conditioned on 𝔻_min > 0; R269 repair) 1/10/50/90 % true vs random: k = 3, q ≤ 10⁶: 0.267/0.563/1.011/1.375 vs 0.265/0.577/1.026/1.372; k = 4:
   0.454/0.784/1.208/1.532 vs 0.381/0.743/1.194/1.535; k = 5: 0.597/0.985/1.389/1.714 vs 0.611/0.979/1.392/1.711; near 10⁷ the
   same to ±0.07. Index-degenerate (ν = 0) counts also match (k = 3: 52 vs 61 of 3000).
-* **The extremal character has order ≍ N (the SHARP observation; statistics conditioned on generation, 𝔻_min > 0 — R-O256
+* **The extremal character has large order: P⁺(N) | ord ψ_min in > 99 %, ord = N in ≈ 75 % (R269 repair: "≍ N" holds only in
+  this sense) (the SHARP observation; statistics conditioned on generation, 𝔻_min > 0 — R-O256
   repair 7; reruns with exact integer 𝔻 reproduce the tables).** ord ψ_min = N in 73–78 %, ≥ N^{0.9} in 86–88 %,
   ≤ N^{1/2} in ≤ 0.3 %, ≤ N^{3/(2k+4)} (a nominal "visible" range; R-O256 repair 4: not an established GRH cutoff) in ≤ 0.07 % (0 of 400 near 10⁷ for every k);
   **P⁺(N) | ord ψ_min in 99.4 %–100 %** — identical to the random model. Balance is decided by the largest prime factor of
@@ -278,14 +289,16 @@ discrete-log vector (random-lattice model). ν := 𝔻_min·N^{1/k} (Minkowski: 
   matters rarely: e.g. q = 74 419 has a degenerate order-3 minimiser and a qualifying order-12 403 character with 𝔻 ≈ 0.0079.)
   eqcheck_y11.txt (all 37 217 q ≤ 2·10⁶, 480 classes mod 9240): Bad₁ at t = 0.3 / 0.5 / 0.7: 72 / 653 / 2513 q, χ² = 543.5 /
   474.2 / 405.8 (df 479), permutation p = 0.033 / 0.44 / 0.93; full set p = 0.003 / 0.12 / 0.71. The one marginal value (72
-  events spread over 480 classes, max 3 per class) is the sparsest cell; not significant after the 6 tests per k. EVIDENCE for EQ only at P ≤ 1155, nowhere near P ≈ √x.
+  events spread over 480 classes, max 3 per class) is the sparsest cell; not significant after the 6 tests per k. (R269 repair: the 3 events are all in class 6931 ≡ 1 (mod 1155), the extreme class
+  where P | N; a pre-specified re-test on fresh q ∈ (2·10⁶, 8·10⁶] finds 0/202 there vs 1/198 in a control class — a fluke;
+  the class a ≡ 1 (mod P) is the natural worst case for EQ in future tests.) EVIDENCE for EQ only at P ≤ 1155, nowhere near P ≈ √x.
 * *T1 control:* not applicable to these p-free statistics; the construction's T1 step (no forced windows at n = m²) is
   algebraic (§5). Odd-square cap-0 absence was checked in z24.
 
 ## 7. Verdict (O256 checkpoint 1)
 
-1. **GRH alone: not by this route, and the reason is exact.** Balance at q is decided by a character of order ≍ N (§6;
-   P⁺(q−1) | ord in > 99 %). Frobenius in Kummer fields ℚ(ζ_m, S^{1/m}) of GRH-manageable size sees only characters of order
+1. **GRH alone: not by this route, and the reason is explicit** (R269 repair: partly Assessment 2.3). Balance at q is decided
+   by a character of large order (§6: P⁺(q−1) | ord in > 99 %, ord = N in ≈ 75 %). Frobenius in Kummer fields ℚ(ζ_m, S^{1/m}) of GRH-manageable size sees only characters of order
    ≲ 1/ε plus (log p)^{O(1)} Kummer vectors in the class (Prop 2.4, Assessment 2.3), and no function of that data,
 uniformly over compatible discrete-log vectors, certifies L_min below the M-rough part of q − 1 (Prop 2.2,
    PROVED). The only tool seeing all orders is class-blind counting (Prop 3.1), which cannot see a class of relative density

@@ -548,6 +548,6 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z27_pretentious_dual | dual of the relation lattice = characters; balance ⟺ no ℓ¹-pretentious character on S | in the class, GRH-Frobenius affords essentially only the index condition; extremal character has order ≍ N (99 %+ divisible by P⁺(N)) | PROVED + EVIDENCE (SHARP) |
 | z27_fejer_blind_count | class-blind count of pretentious primes (Fejér pairs) | ≤ 48(6xε)^{(k+1)/(k−1)} log P/log x; P-loss exact, = CAP_INTERPOLATION 4.2(b) | PROVED |
 | z27_sparsity_hypothesis | weakest replacement of W | GRH + EQ ⇒ (log₂p)^{13/2+o(1)}; GRH + S (p-free, class-free) ⇒ (log₂p)^{9/2+o(1)}; EQ uniform at toy scale | CONDITIONAL + EVIDENCE |
-| z27_small_exponent_windows | composite windows with U_m of tiny exponent | Linnik adversary on the finite menu Q(E): needs E ≥ (log p)^{c log₃p} | PROVED obstruction |
+| z27_small_exponent_windows | composite windows with U_m of tiny exponent | Linnik adversary (primorial modulus) on the menus Q(E): cap ≳ log p i.o. (R269 repair: was the pre-repair (log p)^{c log₃p}) | PROVED obstruction |
 | z27_smooth_shift_crt | (q−1) smooth ⇒ every ℓ-part visible | joint CRT law still invisible; smooth shifted primes with u → ∞ unknown | Assessment (dead) |
 | z27_large_sieve_sunits | large sieve over moduli for the S-unit box | S-units too sparse (M = P^{2H} ≫ Q²) | PROVED (negative) |
