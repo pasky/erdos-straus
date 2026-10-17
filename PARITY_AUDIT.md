@@ -128,3 +128,45 @@ every-a result and Shkredov's bilinear bounds were read only through secondary s
 "Heath-Brown, divisors in residue classes" or Granville–Shiu paper on single-n divisors in classes was found (the
 Shiu 1980 Brun–Titchmarsh for multiplicative functions, `sources/shiu-1980.pdf`, is an *upper* bound for sums over
 n ≤ x in an AP, so it belongs with A4/A5).
+
+## 2. The gap, quantitatively, against (J)6's p^{1/2} (deliverable 2)
+
+**Lemma 2.1 (trial count; PROVED, elementary).** R(p) = #{(u,B,C) ∈ ℕ³ : 4uBC − u − B = p} satisfies
+R(p) = Σ_{(u,C)∈𝓡} 1[(4uC − 1) | p + u], 𝓡 := {(u,C) ∈ ℕ² : 4uC − 1 ≤ p + u}, and |𝓡| = (p/4) log p + O(p).
+Writing 1[m | n] = m^{−1}Σ_{h mod m} e(hn/m):
+  R(p) = M(p) + E(p),  M(p) := Σ_𝓡 1/(4uC − 1),  E(p) := Σ_𝓡 m^{−1}Σ_{0<h<m} e(h(p+u)/m)  (m = 4uC − 1),
+and M(p) = (log p)²/8 + O(log p). The restriction u ≤ U keeps |𝓡_U| = (p/4) log U + O(p) and M_U(p) =
+(log U)(log p)/4 − (log U)²/8 + O(log p).
+*Proof.* (u, C) determines B = (p + u)/(4uC − 1), and B ≥ 1 ⟺ (u,C) ∈ 𝓡. For fixed u, C ranges up to
+(p + u + 1)/(4u), so |𝓡| = Σ_{u ≤ p} (p/(4u) + O(1)) and M = Σ_u Σ_{C ≤ p/(4u)} 1/(4uC) + O(log p)
+= Σ_u (1/(4u)) log(p/(4u)) + O(log p) = (log p)²/8 + O(log p). The U-version is the same sum cut at u ≤ U. ∎
+(M(p) reproduces the (J)6 heuristic Σ_B M(B) ≈ (log p)²/8 and the observed R(p) = 44, 52, 68 at p ≈ 10⁸, 10⁹,
+10¹⁰, where (log p)²/8 = 42.4, 53.7, 66.3.)
+
+**Assessment 2.2 (the p^{1/2} is a square-root barrier, not a weak bound).** E(p) is a sum over ≍ p log p pairs
+of complete exponential sums; R(p) and M(p) are both ≍ (log p)², so the *true* E(p) is polylog. Any argument that
+bounds E(p) by cancellation among the 𝓡-terms without using their arithmetic gets at best |𝓡|^{1/2} ≍ p^{1/2}:
+the same p^{1/2} that (J)6 found for Weil on 𝓗 = {xy ≡ 1 (4p)}. Restricting to u ≤ (log p)^A does **not**
+shrink 𝓡 (C still runs to p/(4u)), so event (a⁴) at polylog U is no easier for analytic methods than (★) itself.
+Pre-factoring (summing over the actual divisors of p + u) shrinks the trial count to Σ_{u≤U} τ(p+u) ≈ U log p,
+but then each u-term is a character sum over the divisors of one integer, Σ_{f | p+u} χ(f), χ mod 4u, which has no
+analytic structure to exploit; with the class fixed, the main term is ≍ log U·log p against U log p trials.
+
+**The ledger (best known *pointwise-in-p* inputs, by category).**
+
+| category | best known at a single p | needed | gap |
+|---|---|---|---|
+| class-aware counts on 𝓗 (Weil, Shparlinski Thm 13; B1) | box counts with error p^{1/2+ε}; every-residue solvability of xy ≡ a (p) with \|x\|,\|y\| ≤ Cp^{3/4}, i.e. area p^{3/2} | error O(1) in (★); even the class-free relaxation "4Cp + 1 has a factorisation with both factors ≤ p^{1/2+ε}, C ≤ p^{o(1)}" needs area p^{1+o(1)} | **p^{1/2}** (area exponent 3/2 vs 1; side exponent 3/4 vs 1/2). This is the (J)6 number; nothing better is known pointwise |
+| the same, averaged over the residue a (Garaev via Shparlinski §3.2; KSWX §3.3) | almost all a: x, y ≤ p^{1/2}(log p)^{1+ε}, area p(log p)^{2+2ε} | the single residue a = 1 (with the 4C-classes attached) | only a **log-power** gap — but it is an almost-all-a statement, and at one p the residue does not vary (§3, "tied averaging") |
+| divisor statistics of the u-side family {p + u} (Huxley; Li–Yang Thm 1.2; C1) | Σ_{u≤U} τ(p+u) ~ U log p for U ≥ p^{0.3145} | the class −1 (mod 4u) at U ≤ (log p)^A | no class information; exponent 0.3145 in the length, plus the class layer |
+| divisor statistics of the t-side family {4Cp + 1} (Selberg–Hooley, FKM; B6) | asymptotic for C ≤ X iff X ≥ p^{1/2+ε} | class −1 (mod 4C) | exponent 1/2 in the length, plus the class layer |
+| structured (smooth) members of a short family (Matomäki 2016; Younis; C2–C3) | an x^ε-smooth integer in every [x, x + √x(log x)^{7/3+δ}]; under RH smooth-number asymptotics for length x^{1/2+ε}, y ≥ (log x)^K | a (log p)^{O(1)}-smooth p + u with u ≤ (log p)^{O(1)} (route (J)6 I3) | **p^{1/2}** in the length, unconditionally and under RH |
+| Type II / bilinear at a fixed prime (KMS 2017/2020, KSWX, Bourgain–Garaev; B2–B5) | power savings q^{1/64} … M^{1/4} of trivial bounds of bilinear forms | (★) has unit coefficients; error O(1) against trivial ≍ p | saving needed p^{1−o(1)}; Type II is not the missing input ((J)6 Assessment 2.2) |
+
+**Answer to "which estimate gets closest, and by how much".** Pointwise in p, the closest class-aware estimate is
+Weil's bound in its modular-hyperbola form (Shparlinski Thm 13; every-residue solvability at area p^{3/2}). It is
+short by **exactly p^{1/2}** (exponent 1/2 in area), with no log-power refinement known; the literature calls
+going below area p^{3/2} "out of reach" and ties it to the 60-year-old Selberg–Hooley 2/3 barrier. The only results
+that reach area p^{1+o(1)} (log-power gap) average over the residue class (Garaev; KSWX §3.3). Class-blind statistics
+reach shorter families (p^{0.3145}, Li–Yang) but carry no class information. Under RH/GRH the length barrier
+stays at p^{1/2} (Younis), and GRH helps only the sign/window layer (least non-residue, (J)64).
