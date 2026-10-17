@@ -42,7 +42,7 @@ Upper: μ_∞ ≤ μ_2 ≤ k/(2λ₁^{(2)}(Λ*)) (Banaszczyk, *Math. Ann.* 296 (
 λ₁^{(2)} ≥ λ₁^{(1)}/√k. Prop 4.1(i) of FORCED_WINDOW needs μ_{(L,…,L)} ≤ 1, i.e. μ_∞ ≤ L/2; Prop 4.1(ii) gives μ_∞ ≤ (L+1)/2
 when W_L = U_q. ∎
 **Corollary 1.4 (scales; PROVED).** (a) (Minkowski for the cross-polytope, vol = 2^k r^k/k!) 𝔻_min(q) ≤ (k!/|H|)^{1/k}
-≤ (k/e)(e k)^{1/(2k)}|H|^{−1/k}: some nontrivial character is always ℓ¹-pretentious at scale k|H|^{−1/k}.
+≤ (k/e)(e√k)^{1/k}|H|^{−1/k} (k! ≤ e·k^{k+1/2}e^{−k}): some nontrivial character is always ℓ¹-pretentious at scale k|H|^{−1/k}.
 (b) Hence **q is balanced at the random-lattice scale (L_min ≤ k^{O(1)}N^{1/k}) ⟺ (up to k^{O(1)}) no ψ ≠ 1 of U_q has
 𝔻_S(ψ) ≤ N^{−1/k}k^{−C}**, i.e. the Minkowski-extremal character is not much more pretentious than forced by pigeonhole.
 (c) Exact zero: 𝔻_S(ψ) = 0 for some ψ ≠ 1 ⟺ H ≠ U_q ⟺ for some prime ℓ | N all s ∈ S are ℓ-th powers mod q (the index
@@ -54,3 +54,56 @@ take ψ of prime order ℓ (U_q cyclic). ∎
 Diophantine scale N^{−1/k} (not at a fixed scale: FORCED_WINDOW Prop 1.3). The index obstruction is the degenerate case
 𝔻 = 0 and involves only characters of prime order; balance in general is decided by the **order** of the extremal character
 ψ_min, which is the parameter that governs Frobenius-visibility (§2).
+
+## 2. What Frobenius sees: the characters of small order, and nothing else
+
+For odd m let K_m := ℚ(ζ_m, S^{1/m}). For q ∤ m∏S with m | N, fix a character χ_m of F_q^* of exact order m and write
+χ_m(s) = e(b_s/m), b = b(q) ∈ (ℤ/m)^S; changing χ_m replaces b by u·b, u ∈ (ℤ/m)^*.
+
+**Proposition 2.1 (Frobenius visibility; PROVED, Kummer theory).** (a) The Frobenius class of q in K_m determines the orbit
+(ℤ/m)^*·b(q), hence the set Θ_m(q) := {θ(ψ) : ψ ∈ Û_q, ψ^m = 1} = {(2jb_s/m)_s : j ∈ ℤ/m} ⊂ (ℝ/ℤ)^S, hence every quantity
+min{𝔻_S(ψ) : ψ ≠ 1, ψ^m = 1}. (b) Conversely the data {Frob_q in K_m : m | N, m ≤ M} is a function of a(q) mod N₁ only,
+where a(q) ∈ (ℤ/N)^S is the discrete-log vector of (g_s) w.r.t. a generator of U_q and N = N₁N₂ with N₁ the M-smooth part
+(all prime factors ≤ M) and N₂ the M-rough part. (c) The number of characters of U_q of order ≤ M is ≤ Σ_{d|N, d≤M} φ(d)
+< M²; they are a fraction < M²/N of Û_q.
+*Proof.* (a) q ≡ 1 (mod m) splits completely in ℚ(ζ_m); for 𝔮 | q in ℚ(ζ_m), Frob_𝔮(s^{1/m}) = (s/𝔮)_m·s^{1/m}, and the
+m-th power residue symbol (s/𝔮)_m is the image of s^{(q−1)/m} mod 𝔮 in μ_m, i.e. χ_m(s) for the χ_m attached to 𝔮; another
+𝔮 (or the conjugacy class) acts by an automorphism of μ_m, i.e. b ↦ ub. ψ ∈ Û_q with ψ^m = 1 are the χ_m^{2j}|_{U_q}
+(m odd), with ψ(g_s) = χ_m(s)^{2j}. (b) m | N and m ≤ M forces m | N₁, and b(q) for χ_m = (χ_{N}-power) is a(q) mod m up
+to a unit. (c) Σ_{d≤M} φ(d) < M². ∎
+
+**Proposition 2.2 (indistinguishability; PROVED, elementary).** Let M ≥ 1, N = N₁N₂ as above with N₂ > 1, and let L ≥ 1.
+For every a ∈ (ℤ/N)^S with ⟨g_s⟩ = U_q there is a′ ∈ (ℤ/N)^S with a′ ≡ a (mod N₁), generating (ℤ/N), whose lattice
+Λ′ := {x : a′·x ≡ 0 (mod N)} has **L′_min + 1 ≥ N₂** (L′_min the least cube side covering ℤ/N by the box sums of a′).
+Hence no function of the Frobenius data of q in the fields K_m, m ≤ M, certifies L_min(q) ≤ L at any q whose M-rough part
+N₂(q) exceeds L + 1; in particular at any q with a prime factor ℓ | q − 1, ℓ > max(M, L + 1).
+*Proof.* Pick s₀ ∈ S. Choose a′ ≡ a (mod N₁), a′_{s₀} ≡ 1 and a′_s ≡ 0 (s ≠ s₀) (mod N₂) (CRT). a′ generates: mod each
+prime ℓ | N₁ because a does, mod ℓ | N₂ because a′_{s₀} ≡ 1. Every x ∈ Λ′ has x_{s₀} ≡ 0 (mod N₂), so y := e_{s₀}/N₂ ∈ Λ′*
+with |y|₁ = 1/N₂ < 1, i.e. 𝔻_min ≤ 1/N₂, and Prop 1.3 (lower bound; and Prop 4.1(ii) of FORCED_WINDOW) gives
+L′_min + 1 ≥ 2μ_∞(Λ′) ≥ N₂. By Prop 2.1(b) a and a′ have the same visible data. ∎
+*Reading.* The fake a′ is the extreme Prop 5.2-type degeneracy (all s ≠ s₀ are N₂-th powers) placed entirely in the
+invisible part. Prop 2.2 is a statement about information, not probability: it says that at a window with P⁺(q − 1) above
+both the Chebotarev range M and the target side L, **balance is not a Frobenius condition of manageable degree**; any proof
+must either (i) restrict to q with q − 1 being max(M, L)-smooth (§4), or (ii) bound the invisible part statistically,
+over q, without Frobenius structure (§3).
+
+**Theorem 2.3 (what GRH certifies: the visible part of balance; CONDITIONAL on GRH for the Dedekind zeta functions of
+F_m := ℚ(ζ_{8P}, √p, K_m), m ≤ M; proof at citation level, Lagarias–Odlyzko as in CAP_INTERPOLATION Thm 4.2).** Let
+P := ∏S (S = odd primes ≤ y, k = |S|), p ∤ 8P prime, x large, 0 < ε ≤ ½ and M ≥ 3 with
+`  (★)  Σ_{m≤M odd} φ(m)(1 + 2εm)^k  ≤  c₀ √x /(φ(8P) log²(8PpMx)).`
+Then #{q ≤ x : q ≡ 3 (8), q ≡ −p (P), (q/p) = −1, and 𝔻_S(ψ) ≥ ε for every ψ ≠ 1 of U_q of order ≤ M} ≥ (c₁ − o(1))·
+x/(φ(8P)·log x), with c₁ := ½ − Σ_{m≥3 odd} ((1 + 2εm)/m)^k (positive for k ≥ 3 when εM ≤ ¼).
+*Proof sketch.* The bad event at level m is a union of Frobenius classes C_m in Gal(F_m/ℚ) (Prop 2.1(a)) with
+|C_m| ≤ φ(m)·#{c ∈ ℤ^S : |c_s| ≤ εm} ≤ φ(m)(1 + 2εm)^k classes of size ≤ 1 times the fixed cyclotomic/√p data (q ≡ 1 (m), the
+class mod 8P, χ_p(q) = −1 — all central conditions). For odd m and S a set of primes, [K_m : ℚ(ζ_m)] = m^k (Kummer theory:
+S is independent in ℚ(ζ_m)^*/ℚ(ζ_m)^{*m} for odd m; e.g. Moree's survey, *Integers* 12A (2012), §§3–4), and F_m/ℚ(ζ_{8Pm}, √p)
+has degree m^k when √p, ζ_{8P} ∉ K_m (as in CAP_INTERPOLATION Thm 4.2: ramification at p). Lagarias–Odlyzko under GRH:
+π_C(x) = (|C|/|G|) li(x) + O((|C|/|G|)√x(log d_F + n_F log x)), log d_F ≤ n_F log(n_F·8Ppm∏S); the main term of level m is
+≤ li(x)·(1 + 2εm)^k/(m^k φ(8P)) and the total error is O(Σ_m |C_m| √x log(8PpMx)) — absorbed by (★). Subtract from the
+GRH count ½ li(x)/φ(8P)(1 + o(1)) of the class (FORCED_WINDOW Thm 4.3). ∎
+**Corollary 2.4 (the visible part is the index condition below N^{1/k}; PROVED + arithmetic).** (a) If εM < 1 the
+condition of Thm 2.3 at order ≤ M is exactly "no prime ℓ ≤ M, ℓ | N, with all s ∈ S ℓ-th powers" (a character of order
+d ≤ M has angles in (1/d)ℤ, so 𝔻 < ε < 1/d forces 𝔻 = 0; Cor 1.4(c)). (b) Balance at the random-lattice scale needs
+ε ≍ N^{−1/k}k^{−C} (Cor 1.4(b)); (★) then allows M up to ≈ (x^{3/2}/(3^k φ(8P)))^{1/(k+2)} = x^{3/(2k+4) + o(1)} when
+P = x^{o(1)}, and only M ≈ x^{1/k}·(√x/P)^{O(1/k)} at P ≈ √x. So Theorem 2.3 controls characters of order ≤ x^{O(1/k)},
+a fraction ≤ x^{O(1/k)−1} of Û_q; and by Prop 2.2 it implies no bound on L_min(q) below N₂(q) − 1.
