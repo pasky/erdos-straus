@@ -89,3 +89,36 @@ moving-modulus event. So in case (c) the joint factorisation exists, but only *a
 products with non-linear cross terms). For r = 2 the fibres φ = p are affine curves; nothing here proves or refutes a
 family of this kind. The near-square case p = u² + k is not in (d): it is linear in k, so case (c)/(Theorem A) — and its
 polynomial families have square-class sterile sets ((J)55).
+
+## 3. Congruence-forced budget and the Kneser threshold (V3)
+
+Notation (window form; RT2 row II{a,e} / CAP_DOWN Lemma 1.1 at cap 0). For p ≡ 1 (4) and a window m ≡ 3 (4) with
+gcd(m, p) = 1 put K = K_m = (p + m)/4. Then **Type II at window m ⟺ ∃ a, b ≥ 1 coprime, ab | K, m | a + b**
+⟺ −1 ∈ Σ_m(K) := {∏ s^{e_s} mod m : |e_s| ≤ v_s(K)} (when gcd(K, m) = 1; positive exponents form a, negative b).
+The ET identity class of a certificate (a, b, c = (a+b)/m) is p ≡ −m (mod 4ab), with d = (p + m)/(4ab).
+
+**Lemma 3.1 (forced support pins the window; PROVED).** Let F | K be a factor forced by a congruence on the window
+(m ≡ −p mod 4F). If a certificate has ab | F, then m ≤ a + b ≤ F + 1 < 4F, so m is the least positive residue of −p
+mod 4F and the certificate is the single ET class p ≡ −m (mod 4ab), 4ab | 4F.
+*Proof.* m | a + b > 0 and a + b ≤ ab + 1 ≤ F + 1. ∎
+So a congruence-forced budget buys nothing beyond choosing one ET class: the window's freedom is used up by the forcing.
+(The classification of all "self-generated" certificates — those using only K, 2^{v₂K}, p — is z22 Prop 2.1; Lemma 3.1
+is the general-F version of its mechanism.)
+
+**Proposition 3.2 (Kneser threshold; PROVED).** Let m be prime, S the set of primes of K (all prime to m), and
+H₀ = ⟨S⟩ ≤ (ℤ/m)^×. If for every proper subgroup H < H₀
+  Σ_{s ∈ S, s ∉ H} 2v_s(K) ≥ [H₀ : H] − 1,                                                      (3.1)
+then Σ_m(K) = H₀. In particular, if (K/m) = −1 (a Jacobi-forced window, (J)64: then −1 ∈ H₀), (3.1) implies Type II at m.
+*Proof.* Write (ℤ/m)^× additively (cyclic). Σ = Σ_s A_s with A_s = {−b_sℓ_s, …, b_sℓ_s} (ℓ_s = log s, b_s = v_s(K)),
+0 ∈ Σ ⊆ H₀. Let H = Stab(Σ); suppose Σ ≠ H₀, so H ≠ H₀ (Σ is a union of H-cosets containing H). In G/H the image Σ̄ has
+trivial stabiliser, and Kneser's theorem gives |Σ̄| ≥ Σ_s |Ā_s| − (#S − 1). If ℓ_s ∉ H and 2b_s + 1 ≥ ord(ℓ̄_s), then Ā_s is
+the subgroup ⟨ℓ̄_s⟩ ≠ 0 and Σ̄ = Σ̄ + Ā_s would have non-trivial stabiliser; so for ℓ_s ∉ H, Ā_s is an injective progression
+and |Ā_s| = 2b_s + 1, while |Ā_s| = 1 for ℓ_s ∈ H. Hence |Σ̄| ≥ 1 + Σ_{s ∉ H} 2b_s ≥ [H₀ : H] by (3.1); but Σ̄ ⊊ H₀/H
+(Σ ≠ H₀ is a union of H-cosets inside H₀), so |Σ̄| ≤ [H₀ : H] − 1: contradiction. ∎
+**Corollary 3.3 (the exponential budget gap; PROVED).** (3.1) for H = {1} needs Σ_s 2v_s(K) ≥ |H₀| − 1. At a
+Jacobi-forced prime window |H₀| is even and ≥ 2·(order of a non-residue's odd part)…; in the worst case H₀ = (ℤ/m)^×
+and (3.1) needs Ω(K) ≥ (m − 2)/2, whereas Ω(K) ≤ log₂ K. Forcing Ω(K) ≥ E by a congruence on the window (F | K with
+Ω(F) = E) costs m ≥ F ≥ 2^E (Lemma 3.1 ranges) — so the structure-free route needs E ≥ (m−2)/2 ≥ (2^E − 2)/2: only
+E ≤ 2, i.e. windows m ≤ 7, i.e. Mordell's classes. A structure-free certificate at a larger window needs an
+*unforced* smooth K (a lottery: Erdős–Kac tails), or a small subgroup H₀ (s of small order mod m, which is the z22 /
+CAP_DOWN Prop 1.3 shape m | s^j ± 1, pinned by Lemma 3.1).
