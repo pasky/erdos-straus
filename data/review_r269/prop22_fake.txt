@@ -1,0 +1,13 @@
+q=3067 N=1533 N1=21 N2=73 Ltrue=18 Lfake=72 gen=True agree=True ok=True
+q=9419 N=4709 N1=17 N2=277 Ltrue=23 Lfake=276 gen=True agree=True ok=True
+q=4139 N=2069 N1=1 N2=2069 Ltrue=18 Lfake=2068 gen=True agree=True ok=True
+q=7699 N=3849 N1=3 N2=1283 Ltrue=20 Lfake=1282 gen=True agree=True ok=True
+q=9907 N=4953 N1=39 N2=127 Ltrue=26 Lfake=126 gen=True agree=True ok=True
+q=6563 N=3281 N1=17 N2=193 Ltrue=25 Lfake=192 gen=True agree=True ok=True
+q=6803 N=3401 N1=19 N2=179 Ltrue=20 Lfake=178 gen=True agree=True ok=True
+q=6803 N=3401 N1=19 N2=179 Ltrue=20 Lfake=178 gen=True agree=True ok=True
+q=7507 N=3753 N1=27 N2=139 Ltrue=18 Lfake=138 gen=True agree=True ok=True
+q=9619 N=4809 N1=21 N2=229 Ltrue=21 Lfake=228 gen=True agree=True ok=True
+q=9091 N=4545 N1=45 N2=101 Ltrue=22 Lfake=100 gen=True agree=True ok=True
+q=6691 N=3345 N1=15 N2=223 Ltrue=22 Lfake=222 gen=True agree=True ok=True
+partA: 12 samples, 0 failures
