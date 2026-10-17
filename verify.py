@@ -26542,4 +26542,51 @@ def check_gz():
 check_gz()
 
 
+def check_ha():
+    # (ha) PARITY_AUDIT (O255/R265): R265 from scratch — census in C (compiled into a tempdir): the ES-five event (a4)
+    # fails at exactly 9 primes p ≡ 1 (4) ≤ 10^6 (409, 577, 5569, ...), the window sub-event fails at 8272 primes;
+    # brute force R(409) = R(577) = R(5569) = 0; T1 odd squares no (a4) hit; Lemma 3.2 (no square hits; chi-shadow
+    # free at p ≡ 1 (8); fails at p ≡ 5 (8), e.g. (13, 5)).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "pa_census")
+        r = subprocess.run(["gcc", "-O2", "-o", exe, os.path.join(sdir, "review_pa_census.c"), "-lm"],
+                           capture_output=True, text=True)
+        assert r.returncode == 0, r.stderr[-2000:]
+        r = subprocess.run([exe, "1000000"], capture_output=True, text=True, timeout=600)
+        assert r.returncode == 0, r.stderr[-1000:]
+        out = r.stdout
+    assert "a4 failures: 409 577 5569 9601 23929 83449 102001 329617 712321" in out, out[:1000]
+    assert "#p=1(4): 39175  a4 fail: 9" in out, out[:1000]
+    assert "#p=1(840): 395  u<=2: 238   need u>=n_p: 3" in out, out[-1000:]
+    assert "windows: sub-event fails 8272, full target -1 fails 2458, max least q(sub) 141971" in out, out[-1000:]
+    with open(os.path.join(root, "logs", "review_pa_census_1e6.txt")) as f:
+        assert f.read() == out, "census differs from logs/review_pa_census_1e6.txt"
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("PARITY_AUDIT subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_pa_small.py"])
+    for s in ("R_brute 409 0", "R_brute 577 0", "R_brute 5569 0", "least u a4 at 427249 131",
+              "odd squares tested 499 a4 hits 0"):
+        assert s in out, (s, out[-1000:])
+    out = run(["review_pa_lemma32.py"])
+    assert "square hits (m<300,u<=60): [] 0" in out and "chi-shadow tests 92143 fails 0" in out, out[-1000:]
+    assert "p=5(8) counterexamples: [(13, 5)," in out, out[-1000:]
+    print(f"== (ha) PARITY_AUDIT R265: (a4) fails at 9 primes ≤ 10^6, window sub-event at 8272; R = 0 brute force at 409/577/5569; "
+          f"Lemma 3.2; T1 clean; seconds = {perf_counter() - t0:.1f}")
+
+
+check_ha()
+
+
 print("\nall checks passed")

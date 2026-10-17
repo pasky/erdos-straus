@@ -1519,6 +1519,20 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment (core tier): weak-to-strong partial, tier (d). The Deliverable-1 theorems are sharp but elementary. The obstruction is correctly scoped but classical at its core. No E-valued law with any growth is proved. Resources: one session ≈ 0.9 h, ≈ 1 CPU-hour. SHARP relayed to O257 (non-congruential lifts plus the numerator-model lab), which is outside the comparison.
    * verify.py (gz) re-runs R266's from-scratch checks.
 
+87. **Hatch H-B parity-breaking audit: no known theorem reaches the B2 divisor event at a single prime (PARITY_AUDIT.md + sources/lit2026f/ (O255); hostile review `reviews/parity-audit-review.md` (R265): no FATAL; MAJOR-1 (Remark 3.1 overstated — on the hyperbola mod 4p, x and y are free and the tie is the height-dependent target), MAJOR-2 (missed Ramaré–Walker / Szabó), MAJOR-3 (p^{1/2} is a per-box Weil benchmark, not a derived error for (★)); minors m1–m12; repaired by the author, marked (R265 repair)).**
+   * Literature table (32+ rows; 19 checked against primary sources by R265, none hallucinated). Every existence result is averaged (over n, p, moduli or residues) or ranges over free primes (Ramaré–Walker, Szabó). Pointwise results are upper bounds (Lenstra), class-blind, need intervals ≥ p^{1/2} (also under RH), or stop at the sign layer. SHARP: none.
+   * Lemma 0.1 (PROVED): for the ES-five event, min(u, v) ≤ √p + 2, so θ = 1/2 is the whole event. Lemma 2.1 (PROVED): R(p) = M(p) + E(p) with M(p) = (log p)²/8 + O(log p).
+   * Lemma 2.1′ (PROVED relative to ET Prop 1.7; R265 MAJOR-3): (u, B, C) ↦ (uBC, pBC, puC) injects into Type II, so |E(p)| ≪ p^{2/5+o(1)} with no cancellation. This is the best known pointwise bound. Weil on the hyperbola is p^{1/2+o(1)} per box and does not bound E(p) by itself. Either way the shortfall is a power of p. This corrects the quantitative reading of (J)6.
+   * Remark 3.1 (Assessment, repaired): at a single p, either the averaged variable is itself the modulus of the class condition, or, on the fixed-modulus hyperbola, the target class depends on the point's height. No known theorem handles either with error below the main term; this is B2 from the literature side.
+   * Lemma 3.2 (PROVED): (a⁴) never holds at squares. Its χ-shadow is free when (u/p) = −1 and p ≡ 1 (8), and not for p ≡ 5 (8) (p = 13, u = 5).
+   * EVIDENCE (R265 reproduced in C):
+     * (★)/(a⁴) fails at exactly 9 primes p ≡ 1 (4) ≤ 10⁶ (409, 577, 5569, …), so it is not an all-p target.
+     * The ES-five u-side event never fails for p ≡ 1 (8) ≤ 10⁶. Its least u is ≤ 17, and ≤ 2 for 89.9 % of these primes (60.3 % of p ≡ 1 (840)); there it is a pure spin event at p + 1 or p + 2.
+     * The window sub-event fails at 8272 primes.
+     * T1 clean.
+   * Assessment: H-B is not feasible with known inputs and collapses into H-A. The only lead not ruled out is a cancellation theorem on xy ≡ 1 (mod 4p) with a height-dependent target. No relay. O252's fixed-p dispersion spark falls under the same remark.
+   * verify.py (ha) re-runs R265's census (C, compiled to a tempdir) and Lemma 3.2 checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

@@ -708,3 +708,13 @@ Jiang, Wikipedia, OEIS, arXiv abstracts) and are marked as such above.
 * Brown, Ann. Math. 95 (1972); Taylor arXiv:2208.06319 §2 — ℤ/4-quadratic enhancement ((J)57).
 * Filaseta–Finch–Kozek, JNT 128 (2008); Izotov 1995; Sierpiński 1960 — covering + algebraic factorisation for Sierpiński numbers ((J)62, (J)69).
 * Mahler, Canad. J. Math. 1 (1949); Kristensen, JTNB 18 (2006); McMullen, GAFA 2010 — function-field Liouville, games ((J)71, (J)72).
+
+## Wave AA additions (O255 parity audit, PARITY_AUDIT.md; excerpts in `sources/lit2026f/`; review R265)
+* Lenstra, Math. Comp. 42 (1984) — at most 11 divisors of n in a class mod s once s > n^{1/3}. Erdős–Hall 1976 — divisors in residue classes. These are pointwise upper bounds only.
+* Shparlinski, *Modular hyperbolas*, Japan. J. Math. 7 (2012), Thm 13 — Weil box counts on xy ≡ a (m) with error m^{1/2+o(1)}. For (★) this is a per-box benchmark, not a bound for E(p) ((J)87).
+* Kerr–Shparlinski et al. (KMS 2017/2020), Blomer–Pascadi 2026, KSWX, Garaev–Karatsuba — beyond-Weil results, averaged over residues.
+* Matomäki 2016; Younis 2024 (also under RH) — pointwise short-interval results, which need length ≥ p^{1/2}. Li–Yang 2023; Assing–Blomer–Li — class-blind.
+* Ramaré–Walker, JTNB 30 (2018), arXiv:1610.05804; Szabó, arXiv:2208.05762 — products of three primes in every class mod q. This is pointwise parity breaking, but over free primes, so it does not reach the B2 event.
+* Borwein–Choi 2000 — xy + yz + zx via a class-number identity: the closest structural precedent, excluded for ES by T1 ((J)7 Thm 9.1).
+* Dyachenko arXiv:2511.07465 — the step from a lattice point to a solution is the B2 divisor event; the author's §11 concedes the general case is not proven.
+
