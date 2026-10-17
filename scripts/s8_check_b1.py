@@ -33,3 +33,19 @@ if __name__ == "__main__":
         n = int(arg)
         s1, s2 = b1_solutions(n), c1_solutions(n)
         print(n, "b=1 line:", len(s1), s1[:3], "| c=1 line:", len(s2), s2[:3])
+
+
+def line_counts_k(n, k):
+    """numerator-k analogues: b=1 line c n + a + 1 = k a c d; c=1 line n + a + b = k a b d (counts)."""
+    b1 = 0
+    for a in range(1, n + 2):
+        for d in range(max(1, -(-(n + 1) // (k * a))), (n + a + 1) // (k * a) + 1):
+            m = k * a * d - n
+            if m >= 1 and (a + 1) % m == 0:
+                b1 += 1
+    c1 = 0
+    for a in range(1, n + 2):
+        for d in range(1, (n + a) // (k * a - 1) + 1):
+            if (n + a) % (k * a * d - 1) == 0:
+                c1 += 1
+    return b1, c1
