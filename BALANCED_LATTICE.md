@@ -145,3 +145,35 @@ its possible prime factors of size x instead of probability ≈ 1/x); but the lo
 no class-blind bound can recover. Theorem 2.3 is class-sensitive but blind to characters of order > x^{O(1/k)} (Prop 2.2);
 Prop 3.1 sees all orders but no classes. **The two tools see complementary halves of the problem, and the extremal character
 (order ≍ N, §6) falls in the half that only class-blind tools see.**
+
+## 4. The exact missing input, and a conditional (log₂p)^{O(1)} cap from GRH + an upper-bound equidistribution hypothesis
+
+**Hypothesis EQ (upper-bound equidistribution of pretentious primes at the forcing modulus).** There are absolute C, A such
+that for all large x, every y with P := ∏_{3≤s≤y} s ≤ x^{1/2}, every ε ∈ (0, 1) and every reduced class a mod 8P,
+`  #{q ∈ (x/2, x] ∩ Bad₁(ε) : q ≡ a (8P)}  ≤  (C/φ(8P))·#{q ∈ (x/2, x] ∩ Bad₁(ε)}  +  x^{1/2}(log x)^A.`
+EQ involves no p: it says that the primes at which some character of large order is ε-pretentious to 1 on S do not
+over-concentrate (beyond a constant factor and a square-root error) in any class modulo the product of S itself. It is an
+*upper-bound* statement (Brun–Titchmarsh/Bombieri–Vinogradov shape at a single modulus ≈ √x), much weaker in form than
+Hypothesis W (an existence statement in the p-dependent class −p mod P with χ_p(q) = −1, at a near-optimal L).
+
+**Theorem 4.1 (CONDITIONAL on GRH + EQ; PROVED relative to them).** Assume GRH for Dirichlet L-functions and for the Dedekind
+zeta functions of ℚ(ζ_{8Pℓ}, √p, S^{1/ℓ}) (ℓ prime), and Hypothesis EQ. Then for every prime p ≥ p₀,
+`  e*(p) ≤ (log₂ p)^{13/2 + o(1)}.`
+*Proof.* p ≢ 1 (8): e* = 0 (classical, as in FORCED_WINDOW). Let p ≡ 1 (8), y := log₂p·log₃p, S = odd primes ≤ y, k = |S|,
+P = ∏S, x := C₀φ(8P)² log⁴ p (C₀ large). Then log P = (1 + o(1))y, k = (1 + o(1))y/log y, log x = (2 + o(1))y.
+*Good class count (GRH):* G := #{q ∈ (x/2, x] : q ≡ 3 (8), q ≡ −p (P), (q/p) = −1} ≥ c₂ x/(φ(8P) log x) (FORCED_WINDOW
+Thm 4.3, dyadic version). *Bad₂:* by Thm 2.3/Cor 2.4(a) with z := 1/ε (ε fixed below), the q in the class with some prime
+ℓ ≤ z, ℓ | N, S ⊂ (F_q^*)^ℓ number ≤ (li(x)/φ(8P))Σ_{ℓ≥3} ℓ^{−k}(ℓ − 1)^{−1} + O(z√x log(8Ppx)) ≤ G/4 for k ≥ 3, provided
+z ≤ c√x/(φ(8P) log²(8Ppx)) = c′ log² p/log²(px) — true as z = y^{O(1)} below. *Bad₁ (EQ + Prop 3.1):* the class contains
+≤ (C/φ(8P))·48(6xε)^{(k+1)/(k−1)} log P/log(x/2) + x^{1/2}(log x)^A elements of Bad₁(ε). The error term is ≤ G/8 since
+√x/φ(8P) ≍ log² p ≫ (log x)^{A+1} = y^{O(1)}. The main term is ≤ G/8 for
+`  ε := (1/6x)·(c₃ x/(C log P))^{(k−1)/(k+1)},   i.e.  1/ε = 6x^{2/(k+1)}(C log P/c₃)^{(k−1)/(k+1)} ≤ y^{4+o(1)}·y`
+(the factor log P/log(x/2) of Prop 3.1 against 1/log x in G leaves log P; x^{2/(k+1)} = exp((4 + o(1)) log y)). So some q in
+the class lies outside Bad₁(ε) ∪ Bad₂(1/ε); by Prop 3.2 𝔻_min(q) ≥ ε > 0, so H = U_q (Cor 1.4(c)) and
+μ_∞(Λ_q) ≤ k^{3/2}/(2ε) (Prop 1.3): q is (y, L)-balanced (Def 4.2 of FORCED_WINDOW) with L := ⌈k^{3/2}/ε⌉ ≤ y^{5+3/2+o(1)}.
+FORCED_WINDOW Thm 4.3 (with this q in place of the one supplied by W) gives e*(p) ≤ L − 1 ≤ y^{13/2+o(1)} = (log₂p)^{13/2+o(1)}. ∎
+*Remarks.* (1) The exponent is not optimised: 4 = 2·2 comes from x^{2/(k+1)} (Prop 3.1 controls the dual only at the square
+of the random-lattice scale x^{1/k}) and log x ≈ 2 log P; 1 from log P; 3/2 from transference. Under W with the random-model
+L one gets 2 + o(1) (FORCED_WINDOW Cor 4.4). (2) Where each input is used: GRH — the class count with χ_p(q) = −1, and the
+index (Chebotarev-visible) part Bad₂; EQ — only to transfer the class-blind Prop 3.1 into the class −p mod 8P. (3) EQ is
+needed only for the single modulus 8P(y) with y ≍ log₂p·log₃p, x ≍ P² log⁴ p, and only up to a constant factor.
