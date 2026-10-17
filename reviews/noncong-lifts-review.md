@@ -44,3 +44,29 @@ congruences and an explicit CRT representative x mod H with 128-bit products —
 
 **Verdict: SOUND.** The proof is correct and complete; the mechanism is indeed the size inequality (Case A,
 a ≤ Lg/2 branch for II; Case A, 2a > Lg/2 for I — the latter needs k ≥ 8 *and* k even, not b₀(k − 4/g) ≤ 3).
+
+### Complete-level dictionary (§2.4) and "every Mordell-class prime is a square mod every 7-smooth level"
+
+**Definition used (made precise).** k | L; L is *complete* iff every unit class r mod L that is not a square mod L
+lies in some witness class with H = kab | L, i.e. r ≡ −e (mod H) (II) or re ≡ −1 (mod H) (I), e = (a + b)/c, c | a + b.
+(d is irrelevant: every prime in such a class gives d = N/H ≥ 1.) This is what the text says; fine.
+
+**From-scratch recomputation** (`scripts/review_r267_complete.py`, own covering enumeration over all (a, b, c) with
+kab | L, own square test, numpy masks; T1 asserted: 0 covered square unit classes at every level):
+* k = 4, all L = 4m ≤ 1600: 59 complete levels, **all 7-smooth** ✓.
+* k = 4, all 7-smooth L ≤ 6000: complete ⟺ (3 | L ⟹ 8 | L) ∧ (7 | L ⟹ 24 | L), **0 rule violations** ✓
+  (840 complete — Mordell).
+* k = 8 (L ≤ 3200) and k = 12 (L ≤ 4800): **no complete level** ✓.
+* Deficits at L = 105k / 210k: k = 8: 96/52; 12: 178/213; 16: 276/322; 20: 346/460; 24: 464/699 — **identical** to the text.
+
+**"If" direction (PROVED claim).** Re-derived: for a rule-satisfying 7-smooth L put L₀ = 2^{min(v₂L,3)}·rad_odd(L); if
+v₂(L) = 2 the rule forces 3, 7 ∤ L, so L₀ ∈ {4, 20} with v₂(L₀) = v₂(L); otherwise 8 | L₀. In both cases a unit is a
+square mod L iff it is a square mod L₀ (odd ℓ: square mod ℓ^v ⟺ mod ℓ; 2: mod 4 when v₂ = 2 on both sides, ≡ 1 (8)
+when v ≥ 3), and covering classes mod H | L₀ pull back. The base levels satisfying the rule are complete by
+computation (my run includes all 16 levels 4s, 8s, s | 105). **SOUND.**
+
+**Mordell-class squareness.** 𝓜 = {1, 121, 169, 289, 361, 529} mod 840 = squares of 1, 11, 13, 17, 19, 23; p ∈ 𝓜 ⟹
+p ≡ 1 (8) and (p/3) = (p/5) = (p/7) = 1 ⟹ p is a square mod every 2^a3^b5^c7^d by Hensel. Trivially **SOUND**.
+
+**Verdict: SOUND (CERTIFIED parts reproduced; "if" PROVED).** Defect D4 (logic of "k = 8 has none at all, because
+already ℓ = 3, 5, 7 carry uncovered points").
