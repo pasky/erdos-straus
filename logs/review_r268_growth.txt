@@ -1,0 +1,6 @@
+p ~ 1.5e3: n=300 mean 7.46 (SE 0.20); mean/log p 1.020; mean/log^2 p 0.1394
+p ~ 1.5e4: n=300 mean 13.48 (SE 0.25); mean/log p 1.402; mean/log^2 p 0.1458
+p ~ 1.5e5: n=300 mean 21.29 (SE 0.36); mean/log p 1.786; mean/log^2 p 0.1499
+p ~ 1.5e6: n=300 mean 29.70 (SE 0.48); mean/log p 2.089; mean/log^2 p 0.1469
+p ~ 1.5e7: n=300 mean 39.76 (SE 0.67); mean/log p 2.406; mean/log^2 p 0.1456
+p ~ 1.5e8: n=80 mean 51.00 (SE 1.47); mean/log p 2.709; mean/log^2 p 0.1439

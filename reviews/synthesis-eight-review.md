@@ -142,3 +142,16 @@ Own code `scripts/review_r268_proximity.py`: 1292 primes p ≡ 1 (4) ≤ 10⁸ w
 factorisations correct. (2) b = 1 means 16.00 / 13.70 / 11.32 (SE 0.16 / 0.23 / 0.32) — match. (3) mod-840 classes: class 1
 19.63 ± 0.25 vs 20.25–20.89 (each ± 0.25; pooled 20.59 ± 0.11): z ≈ 3.5 against the pool, 1.7–3.6 pairwise. The author's
 "standard errors not computed" can now be replaced by these numbers (m11). "No mechanism claimed" — correct.
+
+### Claim E addendum (parent note: R267 D-M1 on NONCONG_LIFTS Thm 2.6)
+§8 and memo `s8_numerator_size_screen` DO rely on the over-read version. The memo opens "O257 … separates k = 4 from every
+4 | k ≥ 8 at the point x_{ℓ,2} by the size inequality", and §8 builds its step-form conclusion ("(J)57's 2-adic bit law and
+O257's size inequality are two readings of one step — 'd may be odd'"; "a proof must spend its 4-specific step on v₂ of the
+cofactor d") on that separation. R267 (reviews/noncong-lifts-review.md, D-M1) showed Thm 2.6 holds for FIXED-SLICE classes
+only; with ET's one-parameter polynomial families k = 8 covers x_{3,2} (II-3 family, n ≡ 281 mod 504) and x_{5,2}. Reviewer
+spot check (`logs/review_r268_k8_281.txt`, own enumerator): 8/n is solvable for every n = 281 + 504j, j = 0 … 11, with least
+x = (n + 7)/8 throughout — a visible family through the residue of x_{3,2} mod 504 (281 ≡ 2 (9), ≡ 1 (8), ≡ 1 (7)). My own
+x_{ℓ,r} check (`review_r268_xlr.py`) is likewise slice-only. → **defect M3**: §8 and the memo must state that the separation
+and the "4-specific step = v₂(d)" reading are fixed-slice statements; at the level of profinite points, k = 8 is NOT separated
+from k = 4 at x_{3,2}, x_{5,2}, so the "one step, two readings" conclusion is unsupported beyond slices. The PROVED dictionary
+((k/4) | d) is unaffected.
