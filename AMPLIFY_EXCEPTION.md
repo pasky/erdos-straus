@@ -131,11 +131,11 @@ w ∈ W(q), H(w) | p₀ − q or H(w) | p₀q − 1") has F(p₀) = E ∪ {q ∈
 tautology E ⊆ E. With an input-only F(p₀), proving it means proving that every soluble q ∈ F(p₀) has a witness
 whose modulus H(w) divides p₀ − q or p₀q − 1 — a divisor event with modulus part of the solution (B2), and, by
 Prop 2.1(a), a proof of ES(p₀) as soon as one q ∈ F(p₀) is known to be soluble.
-*Proof.* (a) Type II: 4ab d = q + e with H = 4ab | q − p gives 4ab d′ = p + e with d′ = d − (q−p)/H; positivity of
-d′ is the only asymmetry, and it holds in the direction p > q … (for p < q, d′ > 0 iff p + e > 0, always). So the
-relation is symmetric in the existence of slice witnesses. Type I analogous with qe + 1, and the switched form
-uses p(qe+1) − (p + e)·… : if H | pq − 1 then pe + … (see core §1). An exceptional p has no slice at all, hence no
-edge. (b) As stated. ∎
+*Proof.* (a) Type II at q: Hd = q + e; if H | q − p then H | p + e and d′ = (p + e)/H ≥ 1. Type I at q: Hd = qe + 1;
+H | q − p gives H | pe + 1. Switched: if H | pq − 1, then p(qe + 1) ≡ e + p and p(q + e) ≡ 1 + pe (mod H), so Type I at
+q gives Type II at p and vice versa; d′ is automatically a positive integer. Each implication is reversible (the
+conditions are symmetric in p, q), so q has a witness in slice (a,b,c) compatible with p iff p has one compatible
+with q. An exceptional p has no witness in any slice, hence no edge. (b) As stated. ∎
 
 **Theorem 2.3 (squares refute primality-blind ET-valued laws; PROVED).** Let 𝓛 be a law (either route) whose proof
 produces, from witnesses at the members of F(n) (resp. Q(n)), an Elsholtz–Tao Type I or II witness at n, and which
@@ -168,12 +168,12 @@ schemes do not guarantee this.
 For k/n = 1/x + 1/y + 1/z the same parametrisation, transports and divisor closure hold with 4 replaced by k, and
 genuine prime exceptions exist (k = 8: E_8 ∩ primes < 2000 = {11, 17, 131, 241}; k = 12: 15 primes up to 1873;
 counts for 8 ≤ k ≤ 25 in the script log). In these models, computed exactly:
-(a) the square law fails: 8/11 has no solution, 8/121 = 1/18 + 1/99 + 1/2178; similar for every exception of
-k = 8–13 tested except (k, p) = (14, 29);
+(a) the square law fails: 8/11 has no solution, 8/121 = 1/18 + 1/99 + 1/2178; p² is soluble for every exceptional p < 400 with
+8 ≤ k ≤ 14 except (k, p) = (14, 29);
 (b) the recombination law fails: e.g. k = 10, p = 61: 10/61 has no solution while every prime factor > k of
 (61² − 1)/4 = 930 (namely 31) is soluble; failures for every k ∈ [10, 25] (the primes ≤ k are trivially exceptional
 for k ≥ 7, so they are excluded from Q); the {(p−1)/2, (p+1)/2} law fails for every k ∈ [8, 25] except 9 (e.g. 8/131);
-(c) exceptions are isolated: for k = 8 the four exceptional primes < 2000 have no exceptional successor beyond 241
+(c) exceptions are isolated: for k = 8 the four exceptional primes 3 < p < 2000 have no exceptional successor beyond 241
 up to 2000; growth laws of Thm 1.3 type are false in these models.
 Consequence: any proof of an amplification or recombination law must use the numerator 4 specifically (the
 same point as numerator blindness (J)41); a k-uniform argument is refuted by a finite computation.
