@@ -7,6 +7,8 @@ exactly the window form of the b = 1 line (m = 3 + 4t, K_m = k + 1 + t). López 
 *A Complete Congruence System for the Erdős–Straus Conjecture*, arXiv:2404.01508, §2: "Type A … given when a = 1 or b = 1"
 (ET parameters); 193, 2521 are the only primes < 9000 without Type A; "66529 is another case"; conjecture "Type A or Type B"
 checked to 104 729. Excerpts: `sources/lit2026f/Lopez-2022.md`, `Lopez-2024.md`, summary `sources/lit2026f/SUMMARY.md`.
+Same paper: Thm 7 = the divisor form (p ≡ −4d mod 4dn − 1), Thm 4 Type B = the c = 1 line (★), Conjecture 1 = Type A ∪ Type B
+always holds (`sources/lit2026f/Lopez-2024-TypeB-Thm7.md`); Gardes' thesis lists 2521, 66529 (per R268 M4).
 Not found: a complete exception list beyond 9000, a finiteness conjecture, or a heuristic.
 **Barrier screen.** n/a (literature).
 **Cheap numerics.** Our census (B1_LINE §2) extends López to all p ≤ 10¹⁰ and to smooth-(p − 1) primes ≤ 10¹⁵.
