@@ -137,4 +137,60 @@ T1 control (`review_r264_t1.py`): 499 odd squares, windows ≤ 200, no cap-0 cer
 
 ## Defects
 
-(numbered; FATAL / MAJOR / MINOR)
+No FATAL and no MAJOR defects found. All PROVED claims re-derived; all headline numerics reproduced from scratch.
+
+**D1 (MINOR, notation; §0 Notation and Lemma 1.1).** Lemma 1.1 says "K odd (q ≡ 3 (8))"; this needs the standing p ≡ 1 (8).
+*Repair:* "K odd (q ≡ 3 (8), p ≡ 1 (8))".
+
+**D2 (MINOR, Prop 2.2 wording).** "needs only s ∥ K" — s ∥ K is *sufficient* (any odd b_s ≤ j also works, with smaller cap
+(j − b_s)/2). *Repair:* "s ∥ K suffices".
+
+**D3 (MINOR, Thm 3.2 last parenthetical; also Cor 3.3 "m ≍ h").** "smaller than the CRT window m itself whenever m ≥ h, which
+happens for a positive proportion of residue classes of p mod 4P(y)": the least CRT window is (−p mod 4P(y)) < 4P(y), so when
+h ≥ 4P(y) (which happens, since only P(y) ≤ h < P(y)·y⁺ is known) NO class has m ≥ h (`review_r264_misc.py` (3): proportion 0
+at h = P(y)y⁺ − 1, 0.75 at h = P(y)). *Repair:* "m ≥ P(y) for ≈ 3/4 of the classes of p mod 4P(y) (m is the least positive
+residue of −p mod 4P(y)); the cap-0 box 3^{π(y)} = h^{o(1)} is smaller than m whenever m ≥ h^ε, i.e. for 1 − o(1) of the
+classes". In Cor 3.3 replace "m ≍ h" by "m ≥ h^{1−o(1)}"; the shortfall factor is unchanged.
+
+**D4 (MINOR, §0 (F2), Reading after Cor 3.3, z24_crt_shortfall).** "the deterministic covering scale is cap ≍ log h" / "Cap ≍
+log log p is exactly where box size meets window size": Thm 3.2 gives log(e + 3) ≥ (1 + o(1)) log log h, i.e.
+e = (log h)^{1+o(1)}, not e ≍ log h. *Repair:* write "cap = (log h)^{1+o(1)}" (resp. "(log log p)^{1+o(1)}").
+
+**D5 (MINOR, notation clash, Thm 4.3).** "ES^{(y,L−1)} solution" uses y in the EXPONENT_CAP sense (the solution variable,
+rad r | y) while §4 uses y for the prime bound of S(y). *Repair:* "an ES^{(·,L−1)} solution (EXPONENT_CAP Def 1.1 normalisation)"
+or rename the prime bound Y.
+
+**D6 (MINOR, Def 4.2 / Hypothesis W is stronger than needed).** The proof of Thm 4.3 uses only the discrete covering
+W_L = U_q (box ∏[0, L]); μ_L ≤ 1 is merely sufficient for it (Prop 4.1(i)) and by Prop 4.1(ii) loses up to a factor 2 in L.
+*Repair (optional):* define (y, L)-balanced as "W_L = U_q" (this is exactly what §6's L_min tests), or note that W can be
+weakened so.
+
+**D7 (MINOR, Cor 4.4 quantifier).** "L ≍ ((q−1)/2)^{1/k}·(log k)^{O(1)}" makes L depend on q, but W(y, L) fixes L = L(p)
+before q is chosen. *Repair:* "L(p) := ⌈(X(p)/2)^{1/k}(log k)^{A}⌉ for a fixed A" (since q ≤ X(p) this is at least the
+random-lattice size for every candidate q).
+
+**D8 (MINOR, overclaim in wording; §4 Reading after Cor 4.4).** "this is why GRH alone reaches only exp(O(√(log₂p log₃p)))
+… and not (log₂p)^{2+o(1)}" reads as a barrier for GRH. *Repair:* "this is why the GRH method of CAP_INTERPOLATION Thm 4.2(b)
+(global count of short-relation primes against the class main term) reaches only exp(O(√(log₂p log₃p))); no GRH barrier
+below that is claimed."
+
+**D9 (MINOR, Prop 5.2 proof, discriminant).** "log d_L ≤ [L:ℚ]·log(4ℓ∏S)·O(1)" is false as written: L/ℚ is wildly ramified
+at ℓ (and 2) and the standard bound is log d_L ≤ n_L(Σ_{p ram} log p + log n_L) (Hensel/Serre), whose n_L log n_L term is
+n_L·π(y) log ℓ ≫ n_L(y + log ℓ) for large ℓ. The conclusion survives with c_ℓ depending on ℓ: log log d_L = π(y) log ℓ +
+O_ℓ(log y). Also cite the least-prime bound as Lagarias–Montgomery–Odlyzko 1979 (explicit: Bach–Sorenson 1996), and note the
+ℓ = 2 analogue is Montgomery's GRH lower bound for n₂(q). *Repair:* replace the line accordingly.
+
+**D10 (MINOR, wording; §5 "forcing–generation gap", (F5)).** "generation of U_q by primes ≤ y holds for all q only from
+y ≍ log² q on" — generation is *known* (GRH, Bach) from ≍ log² q; that it fails between c log q log log q and log² q is not
+shown. *Repair:* "is known for all q (GRH, Bach) from y ≍ log² q on".
+
+**D11 (MINOR, §5 screen).** "Konyagin–Shparlinski type 'every residue is a short product of small primes'" cites no specific
+result; and Soundararajan 2008, Harper 2012, Matomäki–Radziwiłł, Friedlander–Granville, BGK, Shkredov, Bach, Erdős–Rényi,
+Montgomery–Vaughan are recalled, not checked (the AGENT_REPORT says so for some, not all). *Repair:* give exact references or
+mark the bullet "(recalled; not re-checked)"; the conclusions are structural and unaffected.
+
+**D12 (MINOR, §6 certificate statistics depend on the recorded certificate).** "max |δ_s| = 1 in 18 498/20 513", "support 1 in
+11 807", "All primes: max|δ| = 1 in 97 %, support 1 in 92 %" are statistics of the certificate the script happens to record
+(not specified). Minimising over all certificates at m₀ (from scratch): max|δ| ≤ 1 in 98.5 % (hard) / 99.9 % (all); support 1 in
+62.8 % / 92.9 %; support ≤ 2 in 96.9 % / 99.8 %. *Repair:* state the selection rule, or quote the existence figures (which
+strengthen the claim "the budget is not the mechanism").
