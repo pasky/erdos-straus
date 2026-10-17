@@ -26464,4 +26464,42 @@ def check_gx():
 check_gx()
 
 
+def check_gy():
+    # (gy) FORCED_WINDOW (O252/R264): R264 from scratch — every prime p ≡ 1 (4) ≤ 10^7 has a cap-0 window ≤ 107 (record
+    # p = 8803369), forced windows with tau(K^2) >= 4m fail 5 of 2133 times (EVIDENCE); Prop 2.1 (cap-0 certificates =
+    # least-residue events, three window sets coincide for p ≤ 2·10^4) and Lemma 1.1 (parity certificates rebuilt; sufficient
+    # only); Thm 4.3 mechanics at y = 7 (cap ≤ L_min − 1, exact rebuilds); T1 odd squares; Thm 3.2 CRT-window proportions (D3).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("FORCED_WINDOW subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r264_leastwin.py", "10000000", "400", "500"])
+    assert "primes p≡1(4) checked: 332180; exact rebuilds: 665; max m0 = 107 at p = 8803369" in out, out[:1500]
+    assert "m0=3: 296430 (forced p≡2(3): 166169, unforced: 130261)" in out, out[:1500]
+    assert "forced windows with tau(K^2) >= 4m: 2133 tries, 5 failures" in out, out[-1500:]
+    out = run(["review_r264_prop21.py", "20000", "300"])
+    assert "Prop 2.1: A==B==C for all p≡1(4) ≤ 20000; 50958 certificates checked forward" in out, out[:1500]
+    assert "Lemma 1.1: 4580 (p,q) parity certificates rebuilt exactly; 133 with parity-cap>0 but cap(q)=0" in out, out[-1500:]
+    out = run(["review_r264_thm43.py", "300000", "20000", "1"])
+    assert "4356 (p, q) pairs" in out and "all certificates have cap ≤ L_min(q) - 1 and exact ES rebuild" in out, out[-1500:]
+    out = run(["review_r264_t1.py", "998001", "200"])
+    assert "odd squares 1 < a^2 <= 998001: 499; windows <= 200; hits: 0" in out, out[-1500:]
+    out = run(["review_r264_misc.py"])
+    assert "y=13: P=30030, h=30030: fraction of classes with least CRT window >= h: 0.750" in out, out[-1500:]
+    assert "y=13: P=30030, h=510509: fraction of classes with least CRT window >= h: 0.000" in out, out[-1500:]
+    print(f"== (gy) FORCED_WINDOW R264: least cap-0 window ≤ 107 for p ≤ 10^7 (record 8803369); Prop 2.1 least-residue form; "
+          f"Lemma 1.1 parity certificates; Thm 4.3 mechanics y = 7; T1 clean; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gy()
+
+
 print("\nall checks passed")
