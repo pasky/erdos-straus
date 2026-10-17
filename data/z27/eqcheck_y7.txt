@@ -1,0 +1,7 @@
+y 7 k 3 8P 840 #q 19609 #classes 48
+all  t=0.3  #bad   653 (0.033)  per-class mean 13.60 max 26  chi2 213.9 (df 47)  perm-null chi2 median 45.4  p=0.003
+all  t=0.5  #bad  1670 (0.085)  per-class mean 34.79 max 51  chi2 96.1 (df 47)  perm-null chi2 median 43.2  p=0.003
+all  t=0.7  #bad  3848 (0.196)  per-class mean 80.17 max 101  chi2 64.7 (df 47)  perm-null chi2 median 37.7  p=0.007
+Bad1 t=0.3  #bad   250 (0.013)  per-class mean 5.21 max 13  chi2 49.5 (df 47)  perm-null chi2 median 46.1  p=0.326
+Bad1 t=0.5  #bad  1272 (0.065)  per-class mean 26.50 max 37  chi2 28.0 (df 47)  perm-null chi2 median 43.1  p=0.973
+Bad1 t=0.7  #bad  3463 (0.177)  per-class mean 72.15 max 88  chi2 29.8 (df 47)  perm-null chi2 median 37.9  p=0.864
