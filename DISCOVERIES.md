@@ -1558,6 +1558,24 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Relay O259 (b1-line) was launched on the SHARP census before M4 surfaced, and was re-scoped by the parent after M4.
    * verify.py (hc) re-runs R268's independent 10⁸ census and checks.
 
+90. **The b = 1 line (López Type A) to 10¹¹: still exactly three failures; Dickson-conditional freezing of small shifts (B1_LINE.md + BRAINSTORM/z29_*.md (O259, relay of (J)89, re-scoped after R268 M4); hostile review `reviews/b1-line-review.md` (R270): no FATAL, every computational headline independently reproduced with a different algorithm (full rerun to 10¹¹). MAJOR M1: the census records lie essentially outside Prop 4.1's hypothesis, so Prop 4.1 is a model mechanism and not their cause. MAJOR M2: the overdispersion D grows with p (2.2 → 3.6 over 10⁶–10¹²), so "D = O(1)" is replaced by an explicit hypothesis. Minors m1–m8. Repaired by the reviewer, marked (R270 repair).)**
+   * Census (CERTIFIED by two independent engines, z29_census.c and R270's sieve plus exhaustive fallback):
+     * The b = 1 line fails among the 2 059 020 280 primes p ≡ 1 (4) ≤ 10¹¹ exactly at 193, 2521 and 66529. López had checked to 104 729; (J)89 reached 10⁸.
+     * (★) (López Type B) fails exactly at the 14 known primes ≤ 10¹⁰.
+     * Among the 216 882 primes ≤ 10¹⁵ with 19-smooth p − 1 there are no further b = 1 failures (R270 spot-checked).
+     * π(10¹¹) = 4 118 054 813 was recovered as a by-product check.
+   * Lemma 1.1 (PROVED): mutual-shift form. b = 1 ⟺ s t | p + s + t with 4 | st and min(s, t) ≤ 1 + √(p + 1), so each decision is finite and complete.
+   * Lemma 1.2 / Prop 1.4 (PROVED; the b = 1 half of Prop 1.4 is López's p ≢ 1 (24) result): a pair genus law. Its 2-adic escape acts only on trivial classes, and (★) shares it.
+   * Prop 4.1 (PROVED) and Thm 4.2 (CONDITIONAL on Dickson):
+     * If M_σ | p − 1, every shift s ≤ σ is frozen.
+     * Admissible Dickson forms then make the least shift unbounded.
+     * This is a model mechanism for the smooth-(p − 1) pattern of the failures. It is not literally their cause (R270 M1), and it cannot reach the full ≍ √p shifts.
+   * Lemma 3.1 (PROVED): (★)'s incidences pair up under a swap, so b = 1 has twice as many distinct trials. This explains the observed robustness ratio N₁/N_{c1} = 1.67 → 1.85.
+   * §3 negative-binomial heuristic (Assessment) and Conjecture 3.5 (exactly three b = 1 failures; CONJECTURE). With R270's sensitivity analysis the predicted number of failures beyond 10⁸ is ≲ 10⁻³ under the stated overdispersion hypothesis.
+   * §5 (PROVED, negative): χ₋₄(p + 4d) = +1 always, so the total product forces no level. A level needs a Landau-type prime ≡ 3 (4) event (pure B2).
+   * Assessment: closes the b = 1 thread as EVIDENCE. No relay.
+   * verify.py (hd) re-runs R270's independent engine to 10⁹ (C, compiled to a tempdir) plus brute-force and character checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

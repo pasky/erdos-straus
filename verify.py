@@ -26676,4 +26676,44 @@ def check_hc():
 check_hc()
 
 
+def check_hd():
+    # (hd) B1_LINE (O259/R270): R270's independent engine (C, compiled to a tempdir; residue sieve + exhaustive fallback over
+    # s ≤ 1 + sqrt(p + 1)): among primes p ≡ 1 (4) ≤ 10^9 the b = 1 line (López Type A) fails exactly at 193, 2521, 66529
+    # (R270 also reran to 10^11: no further failure — EVIDENCE, not re-run here); brute-force agreement below 400; the
+    # character identities of §5 (chi_{-4}(p + 4d) = +1).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "b1eng")
+        r = subprocess.run(["gcc", "-O2", "-o", exe, os.path.join(sdir, "review_r270_engine.c"), "-lm"],
+                           capture_output=True, text=True)
+        assert r.returncode == 0, r.stderr[-2000:]
+        r = subprocess.run([exe, "1", "1000000000", "300000"], capture_output=True, text=True, timeout=900)
+        assert r.returncode == 0, r.stderr[-1000:]
+        out = r.stdout
+    fails = sorted(int(l.split()[1]) for l in out.split("\n") if l.startswith("FAIL "))
+    assert fails == [193, 2521, 66529], out[-1500:]
+    assert "range [1,1000000000] L=300000 primes==1(4): 25423491 fallback: 38 failures: 3 primes==3(4): 25424042" in out, out[-800:]
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("B1_LINE subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r270_checks.py", "brute"])
+    assert "brute: primes p=1(4) < 400 checked; mismatches: 0" in out, out[-1000:]
+    out = run(["review_r270_checks.py", "chi"])
+    assert "cases 62923 bad 0" in out, out[-1000:]
+    print(f"== (hd) B1_LINE R270: b = 1 line fails only at 193, 2521, 66529 for p ≤ 10^9 (independent engine); brute < 400; "
+          f"chi identities; seconds = {perf_counter() - t0:.1f}")
+
+
+check_hd()
+
+
 print("\nall checks passed")
