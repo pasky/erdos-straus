@@ -79,7 +79,10 @@ distribution ≥ 2 relative to the window variable** — happens to land on a di
 level < 1 (Bombieri–Vinogradov, Elliott–Halberstam, Bombieri–Friedlander–Iwaniec at level 1/2 + δ with well-factorable weights)
 touches these events, and uniform equidistribution at level ≥ 1 is false in general (Friedlander–Granville, *Ann. of Math.* 129
 (1989): failures at moduli x/(log x)^B). This is B2 (redteam-automorphic-2 Thm 2.2, "the modulus is part of the solution")
-located exactly: the modulus 4uv exceeds the size of the variable it constrains.
+located exactly: the modulus 4uv exceeds the size of the variable it constrains. *The same certificate read in p* is the
+congruence p ≡ −m (mod 4uv) with 4uv ≤ 4K ≤ p + m: level ≤ 1 + o(1) in p. So one and the same event is a level-≤-1 event when
+p varies (which is why almost-all ES theorems exist) and a level-≥-2 event when p is fixed and the window varies — B6 made
+quantitative.
 
 **Proposition 2.2 (cap ≥ 1 lowers the level; PROVED).** For a cap-e certificate the p-condition at s ∈ supp δ is
 v_s(K) ≥ |δ_s| (non-overflow) or v_s(K) ∈ {δ_s − 2i : 1 ≤ i ≤ e} ∩ ℤ_{≥1} (overflow). In particular CAP_DOWN Prop 1.3's
