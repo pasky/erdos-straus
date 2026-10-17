@@ -60,3 +60,32 @@ numbers g(u) (whose divisors are as unforced as θ itself) plus the irreducible 
 then "p mod M(u) ∈ R(u) for some u": the moving-modulus event of B2, with no joint factorisation left to exploit. Hence
 **every joint factorisation of the thin-family kind must come from an algebraic relation between p and the auxiliary**
 (§2) **or from non-polynomial data** (§4). (Theorem A is also why the (J)74/(J)75/(J)80 identities need n = c₀Y^D + k.)
+
+## 2. Tying p to the auxiliary: p = φ(u)
+
+By Theorem A a joint factorisation needs a relation between p and u. The polynomial case is p = φ(u), φ ∈ ℤ[u₁,…,u_r],
+with a polynomial ET family (A, B, C, D) ∈ ℚ[u]⁴ for n = φ(u). (This is exactly the thin-family mechanism: r = 1,
+φ = c₀Y^D + k, Y = 2^{s/D}.)
+
+**Proposition 2.1 (trichotomy for polynomial relations; PROVED, with (c) only a reduction).**
+(a) *r = 1, deg φ = D ≥ 2:* the family reaches ≪ X^{1/D} integers n ≤ X, so a set of primes of density 0 (the SG,
+cyclotomic and moving-gap families of (J)74/(J)75/(J)80 are of this kind, even thinner: Y runs over powers of 2). r = 1,
+D = 1 is a congruence class and is Theorem A with u in place of p.
+(b) *φ* (top-degree part) irreducible over ℚ:* every such family valid at one point (Type II) or at one point (Type I, (J)79
+Thm 3.1, since gr ℚ[u]/(φ) = ℚ[u]/(φ*) is a domain) lies in ℚ[φ], i.e. is an ET identity in n; it covers only non-square
+classes and misses infinitely many primes of every square class (Mordell–Schinzel), unconditionally.
+(c) *φ of degree 1 in some variable, φ = α(u′)·u_r + ψ(u′), u′ = (u₁,…,u_{r−1}), α ∉ ℚ:* the family fires at p iff for
+some u′ in its validity region α(u′) | p − ψ(u′) (with the family's remaining congruences on u′, p). This is a
+moving-modulus divisibility, i.e. the B2 event for the integers p − ψ(u′), and the side factorisations it produces are
+those of the ET identity in the variable u_r = (p − ψ(u′))/α(u′).
+*Proof.* (a) |φ(u)| ≤ X forces |u| ≪ X^{1/D}. (b) is (J)79 Thms 1.1′/3.1 with P = φ (prime with irreducible top part).
+(c) Solving for u_r: n = p is reached at (u′, u_r) iff u_r = (p − ψ(u′))/α(u′) ∈ ℤ. If α is a non-zero constant, (p
+− ψ(u′))/α is a free variable up to a congruence and Theorem A applies with u′ auxiliary: no splitting beyond re-indexed
+ET classes. ∎
+*Example (the ET variety itself).* φ = 4ab·d − a − b (c = 1), u_r = d: α = 4ab, ψ = −(a + b); the side p + 4a²d =
+(a + b)(4ad − 1) splits identically, because θ = (a, d) uses the solved variable d. Firing: 4ab | p + a + b, the classical
+moving-modulus event. So in case (c) the joint factorisation exists, but only *after* the divisor event has happened.
+(d) *Residual (no claim):* φ* reducible and φ of degree ≥ 2 in every variable (e.g. φ = u₁²u₂² + lower, or norm-like
+products with non-linear cross terms). For r = 2 the fibres φ = p are affine curves; nothing here proves or refutes a
+family of this kind. The near-square case p = u² + k is not in (d): it is linear in k, so case (c)/(Theorem A) — and its
+polynomial families have square-class sterile sets ((J)55).
