@@ -167,9 +167,10 @@ certificate only through moduli not dividing p − 1. Divisors of p^k − 1 with
 (FACTOR p^j − 1, j ≤ k₀; test divisors), so by POINTWISE_SIZE Thm C it fails for infinitely many p ≡ 1 (24),
 CONDITIONAL on H. Numerics in §6.
 
-**Remark 4.4 (p is a non-square modulo every Type II class modulus; PROVED).** For every Type II point, p is not a square
+**Remark 4.4 (p is a non-square modulo every Type II class modulus; PROVED).** For p ≡ 1 (4) and every Type II point, p is not a square
 mod 4ab; hence ord_{4ab}(p) is even (Prop 4.3 is the case k = 1). *Proof.* Lemma CT (POINTWISE_SIZE §2; in the coordinates
 (abd, acdp, bcdp) after removing g = gcd(a, b), which changes ab by g²) gives (ab/p) = −1. If p ≡ t² (mod 4ab), then
 (p/ℓ) = 1 for every odd ℓ | ab, and if 2 | ab then 8 | 4ab and p ≡ 1 (8), (2/p) = 1; with p ≡ 1 (4) Jacobi reciprocity gives
-(ab/p) = (2/p)^{v₂(ab)}(p/odd(ab)) = 1: contradiction. ∎ So the cyclotomic depth k*(p) is always even, and every bounded
-cyclotomic menu is the T1 class condition plus a divisor event on p^k − 1.
+(ab/p) = (2/p)^{v₂(ab)}(p/odd(ab)) = 1: contradiction. ∎ So the cyclotomic depth k*(p) is always even, and a bounded
+cyclotomic menu C_{≤k₀} is "4ab | p^k − 1 for some even k ≤ k₀" plus the class condition: a divisor event on the fixed
+polynomials p^k − 1.
