@@ -42,7 +42,7 @@ and c := ∏_{s∈O} s. Then (c/q) = (K/q) = −1, and for every choice of expon
 δ_s ∈ D_s(e). Hence cap(q) ≤ e as soon as the **one-sided box**
 `  W_e := {∏_{s|K} (s²)^{j_s} : 0 ≤ j_s ≤ ⌊(b_s+ε_s)/2⌋ + e} ⊂ U_q   contains   t := −c ∈ U_q.`
 *Proof.* (K/q) = ∏_{s∈O}(s/q) = (c/q); (K/q) = −1 by forcing; so (−c/q) = 1 (q ≡ 3 (4)), t ∈ U_q. If ∏(s²)^{j_s} ≡ −c then
-∏ s^{−ε_s + 2j_s} ≡ −c·c^{−1}·… — precisely ∏ s^{δ_s} = c^{−1}∏ s^{2j_s} ≡ c^{−1}(−c) = −1. Admissibility: δ_s ≡ b_s (mod 2),
+∏ s^{δ_s} = c^{−1}·∏ s^{2j_s} ≡ c^{−1}(−c) = −1. Admissibility: δ_s ≡ b_s (mod 2),
 δ_s ≥ −1 ≥ −b_s if ε_s = 1, δ_s ≥ 0 otherwise; δ_s ≤ b_s or δ_s = b_s + 2i with i ≤ e by the range of j_s. ∎
 So at a forced window **the parity is free and the whole problem is a one-sided box-membership problem in the odd-order group
 U_q, with target t = −c determined by K.** (For even K use CAP_DOWN Thm 1.2's d = 2^t·Q′²; we keep q ≡ 3 (8) for brevity.)
@@ -91,3 +91,41 @@ modulus 4s², while q can be as large as s^j + 1 — and gives cap ≤ (j − 1)
 satisfies a congruence of small modulus — a level-< 1 event, accessible to sieve/equidistribution. This is the structural
 reason why every provable pointwise or almost-all statement of the campaign is at cap ≥ 1 ((J)63, (J)64, (J)66, (J)83), and why
 "cap ≤ 1 for every p" is not "cap 0 with a small error": the two live at different levels.
+
+## 3. The size squeeze: forced budgets versus the windows they force
+
+Write F_e(n) := ∏_{s^b ∥ n} (2b + 1 + e) (an upper bound for the number of cap-e exponent vectors at any window with K = n;
+F_0(n) = τ(n²)). A window m is *covered at cap e* if every element of the coset of (ℤ/m)^* containing −1 modulo the Jacobi
+kernel is a cap-e box value — the "uniform in the target" situation that any covering / Fourier / Cauchy–Davenport argument
+certifies.
+
+**Theorem 3.1 (covering needs a box of window size, hence small windows or large caps; PROVED).**
+(a) If m is covered at cap e then F_e(K_m) ≥ φ(m)/2.
+(b) F_e(n) ≤ (e + 1)^{ω(n)} τ(n²) ≤ exp((log(3(e + 1)) + o(1))·log n/log log n), uniformly in e ≥ 0.
+(c) Hence, for p → ∞: a window m ≥ p^θ (θ > 0 fixed) can be covered at cap e only if 3(e + 1) ≥ (log p)^{θ − o(1)}; and a
+window covered at cap 0 has φ(m) ≤ 2·3^{(1+o(1)) log p/log log p} = p^{(log 3 + o(1))/log log p}.
+*Proof.* (a) The coset has φ(m)/2 elements. (b) 2b + 1 + e ≤ (2b + 1)(e + 1); ω(n) ≤ (1 + o(1)) log n/log log n and
+τ(n²) ≤ 3^{(1+o(1)) log n/log log n} (Wigert-type bound for the multiplicative function 2b + 1). (c) K_m ≤ p for m ≤ 3p
+(larger windows: log K ≤ log m, same conclusion with log m), and φ(m) ≥ m^{1−o(1)}. ∎
+*Reading.* Every window at which analytic number theory can control the factorisation of K (m ≥ p^θ: Bombieri–Vinogradov,
+smooth shifted primes, …) is uncoverable at bounded cap, and at cap 0 even at m = p^{2/log log p}. The covering regime is
+m ≤ p^{O(1/log log p)}, in practice m ≤ (log p)^{O(1)} (average τ(K²) ≍ log² p).
+
+**Theorem 3.2 (what the Chinese remainder theorem forces in a window interval; PROVED).** Let h ≥ 3 and let y be maximal with
+P(y) := ∏_{s ≤ y} s ≤ h. For every p ≡ 1 (mod 4) with p > 4h there is a window m ≤ 4h (m ≡ 3 (mod 4), gcd(m, p) = 1) with
+P(y) | K_m; then ω(K_m) ≥ π(y) = (1 + o(1)) log h/log log h and F_e(K_m) ≥ 3(e + 3)^{π(y) − 1}. Consequently the box is at
+least the window (F_e(K_m) ≥ 2h) as soon as **log(e + 3) ≥ (1 + o(1)) log log h**, while at cap 0 the CRT box
+3^{π(y)} = h^{(log 3 + o(1))/log log h} is smaller than the window by a factor h^{1 − o(1)}.
+*Proof.* Among h consecutive integers K ∈ (p/4, p/4 + h] one is ≡ 0 (mod P(y)); m := 4K − p ∈ (0, 4h], m ≡ −p ≡ 3 (mod 4);
+gcd(m, p) = gcd(4K, p) = 1 since 0 < K < p. y = (1 + o(1)) log h by the PNT. For odd s | P(y), 2b_s + 1 + e ≥ e + 3; for s = 2,
+2b + 1 ≥ 3 (no overflow at 2). ∎
+**Corollary 3.3 (the cap-0 shortfall, measured; PROVED + Assessment).** Covering at cap 0 at a window m ≤ 4h needs
+τ(K_m²) ≥ φ(m)/2, e.g. (K squarefree) ω(K_m) ≥ log(φ(m)/2)/log 3; deterministic (CRT) selection supplies only
+ω ≥ (1 + o(1)) log h/log log h. For h = (log p)^A the required ω is ≈ (A/log 3) log log p, the supplied one
+≈ A log log p/log(A log log p): **CRT falls short by the factor ≍ log₃ p / log 3.** (Assessment: in the random model the
+expected number of K in the interval with ω(K) ≥ α log log p, α = A/log 3, is (log p)^{A − (α log α − α + 1) + o(1)}
+(Sathe–Selberg/large deviations of ω), maximal ≈ (log p)² at α = 3, A = 3 log 3 — so the divisor-rich window exists
+heuristically; pointwise, no theorem about intervals of length (log p)^{O(1)} goes beyond the CRT bound.)
+*Reading.* Cap ≍ log log p is exactly where deterministic box size meets window size (Thm 3.2); this matches, from the
+constructive side, the covering barrier e ≥ (log log p)^{1−o(1)} (CAP_INTERPOLATION Prop 4.1, EXPONENT_CAP Prop 3.1(c)). Box size
+is necessary for covering, not sufficient: §4.
