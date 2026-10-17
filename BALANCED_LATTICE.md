@@ -104,6 +104,8 @@ GRH count ½ li(x)/φ(8P)(1 + o(1)) of the class (FORCED_WINDOW Thm 4.3). ∎
 **Corollary 2.4 (the visible part is the index condition below N^{1/k}; PROVED + arithmetic).** (a) If εM < 1 the
 condition of Thm 2.3 at order ≤ M is exactly "no prime ℓ ≤ M, ℓ | N, with all s ∈ S ℓ-th powers" (a character of order
 d ≤ M has angles in (1/d)ℤ, so 𝔻 < ε < 1/d forces 𝔻 = 0; Cor 1.4(c)). (b) Balance at the random-lattice scale needs
-ε ≍ N^{−1/k}k^{−C} (Cor 1.4(b)); (★) then allows M up to ≈ (x^{3/2}/(3^k φ(8P)))^{1/(k+2)} = x^{3/(2k+4) + o(1)} when
-P = x^{o(1)}, and only M ≈ x^{1/k}·(√x/P)^{O(1/k)} at P ≈ √x. So Theorem 2.3 controls characters of order ≤ x^{O(1/k)},
+ε ≍ N^{−1/k}k^{−C} (Cor 1.4(b)); then Σ_m φ(m)(1 + 2εm)^k ≍ (3εM)^k M²/(k + 2) and (★) allows at most
+`  M_max ≍ x^{1/k}·( (√x/φ(8P)) / (3^k x^{2/k} log²(8PpMx)) )^{1/(k+2)}  ≤  x^{3/(2k+4)}`
+(≤ x^{1/k}·(log p)^{O(1/k)} in the regime x ≍ φ(8P)² log⁴ p of FORCED_WINDOW Thm 4.3; below N^{1/k}, where by (a) only the
+index condition is visible, whenever √x/φ(8P) < 3^k x^{2/k}). So Theorem 2.3 controls characters of order ≤ x^{O(1/k)},
 a fraction ≤ x^{O(1/k)−1} of Û_q; and by Prop 2.2 it implies no bound on L_min(q) below N₂(q) − 1.
