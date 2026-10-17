@@ -26716,4 +26716,34 @@ def check_hd():
 check_hd()
 
 
+def check_he():
+    # (he) BALANCED_LATTICE (O256/R269): R269 from scratch — Prop 3.1 Fejér pair count (y = 7, x = 2·10^4, eps = 0.014: every
+    # proof inequality holds, 8 Bad1 primes); the exponent arithmetic of Thms 4.1/4.2 at the paper's parameters (limits 13/2,
+    # 9/2 approached slowly); Prop 2.1(b) Frobenius/discrete-log agreement on random q.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("BALANCED_LATTICE subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r269_fejer.py", "P", "7", "20000", "0.014"])
+    assert "#Bad1 in (x/2,x] = 8, step failures = 0" in out, out[-1000:]
+    assert "<=  (B+1)^2k 2B logP/log(x/2) = 5.152e+10: True" in out and "(>= #Bad1: True)" in out, out[-1000:]
+    out = run(["review_r269_exponents.py"])
+    assert "1e+06 | 1.38e+07 | 898876 | 2.289 | 8.901 (7.413, 1.488) | 5.308 | 7.479, 4.460" in out, out[-1500:]
+    out = run(["review_r269_frobenius.py", "B", "7", "1000", "100000", "20", "1"])
+    assert "partB: 20 q, mismatches 0" in out, out[-500:]
+    print(f"== (he) BALANCED_LATTICE R269: Fejér pair count inequalities; Thm 4.1/4.2 exponent arithmetic; Frobenius = discrete "
+          f"logs; seconds = {perf_counter() - t0:.1f}")
+
+
+check_he()
+
+
 print("\nall checks passed")

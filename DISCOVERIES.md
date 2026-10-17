@@ -1576,6 +1576,16 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment: closes the b = 1 thread as EVIDENCE. No relay.
    * verify.py (hd) re-runs R270's independent engine to 10⁹ (C, compiled to a tempdir) plus brute-force and character checks.
 
+91. **Balanced relation lattices: an exact character dictionary for the cap, and why GRH alone does not reach (log log p)^{O(1)} by this route (BALANCED_LATTICE.md + BRAINSTORM/z27_*.md (O256, relay of (J)85 SHARP 1); self-review (9 MAJOR repaired) plus hostile review `reviews/balanced-lattice-review.md` (R269): no FATAL, no MAJOR; 20 MINOR — citation precision for Banaszczyk/Serre/Schinzel, statement hygiene, the SHARP 2 wording (ord ψ_min = N in about 75 %, and P⁺(N) | ord in > 99 %) — the needed ones repaired by the reviewer, marked (R269 repair)).**
+   * Lemma 1.1 / Prop 1.3 / Cor 1.4 (PROVED; transference via Banaszczyk μλ₁* ≤ k/2). Λ_q(S)*/ℤ^S ≅ Û_q. The cube covering radius is ≍ 1/𝔻_min within k^{3/2}, where 𝔻_min = min_{ψ≠1} Σ_s ‖arg ψ(s²)/2π‖. So q is balanced ⟺ no nontrivial character of U_q is ℓ¹-pretentious to 1 on the k forced primes at scale N^{−1/k}.
+   * Prop 2.1 / 2.2 / 2.4 (PROVED; Prop 2.2 is scoped to abstract vectors). Frobenius data in ℚ(ζ_m, S^{1/m}), m ≤ M, sees only the discrete logs modulo the M-smooth part of q − 1. It is compatible with L_min ≥ (M-rough part) − 1. A Hooley/Kummer accounting therefore certifies essentially only the index condition (Assessment 2.3).
+   * Lemma 2.5 (CONDITIONAL on GRH) is the index obstruction count. Prop 3.1 (PROVED) is a class-blind Fejér pair count. Cor 3.3 reproduces CAP_INTERPOLATION Thm 4.2(b)'s exp(O(√(log₂p log₃p))) and is not a GRH barrier.
+   * Thm 4.1 / 4.2 (CONDITIONAL; R269 re-derived the exponents): GRH + EQ ⟹ e*(p) ≤ (log₂p)^{13/2+o(1)}, and GRH + S ⟹ (log₂p)^{9/2+o(1)}. EQ (no over-concentration of large-order pretentious primes in classes mod 8P) and S (a p-free, class-free rank-k sparsity statement) are precise and not trivially false, but neither is standard. The o(1) is O(log₄p/log₃p). R269 D20 notes that S at a slightly larger ε would give 7/2.
+   * Prop 5.1 (PROVED): balance at positive cap says nothing about cap 0 (B2).
+   * EVIDENCE (R269 reproduced the EQ tables exactly): ν = 𝔻_min N^{1/k} matches the uniform random model, and every class mod 840 has ν ≥ 1.48.
+   * Assessment. Bounded or polylog-log cap is not ES. GRH alone does not give (log₂p)^C by this route, and no standard hypothesis was found. No relay: cap results are off the ES path, as for (J)83.
+   * verify.py (he) re-runs R269's Fejér, exponent and Frobenius checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
