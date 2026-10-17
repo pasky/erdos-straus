@@ -115,10 +115,12 @@ trivial stabiliser, and Kneser's theorem gives |Σ̄| ≥ Σ_s |Ā_s| − (#S �
 the subgroup ⟨ℓ̄_s⟩ ≠ 0 and Σ̄ = Σ̄ + Ā_s would have non-trivial stabiliser; so for ℓ_s ∉ H, Ā_s is an injective progression
 and |Ā_s| = 2b_s + 1, while |Ā_s| = 1 for ℓ_s ∈ H. Hence |Σ̄| ≥ 1 + Σ_{s ∉ H} 2b_s ≥ [H₀ : H] by (3.1); but Σ̄ ⊊ H₀/H
 (Σ ≠ H₀ is a union of H-cosets inside H₀), so |Σ̄| ≤ [H₀ : H] − 1: contradiction. ∎
-**Corollary 3.3 (the exponential budget gap; PROVED).** (3.1) for H = {1} needs Σ_s 2v_s(K) ≥ |H₀| − 1. At a
-Jacobi-forced prime window |H₀| is even and ≥ 2·(order of a non-residue's odd part)…; in the worst case H₀ = (ℤ/m)^×
-and (3.1) needs Ω(K) ≥ (m − 2)/2, whereas Ω(K) ≤ log₂ K. Forcing Ω(K) ≥ E by a congruence on the window (F | K with
-Ω(F) = E) costs m ≥ F ≥ 2^E (Lemma 3.1 ranges) — so the structure-free route needs E ≥ (m−2)/2 ≥ (2^E − 2)/2: only
-E ≤ 2, i.e. windows m ≤ 7, i.e. Mordell's classes. A structure-free certificate at a larger window needs an
-*unforced* smooth K (a lottery: Erdős–Kac tails), or a small subgroup H₀ (s of small order mod m, which is the z22 /
-CAP_DOWN Prop 1.3 shape m | s^j ± 1, pinned by Lemma 3.1).
+**Corollary 3.3 (the budget gap; PROVED part + Assessment).** (PROVED) (3.1) at H = {1} needs Σ_s 2v_s(K) ≥ |H₀| − 1;
+if H₀ = (ℤ/m)^× this is 2Ω(K) ≥ m − 2, impossible once m > 2 log₂ K + 2. So structure-free certificates exist only at
+windows m = O(log p), or when every prime of K has small order mod m (|H₀| small: the z22 / CAP_DOWN Prop 1.3 shape
+m | s^j ± 1, which Lemma 3.1 pins to a congruence class).
+(Assessment) Forcing Ω(K) ≥ E by a congruence on the window (F | K, Ω(F) = E, F ≥ 2^E) puts m in the class −p mod 4F,
+whose least element is ≥ F for a proportion ≥ 3/4 of residues p mod 4F; there 2Ω(K) ≥ m − 2 would need the unforced
+cofactor to supply ≥ (2^E − 2)/2 − E prime factors. The forced budget grows like log m, the structure-free need like m:
+an exponential gap. Algebraic factorisation (thin families) closes it only because m stays fixed (11, 19, …) while the
+factor residues are functions of the family parameter mod m.
