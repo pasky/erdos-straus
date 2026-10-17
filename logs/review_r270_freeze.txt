@@ -1,0 +1,6 @@
+M_3 = 72
+M_5 = 1800
+M_7 = 176400
+M_11 = 64033200
+freeze sigma=7 M=176400: primes 2467, shift<=sigma pairs 16719, Q_s prime cases 2776, bad 0
+freeze sigma=11 M=64033200: primes 8, shift<=sigma pairs 47, Q_s prime cases 24, bad 0

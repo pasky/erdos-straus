@@ -53,3 +53,26 @@ Identification re-derived: a Type A solution (du, dv, duv) of a prime p has 4duv
 p ≢ 1 (mod 24) always has a solution of Type A" (t = 0 case of Thm (c)). That is exactly the b = 1 half of Prop 1.4, which
 B1_LINE labels "folklore-level" without citing López (defect m1). Also López 2404 notes 83449 "lacks Type B solutions" and
 has "only two Type A solutions" — a data point the author could cite; my engine confirms it (C5).
+
+### C4. (★) census "exactly the 14 known failures ≤ 10¹⁰" — SOUND
+Same engine with `R270_LINE=2`: (★) ⟺ ∃ x, y ≥ 1 with 4xy | p + x + y (PARITY_AUDIT's R(p) with N = 4C), complete with
+min ≤ (1 + √(4p + 1))/4 (from (4x − 1)(4y − 1) ≤ 4p + 1). `logs/review_r270_star_{a,b}.txt`: failures exactly 409, 577,
+5569, 9601, 23929, 83449, 102001, 329617, 712321, 1134241, 1724209, 1726201, 5212561, 8813281 (all ≤ 10⁸), none in
+(10⁸, 10¹⁰] (227 523 275 primes). Consistent with López: 23929 and 83449 lack Type B.
+
+### C5. Lemma 1.1 / Lemma 3.1 bijection vs raw ES brute force — SOUND
+`review_r270_checks.py brute`: for every prime p ≡ 1 (4) < 400, all solutions of 4/p = 1/x + 1/y + 1/z by raw rational
+search, filtered for López's shape (du, dv, duv) in any order, coincide as a set with the solutions built from the pairs
+of Lemma 1.1, and their number equals #{(c, d) : 4cd − 1 | p + 4d} (Lemma 3.1). 0 mismatches.
+Side remark: López 2404 says 83449 "has only two Type A solutions"; it has N₁ = 4 distinct ones (pairs (11, 52), (11, 1284),
+(68, 123), (79, 212); all four triples verified in exact rationals). López presumably counts differently; harmless here.
+
+### C6. Lemma 1.2 (pair genus law), Cor 1.3, Prop 1.4 — SOUND (Prop 1.4 needs a López citation, m1)
+Re-proved: S | p + T, T | p + S, gcd = 1; (p/S′) = (−T/S′); (p/T) = −(2/T)^k (S′/T); reciprocity with (T − 1)/2 odd
+gives (S′/T) = (−T/S′), so (p/S′T) = −(2/T)^k; k ≥ 3 ⇒ T ≡ −p (8) ⇒ (2/T) = (2/p); k = 2 trivial. (★), k = 1: re-derived
+the four cases (p mod 8, x′ mod 4) → y ≡ 5, 1, 1, 5 (mod 8) and (p/x′y) = −1, −1, +1, +1. ✓. Both-odd / both-even (★)
+pairs are impossible (parity of p + x + y vs 4xy). From-scratch check (`logs/review_r270_genus.txt`, p < 2·10⁴): 12 717 b = 1
+pairs, 7 857 (★) pairs, 2 147 overlaps — exactly the author's counts — 0 violations of T ≡ 3 (4), gcd = 1, (ST/p) = −1,
+(S′T/p) = −(2/p)^k, (xy/p) = −1, (x′y/p) = −(2/p)^k; free pairs occur only in (p mod 8, k mod 2) = (5, odd) (2 260 b = 1,
+3 399 (★)); 181 has the (★) pair (3, 8). Prop 1.4: 12 | p + 7, 24 | p + 11, 8 | p + 3 ✓, and no b = 1 failure off 1 (24)
+/ no (★) failure at 5 (8) for p < 2·10⁴. The b = 1 half is López 2022 (C3, m1).
