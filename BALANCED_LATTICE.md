@@ -77,40 +77,50 @@ to a unit. (c) Σ_{d≤M} φ(d) < M². ∎
 **Proposition 2.2 (indistinguishability; PROVED, elementary).** Let M ≥ 1, N = N₁N₂ as above with N₂ > 1, and let L ≥ 1.
 For every a ∈ (ℤ/N)^S with ⟨g_s⟩ = U_q there is a′ ∈ (ℤ/N)^S with a′ ≡ a (mod N₁), generating (ℤ/N), whose lattice
 Λ′ := {x : a′·x ≡ 0 (mod N)} has **L′_min + 1 ≥ N₂** (L′_min the least cube side covering ℤ/N by the box sums of a′).
-Hence no function of the Frobenius data of q in the fields K_m, m ≤ M, certifies L_min(q) ≤ L at any q whose M-rough part
-N₂(q) exceeds L + 1; in particular at any q with a prime factor ℓ | q − 1, ℓ > max(M, L + 1).
+Hence (R-O256 repair 5: an *abstract-vector* statement) no implication "visible data ⇒ L_min ≤ L" that is valid for **all
+generating vectors a ∈ (ℤ/N)^S with the given visible data** exists once N₂ > L + 1 — in particular when some prime
+ℓ | q − 1 exceeds max(M, L + 1). (Whether the fake a′ is realised as the discrete-log vector of the fixed primes S at some actual
+prime q is not addressed; an argument exploiting arithmetic constraints on which vectors occur is not excluded.)
 *Proof.* Pick s₀ ∈ S. Choose a′ ≡ a (mod N₁), a′_{s₀} ≡ 1 and a′_s ≡ 0 (s ≠ s₀) (mod N₂) (CRT). a′ generates: mod each
 prime ℓ | N₁ because a does, mod ℓ | N₂ because a′_{s₀} ≡ 1. Every x ∈ Λ′ has x_{s₀} ≡ 0 (mod N₂), so y := e_{s₀}/N₂ ∈ Λ′*
 with |y|₁ = 1/N₂ < 1, i.e. 𝔻_min ≤ 1/N₂, and Prop 1.3 (lower bound; and Prop 4.1(ii) of FORCED_WINDOW) gives
 L′_min + 1 ≥ 2μ_∞(Λ′) ≥ N₂. By Prop 2.1(b) a and a′ have the same visible data. ∎
 *Reading.* The fake a′ is the extreme Prop 5.2-type degeneracy (all s ≠ s₀ are N₂-th powers) placed entirely in the
-invisible part. Prop 2.2 is a statement about information, not probability: it says that at a window with P⁺(q − 1) above
-both the Chebotarev range M and the target side L, **balance is not a Frobenius condition of manageable degree**; any proof
-must either (i) restrict to q with q − 1 being max(M, L)-smooth (§4), or (ii) bound the invisible part statistically,
-over q, without Frobenius structure (§3).
+invisible part. Prop 2.2 is a statement about information, not probability: a certificate of balance built only from the
+low-order Frobenius data, uniformly over the vectors compatible with it, is impossible at windows with P⁺(q − 1) above both M
+and L. A proof along the brief's route must therefore either (i) restrict to q with q − 1 being max(M, L)-smooth and then control
+the *joint* law of the prime-power components (z27_smooth_shift_crt), or (ii) bound the invisible part statistically over q
+(§3) — or use arithmetic information about the specific vectors a(q) that this proposition does not model.
 
-**Theorem 2.3 (what GRH certifies: the visible part of balance; CONDITIONAL on GRH for the Dedekind zeta functions of
-F_m := ℚ(ζ_{8P}, √p, K_m), m ≤ M; proof at citation level, Lagarias–Odlyzko as in CAP_INTERPOLATION Thm 4.2).** Let
-P := ∏S (S = odd primes ≤ y, k = |S|), p ∤ 8P prime, x large, 0 < ε ≤ ½ and M ≥ 3 with
-`  (★)  Σ_{m≤M odd} φ(m)(1 + 2εm)^k  ≤  c₀ √x /(φ(8P) log²(8PpMx)).`
-Then #{q ≤ x : q ≡ 3 (8), q ≡ −p (P), (q/p) = −1, and 𝔻_S(ψ) ≥ ε for every ψ ≠ 1 of U_q of order ≤ M} ≥ (c₁ − o(1))·
-x/(φ(8P)·log x), with c₁ := ½ − Σ_{m≥3 odd} ((1 + 2εm)/m)^k (positive for k ≥ 3 when εM ≤ ¼).
-*Proof sketch.* The bad event at level m is a union of Frobenius classes C_m in Gal(F_m/ℚ) (Prop 2.1(a)) with
-|C_m| ≤ φ(m)·#{c ∈ ℤ^S : |c_s| ≤ εm} ≤ φ(m)(1 + 2εm)^k classes of size ≤ 1 times the fixed cyclotomic/√p data (q ≡ 1 (m), the
-class mod 8P, χ_p(q) = −1 — all central conditions). For odd m and S a set of primes, [K_m : ℚ(ζ_m)] = m^k (Kummer theory:
-S is independent in ℚ(ζ_m)^*/ℚ(ζ_m)^{*m} for odd m; e.g. Moree's survey, *Integers* 12A (2012), §§3–4), and F_m/ℚ(ζ_{8Pm}, √p)
-has degree m^k when √p, ζ_{8P} ∉ K_m (as in CAP_INTERPOLATION Thm 4.2: ramification at p). Lagarias–Odlyzko under GRH:
-π_C(x) = (|C|/|G|) li(x) + O((|C|/|G|)√x(log d_F + n_F log x)), log d_F ≤ n_F log(n_F·8Ppm∏S); the main term of level m is
-≤ li(x)·(1 + 2εm)^k/(m^k φ(8P)) and the total error is O(Σ_m |C_m| √x log(8PpMx)) — absorbed by (★). Subtract from the
-GRH count ½ li(x)/φ(8P)(1 + o(1)) of the class (FORCED_WINDOW Thm 4.3). ∎
-**Corollary 2.4 (the visible part is the index condition below N^{1/k}; PROVED + arithmetic).** (a) If εM < 1 the
-condition of Thm 2.3 at order ≤ M is exactly "no prime ℓ ≤ M, ℓ | N, with all s ∈ S ℓ-th powers" (a character of order
-d ≤ M has angles in (1/d)ℤ, so 𝔻 < ε < 1/d forces 𝔻 = 0; Cor 1.4(c)). (b) Balance at the random-lattice scale needs
-ε ≍ N^{−1/k}k^{−C} (Cor 1.4(b)); then Σ_m φ(m)(1 + 2εm)^k ≍ (3εM)^k M²/(k + 2) and (★) allows at most
-`  M_max ≍ x^{1/k}·( (√x/φ(8P)) / (3^k x^{2/k} log²(8PpMx)) )^{1/(k+2)}  ≤  x^{3/(2k+4)}`
-(≤ x^{1/k}·(log p)^{O(1/k)} in the regime x ≍ φ(8P)² log⁴ p of FORCED_WINDOW Thm 4.3; below N^{1/k}, where by (a) only the
-index condition is visible, whenever √x/φ(8P) < 3^k x^{2/k}). So Theorem 2.3 controls characters of order ≤ x^{O(1/k)},
-a fraction ≤ x^{O(1/k)−1} of Û_q; and by Prop 2.2 it implies no bound on L_min(q) below N₂(q) − 1.
+**Assessment 2.3 (GRH accounting for the visible part; R-O256 repair 2/4: demoted from "Theorem" — the general small-angle
+version needs a careful conjugacy-class count, compositum conductor lcm(8P, m) and linear-disjointness proof that are not
+supplied).** The event "some ψ ≠ 1 of order dividing m has 𝔻_S(ψ) < ε" is a union of Frobenius conjugacy classes in
+Gal(ℚ(ζ_{lcm(8P,m)}, √p, S^{1/m})/ℚ) (Prop 2.1(a)); the number of Kummer vectors b ∈ (ℤ/m)^S involved is ≤ φ(m)·#{c ∈ ℤ^S : |c_s| ≤ εm}.
+Under GRH (Serre 1981, Thm 4: π_C(x) = (|C|/|G|)li(x) + O(|C|x^{1/2}(log d_F/n_F + log x)), |C| = number of elements) each level
+m costs an error ≍ (number of bad elements)·√x·log(pPMx), against the class main term ≍ x/(φ(8P) log x) ≍ √x log² p/log x in the
+regime x ≍ φ(8P)² log⁴ p used in §4. So GRH can afford only (log p)^{O(1)} bad elements in total: for ε below 1/M this is the
+index condition alone (Prop 2.4(a)), while for εm ≥ 1 a single level m already carries ≈ φ(m)(2εm)^k bad vectors,
+exponential in k. In short (Assessment, not a theorem): **GRH-Chebotarev in the
+class −p mod 8P controls little beyond the index condition**, i.e. characters of order ≲ 1/ε with 𝔻 = 0, plus at most
+(log p)^{O(1)} further Kummer vectors; a negligible part of Û_q (|Û_q| = N ≍ x).
+
+**Proposition 2.4 (PROVED).** (a) If ψ ≠ 1 has order d and 𝔻_S(ψ) < 1/d, then 𝔻_S(ψ) = 0 (angles lie in (1/d)ℤ); so for
+ε ≤ 1/M "no ψ ≠ 1 of order ≤ M with 𝔻 < ε" is exactly "no prime ℓ ≤ M, ℓ | N, with S ⊂ (F_q^*)^ℓ" (take ψ^{d/ℓ}).
+(b) The number of characters of U_q of order ≤ M is < M² (Prop 2.1(c)), a fraction < M²/N of Û_q.
+
+**Lemma 2.5 (the index obstruction in the class; CONDITIONAL on GRH for the Dedekind zeta functions of
+F_ℓ := ℚ(ζ_{lcm(8P,ℓ)}, √p, S^{1/ℓ}), ℓ odd prime; R-O256 repair 3).** Let S = odd primes ≤ y, P = ∏S, p > z a prime ∤ 8P,
+and fix σ₀ := (class a mod 8P, sign of χ_p). For odd primes ℓ ≤ z,
+`  #{q ∈ (x/2, x] : q ↦ σ₀, ℓ | q − 1, S ⊂ (F_q^*)^ℓ}  ≤  (li(x) − li(x/2))/(2φ(8P)ℓ^k) + O(√x·(k log ℓ + log(8Pp) + log x)).`
+*Proof.* For odd ℓ, ℚ(ζ_n, a^{1/ℓ}) is abelian over ℚ only if a² is an ℓ-th power in ℚ (Schinzel, *Abelian binomials, power
+residues and exponential congruences*, Acta Arith. 32 (1977)); for a = ∏_{s∈S} s^{e_s} with ℓ ∤ e this fails, so by Kummer theory
+[ℚ(ζ_n, S^{1/ℓ}) : ℚ(ζ_n)] = ℓ^k for every n with ℓ | n; and √p ∉ ℚ(ζ_{lcm(8P,ℓ)},
+S^{1/ℓ}) because that field's maximal abelian subfield is ℚ(ζ_{lcm(8P,ℓ)}) (Schinzel again) and p ∤ 8Pℓ. Hence
+|G| = [F_ℓ : ℚ] = 2φ(lcm(8P, ℓ))ℓ^k ≥ 2φ(8P)ℓ^k. The q in question are those whose Frobenius restricts to σ₀ on ℚ(ζ_{8P}, √p),
+to the identity on ℚ(ζ_ℓ, S^{1/ℓ}): F_ℓ is the compositum, so this is a set C with |C| ≤ 1 (empty if σ₀ forces q ≢ 1 (mod ℓ)).
+Serre's GRH form of Lagarias–Odlyzko (Publ. IHÉS 54 (1981), Thm 4) gives the count (|C|/|G|)(li(x) − li(x/2)) +
+O(|C|√x(log d_F/n_F + log x)), and log d_F/n_F ≤ log n_F + Σ_{r ram} log r ≤ (k + 1) log ℓ + log(2φ(8P)) + log(2ℓp·8P)
+(Serre, loc. cit., Prop. 6). ∎
 
 ## 3. What class-blind counting gives: a Fejér pair count, and the P-loss in exact form
 
@@ -132,7 +142,7 @@ On the other hand, Σ_{q ∈ (x/2, x]} (Π(q) − (B + 1)^k) = Σ_{h ≠ 0} w(h)
 
 **Proposition 3.2 (the visible remainder; PROVED).** If ψ ≠ 1 has 𝔻_S(ψ) < ε and ord ψ ≤ 1/ε, then 𝔻_S(ψ) = 0 and there is a
 prime ℓ ≤ 1/ε, ℓ | N, with every s ∈ S an ℓ-th power mod q. Hence {q : 𝔻_min(q) < ε} ⊂ Bad₁(ε) ∪ Bad₂(1/ε), Bad₂(z) :=
-{q : ∃ prime ℓ ≤ z, ℓ | N, S ⊂ (F_q^*)^ℓ}, and Bad₂ is a finite union of Chebotarev sets (Thm 2.3 / Cor 2.4(a)).
+{q : ∃ prime ℓ ≤ z, ℓ | N, S ⊂ (F_q^*)^ℓ}, and Bad₂ is a finite union of Chebotarev sets (Lemma 2.5).
 *Proof.* Angles of ψ lie in (1/d)ℤ, so each nonzero ‖θ_s‖ ≥ 1/d > ε. Then ψ is trivial on H; take ψ^{d/ℓ}. ∎
 
 **Corollary 3.3 (the P-loss, exact; PROVED + arithmetic).** In a single class a mod 8P the GRH count of candidate windows is
@@ -144,7 +154,8 @@ e*(p) ≤ exp(O(√(log₂p·log₃p))), i.e. CAP_INTERPOLATION Thm 4.2(b), now 
 be shown to avoid the ε-pretentious primes unless the total number of such primes is < π(x)/φ(8P)".
 *Reading.* Prop 3.1 is lossy against the random model by the factor 2B log P/log x per relation (each N_h is charged with all
 its possible prime factors of size x instead of probability ≈ 1/x); but the loss that matters is the factor φ(8P), which
-no class-blind bound can recover. Theorem 2.3 is class-sensitive but blind to characters of order > x^{O(1/k)} (Prop 2.2);
+no class-blind bound can recover. GRH-Chebotarev is class-sensitive but, in the class, affordable only for the index condition and (log p)^{O(1)} further
+Kummer vectors (Assessment 2.3; Prop 2.2 for the information-theoretic side);
 Prop 3.1 sees all orders but no classes. **The two tools see complementary halves of the problem, and the extremal character
 (order ≍ N, §6) falls in the half that only class-blind tools see.**
 
@@ -159,14 +170,15 @@ over-concentrate (beyond a constant factor and a square-root error) in any class
 Hypothesis W (an existence statement in the p-dependent class −p mod P with χ_p(q) = −1, at a near-optimal L).
 
 **Theorem 4.1 (CONDITIONAL on GRH + EQ; PROVED relative to them).** Assume GRH for Dirichlet L-functions and for the Dedekind
-zeta functions of ℚ(ζ_{8Pℓ}, √p, S^{1/ℓ}) (ℓ prime), and Hypothesis EQ. Then for every prime p ≥ p₀,
+zeta functions of ℚ(ζ_{lcm(8P,ℓ)}, √p, S^{1/ℓ}) (ℓ odd prime), and Hypothesis EQ. Then for every prime p ≥ p₀,
 `  e*(p) ≤ (log₂ p)^{13/2 + o(1)}.`
 *Proof.* p ≢ 1 (8): e* = 0 (classical, as in FORCED_WINDOW). Let p ≡ 1 (8), y := log₂p·log₃p, S = odd primes ≤ y, k = |S|,
 P = ∏S, x := C₀φ(8P)² log⁴ p (C₀ large). Then log P = (1 + o(1))y, k = (1 + o(1))y/log y, log x = (2 + o(1))y.
 *Good class count (GRH):* G := #{q ∈ (x/2, x] : q ≡ 3 (8), q ≡ −p (P), (q/p) = −1} ≥ c₂ x/(φ(8P) log x) (FORCED_WINDOW
-Thm 4.3, dyadic version). *Bad₂:* by Thm 2.3/Cor 2.4(a) with z := 1/ε (ε fixed below), the q in the class with some prime
-ℓ ≤ z, ℓ | N, S ⊂ (F_q^*)^ℓ number ≤ (li(x)/φ(8P))Σ_{ℓ≥3} ℓ^{−k}(ℓ − 1)^{−1} + O(z√x log(8Ppx)) ≤ G/4 for k ≥ 3, provided
-z ≤ c√x/(φ(8P) log²(8Ppx)) = c′ log² p/log²(px) — true as z = y^{O(1)} below. *Bad₁ (EQ + Prop 3.1):* the class contains
+Thm 4.3, dyadic version). *Bad₂:* by Lemma 2.5 with z := 1/ε (ε fixed below), the q in the class with some prime
+ℓ ≤ z, ℓ | N, S ⊂ (F_q^*)^ℓ number ≤ ((li(x) − li(x/2))/(2φ(8P)))Σ_{ℓ≥3} ℓ^{−k} + O(z√x log p) (R-O256 repair 3; the
+log p term dominates the error of Lemma 2.5 since k log z, log P, log x = y^{1+o(1)} = o(log p)). Σ_{ℓ≥3} ℓ^{−3} < 0.05, so the
+main term is ≤ G/8, and the error is ≍ G·z log x/log p = G·y^{O(1)}/log p = o(G) since G ≍ √x log² p/log x and z = y^{O(1)}. *Bad₁ (EQ + Prop 3.1):* the class contains
 ≤ (C/φ(8P))·48(6xε)^{(k+1)/(k−1)} log P/log(x/2) + x^{1/2}(log x)^A elements of Bad₁(ε). The error term is ≤ G/8 since
 √x/φ(8P) ≍ log² p ≫ (log x)^{A+1} = y^{O(1)}. The main term is ≤ G/8 for
 `  ε := (1/6x)·(c₃ x/(C log P))^{(k−1)/(k+1)},   i.e.  1/ε = 6x^{2/(k+1)}(C log P/c₃)^{(k−1)/(k+1)} ≤ y^{4+o(1)}·y`
@@ -184,12 +196,14 @@ needed only for the single modulus 8P(y) with y ≍ log₂p·log₃p, x ≍ P² 
 and every y with P(y) ≤ x^{1/2} (k = |S(y)|):  #{q ≤ x : q ∈ Bad₁(x^{−3/(2k)})} ≤ x^{1/2}(log x)^A.
 *Random-model status (Assessment).* If the discrete-log vectors a(q) were uniform, each q would carry ≈ N·vol{ℓ¹-ball of
 radius ε} = N(2ε)^k/k! characters with 𝔻 < ε, so #Bad₁(ε) ∩ [1, x] ≈ x²(2ε)^k/(2k!·log x) = x^{1/2}·2^k/(2k! log x) at
-ε = x^{−3/(2k)}: S is the random-model prediction, with room. It is NOT known in any range: its index-degenerate part alone
+ε = x^{−3/(2k)} — a rare-event heuristic up to constants (R-O256 minor: characters come in ± pairs and low orders sit on finite
+grids; the exact expectation is a divisor sum Σ_{d|N} φ(d)A_k(d, ε)/d^k): S is the random-model prediction, with room. It is NOT
+known at the required square-root level: its index-degenerate part alone
 (index ≥ x^{3/(2k)}) is known only with exponent 1 − 1/(2k) − O(1/k²) in place of 1/2 (Prop 3.1 / PHASE_DIAGRAM Step 2), and
 GRH-Chebotarev cannot reach it (per prime ℓ the error is already ≍ √x log x).
 **Theorem 4.2 (CONDITIONAL on GRH + S; PROVED relative to them).** e*(p) ≤ (log₂p)^{9/2+o(1)} for p ≥ p₀.
 *Proof.* As Thm 4.1 with ε := x^{−3/(2k)}: the class contains ≤ x^{1/2}(log x)^A ≤ G/8 elements of Bad₁(ε) (no EQ needed: the
-total is already below the class main term G ≍ √x log² p/log x), Bad₂(1/ε) is handled as before (1/ε = y^{3+o(1)}), and
+total is already below the class main term G ≍ √x log² p/log x), Bad₂(1/ε) is handled by Lemma 2.5 as before (1/ε = y^{3+o(1)}), and
 L = ⌈k^{3/2}x^{3/(2k)}⌉ = y^{3/2+3+o(1)}. ∎
 *Reading.* S ⇒ EQ at the parameters used (the class count is bounded by the total). Hence the clean statement:
 **GRH reduces "e*(p) ≤ (log₂p)^{O(1)} for every p" to a p-free, class-free sparsity statement about primes q at which the
@@ -200,20 +214,22 @@ standard conjecture (GRH, Elliott–Halberstam, Artin-type) that implies either,
 progressions nor a Chebotarev set (Prop 2.2).
 **Remark 4.3 (almost all p under GRH alone; CONDITIONAL on GRH, Assessment-level bookkeeping).** EQ holds trivially *on
 average over classes*: at most φ(8P)/C classes a can carry more than (C/φ(8P))·#Bad₁. Since −p mod 8P equidistributes as p
-varies, GRH alone gives e*(p) ≤ (log₂p)^{13/2+o(1)} for all p outside a set of relative density O(1/C) (any fixed C), i.e.
-for almost all p. This is weaker than the known unconditional almost-all bound (CAP_INTERPOLATION §2: e ≍ log₂N with
+varies, GRH alone gives e*(p) ≤ (log₂p)^{13/2+o(1)} for all p outside a set of relative density O(1/C) (any fixed C; freeze
+y on dyadic blocks of p so that 8P is constant on each block, then let C → ∞ slowly), i.e. for almost all p. This is weaker than the known unconditional almost-all bound (CAP_INTERPOLATION §2: e ≍ log₂N with
 ≤ N^{1−c/(log₂N log₃N)} exceptions), so it is recorded only as a consistency check — answer to the brief's question (i): **no
 new almost-all statement**.
 
 ## 5. Cap 0, and the barrier screen
 
-**Proposition 5.1 (balance says nothing at cap 0; PROVED).** At a forced window q with P | K_q, the cap-0 part of the
-parity-split box (FORCED_WINDOW Lemma 1.1 with e = 0) is ∏_{s|K}[0, ⌊(b_s + ε_s)/2⌋]; for the forced primes with b_s = 1 this
-is {0, 1}, and the whole box has ≤ τ(K²) elements. Covering U_q (|U_q| = (q − 1)/2) at cap 0 therefore needs τ(K²) ≥ (q−1)/2,
-which fails for q ≥ p^{(log 3 + o(1))/log log p} (FORCED_WINDOW Thm 3.1(c)) and in particular for every window of Thms 4.1–4.2
-(q ≍ P² log⁴ p, while the forced part of the box has 2^k = P^{o(1)} elements). So no lattice-balance property, Frobenius-
-certified or not, yields a cap-0 certificate; cap 0 is the single-coset closest-vector event of FORCED_WINDOW Prop 4.5, i.e. a
-least-residue event in the window variable (Prop 2.1 there) — the B2 divisor event. *Proof.* Box size vs group order. ∎
+**Proposition 5.1 (the forced sub-box is useless at cap 0; PROVED; R-O256 repair 6 — narrowed).** At a forced window q
+with P | K_q, the cap-0 parity box of FORCED_WINDOW Lemma 1.1 restricted to the forced primes s ∈ S with b_s = 1 is {0, 1}^S
+(2^k elements). For the windows of Thms 4.1–4.2 (q ≍ φ(8P)² log⁴ p, 2^k = P^{o(1)}) this guaranteed sub-box is far smaller
+than |U_q| = (q − 1)/2, so the balance bounds at positive cap say nothing about cap 0: a cap-0 certificate must come from the
+uncontrolled part of the box (other primes of K, higher valuations) hitting the single target, i.e. the closest-vector event of
+FORCED_WINDOW Prop 4.5 — in the window variable a least-residue event (Prop 2.1 there), the B2 divisor event.
+*Proof.* Box size vs group order. ∎ (Not claimed: that cap 0 fails at such windows — e.g. p = 409, q = 11, K = 105 = 3·5·7 is
+forced and the cap-0 parity box {3^{2j₁}5^{2j₂}7^{2j₃}} = {1, 3, 4, 5, 9} = U₁₁ covers; the reviewer's example. Small windows
+can be covered at cap 0; the windows of §4 are not small.)
 
 *Barrier screen (Assessment).* B1 (congruence/CRT): the forcing q ≡ −p (P) is congruence data, but the balance input is not —
 Prop 2.2 is a precise statement that it cannot be. B2: Thms 4.1/4.2 are at cap ≥ 1 by design (Prop 5.1); bounded or
@@ -234,7 +250,7 @@ discrete-log vector (random-lattice model). ν := 𝔻_min·N^{1/k} (Minkowski: 
   0.454/0.784/1.208/1.532 vs 0.381/0.743/1.194/1.535; k = 5: 0.597/0.985/1.389/1.714 vs 0.611/0.979/1.392/1.711; near 10⁷ the
   same to ±0.07. Index-degenerate (ν = 0) counts also match (k = 3: 52 vs 61 of 3000).
 * **The extremal character has order ≍ N (the SHARP observation).** ord ψ_min = N in 73–78 %, ≥ N^{0.9} in 86–88 %,
-  ≤ N^{1/2} in ≤ 0.3 %, ≤ N^{3/(2k+4)} (the GRH-visible range of Cor 2.4) in ≤ 0.07 % (0 of 400 near 10⁷ for every k);
+  ≤ N^{1/2} in ≤ 0.3 %, ≤ N^{3/(2k+4)} (a nominal "visible" range; R-O256 repair 4: not an established GRH cutoff) in ≤ 0.07 % (0 of 400 near 10⁷ for every k);
   **P⁺(N) | ord ψ_min in 99.4 %–100 %** — identical to the random model. Balance is decided by the largest prime factor of
   q − 1, the part Frobenius cannot see (Prop 2.2).
 * **Worst q** (smallest ν, non-degenerate): k = 3: q = 237 971, ν = 0.058, ord = N = 118 985, P⁺(N) = 449; k = 5: q = 423 883,
@@ -255,7 +271,8 @@ discrete-log vector (random-lattice model). ν := 𝔻_min·N^{1/k} (Minkowski: 
 
 1. **GRH alone: not by this route, and the reason is exact.** Balance at q is decided by a character of order ≍ N (§6;
    P⁺(q−1) | ord in > 99 %). Frobenius in Kummer fields ℚ(ζ_m, S^{1/m}) of GRH-manageable size sees only characters of order
-   ≤ x^{3/(2k+4)} (Cor 2.4), and no function of that data certifies L_min below the M-rough part of q − 1 (Prop 2.2,
+   ≲ 1/ε plus (log p)^{O(1)} Kummer vectors in the class (Prop 2.4, Assessment 2.3), and no function of that data,
+uniformly over compatible discrete-log vectors, certifies L_min below the M-rough part of q − 1 (Prop 2.2,
    PROVED). The only tool seeing all orders is class-blind counting (Prop 3.1), which cannot see a class of relative density
    1/φ(8P) and so returns the P-loss exp(O(√(log₂p log₃p))) (Cor 3.3). No GRH *barrier* is claimed (R264 D8): another method
    could still work; what is proved is that the brief's Hooley/Kummer route certifies only the index condition plus a negligible

@@ -6,10 +6,11 @@ Then U_m has exponent | E, so ANY box with sides ≥ E − 1 covers ⟨g_s⟩: c
 **Obstruction found (PROVED for the construction, Assessment for the route).** The prime factors must come from the finite set
 Q(E) = {q : (q−1)/2 | E}, |Q(E)| ≤ τ(E). Forcing at q_j | m is a χ_p condition; by Dirichlet/Linnik there are p ≡ 1 (mod 4∏Q(E))
 with χ_p ≡ 1 on Q(E), log p ≪ Σ_{q∈Q(E)} log q ≤ τ(E) log(2E+1): for them no window built from Q(E) is forced (parity not
-free). Escaping needs τ(E) log E ≳ log p, i.e. log E ≳ log₂p·log₃p (τ(E) ≤ E^{(log 2+o(1))/log log E}): cap ≈ E ≥ (log p)^{c log₃ p},
-worse than GRH's exp(O(√(log₂p log₃p))). Also the class condition m ≡ −p (mod P) becomes a subset-product covering problem in
+free). (R-O256 repair 8: the fixed-menu statement does not by itself bound an adaptively chosen E.) For all E ≤ T at once: every
+Q(E) lies in the primes ≤ 2T + 1; Linnik/primorial progressions give infinitely many p with χ_p(q) = 1 for all q ≤ 2T + 1 and
+log p = Θ(T). For these p the menu strategy needs E > T ≍ log p: cap ≳ log p i.o., worse than GRH's exp(O(√(log₂p log₃p))). Also the class condition m ≡ −p (mod P) becomes a subset-product covering problem in
 (ℤ/P)^* — the same covering problem in the dual group (products of small cyclic groups), circular.
 **Literature.** Davenport constant / Olson (zero-sum and subset-sum covering in groups of small exponent); Linnik.
 **Barrier screen.** B1 (finite menus Q(E)) — exactly POINTWISE_SIZE-type: a fixed finite prime menu fails i.o.
 **Cheap numerics.** none needed (counting).
-**Assessment.** PROVED-level obstruction (Linnik adversary) for fixed menus; the route is dead at polylog-log caps.
+**Assessment.** PROVED-level obstruction (Linnik adversary): cap ≳ log p i.o. for this menu strategy; dead at polylog-log caps.

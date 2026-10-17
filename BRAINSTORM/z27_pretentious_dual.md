@@ -9,9 +9,9 @@ Lagarias–Odlyzko 1977 (GRH Chebotarev).
 ℚ(ζ_m, S^{1/m}), m ≤ M, is a function of the discrete logs mod the M-smooth part of (q−1)/2; a fake with the same data has
 L_min ≥ (M-rough part) − 1). B2/B3/B5/B6: see BALANCED_LATTICE §5 (cap ≥ 1 only; T1-step false at squares).
 **Cheap numerics** (`scripts/z27_dual.py`, data/z27/dual_1e6.txt, dual_1e7.txt; k = 3, 4, 5; q ≤ 10⁶ and q ∈ [9·10⁶, 10⁷]).
-The extremal character ψ_min has order exactly N in ≈ 75 % of q, order ≥ N^{0.9} in ≈ 87 %, order ≤ N^{1/2} in ≤ 0.3 %, order
+Conditioned on generation (𝔻_min > 0): the extremal character ψ_min has order exactly N in ≈ 75 % of q, order ≥ N^{0.9} in ≈ 87 %, order ≤ N^{1/2} in ≤ 0.3 %, order
 ≤ N^{3/(2k+4)} (GRH-visible) in ≤ 0.07 %; P⁺(N) | ord ψ_min in 99.4–100 %. ν = 𝔻_min N^{1/k} quantiles match the uniform-random
 discrete-log model to two decimals.
-**Assessment.** PROVED dictionary + PROVED indistinguishability + EVIDENCE: the balance-deciding character is (almost always)
+**Assessment.** PROVED dictionary + PROVED (abstract-vector) indistinguishability + EVIDENCE: the balance-deciding character is (almost always)
 of order ≍ N, outside every Kummer field of manageable degree. The brief's Hooley-type route ("imbalance = small-ℓ index
 obstruction + large-ℓ tail") is the wrong picture for balance: index obstructions are the measure-zero corner 𝔻 = 0.
