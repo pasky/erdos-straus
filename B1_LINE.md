@@ -28,7 +28,7 @@ of SYNTHESIS_SPARKS8 is a (natural) strengthening of a question López left open
 in ≈ 3 min on 2 cores. Exact N₁(p) counts agree with O258's brute force `s8_check_b1.py` for every p ≡ 1 (4) < 400.
 (I3) Construction attempt "find the T1 escape": T1 is a Jacobi identity on pairs (Lemma 1.2). Its b = 1 version has a 2-adic
 escape at p ≡ 5 (8). First reading: a b = 1 vs (★) difference. Refuted the same day: (★) has the same escape (pairs with
-v₂(x) = 1), and both lines are TRIVIAL at p ≢ 1 (24) by fixed pairs (Prop 1.4). The hardness lives in p ≡ 1 (24), where
+odd v₂(x)). The b = 1 line is TRIVIAL at p ≢ 1 (24) and (★) at p ≡ 5 (8) by fixed pairs (Prop 1.4). The b = 1 hardness lives in p ≡ 1 (24), where
 neither line has a 2-adic escape. Kept as a correct but non-discriminating lemma.
 
 ## 1. Pair coordinates and the pair genus law
@@ -51,30 +51,31 @@ k ≥ 2, S′ odd. Then
   (ST/p) = −1,  and  (S′T/p) = −(2/p)^k.
 So for p ≡ 1 (8) the odd part S′T always contains a prime ℓ with (ℓ/p) = −1. For p ≡ 5 (8) the same holds when k is even,
 but when k is odd, (S′T/p) = +1 and the non-residue is 2 itself.
-For the c = 1 line ((★): pairs (x, y) with 4 | N(x, y); if 4 | x the pair is also a b = 1 pair, so let v₂(x) ≤ 1, y odd)
-one has (xy/p) = −1 as well; (x′y/p) = −1 for x = 2x′ at p ≡ 1 (8), and (x′y/p) = +1 at p ≡ 5 (8).
+For the c = 1 line ((★): pairs (x, y) with 4 | N(x, y)) the same law holds. x and y cannot both be odd (then N would be odd),
+so write x = 2^k x′, k ≥ 1, x′ and y odd. Then (xy/p) = −1 and (x′y/p) = −(2/p)^k. (Pairs with 4 | x are also b = 1 pairs.)
 *Proof.* Write r ≡ −S − T. Since p ≡ −T (mod S′) and p ≡ −S (mod T), Jacobi gives (p/S′) = (−T/S′) and
 (p/T) = (−S/T) = (−1/T)(2/T)^k(S′/T) = −(2/T)^k (S′/T), as T ≡ 3 (4). Reciprocity with (T − 1)/2 odd gives
 (S′/T) = (T/S′)(−1/S′) = (−T/S′). Hence (p/S′T) = −(2/T)^k (−T/S′)² = −(2/T)^k. If k ≥ 3 then T ≡ −p (mod 8), so
 (2/T) = (2/p). If k = 2 then (2/T)^k = 1 = (2/p)^k. Since p ≡ 1 (4), (ℓ/p) = (p/ℓ) for odd ℓ, so (S′T/p) = −(2/p)^k. Then
-(ST/p) = (2/p)^k (S′T/p) = −1. For c = 1 with x, y odd: (p/x) = (−y/x), (p/y) = (−x/y). Since x + y ≡ −p ≡ 3 (4), exactly one of x, y is
-≡ 3 (4), so (−1/x)(−1/y) = −1, and reciprocity contributes (−1)^{(x−1)(y−1)/4} = +1. For x = 2x′: 8 | p + x + y gives
+(ST/p) = (2/p)^k (S′T/p) = −1. For (★) with k ≥ 2 the pair is a b = 1 pair (S = x), so the b = 1 law applies. For k = 1, x = 2x′: 8 | p + x + y gives
 y ≡ −p − 2x′ (mod 8), and (p/x′y) = (−y/x′)(−2x′/y) = (−1/x′)(−1/y)(2/y)(−1)^{(x′−1)(y−1)/4}. The four cases
 (p mod 8, x′ mod 4) ∈ {1, 5} × {1, 3} give y ≡ 5, 1, 1, 5 (mod 8) and the value −1, −1, +1, +1; multiply by (2/p). ∎
-(Check: `z29_genus.py`, all 12 717 b = 1 pairs and 5 710 c = 1 pairs at p < 2·10⁴: 0 violations; free pairs (below) occur
+(Check: `z29_genus.py`, all 12 717 b = 1 pairs and all 7 857 (★) pairs (incl. 2 147 overlaps) at p < 2·10⁴: 0 violations of
+both (xy/p) = −1 and (x′y/p) = −(2/p)^k; free pairs (below) occur
 only in the class (p mod 8, k mod 2) = (5, 1); `logs/z29_genus.txt`.) (ST/p) = −1 is O258 Lemma 2.2(a) in pair coordinates.
 The new content is the split into S′T and the 2-adic factor.
 
 **Corollary 1.3 (where the non-residue sits; PROVED).** Call a pair *free* if its odd part has Jacobi symbol +1 (so the
 non-residue demanded by T1 is 2). Free b = 1 pairs exist only for p ≡ 5 (8) (v₂(S) odd ≥ 3), and free (★) pairs only for
-p ≡ 5 (8) (v₂(x) = 1). For p ≡ 1 (8), every pair of either line has an odd prime ℓ | (odd part) with (ℓ/p) = −1; in
+p ≡ 5 (8) (v₂(x) odd; e.g. p = 181, (x, y) = (8, 3), N = 8). For p ≡ 1 (8), every pair of either line has an odd prime ℓ | (odd part) with (ℓ/p) = −1; in
 particular if every odd prime ℓ ≤ Y is a QR mod p, every pair has a prime factor > Y.
 
 **Proposition 1.4 (the trivial classes; PROVED, folklore-level covering identities).** The b = 1 line holds for every
 p ≡ 1 (4) with p ≢ 1 (mod 24): the pair (3, 4) solves p ≡ 5 (12) and (3, 8) solves p ≡ 13 (24). The (★) line holds for
 p ≡ 5 (8) via (1, 2) (N = (p + 3)/2). *Proof.* 12 | p + 7, 24 | p + 11, 8 | p + 3 respectively. ∎
-*Reading.* The 2-adic escape is real but it only acts in classes that fixed congruence identities already cover. All the
-hardness of both lines lies in p ≡ 1 (24) (for b = 1). There both lines need an odd non-residue of p inside the pair. The
+*Reading.* The 2-adic escape is real but it only acts in classes that fixed congruence identities already cover. The
+b = 1 hardness lies in p ≡ 1 (24), the (★) hardness in p ≡ 1 (8) (e.g. 409 ≡ 17 (24) fails (★)). At p ≡ 1 (8) both lines
+need an odd non-residue of p inside the pair. The
 census agrees: every b = 1 failure and every record of the least shift from p = 73 on is at p ≡ 1 (24) (§2).
 
 ## 2. Census (EVIDENCE; complete decisions)
@@ -103,11 +104,11 @@ search s ≤ 2000 by Pollard–Brent factorisation; `logs/z29_smooth_1e15.txt`).
 | 13 | 41 146 | 36 517 | same three | 95 | 3 |
 | 17 | 99 549 | 87 216 | same three | 95 | 3 |
 | 19 | 216 882 | 187 500 | same three | 95 | 3 |
-For the three, s ≤ 2000 exceeds 1 + √(p + 1), so "unresolved" is a complete failure decision. Every other smooth-(p − 1)
+For the three, s ≤ 2000 exceeds 1 + √(p + 1), so "unresolved" is a complete failure decision. There are no additional failures beyond the same three: every other smooth-(p − 1)
 prime up to 10¹⁵ has a b = 1 solution with s ≤ 95 (positives are certified by the exhibited pair; no completeness needed).
 **The hardest smooth primes are small.** Among 2.2·10⁵ primes with 19-smooth p − 1, the least shift never exceeds the value
 95 reached at 345 601 = 2⁹·3³·5² + 1, although these primes are profinitely as close to
-the T1 point 1 as primes of that size can be. So smoothness of p − 1 is a small-p effect: it makes small pairs (s, t) dead,
+the T1 point 1 as primes of that size can be. So smoothness of p − 1 hurts only at small p (Assessment). Divisibility M_σ | p − 1 makes small pairs (s, t) dead (Prop 4.1),
 and at large p there are enough pairs with a large prime factor (Cor 1.3, §3).
 
 ## 3. The heuristic model: main term, dispersion, and a finite-failure prediction
@@ -125,21 +126,22 @@ gives 4d(cp + 1) ≡ p + 4d (mod w) and gcd(w, 4d) = 1; then a = (cp + 1)/w ≥ 
 p ∤ x = ad while p | y, z. So x is identified, z = min(y, z) = cdp, a = y/z, d = x/a, c = z/(dp). Main
 term: d ≤ (p + 3)/8, and for fixed d, c runs to (p + 4d + 3)/(12d), giving Σ_c 1/(4cd − 1) = (1/(4d))(log(p/(12d)) + O(1)) +
 O(1/d²); summing, Σ_{d ≤ (p+3)/8} (1/(4d)) log(p/(12d)) = (log p)²/8 + O(log p). For (★): the swap (u, B) ↦ (B, u) is an
-involution on R's incidences with at most one fixed point (u = B forces u | p, u = 1, 2 = p + 2 − 4C·… impossible: u = B = 1
-needs 4C = p + 2, odd), and swapped incidences give the same unordered triple. ∎
+involution on R's incidences without fixed points (u = B gives p = 2u(2uC − 1), impossible for odd p), and swapped
+incidences give the same unordered triple. There are no other collisions: from the triple, x = uBC is the member prime to p,
+and {y, z} = {pBC, puC} gives {u, B} = {x/(y/p), x/(z/p)} and C = (y/p)(z/p)/x. ∎
 (Numerically M₁ = 13.3, 19.8, 27.6 at p = 10⁵, 10⁶, 10⁷, against (log p)²/8 = 16.6, 23.9, 32.5, so the O(log p) term is
 ≈ −0.3 log p. The class p ≡ 1 (24) runs ≈ 13 % above the unconditioned M₁: 22.3 against 19.8 at 10⁶.)
-**So the b = 1 line has twice as many independent trials as (★).** Per distinct solution, the main terms are (log p)²/8 and
+**So the b = 1 line has twice as many distinct trials (Haar main term) as (★).** Per distinct solution, the main terms are (log p)²/8 and
 (log p)²/16. Empirically (class samples, `logs/z29_classes.txt`): N₁/(log p)² = 0.117, 0.124, 0.131, 0.135 at p ≈ 10⁶, 10⁸,
-10¹⁰, 10¹² (p ≡ 1 (24)), and N_{c1}/(log p)² ≈ 0.070–0.074. The ratio N₁/N_{c1} is 1.67, 1.69, 1.78, 1.85, tending to 2 as
-the O(log p) terms fade. Add Prop 1.4 (the b = 1 nontrivial class p ≡ 1 (24) is half the size of the (★) class p ≡ 1 (8)),
+10¹⁰, 10¹² (p ≡ 1 (24)), and N_{c1}/(log p)² ≈ 0.070–0.074. The ratio N₁/N_{c1} is 1.67, 1.69, 1.78, 1.85, consistent with the
+main-term ratio 2 (convergence not proved; EVIDENCE). Add Prop 1.4 (the b = 1 nontrivial class p ≡ 1 (24) is half the size of the (★) class p ≡ 1 (8)),
 and this answers "why is the shift-4d family far more robust than (★)": **twice the main term (the b = 1 incidences are
 asymmetric; (★) incidences come in swapped pairs) and half the exposed classes.** Class hardness hits both lines equally
 (below). It is not the explanation.
 
 **3.2 Dependence on the smooth part of p − 1 (EVIDENCE).** Mean N₁/(log p)² in the classes p ≡ 1 (mod M_σ) (§4), at
 p ≈ 10¹²: 0.135 (M = 24), 0.127 (M₅ = 1800), 0.117 (M₇ = 176 400), 0.108 (M₁₁ = 64 033 200). So p ≡ 1 (M₁₁) costs 20 % of the
-mean, and (★) loses 16 % in the same classes. The loss is the Haar mass of the pairs frozen by Prop 4.1. It is O(log p) in
+mean, and (★) loses 16 % in the same classes. Assessment: the loss should come from the pairs frozen by Prop 4.1 (not proved). Those are O(log p) in
 absolute terms (pairs with one coordinate ≤ σ), hence a vanishing fraction of (log p)²/8 as p → ∞.
 
 **3.3 Dispersion and the zero tail (EVIDENCE; `z29_model.py`, all 15 648 primes p ≡ 1 (24) ≤ 10⁶ plus 20 000 / 4 000
@@ -147,7 +149,7 @@ consecutive p ≡ 1 (4) from 10⁸ / 10¹⁰; `logs/z29_model.txt`).** N₁ is o
 2.7 at 10⁸, 3.2 at 10¹⁰. Clumping comes from p + s with many divisors. The relative spread √(D/μ) still shrinks:
 0.33, 0.25, 0.22. Model: N₁ | p ~ negative binomial with the bin mean (scaled by log² p) and dispersion D, so
 P(N₁ = 0) = D^{−μ/(D−1)}. Back-test ≤ 10⁶ (bins with ≥ 30 primes): predicted zeros 1.18, observed 2 (2521, 66529);
-predicted #{N₁ ≤ 2} = 16.4, observed 33. So the model underestimates the lower tail by a factor ≈ 2 (up to 5 in the largest
+predicted #{N₁ ≤ 2} = 16.7, observed 33 (NB with mean scaled per prime and fixed D in both formulas). So the model underestimates the lower tail by a factor ≈ 2 (up to 5 in the largest
 bins). The same model for (★) (class p ≡ 1 (8)): predicted zeros 3.4, observed 7 in the same bins. That is the same factor 2,
 so the model is consistently optimistic by about 2 for both lines.
 **3.4 Prediction.** With μ = 0.125 (log p)² and D = 3.24 (the largest observed), the expected number of b = 1 failures
@@ -159,11 +161,13 @@ tested in §3.6.
 reproduces the 14 (★) failures ≤ 10⁸ of PARITY_AUDIT/O258 exactly and finds **no (★) failure in (10⁸, 10¹⁰]** (225 million
 primes; max least shift 343). The NB model predicted ≈ 1.7 failures there (≈ 3.5 with the small-p factor-2 correction).
 P(0 | mean 1.7) ≈ 0.18 and P(0 | 3.5) ≈ 0.03. So at large p the model is, if anything, pessimistic: the small-p tail
-inflation does not seem to persist. Combined with §3.4, the b = 1 prediction (< 10⁻⁴ failures beyond 10⁸) is conservative.
+inflation does not seem to persist. One out-of-sample zero count cannot calibrate the tail. It is merely consistent with the model (not evidence that the model is
+conservative).
 (This also extends PARITY_AUDIT's (★) census from 10⁸ to 10¹⁰: still exactly 14 failures.)
 **Conjecture 3.5 (finitely many b = 1 failures; CONJECTURE, heuristic + EVIDENCE to 10¹¹).** The b = 1 line (López's Type A)
 holds for every prime p ≡ 1 (mod 4) except 193, 2521, 66529. Heuristic basis: main term (log p)²/8 (Lemma 3.1) and
-overdispersion D = O(1) give P(fail) ≈ exp(−c (log p)²). The only known mechanism for correlated failure, Dickson-type
+overdispersion D = O(1), under the NB/near-independence assumption, give P(fail) ≈ exp(−c (log p)²) (bounded dispersion
+alone does not imply this). The only known mechanism for correlated failure, Dickson-type
 freezing (Thm 4.2), acts on O(σ) shifts, costs only O(log p · log σ) of the mean, and cannot be applied to all ≍ √p shifts.
 *Caveat (Assessment).* The negative-binomial model is calibrated only up to 10¹⁰ and is known to be optimistic by about 2 in
 the tail. No proof idea follows from it: it is the polylog lottery of B3 with a better constant.
@@ -199,14 +203,15 @@ prime. For those, p ≡ 1 (mod M_σ), hence p ≡ 1 (mod 4), and Prop 4.1(b) kil
 *Reading.*
 * This is B2's "fixed finite slice sets fail i.o. under H" (redteam-automorphic-2 Thm 2.2), now in its sharpest b = 1 form.
   The extremal primes are exactly those with p − 1 divisible by the full M_σ (the T1 point 1 in Ẑ) and with every shifted
-  cofactor Q_s prime. **This is the mechanism behind "the three failures have p − 1 11-smooth".** Smoothness of p − 1
-  freezes every small shift into the rigid form Q_s ≡ 1 (mod s) and kills all pairs supported on small primes (Prop 4.1(a)).
+  cofactor Q_s prime. It is a sufficient freezing mechanism under the explicit hypothesis M_σ | p − 1. It is a model for the smooth-(p − 1)
+  pattern, not literally its cause: 193 − 1 = 2⁶·3 is not even divisible by M₃ = 72. (Assessment: partial divisibility
+  freezes the pairs supported on the divisors of p − 1 in the same way.)
   What remains at shift s is one divisor-in-a-class event for Q_s.
 * Unconditionally, Prop 4.1 explains the census records. 22 010 483 881 (least shift 215, §2) has p − 1 = 2³·3²·5·7·11·19·23²·79,
   and every prime < 41 is a QR mod p.
 * Theorem 4.2 does NOT reach the full line. The full line uses all shifts s ≤ 1 + √(p + 1). A Dickson-type construction would
   need ≍ √p simultaneous prime cofactors, and the forms 1 + (M/(1+s))k cannot all be prime for s up to a power of p (the
-  modulus M_σ would exceed p). So B2's finite-slice obstruction does not apply to the line itself. The line can only fail by a
+  modulus M_σ would exceed p). So B2's finite-slice obstruction does not apply to the line itself. Assessment: the line then fails only by a
   large deviation of many independent large-shift events (§3).
 (Check of Prop 4.1: `z29_freeze_check.py 2·10⁹`, all primes p ≡ 1 (mod M₇ = 176 400) and (mod M₁₁ = 64 033 200) below
 2·10⁹: 16 719 + 47 shift-s pairs, the two descriptions agree exactly; in all 2 776 + 24 cases with Q_s prime there is no
@@ -217,19 +222,24 @@ At level d, the b = 1 event is "some subset product of the prime factors of N = 
 2.2(b) supplies one odd character value, χ₋₄d(N) = (d/p). (a) For elementary-2 groups G (d | 6), the event holds whenever every
 odd character ψ of G has ψ(N) = −1 (duality). (b) **χ₋₄ is an odd character of every (ℤ/4d)^*, and χ₋₄(N) = χ₋₄(p) = +1.** So no
 level is ever forced by characters. Every admissible w ≡ −1 (mod 4d) is ≡ 3 (mod 4), and level d needs a prime ≡ 3 (4) dividing
-p + 4d (a Landau event). (c) In the dual coordinate c the χ₋₄ condition is forceable, but only on the trivial class p ≡ 5 (8) (B1).
-Screen: 105 and odd squares fail in the same way (at m², ψ(m²) = +1 for every character). For k = 8 (131, 241) the levels are
+p + 4d (a Landau event). (c) In the dual coordinate c (cp + 1 needs a divisor ≡ −1 (mod 4c)), χ₋₄ can be forced: always for c = 2 (2p + 1 ≡ 3 (4)),
+and for c = 1 iff p ≡ 5 (8). But that still does not force the class −1 (mod 4c) (for c = 2 the class mod 8).
+**Scope:** (b) concerns arguments that use only the character values of the total product N. Such data cannot force the
+event, because N ∈ ker χ₋₄, and a hypothetical factorisation with all prime residues in ker χ₋₄ has the same total character
+data but no subset product −1. Arguments that use the characters of individual prime factors are not excluded (gcd(p, d) = 1
+assumed).
+Screen: 105 and odd squares fail in the same way (at m², ψ(m²) = +1 for every quadratic character). For k = 8 (131, 241) the levels are
 w ≡ −1 (mod 8d·…) and the same χ₋₄ argument applies, so nothing 4-specific is gained. What remains is B2 at a single integer.
 
 ## 6. Verdict (O259 checkpoint 1)
 * Literature: the b = 1 line, its divisor form, the exceptions 193/2521/66529 and the union conjecture are López's
   (2022, 2024). Cited.
-* Census: **no b = 1 failure in (66529, 10¹¹]** (2.06·10⁹ primes, complete). There is none among the 2.2·10⁵ primes ≤ 10¹⁵
+* Census: **no b = 1 failure in (66529, 10¹¹]** (2.06·10⁹ primes, complete). There are no additional failures beyond the same three among the 2.2·10⁵ primes ≤ 10¹⁵
   with 19-smooth p − 1 either. (★) has exactly 14 failures ≤ 10¹⁰ (new range (10⁸, 10¹⁰]).
 * Structure (PROVED): the pair genus law (Lemma 1.2), the trivial classes (Prop 1.4), and the freezing of small shifts by
-  M_σ | p − 1 (Prop 4.1). The last one is the mechanism behind "the failures have smooth p − 1". Dickson ⟹ the least shift is
+  M_σ | p − 1 (Prop 4.1). The last one is a sufficient model mechanism for the smooth-(p − 1) pattern. Dickson ⟹ the least shift is
   unbounded (Thm 4.2, CONDITIONAL). Forcing by characters is impossible at every level (§5).
 * Heuristic: main term (log p)²/8 for b = 1 vs (log p)²/16 distinct for (★) (Lemma 3.1): twice the trials. NB model
-  calibrated to 10¹⁰ and passed an out-of-sample test on (★) in (10⁸, 10¹⁰]. Conjecture 3.5: exactly three failures.
+  calibrated to 10¹⁰ and is consistent with an out-of-sample (★) count in (10⁸, 10¹⁰] (0 observed, 1.7 predicted). Conjecture 3.5: exactly three failures.
 * ES is not advanced: everything is either B1 (congruences), B2 (one divisor event per shift), or the B3 lottery with a better
   constant.

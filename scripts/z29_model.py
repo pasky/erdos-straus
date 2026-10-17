@@ -36,7 +36,7 @@ def analyse(name, idx, cls):
         r_ = mu / (D - 1) if D > 1.0001 else None
         def nbcdf2(m):
             if r_ is None: return sum(math.exp(-m) * m ** k / math.factorial(k) for k in range(3))
-            q = m / (m + r_ * 1.0) ; rr = r_
+            rr = m / (D - 1); q = (D - 1) / D   # NB with mean m and fixed dispersion D (same family as nb0)
             p0 = (1 - q) ** rr; p1 = p0 * rr * q; p2 = p1 * (rr + 1) * q / 2
             return p0 + p1 + p2
         pred2 = sum(nbcdf2(mu * math.log(r[0]) ** 2 / L2) for r in rs)

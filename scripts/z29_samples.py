@@ -5,7 +5,7 @@ usage: PYTHONPATH=scripts uv run python scripts/z29_samples.py X M COUNT  -> fir
 import sys
 from sympy import isprime
 X, M, C = int(float(sys.argv[1])), int(sys.argv[2]), int(sys.argv[3])
-p = X - (X - 1) % M + M
+p = X + (1 - X) % M
 out = 0
 while out < C:
     if isprime(p):

@@ -1,1 +1,1 @@
-p<20000: b=1 pairs 12717, violations 0, free pairs 2260 in (p mod 8, k mod 2) classes [(5, 1)]; c=1 pairs 5710, violations 0
+p<20000: b=1 pairs 12717, violations 0, free pairs 2260 in (p mod 8, k mod 2) classes [(5, 1)]; c=1 pairs 7857, violations 0

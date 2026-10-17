@@ -6,7 +6,7 @@ forced levels / genus structure / variance.
 **Result (PROVED + EVIDENCE).** Lemma 3.1: N₁(p) = #{(c, d) : 4cd − 1 | p + 4d}. Every incidence is a distinct solution, with
 main term (log p)²/8. (★)'s R(p) has the same main term, but its incidences come in swapped pairs (u, B) ↔ (B, u) that give
 the same solution. So (★) has (log p)²/16 distinct trials, half as many. With Prop 1.4 (b = 1 is exposed only on p ≡ 1 (24),
-(★) on p ≡ 1 (8)) this accounts for the gap. Data: N₁/N_{c1} = 1.67 → 1.85 from 10⁶ to 10¹² (→ 2). Smooth-(p − 1) classes
+(★) on p ≡ 1 (8)) this accounts for the gap. Data: N₁/N_{c1} = 1.67 → 1.85 from 10⁶ to 10¹² (consistent with 2; not proved). Smooth-(p − 1) classes
 depress both lines by the same 16–20 %. The genus/forced-level structure is the same for both (Lemma 1.2), so it does not
 discriminate.
 **Barrier screen.** B3: this is a statement about the main term of a polylog lottery, not a mechanism. B6: averages over p.

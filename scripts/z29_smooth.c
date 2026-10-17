@@ -29,7 +29,7 @@ static int hit(u64 p,u64 s){ if(!((s&3)==0||(s&3)==3)) return 0; u64 n=p+s; int 
   for(int i=0;i<nd;i++){ u64 t=dv[i]; if(t<=s) continue; u64 u=n/t; if((u+1)%s) continue; if(!((s&3)==0||(t&3)==0)) continue; return 1; } return 0; }
 static u64 X; static int Y; static u64 S; static int sp[16]; static int nsp;
 static u64 cnt=0,cnt1=0,unres=0,rec=0,rec5=0,recp=0; static u64 hist[16];
-static void test(u64 m){ if(m%4) return; u64 p=m+1; if(p<5||!isprime(p)) return; cnt++; if(p%8==1) cnt1++;
+static void test(u64 m){ if(m%4) return; u64 p=m+1; if(p>X) return; if(p<5||!isprime(p)) return; cnt++; if(p%8==1) cnt1++;
   u64 first=0; for(u64 s=1;s<=S;s++) if(hit(p,s)){ first=s; break; }
   if(!first){ unres++; printf("UNRESOLVED p=%llu (no hit s<=%llu)\n",p,S); fflush(stdout); return; }
   int b=0; while((1ULL<<(b+1))<=first&&b<15) b++; hist[b]++;
