@@ -205,8 +205,8 @@ divisors are always invisible moduli. A large smooth part of p − 1 makes p pro
 the square classes. Data: (1) all three b = 1 failures have p − 1 11-smooth (above). (2) p ∈ [10⁴, 4·10⁴]: mean b = 1 / c = 1
 counts 16.0 / 19.3 (11-smooth part S < 50), 13.7 / 16.5 (50 ≤ S < 500), 11.3 / 14.5 (S ≥ 500). Most of this is the known
 QR-richness effect (s7_lvalue_proxy). (3) A controlled test inside the six Mordell square classes mod 840, p ∈ [10⁶, 3·10⁶],
-≈ 700 primes each: class 1 has mean b = 1 count 19.63 against 20.25–20.89 for the other five square classes (≈ 3 standard errors
-below their mean), and c = 1 count 23.53 against 23.96–25.10. So proximity to 1 itself, beyond squareness, costs a few
+≈ 700 primes each: class 1 has mean b = 1 count 19.63 against 20.25–20.89 for the other five square classes (a difference of about one
+solution; standard errors not computed), and c = 1 count 23.53 against 23.96–25.10. So proximity to 1 itself, beyond squareness, costs a few
 per cent. Label: EVIDENCE (weak); no mechanism claimed.
 
 ## 6. Verdict (O258 checkpoint 1)
