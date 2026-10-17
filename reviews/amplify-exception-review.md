@@ -18,7 +18,67 @@ From-scratch scripts: `scripts/review_r266_*.py` (no author code reused). ES rem
 
 ## Defects
 
-(in progress)
+**D-T32a (MAJOR — attribution / overclaimed novelty of the SHARP headline).** Location: AMPLIFY_EXCEPTION.md
+Thm 3.2, Cor 3.3; AGENT_REPORT_O253 SHARP 1, R4, R6. Thm 3.2 ("p ≡ □ (mod L) ⟹ no ET witness with H | L") is the
+classical Mordell–Schinzel obstruction in local form: a witness slice with H | L is exactly a polynomial ES
+identity on the class p mod L, and ET p. 8 state that "a primitive congruence class n = r mod q which is a
+perfect square cannot be solved by polynomials (this also follows from Proposition 1.6)" (refs [44], [68] there =
+Mordell, Schinzel); ET p. 6 adds that this "rules out … a finite set of covering congruence strategies". In the
+campaign this is literally named T1 and is DISCOVERIES (C)2 and (C)7 ("known in substance: Mordell 1969 /
+Schinzel 2000"). The document cites neither Schinzel/Mordell, nor ET's remark, nor (C)2/(C)7; the report presents
+"T1 adversary / invisible witnesses" as the main new sharp result. What is new is only the *packaging*: (i) the
+reading "a source witness informs a congruence-mediated lift only through p mod αH′" (Thm 3.1, near-tautological
+from its definition), and (ii) the locality remark that an lcm of invisible moduli is invisible (Cor 3.3), so joint
+recombination cannot rescue invisible inputs. Both are correct and useful for the shared-core comparison, but
+modest. Repair: in Thm 3.2 add "(classical: Mordell–Schinzel via ET Prop 1.6 and ET p. 8; campaign T1, DISCOVERIES
+(C)2/(C)7; the CRT normalisation is the only detail added here)"; relabel the novelty of Cor 3.3 as
+"application of T1 to recombination laws; folklore-level"; in SHARP 1 and R4 replace "T1 adversary" as a
+headline by "application of the classical square-class obstruction (Mordell–Schinzel/ET Prop 1.6) to route (D):
+joint determined recombination cannot use square-class inputs".
+
+**D-ASTRA (MAJOR for the side-by-side comparison — missing credit to Astra prior art at d7300f8).** Location:
+§1–§2 of AMPLIFY_EXCEPTION.md (no mention of Astra anywhere). Overlaps I verified:
+* POSITIVE_ES_RESEARCH_RESET.md §4, test 3: "fixed branching number b with every successor at least n^{1+ε}
+generates only O((log N)^{log b/log(1+ε)}) descendants" = Thm 1.3(a) (the polylog ceiling); test 1 ("ordinary
+multiples fail … products cannot simply be declared exceptional") = Thm 1.4(d); test 2 (the multiplicative
+semigroup of a set with P(x) ≪ x exp(−c(log x)^θ) still satisfies such a bound with c/2) is a sharper form of the
+point of Thm 1.4(b)/(c) (composites built from exceptional primes cannot by themselves contradict the bound); its
+"sharper first target" Σ_{P_E} 1/p = ∞ is the target Thm 1.1(c) improves on.
+* EXCEPTION_PROPAGATION_GLOBAL.md §1 ("exact all-witness sufficient hypothesis: for every normalized w ∈ W(q),
+H(w) | q − p or H(w) | pq − 1") and §8 ("(14) all-input recombination … If even one such factor is known soluble
+(or is < p under minimality), that lift proves W(p) nonempty directly") = Thm 2.2(b) and Prop 2.1(a)/Thm 2.4's
+framing; §3 ("explicit moving-witness escape in every reduced neighborhood") is the Astra analogue of Prop 3.5's
+obstruction and of the adversarial-witness idea (Astra escapes via a non-residue modulus ℓ ≡ 3 (4), O253 via square
+classes — different mechanism, same role).
+* EXCEPTION_PROPAGATION_OPERATIONS.md §5–§6: target-dependent positive recombination repairs every witness at
+97 and (with M = 5) the 157 → 313 obstruction; Astra itself shows unrestricted refinement is equivalent to ES(p).
+These are *not* determined lifts (they use known targets at p), so they do not contradict Cor 3.3, but the document
+should say so, since "no source is total at any fixture" could otherwise be read as contradicting Astra's "repairs
+every witness at 97".
+Repair: add a short "Prior art" paragraph: Thm 1.3(a), 1.4(d) = Astra RESET §4 tests 3, 1 (credit); Thm 2.2(b)/
+Prop 2.1(a) framing = Astra GLOBAL §1, §8; Thm 3.2 = Mordell–Schinzel/ET (D-T32a); and the remark that Astra's
+positive repairs at 97/313 are target-dependent, hence outside the determined-lift scope.
+
+**D-T25a (MINOR).** Thm 2.5(b): the populations are p > 3k (script `z25_models.py`), undisclosed. Without that
+restriction the {(p∓1)/2} law also fails at k = 9 (p = 19), so "except 9" is false as stated; the truncated law also
+fails for k = 8, 9 (vacuously, e.g. k = 8, p = 17). Repair: state "tested on exceptional p > 3k" or replace
+"fails for every k ∈ [10, 25]" / "except 9" by "fails for every k ∈ [8, 25] (for k = 8, 9 only at p ≤ 3k, e.g.
+(9, 19))".
+
+**D-T25b (MINOR).** Prop 3.4(d): "likewise for all exceptions p < 400 of 8 ≤ k ≤ 14 except (14, 29)" omits the
+exceptions (11, 2), (13, 2), (14, 2) listed in Thm 2.5(a). Repair: "except (11, 2), (13, 2), (14, 2), (14, 29)".
+
+**D-T31 (MINOR).** Thm 3.1(a) proof: existence of t with gcd(t, 4ab) = 1 and p′ + tαH′ prime needs the residue
+choice at odd ℓ | 4ab, ℓ ∤ αH′ (avoid t ≡ 0 and p′ + tαH′ ≡ 0; possible since ℓ ≥ 3), then Dirichlet. One line.
+
+**D-T32b (MINOR).** Thm 3.2: statement says "Let p be odd" but the proof uses primality ("since p is prime the
+witness is ET-normalised"); say "odd prime (or: odd p and an ET-normalised witness)". In the proof, "for ℓ | L this
+is automatic, since m² ≡ p ≢ 0 (mod ℓ)" is false for ℓ = p when p | L (then p ‖ L and p | m); the conclusion
+still holds because of the recorded facts p ∤ ab, p ∤ e (II), p ∤ c (I). Repair: "for ℓ | L, ℓ ≠ p, this is
+automatic; for ℓ = p use p ∤ abe (II) resp. p ∤ abc (I)", or first replace L by its prime-to-p part (H is
+coprime to p).
+
+(further defects below)
 
 ## Per-claim notes
 
