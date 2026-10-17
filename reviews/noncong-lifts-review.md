@@ -70,3 +70,27 @@ p ≡ 1 (8) and (p/3) = (p/5) = (p/7) = 1 ⟹ p is a square mod every 2^a3^b5^c7
 
 **Verdict: SOUND (CERTIFIED parts reproduced; "if" PROVED).** Defect D4 (logic of "k = 8 has none at all, because
 already ℓ = 3, 5, 7 carry uncovered points").
+
+### §1: Def 1.1, Thm 1.2, Prop 1.3, Prop 1.4
+
+* **Def 1.1** — coherent; "with the same w′" makes the level a property of the pair (rule, w′). Fine.
+* **Thm 1.2 (with gcd(p, M) = 1).** Re-derived. (i) The Dirichlet step is correct: progression p + M(t₀ + s·rad(kab)),
+  first term coprime to the difference (primes of M: gcd(p, M) = 1; ℓ | kab, ℓ ∤ M: choice of t_ℓ). The parenthetical
+  "ℓ = p does not divide kab by ET normalisation" is unnecessary (if p | kab the bad class for ℓ = p is t ≡ 0, which
+  is excluded anyway) — harmless. Type I uses gcd(e, kab) = 1 from kabd = pe + 1 ✓. (ii) p ≡ s² (mod M), H | M, H even ⟹ s odd
+  ⟹ the odd square s² lies in the witness class; the identity (abd, acdn, bcdn) / (abdn, acd, bcd) is valid for every n,
+  so this is a parametric solution at n = s² — excluded by the local square-class obstruction. My
+  `review_r267_complete.py` asserts exactly this local statement (no square unit class covered) at every level
+  ≤ 6000 (k = 4), ≤ 3200 (k = 8), ≤ 4800 (k = 12): 0 violations. ET Prop 1.6 checked in the PDF ("For any odd perfect
+  square n, f_I(n) = f_II(n) = 0", proof via the point equations, i.e. slice-local) ✓. **SOUND** (classical in
+  substance, as the text now says).
+* **Prop 1.3.** The k = 5 counterexample checks (1/(t+1) + 2/(2n(t+1)) = (n+1)/(n(t+1)) = 5/n for n = 5t + 4; 4 ≡ 2²
+  mod 5). "Valid for infinitely many t ⟹ identity in ℚ(t)" ✓. Schinzel 2000 not accessible to me (no PDF in
+  sources/); I rely on the O223 citation audit (DISCOVERIES (J)49 SHARP 2, (J)55). **SOUND (classical; Schinzel's).**
+  The NEAR_SQUARE sentence after it is garbled — D5.
+* **Prop 1.4.** All four coefficient comparisons re-derived (II←II λ = α, e = αe′ − β; II←I λ = α/e′, e = α/e′ − β;
+  I←II e = 1, αe′ − β = 1; I←I e(α − βe′) = e′, λ = αe/e′). The α = 1 list is complete (I←I with δ ≠ 0 has no solution:
+  δ > 0 makes 1 − δe′ ≤ 0, δ < 0 makes e < 1). Examples check: q = 37 (II, 1, 5, 2, d = 2, e′ = 3, N = 40) ↦ p = 13
+  (I, same slice, e = 3, 13·3 + 1 = 40); q = 23 (II, 1, 6, 7, 1), p = 17, e = 7: (1, 6, 1) works, (1, 13, 2) needs 52 | 24.
+  The "reselecting ⟺ (θ, e) ∈ Spec(p)" statement is a tautology once stated (fine, it is labelled algebra).
+  **SOUND.**
