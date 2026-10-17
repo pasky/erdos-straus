@@ -32,3 +32,17 @@ Results (`logs/review_r270_eng_a.txt`, `_b.txt`): ≤ 5·10⁹: 117 474 981 prim
 ≤ 10⁶ gives 39 175 + 39 322 (≡ 3 (4)) + 1 = 78 498 = π(10⁶). Runtime 2 × 2.6 min.
 
 ## Defects
+
+### C3. Prior-art attribution to López — SOUND-AFTER-REPAIRS (one missing attribution)
+Fetched the arXiv HTML myself (Jina reader, 2026-10-17; saved as `sources/lit2026f/r270-lopez-2404.01508v3-html.md`,
+`…2206.10319v4-html.md`). Every quote in `Lopez-2022.md`, `Lopez-2024.md`, `Lopez-2024-TypeB-Thm7.md` is verbatim present:
+2206.10319v4 Theorem (a) (p ≡ −4d mod 4dn − 1), (c) (w | k + 1 + t, w ≡ −1 mod 3 + 4t), §3 "up to the value p=4369, only
+two prime numbers … 193 and 2521"; 2404.01508v3 Def. 4 / Thm 4 (Type B), Thm 7, Conjecture 1, "among the first 9000 natural
+numbers … 193 and 2521", "66529 is another case", "23929 does not have Type B", verification to 104729, "Type A … a=1 or b=1".
+Identification re-derived: a Type A solution (du, dv, duv) of a prime p has 4duv = p(u + v + 1); p | d is impossible
+(it would give 4 = (u + v + 1)/(d′uv) ≤ 3), so p | v say, v = pv′, and 4duv′ = pv′ + u + 1 is the b = 1 equation with
+(a, c, d) = (u, v′, d). ✓ (Note the divisor form is already Thm (a) of 2206.10319, not only Thm 7 of 2404.01508.)
+**Missing:** 2404.01508v3 §2 states "In the previous article it was shown that any prime number p such that
+p ≢ 1 (mod 24) always has a solution of Type A" (t = 0 case of Thm (c)). That is exactly the b = 1 half of Prop 1.4, which
+B1_LINE labels "folklore-level" without citing López (defect m1). Also López 2404 notes 83449 "lacks Type B solutions" and
+has "only two Type A solutions" — a data point the author could cite; my engine confirms it (C5).
