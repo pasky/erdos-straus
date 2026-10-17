@@ -16,8 +16,8 @@ from the 4-condition only at the primes of k/4 (and the extra power of 2). The s
   two readings of one step; neither is reciprocity (agreeing with O257).
   Generalisation (`s8_xlr_points.py 60`): at x_{ℓ,r} the covered non-residues are mostly r ≡ −(small) (e.g. k = 4, ℓ = 17:
   covered r = 10, 11, 12, 14 ≡ −7, −6, −5, −3; uncovered 3, 5, 6, 7). The inequality concerns the least residue e of the CRT
-  lift, not the size of r. Coverage thins quickly with k (k = 16: one non-residue covered for ℓ ≤ 37 with ℓ ∤ k, namely r = 14
-  at ℓ = 29).
+  lift, not the size of r. Coverage thins quickly with k (k = 16: for ℓ ≤ 37, ℓ ∤ k, only ℓ = 29 has covered non-residues,
+  r = 14 and 27).
 * (J)57 Fano pigeonhole: the 4-specific step is 2-adic ("4 costs no bit, each further power of 2 costs one"). Its EVIDENCE
   "at 131 and 241 every entry divisible by 4 has v₂ exactly 2" is the same statement as "every solution of 4/131, 4/241 has an
   odd denominator" (`s8_even_denominators.py`: 32 resp. 8 solutions, 0 all-even; at non-exceptions, e.g. 233: 9 of 19).
