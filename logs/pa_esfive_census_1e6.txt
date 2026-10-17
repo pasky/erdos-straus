@@ -1,0 +1,4 @@
+pure-sign hits (u_min<=2, class mod u vacuous): 17573; u_min >= least QNR n_p: 3
+N=1000000: primes p=1 mod 8: 19552; E_a fails (u<=sqrt p+2): 0 []
+u_min median 1, 99% 5, 99.9% 11, max 17 at p=196561
+T1 control: odd squares <= N: 499, with an E_a hit: 0

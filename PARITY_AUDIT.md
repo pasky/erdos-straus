@@ -242,3 +242,50 @@ short interval of polylog length, where the best pointwise results stop at lengt
 under RH).
 H-B therefore collapses into H-A, as (J)6 said: a level-of-distribution statement for divisor incidences with the
 modulus tied to the variable.
+
+## 4. SHARP flags (deliverable 4)
+
+**None.** No result found reaches a single-p statement of type (a) or (b): not for all large p, not for a thin
+infinite set of p that are not already covered by congruences (B1), not under GRH/RH. Specifically:
+* Every existence statement found is averaged (over n ≤ x, p ≤ x, moduli q ≤ x^θ, or residues a) — §1A, 1D, E2.
+* Every pointwise-in-p statement is an upper bound (A1, A2, D4's G(a)), class-blind (C1, B6), or concerns
+  intervals of length ≥ p^{1/2} (C2, C3), or stops at the sign/window layer (E3).
+* The one pointwise ternary representation theorem (Borwein–Choi, E1) is GRH/Siegel-conditional and works through
+  a class-number identity of a kind excluded for ES by T1 ((J)7 Thm 9.1). It is the closest *precedent*, not a
+  reach.
+* No ES proof claim in the window 2026-09-20 → 2026-10-17. Dyachenko's "Theorem 10.21" does not exist in the
+  paper; its Thm 9.21 presupposes the divisor event (E4). ES is not solved.
+Thin sets that *are* reached are B1 (congruence classes, polynomial identities) or campaign-internal algebraic
+families ((J)62, (J)69, (J)74, (J)75, (J)80), none of which is known to contain infinitely many primes.
+
+## 5. Numerics (EVIDENCE; `scripts/pa_events_census.py`, `scripts/pa_esfive_census.py`, logs in `logs/pa_*`)
+
+All primes up to 10⁶; full divisor enumeration via a smallest-prime-factor sieve.
+
+* **(a⁴) is not an all-p target.** E_a⁴(p; √p + 2) (= the full (A)3 event, R(p) ≥ 1) fails at 9 primes p ≡ 1 (4)
+  ≤ 10⁶: 409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321 (R(p) = 0 re-checked by the (u,C) count of
+  Lemma 2.1 for the first six). Where it holds: least u has median 1, 99th percentile 5, maximum 131 (p = 427249).
+  So any all-p theorem must aim at ES-five (event (a) with the sign layer) or full Type II, not at (★) alone.
+* **(a) = ES-five on the u-side, primes p ≡ 1 (8) ≤ 10⁶ (19 552 primes):** no failure (consistent with (J)9's
+  λ(p) ≤ 3). Least u has median 1, 99th percentile 5, 99.9th percentile 11, maximum 17 (p = 196561).
+  **17 573 of 19 552 (89.9 %) are hit at u ≤ 2, where the class condition "A ≡ −1 (mod u)" is vacuous.** There the
+  event is the pure spin event "p + 1 or p + 2 has a prime factor that is a non-residue mod p". Only 3 primes need
+  u ≥ n_p (the least QNR, where Lemma 3.2 makes the χ-shadow free).
+* **T1 control:** none of the 499 odd squares 9 ≤ m² ≤ 10⁶ has an (a⁴) hit or an (a) hit at any u ≤ m + 2
+  (Lemma 3.2; (J)9).
+* **(b) windows** (q prime, q ≡ 3 (4), q ≡ 4 − p (8), (q/p) = −1, q < 3p), primes p ≡ 1 (4) ≤ 10⁶ (39 175 primes).
+  The B2 sub-event d | (p+q)/4, d ≡ −1 (mod q) fails at every such window for 8272 primes. Where it holds, least q
+  has median 7, 99th percentile 19 759, maximum 141 971. The full target-−1 event (coprime u, v with uv | K_q and
+  q | u + v) fails at every such window for 2458 primes; where it holds, least q has median 11 and 99th percentile
+  4111. These failures are expected: the cap-theorem windows are only part of ES, and target −p (Type I) is
+  excluded. So the restricted window event (b) is not an all-p target either.
+
+**Remark 5.1 (where the single-p difficulty sits; Assessment from the census).** At a hard prime (p ≡ 1 (mod 840),
+say) and each small u, the two layers are complementary. For u < n_p we have (u/p) = +1, so the sign layer is not
+forced. For u ≤ 2 the class layer is vacuous, and the event is then a spin event at one integer. At u = n_p the sign
+is forced but the class mod u is genuine. Neither half is a single-p theorem. The spin event at one integer is a
+factorisation fact about that integer, just as the class event is. (J)6's "the sign layer is easy" holds for
+*upper* bounds over many slices, not for one integer. Data: about 90 % of hard primes are decided by the spin event
+at p + 1 or p + 2 alone. By the window analogue (POINTWISE_WINDOW W1: a_min(p) ≥ 7 for ≫ x/(log x)^{3/2} hard
+primes, PROVED), one expects every fixed-U version of (a) to fail infinitely often. So a single-p theorem needs
+U → ∞ with p, and that puts it back in the short-interval regime of §2, where the pointwise barrier is p^{1/2}.
