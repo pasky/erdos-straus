@@ -31,7 +31,7 @@ def umin(n, umax):
             if A % u == (u - 1) % u and A > 1 and jacobi(A, n) == -1: return u
     return None
 us, fails, worst = [], [], (0, 0)
-small = 0; ge_np = 0
+small = 0; ge_np = 0; h_tot = 0; h_small = 0
 for p in range(17, N + 1, 8):
     if spf[p] != p: continue
     np_ = next(a for a in range(2, p) if jacobi(a, p) == -1)
@@ -39,9 +39,11 @@ for p in range(17, N + 1, 8):
     if u is None: fails.append(p)
     else:
         us.append(u); small += (u <= 2); ge_np += (u >= np_)
+        if p % 840 == 1: h_tot += 1; h_small += (u <= 2)
         if u > worst[0]: worst = (u, p)
 us.sort()
 q = lambda f: us[min(len(us) - 1, int(f * len(us)))]
+print(f"p = 1 mod 840: {h_tot} primes, pure-sign hits (u_min<=2): {h_small}")
 print(f"pure-sign hits (u_min<=2, class mod u vacuous): {small}; u_min >= least QNR n_p: {ge_np}")
 print(f"N={N}: primes p=1 mod 8: {len(us)+len(fails)}; E_a fails (u<=sqrt p+2): {len(fails)} {fails[:10]}")
 print(f"u_min median {q(.5)}, 99% {q(.99)}, 99.9% {q(.999)}, max {worst[0]} at p={worst[1]}")

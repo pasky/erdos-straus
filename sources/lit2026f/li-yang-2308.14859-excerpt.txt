@@ -1,3 +1,3 @@
 X. Li, X. Yang, "An improvement on Gauss's Circle Problem and Dirichlet's Divisor Problem", arXiv:2308.14859 (v2, 2023) (HTML read 2026-10-17).
 Theorem 1.2: R(X) = O_eps(X^{theta*+eps}) and Delta(X) = O_eps(X^{theta*+eps}), theta* = 0.3144831759... (previous record Huxley 131/416 = 0.3149..., Proc. LMS 87 (2003)). "theta = 5/16 = 0.3125 is an unbeatable barrier of the existing methods"; conjecture theta = 1/4.
-Consequence used in PARITY_AUDIT (standard, our derivation): sum_{x<n<=x+h} tau(n) = h log x + (2gamma-1)h + O(h^2/x) + O(x^{theta*+eps}), so an asymptotic POINTWISE in x for h >= x^{theta*+2eps}. No residue-class information on the divisors.
+Consequence used in PARITY_AUDIT (standard, our derivation): sum_{x<n<=x+h} tau(n) = h log x + 2gamma h + O(h^2/x) + O(x^{theta*+eps}), so an asymptotic POINTWISE in x for h >= x^{theta*+2eps}. No residue-class information on the divisors.
