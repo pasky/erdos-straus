@@ -80,7 +80,7 @@ Checked against `sources/dyachenko-2511.07465.pdf` (pdftotext). Abstract (l.25) 
 not proved ✓. Lemmas/Theorems D.33, D.16 exist (the paper calls them both "Lemma" and "Theorem"; cosmetic).
 MINOR (m7): the quotation of §11 is truncated in a way that slightly over-favours the audit: the sentence reads
 "is certainly not proven **constructively** in the present work", and the next bullet claims "for any fixed odd
-prime P, the existence of a solution is strictly proven". Quote both (the fixed-P claim is vacuous — it is the
-finite verification / trivially true for each P — but the author does still claim it). Repair: replace the E4
-quote by the two bullets verbatim and add "the fixed-P claim adds nothing beyond computation for that P".
+prime P, the existence of a solution is strictly proven". Quote both. Read literally, "for any fixed P" is
+"for all P", i.e. ES for P ≡ 1 (4), and is exactly what 9.21(III) does not deliver; the paper is internally
+inconsistent rather than conceding. Repair: replace the E4 quote by the two bullets verbatim and add that remark.
 
