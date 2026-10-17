@@ -89,3 +89,24 @@ The "Reading" is an Assessment (unlabelled) — defect m5.
 **Per-j statistics: SOUND (EVIDENCE).** Reviewer's own recomputation (all 39 175 primes p ≡ 1 (4) ≤ 10⁶, j ≤ 24): rates
 0.128, 0.389, 0.474, 0.523, …, 0.907 (identical to 3 decimals); pairwise joint/product mean 1.0040, max 1.269 at (j, j′) = (1, 4),
 min 0.937; all 24 fail at 10 primes vs 6.57 predicted. All match the author.
+
+---
+## Claim D — Lemma 3.1 (§3) and Lemma 4.1 / Cor. 4.2 (§4)
+
+**Lemma 3.1: SOUND.** (a) 4K ≡ q (mod p), (4/p) = 1. (b) u ≡ −v (q) ⇒ (uv/q) = (−1/q) = −1; transfer re-derived: for an odd prime
+s | K, (s/p) = (p/s) = (−q/s) = (−1/s)(q/s) = (−1/s)(s/q)(−1/s) = (s/q) (q ≡ 3 (4)); for s = 2 | K one has 8 | p + q and the two
+2-symbols agree in both cases p ≡ 1, 5 (8) — the lemma is fine for even K too. Reviewer check (`scripts/review_r268_jacobi.py`):
+13 500 prime windows (q < 80, p < 2·10⁴), (a) 0 exceptions; 30 996 ordered = 15 498 unordered cap-0 certificates (exactly the
+author's count), (b) 0 exceptions. The "Reading" / verdict (iii) is Assessment and reasonable.
+**Lemma 4.1: SOUND** (re-derived; the side-number form f | p² + 4c²d, f ≡ −p (4c|d|) is ET (2.9) + (2.6), and conversely
+a := (p + f)/(4cd) recovers ET (2.7) since gcd(f, 4c²d) = 1). Credit: it is the (J)52 three-bit law χ·s_∞ = −1 specialised to the
+Type I side number (as the header says) and the ET Prop 1.6 reciprocity mechanism. Reviewer check: primes p ≡ 1 (4) < 3000,
+c < 5, 0 < |d| < 30, gcd(p, cd) = 1, all divisors f: 4772 positive and 10 787 signed points, 0 exceptions; odd squares 9 … 441:
+0 positive points, 3–48 signed points each. (Author's counts 1934 / 2816 / "2–13 each" use a different enumeration convention,
+not documented — defect m6.)
+**Cor. 4.2: SOUND-AFTER-REPAIRS.** The |d|-preserving obstruction is an immediate, correct consequence. The sentence "the only
+involutions are coordinate permutations" is an overclaim: in reciprocal coordinates the ES surface is the plane
+X + Y + Z = 4/p, with a large group of (birational/affine) involutions. What is true is that the equation is multilinear, so
+there is no Vieta-type involution in a single variable (defect m7).
+**§6 credit (MINOR, m8):** §6 lists Lemma 4.1 under "Genuine new content"; it should be listed as a repackaging of (J)52 / ET
+Prop 1.6 (the brief's expectation), with the only new element Cor. 4.2's use of it to close (iv).
