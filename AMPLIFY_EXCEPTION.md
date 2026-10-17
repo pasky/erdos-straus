@@ -104,3 +104,76 @@ of E, which it is if stated for all p₀ ∈ P_E, using (K3) for composite hits)
 prime, by (K3); its block contains a smaller element of E). This needs neither (K1) nor (K4).
 (c) Disjoint blocks of bounded length L inside every window (p, p + f(p)] give Thm 1.3(c) with f + L.
 *Proof.* (a) E ∩ [1,N] hits every block inside [1,N]; a hitting set of size τ hits ≤ τμ_N blocks. (b),(c) immediate. ∎
+
+---------------------------------------------------------------------------------------------------------------
+
+## 2. Obstruction theorems (what classes of laws can never work)
+
+**Proposition 2.1 (an (A)-law is a total reduction; PROVED, elementary).** A law "p₀ ∈ E ⟹ F(p₀) ⊆ E" with
+F(p₀) defined from p₀ alone (input-only) is the same statement as the family of reductions
+"ES(q) ⟹ ES(p₀)" for q ∈ F(p₀). Consequently: (a) if some q ∈ F(p₀) is *known* to be soluble, the law (if proved)
+is a proof of ES(p₀); (b) if F(p₀) satisfies (1.1), F(p₀) necessarily contains integers covered by the
+small-modulus Elsholtz–Tao classes used in Vaughan's sieve (otherwise F(p₀) ⊆ the sieve's avoider set, whose
+count is the bound in (K4)), so the law, made explicit, turns an *explicit small-modulus witness* at some q into a
+witness at p₀. The amplification route therefore does not avoid proving ES(p₀): it relocates the difficulty into
+the reduction step, which must turn small-modulus data at q into a witness at p₀ (cf. Thm 2.3).
+*Proof.* (a) Contrapositive of the law at that q. (b) Vaughan's proof bounds E(N) by the number of n ≤ N avoiding an
+explicit family of classes (each class ⊆ S by an explicit identity); if F(p₀) avoided all of them it would obey
+the same upper bound and (1.1) would fail (Thm 1.1(b)). ∎
+
+**Theorem 2.2 (slice isolation: witness transports never amplify; PROVED).** Call (a,b,c) the *slice* of a witness
+and let 𝒢 be the graph on primes with q ~ p iff some witness w ∈ W(q) transports to W(p) by one of the two known
+transports (H(w) | q − p keeping the Type, or H(w) | pq − 1 switching it; any finite chain of these).
+(a) The transports are symmetric with the slice fixed: W_{abc}^{Type}(q) ≠ ∅ and H | q − p ⟺ W_{abc}^{Type}(p) ≠ ∅
+and H | q − p (same for the switched form). Hence exceptional primes are isolated vertices of 𝒢.
+(b) Any law proved through such transports with an applicability condition depending on W(q) (e.g. "for all
+w ∈ W(q), H(w) | p₀ − q or H(w) | p₀q − 1") has F(p₀) = E ∪ {q ∈ S : …} = E under the hypothesis, i.e. it is the
+tautology E ⊆ E. With an input-only F(p₀), proving it means proving that every soluble q ∈ F(p₀) has a witness
+whose modulus H(w) divides p₀ − q or p₀q − 1 — a divisor event with modulus part of the solution (B2), and, by
+Prop 2.1(a), a proof of ES(p₀) as soon as one q ∈ F(p₀) is known to be soluble.
+*Proof.* (a) Type II: 4ab d = q + e with H = 4ab | q − p gives 4ab d′ = p + e with d′ = d − (q−p)/H; positivity of
+d′ is the only asymmetry, and it holds in the direction p > q … (for p < q, d′ > 0 iff p + e > 0, always). So the
+relation is symmetric in the existence of slice witnesses. Type I analogous with qe + 1, and the switched form
+uses p(qe+1) − (p + e)·… : if H | pq − 1 then pe + … (see core §1). An exceptional p has no slice at all, hence no
+edge. (b) As stated. ∎
+
+**Theorem 2.3 (squares refute primality-blind ET-valued laws; PROVED).** Let 𝓛 be a law (either route) whose proof
+produces, from witnesses at the members of F(n) (resp. Q(n)), an Elsholtz–Tao Type I or II witness at n, and which
+never uses that n is prime (all steps are identities/congruences valid for every odd n ∈ 𝓜 with the same
+definition of F(n), Q(n)). Then 𝓛 is false: for n = m² (m odd) there are no Type I/II witnesses (ET Prop 1.6),
+while for small m every member of F(m²) (resp. Q(m²)) is soluble (finite check). Example: Q(n) = prime factors
+of (n² − 1)/4, n = 25: Q = {2, 3, 13}, all soluble; n = 25 has no Type I/II witness.
+In particular every **congruence-mediated** recombination (the output witness lies in an ET class determined by
+the input slices, so the step is a containment of residue classes, valid at every integer of the class) is
+refuted by odd squares. Escape requires an essentially *prime* input at p (reciprocity at p, the field 𝔽_p,
+irreducibility), or outputs that are not Type I/II at composite n.
+*Proof.* A containment of residue classes C ⊆ C_ET holds at all integers of C, including any odd square in C;
+odd squares lie in no ET class. ∎
+
+**Theorem 2.4 (no free lunch for route D; PROVED).** For a recombination scheme Q, let
+P_free(Q) := {p prime : every q ∈ Q(p) is soluble by a *known* theorem (q ∉ 𝓜, q has a prime factor ≢ 1 (4),
+q even (2 ∈ S), q ≤ 10^17)}. On P_free(Q) the recombination law "Q(p) ⊆ S ⟹ p ∈ S" *is* ES(p).
+(a) Q(p) = {(p−1)/2, (p+1)/2}: P_free ⊇ {p ≡ 9 (mod 16)} (then (p−1)/2 is even and (p+1)/2 ≡ 5 (8) ∉ 𝓜) —
+half of all Mordell-class primes. So this D-law is exactly as hard as ES on p ≡ 9 (16), i.e. on a set of
+Mordell-hard primes of relative density 1/2.
+(b) Q(p) = prime factors of (p²−1)/4: P_free ⊇ {p : every odd prime factor of (p²−1)/4 is ∉ 𝓜}, a sieve set of
+dimension 2·(1/32) (heuristically infinite, ≍ x/(log x)^{1+1/16}); on it the law is ES.
+*Proof.* On P_free the hypothesis of the law is a theorem, so the law's conclusion is p ∈ S. (a) p ≡ 1 (8) for
+p ∈ 𝓜; p ≡ 9 (16) gives (p+1)/2 ≡ 5 (mod 8), while 𝓜 ⊆ {≡ 1 (8)}. ∎
+So a recombination law can be easier than ES only if, for every p, Q(p) contains members whose solubility is not
+already known — i.e. the information has to come from witnesses at *hard* q, and Thm 2.4 shows the natural
+schemes do not guarantee this.
+
+**Theorem 2.5 (numerator models: exceptions are isolated; CERTIFIED, `scripts/z25_models.py`, `z25_common.py`).**
+For k/n = 1/x + 1/y + 1/z the same parametrisation, transports and divisor closure hold with 4 replaced by k, and
+genuine prime exceptions exist (k = 8: E_8 ∩ primes < 2000 = {11, 17, 131, 241}; k = 12: 15 primes up to 1873;
+counts for 8 ≤ k ≤ 25 in the script log). In these models, computed exactly:
+(a) the square law fails: 8/11 has no solution, 8/121 = 1/18 + 1/99 + 1/2178; similar for every exception of
+k = 8–13 tested except (k, p) = (14, 29);
+(b) the recombination law fails: e.g. k = 10, p = 61: 10/61 has no solution while every prime factor > k of
+(61² − 1)/4 = 930 (namely 31) is soluble; failures for every k ∈ [10, 25] (the primes ≤ k are trivially exceptional
+for k ≥ 7, so they are excluded from Q); the {(p−1)/2, (p+1)/2} law fails for every k ∈ [8, 25] except 9 (e.g. 8/131);
+(c) exceptions are isolated: for k = 8 the four exceptional primes < 2000 have no exceptional successor beyond 241
+up to 2000; growth laws of Thm 1.3 type are false in these models.
+Consequence: any proof of an amplification or recombination law must use the numerator 4 specifically (the
+same point as numerator blindness (J)41); a k-uniform argument is refuted by a finite computation.
