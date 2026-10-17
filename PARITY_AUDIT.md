@@ -263,8 +263,9 @@ infinite set of p that are not already covered by congruences (B1), not under GR
 * Every existence statement found is averaged (over n ≤ x, p ≤ x, moduli q ≤ x^θ, or residues a) — §1A, 1D, E2.
 * Every pointwise-in-p statement is an upper bound (A1, A2, D4's G(a)), class-blind (C1, B6), or concerns
   intervals of length ≥ p^{1/2} (C2, C3), or stops at the sign/window layer (E3).
-* The one pointwise ternary representation theorem (Borwein–Choi, E1) is GRH/Siegel-conditional and works through
-  a class-number identity of a kind excluded for ES by T1 ((J)7 Thm 9.1). It is the closest *precedent*, not a
+* The one pointwise ternary representation theorem (Borwein–Choi, E1) is unconditional up to one possible exception
+  (GRH removes it). It works through a class-number identity. Identities of the finite fixed-level σ_k type are
+  excluded for ES by T1 ((J)7 Thm 9.1); other kinds are not excluded. It is the closest *precedent*, not a
   reach.
 * No ES proof claim in the window 2026-09-20 → 2026-10-17. Dyachenko's "Theorem 10.21" does not exist in the
   paper; its Thm 9.21 presupposes the divisor event (E4). ES is not solved.
@@ -282,7 +283,8 @@ All primes up to 10⁶; full divisor enumeration via a smallest-prime-factor sie
 * **(a) = ES-five on the u-side, primes p ≡ 1 (8) ≤ 10⁶ (19 552 primes):** no failure (consistent with (J)9's
   λ(p) ≤ 3). Least u has median 1, 99th percentile 5, 99.9th percentile 11, maximum 17 (p = 196561).
   **17 573 of 19 552 (89.9 %) are hit at u ≤ 2, where the class condition "A ≡ −1 (mod u)" is vacuous.** There the
-  event is the pure spin event "p + 1 or p + 2 has a prime factor that is a non-residue mod p". Only 3 primes need
+  event is the pure spin event "p + 1 or p + 2 has a prime factor that is a non-residue mod p". Restricted to the
+  hard class p ≡ 1 (mod 840): 238 of 395 (60.3 %). Only 3 primes need
   u ≥ n_p (the least QNR, where Lemma 3.2 makes the χ-shadow free).
 * **T1 control:** none of the 499 odd squares 9 ≤ m² ≤ 10⁶ has an (a⁴) hit or an (a) hit at any u ≤ m + 2
   (Lemma 3.2; (J)9).
@@ -293,12 +295,13 @@ All primes up to 10⁶; full divisor enumeration via a smallest-prime-factor sie
   4111. These failures are expected: the cap-theorem windows are only part of ES, and target −p (Type I) is
   excluded. So the restricted window event (b) is not an all-p target either.
 
-**Remark 5.1 (where the single-p difficulty sits; Assessment from the census).** At a hard prime (p ≡ 1 (mod 840),
-say) and each small u, the two layers are complementary. For u < n_p we have (u/p) = +1, so the sign layer is not
-forced. For u ≤ 2 the class layer is vacuous, and the event is then a spin event at one integer. At u = n_p the sign
-is forced but the class mod u is genuine. Neither half is a single-p theorem. The spin event at one integer is a
-factorisation fact about that integer, just as the class event is. (J)6's "the sign layer is easy" holds for
-*upper* bounds over many slices, not for one integer. Data: about 90 % of hard primes are decided by the spin event
-at p + 1 or p + 2 alone. By the window analogue (POINTWISE_WINDOW W1: a_min(p) ≥ 7 for ≫ x/(log x)^{3/2} hard
-primes, PROVED), one expects every fixed-U version of (a) to fail infinitely often. So a single-p theorem needs
-U → ∞ with p, and that puts it back in the short-interval regime of §2, where the pointwise barrier is p^{1/2}.
+**Remark 5.1 (where the single-p difficulty sits; Assessment from the census).** Take p ≡ 1 (mod 840), so that
+(u/p) = +1 for u ∈ {1, 2, 3, 4, 5, 6, 7}. At each small u the two layers are complementary. For u < n_p the sign layer is
+not forced. For u ≤ 2 the class layer is vacuous, and the event is a spin event at one integer. At u = n_p the sign
+is forced (Lemma 3.2, p ≡ 1 (8)) but the class mod u is genuine. Neither half is a single-p theorem. The spin event
+at one integer is a factorisation fact about that integer, just as the class event is. (J)6's "the sign layer is
+easy" holds for *upper* bounds over many slices, not for one integer. Data: 60 % of the hard primes p ≡ 1 (840)
+≤ 10⁶ (90 % of all p ≡ 1 (8)) are decided by the spin event at p + 1 or p + 2 alone. By analogy with the window
+theorem POINTWISE_WINDOW W1 (a_min(p) ≥ 7 for ≫ x/(log x)^{3/2} hard primes, PROVED for windows), one expects
+(CONJECTURE, not proved here for the u-side) every fixed-U version of (a) to fail for infinitely many p. If so, a
+single-p theorem must let U grow with p, which puts it back in the short-interval regime of §2.
