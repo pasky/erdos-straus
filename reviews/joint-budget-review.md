@@ -85,3 +85,44 @@ proportion ≥ 3/4 of admissible p mod 4F") checked for all F < 3000 (`scripts/r
 gcd(p, 4F) = 1): minimum proportion exactly 0.75 (at F = 4). Correct. Small imprecision: "(2^E − 2)/2 − E prime
 factors" presumes H₀ = G; if the forced primes generate a small H₀ the need is |H₀|-sized, not m-sized (the
 "exponential gap" sentence should say "when H₀ = (ℤ/m)^×"). MINOR.
+
+### §4.1 — SOUND except one misattributed citation (D4)
+(J)64 forcing: 4K ≡ p (mod m), so (K/m) = (p/m) = (m/p) for p ≡ 1 (4). K = s prime, v_s = 1: Σ_m(K) = {1, s, s⁻¹}, which
+contains −1 iff s ≡ −1; for prime m ≡ 3 (4), m ≥ 7, there are ≥ 3 non-residues so one ≢ −1 exists (m = 3: the only
+non-residue is −1 — consistent with the "Mordell's class" exception in 5.2(c)). Correct.
+But "Whether such K occur for every bounded set of windows is (J)83 Thm 1.3 (CONDITIONAL on Dickson: yes)" misreads
+CAP_BOUNDED Thm 1.3: its Dickson primes have (m/p) = +1 for EVERY window m ≤ M (all ℓ ≤ M + 1 split, R_m a residue), i.e.
+no forced window at all; it says nothing about forced windows with K = (prime non-residue). See D4.
+
+### Prop 4.2 — SOUND
+Re-derived: 4K ≡ p ≡ cw² (mod m), gcd(w, m) = 1 ⇒ (K/m) = (c/m); Jacobi reciprocity with p ≡ 1 (4) (no sign);
+m ≡ cw² (mod p), p ∤ w (else p | m) ⇒ (m/p) = (c/p). m | A² − pB², gcd(B, m) = 1: a prime ℓ | gcd(A, m) would give
+ℓ | p, so (p/m) = ((A/B)²/m) = +1. (For CF convergents gcd(Q_k, m) = 1 is automatic since gcd(P_k, Q_k) = 1 and
+ℓ | Q_k, ℓ | m ⇒ ℓ | P_k; same for near squares m = w² − p. The hypothesis is harmless but redundant.)
+From-scratch check (`scripts/review_r263_sec4.py 42`): all primes p ≡ 1 (4) < 10⁵; windows = 6 next-square windows, ALL
+odd divisors m > 1 of the first 30 CF norms |P_k² − pQ_k²|, and prime divisors of 3 random A² − pB² (gcd(B, m) = 1):
+335 151 windows, 0 with (p/m) ≠ +1. General c: all p ≡ 1 (4) < 5000, m ≡ 3 (4) < 400, every factorisation
+p + m = cw² with gcd(w, m) = 1 (92 665 instances): (K/m) = (c/m) = (c/p) in every case. Example p = 17, m = 7, c = 6
+reproduced ((6/17) = (6/7) = −1, (a, b) = (1, 6)).
+Reading: "Forced windows are exactly the m with (p/m) = −1" — this is the DEFINITION of Jacobi-forced (via (K/m) = (p/m)),
+fine; the "structural reason why near-square primes are hard" sentence is Assessment (unlabelled; MINOR).
+
+### Prop 4.3 — SOUND
+Type II: p ≡ −e (mod 4ab); Type I: pe ≡ −1 (mod 4ab); 4ab | p − 1 ⇒ e ≡ −1 ⇒ 4ab ≤ e + 1 ≤ a + b + 1, impossible
+(4ab − a − b − 1 ≥ 1). p + 1 case trivial. Checked from scratch on all 6 376 ordered Type II points (= the author's 3 188
+unordered) of p ≡ 1 (4) < 3000 and all 3 466 Type I points (a ≤ b, enumerated independently via acd < 3p/4,
+e = (4a²d + 1)/(4acd − p), each verified exactly) of p ≡ 1 (4) < 1500: 0 violations.
+
+### Remark 4.4 — SOUND for Type II; the Type I extension used in Thm 5.2(e) is true but unproved in the text (D5)
+Proof checked: removing g = gcd(a, b) (p ∤ g since p ∤ ab: p | a forces p | e, then 4abd = p + e ≤ 2(a + b), impossible),
+Lemma CT (POINTWISE_SIZE §2, notes Lemma 77.6) gives (ab/p) = −1; p ≡ t² (mod 4ab) ⇒ (p/ℓ) = 1 for odd ℓ | ab and p ≡ 1 (8)
+when 2 | ab ⇒ (ab/p) = +1 by reciprocity. Correct; ord_{4ab}(p) odd would make p ≡ (p^{(k+1)/2})² a square, so the order
+is even. From-scratch check: 6 376 Type II points p < 3000: p non-square mod 4ab at every one.
+Type I: Lemma CT also gives (ab/p) = −1 for Type I in the notes' coordinates (ack, bck, pabc); mapping to RT2 (acd, bcd,
+abdp) with g = gcd(a, b) (which divides c, since g² | pe + 1 ⇒ gcd(g, e) = 1 and g | a + b = ce) changes ab by g², so
+the same proof works. Numerically: 3 466 Type I points p < 1500, p non-square mod 4ab in every case. But the text of
+Remark 4.4 says "every Type II point" only, while Thm 5.2(e) asserts "p is a non-square mod every class modulus" for
+(R4), whose class moduli include Type I ones. See D5.
+Thm C applicability to bounded cyclotomic menus: checked against POINTWISE_SIZE §1.1 — computing p^j − 1 (j ≤ k₀, P2),
+DIVISORS, then c | a + b and the test 4ab | p + e (or pe + 1) are all (P1)–(P8) instructions; plus a final exactness
+check it is a correct bounded witness-producing program, so Thm C (H) applies. Correct.
