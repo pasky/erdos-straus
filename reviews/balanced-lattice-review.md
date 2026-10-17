@@ -40,3 +40,22 @@ significant after the 6 tests, but "no over-concentration" is the only conclusio
 "equidistributed". More importantly the test is at P = 105 ≪ √x = 10³ and each class holds ≈ 400 q, whereas EQ is used at
 P ≍ √x/log²p, where a class holds ≍ √x·log²p/log x primes and the hypothesis is about a √x-level error. The author says
 "EVIDENCE for EQ only at P ≤ 1155, nowhere near P ≈ √x" — correct; keep that sentence in the report's SHARP 3 as well.
+(Addendum to D6: the Kummer-vector count "≤ φ(m)·#{c : |c_s| ≤ εm}" is for characters of *exact* order m (j a unit); for
+"order dividing m" the non-unit j contribute b-sets of size g^k·#{…} at gcd(2j, m) = g. Since those characters are counted
+at level m/g anyway, say "exact order m".)
+
+**D16 (MINOR) — Thm 4.1 proof, "Bad₂ main term ≤ G/8".** This compares the Lemma 2.5 main term
+((li(x) − li(x/2))/(2φ(8P)))·Σ_{ℓ≥3}ℓ^{−k} (Σ_{ℓ≥3}ℓ^{−3} = 0.0498 — true but with almost no room, prime-zeta P(3) − 1/8) with
+G ≥ c₂x/(φ(8P) log x), where c₂ is only the implied constant of FORCED_WINDOW Thm 4.3's "≫". The comparison needs the
+asymptotic G = (1 + O(C₀^{−1/2}))(li(x) − li(x/2))/(2φ(8P)) (which the GRH count does give, dyadically, for C₀ large), not just
+"≫". *Repair:* state G in that asymptotic form, and use Σ_ℓ ℓ^{−k} → 0 (k → ∞) rather than the 0.05 numerics.
+
+**D17 (MINOR, bookkeeping) — BRAINSTORM/README.md z27 row.** The z27_small_exponent_windows row still says "needs
+E ≥ (log p)^{c log₃p}", the pre-repair bound; the memo (R-O256 repair 8) and §0 (I4) now say "cap ≳ log p i.o." (Linnik with
+primorial modulus: log p = Θ(T), which I re-derived). *Repair:* update the README row.
+
+**D18 (MINOR, wording) — §4 Reading after Thm 4.2.** "Bad₁ is neither a set of primes in progressions nor a Chebotarev set
+(Prop 2.2)": Prop 2.2 is an information statement about abstract vectors and does not prove that Bad₁ is not a (finite union
+of) Chebotarev set(s) — trivially any finite set of primes is one. *Repair:* "Bad₁ is not determined by Frobenius data in
+Kummer–cyclotomic fields of degree ≤ (log p)^{O(1)} (Prop 2.2, abstract-vector sense)". Similarly §7.1 "the reason is exact"
+rests partly on Assessment 2.3; "the reason is explicit" would be accurate.
