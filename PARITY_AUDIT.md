@@ -142,6 +142,9 @@ and M(p) = (log p)²/8 + O(log p). The restriction u ≤ U keeps |𝓡_U| = (p/4
 = Σ_u (1/(4u)) log(p/(4u)) + O(log p) = (log p)²/8 + O(log p). The U-version is the same sum cut at u ≤ U. ∎
 (M(p) reproduces the (J)6 heuristic Σ_B M(B) ≈ (log p)²/8 and the observed R(p) = 44, 52, 68 at p ≈ 10⁸, 10⁹,
 10¹⁰, where (log p)²/8 = 42.4, 53.7, 66.3.)
+Check (`scripts/pa_lemma21_check.py`): the (u,C)-identity equals brute force for all primes < 400; at
+p = 10⁴+7, 10⁵+3, 10⁶+3, 10⁷+19: M = 10.34, 16.17, 23.33, 31.81 vs (log p)²/8 = 10.61, 16.57, 23.86, 32.47 and
+|𝓡| = 0.92–0.96 × (p/4) log p (R = 22, 20, 16, 42).
 
 **Assessment 2.2 (the p^{1/2} is a square-root barrier, not a weak bound).** E(p) is a sum over ≍ p log p pairs
 of complete exponential sums; R(p) and M(p) are both ≍ (log p)², so the *true* E(p) is polylog. Any argument that
