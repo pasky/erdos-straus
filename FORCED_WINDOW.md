@@ -277,6 +277,11 @@ every VER-th certificate is rebuilt into 4/p = 1/x + 1/y + 1/z and checked with 
   y = 11 (k = 4, 8P = 9240), 4451 primes in (10³, 2·10⁵): 27 non-generating; ρ quantiles 1.13/1.30/1.45/1.78/2.55/5.75; **every
   one of the 480 classes contains q with ρ ≤ 1.47** (data/z24/balanced_y7.txt, balanced_y11.txt). Unbalanced primes exist
   (ρ up to 6.4) but do not fill classes — EVIDENCE for W at these (tiny) parameters, where the P-loss is not yet visible.
+* *The Lemma 1.1 / Thm 4.3 construction, checked exactly* (`scripts/z24_thm43_check.py 300000 7 100000`,
+  data/z24/thm43_check_y7.txt): for all 765 Mordell-hard p ≤ 3·10⁵ with a forced prime window q ≤ 10⁵, q ≡ 3 (8),
+  q ≡ −p (mod 105), the parity-split certificate δ_s = −ε_s + 2j_s (generators 3, 5, 7 only) was found, its cap is
+  ≤ max j − 1 as claimed, and the ES^{(y,e)} solution was rebuilt and verified with exact rationals; max cap 22 (q = 12 659,
+  |U_q|^{1/3} ≈ 18.5), i.e. caps at the Minkowski scale |U_q|^{1/k}, as Prop 4.1(iii) predicts for k = 3.
 * *T1 control:* odd squares a² ≤ 10⁶ (499): no window m ≤ 200 with a cap-0 (δ_n = 0) certificate (as proved, CAP_DOWN §3).
 
 ## 7. Verdict (O252 checkpoint 1)
