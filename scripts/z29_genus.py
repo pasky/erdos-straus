@@ -38,5 +38,9 @@ for p in primerange(5, P):
         elif N % 4 == 0:
             c1 += 1
             if L(s * t % p, p) != -1: c1bad += 1
+            X = s if s % 2 == 0 else (t if t % 2 == 0 else None)
+            if X is not None:
+                odd = (s * t) // 2
+                if L(odd % p, p) != (1 if p % 8 == 5 else -1): c1bad += 1
 print(f"p<{P}: b=1 pairs {tot}, violations {bad}, free pairs {free} in (p mod 8, k mod 2) classes {sorted(freecls)}; "
       f"c=1 pairs {c1}, violations {c1bad}")

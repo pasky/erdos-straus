@@ -22,7 +22,9 @@ of SYNTHESIS_SPARKS8 is a (natural) strengthening of a question López left open
 (I2) Census engine rebuilt on the mutual-shift form (Lemma 1.1; independent of O258's window code): ≤ 10⁸ in 2 s, ≤ 10¹⁰
 in ≈ 3 min on 2 cores. Exact N₁(p) counts agree with O258's brute force `s8_check_b1.py` for every p ≡ 1 (4) < 400.
 (I3) Construction attempt "find the T1 escape": T1 is a Jacobi identity on pairs (Lemma 1.2). Its b = 1 version has a 2-adic
-escape (free pairs, Cor 1.3) that the c = 1 line provably lacks. This is the first structural b = 1 vs (★) difference.
+escape at p ≡ 5 (8). First reading: a b = 1 vs (★) difference. Refuted the same day: (★) has the same escape (pairs with
+v₂(x) = 1), and both lines are TRIVIAL at p ≢ 1 (24) by fixed pairs (Prop 1.4). The hardness lives in p ≡ 1 (24), where
+neither line has a 2-adic escape. Kept as a correct but non-discriminating lemma.
 
 ## 1. Pair coordinates and the pair genus law
 
@@ -44,23 +46,28 @@ k ≥ 2, S′ odd. Then
   (ST/p) = −1,  and  (S′T/p) = −(2/p)^k.
 So for p ≡ 1 (8) the odd part S′T always contains a prime ℓ with (ℓ/p) = −1. For p ≡ 5 (8) the same holds when k is even,
 but when k is odd, (S′T/p) = +1 and the non-residue is 2 itself.
-For the c = 1 line ((★): pairs (x, y), both odd, with 4 | N(x, y)) one has (xy/p) = −1 for every pair and every p ≡ 1 (4).
+For the c = 1 line ((★): pairs (x, y) with 4 | N(x, y); if 4 | x the pair is also a b = 1 pair, so let v₂(x) ≤ 1, y odd)
+one has (xy/p) = −1 as well; (x′y/p) = −1 for x = 2x′ at p ≡ 1 (8), and (x′y/p) = +1 at p ≡ 5 (8).
 *Proof.* Write r ≡ −S − T. Since p ≡ −T (mod S′) and p ≡ −S (mod T), Jacobi gives (p/S′) = (−T/S′) and
 (p/T) = (−S/T) = (−1/T)(2/T)^k(S′/T) = −(2/T)^k (S′/T), as T ≡ 3 (4). Reciprocity with (T − 1)/2 odd gives
 (S′/T) = (T/S′)(−1/S′) = (−T/S′). Hence (p/S′T) = −(2/T)^k (−T/S′)² = −(2/T)^k. If k ≥ 3 then T ≡ −p (mod 8), so
 (2/T) = (2/p). If k = 2 then (2/T)^k = 1 = (2/p)^k. Since p ≡ 1 (4), (ℓ/p) = (p/ℓ) for odd ℓ, so (S′T/p) = −(2/p)^k. Then
-(ST/p) = (2/p)^k (S′T/p) = −1. For c = 1: (p/x) = (−y/x), (p/y) = (−x/y). Since x + y ≡ −p ≡ 3 (4), exactly one of x, y is
-≡ 3 (4), so (−1/x)(−1/y) = −1, and reciprocity contributes (−1)^{(x−1)(y−1)/4} = +1. ∎
+(ST/p) = (2/p)^k (S′T/p) = −1. For c = 1 with x, y odd: (p/x) = (−y/x), (p/y) = (−x/y). Since x + y ≡ −p ≡ 3 (4), exactly one of x, y is
+≡ 3 (4), so (−1/x)(−1/y) = −1, and reciprocity contributes (−1)^{(x−1)(y−1)/4} = +1. For x = 2x′: 8 | p + x + y gives
+y ≡ −p − 2x′ (mod 8), and (p/x′y) = (−y/x′)(−2x′/y) = (−1/x′)(−1/y)(2/y)(−1)^{(x′−1)(y−1)/4}. The four cases
+(p mod 8, x′ mod 4) ∈ {1, 5} × {1, 3} give y ≡ 5, 1, 1, 5 (mod 8) and the value −1, −1, +1, +1; multiply by (2/p). ∎
 (Check: `z29_genus.py`, all 12 717 b = 1 pairs and 5 710 c = 1 pairs at p < 2·10⁴: 0 violations; free pairs (below) occur
 only in the class (p mod 8, k mod 2) = (5, 1); `logs/z29_genus.txt`.) (ST/p) = −1 is O258 Lemma 2.2(a) in pair coordinates.
 The new content is the split into S′T and the 2-adic factor.
 
-**Corollary 1.3 (the 2-adic escape; PROVED).** Call a b = 1 pair *free* if (S′T/p) = +1. Free pairs exist only for
-p ≡ 5 (8) and are exactly the pairs with v₂(S) odd (≥ 3). They are the only solutions whose existence needs no odd
-non-residue of p. In particular:
-(a) If every odd prime ℓ ≤ Y is a QR mod p and p ≡ 1 (8), then every b = 1 pair has a prime factor > Y in S′T.
-(b) The c = 1 line has no free pairs. At every p ≡ 1 (4), every (★) pair has a prime factor ℓ | xy with (ℓ/p) = −1.
-*Reading.* For the b = 1 line, p ≡ 5 (8) makes 2 a non-residue that every pair with 8 ∥ S, 32 ∥ S, … may use. In the
-Haar model these pairs form a fixed positive proportion of the mass, and they are indifferent to QR-richness of p (§3). The
-census agrees: **every b = 1 failure, and every record of the least shift s, is at p ≡ 1 (mod 8)** (§2). The c = 1 line can
-never use 2: its 2-adic modulus is exactly 4, and every odd p is a square mod 4.
+**Corollary 1.3 (where the non-residue sits; PROVED).** Call a pair *free* if its odd part has Jacobi symbol +1 (so the
+non-residue demanded by T1 is 2). Free b = 1 pairs exist only for p ≡ 5 (8) (v₂(S) odd ≥ 3), and free (★) pairs only for
+p ≡ 5 (8) (v₂(x) = 1). For p ≡ 1 (8), every pair of either line has an odd prime ℓ | (odd part) with (ℓ/p) = −1; in
+particular if every odd prime ℓ ≤ Y is a QR mod p, every pair has a prime factor > Y.
+
+**Proposition 1.4 (the trivial classes; PROVED, folklore-level covering identities).** The b = 1 line holds for every
+p ≡ 1 (4) with p ≢ 1 (mod 24): the pair (3, 4) solves p ≡ 5 (12) and (3, 8) solves p ≡ 13 (24). The (★) line holds for
+p ≡ 5 (8) via (1, 2) (N = (p + 3)/2). *Proof.* 12 | p + 7, 24 | p + 11, 8 | p + 3 respectively. ∎
+*Reading.* The 2-adic escape is real but it only acts in classes that fixed congruence identities already cover. All the
+hardness of both lines lies in p ≡ 1 (24) (for b = 1). There both lines need an odd non-residue of p inside the pair. The
+census agrees: every b = 1 failure and every record of the least shift from p = 73 on is at p ≡ 1 (24) (§2).
