@@ -1,0 +1,4 @@
+range [100000001,5000000000] S=512: primes p=1(4): 114594477, fallback: 0, failures: 0, max least s: 343
+hist log2(least s): 103045641 10066016 1346474 127521 8123 623 69 9 1 0 0 0 0 0 0 0
+range [5000000001,10000000000] S=512: primes p=1(4): 110048294, fallback: 0, failures: 0, max least s: 335
+hist log2(least s): 99289993 9457938 1193660 101004 5354 322 20 2 1 0 0 0 0 0 0 0

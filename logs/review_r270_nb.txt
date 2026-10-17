@@ -1,0 +1,4 @@
+X=1e+06: fixed D=3.24: 0.033 | -20% mu: 0.617 | D linear in L: 0.00144 | D linear, -20% mu: 0.0521 | D linear, mu=0.119L^2: 0.00336
+X=1e+08: fixed D=3.24: 9.42e-05 | -20% mu: 0.0116 | D linear in L: 8.36e-06 | D linear, -20% mu: 0.00184 | D linear, mu=0.119L^2: 3.01e-05
+X=1e+11: fixed D=3.24: 1.08e-10 | -20% mu: 6.72e-07 | D linear in L: 5.11e-10 | D linear, -20% mu: 2.71e-06 | D linear, mu=0.119L^2: 3.96e-09
+X=1e+15: fixed D=3.24: 1.04e-22 | -20% mu: 8.7e-16 | D linear in L: 6.51e-17 | D linear, -20% mu: 4.6e-11 | D linear, mu=0.119L^2: 1.63e-15

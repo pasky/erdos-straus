@@ -1,0 +1,4 @@
+p=1 mod 24 near 1e12 (300 primes): N1/L^2=0.135  Nc1/L^2=0.073  min N1 53
+p=1 mod 1800 near 1e12 (300 primes): N1/L^2=0.127  Nc1/L^2=0.070  min N1 61
+p=1 mod 176400 near 1e12 (300 primes): N1/L^2=0.117  Nc1/L^2=0.065  min N1 44
+p=1 mod 64033200 near 1e12 (300 primes): N1/L^2=0.108  Nc1/L^2=0.061  min N1 41

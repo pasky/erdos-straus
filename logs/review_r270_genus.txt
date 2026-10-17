@@ -1,0 +1,2 @@
+genus N=20000: b1 pairs 12717, star pairs 7857, overlaps 2147, violations 0, free {('star', 5, 1): 3399, ('b1', 5, 1): 2260}
+181 star pairs: [(1, 2), (1, 26), (3, 8)]

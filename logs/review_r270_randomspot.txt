@@ -1,0 +1,2 @@
+random spot check: 300 primes p=1(4) in (1e9,1e11]: all have exact-rational-verified witnesses: True; max least s 8
+least s matches pure-python divisor search on 30 primes

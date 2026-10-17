@@ -1,0 +1,4 @@
+X=1e+06 p=1(24) n=3000: N1/L^2=0.119 var/mean=2.20 | Nc1/L^2=0.072 var/mean=1.77 | ratio=1.66 | all p=1(4): N1/L^2=0.146 var/mean=2.47 zeros/<=2: 0
+X=1e+08 p=1(24) n=3000: N1/L^2=0.125 var/mean=2.67 | Nc1/L^2=0.072 var/mean=2.21 | ratio=1.73 | all p=1(4): N1/L^2=0.145 var/mean=3.53 zeros/<=2: 0
+X=1e+10 p=1(24) n=3000: N1/L^2=0.130 var/mean=3.26 | Nc1/L^2=0.074 var/mean=2.82 | ratio=1.77 | all p=1(4): N1/L^2=0.146 var/mean=4.79 zeros/<=2: 0
+X=1e+12 p=1(24) n=600: N1/L^2=0.135 var/mean=3.62 | Nc1/L^2=0.073 var/mean=2.96 | ratio=1.84 | all p=1(4): N1/L^2=0.149 var/mean=6.06 zeros/<=2: 0

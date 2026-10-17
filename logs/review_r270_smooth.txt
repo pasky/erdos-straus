@@ -1,0 +1,6 @@
+19-smooth m with 4|m, m+1<=1e15: 1596961
+Y=11: primes 14173, p=1 mod 8: 12781
+Y=13: primes 41146, p=1 mod 8: 36517
+Y=17: primes 99549, p=1 mod 8: 87216
+Y=19: primes 216882, p=1 mod 8: 187500
+decided 15582 (all Y=11 + 1500 random Y=19): unresolved(s<=2000) [193, 2521, 66529], bad witnesses 0, max least s (95, 345601)
