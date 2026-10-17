@@ -173,3 +173,69 @@ going below area p^{3/2} "out of reach" and ties it to the 60-year-old Selberg�
 that reach area p^{1+o(1)} (log-power gap) average over the residue class (Garaev; KSWX §3.3). Class-blind statistics
 reach shorter families (p^{0.3145}, Li–Yang) but carry no class information. Under RH/GRH the length barrier
 stays at p^{1/2} (Younis), and GRH helps only the sign/window layer (least non-residue, (J)64).
+
+## 3. Feasibility verdict on hatch H-B (deliverable 3)
+
+**Remark 3.1 (tied averaging; Assessment, the structural reason behind §2).** Every result in §1 that beats
+Weil/Selberg–Hooley averages over a variable *independent* of the modulus: the residue a with the modulus fixed
+(Garaev, KSWX §3.3), the moduli q ≤ x^θ with the integers n ≤ x free (D2–D7), or the sequence variable (D1, D6, D8,
+A3–A5, E2). At a single p the only free variables are u (event (a⁴)), C (t-side) and q (event (b)), and each of them is
+*also* the modulus of the class condition (4u, 4C, q). This is B2 seen from the literature side: no known
+averaging theorem lets the modulus and the averaged variable move together with a fixed algebraic tie a = a(q).
+
+**Lemma 3.2 (T1 for the events; PROVED, the χ-shadow of (J)6 Lemma 1.3).** Let n = m² be an odd square and u ≥ 1.
+Then n + u has no divisor f ≡ −1 (mod 4u). Hence (a⁴) fails at every u for odd squares, and any proof of (a⁴) at a
+prime p must use (ℓ/p) on prime factors ℓ of p + u.
+*Proof.* f ≡ −1 (mod 4u) forces gcd(f, 4u) = 1 and χ_{−4u}(f) = χ_{−4u}(−1) = −1 (χ_{−4u} is an odd character mod 4u).
+Every prime ℓ | m² + u with ℓ ∤ 2u has −u ≡ m² a non-zero square mod ℓ, so χ_{−4u}(ℓ) = (−u/ℓ) = +1, and so does every
+divisor f coprime to 2u. ∎
+At a prime p the same computation gives χ_{−4u}(ℓ) = (ℓ/p) (spin lemma), and since p + u ≡ u (mod p), (u/p) = −1
+forces a QNR-mod-p prime factor: the χ-shadow is free whenever (u/p) = −1 (e.g. u = least QNR ≤ p^{1/(4√e)+ε},
+Burgess–Vinogradov). Only the full class −1 (mod 4u) beyond its χ-shadow is left. That is (J)5 Prop 10.3 again
+(genus versus ray class).
+
+**Candidate combinations of known inputs (most plausible first), each with the missing piece named.**
+
+1. *Erdős–Hall covering (A3) on the short family {p + u : u ≤ U}, U = (log p)^A, with the free χ-shadow (Lemma 3.2).*
+   Erdős–Hall: an integer whose 2^{ω} exceeds k covers every class mod k, almost surely. **Missing:** a pointwise
+   statement that among p + 1, …, p + U some p + u has ω(p + u) ≥ (1 + ε) log₂(4u) prime factors that are
+   "random" mod 4u, i.e. Turán–Kubilius plus equidistribution of prime factors mod 4u for *every* interval of length
+   (log p)^A. Known pointwise only for length ≥ p^{1/2}(log p)^{7/3+δ} (Matomäki; smoothness only, no
+   equidistribution mod 4u), or for almost all intervals (Matomäki–Radziwiłł, Ann. Math. 183 (2016), not re-read
+   here). Gap: p^{1/2} in length (unconditional and under RH, Younis), *plus* an equidistribution-mod-4u statement for
+   the prime factors of one integer, which no theorem provides at any length.
+2. *Windows (b): pointwise small window primes (E3: Pollack p^{1/4+ε} for p ≡ 1 (8); GRH (16 log p + 70)²) + the
+   forced group layer ((J)64 Thm 1.1) + a zero-sum/Davenport forcing of the exponent budget.* Group-level success is
+   forced; ES needs a sub-product of the prime factors of K_q, with exponents ≤ v_s(K_q), equal to −1 mod q.
+   Zero-sum theory forces such a sub-product only once the multiset has length ≥ D(ℤ/(q−1)) = q − 1, i.e. ω-type
+   size Ω(K_q) ≥ q − 1. **Missing:** a window with q ≤ Ω(K_q) + 1 ≤ log₂ p. That needs a window prime q ≲ log p
+   (false infinitely often: the least QNR is ≫ log p·log log p infinitely often, Graham–Ringrose; even GRH gives
+   only (log p)²) *and* a nearly maximally composite K_q. Both fail; this is (J)6 I3 with literature numbers.
+3. *Fixed-modulus Kloosterman counting (B1, B4) applied to (★).* **Missing:** beyond-square-root cancellation for
+   one residue on 𝓗 (area p^{1+o(1)} instead of p^{3/2}), which the literature calls out of reach (Shparlinski §3.1,
+   §6.3), *and* arithmetic (not box) target sets (Lemma 2.1 shows restricting u does not shrink 𝓡). Even the
+   class-free relaxation is the open every-residue modular-hyperbola conjecture.
+4. *An almost-all-residues theorem (Garaev; KSWX §3.3) made pointwise by an averaging variable that is free at one
+   p.* **Missing:** the free variable (Remark 3.1). The candidates u, C, q are all tied to the modulus.
+5. *Exact-identity route à la Borwein–Choi (E1).* **Missing:** an identity expressing the Type II count through
+   class numbers. At fixed level this is excluded ((J)7 Thm 9.1: counts vanishing at odd squares); class groups see
+   only the χ-shadow ((J)5 Prop 10.3). The growing-level identity of (J)10 Prop 4.1 is the only T1-compatible
+   candidate known, and its positivity is again the spin event.
+6. *Parity-breaking sieves (D1–D8).* **Missing:** a sequence variable. These theorems count primes/prime factors
+   along a sequence up to x; at one p they reduce to statements about how many p ≤ x are bad (POINTWISE_WINDOW
+   W1/W2, FI09 shape), never to one p.
+
+**Verdict (Assessment).** Hatch H-B is **not feasible with known inputs**. The audit confirms (J)6 from the
+literature side, and sharpens it in three ways.
+(i) Parity is not the binding constraint. Every parity-breaking theorem found is averaged over a sequence or over
+moduli, and the single-p events are unit-coefficient divisor events.
+(ii) The binding constraint is a square-root barrier at fixed modulus. The best class-aware pointwise estimate,
+Weil in modular-hyperbola form, is short by exactly p^{1/2}, and the literature regards beating it for a single
+residue as out of reach. Only residue-averaged results reach the log-power scale, and at a single p no averaging
+variable is free of the modulus (Remark 3.1).
+(iii) The restricted events (u ≤ (log p)^A, q ≤ p^θ) are no easier analytically than the full (★) (Lemma 2.1). They
+are easier only combinatorially, through subset products, and that route needs factorisation statistics in every
+short interval of polylog length, where the best pointwise results stop at length p^{1/2} (gap exponent 1/2, also
+under RH).
+H-B therefore collapses into H-A, as (J)6 said: a level-of-distribution statement for divisor incidences with the
+modulus tied to the variable.
