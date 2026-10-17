@@ -1,0 +1,10 @@
+(1) primes p = 1 (4) <= 1e8 with p - 1 11-smooth: 1292
+(2) S<50: n=819 mean b1 count 16.00 (SE 0.16)
+(2) 50<=S<500: n=433 mean b1 count 13.70 (SE 0.23)
+(2) S>=500: n=224 mean b1 count 11.32 (SE 0.32)
+(3) p = 1 mod 840: n=720 mean b1 19.63  SE 0.25
+(3) p = 121 mod 840: n=699 mean b1 20.40  SE 0.26
+(3) p = 169 mod 840: n=710 mean b1 20.25  SE 0.25
+(3) p = 289 mod 840: n=717 mean b1 20.56  SE 0.24
+(3) p = 361 mod 840: n=692 mean b1 20.86  SE 0.27
+(3) p = 529 mod 840: n=720 mean b1 20.89  SE 0.25

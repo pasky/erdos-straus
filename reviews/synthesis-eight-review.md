@@ -110,3 +110,35 @@ X + Y + Z = 4/p, with a large group of (birational/affine) involutions. What is 
 there is no Vieta-type involution in a single variable (defect m7).
 **§6 credit (MINOR, m8):** §6 lists Lemma 4.1 under "Genuine new content"; it should be listed as a repackaging of (J)52 / ET
 Prop 1.6 (the brief's expectation), with the only new element Cor. 4.2's use of it to close (iv).
+
+---
+## Claim E — §8 item (vi), numerator-size screen: **SOUND-AFTER-REPAIRS**
+
+* **Dictionary: SOUND.** k/n = Σ 1/x ⟺ 4/n = Σ 1/((k/4)x) (divide by k/4). In ET slice coordinates: Type II
+  n + e = 4abd (from c(n + e) = 4abcd), the k-analogue n + e = k·ab·d′; Type I ne + 1 = 4abd vs kabd′. So on every slice
+  (a, b, c) the k-witnesses are exactly the 4-witnesses with (k/4) | d (d = (k/4)d′). Precise as stated; for primes n ∤ k the
+  ET normalisation (abd coprime to n) is preserved.
+* **"the only k = 4 witness there, Mordell's (1, 6, e = 7)": WRONG as stated (m9).** By NONCONG_LIFTS Thm 2.6(b) (read on its
+  branch) x_{ℓ,2} is covered for k = 4 at ℓ = 3 by (1, 6, e = 7) of Type II AND Type I, and at ℓ = 5 by (II, 1, 5, c = 2, e = 3)
+  and (I, 2, 5, c = 1, e = 7). The conclusion survives: in ℤ₂ (x = 1) the cofactors are 8/24, 8/24, 4/20, 8/40 — all 2-adic
+  units, so d is odd for every witness. Repair: list all four classes and the four unit computations.
+* **"at 131, 241 every solution of 4/p has an odd denominator": TRUE** (own enumerator `scripts/review_r268_even.py`, log
+  `logs/review_r268_even.txt`): 4/131 has 32 solutions, 4/241 has 8, none all-even; 8/131 and 8/241 have no solution;
+  233: 9 of 19 all-even (matches). Wording (m10): "has an odd denominator" reads ambiguously (no solution of 4/n with odd n can
+  have all three denominators odd, so the claim is "no solution has all denominators even ⟺ 8/p unsolvable"). The "…" in
+  "(131, 241, …)" should be made exact: since 8/p unsolvable ⇒ both k = 8 lines fail, every such prime lies among the 34
+  two-line failures, and checking those 34 shows **8/p is unsolvable for exactly p ∈ {11, 17, 131, 241} among primes
+  5 ≤ p < 8000**. The other 30 two-line failures (e.g. 2521) are NOT model exceptions; §2.5's "including 131 and 241" and §8's
+  "model exceptions" must not be conflated.
+* "(J)57's v₂-exactly-2 evidence is the same statement as …": an identification asserted without proof → label Assessment (m10).
+* x_{ℓ,r} generalisation: own code `scripts/review_r268_xlr.py` (slices a ≤ b ≤ 60) reproduces k = 4, ℓ = 17: covered
+  {10, 11, 12, 14}, uncovered {3, 5, 6, 7}; ℓ = 11 uncovered exactly {2, 6} (= NONCONG_LIFTS's statement); r = 2 covered for k = 4
+  exactly at ℓ = 3, 5 and never for k = 8 (ℓ < 20). "Covered r are mostly ≡ −small" is a loose description (ℓ = 7: r = 3 ≡ −4
+  covered; ℓ = 19: 8 ≡ −11) — fine as Assessment.
+* "k-uniform + threshold is strictly stronger than ES": it is *at least as strong* (8/p ⇒ 4/p); "strictly" is unproved. Trivial.
+
+## Claim F — §5 (v) profinite proximity: **SOUND (EVIDENCE, weak) — label appropriate**
+Own code `scripts/review_r268_proximity.py`: 1292 primes p ≡ 1 (4) ≤ 10⁸ with p − 1 11-smooth (exact match); 192, 2520, 66528
+factorisations correct. (2) b = 1 means 16.00 / 13.70 / 11.32 (SE 0.16 / 0.23 / 0.32) — match. (3) mod-840 classes: class 1
+19.63 ± 0.25 vs 20.25–20.89 (each ± 0.25; pooled 20.59 ± 0.11): z ≈ 3.5 against the pool, 1.7–3.6 pairwise. The author's
+"standard errors not computed" can now be replaced by these numbers (m11). "No mechanism claimed" — correct.
