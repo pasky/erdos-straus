@@ -1,0 +1,4 @@
+y=11 k=4 8P=9240: 4451 primes q≡3(8) in (1000,200000); non-generating 27
+rho quantiles 0/10/50/90/99/100%: [1.132, 1.296, 1.449, 1.776, 2.551, 5.746]
+admissible classes: 480; classes hit: 480; max over classes of min rho: 1.4715
+worst q: (149419, 94, 5.746195192611774)
