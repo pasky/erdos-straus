@@ -1,4 +1,4 @@
-# z28_complete_levels — where "visible" means "transports" (O257; NONCONG_LIFTS §2.4–2.5)
+# z28_complete_levels — where "visible" means "transports" (O257; NONCONG_LIFTS §2.4, §5)
 
 **Idea.** O253 showed invisibility (p ≡ □ mod the input level) kills determined lifts. Converse question: at which
 levels L is visibility *sufficient*, i.e. every non-square unit class mod L lies in a witness class with H | L

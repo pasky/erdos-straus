@@ -63,4 +63,5 @@ classical Mordell–Schinzel / ET Prop 1.6 obstruction, campaign T1). **ES is no
 | Obstruction | Thm 1.2 / Prop 1.3 / Prop 1.4: non-congruential = witness-level = B2; exact sharing erases sizes. |
 | Fixtures | 97, 193, 313, 3361, 5209: 0 total matched sources, 0 share transports (335 witnesses); Mordell ≤ 10⁵: 0/1347 total. |
 | Odd-square control | T1 asserted at every level in z28_complete_levels.py (0 covered square classes); det ⟹ visible asserted at 20 365 transports. |
+| Self-review | One hostile deep review (GPT reviewer, mode deep): Thm 2.6 re-derived, no error. 2 FATAL (Thm 1.2 needed gcd(p, M) = 1; Prop 1.4 conflated existence with a prescribed slice) and 5 MAJOR (non-unit squareness in visibility test; solver printed z mod 2⁶⁴; complete-level scope; size test only descriptive; model screen scope) — all repaired, affected computations rerun (two fixture entries changed by 1; conclusions unchanged). |
 | Resources | one session; ≤ 2 cores except one 5-process burst of the Python adelic test (≈ 1 min, flagged); ≈ 1.5 CPU-h; logs < 30 kB. |
