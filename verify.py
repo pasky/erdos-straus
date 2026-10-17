@@ -26589,4 +26589,52 @@ def check_ha():
 check_ha()
 
 
+def check_hb():
+    # (hb) NONCONG_LIFTS (O257/R267): R267 from scratch — Thm 2.6 (fixed-slice classes): for l ∤ k the point x_{l,2} lies in a
+    # witness class only at k = 4 (l = 3, 5: Mordell's slices) and k = 5 (l = 3), over all slices a ≤ b ≤ 300, k = 4..32,
+    # l < 60; complete levels (k = 4: all 7-smooth up to 1600; k = 8: none up to 3200; T1: no square class covered);
+    # D-M1: with ET one-parameter families k = 8 DOES cover x_{3,2} (II-3 (3,3,7), prime 281) — the separation is slice-only;
+    # E_8 to 10^7 ends at 241.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args, exe=False):
+        cmd = args if exe else [sys.executable] + args
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("NONCONG subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    with tempfile.TemporaryDirectory() as td:
+        for src, name in (("review_r267_x2.c", "x2"), ("review_r267_ek.c", "ek")):
+            r = subprocess.run(["gcc", "-O2", "-o", os.path.join(td, name), os.path.join(sdir, src), "-lm"],
+                               capture_output=True, text=True)
+            assert r.returncode == 0, r.stderr[-2000:]
+        out = run([os.path.join(td, "x2"), "300", "4", "32", "60"], exe=True)
+        assert "done B=300 k=4..32 l<60 mismatches=0" in out, out[-1000:]
+        hits = sorted(l for l in out.split("\n") if l.startswith("HIT") and "(l|k)" not in l)
+        assert hits == sorted(["HIT k=4 l=3 a=1 b=6 c=1 e=7 III H=24", "HIT k=4 l=5 a=1 b=5 c=2 e=3 II H=20",
+                               "HIT k=4 l=5 a=2 b=5 c=1 e=7 I H=40", "HIT k=5 l=3 a=1 b=3 c=1 e=4 III H=15"]), hits
+        out = run([os.path.join(td, "ek"), "8", "10000000"], exe=True)
+        assert "k=8 P=10000000 exceptions=5 last=241" in out, out[-500:]
+    out = run(["review_r267_complete.py", "4", "1600"])
+    assert "k=4 Lmax=1600 only7=False T1-violations=0" in out and "non-7-smooth complete: []" in out, out[-1500:]
+    assert ", 840, " in out, out[-1500:]
+    out = run(["review_r267_complete.py", "8", "3200"])
+    assert "k=8 Lmax=3200 only7=False T1-violations=0" in out and "complete: []" in out, out[-500:]
+    out = run(["review_r267_families.py", "8", "3", "2", "40"])
+    assert "verify II-3 (3, 3, 7) prime 281 True" in out, out[-1000:]
+    out = run(["review_r267_famcomplete.py", "8", "120", "840"])
+    assert "k=8 L=840: uncovered non-square unit classes slice-only=96, with families=15, square classes covered=0" in out, out
+    print(f"== (hb) NONCONG_LIFTS R267: Thm 2.6 slice hits only k = 4 (l = 3, 5), k = 5 (l = 3); complete levels k = 4 7-smooth, "
+          f"k = 8 none; D-M1 family cover of x_(3,2) at k = 8 (281); E_8 ends 241; seconds = {perf_counter() - t0:.1f}")
+
+
+check_hb()
+
+
 print("\nall checks passed")

@@ -1533,6 +1533,15 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment: H-B is not feasible with known inputs and collapses into H-A. The only lead not ruled out is a cancellation theorem on xy ≡ 1 (mod 4p) with a height-dependent target. No relay. O252's fixed-p dispersion spark falls under the same remark.
    * verify.py (ha) re-runs R265's census (C, compiled to a tempdir) and Lemma 3.2 checks.
 
+88. **Non-congruential lifts and a numerator-model laboratory: lifts collapse to B2; a fixed-slice point classification separating 4 from 4 | k ≥ 8 (NONCONG_LIFTS.md + BRAINSTORM/z28_*.md (O257, relay of (J)86; outside the Claude/Astra comparison); self-review (2 FATAL, 5 MAJOR repaired) plus hostile review `reviews/noncong-lifts-review.md` (R267): no FATAL; MAJOR D-M1 — Thm 2.6 and "complete" refer to FIXED-SLICE classes; with ET's one-parameter polynomial families the "4 vs every k ≥ 8" separation fails (k = 8 covers x_{3,2} via II-3 (3, 3, 7), n ≡ 281 (mod 504), and x_{5,2}; k = 4 covers x_{11,2}); minors D1–D9; repaired by the reviewer, marked (R267 repair)).**
+   * Thm 1.2 / Prop 1.3 / Prop 1.4 (PROVED; (ii) and Prop 1.3 classical — T1 / Schinzel). A congruence-mediated lift valid on the class of p mod M (gcd(p, M) = 1) forces kab | M and p ≢ □ (mod M). Polynomial lifts collapse. Exact-share lifts transport only the e-spectrum. So non-congruential = witness-level = B2.
+   * Thm 2.6 (PROVED, elementary; R267 re-derived; slice notion). For ℓ ∤ k odd prime, consider the point x_{ℓ,2} ("2 at ℓ, 1 elsewhere"). It lies in no fixed-slice Type I/II class for 4 | k ≥ 8. For k = 4 it lies in one iff ℓ ∈ {3, 5}, exactly via Mordell's slices. The mechanism is an archimedean size inequality on the slice, not reciprocity. Hence no level through ℓ ≡ ±3 (8) is slice-complete. The 4-vs-k separation does NOT survive polynomial families (D-M1).
+   * Complete-level dictionary (CERTIFIED / PROVED parts; slice notion). For k = 4, complete levels ≤ 1600 are 7-smooth. A 7-smooth L is complete iff (3 | L ⟹ 8 | L) and (7 | L ⟹ 24 | L) (≤ 6000; "if" PROVED). For k = 8 and 12 there is no complete level ≤ 400k. With families allowed, k = 4 L = 12 becomes complete and k = 8 deficits shrink but stay positive at 120, 840, 5040.
+   * Laboratory (CERTIFIED known data; R267 reproduced every k = 7…25 to 10⁷): exact E_k for primes ≤ 10⁸, in agreement with O194/O197 and PW Table 1.
+   * Fixtures (EVIDENCE): at the fixtures and 273 Mordell primes ≤ 10⁵, 0 of 1347 matched sources are total, and visibility is sufficient at 0 sources. About 30 % of visible witnesses transport.
+   * Assessment: no total law. The numerator-size inequality was forwarded to Synthesis VIII ((J)89 item (vi)). No further relay.
+   * verify.py (hb) re-runs R267's from-scratch checks (C compiled to a tempdir).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
