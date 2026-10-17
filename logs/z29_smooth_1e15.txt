@@ -1,0 +1,20 @@
+UNRESOLVED p=2521 (no hit s<=2000)
+UNRESOLVED p=66529 (no hit s<=2000)
+UNRESOLVED p=193 (no hit s<=2000)
+X=1000000000000000 Y=11 S=2000: primes p=m+1 (m Y-smooth, 4|m): 14173 (p=1 mod 8: 12781), unresolved 3, max least s 95 (p=1(8), at 345601), 3 (p=5(8))
+hist log2(least s): 0 8975 4270 856 62 5 2 0 0 0 0 0 0 0 0 0
+UNRESOLVED p=2521 (no hit s<=2000)
+UNRESOLVED p=66529 (no hit s<=2000)
+UNRESOLVED p=193 (no hit s<=2000)
+X=1000000000000000 Y=13 S=2000: primes p=m+1 (m Y-smooth, 4|m): 41146 (p=1 mod 8: 36517), unresolved 3, max least s 95 (p=1(8), at 345601), 3 (p=5(8))
+hist log2(least s): 0 27178 11611 2145 192 14 3 0 0 0 0 0 0 0 0 0
+UNRESOLVED p=2521 (no hit s<=2000)
+UNRESOLVED p=66529 (no hit s<=2000)
+UNRESOLVED p=193 (no hit s<=2000)
+X=1000000000000000 Y=17 S=2000: primes p=m+1 (m Y-smooth, 4|m): 99549 (p=1 mod 8: 87216), unresolved 3, max least s 95 (p=1(8), at 345601), 3 (p=5(8))
+hist log2(least s): 0 66212 27893 5007 406 25 3 0 0 0 0 0 0 0 0 0
+UNRESOLVED p=2521 (no hit s<=2000)
+UNRESOLVED p=66529 (no hit s<=2000)
+UNRESOLVED p=193 (no hit s<=2000)
+X=1000000000000000 Y=19 S=2000: primes p=m+1 (m Y-smooth, 4|m): 216882 (p=1 mod 8: 187500), unresolved 3, max least s 95 (p=1(8), at 345601), 3 (p=5(8))
+hist log2(least s): 0 148365 57326 10296 842 47 3 0 0 0 0 0 0 0 0 0

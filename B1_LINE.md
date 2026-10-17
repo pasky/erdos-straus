@@ -71,3 +71,32 @@ p ≡ 5 (8) via (1, 2) (N = (p + 3)/2). *Proof.* 12 | p + 7, 24 | p + 11, 8 | p 
 *Reading.* The 2-adic escape is real but it only acts in classes that fixed congruence identities already cover. All the
 hardness of both lines lies in p ≡ 1 (24) (for b = 1). There both lines need an odd non-residue of p inside the pair. The
 census agrees: every b = 1 failure and every record of the least shift from p = 73 on is at p ≡ 1 (24) (§2).
+
+## 2. Census (EVIDENCE; complete decisions)
+
+**2.1 All primes p ≡ 1 (4) ≤ 10¹⁰** (`z29_census`, segmented factor tables, least s with a hit, exact fallback over all
+s ≤ 1 + √(p + 1) when no hit with s ≤ 512; logs `logs/z29_census_1e10.txt`). Prime counts per range sum to
+227 523 275 = π(10¹⁰; 4, 1), confirmed by an independent segmented Eratosthenes count (`pcount`, not kept).
+| range | primes p ≡ 1 (4) | b = 1 failures | fallback calls | max least s (at) |
+|---|---|---|---|---|
+| ≤ 10⁸ | 2 880 504 | 193, 2521, 66529 | 3 | 119 (1 683 049) |
+| (10⁸, 5·10⁹] | 114 594 477 | 0 | 0 | 111 (277 977 001) |
+| (5·10⁹, 10¹⁰] | 110 048 294 | 0 | 0 | 104 (6 098 002 681) |
+Distribution of the least s, ≤ 10¹⁰ (log₂-bins [2,4), [4,8), …): 2.07·10⁸, 1.84·10⁷, 1.82·10⁶, 1.28·10⁵, 4 211, 94, 0.
+The least hitting s does NOT grow with p (records 119 ≤ 10⁸, ≤ 111 above). Every global record from p = 73 on is at
+p ≡ 1 (24), as Prop 1.4 demands.
+
+**2.2 Primes with smooth p − 1 up to 10¹⁵** (`z29_smooth X Y S`: all p = m + 1 ≤ 10¹⁵ with m Y-smooth and 4 | m; bounded
+search s ≤ 2000 by Pollard–Brent factorisation; `logs/z29_smooth_1e15.txt`).
+| Y | primes | of which p ≡ 1 (8) | unresolved (no hit s ≤ 2000) | max least s (p ≡ 1 (8)) | max least s (p ≡ 5 (8)) |
+|---|---|---|---|---|---|
+| 11 | 14 173 | 12 781 | 193, 2521, 66529 only | 95 (at 345 601) | 3 |
+| 13 | 41 146 | 36 517 | same three | 95 | 3 |
+| 17 | 99 549 | 87 216 | same three | 95 | 3 |
+| 19 | 216 882 | 187 500 | same three | 95 | 3 |
+For the three, s ≤ 2000 exceeds 1 + √(p + 1), so "unresolved" is a complete failure decision. Every other smooth-(p − 1)
+prime up to 10¹⁵ has a b = 1 solution with s ≤ 95 (positives are certified by the exhibited pair; no completeness needed).
+**The hardest smooth primes are small.** Among 2.2·10⁵ primes with 19-smooth p − 1, the least shift never exceeds the value
+95 reached at 345 601 = 2⁹·3³·5² + 1, although these primes are profinitely as close to
+the T1 point 1 as primes of that size can be. So smoothness of p − 1 is a small-p effect: it makes small pairs (s, t) dead,
+and at large p there are enough pairs with a large prime factor (Cor 1.3, §3).
