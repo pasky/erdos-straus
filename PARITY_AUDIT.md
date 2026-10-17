@@ -207,10 +207,13 @@ Burgess–Vinogradov). Only the full class −1 (mod 4u) beyond its χ-shadow is
 2. *Windows (b): pointwise small window primes (E3: Pollack p^{1/4+ε} for p ≡ 1 (8); GRH (16 log p + 70)²) + the
    forced group layer ((J)64 Thm 1.1) + a zero-sum/Davenport forcing of the exponent budget.* Group-level success is
    forced; ES needs a sub-product of the prime factors of K_q, with exponents ≤ v_s(K_q), equal to −1 mod q.
-   Zero-sum theory forces such a sub-product only once the multiset has length ≥ D(ℤ/(q−1)) = q − 1, i.e. ω-type
-   size Ω(K_q) ≥ q − 1. **Missing:** a window with q ≤ Ω(K_q) + 1 ≤ log₂ p. That needs a window prime q ≲ log p
-   (false infinitely often: the least QNR is ≫ log p·log log p infinitely often, Graham–Ringrose; even GRH gives
-   only (log p)²) *and* a nearly maximally composite K_q. Both fail; this is (J)6 I3 with literature numbers.
+   No combinatorial forcing of such a sub-product is possible below multiset length (q − 1)/2: L copies of a
+   generator g give only the sub-products g, …, g^L, and −1 = g^{(q−1)/2} (PROVED, trivial; Davenport/Olson-type
+   zero-sum bounds are of order q − 1). The multiset has length Ω(K_q) ≤ log₂ p. **Missing:** a window with
+   q ≤ 2 log₂ p + 1. That fails infinitely often: every window prime is a quadratic non-residue mod p, the least
+   non-residue is ≫ log p · log log log p infinitely often (Graham–Ringrose 1990; ≫ log p · log log p under GRH,
+   Montgomery; both cited from memory, not re-read), and GRH gives only q ≤ (16 log p + 70)². One would also need a
+   nearly maximally composite K_q. Both fail; this is (J)6 I3 with literature numbers.
 3. *Fixed-modulus Kloosterman counting (B1, B4) applied to (★).* **Missing:** beyond-square-root cancellation for
    one residue on 𝓗 (area p^{1+o(1)} instead of p^{3/2}), which the literature calls out of reach (Shparlinski §3.1,
    §6.3), *and* arithmetic (not box) target sets (Lemma 2.1 shows restricting u does not shrink 𝓡). Even the
