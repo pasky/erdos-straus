@@ -167,3 +167,28 @@ witness set (favourable-witness existence), not a law.
 *Reading.* Matching the profile removes small-prime invisibility (Lemma 3.1) but the visible inputs still
 transport only ≈ 30% of the time, exactly as §2.4 predicts: their levels contain primes ≥ 11 and are incomplete.
 No total law appears; the residual question "does a favourable witness always exist" is ES(p) restated (B2).
+
+## 4. Screening in the models, and do sizes carry information?
+
+**4.1 Model screen (CERTIFIED, `logs/z28_matched_models.txt`).** At the model exceptions (k = 8: 131, 241;
+k = 12: 1129 … 12241; k = 16: 3361, 4801, 8641, 33601, 83449) the profile-matched soluble sources (same window/profile
+rules as §3) have many *visible* witnesses — e.g. 8/131 ← 251: 10 of 10 visible; 16/33601: 63 of 109 visible over 7
+sources; 12/12241: 28 of 44 — and of course none transports (p has no witness). Hence each of the following
+threshold-free laws is false in a model sharing T1 and the T1 adversary with ES, so a proof of its k = 4 form must
+use a 4-specific input (or a threshold, §2.3):
+(S1) "q ∈ S, q profile-matched to p (ℓ ≤ 7), q ≡ p (8), |p − q| ≤ 600 ⟹ p ∈ S";
+(S2) "some visible source witness exists ⟹ some witness transports" (Lemma 3.1 makes visibility automatic for
+B-smooth moduli, so (S2) is the visibility-sufficiency question of §2.4);
+(S3) any exact-share law (Prop 1.4), any slice-level or witness-level lift law of §1 from a soluble source.
+The only 4-specific resource the laboratory exhibits is *Mordell completeness* (§2.4), and it is exhausted on 𝓜.
+
+**4.2 Size information (EVIDENCE, `scripts/z28_size_info.py`).** The most naive witness-level lift reads a size number
+D of a source witness (D ∈ {d′, c′d′, x′-part a′b′d′}) and asks for a witness of p whose p-free denominator abd is
+a multiple of D. Over the 83 Mordell-class primes 100 < p ≤ 3·10⁴ (k = 4, sources within ±400, q ≡ p (8)), hit rates
+are the same for profile-matched sources and for unmatched sources in the same window (same sizes):
+d′: 64.6% vs 69.6%; c′d′: 51.6% vs 50.4%; a′b′d′: 4.4% vs 3.9% (6–7·10³ matched trials, 3–4·10⁴ unmatched;
+trials cluster by p, so differences of a few % are not significant). A shuffled control with sources of a
+*different* target agrees for d′, c′d′ (67.7%, 54.0%) and differs for a′b′d′ (11.7%) only through a size
+confound (the partners are of different size). So **the sizes of a source solution carry no detectable
+information about the target's divisor events** beyond what they share with any integer of the same size —
+the B2 lottery in the form "the source's factorisation is independent of p's".
