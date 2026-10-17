@@ -166,3 +166,58 @@ Note the k* statistic is a min over Type II points only (the report says so; §6
   signs as Artin symbols) and (J)53/(J)55 — should be cross-referenced.
 * Prop 4.3 / Remark 4.4: immediate corollaries of Lemma CT (notes Lemma 77.6); new as stated, small.
 * Thm 5.2: synthesis (the report says so honestly).
+
+## Numbered defects (no FATAL)
+**D1 (MAJOR, framing; §1 "Reading", §5 title/closing, §7, ledger line).** Cor A.1 / Remark 1.3 / Thm 5.2(a),(b)-last,(d)
+conclude "u-indexed union of ET classes; firing is the moving-modulus event". ES itself has exactly this shape
+(u = (a, b, c), class p ≡ −e mod 4ab), so these items exclude no strategy; they say only that the auxiliary contributes no
+*algebraic* factor. Calling §5 "the obstruction theorem" and the ledger's "no algebraic budget at a general prime"
+invite over-reading. *Repair:* add after Thm 5.2: "(a), (b)-last and (d) are reformulations, not impossibility
+statements — the full ET parametrisation is itself of shape (a); the genuine negative content is (b)-Schinzel and the
+conditional parts of (c), (e), all from (J)79, (J)83, Thm C." (R263 repair applied.)
+**D2 (MAJOR, attribution; §3, report).** Window form, Prop 3.2 and Cor 3.3 (incl. the "exponential gap", there PROVED)
+are LONGSHOT_PIGEONHOLE (O135) Lemma 1.1, Prop 1.4 (more general), 1.4(b) and Lemma 2.1. *Repair:* cite O135 at §3,
+state Prop 3.2 as "the t₀ = −1 ∈ H₀ case of O135 Prop 1.4", and replace the Assessment gap sentence by a citation of
+O135 Lemma 2.1 (PROVED there). (R263 repair applied.)
+**D3 (MINOR; Prop 2.1(c) proof).** Statement assumes α ∉ ℚ, proof treats α constant; for α constant the coordinates are
+polynomials in (u′, p) and the right reference is Remark 1.3, not Theorem A (p-dependent slices may split — the ET-variety
+example just below). Also the duplicated "valid at one point (Type II) or at one point (Type I…)" in (b). *Repair:* say
+"(If α is a non-zero constant … Remark 1.3 applies with u′ auxiliary)". (R263 repair applied.)
+**D4 (MINOR; §4.1).** "Whether such K occur for every bounded set of windows is (J)83 Thm 1.3 (CONDITIONAL on Dickson:
+yes)" — CAP_BOUNDED Thm 1.3 builds primes with NO forced window ≤ M ((m/p) = +1 for all m ≤ M); it does not produce forced
+windows with K = (prime non-residue). *Repair:* "That bounded window sets fail infinitely often (with all windows ≤ M
+unforced) is (J)83 Thm 1.3 (CONDITIONAL on Dickson); whether forced windows with K = s occur at every bounded window set
+is not claimed." (R263 repair applied.) Thm 5.2(c)'s use of Thm 1.3 is fine as worded.
+**D5 (MINOR; Remark 4.4 vs Thm 5.2(e)).** Remark 4.4 is stated/proved for Type II only, 5.2(e) asserts it for every class
+modulus. The Type I case follows the same way (Lemma CT gives (ab/p) = −1 for Type I too; g = gcd(a, b) divides c).
+*Repair:* extend Remark 4.4 to both types with that sentence. (R263 repair applied; numerically confirmed on 3 466 Type I
+points p < 1500.)
+**D6 (MINOR, scope; Def 5.1 (R3), "Not covered").** (R3) covers only windows built from ℤ[√p]; archimedean data used as
+other coordinates (a = ⌊√p⌋, 4ab from CF data, Type I windows, non-window slices) are covered by no relation type, and the
+§0 (V5) "candidate (i), CF/Pell part, closed" overstates. *Repair:* add these to "Not covered" and restrict the (V5)
+sentence to Type II windows. (R263 repair applied.)
+**D7 (MINOR; report ledger line).** "EVIDENCE: cyclotomic depth unbounded" → "EVIDENCE: cyclotomic depth k* (Type II)
+even, growing in range (max 72 ≤ 3·10⁵)". (Reported here; the report is the author's — parent should fix the ledger line.)
+**D8 (MINOR; Thm 5.2(c), §4.1).** "the image of ⟨primes of K⟩ in H₀/H₀^ℓ" → "the image of K in G/G^ℓ (one residue-symbol
+value per ℓ)". (R263 repair applied.)
+**D9 (MINOR; Cor 3.3 Assessment).** The "(2^E − 2)/2 − E" need presumes H₀ = (ℤ/m)^×; add "when the primes of K generate
+(ℤ/m)^×". Theorem A hypothesis "positive on an open set" can be weakened to d(u₀) > 0 at one real point (cosmetic, no
+repair needed).
+
+## Verdict summary
+| claim | verdict |
+|---|---|
+| Theorem A | SOUND (elementary: Gauss + sign) |
+| Remark 1.2 | SOUND |
+| Cor A.1, Remark 1.3 | SOUND (framing D1) |
+| Prop 2.1 | SOUND-AFTER-REPAIRS (D3) |
+| Lemma 3.1 | SOUND |
+| Prop 3.2 | SOUND (not new: O135 Prop 1.4, D2) |
+| Cor 3.3 | SOUND; labels right (D2, D9) |
+| §4.1 | SOUND-AFTER-REPAIRS (D4, D8) |
+| Prop 4.2 | SOUND |
+| Prop 4.3 | SOUND |
+| Remark 4.4 | SOUND (Type II); Type I extension needed for 5.2(e) (D5) |
+| Theorem 5.2 | SOUND-AFTER-REPAIRS (D1, D5, D6, D8) |
+| §6 EVIDENCE | SOUND (reproduced k* = 72, 42, 42; max 22 below 2·10⁴); ledger wording D7 |
+No FATAL defect; no mathematical error found in any PROVED statement.
