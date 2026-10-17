@@ -30,6 +30,13 @@ t ≡ −p and u ≡ −1 (mod s).)
 Results (`logs/review_r270_eng_a.txt`, `_b.txt`): ≤ 5·10⁹: 117 474 981 primes p ≡ 1 (4), failures exactly 193, 2521, 66529;
 (5·10⁹, 10¹⁰]: 110 048 294 primes, 0 failures. Sum 227 523 275 = author's figure; ≤ 10⁸ subtotal 2 880 504 = author's;
 ≤ 10⁶ gives 39 175 + 39 322 (≡ 3 (4)) + 1 = 78 498 = π(10⁶). Runtime 2 × 2.6 min.
+**Full rerun to 10¹¹** (`logs/review_r270_eng_1e10.txt`, `_c.txt`, `_d.txt`; 2 cores, ≈ 30 min): failures exactly
+{193, 2521, 66529}; primes p ≡ 1 (4): 227 523 275 (≤ 10¹⁰), 933 583 091 ((10¹⁰, 5.5·10¹⁰]), 897 913 914 ((5.5·10¹⁰, 10¹¹]) —
+identical to the author's per-range figures, total 2 059 020 280. My sieve also counts p ≡ 3 (4): 227 529 235 ≤ 10¹⁰ and
+2 059 034 532 ≤ 10¹¹, so π(10¹⁰) = 455 052 511 and π(10¹¹) = 4 118 054 813 (both the classical values) — this closes the
+author's "from memory, not re-checked" caveat for π(10¹¹; 4, 1). Only 238 (≤ 10¹⁰) / 1 641 ((10¹⁰, 10¹¹]) primes needed
+the exhaustive Phase B; all were decided positively by explicit pairs except the three.
+**Verdict: SOUND.** The headline "no b = 1 failure in (66529, 10¹¹]" is independently confirmed with a different algorithm.
 
 ## Defects
 
