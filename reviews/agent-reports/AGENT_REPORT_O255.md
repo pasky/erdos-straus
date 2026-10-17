@@ -1,7 +1,7 @@
 # AGENT_REPORT_O255 — hatch H-B: parity-breaking literature audit + single-prime feasibility
 
 Branch `side-agent/parity-audit`. Main file `PARITY_AUDIT.md`; excerpts in `sources/lit2026f/` (≈ 40 small .txt
-files, ~150 KB total, no PDFs); scripts `scripts/pa_*.py`; logs `logs/pa_*`. **ES is not solved.**
+files, ~55 KB total, no PDFs); scripts `scripts/pa_*.py`; logs `logs/pa_*`. **ES is not solved.**
 
 ## What was done
 * Fixed the exact single-p events (§0): (a) ES-five on the u-side, E_a(p;U): ∃ u ≤ U, A | p+u, A ≡ −1 (mod u),
