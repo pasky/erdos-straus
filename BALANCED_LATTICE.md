@@ -177,3 +177,28 @@ of the random-lattice scale x^{1/k}) and log x ≈ 2 log P; 1 from log P; 3/2 fr
 L one gets 2 + o(1) (FORCED_WINDOW Cor 4.4). (2) Where each input is used: GRH — the class count with χ_p(q) = −1, and the
 index (Chebotarev-visible) part Bad₂; EQ — only to transfer the class-blind Prop 3.1 into the class −p mod 8P. (3) EQ is
 needed only for the single modulus 8P(y) with y ≍ log₂p·log₃p, x ≍ P² log⁴ p, and only up to a constant factor.
+
+**Hypothesis S (sparsity of large-order pretentious primes; p-free AND class-free).** There is A such that for all large x
+and every y with P(y) ≤ x^{1/2} (k = |S(y)|):  #{q ≤ x : q ∈ Bad₁(x^{−3/(2k)})} ≤ x^{1/2}(log x)^A.
+*Random-model status (Assessment).* If the discrete-log vectors a(q) were uniform, each q would carry ≈ N·vol{ℓ¹-ball of
+radius ε} = N(2ε)^k/k! characters with 𝔻 < ε, so #Bad₁(ε) ∩ [1, x] ≈ x²(2ε)^k/(2k!·log x) = x^{1/2}·2^k/(2k! log x) at
+ε = x^{−3/(2k)}: S is the random-model prediction, with room. It is NOT known in any range: its index-degenerate part alone
+(index ≥ x^{3/(2k)}) is known only with exponent 1 − 1/(2k) − O(1/k²) in place of 1/2 (Prop 3.1 / PHASE_DIAGRAM Step 2), and
+GRH-Chebotarev cannot reach it (per prime ℓ the error is already ≍ √x log x).
+**Theorem 4.2 (CONDITIONAL on GRH + S; PROVED relative to them).** e*(p) ≤ (log₂p)^{9/2+o(1)} for p ≥ p₀.
+*Proof.* As Thm 4.1 with ε := x^{−3/(2k)}: the class contains ≤ x^{1/2}(log x)^A ≤ G/8 elements of Bad₁(ε) (no EQ needed: the
+total is already below the class main term G ≍ √x log² p/log x), Bad₂(1/ε) is handled as before (1/ε = y^{3+o(1)}), and
+L = ⌈k^{3/2}x^{3/(2k)}⌉ = y^{3/2+3+o(1)}. ∎
+*Reading.* S ⇒ EQ at the parameters used (the class count is bounded by the total). Hence the clean statement:
+**GRH reduces "e*(p) ≤ (log₂p)^{O(1)} for every p" to a p-free, class-free sparsity statement about primes q at which the
+first k odd primes are nearly multiplicatively dependent through a character of large order** — the multiplicative-
+dependence analogue of bounding the primes q for which a fixed integer has small order (Erdős–Murty / Kurlberg–Pomerance
+type), in rank k ≍ log x/log log x and at the square-root level. Neither EQ nor S is a standard named hypothesis; I know of no
+standard conjecture (GRH, Elliott–Halberstam, Artin-type) that implies either, because Bad₁ is neither a set of primes in
+progressions nor a Chebotarev set (Prop 2.2).
+**Remark 4.3 (almost all p under GRH alone; CONDITIONAL on GRH, Assessment-level bookkeeping).** EQ holds trivially *on
+average over classes*: at most φ(8P)/C classes a can carry more than (C/φ(8P))·#Bad₁. Since −p mod 8P equidistributes as p
+varies, GRH alone gives e*(p) ≤ (log₂p)^{13/2+o(1)} for all p outside a set of relative density O(1/C) (any fixed C), i.e.
+for almost all p. This is weaker than the known unconditional almost-all bound (CAP_INTERPOLATION §2: e ≍ log₂N with
+≤ N^{1−c/(log₂N log₃N)} exceptions), so it is recorded only as a consistency check — answer to the brief's question (i): **no
+new almost-all statement**.
