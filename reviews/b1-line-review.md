@@ -98,3 +98,31 @@ four (1 683 049, 277 977 001, 6 098 002 681, 58 441 300 009) have 3 ∥ p − 1,
 to NO shift; 22 010 483 881 has M₃ | p − 1 but M₄ = M₅ = 1800 ∤ p − 1 (5 ∥ p − 1), so Prop 4.1 freezes only shift 3 of the 214
 empty shifts; only 345 601 (M₅ | p − 1) is in scope, and only for s ≤ 5. The QR claim (every prime < 41 is a QR mod
 22 010 483 881; 41 is not) is correct. See M2.
+
+### C8. §2.2 smooth-(p − 1) census to 10¹⁵ — SOUND (list fully regenerated; decisions spot-checked)
+`review_r270_checks.py smooth` (pure Python: recursive enumeration of all 1 596 961 m = 4·(19-smooth) with m + 1 ≤ 10¹⁵,
+sympy primality): Y = 11, 13, 17, 19 give 14 173 / 41 146 / 99 549 / 216 882 primes, of which 12 781 / 36 517 / 87 216 /
+187 500 are ≡ 1 (8) — all eight numbers identical to the author's. Decisions by sympy factorisation of p + s (independent
+of both C engines), for ALL 14 173 primes with 11-smooth p − 1 plus 1 500 random ones with 19-smooth p − 1: unresolved
+exactly 193, 2521, 66529 (complete decisions, since 2000 > 1 + √(p + 1) for these), all other witnesses verified in exact
+rationals, max least shift 95 at 345 601 (`logs/review_r270_smooth.txt`). The statement "every other smooth prime has
+s ≤ 95" for the remaining ~2·10⁵ primes rests on the author's run only (not re-run in full by me).
+
+### C9. Lemma 3.1 (incidence form, main term, swap count) and the ratio data — SOUND as mathematics; "Haar main term" mislabelled (m2)
+Re-derived: w | cp + 1 ⟺ w | p + 4d (gcd(4d, w) = 1); g ≥ 3 ⇒ 8d ≤ p + 3; a = (cp + 1)/(4cd − 1) < p ⇒ p ∤ x = ad,
+so x is identified and the triple determines (a, c, d) ✓ (also checked by brute force, C5). Main-term integral: Σ_d (1/(4d))
+log(p/(12d)) over d ≲ p/12 = (log p)²/8 + O(log p) ✓; my numerics M₁ = 13.27, 19.79, 27.64 at 10⁵, 10⁶, 10⁷ reproduce the
+author's. Swap involution (u, B) ↔ (B, u) on R(p): fixed point u = B ⇒ u(4uC − 2) = p, impossible ✓; distinct triples ✓.
+So "ε ∈ {0, 1}" is really ε = 0 (m3).
+**But M₁ (weights 1/w) is not the Haar/random-prime expectation.** For a random prime p, P(w | p + 4d) = 1/φ(w), not 1/w.
+`logs/review_r270_mainterm.txt`: M_φ(10⁶) := Σ 1/φ(4cd − 1) = 24.71, against M₁ = 19.79, and the empirical mean of N₁ over
+all 4 329 primes p ≡ 1 (4) in 10⁶ ± 6·10⁴ is 27.68 (class p ≡ 1 (24): 22.27). The author's sentence "the class p ≡ 1 (24)
+runs ≈ 13 % above the unconditioned M₁: 22.3 against 19.8" is numerically right but misleading: the hard class is ≈ 20 %
+BELOW the true all-class mean; it only looks "above" because M₁ underestimates the mean by ≈ the average of w/φ(w) over
+odd w (≈ 1.3 asymptotically). The ratio claim "twice the trials" is unaffected (both lines use odd moduli of the same
+shape, so the φ-correction is common to both), and the NB model uses empirical means, so nothing downstream breaks.
+Ratio data (`logs/review_r270_disp.txt`, from-scratch counts, p ≡ 1 (24), 3 000 consecutive primes from 10⁶, 10⁸, 10¹⁰, 600
+from 10¹²): N₁/L² = 0.119, 0.125, 0.130, 0.135 (author 0.117, 0.124, 0.131, 0.135); N_{c1}/L² = 0.072–0.074; ratio N₁/N_{c1}
+= 1.66, 1.73, 1.77, 1.84 (author 1.67, 1.69, 1.78, 1.85) ✓. Class means at 10¹² (`logs/review_r270_classes.txt`, 300 primes
+each): p ≡ 1 mod 24 / M₅ / M₇ / M₁₁: N₁/L² = 0.135 / 0.127 / 0.117 / 0.108, N_{c1}/L² = 0.073 / 0.070 / 0.065 / 0.061 —
+exactly the §3.2 figures (−20 % and −16 %) ✓. Label EVIDENCE is appropriate.

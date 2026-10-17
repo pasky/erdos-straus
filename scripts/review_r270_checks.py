@@ -217,5 +217,95 @@ def chi():
             n += 1
     print("chi_{-4d}(p+4d) = (d/p) and chi_{-4}(p+4d)=+1: cases", n, "bad", bad)
 
+
+def least_factor(p, S=2000):
+    """least shift s <= S via sympy factorisation of p+s (independent of the C engine); 0 if none."""
+    for s in range(1, S + 1):
+        n = p + s
+        for t in divisors(n):
+            if t != s and (s * t) % 4 == 0 and (p + s + t) % (s * t) == 0 and min(s, t) == s:
+                return s, t
+    return 0, 0
+
+def smooth(nsample=1500, seed=19):
+    X = 10 ** 15
+    P = [2, 3, 5, 7, 11, 13, 17, 19]
+    ms = []
+    def rec(i, m):
+        if i == len(P):
+            ms.append(m); return
+        while m + 1 <= X:
+            rec(i + 1, m); m *= P[i]
+    rec(1, 4)  # start with factor 4 (4 | m), the loop over P[0]=2 handled separately
+    allm = []
+    for m in ms:
+        while m + 1 <= X:
+            allm.append(m); m *= 2
+    allm = sorted(set(allm))
+    print("19-smooth m with 4|m, m+1<=1e15:", len(allm))
+    primes = [m + 1 for m in allm if isprime(m + 1)]
+    def maxp(m):
+        return max(factorint(m)) if m > 1 else 1
+    for Y in (11, 13, 17, 19):
+        sel = [p for p in primes if maxp(p - 1) <= Y]
+        print(f"Y={Y}: primes {len(sel)}, p=1 mod 8: {sum(1 for p in sel if p % 8 == 1)}")
+    sel11 = [p for p in primes if maxp(p - 1) <= 11]
+    rng = random.Random(seed)
+    sample = sorted(set(sel11) | set(rng.sample(primes, nsample)))
+    worst = (0, 0); fails = []; bad = 0
+    for p in sample:
+        s, t = least_factor(p)
+        if s == 0:
+            fails.append(p); continue
+        if not verify_witness(p, s, t): bad += 1
+        if s > worst[0]: worst = (s, p)
+    print(f"decided {len(sample)} (all Y=11 + {nsample} random Y=19): unresolved(s<=2000) {fails}, bad witnesses {bad}, max least s {worst}")
+
+def mainterm():
+    import numpy as np
+    for p in (10 ** 5, 10 ** 6, 10 ** 7):
+        tot = 0.0; totphi = 0.0
+        if p <= 10 ** 6:
+            W = p // 2 + 10
+            phi = np.arange(W + 1, dtype=np.int64)
+            for q in range(2, W + 1):
+                if phi[q] == q:
+                    phi[q::q] -= phi[q::q] // q
+        for d in range(1, (p + 3) // 8 + 1):
+            cmax = (p + 4 * d + 3) // (12 * d)
+            if cmax < 1: break
+            w = 4 * d * np.arange(1, cmax + 1, dtype=np.int64) - 1
+            tot += float(np.sum(1.0 / w))
+            if p <= 10 ** 6: totphi += float(np.sum(1.0 / phi[w]))
+        L = math.log(p)
+        print(f"p={p}: M1={tot:.2f}  (log p)^2/8={L*L/8:.2f}  Mphi={totphi:.2f}")
+    # empirical means near 1e6
+    for X in (10 ** 6,):
+        ps = [q for q in primerange(X - 60000, X + 60000) if q % 4 == 1]
+        n1 = dict(eng("count", ps))
+        a = [n1[q] for q in ps]; b = [n1[q] for q in ps if q % 24 == 1]
+        print(f"near {X}: mean N1 all p=1(4) {sum(a)/len(a):.2f} (n={len(a)}), p=1(24) {sum(b)/len(b):.2f} (n={len(b)})")
+
+def disp():
+    for X, n in ((10 ** 6, 3000), (10 ** 8, 3000), (10 ** 10, 3000), (10 ** 12, 600)):
+        ps = []; q = X - X % 24 + 25  # q = 1 (mod 24)
+        while len(ps) < n:
+            if isprime(q): ps.append(q)
+            q += 24
+        assert all(q % 24 == 1 for q in ps)
+        allp = []; q = X + 1
+        while len(allp) < n:
+            if isprime(q): allp.append(q)
+            q += 4
+        n1 = [c for _, c in eng("count", ps)]
+        nc = [c for _, c in eng("count", ps, line=2)]
+        na = [c for _, c in eng("count", allp)]
+        def mv(v):
+            m = sum(v) / len(v); return m, sum((x - m) ** 2 for x in v) / (len(v) - 1) / m
+        L2 = math.log(X) ** 2
+        (m1, D1), (mc, Dc), (ma, Da) = mv(n1), mv(nc), mv(na)
+        print(f"X={X:.0e} p=1(24) n={n}: N1/L^2={m1/L2:.3f} var/mean={D1:.2f} | Nc1/L^2={mc/L2:.3f} var/mean={Dc:.2f} | ratio={m1/mc:.2f} | all p=1(4): N1/L^2={ma/L2:.3f} var/mean={Da:.2f} zeros/<=2: {sum(1 for x in n1 if x<=2)}")
+
+
 if __name__ == "__main__":
     globals()[sys.argv[1]](*[int(float(a)) for a in sys.argv[2:]])
