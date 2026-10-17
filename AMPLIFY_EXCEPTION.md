@@ -49,28 +49,43 @@ n < p₀ (descent: then min E would not be minimal, using (K3)), then P_E = ∅.
 "n < p₀ in a block" version of this (Thm 1.5).
 
 **Theorem 1.3 (iterated / branching laws; PROVED).** Let σ assign to each p ∈ P_E a set σ(p) ⊆ E of *distinct*
-successors, T(p₀) the forward closure (law applied again to every output; for a composite output apply it to its
-prime factors, which lie in P_E by (K3)). In-degree r: every q lies in σ(p) for at most r values p ∈ T(p₀).
-(a) *Super-linear scale, bounded branching ⟹ polylog, never suffices.* If |σ(p)| ≤ b and every q ∈ σ(p) has
-q ≥ p^{λ₁}, λ₁ > 1, then T(N) ≤ 2 (log N/log p₀)^{log b/log λ₁}. If moreover all outputs are primes of 𝓜 (otherwise
-Remark 1.2 already applies), E′ := T(p₀) satisfies (K1)–(K4′) and is σ-closed; so no such law, of any (b, λ₁),
+**prime** successors, T(p₀) the forward closure (law applied again to every output). In-degree r: every q lies in
+σ(p) for at most r values p ∈ T(p₀). (Scope repair after review: the size hypotheses below are on *prime*
+successors. A composite output n ≥ p^{μ} may have small prime factors — σ(p_i) = {p_i² p_{i+1}} has superlinear
+outputs yet reaches every p_i — so a composite-output law must first be rewritten as a prime law, via Thm 1.4(c),
+with the size hypotheses re-verified for the extracted prime factors.)
+(a) *Super-linear scale, bounded branching ⟹ polylog, never suffices* (core v1.1 (ii): successors ≥ p^{μ}). If
+|σ(p)| ≤ b and every q ∈ σ(p) has q ≥ p^{μ}, μ > 1, then T(N) ≤ (K+1)·max(b,1)^K + 1 with
+K = log(log N/log p₀)/log μ; i.e. T(N) ≪ (log N)^{log b/log μ}·log log N for b ≥ 2 and ≪ log log N for b = 1. If moreover all outputs are primes of 𝓜 (otherwise
+Remark 1.2 already applies), E′ := T(p₀) satisfies (K1)–(K4′) and is σ-closed; so no such law, of any (b, μ),
 can yield a contradiction with the listed facts.
 (b) *Linear scale: the exact threshold b ≥ rA.* Suppose every p ∈ T has ≥ b successors in (p, A p] (A > 1 fixed)
-and in-degree ≤ r. Then T(N) ≥ (r/b)(N/p₀)^{β}, β = log(b/r)/log A. If b/r ≥ A then T(N) ≫ N/p₀, contradicting (K4)
+and in-degree ≤ r, with b > r. Then T(A^k p₀) ≥ (b/r)^k for all k ≥ 0, i.e. T(N) ≥ (r/b)(N/p₀)^{β} for N ≥ p₀,
+β = log(b/r)/log A. (For b ≤ r nothing beyond T(N) ≥ #{k : A^k p₀ ≤ N}-type chain bounds is forced.) If b/r ≥ A then T(N) ≫ N/p₀, contradicting (K4)
 (indeed density 0): the law suffices. If b/r < A, there is a σ-closed configuration of primes of 𝓜 above 10^17 with
-exactly these out/in-degree constraints and T(N) ≍ N^{β′}, β′ < 1, consistent with (K1)–(K4′): never suffices.
+exactly these out/in-degree constraints and T(N) ≪ N^{β′} + log N, β′ < 1, consistent with (K1)–(K4′): never
+suffices (for b ≤ r the model has bounded level sizes and T(N) ≍ log N).
 (c) *Additive gaps.* If every p ∈ P_E has a successor in (p, p + f(p)], f nondecreasing, then the chain
 p₀ < p₁ < … gives T(N) ≥ (N − p₀)/f(N) − 1. Hence the law suffices if for every c > 0,
 liminf_N f(N) exp(−c (log N)^{2/3}) = 0 (e.g. f(p) = exp(o((log p)^{2/3})), or exp(o((log p)^{3/4})) with (K4′)).
 If f(N) ≥ C exp(c₁(log N)^{2/3}), the guaranteed count N/f(N) does not violate (K4) (for c₀ ≤ c₁) — no counting
 contradiction. (A σ-closed *prime* model with these gaps needs primes ≡ 1 (840) in intervals of length f(p);
 unconditionally available for f(p) ≥ p^{7/12+ε} (Huxley-type zero density for L(s,χ) mod 840; cited from memory).)
-(d) *What replaces bounded branching.* Combining (a)–(c): a law suffices only if, from the forced structure, F is
-dense *at the scale of its own outputs* — ≥ A·r new exceptions per factor A of growth, or a forced exception in
-every window of length exp(o((log p)^{2/3})). Any law with fixed b and output scale ≥ p^{1+ε} is polylog.
+(d) *Growing branching at super-linear scale (core v1.1 (ii)).* If every successor of p is ≥ p^{μ} (μ > 1) and
+|σ(p)| ≤ p^{δ}, then T(N) ≤ (K+2)·N^{δ/(μ−1)} (K as in (a)). Hence such a law can contradict (K4) only if
+δ ≥ μ − 1, i.e. the branching must be at least a fixed power p^{μ−1−o(1)} of the parent. Conversely one step suffices if p has ≥ r·p^{λ} e^{−o((log p)^{2/3})}
+prime successors in (p, p^{λ}] (in-degree ≤ r): F is then dense at scale p^{λ}. Between δ = μ − 1 and these
+dense laws the outcome depends on how the successors are distributed (not settled here).
+(e) *What replaces bounded branching.* Combining (a)–(d): a law suffices only if, from the forced structure, F is
+dense *at the scale of its own outputs* — ≥ A·r new exceptions per factor A of growth (slowly growing successors,
+μ → 1), a forced exception in every window of length exp(o((log p)^{2/3})), or power branching p^{≥ μ−1} at
+scale p^{μ}. Any law with fixed b and successors ≥ p^{μ}, μ > 1, is polylog.
 
-*Proof.* (a) Every element of generation k (k applications) is ≥ p₀^{λ₁^k}; elements ≤ N need
-k ≤ K := log(log N/log p₀)/log λ₁, and generation k has ≤ b^k elements; Σ_{k≤K} b^k ≤ 2b^K. (K1): outputs > p₀ >
+*Proof.* (a) Every element of generation k (k applications) is ≥ p₀^{μ^k}; elements ≤ N need
+μ^k ≤ log N/log p₀, i.e. k ≤ K, and generation k has ≤ b^k elements;
+Σ_{k≤K} b^k ≤ (K+1)max(b,1)^K. [(d): every q ≤ N in T other than p₀ has a parent ≤ q^{1/μ} ≤ N^{1/μ}, so
+T(N) ≤ 1 + T(N^{1/μ})·N^{δ/μ}; unrolling until the argument drops below p₀ (≤ K+1 times) gives T(N) ≤ (K+2) N^{δ(1/μ + 1/μ² + …)} ≤
+(K+2)N^{δ/(μ−1)}.] (K1): outputs > p₀ >
 10^17; (K2): primes of 𝓜 (all ≡ 1 (4)); (K3): primes; (K4′): polylog ≪ N exp(−c(log N)^{3/4}). (b) Let T_k be the
 set of elements reachable in exactly k steps; T_k ⊆ (p₀, A^k p₀]. Edges leaving T_k number ≥ b|T_k| and land in
 T_{k+1}; each element receives ≤ r edges, so |T_{k+1}| ≥ (b/r)|T_k| and T(A^k p₀) ≥ (b/r)^k. For b/r ≥ A, T(N) ≥

@@ -67,7 +67,7 @@ if __name__ == '__main__':
             for j in range(-12, 13):
                 if j and isprime(p + j) and p + j > 3:
                     srcs.append((p + j, 1))
-            for g in (2, 3, 4, 6, 8, 12):
+            for g in (2, 3, 4, 6, 8, 12, 24):
                 for j in range(-12, 13):
                     if (p + j) % g == 0 and isprime((p + j) // g) and (p + j) // g > 3:
                         srcs.append(((p + j) // g, g))

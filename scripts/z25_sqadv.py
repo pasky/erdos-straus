@@ -13,7 +13,7 @@ for p in [97, 193, 313, 3361, 5209]:
     # consistency: no ET modulus H of p has p ≡ odd square mod H
     assert not any(odd_square_mod(p, H) for H in Hp), p
     out = []
-    for g in (1, 2, 3, 4, 6, 8, 12):
+    for g in (1, 2, 3, 4, 6, 8, 12, 24):
         for j in range(-12, 13):
             n = (p + j) // g
             if (p + j) % g or n == p or n <= 3 or not isprime(n):
