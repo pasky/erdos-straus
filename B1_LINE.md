@@ -90,7 +90,8 @@ known value, OEIS A091115 — from memory, not re-checked). **No b = 1 failure i
 | (5·10⁹, 10¹⁰] | 110 048 294 | 0 | 0 | 104 (6 098 002 681) |
 | (10¹⁰, 5.5·10¹⁰] | 933 583 091 | 0 | 0 | 215 (22 010 483 881) |
 | (5.5·10¹⁰, 10¹¹] | 897 913 914 | 0 | 0 | 116 (58 441 300 009) |
-Distribution of the least s, ≤ 10¹⁰ (log₂-bins [2,4), [4,8), …): 2.07·10⁸, 1.84·10⁷, 1.82·10⁶, 1.28·10⁵, 4 211, 94, 0.
+Distribution of the least s, ≤ 10¹⁰ (log₂-bins [2,4), [4,8), …): 2.07·10⁸, 1.84·10⁷, 1.82·10⁶, 1.28·10⁵, 4 211, 94, 0; in
+(10¹⁰, 10¹¹]: 1.68·10⁹, 1.41·10⁸, 1.24·10⁷, 6.96·10⁵, 15 746, 155, 2 (both in [128, 256)).
 The least hitting s grows only slowly: record 119 ≤ 10⁸, then 215 at 2.2·10¹⁰ (unbounded under Dickson, Thm 4.2). Every global record from p = 73 on is at
 p ≡ 1 (24), as Prop 1.4 demands.
 
@@ -210,3 +211,25 @@ prime. For those, p ≡ 1 (mod M_σ), hence p ≡ 1 (mod 4), and Prop 4.1(b) kil
 (Check of Prop 4.1: `z29_freeze_check.py 2·10⁹`, all primes p ≡ 1 (mod M₇ = 176 400) and (mod M₁₁ = 64 033 200) below
 2·10⁹: 16 719 + 47 shift-s pairs, the two descriptions agree exactly; in all 2 776 + 24 cases with Q_s prime there is no
 pair; `logs/z29_freeze_check.txt`.)
+
+## 5. Forcing at a forced level (goal 5; PROVED negative; memo z29_forced_level_characters)
+At level d, the b = 1 event is "some subset product of the prime factors of N = p + 4d equals −1 in G = (ℤ/4d)^*". Lemma
+2.2(b) supplies one odd character value, χ₋₄d(N) = (d/p). (a) For elementary-2 groups G (d | 6), the event holds whenever every
+odd character ψ of G has ψ(N) = −1 (duality). (b) **χ₋₄ is an odd character of every (ℤ/4d)^*, and χ₋₄(N) = χ₋₄(p) = +1.** So no
+level is ever forced by characters. Every admissible w ≡ −1 (mod 4d) is ≡ 3 (mod 4), and level d needs a prime ≡ 3 (4) dividing
+p + 4d (a Landau event). (c) In the dual coordinate c the χ₋₄ condition is forceable, but only on the trivial class p ≡ 5 (8) (B1).
+Screen: 105 and odd squares fail in the same way (at m², ψ(m²) = +1 for every character). For k = 8 (131, 241) the levels are
+w ≡ −1 (mod 8d·…) and the same χ₋₄ argument applies, so nothing 4-specific is gained. What remains is B2 at a single integer.
+
+## 6. Verdict (O259 checkpoint 1)
+* Literature: the b = 1 line, its divisor form, the exceptions 193/2521/66529 and the union conjecture are López's
+  (2022, 2024). Cited.
+* Census: **no b = 1 failure in (66529, 10¹¹]** (2.06·10⁹ primes, complete). There is none among the 2.2·10⁵ primes ≤ 10¹⁵
+  with 19-smooth p − 1 either. (★) has exactly 14 failures ≤ 10¹⁰ (new range (10⁸, 10¹⁰]).
+* Structure (PROVED): the pair genus law (Lemma 1.2), the trivial classes (Prop 1.4), and the freezing of small shifts by
+  M_σ | p − 1 (Prop 4.1). The last one is the mechanism behind "the failures have smooth p − 1". Dickson ⟹ the least shift is
+  unbounded (Thm 4.2, CONDITIONAL). Forcing by characters is impossible at every level (§5).
+* Heuristic: main term (log p)²/8 for b = 1 vs (log p)²/16 distinct for (★) (Lemma 3.1): twice the trials. NB model
+  calibrated to 10¹⁰ and passed an out-of-sample test on (★) in (10⁸, 10¹⁰]. Conjecture 3.5: exactly three failures.
+* ES is not advanced: everything is either B1 (congruences), B2 (one divisor event per shift), or the B3 lottery with a better
+  constant.
