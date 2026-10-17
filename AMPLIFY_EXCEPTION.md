@@ -177,3 +177,36 @@ for k ≥ 7, so they are excluded from Q); the {(p−1)/2, (p+1)/2} law fails fo
 up to 2000; growth laws of Thm 1.3 type are false in these models.
 Consequence: any proof of an amplification or recombination law must use the numerator 4 specifically (the
 same point as numerator blindness (J)41); a k-uniform argument is refuted by a finite computation.
+
+---------------------------------------------------------------------------------------------------------------
+
+## 3. Deliverable 2 — construction attempts
+
+### 3.1 Affine-source recombination and its exact gate (route D, idea 4)
+
+Setting: a prime source n′ and p = αn′ + β (α, β small integers; v = (p+1)/2 is α = 2, β = −1; u = (p−1)/2 is
+never prime). A source witness w′ with slice (a′,b′,c′), modulus H′ = 4a′b′, e′ = (a′+b′)/c′ pins
+n′ ≡ −e′ (Type II) or n′ ≡ −e′^{−1} (Type I) (mod H′), hence pins p modulo αH′, and nothing else.
+
+**Theorem 3.1 (exact gate; PROVED).** Call a *determined lift* any rule that, from w′ alone, chooses a target slice
+(a,b,c) and a Type such that the resulting ET witness exists at *every* p ≡ p (mod αH′) (d being the quotient).
+(a) A determined lift from w′ exists iff p has an ET witness whose modulus H = 4ab divides αH′.
+(b) Hence "W(n′) ≠ ∅ ⟹ W(p) ≠ ∅" is provable by determined lifts iff *every* witness w′ ∈ W(n′) has this property:
+for each source witness, the number N_θ(p) = p + e (Type II) or pe + 1 (Type I) must have the divisor 4ab with
+4ab | αH′(w′) and (a+b)/c = e — a divisor event whose modulus is part of the (source) solution: the B2 gate.
+(c) The fixed-H transports of the core are the special case α = 1, H = H′.
+*Proof.* (a) If 4ab | p + e for all p in a class mod αH′, subtracting two members gives 4ab | αH′; if 4ab | pe + 1
+for all of them, 4ab | αH′e and gcd(e, 4ab) = 1, so 4ab | αH′. Conversely if p has a witness with H | αH′ the same
+slice works on the whole class (d = (p′+e)/H resp. (p′e+1)/H stays a positive integer). (b) Totality must hold
+whatever witness the source happens to have. ∎
+
+**Fixture test (CERTIFIED, `scripts/z25_gate.py fixtures`; entries "source(×α): passing/all source witnesses").**
+No source is total at any fixture; at 3361 the source 281 (3361 = 12·281 − 11) passes **0 of 17** witnesses.
+```
+97 89(x1):5/10 101(x1):9/16 103(x1):14/27 107(x1):8/25 109(x1):9/15 43(x2):3/14 47(x2):10/34 53(x2):8/13 29(x3):3/7 31(x3):6/19 23(x4):4/21 17(x6):2/4 11(x8):2/9 13(x8):1/4
+193 181(x1):4/17 191(x1):15/67 197(x1):14/23 199(x1):31/42 97(x2):5/8 101(x2):6/16 61(x3):1/11 67(x3):2/17 47(x4):5/34 31(x6):3/19 23(x8):4/21 17(x12):2/4
+313 307(x1):12/40 311(x1):20/79 317(x1):14/34 151(x2):9/31 157(x2):11/24 101(x3):4/16 103(x3):6/27 107(x3):8/25 79(x4):20/37 53(x6):8/13
+3361 3359(x1):25/423 3371(x1):9/77 3373(x1):7/66 1117(x3):9/64 1123(x3):10/48 839(x4):15/194 419(x8):5/81 421(x8):1/16 281(x12):0/17
+5209 5197(x1):9/104 2609(x2):10/40 1733(x3):8/59 1301(x4):7/38 1303(x4):10/53
+233689 116849(x2):34/167 77893(x3):27/197 77899(x3):85/225
+```
