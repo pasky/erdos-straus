@@ -3,8 +3,12 @@
 Reviewer: R263 side agent (branch side-agent/review-joint-budget). Author branch merged: side-agent/joint-budget.
 From-scratch scripts: `scripts/review_r263_*.py` (none of the author's z26 code reused).
 
-## Verdict summary
-(in progress)
+**Repairs applied** (author quiet after its final report): D1, D2, D3, D4, D5, D6, D8, D9 and the §6 Type-II-scope note,
+directly in JOINT_BUDGET.md, each marked "(R263 repair)". D7 (the report's proposed ledger line) is left to the parent.
+
+**Bottom line:** no FATAL, two MAJOR (framing D1, missing prior art D2 — Prop 3.2/Cor 3.3 are LONGSHOT_PIGEONHOLE
+(O135) Prop 1.4/1.4(b)/Lemma 2.1), seven MINOR. Every PROVED statement re-derived and checked by from-scratch code;
+no mathematical error found. Full table at the end.
 
 ## Per-claim checks
 

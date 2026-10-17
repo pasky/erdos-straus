@@ -22,9 +22,10 @@ p mod 4F (B1). The structure-free (Kneser) threshold needs Σ 2v_s(K) ≳ |⟨S�
 an exponential budget gap (§3.3).
 (V4) *Reciprocity-forced choice (least non-residue window, (J)64).* T1-safe and unbounded, so Theorem C does not apply;
 but the forced information is a coset of the squares only; the class −1 needs the unforced box. → §4.
-(V5) *Archimedean auxiliaries (u = ⌊√p⌋, CF convergents of √p, Pell units, "square-K" windows p + m = c·w²).* →
+(V5) *Archimedean auxiliaries (as Type II windows; R263 repair: other uses — e.g. a = ⌊√p⌋, CF data as a class modulus or
+a Type I window — are not covered, see §5 "Not covered") (u = ⌊√p⌋, CF convergents of √p, Pell units, "square-K" windows p + m = c·w²).* →
 §4.2 anti-forcing: every such window has (m/p) = (c/p); with c = 1 (squares, CF norms, Pell) the window is a residue
-window, i.e. unforced in the (J)64 sense.
+window, i.e. unforced in the (J)64 sense (for Type II windows only).
 (V6) *Divisibility auxiliaries (ord_p(2), Lucas rank of apparition, roots mod p).* → §4.3 direction mismatch: they make
 p divide an auxiliary integer; the only transfer to the moduli of ES sides is reciprocity (V4) or the congruence
 p ≡ 1 (mod ord) (V3).
@@ -83,16 +84,17 @@ with a polynomial ET family (A, B, C, D) ∈ ℚ[u]⁴ for n = φ(u). (This is e
 (a) *r = 1, deg φ = D ≥ 2:* the family reaches ≪ X^{1/D} integers n ≤ X, so a set of primes of density 0 (the SG,
 cyclotomic and moving-gap families of (J)74/(J)75/(J)80 are of this kind, even thinner: Y runs over powers of 2). r = 1,
 D = 1 is a congruence class and is Theorem A with u in place of p.
-(b) *φ* (top-degree part) irreducible over ℚ:* every such family valid at one point (Type II) or at one point (Type I, (J)79
-Thm 3.1, since gr ℚ[u]/(φ) = ℚ[u]/(φ*) is a domain) lies in ℚ[φ], i.e. is an ET identity in n; it covers only non-square
+(b) *φ* (top-degree part) irreducible over ℚ:* every such family valid at one point (Type II, (J)79 Thm 1.1′; Type I, (J)79
+Thm 3.1, since gr ℚ[u]/(φ) = ℚ[u]/(φ*) is a domain; R263 repair of a duplicated phrase) lies in ℚ[φ], i.e. is an ET identity in n; it covers only non-square
 classes and misses infinitely many primes of every square class (Mordell–Schinzel), unconditionally.
 (c) *φ of degree 1 in some variable, φ = α(u′)·u_r + ψ(u′), u′ = (u₁,…,u_{r−1}), α ∉ ℚ:* the family fires at p iff for
 some u′ in its validity region α(u′) | p − ψ(u′) (with the family's remaining congruences on u′, p). This is a
 moving-modulus divisibility, i.e. the B2 event for the integers p − ψ(u′), and the side factorisations it produces are
 those of the ET identity in the variable u_r = (p − ψ(u′))/α(u′).
 *Proof.* (a) |φ(u)| ≤ X forces |u| ≪ X^{1/D}. (b) is (J)79 Thms 1.1′/3.1 with P = φ (prime with irreducible top part).
-(c) Solving for u_r: n = p is reached at (u′, u_r) iff u_r = (p − ψ(u′))/α(u′) ∈ ℤ. If α is a non-zero constant, (p
-− ψ(u′))/α is a free variable up to a congruence and Theorem A applies with u′ auxiliary: no splitting beyond re-indexed
+(c) Solving for u_r: n = p is reached at (u′, u_r) iff u_r = (p − ψ(u′))/α(u′) ∈ ℤ. (R263 repair: the constant-α case lies outside the statement of (c); for it,) (p
+− ψ(u′))/α is a free variable up to a congruence, the coordinates are polynomials in (u′, p), and Remark 1.3 (not Theorem A,
+whose slices are p-free; p-dependent slices can split, see the example below) applies with u′ auxiliary: re-indexed
 ET classes. ∎
 *Example (the ET variety itself).* φ = 4ab·d − a − b (c = 1), u_r = d: α = 4ab, ψ = −(a + b); the side p + 4a²d =
 (a + b)(4ad − 1) splits identically, because θ = (a, d) uses the solved variable d. Firing: 4ab | p + a + b, the classical
@@ -108,6 +110,10 @@ Notation (window form; RT2 row II{a,e} / CAP_DOWN Lemma 1.1 at cap 0). For p ≡
 gcd(m, p) = 1 put K = K_m = (p + m)/4. Then **Type II at window m ⟺ ∃ a, b ≥ 1 coprime, ab | K, m | a + b**
 ⟺ −1 ∈ Σ_m(K) := {∏ s^{e_s} mod m : |e_s| ≤ v_s(K)} (when gcd(K, m) = 1; positive exponents form a, negative b).
 The ET identity class of a certificate (a, b, c = (a+b)/m) is p ≡ −m (mod 4ab), with d = (p + m)/(4ab).
+(R263 repair, prior art: this window form is LONGSHOT_PIGEONHOLE (O135) Lemma 1.1; Prop 3.2 below is the special case
+t₀ = −1 ∈ H₀ of O135 Prop 1.4, which is more general (any target, min(2v + 1, o_H) terms, sharpness 1.4(c)); O135
+1.4(b) is Cor 3.3's PROVED part, and O135 Lemma 2.1 PROVES the CRT-forcing cost e^{(1+o(1))k log k} against 3^{k+1}, i.e.
+the budget gap stated below only as Assessment.)
 
 **Lemma 3.1 (forced support pins the window; PROVED).** Let F | K be a factor forced by a congruence on the window
 (m ≡ −p mod 4F). If a certificate has ab | F, then m ≤ a + b ≤ F + 1 < 4F, so m is the least positive residue of −p
@@ -117,7 +123,7 @@ So a congruence-forced budget buys nothing beyond choosing one ET class: the win
 (The classification of all "self-generated" certificates — those using only K, 2^{v₂K}, p — is z22 Prop 2.1; Lemma 3.1
 is the general-F version of its mechanism.)
 
-**Proposition 3.2 (Kneser threshold; PROVED).** Let m be prime, S the set of primes of K (all prime to m), and
+**Proposition 3.2 (Kneser threshold; PROVED; special case of O135 Prop 1.4).** Let m be prime, S the set of primes of K (all prime to m), and
 H₀ = ⟨S⟩ ≤ (ℤ/m)^×. If for every proper subgroup H < H₀
   Σ_{s ∈ S, s ∉ H} 2v_s(K) ≥ [H₀ : H] − 1,                                                      (3.1)
 then Σ_m(K) = H₀. In particular, if (K/m) = −1 (a Jacobi-forced window, (J)64: then −1 ∈ H₀), (3.1) implies Type II at m.
@@ -133,7 +139,7 @@ only windows m = O(log p), or windows where every prime of K has small order mod
 m | s^j ± 1, which Lemma 3.1 pins to a congruence class).
 (Assessment) Forcing Ω(K) ≥ E by a congruence on the window (F | K, Ω(F) = E, F ≥ 2^E) puts m in the class −p mod 4F,
 whose least element is ≥ F for a proportion ≥ 3/4 of residues p mod 4F; there criterion (3.1) would need the unforced
-cofactor to supply ≥ (2^E − 2)/2 − E prime factors. The forced budget grows like log m, the criterion's need like m: an
+cofactor to supply ≥ (2^E − 2)/2 − E prime factors (when the primes of K generate (ℤ/m)^×; R263 repair). The forced budget grows like log m, the criterion's need like m: an
 exponential gap. (3.1) is only sufficient: the box can fill by luck (R-review example: p = 809, m = 31, K = 210 = 2·3·5·7,
 2Ω(K) = 8 < 29, yet Σ_31(K) = (ℤ/31)^×, certificate a = 10, b = 21); that luck is the B2 lottery, not a forced budget. Algebraic factorisation (thin families) closes it only because m stays fixed (11, 19, …) while the
 factor residues are functions of the family parameter mod m.
@@ -142,10 +148,11 @@ factor residues are functions of the family parameter mod m.
 
 **4.1 Reciprocity forcing gives a coset, never a class.** At a prime window m with (m/p) = −1, (J)64 forces
 (K/m) = −1, hence −1 ∈ H₀ = ⟨primes of K⟩. This is the only forcing known that is T1-safe and needs an unbounded
-search (so POINTWISE_SIZE Thm C does not apply). But it fixes only the image of S in H₀/H₀²: K = s prime with
-s ≢ −1 (mod m) a non-residue gives Σ_m(K) = {1, s^{±1}} ∌ −1, for every prime m ≥ 7, m ≡ 3 (4). Whether such K occur
-for every bounded set of windows is (J)83 Thm 1.3 (CONDITIONAL on Dickson: yes). Higher reciprocity (cubic, quartic
-residue symbols) would fix the image in H₀/H₀^ℓ; by Prop 3.2 a class needs the full box, so any finite set of
+search (so POINTWISE_SIZE Thm C does not apply). But it fixes only one bit, the image of K in G/G² (G = (ℤ/m)^×; R263 repair of "image of S in H₀/H₀²"): K = s prime with
+s ≢ −1 (mod m) a non-residue gives Σ_m(K) = {1, s^{±1}} ∌ −1, for every prime m ≥ 7, m ≡ 3 (4). (R263 repair:) That every
+bounded set of windows fails infinitely often is (J)83 Thm 1.3 (CONDITIONAL on Dickson) — but its primes have NO forced
+window ≤ M ((m/p) = +1 for all m ≤ M); whether forced windows with K = s as above occur at every bounded window set is
+not claimed here. Higher reciprocity (cubic, quartic residue symbols) would fix the image of K in G/G^ℓ; by Prop 3.2 a class needs the full box, so any finite set of
 power-residue symbols leaves the same gap (Assessment).
 
 **Proposition 4.2 (archimedean / ℚ(√p) auxiliaries give only unforced windows; PROVED).** Let p ≡ 1 (4) be prime and
@@ -160,7 +167,8 @@ an odd power; every window of the listed shapes (c = 1: CF norms of √p with gc
 m | A² − pB² with gcd(B, m) = 1) is unforced. General c is NOT excluded: p + m = c·w² is forced iff (c/p) = −1 (e.g.
 p = 17, m = 7, c = 6, w = 2, which even fires: (a, b) = (1, 6)) — but then the non-residue is supplied by c, i.e. by an
 (R2)-type choice. This is the structural reason why near-square primes (many small norms) are hard ((J)53/(J)55)
-and why CF/Pell auxiliaries cannot supply the forcing (candidate (i), CF/Pell part, closed).
+and why CF/Pell auxiliaries cannot supply the forcing (candidate (i), CF/Pell part, closed as a source of forcing for Type II windows; R263 repair: CF/Pell data used as other
+coordinates is not covered).
 
 **Proposition 4.3 (Fermat-type auxiliaries are anti-forcing; PROVED).** Let p be an odd prime and (a, b, c, d, e) a
 Type I or Type II point (RT2 §2.0). Then the ET class modulus 4ab does not divide p − 1; if p ≡ 1 (4) it does not divide
@@ -180,7 +188,10 @@ CONDITIONAL on H. Numerics in §6.
 mod 4ab; hence ord_{4ab}(p) is even (Prop 4.3 is the case k = 1). *Proof.* Lemma CT (POINTWISE_SIZE §2; in the coordinates
 (abd, acdp, bcdp) after removing g = gcd(a, b), which changes ab by g²) gives (ab/p) = −1. If p ≡ t² (mod 4ab), then
 (p/ℓ) = 1 for every odd ℓ | ab, and if 2 | ab then 8 | 4ab and p ≡ 1 (8), (2/p) = 1; with p ≡ 1 (4) Jacobi reciprocity gives
-(ab/p) = (2/p)^{v₂(ab)}(p/odd(ab)) = 1: contradiction. ∎ So the cyclotomic depth k*(p) is always even, and a bounded
+(ab/p) = (2/p)^{v₂(ab)}(p/odd(ab)) = 1: contradiction. ∎ (R263 repair: the same holds for every Type I point, so Thm 5.2(e)
+is covered for both types: Lemma CT also gives (ab/p) = −1 in Type I, in the notes' coordinates (ack, bck, pabc); in RT2
+coordinates (acd, bcd, abdp) g = gcd(a, b) divides c (g² | pe + 1 ⇒ gcd(g, e) = 1, and g | a + b = ce), and removing it
+changes ab by g²; the argument above then applies verbatim. Checked by R263 on all 3 466 Type I points of p ≡ 1 (4) < 1500.) So the cyclotomic depth k*(p) is always even, and a bounded
 cyclotomic menu C_{≤k₀} is "4ab | p^k − 1 for some even k ≤ k₀" plus the class condition: a divisor event on the fixed
 polynomials p^k − 1.
 
@@ -206,7 +217,7 @@ relation only selects which classes are tried. Firing at p is the moving-modulus
 (b) *(R1), φ* irreducible:* an ET identity in n, missing infinitely many primes of every square class. [PROVED; (J)79 +
 Mordell–Schinzel]. *(R1), r = 1, deg φ ≥ 2:* density 0. [PROVED] *(R1), φ linear in u_r with non-constant coefficient α(u′):*
 firing ⟺ α(u′) | p − ψ(u′), an unforced divisor event (Prop 2.1(c)). [PROVED reduction]
-(c) *(R2):* the forced information is the image of ⟨primes of K⟩ in H₀/H₀^ℓ (genus/character data); for ℓ = 2 and every
+(c) *(R2):* the forced information is the image of K in G/G^ℓ, G = (ℤ/m)^× (genus/character data; R263 repair); for ℓ = 2 and every
 prime window m ≥ 7 it does not determine −1 ∈ Σ_m(K) (§4.1; at m = 3 it does — Mordell's class), and every bounded window set fails infinitely often [CONDITIONAL on Dickson, (J)83 Thm
 1.3]; completion by the counting criterion (3.1) needs 2Ω(K) ≥ |H₀| − 1 (Prop 3.2, Cor 3.3; sufficient, not necessary). [PROVED + CONDITIONAL]
 (d) *(R3) (as defined: c = 1 or norm windows):* every window is unforced, (p/m) = +1 (Prop 4.2); the identity holds only on
@@ -216,10 +227,15 @@ modulus (Remark 4.4); a bounded menu (k₀ fixed) is a bounded witness-producing
 p ≡ 1 (24) [CONDITIONAL on H, POINTWISE_SIZE Thm C]. [PROVED + CONDITIONAL]
 In the brief's words: every JF family of type (R0)–(R4) is polynomial in n ((b)), genus-detectable ((c), (d), and the
 mod-(p^k − 1) sign of (e)), thin ((b)), or fires only through an unforced divisor event ((a), (b) last case, (e)).
+(R263 repair, scope of the word "obstruction":) items (a), (b)-last and (d) are reformulations, not impossibility
+statements — the full ET parametrisation of ES itself (u = (a, b, c), class p ≡ −e mod 4ab) has the shape of (a). They say
+only that the auxiliary adds no *algebraic* factor. The genuine negative content of Theorem 5.2 is (b)-Schinzel ((J)79)
+and the conditional parts of (c), (e) ((J)83 Thm 1.3, POINTWISE_SIZE Thm C), all pre-existing.
 **Not covered (the residual H-A core):** (R1) with φ* reducible and φ of degree ≥ 2 in every variable; (R4) with k₀
 growing with p; (R2) windows chosen by an unbounded rule *together with* a structured K (the (J)64/(J)66 regime, where the
-cap is proved but cap 0 is the lottery); and any auxiliary not of polynomial, character, archimedean-ℚ(√p) or
-divisibility type (none is known that is canonically attached to every prime).
+cap is proved but cap 0 is the lottery); archimedean/ℚ(√p) data used other than as a Type II window
+(e.g. a = ⌊√p⌋, a class modulus 4ab or a slice parameter built from CF/Pell data, Type I windows; R263 repair); and any
+auxiliary not of polynomial, character, archimedean-ℚ(√p) or divisibility type (none is known that is canonically attached to every prime).
 
 ## 6. Numerics (all re-runnable; outputs in data/z26/)
 
@@ -233,7 +249,7 @@ divisibility type (none is known that is canonically attached to every prime).
   (p mod 840 ∈ {1, 121, 169, 289, 361, 529}) ≤ 3·10⁵, all 28 153 Type II points enumerated (window form), each checked
   exactly against 4/p = 1/(abd) + 1/(acdp) + 1/(bcdp); Prop 4.3 violations 0; odd squares ≤ 3·10⁵ with a Type II point: 0
   (T1 control). For every point p is a non-square mod 4ab (Remark 4.4) and every order ≤ 400 is even. Cyclotomic depth
-  k*(p) = min ord_{4ab}(p): histogram {2: 268, 4: 86, 6: 87, 8: 21, 10: 119, 12: 99, 14: 4, 16: 28, 18: 17, 20: 2, 22: 13,
+  k*(p) = min ord_{4ab}(p) over Type II points only (R263 repair: scope made explicit): histogram {2: 268, 4: 86, 6: 87, 8: 21, 10: 119, 12: 99, 14: 4, 16: 28, 18: 17, 20: 2, 22: 13,
   24: 2, 28: 6, 30: 8, 40: 2, 42: 2, 72: 1} — growing in range (p = 210 961 has k* = 72, confirmed independently by the
   reviewer; 296 041 and 80 809 have 42). Finite data cannot show unboundedness; it is EVIDENCE consistent with Thm C (under H, every
   bounded cyclotomic menu fails i.o.); at N = 2·10⁴ the maximum was 22.
