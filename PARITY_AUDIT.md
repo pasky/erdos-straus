@@ -149,37 +149,51 @@ Check (`scripts/pa_lemma21_check.py`): the (u,C)-identity equals brute force for
 p = 10⁴+7, 10⁵+3, 10⁶+3, 10⁷+19: M = 10.34, 16.17, 23.33, 31.81 vs (log p)²/8 = 10.61, 16.57, 23.86, 32.47 and
 |𝓡| = 0.92–0.96 × (p/4) log p (R = 22, 20, 16, 42).
 
-**Assessment 2.2 (what the p^{1/2} is, and what it is not).** Positivity R(p) ≥ 1 needs only E(p) > −M(p), with
-M(p) ≍ (log p)². The known pointwise tools bound E(p) through complete exponential sums (Weil on 𝓗 = {xy ≡ 1
-(4p)}, (J)6 §3.4) and give error p^{1/2+o(1)}: square-root cancellation in each complete sum, the (J)6 number. This
-is the error scale of the *cited methods*, not a proved limit of every analytic approach. Under an independent-
-incidence model the summands 1[m | p+u] − 1/m have total variance ≈ M(p), so nothing intrinsic forces fluctuations
-of size p^{1/2}. (That R(p) ≍ (log p)² pointwise is itself only EVIDENCE.) Two structural remarks (Assessment):
-restricting to u ≤ (log p)^A does **not** shrink the trial region (|𝓡_U| ≍ p log U, since C still runs to
-p/(4u)), so (a⁴) at polylog U is no easier for complete-sum methods than (★) itself. Pre-factoring (summing over the
-actual divisors of p + u) shrinks the trials to Σ_{u≤U} τ(p+u) ≈ U log p, but each u-term is then a character sum
-over the divisors of one integer, Σ_{f | p+u} χ(f) with χ mod 4u, for which no analytic tool exists.
+**Lemma 2.1′ (best known pointwise bound for E(p); PROVED relative to Elsholtz–Tao Prop 1.7) (R265 repair).** The map
+(u,B,C) ↦ (x,y,z) = (uBC, pBC, puC) is injective into the Type II solutions of 4/p = 1/x + 1/y + 1/z, since
+4/p − 1/(uBC) = (4uBC − p)/(p·uBC) = (u + B)/(p·uBC) = 1/(pBC) + 1/(puC). Hence R(p) ≤ f_II(p) ≪ p^{2/5+O(1/log log p)}
+(ET Prop 1.7), and with no cancellation at all |E(p)| = |R(p) − M(p)| ≪ p^{2/5+o(1)}. (Even the naive
+R(p) ≤ 2Σ_{u ≤ √p/2+1} τ(p+u) gives p^{1/2+o(1)}.)
+
+**Assessment 2.2 (what the p^{1/2} is, and what it is not) (R265 repair).** Positivity R(p) ≥ 1 needs only
+E(p) > −M(p), with M(p) ≍ (log p)². The best known pointwise bound is |E(p)| ≪ p^{2/5+o(1)} (Lemma 2.1′). It comes
+from the divisor bound, with no cancellation. The best class-aware *cancellation* tool, Weil on 𝓗 = {xy ≡ 1 (4p)}
+((J)6 §3.4), has error p^{1/2+o(1)} even for a single box count. (★) is not a box count: split by height C, it is
+≍ p sub-counts, each with Weil error p^{1/2}. So Weil does not by itself bound E(p), and the p^{1/2} is a benchmark
+of the method, not a bound for E(p). Either way the shortfall against (log p)² is a power of p. Nothing intrinsic
+forces fluctuations of that size: under an independent-incidence model the summands 1[m | p+u] − 1/m have total
+variance ≈ M(p). (That R(p) ≍ (log p)² pointwise is itself only EVIDENCE.) Two structural remarks (Assessment),
+both specific to the (u,C)/(u,B) parametrisation (R265 repair, m3). First, restricting to u ≤ (log p)^A shrinks
+the trial region only by the factor ≍ log U/log p: |𝓡_U| ≍ p·H_U is still ≍ p, not polylog, because C still runs
+to p/(4u). So in these coordinates (a⁴) at polylog U is no easier for complete-sum methods than (★) itself.
+Second, pre-factoring (summing over the actual divisors of p + u) shrinks the trials to Σ_{u≤U} τ(p+u) ≈ U log p,
+but then each u-term is a character sum over the divisors of one integer, Σ_{f | p+u} χ(f) with χ mod 4u, and no
+analytic tool for such sums exists.
 
 **The ledger (best known *pointwise-in-p* inputs, by category).**
 
 | category | best known at a single p | needed | gap |
 |---|---|---|---|
-| class-aware counts on 𝓗 (Weil, Shparlinski Thm 13; B1) | box counts with error p^{1/2+ε} (asymptotics only for boxes of area ≫ p^{3/2+ε}) | E(p) > −M(p), M(p) ≍ (log p)², on a height-dependent arithmetic subset of 𝓗 | **factor ≍ p^{1/2}/(log p)²** between the cited error scale and the main term (the (J)6 number); no pointwise improvement of the area-p^{3/2} threshold is known |
-| box benchmark, averaged over the residue a (Garaev via Shparlinski §3.2; KSWX §3.3) | almost all a: xy ≡ a (p) solvable with x, y ≤ p^{1/2}(log p)^{1+ε}, area p(log p)^{2+2ε}; every a: only \|x\|,\|y\| ≤ Cp^{3/4} (area p^{3/2}) | — (benchmark only: (★) is not a box-solvability question; at a = 1 the point (1,1) exists trivially; the obstruction is the height-dependent class condition) | shows that the p^{3/2} → p^{1+o(1)} box-area improvement is known only on average over residues (§3, "tied averaging") |
+| pointwise bound for E(p) (divisor bound; Lemma 2.1′, ET Prop 1.7) (R265 repair) | \|E(p)\| ≪ p^{2/5+o(1)}, no cancellation | E(p) > −M(p), M(p) ≍ (log p)² | **p^{2/5+o(1)}** against the main term |
+| class-aware cancellation on 𝓗 (Weil, Shparlinski Thm 13; B1) | single box counts with error p^{1/2+ε} (asymptotics only for boxes of area ≫ p^{3/2+ε}); does not by itself bound E(p) ((★) is a height-dependent arithmetic subset, ≍ p sub-counts) (R265 repair) | cancellation on a height-dependent arithmetic subset of 𝓗 | benchmark: p^{1/2+o(1)} per box (the (J)6 qualitative point); no pointwise improvement of the area-p^{3/2} threshold is known |
+| box benchmark, averaged over the residue a (Garaev–Karatsuba via Shparlinski §3.2, ref. [98] (R265 repair); KSWX §3.3) | almost all a: xy ≡ a (p) solvable with x, y ≤ p^{1/2}(log p)^{1+ε}, area p(log p)^{2+2ε}; every a: only \|x\|,\|y\| ≤ Cp^{3/4} (area p^{3/2}) | — (benchmark only: (★) is not a box-solvability question; at a = 1 the point (1,1) exists trivially; the obstruction is the height-dependent class condition) | shows that the p^{3/2} → p^{1+o(1)} box-area improvement is known only on average over residues (§3, "tied averaging") |
 | divisor statistics of the u-side family {p + u} (Huxley; Li–Yang Thm 1.2; C1) | Σ_{u≤U} τ(p+u) ~ U log p for U ≥ p^{0.3145} | the class −1 (mod 4u) at U ≤ (log p)^A | no class information; exponent 0.3145 in the length, plus the class layer |
 | divisor statistics of the t-side family {4Cp + 1} (Selberg–Hooley, FKM; B6) | asymptotic for C ≤ X once X ≥ p^{1/2+ε} (sufficient range of the cited theorem) | class −1 (mod 4C) | exponent 1/2 in the length, plus the class layer |
 | structured (smooth) members of a short family (Matomäki 2016; Younis; C2–C3) | an x^ε-smooth integer in every [x, x + √x(log x)^{7/3+δ}]; under RH smooth-number asymptotics for length x^{1/2+ε}, y ≥ (log x)^K | a (log p)^{O(1)}-smooth p + u with u ≤ (log p)^{O(1)} (route (J)6 I3) | **p^{1/2}** in the length, unconditionally and under RH |
 | Type II / bilinear at a fixed modulus (KMS 2017/2020, Blomer–Pascadi 2026, KSWX, Bourgain–Garaev; B2–B5) | power savings q^{1/64}, c^{1/32} (Blomer–Pascadi, at the √c range) … M^{1/4} of trivial bounds of bilinear forms | (★) has unit coefficients; error O(1) against trivial ≍ p | saving needed p^{1−o(1)}; Type II is not the missing input ((J)6 Assessment 2.2) |
 
-**Answer to "which estimate gets closest, and by how much".** Pointwise in p, the closest class-aware estimate is
-Weil's bound in its modular-hyperbola form (Shparlinski Thm 13). Its error scale p^{1/2+o(1)} exceeds the main term
-(log p)² by a factor ≍ p^{1/2} (exponent 1/2), with no log-power refinement known. The literature calls going below
-box area p^{3/2} "out of reach" for a single residue and ties it to the Selberg–Hooley 2/3 barrier (Shparlinski
-§3.1). The only box results at area p^{1+o(1)} average over the residue class (Garaev; KSWX §3.3), and they are a
-benchmark, not a reduction of (★). Class-blind statistics reach shorter families (u-side p^{0.3145}, Li–Yang) but
-carry no class information. Under RH the short-interval length barrier for smooth numbers stays at p^{1/2}
-(Younis). GRH helps only the sign/window layer (least non-residue, (J)64). These are statements about the cited
-methods. No lower bound for the difficulty of (★) is proved here.
+**Answer to "which estimate gets closest, and by how much" (R265 repair).** Pointwise in p, the best known bound on
+the error term of (★) is |E(p)| ≪ p^{2/5+o(1)}. It comes from the divisor bound (Elsholtz–Tao Prop 1.7, via
+Lemma 2.1′) with no cancellation, against a main term (log p)². So the shortfall is p^{2/5+o(1)}. The best
+class-aware *cancellation* tool is Weil on the modular hyperbola (Shparlinski Thm 13). It has error p^{1/2+o(1)}
+even for a single box, and it does not by itself bound E(p), because (★) is a height-dependent arithmetic subset,
+not a box. The literature calls going below box area p^{3/2} "out of reach" for a single residue and ties it to the
+Selberg–Hooley 2/3 barrier (Shparlinski §3.1). The only box results at area p^{1+o(1)} average over the residue
+class (Garaev–Karatsuba; KSWX §3.3), and they are a benchmark, not a reduction of (★). Class-blind statistics reach
+shorter families (u-side p^{0.3145}, Li–Yang) but carry no class information. Under RH the short-interval length
+barrier for smooth numbers stays at p^{1/2} (Younis). GRH helps only the sign/window layer (least non-residue,
+(J)64). Either way the shortfall is a power of p. These are statements about the cited methods: no lower bound for
+the difficulty of (★) is proved here.
 
 ## 3. Feasibility verdict on hatch H-B (deliverable 3)
 
