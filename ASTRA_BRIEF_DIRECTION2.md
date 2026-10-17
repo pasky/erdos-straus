@@ -26,7 +26,7 @@ Your last read of the Claude tree was at `53204707`; wave Z and later ((J)57–(
 
 A report following §7 of the shared core (rows R1–R8), plus pointers to your files and commits. Please keep it in your own tree.
 
-=== BEGIN SHARED CORE PROBLEM — "Direction 2: amplifying one exception" (core v1, 2026-10-15) ===
+=== BEGIN SHARED CORE PROBLEM — "Direction 2: amplifying one exception" (core v1.1, 2026-10-17) ===
 
 This core is given verbatim to two independent research teams. Neither team sees the other's output on this problem until both have reported.
 
@@ -49,7 +49,7 @@ This core is given verbatim to two independent research teams. Neither team sees
 
 3. REQUIRED DELIVERABLE 1 — the "this would suffice" theorem (prove it, with exact quantifiers). State and PROVE the sharpest available criterion of the form: "if every p₀ ∈ P_E generates a set F(p₀) ⊆ E (or ⊆ P_E) with property X, then P_E = ∅". It must at least treat:
    (i) counting growth: what lower bound on #(F(p₀) ∩ [1, N]) (along all N, or along a sequence N → ∞) contradicts the published bound, and what contradicts the internal 3/4 bound; careful with the unspecified constant c;
-   (ii) iterated laws: a branching map p ↦ {p₁, …, p_b} with successors of size ≤ p^{λ} (or ≤ p + f(p)); for which (b, λ, f) does iteration from one seed contradict the bounds or Σ 1/p < ∞ (note: fixed b and λ > 1 give only polylog(N) descendants — show what replaces this);
+   (ii) iterated laws: a branching map p ↦ {p₁, …, p_b} with successors in a size range p^{μ} ≤ p_i ≤ p^{λ} (or p < p_i ≤ p + f(p)); for which (b, μ, λ, f) does iteration from one seed contradict the bounds or Σ 1/p < ∞ (note: fixed b with every successor ≥ p^{μ}, μ > 1, gives only polylog(N) descendants below N — show what replaces this, e.g. slowly growing successors or growing b);
    (iii) composite outputs: F(p₀) may contain composites; quantify how the divisor-closure of E (every exceptional integer's prime factors are exceptional, and a product of exceptional primes need NOT be exceptional) affects the count, and how a set of exceptional composites converts into a bound on P_E;
    (iv) the "at least one of each block" (disjunctive) variant.
    A precise negative statement (e.g. "no law whose outputs are all ≥ p₀^{1+ε} with bounded branching can ever suffice") counts as part of Deliverable 1.
