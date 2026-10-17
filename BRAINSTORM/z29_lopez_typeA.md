@@ -15,3 +15,5 @@ Not found: a complete exception list beyond 9000, a finiteness conjecture, or a 
 **Assessment.** The line is KNOWN (López 2022). SYNTHESIS_SPARKS8 Conjecture 2.5 should cite López as the source of the form
 and of the first two exceptions. The census, the finiteness heuristic, and the structure theorems (§§3–4) are new as far as
 we found.
+(R270 repair) López 2404.01508v3 §2 also credits the previous paper with "any prime p ≢ 1 (mod 24) always has a solution of
+Type A" (the b = 1 half of B1_LINE Prop 1.4). Quotes re-verified against the arXiv HTML (reviews/b1-line-review.md C3).

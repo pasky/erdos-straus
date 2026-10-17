@@ -16,3 +16,6 @@ terms (Assessment).
 **Cheap numerics.** `z29_model.py` on the complete counts ≤ 10⁶ and windows at 10⁸, 10¹⁰; census ≤ 10¹¹ (0 failures above 66529).
 **Assessment.** CONJECTURE with a calibrated heuristic. Not a proof route. The value is a falsifiable prediction (no failure
 anywhere above 66529) and an honest measure of the margin.
+(R270 repair) D is not constant (class 1 (24): 2.20 → 3.62 from 10⁶ to 10¹²); D = 3.24 is not conservative beyond 10¹⁰. With
+D ≈ 0.8 + 0.1 log p the predictions stay negligible (8·10⁻⁶ beyond 10⁸, 5·10⁻¹⁰ beyond 10¹¹), but finiteness needs D ≲ c log p
+(B1_LINE §3.4, Conjecture 3.5; reviews/b1-line-review.md M2).

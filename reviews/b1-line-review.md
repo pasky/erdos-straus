@@ -3,6 +3,10 @@
 Reviewer: side-agent/review-b1-line. Scope: B1_LINE.md, BRAINSTORM/z29_*.md, scripts/z29_*, logs/z29_*, sources/lit2026f López
 excerpts, AGENT_REPORT_O259. All numerical checks below use FROM-SCRATCH code `scripts/review_r270_*` (author scripts not reused).
 
+**Repairs applied (author parked, no commits after 9a3ae31f):** B1_LINE.md M1, M2, m1–m6 inserted inline, each marked
+"(R270 repair)"; one-line repair notes appended to BRAINSTORM/z29_nb_tail_model.md (M2) and z29_lopez_typeA.md (m1).
+m7 (resource disclosure) and m8 (optional López footnote) are left to the author/parent.
+
 ## Summary verdicts
 No FATAL defect. Every computational headline was reproduced exactly with independent code.
 | claim | verdict |
