@@ -231,18 +231,23 @@ If 2a ≤ Lg/2: Lh ≤ 2 + 4b₀/g, so 2kb₀ − 1 ≤ 2 + 4b₀ — impossible
 c₀e = a₀ + ℓ^n b₀, and e ≡ −1 (mod ka₀b₀). If n = 0, e ≥ ka₀b₀ − 1 > a₀ + b₀, impossible. If n ≥ 1, the Case A
 computation with (a, b₀, L, c) → (a₀, b₀, ℓ^n, c₀) applies verbatim (it used only the congruences mod ka₀b₀ and mod
 ℓ^n, which are implied), and in addition the congruence mod ℓ^{i+j} = ℓ^{2i+n} forces ℓ^{2i} | h.
-This proves (a). (b) For k = 4 the only surviving branches are: Type II, Case A, a ≤ Lg/2 with b₀(4 − 4/g) ≤ 3, and
-Type I, Case A, 2a > Lg/2 with g + 2b₀ ≥ 2gb₀. Type II: 4(1 + b₀/g) ≥ 4ab₀ + 1 forces a = 1 (a ≥ 2 would need
-4g + 4b₀ ≥ 8gb₀ + g, false); if g = 1 then c = (L − 1)/2, b₀ = hc − 1 and 4(hc − 1) | Lh − 1 = 2(hc − 1) + h + 1, so
-h + 1 ≥ 2(hc − 1), i.e. h(2c − 1) ≤ 3: (c, h) = (1, 3), L = 3, b₀ = 2 (slice (1, 6), e = 7), or (c, h) = (2, 1), L = 5,
-b₀ = 1 (slice (1, 5, c = 2), e = 3); if g ≥ 2 then b₀ = 1, c = (Lg − 1)/2 ≤ g + 1 gives g(L − 2) ≤ 3, leaving only
-L = 3, g = 3, c = 4, h = 1, Lh = 3 ≢ 1 (mod 4). Type I: if c ≥ 2, Lh ≤ L(1 + 2b₀)/2·… — precisely, g = 1:
-L(1 + 2b₀)/c ≥ 8ab₀ − 1 > 2Lb₀ − 1 forces c = 1, a = (L − 1)/2, and 4(L − 1)b₀ | L(1 + 2b₀) + 1; the quotient t
-satisfies L + 1 + 4b₀t = 2Lb₀(2t − 1)·… which for t = 1 reads b₀ = (L + 1)/(2L − 4): L = 3, b₀ = 2 (slice (1, 6), e = 7)
-or L = 5, b₀ = 1 (slice (2, 5), e = 7); t ≥ 2 gives b₀ < 1. g = 2 forces b₀ = 1, c ∈ {2, 4} and 8a | Lh + 1 with
-a = L − c/2 ≥ L − 2, impossible for L ≥ 3; g ≥ 3 violates g + 2b₀ ≥ 2gb₀. In Case B the extra condition ℓ^{2i} | h
-kills h ∈ {1, 3, 5} for ℓ^n ∈ {3, 5}. So only ℓ ∈ {3, 5} (L = ℓ, m = 1) survive, with the listed classes, which do
-contain x_{ℓ,2} (e.g. x = 17: 17 + 3 ≡ 0 (20), 17·7 + 1 = 120 ≡ 0 (40); x = 5 ≡ 2 (3), 5 ≡ 1 (8): 5 + 7 ≡ 0 (24)).
+This proves (a). (b) For k = 4 the only surviving branches are Type II, Case A, a ≤ Lg/2, and Type I, Case A,
+2a > Lg/2 (all other branches above are impossible already for k ≥ 4).
+*Type II.* 4ab₀ + 1 ≤ Lh ≤ 4 + 4b₀/g forces a = 1 (a ≥ 2 gives 8b₀ + 1 ≤ 4 + 4b₀). If g = 1: c = (L − 1)/2,
+b₀ = hc − 1, and 4b₀ = 4(hc − 1) must divide Lh − 1 = 2(hc − 1) + h + 1 > 0, so h + 1 ≥ 2(hc − 1), i.e.
+h(2c − 1) ≤ 3: c = 1 (L = 3), h ∈ {2, 3}, where h = 2 fails (4 ∤ 5) and h = 3 gives b₀ = 2, slice (1, 6), e = 7;
+or c = 2 (L = 5), h = 1, b₀ = 1, slice (1, 5, c = 2), e = 3. If g ≥ 2: b₀(4 − 4/g) ≤ 3 forces b₀ = 1, and
+c = (Lg − 1)/2 ≤ g + 1 (h ≥ 1) gives g(L − 2) ≤ 3, so L = 3 and g = 3 (Lg odd): c = 4, h = 1, Lh = 3 ≢ 1 (mod 4).
+*Type I.* Here g + 2b₀ ≥ 2gb₀ leaves g = 1, or g = 2 with b₀ = 1. If g = 1: since 8ab₀ > 2Lb₀,
+L(1 + 2b₀)/c = Lh ≥ 8ab₀ − 1 > 2Lb₀ − 1 forces c = 1 (c ≥ 2 would give b₀ < 1), so a = (L − 1)/2, h = 1 + 2b₀ and
+L(1 + 2b₀) + 1 = 4(L − 1)b₀t (t ≥ 1), i.e. L + 1 = b₀(4Lt − 4t − 2L). For t = 1: b₀ = (L + 1)/(2L − 4): L = 3,
+b₀ = 2 (slice (1, 6), e = (Lh − 1)/2 = 7) or L = 5, b₀ = 1 (slice (2, 5), c = 1, e = 7); L ≥ 7 gives b₀ < 1. For t ≥ 2,
+b₀(6L − 8) ≤ L + 1 is impossible. If g = 2, b₀ = 1: c = 2L − 2a is even and divides g + 2b₀ = 4, so c ∈ {2, 4},
+a = L − c/2, and 8a ≤ Lh + 1 = 4L/c·… gives 8L − 4c ≤ 2L + 1 (c = 2) or ≤ L + 1 (c = 4) — impossible for L ≥ 3.
+*Case B for k = 4* reduces to these with ℓ^n ∈ {3, 5} and h ∈ {3, 1} (II) or {5, 3} (I), and the extra condition
+ℓ^{2i} | h (i ≥ 1) fails in all four. So exactly ℓ ∈ {3, 5} (m = 1) survive, with the listed classes, which do
+contain x_{ℓ,2} (x = 5 ≡ 2 (3), ≡ 1 (8): 5 + 7 ≡ 0 (24), 5·7 + 1 ≡ 0 (12)·3; x = 17 ≡ 2 (5), ≡ 1 (8):
+17 + 3 ≡ 0 (20), 17·7 + 1 = 120 ≡ 0 (40)).
 (c) If 2 is a non-residue mod ℓ and ℓ | L, the class of x_{ℓ,2} mod L is a non-square unit class; a covering class
 of modulus H | L would contain x_{ℓ,2} itself. ∎
 *Numerical check (CERTIFIED, `scripts/z28_x2_check.py`, a ≤ b ≤ 300, k ∈ {4, 8, …, 32}, ℓ < 60, ℓ ∤ k):* hits
