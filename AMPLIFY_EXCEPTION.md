@@ -117,7 +117,7 @@ small-modulus Elsholtz–Tao classes used in Vaughan's sieve (otherwise F(p₀) 
 count is the bound in (K4)), so the law, made explicit, turns an *explicit small-modulus witness* at some q into a
 witness at p₀. The amplification route therefore does not avoid proving ES(p₀): it relocates the difficulty into
 the reduction step, which must turn small-modulus data at q into a witness at p₀ (cf. Thm 2.3).
-*Proof.* (a) Contrapositive of the law at that q. (b) Vaughan's proof bounds E(N) by the number of n ≤ N avoiding an
+*Proof.* (a) Contrapositive of the law at that q. (b) Vaughan's proof (cited from memory: an upper-bound sieve) bounds E(N) by the number of n ≤ N avoiding an
 explicit family of classes (each class ⊆ S by an explicit identity); if F(p₀) avoided all of them it would obey
 the same upper bound and (1.1) would fail (Thm 1.1(b)). ∎
 
