@@ -45,6 +45,11 @@ it is reducible in ℚ(u)[X] iff −4c²d is a square in ℚ(u), iff −d ∈ �
 real point where it is defined, while −d < 0 on U: contradiction. Monic and irreducible over ℚ(u) ⇒ irreducible in
 ℚ[u][X] (Gauss); g = 1. ∎
 
+**Remark 1.2 (positivity is what blocks the quadratic side; PROVED).** The only place Theorem A uses more than Gauss's
+lemma is d > 0. If signed slices were allowed (d = −w², the signed relaxation), X² + 4c²d = (X − 2cw)(X + 2cw) splits
+identically in p — the archimedean sign is exactly the obstruction to an algebraic budget on the Type I side, matching
+(J)52's "positivity is T1's anchor".
+
 **Corollary A.1 (forced certificates at free p are re-indexed ET classes; PROVED).** Call a certificate on the row θ
 *algebraically forced* if its divisor f (RT2 notation) is a polynomial f ∈ ℚ[u, X] with f | N_θ in ℚ[u, X]. Then f is,
 up to a constant, g₁(u) or g₁(u)·N′ with g₁ | g. For each fixed u the class condition f mod q_θ(u) ∈ R_θ(p) is then a
@@ -161,3 +166,10 @@ certificate only through moduli not dividing p − 1. Divisors of p^k − 1 with
 4ab | p^k − 1, i.e. ord_{4ab}(p) ≤ k) are allowed, but a bounded menu C_{≤k₀} is a bounded witness-producing program
 (FACTOR p^j − 1, j ≤ k₀; test divisors), so by POINTWISE_SIZE Thm C it fails for infinitely many p ≡ 1 (24),
 CONDITIONAL on H. Numerics in §6.
+
+**Remark 4.4 (p is a non-square modulo every Type II class modulus; PROVED).** For every Type II point, p is not a square
+mod 4ab; hence ord_{4ab}(p) is even (Prop 4.3 is the case k = 1). *Proof.* Lemma CT (POINTWISE_SIZE §2; in the coordinates
+(abd, acdp, bcdp) after removing g = gcd(a, b), which changes ab by g²) gives (ab/p) = −1. If p ≡ t² (mod 4ab), then
+(p/ℓ) = 1 for every odd ℓ | ab, and if 2 | ab then 8 | 4ab and p ≡ 1 (8), (2/p) = 1; with p ≡ 1 (4) Jacobi reciprocity gives
+(ab/p) = (2/p)^{v₂(ab)}(p/odd(ab)) = 1: contradiction. ∎ So the cyclotomic depth k*(p) is always even, and every bounded
+cyclotomic menu is the T1 class condition plus a divisor event on p^k − 1.
