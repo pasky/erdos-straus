@@ -6,6 +6,7 @@
 // test all divisors t >= s. First hit -> done. If no hit for s <= S, an exact fallback scans all s <= 1 + sqrt(p+1).
 // usage: z29_census LO HI [S]     (prints records of the least hitting s, failures, totals)
 //        z29_census count LO HI   (prints, per prime, N1(p) = number of solutions; for heuristics; small ranges)
+//        z29_census countlist MAXP < primes   (prints p N1(p) Nc1(p); Nc1 = number of (★) = c=1 line pairs)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -30,17 +31,24 @@ static int gendiv(int k){ int nd=1; dv[0]=1; for(int i=0;i<k;i++){ int cur=nd; l
 static int hits(ll p, ll s, const fent *e, int one){ if(!((s&3)==0 || (s&3)==3)) return 0; ll n=p+s; int k=expand(n,e); int nd=gendiv(k); int h=0;
   for(int i=0;i<nd;i++){ ll t=dv[i]; if(t<s) continue; if(t==s) continue; ll u=n/t; if((u+1)%s) continue; if(!((s&3)==0 || (t&3)==0)) continue; h++; if(one) return h; }
   return h; }
-static fent *T2;
-// exact: least s with a hit (0 if none), or full count if cnt!=NULL
-static ll exact(ll p, ll s0, ll *cnt){ ll smax=1+(ll)sqrtl((long double)p+1)+1; ll len=smax-s0+1; if(len<=0) return 0;
-  T2=realloc(T2,sizeof(fent)*len); factor_range(p+s0,len,T2); ll first=0;
-  for(ll s=s0;s<=smax;s++){ int h=hits(p,s,&T2[s-s0],cnt==NULL); if(h){ if(!first) first=s; if(!cnt) return first; *cnt+=h; } }
+static fent *T2; static ll c1cnt;
+// c = 1 line hits at shift s ((★): N = (u+1)/s == 0 mod 4, i.e. u == -1 mod 4s), t > s
+static int hitsc1(ll p, ll s, const fent *e){ ll n=p+s; int k=expand(n,e); int nd=gendiv(k); int h=0;
+  for(int i=0;i<nd;i++){ ll t=dv[i]; if(t<=s) continue; ll u=n/t; if((u+1)%(4*s)==0) h++; } return h; }
+// exact: least s with a hit (0 if none), or full count if cnt!=NULL (then also c=1 count in c1cnt). Chunked tables.
+static ll exact(ll p, ll s0, ll *cnt){ ll smax=1+(ll)sqrtl((long double)p+1)+1; ll first=0; const ll CH=1<<18;
+  T2=realloc(T2,sizeof(fent)*CH); if(cnt) c1cnt=0;
+  for(ll a=s0;a<=smax;a+=CH){ ll len=CH; if(a+len>smax+1) len=smax+1-a; factor_range(p+a,len,T2);
+    for(ll s=a;s<a+len;s++){ int h=hits(p,s,&T2[s-a],cnt==NULL); if(cnt) c1cnt+=hitsc1(p,s,&T2[s-a]);
+      if(h){ if(!first) first=s; if(!cnt) return first; *cnt+=h; } } }
   return first; }
 int main(int argc,char**argv){
   if(argc>1 && !strcmp(argv[1],"count")){ ll LO=atoll(argv[2]), HI=atoll(argv[3]); small_primes((ll)sqrtl((long double)HI*1.01)+1000);
     for(ll p=LO+((5-LO%4+4)%4);p<=HI;p+=4){ int isp=1; for(int j=0;j<nsp && (ll)sp[j]*sp[j]<=p;j++) if(p%sp[j]==0){isp=0;break;} if(!isp||p<5) continue;
       ll c=0; exact(p,1,&c); printf("%lld %lld\n",p,c); }
     return 0; }
+  if(argc>1 && !strcmp(argv[1],"countlist")){ ll MX=atoll(argv[2]); small_primes((ll)sqrtl((long double)MX*1.01)+1000); ll p;
+    while(scanf("%lld",&p)==1){ ll c=0; exact(p,1,&c); printf("%lld %lld %lld\n",p,c,c1cnt); fflush(stdout); } return 0; }
   ll LO=atoll(argv[1]), HI=atoll(argv[2]); ll S=argc>3?atoll(argv[3]):512; ll L=1<<20;
   small_primes((ll)sqrtl((long double)HI+S+L)+1000);
   fent *T=malloc(sizeof(fent)*(L+S+1)); ll np=0, nfb=0, nfail=0, rec=0; ll hist[16]={0};
