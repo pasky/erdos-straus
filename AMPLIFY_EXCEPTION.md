@@ -220,17 +220,25 @@ n′ ≡ −e′ (Type II) or n′ ≡ −e′^{−1} (Type I) (mod H′), hence
 for each source witness, the number N_θ(p) = p + e (Type II) or pe + 1 (Type I) must have the divisor 4ab with
 4ab | αH′(w′) and (a+b)/c = e — a divisor event whose modulus is part of the (source) solution: the B2 gate.
 (c) The fixed-H transports of the core are the special case α = 1, H = H′.
-*Proof.* (a) If 4ab | p + e for all p in a class mod αH′, subtracting two members gives 4ab | αH′; if 4ab | pe + 1
-for all of them, 4ab | αH′e and gcd(e, 4ab) = 1, so 4ab | αH′. Conversely if p has a witness with H | αH′ the same
-slice works on the whole class (d = (p′+e)/H resp. (p′e+1)/H stays a positive integer). (b) Totality must hold
+*Proof.* (a) (Review repair: "every p′" means every *prime* p′ in the class, by Dirichlet infinitely many; at
+composite members the transferred triple is still a solution of 4/p′ but need not be ET-normalised, e.g. slice
+(1,2,3), H = 8, Type I works at 7 and gives (60, 6, 12) at 15 with gcd(15, 6·12) > 1.) If 4ab | p′ + e for two
+primes p′ of the class differing by a multiple of αH′ only — take p′ and p′ + tαH′ with gcd(t, 4ab) = 1, both prime —
+then 4ab | tαH′, so 4ab | αH′; if 4ab | p′e + 1 for both, 4ab | tαH′e with gcd(e, 4ab) = 1, so 4ab | αH′. Conversely
+if p has a witness with H | αH′ the same slice works at every prime p′ of the class (d = (p′+e)/H resp. (p′e+1)/H
+is a positive integer, and for prime p′ every solution is ET). (b) Totality must hold
 whatever witness the source happens to have. ∎
 
 **Fixture test (CERTIFIED, `scripts/z25_gate.py fixtures`; entries "source(×α): passing/all source witnesses").**
 No source is total at any fixture; at 3361 the source 281 (3361 = 12·281 − 11) passes **0 of 17** witnesses.
+(Rerun after review with g = 24 included: adds 313 ← 13 (×24): 1/4; log `logs/z25_gate_fixtures.txt`.)
+Scope: "total" here is the core's notion — works for *every* supplied source witness. A proof that a favourable
+source witness always exists, or a procedure that examines *all* witnesses at the source, is not excluded by
+these counts.
 ```
 97 89(x1):5/10 101(x1):9/16 103(x1):14/27 107(x1):8/25 109(x1):9/15 43(x2):3/14 47(x2):10/34 53(x2):8/13 29(x3):3/7 31(x3):6/19 23(x4):4/21 17(x6):2/4 11(x8):2/9 13(x8):1/4
 193 181(x1):4/17 191(x1):15/67 197(x1):14/23 199(x1):31/42 97(x2):5/8 101(x2):6/16 61(x3):1/11 67(x3):2/17 47(x4):5/34 31(x6):3/19 23(x8):4/21 17(x12):2/4
-313 307(x1):12/40 311(x1):20/79 317(x1):14/34 151(x2):9/31 157(x2):11/24 101(x3):4/16 103(x3):6/27 107(x3):8/25 79(x4):20/37 53(x6):8/13
+313 307(x1):12/40 311(x1):20/79 317(x1):14/34 151(x2):9/31 157(x2):11/24 101(x3):4/16 103(x3):6/27 107(x3):8/25 79(x4):20/37 53(x6):8/13 13(x24):1/4
 3361 3359(x1):25/423 3371(x1):9/77 3373(x1):7/66 1117(x3):9/64 1123(x3):10/48 839(x4):15/194 419(x8):5/81 421(x8):1/16 281(x12):0/17
 5209 5197(x1):9/104 2609(x2):10/40 1733(x3):8/59 1301(x4):7/38 1303(x4):10/53
 233689 116849(x2):34/167 77893(x3):27/197 77899(x3):85/225
@@ -241,24 +249,37 @@ square modulo L (for odd p this is automatically an *odd* square when 2 | L; for
 *no* ET witness at p has modulus H dividing L. Consequently a source witness w′ with p ≡ □ (mod αH′(w′)) is
 *invisible*: no determined lift (Thm 3.1) can use it, and the recombination law from that source is not
 provable by determined lifts. For p ∈ 𝓜 prime (p ≡ 1 (8), (p/3) = (p/5) = (p/7) = 1) every source witness whose
-αH′ is supported on {2, 3, 5, 7} ∪ {ℓ : (p/ℓ) = 1} is invisible; e.g. every source n′ ≡ 3 (4) has the invisible
-witness H′ = 4 (Type II, a = b = 1, e = 1).
-*Proof.* Let m be odd with m² ≡ p (mod L). If p had a witness with H | L, the same slice would give an ET witness
-at every n ≡ p (mod H) (Thm 3.1(a)), in particular at n = m², contradicting ET Prop 1.6 (odd squares have no
-Type I/II solutions). ∎
+αH′ is supported on {2, 3, 5, 7} ∪ {ℓ : (p/ℓ) = 1} is invisible; e.g. a source n′ ≡ 3 (4) has the witness H′ = 4
+(Type II, a = b = 1, e = 1), invisible whenever α is {2,3,5,7}-smooth (as for all α | 24 used here). (Review
+correction: for general α it can be visible — p = 1201 = 17·71 − 6, source 71, αH′ = 68 supports the Type I witness
+(1, 17, 6, 53) at 1201.)
+*Proof (repaired after review: ET normalisation at the square).* Suppose p has an ET witness with slice (a,b,c),
+e = (a+b)/c, H = 4ab | L. Note p ∤ ab, p ∤ c, p ∤ e (each would force a ≤ b ≤ 1-type size contradictions from
+Hd = p + e resp. Hd = pe + 1 with e ≤ a + b). Choose, by CRT, an odd m with m² ≡ p (mod L) and additionally
+m ≢ 0 (mod ℓ) for every prime ℓ | c·e not dividing L (for ℓ | L this is automatic, since m² ≡ p ≢ 0 (mod ℓ)).
+Put n = m², so n ≡ p (mod H). Type II: d′ = (n + e)/H is a positive integer and (x, y, z) = (abd′, nacd′, nbcd′)
+solves 4/n (direct check: the sum is c(n + e)/(nabcd′)); gcd(n, ab) = gcd(p, ab) = 1 and gcd(n, d′) | gcd(n, e) = 1,
+so gcd(n, x) = 1: an ET Type II solution of an odd square. Type I: d′ = (ne + 1)/H, (x, y, z) = (nabd′, acd′, bcd′);
+gcd(n, abd′) = 1 because H d′ ≡ 1 (mod n), and gcd(n, c) = 1 by the choice of m: an ET Type I solution. Either
+contradicts ET Prop 1.6. ∎
 
 **Corollary 3.3 (joint recombination; PROVED).** Combining several sources (any finite Q(p), any number of shifts,
-all witnesses jointly) pins p modulo L = lcm(α_iH′_i). Since "p ≡ □ (mod L)" is a local condition at each prime
-power of L, the lcm of invisible moduli is invisible. Hence a joint determined recombination over Q(p) is total
-**only if some single source in Q(p) has no invisible witness at all.** Disjunction over many shifts does not help.
+all supplied witnesses jointly) pins p modulo L = lcm(α_iH′_i). Since "p ≡ □ (mod L)" is a local condition at each
+prime power of L (for odd p and 2-powers: p ≡ 1 (8) is a square mod every 2^k), the lcm of invisible moduli is
+invisible. Hence a joint determined recombination over Q(p) that must work for *every supplied tuple* of source
+witnesses is total **only if some single source in Q(p) has no invisible witness at all** (necessary, not
+sufficient). Caution (review): joint lifts are genuinely stronger than single ones on *visible* inputs —
+moduli that fail individually can pass jointly (p = 17: 8 and 12 fail, lcm 24 passes); the corollary only says
+that invisible inputs cannot be rescued by combination.
 
 **Numerics (CERTIFIED, `scripts/z25_sqadv.py`, `z25_joint_run.py`).** (i) Consistency of the lemma: for every
 fixture p ≤ 5209, none of p's own ET moduli H has p ≡ □ (mod H). (ii) Every source (all primes (p + j)/g,
 |j| ≤ 12, g | 24) at every fixture ≤ 5209 has ≥ 2 invisible witnesses (e.g. 3361 ← 281 (×12): 11 of 17 invisible;
 97 ← 43 (×2): 11 of 14). (iii) The joint search finds an adversarial tuple at every fixture ≤ 5209 (all 5–14
-sources at once; e.g. at 97 with 14 sources the lcm of the chosen moduli is 2^7·3^2, and 97 ≡ 1 (mod 8), 97 ≡ 7² (mod 9)).
-So route (D) through congruence-mediated recombination is dead at every fixture, for every witness choice
-pattern, for the exact reason T1: the adversary feeds witnesses whose moduli only see residues of p that are
+sources at once; e.g. at 97 with 14 sources the lcm of the chosen moduli is 2^6·3^2, and 97 ≡ 1 (mod 8), 97 ≡ 4² (mod 9);
+313 now with 11 sources incl. 13 (×24); logs `logs/z25_joint.txt`, `logs/z25_sqadv.txt`).
+So route (D) through congruence-mediated recombination that must accept any supplied witnesses is not total at
+any fixture ≤ 5209, for the exact reason T1: the adversary feeds witnesses whose moduli only see residues of p that are
 squares. A route-(D) law must use an input that sees a *non-residue* prime of p, and no such input is forced by
 "q ∈ S".
 
