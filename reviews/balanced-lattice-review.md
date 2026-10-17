@@ -17,55 +17,14 @@ Serre 1981, Schinzel 1977: citation checks below are from the reviewer's knowled
 | Assessment 2.3 | SOUND as Assessment | the \|C\|-linear GRH error is not the only available form; the conclusion survives the refined forms, but for a different reason (D6) |
 | Prop 2.4 | SOUND | trivial; (b) duplicates 2.1(c) |
 | Lemma 2.5 | SOUND | degree 2φ(lcm(8P,ℓ))ℓ^k re-derived; \|C\| ≤ 1 and C is a (central) conjugacy class; Serre's Thm 4 form (\|C\|/\|G\|)(log d + n log x)√x = \|C\|√x(log d/n + log x) and Prop 6 (log d/n ≤ Σ_ram log r + log n) quoted correctly (from memory; PDFs not in sources/). Densities match numerically (D7) |
+| Prop 3.1 | SOUND | every step re-derived (fibre bound N(2Bε + 1/d), Cauchy–Schwarz, Π ≥ 4(B+1)^k, Fejér identity Σ_h w(h)[q \| N_h], \|N_h\| < P^{2B}); the constants are slack: the proof gives (4/3)B(2B+1)xε log P/log(x/2) and 8(6xε)^{(k+1)/(k−1)}…, stated 4B(2B+1)… and 48(…). Each proof step checked numerically for every Bad₁ prime (D8) |
+| Prop 3.2 | SOUND | (wording: "1/d > ε" should be "1/d ≥ ε > 𝔻"; D8) |
+| Cor 3.3 | SOUND (as bookkeeping; "PROVED + arithmetic" is fair for the displayed L, the "no class-blind bound can recover" sentence is Assessment) | exponent arithmetic and the y-optimisation to exp(O(√(log₂p log₃p))) re-derived (y ≈ 2√(log₂p log₃p) when log x ≈ 4 log₂p) |
 
-## Defects
-
-**D1 (MINOR) — Prop 1.3 proof, citation "Banaszczyk, Math. Ann. 296 (1993), Thm 2.1".** The PDF is not in sources/ (not
-accessible to me). The inequality used, μ(L)λ₁(L*) ≤ n/2 (Euclidean), is indeed the bound Banaszczyk proves formally (the
-sharper (1/(2π) + o(1))n is remarked at the end of his paper; cf. Miller–Stephens-Davidowitz, arXiv 1907.09020, Thm 1.1 and the
-remark after it). To my recollection the μ·λ₁* statement is his Thm 2.2 (Thm 2.1 being λ_iλ*_{n−i+1} ≤ n); pages 625–635(6).
-*Repair:* cite "Banaszczyk 1993, the covering-radius transference bound μ(L)λ₁(L*) ≤ n/2" without a theorem number, or
-verify the number. No mathematical consequence.
-
-**D2 (MINOR, informative) — Prop 1.3 constant k^{3/2}.** From-scratch check (scripts/review_r269_transference.py; data in
-data/review_r269/transference_k{3,4}.txt: μ_∞ on a 1/m-grid, 𝔻_min by exact integer arithmetic, λ₁^{(1)}(Λ*) from an
-LLL-reduced dual basis, L_min by exact sumset covering) finds no violation of any inequality in Prop 1.3 / Cor 1.4(a), and
-μ_∞·𝔻_min ≤ 1.11 in all 70 samples, i.e. the k^{3/2}/2 = 2.6 (k = 3), 4.0 (k = 4) upper constant is never close to attained.
-The 3/2 in the exponents 13/2 and 9/2 (Thm 4.1/4.2) comes entirely from this ℓ²-detour; an ℓ^∞/ℓ¹ transference with an O(k log k)
-or better constant would lower it. Not a defect of correctness; Remark (1) after Thm 4.1 already says "not optimised".
-
-**D3 (MINOR) — Cor 1.4(b).** "balanced at the random-lattice scale (L_min ≤ k^{O(1)}N^{1/k}) ⟺ (up to k^{O(1)}) no ψ ≠ 1 has
-𝔻_S(ψ) ≤ N^{−1/k}k^{−C}": the two directions hold with different constants. *Repair:* state as two implications:
-𝔻_min ≥ k^{−C}N^{−1/k} ⇒ L_min ≤ ⌈k^{C+3/2}N^{1/k}⌉; L_min ≤ k^{C}N^{1/k} ⇒ 𝔻_min ≥ 1/(L_min + 1) ≥ k^{−C}N^{−1/k}/2
-(and 𝔻_min ≤ (k!/N)^{1/k} always, by (a)).
-
-**D4 (MINOR, strengthening) — Prop 2.1(b) / Prop 2.2, scope of "visible data".** The data is restricted to m | N. For odd
-m ≤ M with m ∤ N the Frobenius class of q in K_m ⊂ (ℤ/m)^S ⋊ (ℤ/m)^* is (v, q mod m) with v determined modulo
-(1 − q)(ℤ/m)^S = gcd(m, q − 1)(ℤ/m)^S, i.e. by c mod gcd(m, q−1) (c = discrete logs of s in F_q^*) up to a unit — again a
-function of a mod N₁ plus the quadratic data c mod 2, which does not enter Λ (g_s = s²). Adding any abelian field (q mod n,
-χ_p(q)) changes nothing since the fake keeps q. So Prop 2.2 holds for the data {Frob_q in K_m : m ≤ M odd} ∪ {all abelian
-data}. *Repair (optional):* state it in this form; it makes the "brief's route" reading airtight.
-
-**D5 (MINOR, reading) — Prop 2.2 is information-theoretic only.** The fake a′ (all s ≠ s₀ are N₂-th powers) is the extreme
-Prop 5.2-type degeneracy; real q realise such vectors with frequency ≈ N₂^{−(k−1)}. The proposition therefore excludes only
-*per-q uniform* certification from low-order data; any statistical argument (as in §3–4 itself) is untouched. The text says
-this ("statement about information, not probability"; "not addressed"), so no repair is required, but §7 Verdict 1's "no
-function of that data … certifies" should keep the qualifier "uniformly over compatible abstract vectors" (it does).
-
-**D6 (MINOR) — Assessment 2.3, choice of GRH error term.** The accounting uses Serre's Thm 4 error O(|C|√x(…)), linear in |C|.
-Refined GRH-Chebotarev error terms exist (Murty–Murty–Saradha, Amer. J. Math. 110 (1988), |C|^{1/2}-type via a subgroup
-H with H ∩ C ≠ ∅; Bellaïche, "Théorème de Chebotarev et complexité de Littlewood", Ann. Sci. ENS 49 (2016), error governed by
-the Littlewood complexity λ(1_C)). For the Kummer part (abelian over ℚ(ζ_m)) λ(1_C) is at most the Fourier ℓ¹-norm of a union
-of φ(m) ℓ¹-balls of radius εm in (ℤ/m)^k, ≲ φ(m)(c log(2εm + 2))^k — far smaller than |C| ≈ φ(m)(2εm)^k/k!. The conclusion
-"GRH in the class controls little beyond the index condition" nevertheless survives at the §4 parameters, because
-(c log M)^k = exp(k log(c log M)) with k ≍ y/log y, y = log₂p·log₃p, M ≥ 1/ε ≥ y, is ≈ exp(log₂p·log₄p) ≫ log p
-(and the balance-deciding orders are ≍ N in any case, §6). *Repair:* add one sentence acknowledging the refined error terms and
-this computation; otherwise the "(log p)^{O(1)} bad elements" heuristic looks like an artefact of the crude form.
-
-**D7 (MINOR) — Lemma 2.5 proof, the √p step.** "(Schinzel again)" for "the maximal abelian subfield of ℚ(ζ_n, S^{1/ℓ}) is ℚ(ζ_n)"
-is not what Schinzel's theorem says; the direct argument is two lines: Gal = (ℤ/ℓ)^k ⋊ (ℤ/n)^* with u acting by
-multiplication by u mod ℓ; for u ≢ 1 (ℓ) the commutators (u − 1)v exhaust (ℤ/ℓ)^k, so the abelianisation is (ℤ/n)^*; and
-ℚ(√p) ⊄ ℚ(ζ_n) as p ∤ n. *Repair:* replace the parenthetical by this argument. From-scratch numerics
-(scripts/review_r269_frobenius.py C): q ≤ 6·10⁶ in σ₀ (q ≡ 3 (8), q ≡ −p (P), χ_p(q) = −1): y = 5, ℓ = 3 ∈ S, p = 17:
-713/6463 = 0.1103 vs predicted 1/9; ℓ = 7 ∉ S: 23/6463 = 0.0036 vs 1/(6·49) = 0.0034; y = 7, ℓ = 3, p = 41: 30/1056 = 0.028
-vs 1/27 = 0.037 (1.5σ). Consistent with the degree count.
+**D8 (MINOR) — Prop 3.1 / Prop 3.2 statement hygiene.** (i) Bad₁(ε) is defined for "q prime" but g_s = s² mod q needs
+q ∤ 2P (and the notation section restricts to q ≡ 3 (mod 4)); for x/2 < y the set (x/2, x] meets S. *Repair:* define Bad₁ for
+odd primes q ∤ P, and say whether q ≡ 1 (mod 4) is included (it matters for Hypothesis S, see D11). (ii) The constants 4 and 48
+can be 4/3 and 8; harmless. (iii) Prop 3.2 proof: "1/d > ε" → "1/d ≥ ε > 𝔻_S(ψ)". From-scratch numerics
+(scripts/review_r269_fejer.py P): y = 7, x = 2·10⁴, ε = 0.014, B = 33: 8 Bad₁ primes, every proof inequality holds;
+Σ_q(Π − (B+1)^k) = 2.3·10⁸ vs the bound 5.2·10¹⁰; y = 5, ε = 0.004, B = 319: 70 Bad₁ primes, 0 failures, 2.1·10⁹ vs 2.0·10¹²
+(the per-relation charge 2B log P/log x is the main slack, as the author's Reading says).
