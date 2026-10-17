@@ -1,5 +1,10 @@
 # R268 — hostile review of O258 SYNTHESIS_SPARKS8 (synthesis VIII)
 
+**Repairs applied** (author quiet; marked "(R268 repair)"): SYNTHESIS_SPARKS8.md status line (M4), §0 (M2, m1), Prop 1.2 (m2),
+Prop 1.3 Reading (m3, M4), Prop 1.4 (m4), Lemma 1.6 header (M1), DFI paragraph + §1.7 row (M2), Lemma 2.3 Reading (m5),
+Conj 2.5 limits (m1, m12, m13, M4), §4 numerics (m6), Cor 4.2 (m7), §5 (m11), §6 (M2, M4, m8), §8 (M3, m9, m10);
+memos s8_b1_line_census, s8_volume_dfi, s8_numerator_size_screen; AGENT_REPORT_O258 (header note, DFI line).
+
 Reviewer: R268 side agent. Status: COMPLETE (round 1). Scripts: `scripts/review_r268_*.py` (from scratch; author scripts not reused).
 
 ## Summary verdicts

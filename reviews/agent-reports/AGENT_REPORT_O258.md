@@ -23,8 +23,8 @@ about the lottery margin. It will not yield a proof.
 ## Results by mandatory item
 * (i) Least residue × height-dependent target: the single-p problem is written in four equivalent coordinates (window; twisted
   hyperbola H_u with height-dependent class, Prop 1.5; Kloosterman fraction; mutual shift pairs MP(p), Props 1.2–1.4). What
-  fails, exactly (§1.7 table): Thue/Minkowski need a lattice and a fixed target. DFI 1997 IS uniform in the numerator a = p, so
-  fixed p is not the obstruction. The obstruction is O(1) expected points per dyadic box, where completion leaves error
+  fails, exactly (§1.7 table): Thue/Minkowski need a lattice and a fixed target. DFI 1997 depends explicitly on the numerator a and
+  with a = p is nontrivial only for boxes with MN ≳ p (R268 repair M2). The further obstruction is O(1) expected points per dyadic box, where completion leaves error
   ≥ (XY)^{1/2} even with square-root cancellation (Lemma 1.6). Continued fractions linearise −p mod y and return ET's window
   form (Prop 1.4). No route.
 * (ii) Support-1 lottery: the brief's form is the b = 1 line with a prime (odd-prime support forces j even). Lemma 2.2 (PROVED):
