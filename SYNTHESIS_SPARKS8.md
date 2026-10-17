@@ -101,3 +101,56 @@ mutual shift pairs with a 2-adic quotient condition). Each tool reaches a differ
 | continued fractions / Farey | real-number target | piecewise linearity returns ET's window form (Prop 1.4) |
 | inhomogeneous GoN (covering radius) | fixed modulus, covering | covering needs subpower windows ((J)85 Thm 3.1) |
 No route from (i) survives; this re-confirms (J)85/(J)87 with exact failure points, not a new obstruction theorem.
+
+## 2. Deep item 2: the b = 1 line — the support-1 lottery made exact (mandatory (ii))
+
+**2.1 The brief's form (PROVED).** "∃ j, prime s | jp + 1 with s ≡ 3j − 1 (mod 4j)" is the b = 1 line with a = s prime and
+c = j: cp + s + 1 = 4scd ⟺ (jp + 1)/s = 4jd − 1 ≡ −1 (mod 4j), and for p ≡ 1 (4) this is equivalent to s ≡ 3j − 1 (mod 4j) (since
+jp + 1 ≡ j + 1 (mod 4j)). For odd j, 3j − 1 is even, so s = 2: **odd-prime support-1 certificates have j even.** (Data: Fp_j has
+failure rate exactly 1 for odd j ≥ 3, `logs/s8_perj_1e6.txt`.) Via Prop 1.3 the same line reads: **∃ d ≥ 1: p + 4d has a
+divisor ≡ −1 (mod 4d)** — (J)6's (★), R(p) = #{(j, f) : f | p + j, f ≡ −1 (4j)}, with the shift j replaced by 4j. (★) itself
+is the c = 1 line.
+
+**Lemma 2.2 (visibility and forced levels of the b = 1 line; PROVED, Jacobi).** Let p ≡ 1 (4) and gcd(d, p) = 1.
+(a) If w | p + 4d and w ≡ −1 (mod 4d), then (w/p) = −1: the divisor carries a T1-visible prime.
+(b) χ_{−4d}(p + 4d) = (d/p). So at every level d with (d/p) = −1 the integer p + 4d has an odd number of prime factors ℓ with
+χ_{−4d}(ℓ) = −1. These *forced levels* are exactly the non-residues d mod p, a set of density 1/2 in d (least element
+≪ p^{1/(4√e)+ε} by Burgess, ≪ log²p on GRH). Forcing supplies the parity χ_{−4d}(w) = −1, not the class w ≡ −1 (mod 4d).
+*Proof.* (b) χ_{−4d} has modulus dividing 4d, so χ_{−4d}(p + 4d) = χ_{−4d}(p) = (−4d/p) = (d/p) (p ≡ 1 (4)). (a) w | cp + 1 with
+c = (w + 1)/(4d) (Prop 1.3). Jacobi: (−cp/w) = 1, so (p/w) = (−c/w). Write c = 2^e c′. Then (−1/w) = −1 (w ≡ 3 (4)), and
+(c′/w) = (w/c′)(−1)^{(c′−1)/2} = (−1/c′)(−1)^{(c′−1)/2} = 1 (w ≡ −1 (c′), (w − 1)/2 odd). If e ≥ 1 then w ≡ 7 (8) and (2/w) = 1.
+So (p/w) = −1, and (w/p) = (p/w) as p ≡ 1 (4). ∎
+
+**Lemma 2.3 (privacy of large primes across j; PROVED).** gcd(jp + 1, j′p + 1) divides j − j′. Hence a prime ℓ > J divides at
+most one of jp + 1 (j ≤ J). The same holds for p + 4d, d ≤ D, with ℓ > 4D: gcd(p + 4d, p + 4d′) | 4(d − d′).
+*Proof.* j′(jp + 1) − j(j′p + 1) = j′ − j. ∎
+*Reading.* Any pigeonhole across j (or d) can only collide primes ℓ ≤ J. Such a collision is a congruence on p mod ℓ (ℓ | jp + 1
+⟺ j ≡ −p̄ (ℓ)), so it is B1 data, blind at the T1 point. The large prime factors that make the lottery succeed are private to a
+single jp + 1. A deterministic mechanism forcing one j must therefore produce a divisor of ONE integer jp + 1 in the class
+−1 (mod 4j): B2, with no cross-j leverage. This is the exact sense in which "pigeonhole across j" is void.
+
+**2.4 Census (EVIDENCE; `s8_lines.c`, complete decisions for every window m ≤ (p + 4)/3; independent brute force
+`s8_check_b1.py` at the failures and at T1/105; 0 mismatches between window and divisor forms ≤ 10⁶).**
+| event (p ≡ 1 (4)) | failures ≤ 10⁶ | failures ≤ 10⁸ | notes |
+|---|---|---|---|
+| full Type II | 0 | 0 (≤ 10⁸) | max least window 63 (≤ 10⁶) |
+| **b = 1 line** | **3: 193, 2521, 66529** | **the same 3** | last failure 66529; max least window 327 |
+| c = 1 line = (★) | 9 | 14 (≤ 10⁷: 409, …, 8 813 281), none in (10⁷, 10⁸] | as PARITY_AUDIT |
+| support-1 prime s (z24) | 752 | — | j even forced (2.1) |
+| D-form, prime divisor | 123 | — | |
+| b = 1 ∪ c = 1 | **0** | **0** | the failure sets are disjoint |
+T1: all six events fail at 9, 25, 49, 81, 121, 169, 225, 289, 361, 441, 529 (and at 105, which is composite).
+Per-j (b = 1 line at c = j, all 39 175 primes ≤ 10⁶, j ≤ 24): failure rates 0.128 (j = 1), 0.389, 0.474, 0.523 (j = 4), …,
+0.907 (j = 24). Pairwise joint-failure/product ratio has mean 1.004 and max 1.27 (j = 1, 4). All 24 fail at 10 primes, against
+6.6 predicted by independence: near-independence, with a mild shared tail (the QR-richness factor of s7_lvalue_proxy).
+All three b = 1 failures have p − 1 11-smooth (192 = 2⁶·3, 2520 = 2³·3²·5·7, 66528 = 2⁵·3³·7·11). Only 1292 of the 2.88·10⁶
+primes p ≡ 1 (4) ≤ 10⁸ have this property; see s8_profinite_proximity for what this does and does not mean.
+
+**Conjecture 2.5 (b = 1 line; CONJECTURE, EVIDENCE to 10⁸).** For every prime p ≡ 1 (mod 4), p ∉ {193, 2521, 66529}, there is
+d ≥ 1 such that p + 4d has a divisor ≡ −1 (mod 4d); equivalently 4/p = 1/(ad) + 1/(acdp) + 1/(cdp) for some a, c, d ≥ 1.
+*Status and limits (Assessment).* It is stronger than ES at primes p ≡ 1 (4), so it is at least as hard. It fails at odd
+squares (T1) and at 105, so a proof must use primality. Its numerator-8 analogue fails at 60 primes < 8000; the union of the
+two k = 8 lines fails at 34 primes < 8000, including 131 and 241 (`s8_check_b1.line_counts_k`). Any proof must therefore be
+4-specific. Value: it confines the ES lottery for p ≡ 1 (4) to ONE shift family {p + 4d}. The heuristic count is ≍ log²p
+(means 16 at p ≈ 2·10⁴ and 20 at p ≈ 2·10⁶ in the Mordell classes). Failure is then a polylog lottery, as for (★), but with
+much better constants in range.
