@@ -236,3 +236,41 @@ So route (D) through congruence-mediated recombination is dead at every fixture,
 pattern, for the exact reason T1: the adversary feeds witnesses whose moduli only see residues of p that are
 squares. A route-(D) law must use an input that sees a *non-residue* prime of p, and no such input is forced by
 "q ∈ S".
+
+**All Mordell-class primes p < 10^5 with v = (p+1)/2 prime (CERTIFIED, `z25_gate.py mordell 100000`,
+log `logs/z25_gate_mordell.txt`):** 49 such p; the single-source law "W(v) ≠ ∅ ⟹ W(p) ≠ ∅" is total through
+determined lifts at **0 of 49** (and never completely empty either: a positive fraction, typically 15–50%, of
+v's witnesses lift).
+
+### 3.2 The square law p₀ ∈ E ⟹ p₀² ∈ E (idea 3)
+
+By (K3) composites built from one seed are powers of p₀ (Thm 1.4(c)), so the first composite law to test is
+"W(p²) ≠ ∅ ⟹ W(p) ≠ ∅". It is total-or-not depending only on *mixed* solutions.
+**Proposition 3.4 (PROVED / EVIDENCE as marked).** Let p ≥ 3 be prime.
+(a) (PROVED) For x ≤ y ≤ z with 4/p² = 1/x + 1/y + 1/z let (v_p) be the sorted p-adic valuations. Patterns with
+p² ∤ any denominator are impossible; patterns (≥2, 0, 0) and (≥2, ≥2, 0) are ET Type I/II for n = p² and are
+excluded by ET Prop 1.6; patterns with all v_p ≥ 1 are p·W(p). So W(p²) ≠ ∅ ⟹ W(p) ≠ ∅ fails only through *mixed*
+solutions (pattern (≥2, 1, 0)). (EVIDENCE, `z25_square_patterns.py`, p < 80) only (2,1,0), (2,1,1), (2,2,1) occur,
+and mixed solutions exist for every p < 80.
+(b) (PROVED) Mixed solutions are produced by: m ≡ 3 (4), z = (p² + m)/4, A, B′ | z with A + pB′ ≡ 0 (mod m):
+4/p² = 1/z + 1/u + 1/v, u = p²(z/A)(A + pB′)/m, v = p(z/B′)(A + pB′)/m. These are divisor events of the
+*quadratic* numbers (p² + m)/4, unrelated to p's own events (linear: p + e, pe + 1).
+(c) (PROVED) Reciprocity kills m = 3 when p ≡ 1 (3): every prime ℓ | (p² + 3) has (−3/ℓ) = 1, so all divisors of z
+are ≡ 1 (3) and A + pB′ ≡ 2 (3). (Mordell-type; m = 7, 11, … do occur, e.g. p = 13, z = 44, m = 7.)
+(d) (EVIDENCE) The naive descent 4/p = 1/(pX) + j/X (j = (4X − 1)/p, X = x/p²) works for only ≈ 25–45% of mixed
+solutions (`z25_mixed_check.py`). (CERTIFIED) In the numerator model k = 8 the law is false: 8/11 ∉ S_8 while
+8/121 = 1/18 + 1/99 + 1/2178 (a mixed solution); likewise for all exceptions p < 400 of 8 ≤ k ≤ 14 except (14, 29).
+*Assessment.* A proof of the square law must be 4-specific and must exclude mixed solutions at exceptional p —
+a fresh B2 lottery at (p² + m)/4. Even if proved it gives F(p₀) = {p₀^k}, growth log N (Thm 1.4).
+
+### 3.3 The progression law (idea 2) — total, but only into a relaxation
+
+**Proposition 3.5 (PROVED; folklore-level).** Let M_X = lcm{H = 4ab ≤ X}. If p₀ ∈ E then every n with n ≡ p₀
+or n·p₀ ≡ 1 (mod M_X) lies in E_X := {n : n has no ET witness with H ≤ X}. (Thm 2.2(a).) Growth: density 2/φ(M_X)·…,
+i.e. ≫ N/M_X — far beyond (1.1) — but into E_X ⊋ E.
+**Obstruction (PROVED).** The law cannot be upgraded to E on any positive proportion of the progression without
+proving ES(p₀): by (K4), #{n ≤ N, n ≡ p₀ (M_X), n ∈ E} ≤ C₀N exp(−c₀(log N)^{2/3}) = o(N/M_X) once
+log M_X ≤ (c₀/2)(log N)^{2/3}; so the upgraded law would contradict (K4) (Thm 1.1), i.e. it is ES(p₀) itself.
+The visible obstruction at p₀ is exactly the finite set of classes of modulus ≤ X (B1/B3); the progression
+members acquire fresh large-modulus witnesses (B2). The hypothesis "finite data" cannot be violated here: what p₀
+"knows" is only its residues, and by Thm 3.2 the residues at primes ℓ with (p₀/ℓ) = 1 carry no information at all.
