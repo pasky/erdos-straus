@@ -166,7 +166,10 @@ verified in the local PDF) and therefore, with no cancellation at all,
 So the "best known pointwise error scale" for (★) is already p^{2/5+o(1)}, *smaller* than the Weil scale
 p^{1/2+o(1)} that §2 ("Answer…") and Verdict (ii) present as the closest pointwise estimate. (Even the naive bound
 R ≤ 2Σ_{u ≤ √p/2+1} τ(p+u) gives p^{1/2+o(1)}, i.e. the "Weil gap" is no better than counting divisors.)
-(b) No derivation is given (here or, as far as I can see, in (J)6 §3.4) that Thm 13 yields |E(p)| ≪ p^{1/2+o(1)}:
+(b) No derivation is given that Thm 13 yields |E(p)| ≪ p^{1/2+o(1)}, and (J)6 §3.4 itself does **not** claim it:
+after the R165 repair (J)6 says only, qualitatively, that Weil sees boxes with ≫ p^{1/2} 𝓗-points while the target
+is not a union of boxes. Assessment 2.2's "the known pointwise tools bound E(p) … and give error p^{1/2+o(1)}"
+re-introduces the quantitative reading R165 removed. Indeed:
 (★) is not a box count on 𝓗; splitting by height C produces ≍ p sub-counts, each with Weil error p^{1/2}. The
 p^{1/2} is the error of a *single box count* on 𝓗 — a benchmark of the method, not a bound for E(p).
 Repair: in §2 (Assessment 2.2, ledger row 1, "Answer…") and Verdict (ii) replace "error ≍ p^{1/2} against
