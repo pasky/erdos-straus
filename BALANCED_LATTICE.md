@@ -202,3 +202,22 @@ varies, GRH alone gives e*(p) ≤ (log₂p)^{13/2+o(1)} for all p outside a set 
 for almost all p. This is weaker than the known unconditional almost-all bound (CAP_INTERPOLATION §2: e ≍ log₂N with
 ≤ N^{1−c/(log₂N log₃N)} exceptions), so it is recorded only as a consistency check — answer to the brief's question (i): **no
 new almost-all statement**.
+
+## 5. Cap 0, and the barrier screen
+
+**Proposition 5.1 (balance says nothing at cap 0; PROVED).** At a forced window q with P | K_q, the cap-0 part of the
+parity-split box (FORCED_WINDOW Lemma 1.1 with e = 0) is ∏_{s|K}[0, ⌊(b_s + ε_s)/2⌋]; for the forced primes with b_s = 1 this
+is {0, 1}, and the whole box has ≤ τ(K²) elements. Covering U_q (|U_q| = (q − 1)/2) at cap 0 therefore needs τ(K²) ≥ (q−1)/2,
+which fails for q ≥ p^{(log 3 + o(1))/log log p} (FORCED_WINDOW Thm 3.1(c)) and in particular for every window of Thms 4.1–4.2
+(q ≍ P² log⁴ p, while the forced part of the box has 2^k = P^{o(1)} elements). So no lattice-balance property, Frobenius-
+certified or not, yields a cap-0 certificate; cap 0 is the single-coset closest-vector event of FORCED_WINDOW Prop 4.5, i.e. a
+least-residue event in the window variable (Prop 2.1 there) — the B2 divisor event. *Proof.* Box size vs group order. ∎
+
+*Barrier screen (Assessment).* B1 (congruence/CRT): the forcing q ≡ −p (P) is congruence data, but the balance input is not —
+Prop 2.2 is a precise statement that it cannot be. B2: Thms 4.1/4.2 are at cap ≥ 1 by design (Prop 5.1); bounded or
+(log₂p)^{O(1)} cap is not ES. B3: the certificates are coverings (all targets), not main-term counts at a single target; the
+scale constraint is Prop 4.1(iii) of FORCED_WINDOW (L ≥ (log q)^{1−o(1)}), consistent with (log₂p)^{O(1)}. B5/T1: the route has an explicit step that is false at n = m²: the GRH count of forced windows uses a
+non-principal χ_n(q) = (q/n), and for n = m² one has (q/n) = 1 for all q ∤ m — there are no forced windows, as T1 requires
+of any Type-II-shaped route (cap 0 at odd squares is excluded, CAP_DOWN §3; at cap ≥ 1 e*(n) < ∞ is already PROVED for all odd
+n, CAP_POINTWISE Thm 1.1, so T1 does not test cap ≥ 1 bounds). B6: Thms 4.1/4.2 are pointwise in p; the only averaging is over windows q
+in a p-dependent class, and EQ/S are exactly the statements that make that averaging honest at a single class.
