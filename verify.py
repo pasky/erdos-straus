@@ -26428,4 +26428,40 @@ def check_gw():
 check_gw()
 
 
+def check_gx():
+    # (gx) JOINT_BUDGET (O254/R263): R263 from scratch — Theorem A (ES side numbers irreducible over polynomial slice
+    # parameters with p free; d = -w^2 splits, Remark 1.2), window equivalence + Kneser threshold Prop 3.2 brute force,
+    # Prop 4.2 (Z[sqrt p]-windows never Jacobi-forced), Prop 4.3 / Remark 4.4 (p non-square mod every Type II 4ab),
+    # cyclotomic depth k* = 72 at 210961 (EVIDENCE), T1 odd squares have no Type II point.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("JOINT_BUDGET subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r263_thmA.py"])
+    assert "Theorem A: tests 360 violations 0" in out, out[-1500:]
+    assert "Remark 1.2 (d=-w^2) irreducible? False (expected False); #X-factors 2" in out, out[-1500:]
+    assert "Remark 1.3 identity holds: True" in out, out[-1500:]
+    out = run(["review_r263_kneser.py"])
+    assert "window equivalence: windows checked 26430 mismatches 0" in out, out[-1500:]
+    assert "Sigma!=H0 among them 0" in out, out[-1500:]
+    out = run(["review_r263_sec4.py"])
+    assert "Prop 4.2 general c instances 92665 violations 0" in out, out[-1500:]
+    assert "Type II points p<3000 p=1(4): 6376 Prop4.3 viol 0 Rem4.4 viol 0" in out, out[-1500:]
+    assert "p 210961 121 TypeII pts 46 k* = 72 all even: True" in out, out[-1500:]
+    assert "odd squares <= 399^2 with a Type II point: 0" in out, out[-1500:]
+    print(f"== (gx) JOINT_BUDGET R263: Thm A irreducibility (360 sides), Kneser threshold, Z[sqrt p]-windows unforced, "
+          f"p non-square mod 4ab, k*(210961) = 72, T1 clean; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gx()
+
+
 print("\nall checks passed")

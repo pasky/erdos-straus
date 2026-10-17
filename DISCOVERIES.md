@@ -1478,6 +1478,16 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment. A deterministic bounded cap would need cancellation of all characters χ² ≠ 1 over a box of discrete logs (a Diophantine-genericity condition); bounded windows reduce to the B2 lottery (conditionally on Dickson, provably insufficient). No relay.
    * verify.py (gw) re-runs R261's from-scratch checks.
 
+84. **No algebraic budget at a general prime from polynomial auxiliaries — side irreducibility and the JF trichotomy (JOINT_BUDGET.md + BRAINSTORM/z26_*.md (O254); self-review plus hostile review `reviews/joint-budget-review.md` (R263): no FATAL; MAJOR D1 (framing: Cor A.1 / Thm 5.2(a),(b)-last,(d) are reformulations — the full ET parametrisation already has their shape — not impossibility statements) and D2 (attribution: the window form, Prop 3.2 and Cor 3.3 are LONGSHOT_PIGEONHOLE (O135) Lemma 1.1, Prop 1.4, 1.4(b), Lemma 2.1); minors D3–D9; all repaired by the reviewer, marked (R263 repair)).**
+   * Theorem A (PROVED, elementary: Gauss's lemma plus one sign): with p a free variable and slice parameters polynomials in an auxiliary vector u, every ES side number of the RT2 slice table is (p-free content) × (irreducible in ℚ[u, p]). The only non-trivial input is d > 0: with a signed slice d = −w² the Type I side p² + 4c²d splits identically (Remark 1.2). So every thin-family algebraic budget ((J)74/(J)75/(J)80) needs a relation p = φ(u).
+   * Prop 2.1 (PROVED, after D3): relations p = φ(u) — r = 1 thin; φ* irreducible ⇒ the (J)79 collapse; φ linear in a variable with non-constant coefficient ⇒ the firing condition is a moving-modulus divisor event (B2). Residual not covered: φ* reducible with degree ≥ 2 in every variable.
+   * Prop 4.2 (PROVED): every window built from ℤ[√p] (continued-fraction norms, near squares w² − p, any m | A² − pB² with gcd(B, m) = gcd(m, p) = 1) has (p/m) = +1, so it is never Jacobi-forced; a structural reason for near-square hardness.
+   * Prop 4.3 / Remark 4.4 (PROVED; Type I added by R263, D5): p is a non-square modulo every class modulus 4ab (both Types). Auxiliaries that hand over divisors of p − 1 (orders, Lucas ranks, Pocklington data) therefore pin p to the sterile point locally.
+   * Theorem 5.2 (JF trichotomy; SOUND-AFTER-REPAIRS): a synthesis of Theorem A, (J)79, (J)83 and POINTWISE_SIZE Thm C with exact scope. Per D1, its genuine negative content is the Schinzel part of (b) and the conditional parts of (c) and (e).
+   * EVIDENCE (R263 reproduced k* = 72, 42, 42): the cyclotomic depth k*(p) over all Type II points of the 765 Mordell-hard primes ≤ 3·10⁵ is always even and grows in range (k* = 72 at p = 210 961); no odd square ≤ 399² has a Type II point (T1).
+   * Assessment. Hatch H-A needs an auxiliary that is not polynomial, not character or ℚ(√p) data, and not divisibility data of p − 1; none is known. Mild SHARP flags; all negative, so no relay (signed→positive transfer spark kept for a synthesis).
+   * verify.py (gx) re-runs R263's from-scratch checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
