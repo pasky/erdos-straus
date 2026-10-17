@@ -102,7 +102,13 @@ the maximum number of boxed children (out of r) of an alive parent at depths 2/3
 maximum number of boxed children of an alive parent is ≤ 5, from depth 4 on ≤ 3, for every r** (the r-ary sibling condition
 holds with margin ≥ r − 3). r = 19 complete to depth 6 (`data/z17/rtree19_d6.txt`): maximum 1 at depths 4–6 in C₂, C₁₀ and
 5 → 1 in C₃, C₁₃; alive fractions 0.5692 (C₂) and 0.6711 (C₃). r = 23 complete to depth 6 (`data/z17/rtree23_d6.txt`):
-C₅ = C₁₄⁻¹: maxima 8, 5, 3, 2, 1 at depths 2–6, alive fraction 0.5795. The maximum is decreasing with depth in all data.
+C₅ = C₁₄⁻¹: maxima 8, 5, 3, 2, 1 at depths 2–6, alive fraction 0.5795.
+**r = 17 complete to depth 8** (`data/z17/rtree17_d8.txt`): P-data K = 15 (2881 data, `data/z17/p15_r17.txt.gz`, sha256 in
+`data/z17/p15_r17.sha256`; each re-checked against 4abcd = a + b + nc, a ≤ b, 17 ∤ cd) from z17_penum.py (regimes e, ad,
+Xe = Xad = 69841226) plus `scripts/z17_penum2.py` (regimes ac, cd with rebalanced thresholds Xcd = 1.1·10⁶, Xac = 21864493,
+cover inequality Xe²XadXacXcd ≥ n² asserted; sharded 15 + 9 ways; the same split reproduces data/m17b p9, p11 exactly).
+Depth 8 in C₅ (= C₇): 326 new boxes, every alive parent holds ≤ 1 of them, alive fraction 0.67712. So the 17-ary maxima are
+4, 4, 2, 2, 2, 1, 1 at depths 2–8. The maximum is decreasing with depth in all data.
 
 ## 3. Localising the counts does not shrink the window (PROVED as a statement about route bounds; Assessment for constants)
 
@@ -179,6 +185,6 @@ r ≤ 17), Prop 1.3 (Klein symmetry of the Case B ball set via the parity law), 
 control a depth-n cylinder only from level (5 + o(1))n on), Cor 4.1 (pair-count forms of the sibling route), the consequence of
 Conjecture 4.2 (sterile r-generic points for every r ≥ 17 it holds for).
 EVIDENCE: sibling pairs are Poisson at q = 3 and r = 17; siblings never share a key; Case A breaks the inversion symmetry;
-Poisson calibration (depth ≤ 9 data weak, future triples ≲ 10⁻³); r-landscape r ≤ 61 to depth 4, r = 19, 23 to depth 6:
-max boxed children ≤ 3 from depth 4 on, for every r. CONJECTURE: 4.2 (uniform multiplicity). SD Conjecture 3.3 and
+Poisson calibration (depth ≤ 9 data weak, future triples ≲ 10⁻³); r-landscape r ≤ 61 to depth 4, r = 19, 23 to depth 6,
+r = 17 to depth 8: max boxed children ≤ 3 from depth 4 on, for every r. CONJECTURE: 4.2 (uniform multiplicity). SD Conjecture 3.3 and
 Conjecture 0.2 remain CONJECTURES; r = 17 sterility remains open.
