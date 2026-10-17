@@ -1,0 +1,27 @@
+y 7 S [3, 5, 7] k 3 q in (1000, 1000000) #q 3000 Minkowski cap (k!)^(1/k)=1.817
+index-degenerate (D_min=0): true 52  random 61
+nu = D_min*N^(1/k) quantiles 0/1/10/50/90/100%%  true  : 0.058/0.267/0.563/1.011/1.375/1.675
+                                               random: 0.050/0.265/0.577/1.026/1.372/1.658
+(order statistics below are CONDITIONED on generation, D_min > 0; R-O256 repair 7)
+true   ord(psi_min): =N 0.771  >=N^0.9 0.875  <=N^0.5 0.001  <=N^(3/(2k+4)) 0.0000   [log ord/log N quantiles 0.315/0.668/0.875/1.000/1.000/1.000]
+random ord(psi_min): =N 0.778  >=N^0.9 0.878  <=N^0.5 0.002  <=N^(3/(2k+4)) 0.0000   [log ord/log N quantiles 0.351/0.695/0.874/1.000/1.000/1.000]
+ord(psi_min) = P+(N)-free? frac with P+(N) | ord(psi_min): 0.997
+worst q (q, nu, ord, N, P+N): [(237971, 0.058, 118985, 118985, 449), (661091, 0.084, 66109, 330545, 66109), (772907, 0.113, 386453, 386453, 5443), (45587, 0.114, 22793, 22793, 991), (465011, 0.121, 232505, 232505, 73)]
+y 11 S [3, 5, 7, 11] k 4 q in (1000, 1000000) #q 3000 Minkowski cap (k!)^(1/k)=2.213
+index-degenerate (D_min=0): true 23  random 18
+nu = D_min*N^(1/k) quantiles 0/1/10/50/90/100%%  true  : 0.151/0.454/0.784/1.208/1.532/1.882
+                                               random: 0.156/0.381/0.743/1.194/1.535/1.890
+(order statistics below are CONDITIONED on generation, D_min > 0; R-O256 repair 7)
+true   ord(psi_min): =N 0.756  >=N^0.9 0.875  <=N^0.5 0.002  <=N^(3/(2k+4)) 0.0003   [log ord/log N quantiles 0.211/0.676/0.875/1.000/1.000/1.000]
+random ord(psi_min): =N 0.782  >=N^0.9 0.886  <=N^0.5 0.002  <=N^(3/(2k+4)) 0.0000   [log ord/log N quantiles 0.334/0.679/0.885/1.000/1.000/1.000]
+ord(psi_min) = P+(N)-free? frac with P+(N) | ord(psi_min): 0.998
+worst q (q, nu, ord, N, P+N): [(535939, 0.151, 267969, 267969, 6871), (149419, 0.178, 74709, 74709, 2767), (872203, 0.187, 436101, 436101, 503), (282427, 0.218, 141213, 141213, 457), (281131, 0.246, 9371, 140565, 9371)]
+y 13 S [3, 5, 7, 11, 13] k 5 q in (1000, 1000000) #q 3000 Minkowski cap (k!)^(1/k)=2.605
+index-degenerate (D_min=0): true 5  random 5
+nu = D_min*N^(1/k) quantiles 0/1/10/50/90/100%%  true  : 0.108/0.597/0.985/1.389/1.714/2.047
+                                               random: 0.331/0.611/0.979/1.392/1.711/2.019
+(order statistics below are CONDITIONED on generation, D_min > 0; R-O256 repair 7)
+true   ord(psi_min): =N 0.752  >=N^0.9 0.867  <=N^0.5 0.002  <=N^(3/(2k+4)) 0.0007   [log ord/log N quantiles 0.158/0.658/0.871/1.000/1.000/1.000]
+random ord(psi_min): =N 0.746  >=N^0.9 0.860  <=N^0.5 0.001  <=N^(3/(2k+4)) 0.0000   [log ord/log N quantiles 0.409/0.661/0.869/1.000/1.000/1.000]
+ord(psi_min) = P+(N)-free? frac with P+(N) | ord(psi_min): 0.997
+worst q (q, nu, ord, N, P+N): [(423883, 0.108, 211941, 211941, 23549), (206251, 0.293, 34375, 103125, 11), (526051, 0.298, 52605, 263025, 167), (741131, 0.352, 370565, 370565, 5701), (191123, 0.366, 95561, 95561, 95561)]

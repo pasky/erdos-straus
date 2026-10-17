@@ -553,3 +553,12 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z29_forced_level_characters | force the class −1 at a forced level d | χ₋₄(p + 4d) = +1 always: no level is forced by characters; needs a prime ≡ 3 (4) in p + 4d (Landau event) | PROVED (negative) |
 | z29_twice_the_trials | why b = 1 ≫ (★) in robustness | same incidence main term (log p)²/8, but (★) incidences pair up by a swap: half the distinct trials, twice the exposed classes | PROVED + EVIDENCE |
 | z29_nb_tail_model | calibrated tail model, finite failures | NB(μ = (log p)²/8, D ≈ 3) ×2-optimistic in back-test; expected failures beyond 10¹¹ < 10⁻⁵ | CONJECTURE (heuristic) |
+### z27 — O256 balanced relation lattices: from Hypothesis W to GRH (deep file BALANCED_LATTICE.md)
+| memo | idea | outcome | label |
+|---|---|---|---|
+| z27_pretentious_dual | dual of the relation lattice = characters; balance ⟺ no ℓ¹-pretentious character on S | in the class, GRH-Frobenius affords essentially only the index condition; extremal character has order ≍ N (99 %+ divisible by P⁺(N)) | PROVED + EVIDENCE (SHARP) |
+| z27_fejer_blind_count | class-blind count of pretentious primes (Fejér pairs) | ≤ 48(6xε)^{(k+1)/(k−1)} log P/log x; P-loss exact, = CAP_INTERPOLATION 4.2(b) | PROVED |
+| z27_sparsity_hypothesis | weakest replacement of W | GRH + EQ ⇒ (log₂p)^{13/2+o(1)}; GRH + S (p-free, class-free) ⇒ (log₂p)^{9/2+o(1)}; EQ uniform at toy scale | CONDITIONAL + EVIDENCE |
+| z27_small_exponent_windows | composite windows with U_m of tiny exponent | Linnik adversary (primorial modulus) on the menus Q(E): cap ≳ log p i.o. (R269 repair: was the pre-repair (log p)^{c log₃p}) | PROVED obstruction |
+| z27_smooth_shift_crt | (q−1) smooth ⇒ every ℓ-part visible | joint CRT law still invisible; smooth shifted primes with u → ∞ unknown | Assessment (dead) |
+| z27_large_sieve_sunits | large sieve over moduli for the S-unit box | S-units too sparse (M = P^{2H} ≫ Q²) | PROVED (negative) |

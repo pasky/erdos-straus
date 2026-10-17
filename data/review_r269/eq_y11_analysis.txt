@@ -1,0 +1,8 @@
+# y=11 k=4 8P=9240 #q=37259 #classes=480 (expected reduced classes = 3 mod 8: 480)
+ t=0.3 full: #=310  chi2=610.3 (df 479)  perm p=0.001  max/class=5
+ t=0.3 Bad1: #=72  chi2=543.6 (df 479)  perm p=0.034  max/class=3
+ t=0.5 full: #=889  chi2=501.5 (df 479)  perm p=0.130  max/class=7
+ t=0.5 Bad1: #=653  chi2=474.2 (df 479)  perm p=0.455  max/class=6
+ t=0.7 full: #=2747  chi2=428.5 (df 479)  perm p=0.726  max/class=12
+ t=0.7 Bad1: #=2513  chi2=405.6 (df 479)  perm p=0.937  max/class=12
+ per-class best nu: min 1.563 median 1.726; classes with worst nu = 0: 164
