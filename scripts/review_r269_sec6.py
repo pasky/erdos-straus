@@ -59,11 +59,11 @@ def mode_nu(y, qlo, qhi, ns, seed):
               f"ord<=N^(3/(2k+4)) {np.mean(o_min <= N ** (3 / (2 * k + 4))):.4f}, P+(N)|ord {np.mean([r[5] for r in nd]):.4f}")
 
 
-def mode_eq(y, X, outp):
+def mode_eq(y, X, outp, qlo=0):
     S = list(primerange(3, y + 1)); k = len(S); P = math.prod(S); M = 8 * P
     with open(outp, 'w') as f:
         f.write(f"# y={y} k={k} 8P={M}\n")
-        for q in primerange(y + 1, X + 1):
+        for q in primerange(max(y + 1, qlo), X + 1):
             if q % 8 != 3: continue
             N, a = logs(q, S)
             tot, order = scan(N, a)
@@ -76,8 +76,9 @@ def mode_eq(y, X, outp):
             f.write(f"{q} {q % M} {nu:.5f} " + " ".join(map(str, fl)) + "\n")
 
 
-def mode_an(inp, nperm):
+def mode_an(inp, nperm, qmin=0, qmax=10**18):
     rows = [l.split() for l in open(inp) if not l.startswith('#')]
+    rows = [r for r in rows if qmin <= int(r[0]) <= qmax]
     hdr = open(inp).readline()
     M = int(hdr.split('8P=')[1])
     cls = np.array([int(r[1]) for r in rows]); nu = np.array([float(r[2]) for r in rows])
@@ -102,5 +103,5 @@ def mode_an(inp, nperm):
 if __name__ == '__main__':
     m = sys.argv[1]
     if m == 'nu': mode_nu(*map(int, sys.argv[2:7]))
-    elif m == 'eq': mode_eq(int(sys.argv[2]), int(sys.argv[3]), sys.argv[4])
-    else: mode_an(sys.argv[2], int(sys.argv[3]))
+    elif m == 'eq': mode_eq(int(sys.argv[2]), int(sys.argv[3]), sys.argv[4], *map(int, sys.argv[5:]))
+    else: mode_an(sys.argv[2], *map(int, sys.argv[3:]))

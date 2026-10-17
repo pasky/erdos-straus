@@ -30,18 +30,13 @@ Serre 1981, Schinzel 1977: citation checks below are from the reviewer's knowled
 | Barrier screen §5 | SOUND | B5/T1: (q/m²) = 1 for q ∤ m, so no forced windows at squares — correct and algebraic; B2 handled by Prop 5.1 |
 | §6 ν statistics | SOUND-AFTER-REPAIRS (EVIDENCE) | reproduced from scratch (600 q, k = 3; 400 q, k = 4); the 1 % quantiles quoted must be conditioned on 𝔻_min > 0 (D13) |
 | §6 order statistics | SOUND (EVIDENCE); wording (D14) | reproduced: k = 3: ord = N 0.78 (random 0.75), ≥ N^{0.9} 0.89 (0.88), P⁺(N) \| ord 0.995 (0.997); k = 4: 0.76 (0.80), 0.86 (0.88), 0.995 (0.995); ≤ N^{1/2}: 0 resp. 0.25 % |
-| Labels; "bounded cap is not ES" | SOUND | stated in the header, §5, §7.4 and the report; no ES claim anywhere; CONDITIONAL labels on Thms 4.1/4.2 correct; Assessment 2.3 correctly demoted |
+| §6 per-class ν (mod 840) | SOUND (EVIDENCE) | reproduced: q ≤ 3·10⁵ (6493 q from q = 11; the author's 6450 start at ≈ 10³): min over classes of the best ν = 1.481, median 1.572 (author 1.481 / 1.575); 29 classes have a degenerate q |
+| §6 EQ at y = 7 (mod 840) | SOUND (EVIDENCE), reproduced exactly | from-scratch run over all 19 609 q ≡ 3 (8) in [10³, 10⁶]: Bad₁ counts 250 / 1272 / 3463 and χ² 49.5 / 28.0 / 29.8, full set 653 / 1670 / 3848, χ² 213.9 / 96.1 / 64.7 — identical to data/z27/eqcheck_y7.txt; my permutation p (1000 perms) 0.34 / 0.97 / 0.87 and 0.001 / 0.001 / 0.006 (D15) |
 
-**D13 (MINOR) — §6 first bullet, ν quantiles.** The quoted 1 % quantiles (k = 3: 0.267 true / 0.265 random) cannot include the
-index-degenerate q (ν = 0), which are 52/3000 = 1.7 % > 1 % of the sample by the author's own count; my from-scratch run
-(scripts/review_r269_sec6.py nu; data/review_r269/nu_k3.txt) has 9/600 degenerate and 1 % quantile 0.000 unconditionally.
-The other quantiles agree: k = 3: 10/50/90 % = 0.550/1.032/1.380 (true) vs 0.547/1.000/1.375 (random); k = 4: 0.736/1.221/1.563
-vs 0.749/1.187/1.541 (author: 0.784/1.208/1.532 vs 0.743/1.194/1.535). *Repair:* say "quantiles conditioned on 𝔻_min > 0".
-
-**D14 (MINOR, wording) — "the extremal character has order ≍ N" (§6, §7.1, report SHARP 2, brief's "ord ψ_min ≍ N in > 99 %").**
-What is measured in > 99 % is P⁺(N) | ord ψ_min; ord = N holds in ≈ 75 % and ord ≥ N^{0.9} in ≈ 87 %. "≍ N in > 99 %" is not
-shown (and P⁺(N) is typically ≈ N^{0.6}). The doc's own sentence in §7.1 ("order ≍ N (§6; P⁺(q−1) | ord in > 99 %)") conflates
-the two. *Repair:* "ord ψ_min is divisible by P⁺(q − 1) in > 99 % and equals N in ≈ 75 %". The conclusion drawn (balance is
-decided outside the Frobenius-visible small orders) needs only the P⁺ statement, so nothing else changes. Also "ties": several
-characters (at least ψ, ψ̄) attain 𝔻_min; the statistic should say which minimiser's order is reported (my run reports the
-largest-order minimiser and, for the "small order" rows, the smallest-order one; numbers unchanged).
+**D15 (MINOR, interpretation) — §6 EQ test: under-dispersion and what the test can show.** At t = 0.5, 0.7 the Bad₁ χ² (28.0,
+29.8 on 47 df) is *below* the permutation null (medians 43.1, 37.9): upper-tail p = 0.97 / 0.87 means a lower-tail p ≈ 0.03 / 0.13,
+i.e. Bad₁ is spread *more* evenly than chance at t = 0.5. This is harmless for EQ (an upper-bound statement), and not
+significant after the 6 tests, but "no over-concentration" is the only conclusion supported; the text should not read it as
+"equidistributed". More importantly the test is at P = 105 ≪ √x = 10³ and each class holds ≈ 400 q, whereas EQ is used at
+P ≍ √x/log²p, where a class holds ≍ √x·log²p/log x primes and the hypothesis is about a √x-level error. The author says
+"EVIDENCE for EQ only at P ≤ 1155, nowhere near P ≈ √x" — correct; keep that sentence in the report's SHARP 3 as well.

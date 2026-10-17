@@ -1,0 +1,18 @@
+# y=7 k=3 8P=840 #q=19609 #classes=48 (expected reduced classes = 3 mod 8: 48)
+ t=0.3 full: #=653  chi2=213.9 (df 47)  perm p=0.001  max/class=26
+ t=0.3 Bad1: #=250  chi2=49.5 (df 47)  perm p=0.338  max/class=13
+ t=0.5 full: #=1670  chi2=96.1 (df 47)  perm p=0.001  max/class=51
+ t=0.5 Bad1: #=1272  chi2=28.0 (df 47)  perm p=0.974  max/class=37
+ t=0.7 full: #=3848  chi2=64.7 (df 47)  perm p=0.006  max/class=101
+ t=0.7 Bad1: #=3463  chi2=29.8 (df 47)  perm p=0.871  max/class=88
+ per-class best nu: min 1.529 median 1.611; classes with worst nu = 0: 32
+# y=7 k=3 8P=840 #q=19609 #classes=48 (expected reduced classes = 3 mod 8: 48)
+ t=0.3 full: #=653  chi2=213.9 (df 47)  perm p=0.003  max/class=26
+ t=0.3 Bad1: #=250  chi2=49.5 (df 47)  perm p=0.365  max/class=13
+ t=0.5 full: #=1670  chi2=96.1 (df 47)  perm p=0.003  max/class=51
+ t=0.5 Bad1: #=1272  chi2=28.0 (df 47)  perm p=0.987  max/class=37
+ t=0.7 full: #=3848  chi2=64.7 (df 47)  perm p=0.007  max/class=101
+ t=0.7 Bad1: #=3463  chi2=29.8 (df 47)  perm p=0.900  max/class=88
+ per-class best nu: min 1.529 median 1.611; classes with worst nu = 0: 32
+# y=7 k=3 8P=840 #q=6493 #classes=48 (expected reduced classes = 3 mod 8: 48)
+ per-class best nu: min 1.481 median 1.572; classes with worst nu = 0: 29
