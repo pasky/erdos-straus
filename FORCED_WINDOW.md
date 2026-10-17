@@ -115,7 +115,8 @@ m ≤ p^{O(1/log log p)}, in practice m ≤ (log p)^{O(1)} (average τ(K²) ≍ 
 P(y) := ∏_{s ≤ y} s ≤ h. For every p ≡ 1 (mod 4) with p > 4h there is a window m ≤ 4h (m ≡ 3 (mod 4), gcd(m, p) = 1) with
 P(y) | K_m; then ω(K_m) ≥ π(y) = (1 + o(1)) log h/log log h and F_e(K_m) ≥ 3(e + 3)^{π(y) − 1}. Consequently the box is at
 least the window (F_e(K_m) ≥ 2h) as soon as **log(e + 3) ≥ (1 + o(1)) log log h**, while at cap 0 the CRT box
-3^{π(y)} = h^{(log 3 + o(1))/log log h} is smaller than the window by a factor h^{1 − o(1)}.
+3^{π(y)} = h^{(log 3 + o(1))/log log h} is smaller than the window range 4h by a factor h^{1 − o(1)} (and smaller than the CRT
+window m itself whenever m ≥ h, which happens for a positive proportion of residue classes of p mod 4P(y)).
 *Proof.* Among h consecutive integers K ∈ (p/4, p/4 + h] one is ≡ 0 (mod P(y)); m := 4K − p ∈ (0, 4h], m ≡ −p ≡ 3 (mod 4);
 gcd(m, p) = gcd(4K, p) = 1 since 0 < K < p. y = (1 + o(1)) log h by the PNT. For odd s | P(y), 2b_s + 1 + e ≥ e + 3; for s = 2,
 2b + 1 ≥ 3 (no overflow at 2). ∎
@@ -129,3 +130,59 @@ heuristically; pointwise, no theorem about intervals of length (log p)^{O(1)} go
 *Reading.* Cap ≍ log log p is exactly where deterministic box size meets window size (Thm 3.2); this matches, from the
 constructive side, the covering barrier e ≥ (log log p)^{1−o(1)} (CAP_INTERPOLATION Prop 4.1, EXPONENT_CAP Prop 3.1(c)). Box size
 is necessary for covering, not sufficient: §4.
+
+## 4. Box size is not covering: the relation lattice, and a conditional (log log p)^{2+o(1)} cap
+
+Let q be prime, S a set of k primes ≠ q, g_s := s² ∈ U_q, H := ⟨g_s⟩, and Λ = Λ_q(S) := {c ∈ ℤ^S : ∏ g_s^{c_s} = 1}, a lattice
+of determinant |H|. For L ∈ ℝ_{>0}^S let B_L := ∏_s [−L_s/2, L_s/2] and μ_L(Λ) := inf{r > 0 : Λ + r·B_L = ℝ^S}
+(covering radius in the box norm).
+
+**Proposition 4.1 (covering ⟺ balanced lattice, up to a factor 2; PROVED).** Let W_L := {∏ g_s^{j_s} : j_s ∈ ℤ ∩ [0, L_s]}.
+(i) If H = U_q and μ_L(Λ) ≤ 1 then W_L = U_q. (ii) If W_L = U_q then H = U_q and μ_L(Λ) ≤ max_s (L_s + 1)/L_s ≤ 2.
+(iii) (Minkowski) W_L = U_q forces ∏(L_s + 1) ≥ |U_q|; and if S consists of primes all dividing an integer M ≤ q, then
+k ≤ (1 + o(1)) log q/log log q, so a cube box (L_s = L) needs L + 1 ≥ ((q − 1)/2)^{1/k} ≥ (log q)^{1 − o(1)}.
+*Proof.* (i) For x ∈ ℤ^S pick λ ∈ Λ with x − λ ∈ (L/2) + B_L (covering, centred at L/2); x − λ is an integer point of ∏[0, L_s],
+so the class of x (i.e. every element of H = U_q) lies in W_L. (ii) Every x ∈ ℝ^S has ⌊x⌋ ∈ (W-box ∩ ℤ^S) + Λ, so
+x ∈ ∏[0, L_s + 1) + Λ. (iii) |W_L| ≤ ∏(L_s + 1); ∏_{s∈S} s ≤ q gives k ≤ π-type bound (1 + o(1)) log q/log log q. ∎
+So at the forced windows of Lemma 1.1, **cap ≤ e ⟸ the relation lattice of the generators is (e + 1)-balanced**, and up to a
+factor 2 this is also necessary for any argument certifying all targets at once. Prop 4.1(iii) is EXPONENT_CAP Prop 3.1(c) /
+CAP_INTERPOLATION Prop 4.1 in lattice form: with CRT-forced generators the covering method cannot go below e ≈ (log q)^{1−o(1)}.
+
+**Definition 4.2 (balanced primes).** For y ≥ 3 let S(y) := odd primes ≤ y, k := |S(y)|, and call a prime q ∤ ∏S(y)
+*(y, L)-balanced* if ⟨s² : s ∈ S(y)⟩ = U_q and μ_{(L,…,L)}(Λ_q(S(y))) ≤ 1. Bal(y, L) depends on q only (not on p).
+
+**Hypothesis W(y, X, L).** For every residue class a (mod 8P), P := ∏S(y), a ≡ 3 (mod 8), and every prime p ∤ 8P, there is a
+(y, L)-balanced prime q ≤ X with q ≡ a (mod 8P) and (q/p) = −1.
+
+**Theorem 4.3 (CONDITIONAL on GRH for Dirichlet L-functions and on Hypothesis W; PROVED relative to them).** Let p ≡ 1 (mod 8)
+be prime, y ≤ log p, and suppose W(y, X, L) holds. Then e*(p) ≤ L − 1 (indeed a Type-II-shaped ES^{(y,L−1)} solution with
+x ≤ (p + X)/4). Under GRH alone the set {q ≤ X : q ≡ a (mod 8P), (q/p) = −1} is non-empty for X ≥ C·φ(8P)² log⁴(pX), so W
+asks only that one of its ≫ X/(φ(8P) log X) elements be balanced.
+*Proof.* Take a := −p (mod P), a ≡ 3 (mod 8) (CRT; p ∤ 8P as y ≤ log p < p). The prime q of W is a forced window
+((q/p) = −1), q ≡ 3 (mod 8) so K_q is odd, and P | K_q. Apply Lemma 1.1 with j_s = 0 for s ∤ P; for s | P the admissible
+range is j_s ≤ ⌊(b_s + ε_s)/2⌋ + e with ⌊(b_s + ε_s)/2⌋ ≥ 1 (b_s ≥ 1), so with e := L − 1 the box ∏_{s|P}[0, L] is admissible,
+and by Prop 4.1(i) it contains the target t = −c ∈ U_q. GRH count: with χ_p := (·/p) (a character mod p, p ≡ 1 (mod 4)),
+#{…}·log X ≥ ½Σ_{q≤X, q≡a (8P)}(1 − χ_p(q)) log q − O(√X) and Σ χ_p(q) log q over the class = φ(8P)^{−1} Σ_{χ mod 8P} χ̄(a) ψ(X, χχ_p)
+≪ √X log²(8PpX) (χχ_p non-principal since p ∤ 8P), while the main term is X/(2φ(8P)) + O(√X log²(8PX)). ∎
+**Corollary 4.4 (what a "random-lattice" W gives; CONDITIONAL + Assessment for the exponent).** If W(y, X, L) holds with L as
+large as the typical ℓ^∞ covering radius of a lattice of determinant (q − 1)/2 in dimension k, L ≍ ((q−1)/2)^{1/k}·(log k)^{O(1)},
+then choosing y := log log p·log₃ p and X := C·φ(8P)² log⁴(pX) (so log X = (2 + o(1))y + O(log log p)) gives
+`  e*(p) ≤ exp(log X·(log y)/y·(1 + o(1))) = (log log p)^{2 + o(1)}.`
+*Proof of the arithmetic.* k = (1 + o(1)) y/log y and log X = 2y(1 + o(1)) + 4 log log p + O(log y) = 2y(1 + o(1)) (as
+log log p = o(y)); (q/2)^{1/k} ≤ exp(log X/k) = exp((2 + o(1)) log y) = y^{2+o(1)} = (log log p)^{2+o(1)}. ∎
+*Reading — the precise missing input.* W is a **Linnik-type statement for the p-independent, density-one set of balanced
+primes** at modulus 8P ≈ X^{1/2}. The trivial bound on unbalanced primes (they divide one of ≤ (3B)^{k+1} short relation numbers,
+CAP_INTERPOLATION Thm 4.2(iv)) is a density-zero set, but cannot be prevented from filling a whole class mod P (the "P-loss" of
+z12_grh_lattice_gap); this is why GRH alone reaches only exp(O(√(log₂p log₃p))) (CAP_INTERPOLATION Thm 4.2(b)) and not
+(log₂p)^{2+o(1)}. Hypothesis W is not ES in disguise: it never mentions p beyond one quadratic character and a class mod P,
+and it says nothing at cap 0. The lower bound for the method is (log log p)^{1−o(1)} i.o. (Prop 4.1(iii) + CAP_INTERPOLATION
+Prop 4.1), so W pins the covering scale between (log₂p)^{1−o(1)} and (log₂p)^{2+o(1)}.
+
+**Proposition 4.5 (cap 0 at a forced window in lattice form; PROVED).** Let q be a forced window, S := primes of K,
+Λ_± := {δ ∈ ℤ^S : ∏ s^{δ_s} ≡ ±1 (mod q)} ⊃ Λ_+ := {δ : ∏ s^{δ_s} ≡ 1} (index 2 by forcing). Then cap(q) = 0 ⟺ the box
+∏[−b_s, b_s] meets the odd coset Λ_± ∖ Λ_+. det Λ_+ = |⟨S⟩| ≥ … and if τ(K²) < |⟨S⟩|/2 the box is smaller than a fundamental
+domain of Λ_±, so a hit is an atypically short vector in a prescribed coset (an inhomogeneous "shortcut").
+*Proof.* Definitions (cap-0 certificate = δ in the box with ∏ s^δ ≡ −1). ∎
+*Reading (Assessment).* Beyond the covering threshold, cap 0 is a closest-vector event of probability ≈ τ(K²)/q per window
+in the random model — the lottery of Lemma 2.1 of CAP_POINTWISE, now in lattice form; Prop 2.1 says that summing these events
+over windows is a level-≥-2 problem.
