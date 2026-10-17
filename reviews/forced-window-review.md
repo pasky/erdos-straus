@@ -91,6 +91,50 @@ with generator product ≤ r for p ≡ 1 (mod 8∏_{r≤R} r), matching the use 
 (CAP_INTERPOLATION Thm 4.2(b), whose mechanism is a global count of short-relation primes (3B)^{k+1} log P against the class main
 term x/φ(4P) — i.e. the P-loss, as stated), not a barrier theorem about GRH.
 
+**Prop 5.1 (GRH ⇒ every element is ∏_{s ≤ C log⁴q} s^{δ_s}, δ ∈ {−1,0,1}) — SOUND (relative to GRH for Dirichlet L-functions
+mod q).** Re-derived: Σ_{δ∈{−1,0,1}} χ(s)^δ = 1 + 2 Re χ(s) is real, and |1 + 2cos 2πθ| ≤ 2 for ‖θ‖ ≥ 1/6 (value 2 at 1/6,
+0 at 1/3, −1 at 1/2) ✓; mass bound: ½(X − L_g) + 2L_g ≥ 0.98X ⇒ L_g ≥ 0.32X (stated 0.31X, fine) ✓;
+(q − 2)(2/3)^{0.31X/log X} < 1 ⟸ X/log X > log q/(0.31 log 1.5) ≈ 7.96 log q ✓. The log⁴q comes only from needing
+√X log²(qX) ≤ X/50, consistent. The input ψ(x, χ) ≪ √x log²(qx) under GRH is standard (Davenport, *Multiplicative Number
+Theory*, Ch. 20); I could not check the MV §13.1 pointer against the book. Literature: consistent with (and quantitatively a
+bounded-exponent strengthening of) Bach's GRH generation bound (least prime outside a proper subgroup < 2 log² q; recalled, not
+re-checked) and with Erdős–Rényi (≈ log₂ q random generators suffice in the random model); I know of no published statement
+that contradicts or supersedes it, but did not search exhaustively.
+
+**Prop 5.2 (GRH for Dedekind zetas + Lagarias–Odlyzko: i.o. q ≡ 3 (4) with all primes ≤ c_ℓ log q log log q ℓ-th powers) —
+SOUND-AFTER-REPAIRS (MINOR D9).** i ∉ M since [M : ℚ(ζ_ℓ)] is an ℓ-power and i ∉ ℚ(ζ_ℓ) ✓; Frobenius = generator of Gal(L/M)
+gives q ≡ 3 (4), q ≡ 1 (ℓ), all s ∈ S ℓ-th powers ✓; such q is unramified, hence q > y ✓; ℓ | (q−1)/2 so ⟨s²⟩ ⊊ U_q ✓;
+infinitely many q since for fixed q the property fails for large y ✓. The least-prime bound under GRH is
+Lagarias–Montgomery–Odlyzko (1979) / Bach–Sorenson (explicit (4 log d_L + 2.5 n_L + 5)²), not "Lagarias–Odlyzko" (1977, the
+density theorem) — citation precision only. The discriminant line is wrong as written (D9) but the conclusion survives. This is
+the ℓ-th-power analogue of Montgomery's GRH result n₂(q) ≫ log q log log q i.o.; worth citing as such.
+
+**"Forcing–generation gap" (PROVED pieces + Assessment) — SOUND-AFTER-REPAIRS (D10, wording).** "generation … holds for all q
+only from y ≍ log² q on" should read "is known (GRH, Bach) from y ≍ log² q on"; failure is proved (under GRH) only at
+c log q log log q.
+
+**§5 literature screen — SOUND as Assessment, partially re-checked.** Re-checked: Lichtman arXiv 2211.09641 Thm 1.1 (read from
+the arXiv PDF): "For fixed nonzero a ∈ ℤ and β > 15/(32√e) = 0.2843 … P⁺(p − a) ≤ x^β" — fixed shift, as the document says ✓;
+the abstract confirms Baker–Harman's 0.2961 (secondary confirmation only). Elsholtz–Tao (sources/): Type II = p | y, z, p ∤ x,
+as used ✓. NOT re-checked (no source access in this run): Soundararajan 2008, Harper 2012, Matomäki–Radziwiłł 2016,
+Friedlander–Granville 1989, BGK, Shkredov, Burgess/Ankeny/Bach, Erdős–Rényi 1965, Montgomery–Vaughan. The "Konyagin–Shparlinski
+type" bullet names no specific result (D11). The screen's conclusions are structural (scale mismatches) and do not depend on
+fine constants, so these omissions do not affect any PROVED claim.
+
+**§6 numerics (EVIDENCE) — SOUND (all headline figures reproduced from scratch).** `review_r264_leastwin.py 10000000 400 500`
+(full rerun, 15 s, output data/review_r264_leastwin_1e7.txt; supersedes the ≥ 2 000-prime sample): all 332 180 primes
+p ≡ 1 (4) ≤ 10⁷ have a cap-0 window ≤ 107; **record m₀ = 107 at p = 8 803 369** ✓ (K = 2 200 869 = 3²·11²·43·47,
+9·43·47 = 18 189 ≡ −1 (mod 107) ✓); m₀ = 3 for 296 430 = 166 169 forced + 130 261 unforced ✓; hard-prime histogram identical to
+the document's (20 513 primes) ✓; kinds U/F/C = 15 266/4 145/1 102 ✓; means Ω, ω, u, log τ(K²) at m₀ vs all scanned windows
+(including m₀) = (3.61, 3.08, 1.93, 3.61) vs (3.12, 2.60, 1.65, 3.07) ✓; per-kind success rates reproduced bin by bin; forced
+windows with τ(K²) ≥ 4m: 2 133 tries, 5 failures ✓; 665 exact Type II rebuilds. Certificate statistics depend on WHICH
+certificate is recorded (D12): minimising over all certificates at m₀, max|δ| ≤ 1 holds for 99.9 % (all) / 98.5 % (hard)
+and support ≤ 2 for 99.8 % / 96.9 % (support 1: 92.9 % / 62.8 %) — stronger than the stated 97 %/90 %, 99 %/91 %, 92 %/58 %, so
+the qualitative claim stands. Balance (`review_r264_balance.py`): y = 7: 1 012 primes, 23 non-generating, ρ quantiles
+1.079/1.241/1.449/2.037/3.462/6.432, all 48 classes hit, max over classes of min ρ = 1.3718 ✓; y = 11: 4 451 primes,
+27 non-generating, quantiles 1.132/1.296/1.449/1.776/2.551/5.746, all 480 classes, max-min ρ = 1.4715 ✓ — exact agreement.
+T1 control (`review_r264_t1.py`): 499 odd squares, windows ≤ 200, no cap-0 certificate ✓ (positive control p = 241 fires).
+
 ## Defects
 
 (numbered; FATAL / MAJOR / MINOR)
