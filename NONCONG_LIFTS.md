@@ -128,6 +128,15 @@ sufficient for a determined lift".
   class with a, b ≤ 100; for k = 4 the point (x₂ = 1, x₃ = 2) is covered (slice (1, 6), e = 7) — Mordell — while
   (x₂ = 1, x₁₁ = 2) is not (Salez's S₁₁ = {7, 8, 10}). For k = 8 the prime 13 does help: (II, 1, 13, e = 7) covers
   x ≡ 6 (mod 13). EVIDENCE only (bounded slices).
+* Single-prime points x_{ℓ,r} (x = 1 in ℤ₂ and at every prime ≠ ℓ, x = r a non-residue at ℓ), slices a ≤ b ≤ 300,
+  exact O(1)-per-slice test (`scripts/z28_adelic_fast.py`, `z28_adelic_scan.py`, logs `logs/z28_adelic_scan_k{4,8}.txt`):
+  k = 4: every x_{ℓ,r} with ℓ ∈ {3, 5, 7} is covered; for ℓ = 11 exactly r ∈ {2, 6} are uncovered (covered
+  {7, 8, 10} = Salez's S₁₁), ℓ = 13: {2, 5, 7, 8} uncovered, …, ℓ = 37: 14 of 18 uncovered. k = 8: **every**
+  non-residue at ℓ = 3, 5, 7 is uncovered, and at each ℓ ≤ 37 the uncovered set contains k = 4's. (B = 2500 for
+  (k, ℓ, r) = (8, 3, 2), (8, 5, 2), (8, 7, 3), (4, 11, 2), (4, 11, 6): still uncovered.)
+  Since a point lies in a class of modulus H | L iff its residue mod L does, **if x_{ℓ,r} is uncovered by all slices
+  then no level divisible by ℓ is complete** — so (EVIDENCE) k = 4 has complete levels only on {2, 3, 5, 7}, and
+  k = 8 has none at all, because already ℓ = 3, 5, 7 carry uncovered points.
 *Reading (Assessment).* "Visibility is sufficient" holds for ES exactly at Mordell's levels, and there it is a
 4-specific fact (no complete level at all for k = 8, 12). But for p ∈ 𝓜, p is a square modulo every 7-smooth level,
 so **at every complete level p is invisible**: the 4-specific resource "complete levels" is used up precisely on
