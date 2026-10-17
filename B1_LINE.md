@@ -115,9 +115,9 @@ and each incidence is a distinct ES solution (ad, acdp, cdp). The Haar main term
 For the c = 1 line, PARITY_AUDIT's R(p) = #{(u, B, C) : 4uBC = p + u + B} has the same main term (log p)²/8. But (u, B, C)
 and (B, u, C) give the same triple {uBC, pBC, puC}, so the number of distinct (★) solutions is N_{c1}(p) = (R(p) + ε)/2,
 ε ∈ {0, 1}, with main term (log p)²/16.
-*Proof.* By SYNTHESIS_SPARKS8 Prop 1.3, w = 4cd − 1 | cp + 1 ⟺ w | p + 4d (as gcd(w, 4d) = 1 and
-4d(cp + 1) − pw = p + 4d... precisely 4d(cp + 1) = c·4d·p + 4d ≡ p + 4d (mod w) since 4cd ≡ 1), and a = (cp + 1)/w ≥ 1. The
-triple determines (a, c, d) (d = gcd(x, z/p)…, or directly: x = ad, z = cdp, y = az, so a = y/z, then d = x/a, c = z/(dp)). Main
+*Proof.* By SYNTHESIS_SPARKS8 Prop 1.3 (López Thm 7), with w = 4cd − 1: w | cp + 1 ⟺ w | p + 4d, because 4cd ≡ 1 (mod w)
+gives 4d(cp + 1) ≡ p + 4d (mod w) and gcd(w, 4d) = 1; then a = (cp + 1)/w ≥ 1. Distinctness: 8d ≤ p + 3 and a < p, so
+p ∤ x = ad while p | y, z. So x is identified, z = min(y, z) = cdp, a = y/z, d = x/a, c = z/(dp). Main
 term: for fixed d, c runs to (p + 4d + 1)/(4d), giving Σ_c 1/(4cd − 1) = (1/(4d))(log(p/(4d)) + O(1)) + O(1/d²), and
 Σ_{d ≤ p/4} (1/(4d)) log(p/(4d)) = (log p)²/8 + O(log p); d > p/4 contributes O(1). For (★): the swap (u, B) ↦ (B, u) is an
 involution on R's incidences with at most one fixed point (u = B forces u | p, u = 1, 2 = p + 2 − 4C·… impossible: u = B = 1
