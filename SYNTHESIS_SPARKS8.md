@@ -16,7 +16,7 @@ PARITY_AUDIT's (★)), **d = 1 line** (LATTICE_MEETING's meeting locus).
 twisted modular hyperbola, Kloosterman fraction, mutual shift pairs; §1). Construction attempts: (1) Minkowski/Thue on the
 hyperbola — Thue produces points of the twisted hyperbola Xε ≡ u (p) of uncontrolled height; ES needs a height-dependent
 class (barrier hypothesis it meets: "target fixed in advance"). (2) DFI 1997 — its bilinear Kloosterman-fraction bounds hold
-for every numerator a but degrade with a, and are nontrivial with a = p only for boxes of size MN \gtrsim p (R268 repair M2; the
+for every numerator a but degrade with a, and are nontrivial with a = p only for boxes of size MN ≳ p (R268 repair M2; the
 earlier "ARE uniform in a = p" was inaccurate); what fails is volume: the ES indicator has expected
 count O(1) per dyadic box, so any equidistribution statement must save the full box volume (Lemma 1.5). (3) Piecewise
 linearity of y ↦ (−p mod y) (continued-fraction structure) linearises the least residue on each interval (p/(k+1), p/k] and
@@ -26,8 +26,8 @@ returns exactly ET's window form (Prop 1.4). All three return to B2; recorded as
 4 | D. Census (§2): **the b = 1 line fails at exactly three primes p ≡ 1 (4) ≤ 10⁸ — 193, 2521, 66529 —** and the c = 1 line at
 14 primes ≤ 10⁷ and none in (10⁷, 10⁸]; the two lines never fail together ≤ 10⁸ (EVIDENCE). Per-j events are pairwise
 independent to within 0.4 % on average (max ratio 1.27); joint all-j failure is 1.5 × the independence prediction. A
-deterministic forcing of one j would have to be 4-specific: the k = 8 analogue of the two-line union fails at 34 primes 5 \le p < 8000,
-including 131 and 241 (22 of them \equiv 1 (4), incl. 241; R268 repair m1).
+deterministic forcing of one j would have to be 4-specific: the k = 8 analogue of the two-line union fails at 34 primes 5 ≤ p < 8000,
+including 131 and 241 (22 of them ≡ 1 (4), incl. 241; R268 repair m1).
 (I3) Mandatory (iii), forced windows × T1 adversary: §3.
 (I4) Mandatory (iv), positivity × signed slices: §4.
 (I5) Own: profinite proximity to the T1 point 1 (smooth p − 1) as a hardness coordinate (s8_profinite_proximity).
@@ -140,7 +140,7 @@ So (p/w) = −1, and (w/p) = (p/w) as p ≡ 1 (4). ∎
 **Lemma 2.3 (privacy of large primes across j; PROVED).** gcd(jp + 1, j′p + 1) divides j − j′. Hence a prime ℓ > J divides at
 most one of jp + 1 (j ≤ J). The same holds for p + 4d, d ≤ D, with ℓ > 4D: gcd(p + 4d, p + 4d′) | 4(d − d′).
 *Proof.* j′(jp + 1) − j(j′p + 1) = j′ − j. ∎
-*Reading.* Any pigeonhole across j (or d) can only collide primes ℓ ≤ J. Such a collision is a congruence on p mod ℓ (ℓ | jp + 1
+*Reading (Assessment; R268 repair m5).* Any pigeonhole across j (or d) can only collide primes ℓ ≤ J. Such a collision is a congruence on p mod ℓ (ℓ | jp + 1
 ⟺ j ≡ −p̄ (ℓ)), so it is B1 data, blind at the T1 point. The large prime factors that make the lottery succeed are private to a
 single jp + 1. A deterministic mechanism forcing one j must therefore produce a divisor of ONE integer jp + 1 in the class
 −1 (mod 4j): B2, with no cross-j leverage. This is the exact sense in which "pigeonhole across j" is void.
@@ -210,11 +210,14 @@ Remark 1.2 are on the "wrong" side of the wall.
 χ_D(ℓ) = 1 for the Kronecker character χ_D, D = −4d, of modulus dividing 4|d|. Hence χ_D(f) = 1. But f ≡ −p (mod 4c|d|), so
 χ_D(f) = χ_D(−1)χ_D(p) = sign(D)·(D/p). With p ≡ 1 (4), (D/p) = (−d/p) = (d/p). So d > 0 (D < 0): (d/p) = −1; d < 0: (|d|/p) = 1. ∎
 (Checked: 1934 positive and 2816 signed Type I points, p < 3000, c < 5, |d| < 30; the only exceptions are the 9 degenerate p | d
-cases. At odd squares 9 … 441 there are signed points (2–13 each) and no positive ones.)
+cases. R268 repair m6: the reviewer's enumeration over all divisors f, with gcd(p, cd) = 1, gives 4772 positive and 10 787
+signed points, 0 exceptions, and 3 to 48 signed points per odd square; the counting convention above was not recorded.)
+(At odd squares 9 … 441 there are signed points (2–13 each) and no positive ones.)
 **Corollary 4.2 (no reflection preserves |d|; PROVED).** A move from signed Type I points to positive ones that keeps |d|
 (or its square class mod p) is impossible: it would have to change (|d|/p) from +1 to −1. Vieta jumping is unavailable
-anyway: the Type I equation p(a + b) + c = 4abcd, and 4xyz = p(xy + yz + zx), are linear in each variable, so the only
-involutions are coordinate permutations.
+anyway: the Type I equation p(a + b) + c = 4abcd, and 4xyz = p(xy + yz + zx), are linear in each variable, so there is no
+single-variable (Vieta-type) involution. (R268 repair m7: the earlier "the only involutions are coordinate permutations" was
+false as stated; in reciprocal coordinates the surface is the plane X + Y + Z = 4/p, which has many birational involutions.)
 *Reading (Assessment).* Positivity is not an extra constraint layered on a split algebra. It is the genus wall itself. Split
 signed points live where |d| is a residue (the T1 side; they exist at odd squares), positive points where d is a non-residue.
 A signed→positive transfer must multiply d by a non-residue *and* produce the divisor in the new class — B2 again, plus the
@@ -228,7 +231,8 @@ the square classes. Data: (1) all three b = 1 failures have p − 1 11-smooth (a
 counts 16.0 / 19.3 (11-smooth part S < 50), 13.7 / 16.5 (50 ≤ S < 500), 11.3 / 14.5 (S ≥ 500). Most of this is the known
 QR-richness effect (s7_lvalue_proxy). (3) A controlled test inside the six Mordell square classes mod 840, p ∈ [10⁶, 3·10⁶],
 ≈ 700 primes each: class 1 has mean b = 1 count 19.63 against 20.25–20.89 for the other five square classes (a difference of about one
-solution; standard errors not computed), and c = 1 count 23.53 against 23.96–25.10. So proximity to 1 itself, beyond squareness, costs a few
+solution; R268 repair m11: standard errors ≈ 0.25 per class, class 1 = 19.63 ± 0.25 vs the pooled other classes 20.59 ± 0.11,
+z ≈ 3.5, `logs/review_r268_proximity.txt`), and c = 1 count 23.53 against 23.96–25.10. So proximity to 1 itself, beyond squareness, costs a few
 per cent. Label: EVIDENCE (weak); no mechanism claimed.
 
 ## 6. Verdict (O258 checkpoint 1)
@@ -262,12 +266,21 @@ For 4 | k, k/n = 1/x + 1/y + 1/z ⟺ 4/n = Σ 1/((k/4)x). So **the numerator-k m
 (k/4) | gcd(x, y, z)**; in ET coordinates the k-witnesses are the 4-witnesses with (k/4) | d (PROVED, trivial; surely
 classical). At a fixed slice the k-condition differs from k = 4 only at the primes of k/4, and the size bound e ≤ a + b is
 k-free. O257's inequality b₀(k − 4/g) ≤ 3 at x_{ℓ,2} is therefore the conjunction of a local condition (x ≡ 1 at the primes of
-k forces e ≡ −1 (mod kab₀)) with that k-free size bound. 2-adically: the only k = 4 witness there, Mordell's (1, 6, e = 7),
-has d = (x + 7)/24 a 2-adic unit, so d is odd. (J)57's 2-adic bit law and O257's size inequality are thus two readings of one
+k forces e ≡ −1 (mod kab₀)) with that k-free size bound. 2-adically: the k = 4 witnesses there (R268 repair m9: not only Mordell's
+(1, 6, e = 7) of Type II and Type I at ℓ = 3, but also (II, 1, 5, c = 2, e = 3) and (I, 2, 5, c = 1, e = 7) at ℓ = 5) have
+d = 8/24, 8/24, 4/20, 8/40 in the 2-adic integers (x = 1): all 2-adic units, so d is odd. (J)57's 2-adic bit law and O257's size inequality are thus two readings of one
 step — "d may be odd" — and neither is reciprocity. Of the screened arguments, (J)41 has no 4-specific step (its thresholds
 compare p with M), and Mordell's identities use completeness (a density count). A "k-uniform + threshold P₀(k)" organisation is
-strictly stronger than ES (8/p ⟹ 4/p), so it buys nothing. In the step form, the model exceptions (131, 241, …: every
-solution of 4/p has an odd denominator, `s8_even_denominators.py`) say a proof must spend its 4-specific step on v₂ of the
+strictly stronger than ES (8/p ⟹ 4/p), so it buys nothing (R268 repair m10: "at least as strong as ES"; "strictly" is unproved). In the step form, the model
+exceptions (R268 repair m10: exactly 11, 17, 131, 241 among primes 5 ≤ p < 8000 — every prime with 8/p unsolvable lies among
+the 34 two-line failures, and only these four of them have 8/p unsolvable; at them no solution of 4/p has all three
+denominators even, `s8_even_denominators.py`) say a proof must spend its 4-specific step on v₂ of the
 cofactor d. Near the T1 point this is the 2-adic shape of §1 (b = 1 ∪ c = 1 fails only where every relevant v₂ ≤ 1).
 `s8_xlr_points.py` generalises Thm 2.6 to x_{ℓ,r}: the covered non-residues are those whose CRT window is small
 (r ≡ −small), and coverage thins quickly in k. Assessment: not sharp; no new lever.
+**Scope (R268 repair M3, following R267 D-M1 on NONCONG_LIFTS).** Thm 2.6 and the x_{ℓ,r} screen concern FIXED-SLICE witness
+classes only. With ET's one-parameter polynomial families, k = 8 covers x_{3,2} (II-3 family, n ≡ 281 (mod 504); reviewer spot
+check: 8/n solvable for n = 281 + 504j, j ≤ 11, least x = (n + 7)/8) and x_{5,2}, and k = 4 covers x_{11,2}. So the "4 vs every
+k ≥ 8 separation at x_{ℓ,2}" and the reading "(J)57's bit law and O257's size inequality are two readings of one step" hold
+for slice classes only; at the level of profinite points they are unsupported. The (k/4) | d dictionary is unaffected. The
+identification with (J)57's v₂-exactly-2 evidence is an Assessment, not a proved equivalence (R268 repair m10).
