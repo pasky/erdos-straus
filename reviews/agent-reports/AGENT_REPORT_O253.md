@@ -7,16 +7,20 @@ obstruction theorems with exact scope.
 
 ## SHARP:
 1. **T1 adversary / invisible witnesses (Thm 3.2, Cor 3.3, PROVED).** If p ≡ □ (mod L) then p has no ET witness with
-   modulus dividing L. So a source witness whose modulus sees only residues of p that are squares is useless to any
+   modulus dividing L (proof repaired after self-review: ET normalisation at the square via a CRT choice of m).
+   So a source witness whose modulus sees only residues of p that are squares is useless to any
    congruence-mediated ("determined") lift, and since squareness mod L is local, the lcm of invisible moduli is
-   invisible: **joint recombination over ANY finite set of sources (all shifts, all witnesses at once) is total
-   only if one single source has no invisible witness.** For p ∈ 𝓜, every {2,3,5,7}-smooth input modulus is invisible.
+   invisible: **joint recombination over ANY finite set of sources that must accept every supplied witness tuple
+   is total only if one single source has no invisible witness** (necessary, not sufficient; joint lifts do beat
+   single ones on visible inputs, e.g. p = 17: moduli 8, 12 fail, lcm 24 passes). Favourable-witness existence
+   proofs are not covered. For p ∈ 𝓜, every {2,3,5,7}-smooth input modulus is invisible.
    Dictionary: *the only usable information about p is its residues at non-residue primes of p* — matching the
    (J)64 mechanism, which starts from a prime window with (q/n) = −1. Certified at all fixtures ≤ 5209: every
    source has ≥ 2 invisible witnesses, and adversarial tuples exist.
 2. **Numerator models give a real test-bed of exceptions (Thm 2.5, CERTIFIED).** k/n with 8 ≤ k ≤ 25 has genuine
-   prime exceptions (k = 8: 11, 17, 131, 241); every k-uniform law shape tested (square law, (p²−1)/4 recombination,
-   {(p∓1)/2} recombination, forced successor in (p, 8p]) is false there, and exceptions look isolated.
+   prime exceptions (k = 8: 2, 3, 11, 17, 131, 241 below 2000); every k-uniform law shape tested (square law,
+   *truncated* (p²−1)/4 recombination (factors q > k only; the untruncated analogue is vacuous since 2 ∈ E_k),
+   {(p∓1)/2} recombination, forced successor in (p, 8p]) is false there.
 3. **No free lunch for route D (Thm 2.4).** The {(p−1)/2, (p+1)/2} recombination law *is* ES on p ≡ 9 (mod 16)
    (half of the Mordell-class primes), because there both inputs are already known to be soluble.
 
@@ -27,10 +31,10 @@ obstruction theorems with exact scope.
   Thm 1.5 (blocks/hitting sets; route D).
 * §2 obstructions: Prop 2.1 (an (A)-law is a family of total reductions; with growth it must pass through
   Vaughan-covered small-modulus witnesses), Thm 2.2 (slice isolation: witness transports never amplify),
-  Thm 2.3 (primality-blind ET-valued laws refuted by odd squares), Thm 2.4, Thm 2.5.
+  Thm 2.3 (primality-blind ET-valued proofs refuted at a verified odd square, e.g. n = 121 ∈ 𝓜), Thm 2.4, Thm 2.5.
 * §3 constructions: affine-source recombination with exact gate (Thm 3.1: determined lift exists iff p has an ET
   witness with H | αH′ — the B2 gate); fixtures; 49 Mordell primes < 10^5 with (p+1)/2 prime: total at 0 of 49;
-  T1 adversary (Thm 3.2/Cor 3.3); square law (Prop 3.4: only mixed (2,1,0) solutions matter; they are divisor events
+  T1 adversary (Thm 3.2/Cor 3.3); square law (Prop 3.4: only mixed (≥2,1,0) solutions matter; they are divisor events
   of (p² + m)/4; m = 3 killed by reciprocity; false for k = 8); progression law into the relaxation E_X (Prop 3.5)
   and why it cannot be upgraded.
 

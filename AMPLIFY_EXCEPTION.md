@@ -299,7 +299,9 @@ p² ∤ any denominator are impossible; patterns (≥2, 0, 0) and (≥2, ≥2, 0
 excluded by ET Prop 1.6; patterns with all v_p ≥ 1 are p·W(p). So W(p²) ≠ ∅ ⟹ W(p) ≠ ∅ fails only through *mixed*
 solutions (pattern (≥2, 1, 0)). (EVIDENCE, `z25_square_patterns.py`, p < 80) only (2,1,0), (2,1,1), (2,2,1) occur,
 and mixed solutions exist for every p < 80.
-(b) (PROVED) Mixed solutions are produced by: m ≡ 3 (4), z = (p² + m)/4, A, B′ | z with A + pB′ ≡ 0 (mod m):
+(b) (PROVED) Mixed solutions are produced by: m ≡ 3 (4) with **p ∤ m** (review repair: without it the output
+can be non-mixed, e.g. p = 5, m = 75, A = B′ = 25 gives (25, 50, 10)), z = (p² + m)/4 (then p ∤ z, so p ∤ AB′, and
+p ∤ A + pB′, hence v_p(u) = 2, v_p(v) = 1, v_p(z) = 0), A, B′ | z with A + pB′ ≡ 0 (mod m):
 4/p² = 1/z + 1/u + 1/v, u = p²(z/A)(A + pB′)/m, v = p(z/B′)(A + pB′)/m. These are divisor events of the
 *quadratic* numbers (p² + m)/4, unrelated to p's own events (linear: p + e, pe + 1).
 (c) (PROVED) Reciprocity kills m = 3 when p ≡ 1 (3): every prime ℓ | (p² + 3) has (−3/ℓ) = 1, so all divisors of z
