@@ -8,7 +8,7 @@ BRAINSTORM/z27_*.md (6); scripts scripts/z27_dual.py, scripts/z27_eqcheck.py; da
 1. **Exact dual dictionary (PROVED, §1):** Λ_q(S)*/ℤ^S ≅ Û_q; cube covering radius ≍ 1/𝔻_min within k^{3/2} (Banaszczyk),
    𝔻_min = min_{ψ≠1} Σ_{s∈S} ‖arg ψ(s²)/2π‖. *q is balanced ⟺ no nontrivial character of U_q is ℓ¹-pretentious to 1 on the k
    forced primes at the Minkowski scale N^{−1/k}.*
-2. **The balance-deciding character has order ≍ N, divisible by P⁺(q−1) (EVIDENCE, §6):** in > 99 % of q (k = 3, 4, 5; q ≤ 10⁷),
+2. **The balance-deciding character has large order, divisible by P⁺(q−1) (EVIDENCE, §6; R269 repair: = N in ≈ 75 %, "≍ N" only in this sense):** P⁺(q−1) | ord in > 99 % of q (k = 3, 4, 5; q ≤ 10⁷),
    identical to the uniform-discrete-log model; orders ≤ N^{3/(2k+4)} (nominal small-order range): ≤ 0.07 %. Combined with the
    **indistinguishability Prop 2.2 (PROVED, abstract-vector form)**: Frobenius data in ℚ(ζ_m, S^{1/m}), m ≤ M, is a function of the discrete logs mod
    the M-smooth part of q − 1, and is compatible, among abstract generating vectors with the same projections, with L_min ≥ (M-rough part) − 1. ⇒ The brief's

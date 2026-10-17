@@ -5,6 +5,10 @@ Scope: BALANCED_LATTICE.md §§1–7, memos BRAINSTORM/z27_*.md, scripts/z27_{du
 From-scratch scripts: scripts/review_r269_*.py (none reuse the author's code). Sources/ contains none of Banaszczyk 1993,
 Serre 1981, Schinzel 1977: citation checks below are from the reviewer's knowledge of the statements and are flagged as such.
 
+**Repairs applied (author quiet ≥ 2 h at review end):** BALANCED_LATTICE.md, marked "(R269 repair)", for D1, D3, D6, D7, D10,
+D11, D13, D14, D16, D18, D19; BRAINSTORM/README.md z27 row (D17); AGENT_REPORT_O256.md SHARP 2 wording (D14). Not applied
+(optional): D2, D4, D5, D8 (constants), D9, D12, D15, D20.
+
 ## Overall verdict
 
 **No FATAL and no MAJOR defect.** Every PROVED/CONDITIONAL claim survived a from-scratch re-derivation; the exponents 13/2
