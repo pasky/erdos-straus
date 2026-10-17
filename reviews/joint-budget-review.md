@@ -37,3 +37,20 @@ class condition is periodic in p with a period M(u) (denominators of N′ absorb
 ### Remark 1.3 — SOUND (but see defect D1 on what it means)
 A ℚ-polynomial P with D·P ∈ ℤ[X] satisfies P(X + Dt) − P(X) ∈ ℤ, so integrality is periodic; positivity is eventual.
 Correct.
+
+### §2 Prop 2.1 — SOUND-AFTER-REPAIRS (wording; (c) is a reduction, as labelled)
+(a) |φ(u)| ≤ X ⇒ |u| ≪ X^{1/D} for one-variable φ of degree D: correct; density 0.
+(b) Checked against NORMFORM_CUBIC: Thm 1.1′ (Type II, valid at one point, P* prime) and Thm 3.1 with the R259 repair
+(Type I, valid at one point, P* irreducible ⇒ gr ℚ[x]/(P) a domain ⇒ only constant units). The ES coordinate
+conventions agree: Type II 4abd = p + e, ce = a + b ⇔ 4ABCD = A + B + CP; Type I 4abd = pe + 1 ⇔ 4ABCD = P(A + B) + C.
+φ* irreducible ⇒ φ irreducible ((UV)* = U*V*), so P = φ is prime as (J)79 requires. Schinzel (ET §1, polynomial
+solutions with positive leading coefficients cannot cover a quadratic-residue class): an ET identity in n valid at
+infinitely many n has positive leading coefficients and is integral on a union of classes mod some M (integer-valued
+polynomials become ℤ-coefficient after n ↦ M′t + r), so it covers only non-square classes and misses every prime
+≡ 1 (mod M). Correct. Typo: "valid at one point (Type II) or at one point (Type I …)" — duplicated phrase.
+(c) The case split is complete (r = 1: (a); r ≥ 2: φ* irreducible (b); φ* reducible and degree 1 in some variable (c);
+else (d)). But the proof of (c) treats "α a non-zero constant", which the statement of (c) excludes (α ∉ ℚ), and for that
+case cites the wrong result: with u_r = (p − ψ(u′))/α the family's coordinates are polynomials in (u′, p), i.e. the slice
+parameters DO depend on p, so Theorem A (p-free slices) does not apply — Remark 1.3 does (and sides can split, e.g. the
+ET-variety example right below). See defect D3.
+(d) Residual correctly stated as "no claim".
