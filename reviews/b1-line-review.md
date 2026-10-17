@@ -4,7 +4,23 @@ Reviewer: side-agent/review-b1-line. Scope: B1_LINE.md, BRAINSTORM/z29_*.md, scr
 excerpts, AGENT_REPORT_O259. All numerical checks below use FROM-SCRATCH code `scripts/review_r270_*` (author scripts not reused).
 
 ## Summary verdicts
-(filled in as the review proceeds)
+No FATAL defect. Every computational headline was reproduced exactly with independent code.
+| claim | verdict |
+|---|---|
+| Lemma 1.1 (mutual-shift form, completeness bound min ≤ 1 + √(p + 1)) | SOUND (C1, C5) |
+| Census b = 1: no failure in (66529, 10¹¹] | SOUND — independently rerun in full to 10¹¹ with a different algorithm (C2) |
+| π(10¹⁰; 4, 1), π(10¹¹; 4, 1) | SOUND — verified via π(10¹⁰), π(10¹¹) (C2; closes the "from memory" caveat) |
+| (★): exactly the 14 known failures ≤ 10¹⁰ | SOUND — rerun in full (C4) |
+| Smooth-(p − 1) list to 10¹⁵ (216 882 primes, no extra failure) | SOUND — list regenerated exactly; decisions spot-checked (all Y = 11 + 1 500 random) (C8) |
+| Lemma 1.2 / Cor 1.3 / Prop 1.4 (pair genus law, trivial classes) | SOUND; Prop 1.4's b = 1 half is López's (m1) (C6) |
+| Prop 4.1 (freezing under M_σ | p − 1) | SOUND (minor proof gap m4) (C7) |
+| Thm 4.2 (CONDITIONAL on Dickson: least shift unbounded) | SOUND, correctly labelled; numerically illustrated (C7) |
+| "Unconditionally, Prop 4.1 explains the census records" | OVERCLAIM — the records are outside Prop 4.1's hypothesis (M1) |
+| Lemma 3.1 (incidence form, swap count, main terms) and 1.67 → 1.85 ratios | SOUND as math/EVIDENCE; "Haar main term" mislabelled (m2) (C9) |
+| §3 NB heuristic, prediction, Conjecture 3.5 | SOUND-AFTER-REPAIRS: labels right, arithmetic reproduced; premise "D = O(1)" contradicted by data (M2) (C10) |
+| §5 forcing negative (χ₋₄(p + 4d) = +1) | SOUND (wording slip m6) (C11) |
+| López attribution (2206.10319, 2404.01508) | SOUND-AFTER-REPAIRS — all quotes verbatim-verified; one missing attribution (m1) (C3) |
+| Resource note | not verifiable; no disclosure in the documents (m7) (C12) |
 
 ## Claim-by-claim
 
@@ -158,3 +174,52 @@ Neither B1_LINE.md nor AGENT_REPORT_O259 mentions any > 2-core usage; the report
 3-core burst happened (as the brief indicates), it should be disclosed in the report (m7). Reviewer's own disclosure: all
 R270 heavy runs used ≤ 2 processes under `ulimit -v 8000000` + `timeout`; one 1.5-s test run (the (★) engine to 10⁸) briefly
 overlapped two background jobs.
+
+## Defects
+
+**FATAL:** none.
+
+**M1 (MAJOR, interpretation) — B1_LINE §4, Reading bullet 2 ("Unconditionally, Prop 4.1 explains the census records. 22 010 483 881 …"), echoed in §2.2 last sentence and memo z29_dickson_least_shift.**
+The record primes are essentially outside Prop 4.1's hypothesis: 1 683 049, 277 977 001, 6 098 002 681, 58 441 300 009 have
+3 ∥ p − 1 (M₃ = 72 ∤ p − 1, Prop 4.1 applies to no shift); 22 010 483 881 satisfies only M₃ | p − 1 (freezes shift 3 of 214
+empty shifts). *Repair:* replace by "The records share the qualitative feature (p − 1 divisible by many small primes, small
+primes QR mod p), but satisfy M_σ | p − 1 for σ ≤ 3 at most (345 601: σ = 5), so Prop 4.1 does not literally apply to them;
+it is a model mechanism (Assessment)." — consistent with the author's own 193 caveat.
+
+**M2 (MAJOR, heuristic premise) — §3.4 ("D = 3.24 (the largest observed)") and Conjecture 3.5 ("overdispersion D = O(1)"),
+memo z29_nb_tail_model.** D grows with p in the author's data and mine (2.20 → 2.67 → 3.26 → 3.62 at 10⁶ → 10¹²).
+*Repair:* state D(p) ≈ 0.8 + 0.1 log p as EVIDENCE on 10⁶–10¹²; replace "D = O(1)" by the needed hypothesis
+"D/log D = o((log p)·μ/(log p)²)", i.e. D ≲ c log p suffices; add the sensitivity row (D linear in log p: 8·10⁻⁶ beyond 10⁸,
+5·10⁻¹⁰ beyond 10¹¹; with −20 % μ: 1.8·10⁻³, 2.7·10⁻⁶) from `logs/review_r270_nb.txt`. Conclusions unchanged.
+
+**m1 — §0 (I1), Prop 1.4, memo z29_lopez_typeA.** López 2404.01508v3 §2: "In the previous article it was shown that any prime
+number p such that p ≢ 1 (mod 24) always has a solution of Type A." Cite López for the b = 1 half of Prop 1.4 (and note the
+divisor form is already Thm (a) of 2206.10319).
+
+**m2 — §3.1 Lemma 3.1 "Haar main term" and the parenthetical "class p ≡ 1 (24) runs ≈ 13 % above the unconditioned M₁".**
+For random primes the weight is 1/φ(w): M_φ(10⁶) = 24.7, empirical all-class mean 27.7, class 1 (24) 22.3. *Repair:* call M₁
+"the 1/w main term"; note the prime-conditioned main term carries an extra factor ≈ avg w/φ(w) (common to both lines,
+so the factor-2 comparison stands); say the hard class sits ≈ 20 % below the all-class mean.
+
+**m3 — Lemma 3.1.** "ε ∈ {0, 1}" — the proof shows there are no fixed points, so N_{c1} = R/2 exactly. State ε = 0.
+
+**m4 — Prop 4.1(a) proof.** It uses gcd(s, t) = 1 (to get st | M_σ) without saying so and covers only 3 ≤ s < t; add
+"(gcd(s, t) = 1 by Lemma 1.1; s ∈ {1, 2} carry no pair)".
+
+**m5 — §2.1 "(the known value, OEIS A091115 — from memory, not re-checked)".** Now verified: R270's sieve gives
+π(10¹¹; 4, 1) = 2 059 020 280 and π(10¹¹; 4, 3) = 2 059 034 532, summing (+1) to π(10¹¹) = 4 118 054 813.
+
+**m6 — §5(c) and memo z29_forced_level_characters (c).** For c = 1, p + 1 is even and χ₋₄(p + 1) = 0; say "the odd part
+(p + 1)/2 is ≡ 3 (4) iff p ≡ 5 (8)".
+
+**m7 — resources.** Disclose any > 2-core burst in AGENT_REPORT_O259 (none is mentioned).
+
+**m8 (optional) — §0.** López 2404 states 83449 "has only two Type A solutions"; it has N₁ = 4 (pairs (11, 52), (11, 1284),
+(68, 123), (79, 212), verified in exact rationals). Worth a footnote if López is quoted on solution counts.
+
+## Scripts / logs (R270)
+`scripts/review_r270_engine.c` (sieve-by-pair-congruences + exhaustive AP fallback; `R270_LINE=2` for (★); `least`, `count`
+modes), `scripts/review_r270_checks.py` (brute, genus, freeze, dickson, records, randomspot, chi, smooth, mainterm, disp),
+`scripts/review_r270_classes.py`, `scripts/review_r270_nb.py`; logs `logs/review_r270_*.txt`. Random spot check: 300 random
+primes p ≡ 1 (4) in (10⁹, 10¹¹], all with exact-rational-verified witnesses; least s agrees with a pure-Python divisor
+search on 30 of them.
