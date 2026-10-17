@@ -239,3 +239,39 @@ balance (Prop 4.1) is a Diophantine property of discrete logarithms, not a Frobe
   Type I analogue), and the window is dead at every cap when all primes of a are QR mod p — the covering problem there needs
   non-pretentiousness of χ_p on the primes of a, a Landau-type event. *Composite forced windows* (Thm 1.1′): the parity split
   works (image of K in the 2-torsion is that of −1), but the odd part has order φ(m)/2^r, so balance is harder, not easier.
+
+## 6. Numerics (EVIDENCE)
+
+`scripts/z24_least_window.py N M VER [out] [hard]`: for every prime p ≡ 1 (4) ≤ N, scan windows m ≤ M (m ≡ 3 (4),
+gcd(m, p) = 1; prime or composite) for a cap-0 certificate (P ∩ −P ≠ ∅, P = divisors of K mod m — the δ_p = 0 slice of
+CAP_DOWN Lemma 1.1); record the least one m₀(p) with K, P⁺(K), Ω, ω, u = log K/log P⁺(K), τ(K²) and the certificate δ;
+every VER-th certificate is rebuilt into 4/p = 1/x + 1/y + 1/z and checked with exact rationals (Type II: z integral, p | y, z).
+* *All primes p ≡ 1 (4) ≤ 10⁷* (332 180; data/z24/least_window_all_1e7.txt; 664 exact checks): m₀ ≤ 107 for all; m₀ = 3 for
+  296 430 (p ≡ 2 (3): K ≡ 2 (3) has a prime factor ≡ −1 (3) — classical).
+* *Mordell-hard primes ≤ 10⁷* (p mod 840 ∈ {1, 121, 169, 289, 361, 529}; 20 513; data/z24/least_window_hard_1e7.txt; 410 exact
+  checks). m₀ histogram {3: 8590, 7: 4779, 11: 4419, 15: 961, 19: 766, 23: 637, 27: 63, 31: 183, 35: 27, 39: 44, 43: 7,
+  47: 23, 51: 2, 55: 4, 59: 4, 63: 1, 71: 2, 107: 1}. **Record m₀ = 107 at p = 8 803 369** (forced, K = 3²·43·47·…,
+  certificate 1 + 3²·43·47 ≡ 0 (mod 107): a divisor ≡ −1 (mod m)). Kind of the least window: unforced prime 15 266 (m = 3, 7
+  are unforced at hard p), forced prime 4 145, composite 1 102.
+* **The exponent budget is not the mechanism.** max |δ_s| = 1 in 18 498/20 513 certificates (90 %), 2 in 1 648, ≥ 3 in 367
+  (max 8); support size 1 in 11 807 (58 %: a single prime s | K with s ≡ −1 (mod m)), 2 in 6 820, 3 in 1 770, 4 in 116;
+  mean budget share Σ|δ_s|/Ω(K) = 0.47. All primes: max|δ| = 1 in 97 %, support 1 in 92 %.
+* **Smoothness is not the mechanism.** At m₀ versus all scanned windows m ≤ m₀: mean Ω 3.61 vs 3.12, ω 3.08 vs 2.60,
+  u 1.93 vs 1.65, log τ(K²) 3.61 vs 3.07 — successful K have ≈ 0.5 more prime factors, not a smooth profile. The least smooth
+  K at m₀ are primes (9 hard cases, e.g. p = 55 609, m₀ = 19, K = 13 907 ≡ −1 (mod 19)); the largest prime used in the
+  certificate is > 1000 in 3 106 cases.
+* **Forcing ≈ a factor 4–8 in box size.** Success rate per window by kind and by ⌊log₂(τ(K²)/m)⌋ (tries counted up to m₀):
+  forced prime windows 0.40 / 0.52 / 0.89 / 0.93 / 0.997 / 1.00 at bins −2 / −1 / 0 / 1 / 2 / 3; unforced prime windows
+  0.06 / 0.002 / 0.012 / 0.37 / 0.43 / 0.66 / 0.81 at bins −2 … 4; composite 0.08 / 0.03 / 0.30 / 0.48 / 0.60 / 0.78 at −2 … 3.
+  At forced windows with τ(K²) ≥ 4m only 5 of 2 106 tries failed. The forced failures with τ(K²) ≥ 2m are degenerate boxes
+  (typically q = 11, K = 3·s·s′ with s ≡ 1 (mod 11), so one generator is dead). This is the random-model picture of §4: the
+  parity is free at forced windows, and the remaining odd-part membership succeeds once box ≳ |U_q|, failing only on
+  degenerate (unbalanced) generator sets.
+* **Hypothesis W at small scale** (`scripts/z24_balanced.py y QLO QHI`; exact sumset computation of L_min(q), the least cube side
+  with W_L = U_q for generators s², s ∈ S(y); ρ(q) := (L_min + 1)/|U_q|^{1/k} ≥ 1 by Minkowski):
+  y = 7 (k = 3, 8P = 840), 1012 primes q ≡ 3 (8) in (10³, 4·10⁴): 23 non-generating; ρ quantiles 0/10/50/90/99/100 %:
+  1.08/1.24/1.45/2.04/3.46/6.43; **every one of the 48 classes mod 840 contains q with ρ ≤ 1.37**.
+  y = 11 (k = 4, 8P = 9240), 4451 primes in (10³, 2·10⁵): 27 non-generating; ρ quantiles 1.13/1.30/1.45/1.78/2.55/5.75; **every
+  one of the 480 classes contains q with ρ ≤ 1.47** (data/z24/balanced_y7.txt, balanced_y11.txt). Unbalanced primes exist
+  (ρ up to 6.4) but do not fill classes — EVIDENCE for W at these (tiny) parameters, where the P-loss is not yet visible.
+* *T1 control:* odd squares a² ≤ 10⁶ (499): no window m ≤ 200 with a cap-0 (δ_n = 0) certificate (as proved, CAP_DOWN §3).
