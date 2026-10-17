@@ -94,3 +94,20 @@ already ℓ = 3, 5, 7 carry uncovered points").
   (I, same slice, e = 3, 13·3 + 1 = 40); q = 23 (II, 1, 6, 7, 1), p = 17, e = 7: (1, 6, 1) works, (1, 13, 2) needs 52 | 24.
   The "reselecting ⟺ (θ, e) ∈ Spec(p)" statement is a tautology once stated (fine, it is labelled algebra).
   **SOUND.**
+
+### §2.1–2.3 laboratory (exact E_k, margin)
+
+* **E_k (CERTIFIED claim).** Own solver `scripts/review_r267_ek.c` (divisor criterion on B², written from scratch,
+  validated against a naive (x, y, z) search for every prime p ≤ 3000, k ∈ {4, 5, 8, 9, 12, 13}: 0 mismatches). Run for
+  **every k = 7, …, 25 to 10⁷** and compared with `logs/z28_Ek_primes_1e8.txt` (after dropping 2 and p | k, cut at 10⁷)
+  by `scripts/review_r267_ek_compare.py`: **all 19 lists identical**; last exceptions 241, 12241, 83449, 2763601, 620929
+  (k = 8, 12, 16, 20, 24) and 19, 281, 2081, 14051, 62731 (k = 9, 13, 17, 21, 25) ✓. PW Table 1 (sources/pw.txt, k = 15
+  row ends …, 12601, 16831, 20521) agrees. k = 4, 5: no exception ≤ 3000 (sanity). The 10⁷ → 10⁸ extension not rerun.
+  **SOUND** (known data, correctly labelled as such).
+* **§2.2 profile** — EVIDENCE, descriptive; not rechecked beyond the factorisation 2763601 − 1 = 2⁴·3·5²·7²·47 ✓.
+* **§2.3 margin.** Own counter `scripts/review_r267_counts.c` (f_k(p) = #{x ≤ y ≤ z}), primes in [16000, 48000):
+  mean f/log³p = 0.1535, 0.0692, 0.0412, 0.0288, 0.0243, 0.0181 (k = 4, …, 24); min f = 23, 4, 1, 0, 0, 0; Mordell
+  primes (88): mean 0.0529 (k = 4, ratio 2.9), 0.0190 (k = 8, ratio 3.6), min 23 and 4. Minima and ratios ✓; the
+  quoted means (0.159, 0.072, 0.043, 0.030, 0.025, 0.019) are uniformly ≈ 4 % higher than mine — and also higher
+  than the author's own `z28_lab cnts 4 16000 48000` output, which gives 0.1535 under the obvious estimator (D6).
+  Qualitatively **SOUND (EVIDENCE)**; the numbers need provenance.
