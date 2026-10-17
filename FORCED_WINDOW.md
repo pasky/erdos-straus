@@ -201,8 +201,8 @@ Assessment.)
 **Proposition 5.2 (all-q statements at the forcing scale are false; CONDITIONAL on GRH + Lagarias–Odlyzko).** For every odd
 prime ℓ there are c_ℓ > 0 and infinitely many primes q ≡ 3 (mod 4), q ≡ 1 (mod ℓ), such that every prime s ≤ c_ℓ log q·log log q
 is an ℓ-th power mod q; for them ⟨s² : s ≤ y⟩ ≠ U_q at y = c_ℓ log q log log q, so no box of any size over these generators covers U_q.
-*Proof.* Let S = primes ≤ y, L := ℚ(i, ζ_ℓ, S^{1/ℓ}) (ℚ(i) is linearly disjoint from the odd-degree-over-ℚ(ζ_ℓ) Kummer part and from
-ℚ(ζ_ℓ) unless ℓ = … (i ∉ ℚ(ζ_ℓ) for odd ℓ)); [L:ℚ] ≤ 2(ℓ − 1)ℓ^{π(y)}, log d_L ≤ [L:ℚ]·log(4ℓ∏S)·O(1) = [L:ℚ]·O(y + log ℓ).
+*Proof.* Let S = primes ≤ y, M := ℚ(ζ_ℓ, S^{1/ℓ}), L := M(i). i ∉ M: i ∉ ℚ(ζ_ℓ) (ℓ odd) and [M : ℚ(ζ_ℓ)] is a power of ℓ,
+hence odd; so Gal(L/ℚ) contains an element nontrivial on ℚ(i) and trivial on M. [L:ℚ] ≤ 2(ℓ − 1)ℓ^{π(y)}, log d_L ≤ [L:ℚ]·log(4ℓ∏S)·O(1) = [L:ℚ]·O(y + log ℓ).
 A prime with Frobenius = complex-conjugation-type on ℚ(i) and trivial on ℚ(ζ_ℓ, S^{1/ℓ}) is ≡ 3 (mod 4), ≡ 1 (mod ℓ), and has every
 s ∈ S an ℓ-th power. Under GRH the least one is ≪ (log d_L)² (Lagarias–Odlyzko, as in CAP_POINTWISE Thm 1.3(c)), so
 log q ≤ 2π(y) log ℓ + O(log y), i.e. y ≥ c_ℓ log q log log q; letting y → ∞ gives infinitely many q. ∎
