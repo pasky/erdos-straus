@@ -260,7 +260,8 @@ discrete-log vector (random-lattice model). ν := 𝔻_min·N^{1/k} (Minkowski: 
   quantiles 1/10/50/90 % true vs random: k = 3, q ≤ 10⁶: 0.267/0.563/1.011/1.375 vs 0.265/0.577/1.026/1.372; k = 4:
   0.454/0.784/1.208/1.532 vs 0.381/0.743/1.194/1.535; k = 5: 0.597/0.985/1.389/1.714 vs 0.611/0.979/1.392/1.711; near 10⁷ the
   same to ±0.07. Index-degenerate (ν = 0) counts also match (k = 3: 52 vs 61 of 3000).
-* **The extremal character has order ≍ N (the SHARP observation).** ord ψ_min = N in 73–78 %, ≥ N^{0.9} in 86–88 %,
+* **The extremal character has order ≍ N (the SHARP observation; statistics conditioned on generation, 𝔻_min > 0 — R-O256
+  repair 7; reruns with exact integer 𝔻 reproduce the tables).** ord ψ_min = N in 73–78 %, ≥ N^{0.9} in 86–88 %,
   ≤ N^{1/2} in ≤ 0.3 %, ≤ N^{3/(2k+4)} (a nominal "visible" range; R-O256 repair 4: not an established GRH cutoff) in ≤ 0.07 % (0 of 400 near 10⁷ for every k);
   **P⁺(N) | ord ψ_min in 99.4 %–100 %** — identical to the random model. Balance is decided by the largest prime factor of
   q − 1, the part Frobenius cannot see (Prop 2.2).
@@ -268,13 +269,15 @@ discrete-log vector (random-lattice model). ν := 𝔻_min·N^{1/k} (Minkowski: 
   ν = 0.108. Near 10⁷: q = 9 842 267 (k = 3, ν = 0.185, ord = N).
 * **Per class mod 8P** (dual_classes_y7.txt, all 6450 q ≤ 3·10⁵, 48 classes mod 840): every class has a q with ν ≥ 1.48 (best per
   class: min 1.481, median 1.575), while the per-class worst is 0 (degenerate) in most classes — consistent with z24's L_min test.
-* **Hypothesis EQ at toy scale** (`scripts/z27_eqcheck.py`; eqcheck_y7.txt: all 19 609 q ≡ 3 (8) ≤ 10⁶, 48 classes;
-  eqcheck_y11.txt: all 37 217 q ≤ 2·10⁶, 480 classes mod 9240). Bad₁-type q (ν < t and ord ψ_min > N^{1/k}/t) per class:
-  k = 3: χ² = 49.0 / 29.0 / 30.4 (df 47) at t = 0.3 / 0.5 / 0.7, max/mean ≤ the random-relabelling null; k = 4: χ² = 474.8 / 403.9
-  (df 479) at t = 0.5 / 0.7 (t = 0.3: 72 events in 480 classes, too sparse). The *full* ν < t set, which includes small-order
-  and index-degenerate q, is visibly non-uniform at k = 3 (χ² = 214 at t = 0.3, df 47): the Chebotarev-visible part correlates
-  with q mod s (ℓ | N needs q ≡ 1 (ℓ)), which is exactly the part GRH controls (Bad₂). EVIDENCE for EQ, at sizes where
-  P ≤ 1155 is tiny; it says nothing about P ≈ √x.
+* **Hypothesis EQ at toy scale** (`scripts/z27_eqcheck.py`, R-O256 repair 7: Bad₁ is now *existential* — some ψ with
+  𝔻 < ε = tN^{−1/k} and ord ψ > 1/ε — 𝔻 in exact integers, and a 300-fold permutation null preserving class populations).
+  eqcheck_y7.txt (all 19 609 q ≡ 3 (8) ≤ 10⁶, 48 classes mod 840): Bad₁ at t = 0.3 / 0.5 / 0.7: 250 / 1272 / 3463 q,
+  χ² = 49.5 / 28.0 / 29.8 (df 47), permutation p = 0.33 / 0.97 / 0.86 — no over-concentration. The *full* set "some ψ ≠ 1 with
+  𝔻 < ε" (including small-order and index-degenerate q): χ² = 214 / 96 / 65, p = 0.003 / 0.003 / 0.007 — strongly class-correlated
+  (ℓ | N needs q ≡ 1 (ℓ)), exactly the Chebotarev-visible part that GRH handles (Lemma 2.5). (The existential/minimiser distinction
+  matters rarely: e.g. q = 74 419 has a degenerate order-3 minimiser and a qualifying order-12 403 character with 𝔻 ≈ 0.0079.)
+  eqcheck_y11.txt (480 classes mod 9240, q ≤ 2·10⁶): see file (first, minimiser-based version: Bad₁-type χ² = 474.8 / 403.9,
+  df 479, at t = 0.5 / 0.7). EVIDENCE for EQ only at P ≤ 1155, nowhere near P ≈ √x.
 * *T1 control:* not applicable to these p-free statistics; the construction's T1 step (no forced windows at n = m²) is
   algebraic (§5). Odd-square cap-0 absence was checked in z24.
 
