@@ -1,0 +1,56 @@
+a4 failures: 409 577 5569 9601 23929 83449 102001 329617 712321
+#p=1(4): 39175  a4 fail: 9
+a4 leastu=1: 34162
+a4 leastu=2: 3034
+a4 leastu=3: 928
+a4 leastu=4: 376
+a4 leastu=5: 301
+a4 leastu=6: 137
+a4 leastu=7: 23
+a4 leastu=8: 52
+a4 leastu=9: 42
+a4 leastu=10: 14
+a4 leastu=11: 27
+a4 leastu=12: 11
+a4 leastu=13: 3
+a4 leastu=14: 13
+a4 leastu=15: 6
+a4 leastu=16: 3
+a4 leastu=17: 5
+a4 leastu=18: 5
+a4 leastu=19: 1
+a4 leastu=20: 2
+a4 leastu=21: 3
+a4 leastu=22: 1
+a4 leastu=23: 1
+a4 leastu=24: 1
+a4 leastu=25: 1
+a4 leastu=26: 2
+a4 leastu=27: 2
+a4 leastu=32: 2
+a4 leastu=35: 1
+a4 leastu=36: 1
+a4 leastu=44: 1
+a4 leastu=50: 1
+a4 leastu=78: 1
+a4 leastu=84: 1
+a4 leastu=126: 1
+a4 leastu=131: 1
+#p=1(8): 19552  ES5 u-side fail: 0  u<=2: 17573  max u 17 at 196561
+A leastu=1: 14539
+A leastu=2: 3034
+A leastu=3: 1165
+A leastu=4: 473
+A leastu=5: 160
+A leastu=6: 58
+A leastu=7: 49
+A leastu=8: 34
+A leastu=9: 11
+A leastu=10: 7
+A leastu=11: 10
+A leastu=12: 7
+A leastu=14: 3
+A leastu=15: 1
+A leastu=17: 1
+#p=1(840): 395  u<=2: 238   need u>=n_p: 3
+windows: sub-event fails 8272, full target -1 fails 2458, max least q(sub) 141971

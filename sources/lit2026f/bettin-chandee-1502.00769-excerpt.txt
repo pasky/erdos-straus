@@ -1,0 +1,16 @@
+S. Bettin, V. Chandee, "Trilinear forms with Kloosterman fractions", Adv. Math. 328 (2018), 1234-1262; arXiv:1502.00769. (Also restates W. Duke, J. Friedlander, H. Iwaniec, "Bilinear forms with Kloosterman fractions", Invent. Math. 128 (1997), 23-43 [DFI97, not accessed directly].)
+
+Abstract: We give new bounds for sum_{a,m,n} alpha_m beta_n nu_a e(a mbar/n) where alpha_m, beta_n, nu_a are arbitrary coefficients, improving upon a result of Duke, Friedlander and Iwaniec [DFI97]. Applications to representations by determinant equations and equidistribution of solutions to linear equations.
+
+DFI97 main result (as quoted, eq. (1.1)): B_a(M,N) := sum_{m in [M/2,M], n in [N/2,N], (m,n)=1} alpha_m beta_n e(a mbar / n), a != 0, alpha, beta arbitrary:
+  B_a(M,N) << ||alpha|| ||beta|| (a+MN)^{3/8} (M+N)^{11/48+eps}.
+"In the important case M ~ N, a << MN, the bound saves roughly N^{1/48} over the trivial bound." [NB: modulus n VARIES with the variable; not a fixed-modulus result.]
+
+Theorem 1. theta != 0, nu_a arbitrary supported on [A/2,A]; B(M,N,A)=sum_{a,m,n,(m,n)=1} alpha_m beta_n nu_a e(theta a mbar/n):
+  B(M,N,A) << ||alpha|| ||beta|| ||nu|| (1+|theta|A/(MN))^{1/2} ( (AMN)^{7/20+eps}(M+N)^{1/4} + (AMN)^{3/8+eps}(AN+AM)^{1/8} ).
+For |theta|A << MN, M~N: saving ~ min(A^{3/20}N^{1/20}, N^{1/8}); saving N^{1/20} when A=1.
+
+Corollary 1 (determinant equations; improves DFI95 Invent. Math. 120). Delta != 0, T = sum_{m1 n2 - m2 n1 = Delta} f(m1) g(m2) alpha_{n1} beta_{n2}, f,g smooth on [M_i/2,M_i] (f^{(j)} << eta^j M1^{-j}), alpha,beta arbitrary on [N_i/2,N_i]:
+  T = sum_{(n1,n2)|Delta} (n1,n2)/(n1 n2) alpha_{n1} beta_{n2} int f((x+Delta)/n2) g(x/n1) dx + O((eta R)^{3/2} ||alpha|| ||beta|| (N1N2)^{7/20}(N1+N2)^{1/4+eps}(M1M2)^eps),
+  R = M1N2/(M2N1)+M2N1/(M1N2). DFI95 error was O((eta R)^{19/8}||alpha|| ||beta||(N1N2)^{3/8}(N1+N2)^{11/48+eps}(M1M2)^eps).
+Corollary 2: rho_{m,n}=a0/m, (a0,b0) smallest positive solution of am-bn=1; for X_N subset [0,N] with |X_N| >> N^{1-1/20+eps}, {rho_{m,n}: m,n in X_N} equidistributed in [0,1] (Shparlinski had 1/48).

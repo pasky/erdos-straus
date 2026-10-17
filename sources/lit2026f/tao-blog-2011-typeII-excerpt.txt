@@ -1,0 +1,4 @@
+T. Tao, "On the number of solutions to 4/p = 1/n_1+1/n_2+1/n_3", blog post 2011-07-07, https://terrytao.wordpress.com/2011/07/07/on-the-number-of-solutions-to-4p-1n_1-1n_2-1n_3/
+Lemma 2: for odd prime p, f_1(p) = 3·#{(a,b,c): c | a+b, 4ab | cp+1 (...)}; similarly f_2 with 4ab | p+c. Criterion used: p ≡ -e mod 4ab, e | a+b, (e,4ab)=1 (Type II); (a,b,c)=(1,1,1) settles p≡3 mod 4.
+Sufficient conditions listed incl. "p+4 is divisible by a factor c ≡ 3 mod 4". "these criteria will consistently miss all perfect squares".
+Elementary consequence (our derivation, not in source): e=1 subfamily p = 4abm - a - b ⟺ 4m p + 1 = (4ma-1)(4mb-1), i.e. t p + 1 = A·B with A≡B≡-1 (mod t), t=4m. For fixed t impossible pointwise (e.g. t=4 fails whenever all prime factors of 4p+1 are ≡1 mod 4); only the union over t could hold.

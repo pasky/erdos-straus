@@ -1,0 +1,7 @@
+L. Grimmelt, J. Merikoski, "On the greatest prime factor and uniform equidistribution of quadratic polynomials", arXiv:2505.00493 (2025).
+[accessed arXiv HTML]
+Theorem 1.1. Exists small eps>0: for X>1/eps, h square-free 1<=h<=X^{1+eps}, 1<=a<=X^eps, (a,h)=1, assuming sum_{Y<=p<Z} (log p/p) rho_{a,h}(p) <= (1+eps)log(Z/Y)+1/eps for X^eps<Y<Z<=X^2 (no-Siegel-zero-type hypothesis; unconditional for ah<=X^{eps^2}), there exists n in [X,2X] with P+(a n^2+h) > X^{1.312}.
+Theorem 1.2. Uniform (h<=X^{1+o(1)}) equidistribution of roots nu/p of a nu^2+h ≡ 0 mod p, p<=X.
+Theorem 1.4 (Type I). D<=K<=X^2, D<=X^{1/2}: sum_{d<=D} | sum_{k≡0(d)} psi1(k/K)( #{l: a l^2+h≡0 (k)} weighted - rho(k)X/k ∫psi2 ) | <<< D^{1/2}X^{1/2}(D^{1/2}+h^{1/4})(1+X/(D(D+h^{1/2})))^theta.
+Theorem 1.5 (Type II). M>=N, MN>=X, M<=X, beta_n on squarefree: bilinear sum over m~M,n~N of the same discrepancy (mod mn) <<< M^{1/2}X^{1/2} + M^{1/4}N^{1/2}X^{1/2}(N^{1/2}+h^{1/8})(1+X/(M^{1/2}N(N+h^{1/4})))^theta.
+Relevance: FIXED shift h up to X^{1+eps} (single polynomial), but still a statement about SOME n in a range [X,2X] (average over n and over moduli k~K); nothing at a single integer.

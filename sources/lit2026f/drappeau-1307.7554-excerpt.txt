@@ -1,0 +1,8 @@
+S. Drappeau, "Théorèmes de type Fouvry–Iwaniec pour les entiers friables", Compos. Math. 151 (2015), 828–862; arXiv:1307.7554.
+[accessed arXiv HTML v3]
+Abstract: y-friable integers <= x have weak exponent of distribution >= 3/5-eps for (log x)^c <= y <= x^{1/c}: well distributed in residue class of fixed a, on average over moduli <= x^{3/5-eps}. Application: sum_{n<=x, P+(n)<=y} tau(n-1). Method: Linnik dispersion (FI83, BFI86) + Harper.
+Théorème 1. For eps>0 exist c,delta>0: (log x)^c<=y<=x^{1/c}, all A>=0, E(x,y;a,q)=Psi(x,y;a,q)-Psi_q(x,y)/phi(q):
+ (1.4) sum_{q<=x^{3/5-eps},(q,a1a2)=1} |E(x,y; a1 conj(a2), q)| <<_A Psi(x,y){H(u)^{-delta}(log x)^{-A} + y^{-delta}}   (|a1|,|a2|<=x^delta);
+ (1.5) same with q<=x^{6/11-eps} for |a1|<=x^{1-eps}, |a2|<=x^delta.
+Théorème 2. T(x,y)=sum_{n<=x,P+(n)<=y} tau(n-1) = C(alpha) Psi(x,y) log x {1+O(min(1/u, log(u+1)/log y))}, (log x)^c<=y<=x.
+Regime: fixed (or <=x^{1-eps}) residue, absolute values over ALL q<=x^{3/5} (resp. 6/11). Titchmarsh-type divisor problem over friable n.

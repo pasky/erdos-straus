@@ -1,0 +1,4 @@
+K. Matomäki, "Another note on smooth numbers in short intervals", Int. J. Number Theory 12 (2016), no. 2, 323-340. doi:10.1142/S1793042116500196 (author's version via utupub.fi, read 2026-10-17)
+Abstract (verbatim): "We prove that, for any positive constants delta and epsilon and every large enough x, the interval [x, x + sqrt(x)(log x)^{7/3+delta}] contains numbers whose all prime factors are smaller than x^epsilon."
+Earlier: K. Matomäki, "A note on smooth numbers in short intervals", IJNT 6 (2010) 1113-1116: [x, x + C sqrt(x)] contains x^{1/(5 sqrt e)+eps}-smooth numbers (abstract). Harman: psi([x,x+sqrt x], x^{1/(4 sqrt e)}) >> x^{1/2}; Croot; Friedlander-Granville (Dirichlet polynomial methods need length >= sqrt(x) y^2 exp((log x)^{1/6})).
+Regime: POINTWISE in x (every large x). Length ~ x^{1/2}; smoothness x^eps. "For intervals of length << sqrt(x) such small values of y seem to be a distant target" (2010 note, intro).

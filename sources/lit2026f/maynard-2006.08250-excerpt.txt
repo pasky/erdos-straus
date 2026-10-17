@@ -1,0 +1,9 @@
+J. Maynard, "Primes in arithmetic progressions to large moduli III: Uniform residue classes", arXiv:2006.08250 (2020); Mem. Amer. Math. Soc. 306 (2025), no. 1544.
+[accessed arXiv PDF via reader]
+Theorem 1.1. C large absolute, delta>0, Q1 <= x^{1/10-3delta}/(log x)^C, Q2 <= x^{4/10+4delta}(log x)^C:
+  sum_{Q1<=q1<=2Q1} sum_{Q2<=q2<=2Q2} sup_{(a,q1q2)=1} |pi(x;q1q2,a) - pi(x)/phi(q1q2)| <<_C delta pi(x) + x(loglog x)^2/(log x)^2.
+ (only an O(delta) saving over trivial; uniform in residue class.)
+Theorem 1.2 (almost uniform): 0<delta<1/1000, Q1Q2Q3 = x^{1/2+delta} with constraints x^{40delta}<Q2<x^{1/20-7delta}, ...; sum over q1,q2 of sup_b ... with good error (moduli split into 3 factors).
+Theorem 1.3: a minorant rho(n) for primes, equidistributed uniformly in residue classes to moduli x^{1/2+delta}.
+Corollary 1.4. delta small, A>0: exists B subset [1,x^{1/2+delta}], #B <= x^{1/2+delta}/(log x)^A, such that if q<=x^{1/2+delta} has a divisor in [x^{2/5+delta}, x^{3/7]} and q not in B then for every a coprime to q: pi(x,a;q) ≍ pi(x)/phi(q).
+Regime: uniform residues, but still ALMOST ALL moduli (exceptional set B); level 1/2+delta, delta small. Constants ineffective (Siegel zero).

@@ -1,0 +1,10 @@
+D. Koukoulopoulos, "Divisors of shifted primes", Int. Math. Res. Not. IMRN 2010, no. 24, 4585-4627 (journal ref from memory; text read from author's PDF dms.umontreal.ca/~koukoulo/documents/publications/hxyzps.pdf, dated May 15 2010)
+
+Abstract: We bound from below the number of shifted primes p+s <= x that have a divisor in a given interval (y,z]. Kevin Ford has obtained upper bounds of the expected order of magnitude on this quantity as well as lower bounds in a special case of the parameters y and z. We supply here the corresponding lower bounds in a broad range of the parameters y and z. As expected, these bounds depend heavily on our knowledge about primes in arithmetic progressions. As an application ... number of shifted primes that appear in a multiplication table up to multiplicative constants.
+
+P_s = {p+s : p prime}, H(x,y,z;P_s) = #{n<=x, n in P_s, exists d|n, y<d<=z}.
+Theorem 1.7. Fix s != 0, B>=2. x>=x0(s,B), 3<=y+1<=z<=x, {y<d<=z : (d,s)=1} nonempty, z >= y + y/(log y)^B. Then H(x,y,z;P_s) ≍_{s,B} H(x,y,z)/log x.
+Theorem 1.6 (short intervals of x): same hypotheses plus y<=sqrt x, x(log x)^{-B} <= Delta <= x: H(x,y,z;P_s) - H(x-Delta,y,z;P_s) ≍_{s,B} (Delta/x) H(x,y,z)/log x.
+Theorem 1.8. s != 0, 2<=y<=z<=x: H(x,y,z;P_s) = (x/log x)(1 + O_s(log y/log z)).
+Theorem 1.5: small eta (z close to y) — lower bounds conditional on/limited by primes in APs (Bombieri–Vinogradov / Elliott–Halberstam type ranges).
+Regime: counting over p<=x (positive proportion/order of magnitude), shifted primes p+s with s FIXED; no statement for a single prescribed prime; no residue-class condition on the divisor.

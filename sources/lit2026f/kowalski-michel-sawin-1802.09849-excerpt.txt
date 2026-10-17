@@ -1,0 +1,17 @@
+E. Kowalski, Ph. Michel, W. Sawin, "Stratification and averaging for exponential sums: bilinear forms with generalized Kloosterman sums", Ann. Sc. Norm. Super. Pisa Cl. Sci. (5) 21 (2020), 1453-1530; arXiv:1802.09849.
+
+Abstract: We prove non-trivial bounds for bilinear forms with hyper-Kloosterman sums with characters modulo a prime q which, for both variables of length M, are non-trivial as soon as M >= q^{3/8+delta} for any delta>0. This range, which matches Burgess's range, is identical with the best results previously known only for simpler exponentials of monomials [Fouvry-Michel 1998: K(x)=e((x^k+ax)/q)]. ...
+Intro: KMS17 had obtained (1.1) for Kl_k when M,N>=q^delta and MN>=q^{7/8+delta}. "The condition MN >= q^{3/4+delta} is believed to be a barrier in this setting analogous to N > q^{1/4+delta} in the Burgess bound."
+
+Kl_k(x;chi,q)=q^{-(k-1)/2} sum_{y1...yk=x} chi1(y1)...chik(yk) e((y1+..+yk)/q).
+
+Theorem 1.2. Assume chi has Property NIO (e.g. all chi_i trivial). For any delta>0 there exists eta>0 such that for any k>=2, any prime q, any integers M,N>=1 with
+  M,N >= q^delta,  MN >= q^{3/4+delta},
+we have  sum_{m<=M,n<=N} alpha_m beta_n Kl_k(amn;chi,q) << ||alpha||_2 ||beta||_2 (MN)^{1/2-eta}
+for any a in F_q^x and arbitrary complex alpha=(alpha_m)_{m<=M}, beta=(beta_n)_{n<=N}. Implied const depends only on delta,k. (eta unspecified/ineffective-size small.)
+
+Theorem 1.3 (type I). chi NIO. For any delta>0 exists eta>0: k>=2, q prime, M,N>=1 with M,N>=q^delta, MN^2>=q^{1+delta}:
+  sum_{m<=M,n<=N} alpha_m Kl_k(amn;chi,q) << ||alpha||_2 (MN^2)^{1/2-eta}.
+For M=N nontrivial as long as M=N>=q^{1/3+delta}.
+Corollary 1.4: for N>=q^{2/3+delta}: sum_{n<=N} d2(n) Kl_k(an;chi,q) << N q^{-eta}.
+(All pointwise in a single prime modulus q.)
