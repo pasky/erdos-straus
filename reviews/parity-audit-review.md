@@ -84,3 +84,35 @@ prime P, the existence of a solution is strictly proven". Quote both. Read liter
 "for all P", i.e. ES for P ≡ 1 (4), and is exactly what 9.21(III) does not deliver; the paper is internally
 inconsistent rather than conceding. Repair: replace the E4 quote by the two bullets verbatim and add that remark.
 
+## Claim 1 — citation accuracy (§1 table): **SOUND-AFTER-REPAIRS** (no hallucinated item; 3 minor inaccuracies)
+
+Method: primary sources fetched from the web (arXiv PDFs/abstract pages, Leiden PDF of Lenstra, utupub author
+version of Matomäki 2016, Borwein–Choi PDF) or local PDFs. Three research subagents did a first pass; **every
+discrepancy they reported was re-checked by me against the primary text, and 7 of their 11 "discrepancies" were
+false** (A1, B2, B2′, C1, C2, C3, D6 — see below). Verdicts are mine.
+
+| row | primary source checked | verdict |
+|---|---|---|
+| A1 Lenstra 1984 | Leiden PDF: abstract (11 divisors, s ≥ n^{1/3}), Prop (3.1) p. 340 (c(α) for α > 1/4), and §2 after Table I: "the proof of (2.1) shows that we can take c(α) = O((α − 1/4)^{−2})" | ✓ (O-bound is in Lenstra, not only CHN) |
+| A2 CHN 2008 | IACR ePrint abstract, AMS record | ✓ |
+| A3 Erdős–Hall 1976 | Cambridge record (title "Proof of a conjecture about the distribution of divisors of integers in residue classes" = excerpt) | ✓ title/journal; Gaussian-tail formula only via author's OCR excerpt (consistent with the authors' remark (3)); not independently verified |
+| B1 Shparlinski | arXiv 1103.2879: Thm 13 (p. 14) ✓; §3.1 "out of reach … related to … Selberg–Hooley m ≤ X^{2/3−ε}" ✓; every-a Cp^{3/4} = ref [92] (Garaev) ✓; §6.3 "apparently is very hard" ✓ | **m8**: the almost-all-a bound m^{1/2}(log m)^{1+ε} is ref. [98] = **Garaev–Karatsuba** (PEMS 50 (2007)), not "Garaev" (row B1, §2 ledger row 2, §2 answer paragraph, §3 item 4) |
+| B2 KMS 2017 | arXiv 1511.01636 Thms 1.1, 1.3, 1.7 | ✓ (saving q^{1/64} at M = N = q^{1/2} correct; also confirmed by Blomer–Pascadi Rem. 1.2) |
+| B2′ Blomer–Pascadi | arXiv 2607.24311 PDF, Thm 1.1 (1.3) and Rem. 1.2 verbatim: saving c^{−1/32}, range N ∈ (c^{13/28+ε}, c^{7/12−ε}) against trivial min(c, N√c), prime record p^{3/8} | ✓ (title: "Bilinear forms with Kloosterman sums via quadratic characters" — add) |
+| B3 KMS 2020 | arXiv 1802.09849 Thms 1.2–1.3 | ✓; add pages 1453–1530 |
+| B4 KSWX | arXiv 2204.05038 v5 (accepted JLMS) | statement ✓; journal volume still unverified — **m9**: drop "(2) 108 (2023)" or verify |
+| B5 Bourgain–Garaev | arXiv 1211.4184 | ✓ |
+| C1 Li–Yang | arXiv 2308.14859: Thm 1.2, θ* = 0.3144831759…, "0.3125 is an unbeatable barrier of the existing [methods]" | ✓ |
+| C2 Matomäki | utupub author version: abstract "[x, x + √x(log x)^{7/3+δ}] contains … x^ε[-smooth]" verbatim; 2010 note [x, x+C√x], x^{1/(5√e)+ε} (unconditional) | ✓ |
+| C3 Younis | arXiv 2409.05761 abstract verbatim (17/30, exp((log x)^{2/3+ε}); RH: 1/2, (log x)^K) | ✓ |
+| D4 Lichtman | arXiv 2211.09641 Thm 1.1 (β > 15/(32√e) = 0.2843), 1.4; 2309.08522 Thm 1.2 (G(a) ≤ 3.3907 Π_a(a), every large even a), Cor 1.5 (5/8 under Selberg) / Thm 1.7 ((5−4θ)/(8−6θ), = 66/107 at θ = 7/32) | ✓ |
+| D5 Pascadi | 2304.11696 Thm 1.1; 2505.00653 abstract, Thms 1.3, 1.5 and p. 4 ("does not appear to be … a better exponent with current methods"); 2404.04239 Thm 1 | ✓ |
+| D6 Merikoski / G–M | 1908.08816 Thms 1–2; 2505.00493 abstract: "at least n^{1.312} infinitely often … unconditional proof for the range previously known under Selberg" | ✓ |
+| D9 Assing–Blomer–Li | arXiv 2005.13915, "Uniform Titchmarsh divisor problems", Adv. Math. 393 (2021) 108076 | ✓ (journal data now verified — remove "per the agent, unverified") |
+| E1 Borwein–Choi | PDF: Thm 1.1 p. 154, Thm 2.6 p. 156, Thm 3.1 pp. 156–157, r₃ identity p. 156 | ✓ |
+| E2 Elsholtz–Tao | local PDF: Thm 1.1, Props 1.4, 1.6 (odd squares), 1.7 (f(p) ≪ p^{3/5+O(1/log log p)}), Thm 1.8 ((log p)^{0.549}, relative density 1) | ✓ |
+| E4 Dyachenko | local PDF | ✓ (Claim 6) |
+
+19 rows checked, ≥ 12 required. **No hallucinated or misattributed paper.** Defects: m8 (Garaev–Karatsuba), m9
+(KSWX volume), m10 (cosmetic: add B2′ title, B3 pages; D9 journal now verified).
+
