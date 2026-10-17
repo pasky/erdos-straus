@@ -123,6 +123,8 @@ term: d ≤ (p + 3)/8, and for fixed d, c runs to (p + 4d + 3)/(12d), giving Σ_
 O(1/d²); summing, Σ_{d ≤ (p+3)/8} (1/(4d)) log(p/(12d)) = (log p)²/8 + O(log p). For (★): the swap (u, B) ↦ (B, u) is an
 involution on R's incidences with at most one fixed point (u = B forces u | p, u = 1, 2 = p + 2 − 4C·… impossible: u = B = 1
 needs 4C = p + 2, odd), and swapped incidences give the same unordered triple. ∎
+(Numerically M₁ = 13.3, 19.8, 27.6 at p = 10⁵, 10⁶, 10⁷, against (log p)²/8 = 16.6, 23.9, 32.5, so the O(log p) term is
+≈ −0.3 log p. The class p ≡ 1 (24) runs ≈ 13 % above the unconditioned M₁: 22.3 against 19.8 at 10⁶.)
 **So the b = 1 line has twice as many independent trials as (★).** Per distinct solution, the main terms are (log p)²/8 and
 (log p)²/16. Empirically (class samples, `logs/z29_classes.txt`): N₁/(log p)² = 0.117, 0.124, 0.131, 0.135 at p ≈ 10⁶, 10⁸,
 10¹⁰, 10¹² (p ≡ 1 (24)), and N_{c1}/(log p)² ≈ 0.070–0.074. The ratio N₁/N_{c1} is 1.67, 1.69, 1.78, 1.85, tending to 2 as
