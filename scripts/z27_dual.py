@@ -24,14 +24,14 @@ def dmin(a, N):
     CH = 1 << 21
     for st in range(1, N, CH):
         j = np.arange(st, min(N, st + CH), dtype=np.int64)
-        D = np.zeros(len(j))
+        D = np.zeros(len(j), dtype=np.int64)          # exact integer numerators N*D(j); ties -> smallest j
         for s in a:
             r = (j * s) % N
-            D += np.minimum(r, N - r) / N
+            D += np.minimum(r, N - r)
         i = int(np.argmin(D))
         if best is None or D[i] < best:
-            best, bj = float(D[i]), int(j[i])
-    return best, bj
+            best, bj = int(D[i]), int(j[i])
+    return best / N, bj
 
 
 qs = [q for q in primerange(QLO, QHI) if q % 8 == 3 and P % q]
@@ -59,6 +59,7 @@ print('index-degenerate (D_min=0): true', sum(r[7] for r in rows), ' random', su
 nd = [r for r in rows if not r[7]]
 print('nu = D_min*N^(1/k) quantiles 0/1/10/50/90/100%%  true  :', qu([r[2] for r in nd]))
 print('                                               random:', qu([r[5] for r in rows if r[5] > 0]))
+print('(order statistics below are CONDITIONED on generation, D_min > 0; R-O256 repair 7)')
 for lab, idx in (('true', 3), ('random', 6)):
     rr = nd if lab == 'true' else [r for r in rows if r[5] > 0]
     lo = [log(r[idx]) / log(r[1]) for r in rr]

@@ -28,27 +28,29 @@ together with a choice of real lifts θ_s ∈ ℝ of its angles.
 *Proof.* x ↦ g^x := ∏ g_s^{x_s} induces ℤ^S/Λ ≅ H. Characters of ℤ^S are x ↦ e(y·x), y ∈ ℝ^S/ℤ^S; such a character factors
 through ℤ^S/Λ iff y·x ∈ ℤ for all x ∈ Λ, i.e. y ∈ Λ*. The factored character is ψ with ψ(g_s) = e(y_s). ∎
 
-**Definition 1.2 (ℓ¹-pretentious distance on S).** For ψ ∈ Ĥ put 𝔻_S(ψ) := Σ_{s∈S} ‖θ_s(ψ)‖ (the least ℓ¹-norm in the coset
-θ(ψ) + ℤ^S), and 𝔻_min(q) := min_{ψ ≠ 1} 𝔻_S(ψ). (Compare Granville–Soundararajan's 𝔻(χ, 1; y)² = Σ_{s≤y}(1 − Re χ(s))/s:
+**Definition 1.2 (ℓ¹-pretentious distance on S).** For ψ ∈ Û_q (characters of the whole U_q; R-O256 repair 1) put 𝔻_S(ψ) := Σ_{s∈S} ‖θ_s(ψ)‖ (the least ℓ¹-norm in the coset
+θ(ψ) + ℤ^S), and 𝔻_min(q) := min_{ψ ∈ Û_q, ψ ≠ 1} 𝔻_S(ψ). (Restricted to Ĥ, 𝔻 is never 0 on ψ ≠ 1; on Û_q it vanishes exactly
+when H ≠ U_q, Cor 1.4(c). When H = U_q, Ĥ = Û_q and Lemma 1.1 applies verbatim.) (Compare Granville–Soundararajan's 𝔻(χ, 1; y)² = Σ_{s≤y}(1 − Re χ(s))/s:
 here the weights are flat, the angle enters linearly, and only the k primes of S count.)
 
-**Proposition 1.3 (transference; PROVED, Banaszczyk + elementary).** With λ₁^{(1)}(Λ*) = min(1, 𝔻_min(q)):
+**Proposition 1.3 (transference; PROVED, Banaszczyk + elementary).** Assume H = U_q. Then λ₁^{(1)}(Λ*) = min(1, 𝔻_min(q)) and
 `  1/(2 min(1, 𝔻_min))  ≤  μ_∞(Λ)  ≤  k^{3/2}/(2 min(1, 𝔻_min)).`
-Consequently (FORCED_WINDOW Prop 4.1): if H = U_q then L_min(q) ≤ ⌈k^{3/2}/min(1, 𝔻_min)⌉, and always L_min(q) + 1 ≥
-1/min(1, 𝔻_min) (when finite).
+Consequently (FORCED_WINDOW Prop 4.1): L_min(q) ≤ ⌈k^{3/2}/min(1, 𝔻_min)⌉, and always L_min(q) + 1 ≥
+1/min(1, 𝔻_min). (If H ≠ U_q, L_min = ∞ and 𝔻_min = 0: the statement extends with 1/0 = ∞.)
 *Proof.* Lower: let y ∈ Λ* ∖ {0} and z ∈ ℝ^S with y·z ≡ ½ (mod 1). If z = λ + b with λ ∈ Λ, b ∈ [−r, r]^S, then y·b ≡ ½
 and |y·b| ≤ r|y|₁, so r ≥ 1/(2|y|₁). Nonzero vectors of Λ* are either in ℤ^S (|y|₁ ≥ 1) or lifts of ψ ≠ 1 (|y|₁ ≥ 𝔻_S(ψ)).
 Upper: μ_∞ ≤ μ_2 ≤ k/(2λ₁^{(2)}(Λ*)) (Banaszczyk, *Math. Ann.* 296 (1993), Thm 2.1: μ_2(Λ)·λ₁(Λ*) ≤ k/2) and
 λ₁^{(2)} ≥ λ₁^{(1)}/√k. Prop 4.1(i) of FORCED_WINDOW needs μ_{(L,…,L)} ≤ 1, i.e. μ_∞ ≤ L/2; Prop 4.1(ii) gives μ_∞ ≤ (L+1)/2
 when W_L = U_q. ∎
-**Corollary 1.4 (scales; PROVED).** (a) (Minkowski for the cross-polytope, vol = 2^k r^k/k!) 𝔻_min(q) ≤ (k!/|H|)^{1/k}
+**Corollary 1.4 (scales; PROVED).** (a) (Minkowski for the cross-polytope, vol = 2^k r^k/k!; R-O256 repair 1: needs
+|H| > k!, so that the Minkowski vector has ℓ¹-norm < 1 and is not in ℤ^S) if H = U_q and N > k!, 𝔻_min(q) ≤ (k!/|H|)^{1/k}
 ≤ (k/e)(e√k)^{1/k}|H|^{−1/k} (k! ≤ e·k^{k+1/2}e^{−k}): some nontrivial character is always ℓ¹-pretentious at scale k|H|^{−1/k}.
 (b) Hence **q is balanced at the random-lattice scale (L_min ≤ k^{O(1)}N^{1/k}) ⟺ (up to k^{O(1)}) no ψ ≠ 1 of U_q has
 𝔻_S(ψ) ≤ N^{−1/k}k^{−C}**, i.e. the Minkowski-extremal character is not much more pretentious than forced by pigeonhole.
 (c) Exact zero: 𝔻_S(ψ) = 0 for some ψ ≠ 1 ⟺ H ≠ U_q ⟺ for some prime ℓ | N all s ∈ S are ℓ-th powers mod q (the index
 obstruction of FORCED_WINDOW Prop 5.2).
 *Proof.* (a) Minkowski's first theorem: a symmetric convex body of volume > 2^k·det(Λ*) = 2^k/|H| contains a nonzero point
-of Λ*; the ℓ¹-ball of radius r has volume (2r)^k/k!; Stirling. (b) Prop 1.3. (c) ψ ≠ 1 trivial on all g_s ⟺ H ⊂ ker ψ ⊊ U_q;
+of Λ*; the ℓ¹-ball of radius r has volume (2r)^k/k!; Stirling; a nonzero point of ℓ¹-norm < 1 is not in ℤ^S, so it is a lift of some ψ ≠ 1 (Lemma 1.1). (b) Prop 1.3. (c) ψ ≠ 1 trivial on all g_s ⟺ H ⊂ ker ψ ⊊ U_q;
 take ψ of prime order ℓ (U_q cyclic). ∎
 *Reading.* Balance is a *quantitative non-pretentiousness of all characters of U_q on the k forced primes*, at the
 Diophantine scale N^{−1/k} (not at a fixed scale: FORCED_WINDOW Prop 1.3). The index obstruction is the degenerate case
