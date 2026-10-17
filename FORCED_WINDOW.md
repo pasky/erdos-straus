@@ -186,3 +186,56 @@ domain of Λ_±, so a hit is an atypically short vector in a prescribed coset (a
 *Reading (Assessment).* Beyond the covering threshold, cap 0 is a closest-vector event of probability ≈ τ(K²)/q per window
 in the random model — the lottery of Lemma 2.1 of CAP_POINTWISE, now in lattice form; Prop 2.1 says that summing these events
 over windows is a level-≥-2 problem.
+
+## 5. What the named analytic inputs give (literature screen, made exact where possible)
+
+**Proposition 5.1 (GRH ⇒ bounded-exponent covering by ALL small primes; PROVED relative to GRH).** Assume GRH for Dirichlet
+L-functions mod q. There is an absolute C such that for every prime q every element of F_q^* is ∏_{s ≤ X} s^{δ_s} with
+δ_s ∈ {−1, 0, 1}, X := C log⁴ q.
+*Proof.* GRH gives Σ_{n≤X} Λ(n)χ(n) ≪ √X log²(qX) for χ ≠ χ₀ (standard explicit formula; recalled: Montgomery–Vaughan,
+*Multiplicative Number Theory I*, §13.1). So Σ_{s≤X} (1 − Re χ(s)) log s ≥ θ(X) − O(√X log²(qX)) ≥ (1 − o(1))X for
+X = C log⁴ q. Primes with ‖θ_s(χ)‖ < 1/6 have 1 − Re χ(s) < 1/2, the others ≤ 2; hence the good ones carry log-mass
+≥ (1/3 − o(1))X, so there are ≥ X/(4 log X) of them. Prop 1.2's signed version (factor |1 + 2cos 2πθ|/3 ≤ 2/3 for ‖θ‖ ≥ 1/6)
+needs (q − 2)(2/3)^{X/(4 log X)} < 1, true for X = C log⁴ q. ∎ (A smoothed explicit formula should give X = (log q)^{2+ε};
+Assessment.)
+**Proposition 5.2 (all-q statements at the forcing scale are false; CONDITIONAL on GRH + Lagarias–Odlyzko).** For every odd
+prime ℓ there are c_ℓ > 0 and infinitely many primes q ≡ 3 (mod 4), q ≡ 1 (mod ℓ), such that every prime s ≤ c_ℓ log q·log log q
+is an ℓ-th power mod q; for them ⟨s² : s ≤ y⟩ ≠ U_q at y = c_ℓ log q log log q, so no box of any size over these generators covers U_q.
+*Proof.* Let S = primes ≤ y, L := ℚ(i, ζ_ℓ, S^{1/ℓ}) (ℚ(i) is linearly disjoint from the odd-degree-over-ℚ(ζ_ℓ) Kummer part and from
+ℚ(ζ_ℓ) unless ℓ = … (i ∉ ℚ(ζ_ℓ) for odd ℓ)); [L:ℚ] ≤ 2(ℓ − 1)ℓ^{π(y)}, log d_L ≤ [L:ℚ]·log(4ℓ∏S)·O(1) = [L:ℚ]·O(y + log ℓ).
+A prime with Frobenius = complex-conjugation-type on ℚ(i) and trivial on ℚ(ζ_ℓ, S^{1/ℓ}) is ≡ 3 (mod 4), ≡ 1 (mod ℓ), and has every
+s ∈ S an ℓ-th power. Under GRH the least one is ≪ (log d_L)² (Lagarias–Odlyzko, as in CAP_POINTWISE Thm 1.3(c)), so
+log q ≤ 2π(y) log ℓ + O(log y), i.e. y ≥ c_ℓ log q log log q; letting y → ∞ gives infinitely many q. ∎
+**The forcing–generation gap (PROVED pieces + Assessment).** A window q at which K_q is forced to contain all primes ≤ y has
+y ≤ (1 + o(1)) log q for a positive proportion of p (Thm 3.2's CRT: q ≥ P(y) unless −p mod 4P(y) is small); generation of U_q
+by primes ≤ y holds for all q only from y ≍ log² q on (Bach, GRH, subgroup level) and our bounded-exponent covering from
+(log q)^{2+ε}–(log q)⁴ on (Prop 5.1), and it is FALSE for infinitely many q at y = c log q log log q (Prop 5.2). So every
+forced-window covering argument must choose its window among many (as Hypothesis W does); no "for all q" generation theorem can be
+plugged in. GRH supplies Frobenius control in the fixed Kummer fields of Prop 5.2 (index-ℓ obstructions, Chebotarev-visible), but
+balance (Prop 4.1) is a Diophantine property of discrete logarithms, not a Frobenius condition (CAP_BOUNDED §4).
+
+**Screen of the brief's list (Assessment, with the exact mismatch):**
+* *Smooth shifted primes* (Baker–Harman 1998: P⁺(q − 1) ≤ q^{0.2961} for ≫ x/log x primes; Lichtman 2022: 0.2844; the
+  methods are Bombieri–Vinogradov based and uniform in the shift, so (p + q)/4 with q ≍ p is in range — recalled, not re-checked).
+  They make K_q y-smooth with y = q^{0.28}: then ω(K) = O(1) and the box is O(1)·(e + 3)^{O(1)} ≪ q — Thm 3.1(c): useless at any
+  bounded cap. Even "(log q)^A-smooth shifted primes" (open; Ψ(x, (log x)^A) = x^{1 − 1/A + o(1)}) at windows q ≍ p^θ would give
+  only cap ≳ (log p)^{θA}, worse than GRH's exp(O(√(log₂p log₃p))) (CAP_INTERPOLATION Thm 4.2(b)).
+* *Smooth numbers in APs / short intervals* (Soundararajan 2008, Harper 2012 — equidistribution of y-smooth numbers mod q for
+  y ≥ q^{c}; Matomäki–Radziwiłł 2016 — almost all short intervals): the needed object (Cor 3.3) is an integer with ω ≥ α log log x
+  (α > 1) in EVERY interval of length (log x)^{O(1)} near p/4 — a pointwise polylog-short-interval large deviation, beyond all
+  of these (they are average or need length x^{c}); CRT gives α → 0 (shortfall log₃ p).
+* *Erdős–Rényi* (random k-subsets of a group of order n are complete for k ≥ log₂n + log₂log₂n + ω(1)): the random model behind
+  Hypothesis W and Cor 4.4; Prop 1.3 shows the deterministic analogue needs the Diophantine scale 1/L, Prop 5.2 that it fails for
+  some q. No deterministic content transfers.
+* *Bourgain–Glibichuk–Konyagin, sum–product, Shkredov*: these control ADDITIVE behaviour of multiplicative subgroups/sets of size
+  ≥ q^δ. A window certificate is the purely multiplicative membership −1 ∈ Box (equivalently d₁ + d₂ ≡ 0 with d₁, d₂ in one
+  multiplicative box: the additive form is a single 2-term relation, not a sumset of a subgroup); the box has size q^{o(1)} at
+  windows q ≥ p^θ (Thm 3.1) and the subgroup level is already free (Thm 1.1 of CAP_POINTWISE). No step where sum–product enters.
+* *Konyagin–Shparlinski type "every residue is a short product of small primes"*: these choose the primes freely; here the
+  generator set is the p-dependent set of primes of K_q (ω ≈ log log p), or a CRT-forced set capped at y ≈ log q (above).
+* *Burgess/Ankeny/Bach*: control the least non-residue / generation (subgroup level), which is already free at forced windows;
+  they say nothing about the box level.
+* *Type I windows* (CAP_POINTWISE Prop 4.1): opposite parity, (a/p) = +1; the quadratic character is NOT removed (Lemma 1.1 has no
+  Type I analogue), and the window is dead at every cap when all primes of a are QR mod p — the covering problem there needs
+  non-pretentiousness of χ_p on the primes of a, a Landau-type event. *Composite forced windows* (Thm 1.1′): the parity split
+  works (image of K in the 2-torsion is that of −1), but the odd part has order φ(m)/2^r, so balance is harder, not easier.
