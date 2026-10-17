@@ -26,24 +26,22 @@ Serre 1981, Schinzel 1977: citation checks below are from the reviewer's knowled
 | Thm 4.2 | SOUND (relative to GRH + S) | ε = x^{−3/(2k)}: 1/ε = y^{3+o(1)}, L = y^{9/2+o(1)}; S's total ≤ x^{1/2}(log x)^A ≤ G/8. Hypotheses should be spelled out (D10) |
 | Reading after 4.2 ("S ⇒ EQ at the parameters used") | SOUND | only at ε = x^{−3/(2k)} (Bad₁(ε) is not monotone in ε) |
 | Remark 4.3 | SOUND (Assessment-level, not new) | Markov over classes + equidistribution of −p mod 8P (needs GRH for primes in progressions to modulus 8P = (log p)^{(1+o(1))log₃p}, beyond Siegel–Walfisz — available since GRH is assumed) and x frozen per dyadic p-block; correctly declared weaker than CAP_INTERPOLATION §2 |
+| Prop 5.1 (narrowed) | SOUND | trivial size statement (2^k = P^{o(1)} ≪ \|U_q\| ≍ x ≥ P²) correctly labelled; the counterexample to the unnarrowed version re-verified from scratch: (11/409) = −1, K = (409 + 11)/4 = 105, t = −105 ≡ 5 (11), W₀ = {3^{2j₁}5^{2j₂}7^{2j₃}} = {1, 3, 4, 5, 9} = U₁₁ |
+| Barrier screen §5 | SOUND | B5/T1: (q/m²) = 1 for q ∤ m, so no forced windows at squares — correct and algebraic; B2 handled by Prop 5.1 |
+| §6 ν statistics | SOUND-AFTER-REPAIRS (EVIDENCE) | reproduced from scratch (600 q, k = 3; 400 q, k = 4); the 1 % quantiles quoted must be conditioned on 𝔻_min > 0 (D13) |
+| §6 order statistics | SOUND (EVIDENCE); wording (D14) | reproduced: k = 3: ord = N 0.78 (random 0.75), ≥ N^{0.9} 0.89 (0.88), P⁺(N) \| ord 0.995 (0.997); k = 4: 0.76 (0.80), 0.86 (0.88), 0.995 (0.995); ≤ N^{1/2}: 0 resp. 0.25 % |
+| Labels; "bounded cap is not ES" | SOUND | stated in the header, §5, §7.4 and the report; no ES claim anywhere; CONDITIONAL labels on Thms 4.1/4.2 correct; Assessment 2.3 correctly demoted |
 
-**D9 (MINOR, informative) — size of the o(1) in Thms 4.1/4.2.** From-scratch evaluation of the paper's own parameter choices
-(scripts/review_r269_exponents.py, data/review_r269/exponents.txt; C₀ = C = 10³, c₃ = 10⁻³): log L/log log₂p equals
-12.3, 10.8, 9.9, 9.3, 8.9 (Thm 4.1) and 6.2, 5.8, 5.6, 5.4, 5.3 (Thm 4.2) at log₂p = 10², …, 10⁶; measured against log y the
-values are 7.5 and 4.46 at log₂p = 10⁶. The limits 13/2 and 9/2 are right, but the o(1) is O(log₄p/log₃p) (from
-log x/y = 2 + O(1/log₃p), y/k = log y − 1 + o(1), and log y = log₃p + log₄p + …). *Repair (optional):* write
-(log₂p)^{13/2 + O(log₄p/log₃p)}, or state the bound as y^{13/2+o(1)} with y = log₂p·log₃p.
+**D13 (MINOR) — §6 first bullet, ν quantiles.** The quoted 1 % quantiles (k = 3: 0.267 true / 0.265 random) cannot include the
+index-degenerate q (ν = 0), which are 52/3000 = 1.7 % > 1 % of the sample by the author's own count; my from-scratch run
+(scripts/review_r269_sec6.py nu; data/review_r269/nu_k3.txt) has 9/600 degenerate and 1 % quantile 0.000 unconditionally.
+The other quantiles agree: k = 3: 10/50/90 % = 0.550/1.032/1.380 (true) vs 0.547/1.000/1.375 (random); k = 4: 0.736/1.221/1.563
+vs 0.749/1.187/1.541 (author: 0.784/1.208/1.532 vs 0.743/1.194/1.535). *Repair:* say "quantiles conditioned on 𝔻_min > 0".
 
-**D10 (MINOR) — Thm 4.2 statement.** "CONDITIONAL on GRH + S" without saying which GRH. *Repair:* "Assume GRH for Dirichlet
-L-functions and for the Dedekind zeta functions of ℚ(ζ_{lcm(8P,ℓ)}, √p, S^{1/ℓ}) (ℓ odd prime ≤ y^{3+o(1)}), and
-Hypothesis S."
-
-**D11 (MINOR) — domain of Bad₁ in EQ and S.** The notation section takes q ≡ 3 (mod 4), Prop 3.1 says "q prime", S says
-"#{q ≤ x : q ∈ Bad₁}". For q ≡ 1 (mod 4), U_q has even order and the definitions still make sense, but the application needs
-only q ≡ 3 (mod 8), q ∤ P. *Repair:* state EQ and S for primes q ≡ 3 (mod 8), q ∤ P (weakest form); this also removes the
-doubt whether the 2-part of q − 1 could carry pretentious characters of order > 1/ε.
-
-**D12 (MINOR, optional) — S is stated more uniformly than used.** S quantifies over all y with P(y) ≤ x^{1/2}, but Thm 4.2
-uses one y = y(x) (inverse of x = C₀φ(8P(y))² log⁴p, i.e. log x = (2 + o(1))y) and only q ∈ (x/2, x]. *Repair:* record the
-minimal form "for y = y(x) with x ≍ P(y)²·exp(O(y/log y)) and q ∈ (x/2, x]" next to the uniform one; the weaker statement is
-the one whose plausibility matters.
+**D14 (MINOR, wording) — "the extremal character has order ≍ N" (§6, §7.1, report SHARP 2, brief's "ord ψ_min ≍ N in > 99 %").**
+What is measured in > 99 % is P⁺(N) | ord ψ_min; ord = N holds in ≈ 75 % and ord ≥ N^{0.9} in ≈ 87 %. "≍ N in > 99 %" is not
+shown (and P⁺(N) is typically ≈ N^{0.6}). The doc's own sentence in §7.1 ("order ≍ N (§6; P⁺(q−1) | ord in > 99 %)") conflates
+the two. *Repair:* "ord ψ_min is divisible by P⁺(q − 1) in > 99 % and equals N in ≈ 75 %". The conclusion drawn (balance is
+decided outside the Frobenius-visible small orders) needs only the P⁺ statement, so nothing else changes. Also "ties": several
+characters (at least ψ, ψ̄) attain 𝔻_min; the statistic should say which minimiser's order is reported (my run reports the
+largest-order minimiser and, for the "small order" rows, the smallest-order one; numbers unchanged).

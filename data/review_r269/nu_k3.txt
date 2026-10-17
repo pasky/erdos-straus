@@ -1,0 +1,5 @@
+y=7 k=3 q in [100,1000000] n=600
+ true: nu quantiles 1/10/50/90% = 0.000/0.550/1.032/1.380; degenerate 9/600
+   cond. D>0 (n=591): ord=N 0.782 (some minimiser), ord>=N^0.9 0.887, ord<=N^0.5 0.0000 (smallest-order minimiser), ord<=N^(3/(2k+4)) 0.0000, P+(N)|ord 0.9949
+ rand: nu quantiles 1/10/50/90% = 0.000/0.547/1.000/1.375; degenerate 17/600
+   cond. D>0 (n=583): ord=N 0.753 (some minimiser), ord>=N^0.9 0.878, ord<=N^0.5 0.0000 (smallest-order minimiser), ord<=N^(3/(2k+4)) 0.0000, P+(N)|ord 0.9966
