@@ -234,3 +234,7 @@ numbers (ratios and minima unchanged).
 **D8 (MINOR)** Report: "size-information permutation test: source sizes carry no signal" → "descriptive hit rates; no
 visible difference; D-size confounded".
 **D9 (MINOR, process)** 5-process burst over the 2-core limit (self-reported).
+
+### Addendum: Thm 2.6 numerics extended
+`review_r267_x2.c` with a ≤ b ≤ 1000, k = 4 and k = 8, all odd ℓ < 60: k = 4 hits exactly the four Mordell classes;
+k = 8: no hit; 0 disagreements between the two membership tests.
