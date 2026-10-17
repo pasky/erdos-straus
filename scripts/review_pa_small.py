@@ -26,3 +26,18 @@ if __name__=="__main__":
         for u in range(1,m+3):
             if any(f%(4*u)==4*u-1 for f in divisors(n+u)): bad+=1;print("hit",n,u);break
     print("odd squares tested",cnt,"a4 hits",bad)
+
+def check_typeII_injection(P=2000):
+    """(u,B,C) -> (uBC, pBC, puC) is an injective map into ES Type II solutions (R265 Claim 8)."""
+    from fractions import Fraction as F
+    n=0
+    for p in range(5,P):
+        if any(p%d==0 for d in range(2,int(p**.5)+1)): continue
+        seen=set()
+        for u in range(1,(p+1)//3+1):
+            for f in range(4*u-1,p+u+1,4*u):
+                if (p+u)%f: continue
+                B=(p+u)//f; C=(f+1)//(4*u); t=(u*B*C,p*B*C,p*u*C)
+                assert F(4,p)==F(1,t[0])+F(1,t[1])+F(1,t[2]) and t[0]%p and t not in seen
+                seen.add(t); n+=1
+    return n

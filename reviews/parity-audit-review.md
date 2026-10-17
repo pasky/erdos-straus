@@ -1,10 +1,52 @@
 # R265 — hostile review of O255 (PARITY_AUDIT.md, branch side-agent/parity-audit)
 
 Reviewer: R265 side agent. Reviewed commit: 282afc57. Scripts: `scripts/review_pa_*` (from scratch).
-Status: IN PROGRESS.
+Status: COMPLETE (round 1). Repairs applied: none (author's status line is "awaiting parent review", so defects
+are left for the author; all repairs below are wording/coverage edits).
 
 ## Summary verdicts
-(filled in per claim below)
+
+| # | claim | verdict |
+|---|---|---|
+| 1 | citation accuracy (19 rows checked against primary sources) | **SOUND-AFTER-REPAIRS** (no hallucination; m8–m10) |
+| 2 | §0 events, Lemma 0.1 | **SOUND** (m4) |
+| 3 | Lemma 2.1 | **SOUND** (m2, m3) |
+| 4 | Lemma 3.2 | **SOUND** (m5, m6) |
+| 5 | Remark 3.1 tied averaging | **GAP** (MAJOR-1 over-stated; MAJOR-2 missed Ramaré–Walker/Szabó) |
+| 6 | Dyachenko assessment | **SOUND** (m7) |
+| 7 | census EVIDENCE | **SOUND** — every number reproduced exactly from scratch |
+| 8 | verdict / "gap = p^{1/2}" | **SOUND-AFTER-REPAIRS** (MAJOR-3; m11, m12) |
+| 9 | hygiene | **SOUND** |
+
+No FATAL defect. The verdict "H-B not feasible with known inputs; SHARP: none" survives.
+
+## Defect list
+* **MAJOR-1** (§3 Remark 3.1; echoed in Verdict (ii), §3 item 4, report finding 3): "at a single p the only free
+  variables are u, C, q, each also the modulus" is false in the hyperbola coordinates (x, y free mod the fixed
+  modulus 4p); the tie is in the height-dependent target. Repair text in Claim 5 (i).
+* **MAJOR-2** (§1D header "all averaged", §4 bullet 1): missed Ramaré–Walker (JTNB 30 (2018), arXiv:1610.05804,
+  "a footnote in parity breaking") and Szabó (arXiv:2208.05762): parity-breaking existence, pointwise in modulus
+  and residue. Do not reach (a⁴)/(b) (primes free, not divisors of K_q / p + u). Add row D11; amend wording.
+* **MAJOR-3** (§2 Assessment 2.2, ledger row 1, "Answer…"; §3 Verdict (ii); report finding 2): p^{1/2} is
+  presented as the error of the best pointwise estimate for (★), but (1) no derivation bounds E(p) by Weil, and
+  (J)6 §3.4 (post-R165) explicitly does not claim one; (2) the divisor bound already gives |E(p)| ≪ p^{2/5+o(1)}
+  via the injection (u,B,C) ↦ (uBC, pBC, puC) into Type II and ET Prop 1.7 (checked in
+  `scripts/review_pa_small.py::check_typeII_injection`). Repair text in Claim 8.
+* m1 §5 T1 bullet: define "(a) hit" at composite n (Jacobi? class layer only?).
+* m2 Lemma 2.1 U-version: error O(log p) is comparable to the main term at polylog U; use (log p/4)H_U + O((log U)²+1).
+* m3 §2 "does not shrink 𝓡": shrinks by log U/log p; and parametrisation-dependent.
+* m4 §0: note the class layer of (a) alone is trivially satisfiable (u = 1).
+* m5 Lemma 3.2: oddness of m unused (holds for every square).
+* m6 Lemma 3.2 prime case: add u < p.
+* m7 E4: quote §11 of Dyachenko fully ("not proven *constructively*"; "fixed P … strictly proven").
+* m8 B1, §2, §3 item 4: almost-all-a box result is Garaev–Karatsuba [98], not Garaev.
+* m9 B4: KSWX journal volume unverified — verify or drop.
+* m10 cosmetic: B2′ title; B3 pages 1453–1530; D9 journal data now verified (drop "per the agent, unverified").
+* m11 "≍ p^{1/2}" should be p^{1/2+o(1)} (§2 Answer, Verdict (ii)).
+* m12 Verdict (iii): "no easier for complete-sum methods" only for the (u,C)/(u,B) parametrisations.
+
+Note on process: research subagents produced 7 false "discrepancies" (A1, B2, B2′, C1, C2, C3, D6) that I refuted
+against the primary texts; the author's statements on those rows were correct.
 
 ## Claim 7 — census EVIDENCE (§5): **SOUND**
 
@@ -184,4 +226,11 @@ m3).
 Checked and fine: §3 item 2 (p = 173, q = 7, K = 45: 5·9⁻¹ ≡ −1 (mod 7), no divisor ≡ 6 ✓; the "(q−1)/2"
 obstruction ✓; Ω(K_q) ≤ log₃ p, so the stated log₂ is safe); Remark 5.1 ((u/p) = +1 for u ≤ 7 when p ≡ 1 (840) ✓;
 CONJECTURE label ✓); Graham–Ringrose/Montgomery are correctly flagged "from memory".
+
+## Claim 9 — hygiene: **SOUND**
+
+`sources/lit2026f/`: 39 plain-text files, 55 KB total (largest 2.6 KB), each a bibliographic line + short
+paraphrase/abstract quote + theorem summaries; no PDFs, no full texts (the agent report's "~150 KB" is du block
+size; actual 55 KB — trivial). `logs/pa_*`: two files, 4 KB each. Whole branch diff: 46 files, 977 lines, largest
+file PARITY_AUDIT.md (44 KB). Nothing > 200 KB. (Disk at 97 %: my own additions are < 20 KB.)
 
