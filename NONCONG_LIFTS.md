@@ -171,15 +171,16 @@ modulus carries a prime ℓ > B with (q/ℓ) = −1 ≠ (p/ℓ). Visibility, how
 **Computation 3.2 (CERTIFIED, `scripts/z28_matched.py`, logs `logs/z28_matched_{fixtures,mordell}.txt`).** Sources
 q = p − δ, |δ| ≤ W, q prime, q ≡ p (8), matched Legendre profile at ℓ ∈ {3, 5, 7}; all ET representations of all
 witnesses; "det" = p has a witness with H | H′ (O253 Thm 3.1), "share" = exact-share lift (Prop 1.4).
-Entries q(δ): det / visible / all.
+Entries q(δ): det / visible / all. (Rerun after review R-O257 M1/M2/minor: general squareness test incl. non-unit residues,
+128-bit printing in the solver, profile test comparing zero symbols; two fixture entries changed by one.)
 ```
-97   (W=600): 73(+24):5/6/7  313(-216):16/20/21  433(-336):13/17/22  577(-480):9/15/18
-193  (W=600): 337(-144):10/18/22  457(-264):12/18/20  673(-480):8/14/18
+97   (W=600): 73(+24):5/6/7  313(-216):16/20/21  433(-336):13/17/22  577(-480):9/14/18
+193  (W=600): 337(-144):10/18/22  457(-264):12/18/20  673(-480):8/13/18
 313  (W=600): 73(+240):6/6/7  97(+216):3/6/8  433(-120):7/16/22  577(-264):8/15/18
 3361 (W=600): 3049(+312):3/22/29  3529(-168):9/25/30  3889(-528):6/19/30
 5209 (W=600): 4729(+480):0/20/33  5569(-360):4/19/30
 ```
-All 273 Mordell-class primes p ≤ 10⁵ (W = 1000): 1347 matched sources, 106322 source witnesses, 68739 visible
+All 273 Mordell-class primes p ≤ 10⁵ (W = 1000): 1347 matched sources, 106322 source witnesses, 68737 visible
 (65%), 20365 transport by a determined lift (all of them visible — Thm 1.2 consistency asserted), exact-share 1606;
 **0 sources are total**; visibility is sufficient (every visible witness transports) at 0 sources; the only
 fixture source where it happens is 313 ← 73 (6/6 visible, one invisible witness remains, so not total either).
