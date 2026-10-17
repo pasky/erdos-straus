@@ -5,7 +5,16 @@ Scope: BALANCED_LATTICE.md §§1–7, memos BRAINSTORM/z27_*.md, scripts/z27_{du
 From-scratch scripts: scripts/review_r269_*.py (none reuse the author's code). Sources/ contains none of Banaszczyk 1993,
 Serre 1981, Schinzel 1977: citation checks below are from the reviewer's knowledge of the statements and are flagged as such.
 
-## Summary verdicts (filled in claim by claim)
+## Overall verdict
+
+**No FATAL and no MAJOR defect.** Every PROVED/CONDITIONAL claim survived a from-scratch re-derivation; the exponents 13/2
+(GRH + EQ) and 9/2 (GRH + S) are correct as stated (with an o(1) of size O(log₄p/log₃p), D9); EQ and S are precise, p-free
+(S also class-free), and not false for any trivial reason I could find (Brun–Titchmarsh regime, Chebotarev families of
+Prop 5.2 type, extreme class a ≡ 1 (mod P)). All §6 EVIDENCE that I re-ran reproduces — the EQ tables at y = 7 and y = 11
+exactly. Labels are honest ("bounded cap is not ES" is stated four times; no ES claim). 20 MINOR defects, mostly wording,
+statement hygiene and citation precision (D1, D3, D7, D10, D11, D13, D14, D16, D17, D18 should be repaired; the rest optional).
+
+## Summary verdicts (claim by claim)
 
 | claim | verdict | notes |
 |---|---|---|
@@ -45,3 +54,11 @@ farthest from Prop 2.2's "large rough part". Stratifying by w := #{ℓ ∈ S : �
 9/202 vs 19/198 (t = 0.7): no enrichment — the cluster is a fluke (look-elsewhere probability that some class of 480 gets ≥ 3
 at mean 0.15 is ≈ 0.25). *Repair:* add this to §6 and name the class a ≡ 1 (mod P) as the natural worst case for EQ in any
 future test.
+
+**D20 (MINOR, informative) — Hypothesis S is stated at a threshold with a factor ≈ k^k of unused random-model room.** Under
+the uniform model the expected #Bad₁(ε) ∩ [1, x] is ≈ x²(2ε)^k/(4ζ(k)k! log x) (± pairs, primitive vectors). At
+ε′ := (k/2e)·x^{−3/(2k)} this is ≈ x^{1/2}/(√k log x) — still inside S's allowance — and gives 1/ε′ = y^{2+o(1)}, hence
+L = k^{3/2}/ε′ = y^{7/2+o(1)}; with an ℓ^∞ transference of constant O(1) (numerically μ_∞·𝔻_min ≤ 1.11, D2) it would be
+y^{2+o(1)}, exactly Cor 4.4's random-lattice (log₂p)^{2+o(1)}. So "S is the random-model prediction, with room" is right, and
+the exponent 9/2 reflects the chosen ε and the k^{3/2} transference, not the random model. *Repair (optional):* add this
+remark after Thm 4.2 (no change to the theorem).
