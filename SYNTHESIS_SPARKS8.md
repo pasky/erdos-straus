@@ -1,6 +1,9 @@
 # SYNTHESIS_SPARKS8 — cross-combinations of wave AA ((J)84–(J)87, relays O256/O257) (task O258, synthesis VIII)
 
-Status: O258 checkpoint 1 (unreviewed). **ES is not solved here, and no infinite case of ES for primes is claimed.** Labels as
+Status: O258 checkpoint 1; hostile review R268 (`reviews/synthesis-eight-review.md`): no FATAL, MAJOR M1–M4, minors; repairs
+applied by the reviewer, marked (R268 repair). **Prior art (R268 repair, M4): M. A. López, arXiv:2404.01508 — Type A = the b = 1
+line, his Thm 7 = the divisor form of Prop 1.3, the Type-A exceptions 193, 2521, 66529, and his Conjecture 1 = "b = 1 ∪ c = 1 never
+fails" (checked there to 104 729).** Status otherwise: **ES is not solved here, and no infinite case of ES for primes is claimed.** Labels as
 in DISCOVERIES.md. Memos `BRAINSTORM/s8_*.md`; scripts `scripts/s8_*` (`s8_lines.c` = census engine, `s8_check_b1.py` =
 independent brute-force checker); logs `logs/s8_*` (tiny).
 
@@ -12,8 +15,9 @@ PARITY_AUDIT's (★)), **d = 1 line** (LATTICE_MEETING's meeting locus).
 (I1) Mandatory (i), least residue × height-dependent target. Wrote the single-p event in four equivalent coordinates (window,
 twisted modular hyperbola, Kloosterman fraction, mutual shift pairs; §1). Construction attempts: (1) Minkowski/Thue on the
 hyperbola — Thue produces points of the twisted hyperbola Xε ≡ u (p) of uncontrolled height; ES needs a height-dependent
-class (barrier hypothesis it meets: "target fixed in advance"). (2) DFI 1997 — its bilinear Kloosterman-fraction bounds ARE
-uniform in the numerator a = p (so "fixed p" is not the obstruction); what fails is volume: the ES indicator has expected
+class (barrier hypothesis it meets: "target fixed in advance"). (2) DFI 1997 — its bilinear Kloosterman-fraction bounds hold
+for every numerator a but degrade with a, and are nontrivial with a = p only for boxes of size MN \gtrsim p (R268 repair M2; the
+earlier "ARE uniform in a = p" was inaccurate); what fails is volume: the ES indicator has expected
 count O(1) per dyadic box, so any equidistribution statement must save the full box volume (Lemma 1.5). (3) Piecewise
 linearity of y ↦ (−p mod y) (continued-fraction structure) linearises the least residue on each interval (p/(k+1), p/k] and
 returns exactly ET's window form (Prop 1.4). All three return to B2; recorded as a precise "what fails" (§1.6).
@@ -22,8 +26,8 @@ returns exactly ET's window form (Prop 1.4). All three return to B2; recorded as
 4 | D. Census (§2): **the b = 1 line fails at exactly three primes p ≡ 1 (4) ≤ 10⁸ — 193, 2521, 66529 —** and the c = 1 line at
 14 primes ≤ 10⁷ and none in (10⁷, 10⁸]; the two lines never fail together ≤ 10⁸ (EVIDENCE). Per-j events are pairwise
 independent to within 0.4 % on average (max ratio 1.27); joint all-j failure is 1.5 × the independence prediction. A
-deterministic forcing of one j would have to be 4-specific: the k = 8 analogue of the two-line union fails at 34 primes < 8000,
-including 131 and 241.
+deterministic forcing of one j would have to be 4-specific: the k = 8 analogue of the two-line union fails at 34 primes 5 \le p < 8000,
+including 131 and 241 (22 of them \equiv 1 (4), incl. 241; R268 repair m1).
 (I3) Mandatory (iii), forced windows × T1 adversary: §3.
 (I4) Mandatory (iv), positivity × signed slices: §4.
 (I5) Own: profinite proximity to the T1 point 1 (smooth p − 1) as a hardness coordinate (s8_profinite_proximity).
@@ -38,7 +42,8 @@ Type II solutions (a, b, c, d) of 4/n correspond bijectively to triples (c, (x, 
 (x, y) = (a, b), d = N/(4c). In particular
 * the c = 1 line ⟺ ∃ (x, y) ∈ MP(n) with 4 | N(x, y);
 * the d = 1 line ⟺ ∃ c, (x, y) ∈ MP(cn) with N = 4c;
-* the b = 1 line ⟺ ∃ c: cn + 1 has a divisor w ≡ −1 (mod 4c) with w ≤ (cn + 1)/2 (x = (cn + 1)/w, y = 1).
+* the b = 1 line ⟺ ∃ c: cn + 1 has a divisor w ≡ −1 (mod 4c) (x = (cn + 1)/w, y = 1). (R268 repair m2: the earlier side
+  condition w ≤ (cn + 1)/2 was false for n ≡ 3 (4), e.g. n = 3, (a, c, d) = (1, 2, 1), and is unnecessary.)
 *Proof.* cn + a + b = 4abcd says exactly ab·4cd = cn + a + b; this gives a | cn + b, b | cn + a and N = 4cd. Conversely N = 4cd with
 d ≥ 1 integral reverses it. For b = 1: a(4cd − 1) = cn + 1. ∎
 
@@ -53,13 +58,19 @@ w ≡ −1 (4d) is the pair (g, 4d); w ≠ n + 4d as n + 4d ≡ n ≢ −1 (mod 
 *Reading.* The two lines b = 1 and c = 1 are the two 2-adic faces of the one set MP(p): **b = 1 ⟺ some pair has a coordinate
 ≡ 0 (4); c = 1 ⟺ some pair has quotient ≡ 0 (4).** For p odd and (x, y) ∈ MP(p) coprime, at most one coordinate is even and if both
 are odd then N is odd (xyN = p + x + y). So b = 1 ∪ c = 1 fails ⟺ every pair of MP(p) with an even coordinate x has v₂(x) = 1
-and v₂(N) ≤ 1. T1 (PROVED, by ET Prop 1.6): for n = m² every pair of MP(m²) has this shape.
+and v₂(N) ≤ 1. T1 (PROVED, by the proof of ET Prop 1.6, which works for the equation cn + a + b = 4abcd without the coprimality
+in ET's Type II definition; R268 repair m3 — reviewer checked: no solution at any odd square ≤ 841): for n = m² every pair of
+MP(m²) has this shape.
+(R268 repair M4: the divisor form is López, arXiv:2404.01508, Thm 7: "Type A ⟺ ∃ d, n: p ≡ −4d (mod 4dn − 1)".)
 
-**Proposition 1.4 (piecewise-linear least residue returns the window form; PROVED).** For y ∈ I_k := (n/(k+1), n/k], (−n mod y) =
-(k + 1)y − n. Hence the pairs (x, y) ∈ MP(n) with x < y and y ∈ I_k are exactly x = (k + 1)y − n with x | k + 2 (if n is
-prime and x < n); writing s := k + 1: **MP(p) ∩ {x < y} ↔ {(x, s) : x | s + 1, s | p + x}**, y = (p + x)/s, N = (s + 1)/x.
+**Proposition 1.4 (piecewise-linear least residue returns the window form; PROVED).** For y ∈ I_k := (n/(k+1), n/k) (open at
+n/k, where the least residue is 0; R268 repair m4), (−n mod y) = (k + 1)y − n. Hence the pairs (x, y) ∈ MP(n) with x < y and
+y ∈ I_k are exactly x = (k + 1)y − n with x | k + 2 (if n is prime and x < n); writing s := k + 1:
+**MP(p) ↔ {(x, s) : x | s + 1, s | p + x}**, y = (p + x)/s, s = (p + x)/y, N = (s + 1)/x; the pairs with x < y are those with
+(s − 1)x < p. (R268 repair m4: the earlier "MP(p) ∩ {x < y} ↔ …" was wrong — the right-hand set maps onto all of MP(p); the
+inverse is s = (p + x)/y, and x | s + 1 because sy ≡ −y (mod x).)
 *Proof.* On I_k, 0 ≤ (k+1)y − n < y. If x = (k+1)y − n divides n + y then x | (k+1)(n + y) − x = (k + 2)n; as x < y ≤ n and n = p
-prime, x | k + 2. Conversely x | k + 2 gives gcd(x, k + 1) = 1 and x | (k + 2)n − ... i.e. x | (k+1)(n + y), hence x | n + y; and
+prime, x | k + 2. Conversely x | k + 2 gives gcd(x, k + 1) = 1 and, as (k+1)(n + y) = (k + 2)n + x, x | (k+1)(n + y), hence x | n + y; and
 y | n + x as n + x = (k + 1)y. N = (n + x + y)/(xy) = (s + 1)y/(xy). ∎
 *Reading.* The continued-fraction (Farey) structure of y ↦ −p mod y is exactly piecewise linear, and linearising returns ET's
 window form "s | p + x, x | s + 1" — the divisor-in-a-moving-class event (B2). No information is gained or lost.
@@ -77,7 +88,9 @@ height. Pigeonhole on H_u controls size (hence an upper bound on the height), ne
 attached to the exact height. The barrier hypothesis that ES violates is "the target class is fixed before the point is
 chosen".
 
-**Lemma 1.6 (O(1) points per dyadic box; PROVED, elementary — the volume form of B3).** For X, Y ≥ 1 with XY ≤ p, the Haar
+**Lemma 1.6 (O(1) points per dyadic box; first sentence PROVED, elementary; the completion part is an Assessment — R268 repair
+M1: it is a heuristic accounting of the triangle-inequality strategy, not a theorem about "any completion"; the sums S(h, k) are
+not well defined since the moduli xy vary with the pair — the volume form of B3).** For X, Y ≥ 1 with XY ≤ p, the Haar
 expectation (p uniform in a residue class modulo lcm of all xy) of #{(x, y) ∈ MP(p) : x ~ X, y ~ Y, gcd(x, y) = 1} is
 Σ 1/(xy) ≍ 1 (each pair imposes p ≡ −x − y (mod xy)). Consequently any completion (Fourier) count of the box is
   (1/(XY)) Σ_{(h,k) ≠ 0} S(h, k),   S = a complete exponential sum of length ≍ XY,
@@ -85,9 +98,12 @@ and even square-root cancellation in every S(h, k) separately leaves an error �
 count at one p needs cancellation *across* frequencies, i.e. beyond square root.
 *Proof.* The density statement is CRT. For the completion: there are ≍ XY nonzero frequency pairs, each |S| ≤ (XY)^{1/2+o(1)}
 at best, normalised by 1/(XY); summing trivially over frequencies gives (XY)^{1/2+o(1)}. ∎
-*DFI 1997 (Duke–Friedlander–Iwaniec, Invent. Math. 128, "Bilinear forms with Kloosterman fractions").* Their bound for
-Σ α_m β_n e(a·m̄/n) is uniform in the numerator a, so a fixed p is NOT the obstruction (contrary to a natural guess). They
-save a power over the trivial bound ‖α‖‖β‖(MN)^{1/2} for one frequency, i.e. at the level of a single S(h, k). Lemma 1.6 says
+*DFI 1997 (Duke–Friedlander–Iwaniec, Invent. Math. 128, "Bilinear forms with Kloosterman fractions").* (R268 repair M2: the
+earlier "uniform in the numerator a, so a fixed p is NOT the obstruction" was inaccurate.) Their bounds for Σ α_m β_n e(a·m̄/n)
+hold for every a ≥ 1 but depend on a explicitly — (1 + a/MN)^{1/2} in Thm 1, (a + MN)^{3/8}(M + N)^{11/48+ε} in Thm 2 — and beat
+the trivial bound ‖α‖‖β‖(MN)^{1/2} only when a ≪ MN (roughly; for a = p, M = N, Thm 2 needs MN ≥ p^{36/37+ε}). So the size of
+the numerator p IS part of the obstruction for boxes with XY = o(p^{1−δ}). DFI's saving is bilinear, i.e. across the varying
+moduli n — not a saving inside a single S(h, k). Lemma 1.6 says
 the ES count needs a saving of the full factor (XY)^{1/2} beyond that, summed over all ≍ XY frequencies. DFI-type input
 therefore enters only through averages over p or over residues a (the (J)87 table), never at one p.
 
@@ -97,7 +113,7 @@ mutual shift pairs with a 2-adic quotient condition). Each tool reaches a differ
 | tool | hypothesis it needs | ES violates it because |
 |---|---|---|
 | Minkowski / Thue | lattice (linear congruence), fixed target | H_u is a hyperbola; class depends on the height (Prop 1.5) |
-| DFI / Weil / Kloosterman | main term ≫ completion error | O(1) per box; even √-cancellation leaves (XY)^{1/2} (Lemma 1.6) |
+| DFI / Weil / Kloosterman | main term ≫ completion error; numerator a ≪ MN | O(1) per box (Lemma 1.6, Assessment part); a = p exceeds MN for every box with XY = o(p) (R268 repair M2) |
 | continued fractions / Farey | real-number target | piecewise linearity returns ET's window form (Prop 1.4) |
 | inhomogeneous GoN (covering radius) | fixed modulus, covering | covering needs subpower windows ((J)85 Thm 3.1) |
 No route from (i) survives; this re-confirms (J)85/(J)87 with exact failure points, not a new obstruction theorem.
@@ -149,10 +165,16 @@ primes p ≡ 1 (4) ≤ 10⁸ have this property; see s8_profinite_proximity for 
 **Conjecture 2.5 (b = 1 line; CONJECTURE, EVIDENCE to 10⁸).** For every prime p ≡ 1 (mod 4), p ∉ {193, 2521, 66529}, there is
 d ≥ 1 such that p + 4d has a divisor ≡ −1 (mod 4d); equivalently 4/p = 1/(ad) + 1/(acdp) + 1/(cdp) for some a, c, d ≥ 1.
 *Status and limits (Assessment).* It is stronger than ES at primes p ≡ 1 (4), so it is at least as hard. It fails at odd
-squares (T1) and at 105, so a proof must use primality. Its numerator-8 analogue fails at 60 primes < 8000; the union of the
-two k = 8 lines fails at 34 primes < 8000, including 131 and 241 (`s8_check_b1.line_counts_k`). Any proof must therefore be
-4-specific. Value: it confines the ES lottery for p ≡ 1 (4) to ONE shift family {p + 4d}. The heuristic count is ≍ log²p
-(means 16 at p ≈ 2·10⁴ and 20 at p ≈ 2·10⁶ in the Mordell classes). Failure is then a polylog lottery, as for (★), but with
+squares (T1) and at the composites 33, 105, 145, so a proof must use primality. Its numerator-8 analogue fails at 60 primes
+5 ≤ p < 8000; the union of the two k = 8 lines fails at 34 primes 5 ≤ p < 8000, including 131 and 241
+(`s8_check_b1.line_counts_k`); restricted to the comparable class p ≡ 1 (4) the counts are 39 / 22 (241 included, 131 ≡ 3 (4)
+not) (R268 repair m1). So a proof cannot be numerator-blind uniformly in p (threshold forms p > P₀(k) are not excluded; R268
+repair m12). Value: it confines the ES lottery for p ≡ 1 (4) to ONE shift family {p + 4d}. The heuristic count is ≍ log²p
+(R268 repair m13: random primes p ≡ 1 (4) give means 13.5, 29.7, 51.0 at p ≈ 1.5·10⁴, 1.5·10⁶, 1.5·10⁸, i.e. ≈ 0.145 log²p,
+`logs/review_r268_growth.txt`; the earlier quoted 16 / 20 came from two different sub-populations).
+*Attribution (R268 repair M4).* López (arXiv:2404.01508) found that 193 and 2521 are the only primes < 9000 without Type A
+(= b = 1) solutions, noted 66529, and conjectured that every prime has a Type A or Type B (= c = 1) solution. Conjecture 2.5 is
+the sharpening "b = 1 alone, with exactly these three exceptions", supported by the 10⁸ census. Failure is then a polylog lottery, as for (★), but with
 much better constants in range.
 (Lemma 2.2 checked: all 3312 D-form hits for p ≡ 1 (4) < 6000 have (w/p) = −1; at all 63 974 levels with (d/p) = −1,
 χ_{−4d}(p + 4d) = −1; `logs/s8_genus_checks.txt`.)
@@ -211,8 +233,8 @@ per cent. Label: EVIDENCE (weak); no mechanism claimed.
 
 ## 6. Verdict (O258 checkpoint 1)
 * (i) Least residue × height-dependent target: one statement in four coordinates (Props 1.2–1.5). Each candidate tool fails at
-  an identified hypothesis (§1.7 table). DFI is uniform in a = p; the binding obstruction is the O(1)-per-box volume (Lemma 1.6),
-  not the fixed numerator. No route.
+  an identified hypothesis (§1.7 table). DFI's bounds degrade with a = p unless the box has MN ≳ p (R268 repair M2); for the
+  large boxes the obstruction is the O(1)-per-box volume (Lemma 1.6, Assessment part). No route.
 * (ii) Support-1 lottery = b = 1 line. Exact duality (Prop 1.3), visibility and forced levels (Lemma 2.2), privacy of large
   primes across j (Lemma 2.3: pigeonhole across j is void). **SHARP (EVIDENCE + CONJECTURE): the b = 1 line fails at exactly
   three primes ≤ 10⁸ (193, 2521, 66529), and b = 1 ∪ c = 1 never fails ≤ 10⁸.** No deterministic mechanism. Any mechanism must be
@@ -221,8 +243,9 @@ per cent. Label: EVIDENCE (weak); no mechanism claimed.
   windows adds no totality.
 * (iv) Positivity is the genus wall (Lemma 4.1). |d|-preserving signed→positive moves are impossible, and there is no Vieta
   structure.
-* Overall: no ES progress. Genuine new content: Prop 1.3 (the b = 1 duality), Lemma 2.3, Lemma 3.1(b), Lemma 4.1 in this
-  packaging (classical in substance — ET Prop 1.6 / (J)52 — but it closes (iv) cleanly), and the b = 1 census.
+* Overall: no ES progress. New content (R268 repair M4/m8): the MP(p) 2-adic reading of Props 1.2–1.3 (the divisor form of
+  Prop 1.3 itself is López 2024, Thm 7), Lemma 2.2, Lemma 2.3, Lemma 3.1(b), Cor 4.2 (Lemma 4.1 is (J)52's three-bit law / the
+  ET Prop 1.6 mechanism at Type I level), and the census extension to 10⁸ (López checked b = 1 ∪ c = 1 to 104 729).
 
 ## 7. Sparks (not pursued)
 1. **Why is b = 1 so much more robust than (★)?** Both are "p + t has a divisor ≡ −1 (mod T)" with (t, T) = (4d, 4d) and
