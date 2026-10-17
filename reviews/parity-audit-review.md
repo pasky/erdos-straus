@@ -116,3 +116,40 @@ false** (A1, B2, B2′, C1, C2, C3, D6 — see below). Verdicts are mine.
 19 rows checked, ≥ 12 required. **No hallucinated or misattributed paper.** Defects: m8 (Garaev–Karatsuba), m9
 (KSWX volume), m10 (cosmetic: add B2′ title, B3 pages; D9 journal now verified).
 
+## Claim 5 — Remark 3.1 (tied averaging): **GAP** (Assessment over-stated; one missed precedent)
+
+(i) *Fairness of "the only free variables at one p are u, C, q, each also the modulus".* Not accurate as stated.
+In the hyperbola picture the audit itself uses (B1, §2 ledger, (J)6 §3.4), (★) is
+x = 4uC − 1, y = 4BC − 1, xy ≡ 1 (mod 4p), and x, y are free variables **independent of the fixed modulus 4p** —
+exactly the untied situation of Shparlinski Thm 13. What is tied is not the averaging variable but the *target*:
+the point must satisfy x ≡ y ≡ −1 (mod 4C) with C = (xy − 1)/(4p) its own height. So at one p there *is* an untied
+averaging available (over 𝓗), and the obstruction is the height-dependent arithmetic target set, not the absence
+of a free variable. The two formulations (tied modulus in (u,C) coordinates; height-dependent target in (x,y)
+coordinates) are equivalent descriptions of the same obstruction; the Remark should say so instead of claiming no
+free variable exists. → **MAJOR-1** (the Verdict (ii) and §3 item 4 lean on the over-stated form).
+Repair: "At a single p, either the averaged variable is itself the modulus of the class condition ((u,C), (u,B),
+q coordinates), or — on the fixed-modulus hyperbola 𝓗 mod 4p — the class condition depends on the height of the
+point (x ≡ y ≡ −1 mod 4(xy−1)/(4p)). No known theorem handles either a moving tied modulus or a height-dependent
+target with error below the main term."
+
+(ii) *Missed untied single-modulus results.* The audit does not cite the one line of work that is literally
+"parity breaking, at one fixed modulus, for every residue class, existence":
+* O. Ramaré, A. Walker, *Products of primes in arithmetic progressions: a footnote in parity breaking*, J. Théor.
+  Nombres Bordeaux 30 (2018) 219–225, arXiv:1610.05804 (abstract checked): for q ≤ x^{1/16}, **every** invertible
+  class a mod q contains a product of exactly three primes, each ≤ x^{1/3}.
+* B. Szabó, *On the existence of products of primes in arithmetic progressions*, arXiv:2208.05762 (abstract
+  checked; Warwick repository version 2024): every invertible class mod q contains a product of three primes each
+  ≤ q^{6/5+ε}.
+These are pointwise in (q, a), unconditional, and break parity, so they falsify the literal wording of §1D's header
+"(all averaged)" and §4's "every existence statement found is averaged (over n, p, moduli or residues)". They do
+**not** reach events (a⁴)/(b): the primes are free (untied averaging over primes ≤ q^{6/5}, which actually
+*supports* Remark 3.1's thesis), whereas E_b needs primes dividing the one integer K_q (and (a⁴) divisors of p + u).
+Also not cited: the Erdős–Odlyzko–Sárközy problem/Shparlinski almost-all results on products of two primes. →
+**MAJOR-2** (coverage; verdict unaffected). Repair: add a row D11 (Ramaré–Walker; Szabó) with "gives at a single p:
+a product of primes ≡ −1 (mod q) exists, but not one composed of prime factors of K_q; gap = the divisibility
+constraint, not size", and amend §1D header and §4 bullet 1 to "averaged, or pointwise in the modulus but over free
+primes".
+Otherwise the remark's list of averaged results (Garaev–Karatsuba, KSWX §3.3, D2–D7, D1/D6/D8, A3–A5, E2) is a fair
+reading of the sources checked in Claim 1. Also not mentioned but harmless: Burgess (fixed modulus, averaging over a
+free short interval) — it is used implicitly via E3 (least QNR).
+
