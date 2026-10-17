@@ -75,10 +75,12 @@ k ≤ K := log(log N/log p₀)/log λ₁, and generation k has ≤ b^k elements;
 set of elements reachable in exactly k steps; T_k ⊆ (p₀, A^k p₀]. Edges leaving T_k number ≥ b|T_k| and land in
 T_{k+1}; each element receives ≤ r edges, so |T_{k+1}| ≥ (b/r)|T_k| and T(A^k p₀) ≥ (b/r)^k. For b/r ≥ A, T(N) ≥
 (r/b) N/p₀ while (K4) gives E(N) = o(N). Model for b/r < A: pick δ > 0 with b/r < A/(1+δ)², put X₀ = p₀,
-X_{k+1} = A X_k/(1+δ), J_k = [X_k, (1+δ)X_k]; take m_k := ⌈(b/r)^k⌉·r ≥ b-many-compatible primes ≡ 1 (840) in J_k
-(PNT in progressions: J_k contains ≫ δX_k/log X_k of them, ≫ m_k since (b/r)^k ≤ (X_k/p₀)^{β″}, β″ < 1), and join each
-level-k prime to b level-(k+1) primes in round-robin so that in-degrees are ≤ r. Every child c of p satisfies
-p ≤ (1+δ)X_k < X_{k+1} ≤ c ≤ (1+δ)X_{k+1} = A X_k ≤ A p. The count is ≍ N^{β′} with β′ = log(b/r)/log(A/(1+δ)) < 1.
+X_{k+1} = A X_k/(1+δ), J_k = [X_k, (1+δ)X_k]; m₀ = 1, m_{k+1} = max(b, ⌈b m_k/r⌉) (so m_k ≪ (b/r)^k + b); take m_k
+primes ≡ 1 (840) in J_k (PNT in progressions: J_k contains ≫ δX_k/log X_k of them, ≫ m_k since
+b/r < A/(1+δ)), and join the level-k primes to level k+1 by listing the b·m_k edge slots parent by parent and
+assigning them cyclically to the m_{k+1} ≥ b children: a parent's b slots hit distinct children, and each child
+receives ≤ ⌈b m_k/m_{k+1}⌉ ≤ r edges. Every child c of p satisfies
+p ≤ (1+δ)X_k < X_{k+1} ≤ c ≤ (1+δ)X_{k+1} = A X_k ≤ A p. The count is ≪ N^{β′} + log N with β′ = log(b/r)/log(A/(1+δ)) < 1.
 (c) p_{i+1} − p_i ≤ f(p_i) ≤ f(N) while p_i ≤ N. ∎
 
 **Theorem 1.4 (composite outputs; PROVED).** (a) (K4) bounds *all* exceptional integers, so composite outputs count
