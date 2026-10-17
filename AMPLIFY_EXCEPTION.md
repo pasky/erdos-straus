@@ -156,18 +156,19 @@ q gives Type II at p and vice versa; d′ is automatically a positive integer. E
 conditions are symmetric in p, q), so q has a witness in slice (a,b,c) compatible with p iff p has one compatible
 with q. An exceptional p has no witness in any slice, hence no edge. (b) As stated. ∎
 
-**Theorem 2.3 (squares refute primality-blind ET-valued laws; PROVED).** Let 𝓛 be a law (either route) whose proof
-produces, from witnesses at the members of F(n) (resp. Q(n)), an Elsholtz–Tao Type I or II witness at n, and which
-never uses that n is prime (all steps are identities/congruences valid for every odd n ∈ 𝓜 with the same
-definition of F(n), Q(n)). Then 𝓛 is false: for n = m² (m odd) there are no Type I/II witnesses (ET Prop 1.6),
-while for small m every member of F(m²) (resp. Q(m²)) is soluble (finite check). Example: Q(n) = prime factors
-of (n² − 1)/4, n = 25: Q = {2, 3, 13}, all soluble; n = 25 has no Type I/II witness.
-In particular every **congruence-mediated** recombination (the output witness lies in an ET class determined by
-the input slices, so the step is a containment of residue classes, valid at every integer of the class) is
-refuted by odd squares. Escape requires an essentially *prime* input at p (reciprocity at p, the field 𝔽_p,
-irreducibility), or outputs that are not Type I/II at composite n.
-*Proof.* A containment of residue classes C ⊆ C_ET holds at all integers of C, including any odd square in C;
-odd squares lie in no ET class. ∎
+**Theorem 2.3 (squares refute primality-blind ET-valued proofs; PROVED, scope as stated).** Let 𝓛 be a law
+(either route) together with a *proof* that, from witnesses at the members of F(n) (resp. Q(n)), produces an
+Elsholtz–Tao Type I or II witness at n (in ET's sense: n divides exactly the prescribed denominators and is
+coprime to the others), using no property of n beyond those shared by a specific odd square n = m² in the law's
+stated domain. If every member of F(m²) (resp. Q(m²)) is verified soluble, the proof is invalid, because m² has
+no ET Type I/II witness (ET Prop 1.6). Example (route D, domain 𝓜): Q(n) = prime factors of (n² − 1)/4,
+n = 121 = 11² ≡ 121 (mod 840) ∈ 𝓜: Q(121) = {2, 3, 5, 61}, all soluble, while 121 has no Type I/II witness. So a
+valid proof of this recombination law must use primality of p (or produce non-ET solutions at composites).
+The *congruence-mediated* case is made quantitative in Thm 3.2: such a step fails exactly when the class of p
+modulo the input moduli contains an odd square — which, for p ∈ 𝓜, is the typical situation.
+*Proof.* Apply the proof verbatim at n = m²: its hypotheses hold, its conclusion contradicts ET Prop 1.6. ∎
+(Review repair: the earlier version asserted this for arbitrary F without a verified instance and used n = 25,
+which is outside 𝓜.)
 
 **Theorem 2.4 (no free lunch for route D; PROVED).** For a recombination scheme Q, let
 P_free(Q) := {p prime : every q ∈ Q(p) is soluble by a *known* theorem (q ∉ 𝓜, q has a prime factor ≢ 1 (4),
@@ -183,19 +184,24 @@ So a recombination law can be easier than ES only if, for every p, Q(p) contains
 already known — i.e. the information has to come from witnesses at *hard* q, and Thm 2.4 shows the natural
 schemes do not guarantee this.
 
-**Theorem 2.5 (numerator models: exceptions are isolated; CERTIFIED, `scripts/z25_models.py`, `z25_common.py`).**
+**Theorem 2.5 (numerator models; CERTIFIED, `scripts/z25_models.py` → `logs/z25_models.txt`).**
 For k/n = 1/x + 1/y + 1/z the same parametrisation, transports and divisor closure hold with 4 replaced by k, and
-genuine prime exceptions exist (k = 8: E_8 ∩ primes < 2000 = {11, 17, 131, 241}; k = 12: 15 primes up to 1873;
-counts for 8 ≤ k ≤ 25 in the script log). In these models, computed exactly:
-(a) the square law fails: 8/11 has no solution, 8/121 = 1/18 + 1/99 + 1/2178; p² is soluble for every exceptional p < 400 with
-8 ≤ k ≤ 14 except (k, p) = (14, 29);
-(b) the recombination law fails: e.g. k = 10, p = 61: 10/61 has no solution while every prime factor > k of
-(61² − 1)/4 = 930 (namely 31) is soluble; failures for every k ∈ [10, 25] (the primes ≤ k are trivially exceptional
-for k ≥ 7, so they are excluded from Q); the {(p−1)/2, (p+1)/2} law fails for every k ∈ [8, 25] except 9 (e.g. 8/131);
-(c) exceptions are isolated: for k = 8 the four exceptional primes 3 < p < 2000 have no exceptional successor beyond 241
-up to 2000; growth laws of Thm 1.3 type are false in these models.
-Consequence: any proof of an amplification or recombination law must use the numerator 4 specifically (the
-same point as numerator blindness (J)41); a k-uniform argument is refuted by a finite computation.
+genuine prime exceptions exist: k = 8: E_8 ∩ primes < 2000 = {2, 3, 11, 17, 131, 241}; k = 12: 16 primes, the largest
+1873 (counts for 8 ≤ k ≤ 25 in the log; for k ≥ 7 the prime 2 is exceptional since k/2 > 3, but small primes are
+not all exceptional, e.g. 10/5 = 1 + 1/2 + 1/2). Computed exactly:
+(a) the square law "p ∈ E_k ⟹ p² ∈ E_k" fails: 8/11 has no solution, 8/121 = 1/18 + 1/99 + 1/2178; for 8 ≤ k ≤ 25
+and exceptional p < 400, p² is exceptional only at (11,2), (12,5), (13,2), (14,2), (14,29), (15,2), (16,2), (16,3),
+(16,11), (17,2), (17,3), (18,2), (19,2), (20,2), (20,3), (20,11), (20,41), (21,2), (22,2), (22,3), (22,5), (22,7),
+(22,53), (23,2), (23,3), (23,5), (23,7), (24,2), (24,3), (24,5), (24,7), (24,13), (24,17), (24,103), (25,2), (25,3),
+(25,13), and is soluble in all other cases;
+(b) the *truncated* recombination law "every prime factor q > k of (p² − 1)/4 is in S_k ⟹ p ∈ S_k" fails for every
+k ∈ [10, 25] (e.g. k = 10, p = 61: (61² − 1)/4 = 930 = 2·3·5·31, 10/31 soluble, 10/61 not). This refutes only the
+truncated law: the untruncated k-analogue is vacuous in these models because 2 ∈ E_k. The {(p−1)/2, (p+1)/2} law
+(no truncation) fails for every k ∈ [8, 25] except 9 (e.g. k = 8, p = 131);
+(c) for k = 8 there is no exceptional prime in (241, 2000), so every k-uniform law forcing an exceptional prime
+successor in (p, 8p] is false at p = 241 (8·241 = 1928). This refutes only laws whose window was exhausted.
+Consequence: a proof of any of these law shapes must use the numerator 4 (cf. numerator blindness (J)41); a
+k-uniform argument is refuted by these finite computations.
 
 ---------------------------------------------------------------------------------------------------------------
 
