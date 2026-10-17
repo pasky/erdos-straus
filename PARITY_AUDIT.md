@@ -57,3 +57,21 @@ This is what "divisors in moving residue classes" means here: the modulus 4u is 
 **What "known theorem reaches it" would mean.** A statement, for every large p (or a thin infinite set of p, or
 under GRH), giving E_a(p; p^θ) with θ < 1/2, or E_b(p; p^θ) with θ < 1, or any positive lower bound for the
 counts behind them. Note E_b with Q ≈ 3p is ES itself restricted to windows (POINTWISE_SIZE Thm 8.1).
+
+## 1. The audit table (deliverable 1)
+
+Conventions. "Single p" means: a statement for every large prime p (or a named thin infinite set of p, or under
+GRH/RH) about the integers attached to that one p (p + u, 4Cp + 1, (p + q)/4). Excerpts: `sources/lit2026f/`
+(file named in each row). (★) := R(p) of §0. Rows marked *(sec.)* were read only through a secondary source
+(statement quoted in a paper we did read); all other statements were read in the primary source (abstract or
+theorem statement; proofs not re-checked).
+
+### 1A. Divisors of one integer in residue classes / intervals
+
+| # | result | exact statement | regime | gives at a single p | exact gap |
+|---|---|---|---|---|---|
+| A1 | Lenstra, *Divisors in residue classes*, Math. Comp. 42 (1984) 331–340, Main Thm and Prop (3.1) (`lenstra-1984-…`) | 0 ≤ r < s < n, s ≥ n^{1/3}, (r,s) = 1 ⇒ ≤ 11 divisors of n are ≡ r (mod s); for s ≥ n^α, α > 1/4: ≤ c(α) = O((α − 1/4)^{−2}) | every single n; **upper bound** | (a⁴): for u ≥ p^{1/4+ε}, each p + u has O_ε(1) divisors ≡ −1 (mod 4u). With Lemma 0.1 (u ≤ √p): the band u ∈ (p^{1/4+ε}, √p) carries O(1) candidates per u | wrong direction: no existence. Existence for one prescribed n is impossible in general (n prime) |
+| A2 | Coppersmith–Howgrave-Graham–Nagaraj, Math. Comp. 77 (2008) 531–545 (abstract only; `coppersmith-…`) | same for α > 1/4, count O((α − 1/4)^{−3/2}), all such divisors found in poly time (lattice reduction) | single n; upper bound / algorithm | finds every hit with u ≥ p^{1/4+ε} in poly(log p) time per u, i.e. a *decision* procedure, not an existence theorem | same as A1 |
+| A3 | Erdős–Hall, Math. Proc. Camb. Phil. Soc. 79 (1976) 281–287, THEOREM (OCR of renyi.hu; `erdos-hall-1976-…`); Erdős' earlier result quoted there | F(x,k) := #{n < x : divisors of n meet every reduced class mod k}. F(x,k) ~ x if k ≤ (log x)^{(1−ε) log 2}; at k = 2^{log log x + (c+o(1))√(log log x)}, F(x,k) ~ x·Φ̄(c) (Gaussian tail) — threshold "2^{ω(n)} ≈ k" | **almost all n ≤ x** | right *modulus range* for (a⁴): 4u ≤ (log p)^{0.69}. But it is a density statement over n; our family is the U = (log p)^{O(1)} specific integers p + 1, …, p + U | needs a version for *every* interval of polylog length (or for the AP {4Cp + 1}); best every-interval factorisation results need length ≥ x^{1/2} (rows C2–C3). Exponent gap 1/2 in the interval length |
+| A4 | Ford, *The distribution of integers with a divisor in a given interval*, Ann. Math. 168 (2008) 367–433, Thm 1, Cor 2, Thms 6–7 (`ford-math0401223-…`) | order of H(x,y,z); H(x,y,2y) ≍ x/((log y)^δ(log log y)^{3/2}), δ = 0.086…; shifted primes p + λ: same order /log x (upper Thm 6; lower Thm 7 for y = x^a, z = x^b) | over n ≤ x / primes p ≤ x, **fixed** shift λ | nothing at one p; interval, not class | averaging over p is intrinsic; no class condition |
+| A5 | Koukoulopoulos, *Divisors of shifted primes*, IMRN 2010, Thms 1.5–1.8 (`koukoulopoulos-2010-…`) | H(x,y,z;P_s) ≍ H(x,y,z)/log x (z ≥ y + y/(log y)^B), also in x-intervals of length x(log x)^{−B} | over p ≤ x, fixed s | nothing at one p | as A4 |
