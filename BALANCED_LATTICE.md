@@ -20,6 +20,16 @@ the class, but (R-O256 repair 4) in the class −p mod 8P it can afford essentia
 Lemma 2.5). Barrier: the characters of order ≤ M are a fraction ≤ M²/N of all characters, and
 the extremal (balance-deciding) character has order ≍ N in practice (§6). Hypothesis violated by the brief's route:
 "imbalance is driven by small-order (index) obstructions".
+(I2) *Modification: see all orders, give up classes.* Fejér-weighted collision counting bounds the large-order pretentious
+primes globally (Prop 3.1, no 2^k loss) but not in a class of density 1/φ(8P): the P-loss, exactly (Cor 3.3). Hypothesis
+violated next: "no input about classes" → isolate the weakest class/sparsity input: EQ (Thm 4.1) or the p-free, class-free S
+(Thm 4.2) ⇒ (log₂p)^{13/2}, (log₂p)^{9/2}.
+(I3) *Violate "q − 1 has a large prime factor" (the hypothesis of Prop 2.2):* windows with q − 1 smooth make each prime-power
+component Frobenius-visible, but the joint law is still in a field of degree ≈ N^{k+1}; smooth shifted primes with u → ∞ are
+unknown anyway (z27_smooth_shift_crt).
+(I4) *Violate "the window group has large exponent":* composite windows with U_m of exponent | E make covering automatic at
+cap ≈ E; a Linnik adversary on the menu forces E ≳ log p i.o. (z27_small_exponent_windows).
+(I5) *Large sieve over moduli on the S-unit box:* S-units too sparse (z27_large_sieve_sunits).
 
 ## 1. Exact dictionary: balance ⟺ no nontrivial character is ℓ¹-pretentious to 1 on S
 
