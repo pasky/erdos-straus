@@ -717,4 +717,5 @@ Jiang, Wikipedia, OEIS, arXiv abstracts) and are marked as such above.
 * Ramaré–Walker, JTNB 30 (2018), arXiv:1610.05804; Szabó, arXiv:2208.05762 — products of three primes in every class mod q. This is pointwise parity breaking, but over free primes, so it does not reach the B2 event.
 * Borwein–Choi 2000 — xy + yz + zx via a class-number identity: the closest structural precedent, excluded for ES by T1 ((J)7 Thm 9.1).
 * Dyachenko arXiv:2511.07465 — the step from a lattice point to a solution is the B2 divisor event; the author's §11 concedes the general case is not proven.
+* López, "A Complete Congruence System for the Erdős–Straus Conjecture", arXiv:2404.01508 (v3) (found by R268). Type A is the b = 1 line and Type B is the c = 1 line (★). Thm 7 is the divisor form p ≡ −4d (mod 4dn − 1). It lists the Type-A failures 193, 2521, 66529 and states Conjecture 1 (Type A or B always), checked to 104 729. (J)89 extends the census to 10⁸. Gardes' thesis also lists 2521, 66529 (not checked).
 

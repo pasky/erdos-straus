@@ -26637,4 +26637,43 @@ def check_hb():
 check_hb()
 
 
+def check_hc():
+    # (hc) SYNTHESIS_SPARKS8 (O258/R268): R268 independent census to 10^8 (numpy residue sieve + complete per-p decision):
+    # among primes p ≡ 1 (4) ≤ 10^8 the b = 1 line (López 2024 Type A) fails exactly at 193, 2521, 66529, the c = 1 line (★)
+    # (López Type B) at 14 primes, union never; brute-force cross-checks; k = 8 analogue fails (131, 241); Lemmas 3.1 / 4.1
+    # Jacobi checks; no Type II equation solution at odd squares.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("SYNTH8 subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r268_census.py", "100000000", "50000"])
+    assert "N=100000000: primes p=1(4) <= N: 2880504" in out, out[:500]
+    assert "b1 FAILURES: [193, 2521, 66529]" in out, out[-1500:]
+    assert ("c1 FAILURES: [409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321, 1134241, 1724209, 1726201, "
+            "5212561, 8813281]") in out, out[-1500:]
+    assert "intersection: []" in out, out[-500:]
+    out = run(["review_r268_brute.py"])
+    assert "131 in both: True  241 in both: True" in out, out[-1500:]
+    out = run(["review_r268_spot.py"])
+    assert "c1-failure 8813281 c1: None  b1 witness: (1111585, 14, 2)" in out, out[-1500:]
+    out = run(["review_r268_jacobi.py"])
+    assert "(b) cap-0 certificates (ordered (u,v)) 30996, exceptions 0" in out, out[-1500:]
+    assert "4772 positive, 10787 signed points, exceptions 0" in out, out[-1500:]
+    out = run(["review_r268_squares.py"])
+    assert "n = 841 Type II eq. solutions (any gcd): 0" in out and "MP(p) != image: 0" in out, out[-1500:]
+    print(f"== (hc) SYNTH8 R268: b = 1 line fails only at 193, 2521, 66529 and (★) at 14 primes ≤ 10^8, union never; "
+          f"k = 8 analogue fails at 131, 241; Jacobi lemmas; T1; seconds = {perf_counter() - t0:.1f}")
+
+
+check_hc()
+
+
 print("\nall checks passed")

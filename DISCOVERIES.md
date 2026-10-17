@@ -1542,6 +1542,22 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment: no total law. The numerator-size inequality was forwarded to Synthesis VIII ((J)89 item (vi)). No further relay.
    * verify.py (hb) re-runs R267's from-scratch checks (C compiled to a tempdir).
 
+89. **Synthesis VIII over wave AA: the single-p problem in four coordinates, the b = 1 line census, and the closures of the wave's cross-combinations (SYNTHESIS_SPARKS8.md + BRAINSTORM/s8_*.md (O258); hostile review `reviews/synthesis-eight-review.md` (R268): no FATAL. MAJOR M1: Lemma 1.6's completion part is Assessment. MAJOR M2: DFI 1997's bounds depend on the numerator a and are nontrivial only for a ≪ MN, so "DFI is uniform in a" was wrong. MAJOR M3: §8 relied on the fixed-slice-only reading of (J)88 Thm 2.6. MAJOR M4: prior art — López, arXiv:2404.01508, already has the b = 1 line (his Type A), its divisor form, the exceptions 193, 2521, 66529 and the union conjecture. Minors m1–m13. All repaired by the reviewer, marked (R268 repair)).**
+   * Census (CERTIFIED to 10⁸ by two independent engines, O258's C window engine and R268's numpy sieve with complete per-p decisions). Among primes p ≡ 1 (4) ≤ 10⁸:
+     * the b = 1 line ("∃ d ≥ 1: p + 4d has a divisor ≡ −1 (mod 4d)"; 4/p = 1/(ad) + 1/(acdp) + 1/(cdp)) fails exactly at 193, 2521, 66529;
+     * the c = 1 line (★) fails exactly at 14 primes, from 409 to 8 813 281;
+     * the union never fails.
+     * New relative to López is the extension from 1.05·10⁵ to 10⁸. Conjecture 2.5 (b = 1 alone, with exactly these 3 exceptions) is a CONJECTURE sharpening López's Conjecture 1.
+     * Controls: both lines fail at odd squares and at 105; the k = 8 analogue fails at 131 and 241, so a proof cannot be numerator-blind uniformly in p.
+   * Prop 1.2–1.5 (PROVED, after repairs): four equivalent coordinates for the single-p event — window, twisted hyperbola with height-dependent class, Kloosterman fraction, and mutual shift pairs MP(p). Prop 1.3 (b = 1 duality) is López Thm 7. §1.7 table (Assessment): Thue/Minkowski need a fixed target; DFI needs numerator ≪ MN; continued fractions return ET's window form. No route.
+   * Lemma 2.2 (PROVED, Jacobi): every b = 1 divisor w has (w/p) = −1 (T1-visible). The forced levels are exactly the non-residues d, where χ_{−4d}(p + 4d) = (d/p); forcing supplies the parity, not the class.
+   * Lemma 2.3 (PROVED): gcd(jp + 1, j′p + 1) | j − j′, so large primes are private to one shift and any pigeonhole across shifts is B1 data. Per-shift failures are near-independent (EVIDENCE: joint/product mean 1.004).
+   * Lemma 3.1 (PROVED): (K_q/p) = (q/p), and every cap-0 certificate has (uv/p) = −1. Forced windows and the (J)86 T1-adversary visibility are one parity, so routing recombination through forced windows adds nothing.
+   * Lemma 4.1 (PROVED; classical — the Type I form of (J)52's three-bit law): signed slices have (|d|/p) = +1 and positive ones (d/p) = −1. There is no signed→positive move, which closes O254's spark 2.
+   * §8 (vi) (Assessment, after M3): for 4 | k, the k-witnesses are the 4-witnesses with (k/4) | d. The 4-specific step at the slice level is "d may be odd" (2-adic). It is a slice-level statement only.
+   * Relay O259 (b1-line) was launched on the SHARP census before M4 surfaced, and was re-scoped by the parent after M4.
+   * verify.py (hc) re-runs R268's independent 10⁸ census and checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
