@@ -221,3 +221,45 @@ non-principal χ_n(q) = (q/n), and for n = m² one has (q/n) = 1 for all q ∤ m
 of any Type-II-shaped route (cap 0 at odd squares is excluded, CAP_DOWN §3; at cap ≥ 1 e*(n) < ∞ is already PROVED for all odd
 n, CAP_POINTWISE Thm 1.1, so T1 does not test cap ≥ 1 bounds). B6: Thms 4.1/4.2 are pointwise in p; the only averaging is over windows q
 in a p-dependent class, and EQ/S are exactly the statements that make that averaging honest at a single class.
+
+## 6. Numerics (EVIDENCE)
+
+`scripts/z27_dual.py y QLO QHI SAMPLE SEED [classes]`: exact 𝔻_min(q) by brute force over all N − 1 characters of U_q
+(q ≡ 3 (8), S = odd primes ≤ y), the order of the extremal character ψ_min, P⁺(N), and the same for a uniformly random
+discrete-log vector (random-lattice model). ν := 𝔻_min·N^{1/k} (Minkowski: ν ≤ (k!)^{1/k}; balance ⟺ ν not small).
+* **ν matches the random model** (data/z27/dual_1e6.txt, 3000 random q ≤ 10⁶ each; dual_1e7.txt, 400 q ∈ [9·10⁶, 10⁷] each):
+  quantiles 1/10/50/90 % true vs random: k = 3, q ≤ 10⁶: 0.267/0.563/1.011/1.375 vs 0.265/0.577/1.026/1.372; k = 4:
+  0.454/0.784/1.208/1.532 vs 0.381/0.743/1.194/1.535; k = 5: 0.597/0.985/1.389/1.714 vs 0.611/0.979/1.392/1.711; near 10⁷ the
+  same to ±0.07. Index-degenerate (ν = 0) counts also match (k = 3: 52 vs 61 of 3000).
+* **The extremal character has order ≍ N (the SHARP observation).** ord ψ_min = N in 73–78 %, ≥ N^{0.9} in 86–88 %,
+  ≤ N^{1/2} in ≤ 0.3 %, ≤ N^{3/(2k+4)} (the GRH-visible range of Cor 2.4) in ≤ 0.07 % (0 of 400 near 10⁷ for every k);
+  **P⁺(N) | ord ψ_min in 99.4 %–100 %** — identical to the random model. Balance is decided by the largest prime factor of
+  q − 1, the part Frobenius cannot see (Prop 2.2).
+* **Worst q** (smallest ν, non-degenerate): k = 3: q = 237 971, ν = 0.058, ord = N = 118 985, P⁺(N) = 449; k = 5: q = 423 883,
+  ν = 0.108. Near 10⁷: q = 9 842 267 (k = 3, ν = 0.185, ord = N).
+* **Per class mod 8P** (dual_classes_y7.txt, all 6450 q ≤ 3·10⁵, 48 classes mod 840): every class has a q with ν ≥ 1.48 (best per
+  class: min 1.481, median 1.575), while the per-class worst is 0 (degenerate) in most classes — consistent with z24's L_min test.
+* **Hypothesis EQ at toy scale** (`scripts/z27_eqcheck.py`; eqcheck_y7.txt: all 19 609 q ≡ 3 (8) ≤ 10⁶, 48 classes;
+  eqcheck_y11.txt: all 37 217 q ≤ 2·10⁶, 480 classes mod 9240). Bad₁-type q (ν < t and ord ψ_min > N^{1/k}/t) per class:
+  k = 3: χ² = 49.0 / 29.0 / 30.4 (df 47) at t = 0.3 / 0.5 / 0.7, max/mean ≤ the random-relabelling null; k = 4: χ² = 474.8 / 403.9
+  (df 479) at t = 0.5 / 0.7 (t = 0.3: 72 events in 480 classes, too sparse). The *full* ν < t set, which includes small-order
+  and index-degenerate q, is visibly non-uniform at k = 3 (χ² = 214 at t = 0.3, df 47): the Chebotarev-visible part correlates
+  with q mod s (ℓ | N needs q ≡ 1 (ℓ)), which is exactly the part GRH controls (Bad₂). EVIDENCE for EQ, at sizes where
+  P ≤ 1155 is tiny; it says nothing about P ≈ √x.
+* *T1 control:* not applicable to these p-free statistics; the construction's T1 step (no forced windows at n = m²) is
+  algebraic (§5). Odd-square cap-0 absence was checked in z24.
+
+## 7. Verdict (O256 checkpoint 1)
+
+1. **GRH alone: not by this route, and the reason is exact.** Balance at q is decided by a character of order ≍ N (§6;
+   P⁺(q−1) | ord in > 99 %). Frobenius in Kummer fields ℚ(ζ_m, S^{1/m}) of GRH-manageable size sees only characters of order
+   ≤ x^{3/(2k+4)} (Cor 2.4), and no function of that data certifies L_min below the M-rough part of q − 1 (Prop 2.2,
+   PROVED). The only tool seeing all orders is class-blind counting (Prop 3.1), which cannot see a class of relative density
+   1/φ(8P) and so returns the P-loss exp(O(√(log₂p log₃p))) (Cor 3.3). No GRH *barrier* is claimed (R264 D8): another method
+   could still work; what is proved is that the brief's Hooley/Kummer route certifies only the index condition plus a negligible
+   fraction of characters.
+2. **GRH + one isolated hypothesis does it.** GRH + EQ (no over-concentration of large-order pretentious primes in classes mod
+   8P) ⇒ e*(p) ≤ (log₂p)^{13/2+o(1)} (Thm 4.1); GRH + S (a p-free, class-free sparsity statement, the random-model prediction)
+   ⇒ (log₂p)^{9/2+o(1)} (Thm 4.2). Both are strictly weaker in form than Hypothesis W and involve no p. Neither is standard.
+3. (i) Almost all p: nothing new (Remark 4.3). (ii) Cap 0: balance is irrelevant (Prop 5.1; B2). (iii) Numerics: §6.
+4. **Bounded/slowly growing cap is not ES**: all statements are at cap ≥ 1; cap 0 is the B2 divisor event.

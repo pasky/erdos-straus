@@ -1,0 +1,7 @@
+y 11 k 4 8P 9240 #q 37217 #classes 480
+all t=0.3  #bad   310 (0.008)  per-class mean 0.6 max 5  max/mean 7.74  chi2 610.1 (df 479)  | null max/mean 7.74
+all t=0.5  #bad   889 (0.024)  per-class mean 1.9 max 7  max/mean 3.78  chi2 501.5 (df 479)  | null max/mean 3.78
+all t=0.7  #bad  2747 (0.074)  per-class mean 5.7 max 12  max/mean 2.10  chi2 428.7 (df 479)  | null max/mean 2.45
+Bad1 t=0.3  #bad    72 (0.002)  per-class mean 0.1 max 3  max/mean 20.00  chi2 543.5 (df 479)  | null max/mean 13.33
+Bad1 t=0.5  #bad   651 (0.017)  per-class mean 1.4 max 6  max/mean 4.42  chi2 474.8 (df 479)  | null max/mean 3.69
+Bad1 t=0.7  #bad  2509 (0.067)  per-class mean 5.2 max 12  max/mean 2.30  chi2 403.9 (df 479)  | null max/mean 2.87
