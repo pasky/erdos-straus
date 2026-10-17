@@ -4,6 +4,7 @@
 // With t | p + s, p + s = t u, the condition is s | u + 1.
 // Algorithm (independent of O258's s8_lines.c window code): for s = 1, 2, ... factor p + s (segmented sieve table),
 // test all divisors t >= s. First hit -> done. If no hit for s <= S, an exact fallback scans all s <= 1 + sqrt(p+1).
+// env Z29_LINE=2: census of the c = 1 line (★) instead of b = 1.
 // usage: z29_census LO HI [S [HARD]]   (prints records of the least hitting s, failures, totals; primes with least s >= HARD)
 //        z29_census count LO HI   (prints, per prime, N1(p) = number of solutions; for heuristics; small ranges)
 //        z29_census countlist MAXP < primes   [SIG] (prints p N1(p) Nc1(p) N1_{s>SIG}(p); Nc1 = number of (★) = c=1 line pairs)
@@ -28,7 +29,10 @@ static int expand(ll n, const fent *e){ int k=0; ll r=n; for(int i=0;i<e->k;i++)
   if(r>1){ pr[k]=r; ex[k]=1; k++; } return k; }
 static int gendiv(int k){ int nd=1; dv[0]=1; for(int i=0;i<k;i++){ int cur=nd; ll pp=1; for(int e=1;e<=ex[i];e++){ pp*=pr[i]; for(int j=0;j<cur;j++) dv[nd++]=dv[j]*pp; } } return nd; }
 // number of hits (t >= s) at shift s for prime p, given the factorisation entry of p+s; stop at first if one>0
-static int hits(ll p, ll s, const fent *e, int one){ if(!((s&3)==0 || (s&3)==3)) return 0; ll n=p+s; int k=expand(n,e); int nd=gendiv(k); int h=0;
+static int LINE=1; // 1 = b=1 line, 2 = c=1 line (★): pairs with u == -1 mod 4s
+static int hits(ll p, ll s, const fent *e, int one){ if(LINE==2){ ll n=p+s; int k=expand(n,e); int nd=gendiv(k); int h=0;
+    for(int i=0;i<nd;i++){ ll t=dv[i]; if(t<=s) continue; if(((n/t)+1)%(4*s)==0){ h++; if(one) return h; } } return h; }
+  if(!((s&3)==0 || (s&3)==3)) return 0; ll n=p+s; int k=expand(n,e); int nd=gendiv(k); int h=0;
   for(int i=0;i<nd;i++){ ll t=dv[i]; if(t<s) continue; if(t==s) continue; ll u=n/t; if((u+1)%s) continue; if(!((s&3)==0 || (t&3)==0)) continue; h++; if(one) return h; }
   return h; }
 static fent *T2; static ll c1cnt, bigcnt, SIG=64;
@@ -49,6 +53,7 @@ int main(int argc,char**argv){
     return 0; }
   if(argc>1 && !strcmp(argv[1],"countlist")){ ll MX=atoll(argv[2]); if(argc>3) SIG=atoll(argv[3]); small_primes((ll)sqrtl((long double)MX*1.01)+1000); ll p;
     while(scanf("%lld",&p)==1){ ll c=0; exact(p,1,&c); printf("%lld %lld %lld %lld\n",p,c,c1cnt,bigcnt); fflush(stdout); } return 0; }
+  if(getenv("Z29_LINE")) LINE=atoi(getenv("Z29_LINE"));
   ll LO=atoll(argv[1]), HI=atoll(argv[2]); ll S=argc>3?atoll(argv[3]):512; ll HARD=argc>4?atoll(argv[4]):0; ll L=1<<20;
   small_primes((ll)sqrtl((long double)HI+S+L)+1000);
   fent *T=malloc(sizeof(fent)*(L+S+1)); ll np=0, nfb=0, nfail=0, rec=0; ll hist[16]={0};
