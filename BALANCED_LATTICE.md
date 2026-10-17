@@ -290,7 +290,8 @@ discrete-log vector (random-lattice model). ν := 𝔻_min·N^{1/k} (Minkowski: 
   eqcheck_y11.txt (all 37 217 q ≤ 2·10⁶, 480 classes mod 9240): Bad₁ at t = 0.3 / 0.5 / 0.7: 72 / 653 / 2513 q, χ² = 543.5 /
   474.2 / 405.8 (df 479), permutation p = 0.033 / 0.44 / 0.93; full set p = 0.003 / 0.12 / 0.71. The one marginal value (72
   events spread over 480 classes, max 3 per class) is the sparsest cell; not significant after the 6 tests per k. (R269 repair: the 3 events are all in class 6931 ≡ 1 (mod 1155), the extreme class
-  where P | N; a pre-specified re-test on fresh q ∈ (2·10⁶, 8·10⁶] finds 0/202 there vs 1/198 in a control class — a fluke;
+  where P | N; a pre-specified re-test on fresh q ∈ (2·10⁶, 3·10⁷] finds Bad₁ 3 / 19 / 48 of 908 there vs 3 / 16 / 69 of 908 in a control
+  class — a fluke;
   the class a ≡ 1 (mod P) is the natural worst case for EQ in future tests.) EVIDENCE for EQ only at P ≤ 1155, nowhere near P ≈ √x.
 * *T1 control:* not applicable to these p-free statistics; the construction's T1 step (no forced windows at n = m²) is
   algebraic (§5). Odd-square cap-0 absence was checked in z24.

@@ -54,8 +54,9 @@ t = 0.3 comes entirely from class 6931 mod 9240, the unique class with q ≡ 1 (
 p ≡ −1 (mod P) every candidate window has P | N, i.e. the Frobenius-visible smooth part of N is ≥ P ≍ √x/log²p — the regime
 farthest from Prop 2.2's "large rough part". Stratifying by w := #{ℓ ∈ S : ℓ | N}: at y = 7 there is no trend in Bad₁ (rates
 0.0137 / 0.0126 / 0.0119 / 0.0096 for w = 0..3 at t = 0.3); a pre-specified re-test of class 6931 vs a w = 0 control class
-(3467 mod 9240) on fresh primes q ∈ (2·10⁶, 8·10⁶] gives Bad₁ 0/202 vs 1/198 (t = 0.3), 1/202 vs 7/198 (t = 0.5),
-9/202 vs 19/198 (t = 0.7): no enrichment — the cluster is a fluke (look-elsewhere probability that some class of 480 gets ≥ 3
+(3467 mod 9240) on fresh primes q ∈ (2·10⁶, 3·10⁷] (908 primes in each class; data/review_r269/cls*_y11*.txt) gives Bad₁
+3 vs 3 (t = 0.3), 19 vs 16 (t = 0.5), 48 vs 69 (t = 0.7): no enrichment (while the *full* set is enriched, 14 vs 3 at
+t = 0.3, as the Chebotarev-visible part should be) — the cluster is a fluke (look-elsewhere probability that some class of 480 gets ≥ 3
 at mean 0.15 is ≈ 0.25). *Repair:* add this to §6 and name the class a ≡ 1 (mod P) as the natural worst case for EQ in any
 future test.
 
