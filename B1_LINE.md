@@ -79,16 +79,19 @@ census agrees: every b = 1 failure and every record of the least shift from p = 
 
 ## 2. Census (EVIDENCE; complete decisions)
 
-**2.1 All primes p ≡ 1 (4) ≤ 10¹⁰** (`z29_census`, segmented factor tables, least s with a hit, exact fallback over all
-s ≤ 1 + √(p + 1) when no hit with s ≤ 512; logs `logs/z29_census_1e10.txt`). Prime counts per range sum to
-227 523 275 = π(10¹⁰; 4, 1), confirmed by an independent segmented Eratosthenes count (`pcount`, not kept).
+**2.1 All primes p ≡ 1 (4) ≤ 10¹¹** (`z29_census`, segmented factor tables, least s with a hit, exact fallback over all
+s ≤ 1 + √(p + 1) when no hit with s ≤ 512; logs `logs/z29_census_1e10.txt`, `logs/z29_census_1e11.txt`). Prime counts sum to 227 523 275 = π(10¹⁰; 4, 1)
+(confirmed by an independent segmented Eratosthenes count, `pcount`, not kept) and to 2 059 020 280 = π(10¹¹; 4, 1) (the
+known value, OEIS A091115 — from memory, not re-checked). **No b = 1 failure in (66529, 10¹¹].**
 | range | primes p ≡ 1 (4) | b = 1 failures | fallback calls | max least s (at) |
 |---|---|---|---|---|
 | ≤ 10⁸ | 2 880 504 | 193, 2521, 66529 | 3 | 119 (1 683 049) |
 | (10⁸, 5·10⁹] | 114 594 477 | 0 | 0 | 111 (277 977 001) |
 | (5·10⁹, 10¹⁰] | 110 048 294 | 0 | 0 | 104 (6 098 002 681) |
+| (10¹⁰, 5.5·10¹⁰] | 933 583 091 | 0 | 0 | 215 (22 010 483 881) |
+| (5.5·10¹⁰, 10¹¹] | 897 913 914 | 0 | 0 | 116 (58 441 300 009) |
 Distribution of the least s, ≤ 10¹⁰ (log₂-bins [2,4), [4,8), …): 2.07·10⁸, 1.84·10⁷, 1.82·10⁶, 1.28·10⁵, 4 211, 94, 0.
-The least hitting s does NOT grow with p (records 119 ≤ 10⁸, ≤ 111 above). Every global record from p = 73 on is at
+The least hitting s grows only slowly: record 119 ≤ 10⁸, then 215 at 2.2·10¹⁰ (unbounded under Dickson, Thm 4.2). Every global record from p = 73 on is at
 p ≡ 1 (24), as Prop 1.4 demands.
 
 **2.2 Primes with smooth p − 1 up to 10¹⁵** (`z29_smooth X Y S`: all p = m + 1 ≤ 10¹⁵ with m Y-smooth and 4 | m; bounded
@@ -150,7 +153,13 @@ so the model is consistently optimistic by about 2 for both lines.
 beyond X is 0.037 (X = 10⁶), 1.1·10⁻⁴ (10⁸), 1.4·10⁻¹⁰ (10¹¹). Depressing μ by 20 % everywhere (every prime treated as
 in the hardest class M₁₁) gives 0.68, 0.013, 8·10⁻⁷. Even with the factor 2–5 tail correction, the expected count beyond
 10¹¹ is < 10⁻⁵. For (★) the same model gives 1.8 (beyond 10⁸) and 0.003 (beyond 10¹¹), or 50 / 0.86 with the 20 % depression;
-tested in §3.5.
+tested in §3.6.
+**3.6 Out-of-sample test on (★) (EVIDENCE; `Z29_LINE=2 z29_census`, complete, `logs/z29_census_c1_1e10.txt`).** The same engine
+reproduces the 14 (★) failures ≤ 10⁸ of PARITY_AUDIT/O258 exactly and finds **no (★) failure in (10⁸, 10¹⁰]** (225 million
+primes; max least shift 343). The NB model predicted ≈ 1.7 failures there (≈ 3.5 with the small-p factor-2 correction).
+P(0 | mean 1.7) ≈ 0.18 and P(0 | 3.5) ≈ 0.03. So at large p the model is, if anything, pessimistic: the small-p tail
+inflation does not seem to persist. Combined with §3.4, the b = 1 prediction (< 10⁻⁴ failures beyond 10⁸) is conservative.
+(This also extends PARITY_AUDIT's (★) census from 10⁸ to 10¹⁰: still exactly 14 failures.)
 **Conjecture 3.5 (finitely many b = 1 failures; CONJECTURE, heuristic + EVIDENCE to 10¹¹).** The b = 1 line (López's Type A)
 holds for every prime p ≡ 1 (mod 4) except 193, 2521, 66529. Heuristic basis: main term (log p)²/8 (Lemma 3.1) and
 overdispersion D = O(1) give P(fail) ≈ exp(−c (log p)²). The only known mechanism for correlated failure, Dickson-type
