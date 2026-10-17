@@ -63,3 +63,41 @@ prime, x | k + 2. Conversely x | k + 2 gives gcd(x, k + 1) = 1 and x | (k + 2)n 
 y | n + x as n + x = (k + 1)y. N = (n + x + y)/(xy) = (s + 1)y/(xy). ∎
 *Reading.* The continued-fraction (Farey) structure of y ↦ −p mod y is exactly piecewise linear, and linearising returns ET's
 window form "s | p + x, x | s + 1" — the divisor-in-a-moving-class event (B2). No information is gained or lost.
+
+**Proposition 1.5 (twisted modular hyperbolas; PROVED, ET reparametrised).** For u ≥ 1 let H_u := {(X, ε) ∈ ℤ²_{≥1} : Xε ≡ u
+(mod p)} and call c := (Xε − u)/p the *height* of a point. Then
+  ES-Type-II(p) ⟺ ∃ u ≥ 1 and a point (X, ε) ∈ H_u of height c ≥ 1 with X ≡ −1 (mod 4cu),
+via (a, b, c, d) = (u, ε, c, (X + 1)/(4cu)). Equivalently: ∃ c, u: cp + u has a divisor ≡ −1 (mod 4cu); and on the single
+hyperbola XY ≡ 1 (mod 4p): ∃ (X, Y) with C := (XY − 1)/(4p), C = c²d, X ≡ Y ≡ −1 (mod 4cd) (the brief's form is c = 1).
+*Proof.* cp + u + ε = 4cuεd ⟺ (4cud − 1)ε = cp + u; put X = 4cud − 1. For the last form, (4cdu − 1)(4cdv − 1) = 4c²dp + 1. ∎
+*What Thue/Minkowski would need, and what fails (Assessment with a PROVED core).* Thue's lemma and Minkowski's theorem act on
+lattices (linear congruences x ≡ ρy). H_u is a hyperbola, not a lattice. At a fixed height c its points are the factorisations
+of the one integer cp + u, and points of small height always exist (X = 1). The ES class X ≡ −1 (mod 4cu) changes with the
+height. Pigeonhole on H_u controls size (hence an upper bound on the height), never the exact height, and the class is
+attached to the exact height. The barrier hypothesis that ES violates is "the target class is fixed before the point is
+chosen".
+
+**Lemma 1.6 (O(1) points per dyadic box; PROVED, elementary — the volume form of B3).** For X, Y ≥ 1 with XY ≤ p, the Haar
+expectation (p uniform in a residue class modulo lcm of all xy) of #{(x, y) ∈ MP(p) : x ~ X, y ~ Y, gcd(x, y) = 1} is
+Σ 1/(xy) ≍ 1 (each pair imposes p ≡ −x − y (mod xy)). Consequently any completion (Fourier) count of the box is
+  (1/(XY)) Σ_{(h,k) ≠ 0} S(h, k),   S = a complete exponential sum of length ≍ XY,
+and even square-root cancellation in every S(h, k) separately leaves an error ≍ (XY)^{1/2} ≫ 1 = the main term. A nontrivial
+count at one p needs cancellation *across* frequencies, i.e. beyond square root.
+*Proof.* The density statement is CRT. For the completion: there are ≍ XY nonzero frequency pairs, each |S| ≤ (XY)^{1/2+o(1)}
+at best, normalised by 1/(XY); summing trivially over frequencies gives (XY)^{1/2+o(1)}. ∎
+*DFI 1997 (Duke–Friedlander–Iwaniec, Invent. Math. 128, "Bilinear forms with Kloosterman fractions").* Their bound for
+Σ α_m β_n e(a·m̄/n) is uniform in the numerator a, so a fixed p is NOT the obstruction (contrary to a natural guess). They
+save a power over the trivial bound ‖α‖‖β‖(MN)^{1/2} for one frequency, i.e. at the level of a single S(h, k). Lemma 1.6 says
+the ES count needs a saving of the full factor (XY)^{1/2} beyond that, summed over all ≍ XY frequencies. DFI-type input
+therefore enters only through averages over p or over residues a (the (J)87 table), never at one p.
+
+**1.7 Answer to mandatory (i) (Assessment).** The single-p problem is ONE statement in four equivalent coordinates (window
+least residue, twisted hyperbola with height-dependent class, Kloosterman fraction X̄/(4p) within ≍ 1/(uX) of 1/(4u),
+mutual shift pairs with a 2-adic quotient condition). Each tool reaches a different wall:
+| tool | hypothesis it needs | ES violates it because |
+|---|---|---|
+| Minkowski / Thue | lattice (linear congruence), fixed target | H_u is a hyperbola; class depends on the height (Prop 1.5) |
+| DFI / Weil / Kloosterman | main term ≫ completion error | O(1) per box; even √-cancellation leaves (XY)^{1/2} (Lemma 1.6) |
+| continued fractions / Farey | real-number target | piecewise linearity returns ET's window form (Prop 1.4) |
+| inhomogeneous GoN (covering radius) | fixed modulus, covering | covering needs subpower windows ((J)85 Thm 3.1) |
+No route from (i) survives; this re-confirms (J)85/(J)87 with exact failure points, not a new obstruction theorem.
