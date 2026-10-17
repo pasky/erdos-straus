@@ -124,3 +124,39 @@ whose least element is ≥ F for a proportion ≥ 3/4 of residues p mod 4F; ther
 cofactor to supply ≥ (2^E − 2)/2 − E prime factors. The forced budget grows like log m, the structure-free need like m:
 an exponential gap. Algebraic factorisation (thin families) closes it only because m stays fixed (11, 19, …) while the
 factor residues are functions of the family parameter mod m.
+
+## 4. Non-polynomial auxiliaries (V4–V6)
+
+**4.1 Reciprocity forcing gives a coset, never a class.** At a prime window m with (m/p) = −1, (J)64 forces
+(K/m) = −1, hence −1 ∈ H₀ = ⟨primes of K⟩. This is the only forcing known that is T1-safe and needs an unbounded
+search (so POINTWISE_SIZE Thm C does not apply). But it fixes only the image of S in H₀/H₀²: K = s prime with
+s ≢ −1 (mod m) a non-residue gives Σ_m(K) = {1, s^{±1}} ∌ −1, for every prime m ≥ 7, m ≡ 3 (4). Whether such K occur
+for every bounded set of windows is (J)83 Thm 1.3 (CONDITIONAL on Dickson: yes). Higher reciprocity (cubic, quartic
+residue symbols) would fix the image in H₀/H₀^ℓ; by Prop 3.2 a class needs the full box, so any finite set of
+power-residue symbols leaves the same gap (Assessment).
+
+**Proposition 4.2 (archimedean / ℚ(√p) auxiliaries give only unforced windows; PROVED).** Let p ≡ 1 (4) be prime and
+m odd, positive, prime to p, with p + m = c·w² (c, w ≥ 1, gcd(w, m) = 1). Then the window m is Jacobi-forced
+((K/m) = −1) iff (c/m) = −1 iff (c/p) = −1. In particular every window built from a near-square (m = w² − p), a
+continued-fraction norm of √p (m = |P_k² − pQ_k²|, gcd(Q_k, m) = 1) or any m | A² − pB² with gcd(B, m) = 1 has
+(p/m) = +1 and is unforced.
+*Proof.* 4K = p + m ≡ p (mod m) and p ≡ cw² (mod m), so (K/m) = (p/m) = (c/m). Reciprocity (p ≡ 1 (4), m odd positive):
+(p/m) = (m/p), and m ≡ cw² (mod p) gives (m/p) = (c/p). For m | A² − pB²: p ≡ (A/B)² (mod m). ∎
+*Reading.* Forced windows are exactly the m with an odd-exponent prime inert in ℚ(√p); every object built from the
+arithmetic/archimedean geometry of ℤ[√p] (CF of √p, Pell units, small norms, "next square" windows) produces only
+split/ramified windows. This is the structural reason why near-square primes (many small norms) are hard ((J)53/(J)55)
+and why CF/Pell auxiliaries cannot supply the forcing (candidate (i), CF/Pell part, closed).
+
+**Proposition 4.3 (Fermat-type auxiliaries are anti-forcing; PROVED).** Let p be an odd prime and (a, b, c, d, e) a
+Type I or Type II point (RT2 §2.0). Then the ET class modulus 4ab does not divide p − 1; if p ≡ 1 (4) it does not divide
+p + 1 either.
+*Proof.* Type II: 4abd = p + e, so p ≡ −e (mod 4ab); Type I: 4abd = pe + 1, so pe ≡ −1 (mod 4ab). If 4ab | p − 1 then in
+both cases e ≡ −1 (mod 4ab), so 4ab ≤ e + 1 ≤ a + b + 1 (e = (a+b)/c), impossible for a, b ≥ 1. If 4 | 4ab | p + 1 then
+p ≡ 3 (4). ∎
+*Reading.* Modulo any divisor k of p − 1, p looks like n = 1, and 4/1 is not a sum of three unit fractions (notes
+Prop 77.3). Auxiliaries that hand over a divisor of p − 1 — ord_p(g), the Lucas rank of apparition when (D/p) = 1,
+Pocklington/primality-certificate data, factors of p − 1 — pin p to the sterile point locally; they can enter a
+certificate only through moduli not dividing p − 1. Divisors of p^k − 1 with k ≥ 2 (the cyclotomic menu C_k:
+4ab | p^k − 1, i.e. ord_{4ab}(p) ≤ k) are allowed, but a bounded menu C_{≤k₀} is a bounded witness-producing program
+(FACTOR p^j − 1, j ≤ k₀; test divisors), so by POINTWISE_SIZE Thm C it fails for infinitely many p ≡ 1 (24),
+CONDITIONAL on H. Numerics in §6.
