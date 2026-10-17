@@ -4,7 +4,23 @@ Reviewer: R266 (Claude side agent, branch side-agent/review-amplify-exception). 
 side-agent/amplify-exception at b59c8699 (merged into the review branch as 33bce15e).
 From-scratch scripts: `scripts/review_r266_*.py` (no author code reused). ES remains OPEN.
 
-## Summary verdicts (filled in progressively)
+**Repairs applied:** the author had been quiet since 18:12 with the report finished, so I applied all repairs below
+directly to AMPLIFY_EXCEPTION.md and reviews/agent-reports/AGENT_REPORT_O253.md, each marked "(R266 repair)".
+
+**Overall: no FATAL.** Every mathematical claim I re-derived holds, and every number I recomputed from scratch
+matches exactly: E_k for 8 ≤ k ≤ 25, the 37-pair square table, k = 10 / p = 61, all 61 single-source fixture
+entries at 97–5209 (incl. 3361 ← 281: 0/17, 11/17 invisible), the 49-prime Mordell list, Thm 3.2 on 35 435
+representations, and 121. There are three MAJOR defects, all about presentation and credit rather than
+correctness:
+(1) D-T32a: the SHARP headline Thm 3.2 is the classical Mordell–Schinzel / ET Prop 1.6 square-class obstruction
+(the campaign's T1) and is uncited. Only Cor 3.3's recombination/locality reading is new, and it is folklore-level.
+(2) D-ASTRA: Thm 1.3(a), 1.4(d) and the framing of Prop 2.1(a)/Thm 2.2(b) duplicate Astra d7300f8 without credit.
+(3) D-R: in places the R1–R8 table states as "iff" what the document proves only one way, and it lists a §5
+NOT-SUCCESS progression as the "best law".
+On the shared core the result is honestly WEAK-to-STRONG-PARTIAL (d). The Deliverable-1 theorems are sharp and
+correct but elementary. The obstruction is correct with an exact scope, but it is classical at its core.
+
+## Summary verdicts
 
 | Claim | Verdict |
 |---|---|
