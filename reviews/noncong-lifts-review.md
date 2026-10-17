@@ -8,7 +8,24 @@ ES is OPEN; nothing reviewed proves ES or an infinite case of it.
 
 | Claim | Verdict |
 |---|---|
-| Thm 2.6 (a), (b), (c) | SOUND (minor scope/wording defects D1–D3) |
+| Thm 2.6 (a), (b) (fixed-slice classes, all a, b, c; d irrelevant) | **SOUND** (re-derived; numerics to a ≤ b ≤ 1000) — D1–D3 minor |
+| Thm 2.6 (c) "no level through ℓ ≡ ±3 (8) complete" | SOUND for the defined (slice) notion; ℓ ∤ k needed (D1) |
+| Thm 2.6 *Reading* / report SHARP 1 ("4 vs every k ≥ 8 separation") | **GAP → SOUND-AFTER-REPAIRS** (D-M1: fails for ET's non-slice polynomial families: k = 8 covers x_{3,2}, x_{5,2}; k = 4 covers x_{11,2}) |
+| Complete-level dictionary (k = 4 rule ≤ 6000, "if" PROVED; k = 8, 12 none ≤ 400k; deficits) | **SOUND** (reproduced exactly) — slice notion; k = 4 L = 12 is complete with families (D-M1) |
+| Mordell-class primes are squares mod every 7-smooth level | SOUND (trivial) |
+| Def 1.1 | SOUND-AFTER-REPAIRS (dichotomy not exhaustive, D-M1(5)) |
+| Thm 1.2 (with gcd(p, M) = 1) | SOUND (classical in (ii)) |
+| Prop 1.3 | SOUND (Schinzel; not re-read by me); D5 on the NEAR_SQUARE sentence |
+| Prop 1.4 | SOUND |
+| §2.1 exact E_k | SOUND — all k = 7…25 reproduced to 10⁷ with own solver |
+| §2.3 margin | SOUND as EVIDENCE; quoted means ≈ 4 % high, unreproducible (D6) |
+| Lemma 3.1 | SOUND |
+| Computation 3.2 (fixtures; 0/1347 total; 30 % transport) | SOUND — all 16 fixture entries reproduced; aggregate reproduced to 3·10⁴ (D7) |
+| §4.1 model screen | SOUND (entries reproduced) |
+| §4.2 size information | SOUND as descriptive EVIDENCE; report overclaims (D8) |
+| Resources | D9 (5-process burst) |
+
+No FATAL. One MAJOR (D-M1, scope of the headline reading), nine MINOR.
 
 ## Claim-by-claim
 

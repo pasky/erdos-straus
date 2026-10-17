@@ -61,6 +61,10 @@ density 0 among integers ≤ X, by the sieve; not needed below). ∎
 
 So the T1 adversary is *exactly* the statement that slice-level information about p is a finite set of residues,
 and the only congruence-mediated escape is to let the level grow with the size of the source solution.
+(R267 repair, D-M1(5): Def 1.1's dichotomy is not exhaustive. A third class is *fixed level, target slice varying
+polynomially with p* / ET Prop 1.9's non-slice families, e.g. Type II with (a, c, d) fixed: p ≡ −ka²d (mod kacd − 1),
+b = ce − a. Such lifts are neither congruence-mediated in the sense of Def 1.1 (the output depends on p beyond p mod M)
+nor witness-level; they are governed by Prop 1.3 (visible-only at level M₀).)
 
 **Proposition 1.3 (polynomial lifts collapse to slice level; PROVED modulo the cited theorem).** Let 4 | k (for
 k = 5 it is false: n = 5t + 4, denominators (t + 1, 2n(t + 1), 2n(t + 1)) give an identity on the square class 4 mod 5).
@@ -125,6 +129,13 @@ For k | L, call L *complete* if every non-square unit class mod L contains a wit
 (i.e. lies in some class r ≡ −e (mod H) or re ≡ −1 (mod H), e | a + b). By full T1 no square class is ever
 covered (asserted in the script at every L; 0 violations). Completeness of L is exactly "visibility at level L is
 sufficient for a determined lift".
+(R267 repair, D-M1: "complete" here means **slice-complete** — only fixed-slice classes (a, b, c fixed, d free) count, as
+for O253's determined lifts. It is *not* Mordell/Salez/ET-Prop-1.9 polynomial solvability, which also uses the
+non-slice families (Type II: (a, c, d) fixed, p ≡ −ka²d (mod kacd − 1); (a, d, e) fixed, p ≡ −ka²d − e (mod kade);
+Type I analogues). With them, k = 4: L = 12 is complete (n ≡ 2 (3)), x_{11,2} lies in n ≡ 79 (mod 143) (II, a = 4, c = 9,
+d = 1), x_{13,5} in n ≡ 31 (mod 39); k = 8: x_{3,2} lies in n ≡ 281 (mod 504) (II, a = 3, d = 3, e = 7) and x_{5,2} in
+n ≡ 7 (mod 15) (II, a = 1, c = 2, d = 1) — all verified on primes in reviews/noncong-lifts-review.md. Every statement
+below about complete levels, uncovered points and Thm 2.6 concerns fixed-slice classes only.)
 * k = 4, all L = 4m ≤ 1600 and all 7-smooth L ≤ 6000: the complete levels are 7-smooth (no level ≤ 1600 involving a
   prime ≥ 11 is complete), and a 7-smooth L (4 | L) is complete **iff (3 | L ⟹ 8 | L) and (7 | L ⟹ 24 | L)**
   (CERTIFIED for L ≤ 6000; the "if" direction is PROVED for all L: the 16 base levels 4·s, 8·s, s | 105 are
@@ -136,17 +147,19 @@ sufficient for a determined lift".
 * Adelic points (`scripts/z28_adelic_point.py`, slices a ≤ b ≤ 100–150): for k = 8 the points with x = 1 in ℤ₂,
   x = 1 at every prime ≥ 11, and arbitrary non-residues at any non-empty subset of {3, 5, 7} lie in **no** witness
   class with a, b ≤ 100; for k = 4 the point (x₂ = 1, x₃ = 2) is covered (slice (1, 6), e = 7) — Mordell — while
-  (x₂ = 1, x₁₁ = 2) is not (Salez's S₁₁ = {7, 8, 10}). For k = 8 the prime 13 does help: (II, 1, 13, e = 7) covers
+  (x₂ = 1, x₁₁ = 2) is not by a slice (it is by the non-slice family n ≡ 79 (143), R267). For k = 8 the prime 13 does help: (II, 1, 13, e = 7) covers
   x ≡ 6 (mod 13). EVIDENCE only (bounded slices).
 * Single-prime points x_{ℓ,r} (x = 1 in ℤ₂ and at every prime ≠ ℓ, x = r a non-residue at ℓ), slices a ≤ b ≤ 300,
   exact O(1)-per-slice test (`scripts/z28_adelic_fast.py`, `z28_adelic_scan.py`, logs `logs/z28_adelic_scan_k{4,8}.txt`):
   k = 4: every x_{ℓ,r} with ℓ ∈ {3, 5, 7} is covered; for ℓ = 11 exactly r ∈ {2, 6} are uncovered (covered
-  {7, 8, 10} = Salez's S₁₁), ℓ = 13: {2, 5, 7, 8} uncovered, …, ℓ = 37: 14 of 18 uncovered. k = 8: **every**
+  {7, 8, 10}; equal to Salez's S₁₁ only by coincidence — Salez's S₁₃ = {5, 6, 8, 11} uses non-slice families, R267),
+  ℓ = 13: {2, 5, 7, 8} uncovered, …, ℓ = 37: 14 of 18 uncovered. k = 8: **every**
   non-residue at ℓ = 3, 5, 7 is uncovered, and at each ℓ ≤ 37 the uncovered set contains k = 4's. (B = 2500 for
   (k, ℓ, r) = (8, 3, 2), (8, 5, 2), (8, 7, 3), (4, 11, 2), (4, 11, 6): still uncovered.)
   Since a point lies in a class of modulus H | L iff its residue mod L does, **if x_{ℓ,r} is uncovered by all slices
   then no level divisible by ℓ is complete** — so (EVIDENCE) k = 4 has complete levels only on {2, 3, 5, 7}, and
-  k = 8 has none at all, because already ℓ = 3, 5, 7 carry uncovered points.
+  k = 8 has no slice-complete level divisible by 3, 5 or 7 (PROVED for 3, 5 by Thm 2.6; EVIDENCE for 7) and none
+  ≤ 3200 at all (R267 repair, D4: levels supported on 2 and primes ≡ ±1 (8) are not addressed by these points).
 *Reading (Assessment; scope per R-O257 M3).* In the range computed, "visibility is sufficient" holds for ES only at
 Mordell-type 7-smooth levels, and that is a 4-specific fact (no complete level km, m ≤ 400, for k = 8, 12). For p ∈ 𝓜,
 p is a square modulo every 7-smooth level, so at every complete level found (all ≤ 6000 among 7-smooth ones, all
@@ -154,7 +167,9 @@ p is a square modulo every 7-smooth level, so at every complete level found (all
 Mordell classes. Every visible level of a Mordell-class prime involves a prime ℓ ≥ 11; Thm 2.6 (§5) proves that
 levels through ℓ ≡ ±3 (mod 8), ℓ ≥ 11, are never complete; for levels through ℓ ≡ ±1 (mod 8) (17, 23, 31, …) only
 the computations (≤ 1600) are available. Within these bounds: for p ∈ 𝓜, determined lifts need favourable
-witnesses, not merely visible ones.
+witnesses, not merely visible ones. (R267 repair, D-M1: all of this is about determined = fixed-slice lifts; for
+polynomial-family lifts (Prop 1.3) levels through 11·13 are not useless for 𝓜 — all p ≡ 79 (mod 143), Mordell-class
+ones included, are solved by one family.)
 
 ## 3. Goal (3): sources forced to share p's non-residue primes
 
@@ -277,3 +292,8 @@ reason is an inequality (the slice must satisfy b₀(k − 4/g) ≤ 3), i.e. the
 smallness, not a reciprocity law. For ES it proves part of the §2.4 Assessment: for a Mordell-class p, every level
 containing some prime ℓ ≡ ±3 (mod 8), ℓ ≥ 11, is incomplete (levels supported on 2, 3, 5, 7 and primes ≡ ±1 (8) are
 not covered by Thm 2.6).
+(R267 repair, D-M1/D2: the separation is a statement about **fixed-slice** classes (determined lifts) only. For ET's
+non-slice polynomial families it fails: for k = 8, x_{3,2} ∈ {n ≡ 281 (mod 504)} (II, a = 3, d = 3, e = 7, c free) and
+x_{5,2} ∈ {n ≡ 7 (mod 15)} (II, a = 1, c = 2, d = 1, e free); for k = 4, x_{11,2} ∈ {n ≡ 79 (mod 143)}. The inequality
+b₀(k − 4/g) ≤ 3 is the Type II branch; the Type I branch needing k ≥ 8 is g + 2b₀ ≥ (k/2)gb₀ and uses k even;
+4 | k is used only through T1 / the meaning of "complete". Numerically (a) holds for every 6 ≤ k ≤ 32 with ℓ ∤ k.)
