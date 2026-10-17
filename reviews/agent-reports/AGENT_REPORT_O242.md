@@ -7,7 +7,7 @@ sterility are NOT proved.**
 
 ## SHARP
 1. **Uniform multiplicity on the r-generic line (Conjecture 4.2, EVIDENCE).** For every prime 17 ≤ r ≤ 61 (complete to
-   depth 4), r = 19, 23 (depth 6), r = 17 (depth 7): from depth 4 on an alive parent never holds more than **3** boxes of the
+   depth 4), r = 19, 23 (depth 6), r = 17 (depth 8): from depth 4 on an alive parent never holds more than **3** boxes of the
    next level (≤ 5 at depth 3), for every r. With SD Lemma 3.1 the bound "≤ 3" (even "≤ r − 1") for one r gives sterile
    r-generic points with dim ≥ log(r−3)/log r. STERILE_LOWER proves sterility for r ≥ 2^{21.44} and shows level 1 leaves room
    exactly for r ≥ 17 (r ≤ 13: every non-residue cell covered at level 1, re-derived here). So **one uniform multiplicity
@@ -48,10 +48,15 @@ python3 scripts/z17_zpairs.py DIR 7 5        # DIR = O241's r = 17 box directory
 z17_penum.py reproduces data/m17b/p5, p7, p9 at r = 17; the level-1 survivors (17: {5, 7}, 19: {2, 3, 10, 13}, 23: {5, 14})
 agree with STERILE_LOWER Comp. 4.1 (independent engine).
 
-## In progress (not in the results)
-r = 17 depth 8 needs P-data K = 15 (≈ 10–15 h, 2 processes): `ZR=17 z17_penum.py 15 e ad` and `... 15 ac cd` running in
-/tmp/z17k15 (outputs p15_ead.txt, p15_accd.txt; then `sort -u` the union into p15.txt, copy /tmp/z16m/* and run
-`z17_rtree.py DIR 8 17`). Will be appended to §2.4 if it finishes.
+## r = 17 depth 8 (completed after the checkpoint)
+EVIDENCE, complete: **D_P(15) = 2881** P-data at K = 15 (new exact count; D_P(13) = 1463; M17D's measure route would need
+≤ 2.5·17⁶ ≈ 6·10⁷), stored as `data/z17/p15_r17.txt.gz` (sha256 `42b1a566…`). Engine: z17_penum.py regimes e, ad (≈ 10 h) +
+the new `scripts/z17_penum2.py` (regimes ac, cd with rebalanced thresholds Xcd = 1.1·10⁶, Xac = 21864493 — cover inequality
+asserted — sharded 15 + 9 ways, per-chunk progress and checkpointing; ≈ 2.5 h on 24 processes; validated by reproducing
+data/m17b p9, p11 exactly with a non-default split). Tree (`data/z17/rtree17_d8.txt`): depth 8 in C₅ = C₇ has 326 new boxes,
+**every alive parent holds ≤ 1**, alive fraction 0.67712. 17-ary maxima at depths 2–8: 4, 4, 2, 2, 2, 1, 1.
+Replay: `ZR=17 z17_penum.py 15 e ad`; `ZR=17 z17_penum2.py 15 {ac|cd} 69841226 1100000 S j OUT` for all j < S; sort -u the union;
+`z17_rtree.py DIR 8 17` with DIR = data/m17b p1..p13 + p15 + O241's Q/U k ≤ 7.
 
 ## What did not work / limits
 * Pair correlation (S1): no structure beyond counts in the data; per-key Lenstra bounds the wrong quantity (keys vary).

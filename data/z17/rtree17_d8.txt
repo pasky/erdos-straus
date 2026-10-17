@@ -1,0 +1,17 @@
+r = 17: non-residues [3, 5, 6, 7, 10, 11, 12, 14]; level-1 boxes [3, 6, 10, 11, 12, 14]
+  cell C_5:
+    d2: new 4, alive 0.76471, max 4, hist {4: 1}
+    d3: new 23, alive 0.68512, max 4, hist {1: 4, 2: 3, 3: 3, 4: 1}
+    d4: new 34, alive 0.67820, max 2, hist {1: 28, 2: 3}
+    d5: new 83, alive 0.67721, max 2, hist {1: 81, 2: 1}
+    d6: new 100, alive 0.67714, max 2, hist {1: 98, 2: 1}
+    d7: new 272, alive 0.67713, max 1, hist {1: 272}
+    d8: new 326, alive 0.67712, max 1, hist {1: 326}
+  cell C_7:
+    d2: new 4, alive 0.76471, max 4, hist {4: 1}
+    d3: new 23, alive 0.68512, max 4, hist {1: 4, 2: 3, 3: 3, 4: 1}
+    d4: new 34, alive 0.67820, max 2, hist {1: 28, 2: 3}
+    d5: new 83, alive 0.67721, max 2, hist {1: 81, 2: 1}
+    d6: new 100, alive 0.67714, max 2, hist {1: 98, 2: 1}
+    d7: new 272, alive 0.67713, max 1, hist {1: 272}
+    d8: new 326, alive 0.67712, max 1, hist {1: 326}
