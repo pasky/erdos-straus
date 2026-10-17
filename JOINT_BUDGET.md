@@ -231,7 +231,7 @@ divisibility type (none is known that is canonically attached to every prime).
 | 3·2^s + 1 ((J)74) | m = 11 fixed | K = 3F₊F₋, residues of F± functions of X mod 11 | −1 = product of ≤ 2 blocks | PROVED (thin) |
 | 63·2^s + 1 ((J)80) | moving gap 3Φ₆-type | n + 4a²d = 63(Y+3)(Y²−3Y+9) | gap = cyclotomic factor | PROVED (thin) |
 | general p, (R0)/(R1c) | any | p-free content only (Thm A) | −1 ∈ Σ_m(K) | unforced divisor event |
-| general p, (R2) forced window | (m/p) = −1 | one bit: (K/m) = −1 ⇒ −1 ∈ H₀ | box: Σ 2v_s(K) ≳ |H₀| (Prop 3.2) | cap ≤ (m−3)/4 proved (CAP_DOWN 1.3), cap 0 lottery |
+| general p, (R2) forced window | (m/p) = −1 | one bit: (K/m) = −1 ⇒ −1 ∈ H₀ | box: Σ 2v_s(K) ≳ #H₀ (Prop 3.2) | cap ≤ (m−3)/4 proved (CAP_DOWN 1.3), cap 0 lottery |
 | general p, congruence-forced F | m ≡ −p (4F) | F with Ω(F) = E | m ≤ F + 1 ⇒ one ET class (Lemma 3.1) | B1 |
 | general p, (R3) | near-square/CF | p + m = c w² | (c/p) = −1 | c = 1: never forced (Prop 4.2) |
 | general p, (R4) | 4ab | p^k ≡ 1 | k even, unbounded (§6) | B2 under H |
@@ -239,4 +239,4 @@ divisibility type (none is known that is canonically attached to every prime).
 The thin families succeed because the window is FIXED while the auxiliary (X, Y) moves: residues of algebraic factors
 mod the fixed window are then functions of the auxiliary, and a covering in the auxiliary closes the family. For
 general p the window must move (any fixed finite window set fails, conditionally), and Theorem A removes all algebraic
-factors; what remains is one character bit (forcing) against a box that needs ≍ |H₀| exponent units.
+factors; what remains is one character bit (forcing) against a box that needs ≍ #H₀ exponent units.
