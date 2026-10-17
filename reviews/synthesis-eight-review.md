@@ -1,12 +1,74 @@
 # R268 — hostile review of O258 SYNTHESIS_SPARKS8 (synthesis VIII)
 
-Reviewer: R268 side agent. Status: IN PROGRESS. Scripts: `scripts/review_r268_*.py` (from scratch; author scripts not reused).
+Reviewer: R268 side agent. Status: COMPLETE (round 1). Scripts: `scripts/review_r268_*.py` (from scratch; author scripts not reused).
 
 ## Summary verdicts
-(filled in as checks complete)
+
+No FATAL. Four MAJOR (M1 label of Lemma 1.6; M2 DFI misdescribed; M3 §8 relies on the fixed-slice-only Thm 2.6 separation
+(R267 D-M1); M4 prior art: López 2024 has the b = 1 divisor form, the exceptions 193/2521/66529 and the union conjecture).
+Thirteen MINOR. The headline census is **fully reproduced to 10⁸ by an independent algorithm**.
+
+| Claim | Verdict |
+|---|---|
+| SHARP census: b = 1 fails exactly at 193, 2521, 66529; c = 1 at 14 primes; union never ≤ 10⁸ | **SOUND** (independent full run to 10⁸, Claim A) — novelty re-scoped by M4 |
+| Completeness bounds m ≤ (p+4)/3, d ≤ (p+3)/8 | SOUND (re-derived; own bound t ≤ (p+1)/3) |
+| k = 8 counts 60 / 34 incl. 131, 241; T1 and 105 controls | SOUND for all primes 5 ≤ p < 8000 (m1: class/range) |
+| Prop 1.2 | SOUND-AFTER-REPAIRS (m2) |
+| Prop 1.3 (b = 1 duality) | SOUND (= López 2024 Thm 7, M4); T1 citation scope (m3) |
+| Prop 1.4 | SOUND-AFTER-REPAIRS (m4: "∩ {x < y}" wrong; bijection is with all of MP(p)) |
+| Prop 1.5 | SOUND |
+| Lemma 1.6 | GAP → SOUND-AFTER-REPAIRS (M1: only the CRT density is PROVED; completion part is Assessment) |
+| DFI paragraph, §1.7 row 2, §6/report "DFI is uniform in a" | GAP → SOUND-AFTER-REPAIRS (M2) |
+| §2.1 (odd-prime support-1 forces j even) | SOUND |
+| Lemma 2.2 (a)(b) | SOUND |
+| Lemma 2.3 | SOUND (Reading unlabelled, m5) |
+| Per-j statistics; table rows support-1 (752), prime-D (123) | SOUND (reproduced exactly) |
+| Lemma 3.1 | SOUND |
+| Lemma 4.1 / Cor 4.2 | SOUND / SOUND-AFTER-REPAIRS (m6, m7); credit (m8) |
+| §8 (vi) dictionary ((k/4) | d) | SOUND |
+| §8 (vi) step-form reading / memo s8_numerator_size_screen | GAP → SOUND-AFTER-REPAIRS (M3, m9, m10) |
+| "at 131, 241 every solution of 4/p has an odd denominator" | SOUND (true; wording m10); full list of 8/p failures 5 ≤ p < 8000 = {11, 17, 131, 241} |
+| §5 (v) profinite proximity | SOUND as EVIDENCE (weak); SEs supplied (m11) |
+| Conjecture 2.5 label and limits | SOUND label; limits need m1, m12, m13; attribution M4 |
 
 ## Defects
-(numbered below)
+
+**M1 (MAJOR, label) — §1 Lemma 1.6.** Only the CRT density statement is PROVED. The completion statement ("any completion …
+leaves an error ≍ (XY)^{1/2}") is a heuristic accounting of one strategy (undefined S(h, k); variable moduli; upper not lower
+bound). *Repair:* split: "Lemma 1.6 (PROVED): density ≍ 1" + "Remark 1.6′ (Assessment): …"; same in §6 and the report.
+**M2 (MAJOR, citation) — §1 DFI paragraph, §1.7 table row 2, §6 bullet (i), report.** DFI 1997's bounds depend explicitly on a
+((1 + a/MN)^{1/2}, (a + MN)^{3/8}, (a + MN)^{14/29}) and are nontrivial only for a ≪ MN (paper's own words); with a ≍ p they
+are trivial for boxes with MN = o(p^{36/37}) (Thm 2, balanced M = N). DFI's saving is bilinear across moduli, not "per single
+S(h, k)". *Repair:* "DFI holds for every a with explicit a-dependence; with a = p it saves only for boxes of size MN ≳ p^{1−δ};
+the numerator size is part of the obstruction for smaller boxes; the O(1)-per-box volume is the obstruction for the large ones".
+**M3 (MAJOR, dependency) — §8 and memo s8_numerator_size_screen.** Builds on the reading "Thm 2.6 separates k = 4 from every
+k ≥ 8 at x_{ℓ,2}", which R267 D-M1 showed holds only for fixed-slice classes (families: k = 8 covers x_{3,2}, x_{5,2}; spot
+check 8/n solvable along n ≡ 281 (504)). *Repair:* scope every statement of §8/memo about "the 4-specific step" to fixed slices
+and add that the profinite-point separation fails with families.
+**M4 (MAJOR, novelty) — §0 (I2), §2, §6, report SHARP, memo s8_b1_line_census.** López, arXiv:2404.01508: Type A = b = 1 line,
+Thm 7 = Prop 1.3's divisor form, d ≤ (p+3)/8, exceptions 193, 2521, 66529, and Conjecture 1 = "b = 1 ∪ c = 1 always holds"
+(checked to 104 729). *Repair:* cite; re-scope "new" to the 10⁸ census, the MP 2-adic reading, Lemmas 2.2/2.3, per-j statistics.
+**m1** §2.4/Conj 2.5/memo: k = 8 counts are over all primes 5 ≤ p < 8000 (61/35 with p = 3); over p ≡ 1 (4): 39/22; 131 ≡ 3 (4).
+**m2** Prop 1.2 b = 1 bullet: drop "w ≤ (cn + 1)/2" (false at n = 3; unnecessary).
+**m3** Prop 1.3 Reading, T1 sentence: ET Prop 1.6 covers Type II (abd coprime to n); the MP statement needs equation-level
+vanishing — true (reviewer check to 841) and ET's proof works, but say "by the proof of ET Prop 1.6".
+**m4** Prop 1.4: endpoint y = n/k; "MP(p) ∩ {x < y} ↔ {(x, s)}" → "MP(p) ↔ {(x, s) : x | s + 1, s | p + x}" (or add (s − 1)x < p);
+replace the "(k + 2)n − ..." placeholder by (k + 1)(n + y) = (k + 2)n + x.
+**m5** Lemma 2.3 Reading and §3 Reading: label Assessment; "ℓ > 4D" can be "ℓ > D" for p + 4d.
+**m6** §4 numerics: enumeration convention for "1934 positive / 2816 signed / 2–13 each" undocumented (reviewer, all divisors f:
+4772 / 10 787 / 3–48; 0 exceptions either way).
+**m7** Cor 4.2: "the only involutions are coordinate permutations" is false as stated (reciprocal coordinates: a plane); say
+"multilinear ⇒ no single-variable Vieta involution".
+**m8** §6: Lemma 4.1 is (J)52's three-bit law / ET Prop 1.6 mechanism at Type I level — not "genuine new content".
+**m9** §8/memo: "the only k = 4 witness there, Mordell's (1, 6, e = 7)" — also (II, 1, 5, c = 2, e = 3) and (I, 2, 5, c = 1, e = 7)
+at ℓ = 5 and Type I (1, 6, 7) at ℓ = 3; all have d a 2-adic unit, so the conclusion stands.
+**m10** §8/memo: "every solution has an odd denominator" → "no solution has all denominators even (⟺ 8/p unsolvable)"; make
+"(131, 241, …)" exact: {11, 17, 131, 241} are all primes 5 ≤ p < 8000 with 8/p unsolvable; the other 30 two-line failures are
+not model exceptions. "(J)57 … is the same statement" → Assessment. "strictly stronger" → "at least as strong".
+**m11** §5: add the SEs (class 1: 19.63 ± 0.25; others ± 0.25; z ≈ 3.5 vs pool).
+**m12** Conj 2.5 limits: "Any proof must be 4-specific" → "cannot be numerator-blind uniformly in p" (threshold forms not excluded).
+**m13** Conj 2.5 limits: replace the mixed-population means by the growth data (≈ 0.145 log²p; 13.5 at 1.5·10⁴, 29.7 at 1.5·10⁶,
+51 at 1.5·10⁸) and add composites 33, 145 to the failure controls.
 
 ---
 ## Claim A — SHARP census (§2.4, Conj. 2.5 evidence): **SOUND** (independently reproduced to 10⁸ in full)
