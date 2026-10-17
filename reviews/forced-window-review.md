@@ -3,6 +3,8 @@
 Reviewer: R264 side agent (branch side-agent/review-forced-window). Reviewed commit: merge of side-agent/forced-window
 (O252 checkpoint 1, after self-review R-O252). From-scratch scripts: `scripts/review_r264_*.py` (no author code reused).
 Status: COMPLETE (round 1).
+**Repairs applied (author quiet since checkpoint 1):** D1–D5, D7–D12 applied to FORCED_WINDOW.md, each marked "(R264 repair)"
+(D6 as an "R264 remark"); z24 memos and AGENT_REPORT_O252 not edited (z24_crt_shortfall still says "cap ≍ log log p", D4).
 
 ## Summary verdicts
 
