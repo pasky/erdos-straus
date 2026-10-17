@@ -1499,6 +1499,26 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment. Target (A), cap 0 for every p under a standard hypothesis, is not reached. Every route to cap 0 is either covering, which needs subpower windows, or a target-specific least-residue event (B2). SHARP 1 relayed to O256 (balanced-lattice: replace W by GRH). The fixed-p dispersion spark was not relayed: O255's tied-averaging remark kills it.
    * verify.py (gy) re-runs R264's from-scratch checks.
 
+86. **Direction 2, amplifying one exception: sharp "would suffice" criteria, no propagation law, and the local square obstruction to congruence-mediated recombination (AMPLIFY_EXCEPTION.md + BRAINSTORM/z25_*.md (O253; Claude's entry in the Claude/Astra comparison on the shared core of ASTRA_BRIEF_DIRECTION2.md); self-review plus hostile review `reviews/amplify-exception-review.md` (R266): no FATAL, every number reproduced from scratch; MAJOR D-T32a (Thm 3.2 is the classical Mordell–Schinzel / ET Prop 1.6 square-class obstruction, the campaign's T1, in local form; only the Cor 3.3 packaging is new), D-ASTRA (Thm 1.3(a), 1.4(d) and the Prop 2.1/Thm 2.2 framing duplicate Astra d7300f8 RESET §4 tests 1 and 3; now credited), D-R (the R1–R8 table oversold an "iff" and listed a NOT-SUCCESS progression as the best law); minors; all repaired by the reviewer, marked (R266 repair)).**
+   * Thm 1.1 (PROVED): an exceptional family F ⊆ E contradicts Vaughan if F(N) ≥ N·e^{−o((log N)^{2/3})} along a sequence (exponent 3/4 with the internal bound). This is strictly stronger than Σ_F 1/n = ∞. The "only if" direction is relative to the unspecified constant and to counting alone.
+   * Thm 1.3 (PROVED; part (a) = Astra RESET §4 test 3):
+     * Fixed branching b with successors ≥ p^μ, μ > 1, yields only polylog many descendants, so it never suffices.
+     * Branching ≤ p^δ needs δ ≥ μ − 1.
+     * At linear scale, b successors in (p, Ap] with in-degree ≤ r suffice iff b ≥ rA.
+     * One forced successor in (p, p + f(p)] suffices if f = e^{o((log p)^{2/3})}.
+   * Thm 1.4 / 1.5 (PROVED): composites and disjunctive blocks. Route (D) is the least-element argument.
+   * Thm 2.2 (PROVED): fixed-(a, b, c) witness transports isolate exceptional primes, so they never amplify.
+   * Thm 2.3 (PROVED, n = 121): a primality-blind ET-valued proof is refuted at an odd square.
+   * Thm 2.4 (PROVED): the {(p∓1)/2} recombination law is ES itself on p ≡ 9 (mod 16).
+   * Thm 2.5 (CERTIFIED, R266 complete search): numerator models k/n, 8 ≤ k ≤ 25, have genuine prime exceptions (E_8 ∩ primes < 2000 = {2, 3, 11, 17, 131, 241}; E_12 has 16 primes up to 1873). Every k-uniform law shape tested (square law, truncated (p²−1)/4 recombination, {(p∓1)/2}, forced successor in (p, 8p]) fails there; cf. (J)41.
+   * Thm 3.2 / Cor 3.3 (PROVED; Thm 3.2 classical in substance):
+     * p ≡ □ (mod L) ⟹ p has no ET witness with H | L.
+     * Hence a congruence-mediated recombination over any finite source set that must accept every supplied witness tuple is total only if some single source has no "invisible" witness. Favourable-witness proofs and non-congruential lifts are not covered.
+     * Dictionary: the only information about p usable by such lifts sits at primes where p is a non-residue, matching (J)64.
+   * EVIDENCE: at the fixtures 97, 193, 313, 3361, 5209 and 233689 no shifted source (p+j)/g, |j| ≤ 12, g | 24, is total; at 3361 ← 281 none of 17 witnesses passes and 11 are invisible. Among the 49 Mordell-class primes < 10⁵ with (p+1)/2 prime, the law is total at none.
+   * Assessment (core tier): weak-to-strong partial, tier (d). The Deliverable-1 theorems are sharp but elementary. The obstruction is correctly scoped but classical at its core. No E-valued law with any growth is proved. Resources: one session ≈ 0.9 h, ≈ 1 CPU-hour. SHARP relayed to O257 (non-congruential lifts plus the numerator-model lab), which is outside the comparison.
+   * verify.py (gz) re-runs R266's from-scratch checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

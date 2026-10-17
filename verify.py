@@ -26502,4 +26502,44 @@ def check_gy():
 check_gy()
 
 
+def check_gz():
+    # (gz) AMPLIFY_EXCEPTION (O253/R266): R266 from scratch — numerator models k/n (complete search, self-tested against
+    # naive enumeration): E_8 ∩ primes < 2000 = {2, 3, 11, 17, 131, 241}, E_12 has 16 primes up to 1873; Thm 3.2 (p ≡ □ mod L
+    # ⇒ no ET witness with H | L; classical Mordell–Schinzel/ET Prop 1.6 in local form) on 35 435 representations; odd squares
+    # have no ET Type I/II solutions; Thm 2.3 (121); the 3361 ← 281 gate 0/17 (11 invisible); fixture sources never total.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2",
+               PYTHONPATH=os.path.join(root, "scripts"))
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=root, env=env)
+        assert r.returncode == 0, ("AMPLIFY_EXCEPTION subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["scripts/review_r266_ek.py", "selftest"])
+    assert "selftest mismatches: 0" in out, out[-1000:]
+    out = run(["scripts/review_r266_ek.py", "ek"])
+    assert "k=8 #E_k primes<2000 = 6 max=241 list=[2, 3, 11, 17, 131, 241]" in out, out[:1500]
+    assert "k=12 #E_k primes<2000 = 16 max=1873" in out, out[:1500]
+    out = run(["scripts/review_r266_t1.py", "thm32", "3000"])
+    assert "Thm 3.2 check, primes 5<=p<3000: reps tested 35435, violations 0" in out, out[-1000:]
+    out = run(["scripts/review_r266_t1.py", "squares"])
+    lines = [l for l in out.split("\n") if l.startswith("n=")]
+    assert len(lines) == 20 and all(l.endswith("ET Type I/II solutions: 0") for l in lines), out[-1500:]
+    assert "(121^2-1)/4 = 3660 {2: 2, 3: 1, 5: 1, 61: 1} all prime factors soluble: True" in out, out[-500:]
+    out = run(["scripts/review_r266_t1.py", "gate", "3361:281:12"])
+    assert "3361 <- 281 (x12): witnesses 17, pass(single rep) 0, pass(lcm of reps) 0, invisible(some rep) 11" in out, out
+    out = run(["scripts/review_r266_t1.py", "fixtures", "97", "193", "3361"])
+    assert out.count("total_sources=0") == 3, out[-1500:]
+    print(f"== (gz) AMPLIFY_EXCEPTION R266: numerator models E_8, E_12 exact; Thm 3.2 local square obstruction (35435 reps); "
+          f"odd squares no ET solutions; 3361<-281 gate 0/17; no total fixture source; seconds = {perf_counter() - t0:.1f}")
+
+
+check_gz()
+
+
 print("\nall checks passed")
