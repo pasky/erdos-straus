@@ -7,6 +7,27 @@
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
 proof has an identifiable gap.
 
+**Wave AA: four directions after the Astra bridge — every one ends at B2 or at evidence; the Claude/Astra Direction-2 comparison launched (2026-10-17; ledger (J)84–(J)91; tasks O252–O259, reviews R263–R270; each item had one independent hostile review, since no headline theorem was claimed): ES is not solved.**
+* *Direction 1, forced divisor at a forced window ((J)85, (J)91).*
+  * Every cap-0 window certificate is a least-residue event: the window is −p mod 4uv for a coprime (u, v).
+  * Covering needs windows of size at most p^{O(1/log log p)}.
+  * A balanced-lattice Hypothesis W gives cap ≤ (log log p)^{2+o(1)}. GRH + EQ gives (log₂p)^{13/2}, and GRH + S gives (log₂p)^{9/2}. GRH alone does not reach (log₂p)^{O(1)} by this route. An exact dictionary identifies balance with the absence of pretentious characters on the forced primes.
+  * EVIDENCE: every p ≤ 10⁷ has a cap-0 window ≤ 107. The exponent budget is not how such windows arise. Bounded cap is not ES.
+* *Direction 2, amplifying one exception ((J)86 = Claude's entry in the comparison; (J)88 relay).*
+  * The sharp "would suffice" criteria are PROVED, e.g. a family F ⊆ E with F(N) ≥ N e^{−o((log N)^{2/3})}. Fixed-modulus transports isolate exceptions.
+  * Congruence-mediated recombination is blocked by the classical local square obstruction (T1).
+  * Numerator models k/n have real exceptions and refute every k-uniform law shape that was tested.
+  * Non-congruential lifts collapse to witness-level B2 events.
+  * No propagation law was found.
+  * The shared core and the Astra brief are in `ASTRA_BRIEF_DIRECTION2.md`.
+* *Direction 3, joint factorisation ((J)84).* With p free, ES side numbers are irreducible over polynomial auxiliaries; positivity d > 0 is the obstruction. ℤ[√p]-windows are never Jacobi-forced. p is a non-square modulo every class modulus 4ab.
+* *Direction 4, parity-breaking audit ((J)87).* No known theorem reaches the B2 event at a single prime. The obstruction is a tied modulus, or equivalently a height-dependent target on xy ≡ 1 (mod 4p). The best pointwise bound is |E(p)| ≪ p^{2/5+o(1)}.
+* *Synthesis VIII and the b = 1 line ((J)89, (J)90).*
+  * The b = 1 line ("p + 4d has a divisor ≡ −1 (mod 4d)") is López's 2024 Type A; its failures 193, 2521, 66529 and the union conjecture are also López's.
+  * We extended the census: no further failure among primes p ≡ 1 (4) ≤ 10¹¹ (two independent engines). (★) fails at exactly 14 primes ≤ 10¹⁰, and the union of the two lines never fails ≤ 10⁸.
+  * Under Dickson, small-shift freezing makes the least shift unbounded.
+* *Assessment.* Wave AA mapped the remaining hatches precisely. Each ends at the B2 divisor event at one integer, at a non-standard hypothesis, or at evidence. ES remains open.
+
 **Wave Z: the first pointwise positive mechanism (for a relaxation), infinite ES families that no ET covering can reach, and sterility as menu-relative and percolation-type (2026-10-15/16; ledger (J)57–(J)83; tasks O224–O251, reviews R227–R262; every headline theorem had two independent hostile reviews ((J)62, (J)64, (J)66, (J)67, (J)69, (J)70, (J)74, (J)75, (J)80), all others one; novelty audit O243): ES is not solved.**
 * *Pointwise caps (a relaxation, not ES).*
   * **Self-generated mute set ((J)64).** For a prime window q = 4x − n with q ≡ 4 − n (8) and (q/n) = −1, reciprocity forces −1 ∈ ⟨primes of x⟩ mod q, which gives a solution of 4/n = 1/x + 1/y + 1/z with z of square denominator and exponent cap e < q. Hence the first unconditional effective pointwise cap: e*(n) ≪ rad(n)^5 for every odd n > 1, and ≤ (16 log n + 70)² under GRH.
