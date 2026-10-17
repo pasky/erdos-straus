@@ -243,11 +243,11 @@ L(1 + 2b₀)/c = Lh ≥ 8ab₀ − 1 > 2Lb₀ − 1 forces c = 1 (c ≥ 2 would 
 L(1 + 2b₀) + 1 = 4(L − 1)b₀t (t ≥ 1), i.e. L + 1 = b₀(4Lt − 4t − 2L). For t = 1: b₀ = (L + 1)/(2L − 4): L = 3,
 b₀ = 2 (slice (1, 6), e = (Lh − 1)/2 = 7) or L = 5, b₀ = 1 (slice (2, 5), c = 1, e = 7); L ≥ 7 gives b₀ < 1. For t ≥ 2,
 b₀(6L − 8) ≤ L + 1 is impossible. If g = 2, b₀ = 1: c = 2L − 2a is even and divides g + 2b₀ = 4, so c ∈ {2, 4},
-a = L − c/2, and 8a ≤ Lh + 1 = 4L/c·… gives 8L − 4c ≤ 2L + 1 (c = 2) or ≤ L + 1 (c = 4) — impossible for L ≥ 3.
+a = L − c/2, h = 4/c, and 8a | Lh + 1 gives 8L − 4c ≤ Lh + 1, i.e. 8L − 8 ≤ 2L + 1 (c = 2) or 8L − 16 ≤ L + 1 (c = 4) — impossible for L ≥ 3.
 *Case B for k = 4* reduces to these with ℓ^n ∈ {3, 5} and h ∈ {3, 1} (II) or {5, 3} (I), and the extra condition
 ℓ^{2i} | h (i ≥ 1) fails in all four. So exactly ℓ ∈ {3, 5} (m = 1) survive, with the listed classes, which do
-contain x_{ℓ,2} (x = 5 ≡ 2 (3), ≡ 1 (8): 5 + 7 ≡ 0 (24), 5·7 + 1 ≡ 0 (12)·3; x = 17 ≡ 2 (5), ≡ 1 (8):
-17 + 3 ≡ 0 (20), 17·7 + 1 = 120 ≡ 0 (40)).
+contain x_{ℓ,2} (representative x = 17 in both cases: 17 ≡ 1 (8), 17 ≡ 2 (3), 17 ≡ 2 (5); 17 + 7 = 24,
+17·7 + 1 = 120 = 5·24, 17 + 3 = 20, 120 = 3·40).
 (c) If 2 is a non-residue mod ℓ and ℓ | L, the class of x_{ℓ,2} mod L is a non-square unit class; a covering class
 of modulus H | L would contain x_{ℓ,2} itself. ∎
 *Numerical check (CERTIFIED, `scripts/z28_x2_check.py`, a ≤ b ≤ 300, k ∈ {4, 8, …, 32}, ℓ < 60, ℓ ∤ k):* hits
