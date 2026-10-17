@@ -52,3 +52,28 @@ density 0 among integers ≤ X, by the sieve; not needed below). ∎
 
 So the T1 adversary is *exactly* the statement that slice-level information about p is a finite set of residues,
 and the only congruence-mediated escape is to let the level grow with the size of the source solution.
+
+**Proposition 1.3 (polynomial lifts collapse to slice level; PROVED modulo the cited theorem).** Suppose that on a
+source slice σ′ and a class p ≡ r (mod M₀) a lift outputs a solution k/p = 1/X(t) + 1/Y(t) + 1/Z(t), p = M₀t + r,
+with X, Y, Z ∈ ℤ[t] of positive leading coefficient, valid for all large t (the output depends on d′ only through
+p, which on a fixed slice is affine in d′). Then r is not a square modulo M₀ (Schinzel, Funct. Approx. 28 (2000),
+condition (1) for m ≡ 0 (mod 4); campaign citation audit O223, DISCOVERIES (J)49). So a polynomial lift is
+"visible-only" exactly like a congruence lift of level M₀, and O253 Cor 3.3 applies to it with L = M₀.
+*Proof.* A polynomial identity in t valid for infinitely many t is an identity in ℚ(t); Schinzel's theorem forbids
+it on a square class. ∎
+The same holds one level finer for polynomials in m = ⌊√p⌋ on p = m² ± j: by NEAR_SQUARE Thm 2.2 (j > 0) and
+Thm 3.4 (j < 0; Hilbert reciprocity in ℚ(√j)) every such family misses the ℚ(√j)-adic unit-square set — an
+*archimedean* lift has its own T1 adversary, now in ℚ(√j) (DISCOVERIES (J)55).
+
+**Proposition 1.4 (exact-share lifts = e-spectrum transport; PROVED, algebra).** Call a witness-level lift
+*exact-share* if N_θ(p) = λ·N_θ′(q) identically in q (p = αq + β, λ ∈ ℚ_{>0} independent of q). The complete list:
+(II←II) λ = α, e = αe′ − β; (II←I) e′ | α, λ = α/e′, e = α/e′ − β; (I←II) e = 1, αe′ − β = 1, λ = α;
+(I←I) e(α − βe′) = e′, λ = αe/e′. For an exact-share relation, *every* slice (a, b, c) of type θ with
+(a + b)/c = e is automatically compatible (kab | N_θ(p) = λN′ is the witness condition itself), so the lift is valid
+at w′ iff (θ, e) ∈ Spec(p) := {(type, e) of witnesses of p}. A share law "q ∈ S_k ⟹ p ∈ S_k" is total iff
+f(Spec(q)) ⊆ Spec(p) for the relevant shift map f — the source witness contributes *only its e-value*.
+*Proof.* Compare coefficients of q in N_θ(αq + β) = λN_θ′(q): (II←II) αq + β + e = λ(q + e′); (II←I)
+αq + β + e = λ(qe′ + 1); (I←II) (αq + β)e + 1 = λ(q + e′); (I←I) (αq + β)e + 1 = λ(qe′ + 1). ∎
+*Reading.* The natural "joint factorisation" lifts lose all size information again: what survives is the
+e-spectrum, a finite set of small integers per prime; Type II e-values at p = q + δ are shifted by −δ. With α = 1
+only (II←II) e = e′ − δ, (I←II) e′ = δ + 1 and (II←I) e′ = 1, e = 1 − δ (δ < 0) exist.
