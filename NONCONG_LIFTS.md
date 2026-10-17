@@ -134,3 +134,36 @@ so **at every complete level p is invisible**: the 4-specific resource "complete
 the Mordell classes. Every visible level of a Mordell-class prime involves a prime ℓ ≥ 11, and no such level ≤ 1600
 is complete. This is O253's T1 adversary in its sharpest form: for p ∈ 𝓜, determined lifts need favourable
 witnesses, never merely visible ones.
+
+## 3. Goal (3): sources forced to share p's non-residue primes
+
+**Lemma 3.1 (matched profile forces small-prime visibility; PROVED).** Let 4 | k, p, q odd primes ∤ k with q ≡ p
+(mod 8) and (q/ℓ) = (p/ℓ) for every odd prime ℓ ≤ B. If w′ ∈ W_k(q) has a B-smooth modulus H′ (more generally:
+if q is a non-square modulo the B-smooth part of H′), then w′ is visible to p (p ≢ □ mod H′).
+*Proof.* By the square-class obstruction at q (Thm 1.2(ii) with p := q, M := H′; classical), q ≢ □ (mod H′); since
+squareness mod H′ is local, q is a non-square modulo some prime power ℓ^v ∥ H′. If ℓ is odd, (q/ℓ) = −1; if ℓ = 2,
+q ≢ 1 (mod 8) (v ≥ 3) or q ≡ 3 (mod 4) (v = 2). Under the hypothesis on that ℓ (ℓ ≤ B, resp. q ≡ p (8)) the same
+holds for p. ∎
+So a profile-matched source has no B-smooth invisible witness: the O253 adversary must use witnesses whose
+modulus carries a prime ℓ > B with (q/ℓ) = −1 ≠ (p/ℓ). Visibility, however, is not sufficiency (§2.4).
+
+**Computation 3.2 (CERTIFIED, `scripts/z28_matched.py`, logs `logs/z28_matched_{fixtures,mordell}.txt`).** Sources
+q = p − δ, |δ| ≤ W, q prime, q ≡ p (8), matched Legendre profile at ℓ ∈ {3, 5, 7}; all ET representations of all
+witnesses; "det" = p has a witness with H | H′ (O253 Thm 3.1), "share" = exact-share lift (Prop 1.4).
+Entries q(δ): det / visible / all.
+```
+97   (W=600): 73(+24):5/6/7  313(-216):16/20/21  433(-336):13/17/22  577(-480):9/15/18
+193  (W=600): 337(-144):10/18/22  457(-264):12/18/20  673(-480):8/14/18
+313  (W=600): 73(+240):6/6/7  97(+216):3/6/8  433(-120):7/16/22  577(-264):8/15/18
+3361 (W=600): 3049(+312):3/22/29  3529(-168):9/25/30  3889(-528):6/19/30
+5209 (W=600): 4729(+480):0/20/33  5569(-360):4/19/30
+```
+All 273 Mordell-class primes p ≤ 10⁵ (W = 1000): 1347 matched sources, 106322 source witnesses, 68739 visible
+(65%), 20365 transport by a determined lift (all of them visible — Thm 1.2 consistency asserted), exact-share 1606;
+**0 sources are total**; visibility is sufficient (every visible witness transports) at 0 sources; the only
+fixture source where it happens is 313 ← 73 (6/6 visible, one invisible witness remains, so not total either).
+At 265 of 273 primes every matched source has at least one transporting witness — a statement about p's own
+witness set (favourable-witness existence), not a law.
+*Reading.* Matching the profile removes small-prime invisibility (Lemma 3.1) but the visible inputs still
+transport only ≈ 30% of the time, exactly as §2.4 predicts: their levels contain primes ≥ 11 and are incomplete.
+No total law appears; the residual question "does a favourable witness always exist" is ES(p) restated (B2).

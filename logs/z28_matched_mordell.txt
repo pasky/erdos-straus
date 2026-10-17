@@ -1,0 +1,1 @@
+Mordell primes <= 100000: 273; k=4 B=7 W=1000; aggregate {'src': 1347, 'w': 106322, 'vis': 68739, 'det': 20365, 'visdet': 20365, 'share': 1606, 'srcdet': 1334, 'srctot': 0, 'srcvissuff': 0, 'p_all_src_det': 265, 'p_some_total': 0, 'p_nosrc': 0}
