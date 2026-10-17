@@ -1,0 +1,11 @@
+3361 <- 281 (x12): witnesses 17, pass(single rep) 0, pass(lcm of reps) 0, invisible(some rep) 11, invisible(lcm) 11
+97 <- 43 (x2): witnesses 14, pass(single rep) 3, pass(lcm of reps) 3, invisible(some rep) 11, invisible(lcm) 11
+193 <- 61 (x3): witnesses 11, pass(single rep) 1, pass(lcm of reps) 1, invisible(some rep) 8, invisible(lcm) 8
+313 <- 13 (x24): witnesses 4, pass(single rep) 1, pass(lcm of reps) 1, invisible(some rep) 3, invisible(lcm) 3
+97 <- 89 (x1): witnesses 10, pass(single rep) 5, pass(lcm of reps) 5, invisible(some rep) 4, invisible(lcm) 4
+5209 <- 2609 (x2): witnesses 40, pass(single rep) 10, pass(lcm of reps) 10, invisible(some rep) 17, invisible(lcm) 17
+3361 <- 3359 (x1): witnesses 423, pass(single rep) 25, pass(lcm of reps) 25, invisible(some rep) 276, invisible(lcm) 274
+1201 <- 601 (x2): witnesses 16, pass(single rep) 2, pass(lcm of reps) 2, invisible(some rep) 8, invisible(lcm) 8
+4561 <- 2281 (x2): witnesses 27, pass(single rep) 14, pass(lcm of reps) 14, invisible(some rep) 7, invisible(lcm) 7
+8521 <- 4261 (x2): witnesses 69, pass(single rep) 25, pass(lcm of reps) 25, invisible(some rep) 29, invisible(lcm) 29
+9241 <- 4621 (x2): witnesses 40, pass(single rep) 21, pass(lcm of reps) 21, invisible(some rep) 11, invisible(lcm) 9

@@ -1,0 +1,1 @@
+Thm 3.2 check, primes 5<=p<3000: reps tested 35435, violations 0

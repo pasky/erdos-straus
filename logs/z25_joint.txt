@@ -1,0 +1,5 @@
+97 14 sources; adversarial tuple exists (law not total): lcm-moduli [144, 64, 16, 24, 24, 8, 8, 32, 48, 8, 4, 16, 16, 16]
+193 12 sources; adversarial tuple exists (law not total): lcm-moduli [288, 112, 16, 8, 8, 24, 96, 128, 12, 32, 32, 32]
+313 11 sources; adversarial tuple exists (law not total): lcm-moduli [192, 48, 24, 16, 48, 32, 12, 8, 8, 4, 4]
+3361 9 sources; adversarial tuple exists (law not total): lcm-moduli [64, 288, 12, 24, 8, 32, 4, 16, 16]
+5209 5 sources; adversarial tuple exists (law not total): lcm-moduli [32, 48, 24, 16, 8]

@@ -1,0 +1,22 @@
+k=8 truncated-law fails at [3, 11, 17] ; uv-law fails at [11, 17, 131, 241]
+k=9 truncated-law fails at [5, 11, 19] ; uv-law fails at [19]
+k=10 truncated-law fails at [3, 7, 11, 61, 181] ; uv-law fails at [11, 43, 61, 67, 181]
+k=11 truncated-law fails at [3, 37] ; uv-law fails at [37]
+k=12 truncated-law fails at [3, 5, 7, 13, 29, 31, 37, 97] ; uv-law fails at [29, 31, 37, 97, 433, 577, 1129, 1657]
+k=13 truncated-law fails at [3, 5, 7, 53, 61, 67, 79, 281] ; uv-law fails at [53, 61, 67, 79, 211, 281]
+k=14 truncated-law fails at [3, 5, 17, 19, 29, 257] ; uv-law fails at [17, 19, 29, 257, 353]
+k=15 truncated-law fails at [3, 17, 19, 23, 31, 53, 79, 197] ; uv-law fails at [19, 23, 53, 79, 113, 137, 151, 197]
+k=16 truncated-law fails at [3, 5, 7, 11, 13, 17, 23, 37] ; uv-law fails at [37, 97, 113, 131, 167, 257, 421, 577]
+k=17 truncated-law fails at [3, 5, 7, 13, 19, 23, 41, 43] ; uv-law fails at [23, 41, 43, 53, 71, 73, 157, 281]
+k=18 truncated-law fails at [3, 5, 7, 11, 13, 19, 23, 29] ; uv-law fails at [29, 31, 41, 109, 113, 131, 137, 149]
+k=19 truncated-law fails at [3, 5, 7, 11, 13, 23, 29, 41] ; uv-law fails at [29, 41, 43, 97, 137, 181, 229, 353]
+k=20 truncated-law fails at [3, 5, 7, 11, 23, 29, 41, 43] ; uv-law fails at [61, 67, 89, 103, 107, 127, 149, 181]
+k=21 truncated-law fails at [3, 5, 11, 13, 17, 23, 29, 43] ; uv-law fails at [29, 89, 97, 101, 113, 127, 211, 269]
+k=22 truncated-law fails at [3, 5, 7, 13, 17, 19, 23, 31] ; uv-law fails at [23, 59, 67, 89, 101, 103, 137, 139]
+k=23 truncated-law fails at [3, 5, 7, 13, 29, 31, 37, 41] ; uv-law fails at [29, 37, 41, 47, 71, 101, 127, 139]
+k=24 truncated-law fails at [3, 5, 7, 11, 13, 17, 29, 31] ; uv-law fails at [31, 37, 79, 83, 131, 151, 173, 179]
+k=25 truncated-law fails at [3, 5, 7, 11, 13, 17, 19, 29] ; uv-law fails at [31, 41, 43, 89, 113, 127, 151, 163]
+square law: p^2 exceptional (k,p): [(11, 2), (12, 5), (13, 2), (14, 2), (14, 29), (15, 2), (16, 2), (16, 3), (16, 11), (17, 2), (17, 3), (18, 2), (19, 2), (20, 2), (20, 3), (20, 11), (20, 41), (21, 2), (22, 2), (22, 3), (22, 5), (22, 7), (22, 53), (23, 2), (23, 3), (23, 5), (23, 7), (24, 2), (24, 3), (24, 5), (24, 7), (24, 13), (24, 17), (24, 103), (25, 2), (25, 3), (25, 13)]
+k=10 p=61: 930 [2, 3, 5, 31] S(10/31)= True S(10/61)= False
+8/121 sols (first): [(18, 99, 2178), (28, 33, 10164)] S(8/11)= False
+k=8 p=131: S(8/65)= True S(8/66)= True
