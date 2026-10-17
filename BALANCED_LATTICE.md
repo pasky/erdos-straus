@@ -109,3 +109,39 @@ d ≤ M has angles in (1/d)ℤ, so 𝔻 < ε < 1/d forces 𝔻 = 0; Cor 1.4(c)).
 (≤ x^{1/k}·(log p)^{O(1/k)} in the regime x ≍ φ(8P)² log⁴ p of FORCED_WINDOW Thm 4.3; below N^{1/k}, where by (a) only the
 index condition is visible, whenever √x/φ(8P) < 3^k x^{2/k}). So Theorem 2.3 controls characters of order ≤ x^{O(1/k)},
 a fraction ≤ x^{O(1/k)−1} of Û_q; and by Prop 2.2 it implies no bound on L_min(q) below N₂(q) − 1.
+
+## 3. What class-blind counting gives: a Fejér pair count, and the P-loss in exact form
+
+**Proposition 3.1 (class-blind count of pretentious primes; PROVED, elementary).** Let x ≥ 16, 0 < ε < 1, P = ∏S, and
+`  Bad₁(ε) := {q prime : some ψ ≠ 1 of U_q has 𝔻_S(ψ) < ε and ord(ψ) > 1/ε}.`
+Let B ≥ 1 be an integer with (B + 1)^k ≥ 2x(2B + 1)ε. Then
+`  #{q ∈ (x/2, x] ∩ Bad₁(ε)}  ≤  4B(2B + 1)·xε·log P / log(x/2).`
+With B := ⌈(6xε)^{1/(k−1)}⌉ (valid once 6xε ≥ 1) the right side is ≤ 48·(6xε)^{(k+1)/(k−1)} log P/log(x/2).
+*Proof.* Fix q ∈ (x/2, x] in Bad₁(ε), ψ the character, d := ord ψ > 1/ε, y ∈ ℝ^S a lift of θ(ψ) with |y|₁ = 𝔻_S(ψ) < ε.
+For x′ ∈ Box := [0, B]^S ∩ ℤ^S, ψ(g^{x′}) = e(y·x′) with |y·x′| ≤ Bε; the d-th roots of unity in that arc number
+≤ 2Bεd + 1, and ψ: U_q → μ_d has fibres of size N/d (N := (q−1)/2 < x/2), so g^{Box} lies in a set of size
+≤ N(2Bε + 1/d) < (x/2)(2B + 1)ε. By Cauchy–Schwarz the number of pairs (x′, x″) ∈ Box² with g^{x′} = g^{x″} is
+Π(q) ≥ (B + 1)^{2k}/((x/2)(2B + 1)ε) ≥ 4(B + 1)^k (hypothesis on B), so Π(q) − (B + 1)^k ≥ ¾Π(q) ≥ 3(B+1)^{2k}/(2x(2B+1)ε).
+On the other hand, Σ_{q ∈ (x/2, x]} (Π(q) − (B + 1)^k) = Σ_{h ≠ 0} w(h)·#{q ∈ (x/2, x] : q | N_h}, where w(h) :=
+∏_s (B + 1 − |h_s|)_+ (so Σ_h w(h) = (B + 1)^{2k}) and N_h := ∏_{h_s>0} s^{2h_s} − ∏_{h_s<0} s^{−2h_s} ≠ 0, |N_h| < P^{2B}; hence
+#{q ∈ (x/2, x] : q | N_h} < 2B log P/log(x/2) and the sum is < (B + 1)^{2k}·2B log P/log(x/2). Divide. For the second form:
+(B+1)^{k−1} ≥ 6xε gives (B + 1)^k ≥ 6xε(B + 1) ≥ 2x(2B + 1)ε, and B ≤ 2(6xε)^{1/(k−1)}, 4B(2B+1) ≤ 12B². ∎
+(This is the dual form of CAP_INTERPOLATION Thm 4.2 (iv) / PHASE_DIAGRAM Step 2; the Fejér weighting removes their 2^k–6^k.)
+
+**Proposition 3.2 (the visible remainder; PROVED).** If ψ ≠ 1 has 𝔻_S(ψ) < ε and ord ψ ≤ 1/ε, then 𝔻_S(ψ) = 0 and there is a
+prime ℓ ≤ 1/ε, ℓ | N, with every s ∈ S an ℓ-th power mod q. Hence {q : 𝔻_min(q) < ε} ⊂ Bad₁(ε) ∪ Bad₂(1/ε), Bad₂(z) :=
+{q : ∃ prime ℓ ≤ z, ℓ | N, S ⊂ (F_q^*)^ℓ}, and Bad₂ is a finite union of Chebotarev sets (Thm 2.3 / Cor 2.4(a)).
+*Proof.* Angles of ψ lie in (1/d)ℤ, so each nonzero ‖θ_s‖ ≥ 1/d > ε. Then ψ is trivial on H; take ψ^{d/ℓ}. ∎
+
+**Corollary 3.3 (the P-loss, exact; PROVED + arithmetic).** In a single class a mod 8P the GRH count of candidate windows is
+≍ x/(φ(8P) log x). Prop 3.1 bounds Bad₁ in that class only by its total, so it excludes Bad₁ from the class only when
+48(6xε)^{(k+1)/(k−1)} log P ≤ c·x/φ(8P), i.e. ε ≍ x^{−2/(k+1)}(φ(8P) log P)^{−(k−1)/(k+1)}, and then Prop 1.3 gives
+`  L ≍ k^{3/2}/ε ≍ k^{3/2}·x^{2/(k+1)}·(P log P)^{(k−1)/(k+1)}  ≥  P^{1−o(1)}`
+— exactly the P-loss of z12_grh_lattice_gap; optimising y (with x ≥ P^{2+o(1)}(log p)^{2+ε} for the √p-condition) returns
+e*(p) ≤ exp(O(√(log₂p·log₃p))), i.e. CAP_INTERPOLATION Thm 4.2(b), now as the dual/pretentious statement "a class mod P cannot
+be shown to avoid the ε-pretentious primes unless the total number of such primes is < π(x)/φ(8P)".
+*Reading.* Prop 3.1 is lossy against the random model by the factor 2B log P/log x per relation (each N_h is charged with all
+its possible prime factors of size x instead of probability ≈ 1/x); but the loss that matters is the factor φ(8P), which
+no class-blind bound can recover. Theorem 2.3 is class-sensitive but blind to characters of order > x^{O(1/k)} (Prop 2.2);
+Prop 3.1 sees all orders but no classes. **The two tools see complementary halves of the problem, and the extremal character
+(order ≍ N, §6) falls in the half that only class-blind tools see.**
