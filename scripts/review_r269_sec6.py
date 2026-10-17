@@ -76,6 +76,23 @@ def mode_eq(y, X, outp, qlo=0):
             f.write(f"{q} {q % M} {nu:.5f} " + " ".join(map(str, fl)) + "\n")
 
 
+def mode_cls(y, qlo, X, c, outp):
+    S = list(primerange(3, y + 1)); k = len(S); P = math.prod(S); M = 8 * P
+    with open(outp, 'w') as f:
+        f.write(f"# y={y} k={k} 8P={M} class={c}\n")
+        q0 = qlo - (qlo % M) + c
+        for q in range(q0, X + 1, M):
+            if not isprime(q): continue
+            N, a = logs(q, S)
+            tot, order = scan(N, a)
+            nu = tot.min() / N * N ** (1 / k)
+            fl = []
+            for t in TS:
+                small = tot < t * N ** ((k - 1) / k)
+                fl.append(int(small.any())); fl.append(int((small & (order > N ** (1 / k) / t)).any()))
+            f.write(f"{q} {q % M} {nu:.5f} " + " ".join(map(str, fl)) + "\n"); f.flush()
+
+
 def mode_an(inp, nperm, qmin=0, qmax=10**18):
     rows = [l.split() for l in open(inp) if not l.startswith('#')]
     rows = [r for r in rows if qmin <= int(r[0]) <= qmax]
@@ -103,5 +120,6 @@ def mode_an(inp, nperm, qmin=0, qmax=10**18):
 if __name__ == '__main__':
     m = sys.argv[1]
     if m == 'nu': mode_nu(*map(int, sys.argv[2:7]))
+    elif m == 'cls': mode_cls(int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5]), sys.argv[6])
     elif m == 'eq': mode_eq(int(sys.argv[2]), int(sys.argv[3]), sys.argv[4], *map(int, sys.argv[5:]))
     else: mode_an(sys.argv[2], *map(int, sys.argv[3:]))

@@ -32,30 +32,16 @@ Serre 1981, Schinzel 1977: citation checks below are from the reviewer's knowled
 | §6 order statistics | SOUND (EVIDENCE); wording (D14) | reproduced: k = 3: ord = N 0.78 (random 0.75), ≥ N^{0.9} 0.89 (0.88), P⁺(N) \| ord 0.995 (0.997); k = 4: 0.76 (0.80), 0.86 (0.88), 0.995 (0.995); ≤ N^{1/2}: 0 resp. 0.25 % |
 | §6 per-class ν (mod 840) | SOUND (EVIDENCE) | reproduced: q ≤ 3·10⁵ (6493 q from q = 11; the author's 6450 start at ≈ 10³): min over classes of the best ν = 1.481, median 1.572 (author 1.481 / 1.575); 29 classes have a degenerate q |
 | §6 EQ at y = 7 (mod 840) | SOUND (EVIDENCE), reproduced exactly | from-scratch run over all 19 609 q ≡ 3 (8) in [10³, 10⁶]: Bad₁ counts 250 / 1272 / 3463 and χ² 49.5 / 28.0 / 29.8, full set 653 / 1670 / 3848, χ² 213.9 / 96.1 / 64.7 — identical to data/z27/eqcheck_y7.txt; my permutation p (1000 perms) 0.34 / 0.97 / 0.87 and 0.001 / 0.001 / 0.006 (D15) |
+| §6 EQ at y = 11 (mod 9240) | SOUND (EVIDENCE), reproduced exactly; one follow-up (D19) | from scratch, all q ≡ 3 (8) ≤ 2·10⁶ (37 259 incl. 42 q < 10³ that carry no events): Bad₁ 72 / 653 / 2513, full 310 / 889 / 2747, χ² 543.6 / 474.2 / 405.6 — identical to the author's; permutation p 0.034 / 0.455 / 0.937 |
 
-**D15 (MINOR, interpretation) — §6 EQ test: under-dispersion and what the test can show.** At t = 0.5, 0.7 the Bad₁ χ² (28.0,
-29.8 on 47 df) is *below* the permutation null (medians 43.1, 37.9): upper-tail p = 0.97 / 0.87 means a lower-tail p ≈ 0.03 / 0.13,
-i.e. Bad₁ is spread *more* evenly than chance at t = 0.5. This is harmless for EQ (an upper-bound statement), and not
-significant after the 6 tests, but "no over-concentration" is the only conclusion supported; the text should not read it as
-"equidistributed". More importantly the test is at P = 105 ≪ √x = 10³ and each class holds ≈ 400 q, whereas EQ is used at
-P ≍ √x/log²p, where a class holds ≍ √x·log²p/log x primes and the hypothesis is about a √x-level error. The author says
-"EVIDENCE for EQ only at P ≤ 1155, nowhere near P ≈ √x" — correct; keep that sentence in the report's SHARP 3 as well.
-(Addendum to D6: the Kummer-vector count "≤ φ(m)·#{c : |c_s| ≤ εm}" is for characters of *exact* order m (j a unit); for
-"order dividing m" the non-unit j contribute b-sets of size g^k·#{…} at gcd(2j, m) = g. Since those characters are counted
-at level m/g anyway, say "exact order m".)
-
-**D16 (MINOR) — Thm 4.1 proof, "Bad₂ main term ≤ G/8".** This compares the Lemma 2.5 main term
-((li(x) − li(x/2))/(2φ(8P)))·Σ_{ℓ≥3}ℓ^{−k} (Σ_{ℓ≥3}ℓ^{−3} = 0.0498 — true but with almost no room, prime-zeta P(3) − 1/8) with
-G ≥ c₂x/(φ(8P) log x), where c₂ is only the implied constant of FORCED_WINDOW Thm 4.3's "≫". The comparison needs the
-asymptotic G = (1 + O(C₀^{−1/2}))(li(x) − li(x/2))/(2φ(8P)) (which the GRH count does give, dyadically, for C₀ large), not just
-"≫". *Repair:* state G in that asymptotic form, and use Σ_ℓ ℓ^{−k} → 0 (k → ∞) rather than the 0.05 numerics.
-
-**D17 (MINOR, bookkeeping) — BRAINSTORM/README.md z27 row.** The z27_small_exponent_windows row still says "needs
-E ≥ (log p)^{c log₃p}", the pre-repair bound; the memo (R-O256 repair 8) and §0 (I4) now say "cap ≳ log p i.o." (Linnik with
-primorial modulus: log p = Θ(T), which I re-derived). *Repair:* update the README row.
-
-**D18 (MINOR, wording) — §4 Reading after Thm 4.2.** "Bad₁ is neither a set of primes in progressions nor a Chebotarev set
-(Prop 2.2)": Prop 2.2 is an information statement about abstract vectors and does not prove that Bad₁ is not a (finite union
-of) Chebotarev set(s) — trivially any finite set of primes is one. *Repair:* "Bad₁ is not determined by Frobenius data in
-Kummer–cyclotomic fields of degree ≤ (log p)^{O(1)} (Prop 2.2, abstract-vector sense)". Similarly §7.1 "the reason is exact"
-rests partly on Assessment 2.3; "the reason is explicit" would be accurate.
+**D19 (MINOR, evidence follow-up) — the marginal y = 11 cell is the extreme class q ≡ 1 (mod 1155).** The p = 0.033 at
+t = 0.3 comes entirely from class 6931 mod 9240, the unique class with q ≡ 1 (mod 3·5·7·11): 3 of its 66 primes are in Bad₁
+(4.5 %) against 69/37 193 (0.19 %) elsewhere (q = 1 448 371, 1 623 931, 1 753 291; two minimisers of order N, one of order
+1045 = 5·11·19 with ψ(g₅) = ψ(g₁₁) = 1). This class matters conceptually: in Thm 4.1 the class is −p mod 8P, and for
+p ≡ −1 (mod P) every candidate window has P | N, i.e. the Frobenius-visible smooth part of N is ≥ P ≍ √x/log²p — the regime
+farthest from Prop 2.2's "large rough part". Stratifying by w := #{ℓ ∈ S : ℓ | N}: at y = 7 there is no trend in Bad₁ (rates
+0.0137 / 0.0126 / 0.0119 / 0.0096 for w = 0..3 at t = 0.3); a pre-specified re-test of class 6931 vs a w = 0 control class
+(3467 mod 9240) on fresh primes q ∈ (2·10⁶, 8·10⁶] gives Bad₁ 0/202 vs 1/198 (t = 0.3), 1/202 vs 7/198 (t = 0.5),
+9/202 vs 19/198 (t = 0.7): no enrichment — the cluster is a fluke (look-elsewhere probability that some class of 480 gets ≥ 3
+at mean 0.15 is ≈ 0.25). *Repair:* add this to §6 and name the class a ≡ 1 (mod P) as the natural worst case for EQ in any
+future test.
