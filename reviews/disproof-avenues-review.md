@@ -12,8 +12,8 @@ From-scratch scripts: `scripts/review_r274_*`. Labels as in DISCOVERIES.md. ES i
 | 1 | §1–2 citations (BL Thms 1.6/1.8/1.9, Rem 1.10; Markoff; Lyczak; Mihnea–Dumitru 10¹⁸; PW) | SOUND-AFTER-REPAIRS (D1, D2, D3) |
 | 2 | Prop 3.1 (n = 1 shadow) | SOUND-AFTER-REPAIRS (statement true; proof has two small gaps D4, D5; existence clause D6; attribution D7) |
 | 3 | §4.1–4.3 ladder counts, zero law, crossover law | pending (counts SOUND so far) |
-| 4 | §4.4 expected-failure numbers | pending |
-| 5 | §4.5 heavy tails self-refuting | pending |
+| 4 | §4.4 expected-failure numbers | GAP (numbers reproduce, but "every variant" bounds contradict the author's own log: D8; "worst case" is not one: D10) |
+| 5 | §4.5 heavy tails self-refuting | GAP (correct inside the one-parameter family only; the "only escape is non-monotone" conclusion is false: D9) |
 | 6 | §5 adversarial search, hardest prime | pending |
 | 7 | labels, P(ES false) < 10⁻³ | pending |
 
@@ -95,7 +95,8 @@ BM-explained; BL Rem 1.10 states versions of Thm 1.8 without proof") and restric
 **D3 (MINOR, §2 bullet "Verification record", §4.5, §6 table).** "ES holds for all n ≤ 10¹⁸" rests on an
 unrefereed arXiv preprint (PW cite it). §4.5's whole self-refutation argument is conditioned on it. *Repair:* say
 "reported (Mihnea–Dumitru, arXiv preprint 2025; cited by PW §6)", and note that §4.5 also works with the refereed
-Salez 10¹⁷ bound (the β-table changes only marginally — checked in Claim 5 below).
+Salez 10¹⁷ bound: within the §4.5 family the maximal Poisson-conditioned expectation beyond the verified range is
+2·10⁻¹⁰ (10¹⁸) resp. 3·10⁻⁹ (10¹⁷) — `logs/review_r274_extrap.txt` — so nothing hinges on the preprint.
 
 **D4 (MINOR, §3 Prop 3.1 proof, "P_θ > N_θ(1), so the divisors of N_θ(p) are δ and δP_θ").** P_θ > N_θ(1) does
 not follow from the hypotheses. Counterexample: θ = II{a,d} = (1,3), Q = q·N(1) = 12·13 = 156, p = 157 (prime,
@@ -129,3 +130,42 @@ under H). What Prop 3.1 adds is (a) the explicit pair rows II{a,d}, II{c,d}, II{
 congruence rows in the n = 1-shadow form, and (b) Dickson instead of H when no I{c,d} slice is present. *Repair:*
 cite these and restate novelty as (a)+(b). Also note that the congruence rows (II{a,b}, I{a,b}, I{a,d}) are killed
 by p ≡ 1 (mod q_θ) alone, unconditionally (verified) — worth saying, since it is the only unconditional part.
+
+## Claims 4–5 — §4.4 expected failures, §4.5 heavy tails (`scripts/review_r274_extrap.py`, `logs/review_r274_extrap.txt`)
+
+Independent integration E#[A,B) = ∫ exp(L − a(cL^k)^β) dL/L (prime density 1/L), mpmath in log space.
+* §4.5 table reproduces: c = 0.074: β = 0.91 → 3.7·10⁻⁵⁷ below, ≈ 10⁻⁵⁵² beyond (author "0"); β = 0.55 → 1.65 /
+  2.2·10⁻¹⁰; β = 0.5 → 493 / 0.71; β = 0.45 → 1.35·10⁶ / 6.5·10⁷; c = 0.037, β = 0.55 → 860 / 0.074. ✓
+* Break-even β* 0.528 / 0.594 and q_crit = 11.6/41.45³ = 1.63·10⁻⁴ ✓; q_m ∝ m^{−1.9} (q₄/q₂₄ = 28.5, m ratio 6 →
+  exponent 1.87) ✓; m ≈ 60 for q = 1.6·10⁻⁴ ✓.
+* §4.4 with ALL primes at the hardest-cell ratio c = 0.037 (pessimistic, my own model): [10⁸, 10¹⁸): 6·10⁻²⁸ (L³),
+  10⁻²⁷ (L²), 7·10⁻¹⁸ / 1.1·10⁻¹⁷ (a − 30 %), 5·10⁻⁸ / 9·10⁻⁸ (a = 0.4, β = 0.8). The author's cell-weighted values
+  (1.8·10⁻³¹ etc.) are ≈ 1/(#cells) of these — consistent. Worst case μ = 0.0117·L³ = 833 at 10¹⁸, −ln P = 243 ✓.
+
+**D8 (MAJOR, overclaim; §4.4 bullet "Beyond 10¹⁸: < 10⁻⁸⁸ in every variant", §6 table row "lottery failure": "≤ 10⁻²⁰
+in every variant, beyond 10¹⁸ < 10⁻⁸⁸", AGENT_REPORT (1d)).** The author's own `logs/z32_extrapolate.txt` contains a
+"flatter" variant (a = 0.40, β = 0.80) giving E#[10⁸, 10¹⁸) = 2.4·10⁻¹⁰ / 5.8·10⁻¹⁰ and E#[10¹⁸, ∞) = 7.5·10⁻⁸⁴ /
+**5·10⁻³⁷** (μ ∝ L³ / L²); my uniform-c recomputation gives 2·10⁻³⁴ for the latter. The quoted "every variant" bounds
+silently drop it. β = 0.8 is not exotic: the author's training windows give β = 0.91–0.93, and the extrapolation is
+from μ ≤ 50 to μ ≥ 229 (§4.5 caveat). *Repair:* report the range honestly: "[10⁸, 10¹⁸): 10⁻³¹ (fit) … 10⁻⁹ (β = 0.8,
+a = 0.4); beyond 10¹⁸: 10⁻²⁹⁶ … 10⁻³⁶", and drop "every variant"; same in §6 and AGENT_REPORT. Also §6's "< 10⁻⁸⁰"
+("Probability that ES is false … astronomically small (< 10⁻⁸⁰)") must become "< 10⁻³⁰ within the variants tried".
+
+**D9 (MAJOR, logic; §4.5 "The only escape is a zero law that is *non-monotone* in L"; "conditioning on none ≤ 10¹⁸,
+the expected number beyond is ≲ 10⁻² for every β"; AGENT_REPORT SHARP 2).** The self-refutation is a property of the
+one-parameter family exp(−0.535(cL³)^β), whose per-prime probability falls super-polynomially in L for every β ≥ 0.4
+tested; within it I confirm (max over β ∈ [0.40, 0.70], c ∈ {0.037, 0.074} of P(none ≤ 10¹⁸)·E#beyond = 2·10⁻¹⁰).
+But monotone laws outside the family escape: (i) a floor/mixture P(f = 0) = max(exp(−aμ^β), ε) — e.g. a "conspiracy
+class" of relative density ε — with ε = 10⁻¹⁸ gives 0.025 expected failures ≤ 10¹⁸ and 7·10³⁹ in [10¹⁸, 10⁶⁰);
+(ii) a polynomial law P = C/p gives expected counts ∝ log log, E[10⁸,10¹⁸) : E[10¹⁸,10⁶⁰) = 0.81C : 1.2C, so
+"none ≤ 10¹⁸" says almost nothing about beyond. Both are monotone non-increasing in p. The 10¹⁸ verification only
+bounds a floor by ε ≲ 1/π(10¹⁸) ≈ 4·10⁻¹⁷ and says nothing about its continuation. These are exactly the §3/§6
+"conspiracy" scenarios, so §4.5 cannot be used to price them (as §6 implicitly does). *Repair:* retitle §4.5 "Within
+the stretched-exponential family, heavy tails are self-refuting"; replace "The only escape is a zero law that is
+non-monotone in L" by "The escapes are zero laws outside this family — a non-monotone law, a floor (a positive-density-
+in-p conspiracy class), or a law decaying only polynomially in p — i.e. a new mechanism"; same in AGENT_REPORT.
+
+**D10 (MINOR, §4.4 "Worst case anywhere").** Using the smallest observed f/L³ (a realised count, the minimum over
+≈ 5.8·10⁶ primes) as the *mean* μ in the zero law is a heuristic scenario, not a worst case: the minimum over the
+≈ 2.4·10¹⁶ primes below 10¹⁸ would be lower even if the distribution of f/L³ were fixed. *Repair:* call it
+"pessimistic scenario"; the floor test (§4.3) is the actual evidence for its stability.
