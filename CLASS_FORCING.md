@@ -142,3 +142,52 @@ satisfies v ≤ 4d + 1, so v = 4d − 1, and 4d − 1 | 4d + 1 ⟹ 4d − 1 | 2:
 *Reading.* This is JOINT_BUDGET Prop 4.3's "modulo divisors of p − 1, p looks like 1, and 4/1 has no solution" made into a
 statement about forced factors; it is the b = 1 / c-line / e-slice specialisation of LONGSHOT_PIGEONHOLE Thm 2.2 and
 POINTWISE_SIZE Thm C, here with an exact, elementary proof and an explicit residue class (no density statement needed).
+
+## 4. Zero-sum (Davenport) quantification: how many forced escaping factors would be needed
+
+Let G = (ℤ/t)^×. Call x *escaping* if x ∉ H for a given subgroup H ∌ −1. Define the **target constant**
+  η(G) := sup { min_{H ≤ G, −1 ∉ H} #{x ∈ S : x ∉ H} : S a multiset over G with −1 ∉ Σ(S) },
+so that "every subgroup avoiding −1 is escaped by more than η(G) factors" forces −1 ∈ Σ(S).
+
+**Lemma 4.1 (lower bound; PROVED).** If G has an element x of order 2n, n odd, with x^n = −1, then η(G) ≥ n − 1.
+In particular for t = 4q, q ≡ 3 (mod 4) prime: η ≥ (q − 3)/2; and for t = 4d with d ≡ 3 (4) prime the same.
+*Proof.* S := ((n−1)/2 copies of x, (n−1)/2 copies of x⁻¹). Σ(S) = {x^j : |j| ≤ (n − 1)/2} ∌ x^n = −1 (as −n < −(n−1)/2 and
+n > (n−1)/2, and x^j = −1 ⟺ j ≡ n (2n)). If H ∌ −1 contained x (or x⁻¹) it would contain x^n = −1; so every element of S escapes
+every such H: the min is n − 1. For t = 4q take x = (−1 mod 4, a generator mod q) of order q − 1 = 2n with n odd: x^n =
+(−1, −1) = −1. ∎
+**Proposition 4.2 (the forced supply is at most one escaping factor per subgroup).** From total-product data the number of
+forced escaping large factors is 1 if g_L ∉ H and 0 otherwise (Lemma 3.1, realisability); for the b = 1 line and H = ker χ₋₄
+it is 0 (z29(b)); for H = G² it is 1 iff g_L is a non-square (the (J)64 bit). Lemma 2.3 of SYNTHESIS_SPARKS8 (large primes
+are private to one N_d) forbids pooling escaping factors from different levels into one integer. Hence the Davenport
+route needs, for ONE integer N_d, ≥ η(G) + 1 ≥ (q − 1)/2 escaping factors at a prime level q, but supplies ≤ 1. **The zero-sum
+mechanism cannot convert parity forcing into class forcing at any level with η(G) ≥ 1**, i.e. at every level except
+those where a single escaping element is already −1-generating (exponent-2 levels t | 24, where −1 ∈ Σ ⟺ −1 ∈ ⟨S⟩).
+*Quantitative reading (Assessment).* Ω(N) ≤ log₂N, so even unforced (actual) escaping factors can feed Lemma 4.1-type
+groups only for q ≲ 2 log₂ p; typical N has ≍ log log p factors, i.e. zero-sum certificates are a small-modulus (B1-scale)
+phenomenon; at larger levels Σ(S) is a 2^{Ω}-point random subset of G — the lottery. This is LONGSHOT_PIGEONHOLE Prop 1.4
+(Kneser) in the target-−1 form; Lemma 4.1 gives the explicit cyclic witness.
+
+## 5. Reciprocity at an individual prime factor: what it links, and why it never reaches the class mod t
+
+**Proposition 5.1 (the individual reciprocity link; PROVED).** Let p ≡ 1 (4), N = p + 4d, ℓ | N a prime, ℓ ∤ 2dp.
+(a) χ_{−4d}(ℓ) = (ℓ/p). (Product over ℓ: Lemma 2.2(b).)
+(b) For n | ℓ − 1: (p/ℓ)_n = (−4d/ℓ)_n, i.e. the n-th power class of p mod ℓ is the Frobenius of ℓ in K_{n,d} :=
+ℚ(ζ_n, (−4d)^{1/n}). By n-th power reciprocity this is equivalent to a statement about ℓ modulo a prime π | p in ℤ[ζ_n]
+(the n-th power class of ℓ mod π); multiplied over ℓ | N it gives (N/π)_n = (4d/π)_n, i.e. N ≡ 4d (mod p) — again a
+total-product statement, now modulo p instead of modulo t.
+(c) The joint law of (ℓ mod t, Frob_ℓ in K_{n,d}) over primes ℓ is Chebotarev in ℚ(ζ_t)K_{n,d}, with ℚ(ζ_t) ∩ K_{n,d} ⊂
+K_{n,d}^{ab}, which is ℚ(ζ_n) for n an odd prime (Thm 2.1(c)(i)) and ℚ(i, √(−d)) ⊂ ℚ(ζ_{4d}) for n = 4 (d not ±□);
+so the only class-mod-t information about ℓ carried by its power-residue data is χ_{−4d}(ℓ) and ℓ mod n.
+*Proof.* (a) ℓ | p + 4d ⟹ p ≡ −4d (mod ℓ), so (−4d/ℓ) = (p/ℓ) = (ℓ/p) (p ≡ 1 (4)), and (−4d/ℓ) = χ_{−4d}(ℓ) by QR.
+(b) The first statement is p ≡ −4d (mod ℓ); Kummer theory identifies (a/ℓ)_n with Frob_ℓ on a^{1/n}. (c) as Thm 2.1(b),(c). ∎
+
+**Theorem 5.2 (no forbidden class for a single factor; PROVED, unconditional).** Let Ω/ℚ be finite Galois, C ⊂ Gal(Ω/ℚ) a
+conjugacy class compatible with p ≡ 1 (4), d ≥ 1, and a ∈ (ℤ/4d)^×. Then there are infinitely many primes p with
+Frob_p|Ω ∈ C such that p + 4d has a prime factor ℓ ≡ a (mod 4d), ℓ > any given bound.
+*Proof.* Pick a prime ℓ ≡ a (mod 4d), ℓ unramified in Ω, ℓ ∤ 2d. Ω ∩ ℚ(ζ_ℓ) = ℚ (only ℓ ramifies in ℚ(ζ_ℓ)), so Chebotarev
+in Ωℚ(ζ_{4ℓ}) — with ℚ(ζ_4)-part chosen compatibly with C — gives infinitely many p ∈ C with p ≡ −4d (mod ℓ), p ≡ 1 (4). ∎
+*Reading.* So no datum of p in any fixed Galois extension (residue symbols of any order, Rédei symbols, governing fields)
+rules out any class for an individual large factor. Combined with Lemma 3.1 (only the product is constrained) and
+Prop 5.1(c) (the only individual link, χ_{−4d}(ℓ) = (ℓ/p), involves the unknown ℓ): **reciprocity forces parity, never class.**
+What it would take to rule out the *whole multiset* (all factors simultaneously in a bad configuration) is the realisation
+question of §6.
