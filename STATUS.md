@@ -7,6 +7,29 @@
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
 proof has an identifiable gap.
 
+**Wave AB: counting at one prime, disproof, cross-field net, two advisory boards (2026-10-18; ledger (J)92–(J)102; tasks O260–O270, reviews R271–R281, boards ~/.pi/boards/20261018-es-routes and -lowertail): ES is not solved.**
+* *Counting at one prime ((J)98, (J)100, (J)101).*
+  * For the (★) count, R(p) = M_gen + X: the obstruction at odd squares (T1) lives entirely in the order-2 characters.
+  * Bright–Loughran's Brauer class is the single character χ_{−4uB}.
+  * The Brauer–Manin-corrected main term satisfies M_BM(p) ≫ (log p)² unconditionally (Burgess). Two-sided asymptotics are false (Linnik).
+  * Each level series is an exact Kronecker theta quotient: Eisenstein data only, no cusp forms.
+  * What remains is a single-integer one-sided lower tail, R(p) ≥ ε·M_BM(p). No standard conjecture implies it.
+* *Disproof ((J)97).*
+  * There is no Brauer–Manin obstruction at any n ≥ 2, so a counterexample needs a non-BM integral failure.
+  * Failures along the numerator ladder follow a universal zero law.
+  * The hardest adversarial primes found are far from failure.
+  * Assessment: P(ES false) is small, and all of it is model risk.
+* *Cross-field ((J)94, (J)95, (J)99).*
+  * B2 is not equivalent to any solved problem in 13 fields. Every pointwise existence theorem surveyed uses an input that B2 lacks.
+  * Zaremba's conjecture is now claimed pointwise (Shkredov, Zhang 2026; unrefereed). The method needs density, so it reaches ES only at continued-fraction length ≍ log p log log p, a known relaxation.
+  * T1 is the Rickards–Stange reciprocity obstruction (the theta multiplier) on self-levelled SL₂ words.
+* *Forcing ((J)93, (J)96).* Abelian Frobenius and reciprocity data force only congruences. The non-abelian and quartic data are inert on finite witness sets.
+* *Thin families ((J)102).* The two-base boundary of 2^a3^b + 1 dissolves. For 15·2^s + 1 the II-ad u ≡ 3 (8) branch is sterile for every root degree. No forced-budget identity was found.
+* *Literature.*
+  * The b = 1 line and its three failures are López 2024; we extended the census to 10¹¹ ((J)89, (J)90).
+  * 193 and 2521 are hard in both projects for mundane reasons ((J)92).
+* *Assessment.* Both boards, with seats from three labs, found no credible route to ES at every prime and no disproof route. Every mechanism ends at the single-integer lower tail (B2/B3). In flight: Synthesis IX and the 2-power ladder (under review), and board #2 on the lower tail.
+
 **Wave AA: four directions after the Astra bridge — every one ends at B2 or at evidence; the Claude/Astra Direction-2 comparison launched (2026-10-17; ledger (J)84–(J)91; tasks O252–O259, reviews R263–R270; each item had one independent hostile review, since no headline theorem was claimed): ES is not solved.**
 * *Direction 1, forced divisor at a forced window ((J)85, (J)91).*
   * Every cap-0 window certificate is a least-residue event: the window is −p mod 4uv for a coprime (u, v).
