@@ -178,3 +178,31 @@ per-level count Σ_c 1/φ(4cd − 1) is 0.0199 at squares vs 0.0168 at non-squar
 witnesses w = 4ck² − 1 with c = j² are differences of squares (2jk − 1)(2jk + 1), hence have more small factors and are hit
 more often. This is a Sophie-Germain-type algebraic factorisation of the *witness*, not of p — a congruence-level (B1)
 effect, and the quartic data of p do not modulate it (EVIDENCE 2.3 includes the square levels d = 1, 4, …, 36).
+
+## 5. Other principal forms, cubic data, and the exact window law of a representation (goal (4))
+
+**Proposition 5.1 (window selection rule of a representation; PROVED).** Let p ≡ 1 (4) and p = x² + Dy² or 4p = x² + Dy²
+(D ≥ 1, gcd(x, Dy) = 1) — e.g. D = 1 (Gauss), 2 (p ≡ 1 (8)), 3 or 27 (p ≡ 1 (3); 4p = L² + 27M² is the cubic Jacobi-sum
+datum J(χ₃, χ₃) and the Gauss-period discriminant), 7, … Then for the b = 1 window test "(−p mod 4m) | m + 1":
+(i) every odd window m | y is sterile;
+(ii) an odd window m | x, m > 1, is sterile if the Jacobi symbol (D/m) = +1, while for (D/m) = −1 the Jacobi obstruction is
+absent (the window fires iff the least residue −p mod 4m divides m + 1 — a residue lottery with the square-class restriction
+−p ≡ −Dy²·(4⁻¹) (mod m), which roughly doubles the firing probability).
+*Proof.* Put ε := 1 or 4. For m | y odd: εp ≡ x² (mod m), so p ≡ (x/√ε)² is a unit square mod m and Lemma 3.2 applies. For m | x
+odd: εp ≡ Dy² (mod m), so g ≡ −p (mod m) gives (−g/m) = (D/m)(ε/m)·(y²/m) = (D/m). In the proof of Lemma 3.2 (s = 0), a firing
+window forces (−g/m) = −1. ∎ (For even windows add the 2-adic condition of Lemma 3.2.)
+*Check* (`scripts/z35_principal_windows.py 1000000`, `logs/z35_principal_windows.txt`; all p ≡ 1 (4) < 10⁶, D ∈ {1, 2, 3, 7}):
+m = odd part of y: 0 hits in 78 350 / 19 552 / 19 564 / 19 525 trials; m = x with (D/x) = +1: 0 hits (39 064 for D = 1, ≈ 9 700
+each otherwise); m = x with (D/x) = −1: 1.75 % / 2.06 % / 1.82 % (D = 2, 3, 7), against ≈ 1.25 % for windows of the same size
+taken from neighbouring primes (EVIDENCE 3.4).
+
+**Corollary 5.2 (what canonical representation data can do in the balanced range; PROVED + Assessment).** The
+representations p = x² + Dy² (equivalently: Frobenius of p in the ring class fields of ℤ[√−D], cubic/quartic Jacobi sums, Gauss
+periods) are the only canonical integers of size ≍ √p attached to p, i.e. they live exactly in the balanced range R3 of §1.
+Their entire effect on the b = 1 windows they index is the Jacobi selection rule of Prop 5.1: they *forbid* windows (all
+divisors of y; the divisors m of x with (D/m) = +1) and *permit* others (without forcing them). Firing of a permitted window is
+"least residue of −p mod 4m divides m + 1", the B2 event. The cubic case is identical (4p = L² + 27M²: divisors of M forbidden,
+divisors m of L permitted iff (3/m) = −1). So representation data act on certificates only through quadratic characters —
+the χ-shadow again, now as a selection rule on windows rather than on factors. (Assessment: no non-polynomial use of x, y
+beyond "use their divisors as windows" was found; the divisor-window menu is a finite lottery of ≈ τ(x)τ(y) tickets, each
+with probability ≍ τ(m + 1)/m — total ≍ p^{−1/2+o(1)}, useless at large p.)
