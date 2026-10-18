@@ -15,7 +15,7 @@ From-scratch scripts: `scripts/review_r274_*`. Labels as in DISCOVERIES.md. ES i
 | 4 | §4.4 expected-failure numbers | GAP (numbers reproduce, but "every variant" bounds contradict the author's own log: D8; "worst case" is not one: D10) |
 | 5 | §4.5 heavy tails self-refuting | GAP (correct inside the one-parameter family only; the "only escape is non-monotone" conclusion is false: D9) |
 | 6 | §5 adversarial search, hardest prime | SOUND (numbers reproduce exactly; one MINOR in Reading 5: D11) |
-| 7 | labels, P(ES false) < 10⁻³ | pending |
+| 7 | labels; "P(ES false) well under 10⁻³, all model risk" | SOUND-AFTER-REPAIRS (D8, D9, D14, D15) |
 
 ## Claim 1 — citations (§§1–2)
 
@@ -225,3 +225,42 @@ compared with p_last ≈ 2.5·10³ … 10⁷ for most m; the m = 4 floor test sh
 2¹⁴–2²⁶), so c₀'s constancy is partly a statement about the drift of q. (iii) For m = 4, 5 the law predicts a last
 failure ≈ 1.7·10³ / 1.9·10³ and there are no failures at all: the law is not validated at the bottom of the ladder,
 which is where ES sits. All three are honest-labelling issues for an EVIDENCE claim; *repair:* state them.
+
+## Claim 7 — labels and the bottom line (§3.2, §6, AGENT_REPORT)
+
+Labels are mostly right: Prop 3.1 PROVED / existence CONDITIONAL (correct, modulo D4–D6); §4–5 EVIDENCE with
+extrapolations Assessment; §6 Assessment. §3.2's budget (k ≲ (L − log Q)/log(L/(e^γ log y)) from Bateman–Horn;
+share of the first k e-slices ≈ log k/L, i.e. ≈ log L/L = 0.09 at 10¹⁸, 0.07 at 10²⁵) re-derived ✓ (heuristic).
+
+**D14 (MINOR, labels; §6 table row 1 "closed (PROVED: … Br/Br₀ = ℤ/2 is all there is)"; §1 "Descent").** Only the BM
+part is PROVED (BL Thm 1.8, n ≥ 2). "No further torsor/descent obstructions" is Assessment (the §1 bullet says so;
+the §6 table promotes it). Also "U₁ is rational over ℚ" is a statement about rational points of the (projective)
+cubic; for *integral* points the relevant objects (étale-Brauer, π₁(U_n,ℚ̄), descent for open varieties) were not
+computed. *Repair:* "closed for BM (PROVED, n ≥ 2); no other obstruction computed (Assessment)".
+
+**D15 (MINOR→MAJOR, §6 "Probability that ES is false"; AGENT_REPORT (3)).** (i) "< 10⁻⁸⁰ within every model that
+survives the sibling-ladder test" is false by D8 (the author's own β = 0.8 variant gives 5·10⁻³⁷ beyond 10¹⁸, and
+D12 shows the fit is ×3–5 optimistic at the top μ). (ii) "well under 10⁻³ … all model risk" is a subjective credence,
+not an output of §§3–5: by D9 the monotone floor/mixture and polynomial-decay laws — the probabilistic form of the
+"conspiracy class" of §3 — are not priced by any computation in the file, and the 10¹⁸ verification bounds them
+only to a per-prime floor ≲ 4·10⁻¹⁷. That is fine as an *Assessment* but must say so. (iii) §3.2 budgets only the
+prime-cofactor construction; a cheaper conspiracy asks only that every prime factor of N_θ(p)/N_θ(1) be ≡ 1 (mod q_θ)
+(same conclusion, by the same shadow argument), which costs ≍ (log N)^{−(1 − 1/φ(q_θ))} per slice instead of
+1/log N — the budget k ≲ L/log L grows by a constant factor ≤ 2 only, so the conclusion stands, but the statement
+"Prop 3.1 + Bateman–Horn is the budget" should mention it. *Repair:* (i) as D8; (ii) "My subjective credence that ES
+is false is well under 10⁻³; it is not derived from the model — the models of §4 do not cover floor/mixture laws
+(§4.5 caveat)"; (iii) one sentence in §3.2.
+
+**D16 (MINOR, §4.2 "≥ 50 → 0 (of 1.0·10⁸ prime-units)").** The units with μ ≥ 50 contain 8.6·10⁷ primes (author's
+own `z32_universal.txt`: 20.0 + 18.1 + 17.6 + 30.2 M; mine: 86.0 M). *Repair:* "8.6·10⁷".
+
+## Summary
+
+Data and arithmetic are reliable: every count, quantile, fit constant, extrapolation integral and the §5
+adversarial numbers were reproduced from scratch, most to all printed digits. Prop 3.1 is true (checked on 19 slice
+sets by direct search) with small proof repairs and a missing attribution to CLASS_FORCING Thm 3.4/6.1 and
+redteam-automorphic-2 Thm 2.2(iii). The problems are in the *reading*: the BL citation needs n ≥ 2 (n = 1 is
+BM-obstructed, which also changes the "archimedean exceptional point" story), the "every variant" probability bounds
+omit the author's own flatter variant, the out-of-sample test hides a significant ×3–5 under-prediction at the top
+μ, and the "heavy tails are self-refuting / only escape is non-monotone" conclusion holds only inside the
+stretched-exponential family. No FATAL defect. MAJOR: D8, D9, D12 (and D1 for the Reading, D15 for §6).
