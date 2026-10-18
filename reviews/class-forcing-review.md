@@ -9,6 +9,8 @@ Reviewer scripts: `scripts/review_r272_*.py` (from scratch; author's z33 scripts
 | Thm 2.1(c)(iv) + bold summary + slogan | GAP → SOUND-AFTER-REPAIRS (D2) |
 | Lemma 3.1, Prop 3.2 | SOUND (D5, D6 minor) |
 | Thm 3.4 | SOUND (D4 minor; re-checked from scratch, 0 firings) |
+| Lemma 4.1 | SOUND (weak but valid lower bound; brute force gives larger η) |
+| Prop 4.2 | SOUND-AFTER-REPAIRS (D7 minor) |
 | Thm 6.1 + Hypothesis HC | **FATAL as stated** (HC is false; Thm 6.1's conclusion is false) — SOUND-AFTER-REPAIRS with the D1 repair |
 
 ## Defects
@@ -91,3 +93,24 @@ q^{e_q} | N, as the adversary may take v_q(N) = e_q). Lemma 3.1 also contains a 
 choice of images (the adversary has k − 1 free coordinates)".** No proof, and the quantifier ("for every choice of images")
 is not what the parenthesis supports (it supports "for some choices"). Repair: delete, or state "for some image patterns"
 with an explicit example, labelled Assessment.
+
+## §4 — Lemma 4.1, Prop 4.2 (target-Davenport)
+Lemma 4.1 re-proved (Σ(S) = {x^j : |j| ≤ (n−1)/2} ∌ x^n; any H ∋ x^{±1} contains −1; t = 4q, q ≡ 3 (4): x = (−1, g) has order
+q − 1 = 2n, n odd, x^n = (−1, −1)). **SOUND.** From-scratch brute force (`scripts/review_r272_eta.py`, DFS over multisets with
+inherited pruning, all subgroups via ≤ 3 generators; `logs/review_r272_eta.txt`) shows the bound is valid but weak:
+η((ℤ/28)^×) ≥ 4 (Lemma: 2; witness {3, 3, 19, 19}), η((ℤ/44)^×) ≥ 7 (Lemma: 4; witness {7⁴, 19³}, cap-limited),
+η((ℤ/20)^×) ≥ 2 (Lemma n/a). Also checked (`scripts/review_r272_eta_pos.py`): for all d ≤ 150, η((ℤ/4d)^×) ≥ 1 ⟺ exp(G) > 2,
+which is the unproved "i.e." at the end of Prop 4.2 (one-line proof to add: η ≥ 1 ⟺ ∃S with −1 ∈ ⟨S⟩ ∖ Σ(S)).
+Literature: the document cites none. I am not aware of η under this name; closest standard notions are the Davenport
+constant / Olson constant and the *critical number* (Diderrich–Mann, Gao–Hamidoune: sets of ≳ 2√|G| *distinct* elements avoiding
+small-subgroup obstructions have Σ = G) — the latter is the relevant comparison for squarefree N and shows that repetition
+(used essentially in Lemma 4.1) is what makes η large; with distinct classes the needed count is O(√|G|). Not checked against
+sources (none in sources/). The conclusion of Prop 4.2 does not depend on the size of η: forced supply ≤ 1 already kills
+every level with η ≥ 1. **Prop 4.2: SOUND-AFTER-REPAIRS (D7).**
+
+**D7 (MINOR) — Prop 4.2.** (a) "≥ η(G) + 1 ≥ (q − 1)/2 escaping factors at a prime level q" needs q ≡ 3 (mod 4) (Lemma 4.1's
+hypothesis); for q ≡ 1 (4) the same construction gives only odd(q − 1) − 1 (= 0 at Fermat primes 5, 17, 257, …). (b) "for
+H = ker χ₋₄ it is 0 (z29(b))" holds only for total-product data (s = 1, g_L = [p]); once the smooth part is known the cofactor
+can escape ker χ₋₄ (e.g. p + 4d = 3·L forces L ≡ 3 (mod 4)). (c) "the Davenport route needs ≥ η(G) + 1 escaping factors" should
+read "a criterion of the form '> k escaping factors per subgroup ⟹ −1 ∈ Σ' must have k ≥ η(G)". (d) add the one-line proof
+of "η(G) ≥ 1 ⟺ exp(G) > 2" (or cite the check above). Label "PROVED" otherwise fine.
