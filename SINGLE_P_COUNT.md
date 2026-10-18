@@ -10,13 +10,26 @@ genus-aware"); PARITY_AUDIT ((J)87: R = M + E, |E| ≪ p^{2/5+o(1)}, tied modulu
 ((J)89) and B1_LINE ((J)90: census, overdispersion D growing 2.2 → 3.6); s7_lvalue_proxy (hardness ≈ QR-richness, EVIDENCE).
 What is new here is listed in §0.
 
-## 0. Summary of new content (updated as the work proceeds)
+## 0. Summary of new content
 
-* §1 (PROVED): exact forms of (★): coprime-pair congruence form, divisor form (brief's (★) corrected: no √-cut, R(p) even),
-  and an SL₂(ℤ) form with fixed upper-right entry p (γ ∈ −Γ₁(c(γ))).
-* §2 (PROVED): **genus split** R(n) = M_gen(n) + X(n) for every odd n, where M_gen ≥ 0 is the exact contribution of all
-  characters of order ≤ 2 (an explicit, computable "genus-corrected main term") and X is the order-≥3 part. M_gen(m²) = 0 and
-  X(m²) = 0 identically. M_gen(n) > 0 ⟺ (★) is solvable at n·x² for some x (the square-class relaxation).
+**ES is not solved; no conditional theorem "standard conjecture ⟹ R(p) ≥ 1" was found.** New relative to the prior work:
+* §1 (PROVED): exact forms of (★): coprime-pair congruence form R(p) = #{(u, B) : p ≡ −(u+B) (mod 4uB)}, divisor form
+  (the brief's (★) corrected: no √-cut; R(p) is even), and an SL₂(ℤ) form with fixed upper-right entry p (−γ ∈ Γ₁(c(γ))).
+* §2 (PROVED): **genus split** R(n) = M_gen(n) + X(n) for every odd n: M_gen ≥ 0 is exactly the order-≤2 character part
+  (explicit, depends only on n mod 8 and the Legendre symbols of n), X the order-≥3 part. **T1 lives entirely in M_gen:**
+  M_gen(m²) = X(m²) = R(m²) = 0. So the conditional target splits into (L) M_gen(p) large (a statement about χ_p) and
+  (U) |X(p)| < M_gen(p), which — unlike CONDITIONAL_ES's |S₁| < S₀ — is not refuted at squares.
+* §3 (EVIDENCE): variance decomposition of R(p) at 10⁵–10⁷: genus removes ≈ 25 % of the excess variance, bounded-modulus
+  local data + genus brings the residual to ≈ 1.1 × swap-Poisson; the non-local part keeps an overdispersion ≈ 1.7–1.9.
+  A bounded-modulus local main term M_Q (p mod 720720 + χ_p) ranks 577 and 409 as the two most endangered primes < 4·10⁵
+  (both are failures). T1 control: all 499 odd squares ≤ 10⁶ give 0 for R and every main term.
+* §4: (L) under GRH: M_gen(p) ≥ (1 − o(1)) log log p (Prop 4.1, CONDITIONAL). (U): audit of GRH, EH/BFI for τ,
+  Selberg–Linnik/Hooley R*, Kuznetsov/θ, Hardy–Littlewood single-N — none applies, each for an exact reason;
+  Conjecture 4.2 (local main term + CLT-scale error) stated for calibration only (not standard, ES-(★)-strength).
+* §5 (PROVED): main term uniform on the log-simplex (no critical range; every dyadic box ≍ 1); **bounded-order sieve
+  minorants are nonpositive** (Lemma 5.2) — positivity needs characters of order up to λ(4uB).
+* §6 (PROVED + Assessment): Bruhat reading — one Γ_∞-double coset per level c, or one level p with height-dependent target;
+  no Σ_c S(m, n; c) with fixed (m, n) arises at fixed p, so Kuznetsov/θ = 7/64 never enters (it does after averaging over p).
 
 ## 1. Exact forms of the single-p event (★)
 
