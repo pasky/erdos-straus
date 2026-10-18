@@ -11,6 +11,11 @@ gon_lll_relation_lattice.md, s6_divisor_pigeonhole.md, MARKOFF_ES.md.
 * cp0: B2 forms checked against the source files (§1); feature list (§2); field plan.
 * cp1: 5 research subagents (clusters A–E); 13 field memos; priority items read in the sources by me; table §3, deep items §4,
   synthesis §5, verification ledger §6.
+* cp1-repair: self-requested hostile review (reviewer subagent): no FATAL; MAJOR 1–9 + minors repaired, marked "R-O261 repair"
+  in the memos (sub-line scoping of the dictionaries; F2-for-Zaremba restated as an Assessment on the final gluing count;
+  QNR condition and on-average counts; Harpaz described correctly; three-cubes status and ES solution heights corrected;
+  complete Shkredov/Zhang excerpts; solver vs existence in the QNR hardness; false counterpart statements fixed;
+  ledger attributions (J)36/(J)37/(J)47).
 
 ## 1. B2 in its precise forms (checked against the files named)
 
