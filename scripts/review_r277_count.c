@@ -12,7 +12,7 @@
 #include <stdint.h>
 
 static int *spf; static int64_t *phiv;
-static const int64_t QQ = 720720; /* 2^4 3^2 5 7 11 13 */
+static int64_t QQ = 720720; /* 2^4 3^2 5 7 11 13; optional argv[3] overrides */
 
 static int jacobi(int64_t a, int64_t m) { /* m odd > 0 */
   a %= m; if (a < 0) a += m; int t = 1;
@@ -48,7 +48,7 @@ static int oddsq(int64_t n, int64_t x, int64_t a, int *om) {
 }
 
 int main(int argc, char **argv) {
-  int NMAX = atoi(argv[1]); int m0 = atoi(argv[2]);
+  int NMAX = atoi(argv[1]); int m0 = atoi(argv[2]); if (argc > 3) QQ = atol(argv[3]);
   spf = calloc(NMAX + 2, sizeof(int)); phiv = calloc(NMAX + 2, sizeof(int64_t));
   for (int i = 2; i <= NMAX; i++) if (!spf[i]) for (int j = i; j <= NMAX; j += i) if (!spf[j]) spf[j] = i;
   phiv[1] = 1;
