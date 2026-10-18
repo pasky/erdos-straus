@@ -6,7 +6,7 @@ Labels as in DISCOVERIES.md. ES is not solved. Everything here is Assessment exc
 *exceptional point* whose shadow decides all class conditions at once:
 * n = m² (T1; ET Prop 1.6, BL Cor 1.4; POINTWISE_SIZE Thm C): a global quadratic character, constant on the family,
   decides every divisor class — infinitely many slices, all n in the family.
-* n = 1 (memo 2, Prop 3.1): the archimedean point; its shadow decides finitely many slices, at Dickson primes.
+* n = 1 (memo 2, Prop 3.1): the BM-obstructed point (R274 repair, was "archimedean"); its shadow decides finitely many slices, at Dickson primes.
 * sterile Mordell points ((J)54/(J)70): points of Ẑ that no finite ET covering reaches — still priced by the
   lottery (they are profinite, not divisor, data).
 

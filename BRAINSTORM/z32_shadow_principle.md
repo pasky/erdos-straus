@@ -6,7 +6,7 @@ Labels as in DISCOVERIES.md. ES is not solved.
 finite set Θ of ET slices (six pair rows per type and the e-slices of both types), if p ≡ 1 (mod Q) with
 q_θ N_θ(1) | Q and every cofactor N_θ(p)/N_θ(1) is prime, then all slices in Θ are empty. Reason: every divisor
 of N_θ(p) is congruent mod q_θ to a divisor of N_θ(1), and at "p = 1" every class condition fails for size reasons
-(4/1 = 1/x + 1/y + 1/z has no positive solution: n = 1 is the archimedean exceptional point).
+(4/1 = 1/x + 1/y + 1/z has no positive solution: n = 1 is an exceptional point — BM-obstructed in BL's sense, R274 repair). Q must also satisfy e(1+e) | Q for e-slices (R274).
 
 **What it unifies.** (J)83 Thm 1.3 (windows ≤ M), (J)90 Thm 4.2 (b = 1 shifts ≤ σ), redteam-automorphic-2
 Lemma 1.2.1, B1_LINE "T1 point 1"; POINTWISE_SIZE Thm C is the quadratic-character twin (n = m² instead of n = 1).

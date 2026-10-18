@@ -144,7 +144,9 @@ have 0–60 per slice.
 * **What the construction needs.** Q ≤ p, and k = |Θ_nonconst| simultaneous prime values. Under Bateman–Horn the
   number of such p ≤ X is ≈ 𝔖 X /(Q L^{k+1}), L = log X, with 𝔖 ≤ (e^γ log y)^{k+1} when Q is y-smooth. So the
   construction exists at size X only if k log(L / (e^γ log y)) ≲ L − log Q: **k ≲ L / log L** prime-forced slices,
-  plus all congruence rows with modulus | Q (q ≲ log X / 2).
+  plus all congruence rows with modulus | Q (q ≲ log X / 2). (R274 repair: a cheaper conspiracy only asks every prime
+  factor of N_θ(p)/N_θ(1) to be ≡ 1 (mod q_θ) — same conclusion by the same shadow argument — at cost
+  ≍ (log N)^{−(1 − 1/φ(q_θ))} per slice; this changes the budget by a constant factor ≤ 2 only.)
 * **What a slice carries.** The expected count in an e-slice is ≍ L²/e-ish (log-uniform in e; the share of all
   slices e ≤ 31 in f_II is 0.22 at 10⁸ and 0.10 at 10¹⁶, O154 §4.1), and a pair slice carries ≍ L/q_θ. So the best
   k slices are the first k e-slices, which carry a share ≈ log k / L of f. With k ≲ L/log L this is ≈ (log L)/L
@@ -173,17 +175,24 @@ m = 12: 169 (last 1 998 793). m = 16: 446 (last 12 895 921). m = 20: 1162 (last 
 **4.2 A universal zero law (`z32_universal.py`, `z32_zero_law.py`).** Group primes by (m, cell p mod lcm(840, 4m),
 dyadic bin) and let μ be the cell mean. The zero rate is a function of μ alone, across all m:
 μ ≈ 3 → 0.21, 5 → 0.097, 9 → 0.018, 13.5 → 3.1·10⁻³, 22.5 → 1.1·10⁻⁴, 35 → 2.3·10⁻⁶, 45 → 1.6·10⁻⁷, ≥ 50 → 0 (of
-1.0·10⁸ prime-units). Binomial ML fit: **P(f = 0) ≈ exp(−0.535 μ^{0.91})** (β = 0.91–0.93 in every training window).
+8.6·10⁷ prime-units; R274 repair, was 1.0·10⁸). Binomial ML fit: **P(f = 0) ≈ exp(−0.535 μ^{0.91})** (β = 0.91–0.93 in every training window).
 *Out-of-sample:* trained on p < 2²⁰ only, it predicts the zeros in (2²⁰, 10⁸] for each m within a factor ≈ 1.5
-where counts are large (m = 16: 15 vs 19; 19: 22 vs 22; 22: 423 vs 408; 24: 1008 vs 1204), and within a factor ≤ 7
-for counts ≤ 5 (m = 12: 0.4 vs 3). It is mildly optimistic, never off by more than one order of magnitude.
+where counts are large (m = 16: 15 vs 19; 19: 22 vs 22; 22: 423 vs 408; 24: 1008 vs 1204), but by up to ×16–20
+for counts ≤ 5 (m = 12: 0.4 vs 3; m = 13: 0.1 vs 2). (R274 repair, replaces "mildly optimistic, never off by more than
+one order of magnitude":) the misfit is systematic in the extrapolation direction: on test units with μ ≥ 35 the law
+trained on p < 2¹⁸ / 2²⁰ / 2²² predicts 2.0 / 2.8 / 3.9 zeros and 11 / 11 / 9 are observed (Poisson tails 10⁻⁵ /
+2·10⁻⁴ / 0.02; R274 `logs/review_r274_zero_law.txt`). So the law under-predicts zeros by ×3–5 at the top of the
+observed μ range; refits restricted to μ ≥ 8…20 still give β = 0.87–0.90, so this is a modest model error, not a
+collapse of β.
 *Negative-binomial models are falsified:* NB with moment-fitted dispersion (as in B1_LINE §3) predicts 50 zeros for
 m = 6 in [2²⁴, 2²⁶) and 3.2 for m = 8; there are 0. The cell dispersion D grows with p (m = 4: 10 → 51 from 2¹⁶ to
 2²⁷) because of the *upper* tail; the lower tail is stretched-exponential, not polynomial.
 
 **4.3 A one-constant crossover law (`z32_minratio.py`, `z32_crossover.py`).** Let q_m be the 10⁻³-quantile of f/L³
 over the primes in [2²⁶, 10⁸]. Then c₀(m) := q_m·(log p_last)³ is **constant across the ladder**: 7.0–15.7 for all
-m = 6…23 (geometric mean 11.6), while p_last ranges over 2.5·10³ … 9.5·10⁷. So "failures stop where the 10⁻³-hardest
+m = 6…23 (geometric mean 11.6; R274 repair: m = 20, 22 are right-censored at 10⁸, and q_m is measured at
+[2²⁶, 10⁸] while most p_last are far smaller, and q drifts with p — see the floor test — so this is EVIDENCE with
+those caveats), while p_last ranges over 2.5·10³ … 9.5·10⁷. So "failures stop where the 10⁻³-hardest
 primes still have ≈ 12 solutions" predicts p_last within a factor ≈ 2–4 for every m. For m = 4: q₄ = 0.028, so
 the predicted last Type-II failure is ≈ 1.7·10³; **observed: none at all for p ≥ 5** (the law is pessimistic here).
 *Floor test (the extreme-value signature).* For m = 4 the minimum of f_II/L³ over each dyadic bin stays in
@@ -194,8 +203,11 @@ concentrating, not spreading. The same holds for m = 6, 8, 12, 16 (minima rising
 **4.4 Extrapolation to ES (Assessment; `z32_extrapolate.py`).** Hardest m = 4 cell (mod 840): μ/L³ = 0.036–0.038,
 flat over 2¹⁸–2²⁷ (O154: class of one 0.034 at 10¹⁶). With the zero law:
 * expected number of primes with f_II = 0 in [10⁸, 10¹⁸): ≈ 10⁻³¹ (μ ∝ L³), 10⁻³⁰ (μ ∝ L², pessimistic);
-  with a 30 % lower a: 10⁻²⁰. Beyond 10¹⁸: < 10⁻⁸⁸ in every variant.
-* *Worst case anywhere:* even if every prime had the smallest f_II/L³ ever seen ≤ 10⁸ (0.0117), μ_eff ≈ 830 at 10¹⁸
+  with a 30 % lower a: 10⁻²⁰; with a flatter law (a = 0.4, β = 0.8): 2–6·10⁻¹⁰. Beyond 10¹⁸: from 10⁻²⁹⁶ (fit) to
+  5·10⁻³⁷ (flatter, μ ∝ L²). (R274 repair: the flatter variant is in `logs/z32_extrapolate.txt` and was omitted
+  from the earlier "< 10⁻⁸⁸ in every variant"; given the ×3–5 top-μ misfit of §4.2, multiply all of these by a
+  model-error factor of at least 10–10³.)
+* *Pessimistic scenario (R274 repair: not a worst case — the minimum over 10¹⁶ primes would be lower):* even if every prime had the smallest f_II/L³ ever seen ≤ 10⁸ (0.0117), μ_eff ≈ 830 at 10¹⁸
   and P(f_II = 0) ≈ e^{−240}.
 * **What would have to be wrong.** The expected count beyond 10¹⁸ reaches 1 only if the zero-law exponent drops
   from the measured β ≈ 0.91 to β* ≈ 0.53–0.59, or, in the crossover form, if the 10⁻³-quantile of f/L³ fell from
@@ -205,7 +217,7 @@ flat over 2¹⁸–2²⁷ (O154: class of one 0.034 at 10¹⁶). With the zero l
   stops growing beyond μ ≈ 70 (`logs/z32_lowdev.txt`; pooled over m and p, so confounded). That is why §4.4's worst
   case uses the global minimum ratio, not the cell mean.
 
-**4.5 Heavy tails are self-refuting given the 10¹⁸ verification (Assessment; `scripts/z32_heavy_tail.py`,
+**4.5 Within the stretched-exponential family, heavy tails are self-refuting given the 10¹⁸ verification (Assessment; `scripts/z32_heavy_tail.py`,
 `logs/z32_heavy_tail.txt`).** Answering "where is the first counterexample if the tail is heavier than measured":
 take the one-parameter family P(f = 0) = exp(−0.535 μ^β), μ = c L³ for *every* prime (c = 0.037, hardest cell,
 Type II only; c = 0.074, crude Type I + II).
@@ -221,8 +233,13 @@ Type II only; c = 0.074, crude Type I + II).
 The decay in L is so steep that **any tail heavy enough to put an expected ≳ 0.1 failures beyond 10¹⁸ predicts
 hundreds or more below 10¹⁸**, where ES is verified (Mihnea–Dumitru). So within this family the first counterexample
 would sit *just above the last verified range* or nowhere, and the verified range already excludes it; conditioning
-on "none ≤ 10¹⁸", the expected number beyond is ≲ 10⁻² for every β. The only escape is a zero law that is
-*non-monotone* in L (failures switching on at large p) — i.e. a new global mechanism (§6), not a heavier tail.
+on "none ≤ 10¹⁸", the expected number beyond is ≲ 10⁻² for every β (R274: max over β ∈ [0.40, 0.70] is 2·10⁻¹⁰; 3·10⁻⁹ with
+verification only to 10¹⁷). (R274 repair, replaces "The only escape is a zero law that is non-monotone in L":) The
+escapes are zero laws outside this family: a non-monotone law (failures switching on at large p), a floor or
+mixture (a conspiracy class of per-prime weight ε: ε = 10⁻¹⁸ gives 0.025 expected failures ≤ 10¹⁸ and ≈ 7·10³⁹ in
+[10¹⁸, 10⁶⁰)), or a law decaying only polynomially in p (P = C/p gives E[10⁸, 10¹⁸) : E[10¹⁸, 10⁶⁰) = 0.81C : 1.2C).
+The last two are monotone. The 10¹⁸ verification bounds a floor only by ε ≲ 4·10⁻¹⁷ and says nothing about beyond.
+All of these need a new global mechanism (§6), not a heavier tail of the measured kind.
 * Extrapolation caveat: the fit uses μ ≤ 50 (the last observed zeros); m = 4 has μ ≥ 229 already at 10⁸. The
   crossover law (§4.3), which uses quantiles observable at any μ, is the independent cross-check.
 
@@ -267,7 +284,8 @@ y < ℓ ≤ 97; D3 = Prop 3.1 shadow on e = 3, 7, 11 (both types; six prime cofa
    small slices (the share of e ≤ 127 in S falls from ≈ 0.55 to ≈ 0.16), not on the bulk. So the realistic total
    depression at 10¹⁸–10²⁵ is ≈ 0.7–0.8 (O154: 0.65–0.73 to 10¹⁶).
 5. "Profinite proximity to sterile points" is not constructible in this range: the sterile Mordell points of (J)70
-   need least quadratic non-residue r ≥ 2.8·10⁶, i.e. p ≡ □ modulo every prime < 2.8·10⁶ (log p ≳ 2.8·10⁶).
+   need least quadratic non-residue r ≥ 2.8·10⁶, i.e. p ≡ □ modulo every prime < 2.8·10⁶ (heuristically log p ≳ π(2.8·10⁶)·log 2 ≈ 1.4·10⁵; R274 repair, was
+   "log p ≳ 2.8·10⁶", which is the cost of p ≡ 1 modulo all those primes).
    D2 (residue at every ℓ ≤ 97) is the feasible proxy; it behaves like D1.
 
 ## 6. Bottom line: could ES be false? (Assessment)
@@ -276,18 +294,20 @@ y < ℓ ≤ 97; D3 = Prop 3.1 shadow on e = 3, 7, 11 (both types; six prime cofa
 
 | route | status | where |
 |---|---|---|
-| local / BM / descent obstruction | **closed** (PROVED: no BM obstruction at any n, BL Thm 1.8; Br/Br₀ = ℤ/2 is all there is) | §1 |
+| local / BM / descent obstruction | **closed for BM** (PROVED: no BM obstruction at any n ≥ 2, BL Thm 1.8; Br/Br₀ = ℤ/2); no other obstruction computed (Assessment; R274 repair) | §1 |
 | exotic integral obstruction beyond BM | exists in principle (BL Thm 1.9); every known instance on comparable surfaces is a small-count accident | §2 |
 | conspiracy prime (Dickson/H/CRT) | kills any finite slice set (Prop 3.1, Thm C) but only a bounded factor (≈ 0.7) or an O(log L/L) share of the ≍ L³ mean | §3 |
-| lottery failure at one huge prime | calibrated zero law: expected number of f_II-failures in [10⁸, 10¹⁸) ≈ 10⁻³¹ (≤ 10⁻²⁰ in every variant), beyond 10¹⁸ < 10⁻⁸⁸ | §4 |
+| lottery failure at one huge prime | calibrated zero law: expected number of f_II-failures in [10⁸, 10¹⁸) ≈ 10⁻³¹ (fit) … 10⁻⁹ (flatter β = 0.8 variant), beyond 10¹⁸ 10⁻²⁹⁶ … 5·10⁻³⁷, times a model-error factor (fit ×3–5 optimistic at the top observed μ) (R274 repair) | §4 |
 | adversarial search 10¹⁸–10²⁵ | hardest prime ≥ 612 solutions in the cheapest 1024 families alone | §5 |
 
 **Probability that ES is false (Assessment).** Within every model that survives the sibling-ladder test, the
-probability of a counterexample above the verified bound 10¹⁸ is astronomically small (< 10⁻⁸⁰). The residual
+probability of a counterexample above the verified bound 10¹⁸ is astronomically small (< 10⁻³⁰ in the variants
+tried; R274 repair, was "< 10⁻⁸⁰", contradicted by the β = 0.8 variant). The residual
 risk is *model risk*: a mechanism that correlates ≍ (log p)³ divisor events at one prime and is invisible to
 (i) local data (B1), (ii) finitely many shifted factorisations (B2, Prop 3.1), (iii) the 21 sibling lotteries,
 which share the same algebra and *do* fail, and obey one law. I would put the probability that ES is false at
-well under 10⁻³ — and that is a statement about unknown unknowns (a genuinely global, non-congruence conspiracy
+well under 10⁻³ — (R274 repair:) a subjective credence, not an output of §§3–5: the floor/mixture and polynomial-decay
+laws of §4.5 are not priced by any computation here — and that is a statement about unknown unknowns (a genuinely global, non-congruence conspiracy
 of the type T1 provides at squares), not about any identified mechanism. O154 searched for such global drivers
 (class number, regulator, CF period) and found none beyond congruence data.
 
@@ -295,13 +315,15 @@ of the type T1 provides at squares), not about any identified mechanism. O154 se
 produced *infinitely many* failures of a Type I/II-type lottery is T1 (odd squares: every class condition is
 decided by a global character that is constant on the whole family). A disproof would need a **prime analogue of
 T1**: a global invariant of p, not visible mod any fixed Q, that forces every one of the ≍ log³p divisor events
-into the wrong class. Prop 3.1 shows the archimedean point n = 1 plays this role for finitely many slices, Thm C
+into the wrong class. Prop 3.1 shows the point n = 1 (BM-obstructed, R274 repair) plays this role for finitely many slices, Thm C
 shows n = m² does; neither extends to a growing family (the CRT budget and the Bateman–Horn budget are both
-≲ log p, §3.2). So the avenue is: *find a third "exceptional point" of Ẑ × ℝ whose shadow is infinite-dimensional*.
+≲ log p, §3.2). So the avenue is: *find a third "exceptional point" of Ẑ × ℝ whose shadow is infinite-dimensional*. (R274 repair:
+both known exceptional points are BM-obstructed specialisations, while no prime is (BL Thm 1.8), so the third point
+would have to act through a non-BM mechanism.)
 Every candidate examined in the campaign (sterile Mordell points (J)54/(J)70, square-mimicking, class of one) is a
 point of Ẑ alone and is priced by §4. Promise: 1/5 as a disproof route; but it is the only one.
 
 **What a counterexample search should do, if anyone runs one.** (1) Search only beyond 10¹⁸ and only in the class
 of one with square-mimicking (D1/D2), because the zero law makes the expected yield ∝ exp(−a μ^β) and these designs
 minimise μ (by ≈ 0.7); (2) use the cheap e-slices as a sieve (S(2047) ≈ 0.3 × controls, never 0); (3) expect
-nothing: the model gives < 10⁻⁸⁰.
+nothing: the model gives < 10⁻³⁰ (R274 repair, was < 10⁻⁸⁰).

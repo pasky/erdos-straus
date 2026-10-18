@@ -10,7 +10,7 @@ real failures: the Type II count of m/p for m = 4…24 (m·abcd = a + b + cp), a
 1. Failures (Type II only, p ≤ 10⁸): m = 4, 5 none; m = 6 last 2521; m = 8 last 35 569; m = 12 last 1 998 793;
    m = 16 last 12 895 921; m ≥ 20 still failing near 10⁸.
 2. **Universal zero law:** P(f = 0) depends on the cell mean μ only, ≈ exp(−0.535 μ^{0.91}), across all 21 m;
-   trained on p < 2²⁰ it predicts the later failures per m within ×1.5 (large counts), ×7 (counts ≤ 5).
+   trained on p < 2²⁰ it predicts the later failures per m within ×1.5 (large counts), up to ×16–20 (counts ≤ 5); R274 repair: ×3–5 too few zeros on test units with μ ≥ 35.
 3. **Negative-binomial tails are falsified** (predicts 50 failures for m = 6 in [2²⁴, 2²⁶); there are 0).
 4. **One-constant crossover:** q_m·(log p_last)³ ∈ [7, 16] for every m = 6…23 (q_m = 10⁻³-quantile of f/L³):
    failures stop once the 0.1 %-hardest primes have ≈ 12 solutions. For m = 4 it predicts the last Type II failure
@@ -27,6 +27,6 @@ beyond 10¹⁸.
 **Barrier screen.** B6: these are averages over p and say nothing at a single p; the claim is only a calibrated
 *model*. B3: the main term is (log p)³ — the lottery itself.
 
-**Viability (Assessment).** As a disproof avenue: COLLAPSES (the model gives ≤ 10⁻²⁰ expected failures in
-[10⁸, 10¹⁸) and < 10⁻⁸⁸ beyond). As a calibration tool: strong (promise 3/5): it replaces untested NB heuristics
+**Viability (Assessment).** As a disproof avenue: COLLAPSES (the model gives 10⁻³¹ … 10⁻⁹ expected failures in
+[10⁸, 10¹⁸) and 10⁻²⁹⁶ … 5·10⁻³⁷ beyond across the variants tried; R274 repair). As a calibration tool: strong (promise 3/5): it replaces untested NB heuristics
 by a law validated out of sample on 21 sibling lotteries.
