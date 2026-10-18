@@ -54,13 +54,13 @@ plausibly prove B2. No row is SHARP for ES.
 
 | # | field | counterpart (exact source) | pointwise proved? mechanism | first blocking feature | verdict | memo |
 |---|---|---|---|---|---|---|
-| 1 | thin orbits / CF | Zaremba: ∀q ∃a, digits of a/q ≤ M. BK Ann. Math. 2014 Thm 1.8 (a.a., mult. ≫ N^{2δ−1001/1000}); **Shkredov arXiv:2603.14116 Cor 1 (every prime/squarefree q), X. Zhang arXiv:2605.02518 Thm 1.2 (all q) — 2026 preprints** | YES (claimed, 2026): growth in SL₂(ℤ/qℤ) on two Cantor half-sets of size q^{w_M}, count q^{2w_M−1} | F2: ES-five = QNRs A with HJ-length(p/A) ≤ 3 (DEDEKIND_ES Cor 4.6); count critical (2δ = 1, ≍ log² p on average); no alphabet knob | ANALOGUE | zaremba_thin_orbits |
+| 1 | thin orbits / CF | Zaremba: ∀q ∃a, digits of a/q ≤ M. BK Ann. Math. 2014 Thm 1.2 (Zaremba, a.a. q; R273 repair) and Thm 1.8 (general alphabet, a.a., mult. ≫ N^{2δ−1001/1000}); **Shkredov arXiv:2603.14116 Cor 1 (every prime/squarefree q), X. Zhang arXiv:2605.02518 Thm 1.2 (all q) — 2026 preprints** | YES (claimed, 2026): growth in SL₂(ℤ/qℤ) on two Cantor half-sets of size q^{w_M}, count q^{2w_M−1} | F2: ES-five = QNRs A with HJ-length(p/A) ≤ 3 (DEDEKIND_ES Cor 4.6); count critical (2δ − 1 = 0 regime, ≍ log² p on average; R273 repair); no alphabet knob | ANALOGUE | zaremba_thin_orbits |
 | 2 | Markoff / strong approx. | Γ transitive on X*(p): BGS (Chen Thm 1.2.3), **Chen Thm 1.2.5 (orbit sizes ≡ 0 mod p), Thm 1.2.6** | YES (all but finitely many p): degree congruence on Hurwitz spaces + giant component | wrong axis (connectivity mod p of one surface vs existence on a family); on the family axis (x²+y²+z²−xyz = k) pointwise is FALSE (Ghosh–Sarnak); no Vieta group on U_n | ANALOGUE | markoff_chen |
 | 3 | quadratic forms | (i) binary forms by I₃ (one-class genus); (ii) xy+yz+zx = n (Borwein–Choi); (iii) ternary (Duke–Schulze-Pillot), 290 | (i) local; (ii) class numbers + GRH; (iii) Eisenstein main term ≍ n^{1/2} | (i) solves only the sign layer ((J)48); (ii)/(iii) F2, F6 | (i) INSTANCE (sign layer); (ii),(iii) ANALOGUE | quadratic_forms |
 | 4 | equidistribution | Duke 1988 Thm 1 (Heegner points, error \|d\|^{−δ}) | YES, power-size point sets, region targets | F3: **Lemma 4.1 (PROVED): ES shot ⟺ ideal divisor of (1 + 2k√−p) of norm ≡ −1 (mod 4k)** — a divisor condition on a representative, not a region; then F2 | ANALOGUE | duke_equidistribution |
 | 5 | unit fractions | Bloom Thm 2; Liu–Sawhney Thm 1.1; Croot 2003; Graham 1963 (n > 77) | Bloom/Croot: density/colouring, target fixed, set varies; Graham: pointwise by additive recursion n ↦ 2n+2, 2n+9 | F1 (Bloom), multiplicativity (Graham: ES(n) ⟹ ES(mn) never reaches primes; B1) | ANALOGUE | unit_fractions |
 | 6 | arithmetic geometry | integral HP on log K3 surfaces (BL: U_n is log K3); x³+y³+z³ = k (CTW: no BM obstruction for k ≢ ±4 (9); Heath-Brown's conjecture: ~ρ log B solutions) | YES for homogeneous spaces (strong approximation) and for specified conic log K3 surfaces under square-class hypotheses (Harpaz Thm 1.0.1, S-integral); none known for the ES family | not homogeneous; Harpaz not shown to apply (S-integral, no positivity, singular U_p, GTZ needs box-independent coefficients) | **INSTANCE** (B2 ⊂ bounded-height integral HP on a log K3 family); three cubes = closest sister ANALOGUE | integral_points_cubics |
-| 7 | logic | Lipshitz LGP for increasing-form divisibility systems (via DHMP arXiv:2308.13609 p. 3) | YES for increasing-form systems | F3 = a cycle d → w → d: **Lemma 7.1 (PROVED): E2 is non-increasing and its LGP fails at 193, 2521, 66529** | EQUIVALENT reformulation of the E2 line (not of ES); mechanism ANALOGUE | logic_divisibility |
+| 7 | logic | Lipshitz LGP for increasing-form divisibility systems (via DHMP arXiv:2308.13609 p. 3) | YES for increasing-form systems | F3 = a cycle d → w → d: **Lemma 7.1 (PROVED): E2 is non-increasing; its naive local-global statement is false (local solvability is vacuous; global fails at 193, 2521, 66529)** (R273 repair: Lipshitz's LGP itself, a theorem about the increasing-form system his procedure produces by case splits, does not "fail") | EQUIVALENT reformulation of the E2 line (not of ES); mechanism ANALOGUE | logic_divisibility |
 | 8 | complexity | Lenstra 1984 / CHN 2008 divisors in residue classes (s > n^{1/4+ε}) | YES, upper bound + algorithm | no existence content (lists divisors in a class, never certifies non-emptiness) | per-slice EQUIVALENT, NOT SHARP; hardness: constructive polylog B2 ⟹ deterministic QNR ((J)35) | complexity |
 | 9 | additive combinatorics | ±-Davenport, Kneser, Olson/Szemerédi–Vu, Erdős–Rényi, AGP | YES given length ≳ log q (random) / √q (spread) / q (worst) | F2 (Ω(K) ≈ log log p), F1 (K forced, unlike AGP), F6 (+1 vs −1) | EQUIVALENT reformulation of the cap-0 window event (targets {−1, −p} in a box product set); NOT SHARP | zero_sum |
 | 10 | analytic NT, small counts | least QNR / primitive root / Linnik; 2^k + p (Erdős covering); Heath-Brown–Puchta (2 primes + 13 powers of 2) | polylog only under GRH and only for fixed-modulus character events; HBP via power main term | F3 (not a character event); F2 (HBP) | ANALOGUE | small_count_pointwise |
@@ -77,11 +77,15 @@ errors are individually bounded, |E_N(d)| ≪ N^{2δ−1−ε}, say, then we wou
 to establish control of this quality individually, but do succeed on average"); Shkredov arXiv:2603.14116v2 Cor 1, Thm 8,
 Lemma 13; Zhang arXiv:2605.02518v2 Thm 1.2, Remark 1.4. **New to the campaign: Zaremba is claimed proved pointwise (every
 prime/squarefree q: Shkredov; every q: Zhang), by growth in SL₂(ℤ/qℤ), i.e. by a non-averaged mechanism.** Both are 2026
-preprints; I did not check proofs. What the mechanism uses (memo 1 §(c)): a fixed modulus q (the denominator), two
+preprints; I did not check proofs. (R273 repair: Zhang's proof is not independent — it plugs a new SL₂(ℤ/qℤ)
+expansion theorem (his Thm 3.6) into the framework of Shkredov's Thm 8 proof; Shkredov's new "critical denominators" idea handling
+the middle range x ∈ [t, q/(4Mt)] is what makes M absolute. Versions as of 2026-10-18: Shkredov v2 (24 Jun 2026), Zhang v2
+(8 May 2026); neither withdrawn; unrefereed.) What the mechanism uses (memo 1 §(c)): a fixed modulus q (the denominator), two
 Cantor-type half-sets of size q^{w_M}, w_M = 1 − O(1/M), glued by a congruence mod q whose expected count is
 q^{2w_M−1} — a power, bought by taking M large. In CF coordinates ES-five(p) is also a fixed-modulus statement ("some QNR A mod p
 with HJ-length(p/A) ≤ 3", DEDEKIND_ES Cor 4.6), so F3 is *not* the obstruction there; the obstruction is F2 in its rigid form:
-the ES digit set is a finite-length word set (dimension 0, critical exponent 2δ = 1, ≍ log² p numerators), with no alphabet
+the ES digit set is a finite-length word set (its count ≍ log² p — about 0.7 log² p at sampled p, R273 check — sits at the
+critical regime 2δ − 1 = 0 of the BK count N^{2δ−1}, i.e. no power; R273 repair of "dimension 0, critical exponent 2δ = 1"), with no alphabet
 knob, and growth theorems need sets of size ≥ q^ε. Verdict ANALOGUE, transfer NOT SHARP. **Erratum-type flag for the parent:**
 BRAINSTORM/thin_group_orbits.md §4 ("Every thin-orbit local-global theorem known is density one") and farey_ford_cf.md
 ("BK and Huang are 'almost all q' statements") are outdated if the 2026 preprints stand; the barrier statement survives in the
@@ -116,12 +120,14 @@ have no central-limit behaviour for Bloom's Fourier step to exploit. Verdict ANA
   divisors 𝔞 of (1 + 2k√−p) (memo 4, Lemma 4.1; (J)36: e.g. p = 13, 37, 97 have ES but no shot-family solution) — none of which lands in a
   solved regime of its field.
 
-**The pattern (Assessment).** Every pointwise existence theorem surveyed uses at least one of four inputs, and B2 offers none:
+**The pattern (Assessment).** Every pointwise existence theorem surveyed uses at least one of the inputs below (R273 repair: M1 split into M1a/M1b, M5 added; Graham moved to M4 only), and B2 offers none:
 | input | used by | B2 lacks it because |
 |---|---|---|
-| M1 power-size main term | Duke, ternary forms, 290, Borwein–Choi, BGS, Shkredov/Zhang Zaremba, HBP, Graham | F2: ≍ (log p)²–(log p)³ |
+| M1a power-size count of the final objects (R273 repair: M1 split) | Duke, ternary forms, 290, Borwein–Choi, BGS, Shkredov/Zhang Zaremba, HBP | F2: ≍ (log p)²–(log p)³ (for almost all p this follows from the Elsholtz–Tao average, (memory); R273 defect 10) |
+| M1b power-size *auxiliary* set + pigeonhole/volume, final count may be O(1) (R273 repair) | Thue/Minkowski (p = x² + y², 8 solutions), Dirichlet/Pell (≍ log X solutions of height ≤ X) | not F2 but F3/(J)85: the ES target class depends on the exact height, and covering needs sub-power windows (memo 12 (c)) |
 | M2 fixed-modulus character/group event | least QNR / primitive root under GRH, Lipshitz LGP (increasing form), Shkredov/Zhang (mod q) | F3 (in CF coordinates the modulus is fixed but then M1 fails — the trade of SYNTHESIS_SPARKS8 Prop 1.4) |
-| M3 homogeneity / group action on solutions | strong approximation for groups, Chen/BGS, Zagier windmill | U_n not homogeneous; finite automorphism group; T1 parity |
+| M3 homogeneity / group action on solutions | strong approximation for groups, BGS giant component, one-class genera | U_n not homogeneous; finite automorphism group |
+| M5 count-congruence (parity / mod-p count) (R273 repair) | Zagier windmill, Chen Thm 1.2.5, Chevalley–Warning, Erdős–Ginzburg–Ziv | T1: the Type I/II count is 0 at odd squares, so the congruence must see primality / the quadratic character (F6); finite-menu affine involutions barred ((J)2 Thm 6.1, conditional) |
 | M4 freedom to choose the objects | AGP Carmichael, Bloom/Croot, Graham's recursion, fibration methods | F1: p and K = (p+q)/4 are forced |
 The 2026 Zaremba theorems are the sharpest test of this pattern: a pointwise theorem in a CF/thin-orbit problem by growth
 (M1 + M2), whose ES-five analogue keeps M2 but has no M1: in that coordinate the ES-five certificates are the quadratic

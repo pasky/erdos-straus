@@ -1,7 +1,8 @@
 # R273 — hostile review of O261 (B2_ACROSS_FIELDS.md, BRAINSTORM/z31_*.md, sources/lit2026g/)
 
 Reviewer: R273 side agent (branch side-agent/review-b2-fields), merged side-agent/b2-across-fields at review start.
-Status: in progress (claims written one at a time).
+Status: complete (round 1).
+Repairs applied (author quiet at checkpoint): (R273 repair) edits in B2_ACROSS_FIELDS.md (§4.1 Zhang dependence + versions; table rows 1, 7; §5 pattern table M1a/M1b/M5, Graham), BRAINSTORM/z31_quadratic_forms.md (Bhargava–Hanke venue), sources/lit2026g/{bhargava_hanke,ghosh_sarnak}.txt, AGENT_REPORT_O261.md (Lemma 7.1 wording, size, "first pointwise", pattern). Defects 2, 5, 10 (partly), 15 (symbol fixes) left to the author.
 
 ## Claim (1) — headline: Zaremba claimed proved pointwise (Shkredov 2603.14116 Cor 1; X. Zhang 2605.02518 Thm 1.2)
 

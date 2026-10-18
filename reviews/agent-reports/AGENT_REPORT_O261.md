@@ -1,7 +1,7 @@
 # AGENT REPORT O261 — B2 across fields (wide net)
 
 Branch `side-agent/b2-across-fields`. Main file `B2_ACROSS_FIELDS.md`; 13 field memos `BRAINSTORM/z31_*.md`; excerpts
-`sources/lit2026g/` (≈ 35 tiny text files, ≈ 130 KB total); scripts `scripts/o261/` (2 small checks). **ES is not solved.**
+`sources/lit2026g/` (32 tiny text files, ≈ 23 KB of text; R273 repair); scripts `scripts/o261/` (2 small checks). **ES is not solved.**
 
 ## Answer
 B2 is **not** equivalent to, or an instance of, any *solved* problem among the 13 fields surveyed. It is
@@ -9,7 +9,7 @@ B2 is **not** equivalent to, or an instance of, any *solved* problem among the 1
   x³ + y³ + z³ = k (CTW: no BM obstruction; Heath-Brown: ~ρ log B solutions; both verified in the sources).
 * given exact reformulations on the named sub-lines, none of which is equivalent to ES itself:
   * E2 is a cyclic, non-increasing divisibility system, so Lipshitz's local-to-global principle does not apply. It fails
-    at 193, 2521 and 66529 even though it is ℓ-adically solvable for every ℓ (Lemma 7.1, PROVED).
+    at 193, 2521 and 66529 even though it is ℓ-adically solvable for every ℓ (Lemma 7.1, PROVED; R273 repair: the local solvability is vacuous, and Lipshitz's LGP itself, for his increasing-form reduction, does not fail).
   * The cap-0 window event is a target problem {−1, −p} for a box product set.
   * A single E2 slice is a "divisors in residue classes" decision problem (Lenstra).
   * The shot family E4 asks for an ideal divisor of (1 + 2k√−p) with norm ≡ −1 (mod 4k) (Lemma 4.1, PROVED, numerically
@@ -22,7 +22,7 @@ B2 is **not** equivalent to, or an instance of, any *solved* problem among the 1
 * Mechanism: growth in SL₂(ℤ/qℤ) applied to Cantor-type sets in ℤ/qℤ.
 * I read the statements, but not the proofs, which are unrefereed.
 
-This was the brief's top priority. It is the first pointwise result in the thin-orbit family, and the campaign memos
+This was the brief's top priority. It is the first pointwise result in the thin-orbit family with an absolute alphabet (R273 repair: Korobov 1960, M = O(log q), and Moshchevitin–Murphy–Shkredov, M = O(log q/log log q) for all primes, were pointwise with growing alphabets), and the campaign memos
 `BRAINSTORM/thin_group_orbits.md` §4 and `farey_ford_cf.md` say "every thin-orbit local–global theorem is density one". That
 is outdated if the preprints stand; I did not edit those files and leave the update to the parent.
 
@@ -38,7 +38,7 @@ Every pointwise existence theorem I surveyed uses at least one of four inputs:
 * M3: homogeneity or a group action on the solutions;
 * M4: freedom to choose the objects.
 
-B2 lacks all four (features F1–F3). Zaremba 2026 is the sharpest test: it uses M1 + M2, and the ES-five analogue keeps M2 but
+B2 lacks all four (features F1–F3). (R273 repair: M1 must be split into M1a "power-size count of the final objects" — blocked by F2 — and M1b "power-size auxiliary set + pigeonhole/volume" (Thue, Minkowski, Pell; final count may be O(1)) — blocked by F3/(J)85, not F2; and a fifth class M5 "count-congruence" (Zagier, Chen Thm 1.2.5, Chevalley–Warning) is blocked by T1/F6. See B2_ACROSS_FIELDS §5.) Zaremba 2026 is the sharpest test: it uses M1 + M2, and the ES-five analogue keeps M2 but
 has no M1.
 
 ## Verification

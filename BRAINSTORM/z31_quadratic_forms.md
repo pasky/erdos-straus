@@ -11,8 +11,8 @@ WINDMILL_REDUCTION Prop 10.3, LITERATURE_2026 §(iii).
    (ineffective). Exceptional sets genuinely exist (spinor exceptions; and anisotropic-prime square classes).
 2. **Ramanujan's x² + y² + 10z²** (Ono–Soundararajan, Invent. Math. 130 (1997); (memory)): under GRH it represents every
    eligible odd n except 18 listed values. Unconditionally, finitely many further exceptions cannot be excluded effectively.
-3. **290-theorem** (Bhargava–Hanke, Invent. Math. 2012 (preprint read only through a search extract)): a positive-definite
-   integral form is universal iff it represents the 29 critical integers ≤ 290.
+3. **290-theorem** (Bhargava–Hanke, "Universal quadratic forms and the 290-Theorem", preprint (2011); publication in Invent. Math. not verified — R273 repair of "Invent. Math. 2012"; read only through a search extract): an integer-valued positive-definite
+   form is universal iff it represents the 29 critical integers ≤ 290.
 4. **xy + yz + zx = n in positive integers** (Borwein–Choi, Exp. Math. 9 (2000) 153–158, abstract read): "at most 19
    integers that are not of the form xy+yz+xz with x,y,z ≥ 1. Eighteen of them are small … The remaining possibility must be
    greater than 10^11 and cannot occur if we assume the Generalized Riemann Hypothesis."

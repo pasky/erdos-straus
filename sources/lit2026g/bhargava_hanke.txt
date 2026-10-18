@@ -1,2 +1,4 @@
 https://math.stanford.edu/~vakil/files/290-Theorem-preprint.pdf
 Search-extracted theorem statement: “If a positive-definite quadratic form with integer coefficients represents every positive integer below 290, then it represents every integer above 290.”
+
+(R273 repair) The extract above is garbled. Correct statement (290-theorem): an integer-valued positive-definite quadratic form represents every positive integer iff it represents the 29 critical integers 1, 2, 3, 5, 6, 7, 10, 13, 14, 15, 17, 19, 21, 22, 23, 26, 29, 30, 31, 34, 35, 37, 42, 58, 93, 110, 145, 203, 290. Status: preprint (2011), cited as "to appear/in press, Invent. Math." (e.g. Alladi, Phil. Trans. R. Soc. A 378 (2020)); no published version verified by R273.

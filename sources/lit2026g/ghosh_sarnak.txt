@@ -1,3 +1,5 @@
 https://arxiv.org/abs/1706.06712
 Abstract: “We show that for almost all k the Hasse Principle holds, namely that V_k(Z) is non-empty if V_k(Z_p) is non-empty for all p.”
 Full theorem statements and numbering not verified in accessible source during this search.
+
+(R273 repair) Full abstract sentence (export.arxiv.org/abs/1706.06712, fetched 2026-10-18): "We show that for almost all k the Hasse Principle holds, namely that V_k(Z) is non-empty if V_k(Z_p) is non-empty for all primes p, and that there are infinitely many k's for which it fails."
