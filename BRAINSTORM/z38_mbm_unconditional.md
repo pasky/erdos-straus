@@ -4,9 +4,9 @@
 geometric M_BM(p) = Σ_{𝒫(p)} (1 − (−uB/p))/φ(4uB) (principal + Brauer character, z38_brauer_character), in which the
 arithmetic of p is a single Legendre symbol of the product uB.
 
-**Result.** Thm 2.2 (PROVED, unconditional): M_BM(p) ≥ (1/(32π²) − o(1))(log p)² by Pólya–Vinogradov, ≥ (25/(128π²) − o(1))
-(log p)² ≈ 0.0198 (log p)² by Burgess; M₀(p) ~ (3/(2π²))(log p)² ≈ 0.152 (log p)². Proof: positivity of every pair term,
-restriction to u odd ≤ p^δ, B = 2B′ ≤ p/(4u), Möbius for gcd(B′, u) = 1, and |Σ_{k≤t} χ(k)/k| ≤ βlog p + o(log p) uniformly
+**Result.** Thm 2.2 (PROVED, unconditional): M_BM(p) ≥ (1/(32π²) − o(1))(log p)² by Pólya–Vinogradov, ≥ (3/(16π²) − o(1))
+(log p)² ≈ 0.0190 (log p)² by Burgess; M₀(p) ~ (3/(2π²))(log p)² ≈ 0.152 (log p)². Proof: positivity of every pair term,
+restriction to u odd ≤ p^δ (δ = 1/4 PV, 1/2 Burgess), B = 2B′ ≤ p/(4u), Möbius for gcd(B′, u) = 1, and |Σ_{k≤t} χ(k)/k| ≤ βlog p + o(log p) uniformly
 in t (β = 1/2 PV, 1/4 + ε Burgess); optimise δ. Prop 2.3 (CONDITIONAL, GRH via Granville–Soundararajan): M_BM = M₀(1 + o(1)).
 This settles the board's F4 obligation (i) (the χ_p-projector term is o(log²p) under GRH) with a derivation.
 

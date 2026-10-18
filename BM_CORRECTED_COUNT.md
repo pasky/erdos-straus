@@ -37,8 +37,8 @@ square). For odd p, (−4uB/p) = (−uB/p). (Also, p | uB is impossible: 4uB −
 (2) −4uB = (u − B)² − (u + B)² ≡ (u − B)² (mod u + B) and gcd(u − B, u + B) = gcd(2u, u + B) = 1 (u + B odd, gcd(u,B) = 1),
 so for the odd positive integer u + B the Jacobi symbol (−4uB/(u + B)) = +1; χ_{−4uB}(−1) = sign(−4uB) = −1.
 (3) χ_{−4uB} is real, so χ̄ = χ, and χ(n)χ(a) = −χ(n) by (2). If n = p is prime then by (1), 1 − χ(p) = 1 + inv_∞·inv_p.
-For a hit, P_{u,B} is integral, inv_ℓ = 1 for ℓ ∤ p (BL Lemma 3.5 for ℓ ∤ 2p; Lemma 3.8 at 2), and Hilbert reciprocity
-gives inv_p = −inv_∞^{−1}... i.e. inv_p = −1 (BL Thm 1.2), which by (1) reads χ_{−4uB}(p) = −1 = χ_{−4uB}(a).
+For a hit, P_{u,B} is integral, inv_ℓ = 1 for all primes ℓ ≠ p (BL Lemma 3.5 for ℓ ∤ 2p; Lemma 3.8 at 2), so Hilbert
+reciprocity and inv_∞ = −1 give inv_p = −1 (BL Thm 1.2), which by (1) reads χ_{−4uB}(p) = −1 = χ_{−4uB}(a).
 (4) For gcd(m, 2uB) = 1, (−4uB/m²) = (−4uB/m)² = 1. ∎
 
 (Check: `scripts/z38_bm_dictionary.py 400` — exact rationals and Hilbert symbols at all places for all 9 440 pairs at the 77
@@ -82,15 +82,16 @@ F4's open obligation (i) is Prop 2.3 below (true under GRH); obligation (ii) (Ge
 not needed here, since the pair form is already an exact sharp-cutoff identity with no tube.
 
 **Theorem 2.2 (PROVED; unconditional).** For primes p → ∞, with L = log p,
-  M_BM(p) ≥ (1/(32π²) − o(1))·L²   (via Pólya–Vinogradov), and M_BM(p) ≥ (25/(128π²) − o(1))·L² ≈ 0.0198 L² (via Burgess).
+  M_BM(p) ≥ (1/(32π²) − o(1))·L²   (via Pólya–Vinogradov), and M_BM(p) ≥ (3/(16π²) − o(1))·L² ≈ 0.0190 L² (via Burgess).
 For comparison M₀(p) = (3/(2π²) + o(1)) L² ≈ 0.152 L² (Dirichlet-series computation below).
 *Proof.* χ := (·/p). All pair terms are ≥ 0 and φ(4uB) ≤ 4uB, so M_BM(p) is at least the sum of (1 − χ(−uB))/(4uB) over
 any subfamily. Take 𝒮 = {(u, 2B′) : u odd, u ≤ X = p^δ, B′ ≤ Y_u := p/(8u), gcd(B′, u) = 1} and its image under the swap
 (u, B) ↦ (B, u) (disjoint from 𝒮 by parity; χ(−uB) is swap-symmetric). Members of 𝒮 satisfy gcd = 1, u + B odd and
 4uB − u − B < 4uB ≤ p, so 𝒮 ⊂ 𝒫(p). Hence, with ε_u = χ(−2u) ∈ {±1},
   M_BM(p) ≥ 2 Σ_{u odd ≤ X} (1/(8u)) [ Σ_{B′ ≤ Y_u, (B′,u)=1} 1/B′ − ε_u Σ_{B′ ≤ Y_u, (B′,u)=1} χ(B′)/B′ ].
-By Möbius over d | u: the first sum is Σ_{d|u} μ(d)d^{−1}(log(Y_u/d) + γ + O(d/Y_u)) ≥ (φ(u)/u)·log Y_u − O(τ(u)/Y_u) (the
-extra term (φ(u)/u)Σ_{ℓ|u} log ℓ/(ℓ − 1) is ≥ 0). The second is Σ_{d|u} μ(d)χ(d)d^{−1}·G(Y_u/d), G(t) := Σ_{k≤t} χ(k)/k,
+By Möbius over d | u: the first sum is Σ_{d|u} μ(d)d^{−1}H(Y_u/d), H(t) = Σ_{k≤t} 1/k = log t + γ + O(1/t) for t ≥ 1. We take
+δ ≤ 1/2, so Y_u/d ≥ Y_u/u = p/(8u²) ≥ 1/8; for t ∈ [1/8, 1), |H(t) − log t − γ| ≤ log 8 + γ. Hence the first sum is
+(φ(u)/u)(log Y_u + γ) + (φ(u)/u)Σ_{ℓ|u} log ℓ/(ℓ − 1) + O(κ(u)) ≥ (φ(u)/u)·log Y_u − O(κ(u)) (the middle term is ≥ 0). The second is Σ_{d|u} μ(d)χ(d)d^{−1}·G(Y_u/d), G(t) := Σ_{k≤t} χ(k)/k,
 so it is at most κ(u)·g(p) in absolute value, κ(u) := ∏_{ℓ|u}(1 + 1/ℓ), g(p) := sup_t |G(t)|.
 PV: |Σ_{k≤s} χ(k)| ≤ √p log p for all s, so with T₀ = √p L², |G(t)| ≤ H(T₀) + 2√p log p/T₀ ≤ (1/2)L + 2 log L + 2 for every
 t (trivially for t ≤ T₀). Burgess: Σ_{k≤s} χ(k) ≪ s·p^{−η} for s ≥ p^{1/4+ε}, whence g(p) ≤ (1/4 + ε)L + O(1).
@@ -99,8 +100,9 @@ Write g(p) = βL + o(L) (β = 1/2 or 1/4 + ε). Then
 Standard Dirichlet-series asymptotics (residues of ζ_odd(1+s)·∏_{ℓ odd}(1 ∓ ℓ^{−2−s})): Σ_{u ≤ X odd} φ(u)/u² = (4/π²)log X
 + O(1), Σ_{u ≤ X odd} φ(u) log u/u² = (2/π²) log² X + O(log X), Σ_{u ≤ X odd} κ(u)/u = (6/π²) log X + O(1). With X = p^δ:
   M_BM(p) ≥ (L²/(4π²))·(4δ − 2δ² − 6βδ) − O(L log L).
-β = 1/2: max at δ = 1/4, value 1/8, giving 1/(32π²). β = 1/4: max at δ = 5/8 (Y_u ≥ p^{3/8}/8, fine), value 25/32, giving
-25/(128π²). For M₀: the bulk is (1/4)Σ_{m ≤ p/4, 2|m} 2^{ω(m)}/φ(m) and Σ_{2|m} 2^{ω(m)}m^{−s}/φ(m) has a double pole at s = 1 with
+(the O(κ(u)) errors sum to O(L)). β = 1/2: max at δ = 1/4, value 1/8, giving 1/(32π²). β = 1/4 + ε: on δ ≤ 1/2 the
+maximum is at δ = 1/2, value 3/4, giving 3/(16π²). (Allowing δ > 1/2 gains < 1 %: the H(t), t < 1/8, error then costs
+6(δ − 1/2)² in the same units.) For M₀: the bulk is (1/4)Σ_{m ≤ p/4, 2|m} 2^{ω(m)}/φ(m) and Σ_{2|m} 2^{ω(m)}m^{−s}/φ(m) has a double pole at s = 1 with
 leading coefficient 4·(1/4)·∏_{ℓ odd}(1 + ℓ^{−2}) = 12/π² (2-part 4·Σ_{k≥1}2^{−ks}·2^{k}/2^{k−1}·…, ζ_odd² ~ 1/(4(s−1)²),
 local factors (1 − 1/ℓ)² + 2/ℓ = 1 + 1/ℓ²), so the bulk is (1/4)(6/π²)L² + O(L); the boundary pairs (uB > p/4) contribute
 Σ_u O(1/u²) = O(1). ∎
@@ -115,7 +117,7 @@ convergent combination (total weight ≪ κ(u)) of sums G(t) over intervals, eac
 G-difference. So |T(p)| ≪ Σ_{u < √p} κ(u)/φ(u)·g(p) ≪ L·g(p) = o(L²). ∎
 (Unconditionally the same argument gives only |T(p)| ≤ C·L² with C not small; Theorem 2.2 uses positivity instead.)
 
-**Consequence (CONDITIONAL, exact).** For every function E(n) with E(p) ≤ (25/(128π²) − ε)(log p)² (unconditional) or
+**Consequence (CONDITIONAL, exact).** For every function E(n) with E(p) ≤ (3/(16π²) − ε)(log p)² (unconditional) or
 E(p) = o(log² p) (GRH): the hypothesis
   H_BM(E): |R*(n) − M_BM(n)| ≤ E(n) for all large odd n
 implies R(p) ≥ 1 for all large primes p ((★), hence ES). **H_BM is not refuted by T1**: at n = m² both R* and M_BM vanish
@@ -141,7 +143,7 @@ max |X_BM|/M_BM = 2.5; `scripts/z38_hx.py`.)
 
 **So the only meaningful form is one-sided.** For ε ∈ (0, 1):
   H⁻_BM(ε, p₀): R(p) ≥ ε·M_BM(p) for all primes p > p₀, i.e. X_BM(p) ≥ −(1 − ε)M_BM(p).
-With Theorem 2.2 this gives R(p) ≥ ε(0.0198 − o(1))(log p)² ≥ 1 for large p, unconditionally in the main term. The same
+With Theorem 2.2 this gives R(p) ≥ ε(0.0190 − o(1))(log p)² ≥ 1 for large p, unconditionally in the main term. The same
 with M_gen in place of M_BM would additionally need a polylog lower bound for M_gen (O260 spark 2; open beyond log log p).
 **H⁻_BM is ES-(★) in disguise up to the constant ε**: H⁻_BM(ε, p₀) ⟹ (★) for p > p₀ ⟹ (trivially) nothing quantitative;
 the content of H⁻_BM beyond R(p) ≥ 1 is only that the lower tail is relative to M_BM. It is not a weakening of (★); it is a
@@ -164,7 +166,7 @@ R* = M_BM = M_BM8 = 0.** Primes p ≡ 1 (4), M = M_BM:
 | [3·10⁵, 10⁶) | 26195 | 2 | 684 (2.6 %) | 0 (329617, 712321) | −3.31 | 1.41 | 766 |
 
 * Mean M_BM/L² = 0.149 at p > 5·10⁵ (Thm 2.2's M₀ constant 3/(2π²) = 0.152 ✓); min M_BM/L² over all primes ≤ 10⁶ is 0.062
-  (at p = 17), far above the proved 0.0198. **(L) is no longer the issue anywhere in range.**
+  (at p = 17), far above the proved 0.0190. **(L) is no longer the issue anywhere in range.**
 * (★) failures among all primes ≤ 10⁶: 17 (9 with p ≡ 1 (8): 409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321;
   8 with p ≡ 7 (8): 7, 31, 79, 127, 199, 2719, 8191, 861199 — p ≡ 3 (4) is ES-trivial; none ≡ 3, 5 (8)). At the failures
   M_BM ∈ [3.0, 28.3]: H⁻_BM(ε, p₀) needs p₀ ≥ 861 199 (and ≥ 8.9·10⁶ by the (★) census ≤ 10¹⁰, SINGLE_P_COUNT §3).
@@ -252,7 +254,7 @@ any such method must see the size of the main term (≈ 0.5 there), i.e. it must
   BL's quaternion class is a single Kronecker character χ_{−4ab} in the orthogonality expansion, whose value at the target
   is forced to −1; principal + Brauer character = Borovoi–Rudnick factor (1 + inv_∞ inv_p). O260's strong form ("genus =
   BM") is refuted; R277 D3's question is answered. (ii) The BM-corrected singular series M_BM is ≥ 0, mean-preserving,
-  vanishes at squares, and is ≫ (log p)² UNCONDITIONALLY (Thm 2.2; constant 25/(128π²) via Burgess), and ∼ M₀ under GRH
+  vanishes at squares, and is ≫ (log p)² UNCONDITIONALLY (Thm 2.2; constant 3/(16π²) via Burgess), and ∼ M₀ under GRH
   (Prop 2.3 = board F4 obligation (i)). (iii) Two-sided remainder hypotheses are false i.o. (Prop 3.1, Linnik).
 * **Exact conditional statement.** ES (indeed (★)) for p > p₀ ⟸ H⁻_BM(ε, p₀): R(p) ≥ ε M_BM(p). No other input is needed
   (main term unconditional). This improves CONDITIONAL_ES only in bookkeeping: the hypothesis is not refuted by T1, and
