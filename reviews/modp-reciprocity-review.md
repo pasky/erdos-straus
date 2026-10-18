@@ -79,3 +79,41 @@ Consequence: "the certificate carries a free, balanced quartic bit" and AGENT_RE
 as stated; the correct statement is "β(w) = ((2/m)/p)_4; it is forced (abelian) on the windows m = 2k², balanced on generic
 windows". Nothing positive in the file rests on it, so not FATAL; but Prop 1.2(b) should also record w ≡ m⁻¹ (mod p) (it
 makes the quartic parts of w and m mutually determined: (w/p)_4(m/p)_4 = 1).
+
+### §3 — 3.1 (citations), Lemma 3.2, Prop 3.3, EVIDENCE 3.4 (script `review_r275_windows.py`, log `logs/review_r275_windows.txt`)
+**3.1 "polynomial (a, b)-menus are already closed": SOUND for full ET families; one sentence overstates the scope (MAJOR D5).**
+Checked against the files: POINTWISE_BINARYFORM Thm 3.2 ((J)3) — polynomial Type I/II family for Q, M ⊇ 8, 2D, K_F: (a) never
+valid where Q(P) is an odd square, (b)/(c) valid points of a square class lie near finitely many directions; Lemma 3.3 +
+Cor 3.4 handle rational families up to density zero. SYNTHESIS_SPARKS7 Thm 1.1 / NORMFORM_CUBIC Thm 1.1′ ((J)78): polynomial
+Type II family valid at ONE point ⇒ A, B, C, D ∈ ℚ[P]. NORMFORM_CUBIC Cor 3.2 ((J)79): every polynomial ET family (I or II)
+valid at one point is an identity in n = N(x), for every irreducible binary form; u² + v² is ℚ-irreducible, so all three
+apply verbatim in the variables (a, b). Hence "every polynomial ET family in (a, b) is an identity in p or nowhere valid" is
+correct, and the brief's premise was indeed wrong for full families.
+Overstatement: the list "(levels d, windows m, side numbers p + 4b², p + 4ab, … chosen polynomially)" suggests that choosing
+only the LEVEL (or only a side number) polynomially is covered. It is not: these theorems need ALL ET coordinates
+polynomial (or rational). A menu "d = F(a, b), then any divisor w ≡ −1 (mod 4d) of p + 4d" has a non-polynomial witness and
+is a B2 divisor event — which is exactly why the author then tests such levels numerically in EVIDENCE 3.4. (On the b = 1
+line: m and d both polynomial ⇒ g = 4md − p polynomial and c = (m + 1)/g rational, so that case IS covered via Lemma 3.3.)
+Repair: "every family in which the full certificate (d, w) — equivalently (m, d) — is polynomial/rational in (a, b) is an
+identity in p or invalid (density zero for rational); a polynomial level or window with a free divisor is not covered and
+is the non-polynomial residue studied below".
+
+**Lemma 3.2: SOUND; hypotheses stronger than needed (MINOR D6).** Re-derived line by line (the reciprocity step
+(g/m′)(m′/g) = (−1/m′) uses g ≡ 3 (4); m′ = 1 is fine with (·/1) = 1). The proof uses only the JACOBI value (p/m′) = +1, not
+that p is a square mod m′, and for s ≥ 1 only p ≡ 1 (8) (an odd number is a square mod 2^{s+2}, s ≥ 1, iff it is ≡ 1 mod 8);
+for s even ≥ 2 no 2-adic condition is needed at all ((2/g)^s = 1 already contradicts). Strengthened form: *if (p/m′) = +1
+and (v₂(m) even or p ≡ 1 (8)), the window m is sterile.* From scratch: 199 208 pairs (p ≤ 2·10⁴, m ≤ 400) satisfying it,
+0 firings; on the complement (s odd, p ≡ 5 (8), (p/m′) = 1) 2 294/41 874 fire, so the 2-adic clause is needed. This is just
+the T1 obstruction read on one window; the label "local form of T1" is accurate. Gaussian supply re-derived (CRT is not
+needed for a single u — the two conditions enter the proof separately) and checked on all p ≡ 1 (4) < 10⁶: all odd m | ab
+(472 770 trials), all even m | ab with 2^{s+2} | b² (596 174), m = ab/2 (39 175): 0 firings.
+
+**Prop 3.3: SOUND as stated (whole class only).** ET Prop 1.6 is pointwise (odd squares have no Type I/II point at all;
+confirmed in BRAINSTORM/corr_joint_factorisation.md's check of the ET PDF, p. 6), so one square point in V(C) suffices.
+Construction re-derived: s ≡ 1 (4M) prime, X² ≡ −1 (s²), X ≡ X₀ (M); N = (X² + 1)/s² ≡ N₀ s⁻² ≡ N₀ (M). MINOR D7: the gloss
+"(the class n ≡ 1 (mod M))" needs gcd(N₀, M) = 1 (from X² + 1 = nN one gets N₀(n − 1) ≡ 0 (M) only); the proof does not use
+it. The scope caveat (sectors / least lifts not covered) is correctly stated; the result is weak but honestly labelled.
+
+**EVIDENCE 3.4: plausible; partially re-checked.** Re-checked the two sterile windows (m = a, m = ab/2: 0 firings, 10⁶); the
+neighbour-control z-values were not recomputed (author already flags them as indicative). The explanation of the enhanced
+windows m = b, |a − b| (square-class confinement of −p mod m′) is consistent with Prop 5.1(ii).
