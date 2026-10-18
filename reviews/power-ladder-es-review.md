@@ -158,7 +158,8 @@ No FATAL, no MAJOR. Every theorem was re-proved and every number reproduced from
   gcd(k, ℓ − 1) prime to 3, the cubes C₃ have index 3, so C₃·H_k = F_ℓ^× and every coset of H_k, in particular −18·H_k, contains a cube t³;
   take (Hecke) a prime π ≡ t (mod g), π ≡ 1 (mod 2), π ∤ 6; then −π³/18 ∈ H_k, the g-shot fires at n = π³ and SPARKS2
   Prop 3.1 gives a Type II-shaped TES_(k)(π³) solution, which T1₃ (Thm 3.3 form) would forbid. *Repair:* add this
-  as a Proposition (PROVED rel. Hecke) to §6, or weaken the report/memo wording to "T1₃ for 3 | k; no mute-place T1₃
+  as a Proposition (PROVED rel. Hecke) to §6 (numerical sanity at g = −8 + ω: residues t mod 73 with −t³/18 a k-th
+  power: 18, 72, 9 for k = 4, 5, 8 and 0 for k = 6, 9 — as predicted), or weaken the report/memo wording to "T1₃ for 3 | k; no mute-place T1₃
   for 3 ∤ k".
 * **D6 (MINOR, scope) — §6 "Reading" ("'no T1 ⟹ finite covering' is FALSE within fixed-modulus shot families").** Proved
   only for finitely many SPARKS2-Prop-3.1 g-shots. Families with modulus at the anchor (O/2O)^× = F₄^× (odd order 3, so
