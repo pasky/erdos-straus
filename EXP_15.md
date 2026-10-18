@@ -53,3 +53,61 @@ splitting with atoms 2, 3 and the algebraic factors of Z^e + w^e (resp. 2Z² ± 
   EXPONENT_COVERING Thm 1.4 / §5.1 (S-unit version) together with Lemmas 1.1–1.2 it exists iff the closure of
   {(a, b)} minus the neighbourhoods of (0, 1) and (3, 0) avoids the sterile set S′ — an exponential local–global question
   of (EH) type in two exponents; no 2D obstruction is known.
+
+## 2. F1 gate: the binomial menus at μ = 0 of 15·2^s + 1
+
+Notation as in EXP_OPEN §1–2: n = 15Y^D + 1, Y = 2^{s/D}, μ = 0 the profinite unit-square point (n → 16 at odd places,
+n → 1 at 2); a *family* is a choice of the ET parameters as ℚ-polynomials in Y, integer-valued and positive on a
+neighbourhood C = {s ≡ 0 (mod L), s ≥ s₀} of μ = 0. MENU_LADDER Lemma 2.1: R ∈ ℚ[Y] is integer-valued on a (smaller)
+such C iff R(1) ∈ ℤ[1/2] and R(0) ∈ ℤ_(2).
+
+### 2.1 Menu II-ad (a, d constant)
+
+Type II: (x, y, z) = (abd, acdn, bcdn), cn = 4abcd − a − b. With f := 4abd − n (the gap 4x − n) and f′ := 4acd − 1,
+(4abd − n)(4acd − 1) = 4ad(4abcd − b − cn) + n, so the identity is **f·f′ = B := n + 4a²d = 15Y^D + K, K = 1 + 4a²d**.
+
+**Lemma 2.1 (limit conditions for II-ad; PROVED).** A II-ad family through μ = 0 with f, f′ non-constant exists only if
+(C1) K = 15u^p for an integer u ≥ 3 and an odd prime p | D; then u ≡ 3 (mod 4);
+(C2) X := f(1), X′ := f′(1) are positive integers with XX′ = B(1) = 16 + 4a²d = 15(1 + u^p) and
+     X ≡ −16, X′ ≡ −1 (mod q), q := odd part of a·d (prime powers included);
+(C3) f(0), f′(0) ∈ ℤ_(2) with f(0) ≡ f′(0) ≡ −1 (mod 2^{2+v₂(a)+v₂(d)}).
+(If f is constant the family has constant gap and dies by EXP_OPEN Theorem W; if f′ is constant, c is constant and
+b = (cn + a)/f′ is an ET class polynomial in n, which cannot contain a neighbourhood of the unit-square point μ = 0
+(EXPONENT_COVERING Thm 1.4/Cor 1.5).)
+*Proof.* B = f·f′ with both factors non-constant, so B is reducible over ℚ. Capelli: 15(Y^D − c), c = −K/15 < 0, is
+reducible iff c ∈ ℚ^p for a prime p | D (p = 2 impossible, c < 0) or 4 | D and c ∈ −4ℚ⁴ (impossible: K is odd). So
+K/15 = u^p, u ∈ ℚ_{>0}; writing u = r/s in lowest terms, Ks^p = 15r^p forces s^p | 15, s = 1 (p ≥ 3). K ≡ 1 (mod 4)
+gives −u^p ≡ 1, u ≡ 3 (mod 4). (C2): positivity gives f, f′ > 0 for large Y, so both have positive leading
+coefficient; B has no root in [0, ∞), hence neither factor has, so X, X′ > 0. X ∈ ℤ[1/2] (Lemma 2.1 for b = (f + n)/4ad);
+f(0) ∈ ℤ_(2), and f = κP with P monic, whose roots are roots of B, i.e. 2-adic units (K, 15 odd), so
+v₂(P(1)/P(0)) = Σ v₂(1 − α) ≥ 0 and X ∈ ℤ_(2); so X ∈ ℤ, likewise X′. For an odd prime ℓ | ad, ℓ-adic continuity of
+b = (f + n)/(4ad) and c = (f′ + 1)/(4ad) at Y → 1 (along s → 0 in Ẑ; ℓ^v ℤ_ℓ is closed) gives
+ℓ^{v_ℓ(ad)} | X + 16 and | X′ + 1. (C3) is the same at the 2-adic limit Y → 0 (n → 1). ∎
+(C1)–(C3) are also sufficient for validity on a smaller neighbourhood (Lemma 2.1 of MENU_LADDER), given the factor shape.
+
+**Theorem 2.2 (the u ≡ 3 (mod 8) branch is sterile for every root degree and every factorisation; PROVED).**
+Every II-ad family through μ = 0 of 15·2^s + 1 has **u ≡ 7 (mod 8)**, equivalently a or d even.
+*Proof.* u^p ≡ u (mod 8) (u odd, p odd), so 4a²d = 15u^p − 1 ≡ −u − 1 (mod 8). If u ≡ 3 (mod 8) this is ≡ 4, so a and d
+are odd and q = ad. By (C2), X = m₁ad − 16 and X′ = m₂ad − 1 with integers m₁, m₂ ≥ 1, and expanding
+(m₁ad − 16)(m₂ad − 1) = 16 + 4a²d gives the boxed equation
+  **a(m₁m₂d − 4) = m₁ + 16m₂.**
+Lemma 2.2′ below: it has exactly 39 solutions, all with d ≤ 21, a ≤ 81, m₁ ≤ 36; for none is 4a²d + 1 = 15u^p (only
+(a, d) = (1, 11) has 15 | 4a²d + 1, quotient 3, not a p-th power). So (C1) fails. ∎
+This uses neither D nor the shape of the factorisation of Y^D + u^p — only the values X, X′ at Y = 1. So **argon's
+round-4 argument via P₀(Y^{2^r}) is not needed**, and it is in fact false:
+
+**Remark 2.3 (argon's P₀(Y^{2^r}) claim; REFUTED).** Claim: for D = e·2^r every factor of Y^D + u^e is P₀(Y^{2^r}) with
+P₀ | Z^e + u^e, so the pairs (P(0), P(1)) are those of degree e. Counterexample: Y⁶ + 27 = (Y² + 3)(Y² + 3Y + 3)(Y² − 3Y + 3)
+(sympy factor_list; by hand Y⁴ − 3Y² + 9 = (Y² + 3)² − (3Y)²). The pairs (P(0), P(1)) = (3, 7), (3, 1) are new.
+(This is astra's (a, d) = (1, 101), D = 6 example, u = 3 ≡ 3 (mod 8), so Theorem 2.2 kills it anyway.) The splitting
+happens because −3 is a square in ℚ(ζ₃); in general Y^{2^r e} + u^e can split further than Z^e + u^e.
+
+**Lemma 2.2′ (the boxed equation; PROVED, by hand + exhaustive check `scripts/z40_boxed.py`).** All solutions in positive
+integers of a(m₁m₂d − 4) = m₁ + 16m₂ satisfy d ≤ 21, a ≤ 81, m₁ ≤ 36; there are exactly 39.
+*Proof.* a ≥ 1 gives m₁m₂d ≤ m₁ + 16m₂ + 4, so d ≤ 1/m₂ + 16/m₁ + 4/(m₁m₂) ≤ 21, and (m₁ − 16)(m₂ − 1) ≤ 20. Hence
+m₂ = 1, or m₁ ≤ 16, or (m₂ ≥ 2 and m₁ ≤ 36). If m₂ = 1: m₁(ad − 1) = 16 + 4a, ad = 1 is impossible, and ad ≥ 2 gives
+m₁ ≤ 24, a ≤ 21 (d = 1: m₁ = 4 + 20/(a − 1)). Otherwise m₁ ≤ 36 and m₂(am₁d − 16) = m₁ + 4a: if m₁d ≥ 5,
+a ≤ (m₁ + 16)/(m₁d − 4) ≤ 52; if m₁d = 4, 4(a − 4)(m₂ − 1) = m₁ + 16 gives a ≤ 9; m₁d = 3: (3a − 16)(3m₂ − 4) = 3m₁ + 64
+gives a ≤ 29; m₁d = 2: (a − 8)(2m₂ − 4) = m₁ + 32 gives a ≤ 42; m₁d = 1: (a − 16)(m₂ − 4) = 65 gives a ≤ 81. The script
+enumerates a ≤ 500, d ≤ 100, m₁ ≤ 2000 (m₂ determined), asserts the bounds, finds 39 solutions (astra's count, reproduced
+independently) and checks (C1) on each. ∎
