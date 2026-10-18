@@ -133,3 +133,31 @@ q = a₁d₁, and XX′ = N := 15(1 + u^p) = 16 + 2^E a₁²d₁ with X ≡ −1
 * EVIDENCE (`scripts/z40_iiad7.py 15 23 20000`, (C1)+(C2) only, all branches, all D): p = 3, u ≤ 2·10⁴; p = 5, u ≤ 380;
   p = 7, u ≤ 70; p ≤ 23 correspondingly (7414 tuples (u, p, a, d)): **no solution of (C1)+(C2)**. Positive control:
   `z40_iiad7.py 63 13 60` finds exactly (u, p, a, d, X, X′) = (3, 3, 5, 17, 21, 84) = EXP_OPEN Theorem 2.3.
+
+### 2.5 Menus II-ac, I-ac, II-cd (status)
+Not closed in this session. The same limit analysis applies (values at Y = 1, Y = 0; EXP_OPEN §2 table); e.g. for II-ac
+with Capelli data a = c′(15u^p − v^p), c = c′v^p one gets 16c + a = 15c′(u^p + v^p) and the witness value X = f(1) must
+satisfy 2^e·x ≡ −1 (mod odd(c′²v^p(15u^p − v^p))) with x | 15(u^p + v^p), e = v₂(X) ≤ v₂(u + v) (u, v odd): again
+solvable only if 15u^p − v^p is abnormally 2-divisible, i.e. (v/u)^p is an exceptionally good 2-adic approximation of 15
+(Assessment, same Ridout-type obstacle as §2.4). EVIDENCE for small parameters: EXP_OPEN Map 2.4 / Computation 2.2
+(c′ ≤ 40, u, v ≤ 10, p ≤ 13): none. **W_binom remains CONDITIONAL** (board's label stands); the PROVED part is Theorem 2.2.
+
+## 3. F1 construction: one-constant moving-gap families (menu II-d: d constant, a = a(Y))
+
+The identity f·f′ = n + 4a²d of §2.1 holds verbatim with a ∈ ℚ[Y]; now c = (f′ + 1)/(4ad) ∈ ℚ[Y] forces a | f′ + 1, so
+**f′(y₀) = −1 at every root y₀ of a** (and then f(y₀) = −n(y₀) automatically). At Y = 1 the conditions (C2) hold with
+A := a(1) ∈ ℤ[1/2] in place of a, so for A, d odd the Y = 1 data are exactly the 39 boxed solutions (argon's "targets").
+
+**Lemma 3.1 (even D; PROVED).** If D is even and d > 0 is constant, a has no real root. *Proof.* n > 0 on ℝ, so
+B = n + 4a²d > 0 on ℝ. If a(y₀) = 0 (y₀ ∈ ℝ) then f′(y₀) = −1 < 0 while f′ has positive leading coefficient, so f′, hence
+B, has a real root > y₀. ∎ So for even D the menu needs deg a ≥ 2 (no real roots); a linear is impossible. (This explains
+the 0 algebraic configurations at D = 4, 6, 8 below.)
+
+**Computation 3.2 (EVIDENCE; negative).**
+* `scripts/z40_trinom.py c0 D 40 8 40` (a linear, a quadratic factor g of B with g = f′ or g = f, p, q ∈ ℚ of height
+  ≤ 40 with denominators | 8, d = sqfree(δ)·t², t ≤ 40; exact Lemma-2.1 test): (15, 1), D = 3…8: 52/0/10/0/9/0 algebraic
+  configurations, **0 valid families**; same for (3, 1) and (63, 1) (controls — no II-d family known there either).
+* `scripts/z40_seeded.py c0 D boxed` (seeded by the 39 boxed solutions (A, d, X, X′); quadratic g interpolating
+  (0, φ), (1, X′ or X), (y₀, −1 or −n(y₀)); g | B solved exactly by resultants): (15, 1), D = 3: 2 rational solutions
+  (a = (Y + 1)/2, d = 3 and a = 3(Y + 1)/2, d = 5), both fail 2-adic integrality (a(0) = 1/2, 3/2). Larger D: see log
+  `data/z40/seeded.log`.
