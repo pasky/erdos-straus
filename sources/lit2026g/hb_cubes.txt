@@ -1,2 +1,12 @@
-https://ora.ox.ac.uk/objects/uuid:231055aa-e770-4155-b496-df50519b0e1c/files/mb95313d0adb75b5de3e0667d218aecf3
-Abstract: “The weak approximation principle fails for the forms x³+y³+z³=kw³, when k=2 or 3. The question therefore arises as to what asymptotic density one should expect for the number of solutions ...” (Exact conjectural asymptotic not verified in viewed excerpt.)
+Source: Booker-Sutherland, 'On a question of Mordell', arXiv:2007.01209v3 (PNAS 2021), pp.1 and 5 (pdftotext), read by O261 agent 2026-10-18 (statement of Heath-Brown's 1992 conjecture).
+Let k be an integer with k 6≡ ±4 (mod 9). Heath-Brown [HB92] has conjectured that there are infinitely
+many triples (x, y, z) ∈ Z3 such that
+(1.1)
+
+x3 + y 3 + z 3 = k.
+Heath-Brown conjectures that the number n(B) of solutions to (1.1), up to permutation, satisfying
+max{|x|, |y|, |z|} ≤ B is asymptotic to
+Y
+e(B) := ρsol log B as B → ∞,
+where ρsol := 61 σ∞
+σp .
