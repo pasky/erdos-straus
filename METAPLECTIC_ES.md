@@ -56,3 +56,23 @@ t ≤ 30, n ≤ 1500: 0 failures.
 * So the level-t ES generating function is **half a weight-1 holomorphic Eisenstein series (a Kronecker theta
   quotient at a torsion point) plus half the coefficient sequence of a weight-0 Maass Eisenstein series**, minus the
   elementary boundary (1+X)/(1−X) (words with u = 1 or v = 1). No cusp form appears at any level.
+
+**Corollary K1 (where the main term and T1 live; PROVED for the exact statements, EVIDENCE for sizes).**
+Write R(n) = 𝔈(n) + 𝔒(n) − 𝔅(n) with 𝔈 = ½Σ_t E_t(tn+1) (weight-0 Maass part), 𝔒 = ½Σ_t O_t(tn+1) (weight-1
+holomorphic part = Kronecker theta quotients at torsion points), 𝔅 = Σ_t β_t(n) = 2τ(n+1) − O(1) (words with u or v = 1).
+1. *(T1 is an exact weight-0/weight-1 cancellation; PROVED.)* For odd m and every level t ≡ 0 (mod 4):
+   R_t(m²) = 0 (all words with 4 | t lie in the (A)3 slice and have (A/n) = −1, DEDEKIND Thm 4.5 / QUESTION_R
+   Prop 1.4; (A/m²) = +1), hence `E_t(tm² + 1) + O_t(tm² + 1) = 2β_t(m²)`: at every level 4 | t the coefficient of
+   the Kronecker theta quotient equals **minus** the Maass-Eisenstein coefficient on the norm-form values 1 + tm².
+   (Equivalently: tm² + 1 has no divisor ≡ −1 (mod t) beyond the boundary — the classical ET Type I obstruction.)
+2. *(Sizes; EVIDENCE, `scripts/z39_split.py`, `/tmp` logs summarised here.)* At 12 primes just above 10⁵: 𝔈 ≈ 113
+   (range 96–130), 𝔒 ≈ +7 (range −22…+37, sd ≈ 18), 𝔅 ≈ 54, R ≈ 67. At the odd squares 317², 319², 321², 323²:
+   𝔈 ≈ 121, 𝔒 = −23, −46, −82, −77, and the split by t mod 4 shows 𝔒_{4|t} = −𝔈_{4|t} exactly (item 1) and most of
+   the rest of the deficit at t ≡ 3 (4) (R_t small but non-zero there — consistent with R278's correction that
+   QUESTION_R Cor 1.3's t ≡ 3 half is false).
+   **Reading (Assessment).** The power-free "main term" log²n of the ES count is carried entirely by the weight-0
+   non-holomorphic part 𝔈 (one log from the s-derivative of E(z, s) at s = ½, i.e. τ(N), one from Σ_t 1/φ(t) over
+   levels); the holomorphic part 𝔒 averages to ≈ 0 at primes and is **where T1 lives**: at squares it cancels the
+   main term level by level on 4 | t. So "Eisenstein main term + bounded cusp error" (Sturm/Duke) is the wrong
+   template: at each level there is no cusp form; the competition is weight-0 Eisenstein vs weight-1 Eisenstein,
+   both evaluated at the single integer tn + 1 — the divisor-in-class event (B2) in automorphic clothing.
