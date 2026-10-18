@@ -252,7 +252,7 @@ For the b = 1 line the bare M_BM diverges (the pairs y = 1 have target ≡ −1 
 keeps the mod-4 character as well: M4 := principal + χ_{−4} + χ_{−4xy} + χ_{−4}χ_{−4xy} (still mean-preserving and zero at
 squares). EVIDENCE (`z38_b1.c`, `z38_b1_stats.py`):
 
-| sample | line | mean count | mean M4 | var/(2M4) | min count/M4 | min (count − M4)/√(2M4) |
+| sample | line | mean count | mean M4 | mean (count − M4)²/(2M4) (uncentred) | min count/M4 | min (count − M4)/√(2M4) |
 |---|---|---|---|---|---|---|
 | p ≡ 1 (24), [10⁵, 4·10⁵], 2 991 primes | (★) | 21.2 | 20.2 | 1.53 | 0 (102001) | −3.34 (329617) |
 | | b = 1 | 17.3 | 18.3 | 0.85 | 0.062 (241921) | −2.74 |
@@ -261,7 +261,7 @@ squares). EVIDENCE (`z38_b1.c`, `z38_b1_stats.py`):
 | | b = 1 | 16.7 | 14.5 | 1.03 | 0 (66529) | −2.46 |
 | | union (sum) | 36.8 | 32.1 | 1.84 | 0.155 (83449) | −3.03 |
 
-* The b = 1 line is close to swap-Poisson (var/2M ≈ 0.85–1.0), (★) is overdispersed (1.5–1.6).
+* The b = 1 line is close to swap-Poisson (mean squared residual/2M ≈ 0.85–1.0), (★) is overdispersed (1.5–1.6).
 * The residuals R − M4★ and N₁ − M4b1 are **positively** correlated overall (see table): no global anti-correlation
   protects the union (complementarity specifically at the rare zeros is not excluded by this statistic). The union's robustness (no failure ≤ 10⁸, B1_LINE) is explained by the doubled main term
   (P(0) ≈ e^{−M/2} with M doubled), not by a forced complementarity. The shared Brauer character makes the two main terms
