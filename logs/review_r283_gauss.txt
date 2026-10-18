@@ -1,0 +1,5 @@
+l=3: fine keys 64 clashes 0; coarse keys (a,b mod l) 8 clashes 4
+l=5: fine keys 128 clashes 0; coarse keys (a,b mod l) 16 clashes 0
+l=7: fine keys 384 clashes 0; coarse keys (a,b mod l) 48 clashes 24
+l=11: fine keys 960 clashes 0; coarse keys (a,b mod l) 120 clashes 60
+l=13: fine keys 1152 clashes 0; coarse keys (a,b mod l) 144 clashes 0

@@ -634,3 +634,12 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | s9_fibration_level | fibration over the level t | fibre = G_m-torsor with integral point (0, −n); ES = positivity + ray class c_∞ mod t∞; fibre obstruction groups unbounded vs Br = ℤ/2 | PROVED dictionary + Assessment |
 | s9_disproof_class_layer | Ghosh–Sarnak-type structured failures | obstruction by the BL character χ_{−t} at all levels ⟹ square; other genus characters can still obstruct (n = 17, t = 12; R282 repair) | PROVED (elementary) |
 | s9_thin_orbit_bm | growth methods at the BM level | BM layer already free; class layer fails the density hypothesis | Assessment |
+
+### z41 — O272 the 2-power ladder above the BM layer (deep file TWO_POWER_LADDER.md)
+| memo | idea | outcome | label |
+|---|---|---|---|
+| z41_ceiling_chebotarev_schinzel | do order-4, 8, 3 characters at a forced prime become functions of n? | no: along any progression of levels ψ(ℓ) is equidistributed beyond its quadratic part (K(ℓ^{1/d})/ℚ abelian ⟹ d \| 2; ℓ ∤ m); level form of (J)93 | PROVED (scope: fixed n, ℓ) |
+| z41_stickelberger_dictionary | which linear form of ℓ's Frobenius vector does forcing see? | forcing = Stickelberger component ∏x_a^{a⁻¹}, ES = norm ∏x_a; agree mod μ_m^{gcd(2,m)} only (m = 3, 4) — BM layer and T1 are the m = 2 coincidence (Assessment) | PROVED (m = 3, 4) |
+| z41_choosable_ladder | choose the level prime by non-abelian Frobenius | whole 2-part of ℓ's class choosable (rel. density 2/m per step among q ≡ 1 (m); forced at q ≡ 3 (4)) but a prime < t − 1 never hits −1; fixed divisor ⟹ level determined (lottery) | PROVED |
+| z41_two_group_levels | do the 2-group levels 2^k·F suffice? | no: 1 298 primes ≤ 10⁶ fail all T2 levels (1 180 have (★) words elsewhere); n = Dm² dead at levels 4D \| t | EVIDENCE + PROVED lemma |
+| z41_cubic_hecke_shadow | spark 3: bias the cubic layer by a family of n | no family biases it through the forcing congruence; cubes bias an ES-invisible anti-cyclotomic Hecke character (conductor \| 3q; S = 1 at t = 8q for cubes) | PROVED (narrow scope) |

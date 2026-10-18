@@ -1,0 +1,4 @@
+3 n=D m^2, m<200 odd: words at levels 4D|t: 0
+5 n=D m^2, m<200 odd: words at levels 4D|t: 0
+15 n=D m^2, m<200 odd: words at levels 4D|t: 0
+17 n=D m^2, m<200 odd: words at levels 4D|t: 0

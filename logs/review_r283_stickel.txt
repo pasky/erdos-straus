@@ -1,0 +1,8 @@
+m=3: pairs(l<80, q<3000, both 𝔮|q) = 4120; S-identity failures = 0; S!=D cases = 2754; identity failures with non-primary lambda = 2706
+  sharpness: cells (l, q mod l) with >= 36 samples: 2; all 3 S-compatible vectors seen in 2
+m=4: pairs(l<80, q<3000, both 𝔮|q) = 3780; S-identity failures = 0; S!=D cases = 1918; identity failures with non-primary lambda = 1968
+  sharpness: cells (l, q mod l) with >= 64 samples: 0; all 4 S-compatible vectors seen in 0
+m=3: pairs(l<20, q<60000, both 𝔮|q) = 18078; S-identity failures = 0; S!=D cases = 12070; identity failures with non-primary lambda = 12074
+  sharpness: cells (l, q mod l) with >= 36 samples: 36; all 3 S-compatible vectors seen in 36
+m=4: pairs(l<20, q<60000, both 𝔮|q) = 18102; S-identity failures = 0; S!=D cases = 9091; identity failures with non-primary lambda = 9158
+  sharpness: cells (l, q mod l) with >= 64 samples: 32; all 4 S-compatible vectors seen in 32
