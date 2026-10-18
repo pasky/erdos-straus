@@ -48,7 +48,7 @@ Apollonian), or almost-prime values (affine sieve). An ES route would need:
   per-target mass is ≍ log³ p (scale constraint, CONDITIONAL_ES Prop 2.3: main term ≤ p^{o(1)}). A thin
   sub-orbit Λ ⊂ SO(Q_d)(ℤ) of critical exponent δ < full only *removes* points: the per-target mass becomes
   ≪ p^{−(1−δ')} L³ → 0. So thinning is anti-productive, and the arithmetic orbit is already the ET lottery.
-* **B6 / T7.** Every thin-orbit local-global theorem known is density one (an exceptional set O(N^{1−η})).
+* **B6 / T7.** Every thin-orbit local-global theorem known is density one (an exceptional set O(N^{1−η})). *(Correction 2026-10-18, O261/R273: outdated if two 2026 preprints stand — Shkredov arXiv:2603.14116 Cor 1 (every squarefree q) and X. Zhang arXiv:2605.02518 Thm 1.2 (every q) claim Zaremba's conjecture POINTWISE via growth in SL₂(ℤ/q) on Cantor-type sets with a power-size count q^{2w_M−1}; unrefereed; see B2_ACROSS_FIELDS.md §4.1 and (J)94.)*
   ES's analogue is Vaughan/ET-type. H-F cautions that in the comparable Markoff and Apollonian families,
   "almost all" is the truth, not "all".
 * **Affine sieve direction.** BGS/SGS give *some* orbit points with almost-prime F-values: lower bounds on the

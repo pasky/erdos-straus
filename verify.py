@@ -26811,4 +26811,31 @@ def check_hg():
 check_hg()
 
 
+def check_hh():
+    # (hh) B2_ACROSS_FIELDS (O261/R273): R273 from scratch — the b = 1 line E2 (Lemma 7.1 dictionary) fails among p ≡ 1 (4) ≤ 2·10^5
+    # exactly at 193, 2521, 66529 (with explicit ES solutions at 193, 2521); Lemma 4.1 (shot family ⟺ ideal divisors of
+    # 1 + 2k√−p with norm ≡ −1 mod 4k): 522 shots verified, and 13, 37, 97 have no shot.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "review_r273_dictionaries.py"], capture_output=True, text=True, timeout=900,
+                       cwd=sdir, env=env)
+    assert r.returncode == 0, r.stderr[-2000:]
+    out = r.stdout
+    assert "E2 fails among p=1 mod 4, p<=200000: [193, 2521, 66529]" in out, out[:1000]
+    assert "ES(193) = (50, 1380, 1331700)" in out, out[:1000]
+    assert "Lemma 4.1: 522 shots (p<1200, k<=6) each -> verified ES triple; ideal-divisor norms = shot moduli; mismatches=0" in out
+    for p in (13, 37, 97):
+        assert f"p={p}: shots with k<=" in out and out.split(f"p={p}: shots with k<=")[1].split("\n")[0].endswith("[] (0)"), out
+    print(f"== (hh) B2_ACROSS_FIELDS R273: E2 dictionary fails only at 193, 2521, 66529 (≤ 2·10^5); shot-family ideal-divisor "
+          f"dictionary (522 shots); seconds = {perf_counter() - t0:.1f}")
+
+
+check_hh()
+
+
 print("\nall checks passed")

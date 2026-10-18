@@ -1610,6 +1610,21 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment: route (b) at bounded levels gives nothing beyond B1/B2. Relay O265 pursues the non-abelian part: power residues mod π | p and canonical a, b with p = a² + b².
    * verify.py (hg) re-runs R272's checks.
 
+94. **Wide net across 13 fields: B2 is not equivalent to any solved problem; pointwise existence theorems use one of five inputs, which B2 lacks; Zaremba now claimed pointwise (B2_ACROSS_FIELDS.md + BRAINSTORM/z31_*.md + sources/lit2026g/ (O261); self-review (9 MAJOR repaired) plus hostile review `reviews/b2-across-fields-review.md` (R273): no FATAL. MAJOR 11: the M1 row was split into M1a (final count) and M1b (auxiliary set plus pigeonhole), and M5 count-congruence was added. Minors, incl. Zhang building on Shkredov rather than being independent. Repaired by the reviewer, marked (R273 repair).)**
+   * Literature fact (R273 verified the statements and versions from the arXiv texts; the proofs are unrefereed and were not checked here): Zaremba's conjecture is claimed POINTWISE. Shkredov arXiv:2603.14116 Cor 1 covers every squarefree q; X. Zhang arXiv:2605.02518 Thm 1.2 covers every q. The mechanism is growth in SL₂(ℤ/q) on Cantor-type sets with expected count q^{2w_M−1}, a power. This corrects BRAINSTORM/thin_group_orbits.md ("every thin-orbit theorem is density one").
+   * Framing: ES is an instance of the integral Hasse principle with positivity on a log K3 family (Bright–Loughran). Its closest open sister is x³ + y³ + z³ = k.
+   * PROVED dictionaries (R273 rechecked): the b = 1 line is a cyclic, non-increasing divisibility system that is ℓ-adically solvable at 193, 2521 and 66529 yet fails there (Lemma 7.1). The shot family ⟺ ideal divisors of 1 + 2k√−p with norm ≡ −1 (mod 4k) (Lemma 4.1).
+   * Assessment (pattern; repaired). Every pointwise existence theorem surveyed uses one of five inputs:
+     * M1a, a power-size final count;
+     * M1b, a power-size auxiliary set plus pigeonhole;
+     * M2, a fixed-modulus group event;
+     * M3, homogeneity / a group action;
+     * M4, free choice of the objects;
+     * M5, a count congruence.
+     B2 lacks each, for a stated reason: polylog count, tied modulus, finite automorphisms, forced objects, T1. In continued-fraction coordinates ES-five keeps M2, but its certificate count is only ≍ log²p (R273 recounted to 10¹⁰: mean ≈ 0.7·log²p).
+   * Spark relayed to O266 (zaremba-transfer).
+   * verify.py (hh) re-runs R273's dictionary checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
