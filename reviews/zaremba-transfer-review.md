@@ -9,7 +9,18 @@ Zhang arXiv:2605.02518v2 (excerpt in repo). From-scratch scripts: `scripts/revie
 
 | # | Claim | Verdict |
 |---|---|---|
-| 2 | Method extraction, threshold 1 − w ≤ κ/8, constants | SOUND-AFTER-REPAIRS (MAJOR: M = 22000 is a misreading of M = 2^2000) |
+| 1 | Rickards–Stange dictionary (§5), Question R | SOUND-AFTER-REPAIRS: sources exact; rows 1, 3, 4 are analogies (D3); row 2 made exact here (RS Def 2.4 holds for the ES slice numerator sets, PROVED) |
+| 2 | Method extraction, threshold 1 − w ≤ κ/8, constants | SOUND-AFTER-REPAIRS (D1 MAJOR: M = 22000 is a misreading of M = 2^{2000}; D4) |
+| 3a | Theorem A + Chang/Larcher attribution | SOUND-AFTER-REPAIRS (D2: “=” → “≤”); bound re-checked at all 78 495 primes ≤ 10⁶ |
+| 3b | Lemma C / Lemma D | SOUND / SOUND (wording D6) |
+| 3c | ZQ evidence, Theorem B, Zaremba(M) ⟹ ZQ_{4Mn_p} | evidence SOUND except the “costs nothing” claim (D5); Thm B SOUND-AFTER-REPAIRS (D2); reduction SOUND |
+| 3d | numerator-free recount (12 exceptions ≤ 2·10⁶, max 510) | SOUND (memo wording D8) |
+| — | §2.2 ladder table | GAP: computed with a false HJ-length formula (D2), must be rerun |
+| — | Labels | SOUND (every preprint use CONDITIONAL/Assessment; no ES overclaim) |
+
+No FATAL defects. MAJOR: D1, D2 (D2 is inherited from DEDEKIND_ES §2 and must also be repaired there).
+Repairs to the author's files: **not applied** (author's last commit 16 min before this review finished; parent to
+forward).
 
 ## Defects
 
