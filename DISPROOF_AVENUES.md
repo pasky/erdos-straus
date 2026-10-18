@@ -84,14 +84,14 @@ Each slice θ is decided by one integer N_θ(p) and a residue class (redteam-aut
 I {c,d}: (4cda − p)(4cdb − p) = p² + 4c²d; I {a,c}: b(4acd − p) = ap + c; I {a,b}: c(4abd − 1) = p(a + b).)
 
 **Proposition 3.1 (the n = 1 shadow kills any finite slice set; PROVED; existence of such p CONDITIONAL).** Let Θ be a
-finite set of slices from the table. Let Q be a positive integer divisible by every class modulus q_θ (4ac, 4cd, …, e)
-and by N_θ(1) for every θ with non-constant N_θ. Let p be a prime with p ≡ 1 (mod Q) and such that, for every such θ,
+finite set of slices from the table. Let Q be a positive integer divisible by q_θ·N_θ(1) for every θ ∈ Θ (q_θ the class modulus 4ac, 4cd, …, e;
+N_θ(1) := 1 for the congruence rows). Let p be a prime with p ≡ 1 (mod Q) and such that, for every such θ,
 P_θ := N_θ(p)/N_θ(1) is prime. Then **no slice θ ∈ Θ contains a solution**.
 (Existence: the forms t ↦ 1 + Qt and t ↦ P_θ(1 + Qt) all take the value 1 at t = 0; adding to Q every prime
 ≤ |Θ| + 1 makes the tuple admissible. So Dickson's conjecture gives infinitely many such p when Θ has no Type I
 {c,d} slice; Schinzel's H when it does.)
 *Proof.* N_θ(p) − N_θ(1) is a multiple of p − 1 (it is α(p − 1) or p² − 1), so N_θ(1) | N_θ(p) and
-P_θ = 1 + (N_θ(p) − N_θ(1))/N_θ(1) ≡ 1 (mod q_θ), because q_θ N_θ(1) | Q | p − 1 (enlarge Q to Q·N_θ(1) if necessary).
+P_θ = 1 + (N_θ(p) − N_θ(1))/N_θ(1) ≡ 1 (mod q_θ), because q_θ N_θ(1) | Q | p − 1.
 P_θ > N_θ(1), so the divisors of N_θ(p) are δ and δP_θ with δ | N_θ(1), and **every divisor is ≡ its shadow δ
 (mod q_θ)**. Also p ≡ 1 (mod q_θ), so every class condition is the one at p = 1. It remains to see that at p = 1 no
 δ | N_θ(1) satisfies the class condition. All cases are elementary size checks:
@@ -109,3 +109,75 @@ Prop 3.1 says that a prime which is 1-adically close to 1 (p ≡ 1 mod Q) and wh
 "1 times a prime" is, for those slices, indistinguishable from n = 1. It unifies (J)83 Thm 1.3 (windows ≤ M = Type
 II e-slices), (J)90 Thm 4.2 (b = 1 shifts ≤ σ), redteam-automorphic-2 Lemma 1.2.1 (one {c,d} slice), and B1_LINE's
 "T1 point 1" (Prop 4.1). Novelty is only in the uniform, row-by-row form (Assessment): the mechanism is B1_LINE §4's.
+
+*Check (EVIDENCE; `scripts/z32_shadow_check.py`, slices are counted by literal reconstruction of (a,b,c,d) from the
+divisors of N_θ(p) and the ET equation).* Θ = {II{1,1}, II{1,2}, II{2,1} as {a,c}; II{c,d} = (1,1); I{a,c} = (1,1);
+II/I e-slices e = 3, 7}, Q = 9240: the first three p ≡ 1 (Q) near 2·10¹² with all nine cofactors prime
+(2031182390161, 2175781275361, 2779088891041) have **0 solutions in every slice**, while random p ≡ 1 (24) controls
+have 0–60 per slice.
+
+### 3.2 The budget of a conspiracy (Assessment, with the PROVED part marked)
+
+* **What the construction needs.** Q ≤ p, and k = |Θ_nonconst| simultaneous prime values. Under Bateman–Horn the
+  number of such p ≤ X is ≈ 𝔖 X /(Q L^{k+1}), L = log X, with 𝔖 ≤ (e^γ log y)^{k+1} when Q is y-smooth. So the
+  construction exists at size X only if k log(L / (e^γ log y)) ≲ L − log Q: **k ≲ L / log L** prime-forced slices,
+  plus all congruence rows with modulus | Q (q ≲ log X / 2).
+* **What a slice carries.** The expected count in an e-slice is ≍ L²/e-ish (log-uniform in e; the share of all
+  slices e ≤ 31 in f_II is 0.22 at 10⁸ and 0.10 at 10¹⁶, O154 §4.1), and a pair slice carries ≍ L/q_θ. So the best
+  k slices are the first k e-slices, which carry a share ≈ log k / L of f. With k ≲ L/log L this is ≈ (log L)/L
+  (≈ 0.09 at 10¹⁸, 0.07 at 10²⁵).
+* **The congruence part saturates.** p ≡ 1 (mod M_y) multiplies the mean of f_II by ≈ 0.73 relative to p ≡ 1 (24),
+  *independently of y* from y = 13 to 37 and from 10⁸ to 10¹⁶ (O154 §4.1, EVIDENCE): a convergent Euler product of
+  local factors, not a growing kill.
+* **Conclusion (Assessment).** Every known conspiracy (Prop 3.1, Thm C, X5 fibres, square-mimicking to Burgess
+  range) removes either a bounded factor (≈ 0.7) or a vanishing share O(log L/L) of the mean. **What remains
+  untouchable is ≍ L³ = (log p)³ solutions, not ≍ √p** (the √p-sized families such as the full b = 1 line or the
+  full set of e-slices cannot be prime-forced: their moduli would exceed p, (J)90 Thm 4.2 Reading). The
+  conspiracy prime is therefore a lottery prime with a ~30–40 % lower mean, and §4 prices that lottery.
+
+## 4. The probabilistic model, calibrated on a ladder of sibling lotteries that DO fail (EVIDENCE + Assessment)
+
+**Setup (`scripts/z32_ladder.c`, validated: = bs_prob_fII for m = 4 on all primes ≤ 10⁶; = brute force over all
+x ≤ y ≤ z for m = 4, 5, 7, 8 and primes < 400, `z32_brute_check.py`).** For m = 4…24 let f_m(p) be the Type II count
+of m/p = 1/x + 1/y + 1/z (m·abcd = a + b + cp). For m = 4 it is f_II, and f_II(p) = 0 is *necessary* for an ES
+failure, so every prediction below is conservative for ES. All primes ≤ 10⁸, 21 lotteries, 1.2·10⁸ prime counts.
+
+**4.1 The ladder fails, and the failures thin out (`logs/z32_crossover.txt`).** Type-II-only exceptions
+(3 < p ≤ 10⁸, p ∤ m): m = 4, 5: none. m = 6: 13 (last 2521). m = 8: 21 (last 35 569). m = 10: 82 (last 145 441).
+m = 12: 169 (last 1 998 793). m = 16: 446 (last 12 895 921). m = 20: 1162 (last 94 965 203, censored). m = 24: 3739
+(still failing at 10⁸).
+
+**4.2 A universal zero law (`z32_universal.py`, `z32_zero_law.py`).** Group primes by (m, cell p mod lcm(840, 4m),
+dyadic bin) and let μ be the cell mean. The zero rate is a function of μ alone, across all m:
+μ ≈ 3 → 0.21, 5 → 0.097, 9 → 0.018, 13.5 → 3.1·10⁻³, 22.5 → 1.1·10⁻⁴, 35 → 2.3·10⁻⁶, 45 → 1.6·10⁻⁷, ≥ 50 → 0 (of
+1.0·10⁸ prime-units). Binomial ML fit: **P(f = 0) ≈ exp(−0.535 μ^{0.91})** (β = 0.91–0.93 in every training window).
+*Out-of-sample:* trained on p < 2²⁰ only, it predicts the zeros in (2²⁰, 10⁸] for each m within a factor ≈ 1.5
+where counts are large (m = 16: 15 vs 19; 19: 22 vs 22; 22: 423 vs 408; 24: 1008 vs 1204), and within a factor ≤ 7
+for counts ≤ 5 (m = 12: 0.4 vs 3). It is mildly optimistic, never off by more than one order of magnitude.
+*Negative-binomial models are falsified:* NB with moment-fitted dispersion (as in B1_LINE §3) predicts 50 zeros for
+m = 6 in [2²⁴, 2²⁶) and 3.2 for m = 8; there are 0. The cell dispersion D grows with p (m = 4: 10 → 51 from 2¹⁶ to
+2²⁷) because of the *upper* tail; the lower tail is stretched-exponential, not polynomial.
+
+**4.3 A one-constant crossover law (`z32_minratio.py`, `z32_crossover.py`).** Let q_m be the 10⁻³-quantile of f/L³
+over the primes in [2²⁶, 10⁸]. Then c₀(m) := q_m·(log p_last)³ is **constant across the ladder**: 7.0–15.7 for all
+m = 6…23 (geometric mean 11.6), while p_last ranges over 2.5·10³ … 9.5·10⁷. So "failures stop where the 10⁻³-hardest
+primes still have ≈ 12 solutions" predicts p_last within a factor ≈ 2–4 for every m. For m = 4: q₄ = 0.028, so
+the predicted last Type-II failure is ≈ 1.7·10³; **observed: none at all for p ≥ 5** (the law is pessimistic here).
+*Floor test (the extreme-value signature).* For m = 4 the minimum of f_II/L³ over each dyadic bin stays in
+[0.0117, 0.021] from 2¹⁴ to 2²⁷ while the sample grows 8000-fold, and the 10⁻³- and 10⁻⁴-quantiles *rise*
+(0.0213 → 0.0279; 0.0187 → 0.0235) while the median falls (0.070 → 0.055): the lower tail of f/L³ is
+concentrating, not spreading. The same holds for m = 6, 8, 12, 16 (minima rising: m = 6: 0.0014 → 0.0083).
+
+**4.4 Extrapolation to ES (Assessment; `z32_extrapolate.py`).** Hardest m = 4 cell (mod 840): μ/L³ = 0.036–0.038,
+flat over 2¹⁸–2²⁷ (O154: class of one 0.034 at 10¹⁶). With the zero law:
+* expected number of primes with f_II = 0 in [10⁸, 10¹⁸): ≈ 10⁻³¹ (μ ∝ L³), 10⁻³⁰ (μ ∝ L², pessimistic);
+  with a 30 % lower a: 10⁻²⁰. Beyond 10¹⁸: < 10⁻⁸⁸ in every variant.
+* *Worst case anywhere:* even if every prime had the smallest f_II/L³ ever seen ≤ 10⁸ (0.0117), μ_eff ≈ 830 at 10¹⁸
+  and P(f_II = 0) ≈ e^{−240}.
+* **What would have to be wrong.** The expected count beyond 10¹⁸ reaches 1 only if the zero-law exponent drops
+  from the measured β ≈ 0.91 to β* ≈ 0.53–0.59, or, in the crossover form, if the 10⁻³-quantile of f/L³ fell from
+  0.028 (rising) to ≈ 1.6·10⁻⁴ by 10¹⁸ — i.e. ES would have to behave like the ≈ 63/p Type-II lottery
+  (q_m ∝ m^{−1.9} on the ladder). Nothing on the ladder or in O154's 10¹⁶ adversaries points that way.
+* Caveat: pooling by cell mean hides within-cell heterogeneity (local factors at primes > 7): −log P(f ≤ 0.3 μ_cell)
+  stops growing beyond μ ≈ 70 (`logs/z32_lowdev.txt`; pooled over m and p, so confounded). That is why §4.4's worst
+  case uses the global minimum ratio, not the cell mean.
