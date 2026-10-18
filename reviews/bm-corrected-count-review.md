@@ -1,5 +1,8 @@
 # R279 — hostile review of O268 (BM_CORRECTED_COUNT.md, branch side-agent/bm-corrected-count)
 
+Repairs applied (author quiet since 13:50): D1–D8 applied directly in BM_CORRECTED_COUNT.md (and D1/D5 in AGENT_REPORT_O268.md),
+each marked '(R279 repair)'; D3 restates the §2 Consequence one-sided.
+
 Reviewer: R279 side agent (branch side-agent/review-bm-count). Author's files merged at the O268 head; the author's
 document is NOT edited. From-scratch scripts: `scripts/review_r279_*`. ES is not solved anywhere.
 

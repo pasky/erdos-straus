@@ -9,7 +9,7 @@ zero_law.py, zero_growth.py, typeII_check.py, b1.c, b1_stats.py, thm22_check.py}
 ## SHARP
 1. **BL's Brauer class is exactly one character in the pair expansion (PROVED, Thm 1.1).** For every (★)-pair (u, B), at the
    rational point P_{u,B} = (uBC, pBC, puC) (C ∈ ℚ), inv_p α = (−uB/p) = χ_{−4uB}(p), and χ_{−4uB}(−(u+B)) = −1 identically
-   ((u+B) | (u−B)² + 4uB). So principal + χ_{−4uB} = φ(q)^{−1}(1 + inv_∞ inv_p), the Borovoi–Rudnick BM factor at integral points (at non-hit
+   ((u+B) | (u−B)² + 4uB). So principal + χ_{−4uB} = φ(q)^{−1}(1 + inv_∞ inv_p), a factor of Borovoi–Rudnick shape at integral points (R279 repair: no BR theorem applies to U_n) (at non-hit
    rational points the invariants at ℓ | 2uB are dropped: a heuristic density, not a BR theorem). Answers R277 D3
    ("is BL's symbol a product of genus characters?" — it is a single one, χ_{−4uB}); refutes O260's "genus = BM". Same on all
    of Type II (χ_{−4ab}, independent of c, d), on the b = 1 line (χ_{−4xy} in mutual-shift coordinates), and for m/n with 4 | m. The
@@ -48,7 +48,7 @@ T1: all 499 odd squares ≤ 10⁶ have R* = M_BM = M_BM8 = 0. Engine `z38_mbm.c`
 712321 (0.025–0.030 L² for δ = 1/2, above the worst-case 0.019). Type II / m/n identities: `z38_typeII_check.py`.
 
 ## Honest limits
-Thm 2.2's constant is small (12 % of M₀). Prop 2.3 relies on the Granville–Soundararajan GRH bound as quoted (not re-read in
+Thm 2.2's constant is small (12 % of M₀). Prop 2.3 relies on the Granville–Soundararajan GRH bound (R279: checked, GS Theorem 2; earlier caveat: not re-read in
 full). The Markoff comparison is literature-level (GS Thm 1.2(i)'s log-power quoted inconsistently between sources; stated
 as ≫ √K/(log K)^c). M_BM8 (mod-8 refined) is used numerically only. Zero-law fits are at ≤ 10⁶.
 

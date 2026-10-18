@@ -8,13 +8,13 @@ PARITY_AUDIT Lemma 3.2 (χ-shadow), B1_LINE Lemma 1.2 (pair genus law), CONDITIO
 ## 0. Summary
 * §1 (PROVED) **BL's quaternion class = one Kronecker character per pair.** At the rational point P_{u,B} of each (★)-pair,
   inv_p α = χ_{−4uB}(p) = (−uB/p), and χ_{−4uB}(−(u+B)) = −1 identically; principal + χ_{−4uB} in the orthogonality expansion
-  is φ(q)^{−1}(1 + inv_∞ inv_p) — the Borovoi–Rudnick factor at integral points (at non-hits a heuristic replacement). O260's "genus indicator = BM invariant" is false (genus = all
+  is φ(q)^{−1}(1 + inv_∞ inv_p) — a factor of Borovoi–Rudnick *shape* at integral points (no BR theorem applies to U_n, which is not a homogeneous space; at non-hits a heuristic replacement) (R279 repair). The arithmetic of (1),(2),(4) is classical (Yamamoto's condition; BL Cor 1.3; ET Prop 1.6); new is only the expansion reading (3) (R279 repair). O260's "genus indicator = BM invariant" is false (genus = all
   s(q) real characters; BM = exactly one of them). Same on full Type II (χ_{−4ab}), the b = 1 line (χ_{−4xy}), m/n (§4).
 * §2 (PROVED) the BM-corrected singular series M_BM(p) = Σ(1 − (−uB/p))/φ(4uB) is ≥ 0, mean-preserving, 0 at squares, and
   **≥ (3/(16π²) − o(1))(log p)² unconditionally** (Burgess; 1/(32π²) with PV); ∼ M₀ ∼ (3/(2π²))(log p)² under GRH
   (board F4 obligation (i), derived).
 * §3 (PROVED) two-sided remainder bounds |R − M| ≤ (log p)^{O(1)} (incl. O260's H_X with M_gen) are false infinitely often
-  (Linnik). Exact conditional: (★)-ES for p > p₀ ⟸ H⁻_BM: R(p) ≥ εM_BM(p) — no other input; not refuted by T1; no implication
+  (Linnik). Exact conditional: (★) for p > p₀ (ES for all n given the census below an explicit p₀; R279 repair) ⟸ H⁻_BM: R(p) ≥ εM_BM(p) — no other input; not refuted by T1; no implication
   from a standard conjecture established; ES-(★) in disguise up to ε. EVIDENCE to 10⁶ (all primes, all odd n): zero rate
   ≈ 2× swap-Poisson at fixed M, far tail possibly fatter; Markoff precedent (Loughran–Mitankin Thm 1.5): infinitely many
   integral Hasse failures with non-empty BM set there.
@@ -122,15 +122,16 @@ Standard Dirichlet-series asymptotics (residues of ζ_odd(1+s)·∏_{ℓ odd}(1 
 + O(1), Σ_{u ≤ X odd} φ(u) log u/u² = (2/π²) log² X + O(log X), Σ_{u ≤ X odd} κ(u)/u = (6/π²) log X + O(1). With X = p^δ:
   M_BM(p) ≥ (L²/(4π²))·(4δ − 2δ² − 6βδ) − O(L log L).
 (the O(κ(u)) errors sum to O(L)). β = 1/2: max at δ = 1/4, value 1/8, giving 1/(32π²). β = 1/4 + ε: on δ ≤ 1/2 the
-maximum is at δ = 1/2, value 3/4 − 3ε, giving 3/(16π²) after ε ↓ 0. (Allowing δ > 1/2 gains < 1 %: the H(t), t < 1/8, error then costs
-6(δ − 1/2)² in the same units.) For M₀: the bulk is (1/4)Σ_{m ≤ p/4, 2|m} 2^{ω(m)}/φ(m) and Σ_{2|m} 2^{ω(m)}m^{−1−s}·m/φ(m) has a double pole at s = 0 with
+maximum is at δ = 1/2, value 3/4 − 3ε, giving 3/(16π²) after ε ↓ 0. (R279 repair: the earlier remark that δ > 1/2 "gains < 1 %" was
+asserted without derivation and is withdrawn. The o(1) is effective but depends on Burgess's ε, η; at accessible p the O_ε(1) dominates — g(p)/L ≈ 0.41–0.46 at
+the (★)-failure primes ≤ 10⁶ — so in range the operative statement is the numerical M_BM ≥ 0.062L², §3.2.) For M₀: the bulk is (1/4)Σ_{m ≤ p/4, 2|m} 2^{ω(m)}/φ(m) and Σ_{2|m} 2^{ω(m)}m^{−1−s}·m/φ(m) has a double pole at s = 0 with
 leading coefficient 4·(1/4)·∏_{ℓ odd}(1 + ℓ^{−2}) = 12/π² (2-part 4·Σ_{k≥1}2^{−ks}·2^{k}/2^{k−1}·…, ζ_odd² ~ 1/(4(s−1)²),
 local factors (1 − 1/ℓ)² + 2/ℓ = 1 + 1/ℓ²), so the bulk is (1/4)(6/π²)L² + O(L); for the leading term it suffices that the pair set is sandwiched between
 {uB ≤ p/4} and {uB ≤ (p+1)/3}, whose bulk sums differ by O(L) (R-review repair: replaces an unjustified O(1) boundary bound). ∎
 
 **Proposition 2.3 (CONDITIONAL on GRH for (·/p); this is F4's obligation (i), now with a derivation).** Under GRH,
 T(p) = o(L²), hence M_BM(p) = M₀(p)(1 + o(1)) = (3/(2π²) + o(1))L².
-*Proof.* Granville–Soundararajan (Large character sums, JAMS 14 (2001)): under GRH, Σ_{n≤x} χ(n) = o(x) uniformly for
+*Proof.* Granville–Soundararajan (Large character sums, JAMS 14 (2001), Theorem 2 (R279 repair: checked; for 1 ≤ x ≤ q, Σ_{n≤x}χ(n) ≪ Ψ(x, log²q (log log q)^{20}))): under GRH, Σ_{n≤x} χ(n) = o(x) uniformly for
 log x/log log p → ∞. Hence g(p) ≤ log((log p)^{A}) + o(L) = o(L) (partial summation beyond x₀ = (log p)^{A}, A → ∞ slowly).
 Split T(p) = 2Σ_{u<B} (u = B is impossible). For u < B one has u < √p. For fixed u, write 1/φ(B) = B^{−1}Σ_{e|B}μ²(e)/φ(e),
 remove gcd(B, u) = 1 by Möbius and the parity of B by B = 2B′ or 1[B odd] = 1 − 1[2|B]; the B-sum becomes an absolutely
@@ -138,10 +139,11 @@ convergent combination (total weight ≪ κ(u)) of sums G(t) over intervals, eac
 G-difference. So |T(p)| ≪ Σ_{u < √p} κ(u)/φ(u)·g(p) ≪ L·g(p) = o(L²). ∎
 (Unconditionally the same argument gives only |T(p)| ≤ C·L² with C not small; Theorem 2.2 uses positivity instead.)
 
-**Consequence (CONDITIONAL, exact).** For every function E(n) with E(p) ≤ (3/(16π²) − ε)(log p)² (unconditional) or
+**Consequence (CONDITIONAL; R279 repair: one-sided form — the two-sided |R* − M_BM| ≤ E with E ≪ L² is FALSE i.o. by Prop 3.1,
+so a conditional from it would be vacuous).** For every function E(n) with E(p) ≤ (3/(16π²) − ε)(log p)² (unconditional) or
 E(p) = o(log² p) (GRH): the hypothesis
-  H_BM(E): |R*(n) − M_BM(n)| ≤ E(n) for all large odd n
-implies R(p) ≥ 1 for all large primes p ((★), hence ES). **H_BM is not refuted by T1**: at n = m² both R* and M_BM vanish
+  H_BM(E): R*(n) − M_BM(n) ≥ −E(n) for all large odd n
+implies R(p) ≥ 1 for all large primes p ((★), hence ES given the census below the threshold). **H_BM is not refuted by T1**: at n = m² both R* and M_BM vanish
 (Prop 2.1(b)), so the inequality holds trivially there. This is the CONDITIONAL_ES Prop 3.1 obstruction removed at the level of
 the hypothesis, with an unconditional main-term lower bound. Whether H_BM is true/natural is §3.
 
@@ -159,7 +161,7 @@ p ≪ (4Q_k)^{L_Lin} (Linnik). For every divisor d | Q_k with an odd number of p
 is an integer and B := (p + 1)/d is an even integer: (u, B, C) = (1, B, C) solves 4uBC − u − B = Bd − 1 = p. These are
 2^{k−1} distinct solutions. log Q_k = θ(ℓ_k; 4, 3) ∼ ℓ_k/2 ∼ k log k (ℓ_k ∼ 2k log k the k-th prime ≡ 3 (4)), so log p ≤ (L_Lin + o(1))·k log k
 and k ≥ (1/L_Lin − o(1))·log p/log log p. Upper bounds: M_BM ≤ 2M₀ ≍ (log p)² (Thm 2.2 proof) and Σ_{m ≤ p/3} 4^{ω(m)}/φ(m) ≪ (log p)⁴. ∎
-(Numerically the upper tail is already visible: at primes p ≡ 1 (4) in [3·10⁵, 10⁶), 766 of 26 195 have R > 2M_BM, and
+(Numerically the upper tail is already visible: at primes p ≡ 1 (4) in [3·10⁵, 10⁶), 764 of 26 195 have R > 2M_BM (R279 repair: was 766, which counted |X_BM| ≥ M_BM incl. the 2 zeros), and
 max |X_BM|/M_BM = 2.5; `scripts/z38_hx.py`.)
 
 **So the only meaningful form is one-sided.** For ε ∈ (0, 1):
@@ -179,7 +181,7 @@ All primes 5 ≤ p ≤ 10⁶ (78 496) and all odd n ≤ 10⁶ (500 000) computed
 by the characters mod 8, double-precision sums; M_BM8 also vanishes at squares and is mean-preserving). **T1 control: all 499 odd squares ≤ 10⁶ have
 R* = M_BM = M_BM8 = 0.** Primes p ≡ 1 (4), M = M_BM:
 
-| range | N | R = 0 | R < M/2 | min R/M | min (R − M)/√(2M) | sd of (R − M)/√(2M) | R > 2M |
+| range | N | R = 0 | R < M/2 | min R/M | min (R − M)/√(2M) | sd of (R − M)/√(2M) | \|R − M\| ≥ M (incl. R = 0; R279 repair: true R > 2M = 49, 123, 279, 764) |
 |---|---|---|---|---|---|---|---|
 | [10³, 10⁴) | 529 | 2 | 26 (4.9 %) | 0 (5569) | −1.95 | 1.07 | 51 |
 | [3·10⁴, 10⁵) | 3172 | 1 | 110 (3.5 %) | 0 (83449) | −2.76 | 1.24 | 124 |
@@ -190,7 +192,7 @@ R* = M_BM = M_BM8 = 0.** Primes p ≡ 1 (4), M = M_BM:
   (at p = 17), far above the proved 0.0190. **(L) is no longer the issue anywhere in range.**
 * (★) failures among all primes ≤ 10⁶: 17 (9 with p ≡ 1 (8): 409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321;
   8 with p ≡ 7 (8): 7, 31, 79, 127, 199, 2719, 8191, 861199 — p ≡ 3 (4) is ES-trivial; none ≡ 3, 5 (8)). At the failures
-  M_BM ∈ [3.0, 28.3]: H⁻_BM(ε, p₀) needs p₀ ≥ 861 199 (and ≥ 8.9·10⁶ by the (★) census ≤ 10¹⁰, SINGLE_P_COUNT §3).
+  M_BM ∈ [1.0, 28.3] (R279 repair: p = 7, 31 have M_BM = 1.00, 2.00; ≥ 2.99 for p ≥ 79): H⁻_BM(ε, p₀) needs p₀ ≥ 861 199 (and ≥ 8.9·10⁶ by the (★) census ≤ 10¹⁰, SINGLE_P_COUNT §3).
 * **Zero law (odd non-squares n ∈ [10⁵, 10⁶], M = M_BM8):** P(R* = 0 | M) / e^{−M/2} (swap-Poisson: R*/2 ~ Poi(M/2)) =
   1.5–1.6 (M ∈ [4, 10)), 1.5–2.1 ([10, 16)), 1.8–2.8 ([16, 22)), 5–15 ([22, 28), only 6 zeros) (after the R-review fix of
   M_BM8). Empirical decay of log P(0 | M) is ≈ −0.50 per unit M at M ≈ 11–19 (= the Poisson slope, with a constant excess
@@ -280,7 +282,8 @@ the scale of the main term itself (≈ 0.5 at 131, 241; ≈ 12 at 10⁶ for 8/n)
 
 * **New and PROVED.** (i) The exact dictionary (Thm 1.1, Prop 4.1): on every Type II family and on the b = 1 line,
   BL's quaternion class is a single Kronecker character χ_{−4ab} in the orthogonality expansion, whose value at the target
-  is forced to −1; principal + Brauer character = Borovoi–Rudnick factor (1 + inv_∞ inv_p). O260's strong form ("genus =
+  is forced to −1; principal + Brauer character = a factor of Borovoi–Rudnick shape (1 + inv_∞ inv_p) (R279 repair: no BR theorem
+  applies to U_n; the arithmetic of the forcing is classical — Yamamoto, BL Cor 1.3 — the new part is the expansion reading). O260's strong form ("genus =
   BM") is refuted; R277 D3's question is answered. (ii) The BM-corrected singular series M_BM is ≥ 0, mean-preserving,
   vanishes at squares, and is ≫ (log p)² UNCONDITIONALLY (Thm 2.2; constant 3/(16π²) via Burgess), and ∼ M₀ under GRH
   (Prop 2.3 = board F4 obligation (i)). (iii) Two-sided remainder hypotheses are false i.o. (Prop 3.1, Linnik).
