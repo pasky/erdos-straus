@@ -184,7 +184,7 @@ Brute force of the definition vs my marker, all odd non-squares 5 ≤ n ≤ 3000
 
 **Exact M_8 — reproduced.** My M_8 and direct hit test at n = 46 362 671, 73 160 111, 84 090 431 (author's exact M
 24.982, 27.020, 28.729), the population member 603 111 339 (12.332, a hit) and the M ≥ 26 zeros 125 945 951, 425 357 011,
-575 068 511 (the largest, 34.186), 639 698 753: my values agree to 4 decimals in every case, and the direct test confirms
+575 068 511 (the largest, 34.186), 639 698 753, 874 383 379 (28.209): my values agree to 4 decimals in every case, and the direct test confirms
 zero / non-zero status ✓.
 
 **Table and fit.** P(0 | M) = Z/(N f) recomputed from the published Z, f: identical ✓. Refit with weights (log P)²/rel²
