@@ -440,7 +440,8 @@ sieve of astra's sketch is an alternative proof of Lemma 8.3; fable identifies t
 
 **8.6 Value and priority (Assessment).** *Dominated as an exceptional-set bound:* already the single fixed window q = 3
 (the u = 1 slice; Elsholtz–Tao Thm 1.8, proof of part 3, use exactly 4/p = 1/((p+3)/4) + 3/(p(p+3)/4) for p ≡ 1 (4)) fails
-only when (p + 3)/4 has no prime factor ≡ 2 (mod 3), i.e. for ≍ X/L^{3/2} primes, fewer than X/L^{4/3−2α−ε}; Vaughan's
+only when (p + 3)/4 has no prime factor ≡ 2 (mod 3), i.e. for ≪ X/L^{3/2} primes (dimension-1/2 upper sieve, or Lemma 8.3
+with f = 1[all primes ≡ 1 (3)]; ≍ heuristically), fewer than X/L^{4/3−2α−ε}; Vaughan's
 X exp(−c L^{2/3}) and the campaign's proved 3/4 chain are far stronger. *New only in shape:* a witness at every window of a
 polylog band at once, i.e. a lower bound on the number of distinct windows carrying cap-0 witnesses (≫ L^α/log L for almost
 all p). That count by itself is also weak: Elsholtz–Tao's f(p) ≥ (log p)^{0.549+o(1)} for almost all p already gives many

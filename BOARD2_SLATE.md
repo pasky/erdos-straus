@@ -17,3 +17,14 @@ cheap, compatible results with honest labels. ES is not solved.
 * Argon's "convergent Legendre invariant" (a/p) = ((−1)^i q_iρ_i/p): a one-line consequence of the standard convergent
   congruence; same genus-character fact as DEDEKIND_ES Thm 4.5. Recorded, **not new**.
 * Written into `ZAREMBA_TRANSFER.md` §2 directly after Theorem A (existing text kept).
+
+## (2) Finalist 1 — moving-window cap-0 witness corollary (DONE; FORCED_WINDOW §8)
+
+* **Theorem 8.5 (PROVED modulo Henriot 2014 erratum New Thm 5 + Siegel–Walfisz + Mertens; ineffective).** For 0 < α < 1/6,
+  all but O(X/L^{4/3−2α−ε}) primes p ≡ 1 (8) in (X, 2X] have Σ_{χ≠1}|A_χ(K_q)| < 1, hence an honest Type II solution
+  with window q, at **every** prime q ≡ 3 (8) in [L^α, 2L^α] (forcedness is not needed — the certificate is target-free).
+* Henriot's statement was checked from the source: the 2014 erratum (now `sources/henriot-erratum-2014.pdf`) is read, and
+  New Theorem 5 is applied with Q₁ = t, Q₂ = 4t − q, F = f(n₁)·1[P⁻(n₂) > √x] ∈ M₂(1, 1, ε); local factors computed exactly.
+* Value: dominated (fixed q = 3 alone gives ≪ X/L^{3/2} exceptions; Vaughan; 3/4 chain). New only in shape. Priority:
+  nothing found in a limited search (Elsholtz–Tao Thm 1.8 is the fixed-window analogue).
+* EVIDENCE: `scripts/z42_window_cert.py`, 990 windows at p ≈ 10⁶: certificate ⇒ explicit solution, 0 violations.
