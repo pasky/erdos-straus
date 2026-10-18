@@ -23,8 +23,9 @@ CONSTRUCTIVE_ES Prop 4.1/4.2 ((J)35), POINTWISE_OMEGA §8 (Graham–Ringrose Ω-
   w = (t, u, v) carries A = tu − 1, B = tv − 1 with ψ(A) = ψ(B) = −1, i.e. an explicit quadratic non-residue, without factoring.
   Consequences (R-O261 repair M7: two different statements, kept apart):
   (i) *existence of small certificates* — if every prime p ≡ 1 (4) had an ES-five certificate with min(A, B) ≤ X(p), then
-  n(p) ≤ X(p); by the unconditional Graham–Ringrose bound n(p) = Ω(log p · log₃ p) infinitely often (POINTWISE_OMEGA §8), this
-  fails for X(p) = c log p · log₃ p with c small (PROVED relative to Graham–Ringrose).
+  n(p) ≤ X(p); by the unconditional Graham–Ringrose bound n(p) = Ω(log p · log₃ p) infinitely often, made available for hard primes
+  p ≡ 1 (24) via Lau–Wu Prop 5.1 (POINTWISE_OMEGA Thm 8.5; secondary source there), this fails for X(p) = c log p · log₃ p
+  with c small (PROVED relative to those cited results).
   (ii) *a solver* — a deterministic algorithm that outputs an ES-five certificate in time poly(log p) would output a QNR in
   poly(log p) time, i.e. derandomise QNR finding (not known without GRH). A mere existence proof of polylog-height certificates
   does not supply such a solver (enumerating candidate certificates needs factoring or a search; CONSTRUCTIVE_ES's repaired
