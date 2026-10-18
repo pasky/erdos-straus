@@ -3,7 +3,13 @@
 Reviewer: R286 (side agent, branch side-agent/review-tail-fable). Author files merged from side-agent/lower-tail-fable.
 From-scratch scripts: `scripts/review_r286_*.py` (no reuse of `z43_fable_*`).
 
-(in progress — verdicts filled in claim by claim)
+**Repairs applied** (author quiet after checkpoint 1; marked "(R286 repair …)" in LOWER_TAIL_FABLE.md and the O274 report):
+D1 ((2.5) restated), D2 (ES → ES₅ for §2.8/§2.9, ⟹ flagged open), D3 (table scope + even-A note), D4 (§1 remark), D5/D6
+(census wording, Astra/SIGN_IDENTITY cross-ref), D7/D8 (calibration note), D9 (CM / (a+b)² claim), D10 (reducedness),
+§4 labels. The author's original text is kept; repairs are inserted as marked notes.
+
+**Bottom line:** no FATAL. Five MAJOR (D1, D2, D3, D7, D9), five MINOR. SHARP 2 SOUND; SHARP 3 GAP (it is ES₅, not ES);
+SHARP 1 GAP as framing (SOUND-AFTER-REPAIRS as an Assessment).
 
 ## Claim A — SHARP 2: Thm 1.1 (canonical two-target form) and Lemma 2.7
 

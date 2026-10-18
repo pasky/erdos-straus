@@ -26,7 +26,7 @@ against brute force — 0 mismatches):
   4/p = 1/(uvw) + 1/(mpvw) + 1/(mpuw).
 * Type I: d = 4muw − p, h = N/d, and 4/p = 1/(muw) + 1/(hpmw) + 1/(huw).
 
-*Proof sketch.* 4/p − 1/x = (4x−p)/(px); a reduced fraction a/b is a sum of two unit fractions iff b has
+*Proof sketch.* 4/p − 1/x = (4x−p)/(px) (reduced, since p ∤ x for the p-free denominator x — R286 repair D10); a reduced fraction a/b is a sum of two unit fractions iff b has
 coprime divisors U, V with a | U + V. With a = 4x − p, b = px: Type I is p | U, Type II is p ∤ UV.
 Writing x = m·u·w (Type I: U = pm, V = u) resp. x = u·v·w (Type II: U = u, V = v) and reducing modulo
 e = 4x − p gives e | pm + u (Type I) resp. e | u + v (Type II); re-indexing gives the statement. ∎
@@ -45,8 +45,9 @@ Remarks.
   of Type II (i.e. 4mu | mp + u + 1).
 * T1 in this language: for p = n² an odd square, mn² + u never has a divisor ≡ −1 or ≡ −n² (mod 4mu)
   (reciprocity; see §2).
-* Every certificate (m, u, d) forces (p/d) = −1 and hence a prime factor q of d with (p/q) = −1,
-  so d (and therefore 4mu·w ± …) carries a prime ≥ ℓ(p), the least quadratic non-residue of p.
+* (R286 repair D4: the original "every certificate forces (p/d) = −1" is false for Type I, see Lemma 2.7.) Every Type II
+  certificate forces (p/d) = −1, hence a prime factor q of d with (p/q) = −1, q ≥ ℓ(p); every Type I certificate forces
+  (p/w) = −1 on the level and (p/d) = −(p/mu) (R286, same computation; 14 712/14 712 checks to 3000).
 
 (§2 onward: mechanisms.)
 
@@ -61,8 +62,10 @@ K = (p+q)/4" of B2_ACROSS_FIELDS is (2.1) with e = q prime).
 * (2.3) Type II ⟺ ∃ u, k, e: 4ku | p + e and e | p + 4ku².  Type I ⟺ ∃ u, k, e: 4ku | pe + 1 and e | 4ku² + 1.
   (reciprocal divisibility; with K = 4ku: II is "K | p + e, e | p + uK", I is "K | pe + 1, e | uK + 1").
 * (2.4) Both in one line: ES(p) ⟺ ∃ u, K, e with 4u | K and K·e | uK + αe + β, (α, β) ∈ {(1, p), (p, 1)}.
-* (2.5) Type II ⟺ p = e²k² − y² − e for some e ≡ 3 (4), k ≥ 1, y ≥ 0 (i.e. p + e + y² ∈ e²·□), after
-  absorbing the third factor; equivalently p ∈ W − □ with W = {X² − e : e | X}.
+* (2.5) (R286 repair D1: the original "Type II ⟺ p = e²k² − y² − e" is false — it fails at p = 13, 37, 97, …, exactly
+  when every Type II level w is a non-square — and "p ∈ W − □, W = {X² − e : e | X}" holds at every n ≡ 1 (4), squares
+  included, via e = 2.) Type II ⟺ p + e = w(e²k² − y²) for some e, k, w ≥ 1, y ≥ 0 with ek ≡ y (2), ek > y (then
+  e ≡ 3 (4) automatically; u, v = (ek ± y)/2). The w = 1 (or w = □) case is p + e + y² ∈ e²·□.
 * (2.6) Type II at a prime slice e ⟺ some divisor M of (p+e)/4 has a divisor u with u² ≡ −M (mod e)
   ("a divisor congruent to a square root of minus the cofactor").
 
@@ -70,8 +73,10 @@ What the forms expose.
 * The 4-adic input is the single fact d ≡ 3 (mod 4) for every certificate divisor d (both targets −1 and −p
   are ≡ 3 mod 4). Hence **every certificate integer mp + u (equivalently every slice integer (p+e)/4 or
   (pe+1)/4) is divisible by a prime ≡ 3 (mod 4)**; in particular no primitive sum of two squares can carry a
-  certificate. This kills at the root every "p = a² + b² / CM group order" construction: #E(𝔽_p) for curves
-  with CM by ℤ[i] and all their quartic twists are sums of two coprime squares.
+  certificate. (R286 repair D9: the original continuation "this kills every CM group order construction: #E(𝔽_p) for
+  ℤ[i]-CM curves and their quartic twists are sums of two coprime squares" is false. The orders (a ± 1)² + b² are often
+  non-primitive and have prime factors ≡ 3 (4) at about half the primes; they even carry certificates: p = 229,
+  #E = 234, Type II (1, 5, 39); p = 349, #E = 360, Type I (1, 11, 3). Only *primitive* norms are excluded.)
 * The modulus is a product of the two coordinates of the integer: N = mp + u, M = 4mu. Every attempt to
   "untie" the modulus (fix M = 4U, allow all mu | U) gives only a sufficient condition with
   #tries ≈ τ₃(U)·log p ≪ |(ℤ/4U)^×| ≈ 2U; see §3.2.
@@ -92,11 +97,18 @@ one place where "4" enters.)
 
 > ES(p) ⟺ ∃ r ≥ 1 and a divisor A ≥ 2 of p + r with A ≡ −1 (mod r) and (A/p) = −1.
 
+(R286 repair D2: only "⇐" is proved — every pair gives an explicit ES solution in one of the five DK slices. "⟹" is
+ES ⟹ ES₅ (λ(p) ≤ 3), open in the ledger; 56 % of all solutions for p < 3000 lie outside the five-slice image. Read
+"ES(p)" in the display above, in the Assessment below and in §2.9 as **ES₅(p)** (five-slice ES).)
+
 Equivalently (HJ clothing): ∃ A with (A/p) = −1 such that the least positive residue of −p mod A divides
 A + 1 (then p/A = [[a, b, c]] with c = −p mod A, b = (A+1)/c, a = (p+c)/A). The "4" of ES has disappeared
 into the Legendre symbol. For odd A, r the sign is a 2-adic statement, (A/p) = −1 ⟺ A ≡ 3 (4) or r ≡ 3 (4)
 (reciprocity; checked on every odd pair with r ≤ 400, p < 3000, `z43_fable_hj.py`), which gives the
-four-branch decomposition by r mod 4:
+four-branch decomposition by r mod 4 *of the odd-A pairs* (R286 repair D3: even A with odd r — half of all QNR pairs —
+is not in the table; there (A/p) = −1 must be imposed and the solution comes from 4 | A, 4 | ab − 1 or 4 | a with
+a = (p+r)/A, b = (A+1)/r; the r ≡ 3 formula below needs A odd; and the r ≡ 2 row is Type II ((A+1)/r ≡ 0 mod 4) in
+770 of 1 178 cases to 3000, not only Type I):
 
 | r mod 4 | extra condition on A | explicit solution | campaign name |
 |---|---|---|---|
@@ -119,9 +131,12 @@ and e | p + t), colour (e/p). Then **ES(p) ⟺ G_p has a bichromatic edge.** The
 "p + e has a divisor ≡ −p (mod e) coprime to e" is sign-free (no 4, no parity): T1 lives entirely in the
 colouring. Vertex 1 is adjacent to every divisor of p + 1; vertex 2 to every odd divisor of p + 2; the
 neighbours of e are the divisors of p + e in the class −p (mod e).
+(R286 repair D2/D6: the equivalence is with ES₅, not ES; G_p is the word forest F_p of LOWER_TAIL_ASTRA Lemma 2.1,
+which proves it is a forest, and the encoding is SIGN_IDENTITY Lemma 1.1.)
 Census (`z43_fable_graph.py`, primes p ≡ 1 (4) < 3000, 211 primes): G_p is connected for 28 of them; the
-component of 1 has ≍ log² p vertices and contains a QNR vertex for 209 of 211 primes; the other components
-are sporadic 2- or 3-cliques ({4,7,11} at 73, {9,14} at 229, …); every prime has a bichromatic edge, no odd
+component of 1 contains a QNR vertex for 209 of 211 primes; the other components
+are small trees with 2–8 vertices ({4,7,11} at 73 is the path 7—4—11, {9,14} at 229, …; R286 repair D5: there are no
+triangles, and the earlier "|comp(1)| ≍ log² p" is not supported — sampled means 27, 45, 49, 57 at p ≈ 3·10³…3·10⁶); every prime has a bichromatic edge, no odd
 square has one (21 squares checked).
 Assessment: "some component is bichromatic" is a global, sign-free reformulation, and a colouring argument
 would need the walk 1 → (divisors of p+1) → (divisors of p+e in class −p mod e) → … to be forced to reach a
@@ -156,11 +171,20 @@ Dirichlet prime), but the calibration explains *why* it had to be provable. For 
 powers, k ≥ 3) have [G : H] ≈ k^{π(y)/φ(k)} < 3^{π(y)} ≈ τ₃(U): the counting *allows* a hit, but a hit still
 needs a covering argument (tries must *cover* G/H, not merely exceed |G/H|), which needs the divisors of the
 pooled integers to equidistribute in G/H — unavailable for ~τ₃(U) specific integers near p. So the only
-provable member of the ladder is k = 2, where a single prime does the job. (B4; H-A hypothesis "fixed
+provable member of the ladder is k = 2, where a single prime does the job.
+(R286 repair D7/D8: (a) ES^□ is NOT proved by this pooled count: its proof is the fixed-modulus-4 shot g | n + 4Q² with Q
+free (SYNTHESIS_SPARKS2 Prop 2.2), i.e. the "infinite shot family" category of §3.8, so the calibration is at most a
+heuristic consistency check and does not explain why ES^□ "had to be" provable. (b) [G : G^k] = Π gcd(k, n) over the
+cyclic factors C_n is ≈ k^{π(y)/φ(k)} only for prime k; for U = Π_{q≤y} q the index exceeds τ₃(U) = 3^{π(y)} for
+k = 6, 8, 12, 24, k = 4 is borderline (≈ 2.83^{π(y)}), cubes are comfortably below (3^{π(y)/2}). (c) "tries ≪ group for every
+U except U | 24" ignores the log p factor: tries ≥ φ(4U) for all U up to ≈ log p·(log log p)^{O(1)}.) (B4; H-A hypothesis "fixed
 modulus" is exactly what makes tries ≪ group.)
 
 ### 3.3 p's canonical data
-* p = a² + b² (Gaussian): every integer built as a primitive norm from ℤ[i] (including #E(𝔽_p) for CM by ℤ[i]
+* (R286 repair D9: the parenthetical below is false — CM orders and (a+b)² are not primitive norms in general, often have
+  prime factors ≡ 3 (4), and can carry certificates (p = 229, #E = 234; p = 349, #E = 360); only primitive norms are
+  excluded, and CM orders are dead only by B2.)
+  p = a² + b² (Gaussian): every integer built as a primitive norm from ℤ[i] (including #E(𝔽_p) for CM by ℤ[i]
   and its twists, and (a+b)² = p + 2ab) has no prime factor ≡ 3 (mod 4), hence carries no certificate (§2).
   Norms from ℤ[√−2], ℤ[ω], real quadratic rings can be ≡ 3 (4), but the divisor class mod 4mu of a norm
   N(α) is as uncontrolled as any (ideal divisors of (α) ↔ divisors of N(α), classes untouched). Dead by §2 / B2.
@@ -221,9 +245,12 @@ modulus (mute primes); ES has neither.
   (i) Type I and II are the same statement with target −1 versus −p for the same integer mp + u and the
   same modulus 4mu; (ii) the sign of a certificate sits on the divisor for Type II and on the level for
   Type I (Lemma 2.7); (iii) the whole 4-adic content of ES is "the certificate divisor is ≡ 3 (mod 4)",
-  which is what excludes norms from ℤ[i]; (iv) the Legendre/graph forms put T1 entirely into a colouring.
+  which is what excludes *primitive* norms from ℤ[i] (R286 repair D9); (iv) the Legendre/graph forms put T1 entirely into a colouring.
 * Labels: Thm 1.1, (2.1)–(2.6), Lemma 2.7, 2.8 (odd branches), 2.9 (dictionary): PROVED. 2.8 even
-  branches: PROVED relative to DEDEKIND_ES Thm 4.5. §2.9 census, §3 calibration: EVIDENCE / Assessment.
+  branches: PROVED relative to DEDEKIND_ES Thm 4.5.
+  (R286 repair: (2.5) PROVED only in the repaired form (D1); §2.8/§2.9 PROVED in the direction "pair/bichromatic edge ⟹
+  ES(p)" and as characterisations of ES₅, not of ES (D2); the §3.2 calibration is Assessment with the corrections D7/D8;
+  the §2/§3.3 CM claim is false and was repaired (D9). Review: reviews/lower-tail-fable-review.md.) §2.9 census, §3 calibration: EVIDENCE / Assessment.
   ES is not solved; no case of it is claimed here.
 
 ## 5. Sparks (not pursued)

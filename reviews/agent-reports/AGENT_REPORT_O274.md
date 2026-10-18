@@ -5,6 +5,10 @@ Branch `side-agent/lower-tail-fable`, worktree 0039. Main file `LOWER_TAIL_FABLE
 
 ## SHARP
 
+* *(R286 repair: SHARP 1's "why ES^□ had to be provable" is withdrawn — ES^□ is proved by an infinite modulus-4 shot
+  family, not by this count — and the k-th-power ladder holds only for prime k (k = 4 borderline, k ≥ 6 composite above the
+  line). SHARP 3's equivalences are with ES₅ (five-slice ES); only "pair ⟹ ES(p)" is proved. (2.5) and the CM claim were
+  false and are repaired. See reviews/lower-tail-fable-review.md.)*
 * **SHARP 1 (framing, Assessment — not a theorem).** The *index calibration* of §3.2: pooling cells mu | U
   at a fixed modulus 4U gives τ₃(U)·log p divisor-tries. A target coset −H ⊂ (ℤ/4U)^× can be hit by
   counting only if [G : H] ≲ τ₃(U). For H = squares, [G:H] = 2^{ω(U)+O(1)} ≪ τ₃(U) — and that relaxation
