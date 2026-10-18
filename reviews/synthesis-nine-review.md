@@ -175,3 +175,32 @@ Checked via web search / arXiv full text (R282):
 **D9 (MINOR).** Literature table, Markoff row: "typical r(n) (log k)²" — Ghosh–Sarnak's (log k)² is the average number of
 orbits of the Markoff group action (each orbit is infinite), not a representation count; say so, since the analogy to
 R(p) ≍ (log p)² is only at the level of "number of fundamental-domain points".
+
+## Claim F — memos s9_no_fixed_integer, s9_fibration_level, s9_disproof_class_layer (corollary scope)
+Verdicts: **s9_no_fixed_integer SOUND (Assessment + PROVED inequality); s9_fibration_level SOUND-AFTER-REPAIRS (D1 propagates);
+s9_disproof_class_layer SOUND-AFTER-REPAIRS (D1, D10, D11).**
+
+* No fixed integer. gcd(tn + 1, t′n + 1) | t − t′ (t′(tn+1) − t(t′n+1) = t′ − t) ✓. D⁻_t ≤ (τ − σ_{χ_{−t}})/2 (Prop 2.1(a)) and
+  equality at t = 4 (the only 4 | t with φ(t) = 2): D⁻_4(N) = #{d | N : d ≡ 3 (4)} = (τ − σ_{χ_{−4}})/2 ✓. Dirichlet's formula
+  Σ_{d|N} χ_D(d) = R_D(N)/w_D holds for any (also non-fundamental) discriminant D = −t with gcd(N, D) = 1, counting
+  representations by a full system of primitive forms ✓. Hence a LOWER bound for R_{−t}(N) is an UPPER bound for M^{lev}_t and
+  for (τ − σ)/2 ≥ D⁻ — "Hecke positivity pushes against ES" is correct in the sense stated. (Upper bounds on representation
+  numbers are trivial and give only M^{lev} > 0, which Prop 2.2 already has.) The "no fixed-integer packaging" claim is an
+  Assessment and labelled so.
+* Fibration. F_t : (tu − 1)(tv − 1) = tn + 1 ✓ (expand: t(tuv − u − v) + 1); (0, −n) ∈ F_t(ℤ) ✓; positive integral points ⟺
+  divisors X ≡ −1 (t) ✓; t = 8, n = 73: 585 = 3²·5·13, 15 ≡ −1 (8), no prime factor ≡ 7 (8) ✓. The line "only one of these
+  characters is the restriction of the total space's Brauer class: χ_{−t}" inherits D1 (for n ≡ 3 (4) the restriction
+  evaluates as −χ_t on fibre points, `review_r282_blevel.py`). Method-collapse part: Assessment, Harpaz hypotheses admittedly
+  unchecked — fine.
+* Disproof class layer. The no-go "obstructed by χ_{−t} at all levels 4 | t ≤ T, T ≥ 4ℓ(n) ⟹ square" is a restatement of
+  Prop 2.2 and is correct; the self-review repair (other genus characters can still obstruct) is correct and adequate. Example
+  n = 7, t = 12: 85 = 5·17, χ_{−12}(5) = χ_{−12}(17) = −1, χ_{−4} = +1 on both; divisor classes {1, 5, 5, 1} mod 12 ✓.
+
+**D10 (MINOR).** `s9_disproof_class_layer.md` Statement: "ℓ(n) is the least prime with (n/ℓ) = −1" — must be the least ODD prime
+(as repaired in Prop 2.2; for n ≡ 5 (8), ℓ = 2 would not work since t would have to be odd/ℓ | tn + 1 impossible for even ℓ).
+**D11 (MINOR).** The n = 7, t = 12 example is also killed by SIZE: a (★) word at level t needs d ≥ t − 1 and N/d ≥ t − 1, i.e.
+N ≥ 121 > 85 (indeed all words of 7 have t ≤ 9). So it does not isolate a genus obstruction from the size constraint β_t. Use an
+example where size allows a hit, e.g. scan (n, t) with tn + 1 ≥ (t − 1)², an inert prime factor present, and class −1
+absent only because of a second real character (the author can generate one with s9_level_bm.py in seconds).
+**D12 (MINOR — label consistency).** "level form of BL Thm 1.8" (memo Assessment; report SHARP 1) — for n ≡ 3 (4) the
+character involved is not BL's (D1); restrict to n ≡ 1 (4).
