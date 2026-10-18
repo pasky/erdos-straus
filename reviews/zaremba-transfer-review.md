@@ -46,8 +46,8 @@ Note: Thm 2.10's *statement* only gives Γ ⊆ SL₂(ℤ)_{≥0}; Γ ⊆ Ψ (as 
 * Row 2 (Thm 2.5 ↔ Prop 3.1/Thm 4.5): **can be made exact, and I did** (PROVED here). Let
   X_T = {n ≡ 1 (4) : n = tuv − u − v with t, u, v ≥ 2, 4 | t} (the (A)3 slice numerators). Then X_T satisfies *both*
   clauses of RS Def 2.4: (2) no square (Prop 3.1); (1) for every modulus m, X_T contains n ≡ 1 (mod m), namely
-  (t,u,v) = (4, 4m−1, 4m) gives n = 64m² − 24m + 1 ≡ 1 (mod 8m). Same for the 4 | A slice by reversal symmetry
-  (u ↔ v). Checked for m < 2000 (Jacobi symbol −1, n ≡ 1 mod 8m). So *the ES five-slice numerator sets exhibit a
+  (t,u,v) = (4, 4m−1, 4m) gives n = 64m² − 24m + 1 ≡ 1 (mod 8m). Same for the 4 | A slice with the family
+  (t,u,v) = (3, 8m−1, 8m) (A = 24m − 4, n ≡ 1 mod 8m). Checked for m < 2000 (Jacobi symbol −1, n ≡ 1 mod 8m). So *the ES five-slice numerator sets exhibit a
   reciprocity obstruction in the exact sense of RS Def 2.4* — except that Def 2.4 is formulated for semigroup orbits,
   and the length-3 slice set is not (known to be) one. The closer RS analogue is Thm 2.18/Cor 2.19 (a
   congruence-restricted alphabet with fixed tail has constant symbol), not Thm 2.5 (the Ψ invariance).
@@ -64,3 +64,15 @@ Note: Thm 2.10's *statement* only gives Γ ⊆ SL₂(ℤ)_{≥0}; Γ ⊆ Ψ (as 
 **Verdict (1): SOUND-AFTER-REPAIRS.** The source facts are right; "same source / same obstruction / same conjecture
 shape" (AGENT_REPORT SHARP 1) is an analogy at rows 1, 3, 4 and must be labelled Assessment; row 2 is exact at the
 level of RS Def 2.4 (my repair above). Question R is well posed (RS proof of Thm 2.10 gives Γ ⊆ Ψ with δ → 1).
+
+### Claim (2): method extraction ("M1⁺: density, not power count")
+
+Checked against the full Shkredov PDF: Lemma 13, §5.1 (130)–(133), Lemma 17/(40), §4 first paragraph ((61), (99),
+(119) bound ε), (134)–(135), (151) ε < 1/18, (156), (157), Appendix (158)–Lemma 40 (c ≥ 1/1640, k = 1641,
+κ ≥ 2^{−1656}); Shkredov's own intro remark (better M "provided uniform distribution results can be obtained for A^{−1},
+A an arbitrary collection of intervals of length q^{1/9−o(1)}") — which independently confirms the author's
+window-conflict reading. Zhang (3.1)–(3.8), Rem 1.3, 1.4 match the excerpt.
+Re-derivation: |A| ≍ q^{w}N^{1−w}, N = q^{2ε}; |A|N^κ ≫ q ⟺ 2ε(1 + κ − w) > 1 − w; with ε ≤ ε₀:
+(1 − w)(1 − 2ε₀) ≤ 2ε₀κ, and ε₀ = 1/18 gives 1 − w ≤ κ/8. Arithmetic correct. w₅ ≈ 0.8368 ⇒ |Z∗| ≈ q^{2w−1} = q^{0.674}: correct.
+
+**Verdict (2): SOUND-AFTER-REPAIRS** (as an Assessment of *this* proof architecture). Defects: D1 (M = 2^{2000}), D2, D4.
