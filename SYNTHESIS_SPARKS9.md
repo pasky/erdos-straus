@@ -169,6 +169,7 @@ n·e^{−μ} (Poisson), n·e^{−μ/2} (swap-Poisson), n·e^{−E NL} (level-Poi
 So the per-level "Poisson unit" has the right order of magnitude overall, but the far lower tail is fatter than any
 independent-level model — the levels are positively dependent exactly in the joint-failure event, matching (J)89 (joint
 all-j failure 1.5× the product) and O268 (excess over swap-Poisson growing with M). Assessment: the lower tail at one prime
-carries a genuine positive dependence between levels that pairwise statistics do not see; any Janson/Harris-type inequality
-would have to be false at the level of these data unless it includes higher-order dependency terms. This strengthens the
-answer to (iii): near-independence is pairwise only, and the joint lower tail is where it fails.
+carries a genuine positive dependence between level failures that pairwise statistics barely see. This is the direction
+Harris/FKG predicts for decreasing events (P(all fail) ≥ ∏ P(fail) — a LOWER bound on the failure probability, useless for ES);
+an upper bound à la Janson must pay for it through Δ, and the measured Δ is far too large (Prop 3.3). This sharpens the answer to
+(iii): near-independence is a pairwise statement, and the joint lower tail — the only thing ES needs — is where it fails.
