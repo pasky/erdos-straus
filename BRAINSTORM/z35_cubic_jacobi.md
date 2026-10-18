@@ -3,7 +3,7 @@
 ## Idea
 For p ≡ 1 (3) the cubic Jacobi sum J(χ, χ) ∈ ℤ[ω] (norm p) is canonical; it is equivalent to 4p = L² + 27M² (L ≡ 1 (3)), and
 cubic Gauss periods are roots of x³ − 3px − pL (classical). Cubic residue symbols (q/p)_3 of small q are functions of
-(L, M) mod q (Jacobi/Eisenstein; e.g. 2 is a cube ⟺ 2 | M, 3 is a cube ⟺ 9 | M). Try the same constructions as in the
+(L, M) mod q (Jacobi/Eisenstein; e.g. 2 is a cube ⟺ 2 | L, M; 3 is a cube ⟺ 3 | M — both re-checked for all 8988 primes p ≡ 1 (3) < 2·10⁵). Try the same constructions as in the
 quartic case.
 
 ## Literature
