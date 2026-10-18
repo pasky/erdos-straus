@@ -67,11 +67,11 @@ stats `scripts/review_r277_stats.py`.
 * Failures: M_gen/M₀ ∈ [0.57, 0.92] on the 8 failures < 4·10⁵ ✓ (14 failures ≤ 10¹⁰ not re-run).
 * Lemma 1.1-type consistency: the 446 non-square zeros of R* below 30001 and 86 squares were found by the same engine.
 
-### Prop 4.1 (CONDITIONAL on GRH) — **SOUND** as stated; its use in §0/§4.4 is overclaimed (D2)
+### Prop 4.1 (CONDITIONAL on GRH) — **SOUND** as stated; its use in §0 / §4.2 is overclaimed (D2)
 Re-derived: (1, 2ℓ), (2ℓ, 1) ∈ 𝒫(p) iff 6ℓ − 1 ≤ p; q = 8ℓ, s/φ = 8/(4(ℓ−1)); 2-adic: p ≡ −(1+2ℓ) (8) ⟺ ℓ ≡ 1 (4) for
 p ≡ 5 (8), ℓ ≡ 3 (4) for p ≡ 1 (8); odd: (p/ℓ) = (−1/ℓ) ⟺ (ℓ/p) = χ₋₄(ℓ) (p ≡ 1 (4)). Hence M_gen(p) ≥ 4Σ 1/(ℓ−1) over the
 class, density 1/4; the three non-principal pieces χ₋₄, (·/p), χ₋₄(·/p) (all mod 4p) contribute, under GRH and partial
-summation from y = (log p)⁵, O(log²p/√y) = o(1); Σ_{y<ℓ≤p/6} 1/ℓ = log log p − 5 log log log p + O(1). ✓ (The (χ₋₄) piece
+summation from y = (log p)⁵, O(log²p/√y) = o(1); Σ_{y<ℓ≤p/6} 1/ℓ = log log p − log log log p + O(1). ✓ (The (χ₋₄) piece
 does not even need GRH.) The parenthetical Pollack remark matches PARITY_AUDIT E3 / (J)66 (Frobenius class in ℚ(i, √p),
 ≪ p^{1/4+ε} for p ≡ 1 (8), ineffective). Note: for p ≡ 5 (8) M_gen(p) ≥ R(p) ≥ 2 trivially (pair (1,2), q = 8), so Prop 4.1
 has content only for p ≡ 1 (8) — worth one sentence.
@@ -81,3 +81,50 @@ T1-consistency re-derived (a ≡ m² mod the Y-smooth part and a·m² ∈ □ mo
 "Implies R ≥ 1 only together with M_loc,Y → ∞" is correct. Minor: §3's data are at fixed Y = 30/100, not Y(p) → ∞, and
 M_loc,Y with growing Y reproduces Y-smooth hits exactly (the R_sm caveat), so "the data fit the error scale" is weaker
 evidence than it reads (D6).
+
+### §4.2 conjecture table — **SOUND-AFTER-REPAIRS** (reasons correct; one omission, D5)
+* GRH row: correct (X is a sum over χ at the single point p; GRH bounds sums over n at fixed χ). The cited "misses by
+  p^{1−o(1)}" is CONDITIONAL_ES Prop 9.1 for its own count S(p); for R it holds by the same argument (should say "analogue").
+* EH/BFI-for-τ row: correct. These control Σ_q max_a |Σ_{N≤x, N≡a(q)} τ(N) − main| — sums over N in progressions; (★)
+  needs the divisor distribution of the *single* integer N = 4Cp+1 in the class −1 mod 4C, a set of density 1/x in the
+  (q, N) box; a per-q error ≥ 1 summed over ≍ p values of q dwarfs the polylog line main term. ✓
+* Selberg–Linnik / Hooley R* row: correct; I re-derived N_c(p) = c^{−1}Σ_h e(h/c)Σ_{x | cp+1} e(hx/c) (orthogonality) and
+  checked numerically (Prop 6.1). Swapping the order (x ↦ c ≡ −p̄ (mod x), c | x+1) produces Kloosterman fractions
+  e(h p̄/x), but still divisor-restricted (c | x + 1): consistent with the row's "exact missing piece".
+* Kuznetsov/θ row: correct (θ appears only after summing over p, (D)32).
+* HL row: correct that HL is single-N with power main term; the clause "i.e. a Brauer–Manin-type correction" is the
+  dictionary of D3 and should be softened.
+* Omitted: bilinear forms with Kloosterman fractions (Duke–Friedlander–Iwaniec 1997, Bettin–Chandee; both in sources/).
+  At fixed p the pair condition is u | p + B, B | p + u, 4 | p+u+B, i.e. a bilinear Kloosterman-fraction problem in (u, B);
+  DFI saves a power of UV over the trivial bound, but each dyadic box has main term ≍ 1 against trivial size ≍ p^{2/3} in
+  the balanced box (Lemma 5.1), so it fails for the same B3 reason. Worth a row since the tool is the most natural fixed-p
+  one (D5).
+
+### Lemma 5.1 — **SOUND**
+Re-derived (Riemann sum in (log u/log p, log B/log p), O(1/u) per u). Numerically (`scripts/review_r277_misc.py`):
+(Σ − main)/log p ∈ [−0.048, +0.009] for p = 10⁶, 10⁷, 10⁸ on the full triangle, the box [0.2,0.4]×[0.1,0.5] and the small
+balanced box [0.3,0.35]², i.e. error O(log p) with a small constant. Pair/divisor counts in the balanced box ✓.
+
+### Lemma 5.2 — **SOUND** (proof correct and two lines); the "Consequence" has a small false instance (D7)
+Re-derived: χ^k = 1 ⟺ χ|_{G^k} = 1, so F is G^k-periodic; F(a) = F(ag) ≤ 1_a(ag) = 0 for g ∈ G^k∖{1}. ✓
+But exp(ℤ/q)^× = 2 for q ∈ {8, 24}: the admissible pairs (1,2), (2,1), (1,6), (6,1), (2,3), (3,2) (own enumeration) have
+genus indicator = point indicator, so "the genus part supports no positive per-pair minorant" is false for them (they give
+R ≥ 2 for p ≡ 5 (8), 17 (24), 19 (24)). Sharper true statement: a minorant F ≤ 1_a with F(a) > 0 forces the Fourier support
+to *generate* Ĝ (F is constant on cosets of the annihilator of the generated subgroup) — stronger than "orders up to λ(q)".
+Also: per-pair minorants are a narrow class (a sieve lower bound need not be pairwise); the document says "per pair" and the
+memo flags the global version as open — fine.
+
+### Prop 6.1 — **SOUND** (Assessment paragraph reasonable, correctly labelled)
+(a) double cosets Γ_∞\SL₂/Γ_∞ with c > 0 ↔ (c, a mod c, d mod c) ✓; R = Σ_{c∈4ℕ} N_c checked via the SL₂ form (part A).
+(b) checked numerically for c ∈ {4, 8, 12, 20, 24}: value 1.000000. (c) S γ S^{−1} = (d, −c; −b, a) checked on a sample.
+The Assessment "θ never enters at fixed p" is a statement about the natural expansions, not a theorem; labelled Assessment. ✓
+
+### Bright–Loughran ↔ order-2 dictionary (Assessment) — **GAP / overclaimed in AGENT_REPORT (D3)**
+Checked sources/bright-loughran-1908.02526.pdf: Thm 1.6 Br U_n/Br ℚ ≅ ℤ/2 generated by (−u₁/u₃, −u₂/u₃) ✓; Thm 1.2: every
+natural solution has ∏_{p|n}(−u₁/u₃, −u₂/u₃)_p = −1; Thm 1.8: the BM set is NON-empty for every n (squares included);
+the square obstruction (Cor 1.4) is to strong approximation / prescribed-divisibility solutions only.
+The dictionary "BM-corrected heuristic = exactly M_gen-type main term" does not follow: BL impose ONE ℤ/2 condition per
+solution (for n = p: one Legendre symbol mod p, Cor 1.3), whereas M_gen's pair weight is the conjunction of 1 + ω_odd(uB)
+independent quadratic conditions with weight s(q) = 4·2^{ω_odd(uB)}; a Peyre/BM-corrected density multiplies by
+(1 ± 1) for one class, not by s(q). M_gen is a genus-theory refinement that implies (for hits) the BL condition; it is
+not the BM correction. No computation compares them.
