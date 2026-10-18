@@ -42,3 +42,9 @@ for j in range(1, 20):
     assert g == -T(-2*j)*S*T(-2*j)
     assert g != T(2*j)*S*T(2*j) and g != -T(2*j)*S*T(2*j)
 print("(d) g_j = -T^{-2j} S T^{-2j}, not ±T^{2j} S T^{2j}")
+# (e) 4|A slice family: (t,u,v) = (3, 8m-1, 8m)
+for m in range(1, 2000):
+    t, u, v = 3, 8*m-1, 8*m
+    n = t*u*v - u - v; A = t*u - 1
+    assert A % 4 == 0 and n % (8*m) == 1 % (8*m) and jacobi_symbol(A, n) == -1 and math.isqrt(n)**2 != n
+print("(e) 4|A family ok m<2000")
