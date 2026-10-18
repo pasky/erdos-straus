@@ -8,11 +8,12 @@ THREE_SQUARES (clean levels, coin model), NEAR_SQUARE §5 (gradient; open spark 
 
 ## Content
 Level-t slice words = divisors d ≡ −1 (mod t) of tn + 1 with χ_t(d) = −1, χ_t a character mod 4t. Reciprocity model
-M_R: divisors equidistribute within their χ_t-class; level factor ∝ τ(N_t) − S_t(N_t), S_t = Σ_{d|N_t} χ_t(d) ≥ 0
-("divisors minus quadratic-form representations"), zero exactly at clean levels; M_R(m²) = 0.
+M_R: divisors equidistribute within their χ_t-class; heuristically (ignoring range truncation and 2-adic weights) level factor ∝ τ(N_t) − S_t(N_t), S_t = Σ_{d|N_t} χ_t(d)
+("divisors minus quadratic-form representations"); the implemented M_R is 0 at clean levels (and can vanish at some
+unclean ones); M_R(m²) = 0.
 EVIDENCE (levels ≤ 3000, n ≈ 10⁶): generic N₋/M_R = 1.05; near-squares m² + K (K = 1, 4, 8, 16, 24) 0.89–0.97; M_R
-removes ≈ 35–55 % of the deficit left by the congruence model M₀. The analytic family average (bias ∝ L(1, χ_{tK+1}))
-is refuted: Spearman |ρ| ≤ 0.14, no effect.
+removes ≈ 33–54 % of the deficit left by the congruence model M₀; K = 25 has an unexplained ≈ 3.4σ deficit. A proxy
+test of the analytic family average (bias ∝ L(1, χ_{tK+1})) showed no effect (Spearman |ρ| ≤ 0.14) — not a refutation.
 
 ## Barrier screen
 B6/B2: the model is computed from the factorisations themselves; the unexplained part is the admissibility correlation
