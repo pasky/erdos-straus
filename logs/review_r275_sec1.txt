@@ -1,0 +1,19 @@
+Prop 1.1 (i)=(ii)=(iii) and Prop 1.2(a),(b): 609 primes p<=10000, 5902 certificates, 0 failures
+q=3: explicit law (q/p)_4 = (-1)^((p-1)/4)*((a+bi)/(a-bi))^((q+1)/4) [i->a/b]: 12980 primes, 0 failures
+q=7: explicit law (q/p)_4 = (-1)^((p-1)/4)*((a+bi)/(a-bi))^((q+1)/4) [i->a/b]: 12980 primes, 0 failures
+q=11: explicit law (q/p)_4 = (-1)^((p-1)/4)*((a+bi)/(a-bi))^((q+1)/4) [i->a/b]: 12980 primes, 0 failures
+q=19: explicit law (q/p)_4 = (-1)^((p-1)/4)*((a+bi)/(a-bi))^((q+1)/4) [i->a/b]: 12980 primes, 0 failures
+q=23: explicit law (q/p)_4 = (-1)^((p-1)/4)*((a+bi)/(a-bi))^((q+1)/4) [i->a/b]: 12980 primes, 0 failures
+q=31: explicit law (q/p)_4 = (-1)^((p-1)/4)*((a+bi)/(a-bi))^((q+1)/4) [i->a/b]: 12980 primes, 0 failures
+q=43: explicit law (q/p)_4 = (-1)^((p-1)/4)*((a+bi)/(a-bi))^((q+1)/4) [i->a/b]: 12980 primes, 0 failures
+q=3: function of ((a:b) mod q, p mod 8): 0 conflicts; of (a:b) mod q alone: 6466 conflicts
+q=7: function of ((a:b) mod q, p mod 8): 0 conflicts; of (a:b) mod q alone: 6498 conflicts
+q=11: function of ((a:b) mod q, p mod 8): 0 conflicts; of (a:b) mod q alone: 6500 conflicts
+q=5: function of (a mod q, b mod q) alone: 0 conflicts
+q=13: function of (a mod q, b mod q) alone: 0 conflicts
+q=17: function of (a mod q, b mod q) alone: 0 conflicts
+q=29: function of (a mod q, b mod q) alone: 0 conflicts
+q=37: function of (a mod q, b mod q) alone: 0 conflicts
+q=2: function of (a, b) mod 8: 0 conflicts
+q=2: function of (a, b) mod 16: 0 conflicts
+Burde ((ac-bd)/q): 11615 pairs (q<200, p<2e4, (p/q)=1), 0 failures; variant ((ac-bd)/p): 0 failures
