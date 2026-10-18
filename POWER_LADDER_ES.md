@@ -26,7 +26,7 @@ v_q(z) ∈ kℤ for every prime q with v_q(z) < 0, and such q are odd and prime 
   ES_(2) and ES_(3) are incomparable, both contain ES_(6).
 
 **Remark 1.2 (why "lowest terms" is forced).** Without gcd(Q, Z) = 1 the rung is independent of k: a positive
-rational A/B (lowest terms) equals Q^k/Z for some Z ∈ ℤ iff A | Q^k, and A | rad(A)^k. So "4/n − 1/x − 1/y has
+rational A/B (lowest terms) equals Q^k/Z for some Z ∈ ℤ iff A | Q^k, and A | A^k (take Q = A). (R-self repair: "A | rad(A)^k" was false, e.g. A = 9, k = 1.) So "4/n − 1/x − 1/y has
 numerator dividing a k-th power" = "numerator odd and prime to n", the same for all k.
 
 **Remark 1.3 (target-coset reading).** In the fixed-modulus-4 shot family (UNIT_ORBIT_ES Prop 2.1 with Q² → Q^k,
@@ -62,8 +62,9 @@ Legendre sign ((−y/x)/q), unconstrained, so a muted place with ODD exponent ca
 ### 2.2 Even k: the rung is ES^□ again
 
 **Theorem 2.3 (PROVED, relative to Dirichlet's theorem only).** Let k = 2^a k′ with a ≥ 1, k′ odd. Then ES_(k)(n)
-holds for every odd non-square n, by ONE prime r: r ≡ 3 (mod 4), (n/r) = −1, and r ≢ 1 (mod ℓ) for every prime ℓ | k′.
-The solution has Type II shape at every prime of n.
+holds for every odd non-square n: for n ≡ 3 (4) by ES itself, for n ≡ 1 (4) by ONE prime r: r ≡ 3 (mod 4), (n/r) = −1,
+and r ≢ 1 (mod ℓ) for every prime ℓ | k′ (Type II shape at every prime of n). (Self-review repair: for n ≡ 3 (4) such
+an r need not exist, e.g. n = 3, k = 6 forces r ≡ 11 (12), (3/r) = +1; the proof never uses r there.)
 *Proof.* n ≡ 3 (4): ES (Q = 1, 4/n = 1/((n+1)/4) + 1/(n(n+1)/4) split). n ≡ 1 (4): n = n₀m², n₀ > 1 squarefree,
 n₀ ≡ 1 (4), so n₀ has a prime factor ≥ 5. Choose a class a mod 4n₀L (L = product of the odd primes of k′ not dividing
 n₀) with a ≡ 3 (4); a ≡ 2 (mod ℓ) for ℓ | L; for ℓ | n₀: a ≢ 0, 1 (mod ℓ) when ℓ | k′, with Legendre signs (a/ℓ)
@@ -145,9 +146,12 @@ This matches TWO_POWER_LADDER (z41_stickelberger_dictionary): "BM layer and T1 a
   exactly what the k-ladder drops. (PROVED, by inspection of the constructions.)
 * The gradients that DO interpolate between ES^□ and ES are those that shrink or tie Q: the box Q ≤ B, the fixed mute
   set S ((J)23: sieve, ineffective), the cap e with rad Q | y ((J)64/(J)66: cap ≪ n^{1/4+ε} via windows), and the
-  phase-diagram band ((J)43). The exponent k is orthogonal to all of them: replacing "square" by "k-th power" in any
-  of these leaves the analysis unchanged for even k (the 2-part of every shot index is 2) and turns it into a
-  covering for odd k (Thm 2.1 / §5).
+  phase-diagram band ((J)43). Thm 2.1 drops ALL of these constraints at once; it does
+  NOT follow that odd exponents trivialise the constrained rungs (self-review repair; the earlier blanket claim is
+  withdrawn). Counter-indications: (i) the box Q ≤ 1 is ES for every k; (ii) with the cap tie rad Q | y, UNIT_ORBIT_ES
+  Lemma 1.1(iii) forces q | x at every denominator prime q, so case (ii) of that lemma applies and inv_q = 0 WHATEVER
+  the parity of v_q(z) — T1 survives odd exponents under the cap tie. Only the free-Q, untied rungs collapse; the
+  one-mute-prime case is treated separately in §5.
 
 ## 5. Deep push 1: one mute prime — the parity bit is the whole gap between a covering and an Artin problem
 
@@ -174,14 +178,17 @@ and all odd squares ≤ 10⁶ prime to 143 solved, exponent c ≤ 9.
 must then be a non-residue mod g, (q/g) = (g/q) for q ≡ 1 (4)) — CONDITIONAL, citation-level; but it is never needed
 in practice, since a single witness per q proves the theorem for that q.
 
-**Proposition 5.2 (with parity the same shot is an Artin problem; PROVED reduction).** With parity (exponent 2c), the
-g-shot exists iff −n/4 ∈ ⟨q²⟩ ⊂ (F_g^×)²; if q is a primitive root mod g this is exactly (n/g) = −1. So
-ES^{({q})}(n) via g-shots needs a prime g ≡ 3 (4) with q primitive root mod g AND (n/g) = −1 (n-dependent): an Artin
-problem with an n-dependent Chebotarev condition (open unconditionally for a fixed q; FF_MUTE's function-field theorem
-is the case where Artin is Bilharz's theorem). T1 at squares: (m²/g) = 1 always, so no square is ever reached.
+**Proposition 5.2 (with parity the g-shot condition; PROVED; the Artin reading is a sufficient route only).** With parity
+(exponent 2c), the g-shot fires iff −n/4 ∈ ⟨q²⟩_g ⊆ (F_g^×)² — exact condition; q need not be a primitive root (e.g.
+q = 13, g = 3: 4/5 = 1/58 + 1/5 + 13²/290, 13 ≡ 1 (3)). It suffices that ⟨q²⟩_g = (F_g^×)² (ord_g(q²) = (g−1)/2) and
+(n/g) = −1. Hence a sufficient route to ES^{({q})}(n) via g-shots is a prime g ≡ 3 (4) with ord_g(q²) = (g−1)/2 AND
+(n/g) = −1 (n-dependent): an Artin-type problem with an n-dependent Chebotarev condition. (Self-review repair: this
+is NOT a proved reduction showing the relaxation REQUIRES Artin; other g with smaller ⟨q²⟩ can fire at a given n.) (open unconditionally for a fixed q; FF_MUTE's function-field theorem
+is the case where Artin is Bilharz's theorem). T1 at squares: −m²/4 is a non-square mod every g ≡ 3 (4), so no
+square is ever reached by any g-shot (this part is exact).
 **Reading (Assessment).** For ONE mute place, the parity normalisation is the entire difference between a finite
-covering (odd exponents allowed: index of ⟨q⟩ in F_g^× is 1 at one witness g) and an open Artin problem (even
-exponents: index ≥ 2, and the residual quadratic condition depends on n). This is (J)28's "orbit size" recalibration
+covering (odd exponents allowed: index of ⟨q⟩ in F_g^× is 1 at one witness g) and (via the natural route) an Artin-type problem
+(even exponents: index ≥ 2 at every g, and the residual quadratic condition depends on n). This is (J)28's "orbit size" recalibration
 refined: orbit size matters only on the parity-constrained side; on the odd side one witness suffices for all n.
 
 ## 6. Deep push 2: the order-3 variant separates the two bits (T1 order vs shot index)
@@ -194,16 +201,42 @@ terms, no further normalisation).
   (ωx/y)^w up to cubes — trivial for 3 | w, unconstrained otherwise. So 3 | k ⟹ T1₃ (Thm 3.3 applies verbatim:
   no Type I/II-shaped solution at cubes); 3 ∤ k ⟹ no T1₃ constraint from the mute places.
 * **Index bit (PROVED, elementary):** for a fixed shot prime g of norm ℓ (≡ 1 (3), odd), the shot fires at n iff
-  −n/18 ∈ (O/g)^{×k}, index gcd(k, ℓ − 1), always even for even k. So k ≡ ±1 (6): ONE fixed g covers every n prime to
-  6g (a covering, like odd k over ℤ; g = −8 + ω of norm 73 serves every k prime to 6, as 72 = 2³·3²); k ≡ 0 (3): T1₃ + a cubic Chebotarev condition (SPARKS2 Thm 3.5); k ≡ ±2 (6):
-  NO T1₃, yet each fixed g fires only on the quadratic-residue half.
+  −n/18 ∈ (O/g)^{×k}, index gcd(k, ℓ − 1), always even for even k. So k prime to 6: ONE fixed g covers every n prime
+  to 6g (a covering, like odd k over ℤ; g = −8 + ω of norm 73 serves every k prime to 6, as 72 = 2³·3²). k = 3: T1₃ +
+  a cubic Chebotarev condition (SPARKS2 Thm 3.5). k = 2: NO T1₃, and at g of norm 73 the shot fires exactly on the
+  quadratic-residue half; for other even k at most half (index gcd(k, ℓ−1) ≥ 2, e.g. 4 for k = 4, 8 for k = 8 at
+  ℓ = 73). Every admissible g has ℓ ≡ 1 (18) (N(10 + ω) = 91), so 9 | index for 9 | k at every shot prime.
+  (Self-review repair: only the T1₃-divisibility bit and the index-parity bit are claimed; no complete classification of
+  TES_(k) for k ∉ {1, 2, 3} or k prime to 6 is claimed — SPARKS2 Thm 3.5's cubic argument does not cover higher powers.)
 * **EVIDENCE (`scripts/z44_tes_ladder.py 3000`, log `logs/z44_tes_ladder.txt`; exact verification in O).** Fixed
   g = −8 + ω (N = 73). Over the 412 2-primary split primes π with N(π) ≤ 3000 and their cubes π³: k = 1 fires for
   412/412 primes AND 412/412 cubes (all Type II-shaped at π: T1₃ dead); k = 2 fires for 209/412 primes and 209/412
   cubes (≈ ½, cubes not obstructed); k = 3 fires for 134/412 primes (≈ ⅓) and 0/412 cubes (T1₃).
-* **Reading (Assessment).** TES_(2) is a T1-free rung that a single fixed shot does not cover; finitely many fixed
+* **Reading (Assessment).** TES_(2) is a T1-free rung (no mute-place T1₃) that a single fixed shot does not cover; finitely many fixed
   shots g₁, …, g_s never cover either (CRT: choose −n/18 a non-square mod every g_i). So "no T1 ⟹ finite covering"
   is FALSE within fixed-modulus shot families as soon as T1's order and the shot index's prime differ. Whether
   another identity family covers TES_(2) is OPEN (spark). Over ℤ the k-ladder is "flat" precisely because
   ord(T1) = 2 = the unavoidable 2-part of the shot index — a coincidence of the prime 2 (cf. z41_stickelberger:
   "BM layer and T1 are the m = 2 coincidence").
+
+## 7. The direct test (parent note after R286 D7/D8): does ES^□'s own mechanism lift to Q³?
+
+R286 D7: ES^□'s proof is the fixed-modulus-4 shot family g | n + 4Q² with Q free and ONE Dirichlet prime r ≡ 3 (4),
+(n/r) = −1, solving 4Q² ≡ −n (mod r); the index calibration is only a heuristic. The test: replace Q² by Q³.
+**Answer (PROVED; this is Prop 2.1 of UNIT_ORBIT_ES with Q² → Q^k, exactly as used in Thm 2.3):** yes, and the
+reciprocity step disappears. The shot prime must be r ≡ 3 (4); choose it ALSO with r ≢ 1 (3) (e.g. r = 3, 11, 23, …).
+Then cubing is a bijection of F_r^×, so 4Q³ ≡ −n (mod r) is solvable for EVERY n prime to r — no condition on n, no
+dependence of r on n. Valuation side condition: v_q(z) = 2v_q(r+1) − 3v_q(Q) must be ≡ 0 (3) or ≥ 0; take
+gcd(Q, r+1) = 1 (CRT). So ONE FIXED prime (r = 3: 4/n = 1/x + 1/n + Q³/(nx), 3x = n + Q³, Q ≡ −n (3)) solves
+ES_(3)(n) for every n prime to 3, and r = 11 for 3 | n. The cubic-non-residue variant suggested in the brief
+(r ≡ 1 (3), p a cubic non-residue) is the WRONG direction: it raises the shot index from 1 to 3 (then one needs
+(−n/4 | r)₃ = 1 — a Chebotarev condition that also works, but is unnecessary).
+**EVIDENCE (`scripts/z44_ladder.py 1000000`, appended section, log `logs/z44_ladder_1e6.txt`).** Fixed shots
+(k, r) = (3, 3), (3, 11), (5, 3), (5, 23): all primes 13 ≤ p ≤ 10⁶ with r ∤ p, all 302 odd squares and 29 odd cubes
+≤ 10⁶ prime to 33 solved with Type II shape at every prime, exact check; max Q = 11, 109, 11, 217.
+**On D8's arithmetic.** R286's formula [G : G^k] = ∏ gcd(k, |C_i|) agrees with Prop 3.1(a), and its primorial ratios
+(0.50, 0.94, 1.13, 1.10 for k = 3, 4, 6, 8) are correct (e.g. k = 4: ½(log₃2 + log₃4) = 0.946). But for the actual
+mechanism the pooled index is irrelevant: the shot index at one prime is gcd(k, r − 1) = gcd(k, 2)·gcd(k, (r−1)/2),
+minimised to 1 (odd k) or 2 (every even k, including the "borderline" k = 4 and the "above the line" k = 6, 8) by
+choosing r. So k = 4, 6, 8 are all ES^□-easy (Thm 2.3; k = 4, 6 verified in §2.3), and the pooled-count borderline does
+not correspond to any change in provability.

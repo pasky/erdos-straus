@@ -152,7 +152,7 @@ def main():
         for n in sq:
             x, y, Z, Q = odd_k(n, k)
             check(4, n, x, y, Z, Q, k, "I")
-        cubes = [m ** 3 for m in range(3, int(round(N ** (1 / 3))) + 1, 2)]
+        cubes = [m ** 3 for m in range(3, int(N ** (1 / 3)) + 2, 2) if m ** 3 <= N]
         for n in cubes:
             x, y, Z, Q = odd_k(n, k)
             check(4, n, x, y, Z, Q, k, "I")
@@ -188,5 +188,36 @@ def main():
                 print(f"8/{p}, k={k}: no r ≡ 7 (8) shot with r < 5000")
 
 
+def fixed_shot(n, k, r):
+    """ES^□ mechanism with Q^k (UNIT_ORBIT_ES Prop 2.1, Q² -> Q^k) at ONE FIXED prime r ≡ 3 (4) with gcd(k, r-1)
+    = 1 for odd k: 4Q^k ≡ -n (mod r) always solvable; Q odd, gcd(Q, n(r+1)) = 1."""
+    Q = 1
+    while (n + 4 * Q ** k) % r or Q % 2 == 0 or gcd(Q, n * (r + 1)) != 1:
+        Q += 1
+    e = (n + 4 * Q ** k) // r
+    x = (n + e) // 4
+    y = n * (r + 1) // 4
+    Zn, Zd = n * x * (r + 1), 4 * Q ** k
+    g = gcd(Zn, Zd)
+    assert Zd // g == Q ** k
+    return x, y, Zn // g, Q
+
+
+def fixed_shot_test(N):
+    P = [p for p in primes_upto(N) if p >= 13]
+    sq = [m * m for m in range(5, int(N ** 0.5) + 1, 2) if m % 3 and m % 11]
+    cu = [m ** 3 for m in range(5, int(N ** (1 / 3)) + 2) if m ** 3 <= N and m % 2 and m % 3 and m % 11]
+    for k, r in ((3, 3), (3, 11), (5, 3), (5, 23)):
+        mq = 0
+        for n in P + sq + cu:
+            if n % r == 0:
+                continue
+            x, y, Z, Q = fixed_shot(n, k, r)
+            check(4, n, x, y, Z, Q, k, "II")
+            mq = max(mq, Q)
+        print(f"fixed shot k={k}, r={r}: all primes 13..{N} (r ∤ p), {len(sq)} odd squares, {len(cu)} odd cubes solved, Type II, max Q = {mq}")
+
+
 if __name__ == "__main__":
     main()
+    fixed_shot_test(int(sys.argv[1]) if len(sys.argv) > 1 else 10 ** 5)

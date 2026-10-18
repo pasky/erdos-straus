@@ -18,4 +18,4 @@ k = 2 fires 209/412 and 209/412; k = 3 fires 134/412 primes, 0/412 cubes (T1₃)
 
 ## Assessment
 PROVED (bits, POWER_LADDER_ES §6) + EVIDENCE (table). Sharp calibration: ES's k-ladder is flat because 2 = ord(T1) =
-2-part of every shot index; an order-d variant has a 2-dimensional ladder (k mod d, k mod 2).
+2-part of every shot index; an order-d variant has at least two independent bits (d | k for T1, 2 | k for the shot index); a full classification for higher k is not claimed (indices gcd(k, ℓ−1) can exceed 2).

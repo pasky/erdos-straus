@@ -2,7 +2,7 @@
 ES^{<q>,*}(n): 4/n = 1/x + 1/y + 1/z, den z a power of q (q prime, q ∤ n).
 (a) for each prime 3 <= q <= Qmax: witness = mod-4 trick (q ≡ 3 (4)), mod-3 trick (q ≡ 2 (3)), else least prime
     g ≡ 3 (4) with q a primitive root mod g.  Report max least g over q ≡ 1 (12).
-(b) for q = 13 (g = 11): exact construction for all primes 5 <= p <= N, p ≠ 13, and odd squares; Type II shape check.
+(b) for q = 13 (g = 11): exact construction for all primes 5 <= p <= N, p ≠ 13, and odd squares; exact equation + den z a power of q (shape NOT checked).
 Usage: PYTHONPATH=scripts uv run python scripts/z44_one_mute.py 100000 1000000
 """
 import sys

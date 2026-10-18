@@ -18,3 +18,7 @@ k=6: odd squares, Q<=99: 0 modulus-4 shots (T1 predicts 0; trial division to 500
 8/241, k=5: 8/241 = 1/4262 + 1/4262 + 7^5/513571
 8/241, k=2: r=7: 8/241 = 1/46 + 1/241 + 9^2/11086
 8/241, k=4: r=7: 8/241 = 1/46 + 1/241 + 3^4/11086
+fixed shot k=3, r=3: all primes 13..1000000 (r ∤ p), 302 odd squares, 29 odd cubes solved, Type II, max Q = 11
+fixed shot k=3, r=11: all primes 13..1000000 (r ∤ p), 302 odd squares, 29 odd cubes solved, Type II, max Q = 109
+fixed shot k=5, r=3: all primes 13..1000000 (r ∤ p), 302 odd squares, 29 odd cubes solved, Type II, max Q = 11
+fixed shot k=5, r=23: all primes 13..1000000 (r ∤ p), 302 odd squares, 29 odd cubes solved, Type II, max Q = 217

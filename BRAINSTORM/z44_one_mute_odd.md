@@ -17,5 +17,6 @@ condition on top of Artin — B2/B6 style lottery at fixed q.
 g ≡ 3 (4) with q primitive root, least g ≤ 179); q = 13, g = 11 solves all primes ≤ 10⁶ and odd squares, exponent ≤ 9.
 
 ## Assessment
-PROVED per q (POWER_LADDER_ES Thm 5.1), CERTIFIED for all q ≤ 10⁶, CONDITIONAL (GRH, Lenstra) for all q. The parity
-normalisation is the entire gap between a finite covering and an open Artin problem at one mute place (Prop 5.2).
+PROVED per q (POWER_LADDER_ES Thm 5.1), CERTIFIED for all q ≤ 10⁶, CONDITIONAL (GRH, Lenstra) for all q. With parity the exact
+g-shot condition is −n/4 ∈ ⟨q²⟩_g; the natural sufficient route is Artin-type (Prop 5.2 — a sufficient route, not a
+proved necessity). Squares are never reached (T1).

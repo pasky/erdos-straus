@@ -648,6 +648,6 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | memo | idea | outcome | label |
 |---|---|---|---|
 | z44_parity_collapse | is ES_{Q³} (den z a cube) provable pointwise? | trivially: odd k ⟹ 4x = n + Q^k, Q ≡ −n (4), all n, T1 dead; even k = ES^□ (one Dirichlet prime, T1); ladder carries only k mod 2; O274 §3.2 calibration repaired | PROVED + EVIDENCE (10⁶) |
-| z44_one_mute_odd | one mute prime q, free exponent | finite covering via a witness g ≡ 3 (4) with q primitive root (all q ≤ 10⁶, g ≤ 179); with parity it is an Artin problem | PROVED per q, CERTIFIED q ≤ 10⁶, CONDITIONAL (GRH) all q |
+| z44_one_mute_odd | one mute prime q, free exponent | finite covering via a witness g ≡ 3 (4) with q primitive root (all q ≤ 10⁶, g ≤ 179); with parity the exact condition is −n/4 ∈ ⟨q²⟩_g, natural route Artin-type (sufficient, not necessary) | PROVED per q, CERTIFIED q ≤ 10⁶, CONDITIONAL (GRH) all q |
 | z44_tes_ladder | order-3 TES over ℤ[ω] | T1₃ ⟺ 3 \| k, shot index even ⟺ 2 \| k: TES_(2) is T1-free yet not covered by fixed shots (209/412 at g of norm 73) | PROVED (bits) + EVIDENCE |
 | z44_neutral_odd_mute | odd exponents only where the local symbol is +1 | T1-bearing but contains ES^□ ⟹ pointwise-trivial; only rungs inside ES^□ can be informative | Assessment |
