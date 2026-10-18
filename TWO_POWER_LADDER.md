@@ -103,8 +103,9 @@ odd-order subgroup of G_{4q}; **the whole 2-power ladder at ℓ is satisfied.**
 conditions on q are: q ≡ −(4n)⁻¹ (mod ℓ) and q splits completely in ℚ(ζ_m, (−ℓ)^{1/m}). By Thm 3.1 (with −ℓ in place of ℓ;
 same proof) these are compatible iff they agree on ℚ(ζ_m, √−ℓ) ∩ ℚ(ζ_{4ℓ}) = ℚ(i, √−ℓ) (m ≥ 4) resp. ℚ(√−ℓ) (m = 2):
 q ≡ 1 (4) and (−ℓ/q) = 1, i.e. (q/ℓ) = 1 — and the forcing gives (q/ℓ) = (−n/ℓ) = (−1/ℓ)(n/ℓ) = 1. ∎
-Numerics (§2): at ℓ = 7, n = 13, among forced q ≡ 1 (8) a fraction 258/1070 ≈ 1/4 has ℓ an 8th power (here −ℓ vs ℓ
-differ by (−1)^{(q−1)/m}-type signs; the density statement is Chebotarev's).
+Numerics (`scripts/z41_minus_l.py`, `logs/z41_minus_l.txt`, forced q < 4·10⁵): (n, ℓ) = (13, 7), (7, 11), (101, 7),
+(131, 11), (241, 7): m = 2 — all forced q have −ℓ a square (forced layer); m = 4, 8, 16 — fractions 1405/2819, 350/1406,
+82/713 (n = 13; the others alike) ≈ 2/m = 1/2, 1/4, 1/8: exactly the Chebotarev density of the extra (chosen) layer.
 
 **Proposition 4.2 (size obstruction — why the ladder at a small prime never reaches the class −1; PROVED, trivial).**
 (a) A prime ℓ < t − 1 is never ≡ −1 (mod t); every divisor d ≡ −1 (t) of N has d ≥ t − 1.
