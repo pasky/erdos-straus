@@ -106,7 +106,8 @@ happens because −3 is a square in ℚ(ζ₃); in general Y^{2^r e} + u^e can s
 integers of a(m₁m₂d − 4) = m₁ + 16m₂ satisfy d ≤ 21, a ≤ 81, m₁ ≤ 36; there are exactly 39.
 *Proof.* a ≥ 1 gives m₁m₂d ≤ m₁ + 16m₂ + 4, so d ≤ 1/m₂ + 16/m₁ + 4/(m₁m₂) ≤ 21, and (m₁ − 16)(m₂ − 1) ≤ 20. Hence
 m₂ = 1, or m₁ ≤ 16, or (m₂ ≥ 2 and m₁ ≤ 36). If m₂ = 1: m₁(ad − 1) = 16 + 4a, ad = 1 is impossible, and ad ≥ 2 gives
-m₁ ≤ 24, a ≤ 21 (d = 1: m₁ = 4 + 20/(a − 1)). Otherwise m₁ ≤ 36 and m₂(am₁d − 16) = m₁ + 4a: if m₁d ≥ 5,
+m₁ ≤ (16 + 4a)/(2a − 1) ≤ 20 for a ≥ 1, d ≥ 2, resp. m₁ = 4 + 20/(a − 1) ≤ 24 for d = 1; then a(m₁d − 4) = m₁ + 16 ≤ 40
+forces m₁d ≥ 5 and a ≤ 40. Otherwise m₁ ≤ 36 and m₂(am₁d − 16) = m₁ + 4a: if m₁d ≥ 5,
 a ≤ (m₁ + 16)/(m₁d − 4) ≤ 52; if m₁d = 4, 4(a − 4)(m₂ − 1) = m₁ + 16 gives a ≤ 9; m₁d = 3: (3a − 16)(3m₂ − 4) = 3m₁ + 64
 gives a ≤ 29; m₁d = 2: (a − 8)(2m₂ − 4) = m₁ + 32 gives a ≤ 42; m₁d = 1: (a − 16)(m₂ − 4) = 65 gives a ≤ 81. The script
 enumerates a ≤ 500, d ≤ 100, m₁ ≤ 2000 (m₂ determined), asserts the bounds, finds 39 solutions (astra's count, reproduced
