@@ -118,8 +118,8 @@ group C₂ × C₂, so the two conditions at 2 are compatible — no obvious obs
   g, Z = −nx, and q | Q, q | x ⇒ q | ωna ⇒ q | n ✓ (verified in the script).
 * Table reproduced exactly; k = 3, cubes 0/412 is also forced by Cor 3.4 (18 never a cube mod a class prime).
 * "Finitely many fixed shots never cover TES_(2)" (CRT on quadratic classes at distinct g_i) ✓ for the g-shot family.
-  I also checked the other obvious fixed-modulus family, the x = y identity 9/n = ω/x + ω/x·ω + 2D/(nx) with
-  9x = 2D − n (ω/x + ω²/x = −1/x): it fires iff n/2 ∈ ((O/9)^×)^k; in (O/9)^× (order 54) the squares have index 2 and the
+  I also checked the other obvious fixed-modulus family, the x = y identity 9/n = ω/x + ω²/x + 2D/(nx) with
+  9x = 2D − n (ω/x + ω²/x = −1/x; x ≡ 1 (2O) automatically): it fires iff n/2 ∈ ((O/9)^×)^k; in (O/9)^× (order 54) the squares have index 2 and the
   cubes index 27 (2 is not a cube — consistent with T1₃ at k = 3), so it does not cover TES_(2) either. So the author's
   conclusion survives one more family, but the general wording overreaches (D6).
 
@@ -127,3 +127,52 @@ group C₂ × C₂, so the two conditions at 2 are compatible — no obvious obs
 r = 3: y = n(r+1)/4 = n, e = (n + 4Q³)/3, x = (n + e)/4 = (n + Q³)/3 ✓; 1/x + Q³/(nx) = 3/n ✓; Q ≡ −n (3), odd, prime to n,
 lowest terms ✓; Type II ✓ (reproduced for all n ≤ 10⁶ prime to 3, k = 3, 5, 7). r = 11 for 3 | n ✓ (gcd(3, 10) = 1) —
 but see D4 for 33 | n. Cubic-residue direction (r ≡ 1 (3)) correctly identified as index 3, unnecessary.
+
+## Numbered defects
+
+No FATAL, no MAJOR. Every theorem was re-proved and every number reproduced from scratch.
+
+* **D1 (MINOR, framing) — §2.2 "Reading", AGENT_REPORT SHARP 1 ("the ladder carries exactly one bit: k mod 2").** By
+  Cor 2.5 all rungs coincide AS PREDICATES ON n (all true at every n ≥ 2), so the ladder carries zero bits of truth; the
+  k mod 2 bit is mechanism-level (T1 present/absent ⇒ Type I/II-shaped finite covering possible vs. one Dirichlet prime +
+  scaling). *Repair:* say "one bit of mechanism (T1 / shaped-covering), zero bits of truth (Cor 2.5)".
+* **D2 (MINOR) — Thm 2.1, "distinct-denominator variant".** The split 1/x = 1/(x+1) + 1/(x(x+1)) can destroy the Type I
+  shape: n = 13, k = 5, Q = 3, x = 64: 4/13 = 1/65 + 1/4160 + 3⁵/832, and 13 divides all three denominators to the first
+  power (not Type I/II at 13). *Repair:* add "(the shape claim refers to the (2x, 2x) form)".
+* **D3 (MINOR) — Cor 2.2 "the rung is a finite covering … Q = 7 serves …".** With Q = least Q ≡ −n (4) prime to n, Q is
+  unbounded over composite n (n divisible by 3·7·11·19·…), so this is not literally a finite congruence covering.
+  *Repair:* a genuine finite covering with Q ∈ {1, 3}: n ≡ 3 (4): Q = 1; n ≡ 1 (4), 3 ∤ n: Q = 3; 3 | n: ES(3)
+  (4/3 = 1/1 + 1/4 + 1/12) scaled by n/3; even n by scaling/ES(2^a).
+* **D4 (MINOR) — §7 "r = 11 for 3 | n"; valuation formula.** r must not divide n, so r = 11 fails at 33 | n (use r = 23,
+  or scaling from ES(3)/ES(11), or simply Thm 2.1). The formula "v_q(z) = 2v_q(r+1) − 3v_q(Q)" holds only when
+  v_q(r+1) < 3v_q(Q) (else v_q(z) ≥ 0). *Repair:* "r ∈ {3, 11, 23} (each ≡ 3 (4), ≢ 1 (3)) covers every n prime to 3·11·23
+  … or: by scaling"; add the case split.
+* **D5 (MINOR, overclaim / missing one-line proof) — AGENT_REPORT SHARP 3 and memo z44_tes_ladder ("T1₃ ⟺ 3 | k").**
+  POWER_LADDER §6 proves only ⟸ and "no constraint from the mute places" for 3 ∤ k; failure of T1₃ is exhibited only for
+  k = 1, 2. The converse is easy and should be stated with its proof: *if 3 ∤ k, TES_(k) has Type II-shaped solutions at
+  cubes.* Proof (relative to Hecke, as SPARKS2 Cor 3.4): fix a class prime g of norm ℓ; H_k = (F_ℓ^×)^k has index d =
+  gcd(k, ℓ − 1) prime to 3, the cubes C₃ have index 3, so C₃·H_k = F_ℓ^× and the coset (−1/18)·H_k contains a cube t³;
+  take (Hecke) a prime π ≡ t (mod g), π ≡ 1 (mod 2), π ∤ 6; then −π³/18 ∈ H_k, the g-shot fires at n = π³ and SPARKS2
+  Prop 3.1 gives a Type II-shaped TES_(k)(π³) solution, which T1₃ (Thm 3.3 form) would forbid. *Repair:* add this
+  as a Proposition (PROVED rel. Hecke) to §6, or weaken the report/memo wording to "T1₃ for 3 | k; no mute-place T1₃
+  for 3 ∤ k".
+* **D6 (MINOR, scope) — §6 "Reading" ("'no T1 ⟹ finite covering' is FALSE within fixed-modulus shot families").** Proved
+  only for finitely many SPARKS2-Prop-3.1 g-shots. Families with modulus at the anchor (O/2O)^× = F₄^× (odd order 3, so
+  squaring is bijective there) or at λ are not excluded by the CRT argument. I checked the x = y family (modulus 9,
+  index 2 for k = 2: does not cover either), so the claim survives one more family, but the general wording is
+  unproved. *Repair:* "within the g-shot family of SPARKS2 Prop 3.1 (and the mod-9 x = y family)", and keep "OPEN" for
+  other identity families.
+* **D7 (MINOR, wording) — memo z44_neutral_odd_mute "a T1-bearing rung strictly between ES^□ and ES_(1)".** Strict as solution
+  sets, not as predicates on n (Cor 2.5). *Repair:* "strictly between, as solution sets".
+
+## Labels
+All PROVED labels (Thm 2.1, Cor 2.2, Thm 2.3, Lemma 2.4, Cor 2.5, Prop 3.1, §4 inspection claims, Thm 5.1 per q,
+Prop 5.2, §6 bits, §7) are correct; Thm 2.3/Cor 2.5 rest on Dirichlet (stated). CERTIFIED (q ≤ 10⁶) and EVIDENCE (§2.3,
+§6 table, §7 table) are reproduced exactly. CONDITIONAL (GRH/Lenstra) adequately hedged; source not accessed. "Reading"
+paragraphs are Assessments and labelled so. Nothing claims ES or an infinite family of ES; the headline "pointwise
+ES_{Q³}" is correctly downgraded to "true for a trivial reason".
+
+## Bottom line
+O276 is correct. The flat-ladder theorems, the (J)107 calibration repair, the one-mute-prime dichotomy and the TES table
+all survive a hostile from-scratch check. Seven MINOR wording/scope defects; the one substantive addition is D5's
+three-line proof that T1₃ fails for every 3 ∤ k, which upgrades the report's "T1₃ ⟺ 3 | k" from overclaim to theorem.
