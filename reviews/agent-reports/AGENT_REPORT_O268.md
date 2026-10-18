@@ -22,18 +22,19 @@ zero_law.py, zero_growth.py, typeII_check.py, b1.c, b1_stats.py, thm22_check.py}
    primes ≤ 10⁶, mean 0.149.
 3. **Exact conditional with an unconditional main term:** (★) (hence ES) for p > p₀ ⟸ H⁻_BM(ε, p₀): R(p) ≥ ε·M_BM(p).
    Not refuted by T1 (0 = 0 at squares). Honest: H⁻_BM is ES-(★) in disguise up to ε (single-integer lower-tail statement),
-   not implied by any standard conjecture.
+   no implication from a standard conjecture is established (none known).
 
 ## Results by goal
 * (1) Dictionary: SHARP 1. Checked with exact Hilbert symbols at all places (9 440 pairs, primes and squares < 400).
 * (2) (L): SHARP 2. (M_gen itself still only ≫ log log p; we did not need it.)
 * (3) H_X: **two-sided H_X is FALSE infinitely often (Prop 3.1, PROVED via Linnik)**: R(p) ≥ exp(c log p/log log p) for
   infinitely many p ≡ 1 (4), while M_BM ≪ log²p, M_gen ≪ log⁴p. Only one-sided H⁻ is meaningful. Numerics, all primes ≤ 10⁶
-  and all odd n ≤ 10⁶ (exact C engine): 17 (★) failures among primes (9 ≡ 1 (8), 8 ≡ 7 (8)); H⁻ needs p₀ ≥ 8.9·10⁶ (census);
-  at fixed M the zero rate is 1.6–2.9× swap-Poisson e^{−M/2}, rising to 5–15× in the far tail (lower tail fattening);
-  primes and composites fail at the same rate at equal M. Standard-conjecture audit (§3.3): none is single-integer.
-  Literature calibration: Ghosh–Sarnak Markoff surfaces — same (log)² mean — have infinitely many Hasse failures, mostly
-  not BM-explained; the analogue of H⁻ fails there.
+  and all odd n ≤ 10⁶ (C engine; R exact, main terms in double precision): 17 (★) failures among primes (9 ≡ 1 (8), 8 ≡ 7 (8)); H⁻ needs
+  p₀ ≥ 8.9·10⁶ (census); at fixed M (M_BM8, after the self-review fix) the zero rate is ≈ 1.5–2.8× swap-Poisson e^{−M/2}
+  for M < 22, 5–15× beyond (only 6 zeros); primes and composites show comparable rates (small counts). Standard-conjecture
+  audit (§3.3): none is single-integer; no implication established.
+  Literature calibration: Markoff surfaces (Ghosh–Sarnak; same (log)² mean) have infinitely many integral Hasse failures
+  with non-empty BM set (Loughran–Mitankin Thm 1.5, CTWX Thm 5.8); "mostly non-BM" only if GS's B^{0.89} numerics hold.
 * (4) b = 1 / union: (★) and b = 1 are shifts −(x+y), −(4x+y) mod 4xy with the same χ_{−4xy}; b = 1 needs the mod-4 character
   (bare M_BM diverges). Residuals positively correlated (0.21–0.30): the union's robustness is a doubled main term, nothing
   forced. Reproduces b = 1 exceptions 193, 2521, 66529.

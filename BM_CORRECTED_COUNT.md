@@ -14,10 +14,11 @@ PARITY_AUDIT Lemma 3.2 (χ-shadow), B1_LINE Lemma 1.2 (pair genus law), CONDITIO
   **≥ (3/(16π²) − o(1))(log p)² unconditionally** (Burgess; 1/(32π²) with PV); ∼ M₀ ∼ (3/(2π²))(log p)² under GRH
   (board F4 obligation (i), derived).
 * §3 (PROVED) two-sided remainder bounds |R − M| ≤ (log p)^{O(1)} (incl. O260's H_X with M_gen) are false infinitely often
-  (Linnik). Exact conditional: (★)-ES for p > p₀ ⟸ H⁻_BM: R(p) ≥ εM_BM(p) — no other input; not refuted by T1; not implied
-  by any standard conjecture; ES-(★) in disguise up to ε. EVIDENCE to 10⁶ (all primes, all odd n): lower tail fatter than
-  swap-Poisson and fattening; Markoff (Ghosh–Sarnak) precedent: the analogous statement fails i.o. there.
-* §4 b = 1 / union: same Brauer character, residuals positively correlated (no complementarity); 8/n control passes.
+  (Linnik). Exact conditional: (★)-ES for p > p₀ ⟸ H⁻_BM: R(p) ≥ εM_BM(p) — no other input; not refuted by T1; no implication
+  from a standard conjecture established; ES-(★) in disguise up to ε. EVIDENCE to 10⁶ (all primes, all odd n): zero rate
+  ≈ 2× swap-Poisson at fixed M, far tail possibly fatter; Markoff precedent (Loughran–Mitankin Thm 1.5): infinitely many
+  integral Hasse failures with non-empty BM set there.
+* §4 b = 1 / union: same Brauer character, residuals positively correlated overall; 8/n control passes.
 * **ES is not solved; no conditional theorem from a standard conjecture.**
 
 Notation (SINGLE_P_COUNT §1–2). For odd n ≥ 3, 𝒫(n) = {(u, B) ∈ ℕ² : gcd(u, B) = 1, u + B odd, 4uB − u − B ≤ n},
@@ -191,17 +192,17 @@ R* = M_BM = M_BM8 = 0.** Primes p ≡ 1 (4), M = M_BM:
   8 with p ≡ 7 (8): 7, 31, 79, 127, 199, 2719, 8191, 861199 — p ≡ 3 (4) is ES-trivial; none ≡ 3, 5 (8)). At the failures
   M_BM ∈ [3.0, 28.3]: H⁻_BM(ε, p₀) needs p₀ ≥ 861 199 (and ≥ 8.9·10⁶ by the (★) census ≤ 10¹⁰, SINGLE_P_COUNT §3).
 * **Zero law (odd non-squares n ∈ [10⁵, 10⁶], M = M_BM8):** P(R* = 0 | M) / e^{−M/2} (swap-Poisson: R*/2 ~ Poi(M/2)) =
-  1.6 (M ∈ [4, 10)), 1.8–2.1 ([10, 16)), 2.6–2.9 ([16, 22)), 5–15 ([22, 28), 9 zeros). Empirical decay of log P(0 | M) is
-  ≈ −0.46 per unit M at M ≈ 11–19 and ≈ −0.29 at M ≈ 19–27: **the lower tail is fatter than Poisson and fattening** (the
-  overdispersion growth of O260/B1_LINE, now at fixed main term). Primes and composites show comparable zero rates at
+  1.5–1.6 (M ∈ [4, 10)), 1.5–2.1 ([10, 16)), 1.8–2.8 ([16, 22)), 5–15 ([22, 28), only 6 zeros) (after the R-review fix of
+  M_BM8). Empirical decay of log P(0 | M) is ≈ −0.50 per unit M at M ≈ 11–19 (= the Poisson slope, with a constant excess
+  factor ≈ 2) and ≈ −0.23 at M ≈ 19–27: the far lower tail is **possibly** fatter than Poisson (6 zeros; cf. the
+  overdispersion growth of O260/B1_LINE). Primes and composites show comparable zero rates at
   equal M (small counts; see the M_BM8 table update below) — no sign of a composite-specific obstruction, though the
   counts are too small to exclude one.
 * Zero-set growth over all odd non-squares ≤ K: Z(K) = 215, 445, 905, 1743, 3490 for K = 10⁴ … 10⁶ (local exponent
-  0.66 → 0.58, decreasing), dominated by small-M composites (M_BM8 < 0.08L²). Restricted to M_BM8 ≥ 0.1L²: 8, 16, 23, 34, 51.
+  0.66 → 0.58, decreasing), dominated by small-M composites (M_BM8 < 0.08L²). Restricted to M_BM8 ≥ 0.1L²: 7, 14, 20, 30, 46 (of which prime: 5, 6, 7, 8, 11).
 * Reading (Assessment): finiteness of the zero set is heuristically tied to summability of P(R = 0 | M(n)) along n
   (H⁻_BM itself concerns the larger event R < εM). With M ≈ 0.15L²,
-  Poisson gives P ≈ e^{−0.075L²} (summable); the measured tail at 10⁶ is ≈ n^{−0.84} for typical n — still a power, slowly
-  steepening. Whether log P(0 | M(n))/log n → −∞ (finitely many failures) is exactly the open question; nothing at 10⁶
+  Poisson gives P ≈ e^{−0.075L²} (summable); the measured zero rate at typical M ≈ 25 near 10⁶ is ≈ 2·10⁻⁵ ≈ n^{−0.8} — still a power at this height. Whether log P(0 | M(n))/log n → −∞ (finitely many failures) is exactly the open question; nothing at 10⁶
   decides it.
 
 ### 3.3 Is H⁻_BM implied by a standard conjecture? The closest precedent says "be careful"
@@ -290,5 +291,5 @@ the scale of the main term itself (≈ 0.5 at 131, 241; ≈ 12 at 10⁶ for 8/n)
   standard conjecture implying it (§3.3), and the closest literature precedent (Markoff surfaces, same (log)² main-term scale)
   has infinitely many failures of the analogous statement.
 * **Barrier status.** B3 unchanged (positivity needs the remainder to o(L²) in the lower direction at one p, with typical
-  |X| ≈ 0.75L and a fattening tail). T1 handled (every main term and every hypothesis checked at squares). B6 respected
+  |X| ≈ 0.75L and a possibly fattening far tail). T1 handled (every main term and every hypothesis checked at squares). B6 respected
   (no averaging over p; Thm 2.2 is pointwise). k = 8 control behaves as required.
