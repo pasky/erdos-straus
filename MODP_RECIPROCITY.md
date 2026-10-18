@@ -12,6 +12,18 @@ unless said otherwise); i_p := a·b⁻¹ mod p (a square root of −1 mod p; rep
   content of a certificate is (i) quadratic part: a function of the parameters mod 8 (Jacobi), i.e. the T1 sign, (ii)
   quartic part: a function of (a, b) modulo the parameters (Gauss–Dirichlet–Burde), a genuine extra datum — but the event does
   not depend on it. The target is additive (an equation of height 1), not multiplicative. Modification → v1.
+* v1 (non-abelian data as the lever). R272 D2: Frob_p = congruence data + an independent non-abelian part. §2: that part is
+  inert for every bounded-witness menu (Chebotarev) and complete information at unbounded level (Prop 2.2: quartic characters
+  at the primes ≡ 3 (4) determine π). Barrier hypothesis met: "bounded witnesses". Modification: use the non-abelian data AS
+  NUMBERS at unbounded level, i.e. the representation (a, b) (→ v2).
+* v2 (Gaussian-representation certificates). Polynomial use of (a, b) is already closed by (J)3/(J)78/(J)79 (premise of the
+  brief corrected, §3.1); the non-polynomial √−1 lift menu is T1-barred on whole classes (Prop 3.3). Non-polynomial arithmetic
+  use (divisors of a, b, x, y as windows; canonical quantities as levels): Lemma 3.2/Prop 5.1 — a representation supplies
+  only a Jacobi SELECTION RULE (forbids windows, never forces). Barrier hypothesis met: "data of size ≍ √p enter only through
+  quadratic characters of the windows they index". Modification: higher-power content at square levels (→ v3).
+* v3 (Sophie-Germain levels, Burde; O263 spark 4). §4: exact law (ℓ/p)_4 = (k/ℓ)((a c_ℓ − b e_ℓ)/ℓ); no p-only constraint;
+  square levels ARE favoured (1.07 % vs 0.88 %), but by the algebraic factorisation 4j²k² − 1 = (2jk − 1)(2jk + 1) of the
+  WITNESS (B1-level), not by quartic data. v4: cubic/Jacobi-sum data (§5): identical behaviour.
 
 ## 1. The b = 1 line in mod-p (least-residue) coordinates, and the residue-symbol content of one certificate
 
@@ -206,3 +218,25 @@ divisors m of L permitted iff (3/m) = −1). So representation data act on certi
 the χ-shadow again, now as a selection rule on windows rather than on factors. (Assessment: no non-polynomial use of x, y
 beyond "use their divisors as windows" was found; the divisor-window menu is a finite lottery of ≈ τ(x)τ(y) tickets, each
 with probability ≍ τ(m + 1)/m — total ≍ p^{−1/2+o(1)}, useless at large p.)
+
+## 6. Verdict (O265 checkpoint 1)
+* **Goal (1)** (mod-p formulation): PROVED dictionary (Prop 1.1). The decisive condition is the height-one equation
+  4md − g = p, g | m + 1 — additive; the target is not a power class mod π. The residue-symbol content of a certificate is a
+  forced quadratic part (the T1 sign, a function of the parameters mod 8) and a free quartic part (a function of (a, b) mod the
+  parameters) that the event ignores (Prop 1.2; the free bit is balanced, EVIDENCE 2.3).
+* **Goal (2)** (what quartic/octic/Burde reciprocity forces): at bounded level nothing beyond congruences (Prop 2.1); at unbounded
+  level the non-abelian data are complete (Prop 2.2), so the question becomes what (a, b) as numbers can do; at Sophie-Germain
+  levels Burde gives an exact per-factor law with no p-only constraint (Prop 4.1).
+* **Goal (3)** (Gaussian certificate families): polynomial identities in (a, b) are already closed by (J)3/(J)78/(J)79 (the
+  brief's premise is incorrect there); the √−1 lift menu is T1-barred on whole classes (Prop 3.3); non-polynomial arithmetic use
+  acts only through the Jacobi selection rule of Lemma 3.2/Prop 5.1 (forbids all divisors of y and the divisors m of x with
+  (D/m) = +1; checked exhaustively to 10⁶). T1 steering: primitive representations of squares are i^j α², so all Gaussian
+  quadratic symbols are trivial there; Gaussian symbols are rational Legendre symbols of linear forms cb − ea in (a, b)
+  (BRAINSTORM/z35_gaussian_qnr_linear_forms).
+* **Goal (4)** (x² + 2y², x² + 3y², cubic Jacobi sums, Gauss periods): identical behaviour (Prop 5.1 with D = 2, 3, 27, 7).
+* **Numerator check.** Nothing positive was claimed, so the numerator-8 test is moot; the dictionary and Lemma 3.2 are
+  numerator-specific only through the 4 in 4m (the k/p analogue has the same least-residue shape with km).
+* **Overall (Assessment).** Mod-p reciprocity acts on individual factors only through quadratic characters — as a forced sign
+  (Prop 1.2(a)) or as a window selection rule (Prop 5.1) — while its higher-power part is either inert (bounded level) or
+  equivalent to knowing (a, b), whose only visible effect is again quadratic. Everything that would decide a certificate is the
+  height-one / least-residue divisor event (B2). ES is not advanced and not solved.
