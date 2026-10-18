@@ -72,3 +72,76 @@ Numerics: 20 000 random products of positive Γ₁(4) words, 0 failures of multi
 met for ES ((J)52, (J)55: positivity of d / sign of k is what kills escapes). And the obstructed set — squares — is the
 support of θ's Fourier coefficients. I did not find this formulation in RS or its citers (Assessment; folklore-level
 classical input).
+
+## 2. Question R: what a proof needs, exactly (goal 2)
+
+Setting: Γ̃ ⊆ Γ₁(4)_{≥0} finitely generated, Zariski dense, Γ̃ ⊄ Ψ; Γ⁺ := Γ̃ ∩ Ψ (a subsemigroup by Thm 1.5, = ker σ|Γ̃);
+seed (x, y), y odd, (x/y) = −1. (RS Thm 2.10's Γ'_n = ⟨S_n⟩ ⊆ Ψ is of the form Γ⁺ for Γ̃ = ⟨S_n, g'⟩, g' ∈ Ψ'.)
+R(n) = #{γ ∈ Γ̃_X : den γ(x, y) = n}, R⁺(n) likewise for Γ⁺, R_σ(n) = Σ σ(γ) over the same set (X a height cutoff).
+
+**Prop 2.1 (exact reduction; PROVED).** For γ ∈ Γ̃ with γ(x, y) = (a, n): (a/n) = σ(γ)(x/y) = −σ(γ). Hence
+`R⁺(n) = (R(n) + R_σ(n))/2`, `R_σ(n) = −Σ_{γ : den = n} (a_γ/n)`, and **n is a Γ⁺-denominator ⟺ some Γ̃-orbit point
+with denominator n has a numerator that is a Jacobi non-residue mod n.** At n = m², (a/n) = 1 for all a, so R_σ = −R
+and R⁺ = 0 (RS Thm 2.5 for Γ⁺).
+*Proof.* RS Prop 2.2 / (3.0.1): γ ∈ Ψ preserves the Kronecker symbol of (x, y), γ ∈ Ψ' flips it (Lemma 3.4); with
+σ = ±1 on Ψ/Ψ' this is (a/n) = σ(γ)(x/y). ∎
+So Question R, ZQ_M (ZAREMBA §4) and ES-five (DEDEKIND Cor 4.6) are **one problem type: "the structured numerator set
+G(n) ⊆ (ℤ/n)^* is not contained in the Jacobi residues"**, with G(n) =
+
+| problem | G(n) | |G(n)| | status |
+|---|---|---|---|
+| RS Thm 2.6 (Ψ, fat) | numerators on the line ux + vy = n (RS Lemma 4.1) | ≍ n/(8xy), an arithmetic progression | PROVED (PV) |
+| ES at L ≍ log p log log p (Thm A) | {A : Σ c_i(A/p) small} | > p/2 | PROVED (pigeonhole) |
+| Question R (Γ̃, δ near 1) | numerators of Γ̃(x, y) over n | ≍ n^{2δ−1} (expected), Cantor-type | open |
+| ZQ_M (Zaremba, digits ≤ M) | Z_M ∩ Z_M^{−1}-type | ≍ n^{2w_M−1} | EVIDENCE only |
+| ES-five | L₃(n) (HJ length 3) | ≍ log² n | EVIDENCE only |
+
+**Prop 2.2 (major arcs and expansion are blind to Question R; PROVED in the stated form).** (i) For every modulus Q
+and every non-square class, the congruence data of Γ⁺-denominators do not distinguish n = m² from admissible
+non-squares: by RS Def 2.4(1) / Prop 2.12–2.13 (orbits with reciprocity obstruction admit squares mod every Q), any
+product of local densities 𝔖(n) = ∏_p σ_p(n) that is positive on admissible classes is positive at admissible m².
+(ii) Hence no asymptotic R⁺(n) ~ c·𝔖(n)·n^{2δ−1} can hold at all large admissible n; the true main term must carry a
+factor vanishing at squares, which is **not an Euler product** — it is `1 − ∏_p 1[n ∈ ℚ_p^{×2}]` (Hasse principle for
+squares), the product of local square indicators subtracted from 1.
+(iii) In the twisted count R_σ(n) = −Σ_{a∈G(n)} (a/n), the character has conductor = the squarefree kernel of n
+(up to 2): for n = m²k it is (·/k) on units mod m. So in a circle-method/expansion treatment the reciprocity term
+lives at denominators q | n of size up to n — the far "minor arcs" — and not on major arcs.
+*Proof.* (i) is RS's Def 2.4(1) as verified for Ψ₁-orbits in RS Prop 2.13 (and for ES slice sets by R276). (ii) follows
+from (i) and Prop 2.1 (R⁺(m²) = 0). (iii) Jacobi symbol (a/m²k) = (a/k) for gcd(a, m) = 1. ∎
+
+**Heuristic reciprocity singular series for thin orbits (CONJECTURE R-main, Assessment).** For Γ⁺ as above,
+`R⁺(n) = (1/2)·c_Γ 𝔖(n) n^{2δ−1}·(1 + ε_n·1[n ∈ □·D] + o(1))`, ε_n = −1 at the obstructed square classes (RS Table 1:
+n = m², with the 2-adic variants), where D is the finite set of 2-adic square classes. Reason: for n = m²k with k > 1,
+R_σ(n)/R(n) = −(1/R)Σ (a/k) → 0 because Γ̃-numerators over n equidistribute mod k (strong approximation for Γ̃ mod k
+plus primitivity), so the twisted count only survives when the character is principal. This is the RS analogue of the
+factor (1 − 1_□) that their fat case gets from Pólya–Vinogradov: Σ_{k ≤ K} (ℓ(k)/n_o) = o(K) unless n_o = □.
+
+**What a growth/gluing proof would need (Assessment, precise).** Write G(n) ⊇ A ∩ B^{−1} (Shkredov Cor 16 with Γ̃-prefix
+and Γ̃-suffix sets, gluing scale N = n^{2ε}). By Prop 2.1 the full word P·M·S of a glued residue c has
+(c/n)·(x/y) = σ(P)σ(M)σ(S) when the cut points are Γ₁(4)-return times, so with P, S ∈ Ψ the middle window decides:
+σ(M) = −(c/n). Therefore:
+1. *Middle inside Γ (brief's ingredient (i))* is not an extra structural condition but **equivalent to a sign
+   condition on the glued residue**: σ(M) = +1 ⟺ (c/n) = −1 (plus the mod-4 return-time condition, a congruence
+   condition, and a bounded-gap condition for finite generation).
+2. *A main term vanishing at squares (ingredient (ii))* must come from a **twisted gluing count**
+   `Σ_{c ∈ A∩B^{−1}} (c/n) = o(|A||B|/n)` for non-square n. Expansion in SL₂(ℤ/n) (Shk Lemma 14/15, Zhang Thm 3.6) holds
+   at n = m² as well (strong approximation for Γ̃ at odd n), so it cannot give this (ZAREMBA §4 item 2; R276).
+3. *Errors.* With A = ∪ intervals of length N, a box I × J contains N²/n solutions of ab ≡ 1: for N < n^{1/2}
+   (Shkredov's regime, N < n^{1/9}) the solutions are isolated points and (c/n) on them is not a character sum over
+   any interval — Burgess does not apply at any N. For N ≥ n^{1/2} the twisted box count is a Salié-type
+   incomplete sum, O(n^{1/2+o(1)}) per box (Weil), nontrivial only for N ≥ n^{3/4+o(1)}, i.e. ε ≥ 3/8, while the
+   middle-window step needs ε < 1/18. **The window conflict is therefore 3/8 vs 1/18** (not 1/8 vs 1/18 as in
+   ZAREMBA §4, which assumed the character could be summed over gluing intervals).
+4. *What would suffice (a precise open input).* "Hypothesis TG(ε₀, κ): for sets A = Λ₁ ∔ [N], B = Λ₂ ∔ [N] ⊆ ℤ/n with
+   N = n^{2ε}, ε ≤ ε₀, and non-square n, Σ_{c∈A∩B^{−1}} (c/n) ≪ |A||B|N^{−κ}/n + n^{1−κ}." Under TG(1/18, κ) plus the
+   Shkredov/Zhang machinery transported to Γ̃-digit sets (CONDITIONAL on the preprints and on that transport), the
+   proof of Question R would go through for δ_Γ̃ > 1 − O(κ) by the same parameter count as ZAREMBA §1.3. TG is false
+   for squares (as it must be) and is a χ-twisted Kloosterman-type problem on Cantor sets; I know no result of this
+   kind below N = n^{1/2}.
+
+**Distance from a Γ-theorem to ES-five (Assessment).** Even a full proof of Question R (all δ > 1 − κ/8) would be a
+theorem about numerator sets of size n^{2δ−1} = n^{1−O(κ)}. ES-five's numerator set has size ≍ log² n (R276 D3: in
+BK normalisation it is the critical exponent δ = 1/2 with a log² excess, not "dimension 0"). In the ladder of the table,
+Question R sits between RS's fat case (n¹) and ZQ (n^{0.67} at M = 5), all at power size; ES-five is
+at the B2/B3 floor. The gap n^{1−O(κ)} → log² n is the entire B3 scale gap; the only transferable piece is the shape of
+the main term (factor vanishing at squares), which is heuristic for ES (§3).
