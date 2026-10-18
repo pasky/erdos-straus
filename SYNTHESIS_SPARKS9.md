@@ -158,3 +158,17 @@ levels ≍ L²/(cluster size)), which is the usual Borel–Cantelli heuristic fo
 BM-corrected Harris inequality over primes (T1-consistent, so not refuted by squares) — would imply a power-saving
 exceptional-set bound for (★), far beyond every method mapped in (D)9–(D)24; we record it only as a CONJECTURE shape, with no
 evidence that any technique reaches it.
+
+**Proposition 3.4 (level-Poisson test, EVIDENCE; `scripts/s9_level_poisson.py`, `logs/s9_level_poisson.txt`; 185 981 primes
+p ≡ 1 (4) ≤ 5.37·10⁶, the range where O268's `z38_mbm` finished within the time limit).** Per M_BM8 bin, observed (★) zeros against
+n·e^{−μ} (Poisson), n·e^{−μ/2} (swap-Poisson), n·e^{−E NL} (level-Poisson, NL = #distinct hit levels):
+* totals: observed 12; Poisson 0.09; swap-Poisson 4.98; level-Poisson 12.6 (bin-mean exponent) / 31.1 (per-prime exponent from
+  the fit E[NL | M_BM8] ≈ −0.96 + 0.476·M_BM8).
+* shape: level-Poisson over-predicts at small M (bins M < 12: 8.4 predicted vs 3 observed) and under-predicts at large M
+  (M ∈ [20, 30): 0.76 vs 5). The observed zero rate decays more slowly in M than e^{−E NL}.
+So the per-level "Poisson unit" has the right order of magnitude overall, but the far lower tail is fatter than any
+independent-level model — the levels are positively dependent exactly in the joint-failure event, matching (J)89 (joint
+all-j failure 1.5× the product) and O268 (excess over swap-Poisson growing with M). Assessment: the lower tail at one prime
+carries a genuine positive dependence between levels that pairwise statistics do not see; any Janson/Harris-type inequality
+would have to be false at the level of these data unless it includes higher-order dependency terms. This strengthens the
+answer to (iii): near-independence is pairwise only, and the joint lower tail is where it fails.
