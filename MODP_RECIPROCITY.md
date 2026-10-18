@@ -81,15 +81,14 @@ Eisenstein symbols of any fixed small numbers) add nothing to the abelian (congr
 (R272 D1 is consistent with this: the abelian part *can* force certificates — p ≡ −4 (7) — it is the non-abelian part that is
 inert at bounded level.)
 
-**Proposition 2.2 (unbounded level: the non-abelian part is complete information; PROVED).** Let K = ℚ(i), π = a + bi primary.
-The family of quartic symbols ([q/π]_4)_{q prime, q ≡ 3 (4)} determines π up to the finite set of primary primes π′ with
-π̄′/π′ ≡ π̄/π · (unit) in K^×/K^{×4} — and that set is {π}. Hence the full collection of quartic symbols (q/p)_4 of small primes
-determines (a, b), and so p.
-*Proof.* By §1 (b), [q/π]_4 is determined by (and determines, up to the character's kernel) the class of β := π̄/π in
-T(F_q)/T(F_q)^4, T the norm-one torus (|T(F_q)| = q + 1 ≡ 0 (4)). By Chebotarev in K(β^{1/4}, …) a class β β′⁻¹ that is a 4th
-power in T(F_q) for all inert q is a 4th power in K^× up to units (Grunwald–Wang does not interfere for exponent 4 over ℚ(i),
-which contains μ₄; standard Kummer theory: an element that is locally a 4th power at a density-one set of primes is a global
-4th power). But β/β′ = π̄π′/(ππ̄′) has valuation 1 at π̄ unless π′ ∈ {π, π̄}·units; primary normalisation leaves π. ∎
+**Proposition 2.2 (unbounded level: the non-abelian part is complete information; PROVED, Dirichlet).** For p ≡ 1 (4) with
+primary π = a + bi, let χ_π(n) ∈ {±1, ±i} be the image of n^{(p−1)/4} mod p under i_p ↦ i (a Dirichlet character of order 4
+mod p). The values χ_π(q) at the primes q ≡ 3 (mod 4) determine π (hence (a, b) and p). In particular the quartic symbols of
+small primes, which at each fixed q are an independent non-abelian datum (Prop 2.1), are jointly a complete invariant.
+*Proof.* If χ_π(q) = χ_{π′}(q) for all primes q ≡ 3 (4), q ∤ pp′, then ψ := χ_π·χ̄_{π′} is a character mod 4pp′ that is
+trivial on every such q. By Dirichlet, these primes meet every class ≡ 3 (mod 4) of (ℤ/4pp′)^×, and products of two of them meet
+every class ≡ 1 (mod 4); so ψ is trivial, χ_π = χ_{π′} as characters mod 4pp′, their conductors p, p′ coincide, and equality of
+the order-4 characters mod p forces equal i_p, i.e. π′ = π. (By Linnik, finitely many q — up to a power of pp′ — suffice.) ∎
 *Reading.* There is no "independence barrier" for non-abelian data at unbounded level: knowing enough quartic symbols is
 knowing p's Gaussian coordinates. Any reciprocity-based mechanism at growing level must therefore use (a, b) *as numbers* —
 which is §3 (Gaussian-representation certificates). At bounded level (Prop 2.1) it is inert.
