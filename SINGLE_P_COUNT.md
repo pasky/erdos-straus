@@ -138,6 +138,8 @@ Findings.
   (M_Q, Q = 720720), 0.86 (Q = 2⁶3³5²7²·11·13·17·19·23·29; this Q makes many small-q pairs exact, so the same caveat as for
   R_sm applies); corr(R, M) = 0.16, 0.17, 0.55, 0.65, 0.74. All main terms underestimate the mean by ≈ 2.1–3.2 (≈ 10 %), a
   prime-specific singular-series effect not modelled here.
+  On the 3642 primes p ≡ 1 (4) in [10⁶, 1.1·10⁶) the same ratios are 2.02 (M₀), 1.99 (M₂), 1.52 (M_gen), 1.01 (M_Q with
+  the large Q; corr 0.71): the genus share and the local share persist at the larger height.
 * **Failure prediction (`scripts/z30_failpred.py`, `logs/z30_failpred.txt`; all 16 899 primes p ≡ 1 (4), 13 ≤ p < 4·10⁵;
   8 observed failures 409, 577, 5569, 9601, 23929, 83449, 102001, 329617).** Negative-binomial lower tail for R/2 with mean
   M/2 and the dispersion fitted on [10⁵, 4·10⁵):

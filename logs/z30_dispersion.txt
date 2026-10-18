@@ -18,3 +18,8 @@
   M2    mean=17.53  var(R-M)/(2 mean M)=1.527  corr(R,M)=0.269  mean(R-M)=2.51
   Mgen  mean=17.59  var(R-M)/(2 mean M)=1.092  corr(R,M)=0.602  mean(R-M)=2.44
   MQ    mean=17.90  var(R-M)/(2 mean M)=0.629  corr(R,M)=0.784  mean(R-M)=2.13
+/tmp/z30_s6Q.txt p in [1e+06,1.1e+06) N=3642 mean R=32.00
+  M0    mean=28.73  var(R-M)/(2 mean M)=2.024  corr(R,M)=-0.006  mean(R-M)=3.27
+  M2    mean=29.09  var(R-M)/(2 mean M)=1.991  corr(R,M)=0.060  mean(R-M)=2.91
+  Mgen  mean=29.11  var(R-M)/(2 mean M)=1.522  corr(R,M)=0.521  mean(R-M)=2.89
+  MQ    mean=29.06  var(R-M)/(2 mean M)=1.011  corr(R,M)=0.706  mean(R-M)=2.94
