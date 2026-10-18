@@ -1,0 +1,18 @@
+# z38 summary (O268). primes<=1e6 (★) failures:
+7 31 79 127 199 409 577 2719 5569 8191 9601 23929 83449 102001 329617 712321 861199 
+[5e+00,1e+03): N=80 H-fail=20 min(M-|X|)=(-5.33, 701) max|X|/M=3.000 max|X|/L²=
+[1e+03,1e+04): N=529 H-fail=51 min(M-|X|)=(-6.26, 7873) max|X|/M=1.763 max|X|/L�
+[1e+04,3e+04): N=1002 H-fail=55 min(M-|X|)=(-14.63, 10009) max|X|/M=2.511 max|X|
+[3e+04,1e+05): N=3172 H-fail=124 min(M-|X|)=(-17.67, 90089) max|X|/M=1.922 max|X
+[1e+05,3e+05): N=8197 H-fail=280 min(M-|X|)=(-33.23, 270269) max|X|/M=2.421 max|
+[3e+05,1e+06): N=26195 H-fail=766 min(M-|X|)=(-41.25, 810809) max|X|/M=2.507 max
+M_BM8 >= 0.0 L^2 : K=1e+04: 215 (11 prime); K=3e+04: 445 (12 prime); K=1e+05: 905 (13 prime); K=3e+05: 1743 (14 prime); K=1e+06: 3490 (17 prime)
+M_BM8 >= 0.05 L^2 : K=1e+04: 137 (9 prime); K=3e+04: 278 (10 prime); K=1e+05: 519 (11 prime); K=3e+05: 933 (12 prime); K=1e+06: 1664 (15 prime)
+M_BM8 >= 0.08 L^2 : K=1e+04: 23 (7 prime); K=3e+04: 43 (8 prime); K=1e+05: 70 (9 prime); K=3e+05: 99 (10 prime); K=1e+06: 139 (13 prime)
+M_BM8 >= 0.1 L^2 : K=1e+04: 8 (5 prime); K=3e+04: 16 (6 prime); K=1e+05: 23 (7 prime); K=3e+05: 34 (8 prime); K=1e+06: 51 (11 prime)
+local exponent log(Z(3e+04)/Z(1e+04))/log(K ratio) = 0.662
+local exponent log(Z(1e+05)/Z(3e+04))/log(K ratio) = 0.590
+local exponent log(Z(3e+05)/Z(1e+05))/log(K ratio) = 0.597
+local exponent log(Z(1e+06)/Z(3e+05))/log(K ratio) = 0.577
+T1 control: odd squares <=1e6: 499 with nonzero R/MBM/MBM8: 0
+K=8 c=1 line: prime failures <=1e6: 835
