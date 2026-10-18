@@ -195,7 +195,7 @@ terms, no further normalisation).
   no Type I/II-shaped solution at cubes); 3 ∤ k ⟹ no T1₃ constraint from the mute places.
 * **Index bit (PROVED, elementary):** for a fixed shot prime g of norm ℓ (≡ 1 (3), odd), the shot fires at n iff
   −n/18 ∈ (O/g)^{×k}, index gcd(k, ℓ − 1), always even for even k. So k ≡ ±1 (6): ONE fixed g covers every n prime to
-  6g (a covering, like odd k over ℤ); k ≡ 0 (3): T1₃ + a cubic Chebotarev condition (SPARKS2 Thm 3.5); k ≡ ±2 (6):
+  6g (a covering, like odd k over ℤ; g = −8 + ω of norm 73 serves every k prime to 6, as 72 = 2³·3²); k ≡ 0 (3): T1₃ + a cubic Chebotarev condition (SPARKS2 Thm 3.5); k ≡ ±2 (6):
   NO T1₃, yet each fixed g fires only on the quadratic-residue half.
 * **EVIDENCE (`scripts/z44_tes_ladder.py 3000`, log `logs/z44_tes_ladder.txt`; exact verification in O).** Fixed
   g = −8 + ω (N = 73). Over the 412 2-primary split primes π with N(π) ≤ 3000 and their cubes π³: k = 1 fires for
