@@ -19,10 +19,12 @@ congruence group-theoretically and match it with Thm K's even/odd split.
    [[1, n],[t, 1 + nt]] = [[1,0],[t,1]]·[[1,n],[0,1]] (lower × upper unipotent). Its analogue in −Γ₁(t),
    [[−1, n],[t, −1 − nt]], is not positive. So ES(n) at level t asks whether **positivity can be restored in the
    −I coset** — the archimedean theme of (J)52 in group form.
-3. The odd part O_t = D⁻ − D⁺ + 2 of Thm K is, up to the elementary ±2 and the boundary β_t, the signed count over the two cells ±Γ₁(t) (sign = the value of the
-   weight-1 parity character at −I, (−1)^k with k = 1); the even part E_t is the unsigned count (same corrections). So the **weight-1
+3. D⁻ − D⁺ (= the Kronecker quotient's coefficients, METAPLECTIC (K1′)) is exactly the signed count of elements with
+   a, d ≥ 1 over the two cells ±Γ₁(t) (sign = the value of the
+   weight-1 parity character at −I, (−1)^k with k = 1); D⁻ + D⁺ is the unsigned count. So the **weight-1
    (holomorphic, Kronecker) part is exactly "−I-coset minus I-coset"**, and Cor K1.1 (T1 at 4 | t) says: at
-   n = m² the −I cell has no positive element with b = m², i.e. the odd part equals minus the even part.
+   n = m² the −I cell has no element with b = m², a, d ≥ 1 (D⁻ = 0, classical), i.e. in even/odd language the odd part
+   equals minus the even part (a relabelling).
 4. Metaplectic version (relating to QUESTION_R Prop 1.4, *classical/RS* input per R278): on positive self-levelled
    γ ∈ −Γ₁(4) one has (c/d) = 1, hence ν_θ(γ) = ε_d⁻¹(c/d) = −i constant (d ≡ 3 mod 4), while on positive
    γ ∈ Γ₁(4), ν_θ(γ) = (c/d) = (a/b). The theta multiplier refines the ±1 parity of item 3 to the 4th roots

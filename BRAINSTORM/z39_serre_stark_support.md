@@ -1,4 +1,4 @@
-# z39_serre_stark_support — T1 is metaplectic, 105 is not: supports of weight-½ forms (O269)
+# z39_serre_stark_support — supports of holomorphic weight-½ forms: T1's squares are one, the five-slice failure set is not (O269)
 
 **ES is not solved here.** Labels as in DISCOVERIES.md. (Self-review repairs applied: failure-set definition,
 period parity, support vs zero set.)
@@ -15,16 +15,14 @@ S ⊆ ⋃_{t∈F} t·□ (F finite) and S ∩ t·□ = {tm² : m ∈ 𝒞_t} wit
 Consequences:
 1. No weight-½ holomorphic form has support equal to the ES-five success set {n ≡ 1 (4) : N₋(n) > 0}, nor to any
    set of positive lower density (|S ∩ [1, X]| ≪ X^{1/2}).
-2. The T1 part of the failure set *is* metaplectic: {m² : m odd} = supp(θ(z) − θ(4z)), weight ½, level 16.
-3. **105 is not metaplectic** (CONDITIONAL on SQ₅ for the full statement; PROVED for period M ≤ 96): if the
-   five-slice failure set Z = {n ≡ 1 (4) : λ(n) > 3} (DEDEKIND §9.1, boundary certificates included; the interior-only
-   set {N₋ = 0} differs: its non-square zeros ≤ 10⁶ are 5 and 105) were exactly the support (over all n) of a
-   weight-½ form g, then 105 ∈ supp g;
-   the coefficient m ↦ a_g(105m²) = Σ_{k | m, k∈K} f_k(m/k) (contributions of the classes 105k²·□) is periodic in
-   m, say with period M, and non-zero at m = 1, so 105m² ∈ supp g for all m ≡ 1 (mod M). M odd: 105(1+M)² is even,
-   not in Z. M even ≤ 96: m = 1 + M ≤ 97 odd, 105m² ≤ 987945 < 10⁶, and the census says 105m² ∉ Z. Under SQ₅ every M
-   is excluded. The same holds after adding to Z finitely many further non-square points, provided 105 stays.
-   This is an exact-support obstruction only; weight-½ forms whose support merely contains 105 exist.
+2. The T1 part of the failure set is a holomorphic weight-½ support: {m² : m odd} = supp(θ(z) − θ(4z)), weight ½, level 16.
+3. **Z is not the exact support of any holomorphic weight-½ form — PROVED unconditionally (R280 repair, D6).**
+   Z = {n ≡ 1 (4) : λ(n) > 3} (DEDEKIND §9.1, boundary certificates included; R280 census: Z \ □ = {105} to 10⁸; the
+   interior-only set {N₋ = 0} has non-square zeros 5 and 105). If supp g = Z, then m ↦ a_g(105m²) is periodic (period
+   M) and non-zero at m = 1. M odd: 105(1+M)² is even, not in Z. M even: pick a prime ℓ ≡ 3 (4), (ℓ/105) = −1, ℓ ∤ M
+   (11, 19, 31, 43, …); then (−105/ℓ) = 1, and by CRT some odd m ≡ 1 (M) has ℓ | 105m² + 1 with (ℓ/105m²) = −1, a
+   length-2 certificate, so 105m² ∉ Z: contradiction. Same for Z ∪ F (F finite, 105 ∈ Z ∪ F). The obstruction is
+   elementary (Z misses whole residue classes of m on 105·□) and exact-support only (θ_{1,105} contains 105).
    (Compare bsB_theta_multiplier: Shimura zero-propagation fails for W at 105k² — a statement about eigenforms;
    Prop S is about *all* weight-½ forms and about supports.)
 4. Weight ≥ 3/2: no support restriction from this argument; coefficients of non-unary forms have power size; (J)39
@@ -43,6 +41,7 @@ X-fat). B2: not engaged — the statement is about zero sets, not mechanisms. B1
 None needed beyond DEDEKIND §9.1 (`scripts/dk_vanish5.py 1000000`, existing).
 
 ## Assessment
-PROVED (classical input) + CONDITIONAL (SQ₅) for item 3. Sharpest available answer to "is the ES failure set
-metaplectic": the square part is (θ), anything else is not, unless it comes in full periodic square classes. Promise as a route: 0; as steering: "no weight-½ object can certify non-square
-failures".
+PROVED (classical input), item 3 unconditional (R280). Scope: holomorphic weight-½ forms only (R280 D7) — mock,
+weakly holomorphic and harmonic weight-½ objects have positive-density supports and are not covered. Answer to "is the ES failure set a holomorphic weight-½ support": its
+square part is (θ); the whole set Z is not. Promise as a route: 0; as steering: "no holomorphic weight-½ form has Z
+as exact support".
