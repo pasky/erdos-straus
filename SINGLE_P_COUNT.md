@@ -190,3 +190,26 @@ F ≤ 0 on aG^k; off aG^k, F ≤ 1_a = 0. ∎
 1[· ≡ a (q)] on (ℤ/q)^×, is ≤ 0 unless the F_pair use characters of order up to the exponent λ(q) (Carmichael) of (ℤ/q)^×; in
 particular the genus part (k = 2, Lemma 2.1) supports no positive per-pair minorant: M_gen is a mean-correct
 redistribution (Prop 2.2(d)), not a lower bound. Positivity has to come from the full character group, i.e. from (U).
+
+## 6. The spectral reading (goal 3): one double coset per level, or one level per prime
+
+**Proposition 6.1 (PROVED, elementary).** (a) For c ≥ 1, the matrices γ = (a b; c d) ∈ SL₂(ℤ) with a ≡ d ≡ −1 (mod c) form
+exactly one double coset Γ_∞ γ_c Γ_∞, γ_c = (−1 0; c −1) (Γ_∞ = {±Tⁿ}), and inside it b(Tᵘγ_cTᴮ) = ucB − u − B. Hence
+R(p) = Σ_{c ∈ 4ℕ} N_c(p), N_c(p) = #{(u, B) ∈ ℕ² : ucB − u − B = p} = #{x | cp + 1 : x ≡ −1 (mod c)}.
+(b) In the Kloosterman sum S(m, n; c) = Σ_{ad ≡ 1 (c)} e((ma + nd)/c) this double coset is the single term (a, d) ≡ (−1, −1),
+and isolating it costs the full frequency average: c^{−2}Σ_{m, n mod c} e((m + n)/c)·S(m, n; c) = 1.
+(c) Transposing by S = (0 −1; 1 0): Sγ S^{−1} = (d −c; −b a), so {γ : b(γ) = p} ↔ {γ′ : c(γ′) = −p}: a single level p,
+i.e. the pairs (a, d) on ad ≡ 1 (mod p) (the modular hyperbola 𝓗 of PARITY_AUDIT), with the condition a ≡ d ≡ −1 modulo
+the height c = (ad − 1)/p of the point (the height-dependent target).
+*Proof.* (a) Γ_∞γΓ_∞ is determined by (c, a mod c, d mod c); Tᵘ(−1 0; c −1)Tᴮ = (uc − 1, (uc−1)B − u; c, cB − 1) as in
+Lemma 1.1(3); a, d ≥ 1 ⟺ u, B ≥ 1. (b) Orthogonality: Σ_{m,n} e((m(a+1) + n(d+1))/c) = c²·1[a ≡ d ≡ −1]. (c) Direct. ∎
+
+**Assessment (what Kuznetsov / θ = 7/64 can see).** Kuznetsov's formula controls Σ_c S(m, n; c)φ(4π√(mn)/c)/c for FIXED
+(m, n), averaged over the level c. In picture (a)–(b) the level c runs, but each level contributes one fixed double coset
+(all frequencies m, n ≤ c are needed to select it, (b)) and inside that double coset the b-entry constraint b = p is the
+divisor problem for the single integer cp + 1 — not a Kloosterman sum. In picture (c) the frequencies are free but the
+level is the single prime p: the only tool is Weil (p^{1/2+o(1)} per box), and the target is height-dependent. So at
+fixed p no sum Σ_c S(m, n; c) with fixed (m, n) and c in a long range arises, and the exceptional-eigenvalue parameter
+θ never enters. It enters after averaging over p, where the campaign already used it ((D)32: Σ_{p ≤ N} f_I(p) ≪ N log²N,
+now unconditional by (D)32b). This is the same tied/height-dependent dichotomy (PARITY_AUDIT Remark 3.1), now in
+Bruhat coordinates: "tied" = picture (a)–(b), "height-dependent" = picture (c).
