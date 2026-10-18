@@ -26870,4 +26870,35 @@ def check_hi():
 check_hi()
 
 
+def check_hj():
+    # (hj) MODP_RECIPROCITY (O265/R275): R275 from scratch — Prop 1.1/1.2 (b = 1 line in mod-p coordinates; explicit quartic law for
+    # q = 3, 7; Burde's law), the strengthened local-T1 Lemma 3.2 (0 firings on 199 208 pairs) and Prop 5.1's window selection rule
+    # (odd windows m | y, and m | x with (D/m) = +1, never fire, for D = 1, 2 and 4p = L² + 27M²).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("MODP_RECIPROCITY subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r275_sec1.py"])
+    assert "Prop 1.1 (i)=(ii)=(iii) and Prop 1.2(a),(b): 609 primes p<=10000, 5902 certificates, 0 failures" in out, out[:1000]
+    assert "Burde ((ac-bd)/q): 11615 pairs (q<200, p<2e4, (p/q)=1), 0 failures" in out, out[-1000:]
+    out = run(["review_r275_windows.py", "100000", "400", "20000"])
+    assert "199208 (p,m) pairs (p<=20000, m<=400), 0 firings" in out, out[:800]
+    for line in out.split("\n"):
+        if "(D/m)=+1" in line or "odd m|y" in line:
+            assert "firings      0" in line, line
+    print(f"== (hj) MODP_RECIPROCITY R275: mod-p dictionary + quartic laws; local-T1 Lemma 3.2; Prop 5.1 window selection rule; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_hj()
+
+
 print("\nall checks passed")

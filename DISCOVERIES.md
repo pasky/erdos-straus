@@ -1634,6 +1634,20 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment: the gap to ES is L = 3 (count ≍ log²p) against the method's L ≳ C₀ log p, with C₀ astronomically large. No pointwise theorem below log p log log p.
    * verify.py (hi) re-runs R276's checks.
 
+96. **Mod-p power residues and Gaussian representations: p's canonical √p-size data act on the b = 1 line only quadratically; non-abelian data are inert on finite witness sets (MODP_RECIPROCITY.md + BRAINSTORM/z35_*.md (O265, relay of (J)93 sparks 1 and 4); self-review (7 MAJOR repaired) plus hostile review `reviews/modp-reciprocity-review.md` (R275): no FATAL. Three MAJOR, all repaired by the reviewer and marked (R275 repair): the explicit q ≡ 3 (4) quartic law is now written out; pointwise versus statistical independence is distinguished; the (J)3/(J)78/(J)79 closures cover full ET families only, not a polynomial level plus a free witness. Minors; `.pi/active.lock` was untracked.)**
+   * Prop 1.1 / 1.2 (PROVED). In mod-p coordinates the b = 1 line reads 4md − g = p with g | m + 1. The quadratic content of a certificate is forced (the T1 sign). The quartic content is a function of (a, b), p = a² + b², modulo the parameters (explicit law for q ≡ 3 (4); Burde).
+   * Prop 2.1 / 2.2 (PROVED): non-abelian data are inert for fixed finite witness sets. The order-4 characters at q ≡ 3 (4) determine π, so no independence barrier holds at unbounded level.
+   * EVIDENCE: quartic data do not move b = 1 hit rates at levels d ≤ 40. The witness quartic bit is ((2/m)/p)_4, balanced, and forced at m = 2k².
+   * Lemma 3.2 (local T1; R275 strengthened, 0 firings on 199 208 pairs) and Prop 3.3: polynomial families in the √−1 lift are T1-barred on whole classes n ≡ 1 (M).
+   * Prop 4.1 (PROVED): at Sophie-Germain levels d = k², every term of the product formula involves the unknown factor ℓ. Spark 4 closes negatively.
+   * Prop 5.1 (window selection rule; PROVED, R275 rechecked):
+     * If p = x² + Dy² (or 4p = x² + Dy²) with gcd(x, Dy) = 1, every odd b = 1 window m | y is sterile.
+     * An odd window m | x is sterile iff (D/m) = +1; otherwise it fires at about 9–11 %.
+     * Checked for D = 1, 2, 3, 7 and the cubic Jacobi-sum datum.
+   * EVIDENCE: square levels d = k² are favoured (≈ 1.2 % against 0.9 %) because of the witness factorisation 4j²k² − 1 = (2jk − 1)(2jk + 1).
+   * Assessment: no power-class reformulation of the target exists — it is additive. No route, no relay.
+   * verify.py (hj) re-runs R275's checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
