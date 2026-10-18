@@ -1,0 +1,35 @@
+# s9_words 5 1000000 0 (all primes); (★) failures (A=0):
+7 31 79 127 199 409 577 2719 5569 8191 9601 23929 83449 102001 329617 712321 861199 
+# union failures (U=0):
+(none if empty)
+# K=8 union failures p<8000 (s9_words 5 8000 0 8): 34 primes incl. 131 241
+# s9_union_stats p == 1 (4) <= 1e6
+primes p == 1 (4) <= 999961: 39175;  cells used: 39175
+Pearson corr(zA, zB) = 0.367
+Spearman corr(A/E, B/E) = 0.353
+A <= 0: 9 primes, mean B/E[B|cell] = 0.595, frac B/E < 0.5: 0.444
+A <= 2: 62 primes, mean B/E[B|cell] = 0.664, frac B/E < 0.5: 0.371
+A <= 4: 176 primes, mean B/E[B|cell] = 0.684, frac B/E < 0.5: 0.330
+A <= 8: 840 primes, mean B/E[B|cell] = 0.763, frac B/E < 0.5: 0.232
+B <= 0: 3 primes, mean A/E[A|cell] = 0.321
+B <= 2: 18 primes, mean A/E[A|cell] = 0.501
+B <= 4: 42 primes, mean A/E[A|cell] = 0.488
+B <= 8: 151 primes, mean A/E[A|cell] = 0.591
+bottom 1% of A/E (<= 0.323): mean B/E = 0.709; overall mean B/E = 1.000
+smallest U/W: [(2521, 37, 2, 0.054), (9601, 53, 4, 0.075), (225289, 105, 8, 0.076), (3361, 47, 4, 0.085), (76441, 67, 6, 0.09), (67369, 87, 8, 0.092), (297889, 127, 12, 0.094), (317209, 83, 8, 0.096)]
+mean U/W = 0.423; mean A/W = 0.177; mean B/W = 0.306; overlap mean (A+B-U)/W = 0.061
+partial corr(A, B | class mod 840 + log p + smooth(p+-1)) = 0.352
+partial corr(A, B | ... + log W) = 0.031
+# s9_thinning <= 1e6
+p in [1e+05,3e+05): n=8197, mean W/L^2=0.968, min W=43, q01 W/L^2=0.531, mean U/W=0.420
+p in [3e+05,1e+06): n=26195, mean W/L^2=0.946, min W=59, q01 W/L^2=0.518, mean U/W=0.426
+mean U/W by p mod 8: 1:0.408, 5:0.438
+mean U/W by p mod 3: 1:0.406, 2:0.439
+mean U/W by p mod 5: 1:0.448, 2:0.439, 3:0.409, 4:0.394
+mean U/W by p mod 7: 1:0.413, 2:0.410, 3:0.454, 4:0.420, 5:0.418, 6:0.421
+W in [40,80): n=180, Var(U - W pi)/E[W pi(1-pi)] = 2.35
+W in [80,120): n=4585, Var(U - W pi)/E[W pi(1-pi)] = 2.54
+W in [120,200): n=24363, Var(U - W pi)/E[W pi(1-pi)] = 2.71
+W in [200,1000): n=5264, Var(U - W pi)/E[W pi(1-pi)] = 2.67
+p > 1e5: n=34392, observed U=0: 0, binomial-thinning prediction (W/2 trials) 3.98e-05, (W trials) 1.91e-10
+# s9_words.py 801 61: (a,b,d) 400 odd n, 0 failures; (c) 31 odd squares, 0 words with a coordinate == 0 (4)
