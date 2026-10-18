@@ -86,3 +86,59 @@ Checks (`scripts/z41_stickelberger.py`, `logs/z41_stickelberger.txt`): (q/λ)₃
 (primes ≡ 1 mod 3, primary generators): 0 failures. Along forced progressions (q < 2·10⁵) S is constant for each (n, ℓ), while
 "ℓ is a cube mod q" occurs at 491/1492, 257/759, 255/741, 174/508 (≈ 1/3) for n = 27, 125, 343, 729 (cubes) and identically
 for squares and generic n (9, 25, 7, 131, 241). The m = 4 analogue is §2 (Gaussian-lift functionality, 0 clashes).
+
+## 4. Construction: violate "congruence data on t" — the 2-power layer is CHOOSABLE at one prime, but not forced
+
+Which hypothesis did Thm 3.1 use? That the only information on the level is a congruence. Violate it: choose the level
+prime q by its Frobenius in the non-abelian field ℚ(ζ_m, (−ℓ)^{1/m}) (equivalently, by the class of its cyclotomic lift
+𝔮 mod ℓ, §2 positive control).
+
+**Proposition 4.1 (PROVED, Chebotarev).** Let n be an odd non-square. (a) There is a prime ℓ ≡ 3 (mod 4) with (n/ℓ) = −1.
+(b) For such ℓ and every m = 2^j ≥ 2, the primes q with ℓ | 4qn + 1 and −ℓ ∈ G_{4q}^m (i.e. ψ(−ℓ) = 1 for every character
+ψ mod 4q of order dividing m — the BM character included) have positive density. Taking m ≥ 2^{v₂(q−1)}: −ℓ lies in the
+odd-order subgroup of G_{4q}; **the whole 2-power ladder at ℓ is satisfied.**
+*Proof.* (a) ξ(x) := Jacobi (n/x) on positive odd x coprime to n is a character mod 4n (reciprocity). If ξ(ℓ) = 1 for all primes
+ℓ ≡ 3 (4) (ℓ ∤ n), then ξ = 1 on all residues ≡ 3 (4) (Dirichlet), hence on all residues (x ≡ 1 (4) is −1·(−x), and
+ξ(−1)·ξ(−x) with both factors ≡ 3 (4) — residues mod 4n), so ξ is principal and n is a square (n odd). (b) −ℓ ≡ 1 (mod 4); the
+conditions on q are: q ≡ −(4n)⁻¹ (mod ℓ) and q splits completely in ℚ(ζ_m, (−ℓ)^{1/m}). By Thm 3.1 (with −ℓ in place of ℓ;
+same proof) these are compatible iff they agree on ℚ(ζ_m, √−ℓ) ∩ ℚ(ζ_{4ℓ}) = ℚ(i, √−ℓ) (m ≥ 4) resp. ℚ(√−ℓ) (m = 2):
+q ≡ 1 (4) and (−ℓ/q) = 1, i.e. (q/ℓ) = 1 — and the forcing gives (q/ℓ) = (−n/ℓ) = (−1/ℓ)(n/ℓ) = 1. ∎
+Numerics (§2): at ℓ = 7, n = 13, among forced q ≡ 1 (8) a fraction 258/1070 ≈ 1/4 has ℓ an 8th power (here −ℓ vs ℓ
+differ by (−1)^{(q−1)/m}-type signs; the density statement is Chebotarev's).
+
+**Proposition 4.2 (size obstruction — why the ladder at a small prime never reaches the class −1; PROVED, trivial).**
+(a) A prime ℓ < t − 1 is never ≡ −1 (mod t); every divisor d ≡ −1 (t) of N has d ≥ t − 1.
+(b) If d ≡ −1 (t), d | tn + 1, then t is the least positive residue of −n⁻¹ mod d whenever t < d (always, by (a), unless
+d = t − 1), so the pair (d, t) is determined by d: **the ES event at a forced pair has no free parameter left** — it is
+"the residue r_d := (−n⁻¹ mod d) divides d + 1 and 4 | r_d" (the ES lottery; heuristic probability ≍ τ(d + 1)/d).
+(c) In particular at a 2-group level t = 2^k·F (G_t a 2-group, where "the whole ladder" would mean d ≡ −1 exactly), the event
+is a union of congruence classes of n (Lemma 1.1), not a reciprocity consequence.
+*Proof.* (a) 1 ≤ ℓ < t − 1. (b) d | tn + 1 ⟺ t ≡ −n⁻¹ (d). (c) Lemma 1.1. ∎
+So Prop 4.1 shrinks the lottery FOR THE SMALL PRIME to the odd part of G_t, but the class −1 must be carried by a divisor of
+size ≥ t − 1, i.e. by the cofactor (tn + 1)/ℓ, whose prime factors are not touched by any datum of n or of the level
+(CLASS_FORCING Thm 5.2 in p-coordinates; Thm 3.1 here). For m odd (the odd part of G_t), Thm 3.2 says the forcing data is
+independent of the Dirichlet datum; there is no odd analogue of the BM layer at all.
+
+**What the brief hoped for, and the exact catch ((J)93 screen).** "A forced divisor class at a single level for ALL n" would
+be a covering of the non-squares by the classes −a (mod ta − 1) (Lemma 1.1) — B1. Reciprocity cannot produce it because the
+only datum it can transport is t mod ℓ (Thm 3.1), and the full class of a divisor needs the non-abelian Frobenius of the level
+prime (choosable, Prop 4.1, but then it is a choice of level, i.e. the lottery itself, Prop 4.2(b)).
+
+## 5. 2-group levels do not suffice (EVIDENCE + a PROVED partial obstruction)
+
+`scripts/z41_two_group.py`, `logs/z41_two_group.txt`: T2 = {2^k F : k ≥ 2, F | 3·5·17·257·65537}, 169 levels ≤ 10⁶; words
+n = tuv − u − v (u, v ≥ 2) (the (★) line in level form).
+* odd non-squares n ≤ 10⁶ with no T2 word: **20 325** (of 499 500); baseline over ALL 4 | t levels: 1 939.
+* primes 5 ≤ p ≤ 10⁶ with no T2 word: **1 298** (largest 999 979); of these 1 180 have a (★) word at some 4 | t level
+  (baseline all-level (★) failures: 118 primes). Failure rate by decade: 0.217, 0.069, 0.029, 0.0136 — decreasing, as the
+  expected number of T2 hits grows like c·log n, but with infinitely many failures expected (Assessment).
+* T1: 0 odd squares have a T2 word (also 0 at all levels). Numerator 8: 131, 241 have no word at any 8 | t level (241 has
+  none at any 4 | t level either; 131 has one at t = 4). Every hit is an explicit (t, u, v) with (tu − 1)(tv − 1) = tn + 1.
+
+**Lemma 5.1 (twisted squares kill the levels divisible by the twist; PROVED, elementary).** Let D be odd, n = D·m², and
+4D | t. Then D⁻_t(tn + 1) = 0.
+*Proof.* For ℓ | tDm² + 1: −tD ≡ m⁻² (mod ℓ), so 1 = (−tD/ℓ) = (−t/D / ℓ) (D² is a square, ℓ ∤ D). Hence
+χ_{−t/D}(d) = 1 for every d | N; χ_{−t/D} is a character mod t (4 | t/D) and odd, so χ_{−t/D}(−1) = −1 and no d ≡ −1 (t). ∎
+Check (`scripts/z41_twisted_levels.py`): D = 3, 5, 15, 17, m < 200 odd: 0 words at levels 4D | t. So n = F·m² is
+obstructed at every T2 level 2^k·F′ with F | F′ — the genus layer of the 2-group levels is a finite family of fixed-conductor
+real characters, and each of them has its own "twisted T1". (Only n = m² kills all levels; Prop 2.2 of SPARKS9.)
