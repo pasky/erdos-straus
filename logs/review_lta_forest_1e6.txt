@@ -1,0 +1,4 @@
+N=1000000 odd_primes=78497 squares=499 p1mod4=39175 edges=3028437 bichromatic=1964805 scanchecked=18206
+root1_fail=285 first: 409 1201 5569 8521 8641 9649 12289 12721 12841 15241 16921 19441 23761 23929 24481 27241
+lnr_smaller_neighbour=38097 lnr_component_fail=769 first: 1201 2521 3361 5569 7561 9769 12601 12721 13729 14281 14401 16921 18481 19441 21001 21841
+max_least_mixed_root=17 first_at=196561 max_depth_all=7 at=7867 max_depth_primes=7 at=7867 eight_edges_checked=36
