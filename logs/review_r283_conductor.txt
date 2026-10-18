@@ -1,0 +1,4 @@
+q=7: alpha=1 mod 3q: 465/465 trivial; alpha=1 mod q only: 1759/2206 nontrivial
+q=13: alpha=1 mod 3q: 113/113 trivial; alpha=1 mod q only: 416/521 nontrivial
+q=19: alpha=1 mod 3q: 52/52 trivial; alpha=1 mod q only: 0/254 nontrivial
+q=31: alpha=1 mod 3q: 21/21 trivial; alpha=1 mod q only: 70/88 nontrivial

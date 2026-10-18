@@ -67,3 +67,61 @@ From scratch (`scripts/review_r283_census.py`, `logs/review_r283_census.txt`): o
 a(tn+1) − n(ta−1) = n + a and t(n+a) = (tn+1) + (ta−1), with gcd(a, ta−1) = gcd(t, ta−1) = 1: both directions ✔. MINOR (D7): the
 lemma is stated for D⁻_t > 0 (a ≥ 1, includes the boundary d = t − 1); the ES word event R_t > 0 is the sub-union a ≥ 2 with the
 extra condition n + a ≥ 2(ta − 1). Still a congruence union (above a threshold), so the conclusion stands; say so.
+
+## Thm 3.1 (Kummer–Chebotarev ceiling, repaired hypotheses) — verdict: SOUND (MINOR omissions)
+
+**Re-derivation.** ℓ ∤ m ⇒ ℓ unramified in K; v_λ(ℓ) = 1 ⇒ ℓ has order exactly m in K^×/K^{×m} ⇒ [L : K] = m (this also
+disposes of the −4K^{×4} clause of Capelli/Lang, since −4 = (1+i)⁴ ∈ K^{×4} when 4 | m). Subfields of L/K are K(ℓ^{1/d}). The
+commutator computation is right: σ̃τα = ζ_d⁻¹ζ′α, τσ̃α = ζ′ζ_dα, so abelian ⇒ ζ_d² = 1. F = L ∩ ℚ(ζ_{M′}) ⊇ K is abelian, hence
+F = K (m odd) or K ⊆ F ⊆ K(√ℓ) ⊆ ℚ(ζ_{M′}) (needs ℓ | M and 4 | M′ — the repaired hypotheses are exactly what is used). Within
+a fibre, ψ_𝔮(ℓ) is Haar-uniform on μ_m (m odd) resp. on {ζ^{m/2} = (ℓ/q)}; "ℓ ∈ F_q^{×e}" ⟺ ψ^{m/e} = 1 gives 1/e resp. 2/e. ✔
+The m = 12, ℓ = 3 and m = 6, M = 7 counterexamples to the unrepaired version are correct (√3 ∈ ℚ(ζ₁₂); q mod 4 free).
+**From scratch** (`scripts/review_r283_ceiling.py`, `logs/review_r283_ceiling.txt`, q < 4·10⁵, per class c of q mod M):
+(ℓ, m) = (7, 3), (13, 3): e = 3 at 0.324–0.343 in every class; (7, 6) with M = 28: (ℓ/q) fixed per class, e = 3 ≈ 1/3 in every
+class, e = 6 ≈ 1/3 resp. 0; (11, 4): e = 4 ≈ 1/2 / 0; (7, 8): e = 4 ≈ 1/2, e = 8 ≈ 1/4; (5, 12), M = 20: e = 12 at 0.151, 0.163 vs 2/12. ✔
+* **D8 (MINOR, Thm 3.1 first bullet).** For m even and e odd the density (1/e, unconditionally on (ℓ/q)) is not stated; the
+  proof gives it (μ_{m/e} meets each fibre in half its elements). Add it (numerics: (7, 6), c = 5, (ℓ/q) = −1, e = 3: 0.334).
+* **D9 (MINOR, Thm 3.1 *Scope*).** "Chebotarev in the compositum for several level primes is the same argument" — not quite: for
+  t = 4q₁q₂ the forcing is the coupled condition q₁q₂ ≡ c (mod ℓ), a condition on PAIRS of primes. The conclusion still holds
+  (split c = a·(c/a), apply Chebotarev to each prime separately in its class, sum over a; the pair-count needs an explicit
+  ordering, e.g. q₁, q₂ ≤ X), but it is a two-line argument, not "the same". Write it.
+* Novelty: correctly disclaimed — this is CLASS_FORCING Thm 2.1(b)(c) / Thm 5.1(c) with datum and moving prime swapped.
+
+## Prop 4.1 (a), (b), (b′), (c) — verdict: SOUND
+(a) Jacobi (n/x) is a character mod 4n on positive odd x; if trivial on primes ≡ 3 (4) then (Dirichlet) on classes ≡ 3 (4), hence
+(x ≡ (4n−1)·(−x)) on all classes, so n is a square ✔. (b) compatibility field F = K(√−ℓ) = K(√ℓ) for m ≥ 4; the forcing gives
+(q/ℓ) = (−(4n)⁻¹/ℓ) = (−1/ℓ)(n/ℓ) = 1 ✔; relative density 1/[L : F] = 2/m ✔. (b′) the extra congruence q ≡ 1 + 2^j (2^{j+1}) is
+harmless because ℚ(ζ_{2^{j+1}}) ∩ L ⊆ K(√ℓ) ∩ ℚ(ζ_{2^∞}) = K (K(√ℓ)/K ramified at ℓ) ✔. (c) (−ℓ/q) = −(ℓ/q) = (q/ℓ) = 1 and
+−ℓ ≡ 1 (4), 2-Sylow of G_{4q} = (ℤ/2)² ✔.
+From scratch (q < 4·10⁵): m = 2 all forced q; m = 4, 8, 16: 1405/2819, 350/1406, 82/713 for (13, 7) (author's numbers reproduced
+exactly), similar for (7, 11), (101, 7), (131, 11), (21, 19); (b′) j = 1: all (c); j = 2, 3, 4: ≈ 1/2, 1/4, 1/8 ✔.
+* **D10 (MINOR, §4 numerics and §2).** (241, 7) is the SAME forced progression as (101, 7) (241 ≡ 101 ≡ 3 mod 7): the rows are
+  identical (my log: 1410/2797, 338/1390, 87/684 for both), so it is not independent evidence. More generally, the forcing
+  depends on n only through n mod ℓ; "uniformly in n (including n = 9, a square, and n = 131, 241)" in §2 is automatic once
+  the residues n mod ℓ are covered — and n = 9 a square is not special at the 4th-power layer. Say "for every residue n mod ℓ".
+* **D11 (MINOR, (b′) for j = 1).** Thm 3.1 needs m ≥ 3, so the "(b′) Same, …" proof does not cover j = 1; that case is (c).
+  Say so.
+
+## Prop 4.2 — verdict: SOUND (trivial, correctly labelled)
+(a), (b): d | tn+1 ⟺ t ≡ −n⁻¹ (d); d ≡ −1 (t), d > t − 1 ⇒ t < d ⇒ t = least residue ✔. The "τ(d+1)/d" probability is
+explicitly heuristic ✔. The repaired cofactor statement [N/ℓ] = [ℓ]⁻¹ (N ≡ 1 (t)) is right.
+
+## Lemma 5.1 — verdict: SOUND
+−tDm² ≡ 1 (ℓ) ⇒ (−t/D / ℓ) = 1 for each prime ℓ | N; χ_{−t/D} is the Kronecker character of the discriminant −t/D ≡ 0 (4), a
+character mod t/D | t, odd ⇒ no d | N has d ≡ −1 (t) ✔. D need not be squarefree. From scratch: 4 320 (D, m, t) with
+D ∈ {3, 5, 7, 9, 15, 17, 21, 45, 255}, m < 40 odd, t = 4Dk ≤ 96D: 0 violations (all divisors enumerated, incl. boundary d = t − 1);
+control with 4D ∤ t: words do occur. ✔
+
+## Cor 6.1 (cubic layer) — verdict: SOUND in its stated narrow scope; MINOR presentation defects
+The proof is Thm 3.1 with m = 3 (ℓ ≡ 1 (3) ⇒ ℓ ∤ 3; the forcing q ≡ −(4wn)⁻¹ (ℓ) is a congruence) ✔. From scratch: fraction of
+forced q (t = 4qw, w = 1, 2) with ℓ a cube mod q: 915/2804, 472/1397, 323/955, 184/554 (w = 1); 925/2796, 452/1396, 317/936,
+180/579 (w = 2) ≈ 1/3 ✔. Conductor example: 757 prime, 27² + 27 + 1 = 757, 7^252 ≡ 27 (mod 757) ✔.
+* **D12 (MINOR+, "What a cube DOES force" and §3 Checks).** "S is constant for each (n, ℓ)" is true for EVERY n (S = (q/λ)₃ is a
+  function of q mod ℓ, which the forcing fixes); it is not a feature of cubes and the logged constancy is vacuous as evidence.
+  What cubes add is that the pinned value S = (−4w/λ)₃⁻¹ is independent of r — and at w = 2 (t = 8q, −8 = (−2)³) one gets
+  **S = 1 at every forced split ℓ, for every cube n** — the literal cubic analogue of T1, with D still uniform (my w = 2 rows).
+  That is the sharp form of the paragraph's point; state it.
+* **D13 (MINOR, conductor).** "conductor dividing 9t" is true but loose: by cubic reciprocity α ↦ (q/α)₃ has conductor dividing
+  3q (α ≡ 1 (3) ⇒ α primary up to the cube −1). From scratch (`scripts/review_r283_conductor.py`): trivial on all primes α ≡ 1
+  (mod 3q) for q = 7, 13, 19, 31 (465, 113, 52, 21 cases); nontrivial on many α ≡ 1 (mod q) except q = 19 ≡ 1 (9), where
+  the conductor is q itself.
