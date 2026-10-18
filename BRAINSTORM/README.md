@@ -566,10 +566,10 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 ### z36 — O266 Zaremba 2026 growth method → ES in CF coordinates (deep file ZAREMBA_TRANSFER.md)
 | memo | idea | outcome | label |
 |---|---|---|---|
-| z36_density_threshold | exact input of Shkredov/Zhang | needs half-set density q^{−O(κ)} (1 − w ≤ κ/8, ε < 1/18), not just a power count ("M1⁺") | reading of sources (preprints unrefereed) |
+| z36_density_threshold | exact input of Shkredov/Zhang | needs half-set density ≥ q^{−2κε} (1 − w = O(κ), ε < 1/18; M = 2^{2000}), not just a power count ("M1⁺") | reading of sources (preprints unrefereed) |
 | z36_farey_least_qnr | ES ladder λ(p) ≤ L | λ(p) ≪ log p log log p unconditional (Thm A; known in substance, Chang/Larcher); ≪ M log p under ZQ_M (Thm B) | PROVED + CONDITIONAL |
 | z36_reciprocal_sum_gluing | ES-five as Möbius gluing | t ≡ ū + v̄, tuv − u − v < 2p (Lemma C); origin boxes, one expected solution per box; region knob vacuous (Lemma D) | PROVED + Assessment |
 | z36_chi_twist_window | Zaremba with a non-residue (ZQ) | ε < 1/18 vs Burgess ε > 1/8; ZQ fails at squares so growth alone can't prove it; Zaremba(M) ⇒ ZQ_{4Mn_p} | CONJECTURE + Assessment; EVIDENCE ZQ₄ < 2·10⁴ |
 | z36_numerator_free_rung | drop χ, keep length 3 | = Lorenzini's (W) (known: (J)15, bsG_even_half); 12 exceptions ≤ 2·10⁶ | no new claim |
-| z36_hj_cantor_dimension | effective dimension of rungs | L = c log p: |S_L| = p^{θ(c)}, θ(1) ≈ 0.85; method window lies at L ≥ C₀ log p | EVIDENCE + Assessment |
-| z36_reciprocity_obstruction_home | thin-orbit home of T1 | Rickards–Stange (Duke 2025) reciprocity obstructions: same source/obstruction/conjecture shape; proved fat case; Question R | dictionary (Assessment) — SHARP candidate |
+| z36_hj_cantor_dimension | effective dimension of rungs | L = c log p: |S_L| = p^{θ(c)}, θ(1) ≈ 0.86 (true HJ lengths, R276); method window lies at L ≥ C₀ log p | EVIDENCE + Assessment |
+| z36_reciprocity_obstruction_home | thin-orbit home of T1 | Rickards–Stange (Duke 2025) reciprocity obstructions: ES slice numerator sets satisfy RS Def 2.4 exactly (PROVED, R276); mechanism/conjecture shape/δ = 1/2 analogies; proved fat case; Question R | Def 2.4 row PROVED, rest Assessment |
