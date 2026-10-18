@@ -66,7 +66,7 @@ only at L ≍ log p: |S_{c log p}| = p^{θ(c)}, θ(1) ≈ 0.85, θ(1/2) ≈ 0.61
 ≈ 1.9 log p at 10⁶ (slowly increasing ratio: 1.6, 1.74, 1.74, 1.88 at 10³ … 10⁶, consistent with log p·log log p).
 (iv) T1 control: at 997² the ladder sets have the same sizes as at a prime, but contain no Jacobi −1 element.
 
-**Theorem A (PROVED, elementary; novelty not checked — likely folklore-level).** For every prime p > 5,
+**Theorem A (PROVED, elementary; KNOWN in substance: it follows from M.-C. Chang, "Partial quotients and equidistribution", Thm 5 — most primitive roots x mod p have Σ a_i(x/p) ≪ log p log log p, and primitive roots are non-residues; the log p log log p level for some numerator is Larcher's (1.1) there. Read in Chang's preprint, math.ucr.edu/~mcc/paper/141; Chang notes that removing the log log factor "is still open and would follow from … Zaremba's conjecture").** For every prime p > 5,
 `λ(p) ≤ 1 + 10(1 + log p)(1 + log T)`, `T = ⌈10(1 + log p)⌉`. In particular λ(p) ≪ log p · log log p: *in the Farey/HJ
 metric the least quadratic non-residue is O(log p log log p) unconditionally* (the archimedean least non-residue is only
 known to be ≪ p^{0.152}, and ≪ log² p under GRH; note r(p/n_p) ≤ n_p, so GRH gives only λ ≤ 2 log² p).
