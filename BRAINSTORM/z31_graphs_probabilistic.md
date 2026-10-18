@@ -9,7 +9,8 @@ For fixed p let G_p be the bipartite "shot graph": left vertices = parameters C 
 4Cp + 1 (resp. p + 4d), and an edge is *good* if w ≡ −1 (mod 4C) (resp. 4d). B2 ⟺ G_p has a good edge. In a random model
 (edges good independently with probability 1/φ(4C)), #good edges is ≈ Poisson(μ), μ ≍ (log p)² (EVIDENCE: R(p) = 44, 52, 68
 at p ≈ 10⁸, 10⁹, 10¹⁰), and P(no good edge) ≈ e^{−μ}: summable over p, so the model predicts finitely many failures —
-exactly the ES heuristic, and exactly why E2 (smaller μ) has three failures and (★) has 14 ≤ 10¹⁰.
+exactly the ES heuristic (the two lines have different effective μ: E2 fails 3 times ≤ 10¹¹, (★) 14 times ≤ 10¹⁰;
+(J)90).
 
 ## (b) What graph/probability theory proves pointwise
 * **Janson / second moment** bound P(no good edge) ≤ exp(−μ + Δ/2) — in a *random* model only. For a fixed p there is no
