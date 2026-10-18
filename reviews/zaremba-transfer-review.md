@@ -76,3 +76,47 @@ Re-derivation: |A| ≍ q^{w}N^{1−w}, N = q^{2ε}; |A|N^κ ≫ q ⟺ 2ε(1 + κ
 (1 − w)(1 − 2ε₀) ≤ 2ε₀κ, and ε₀ = 1/18 gives 1 − w ≤ κ/8. Arithmetic correct. w₅ ≈ 0.8368 ⇒ |Z∗| ≈ q^{2w−1} = q^{0.674}: correct.
 
 **Verdict (2): SOUND-AFTER-REPAIRS** (as an Assessment of *this* proof architecture). Defects: D1 (M = 2^{2000}), D2, D4.
+
+### Claim (3a): Theorem A, Chang/Larcher attribution
+
+Re-proved line by line. Remainder/convergent identities q_iρ_{i−1} + q_{i−1}ρ_i = p and aq_i ≡ (−1)^iρ_i: correct
+(induction). c_i ≤ ρ_{i−2}/ρ_{i−1} ≤ p/(q_{i−1}ρ_{i−1}) uses q_{i−1}ρ_{i−2} ≤ p: correct. Injectivity of
+(a, i) ↦ (x, y, σ): correct (x = q_{i−1} < p; q₀ = q₁ only if c₁ = 1, separated by σ). Tail count
+2(p/k)(1 + log p), Markov step, (p − 1) − 2p/5 > (p − 1)/2 ⟺ p > 5: correct. From scratch
+(`scripts/review_r276_thmA.py 1500 1000000`): the tail inequality #{(a,i): c_i ≥ k} ≤ 2#{xy ≤ p/k} for every k and
+#good a > (p − 1)/2 hold exhaustively at all primes 7 ≤ p < 1500; Thm A bound vs a non-residue witness A < 400 at all
+78 495 primes 7 ≤ p ≤ 10⁶: 0 violations (worst witness r = 4, p = 2351).
+**One false step**: the last line "r(p/A) = 1 + Σ_{i odd} a_i(p/A)" — the formula is wrong (D2); only "≤" holds, which
+suffices. Attribution: Chang Thm 5 (most primitive roots x have Σ a_i(x/p) ≲ log p log log p; primitive roots are
+QNRs) gives λ(p) ≪ log p log log p for large p — "known in substance" is fair; Larcher (1.1) gives *some* b, not a QNR,
+and the author words this correctly. Theorem A's explicit all-p > 5 constant is the author's.
+**Verdict (3a): SOUND-AFTER-REPAIRS** (replace "=" by "≤", D2).
+
+### Claim (3b): Lemma C, Lemma D
+Lemma C re-proved (⇒: p | u forces p | v and then p = tuv − u − v ≥ uv ≥ p²; ⇐: multiply by uv; 0 < n < 2p).
+From scratch: all 441 702 triples t,u,v ≥ 2 with tuv − u − v < 3p, primes p < 400: 0 mismatches. **SOUND.**
+Lemma D: correct up to wording — the congruence-defined enlarged set is the set of length-3 words of kp, k ≤ K, *with
+p ∤ uv* (not "exactly the length-3 certificates of kp"; words of kp with p | u are not produced). The conclusion "no
+information about p" is an Assessment, fine. **SOUND (MINOR wording, D6).**
+
+### Claim (3c): ZQ_M evidence, Theorem B, the Lemma-10 reduction
+* EVIDENCE recheck (`scripts/review_r276_zq.py`): ZQ₄ for all 2259 primes 7 ≤ p < 2·10⁴, ZQ₃ for all except 277
+  (zq(277) = 4): confirmed. ZQ₃ windows: all 174 primes in [10⁵, 1.02·10⁵) and all 75 primes in [10⁶, 1.001·10⁶):
+  confirmed. **But** "In every case except 277 the QNR restriction costs nothing (min over non-residues of the max digit
+  = Zaremba's min)" is **false**: at 358 of the 2259 primes the QNR minimum exceeds the Zaremba minimum (357 times
+  2 → 3, e.g. p = 43: the only a with digits ≤ 2 is a = 31, a residue; plus 277: 2 → 4). The author's own script
+  prints this (`z36_zq.py 7 300`: worst (4, 2, 277), and many (3, ·) with mz = 2). D5.
+* Theorem B: r ≤ 1 + Σ_{j even} c_j ≤ 1 + M⌊s/2⌋, p = q_s ≥ F_{s+1} ≥ φ^{s−1}: correct (again "=" → "≤", D2);
+  arithmetic checked for all A/p, p < 1500. CONDITIONAL label correct. **SOUND-AFTER-REPAIRS.**
+* Zaremba(M) ⟹ ZQ_{4Mn_p}: re-derived. If a has digits ≤ M, Shk Lemma 10(ii) gives x|y| ≥ q/(4M) for all solutions
+  of ax ≡ y; for (ca)x ≡ y put x' = cx mod q ∈ [1, q), then ax' ≡ y and x' ≤ cx, so cx|y| ≥ q/(4M); Lemma 10(i) with
+  M' = 4cM gives digits of ca/q ≤ 4cM. If a is a QR, n_p·a is a QNR. **SOUND** (Lemma 10 is elementary/classical; the
+  input Zaremba(M) for all large primes is CONDITIONAL on Shkredov). GRH ⇒ λ ≪ M log³ p: correct.
+* Window conflict (§4 item 1): correct for *per-interval* character-sum input (Burgess needs N > q^{1/4+δ} ⟺ ε > 1/8;
+  Shkredov's own intro says the same about q^{1/9} intervals). "Incompatible" is overstated: averaged inputs over the
+  T ≍ t^{2w} intervals (moments/large sieve) are not excluded by this argument. MINOR (D7).
+
+### Claim (3d): numerator-free rung recount
+From scratch (loop over (t, u ≤ v), `scripts/review_r276_lemmaC_numfree.py`): exceptions ≤ 2·10⁶ are exactly
+{1, 2, 3, 5, 6, 9, 11, 14, 15, 35, 105, 510} — 12 values, max 510. **SOUND.** Memo wording "odd squares are *not*
+exceptions here" is contradicted by 1 and 9 in that very list (should read "no odd square > 9"). MINOR (D8).
