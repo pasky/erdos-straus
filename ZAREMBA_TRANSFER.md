@@ -136,3 +136,43 @@ ES-five needs λ(p) ≤ 3. The method's contribution to the ES gap is therefore 
    (constants as in Lemma 10). Taking c = n_p (least non-residue) and a a Zaremba numerator: if a is a residue, ca is a
    non-residue. Hence Zaremba(M) ⟹ ZQ_{O(M n_p)} — useless pointwise (n_p ≪ p^{0.152}), and under GRH gives only
    λ ≪ M log³ p, worse than Theorem A.
+
+## 5. The thin-orbit home of T1: Rickards–Stange reciprocity obstructions (new to the campaign)
+
+Source read: J. Rickards, K. E. Stange, *Reciprocity obstructions in semigroup orbits in SL(2, ℤ)*, arXiv:2401.01860v3,
+Duke Math. J. 2025 (excerpts `sources/lit2026g/rickards_stange.txt`). The campaign knew the Apollonian case (HKRS,
+BRAINSTORM/apollonian_reciprocity.md) but not this continued-fraction one, which is the one in ES's coordinates.
+
+**5.1 What they prove (Cited).** Ψ := {γ ∈ Γ₁(4)_{≥0} : (a/b) = 1} (Def 2.1, Prop 2.2) is a semigroup preserving the
+Kronecker symbol (x/y) of the vectors it acts on. Thm 2.5: if (x/y) = −1 (y odd), no numerator or denominator of Ψ(x, y)
+is a square — a **reciprocity obstruction** (Def 2.4: squares are allowed by every congruence, yet never occur).
+Thm 2.6 / 2.8: a *complete, effective* local–global theorem for Ψ (dimension 1): e.g. the non-numerators of Ψ(2, 3) are
+exactly the squares and 15 sporadic integers. Thm 2.20: Bourgain–Kontorovich's local–global conjecture for continued-fraction
+alphabets is **false** (alphabet {4, 8, …, 128}, δ = 0.50089 > 1/2: rationals [0; a₁, …, a_n, 1, 1, 2] never have square
+denominators). Conj 2.15 (Ψ₁, δ ≈ 0.719): every non-square n > 10569 is a numerator of Ψ₁(2, 3); Conj 2.22: every
+non-square v > 7968219670470 is the denominator of some [0; 4a₁, …, 4a_n, a_{n+1}, 1, 2].
+
+**5.2 Dictionary (PROVED pieces + Assessment).**
+| Rickards–Stange | ES in CF coordinates |
+|---|---|
+| Kronecker symbol preserved along Ψ (Prop 2.2/3.2, Euclid + reciprocity) | Jacobi symbol (A/n) is a mod-8 genus character of the HJ word (DEDEKIND_ES Cor 4.1) |
+| Thm 2.5: Kronecker −1 orbit ⇒ no square numerators/denominators | T1 for the five slices: slice word ⟺ (A/n) = −1 (Thm 4.5) ⇒ none at n = m² (Prop 3.1) |
+| Thm 2.8: "all n except squares ∪ finite sporadic set" (PROVED, fat orbit) | DEDEKIND_ES 4.4 CONJECTURE: a₀(n) + a_T(n) > 0 for all non-square n ≡ 1 (4), n > 28225 |
+| Conj 2.15 / 2.22 (thin semigroups, δ ∈ (1/2, 1), open) | ES-five(p) ⟺ λ(p) ≤ 3 (length-3 words: dimension 0) |
+| proof of Thm 2.6: lattice line ux + vy = n with ≍ n/(8xy) points + Pólya–Vinogradov for (·/n_o) (Lemmas 4.1, 4.3) | no line: certificates sit on the hyperbola tuv − u − v = n (Lemma C), ≍ log² n points (B2/B3) |
+So ES-five is a **reciprocity-corrected local–global problem of Rickards–Stange type, truncated to HJ length 3**. The
+positive half of RS works because the orbit is fat (a linear family with ≍ n members, i.e. M1⁺) and the χ-input is a
+*long* character sum (length ≍ n ≫ √n log n). ES has neither.
+
+**5.3 Consequence for the 2026 method (Assessment, sharpened from §4).** RS Thm 2.20 shows that a growth/gluing proof of
+local–global cannot extend to congruence-restricted alphabets as it stands: Shkredov's gluing leaves the critical middle
+window [q^{1/2−ε}, q^{1/2+ε}] with digits that are bounded but *not* restricted mod 4, so its output is not in the
+restricted semigroup — which is why RS's counterexample does not contradict Shkredov/Zhang. Any proof of a
+reciprocity-corrected statement (RS Conj 2.15, or ZQ_M, or a rung of the ES ladder) by growth must (i) keep the middle
+inside the restricted semigroup and (ii) produce a main term that vanishes at squares — i.e. a "reciprocity singular
+series". Neither ingredient exists. This is the same T1 location as §4 item 2, now with a published thin-orbit witness.
+
+**Question R (spark; well-posed, open, one level closer to ES than Zaremba).** For a finitely generated Γ ⊆ Ψ with
+δ_Γ > 1 − κ/8 (exists by RS Thm 2.10), is every sufficiently large admissible non-square prime a denominator of Γ(x, y)?
+A growth proof of this would be the first proof of a thin-orbit local–global statement *with* a reciprocity obstruction,
+i.e. of the structural type of ES-five; ES itself would still be the dimension-0 case, out of reach (§2–§4).
