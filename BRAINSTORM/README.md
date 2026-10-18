@@ -611,3 +611,17 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z38_markoff_precedent | Ghosh–Sarnak Markoff surfaces as calibration | same (log)² scale; there "BM density ≫ 1 ⟹ point" fails i.o., mostly non-BM | Assessment (literature) |
 | z38_shared_brauer_character | b = 1 line and union | (★), b = 1 = shifts −(x+y), −(4x+y) mod 4xy with the same χ_{−4xy}; residuals positively correlated, no complementarity | PROVED + EVIDENCE |
 | z38_numerator8_control | 8/n control | same Brauer character; c = 1 line fails at 835 primes ≤ 10⁶ incl. 131, 241 | EVIDENCE (control passed) |
+
+### s9 — O271 Synthesis IX: the lower tail at a single prime (deep file SYNTHESIS_SPARKS9.md)
+| memo | idea | outcome | label |
+|---|---|---|---|
+| s9_lower_tail_literature | every-n theorems with polylog main term | none for natural (non-designed) sets; designed (Erdős–Tetali, M4) or structural (M3); natural polylog problems have structured exceptions (Crocker 1971; Pan 2011: ≫ x^{1−ε} exceptions to p + 2^a + 2^b; Markoff) | literature map + Assessment |
+| s9_level_bm_character | BL's class in Thm-K (level) coordinates | = the odd quadratic character χ_{−t} ∈ O_t (+ principal); the BM layer holds at every non-square (witness level ≤ 4·least non-residue prime) | PROVED |
+| s9_no_fixed_integer | Dirichlet-coefficient positivity at one integer | no fixed-integer packaging (moving almost-coprime integers); positive coefficients (R_D/w) enter with a minus sign | Assessment + PROVED inequality |
+| s9_fixed_group_fourier | second moment over characters of a fixed group | ℓ² certificate works iff m̄² > (|G| − 1)V, and then every class is hit: phase-blind | PROVED (elementary) |
+| s9_janson_dependency | Janson/Harris over p with the true dependency term | word-level Δ/μ ≈ 3.6 → 9.4, μ²/2Δ ≈ 1–2; hit levels ≈ (0.44 → 0.97) log p ≤ 3·10⁶: critical scale | EVIDENCE + Assessment |
+| s9_union_thinning | (★) ∪ b = 1 negatively correlated? | no: +0.37/+0.39, all of it through |W(p)| (partial 0.01); k-union = word with a coordinate ≡ 0 (k) | PROVED (reformulation) + EVIDENCE |
+| s9_ladder_thinning | numerator ladder = thinning ladder on W(p) | mirror-binomial thinning predicts k-union failures within 1.7–7× over a 10⁴-fold range | EVIDENCE |
+| s9_fibration_level | fibration over the level t | fibre = G_m-torsor with integral point (0, −n); ES = positivity + ray class c_∞ mod t∞; fibre obstruction groups unbounded vs Br = ℤ/2 | PROVED dictionary + Assessment |
+| s9_disproof_class_layer | Ghosh–Sarnak-type structured failures | quadratic (reciprocity) obstruction at all levels ⟹ square; any prime failure family lives in the class layer | PROVED (elementary) |
+| s9_thin_orbit_bm | growth methods at the BM level | BM layer already free; class layer fails the density hypothesis | Assessment |
