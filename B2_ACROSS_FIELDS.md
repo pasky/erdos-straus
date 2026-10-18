@@ -39,11 +39,26 @@ F4 no local obstruction at primes (T1: odd squares kill only the Type I/II *shap
 F5 4-specific: the numerator-8 analogue of the event fails (131, 241);
 F6 class-group / genus data see only the quadratic-character shadow (WINDMILL_REDUCTION Prop 10.3).
 
-## 3. Field-by-field verdicts (table filled in as memos are completed)
+## 3. Field-by-field verdicts (13 memos, `BRAINSTORM/z31_*.md`)
 
-| # | field | counterpart | pointwise proved? mechanism | blocked by | verdict | memo |
+Verdict scale: EQUIVALENT (same statement up to a dictionary) / INSTANCE (B2 is a special case of the counterpart problem
+class) / ANALOGUE (shared shape, different statement) / UNRELATED. "Transfer" = could the counterpart's pointwise mechanism
+plausibly prove B2. No row is SHARP for ES.
+
+| # | field | counterpart (exact source) | pointwise proved? mechanism | first blocking feature | verdict | memo |
 |---|---|---|---|---|---|---|
+| 1 | thin orbits / CF | Zaremba: ∀q ∃a, digits of a/q ≤ M. BK Ann. Math. 2014 Thm 1.8 (a.a., mult. ≫ N^{2δ−1001/1000}); **Shkredov arXiv:2603.14116 Cor 1 (every prime/squarefree q), X. Zhang arXiv:2605.02518 Thm 1.2 (all q) — 2026 preprints** | YES (claimed, 2026): growth in SL₂(ℤ/qℤ) on two Cantor half-sets of size q^{w_M}, count q^{2w_M−1} | F2: ES-five = HJ-length-3 digit set (DEDEKIND_ES Cor 4.6), dimension 0, critical 2δ = 1; no alphabet knob | ANALOGUE | zaremba_thin_orbits |
+| 2 | Markoff / strong approx. | Γ transitive on X*(p): BGS (Chen Thm 1.2.3), **Chen Thm 1.2.5 (orbit sizes ≡ 0 mod p), Thm 1.2.6** | YES (all but finitely many p): degree congruence on Hurwitz spaces + giant component | wrong axis (connectivity mod p of one surface vs existence on a family); on the family axis (x²+y²+z²−xyz = k) pointwise is FALSE (Ghosh–Sarnak); no Vieta group on U_n | ANALOGUE | markoff_chen |
+| 3 | quadratic forms | (i) binary forms by I₃ (one-class genus); (ii) xy+yz+zx = n (Borwein–Choi); (iii) ternary (Duke–Schulze-Pillot), 290 | (i) local; (ii) class numbers + GRH; (iii) Eisenstein main term ≍ n^{1/2} | (i) solves only the sign layer ((J)48); (ii)/(iii) F2, F6 | (i) INSTANCE (sign layer); (ii),(iii) ANALOGUE | quadratic_forms |
+| 4 | equidistribution | Duke 1988 Thm 1 (Heegner points, error \|d\|^{−δ}) | YES, power-size point sets, region targets | F3: **Lemma 4.1 (PROVED): ES shot ⟺ ideal divisor of (1 + 2k√−p) of norm ≡ −1 (mod 4k)** — a divisor condition on a representative, not a region; then F2 | ANALOGUE | duke_equidistribution |
+| 5 | unit fractions | Bloom Thm 2; Liu–Sawhney Thm 1.1; Croot 2003; Graham 1963 (n > 77) | Bloom/Croot: density/colouring, target fixed, set varies; Graham: pointwise by additive recursion n ↦ 2n+2, 2n+9 | F1 (Bloom), multiplicativity (Graham: ES(n) ⟹ ES(mn) never reaches primes; B1) | ANALOGUE | unit_fractions |
+| 6 | arithmetic geometry | integral HP on log K3 surfaces (BL: U_n is log K3); x³+y³+z³ = k (CTW: no BM obstruction; Heath-Brown: ~ρ log B solutions) | NO for any non-homogeneous family; YES for homogeneous spaces (strong approximation) | not homogeneous; Harpaz/GTZ blocked by F1/F3 | **INSTANCE** (B2 ⊂ bounded-height integral HP on a log K3 family); three cubes = closest sister ANALOGUE | integral_points_cubics |
+| 7 | logic | Lipshitz LGP for increasing-form divisibility systems (via DHMP arXiv:2308.13609 p. 3) | YES for acyclic systems | F3 = a cycle d → w → d: **Lemma 7.1 (PROVED): E2 is non-increasing and its LGP fails at 193, 2521, 66529** | EQUIVALENT reformulation; mechanism ANALOGUE | logic_divisibility |
+| 8 | complexity | Lenstra 1984 / CHN 2008 divisors in residue classes (s > n^{1/4+ε}) | YES, upper bound + algorithm | regime (ES slices have s ≪ n^{1/4}); no existence content | per-slice EQUIVALENT, NOT SHARP; hardness: constructive polylog B2 ⟹ deterministic QNR ((J)35) | complexity |
+| 9 | additive combinatorics | ±-Davenport, Kneser, Olson/Szemerédi–Vu, Erdős–Rényi, AGP | YES given length ≳ log q (random) / √q (spread) / q (worst) | F2 (Ω(K) ≈ log log p), F1 (K forced, unlike AGP), F6 (+1 vs −1) | EQUIVALENT at a window (target −1 in a box product set); NOT SHARP | zero_sum |
+| 10 | analytic NT, small counts | least QNR / primitive root / Linnik; 2^k + p (Erdős covering); Heath-Brown–Puchta (2 primes + 13 powers of 2) | polylog only under GRH and only for fixed-modulus character events; HBP via power main term | F3 (not a character event); F2 (HBP) | ANALOGUE | small_count_pointwise |
+| 11 | graphs / probability | Poisson/Janson model of the shot graph; LLL; deterministic percolation (Gaussian moats) | random models only; LLL points the wrong way; deterministic versions open | F1 | ANALOGUE | graphs_probabilistic |
+| 12 | geometry of numbers / topology | Minkowski, covering radius, degree/parity (Zagier) | YES (volume / parity) | F3 (exact height), sub-power windows ((J)85), T1 parity | ANALOGUE | geometry_topology |
+| 13 | dynamics / ergodic | Furstenberg; Hecke orbits; Rényi/Euclid transfer operators | averages; power orbits; main terms only | F1, F2 (critical exponent: indifferent fixed point) | ANALOGUE | dynamics_ergodic |
 
-## 4. Deep items (Zaremba; Markoff/Chen; Duke; Bloom)
-
-## 5. Synthesis and verdict
+Hilbert's 10th / o-minimality: UNRELATED for B2 (single p is a finite search; Pila–Wilkie gives upper bounds) — memo 7.
