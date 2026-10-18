@@ -250,8 +250,9 @@ nothing depends on them. *Repair:* none required; optionally mark the pointers "
 ## Minor remarks (no defect number)
 * §0 C6 (levels with φ(t) = 2): R_t = ½(τ(N) − σ_χ(N)) − β_t holds because every divisor of N ≡ 1 (t) is a unit ≡ ±1
   (t) when φ(t) = 2 ✓; "r_K(N)" there means σ_χ(N), not the representation number (which is wσ_χ) — say so.
-* 𝔅 ≈ 2τ(n + 1): exactly 𝔅 = 2#{e | n + 1 : 1 ≤ e ≤ (n + 4)/4 − 1} − [n + 1 = (e)² case] — the large divisors
-  (n+1)/2, (n+1)/3, n+1 are excluded by the truncation; harmless.
+* 𝔅 ≈ 2τ(n + 1): exactly 𝔅 = 2·#{e | n + 1 : 1 ≤ e ≤ ⌊(n + 4)/4⌋ − 1} (t = e + 1; the n = t − 2 correction never
+  occurs in range), i.e. 2τ(n + 1) minus the few large divisors n + 1, (n + 1)/2, (n + 1)/3 cut by the truncation;
+  harmless.
 * README conflict: on merge, main's README already had the z37 rows; I kept main's and added only the z39 section.
 
 ## Summary table
