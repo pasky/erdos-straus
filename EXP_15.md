@@ -34,3 +34,22 @@ irreducible for every D (Capelli). *Proof.* As stated. ∎
 *Reading.* F2's either/or does not occur: there is neither a two-base obstruction nor a new identity; both boundary
 points are handled by things that already ignore the base (a window polynomial in X at (0,1), reducibility of n at (3,0)).
 The remaining question is a covering one (§1.3).
+
+**1.3 Is there a finite certificate for all 2^a3^b + 1? (EVIDENCE; `scripts/z40_pierpont_cover.py`, `scripts/z40_tree2d.py`).**
+Setting: cells (a mod L, b mod L), a, b ≥ A0; tools: Lemma 1.2 descent (odd p | gcd), Lemma 1.1 windows (X ≢ 0, ±1 mod 11),
+divisor classes q | n and ET classes mod M = 2^u3^vM′ (ord_q 2, ord_q 3 | L for q | M′, M ≤ Mmax), and optionally (`--win`)
+the general 2D window rules m = 2^i3^j w^e − 1 (e ∈ {1, 3, 5, 7} cyclotomic, or Sophie-Germain 2^a3^b = 4·2^i3^jZ⁴), Lemma-1.1
+splitting with atoms 2, 3 and the algebraic factors of Z^e + w^e (resp. 2Z² ± 2Zw + w²).
+* L = 120, M ≤ 3000: 21 of 14400 cells open (density 1.5·10⁻³). Tree 120 → 360 → 2520 → 5040 → 10080 → 20160 (M ≤ 3·10⁴,
+  windows on): open density 5.4·10⁻⁵, 3.2·10⁻⁶, 1.3·10⁻⁶, 1.3·10⁻⁶, 1.2·10⁻⁶ (496 open cells at L = 20160). Lifting by 11 and 13
+  instead (no windows): 1.9·10⁻⁷, 1.7·10⁻⁸, but the open *count* grows (51 → 596 → 8800), i.e. the tree is not closing at
+  this supply.
+* No sterile point is detected: at L = 5040 and at L = 20160 **every** open cell is a quadratic non-residue modulo some
+  admissible prime q (97, 113, 127, 193, 211, …), so the limit of each open cell is not a profinite unit square at that
+  level. The open cells are a *supply* problem (no ET class of modulus ≤ Mmax realises that non-residue jointly with the
+  2-, 3-adic data), not an obstruction. Only 7 of the 47 open cells at L = 5040 still mimic 289 = 2⁵3² + 1 at level 360
+  (the EXPONENT_COVERING §4.3 near-square phenomenon); none at level 5040.
+* So: a finite certificate for all Pierpont numbers is NOT FOUND at this supply (non-discovery, not non-existence). By
+  EXPONENT_COVERING Thm 1.4 / §5.1 (S-unit version) together with Lemmas 1.1–1.2 it exists iff the closure of
+  {(a, b)} minus the neighbourhoods of (0, 1) and (3, 0) avoids the sterile set S′ — an exponential local–global question
+  of (EH) type in two exponents; no 2D obstruction is known.
