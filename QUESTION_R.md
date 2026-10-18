@@ -17,6 +17,16 @@ R = [[1,1],[0,1]], L = [[1,0],[1,1]].
 * cp1 (parent note R276 merged): ZAREMBA §5.2 rows 1, 3, 4 are analogies; row 2 is exact (R276: the slice numerator
   sets satisfy RS Def 2.4). The regular-CF formula r = 1 + Σ_{i odd} a_i is false (only ≤; R276 D2) — not used here.
   Shkredov's M is 2^{2000} (R276 D1).
+* Construction log (barrier as steering wheel):
+  - I1 "keep the middle window inside Γ" (brief ingredient (i)) → Prop 2.1/§2 item 1: it is *equivalent* to a sign
+    condition on the glued residue, so it adds no structure beyond the χ-twist.
+  - I2 twisted count via Weil/Salié on gluing boxes → works only for N ≥ n^{3/4} (window 3/8 vs 1/18); via Burgess →
+    unavailable (isolated points below N = n^{1/2}).
+  - I3 σ-twisted BK circle method: σ is a semigroup character (Thm 1.5) and not cohomologous to a constant on the IFS,
+    so the σ-twisted transfer operator has spectral radius < 1 at s = δ (Ruelle–Perron–Frobenius) — this controls
+    twisted *averages* (density-one level), but the pointwise reciprocity term lives at denominators q | n (Prop 2.2(iii)).
+  - I4 analytic reciprocity series via L(1, χ_{tK+1}) on near-square families → refuted numerically (§3.3).
+  - I5 numerator 8 vs 4 → same invariant (§4.1), so reciprocity cannot separate them.
 
 ## 1. The exact dictionary (goal 1)
 
