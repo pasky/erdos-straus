@@ -106,6 +106,44 @@ Every solution checked exactly (Fraction equality, gcd(Q, Z) = 1, Q odd and prim
 * Numerator 8 at p = 131, 241 (ladder hard cases): odd k by the mod-8 version of Thm 2.1 (8x = p + Q^k, Q ≡ −p (8);
   odd k-th powers are bijective on (ℤ/8)^×): 8/131 = 1/64 + 1/64 + 5³/4192, 8/241 = 1/146 + 1/146 + 7³/17593.
   Even k by Thm 2.3 with r ≡ 7 (8), (p/r) = −1: 8/131 = 1/20 + 1/131 + 3²/2620, 8/131 = 1/956 + 1/131 + 9⁴/125236,
-  8/241 = 1/46 + 1/241 + 3⁴/11086. (Numerator m in general: odd k is a covering whenever odd k-th powers are
-  bijective on (ℤ/m)^×-classes reachable, e.g. m = 2^j; even k needs a prime r ≡ −1 (m) with (−n/m·r⁻¹…) a square — a
-  Dirichlet prime again.)
+  8/241 = 1/46 + 1/241 + 3⁴/11086. (Numerator m, odd k: mx = n + Q^k needs Q^k ≡ −n (mod m), solvable at every n prime to m iff
+  gcd(k, λ(m)) = 1 (Carmichael λ), e.g. every odd k for m = 2^j; even k: a prime r ≡ −1 (mod m), r ≡ 3 (4), with
+  −n/m a non-zero square mod r — a Dirichlet prime again.)
+
+## 3. The correct index calibration (repairs LOWER_TAIL_FABLE §3.2's conclusion)
+
+**Proposition 3.1 (PROVED, elementary group theory).** (a) For U odd squarefree and G = (ℤ/4U)^×,
+[G : G^k] = gcd(k, 2)·∏_{ℓ | U} gcd(k, ℓ − 1); for k = 3 this is 3^{#{ℓ | U : ℓ ≡ 1 (3)}} ≤ τ₃(U) = 3^{ω(U)}, with
+equality iff every prime of U is ≡ 1 (3). (b) For a single shot prime g, the fixed-modulus-4 shot event
+"g | n + 4Q^k for some Q" is −n/4 ∈ (F_g^×)^k, of index i_k(g) = gcd(k, g − 1); with g ≡ 3 (4) forced by the shot,
+i_k(g) = gcd(k, 2)·gcd(k, (g − 1)/2).
+(c) Hence: i_k(g) = 1 is attainable (g = 3, or any g ≡ 3 (4) with (g−1)/2 prime to k) iff k is odd ⟹ ONE fixed shot
+prime covers all n prime to g (Thm 2.1 is the g = 3, mod-4 version); for k even the minimum is i_k(g) = 2, attained
+on a positive-density set of g, and the square class is decided by (n/g) — one Dirichlet prime (Thm 2.3). An index
+≥ 3 at EVERY admissible g never occurs over ℤ for the k-ladder.
+
+*Why §3.2's reading failed (Assessment).* It priced the k-th-power target in a large pooled group (ℤ/4U)^× with U
+built from many primes, where [G : G^k] grows like k^{π(y)/φ(k)}. But the relaxation lets the solver CHOOSE the
+modulus: the cheapest modulus has index 1 (odd k) or 2 (even k). Index calibration must be done at the
+best single modulus, not at a pooled one. For ES itself the "coset" is {−1} (Q = 1), which no choice of modulus
+enlarges — this is B2's "the modulus is part of the solution", and the k-ladder never touches it.
+
+**Remark 3.2 (where a genuinely cubic rung lives; Assessment).** In ES-type shot families the shot prime satisfies
+g ≡ −1 (mod 4M) for the shot's modulus 4M; if 3 | M then g ≡ 2 (3) and cubing is bijective on F_g^× — cubic residue
+symbols are invisible. A rung where the cubic symbol decides needs shots forced into g ≡ 1 (3) with no index-1
+alternative; over ℤ the k-ladder has none. The genuinely cubic analogue is the order-3 variant TES over ℤ[ω]
+(SYNTHESIS_SPARKS2 §3: T1₃ at cubes, TES^{□₃} via one Chebotarev prime), where the Brauer/T1 class itself has order 3.
+This matches TWO_POWER_LADDER (z41_stickelberger_dictionary): "BM layer and T1 are the m = 2 coincidence".
+
+## 4. Relation to the cap relaxation and the known pointwise results
+
+* ES^{(y,e)} ((J)34/(J)64, CAP_POINTWISE normalisation): den z = r², rad r | y, v_ℓ(r) ≤ e. So ES^{(y,e)} ⊂ ES_(2) = ES^□
+  for every e, and ES^{(y,e)} ∩ ES_(4) = solutions with den z = s⁴, rad s | y, v_ℓ(s) ≤ e/2. **ES_(k) is NOT a special
+  case of a bounded cap**: Thm 2.1's solutions have Q ∤ y = 2x, and Thm 2.3's have gcd(Q, (r+1)) = 1 by construction,
+  hence rad Q ∤ y = n(r+1)/4 — the cap's "rad r | y" (the condition that ties the mute primes to the solution, B2) is
+  exactly what the k-ladder drops. (PROVED, by inspection of the constructions.)
+* The gradients that DO interpolate between ES^□ and ES are those that shrink or tie Q: the box Q ≤ B, the fixed mute
+  set S ((J)23: sieve, ineffective), the cap e with rad Q | y ((J)64/(J)66: cap ≪ n^{1/4+ε} via windows), and the
+  phase-diagram band ((J)43). The exponent k is orthogonal to all of them: replacing "square" by "k-th power" in any
+  of these leaves the analysis unchanged for even k (the 2-part of every shot index is 2) and turns it into a
+  covering for odd k (Thm 2.1 / §5).
