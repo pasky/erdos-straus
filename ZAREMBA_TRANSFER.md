@@ -85,3 +85,54 @@ so one of them is a non-residue A. Finally r(p/A) = 1 + Σ_{i odd} a_i(p/A) ≤ 
 *Barrier reading.* Theorem A is a counting/pigeonhole proof whose main term is a positive proportion of ℤ/p: it is the
 rung where the certificate set has density ≫ 1 (M1⁺ trivially). The step false at m² is "#non-residues = (p−1)/2".
 Gap to ES: from L ≍ log p log log p (density 1/2) to L = 3 (count ≍ log² p) — the full B3 scale gap, now in one metric.
+
+## 3. ES-five in the gluing language; the "alphabet knob" is vacuous
+
+**Lemma C (PROVED, elementary).** Let p be prime and t, u, v ≥ 2. Then `tuv − u − v = p` ⟺
+`t ≡ ū + v̄ (mod p)` and `tuv − u − v < 2p` (ū, v̄ inverses mod p).
+*Proof.* If tuv − u − v = p then p ∤ uv (else p | u and p | v, and tuv ≥ 2p² > p + u + v). For p ∤ uv,
+tuv − u − v ≡ 0 ⟺ t ≡ ū + v̄; and tuv − u − v ≥ 2uv − u − v > 0, so it equals kp with k ≥ 1, and k = 1 ⟺ < 2p. ∎
+So the length-3 certificates are the solutions of the **reciprocal-sum congruence** ū + v̄ ≡ t with (t, u, v) in the
+hyperbolic region tuv ≲ 2p. In Möbius form v = h_t(u), h_t(x) = x/(tx − 1) (matrix [[1, 0], [t, −1]], a conjugate of ST^tS):
+ES-five(p) asks whether **some h_t, t ≤ T, maps the origin interval [U] into the origin interval [V]**, UVT ≍ p. This is
+the shape of Shk Lemma 15 / Zhang (3.4) — a family of Möbius maps (g_j there, h_t here; both one-parameter families of
+"two-letter" HJ words with one large letter) gluing two sets — but with A = B = {0} and S = [U] × [V] a box at the origin
+of the modular hyperbola: expected count UVT/p ≍ 1 per dyadic box, ≍ log² p boxes. The asymptotic regime of every known
+estimate for such counts needs a power more (Shparlinski's modular-hyperbola Thm 13: UV ≫ p^{3/2}; Shk Lemma 15: dense
+A, B; Bourgain–Garaev reciprocal sums: energies, not existence). (Assessment.)
+
+**Lemma D (PROVED; the region knob produces nothing).** Enlarging the region to tuv − u − v < (K + 1)p produces
+exactly the length-3 HJ certificates of the multiples kp, k ≤ K (Lemma C with k free). Every ES statement they certify is
+about kp, and ES(kp) already follows from ES(k) by scaling, so no information about p results. Hence the only nontrivial
+knobs in CF coordinates are the **length L** (§2) and the **character condition** (§4). (Without χ, the L = 3 rung is
+"t/p = 1/(ab) + 1/(an) + 1/(bn) for some t ≥ 2" — memo z36_numerator_free_rung — still a B2 lottery.)
+
+## 4. The χ-twist: what the 2026 method would buy, and where it stops
+
+**Hypothesis ZQ_M.** Every sufficiently large prime p has a quadratic non-residue a whose CF digits are all ≤ M.
+EVIDENCE (`scripts/z36_zq.py`): ZQ₄ holds for all primes 7 ≤ p < 2·10⁴, and ZQ₃ for all of them except p = 277; ZQ₃ for all
+primes in [10⁵, 1.02·10⁵) and [10⁶, 1.001·10⁶). In every case except 277 the QNR restriction costs nothing (min over
+non-residues of the max digit = Zaremba's min).
+
+**Theorem B (CONDITIONAL on ZQ_M; elementary).** λ(p) ≤ 1 + M·⌊s/2⌋ ≤ 1 + M(log p/(2 log φ) + 1) ≈ 1.04 M log p.
+*Proof.* As in Thm A, r(p/A) = 1 + Σ_{j even} c_j(A/p) ≤ 1 + M⌊s/2⌋, and q_s = p ≥ φ^{s−1}. ∎
+**Reading (Assessment, the main quantitative finding).** Theorem A (Chang/Larcher, unconditional) already gives
+λ(p) ≪ log p log log p. So the full 2026 Zaremba machinery, *even if extended to non-residues*, would improve the ES ladder
+only by the factor log log p (exactly Chang's "remove the log log" question), with constant M ≥ 22000 (Shk (158)).
+ES-five needs λ(p) ≤ 3. The method's contribution to the ES gap is therefore asymptotically negligible.
+
+**Why Shkredov/Zhang do not give ZQ (Assessment; precise obstruction to the naive twist).**
+1. *Window conflict.* The only place the method sees individual residues is the gluing intervals A = Λ ∔ [N], N = q^{2ε}
+   with ε < 1/18 (Shk (151)). A character-sum input on those intervals needs N ≥ q^{1/4+δ} (Burgess), i.e. ε > 1/8.
+   1/8 > 1/18: the two requirements are incompatible. (A QNR in every interval of length q^{1/9} would give n_p ≪ p^{1/9},
+   beyond Burgess's exponent 1/(4√e) ≈ 0.152.)
+2. *T1 location.* Zhang's Zaremba holds for every q, squares included; ZQ fails at every q = m² (no non-residue). So no
+   proof of ZQ can consist of growth/expansion statements in SL₂(ℤ/q) alone: it needs an input that is false at squares
+   (a Burgess/Weil-type cancellation of the Jacobi symbol). The glued numerator's χ-value is not a function of its two
+   half-set classes (the middle window carries the χ information), so the missing input must control χ on
+   A ∩ B^{−1} itself — an incomplete-character-sum-on-a-glued-Cantor-set problem not addressed in either preprint.
+3. *Multiplier escape (PROVED reduction, CONDITIONAL on the preprints).* By Shk Lemma 10, c·Z_M(q) ⊆ Z_{O(cM)}(q) for
+   1 ≤ c < q: if ax ≡ y (mod q) has solutions with x|y| ≥ q/M only, then (ca)x ≡ y gives a(cx) ≡ y, so cx|y| ≥ q/(4M)
+   (constants as in Lemma 10). Taking c = n_p (least non-residue) and a a Zaremba numerator: if a is a residue, ca is a
+   non-residue. Hence Zaremba(M) ⟹ ZQ_{O(M n_p)} — useless pointwise (n_p ≪ p^{0.152}), and under GRH gives only
+   λ ≪ M log³ p, worse than Theorem A.
