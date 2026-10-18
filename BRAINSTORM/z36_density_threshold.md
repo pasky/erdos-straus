@@ -13,7 +13,7 @@ arXiv:2605.02518v2) so that any ES transfer can be screened by one number. Detai
 
 ## The threshold (Assessment from the sources)
 Main term beats error iff |A|N^{κ} ≫ q (Shk (132)) with |A| ≍ q·t^{2w−2}: ε ≳ (1−w)/(2(κ+1−w)); the middle-window analysis
-needs ε ≤ ε₀ = 1/18. Together: **1 − w ≲ κ/9 (up to constants)**, i.e. the half sets must have density ≥ q^{−O(κ)}.
+needs ε ≤ ε₀ = 1/18. Together: **1 − w ≤ κ/8** (16(1 − w) ≤ 2κ at ε = 1/18), i.e. the half sets must have density ≥ q^{−O(κ)}.
 The campaign's barrier M1 ("power-size main term") is too weak a description: Zaremba with M = 5 has a power count
 q^{0.67} and is still out of reach. Sharpened: **M1⁺ — the two glued sets have density q^{−o_κ(1)} at the gluing scale.**
 
