@@ -121,3 +121,31 @@ E(p) = o(log² p) (GRH): the hypothesis
 implies R(p) ≥ 1 for all large primes p ((★), hence ES). **H_BM is not refuted by T1**: at n = m² both R* and M_BM vanish
 (Prop 2.1(b)), so the inequality holds trivially there. This is the CONDITIONAL_ES Prop 3.1 obstruction removed at the level of
 the hypothesis, with an unconditional main-term lower bound. Whether H_BM is true/natural is §3.
+
+## 3. The remainder X_BM: what hypothesis could close the gap, and is it ES in disguise?
+
+### 3.1 The two-sided hypothesis is false infinitely often (PROVED)
+
+**Proposition 3.1 (PROVED, via Linnik's theorem).** There are infinitely many primes p ≡ 1 (mod 4) with
+R(p) ≥ exp((log 2/(2L_Lin) − o(1))·log p/log log p), L_Lin a Linnik exponent (L_Lin = 5 admissible, Xylouris). Since
+M_BM(p) ≤ M₀(p) ≪ (log p)² and M_gen(p) ≤ Σ_{𝒫(p)} s(q)/φ(q) ≪ (log p)⁴, both |X_BM(p)|/M_BM(p) and |X(p)|/M_gen(p) are
+unbounded on these primes. Hence **every two-sided hypothesis |R − M| ≤ E with E = (log p)^{O(1)}, in particular O260's
+H_X "|X(p)| < M_gen(p) for all large p", is false infinitely often** (in the harmless direction R ≫ M).
+*Proof.* Let Q_k be the product of the first k primes ≡ 3 (mod 4). Choose a prime p ≡ −1 (mod Q_k), p ≡ 1 (mod 4),
+p ≪ (4Q_k)^{L_Lin} (Linnik). For every divisor d | Q_k with an odd number of prime factors, d ≡ 3 (mod 4), so C := (d + 1)/4
+is an integer and B := (p + 1)/d is an even integer: (u, B, C) = (1, B, C) solves 4uBC − u − B = Bd − 1 = p. These are
+2^{k−1} distinct solutions. log Q_k ~ 2k log k (k-th prime ≡ 3 (4) is ~ 2k log k), so log p ≤ (L_Lin + o(1))·2k log k
+and k ≥ (1/(2L_Lin) − o(1))·log p/log log p. Upper bounds: M₀ ≍ (log p)² (Thm 2.2 proof) and Σ_{m ≤ p/3} 4^{ω(m)}/φ(m) ≪ (log p)⁴. ∎
+(Numerically the upper tail is already visible: at primes p ≡ 1 (4) in [3·10⁵, 10⁶), 766 of 26 195 have R > 2M_BM, and
+max |X_BM|/M_BM = 2.5; `scripts/z38_hx.py`.)
+
+**So the only meaningful form is one-sided.** For ε ∈ (0, 1):
+  H⁻_BM(ε, p₀): R(p) ≥ ε·M_BM(p) for all primes p > p₀, i.e. X_BM(p) ≥ −(1 − ε)M_BM(p).
+With Theorem 2.2 this gives R(p) ≥ ε(0.0198 − o(1))(log p)² ≥ 1 for large p, unconditionally in the main term. The same
+with M_gen in place of M_BM would additionally need a polylog lower bound for M_gen (O260 spark 2; open beyond log log p).
+**H⁻_BM is ES-(★) in disguise up to the constant ε**: H⁻_BM(ε, p₀) ⟹ (★) for p > p₀ ⟹ (trivially) nothing quantitative;
+the content of H⁻_BM beyond R(p) ≥ 1 is only that the lower tail is relative to M_BM. It is not a weakening of (★); it is a
+quantitative strengthening. What the BM analysis buys is (a) the hypothesis is not refuted by T1 (Prop 2.1(b)) and (b) the
+main term is now *unconditionally* of the right size (Thm 2.2) — the R-analogue of CONDITIONAL_ES Prop 3.1(3) (with the
+principal term alone, X₀ := R* − M₀ has X₀(m²) = −M₀(m²) ≍ −(log m)², so any bound |X₀| < M₀ fails at every square; with
+M_BM the square column is 0 = 0).
