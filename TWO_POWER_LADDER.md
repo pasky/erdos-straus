@@ -142,3 +142,20 @@ n = tuv − u − v (u, v ≥ 2) (the (★) line in level form).
 Check (`scripts/z41_twisted_levels.py`): D = 3, 5, 15, 17, m < 200 odd: 0 words at levels 4D | t. So n = F·m² is
 obstructed at every T2 level 2^k·F′ with F | F′ — the genus layer of the 2-group levels is a finite family of fixed-conductor
 real characters, and each of them has its own "twisted T1". (Only n = m² kills all levels; Prop 2.2 of SPARKS9.)
+
+## 6. Spark 3: can a structured family bias the cubic (odd) layer at the forced primes? (PROVED negative, in scope)
+
+**Corollary 6.1 (no odd-order "T1"; PROVED).** Let 𝒩 be ANY set of odd n (a polynomial family, n = r³, n = D r^k, …), ℓ ≡ 1 (3)
+a prime, and t = 4q·w (w fixed) with q ≡ 1 (3) the level prime. Conditional on ℓ | tn + 1 — whatever n ∈ 𝒩 is — the cubic
+character of ℓ mod q is equidistributed on μ₃ as q varies over the forced progression (and any further congruence on q).
+*Proof.* The only information n gives about q at ℓ is q mod ℓ (ℓ | tn + 1 ⟺ q ≡ −(4wn)⁻¹ (ℓ)); Thm 3.1 with m = 3. ∎
+*What a cube DOES force (Thm 3.2).* For n = r³ the forcing gives S = (q/λ)₃ = (−4w/λ)₃⁻¹ — the Stickelberger (anti-cyclotomic)
+component x₁x₂² of the Frobenius vector of ℓ, constant along the progression (logged S-values), while the Dirichlet datum
+x₁x₂ stays uniform (491/1492 cubes, n = 27; 174/508, n = 729). So a cube biases a cubic HECKE character of ℚ(ω) of conductor
+dividing t — not a Dirichlet character mod t, hence invisible to the ES event "d ≡ −1 (t)". For m = 2 the two components
+coincide (K = ℚ) and the bias becomes T1. **Squares are the only power family whose forced bias is Dirichlet-visible**; more
+precisely the forced part of the m-layer is μ_m/μ_m^{gcd(2,m)} (Thm 3.2).
+*Scope.* A disproof family biasing cubic characters at all levels would need control of the non-abelian Frobenius of the
+level primes of every level simultaneously — i.e. of the factorisation pattern of every tn + 1 in ℚ(ζ₃, ℓ^{1/3}) — which is
+not a property of n mod anything (CLASS_FORCING Thm 5.2 is the p-side version). Not excluded in general (a disproof would be
+a non-congruence family), but no algebraic (congruence or power-type) family does it.
