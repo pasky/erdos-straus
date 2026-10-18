@@ -70,10 +70,14 @@ holomorphic part = Kronecker theta quotients at torsion points), 𝔅 = Σ_t β_
    𝔈 ≈ 121, 𝔒 = −23, −46, −82, −77, and the split by t mod 4 shows 𝔒_{4|t} = −𝔈_{4|t} exactly (item 1) and most of
    the rest of the deficit at t ≡ 3 (4) (R_t small but non-zero there — consistent with R278's correction that
    QUESTION_R Cor 1.3's t ≡ 3 half is false).
+   Near-square primes m² + K, m > 300, 10 primes each (`scripts/z39_nearsq.py 300 10 4 24 -3`): 𝔈 = 110, 115, 134
+   and 𝔒 = −1.1, −9.6, −26.2 (sd ≈ 20, so SE of a mean ≈ 6) for K = 4, 24, −3. So 𝔒 is **not** a T1 detector by
+   itself: K = −3 (no N₋ deficit, QUESTION_R §3.2) has the most negative 𝔒 together with the largest 𝔈 — 𝔒 depends
+   on the shape of n beyond T1. What is exact is item 1 (cancellation on 4 | t at squares).
    **Reading (Assessment).** The power-free "main term" log²n of the ES count is carried entirely by the weight-0
    non-holomorphic part 𝔈 (one log from the s-derivative of E(z, s) at s = ½, i.e. τ(N), one from Σ_t 1/φ(t) over
-   levels); the holomorphic part 𝔒 averages to ≈ 0 at primes and is **where T1 lives**: at squares it cancels the
-   main term level by level on 4 | t. So "Eisenstein main term + bounded cusp error" (Sturm/Duke) is the wrong
+   levels); the holomorphic part 𝔒 averages to ≈ 0 at generic primes (but not on all polynomial families, e.g. m² − 3)
+   and at squares it cancels the main term exactly, level by level on 4 | t. So "Eisenstein main term + bounded cusp error" (Sturm/Duke) is the wrong
    template: at each level there is no cusp form; the competition is weight-0 Eisenstein vs weight-1 Eisenstein,
    both evaluated at the single integer tn + 1 — the divisor-in-class event (B2) in automorphic clothing.
 
