@@ -9,11 +9,12 @@ ladder_thinning.py, level_bm.py, janson.c, janson_stats.py, level_poisson.py}`; 
 1. **The BM layer of Thm K is one odd character, and it is pointwise free (SPARKS9 Prop 2.1–2.2, PROVED, elementary).** In level
    coordinates BL's class is χ_{−t} (4 | t) at the divisors d of tn + 1 — the twin of O268's χ_{−4uB}(p) in pair coordinates.
    M^{lev}_t = (τ(N) − σ_{χ_{−t}}(N))/φ(t) ≥ 0, = 0 at squares, and **∃ 4 | t with M^{lev}_t(n) > 0 ⟺ n is not a square**, witness
-   t ≤ 4ℓ(n), ℓ(n) = least prime with (n/ℓ) = −1 (via (−t/ℓ) = (n/ℓ) when ℓ | tn + 1). So H⁻_BM is purely the class position of a
-   divisor inside the coset {χ_{−t} = −1} (one class of φ(t)/2). Checked: all 499 500 odd non-squares ≤ 10⁶, 0 failures; squares
-   fully obstructed. Corollary (s9_disproof_class_layer): any structured (★)-failure family at non-squares is invisible to every
-   quadratic/reciprocity layer — the level form of BL Thm 1.8.
-2. **(★) and b = 1 are correlated only through the size of one numerator-free set (EVIDENCE).** In word coordinates the k/n two-line
+   t ≤ 4ℓ(n), ℓ(n) = least odd prime with (n/ℓ) = −1 (via (−t/ℓ) = (n/ℓ) when ℓ | tn + 1). So H⁻_BM is the class position of a
+   divisor inside the coset {χ_{−t} = −1} (one class of φ(t)/2), where the OTHER real genus characters mod t still act
+   (e.g. the (★)-failure n = 7, t = 12: 85 = 5·17, χ_{−12} = −1 but χ_{−4} = +1 on both factors). Checked: all 499 500 odd non-squares ≤ 10⁶, 0 failures; squares
+   fully obstructed. Corollary (s9_disproof_class_layer): no (★)-failure family at non-squares is explained by the BL character χ_{−t} at all
+   levels — the level form of BL Thm 1.8 (genus and higher-order characters are not excluded).
+2. **(★) and b = 1 are positively correlated, linearly explained by the size of one numerator-free set (EVIDENCE).** In word coordinates the k/n two-line
    union is "some solution of tuv − u − v = n has a coordinate ≡ 0 (mod k)" (Cor 1.2, PROVED; SPARKS8 Prop 1.3 extended to all odd n
    and all k). Residual correlation of the two lines: +0.37 (≤ 10⁶), +0.39 ((10⁶, 10⁷]) — positive, not negative — and the partial
    correlation given log |W(p)| is **0.03 / 0.01**. If (★) fails, b = 1 is pushed DOWN (to 0.59× its mean).
@@ -26,12 +27,13 @@ ladder_thinning.py, level_bm.py, janson.c, janson_stats.py, level_poisson.py}`; 
 * (ii) Thm K × BM: SHARP 1. Dirichlet-coefficient positivity: no fixed-integer packaging (moving almost-coprime integers), and the
   available positive coefficients (σ_χ = R_D/w) enter with a minus sign (D⁻_t ≤ (τ − σ_{χ_{−t}})/2) — Hecke positivity pushes
   against ES (s9_no_fixed_integer).
-* (iii) Variance at fixed p: Lemma 3.1 (PROVED) — the ℓ² Fourier/PZ certificate over any fixed group succeeds iff
-  m̄² > (|G| − 1)V and then occupies every class (phase-blind; exact form of F4's B3 objection). Lemma 3.2 (tautology): over p the
+* (iii) Variance at fixed p: Lemma 3.1 (PROVED) — the plain ℓ² (Cauchy–Schwarz/Parseval) certificate over any fixed group
+  succeeds iff m̄² > (|G| − 1)V and then occupies every class (phase-blind; other second-moment arguments not covered). Lemma 3.2 (tautology): over p the
   exponent must exceed log p. Prop 3.3 (EVIDENCE, ≤ 3·10⁶): word-level Janson dependency Δ/μ = 3.6 → 9.4 (μ²/2Δ ≈ 1–2, useless);
   the near-independent units are levels, E[#hit levels] = (0.44 → 0.97)·log p — critical. Prop 3.4 (EVIDENCE, ≤ 5.4·10⁶):
-  level-Poisson predicts 12.6 zeros vs 12 observed in total (swap-Poisson 5.0), but the shape is wrong — the far tail is fatter
-  (positive joint dependence of level failures, the Harris direction). Why near-independence cannot become a proof: it is
+  level-Poisson (bin-mean) predicts 16.0 zeros vs 13 observed in total (swap-Poisson 8.1, Poisson 0.7), but the shape is wrong —
+  the far tail is fatter than this model (positive joint dependence of level failures, the Harris direction, or intensity
+  heterogeneity; not separated). Why near-independence cannot become a proof: it is
   pairwise, at one p there is no measure, and the joint tail is exactly where it fails.
 * (iv) Union: SHARP 2 — negative answer, no forcing, no identity beyond "same set W(p)". Given W, union = overdispersed
   mirror-pair thinning (dispersion 2.4–3.8 vs 2). Census ≤ 10⁷ reproduces all known (★)/b = 1 failures; union never fails.
@@ -63,3 +65,13 @@ not checked (only the abstract); the fibration collapse is an Assessment.
 4. |W(p)| (the numerator-free word count, mean ≈ 0.92 L²) has a thin lower tail (1 %-quantile ≈ 0.53 L²); a pointwise lower bound
    for |W(p)| alone is a 4-blind B2 problem but with one fewer constraint — is it any easier (e.g. via u = 1, 2 words τ(p+1) + τ(p+2)
    plus a short-interval divisor argument)?
+
+## Self-review (reviewer subagent, deep) — applied
+No FATAL. MAJOR: (1) the disproof corollary overreached — other real (genus) characters mod t can still obstruct the class −1
+(n = 7, t = 12); corrected everywhere. (2) Prop 3.4 / Prop 3.3 totals silently dropped the M_BM8 < 4 bin (16 primes incl. the failure
+409); scripts fixed, numbers re-run (13 observed; 0.71 / 8.13 / 16.0). (3) Lemma 3.1's consequence restricted to the plain ℓ²
+certificate. (4) statistical wording softened (partial correlation ≠ conditional independence; Jensen heterogeneity not
+separated; overlap statistic ≠ dependency graph). Minors: least ODD prime ℓ; numerator 8 uses t ≤ 8ℓ; Harris direction in the
+Janson memo; A1 column documented; divisor vs prime factor (t = 8, n = 73); "index" → size φ(t)/2; table pipes escaped.
+Checks the reviewer passed: Lemma 1.1/Cor 1.2, Prop 2.1, Prop 2.2 (odd ℓ), Lemma 3.1 and its variance form, Lemma 3.2, all logs
+reproduced (10⁶ census/correlations, BM logs, squares, 34 numerator-8 failures).
