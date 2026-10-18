@@ -26932,4 +26932,32 @@ def check_hk():
 check_hk()
 
 
+def check_hl():
+    # (hl) SINGLE_P_COUNT (O260/R277): R277 from scratch — Lemma 1.1 (four exact forms of (★) agree for primes < 300); the genus
+    # split R* = M_gen + X (Lemma 2.1 / Prop 2.2): M_gen computed three ways agrees exactly for all odd n < 1600, and
+    # R* = M_gen = X = 0 at every odd square ≤ 1521; Prop 2.2(d) mean preservation.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "review_r277_exact.py", "300", "1600"], capture_output=True, text=True, timeout=900,
+                       cwd=sdir, env=env)
+    assert r.returncode == 0, r.stderr[-2000:]
+    out = r.stdout
+    assert "(A) Lemma 1.1 four forms + R*=R + evenness: mismatches = 0 for primes < 300" in out, out[:800]
+    assert "(B,C) odd n<1600: M_gen(definition, brute squares) == M_gen(Prop 2.2(a) explicit) == (brute real-character sum)" in out
+    assert "mismatches = 0" in out.split("(B,C)")[1].split("\n")[0], out
+    sq = [l for l in out.split("\n") if l.strip().startswith("square n=")]
+    assert len(sq) == 19 and all(l.strip().endswith("R*=0 M_gen=0 X=0") for l in sq), sq
+    assert "(D) Prop 2.2(d) mean preservation: OK for 54 pairs" in out, out[-500:]
+    print(f"== (hl) SINGLE_P_COUNT R277: (★) four forms; genus split M_gen exact three ways (odd n < 1600); R* = M_gen = X = 0 "
+          f"at odd squares; seconds = {perf_counter() - t0:.1f}")
+
+
+check_hl()
+
+
 print("\nall checks passed")
