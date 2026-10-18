@@ -59,3 +59,47 @@ Prop 1.6 (§4 of 1107.1010 — Jacobi-symbol argument). What is new is only the 
 orthogonality expansion over χ mod 4uB, this is the single character χ_{−4uB} (and that O260's "genus = BM" was
 wrong). Repair: label Thm 1.1(1)–(2),(4) "PROVED (classical: Yamamoto; BL Cor 1.3; ET Prop 1.6 mechanism)" and claim
 novelty only for the expansion/bookkeeping statement (3) and the refutation of O260's strong form.
+
+### Prop 2.1 — SOUND
+(a)–(e) re-derived: 1 − χ ∈ {0, 2}; at n = m² every coprime pair has χ = (−4uB/m)² = 1 and non-coprime pairs are excluded by
+the definition; χ_{−4uB} non-principal ⇒ mean 1/φ(q); u, B < p; φ(4uB) = 4φ(u)φ(B) (exactly one even), coprime ordered
+splittings of even m all have u + B odd. Numerically (own engine, below) all 499 odd squares ≤ 10⁶ have R* = 0.
+
+### Thm 2.2 (unconditional M_BM(p) ≥ (3/(16π²) − o(1))L²) — SOUND (minor nits D4)
+Re-derived line by line:
+* Sub-family 𝒮 = {(u, 2B′): u odd ≤ p^δ, B′ ≤ p/(8u), (B′, u) = 1}: gcd = 1, u + B odd, 4uB − u − B < 8uB′ ≤ p ✓; swap image
+  disjoint (first coordinate even) ✓; χ(−uB), φ(4uB) swap-invariant ✓; φ(8uB′) ≤ 8uB′ and pair terms ≥ 0 ✓.
+* Möbius: Σ_{B′≤Y,(B′,u)=1} 1/B′ = Σ_{d|u} μ(d)d^{−1}H(Y/d); −Σ_{d|u}μ(d)log d/d = (φ(u)/u)Σ_{ℓ|u} log ℓ/(ℓ−1) ≥ 0 ✓;
+  Y_u/d ≥ p/(8u²) ≥ 1/8 needs δ ≤ 1/2 ✓ (H = 0 on [1/8, 1), error bounded) ✓. Character part ≤ κ(u)·g(p) ✓.
+* g(p): PV gives |G(t)| ≤ log T₀ + 1 + 2√p·log p/T₀ = L/2 + O(log L) ✓. Burgess for the Legendre symbol (prime modulus, all r)
+  gives S(v) ≪_ε v p^{−η} for v ≥ p^{1/4+ε}; partial summation over v ≤ p/8 (all arguments are ≤ Y_u ≤ p/8, so the
+  "periodicity beyond p" remark is not even needed) gives g ≤ (1/4 + ε)L + O_ε(1) ✓.
+* Constants (own Dirichlet-series derivation + numerics, `scripts/review_r279_thm22.py`): Σ_{u odd≤X} φ(u)/u² = (4/π²)log X
+  + 0.652 + o(1) (residue (1/2)·8/π²); Σ φ(u)log u/u² = (2/π²)log²X − 0.156 + o(1); Σ κ(u)/u = (6/π²)log X + 0.588 + o(1)
+  (ζ_odd(1+s)ζ_odd(2+s)/ζ_odd(4+s), residue (1/2)(π²/8)(96/π⁴)) — all three ✓ (stable to 4 decimals for X = 10³…10⁶).
+* Optimisation: (4δ − 2δ² − 6βδ)/(4π²); β = 1/2 → δ = 1/4, 1/8 → 1/(32π²) ✓; β = 1/4 + ε, δ ≤ 1/2 → 3/4 − 3ε → 3/(16π²)
+  ≈ 0.01900 ✓. M₀ constant: 2-factor 4, odd local factor (1 + 2ℓ/(ℓ−1)²)(1 − 1/ℓ)² = 1 + 1/ℓ², ∏_{ℓ odd}(1 + ℓ^{−2}) = 12/π²,
+  ζ_odd(1+s)² ~ 1/(4s²) ⇒ Σ_{m≤x,2|m} 2^{ω(m)}/φ(m) ~ (6/π²)log²x ⇒ M₀ ~ (3/(2π²))L² ✓; sandwich {uB ≤ p/4} ⊂ 𝒫 ⊂
+  {uB ≤ (p+1)/3} (u + B ≤ uB + 1) ✓.
+* Uniformity: the only arithmetic input is the single character (·/p); the moduli 4uB enter only through explicit weights
+  1/φ(4uB) and positivity, so no uniformity in q is needed. The o(1) depends on p only (via ε, η of Burgess) ✓.
+* Numerics (own C engine `scripts/review_r279_mbm.c`, bulk via an m = uB table built by explicit (u, B) enumeration,
+  boundary pairs enumerated directly; validated against an independent sympy brute force at 13 primes ≤ 2999, max
+  |ΔM| = 5·10⁻¹¹, R identical): all 78 496 primes ≤ 10⁶: min M_BM/L² = 0.0623 at p = 17 ✓ (author: 0.062 at 17); per-decade
+  minima 0.062, 0.073, 0.081, 0.091, 0.097 (rising), means 0.148–0.149, M₀/L² mean 0.1492 on [10⁵, 10⁶) (→ 0.1520 slowly,
+  O(L) lower-order) ✓. The sub-family sum S_δ(p)/L² at δ = 1/2 is 0.025, 0.027, 0.028, 0.030, 0.052 at p = 409, 5569,
+  102001, 712321, 999983 — above the worst-case 0.0190 ✓ (author's 0.025–0.030 reproduced). Note g(p)/L is 0.41–0.46 at the
+  (★)-failure primes (≫ 1/4: the O_ε(1) of Burgess is not negligible at this height), so Thm 2.2's constant is purely
+  asymptotic; the numerical M_BM ≫ 0.06L² is the meaningful statement in range.
+* Assessment of strength: correct, but a short positivity + Burgess argument (12 % of M₀); it lower-bounds a *heuristic*
+  main term, not R. As a "headline" it is modest: it says the BM-corrected model never predicts fewer than ≍ L² solutions,
+  i.e. the model itself has no Brauer–Manin-type vanishing at primes. I found no prior statement of exactly this
+  inequality (it is not in BL, ET, or BR), but it is a routine exercise once M_BM is defined; label PROVED is fine,
+  "potential headline" is not (Assessment).
+
+### Prop 2.3 (GRH ⇒ M_BM ∼ M₀) — SOUND-AFTER-REPAIRS (D5, citation precision)
+Checked the source (arXiv math/9903196 = JAMS 14 (2001) 365–397), **Theorem 2**: under GRH, for χ non-principal mod q and
+1 ≤ x ≤ q, Σ_{n≤x}χ(n) ≪ Ψ(x, log²q (log log q)^{20}), "and so the estimate (1) [= o(x)] holds when log x/log log q → ∞".
+This is exactly what is used (uniform o(x) for x ∈ [(log p)^A, p], A → ∞), and x ≤ p/8 ≤ q is respected. g(p) ≤ A log L +
+ε(A)L + O(1) = o(L) ✓. T(p) bound re-derived: 1/φ(B) = B^{−1}Σ_{e|B}μ²(e)/φ(e), Σ_e 1/(eφ(e)) < ∞, Möbius over d | u, parity
+split; inner sum ≪ κ(u)g(p), Σ_{u<√p} κ(u)/φ(u) ≪ L ⇒ T = O(L·g(p)) = o(L²) ✓.
