@@ -1,0 +1,19 @@
+X=1000000: |T2 levels <= X+2| = 169
+primes 5<=p<=X with no T2 word: 1298 of 78496; largest [997769, 998759, 999979]
+  (100,1000]: 31/143 = 0.2168
+  (1000,10000]: 73/1061 = 0.0688
+  (10000,100000]: 245/8363 = 0.0293
+  (100000,1000000]: 935/68906 = 0.0136
+odd non-squares 3<=n<=X with no T2 word: 20325; odd squares with a T2 word: 0
+divisor spot check: 150 failing primes, 0 actually have a word; 150 hit primes, 0 actually have none
+baseline all 4|t: primes failing 118; odd non-squares failing 1939; squares hit 0; T2-failing primes with some 4|t word: 1180
+n=131: 8|t word False, 4|t word True; n=241: 8|t False, 4|t False
+X=10000000: |T2 levels <= X+2| = 237
+primes 5<=p<=X with no T2 word: 5320 of 664577; largest [9986749, 9987181, 9994727]
+  (100,1000]: 31/143 = 0.2168
+  (1000,10000]: 73/1061 = 0.0688
+  (10000,100000]: 245/8363 = 0.0293
+  (100000,1000000]: 935/68906 = 0.0136
+  (1000000,10000000]: 4022/586081 = 0.0069
+odd non-squares 3<=n<=X with no T2 word: 115104; odd squares with a T2 word: 0
+divisor spot check: 150 failing primes, 0 actually have a word; 150 hit primes, 0 actually have none

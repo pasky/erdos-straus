@@ -45,3 +45,25 @@ reduction ζ ↦ r mod p, both primes 𝔮 | q tested):
   ⇒ abelian) and the computation i_a = a⁻¹i₁ above. Repair: insert those two lines.
 * **D4 (MINOR, label, "Reading").** "that is the whole reason the BM layer is free … and the whole reason T1 exists" is an
   interpretation (Assessment), not part of the PROVED statement. Relabel.
+
+## §5 census (2-group levels) — verdict: SOUND (numbers reproduced exactly); Assessment label appropriate
+
+From scratch (`scripts/review_r283_census.py`, `logs/review_r283_census.txt`): own T2 generator, residue-class **sieve** via Lemma 1.1
+(mark n ≡ −u mod tu − 1, n ≥ 2(tu−1) − u) instead of the author's enumeration, plus an **independent divisor-based** check
+(factor tp + 1, look for d ≡ −1 (t), d, N/d ≥ 2t − 1) on 150 random failing and 150 random hit primes per range.
+* |T2 ∩ [4, X+2]| = 169 (X = 10⁶), 237 (X = 10⁷) ✔. Failing primes: **1 298** ≤ 10⁶ (largest 999 979), **5 320** ≤ 10⁷ (largest
+  9 994 727) ✔. Decade rates 0.2168, 0.0688, 0.0293, 0.0136, 0.0069 ✔. Odd non-squares ≤ 10⁶ failing: 20 325 ✔. Squares hit: 0 (10⁶
+  and 10⁷) ✔. Baseline all 4 | t: 118 primes, 1 939 non-squares, 0 squares; 1 180 T2-failing primes have a 4 | t word ✔.
+  131: no 8 | t word, has a 4 | t word; 241: neither ✔.
+* Divisor spot check: 0/150 failing primes actually have a word, 0/150 hit primes lack one (both X) ✔.
+* **D5 (MINOR, §7 "rate halving per decade").** The ratios are ÷3.2, ÷2.3, ÷2.2, ÷2.0 — "roughly halving in the last decades" is
+  accurate; "halving per decade" overstates the regularity on 5 data points. The heuristic "expected hits ≍ c·log n ⇒ infinitely
+  many failures" is correctly labelled Assessment (failure rate ≈ n^{−0.3} under a naive Poisson model; Lemma 5.1 shows the hits
+  are not Poisson-independent, so this is a heuristic only).
+* **D6 (MINOR, §5 bullet 1).** "(of 499 500)" counts odd non-squares including n = 1 as a square and n = 3,… — fine, but the census
+  ranges are "odd non-squares n ≤ 10⁶" vs primes "5 ≤ p" (2, 3 excluded silently; 3 has no T2 word). Cosmetic.
+
+## Lemma 1.1 — verdict: SOUND
+a(tn+1) − n(ta−1) = n + a and t(n+a) = (tn+1) + (ta−1), with gcd(a, ta−1) = gcd(t, ta−1) = 1: both directions ✔. MINOR (D7): the
+lemma is stated for D⁻_t > 0 (a ≥ 1, includes the boundary d = t − 1); the ES word event R_t > 0 is the sub-union a ≥ 2 with the
+extra condition n + a ≥ 2(ta − 1). Still a congruence union (above a threshold), so the conclusion stands; say so.
