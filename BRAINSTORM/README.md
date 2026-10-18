@@ -573,3 +573,13 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z36_numerator_free_rung | drop χ, keep length 3 | = Lorenzini's (W) (known: (J)15, bsG_even_half); 12 exceptions ≤ 2·10⁶ | no new claim |
 | z36_hj_cantor_dimension | effective dimension of rungs | L = c log p: |S_L| = p^{θ(c)}, θ(1) ≈ 0.85; method window lies at L ≥ C₀ log p | EVIDENCE + Assessment |
 | z36_reciprocity_obstruction_home | thin-orbit home of T1 | Rickards–Stange (Duke 2025) reciprocity obstructions: same source/obstruction/conjecture shape; proved fat case; Question R | dictionary (Assessment) — SHARP candidate |
+
+### z37 — O267 Question R: thin-orbit local–global with a reciprocity obstruction (deep file QUESTION_R.md)
+| memo | idea | outcome | label |
+|---|---|---|---|
+| z37_theta_multiplier | why Ψ is a semigroup | RS's σ = (c/d) is the theta multiplier; homomorphism on Γ₁(4)_{≥0} because the archimedean cocycle dies on positive matrices; does not extend to Γ₁(4) | PROVED (classical input) — SHARP candidate |
+| z37_self_level_matrices | ES in RS matrix language | words = self-levelled SL₂ matrices γ ≡ −[[1,∗],[0,1]] mod c(γ); per-level sign = character mod 4t; (A)3 = opposite Γ₀(4) coset of Ψ | PROVED dictionary |
+| z37_qnr_numerator_sets | reduce Question R | n ∈ den(Γ⁺) ⟺ a Γ̃-numerator over n is a QNR; one ladder with ZQ, Thm A, ES-five; main term must carry 1 − ∏_p 1[n ∈ ℚ_p^{×2}] | PROVED + CONJECTURE R-main |
+| z37_twisted_gluing | input needed by growth methods | Hypothesis TG (χ-twisted A∩B^{−1} count); Weil needs ε ≥ 3/8 vs ε < 1/18; Burgess unavailable below n^{1/2} | Assessment + open hypothesis |
+| z37_reciprocity_series | main term vanishing at squares | M_R (divisors equidistributed within χ_t-class), exact at squares, explains ≈ 35–55 % of near-square deficit; L(1, χ_{tK+1}) refinement refuted | EVIDENCE |
+| z37_numerator_k_sign | 4 vs 8 | sign constant on k | t iff 4 | k: 4 and 8 share the invariant; difference is B3 | PROVED + EVIDENCE |
