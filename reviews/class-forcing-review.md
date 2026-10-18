@@ -5,6 +5,8 @@ Reviewer scripts: `scripts/review_r272_*.py` (from scratch; author's z33 scripts
 ## Summary verdicts (filled in progressively)
 | claim | verdict |
 |---|---|
+| Thm 2.1 (a)(b)(c)(i)–(iii), Table 2.2 | SOUND (D3 cosmetic) |
+| Thm 2.1(c)(iv) + bold summary + slogan | GAP → SOUND-AFTER-REPAIRS (D2) |
 | Thm 6.1 + Hypothesis HC | **FATAL as stated** (HC is false; Thm 6.1's conclusion is false) — SOUND-AFTER-REPAIRS with the D1 repair |
 
 ## Defects
@@ -28,3 +30,33 @@ C|_{Ω₀} = {1} (Ω₀ ⊂ ℚ(ζ_M)). Then the proof goes through (k-classes s
 the honest reading is: *Frobenius data = its abelian (congruence) shadow + a non-abelian part; the congruence part is B1
 and may well cover whole classes (as above); only the non-abelian part is (conditionally) useless.* §9's verdict bullet
 and AGENT_REPORT ("for every finite Galois Ω and class C compatible with p ≡ 1 (M)") must be amended accordingly.
+
+**D2 (MAJOR, label/overclaim) — Thm 2.1(c)(iv) and the bold summary after (c); AGENT_REPORT "multiquadratic (+ℚ(ζ_n)) for
+all standard data"; slogan "reciprocity forces parity, never class".** (b) is correct and is the real content: Frob_p|Ω sees
+[p] only through F = Ω ∩ ℚ(ζ_t), an abelian subfield of ℚ(ζ_t), i.e. a *quotient of p mod t* (congruence data). But the
+claim that F (or Ω^{ab}) is multiquadratic for "Smith/Koymans–Pagano governing fields" is not a property of governing fields
+at all: a governing field is not canonical — any finite Galois Ω′ ⊇ Ω (e.g. Ω′ = Ωℚ(ζ₁₆) or Ωℚ(ζ₅), still 2-extensions)
+governs the same invariant, and then F ⊇ ℚ(ζ₁₆) ∩ ℚ(ζ_t) resp. ℚ(ζ₅) ∩ ℚ(ζ_t) sees [p] mod 16 resp. mod 5 in full (cyclic
+quotients C₄ ⊄ G/G²). Even the minimal 2-power governing fields in the literature need not have multiquadratic Ω^{ab}
+(an abelian 2-extension of ℚ can be cyclic quartic, e.g. ℚ(ζ₅), or contain ℚ(ζ₁₆)); I could not access Smith (2017) or
+Koymans–Pagano to check their specific constructions (no PDFs in sources/; not needed for the defect). Also (i) itself gives
+p mod ℓ — a cyclic, non-quadratic quotient — so "parity" is already inaccurate there (the author does write "and p mod n").
+*Repair.* Delete the multiquadratic claim in (iv) (or label it CONJECTURE "for the specific fields of [ref], unchecked");
+replace the bold summary by the true statement of (b): **"any Frobenius datum of p sees [N] ∈ G only through a quotient of
+p mod t (congruence data), and is equidistributed independently of [p] beyond that quotient; for the data (i)–(iii) the
+quotient is G/G² × (p mod gcd(n, t))-type."** The slogan should read "reciprocity data of p = congruence data of p plus an
+independent non-abelian part", not "parity, never class". Since [N] is itself a function of p mod t (Thm 2.1(a)), nothing
+downstream breaks.
+
+**D3 (MINOR) — Thm 2.1, proof of (a).** "4N ≡ p, cp + 1, p, 1 (mod t)" is wrong for the first two lines (N ≡ p mod 4d and
+N = cp + 1; 4N ≡ 4p, 4(cp+1)). Should read "N ≡ p (mod 4d), N = cp + 1, 4N ≡ p (mod e), 4N ≡ 1 (mod e)". Also the e-slice
+column requires e odd (true: e ≡ 3 (mod 4) since p ≡ 1 (4)); and for the c-line with c odd, N = cp + 1 is even, so [N] ∉ G —
+the event concerns odd divisors only; say so.
+
+Table 2.2 recomputed from scratch (`scripts/review_r272_table22.py`): all 30 rows × 6 columns identical. Verdict:
+**Thm 2.1 (a),(b),(c)(i)–(iii): SOUND (D3 cosmetic). (c)(iv) + slogan: GAP → SOUND-AFTER-REPAIRS (D2).**
+(c)(i) re-derived: Gal(ℚ(ζ_ℓ, a_i^{1/ℓ})/ℚ) = (ℤ/ℓ)^k ⋊ (ℤ/ℓ)^×, [u, v] = (u−1)v exhausts (ℤ/ℓ)^k for any u ≠ 1 (needs ℓ ≥ 3 and
+independence in ℚ(ζ_ℓ)^×/ℓ-th powers, which follows from independence in ℚ^× for ℓ odd). (ii) D₄ with commutator of order 2
+holds iff a ≠ ±□ and a ≠ −4□² type (the author's Sophie Germain remark covers −4b⁴; note also a = −b² gives
+ℚ(i, a^{1/4}) = ℚ(i, √b)·… of degree ≤ 4 — "a ≠ ±□" already excludes it). (iii) fine for genuinely dihedral Rédei fields
+(Q(√a, √b) biquadratic); degenerate a = b cases are cyclic quartic — say "biquadratic Q(√a,√b)" as hypothesis.
