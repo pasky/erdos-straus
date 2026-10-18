@@ -20,6 +20,20 @@ red team 2 Thm 2.2 (B2).
 * cp1 (parent note, R278 on O267): QUESTION_R Thm 1.5 is sound but **classical/RS §7.3** (cite as such, not new);
   QUESTION_R Cor 1.3's t ≡ 3 (mod 4) half is FALSE (only the 4 | t half and the mod-8 dependence hold) — not used
   here; Hypothesis TG false as quantified — not used.
+* Construction log (barrier as steering wheel):
+  - C1 "generating function of R is metaplectic?" → (J)39 kills finite holomorphic sums by growth; so look for
+    infinitely many levels / non-holomorphic pieces → Thm K: each level = Kronecker theta quotient at a t-torsion
+    point (weight 1) + weight-0 Maass Eisenstein; the infinite level sum is the B2 coordinate.
+  - C2 "Sturm/Duke: Eisenstein main term + cusp bound" → Thm K: no cusp forms at any level; the main term is the
+    weight-0 part, the holomorphic part is the oscillating one and carries T1 (Cor K1) → template inapplicable.
+  - C3 "support = ES set at weight ½" → Serre–Stark (Prop S): impossible; the square part of the failure set is θ's
+    support, 105 is not metaplectic.
+  - C4 "self-levelled set = kernel of a multiplier / Hecke image of θ" → the self-level condition is a Bruhat-cell
+    condition (Γ_∞-bi-invariant); the multiplier is ±1 on the I cell, ≡ −i on the −I cell (§3). Not a semigroup
+    (products of self-levelled matrices are not self-levelled), so not a kernel.
+  - C5 "quartic multiplier for numerator 8" → u↔v symmetry forbids a quartic sign of A; ordered bit balanced (§6).
+  - C6 "levels with one odd character (t = 3, 4, 6)": D⁻ − D⁺ = −σ_χ(N) ≤ 0 always (theta-series positivity pushes
+    *against* ES); ES at these levels ⟺ τ(N) − r_K(N) > 2β — the classical Mordell families. No new forcing.
 
 ## 1. Each level is a Kronecker theta quotient at a torsion point (Theorem K)
 
@@ -133,3 +147,27 @@ the main term.
   n, where the levels are different groups Γ₁(t) and different torsion points — no modular structure in t
   (§4: the t-sum is a shifted GL(3) object at a single n). This is the regime red team 2 assessed as quantitatively
   blocked (𝓛³ mass, Planck-scale targets). Assessment: no hypothesis of Thm 2.2 beyond finiteness is violated.
+
+## 6. Quartic (numerator 8/16) — negative
+
+`BRAINSTORM/z39_quartic_slices.md`: for p ≡ 1 (4) and any word, χ₄(A*) = χ₄(A)⁻¹ (AA* ≡ 1 mod p), so no u↔v-symmetric
+quartic sign exists on the k | t slices (PROVED); the ordered smaller-divisor bit is balanced (EVIDENCE, p < 2·10⁴,
+k = 4, 8, 16). The k = 8 exceptions 131 (inert in ℤ[i]), 17, 241 show no quartic signature; consistent with
+QUESTION_R §4.1 (4 and 8 share the quadratic invariant; the difference is B3).
+
+## 7. Verdict (Assessment) and exact scope
+
+1. **Exact dictionary (PROVED, classical ingredients, new to the campaign):** the level-t ES generating function is a
+   Kronecker theta quotient θ'(0)θ(2z)/θ(z)² at the t-torsion point z = (t−1)τ'/t, τ' = tτ (weight-1 holomorphic
+   Eisenstein, odd characters mod t), plus the coefficients of a weight-0 Maass Eisenstein series (even characters),
+   minus elementary boundary terms (Thm K). No cusp form occurs at any level.
+2. **Where things live:** the log² main term in the weight-0 non-holomorphic part; T1 as an exact cancellation of
+   the weight-1 against the weight-0 coefficient on every level 4 | t at squares (Cor K1); the full sum over levels is
+   an additively shifted d₃ (GL(3)-Eisenstein-type) object (§4).
+3. **Half-integral weight:** by Serre–Stark only square classes can be supports of weight-½ forms: T1's squares are
+   θ's support; any non-square failure (105) is provably not metaplectic for periods ≤ 96 and conditionally (SQ₅) at
+   all (Prop S). The theta multiplier on the self-levelled −I Bruhat cell is the constant −i (§3).
+4. **Barriers:** a metaplectic construction violates only the finiteness hypothesis of red team 2 Thm 2.2(iii) (H-A);
+   it does not open H-D (per-level content abelian/congruence), and the sum over levels has no modular structure in
+   t (B2); B3 is visible as "main term in weight 0, oscillation in weight 1".
+No existence mechanism, no pointwise statement, ES not touched.
