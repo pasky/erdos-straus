@@ -93,7 +93,7 @@ happened). Columns: R; M₀ = Σ 1/φ(q) (p a uniform unit mod q); M₂ = condit
 M_loc,Y = conditioning on p modulo the full Y-smooth part of q (all prime powers of primes ≤ Y, incl. 2) and on the square
 class of p modulo the rest; R_sm,Y = hits whose q is Y-smooth (these are reproduced exactly by M_loc,Y). Consistency checks:
 M_loc,0 = M_gen and M_loc,∞ = R (checked at 409, 101, 10007, 1000033); M_gen(m²) = R(m²) = 0 for the squares tested
-(9409, 10201, 2025, 225, 441; exact rational check for odd m < 40 in `scripts/z30_check_forms.py`). Summary statistics
+(T1 control: all 499 odd squares 9 ≤ m² ≤ 10⁶ have R = M_gen = M_loc,30 = M_Q = 0, `logs/z30_squares.txt`; exact rational check for odd m < 40 in `scripts/z30_check_forms.py`). Summary statistics
 `scripts/z30_stats.py`, output `logs/z30_variance.txt`.
 
 Since R(p) is even (Lemma 1.1(2)), the independent-incidence ("swap-paired Poisson") baseline is var R ≈ 2·E R.
@@ -115,7 +115,7 @@ Findings.
   variance; against the baseline 2(M_loc − R_sm) of the genuinely random pairs the residual is 1.66 (Y = 30) and 1.89
   (Y = 100), not falling with Y. So the non-local part is still overdispersed by a factor ≈ 1.7–1.9. Hypothesis (Assessment,
   not tested to a conclusion): divisor-sharing correlation — hits sharing u, B or C come from divisors of the same integer
-  p + u, p + B or 4Cp + 1 (per prime near 10⁶ there are ≈ 3–4 ordered pairs of distinct hits sharing a coordinate per hit,
+  p + u, p + B or 4Cp + 1 (at p = 10007 and 1000033 there are ≈ 2.4 and 4.5 ordered pairs of distinct hits sharing a coordinate per hit,
   beyond the swap partners; `z30_rgen.c` columns WC, WU; the independence null for these was not computed). This would also
   fit the slow growth of the overdispersion with p (4.05 → 4.52 here; 2.2 → 3.6 for the b = 1 line, B1_LINE).
 * **A non-circular, bounded-modulus local main term.** M_Q(p) := Σ_{𝒫(p)} Prob[p ≡ a (q) | p mod gcd(q, Q), square class of
