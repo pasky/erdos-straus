@@ -6,15 +6,16 @@ needs sub-power windows), ASTRA_BRIDGE Thm 3.4 (E4), BL Lemma 3.1 / LITERATURE_2
 ## (a) Counterparts
 1. **Minkowski / Thue / Dirichlet pigeonhole:** a lattice of index g in ℤ² has a non-zero point of norm ≪ √g. E4 asks for a
    *specific* point (2k, 1) of L_ρ(g) with k | (g + 1)/4.
-2. **Inhomogeneous geometry of numbers (covering radius):** every translate of a convex body of volume > covering volume
-   contains a lattice point.
+2. **Inhomogeneous geometry of numbers (covering radius):** every translate of a convex body K contains a lattice point iff
+   K + Λ = ℝⁿ, i.e. the covering radius μ(K, Λ) ≤ 1 (R-O261 repair M8: volume alone does not suffice — long thin bodies
+   between lattice rows have large volume and miss Λ).
 3. **Topological existence (Brouwer/Borsuk–Ulam/degree):** existence of a zero/fixed point from a non-zero degree or a parity.
    Discrete analogue: Zagier's involution (fixed-point parity) for p = a² + b² (WINDMILL_REDUCTION: the windmill is the
    dihedral symmetry of Conway rivers).
 
 ## (b) Pointwise status
 All three are pointwise theorems (for every lattice / every prime p ≡ 1 (4)), with power-size or structural input: (1) volume;
-(2) volume vs covering radius; (3) an involution on a finite set of odd size.
+(2) a covering-radius bound; (3) an involution on a finite set of odd size.
 
 ## (c) Transfer to B2 (each wall already located; recorded here for the dictionary)
 * (1): the target is an exact point with Y = 1, not a short vector; Minkowski controls size, not the exact height, and the ES

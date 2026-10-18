@@ -23,8 +23,10 @@ exactly the ES heuristic (the two lines have different effective μ: E2 fails 3 
   collapse to the union bound, i.e. the probabilistic method in its counting form cannot certify a deterministic instance.
 
 ## (c) Transfer
-Blocked by F1 (no randomness at a fixed p; every probabilistic tool becomes an almost-all statement) and by direction (LLL is
-an avoidance tool). The F2 polylog count is what makes the Poisson heuristic convincing and simultaneously what makes
+Blocked by F1 (no randomness at a fixed p: the standard tools — second moment, Janson — need a probability space, and with
+p as the random variable they yield almost-all statements; no deterministic pseudo-randomness input for the shot graph of a
+single p is known to us) and by direction (LLL is an avoidance tool). (R-O261 repair M9: this is an Assessment, not an
+exclusion of all probabilistic methods.) The F2 polylog count is what makes the Poisson heuristic convincing and simultaneously what makes
 union/second-moment bounds useless pointwise (μ ≍ (log p)² gives P(fail) ≈ p^{−c log p}: plenty for summability over p,
 nothing at one p).
 

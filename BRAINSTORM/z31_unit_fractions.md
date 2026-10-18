@@ -24,7 +24,7 @@ BRAINSTORM/addcomb_unit_fraction_density.md, LITERATURE_2026, PARITY_AUDIT row E
   random-subset second moment ("the number of S is enormous, exponential in |A ∩ [1, N]|").
 * (3): **pointwise for every n > 77**, by an *affine self-similar recursion on the sum of denominators* (memory: if n works,
   so do 2n + 2 via 1 = 1/2 + Σ 1/(2x_i), and 2n + 9 via 1 = 1/3 + 1/6 + Σ 1/(2x_i), plus a finite base range). Count of
-  representations: huge (exponential in n).
+  representations: grows with n (at most the number of partitions of n, exp(O(√n)); R-O261 repair M8).
 * (4): almost all only.
 
 ## (c) Transfer to B2
@@ -35,10 +35,11 @@ BRAINSTORM/addcomb_unit_fraction_density.md, LITERATURE_2026, PARITY_AUDIT row E
   Sharp formulation of the gap (Assessment): Bloom's theorem is an additive-combinatorial Roth-type density theorem with
   the target fixed and the set varying; B2 is a single-target problem with the "set" (divisors of 4Cp + 1) supplied by p.
 * **Graham's 77: blocked by the multiplicative structure.** Graham's recursion acts on the *sum of denominators* (an additive
-  statistic), so n ↦ 2n + c preserves representability. For ES the parameter is a denominator of the target: the only
-  representability-preserving maps are n ↦ mn (ES(n) ⟹ ES(mn)), which never reach a prime. Mordell/B1 (no finite set of
-  polynomial identities covers the primes) is the precise form of "no recursion reaches primes". PROVED in the campaign:
-  B1/(J)3, (J)78–(J)79.
+  statistic), so n ↦ 2n + c preserves representability. For ES the parameter is a denominator of the target: the
+  representability-preserving maps one knows are multiplicative, n ↦ mn (ES(n) ⟹ ES(mn)), which never reach a prime. What is
+  PROVED in the campaign is narrower than "no recursion reaches primes": Mordell/B1-type statements that restricted finite
+  menus of polynomial identities miss infinitely many primes ((J)3, (J)78–(J)79). A non-polynomial recursion is not excluded
+  (R-O261 repair M9).
 * **Sierpiński/Schinzel: INSTANCE-level siblings**, not counterparts: they are B2-type problems with numerator 5 or k, open
   for the same reasons; F5 (numerator 8 fails at 131, 241 for the single-prime event) shows that any proof of B2 must use
   the numerator 4 specifically, so even a proof of Schinzel's k/n for "large n" (which does not exist) would have to
