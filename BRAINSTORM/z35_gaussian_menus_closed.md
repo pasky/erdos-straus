@@ -1,4 +1,4 @@
-# z35_gaussian_menus_closed — "identities in a, b" are already closed; the √−1 lift menu is T1-barred too (O265)
+# z35_gaussian_menus_closed — "identities in a, b" are already closed; the √−1 lift menu is T1-barred on whole classes (O265)
 
 ## Idea
 Brief goal (3): a, b (p = a² + b²) are canonical but not polynomial in p, so maybe identities in (a, b) — levels d, windows,
@@ -13,14 +13,15 @@ s7_gaussian_square_windows (Gaussian K = S² windows, random rate).
 ## Barrier screen
 The cited theorems are stated in the variables (a, b) themselves, so the premise is wrong for polynomial choices
 (MODP_RECIPROCITY §3.1). For the √−1 menu, Prop 3.3: in the class n ≡ 1 (mod M), points (X, N) with n = (X² + 1)/N an odd square
-exist (s ≡ 1 (4M) prime, X² ≡ −1 (mod s²)), so no polynomial family in (X, N) is valid on a whole class (T1). Sector version
+exist (s ≡ 1 (4M) prime, X² ≡ −1 (mod s²)), so no polynomial family in (X, N) is valid on a whole class (T1); restricted domains (sectors,
+canonical least lifts) are NOT covered. Sector version
 needs equidistribution of roots of X² ≡ −1 (mod s²) (open technical point). Size: forced factorisations of quadratic side
 numbers in (a, b) give factors ≍ √p while a witness needs w ≥ 4d − 1 — balanced only at d ≍ √p, where p + 4d = a² + b² + linear
 is irreducible.
 
 ## Cheap numerics
 `scripts/z35_gauss_menu.py 300000` (neighbour-prime controls): no canonical quantity (a, b, a ± b, ab/2, h, k, X₀, N₀) is a
-better level than controls (|z| ≤ 2.9); windows: a and ab/2 sterile, b and |a − b| mildly enhanced (Jacobi redistribution).
+better level than controls (|z| ≤ 3.6, naive variance, correlated controls); windows: a and ab/2 sterile, b and |a − b| mildly enhanced (Jacobi redistribution).
 Caution recorded: shifted controls m ± j produce spurious z ≈ 13.
 
 ## Assessment
