@@ -145,3 +145,61 @@ BK normalisation it is the critical exponent δ = 1/2 with a log² excess, not "
 Question R sits between RS's fat case (n¹) and ZQ (n^{0.67} at M = 5), all at power size; ES-five is
 at the B2/B3 floor. The gap n^{1−O(κ)} → log² n is the entire B3 scale gap; the only transferable piece is the shape of
 the main term (factor vanishing at squares), which is heuristic for ES (§3).
+
+## 3. A reciprocity singular series for the five-slice count (goal 3)
+
+**3.1 Definition.** By Prop 1.2 the slice words of level t are the divisors d of N_t = tn + 1 in the range
+[2t − 1, N_t/(2t − 1)] with d ≡ −1 (mod t) and (d/n) = −1, and (d/n) = (2/n)^e J(−t, d_o) is a character mod 4t of d
+(d = 2^e d_o). Two main terms:
+* *naive (congruence) model* M₀(n) = Σ_t Σ_{d | N_t, range} ρ₀(t, e(d)): every range divisor falls in each odd class
+  mod 4t (with its 2-part) with equal probability; ρ₀ = (#bad classes)/(#classes). This is what any product of local
+  densities predicts; M₀(m²) > 0.
+* *reciprocity model* M_R(n) = Σ_t Σ_{d | N_t, range, (d/n) = −1} ρ_R(t, e(d)), ρ_R = (#bad classes)/(#classes with
+  character value −1): divisors are equidistributed **within their character class**. Equivalently, by orthogonality,
+  M_R keeps the principal character *and the real character J(−t, ·)* in the expansion of 1[d ≡ −1 (t)], i.e. the
+  level-t term is (τ − S_t)/(…) with S_t(N) = Σ_{d | N} χ_t(d) = Π_{r^e‖N}(1 + χ_t(r) + … + χ_t(r)^e) ≥ 0 — the
+  total number of ideals of norm N in the quadratic order of discriminant ≍ −4t. **The reciprocity factor at level t is
+  "divisors minus binary-quadratic-form representations"**, and it vanishes exactly at clean levels (S_t = τ).
+  M_R(m²) = 0 identically (every level of a square is clean), for the trivial reason (d/m²) = 1.
+
+**3.2 Numerics (EVIDENCE; `scripts/z37_rss.c` (cross-checked against brute force at 1009, 9409, 10009),
+`scripts/z37_rss_sets.py`, `scripts/z37_rss_analyse.py`; levels t ≤ 3000; primes in [10⁶, 1.06·10⁶] and near-square
+primes m² + K ∈ [4·10⁵, 4·10⁶]).** Ratios of pooled sums:
+
+| set | #n | words/n | N₋/W | N₋/M₀ | N₋/M_R | gap₀ | gap_R |
+|---|---|---|---|---|---|---|---|
+| generic primes | 2183 | 103.6 | 0.737 | 1.057 | 1.046 | — | — |
+| m² + 24 | 76 | 103.5 | 0.568 | 0.790 | 0.891 | 0.25 | 0.15 |
+| m² + 16 | 134 | 100.7 | 0.643 | 0.868 | 0.920 | 0.18 | 0.12 |
+| m² + 8 | 70 | 90.2 | 0.656 | 0.819 | 0.897 | 0.23 | 0.14 |
+| m² + 4 | 131 | 99.1 | 0.700 | 0.889 | 0.956 | 0.16 | 0.09 |
+| m² + 1 | 132 | 92.6 | 0.722 | 0.885 | 0.968 | 0.16 | 0.07 |
+| m² + 25 | 163 | 98.2 | 0.749 | 1.018 | 0.999 | 0.04 | 0.05 |
+| m² − 3 | 133 | 116.3 | 0.673 | 1.120 | 1.070 | −0.06 | −0.02 |
+| odd squares (T1) | 684 | 48.7 | 0 | 0 | M_R = 0 | 1 | 0 |
+
+gap = 1 − (N₋/M)/(generic N₋/M). Per-n standard errors of the share ≈ 0.012, so gaps carry ≈ ±0.02–0.03. Readings:
+(i) M_R is exact at squares by construction (M₀ predicts ≈ 1.1 slice words per word-unit there); (ii) at near-squares
+m² + K with T1-type levels (K = 1, 4, 8, 16, 24), M_R removes **≈ 35–55 %** of the deficit that the congruence model
+leaves; the remaining 7–15 % deficit relative to M_R is significant (≈ 3–7σ per family); (iii) K = 25, −3 show no
+deficit beyond noise; (iv) generic primes have N₋/M_R ≈ 1.05: divisors with χ = −1 land in the class −1 (mod t)
+slightly more often than equidistribution says.
+Same picture at t ≤ 300 (`/tmp` run, all 15 families): N₋/M_R = 1.035 generic, 0.93 (K = 24), 0.95 (16), 0.92 (8),
+0.97 (4, 12).
+
+**3.3 An analytic version that failed (EVIDENCE, negative).** Averaging S_t over the family p = m² + K
+(N_t = tm² + j, j = tK + 1) heuristically gives E[S_t] ∝ L(1, χ_{−t})L(1, χ_j)/L(1, χ_{−tj}), so the level-t bias
+should grow with L(1, χ_j). Test (`scripts/z37_level_L.py K 120`, 80 primes per family): square-j levels have mean
+per-divisor bias 0.78–1.00 (clean, as proved); on non-square j the mean bias is −0.04 to −0.08 and its Spearman
+correlation with a truncated L_R(1, χ_j) is −0.14 (K = 1), +0.13 (K = 24), +0.04 (K = 16): **no detectable L(1, χ_j)
+effect.** So the residual near-square deficit (open spark S2 of NEAR_SQUARE §5) is **not** a t-side divisor-character
+effect: given the χ-signature of the divisors of tn + 1, the χ = −1 divisors avoid the admissible class −1 (mod t) more
+than equidistribution predicts. This is the admissibility half (B2) again. A natural candidate is the u/v-side
+cleanliness of NEAR_SQUARE §5 (K + u = s²), which a one-side model cannot see. (Assessment.)
+
+**3.4 Comparison with RS.** In RS the reciprocity factor is a sharp indicator 1 − 1_□(n) (Prop 2.2, CONJECTURE R-main):
+twisted counts with a non-principal character of small conductor equidistribute away. For ES the counts are only
+≍ log² n, and the factor is **per level and continuous**: τ(N_t) − S_t(N_t), which is exactly 0 at clean levels and
+positive otherwise, so near-squares (where many levels are clean: T1-type tK + 1 = c²) get a partial deficit and
+squares a total one. The model explains the deficit only partly; it proves nothing at a single n (the factor is computed
+from the factorisations of the N_t themselves).
