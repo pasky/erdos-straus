@@ -122,22 +122,24 @@ m = 2^s m′; then (m′/g) = −(2/g)^s and, by reciprocity with g ≡ 3 (4), (
 (−g/m′) = −(2/g)^s. But −g ≡ p ≡ u² (mod m′) gives (−g/m′) = 1, hence (2/g)^s = −1, so s ≥ 1 is odd and g ≡ ±3 (8). For
 s ≥ 1, g ≡ −p ≡ −u² (mod 2^{s+2}) with s + 2 ≥ 3 gives g ≡ −1 (mod 8): contradiction. ∎
 *Gaussian supply.* p ≡ b² (mod a) and p ≡ a² (mod b) and p ≡ a² (mod 2^{v₂(b)+1}·…): every window m with m′ | a, and every
-m = 2^s m′ with m′ | ab and 2^{s+2} | 2b² (e.g. m = ab/2), is sterile. Numerically (below): the window m = a hits 0 of 12 979
+m = 2^s m′ with m′ | ab and 2^{s+2} | b² (e.g. m = ab/2, s = v₂(b) − 1), is sterile (CRT: p ≡ b² mod the a-part, ≡ a²
+mod the b-part, ≡ a² mod 2^{2v₂(b)}). Numerically (below): the window m = a hits 0 of 12 979
 primes and m = ab/2 also 0, against 1.25 % and 0.19 % for the same quantities borrowed from neighbouring primes.
 **So the Gaussian representation supplies anti-certificates (sterile windows), never certificates** — the quadratic
 shadow again pushes everything visible into the genus subgroup (CLASS_FORCING C4, (J)53/(J)55).
 
 **Proposition 3.3 (the √−1 menu is still T1-barred for polynomial families; PROVED).** Every lift X ≡ ±i_p (mod p) gives
 X² + 1 = pN (N ≥ 1), and (X, N) are not polynomial in p or in (a, b) (they move with the lift X ↦ X + tp). Let F be a family of
-ET coordinates (Type I or II) polynomial in (X, N), with n := (X² + 1)/N, integral and positive on the set
-V(C, Γ) := {(X, N) ∈ ℤ² : N | X² + 1, (X, N) ≡ (X₀, N₀) (mod M), (X, N) ∈ Γ} for an open cone Γ ⊂ ℝ²_{>0} and a class with
-X₀² + 1 ≡ N₀ (mod M) (the "n ≡ 1" class, the T1 point). Then F is valid at no point of V(C, Γ): such points with n an odd
-square exist, beyond any bound, so F must be invalid there by ET Prop 1.6 — hence such F do not exist (valid on all of
-V(C, Γ)); and as in POINTWISE_BINARYFORM Cor 3.4 a finite set of such families misses the class.
-*Proof (existence of square points).* Take a prime s ≡ 1 (mod 4M) (Dirichlet), so −1 is a square mod s² and s² ≡ 1 (M). The
-solutions X of X² ≡ −1 (mod s²), X ≡ X₀ (mod M) form two residue classes mod Ms². For each, N := (X² + 1)/s² ≡ X₀² + 1 ≡ N₀ (mod M)
-(as s² ≡ 1 (M)… and X² + 1 ≡ X₀² + 1 mod M; N ≡ (X² + 1)·s⁻² ≡ X₀² + 1 (M)). Choosing X in [λs², (λ + 1/(Ms))·s²]
-(possible for s large) makes N/X ≈ X/s² ≈ λ, so (X, N) lies in Γ for suitable λ; and n = s² is an odd square. ∎
+ET coordinates (Type I or II) polynomial (or rational) in (X, N), read at n := (X² + 1)/N, and let
+V(C) := {(X, N) ∈ ℤ²_{≥1} : N | X² + 1, (X, N) ≡ (X₀, N₀) (mod M)} with X₀² + 1 ≡ N₀ (mod M) (the class n ≡ 1 (mod M), the
+T1 point). Then F is not valid on all of V(C): V(C) contains points with n an odd square, beyond any bound, where ET Prop 1.6
+forbids validity.
+*Proof.* Take a prime s ≡ 1 (mod 4M) (Dirichlet): −1 is a square mod s² and s² ≡ 1 (mod M). Pick X with X² ≡ −1 (mod s²) and
+X ≡ X₀ (mod M) (CRT; gcd(s, M) = 1), X arbitrarily large in its class mod Ms². Then N := (X² + 1)/s² is an integer with
+N ≡ (X₀² + 1)·s⁻² ≡ N₀ (mod M), (X, N) ∈ V(C), and n = s² is an odd square. ∎
+*Scope.* This bars families valid on a whole class; the sector refinement (validity on V(C) ∩ cone, as in POINTWISE_BINARYFORM
+Thm 3.2(b)) would need the square points to be dense in direction, i.e. equidistribution of the roots X/s² of X² ≡ −1 (mod s²)
+(Hooley / Duke–Friedlander–Iwaniec type input) — not checked here; recorded as an open technical point, not a route.
 So "compute a square root of −1 mod p (or the Gaussian representation), then apply a polynomial ET identity" is barred in
 every variant; the X-menu is not new territory. (Validity on the non-square classes n ≢ 1 (mod M) is classical one-variable
 congruence territory, as in POINTWISE_BINARYFORM Remark 1.)
