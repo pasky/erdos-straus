@@ -211,33 +211,41 @@ Frob_p|Ω ∈ C such that p + 4d has a prime factor ℓ ≡ a (mod 4d), ℓ > an
 in Ωℚ(ζ_{4ℓ}) — with ℚ(ζ_4)-part chosen compatibly with C — gives infinitely many p ∈ C with p ≡ −4d (mod ℓ), p ≡ 1 (4). ∎
 *Reading.* So no datum of p in any fixed Galois extension (residue symbols of any order, Rédei symbols, governing fields)
 rules out any class for an individual large factor. Combined with Lemma 3.1 (only the product is constrained) and
-Prop 5.1(c) (the only individual link, χ_{−4d}(ℓ) = (ℓ/p), involves the unknown ℓ): **reciprocity forces parity, never class.**
+Prop 5.1(c) (the only individual link, χ_{−4d}(ℓ) = (ℓ/p), involves the unknown ℓ): **(R272 repair of the slogan) reciprocity
+data of p = congruence data of p plus an independent non-abelian part; the congruence part is B1, and the non-abelian part
+assigns no class to any individual large factor.**
 What it would take to rule out the *whole multiset* (all factors simultaneously in a bad configuration) is the realisation
 question of §6.
 
 ## 6. Realisation: non-abelian data of p adds nothing to bounded-level forcing (CONDITIONAL)
 
-**Hypothesis HC (Dickson with a Chebotarev condition).** For an admissible system of linear forms f₀, …, f_r ∈ ℤ[k]
-(no prime divides ∏ f_i(k) for all k), a finite Galois Ω/ℚ and a conjugacy class C ⊂ Gal(Ω/ℚ) such that the set of primes
-{f₀(k)} is compatible with C (i.e. C restricted to Ω ∩ ℚ(ζ_{lead(f₀)}) is the class of the residue f₀(0) mod lead(f₀)),
-there are infinitely many k with all f_i(k) prime and Frob_{f₀(k)}|Ω ∈ C. (Ω = ℚ is Dickson's conjecture; the general case is
-the standard Bateman–Horn–Chebotarev heuristic.)
+*(R272 repair, D1 FATAL.)* The first version of HC and Thm 6.1 was false: its compatibility condition only controlled
+Ω ∩ ℚ(ζ_M), so the abelian part of Ω could force a congruence at a prime q > B. Counterexample (R272,
+`scripts/review_r272_thm61_cex.py`): D = 1, B = 6, Ω = ℚ(ζ₇), C = {p ≡ −4 (mod 7)}; then 7 | p + 4 and w = 7 ≡ −1 (mod 4) is a
+certificate at d = 1 for every p ∈ C (and HC as stated fails for f₁ = (f₀ + 4)/s₁). Corrected statements:
 
-**Theorem 6.1 (CONDITIONAL on HC).** Fix D, B ≥ 4D + 2, M as in Thm 3.4, a finite Galois Ω/ℚ and a class C compatible with
-p ≡ 1 (mod M). Then there are infinitely many primes p with Frob_p|Ω ∈ C, p ≡ 1 (mod M), such that **no** certificate exists on
-the b = 1 line at levels d ≤ D (either coordinate: d ≤ D or c ≤ D) or on any Type I/II e-slice with e ≤ D. Consequently no
-theorem of the form "every prime with Frob_p|Ω ∈ C (and any congruence data) has a certificate at a level ≤ D" exists for
-such C — whatever residue symbols, Rédei symbols or governing-field data define C.
-*Proof.* Put p = f₀(k) := 1 + Mk and, for each of the integers N_i(p) of the lines at levels ≤ D (p + 4d, cp + 1, (p + e)/4,
-(pe + 1)/4), s_i := its B-smooth part at p = 1 (B-smooth part of N_i(1)) and f_i(k) := N_i(1 + Mk)/s_i ∈ ℤ[k] (q^{e_q} | M
-exceeds v_q(N_i(1)), so v_q(N_i(1 + Mk)) = v_q(N_i(1)) for q ≤ B). Admissibility: for q ≤ B, f_i(k) ≡ f_i(0) ≢ 0 (mod q); for
-q > B ≥ 4D + 2 > r + 1 each f_i has nonzero leading coefficient mod q and kills ≤ 1 residue, so some k survives. HC gives
-infinitely many k with all f_i(k) prime (or = 1) and Frob_p ∈ C. At such p each N_i = s_i·(prime or 1) with the same small
-part and cofactor class as N_i(1), so Σ(N_i) equals the forced set of Prop 3.2, which misses −1 by Thm 3.4. ∎
-*Reading.* Theorem 2.1(b)/5.2 say the non-abelian data are independent of the classes; Theorem 6.1 says that, at bounded
-levels, they cannot even help in aggregate. This extends B1_LINE Thm 4.2 (Ω = ℚ, d-coordinate) to all four lines and to
-arbitrary governing data. It says nothing about unbounded levels (the full b = 1 line uses d up to ≈ p/8), where the
-B2 lottery lives and where no finite system of forms applies.
+**Hypothesis HC (Bateman–Horn–Chebotarev; R272 repair).** Let f₀, …, f_r ∈ ℤ[k] be linear, Ω/ℚ finite Galois, C ⊂ Gal(Ω/ℚ) a
+conjugacy class, Ω₀ := Ω ∩ ℚ^{ab} of conductor m, and A ⊂ (ℤ/m)^× the residues whose Artin symbol on Ω₀ lies in C|_{Ω₀}. If
+there is k₀ with f₀(k₀) mod m ∈ A such that the system j ↦ f_i(k₀ + mj) (0 ≤ i ≤ r) is admissible, then there are infinitely many
+k ≡ k₀ (mod m) with all f_i(k) prime and Frob_{f₀(k)}|Ω ∈ C. (Ω = ℚ is Dickson's conjecture; the non-abelian part of C imposes no
+local condition, since Ω ∩ ℚ(ζ_n) ⊂ Ω₀ for every n; this is the standard heuristic.)
+
+**Theorem 6.1 (CONDITIONAL on HC as corrected; R272 repair).** Fix D, a finite Galois Ω/ℚ with Ω₀ = Ω ∩ ℚ^{ab} of conductor m,
+and a class C with C|_{Ω₀} = {1}. Take B ≥ max(4D + 2, every prime dividing m) and M as in Thm 3.4 with additionally
+e_q ≥ v_q(m) (so Ω₀ ⊂ ℚ(ζ_M)). Then there are infinitely many primes p ≡ 1 (mod M) with Frob_p|Ω ∈ C such that **no**
+certificate exists on the b = 1 line at levels ≤ D (either coordinate) or on any Type I/II e-slice with e ≤ D.
+*Proof.* Put p = f₀(k) := 1 + Mk and, for each integer N_i(p) of the lines at levels ≤ D (p + 4d, cp + 1, (p + e)/4,
+(pe + 1)/4), s_i := the B-smooth part of N_i(1) and f_i(k) := N_i(1 + Mk)/s_i ∈ ℤ[k] (s_i | M; q^{e_q} | M exceeds v_q(N_i(1)), so
+v_q(N_i(1 + Mk)) = v_q(N_i(1)) for q ≤ B). Since m | M and C|_{Ω₀} = 1, every k is allowed by A (f₀(k) ≡ 1 (mod m)), so HC needs
+admissibility of the f_i only: for q ≤ B, f_i(k) ≡ f_i(0) = B-rough part of N_i(1) ≢ 0 (mod q); for q > B the leading coefficients
+(M/s_i, M/(4s_i), eM/(4s_i)) are q-units and the number of forms 1 + 2D + 2#{e ≤ D, e ≡ 3 (4)} < 4D + 2 ≤ B < q, so some residue
+survives. HC gives infinitely many k with all f_i(k) prime and Frob_p ∈ C. Since q^{e_q} > 16D(D + 1) ≥ t·N_i(1), t | M/s_i and
+[f_i(k)] = [f_i(0)] mod t, so at such p, Σ(N_i) = Σ(s_i) ∪ Σ(s_i)·[L_i(1)] ⊂ Σ(N_i(1)) ∌ −1 (Thm 3.4). ∎
+*Reading (R272 repair).* Frobenius data = its abelian (congruence) shadow + a non-abelian part. The congruence part is B1 and
+may well cover whole classes (the ℚ(ζ₇) example above); only the non-abelian part is shown (conditionally) useless at bounded
+levels: at the point C|_{Ω₀} = 1 of the abelian shadow, no non-abelian condition rescues a bounded-level rule. This is the
+four-line + Chebotarev extension of B1_LINE Thm 4.2 (same p ≡ 1 (M_σ) mechanism). It says nothing about unbounded levels (the
+full b = 1 line uses d up to ≈ p/8), where the B2 lottery lives and no finite system of forms applies.
 
 ## 7. Numerics (EVIDENCE): how much does the forced mechanism certify?
 
