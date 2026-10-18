@@ -27169,4 +27169,42 @@ def check_hr():
 check_hr()
 
 
+def check_hs():
+    # (hs) BOARD2_SLATE (O273/R284): R284 from scratch — five-slice union Lemma 3.2 (k ≥ 2 pairs automatically active; 269 000
+    # tests), T1-exact main term M(n) (= 0 at the squares 2401, 9801, 994009 and at 11025, positive at primes, e.g. R(1000033) = 92,
+    # M = 82.729); the 8/n zero-law AP-marking to 10^8 (601 552 zeros among odd non-squares; EVIDENCE).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("BOARD2 subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r284_five_slice.py", "lemma", "4000", "64"])
+    assert "lemma 3.2 k>=2 automatic activation: tested 269000 (n,u,v), violations 0" in out, out
+    out = run(["review_r284_five_slice.py", "M", "1000033", "2401", "61", "9801", "11025", "994009"])
+    assert "n=1000033: R=92 M=82.729" in out and "n=61: R=6 M=6.922" in out, out
+    for n in (2401, 9801, 11025, 994009):
+        assert f"n={n}: R=0 M=0.000" in out, (n, out)
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "zl")
+        r = subprocess.run(["gcc", "-O2", "-o", exe, os.path.join(sdir, "review_r284_zero_law.c"), "-lm"],
+                           capture_output=True, text=True)
+        assert r.returncode == 0, r.stderr[-2000:]
+        r = subprocess.run([exe, "zeros", "100000000"], capture_output=True, text=True, timeout=900)
+        assert r.returncode == 0, r.stderr[-1000:]
+    assert "# N=100000000 admissible(odd nonsq >=5)=49994999 zeros=601552" in r.stdout, r.stdout[-500:]
+    print(f"== (hs) BOARD2_SLATE R284: five-slice Lemma 3.2; T1-exact M(n) at squares/primes; 8/n zeros to 10^8; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_hs()
+
+
 print("\nall checks passed")

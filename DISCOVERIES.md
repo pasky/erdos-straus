@@ -1736,6 +1736,15 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment: precise negative; route (b) is closed at every 2-power layer. No relay.
    * verify.py (hr) re-runs R283's checks.
 
+105. **Board #2 slate: no single-prime lower-tail mechanism (all three seats); four small items — ABH attribution, moving-window witnesses, the five-slice T1-exact main term, the 8/n zero law to 10⁹ (BOARD2_SLATE.md + FORCED_WINDOW.md §8 + ZAREMBA_TRANSFER.md note (O273, from ~/.pi/boards/20261018-es-lowertail/memo.md); hostile review `reviews/board-two-slate-review.md` (R284): no FATAL, no MAJOR; minors m1–m9, m4–m8 repaired by the reviewer, marked (R284 repair)).**
+   * Board verdict (Fable, GPT Astra, Gemini Argon): no mechanism forces R(p) ≥ 1 at a single prime. Every proposal reduced to a repo theorem, a standard sieve bound or an across-p statistic.
+   * (1) KNOWN: λ(p) ≤ (6/π²) log p log log p + O(log p) for the QNR continued-fraction length is a corollary of Aistleitner–Borda–Hauke arXiv:2210.14095 (Thms 1, 6; Barkan–Hickerson identity (5)). It supersedes (J)95 Thm A's constant. The "convergent Legendre invariant" is not new.
+   * (2) FORCED_WINDOW Thm 8.5 (PROVED modulo Henriot 2014 erratum New Thm 5, Siegel–Walfisz, Mertens; ineffective). For 0 < α < 1/6, all but O(X/L^{4/3−2α−ε}) primes p ≡ 1 (8) in (X, 2X] have a Type II solution at EVERY prime window q ≡ 3 (8) in [L^α, 2L^α]. As an exceptional-set bound this is dominated; it is new only in shape.
+   * (3) Five-slice union (PROVED). Lemma 3.2: the sign at a hit is forced, and k ≥ 2 pairs are automatically active. The T1-exact BM main term M(n) is ≥ 0, = 0 at squares, and mean-preserving. Its principal constant is 45/(8π²) (correcting the board's 33/(8π²)). Burgess gives M(p) ≥ (45/(32π²) − o(1)) L² (Thm 3.5). This is the main term only.
+   * (4) EVIDENCE (across p, B6). For 8/n's c = 1 line up to 10⁹, AP-marking finds 2.75·10⁶ zeros, ≥ 1 423 of them at exact M ≥ 26. Fitting −log P(0 | M) ≍ M^β on M ∈ [10, 30] gives β ≈ 0.88 ± 0.1 (poor fit).
+   * Assessment: closes the board's slate. The lower tail remains the single open step. Sustained attacks by two other frontier models (O274 Fable, O275 GPT Astra) were launched on it.
+   * verify.py (hs) re-runs R284's checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
