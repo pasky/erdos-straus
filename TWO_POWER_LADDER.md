@@ -14,6 +14,9 @@ D⁻_t(N) = #{d | N : d ≡ −1 (t)}. Forcing (Prop 2.2 of SPARKS9): ℓ | N �
 * v2 (construction: which hypothesis did the obstruction use?): "data = congruence data on t". Violate it: let t carry a
   Gaussian (cyclotomic) lift. Then the m-layer at ℓ is an exact function of the lift mod ℓ (0 clashes) — choosable, not
   forced (§4).
+* v3 (self-review, deep reviewer): 7 MAJOR repaired in place (marked ⟨rep⟩): Thm 3.1 hypotheses ℓ ∤ m, 4 | lcm(M, m),
+  conjugacy-invariant formulation, the false Schinzel "iff" replaced by a direct one-direction proof; Prop 4.1 needs q ≡ 1 (m)
+  and gains the forced case q ≡ 3 (4); the cofactor claim was false; the cubic Hecke conductor divides 9t, not t; scopes narrowed.
 
 ## 1. What "free" can mean
 
@@ -159,7 +162,7 @@ n = tuv − u − v (u, v ≥ 2) (the (★) line in level form).
   (baseline all-level (★) failures: 118 primes). Failure rate by decade: 0.217, 0.069, 0.029, 0.0136, and 0.0069 on (10⁶, 10⁷] (`scripts/z41_two_group_1e7.py`: 237 levels, 5 320 failing primes ≤ 10⁷, largest 9 994 727; 0 squares hit) — decreasing, as the
   expected number of T2 hits grows like c·log n, but with infinitely many failures expected (Assessment).
 * T1: 0 odd squares have a T2 word (also 0 at all levels). Numerator 8: 131, 241 have no word at any 8 | t level (241 has
-  none at any 4 | t level either; 131 has one at t = 4). Every hit is an explicit (t, u, v) with (tu − 1)(tv − 1) = tn + 1.
+  none at any 4 | t level either; 131 has one at t = 4). Every hit is generated as n = (tu − 1)v − u, i.e. it IS the certificate (tu − 1)(tv − 1) = tn + 1 (no separate re-verification pass; the identity is algebraic).
 
 **Lemma 5.1 (twisted squares kill the levels divisible by the twist; PROVED, elementary).** Let D be odd, n = D·m², and
 4D | t. Then D⁻_t(tn + 1) = 0.
@@ -191,8 +194,8 @@ closed only in the form "no family of n biases the cubic Dirichlet layer through
 ## 7. Summary (honest labels)
 * **Goal 1 (decisive): spark 1's obstruction is real.** Along the forced progression the quadratic part of a forced prime's
   class is fixed, the 4th/8th/16th-power parts are equidistributed with exactly the Chebotarev fractions 1/2, 1/4, 1/8 (EVIDENCE),
-  and Thm 3.1 (PROVED) shows this for every m and every congruence family of levels: Schinzel's abelian criterion caps congruence
-  forcing at d | 2. This is (J)93 in level coordinates.
+  and Thm 3.1 (PROVED) shows this for every m with ℓ ∤ m and every congruence family of one varying level prime: a
+  commutator argument (K(ℓ^{1/d})/ℚ abelian ⟹ d | 2) caps congruence forcing at the quadratic layer. This is (J)93 in level coordinates.
 * **Thm 3.2 (PROVED, m = 3, 4): the Stickelberger dictionary.** Forcing reads S = ∏x_a^{a⁻¹}, ES reads D = ∏x_a; they agree
   exactly modulo μ_m^{gcd(2,m)}. The BM layer and T1 are the m = 2 coincidence S = D; there is no odd-order BM layer and no
   odd-order T1 transported by the forcing (Cor 6.1: cubes bias only an anti-cyclotomic Hecke character; spark 3 closed in

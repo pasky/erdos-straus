@@ -4,8 +4,8 @@
 linear form of x does the forcing (q mod ℓ) see, and which one does the ES event (ℓ mod q) need?
 **Literature.** Cubic/biquadratic reciprocity (Ireland–Rosen Ch. 9); Eisenstein reciprocity and Stickelberger
 (Ireland–Rosen Ch. 14; Lemmermeyer, *Reciprocity Laws*, Ch. 11); Burde's rational quartic law (as the m = 4 shadow).
-**Result (PROVED, m = 3, 4).** Forcing: S = (q/λ)_m = ±∏ x_a^{a⁻¹} (Stickelberger-weighted). ES: D = ψ_𝔮(ℓ) = ∏ x_a (norm).
-D/S = ±∏ x_a^{1−a⁻¹}; the exponents generate gcd(2, m)ℤ/m, so S determines D exactly modulo μ_m^{gcd(2,m)}: the
+**Result (PROVED, m = 3, 4).** Forcing: S = (q/λ)_m = ∏ x_a^{a⁻¹} (exact, no sign) (Stickelberger-weighted). ES: D = ψ_𝔮(ℓ) = ∏ x_a (norm).
+D/S = ∏ x_a^{1−a⁻¹}; all vectors x occur (Kummer independence of the σ_aλ), so this is sharp; the exponents generate gcd(2, m)ℤ/m, so S determines D exactly modulo μ_m^{gcd(2,m)}: the
 quadratic layer for m even, nothing for m odd. For m = 2 (K = ℚ) S = D — the BM layer and T1 in one line.
 **Barrier screen.** No new barrier is bypassed; this explains why (J)93/(J)96 see only quadratic data. T1: squares make S
 trivial; for m = 2 that is D, for m ≥ 3 it is an anti-cyclotomic Hecke datum, ES-invisible.

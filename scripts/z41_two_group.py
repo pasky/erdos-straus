@@ -1,7 +1,7 @@
 """O272 goal 3: ES words n = tuv - u - v (u, v >= 2) at 2-group levels t in T2 = {2^k F : k >= 2, F | 3*5*17*257*65537}
 (G_t = (Z/t)^* a 2-group).  Census of odd n <= X with NO word at any level of T2; primes separately; T1 (odd squares)
 control; numerator-8 control (levels 8 | t, n = 131, 241 must have no word at ANY 8 | t level).
-Exact certificates: every reported hit is re-verified as (tu-1)(tv-1) = tn+1.
+Certificates: each hit is generated as n = (tu-1)v - u, which is identically (tu-1)(tv-1) = tn+1 (no separate re-check).
 """
 import sys
 import numpy as np
