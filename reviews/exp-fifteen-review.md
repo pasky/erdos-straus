@@ -77,7 +77,7 @@ m₁ ≤ 36); for 4^J = 64 the analogous bounds are larger (d ≤ 69, …), so t
 **D6 (MINOR — scope, §1.3 last bullet, §0 (I1), AGENT_REPORT Step 1).** "A finite certificate for all Pierpont numbers"
 and the "iff" via EXPONENT_COVERING §5.1 concern cells with a, b ≥ A0 only (§5.1 transfers Thm 1.4 to "members whose every
 exponent is ≥ m₀"). "All 2^a3^b + 1" additionally needs the finitely many edge lines 3^{b₀}·2^a + 1 (b₀ < A0) and
-2^{a₀}·3^b + 1 (a₀ < A0), each a 1D family with its own certificate (board: b₀ = 0, 1, 2, 3, 4, 5 settled; a₀-lines not
+2^{a₀}·3^b + 1 (a₀ < A0), each a 1D family with its own certificate (board rounds 3–4: b₀ ≤ 6 settled; a₀-lines not
 discussed). *Repair:* one sentence stating the theorem shape "a, b ≥ A0, plus the 2A0 edge lines", and list which edge
 lines are certified.
 

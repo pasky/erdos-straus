@@ -37,6 +37,7 @@ def sqfree(m):
 rats = sorted({F(i, j) for j in range(1, DEN + 1) for i in range(-H * j, H * j + 1)})
 negr = [r for r in rats if c0 * r**3 + 1 < 0]
 alg = valid = 0
+stage = {'poly_pos': 0, 'Y1_ok': 0, 'Y0_ok': 0}
 for r in negr:
     nr = c0 * r**3 + 1
     for y0 in rats:
@@ -71,9 +72,15 @@ for r in negr:
                     continue
                 if sp.Poly(b, Y).LC() <= 0 or sp.Poly(c, Y).LC() <= 0:
                     continue
+                assert sp.simplify(4 / n - 1 / (a * b * d) - 1 / (a * c * d * n) - 1 / (b * c * d * n)) == 0
+                stage['poly_pos'] += 1
                 vals1 = [F(str(e.subs(Y, 1))) for e in (a, b, c)]
                 vals0 = [F(str(e.subs(Y, 0))) for e in (a, b, c)]
+                if all(z_half(v) for v in vals1):
+                    stage['Y1_ok'] += 1
+                if all(odd_den(v) for v in vals0):
+                    stage['Y0_ok'] += 1
                 if all(z_half(v) for v in vals1) and all(odd_den(v) for v in vals0):
                     valid += 1
                     print("VALID", c0, "a =", a, "d =", d, "b =", b, "c =", c)
-print(f"c0={c0} D=3 H={H} DEN<={DEN} TMAX={TMAX}: {alg} algebraic (r,y0,role), {valid} valid families")
+print(f"c0={c0} D=3 H={H} DEN<={DEN} TMAX={TMAX}: {alg} algebraic (r,y0,role), {valid} valid families; stages {stage}")
