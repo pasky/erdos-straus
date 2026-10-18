@@ -85,7 +85,7 @@ form "every known pointwise thin-orbit theorem has a power-size representation c
 **4.2 Markoff / Chen.** Read by me: Chen Thms 1.2.3 (BGS), 1.2.5, 1.2.6. Chen's is a genuinely non-counting pointwise argument
 (orbit sizes divisible by p via a degree congruence on Hurwitz spaces + a giant component), but it proves *uniqueness of an
 orbit* on a power-size set with trivially non-empty fibres; the ES-shaped question is the family axis k ↦ X_k, where the
-pointwise integral Hasse principle is false (Ghosh–Sarnak). No group acts on U_n(ℤ). Verdict ANALOGUE, NOT SHARP.
+pointwise integral Hasse principle is false (Ghosh–Sarnak). Only finite symmetries (coordinate permutations) act on U_n(ℤ); no infinite orbit-generating action is known. Verdict ANALOGUE, NOT SHARP.
 
 **4.3 Duke.** Duke 1988 Thm 1 (verbatim via agent). New elementary dictionary (memo 4, Lemma 4.1, PROVED, numerically
 checked): an ES shot is an ideal divisor 𝔞 | (1 + 2k√−p) in ℤ[√−p] with N𝔞 ≡ −1 (mod 4k). Duke-type theorems see classes and
@@ -99,13 +99,17 @@ have no central-limit behaviour for Bloom's Fourier step to exploit. Verdict ANA
 ## 5. Synthesis and verdict (Assessment)
 
 **Answer to O261.** B2 is **not** equivalent to, nor an instance of, any *solved* problem found in 13 fields. It is
-* an **INSTANCE** of the bounded-height integral Hasse principle on a family of log K3 surfaces (BL's framing; memo 6), a class
-  in which no pointwise existence mechanism is known for any non-homogeneous family; its closest open sister is
-  x³ + y³ + z³ = k (one parameter, ~ρ log B expected solutions, no BM obstruction (CTW), open for every individual k);
-* **EQUIVALENT (exact reformulations, PROVED dictionaries)** to: a cyclic (non-increasing) linear divisibility system
-  (memo 7, Lemma 7.1); a target-(−1) problem for a box product set in (ℤ/q)^* (memo 9); a divisors-in-a-residue-class decision
-  problem per slice (memo 8); an ideal-divisor-in-a-ray-class condition on (1 + 2k√−p) (memo 4, Lemma 4.1) — none of which
-  lands in a solved regime of its field.
+* an **INSTANCE** of the integral Hasse principle (with positivity) on a family of log K3 surfaces (BL's framing; memo 6). For
+  the ES family no pointwise existence mechanism is known (Harpaz's Thm 1.0.1 does give S-integral points on specified conic
+  log K3 surfaces under checkable square-class hypotheses; its setting is not ES's positive integral points — memo 6). Closest
+  sister: x³ + y³ + z³ = k (one parameter; Heath-Brown's conjectured ~ρ log B solutions; no BM obstruction for k ≢ ±4 (9), CTW);
+  existence for all admissible k is not known;
+* **exact reformulations of the B2 events on the named sub-lines (PROVED dictionaries; none is equivalent to ES itself):** the
+  b = 1 line E2 is a cyclic (non-increasing) linear divisibility system (memo 7, Lemma 7.1; E2 fails at 193 while ES(193)
+  holds); the cap-0 window event E3 is a target-{−1, −p} problem for a box product set in (ℤ/q)^* (memo 9); a single E2 slice is a
+  divisors-in-a-residue-class decision problem (memo 8); the shot family E4 is a norm congruence N𝔞 ≡ −1 (mod 4k) for ideal
+  divisors 𝔞 of (1 + 2k√−p) (memo 4, Lemma 4.1; (J)36: e.g. p = 13, 37, 97 have ES but no shot-family solution) — none of which lands in a
+  solved regime of its field.
 
 **The pattern (Assessment).** Every pointwise existence theorem surveyed uses at least one of four inputs, and B2 offers none:
 | input | used by | B2 lacks it because |
@@ -115,13 +119,17 @@ have no central-limit behaviour for Bloom's Fourier step to exploit. Verdict ANA
 | M3 homogeneity / group action on solutions | strong approximation for groups, Chen/BGS, Zagier windmill | U_n not homogeneous; finite automorphism group; T1 parity |
 | M4 freedom to choose the objects | AGP Carmichael, Bloom/Croot, Graham's recursion, fibration methods | F1: p and K = (p+q)/4 are forced |
 The 2026 Zaremba theorems are the sharpest test of this pattern: a pointwise theorem in a CF/thin-orbit problem by growth
-(M1 + M2), whose ES-five analogue keeps M2 but has no M1 (in that coordinate the ES-five certificate set is exactly the
-set of HJ-length ≤ 3 numerators, DEDEKIND_ES Cor 4.6, of size ≍ log² p). This is a sharpened restatement of the campaign's B3 (scale) and B2 (tied modulus) barriers, not a new
-obstruction theorem.
+(M1 + M2), whose ES-five analogue keeps M2 but has no M1: in that coordinate the ES-five certificates are the quadratic
+non-residues A with HJ-length(p/A) ≤ 3 (DEDEKIND_ES Cor 4.6), whose number is ≍ log² p *on average over p* (DEDEKIND_ES
+§5.3, an average, not a pointwise count). Whether some intermediate (prefix/suffix) sets are large is not the issue — the
+gluing count that a growth/equidistribution argument must beat with a power-saving error is the final certificate count
+(Assessment, memo 1 §(c)). This is a sharpened restatement of the campaign's B3 (scale) and B2 (tied modulus) barriers, not a
+new obstruction theorem.
 
 **No field offered a SHARP transfer.** One spark for the parent (not pursued): if Shkredov–Zhang hold, is there any ES
-*relaxation* whose certificate set at p, in CF coordinates, has dimension > 1/2 (a "Zaremba-sized menu")? Such a relaxation
-would become a pointwise theorem by their method; the campaign's provable relaxations (ES^{(S)}, capped ES) are already
+*relaxation* whose certificate set at p, in CF coordinates, is a Zaremba-type Cantor set with a power-size count (a
+"Zaremba-sized menu")? Such a relaxation would be a *candidate* for their method (dimension alone would not suffice: their
+proof uses the specific Cantor/Ahlfors–David structure and large M); the campaign's provable relaxations (ES^{(S)}, capped ES) are already
 theorems by other means, so the value would be methodological only.
 
 ## 6. Verification ledger (research-agent claims graded by me)
