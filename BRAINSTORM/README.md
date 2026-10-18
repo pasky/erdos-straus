@@ -643,3 +643,11 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z41_choosable_ladder | choose the level prime by non-abelian Frobenius | whole 2-part of ℓ's class choosable (rel. density 2/m per step among q ≡ 1 (m); forced at q ≡ 3 (4)) but a prime < t − 1 never hits −1; fixed divisor ⟹ level determined (lottery) | PROVED |
 | z41_two_group_levels | do the 2-group levels 2^k·F suffice? | no: 1 298 primes ≤ 10⁶ fail all T2 levels (1 180 have (★) words elsewhere); n = Dm² dead at levels 4D \| t | EVIDENCE + PROVED lemma |
 | z41_cubic_hecke_shadow | spark 3: bias the cubic layer by a family of n | no family biases it through the forcing congruence; cubes bias an ES-invisible anti-cyclotomic Hecke character (conductor \| 3q; S = 1 at t = 8q for cubes) | PROVED (narrow scope) |
+
+### z44 — O276 the k-th power ladder ES_(k) (deep file POWER_LADDER_ES.md)
+| memo | idea | outcome | label |
+|---|---|---|---|
+| z44_parity_collapse | is ES_{Q³} (den z a cube) provable pointwise? | trivially: odd k ⟹ 4x = n + Q^k, Q ≡ −n (4), all n, T1 dead; even k = ES^□ (one Dirichlet prime, T1); ladder carries only k mod 2; O274 §3.2 calibration repaired | PROVED + EVIDENCE (10⁶) |
+| z44_one_mute_odd | one mute prime q, free exponent | finite covering via a witness g ≡ 3 (4) with q primitive root (all q ≤ 10⁶, g ≤ 179); with parity it is an Artin problem | PROVED per q, CERTIFIED q ≤ 10⁶, CONDITIONAL (GRH) all q |
+| z44_tes_ladder | order-3 TES over ℤ[ω] | T1₃ ⟺ 3 \| k, shot index even ⟺ 2 \| k: TES_(2) is T1-free yet not covered by fixed shots (209/412 at g of norm 73) | PROVED (bits) + EVIDENCE |
+| z44_neutral_odd_mute | odd exponents only where the local symbol is +1 | T1-bearing but contains ES^□ ⟹ pointwise-trivial; only rungs inside ES^□ can be informative | Assessment |
