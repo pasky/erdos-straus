@@ -81,3 +81,31 @@ produced by any (r, A)**; at p = 2521 only 2 of 9 solutions are five-slice. So "
 theorem (ES ⟹ ES₅), not a re-indexing. Since ES(p) is known for all p in range, the brute-force "0 mismatches"
 of `z43_fable_hj.py` cannot test this direction (the author's own report says so for the even branches; the issue is
 the whole ⟹ direction, not the even branches).
+
+*The §2.8 table (which slice fires; all QNR pairs at the 211 primes < 3000, 6 096 pairs).*
+
+| r mod 4 | A | #QNR pairs | slices that fire (reviewer) | author's row |
+|---|---|---|---|---|
+| 0 | odd | 1 510 | S4 always (+S2 or S3 sometimes) | "López Type A", sign automatic — correct |
+| 1 | odd | 770 | S3 (Type II, m = 1) | "(★), d = A" — correct |
+| 1 | even | 724 | S2 (Type I) | **missing** |
+| 2 | odd | 1 178 | S3 in 770, S2 in 408 | "Type I branch" — **wrong for 770/1 178 (Type II)** |
+| 3 | odd | 576 | S5 (+S3 in 229) | explicit formula — correct (576/576) |
+| 3 | even | 2 338 | S1 and/or S5 | **missing**; and "extra condition: none" fails: 886 even-A pairs with r ≡ 3 have (A/p) = +1; the row's explicit formula is valid on only 934/2 338 |
+
+So half of all certificates (3 062 / 6 096, even A with odd r) are outside the table, the "four-branch
+decomposition by r mod 4" is not a decomposition, and the r ≡ 2 label is wrong. (The odd-A rows themselves check.)
+
+*§2.9 graph.* Dictionary (t, e) ↔ (a, c): with A = (p+e)/t one gets A | p + e, A ≡ −1 (mod e), (A/p) = (te/p),
+so "bichromatic edge ⟺ Legendre pair" is SOUND — hence G_p characterises **ES₅**, not ES (same gap). Vertices with
+p | e never lie on an edge (te | p + t + e with p | e forces p | t), so colour 0 is harmless. Census re-computed
+from scratch with a complete edge enumeration (`scripts/review_r286_graph.py`; every edge is found from its smaller
+endpoint s ≤ 1 + √(p+1), since (t−1)(e−1) ≤ p + 1 when both ends are ≥ 2): connected 28/211, QNR in comp(1) 209/211
+(the two exceptions 409, 1201 reproduced), bichromatic edge 211/211, odd squares 0. **But**: (i) the other components
+are not "2- or 3-cliques": there is no triangle at all — every component at every tested prime is a tree
+(cycle rank 0 at all 211 primes < 3000 and at 48 sampled primes up to 3·10⁶); {4, 7, 11} at 73 is the path 7—4—11
+(77 ∤ 73 + 7 + 11 = 91); off-root components have 2–8 vertices (344 edges, 131 two-edge paths, 39 larger trees).
+(ii) "comp(1) has ≍ log² p vertices" is not supported: mean |comp(1)| over 12 primes near 3·10³, 3·10⁴, 3·10⁵,
+3·10⁶ is 26.7, 44.6, 49.0, 57.3 against log² p = 64, 106, 159, 222 (ratio falling 0.42 → 0.26). (iii) G_p is
+exactly the word forest F_p of LOWER_TAIL_ASTRA Lemma 2.1 ((J)106, O275, run in parallel), which *proves* the forest
+structure (unique smaller neighbour r_v = −p mod v); the endpoint encoding itself is SIGN_IDENTITY Lemma 1.1.
