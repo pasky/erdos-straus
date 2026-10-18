@@ -1753,6 +1753,13 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment: precise scoped negatives for rooted constructions. It is the (J)97 shadow at component level, with no lower-tail positivity.
    * verify.py (ht) re-runs R285's checks.
 
+107. **A sustained lower-tail attack by Claude Fable: an independent re-derivation confirms the map — a canonical two-target form, the Legendre form (for the five-slice sub-family) and an index heuristic (LOWER_TAIL_FABLE.md (O274, model claude-fable-5-1, in parallel with (J)106); hostile review `reviews/lower-tail-fable-review.md` (R286): no FATAL. Five MAJOR, all repaired by the reviewer and marked (R286 repair): D1 the companion form (2.5) is false. D2 the "Legendre form" characterises the five-slice sub-family ES₅, not ES. D3 the table scope. D7 the index-calibration reading "explains why ES^□ had to be provable" is unsupported, because ES^□ is proved by a fixed-modulus-4 shot family, not by pooled counting. D9 a false CM / (a+b)² PROVED claim. Five MINOR, incl. D8 the ladder arithmetic and D6 cross-reference to the (J)106 word forest.)**
+   * Thm 1.1 (PROVED; R286 checked that all 8 334 solutions at the 211 primes p ≡ 1 (4) < 3000 map to certificates). Canonical two-target form: for p ≡ 1 (4), ES(p) ⟺ ∃ m, u ≥ 1 such that mp + u has a divisor ≡ −1 (mod 4mu) (Type II) or ≡ −p (mod 4mu) (Type I). Lemma 2.7: the forced non-residue sits on the divisor for Type II, but on the level for Type I.
+   * Legendre form (the (r, A) ⟹ ES direction PROVED; it characterises ES₅, the five-slice family, per D2): ∃ r ≥ 1 and A | p + r with A ≡ −1 (mod r) and (A/p) = −1. Every prime < 3000 has one; 105 and the odd squares have none.
+   * Index calibration (Assessment; heuristic consistency check only, D7/D8). Pooled tries τ₃(U)·log p versus [G : H_k]. The crossover depends on p. For prime k the index is ≈ k^{π(y)/φ(k)}; cubes are well below τ₃, k = 4 is borderline, and composite k ≥ 6 is above. Relayed to O276 (power ladder ES_{Q^k}).
+   * §3 mechanism audit: the PROVED spot-checks are SOUND (f_II even; every certificate divisor ≡ 3 (mod 4); no Vieta). No new mechanism. Fable independently reaches the campaign's conclusion that everything ends at a tied-modulus divisor event or at a pooled count below the group size.
+   * verify.py (hu) re-runs R286's checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

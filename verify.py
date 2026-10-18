@@ -27241,4 +27241,36 @@ def check_ht():
 check_ht()
 
 
+def check_hu():
+    # (hu) LOWER_TAIL_FABLE (O274 Claude Fable/R286): R286 from scratch — canonical two-target form (Thm 1.1): every one of the
+    # 8 334 unordered solutions of 4/p at the 211 primes p ≡ 1 (4) < 3000 maps to a certificate of its own type (21 088
+    # certificates; window m, u < 25: 6 105 Type I + 3 854 Type II); the Legendre form (r, A) ⟹ ES direction: all 211 primes
+    # have a Legendre certificate, 105 (composite) and the odd squares have none.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("LOWER_TAIL_FABLE subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r286_canon.py", "3000", "25"])
+    for s in ("certs from solutions 21088", "has I 211", "has II 211", "solutions 8334", "window certs I 6105",
+              "window certs II 3854"):
+        assert s in out, (s, out[-800:])
+    out = run(["review_r286_legendre.py", "3000", "1200"])
+    assert "prime n with a Legendre certificate 211" in out and "prime n 211" in out, out[-800:]
+    assert "composite no Legendre certificate at 105" in out, out[:800]
+    assert "square n with a Legendre certificate 0" in out, out[-800:]
+    print(f"== (hu) LOWER_TAIL_FABLE R286: canonical two-target form (8334 solutions, 21088 certificates); Legendre form at "
+          f"primes < 3000, 105 and squares; seconds = {perf_counter() - t0:.1f}")
+
+
+check_hu()
+
+
 print("\nall checks passed")
