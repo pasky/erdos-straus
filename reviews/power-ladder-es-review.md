@@ -151,7 +151,7 @@ No FATAL, no MAJOR. Every theorem was re-proved and every number reproduced from
   POWER_LADDER §6 proves only ⟸ and "no constraint from the mute places" for 3 ∤ k; failure of T1₃ is exhibited only for
   k = 1, 2. The converse is easy and should be stated with its proof: *if 3 ∤ k, TES_(k) has Type II-shaped solutions at
   cubes.* Proof (relative to Hecke, as SPARKS2 Cor 3.4): fix a class prime g of norm ℓ; H_k = (F_ℓ^×)^k has index d =
-  gcd(k, ℓ − 1) prime to 3, the cubes C₃ have index 3, so C₃·H_k = F_ℓ^× and the coset (−1/18)·H_k contains a cube t³;
+  gcd(k, ℓ − 1) prime to 3, the cubes C₃ have index 3, so C₃·H_k = F_ℓ^× and every coset of H_k, in particular −18·H_k, contains a cube t³;
   take (Hecke) a prime π ≡ t (mod g), π ≡ 1 (mod 2), π ∤ 6; then −π³/18 ∈ H_k, the g-shot fires at n = π³ and SPARKS2
   Prop 3.1 gives a Type II-shaped TES_(k)(π³) solution, which T1₃ (Thm 3.3 form) would forbid. *Repair:* add this
   as a Proposition (PROVED rel. Hecke) to §6, or weaken the report/memo wording to "T1₃ for 3 | k; no mute-place T1₃
