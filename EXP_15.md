@@ -43,7 +43,8 @@ splitting with atoms 2, 3 and the algebraic factors of Z^e + w^e (resp. 2Z² ± 
 * L = 120, M ≤ 3000: 21 of 14400 cells open (density 1.5·10⁻³). Tree 120 → 360 → 2520 → 5040 → 10080 → 20160 (M ≤ 3·10⁴,
   windows on): open density 5.4·10⁻⁵, 3.2·10⁻⁶, 1.3·10⁻⁶, 1.3·10⁻⁶, 1.2·10⁻⁶ (496 open cells at L = 20160). Lifting by 11 and 13
   instead (no windows): 1.9·10⁻⁷, 1.7·10⁻⁸, but the open *count* grows (51 → 596 → 8800), i.e. the tree is not closing at
-  this supply.
+  this supply. A further run (M ≤ 1.5·10⁵, windows on, 20160 → 60480): density 7.5·10⁻⁷ → 2.9·10⁻⁷, open count
+  304 → 1072 (`data/z40/tree_w2.log`).
 * No sterile point is detected: at L = 5040 and at L = 20160 **every** open cell is a quadratic non-residue modulo some
   admissible prime q (97, 113, 127, 193, 211, …), so the limit of each open cell is not a profinite unit square at that
   level. The open cells are a *supply* problem (no ET class of modulus ≤ Mmax realises that non-residue jointly with the
