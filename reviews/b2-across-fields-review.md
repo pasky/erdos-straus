@@ -115,3 +115,49 @@ Defects:
    Thm 1.8 is the general-alphabet version with the multiplicity bound. Both are cited correctly in substance; add Thm 1.2.
 8. **MINOR** (sources/lit2026g/ghosh_sarnak.txt): add the second half of the abstract ("… and that there are infinitely many
    k's for which it fails"), which is what row 2 relies on.
+
+## Claim (5) — Zaremba → ES-five transfer ("no M1")
+
+**Verdict: SOUND-AFTER-REPAIRS** (conclusion right; can be partly upgraded from Assessment to a theorem-backed statement;
+one internally inconsistent phrase).
+
+Re-derivation. DEDEKIND_ES Cor 4.6 (stated for p ≡ 1 (8); for p ≡ 5 (8), A = 2 already gives λ ≤ 2): the five X/e-slices of ES(p)
+hold ⟺ some QNR A lies in L_{≤3}(p) = {A ∈ [1, p) : HJ-length(p/A) ≤ 3}. Writing the negative CF, length 3 means
+p = b₁b₂b₃ − b₁ − b₃ (b_i ≥ 2), A = b₂b₃ − 1; length 2 means A | p + 1. So |L_{≤3}(p)| is a 3-fold divisor-type count.
+From-scratch check `scripts/review_r273_hjcount.py` (fast enumerator validated against brute-force HJ length for every
+p ≡ 1 (4) < 3000; then 12 random primes p ≡ 1 (8) per decade):
+
+| p ≈ | mean \|L≤3\| | min | mean #QNR | min #QNR | mean/log²p |
+|---|---|---|---|---|---|
+| 10⁴ | 65 | 51 | 45 | 38 | 0.72 |
+| 10⁶ | 151 | 119 | 100 | 74 | 0.74 |
+| 10⁸ | 256 | 207 | 180 | 132 | 0.71 |
+| 10¹⁰ | 398 | 315 | 280 | 190 | 0.71 |
+
+So |L_{≤3}(p)| ≈ 0.7 log² p, stable ratio — confirms "≍ log² p" (EVIDENCE) and that the menu is polylog, not a power.
+(Side observation: the QNR fraction is ≈ 0.68–0.70, not 1/2 — the length-2 part A | p + 1 and the A = b₂b₃ − 1 structure
+bias the symbol; irrelevant to the verdict, but a heuristic "each A is a QNR with probability 1/2" undercounts.)
+
+Is the "no M1" argument right? Yes, and more strongly than stated:
+* The Shkredov/Zhang input is a power-size gluing count q^{2w_M−1} (I confirmed in Zhang §4 that the count of a ∈ K ∩ K⁻¹ is
+  the quantity Thm 3.6 asymptotically evaluates; growth/expansion gives main term ≫ error only when |K|²/q is a power).
+  The ES-five count is ≈ 0.7 log² p at every sampled p, so a power-saving asymptotic cannot be the mechanism. ✓
+* **The "no power main term" claim is in fact provable for almost all p, not merely an Assessment**: by Elsholtz–Tao
+  (Thm 1.7 of "Counting the number of solutions to the Erdős–Straus equation on unit fractions", J. Aust. Math. Soc. 2013;
+  from memory, not re-read here) Σ_{p≤N} f(p) ≪ N log²N log log N, so the average of f(p) over primes is (log p)^{3+o(1)} and
+  #{p ≤ N : f(p) ≥ p^ε} = o(π(N)) for every ε > 0. Since every ES-five certificate yields an ES solution with bounded
+  multiplicity, the certificate count is < p^ε for almost all p. Hence for ES there is *provably* no pointwise power-size
+  main term to exploit (along a density-one set of p); only the "every p" lower bound remains open.
+* "No alphabet knob" ✓: Cor 4.6 is an equivalence for the five slices; enlarging the HJ length beyond 3 produces fractions
+  that are not ES certificates in that dictionary. The author correctly withdrew the earlier "halves have p^{o(1)}" claim
+  (prefix sets with one unbounded letter can be power-size).
+
+Defects:
+9. **MINOR** (B2_ACROSS_FIELDS §4.1, "dimension 0, critical exponent 2δ = 1"): self-contradictory parenthetical — a
+   finite-length word set has dimension 0, while "2δ = 1" is the critical exponent δ = 1/2 at which the BK count
+   N^{2δ−1} becomes N^{o(1)}. Repair: "(a finite-length word set: its count ≍ log² p sits at the critical regime
+   2δ − 1 = 0 of the BK count N^{2δ−1}, i.e. no power)". Same for memo 1 l. 75–77 ("polylog regime is δ = 1/2 exactly" — at
+   δ = 1/2 the count is N^{o(1)}, not necessarily polylog).
+10. **MINOR (strengthening)** (§5 pattern table row M1 and memo 1 (c)): add the Elsholtz–Tao average bound as the rigorous
+   reason M1 is unavailable for almost all p (with the Elsholtz–Tao statement verified in the source, or marked (memory)).
+   Without it, "B2 lacks M1" rests on EVIDENCE at sampled p.
