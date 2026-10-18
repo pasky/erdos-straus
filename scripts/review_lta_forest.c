@@ -39,7 +39,7 @@ int main(int argc,char**argv){
   int *dep=malloc((N+5)*sizeof(int)); int *depst=calloc(N+5,sizeof(int));
   ll nprim=0,np1=0,nsq=0,edges1=0,neg1=0,root1fail=0,lsmall=0,lfail=0,nofive=0;
   int r1list[20],nr1=0,lflist[20],nlf=0; int maxroot=0,maxrootn=0,maxdep=0,maxdepn=0,maxdepp=0,maxdeppn=0;
-  ll scanchecked=0;
+  ll scanchecked=0,bothfail=0;
   for(int n=3;n<=N;n+=2){
     int isp=(spf[n]==n); int r=(int)(sqrtl((long double)n)+0.5); while((ll)r*r>n)r--; while((ll)(r+1)*(r+1)<=n)r++;
     int issq=((ll)r*r==n);
@@ -88,6 +88,7 @@ int main(int argc,char**argv){
     int l=2; while(jac(l,n)!=-1) l++;
     if(parst[l]==curstamp) lsmall++;
     int cl=find(l); int mixedl=(cst[cl]==curstamp&&pos[cl]&&neg[cl]);
+    if(!mixedl&&!mixed1)bothfail++;
     if(!mixedl){lfail++; if(nlf<16)lflist[nlf++]=n;}
     int best=N+10; for(int i=0;i<ne;i++){int c=find(eu[i]); if(pos[c]&&neg[c]&&mn[c]<best)best=mn[c];}
     if(best==N+10) die("no mixed component",n,0,0);
@@ -96,6 +97,7 @@ int main(int argc,char**argv){
   printf("N=%d odd_primes=%lld squares=%lld p1mod4=%lld edges=%lld bichromatic=%lld scanchecked=%lld\n",N,nprim,nsq,np1,edges1,neg1,scanchecked);
   printf("root1_fail=%lld first:",root1fail); for(int i=0;i<nr1;i++)printf(" %d",r1list[i]); printf("\n");
   printf("lnr_smaller_neighbour=%lld lnr_component_fail=%lld first:",lsmall,lfail); for(int i=0;i<nlf;i++)printf(" %d",lflist[i]); printf("\n");
+  printf("root1_and_lnr_fail_both=%lld\n",bothfail);
   printf("max_least_mixed_root=%d first_at=%d max_depth_all=%d at=%d max_depth_primes=%d at=%d eight_edges_checked=%lld\n",maxroot,maxrootn,maxdep,maxdepn,maxdepp,maxdeppn,nofive);
   return 0;
 }
