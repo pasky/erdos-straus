@@ -203,3 +203,41 @@ twisted counts with a non-principal character of small conductor equidistribute 
 positive otherwise, so near-squares (where many levels are clean: T1-type tK + 1 = c²) get a partial deficit and
 squares a total one. The model explains the deficit only partly; it proves nothing at a single n (the factor is computed
 from the factorisations of the N_t themselves).
+
+## 4. Honest assessment (goal 4)
+
+**4.1 Numerator models (PROVED + EVIDENCE, `scripts/z37_numerators.py 20000`).** For k/n the (A)3-type slice is
+k·abc − a − b = n, i.e. length-3 words with k | t (k/n = 1/(abc) + 1/(acp) + 1/(bcp)). By Cor 1.3 the sign (A/n) is
+constant −1 on {4 | t}, hence on {k | t} whenever 4 | k; for k ≤ 16 and n ≡ 1 (4), n ≤ 2·10⁴, the sign is constant
+**exactly for k ∈ {4, 8, 12, 16}** and takes both values for every other k. So **the RS-type invariant does not
+distinguish numerator 4 from 8**: the 8-slice is a sub-slice of the 4-slice (t ≡ 0 mod 8 ⊂ t ≡ 0 mod 4) with the same
+character and the same square obstruction; what differs is only the size of the slice (a congruence factor 1/2 in the
+main term). At p = 241 (an 8-exception, AMPLIFY_EXCEPTION Thm 2.5) neither the 4|t nor the 8|t slice has a word (241 is
+in the DEDEKIND §4.4 vanishing list); 215 primes p ≡ 1 (4) below 2·10⁴ have no 8|t word (first: 5, 13, 17, 29, …).
+(131 ≡ 3 (4) lies outside the n ≡ 1 (4) setting.) The 4-vs-8 distinction is a B3 (main-term size) question, invisible
+to reciprocity — consistent with numerator blindness ((J)41).
+
+**4.2 Barrier screen.**
+* B1: everything in §1 is congruence data mod 8 per level (Cor 1.3) or mod 4 for Ψ — no covering content.
+* B2: Prop 1.1 is B2 in RS coordinates (self-levelled matrices: modulus = entry c). Prop 2.1 shows that Question R is
+  *also* a "structured numerator set vs Jacobi residues" problem, so RS-type thin orbits have their own B2: the sign of
+  the glued residue is the sign of the middle window (§2 item 1).
+* B3: Question R lives at numerator-set size n^{1−O(κ)}; ES at log² n. No transfer of scale.
+* B4/B6: the reciprocity series M_R is computed from the factorisations of the N_t (single n), so B6 does not apply,
+  but it is not a lower bound for anything — it is a model of N₋ given the divisor data.
+* B5/T1: built in everywhere (M_R(m²) = 0; R⁺(m²) = 0; TG false at squares by design).
+* Thm 9.1 / Prop 10.3 (campaign meta-theorems on menu/fixed-structure certificates): not engaged — no certificate menu
+  is proposed.
+
+**4.3 Verdict (Assessment).** The connection gives **no lever on B2 at a single p**. What it gives:
+1. an exact dictionary: ES words = self-levelled SL₂(ℤ) matrices (Prop 1.1); per-level sign = character mod 4t
+   (Prop 1.2); the (A)3 slice is the Γ₀(4)-coset of RS's Ψ with the opposite Kronecker law (Prop 1.4); RS's Kronecker
+   character is the theta multiplier, a homomorphism only on the positive semigroup (Thm 1.5), which makes RS §10's
+   "place at infinity" precise and matches the campaign's archimedean-positivity theme;
+2. an exact reduction of Question R to "some Γ̃-numerator over n is a non-residue" (Prop 2.1), with the precise missing
+   input (twisted gluing count, Hypothesis TG) and the precise reason expansion cannot supply it (Prop 2.2: main terms
+   that are Euler products cannot vanish at squares; the reciprocity term lives at denominators q | n);
+3. a reciprocity singular series for ES (§3) which is exact at squares and explains ≈ 35–55 % of the near-square
+   deficit; the rest is an admissibility (B2) correlation, and the natural analytic L(1, χ_{tK+1}) refinement is
+   refuted numerically.
+No pointwise theorem for any ES relaxation and no theorem in thin orbits (Question R remains open) was obtained.
