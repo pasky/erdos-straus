@@ -1,0 +1,7 @@
+fixed shot prime g = (-8, 1), N(g) = 73
+cube  k=1: fixed g fires for 412/412; Type II shape at pi in 412
+cube  k=2: fixed g fires for 209/412; Type II shape at pi in 209
+cube  k=3: fixed g fires for 0/412; Type II shape at pi in 0
+prime k=1: fixed g fires for 412/412; Type II shape at pi in 412
+prime k=2: fixed g fires for 209/412; Type II shape at pi in 209
+prime k=3: fixed g fires for 134/412; Type II shape at pi in 134
