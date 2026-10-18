@@ -30,7 +30,9 @@ p ≡ −1 (4)). (iii) is (ii) read with g fixed. ∎ (`scripts/z35_checks.py` (
 1125 primes p ≡ 1 (4) < 2·10⁴.)
 
 *Regimes.* md ≈ p/4 and g ≤ m + 1. (R1) m ≤ X bounded: the event is "p mod 4m ∈ {−g : g | m + 1}", a congruence (B1).
-(R2) d ≤ X bounded: CLASS_FORCING Thm 6.1 (HC). (R3) the balanced range m, d = p^{1/2 + o(1)}, where m, d, g are of the same
+(R2) d ≤ X bounded: a divisor event for the bounded set of integers p + 4d (CLASS_FORCING Thm 6.1 tried to bar it under
+Hypothesis HC, but R272 D1 found that theorem FATAL as stated — abelian conditions at primes > B can force certificates, e.g.
+p ≡ −4 (7) ⟹ 7 | p + 4, a d = 1 certificate; nothing here relies on it). (R3) the balanced range m, d = p^{1/2 + o(1)}, where m, d, g are of the same
 size as a, b — the only place where p's Gaussian data and the certificate live on one scale.
 
 **Proposition 1.2 (residue-symbol content of one certificate; PROVED).** Let (m, g, d, c, w) be as in Prop 1.1, write
@@ -39,18 +41,25 @@ d = 2^s d′, m = 2^r m′ (d′, m′ odd).
 So every quadratic symbol mod p of certificate data is a Jacobi symbol among the parameters (and p mod 8): **the sign layer is
 not a free datum of p once the parameters are given** — it is the T1 sign (ET Prop 1.6; CLASS_FORCING Lemma 2.2(a)).
 (b) *(Quartic part = Gaussian data modulo the parameters.)* (w/p)_4·(g/p)_4 = (2/p)·(d/p)_4 in μ₄(F_p). For an odd prime
-q ≠ p, (q/p)_4 ≡ [q/π]_4 (mod π) is a function of (a mod q, b mod q) (and of the choice π ↔ π̄): for q ≡ 1 (4), q = c_q² + d_q²
+q ≠ p, (q/p)_4 ≡ [q/π]_4 (mod π) is a function of (a mod 4q, b mod 8q) (the 2-adic part fixes the primary associate; π ↔ π̄
+conjugates the value): for q ≡ 1 (4), q = c_q² + d_q²
 (c_q odd), **Burde's law** (p/q)_4(q/p)_4 = ((a c_q − b d_q)/q) when (p/q) = 1 [Burde, J. reine angew. Math. 238 (1969);
 `z35_checks.py` (2): 2158 pairs, 0 violations], with (p/q)_4 a function of p mod q; for q ≡ 3 (4), [π/q]_4 ≡ π^{(q²−1)/4} =
 (π̄/π)^{(q+1)/4} (mod q), a function of the point (a : b) ∈ P¹(F_q). Hence the quartic symbols of w, g, d, m are functions of
 (a, b) modulo 16·rad(mdg) — data of p NOT determined by p mod anything (Thm 2.1(c)(ii) of CLASS_FORCING: Frob_p in
-ℚ(i, q^{1/4}) is non-abelian information).
+ℚ(i, q^{1/4}) is non-abelian information; R272 D2: O263's slogan "reciprocity forces parity, never class" is an overclaim —
+the correct content is "Frobenius data of p = congruence data + an independent non-abelian part", and that non-abelian part
+is exactly what this file studies).
 (c) *(The event ignores (b).)* The certificate condition (4md − g = p, g | m + 1) involves only integers; (b) is a
 consequence of it, never an input. (`z35_checks.py` (3): the identity in (b) and (w/p) = −1 on all 2716 certificates p < 5000.)
 *Proof.* (a) Jacobi reciprocity with p ≡ 1 (4): (x/p) = (p/x) for odd x > 0; p ≡ −4d (mod g) (as m ≡ −1 (g)), p ≡ −g (mod d′)
 and (mod m′) (as 4md = p + g). (w/p) = −1 is CLASS_FORCING Lemma 2.2(a) (SS8). (b) wg ≡ 4d (mod p) and 4^{(p−1)/4} = 2^{(p−1)/2}.
 The q ≡ 3 (4) formula: in ℤ[i]/(q) ≅ F_{q²}, π^q ≡ π̄, so π^{(q²−1)/4} = (π^{q−1})^{(q+1)/4} = (π̄/π)^{(q+1)/4}; quartic
-reciprocity [q/π]_4 = [π/q]_4 for primary π and q ≡ 3 (4) (Ireland–Rosen Thm 9.9.? / Lemmermeyer Thm 6.9) transfers it. ∎
+biquadratic reciprocity for the primary primes π and −q (Ireland–Rosen, *A Classical Introduction…*, Ch. 9 §9, Thm 2;
+(N(−q) − 1)/4 = (q² − 1)/4 is even) transfers it up to the unit factor [−1/π]_4 = (−1)^{(p−1)/4} and the primary normalisation.
+`scripts/z35_quartic_function.py` (`logs/z35_quartic_function.txt`): for q ≤ 37 and all p ≡ 1 (4) < 3·10⁵, (q/p)_4 (with
+i ↔ i_p = a/b) is a single-valued function of (a mod q, b mod q, a mod 4, b mod 8) (q = 2: (a, b, p) mod 16), 0 conflicts;
+without the 2-adic data, q ≡ 3 (4) gives ≈ 50 % conflicts (the primary-associate sign). ∎
 
 **Answer to goal (1) of the brief.** In mod-p coordinates the decisive condition is the *height-one* equation 4md − g = p
 (equivalently: the least residue −p mod 4m divides m + 1). Its residue-symbol content splits into a quadratic part, which is
@@ -58,3 +67,37 @@ forced and equals the T1 sign (a), and a quartic part, which is genuine Gaussian
 certificate, not a criterion for one (c). The target w ≡ −1 (mod 4d) is additive — "w lies in an arithmetic progression of
 difference 4d inside [1, p)" — whereas power classes are cosets of multiplicative subgroups of F_p^×. So **no**: the target is
 not a power-class statement mod π; reciprocity enters only through the quadratic sign it already forces.
+
+## 2. Does the non-abelian part of Frob_p act on certificates?
+
+**Proposition 2.1 (bounded witnesses: the non-abelian part is inert; PROVED, Chebotarev).** Let Ω/ℚ be finite Galois, C a
+conjugacy class of Gal(Ω/ℚ), and S a finite set of pairs (d, w) (d ≥ 1, w ≡ −1 (mod 4d)). Let M := lcm(16, all w, all 4d, the
+conductor of Ω^{ab}). For every residue r mod M compatible with C (i.e. Frob_r on Ω ∩ ℚ(ζ_M) = C restricted there), the set of
+primes p ≡ r (M) with Frob_p|Ω ∈ C has density |C|/(|Gal(Ω/ℚ)|·[ℚ(ζ_M) : Ω ∩ ℚ(ζ_M)]·…) > 0 in the class r (the fibre-product
+count of CLASS_FORCING Thm 2.1(b)), and on it the event "some (d, w) ∈ S certifies p" is constant (it is "w | p + 4d", a
+condition on p mod w). So for certificate menus with bounded witnesses, the Kummer/power-residue data of p (quartic, octic,
+Eisenstein symbols of any fixed small numbers) add nothing to the abelian (congruence) data.
+*Proof.* The event depends on p mod M only; Chebotarev in Ω·ℚ(ζ_M). ∎
+(R272 D1 is consistent with this: the abelian part *can* force certificates — p ≡ −4 (7) — it is the non-abelian part that is
+inert at bounded level.)
+
+**Proposition 2.2 (unbounded level: the non-abelian part is complete information; PROVED).** Let K = ℚ(i), π = a + bi primary.
+The family of quartic symbols ([q/π]_4)_{q prime, q ≡ 3 (4)} determines π up to the finite set of primary primes π′ with
+π̄′/π′ ≡ π̄/π · (unit) in K^×/K^{×4} — and that set is {π}. Hence the full collection of quartic symbols (q/p)_4 of small primes
+determines (a, b), and so p.
+*Proof.* By §1 (b), [q/π]_4 is determined by (and determines, up to the character's kernel) the class of β := π̄/π in
+T(F_q)/T(F_q)^4, T the norm-one torus (|T(F_q)| = q + 1 ≡ 0 (4)). By Chebotarev in K(β^{1/4}, …) a class β β′⁻¹ that is a 4th
+power in T(F_q) for all inert q is a 4th power in K^× up to units (Grunwald–Wang does not interfere for exponent 4 over ℚ(i),
+which contains μ₄; standard Kummer theory: an element that is locally a 4th power at a density-one set of primes is a global
+4th power). But β/β′ = π̄π′/(ππ̄′) has valuation 1 at π̄ unless π′ ∈ {π, π̄}·units; primary normalisation leaves π. ∎
+*Reading.* There is no "independence barrier" for non-abelian data at unbounded level: knowing enough quartic symbols is
+knowing p's Gaussian coordinates. Any reciprocity-based mechanism at growing level must therefore use (a, b) *as numbers* —
+which is §3 (Gaussian-representation certificates). At bounded level (Prop 2.1) it is inert.
+
+**EVIDENCE 2.3 (non-abelian independence at moderate level).** `scripts/z35_quartic_independence.py 2000000 40`
+(`logs/z35_quartic_independence.txt`): 74 415 primes p ≡ 1 (4) < 2·10⁶, levels d ≤ 40, quartic data (q/p)_4 for
+q ∈ {2, 3, 5, 7, 11, 13} (on (q/p) = 1), hit indicator of the b = 1 line at level d, stratified by p mod lcm(4d, 16, q):
+240 tests, max |z| = 2.46, share |z| > 2 = 2.5 % (null ≈ 4.6 %), none > 3. Canonical quartic bit of b = 1 witnesses for
+p ≡ 5 (8) (2 is a non-residue, so (2w/p)_4 = ±1 is π ↔ π̄-invariant): +1: 281 437, −1: 282 747 (50.1 % / 49.9 %). The
+certificate carries a free, balanced quartic bit, and quartic data of p do not move the per-level hit rates (unlike the
+quadratic sign, which is forced: Prop 1.2(a)).
