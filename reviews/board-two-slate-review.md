@@ -96,3 +96,64 @@ Elsholtz–Tao Thm 1.8 proof detail: not re-checked against the paper (source no
   trivially; the Stewart route is correct but unnecessary.
 * m4 (MINOR) §8.7 / BOARD2 (2): say how often ties occur (72/990 here) and that at a tie the count was 0 every time —
   makes the strictness remark concrete.
+
+## (3) Five-slice union: Lemmas 3.1–3.2, M(n), Props 3.3–3.4, Theorem 3.5
+
+**Lemma 3.1** re-derived: n = tuv − u − v ⇒ v(tu − 1) = n + u ⇒ (A/n)(v/n) = (u/n) ⇒ (A/n) = (uv/n) when (uv, n) = 1 ✓.
+The prime restriction (21/8 counterexample) is correctly recorded ✓.
+
+**Lemma 3.2** re-derived independently. At a hit n ≡ a (mod w), n ≡ 1 (4) ⇒ (w/n) = (n/w) = (a/w) ✓. Odd–odd:
+(−v/u)(−u/v) = (−1/u)(−1/v)(−1)^{(u−1)(v−1)/4}: values on (u, v) mod 4 = (1,1): +1, (1,3), (3,1), (3,3): −1 ✓. u = 2^k u′:
+(a/u′) = (−v/u′), (a/v) = (−1/v)(2/v)^k(u′/v), reciprocity ✓. k ≥ 2: 4 | n + v ⇒ v ≡ 3 (4) ⇒ ε = −(2/n)^k(2/v)^k; k even
+trivially −1; k ≥ 3 odd: 8 | u ⇒ n ≡ −v (8) ⇒ (2/n) = (2/−v) = (2/v) ✓ (the author's flagged "odd k ≥ 3" point is fine).
+From scratch (`scripts/review_r284_five_slice.py lemma 4000 64`): all n ≡ 1 (4) ≤ 4000, all coprime u, v ≤ 64 with k ≥ 2 and
+2^k | n + u + v (269 000 triples): (2/n)^k(a/w) = −1 always ✓. At every hit of all **1 473** primes p ≡ 1 (4) in
+[10⁶, 1.04·10⁶) (`hits` mode, hit enumeration v | p + u, independent of the author's loop): ε formula = (uv/p) and
+Thm 4.5 five conditions ⟺ (uv/p) = −1, **0 mismatches** in both ✓.
+
+**M(n) and Prop 3.3.** Re-derived the mean-preservation: with s := (n/w) = ±1 (balanced over reduced n mod w when
+w ≠ □), the term is 1[2^k | n+u+v](1 + s(a/w))(1 − (2/n)^k s)/(2φ(w)); averaging over s gives (1 − ε)/(2φ(w)) =
+1[ε = −1]/φ(w) ✓; for ε = +1 the product (1 + s(a/w))(1 − s(a/w)) = 0 identically ✓; for ε = −1 it equals 1 − (uv/n) ✓.
+T1: (uv/m²) = 1 and, for w = □, ε = (2/m²)^k·1 = +1 ✓. Numerics from scratch (first-principles vectorised formula, not
+Lemma 3.2's case split): M(p), M₀(p) and the four M₀ sectors at p = 1 000 033 agree **to all printed digits** with the
+author's log (R = 92, M = 82.729, M₀ = 79.694, sectors 16.00 / 24.08 / 24.55 / 15.07); squares 49², 99², 105², 997²:
+R = M = 0, M₀ = 13.650, 10.642, 5.003, 82.425 ✓; p = 61 (w = 9 square-odd-part repair): M = 6.922, R = 6.
+
+**Prop 3.4 (45/(8π²)) — re-derived.** Local factor of Σ 2^{ω(m)}/(φ(m)m^s) times (1 − p^{−1})² is 1 + 1/p², so
+Σ_{m ≤ x odd} 2^{ω(m)}/φ(m) ∼ ½·¼·∏_{p>2}(1 + p^{−2})·log²x = ½·¼·(12/π²) log²x = (3/(2π²)) log²x ✓ (numerically: fit to
+2·10⁷ gives a = 0.15179 vs 0.15198 ✓). 2^{ω(m)} counts ordered coprime factorisations ✓. Sectors: odd–odd ¾ of classes
+→ 9/(8π²); k = 1: half the (u′ mod 4, v mod 8) classes **for every p** (the sign function (−1/u′)(2/v)(−1/v)^{1+[u′≡3]} is
+balanced), × 2 orientations → 3/(2π²); k = 2: v ≡ 3 (4), × 2 → 3/(2π²); k ≥ 3: P(v ≡ −p mod 2^k | v odd) = 2^{1−k},
+Σ_{k≥3} = ½, × 2 → 3/(2π²). Total 45/(8π²) ✓; the board's 33/(8π²) indeed drops one of the three opposite-parity
+sectors. M₀(p) ∼ (45/(8π²))L² holds for each p individually (not only on average over p mod 8); only the lower-order
+terms depend on p mod 2^k (e.g. k = 1 sector 24.08 at p ≡ 1 (8) vs 27.60 at p ≡ 5 (8) near 10⁶). The label
+"Assessment + EVIDENCE" is if anything conservative; the computation above is a routine Dirichlet-series argument.
+
+**Theorem 3.5 — the two flagged steps re-derived.**
+*Density scaling.* Σ_{m ≤ T₀, m ∈ S′} 1/m = D log T₀ + O(2^j) (each of the ≤ 2^j classes mod 2^j contributes
+2^{−j} log T₀ + O(1)) — trivially correct; O(2^j) is O_K(1) for fixed K ✓. The tail: m = c + 2^j i ⇒ χ(m) = χ(2^j)χ(i + c′)
+with c′ ≡ c·2^{−j} (mod p), an interval of length ≍ s/2^j ≥ p^{1/4+ε}; Burgess (prime modulus, any interval, r large)
+gives ≪ s p^{−η} uniformly in the start, so the partial-summation tail is o(1) uniformly in d | u′ and in the class ✓.
+*Constants.* Σ_{u′ ≤ X odd} φ(u′)/u′² ∼ ½·(8/π²) log X = (4/π²) log X; Σ φ(u′) log u′/u′² ∼ (2/π²) log²X;
+Σ ψ(u′)/u′² ∼ ½·(12/π²) log X = (6/π²) log X (κ(u′) := Σ_{d|u′}|μ(d)|/d) ✓. Main D(L²/π²)(4δ − 2δ²) and character part
+≤ D(L²/π²)·6βδ ✓; at δ = ½, β = ¼: ¾ ✓; PV: max_δ(δ − 2δ²) = ⅛ at δ = ¼ ✓ ⇒ 15/(64π²) ✓. The Möbius remainder
+Σ_{d|u′} μ(d) log d/d contributes O(L) after weighting ✓.
+*Families.* Active-class sets: k = 1: for fixed u′, 2 of the 4 odd classes mod 8 (D = ¼, both u′ mod 4) ✓; k = 2: D = ¼ ✓;
+k ≥ 3: D = 2^{−k} ✓. σ_{u′} = χ(2^k u′) constant in v ✓. Disjointness ✓ (u′ determined by the pair; orientations by
+parity; odd–odd only one orientation, avoiding double count of short–short pairs). Cutoff 2^{k+1}u′v ≤ p ⇒ (u, v) ∈ P(p) ✓.
+The comparison c ≥ (1 − χ(uv))/(u′v) fails only for w = □; such pairs are inactive for k = 0 and k even (k = 2 forces
+v ≡ 3 (4), impossible for v = □), so only odd k at p ≡ 5 (8), total ≪ Σ_m 2^{ω(m)}/m² = O(1) per k ✓.
+Arithmetic: 3 sectors × 2 orientations × (¼)(¾)/π² = 36/(32π²), odd–odd (¼ + ½)·½·¾/π² = 9/(32π²) ✓ ⇒ 45/(32π²).
+
+**Numerics.** From-scratch R over all 1 473 primes p ≡ 1 (4) in [10⁶, 1.04·10⁶): mean R/L² = **0.4702**, min R = 26
+(author 0.472 / 26 on a 1-in-3 subsample) ✓. p = 10 000 121: R/L² = 0.493, M/L² = 0.491 ✓. 8/131 and 8/241 have no
+solution, 4/241 has 8 (independent brute force, `scripts/review_r284_egypt.py`) ✓.
+
+**Verdict (3): SOUND.** Lemma 3.1 (primes), Lemma 3.2, Prop 3.3, Prop 3.4's constant 45/(8π²), Thm 3.5 (45/(32π²),
+15/(64π²)) all re-derived; the board's 33/(8π²) is correctly superseded.
+* m5 (MINOR) BOARD2_SLATE (3) Numerics/Setting: "491 primes ≡ 1 (4) in [10⁶, 1.04·10⁶)" is every 3rd such prime
+  (z42_five_slice -r … step 3; there are 1 473). Say "every third prime"; the full-range mean is 0.470.
+* m6 (MINOR) Thm 3.5 template: "κ(u′)" is used without definition in BOARD2_SLATE; define κ(u′) := ∏_{ℓ|u′}(1 + 1/ℓ)
+  (= Σ_{d|u′}|μ(d)|/d), and note the O(2^j) = O_K(1) initial-segment constant explicitly (it is why K is fixed first).
+* m7 (MINOR) Prop 3.4: add that M₀(p) ∼ (45/(8π²))L² holds for each p (only lower-order terms depend on p mod 2^k),
+  which is the form Thm 3.5's comparison "¼ of the principal constant" implicitly uses.
