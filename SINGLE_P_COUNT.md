@@ -85,3 +85,37 @@ single-p problem therefore splits into
       quantities, §4), and
   (U) |X(p)| < g(p) — cancellation among the characters of order ≥ 3, where no square obstruction remains.
 Neither is proved; §3 measures how much of the actual fluctuation each part carries.
+
+## 3. Numerics: how the fluctuation of R(p) splits (EVIDENCE; goal 4)
+
+Engine `scripts/z30_rgen.c` (C; one pass over 𝒫(p), ≈ (p/4)·log p pairs; aborts if a hit is not genus-matched — never
+happened). Columns: R; M₀ = Σ 1/φ(q) (p a uniform unit mod q); M₂ = conditioning on p mod 8; M_gen (Lemma 2.1);
+M_loc,Y = conditioning on p modulo the full Y-smooth part of q (all prime powers of primes ≤ Y, incl. 2) and on the square
+class of p modulo the rest; R_sm,Y = hits whose q is Y-smooth (these are reproduced exactly by M_loc,Y). Consistency checks:
+M_loc,0 = M_gen and M_loc,∞ = R (checked at 409, 101, 10007, 1000033); M_gen(m²) = R(m²) = 0 for the squares tested
+(9409, 10201, 2025, 225, 441; exact rational check for odd m < 40 in `scripts/z30_check_forms.py`). Summary statistics
+`scripts/z30_stats.py`, output `logs/z30_variance.txt`.
+
+Since R(p) is even (Lemma 1.1(2)), the independent-incidence ("swap-paired Poisson") baseline is var R ≈ 2·E R.
+
+| sample | N | mean R | var(R−M₀)/M₀ | var(R−M_gen)/M_gen | var(R−M_loc,30)/M_loc | resid. var / 2(M_loc − R_sm) |
+|---|---|---|---|---|---|---|
+| all p ≡ 1 (4) in [10⁶, 1.1·10⁶] | 3642 | 32.0 | 4.05 | 3.04 | 1.99 | 1.66 |
+| first 576 of those, Y = 100 | 576 | 31.8 | 4.24 | 3.27 | 1.44 (Y=100) | 1.89 |
+| p ≡ 1 (4) in [10⁷, 10⁷+12000] | 343 | 42.2 | 4.52 | 3.60 | — | — |
+
+Findings.
+* The quadratic-character (genus) part removes ≈ 24 % of var(R − M₀) (corr(R, M_gen) ≈ 0.5); conditioning on p mod 8
+  alone removes nothing. So the genus correction is real but not dominant.
+* Full local data at primes ≤ 30 (plus genus) removes ≈ 50 %; corr(R, M_loc,30) = 0.71, and 0.81 at Y = 100. About 37 %
+  (Y = 30) to 57 % (Y = 100) of all hits have a Y-smooth modulus 4uB.
+* **The residual does not reach the Poisson baseline:** after removing the local part, var(R − M_loc) is still ≈ 1.7–1.9 ×
+  2(M_loc − R_sm), and the ratio does not fall from Y = 30 to Y = 100. The excess is therefore not small-prime local
+  structure. Hypothesis (Assessment): it is the divisor-sharing correlation (pairs sharing u, B or C test divisibility of the
+  same integer p + u, p + B or 4Cp + 1, and divisor counts of one integer are overdispersed like τ); this would also explain
+  the slow growth of the overdispersion with p (4.05 → 4.52 here; 2.2 → 3.6 for the b = 1 line, B1_LINE).
+* The 14 known (★)-failures ≤ 10¹⁰ (all ≤ 8.9·10⁶) have M_gen/M₀ ∈ [0.57, 0.92] and M_loc,30/M₀ ∈ [0.10, 0.67]: low local
+  main terms, but for p > 10⁵ still M_loc,30 ≈ 10–26, so the failures are not explained by the local term alone.
+* Calibration for goal 4 (Assessment): at 10⁶–10⁷ the actual error |R − M_loc| has standard deviation ≈ 1.3·√(2M), i.e.
+  ≈ log p in absolute size, against a main term ≈ (log p)²/8. Nothing in the data suggests |E(p)| ≍ M(p) generically; the
+  failures are lower-tail events of a moderately overdispersed count.
