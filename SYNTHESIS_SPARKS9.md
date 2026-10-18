@@ -90,7 +90,8 @@ i.e. χ_{−t}(δ) for p ≡ 1 (4) and −χ_t(δ) (χ_t = (t/·), EVEN) for p �
 *Proof.* v_p(−v/p) = −1 and −v/u is a p-unit, so inv_p = (−uv/p); mod p, N ≡ 1 and N/δ ≡ δ⁻¹ give uv ≡ (δ + 1)²/(δt²). Then
 (δ/p) = (−1)^{(δ−1)(p−1)/4}(p/δ) and tp ≡ −1 (mod δ) gives (p/δ) = (−t⁻¹/δ) = χ_{−t}(δ). ∎ (Checked by explicit Hilbert symbols,
 `scripts/review_r282_blevel.py`: p < 400, t ≤ 60 — exact at all generic points; the only mismatches have p | t.) For composite
-odd n the same computation with Jacobi symbols gives the same n mod 4 dichotomy. Hence the BM factor 1 + inv_∞·inv_p at level
+odd n the same computation with Jacobi symbols (product of the inv_ℓ, ℓ | n, at generic points) suggests the same n mod 4
+dichotomy (not checked numerically). Hence the BM factor 1 + inv_∞·inv_p at level
 t is 1 − χ_{−t}(δ) for n ≡ 1 (4) — the {1, χ_{−t}} part below — but 1 + χ_t(δ) for n ≡ 3 (4), which never vanishes. **All
 "BL's class = χ_{−t}" statements below are for n ≡ 1 (mod 4)**; Props 2.1–2.2 themselves hold for all odd n as statements
 about M^{lev}. O269 Thm K (under review on side-agent/metaplectic-es): R_t(n) = D⁻_t(N) − β_t(n), D⁻_t(N) = #{d | N : d ≡ −1 (t)}.
