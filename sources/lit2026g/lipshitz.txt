@@ -1,0 +1,6 @@
+https://www.jstor.org/stable/1998836
+L. Lipshitz, “The Diophantine problem for addition and divisibility,” Trans. Amer. Math. Soc. 235 (1978), 271–283.
+
+Source abstract (verified): “The diophantine problem for addition and divisibility is decidable.”
+
+Caution: this abstract-level wording does not state the exact increasing-form local-to-global criterion; that statement was not available in the source text consulted here. Do not infer it from the abstract.

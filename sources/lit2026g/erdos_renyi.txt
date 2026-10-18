@@ -1,0 +1,4 @@
+https://www.renyi.hu/~p_erdos/1965-15.pdf
+P. Erdős and A. Rényi, “Probabilistic methods in group theory,” J. Analyse Math. 14 (1965), 127–138.
+
+The original scanned source was located, but the relevant theorem text was not extracted/read during this research. The purported k ≥ log₂|G|+log₂log₂|G|+ω(1) threshold is UNVERIFIED in this excerpt; do not quote as established without checking the paper.

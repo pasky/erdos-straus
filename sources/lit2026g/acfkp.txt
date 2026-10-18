@@ -1,0 +1,4 @@
+https://arxiv.org/pdf/1003.2186
+S. D. Adhikari, Y. Chen, S. Friedlander, C. Pomerance, “Contributions to zero-sum problems,” Discrete Math. 306 (2006), 1–10. (Source sought via later paper; original exact theorem not independently opened.)
+
+UNVERIFIED here: the requested identity is commonly cited as D_{±1}(Z/nZ)=⌊log₂ n⌋+1. Do not treat this file as verification of the original statement.

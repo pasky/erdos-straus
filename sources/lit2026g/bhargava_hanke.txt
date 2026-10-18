@@ -1,0 +1,2 @@
+https://math.stanford.edu/~vakil/files/290-Theorem-preprint.pdf
+Search-extracted theorem statement: “If a positive-definite quadratic form with integer coefficients represents every positive integer below 290, then it represents every integer above 290.”

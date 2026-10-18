@@ -1,0 +1,5 @@
+https://www.math.ucla.edu/~wdduke/preprints/hyperbolic.pdf
+Theorem 1. Suppose d is a fundamental discriminant. Then for some δ > 0 depending only on Ω
+(i) #A_d∩Ω/#A_d = μ(Ω) + O(|d|^{-δ}) as d → −∞ and
+(ii) Σ_{C∈A_d} |C∩Ω|/Σ_{C∈A_d}|C| = μ(Ω) + O(d^{-δ}) as d → +∞.
+The implied constants and δ are ineffective.
