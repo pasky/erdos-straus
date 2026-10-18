@@ -30,7 +30,7 @@ red team 2 Thm 2.2 (B2).
     support, 105 is not metaplectic.
   - C4 "self-levelled set = kernel of a multiplier / Hecke image of θ" → the self-level condition is a Bruhat-cell
     condition (Γ_∞-bi-invariant); the multiplier is ±1 on the I cell, ≡ −i on the −I cell (§3). Not a semigroup
-    (products of self-levelled matrices are not self-levelled), so not a kernel.
+    (0 of the 4096 products γ_{w1}γ_{w2}, t, u, v ∈ [2, 5], is self-levelled), so not a kernel.
   - C5 "quartic multiplier for numerator 8" → u↔v symmetry forbids a quartic sign of A; ordered bit balanced (§6).
   - C6 "levels with one odd character (t = 3, 4, 6)": D⁻ − D⁺ = −σ_χ(N) ≤ 0 always (theta-series positivity pushes
     *against* ES); ES at these levels ⟺ τ(N) − r_K(N) > 2β — the classical Mordell families. No new forcing.

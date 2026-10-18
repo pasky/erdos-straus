@@ -599,3 +599,13 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z37_twisted_gluing | input needed by growth methods | Hypothesis TG (χ-twisted A∩B^{−1} count); boxwise Weil needs ε ≥ 3/8 vs ε < 1/18 (method threshold); Burgess not directly applicable below n^{1/2} | Assessment + open hypothesis |
 | z37_reciprocity_series | main term vanishing at squares | M_R (divisors equidistributed within χ_t-class), exact at squares, explains ≈ 33–54 % of near-square deficit; L(1, χ_{tK+1}) proxy test shows nothing | EVIDENCE |
 | z37_numerator_k_sign | 4 vs 8 | sign constant on k∣t iff 4∣k: 4 and 8 share the invariant; difference is B3 | PROVED + EVIDENCE |
+
+### z39 — O269 metaplectic / theta-multiplier view of T1; ES-side half-integral weight objects (deep file METAPLECTIC_ES.md)
+| memo | idea | outcome | label |
+|---|---|---|---|
+| z39_kronecker_levels | each level t as a split indefinite theta | = Kronecker quotient θ'θ(2z)/θ(z)² at a t-torsion point (weight-1 Eisenstein) + weight-0 Maass Eisenstein; no cusp forms; log² in weight 0; T1 = exact weight-0/weight-1 cancellation on 4 \| t at squares | PROVED + EVIDENCE — SHARP candidate |
+| z39_serre_stark_support | weight-½ objects with ES support | Serre–Stark: supports are finitely many periodic square classes; T1 squares = supp θ; 105 not metaplectic (periods ≤ 96; all under SQ₅) | PROVED + CONDITIONAL |
+| z39_positive_coset | self-level as group condition | ES level t = positive elements with b = n of the Bruhat cell of −I in Γ₁(t) (Γ_∞-bi-invariant); +I cell always non-empty; ν_θ ≡ −i on the −I cell | PROVED dictionary |
+| z39_quartic_slices | quartic (Kubota) sign for numerator 8/16 | u↔v inverts χ₄(A): no symmetric quartic sign; ordered bit balanced | PROVED no-go + EVIDENCE (negative) |
+| z39_gl3_shifted_divisor | the level sum | Σ R(n)q^n = Σ_{u,v} q^{2uv−u−v}/(1−q^{uv}): an additively shifted d₃ (GL(3) Eisenstein type) | PROVED identity + Assessment |
+| z39_square_discriminant_shadow | ES as the "shadow sector" of Zagier's ℋ | split level forms are shadow-free (degenerate Zwegers case); T1 squares ≠ shadow squares | Assessment (negative) |
