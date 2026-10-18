@@ -157,3 +157,40 @@ solution, 4/241 has 8 (independent brute force, `scripts/review_r284_egypt.py`) 
   (= Σ_{d|u′}|μ(d)|/d), and note the O(2^j) = O_K(1) initial-segment constant explicitly (it is why K is fixed first).
 * m7 (MINOR) Prop 3.4: add that M₀(p) ∼ (45/(8π²))L² holds for each p (only lower-order terms depend on p mod 2^k),
   which is the form Thm 3.5's comparison "¼ of the principal constant" implicitly uses.
+
+## (4) 8/n c = 1 zero-law diagnostic to 10⁹
+
+From-scratch tools: `scripts/review_r284_zero_law.c` (byte-array AP marking with loop order B-outer/u-inner, own Jacobi,
+own φ sieve; `M` mode recomputes M_8(n) **and** an independent per-n hit test by looping over all pairs), plus a pure-Python
+brute force of the definition (∃ u, B, C ≥ 1) for n ≤ 3000, and `scripts/review_r284_zero_fit.py` (refit from the table).
+
+**Cutoff patch (a).** A hit needs C = (n + u + B)/(8uB) ≥ 1, i.e. n ≥ 8uB − u − B; the progression starts at
+n₀ = 8uB − u − B, so the right cutoff is 8uB − u − B ≤ N (not 8uB ≤ N) ✓; astra's example n = 13 = 8·1·2 − 1 − 2 ✓ is a hit.
+Brute force of the definition vs my marker, all odd non-squares 5 ≤ n ≤ 3000: 0 mismatches (405 zeros).
+
+**Zero counts — reproduced exactly.**
+* ≤ 10⁷ (m = 8): my zero list (127 668 zeros among 4 998 418 odd non-squares ≥ 5) is **identical** (diff empty) to the
+  author's `mark 8 10000000 1`.
+* ≤ 10⁹ (m = 8): 499 984 188 admissible, **2 748 892** zeros — equal to the author's figures.
+* m = 12 (n prime to 6) and m = 16, window [5·10⁶, 10⁷]: 45 460 / 1 666 357 and 271 201 / 2 499 537 — equal ✓.
+  (m = 12 unit patch (b) re-derived: for 3 ∤ uB, 3 | u + B ⟺ {u, B} ≡ {1, 2} (3) ⟺ uB ≡ 2 (3); φ(12m′) = 8φ(m′) or
+  12φ(m′) for even m′ ✓.)
+
+**Exact M_8 — reproduced.** My M_8 and direct hit test at n = 46 362 671, 73 160 111, 84 090 431 (author's exact M
+24.982, 27.020, 28.729), the population member 603 111 339 (12.332, a hit) and the M ≥ 26 zeros 125 945 951, 425 357 011,
+575 068 511 (the largest, 34.186), 639 698 753: my values agree to 4 decimals in every case, and the direct test confirms
+zero / non-zero status ✓.
+
+**Table and fit.** P(0 | M) = Z/(N f) recomputed from the published Z, f: identical ✓. Refit with weights (log P)²/rel²
+(rel² = 1/Z + (1−f)/(40 000 f)): bin midpoints on [10, 30] give β = 0.896, χ² = 51.5/8; left edges β = 0.843; sub-ranges
+[16, 30] 0.877, [20, 30] 0.924, [10, 20] 0.912. The author's β = 0.884 (χ² 23.7/8, presumably with within-bin mean M) is in
+this spread; the claimed "systematics ≈ ± 0.1, poor fit" is honest; the "χ²-scaled SE 0.006" is meaningless next to that
+and could be dropped. The arithmetic of caveat (ii) (0.59·0.067^{0.884} = 0.054, exponent 1.77) ✓.
+
+**Exhaustiveness caveat.** "At least 1 423" is the correct wording: zeros below the proxy thresholds were never given an
+exact M, and the proxy error was calibrated on 300 population members + 1 963 zeros only, all *above* or *random*; the
+proxy's error is a character-sum tail that is not bounded uniformly. The document says this ✓. The **drop condition (a)**
+(existence of many zeros with exact M ≥ 26) is established *irrespective* of exhaustiveness, since all 1 423 have exact M ✓.
+
+**Labels.** EVIDENCE, across-n (B6), "steering only" ✓. No overclaim found: the text explicitly says a finite fit neither
+proves summability nor excludes structured families, and that the 2-adically unrefined M_BM mixes classes.
