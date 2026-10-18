@@ -3,7 +3,13 @@
 Reviewer: R277 side agent. Scope: SINGLE_P_COUNT.md as merged from `side-agent/single-p-count`, memos BRAINSTORM/z30_*,
 scripts/z30_*, logs/z30_*. From-scratch checks: `scripts/review_r277_*.py` / `.c` (none of the author's code reused).
 
-(work in progress — filled in claim by claim)
+**Repairs applied** (author quiet at end of review; all marked '(R277 repair)'): SINGLE_P_COUNT.md §0 (D1, D4), Prop 2.2(a)
+(D8), §3 M_Q header + calibration + failure-ranking bullet (D4, D6), Prop 4.1 note (p ≡ 5 (8) trivial), §4.2 HL row (D3)
+and new DFI/Bettin–Chandee row (D5), §4 'Answer to goal (1)' (D2), Lemma 5.2 consequence (D7); AGENT_REPORT_O260.md SHARP
+1–2 (D1–D4) and Numerics (D6).
+
+**Verdict in one line:** no FATAL; all PROVED/CONDITIONAL statements re-derived and checked from scratch; numerics reproduce
+exactly; four MAJOR overclaims in the headline/interpretation (D1–D4), four MINOR.
 
 ## Claim-by-claim verdicts
 

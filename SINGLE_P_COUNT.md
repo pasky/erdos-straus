@@ -18,11 +18,15 @@ What is new here is listed in §0.
 * §2 (PROVED): **genus split** R(n) = M_gen(n) + X(n) for every odd n: M_gen ≥ 0 is exactly the order-≤2 character part
   (explicit, depends only on n mod 8 and the Legendre symbols of n), X the order-≥3 part. **T1 lives entirely in M_gen:**
   M_gen(m²) = X(m²) = R(m²) = 0. So the conditional target splits into (L) M_gen(p) large (a statement about χ_p) and
-  (U) |X(p)| < M_gen(p), which — unlike CONDITIONAL_ES's |S₁| < S₀ — is not refuted at squares.
+  (U) |X(p)| < M_gen(p), which — unlike CONDITIONAL_ES's |S₁| < S₀ — is not refuted at squares. (R277 repair) This is the R-analogue of CONDITIONAL_ES Prop 3.1(3) (which concerns the
+  slice count S(p)); T1 is moved into the explicit term M_gen, not removed: (U) still requires Poisson-scale pointwise
+  concentration (genus removes only ≈ 25 % of the excess variance), it is false at the known failures (X = −M_gen there),
+  so it is meaningful only for p > p₀, and (L) is needed at strength ≥ |X(p)| ≈ log p, which Prop 4.1 does not reach.
 * §3 (EVIDENCE): variance decomposition of R(p) at 10⁵–10⁷: genus removes ≈ 25 % of the excess variance, bounded-modulus
   local data + genus brings the residual to ≈ 1.1 × swap-Poisson; the non-local part keeps an overdispersion ≈ 1.7–1.9.
   A bounded-modulus local main term M_Q (p mod 720720 + χ_p) ranks 577 and 409 as the two most endangered primes < 4·10⁵
-  (both are failures). T1 control: all 499 odd squares ≤ 10⁶ give 0 for R and every main term.
+  (both are failures). (R277 repair) For p < Q this is semi-circular (p mod Q = p; pairs with q | Q are counted exactly,
+  ≈ 55 % of M_Q's mass at p ∈ (10³, 3·10³)); with Q = 720 < p, 577 is still 1st of 65 in its window [p/2, 2p], 409 8th of 47. T1 control: all 499 odd squares ≤ 10⁶ give 0 for R and every main term.
 * §4: (L) under GRH: M_gen(p) ≥ (1 − o(1)) log log p (Prop 4.1, CONDITIONAL). (U): audit of GRH, EH/BFI for τ,
   Selberg–Linnik/Hooley R*, Kuznetsov/θ, Hardy–Littlewood single-N — none applies, each for an exact reason;
   Conjecture 4.2 (local main term + CLT-scale error) stated for calibration only (not standard, ES-(★)-strength).
@@ -75,7 +79,7 @@ G/G², G = (ℤ/q)^×, a group of order s(q), so their sum is s(q)·1[na ∈ G²
 n ≢ a (a is a unit) and both sides vanish. For the last formula: |G²| = φ(q)/s(q), and #{y ∈ G² : ny ≡ a} = 1[a n^{−1} ∈ G²]. ∎
 
 **Proposition 2.2 (PROVED).** (a) M_gen(n) ≥ 0; it is a function of the Legendre symbols (n/ℓ) at the odd primes ℓ ≤ n
-and of n mod 8 only (explicitly: for (u, B) ∈ 𝒫(n) the indicator is 1[n ≡ −(u+B) (mod 8)]·∏_{ℓ | u odd}1[(n/ℓ) = (−B/ℓ)]·
+and of n mod 8 only, given the size range 𝒫(n) (R277 repair) (explicitly: for (u, B) ∈ 𝒫(n) the indicator is 1[n ≡ −(u+B) (mod 8)]·∏_{ℓ | u odd}1[(n/ℓ) = (−B/ℓ)]·
 ∏_{ℓ | B odd}1[(n/ℓ) = (−u/ℓ)]).
 (b) **(T1 is entirely genus.)** If n = m² then M_gen(n) = 0, R*(n) = 0 and hence X(n) = 0.
 (c) M_gen(n) > 0 ⟺ there are (u, B) ∈ 𝒫(n) and y coprime to 2uB with 4uB | n·y² + u + B, i.e. (u, B, C) solves (★) at
@@ -131,7 +135,7 @@ Findings.
   p + u, p + B or 4Cp + 1 (at p = 10007 and 1000033 there are ≈ 2.4 and 4.5 ordered pairs of distinct hits sharing a coordinate per hit,
   beyond the swap partners; `z30_rgen.c` columns WC, WU; the independence null for these was not computed). This would also
   fit the slow growth of the overdispersion with p (4.05 → 4.52 here; 2.2 → 3.6 for the b = 1 line, B1_LINE).
-* **A non-circular, bounded-modulus local main term.** M_Q(p) := Σ_{𝒫(p)} Prob[p ≡ a (q) | p mod gcd(q, Q), square class of
+* **A bounded-modulus local main term (non-circular only for p > Q; R277 repair).** M_Q(p) := Σ_{𝒫(p)} Prob[p ≡ a (q) | p mod gcd(q, Q), square class of
   p mod q] = Σ 1[p ≡ a (gcd(q,Q))]·1[pa ∈ □ (q)]·s(q)φ(g)/(s(g)φ(q)), g = gcd(q, Q), uses only p mod Q and the Legendre
   symbols of p (M_1 = M_gen; vanishes at squares by the argument of Prop 2.2(b)). On all 12 117 primes p ≡ 1 (4) in
   [10⁵, 4·10⁵) (`logs/z30_dispersion.txt`): var(R − M)/(2·mean M) = 1.88 (M₀), 1.84 (M₂), 1.375 (M_gen), 1.10
@@ -160,6 +164,14 @@ Findings.
 * Calibration for goal 4 (Assessment): at 10⁶–10⁷ the actual error |R − M_loc| has standard deviation ≈ 1.3·√(2M), i.e.
   ≈ log p in absolute size, against a main term ≈ (log p)²/8. Nothing in the data suggests |E(p)| ≍ M(p) generically; the
   failures are lower-tail events of a moderately overdispersed count.
+  (R277 repair) Which baseline: the table gives √(var/(2M)) ≈ 1.0 for M_loc,30 and for the large-Q M_Q; 1.3 = √1.66 is
+  relative to 2(M_loc − R_sm). Review rerun at [10⁶, 1.1·10⁶): 1.23 (M_gen), 1.12 (M_Q, Q = 720720); sd(R − M) ≈ 9.4 / 8.6,
+  i.e. ≈ 0.6–0.7·log p.
+* (R277 repair, failure ranking.) For p < Q = 720720, p mod Q is p itself and every pair with q | Q is counted exactly
+  (≈ 55 % of M_Q's mass and ≈ 50 % of the hits at p ∈ (10³, 3·10³)); the global "top two" partly reflects this (tiny
+  primes get M_Q ≥ 2 from exact hits). With Q = 720 or 240 (< p) the global top two are 97 and 13; within the window
+  [p/2, 2p], 577 ranks 1/65 (Q = 720) and 409 8/47. M_gen alone (no circularity) ranks failures well within windows:
+  5569 4/466, 9601 8/763, 83449 37/5438 (`scripts/review_r277_smallq.py`, `scripts/review_r277_stats.py`).
 
 ## 4. The two halves of the conditional target, and what standard hypotheses give for each (goal 1)
 
@@ -174,7 +186,8 @@ condition is (p/ℓ) = (−1/ℓ), i.e. (ℓ/p) = χ₋₄(ℓ) by reciprocity (
 M_gen(p) ≥ 4·Σ 1/ℓ over such ℓ. The indicator of the two conditions is (1 + εχ₋₄(ℓ))(1 + ε(ℓ/p))/4, and under GRH
 Σ_{ℓ ≤ x} ψ(ℓ) log ℓ ≪ √x·log²(px) for each non-principal ψ mod 4p; partial summation over (y, (p+1)/6] with
 y = (log p)⁵ gives Σ 1/ℓ = (1/4)(log log p − log log y) + o(1) = (1/4 − o(1)) log log p. ∎
-(Positivity alone, M_gen(p) > 0 for all large p ≡ 1 (8), also follows unconditionally but ineffectively from a single such
+(R277 repair: for p ≡ 5 (8) the bound is trivial — the pair (1, 2), q = 8, always hits, so R(p) ≥ 2 — Prop 4.1 has
+content only for p ≡ 1 (8).) (Positivity alone, M_gen(p) > 0 for all large p ≡ 1 (8), also follows unconditionally but ineffectively from a single such
 ℓ ≪ p^{1/4+ε}, Pollack 2014 as used in (J)66.) The true size is M_gen(p) ≍ (log p)² (§3: M_gen/M₀ ∈ [0.67, 1.46] on
 [10⁶, 1.1·10⁶]); a matching lower bound would need Σ over all u of L(1, χ)-type quantities for the characters
 (−u p/·) (heuristic: the u-slice of M_gen is ≈ L(1, (−up/·))·log(p/u)/u up to bounded local factors), with secondary terms
@@ -190,8 +203,9 @@ L(1, ψ)L(1, ψχ) of the same order as the main term for small u. Not pursued (
 | GRH (Dirichlet) | Σ_{n ≤ x} Λ(n)χ(n) for each χ: sums over n at fixed χ | X is a sum over χ at fixed n = p; termwise GRH misses by p^{1−o(1)} (CONDITIONAL_ES Prop 9.1); GRH does give (L) (Prop 4.1) | a statement about Σ_χ χ(p)c(χ) over χ of all moduli ≤ p at one point; GRH is about the dual sum |
 | Elliott–Halberstam / BFI-type for τ (divisors in APs, Σ_{q ≤ x^{1−ε}} max_a \|Δ_τ(x; q, a)\| ≪ x(log x)^{−A}) | the box {(q, N) : q ≤ Q, N ≤ x} | divisor form: the needed pairs (q, N) = (4C, 4Cp + 1) lie on the line N = pq + 1, ≍ Q points of a box of ≍ Qx points; the class modulus is a function of the integer, q = (N − 1)/p | equidistribution on a line of relative density 1/x inside the averaged box; any box error ≥ 1 per q already exceeds the line's total main term |
 | Selberg–Linnik / Hooley R* (Σ_{c ≤ X} S(m, n; c)/c ≪ (mnX)^ε; incomplete Kloosterman sums with N^{1/2}q^ε) | complete Kloosterman sums S(m, n; c) with (m, n) fixed, averaged over c | via Lemma 1.1(3): N_c(p) = c^{−1}Σ_{h mod c} e(h/c)Σ_{x \| cp+1} e(hx/c) — additive characters summed over the DIVISORS of the single integer cp + 1, not over all residues; transposing γ (Lemma 1.1(3)) makes the modulus fixed (= p) and the target height-dependent (PARITY_AUDIT Remark 3.1) | completion of the divisor-restricted sums needs a sum over N ≡ 1 (c) in an interval, i.e. over p (B6). At fixed p no complete Kloosterman sum with fixed (m, n) appears |
+| (R277 repair) Bilinear forms with Kloosterman fractions (Duke–Friedlander–Iwaniec 1997; Bettin–Chandee) | Σ_{m~M, n~N} α_m β_n e(a m̄/n): power saving over the trivial bound MN | at fixed p the pair condition u \| p + B, B \| p + u, 4 \| p+u+B is such a bilinear problem in (u, B) | each dyadic box has main term ≍ 1 (Lemma 5.1) against trivial size up to ≍ p^{2/3}: a power saving does not reach O(1) per box (B3) |
 | Kuznetsov + Kim–Sarnak θ = 7/64 | spectral expansion of Σ_c S(m,n;c)φ(c) | as the previous row; θ enters only after averaging over p ((D)32: Σ_p f_I(p)) | same |
-| Hardy–Littlewood (Goldbach-type single-integer asymptotic r(N) ~ 𝔖(N)·J(N)) | named, single-N; main term a power N/log²N | not a statement about (★); its (★)-analogue would be "R(p) = M_loc(p)(1 + o(1))" (Conjecture 4.2) | (★)'s main term is polylog (B3) and its "singular series" must contain the genus factor (Prop 2.2(b)), i.e. a Brauer–Manin-type correction (Bright–Loughran's order-2 algebra; Assessment) |
+| Hardy–Littlewood (Goldbach-type single-integer asymptotic r(N) ~ 𝔖(N)·J(N)) | named, single-N; main term a power N/log²N | not a statement about (★); its (★)-analogue would be "R(p) = M_loc(p)(1 + o(1))" (Conjecture 4.2) | (★)'s main term is polylog (B3) and its "singular series" must contain the genus factor (Prop 2.2(b)), an order-2 phenomenon like Bright–Loughran's Br U_n/Br ℚ = ℤ/2 (Assessment; R277 repair: BL impose ONE ℤ/2 condition per solution, M_gen 1 + ω_odd(uB) independent ones — M_gen is a genus refinement, not the BM correction; exact relation open) |
 
 **Conjecture 4.2 (CONJECTURE; stated for calibration, NOT a standard conjecture).** With M_loc,Y as in §3 and Y = Y(p) → ∞
 slowly, R(p) = M_loc,Y(p) + O((M_loc,Y(p))^{1/2+o(1)}) for all large primes p ≡ 1 (mod 4).
@@ -202,7 +216,8 @@ mod q, excluded by Prop 2.2(b)), as does R. The data of §3 fit the error scale 
 count is still Poisson-scale: Conjecture 4.2 is ES-(★)-strength in the sense of CONDITIONAL_ES §6 (X_slice), with an
 explicit main term. **Answer to goal (1): no named, standard conjecture was found that implies R(p) ≥ 1 (or N₁(p) ≥ 1,
 f_II(p) ≥ 1); what is new relative to CONDITIONAL_ES is the location of the missing statement — the order-≥3 characters,
-with T1 removed (Lemma 2.1, Prop 2.2) — and that GRH does reach the order-2 half (Prop 4.1).**
+with T1 removed (Lemma 2.1, Prop 2.2) — and that GRH does reach the order-2 half (Prop 4.1).** (R277 repair) GRH reaches
+only M_gen(p) ≫ log log p, below the empirical size ≈ log p of |X(p)|; (L) at the strength (U) needs is open.
 
 ## 5. Where the main term lives, and why sieve minorants of bounded character order give nothing (goal 2)
 
@@ -229,7 +244,8 @@ not divide k), then F ≤ 0 on all of G.
 F ≤ 0 on aG^k; off aG^k, F ≤ 1_a = 0. ∎
 *Consequence.* A "sieve lower bound" R(p) ≥ Σ_{pairs} F_{pair}(p), with each F_pair a minorant of the point indicator
 1[· ≡ a (q)] on (ℤ/q)^×, is ≤ 0 unless the F_pair use characters of order up to the exponent λ(q) (Carmichael) of (ℤ/q)^×; in
-particular the genus part (k = 2, Lemma 2.1) supports no positive per-pair minorant: M_gen is a mean-correct
+particular the genus part (k = 2, Lemma 2.1) supports no positive per-pair minorant except for the six pairs with uB ∈ {2, 6}
+(q ∈ {8, 24}, exponent 2; R277 repair; more sharply, F(a) > 0 forces the Fourier support to generate the dual group): M_gen is a mean-correct
 redistribution (Prop 2.2(d)), not a lower bound. Positivity has to come from the full character group, i.e. from (U).
 
 ## 6. The spectral reading (goal 3): one double coset per level, or one level per prime
