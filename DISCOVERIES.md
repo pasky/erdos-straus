@@ -1586,6 +1586,16 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment. Bounded or polylog-log cap is not ES. GRH alone does not give (log₂p)^C by this route, and no standard hypothesis was found. No relay: cap results are off the ES path, as for (J)83.
    * verify.py (he) re-runs R269's Fejér, exponent and Frobenius checks.
 
+92. **Why 193 and 2521 are hardest in both worlds: López Type A = generalized Astra sources; the overlap is mundane (HARD_PAIR.md + BRAINSTORM/z34_*.md (O264); self-review (5 MAJOR repaired) plus hostile review `reviews/hard-pair-review.md` (R271): no FATAL or MAJOR; D1–D5 minor (attribution, post-hoc smooth cell, a one-line justification); repaired by the reviewer, marked (R271 repair)).**
+   * Thm 1.2 / Cor 1.3 (PROVED, elementary): Astra's source pm² + 1 = qs and López's Type A cp + 1 = qa are one equation qs = pc + 1. The solution is (c/(sh), 1/(psh), 1/(ph)) with h = (q+1)/4.
+     * Type A requires c | h. Per slice the only candidate is c_q ≡ −p⁻¹ (mod q), so N₁(p) = #{q : c_q | h}.
+     * An Astra source is integral on arrival ⟺ Type A with square c.
+     * Hence Type A failure ⟹ no source on any slice is integral on arrival. The converse is false at 314 primes ≤ 10⁵.
+     * 29 % of Type A solutions lie on non-split slices, outside every Astra lattice.
+   * EVIDENCE + Assessment (R271 reproduced every statistic). Six hardness scores over all p ≡ 1 (4) ≤ 10⁶ correlate at Spearman 0.02–0.80. The coarse local profile explains 27–79 % of the variance. The smooth-(p − 1) cell has 7–11× the joint-extremeness rate (post hoc). Only 2521 is extreme in all six scores.
+   * Assessment: the overlap is mundane — shared local profile, the same B2 draws, and partial definitional overlap. No new mechanism; no relay.
+   * verify.py (hf) re-runs R271's three-scan dictionary check (C, compiled to a tempdir).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

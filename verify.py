@@ -26746,4 +26746,33 @@ def check_he():
 check_he()
 
 
+def check_hf():
+    # (hf) HARD_PAIR (O264/R271): R271 from scratch — López Type A = generalized Astra sources qs = pc + 1 with c | h; three
+    # independent scans over primes p ≡ 1 (4) ≤ 10^5 agree (75 658 Type A, 21 942 on non-split slices, 22 627 with square c,
+    # failures 193, 2521, 66529, 314 primes with Type A but no integral-on-arrival source).
+    from time import perf_counter
+    import os
+    import subprocess
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "hp_dict")
+        r = subprocess.run(["gcc", "-O2", "-o", exe, os.path.join(sdir, "review_r271_dict.c"), "-lm"],
+                           capture_output=True, text=True)
+        assert r.returncode == 0, r.stderr[-2000:]
+        r = subprocess.run([exe, "100000", "2"], capture_output=True, text=True, timeout=900)
+        assert r.returncode == 0, r.stderr[-1000:]
+        out = r.stdout
+    assert ("primes 4783 TypeA 75658 split 53716 nonsplit 21942 (0.2900) square-c 22627 fails 3 TypeA-but-no-integral 314 "
+            "mismatches 0 cor(ii)fail 0") in out, out[-1500:]
+    fails = sorted(int(l.split("p=")[1]) for l in out.split("\n") if l.startswith("TypeA failure"))
+    assert fails == [193, 2521, 66529], fails
+    print(f"== (hf) HARD_PAIR R271: Type A = generalized Astra sources; 3 scans agree ≤ 10^5; failures 193, 2521, 66529; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_hf()
+
+
 print("\nall checks passed")
