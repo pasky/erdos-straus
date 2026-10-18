@@ -80,3 +80,48 @@ gives n ≡ −t⁻¹ (mod X), so (n/X) = (−1/X)(t/X) = −(t/X). With t = 4·
 **D3 (MINOR).** §1 "Checks": "the k = 8 union fails at exactly 34 primes < 8000" — p = 3 also fails; say "34 primes
 5 ≤ p < 8000" (as SPARKS8 does) or "35 odd primes < 8000".
 **D4 (MINOR).** Cor 1.2 is stated "for every odd n" but the proof never uses oddness (verified for all n ≤ 300); harmless.
+
+## Claim C — Prop 1.3 / "SHARP 2" statistics (union correlation)
+Verdict: numbers **SOUND (reproduced)**; the headline interpretation "the shared factor is the size of the common set" is
+**GAP (collider artefact)** — see D5.
+
+**From-scratch reproduction.** `scripts/review_r282_union.c` enumerates ALL words of all n ≤ X by a triple sieve
+(t, u, w) ↦ n = w(tu − 1) − u (0.7 s for 10⁶, 20 s for 10⁷); `scripts/review_r282_union_stats.py` /
+`review_r282_union_stats2.py` (own controls). Results, primes p ≡ 1 (4):
+* census: (★) fails at exactly 9 primes ≡ 1 (4) ≤ 10⁶ and 14 ≤ 10⁷ (409 … 712321, 1134241, 1724209, 1726201, 5212561, 8813281);
+  b = 1 fails at 193, 2521, 66529; the 4-union never fails ≤ 10⁷. ✓
+* corr(A, B) standardised in (2000-prime window) × (p mod 24): **0.367 (≤ 10⁶), 0.387 ((10⁶, 10⁷])** ✓.
+* A = 0: B/E[B | cell] = 0.60 (9 primes) / 0.59 (5 primes) ✓ — but these rest on 9 resp. 5 primes (see D6). Bottom 1 % of
+  A/E[A]: 0.71 / 0.75 ✓.
+* partial corr given p mod 840, log p, log 47-smooth parts of p ± 1: 0.353 / 0.393 ✓; + log W: **0.039 / 0.011** (author
+  0.031 / 0.011) ✓. W/L² mean 0.959 / 0.917, 1 % quantile 0.525 / 0.532, min W (p > 10⁵) 43 / 45, U/W 0.423 / 0.436 ✓.
+* ES-five count F checked = #{σ = −1 words} by brute force (Legendre) for all p ≡ 1 (4) < 3000 ✓ (supports the cited sign).
+
+**Collider check (new).** W(p) CONTAINS the A- and B-words (U/W ≈ 0.43), so regressing on log W partly conditions on A + B
+itself, which mechanically drives the partial correlation of two summands towards (and below) zero. Controlling instead
+for size measures DISJOINT from A ∪ B (controls: p mod 840, log p):
+
+| extra control | ≤ 10⁶ | (10⁶, 10⁷] |
+|---|---|---|
+| none | 0.421 | 0.449 |
+| log W (author's) | 0.033 | 0.006 |
+| log(W − U) (words with no coordinate ≡ 0 (4)) | **0.346** | **0.353** |
+| log W₊ (σ = +1 words) | 0.383 | 0.401 |
+| log(W₋ − U) (σ = −1 words outside the union) | 0.343 | 0.357 |
+| log W₋ (superset of A ∪ B, larger share) | −0.189 | −0.225 |
+
+So a size variable that does not contain A, B explains only ≈ 15–20 % of the correlation; the residual ≈ 0.35 is a genuine
+co-movement of the 4-divisible words (both lines) beyond the size of the rest of W(p). The vanishing after log W and the
+sign flip after log W₋ are the signature of conditioning on a superset count, not evidence of "one shared size factor".
+
+### Defects for Claim C
+**D5 (MAJOR — interpretation not supported by the data).** Locations: §0 (I1) "the whole correlation is the shared size
+|W(p)| (partial corr 0.35 → 0.01 after controlling log |W|)"; Prop 1.3 bullet "The shared factor is the size of the common
+set"; Assessment "No identity couples the two lines beyond sharing W"; §4 row "union × correlation"; §5 third bullet;
+memo `s9_union_thinning.md`; README s9 row. *Repair:* report the disjoint-control numbers above; replace the sentence by
+"the correlation is not explained by the size of the rest of W(p) (partial corr ≈ 0.35 given log(W − U)); the drop to
+0.01–0.03 given log W is largely mechanical since W ⊇ A ∪ B". The negative conclusion of (iv) ("no negative correlation, no
+complementarity") is unaffected — it is in fact strengthened (the two lines co-fail more than size predicts). The "thinning
+of one set" picture should be weakened to "both lines are 2-adic subsets of one set and co-vary positively beyond its size".
+**D6 (MINOR).** "Primes with A = 0 have B at 0.59× its cell mean" — based on 9 (≤ 10⁶) and 5 ((10⁶, 10⁷]) primes; state the
+sample sizes and drop the two-digit precision.
