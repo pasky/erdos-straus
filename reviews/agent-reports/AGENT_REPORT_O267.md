@@ -5,6 +5,9 @@ Main file `QUESTION_R.md`; memos `BRAINSTORM/z37_*.md` (6, indexed); scripts `sc
 **ES is not solved; no infinite case is claimed; Question R remains open.** Preprint-dependent statements are CONDITIONAL.
 
 ## SHARP:
+*(R278 repair: item 1 is downgraded — the semigroup-character statement is already in RS §7.3 (proof of Prop 7.3,
+via (3.0.1)); the theta/Kubota cocycle reading is a classical reformulation. Cor 1.3's t ≡ 3 (4) half was false; see
+reviews/question-r-review.md.)*
 1. **RS's Kronecker character is the theta multiplier, and that is why Ψ is a semigroup but not a group (Thm 1.5,
    PROVED from the classical theta law).** σ(γ) = (c/d) on Γ₁(4) is multiplicative up to the archimedean square-root
    cocycle w(γ₁, γ₂), and w = 1 on non-negative matrices; Ψ = ker σ on Γ₁(4)_{≥0}; σ does not extend to
@@ -23,7 +26,8 @@ Main file `QUESTION_R.md`; memos `BRAINSTORM/z37_*.md` (6, indexed); scripts `sc
 * Prop 1.1 (PROVED): ES words ↔ self-levelled matrices [[A, n],[t, A*]] ∈ SL₂(ℤ), A ≡ A* ≡ −1 (mod t).
 * Prop 1.2 (PROVED): χ(w) = (2/n)^e J(−t, A_o) — the RS symbol mod the target becomes a character mod 4t of a divisor of
   tn + 1; RS run the same reciprocity the other way (to a character mod the target, summed over a line by PV).
-  Cor 1.3: every word at a level t ≡ 3 (4) or 4 | t is a slice word. Checked: 192 283 words, 0 failures.
+  Cor 1.3 (R278 repair): every word at a level 4 | t, and every word with A odd at a level t ≡ 3 (4), is a slice word;
+  at t ≡ 3 (4) with A even χ = −(2/nt)^e can be +1 (e.g. (3,5,17), n = 233). The 192 283-word check is of Prop 1.2's formula.
 * Prop 1.4 (PROVED): the (A)3 matrices lie in the a ≡ d ≡ 3 coset of Γ₀(4), where (a/b) = −(c/d); self-levelling forces
   (c/d) = 1 ⇒ (A/n) = −1 ⇒ T1. R276's row-2 exactness (RS Def 2.4 for the slice sets) recorded.
 * Prop 2.1 (PROVED, for Γ⁺), Prop 2.2 (PROVED in conditional form), CONJECTURE R-main, Hypothesis TG (open), window

@@ -1,5 +1,11 @@
 # R278 — hostile review of O267 (QUESTION_R.md, Question R)
 
+**Repairs applied (author quiet; marked "(R278 repair)"):** QUESTION_R.md — Cor 1.3 restated (D5), Prop 1.2 title (D10),
+Thm 1.5 attribution + sharpened cocycle condition + T := R (D1–D3), "squarefree part" (D6), CONJECTURE R-main precise
+form (D8), Hypothesis TG quantification (D9), §3 conditioned-model/truncation/look-elsewhere note (D11, D12), 2510.21702
+bullet (D4); AGENT_REPORT_O267 (SHARP item 1 downgraded, Cor 1.3 line), memo z37_theta_multiplier title, README z37 rows.
+Not applied: D7 (one-clause caveat, left to the author).
+
 Reviewer: R278 side agent. Merged side-agent/question-r at its tip (README conflict resolved keeping both z36(R276) and z37 rows).
 From-scratch scripts: `scripts/review_r278_*.py`. Sources: RS arXiv:2401.01860v3 and arXiv:2510.21702v2 fetched to /tmp (full PDFs, pdftotext).
 

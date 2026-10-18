@@ -1,4 +1,4 @@
-# z37 — Rickards–Stange's Kronecker character is the theta multiplier on the positive semigroup (O267) — SHARP candidate
+# z37 — Rickards–Stange's Kronecker character is the theta multiplier on the positive semigroup (O267) — classical reformulation (R278: semigroup character already in RS §7.3/(3.0.1))
 
 ## Idea
 Explain *why* RS's Ψ = {γ ∈ Γ₁(4)_{≥0} : (a/b) = 1} is a semigroup and why the method fails for groups (RS §10,

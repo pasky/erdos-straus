@@ -39,7 +39,8 @@ So ES-five(n) asks for an SL₂(ℤ)_{>0} matrix with upper-right entry n that i
 (mod c(γ)) — the congruence modulus is the matrix's own entry c. RS's Ψ ⊆ Γ₁(4) has the *fixed* level 4. This is the
 B2 hallmark ("the modulus is part of the solution") in RS's coordinates.
 
-**Prop 1.2 (the per-level sign is a character of conductor | 4t; PROVED).** Let n ≡ 1 (4), w a word of n, A = 2^e·A_o
+**Prop 1.2 (the per-level sign is a character of conductor | 4t on odd divisors, with value (2/n) at 2; PROVED;
+(R278 repair: for even A the 2-value is (2/n), not the Kronecker value (−t/2), and v₂(A) is not read off A mod 4t)).** Let n ≡ 1 (4), w a word of n, A = 2^e·A_o
 with A_o odd. Then `χ(w) = (A/n) = (2/n)^e · J(−t, A_o)` (Jacobi symbol with bottom A_o).
 *Proof.* (A/n) = (2/n)^e (A_o/n) = (2/n)^e (n/A_o) (reciprocity, n ≡ 1 (4)). For a prime r | A_o, r | tn + 1, so
 n ≡ −t̄ (mod r) and (n/r) = (−t̄/r) = (−t/r). Multiply over r^{v} ‖ A_o. ∎
@@ -48,8 +49,11 @@ modulo 4t of the *divisor* A of N_t = tn + 1, evaluated on the class A ≡ −1 
 runs reciprocity the other way: their symbol (u/v) on the line ux + vy = n becomes a character modulo the target n of
 the line parameter k, summed over ≍ n/(8xy) consecutive k (Pólya–Vinogradov). **Same identity, opposite long side:** in
 RS the long side is the target modulus; in ES the long side would be the set of divisors of N_t, which is not an interval.
-*Corollary 1.3 (PROVED for A odd by Prop 1.2; all cells checked).* If t ≡ 3 (mod 4), every word of level t is a slice
-word: J(−t, A) = (A/t) = (−1/t) = −1 for odd A ≡ −1 (mod t). If 4 | t, likewise (DEDEKIND Thm 4.5). Generally χ(w)
+*Corollary 1.3 (PROVED; R278 repair — the earlier "every word of level t ≡ 3 (4) is a slice word" was false for even A).*
+If t ≡ 3 (mod 4) and A is odd (u even), the word is a slice word: J(−t, A) = (A/t) = (−1/t) = −1 for odd A ≡ −1 (mod t).
+If t ≡ 3 (mod 4) and A = 2^e A_o is even, then A_o ≡ −2^{−e} (mod t) and χ(w) = −(2/nt)^e, which is +1 exactly when e is
+odd and nt ≡ 3 (mod 8): e.g. w = (3, 5, 17), n = 233 prime, A = 14, (14/233) = +1 (6 364 such words with n ≤ 2·10⁴,
+`scripts/review_r278_dict.py`). If 4 | t, every word is a slice word (DEDEKIND Thm 4.5). Generally χ(w)
 depends only on (t, A, n) mod 8 (`scripts/z37_dictionary.py 20000`: 192 283 words, 0 formula failures, 76 cells, 0
 ambiguous; this is DEDEKIND Thm 4.5 re-derived per level).
 
@@ -68,20 +72,26 @@ of RS Def 2.4 (some square residue — here 1 mod m — occurs modulo every m; n
 RS's setting is that these sets are not semigroup orbits.
 
 **Theorem 1.5 (RS's Kronecker character is the theta multiplier, a homomorphism of the positive semigroup only;
-PROVED from the classical theta transformation law).** For γ ∈ Γ₁(4) with c ≥ 0, d > 0 put σ(γ) = (c/d) (Kronecker,
+PROVED from the classical theta transformation law; R278 repair: the homomorphism property on Γ₁(4)_{≥0} and Ψ = ker σ are
+already in RS (proof of Prop 7.3: "γΨ ⊆ Ψ′ and γΨ′ ⊆ Ψ by (3.0.1)"); the cocycle reading is the classical Kubota
+fact — a reformulation, not a new result).** For γ ∈ Γ₁(4) with c ≥ 0, d > 0 put σ(γ) = (c/d) (Kronecker,
 (0/1) = 1). Then σ(γ₁γ₂) = σ(γ₁)σ(γ₂) for γ₁, γ₂ ∈ Γ₁(4)_{≥0}; by RS Lemma 3.1 σ(γ) = (a/b), so Ψ = ker σ. σ is **not**
 the restriction of any homomorphism Γ₁(4) → {±1}.
 *Proof.* θ(z) = Σ e(m²z) satisfies θ(γz) = (c/d)(cz + d)^{1/2}θ(z) for γ ∈ Γ₁(4) (Shimura 1973, Koblitz IV §4 Prop 4;
 ε_d = 1 for d ≡ 1 (4)), principal branch. Applying it to γ₁γ₂ and to γ₁, γ₂ successively gives
 (c₃/d₃) = (c₁/d₁)(c₂/d₂)·w, w = (c₁γ₂z + d₁)^{1/2}(c₂z + d₂)^{1/2}/(c₃z + d₃)^{1/2} ∈ {±1}, constant in z. For
 non-negative matrices (d_i ≥ 1) let z = iy, y → 0⁺: all three arguments tend to 0, so w = 1. For the second claim:
-Γ₁(4) = ⟨T, L⁴⟩ (Γ₀(4) = ±⟨T, L⁴⟩, standard), σ(T) = σ(L⁴) = 1, but [[5, 2], [12, 5]] = U T⁻¹ U T⁻¹ U (U = L⁴) ∈ Γ₁(4)_{≥0} has σ = (12/5) = −1. ∎
+Γ₁(4) = ⟨T, L⁴⟩ (T := R; free, since −I ∉ Γ₁(4); Γ₀(4) = ±⟨T, L⁴⟩, standard), σ(T) = σ(L⁴) = 1, but [[5, 2], [12, 5]] = U T⁻¹ U T⁻¹ U (U = L⁴) ∈ Γ₁(4)_{≥0} has σ = (12/5) = −1. ∎
+*(R278 repair, sharpening.)* The same limit shows w = 1 whenever d₂ > 0 and d₃ > 0, with no condition on the other
+entries (Shimura's symbol for d₁ < 0); checked on 11 489 random pairs in `scripts/review_r278_theta.py`. So the
+cocycle is exactly the sign change of the d-entry along a word (cf. U T⁻¹ = [[1, −1], [4, −3]] in the example).
 Numerics: 20 000 random products of positive Γ₁(4) words, 0 failures of multiplicativity and of (c/d) = (a/b).
 *Reading (Assessment).* RS §10 attribute the failure of their method for groups to "the place at infinity" (Question
 10.1). Theorem 1.5 makes this exact: the obstruction to extending σ is the archimedean cocycle w of the metaplectic
 (theta) cover, which vanishes on the positive cone. This is the same archimedean role of positivity that the campaign
 met for ES ((J)52, (J)55: positivity of d / sign of k is what kills escapes). And the obstructed set — squares — is the
-support of θ's Fourier coefficients. I did not find this formulation in RS or its citers (Assessment; folklore-level
+support of θ's Fourier coefficients. I did not find this formulation in RS or its citers (R278 repair: but RS (3.0.1)/Prop 7.3 already give the semigroup
+character, and RS §10 already locate the failure in the sign at infinity; Assessment; folklore-level
 classical input).
 
 ## 2. Question R: what a proof needs, exactly (goal 2)
@@ -119,7 +129,7 @@ slice sets; it fails e.g. for seed (2, 3), whose denominators are 3 mod 4). Then
 factor vanishing at the admissible squares. The natural candidate (not proved to be the unique correction) is
 `1 − ∏_p 1[n ∈ ℚ_p^{×2}]` (Hasse principle for squares): 1 minus a product of local square indicators, not an Euler
 product.
-(iii) In the twisted count R_σ(n) = −Σ_{a∈G(n)} (a/n), the character has conductor = the squarefree kernel of n
+(iii) In the twisted count R_σ(n) = −Σ_{a∈G(n)} (a/n), the character has conductor = the squarefree part of n (R278 repair: not the "kernel")
 (up to 2): for n = m²k it is (·/k) on units mod m. *(Assessment only, self-review repair:)* for squarefree kernel k
 large this character has large conductor, suggesting that a circle-method treatment would meet the reciprocity term
 away from the major arcs; but for n = km² with k small (and at squares, where it is principal) the conductor is small,
@@ -127,7 +137,10 @@ and identifying a numerator-character conductor with a denominator-arc parameter
 *Proof.* (i) is the assumption. (ii) follows from (i) and Prop 2.1 (R⁺(m²) = 0). (iii) Jacobi symbol (a/m²k) = (a/k)
 for gcd(a, m) = 1. ∎
 
-**Heuristic reciprocity singular series for thin orbits (CONJECTURE R-main, Assessment).** For Γ⁺ as above,
+**Heuristic reciprocity singular series for thin orbits (CONJECTURE R-main, Assessment).** *(R278 repair — precise form:)* assume
+R(n) ~ c_Γ̃ 𝔖_Γ̃(n) X^{2δ−1} for admissible n ≍ X (itself a pointwise local–global conjecture for Γ̃); since n is always
+odd here, the conjecture reads R⁺(n) = ½ c_Γ̃ 𝔖_Γ̃(n) X^{2δ−1}(1 − 1_□(n) + o(1)) for admissible n ≍ X, with 𝔖, c of Γ̃
+(Γ⁺ = ker σ|Γ̃ is not a congruence condition). Original wording, for Γ⁺ as above,
 `R⁺(n) = (1/2)·c_Γ 𝔖(n) n^{2δ−1}·(1 + ε_n·1[n ∈ □·D] + o(1))`, ε_n = −1 at the obstructed square classes (RS Table 1:
 n = m², with the 2-adic variants), where D is the finite set of 2-adic square classes. Reason: for n = m²k with k > 1,
 R_σ(n)/R(n) = −(1/R)Σ (a/k) → 0 *if* Γ̃-numerators over an exact denominator n equidistribute mod k (heuristic:
@@ -152,7 +165,10 @@ and Γ̃-suffix sets, gluing scale N = n^{2ε}). By Prop 2.1 the full word P·M�
    incomplete sum, O(n^{1/2+o(1)}) per box (Weil), nontrivial only for N ≥ n^{3/4+o(1)}, i.e. ε ≥ 3/8, while the
    middle-window step needs ε < 1/18. **For this approach the window conflict is 3/8 vs 1/18** (ZAREMBA §4's 1/8
    assumed the character could be summed over gluing intervals); it is a method threshold, not a universal barrier.
-4. *What would suffice (a precise open input).* "Hypothesis TG(ε₀, κ): for sets A = Λ₁ ∔ [N], B = Λ₂ ∔ [N] ⊆ ℤ/n with
+4. *What would suffice (a precise open input).* "Hypothesis TG(ε₀, κ): for the residue sets A = Λ₁ ∔ [N], B = Λ₂ ∔ [N] ⊆ ℤ/n with
+   [R278 repair: Λ₁, Λ₂ must be the Γ̃-prefix/suffix residue sets of Shkredov's construction (∔ = sumset with distinct
+   sums); for arbitrary Λ TG is false by planting K ≍ n/N² residues c with (c/n) = 1 in A and c⁻¹ in B, which gives
+   Σ ≍ |A||B|/n, beating the bound when N² < n^κ — see reviews/question-r-review.md D9.]
    N = n^{2ε}, ε ≤ ε₀, and non-square n, Σ_{c∈A∩B^{−1}} (c/n) ≪ |A||B|N^{−κ}/n + n^{1−κ}." Under TG(1/18, κ) plus the
    Shkredov/Zhang machinery transported to Γ̃-digit sets (CONDITIONAL on the preprints and on that transport), the
    proof of Question R would go through for δ_Γ̃ > 1 − O(κ) by the same parameter count as ZAREMBA §1.3. TG is false
@@ -183,6 +199,11 @@ the main term (factor vanishing at squares), which is heuristic for ES (§3).
   "divisors minus binary-quadratic-form representations"**, zero exactly when S_t = τ. The implemented M_R is 0 at every
   clean level, but can also vanish at unclean ones (e.g. t = 7, n = 149: the χ = −1 range divisors 18, 58 both have
   ρ_R = 0, while τ(1044) = 18, S_t(1044) = 2). M_R(m²) = 0 identically (every level of a square is clean), for the trivial reason (d/m²) = 1.
+
+*(R278 repair: M_R is a conditioned model, not a singular series — it uses the χ-signature of the actual range divisors; the
+"share of the deficit explained" is a decomposition. Table N₋ is the t ≤ 3000 count (≈ 85 % of all words at n ≈ 10⁶).
+The K = 25 3.4σ is the extreme of 15 families (≈ 2.5σ after look-elsewhere). Numbers reproduced independently by
+`scripts/review_r278_rss.py`.)*
 
 **3.2 Numerics (EVIDENCE; `scripts/z37_rss.c` (cross-checked against brute force at 1009, 9409, 10009),
 `scripts/z37_rss_sets.py`, `scripts/z37_rss_analyse.py`; levels t ≤ 3000; primes in [10⁶, 1.06·10⁶] and near-square
@@ -273,7 +294,8 @@ No pointwise theorem for any ES relaxation and no theorem in thin orbits (Questi
   §7.3 (Γ'_n = ⟨S_n⟩, δ → 1; Lemma 7.7), §10 (groups; Question 10.1; "the place at infinity").
 * Shi–Shi–Whitehead–Williams-Tracy–Zhang, arXiv:2510.21702v2 (2026): reciprocity obstructions for octahedral, cubic,
   square, triangular packings; their §1 suggests "lifting to metaplectic covers … would help to explain reciprocity
-  phenomena generally" — Thm 1.5 is an instance of exactly this for RS's Ψ.
+  phenomena generally" (R278 repair: said for SL(2, ℤ[i]) and the Apollonian superpacking) — Thm 1.5 is the classical
+SL(2, ℤ) analogue for RS's Ψ.
 * Kadyrov–Kazin–Orynbassar–Shynarbek arXiv:2610.16530 (2026): cites RS; bounded CF in ℚ(√127); not relevant.
 * HKRS (Annals 2024); Kontorovich, Bull. AMS 63 (2026) survey "the rise and fall of the local-to-global conjecture";
   K. Stange's research page (reciprocity obstructions as a current programme).
