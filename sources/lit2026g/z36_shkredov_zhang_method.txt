@@ -1,0 +1,162 @@
+Source: Shkredov arXiv:2603.14116v2 additional excerpts (O266): Lemmas 10, 14, 15, Cor 16, §5.1, (151), (156)-(158).
+Lemma 10. Let a be coprime with q and a/q = [0; c1 , . . . , cs ]. Consider the equation
+(23)                       ax ≡ y     (mod q) ,          1 ⩽ x < q,       1 ⩽ |y| < q .
+If for all solutions (x, y) of the equation above one has x|y| ⩾ q/M , then cj ⩽ M , j ∈ [s]. On
+the other hand, if for all j ∈ [s] the following holds cj ⩽ M , then all solutions (x, y) of (23)
+satisfy x|y| ⩾ q/4M .
+Remark 11. The constant 4 in lemma above is a technical point that can be easily improved.
+For example, 4M can be replaced by M + 2; see the proof of [43, Lemma].
+                     √
+     Let 1 ⩽ t ⩽ q be a real number. Having a rational number aq = [0; c1 , . . . , cs ] = pqss , we
+write pqνν for its ν–th convergent. Let M ⩾ 1 be an integer. Define
+                                                                                      
+                               a
+Lemma 14. Let q ∈ Z, N be a positive integer, and A, B ⊆ Z/qZ be sets. Then there is an
+absolute constant κ > 0 such that
+                                                             N |A||B|  p
+(32)     |{(a + 2c)(b + 2c) = 1 : a ∈ A, b ∈ B, c ∈ [N ]}| −          ≪ |A||B|N 1−κ .
+                                                                q
+
+     Lemma 14 was generalized in [55, Theorem 3] (in [55] we considered the case of prime q
+but the argument of [43] gives us the same for general q ∈ Z). Below, the constant κ < 1 may
+vary from line to line.
+Lemma 15. Let q ∈ Z, δ ∈ (0, 1], N ⩾ 1 be a sufficiently large integer, N ⩽ q cδ for an absolute
+constant c > 0, A, B ⊆ Z/qZ be sets, and g ∈ SL2 (Z/qZ) be a nonlinear map. Suppose that S is
+a set, S ⊆ [N ] × [N ], |S| ⩾ N 1+δ . Then there is a constant κ = κ(δ) > 0 such that
+                                                               |S||A||B|     p
+(33)      |{g(α + a) = β + b : (α, β) ∈ S, a ∈ A, b ∈ B}| −              ≪g |A||B||S|1−κ .
+                                                                   q
+
+     Taking S = [N ] × [N ], δ = 1 and gx = 1/x, we get an analogue of Lemma 14 for the
+correspondent two–dimensional family of modular transformations. The proof of Lemma 15
+does not use Kesten’s Lemma [27] and free group computations in the so-called first stage of the
+Bourgain–Gamburd machine (see [5] and [42, Lemma 12]).
+
+       Lemmas 14, 15 give us a direct consequence.
+Corollary 16. Let q ∈ Z, Λ1 , Λ2 ⊂ Z/qZ be sets, I = [N ] and A = I ∔ Λ1 , B = I ∔ Λ2 . Then
+there is an absolute constant κ > 0 such that
+                                            |A||B|
+                              |A ∩ B −1 | −        ≪ |A||B|N −κ .
+                                                    p
+                             5. The proofs of Theorems 6, 7 and 8
+     The proofs of Theorems 6, 7 and 8 are carried out according to similar schemes and differ
+only in the choice of parameters. Let us start with Theorem 6, but first of all, we recall the proof
+of Theorem 5 from [43], since we will use some parts of the argument, as well as the notation.
+We also simplify some steps of the proof of Theorem 5 by using the exact asymptotic formula
+from Corollary 16.
+32                                              I.D. SHKREDOV
+
+
+                           p a parameter ε ∈ (0, 1/2], which we will choose later and let
+5.1. Previous argument. Take
+N = q 2ε and t = q 1/2−ε = q/N . For simplicity, the reader may assume that q is a prime
+                                        √
+number. We definitely assume that t = o( q), q → ∞ and hence we have the condition
+                                                 1
+(130)                                            ε≫  .
+                                               log q
+Put A = AM := ZM (t). Thus, our set A depends on two parameters: ε and M (and the parameter
+N depends on ε only). Thanks to Lemma 13 we know that the set A is a collection of disjoint
+intervals of lengths from N to 16M N . Also, one has
+                     q wM N 1−wM ≪ T N ⩽ |A| ≪ M T N ≪ M q wM N 1−wM ,
+where T ∼ t2wM . Now consider the set Z∗ = A ∩ A−1 (recall that for composite q the set A−1 is
+the collection {a ∈ [q] : (a/(a, q))−1 /(q/(a, q)) ∈ A}, where (a/(a, q))−1 is the inverse element
+modulo q/(a, q) ⩾ t. Note that Z∗ is symmetric in the sense that Z∗−1 = Z∗ . By Corollary 16 in
+the form of Lemma 20 (recall that we want to have an a coprime to q) the following holds
+                                 |A|2 φ(q)          −κ     |A|2 φ(q)
+(131)                      |Z∗ | ⩾         − O(|A|N    ) ⩾           ,
+                                    q2                       2q 2
+provided |A|N κ ≫ q · q/φ(q). In other words, we must have
+(132)                              q 2ε(1+κ−wM ) ≫ q 1−wM · q/φ(q)
+or, equivalently, (recall that 1 − wM ∼ 1/M )
+                                                    1
+(133)                                             ε≫   ,
+                                                    M
+as well as ε ≫ log log
+                    log log q
+                        q     (we will see that this condition is weaker than (133)). Thus under
+the condition (133) the set Z∗ is nonempty and we see that there are z1 , z2 ∈ A with z1 z2 ≡ 1
+(mod q). Put a = z1 . By Lemma 10 we have that for all x ⩽ t and 1 ⩽ |y| < q with ax ≡ y
+(149)                                 h ≫ max{M, q/φ(q)}C .
+Indeed, the later one is follows from
+                                                     log q
+(150)                                       M≪               .
+                                                   log log q
+Finally, to apply Proposition 35 we need to check condition (119). This is equivalent to the
+inequality
+                                                1
+(151)                                           ε<,
+                                               18
+and since ε ∼ 1/M , then, taking a sufficiently large M , we can always assume that the last
+provided
+            M∗−1 q wM N 1−wM H 2(wM∗ −1) N∗κ ≫ M −1 q wM N wM∗ −wM +(1−wM∗ )/10 · N κ/10
+
+                                   ⩾ M −1 q wM N κ/10 ≫ q 1+o(1)
+and this is follows from (155). Notice that if M → ∞, then the final condition on ε is a
+strengthening of (151), namely,
+                                               1
+(156)                                     ε<      − oM (1) .
+                                               18
+Thus, there exists a subset of A ∩ A−1 of positive density such that all partial quotients of its
+elements are bounded by
+(157)                 max{O(M∗ ), M̃ } ∼ max{10(κε)−1 , 100δ −60 } = O(1) ,
+where ε satisfies (156) and ε ∼ κ in the case of a general composite q. If δ → 1 (of course δ
+should be less than 1 − O(N −κ ), see Lemma 18), then the contribution of the second term in
+the maximum from (157) is negligible (but the number of a in (22) decreases) and we see that
+indeed the main losses arise thanks to the quantity κ and hence from the results concerning the
+     In this section, we give a rough upper bound for the absolute constant M from Theorem 8
+for the main case where the denominator q is prime. Moreover, we want to find only a single a
+and do not address the question of lower bounds for the numerators in Zaremba’s problem. For
+prime denominators, the situation is simpler: the condition (50) is satisfied automatically, and,
+furthermore, we do not make δ–Assumption assuming that each a ∈ A ∩ A−1 has a M̃ –critical
+denominator. We claim that for sufficiently large q = p one can take
+(158)                                     M = 22000 .
+The proof of (158) relies on arguments from [42] and [43], incorporating specific elements from
+our other papers. First of all, it is necessary to transform the approximation M∗ ≈ 10M from
+Subsection 5.4 into a rigorous statement (recall that we need to solve the inequality 1 − wM ⩾
+--- Zhang 2605.02518v2 §3 (3.1)-(3.8) ---
+    Our main goal in this section is Theorem 3.6.
+   As noted in the paper [Shk26], Zaremba’s conjecture is related to counting
+solutions to the following equation
+                          (a + 2j)(b + 2j) = 1(mod q),                        (3.1)
+where a ∈ A, b ∈ B, and A, B are Cantor type sets of the form
+                       A = Λ1 ∔ [1, N ], B = Λ2 ∔ [1, N ]                     (3.2)
+in Z/qZ. Here for two sets S1 , S2 , S1 ∔ S2 means for x1 , y1 ∈ S1 , x2 , y2 ∈ S2 ,
+x1 +x2 = y1 +y2 ⇒ x1 = x2 , y1 = y2 . The sets A, B roughly have size t2wM N ,
+                       1
+where t2 N = q, t ∼ q 2 −τ , N ∼ q 2τ , and wM is the Hausdorff dimension of
+the set of reals in [0, 1] with all partial quotients bounded by M . By a
+                                           1
+theorem of Hensley [Hen92], 1 − wM ∼ M       as M → ∞.
+    The equation (3.1) is equivalent to
+                              −2j 1 − 4j 2
+                                          
+                                             a = b,                           (3.3)
+                               1      2j
+where we are considering the linear fractional transformation of Γq on P1 (Z/qZ),
+which is transitive.
+  We prefer to work with SL2 (Z), so we consider the following equation
+which is equivalent to (3.3):
+                                    gj a = −b,                                (3.4)
+              2j 1 − 4j 2
+                         
+where gj =                 .
+              −1   2j
+    Let
+                            S = {gj : j = 1, · · · , N }                      (3.5)
+Since −B has a similar structure as B, we aim to prove:
+Theorem 3.6. Let A, B, S be as in (3.2) and (3.5). We have
+   XXX                    φ(q)                 p
+             1{sa = b} = 2 |A||B|N + Oϵ (q ϵ |A||B|N 1−η ),                   (3.7)
+                           q
+      s∈S a∈A b∈B
+                               ZAREMBA’S CONJECTURE                                               7
+
+where η > 0 is some absolute constant and ϵ is arbitrarily small.
+
+  In particular, the error term in (3.7) is smaller than the main term if we
+take
+
+                                                    1
+                                         τη >         .                                       (3.8)
+                                                    M
