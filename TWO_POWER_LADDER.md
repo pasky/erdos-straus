@@ -131,7 +131,7 @@ prime (choosable, Prop 4.1, but then it is a choice of level, i.e. the lottery i
 n = tuv − u − v (u, v ≥ 2) (the (★) line in level form).
 * odd non-squares n ≤ 10⁶ with no T2 word: **20 325** (of 499 500); baseline over ALL 4 | t levels: 1 939.
 * primes 5 ≤ p ≤ 10⁶ with no T2 word: **1 298** (largest 999 979); of these 1 180 have a (★) word at some 4 | t level
-  (baseline all-level (★) failures: 118 primes). Failure rate by decade: 0.217, 0.069, 0.029, 0.0136 — decreasing, as the
+  (baseline all-level (★) failures: 118 primes). Failure rate by decade: 0.217, 0.069, 0.029, 0.0136, and 0.0069 on (10⁶, 10⁷] (`scripts/z41_two_group_1e7.py`: 237 levels, 5 320 failing primes ≤ 10⁷, largest 9 994 727; 0 squares hit) — decreasing, as the
   expected number of T2 hits grows like c·log n, but with infinitely many failures expected (Assessment).
 * T1: 0 odd squares have a T2 word (also 0 at all levels). Numerator 8: 131, 241 have no word at any 8 | t level (241 has
   none at any 4 | t level either; 131 has one at t = 4). Every hit is an explicit (t, u, v) with (tu − 1)(tv − 1) = tn + 1.
@@ -160,3 +160,20 @@ precisely the forced part of the m-layer is μ_m/μ_m^{gcd(2,m)} (Thm 3.2).
 level primes of every level simultaneously — i.e. of the factorisation pattern of every tn + 1 in ℚ(ζ₃, ℓ^{1/3}) — which is
 not a property of n mod anything (CLASS_FORCING Thm 5.2 is the p-side version). Not excluded in general (a disproof would be
 a non-congruence family), but no algebraic (congruence or power-type) family does it.
+
+## 7. Summary (honest labels)
+* **Goal 1 (decisive): spark 1's obstruction is real.** Along the forced progression the quadratic part of a forced prime's
+  class is fixed, the 4th/8th/16th-power parts are equidistributed with exactly the Chebotarev fractions 1/2, 1/4, 1/8 (EVIDENCE),
+  and Thm 3.1 (PROVED) shows this for every m and every congruence family of levels: Schinzel's abelian criterion caps congruence
+  forcing at d | 2. This is (J)93 in level coordinates.
+* **Thm 3.2 (PROVED, m = 3, 4): the Stickelberger dictionary.** Forcing reads S = ∏x_a^{a⁻¹}, ES reads D = ∏x_a; they agree
+  exactly modulo μ_m^{gcd(2,m)}. The BM layer and T1 are the m = 2 coincidence S = D; there is no odd-order BM layer and no
+  odd-order T1 (Cor 6.1: cubes bias only an anti-cyclotomic Hecke character — spark 3 closed for algebraic families).
+* **Construction (§4).** Choosing the level prime by its non-abelian Frobenius makes the entire 2-part of ℓ's class choosable
+  (Prop 4.1, density 2/m per rung), but a prime < t − 1 is never ≡ −1 (t) and a fixed divisor determines its level (Prop 4.2):
+  the class −1 must be carried by an uncontrolled cofactor — the B2 lottery, now localised in the odd part and the cofactor.
+* **Goal 3: 2-group levels do not suffice** (EVIDENCE: 1 298 primes ≤ 10⁶, 5 320 ≤ 10⁷ with no word at any 2-group level; rate
+  halving per decade); twisted squares Dm² are dead at levels 4D | t (Lemma 5.1, PROVED). Controls: squares 0 hits; 131, 241 no
+  8 | t word; every hit an explicit certificate.
+* No route. **ES is not solved; no infinite case for primes is claimed.** The ladder above the BM layer is not forced; the
+  quadratic layer is the unique reciprocity-free layer, for a structural reason (Thm 3.2).
