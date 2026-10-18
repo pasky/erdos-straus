@@ -131,7 +131,7 @@ from them (Prop 3.2 with L unused) is a B-smooth w ≡ −1 (mod 4d) with w | p 
 classical ET Type II residue class (B1). Using L as well gives the classes of Prop 3.2. Either way a finite congruence covering.
 
 **Theorem 3.4 (the forced rule never fires at the point n = 1; PROVED, unconditional).** Fix B, D. Let
-M := lcm(4D!, ∏_{q ≤ B} q^{e_q}) with q^{e_q} > 4D(D + 1). For every prime p ≡ 1 (mod M) and every line of §1 with level
+M := lcm(4D!, ∏_{q ≤ B} q^{e_q}) with q^{e_q} > 16D(D + 1) (so that also the 2-part of cp + 1 leaves t = 4c invertible room). For every prime p ≡ 1 (mod M) and every line of §1 with level
 d, c ≤ D (resp. e ≤ D), the forced criterion of Prop 3.2 fails. Hence (Dirichlet) every "forced-factor" rule with bounded
 levels and bounded small primes misses infinitely many primes — namely a full residue class.
 *Proof.* p ≡ 1 (M) makes the smooth part of N and the class of L coincide with those of the integer N₁ obtained at "p = 1":
