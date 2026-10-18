@@ -54,7 +54,8 @@ for m > 1 odd scale a solution for m by 2^a (Q odd keeps lowest terms); for m = 
 **Corollary 2.2 (T1 dies at odd k; PROVED).** For odd k every odd square m² (and every odd cube m³) has an ES_(k)
 solution of Type I shape at every prime of m. The obstruction B5/T1 is absent, and — as B5 predicts for T1-free
 variants — the rung is a finite covering: the two classes n ≡ 1, 3 (mod 4) with the identity of Thm 2.1 (the
-coprimality side-condition gcd(Q, n) = 1 is the only n-dependence; a second class mod 3 handles 3 | n with Q = 7).
+coprimality side-condition gcd(Q, n) = 1 is the only further n-dependence: Q = 3 serves every n ≡ 1 (4) with 3 ∤ n,
+Q = 7 every n ≡ 1 (4) with 3 | n, 7 ∤ n, …; for primes Q ∈ {1, 3} always).
 *Mechanism (UNIT_ORBIT_ES Lemma 1.1(i) with w = k odd):* inv_q of the BL/Hilbert class at a prime q | Q equals the
 Legendre sign ((−y/x)/q), unconstrained, so a muted place with ODD exponent can absorb the anchor's ½.
 
@@ -91,3 +92,20 @@ scope of the Type II-shaped construction, which T1 genuinely forbids at squares.
 and ES" in difficulty: ES_(6) ⊂ ES_(2) ∩ ES_(3) is ES^□-like, ES_(2^a) is ES^□-like for all a. The headline candidate
 "pointwise ES_{Q³}" is TRUE but for a trivial reason, and does not interpolate towards ES. The difficulty of ES is not
 in the exponent of the allowed denominator but in its SIZE (Q = 1), as (J)28's recalibration already said.
+
+### 2.3 Numerics (EVIDENCE; `scripts/z44_ladder.py 1000000`, 8 s, log `logs/z44_ladder_1e6.txt`)
+Every solution checked exactly (Fraction equality, gcd(Q, Z) = 1, Q odd and prime to n, Type I/II shape by valuations).
+* k = 3, 5: all 78 496 primes 5 ≤ p ≤ 10⁶ solved by Thm 2.1, max Q = 3; all 499 odd squares and 49 odd cubes ≤ 10⁶
+  solved with Type I shape at every prime (T1 control: T1 is DEAD at odd k, as Cor 2.2 says).
+* k = 2, 4, 6: all primes p ≡ 1 (4) ≤ 10⁶ solved by Thm 2.3 (p ≡ 3 (4) by ES), Type II shape. The prime r(p): for
+  k = 2, 4 identical (max r = 131, r = 3, 7, 11, 19, … for 19 611, 9 825, 4 948, 2 444, … primes — R193's numbers);
+  for k = 6 the extra condition r ≢ 1 (3) gives r ∈ {3, 11, 23, 47, 59, 71, …}, max r = 251.
+  T1 control: 0 modulus-4 shots m² + 4Q^k with a prime factor ≡ 3 (4) for all odd m² ≤ 10⁶, odd Q ≤ 99 prime to m
+  (forced: sum of two coprime squares; the trial division is only a sanity check).
+* For comparison, the ES shot Q = 1 (p + 4 has a prime factor ≡ 3 (4)) fails at 9 841 primes p ≡ 1 (4) ≤ 10⁶.
+* Numerator 8 at p = 131, 241 (ladder hard cases): odd k by the mod-8 version of Thm 2.1 (8x = p + Q^k, Q ≡ −p (8);
+  odd k-th powers are bijective on (ℤ/8)^×): 8/131 = 1/64 + 1/64 + 5³/4192, 8/241 = 1/146 + 1/146 + 7³/17593.
+  Even k by Thm 2.3 with r ≡ 7 (8), (p/r) = −1: 8/131 = 1/20 + 1/131 + 3²/2620, 8/131 = 1/956 + 1/131 + 9⁴/125236,
+  8/241 = 1/46 + 1/241 + 3⁴/11086. (Numerator m in general: odd k is a covering whenever odd k-th powers are
+  bijective on (ℤ/m)^×-classes reachable, e.g. m = 2^j; even k needs a prime r ≡ −1 (m) with (−n/m·r⁻¹…) a square — a
+  Dirichlet prime again.)
