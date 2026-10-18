@@ -194,12 +194,72 @@ R* = M_BM = M_BM8 = 0.** Primes p ≡ 1 (4), M = M_BM:
   surfaces V_k : x² + y² + z² − xyz = k, the class numbers h(k) of integral points have mean ∼ C(log k)² (their (1.6)) — the
   same polylog-square scale as (★) (M₀ ∼ 0.152(log p)²) — a product of local densities δ^{(m)}(k) approximates h(k) for
   almost all k (their §9, via a variance bound averaged over k), yet **Hasse failures are infinite** (Thm 1.2(i):
-  ≥ √K(log K)^{−1/2} of them up to K), numerically ∼ C₀K^{0.8875} (their (1.7)), and only O(√K) are explained by integral
-  Brauer–Manin obstructions (Loughran–Mitankin IMRN 2021; Colliot-Thélène–Wei–Xu, Ann. SNS Pisa 2020). Browning–Wilsch-type
-  log K3 heuristics (Selecta 2025, "Integral points on cubic surfaces: heuristics and numerics") note the BM obstruction is not
+  ≫ √K/(log K)^{c} of them up to K, c = 1/2 in the arXiv v-final text, 1/4 as quoted by Browning et al.), numerically ∼ C₀K^{0.8875} (their (1.7)), and only O(√K) are explained by integral
+  Brauer–Manin obstructions (Loughran–Mitankin IMRN 2021; Colliot-Thélène–Wei–Xu, Ann. SNS Pisa 2020). Browning et al.'s log K3
+  heuristics (Selecta Math. 2025, doi 10.1007/s00029-025-01074-1, "Integral points on cubic surfaces: heuristics and numerics") note the BM obstruction is not
   always sufficient for log K3. **Lesson:** in the one well-studied family with the same main-term scale, "BM-corrected local
   density ≫ 1 ⟹ points exist" is FALSE infinitely often, and the failures are mostly unexplained. For ES the analogous
   hypothesis H⁻_BM is consistent with all data, but the precedent shows it is a genuinely strong statement, not a standard
   heuristic consequence. (Difference: ES failures for (★) at primes look finite in the census; GS's failures are power-many
   and include structured families k = 4 + βν² from the singular Cayley cubic. A structured family for (★) would be a "prime
   T1"; none is known (z32_prime_T1).)
+
+## 4. The b = 1 line, the union (★) ∪ b = 1, full Type II, and the numerator-8 model
+
+**Proposition 4.1 (PROVED; checks `scripts/z38_typeII_check.py`, `z38_b1.c`).**
+(a) (Full Type II.) A Type II solution 4abcd − a − b = cn gives 4/n = 1/(abd) + 1/(nbcd) + 1/(nacd); BL's class is
+(−b/(nc), −b/a), with inv_p = (−ab/p) = χ_{−4ab}(p) (p ∤ ab). With s := (a + b)/c the event is n ≡ −s (mod 4ab), and
+χ_{−4ab}(−s) = −1 whenever gcd(s, 4ab) = 1. So on the whole Type II family the Brauer character is χ_{−4ab}, independent of
+(c, d). (Checked: all 990 Type II solutions at primes < 300, 2.97·10⁶ target identities.)
+(b) (b = 1 line.) In B1_LINE's mutual-shift coordinates (S, T) = (4x, y), the b = 1 event is 4xy | p + 4x + y (y odd);
+a = (p + T)/S, and BL's inv_p = (−a/p) = (−xy/p) = χ_{−4xy}(p) at the rational point of every pair; χ_{−4xy}(−(4x + y)) = −1
+((4x + y) | (4x)² + 4xy). So **(★) and b = 1 are the two shifts −(x + y) and −(4x + y) of the same pair lattice with the same
+Brauer character χ_{−4xy}**, and their BM main terms both vanish at squares.
+(c) (m/n, Schinzel; BL Rem 1.10.) On the c = 1 line m·uBC = n + u + B the Brauer character is again χ_{−4uB}
+(hits at primes < 6000 for m = 8, 12, 16: 6 210, all with (−uB/p) = −1). ∎
+
+For the b = 1 line the bare M_BM diverges (the pairs y = 1 have target ≡ −1 (mod 4x) for every x); the natural main term
+keeps the mod-4 character as well: M4 := principal + χ_{−4} + χ_{−4xy} + χ_{−4}χ_{−4xy} (still mean-preserving and zero at
+squares). EVIDENCE (`z38_b1.c`, `z38_b1_stats.py`):
+
+| sample | line | mean count | mean M4 | var/(2M4) | min count/M4 | min (count − M4)/√(2M4) |
+|---|---|---|---|---|---|---|
+| p ≡ 1 (24), [10⁵, 4·10⁵], 2 991 primes | (★) | 21.2 | 20.2 | 1.53 | 0 (102001) | −3.34 (329617) |
+| | b = 1 | 17.3 | 18.3 | 0.85 | 0.062 (241921) | −2.74 |
+| | union (sum) | 38.5 | 38.6 | 1.42 | 0.167 (317209) | −3.53 |
+| p ≡ 1 (4), [10⁴, 10⁵], 4 174 primes | (★) | 20.0 | 17.6 | 1.61 | 0 (23929) | −2.79 |
+| | b = 1 | 16.7 | 14.5 | 1.03 | 0 (66529) | −2.46 |
+| | union (sum) | 36.8 | 32.1 | 1.84 | 0.155 (83449) | −3.03 |
+
+* The b = 1 line is close to swap-Poisson (var/2M ≈ 0.85–1.0), (★) is overdispersed (1.5–1.6).
+* The residuals R − M4★ and N₁ − M4b1 are **positively** correlated (0.21 at 10⁵–4·10⁵, 0.30 at 10⁴–10⁵): no anti-
+  correlation protects the union. The union's robustness (no failure ≤ 10⁸, B1_LINE) is explained by the doubled main term
+  (P(0) ≈ e^{−M/2} with M doubled), not by a forced complementarity. The shared Brauer character makes the two main terms
+  positively correlated too (both contain the same Legendre sum Σ(−xy/p)/φ(4xy) over overlapping pair sets).
+* Nothing forced: the union's minimum ratio is 0.155–0.167, a ≈ 3σ lower deviation, in line with the single lines.
+
+**Numerator 8 (the soundness check of the brief).** For the 8/p c = 1 line (`z38_mbm.c` with K = 8, all primes ≤ 10⁶):
+mean M_BM ≈ 0.067L² (about half the 4/p value, as the bulk is (1/8)·Σ 2^{ω(m)}/φ(m) over m ≤ p/8), and the line fails at
+835 primes ≤ 10⁶ (largest 992 903), including 131 and 241 where M_BM = 0.56 and 0.46. So the H⁻ analogue fails at 131 and
+241 (as it must: 8/p has no solution at all there, PW Table 1), and fails throughout the range for the single slice. This is
+consistent: the BM factor is numerator-blind (same χ_{−4uB}), the only model-specific input of a proof via H⁻ would be H⁻
+itself. A proof of H⁻ by a "numerator-blind" method would have to give the 8/n lower tail too, which is FALSE at 131, 241 —
+any such method must see the size of the main term (≈ 0.5 there), i.e. it must be polylog-accurate (B3).
+
+## 5. Honest assessment (goal 5)
+
+* **New and PROVED.** (i) The exact dictionary (Thm 1.1, Prop 4.1): on every Type II family and on the b = 1 line,
+  BL's quaternion class is a single Kronecker character χ_{−4ab} in the orthogonality expansion, whose value at the target
+  is forced to −1; principal + Brauer character = Borovoi–Rudnick factor (1 + inv_∞ inv_p). O260's strong form ("genus =
+  BM") is refuted; R277 D3's question is answered. (ii) The BM-corrected singular series M_BM is ≥ 0, mean-preserving,
+  vanishes at squares, and is ≫ (log p)² UNCONDITIONALLY (Thm 2.2; constant 25/(128π²) via Burgess), and ∼ M₀ under GRH
+  (Prop 2.3 = board F4 obligation (i)). (iii) Two-sided remainder hypotheses are false i.o. (Prop 3.1, Linnik).
+* **Exact conditional statement.** ES (indeed (★)) for p > p₀ ⟸ H⁻_BM(ε, p₀): R(p) ≥ ε M_BM(p). No other input is needed
+  (main term unconditional). This improves CONDITIONAL_ES only in bookkeeping: the hypothesis is not refuted by T1, and
+  the (L) half is now a theorem. It does **not** give "ES ⟸ GRH + (natural non-square-sensitive equidistribution
+  hypothesis)": H⁻_BM is a single-integer large-deviation lower bound, ES-(★) in disguise up to the factor ε, with no
+  standard conjecture implying it (§3.3), and the closest literature precedent (Markoff surfaces, same (log)² main-term scale)
+  has infinitely many failures of the analogous statement.
+* **Barrier status.** B3 unchanged (positivity needs the remainder to o(L²) in the lower direction at one p, with typical
+  |X| ≈ 0.75L and a fattening tail). T1 handled (every main term and every hypothesis checked at squares). B6 respected
+  (no averaging over p; Thm 2.2 is pointwise). k = 8 control behaves as required.
