@@ -109,3 +109,52 @@ quantified by O268 Thm 2.2). What remains is the position of a divisor d of N in
   reproduces R(n) needs F divisible by essentially all tn + 1 (Assessment; B2 restated).
 Numerator check: for 8/n the same computation uses χ_{−t} with 8 | t and gives the same witness (any non-square), while 8/131,
 8/241 fail — the BM layer is numerator-blind, as it must be ((J)41).
+
+(I3) Mandatory (iii), variance at fixed p. Construction attempts: (1) second moment / Paley–Zygmund over the characters of a
+FIXED group ((ℤ/p)^*, or (ℤ/t)^* at one level, or (ℤ/4uB)^* at one pair) — killed by Lemma 3.1 (ℓ² Fourier certifies a class only
+when every class is occupied; barrier hypothesis: "phase-blind ℓ² data"); (2) a Janson/Harris inequality over p — needs exponent
+> log p; measured the true dependency term: at word level Δ/μ grows ≈ linearly (μ²/2Δ ≈ 1–2, hopeless); at level granularity
+the expected number of hit levels is ≈ (0.44 → 0.97)·log p over 10²–3·10⁶ — exactly the critical scale. Barrier hypothesis met:
+no product structure (Harris) at fixed p or over p beyond CRT depth log N; (D)20: CRT-accurate correlations die at order ≍ log N
+(squares). Loophole sought: a BM-corrected Harris inequality over primes is not refuted by T1, but is not weaker than the
+exceptional-set statement it would imply (power saving, beyond every known method). Recorded as CONJECTURE-shape only.
+
+## 3. Deep item 3: why near-independence cannot be turned into a proof at one prime (mandatory (iii))
+
+**Lemma 3.1 (ℓ² Fourier at a fixed group is phase-blind; PROVED, elementary).** Let G be a finite abelian group, n : G → ℝ_{≥0}
+(weighted counts of objects by class), S = Σ_g n(g), Q = Σ_g n(g)², g₀ ∈ G. The Cauchy–Schwarz/Parseval certificate
+  n(g₀) ≥ S/|G| − |G|⁻¹·√(|G| − 1)·(Σ_{ψ≠1}|n̂(ψ)|²)^{1/2} > 0
+succeeds iff S² > (|G| − 1)Q, and then n(g) > 0 for **every** g ∈ G.
+*Proof.* Parseval: Σ_{ψ≠1}|n̂(ψ)|² = |G|Q − S². The certificate is S > √((|G| − 1)(|G|Q − S²)) ⟺ |G|S² > (|G| − 1)|G|Q. It does
+not depend on g₀, so it certifies every class; and S² ≤ |supp n|·Q (Cauchy–Schwarz) forces |supp n| > |G| − 1. ∎
+*Consequence.* Any second-moment/PZ argument over the characters of one fixed group attached to p (characters mod p on the F4
+tube; mod t at one level; mod 4uB at one pair) proves R(p) > 0 only in a situation where the counted objects already occupy
+every class of G — impossible when the object count (≍ (log p)² for (★)) is < |G| − 1. To beat this one needs the phases of
+individual n̂(ψ) (parity-breaking, H-B), not their sizes. (This is the exact form of the board's F4 objection and of B3.)
+
+**Lemma 3.2 (tautology; PROVED).** For a finite family Ω of primes with the uniform measure, a bound P_Ω(R = 0) ≤ δ implies
+R(p) > 0 for all p ∈ Ω iff δ < 1/|Ω|. For Ω = primes in (N, 2N] this is δ < (1 + o(1)) log N/N, i.e. a large-deviation exponent
+> log N − log log N. (So "variance at fixed p" either uses a measure on objects attached to p — Lemma 3.1 — or a measure on p,
+where only exponent > log p helps; B6.)
+
+**Proposition 3.3 (the Janson dependency term, EVIDENCE; `scripts/s9_janson.c`, `scripts/s9_janson_stats.py`,
+`logs/s9_janson.txt`; 108 283 primes p ≡ 1 (4) ≤ 3·10⁶ binned by O268's M_BM8).** Treat the (★)-words as events and call two
+words dependent if they share one of their three integers tp + 1, p + u, p + v (they are then functions of the same
+factorisation). With μ = E R, Δ = E[#ordered dependent pairs]:
+* Δ/μ = 3.6, 4.3, 4.9, 5.4, 5.8, 6.2, 6.6, 7.3, 9.4 as μ = 6.2 … 34.1 (roughly linear in μ, slope ≈ 0.2). Janson's
+  exp(−μ + Δ/2) is > 1 in every bin; the extended form exp(−μ²/(2Δ)) has exponent 0.85 … 1.82 against log p ≈ 6 … 14.
+* At level granularity (event "level t carries a hit"), the mean number of hit levels is 2.65 … 13.8, i.e. 0.44 … 0.97 × log p
+  (rising with p). (J)89 found per-shift events near-independent (joint/product 1.004), so a level-Poisson model predicts
+  P(R = 0) ≈ e^{−E#levels} ≈ p^{−(0.44…0.97)} — the critical scale of Lemma 3.2, consistent with (★) failures still occurring
+  to 8.8·10⁶ and none in (10⁷, 10¹⁰] ((J)90).
+* Observed zeros per bin (1, 1, 1, 0, 3, 0, 1, 3, 1) lie between n·e^{−μ} and n·e^{−μ/2} (swap-Poisson) up to the O268 factor.
+**Assessment (the answer to (iii)).** Near-independence is a statement about a measure, and at one prime there is none:
+(a) objects attached to p carry no measure in which hits are random, and the only deterministic substitute (Fourier over a fixed
+group) is phase-blind (Lemma 3.1); (b) over p, the useful exponent must exceed log p (Lemma 3.2). Even granting an ideal
+product structure (which fails: CRT exactness ends at depth ≍ log N/log q, and (D)20 shows order-log N correlations are false over
+ℤ because of squares), the honest dependency structure leaves only the level-granular exponent ≈ E#levels, which at
+accessible heights is ≈ log p — critical, not supercritical. Asymptotically E#levels/log p → ∞ is plausible (heuristic: hit
+levels ≍ L²/(cluster size)), which is the usual Borel–Cantelli heuristic for ES, not a mechanism. The one loophole shape — a
+BM-corrected Harris inequality over primes (T1-consistent, so not refuted by squares) — would imply a power-saving
+exceptional-set bound for (★), far beyond every method mapped in (D)9–(D)24; we record it only as a CONJECTURE shape, with no
+evidence that any technique reaches it.
