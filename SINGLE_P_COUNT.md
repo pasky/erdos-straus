@@ -109,11 +109,37 @@ Findings.
   alone removes nothing. So the genus correction is real but not dominant.
 * Full local data at primes ≤ 30 (plus genus) removes ≈ 50 %; corr(R, M_loc,30) = 0.71, and 0.81 at Y = 100. About 37 %
   (Y = 30) to 57 % (Y = 100) of all hits have a Y-smooth modulus 4uB.
-* **The residual does not reach the Poisson baseline:** after removing the local part, var(R − M_loc) is still ≈ 1.7–1.9 ×
-  2(M_loc − R_sm), and the ratio does not fall from Y = 30 to Y = 100. The excess is therefore not small-prime local
-  structure. Hypothesis (Assessment): it is the divisor-sharing correlation (pairs sharing u, B or C test divisibility of the
-  same integer p + u, p + B or 4Cp + 1, and divisor counts of one integer are overdispersed like τ); this would also explain
-  the slow growth of the overdispersion with p (4.05 → 4.52 here; 2.2 → 3.6 for the b = 1 line, B1_LINE).
+* **Residual dispersion depends on the bookkeeping, and the honest reading is "mostly local, plus a non-local factor
+  ≈ 1.7–1.9".** Against the all-pairs baseline 2·M_loc the residual is at swap-Poisson level (var(R − M_loc,30)/(2M_loc)
+  = 0.99; 0.72 at Y = 100). But M_loc,Y reproduces the hits with Y-smooth modulus exactly (R_sm,Y), which then carry no
+  variance; against the baseline 2(M_loc − R_sm) of the genuinely random pairs the residual is 1.66 (Y = 30) and 1.89
+  (Y = 100), not falling with Y. So the non-local part is still overdispersed by a factor ≈ 1.7–1.9. Hypothesis (Assessment,
+  not tested to a conclusion): divisor-sharing correlation — hits sharing u, B or C come from divisors of the same integer
+  p + u, p + B or 4Cp + 1 (per prime near 10⁶ there are ≈ 3–4 ordered pairs of distinct hits sharing a coordinate per hit,
+  beyond the swap partners; `z30_rgen.c` columns WC, WU; the independence null for these was not computed). This would also
+  fit the slow growth of the overdispersion with p (4.05 → 4.52 here; 2.2 → 3.6 for the b = 1 line, B1_LINE).
+* **A non-circular, bounded-modulus local main term.** M_Q(p) := Σ_{𝒫(p)} Prob[p ≡ a (q) | p mod gcd(q, Q), square class of
+  p mod q] = Σ 1[p ≡ a (gcd(q,Q))]·1[pa ∈ □ (q)]·s(q)φ(g)/(s(g)φ(q)), g = gcd(q, Q), uses only p mod Q and the Legendre
+  symbols of p (M_1 = M_gen; vanishes at squares by the argument of Prop 2.2(b)). On all 12 117 primes p ≡ 1 (4) in
+  [10⁵, 4·10⁵) (`logs/z30_dispersion.txt`): var(R − M)/(2·mean M) = 1.88 (M₀), 1.84 (M₂), 1.375 (M_gen), 1.10
+  (M_Q, Q = 720720), 0.86 (Q = 2⁶3³5²7²·11·13·17·19·23·29; this Q makes many small-q pairs exact, so the same caveat as for
+  R_sm applies); corr(R, M) = 0.16, 0.17, 0.55, 0.65, 0.74. All main terms underestimate the mean by ≈ 2.1–3.2 (≈ 10 %), a
+  prime-specific singular-series effect not modelled here.
+* **Failure prediction (`scripts/z30_failpred.py`, `logs/z30_failpred.txt`; all 16 899 primes p ≡ 1 (4), 13 ≤ p < 4·10⁵;
+  8 observed failures 409, 577, 5569, 9601, 23929, 83449, 102001, 329617).** Negative-binomial lower tail for R/2 with mean
+  M/2 and the dispersion fitted on [10⁵, 4·10⁵):
+
+  | main term | predicted failures < 10⁴ / [10⁴,10⁵) / [10⁵,4·10⁵) | observed | rank of 409, 577 by predicted risk |
+  |---|---|---|---|
+  | M₀ (no arithmetic of p) | 30.3 / 11.5 / 4.0 | 4 / 2 / 2 | not in top 8 (top = 13, 17, 29, …) |
+  | M_gen | 18.2 / 5.8 / 1.7 | 4 / 2 / 2 | not in top 8 |
+  | M_Q, Q = 720720 | 18.0 / 6.1 / 1.6 | 4 / 2 / 2 | **577, 409 are the top two** |
+  | M_loc,30 with exact smooth hits (semi-circular) | 3.1 / 2.6 / 1.2 | 4 / 2 / 2 | **577, 409 top two**; 5569 sixth |
+
+  Reading (EVIDENCE/Assessment): at p ≥ 10⁵ every model is consistent with the 2 observed failures (too few to
+  discriminate). Below 10⁴ only the model that counts the small-smooth hits exactly is calibrated; the NB tail with a
+  dispersion fitted at larger p overpredicts there. The arithmetic of p enters the risk ranking sharply: with p mod 720720
+  and the Legendre symbols of p alone, 409 and 577 come out as the two most endangered primes below 4·10⁵.
 * The 14 known (★)-failures ≤ 10¹⁰ (all ≤ 8.9·10⁶) have M_gen/M₀ ∈ [0.57, 0.92] and M_loc,30/M₀ ∈ [0.09, 0.70] (sample mean ≈ 1.0): low local
   main terms, but for p > 10⁵ still M_loc,30 ≈ 10–26, so the failures are not explained by the local term alone.
 * Calibration for goal 4 (Assessment): at 10⁶–10⁷ the actual error |R − M_loc| has standard deviation ≈ 1.3·√(2M), i.e.

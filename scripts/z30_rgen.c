@@ -28,13 +28,13 @@ static int jacobi(int64_t a, int64_t m){ /* m odd > 0 */
 }
 
 int main(int argc,char**argv){
-  long Y = argc>1 ? atol(argv[1]) : 0; /* full local conditioning at primes <= Y (incl. 2-power), genus elsewhere */
+  long Y = argc>1 ? atol(argv[1]) : 0; long QQ = argc>2 ? atol(argv[2]) : 1; /* bounded-modulus local data: p mod gcd(q,QQ) + genus mod q */ /* full local conditioning at primes <= Y (incl. 2-power), genus elsewhere */
   long ns[100000]; int k=0; long mx=0;
   while(k<100000 && scanf("%ld",&ns[k])==1){ if(ns[k]>mx) mx=ns[k]; k++; }
   NMAX = mx+2; sieve(NMAX);
-  printf("# Y=%ld\n# n R M0 M2 Mg Mg_small(uB<=n^(1/3)) M0_small npairs Mloc Rsmooth(q Y-smooth)\n",Y);
+  printf("# Y=%ld\n# n R M0 M2 Mg Mg_small(uB<=n^(1/3)) M0_small npairs Mloc Rsmooth(q Y-smooth) MQ(Q=%ld) WC(ordered pairs of distinct hits with equal C) WU(equal u)\n",Y,QQ);
   for(int i=0;i<k;i++){
-    long n=ns[i]; long R=0, np=0; double M0=0,M2=0,Mg=0,Mgs=0,M0s=0,Ml=0; long Rsm=0; double small=cbrt((double)n);
+    long n=ns[i]; long R=0, np=0; double M0=0,M2=0,Mg=0,Mgs=0,M0s=0,Ml=0; long Rsm=0; double MQ=0; static long hu[100000], hb[100000], hc[100000]; double small=cbrt((double)n);
     for(long u=1; 3*u-1 <= n; u++){
       long Bmax = (n+u)/(4*u-1);
       for(long B=1; B<=Bmax; B++){
@@ -60,15 +60,26 @@ int main(int argc,char**argv){
           if(okp && (((int64_t)n - a) % qs == 0)) Ml += sp/phip;
           if(qs==q && ((int64_t)n+u+B)%q==0) Rsm++;
         }
+        { /* MQ: know p mod g = gcd(q,QQ) and square class of p mod q; weight s(q)phi(g)/(s(g)phi(q)) */
+          int64_t g=q, h=QQ; while(h){ int64_t t=g%h; g=h; h=t; }
+          if(gen && ok2 && (((int64_t)n - a) % g == 0)){
+            double phig=1; int sg=1; int64_t z=g; int v=0; while(!(z&1)){ z>>=1; v++; }
+            if(v>=1) phig = (double)((int64_t)1<<(v-1));
+            sg = (v<=1)?1:((v==2)?2:4);
+            while(z>1){ long l=spf[z]; phig*=(double)(l-1); z/=l; while(z%l==0){ phig*=l; z/=l; } sg*=2; }
+            MQ += (double)s*phig/((double)sg*phi);
+          }
+        }
         double w0 = 1.0/phi;
         M0 += w0; if(ok2) M2 += (v2==2?2.0:4.0)/phi;
         int match = gen && ok2;
         if(match) Mg += s/phi;
         if((double)u*B <= small){ M0s += w0; if(match) Mgs += s/phi; }
-        if(((int64_t)n+u+B) % q == 0){ R++; if(!match){ fprintf(stderr,"UNMATCHED HIT n=%ld u=%ld B=%ld\n",n,u,B); return 1; } }
+        if(((int64_t)n+u+B) % q == 0){ if(R<100000){ hu[R]=u; hb[R]=B; hc[R]=(long)(((int64_t)n+u+B)/q); } R++; if(!match){ fprintf(stderr,"UNMATCHED HIT n=%ld u=%ld B=%ld\n",n,u,B); return 1; } }
       }
     }
-    printf("%ld %ld %.4f %.4f %.4f %.4f %.4f %ld %.4f %ld\n", n, R, M0, M2, Mg, Mgs, M0s, np, Ml, Rsm);
+    long WC=0, WU=0; for(long x=0;x<R && x<100000;x++) for(long y=0;y<R && y<100000;y++){ if(x==y) continue; if(hc[x]==hc[y]) WC++; if(hu[x]==hu[y]) WU++; }
+    printf("%ld %ld %.4f %.4f %.4f %.4f %.4f %ld %.4f %ld %.4f %ld %ld\n", n, R, M0, M2, Mg, Mgs, M0s, np, Ml, Rsm, MQ, WC, WU);
     fflush(stdout);
   }
   return 0;
