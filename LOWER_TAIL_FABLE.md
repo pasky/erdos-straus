@@ -209,3 +209,35 @@ divisor in a single class of a modulus tied to it; or (b) a pooled family at a f
 divisor-tries is τ₃(U) log p ≪ U. There is no third place. The provable relaxations are exactly those whose
 target is a coset of index ≤ 2^{O(ω)} (square multipliers) or whose shot family is infinite at a fixed
 modulus (mute primes); ES has neither.
+
+## 4. Assessment at this checkpoint
+
+* No new mechanism. Every construction in §3 either produces the tied-modulus divisor event at one integer
+  (B2/B3) or pools at a fixed modulus where the number of divisor-tries τ₃(U)·log p is below the group size
+  (B4). The one quantitative framing I consider worth keeping is the index calibration of §3.2: a target
+  coset −H ⊂ (ℤ/4U)^× is reachable by counting only if [G : H] ≲ τ₃(U); squares (ES^□) sit below that
+  line, ES (H = 1) sits far above it, and no intermediate relaxation is both below the line and known.
+* The forms of §1–2 are re-indexings of the ET/window/HJ forms already in the ledger; their value is that
+  (i) Type I and II are the same statement with target −1 versus −p for the same integer mp + u and the
+  same modulus 4mu; (ii) the sign of a certificate sits on the divisor for Type II and on the level for
+  Type I (Lemma 2.7); (iii) the whole 4-adic content of ES is "the certificate divisor is ≡ 3 (mod 4)",
+  which is what excludes norms from ℤ[i]; (iv) the Legendre/graph forms put T1 entirely into a colouring.
+* Labels: Thm 1.1, (2.1)–(2.6), Lemma 2.7, 2.8 (odd branches), 2.9 (dictionary): PROVED. 2.8 even
+  branches: PROVED relative to DEDEKIND_ES Thm 4.5. §2.9 census, §3 calibration: EVIDENCE / Assessment.
+  ES is not solved; no case of it is claimed here.
+
+## 5. Sparks (not pursued)
+
+1. Index-calibrated relaxations: for H = k-th powers (k ≥ 3) the count allows a hit but a hit needs the
+   divisors of ~τ₃(U) integers near p to *cover* G/H. Is ES_{Q³} (4/p = 1/x + 1/y + Q³/z, Q free) provable
+   by a one-prime argument like ES^□, or is it already a lottery? Either answer calibrates the ladder.
+2. The component of 1 in G_p: can |comp(1)| ≫ log² p be proved unconditionally (it is a sign-free count of
+   divisors of p + 1, p + e, …)? A proved lower bound would isolate the colouring as the only obstruction.
+3. In the Legendre form the map A ↦ (−p mod A) is linear on each Farey interval (p/(k+1), p/k]; the
+   condition (−p mod A) | A + 1 then reads (k+1) | p + e, e | p + k + 1 — a 2-parameter symmetric system.
+   Is there a Stern–Brocot / mediant move that preserves the system (an "edge-to-edge" map in G_p)? The
+   candidate (t, e) ↦ ((p+e)/t, e) is an edge iff e | t + 1 — conditional, but maybe composable.
+4. Lemma 2.7 says Type I's non-residue sits on the level w. A Type I search organised by w = ℓ(p) (the least
+   QNR) has expected count ≍ (log p)²/ℓ(p); under GRH that is Θ(1) at the extreme. Is there a prime with
+   NO certificate at any level w ≤ ℓ(p)·(log p)^{O(1)}? A census of "minimal level" versus ℓ(p) to 10⁸ would
+   say whether the level structure adds anything beyond the window census of (J)85.
