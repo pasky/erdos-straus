@@ -1,0 +1,10 @@
+{
+  "agentId": "modp-reciprocity",
+  "sessionId": "/home/pasky/.pi/agent/sessions/--home-pasky-projects-math-erdos-straus-claude-agent-worktree-0043--/2026-10-18T09-26-40-206Z_01a14e55-ad4d-74a3-903f-b66a4bf8f480.jsonl",
+  "parentSessionId": "/home/pasky/.pi/agent/sessions/--home-pasky-projects-math-erdos-straus-claude--/2026-10-17T15-17-31-761Z_01a14a70-89f1-745f-ba9c-26b613c396c9.jsonl",
+  "pid": 2325377,
+  "branch": "side-agent/modp-reciprocity",
+  "startedAt": "2026-10-18T09:26:39.028Z",
+  "tmuxWindowId": "@1212",
+  "tmuxWindowIndex": 33
+}

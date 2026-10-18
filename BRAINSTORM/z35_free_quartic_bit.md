@@ -13,7 +13,7 @@ If forced, it would be visible at bounded parameters as a congruence in (a, b) �
 squares β is undefined (no certificates).
 
 ## Cheap numerics
-`scripts/z35_quartic_independence.py` (p < 2·10⁶, d ≤ 40): β = +1: 281 437, β = −1: 282 747 (50.1/49.9 %). A pilot over
+`scripts/z35_quartic_independence.py` (p < 2·10⁶, d ≤ 40): β = +1: 281 437, β = −1: 282 747 (49.9/50.1 %). A pilot over
 p < 10⁵ gave pair bits (w₀w/p)_4 balanced to within within-p correlation (54/46 % for p ≡ 1 (8), not a law).
 
 ## Assessment
