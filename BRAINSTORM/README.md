@@ -638,8 +638,8 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 ### z41 — O272 the 2-power ladder above the BM layer (deep file TWO_POWER_LADDER.md)
 | memo | idea | outcome | label |
 |---|---|---|---|
-| z41_ceiling_chebotarev_schinzel | do order-4, 8, 3 characters at a forced prime become functions of n? | no: along any progression of levels ψ(ℓ) is equidistributed beyond its quadratic part (Schinzel: K(ℓ^{1/d}) abelian ⟹ d \| 2); level form of (J)93 | PROVED |
+| z41_ceiling_chebotarev_schinzel | do order-4, 8, 3 characters at a forced prime become functions of n? | no: along any progression of levels ψ(ℓ) is equidistributed beyond its quadratic part (K(ℓ^{1/d})/ℚ abelian ⟹ d \| 2; ℓ ∤ m); level form of (J)93 | PROVED (scope: fixed n, ℓ) |
 | z41_stickelberger_dictionary | which linear form of ℓ's Frobenius vector does forcing see? | forcing = Stickelberger component ∏x_a^{a⁻¹}, ES = norm ∏x_a; agree mod μ_m^{gcd(2,m)} only — BM layer and T1 are the m = 2 coincidence | PROVED (m = 3, 4) |
-| z41_choosable_ladder | choose the level prime by non-abelian Frobenius | whole 2-part of ℓ's class choosable (density 2/m per step) but a prime < t − 1 never hits −1; fixed divisor ⟹ level determined (lottery) | PROVED |
+| z41_choosable_ladder | choose the level prime by non-abelian Frobenius | whole 2-part of ℓ's class choosable (rel. density 2/m per step among q ≡ 1 (m); forced at q ≡ 3 (4)) but a prime < t − 1 never hits −1; fixed divisor ⟹ level determined (lottery) | PROVED |
 | z41_two_group_levels | do the 2-group levels 2^k·F suffice? | no: 1 298 primes ≤ 10⁶ fail all T2 levels (1 180 have (★) words elsewhere); n = Dm² dead at levels 4D \| t | EVIDENCE + PROVED lemma |
-| z41_cubic_hecke_shadow | spark 3: bias the cubic layer by a family of n | impossible for any family via forcing; cubes bias an ES-invisible anti-cyclotomic Hecke character | PROVED (scope) |
+| z41_cubic_hecke_shadow | spark 3: bias the cubic layer by a family of n | no family biases it through the forcing congruence; cubes bias an ES-invisible anti-cyclotomic Hecke character (conductor \| 9t) | PROVED (narrow scope) |

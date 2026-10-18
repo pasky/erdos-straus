@@ -9,6 +9,5 @@ primes 5<=p<=X with no T2 word: 1298 of 78496; first: [5, 7, 11, 13, 17, 23, 29,
 of the first 200 T2-failing primes, 81 have no word at ANY 4|t level
 n=131: word at some 8|t level: None; at some 4|t level: (4, 2, 19)
 n=241: word at some 8|t level: None; at some 4|t level: None
-n=241: word at some 8|t level: None; at some 4|t level: None
 baseline all 4|t levels: primes failing 118; odd non-squares failing 1939; squares hit 0
 T2-failing primes that HAVE a word at some 4|t level: 1180
