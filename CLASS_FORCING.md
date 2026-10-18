@@ -41,14 +41,22 @@ image of [p] in G/G_F, G_F := Gal(ℚ(ζ_t)/F), and is independent of [p] beyond
 matters.
 (c) *(Computation of F for the standard data.)* (i) n = ℓ an odd prime, a₁, …, a_k multiplicatively independent mod ℓ-th powers:
 Ω^{ab} = ℚ(ζ_ℓ), so the ℓ-th power residue symbols (a_i/p)_ℓ carry no information on [p] mod t beyond p mod ℓ (if ℓ | t).
-(ii) n = 4 (quartic symbols), Ω = ℚ(i, a^{1/4}), a ≠ ±□ : Ω^{ab} = ℚ(i, √a); information = (a/p)
-and p mod 4. (iii) Rédei fields (dihedral of order 8 over ℚ, containing ℚ(√a, √b)): Ω^{ab} = ℚ(√a, √b); information = two
-Legendre symbols. (iv) Smith's governing fields for 2^k-ranks are 2-extensions built over multiquadratic fields by iterated
-dihedral/Rédei steps; whenever Ω^{ab} is multiquadratic (which holds for the Rédei-type towers in (iii), and must be checked
-for any other Ω by computing Ω^{ab}), the information is a set of Legendre symbols.
-So **in all these cases the residue-symbol data of p touches the class [N] ∈ G only through quadratic characters (G/G²) and
-p mod n — the χ-shadow of Prop 10.3 (WINDMILL_REDUCTION) and Lemma 2.2(b) (SYNTHESIS_SPARKS8).**
-*Proof.* (a) Column 4 of §1: 4N ≡ p, cp + 1, p, 1 (mod t) resp. (b) Ω and ℚ(ζ_t) are Galois with intersection F, so
+(ii) n = 4 (quartic symbols), Ω = ℚ(i, a^{1/4}), a ≠ ±□ (this excludes a = −4b⁴ = −(2b²)², the Sophie-Germain case of the
+Remark, where Ω = ℚ(i) is abelian; (R272 repair) hypothesis made explicit) : Ω^{ab} = ℚ(i, √a); information = (a/p)
+and p mod 4. (iii) Rédei fields (dihedral of order 8 over ℚ, containing the biquadratic ℚ(√a, √b) — (R272 repair) biquadratic is a
+hypothesis; degenerate cases are cyclic quartic): Ω^{ab} = ℚ(√a, √b); information = two
+Legendre symbols.
+(iv) *(R272 repair: the earlier claim that governing fields have multiquadratic Ω^{ab} is withdrawn.)* A governing field is not
+canonical: any finite Galois Ω′ ⊇ Ω (e.g. Ωℚ(ζ₁₆), Ωℚ(ζ₅)) governs the same invariant, and then F sees [p] mod 16 resp. mod 5 in
+full (cyclic quotients ⊄ G/G²); even minimal 2-power governing fields may have cyclic-quartic or ℚ(ζ₁₆)-type abelian parts.
+For the specific fields of Smith / Koymans–Pagano the abelian part was NOT checked (no sources available).
+So, **(R272 repair; replaces the earlier bold summary) any Frobenius datum of p sees [N] ∈ G only through a quotient of p mod t
+(congruence data: the image of [p] in G/G_F), and is equidistributed independently of [p] beyond that quotient. For the data
+(i)–(iii) the quotient is of G/G² × (p mod gcd(n, t)) type — the χ-shadow of Prop 10.3 (WINDMILL_REDUCTION) and Lemma 2.2(b)
+(SYNTHESIS_SPARKS8) plus a cyclotomic piece.** In short: reciprocity data of p = congruence data of p plus an independent
+non-abelian part. Since [N] is itself a function of p mod t ((a)), nothing downstream depends on how large F is.
+*Proof.* (a) (R272 repair) N ≡ p (mod 4d) (b = 1 line), N = cp + 1 (c-line; for c odd N is even and only odd divisors can be
+≡ −1 (mod 4c), so the event concerns the odd part of N), 4N ≡ p (mod e) and 4N ≡ 1 (mod e) for the e-slices (e ≡ 3 (4) odd). (b) Ω and ℚ(ζ_t) are Galois with intersection F, so
 Gal(Ωℚ(ζ_t)/ℚ) is the fibre product; Chebotarev gives equidistribution of Frob in it; the fibre over σ ∈ Gal(Ω/ℚ) is a
 coset of G_F, so σ fixes exactly [p]·G_F. F ⊂ ℚ(ζ_t) is abelian, hence F ⊂ Ω^{ab}. (c)(i) Gal(Ω/ℚ) ≅ (ℤ/ℓ)^k ⋊ (ℤ/ℓ)^× with
 u acting by multiplication; for u ≢ 1 the commutators (u − 1)v exhaust (ℤ/ℓ)^k, so the abelianisation is (ℤ/ℓ)^× and
@@ -103,14 +111,16 @@ the FULL class (not just characters) changes nothing.
 
 ## 3. Individual factors: the strongest forced-factor lemma and the exact forced criterion
 
-Write N = s·L with s the B-smooth part (prime factors ≤ B, known from p mod M_B, M_B := ∏_{q ≤ B} q^{e_q}, e_q large) and L the
-B-rough cofactor (class g_L := [N]·[s]⁻¹ ∈ G known, factorisation unknown).
+Write N = s·L with (R272 repair) s := ∏_{q ≤ B} q^{min(v_q(N), e_q)} — exactly what p mod M_B, M_B := ∏_{q ≤ B} q^{e_q}, reveals —
+and L := N/s the opaque cofactor (class g_L := [N]·[s]⁻¹ ∈ G known, factorisation unknown; L absorbs any excess q^{v_q(N) − e_q},
+and "L prime" stays an admissible abstract completion since the adversary may take v_q(N) = e_q).
 
 **Lemma 3.1 (forced-factor lemma, strongest form; PROVED, trivial).** Let S be a multiset in an abelian group G with product g.
 For every homomorphism φ : G → A, Σ_{x∈S} φ(x) = φ(g). Consequently for every subgroup H ∌ g some x ∈ S lies outside H
-(for t ∤ … : "N ≡ a (mod t), a ∉ H ⟹ some prime factor ∉ H"; the case H = ker χ₋₄ is "N ≡ 3 (4) ⟹ a prime ≡ 3 (4)").
+((R272 repair, garbled fragment fixed) "N ≡ a (mod t), a ∉ H ⟹ some prime factor ∉ H"; the case H = ker χ₋₄ is "N ≡ 3 (4) ⟹ a prime ≡ 3 (4)").
 Nothing more is forced: **(realisability)** for every multiset S′ ⊂ G with product g there are integers N′ ≡ N (mod t) whose
-prime factors have exactly the classes S′ — in particular N′ prime (S′ = {g}).
+prime factors have exactly the classes S′ — in particular N′ prime (S′ = {g}). (R272 note: this is abstract realisability; realising
+"L prime" by actual primes p in a class needs two linear forms prime simultaneously — that is HC's job in §6, not Dirichlet's.)
 *Proof.* Product formula; for realisability take primes in the prescribed classes (Dirichlet) and adjust nothing: their
 product has class g. ∎
 So the forced content of the total product on Σ is {1, g}, and with the smooth part known it is Σ(s) ∪ Σ(s)·g_L.
@@ -120,8 +130,7 @@ factorisation of L compatible with the known data (Lemma 3.1). Then
   E(N, t) is forced  ⟺  −1 ∈ Σ(s) ∪ Σ(s)·g_L   (signed version: −1 ∈ Σ^±(s)·{1, g_L, g_L⁻¹}),
 and this is a condition on p mod lcm(t, M_B): a finite union of residue classes (B1). If in addition the images ā_i ∈ G/H of the
 k prime factors of L were known (a hypothetical input; §5 shows reciprocity does not supply it), forcing ⟺ for every lift
-(a_i) ∈ ∏ ā_i with ∏ a_i = g_L, −1 ∈ Σ(s)·Σ(a_1, …, a_k): a finite check, and for |H| ≥ 3 and k ≥ 2 it can still fail for every
-choice of images (the adversary has k − 1 free coordinates).
+(a_i) ∈ ∏ ā_i with ∏ a_i = g_L, −1 ∈ Σ(s)·Σ(a_1, …, a_k): a finite check. (R272 repair: an unproved sentence about failure "for every choice of images" deleted.)
 *Proof.* ⟸: the subset product is realised by a divisor (a subset of the small primes, possibly times L). ⟹: L prime is
 compatible (Lemma 3.1), and then Σ(N) = Σ(s) ∪ Σ(s)·g_L exactly. ∎
 
@@ -136,12 +145,16 @@ d, c ≤ D (resp. e ≤ D), the forced criterion of Prop 3.2 fails. Hence (Diric
 levels and bounded small primes misses infinitely many primes — namely a full residue class.
 *Proof.* p ≡ 1 (M) makes the smooth part of N and the class of L coincide with those of the integer N₁ obtained at "p = 1":
 p + 4d ↦ 1 + 4d, cp + 1 ↦ c + 1, (p + e)/4 ↦ (1 + e)/4, (pe + 1)/4 ↦ (e + 1)/4 (the exponents e_q exceed the valuations of
-these numbers; t | M). So Σ(s) ∪ Σ(s)·g_L is the set of classes of divisors of N₁. A divisor v of 1 + 4d with v ≡ −1 (mod 4d)
+these numbers; t | M). So Σ(s) ∪ Σ(s)·g_L is contained in the set of classes of divisors of N₁ ((R272 repair) "contained in", not
+"is": e.g. B = 5, d = 12, N₁ = 49 gives {1, 49} ⊊ {1, 7, 49}). (R272 repair: q^{e_q} > 4D + 1 already suffices here; the stronger
+q^{e_q} > 16D(D + 1) ≥ t·N_i(1) is what Thm 6.1 needs — it gives t | M/s_i, so the cofactor's class mod t is constant along
+p = 1 + Mk. For c odd, v₂(cp + 1) = v₂(c + 1) and only odd divisors matter, so the 2-part is harmless.) A divisor v of 1 + 4d with v ≡ −1 (mod 4d)
 satisfies v ≤ 4d + 1, so v = 4d − 1, and 4d − 1 | 4d + 1 ⟹ 4d − 1 | 2: impossible. Likewise c + 1 has no divisor ≡ −1 (mod 4c)
 (4c − 1 > c + 1), and ab | (1 + e)/4 with a ≡ −b (mod e) needs e | a + b ≤ (1 + e)/4 + 1 < e. ∎
 *Reading.* This is JOINT_BUDGET Prop 4.3's "modulo divisors of p − 1, p looks like 1, and 4/1 has no solution" made into a
-statement about forced factors; it is the b = 1 / c-line / e-slice specialisation of LONGSHOT_PIGEONHOLE Thm 2.2 and
-POINTWISE_SIZE Thm C, here with an exact, elementary proof and an explicit residue class (no density statement needed).
+statement about forced factors. (R272 repair, attribution:) it is the classical "congruence coverings never contain p ≡ 1 (mod M)"
+obstruction (JOINT_BUDGET Prop 4.3 + B1_LINE §4) in forced-factor language — an analogue of, not a specialisation of,
+LONGSHOT_PIGEONHOLE Thm 2.2 (a density bound) and POINTWISE_SIZE Thm C (CONDITIONAL on H); low novelty.
 
 ## 4. Zero-sum (Davenport) quantification: how many forced escaping factors would be needed
 
@@ -157,15 +170,22 @@ every such H: the min is n − 1. For t = 4q take x = (−1 mod 4, a generator m
 (−1, −1) = −1. ∎
 **Proposition 4.2 (the forced supply is at most one escaping factor per subgroup).** From total-product data the number of
 forced escaping large factors is 1 if g_L ∉ H and 0 otherwise (Lemma 3.1, realisability); for the b = 1 line and H = ker χ₋₄
-it is 0 (z29(b)); for H = G² it is 1 iff g_L is a non-square (the (J)64 bit). Lemma 2.3 of SYNTHESIS_SPARKS8 (large primes
-are private to one N_d) forbids pooling escaping factors from different levels into one integer. Hence the Davenport
-route needs, for ONE integer N_d, ≥ η(G) + 1 ≥ (q − 1)/2 escaping factors at a prime level q, but supplies ≤ 1. **The zero-sum
+it is 0 from total-product data alone (z29(b); (R272 repair) once the smooth part is known the cofactor can escape ker χ₋₄,
+e.g. p + 4d = 3·L forces L ≡ 3 (mod 4)); for H = G² it is 1 iff g_L is a non-square (the (J)64 bit). Lemma 2.3 of SYNTHESIS_SPARKS8 (large primes
+are private to one N_d) forbids pooling escaping factors from different levels into one integer. Hence (R272 repair) a
+criterion of the form "> k escaping factors per subgroup ⟹ −1 ∈ Σ" must have k ≥ η(G), and η(G) ≥ (q − 3)/2 at a prime level
+q ≡ 3 (mod 4) (Lemma 4.1; for q ≡ 1 (4) the construction gives only odd(q − 1) − 1, = 0 at Fermat primes), while ONE integer N_d
+supplies ≤ 1. Moreover η(G) ≥ 1 ⟺ exp(G) > 2 for t = 4d: η ≥ 1 ⟺ some S has −1 ∈ ⟨S⟩ ∖ Σ(S); if exp(G) = 2 then ⟨S⟩ = Σ(S);
+the converse was checked for all d ≤ 150 by R272 (`scripts/review_r272_eta_pos.py`; a general proof is not supplied — Assessment). **The zero-sum
 mechanism cannot convert parity forcing into class forcing at any level with η(G) ≥ 1**, i.e. at every level except
 those where a single escaping element is already −1-generating (exponent-2 levels t | 24, where −1 ∈ Σ ⟺ −1 ∈ ⟨S⟩).
 *Quantitative reading (Assessment).* Ω(N) ≤ log₂N, so even unforced (actual) escaping factors can feed Lemma 4.1-type
 groups only for q ≲ 2 log₂ p; typical N has ≍ log log p factors, i.e. zero-sum certificates are a small-modulus (B1-scale)
 phenomenon; at larger levels Σ(S) is a 2^{Ω}-point random subset of G — the lottery. This is LONGSHOT_PIGEONHOLE Prop 1.4
-(Kneser) in the target-−1 form; Lemma 4.1 gives the explicit cyclic witness.
+(Kneser) in the target-−1 form; Lemma 4.1 gives the explicit cyclic witness. (R272 note: Lemma 4.1 is weak — brute force gives
+η((ℤ/28)^×) ≥ 4, η((ℤ/44)^×) ≥ 7, `logs/review_r272_eta.txt`; with DISTINCT classes the relevant notion is the critical number
+(Diderrich–Mann, Gao–Hamidoune: ≳ 2√|G| distinct elements avoiding small-subgroup obstructions give Σ = G) — repetition is what
+makes η large. Literature not checked against sources.)
 
 ## 5. Reciprocity at an individual prime factor: what it links, and why it never reaches the class mod t
 
@@ -175,7 +195,8 @@ phenomenon; at larger levels Σ(S) is a 2^{Ω}-point random subset of G — the 
 ℚ(ζ_n, (−4d)^{1/n}). By n-th power reciprocity this is equivalent to a statement about ℓ modulo a prime π | p in ℤ[ζ_n]
 (the n-th power class of ℓ mod π); multiplied over ℓ | N it gives (N/π)_n = (4d/π)_n, i.e. N ≡ 4d (mod p) — again a
 total-product statement, now modulo p instead of modulo t.
-(c) The joint law of (ℓ mod t, Frob_ℓ in K_{n,d}) over primes ℓ is Chebotarev in ℚ(ζ_t)K_{n,d}, with ℚ(ζ_t) ∩ K_{n,d} ⊂
+(c) ((R272 repair) assume −4d ∉ ℚ^{×n}; otherwise K_{n,d} = ℚ(ζ_n) and the datum is trivial.) The joint law of (ℓ mod t,
+Frob_ℓ in K_{n,d}) over primes ℓ is Chebotarev in ℚ(ζ_t)K_{n,d}, with ℚ(ζ_t) ∩ K_{n,d} ⊂
 K_{n,d}^{ab}, which is ℚ(ζ_n) for n an odd prime (Thm 2.1(c)(i)) and ℚ(i, √d) ⊂ ℚ(ζ_{4d}) for n = 4 (d not a square; for
 d = b², −4d = ((1 + i)√b)⁴ and K_{4,d} = ℚ(i, √b) is itself abelian: (p/ℓ)_4 = (b/ℓ) for ℓ ≡ 1 (4) — the Sophie-Germain exception, still
 only a quadratic character of ℓ);
