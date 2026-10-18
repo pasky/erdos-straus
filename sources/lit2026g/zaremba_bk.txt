@@ -1,8 +1,38 @@
-URL: https://arxiv.org/abs/1107.3776
+Source: Bourgain-Kontorovich arXiv:1107.3776 (Ann. Math. 180 (2014)), pp. 2-8, pdftotext, read by O261 agent 2026-10-18
+Conjecture 1.7. If the dimension δA exceeds 1/2, then the set of denominators DA contains
+every sufficiently large admissible integer.
+We interpret this conjecture as a local-global principle, where the dimension condition and
+“sufficiently large” are local obstructions at infinity. Theorem 1.2 follows from the following
+more refined approximation to Conjecture 1.7.
+Theorem 1.8. There exists an effectively computable constant δ0 < 1 so that if the dimension
+δA exceeds δ0 , then the set of denominators DA contains almost every admissible integer. More
+precisely, there is a constant c = c(A) > 0 so that
+
+#(DA ∩ [N/2, N ])
+= 1 + O N −c/ log log N ,
+#(AA ∩ [N/2, N ])
 
-“we prove that the Zaremba conjecture holds for a set of density one, with the alphabet {1,2,...,50}.”
+(1.9)
 
-Related precise count as quoted in Bourgain–Kontorovich, Annals PDF (Theorem 1.8):
-URL: https://annals.math.princeton.edu/wp-content/uploads/annals-v180-n1-p03-p.pdf
+as N → ∞. Furthermore, each d produced above appears with multiplicity
+1001
 
-(The paper's main argument constructs a thin semigroup orbit and applies a circle method; this excerpt file intentionally retains only the verified abstract claim.)
+ N 2δA − 1000 .
+...
+“singular series” S times a “singular integral” Π,
+MN (d) ∼ S(d)ΠN (d),
+where Π gives the expected archimedean contribution, roughly
+ΠN (d)  N 2δ−1
+for d  N , and the singular series S controls the local obstructions. In particular, if d 6∈ A is
+not admissible, then S(d) = 0; otherwise, we have roughly that
+JEAN BOURGAIN AND ALEX KONTOROVICH
+
+With the major arcs controlled, if we could prove that the errors are individually bounded,
+|EN (d)|  N 2δ−1−ε , say, then we would conclude the full Conjecture 1.7. We are not able to
+establish control of this quality individually, but do succeed on average, proving essentially that
+X
+
+|EN (d)|2  N 4δ−1−c/ log log N ,
+
+(1.37)
+

@@ -1,0 +1,33 @@
+Source: Xin Zhang, arXiv:2605.02518v2 (May 2026), 'Expansion in SL2(Z/qZ) and Zaremba's conjecture', pp.1-2, read by O261 agent 2026-10-18. PREPRINT, unrefereed.
+Conjecture 1.1 (Zaremba, 1972 [Zar72], p. 76). Every natural number is
+the denominator of a reduced fraction whose partial quotients are absolutely
+bounded. That is, there exists some M > 0 such that for any q ∈ N,
+one can find a natural number a < q with gcd(a, q) = 1, such that writing
+a/q = [a1 , a2 , · · · , as ], we have ai ≤ M for every 1 ≤ i ≤ s.
+In this paper we prove
+Theorem 1.2. Zaremba’s conjecture holds.
+In fact, Zaremba conjectured that M = 5. Our method can only produce
+This bound was improved to O( logloglogq q ) for a specific subset of natural numbers by Murphy-Moshchevitin-Shkredov [MMS26], and in particular, this
+set contains all primes. In a recent brilliant paper by Shkredov [Shk26], this
+bound was further improved to an absolute constant M. Both [MMS26] and
+[Shk26] are considering some cantor type sets with some additive structures
+in Z/qZ that are originally due to Moshchevitin [Mos07], and a critical ingredient in these two works is Helfgott’s triple product theorem on SL2 (Z/pZ)
+[Hel08] as well as its generalization to square free moduli by [BGS10].
+Nevertheless, the set of integers covered by [MMS26] and [Shk26] still
+only makes a positive proportion of all natural numbers. As hinted in the
+concluding remarks of [MMS26], to deal with an arbitrary modulus q, one
+naturally needs a growth theory in SL2 (Z/qZ) for a general q. In §2, we
+provide such a theory (Theorem 2.1, Theorem 2.2, Theorem 2.4), albeit we
+have to admit it is not light. In §3 we apply the results in §2 to estimate
+the number of solutions to a particular equation in Z/qZ to obtain Theorem
+3.6. Implementing Theorem 3.6 in the framework provided by the proof of
+Theorem 8 in [Shk26] then leads to Theorem 1.2. For readers’ convenience,
+in §4 we give an outline of Shkredov’s argument how to use Theorem 3.6 to
+deduce Theorem 1.2. We invite the readers to Shkredov’s work [Shk26] for
+details.
+Remark 1.3. The bound M in Conjecture 1.1 is effectively computable.
+The methods in [Shk26] and in this paper would produce a large number.
+Lowering this bound to 5 or any reasonable magnitude requires a new idea.
+Remark 1.4. Bourgain-Varjú proved a spectral gap theorem in SLd (Z/qZ)
+with respect to a fixed finite generating set S and an arbitrary modulus q.
+However, in the consideration of Zaremba’s conjecture, we need to deal with
