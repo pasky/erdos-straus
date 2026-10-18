@@ -155,3 +155,58 @@ the exact-support statement (θ_{1,105} = Σ q^{105m²} contains 105). *Repair:*
 support of Z") in each restatement; replace "provably not metaplectic" by "Z is not the exact support of any
 holomorphic weight-½ form".
 
+## Claim 4 — §3 matrix side (Bruhat cell, ν_θ ≡ −i, not a semigroup)
+
+**Verdict: SOUND (dictionary); one MINOR imprecision (D8).**
+
+Re-derived: γ_w = [[tu−1, n],[t, tv−1]] has det (tu−1)(tv−1) − tn = 1 and γ_w ≡ −[[1, −n],[0, 1]] (mod t), so
+γ_w ∈ −Γ₁(t); T^kγT^l keeps c = t and changes a, d by multiples of t, so the condition is ⟨T⟩-bi-invariant; the
+double cosets ⟨T⟩\{c = t}/⟨T⟩ are indexed by (a, d) mod t with ad ≡ 1, i.e. one Kloosterman term each; the ES words
+are the b = n, a, d ≥ 2t − 1 part of the (−1, −1) cell; the +I cell contains [[1, n],[t, tn + 1]]; D⁻ − D⁺ is the
+signed positive count over the two cells. ν_θ(γ) = ε_d⁻¹(c/d): for 4 | t, d ≡ −1 (t) one has (t/d) = +1 (computation in
+Claim 2), ε_d = i, so ν_θ = −i. On positive γ ∈ Γ₀(4) with b odd, ad ≡ 1 (b) and bc ≡ −1 (d) give, by reciprocity,
+(c/d) = (a/b) if d ≡ 1 (4) and (c/d) = −(−1/b)(a/b) if d ≡ 3 (4).
+From scratch (`scripts/review_r280_matrix.py`): (a) 0 of the 4096 products for t, u, v ∈ [2, 5] is self-levelled
+(confirms author), also 0 of 117 649 for [2, 8], and none lies in +Γ₁(c) either; (b) ν_θ = −i on all 168 200 ES
+matrices with 4 | t ≤ 200, u, v < 60; (c) both reciprocity formulas on 20 000 random positive Γ₀(4) matrices, b odd:
+0 failures; (d) the a, d ≥ 2t − 1 part of the −I cell with b = n, c = t has exactly R_t(n) elements (t < 12, n < 400),
+and [[3,5],[4,7]] is the boundary word (4, 1, 2) of n = 5.
+
+**D8 (MINOR) — §3's last sentence is not a statement.** Location: METAPLECTIC §3 "T1 = imaginary multiplier on the
+−I cell is incompatible with b = □"; also "on positive elements of Γ₁(4) ν_θ = (a/b)" (needs b odd; (a/b) is
+undefined as a Jacobi symbol for even b). *Repair:* replace by the precise lemma (verified in (c)): "for positive
+γ ∈ Γ₀(4) with b odd and d ≡ 3 (4), (c/d) = −(−1/b)(a/b); if b = m² this is −1, whereas self-levelling with 4 | c forces
+(c/d) = +1 — this is T1 at 4 | t" (the memo's item 4 says this, correctly; §3 should too), and add "b odd" to the Γ₁(4)
+formula. Note also that the "not a semigroup" observation only shows the self-levelled set is not *kernel ∩ positive
+cone* of a multiplier; that is what is claimed, fine.
+
+## Claim 5 — §4 GL(3) / level sum
+
+**Verdict: SOUND (identities); readings correctly labelled Assessment.** `scripts/review_r280_gl3.py`: (i)
+Σ_{t,u,v≥2} q^{tuv−u−v} = Σ_{u,v≥2} q^{2uv−u−v}/(1 − q^{uv}) to q^3000, (ii) #{t, u, v ≥ 2 : tuv = n} = d₃ − 3d₂ + 3 − [n = 1]
+(n ≤ 400), (iii) R(n) = #{(u, v) ≥ 2 : uv | n + u + v, n ≥ 2uv − u − v} (n ≤ 600): 0 mismatches each. Σ_{n≤X} d₃ ~ ½X log²X
+is standard; (15/64) is (J)39 Lemma 2.1 (R204-refitted; not re-checked here). One remark for §5 consistency: §4's
+GL(3) object is Eisenstein (d₃ = 1∗1∗1, abelian), so it does not touch H-D's "GL₃ or higher automorphic forms" —
+worth saying explicitly, since (J)39 lists GL(3) *cuspidal* contributions as not excluded.
+
+## Claim 6 — §5 red team 2 Thm 2.2 hypothesis analysis
+
+**Verdict: GAP (MINOR-to-MAJOR presentational, D9).** The finite-level part is right in substance: for a fixed finite
+set of levels the witness is a divisor ≡ −1 (t) of the fixed linear polynomials tp + 1, so Thm 2.2(iii)'s proof
+(bounded, correct witness procedure → POINTWISE_SIZE Thm C) applies, CONDITIONAL on H as stated. The H-D remark
+(per-level content is congruence data; ν_θ takes congruence values) is a fair Assessment with the stated scope.
+
+**D9 — the screen omits hatch H-E, which is the one Thm K actually touches; and "violates only the finiteness
+hypothesis" conflates hypotheses with hatches.** Location: §5 bullets 2–3, §7.4, report Results (1). Thm 2.2(iii)
+has essentially one hypothesis (Θ₀ finite, plus H for the conclusion); the meaningful screen is against the escape
+hatches H-A … H-G of red team 2 §3. Thm K/Cor K1 produce exactly an *exact signed expansion of the aggregated count*,
+R = 𝔈 + 𝔒 − 𝔅 with a positive main term 𝔈 — the shape that red team 2 lists as **H-E** ("Open for an exact identity
+with a positive main term"). §5 should say why this instance does not open H-E: to use it one needs |𝔒 − 𝔅| < 𝔈 at a
+single prime, i.e. a pointwise bound on ≍ n/4 weight-1 Eisenstein coefficients at different levels and points, and the
+per-level modular pieces are of size ≍ n before the non-modular renormalisation (D4) — so the "cancellation" is
+termwise-elementary and the remaining sum is the H-A/B2 object again. *Repair:* rewrite §5 as a hatch screen
+(H-A: touched, quantitatively blocked as assessed; H-D: not opened in the examined constructions; **H-E: the even/odd
+identity is a signed exact expansion with positive main term, but its error term is the same single-n level sum —
+not opened**; H-B, H-C, H-F, H-G: not engaged), and replace "violates only the finiteness hypothesis" by "touches
+only H-A (and, formally, H-E)".
+
