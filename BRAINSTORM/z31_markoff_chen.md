@@ -1,7 +1,8 @@
 # z31 — Markoff surfaces, strong approximation mod p, Chen's divisibility (O261 field memo 2; DEEP item)
 
 Labels as in DISCOVERIES.md. Read by me: `sources/lit2026g/chen_markoff.txt` (Chen arXiv:2011.12940, pp. 6–7). Builds on
-LITERATURE_2026 §(ii), LITERATURE_AUTOMORPHIC (Ghosh-Sarnak ✔), x §3.
+LITERATURE_2026 §(ii), LITERATURE_AUTOMORPHIC (Ghosh–Sarnak ✔), GROWING_MUTE.md ((J)36: ES^{(y,1)} is a Markoff-type
+integral-point problem), MARKOFF_ES.md ((J)37), CAP_TWO.md ((J)47), thin_group_orbits.md §3.
 
 ## (a) Counterpart statements (two different axes — the distinction is the point)
 * **Axis 1 (fixed surface, varying reduction prime):** X : x² + y² + z² = xyz (Chen's normalisation), Γ = ⟨Vieta moves,
@@ -23,7 +24,7 @@ LITERATURE_2026 §(ii), LITERATURE_AUTOMORPHIC (Ghosh-Sarnak ✔), x §3.
 * **Axis 2 — FALSE pointwise:** Ghosh–Sarnak (Invent. Math. 229 (2022), arXiv:1706.06712; abstract read by research agent):
   "for almost all k the Hasse Principle holds", while Hasse failures occur for ≫ √K (log K)^{−1/2} values k ≤ K
   (LITERATURE_AUTOMORPHIC, ✔); Loughran–Mitankin / Colliot-Thélène–Wei–Xu explain part of them by Brauer–Manin (UNVERIFIED
-  theorem numbers). The count of integral points per orbit is power-of-log in the height (growth of Vieta orbits).
+  theorem numbers). (Memory, unverified: points of a Vieta orbit of height ≤ B number ≍ (log B)^{O(1)}, cf. Zagier's (log B)² for Markoff triples.)
 
 ## (c) Transfer to B2 — exactly what blocks it
 1. **Wrong axis.** Chen/BGS answer a *connectivity* question on a set of size ≍ p² whose non-emptiness is trivial; B2 is an
@@ -38,8 +39,9 @@ LITERATURE_2026 §(ii), LITERATURE_AUTOMORPHIC (Ghosh-Sarnak ✔), x §3.
    interpretation of ES solutions as covers; the closest is the supersingular/Eichler-order dictionary ((J)33, (J)35), whose
    objects are again counted only through the genus character (F6).
 4. **Scale (F2).** BGS's giant component uses |X*(p)| ≍ p²; ES has ≍ (log p)² certificates.
-Where Markoff *does* meet ES: cap-1 ES variants are integral points on Markoff-type cubics ((J)36), and the e = 2 cell is a
-Markoff-type class-group problem ((J)43, "not easier"). Those are relaxations, not B2.
+Where Markoff *does* meet ES: the bounded-cap growing-mute variant ES^{(y,1)} is an integral-point problem on Markoff-type
+cubics ((J)36, GROWING_MUTE; (J)37, MARKOFF_ES, which distinguishes these surfaces from the classical Markoff family), and the
+e = 2 cap cell is one Markoff-type equation ((J)47, CAP_TWO; STATUS wave Y: "not easier"). Those are relaxations, not B2.
 
 ## (d) Verdict: ANALOGUE (same surface type — Cayley cubic/log K3; different axis). Mechanism transfer: **NOT SHARP**.
 The one structural lesson worth recording: Chen's is a *non-counting pointwise* argument, but it proves uniqueness of an orbit,
