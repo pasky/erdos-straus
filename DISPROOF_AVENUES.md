@@ -182,6 +182,27 @@ flat over 2¹⁸–2²⁷ (O154: class of one 0.034 at 10¹⁶). With the zero l
   stops growing beyond μ ≈ 70 (`logs/z32_lowdev.txt`; pooled over m and p, so confounded). That is why §4.4's worst
   case uses the global minimum ratio, not the cell mean.
 
+**4.5 Heavy tails are self-refuting given the 10¹⁸ verification (Assessment; `scripts/z32_heavy_tail.py`,
+`logs/z32_heavy_tail.txt`).** Answering "where is the first counterexample if the tail is heavier than measured":
+take the one-parameter family P(f = 0) = exp(−0.535 μ^β), μ = c L³ for *every* prime (c = 0.037, hardest cell,
+Type II only; c = 0.074, crude Type I + II).
+
+| c | β | E#[10⁸, 10¹⁸) | E#[10¹⁸, 10⁶⁰) |
+|---|---|---|---|
+| 0.074 | 0.91 (measured) | 10⁻⁵⁷ | 0 |
+| 0.074 | 0.55 | 1.65 | 2·10⁻¹⁰ |
+| 0.074 | 0.50 | 494 | 0.71 |
+| 0.074 | 0.45 | 1.4·10⁶ | 6.5·10⁷ |
+| 0.037 | 0.55 | 862 | 0.074 |
+
+The decay in L is so steep that **any tail heavy enough to put an expected ≳ 0.1 failures beyond 10¹⁸ predicts
+hundreds or more below 10¹⁸**, where ES is verified (Mihnea–Dumitru). So within this family the first counterexample
+would sit *just above the last verified range* or nowhere, and the verified range already excludes it; conditioning
+on "none ≤ 10¹⁸", the expected number beyond is ≲ 10⁻² for every β. The only escape is a zero law that is
+*non-monotone* in L (failures switching on at large p) — i.e. a new global mechanism (§6), not a heavier tail.
+* Extrapolation caveat: the fit uses μ ≤ 50 (the last observed zeros); m = 4 has μ ≥ 229 already at 10⁸. The
+  crossover law (§4.3), which uses quantiles observable at any μ, is the independent cross-check.
+
 ## 5. Adversarial search at 10¹⁸–10²⁵ (EVIDENCE; primes are BPSW-probable, python-flint)
 
 **Engine (`scripts/z32_adv.py`).** For p ≡ 1 (4) it computes every Type I and Type II e-slice count for e ≤ E
