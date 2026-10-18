@@ -35,3 +35,55 @@ TES 2-primary normalisation convention.
   (k = 1: 412/412 primes and cubes; k = 2: 209/412 both; k = 3: 134/412 primes, 0/412 cubes), all Type II, and the
   firing set agrees exactly with the criterion "−n/18 ∈ (F₇₃^×)^k" (ω ↦ 8). Lowest terms gcd(Q, Z) = 1 verified;
   a = (g + ω²)/9 = −1 for g = −8 + ω. All class primes g ≡ 10 + ω (18) with N(g) ≤ 3000 have N(g) ≡ 1 (18).
+* `scripts/review_r287_mute.py 1000000 1000000` (`logs/review_r287_mute.txt`): 19 564 primes q ≡ 1 (12) ≤ 10⁶ all have a
+  witness g ≡ 3 (4) with q a primitive root, max least g = 179 at q = 432 793 (= author); q = 13, g = 11: 78 914 n (all odd
+  primes ≠ 11, 13 and odd squares prime to 143, ≤ 10⁶) solved exactly with den z a power of 13, max c = 9 (= author);
+  Prop 3.1(a) index formula: 0 mismatches by brute force over all odd squarefree U < 200, k ≤ 12; all six explicit
+  identities of §2.3/§5.2 (numerator 8 at 131, 241; 4/5 = 1/58 + 1/5 + 13²/290) are exact with the stated den z.
+* `scripts/review_r287_counts.py 1000000` (`logs/review_r287_counts.txt`): least r for k = 2: 3, 7, 11, 19 for 19 611,
+  9 825, 4 948, 2 444 primes, max 131; Q = 1 shot fails at 9 841 primes p ≡ 1 (4) — all equal to §2.3.
+
+## Claim-by-claim
+
+### Def 1.1, Remark 1.2 — SOUND
+* Def 1.1 is exactly UNIT_ORBIT_ES §1's ES^{(S)} normalisation (v_q(z) ∈ 2ℤ whenever v_q(z) < 0, z ∈ ℤ[1/S], S odd and
+  prime to n) with 2 → k and S = all odd primes ∤ n; for k = 2 it is literally SPARKS2's ES^□. So it is the natural
+  reading of "third denominator carrying a k-th power factor", not a looser one.
+* Remark 1.2 re-derived: A/B (lowest terms) = Q^k/Z with Z ∈ ℤ ⟺ Z = BQ^k/A ∈ ℤ ⟺ A | Q^k (gcd(A, B) = 1); Q = A works.
+  So dropping gcd(Q, Z) = 1 makes the rung k-independent ("numerator of 4/n − 1/x − 1/y odd and prime to n"), and every
+  stricter reading (Q tied to y, Q bounded, Q from a fixed S) is a different relaxation (treated in §4–§5). The
+  definitional question raised in the brief is therefore answered correctly: the odd-k collapse is NOT an artefact of a
+  sloppy definition — it is the genuine content of the lowest-terms k-th-power rung, and it is trivial because ES_(1) is
+  (and Q^k ≡ Q (mod 4)), as the author says.
+* Monotonicity ES_(k) ⊂ ES_(j) for j | k: immediate (Q^k = (Q^{k/j})^j).
+
+### Thm 2.1, Cor 2.2 — SOUND
+Re-proved: Q odd ⇒ Q^k ≡ Q (mod 4) for odd k, so 4 | n + Q^k; 1/(2x) + 1/(2x) + Q^k/(nx) = (n + Q^k)/(nx) = 4/n; q | Q,
+q | x ⇒ q | 4x − Q^k = n, contradiction, so the third term is in lowest terms with den = Q^k, Q odd, prime to n — a valid
+ES_(k) instance in the exact sense of Def 1.1. Type I at every ℓ | n (ℓ ∤ 2x, v_ℓ(nx) = v_ℓ(n)). Even n and 2^a: checked
+(4/2^a = 1/2^{a−1} + 1/2^a + 1/2^a). Numerically: Type I at every prime for all primes, odd squares, odd cubes ≤ 10⁶,
+k = 1, 3, 5, 7 — the T1 death at odd k is directly witnessed (squares with Type I shape), consistent with UNIT_ORBIT_ES
+Lemma 1.1 case (i) with w odd. Defects: D2 (distinct-denominator variant loses the shape), D3 (wording "finite covering").
+
+### Thm 2.3, Lemma 2.4, Cor 2.5 — SOUND
+Re-proved every step. n₀ ≡ 1 (4) squarefree > 1 has a prime ≥ 5 (n₀ = 3 is ≡ 3 (4)). The class a: at ℓ = 3 | gcd(n₀, k′)
+the only class ≠ 0, 1 is 2 with (2/3) = −1; at ℓ ≥ 5 the classes ≠ 0, 1 contain the residue 4 and non-residues, so the
+total Jacobi sign can be fixed; ℓ | L get a ≡ 2. Jacobi reciprocity with n₀ ≡ 1 (4) gives (n₀/r) = (r/n₀) = −1, and
+r ∤ m gives (n/r) = −1, so −n/4 is a non-zero square mod r ((−1/r) = −1). (r − 1)/2 odd and prime to k′ ⇒ gcd(k, r − 1)
+= 2 ⇒ (F_r^×)^k = (F_r^×)². Identity: 4rx = r(n + e) = n(r + 1) + 4Q^k, and 1/x + 1/y + 4Q^k/(nx(r + 1)) =
+(n(r + 1) + 4x + 4Q^k)/(nx(r + 1)) = 4x(r + 1)/(nx(r + 1)) ✓; e ≡ −n (4) since r ≡ 3 (4); den z = Q^k exactly because
+q | Q, q | x ⇒ q | n(r + 1). The self-repair "for n ≡ 3 (4) such an r need not exist" is correct (n = 3, k = 6: r ≡ 2 (3)
+and r ≡ 3 (4) force r ≡ 11 (12) and then (3/r) = +1). Lemma 2.4: m odd, Q prime to m ⇒ gcd(m, 2Q^{k/2}) = 1 ⇒ no prime
+factor ≡ 3 (4) ✓ (and 0 firings observed). Cor 2.5: n = s^{2^j}, s non-square; scaling by n/s (a power of s, prime to Q)
+preserves lowest terms ✓. The scaled solution at a square is not Type I/II-shaped at the primes of s (v_ℓ(x·n/s) =
+v_ℓ(n/s) ∉ {0} ∪ [v_ℓ(n), ∞)), so no conflict with T1 — the author's remark that the ledger's "ES^□ at every non-square"
+is the scope of the shaped construction, not of the truth of ES^□, is correct and worth a ledger note.
+
+### Prop 3.1 and the (J)107 repair — SOUND
+(a) G ≅ C₂ × ∏_{ℓ | U} C_{ℓ−1} and [C_m : C_m^k] = gcd(k, m) ✓ (brute force agrees). (b) single-shot index gcd(k, g − 1)
+✓, = gcd(k, 2)·gcd(k, (g − 1)/2) as (g − 1)/2 is odd ✓. (c) index 1 ⟺ k odd ✓. The D8 asymptotic ratios quoted in §7
+re-derived: k = 3: ½; k = 4: ½ log 8/log 3 = 0.946; k = 6: ½ log 12/log 3 = 1.131; k = 8: (7/4) log 2/log 3 = 1.104 ✓.
+The repair: LOWER_TAIL_FABLE §3.2 itself identifies its H = squares rung with ES^□ ("that relaxation (ES^□ of (J)28)"),
+so identifying its H = k-th-powers rungs with ES_(k) is the faithful reading, and then its conclusion "the only provable
+member of the ladder is k = 2" is refuted by Cor 2.5 (every k is a theorem at every n). The diagnosis (the solver chooses
+the modulus; calibrate at the best single modulus, index 1 or 2) is a fair Assessment and consistent with R286 D7.
