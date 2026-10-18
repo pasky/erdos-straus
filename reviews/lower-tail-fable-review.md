@@ -148,7 +148,7 @@ ladder statement are not.** (`scripts/review_r286_index.py`.)
   "(a+b)² = p + 2ab … has no prime factor ≡ 3 (mod 4), hence carries no certificate": FALSE.** Direct point counts of
   y² = x³ − Dx for all D mod p (`scripts/review_r286_cm.py`, 95 primes p ≡ 1 (4) < 1200): at 50 primes some ℤ[i]-CM order
   has a prime factor ≡ 3 (4) (p = 13: #E = 18 = 3² + 3²; p = 37: 36), and (a+b)² has one at 60 primes (p = 29:
-  (5+2)² = 49; p = 13: 25 is fine but 37: (1+6)² = 49). The orders p + 1 ± 2a = (a ± 1)² + b² need not be primitive.
+  (5+2)² = 49; p = 37: (1+6)² = 49). The orders p + 1 ± 2a = (a ± 1)² + b² need not be primitive.
   **Worse, such orders do carry certificates**: p = 229 = 2² + 15², #E = 234 (t = −4) = 229 + 5 has the Type II
   certificate (m, u, d) = (1, 5, 39), 4/229 = 1/60 + 1/2290 + 1/2748; p = 349, #E = 360 = 349 + 11 has the Type I
   certificate (1, 11, 3), 4/349 = 1/88 + 1/10560 + 1/335040; p = 1153, #E = 1170 likewise (all verified exactly and the
@@ -168,8 +168,8 @@ ladder statement are not.** (`scripts/review_r286_index.py`.)
 * **D1 (MAJOR) — §2 (2.5) is false.** "Type II ⟺ p = e²k² − y² − e for some e ≡ 3 (4), k ≥ 1, y ≥ 0" fails at
   p = 13, 37, 97, 181, 193 (and 3 more primes < 1000): e.g. 4/13 = 1/4 + 1/26 + 1/52 is Type II, but no (e, k, y) exists
   (complete search: e ≤ p + 1 is forced). The derivation gives 4uv = e²s² − (u − v)² and hence p + e = w(e²s² − y²), which
-  is of the stated shape only when the level w is a square; at the failing primes every Type II certificate has non-square
-  w. The "equivalently p ∈ W − □, W = {X² − e : e | X}" reading is worse: with e = 2, X = (p+3)/2, y = (p+1)/2 it holds for
+  is of the stated shape only when the level w is a square; indeed, for every p < 1000, (2.5) has a witness ⟺ some Type II
+  certificate has square level w (0 mismatches), and at the failing primes every Type II certificate has non-square w. The "equivalently p ∈ W − □, W = {X² − e : e | X}" reading is worse: with e = 2, X = (p+3)/2, y = (p+1)/2 it holds for
   **every** n ≡ 1 (4), odd squares included (39/39 squares < 6400). *Repair:* "(2.5) Type II ⟺ p + e = w(e²k² − y²) for
   some e ≡ 3 (4), k, w ≥ 1, y ≥ 0 with ek ≡ y (2), ek > y (the w = □ case is the stated form)", and delete the W − □ clause
   (or keep e ≡ 3 (4) in W and add the factor w).
