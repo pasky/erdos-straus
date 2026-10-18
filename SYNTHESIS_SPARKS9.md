@@ -1,6 +1,6 @@
 # SYNTHESIS_SPARKS9 — the lower tail at a single prime (task O271, synthesis IX over waves AA–AB, (J)84–(J)99 + O268/O269/O270)
 
-Status: O271 working draft. **ES is not solved here or anywhere; no infinite case of ES for primes is claimed.** Labels as in
+Status: O271 checkpoint 1 (deep self-review applied, marked "self-review repair"; awaiting parent review). **ES is not solved here or anywhere; no infinite case of ES for primes is claimed.** Labels as in
 DISCOVERIES.md. Memos `BRAINSTORM/s9_*.md`; scripts `scripts/s9_*`; tiny logs `logs/s9_*`. Branches O268
 (bm-corrected-count), O269 (metaplectic-es), O270 (exp-fifteen) were read only (`git show`), not merged; their statements are
 cited as "under review".
