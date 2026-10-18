@@ -117,8 +117,8 @@ N₁–f_II 0.72, f_II–S 0.49, N₁–S 0.35, f_II–L_I 0.38, but m₀ and e�
   are the Type II windows m = 3, …, 19 with K = (p + m)/4, i.e. m₀(2521) = 23. TWIST_FLOOR_CERTIFICATE_GATEWAY §6.2 "the initial
   level [e = 3] is fully sterile, … the fivefold move exits" at H_S = (15p + 1)/4: Type I levels 3, 7, 11 fail and
   e₀(2521) = 15, exactly our e₀.
-* POSITIVE_ES_RESEARCH_RESET: "Only p = 97, 193, 3361 are exhausted": precisely the three smallest-p fixtures with S = 0
-  (𝓜 = ∅) among Astra's set.
+* POSITIVE_ES_RESEARCH_RESET: "Only p = 97, 193, 3361 are exhausted". All three have S = 0 (𝓜 = ∅), and they are the only
+  ones with S = 0 among Astra's fixtures 97, 193, 313, 1129, 2521, 3361, 5209, 15241, 233689 (S = 0, 0, 6, 4, 2, 0, 10, 4, 8).
 So the overlap is partly *definitional*: when Astra certifies that a fixture is hard, its certificate is a failure of
 a Type II sub-line (a = 1, small windows, d = 1) or of small Type I levels. Those are the same events that Claude's
 scores count.
@@ -140,3 +140,29 @@ rank correlations of 0.35–0.7 after the profile is removed;
 also sit in the hard tail of every other Claude score. That is what (i)+(ii) predict, not a further coincidence.
 The one non-mundane residue: 193 is easy at Type I (e₀ = 3), so Astra's 193 hardness lives at a fixed retained level
 (e = 31), not at the least level.
+
+## 3. Goal 3: does this suggest a new mechanism? (Assessment)
+No. Mundane outcome. Thm 1.2 puts Astra's sources, Claude's ES shots and López's Type A on one residue,
+c_q = −p⁻¹ mod q per slice. Astra's condition on it is local: c_q is a square class. The other two are divisor
+conditions on representatives: c_q ≡ (2k)², k | h, or c_q | h. The local condition is satisfiable on half of all
+prime slices for every p. The divisor conditions are B2 events whose supply is the factorisation of h = (q + 1)/4,
+equivalently of the shifted integers p + 4d. The hardest primes of both campaigns are where the local profile is most
+T1-like (p − 1 smooth: all small primes are QR and the small shifts are frozen, B1_LINE Prop 4.1) and the B2 draws
+at the few remaining small shifts all fail. Both campaigns see the same draws because their hardness certificates
+(a = 1, short windows, d = 1, small Type I levels) are the same sub-lines. The one possible lead is the Type-I/Type-II
+split: 193 and 66529 are Type-I-easy (e₀ = 3) while Type-II-extreme, and the least-score residuals m₀–e₀ are slightly
+*negative* inside p ≡ 1 (24) (−0.20). So a fixture that is hard on both sides (2521, 5209) is a genuinely double draw,
+not a single cause. That is EVIDENCE of near-independence of the two ET types given the profile, and it suggests no
+mechanism. The unified table of §1 is a dictionary, not an existence tool. Nothing here advances ES.
+
+## 4. Verdict (O264)
+* PROVED (elementary): Astra's source equation and López's Type A are one equation, qs = pc + 1. Astra requires c = m², Type A requires
+  c | (q + 1)/4, and an Astra source is integral on arrival iff both hold (Thm 1.2). Type A failure ⟹ no Astra source
+  on any slice is integral on arrival, and the odd part of p + 1 has only primes ≡ 1 (4) (Cor 1.3). The converse fails (314
+  primes ≤ 10⁵). "Type A fails ⟺ no genuine source" is false (genuine sources always exist).
+* EVIDENCE (≤ 10⁶): hardness scores correlate (Spearman 0.2–0.8). The local profile explains 27–79 % of the variance;
+  the count scores keep 0.35–0.7 residual correlation (shared shifted-integer factorisations, B2), and the least
+  scores are nearly independent given the profile.
+* Assessment: 193/2521 are hard in both worlds because of (i) 11-smooth p − 1 at small p (the T1 point 1), (ii) the shared
+  B2 lottery, and (iii) Astra's fixture certificates being Claude's sub-line failures (a = 1 at 193; windows 3–19 and Type I
+  levels 3–11 at 2521). There is no extra structural coincidence and no new mechanism. ES is not solved.
