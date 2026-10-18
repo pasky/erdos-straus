@@ -27,13 +27,14 @@ static int jacobi(int64_t a, int64_t m){ /* m odd > 0 */
   return m==1 ? t : 0;
 }
 
-int main(void){
+int main(int argc,char**argv){
+  long Y = argc>1 ? atol(argv[1]) : 0; /* full local conditioning at primes <= Y (incl. 2-power), genus elsewhere */
   long ns[100000]; int k=0; long mx=0;
   while(k<100000 && scanf("%ld",&ns[k])==1){ if(ns[k]>mx) mx=ns[k]; k++; }
   NMAX = mx+2; sieve(NMAX);
-  printf("# n R M0 M2 Mg Mg_small(uB<=n^(1/3)) M0_small npairs\n");
+  printf("# Y=%ld\n# n R M0 M2 Mg Mg_small(uB<=n^(1/3)) M0_small npairs Mloc Rsmooth(q Y-smooth)\n",Y);
   for(int i=0;i<k;i++){
-    long n=ns[i]; long R=0, np=0; double M0=0,M2=0,Mg=0,Mgs=0,M0s=0; double small=cbrt((double)n);
+    long n=ns[i]; long R=0, np=0; double M0=0,M2=0,Mg=0,Mgs=0,M0s=0,Ml=0; long Rsm=0; double small=cbrt((double)n);
     for(long u=1; 3*u-1 <= n; u++){
       long Bmax = (n+u)/(4*u-1);
       for(long B=1; B<=Bmax; B++){
@@ -50,6 +51,15 @@ int main(void){
         int m2 = (v2==2)?4:8; int ok2 = ((na % m2)==1);
         long parts[2]={uu,bb};
         for(int w=0;w<2;w++){ long z=parts[w]; while(z>1){ long l=spf[z]; phi*= (double)(l-1); z/=l; while(z%l==0){ phi*=l; z/=l; } s*=2; if(gen){ if(jacobi(na % l, l)!=1) gen=0; } } }
+        { /* Mloc */
+          int64_t qs=1; double phip=1; int sp=1; int okp=1; long z;
+          int64_t two=(int64_t)1<<v2;
+          if(Y>=2){ qs=two; } else { phip=(double)(two/2); sp=(v2==2)?2:4; if(((na%m2)!=1)) okp=0; }
+          for(int w=0;w<2;w++){ z=parts[w]; while(z>1){ long l=spf[z]; int64_t pe=1; while(z%l==0){ pe*=l; z/=l; }
+              if(l<=Y) qs*=pe; else { phip*= (double)(pe/l*(l-1)); sp*=2; if(okp && jacobi(na % l, l)!=1) okp=0; } } }
+          if(okp && (((int64_t)n - a) % qs == 0)) Ml += sp/phip;
+          if(qs==q && ((int64_t)n+u+B)%q==0) Rsm++;
+        }
         double w0 = 1.0/phi;
         M0 += w0; if(ok2) M2 += (v2==2?2.0:4.0)/phi;
         int match = gen && ok2;
@@ -58,7 +68,7 @@ int main(void){
         if(((int64_t)n+u+B) % q == 0){ R++; if(!match){ fprintf(stderr,"UNMATCHED HIT n=%ld u=%ld B=%ld\n",n,u,B); return 1; } }
       }
     }
-    printf("%ld %ld %.4f %.4f %.4f %.4f %.4f %ld\n", n, R, M0, M2, Mg, Mgs, M0s, np);
+    printf("%ld %ld %.4f %.4f %.4f %.4f %.4f %ld %.4f %ld\n", n, R, M0, M2, Mg, Mgs, M0s, np, Ml, Rsm);
     fflush(stdout);
   }
   return 0;
