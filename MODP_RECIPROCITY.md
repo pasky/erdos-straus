@@ -100,3 +100,55 @@ q ∈ {2, 3, 5, 7, 11, 13} (on (q/p) = 1), hit indicator of the b = 1 line at le
 p ≡ 5 (8) (2 is a non-residue, so (2w/p)_4 = ±1 is π ↔ π̄-invariant): +1: 281 437, −1: 282 747 (50.1 % / 49.9 %). The
 certificate carries a free, balanced quartic bit, and quartic data of p do not move the per-level hit rates (unlike the
 quadratic sign, which is forced: Prop 1.2(a)).
+
+## 3. Gaussian-representation certificates (goal (3))
+
+**3.1 Correction of the premise: polynomial (a, b)-menus are already closed.** That a, b are not polynomial in p does not help:
+the campaign's collapse theorems are stated in the norm-form variables themselves. POINTWISE_BINARYFORM Thm 3.2/3.2′ ((J)3):
+families whose ET coordinates or (x, y, z) are polynomial/rational in (a, b) are invalid on a full square class mod M up to
+a density-zero set (odd squares m² = Q(u, v) exist in every square class and sector; ET Prop 1.6). (J)78 Thm 1.1: a polynomial
+Type II family in (u, v) for an irreducible binary quadratic Q that is valid at ONE point has coordinates in ℚ[Q] — i.e. it
+is an ET identity in p. (J)79 Cor 3.2: the same for Type I and for every full norm form (any degree). So every "identity in
+a, b" (levels d, windows m, side numbers p + 4b², p + 4ab, … chosen polynomially) is either an identity in p or invalid —
+the brief's hope that (J)78/(J)79 "do not apply verbatim" is unfounded for polynomial choices. What remains open is
+**non-polynomial** use of (a, b): arithmetic functions (gcd, modular inverses, continued fractions, factorisations) and
+non-polynomial lifts such as X ≡ i_p (mod p) (§3.3).
+
+**Lemma 3.2 (Gaussian anti-windows; PROVED — the local form of T1, cf. (J)84 "p is a non-square modulo every class modulus").**
+Let m ≥ 1 and suppose p ≡ u² (mod m′) for a unit u, where m′ is the odd part of m, and, if m is even, p ≡ u² (mod 2^{v₂(m)+2})
+(for odd m nothing at 2). Then the window m is sterile: (−p mod 4m) never divides m + 1.
+*Proof.* Let g := −p mod 4m, suppose g | m + 1. Then g ≡ 3 (4) (p ≡ 1 (4)) and m ≡ −1 (mod g), so (m/g) = −1. Write
+m = 2^s m′; then (m′/g) = −(2/g)^s and, by reciprocity with g ≡ 3 (4), (g/m′) = (m′/g)(−1)^{(m′−1)/2} = −(2/g)^s(−1/m′), so
+(−g/m′) = −(2/g)^s. But −g ≡ p ≡ u² (mod m′) gives (−g/m′) = 1, hence (2/g)^s = −1, so s ≥ 1 is odd and g ≡ ±3 (8). For
+s ≥ 1, g ≡ −p ≡ −u² (mod 2^{s+2}) with s + 2 ≥ 3 gives g ≡ −1 (mod 8): contradiction. ∎
+*Gaussian supply.* p ≡ b² (mod a) and p ≡ a² (mod b) and p ≡ a² (mod 2^{v₂(b)+1}·…): every window m with m′ | a, and every
+m = 2^s m′ with m′ | ab and 2^{s+2} | 2b² (e.g. m = ab/2), is sterile. Numerically (below): the window m = a hits 0 of 12 979
+primes and m = ab/2 also 0, against 1.25 % and 0.19 % for the same quantities borrowed from neighbouring primes.
+**So the Gaussian representation supplies anti-certificates (sterile windows), never certificates** — the quadratic
+shadow again pushes everything visible into the genus subgroup (CLASS_FORCING C4, (J)53/(J)55).
+
+**Proposition 3.3 (the √−1 menu is still T1-barred for polynomial families; PROVED).** Every lift X ≡ ±i_p (mod p) gives
+X² + 1 = pN (N ≥ 1), and (X, N) are not polynomial in p or in (a, b) (they move with the lift X ↦ X + tp). Let F be a family of
+ET coordinates (Type I or II) polynomial in (X, N), with n := (X² + 1)/N, integral and positive on the set
+V(C, Γ) := {(X, N) ∈ ℤ² : N | X² + 1, (X, N) ≡ (X₀, N₀) (mod M), (X, N) ∈ Γ} for an open cone Γ ⊂ ℝ²_{>0} and a class with
+X₀² + 1 ≡ N₀ (mod M) (the "n ≡ 1" class, the T1 point). Then F is valid at no point of V(C, Γ): such points with n an odd
+square exist, beyond any bound, so F must be invalid there by ET Prop 1.6 — hence such F do not exist (valid on all of
+V(C, Γ)); and as in POINTWISE_BINARYFORM Cor 3.4 a finite set of such families misses the class.
+*Proof (existence of square points).* Take a prime s ≡ 1 (mod 4M) (Dirichlet), so −1 is a square mod s² and s² ≡ 1 (M). The
+solutions X of X² ≡ −1 (mod s²), X ≡ X₀ (mod M) form two residue classes mod Ms². For each, N := (X² + 1)/s² ≡ X₀² + 1 ≡ N₀ (mod M)
+(as s² ≡ 1 (M)… and X² + 1 ≡ X₀² + 1 mod M; N ≡ (X² + 1)·s⁻² ≡ X₀² + 1 (M)). Choosing X in [λs², (λ + 1/(Ms))·s²]
+(possible for s large) makes N/X ≈ X/s² ≈ λ, so (X, N) lies in Γ for suitable λ; and n = s² is an odd square. ∎
+So "compute a square root of −1 mod p (or the Gaussian representation), then apply a polynomial ET identity" is barred in
+every variant; the X-menu is not new territory. (Validity on the non-square classes n ≢ 1 (mod M) is classical one-variable
+congruence territory, as in POINTWISE_BINARYFORM Remark 1.)
+
+**EVIDENCE 3.4 (no Gaussian-canonical parameter beats neighbour controls except by the quadratic redistribution).**
+`scripts/z35_gauss_menu.py 300000` (`logs/z35_gauss_menu.txt`): 12 979 primes p ≡ 1 (4) ≤ 3·10⁵; window test "(−p mod 4m) | m + 1"
+and level test "p + 4d has a divisor ≡ −1 (mod 4d)" at m, d ∈ {a, b, a + b, |a − b|, (a+b)/2, ab/2, h, k (ak − bh = 1),
+X₀ = least lift of ±i_p, N₀ = (X₀² + 1)/p}; control = the same quantity taken from the four neighbouring primes (same size and
+shape distribution, independent of p). |z| ≤ 2.9 for all levels; windows: m = a (0 vs 1.25 %, z = −12.8) and m = ab/2
+(0 vs 0.19 %) are sterile (Lemma 3.2); m = b (2.6 vs 2.1 %, z = 4.1) and |a − b| (2.2 vs 1.5 %, z = 6.9) are mildly enhanced —
+both are windows where −p mod m′ is confined to a fixed square class (−a², −2a²), so the hit probability is 0 or doubled
+according to a Jacobi condition (a B1-type redistribution, the same mechanism as Lemma 3.2 with the opposite sign); N₀ and the
+convergent data (h, k) are neutral. (An earlier run with shifted controls m ± j showed spurious z ≈ 13 for N₀ — a residue-class
+artefact of the control, recorded as a caution.)
