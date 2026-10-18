@@ -82,3 +82,30 @@ sympy: Y⁶ + 27 = (Y² + 3)(Y² + 3Y + 3)(Y² − 3Y + 3); by hand Y⁴ − 3Y�
 (board rounds/04-argon.md l.29) explicitly asserts "Y⁴ − 3Y² + 9" is a factor P₀(Y²) and that "Capelli never splits
 further" — false (Capelli is about binomials; Y⁴ − 3Y² + 9 is not one). New (P(0), P(1)) pairs (3, 7), (3, 1) ✓.
 astra's example: 1 + 4·101 = 405 = 15·3³ ✓, u = 3 ≡ 3 (8) ⇒ killed by Thm 2.2 ✓.
+
+### C9. §2.4 (u ≡ 7 (mod 8) branch: reduction to 2-adic approximation) — GAP (label/assessment errors; algebra SOUND)
+* 2-adic bookkeeping ✓: v₂(1 + u^p) = v₂(1 + u) (cofactor 1 − u + … + u^{p−1} is a sum of p odd terms); with
+  N = 16 + 2^E a₁²d₁: E = 3 ⇒ V = 3, E = 4 ⇒ V ≥ 5, E ≥ 5 ⇒ V = 4 (u ≡ 15 (32)); converses ✓.
+* Magnitude ✓ (even slightly sharper: X ≥ q − 16, X′ ≥ q − 1 ⇒ q ≤ √N + 16): a₁ = a₁²d₁/q gives
+  2^E a₁ ≥ (15u^p − 1)/(√N + 16).
+* a = 1 sub-branch ✓ as algebra: |15u^p − 1|₂ = 2^{−E} ≲ (15u^p)^{−1/2}; and since |u − ζβ|₂ = 1 for ζ ≠ 1
+  (|1 − ζ_p|₂ = 1, p odd), |u − β|₂ = |15u^p − 1|₂ with β = 15^{−1/p} ∈ ℤ₂. **But the conclusion drawn is wrong (D1):**
+  approximation of a 2-adic algebraic β by *integers* u (denominator 1, an S-unit) has Ridout exponent 1 + ε, not 2 + ε
+  (Ridout 1958 in Lang's form with S = {∞, 2}, α_∞ = ∞: |u − β|₂·u^{−1} < u^{−2−ε} ⇔ |u − β|₂ < u^{−1−ε}; equivalently the
+  p-adic Subspace Theorem with forms (X, Y) at ∞ and (X − βY, Y) at 2, which yields u·|u − β|₂ < u^{−ε} finitely often).
+  Dirichlet exponent here is 1 (one integer per residue class mod 2^k), so p/2 ≥ 3/2 > 1 is already "abnormally good":
+  **Ridout gives finiteness (ineffective) for every odd p, including p = 3**, in the a = 1 (indeed bounded-a₁) sub-branch.
+  I could not open Ridout's paper in sources/; the statement used is the standard one (Lang, *Fundamentals of Dioph.
+  Geometry*, Ch. 7; Schmidt LNM 785), and the Subspace derivation above is self-contained.
+* The *general* branch is not a 2-adic approximation problem (D2): with a₁ unbounded, the requirement is
+  15u^p − 1 = 2^E a₁²d₁ with a₁d₁ ≤ √N + 16 — a large *square* odd part is equally good (e.g. E = 3, d₁ = 1:
+  15u^p − 8a₁² = 1, a hyperelliptic/superelliptic equation). EXP_15 §2.4 states this correctly ("2^E·a₁²" part), but
+  AGENT_REPORT (S2) and memo z40_iiad_branches compress it to "divisible by a power of 2 of about half its size" /
+  "at least as hard as an effective 2-adic Thue/Ridout problem", which is wrong for a₁ > 1 and unproved as a hardness
+  claim (necessary conditions (C1)–(C2) only; (C3) and factor shape are ignored, so a closure might never need it).
+* q ≤ 16 sub-branch ✓: q = 1 makes (C2) vacuous; (C1) is 15u^p − c2^E = 1, c ≤ 256 — for fixed p a Thue equation
+  15X^p − c2^r Y^p = 1 (E = pk + r), finite and effective (Baker). ✓
+* D = p factor shape ✓ (κκ′ = 15 so v₂(κ) = 0; Φ(1) = (1 + u^p)/(1 + u) odd; v₂(X) ∈ {0, V}).
+* Attribution of argon's "similarly bounded via Lemma 1.5": argon items/argon.md l.67 indeed says this; author's
+  rejection is fair (Lemma 1.5 bounds a constant window m; no such object here). ✓
+* Label: "OPEN; reduction + EVIDENCE" is the right label for the branch; the sentence about Ridout must be corrected.
