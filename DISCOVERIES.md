@@ -1690,6 +1690,18 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Conditional (one-sided; an ES-(★) restatement, no standard conjecture implies it): (★) holds for p > p₀ ⟸ H⁻_BM(ε, p₀): R(p) ≥ ε·M_BM(p). Assessment: the main term is now a theorem, and the whole difficulty is a single-integer lower-tail statement.
    * verify.py (hn) re-runs R279's Hilbert-symbol and M_BM checks.
 
+101. **Theta quotients for the ES level series: every level is an exact Kronecker theta quotient plus Eisenstein data — no cusp forms; T1 is an exact even/odd cancellation; no weight-½ support mechanism (METAPLECTIC_ES.md + BRAINSTORM/z39_*.md (O269, relay of (J)99); self-review plus hostile review `reviews/metaplectic-es-review.md` (R280): no FATAL. MAJOR D4: the "log² main term in the weight-0 part, holomorphic part ≈ 0" headline is an Assessment with caveats. MAJOR D9: the hatch screen omitted H-E, which Thm K touches. D6: Prop S(3) is upgraded to unconditional. Minors D1–D3, D5, D7, D8, D10, D11, incl. the closed form β_t(n) = 2·1[(t−1) | (n+1)] − 1[n = t − 2]. All repaired by the author, marked (R280 repair).)**
+   * Theorem K (identity PROVED; R280 checked it as an exact power-series identity to q^3000 for t ≤ 10).
+     * Σ_{u,v≥2} q^{tuv−u−v} − Σ_{r,s≥0} q^{trs+r+s} = q^{t−2}[(Q;Q)²θ(X²)/θ(X)² − (1+X)/(1−X)], with X = q^{t−1}, Q = q^t. This is Kronecker's theta quotient at a t-torsion point.
+     * Coefficientwise, R_t(n) = ½E_t(tn+1) + ½O_t(tn+1) − β_t(n), where E_t and O_t are even/odd Dirichlet-character divisor sums mod t. These are weight-0 Maass and weight-1 holomorphic Eisenstein data, with no cuspidal component.
+     * The coefficient content is the campaign's long-standing divisor reformulation (D2). The modular packaging is new here.
+   * Cor K1 (PROVED parts): on every level 4 | t, T1 is an exact cancellation E_t + O_t = 0 at n = m². The claim that the log² main term sits in the even (weight-0) part is Assessment, with caveats (D4).
+   * Prop S (Serre–Stark; S(3) unconditional per R280 D6): weight-½ supports are finitely many periodic square classes, and the T1 squares are exactly supp(θ(z) − θ(4z)). The ES five-slice failure set (which contains 105) is NOT an exact weight-½ support.
+   * §3 matrix side (PROVED; R280 checked): level-t words = the {a, d ≥ 2t−1} part of the −I Bruhat cell of Γ₁(t) with b = n, c = t. The theta multiplier is −i on positive self-levelled matrices with 4 | t (168 200 checked). The self-levelled set is not a semigroup, so it is not a multiplier kernel.
+   * §6 quartic (PROVED one way): u ↔ v inverts χ₄(A), so there is no symmetric quartic sign. No quartic signature appears in the 8/p exceptions (EVIDENCE).
+   * Assessment: an exact automorphic normal form, with no cusp part to bound. The difficulty is the competition between Eisenstein data at a single integer, i.e. B2/B3 again. Red-team-2 Thm 2.2: this construction touches hatch H-E but opens no door. No relay.
+   * verify.py (ho) re-runs R280's Thm K and matrix checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

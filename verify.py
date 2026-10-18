@@ -27045,4 +27045,34 @@ def check_hn():
 check_hn()
 
 
+def check_ho():
+    # (ho) METAPLECTIC_ES (O269/R280): R280 from scratch — Theorem K (each ES level series minus its partner quadrant is
+    # Kronecker's theta quotient at a t-torsion point; R_t(n) = ½E_t(tn+1) + ½O_t(tn+1) − β_t(n) with even/odd Dirichlet-character
+    # divisor sums mod t) as an exact power-series identity to q^3000 for t = 2..10, coefficient form against direct
+    # enumeration; matrix side (ES matrices with 4 | t have theta multiplier −i; Bruhat-cell count = R_t(n)).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("METAPLECTIC subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r280_thmK.py", "10", "3000"])
+    assert "TOTAL series mismatches 0 coefficient failures 0" in out, out[-1500:]
+    assert "(d) theta-quotient coefficients == D^- - D^+ exactly: failures 0" in out, out[-500:]
+    out = run(["review_r280_matrix.py"])
+    assert "(b) ES matrices with 4|t<=200, u,v<60: 168200, nu_theta != -i: 0" in out, out
+    assert "== R_t(n), t<12, n<400: failures 0" in out, out
+    print(f"== (ho) METAPLECTIC_ES R280: Thm K theta-quotient identity (t ≤ 10, q^3000) + coefficient form; theta multiplier −i "
+          f"on ES matrices; Bruhat-cell count; seconds = {perf_counter() - t0:.1f}")
+
+
+check_ho()
+
+
 print("\nall checks passed")
