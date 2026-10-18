@@ -16,7 +16,7 @@ Zaremba theorems (Shkredov; X. Zhang), which the campaign had not seen, and an e
   character condition (F6). The digit sets are opposite: Zaremba = *long words in a bounded alphabet* (a Cantor set of
   Hausdorff dimension w_M = 1 − 6/(π²M) + O(log M/M²), Hensley; Shkredov 2026 Thm 12); ES-five = *short words (HJ length
   3) with unbounded letters* — a set of dimension 0 whose count up to X is ≍ X log² X, i.e. **critical exponent 2δ = 1**
-  (DEDEKIND_ES §5.3, Assessment): ≍ log² p representations per p, matching F2.
+  (DEDEKIND_ES §5.3, Assessment): ≍ log² p representations per p on average, matching F2.
 
 ## (b) Is the counterpart proved pointwise? By what mechanism?
 
