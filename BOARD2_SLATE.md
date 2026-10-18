@@ -32,7 +32,7 @@ cheap, compatible results with honest labels. ES is not solved.
 ## (3) Finalist 3 — the five-slice union R_III^int and its T1-exact main term
 
 Scripts: `scripts/z42_five_slice.c` (per-n exact count, main term, checks), `scripts/z42_five_slice_fit.py`; logs
-`logs/z42_five_slice_1e6.txt` (491 primes ≡ 1 (4) in [10⁶, 1.04·10⁶)), `logs/z42_five_slice_ladder.txt` (30 primes, 10⁴–10⁸).
+`logs/z42_five_slice_1e6.txt` (491 primes ≡ 1 (4) in [10⁶, 1.04·10⁶) — every third of the 1 473 such primes (R284 repair)), `logs/z42_five_slice_ladder.txt` (30 primes, 10⁴–10⁸).
 
 **Setting.** n ≡ 1 (mod 4). Interior pairs P(n) := {(u, v) ordered : u, v ≥ 2, gcd(u, v) = 1, 2uv − u − v ≤ n}. For
 (u, v) ∈ P(n) write uv = 2^k w (w odd), a := −(u + v), and, at a hit uv | n + u + v, t := (n + u + v)/(uv) ≥ 2.
@@ -83,6 +83,10 @@ odd–odd a = 0.1140 (pred. 0.1140), k = 1: 0.1519, k = 2: 0.1519 (pred. 0.1520)
 (slow: cutoff p/2^{k+1} and p mod 2^k fluctuation). **Correction to the board:** the opposite-parity sector is
 3 × (3/(2π²)) L², not 2 × — the k ≥ 2 sectors are automatically active (Lemma 3.2). So fable's principal 33/(8π²) is wrong;
 the correct principal constant is **45/(8π²)**. Ruling (c)'s suspicion was right; 9/(8π²) for ordered odd–odd stands.
+(R284 repair: the asymptotic M₀(p) ∼ (45/(8π²))L² holds for *each* prime p ≡ 1 (4), not only on average — in every
+sector the active classes have the stated density for each fixed p mod 2^k; only lower-order terms depend on p mod 2^k,
+e.g. the k = 1 sector is 24.08 at p ≡ 1 (8) vs 27.60 at p ≡ 5 (8) near 10⁶. This per-p form is what Thm 3.5's "¼ of the
+principal constant" comparison uses.)
 
 **Theorem 3.5 (unconditional lower bound; PROVED, Burgess).** For primes p ≡ 1 (4), L = log p:
 `M(p) ≥ (45/(32π²) − o(1)) L² ≈ 0.142 L²`  (Burgess);   `M(p) ≥ (15/(64π²) − o(1)) L² ≈ 0.024 L²`  (Pólya–Vinogradov).
@@ -94,7 +98,8 @@ Möbius over d | u′ the main part is ≥ D(φ(u′)/u′) log(p/(cu′)) − O
 Σ_{m ≤ T, m ∈ S′} χ(m)/m with S′ a union of classes mod 2^j of density D. Split at T₀ = 2^j p^{1/4+ε}. The initial segment
 is ≤ Σ_{m ≤ T₀, m ∈ S′} 1/m = D log T₀ + O(1). The tail uses Σ_{m ≤ s, m ≡ c (2^j)} χ(m) = χ(2^j) Σ_{i ∈ I} χ(i + c′)
 with I an interval of length ≍ s/2^j. Burgess (prime modulus, any interval) gives ≪ s p^{−η} for s ≥ T₀, so the tail is
-o(1) after partial summation. Hence the bound is κ(u′)(D β L + O(1)), β = 1/4 + ε. With PV, β = 1/2 and T₀ = √p L².
+o(1) after partial summation. (κ(u′) := Σ_{d|u′} |μ(d)|/d = ∏_{ℓ|u′}(1 + 1/ℓ); the O(1) in the initial segment is O(2^j),
+hence O_K(1) — the reason K is fixed before p → ∞. R284 repair.) Hence the bound is κ(u′)(D β L + O(1)), β = 1/4 + ε. With PV, β = 1/2 and T₀ = √p L².
 Then use Σ_{u′ odd ≤ X} φ(u′)/u′² = (4/π²) log X + O(1), Σ φ(u′) log u′/u′² = (2/π²) log² X + O(log X) and
 Σ κ(u′)/u′ = (6/π²) log X + O(1). The same holds with u′ restricted to a class mod 4 (halve each constant). ∎
 *Families (pairwise disjoint subsets of P(p); every term is ≥ 0, and c_{u,v} ≥ (1 − χ(uv))/(u′v), except for w = □
@@ -119,7 +124,8 @@ the initial segment, where the trivial bound scales with the density D; this is 
 does not give R(p) > 0: as in BM_CORRECTED §3, the remainder can be ≥ M i.o. (Linnik-type), and B3 is untouched.
 
 **Numerics (EVIDENCE).**
-* 491 primes p ≡ 1 (4) in [10⁶, 1.04·10⁶): mean R/L² = 0.472, mean M/L² = 0.450, mean M₀/L² = 0.450; min R = 26,
+* 491 primes p ≡ 1 (4) in [10⁶, 1.04·10⁶) (every third; R284's independent count over all 1 473 gives mean R/L² = 0.470,
+  min R = 26 — R284 repair): mean R/L² = 0.472, mean M/L² = 0.450, mean M₀/L² = 0.450; min R = 26,
   min R/M = 0.35, corr(R, M) = 0.44; mean (R − M)²/(2M) = 2.3 (R counts ordered pairs, so Poisson-in-unordered would give 1:
   overdispersed ≈ 2.3×, like (★)). **The board's "≈ 0.39 L² at 10⁶" is not reproduced; we measure ≈ 0.47 L² (ordered,
   u, v ≥ 2).** Fable's decomposition "2R-part 0.30 + odd–odd 0.088" assumed the 2·M_BM identification, which is wrong; our odd–odd
@@ -190,7 +196,8 @@ deterministic bound, so exhaustiveness is not established (review repair). Total
 
 **Fit.** −log P(0 | M) = A·M^β on M ∈ [10, 30] (10 bins; weights (log P)²/rel², the correct variance of log(−log P) —
 review repair of the first version's 1/rel²): **β = 0.884**, A = 0.59. The fit is poor (χ² = 23.7 on 8 dof); the χ²-scaled
-statistical SE is 0.006, but the systematics (proxy binning of the low-M population, heterogeneity, bin choice) are not
+statistical SE is 0.006 (not meaningful here: R284's refit of the same table with bin midpoints gives β = 0.896, left edges
+0.843, sub-ranges [16,30] 0.877, [20,30] 0.924 — R284 repair), but the systematics (proxy binning of the low-M population, heterogeneity, bin choice) are not
 quantified and are clearly larger — the spread of local β suggests ± 0.1. The local
 β between consecutive top bins is 0.84 and 1.05. The linear slope d log P/dM is −0.38 (Poisson: −0.50). The excess over
 swap-Poisson grows steadily from ≈ 2 at M ≈ 11 to ≈ 13–15 at M ≈ 27–29. This confirms with hundreds of zeros per bin

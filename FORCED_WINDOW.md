@@ -454,5 +454,6 @@ B6 (across-p) by construction.
 **8.7 Numerics (EVIDENCE, `scripts/z42_window_cert.py`).** All primes p ≡ 1 (8) in [10⁶, 1.01·10⁶) × all primes
 q ≡ 3 (8), q < 60 (990 windows): certificate ⇒ explicit solution in every case (the 4/p identity checked in exact
 rationals; 0 violations once ties are handled — Σ_{χ≠1}G_χ = 1 exactly occurs, e.g. p = 1 000 121, q = 11, K = 7·23·1553,
-so the comparison is strict); the certificate holds at 160/470 forced and 109/520 unforced windows, against signed-squarefree
+so the comparison is strict; R284 repair: ties S = 1 occur at 72/990 windows and the exact count is 0 at every one of them,
+typically q = 3 with all prime factors of K ≡ 1 (3), so "≤ 1" would be false, not merely unproved); the certificate holds at 160/470 forced and 109/520 unforced windows, against signed-squarefree
 witnesses at 254/470 and 153/520 (the certificate is sufficient, far from necessary, at these tiny ω(K) ≈ 3).

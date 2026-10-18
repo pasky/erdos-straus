@@ -8,10 +8,16 @@ From-scratch scripts: `scripts/review_r284_*.py` (no code shared with the author
 
 | Claim | Verdict |
 |---|---|
-| (1) ABH transfer λ(p) ≤ (6/π²) L log L + O(L), KNOWN | (in progress) |
-| (2) FORCED_WINDOW Thm 8.5 (Lemmas 8.1–8.4) | (in progress) |
-| (3) Lemma 3.1/3.2, M(n), Prop 3.3/3.4 (45/(8π²)), Thm 3.5 (45/(32π²)) | (in progress) |
-| (4) 8/n zero-law diagnostic to 10⁹ | (in progress) |
+| (1) ABH transfer λ(p) ≤ (6/π²) L log L + O(L), KNOWN | **SOUND** |
+| (2) FORCED_WINDOW Thm 8.5 (Lemmas 8.1–8.4), PROVED mod Henriot/SW/Mertens | **SOUND** |
+| (3) Lemma 3.1/3.2, M(n), Prop 3.3, Prop 3.4 (45/(8π²)), Thm 3.5 (45/(32π²), 15/(64π²)) | **SOUND** |
+| (4) 8/n zero-law diagnostic to 10⁹ (EVIDENCE) | **SOUND** (counts reproduced exactly; fit honestly caveated) |
+
+**No FATAL, no MAJOR defects.** Minor defects m1–m8 below.
+
+Repairs applied (author quiet at finish): m4, m5, m6, m7, m8 applied directly, each marked "(R284 repair)" —
+BOARD2_SLATE.md (491-of-1 473 subsample; κ definition and O_K(1) constant in Thm 3.5; per-p form of M₀ ∼ 45/(8π²)L²;
+β refit spread) and FORCED_WINDOW.md §8.7 (tie frequency, count 0 at every tie). m1–m3 left as optional wording.
 
 ## (1) ABH transfer — checked against the source
 
@@ -194,3 +200,28 @@ proxy's error is a character-sum tail that is not bounded uniformly. The documen
 
 **Labels.** EVIDENCE, across-n (B6), "steering only" ✓. No overclaim found: the text explicitly says a finite fit neither
 proves summability nor excludes structured families, and that the 2-adically unrefined M_BM mixes classes.
+
+* m8 (MINOR) BOARD2_SLATE (4) Fit: the "χ²-scaled statistical SE 0.006" invites a false precision reading; R284's refit of
+  the same table moves β by ±0.05 with the choice of bin representative (midpoint 0.896 / left edge 0.843) and sub-range.
+  Repair: cite the spread. (Applied, marked R284 repair.)
+* m9 (MINOR, not repaired; note only) BOARD2_SLATE (4): the population is binned by proxy + 0.52 (constant offset) while
+  zeros with proxy ≥ 22–24 are binned by exact M; an M-dependent proxy offset would bias the top bins' P. Calibration
+  (300 population points) cannot exclude a drift of ~0.1–0.2 across M ∈ [20, 30]; with 2-wide bins and the jump of f at
+  28–30 (f = 0.21 vs 0.086, 0.076 neighbours) this is a further systematic on β, already covered by "± 0.1".
+
+## Defect list (consolidated)
+
+No FATAL. No MAJOR.
+MINOR: m1, m2 (ZAREMBA_TRANSFER attribution note wording, §(1) above); m3 (FORCED_WINDOW Lemma 8.3, ℓ = q column
+trivially vanishes); m4 (FORCED_WINDOW §8.7 tie frequency — applied); m5 (BOARD2 491 = every-third subsample — applied);
+m6 (κ undefined; O(2^j) constant — applied); m7 (per-p form of 45/(8π²) — applied); m8 (β SE — applied); m9 (proxy
+offset drift, note only).
+
+## Reproduction (all R284 from-scratch)
+* `uv run --with numpy python scripts/review_r284_abh.py` (≈ 5 min).
+* `uv run python scripts/review_r284_window.py` (≈ 3 min).
+* `cd scripts; uv run --with numpy python review_r284_five_slice.py {lemma 4000 64 | hits 1000000 40000 |
+  M 1000033 2401 61 9801 11025 994009 10000121 | phi 20000000}`; `uv run python scripts/review_r284_egypt.py`.
+* `gcc -O2 -o zl scripts/review_r284_zero_law.c -lm; ./zl zeros 1000000000 | tail -1` (43 s, 1 GB);
+  `./zl zerosm 10000000 {12,16} 5000000`; `echo n | ./zl M Nmax` (exact M_8 + direct hit test; ≈ 2–4 min at 6·10⁸).
+* `uv run --with numpy python scripts/review_r284_zero_fit.py`.
