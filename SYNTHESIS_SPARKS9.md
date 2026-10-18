@@ -42,7 +42,8 @@ X ≡ −1 (mod C′) for the odd part C′ of C and X ≡ −1 (mod 8) when C i
 **Proposition 1.3 (EVIDENCE; `scripts/s9_words.c`, `s9_union_stats.py`, `s9_thinning.py`; logs `logs/s9_union_1e6.txt`,
 `logs/s9_union_1e7.txt`).** Over primes p ≡ 1 (4), A = #{words with 4 | t} (= R(p)), B = #{words with 4 | u or 4 | v},
 U = #{some coordinate ≡ 0 (4)}, W = |W(p)|:
-* (★) failures ≤ 10⁷: 17 ≤ 10⁶ (all primes; as O268) and 5 more in (10⁶, 10⁷] (1134241, 1724209, 1726201, 5212561, 8813281);
+* (★) failures: 17 primes ≤ 10⁶ (all residues; as O268), of which 9 are ≡ 1 (4), plus 5 in (10⁶, 10⁷] (1134241, 1724209,
+  1726201, 5212561, 8813281) — 14 primes ≡ 1 (4) ≤ 10⁷, exactly (J)90's 14 ≤ 10¹⁰;
   b = 1 failures 193, 2521, 66529; union failures: none ≤ 10⁷ (all reproduce (J)89/(J)90).
 * corr(A, B) after standardising within (2000-prime window) × (p mod 24): **+0.367 (≤ 10⁶), +0.387 ((10⁶, 10⁷])**. Primes with
   A = 0 have B at **0.59×** its cell mean; the bottom 1 % of A/E[A] have B at 0.71–0.75×. **No negative correlation: if (★)
