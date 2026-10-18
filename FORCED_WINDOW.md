@@ -358,3 +358,101 @@ Targets of the task, answered:
   sample certificates use |δ| ≤ 1 (90 % hard / 97 % all) and support ≤ 2 (91 % / 99 %); forced windows succeed in 2 128 of 2 133
   tries with τ(K²) ≥ 4m. 765 exact Lemma-1.1 certificates (y = 7). T1 control clean.
 ES is untouched; no infinite case of ES is claimed.
+
+## 8. Moving-window cap-0 witnesses for almost all p (O273; board #2 Finalist 1, astra-2)
+
+*Attribution.* Certificate and statement: board seat astra (board 20261018-es-lowertail, item astra-2 and round 3, with the
+(★) bound and a randomized-root upper-sieve sketch); premise audits by fable and argon (round 4). The analytic input used
+below is Henriot's uniform Nair–Tenenbaum bound in the corrected form of the 2014 erratum (New Theorem 5, read from
+`sources/henriot-erratum-2014.pdf`, Math. Proc. Camb. Phil. Soc. 157 (2014) 375–377; class M_k and notation from
+`sources/henriot-1102.1643.pdf` §2), plus Siegel–Walfisz and Mertens. O273 re-derived every step below; the only cited
+black boxes are those three theorems. **Value (honest):** as an exceptional-set statement this is *dominated* (see 8.6); the
+only new content is the *shape* — a Type II witness at **every** window of a polylog band, simultaneously.
+
+Setting. X large, L := log X, 0 < α < 1/6, Y := L^α. For a prime q ≡ 3 (mod 8) and a prime p ≡ 1 (mod 8), p > q, put
+K_q := (p + q)/4 (an odd integer, q ∤ K_q). For a character χ mod q and a prime ℓ ≠ q put
+`  g_χ(ℓ) := |1 + χ(ℓ) + χ̄(ℓ)|/3 = |1 + 2 Re χ(ℓ)|/3 ∈ [0, 1],   G_χ(n) := ∏_{ℓ | n} g_χ(ℓ),   A_χ(K) := ∏_{ℓ | K} (1 + χ(ℓ) + χ̄(ℓ))/3,`
+so |A_χ(K)| = G_χ(K).
+
+**Lemma 8.1 (L¹ Fourier certificate ⇒ honest Type II solution; PROVED, elementary).** If Σ_{χ ≠ 1 mod q} G_χ(K_q) < 1,
+then there are coprime squarefree u, v with uv | K_q and q | u + v, and
+`  4/p = 1/K_q + 1/y + 1/z,   y = p (K_q/u)(u + v)/q,   z = p (K_q/v)(u + v)/q`
+(a cap-0 certificate at the window q in the notation of §0; Prop 2.1).
+*Proof.* Let ℓ₁, …, ℓ_k be the distinct primes of K_q (all prime to q). By orthogonality
+#{ε ∈ {−1, 0, 1}^k : ∏ ℓ_i^{ε_i} ≡ −1 (mod q)} = (1/(q−1)) Σ_χ χ(−1) ∏_i (1 + χ(ℓ_i) + χ̄(ℓ_i))
+= (3^k/(q−1)) (1 + Σ_{χ≠1} χ(−1) A_χ(K_q)) ≥ (3^k/(q−1)) (1 − Σ_{χ≠1} G_χ(K_q)) > 0. Take such ε, u := ∏_{ε_i = 1} ℓ_i,
+v := ∏_{ε_i = −1} ℓ_i: coprime, uv | K_q, u ≡ −v (mod q). Then 4/p − 1/K_q = (4K_q − p)/(pK_q) = q/(pK_q) and, with
+M := pK_q(u + v)/q (an integer), q/(pK_q) = (u + v)/M = 1/(M/u) + 1/(M/v); M/u = p(K_q/u)(u + v)/q ∈ ℤ since u | K_q and
+q | u + v (likewise M/v). ∎ (u = v = 1 is impossible since q ∤ 2.)
+
+**Lemma 8.2 (mean of g_χ; PROVED).** For every χ ≠ 1 mod q: (1/(q−1)) Σ_{a mod q, q∤a} g_χ(a) ≤ 2/3.
+*Proof.* If χ is real, χ(a) = ±1 equally often and g ∈ {1, 1/3}: mean 2/3. If ord χ = d ≥ 3, χ(a) is equidistributed on
+the d-th roots of unity ζ and E(1 + ζ + ζ̄)² = 1 + 2Eζ + 2Eζ̄ + Eζ² + 2 + Eζ̄² = 3; by Cauchy–Schwarz E g ≤ √3/3 < 2/3. ∎
+
+**Lemma 8.3 (the bound (★); PROVED modulo Henriot New Thm 5).** Uniformly for primes q ≡ 3 (mod 8), q ≤ X^{1/4}, and all
+characters χ mod q,
+`  Σ_{X < p ≤ 2X, p ≡ 1 (8)} G_χ((p + q)/4)  ≪  (X/L) · exp(−Σ_{ℓ ≤ X, ℓ ∤ 2q} (1 − g_χ(ℓ))/ℓ),`
+with an absolute implied constant.
+*Proof.* Take k = 2, Q₁(t) = t, Q₂(t) = 4t − q (primitive; Q = Q₁Q₂ primitive of degree g = 2, irreducible factors
+R₁ = Q₁, R₂ = Q₂, r = 2, leading coefficient a* = 4), and F(n₁, n₂) := f(n₁)·1[P⁻(n₂) > √x], where f is the multiplicative
+function f(ℓ^a) = g_χ(ℓ) (ℓ ∤ 2q), f(2^a) = f(q^a) = 1. Since 0 ≤ f ≤ 1, for (a₁a₂, b₁b₂) = 1 we have
+F(a₁b₁, a₂b₂) = f(a₁)f(b₁)·1[P⁻(a₂b₂) > √x] ≤ F(b₁, b₂), so F ∈ M₂(1, 1, ε) for every ε > 0 (Henriot (2.10)), and
+F(1, 1) = 1. Put x := (X + q)/4, y := X/4 (so x^{1/2} < y ≤ x and x ≥ C₀‖Q‖^{1/2}, ‖Q‖ = 4 + q). Every prime p in the range
+equals 4n − q with n = K_q ∈ (x, x + y], and p > √x, so G_χ(K_q) = f(n) = F(Q₁(n), Q₂(n)) (K_q odd, q ∤ K_q). Hence the
+left side is ≤ Σ_{x<n≤x+y} F(|Q₁(n)|, |Q₂(n)|), which New Theorem 5 (with its α = δ = 1/2, A = B = 1) bounds by
+`  ≪ y ∏_{2<ℓ≤x} (1 − ρ(ℓ)/ℓ) · Σ_{n₁n₂ ≤ x} F(n₁, n₂) ρ̆_R(n₁, n₂)/[n₁κ(n₁), n₂κ(n₂)].`
+Local data (ρ̆_R ≤ ρ̂_R, erratum (0·2); ρ̂_R from (2.8)). ρ(ℓ) = 2 for ℓ ∤ 2q, ρ(q) = 1, so the first product is
+≤ ∏_{3≤ℓ≤x}(1 − 2/ℓ)·(1 − 1/q)/(1 − 2/q) ≪ (log x)^{−2}. Both F and ρ̂_R/[·] are multiplicative over primes (joint sense), so
+the sum is ≤ ∏_{ℓ≤x} E_ℓ with E_ℓ := Σ_{a,b≥0} F(ℓ^a, ℓ^b) ρ̂_R(ℓ^a, ℓ^b)/[ℓ^aκ(ℓ^a), ℓ^bκ(ℓ^b)]. For ℓ ∤ 2q, Q₁ and Q₂ have
+no common root mod ℓ, so only (a, 0), (0, b) contribute, with ρ̂_R(ℓ^a, 1) = #{t mod ℓ^{a+1} : ℓ^a ∥ t} = ℓ − 1 and likewise
+ρ̂_R(1, ℓ^b) = ℓ − 1; thus E_ℓ = 1 + g_χ(ℓ)/ℓ + 1[ℓ > √x]/ℓ exactly. For ℓ = 2: Q₂ is odd, E₂ ≤ 1 + Σ_a 2^{−a} = 2. For
+ℓ = q: by (2.9) and Stewart's bound (2.6), each term is ≤ ρ*(q^ν)/q^ν ≤ 2q^{−⌈ν/2⌉} (ν = a + b), so E_q ≤ 1 + Σ_{ν≥1}
+2(ν + 1)q^{−ν/2} ≤ C (q ≥ 3). Hence the sum is ≪ exp(Σ_{ℓ≤x, ℓ∤2q} g_χ(ℓ)/ℓ + Σ_{√x<ℓ≤x} 1/ℓ) ≪ exp(Σ_{ℓ≤x,ℓ∤2q} g_χ(ℓ)/ℓ),
+and by Mertens Σ_{ℓ≤x} g_χ(ℓ)/ℓ = log log x − Σ_{ℓ≤x}(1 − g_χ(ℓ))/ℓ + O(1). Collecting: ≪ (y/log x)·exp(−Σ_{ℓ≤x,ℓ∤2q}
+(1 − g_χ(ℓ))/ℓ); replace x by X at a cost O(1) in the exponent (Σ_{x<ℓ≤X} 1/ℓ = O(1), and 1 − g ≥ 0 lets us only *drop*
+terms when passing to a sub-range, which we do next). ∎
+*(Erratum caveats checked: the 2014 erratum changes ρ̂_R → ρ̆_R ≤ ρ̂_R (only helps an upper bound), fixes the
+sub-multiplicativity step in Lemmas 2–3 (no change to the statement), and replaces D* by a*D* in Thm 6 / Cors 1–2 — we
+use New Theorem 5 itself, which carries no D* factor.)*
+
+**Lemma 8.4 (uniform saving; PROVED modulo Siegel–Walfisz; ineffective).** For 0 < η < 1 and A := α/η + 1, uniformly in
+primes q ≤ 2L^α and χ ≠ 1 mod q: Σ_{ℓ≤X, ℓ∤2q} (1 − g_χ(ℓ))/ℓ ≥ (1 − η) (log L)/3 − O_{α,η}(1).
+*Proof.* Drop ℓ ≤ w := exp(L^η) (terms ≥ 0). For t ≥ w, q ≤ 2L^α ≤ (log t)^A, so Siegel–Walfisz gives
+π(t; q, a) = li(t)/φ(q) + O_A(t exp(−c_A√log t)) for every a prime to q; partial summation gives
+Σ_{w<ℓ≤X, ℓ≡a (q)} 1/ℓ = (log log X − log log w)/φ(q) + O(1/φ(q)) + O(L^η e^{−c_A L^{η/2}}), and log log X − log log w =
+(1 − η) log L. Weight by 1 − g_χ(a) ∈ [0, 1] and sum over the φ(q) ≤ 2L^α classes: by Lemma 8.2 the main term is
+≥ (1 − η)(log L)/3, the errors O(1) + O(L^{α+η} e^{−c_A L^{η/2}}) = O(1). ∎
+
+**Theorem 8.5 (moving-window cap-0 witnesses; PROVED modulo Henriot 2014 New Thm 5, Siegel–Walfisz, Mertens; implied
+constants ineffective).** Fix 0 < α < 1/6 and ε > 0. For all but O_{α,ε}(X/L^{4/3−2α−ε}) primes p ∈ (X, 2X] with
+p ≡ 1 (mod 8), **every** prime q ≡ 3 (mod 8) in [L^α, 2L^α] satisfies Σ_{χ≠1} G_χ(K_q) < 1, hence (Lemma 8.1) carries an
+honest Type II ES solution with window q (cap 0). In particular this holds at every *forced* window ((q/p) = −1) in the band.
+*Proof.* It suffices to treat 0 < ε < 1/3 (larger ε only weakens the claim). Let η := 3ε. By Lemmas 8.3–8.4, Σ_p G_χ(K_q) ≪ (X/L)·L^{−(1−η)/3} = X/L^{4/3−ε} uniformly in q ≤ 2L^α and
+χ ≠ 1. The exceptional set is contained in ∪_q {p : Σ_{χ≠1} G_χ(K_q) ≥ 1}; by Markov its size is
+≤ Σ_{q ≤ 2L^α} Σ_{χ≠1} Σ_p G_χ(K_q) ≪ (2L^α)² X/L^{4/3−ε}. This is o(X/L) iff 2α + ε < 1/3, which holds for ε small since α < 1/6 (review repair: not merely 2α < 1/3). ∎
+*Remarks.* (i) Forcing is not used: the certificate is target-free (it covers every class mod q), so it applies at all
+windows q ≡ 3 (8); the board's "forced window" phrasing (and the CRT count for the existence of a forced q) is a special
+case and is not needed. Numerics confirm the certificate fires at unforced windows too (below). (ii) The band contains
+≍ L^α/log L primes ≡ 3 (8) for large X (PNT in progressions mod 8). (iii) The union bound over q and χ is crude (that is
+where 2α is lost); no attempt to optimise, since the result is dominated anyway. (iv) The randomized-root dimension-≤2 upper
+sieve of astra's sketch is an alternative proof of Lemma 8.3; fable identifies the bound as Halberstam/Timofeev/Elliott-type
+(standard). We did not re-derive that alternative.
+
+**8.6 Value and priority (Assessment).** *Dominated as an exceptional-set bound:* already the single fixed window q = 3
+(the u = 1 slice; Elsholtz–Tao Thm 1.8, proof of part 3, use exactly 4/p = 1/((p+3)/4) + 3/(p(p+3)/4) for p ≡ 1 (4)) fails
+only when (p + 3)/4 has no prime factor ≡ 2 (mod 3), i.e. for ≪ X/L^{3/2} primes (dimension-1/2 upper sieve, or Lemma 8.3
+with f = 1[all primes ≡ 1 (3)]; ≍ heuristically), fewer than X/L^{4/3−2α−ε}; Vaughan's
+X exp(−c L^{2/3}) and the campaign's proved 3/4 chain are far stronger. *New only in shape:* a witness at every window of a
+polylog band at once, i.e. a lower bound on the number of distinct windows carrying cap-0 witnesses (≫ L^α/log L for almost
+all p). That count by itself is also weak: Elsholtz–Tao's f(p) ≥ (log p)^{0.549+o(1)} for almost all p already gives many
+solutions, though not localised at prescribed windows. *Priority check (limited):* web searches for moving/growing-window or
+"every small window" ES statements, and for "subset products of prime factors of shifted primes cover (ℤ/q)^*" results, found
+nothing beyond fixed-window statements (Elsholtz–Tao) and divisor-distribution literature (Koukoulopoulos, "Divisors of
+shifted primes"; Ford). No claim of priority beyond "not found in a limited search". Not single-prime lower-tail progress;
+B6 (across-p) by construction.
+
+**8.7 Numerics (EVIDENCE, `scripts/z42_window_cert.py`).** All primes p ≡ 1 (8) in [10⁶, 1.01·10⁶) × all primes
+q ≡ 3 (8), q < 60 (990 windows): certificate ⇒ explicit solution in every case (the 4/p identity checked in exact
+rationals; 0 violations once ties are handled — Σ_{χ≠1}G_χ = 1 exactly occurs, e.g. p = 1 000 121, q = 11, K = 7·23·1553,
+so the comparison is strict); the certificate holds at 160/470 forced and 109/520 unforced windows, against signed-squarefree
+witnesses at 254/470 and 153/520 (the certificate is sufficient, far from necessary, at these tiny ω(K) ≈ 3).
