@@ -1,6 +1,7 @@
 # SYNTHESIS_SPARKS9 — the lower tail at a single prime (task O271, synthesis IX over waves AA–AB, (J)84–(J)99 + O268/O269/O270)
 
-Status: O271 checkpoint 1 (deep self-review applied, marked "self-review repair"; awaiting parent review). **ES is not solved here or anywhere; no infinite case of ES for primes is claimed.** Labels as in
+Status: O271 checkpoint 1 (deep self-review applied, marked "self-review repair"; hostile review R282 in
+`reviews/synthesis-nine-review.md`, its repairs marked "(R282 repair)"). **ES is not solved here or anywhere; no infinite case of ES for primes is claimed.** Labels as in
 DISCOVERIES.md. Memos `BRAINSTORM/s9_*.md`; scripts `scripts/s9_*`; tiny logs `logs/s9_*`. Branches O268
 (bm-corrected-count), O269 (metaplectic-es), O270 (exp-fifteen) were read only (`git show`), not merged; their statements are
 cited as "under review".
@@ -12,8 +13,10 @@ words with 4 | t; R(p) = #(★)-words. b = 1 line (López Type A). M_BM = O268's
 (I1) Mandatory (iv), union over ET sub-lines. Put both lines on ONE numerator-free set W(p) (Lemma 1.1 below; the word
 coordinates and the five-slice sign are DEDEKIND_ES Thm 4.5's, the line dictionary is SPARKS8 Prop 1.3 in word form). Tested the
 brief's "negative correlation" hope: it is false (corr +0.37–0.39), and the whole correlation is the shared size |W(p)|
-(partial corr 0.35 → 0.01 after controlling log |W|). Barrier hypothesis met: "the two lines are draws from one finite set"
-— the union's robustness is additive main terms on a common size variable, nothing forced.
+(partial corr 0.35 → 0.01 after controlling log |W|). (R282 repair: that drop is largely mechanical — W ⊇ A ∪ B; with a size
+control disjoint from A ∪ B, log(W − U), the partial correlation stays ≈ 0.35, see Prop 1.3. The two lines co-vary beyond the
+size of the rest of W(p).) Barrier hypothesis met: "the two lines are draws from one finite set" — nothing forced, and no
+complementarity.
 
 ## 1. Deep item 1: the union is a 2-adic thinning of one numerator-free set (mandatory (iv))
 
@@ -29,7 +32,7 @@ holds ⟺ some word of n has k | v (equivalently k | u). Hence **the two-line un
 ≡ 0 (mod k).** *Proof.* c = 1: (t, u, v) = (kd, a, b). b = 1: (kcd, a, 1) ∈ W(cn) with c | kcd; Lemma 1.1 maps it to
 (c, g, kd) ∈ W(n), and back. ∎
 Checks (`scripts/s9_words.py 801 61`, brute force against the original definitions): all odd n ≤ 801, 0 failures; the k = 8
-union fails at exactly 34 primes < 8000 incl. 131, 241, reproducing SPARKS8 (I2)'s count (`scripts/s9_words.c`, K = 8).
+union fails at exactly 34 primes 5 ≤ p < 8000 incl. 131, 241 (also at p = 3; R282 repair), reproducing SPARKS8 (I2)'s count (`scripts/s9_words.c`, K = 8).
 
 **Sign (DEDEKIND_ES Thm 4.5, cited).** For w ∈ W(n), X = tu − 1, Y = tv − 1, XY = tn + 1 ≡ 1 (mod n) and gcd(X, n) = 1, so
 σ(w) := (X/n) = (Y/n) is well defined; σ ≡ +1 at odd squares. For n ≡ 1 (4), σ(w) = −1 ⟺ one of the five 2-adic conditions
@@ -45,24 +48,29 @@ U = #{some coordinate ≡ 0 (4)}, W = |W(p)|:
   1726201, 5212561, 8813281) — 14 primes ≡ 1 (4) ≤ 10⁷, exactly (J)90's 14 ≤ 10¹⁰;
   b = 1 failures 193, 2521, 66529; union failures: none ≤ 10⁷ (all reproduce (J)89/(J)90).
 * corr(A, B) after standardising within (2000-prime window) × (p mod 24): **+0.367 (≤ 10⁶), +0.387 ((10⁶, 10⁷])**. Primes with
-  A = 0 have B at **0.59×** its cell mean; the bottom 1 % of A/E[A] have B at 0.71–0.75×. **No negative correlation: if (★)
+  A = 0 have B at **≈ 0.6×** its cell mean (only 9 resp. 5 primes; R282 repair); the bottom 1 % of A/E[A] have B at 0.71–0.75×. **No negative correlation: if (★)
   fails, b = 1 is pushed down, not up.**
 * Partial correlation of A/L², B/L² (L = log p) given one-hot(p mod 840), log p, log of the 47-smooth parts of p ± 1:
-  0.352 / 0.393; **adding log W: 0.031 (≤ 10⁶) / 0.011 ((10⁶, 10⁷])**. The shared factor is the size of the common set.
+  0.352 / 0.393; **adding log W: 0.031 (≤ 10⁶) / 0.011 ((10⁶, 10⁷])**. (R282 repair — collider: W contains the A- and B-words
+  (U/W ≈ 0.43), so conditioning on log W partly conditions on A + B. Size controls DISJOINT from A ∪ B leave the correlation
+  almost intact: given log(W − U) 0.346 / 0.353, given log W₊ 0.383 / 0.401, given log(W₋ − U) 0.343 / 0.357; given log W₋
+  (a superset with larger A ∪ B share) it turns negative, −0.19 / −0.23 (`scripts/review_r282_union_stats2.py`, controls p mod 840
+  and log p). So the shared size of W(p) is NOT the explanation; the 4-divisible words of both lines co-vary beyond it.)
 * W/L² ≈ 0.95 → 0.91 (mean), 1 %-quantile ≈ 0.52–0.53, min W = 43 (p > 10⁵). U/W ≈ 0.42–0.44 (mild dependence on p mod 3, 5, 8).
   Given W, U behaves like a thinning of the W/2 mirror pairs (t, u, v) ~ (t, v, u): Var(U − πW)/E[πW(1 − π)] = 2.4–2.7
   (≤ 10⁶), 2.8–3.8 ((10⁶, 10⁷], growing with W) against 2 for exact mirror-binomial — modest, growing overdispersion.
 * T1 control: 1 081 odd squares in [10⁶, 10⁷]: U = 0 and σ ≡ +1 for all; W/L² = 0.45 (all σ = +1), against W₊/L² = 0.31,
   W₋/L² = 0.61 at primes.
-**Assessment.** The union's lower tail factors as (size of the numerator-free set W(p)) × (2-adic thinning). No identity
-couples the two lines beyond sharing W; after controlling log W the residual LINEAR correlation is 0.01–0.03 (a model-specific
-observation, not a proof of conditional independence). The deterministic part is only the sign
+**Assessment.** Both lines are 2-adic subsets of the numerator-free set W(p). No identity couples them beyond sharing W, but
+statistically they co-vary positively beyond its size (R282 repair: partial corr ≈ 0.35 given the size of the rest of W; the
+0.01–0.03 after controlling log W is mostly the mechanical effect of conditioning on a superset count). The deterministic part is only the sign
 σ (T1); the size W is itself a B2 lottery (each word is a divisor of a shifted integer p + u in the class −1 mod u). The
 numerator k enters only through "coordinate ≡ 0 (mod k)", which makes the k = 8 failures (131, 241) the same mechanism
 with a thinner sieve (π₈ < π₄): no 4-specific forcing is visible here. No route; closes (iv) negatively.
 
 (I2) Mandatory (ii), Thm K × BM class. Asked which piece of O269's E_t ± O_t is BL's class. Answer (§2): one odd quadratic
-character χ_{−t} ∈ O_t together with the principal character ∈ E_t — the level-coordinate twin of O268 Thm 1.1 (χ_{−4uB} at p).
+character χ_{−t} ∈ O_t together with the principal character ∈ E_t — the level-coordinate twin of O268 Thm 1.1 (χ_{−4uB} at p)
+— for n ≡ 1 (mod 4); for n ≡ 3 (mod 4) BL's class evaluates as −χ_t (even) instead (R282 repair, Lemma 2.0).
 Construction attempt: use the BM layer as a positivity statement for an explicit coefficient (τ(N) − σ_{χ_{−t}}(N)) and try to
 prove it positive at every non-square. It IS positive at every non-square, trivially (least non-residue; Prop 2.2) — so the
 BM layer is pointwise free, and the whole difficulty is the class lottery inside the coset {χ_{−t} = −1} (index 2, size φ(t)/2).
@@ -72,7 +80,20 @@ Thm-K coordinates. Hecke/Eisenstein positivity bounds σ_{χ_{−t}} = r_{−t}/
 ## 2. Deep item 2: the BM layer of Theorem K is χ_{−t}, and it is pointwise free (mandatory (ii))
 
 Setting: 4 | t, N = tn + 1 (n odd), χ_{−t} = (−t/·) the Kronecker character, real and odd (χ_{−t}(−1) = −1), a character
-mod t. O269 Thm K (under review on side-agent/metaplectic-es): R_t(n) = D⁻_t(N) − β_t(n), D⁻_t(N) = #{d | N : d ≡ −1 (t)}.
+mod t.
+
+**Lemma 2.0 (R282 repair; which character is BL's class at level t; PROVED at generic points).** Let n = p be an odd prime,
+4 | t, p ∤ t, δ | N = tp + 1 with p ∤ δ + 1, and P(t, δ) the rational point with C = t/4, u = (δ + 1)/t, v = (N/δ + 1)/t,
+(x, y, z) = (uvC, pvC, puC) ∈ U_p(ℚ). Then for BL's α = (−x/z, −y/z) = (−v/p, −v/u):
+  inv_p α(P(t, δ)) = (−δ/p) = (−1/p)·(−1)^{(δ−1)(p−1)/4}·χ_{−t}(δ),
+i.e. χ_{−t}(δ) for p ≡ 1 (4) and −χ_t(δ) (χ_t = (t/·), EVEN) for p ≡ 3 (4).
+*Proof.* v_p(−v/p) = −1 and −v/u is a p-unit, so inv_p = (−uv/p); mod p, N ≡ 1 and N/δ ≡ δ⁻¹ give uv ≡ (δ + 1)²/(δt²). Then
+(δ/p) = (−1)^{(δ−1)(p−1)/4}(p/δ) and tp ≡ −1 (mod δ) gives (p/δ) = (−t⁻¹/δ) = χ_{−t}(δ). ∎ (Checked by explicit Hilbert symbols,
+`scripts/review_r282_blevel.py`: p < 400, t ≤ 60 — exact at all generic points; the only mismatches have p | t.) For composite
+odd n the same computation with Jacobi symbols gives the same n mod 4 dichotomy. Hence the BM factor 1 + inv_∞·inv_p at level
+t is 1 − χ_{−t}(δ) for n ≡ 1 (4) — the {1, χ_{−t}} part below — but 1 + χ_t(δ) for n ≡ 3 (4), which never vanishes. **All
+"BL's class = χ_{−t}" statements below are for n ≡ 1 (mod 4)**; Props 2.1–2.2 themselves hold for all odd n as statements
+about M^{lev}. O269 Thm K (under review on side-agent/metaplectic-es): R_t(n) = D⁻_t(N) − β_t(n), D⁻_t(N) = #{d | N : d ≡ −1 (t)}.
 
 **Proposition 2.1 (PROVED, elementary).** (a) D⁻_t(N) ≤ #{d | N : χ_{−t}(d) = −1} = (τ(N) − σ_{χ_{−t}}(N))/2, where
 σ_χ(N) = Σ_{d|N} χ(d); the right side is > 0 iff N has a prime factor ℓ with (−t/ℓ) = −1 (ℓ inert in ℚ(√−t)).
@@ -94,7 +115,7 @@ reciprocity, a character mod 4n), so ℓ exists. t exists by CRT (ℓ odd, ℓ �
 so (−t/ℓ) = (n⁻¹/ℓ) = (n/ℓ) = −1. ⇒: Prop 2.1(c). ∎
 So the witness level is ≤ 4ℓ(n) ≪_ε n^{1/(4√e)+ε} (Burgess), ≪ (log n)² under GRH (Ankeny/Bach).
 Check (`scripts/s9_level_bm.py`, `logs/s9_level_bm.txt`): all 499 500 odd non-squares ≤ 10⁶ (all primes included) — 0 witness
-failures (max ℓ = 71); odd squares — no 4 | t ≤ 200 (m² ≤ 2·10⁵, 223 squares) resp. ≤ 40 (m² ≤ 10⁶, 499 squares) with an inert
+failures (max ℓ = 71); odd squares > 1 — no 4 | t ≤ 200 (m² ≤ 2·10⁵, 223 squares) resp. ≤ 40 (m² ≤ 10⁶, 499 squares) with an inert
 prime factor of tm² + 1. At the witness level an actual (★) word exists for 73.4 % of n (the class lottery, see below).
 
 **Reading (Assessment).** The two dual slicings of the one triple sum Σ 1[4uBC − u − B = n] put BL's class in two places:
@@ -104,7 +125,8 @@ quantified by O268 Thm 2.2). What remains is the position of a divisor d of N in
 φ(t)/2 classes of which exactly one (−1) is good — the X part, i.e. all characters mod t other than 1, χ_{−t}. (Self-review
 repair: this X part still contains OTHER real characters mod t — the genus characters of O260's M_gen — so quadratic obstructions
 remain possible there. Example: the (★)-failure n = 7 at t = 12: 85 = 5·17, both χ_{−12} = −1, but both χ_{−4} = +1, which excludes
-the class 11 mod 12. What Prop 2.2 frees is the single BL character χ_{−t}, not the whole genus layer.) Hence:
+the class 11 mod 12 (R282 repair: at n = 7, t = 12 size alone already excludes words, as N = 85 < 11²; a size-free example is
+n = 17, t = 12: N = 205 = 5·41 ≥ 11², χ_{−12} = −1 but χ_{−4} = +1 on both factors, divisor classes {1, 5, 5, 1} mod 12). What Prop 2.2 frees is the single BL character χ_{−t}, not the whole genus layer.) Hence:
 * an "explicit Dirichlet-coefficient positivity" route (σ_{χ_{−t}} = R_{−t}/w; Hecke/Eisenstein lower bounds for representation
   numbers) controls only the BM layer, and in the wrong direction (it bounds M^{lev}_t from above);
 * the lower-tail question H⁻_BM is the class lottery inside a coset of size φ(t)/2, with no fixed-integer packaging: the
@@ -148,7 +170,9 @@ factorisation). With μ = E R, Δ = E[#ordered dependent pairs]:
 * Δ/μ = 3.6, 4.3, 4.9, 5.4, 5.8, 6.2, 6.6, 7.3, 9.4 as μ = 6.2 … 34.1 (roughly linear in μ, slope ≈ 0.2). Janson's
   exp(−μ + Δ/2) is > 1 in every bin; the extended form exp(−μ²/(2Δ)) has exponent 0.85 … 1.82 against log p ≈ 6 … 14.
 * At level granularity (event "level t carries a hit"), the mean number of hit levels is 2.65 … 13.8, i.e. 0.44 … 0.97 × log p
-  (rising with p). (J)89 found per-shift events near-independent (joint/product 1.004), so a level-Poisson model predicts
+  (rising with M_BM8; by p-range the R282 sieve gives E[NL]/log p = 0.53, 0.61, 0.75, 0.89, 0.98 on (10², 10³], …, (10⁶, 3·10⁶];
+  note NL ≈ 0.40·R at every height, mostly because R counts each mirror pair twice — level-Poisson ≈ swap-Poisson with ≈ 20 %
+  fewer units; R282 repair). (J)89 found per-shift events near-independent (joint/product 1.004), so a level-Poisson model predicts
   P(R = 0) ≈ e^{−E#levels} ≈ p^{−(0.44…0.97)} — the critical scale of Lemma 3.2, consistent with (★) failures still occurring
   to 8.8·10⁶ and none in (10⁷, 10¹⁰] ((J)90).
 * Observed zeros per bin (1, 1, 1, 1, 0, 3, 0, 1, 3, 1 — the first, M_BM8 < 4, has 16 primes incl. 409; self-review repair: it was
@@ -194,11 +218,11 @@ numerator ladder as thinning (s9_ladder_thinning).
 | combination | where it stops | label |
 |---|---|---|
 | lower tail × literature | no natural every-n theorem at polylog scale; designed (M4) or structural (M3) only | literature + Assessment |
-| Thm K × BM class | BM = χ_{−t} ∈ O_t; free at non-squares; X part = class position inside a coset of size φ(t)/2 (other genus characters remain) | PROVED |
+| Thm K × BM class | BM = χ_{−t} ∈ O_t for n ≡ 1 (4) (−χ_t for n ≡ 3 (4); Lemma 2.0, R282 repair); free at non-squares; X part = class position inside a coset of size φ(t)/2 (other genus characters remain) | PROVED |
 | Thm K × Dirichlet positivity | positive coefficients (R_D/w) enter with a minus sign; no fixed-integer packaging | Assessment (+ PROVED inequality) |
 | variance × fixed group | ℓ² Fourier certifies iff m̄² > (|G| − 1)V, then all classes: phase-blind | PROVED |
 | variance × p-families × Janson | word-level Δ too large; level-level exponent ≈ log p (critical) and the joint tail fatter than level-Poisson | EVIDENCE + Assessment |
-| union × correlation | positive (+0.37); partial corr given log \|W(p)\| 0.01–0.03; no identity beyond "same set" | PROVED (reformulation) + EVIDENCE |
+| union × correlation | positive (+0.37); partial corr given log \|W(p)\| 0.01–0.03 but ≈ 0.35 given log(W − U) (collider, R282 repair); no identity beyond "same set" | PROVED (reformulation) + EVIDENCE |
 | numerator ladder × thinning | order of magnitude right across k = 4…32, 1.7–7× under-prediction | EVIDENCE |
 | fibration over t × Schinzel | fibre obstruction groups unbounded; Schinzel makes tn + 1 prime (wrong way) | PROVED dictionary + Assessment |
 | Ghosh–Sarnak failures × reciprocity | quadratic obstruction at all levels ⟹ square; failures live in the class layer | PROVED |
@@ -206,7 +230,7 @@ numerator ladder as thinning (s9_ladder_thinning).
 
 ## 5. Summary and assessment
 * **The BM layer is pointwise free in both slicings.** O268 put BL's class at χ_{−4uB}(p) (pair slicing); here it is χ_{−t}(d)
-  (level slicing, Prop 2.1), and Prop 2.2 proves the BM relaxation at every non-square with witness level ≤ 4·(least prime ℓ with
+  (level slicing, Lemma 2.0 + Prop 2.1; for n ≡ 1 (4) — for n ≡ 3 (4) it is −χ_t(d), R282 repair), and Prop 2.2 proves the BM relaxation at every non-square with witness level ≤ 4·(least odd prime ℓ with
   (n/ℓ) = −1). So H⁻_BM(ε) is entirely about the class position of a divisor inside the coset {χ_{−t} = −1}: one class out of
   φ(t)/2 (where the other real genus characters and higher-order characters still act). No explicit-coefficient positivity can help (the positive coefficients are representation numbers, with a minus sign).
 * **The plain ℓ² (Parseval) second-moment certificate at fixed p is phase-blind (Lemma 3.1)** — other variance arguments are not
@@ -214,7 +238,8 @@ numerator ladder as thinning (s9_ladder_thinning).
   (Lemma 3.2). The natural near-independent units are levels; their expected number is ≈ (0.44 → 0.97)·log p up to 3·10⁶ —
   critical — and the joint tail is fatter than the bin-mean level-Poisson model (Prop 3.4; heterogeneity not separated). Near-independence is pairwise; ES needs the
   joint lower tail.
-* **The union is a 2-adic thinning of one numerator-free set W(p)** (Cor 1.2), positively correlated, with residual linear correlation ≈ 0.01–0.03 once log |W(p)| is controlled.
+* **The union is a 2-adic thinning of one numerator-free set W(p)** (Cor 1.2), positively correlated; residual linear correlation ≈ 0.01–0.03 once log |W(p)| is controlled, but ≈ 0.35 once only the size of the
+  rest of W(p) is controlled (R282 repair: the former is a collider effect, W ⊇ A ∪ B).
   Numerators k act as thinner sieves on the same set; 8/131, 8/241 are the same mechanism.
 * No route. Every item ends at the class layer of B2 (one class inside a quadratic coset, at moving levels), at B6, or at
   evidence. **ES is not solved; no infinite case for primes is claimed.**

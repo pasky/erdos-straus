@@ -13,14 +13,15 @@ DISPROOF_AVENUES (J)97 ("prime T1" needed).
 
 ## Statement (PROVED, from SYNTHESIS_SPARKS9 Prop 2.1–2.2)
 Call a set 𝒩 of odd integers *quadratically obstructed at level t* if for every n ∈ 𝒩 every prime factor of tn + 1 splits in
-ℚ(√−t) (the only way the χ_{−t}-layer can vanish). If n is quadratically obstructed at every level 4 | t ≤ T, and T ≥ 4ℓ(n) where ℓ(n) is the least prime with
-(n/ℓ) = −1 (ℓ(n) = ∞ for squares), then n is a perfect square — by Prop 2.2 a non-square has a witness level t ≤ 4ℓ(n) with an
+ℚ(√−t) (the only way the χ_{−t}-layer can vanish). If n is quadratically obstructed at every level 4 | t ≤ T, and T ≥ 4ℓ(n) where ℓ(n) is the least ODD prime with
+(n/ℓ) = −1 (R282 repair) (ℓ(n) = ∞ for squares), then n is a perfect square — by Prop 2.2 a non-square has a witness level t ≤ 4ℓ(n) with an
 inert prime factor. In particular a set obstructed at ALL levels consists of squares only.
 Hence a structured family of (★)-failures at non-squares cannot be explained by the BL character χ_{−t} at all levels: at the
 witness level χ_{−t} is satisfied by some prime factor. (Self-review repair: it does NOT follow that the failure is invisible to
 all quadratic characters. The other real characters mod t — the genus characters of O260's M_gen — can still exclude the class −1.
-Example: the (★)-failure n = 7 at t = 12: 85 = 5·17 with χ_{−12} = −1 for both factors but χ_{−4} = +1 for both, excluding 11 mod 12.)
-So the statement is the level form of BL Thm 1.8 for the one Brauer character, and a disproof family must defeat the remaining
+Example: the (★)-failure n = 7 at t = 12: 85 = 5·17 with χ_{−12} = −1 for both factors but χ_{−4} = +1 for both, excluding 11 mod 12 — though there size already excludes words, N = 85 < 11²; size-free: n = 17, t = 12, N = 205 = 5·41, same
+pattern (R282 repair).)
+So, for n ≡ 1 (4) (where χ_{−t} is BL's class, SPARKS9 Lemma 2.0; R282 repair), the statement is the level form of BL Thm 1.8 for the one Brauer character, and a disproof family must defeat the remaining
 genus characters and/or higher-order characters at every level.
 
 ## Barrier screen

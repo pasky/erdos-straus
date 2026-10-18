@@ -1,4 +1,4 @@
-# s9_level_bm_character — BL's Brauer class in Theorem-K coordinates is χ_{−t}, and the BM layer is free at every non-square (O271, mandatory (ii))
+# s9_level_bm_character — BL's Brauer class in Theorem-K coordinates is χ_{−t} (n ≡ 1 (4); −χ_t for n ≡ 3 (4) — R282 repair), and the BM layer is free at every non-square (O271, mandatory (ii))
 
 ## Idea
 O268 Thm 1.1 (now (J)100): in pair coordinates (fix (u, B), sum over C) BL's class is χ_{−4uB} evaluated at p. O269 Thm K (under
@@ -28,7 +28,10 @@ any mechanism must be screened for.
 `scripts/s9_level_bm.py 200000 200` (`logs/s9_level_bm.txt`): 99 776 odd non-squares, 0 witness failures, max ℓ = 71; 223 odd
 squares, no level t ≤ 200 with an inert prime factor; the witness level carries an actual (★) word for 72.1 % of n.
 
+(R282 repair) The dictionary itself is SPARKS9 Lemma 2.0 (added by R282): inv_p α at the level points P(t, δ) equals
+(−1/p)(−1)^{(δ−1)(p−1)/4}χ_{−t}(δ), i.e. χ_{−t}(δ) for p ≡ 1 (4) but −χ_t(δ) (even) for p ≡ 3 (4); `scripts/review_r282_blevel.py`.
+
 ## Assessment
-PROVED dictionary + PROVED (elementary) pointwise statement for the BM relaxation. It answers (ii): the BM class is one odd
+PROVED dictionary (generic points, n ≡ 1 (4); R282 repair) + PROVED (elementary) pointwise statement for the BM relaxation. It answers (ii): the BM class is one odd
 character in O_t, and the "explicit Dirichlet coefficient" it gives (τ − R_{−t}/w) is already positive at every non-square —
 so no positivity theorem for it can help; Hecke/Eisenstein lower bounds for R_{−t} push against ES. No route.

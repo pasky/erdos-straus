@@ -19,7 +19,8 @@ Bright–Loughran arXiv:1908.02526 (Br U_n/Br ℚ = ℤ/2, no BM obstruction for
   (ℤ/t)^* ≅ Gal(ℚ(ζ_t)/ℚ), is −1 — the class of **complex conjugation**. So the level-t event is "some positive divisor of tn + 1
   has Frobenius = c_∞ in ℚ(ζ_t)" (the (J)50 dictionary, fibrewise). Its obstruction group is all of (ℤ/t)^*^ — Thm K's
   characters (O269).
-* Only one of these characters is the restriction of the total space's Brauer class: χ_{−t} (SYNTHESIS_SPARKS9 Prop 2.1), the
+* Only one of these characters is the restriction of the total space's Brauer class: χ_{−t} for n ≡ 1 (4) (−χ_t for n ≡ 3 (4);
+  SYNTHESIS_SPARKS9 Lemma 2.0, R282 repair), the
   quadratic shadow of c_∞ in ℚ(√−t) ⊂ ℚ(ζ_t); and that layer is solvable at every non-square n (Prop 2.2).
 
 ## Barrier screen
