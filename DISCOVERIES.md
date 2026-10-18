@@ -1648,6 +1648,16 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment: no power-class reformulation of the target exists — it is additive. No route, no relay.
    * verify.py (hj) re-runs R275's checks.
 
+97. **Disproof avenues: no Brauer–Manin obstruction at any n ≥ 2, so a counterexample needs a non-BM integral failure; a universal zero law on the numerator ladder; adversarial primes far from failure (DISPROOF_AVENUES.md + BRAINSTORM/z32_*.md (O262); hostile review `reviews/disproof-avenues-review.md` (R274): no FATAL. MAJOR D8: "every variant" bounds contradicted the author's own log. MAJOR D9: "the only escape is a non-monotone zero law" holds only inside the one-parameter family. MAJOR D12: the out-of-sample fit is ×3–5 optimistic at the top μ. D1/D15 MINOR→MAJOR: BL Thm 1.8 needs n ≥ 2 (n = 1 is BM-obstructed), and the probability statement is a subjective credence. Minors. All repaired by the reviewer, marked (R274 repair).)**
+   * Citations (R274 checked BL from the PDF). Bright–Loughran Thm 1.8: no Brauer–Manin obstruction to ES at any n ≥ 2. Thm 1.6: Br/Br₀ = ℤ/2, transcendental. Thm 1.9: strong approximation fails beyond BM. So any counterexample is a non-BM integral failure; known non-BM failures (Markoff-type, Dao; 8/n and 15/n in PW Table 1) are small-count phenomena. The verification record 10¹⁸ (Mihnea–Dumitru arXiv:2509.00128) is unrefereed.
+   * Prop 3.1 (PROVED; the existence clause CONDITIONAL on Dickson/H; R274 re-derived the row identities): the "n = 1 shadow". Primes p ≡ 1 (mod Q) with prime slice cofactors empty any finite set of ET slices. This is the archimedean twin of T1 and Thm C, unifying (J)83 Thm 1.3, (J)90 Thm 4.2 and (J)93 Thm 3.4; it is new only in its uniformity.
+   * EVIDENCE (R274 reproduced the data exactly from scratch):
+     * On the Type II ladder m/p, m = 4…24, over all primes ≤ 10⁸, the failure rate depends only on the cell mean μ: P(f = 0) ≈ exp(−0.535 μ^{0.91}). Negative-binomial tails are falsified. The fit is ×3–5 optimistic at the top μ, which is the direction of extrapolation.
+     * Crossover law: q_m·(log p_last)³ ∈ [7, 16] for m = 6…23. It predicts the last ES Type II failure near 1.7·10³, and there is none.
+   * Adversarial search (EVIDENCE; BPSW primes up to 10²⁵): the hardest prime found is p = 2054098191162848070241, with 870 solutions on the cheapest 1024 e-slices (0.26 × controls). The depression saturates.
+   * Assessment (a subjective credence, per R274 D15): P(ES false) is small, and all of it is model risk. A disproof would need a "prime T1" — a global invariant correlating ≍ log³p divisor events. None was found.
+   * verify.py (hk) re-runs R274's shadow-principle and adversarial-prime checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

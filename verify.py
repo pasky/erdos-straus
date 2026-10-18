@@ -26901,4 +26901,35 @@ def check_hj():
 check_hj()
 
 
+def check_hk():
+    # (hk) DISPROOF_AVENUES (O262/R274): R274 from scratch — Prop 3.1 ("n = 1 shadow") row identities (symbolic residues 0) and
+    # shadow primes p ≡ 1 (mod Q) emptying the chosen slices; the hardest adversarial prime found, p = 2054098191162848070241
+    # (BPSW; EVIDENCE): 870 solutions on the cheapest e-slices, W = 11.
+    from time import perf_counter
+    import os
+    import subprocess
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run(["uv", "run", "--with", "sympy", "--with", "python-flint", "python"] + args, capture_output=True,
+                           text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("DISPROOF subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r274_shadow.py"])
+    assert ("symbolic residues (all must be 0): {'II{c,d}': 0, 'II{a,d}': 0, 'I{c,d}': 0, 'II{a,c}': 0, 'I{a,c}': 0, "
+            "'I{a,b}': 0, 'I{a,d}': 0}") in out, out[:800]
+    shadow = [l for l in out.split("\n") if l.strip().startswith("shadow p")]
+    import ast
+    assert shadow and all(set(ast.literal_eval("{" + v.split("{", 1)[1]).values()) == {0} for v in shadow), shadow[:5]
+    out = run(["review_r274_adv.py", "2054098191162848070241"])
+    assert "BPSW(sympy) = True flint = 1 (S, S127, W, type) = (870, 160, 11, 'II')" in out, out[-800:]
+    print(f"== (hk) DISPROOF_AVENUES R274: shadow-principle row identities + shadow primes; hardest adversarial prime 2.05e21 "
+          f"(870 solutions, W = 11); seconds = {perf_counter() - t0:.1f}")
+
+
+check_hk()
+
+
 print("\nall checks passed")
