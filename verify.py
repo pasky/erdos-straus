@@ -26838,4 +26838,36 @@ def check_hh():
 check_hh()
 
 
+def check_hi():
+    # (hi) ZAREMBA_TRANSFER (O266/R276): R276 from scratch — Theorem A (λ(p) ≤ 1 + 10(1 + log p)(1 + log⌈10(1 + log p)⌉); known in
+    # substance, Chang/Larcher) has no violation at the 78 495 primes 7 ≤ p ≤ 10^6; Lemma C (tuv − u − v = p characterisation,
+    # 441 702 triples) and the numerator-free rung (exceptions ≤ 2·10^6 exactly {1, 2, 3, 5, 6, 9, 11, 14, 15, 35, 105, 510});
+    # ZQ_4 for all 2259 primes 7 ≤ p < 2·10^4, ZQ_3 except 277 (EVIDENCE).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("ZAREMBA_TRANSFER subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r276_thmA.py", "1500", "1000000"])
+    assert "(1),(2),(4) ok for primes 7<=p<1500" in out, out[-1000:]
+    assert "(3) 78495 primes 7<=p<=1000000: violations 0; worst min_(QNR A<400) r = 4 at p=2351" in out, out[-1000:]
+    out = run(["review_r276_lemmaC_numfree.py", "400", "2000000"])
+    assert "(1) Lemma C: 441702 triples (p<400, tuv-u-v<3p), mismatches 0" in out, out
+    assert "(2) N=2000000: 12 exceptions: [1, 2, 3, 5, 6, 9, 11, 14, 15, 35, 105, 510]" in out, out
+    out = run(["review_r276_zq.py", "7", "20000"])
+    assert "[7,20000): 2259 primes; max zq=4; zq>3 at [277]; #zq>z 358" in out, out[:600]
+    print(f"== (hi) ZAREMBA_TRANSFER R276: Thm A bound (p ≤ 10^6), Lemma C, numerator-free rung exceptions, ZQ evidence; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_hi()
+
+
 print("\nall checks passed")

@@ -1625,6 +1625,15 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Spark relayed to O266 (zaremba-transfer).
    * verify.py (hh) re-runs R273's dictionary checks.
 
+95. **Zaremba 2026 → ES in continued-fraction coordinates: the method needs density, not a power count; a pointwise relaxation at length ≍ log p log log p (known in substance); Rickards–Stange reciprocity obstructions are the thin-orbit home of T1 (ZAREMBA_TRANSFER.md + BRAINSTORM/z36_*.md (O266, relay of (J)94); hostile review `reviews/zaremba-transfer-review.md` (R276): no FATAL. MAJOR D1: Shkredov's constant is M = 2^{2000}, not 22000. MAJOR D2: the formula r(p/A) = 1 + Σ_{i odd} a_i, inherited from DEDEKIND_ES §2, is false; only "≤" holds, and it is repaired in DEDEKIND_ES.md too. MAJOR D3: the Rickards–Stange dictionary is exact only at row 2 (R276 proved RS Def 2.4 for the ES slice numerator sets); rows 1, 3, 4 are analogies. Minors D4–D9. All repaired by the author, marked (R276 repair).)**
+   * Method extraction (from the preprints; CONDITIONAL on them). The input is density: |A|N^κ ≫ q with ε < 1/18, i.e. 1 − w ≤ κ/8. A power count alone is not enough; Zaremba-5 has count q^{0.67} and is still out of reach.
+   * Theorem A (PROVED, elementary; known in substance — Chang Thm 5): λ(p) ≤ 1 + 10(1 + log p)(1 + log⌈10(1 + log p)⌉). Here λ(p) is the least continued-fraction "length" of p/A over quadratic non-residues A, and ES-five ⟺ λ(p) ≤ 3 (DEDEKIND_ES Cor 4.6). R276 found no violation at the primes ≤ 10⁶.
+   * Lemma C / D (PROVED): tuv − u − v = p ⟺ t ≡ ū + v̄ (mod p) and tuv − u − v < 2p. Enlarging the region only certifies multiples kp, so the "alphabet knob" is vacuous.
+   * Hypothesis ZQ_M ⟹ Theorem B (CONDITIONAL): λ(p) ≤ 1.04 M log p + O(M). Zaremba(M) ⟹ ZQ_{4M·n_p} (PROVED reduction via Shkredov Lemma 10). EVIDENCE: ZQ₄ holds for all primes < 2·10⁴, and ZQ₃ fails only at 277.
+   * Rickards–Stange dictionary (exact at row 2, Assessment elsewhere). The ES slice numerator sets satisfy RS Def 2.4, and T1 is the ES case of a reciprocity obstruction in thin semigroup orbits. Relayed to O267 ("Question R").
+   * Assessment: the gap to ES is L = 3 (count ≍ log²p) against the method's L ≳ C₀ log p, with C₀ astronomically large. No pointwise theorem below log p log log p.
+   * verify.py (hi) re-runs R276's checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
