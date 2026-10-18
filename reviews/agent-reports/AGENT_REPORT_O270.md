@@ -8,9 +8,10 @@ SHARP:
   factorisation, using only the values at Y = 1** (EXP_15 Thm 2.2). Argon's P₀(Y^{2^r}) argument is not needed and is
   false: Y⁶ + 27 = (Y² + 3)(Y² + 3Y + 3)(Y² − 3Y + 3) (Remark 2.3).
 * (S2) The open u ≡ 7 (mod 8) branch (and, by the same computation, II-ac) reduces to **2-adic Diophantine approximation**:
-  a solution needs 15u^p − 1 (resp. 15u^p − v^p) to be divisible by a power of 2 of about half its size (for a = 1:
-  u is a very good 2-adic approximation of 15^{−1/p}). Ridout gives finiteness only ineffectively for p ≥ 5 and nothing for
-  p = 3. So complete binomial sterility of 15·2^s + 1 is a Ridout/Baker-type problem, not a casework gap (Assessment).
+  a solution needs 15u^p − 1 to have a 2^E·a₁² part with 2^E·a₁ ≳ √(15u^p) (for a = 1: u is a very good 2-adic
+  approximation of 15^{−1/p}). Ridout (integer approximants, exponent 1 + ε) gives finiteness, ineffectively, for every odd
+  p including p = 3 when a₁ ≤ u^{p/2−1−ε}; the large-a₁ part is superelliptic-type. So (C1)–(C2) alone reduce the branch to
+  effective Ridout/superelliptic problems (Assessment). (R281 repair, D1/D2.)
 
 ## Step 1 (F2) — result
 * As posed, F2 conflates the two {2,3}-unit-square boundary points of 2^a3^b + 1. At (0,1) (n = 48X⁴ + 1) the (J)74 window
@@ -36,8 +37,8 @@ SHARP:
 * Menu II-d (d constant, a(Y) moving): the identity is unchanged, with a | f′ + 1. Lemma 3.1 (PROVED): for even D, a has no
   real roots (positivity), so linear a is impossible.
 * Searches (EVIDENCE): z40_trinom (a linear, quadratic factor, height ≤ 40): 0 valid families for (15,1), D = 3…8 (also 0
-  for (3,1), (63,1)); z40_seeded (seeded by the 39 boxed solutions, exact resultants): D = 3 gives 2 algebraic families,
-  both 2-adically non-integral (a(0) = 1/2, 3/2); higher D in progress (`data/z40/seeded.log`).
+  for (3,1), (63,1)); z40_seeded (seeded by the 39 boxed solutions, exact resultants): D = 3 gives 2 rational solutions,
+  both degenerate (f ≡ 14 constant, B irreducible: constant-gap, Theorem W) — no genuine II-d configuration (R281 repair, D3).
 * 4^s + 297 (μ = 3): not attempted in this checkpoint.
 * No forced-budget identity for 15·2^s + 1 found. Per the drop condition the publishable content is §2 (proved subcases)
   + the exact search bounds above.

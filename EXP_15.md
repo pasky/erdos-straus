@@ -19,9 +19,12 @@ and the eight window rules of Theorem C(a) are polynomial identities in X with n
 for **every integer** X > 0 in the stated class X mod 11; no 2-adic condition is used (the forced budget is the
 Aurifeuillean factorisation 4X⁴ + 1 = (2X² + 2X + 1)(2X² − 2X + 1), which is identical in X). Hence for X = 2^t3^{t′}
 (t, t′ ≥ 0), i.e. n = 2^{4t+4}3^{4t′+1} + 1, ES holds whenever X ≢ 0, ±1 (mod 11), with the same budget. The window
-classes X ≡ 2, 3, …, 9 (mod 11) are exactly the eight classes of Theorem C(a) (for X = 2^j these are j ≡ 1,…,9 except
-j ≡ 0, 5 (mod 10)). So the answer to F2 at (0, 1) is "yes, trivially": the window is a statement about X, not about
-how X is generated. *Proof.* Theorem B/C(a) as cited; re-verified in `scripts/z40_pierpont_check.py` (§1.3).
+classes X ≡ 2, 3, …, 9 (mod 11) are exactly the eight classes of Theorem C(a) (for X = 2^j these are j ≢ 0, 5
+(mod 10); R281 repair, D8). So the answer to F2 at (0, 1) is "yes, trivially": the window is a statement about X, not about
+how X is generated. *Proof.* Theorem B/C(a) as cited. (R281 repair, D11: the cited `scripts/z40_pierpont_check.py` does not exist; the
+re-verification is `scripts/review_r281_pierpont.py` — all eight rules are integer polynomials over 11, valid on whole
+classes X mod 11, and 540 exact checks X = 2^t3^{t′}, t, t′ ≤ 25.) Moreover, as (a, b) → (0, 1) in Ẑ², X → 1/2 ≡ 6
+(mod 11), so a whole neighbourhood of (0, 1) lies in the window classes (R281 repair, D7(ii)).
 
 **Lemma 1.2 ((3,0): cyclotomic descent; PROVED, elementary).** If an odd prime p divides gcd(a, b) (a, b ≥ 0, not both
 0), then Z := 2^{a/p}3^{b/p} gives 2^a3^b + 1 = Z^p + 1 = (Z + 1)(Z^{p−1} − … + 1) with 3 ≤ Z + 1 < n, and
@@ -46,14 +49,17 @@ splitting with atoms 2, 3 and the algebraic factors of Z^e + w^e (resp. 2Z² ± 
   this supply. A further run (M ≤ 1.5·10⁵, windows on, 20160 → 60480): density 7.5·10⁻⁷ → 2.9·10⁻⁷, open count
   304 → 1072 (`data/z40/tree_w2.log`).
 * No sterile point is detected: at L = 5040 and at L = 20160 **every** open cell is a quadratic non-residue modulo some
-  admissible prime q (97, 113, 127, 193, 211, …), so the limit of each open cell is not a profinite unit square at that
+  admissible prime q (97, 113, 127, 193, 211, …; the L = 5040 cell (5, 2522) first at q = 13441 — R281 repair, D8), so the limit of each open cell is not a profinite unit square at that
   level. The open cells are a *supply* problem (no ET class of modulus ≤ Mmax realises that non-residue jointly with the
   2-, 3-adic data), not an obstruction. Only 7 of the 47 open cells at L = 5040 still mimic 289 = 2⁵3² + 1 at level 360
   (the EXPONENT_COVERING §4.3 near-square phenomenon); none at level 5040.
 * So: a finite certificate for all Pierpont numbers is NOT FOUND at this supply (non-discovery, not non-existence). By
-  EXPONENT_COVERING Thm 1.4 / §5.1 (S-unit version) together with Lemmas 1.1–1.2 it exists iff the closure of
-  {(a, b)} minus the neighbourhoods of (0, 1) and (3, 0) avoids the sterile set S′ — an exponential local–global question
-  of (EH) type in two exponents; no 2D obstruction is known.
+  EXPONENT_COVERING Thm 1.4 / §5.1 (S-unit version) together with Lemmas 1.1–1.2 a certificate *made of ET/divisor
+  classes plus Lemmas 1.1–1.2* exists iff the closure of {(a, b) : a, b ≥ A0} minus the neighbourhoods of (0, 1) and
+  (3, 0) avoids the sterile set S′ — an exponential local–global question of (EH) type in two exponents; no 2D
+  obstruction is known. (R281 repair, D6/D7(i): the "only if" is relative to that menu; and "all 2^a3^b + 1" also needs
+  the 2·A0 one-base edge lines 3^{b₀}·2^a + 1 (b₀ < A0) and 2^{a₀}·3^b + 1 (a₀ < A0), each with its own certificate —
+  board rounds 3–4 report b₀ ≤ 6 settled; the a₀-lines were not examined.)
 
 ## 2. F1 gate: the binomial menus at μ = 0 of 15·2^s + 1
 
@@ -121,7 +127,12 @@ q = a₁d₁, and XX′ = N := 15(1 + u^p) = 16 + 2^E a₁²d₁ with X ≡ −1
 * (Magnitude, PROVED.) If q ≥ 17 then (q − 16)(q − 1) ≤ N, i.e. a₁d₁ ≤ √(15(1 + u^p)) + 17, while a₁²d₁ = (15u^p − 1)/2^E.
   So a solution needs 15u^p − 1 to have a large "2^E·a₁²" part: 2^E a₁ ≳ √(15u^p) (or q ≤ 16). For a = 1 this is the
   2-adic approximation |15u^p − 1|₂ ≲ (15u^p)^{−1/2}, i.e. u is a very good 2-adic approximation of 15^{−1/p};
-  Ridout's theorem makes this finite (ineffectively) for p ≥ 5, and nothing elementary bounds it for p = 3. For q ≤ 16
+  (R281 repair, D1: the earlier "Ridout only for p ≥ 5, nothing for p = 3" was wrong.) Since |u − ζβ|₂ = 1 for ζ ≠ 1
+  (β = 15^{−1/p} ∈ ℤ₂), |u − β|₂ = |15u^p − 1|₂; for approximation by *integers* the Ridout exponent is 1 + ε (Ridout
+  with S-unit denominator; equivalently the 2-adic Subspace Theorem with forms (X, Y) at ∞ and (X − βY, Y) at 2), so
+  every solution with a₁ ≤ u^{p/2−1−ε} lies in a finite (ineffective) set **for each odd p, p = 3 included**. Open:
+  effectivity, uniformity in p, and the large-a₁ sub-branch (a₁ ≳ u^{p/2−1}), which is not a 2-adic approximation
+  condition but a "large square odd part" one (e.g. E = 3, d₁ = 1: 15u^p − 8a₁² = 1, superelliptic). For q ≤ 16
   the limit system (jq − 16)(j′q − 1) = N has solutions for every E (e.g. q = 1, j′ = 2), and (C1) becomes the
   S-unit-type equation 15u^p − 2^E c = 1, c = a₁²d₁ ≤ 256 — finite for each p (Thue), but not settled for all p here.
 * (Factor shape for D = p, PROVED.) For D = p the factors of Y^p + u^p are Y + u and Φ = (Y^p + u^p)/(Y + u) (when Φ is
@@ -147,7 +158,8 @@ solvable only if 15u^p − v^p is abnormally 2-divisible, i.e. (v/u)^p is an exc
 
 The identity f·f′ = n + 4a²d of §2.1 holds verbatim with a ∈ ℚ[Y]; now c = (f′ + 1)/(4ad) ∈ ℚ[Y] forces a | f′ + 1, so
 **f′(y₀) = −1 at every root y₀ of a** (and then f(y₀) = −n(y₀) automatically). At Y = 1 the conditions (C2) hold with
-A := a(1) ∈ ℤ[1/2] in place of a, so for A, d odd the Y = 1 data are exactly the 39 boxed solutions (argon's "targets").
+A := a(1) ∈ ℤ[1/2] in place of a, so for A, d odd the Y = 1 data are exactly the 31 boxed solutions with A, d odd
+(20 distinct pairs; the other 8 of the 39 have A or d even and are not targets) (argon's "targets"; R281 repair, D10).
 
 **Lemma 3.1 (even D; PROVED).** If D is even and d > 0 is constant, a has no real root. *Proof.* n > 0 on ℝ, so
 B = n + 4a²d > 0 on ℝ. If a(y₀) = 0 (y₀ ∈ ℝ) then f′(y₀) = −1 < 0 while f′ has positive leading coefficient, so f′, hence
@@ -158,7 +170,13 @@ the 0 algebraic configurations at D = 4, 6, 8 below.)
 * `scripts/z40_trinom.py c0 D 40 8 40` (a linear, a quadratic factor g of B with g = f′ or g = f, p, q ∈ ℚ of height
   ≤ 40 with denominators | 8, d = sqfree(δ)·t², t ≤ 40; exact Lemma-2.1 test): (15, 1), D = 3…8: 52/0/10/0/9/0 algebraic
   configurations, **0 valid families**; same for (3, 1) and (63, 1) (controls — no II-d family known there either).
+  (R281 repair, D4: the grid omits odd denominators 3, 5, 15, which are natural for monic factors of 15Y^D + …; R281's
+  independent root-parametrised search `review_r281_iid.py` (D = 3, any denominators ≤ 10, |r|, |y₀| ≤ 4, t ≤ 20:
+  13110 configurations) also finds 0 valid families.)
 * `scripts/z40_seeded.py c0 D boxed` (seeded by the 39 boxed solutions (A, d, X, X′); quadratic g interpolating
   (0, φ), (1, X′ or X), (y₀, −1 or −n(y₀)); g | B solved exactly by resultants): (15, 1), D = 3: 2 rational solutions
   (a = (Y + 1)/2, d = 3 and a = 3(Y + 1)/2, d = 5), both fail 2-adic integrality (a(0) = 1/2, 3/2). Larger D: see log
-  `data/z40/seeded.log`.
+  `data/z40/seeded.log`. **(R281 repair, D3:) these "solutions" are degenerate** — B is irreducible and the interpolant
+  collapses to the constant f ≡ 14 (constant-gap families, already excluded by EXP_OPEN Theorem W); likewise for D = 5,
+  and the (63, 1) ones have c = 1/4, f′ constant. So the seeded search found **no genuine II-d configuration**; the
+  script should reject deg g < 2. Its c₀ = 63 seeds use the c₀ = 15 box, which is not exhaustive for 4^J = 64 (D5).

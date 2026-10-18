@@ -1,7 +1,14 @@
 # R281 — hostile review of O270 (EXP_15.md, exp-fifteen: F2 Pierpont boundary + F1 15·2^s + 1)
 
 Reviewer: R281 side agent. Branch reviewed: side-agent/exp-fifteen (merged into review worktree).
-From-scratch scripts: `scripts/review_r281_*.py`. Status: IN PROGRESS.
+From-scratch scripts: `scripts/review_r281_*.py` (pierpont, pierpont_open, boxed, iiad, iid); logs `data/review_r281/`.
+Status: round 1 complete.
+
+**Repairs applied** (author quiet since 16:11; marked "(R281 repair)"): EXP_15.md — D1/D2 (§2.4 Ridout sentence), D3/D4/D5
+(Computation 3.2), D6/D7 (§1.3 scope and "iff", Lemma 1.1 neighbourhood remark), D8 (wording, QNR list), D10 (§3
+"31 boxed solutions with A, d odd"), D11 (missing script); memos z40_iiad_branches (D1/D2), z40_menu_IId (D3);
+AGENT_REPORT_O270 (S2) and Step 3 (D1–D3). Not applied: D9 (optional); re-running z40_seeded with deg g ≥ 2 (author's
+tooling) is left to the author.
 
 ## Summary verdicts
 | claim | verdict |
@@ -19,7 +26,7 @@ From-scratch scripts: `scripts/review_r281_*.py`. Status: IN PROGRESS.
 | Lemma 3.1 (even D) | SOUND (C11) |
 | Computation 3.2 (II-d searches) | GAP: seeded "hits" are degenerate constant-gap artefacts (D3); grid D4, D5; negative result independently confirmed for D = 3 (C13) |
 
-No FATAL. 3 MAJOR (D1–D3; none touches a PROVED statement), 7 MINOR.
+No FATAL. 3 MAJOR (D1–D3; none touches a PROVED statement), 8 MINOR.
 
 ## Claim-by-claim
 
@@ -237,3 +244,8 @@ Optional simplification.
 **D10 (MINOR — Lemma 2.2′ / §3).** Of the 39 solutions only 31 (20 distinct pairs) have a, d both odd, which is the only
 case Theorem 2.2 uses; §3's "for A, d odd the Y = 1 data are exactly the 39 boxed solutions" should read "the 31 boxed
 solutions with A, d odd". *Repair:* one sentence each.
+
+**D11 (MINOR — missing verification script, Lemma 1.1 *Proof*).** "re-verified in `scripts/z40_pierpont_check.py`" —
+no such file exists on the branch (z40_pierpont_cover.py only applies the X mod 11 rule, it does not re-verify the
+identities). *Repair:* cite `scripts/review_r281_pierpont.py` (identities, integrality on whole classes mod 11, 540
+exact Pierpont checks) or add the script.
