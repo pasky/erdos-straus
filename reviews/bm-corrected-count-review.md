@@ -103,3 +103,53 @@ Checked the source (arXiv math/9903196 = JAMS 14 (2001) 365–397), **Theorem 2*
 This is exactly what is used (uniform o(x) for x ∈ [(log p)^A, p], A → ∞), and x ≤ p/8 ≤ q is respected. g(p) ≤ A log L +
 ε(A)L + O(1) = o(L) ✓. T(p) bound re-derived: 1/φ(B) = B^{−1}Σ_{e|B}μ²(e)/φ(e), Σ_e 1/(eφ(e)) < ∞, Möbius over d | u, parity
 split; inner sum ≪ κ(u)g(p), Σ_{u<√p} κ(u)/φ(u) ≪ L ⇒ T = O(L·g(p)) = o(L²) ✓.
+
+### §2 "Consequence (CONDITIONAL, exact)" H_BM(E) — GAP (D3, MAJOR presentation/label)
+The implication H_BM(E) ⇒ R(p) ≥ 1 is trivially valid (R ≥ M_BM − E > 0 once E < (3/(16π²) − ε)L² ≤ M_BM). **But the
+hypothesis is false**: by the author's own Prop 3.1, R(p) − M_BM(p) ≥ exp(c log p/log log p) for infinitely many p, so
+|R − M_BM| ≤ E(p) ≪ L² fails i.o. The section nevertheless presents H_BM as a live conditional ("CONDITIONAL, exact",
+"the CONDITIONAL_ES Prop 3.1 obstruction removed at the level of the hypothesis") and defers only "true/natural" to §3.
+A conditional theorem from a provably false hypothesis is vacuous. **D3 (MAJOR, §2 last paragraph):** repair: state it
+directly one-sided (H⁻: R ≥ M_BM − E, equivalently X_BM ≥ −E) and add "(the two-sided H_BM(E) is false i.o., Prop 3.1)";
+remove "exact" from the two-sided version. The T1-compatibility remark transfers verbatim to the one-sided form.
+
+### Prop 3.1 (two-sided hypotheses false i.o., Linnik) — SOUND
+Re-derived: for d | Q_k with an odd number of primes ≡ 3 (4), d ≡ 3 (4), C = (d+1)/4 ∈ ℤ, B = (p+1)/d even, 4BC − 1 − B =
+Bd − 1 = p; (1, B) ∈ 𝒫(p) since d ≥ 3 ⇒ 3B − 1 ≤ p; distinct d give distinct B; log Q_k ∼ k log k; Linnik gives
+k ≥ (1/L_Lin − o(1))log p/log log p; M_BM ≤ 2M₀ ≪ L², M_gen ≤ Σ 2^{ω(odd)+2}·2^{ω}/φ ≪ L⁴ ✓. Own check
+(`/tmp`-free, inline in review notes): Q = 21, 231, 4389 give p = 293, 2309, 43889 with exactly 2, 4, 8 constructed hits, all
+verified, R(p) = 8, 16, 42 vs M_BM = 4.8, 8.8, 16.7. The "harmless direction" caveat is correctly stated.
+
+### H⁻_BM conditional and its labels — SOUND (minor D8)
+"(★) for p > p₀ ⟸ H⁻_BM(ε, p₀)" is immediate from Thm 2.2 (εM_BM ≥ ε(0.019 − o(1))L² ≥ 1 for p large in terms of ε).
+Labelling it "ES-(★) in disguise up to ε", "a quantitative strengthening, not a weakening", "no implication from a standard
+conjecture established" is honest and correct; the "not refuted by T1" point is correct (0 = 0 at squares, verified).
+**D8 (MINOR, §0 bullet 3 / §5):** "(★)-ES for p > p₀" — to get ES for all n one also needs ES for primes ≤ p₀ (the
+computational verification; and p₀ itself depends on the ineffective o(1) of Burgess only through constants — it is
+effective but unspecified). Add "for all n, given the census below p₀, once p₀ is made explicit". Also: since p₀ ≥ 861 199
+is forced by the census (R(861199) = 0), H⁻_BM is a statement about p > 8.9·10⁶ only; fine as written.
+
+### §3.2 numerics — SOUND-AFTER-REPAIRS (D6, D7)
+Own engine reproduces, for primes p ≡ 1 (4): N = 529/3172/8197/26195, R = 0 counts 2/1/1/2, R < M/2 counts 26/110/251/684,
+min z = −1.95/−2.76/−3.11/−3.31, the 17 (★) failures ≤ 10⁶ with the same mod-8 split, max |X_BM|/M_BM = 2.51, mean
+M_BM/L² = 0.149 at p > 5·10⁵, all 499 squares R* = 0, and (own separate sieve) the zero-set counts Z(K) = 216, 446, 906,
+1744, 3491 (= author's +1, the difference being n = 3, which has R* = 0 and is presumably excluded by the author).
+**D6 (MINOR, §3.2 table last column and §3.1 parenthetical "766 of 26 195 have R > 2M"):** the column is not "R > 2M" but
+the author's `z38_hx.py` "H-fail" count |R − M| ≥ M, which also counts the R = 0 primes. True R > 2M counts: 49, 123, 279,
+764 (author: 51, 124, 280, 766 = these + the R = 0 counts). Repair: relabel the column "|X| ≥ M" or replace the numbers.
+**D7 (MINOR, §3.2 bullet 3):** "At the failures M_BM ∈ [3.0, 28.3]" — false for p = 7 (M_BM = 1.00) and p = 31 (2.00); the
+range [3.0, 28.3] holds for the failures ≥ 79 (79: 3.24, 409: 2.99 rounds to 3.0). Repair: "[1.0, 28.3] (≥ 2.99 for p ≥ 79)".
+
+### §3.3 Markoff precedent — SOUND as literature calibration
+LM Thm 1.5 checked verbatim in `sources/r202/1807.10223.txt` (#{|m| ≤ B : U_m(𝔸_ℤ)^Br ≠ ∅, U_m(ℤ) = ∅} ≫ B^{1/2}/log B) ✓.
+GS and CTWX statements not re-checked by me (not in sources/); the author's caveats ("conditional on the numerics",
+"non-emptiness, not density") are appropriate.
+
+### Prop 4.1 (Type II, b = 1, m/n) — SOUND
+Own check `scripts/review_r279_typeII.py 200` (own Hilbert symbols): all 603 Type II hits 4abcd − a − b = cp at primes < 200
+have inv_p(−b/(pc), −b/a) = (−ab/p) = −1 and χ_{−4ab}(−s) = −1. Subtle point I checked by hand: if p | c the formula would
+read (−ab/p)^{1+v_p(c)}, but p | c ⇒ p | a + b ⇒ (−ab/p) = (a²/p) = 1, so the statement survives (and p | c never happens at
+hits). c = 1 line for m = 8, 12, 16, primes < 6000: 3 272 + 1 582 + 1 356 = 6 210 hits, all with inv_p = (−uB/p) = −1
+(author's total reproduced); m = 3 control: 9 666 of 13 934 hits only, confirming the 4 | m restriction. (b) is (a) with
+b = 1 in shifted coordinates: −a ≡ −y/(4x) (mod p) ⇒ (−a/p) = (−xy/p); (4x+y) | 4x(4x+y) ⇒ the target identity ✓.
+Numerator-8 control values reproduced: 8/p c = 1 line at 131, 241: R = 0, M_BM = 0.562, 0.465 ✓.
