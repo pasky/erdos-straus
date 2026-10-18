@@ -73,8 +73,8 @@ the average of 1[n ≡ a]: the split is mean-preserving pair by pair.
 a ≡ −B (mod ℓ) for ℓ | u and a ≡ −u (mod ℓ) for ℓ | B. (b) If gcd(m, q) > 1 the term is 0. Otherwise n·a ∈ G² ⟺ a ∈ G²,
 i.e. −(u+B) ≡ x² (mod 4uB) for some x. Then x² + u + B = 4uBC′ with C′ ≥ 1, so f := 4uC′ − 1 ≡ −1 (mod 4u) divides x² + u,
 contradicting PARITY_AUDIT Lemma 3.2 (a square plus u has no divisor ≡ −1 (mod 4u)). R*(m²) = 0 by the same lemma
-(4uB | m² + u + B gives such an f). (c) n·a ∈ G² ⟺ a ≡ n·z² for a unit z ⟺ q | n z² + u + B; take y = z (any lift). (d) Both
-averages are φ(q)^{−1}·(number of n-classes hitting) / … : the indicator 1[na ∈ G²] has average 1/s(q), times s(q)/φ(q). ∎
+(4uB | m² + u + B gives such an f). (c) n·a ∈ G² ⟺ a ≡ n·z² for a unit z ⟺ q | n z² + u + B; take y = z (any lift). (d) Over n ∈ G,
+#{n : na ∈ G²} = |G²| = φ(q)/s(q), so the average of (s(q)/φ(q))·1[na ∈ G²] is 1/φ(q), as is that of 1[n ≡ a]. ∎
 
 **Consequence for the conditional question (Assessment, building on CONDITIONAL_ES Prop 3.1(3) and Prop 7.3).** CONDITIONAL_ES
 shows that any proof of "|S₁| < S₀" (principal-character main term against the rest) must fail at odd squares. In the split
