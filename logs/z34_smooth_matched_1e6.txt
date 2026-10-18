@@ -1,0 +1,26 @@
+
+Y = 11: 310 smooth primes in [20000, 999961]
+  mean u N1: smooth 0.770  matched controls 0.495
+  mean u fII: smooth 0.809  matched controls 0.494
+  mean u m0: smooth 0.646  matched controls 0.498
+  mean u S: smooth 0.712  matched controls 0.497
+  mean u e0: smooth 0.623  matched controls 0.498
+  joint top-5% N1&S: smooth 0.068  matched controls 0.0076  ratio 9.0  (product of smooth marginals 0.040)
+  joint top-5% N1&m0: smooth 0.113  matched controls 0.0104  ratio 10.9  (product of smooth marginals 0.054)
+  joint top-5% fII&S: smooth 0.087  matched controls 0.0105  ratio 8.3  (product of smooth marginals 0.044)
+  joint top-5% fII&m0: smooth 0.129  matched controls 0.0128  ratio 10.1  (product of smooth marginals 0.058)
+  joint top-5% N1&e0: smooth 0.100  matched controls 0.0116  ratio 8.6  (product of smooth marginals 0.056)
+  joint top-5% m0&e0: smooth 0.068  matched controls 0.0078  ratio 8.7  (product of smooth marginals 0.034)
+
+Y = 13: 509 smooth primes in [20000, 999961]
+  mean u N1: smooth 0.742  matched controls 0.494
+  mean u fII: smooth 0.784  matched controls 0.493
+  mean u m0: smooth 0.636  matched controls 0.497
+  mean u S: smooth 0.691  matched controls 0.496
+  mean u e0: smooth 0.610  matched controls 0.498
+  joint top-5% N1&S: smooth 0.055  matched controls 0.0074  ratio 7.5  (product of smooth marginals 0.032)
+  joint top-5% N1&m0: smooth 0.092  matched controls 0.0101  ratio 9.2  (product of smooth marginals 0.041)
+  joint top-5% fII&S: smooth 0.075  matched controls 0.0102  ratio 7.3  (product of smooth marginals 0.038)
+  joint top-5% fII&m0: smooth 0.114  matched controls 0.0124  ratio 9.2  (product of smooth marginals 0.049)
+  joint top-5% N1&e0: smooth 0.081  matched controls 0.0112  ratio 7.2  (product of smooth marginals 0.042)
+  joint top-5% m0&e0: smooth 0.063  matched controls 0.0075  ratio 8.4  (product of smooth marginals 0.027)
