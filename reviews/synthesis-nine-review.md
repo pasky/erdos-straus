@@ -153,3 +153,25 @@ model is therefore swap-Poisson with ≈ 20 % fewer units, not an independent "g
 level-Poisson and swap-Poisson totals are of the same order in Prop 3.4).
 **D8 (MINOR).** Prop 3.3 bullet 2 "0.44 … 0.97 × log p (rising with p)" — the numbers are per M_BM8 bin; the "rising with p"
 reading conflates M-bins with height. Give the p-range figures (above) or say "rising with M_BM8".
+
+## Claim E — literature map (i), `s9_lower_tail_literature.md`
+Verdict: **SOUND** (citations checked; conclusion correctly labelled Assessment).
+
+Checked via web search / arXiv full text (R282):
+* Crocker, *On the sum of a prime and of two powers of two*, Pacific J. Math. 36 (1971) 103–107 — Thm I: infinitely many odd
+  positive integers not of the form p + 2^a + 2^b (a, b ≥ 1). ✓
+* H. Pan, *On the integers not of the form p + 2^a + 2^b*, Acta Arith. 148 (2011) 55–61 (arXiv 0905.3809): #{odd y ≤ x not of
+  this form} ≫_ε x^{1−ε}. ✓
+* Erdős–Tetali, *Representations of integers as the sum of k terms*, Random Struct. Alg. 1 (1990) 245–261: for each fixed k an
+  asymptotic basis of order k with r(n) = Θ(log n). ✓ (probabilistic construction — "designed set", M4, fair.)
+* Ghosh–Sarnak, *Integral points on Markoff type cubic surfaces*, Invent. Math. 229 (2022) 689–749 (arXiv 1706.06712, full
+  text read): Hasse principle for almost all k, infinitely many failures; §7: the average of the class numbers h^±(k) is
+  C^±(log k)² ✓ (so "(log k)²" is the average ORBIT count, not a point count — the table's "typical r(n)" column should say
+  "average number of Markoff orbits"); the abstract/intro says part of the failures are explained by BM (refs [CTWX20], [LM20])
+  and part (their Prop 8.1(iii)-type) are far more numerous than the BM-explained ones ✓ ("many explained by reciprocity" OK).
+* Not re-checked (memo marks them as unchecked, honestly): Kolountzakis 1995, Graham 1963, Duke–Schulze-Pillot 1990,
+  Pintz–Ruzsa, Bloom 2021. Plausible as cited.
+
+**D9 (MINOR).** Literature table, Markoff row: "typical r(n) (log k)²" — Ghosh–Sarnak's (log k)² is the average number of
+orbits of the Markoff group action (each orbit is infinite), not a representation count; say so, since the analogy to
+R(p) ≍ (log p)² is only at the level of "number of fundamental-domain points".
