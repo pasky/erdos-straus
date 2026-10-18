@@ -31,3 +31,16 @@ Lowering this bound to 5 or any reasonable magnitude requires a new idea.
 Remark 1.4. Bourgain-Varjú proved a spectral gap theorem in SLd (Z/qZ)
 with respect to a fixed finite generating set S and an arbitrary modulus q.
 However, in the consideration of Zaremba’s conjecture, we need to deal with
+
+--- Remark 1.4 (p. 2), complete ---
+Lowering this bound to 5 or any reasonable magnitude requires a new idea.
+Remark 1.4. Bourgain-Varjú proved a spectral gap theorem in SLd (Z/qZ)
+with respect to a fixed finite generating set S and an arbitrary modulus q.
+However, in the consideration of Zaremba’s conjecture, we need to deal with
+a generating set S that depends on q (see (3.5)), in particular, |S| ≈ q 2τ
+for some small but absolute τ > 0, and the dependence of the spectral
+gap produced in [BV12] is not good enough for our consideration here. We
+naturally need a theory in the spirit of Helfgott’s triple product theorem in
+SL2 (Z/pZ) [Hel08].
+Acknowledgement The author is grateful to Alex Kontorovich for discussions on this work.
+2. Expansion in SL2 (Z/qZ), q arbitrary

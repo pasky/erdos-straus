@@ -134,12 +134,13 @@ theorems by other means, so the value would be methodological only.
 
 ## 6. Verification ledger (research-agent claims graded by me)
 * **Verified by me in the source:** BK Thm 1.8, Conj 1.3/1.7, (1.37) discussion (arXiv PDF); Shkredov 2026 Cor 1, Thms 8, 12,
-  Lemma 13 (arXiv PDF); Zhang 2026 Thm 1.2, Rem 1.3–1.4 (arXiv PDF); Moshchevitin–Shkredov abstract (q = O(p³⁰), p | q);
+  Lemma 13, definition of Z (arXiv PDF; all in the excerpt file); Zhang 2026 Thm 1.2, Rem 1.3–1.4 (arXiv PDF; excerpt file); Moshchevitin–Shkredov abstract (q = O(p³⁰), p | q);
   Chen Thms 1.2.3, 1.2.5, 1.2.6 (arXiv PDF); CTW abstract; Heath-Brown's conjecture (Booker–Sutherland p. 5); Lipshitz LGP via
   DHMP pp. 2–3; Bloom abstract; BL Thms 1.8, 1.9 and "log K3" (local PDF).
-* **Verbatim per research agent, not re-read by me:** Duke 1988 Thm 1; Huang Thm 1.1; Liu–Sawhney Thm 1.1; Croot abstract;
-  Graham 1963 statement; Borwein–Choi abstract; HBP Thm 1; Lenstra 1984; CHN 2008 abstract; LOW 2015 abstract; Jeřábek
-  abstract; Ghosh–Sarnak abstract; Harpaz Thm 1.0.1; BGS 1607.01530 Thms 1–2.
+* **Verbatim per research agent (excerpt file saved), not re-read by me:** Duke 1988 Thm 1; Huang Thm 1.1; Croot abstract;
+  Graham 1963 statement; Borwein–Choi abstract; HBP Thm 1; Lenstra 1984; CHN 2008 abstract; LOW 2015 abstract;
+  Ghosh–Sarnak abstract; Harpaz Thm 1.0.1; BGS 1607.01530 Thms 1–2.
+* **Per research agent, abstract only, no excerpt saved (lower grade):** Liu–Sawhney Thm 1.1; Jeřábek 2016 abstract.
 * **NOT verified (memory or secondary; flagged):** Duke–Schulze-Pillot statement; Ono–Soundararajan statement; Bhargava–Hanke
   exact wording; Humphries–Radziwiłł exponents; ELMV theorem number; Frolenkov–Kan/Kan theorem numbers; Magee–Oh–Winter
   role; Niederreiter special families; Eddy et al. numerical threshold; Brown's computations; Colliot-Thélène–Wei–Xu and
