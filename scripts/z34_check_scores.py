@@ -1,4 +1,4 @@
-"""Brute-force cross-check of z34_scores output (N1, fII, m0, S, e0) for small p.
+"""Brute-force cross-check of z34_scores output for small p: N1, fII, m0, S, e0 (EMAX >= 4000), and L_I.
 usage: z34_check_scores.py scores.txt PMAX"""
 import sys
 from math import isqrt
@@ -37,7 +37,12 @@ for p, (_, N1, F, M0, MP, S, E0, LI) in rows.items():
     for e in range(3, 4000, 4):
         H = (p * e + 1) // 4; f2 = {q: 2 * v for q, v in fac(H).items()}
         if any((r + H) % e == 0 for r in divs(f2)): e0 = e; break
-    ok = (n1, f, m0 or -1, len(sl), e0) == (N1, F, M0, S, E0)
+    li = 0
+    for e in range(3, 200, 4):
+        H = (p * e + 1) // 4; f2 = {q: 2 * v for q, v in fac(H).items()}
+        li += any((r + H) % e == 0 for r in divs(f2))
+    ok = (n1, f, m0 or -1, len(sl), e0, li) == (N1, F, M0, S, E0, LI)
     if not ok:
-        bad += 1; print('MISMATCH', p, (n1, f, m0, len(sl), e0), (N1, F, M0, S, E0))
+        bad += 1; print('MISMATCH', p, (n1, f, m0, len(sl), e0, li), (N1, F, M0, S, E0, LI))
 print('checked p <=', PMAX, 'mismatches', bad)
+sys.exit(1 if bad else 0)

@@ -678,7 +678,3 @@ p N1 fII m0 S | u_N1 u_fII u_m0 u_S
 995329 21 114 7 20 | 0.75 0.77 0.93 0.78
 mean u over smooth primes: {'N1': 0.731, 'fII': 0.771, 'm0': 0.622, 'S': 0.679} (0.5 = typical)
 share with u >= 0.95: {'N1': 0.228, 'fII': 0.274, 'm0': 0.145, 'S': 0.127}
-joint top-5% in N1 and S: smooth cell 0.049, random sample 0.0063; product of smooth marginals 0.029
-joint top-5% in N1 and m0: smooth cell 0.083, random sample 0.0103; product of smooth marginals 0.033
-joint top-5% in fII and S: smooth cell 0.068, random sample 0.0090; product of smooth marginals 0.035
-joint top-5% in fII and m0: smooth cell 0.101, random sample 0.0127; product of smooth marginals 0.040

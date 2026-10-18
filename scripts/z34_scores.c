@@ -31,7 +31,9 @@ static int level_ok(long p, long e){ /* exists r | H^2 with r = -H mod e */
     memcpy(cur,nxt,e); if(cur[t]) return 1; }
   return 0; }
 int main(int argc,char**argv){
+  if(argc<3){ fprintf(stderr,"usage: z34_scores X EMAX (EMAX >= 199, < 100000)\n"); return 1; }
   long X=atol(argv[1]), EMAX=atol(argv[2]);
+  if(X<5 || EMAX<199 || EMAX>=100000){ fprintf(stderr,"need X >= 5 and 199 <= EMAX < 100000\n"); return 1; }
   unsigned char *comp=calloc(X+1,1);
   for(long i=2;i*i<=X;i++) if(!comp[i]) for(long j=i*i;j<=X;j+=i) comp[j]=1;
   uint32_t *N1=calloc(X+1,4), *F=calloc(X+1,4), *MP=calloc(X+1,4); long *M0=malloc((X+1)*sizeof(long));

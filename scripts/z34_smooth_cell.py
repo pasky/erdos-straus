@@ -20,10 +20,4 @@ for j, i in enumerate(rows):
     print(int(p[i]), A[i, 1], A[i, 2], A[i, 3], A[i, 5], '|', ' '.join(f'{U[k][j]:.2f}' for k in cols))
 print('mean u over smooth primes:', {k: round(float(U[k].mean()), 3) for k in cols}, '(0.5 = typical)')
 print('share with u >= 0.95:', {k: round(float((U[k] >= 0.95).mean()), 3) for k in cols})
-# joint extremes: smooth cell vs a random size-matched sample of all primes
-rng = np.random.default_rng(1)
-allidx = rng.choice(np.where(p > 50)[0], 3000, replace=False)
-UA = {k: np.array([pct(v, i) for i in allidx]) for k, v in cols.items()}
-for a, b in (('N1', 'S'), ('N1', 'm0'), ('fII', 'S'), ('fII', 'm0')):
-    js = float(((U[a] >= 0.95) & (U[b] >= 0.95)).mean()); ja = float(((UA[a] >= 0.95) & (UA[b] >= 0.95)).mean())
-    print(f'joint top-5% in {a} and {b}: smooth cell {js:.3f}, random sample {ja:.4f}; product of smooth marginals {float((U[a] >= 0.95).mean() * (U[b] >= 0.95).mean()):.3f}')
+# (size-matched joint comparison: see z34_smooth_matched.py; the unmatched random-sample comparison was removed in review)

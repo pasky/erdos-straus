@@ -31,9 +31,19 @@ def midrank_pct(x):
     return u
 
 
+def avrank(a):
+    o = a.argsort(kind='stable'); s = a[o]; r = np.empty(len(a))
+    i = 0
+    while i < len(a):
+        j = i
+        while j + 1 < len(a) and s[j + 1] == s[i]:
+            j += 1
+        r[o[i:j + 1]] = 0.5 * (i + j); i = j + 1
+    return r
+
+
 def spearman(a, b):
-    ra = a.argsort().argsort().astype(float); rb = b.argsort().argsort().astype(float)
-    return np.corrcoef(ra, rb)[0, 1]
+    return np.corrcoef(avrank(a), avrank(b))[0, 1]
 
 
 U = {k: midrank_pct(raw[k]) for k in names}

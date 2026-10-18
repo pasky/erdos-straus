@@ -15,11 +15,11 @@ scores cannot produce a pointwise mechanism (B6: averages).
 ## Result (EVIDENCE + Assessment; HARD_PAIR §2)
 Spearman 0.2–0.8 among six scores (≤ 10⁶). The profile explains 27–79 % of the variance; the count scores keep 0.35–0.7
 residual correlation (shared shifted integers); the least window and least Type I level are nearly independent given the
-profile. Astra's fixture certificates are literally Claude-side sub-line failures (193: no a = 1 target = N₁ = 0;
-2521: windows 3–19 blocked = m₀ = 23, levels 3–11 sterile = e₀ = 15). The smooth-(p − 1) cell multiplies joint
-extremeness by about 8.
+profile (pooled; tails not tested). Astra's 193 certificate is literally N₁ = 0. Its 2521 certificates (every ES solution
+through the anchors at windows 3–19 excluded; e = 3 sterile, exit at e = 15) imply, but are not the same as, our
+m₀ = 23 and e₀ = 15. Smooth p − 1 goes with 7–11× size-matched joint extremeness (`z34_smooth_matched.py`).
 
 ## Assessment
-Mundane common cause: local profile + shared B2 draws + definitional overlap. No new mechanism. One residual
-observation (EVIDENCE, weak): Type I and Type II least scores look independent given the profile (193, 66529 are
-Type-I-easy).
+Hypothesis consistent with the data, not an established decomposition: local profile + shared B2 draws + partial
+definitional overlap. No extra coincidence was found and no new mechanism. Weak observation: the pooled residual
+correlation of the Type I and Type II least scores is ≈ 0 (193 and 66529 are Type-I-easy); tail dependence untested.
