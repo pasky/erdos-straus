@@ -1,0 +1,2 @@
+https://ora.ox.ac.uk/objects/uuid:231055aa-e770-4155-b496-df50519b0e1c/files/mb95313d0adb75b5de3e0667d218aecf3
+Abstract: “The weak approximation principle fails for the forms x³+y³+z³=kw³, when k=2 or 3. The question therefore arises as to what asymptotic density one should expect for the number of solutions ...” (Exact conjectural asymptotic not verified in viewed excerpt.)

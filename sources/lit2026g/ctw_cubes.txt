@@ -1,0 +1,2 @@
+https://www.imo.universite-paris-saclay.fr/~jean-louis.colliot-thelene/SimonsSymposium.pdf
+Secondary source excerpt attributing result to Colliot-Thélène/Wittenberg: “The equation a = x³ + y³ + z³, with a ∈ Z nonzero. Theorem (CT/Wittenberg 2009) Let ...” The exact theorem text/number was not verified from the paper itself.

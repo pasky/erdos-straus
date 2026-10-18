@@ -1,0 +1,3 @@
+URL: https://www.dpmms.cam.ac.uk/~tf/vaughan-erdos-straus.pdf (bibliographic citation verified elsewhere; this URL not verified/fetched)
+
+UNVERIFIED excerpt pending primary-source check: Vaughan's bound for the number of possible exceptions n≤N to the 4/n Erdős–Straus conjecture is N exp(−c(log N)^(2/3)) for an absolute c>0. Bibliographic reference: R. C. Vaughan, “On a problem of Erdős, Straus and Schinzel,” Mathematika 17 (1970), 193–198.

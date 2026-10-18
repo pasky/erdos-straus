@@ -1,0 +1,2 @@
+https://projecteuclid.org/journals/experimental-mathematics/volume-9/issue-1/On-the-representations-of-xyyzzx/em/1046889597.full
+Abstract: “We show that there are at most 19 integers that are not of the form xy+yz+xz with x,y,z≥1. Eighteen of them are small and easily found. The remaining possibility must be greater than 10^11 and cannot occur if we assume the Generalized Riemann Hypothesis.”

@@ -1,0 +1,8 @@
+URL: https://arxiv.org/abs/1107.3776
+
+“we prove that the Zaremba conjecture holds for a set of density one, with the alphabet {1,2,...,50}.”
+
+Related precise count as quoted in Bourgain–Kontorovich, Annals PDF (Theorem 1.8):
+URL: https://annals.math.princeton.edu/wp-content/uploads/annals-v180-n1-p03-p.pdf
+
+(The paper's main argument constructs a thin semigroup orbit and applies a circle method; this excerpt file intentionally retains only the verified abstract claim.)

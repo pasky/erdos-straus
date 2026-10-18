@@ -1,0 +1,3 @@
+URL: https://ora.ox.ac.uk/objects/uuid:e9e04d90-54b1-40c0-a954-da915b18bc55/files/m6b741d269b0385526c0115f500c8158f
+
+Theorem 1 (D. R. Heath-Brown and J.-C. Puchta, 2002): “Every sufficiently large even integer is a sum of two primes and exactly 13 powers of 2.”

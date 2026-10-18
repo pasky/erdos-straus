@@ -1,0 +1,4 @@
+https://eprint.iacr.org/2004/339
+D. Coppersmith, N. Howgrave-Graham, S. V. Nagaraj, “Divisors in Residue Classes, Constructively,” Math. Comp. 77 (2008), no. 261, 531–545. (Preprint 2004/339.)
+
+Abstract: “Let r,s,n be integers satisfying 0 ≤ r < s < n, s ≥ n^α, α > 1/4, and gcd(r,s)=1. Lenstra showed that the number of integer divisors of n equivalent to r mod s is upper bounded by O((α−1/4)^(−2)). We re-examine this problem; showing how to explicitly construct all such divisors and incidentally improve this bound to O((α−1/4)^(−3/2)).”

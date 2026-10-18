@@ -1,0 +1,2 @@
+https://uva.theopenscholar.com/files/ken-ono/files/038_8.pdf?preview=true
+Search-extracted statement about the paper: “Every non-negative integer, except those of the form 4(16μ + 6), is eligible”; GRH is used for the exception classification. The theorem text and exact list were not verified in the source inspection.
