@@ -140,3 +140,20 @@ hypothesis applies to (L/2, M/2) with ε = 1 (Cor 5.2 says this; Prop 5.1's "e.g
 p = x² + Dy² … are the only canonical integers of size ≍ √p attached to p" has no precise meaning and is labelled under
 "PROVED + Assessment" without separation; the ticket count p^{−1/2+o(1)} for balanced tickets is a heuristic (≈ τ(m + 1)/m
 per window is a residue-lottery model, not proved). Repair: label those two sentences Assessment.
+
+### §4 — Prop 4.1, EVIDENCE 4.2 (script `review_r275_sq.py`, log `logs/review_r275_sq.txt`)
+**Prop 4.1: SOUND.** Re-derived: (a) p ≡ −4k² (ℓ) ⇒ (p/ℓ) = (−1/ℓ), and (ℓ/p) = (p/ℓ). (b) −4 = (1 + i)⁴ is a fourth power
+mod ℓ ≡ 1 (4), so (p/ℓ)_4 = (k²/ℓ)_4 = (k/ℓ); then Burde (checked in §1, 0 failures). From scratch: 26 397 triples
+(p ≤ 2·10⁴, k ≤ 11, ℓ | p + 4k², ℓ ∤ 2k), 0 violations of (a) or (b). The "What it forces" paragraph is Assessment-level
+reasoning (in particular "the target class −1 mod k² beyond its quadratic shadow lies in G²" is imprecise: −1 ∉ G² for
+G = (ℤ/4k²)^×; what is meant is that the fibre of the class over its image in G/G² is invisible) — MINOR D10: label it
+Assessment and fix the G² sentence. Note also (my §2 identity) (w/p)_4 = (m/p)_4⁻¹, another expression that does not give a
+p-only constraint either (m is unknown), consistent with the author's conclusion.
+
+**EVIDENCE 4.2: SOUND (reproduced, mechanism supported).** From scratch on the 3 591 primes p ≡ 1 (4) in [9·10⁵, 10⁶],
+levels 100 ≤ d ≤ 400: hit rate 1.215 % at squares, 1.052 % at non-squares with (d/p) = −1, 0.985 % with (d/p) = +1 (same
+ordering as the author's 1.07 / 0.91 / 0.85 % over p < 10⁶; rates grow slowly with p, as Σ_c 1/φ(4cd − 1) ∝ log(p/4d)/d).
+Observed ratio squares / non-squares 1.19 (author 1.22); naive prediction Σ_{w ≤ p} 1/φ(w) ratio 1.17 (author 1.19). The
+c = 1 witness w = 4k² − 1 = (2k − 1)(2k + 1) alone: 1/φ ratio 1.46, and the event "4d − 1 | p + 4d" occurs 0.235 % (squares)
+vs 0.145 % (non-squares) — the witness factorisation is indeed the driver. The author's admitted spurious factor 2 in
+z35_sg_predict.py does not affect ratios (my script has none). Labels (EVIDENCE, "B1-level") appropriate.
