@@ -11,6 +11,9 @@ Reviewer scripts: `scripts/review_r272_*.py` (from scratch; author's z33 scripts
 | Thm 3.4 | SOUND (D4 minor; re-checked from scratch, 0 firings) |
 | Lemma 4.1 | SOUND (weak but valid lower bound; brute force gives larger η) |
 | Prop 4.2 | SOUND-AFTER-REPAIRS (D7 minor) |
+| Prop 5.1 | SOUND (add −4d ∉ ℚ^{×n} to (c)) |
+| Thm 5.2 | SOUND |
+| Cor 5.3 | GAP → SOUND-AFTER-REPAIRS (D8 major: literal statement false, contradicts WINDMILL 10.2/10.3 R164 caveat) |
 | Thm 6.1 + Hypothesis HC | **FATAL as stated** (HC is false; Thm 6.1's conclusion is false) — SOUND-AFTER-REPAIRS with the D1 repair |
 
 ## Defects
@@ -114,3 +117,29 @@ H = ker χ₋₄ it is 0 (z29(b))" holds only for total-product data (s = 1, g_L
 can escape ker χ₋₄ (e.g. p + 4d = 3·L forces L ≡ 3 (mod 4)). (c) "the Davenport route needs ≥ η(G) + 1 escaping factors" should
 read "a criterion of the form '> k escaping factors per subgroup ⟹ −1 ∈ Σ' must have k ≥ η(G)". (d) add the one-line proof
 of "η(G) ≥ 1 ⟺ exp(G) > 2" (or cite the check above). Label "PROVED" otherwise fine.
+
+## §5 — Prop 5.1, Thm 5.2, Cor 5.3
+Prop 5.1 re-proved: (a) ℓ | p + 4d ⟹ p ≡ −4d (ℓ) ⟹ (−4d/ℓ) = (p/ℓ) = (ℓ/p) (p ≡ 1 (4)), and the Kronecker symbol (−4d/·) is a
+character mod 4d. (b) is the tautology p ≡ −4d (mod ℓ) read in K_{n,d}; the "(N/π)_n = (4d/π)_n" sentence is the triviality
+N ≡ 4d (mod p) (correct, harmless; the primary-normalisation details of n-th power reciprocity are skipped but not used).
+(c) correct for n an odd prime with −4d ∉ ℚ^{×n} (if −4d is an n-th power, e.g. n = 3, d = 2, K_{n,d} = ℚ(ζ_n) and the datum
+is trivial — add the hypothesis) and for n = 4. From scratch (`scripts/review_r272_sec5.py`): (a) on all (p, d, ℓ), p ≡ 1 (4)
+< 2·10⁴, d ≤ 60: 140 310 triples, 0 violations (author reports 140 287 — a 23-triple counting difference, immaterial); the
+Sophie-Germain claim (p/ℓ)₄ = (b/ℓ) for d = b², ℓ ≡ 1 (4), ℓ | p + 4b²: 7531 cases (b ≤ 7), 0 violations. **Prop 5.1 SOUND.**
+Thm 5.2 re-proved: ℓ unramified in Ω and odd ⟹ Ω(i) ∩ ℚ(ζ_ℓ) = ℚ, so Gal(Ω(i)ℚ(ζ_ℓ)/ℚ) = Gal(Ω(i)/ℚ) × (ℤ/ℓ)^×; choose a
+lift of C fixing i (possible by compatibility) times −4d mod ℓ (a unit as ℓ ∤ 2d); Chebotarev + infinitely many such ℓ
+(Dirichlet). **SOUND.** (It is a statement about one factor; the multiset question is correctly deferred to §6.)
+
+**D8 (MAJOR, misapplied citation) — Cor 5.3.** The literal statement "knowing [𝔩] ∈ Cl(K) for every factor … determines the
+odd-part class of ℓ mod t only modulo squares" is false, and contradicts the very R164 repair of WINDMILL Prop 10.3 it cites
+("On the divisor set alone the class map is injective (10.2), so there the class does determine m"). Concretely, for
+N = tp + 1 and m | N with m ≤ √N the form [m, 2, N/m] of discriminant −4tp is *reduced*, so its class determines m itself
+(checked: all 15 312 such divisors, t ∈ {3,7,11,15,19}, p < 3000, `scripts/review_r272_sec5.py` (3)). What Prop 10.3 proves is
+the weaker, correct statement: *no function on Cl(K) equals N𝔞 mod ℓ^k beyond G/G² for all ideals 𝔞 of a class* (norms of
+principal ideals are x² + tpy² ≡ x² mod ℓ^k, all squares occurring). Repair: restate Cor 5.3 as "(i) N𝔞 mod t is a class
+invariant only modulo squares (odd part; ≤ characters mod 8 at 2); (ii) knowledge of [𝔩] *as an abstract element of Cl(K)
+up to automorphism / via 2^∞-structure data* (what Rédei/Smith/Koymans–Pagano methods produce) yields only the χ-shadow;
+(iii) a concrete class (reduced form) on the divisor hypercube determines ℓ itself — that is knowing the factorisation (B2)".
+Also drop "(or of any line's N, via the divisor hypercube of a fixed principal ideal)": only N = tp + 1 (c-line with K =
+ℚ(√−cp)) has the principal ideal (1 + √−cp) of norm N; no such ideal is exhibited for p + 4d or the e-slices. Label: PROVED
+after restatement (i)–(iii), with (ii) needing a precise formulation of "abstract class data" or downgrade to Assessment.
