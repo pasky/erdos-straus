@@ -57,3 +57,55 @@ approximation statement on one fixed surface U₁ with n-dependent open sets W_n
 technology: BM is proved empty-of-content, and all known non-BM integral failures on comparable surfaces are
 small-count accidents. A counterexample, if any, would be a *lottery* failure at one huge n (§§3–4), or a
 *conspiracy* prime whose structure kills all of U_n(ℕ) (§3).
+
+## 3. Conspiracy primes: what a Dickson/CRT construction can kill, and what it cannot
+
+Parametrisations (ET; R123/bs_prob_fII conventions). Type I (p | x only): 4abcd = p(a+b) + c, (x,y,z) = (abdp, acd, bcd).
+Type II (p | y, z): 4abcd = a + b + cp, (x,y,z) = (abd, acdp, bcdp). A *pair slice* fixes two of a, b, c, d; an
+*e-slice* fixes e (Type II: 4abd = p + e, a + b = ce; Type I: 4abd = pe + 1, a + b = ce). Windows x = (p+m)/4 of
+(J)83 are the Type II e-slices e = m; the b = 1 line of (J)90 is the union over d of the Type II slices {b = 1, d}.
+
+Each slice θ is decided by one integer N_θ(p) and a residue class (redteam-automorphic-2 Lemma 2.1 / Thm 2.2):
+
+| row | N_θ(p) | condition on a divisor f (or pair) |
+|---|---|---|
+| II {a,c} (≅ {b,c}) | cp + a | f ≡ −1 (mod 4ac) |
+| II {c,d} | 4c²dp + 1 | f ≡ −1 (mod 4cd) (then the cofactor is ≡ −1 too) |
+| II {a,d} (≅ {b,d}) | p + 4a²d | f ≡ −1 (mod 4ad) (cofactor e ≡ −p) |
+| II {a,b} | — (congruence) | e \| a+b, e ≡ −p (mod 4ab) |
+| I {c,d} | p² + 4c²d | f ≡ −p (mod 4cd) |
+| I {a,c} (≅ {b,c}) | ap + c | f ≡ −p (mod 4ac) |
+| I {a,d} (≅ {b,d}) | — (congruence) | f \| 4a²d + 1, f ≡ −p (mod 4ad) |
+| I {a,b} | — (congruence) | g \| a+b, pg ≡ −1 (mod 4ab) |
+| II e-slice | (p + e)/4 | a b \| N, a + b ≡ 0 (mod e) |
+| I e-slice | (pe + 1)/4 | a b \| N, a + b ≡ 0 (mod e) |
+
+(Row derivations: II {c,d}: (4cda − 1)(4cdb − 1) = 4c²dp + 1; II {a,d}: (4acd − 1)(4abd − p) = p + 4a²d;
+I {c,d}: (4cda − p)(4cdb − p) = p² + 4c²d; I {a,c}: b(4acd − p) = ap + c; I {a,b}: c(4abd − 1) = p(a + b).)
+
+**Proposition 3.1 (the n = 1 shadow kills any finite slice set; PROVED; existence of such p CONDITIONAL).** Let Θ be a
+finite set of slices from the table. Let Q be a positive integer divisible by every class modulus q_θ (4ac, 4cd, …, e)
+and by N_θ(1) for every θ with non-constant N_θ. Let p be a prime with p ≡ 1 (mod Q) and such that, for every such θ,
+P_θ := N_θ(p)/N_θ(1) is prime. Then **no slice θ ∈ Θ contains a solution**.
+(Existence: the forms t ↦ 1 + Qt and t ↦ P_θ(1 + Qt) all take the value 1 at t = 0; adding to Q every prime
+≤ |Θ| + 1 makes the tuple admissible. So Dickson's conjecture gives infinitely many such p when Θ has no Type I
+{c,d} slice; Schinzel's H when it does.)
+*Proof.* N_θ(p) − N_θ(1) is a multiple of p − 1 (it is α(p − 1) or p² − 1), so N_θ(1) | N_θ(p) and
+P_θ = 1 + (N_θ(p) − N_θ(1))/N_θ(1) ≡ 1 (mod q_θ), because q_θ N_θ(1) | Q | p − 1 (enlarge Q to Q·N_θ(1) if necessary).
+P_θ > N_θ(1), so the divisors of N_θ(p) are δ and δP_θ with δ | N_θ(1), and **every divisor is ≡ its shadow δ
+(mod q_θ)**. Also p ≡ 1 (mod q_θ), so every class condition is the one at p = 1. It remains to see that at p = 1 no
+δ | N_θ(1) satisfies the class condition. All cases are elementary size checks:
+* II {a,c}: δ ≤ a + c < 4ac − 1, so δ ≢ −1 (mod 4ac). Same for I {a,c} (class −1 at p = 1).
+* II {c,d}, II {a,d}, I {c,d}, I {a,d}: N(1) = 1 + 4c²d (resp. 1 + 4a²d) ≡ 1 (mod q), so δ ≡ −1 forces its
+  complement δ' ≡ −1 as well; both are then ≥ q − 1, and (4cd − 1)² > 4c²d + 1, (4ad − 1)² > 4a²d + 1. (δ' = 1 is
+  ≢ −1.) The same holds for the pair (δP, δ'), since δP ≡ δ.
+* II {a,b}, I {a,b}: the divisor e (resp. g) of a + b would be ≡ −1 (mod 4ab), but a + b < 4ab − 1.
+* e-slices (e ≡ 3 mod 4, N(1) = (1 + e)/4): a ≡ δ₁, b ≡ δ₂ with δ₁δ₂ | N(1), so 2 ≤ δ₁ + δ₂ ≤ N(1) + 1 < e,
+  and a + b ≢ 0 (mod e). ∎
+
+*Reading.* At p = 1 the ES equation 4/1 = 1/x + 1/y + 1/z has no positive solution (4 > 3): n = 1 is the
+**archimedean** exceptional point, as n = m² is the quadratic-character exceptional point of POINTWISE_SIZE Thm C.
+Prop 3.1 says that a prime which is 1-adically close to 1 (p ≡ 1 mod Q) and whose finitely many slice integers are
+"1 times a prime" is, for those slices, indistinguishable from n = 1. It unifies (J)83 Thm 1.3 (windows ≤ M = Type
+II e-slices), (J)90 Thm 4.2 (b = 1 shifts ≤ σ), redteam-automorphic-2 Lemma 1.2.1 (one {c,d} slice), and B1_LINE's
+"T1 point 1" (Prop 4.1). Novelty is only in the uniform, row-by-row form (Assessment): the mechanism is B1_LINE §4's.
