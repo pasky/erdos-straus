@@ -3,7 +3,10 @@
 Reviewer branch `side-agent/review-disproof`; author files merged from `side-agent/disproof-avenues`.
 From-scratch scripts: `scripts/review_r274_*`. Labels as in DISCOVERIES.md. ES is not solved; nothing below changes that.
 
-(Work in progress — verdict table filled claim by claim.)
+**Repairs applied (R274, author quiet since checkpoint 1 at 12:02):** D1–D16 applied in place, each marked
+"(R274 repair)", in DISPROOF_AVENUES.md (§1, §2, Prop 3.1 proof/existence/Reading/attribution, §3.2, §4.2–4.5, §5
+Reading 5, §6 table/probability/avenue/search advice), AGENT_REPORT_O262.md (SHARP 1–2, (1a), (1d), (3)) and memos
+z32_bm_obstruction_map / z32_numerator_ladder / z32_prime_T1 / z32_shadow_principle. No FATAL defects.
 
 ## Verdict table
 
