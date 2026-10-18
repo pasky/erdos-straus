@@ -74,7 +74,7 @@ int main(int argc, char **argv) {
     for(int n=0;n<=N;n++) {head[n]=-1; selected[n]=prime[n];}
     for(int m=3;(int64_t)m*m<=N;m+=2) selected[m*m]=1;
     /* For u<=v, n=tuv-u-v, t>=1. u=1 requires t>=2.
-       Diagonals are omitted. The bound (u-1)^2<=N+1 is exact. */
+       Diagonals are omitted. (u-1)^2<=N+1 is a necessary cutoff. */
     for(int u=1;(int64_t)(u-1)*(u-1)<=N+1;u++) {
         int vmax=u==1?N+1:(N+u)/(u-1);
         for(int v=u+1;v<=vmax;v++) {

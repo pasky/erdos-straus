@@ -1,6 +1,6 @@
 # LOWER_TAIL_ASTRA — O275: single-integer lower-tail attack
 
-**Status: construction phase. ES is not solved.** Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE; interpretations are Assessment. Work is confined to `side-agent/lower-tail-astra`.
+**Status: checkpoint 1; independent self-review passed, minor clarifications applied. ES is not solved.** Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE; interpretations are Assessment. Work is confined to `side-agent/lower-tail-astra`. T1 denotes the odd-square obstruction to the Type I/II certificate shapes, not an obstruction to ES itself.
 
 ## 0. Reading and attack contract
 
@@ -32,13 +32,15 @@ A new mechanism must force a good word, not merely a nonempty word set, a nonemp
 
 The vertex bound is complete: if 2≤u≤v, then `n≥uv−u−v`, so `v≤(n+u)/(u−1)≤n+2`; if u=1 then t≥2 and v≤n+1. A diagonal word has u=v dividing n. At prime p>3 the only diagonal word is (t,u,v)=(p+2,1,1), whose sign is positive. Thus no good prime word is lost.
 
-**Lemma 2.2 (PROVED).** Restrict to vertices coprime to odd n and colour v by `χ_n(v)=(v/n)`. On an edge put A=tu−1. Then
+**Lemma 2.2 (PROVED; sign identity already in SIGN_IDENTITY Lemma 1.1 and, for primes, CONSTRUCTIVE_ES Prop 4.1(c)).** Restrict to vertices coprime to odd n and colour v by `χ_n(v)=(v/n)`. On an edge put A=tu−1. Then
 
 `(A/n) = χ_n(u)χ_n(v)`.
 
-Consequently, for n≡1 (4), a bichromatic edge is exactly a five-slice certificate (the five-slice sign theorem is DEDEKIND_ES Thm 4.5). Along any tree path v₀,…,v_h, the product of edge signs is `χ_n(v₀)χ_n(v_h)`.
+Consequently, for n≡1 (4), among these unit-endpoint edges a bichromatic edge is exactly a five-slice certificate (the five-slice sign theorem is DEDEKIND_ES Thm 4.5). At primes p>3 all non-diagonal edges have unit endpoints. For composite n this statement does not classify certificates with nonunit endpoints. Along any tree path of unit vertices v₀,…,v_h, the product of edge signs is `χ_n(v₀)χ_n(v_h)`.
 
 *Proof.* `Av=n+u`, so A≡uv⁻¹ (mod n); the Jacobi identity follows. The path product telescopes. ∎
+
+**Attribution.** SIGN_IDENTITY Lemma 1.1 already gives the endpoint divisibility encoding, this sign identity (with the harmless minus-sign convention when n≡1 mod4), and the size bound. DEDEKIND_ES also gives a different, Farey-graph description of the same certificates. Only the unique-parent / forest structure and its component consequences appear unrecorded in the repository; no external novelty claim is made.
 
 **Construction target (not proved).** A non-residue in the component rooted at 1 forces a bichromatic edge without estimating its count. More generally, any independently forced pair of opposite-coloured vertices in one component suffices. This is weaker than demanding expansion, but stronger than mere existence of a good edge somewhere. We will test it before using it as a conjecture.
 
@@ -72,7 +74,7 @@ All four linear forms take the value 1 at k=0. Their product therefore has no fi
 
 `p=1+Mk, L_i=1+(M/(i+1))k, 1≤i≤H`.
 
-They are admissible because they all equal 1 at k=0. Take k large enough that each prime L_i>H+1. Then p+i=(i+1)L_i and L_i≡1 (mod i). Every divisor v of p+i is d or dL_i with d|i+1, and hence v≡d (mod i). For i≥4, no divisor d|i+1 is −1 mod i: the only candidate is i−1, and i−1|i+1 would imply i−1|2. Thus vertices 4,…,H are isolated. The component of 1 (also containing 2,3) is exactly that of Theorem 3.1, with k there replaced by Mk/24, and is monochromatic. ∎
+They are admissible because they all equal 1 at k=0. Take k large enough that each prime L_i>H+1. Then p+i=(i+1)L_i and L_i≡1 (mod i). Every divisor v of p+i is d or dL_i with d|i+1, and hence v≡d (mod i). For i≥4, no divisor d|i+1 is −1 mod i: the only candidate is i−1, and i−1|i+1 would imply i−1|2. This rules out *all* neighbours, smaller and larger: the factorisation v=d or dL_i includes both, and L_i>H+1 prevents a smaller neighbour from containing L_i. In particular the only possible smaller neighbour i−1 is excluded by i−1∤i+1. Thus vertices 4,…,H are isolated. The component of 1 (also containing 2,3) is exactly that of Theorem 3.1, with k there replaced by Mk/24, and is monochromatic. ∎
 
 **Scope / novelty (Assessment).** This uses the campaign's familiar n=1-shadow/Dickson mechanism, not a new prime theorem. The extra conclusion is graph-theoretic closure: all branches from the chosen roots are blocked, not just a prescribed finite set of slices or a prescribed exploration depth. It excludes this particular adaptive-root strategy; growing or p-dependent roots remain open.
 
@@ -114,13 +116,13 @@ are both prime, with a≥0, then ℓ(p)=11 and vertex 11 is isolated in F_p. Thu
 
 `{1,2,3,4,6,12}·{1,2} mod 11 = {1,2,3,4,6,8}`,
 
-which misses 9. The two linear forms are admissible: at primes dividing 9240=2³·3·5·7·11, the first form is a nonzero constant and the second is either a nonzero constant or excludes at most one class (at 3); at every other prime, the two forms exclude at most two classes and that prime exceeds 2. Dickson supplies infinitely many simultaneous prime values. ∎
+which misses 9. The two linear forms are admissible: at primes dividing 9240=2³·3·5·7·11, the first form is a nonzero constant and the second is either a nonzero constant or excludes at most one class (at 3); at every other prime ℓ≥13, the two forms exclude at most two classes. Dickson supplies infinitely many simultaneous prime values. ∎
 
 **Assessment.** The repair violates the fixed-root hypothesis but is still blocked by an explicit actual-factorisation pattern. This does not rule out growing sets of non-residues, other canonical data, or mixed-component existence somewhere in F_p. It is not a proof against Pell/class-group methods.
 
 ## 6. Verification checkpoint
 
-**EVIDENCE / exact finite checks.** `scripts/z43_astra_forest.c 1000000` constructs all unordered non-diagonal words by AP enumeration and independently reconstructs the same edge set by SPF divisor enumeration at every odd prime ≤10^6 and all 499 odd squares 9,…,999². Both methods agree exactly (edge membership and cardinality).
+**EVIDENCE / exact finite checks.** `scripts/z43_astra_forest.c 1000000` constructs all unordered non-diagonal words by AP enumeration and reconstructs the same edge set by a distinct SPF divisor enumeration at every odd prime ≤10^6 and all 499 odd squares 9,…,999². Both algorithms use the same exact edge predicate and agree on membership and cardinality. Direct residue-parent enumeration provides a third check in the smaller range below.
 
 - 78,497 odd primes; 39,175 primes p≡1 (4).
 - 3,028,437 edges at the latter primes; 1,964,805 have negative sign; no five-slice failures (reproduces known results, not new evidence for ES).
