@@ -143,3 +143,46 @@ up to automorphism / via 2^∞-structure data* (what Rédei/Smith/Koymans–Paga
 Also drop "(or of any line's N, via the divisor hypercube of a fixed principal ideal)": only N = tp + 1 (c-line with K =
 ℚ(√−cp)) has the principal ideal (1 + √−cp) of norm N; no such ideal is exhibited for p + 4d or the e-slices. Label: PROVED
 after restatement (i)–(iii), with (ii) needing a precise formulation of "abstract class data" or downgrade to Assessment.
+
+## §6 — HC stated precisely; Thm 6.1 (supplement to D1)
+HC as written: "admissible system f₀,…,f_r; Ω, C with C|_{Ω∩ℚ(ζ_{lead f₀})} = class of f₀(0) ⟹ infinitely many k with all f_i(k)
+prime and Frob_{f₀(k)}|Ω ∈ C". **Inconsistent** (D1: Ω = ℚ(ζ₇), C = {−4 mod 7}, f₁ = (f₀+4)/s). Precise consistent form
+(Bateman–Horn–Chebotarev): let Ω₀ = Ω ∩ ℚ^{ab} with conductor m, A ⊂ (ℤ/m)^× the residues whose Artin symbol on Ω₀ lies in
+C|_{Ω₀}. *If there is k₀ with f₀(k₀) mod m ∈ A such that the system j ↦ f_i(k₀ + mj) (0 ≤ i ≤ r) is admissible, then there
+are infinitely many k ≡ k₀ (mod m) with all f_i(k) prime and Frob_{f₀(k)}|Ω ∈ C.* For Ω = ℚ it is Dickson; the non-abelian
+part of C imposes no local condition (Ω ∩ ℚ(ζ_n) ⊂ Ω₀ for every n), so this is the standard heuristic and is consistent.
+With this HC and the D1(b) hypothesis (B ≥ every prime | m, e_q ≥ v_q(m), C|_{Ω₀} = 1), the rest of the proof of Thm 6.1
+checks: the forms N_i(1+Mk)/s_i lie in ℤ[k] since s_i | M; for q ≤ B, f_i(k) ≡ f_i(0) = B-rough part of N_i(1) ≢ 0 (q); for
+q > B the leading coefficients (M/s_i, M/(4s_i), eM/(4s_i)) are q-units and the number of forms 1 + 2D + 2#{e ≤ D, e ≡ 3 (4)}
+< 4D + 2 ≤ B < q; and t | M/s_i (this is where q^{e_q} > 16D(D+1) ≥ t·N_i(1) is used) makes [f_i(k)] = [f_i(0)] mod t, so
+Σ(N_i) = Σ(s_i) ∪ Σ(s_i)[L_i(1)] ⊂ Σ(N_i(1)) ∌ −1 (Thm 3.4). It is the four-line + Chebotarev extension of B1_LINE Thm 4.2
+(same p ≡ 1 (M_σ) mechanism). **Verdict: FATAL as stated; SOUND-AFTER-REPAIRS (CONDITIONAL on the corrected HC).**
+
+## §7 — EVIDENCE, recomputed from scratch
+`scripts/review_r272_census.py 1000000 200` (own SPF sieve to 6·10⁶, own divisor/subgroup/forced code; every A-certificate
+converted to (x,y,z) = (ad, acdp, cdp) and checked with exact fractions — all 39 171; `logs/review_r272_census_1e6.txt`):
+| tier | author | reviewer |
+|---|---|---|
+| primes p ≡ 1 (4), 5 ≤ p ≤ 10⁶ | 39 175 | 39 175 |
+| A failures | 193, 2521, 66529, 252001 | identical |
+| Gen failures | 0 | 0 |
+| F₁₀ / F₃₀ / F₁₀₀₀ failures | 734 / 43 / 4 | 734 / 43 / 4 (identical first/last lists) |
+| X2 failures | 73 (1321, 1489, 2521, …, 981601) | 73, identical first 8 and last 3; 193, 66529 pass, 2521 fails |
+| odd squares 9…998001 | 499, all tiers fail | 499, all tiers fail (Gen included) |
+F₁₀₀₀ = A exactly is forced (p + 4d < 1000², so at most one prime factor > 1000). The T1 explanation (every unit ℓ | m² + 4d
+has χ_{−4d}(ℓ) = 1, χ_{−4d}(−1) = −1) is correct. Haar densities (`scripts/review_r272_haar.py`, own sampler, p ≡ 1 (4) in
+[10¹⁶, 2·10¹⁶] coprime to primes ≤ max(B, D) + 1; `logs/review_r272_haar.txt`): F_{10,200} 1.76 % (n = 20000; author 1.80 %),
+F_{30,200} 0.13 % (26/20000; author 0.22 % from ~9/4000 — within sampling error, but the author's figure has ±50 % relative
+error and should carry n), F_{10,1000} 0.82 % (33/4000; author 1.10 % = 44/4000, ~1.7σ), F_{1000,200} 0/4000 (author 0/4000).
+**§7: SOUND as EVIDENCE**; suggest quoting the binomial uncertainty for the Haar figures.
+
+## Novelty and labels
+* Thm 3.4 is the classical "congruence (ET/Mordell-type) coverings never contain p ≡ 1 (mod M)" obstruction, essentially
+  JOINT_BUDGET Prop 4.3 (4ab ∤ p − 1) + B1_LINE §4 in forced-factor language; unconditional, correctly PROVED, low novelty.
+  **D9 (MINOR, attribution):** it is *not* a specialisation of LONGSHOT_PIGEONHOLE Thm 2.2 (an upper-density bound for
+  TCC_θ certificates at p ≡ 1 (q₀), relative to PNT/Brun–Titchmarsh/Shiu) nor of POINTWISE_SIZE Thm C (CONDITIONAL on H,
+  about arbitrary correct bounded procedures); say "analogue of" / "same profinite point as".
+* Thm 6.1 extends B1_LINE Thm 4.2 (after D1 repair). Prop 4.2's "no pooling" is SS8 Lemma 2.3 verbatim (correctly cited).
+* Thm 2.1(a), Lemma 3.1 are trivial (correctly flagged "trivial" for 3.1); Thm 2.1(b) is standard Chebotarev-in-compositum.
+* The genuinely useful dictionary content: Prop 5.1(a) factor-by-factor link (already SS8 Lemma 2.2(b) in product form) and
+  the §7 tier census. Overall: a closing (negative) dictionary, as the author says; no overclaim of ES progress anywhere.
