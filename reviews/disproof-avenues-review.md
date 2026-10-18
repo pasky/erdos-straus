@@ -14,7 +14,7 @@ From-scratch scripts: `scripts/review_r274_*`. Labels as in DISCOVERIES.md. ES i
 | 3 | §4.1–4.3 ladder counts, zero law, crossover law | pending (counts SOUND so far) |
 | 4 | §4.4 expected-failure numbers | GAP (numbers reproduce, but "every variant" bounds contradict the author's own log: D8; "worst case" is not one: D10) |
 | 5 | §4.5 heavy tails self-refuting | GAP (correct inside the one-parameter family only; the "only escape is non-monotone" conclusion is false: D9) |
-| 6 | §5 adversarial search, hardest prime | pending |
+| 6 | §5 adversarial search, hardest prime | SOUND (numbers reproduce exactly; one MINOR in Reading 5: D11) |
 | 7 | labels, P(ES false) < 10⁻³ | pending |
 
 ## Claim 1 — citations (§§1–2)
@@ -169,3 +169,19 @@ in-p conspiracy class), or a law decaying only polynomially in p — i.e. a new 
 ≈ 5.8·10⁶ primes) as the *mean* μ in the zero law is a heuristic scenario, not a worst case: the minimum over the
 ≈ 2.4·10¹⁶ primes below 10¹⁸ would be lower even if the distribution of f/L³ were fixed. *Repair:* call it
 "pessimistic scenario"; the floor test (§4.3) is the actual evidence for its stability.
+
+## Claim 6 — §5 adversarial search (`scripts/review_r274_adv.py`, `logs/review_r274_adv.txt`)
+
+Own enumeration (ordered pairs over all divisors, residue-bucketed; tuples checked in the ET equation for e < 200;
+first solution checked as 4/p = 1/x + 1/y + 1/z in exact rationals; factorisation by python-flint):
+* p = 2054098191162848070241: p ≡ 1 (4), BPSW-prime (sympy strong BPSW and flint agree); **S = 870, S(127) = 160,
+  W = 11 (Type II)** — identical to the log. 870/3294 = 0.264 ✓.
+* p = 2286893395433206561 (min absolute S): S = 612, S(127) = 108, W = 11 (Type I) ✓.
+* control p = 1388097828639363841 (C0): S = 2168, W = 3 ✓.
+Max W over the 92 logged primes is 19 ✓. The designs' "D4 = lowest S(127) among 300/3000 D1 primes" selects on
+the cheapest slices, so S/C0 for D4 is biased low *by construction* — the author says as much in Reading 4. SOUND.
+
+**D11 (MINOR, §5 Reading 5, "p ≡ □ modulo every prime < 2.8·10⁶ (log p ≳ 2.8·10⁶)").** Requiring (ℓ/p) = +1 for all
+ℓ < r is a density-2^{−π(r)} condition, not p ≡ 1 (mod ∏ℓ); heuristically the least such prime has
+log p ≈ π(r)·log 2 ≈ 1.4·10⁵ for r = 2.8·10⁶, not 2.8·10⁶. The conclusion (out of reach) is unchanged. *Repair:*
+"log p ≳ π(2.8·10⁶) log 2 ≈ 1.4·10⁵ heuristically".
