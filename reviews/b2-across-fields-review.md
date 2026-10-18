@@ -145,8 +145,10 @@ Is the "no M1" argument right? Yes, and more strongly than stated:
 * **The "no power main term" claim is in fact provable for almost all p, not merely an Assessment**: by Elsholtz–Tao
   (Thm 1.7 of "Counting the number of solutions to the Erdős–Straus equation on unit fractions", J. Aust. Math. Soc. 2013;
   from memory, not re-read here) Σ_{p≤N} f(p) ≪ N log²N log log N, so the average of f(p) over primes is (log p)^{3+o(1)} and
-  #{p ≤ N : f(p) ≥ p^ε} = o(π(N)) for every ε > 0. Since every ES-five certificate yields an ES solution with bounded
-  multiplicity, the certificate count is < p^ε for almost all p. Hence for ES there is *provably* no pointwise power-size
+  #{p ≤ N : f(p) ≥ p^ε} = o(π(N)) for every ε > 0. Each ES-five certificate A yields an ES solution, and the map
+  A ↦ solution is finite-to-one with bounded fibres (a solution determines its slice data up to O(1) choices — to be
+  confirmed against DEDEKIND_ES Cor 1.2 / Thm 4.5 before upgrading the label); then the certificate count is < p^ε for
+  almost all p. Hence for ES there is *provably* no pointwise power-size
   main term to exploit (along a density-one set of p); only the "every p" lower bound remains open.
 * "No alphabet knob" ✓: Cor 4.6 is an equivalence for the five slices; enlarging the HJ length beyond 3 produces fractions
   that are not ES certificates in that dictionary. The author correctly withdrew the earlier "halves have p^{o(1)}" claim
@@ -195,8 +197,37 @@ Defects:
    almost all p); B2 lacks M1b only by F3/(J)85 (no fixed target class before the point is chosen; sub-power covering
    windows). State this in the "B2 lacks it because" column.
 12. **MINOR** (same table, row M3): add **M5 count-congruence** (parity / mod-p count: Zagier, Chevalley–Warning, EGZ, Chen
-   Thm 1.2.5) with "B2 lacks it because: T1 (parity is +1-blind at odd squares: any count-congruence that holds at all n
-   ≡ 1 (4) must also hold at m², where the Type I/II count is 0) and (J)2 Thm 6.1 (finite-menu affine involutions barred,
+   Thm 1.2.5) with "B2 lacks it because: T1 (the Type I/II count is 0 at every odd square m² ≡ 1 (4), so a count-congruence
+   forcing a non-zero count must use primality / the quadratic character, F6) and (J)2 Thm 6.1 (finite-menu affine involutions barred,
    conditional)". Move Zagier and Chen there.
 13. **MINOR** (row M1 "Graham"): Graham's 77-theorem is an inductive construction (n ↦ 2n + 2, 2n + 9 from a finite base),
    not a power-size main term; it belongs to M4 only (where it is already listed).
+
+## Claim (6) — hygiene of sources/lit2026g
+
+**Verdict: SOUND.** 32 text files, **22.8 KB of text in total** (largest: Shkredov excerpt 4.5 KB); the "136K"/"≈ 130 KB" figure is
+disk-block usage, not content. Every file starts with a source line (arXiv id / URL / venue) and a read-by note; no full-text
+copies of papers; no PDFs added. Excerpts I compared with fresh PDFs (Shkredov Cor 1/Thm 8/Lemma 13, Zhang Thm 1.2/Rem 1.3–1.4,
+BK Thm 1.8/(1.37), Chen Thms 1.2.3/1.2.5/1.2.6, Harpaz Thm 1.0.1, Bloom Thm 2, Booker–Sutherland) are faithful (pdftotext
+fragments, some with dropped symbols, e.g. Shkredov "bounded by √" truncated, Harpaz "[d2,3]]" for [Δ₂,₃]).
+
+Defects:
+14. **MINOR** (AGENT_REPORT_O261 header, "≈ 35 tiny text files, ≈ 130 KB"): 32 files, ≈ 23 KB of text. Also the report's
+   "first pointwise result in the thin-orbit family" should read "first pointwise result with an *absolute* alphabet" —
+   Korobov (M = O(log q)) and Moshchevitin–Murphy–Shkredov (M = O(log q / log log q), all primes) were pointwise already,
+   with growing alphabets (Zhang p. 1 and Shkredov p. 2 say so).
+15. **MINOR** (excerpt files): fix the garbled symbols noted above and the truncated Ghosh–Sarnak / Bhargava–Hanke excerpts
+   (defects 6, 8).
+
+## Summary verdicts
+
+| claim | verdict |
+|---|---|
+| (1) Zaremba pointwise preprints (existence, statements, status, mechanism) | **SOUND** (minor: Zhang depends on Shkredov's framework) |
+| (2) citation accuracy (13 items) | **SOUND-AFTER-REPAIRS** (Bhargava–Hanke venue; truncated excerpts) |
+| (3) Lemma 7.1, Lemma 4.1 | **SOUND** (Lemma 4.1 fully re-derived + 522-shot ideal enumeration; Lemma 7.1 wording) |
+| (4) M1–M4 pattern | **GAP** (MAJOR 11: M1 conflates final vs auxiliary counts; missing count-congruence class) |
+| (5) Zaremba → ES-five "no M1" | **SOUND-AFTER-REPAIRS** (can be upgraded via Elsholtz–Tao for a.a. p) |
+| (6) sources hygiene | **SOUND** |
+
+No FATAL defects. One MAJOR (11). MINOR: 1–10, 12–15.
