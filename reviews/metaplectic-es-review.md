@@ -5,7 +5,7 @@ Reviewer: R280 side agent (branch side-agent/review-metaplectic). Merged side-ag
 From-scratch scripts: `scripts/review_r280_*.py` (none of the author's `z39_*` code reused).
 
 ## Summary verdicts
-(filled in claim by claim below; table at the end of the review)
+Repairs applied: none (author agent still alive and waiting; defects to be forwarded by the parent). No FATAL; MAJOR: D4 (Assessment headline), D9 (H-E screen); D6 = unconditional upgrade of Prop S(3); rest MINOR. Table at the end.
 
 ## Claim 1 — Theorem K (identity (K1), coefficient form (K2), "no cusp form at any level")
 
@@ -210,3 +210,69 @@ identity is a signed exact expansion with positive main term, but its error term
 not opened**; H-B, H-C, H-F, H-G: not engaged), and replace "violates only the finiteness hypothesis" by "touches
 only H-A (and, formally, H-E)".
 
+## Claim 7 — §6 quartic (χ₄(A) inverted by u ↔ v)
+
+**Verdict: SOUND (narrow no-go PROVED, numbers reproduced exactly).** AA* = tp + 1 ≡ 1 (p) ⇒ χ₄(A*) = χ₄(A)⁻¹; on k | t
+(4 | k) slices (A/p) = −1 ⇒ χ₄(A) = ±i, so the swap u ↔ v exchanges i and −i: no symmetric sign of the form χ₄(A).
+From scratch (`scripts/review_r280_quartic.py 20000`, own word enumeration, own i = a/b mod p): k = 4: constant 127
+(value i in 60), mixed 413, empty 16; k = 8: 264 (134), 190, 102; k = 16: 242 (125), 39, 275 — **identical** to the
+memo; χ₄(A*)χ₄(A) = 1 on every word. Side facts checked: 17, 241, 97, 193, 401, 433, 449 are all ≡ 1 (16) with 2 a
+quartic non-residue; 131 ≡ 3 (4). (The list of numerator-8 exceptions itself is QUESTION_R §4.1's and was not
+re-checked.) Note the balance count depends on the arbitrary choice i := a/b (vs −a/b); only "balanced" is
+convention-free, which is all that is claimed. Scope "other quartic invariants not excluded" is correctly stated.
+
+## Claim 8 — labels, citations, novelty
+
+**Verdict: mostly SOUND; D10–D11 MINOR.**
+* Labels: Thm K identity/(K2) PROVED ✓; modular reading Assessment ✓; Cor K1.1 PROVED ✓ (D3: tautological);
+  K1.2 EVIDENCE ✓ but the Reading's headline needs D4's caveat; Prop S(3) can be upgraded to PROVED (D6); §3 PROVED
+  dictionary ✓; §6 PROVED (narrow) + EVIDENCE ✓; §4/§5 Assessment ✓ (D9). No overclaim of ES anywhere ✓.
+* Novelty: Kronecker's double-series identity and the fact that Kronecker quotients at torsion points are weight-1
+  Eisenstein series are classical (Kronecker; Hecke; Weil 1976; Zagier 1991); the ES-specific content is the
+  substitution, which the author correctly calls "classical ingredients, new to the campaign". Fine with D2.
+
+**D10 (MINOR) — Borisov–Gunnells citation.** Location: METAPLECTIC §1 Reading ("Borisov–Gunnells, Invent. Math. 144
+(2001), 'toric modular forms'"), z39_kronecker_levels Literature ("'Toric modular forms', Invent. Math. 144 (2001)
+297–325"), report Sparks 1 ("weight-1/2 forms from Kronecker quotients"). Verified (Springer / arXiv math/9908138):
+the Invent. Math. 144 (2001) 297–325 paper is titled **"Toric varieties and modular forms"**; its abstract: a
+complete rational fan in ℝ^r with a degree function gives a holomorphic modular form **of weight r** on Γ₁(l), and
+the resulting ring 𝒯(l) is Hecke-stable. "Toric modular forms and nonvanishing of L-functions" is a different paper
+(J. reine angew. Math. 539 (2001), arXiv math/9910141, weight 2), and "Toric modular forms of higher weight" another
+(arXiv math/0203242). *Repair:* fix the title; replace "weight-1/2 forms" in Spark 1 by "weight-r forms (r = rank;
+the 2-dimensional ES pentagon fans give weight 2)" — in a document about half-integral weight "weight-1/2" reads as
+weight ½, which BG forms never have.
+
+**D11 (MINOR) — unverified section/chapter pointers.** Weil Ch. VIII, Zagier 1991 §3, Diamond–Shurman Thm 4.8.1 and
+Serre–Stark Thm A could not be checked against the texts (not in `sources/`); the mathematical statements used were
+re-verified independently (numerically for Kronecker, standard for Serre–Stark and weight-1 Eisenstein series), so
+nothing depends on them. *Repair:* none required; optionally mark the pointers "(not re-checked)".
+
+## Minor remarks (no defect number)
+* §0 C6 (levels with φ(t) = 2): R_t = ½(τ(N) − σ_χ(N)) − β_t holds because every divisor of N ≡ 1 (t) is a unit ≡ ±1
+  (t) when φ(t) = 2 ✓; "r_K(N)" there means σ_χ(N), not the representation number (which is wσ_χ) — say so.
+* 𝔅 ≈ 2τ(n + 1): exactly 𝔅 = 2#{e | n + 1 : 1 ≤ e ≤ (n + 4)/4 − 1} − [n + 1 = (e)² case] — the large divisors
+  (n+1)/2, (n+1)/3, n+1 are excluded by the truncation; harmless.
+* README conflict: on merge, main's README already had the z37 rows; I kept main's and added only the z39 section.
+
+## Summary table
+
+| claim | verdict | defects |
+|---|---|---|
+| Thm K identity (K1) | SOUND (exact series check t ≤ 10, q^3000; Kronecker at x ≠ y) | D1, D2 (minor) |
+| Thm K coefficients (K2), even/odd formulas | SOUND (t ≤ 10, n ≤ 3000, characters from scratch) | D1 |
+| "no cusp form at any level" | SOUND (arithmetic + modular for the odd part) | — |
+| Thm K modular reading | Assessment, appropriately labelled | D1 |
+| Cor K1.1 (E_t + O_t = 0, 4 \| t, squares) | SOUND, tautological (= D⁻ = 0; holds for all m) | D3 (minor) |
+| Cor K1.2 sizes | SOUND (10⁵ and squares reproduced exactly) | D5 (minor) |
+| Cor K1 Reading ("log² in weight 0, holomorphic ≈ 0") | GAP — normalisation-dependent | **D4 (MAJOR)** |
+| Prop S(1), S(2) | SOUND | D7 (minor) |
+| Prop S(3) (Z not an exact weight-½ support) | SOUND, and **unconditional** (census to 10⁸ also re-done) | **D6 (upgrade)**, D7 |
+| §3 Bruhat cell / ν_θ ≡ −i / not a semigroup | SOUND | D8 (minor) |
+| §4 level sum / GL(3) | SOUND identities; Assessment | — |
+| §5 red team 2 screen | GAP (omits H-E) | **D9** |
+| §6 quartic | SOUND (numbers reproduced exactly) | — |
+| labels / citations | mostly SOUND | D10, D11 (minor) |
+
+**No FATAL defects.** Two substantive items: D4 (the "main term in weight 0 / T1 as weight-1 vs weight-0
+cancellation" headline is a renormalisation artefact plus a tautology — keep as Assessment with caveat) and D6
+(Prop S(3) becomes unconditional by a two-line residue-class argument). D9 asks for an H-E line in §5.
