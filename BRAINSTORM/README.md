@@ -590,3 +590,12 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z32_numerator_ladder | sibling lotteries m/p (Type II), m = 4…24, all p ≤ 10⁸ | universal zero law P(0) ≈ exp(−0.535 μ^{0.91}) validated out of sample; NB falsified; one-constant crossover q_m (log p_last)³ ≈ 12 | EVIDENCE + Assessment |
 | z32_adversarial_search | adversarial primes 10¹⁸–10²⁵ | hardest p = 2054098191162848070241: 870 solutions in e ≤ 2047 (0.26 × controls); depression saturates | EVIDENCE |
 | z32_prime_T1 | the only conceivable disproof route | a "prime T1": a global invariant correlating ≍ log³p divisor events; none found | Assessment |
+### z37 — O267 Question R: thin-orbit local–global with a reciprocity obstruction (deep file QUESTION_R.md)
+| memo | idea | outcome | label |
+|---|---|---|---|
+| z37_theta_multiplier | why Ψ is a semigroup | RS's σ = (c/d) is the theta multiplier; homomorphism on Γ₁(4)_{≥0} because the archimedean cocycle dies on positive matrices; does not extend to Γ₁(4) | PROVED (classical input) — SHARP candidate |
+| z37_self_level_matrices | ES in RS matrix language | words = self-levelled SL₂ matrices γ ≡ −[[1,∗],[0,1]] mod c(γ); per-level sign = character mod 4t; (A)3 = opposite Γ₀(4) coset of Ψ | PROVED dictionary |
+| z37_qnr_numerator_sets | reduce Question R | n ∈ den(Γ⁺) ⟺ a Γ̃-numerator over n is a QNR (Γ⁺ = Γ̃ ∩ Ψ, not RS's Γ'_n); one ladder with ZQ, Thm A, ES-five; if squares are admissible, Euler-product main terms fail there | PROVED + CONJECTURE R-main |
+| z37_twisted_gluing | input needed by growth methods | Hypothesis TG (χ-twisted A∩B^{−1} count); boxwise Weil needs ε ≥ 3/8 vs ε < 1/18 (method threshold); Burgess not directly applicable below n^{1/2} | Assessment + open hypothesis |
+| z37_reciprocity_series | main term vanishing at squares | M_R (divisors equidistributed within χ_t-class), exact at squares, explains ≈ 33–54 % of near-square deficit; L(1, χ_{tK+1}) proxy test shows nothing | EVIDENCE |
+| z37_numerator_k_sign | 4 vs 8 | sign constant on k∣t iff 4∣k: 4 and 8 share the invariant; difference is B3 | PROVED + EVIDENCE |
