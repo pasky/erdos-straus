@@ -133,3 +133,58 @@ Reviewer code, independent algorithms (see header):
 Overlap: 110 primes fail both the root-1 and the ℓ(p)-component test (see D5).
 I did not re-check the 21 135 exact unit-fraction reconstructions (imported DEDEKIND Thm 4.5 formulas; not needed for
 any claim here).
+
+## 8. Novelty and labels — SOUND-AFTER-REPAIRS (D4, D5)
+
+* The author's attribution is honest: endpoint encoding, sign identity and size bound are SIGN_IDENTITY Lemma 1.1;
+  the prime sign case is CONSTRUCTIVE_ES Prop 4.1(c); the five-slice ⟺ Jacobi −1 equivalence is DEDEKIND_ES Thm 4.5.
+  `git grep` finds no "forest"/"unique parent" statement for this graph elsewhere in the repository. **However** the
+  unique-parent fact is literally one line of SIGN_IDENTITY Lemma 1.1's proof ("For u ≤ v: v | n + u", i.e. u ≡ −n mod v),
+  so the only new content is the (elementary) observation that this makes the graph a forest, plus Thm 3.1's
+  closure computation and Lemma 4.1. That is a fair but small increment; see D4.
+* Thm 3.2 vs DISPROOF_AVENUES (J)97 Prop 3.1: the isolation of root i ≥ 4 is exactly the Prop 3.1 e-row computation
+  (p+e = (1+e)P_θ, P_θ ≡ 1 mod e, every divisor ≡ a shadow divisor of 1+e), and B1_LINE (J)90 Thm 4.2 is the same
+  Dickson-shadow pattern for b = 1 shifts. The author says "familiar n = 1-shadow/Dickson mechanism"; the genuinely new
+  piece is that the *whole* component of {1,2,3} closes (needs the leaf checks of Thm 3.1, not just a slice list).
+  Agreed, modulo a precise pointer (D4).
+* (J)103 / SYNTHESIS_SPARKS9 Cor 1.2 is cited correctly in §1 for the two-line union.
+* Labels: PROVED for Lemmas 2.1, 2.2, 4.1, Prop 4.2 (Dirichlet), the implications of Thms 3.1/3.2/5.1; CONDITIONAL
+  (Dickson) for the infinite families; EVIDENCE for census; Assessment for scope/novelty. All correct. No claim of ES,
+  lower-tail positivity, or an all-prime result is made; memo and report are consistent with the main file.
+
+## 9. Numbered defects
+
+No FATAL, no MAJOR.
+
+**D1 (MINOR) — §3, proof of Thm 3.1, last sentence of the leaf paragraph.** "Finally 2r=p+1 and 3s=p+2 have only
+neighbours 1 and 2 by the global size bound." Ambiguous (2r's only neighbour is 1, 3s's only neighbour is 2) and the
+size bound alone does not give it. *Repair:* "Finally 2r = p+1 and 3s = p+2 have smaller neighbours −p mod (p+1) = 1 and
+−p mod (p+2) = 2 respectively (Lemma 2.1); the only vertex above p+1 is p+2, and (p+1)(p+2) ∤ 3p+3, so these are their
+only neighbours."
+
+**D2 (MINOR) — §4, proof of Prop 4.2.** "Adjacent prescriptions agree because v_{i+1} ≡ v_{i−1} (mod v_i)." The moduli are
+coprime, so nothing needs to "agree"; the congruence is used to get the *other* endpoint divisibility. *Repair:*
+"The moduli are pairwise coprime, so CRT applies. At an edge {v_{i−1}, v_i}, v_i | p+v_{i−1} is prescribed, and
+v_{i−1} | p+v_i because p ≡ −v_{i−2} and v_i ≡ v_{i−2} (mod v_{i−1})."
+
+**D3 (MINOR) — §6 bullet "numerator-8 five-slice test"** (and AGENT_REPORT "Numerator-8 five-slice controls"). Undefined in
+the document; the script tests 8 | t, u, v, tu−1 or tv−1. *Repair:* define it as such and say it is an ad hoc control
+(only 8 | t,u,v is the SPARKS9 Cor 1.2 two-line union for 8/n), not an established 8/n certificate criterion.
+
+**D4 (MINOR) — §2 Attribution paragraph; memo "SHARP dictionary"; report SHARP bullet.** "Only the unique-parent /
+forest structure … appear unrecorded." *Repair:* add "the unique-parent fact is the line 'for u ≤ v: v | n+u' in the
+proof of SIGN_IDENTITY Lemma 1.1; the forest statement is its immediate consequence." In §3 Scope, point to the e-row
+computation of DISPROOF_AVENUES Prop 3.1 (and B1_LINE Thm 4.2) as the exact precedent for isolating roots i ≥ 4.
+
+**D5 (MINOR) — §5, "This is a different failure set from the root-1 set."** True but invites a disjointness reading:
+110 of the 285 root-1 failures are also ℓ(p)-component failures (1201, 5569, 12721, 16921, 19441, …). *Repair:* "…a
+different failure set (769 vs 285 primes, 110 in common)."
+
+**D6 (cosmetic) — §3, proof of Thm 3.2.** "Take k large enough that each prime L_i > H+1": automatic for k ≥ 1 because
+H(H+1) | M gives L_i ≥ 1 + M/(H+1) > H+1. Optional rewording.
+
+## Verdict
+
+O275's mathematics is correct as stated: all theorems re-derived, every census number and every fixture family
+reproduced with independent code, labels appropriate, scope honestly limited (negative results against rooted
+constructions; no ES or lower-tail claim). Six minor/cosmetic wording and attribution repairs (D1–D6).
