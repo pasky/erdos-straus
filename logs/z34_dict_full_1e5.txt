@@ -1,0 +1,4 @@
+N = 100000 slice/int-source cross-check up to 100000 : OK
+primes 4783 TypeA sols 75658 on split slices 53716 on non-split slices 21942 with c a square (integral Astra sources) 22627
+Type A failures: [193, 2521, 66529]
+Type A holds but no integral Astra source: 314 first [73, 313, 337, 409, 577, 673, 1129, 1153, 1249, 1321, 1489, 1657, 1753, 1993, 2017, 2377, 2833, 3049, 3169, 3313, 3361, 3529, 3769, 4057, 4513]
