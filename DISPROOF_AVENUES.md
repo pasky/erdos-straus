@@ -216,8 +216,8 @@ y < ℓ ≤ 97; D3 = Prop 3.1 shadow on e = 3, 7, 11 (both types; six prime cofa
 2. **The depression saturates.** mean S/C0 for the selected class-of-one designs is 0.32–0.36 at every size
    10¹⁸–10²⁵; it does not grow with y (37 → 53) or with p. D2's extra square-mimicking adds ≈ 10 %.
 3. **Prop 3.1 works and buys nothing.** Killing e = 3, 7, 11 moves W exactly to the next admissible slice (15 or
-   19) and leaves S at 0.5–0.6 × controls — *higher* than plain D1, because the forced prime cofactors make the
-   numbers near (p+e) less smooth only at the killed shifts.
+   19) and leaves S at 0.5–0.6 × controls — higher than plain D1, simply because D3 can afford only M₂₃ (the
+   prime-cofactor conditions eat the CRT budget).
 4. **S overstates the depression of f.** At 10¹² (`logs/z32_adv_exact12.txt`, exact f_II from bs_adv_count): D1
    has S/C0 = 0.63 but f_II/C0 = 0.80; D4 has S/C0 = 0.49 but f_II/C0 = 0.82. Class-of-one and selection act on the
    small slices (the share of e ≤ 127 in S falls from ≈ 0.55 to ≈ 0.16), not on the bulk. So the realistic total
@@ -225,3 +225,39 @@ y < ℓ ≤ 97; D3 = Prop 3.1 shadow on e = 3, 7, 11 (both types; six prime cofa
 5. "Profinite proximity to sterile points" is not constructible in this range: the sterile Mordell points of (J)70
    need least quadratic non-residue r ≥ 2.8·10⁶, i.e. p ≡ □ modulo every prime < 2.8·10⁶ (log p ≳ 2.8·10⁶).
    D2 (residue at every ℓ ≤ 97) is the feasible proxy; it behaves like D1.
+
+## 6. Bottom line: could ES be false? (Assessment)
+
+**Map of counterexample routes and their status.**
+
+| route | status | where |
+|---|---|---|
+| local / BM / descent obstruction | **closed** (PROVED: no BM obstruction at any n, BL Thm 1.8; Br/Br₀ = ℤ/2 is all there is) | §1 |
+| exotic integral obstruction beyond BM | exists in principle (BL Thm 1.9); every known instance on comparable surfaces is a small-count accident | §2 |
+| conspiracy prime (Dickson/H/CRT) | kills any finite slice set (Prop 3.1, Thm C) but only a bounded factor (≈ 0.7) or an O(log L/L) share of the ≍ L³ mean | §3 |
+| lottery failure at one huge prime | calibrated zero law: expected number of f_II-failures in [10⁸, 10¹⁸) ≈ 10⁻³¹ (≤ 10⁻²⁰ in every variant), beyond 10¹⁸ < 10⁻⁸⁸ | §4 |
+| adversarial search 10¹⁸–10²⁵ | hardest prime ≥ 612 solutions in the cheapest 1024 families alone | §5 |
+
+**Probability that ES is false (Assessment).** Within every model that survives the sibling-ladder test, the
+probability of a counterexample above the verified bound 10¹⁸ is astronomically small (< 10⁻⁸⁰). The residual
+risk is *model risk*: a mechanism that correlates ≍ (log p)³ divisor events at one prime and is invisible to
+(i) local data (B1), (ii) finitely many shifted factorisations (B2, Prop 3.1), (iii) the 21 sibling lotteries,
+which share the same algebra and *do* fail, and obey one law. I would put the probability that ES is false at
+well under 10⁻³ — and that is a statement about unknown unknowns (a genuinely global, non-congruence conspiracy
+of the type T1 provides at squares), not about any identified mechanism. O154 searched for such global drivers
+(class number, regulator, CF period) and found none beyond congruence data.
+
+**The single most promising disproof avenue (if any).** Not a computation. The only structure that has ever
+produced *infinitely many* failures of a Type I/II-type lottery is T1 (odd squares: every class condition is
+decided by a global character that is constant on the whole family). A disproof would need a **prime analogue of
+T1**: a global invariant of p, not visible mod any fixed Q, that forces every one of the ≍ log³p divisor events
+into the wrong class. Prop 3.1 shows the archimedean point n = 1 plays this role for finitely many slices, Thm C
+shows n = m² does; neither extends to a growing family (the CRT budget and the Bateman–Horn budget are both
+≲ log p, §3.2). So the avenue is: *find a third "exceptional point" of Ẑ × ℝ whose shadow is infinite-dimensional*.
+Every candidate examined in the campaign (sterile Mordell points (J)54/(J)70, square-mimicking, class of one) is a
+point of Ẑ alone and is priced by §4. Promise: 1/5 as a disproof route; but it is the only one.
+
+**What a counterexample search should do, if anyone runs one.** (1) Search only beyond 10¹⁸ and only in the class
+of one with square-mimicking (D1/D2), because the zero law makes the expected yield ∝ exp(−a μ^β) and these designs
+minimise μ (by ≈ 0.7); (2) use the cheap e-slices as a sieve (S(2047) ≈ 0.3 × controls, never 0); (3) expect
+nothing: the model gives < 10⁻⁸⁰.
