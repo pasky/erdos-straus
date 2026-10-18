@@ -94,7 +94,8 @@ The genuinely modular per-level pieces are ½(D⁻ + D⁺) (weight-0 Eisenstein 
 Kronecker quotient, D1). Summed over the 2 ≤ t ≤ (n + 4)/4 levels these are ≈ +n/4 and ≈ −n/4 respectively (every
 level has the trivial divisors 1, N ≡ +1); e.g. at n = 100003, Σ_t ½(D⁻ − D⁺) = 𝔒 − #levels = 1 − 25000. The
 author's 𝔈, 𝔒 are obtained by moving the trivial divisors (±1 per level) between the two parts — a non-modular
-operation (Σ_N χ(N)qᴺ is not modular), on a sum truncated at an n-dependent level. After that renormalisation, "𝔒 ≈ 0
+operation (on the progression N ≡ 1 (t) the divisors 1, N contribute the constant sequence 2, generating function
+2/(1 − q)), on a sum truncated at an n-dependent level. After that renormalisation, "𝔒 ≈ 0
 on average, 𝔈 ≈ main term" is simply the statement that non-trivial divisors of tn + 1 are on average equally split
 between the classes +1 and −1 (mod t), which is elementary equidistribution, not an automorphic fact; with another
 symmetric renormalisation (e.g. interior divisors 2t − 1 ≤ d ≤ N/(2t − 1) on both sides) the same split appears for the
