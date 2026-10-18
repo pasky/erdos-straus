@@ -117,3 +117,26 @@ it. The scope caveat (sectors / least lifts not covered) is correctly stated; th
 **EVIDENCE 3.4: plausible; partially re-checked.** Re-checked the two sterile windows (m = a, m = ab/2: 0 firings, 10⁶); the
 neighbour-control z-values were not recomputed (author already flags them as indicative). The explanation of the enhanced
 windows m = b, |a − b| (square-class confinement of −p mod m′) is consistent with Prop 5.1(ii).
+
+### §5 — Prop 5.1, Cor 5.2 (same script/log)
+**Prop 5.1 (i), (ii)-first-half: SOUND.** Re-proved: (i) εp ≡ x² (m), x a unit (gcd(x, y) = 1), ε ∈ {1, 4} a square ⇒ Lemma 3.2
+(odd m). (ii) εp ≡ Dy² (m), D and y units mod m (gcd(x, Dy) = 1), −g ≡ p (m) ⇒ (−g/m) = (D/m); a firing odd window forces
+(−g/m) = −1. Exhaustive from-scratch check over ALL odd divisors (the author tested only m = odd part of y and m = x) for all
+78 350 primes p ≡ 1 (4) < 10⁶ (Cornacchia representations, asserted x² + Dy² = p, gcd(x, Dy) = 1):
+  odd m | y: 0 firings in 128 358 / 68 888 / 60 912 / 53 453 trials (D = 1, 2, 3, 7); 47 040 (4p = L² + 27M², L, M odd) and
+  16 759 (p = L′² + 27M′², the L, M even case);
+  odd m | x, m > 1, (D/m) = +1: 0 firings in 114 685 / 29 504 / 17 938 / 24 043 / 13 503 / 5 948 trials;
+  odd m | x, (D/m) = −1: 7.5 % / 9.6 % / 11.3 % / 8.8 % / 9.8 % fire (D = 2, 3, 7, 27-in-4p, 27) — over all divisors,
+  small windows dominate, hence higher rates than the author's m = x figures.
+The 4·109 = 2² + 27·4² (m = 2 fires) and 5 | x, y ≡ ±2 (5), D = 3 (−p ≡ 3 mod 20) examples re-checked by hand.
+MINOR D8: (a) the clause "which roughly doubles the firing probability" is a heuristic inside a PROVED statement — move it
+to the Check paragraph as EVIDENCE; (b) AGENT_REPORT sharp item 1 and the brief say "sterile **iff** (D/m) = +1" — only "if"
+is proved (and true): (D/m) = −1 windows fire only sometimes (the Prop text itself is correct); (c) §6 Goal (3) "checked
+exhaustively to 10⁶" — the author's check covers only m = odd part of y and m = x; my all-divisor check above now supports
+the exhaustive wording. (d) for the D = 27 case with L, M both even, gcd(L, 27M) = 1 fails for (L, M) itself — the Prop's
+hypothesis applies to (L/2, M/2) with ε = 1 (Cor 5.2 says this; Prop 5.1's "e.g. … 27" should too).
+
+**Cor 5.2: PROVED part SOUND; the first sentence is not provable and should be Assessment (MINOR D9).** "The representations
+p = x² + Dy² … are the only canonical integers of size ≍ √p attached to p" has no precise meaning and is labelled under
+"PROVED + Assessment" without separation; the ticket count p^{−1/2+o(1)} for balanced tickets is a heuristic (≈ τ(m + 1)/m
+per window is a residue-lottery model, not proved). Repair: label those two sentences Assessment.
