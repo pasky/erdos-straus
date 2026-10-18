@@ -17,7 +17,8 @@ static int *spf;
 static int jac(long a,long m){ a%=m; if(a<0)a+=m; int t=1; while(a){ while(!(a&1)){a>>=1; long r=m&7; if(r==3||r==5)t=-t;} long x=a;a=m;m=x; if((a&3)==3&&(m&3)==3)t=-t; a%=m;} return m==1?t:0; }
 static long gcdl(long a,long b){ while(b){long t=a%b;a=b;b=t;} return a; }
 static double phi(long m){ double r=m; while(m>1){ long l=spf[m]; r=r/l*(l-1); while(m%l==0) m/=l; } return r; }
-static int hsize(long m){ /* |<chi_{-4}, chi_{-4m}>| */ long o=m; int v=0; while(!(o&1)){o>>=1;v++;} if(o==1 && (v%2==0)) return 2; return 4; }
+static int hsize(long m){ /* |<chi_{-4}, chi_{-4m}>| on units: 2 iff chi_{-4m} = chi_{-4}, i.e. odd part of m a square and v2(m) even (review fix: was odd part == 1) */
+  long o=m; int v=0; while(!(o&1)){o>>=1;v++;} long r=(long)llround(sqrt((double)o)); while(r*r>o) r--; while((r+1)*(r+1)<=o) r++; if(r*r==o && (v%2==0)) return 2; return 4; }
 int main(int argc,char**argv){
   long lo=atol(argv[1]), hi=atol(argv[2]); int cls = argc>3? atoi(argv[3]) : 0; long N=4*hi+10;
   spf=calloc(N+1,sizeof(int)); for(long i=2;i<=N;i++) if(!spf[i]) for(long j=i;j<=N;j+=i) if(!spf[j]) spf[j]=(int)i;

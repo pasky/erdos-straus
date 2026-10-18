@@ -26,6 +26,12 @@ for n in map(int, sys.argv[1:]):
                 # distinct characters: chi_{-4uB} may coincide with a mod-8 character (odd part of uB = 1)
                 o = u*B
                 while o % 2 == 0: o //= 2
-                chars = [v for (k, v) in vals if k[2] == 0] if o == 1 else [v for (k, v) in vals]
-                M8 += sum(chars)/int(totient(q))
+                # deduplicate characters by their value vector on (Z/q)^x (review fix: coincidence iff odd part of uB is a square)
+                units = [x for x in range(1, q) if gcd(x, q) == 1]
+                seen = {}
+                for (e1, e2, e3) in grp:
+                    f = lambda x, e1=e1, e2=e2, e3=e3: kron(-4, x)**e1 * kron(8, x)**e2 * kron(-4*u*B, x)**e3
+                    vec = tuple(f(x) for x in units)
+                    if vec not in seen: seen[vec] = f(n)*f(a)
+                M8 += sum(seen.values())/int(totient(q))
     print(n, R, round(M, 4), round(M8, 4))
