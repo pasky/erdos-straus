@@ -149,3 +149,57 @@ quantitative strengthening. What the BM analysis buys is (a) the hypothesis is n
 main term is now *unconditionally* of the right size (Thm 2.2) — the R-analogue of CONDITIONAL_ES Prop 3.1(3) (with the
 principal term alone, X₀ := R* − M₀ has X₀(m²) = −M₀(m²) ≍ −(log m)², so any bound |X₀| < M₀ fails at every square; with
 M_BM the square column is 0 = 0).
+
+### 3.2 Numerics for H⁻_BM (EVIDENCE; `scripts/z38_mbm.c`, `z38_hx.py`, `z38_zero_law.py`, `z38_zero_growth.py`)
+
+All primes 5 ≤ p ≤ 10⁶ (78 496) and all odd n ≤ 10⁶ (500 000) computed exactly (R*, M₀, M_BM, and M_BM8 := M_BM refined
+by the characters mod 8; M_BM8 also vanishes at squares and is mean-preserving). **T1 control: all 499 odd squares ≤ 10⁶ have
+R* = M_BM = M_BM8 = 0.** Primes p ≡ 1 (4), M = M_BM:
+
+| range | N | R = 0 | R < M/2 | min R/M | min (R − M)/√(2M) | sd of (R − M)/√(2M) | R > 2M |
+|---|---|---|---|---|---|---|---|
+| [10³, 10⁴) | 529 | 2 | 26 (4.9 %) | 0 (5569) | −1.95 | 1.07 | 51 |
+| [3·10⁴, 10⁵) | 3172 | 1 | 110 (3.5 %) | 0 (83449) | −2.76 | 1.24 | 124 |
+| [10⁵, 3·10⁵) | 8197 | 1 | 251 (3.1 %) | 0 (102001) | −3.11 | 1.34 | 280 |
+| [3·10⁵, 10⁶) | 26195 | 2 | 684 (2.6 %) | 0 (329617, 712321) | −3.31 | 1.41 | 766 |
+
+* Mean M_BM/L² = 0.149 at p > 5·10⁵ (Thm 2.2's M₀ constant 3/(2π²) = 0.152 ✓); min M_BM/L² over all primes ≤ 10⁶ is 0.062
+  (at p = 17), far above the proved 0.0198. **(L) is no longer the issue anywhere in range.**
+* (★) failures among all primes ≤ 10⁶: 17 (9 with p ≡ 1 (8): 409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321;
+  8 with p ≡ 7 (8): 7, 31, 79, 127, 199, 2719, 8191, 861199 — p ≡ 3 (4) is ES-trivial; none ≡ 3, 5 (8)). At the failures
+  M_BM ∈ [3.0, 28.3]: H⁻_BM(ε, p₀) needs p₀ ≥ 861 199 (and ≥ 8.9·10⁶ by the (★) census ≤ 10¹⁰, SINGLE_P_COUNT §3).
+* **Zero law (odd non-squares n ∈ [10⁵, 10⁶], M = M_BM8):** P(R* = 0 | M) / e^{−M/2} (swap-Poisson: R*/2 ~ Poi(M/2)) =
+  1.6 (M ∈ [4, 10)), 1.8–2.1 ([10, 16)), 2.6–2.9 ([16, 22)), 5–15 ([22, 28), 9 zeros). Empirical decay of log P(0 | M) is
+  ≈ −0.46 per unit M at M ≈ 11–19 and ≈ −0.29 at M ≈ 19–27: **the lower tail is fatter than Poisson and fattening** (the
+  overdispersion growth of O260/B1_LINE, now at fixed main term). Primes and composites have the same zero rate at equal M
+  (in [3·10⁵, 10⁶], M_BM8 ≥ 0.1L²: 3 of 17 zeros are prime, ≈ the prime share 14 %): no composite-specific obstruction.
+* Zero-set growth over all odd non-squares ≤ K: Z(K) = 215, 445, 905, 1743, 3490 for K = 10⁴ … 10⁶ (local exponent
+  0.66 → 0.58, decreasing), dominated by small-M composites (M_BM8 < 0.08L²). Restricted to M_BM8 ≥ 0.1L²: 8, 16, 23, 34, 51.
+* Reading (Assessment): H⁻_BM at fixed ε is a large-deviation statement P(R = 0 | M) summable along n. With M ≈ 0.15L²,
+  Poisson gives P ≈ e^{−0.075L²} (summable); the measured tail at 10⁶ is ≈ n^{−0.84} for typical n — still a power, slowly
+  steepening. Whether log P(0 | M(n))/log n → −∞ (finitely many failures) is exactly the open question; nothing at 10⁶
+  decides it.
+
+### 3.3 Is H⁻_BM implied by a standard conjecture? The closest precedent says "be careful"
+
+* **Standard conjectures (Assessment, consistent with CONDITIONAL_ES §5 and SINGLE_P_COUNT §4.2).** X_BM(p) is, at ONE
+  argument p, a sum over ≍ p log p moduli 4uB ≤ p of all characters of order ≥ 2 other than the Brauer one. GRH/GLH control
+  sums over n at a fixed character; EH/BFI control boxes of (modulus, integer) and the (★) events lie on a line of relative
+  density 1/x (O260); Montgomery's conjecture for primes in APs and the Friedlander–Granville limitations are about
+  π(x; q, a) at moduli q ≤ x^{1−ε}, i.e. averages over the integer, never one integer; Kuznetsov/θ only after averaging over p
+  (O260 §6). None is single-integer. H⁻_BM is a single-integer lower-tail statement with a polylog main term, i.e. of
+  Heath-Brown "three cubes" / Hardy–Littlewood-single-N type, not implied by any of them. **So no "ES ⟸ GRH + H" with H a
+  standard equidistribution hypothesis results; the best exact statement is "ES ⟸ H⁻_BM" with an unconditional main term.**
+* **Markoff precedent (literature; Ghosh–Sarnak, Invent. Math. 229 (2022) 689–749, arXiv:1706.06712).** For the log K3
+  surfaces V_k : x² + y² + z² − xyz = k, the class numbers h(k) of integral points have mean ∼ C(log k)² (their (1.6)) — the
+  same polylog-square scale as (★) (M₀ ∼ 0.152(log p)²) — a product of local densities δ^{(m)}(k) approximates h(k) for
+  almost all k (their §9, via a variance bound averaged over k), yet **Hasse failures are infinite** (Thm 1.2(i):
+  ≥ √K(log K)^{−1/2} of them up to K), numerically ∼ C₀K^{0.8875} (their (1.7)), and only O(√K) are explained by integral
+  Brauer–Manin obstructions (Loughran–Mitankin IMRN 2021; Colliot-Thélène–Wei–Xu, Ann. SNS Pisa 2020). Browning–Wilsch-type
+  log K3 heuristics (Selecta 2025, "Integral points on cubic surfaces: heuristics and numerics") note the BM obstruction is not
+  always sufficient for log K3. **Lesson:** in the one well-studied family with the same main-term scale, "BM-corrected local
+  density ≫ 1 ⟹ points exist" is FALSE infinitely often, and the failures are mostly unexplained. For ES the analogous
+  hypothesis H⁻_BM is consistent with all data, but the precedent shows it is a genuinely strong statement, not a standard
+  heuristic consequence. (Difference: ES failures for (★) at primes look finite in the census; GS's failures are power-many
+  and include structured families k = 4 + βν² from the singular Cayley cubic. A structured family for (★) would be a "prime
+  T1"; none is known (z32_prime_T1).)
