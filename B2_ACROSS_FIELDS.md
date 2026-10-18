@@ -1,6 +1,6 @@
 # B2_ACROSS_FIELDS — is B2 equivalent to a solved / deeply studied problem in another field? (task O261, wide net)
 
-Status: checkpoint 0 (skeleton). **ES is not solved here or anywhere.** Labels as in DISCOVERIES.md (PROVED / CONDITIONAL /
+Status: checkpoint 1 (O261 deliverable complete; awaiting parent review). **ES is not solved here or anywhere.** Labels as in DISCOVERIES.md (PROVED / CONDITIONAL /
 CERTIFIED / EVIDENCE / CONJECTURE / Assessment). External theorems are "Cited" only if their statement was read in the source
 (abstract or excerpt in `sources/lit2026g/`); "(memory)" marks anything recalled but not re-read. Field memos:
 `BRAINSTORM/z31_*.md`. Builds on (and does not repeat) LITERATURE_2026.md, LITERATURE_AUTOMORPHIC.md, PARITY_AUDIT.md ((J)87),
@@ -9,6 +9,8 @@ gon_lll_relation_lattice.md, s6_divisor_pigeonhole.md, MARKOFF_ES.md.
 
 ## 0. Iteration log
 * cp0: B2 forms checked against the source files (§1); feature list (§2); field plan.
+* cp1: 5 research subagents (clusters A–E); 13 field memos; priority items read in the sources by me; table §3, deep items §4,
+  synthesis §5, verification ledger §6.
 
 ## 1. B2 in its precise forms (checked against the files named)
 
@@ -62,3 +64,78 @@ plausibly prove B2. No row is SHARP for ES.
 | 13 | dynamics / ergodic | Furstenberg; Hecke orbits; Rényi/Euclid transfer operators | averages; power orbits; main terms only | F1, F2 (critical exponent: indifferent fixed point) | ANALOGUE | dynamics_ergodic |
 
 Hilbert's 10th / o-minimality: UNRELATED for B2 (single p is a finite search; Pila–Wilkie gives upper bounds) — memo 7.
+
+## 4. Deep items (the brief's priority list)
+
+**4.1 Zaremba (BK → Huang → Shkredov 2026 → X. Zhang 2026).** Read by me: BK Thm 1.8 and p. 8 ("if we could prove that the
+errors are individually bounded, |E_N(d)| ≪ N^{2δ−1−ε}, say, then we would conclude the full Conjecture 1.7. We are not able
+to establish control of this quality individually, but do succeed on average"); Shkredov arXiv:2603.14116v2 Cor 1, Thm 8,
+Lemma 13; Zhang arXiv:2605.02518v2 Thm 1.2, Remark 1.4. **New to the campaign: Zaremba is claimed proved pointwise (every
+prime/squarefree q: Shkredov; every q: Zhang), by growth in SL₂(ℤ/qℤ), i.e. by a non-averaged mechanism.** Both are 2026
+preprints; I did not check proofs. What the mechanism uses (memo 1 §(c)): a fixed modulus q (the denominator), two
+Cantor-type half-sets of size q^{w_M}, w_M = 1 − O(1/M), glued by a congruence mod q whose expected count is
+q^{2w_M−1} — a power, bought by taking M large. In CF coordinates ES-five(p) is also a fixed-modulus statement ("some QNR A mod p
+with HJ-length(p/A) ≤ 3", DEDEKIND_ES Cor 4.6), so F3 is *not* the obstruction there; the obstruction is F2 in its rigid form:
+the ES digit set is a finite-length word set (dimension 0, critical exponent 2δ = 1, ≍ log² p numerators), with no alphabet
+knob, and growth theorems need sets of size ≥ q^ε. Verdict ANALOGUE, transfer NOT SHARP. **Erratum-type flag for the parent:**
+BRAINSTORM/thin_group_orbits.md §4 ("Every thin-orbit local-global theorem known is density one") and farey_ford_cf.md
+("BK and Huang are 'almost all q' statements") are outdated if the 2026 preprints stand; the barrier statement survives in the
+form "every known pointwise thin-orbit theorem has a power-size representation count".
+
+**4.2 Markoff / Chen.** Read by me: Chen Thms 1.2.3 (BGS), 1.2.5, 1.2.6. Chen's is a genuinely non-counting pointwise argument
+(orbit sizes divisible by p via a degree congruence on Hurwitz spaces + a giant component), but it proves *uniqueness of an
+orbit* on a power-size set with trivially non-empty fibres; the ES-shaped question is the family axis k ↦ X_k, where the
+pointwise integral Hasse principle is false (Ghosh–Sarnak). No group acts on U_n(ℤ). Verdict ANALOGUE, NOT SHARP.
+
+**4.3 Duke.** Duke 1988 Thm 1 (verbatim via agent). New elementary dictionary (memo 4, Lemma 4.1, PROVED, numerically
+checked): an ES shot is an ideal divisor 𝔞 | (1 + 2k√−p) in ℤ[√−p] with N𝔞 ≡ −1 (mod 4k). Duke-type theorems see classes and
+regions; the ES condition is on a representative dividing a prescribed element (F3), with polylog expected count among ≍ √p
+points (F2). Verdict ANALOGUE, NOT SHARP.
+
+**4.4 Bloom.** Bloom Thm 2 (abstract re-read by me): positive upper density ⇒ some finite S with Σ 1/n = 1. The quantifiers are
+reversed relative to B2 (target fixed at 1, the denominator set is the free object, exponentially many subsets); 3-term sums
+have no central-limit behaviour for Bloom's Fourier step to exploit. Verdict ANALOGUE, NOT SHARP.
+
+## 5. Synthesis and verdict (Assessment)
+
+**Answer to O261.** B2 is **not** equivalent to, nor an instance of, any *solved* problem found in 13 fields. It is
+* an **INSTANCE** of the bounded-height integral Hasse principle on a family of log K3 surfaces (BL's framing; memo 6), a class
+  in which no pointwise existence mechanism is known for any non-homogeneous family; its closest open sister is
+  x³ + y³ + z³ = k (one parameter, ~ρ log B expected solutions, no BM obstruction (CTW), open for every individual k);
+* **EQUIVALENT (exact reformulations, PROVED dictionaries)** to: a cyclic (non-increasing) linear divisibility system
+  (memo 7, Lemma 7.1); a target-(−1) problem for a box product set in (ℤ/q)^* (memo 9); a divisors-in-a-residue-class decision
+  problem per slice (memo 8); an ideal-divisor-in-a-ray-class condition on (1 + 2k√−p) (memo 4, Lemma 4.1) — none of which
+  lands in a solved regime of its field.
+
+**The pattern (Assessment).** Every pointwise existence theorem surveyed uses at least one of four inputs, and B2 offers none:
+| input | used by | B2 lacks it because |
+|---|---|---|
+| M1 power-size main term | Duke, ternary forms, 290, Borwein–Choi, BGS, Shkredov/Zhang Zaremba, HBP, Graham | F2: ≍ (log p)²–(log p)³ |
+| M2 fixed-modulus character/group event | least QNR / primitive root under GRH, Lipshitz LGP (acyclic), Shkredov/Zhang (mod q) | F3 (in CF coordinates the modulus is fixed but then M1 fails — the trade of SYNTHESIS_SPARKS8 Prop 1.4) |
+| M3 homogeneity / group action on solutions | strong approximation for groups, Chen/BGS, Zagier windmill | U_n not homogeneous; finite automorphism group; T1 parity |
+| M4 freedom to choose the objects | AGP Carmichael, Bloom/Croot, Graham's recursion, fibration methods | F1: p and K = (p+q)/4 are forced |
+The 2026 Zaremba theorems are the sharpest test of this pattern: a pointwise theorem in a CF/thin-orbit problem by growth
+(M1 + M2), whose ES analogue keeps M2 but provably has no M1 (the HJ-length-3 set is the only ES certificate set in that
+coordinate). This is a sharpened restatement of the campaign's B3 (scale) and B2 (tied modulus) barriers, not a new
+obstruction theorem.
+
+**No field offered a SHARP transfer.** One spark for the parent (not pursued): if Shkredov–Zhang hold, is there any ES
+*relaxation* whose certificate set at p, in CF coordinates, has dimension > 1/2 (a "Zaremba-sized menu")? Such a relaxation
+would become a pointwise theorem by their method; the campaign's provable relaxations (ES^{(S)}, capped ES) are already
+theorems by other means, so the value would be methodological only.
+
+## 6. Verification ledger (research-agent claims graded by me)
+* **Verified by me in the source:** BK Thm 1.8, Conj 1.3/1.7, (1.37) discussion (arXiv PDF); Shkredov 2026 Cor 1, Thms 8, 12,
+  Lemma 13 (arXiv PDF); Zhang 2026 Thm 1.2, Rem 1.3–1.4 (arXiv PDF); Moshchevitin–Shkredov abstract (q = O(p³⁰), p | q);
+  Chen Thms 1.2.3, 1.2.5, 1.2.6 (arXiv PDF); CTW abstract; Heath-Brown's conjecture (Booker–Sutherland p. 5); Lipshitz LGP via
+  DHMP pp. 2–3; Bloom abstract; BL Thms 1.8, 1.9 and "log K3" (local PDF).
+* **Verbatim per research agent, not re-read by me:** Duke 1988 Thm 1; Huang Thm 1.1; Liu–Sawhney Thm 1.1; Croot abstract;
+  Graham 1963 statement; Borwein–Choi abstract; HBP Thm 1; Lenstra 1984; CHN 2008 abstract; LOW 2015 abstract; Jeřábek
+  abstract; Ghosh–Sarnak abstract; Harpaz Thm 1.0.1; BGS 1607.01530 Thms 1–2.
+* **NOT verified (memory or secondary; flagged):** Duke–Schulze-Pillot statement; Ono–Soundararajan statement; Bhargava–Hanke
+  exact wording; Humphries–Radziwiłł exponents; ELMV theorem number; Frolenkov–Kan/Kan theorem numbers; Magee–Oh–Winter
+  role; Niederreiter special families; Eddy et al. numerical threshold; Brown's computations; Colliot-Thélène–Wei–Xu and
+  Loughran–Mitankin theorem numbers; Colliot-Thélène–Xu theorem; Vaughan 1970 (secondary); Erdős 1950 (secondary);
+  Pintz–Ruzsa K = 8; least-witness bounds (Burgess, Ankeny, Bach, Shoup, Xylouris); ACFKP D_± value; Erdős–Rényi threshold;
+  AGP lemma; Olson / Szemerédi–Vu; Graham's recursion details (2n + 2, 2n + 9); Booker 33 / Booker–Sutherland 42.
+* **Brief item not identified:** "Conway–Guy" (no relevant theorem found by agent D or me; no claim made).
