@@ -1745,6 +1745,14 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment: closes the board's slate. The lower tail remains the single open step. Sustained attacks by two other frontier models (O274 Fable, O275 GPT Astra) were launched on it.
    * verify.py (hs) re-runs R284's checks.
 
+106. **A sustained lower-tail attack by GPT Astra: the positive ES words form a forest; any fixed root set and the least-non-residue repair fail infinitely often under Dickson (LOWER_TAIL_ASTRA.md + BRAINSTORM/z43_astra_word_forest.md (O275, model gpt-6-astra, run in parallel with O274 on Claude Fable); self-review plus hostile review `reviews/lower-tail-astra-review.md` (R285): no FATAL or MAJOR; all claims SOUND; minors D1–D6 (attribution: the endpoint encoding, sign identity and size bound are SIGN_IDENTITY Lemma 1.1 / CONSTRUCTIVE_ES Prop 4.1(c); the obstruction mechanism is (J)97 Prop 3.1's n = 1 shadow; the 285- and 769-failure sets overlap in 110 primes); repaired by the reviewer, marked (R285 repair)).**
+   * Forest theorem (PROVED; R285 checked it to 10⁶). The positive-word endpoint graph of n is a forest: each vertex v has the unique possible parent −n mod v. Five-slice certificates are exactly its bichromatic (Jacobi-sign-changing) edges, and increasing paths follow continued-fraction recurrences. New: the unique-parent forest structure.
+   * Thm 3.2 (PROVED implication; infinitude CONDITIONAL on Dickson): four admissible linear prime forms produce an exactly closed eight-vertex component whose vertices all have the same residue character. Hence any FIXED finite root set fails infinitely often.
+   * §5 (CONDITIONAL on Dickson, two forms): for p = 2521 + 9240a with (p+11)/12 prime, the least non-residue is 11 and its component is isolated. So the canonical moving-root repair also fails infinitely often.
+   * EVIDENCE (R285 reproduced it): the root-1 component fails at 285 primes ≤ 10⁶ and the least-non-residue component at 769 (110 in both). The maximum least mixed-component root is 17, at 196561.
+   * Assessment: precise scoped negatives for rooted constructions. It is the (J)97 shadow at component level, with no lower-tail positivity.
+   * verify.py (ht) re-runs R285's checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

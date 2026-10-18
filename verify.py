@@ -27207,4 +27207,38 @@ def check_hs():
 check_hs()
 
 
+def check_ht():
+    # (ht) LOWER_TAIL_ASTRA (O275 GPT-Astra/R285): R285 from scratch — the positive-word endpoint forest (unique parent −n mod v)
+    # on all odd primes ≤ 10^6 and odd squares: 3 028 437 edges at the 39 175 primes p ≡ 1 (4), 1 964 805 bichromatic (five-slice)
+    # edges; root-1 component fails at 285 primes, least-non-residue component at 769 (110 both); max least mixed root 17 at
+    # 196561 (EVIDENCE); Thm 3.2 / Thm 5.1 fixtures.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "lta")
+        r = subprocess.run(["gcc", "-O2", "-o", exe, os.path.join(sdir, "review_lta_forest.c"), "-lm"],
+                           capture_output=True, text=True)
+        assert r.returncode == 0, r.stderr[-2000:]
+        r = subprocess.run([exe, "1000000", "20000"], capture_output=True, text=True, timeout=900)
+        assert r.returncode == 0, r.stderr[-1000:]
+    out = r.stdout
+    assert "N=1000000 odd_primes=78497 squares=499 p1mod4=39175 edges=3028437 bichromatic=1964805" in out, out[:600]
+    assert "root1_fail=285 " in out and "lnr_component_fail=769 " in out and "root1_and_lnr_fail_both=110" in out, out
+    assert "max_least_mixed_root=17 first_at=196561" in out, out
+    r = subprocess.run([sys.executable, "review_lta_fixtures.py"], capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+    assert r.returncode == 0, r.stderr[-1500:]
+    assert "Thm5.1 fixtures: 226 [2521, 30241, 104161, 196561, 252001" in r.stdout, r.stdout[-800:]
+    print(f"== (ht) LOWER_TAIL_ASTRA R285: word forest to 10^6 (edges, bichromatic, root failures 285/769); Thm 3.2/5.1 "
+          f"fixtures; seconds = {perf_counter() - t0:.1f}")
+
+
+check_ht()
+
+
 print("\nall checks passed")
