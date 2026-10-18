@@ -41,3 +41,58 @@ Reproduces the author's numbers.
   both v2 PDF and HTML agree on Thms 1, 6, (5).
 * m2 (MINOR) The ZAREMBA note's "Argon route … would give only an o(L log L) remainder, weaker than ABH's O(L)" is an
   unsupported guess about an unwritten proof; it is already labelled CONJECTURE-level sketch, acceptable.
+
+## (2) FORCED_WINDOW §8, Theorem 8.5 — checked against Henriot's erratum
+
+Sources read by R284: `sources/henriot-erratum-2014.pdf` (New Theorem 5, (0·1)–(0·2), the three corrections) and
+`sources/henriot-1102.1643.pdf` §2–3 (definitions ‖Q‖, κ, ρ̂_R (2.8), (2.9), Stewart (2.6), class M_k (2.10)).
+
+**Hypotheses of New Thm 5, item by item.** Q₁ = t, Q₂ = 4t − q are each primitive (erratum requires each Q_i primitive;
+original only Q) ✓; Q = 4t² − qt, g = 2, r = 2, R_i = Q_i, γ = 1, so F̃ = F ✓; ‖Q‖ = sum of |coefficients| = 4 + q ✓;
+α = δ = 1/2 ∈ (0, 1] ✓; x = (X + q)/4, y = X/4: x^{1/2} < y ≤ x ✓, x ≥ C₀(4 + q)^{1/2} for q ≤ X^{1/4} ✓. F ∈ M₂(1, 1, ε)
+by (2.10) with A = B = 1: F(a₁b₁, a₂b₂) = f(a₁)f(b₁)1[P⁻(a₂)>√x]1[P⁻(b₂)>√x] ≤ F(b₁, b₂) when (a₁a₂, b₁b₂) = 1 ✓ (f
+multiplicative needs only (a₁, b₁) = 1). F may depend on x and χ: the implied constant depends only on g, α, δ, A, B ✓.
+Erratum changes: ρ̆_R ≤ ρ̂_R (upper bound only helped) ✓; sub-multiplicativity fix in Lemmas 2–3 does not alter the
+statement ✓; D* → a*D* only in Thm 6 / Cors 1–2, not used ✓.
+
+**Application.** p ∈ (X, 2X], p ≡ 1 (8), q ≡ 3 (8) ⇒ p + q ≡ 4 (8), K_q odd; q ∤ K_q since q < p; n = K_q ∈ (x, x + y];
+F(Q₁(n), Q₂(n)) = G_χ(K_q)·1[P⁻(p) > √x] = G_χ(K_q) ✓. ρ(ℓ) = 2 (ℓ ∤ 2q), ρ(q) = 1 ✓.
+
+**Local factors — re-derived and brute-forced** (`scripts/review_r284_window.py` part (b): exact counts of
+#{n mod lcm(ℓ^{a+1}, ℓ^{b+1}) : ℓ^a ∥ n, ℓ^b ∥ 4n − q} for q ∈ {3, 11, 19}, ℓ ≤ 19, a, b ≤ 4). For ℓ ∤ 2q: mixed (a, b ≥ 1)
+terms vanish, ρ̂(ℓ^a, 1)/ℓ^{a+1} = (ℓ−1)/ℓ^{a+1}, Σ_{a≥1} = 1/ℓ exactly, so E_ℓ = 1 + g_χ(ℓ)/ℓ + 1[ℓ > √x]/ℓ ✓. ℓ = 2: only
+(a, 0) terms, E₂ = 3/2 ≤ 2 ✓. ℓ = q: mixed terms do occur (e.g. (1, 1) → (q−2)/q², (1, b) → (q−1)/q^{b+1}); the Stewart
+bound ρ*(q^ν) ≤ 2q^{⌊ν/2⌋} gives each ≤ 2q^{−⌈ν/2⌉} and E_q ≤ 1 + Σ_ν 2(ν+1)3^{−ν/2} = O(1) ✓ (actually F(·, q^b) = 0 for
+b ≥ 1 since q < √x, so only the (a, 0) column survives; the author's bound is valid but not needed).
+Collecting: y·(log x)^{−2}·exp(log log x − Σ(1 − g)/ℓ + O(1)) ✓; passing x → X costs O(1) ✓.
+
+**Lemma 8.2** re-derived (E(1 + 2Re ζ)² = 1 + 4E Re ζ + 4E Re²ζ = 3 for d ≥ 3; real χ gives exactly 2/3) and checked for
+all χ ≠ 1 mod every prime q ≤ 400: max mean = 0.666667 (attained exactly by the quadratic character) ✓.
+
+**Lemma 8.4.** For t ≥ w = exp(L^η), (log t)^A ≥ L^{α+η} ≥ 2L^α once L^η ≥ 2 ✓; SW error after partial summation
+∫_{L^η}^{L} e^{−c√u} du ≪ L^{η/2}e^{−cL^{η/2}}, times φ(q) ≤ 2L^α classes: o(1) ✓; main term
+Σ_a (1 − g(a))(1 − η)log L/φ(q) ≥ (1 − η)(log L)/3 by Lemma 8.2 ✓. Ineffective (Siegel) — label says so ✓.
+
+**Theorem 8.5.** η = 3ε: (X/L)·L^{−(1−3ε)/3} = X/L^{4/3−ε} ✓, uniformly in q ≤ 2L^α ✓. Markov over ≤ 2L^α primes q and
+≤ 2L^α characters: X/L^{4/3−2α−ε} ✓. The statement is true for every α, ε (only non-trivial when 2α + ε < 1/3) ✓.
+Constants depend on α, ε only ✓ (no hidden q- or χ-dependence: Lemma 8.3's constant is absolute, Lemma 8.4's is O_{α,η}).
+**Lemma 8.1** re-derived (orthogonality count = (3^k/(q−1))(1 + Σ_{χ≠1} χ(−1)A_χ), real; u ≡ −v (q); M = pK(u+v)/q ∈ ℤ;
+y = M/u, z = M/v ∈ ℤ, y ≠ z since (u, v) = 1 and q ∤ 2) ✓.
+
+**Numerics, from scratch** (part (c): all primes p ≡ 1 (8) in [10⁶, 1.01·10⁶) × q ≡ 3 (8), q < 60 = 990 windows): the
+exact signed-exponent count agrees with the orthogonality formula in every window; strict certificate at 269 windows
+(author: 160 + 109 = 269 ✓), 0 certificate-but-no-solution, and every solution passes 4/p = 1/K + 1/y + 1/z in exact
+rationals. **Strictness note confirmed and sharpened:** S = Σ_{χ≠1} G_χ = 1 exactly occurs at **72/990** windows and in
+every one of them the count is **0** (e.g. p = 1 000 121, q = 11, K = 7·23·1553: count 0). Typical ties: q = 3 with all
+prime factors of K ≡ 1 (mod 3) (the only χ is quadratic, G = 1). So "≤ 1" would be false, not merely unproved; the
+document's strict "< 1" is correct.
+
+**Value/priority (8.6).** "q = 3 alone ⇒ ≪ X/L^{3/2} exceptions": the q = 3 certificate fails iff every prime factor of
+(p+3)/4 is ≡ 1 (3) (re-derived), and Lemma 8.3's proof with f = 1[ℓ ≡ 1 (3)] gives X/L^{3/2} ✓. Domination claim correct.
+Elsholtz–Tao Thm 1.8 proof detail: not re-checked against the paper (source not in sources/; not load-bearing).
+
+**Verdict (2): SOUND.** Label "PROVED modulo Henriot 2014 New Thm 5 + SW + Mertens; ineffective" is accurate.
+* m3 (MINOR) FORCED_WINDOW Lemma 8.3 proof, ℓ = q: could note that F(·, q^b) = 0 for b ≥ 1 (q < √x), so E_q ≤ 1 + 1/q
+  trivially; the Stewart route is correct but unnecessary.
+* m4 (MINOR) §8.7 / BOARD2 (2): say how often ties occur (72/990 here) and that at a tie the count was 0 every time —
+  makes the strictness remark concrete.
