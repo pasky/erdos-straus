@@ -125,3 +125,31 @@ complementarity") is unaffected — it is in fact strengthened (the two lines co
 of one set" picture should be weakened to "both lines are 2-adic subsets of one set and co-vary positively beyond its size".
 **D6 (MINOR).** "Primes with A = 0 have B at 0.59× its cell mean" — based on 9 (≤ 10⁶) and 5 ((10⁶, 10⁷]) primes; state the
 sample sizes and drop the two-digit precision.
+
+## Claim D — Lemma 3.1, Lemma 3.2, Prop 3.3, Prop 3.4
+Verdicts: **Lemma 3.1 SOUND; Lemma 3.2 SOUND; Prop 3.3 / 3.4 SOUND as EVIDENCE (labels correct), with D7–D8.**
+
+**Lemma 3.1 re-derived.** n(g₀) = |G|⁻¹Σ_ψ n̂(ψ)ψ̄(g₀) ≥ S/|G| − |G|⁻¹Σ_{ψ≠1}|n̂(ψ)| ≥ S/|G| − |G|⁻¹√(|G|−1)·E^{1/2}, E =
+Σ_{ψ≠1}|n̂|² = |G|Q − S² (Parseval). Certificate > 0 ⟺ S² > (|G|−1)(|G|Q − S²) ⟺ S² > (|G|−1)Q; with S = |G|m̄,
+Q = |G|(V + m̄²): ⟺ m̄² > (|G| − 1)V. The bound is g₀-independent, hence certifies all classes. Correct. The F4-tube
+consequence (m̄ ≍ log²p, |G| = p − 1 ⇒ V ≲ log⁴p/p) is correct arithmetic; scope repair ("this plain certificate only") is
+adequate. From scratch: `scripts/review_r282_l2cert.py` — 20 000 random count vectors on cyclic and product groups
+(FFT characters): bound always ≤ n(g₀); "certificate > 0 ⟺ S² > (|G|−1)Q ⟺ m̄² > (|G|−1)V" exact; positivity ⇒ all classes
+occupied — 0 violations (7 hits at c = 10⁻¹⁶ were the boundary S² = (|G|−1)Q in floating point).
+
+**Lemma 3.2 re-derived.** P_Ω(R = 0) ∈ |Ω|⁻¹ℤ, so a bound δ < 1/|Ω| forces 0; with δ ≥ 1/|Ω| one failure is compatible.
+π(2N) − π(N) ∼ N/log N gives δ < (1 + o(1)) log N/N. Correct (a tautology, correctly labelled as such).
+
+**Prop 3.3 / 3.4 spot checks (own sieve `scripts/review_r282_levels.c`, all (★)-words of all n ≤ 3·10⁶ by t-outer sieve,
+NL = #distinct levels carrying a word).** Number of primes p ≡ 1 (4) ≤ 3·10⁶: 108 283 ✓; (★) zeros ≤ 3·10⁶: 12 = sum of the
+author's bin zeros ✓; ≤ 5.37·10⁶: 13 ✓. Mean NL / log p by p-range: (10², 10³] 0.53, (10³, 10⁴] 0.61, (10⁴, 10⁵] 0.75,
+(10⁵, 10⁶] 0.89, (10⁶, 3·10⁶] 0.98 — consistent with the author's "0.44 → 0.97, rising" (which was read off M_BM8 bins,
+not p-ranges). Also E[NL]/E[R] = 0.40–0.42 at every height.
+
+### Defects for Claim D
+**D7 (MINOR — interpretation).** Prop 3.3/3.4 present "level-Poisson" as a third model between Poisson and swap-Poisson. Since
+R counts every divisor pair twice (mirror (t, u, v) ~ (t, v, u)), NL ≈ 0.40·R ≈ 0.8·(μ/2) at all heights; the level-Poisson
+model is therefore swap-Poisson with ≈ 20 % fewer units, not an independent "granularity". State this (it also explains why
+level-Poisson and swap-Poisson totals are of the same order in Prop 3.4).
+**D8 (MINOR).** Prop 3.3 bullet 2 "0.44 … 0.97 × log p (rising with p)" — the numbers are per M_BM8 bin; the "rising with p"
+reading conflates M-bins with height. Give the p-range figures (above) or say "rising with M_BM8".
