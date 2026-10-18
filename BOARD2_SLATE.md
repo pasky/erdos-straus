@@ -38,8 +38,10 @@ Scripts: `scripts/z42_five_slice.c` (per-n exact count, main term, checks), `scr
 (u, v) ∈ P(n) write uv = 2^k w (w odd), a := −(u + v), and, at a hit uv | n + u + v, t := (n + u + v)/(uv) ≥ 2.
 `R(n) := #{(u, v) ∈ P(n) : uv | n + u + v, (uv/n) = −1}` (Jacobi symbol).
 
-**Lemma 3.1 (R = N₋ of DEDEKIND_ES Thm 4.5; PROVED).** Ordered pairs at hits ↔ length-3 words n/A = [[v, t, u]],
-A = tu − 1, n = tuv − u − v. If gcd(uv, n) = 1 then (A/n) = (uv/n). Hence R(n) = #{interior five-slice words}.
+**Lemma 3.1 (R = N₋ of DEDEKIND_ES Thm 4.5 at primes; PROVED).** Ordered pairs at hits ↔ length-3 words
+n/A = [[v, t, u]], A = tu − 1, n = tuv − u − v. If gcd(uv, n) = 1 then (A/n) = (uv/n). Hence **for n = p prime**
+R(p) = #{interior five-slice words} = N₋(p). For composite n, R(n) is only the subfamily with gcd(u, v) = 1 = gcd(uv, n)
+(review repair: 21/8 = [[3, 3, 3]] is an interior five-slice word, N₋(21) = 1, but (3, 3) ∉ P(21) and R(21) = 0).
 *Proof.* (tu − 1)v = n + u ≡ u (mod n), so (A/n)(v/n) = (u/n), and (v/n)² = 1. The word ↔ pair correspondence is
 DEDEKIND_ES §4 / ZAREMBA_TRANSFER Lemma C. ∎ (For n = p prime, gcd(uv, p) = 1 and gcd(u, v) = 1 are automatic.)
 
@@ -64,14 +66,15 @@ five-slice projector; for non-active pairs this product vanishes identically.
 (b) square odd part ⇒ principal only (ruling (b): p = 61, (2, 9): w = 9, active since (2/61)(−11/9) = −1, term 1/φ(9) =
 1/6, the hit density, not 1/3); (c) opposite-parity activation recomputed from Lemma 3.2 rather than identified with 2·M_BM.
 
-**Proposition 3.3 (PROVED).** (a) M(n) ≥ 0; each term is 0, 2/φ(w) or 1/φ(w). (b) **T1:** M(m²) = 0 for every odd m
+**Proposition 3.3 (PROVED; for composite n it concerns the coprime subfamily R).** (a) M(n) ≥ 0; each term is 0, 2/φ(w) or 1/φ(w). (b) **T1:** M(m²) = 0 for every odd m
 (gcd(m, uv) = 1 gives (uv/m²) = 1, so non-square-w terms vanish; for w = □, (a/w) = 1 and (2/m²) = 1 give ε = +1, inactive).
 (c) Mean-preserving: for fixed (u, v) and fixed n mod 2^{max(k,3)}, the average of the term over the reduced classes n mod w
 equals 1[active]/φ(w), the density of the hits that R counts. ∎ EVIDENCE: M = R = 0 at 49², 99², 105², 997² (M₀ ≠ 0 there:
 13.65, 10.64, 5.00, 82.4 — the principal part alone fails T1, as argon/astra said).
 
 **Proposition 3.4 (the principal density; Assessment = standard Dirichlet-series computation, + EVIDENCE fit).** Let
-M₀(n) := Σ_{active} 1/φ(w) (depends on n only through its size and n mod 2^k). Averaged over n ≡ 1 (4) the per-pair
+M₀(n) := Σ_{active, gcd(n, uv) = 1} 1/φ(w) (as implemented; at primes the gcd condition is void, and M₀(p) depends on p only
+through its size and p mod 2^k). Averaged over primes p ≡ 1 (4) the per-pair
 weights (relative to 1/φ(u′)φ(v)) are: odd–odd 1 on the three good classes; k = 1: 1/2 (half the n mod 8);
 k = 2: 1[v ≡ 3 (4)]; k ≥ 3: 1[v ≡ 3 (4)]·2^{2−k}. With Σ_{m ≤ x odd} 2^{ω(m)}/φ(m) ∼ (3/(2π²)) log² x this gives
 `M₀ ∼ [ 9/(8π²) (odd–odd) + 3/(2π²) (k = 1) + 3/(2π²) (k = 2) + 3/(2π²) (k ≥ 3) ] L² = (45/(8π²)) L² ≈ 0.570 L²`
@@ -98,12 +101,15 @@ Then use Σ_{u′ odd ≤ X} φ(u′)/u′² = (4/π²) log X + O(1), Σ φ(u′
 pairs at p ≡ 5 (8), whose total is O(1)):*
 * even sectors, u′ ≤ √p short, v long (both orientations (2^k u′, v) and (v, 2^k u′), disjoint by parity), v ≤ p/(2^{k+1}u′):
   k = 1 with S = the two active classes of v mod 8 (D = 1/4); k = 2 with v ≡ 3 (4) (D = 1/4); k ≥ 3 with v ≡ −p (mod 2^k)
-  (D = 2^{−k}, Σ_{k≥3} = 1/4, truncated at k ≤ K → ∞ slowly). Each of the three sectors × 2 orientations gives
+  (D = 2^{−k}, Σ_{k≥3} = 1/4; prove the bound for fixed K and ε, let p → ∞, then K → ∞ and ε ↓ 0). Each of the three
+  sectors × 2 orientations gives
   (1/4)(3/4)/π² = 3/(16π²) at δ = 1/2, β → 1/4. Total 18/(16π²).
 * odd–odd, one orientation, u ≤ √p short, v ≤ p/(2u): for u ≡ 1 (4), v ≡ 3 (4) (D = 1/4); for u ≡ 3 (4), all odd v
   (D = 1/2). Total (1/4 + 1/2)·(1/2)·(3/4)/π² = 9/(32π²).
 Sum: 36/(32π²) + 9/(32π²) = 45/(32π²). PV: the template factor max_{δ≤1/2}(δ − 2δ²) = 1/8 replaces 3/4, i.e. 1/6 of the
-Burgess value. ∎
+Burgess value. ∎ *(Review repairs: the families must exclude u′-short pairs with v = 1 and odd–odd pairs with u or v = 1
+(not in P(p)); deleting them costs O_K(L). With PV, T₀ = √p L² leaves an extra O(log L) per harmonic sum, so the template
+remainder is O(L log L) — leading constants unchanged.)*
 *Check of the template main part (EVIDENCE):* Σ_{u′ odd ≤ √p} Σ_{v ≡ 3 (4), v ≤ p/(8u′), (v,u′)=1} 1/(u′v) = 7.34 / 10.03 at
 p = 1 000 033 / 10 000 121, against (1/4)(3/2)L²/π² = 7.25 / 9.87.
 *Comparison.* Argon's 33/(64π²) ≈ 0.052 rested on the unverified 2·M_BM identification; astra's 9/(64π²) (unordered good
@@ -124,8 +130,8 @@ does not give R(p) > 0: as in BM_CORRECTED §3, the remainder can be ≥ M i.o. 
   have **no** solution at all (brute force, all x ≤ y ≤ z). Of the interior hits, 0 meet the 8-adic analogue
   (8 | t, 8 | u, 8 | v, 8 | tu − 1 or 8 | tv − 1). p = 131 ≡ 3 (4) lies outside Thm 4.5's range (classical case). There
   R = 2 and the five-condition count is 6; the k = 8 separation is the trivial one (8/131 has no solution).
-* Zeros: HJ_DEEP (S) already gives R(n) > 0 for every non-square n ≡ 1 (4), n < 10⁸, except n = 5, 105. Here min R = 26 on
-  the 10⁶ sample.
+* Zeros: HJ_DEEP (S) concerns N₋(n), which for composite n is larger than our coprime R(n) (Lemma 3.1); at primes it gives
+  R(p) = N₋(p) > 0 for all primes 5 < p < 10⁸. Here min R = 26 on the 10⁶ sample.
 
 **Labels.** Lemma 3.1, 3.2, Prop 3.3, Thm 3.5: PROVED (Thm 3.5 uses Burgess; o(1) ineffective in practice like
 BM_CORRECTED's). Prop 3.4's constant: Assessment (Dirichlet-series sketch) + EVIDENCE fit. Under GRH M ∼ M₀ by the argument
@@ -136,8 +142,9 @@ principal constant than (★) (45/(8π²) vs 3/(2π²)).
 ## (4) Finalist 2 — far lower-tail diagnostic on the 8/n c = 1 line to 10⁹ (EVIDENCE; across-n, B6 steering only)
 
 Scripts: `scripts/z42_zero_law.c` (modes `mark`, `exact`, `proxy`, `check`), `scripts/z42_zero_law_fit.py`. Logs:
-`logs/z42_zero_law_m8_1e9.txt` (bin table + fit), `logs/z42_zero_law_m8_zeros_M26.txt` (all 1 423 zeros with exact M ≥ 26:
-n, M, M₀), `logs/z42_zero_law_m12_m16_1e7.txt`. Large intermediates (2.75·10⁶ zero list, proxies) stayed in a tempdir.
+`logs/z42_zero_law_m8_1e9.txt` (bin table + fit), `logs/z42_zero_law_m8_zeros_M26.txt` (the 1 423 identified zeros with exact M ≥ 26:
+n, M, M₀), `logs/z42_zero_law_m12_m16_1e7.txt`. Large intermediates (2.75·10⁶ zero list, zero proxies) stayed in a tempdir; regeneration recipe and the exact-M and
+population inputs of the fit: `logs/z42_zero_law_RECIPE.md`, `logs/z42_zero_law_m8_{exact_zeros,exact_pop,pop_proxy}.txt.gz`.
 
 **Object.** Line m·uBC = n + u + B (C ≥ 1, gcd(u, B) = 1, u + B odd, n odd), R*_m(n) = #{ordered (u, B) : muB | n + u + B,
 muB − u − B ≤ n} (a hit gives m/n = 1/(uBC) + 1/(nBC) + 1/(nuC)). Main term (BM_CORRECTED Prop 4.1(c)):
@@ -152,39 +159,44 @@ Only n prime to 6 are used. (c) m = 16 (and m = 12) are sub-sampled at 10⁷ onl
 
 **Method and cost.** (1) Marking all odd n ≤ 10⁹ in a bitset (63 MB) took 55 s. It found 2 748 892 zeros among
 499 984 188 odd non-squares. (2) A cheap proxy was computed for every zero n ≥ 10⁶ and for 40 000 random admissible n in
-[5·10⁸, 10⁹]. The proxy is the exact sum over m′ ≤ 5·10⁴ plus a principal tail with a coprimality factor. It is used
-**only** for stratification. (3) The exact M_8 was computed (≈ 0.9 s each at 10⁹) for **every** zero whose proxy could
+[5·10⁸, 10⁹]. The proxy is the exact sum over m′ ≤ 5·10⁴ plus a principal tail with a coprimality factor. It selects the
+zeros that get an exact M, and (as proxy + 0.52) it also bins the population sample and the low-M zeros (review
+repair: not "only stratification"). (3) The exact M_8 was computed (≈ 0.9 s each at 10⁹) for **every** zero whose proxy could
 reach M ≥ 22–26: all zeros in [5·10⁸, 10⁹] with proxy ≥ 22, and all zeros below with proxy ≥ 24, 3 359 in total. It was
 also computed for 300 random population members (calibration). Calibration: exact − proxy has median 0.52, rms deviation
-0.24 and max deviation 0.58 on the population; median 0.48 and rms 0.27 on the zeros. So no zero with M ≥ 26 can hide
-below the thresholds. Total ≈ 2 CPU-hours on ≤ 2 cores, ≤ 1 GB per process, `ulimit -v 4000000`.
+0.24 and max deviation 0.58 on the population; median 0.48 and rms 0.27 on the zeros. On this calibration a zero with
+M ≥ 26 below the thresholds would need a proxy error ≈ 3–4× the largest observed; this is empirical, not a
+deterministic bound, so exhaustiveness is not established (review repair). Total ≈ 2 CPU-hours on ≤ 2 cores, ≤ 1 GB per process, `ulimit -v 4000000`.
 
-**Drop-condition (a): passed.** Zeros with exact M_8 ≥ 26 among odd non-squares ≤ 10⁹: **1 423** (874 in [5·10⁸, 10⁹],
-546 in [10⁸, 5·10⁸), 3 below 10⁸). 345 are prime. The largest is n = 575 068 511, M = 34.19.
+**Drop-condition (a): passed.** Zeros with exact M_8 ≥ 26 among odd non-squares ≤ 10⁹: **at least 1 423** identified
+(874 in [5·10⁸, 10⁹], 546 in [10⁸, 5·10⁸), 3 below 10⁸; probably all of them, see the calibration caveat). 345 are prime. The largest is n = 575 068 511, M = 34.19.
 
 **Conditional zero law** (window n ∈ [5·10⁸, 10⁹], 2.49995·10⁸ admissible n; P = Z_bin/(N·f_bin), f_bin from the
 40 000-sample; M = exact where computed, otherwise proxy + 0.52):
 
-| M bin | zeros | P(0 \| M) | P / e^{−M/2} |
+| M bin | zeros | P(0 \| M) | P / E[e^{−M/2} \| bin] |
 |---|---|---|---|
 | [10, 12) | 144 083 | 7.2·10⁻³ | 1.8 |
-| [12, 14) | 137 776 | 3.5·10⁻³ | 2.0 |
+| [12, 14) | 137 776 | 3.5·10⁻³ | 2.1 |
 | [14, 16) | 10 660 | 1.8·10⁻³ | 2.8 |
-| [16, 18) | 5 928 | 7.1·10⁻⁴ | 3.4 |
+| [16, 18) | 5 928 | 7.1·10⁻⁴ | 3.5 |
 | [18, 20) | 6 320 | 3.1·10⁻⁴ | 4.1 |
-| [20, 22) | 1 780 | 1.7·10⁻⁴ | 5.8 |
-| [22, 24) | 934 | 8.5·10⁻⁵ | 7.5 |
-| [24, 26) | 560 | 3.7·10⁻⁵ | 9.7 |
+| [20, 22) | 1 780 | 1.7·10⁻⁴ | 6.1 |
+| [22, 24) | 934 | 8.5·10⁻⁵ | 7.4 |
+| [24, 26) | 560 | 3.7·10⁻⁵ | 9.9 |
 | [26, 28) | 395 | 1.8·10⁻⁵ | 13.4 |
-| [28, 30) | 425 | 8.3·10⁻⁶ | 15.5 |
+| [28, 30) | 425 | 8.3·10⁻⁶ | 16.5 |
 | [30, 32) | 51 | 2.7·10⁻⁶ | 11 (± 14 %) |
 
-**Fit.** −log P(0 | M) = A·M^β on M ∈ [10, 30] (10 bins, weights from counts): **β = 0.89 ± 0.03** (statistical
-only; it ignores bin correlations and the calibration error of the proxy-binned low-M population), A = 0.59. The local
+**Fit.** −log P(0 | M) = A·M^β on M ∈ [10, 30] (10 bins; weights (log P)²/rel², the correct variance of log(−log P) —
+review repair of the first version's 1/rel²): **β = 0.884**, A = 0.59. The fit is poor (χ² = 23.7 on 8 dof); the χ²-scaled
+statistical SE is 0.006, but the systematics (proxy binning of the low-M population, heterogeneity, bin choice) are not
+quantified and are clearly larger — the spread of local β suggests ± 0.1. The local
 β between consecutive top bins is 0.84 and 1.05. The linear slope d log P/dM is −0.38 (Poisson: −0.50). The excess over
 swap-Poisson grows steadily from ≈ 2 at M ≈ 11 to ≈ 13–15 at M ≈ 27–29. This confirms with hundreds of zeros per bin
 what BM_CORRECTED §3.2 saw with 6 zeros (4/n, slope −0.23 at 19–27): **the far tail is fatter than Poisson, but on
-this range it still decays faster than any fixed power of e^{−M}, at rate ≈ M^{0.9}.** In fable's own drop rule
+this range −log P grows like ≈ 0.59 M^{0.88}: faster than any power of 1/M, slower than e^{−cM} for any fixed c > 0
+(review repair of a reversed comparison); a finite range establishes neither asymptotically.** In fable's own drop rule
 (b) ("β ∈ [0.8, 1] stable across the top three bins"), the result is: record and stop.
 
 **m = 12, 16 (10⁷, sub-sampled).** At N = 10⁷ (window [5·10⁶, 10⁷]): m = 12 has 45 460 zeros among 1 666 357 admissible

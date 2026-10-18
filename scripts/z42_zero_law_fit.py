@@ -68,7 +68,7 @@ def main():
 
     edges = np.arange(0, 40 + a.width, a.width)
     rows = []
-    print(" bin        Z      f_pop    P(0|M)      P/exp(-M/2)   -logP")
+    print(" bin        Z      f_pop    P(0|M)      P/E[exp(-M/2)|bin]   -logP")
     for lo_, hi_ in zip(edges[:-1], edges[1:]):
         Z = int(((Mz >= lo_) & (Mz < hi_)).sum())
         f = float(((Mp >= lo_) & (Mp < hi_)).mean())
@@ -79,25 +79,33 @@ def main():
         npop = f * a.nadm
         P = Z / npop
         Mmid = float(np.mean(Mz[(Mz >= lo_) & (Mz < hi_)]))
+        inb = (Mp >= lo_) & (Mp < hi_)
+        pois = float(np.mean(np.exp(-Mp[inb] / 2)))  # E[exp(-M/2) | M in bin] over the population (review repair)
         # relative error: Poisson on Z plus binomial on f
         rel = math.sqrt(1 / Z + (1 - f) / (f * len(pp)))
         rows.append((Mmid, P, Z, rel))
-        print(f" [{lo_:4.0f},{hi_:4.0f})  {Z:6d}  {f:8.5f}  {P:10.3e} (±{100*rel:4.0f}%)  {P/math.exp(-Mmid/2):8.2f}  {-math.log(P):6.2f}")
+        print(f" [{lo_:4.0f},{hi_:4.0f})  {Z:6d}  {f:8.5f}  {P:10.3e} (±{100*rel:4.0f}%)  {P/pois:8.2f}  {-math.log(P):6.2f}")
     sel = [(m, p, z, r) for m, p, z, r in rows if a.Mlo <= m <= a.Mhi]
     if len(sel) >= 3:
         x = np.log([m for m, *_ in sel])
         y = np.log([-math.log(p) for _, p, _, _ in sel])
-        w = np.array([1 / (r * r) for *_, r in sel])
+        # y = log(-log P): sigma_y = rel/|log P|  (review repair: weights were 1/rel^2)
+        w = np.array([math.log(p) ** 2 / (r * r) for _, p, _, r in sel])
         W = np.diag(w)
         X = np.vstack([np.ones_like(x), x]).T
         cov = np.linalg.inv(X.T @ W @ X)
         coef = cov @ X.T @ W @ y
+        res = y - X @ coef
+        chi2 = float(res @ W @ res)
+        dof = len(sel) - 2
+        print(f"chi2 = {chi2:.1f} on {dof} dof (formal SE below is scaled by sqrt(chi2/dof) when > 1)")
+        cov = cov * max(1.0, chi2 / dof)
         print(f"fit -log P = A M^beta on M in [{a.Mlo},{a.Mhi}] ({len(sel)} bins): beta = {coef[1]:.3f} ± "
               f"{math.sqrt(cov[1,1]):.3f} (stat., ignores bin correlation), A = {math.exp(coef[0]):.3f}")
         # also linear slope of log P per unit M
         xs = np.array([m for m, *_ in sel])
         ys = np.log([p for _, p, _, _ in sel])
-        sl = np.polyfit(xs, ys, 1, w=np.sqrt(w))
+        sl = np.polyfit(xs, ys, 1, w=np.array([1 / r for *_, r in sel]))
         print(f"linear: d log P / dM = {sl[0]:.3f} (Poisson reference -0.5)")
         top = sel[-3:]
         if len(top) == 3:

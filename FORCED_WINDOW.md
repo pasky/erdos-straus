@@ -427,9 +427,9 @@ primes q ≤ 2L^α and χ ≠ 1 mod q: Σ_{ℓ≤X, ℓ∤2q} (1 − g_χ(ℓ))/
 constants ineffective).** Fix 0 < α < 1/6 and ε > 0. For all but O_{α,ε}(X/L^{4/3−2α−ε}) primes p ∈ (X, 2X] with
 p ≡ 1 (mod 8), **every** prime q ≡ 3 (mod 8) in [L^α, 2L^α] satisfies Σ_{χ≠1} G_χ(K_q) < 1, hence (Lemma 8.1) carries an
 honest Type II ES solution with window q (cap 0). In particular this holds at every *forced* window ((q/p) = −1) in the band.
-*Proof.* Let η := 3ε. By Lemmas 8.3–8.4, Σ_p G_χ(K_q) ≪ (X/L)·L^{−(1−η)/3} = X/L^{4/3−ε} uniformly in q ≤ 2L^α and
+*Proof.* It suffices to treat 0 < ε < 1/3 (larger ε only weakens the claim). Let η := 3ε. By Lemmas 8.3–8.4, Σ_p G_χ(K_q) ≪ (X/L)·L^{−(1−η)/3} = X/L^{4/3−ε} uniformly in q ≤ 2L^α and
 χ ≠ 1. The exceptional set is contained in ∪_q {p : Σ_{χ≠1} G_χ(K_q) ≥ 1}; by Markov its size is
-≤ Σ_{q ≤ 2L^α} Σ_{χ≠1} Σ_p G_χ(K_q) ≪ (2L^α)² X/L^{4/3−ε}. This is o(X/L) iff 2α < 1/3. ∎
+≤ Σ_{q ≤ 2L^α} Σ_{χ≠1} Σ_p G_χ(K_q) ≪ (2L^α)² X/L^{4/3−ε}. This is o(X/L) iff 2α + ε < 1/3, which holds for ε small since α < 1/6 (review repair: not merely 2α < 1/3). ∎
 *Remarks.* (i) Forcing is not used: the certificate is target-free (it covers every class mod q), so it applies at all
 windows q ≡ 3 (8); the board's "forced window" phrasing (and the CRT count for the existence of a forced q) is a special
 case and is not needed. Numerics confirm the certificate fires at unforced windows too (below). (ii) The band contains

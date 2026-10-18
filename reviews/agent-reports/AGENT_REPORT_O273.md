@@ -55,9 +55,11 @@ ES is not solved; none of the four items is single-prime lower-tail progress (th
   * exact φ(muB) and, for m = 12, the 3 | uB split (target unit iff m′ ≢ 2 (3));
   * m = 12, 16 sub-sampled at 10⁷.
 * Brute-force self-test passes. The code agrees with `z38_mbm.c` for m = 8.
-* Zeros: 2.75·10⁶ among odd non-squares ≤ 10⁹. **1 423 zeros have exact M ≥ 26 → drop-condition (a) passes.**
-* Fit on M ∈ [10, 30]: **β = 0.89 ± 0.03**; local β in the top bins is 0.84 and 1.05. The excess over swap-Poisson grows
-  from 2 to 15. The tail is fatter than Poisson but still decays like e^{−0.59 M^{0.89}} on the range. Under fable's rule
+* Zeros: 2.75·10⁶ among odd non-squares ≤ 10⁹. **At least 1 423 zeros have exact M ≥ 26 → drop-condition (a) passes.** Exhaustiveness rests on the empirical
+  proxy calibration, not on a deterministic bound.
+* Fit on M ∈ [10, 30]: **β ≈ 0.88** (χ² = 23.7/8, so a poor fit; systematics ≈ ± 0.1 judged from the local β of 0.84 and
+  1.05; the earlier ± 0.03 used wrong weights). The excess over swap-Poisson grows
+  from 2 to 15. The tail is fatter than Poisson; on the range −log P ≈ 0.59 M^{0.88}. Under fable's rule
   (b), β ∈ [0.8, 1] means record and stop.
 * Main caveat: M_BM is not 2-adically refined. Mixing n mod 2^j classes can produce the excess. The 2-adically refined main
   term is the next control; it was not run because of the CPU budget, which was ≈ 2 CPU-h used.
@@ -66,9 +68,31 @@ ES is not solved; none of the four items is single-prime lower-tail progress (th
 * Suggested DISCOVERIES/STATUS entries (not edited by me, to avoid merge conflicts):
   * ABH attribution (KNOWN);
   * FORCED_WINDOW Thm 8.5 (PROVED mod cited);
-  * five-slice principal 45/(8π²) and Burgess bound 45/(32π²) (PROVED);
+  * five-slice Burgess bound 45/(32π²) (PROVED, primes) and principal constant 45/(8π²) (Assessment + EVIDENCE fit);
   * zero law β ≈ 0.89 (EVIDENCE).
 * Points most worth a hostile check:
   * Thm 3.5's template, i.e. the "error scales with density" step and the family disjointness;
   * Lemma 3.2(iii) for odd k ≥ 3;
   * Lemma 8.3's local-factor computation at ℓ = q.
+
+## Self-review (review tool, deep) — repairs applied
+* **Lemma 3.1 false for composites** (21/8 = [[3, 3, 3]]). It is now stated for primes; for composite n, R is the coprime
+  subfamily. Prop 3.3 and the HJ_DEEP sentence are adjusted accordingly.
+* **"All 1 423 zeros"** is now "at least 1 423 identified". The proxy's role is described accurately (it also bins
+  low-M data).
+* **β error bars.** The weights are corrected to (log P)²/rel² and the χ²-scaled SE is reported. The Poisson reference
+  is now E[e^{−M/2} | bin]. Fit inputs are committed (gz) together with a regeneration recipe.
+* **Smaller fixes.**
+  * M₀'s definition now includes the gcd restriction (as implemented), averaged over primes.
+  * The reversed stretched-exponential comparison is fixed.
+  * Thm 3.5 proof: interior-boundary deletion (u or v = 1), O(L log L) PV remainder, and the order of limits K → ∞,
+    ε ↓ 0.
+  * FORCED_WINDOW Thm 8.5: ε < 1/3, and the condition is 2α + ε < 1/3.
+  * ZAREMBA_TRANSFER: "sharp" → "explicit leading constant", and the Legendre invariant is restricted to 0 ≤ i < s.
+* **Points the reviewer confirmed:**
+  * the density-scaled Burgess step and the constants 45/(32π²) and 15/(64π²);
+  * automatic activation for k ≥ 2, including odd k ≥ 3;
+  * 45/(8π²) rather than 33/(8π²);
+  * Lemmas 8.3–8.4 and the use of Henriot's erratum;
+  * forcedness is unnecessary;
+  * the ABH index conventions.

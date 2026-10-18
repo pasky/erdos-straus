@@ -102,7 +102,7 @@ so one of them is a non-residue A. Finally r(p/A) ≤ 1 + Σ_{i odd} a_i(p/A) �
 rung where the certificate set has density ≫ 1 (M1⁺ trivially). The step false at m² is "#non-residues = (p−1)/2".
 Gap to ES: from L ≍ log p log log p (density 1/2) to L = 3 (count ≍ log² p) — the full B3 scale gap, now in one metric.
 
-**Attribution note (O273, board #2 Finalist 4; KNOWN — sharp constant).** The sharp form
+**Attribution note (O273, board #2 Finalist 4; KNOWN — explicit leading constant).** The form
 `λ(p) ≤ (6/π²) log p log log p + O(log p)` (explicit leading constant 6/π² in place of Theorem A's 10) is a corollary of
 C. Aistleitner, B. Borda, M. Hauke, *On the distribution of partial quotients of reduced fractions with fixed
 denominator*, arXiv:2210.14095 (read in v2 HTML by O273): **Thm 1** — for N ≥ 3, 0 < t ≤ (log N)^C, the proportion of
@@ -123,7 +123,7 @@ So Theorem A above is a weaker-constant special case of ABH (and of Chang/Larche
 campaign's proof stays as a self-contained elementary argument. No ES consequence: the gap to λ ≤ 3 is unchanged.
 
 **Convergent Legendre invariant (argon; Assessment — not new).** From a q_i ≡ (−1)^i ρ_i (mod p) (displayed in the
-proof of Thm A) one gets at once (a/p) = ((−1)^{i}/p)·(q_iρ_i/p) for every step i; for p ≡ 1 (4) simply
+proof of Thm A) one gets at once (a/p) = ((−1)^{i}/p)·(q_iρ_i/p) for every 0 ≤ i < s (at i = s, q_s = p and ρ_s = 0); for p ≡ 1 (4) simply
 (a/p) = (q_iρ_i/p), i.e. under the injection (a, i) ↦ (x, y, σ) of Thm A the non-residues a map into the pairs with
 (σxy/p) = −1 (EVIDENCE: 0 violations over all CF steps of all QNR at the five primes above, both p mod 4 classes).
 This is a one-line consequence of the standard convergent congruence and is the same genus-character observation that
