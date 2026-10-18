@@ -84,6 +84,9 @@ holomorphic part = Kronecker theta quotients at torsion points), 𝔅 = Σ_t β_
    𝔈 ≈ 121, 𝔒 = −23, −46, −82, −77, and the split by t mod 4 shows 𝔒_{4|t} = −𝔈_{4|t} exactly (item 1) and most of
    the rest of the deficit at t ≡ 3 (4) (R_t small but non-zero there — consistent with R278's correction that
    QUESTION_R Cor 1.3's t ≡ 3 half is false).
+   At 12 primes just above 10⁶ (`scripts/z39_split.py 1000000 12`, ≈ 1 h): 𝔈 ≈ 159 (137–199; 113 × (6/5)² ≈ 163, the
+   log² scaling), 𝔒 ≈ +3.4 (−69…+85, sd ≈ 40), R ≈ 113; odd squares 1001², 1003², 1005², 1007²: 𝔒 = −97, −35, −19,
+   −68 and N₋ = 0 (T1 control). The spread of 𝔒 grows faster than log² in this tiny sample (Assessment only).
    Near-square primes m² + K, m > 300, 10 primes each (`scripts/z39_nearsq.py 300 10 4 24 -3`): 𝔈 = 110, 115, 134
    and 𝔒 = −1.1, −9.6, −26.2 (sd ≈ 20, so SE of a mean ≈ 6) for K = 4, 24, −3. So 𝔒 is **not** a T1 detector by
    itself: K = −3 (no N₋ deficit, QUESTION_R §3.2) has the most negative 𝔒 together with the largest 𝔈 — 𝔒 depends
