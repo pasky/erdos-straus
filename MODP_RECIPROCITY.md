@@ -3,7 +3,8 @@
 Status labels as in DISCOVERIES.md. **ES is not solved, here or anywhere.** Memos: BRAINSTORM/z35_*.md. Scripts: scripts/z35_*.
 Spark relay on O263 (CLASS_FORCING.md) sparks 1 and 4. Notation: p ≡ 1 (4) prime, p = a² + b², a odd, b even (a, b > 0
 unless said otherwise); i_p := a·b⁻¹ mod p (a square root of −1 mod p; replacing b by −b gives −i_p, i.e. π ↔ π̄);
-(x/p)_4 := x^{(p−1)/4} mod p ∈ μ₄(F_p) = {±1, ±i_p}.
+(x/p)_4 := x^{(p−1)/4} mod p ∈ μ₄(F_p) = {±1, ±i_p}. (R275 repair: i ↦ a/b is reduction modulo λ := a − bi, not
+π = a + bi; symbols "mod π" below are to be read mod λ = π̄, which is harmless since π ↔ π̄ is just b ↦ −b.)
 
 ## 0. Iteration log
 * v0 (brief's idea). "In mod-p coordinates the modulus is p and the small objects are the certificate parameters; their n-th
@@ -58,12 +59,15 @@ not a free datum of p once the parameters are given** — it is the T1 sign (ET 
 q ≠ p, (q/p)_4 ≡ [q/π]_4 (mod π) is a function of (a mod 4q, b mod 8q) (the 2-adic part fixes the primary associate; π ↔ π̄
 conjugates the value): for q ≡ 1 (4), q = c_q² + d_q²
 (c_q odd), **Burde's law** (p/q)_4(q/p)_4 = ((a c_q − b d_q)/q) when (p/q) = 1 [Burde, J. reine angew. Math. 235 (1969) 175–184;
-`z35_checks.py` (2): 2158 pairs, 0 violations], with (p/q)_4 a function of p mod q; for q ≡ 3 (4), [π/q]_4 ≡ π^{(q²−1)/4} =
+`z35_checks.py` (2): 2158 pairs, 0 violations], with (p/q)_4 a function of p mod q (R275 repair: in fact for q ≡ 1 (4),
+(q/p)_4 is a function of (a mod q, b mod q) alone — no 2-adic data; for q = 2 of (a, b) mod 8); for q ≡ 3 (4), [π/q]_4 ≡ π^{(q²−1)/4} =
 (π̄/π)^{(q+1)/4} (mod q), a function of the point (a : b) ∈ P¹(F_q). Hence the quartic symbols of w, g, d, m are functions of
 (a, b) modulo 16·rad(mdg) — data of p NOT determined by p mod anything (Thm 2.1(c)(ii) of CLASS_FORCING: Frob_p in
 ℚ(i, q^{1/4}) is non-abelian information; R272 D2: O263's slogan "reciprocity forces parity, never class" is an overclaim —
 the correct content is "Frobenius data of p = congruence data + an independent non-abelian part", and that non-abelian part
 is exactly what this file studies).
+(b′) (R275 repair.) From 4md = p + g and m + 1 = cg: **w·m = c·p + 1**, so w ≡ m⁻¹ (mod p) and (w/p)_4·(m/p)_4 = 1: the
+quartic parts of witness and window determine each other.
 (c) *(The event ignores (b).)* The certificate condition (4md − g = p, g | m + 1) involves only integers; (b) is a
 consequence of it, not an input to it. (`z35_checks.py` (3): the identity in (b) and (w/p) = −1 on all 2716 certificates p < 5000.)
 *Proof.* (a) Jacobi reciprocity with p ≡ 1 (4): (x/p) = (p/x) for odd x > 0; p ≡ −4d (mod g) (as m ≡ −1 (g)), p ≡ −g (mod d′)
@@ -71,6 +75,10 @@ and (mod m′) (as 4md = p + g). (w/p) = −1 is CLASS_FORCING Lemma 2.2(a) (SS8
 The q ≡ 3 (4) formula: in ℤ[i]/(q) ≅ F_{q²}, π^q ≡ π̄, so π^{(q²−1)/4} = (π^{q−1})^{(q+1)/4} = (π̄/π)^{(q+1)/4}; quartic
 biquadratic reciprocity for the primary primes π and −q (Ireland–Rosen, *A Classical Introduction…*, Ch. 9 §9, Thm 2;
 (N(−q) − 1)/4 = (q² − 1)/4 is even) transfers it up to the unit factor [−1/π]_4 = (−1)^{(p−1)/4} and the primary normalisation.
+(R275 repair, explicit sign bookkeeping: [−1/q]_4 = 1 and λ = a − bi is primary up to ±1, so
+(q/p)_4 = (−1)^{(p−1)/4}·((a + bi)/(a − bi))^{(q+1)/4} computed in F_q[i], read with i ↦ a/b; the only 2-adic input is p mod 8
+(the supplement [−1/λ]_4), not a primary-associate sign. Verified from scratch for q ≤ 43, p < 3·10⁵, 0 failures:
+`scripts/review_r275_sec1.py`.)
 `scripts/z35_quartic_function.py` (`logs/z35_quartic_function.txt`): for q ≤ 37 and all p ≡ 1 (4) < 3·10⁵, (q/p)_4 (with
 i ↔ i_p = a/b) is a single-valued function of (a mod q, b mod q, a mod 4, b mod 8) (q = 2: (a, b, p) mod 16), 0 conflicts;
 without the 2-adic data, q ≡ 3 (4) gives ≈ 50 % conflicts (the primary-associate sign). ∎
@@ -110,15 +118,19 @@ the order-4 characters mod p forces equal i_p, i.e. π′ = π. (By Linnik, fini
 *Reading.* There is no "independence barrier" for non-abelian data at unbounded level: knowing enough quartic symbols is
 knowing p's Gaussian coordinates. (This is not special to the non-abelian part — the Legendre symbols (q/p), q ≡ 3 (4), already
 determine p by the same Dirichlet argument; Prop 2.2 only shows that no barrier of the form "the non-abelian part is independent
-of the certificate" can be proved at unbounded level.) Our heuristic choice was to study (a, b) as numbers (§3); that is a
+of the certificate" can be proved at unbounded level.) (R275 repair: this excludes only POINTWISE independence; statistical
+independence statements with growing parameters — the useful kind, and what EVIDENCE 2.3 tests — are not excluded and remain open.) Our heuristic choice was to study (a, b) as numbers (§3); that is a
 choice, not a consequence of Prop 2.2.
 
 **EVIDENCE 2.3 (non-abelian independence at moderate level).** `scripts/z35_quartic_independence.py 2000000 40`
 (`logs/z35_quartic_independence.txt`): 74 415 primes p ≡ 1 (4) < 2·10⁶, levels d ≤ 40, quartic data (q/p)_4 for
 q ∈ {2, 3, 5, 7, 11, 13} (on (q/p) = 1), hit indicator of the b = 1 line at level d, stratified by p mod lcm(4d, 16, q):
-240 tests, max |z| = 2.46, share |z| > 2 = 2.5 % (null ≈ 4.6 %), none > 3. Canonical quartic bit of b = 1 witnesses for
-p ≡ 5 (8) (2 is a non-residue, so (2w/p)_4 = ±1 is π ↔ π̄-invariant): +1: 281 437, −1: 282 747 (49.9 % / 50.1 %). The
-certificate carries a free, balanced quartic bit, and quartic data of p do not move the per-level hit rates (unlike the
+240 tests, max |z| = 2.46, share |z| > 2 = 2.5 % (null ≈ 4.6 %), none > 3. Canonical quartic bit of b = 1 witnesses **with d ≤ 40** (R275 repair: scope) for
+p ≡ 5 (8) (2 is a non-residue, so (2w/p)_4 = ±1 is π ↔ π̄-invariant): +1: 281 437, −1: 282 747 (49.9 % / 50.1 %). (R275 repair: by Prop 1.2(b′) the bit is ((2/m)/p)_4, the quartic symbol of the WINDOW;
+at m = 2k² it equals the Legendre symbol (k/p), a congruence datum — m = 2 fires for every p ≡ 5 (8) with bit +1, m = 8, 18
+always give −1, m = 32 always +1 — and over ALL witnesses of p ≡ 5 (8) ≤ 2·10⁵ the split is 51.8/48.2 % (z ≈ 10.6;
+`scripts/review_r275_bit_*.py`). So the bit is forced (abelianly) on m = 2k² and balanced on generic windows; still no
+quartic T1.) Quartic data of p do not move the per-level hit rates (unlike the
 quadratic sign, which is forced: Prop 1.2(a)).
 
 ## 3. Gaussian-representation certificates (goal (3))
@@ -129,7 +141,9 @@ families whose ET coordinates or (x, y, z) are polynomial/rational in (a, b) are
 a density-zero set (odd squares m² = Q(u, v) exist in every square class and sector; ET Prop 1.6). (J)78 Thm 1.1: a polynomial
 Type II family in (u, v) for an irreducible binary quadratic Q that is valid at ONE point has coordinates in ℚ[Q] — i.e. it
 is an ET identity in p. (J)79 Cor 3.2: the same for Type I and for every full norm form (any degree). So every "identity in
-a, b" (levels d, windows m, side numbers p + 4b², p + 4ab, … chosen polynomially) is either an identity in p or invalid —
+a, b" (levels d, windows m, side numbers p + 4b², p + 4ab, … chosen polynomially) is either an identity in p or invalid (R275 repair: this needs the FULL
+certificate — all ET coordinates; on the b = 1 line both m and d — polynomial/rational in (a, b); a polynomial level d or window m
+with a free divisor witness is NOT covered: it is a B2 divisor event, the non-polynomial residue tested in EVIDENCE 3.4) —
 the brief's hope that (J)78/(J)79 "do not apply verbatim" is unfounded for polynomial choices. What remains open is
 **non-polynomial** use of (a, b): arithmetic functions (gcd, modular inverses, continued fractions, factorisations) and
 non-polynomial lifts such as X ≡ i_p (mod p) (§3.3).
@@ -151,7 +165,7 @@ shadow again pushes everything visible into the genus subgroup (CLASS_FORCING C4
 **Proposition 3.3 (the √−1 menu is still T1-barred for polynomial families; PROVED).** Every lift X ≡ ±i_p (mod p) gives
 X² + 1 = pN (N ≥ 1), and (X, N) are not polynomial in p or in (a, b) (they move with the lift X ↦ X + tp). Let F be a family of
 ET coordinates (Type I or II) polynomial (or rational) in (X, N), read at n := (X² + 1)/N, and let
-V(C) := {(X, N) ∈ ℤ²_{≥1} : N | X² + 1, (X, N) ≡ (X₀, N₀) (mod M)} with X₀² + 1 ≡ N₀ (mod M) (the class n ≡ 1 (mod M), the
+V(C) := {(X, N) ∈ ℤ²_{≥1} : N | X² + 1, (X, N) ≡ (X₀, N₀) (mod M)} with X₀² + 1 ≡ N₀ (mod M) (the class n ≡ 1 (mod M) when gcd(N₀, M) = 1 (R275 repair), the
 T1 point). Then F is not valid on all of V(C): V(C) contains points with n an odd square, beyond any bound, where ET Prop 1.6
 forbids validity.
 *Proof.* Take a prime s ≡ 1 (mod 4M) (Dirichlet): −1 is a square mod s² and s² ≡ 1 (mod M). Pick X with X² ≡ −1 (mod s²) and
@@ -184,7 +198,8 @@ artefact of the control, recorded as a caution.)
 *Proof.* (a) p ≡ −4k² (mod ℓ) and (−1/ℓ) = (ℓ/p) by QR. (b) −4 = (1 + i)⁴ is a 4th power mod ℓ ≡ 1 (4), so (p/ℓ)_4 =
 (−4k²/ℓ)_4 = (k²/ℓ)_4 = (k/ℓ). Burde (Prop 1.2(b)) since (p/ℓ) = 1. ∎ (`scripts/z35_sg_levels.py`: 32 837 triples (p, k, ℓ),
 p < 10⁶ (first 3000 primes > 1600), k ≤ 11: 0 violations of either identity.)
-*What it forces.* (b) links three things: the quadratic class of ℓ modulo k (via (k/ℓ) = (ℓ/k′)·sign, k′ the odd part — an
+*What it forces* (R275 repair: Assessment; "lies in G²" below should read "the fibre of the class over its image in G/G²",
+since −1 ∉ G²). (b) links three things: the quadratic class of ℓ modulo k (via (k/ℓ) = (ℓ/k′)·sign, k′ the odd part — an
 element of G/G², G = (ℤ/4k²)^×), the quartic symbol (ℓ/p)_4 (a datum of p, but at the UNKNOWN ℓ), and the relative Gaussian
 angle term ((a c_ℓ − b e_ℓ)/ℓ) (a datum of the pair). There is no p-only constraint: for a witness w ≡ −1 (mod 4k²), multiplying
 (b) over ℓ^{e_ℓ} ∥ w gives (w/p)_4 = ∏_{ℓ≡1} [(k/ℓ)((a c_ℓ − b e_ℓ)/ℓ)]^{e_ℓ} · ∏_{ℓ≡3} (ℓ/p)_4^{e_ℓ} — every factor involves ℓ. And the target
@@ -209,16 +224,20 @@ datum J(χ₃, χ₃) and the Gauss-period discriminant), 7, … Then for the b 
 (i) every odd window m | y is sterile;
 (ii) an odd window m | x, m > 1, is sterile if the Jacobi symbol (D/m) = +1, while for (D/m) = −1 the Jacobi obstruction is
 absent (the window fires iff the least residue −p mod 4m divides m + 1 — a residue lottery with the square-class restriction
-−p ≡ −Dy²·(4⁻¹) (mod m), which roughly doubles the firing probability).
+−p ≡ −Dy²·(4⁻¹) (mod m); R275 repair: that this "roughly doubles the firing probability" is EVIDENCE (see Check), not
+part of the PROVED statement).
 *Proof.* Put ε := 1 or 4. For m | y odd: εp ≡ x² (mod m), so p ≡ (x/√ε)² is a unit square mod m and Lemma 3.2 applies. For m | x
 odd: εp ≡ Dy² (mod m), so g ≡ −p (mod m) gives (−g/m) = (D/m)(ε/m)·(y²/m) = (D/m). In the proof of Lemma 3.2 (s = 0), a firing
 window forces (−g/m) = −1. ∎ (For even windows add the 2-adic condition of Lemma 3.2.)
 *Check* (`scripts/z35_principal_windows.py 1000000`, `logs/z35_principal_windows.txt`; all p ≡ 1 (4) < 10⁶, D ∈ {1, 2, 3, 7}):
 m = odd part of y: 0 hits in 78 350 / 19 552 / 19 564 / 19 525 trials; m = x with (D/x) = +1: 0 hits (39 064 for D = 1, ≈ 9 700
 each otherwise); m = x with (D/x) = −1: 1.75 % / 2.06 % / 1.82 % (D = 2, 3, 7), against ≈ 1.25 % for windows of the same size
-taken from neighbouring primes (EVIDENCE 3.4).
+taken from neighbouring primes (EVIDENCE 3.4). (R275 repair: the above tests only m = odd part of y and m = x; R275's
+from-scratch check over ALL odd divisors m | y and all odd m | x with (D/m) = +1, all p ≡ 1 (4) < 10⁶, D = 1, 2, 3, 7, 27,
+found 0 firings: `scripts/review_r275_windows.py`, `logs/review_r275_windows.txt`.)
 
-**Corollary 5.2 (what canonical representation data can do in the balanced range; PROVED + Assessment).** The
+**Corollary 5.2 (what canonical representation data can do in the balanced range; PROVED + Assessment).** (R275 repair:
+the first sentence and the final ticket count are Assessment/heuristic; the forbid/permit dichotomy is the PROVED part.) The
 representations p = x² + Dy² (equivalently: Frobenius of p in the ring class fields of ℤ[√−D], cubic/quartic Jacobi sums, Gauss
 periods) are the only canonical integers of size ≍ √p attached to p, i.e. they live exactly in the balanced range R3 of §1.
 Their effect on the b = 1 windows they index splits into the Jacobi selection rule of Prop 5.1 and congruence data: they *forbid* windows (all odd
@@ -234,10 +253,11 @@ with probability ≍ τ(m + 1)/m — total ≍ p^{−1/2+o(1)}, useless at large
 ## 6. Verdict (O265 checkpoint 1)
 * **Goal (1)** (mod-p formulation): PROVED dictionary (Prop 1.1). The decisive condition is the height-one equation
   4md − g = p, g | m + 1 — additive; we found no power-class reformulation of the target (Assessment). The residue-symbol content of a certificate is a
-  forced quadratic part (the T1 sign, Jacobi symbols among the parameters) and a free quartic part (a function of (a, b) mod the
-  parameters) that the event ignores (Prop 1.2; the free bit is balanced, EVIDENCE 2.3).
+  forced quadratic part (the T1 sign, Jacobi symbols among the parameters) and a quartic part (a function of (a, b) mod the
+  parameters) that the event ignores (Prop 1.2; R275 repair: the witness bit equals the window's quartic symbol, w ≡ m⁻¹ (p);
+  balanced on generic windows, forced by (k/p) on m = 2k², EVIDENCE 2.3).
 * **Goal (2)** (what quartic/octic/Burde reciprocity forces): for a fixed finite set of witnesses nothing beyond congruences (Prop 2.1);
-  at unbounded level no independence barrier can be proved (Prop 2.2), and we studied what (a, b) as numbers can do; at Sophie-Germain
+  at unbounded level no POINTWISE independence barrier can be proved (Prop 2.2; R275 repair: statistical independence is open), and we studied what (a, b) as numbers can do; at Sophie-Germain
   levels Burde gives an exact per-factor law with no p-only constraint (Prop 4.1).
 * **Goal (3)** (Gaussian certificate families): polynomial identities in (a, b) are already closed by (J)3/(J)78/(J)79 (the
   brief's premise is incorrect there); the √−1 lift menu is T1-barred on whole classes (Prop 3.3); non-polynomial arithmetic use

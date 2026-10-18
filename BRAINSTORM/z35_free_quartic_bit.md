@@ -17,6 +17,6 @@ squares β is undefined (no certificates).
 p < 10⁵ gave pair bits (w₀w/p)_4 balanced to within within-p correlation (54/46 % for p ≡ 1 (8), not a law).
 
 ## Assessment
-EVIDENCE (negative): the quartic bit is free and balanced; there is no quartic T1. Spark: the bit is a well-defined ±1-valued
+EVIDENCE (negative): the quartic bit is balanced at d ≤ 40; there is no quartic T1. (R275 repair: not free in general — w·m = cp + 1 gives β(w) = ((2/m)/p)_4, equal to the Legendre symbol (k/p) on windows m = 2k²; over all witnesses, p ≤ 2·10⁵, 51.8/48.2 %.) Spark: the bit is a well-defined ±1-valued
 function on the certificate set of p ≡ 5 (8) — could it be the sign of an involution or a Brauer–Manin pairing (quartic
 Hilbert symbol) on the ES surface? Not pursued.

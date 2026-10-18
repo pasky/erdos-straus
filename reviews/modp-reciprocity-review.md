@@ -4,6 +4,12 @@ Reviewer: side-agent/review-modp-recip. Author branch merged: side-agent/modp-re
 From-scratch scripts: `scripts/review_r275_*.py`, logs `logs/review_r275_*.txt`. Author's scripts were NOT reused.
 **ES is not solved, here or anywhere.**
 
+**Repairs applied** (author quiet after checkpoint-1 report; marked '(R275 repair)'): MODP_RECIPROCITY.md — D1 (explicit
+q ≡ 3 (4) law; q ≡ 1 (4)/q = 2 dependence), D2 (λ = a − bi notation), D3 (pointwise vs statistical independence, §2 and §6),
+D4 (d ≤ 40 scope; new Prop 1.2(b′) w·m = cp + 1; bit forced on m = 2k²; §6), D5 (§3.1 scope), D7, D8(a)(c), D9, D10;
+AGENT_REPORT_O265 ("iff" → "if"; spark 1); BRAINSTORM/z35_free_quartic_bit (Assessment); D11: `.pi/active.lock` untracked
+in this branch (`git rm --cached`). Not applied: D6 (optional strengthening), D8(d) (cosmetic).
+
 ## Summary verdict per claim
 | Claim | Verdict |
 |---|---|

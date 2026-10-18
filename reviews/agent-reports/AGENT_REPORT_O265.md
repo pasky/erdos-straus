@@ -8,7 +8,7 @@ Branch side-agent/modp-reciprocity (O263's branch side-agent/class-forcing is me
 
 ## SHARP: none in the breakthrough sense. Mildly sharp, for the orchestrator to judge:
 1. **Window selection rule of a representation (Prop 5.1, PROVED, 0 exceptions to 10⁶).** If p = x² + Dy² (or 4p = x² + Dy²,
-   gcd(x, Dy) = 1), then every odd b = 1 window m | y is sterile, and an odd window m | x is sterile iff (D/m) = +1; if
+   gcd(x, Dy) = 1), then every odd b = 1 window m | y is sterile, and an odd window m | x is sterile if (D/m) = +1 (R275 repair: "if", not "iff"); if
    (D/m) = −1 the Jacobi obstruction disappears (firing rate ≈ 1.8–2.1 % vs ≈ 1.25 % controls). This is where p's canonical
    √p-size data (a, b; x² + 2y²; x² + 3y²; the cubic Jacobi sum 4p = L² + 27M²) meet the balanced range of the b = 1 line,
    and their whole visible effect beyond congruences is quadratic.
@@ -52,7 +52,7 @@ Branch side-agent/modp-reciprocity (O263's branch side-agent/class-forcing is me
 ## Sparks (not pursued)
 1. The free quartic bit β(w) = (2w/p)_4 of b = 1 witnesses (p ≡ 5 (8)) is a canonical ±1 function on each prime's certificate
    set. Is it the sign of an involution on certificates, or a quartic Hilbert-symbol / Brauer–Manin-type pairing on the ES
-   surface? An exact law for Σ_w β(w) would be a new invariant, even though β is not forced.
+   surface? An exact law for Σ_w β(w) would be a new invariant. (R275 repair: w·m = cp + 1, so β(w) = ((2/m)/p)_4 is the quartic symbol of the window; it IS forced, by the Legendre symbol (k/p), on windows m = 2k² — e.g. β = +1 at m = 2 for every p ≡ 5 (8); balanced only on generic windows.)
 2. Prop 5.1 at all class-number-one D at once (D = 1, 2, 3, 7, 11, 19, 43, 67, 163, when p is represented): the permitted
    windows m | x_D with (D/m) = −1 form a canonical, p-dependent, non-congruence menu in the balanced range. Its union firing
    probability at large p is ≈ p^{−1/2+o(1)} per balanced ticket — dead as stated, but a genus-theory version (non-principal
