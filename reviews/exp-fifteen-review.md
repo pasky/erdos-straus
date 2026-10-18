@@ -109,3 +109,31 @@ astra's example: 1 + 4·101 = 405 = 15·3³ ✓, u = 3 ≡ 3 (8) ⇒ killed by T
 * Attribution of argon's "similarly bounded via Lemma 1.5": argon items/argon.md l.67 indeed says this; author's
   rejection is fair (Lemma 1.5 bounds a constant window m; no such object here). ✓
 * Label: "OPEN; reduction + EVIDENCE" is the right label for the branch; the sentence about Ridout must be corrected.
+
+### C10. §2.4 EVIDENCE (no (C1)+(C2) solution) and positive control — SOUND (reproduced, extended)
+From-scratch `review_r281_iiad.py` (factor 15u^p − 1, all a with a² | (15u^p − 1)/4, all divisors X of N):
+p = 3, u ≤ 6·10⁴ (21737 tuples); p = 5, u ≤ 2000 (692); p = 7, u ≤ 70; p = 11, u ≤ 30; p = 13, u ≤ 20; p = 17, 19, 23,
+u ≤ 15, 12, 10: **0 hits**, both branches (u ≡ 3, 7 (8)). (Author's count 7414 vs mine 7430 at the author's nominal ranges
+differs only by range rounding for p ≥ 11; my ranges are supersets.) Positive control c₀ = 63: exactly one hit
+(u, p, a, d, X, X′) = (3, 3, 5, 17, 21, 84) = EXP_OPEN Thm 2.3 ✓; c₀ = 63, p = 5, u ≤ 30: none.
+
+### C11. Lemma 3.1 (even D ⇒ a has no real root) — SOUND
+c ∈ ℚ[Y] ⇒ 4ad·c = f′ + 1 ⇒ f′(y₀) = −1 at a real root y₀ of a; f′ has positive leading coefficient (f′ = 4acd − 1 > 0
+at large Y; f′ constant would be −1 < 0); IVT gives y₁ > y₀ with f′(y₁) = 0, so B(y₁) = 0, contradicting
+B = 15Y^D + 1 + 4da² ≥ 15Y^D + 1 > 0 on ℝ for D even. ✓ (Uses d > 0 and only that a, c are real polynomials.)
+
+### C12. Computation 3.2 (II-d search EVIDENCE) — GAP (misreported seeded hits; restricted trinom grid)
+* **Seeded "2 rational solutions" are degenerate (D3).** For both reported (15, 1) solutions, B = 15Y³ + 1 + 4da² is
+  *irreducible* and f = B/f′ is the constant 14 (sympy, `review_r281` session): a = (Y+1)/2, d = 3 gives
+  f′ = (15Y³ + 3Y² + 6Y + 4)/14; a = 3(Y+1)/2, d = 5 gives f′ = (15Y³ + 45Y² + 90Y + 46)/14. Same for D = 5. These are
+  constant-gap families (gap 14), already excluded by Theorem W; the seeded interpolant g degenerated to a constant
+  (φ = X = −n(−1) = 14). The (63, 1) D = 3 "solutions" have c = 1/4 constant, i.e. f′ constant (ET-class degenerate).
+  So the log contains no genuine II-d configuration at all, and the memo's "Reading: the Y = 0 specialisation is where
+  II-d dies (a(0) ∈ ½ℤ)" is drawn from degenerate artefacts.
+* **z40_trinom grid (D4).** It enumerates the *monic* quadratic factor Y² + pY + q with denominators of p, q dividing 8.
+  For 15Y^D + … the natural denominators of monic factors are 3, 5, 15 (e.g. (3Y + α)(5Y² + …)), and a may have odd
+  denominators (a(0) ∈ ℤ_(2), a(1) ∈ ℤ[1/2] allow a = (2Y + 1)/3). The EVIDENCE is honestly stated ("denominators | 8")
+  but this is a poor grid. My independent D = 3 search (`review_r281_iid.py`, parametrised by the rational root r of B
+  and the root y₀ of a, any denominators ≤ DEN): see C13.
+* z40_seeded's c₀ = 63 seeds use the c₀ = 15 box (a ≤ 81, d ≤ 21, m₁ ≤ 36), which is not exhaustive for 4^J = 64
+  (control only; MINOR).

@@ -1,0 +1,7 @@
+c0=15 p=5 u<=380: 131 (C1) tuples (u,a,d), 0 (C1)+(C2) hits
+c0=15 p=7 u<=70: 22 (C1) tuples (u,a,d), 0 (C1)+(C2) hits
+c0=15 p=11 u<=30: 9 (C1) tuples (u,a,d), 0 (C1)+(C2) hits
+c0=15 p=13 u<=20: 8 (C1) tuples (u,a,d), 0 (C1)+(C2) hits
+c0=15 p=17 u<=15: 5 (C1) tuples (u,a,d), 0 (C1)+(C2) hits
+c0=15 p=19 u<=12: 3 (C1) tuples (u,a,d), 0 (C1)+(C2) hits
+c0=15 p=23 u<=10: 2 (C1) tuples (u,a,d), 0 (C1)+(C2) hits
