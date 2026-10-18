@@ -1,0 +1,31 @@
+calibration exact-proxy: population n=300 median 0.518 rms-dev 0.241 max|dev| 0.576;  zeros n=1963 median 0.476 rms-dev 0.269
+window [5e+08,1e+09]: zeros 1002719 (exact M for 1963), population sample 40000, admissible 2.49995e+08
+  zeros with M >= 20: 4148  (of which exact: 1963)
+  zeros with M >= 22: 2368  (of which exact: 1962)
+  zeros with M >= 24: 1434  (of which exact: 1434)
+  zeros with M >= 26: 874  (of which exact: 874)
+  zeros with M >= 28: 479  (of which exact: 479)
+  zeros with M >= 30: 54  (of which exact: 54)
+ bin        Z      f_pop    P(0|M)      P/E[exp(-M/2)|bin]   -logP
+ [   2,   4)     126   0.00000       -
+ [   4,   6)   73251   0.00352   8.312e-02 (±   8%)      1.31    2.49
+ [   6,   8)  299949   0.03150   3.809e-02 (±   3%)      1.37    3.27
+ [   8,  10)  320478   0.06695   1.915e-02 (±   2%)      1.58    3.96
+ [  10,  12)  144083   0.08013   7.193e-03 (±   2%)      1.82    4.93
+ [  12,  14)  137776   0.15857   3.475e-03 (±   1%)      2.06    5.66
+ [  14,  16)   10660   0.02385   1.788e-03 (±   3%)      2.84    6.33
+ [  16,  18)    5928   0.03363   7.052e-04 (±   3%)      3.46    7.26
+ [  18,  20)    6320   0.08082   3.128e-04 (±   2%)      4.14    8.07
+ [  20,  22)    1780   0.04238   1.680e-04 (±   3%)      6.14    8.69
+ [  22,  24)     934   0.04398   8.496e-05 (±   4%)      7.36    9.37
+ [  24,  26)     560   0.06085   3.681e-05 (±   5%)      9.92   10.21
+ [  26,  28)     395   0.08575   1.843e-05 (±   5%)     13.41   10.90
+ [  28,  30)     425   0.20550   8.273e-06 (±   5%)     16.54   11.70
+ [  30,  32)      51   0.07610   2.681e-06 (±  14%)     11.04   12.83
+ [  32,  34)       2   0.00570   1.404e-06 (±  71%)     17.22   13.48
+ [  34,  36)       1   0.00072   5.517e-06 (± 102%)    171.16   12.11
+ [  36,  38)       0   0.00005       -
+chi2 = 23.7 on 8 dof (formal SE below is scaled by sqrt(chi2/dof) when > 1)
+fit -log P = A M^beta on M in [10,30] (10 bins): beta = 0.884 ± 0.006 (stat., ignores bin correlation), A = 0.594
+linear: d log P / dM = -0.377 (Poisson reference -0.5)
+local beta over the top three bins: [0.838, 1.047]
