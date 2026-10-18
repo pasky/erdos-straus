@@ -87,3 +87,21 @@ The repair: LOWER_TAIL_FABLE §3.2 itself identifies its H = squares rung with E
 so identifying its H = k-th-powers rungs with ES_(k) is the faithful reading, and then its conclusion "the only provable
 member of the ladder is k = 2" is refuted by Cor 2.5 (every k is a theorem at every n). The diagnosis (the solver chooses
 the modulus; calibrate at the best single modulus, index 1 or 2) is a fair Assessment and consistent with R286 D7.
+
+### §4 cap relation — SOUND
+CAP_POINTWISE normalisation (den z = r², r odd, gcd(r, n) = 1, rad r | y, v_ℓ(r) ≤ e) gives ES^{(y,e)} ⊂ ES_(2) and the
+stated ES_(4) intersection ✓. The constructions have gcd(Q, x) = gcd(Q, y) = 1 (Thm 2.1: y = 2x; Thm 2.3: gcd(Q, n(r+1)) = 1
+and q ∤ x), so they are never cap solutions ✓. The key repaired point (ii) re-derived from UNIT_ORBIT_ES Lemma 1.1: if
+q | y and v_q(z) < 0 then case (iii) is impossible, so q | x (case (ii)), −y/x ≡ 1 (mod q) and inv_q = 0 for ANY w — the
+cap tie kills the parity bit; T1 survives odd exponents under the tie ✓.
+
+### Thm 5.1, CERTIFIED, Prop 5.2 — SOUND
+All three branches re-derived: q ≡ 3 (4): 4x = n + q, q ∤ x; q ≡ 2 (3): 3x = n + 1 (ES) / 3x = n + q, 4/n = 1/n + 1/x +
+q/(nx); witness g: UNIT_ORBIT Prop 2.1 with Q² → q^c works for every n prime to g, even or odd (e·g ≡ n (4), g ≡ 3 (4)
+⇒ e ≡ −n (4)), den z | q^c. Leftover n = t^a m by scaling ✓; t^a alone by ES ✓. Certificate reproduced exactly (above).
+Prop 5.2: example exact; with g ≡ 3 (4), −m²/4 is a non-residue ✓; the "sufficient route" phrasing after self-repair is
+accurate (note ord_g(q²) = (g − 1)/2 also allows ord_g(q) = (g − 1)/2, not only primitive roots — consistent with the text).
+Lenstra 1977 (Invent. Math. 42) was NOT accessible to me; the label CONDITIONAL "citation-level" is appropriate and the
+claim is never used (each q ≤ 10⁶ is certified). My own sanity check of non-vanishing of the density: the conditions are
+Frobenius ≠ 1 on ℚ(i) and on every ℚ(ζ_ℓ, q^{1/ℓ}); the only quadratic entanglement is ℚ(√q) ⊂ ℚ(ζ_q), and ℚ(i, √q) has
+group C₂ × C₂, so the two conditions at 2 are compatible — no obvious obstruction.
