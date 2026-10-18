@@ -75,7 +75,7 @@ the restriction of any homomorphism Γ₁(4) → {±1}.
 ε_d = 1 for d ≡ 1 (4)), principal branch. Applying it to γ₁γ₂ and to γ₁, γ₂ successively gives
 (c₃/d₃) = (c₁/d₁)(c₂/d₂)·w, w = (c₁γ₂z + d₁)^{1/2}(c₂z + d₂)^{1/2}/(c₃z + d₃)^{1/2} ∈ {±1}, constant in z. For
 non-negative matrices (d_i ≥ 1) let z = iy, y → 0⁺: all three arguments tend to 0, so w = 1. For the second claim:
-Γ₁(4) = ⟨T, L⁴⟩ (Γ₀(4) = ±⟨T, L⁴⟩, standard), σ(T) = σ(L⁴) = 1, but [[5, 2], [12, 5]] ∈ Γ₁(4)_{≥0} has σ = (12/5) = −1. ∎
+Γ₁(4) = ⟨T, L⁴⟩ (Γ₀(4) = ±⟨T, L⁴⟩, standard), σ(T) = σ(L⁴) = 1, but [[5, 2], [12, 5]] = U T⁻¹ U T⁻¹ U (U = L⁴) ∈ Γ₁(4)_{≥0} has σ = (12/5) = −1. ∎
 Numerics: 20 000 random products of positive Γ₁(4) words, 0 failures of multiplicativity and of (c/d) = (a/b).
 *Reading (Assessment).* RS §10 attribute the failure of their method for groups to "the place at infinity" (Question
 10.1). Theorem 1.5 makes this exact: the obstruction to extending σ is the archimedean cocycle w of the metaplectic
