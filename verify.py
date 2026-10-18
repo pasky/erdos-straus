@@ -27075,4 +27075,36 @@ def check_ho():
 check_ho()
 
 
+def check_hp():
+    # (hp) EXP_15 (O270/R281): R281 from scratch — the boxed equation a(m₁m₂d − 4) = m₁ + 16m₂ has exactly 39 solutions (proved box
+    # = big box), only (a, d) = (1, 11) has 15 | 4a²d + 1 (quotient 3, not admissible); Remark 2.3 (Y⁶ + 27 splits into three
+    # quadratics, refuting the board's P₀(Y^{2^r}) claim); II-ad limit conditions (C1)+(C2): no hit for c₀ = 15, p = 3, u ≤ 6·10^4,
+    # and the positive control c₀ = 63 recovers EXP_OPEN Thm 2.3's (u, p, a, d) = (3, 3, 5, 17).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("EXP_15 subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r281_boxed.py"])
+    for s in ("solutions in proved box: 39", "solutions in big box: 39 equal: True", "15 | 4a^2d+1: [(1, 11, 3, False)]",
+              "Y^6+27: (1, [(Y**2 - 3*Y + 3, 1), (Y**2 + 3, 1), (Y**2 + 3*Y + 3, 1)])", "Capelli sample mismatches: 0"):
+        assert s in out, (s, out[-1500:])
+    out = run(["review_r281_iiad.py", "15", "3", "60000"])
+    assert "c0=15 p=3 u<=60000: 21737 (C1) tuples (u,a,d), 0 (C1)+(C2) hits" in out, out[-500:]
+    out = run(["review_r281_iiad.py", "63", "3", "3000"])
+    assert "HIT u=3 p=3 a=5 d=17 X=21 X'=84" in out and "1 (C1)+(C2) hits" in out, out[-500:]
+    print(f"== (hp) EXP_15 R281: boxed equation 39 solutions, sterile; Y^6+27 split; II-ad (C1)+(C2) no hit for 15 (u ≤ 6e4), "
+          f"63 control hit; seconds = {perf_counter() - t0:.1f}")
+
+
+check_hp()
+
+
 print("\nall checks passed")

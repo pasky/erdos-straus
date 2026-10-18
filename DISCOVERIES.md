@@ -1702,6 +1702,19 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment: an exact automorphic normal form, with no cusp part to bound. The difficulty is the competition between Eisenstein data at a single integer, i.e. B2/B3 again. Red-team-2 Thm 2.2: this construction touches hatch H-E but opens no door. No relay.
    * verify.py (ho) re-runs R280's Thm K and matrix checks.
 
+102. **Board finalists F2 + F1: the two-base boundary dissolves; the II-ad u ≡ 3 (mod 8) branch at μ = 0 of 15·2^s + 1 is sterile for every root degree; no forced-budget identity found (EXP_15.md + BRAINSTORM/z40_*.md (O270, from the advisory-board memo of 2026-10-18); hostile review `reviews/exp-fifteen-review.md` (R281): no FATAL; every PROVED item SOUND. MAJOR D1/D2: the Ridout assessment of the u ≡ 7 (8) branch was misapplied and overclaimed. MAJOR D3: the seeded II-d "hits" were degenerate constant-gap artefacts. Minors. Repaired by the reviewer, marked (R281 repair).)**
+   * F2 (PROVED, elementary): the {2,3}-unit-square boundary points of 2^a3^b + 1.
+     * At (0, 1), n = 48X⁴ + 1: the (J)74 window identities hold verbatim for X = 2^t3^{t′} (Lemma 1.1).
+     * At (3, 0), n = 8X³ + 1 factors, so the point dissolves by cyclotomic descent (Lemma 1.2).
+     * Neither a new two-base identity nor an obstruction results. A 2D covering tree for all of 2^a3^b + 1 was NOT found (EVIDENCE).
+   * Theorem 2.2 (PROVED; R281 re-derived; the board's disputed all-D claim is now proved): the II-ad u ≡ 3 (mod 8) branch at μ = 0 of 15·2^s + 1 is sterile for every root degree D, using only the values at Y = 1 via Lemma 2.1 (Capelli: 1 + 4a²d = 15u^p, p odd prime | D).
+   * Remark 2.3 (PROVED): Y⁶ + 27 = (Y² + 3)(Y² + 3Y + 3)(Y² − 3Y + 3), which refutes the board's P₀(Y^{2^r}) argument.
+   * Lemma 2.2′ (PROVED + exhaustive; R281 used its own bound): the boxed equation a(m₁m₂d − 4) = m₁ + 16m₂ has exactly 39 solutions. Only (1, 11) has 15 | 4a²d + 1, with quotient 3, which is not admissible.
+   * Open: the u ≡ 7 (mod 8) branch and menus II-ac, I-ac, II-cd. The u ≡ 7 algebra reduces to a 2-adic approximation problem (Ridout as originally stated was misapplied, R281 D1). EVIDENCE: no (C1)+(C2) solution for p = 3, u ≤ 6·10⁴, and the 63·2^s + 1 positive control is recovered.
+   * Lemma 3.1 (PROVED): for even D, linear a is impossible. The construction searches found no forced-budget identity (EVIDENCE, scope per R281 D3). 4^s + 297 was not attempted.
+   * Assessment: per the board's drop condition, the F1 lane yields proved subcases plus search bounds. These are thin-family results, not ES.
+   * verify.py (hp) re-runs R281's checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
