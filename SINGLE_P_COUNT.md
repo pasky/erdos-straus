@@ -162,3 +162,31 @@ count is still Poisson-scale: Conjecture 4.2 is ES-(★)-strength in the sense o
 explicit main term. **Answer to goal (1): no named, standard conjecture was found that implies R(p) ≥ 1 (or N₁(p) ≥ 1,
 f_II(p) ≥ 1); what is new relative to CONDITIONAL_ES is the location of the missing statement — the order-≥3 characters,
 with T1 removed (Lemma 2.1, Prop 2.2) — and that GRH does reach the order-2 half (Prop 4.1).**
+
+## 5. Where the main term lives, and why sieve minorants of bounded character order give nothing (goal 2)
+
+**Lemma 5.1 (main-term density on the log-simplex; PROVED, elementary; refines PARITY_AUDIT Lemma 2.1 and SYNTHESIS_SPARKS8
+Lemma 1.5).** Write u = p^α, B = p^β (so C ≈ p^{1−α−β}/4). For fixed 0 ≤ α₀ < α₁, 0 ≤ β₀ < β₁, the naive main term
+Σ 1/(4uB) over pairs with u ∈ [p^{α₀}, p^{α₁}], B ∈ [p^{β₀}, p^{β₁}], 4uB − u − B ≤ p equals
+(log p)²/4 · Area([α₀, α₁] × [β₀, β₁] ∩ {α + β ≤ 1}) + O(log p).
+*Proof.* For fixed u the B-range is B ≤ (p + u)/(4u − 1); Σ_{B ∈ I} 1/B = log-length of I + O(1/min I), and Σ_u 1/(4u)·(…) is
+a Riemann sum for (log p)²/4 ∫∫ dα dβ with O(log p) total error (the O(1) per u sums to O(log p) against weights 1/u). ∎
+So the main term (log p)²/8 is spread uniformly over the triangle {α, β ≥ 0, α + β ≤ 1} (total area 1/2): there is no
+critical range; every dyadic box (u ~ U, B ~ V, C ~ W, UVW ≍ p) carries main term ≍ 1 (≈ (log 2)²/4 ≈ 0.12). In the balanced
+box U ≍ V ≍ W ≍ p^{1/3} the pair count is ≍ p^{2/3} and the divisor-enumeration count ≍ p^{1/3+o(1)}; any method whose
+error is a power of the box's trivial bound fails in every box, and summed over the ≍ (log p)² boxes the total error must be
+o((log p)²) (B3). The 1/φ-weighted main terms of §3 differ from Σ 1/(4uB) by bounded factors on average.
+*Decoupling (the brief's question).* In each of the three slicings (fix u: one integer p + u, one modulus 4u; fix B: likewise;
+fix C: one integer 4Cp + 1, one modulus 4C) the averaging variable moves both the integer and the modulus; in the pair form
+the modulus 4uB and the class −(u + B) move together. No range of the simplex decouples them (Assessment; this is PARITY_AUDIT
+Remark 3.1 in coordinates — the only fixed-modulus picture is the transposed one of §6, with height-dependent target).
+
+**Lemma 5.2 (bounded-order minorants are nonpositive; PROVED, elementary).** Let G be a finite abelian group, a ∈ G, k ≥ 1,
+and F : G → ℝ with Fourier support in {χ ∈ Ĝ : χ^k = 1} and F ≤ 1_{a} pointwise. If G^k ≠ {1} (i.e. the exponent of G does
+not divide k), then F ≤ 0 on all of G.
+*Proof.* χ^k = 1 ⟺ χ is trivial on G^k, so F is constant on cosets of G^k. Pick g ∈ G^k \ {1}; F(a) = F(ag) ≤ 1_a(ag) = 0, so
+F ≤ 0 on aG^k; off aG^k, F ≤ 1_a = 0. ∎
+*Consequence.* A "sieve lower bound" R(p) ≥ Σ_{pairs} F_{pair}(p), with each F_pair a minorant of the point indicator
+1[· ≡ a (q)] on (ℤ/q)^×, is ≤ 0 unless the F_pair use characters of order up to the exponent λ(q) (Carmichael) of (ℤ/q)^×; in
+particular the genus part (k = 2, Lemma 2.1) supports no positive per-pair minorant: M_gen is a mean-correct
+redistribution (Prop 2.2(d)), not a lower bound. Positivity has to come from the full character group, i.e. from (U).
