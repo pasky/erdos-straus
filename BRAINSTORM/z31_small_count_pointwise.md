@@ -27,7 +27,7 @@ polylog many expected solutions?" across analytic NT.
 ## (c) Relation to B2
 * **Least-witness problems: closest ANALOGUE in size, blocked by F3.** B2's events are not character values at a fixed modulus:
   the modulus 4C (E1) / 4d (E2) moves with the solution. GRH controls every fixed-modulus character sum, and the campaign
-  PROVED that GRH alone does not reach a polylog cap by the window route ((J)85/(J)91: GRH + EQ gives (log₂p)^{13/2}, GRH + S
+  records (STATUS wave AA, Direction 1) that GRH alone does not reach a polylog cap by the window route ((J)85/(J)91: GRH + EQ gives (log₂p)^{13/2}, GRH + S
   gives (log₂p)^{9/2}, GRH alone does not reach (log₂p)^{O(1)}), and ES itself is not known under GRH. The ES sign layer
   *is* a least-witness event (the QNR of z31_complexity), which is why it is the easy layer (F6).
 * **2^k + p / covering: ANALOGUE on the failure side.** It shows "polylog count + no local obstruction ⇏ existence" whenever the
