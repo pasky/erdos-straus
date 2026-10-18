@@ -8,7 +8,7 @@ PARITY_AUDIT Lemma 3.2 (χ-shadow), B1_LINE Lemma 1.2 (pair genus law), CONDITIO
 ## 0. Summary
 * §1 (PROVED) **BL's quaternion class = one Kronecker character per pair.** At the rational point P_{u,B} of each (★)-pair,
   inv_p α = χ_{−4uB}(p) = (−uB/p), and χ_{−4uB}(−(u+B)) = −1 identically; principal + χ_{−4uB} in the orthogonality expansion
-  is the Borovoi–Rudnick factor φ(q)^{−1}(1 + inv_∞ inv_p). O260's "genus indicator = BM invariant" is false (genus = all
+  is φ(q)^{−1}(1 + inv_∞ inv_p) — the Borovoi–Rudnick factor at integral points (at non-hits a heuristic replacement). O260's "genus indicator = BM invariant" is false (genus = all
   s(q) real characters; BM = exactly one of them). Same on full Type II (χ_{−4ab}), the b = 1 line (χ_{−4xy}), m/n (§4).
 * §2 (PROVED) the BM-corrected singular series M_BM(p) = Σ(1 − (−uB/p))/φ(4uB) is ≥ 0, mean-preserving, 0 at squares, and
   **≥ (3/(16π²) − o(1))(log p)² unconditionally** (Burgess; 1/(32π²) with PV); ∼ M₀ ∼ (3/(2π²))(log p)² under GRH

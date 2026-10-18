@@ -594,7 +594,7 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 ### z38 — O268 BM-corrected count for (★): Brauer character, unconditional main term, remainder hypotheses (deep file BM_CORRECTED_COUNT.md)
 | memo | idea | outcome | label |
 |---|---|---|---|
-| z38_brauer_character | BL's class in the pair character expansion | it is the single Kronecker character χ_{−4uB} (value −1 at the target); principal + it = BR factor 1 + inv_∞inv_p; "genus = BM" refuted | PROVED |
+| z38_brauer_character | BL's class in the pair character expansion | it is the single Kronecker character χ_{−4uB} (value −1 at the target); principal + it = 1 + inv_∞inv_p (BR factor at integral points); "genus = BM" refuted | PROVED |
 | z38_mbm_unconditional | (L) at full strength for the geometric main term | M_BM(p) ≥ (3/(16π²) − o(1))log²p unconditionally (Burgess), ∼ M₀ under GRH (board F4 obligation (i)) | PROVED + CONDITIONAL |
 | z38_two_sided_false | consistency of "\|X\| < M" | false i.o. (Linnik: R(p) ≥ exp(c log p/log log p)); only one-sided H⁻ survives | PROVED (negative) |
 | z38_markoff_precedent | Ghosh–Sarnak Markoff surfaces as calibration | same (log)² scale; there "BM density ≫ 1 ⟹ point" fails i.o., mostly non-BM | Assessment (literature) |

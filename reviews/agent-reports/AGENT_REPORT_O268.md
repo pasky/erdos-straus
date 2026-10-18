@@ -9,9 +9,10 @@ zero_law.py, zero_growth.py, typeII_check.py, b1.c, b1_stats.py, thm22_check.py}
 ## SHARP
 1. **BL's Brauer class is exactly one character in the pair expansion (PROVED, Thm 1.1).** For every (★)-pair (u, B), at the
    rational point P_{u,B} = (uBC, pBC, puC) (C ∈ ℚ), inv_p α = (−uB/p) = χ_{−4uB}(p), and χ_{−4uB}(−(u+B)) = −1 identically
-   ((u+B) | (u−B)² + 4uB). So principal + χ_{−4uB} = φ(q)^{−1}(1 + inv_∞ inv_p), the Borovoi–Rudnick BM factor. Answers R277 D3
+   ((u+B) | (u−B)² + 4uB). So principal + χ_{−4uB} = φ(q)^{−1}(1 + inv_∞ inv_p), the Borovoi–Rudnick BM factor at integral points (at non-hit
+   rational points the invariants at ℓ | 2uB are dropped: a heuristic density, not a BR theorem). Answers R277 D3
    ("is BL's symbol a product of genus characters?" — it is a single one, χ_{−4uB}); refutes O260's "genus = BM". Same on all
-   of Type II (χ_{−4ab}, independent of c, d), on the b = 1 line (χ_{−4xy} in mutual-shift coordinates), and for m/n. The
+   of Type II (χ_{−4ab}, independent of c, d), on the b = 1 line (χ_{−4xy} in mutual-shift coordinates), and for m/n with 4 | m. The
    board's F4 projector (1 − χ_p(ab))/2 IS this class (for p ≡ 1 (4)).
 2. **The BM-corrected singular series is ≫ (log p)² unconditionally (PROVED, Thm 2.2).**
    M_BM(p) = Σ_{𝒫(p)} (1 − (−uB/p))/φ(4uB) ≥ (3/(16π²) − o(1))(log p)² (Burgess; 1/(32π²) with PV), using only positivity of
