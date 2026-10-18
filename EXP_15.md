@@ -112,3 +112,24 @@ a ≤ (m₁ + 16)/(m₁d − 4) ≤ 52; if m₁d = 4, 4(a − 4)(m₂ − 1) = m
 gives a ≤ 29; m₁d = 2: (a − 8)(2m₂ − 4) = m₁ + 32 gives a ≤ 42; m₁d = 1: (a − 16)(m₂ − 4) = 65 gives a ≤ 81. The script
 enumerates a ≤ 500, d ≤ 100, m₁ ≤ 2000 (m₂ determined), asserts the bounds, finds 39 solutions (astra's count, reproduced
 independently) and checks (C1) on each. ∎
+
+**2.4 The u ≡ 7 (mod 8) branch (OPEN; reduction + EVIDENCE).** Here 4a²d = 2^E a₁²d₁ with E = 2 + 2v₂(a) + v₂(d) ≥ 3,
+q = a₁d₁, and XX′ = N := 15(1 + u^p) = 16 + 2^E a₁²d₁ with X ≡ −16, X′ ≡ −1 (mod q).
+* (2-adic bookkeeping, PROVED.) v₂(N) = v₂(1 + u) =: V ≥ 3, and comparing with 16 + 2^E a₁²d₁: E = 3 ⇔ V = 3; E = 4 ⇒ V ≥ 5;
+  E ≥ 5 ⇒ V = 4 (u ≡ 15 mod 32). So E is unbounded only on u ≡ 15 (mod 32) with 15u^p ≡ 1 (mod 2^E).
+* (Magnitude, PROVED.) If q ≥ 17 then (q − 16)(q − 1) ≤ N, i.e. a₁d₁ ≤ √(15(1 + u^p)) + 17, while a₁²d₁ = (15u^p − 1)/2^E.
+  So a solution needs 15u^p − 1 to have a large "2^E·a₁²" part: 2^E a₁ ≳ √(15u^p) (or q ≤ 16). For a = 1 this is the
+  2-adic approximation |15u^p − 1|₂ ≲ (15u^p)^{−1/2}, i.e. u is a very good 2-adic approximation of 15^{−1/p};
+  Ridout's theorem makes this finite (ineffectively) for p ≥ 5, and nothing elementary bounds it for p = 3. For q ≤ 16
+  the limit system (jq − 16)(j′q − 1) = N has solutions for every E (e.g. q = 1, j′ = 2), and (C1) becomes the
+  S-unit-type equation 15u^p − 2^E c = 1, c = a₁²d₁ ≤ 256 — finite for each p (Thue), but not settled for all p here.
+* (Factor shape for D = p, PROVED.) For D = p the factors of Y^p + u^p are Y + u and Φ = (Y^p + u^p)/(Y + u) (when Φ is
+  irreducible), the roots −uζ (ζ ≠ 1) have v₂(1 + uζ) = 0, so v₂(X) ∈ {0, V}. Splittings for D = p·2^r (Remark 2.3) can
+  produce other valuations.
+* So **the u ≡ 7 (mod 8) branch is not closed**: closing it is an exponential-Diophantine problem (2-adic approximation
+  of 15^{−1/p} by integers u, or S-unit equations 15u^p − c2^E = 1 for all p), which is exactly where the board's
+  "CONDITIONAL" label stands. Argon's "u ≡ 7 is similarly bounded via EXP_OPEN Lemma 1.5" is unsupported: Lemma 1.5
+  bounds a constant window m, here there is no constant window and E is unbounded at the limit level.
+* EVIDENCE (`scripts/z40_iiad7.py 15 23 20000`, (C1)+(C2) only, all branches, all D): p = 3, u ≤ 2·10⁴; p = 5, u ≤ 380;
+  p = 7, u ≤ 70; p ≤ 23 correspondingly (7414 tuples (u, p, a, d)): **no solution of (C1)+(C2)**. Positive control:
+  `z40_iiad7.py 63 13 60` finds exactly (u, p, a, d, X, X′) = (3, 3, 5, 17, 21, 84) = EXP_OPEN Theorem 2.3.
