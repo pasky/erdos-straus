@@ -1596,6 +1596,20 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment: the overlap is mundane — shared local profile, the same B2 draws, and partial definitional overlap. No new mechanism; no relay.
    * verify.py (hf) re-runs R271's three-scan dictionary check (C, compiled to a tempdir).
 
+93. **Route (b), class forcing beyond parity: the abelian (congruence) part of p's Frobenius data cannot force a divisor's class at bounded levels; the non-abelian part is untouched (CLASS_FORCING.md + BRAINSTORM/z33_*.md (O263); hostile review `reviews/class-forcing-review.md` (R272): one FATAL (D1 — the first Hypothesis HC was inconsistent and Thm 6.1 false: p ≡ −4 (mod 7) gives a d = 1 certificate), two MAJOR (D2 — the slogan "reciprocity forces parity, never class" and the multiquadratic claim for governing fields overclaimed; D8 — Cor 5.3 contradicted the WINDMILL 10.2/10.3 caveat), minors D3–D9; all repaired by the author, marked (R272 repair)).**
+   * Thm 2.1 / Table 2.2 (PROVED). On every line, the class of the total product N mod t is congruence data of p. The b = 1 event is never forced by total data, and residue-symbol data see only G/G².
+   * Lemma 3.1 / Prop 3.2 (PROVED): a forced-factor lemma, with the exact criterion −1 ∈ Σ(s) ∪ Σ(s)·[L].
+   * Thm 3.4 (PROVED; the classical p ≡ 1 (mod M) obstruction, close to (J)84 Prop 4.3). Every forced rule with bounded levels and small primes fails on all four lines at every p ≡ 1 (mod M).
+   * Lemma 4.1 / Prop 4.2 (PROVED): η(G) ≥ (q − 3)/2 at t = 4q. There is no pooling across integers, and zero-sum arguments work only at levels t | 24.
+   * Prop 5.1 / Thm 5.2 (PROVED). The individual reciprocity link χ_{−4d}(ℓ) = (ℓ/p) is the only one, and no class is forbidden for a single large factor in any Chebotarev class.
+   * Thm 6.1 (CONDITIONAL on the corrected HC, Bateman–Horn with a Chebotarev constraint): at C|_{Ω∩ℚ^{ab}} = 1, the non-abelian part of the Frobenius data of p adds nothing at bounded levels. The abelian part is congruence data (B1) and can cover whole classes.
+   * EVIDENCE (R272 reproduced exactly; levels ≤ 200, p ≡ 1 (4) ≤ 10⁶):
+     * Actual failures are 193, 2521, 66529 and 252001; the generated-subgroup relaxation never fails.
+     * The forced tiers F10, F30 and X2 fail at 734, 43 and 73 primes.
+     * T1: every tier fails at all 499 odd squares.
+   * Assessment: route (b) at bounded levels gives nothing beyond B1/B2. Relay O265 pursues the non-abelian part: power residues mod π | p and canonical a, b with p = a² + b².
+   * verify.py (hg) re-runs R272's checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

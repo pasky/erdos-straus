@@ -26775,4 +26775,40 @@ def check_hf():
 check_hf()
 
 
+def check_hg():
+    # (hg) CLASS_FORCING (O263/R272): R272 from scratch — the R272 D1 counterexample to the original Thm 6.1 (p ≡ −4 mod 7 gives a
+    # d = 1 certificate at 1497 primes < 2·10^5); Thm 3.4 (forced rules with bounded levels never fire at p ≡ 1 mod M); Prop 5.1 and
+    # the Sophie-Germain quartic identity; §7 census tiers for p ≡ 1 (4) ≤ 10^6 at levels ≤ 200 (actual failures 193, 2521, 66529,
+    # 252001; F10 734, F30 43, X2 73) and T1 (all tiers fail at all 499 odd squares).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("CLASS_FORCING subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r272_thm61_cex.py"])
+    assert "p<2e5, all certified at d=1: 1497" in out, out[-1000:]
+    out = run(["review_r272_thm34.py"])
+    assert out.count("forced firings: 0") == 4, out[-1000:]
+    out = run(["review_r272_sec5.py"])
+    assert "Prop 5.1(a): 140310 triples, 0 violations" in out and "7531 cases, 0 violations" in out, out[-1000:]
+    out = run(["review_r272_census.py", "1000000", "200"])
+    assert "[primes p=1(4)] count 39175, D=200; exact ES verifications: 39171" in out, out[:1500]
+    assert "A      failures     4 first [193, 2521, 66529, 252001]" in out, out[:1500]
+    assert "F10    failures   734" in out and "F30    failures    43" in out and "X2     failures    73" in out, out[:1500]
+    assert "Gen    failures     0" in out, out[:1500]
+    assert out.count("failures   499 first [9, 25, 49") == 6, out[-1500:]
+    print(f"== (hg) CLASS_FORCING R272: Thm 6.1 counterexample (mod 7); Thm 3.4; Prop 5.1; census tiers ≤ 10^6 (A fails at 193, 2521, "
+          f"66529, 252001 at levels ≤ 200); T1; seconds = {perf_counter() - t0:.1f}")
+
+
+check_hg()
+
+
 print("\nall checks passed")
