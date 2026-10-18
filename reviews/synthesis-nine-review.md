@@ -71,11 +71,10 @@ side condition cs > 1 is automatic for k ≥ 2. u ↔ v symmetry of W(n) gives "
 original (a, b, c, d) definitions vs. word coordinates; Lemma 1.1 bijection for n < 120, c ≤ 6 — 0 mismatches (3 300 cases).
 `scripts/review_r282_k8.c` (own word enumeration): k = 8 union fails at 35 primes 3 ≤ p < 8000 (22 ≡ 1 (4)), i.e. 34 primes
 5 ≤ p < 8000 incl. 131, 241 — matches SPARKS8; k = 4: union never fails for p < 70 000, b = 1 fails exactly at 193, 2521, 66529.
-Sign remark ("4 | t ⇒ σ = −1" three-line proof): X = tu − 1 ≡ 3 (4); (X/n) = (n/X) by reciprocity for n ≡ 1 (4); n ≡ −t⁻¹… more
-precisely tn ≡ −1 (mod X)·?—not quite: XY = tn + 1 gives tn ≡ −1 (mod X), so (n/X) = (−t/X)·(t⁻²/X) = (−1/X)(t/X) = −(t/X);
-(t/X) = (4/X)(C/X) = (C/X) and X = 4Cu − 1 ≡ −1 (mod every odd prime power of C) — for C = 2^e C′, (2/X) = +1 as X ≡ −1 (8)
-when e ≥ 1, and (C′/X) = (X/C′)(−1)^{(C′−1)/2} = (−1/C′)·(−1)^{(C′−1)/2} = +1. Correct (the document's sketch elides the
-reciprocity sign for C′ but the conclusion holds).
+Sign remark ("4 | t ⇒ σ = −1" three-line proof), re-derived: X = tu − 1 ≡ 3 (4), n ≡ 1 (4) so (X/n) = (n/X); XY = tn + 1
+gives n ≡ −t⁻¹ (mod X), so (n/X) = (−1/X)(t/X) = −(t/X). With t = 4·2^e·C′ (C′ odd): (C′/X) = (X/C′)(−1)^{(C′−1)/2} =
+(−1/C′)(−1)^{(C′−1)/2} = +1, and (2/X) = +1 when e ≥ 1 since then X ≡ −1 (8). So σ = −1. Correct (the document's sketch
+"X ≡ −1 (mod C′) ⇒ (C′/X) = 1" silently uses reciprocity with the sign (−1/C′)·(−1)^{(C′−1)/2} = 1; fine).
 
 ### Defects for Claim B
 **D3 (MINOR).** §1 "Checks": "the k = 8 union fails at exactly 34 primes < 8000" — p = 3 also fails; say "34 primes
