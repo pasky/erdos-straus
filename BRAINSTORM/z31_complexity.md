@@ -19,21 +19,28 @@ CONSTRUCTIVE_ES Prop 4.1/4.2 ((J)35), POINTWISE_OMEGA §8 (Graham–Ringrose Ω-
 ## (b) What is proved
 * (1) is pointwise and *unconditional*, but only in the large-modulus regime s > n^{1/4+ε}; it is an **upper bound +
   algorithm**, never an existence statement.
-* **Hardness transfer (PROVED in the campaign, (J)35 Prop 4.1/4.2):** an ES-five certificate yields an explicit quadratic
-  non-residue mod p (and maximal orders) without factoring. Consequently (Assessment, combining with the Graham–Ringrose
-  unconditional Ω-bound n(p) = Ω(log p · log₃ p) i.o., POINTWISE_OMEGA §8): *certificates whose non-residue A is
-  ≤ c log p log₃ p cannot exist for all p*, and a deterministic poly(log p) ES-five solver would derandomise QNR finding — a
-  statement not known without GRH. So any *constructive* proof of B2 with polylog-height certificates is at least as hard as
-  deterministic QNR finding. (This is the complexity face of the Mordell-hard primes, (J)26/(J)54.)
+* **Hardness transfer (input PROVED in the campaign, (J)35 Prop 4.1/4.2; PARITY_AUDIT event (a)):** an ES-five certificate
+  w = (t, u, v) carries A = tu − 1, B = tv − 1 with ψ(A) = ψ(B) = −1, i.e. an explicit quadratic non-residue, without factoring.
+  Consequences (R-O261 repair M7: two different statements, kept apart):
+  (i) *existence of small certificates* — if every prime p ≡ 1 (4) had an ES-five certificate with min(A, B) ≤ X(p), then
+  n(p) ≤ X(p); by the unconditional Graham–Ringrose bound n(p) = Ω(log p · log₃ p) infinitely often (POINTWISE_OMEGA §8), this
+  fails for X(p) = c log p · log₃ p with c small (PROVED relative to Graham–Ringrose).
+  (ii) *a solver* — a deterministic algorithm that outputs an ES-five certificate in time poly(log p) would output a QNR in
+  poly(log p) time, i.e. derandomise QNR finding (not known without GRH). A mere existence proof of polylog-height certificates
+  does not supply such a solver (enumerating candidate certificates needs factoring or a search; CONSTRUCTIVE_ES's repaired
+  statement is p^{o(1)} search relative to factoring, (J)35).
+  (This is the complexity face of the Mordell-hard primes, (J)26/(J)54.)
 
 ## (c) Transfer to B2
-* Lenstra/CHN: blocked by F2/F3 in a precise sense — the slices where ES solutions live have small modulus s = 4d ≪ n^{1/4}
-  (EVIDENCE: least certificates are small, B1_LINE / (J)90), exactly the regime where the lattice method has no bound and no
-  algorithm; and the method certifies non-existence beyond a list, never existence (gon_lll memo (b1)).
+* Lenstra/CHN: the decisive objection is that the method has no existence content — it certifies the complete list of
+  divisors in a class (possibly empty), never non-emptiness (gon_lll memo (b1)). It decides individual slices with
+  s = 4d > (p + 4d)^{1/4+ε} in polynomial time; some certificates live there (e.g. p ≡ 5 (8): d = (p + 3)/8, w = 4d − 1 = (p+4d)/3,
+  R-O261 repair M7), others at small d where the method gives nothing.
 * TFNP: a parity (PPA-style) proof of totality would be a windmill; INVOLUTION_ES/ES2 ((J)2) bar finite-menu affine
   involutions (conditionally) and T1 kills the odd set on square classes. Factoring-hardness is not an obstruction to
-  *existence*: ES at p is decided by brute force in time O(p^{1+o(1)}) regardless of factoring.
+  *existence*: ES at p is decided by brute force in time p^{O(1)} regardless of factoring.
 
 ## (d) Verdict: Lenstra/CHN — EQUIVALENT *per slice* (E2 at fixed d is exactly a divisors-in-residue-classes decision
 problem) but in the wrong size regime and with no existence content: **NOT SHARP**. TFNP/QNR — ANALOGUE; it yields a
-*hardness* statement (constructive polylog B2 ⟹ deterministic QNR finding), already in the campaign.
+*hardness* statement (a poly(log p) ES-five solver ⟹ deterministic QNR finding; small-A certificates fail i.o.), already in
+substance in the campaign ((J)35, POINTWISE_OMEGA §8).
