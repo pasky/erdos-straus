@@ -202,7 +202,7 @@ this range −log P grows like ≈ 0.59 M^{0.88}: faster than any power of 1/M, 
 **m = 12, 16 (10⁷, sub-sampled).** At N = 10⁷ (window [5·10⁶, 10⁷]): m = 12 has 45 460 zeros among 1 666 357 admissible
 n (prime to 6), and m = 16 has 271 201 among 2 499 537. 3 000 random zeros and 3 000 random population members each got
 exact M. Both lines only reach M ≲ 12 at this height. P/e^{−M/2} is ≈ 1.0–1.3 (m = 12, M ∈ [4, 12)) and ≈ 0.9–1.3
-(m = 16, M ∈ [0, 10)). The fit on the 3–4 populated bins (β ≈ 0.9 ± 0.2 for m = 12) is not informative. These rungs do not
+(m = 16, M ∈ [0, 10)). The fit on the 3–4 populated bins (β ≈ 0.93 ± 0.06 formal, m = 12, 4 bins) is not informative. These rungs do not
 reach the far tail at 10⁷, as the ruling anticipated.
 
 **Caveats (Assessment; why this is steering information only).**
