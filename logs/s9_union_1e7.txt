@@ -1,0 +1,32 @@
+# s9_union_stats on p == 1 (4) in [1e6,1e7] (s9_words 1000000 10000000 1)
+/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0039/scripts/s9_union_stats.py:34: RuntimeWarning: Mean of empty slice
+  print(f"B <= {thr}: {m.sum()} primes, mean A/E[A|cell] = {rA[m].mean():.3f}")
+/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0039/.venv/lib/python3.12/site-packages/numpy/_core/_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+primes p == 1 (4) <= 9999973: 293005;  cells used: 293005
+Pearson corr(zA, zB) = 0.387
+Spearman corr(A/E, B/E) = 0.373
+A <= 0: 5 primes, mean B/E[B|cell] = 0.593, frac B/E < 0.5: 0.200
+A <= 2: 15 primes, mean B/E[B|cell] = 0.679, frac B/E < 0.5: 0.200
+A <= 4: 63 primes, mean B/E[B|cell] = 0.591, frac B/E < 0.5: 0.413
+A <= 8: 485 primes, mean B/E[B|cell] = 0.690, frac B/E < 0.5: 0.243
+B <= 0: 0 primes, mean A/E[A|cell] = nan
+B <= 2: 0 primes, mean A/E[A|cell] = nan
+B <= 4: 2 primes, mean A/E[A|cell] = 0.491
+B <= 8: 24 primes, mean A/E[A|cell] = 0.486
+bottom 1% of A/E (<= 0.405): mean B/E = 0.753; overall mean B/E = 1.000
+smallest U/W: [(3370249, 295, 24, 0.081), (1423321, 123, 12, 0.098), (4076881, 123, 12, 0.098), (2044249, 287, 30, 0.105), (5886169, 133, 14, 0.105), (6856249, 167, 18, 0.108), (2332849, 219, 24, 0.11), (1683049, 185, 22, 0.119)]
+mean U/W = 0.436; mean A/W = 0.181; mean B/W = 0.321; overlap mean (A+B-U)/W = 0.067
+partial corr(A, B | class mod 840 + log p + smooth(p+-1)) = 0.393
+partial corr(A, B | ... + log W) = 0.011
+# s9_thinning [1e6,1e7]
+p in [1e+06,3e+06): n=69108, mean W/L^2=0.928, min W=45, q01 W/L^2=0.531, mean U/W=0.432
+p in [3e+06,1e+07): n=223897, mean W/L^2=0.914, min W=53, q01 W/L^2=0.532, mean U/W=0.437
+mean U/W by p mod 8: 1:0.424, 5:0.448
+mean U/W by p mod 3: 1:0.423, 2:0.448
+mean U/W by p mod 5: 1:0.461, 2:0.450, 3:0.423, 4:0.410
+mean U/W by p mod 7: 1:0.429, 2:0.425, 3:0.462, 4:0.434, 5:0.431, 6:0.433
+W in [80,120): n=2739, Var(U - W pi)/E[W pi(1-pi)] = 2.82
+W in [120,200): n=125409, Var(U - W pi)/E[W pi(1-pi)] = 2.96
+W in [200,1000): n=164820, Var(U - W pi)/E[W pi(1-pi)] = 3.77
+p > 1e5: n=293005, observed U=0: 0, binomial-thinning prediction (W/2 trials) 1.06e-05, (W trials) 8.47e-11

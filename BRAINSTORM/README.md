@@ -620,3 +620,17 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z39_quartic_slices | quartic (Kubota) sign for numerator 8/16 | u↔v inverts χ₄(A): χ₄(A) is no symmetric sign; ordered bit balanced; other quartic invariants not excluded | PROVED (narrow) + EVIDENCE (negative) |
 | z39_gl3_shifted_divisor | the level sum | Σ R(n)q^n = Σ_{u,v} q^{2uv−u−v}/(1−q^{uv}); relative of d₃ only up to boundary terms (GL(3) analogy) | PROVED identity + Assessment |
 | z39_square_discriminant_shadow | ES as the "shadow sector" of Zagier's ℋ | Kronecker packaging shows no shadow (not a classification: split exponents occur in Appell–Lerch sums too); T1 squares ≠ shadow squares | Assessment (negative) |
+
+### s9 — O271 Synthesis IX: the lower tail at a single prime (deep file SYNTHESIS_SPARKS9.md)
+| memo | idea | outcome | label |
+|---|---|---|---|
+| s9_lower_tail_literature | every-n theorems with polylog main term | none for natural (non-designed) sets; designed (Erdős–Tetali, M4) or structural (M3); natural polylog problems have structured exceptions (Crocker 1971; Pan 2011: ≫ x^{1−ε} exceptions to p + 2^a + 2^b; Markoff) | literature map + Assessment |
+| s9_level_bm_character | BL's class in Thm-K (level) coordinates | = the odd quadratic character χ_{−t} ∈ O_t (+ principal) for n ≡ 1 (4), −χ_t for n ≡ 3 (4) (Lemma 2.0, R282 repair); the {1, χ_{−t}} layer holds at every non-square (witness level ≤ 4·least odd non-residue prime) | PROVED |
+| s9_no_fixed_integer | Dirichlet-coefficient positivity at one integer | no fixed-integer packaging (moving almost-coprime integers); positive coefficients (R_D/w) enter with a minus sign | Assessment + PROVED inequality |
+| s9_fixed_group_fourier | second moment over characters of a fixed group | plain ℓ² certificate works iff m̄² > (\|G\| − 1)V, and then every class is hit: phase-blind (scope: that certificate) | PROVED (elementary) |
+| s9_janson_dependency | Janson/Harris over p with the true dependency term | word-level Δ/μ ≈ 3.6 → 9.4, μ²/2Δ ≈ 1–2; hit levels ≈ (0.44 → 0.97) log p ≤ 3·10⁶: critical scale; tail fatter than bin-mean level-Poisson | EVIDENCE + Assessment |
+| s9_union_thinning | (★) ∪ b = 1 negatively correlated? | no: +0.37/+0.39; partial corr given log \|W(p)\| 0.01–0.03 (collider) but ≈ 0.35 given log(W − U) (R282 repair); k-union = word with a coordinate ≡ 0 (k) | PROVED (reformulation) + EVIDENCE |
+| s9_ladder_thinning | numerator ladder = thinning ladder on W(p) | mirror-binomial thinning predicts k-union failures within 1.7–7× over a 10⁴-fold range | EVIDENCE |
+| s9_fibration_level | fibration over the level t | fibre = G_m-torsor with integral point (0, −n); ES = positivity + ray class c_∞ mod t∞; fibre obstruction groups unbounded vs Br = ℤ/2 | PROVED dictionary + Assessment |
+| s9_disproof_class_layer | Ghosh–Sarnak-type structured failures | obstruction by the BL character χ_{−t} at all levels ⟹ square; other genus characters can still obstruct (n = 17, t = 12; R282 repair) | PROVED (elementary) |
+| s9_thin_orbit_bm | growth methods at the BM level | BM layer already free; class layer fails the density hypothesis | Assessment |
