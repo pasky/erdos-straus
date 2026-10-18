@@ -82,3 +82,36 @@ Defects:
 5. **MINOR** (z31_duke Lemma 4.1 statement): the converse direction should state that g ≡ −1 (mod 4k) automatically gives
    g ≡ 3 (mod 4), gcd(g, p) = 1, g ≠ 1, g ≠ Nα (since Nα ≡ 1 mod 4k) — all true, but these are the E4 side conditions and the
    ⟸ direction silently needs them. One line.
+
+## Claim (2) — citation accuracy of other rows
+
+**Verdict: SOUND-AFTER-REPAIRS** (no hallucinated paper or theorem found; one publication-venue error, a few garbled /
+truncated excerpts). Checked against fresh arXiv PDFs (pdftotext) unless stated.
+
+| item | doc claim | my check | status |
+|---|---|---|---|
+| Bourgain–Kontorovich arXiv:1107.3776, Ann. Math. 180 (2014), Thm 1.8 | δ_A > δ₀ ⇒ a.e. admissible d ∈ D_A, multiplicity ≫ N^{2δ−1001/1000}; p. 8 quote on individual errors | verbatim match (Thm 1.8, (1.9), (1.37) paragraph). Zaremba-specific statement is Thm 1.2 (alphabet {1,…,A}, "almost every") | ✓ (see defect 7) |
+| W. Chen arXiv:2011.12940 (Ann. Math. 199 (2024)) Thms 1.2.3, 1.2.5, 1.2.6 | BGS a.a./giant component; orbit sizes ≡ 0 mod p (p ≥ 3); E_bgs finite, explicitly bounded; strong approx. for p ∉ E_bgs | verbatim match, pp. 6–7 | ✓ |
+| Colliot-Thélène–Wittenberg arXiv:0911.3539 (Amer. J. Math. 134 (2012)) | no BM obstruction to x³+y³+z³ = a for a ≢ 4, 5 (mod 9) | abstract matches | ✓ |
+| Bright–Loughran arXiv:1908.02526 Thms 1.6, 1.8, 1.9 | Br U_n/Br ℚ ≅ ℤ/2; (U_n(ℝ)₊ × ∏U_n(ℤ_p))^Br ≠ ∅; no density of integral points in the Br-set | local PDF: Thm 1.6 ✓ (transcendental quaternion algebra), Thm 1.8 (1.4) ✓ and (1.5) (the Br set is a *proper* subset), Thm 1.9 ✓ ("does not have dense image"); "log K3" p. 3 ✓ | ✓ |
+| Harpaz arXiv:1511.04876 (Ann. Inst. Fourier 67 (2017)) Thm 1.0.1 | S-integral points on conic log K3 pencils (c₁t+d₁s)(c₂t+d₂s)x² + (c₃t+d₃s)(c₄t+d₄s)y² = 1 under seven independent square classes; 2, ∞ ∈ S | verbatim match (l. 60–69) | ✓ |
+| Lipshitz LGP via DHMP arXiv:2308.13609 pp. 2–3 | increasing form; LGP over a finite set of difficult primes | excerpt matches DHMP's report; Lipshitz 1978 itself not accessed (author says so) | ✓ |
+| Bloom arXiv:2112.03726 Thm 2 | positive upper density ⇒ finite S, Σ1/n = 1 | verbatim match | ✓ |
+| Heath-Brown three cubes via Booker–Sutherland arXiv:2007.01209 | conjecture n(B) ~ ρ_sol log B for k ≢ ±4 (9) | matches excerpt and PDF (p. 1/5) | ✓ |
+| Duke–Schulze-Pillot Invent. Math. 99 (1990) | ternary: sufficiently large n primitively represented by the spinor genus (bounded divisibility at anisotropic primes) are represented; ineffective | not re-read by me either (no PDF access attempted beyond metadata); memo's (memory) statement agrees with my recollection of the theorem; correctly flagged NOT verified | ✓ as flagged |
+| Bhargava–Hanke 290-theorem | "Invent. Math. 2012"; universal iff represents the 29 critical integers ≤ 290 | statement ✓ (for integer-*valued* forms). **Venue wrong/unverified**: the paper is a preprint (2005/2011; PDF at math.stanford.edu/~vakil/files/290-Theorem-preprint.pdf, HTTP 200); Alladi (Phil. Trans. 2020) still lists it as "in press"; I found no published Invent. Math. record (one low-quality web page claims Invent. 197 (2014), unconfirmed). The saved excerpt's wording "represents every integer above 290" is garbled | defect 6 |
+| Ono–Soundararajan Invent. Math. 130 (1997) | GRH ⇒ x²+y²+10z² represents all eligible odd n except 18 | agrees with my recollection; flagged (memory); excerpt's "4(16μ+6)" should be 4^λ(16μ+6) | MINOR |
+| Ghosh–Sarnak arXiv:1706.06712 | on the Markoff family axis pointwise HP is FALSE | abstract (fetched): "for almost all k the Hasse Principle holds … and that there are infinitely many k's for which it fails" ✓ — but the saved excerpt truncates the failure clause, so the doc's claim is not supported by its own excerpt | defect 8 |
+| Moshchevitin–Shkredov (q = O(p³⁰), p | q) | — | excerpt matches arXiv:1911.07487 | ✓ |
+
+Defects:
+6. **MINOR** (z31_quadratic_forms.md item 3; sources/lit2026g/bhargava_hanke.txt): "Invent. Math. 2012" is not verified and
+   probably wrong; cite as "Bhargava–Hanke, Universal quadratic forms and the 290-Theorem, preprint (2011)". Replace the
+   garbled excerpt by the correct statement: an integer-valued positive-definite quadratic form represents every positive
+   integer iff it represents the 29 critical integers 1, 2, 3, 5, …, 290. Also, B2 table row 3 "(iii) Eisenstein main term
+   ≍ n^{1/2}" is right for ternary forms but the 290-theorem concerns ≥ 4 variables (main term ≍ n^{k/2−1} ≥ n); harmless for
+   the M1 classification, but the row conflates them.
+7. **MINOR** (B2 table row 1): Zaremba-for-a.e.-q is BK **Thm 1.2** (alphabet {1,…,A}, "almost every positive integer");
+   Thm 1.8 is the general-alphabet version with the multiplicity bound. Both are cited correctly in substance; add Thm 1.2.
+8. **MINOR** (sources/lit2026g/ghosh_sarnak.txt): add the second half of the abstract ("… and that there are infinitely many
+   k's for which it fails"), which is what row 2 relies on.
