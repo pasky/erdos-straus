@@ -4,7 +4,22 @@ Reviewer: side-agent/review-two-power. Reviewed: `side-agent/two-power-ladder` a
 From-scratch scripts: `scripts/review_r283_*.py` (no reuse of `scripts/z41_*`). ES is not solved; nothing reviewed claims otherwise.
 
 ## Summary verdicts
-(filled in claim by claim below; final table at the end)
+| Claim | Verdict |
+|---|---|
+| Thm 3.2 Stickelberger dictionary (m = 3, 4), incl. sharpness | **SOUND** (MINOR D1–D4) |
+| Thm 3.1 Kummer–Chebotarev ceiling (repaired: ℓ ∤ m, 4 \| lcm(M, m)) | **SOUND** (MINOR D8, D9) |
+| Prop 4.1 (a), (b), (b′), (c) | **SOUND** (MINOR D10, D11) |
+| Prop 4.2 size obstruction | **SOUND** |
+| Lemma 1.1 | **SOUND** (MINOR D7) |
+| Lemma 5.1 (n = Dm², 4D \| t) | **SOUND** |
+| §5 census (1 298 / 5 320 primes, decade rates) | **SOUND** — reproduced exactly, EVIDENCE/Assessment labels right (MINOR D5, D6) |
+| §2 numerics (forced quadratic, free quartic/octic; Gaussian-lift control) | **SOUND** (EVIDENCE; D10) |
+| Cor 6.1 cubic layer | **SOUND** in stated scope (MINOR+ D12, MINOR D13) |
+| Labels / novelty | **SOUND** — Thm 3.1 correctly disclaimed as (J)93 in level coordinates; Thm 3.2 classical reciprocity, new only as packaging |
+
+**No FATAL, no MAJOR.** 13 MINOR defects, all presentation/scope; none changes a conclusion. Repairs NOT applied by the
+reviewer (author active; all defects minor — forwarded via parent).
+
 
 ## Thm 3.2 (Stickelberger dictionary) — verdict: SOUND (m = 3, 4), with MINOR scope/label defects
 
@@ -38,8 +53,9 @@ reduction ζ ↦ r mod p, both primes 𝔮 | q tested):
   reciprocity needs m = odd prime, ideal-theoretic symbols, and the primary normalisation of λ is not available as an element
   identity). Repair: state the conclusion for m = 3, 4, and say for general m odd only the conjugacy-invariant consequence
   that Thm 3.1 already gives.
-* **D2 (MINOR, Thm 3.2 statement).** The x_a depend on the element λ, not just the ideal (unit change multiplies S-prediction by
-  (uū^{−1}… )/𝔮 symbols; confirmed numerically). Add "(x_a depend on the primary normalisation; D does not)".
+* **D2 (MINOR, Thm 3.2 statement).** The x_a depend on the element λ, not just the ideal: λ ↦ uλ multiplies ∏x_a^{a⁻¹} by
+  (u ū²/𝔮)₃ (m = 3) resp. (u ū³/𝔮)₄ = (u²/𝔮)₄ (m = 4), generally ≠ 1 (confirmed numerically), while S and D are unchanged. Add
+  "(the x_a depend on the primary normalisation of λ; S and D do not)".
 * **D3 (MINOR, Thm 3.2 proof, *Realisability*).** "the commutator argument of Thm 3.1 applied to β" only gives the necessary
   condition; the identification of the abelian subfield as exactly K(β₀^{1/m}) needs the converse (central + cyclic quotient
   ⇒ abelian) and the computation i_a = a⁻¹i₁ above. Repair: insert those two lines.
@@ -125,3 +141,27 @@ forced q (t = 4qw, w = 1, 2) with ℓ a cube mod q: 915/2804, 472/1397, 323/955,
   3q (α ≡ 1 (3) ⇒ α primary up to the cube −1). From scratch (`scripts/review_r283_conductor.py`): trivial on all primes α ≡ 1
   (mod 3q) for q = 7, 13, 19, 31 (465, 113, 52, 21 cases); nontrivial on many α ≡ 1 (mod q) except q = 19 ≡ 1 (9), where
   the conductor is q itself.
+
+## §2 numerics, labels, novelty — verdict: SOUND
+* §2 positive control reproduced from scratch (`scripts/review_r283_gauss.py`, `logs/review_r283_gauss.txt`): [ℓ a 4th power mod q]
+  is a function of (a mod ℓ, b mod ℓ, a mod 8, b mod 8), π = a + bi primary: 64, 128, 384, 960, 1 152 keys for ℓ = 3, 5, 7, 11,
+  13, **0 clashes** ✔ (author's counts). Extra: without the 2-adic part, (a, b) mod ℓ alone already suffices for ℓ ≡ 1 (4)
+  (ℓ = 5, 13: 0 clashes) but not for ℓ ≡ 3 (4) (ℓ = 3, 7, 11: half the keys clash) — consistent with the primary-associate sign
+  of (J)96 / MODP_RECIPROCITY R275; worth one sentence.
+* Labels: PROVED items (Lemma 1.1, Thm 3.1, Thm 3.2 for m = 3, 4, Props 4.1, 4.2, Lemma 5.1, Cor 6.1) are proved; EVIDENCE (§2,
+  §5) and Assessment ("infinitely many failures expected") correctly used, except D4 (interpretive "whole reason" sentence
+  inside a PROVED block). "ES is not solved" stated; no overclaim found.
+* Novelty vs (J)93 / (J)96: Thm 3.1 is CLASS_FORCING Thm 2.1(b)(c)/5.1(c) in level coordinates (disclaimed ✔). Thm 3.2 is
+  cubic/biquadratic reciprocity plus the standard Kummer computation of the abelian part (my derivation above); (J)96 already
+  used the m = 4 instance (Burde) in p-coordinates. New as an ES-facing dictionary (the forcing reads ∏x_a^{a⁻¹}, ES reads ∏x_a),
+  not as mathematics. The agent report's "SHARP (modest)" is fair.
+* Circularity / hidden hypotheses: none found. Uniformity: all densities are for FIXED (n, ℓ) and one varying level prime, and
+  the document now says so everywhere (scope repairs ⟨rep⟩ verified in §3, §4, §6, §7).
+
+## Defect list (consolidated)
+FATAL: none. MAJOR: none.
+MINOR: D1 (general-m phrasing of Thm 3.2 conclusion), D2 (λ-normalisation dependence of x_a), D3 (sharpness proof needs converse
++ i_a = a⁻¹i₁ computation — supplied above), D4 (interpretive sentence in PROVED block), D5 ("halving per decade"), D6 (census
+bookkeeping), D7 (Lemma 1.1 vs R_t > 0), D8 (m even, e odd density), D9 (several level primes: coupled pair count), D10
+((241, 7) ≡ (101, 7); "uniformly in n" = in n mod ℓ), D11 (j = 1 of (b′) is (c)), D12 (S constant for every n; the cube-specific
+statement is S ≡ 1 at t = 8q — the formal cubic T1 with D uniform), D13 (conductor | 3q, sharper than 9t).
