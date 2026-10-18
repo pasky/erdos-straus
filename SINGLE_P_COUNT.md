@@ -114,8 +114,51 @@ Findings.
   structure. Hypothesis (Assessment): it is the divisor-sharing correlation (pairs sharing u, B or C test divisibility of the
   same integer p + u, p + B or 4Cp + 1, and divisor counts of one integer are overdispersed like τ); this would also explain
   the slow growth of the overdispersion with p (4.05 → 4.52 here; 2.2 → 3.6 for the b = 1 line, B1_LINE).
-* The 14 known (★)-failures ≤ 10¹⁰ (all ≤ 8.9·10⁶) have M_gen/M₀ ∈ [0.57, 0.92] and M_loc,30/M₀ ∈ [0.10, 0.67]: low local
+* The 14 known (★)-failures ≤ 10¹⁰ (all ≤ 8.9·10⁶) have M_gen/M₀ ∈ [0.57, 0.92] and M_loc,30/M₀ ∈ [0.09, 0.70] (sample mean ≈ 1.0): low local
   main terms, but for p > 10⁵ still M_loc,30 ≈ 10–26, so the failures are not explained by the local term alone.
 * Calibration for goal 4 (Assessment): at 10⁶–10⁷ the actual error |R − M_loc| has standard deviation ≈ 1.3·√(2M), i.e.
   ≈ log p in absolute size, against a main term ≈ (log p)²/8. Nothing in the data suggests |E(p)| ≍ M(p) generically; the
   failures are lower-tail events of a moderately overdispersed count.
+
+## 4. The two halves of the conditional target, and what standard hypotheses give for each (goal 1)
+
+### 4.1 The genus half (L): GRH reaches it, at log log scale
+
+**Proposition 4.1 (CONDITIONAL on GRH for the Dirichlet L-functions mod 4p).** For primes p ≡ 1 (mod 4),
+M_gen(p) ≥ (1 − o(1))·log log p.
+*Proof.* Let ε := +1 if p ≡ 5 (mod 8) and ε := −1 if p ≡ 1 (mod 8), and let ℓ ∤ 2p be a prime with χ₋₄(ℓ) = ε and
+(ℓ/p) = ε, ℓ ≤ (p + 1)/6. Then the pairs (u, B) = (1, 2ℓ) and (2ℓ, 1) lie in 𝒫(p) (6ℓ − 1 ≤ p) and are genus-matched by
+Prop 2.2(a): the 2-adic condition p ≡ −(1 + 2ℓ) (mod 8) reads 2ℓ ≡ 2 (resp. 6) (mod 8), i.e. ℓ ≡ 1 (resp. 3) (mod 4); the odd
+condition is (p/ℓ) = (−1/ℓ), i.e. (ℓ/p) = χ₋₄(ℓ) by reciprocity (p ≡ 1 (4)). Each has q = 8ℓ, s(q)/φ(q) = 8/(4(ℓ − 1)), so
+M_gen(p) ≥ 4·Σ 1/ℓ over such ℓ. The indicator of the two conditions is (1 + εχ₋₄(ℓ))(1 + ε(ℓ/p))/4, and under GRH
+Σ_{ℓ ≤ x} ψ(ℓ) log ℓ ≪ √x·log²(px) for each non-principal ψ mod 4p; partial summation over (y, (p+1)/6] with
+y = (log p)⁵ gives Σ 1/ℓ = (1/4)(log log p − log log y) + o(1) = (1/4 − o(1)) log log p. ∎
+(Positivity alone, M_gen(p) > 0 for all large p ≡ 1 (8), also follows unconditionally but ineffectively from a single such
+ℓ ≪ p^{1/4+ε}, Pollack 2014 as used in (J)66.) The true size is M_gen(p) ≍ (log p)² (§3: M_gen/M₀ ∈ [0.67, 1.46] on
+[10⁶, 1.1·10⁶]); a matching lower bound would need Σ over all u of L(1, χ)-type quantities for the characters
+(−u p/·) (heuristic: the u-slice of M_gen is ≈ L(1, (−up/·))·log(p/u)/u up to bounded local factors), with secondary terms
+L(1, ψ)L(1, ψχ) of the same order as the main term for small u. Not pursued (Assessment): (L) is not where ES is stuck.
+
+### 4.2 The order-≥3 half (U) and the named hypotheses
+
+(U) asks |X(p)| < M_gen(p), where X(p) = Σ_{𝒫(p)} φ(q)^{−1} Σ_{χ (q), χ² ≠ 1} χ(p)χ̄(a): a sum, at ONE argument p, over
+≍ p log p moduli q = 4uB and all their characters of order ≥ 3, of size (data) ≈ √(3M) ≈ log p, needed < M ≍ (log p)².
+
+| hypothesis (as in the literature) | what it controls | applied to (U) | exact missing piece |
+|---|---|---|---|
+| GRH (Dirichlet) | Σ_{n ≤ x} Λ(n)χ(n) for each χ: sums over n at fixed χ | X is a sum over χ at fixed n = p; termwise GRH misses by p^{1−o(1)} (CONDITIONAL_ES Prop 9.1); GRH does give (L) (Prop 4.1) | a statement about Σ_χ χ(p)c(χ) over χ of all moduli ≤ p at one point; GRH is about the dual sum |
+| Elliott–Halberstam / BFI-type for τ (divisors in APs, Σ_{q ≤ x^{1−ε}} max_a \|Δ_τ(x; q, a)\| ≪ x(log x)^{−A}) | the box {(q, N) : q ≤ Q, N ≤ x} | divisor form: the needed pairs (q, N) = (4C, 4Cp + 1) lie on the line N = pq + 1, ≍ Q points of a box of ≍ Qx points; the class modulus is a function of the integer, q = (N − 1)/p | equidistribution on a line of relative density 1/x inside the averaged box; any box error ≥ 1 per q already exceeds the line's total main term |
+| Selberg–Linnik / Hooley R* (Σ_{c ≤ X} S(m, n; c)/c ≪ (mnX)^ε; incomplete Kloosterman sums with N^{1/2}q^ε) | complete Kloosterman sums S(m, n; c) with (m, n) fixed, averaged over c | via Lemma 1.1(3): N_c(p) = c^{−1}Σ_{h mod c} e(h/c)Σ_{x \| cp+1} e(hx/c) — additive characters summed over the DIVISORS of the single integer cp + 1, not over all residues; transposing γ (Lemma 1.1(3)) makes the modulus fixed (= p) and the target height-dependent (PARITY_AUDIT Remark 3.1) | completion of the divisor-restricted sums needs a sum over N ≡ 1 (c) in an interval, i.e. over p (B6). At fixed p no complete Kloosterman sum with fixed (m, n) appears |
+| Kuznetsov + Kim–Sarnak θ = 7/64 | spectral expansion of Σ_c S(m,n;c)φ(c) | as the previous row; θ enters only after averaging over p ((D)32: Σ_p f_I(p)) | same |
+| Hardy–Littlewood (Goldbach-type single-integer asymptotic r(N) ~ 𝔖(N)·J(N)) | named, single-N; main term a power N/log²N | not a statement about (★); its (★)-analogue would be "R(p) = M_loc(p)(1 + o(1))" (Conjecture 4.2) | (★)'s main term is polylog (B3) and its "singular series" must contain the genus factor (Prop 2.2(b)), i.e. a Brauer–Manin-type correction (Bright–Loughran's order-2 algebra; Assessment) |
+
+**Conjecture 4.2 (CONJECTURE; stated for calibration, NOT a standard conjecture).** With M_loc,Y as in §3 and Y = Y(p) → ∞
+slowly, R(p) = M_loc,Y(p) + O((M_loc,Y(p))^{1/2+o(1)}) for all large primes p ≡ 1 (mod 4).
+It implies R(p) ≥ 1 for all large p **only together with** a lower bound M_loc,Y(p) → ∞, which is false along the
+square-mimicking primes unless Y grows (CONDITIONAL_ES Prop 7.3: with Y fixed, primes p ≡ 1 (mod lcm(≤ Y)) have the
+local data of a square at all Y-smooth moduli). It is consistent with T1 (both sides vanish at squares for the genus
+component; at squares the local term is 0 by Prop 2.2(b)). The data of §3 fit the error scale (sd ≈ 1.3√(2M)), but the
+count is still Poisson-scale: Conjecture 4.2 is ES-(★)-strength in the sense of CONDITIONAL_ES §6 (X_slice), with an
+explicit main term. **Answer to goal (1): no named, standard conjecture was found that implies R(p) ≥ 1 (or N₁(p) ≥ 1,
+f_II(p) ≥ 1); what is new relative to CONDITIONAL_ES is the location of the missing statement — the order-≥3 characters,
+with T1 removed (Lemma 2.1, Prop 2.2) — and that GRH does reach the order-2 half (Prop 4.1).**
