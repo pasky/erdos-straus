@@ -64,3 +64,79 @@ q ≡ −1 (mod 4m²)) gives exactly the c-square subset (Thm 1.2(e)). Failures:
 solutions sit on split slices (inside some L_ρ(q)) and 21 942 (29 %) on non-split slices (no Astra source there).
 22 627 are integral Astra sources (c square). **314 primes ≤ 10⁵ have Type A but no integral Astra source** (73, 313,
 337, 409, 577, …, 3361, …): the one-way implication of Cor 1.3(i) is strict.
+
+## 2. Goal 2: hardness scores, rank correlations, and the local profile (EVIDENCE + Assessment)
+
+**2.1 Scores** (`scripts/z34_scores.c`, all 39 175 primes p ≡ 1 (4) ≤ 10⁶, 2.4 s; cross-checked against brute force for
+every p ≤ 1500 by `scripts/z34_check_scores.py`, 0 mismatches; output regenerable, not stored). Hardness orientation in brackets.
+* N₁(p): Type A solutions (B1_LINE Lemma 3.1) [small = hard];
+* f_II(p): Type II solutions, ordered, ET form 4abcd = a + b + pc (logic of `bs_prob_fII.c`) [small];
+* m₀(p): least Type II window 4x − p (s7_window_lottery) [large];
+* S(p): distinct slices g carrying a lattice ES point (2k, 1), k | h (LATTICE_MEETING Prop 1.1; S = 0 ⟺ 𝓜(p) = ∅,
+  reproducing its 25 empty primes ≤ 2·10⁴) [small];
+* e₀(p): least Type I level e (an ES solution containing p(pe + 1)/4; ASTRA_BRIDGE Thm 2.1, n = 1) [large];
+* L_I(p): Type I levels e ≤ 199 carrying ES [small].
+The first four are Claude-side (Type II) quantities; S, e₀, L_I are the quantities Astra's exits are read in
+(ASTRA_BRIDGE §4: Astra exits are Type I levels e ≤ 143 or lattice/Type II windows). Each score becomes a size-normalised
+hardness percentile u (mid-rank among the 1001 nearest primes; for fixtures, among primes in [p/2, 2p]).
+
+**2.2 Rank correlations** (Spearman of u over the 36 626 primes in [5·10⁴, 10⁶]; `logs/z34_ranks_1e6.txt`).
+| | N₁ | f_II | m₀ | S | e₀ | L_I | smooth part of p−1 |
+|---|---|---|---|---|---|---|---|
+| N₁ | 1 | 0.80 | 0.20 | 0.49 | 0.13 | 0.43 | 0.35 |
+| f_II | | 1 | 0.21 | 0.54 | 0.16 | 0.52 | 0.39 |
+| m₀ | | | 1 | 0.15 | 0.19 | 0.21 | 0.10 |
+| S | | | | 1 | 0.02 | 0.23 | 0.34 |
+| e₀ | | | | | 1 | 0.29 | 0.13 |
+The profile cell (χ_p(ℓ), ℓ = 3, 5, 7, 11, 13, and p mod 8) within size blocks of 5000 primes explains this share of
+var(u): N₁ 27 %, f_II 30 %, m₀ 47 %, S 79 %, e₀ 38 %, L_I 36 %. Residual correlations after removing the cell means:
+N₁–f_II 0.72, f_II–S 0.49, N₁–S 0.35, f_II–L_I 0.38, but m₀ and e₀ residuals are ≈ 0 against everything
+(m₀–e₀ −0.09; −0.20 inside p ≡ 1 (24)). Reading (Assessment):
+* the *count* scores (N₁, f_II, S, L_I) share a large non-local component beyond the profile. All of them count
+  divisor events in overlapping families of shifted integers (p + 4d for N₁, p + 4a² for S; d = a² is common). This is the B2
+  lottery seen through several windows, not a new invariant;
+* the *least* scores m₀, e₀ are first-success times of short lotteries; given the profile they are close to independent;
+* S (the d = 1 locus) is the most profile-driven score: 79 % of its variance is congruence data.
+
+**2.3 The fixtures** (band percentile u in [p/2, 2p]; band sizes 25, 230, 301, 4408; raw (N₁, f_II, m₀, S, e₀, L_I)).
+| p | p − 1 | raw | u: N₁ f_II m₀ S e₀ L_I |
+|---|---|---|---|
+| 193 | 2⁶·3 | 0, 4, 7, 0, 3, 3 | 1.00 1.00 0.96 0.96 0.40 0.92 |
+| 2521 | 2³·3²·5·7 | 0, 6, 23, 2, 15, 4 | 1.00 1.00 1.00 0.94 0.98 0.98 |
+| 3361 | 2⁵·3·5·7 | 1, 4, 3, 0, 7, 5 | 0.99 1.00 0.43 0.99 0.85 0.95 |
+| 66529 | 2⁵·3³·7·11 | 0, 20, 31, 12, 3, 7 | 1.00 1.00 1.00 0.81 0.38 0.95 |
+| 5209 | 2³·3·7·31 | 7, 28, 11, 10, 19, 5 | 0.86 0.88 0.98 0.69 0.99 0.96 |
+| 233689 | 2³·3·7·13·107 | 5, 50, 11, 8, 7, 8 | 1.00 0.99 0.98 0.95 0.87 0.94 |
+193 is *not* Type-I-hard (e₀ = 3: Astra's own e = 3 exit, H = 145). 2521 is hard everywhere.
+
+**2.4 Astra's fixture tests are Claude's scores.** Checked against the Astra text (d7300f8, read-only):
+* POSITIVE_ES_RESEARCH_RESET §3.2 "Exact test 4: at p = 193 … there is no primitive Type-II target with a = 1, even with
+  c and d unrestricted". ET a = 1 is Type A (by the a ↔ b symmetry). So Astra's 193 Type-II-descent obstruction is
+  literally N₁(193) = 0 (Cor 1.3(iv)); its "complete tuples (2,5,1,5), (2,13,1,2)" are our f_II(193) = 4 (ordered).
+* TWIST_HEIGHT_COMPRESSION §3.2 "five permanently blocked anchors" at 2521: A = 631, …, 635 with k = 3, 7, 11, 15, 19
+  are the Type II windows m = 3, …, 19 with K = (p + m)/4, i.e. m₀(2521) = 23. TWIST_FLOOR_CERTIFICATE_GATEWAY §6.2 "the initial
+  level [e = 3] is fully sterile, … the fivefold move exits" at H_S = (15p + 1)/4: Type I levels 3, 7, 11 fail and
+  e₀(2521) = 15, exactly our e₀.
+* POSITIVE_ES_RESEARCH_RESET: "Only p = 97, 193, 3361 are exhausted": precisely the three smallest-p fixtures with S = 0
+  (𝓜 = ∅) among Astra's set.
+So the overlap is partly *definitional*: when Astra certifies that a fixture is hard, its certificate is a failure of
+a Type II sub-line (a = 1, small windows, d = 1) or of small Type I levels. Those are the same events that Claude's
+scores count.
+
+**2.5 The shared local profile** (`scripts/z34_smooth_cell.py`, `logs/z34_smooth_cell_1e6.txt`). Every fixture except
+5209 and 233689 has 13-smooth p − 1, and all three Type A failures have 11-smooth p − 1. For p ≡ 1 (4) prime,
+ℓ | p − 1 ⟹ (ℓ/p) = (p/ℓ) = 1, so smooth p − 1 means maximal small-prime QR-richness, and in addition the T1 point-1
+freezing of B1_LINE Prop 4.1 (exact divisibility, finer than the QR pattern). Among the 676 primes 50 < p ≤ 10⁶ with 13-smooth
+p − 1: mean u = 0.73 (N₁), 0.77 (f_II), 0.62 (m₀), 0.68 (S) against 0.5 for all primes; 23 % are top-5 % in N₁. Joint
+top-5 % in N₁ and S: 4.9 % of the smooth cell against 0.63 % of a size-matched random sample (×8). Inside the cell this is
+still 1.7× the product of the cell marginals (2.9 %), and N₁–m₀ is 2.5× (8.3 % vs 3.3 %).
+**Verdict on goal 2 (Assessment).** The overlap at 193/2521 needs no extra structural coincidence. It decomposes into
+(i) the shared local profile: small p with 11-smooth p − 1, i.e. the T1 point 1 in Ẑ on the small primes. This multiplies the
+chance of joint extremeness by about 8;
+(ii) the shared B2 input: the count scores read divisor events of the same shifted integers, which leaves residual
+rank correlations of 0.35–0.7 after the profile is removed;
+(iii) definitional overlap: Astra's fixture certificates are failures of exactly these Type II/Type I sub-lines.
+193 and 2521 are then the most extreme draws of this correlated lottery at small p. Two of the three Type A failures
+also sit in the hard tail of every other Claude score. That is what (i)+(ii) predict, not a further coincidence.
+The one non-mundane residue: 193 is easy at Type I (e₀ = 3), so Astra's 193 hardness lives at a fixed retained level
+(e = 31), not at the least level.
