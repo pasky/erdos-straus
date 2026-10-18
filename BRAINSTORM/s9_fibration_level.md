@@ -27,7 +27,8 @@ The fibration method needs (a) fibres whose integral/strong-approximation obstru
 bounded size, and (b) a base-point choice (Schinzel) making the fibre's local data favourable. Here (a) fails maximally: the
 fibrewise obstruction group (ℤ/t)^* grows with the base point while Br(X_n)/Br₀ = ℤ/2 (BL); and (b) points the wrong way:
 Schinzel-type hypotheses make N_t = tn + 1 prime (or a prime times fixed factors), which empties the fibre's positive divisor set,
-whereas ES needs N_t to have a prime factor in a prescribed class mod t — the B2 event itself. The split fibres also fall outside
+whereas ES needs N_t to have a DIVISOR in a prescribed class mod t (not necessarily a prime one, e.g. t = 8, n = 73:
+585 = 3²·5·13 has the divisor 15 ≡ −1 (8) but no prime factor ≡ −1 (8)) — the B2 event itself. The split fibres also fall outside
 "affine conics with non-split norm form" settings as far as we can see (Assessment; we did not check Harpaz's exact hypotheses).
 T1: on fibres of n = m² the classes of all prime factors lie in ker χ_{−t} ∌ −1 (Prop 2.1(c)). B1: a fixed finite set of fibres is
 a fixed slice set (redteam-2 Thm 2.2, fails i.o. under H).

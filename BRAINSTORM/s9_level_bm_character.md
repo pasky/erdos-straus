@@ -14,13 +14,14 @@ Bright–Loughran arXiv:1908.02526 Thm 1.8 (no BM obstruction for n ≥ 2).
 ## Statement (SYNTHESIS_SPARKS9 §2)
 * Prop 2.1 (PROVED): D⁻_t(N) ≤ (τ(N) − σ_{χ_{−t}}(N))/2; the {1, χ_{−t}} part of the orthogonality expansion is
   M^{lev}_t(n) = (τ(N) − σ_{χ_{−t}}(N))/φ(t) ≥ 0, vanishing at n = m² since every ℓ | 1 + tm² splits in ℚ(√−t).
-* Prop 2.2 (PROVED): ∃ 4 | t with M^{lev}_t(n) > 0 ⟺ n is not a square; witness t ≤ 4ℓ(n), ℓ(n) the least prime with (n/ℓ) = −1.
+* Prop 2.2 (PROVED): ∃ 4 | t with M^{lev}_t(n) > 0 ⟺ n is not a square; witness t ≤ 4ℓ(n), ℓ(n) the least odd prime with (n/ℓ) = −1. (The coset {χ_{−t} = −1}
+  still carries the other real genus characters mod t; only χ_{−t} is freed.)
 
 ## Barrier screen
 B2: the remaining event is the class −1 inside the coset {χ_{−t} = −1} (φ(t)/2 classes) — the divisor-class lottery. T1: respected
 exactly (Prop 2.1(c)). Prop 10.3 / genus theme: this is the genus/sign layer, now shown to be pointwise free in Thm-K coordinates.
 B3: the BM layer has no polylog main term issue at all (it is a 0/1 existence statement); the size issue sits in the X part.
-Numerator models: the same witness works for 8/n (8 | t), while 8/131, 8/241 fail — the BM layer is numerator-blind ((J)41), as
+Numerator models: the same construction (8 | t, t ≤ 8ℓ) works for 8/n, while 8/131, 8/241 fail — the BM layer is numerator-blind ((J)41), as
 any mechanism must be screened for.
 
 ## Cheap numerics

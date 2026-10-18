@@ -1,6 +1,6 @@
 // s9_words.c (O271): per-prime word census for W(p) = {(t,u,v) >= 1 : t u v - u - v = p}.
 // For each prime p in [lo,hi] (optionally only p == 1 mod 4) outputs
-//   p  Wtot  A=#{4|t}  B=#{4|u or 4|v}  U=#{some coord == 0 mod 4}  A1=#{4|t, u=1}  Wm=#{sigma(w) = -1}
+//   p  Wtot  A=#{4|t}  B=#{4|u or 4|v}  U=#{some coord == 0 mod 4}  A1=#{ordered words with 4|t and u=1 or v=1}  Wm=#{sigma(w) = -1}
 // Enumeration: u <= v (mirror counted), u <= sqrt(p)+2, divisors e = t u - 1 of p + u with e == -1 (mod u), v = (p+u)/e >= u.
 // A counts ordered (★)-words = R(p) of SINGLE_P_COUNT (pairs (u,B) ordered).  usage: s9_words lo hi mode [K=4]   mode 0 all primes, 1 primes == 1 (4), 2 odd squares
 // K = numerator k: "coordinate == 0 (mod K)" (the k/p two-line union: c = 1 line k abd = p + a + b, b = 1 line).
@@ -27,7 +27,7 @@ int main(int argc,char**argv){
         int mult = (v==u)?1:2;            // (t,u,v) and (t,v,u)
         W+=mult; if(jac(e,p)==-1) Wm+=mult;   // sigma(w) = ((tu-1)/n), the DEDEKIND Thm 4.5 sign
         int a=(t%K==0), b=(u%K==0||v%K==0);
-        if(a) A+=mult; if(b) B+=mult; if(a||b) U+=mult; if(a && u==1) A1+=mult; }
+        if(a) A+=mult; if(b) B+=mult; if(a||b) U+=mult; if(a && u==1) A1+=mult;   // u<=v here, so this counts both orientations of the u=1 word }
     }
     printf("%lld %lld %lld %lld %lld %lld %lld\n",p,W,A,B,U,A1,Wm);
   }

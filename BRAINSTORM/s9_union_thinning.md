@@ -1,4 +1,4 @@
-# s9_union_thinning — (★) ∪ b = 1 is a 2-adic thinning of one numerator-free set; the lines are positively correlated only through its size (O271, mandatory (iv))
+# s9_union_thinning — (★) ∪ b = 1 is a 2-adic thinning of one numerator-free set; the lines' positive correlation is (linearly) explained by its size (O271, mandatory (iv))
 
 ## Idea
 The brief asked whether the X-parts of (★) and b = 1 are negatively correlated (a structural reason for the union's robustness:
@@ -26,5 +26,5 @@ fails at 131, 241 by the same thinning with smaller π — no 4-specific forcing
 logs `logs/s9_union_1e6.txt`, `logs/s9_union_1e7.txt`.
 
 ## Assessment
-Negative answer to (iv): no anticorrelation, no forcing; robustness = additive main terms on a common size variable |W(p)|.
+Negative answer to (iv): no anticorrelation, no forcing; robustness = additive main terms on a common size variable |W(p)| (residual linear correlation 0.01–0.03; not a proof of conditional independence).
 Labels: Lemma 1.1 / Cor 1.2 PROVED (reformulation; Prop 1.3 of SPARKS8 extended to all odd n and all k); correlations EVIDENCE.

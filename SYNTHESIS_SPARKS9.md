@@ -55,7 +55,8 @@ U = #{some coordinate ≡ 0 (4)}, W = |W(p)|:
 * T1 control: 1 081 odd squares in [10⁶, 10⁷]: U = 0 and σ ≡ +1 for all; W/L² = 0.45 (all σ = +1), against W₊/L² = 0.31,
   W₋/L² = 0.61 at primes.
 **Assessment.** The union's lower tail factors as (size of the numerator-free set W(p)) × (2-adic thinning). No identity
-couples the two lines beyond sharing W; given W they are near-independent. The deterministic part is only the sign
+couples the two lines beyond sharing W; after controlling log W the residual LINEAR correlation is 0.01–0.03 (a model-specific
+observation, not a proof of conditional independence). The deterministic part is only the sign
 σ (T1); the size W is itself a B2 lottery (each word is a divisor of a shifted integer p + u in the class −1 mod u). The
 numerator k enters only through "coordinate ≡ 0 (mod k)", which makes the k = 8 failures (131, 241) the same mechanism
 with a thinner sieve (π₈ < π₄): no 4-specific forcing is visible here. No route; closes (iv) negatively.
@@ -64,7 +65,7 @@ with a thinner sieve (π₈ < π₄): no 4-specific forcing is visible here. No 
 character χ_{−t} ∈ O_t together with the principal character ∈ E_t — the level-coordinate twin of O268 Thm 1.1 (χ_{−4uB} at p).
 Construction attempt: use the BM layer as a positivity statement for an explicit coefficient (τ(N) − σ_{χ_{−t}}(N)) and try to
 prove it positive at every non-square. It IS positive at every non-square, trivially (least non-residue; Prop 2.2) — so the
-BM layer is pointwise free, and the whole difficulty is the class lottery inside the coset {χ_{−t} = −1} (index φ(t)/2).
+BM layer is pointwise free, and the whole difficulty is the class lottery inside the coset {χ_{−t} = −1} (index 2, size φ(t)/2).
 Barrier hypothesis met: "genus/sign data only" (Prop 10.3 / (J) theme "sign layer easy, size layer hard"), now proved in
 Thm-K coordinates. Hecke/Eisenstein positivity bounds σ_{χ_{−t}} = r_{−t}/w from BELOW, i.e. pushes against ES (O269 C6).
 
@@ -86,7 +87,7 @@ d | N (gcd(N, t) = 1); if some prime ℓ | N has χ(ℓ) = −1 then d = ℓ cou
 prime factor. (b) Orthogonality. (c) ℓ | 1 + tm² ⇒ −t ≡ (m⁻¹)² (mod ℓ). (d) Classical. ∎
 
 **Proposition 2.2 (the BM layer holds at every non-square; PROVED).** For odd n: ∃ t ≡ 0 (4) with M^{lev}_t(n) > 0 ⟺ n is
-not a perfect square. A witness: ℓ := the least prime with (n/ℓ) = −1, t := the least multiple of 4 with t ≡ −n⁻¹ (mod ℓ);
+not a perfect square. A witness: ℓ := the least ODD prime with (n/ℓ) = −1 (Legendre; ℓ ∤ n), t := the least multiple of 4 with t ≡ −n⁻¹ (mod ℓ);
 then t ≤ 4ℓ, ℓ | tn + 1 and (−t/ℓ) = −1.
 *Proof.* ⇐: if n is not a square, the Jacobi-type symbol ℓ ↦ (n/ℓ) is a non-principal real character on primes (via
 reciprocity, a character mod 4n), so ℓ exists. t exists by CRT (ℓ odd, ℓ ∤ n), t ≤ 4ℓ. Then ℓ | tn + 1, and −t ≡ n⁻¹ (mod ℓ),
@@ -100,13 +101,16 @@ prime factor of tm² + 1. At the witness level an actual (★) word exists for 7
 pair slicing (fix (u, B), sum over C): χ_{−4uB}(n) (O268 Thm 1.1); level slicing (fix t = 4C, sum over divisors): χ_{−t}(d)
 (Prop 2.1). In both, the BM layer alone is pointwise trivial at non-squares (here Prop 2.2; there "∃ uB with (−uB/p) = −1",
 quantified by O268 Thm 2.2). What remains is the position of a divisor d of N inside the coset {χ_{−t} = −1}, which consists of
-φ(t)/2 classes of which exactly one (−1) is good — the X part, i.e. all characters mod t other than 1, χ_{−t}. Hence:
+φ(t)/2 classes of which exactly one (−1) is good — the X part, i.e. all characters mod t other than 1, χ_{−t}. (Self-review
+repair: this X part still contains OTHER real characters mod t — the genus characters of O260's M_gen — so quadratic obstructions
+remain possible there. Example: the (★)-failure n = 7 at t = 12: 85 = 5·17, both χ_{−12} = −1, but both χ_{−4} = +1, which excludes
+the class 11 mod 12. What Prop 2.2 frees is the single BL character χ_{−t}, not the whole genus layer.) Hence:
 * an "explicit Dirichlet-coefficient positivity" route (σ_{χ_{−t}} = R_{−t}/w; Hecke/Eisenstein lower bounds for representation
   numbers) controls only the BM layer, and in the wrong direction (it bounds M^{lev}_t from above);
 * the lower-tail question H⁻_BM is the class lottery inside a coset of size φ(t)/2, with no fixed-integer packaging: the
   integers tn + 1 are pairwise almost coprime (gcd | t − t′; (J)89 Lemma 2.3), so any divisor-sum of one integer F(n) that
   reproduces R(n) needs F divisible by essentially all tn + 1 (Assessment; B2 restated).
-Numerator check: for 8/n the same computation uses χ_{−t} with 8 | t and gives the same witness (any non-square), while 8/131,
+Numerator check: for 8/n the same construction with 8 | t (t ≤ 8ℓ; not necessarily the same t) works at any non-square, while 8/131,
 8/241 fail — the BM layer is numerator-blind, as it must be ((J)41).
 
 (I3) Mandatory (iii), variance at fixed p. Construction attempts: (1) second moment / Paley–Zygmund over the characters of a
@@ -126,10 +130,11 @@ exceptional-set statement it would imply (power saving, beyond every known metho
 succeeds iff S² > (|G| − 1)Q, and then n(g) > 0 for **every** g ∈ G.
 *Proof.* Parseval: Σ_{ψ≠1}|n̂(ψ)|² = |G|Q − S². The certificate is S > √((|G| − 1)(|G|Q − S²)) ⟺ |G|S² > (|G| − 1)|G|Q. It does
 not depend on g₀, so it certifies every class; and S² ≤ |supp n|·Q (Cauchy–Schwarz) forces |supp n| > |G| − 1. ∎
-*Consequence.* Any second-moment/PZ argument over the characters of one fixed group attached to p (characters mod p on the F4
-tube; mod t at one level; mod 4uB at one pair) proves R(p) > 0 only in a situation where the counted objects already occupy
-every class of G — impossible when the object count (≍ (log p)² for (★)) is < |G| − 1. To beat this one needs the phases of
-individual n̂(ψ) (parity-breaking, H-B), not their sizes. (This is the exact form of the board's F4 objection and of B3.)
+*Consequence (scope: this plain ℓ² certificate only — self-review repair; other second-moment/PZ arguments are not covered).*
+The Cauchy–Schwarz/Parseval certificate over the characters of one fixed group attached to p (characters mod p on the F4 tube;
+mod t at one level; mod 4uB at one pair) proves R(p) > 0 only when the counted objects already occupy every class of G. On the F4
+tube (S ≍ p log²p objects, |G| = p − 1, mean m̄ ≍ log²p per class) this needs m̄² > (|G| − 1)V, i.e. V ≲ log⁴p/p — far below
+Poisson-size fluctuations V ≈ m̄. To beat this one needs the phases of individual n̂(ψ) (parity-breaking, H-B), not their sizes. (This is the exact form of the board's F4 objection and of B3.)
 
 **Lemma 3.2 (tautology; PROVED).** For a finite family Ω of primes with the uniform measure, a bound P_Ω(R = 0) ≤ δ implies
 R(p) > 0 for all p ∈ Ω iff δ < 1/|Ω|. For Ω = primes in (N, 2N] this is δ < (1 + o(1)) log N/N, i.e. a large-deviation exponent
@@ -146,7 +151,9 @@ factorisation). With μ = E R, Δ = E[#ordered dependent pairs]:
   (rising with p). (J)89 found per-shift events near-independent (joint/product 1.004), so a level-Poisson model predicts
   P(R = 0) ≈ e^{−E#levels} ≈ p^{−(0.44…0.97)} — the critical scale of Lemma 3.2, consistent with (★) failures still occurring
   to 8.8·10⁶ and none in (10⁷, 10¹⁰] ((J)90).
-* Observed zeros per bin (1, 1, 1, 0, 3, 0, 1, 3, 1) lie between n·e^{−μ} and n·e^{−μ/2} (swap-Poisson) up to the O268 factor.
+* Observed zeros per bin (1, 1, 1, 1, 0, 3, 0, 1, 3, 1 — the first, M_BM8 < 4, has 16 primes incl. 409; self-review repair: it was
+  dropped before) lie between n·e^{−μ} and n·e^{−μ/2} (swap-Poisson) up to the O268 factor. The "dependency" used here is a
+  shared-integer overlap statistic, not a proven Janson dependency graph.
 **Assessment (the answer to (iii)).** Near-independence is a statement about a measure, and at one prime there is none:
 (a) objects attached to p carry no measure in which hits are random, and the only deterministic substitute (Fourier over a fixed
 group) is phase-blind (Lemma 3.1); (b) over p, the useful exponent must exceed log p (Lemma 3.2). Even granting an ideal
@@ -161,14 +168,17 @@ evidence that any technique reaches it.
 **Proposition 3.4 (level-Poisson test, EVIDENCE; `scripts/s9_level_poisson.py`, `logs/s9_level_poisson.txt`; 185 981 primes
 p ≡ 1 (4) ≤ 5.37·10⁶, the range where O268's `z38_mbm` finished within the time limit).** Per M_BM8 bin, observed (★) zeros against
 n·e^{−μ} (Poisson), n·e^{−μ/2} (swap-Poisson), n·e^{−E NL} (level-Poisson, NL = #distinct hit levels):
-* totals: observed 12; Poisson 0.09; swap-Poisson 4.98; level-Poisson 12.6 (bin-mean exponent) / 31.1 (per-prime exponent from
-  the fit E[NL | M_BM8] ≈ −0.96 + 0.476·M_BM8).
-* shape: level-Poisson over-predicts at small M (bins M < 12: 8.4 predicted vs 3 observed) and under-predicts at large M
+* totals (all bins; self-review repair: the M_BM8 < 4 bin with 16 primes incl. the failure 409 was silently dropped before):
+  observed 13; Poisson 0.71; swap-Poisson 8.13; level-Poisson 16.0 (bin-mean exponent) / 42.3 (per-prime exponent from the fit
+  E[NL | M_BM8] ≈ −0.96 + 0.476·M_BM8).
+* shape: level-Poisson over-predicts at small M (bins M < 12: 11.8 predicted vs 4 observed) and under-predicts at large M
   (M ∈ [20, 30): 0.76 vs 5). The observed zero rate decays more slowly in M than e^{−E NL}.
-So the per-level "Poisson unit" has the right order of magnitude overall, but the far lower tail is fatter than any
-independent-level model — the levels are positively dependent exactly in the joint-failure event, matching (J)89 (joint
+So the per-level "Poisson unit" has the right order of magnitude overall, but the far lower tail is fatter than this
+level-Poisson model with bin-mean intensities (heterogeneity of intensities within a bin can contribute via Jensen; we have not
+separated the two) — suggestive of positive dependence in the joint-failure event, matching (J)89 (joint
 all-j failure 1.5× the product) and O268 (excess over swap-Poisson growing with M). Assessment: the lower tail at one prime
-carries a genuine positive dependence between level failures that pairwise statistics barely see. This is the direction
+plausibly carries a positive dependence between level failures that pairwise statistics barely see (model-specific
+observation, not an exclusion of mechanisms). This is the direction
 Harris/FKG predicts for decreasing events (P(all fail) ≥ ∏ P(fail) — a LOWER bound on the failure probability, useless for ES);
 an upper bound à la Janson must pay for it through Δ, and the measured Δ is far too large (Prop 3.3). This sharpens the answer to
 (iii): near-independence is a pairwise statement, and the joint lower tail — the only thing ES needs — is where it fails.
@@ -184,11 +194,11 @@ numerator ladder as thinning (s9_ladder_thinning).
 | combination | where it stops | label |
 |---|---|---|
 | lower tail × literature | no natural every-n theorem at polylog scale; designed (M4) or structural (M3) only | literature + Assessment |
-| Thm K × BM class | BM = χ_{−t} ∈ O_t; free at non-squares; X part = class lottery in a coset of index φ(t)/2 | PROVED |
+| Thm K × BM class | BM = χ_{−t} ∈ O_t; free at non-squares; X part = class position inside a coset of size φ(t)/2 (other genus characters remain) | PROVED |
 | Thm K × Dirichlet positivity | positive coefficients (R_D/w) enter with a minus sign; no fixed-integer packaging | Assessment (+ PROVED inequality) |
 | variance × fixed group | ℓ² Fourier certifies iff m̄² > (|G| − 1)V, then all classes: phase-blind | PROVED |
 | variance × p-families × Janson | word-level Δ too large; level-level exponent ≈ log p (critical) and the joint tail fatter than level-Poisson | EVIDENCE + Assessment |
-| union × correlation | positive (+0.37), entirely through |W(p)|; no identity beyond "same set" | PROVED (reformulation) + EVIDENCE |
+| union × correlation | positive (+0.37); partial corr given log \|W(p)\| 0.01–0.03; no identity beyond "same set" | PROVED (reformulation) + EVIDENCE |
 | numerator ladder × thinning | order of magnitude right across k = 4…32, 1.7–7× under-prediction | EVIDENCE |
 | fibration over t × Schinzel | fibre obstruction groups unbounded; Schinzel makes tn + 1 prime (wrong way) | PROVED dictionary + Assessment |
 | Ghosh–Sarnak failures × reciprocity | quadratic obstruction at all levels ⟹ square; failures live in the class layer | PROVED |
@@ -198,12 +208,13 @@ numerator ladder as thinning (s9_ladder_thinning).
 * **The BM layer is pointwise free in both slicings.** O268 put BL's class at χ_{−4uB}(p) (pair slicing); here it is χ_{−t}(d)
   (level slicing, Prop 2.1), and Prop 2.2 proves the BM relaxation at every non-square with witness level ≤ 4·(least prime ℓ with
   (n/ℓ) = −1). So H⁻_BM(ε) is entirely about the class position of a divisor inside the coset {χ_{−t} = −1}: one class out of
-  φ(t)/2. No explicit-coefficient positivity can help (the positive coefficients are representation numbers, with a minus sign).
-* **Variance at fixed p is impossible in the strong sense of Lemma 3.1** (phase-blind), and over p the exponent must exceed log p
+  φ(t)/2 (where the other real genus characters and higher-order characters still act). No explicit-coefficient positivity can help (the positive coefficients are representation numbers, with a minus sign).
+* **The plain ℓ² (Parseval) second-moment certificate at fixed p is phase-blind (Lemma 3.1)** — other variance arguments are not
+  excluded by it, and over p the exponent must exceed log p
   (Lemma 3.2). The natural near-independent units are levels; their expected number is ≈ (0.44 → 0.97)·log p up to 3·10⁶ —
-  critical — and the joint tail is fatter than the level-Poisson model (Prop 3.4). Near-independence is pairwise; ES needs the
+  critical — and the joint tail is fatter than the bin-mean level-Poisson model (Prop 3.4; heterogeneity not separated). Near-independence is pairwise; ES needs the
   joint lower tail.
-* **The union is a 2-adic thinning of one numerator-free set W(p)** (Cor 1.2), positively correlated only through |W(p)|.
+* **The union is a 2-adic thinning of one numerator-free set W(p)** (Cor 1.2), positively correlated, with residual linear correlation ≈ 0.01–0.03 once log |W(p)| is controlled.
   Numerators k act as thinner sieves on the same set; 8/131, 8/241 are the same mechanism.
 * No route. Every item ends at the class layer of B2 (one class inside a quadratic coset, at moving levels), at B6, or at
   evidence. **ES is not solved; no infinite case for primes is claimed.**

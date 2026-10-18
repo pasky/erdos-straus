@@ -12,16 +12,17 @@ events — Harris/FKG); EXCEPTIONAL_INTERFREQ (D)20: CRT-accurate correlations o
 and TC_θ ⟹ E(N) ≤ (e+2)N exp(−(2/e²)(log N)^θ); (D)9–(D)24 caps at (log N)^{3/4} for CRT/large-sieve methods.
 
 ## Statement (SYNTHESIS_SPARKS9 Prop 3.3; EVIDENCE)
-Words dependent ⟺ share one of tp + 1, p + u, p + v. Over 108 283 primes p ≡ 1 (4) ≤ 3·10⁶ binned by M_BM8:
+Words "dependent" ⟺ share one of tp + 1, p + u, p + v (an overlap statistic, not a proven dependency graph). Over 108 283 primes p ≡ 1 (4) ≤ 3·10⁶ binned by M_BM8:
 Δ/μ = 3.6 → 9.4 (≈ linear in μ), so exp(−μ + Δ/2) > 1 and μ²/(2Δ) = 0.85 → 1.82 (vs log p ≈ 6 → 14): word-level Janson is
 useless. At level granularity, E[#hit levels] = 2.65 → 13.8 = (0.44 → 0.97)·log p: a level-Poisson model is exactly critical
 for Lemma 3.2 at accessible heights.
 
 ## Barrier screen
 B6 (averages over p): an exponent > log p turns an over-p statement into a pointwise one (Lemma 3.2), so the hatch is legitimate
-in shape; but (a) no product structure exists beyond CRT depth ≍ log N/log q, (b) over ℤ the Harris-type inequality is false by
-T1 (squares have density N^{−1/2} ≫ e^{−μ}), (c) a BM-corrected Harris inequality over primes is T1-consistent but would give a
-power-saving exceptional set for (★), beyond (D)9–(D)24. Numerator models: such an inequality is asymptotic, so 8/131, 8/241
+in shape; but (a) no product structure exists beyond CRT depth ≍ log N/log q, (b) over ℤ any UPPER bound of Janson/Poisson
+shape P(all fail) ≤ e^{−cμ} is false by T1 (squares have density N^{−1/2} ≫ e^{−μ}) — Harris itself is a LOWER bound on joint
+failure and is not refuted by squares (self-review repair), (c) a BM-corrected Janson-type upper bound over primes is
+T1-consistent but would give a power-saving exceptional set for (★), beyond (D)9–(D)24. Numerator models: such an inequality is asymptotic, so 8/131, 8/241
 (μ small) do not refute it — and also do not test it.
 
 ## Cheap numerics
@@ -31,4 +32,4 @@ power-saving exceptional set for (★), beyond (D)9–(D)24. Numerator models: s
 EVIDENCE + Assessment. Precise answer to "why near-independence cannot be turned into a proof": the near-independent units are
 levels, their expected number is only ≈ log p at 10⁶, and no inequality with a product structure is available; within a level
 the hits cluster (divisors of one integer), which is what makes the lower tail Landau-type rather than Poisson. CONJECTURE-shape
-only (BM-Harris over primes), no evidence of a technique. No route.
+only (BM-corrected Janson-type upper bound over primes), no evidence of a technique. No route.

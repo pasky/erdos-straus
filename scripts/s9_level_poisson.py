@@ -26,9 +26,9 @@ edges = [0, 4, 6, 8, 10, 12, 14, 16, 20, 25, 30, 40, 80]
 tot = np.zeros(5)
 for lo, hi in zip(edges[:-1], edges[1:]):
     s = (M8 >= lo) & (M8 < hi); n = s.sum()
-    if n < 20: continue
+    if n == 0: continue
     mu, el = R[s].mean(), NL[s].mean()
     row = np.array([(R[s] == 0).sum(), n*np.exp(-mu), n*np.exp(-mu/2), n*np.exp(-el), np.exp(-(a + b*M8[s])).sum()])
-    tot += row
+    tot += row   # R279-style self-review fix: totals include every bin (small bins were silently dropped before)
     print(f"[{lo:2d},{hi:2d})  | {n:6d} {int(row[0]):5d} | {mu:5.1f} {el:5.2f} | {row[1]:7.2g} {row[2]:7.2g} {row[3]:7.2g} {row[4]:9.2g}")
 print(f"TOTAL observed {int(tot[0])} | Poisson {tot[1]:.2f}  swap-Poisson {tot[2]:.2f}  level-Poisson {tot[3]:.2f}  level-Poisson(fit) {tot[4]:.2f}")

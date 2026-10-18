@@ -1,4 +1,4 @@
-# s9_fixed_group_fourier — second moments over the characters of a fixed group are phase-blind (O271, mandatory (iii))
+# s9_fixed_group_fourier — the plain ℓ² second-moment certificate over the characters of a fixed group is phase-blind (O271, mandatory (iii))
 
 ## Idea
 Look for a family attached to ONE p over which a second-moment / Paley–Zygmund argument is deterministic: orthogonality over
@@ -25,5 +25,5 @@ m̄² > (|G| − 1)·V. On the F4 tube at one prime (|G| = p − 1, ≍ p log²p
 V ≈ m̄ would require m̄ > p − 2: fails by a factor ≍ p/log²p. Same at one level (G = (ℤ/t)^*, S = τ(tp + 1)) and at one pair.
 
 ## Assessment
-PROVED steering lemma: deterministic second moments over a fixed group cannot certify ES at one prime; this is exactly why the
+PROVED steering lemma: the plain Parseval/Cauchy–Schwarz certificate over a fixed group cannot certify ES at one prime; this is exactly why the
 board's F4 stays an audit. No route.
