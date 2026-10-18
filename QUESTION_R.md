@@ -157,8 +157,8 @@ the main term (factor vanishing at squares), which is heuristic for ES (§3).
 * *reciprocity model* M_R(n) = Σ_t Σ_{d | N_t, range, (d/n) = −1} ρ_R(t, e(d)), ρ_R = (#bad classes)/(#classes with
   character value −1): divisors are equidistributed **within their character class**. Equivalently, by orthogonality,
   M_R keeps the principal character *and the real character J(−t, ·)* in the expansion of 1[d ≡ −1 (t)], i.e. the
-  level-t term is (τ − S_t)/(…) with S_t(N) = Σ_{d | N} χ_t(d) = Π_{r^e‖N}(1 + χ_t(r) + … + χ_t(r)^e) ≥ 0 — the
-  total number of ideals of norm N in the quadratic order of discriminant ≍ −4t. **The reciprocity factor at level t is
+  level-t term is (τ − S_t)/(…) with S_t(N) = Σ_{d | N} χ_t(d) = Π_{r^e‖N}(1 + χ_t(r) + … + χ_t(r)^e) ≥ 0 — for N prime to
+  the conductor, the number of ideals of norm N in ℚ(√−t) (Dirichlet; Assessment-level identification). **The reciprocity factor at level t is
   "divisors minus binary-quadratic-form representations"**, and it vanishes exactly at clean levels (S_t = τ).
   M_R(m²) = 0 identically (every level of a square is clean), for the trivial reason (d/m²) = 1.
 
@@ -179,7 +179,7 @@ primes m² + K ∈ [4·10⁵, 4·10⁶]).** Ratios of pooled sums:
 | odd squares (T1) | 684 | 48.7 | 0 | 0 | M_R = 0 | 1 | 0 |
 
 gap = 1 − (N₋/M)/(generic N₋/M). Per-n standard errors of the share ≈ 0.012, so gaps carry ≈ ±0.02–0.03. Readings:
-(i) M_R is exact at squares by construction (M₀ predicts ≈ 1.1 slice words per word-unit there); (ii) at near-squares
+(i) M_R is exact at squares by construction (M₀/W ≈ 1.10 at squares); (ii) at near-squares
 m² + K with T1-type levels (K = 1, 4, 8, 16, 24), M_R removes **≈ 35–55 %** of the deficit that the congruence model
 leaves; the remaining 7–15 % deficit relative to M_R is significant (≈ 3–7σ per family); (iii) K = 25, −3 show no
 deficit beyond noise; (iv) generic primes have N₋/M_R ≈ 1.05: divisors with χ = −1 land in the class −1 (mod t)
