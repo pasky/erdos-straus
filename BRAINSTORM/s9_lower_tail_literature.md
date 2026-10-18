@@ -19,7 +19,7 @@ group action, M4 free choice of objects, M5 count congruence).
 | n = p + x² + y² (Linnik 1960, dispersion; Hooley under GRH) | ≍ n/… (power) | yes | M1a |
 | n = p + (k-free) (Estermann 1931) | power | yes | M1a |
 | ternary forms, Duke–Schulze-Pillot, Invent. Math. 99 (1990) | n^{1/2} | yes (large n, spinor-genus admissible) | M1a + spinor (genus) layer |
-| Markoff-type x² + y² + z² − xyz = k (Ghosh–Sarnak, Invent. Math. 229 (2022)) | (log k)² | **no**: infinitely many integral Hasse failures; many explained by reciprocity (Loughran–Mitankin; Colliot-Thélène–Wei–Xu) | structured exceptions at ES's own scale |
+| Markoff-type x² + y² + z² − xyz = k (Ghosh–Sarnak, Invent. Math. 229 (2022)) ✓ (R282) | (log k)² on average = number of ORBITS of the Markoff group (GS §7; each orbit infinite; R282 repair) | **no**: infinitely many integral Hasse failures; many explained by reciprocity (Loughran–Mitankin; Colliot-Thélène–Wei–Xu) | structured exceptions at ES's own scale |
 | Erdős–Turán conjecture (r(n) ≥ 1 ∀ n ⇒ r unbounded) | — | open | (shows the theory of thin bases is about designed sets) |
 | Bloom 2021 (positive-density sets contain unit-fraction sums = 1), Croot 2003 | — | density statements, not every n | M1a-type density |
 

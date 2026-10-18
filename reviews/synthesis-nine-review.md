@@ -5,7 +5,7 @@ Lemma 2.0 (BL's class at level points: χ_{−t} for n ≡ 1 (4), −χ_t for n 
 collider correction of SHARP 2 in (I1), Prop 1.3, its Assessment, §4, §5 (D5); D3, D6, D7/D8, D11, D2 minors. Memos
 s9_level_bm_character, s9_union_thinning, s9_disproof_class_layer (D10–D12), s9_fibration_level; BRAINSTORM/README s9 rows.
 NOT edited: reviews/agent-reports/AGENT_REPORT_O271.md (SHARP 1/2 wording there still carries D1/D5 — parent should read this
-review instead). D4, D9 left as notes.
+review instead). D4 left as a note; D9 applied to the literature memo.
 
 Reviewer branch: side-agent/review-synth-nine (merged side-agent/synthesis-nine at 572d541b; BRAINSTORM/README.md conflict
 resolved by keeping both the z39 and s9 tables). From-scratch scripts: `scripts/review_r282_*`. ES is not solved anywhere.
