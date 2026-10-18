@@ -1,8 +1,7 @@
 # z31 — Markoff surfaces, strong approximation mod p, Chen's divisibility (O261 field memo 2; DEEP item)
 
 Labels as in DISCOVERIES.md. Read by me: `sources/lit2026g/chen_markoff.txt` (Chen arXiv:2011.12940, pp. 6–7). Builds on
-LITERATURE_2026 §(ii), LITERATURE_AUTOMORPHIC (Ghosh–Sarnak ✔), MARKOFF_ES.md ((J)36: cap-1 ES variants are integral points on
-Markoff-type cubics), thin_group_orbits.md §3.
+LITERATURE_2026 §(ii), LITERATURE_AUTOMORPHIC (Ghosh-Sarnak ✔), x §3.
 
 ## (a) Counterpart statements (two different axes — the distinction is the point)
 * **Axis 1 (fixed surface, varying reduction prime):** X : x² + y² + z² = xyz (Chen's normalisation), Γ = ⟨Vieta moves,
