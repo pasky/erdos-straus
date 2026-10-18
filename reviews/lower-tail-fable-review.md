@@ -70,3 +70,14 @@ applies since a = (p+1)/2 ≡ 3 (4)). Every prime has a pair; no odd square does
 
 So "⇐" (each pair gives ES(p)) is SOUND, relative to nothing beyond the reviewer's identities S1–S5 plus Thm 4.5's
 mod-8 cell check (re-verified here on all pairs).
+
+*The "⟹" direction is open.* The images of S1–S5 are the five DK slices: proper sub-families of Thm 1.1's
+certificates (S3 is Type II with m = 1, i.e. (u+v)/e = 1; S4/S5 are Type II with one of the two coprime divisors
+equal to 1; S1/S2 are Type I with a = 1). Nothing in §2.8 maps an arbitrary ES solution into one of them, and
+DEDEKIND_ES Cor 4.6 states only "the five X/e-slices of ES(p) together hold ⟺ λ(p) ≤ 3" — the ledger calls this
+**ES-five / ES₅** ((J)-items at DISCOVERIES l. 596–598, 1630) and lists λ(p) ≤ 3 as EVIDENCE/CONJECTURE, not as a
+consequence of ES. Measured from scratch: of the 8 334 solutions at the 211 primes < 3000, **4 671 (56 %) are not
+produced by any (r, A)**; at p = 2521 only 2 of 9 solutions are five-slice. So "ES(p) ⟹ Legendre form" would be a new
+theorem (ES ⟹ ES₅), not a re-indexing. Since ES(p) is known for all p in range, the brute-force "0 mismatches"
+of `z43_fable_hj.py` cannot test this direction (the author's own report says so for the even branches; the issue is
+the whole ⟹ direction, not the even branches).
