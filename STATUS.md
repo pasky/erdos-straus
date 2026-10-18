@@ -7,6 +7,29 @@
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
 proof has an identifiable gap.
 
+**Wave AC: the single-integer lower tail, attacked from every side (2026-10-18/19; ledger (J)103–(J)108; tasks O271–O276, reviews R282–R287, board #2 ~/.pi/boards/20261018-es-lowertail): ES is not solved.**
+* *Synthesis IX ((J)103).*
+  * In level coordinates the Brauer–Manin layer is pointwise free (Prop 2.2).
+  * No natural every-n theorem with a polylog main term exists in the literature.
+  * Fixed-p variance arguments fail.
+  * The near-independent units are levels, with E[#hit levels] ≈ (0.44 → 0.97)·log p, which is critical.
+* *2-power ladder ((J)104).*
+  * Higher reciprocity frees no further character layer.
+  * The Stickelberger dictionary shows the BM layer and T1 are exactly the m = 2 coincidence S = D.
+* *Board #2 (Fable, GPT Astra, Gemini Argon; (J)105).*
+  * Unanimous: no single-prime lower-tail mechanism.
+  * The slate produced:
+    * an ABH attribution (λ(p) ≤ (6/π²) log p log log p);
+    * moving-window witnesses for almost all p;
+    * the T1-exact five-slice main term with constant 45/(8π²) and Burgess bound 45/(32π²);
+    * the 8/n zero law to 10⁹ (β ≈ 0.88).
+* *Sustained attacks by two other frontier models ((J)106 GPT Astra, (J)107 Claude Fable).*
+  * Both independently reconstruct the campaign's map and end at a tied-modulus divisor event.
+  * Astra proves that the positive words form a forest, and that rooted constructions fail under Dickson.
+  * Fable gives a canonical two-target form.
+* *Power ladder ((J)108).* The k-th power relaxation ladder is flat: odd k is trivial by a mod-4 identity, and even k is ES^□. There is no intermediate rung.
+* *Assessment.* Every route, by every model, ends at the one-sided lower tail R(p) ≥ 1 at a single integer. The main term is a theorem (M_BM ≫ log²p). The missing step needs a genuinely new idea of a kind not present in the current literature.
+
 **Wave AB: counting at one prime, disproof, cross-field net, two advisory boards (2026-10-18; ledger (J)92–(J)102; tasks O260–O270, reviews R271–R281, boards ~/.pi/boards/20261018-es-routes and -lowertail): ES is not solved.**
 * *Counting at one prime ((J)98, (J)100, (J)101).*
   * For the (★) count, R(p) = M_gen + X: the obstruction at odd squares (T1) lives entirely in the order-2 characters.
