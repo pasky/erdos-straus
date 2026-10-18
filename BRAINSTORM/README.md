@@ -601,3 +601,13 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z32_numerator_ladder | sibling lotteries m/p (Type II), m = 4…24, all p ≤ 10⁸ | universal zero law P(0) ≈ exp(−0.535 μ^{0.91}) validated out of sample; NB falsified; one-constant crossover q_m (log p_last)³ ≈ 12 | EVIDENCE + Assessment |
 | z32_adversarial_search | adversarial primes 10¹⁸–10²⁵ | hardest p = 2054098191162848070241: 870 solutions in e ≤ 2047 (0.26 × controls); depression saturates | EVIDENCE |
 | z32_prime_T1 | the only conceivable disproof route | a "prime T1": a global invariant correlating ≍ log³p divisor events; none found | Assessment |
+
+### z38 — O268 BM-corrected count for (★): Brauer character, unconditional main term, remainder hypotheses (deep file BM_CORRECTED_COUNT.md)
+| memo | idea | outcome | label |
+|---|---|---|---|
+| z38_brauer_character | BL's class in the pair character expansion | it is the single Kronecker character χ_{−4uB} (value −1 at the target); principal + it = 1 + inv_∞inv_p (BR factor at integral points); "genus = BM" refuted | PROVED |
+| z38_mbm_unconditional | (L) at full strength for the geometric main term | M_BM(p) ≥ (3/(16π²) − o(1))log²p unconditionally (Burgess), ∼ M₀ under GRH (board F4 obligation (i)) | PROVED + CONDITIONAL |
+| z38_two_sided_false | consistency of "\|X\| < M" | false i.o. (Linnik: R(p) ≥ exp(c log p/log log p)); only one-sided H⁻ survives | PROVED (negative) |
+| z38_markoff_precedent | Ghosh–Sarnak Markoff surfaces as calibration | same (log)² scale; there "BM density ≫ 1 ⟹ point" fails i.o., mostly non-BM | Assessment (literature) |
+| z38_shared_brauer_character | b = 1 line and union | (★), b = 1 = shifts −(x+y), −(4x+y) mod 4xy with the same χ_{−4xy}; residuals positively correlated, no complementarity | PROVED + EVIDENCE |
+| z38_numerator8_control | 8/n control | same Brauer character; c = 1 line fails at 835 primes ≤ 10⁶ incl. 131, 241 | EVIDENCE (control passed) |
