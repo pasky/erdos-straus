@@ -62,7 +62,7 @@ factors of t and the theorem applies factor by factor (each factor's Frobenius i
 CLASS_FORCING Thm 2.1(c)(i)(ii) / z33_kummer_shadow ((J)93) transported from p-coordinates to level coordinates — the roles of
 "fixed datum" and "moving prime" are swapped (there p moves, here the level prime q moves); not new as mathematics.
 
-**Theorem 3.2 (Stickelberger dictionary: what exactly the forcing sees; PROVED for m = 3, 4, EVIDENCE-free identity).**
+**Theorem 3.2 (Stickelberger dictionary: what exactly the forcing sees; PROVED for m = 3, 4; identity re-checked numerically for m = 3).**
 Let ℓ ≡ 1 (mod m) split as ℓ = ∏_{a∈(ℤ/m)^×} σ_a(λ) in K, with K a PID (m = 3, 4), λ primary, and put
 x_a := (σ_aλ/𝔮)_m ∈ μ_m (the Frobenius vector of ℓ at the level prime). Then
 * the ES (Dirichlet) datum is the **norm component** D := ψ_𝔮(ℓ) = ∏_a x_a;
@@ -81,3 +81,8 @@ a = −1 gives 2. ∎
 (SPARKS9 Prop 2.2) and the whole reason T1 exists. For m ≥ 3 the level prime's Frobenius vector has φ(m) coordinates; the
 forcing measures one Galois-twisted linear form, ES needs the untwisted one. The general-m form of the identity needs Eisenstein
 reciprocity (m odd prime) with ideal-theoretic symbols; we only use m = 3, 4, and Thm 3.1 covers all m without it.
+
+Checks (`scripts/z41_stickelberger.py`, `logs/z41_stickelberger.txt`): (q/λ)₃ = x₁x₂² on all 882 pairs ℓ < 60, q < 2000
+(primes ≡ 1 mod 3, primary generators): 0 failures. Along forced progressions (q < 2·10⁵) S is constant for each (n, ℓ), while
+"ℓ is a cube mod q" occurs at 491/1492, 257/759, 255/741, 174/508 (≈ 1/3) for n = 27, 125, 343, 729 (cubes) and identically
+for squares and generic n (9, 25, 7, 131, 241). The m = 4 analogue is §2 (Gaussian-lift functionality, 0 clashes).
