@@ -62,15 +62,19 @@ points, inv_p = χ_{−4uB}(p), (2) and (4), and χ_{−4uB}(p) = −1 at all 37
 
 **What this says about O260's dictionary (goal 1; refutation of the strong form, proof of the corrected form).**
 * The O260 guess "genus indicator of Prop 2.2(a) = local BM invariant" is **false as stated**: the genus indicator is the
-  conjunction of s(q) = 2^{ω(uB odd)+2} independent quadratic conditions (all real characters mod q), the Brauer class
+  conjunction of log₂ s(q) = ω(uB odd) + 2 independent quadratic conditions (all s(q) real characters mod q), the Brauer class
   contributes exactly one of them, χ_{−4uB}. The other real characters mod q are (d/·) with d | q a divisor depending on the
   factorisation of u and B; as functions of the point they are not restrictions of any element of Br U_n (which is ℤ/2
-  mod constants), so they are not Brauer–Manin data (Assessment: they are "genus of the moving modulus" data —
-  the Brauer groups of the individual fibres over (u, B), not of the surface).
+  mod constants), so they are not Brauer–Manin data of U_n (Assessment; an interpretation via Brauer groups of fibres was
+  not established).
 * The **corrected, exact** dictionary: in the orthogonality expansion of the pair indicator, the principal character gives
   the naive singular series 1/φ(q), and **BL's class is the Kronecker character χ_{−4uB}**, giving the Borovoi–Rudnick-type
-  BM density factor 1 + inv_∞ inv_p = 1 − χ_{−4uB}(p). This is the classical BR/CT–Xu shape "density × (1 + Σ_{β ∈ Br/Br₀}
-  ∏_v inv_v β)" with Br/Br₀ = ℤ/2, evaluated pair by pair.
+  BM density factor 1 + inv_∞ inv_p = 1 − χ_{−4uB}(p). This has the classical BR/CT–Xu shape "density × (1 + Σ_{β ∈ Br/Br₀}
+  ∏_v inv_v β)" with Br/Br₀ = ℤ/2 **only at integral points** (hits), where inv_ℓ = 1 for ℓ ≠ p, ∞. At a non-hit
+  rational point P_{u,B} the full product is 1 by reciprocity and the factor 1 + inv_∞ inv_p keeps only the places ∞, p
+  (e.g. p = 17, (u, B) = (1, 2): inv₂ = −1, inv₁₇ = +1, inv_∞ = −1). So "BM-corrected singular series" below means: naive
+  density 1/φ(q) at the places dividing q, times the BM factor at {∞, p} — a heuristic density replacement, not a theorem of
+  BR type (R-review repair).
 * Thm 1.1(3) also makes BL Cor 1.3 on (★), the χ-shadow of PARITY_AUDIT Lemma 3.2 and the pair genus law of B1_LINE
   Lemma 1.2 one statement: "χ_{−4uB}(target) = −1" (an elementary identity, (2)).
 
@@ -110,17 +114,18 @@ By Möbius over d | u: the first sum is Σ_{d|u} μ(d)d^{−1}H(Y_u/d), H(t) = �
 so it is at most κ(u)·g(p) in absolute value, κ(u) := ∏_{ℓ|u}(1 + 1/ℓ), g(p) := sup_t |G(t)|.
 PV: |Σ_{k≤s} χ(k)| ≤ √p log p for all s, so with T₀ = √p L², |G(t)| ≤ H(T₀) + 2√p log p/T₀ ≤ (1/2)L + 2 log L + 2 for every
 t (trivially for t ≤ T₀). Burgess: Σ_{k≤s} χ(k) ≪ s·p^{−η} for s ≥ p^{1/4+ε}, whence g(p) ≤ (1/4 + ε)L + O(1).
-Write g(p) = βL + o(L) (β = 1/2 or 1/4 + ε). Then
-  M_BM(p) ≥ (1/4) Σ_{u odd ≤ X} u^{−1}[(φ(u)/u)(L − log 8u) − κ(u)βL] − o(1).
+So g(p) ≤ βL + o(L) (β = 1/2, or β = 1/4 + ε for fixed ε > 0; for the partial summation, truncate at k ≤ p and use
+periodicity of χ beyond). Then
+  M_BM(p) ≥ (1/4) Σ_{u odd ≤ X} u^{−1}[(φ(u)/u)(L − log 8u) − κ(u)(βL + o(L))] − O(L).
 Standard Dirichlet-series asymptotics (residues of ζ_odd(1+s)·∏_{ℓ odd}(1 ∓ ℓ^{−2−s})): Σ_{u ≤ X odd} φ(u)/u² = (4/π²)log X
 + O(1), Σ_{u ≤ X odd} φ(u) log u/u² = (2/π²) log² X + O(log X), Σ_{u ≤ X odd} κ(u)/u = (6/π²) log X + O(1). With X = p^δ:
   M_BM(p) ≥ (L²/(4π²))·(4δ − 2δ² − 6βδ) − O(L log L).
 (the O(κ(u)) errors sum to O(L)). β = 1/2: max at δ = 1/4, value 1/8, giving 1/(32π²). β = 1/4 + ε: on δ ≤ 1/2 the
-maximum is at δ = 1/2, value 3/4, giving 3/(16π²). (Allowing δ > 1/2 gains < 1 %: the H(t), t < 1/8, error then costs
-6(δ − 1/2)² in the same units.) For M₀: the bulk is (1/4)Σ_{m ≤ p/4, 2|m} 2^{ω(m)}/φ(m) and Σ_{2|m} 2^{ω(m)}m^{−s}/φ(m) has a double pole at s = 1 with
+maximum is at δ = 1/2, value 3/4 − 3ε, giving 3/(16π²) after ε ↓ 0. (Allowing δ > 1/2 gains < 1 %: the H(t), t < 1/8, error then costs
+6(δ − 1/2)² in the same units.) For M₀: the bulk is (1/4)Σ_{m ≤ p/4, 2|m} 2^{ω(m)}/φ(m) and Σ_{2|m} 2^{ω(m)}m^{−1−s}·m/φ(m) has a double pole at s = 0 with
 leading coefficient 4·(1/4)·∏_{ℓ odd}(1 + ℓ^{−2}) = 12/π² (2-part 4·Σ_{k≥1}2^{−ks}·2^{k}/2^{k−1}·…, ζ_odd² ~ 1/(4(s−1)²),
-local factors (1 − 1/ℓ)² + 2/ℓ = 1 + 1/ℓ²), so the bulk is (1/4)(6/π²)L² + O(L); the boundary pairs (uB > p/4) contribute
-Σ_u O(1/u²) = O(1). ∎
+local factors (1 − 1/ℓ)² + 2/ℓ = 1 + 1/ℓ²), so the bulk is (1/4)(6/π²)L² + O(L); for the leading term it suffices that the pair set is sandwiched between
+{uB ≤ p/4} and {uB ≤ (p+1)/3}, whose bulk sums differ by O(L) (R-review repair: replaces an unjustified O(1) boundary bound). ∎
 
 **Proposition 2.3 (CONDITIONAL on GRH for (·/p); this is F4's obligation (i), now with a derivation).** Under GRH,
 T(p) = o(L²), hence M_BM(p) = M₀(p)(1 + o(1)) = (3/(2π²) + o(1))L².
@@ -144,15 +149,15 @@ the hypothesis, with an unconditional main-term lower bound. Whether H_BM is tru
 ### 3.1 The two-sided hypothesis is false infinitely often (PROVED)
 
 **Proposition 3.1 (PROVED, via Linnik's theorem).** There are infinitely many primes p ≡ 1 (mod 4) with
-R(p) ≥ exp((log 2/(2L_Lin) − o(1))·log p/log log p), L_Lin a Linnik exponent (L_Lin = 5 admissible, Xylouris). Since
-M_BM(p) ≤ M₀(p) ≪ (log p)² and M_gen(p) ≤ Σ_{𝒫(p)} s(q)/φ(q) ≪ (log p)⁴, both |X_BM(p)|/M_BM(p) and |X(p)|/M_gen(p) are
+R(p) ≥ exp((log 2/L_Lin − o(1))·log p/log log p), L_Lin a Linnik exponent (L_Lin = 5 admissible, Xylouris). Since
+M_BM(p) ≤ 2M₀(p) ≪ (log p)² and M_gen(p) ≤ Σ_{𝒫(p)} s(q)/φ(q) ≪ (log p)⁴, both |X_BM(p)|/M_BM(p) and |X(p)|/M_gen(p) are
 unbounded on these primes. Hence **every two-sided hypothesis |R − M| ≤ E with E = (log p)^{O(1)}, in particular O260's
 H_X "|X(p)| < M_gen(p) for all large p", is false infinitely often** (in the harmless direction R ≫ M).
 *Proof.* Let Q_k be the product of the first k primes ≡ 3 (mod 4). Choose a prime p ≡ −1 (mod Q_k), p ≡ 1 (mod 4),
 p ≪ (4Q_k)^{L_Lin} (Linnik). For every divisor d | Q_k with an odd number of prime factors, d ≡ 3 (mod 4), so C := (d + 1)/4
 is an integer and B := (p + 1)/d is an even integer: (u, B, C) = (1, B, C) solves 4uBC − u − B = Bd − 1 = p. These are
-2^{k−1} distinct solutions. log Q_k ~ 2k log k (k-th prime ≡ 3 (4) is ~ 2k log k), so log p ≤ (L_Lin + o(1))·2k log k
-and k ≥ (1/(2L_Lin) − o(1))·log p/log log p. Upper bounds: M₀ ≍ (log p)² (Thm 2.2 proof) and Σ_{m ≤ p/3} 4^{ω(m)}/φ(m) ≪ (log p)⁴. ∎
+2^{k−1} distinct solutions. log Q_k = θ(ℓ_k; 4, 3) ∼ ℓ_k/2 ∼ k log k (ℓ_k ∼ 2k log k the k-th prime ≡ 3 (4)), so log p ≤ (L_Lin + o(1))·k log k
+and k ≥ (1/L_Lin − o(1))·log p/log log p. Upper bounds: M_BM ≤ 2M₀ ≍ (log p)² (Thm 2.2 proof) and Σ_{m ≤ p/3} 4^{ω(m)}/φ(m) ≪ (log p)⁴. ∎
 (Numerically the upper tail is already visible: at primes p ≡ 1 (4) in [3·10⁵, 10⁶), 766 of 26 195 have R > 2M_BM, and
 max |X_BM|/M_BM = 2.5; `scripts/z38_hx.py`.)
 
@@ -205,21 +210,23 @@ R* = M_BM = M_BM8 = 0.** Primes p ≡ 1 (4), M = M_BM:
   density 1/x (O260); Montgomery's conjecture for primes in APs and the Friedlander–Granville limitations are about
   π(x; q, a) at moduli q ≤ x^{1−ε}, i.e. averages over the integer, never one integer; Kuznetsov/θ only after averaging over p
   (O260 §6). None is single-integer. H⁻_BM is a single-integer lower-tail statement with a polylog main term, i.e. of
-  Heath-Brown "three cubes" / Hardy–Littlewood-single-N type, not implied by any of them. **So no "ES ⟸ GRH + H" with H a
+  Heath-Brown "three cubes" / Hardy–Littlewood-single-N type; no implication from any of them is established here (and
+  none is known to us). **So no "ES ⟸ GRH + H" with H a
   standard equidistribution hypothesis results; the best exact statement is "ES ⟸ H⁻_BM" with an unconditional main term.**
-* **Markoff precedent (literature; Ghosh–Sarnak, Invent. Math. 229 (2022) 689–749, arXiv:1706.06712).** For the log K3
-  surfaces V_k : x² + y² + z² − xyz = k, the class numbers h(k) of integral points have mean ∼ C(log k)² (their (1.6)) — the
-  same polylog-square scale as (★) (M₀ ∼ 0.152(log p)²) — a product of local densities δ^{(m)}(k) approximates h(k) for
-  almost all k (their §9, via a variance bound averaged over k), yet **Hasse failures are infinite** (Thm 1.2(i):
-  ≫ √K/(log K)^{c} of them up to K, c = 1/2 in the arXiv v-final text, 1/4 as quoted by Browning et al.), numerically ∼ C₀K^{0.8875} (their (1.7)), and only O(√K) are explained by integral
-  Brauer–Manin obstructions (Loughran–Mitankin IMRN 2021; Colliot-Thélène–Wei–Xu, Ann. SNS Pisa 2020). Browning et al.'s log K3
-  heuristics (Selecta Math. 2025, doi 10.1007/s00029-025-01074-1, "Integral points on cubic surfaces: heuristics and numerics") note the BM obstruction is not
-  always sufficient for log K3. **Lesson:** in the one well-studied family with the same main-term scale, "BM-corrected local
-  density ≫ 1 ⟹ points exist" is FALSE infinitely often, and the failures are mostly unexplained. For ES the analogous
-  hypothesis H⁻_BM is consistent with all data, but the precedent shows it is a genuinely strong statement, not a standard
-  heuristic consequence. (Difference: ES failures for (★) at primes look finite in the census; GS's failures are power-many
-  and include structured families k = 4 + βν² from the singular Cayley cubic. A structured family for (★) would be a "prime
-  T1"; none is known (z32_prime_T1).)
+* **Markoff precedent (literature; Ghosh–Sarnak, Invent. Math. 229 (2022) 689–749, arXiv:1706.06712; Loughran–Mitankin,
+  IMRN 2021, arXiv:1807.10223 = `sources/r202/1807.10223.txt`; Colliot-Thélène–Wei–Xu, Ann. SNS Pisa 2020).** For the log K3
+  surfaces U_m : x² + y² + z² − xyz = m, the class numbers h(m) have mean ∼ C(log m)² (GS (1.6)) — the same polylog-square
+  scale as (★) — and a product of local densities δ^{(m)} approximates h for almost all m (GS §9, variance averaged over m).
+  Yet: infinitely many integral Hasse failures (GS Thm 1.2(i); the method gives ≫ B^{1/2}/(log B)^{1/2}, per LM p. 3);
+  **infinitely many Hasse failures with non-empty integral BM set**: LM Thm 1.5 (≫ B^{1/2}/log B), improved by CTWX Thm 5.8
+  to ≫ B^{1/2}/(log B)^{1/2}; GS's numerics suggest ≍ B^{γ} failures with γ ≈ 0.89 > 1/2, in which case (with LM Thm 1.4's
+  upper bound for BM-explained failures) almost all failures would be non-BM — this last point is conditional on the numerics.
+  Browning et al. (Selecta Math. 2025, doi 10.1007/s00029-025-01074-1) record that BM is not always sufficient for log K3.
+  **Lesson (Assessment):** in the one well-studied family with the same main-term scale, "BM set non-empty ⟹ integral point"
+  is FALSE infinitely often (LM Thm 1.5). Caveat: these theorems concern non-emptiness of the BM set, not a uniformly large
+  BM-corrected density along the failures; so the precedent shows H⁻_BM is a strong statement, not that its analogue fails
+  at large density. (Difference: (★) failures at primes look finite in the census; GS's failures include structured families
+  m = 4 + βν² from the singular Cayley cubic. A structured family for (★) would be a "prime T1"; none is known (z32_prime_T1).)
 
 ## 4. The b = 1 line, the union (★) ∪ b = 1, full Type II, and the numerator-8 model
 
