@@ -201,6 +201,9 @@ s9_disproof_class_layer SOUND-AFTER-REPAIRS (D1, D10, D11).**
 **D11 (MINOR).** The n = 7, t = 12 example is also killed by SIZE: a (★) word at level t needs d ≥ t − 1 and N/d ≥ t − 1, i.e.
 N ≥ 121 > 85 (indeed all words of 7 have t ≤ 9). So it does not isolate a genus obstruction from the size constraint β_t. Use an
 example where size allows a hit, e.g. scan (n, t) with tn + 1 ≥ (t − 1)², an inert prime factor present, and class −1
-absent only because of a second real character (the author can generate one with s9_level_bm.py in seconds).
+absent only because of a second real character. Concrete replacement (R282 search, `/tmp`-free: rerunnable in a few lines with
+`review_r282_levelbm2.kron`): **n = 17 (≡ 1 (4), non-square), t = 12**: N = 205 = 5·41 ≥ 11², χ_{−12}(5) = χ_{−12}(41) = −1 but
+χ_{−4}(5) = χ_{−4}(41) = +1, divisor classes {1, 5, 5, 1} mod 12 — class 11 excluded by χ_{−4} alone, size not binding. (Others:
+n = 23, t = 8, N = 185 = 5·37, χ_{−4}; n = 23, t = 16, N = 369 = 3²·41, χ_{−8}.)
 **D12 (MINOR — label consistency).** "level form of BL Thm 1.8" (memo Assessment; report SHARP 1) — for n ≡ 3 (4) the
 character involved is not BL's (D1); restrict to n ≡ 1 (4).
