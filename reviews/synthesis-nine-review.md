@@ -9,8 +9,22 @@ resolved by keeping both the z39 and s9 tables). From-scratch scripts: `scripts/
 |---|---|
 | Prop 2.1 (a)–(d) (M^{lev}_t ≥ 0, = 0 at squares) | SOUND (as statements about the defined quantity M^{lev}) |
 | Prop 2.2 (∃ 4 \| t with M^{lev}_t > 0 ⟺ non-square; witness t ≤ 4ℓ(n)) | SOUND |
-| "in level coordinates BL's class IS χ_{−t}" (I2, §2 Reading, §5, memo title, README "PROVED") | GAP → SOUND-AFTER-REPAIRS (true only for n ≡ 1 (4), and never proved in the document; see D1) |
+| "in level coordinates BL's class IS χ_{−t}" (I2, §2 Reading, §4, §5, memo, README, report SHARP 1) | GAP → SOUND-AFTER-REPAIRS (unproved in the document; true only for n ≡ 1 (4); for n ≡ 3 (4) it is −χ_t, even) — D1 MAJOR |
 | 0 failures over 499 500 odd non-squares ≤ 10⁶; 73.4 % witness-level hit rate | SOUND (reproduced exactly) |
+| Lemma 1.1, Cor 1.2 (k-union ⟺ a word coordinate ≡ 0 (k)) | SOUND (holds for all n ≥ 1, k ≥ 2) |
+| sign remark (4 \| t or 4 \| v ⇒ σ = −1) | SOUND |
+| Prop 1.3 / SHARP 2 numbers (+0.37/+0.39; 0.03/0.01 given log W; 0.59×) | SOUND (reproduced) |
+| SHARP 2 interpretation ("the shared factor is the size of W(p)") | GAP — collider artefact; disjoint size controls leave ≈ 0.35 (D5 MAJOR) |
+| Lemma 3.1 (plain ℓ² certificate ⟺ m̄² > (\|G\| − 1)V, then all classes) | SOUND |
+| Lemma 3.2 | SOUND (tautology, labelled as such) |
+| Prop 3.3 / 3.4 (Janson, level-Poisson) | SOUND as EVIDENCE (D7, D8 minor) |
+| literature map (Crocker 1971, Pan 2011, Erdős–Tetali 1990, Ghosh–Sarnak) | SOUND (D9 minor) |
+| s9_no_fixed_integer (Hecke positivity pushes against ES) | SOUND (Assessment + PROVED inequality) |
+| s9_fibration_level | SOUND-AFTER-REPAIRS (D1 propagates; collapse = Assessment, fine) |
+| s9_disproof_class_layer / corollary scope after self-review | SOUND-AFTER-REPAIRS (D1, D10–D12 minor) |
+| labels overall | SOUND after D1/D5 relabels; no FATAL defect; ES not claimed |
+
+No FATAL defects. Two MAJOR (D1 dictionary scope/proof; D5 statistical interpretation), ten MINOR.
 
 ## Claim A — Prop 2.1, Prop 2.2 and the "BL's class is χ_{−t}" dictionary
 
