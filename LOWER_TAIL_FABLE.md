@@ -111,6 +111,22 @@ Assessment: this is the cleanest *covering-system* statement of ES at a prime �
 "the infinite system {(A, −c) : c | A+1} covers the primes", i.e. exactly the problem Mordell/ET posed, with
 no finite sub-system sufficing (B1). It was useful to me only as a lens; it is not a mechanism.
 
+### 2.9 The mutual-shift graph (PROVED dictionary; census EVIDENCE)
+
+Symmetrising 2.8 by a = t: ES(p) ⟺ ∃ coprime t, e ≥ 1 with te | p + t + e and (te/p) = −1.
+Define the graph G_p: vertices e ≥ 1, edge t—e iff gcd(t,e) = 1 and te | p + t + e (equivalently t | p + e
+and e | p + t), colour (e/p). Then **ES(p) ⟺ G_p has a bichromatic edge.** The vertex condition
+"p + e has a divisor ≡ −p (mod e) coprime to e" is sign-free (no 4, no parity): T1 lives entirely in the
+colouring. Vertex 1 is adjacent to every divisor of p + 1; vertex 2 to every odd divisor of p + 2; the
+neighbours of e are the divisors of p + e in the class −p (mod e).
+Census (`z43_fable_graph.py`, primes p ≡ 1 (4) < 3000, 211 primes): G_p is connected for 28 of them; the
+component of 1 has ≍ log² p vertices and contains a QNR vertex for 209 of 211 primes; the other components
+are sporadic 2- or 3-cliques ({4,7,11} at 73, {9,14} at 229, …); every prime has a bichromatic edge, no odd
+square has one (21 squares checked).
+Assessment: "some component is bichromatic" is a global, sign-free reformulation, and a colouring argument
+would need the walk 1 → (divisors of p+1) → (divisors of p+e in class −p mod e) → … to be forced to reach a
+non-residue. Nothing forces it: the walk is a divisor-structure walk (B2 at every step). Recorded as a lens.
+
 ## 3. Mechanism audit (construction attempts, each with the barrier hypothesis it meets)
 
 Every item was first pushed as far as it goes constructively; the barrier is named only where the construction
