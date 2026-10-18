@@ -601,3 +601,13 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z32_numerator_ladder | sibling lotteries m/p (Type II), m = 4…24, all p ≤ 10⁸ | universal zero law P(0) ≈ exp(−0.535 μ^{0.91}) validated out of sample; NB falsified; one-constant crossover q_m (log p_last)³ ≈ 12 | EVIDENCE + Assessment |
 | z32_adversarial_search | adversarial primes 10¹⁸–10²⁵ | hardest p = 2054098191162848070241: 870 solutions in e ≤ 2047 (0.26 × controls); depression saturates | EVIDENCE |
 | z32_prime_T1 | the only conceivable disproof route | a "prime T1": a global invariant correlating ≍ log³p divisor events; none found | Assessment |
+
+### z39 — O269 metaplectic / theta-multiplier view of T1; ES-side half-integral weight objects (deep file METAPLECTIC_ES.md)
+| memo | idea | outcome | label |
+|---|---|---|---|
+| z39_kronecker_levels | each level t as a split indefinite theta | level series minus partner quadrant = Kronecker quotient θ'θ(2z)/θ(z)² at a t-torsion point (normalisation not carried out); coefficients = odd/even-character divisor sums + ±2 + boundary; no cusp forms; log² in the even (weight-0) part; T1 = exact even/odd cancellation on 4 \| t at squares | identity PROVED, modular reading Assessment, sizes EVIDENCE — SHARP candidate |
+| z39_serre_stark_support | weight-½ objects with ES support | Serre–Stark: supports are finitely many periodic square classes; T1 squares = supp θ; the five-slice failure set {λ > 3} (with 105) is not an exact weight-½ support (periods ≤ 96; all under SQ₅) | PROVED + CONDITIONAL |
+| z39_positive_coset | self-level as group condition | ES level t = elements with b = n, a, d ≥ 2t − 1 of the Bruhat cell of −I in Γ₁(t) (⟨T⟩-bi-invariant); +I cell always non-empty; ν_θ ≡ −i on positive self-levelled elements of −Γ₁(4) | PROVED dictionary |
+| z39_quartic_slices | quartic (Kubota) sign for numerator 8/16 | u↔v inverts χ₄(A): χ₄(A) is no symmetric sign; ordered bit balanced; other quartic invariants not excluded | PROVED (narrow) + EVIDENCE (negative) |
+| z39_gl3_shifted_divisor | the level sum | Σ R(n)q^n = Σ_{u,v} q^{2uv−u−v}/(1−q^{uv}); relative of d₃ only up to boundary terms (GL(3) analogy) | PROVED identity + Assessment |
+| z39_square_discriminant_shadow | ES as the "shadow sector" of Zagier's ℋ | Kronecker packaging shows no shadow (not a classification: split exponents occur in Appell–Lerch sums too); T1 squares ≠ shadow squares | Assessment (negative) |
