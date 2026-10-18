@@ -1,0 +1,35 @@
+== m=12 zeros=45460 admissible=1666357 (both samples of 3000 with exact M; nadm_eff=109966.36603607568)
+calibration exact-proxy: population n=0 median 0.000 rms-dev nan max|dev| nan;  zeros n=0 median nan rms-dev nan
+window [5e+06,1e+07]: zeros 3000 (exact M for 0), population sample 3000, admissible 109966
+  zeros with M >= 20: 0  (of which exact: 0)
+  zeros with M >= 22: 0  (of which exact: 0)
+  zeros with M >= 24: 0  (of which exact: 0)
+  zeros with M >= 26: 0  (of which exact: 0)
+  zeros with M >= 28: 0  (of which exact: 0)
+  zeros with M >= 30: 0  (of which exact: 0)
+ bin        Z      f_pop    P(0|M)      P/exp(-M/2)   -logP
+ [   2,   4)      61   0.00100   5.547e-01 (±  59%)      3.53    0.59
+ [   4,   6)     983   0.09200   9.716e-02 (±   7%)      1.34    2.33
+ [   6,   8)    1058   0.28367   3.392e-02 (±   4%)      1.04    3.38
+ [   8,  10)     858   0.56533   1.380e-02 (±   4%)      1.15    4.28
+ [  10,  12)      39   0.05600   6.333e-03 (±  18%)      1.22    5.06
+ [  12,  14)       1   0.00200   4.547e-03 (± 108%)      2.04    5.39
+fit -log P = A M^beta on M in [6.0,20.0] (4 bins): beta = 0.926 ± 0.209 (stat., ignores bin correlation), A = 0.569
+linear: d log P / dM = -0.452 (Poisson reference -0.5)
+local beta over the top three bins: [0.964, 0.425]
+== m=16 zeros=271201 admissible=2499537 (both samples of 3000 with exact M; nadm_eff=27649.64362225803)
+calibration exact-proxy: population n=0 median 0.000 rms-dev nan max|dev| nan;  zeros n=0 median nan rms-dev nan
+window [5e+06,1e+07]: zeros 3000 (exact M for 0), population sample 3000, admissible 27649.6
+  zeros with M >= 20: 0  (of which exact: 0)
+  zeros with M >= 22: 0  (of which exact: 0)
+  zeros with M >= 24: 0  (of which exact: 0)
+  zeros with M >= 26: 0  (of which exact: 0)
+  zeros with M >= 28: 0  (of which exact: 0)
+  zeros with M >= 30: 0  (of which exact: 0)
+ bin        Z      f_pop    P(0|M)      P/exp(-M/2)   -logP
+ [   0,   2)     212   0.02200   3.485e-01 (±  14%)      0.85    1.05
+ [   2,   4)    1928   0.30767   2.266e-01 (±   4%)      1.02    1.48
+ [   4,   6)     447   0.21200   7.626e-02 (±   6%)      0.95    2.57
+ [   6,   8)     383   0.40100   3.454e-02 (±   6%)      1.20    3.37
+ [   8,  10)      30   0.05600   1.938e-02 (±  20%)      1.29    3.94
+ [  10,  12)       0   0.00133       -

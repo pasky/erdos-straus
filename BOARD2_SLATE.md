@@ -132,3 +132,77 @@ BM_CORRECTED's). Prop 3.4's constant: Assessment (Dirichlet-series sketch) + EVI
 of BM_CORRECTED Prop 2.3 (not re-derived here: Assessment). Value: bookkeeping on an existing object, not a lower-tail
 mechanism (the board's verdict stands). The k ≥ 2 automatic activation explains why the five-slice union has a 3.75× larger
 principal constant than (★) (45/(8π²) vs 3/(2π²)).
+
+## (4) Finalist 2 — far lower-tail diagnostic on the 8/n c = 1 line to 10⁹ (EVIDENCE; across-n, B6 steering only)
+
+Scripts: `scripts/z42_zero_law.c` (modes `mark`, `exact`, `proxy`, `check`), `scripts/z42_zero_law_fit.py`. Logs:
+`logs/z42_zero_law_m8_1e9.txt` (bin table + fit), `logs/z42_zero_law_m8_zeros_M26.txt` (all 1 423 zeros with exact M ≥ 26:
+n, M, M₀), `logs/z42_zero_law_m12_m16_1e7.txt`. Large intermediates (2.75·10⁶ zero list, proxies) stayed in a tempdir.
+
+**Object.** Line m·uBC = n + u + B (C ≥ 1, gcd(u, B) = 1, u + B odd, n odd), R*_m(n) = #{ordered (u, B) : muB | n + u + B,
+muB − u − B ≤ n} (a hit gives m/n = 1/(uBC) + 1/(nBC) + 1/(nuC)). Main term (BM_CORRECTED Prop 4.1(c)):
+`M_m(n) = Σ_{pairs, gcd(n, muB) = 1, −(u+B) ∈ (ℤ/muB)^*} (1 − (−uB/n))/φ(muB)` — mean-preserving, 0 at squares.
+**The three sustained patches.** (a) AP cutoff muB − u − B ≤ N (the marking loop and the pair set use it; astra's
+m = 8, N = 13, (1, 2, 1) is a hit). (b) m = 12: exact φ(12m′) = 8φ(m′) (3 ∤ m′) or 12φ(m′) (3 | m′). Pairs with 3 ∤ uB and
+3 | u + B have a non-unit target and are dropped; for m′ = uB ≢ 0 (3) this happens for every splitting iff m′ ≡ 2 (3).
+Only n prime to 6 are used. (c) m = 16 (and m = 12) are sub-sampled at 10⁷ only.
+**Self-tests.** `check` mode compares brute force over all pairs with the fast code for every admissible n ≤ 3000, m = 8, 12, 16:
+0 mismatches in the zero flag and in M, M₀; squares give R* = M = 0. For m = 8, `exact` agrees with BM_CORRECTED's
+`z38_mbm.c` (K = 8) to print precision.
+
+**Method and cost.** (1) Marking all odd n ≤ 10⁹ in a bitset (63 MB) took 55 s. It found 2 748 892 zeros among
+499 984 188 odd non-squares. (2) A cheap proxy was computed for every zero n ≥ 10⁶ and for 40 000 random admissible n in
+[5·10⁸, 10⁹]. The proxy is the exact sum over m′ ≤ 5·10⁴ plus a principal tail with a coprimality factor. It is used
+**only** for stratification. (3) The exact M_8 was computed (≈ 0.9 s each at 10⁹) for **every** zero whose proxy could
+reach M ≥ 22–26: all zeros in [5·10⁸, 10⁹] with proxy ≥ 22, and all zeros below with proxy ≥ 24, 3 359 in total. It was
+also computed for 300 random population members (calibration). Calibration: exact − proxy has median 0.52, rms deviation
+0.24 and max deviation 0.58 on the population; median 0.48 and rms 0.27 on the zeros. So no zero with M ≥ 26 can hide
+below the thresholds. Total ≈ 2 CPU-hours on ≤ 2 cores, ≤ 1 GB per process, `ulimit -v 4000000`.
+
+**Drop-condition (a): passed.** Zeros with exact M_8 ≥ 26 among odd non-squares ≤ 10⁹: **1 423** (874 in [5·10⁸, 10⁹],
+546 in [10⁸, 5·10⁸), 3 below 10⁸). 345 are prime. The largest is n = 575 068 511, M = 34.19.
+
+**Conditional zero law** (window n ∈ [5·10⁸, 10⁹], 2.49995·10⁸ admissible n; P = Z_bin/(N·f_bin), f_bin from the
+40 000-sample; M = exact where computed, otherwise proxy + 0.52):
+
+| M bin | zeros | P(0 \| M) | P / e^{−M/2} |
+|---|---|---|---|
+| [10, 12) | 144 083 | 7.2·10⁻³ | 1.8 |
+| [12, 14) | 137 776 | 3.5·10⁻³ | 2.0 |
+| [14, 16) | 10 660 | 1.8·10⁻³ | 2.8 |
+| [16, 18) | 5 928 | 7.1·10⁻⁴ | 3.4 |
+| [18, 20) | 6 320 | 3.1·10⁻⁴ | 4.1 |
+| [20, 22) | 1 780 | 1.7·10⁻⁴ | 5.8 |
+| [22, 24) | 934 | 8.5·10⁻⁵ | 7.5 |
+| [24, 26) | 560 | 3.7·10⁻⁵ | 9.7 |
+| [26, 28) | 395 | 1.8·10⁻⁵ | 13.4 |
+| [28, 30) | 425 | 8.3·10⁻⁶ | 15.5 |
+| [30, 32) | 51 | 2.7·10⁻⁶ | 11 (± 14 %) |
+
+**Fit.** −log P(0 | M) = A·M^β on M ∈ [10, 30] (10 bins, weights from counts): **β = 0.89 ± 0.03** (statistical
+only; it ignores bin correlations and the calibration error of the proxy-binned low-M population), A = 0.59. The local
+β between consecutive top bins is 0.84 and 1.05. The linear slope d log P/dM is −0.38 (Poisson: −0.50). The excess over
+swap-Poisson grows steadily from ≈ 2 at M ≈ 11 to ≈ 13–15 at M ≈ 27–29. This confirms with hundreds of zeros per bin
+what BM_CORRECTED §3.2 saw with 6 zeros (4/n, slope −0.23 at 19–27): **the far tail is fatter than Poisson, but on
+this range it still decays faster than any fixed power of e^{−M}, at rate ≈ M^{0.9}.** In fable's own drop rule
+(b) ("β ∈ [0.8, 1] stable across the top three bins"), the result is: record and stop.
+
+**m = 12, 16 (10⁷, sub-sampled).** At N = 10⁷ (window [5·10⁶, 10⁷]): m = 12 has 45 460 zeros among 1 666 357 admissible
+n (prime to 6), and m = 16 has 271 201 among 2 499 537. 3 000 random zeros and 3 000 random population members each got
+exact M. Both lines only reach M ≲ 12 at this height. P/e^{−M/2} is ≈ 1.0–1.3 (m = 12, M ∈ [4, 12)) and ≈ 0.9–1.3
+(m = 16, M ∈ [0, 10)). The fit on the 3–4 populated bins (β ≈ 0.9 ± 0.2 for m = 12) is not informative. These rungs do not
+reach the far tail at 10⁷, as the ruling anticipated.
+
+**Caveats (Assessment; why this is steering information only).**
+(i) Across-n statistic (barrier B6): it says nothing about any single n.
+(ii) No finite β fit proves summability or excludes a rare structured family (astra's objection stands). If the fitted
+law held with M ≈ 0.067 L², then −log P ≈ 0.054 L^{1.78}, which would be summable over n. Nothing measured here implies it
+continues.
+(iii) The population is heterogeneous. Low-M bins are dominated by composites with small factors, and the main term is
+M_BM, not refined by n mod 2^j. On the m = 8 line the 2-adic class of n decides which pairs can hit at all (modulus
+2^{3+v₂(uB)}), so mixing classes inflates the tail. The excess growth may be partly this mixture rather than a
+"prime T1". Among zeros with M ≥ 26 that are prime, the residues mod 8 are 84 / 80 / 56 / 125 (for 1 / 3 / 5 / 7), a
+visible but modest skew toward 7. A 2-adically refined main term (as in item (3)) is the obvious next control; it was not
+run (CPU budget).
+(iv) R_prime was not computed (out of the brief's scope).
+**Label: EVIDENCE.** ES is not solved; no lower-tail mechanism is implied.
