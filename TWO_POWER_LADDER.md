@@ -16,7 +16,8 @@ D⁻_t(N) = #{d | N : d ≡ −1 (t)}. Forcing (Prop 2.2 of SPARKS9): ℓ | N �
   forced (§4).
 * v3 (self-review, deep reviewer): 7 MAJOR repaired in place (marked ⟨rep⟩): Thm 3.1 hypotheses ℓ ∤ m, 4 | lcm(M, m),
   conjugacy-invariant formulation, the false Schinzel "iff" replaced by a direct one-direction proof; Prop 4.1 needs q ≡ 1 (m)
-  and gains the forced case q ≡ 3 (4); the cofactor claim was false; the cubic Hecke conductor divides 9t, not t; scopes narrowed.
+  and gains the forced case q ≡ 3 (4); the cofactor claim was false; the cubic Hecke conductor is not | t (R283 sharpened: | 3q); scopes narrowed.
+* v4 (hostile review R283: no FATAL/MAJOR): minors D1–D13 applied in place, marked "(R283 repair)".
 
 ## 1. What "free" can mean
 
@@ -24,7 +25,9 @@ D⁻_t(N) = #{d | N : d ≡ −1 (t)}. Forcing (Prop 2.2 of SPARKS9): ℓ | N �
 {n : D⁻_t(tn + 1) > 0} = ⋃_{a ≥ 1} {n ≡ −a (mod ta − 1)}, and at a prime ℓ | tn + 1 the class ℓ mod t is a function of ℓ alone.
 *Proof.* d = ta − 1 | tn + 1 ⟺ ta − 1 | a(tn + 1) − n(ta − 1) = n + a (gcd(a, ta − 1) = 1; conversely multiply n + a by t: t(n + a) = (tn + 1) + (ta − 1)). ∎
 So at a fixed level (in particular at the O(log n) "2-group levels" t = 2^k·F, F | 3·5·17·257·65537) there is nothing for
-reciprocity to transport: the event is a union of congruence classes of n (B1 / (J)93). Forcing needs the level to MOVE in
+reciprocity to transport: the event is a union of congruence classes of n (B1 / (J)93). (R283 repair, D7: the lemma is for
+D⁻_t > 0, a ≥ 1, boundary d = t − 1 included; the ES word event R_t > 0 is the sub-union a ≥ 2 with n + a ≥ 2(ta − 1) —
+still a congruence union above a threshold.) Forcing needs the level to MOVE in
 the progression t ≡ −n⁻¹ (mod ℓ), and "ψ is free at ℓ" must mean: for a coherent family (t, ψ_t), ψ_t(ℓ) is constant
 (or a known function of n) along the progression.
 
@@ -36,7 +39,9 @@ lottery at level t is the image of the divisor class in G_t/G_t^m.
 `scripts/z41_ladder_test.py` (log `logs/z41_ladder_test.txt`): q < 3·10⁵ prime, q ≡ 1 (m), 4q ≡ −n⁻¹ (ℓ).
 * e mod 2 is constant on every progression (all 24 rows) — the forced BM/quadratic layer, (−4q/ℓ) = (n/ℓ).
 * Given e even, ℓ is a 4th power for 1086/2165, 1053/2151, 3214/6467, 1611/3228 (≈ 1/2), and an 8th power for
-  258/1070, 258/1075, 784/3202, 406/1598 (≈ 1/4), uniformly in n (including n = 9, a square, and n = 131, 241).
+  258/1070, 258/1075, 784/3202, 406/1598 (≈ 1/4), the same for every residue n mod ℓ tested (R283 repair, D10: the forcing depends on n only through n mod ℓ, so e.g.
+(241, 7) and (101, 7) are the SAME progression, not independent evidence; n = 9 being a square is not special at the
+4th-power layer).
 * Positive control: [ℓ is a 4th power mod q] is an exact function of (a mod ℓ, b mod ℓ, a mod 8, b mod 8), q = a² + b²,
   π = a + bi primary: 0 clashes in 64–1152 occupied classes for ℓ = 3, 5, 7, 11, 13.
 So: forced quadratic layer, free-but-not-forced quartic layer — determined by the Gaussian lift of t, not by t mod ℓ.
@@ -66,38 +71,48 @@ direction is used, proved directly:⟩ let α = ℓ^{1/d}, τ ∈ Gal(K(α)/K) w
 So F = K (m odd) or F ⊆ K(√ℓ) (m even); and K(√ℓ) ⊆ ℚ(ζ_{4ℓ}, ζ_m) ⊆ ℚ(ζ_{M′}) as ℓ | M and 4 | M′, so F = K(√ℓ) (m even).
 Conditioning on q mod M′ (which includes q ≡ 1 (m)) therefore fixes Frob_q|L only through Frob on K(√ℓ), i.e. through (ℓ/q).
 Within a fibre the Haar measure on the coset of Gal(L/K(√ℓ)) ≅ μ_{m/2} (m even), resp. on Gal(L/K) ≅ μ_m (m odd), gives the
-stated densities (an element ζ of a cyclic group μ_r lies in μ_r^{e} … here ℓ ∈ F_q^{×e} ⟺ ψ_𝔮(ℓ)^{m/e} = 1). ∎
+stated densities (here ℓ ∈ F_q^{×e} ⟺ ψ_𝔮(ℓ)^{m/e} = 1). (R283 repair, D8: for m even and e odd the density is 1/e
+unconditionally on (ℓ/q), since μ_{m/e} meets each fibre in the same proportion; reviewer numerics (ℓ, m) = (7, 6), e = 3: 0.334.) ∎
 *Scope.* t = 4q with one prime q carrying the order-m character; for composite t the character is a product over the prime
-factors of t and the theorem applies to each level prime separately (Chebotarev in the compositum for several level primes is
-the same argument). This is CLASS_FORCING Thm 2.1(c)(i)(ii) / z33_kummer_shadow ((J)93) transported from p-coordinates to level
+factors of t. (R283 repair, D9: for t = 4q₁q₂ the forcing is the COUPLED condition q₁q₂ ≡ c (mod ℓ), a condition on pairs.
+Pair count: for q₁, q₂ ≤ X, split by the class a of q₁ mod ℓ (then q₂ ≡ c/a); for each a, Chebotarev applies to q₁ in its
+class and to q₂ in its class separately, giving densities that factor; summing over the φ(ℓ) classes a, the joint
+distribution of (ψ₁(ℓ), ψ₂(ℓ)) beyond the quadratic parts is still uniform. Same conclusion; a two-line argument, not "the
+same" one.) This is CLASS_FORCING Thm 2.1(c)(i)(ii) / z33_kummer_shadow ((J)93) transported from p-coordinates to level
 coordinates — fixed datum and moving prime swapped; not new as mathematics.
 
 **Theorem 3.2 (Stickelberger dictionary: what exactly the forcing sees; PROVED for m = 3, 4; identity re-checked numerically for m = 3).**
 Let ℓ ≡ 1 (mod m) split as ℓ = ∏_{a∈(ℤ/m)^×} σ_a(λ) in K, with K a PID (m = 3, 4), λ primary, and put
-x_a := (σ_aλ/𝔮)_m ∈ μ_m (the Frobenius vector of ℓ at the level prime). Then
+x_a := (σ_aλ/𝔮)_m ∈ μ_m (the Frobenius vector of ℓ at the level prime; (R283 repair, D2) the x_a depend on the primary
+normalisation of the element λ — λ ↦ uλ multiplies ∏x_a^{a⁻¹} by (uū²/𝔮)₃ resp. (u²/𝔮)₄ — while S and D do not). Then
 * the ES (Dirichlet) datum is the **norm component** D := ψ_𝔮(ℓ) = ∏_a x_a;
 * the forcing datum (all m-th power information in q mod ℓ, i.e. in t mod ℓ) is the **Stickelberger component**
   S := (q/λ)_m = ∏_a x_a^{a⁻¹} (exactly, no sign, for m = 3 and m = 4 ⟨rep: for m = 4 the two biquadratic reciprocity signs
   cancel; reviewer re-checked 1 892 quartic pairs < 500, 0 failures⟩), and (q/σ_bλ)_m = S^b
   carries nothing more;
-* D/S = ∏_a x_a^{1−a⁻¹}. The exponents 1 − a⁻¹ generate the ideal gcd(2, m)·ℤ/m (a = 2 for m odd; all even for m even).
-Hence D is determined by S exactly modulo μ_m^{gcd(2,m)}: for m odd S says nothing about D; for m = 4, D² = S² (the quadratic
+* D/S = ∏_a x_a^{1−a⁻¹}. For m = 3 the exponents (0, 1 − 2⁻¹ = 2) generate ℤ/3; for m = 4 they are (0, 2), generating 2ℤ/4.
+Hence (m = 3, 4 only; R283 repair, D1) D is determined by S exactly modulo μ_m^{gcd(2,m)}: for m = 3, D/S = x₂⁻¹ is free and S
+says nothing about D; for m = 4, D² = S² (the quadratic
 layer, = quadratic reciprocity) and D/S = x₃² is a free sign (Burde's correction: x₃ depends on the Gaussian lift of q mod ℓ).
 *Proof.* With π a primary generator of 𝔮, q = ∏_c σ_c(π) exactly (for m = 3: ππ̄ = q; m = 4: ππ̄ = q), so (q/λ)_m = ∏_c (σ_cπ/λ)_m =
 ∏_c (λ/σ_cπ)_m (cubic reciprocity for primary elements, m = 3; biquadratic reciprocity, m = 4, whose sign
 (−1)^{((Nλ−1)/4)((q−1)/4)} is the same for c = 1, 3 and cancels in the product) and (λ/σ_c𝔮)_m = σ_c((σ_c⁻¹λ/𝔮)_m) = x_{c⁻¹}^{c}. Reindex a = c⁻¹. For b: apply σ_b. The
-exponent ideal: for m odd, a = 2 is a unit and 1 − 2⁻¹ = 2⁻¹ is a unit; for m even, a odd ⇒ a⁻¹ odd ⇒ 1 − a⁻¹ even, and
-a = −1 gives 2. *Realisability* ⟨rep⟩: the σ_aλ are distinct primes, hence multiplicatively independent modulo K^{×m},
+exponent ideal: m = 3: a = 2, 1 − 2⁻¹ = −1 is a unit; m = 4: a = 3, 1 − 3⁻¹ = −2. *Realisability* ⟨rep⟩: the σ_aλ are distinct primes, hence multiplicatively independent modulo K^{×m},
 so [K((σ_aλ)^{1/m} : a) : K] = m^{φ(m)} and by Chebotarev every vector (x_a) ∈ μ_m^{φ(m)} occurs for a positive density of
-degree-1 primes 𝔮; inside a progression q mod ℓ all vectors with the prescribed S occur (the only subfield of the
-Kummer field abelian over ℚ is the one cut out by S: the commutator argument of Thm 3.1 applied to β = ∏(σ_aλ)^{i_a}): "S determines D exactly modulo μ_m^{gcd(2,m)}" is sharp. ∎
-*Reading.* For m = 2 the two components coincide (K = ℚ, one coordinate): that is the whole reason the BM layer is free
+degree-1 primes 𝔮; inside a progression q mod ℓ all vectors with the prescribed S occur. (R283 repair, D3: for cyclic H = Gal(K/ℚ) (m = 3, 4),
+K(β^{1/m})/ℚ is abelian IFF σ_cβ ≡ β^c (mod K^{×m}) for all c — necessity by the commutator argument of Thm 3.1, sufficiency
+because the extension is then central with cyclic quotient H, hence abelian. Writing β = ∏(σ_aλ)^{i_a} (B = ⟨σ_aλ⟩ is free over
+ℤ/m by valuations) the condition is i_{c⁻¹a} ≡ c·i_a, i.e. i_a = a⁻¹i₁: the maximal abelian-over-ℚ subfield is K(β₀^{1/m}),
+β₀ = ∏(σ_aλ)^{a⁻¹}, whose Frobenius at 𝔮 is exactly S; Chebotarev then gives every vector with prescribed S equal density.) "S determines D exactly modulo μ_m^{gcd(2,m)}" is sharp. ∎
+*Reading (Assessment, not part of the PROVED statement; R283 repair, D4).* For m = 2 the two components coincide (K = ℚ, one coordinate): in our reading that is the whole reason the BM layer is free
 (SPARKS9 Prop 2.2) and the whole reason T1 exists. For m ≥ 3 the level prime's Frobenius vector has φ(m) coordinates; the
 forcing measures one Galois-twisted linear form, ES needs the untwisted one. The general-m form of the identity needs Eisenstein
-reciprocity (m odd prime) with ideal-theoretic symbols; we only use m = 3, 4, and Thm 3.1 covers all m without it.
+reciprocity (m odd prime) with ideal-theoretic symbols and is NOT proved here; for general odd m only the conjugacy-invariant
+consequence (Thm 3.1: congruence data on q says nothing about ℓ's m-layer) is available.
 
 Checks (`scripts/z41_stickelberger.py`, `logs/z41_stickelberger.txt`): (q/λ)₃ = x₁x₂² on all 882 pairs ℓ < 60, q < 2000
-(primes ≡ 1 mod 3, primary generators): 0 failures. Along forced progressions (q < 2·10⁵) S is constant for each (n, ℓ), while
+(primes ≡ 1 mod 3, primary generators): 0 failures. Along forced progressions (q < 2·10⁵) S is constant for each (n, ℓ) (R283 repair, D12: automatic for EVERY n — S is a function of
+q mod ℓ, which the forcing fixes — so this constancy is not evidence of anything cube-specific), while
 "ℓ is a cube mod q" occurs at 491/1492 (n = 27 and 125, ℓ = 7), 257/759 (343, ℓ = 13), 255/741 (27, ℓ = 13), 174/508 (729, ℓ = 19) (≈ 1/3; cubes) and identically
 for squares and generic n (9, 25, 7, 131, 241). The m = 4 analogue is §2 (Gaussian-lift functionality, 0 clashes).
 
@@ -124,12 +139,12 @@ odd-order subgroup of G_{4q} (the 2-Sylow of G_{4q} is then (ℤ/2)², its chara
 conditions on q are: q ≡ −(4n)⁻¹ (mod ℓ) and q splits completely in ℚ(ζ_m, (−ℓ)^{1/m}). By Thm 3.1 (with −ℓ in place of ℓ;
 same proof) these are compatible iff they agree on ℚ(ζ_m, √−ℓ) ∩ ℚ(ζ_{4ℓ}) = ℚ(i, √−ℓ) (m ≥ 4) resp. ℚ(√−ℓ) (m = 2):
 q ≡ 1 (4) and (−ℓ/q) = 1, i.e. (q/ℓ) = 1 — and the forcing gives (q/ℓ) = (−n/ℓ) = (−1/ℓ)(n/ℓ) = 1. Chebotarev; the ℓ ∤ m
-hypothesis of Thm 3.1 holds (ℓ odd, m = 2^j). (b′) Same, with the additional abelian condition q ≡ 1 + 2^j (2^{j+1}) and
-m = 2^j: then F_q^{×m} is the odd-order subgroup. (c) For q ≡ 3 (4): (−ℓ/q) = −(ℓ/q) = (q/ℓ) (ℓ, q ≡ 3 (4)) = (−n/ℓ) = 1, and
+hypothesis of Thm 3.1 holds (ℓ odd, m = 2^j). (b′) For j ≥ 2: same, with the additional abelian condition q ≡ 1 + 2^j (2^{j+1}) and
+m = 2^j: then F_q^{×m} is the odd-order subgroup. (R283 repair, D11: Thm 3.1 needs m ≥ 3; the case j = 1 is (c).) (c) For q ≡ 3 (4): (−ℓ/q) = −(ℓ/q) = (q/ℓ) (ℓ, q ≡ 3 (4)) = (−n/ℓ) = 1, and
 −ℓ ≡ 1 (4). ∎
 Numerics (`scripts/z41_minus_l.py`, `logs/z41_minus_l.txt`, forced q < 4·10⁵): (n, ℓ) = (13, 7), (7, 11), (101, 7),
 (131, 11), (241, 7): m = 2 — all forced q have −ℓ a square (forced layer); m = 4, 8, 16 — fractions 1405/2819, 350/1406,
-82/713 (n = 13; the others alike) ≈ 2/m = 1/2, 1/4, 1/8: exactly the Chebotarev density of the extra (chosen) layer.
+82/713 (n = 13; the others alike; (241, 7) is the same progression as (101, 7) — identical rows, not independent, R283 D10) ≈ 2/m = 1/2, 1/4, 1/8: exactly the Chebotarev density of the extra (chosen) layer.
 
 **Proposition 4.2 (size obstruction — why the ladder at a small prime never reaches the class −1; PROVED, trivial).**
 (a) A prime ℓ < t − 1 is never ≡ −1 (mod t); every divisor d ≡ −1 (t) of N has d ≥ t − 1.
@@ -157,7 +172,8 @@ prime (choosable, Prop 4.1, but then it is a choice of level, i.e. the lottery i
 
 `scripts/z41_two_group.py`, `logs/z41_two_group.txt`: T2 = {2^k F : k ≥ 2, F | 3·5·17·257·65537}, 169 levels ≤ 10⁶; words
 n = tuv − u − v (u, v ≥ 2) (the (★) line in level form).
-* odd non-squares n ≤ 10⁶ with no T2 word: **20 325** (of 499 500); baseline over ALL 4 | t levels: 1 939.
+* odd non-squares 3 ≤ n ≤ 10⁶ with no T2 word: **20 325** (of 499 500 odd non-squares; R283 D6: the prime census below starts at
+  p = 5, and 3 has no T2 word either); baseline over ALL 4 | t levels: 1 939.
 * primes 5 ≤ p ≤ 10⁶ with no T2 word: **1 298** (largest 999 979); of these 1 180 have a (★) word at some 4 | t level
   (baseline all-level (★) failures: 118 primes). Failure rate by decade: 0.217, 0.069, 0.029, 0.0136, and 0.0069 on (10⁶, 10⁷] (`scripts/z41_two_group_1e7.py`: 237 levels, 5 320 failing primes ≤ 10⁷, largest 9 994 727; 0 squares hit) — decreasing, as the
   expected number of T2 hits grows like c·log n, but with infinitely many failures expected (Assessment).
@@ -180,10 +196,13 @@ a prime, and t = 4q·w (w fixed) with q ≡ 1 (3) the level prime. Conditional o
 character of ℓ mod q is equidistributed on μ₃ as q varies over the forced progression (and any further congruence on q).
 *Proof.* The only information n gives about q at ℓ is q mod ℓ (ℓ | tn + 1 ⟺ q ≡ −(4wn)⁻¹ (ℓ)); Thm 3.1 with m = 3. ∎
 *What a cube DOES force (Thm 3.2).* For n = r³ the forcing gives S = (q/λ)₃ = (−4w/λ)₃⁻¹ — the Stickelberger (anti-cyclotomic)
-component x₁x₂² of the Frobenius vector of ℓ, constant along the progression (logged S-values), while the Dirichlet datum
-x₁x₂ stays uniform (491/1492 cubes, n = 27; 174/508, n = 729). So a cube biases a cubic HECKE character of ℚ(ω) of conductor
-dividing 9t ⟨rep: not "dividing t" — e.g. q = 7, t = 28, α = 1 + 28ω (N = 757 = 28·27 + 1) has α ≡ 1 (28) but
-(7/(α))₃ ≠ 1 (7^252 ≡ 27 mod 757, ω ↦ 27): ramification above 3 occurs⟩ — not a Dirichlet character mod t, hence invisible to the ES event "d ≡ −1 (t)". For m = 2 the two components
+component x₁x₂² of the Frobenius vector of ℓ. (R283 repair, D12: constancy of S along a progression holds for every n; what
+cubes add is that the pinned value (−4w/λ)₃⁻¹ does not depend on r. At w = 2 (t = 8q; −8 = (−2)³) **S = 1 at every forced split
+ℓ, for every cube n — the literal cubic analogue of T1**, while the Dirichlet datum D = x₁x₂ stays uniform (491/1492 cubes,
+n = 27; 174/508, n = 729; reviewer's w = 2 rows likewise).) So a cube biases a cubic HECKE character of ℚ(ω),
+α ↦ (q/α)₃, of conductor dividing 3q (R283 repair, D13: sharper than the earlier "9t"; by cubic reciprocity α ≡ 1 (3) is primary
+up to the cube −1; checked trivial on all primes α ≡ 1 (3q) for q = 7, 13, 19, 31, and NOT of conductor dividing q in general —
+e.g. q = 7, α = 1 + 28ω, N(α) = 757, (7/(α))₃ ≠ 1 — except q = 19 ≡ 1 (9), where the conductor is q) — not a Dirichlet character mod t, hence invisible to the ES event "d ≡ −1 (t)". For m = 2 the two components
 coincide (K = ℚ) and the bias becomes T1. **Squares are the only power family whose forced bias is Dirichlet-visible**; more
 precisely the forced part of the m-layer is μ_m/μ_m^{gcd(2,m)} (Thm 3.2).
 *Scope (⟨rep: narrowed⟩).* Cor 6.1 excludes cubic bias transported by the forcing congruence, for fixed (n, ℓ) and a varying
@@ -197,7 +216,7 @@ closed only in the form "no family of n biases the cubic Dirichlet layer through
   and Thm 3.1 (PROVED) shows this for every m with ℓ ∤ m and every congruence family of one varying level prime: a
   commutator argument (K(ℓ^{1/d})/ℚ abelian ⟹ d | 2) caps congruence forcing at the quadratic layer. This is (J)93 in level coordinates.
 * **Thm 3.2 (PROVED, m = 3, 4): the Stickelberger dictionary.** Forcing reads S = ∏x_a^{a⁻¹}, ES reads D = ∏x_a; they agree
-  exactly modulo μ_m^{gcd(2,m)}. The BM layer and T1 are the m = 2 coincidence S = D; there is no odd-order BM layer and no
+  exactly modulo μ_m^{gcd(2,m)} (proved for m = 3, 4 only; R283 D1). The BM layer and T1 are the m = 2 coincidence S = D; there is no odd-order BM layer and no
   odd-order T1 transported by the forcing (Cor 6.1: cubes bias only an anti-cyclotomic Hecke character; spark 3 closed in
   that narrow form only).
 * **Construction (§4).** Choosing the level prime by its non-abelian Frobenius makes the entire 2-part of ℓ's class choosable
@@ -205,8 +224,8 @@ closed only in the form "no family of n biases the cubic Dirichlet layer through
   the odd part" holds trivially there, and the odd part is (q − 1)/2 classes. A prime < t − 1 is never ≡ −1 (t) and a fixed
   divisor determines its level (Prop 4.2): the class −1 needs a divisor ≥ t − 1 built from prime factors whose individual
   classes nothing controls — the B2 lottery, now localised in the odd part.
-* **Goal 3: 2-group levels do not suffice** (EVIDENCE: 1 298 primes ≤ 10⁶, 5 320 ≤ 10⁷ with no word at any 2-group level; rate
-  halving per decade); twisted squares Dm² are dead at levels 4D | t (Lemma 5.1, PROVED). Controls: squares 0 hits; 131, 241 no
+* **Goal 3: 2-group levels do not suffice** (EVIDENCE: 1 298 primes ≤ 10⁶, 5 320 ≤ 10⁷ with no word at any 2-group level; decade
+  ratios ÷3.2, ÷2.3, ÷2.2, ÷2.0 — roughly halving in the last decades (R283 D5); "infinitely many failures" is Assessment); twisted squares Dm² are dead at levels 4D | t (Lemma 5.1, PROVED). Controls: squares 0 hits; 131, 241 no
   8 | t word; every hit an explicit certificate.
 * No route. **ES is not solved; no infinite case for primes is claimed.** The ladder above the BM layer is not forced; the
   quadratic layer is the unique reciprocity-free layer, for a structural reason (Thm 3.2).

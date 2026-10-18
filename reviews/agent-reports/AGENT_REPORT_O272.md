@@ -10,10 +10,10 @@ is claimed.** Outcome: a precise NEGATIVE, plus one clean structural dictionary.
 1. **Stickelberger dictionary (TWO_POWER_LADDER Thm 3.2, PROVED for m = 3, 4, sharp by Kummer independence).** Write the
    Frobenius of a split forced prime ℓ at the level prime 𝔮 | q as a vector x_a = (σ_aλ/𝔮)_m, a ∈ (ℤ/m)^×. The forcing
    (ℓ | tn + 1 ⟺ t ≡ −n⁻¹ mod ℓ) sees exactly the **Stickelberger component** S = (q/λ)_m = ∏x_a^{a⁻¹}; the ES event (a
-   Dirichlet character mod t at ℓ) needs the **norm component** D = ∏x_a. D/S = ∏x_a^{1−a⁻¹}, exponents generate gcd(2, m)·ℤ/m,
-   so S determines D exactly modulo μ_m^{gcd(2,m)}. For m = 2 (K = ℚ) S = D: **that coincidence is the whole BM layer and the
-   whole of T1**; there is no odd-order BM layer and no odd-order T1 transported by the forcing (cubes bias only an
-   anti-cyclotomic cubic Hecke character, conductor | 9t, invisible to "d ≡ −1 (t)"). Checked: (q/λ)₃ = x₁x₂² on 882/882 pairs;
+   Dirichlet character mod t at ℓ) needs the **norm component** D = ∏x_a. D/S = ∏x_a^{1−a⁻¹}, so (m = 3, 4; general m not
+   proved) S determines D exactly modulo μ_m^{gcd(2,m)}. For m = 2 (K = ℚ) S = D: **in our reading (Assessment) that coincidence is the
+   whole BM layer and the whole of T1**; there is no odd-order BM layer and no odd-order T1 transported by the forcing (cubes bias only an
+   anti-cyclotomic cubic Hecke character, conductor | 3q; at t = 8q S = 1 for every cube — the literal cubic T1 — invisible to "d ≡ −1 (t)"). Checked: (q/λ)₃ = x₁x₂² on 882/882 pairs;
    reviewer checked the m = 4 exact-sign identity on 1 892 pairs.
 2. **The brief's "shrink to the odd part" holds — trivially — at levels t = 4q, q ≡ 3 (mod 4) (Prop 4.1(c), PROVED):** if
    ℓ ≡ 3 (4) and (n/ℓ) = −1 (such ℓ exists iff n is not a square), every forced level 4q with q ≡ 3 (4) has −ℓ in the odd-order
@@ -51,6 +51,14 @@ added); the "class carried by the cofactor" claim was false ([N/ℓ] = [ℓ]⁻�
 d = t − 1, misassigned fractions, "only m² by this mechanism", certificate docstring, duplicated log line, "known" Fermat primes).
 Reviewer reproduced all six scripts' outputs.
 
+## Hostile review R283 (reviews/two-power-ladder-review.md) — applied
+No FATAL/MAJOR. Minors D1–D13 applied in place, marked "(R283 repair)": Thm 3.2 conclusions restricted to m = 3, 4 (D1);
+λ-normalisation dependence of x_a (D2); sharpness proof via central-extension converse + i_a = a⁻¹i₁ (D3); "whole reason"
+sentence relabelled Assessment (D4); decade ratios stated (D5); census bookkeeping (D6); Lemma 1.1 vs R_t > 0 (D7); m even,
+e odd density 1/e (D8); pair-count argument for composite levels 4q₁q₂ (D9); (241, 7) ≡ (101, 7) same progression, "every
+residue n mod ℓ" (D10); j = 1 of Prop 4.1(b′) is (c) (D11); S-constancy is automatic, cube-specific statement is S = 1 at
+t = 8q (D12); Hecke conductor | 3q (D13).
+
 ## Sparks (not pursued)
 1. **Make S ES-visible:** an ES variant whose levels live in ℤ[ω] or ℤ[i] (divisor ≡ −1 modulo a Gaussian/Eisenstein level τ)
    would see the Stickelberger component, which the forcing DOES pin — is there a descent from such certificates to rational
@@ -58,6 +66,6 @@ Reviewer reproduced all six scripts' outputs.
 2. Joint restrictions not covered by Cor 6.1: composite levels t = 4q₁q₂ with q₁, q₂ forced at two different small primes —
    the joint non-abelian Frobenius of (q₁, q₂) is choosable; does a two-prime product d = ℓ₁ℓ₂ ever get pinned to −1?
    (Prop 4.2(b) suggests no: d fixes t.)
-3. Fit the 2-group failure rate (≈ halving per decade) against the BM-corrected expected number of T2 hits; small-odd-part
+3. Fit the 2-group failure rate (decade ratios ÷3.2, ÷2.3, ÷2.2, ÷2.0) against the BM-corrected expected number of T2 hits; small-odd-part
    levels t = 4q with (q − 1)/2^{v₂(q−1)} ≤ B as an intermediate family between T2 and all levels.
 4. Complete Thm 3.2 for all odd prime m via Eisenstein reciprocity with ideal symbols (class number issues).

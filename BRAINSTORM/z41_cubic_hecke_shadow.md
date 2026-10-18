@@ -5,7 +5,8 @@ all cubic characters mod t at the forced primes?
 **Literature.** Cubic reciprocity; Hecke characters of ℚ(ω); TWISTED_T1.md (cubic obstructions for twisted targets).
 **Result (Cor 6.1, PROVED).** For ANY set of n, conditional on ℓ | tn + 1 the cubic Dirichlet character of ℓ mod the level
 prime is equidistributed (Thm 3.1, m = 3). A cube forces the Stickelberger component S = x₁x₂² (a cubic Hecke character of
-conductor dividing 9t — ramification above 3 can occur), never the Dirichlet component D = x₁x₂. Squares are the only powers whose forced bias is Dirichlet-visible.
+conductor dividing 3q (R283; not dividing q in general, e.g. q = 7, α = 1 + 28ω); at t = 8q, S = 1 for every cube n —
+the literal cubic analogue of T1 —), never the Dirichlet component D = x₁x₂. Squares are the only powers whose forced bias is Dirichlet-visible.
 **Barrier screen.** T1 explained (m = 2 is the only coincidence S = D). A disproof family would have to act on the varying
 prime factors of tn + 1 jointly — not excluded by this memo.
 **Cheap numerics.** `scripts/z41_stickelberger.py` part (b): cubes 27, 125, 343, 729 — ℓ a cube mod q at 491/1492, 257/759,
