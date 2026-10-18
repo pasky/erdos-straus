@@ -1,0 +1,18 @@
+[primes p≡1(4)] n count 39175, levels d <= 200
+  A      certified   39171  (0.9999)  failures 4  first [193, 2521, 66529, 252001]
+  Gen    certified   39175  (1.0000)  failures 0  first []
+  F10    certified   38441  (0.9813)  failures 734  first [193, 1129, 1201, 2161, 2521, 2689, 3049, 3169, 3889, 4201, 4513, 4729]
+  F30    certified   39132  (0.9989)  failures 43  first [193, 2521, 24481, 66529, 66889, 67369, 70753, 94441, 106129, 112921, 214561, 214729]
+  F1000  certified   39171  (0.9999)  failures 4  first [193, 2521, 66529, 252001]
+  X2     failures 73 (0.0019) first [1321, 1489, 2521, 14281, 28921, 29401, 33049, 42169, 44641, 76561, 77929, 84481] last [852889, 883489, 924961, 981481, 981601]
+[odd squares (T1 control)] n count 499, levels d <= 200
+  A      certified       0  (0.0000)  failures 499  first [9, 25, 49, 81, 121, 169, 225, 289, 361, 441, 529, 625]
+  Gen    certified       0  (0.0000)  failures 499  first [9, 25, 49, 81, 121, 169, 225, 289, 361, 441, 529, 625]
+  F10    certified       0  (0.0000)  failures 499  first [9, 25, 49, 81, 121, 169, 225, 289, 361, 441, 529, 625]
+  F30    certified       0  (0.0000)  failures 499  first [9, 25, 49, 81, 121, 169, 225, 289, 361, 441, 529, 625]
+  F1000  certified       0  (0.0000)  failures 499  first [9, 25, 49, 81, 121, 169, 225, 289, 361, 441, 529, 625]
+  X2     failures 499 (1.0000) first [9, 25, 49, 81, 121, 169, 225, 289, 361, 441, 529, 625] last [982081, 986049, 990025, 994009, 998001]
+193 {'A': False, 'Gen': True, 'F10': False, 'F30': False, 'F1000': False} X2 True
+2521 {'A': False, 'Gen': True, 'F10': False, 'F30': False, 'F1000': False} X2 False
+66529 {'A': False, 'Gen': True, 'F10': False, 'F30': False, 'F1000': False} X2 True
+3361 {'A': True, 'Gen': True, 'F10': True, 'F30': True, 'F1000': True} X2 True

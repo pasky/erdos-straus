@@ -217,3 +217,32 @@ part and cofactor class as N_i(1), so Σ(N_i) equals the forced set of Prop 3.2,
 levels, they cannot even help in aggregate. This extends B1_LINE Thm 4.2 (Ω = ℚ, d-coordinate) to all four lines and to
 arbitrary governing data. It says nothing about unbounded levels (the full b = 1 line uses d up to ≈ p/8), where the
 B2 lottery lives and where no finite system of forms applies.
+
+## 7. Numerics (EVIDENCE): how much does the forced mechanism certify?
+
+`scripts/z33_census.py 1000000 200 10,30,1000` (`logs/z33_census_1e6_D200.txt`; 7 s): all 39 175 primes p ≡ 1 (4),
+5 ≤ p ≤ 10⁶, b = 1 line, levels d ≤ 200; each actual certificate converted to (x, y, z) = (ad, acdp, cdp) and checked exactly
+(first 3000); assertion "forced ⟹ actual" checked at every prime.
+| tier (levels d ≤ 200) | certified | failures ≤ 10⁶ | odd squares 9…998001 (499) |
+|---|---|---|---|
+| A: actual Σ(N) ∋ −1 | 39 171 | 4: 193, 2521, 66529, 252001 (last needs d > 200) | 0 certified |
+| Gen: −1 ∈ ⟨prime factors⟩ (cap relaxation) | 39 175 | 0 (193, 2521, 66529 all pass) | 0 certified |
+| F₁₀: forced, primes ≤ 10 + one opaque cofactor | 38 441 | 734 (1.87 %) | 0 |
+| F₃₀ | 39 132 | 43 (0.11 %) | 0 |
+| F₁₀₀₀ | 39 171 | 4 (same as A: at p ≤ 10⁶ the cofactor is ≤ 1 prime > 1000) | 0 |
+| X2: exponent-2 levels only (d, c ∈ {1,2,3,6}, e = 3 Types I/II), actual factors | 39 102 | 73 (0.19 %): 1321, 1489, 2521, 14281, 28921, … , 981601 | 0 |
+Hard primes: 193 / 2521 / 66529 fail A and every F_B (as they must), pass Gen; 3361 passes every tier on this line (its
+difficulty is Type-II-prime-modulus, CONJECTURE PM-II). 193 and 66529 pass X2; 2521 fails X2.
+
+*Limiting (Haar) failure density of the forced congruence rule* (`scripts/z33_haar_forced.py`, `logs/z33_haar_forced.txt`;
+4000 Haar-random p ≡ 1 (4) of size ≈ 10¹⁶ coprime to all primes ≤ max(B, D) + 1):
+F_{10,200}: 1.80 %; F_{30,200}: 0.22 %; F_{1000,200}: 0/4000 (max least level 17); F_{10,1000}: 1.10 %.
+*Reading.* The forced mechanism (small forced primes + one forced element, i.e. Lemma 3.1/Prop 3.2 at its strongest) is an
+ET congruence covering. It certifies most primes — 98 % with only the primes 2, 3, 5, 7 — but provably never a full set:
+Thm 3.4 excludes the class p ≡ 1 (mod M) (Haar measure 1/φ(M), far below the sampling resolution for B = 1000), and Thm 6.1
+(HC) keeps infinitely many primes outside it in every Chebotarev class compatible with that point. This is B1 exactly, with
+"forced" now meaning "forced by any residue-symbol / governing-field data" (§2, §5, §6). The certifications are not new
+existence mechanisms: what is forced is a congruence class of p, and the class p ≡ 1 (M) is where they fail.
+*T1 control.* All tiers fail at all 499 odd squares ≤ 10⁶, including Gen. Reason (Prop 5.1(a) at n = m²): every prime ℓ | m² + 4d
+has χ_{−4d}(ℓ) = (−4d/ℓ) = (m²/ℓ) = 1, so all factors lie in ker χ_{−4d} ∌ −1 — the T1 obstruction in its "generated subgroup"
+form. At a prime the same factors have χ_{−4d}(ℓ) = (ℓ/p): T1 vs prime is visible factor by factor exactly through this link.

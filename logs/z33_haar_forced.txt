@@ -1,0 +1,4 @@
+B=10 D=200 samples=4000 forced-rule failures=72 (0.0180) max least level among successes=194
+B=30 D=200 samples=4000 forced-rule failures=9 (0.0022) max least level among successes=197
+B=1000 D=200 samples=4000 forced-rule failures=0 (0.0000) max least level among successes=17
+B=10 D=1000 samples=4000 forced-rule failures=44 (0.0110) max least level among successes=971
