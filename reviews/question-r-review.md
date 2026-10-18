@@ -14,6 +14,13 @@ From-scratch scripts: `scripts/review_r278_*.py`. Sources: RS arXiv:2401.01860v3
   Local: nothing downstream uses the t ≡ 3 half, so the document survives after the statement is corrected.
 * **Prop 1.4** ((A)3 = opposite Γ₀(4) coset; self-levelling ⇒ (c/d) = 1 ⇒ T1): **SOUND**.
 
+* **Prop 2.1** (Question R for Γ⁺ ⟺ some Γ̃-numerator over n is a Jacobi non-residue): **SOUND** (it is RS Lemma
+  3.4 + Lemma 3.1 verbatim; the Γ⁺ ≠ Γ'_n self-repair is correct).
+* **Prop 2.2** (conditional form): **SOUND-AFTER-REPAIRS** (D6 terminology "squarefree kernel"; D7 convergence caveat).
+* **CONJECTURE R-main**: **GAP** — not stated precisely (D8).
+* **Hypothesis TG**: **GAP / false as literally quantified** (D9: with unrestricted Λ₁, Λ₂ it fails by a planting
+  construction; must be restricted to Γ̃-digit sets).
+
 ## §1 Props 1.1–1.4 — re-derivation and checks (`scripts/review_r278_dict.py 20000`)
 * Prop 1.1: re-derived (AA* = t(tuv − u − v) + 1; converse a = cu − 1, d = cv − 1, u, v ≥ 2 ⟺ a, d ≥ 2c − 1). Checked
   by enumerating *both* sides independently for n ≤ 2·10⁴: 610 533 words, 610 533 matrices (enumerated from the matrix
@@ -73,6 +80,33 @@ Neither RS nor 2510.21702 states the theta-multiplier formulation explicitly (gr
 "multiplier", "cocycle", "Kubota" in RS; only the one "metaplectic" sentence in 2510.21702), so "not found in RS or
 its citers" is literally true, but the content is a classical reformulation, not a SHARP finding.
 
+## §2 — re-derivation and checks
+* Prop 2.1: for γ ∈ Γ̃ ⊆ Γ₁(4)_{≥0}, (x, y) coprime non-negative, y odd: RS Lemma 3.4 (last sentence) gives
+  ((ax+by)/(cx+dy)) = (a/b)(x/y), and Lemma 3.1 gives (a/b) = (c/d) = σ(γ). n = cx + dy is odd (4 | c, y, d odd), so the
+  Kronecker symbol is Jacobi. Hence (a_γ/n) = −σ(γ), R⁺ = (R + R_σ)/2, R_σ = −Σ(a_γ/n), and R⁺(m²) = 0. Correct; the
+  equivalence counts γ's (with multiplicity), which is what R counts. The "Proof" line cites "Ψ′ flips it (Lemma 3.4)"
+  — correct in substance (RS §7.3 states γΨ ⊆ Ψ′ for γ ∈ Ψ′).
+* Self-review example: S₄ = {γ ∈ Ψ : entries ≤ 4} = {R^k (k ≤ 4), L⁴, I}, so Γ'₄ = ⟨R, L⁴⟩ = Ψ₁; and
+  [[49,20],[120,49]] = L²R²L⁴R²L² (computed: `scripts/review_r278_tg.py`), whose L-runs 2, 2 are not multiples of 4,
+  so it is not in ⟨R, L⁴⟩ (unique R/L factorisation in SL₂(ℕ)). Correct.
+* Prop 2.2(i)–(ii): with the extra hypothesis "arbitrarily large squares are congruence-admissible" stated explicitly
+  (RS Def 2.4(1) alone — *some* square residue modulo every m — does not give a single integer square in all admissible
+  classes simultaneously; the author correctly adds it as an assumption), (ii) follows from R⁺(m²) = 0. One hidden
+  hypothesis: an infinite product of positive local factors can be 0; "positive" must mean "bounded below at the
+  admissible squares" (D7). (iii): (a/m²k) = (a/k) for gcd(a, m) = 1 is right, but the conductor is the *squarefree
+  part* k of n, not the "squarefree kernel" (= radical; e.g. n = p²q has radical pq, character (·/q)) (D6).
+* Item 1 (middle window): (c/n)(x/y) = σ(P)σ(M)σ(S) with σ(P) = σ(S) = 1 and (x/y) = −1 gives σ(M) = −(c/n). Correct.
+* Item 3: "mod 129599, [255, 509]² has 11 inverse pairs" reproduced (11). Window arithmetic: twisted box count
+  main term N²/n vs Weil error n^{1/2+o(1)} ⇒ N ≥ n^{3/4}, N = n^{2ε} ⇒ ε ≥ 3/8. Correct as a method threshold (and
+  correctly labelled so).
+* Hypothesis TG: as written, Λ₁, Λ₂ are unquantified ("for sets A = Λ₁ ∔ [N] …"), and "∔" is undefined. If Λ's are
+  arbitrary, TG is false: take K quadratic residues C mod a prime p, A = C + [N], B = C⁻¹ + [N]. Then C ⊆ A ∩ B⁻¹,
+  each c ∈ C contributes +1, and with K ≍ p/N² the planted points dominate: S ≍ K ≍ |A||B|/p, which beats
+  |A||B|N^{−κ}/p + p^{1−κ} as soon as N^{2} < p^{κ}, i.e. ε < κ/4 — inside TG's range ε ≤ ε₀. Numerically
+  (`scripts/review_r278_tg.py`, p = 10⁶ + 3): N = 4, K = 15 625: |A||B|/p = 3 719, Σ(c/p) = 15 384; N = 8: 948 vs
+  3 872; N = 16: 241 vs 945. So TG is only meaningful for Λ's coming from Γ̃-digit (Cantor) sets, and must say so.
+* "Distance to ES" paragraph: Assessment; consistent with R276 (δ = 1/2 with log² excess). No issue.
+
 ## Defects
 **D1 (MAJOR, attribution/label) — Thm 1.5 and §4.3 item 1, memo z37_theta_multiplier, README z37 row ("SHARP
 candidate").** The homomorphism property on Γ₁(4)_{≥0} and Ψ = ker σ are in RS (Prop 7.3 proof via (3.0.1)); the text
@@ -94,6 +128,32 @@ example (3, 5, 17) at n = 233). The report's "Checked: 192 283 words, 0 failures
 *Repair:* "If t ≡ 3 (mod 4) and A is odd (u even), the word is a slice word; for A = 2^e A_o even, χ = −(2/nt)^e, so
 +1 exactly when e is odd and nt ≡ 3 (mod 8). If 4 | t, every word is a slice word (DEDEKIND Thm 4.5)." Fix the report
 line the same way. Downstream: §4.1 and §4.2 B1 use only the 4 | t half / the mod-8 dependence — unaffected.
+
+**D6 (MINOR) — Prop 2.2(iii) and the following Assessment sentence.** "squarefree kernel" should be "squarefree part"
+(n = m²k, k squarefree). *Repair:* replace both occurrences.
+
+**D7 (MINOR, hidden hypothesis) — Prop 2.2(i).** "positive on all admissible classes ⇒ positive at admissible m²"
+needs the Euler product to converge to a value bounded below on the admissible squares (otherwise R⁺(m²) = 0 is not in
+contradiction with ~ c𝔖 n^{2δ−1}). *Repair:* add "with ∏_p σ_p(n) ≫ 1 uniformly on admissible n (as for BK-type
+singular series, where σ_p = 1 + O(p^{−2}) for p ∤ qn)".
+
+**D8 (MAJOR, precision) — CONJECTURE R-main.** (a) The normalisation is missing: R depends on both n and the height cutoff
+X; the asymptotic should be for n ∈ [X/2, X] (or n ≍ X) with X → ∞. (b) n is always odd here (4 | c, y odd), so "D =
+the finite set of 2-adic square classes" and "RS Table 1 … 2-adic variants" are vacuous or refer to other seed types;
+for the stated setting the factor is simply 1 − 1_□(n). (c) "𝔖(n)" and c_Γ: of Γ̃ or of Γ⁺? (Γ⁺ = ker σ|Γ̃ is not a
+congruence condition, so its reductions mod q presumably coincide with Γ̃'s — should be stated.) (d) Restrict to n in
+the admissible classes of Γ⁺ (else 𝔖 = 0 and the statement is vacuous anyway). (e) The heuristic itself assumes the full
+asymptotic R(n) ~ c𝔖 n^{2δ−1} for Γ̃ (a pointwise local–global statement not known for any thin semigroup); say
+"conditional on the corresponding conjecture for Γ̃". *Repair:* restate as: "Assume R(n) ~ c_Γ̃ 𝔖_Γ̃(n) X^{2δ−1}
+for admissible n ≍ X. Conjecture: R⁺(n) = ½ c_Γ̃ 𝔖_Γ̃(n) X^{2δ−1}(1 − 1_□(n) + o(1)) for admissible n ≍ X."
+
+**D9 (MAJOR, precision; false as literally quantified) — Hypothesis TG (§2 item 4, memo z37_twisted_gluing).** With
+unrestricted Λ₁, Λ₂ TG is refuted by planting (above; numerics in `scripts/review_r278_tg.py`). *Repair:* quantify Λ_i
+as the residue sets produced by Γ̃-prefixes/suffixes (Shkredov's A, B for the digit set of Γ̃), or add a
+"non-planted" hypothesis (e.g. bounded multiplicative energy / additive spread of Λ_i at scale N); define "∔" (direct
+sumset, all sums distinct). Then also the claim "TG is false for squares (as it must be)" stays true, and the
+"proof of Question R would go through for δ > 1 − O(κ)" remains an Assessment conditional on the preprints *and* on
+the transport, as stated.
 
 **D4 (MINOR) — §5, 2510.21702 bullet.** Their metaplectic remark concerns SL(2, ℤ[i]) for the Apollonian superpacking.
 *Repair:* "…suggests (for SL(2, ℤ[i]) and the superpacking) …; Thm 1.5 is the classical SL(2, ℤ) analogue".
