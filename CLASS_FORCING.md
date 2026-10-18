@@ -246,3 +246,40 @@ existence mechanisms: what is forced is a congruence class of p, and the class p
 *T1 control.* All tiers fail at all 499 odd squares ≤ 10⁶, including Gen. Reason (Prop 5.1(a) at n = m²): every prime ℓ | m² + 4d
 has χ_{−4d}(ℓ) = (−4d/ℓ) = (m²/ℓ) = 1, so all factors lie in ker χ_{−4d} ∌ −1 — the T1 obstruction in its "generated subgroup"
 form. At a prime the same factors have χ_{−4d}(ℓ) = (ℓ/p): T1 vs prime is visible factor by factor exactly through this link.
+
+**Corollary 5.3 (even perfect class-group knowledge of each factor gives only the χ-shadow; PROVED from WINDMILL Prop 10.3 /
+Remark 10.4).** Let K = ℚ(√−tp) and let the prime factors ℓ of tp + 1 (or of any line's N, via the divisor hypercube of a fixed
+principal ideal) correspond to ideals 𝔩. In 1 → (O/t)^×/im O^× → Cl_{(t)}(K) → Cl(K) → 1 the norm homomorphism
+Cl_{(t)}(K) → G sends the kernel onto G² (norms x² + tpy² ≡ x² mod t). Hence knowing [𝔩] ∈ Cl(K) for every factor — the most
+that 2^∞-class-group methods (Rédei, Smith, Koymans–Pagano governing fields) could ever deliver — determines ℓ mod t only in
+G/G². The class w ≡ −1 (mod t) lives in the G²-part, i.e. in the generators, not in the ideal classes. ∎
+
+## 8. Construction attempts (iteration log, each with the barrier hypothesis it hit and the modification tried)
+* C1 total class → divisor: dies on realisability (N prime). Modification: individual factors (C2).
+* C2 forced small factors by choosing d (CRT): = ET Type II classes (§3.3), B1; dies at p ≡ 1 (M) (Thm 3.4). Modification:
+  non-congruence data (C3).
+* C3 cubic/quartic/Eisenstein/Rédei/governing-field data of p: independent of classes beyond G/G² (Thm 2.1, Prop 5.1, Cor 5.3);
+  conditionally useless even in aggregate (Thm 6.1). Modification: data that act on the integer, not on p (C4).
+* C4 algebraic factorisation of N forced by p's Gaussian/representation data (p = a² + b², p = x² + ny², 4d = poly(a, b)):
+  N becomes a binary-form value; its factors are pushed INTO the genus subgroup (anti-forcing; JOINT_BUDGET Prop 4.2, near
+  squares (J)53/(J)55), and finitely many polynomial families in (a, b) are barred by (J)3 (POINTWISE_BINARYFORM).
+  The one abelian quartic exception (−4b⁴, Sophie Germain) is the thin-family mechanism (J)74, which needs p itself special.
+* C5 zero-sum pooling across levels: large primes private (Lemma 2.3 SS8); η(G) ≥ (q − 3)/2 at prime levels (Lemma 4.1).
+* C6 one integer carrying several levels (Type II ff′ = kp + 1, levels k/c for c² | k/4): the conditions nest (the weakest is
+  the largest c), so this is one level, not several; no gain.
+* C7 the exponent-2 shadow X2 (levels t | 24, where Σ = ⟨S⟩ and the event is "a factor escapes a subgroup"): a finite union
+  of Landau events; fails exactly when p imitates a square for finitely many binary-form representability tests (p + 4 a
+  primitive sum of two squares, p + 8 = x² + 2y², …); 73 failures ≤ 10⁶. Sieve-accessible on average, not pointwise.
+
+## 9. Verdict (O263 checkpoint 1)
+* **Answer to route (b): no.** Reciprocity of any order, Rédei symbols, governing fields and Artin reciprocity for ray class
+  fields mod t determine, pointwise from p's own data, only (i) the full class of the total product N mod t — which is plain
+  congruence data — and (ii) for each individual prime factor ℓ the single quadratic link χ_{−4d}(ℓ) = (ℓ/p), which involves
+  the unknown ℓ. Class forcing beyond the χ-shadow is impossible in this scope (Thm 2.1, Prop 5.1, Thm 5.2, Cor 5.3, PROVED);
+  bounded-level forcing using any such data fails infinitely often (Thm 6.1, CONDITIONAL on HC), and the forced rules miss
+  the explicit class p ≡ 1 (mod M) unconditionally (Thm 3.4, PROVED).
+* Davenport/zero-sum cannot bridge parity and class: target constant η(G) ≥ (q − 3)/2 at prime levels against ≤ 1 forced
+  escaping factor (Lemma 4.1, Prop 4.2).
+* EVIDENCE (§7): forced (congruence) certificates cover 98–99.9 % of primes ≤ 10⁶ but never the class p ≡ 1 (M); the
+  generated-subgroup relaxation never fails at primes (levels ≤ 200) and always fails at odd squares, factor by factor.
+* ES is not advanced; everything ends at B1 (congruence) or B2 (a divisor of one integer in a moving class).
