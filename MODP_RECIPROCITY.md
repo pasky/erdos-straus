@@ -222,7 +222,7 @@ taken from neighbouring primes (EVIDENCE 3.4).
 representations p = x² + Dy² (equivalently: Frobenius of p in the ring class fields of ℤ[√−D], cubic/quartic Jacobi sums, Gauss
 periods) are the only canonical integers of size ≍ √p attached to p, i.e. they live exactly in the balanced range R3 of §1.
 Their effect on the b = 1 windows they index splits into the Jacobi selection rule of Prop 5.1 and congruence data: they *forbid* windows (all odd
-divisors of y; the divisors m of x with (D/m) = +1) and *permit* others. Firing of a permitted window is "least residue of −p mod 4m divides m + 1", a function of p mod 4m —
+divisors of y; the odd divisors m of x with (D/m) = +1) and *permit* others. Firing of a permitted window is "least residue of −p mod 4m divides m + 1", a function of p mod 4m —
 congruence data of p, which can force firing on sub-classes (R-O265 example: 5 | x, y ≡ ±2 (5), p = x² + 3y² ⟹ −p ≡ 3 (mod 20),
 so m = 5 fires) — B1 for fixed m, B2 when m grows with p. The cubic case is identical for odd windows (4p = L² + 27M², after
 removing a common factor 2 when L, M are both even: odd divisors of M forbidden, odd divisors m of L permitted iff (3/m) = −1;
