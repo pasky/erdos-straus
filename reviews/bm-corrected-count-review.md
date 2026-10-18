@@ -7,17 +7,17 @@ document is NOT edited. From-scratch scripts: `scripts/review_r279_*`. ES is not
 
 | claim | verdict |
 |---|---|
-| Thm 1.1 (dictionary) | (pending) |
-| Prop 2.1 | (pending) |
-| Thm 2.2 (unconditional (log p)² lower bound) | (pending) |
-| Prop 2.3 (GRH) | (pending) |
-| §2 Consequence H_BM(E) | (pending) |
-| Prop 3.1 (two-sided false, Linnik) | (pending) |
-| H⁻_BM conditional / labels | (pending) |
-| §3.2 numerics | (pending) |
-| §3.3 Markoff precedent | (pending) |
-| Prop 4.1 (Type II, b = 1, m/n) | (pending) |
-| Novelty | (pending) |
+| Thm 1.1 (dictionary) | SOUND (labels/novelty: D1, D2 MINOR) |
+| Prop 2.1 | SOUND |
+| Thm 2.2 (unconditional (log p)² lower bound) | SOUND (D4 MINOR nits); correct but routine — not headline-grade |
+| Prop 2.3 (GRH) | SOUND-AFTER-REPAIRS (D5: precise GS citation, Thm 2) |
+| §2 Consequence H_BM(E) | GAP (D3 MAJOR: hypothesis false by Prop 3.1; restate one-sided) |
+| Prop 3.1 (two-sided false, Linnik) | SOUND |
+| H⁻_BM conditional / labels | SOUND (D8 MINOR) |
+| §3.2 numerics | SOUND-AFTER-REPAIRS (D6, D7 MINOR) |
+| §3.3 Markoff precedent | SOUND (LM Thm 1.5 checked; GS/CTWX not re-checked) |
+| Prop 4.1 (Type II, b = 1, m/n) | SOUND |
+| Novelty | Thm 1.1 arithmetic classical (Yamamoto/BL Cor 1.3); Thm 2.2 apparently new but routine |
 
 ## Per-claim notes
 
@@ -117,8 +117,8 @@ remove "exact" from the two-sided version. The T1-compatibility remark transfers
 Re-derived: for d | Q_k with an odd number of primes ≡ 3 (4), d ≡ 3 (4), C = (d+1)/4 ∈ ℤ, B = (p+1)/d even, 4BC − 1 − B =
 Bd − 1 = p; (1, B) ∈ 𝒫(p) since d ≥ 3 ⇒ 3B − 1 ≤ p; distinct d give distinct B; log Q_k ∼ k log k; Linnik gives
 k ≥ (1/L_Lin − o(1))log p/log log p; M_BM ≤ 2M₀ ≪ L², M_gen ≤ Σ 2^{ω(odd)+2}·2^{ω}/φ ≪ L⁴ ✓. Own check
-(`/tmp`-free, inline in review notes): Q = 21, 231, 4389 give p = 293, 2309, 43889 with exactly 2, 4, 8 constructed hits, all
-verified, R(p) = 8, 16, 42 vs M_BM = 4.8, 8.8, 16.7. The "harmless direction" caveat is correctly stated.
+`scripts/review_r279_prop31.py`: Q = 21, 231, 4389 give p = 41, 461, 43889 with exactly 2, 4, 8 constructed hits, all
+verified, R(p) = 6, 12, 42 (M_BM(43889) = 16.7). The "harmless direction" caveat is correctly stated.
 
 ### H⁻_BM conditional and its labels — SOUND (minor D8)
 "(★) for p > p₀ ⟸ H⁻_BM(ε, p₀)" is immediate from Thm 2.2 (εM_BM ≥ ε(0.019 − o(1))L² ≥ 1 for p large in terms of ε).
@@ -153,3 +153,40 @@ hits). c = 1 line for m = 8, 12, 16, primes < 6000: 3 272 + 1 582 + 1 356 = 6 21
 (author's total reproduced); m = 3 control: 9 666 of 13 934 hits only, confirming the 4 | m restriction. (b) is (a) with
 b = 1 in shifted coordinates: −a ≡ −y/(4x) (mod p) ⇒ (−a/p) = (−xy/p); (4x+y) | 4x(4x+y) ⇒ the target identity ✓.
 Numerator-8 control values reproduced: 8/p c = 1 line at 131, 241: R = 0, M_BM = 0.562, 0.465 ✓.
+
+### Novelty — Assessment
+* Thm 1.1/Prop 4.1 arithmetic: classical (Yamamoto 1965 quadratic-residue condition; BL Cor 1.3 "unifies" it; ET Prop 1.6
+  §4 Jacobi argument). The orthogonality-expansion reading ("the BM class is the single character χ_{−4uB}") is a correct,
+  apparently unrecorded but routine reformulation (D2).
+* Thm 2.2: I found no published lower bound for a BM-corrected singular series of (★)/ES type (BL, ET, BR, LM, web search
+  "Erdős–Straus Brauer–Manin singular series" → nothing beyond BL). It is a routine positivity + Burgess exercise; worth
+  recording as a lemma, not as a headline. It gives **nothing about R(p)** without the (ES-equivalent-strength) H⁻_BM.
+* The repo-level value is the bookkeeping: H⁻_BM is T1-compatible and its main term is unconditional. Correctly assessed
+  in §5 by the author ("bookkeeping-level").
+
+## Numbered defects
+
+1. **D3 (MAJOR)** — §2 "Consequence (CONDITIONAL, exact)": the two-sided hypothesis H_BM(E) with E ≪ L² is false i.o. by the
+   document's own Prop 3.1; presenting it as a live, "exact" conditional is a mislabel. Repair: replace by the one-sided
+   form (X_BM ≥ −E) and flag the two-sided form as refuted (Prop 3.1).
+2. **D1 (MINOR)** — §0 bullet 1, §5(i), AGENT_REPORT SHARP 1: "the Borovoi–Rudnick BM factor". BR Thm 0.6 concerns affine
+   homogeneous spaces of semisimple groups (density on X(𝔸), T → ∞); U_n is neither, and at non-hits the factor drops
+   invariants that are −1 at ≈ 50 % of the points (own count 4 168 / 8 260). Repair: "of Borovoi–Rudnick shape (no BR
+   theorem applies to U_n)".
+3. **D2 (MINOR)** — §0, §5 "New and PROVED (i)": novelty of Thm 1.1(1),(2),(4) overstated; cite Yamamoto / BL Cor 1.3 /
+   ET Prop 1.6 and claim only the expansion statement (3) + refutation of O260's strong form as new.
+4. **D4 (MINOR)** — Thm 2.2 proof: (i) "(Allowing δ > 1/2 gains < 1 %: … costs 6(δ − 1/2)²)" — the cost term is asserted,
+   not derived, and with it the optimum is 0.7578 vs 0.75, i.e. a 1.04 % gain (not < 1 %); delete or derive. (ii) "truncate
+   at k ≤ p and use periodicity beyond" is unnecessary (all arguments t ≤ p/8); harmless. (iii) Add one sentence that the
+   o(1) is effective but depends on the Burgess ε, η, and that at accessible p the O_ε(1) dominates (own g(p)/L = 0.41–0.46
+   at the failure primes vs the asymptotic 1/4), so the numerical statement M_BM ≥ 0.062L² (p ≤ 10⁶) is the operative one.
+5. **D5 (MINOR)** — Prop 2.3: cite Granville–Soundararajan precisely: Theorem 2 (GRH; 1 ≤ x ≤ q; Σ_{n≤x}χ(n) ≪ Ψ(x,
+   log²q(log log q)^{20}), hence o(x) when log x/log log q → ∞). The statement as used is correct; the AGENT_REPORT caveat
+   "not re-read in full" can be dropped.
+6. **D6 (MINOR)** — §3.2 table column "R > 2M" and §3.1 parenthetical "766": these are |R − M| ≥ M counts (include R = 0).
+   True R > 2M: 49, 123, 279, 764.
+7. **D7 (MINOR)** — §3.2: "At the failures M_BM ∈ [3.0, 28.3]" → [1.0, 28.3] (p = 7: 1.00, p = 31: 2.00).
+8. **D8 (MINOR)** — "(★)-ES for p > p₀ ⟸ H⁻_BM": ES for all n additionally needs the census below an explicit p₀; say so.
+
+No FATAL defects. All key mathematics (Thm 1.1, Prop 2.1, Thm 2.2, Prop 2.3, Prop 3.1, Prop 4.1) re-derived and
+independently confirmed numerically.
