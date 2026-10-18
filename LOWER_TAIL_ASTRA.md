@@ -40,7 +40,7 @@ Consequently, for n≡1 (4), among these unit-endpoint edges a bichromatic edge 
 
 *Proof.* `Av=n+u`, so A≡uv⁻¹ (mod n); the Jacobi identity follows. The path product telescopes. ∎
 
-**Attribution.** SIGN_IDENTITY Lemma 1.1 already gives the endpoint divisibility encoding, this sign identity (with the harmless minus-sign convention when n≡1 mod4), and the size bound. DEDEKIND_ES also gives a different, Farey-graph description of the same certificates. Only the unique-parent / forest structure and its component consequences appear unrecorded in the repository; no external novelty claim is made.
+**Attribution.** SIGN_IDENTITY Lemma 1.1 already gives the endpoint divisibility encoding, this sign identity (with the harmless minus-sign convention when n≡1 mod4), and the size bound. DEDEKIND_ES also gives a different, Farey-graph description of the same certificates. Only the unique-parent / forest structure and its component consequences appear unrecorded in the repository; no external novelty claim is made. (R285 repair) The unique-parent fact itself is the line “for u ≤ v: v | n+u” in the proof of SIGN_IDENTITY Lemma 1.1; the forest statement is its immediate consequence, so the increment is the forest observation plus the component computations below.
 
 **Construction target (not proved).** A non-residue in the component rooted at 1 forces a bichromatic edge without estimating its count. More generally, any independently forced pair of opposite-coloured vertices in one component suffices. This is weaker than demanding expansion, but stronger than mere existence of a good edge somewhere. We will test it before using it as a conjecture.
 
@@ -62,7 +62,7 @@ Every vertex in this component is a quadratic residue modulo p. Therefore this c
 
 *Proof.* At vertex 1 the neighbours are the nontrivial divisors of p+1=2r, namely 2,r,2r. At vertex 2 they are the odd divisors of p+2=3s, namely 1,3,s,3s. At vertex 3, a neighbour must divide p+3=4w and be 2 mod 3; since w≡1 (3), the only such divisors are 2 and 2w.
 
-The five remaining vertices are leaves. For r, a neighbour divides 3r−1 and is 1 mod r; the candidates other than 1 are r+1 and 2r+1, which fail for r>3. For s, a neighbour divides 4s−2 and is 2 mod s; the candidates s+2,2s+2,3s+2 fail for s>8 (their divisibility would require, respectively, s+2|10, 2s+2|6, or s=4). For v=2w, a neighbour divides 3v−3 and is 3 mod v; candidates v+3 and 2v+3 fail for v>9. Finally 2r=p+1 and 3s=p+2 have only neighbours 1 and 2 by the global size bound. The hypotheses give r≥13,s≥9,2w≥14.
+The five remaining vertices are leaves. For r, a neighbour divides 3r−1 and is 1 mod r; the candidates other than 1 are r+1 and 2r+1, which fail for r>3. For s, a neighbour divides 4s−2 and is 2 mod s; the candidates s+2,2s+2,3s+2 fail for s>8 (their divisibility would require, respectively, s+2|10, 2s+2|6, or s=4). For v=2w, a neighbour divides 3v−3 and is 3 mod v; candidates v+3 and 2v+3 fail for v>9. Finally (R285 repair) 2r=p+1 and 3s=p+2 have smaller neighbours −p mod (p+1)=1 and −p mod (p+2)=2 respectively (Lemma 2.1); the only vertex above p+1 is p+2, and (p+1)(p+2)∤3p+3, so these are their only neighbours. The hypotheses give r≥13,s≥9,2w≥14.
 
 Since p≡1 (24), both 2 and 3 are quadratic residues. Modulo p, r=1/2, s=2/3, 2w=3/2, 2r=1, and 3s=2, so all eight vertices are residues. ∎
 
@@ -74,9 +74,9 @@ All four linear forms take the value 1 at k=0. Their product therefore has no fi
 
 `p=1+Mk, L_i=1+(M/(i+1))k, 1≤i≤H`.
 
-They are admissible because they all equal 1 at k=0. Take k large enough that each prime L_i>H+1. Then p+i=(i+1)L_i and L_i≡1 (mod i). Every divisor v of p+i is d or dL_i with d|i+1, and hence v≡d (mod i). For i≥4, no divisor d|i+1 is −1 mod i: the only candidate is i−1, and i−1|i+1 would imply i−1|2. This rules out *all* neighbours, smaller and larger: the factorisation v=d or dL_i includes both, and L_i>H+1 prevents a smaller neighbour from containing L_i. In particular the only possible smaller neighbour i−1 is excluded by i−1∤i+1. Thus vertices 4,…,H are isolated. The component of 1 (also containing 2,3) is exactly that of Theorem 3.1, with k there replaced by Mk/24, and is monochromatic. ∎
+They are admissible because they all equal 1 at k=0. For every k≥1 each L_i>H+1, since H(H+1)|M gives L_i≥1+M/(H+1) (R285 repair: no largeness condition on k is needed). Then p+i=(i+1)L_i and L_i≡1 (mod i). Every divisor v of p+i is d or dL_i with d|i+1, and hence v≡d (mod i). For i≥4, no divisor d|i+1 is −1 mod i: the only candidate is i−1, and i−1|i+1 would imply i−1|2. This rules out *all* neighbours, smaller and larger: the factorisation v=d or dL_i includes both, and L_i>H+1 prevents a smaller neighbour from containing L_i. In particular the only possible smaller neighbour i−1 is excluded by i−1∤i+1. Thus vertices 4,…,H are isolated. The component of 1 (also containing 2,3) is exactly that of Theorem 3.1, with k there replaced by Mk/24, and is monochromatic. ∎
 
-**Scope / novelty (Assessment).** This uses the campaign's familiar n=1-shadow/Dickson mechanism, not a new prime theorem. The extra conclusion is graph-theoretic closure: all branches from the chosen roots are blocked, not just a prescribed finite set of slices or a prescribed exploration depth. It excludes this particular adaptive-root strategy; growing or p-dependent roots remain open.
+**Scope / novelty (Assessment).** This uses the campaign's familiar n=1-shadow/Dickson mechanism, not a new prime theorem. (R285 repair) The isolation of roots i≥4 is exactly the e-row computation of DISPROOF_AVENUES Prop 3.1 (p+e=(1+e)P, P≡1 mod e, every divisor ≡ a shadow divisor of 1+e); B1_LINE Thm 4.2 is the same Dickson-shadow pattern for b=1 shifts. The extra conclusion is graph-theoretic closure: all branches from the chosen roots are blocked, not just a prescribed finite set of slices or a prescribed exploration depth. It excludes this particular adaptive-root strategy; growing or p-dependent roots remain open.
 
 ## 4. Paths: Fibonacci growth, but no depth-forced sign change
 
@@ -90,7 +90,7 @@ Thus path vertices grow at least as Fibonacci numbers and the depth is O(log n).
 
 **Proposition 4.2 (PROVED, relative to Dirichlet).** For every h there are infinitely many primes p≡1 (8) whose component of 1 contains an increasing path of length at least h consisting entirely of quadratic residues modulo p. Consequently long paths alone do not force a good edge on that path.
 
-*Proof.* Start v₀=1,v₁=2, and choose an odd prime v₂≡1 (8). Inductively choose a new prime v_{i+1}>v_i with v_{i+1}≡v_{i−1} (mod v_i) and v_{i+1}≡1 (8), using Dirichlet. All odd vertices are distinct primes. Prescribe p≡1 (8) and p≡−v_{i−1} (mod v_i) at each odd vertex. Adjacent prescriptions agree because v_{i+1}≡v_{i−1} (mod v_i). CRT and Dirichlet give infinitely many prime p in the resulting unit class. At each edge both vertex divisibilities hold; their coprimality gives the word condition. Take p sufficiently large that all vertices lie in the defining range.
+*Proof.* Start v₀=1,v₁=2, and choose an odd prime v₂≡1 (8). Inductively choose a new prime v_{i+1}>v_i with v_{i+1}≡v_{i−1} (mod v_i) and v_{i+1}≡1 (8), using Dirichlet. All odd vertices are distinct primes. Prescribe p≡1 (8) and p≡−v_{i−1} (mod v_i) at each odd vertex. (R285 repair) The moduli are pairwise coprime, so CRT applies; CRT and Dirichlet give infinitely many prime p in the resulting unit class. At an edge {v_{i−1},v_i}, v_i | p+v_{i−1} is prescribed, and v_{i−1} | p+v_i because p≡−v_{i−2} and v_i≡v_{i−2} (mod v_{i−1}); the edges {1,2}, {2,v₂} are immediate. Coprimality of the endpoints gives the word condition. Take p sufficiently large that all vertices lie in the defining range.
 
 For v₂, reciprocity gives (v₂/p)=(−2/v₂)=1. For i≥3, since v_i,v_{i−1}≡1 (8),
 
@@ -104,7 +104,7 @@ This is not an assertion that the entire component is monochromatic: other branc
 
 The fixed-root obstruction uses p≡1 modulo small integers, so its least non-residue moves beyond the frozen roots. A genuine repair is therefore to root at the *actual least non-residue* ℓ(p), rather than at a fixed integer.
 
-If ℓ(p) has a smaller neighbour, that edge is automatically bichromatic, since every positive integer below ℓ(p) is a residue. This criterion succeeds at 38,097 of the 39,175 primes p≡1 (4) up to 10^6. Allowing its *whole component*, including branches not through ℓ(p), still fails at 769 primes, beginning 1201,2521,3361,5569,7561,9769. This is a different failure set from the root-1 set.
+If ℓ(p) has a smaller neighbour, that edge is automatically bichromatic, since every positive integer below ℓ(p) is a residue. This criterion succeeds at 38,097 of the 39,175 primes p≡1 (4) up to 10^6. Allowing its *whole component*, including branches not through ℓ(p), still fails at 769 primes, beginning 1201,2521,3361,5569,7561,9769. This is a different failure set from the root-1 set (R285 repair: 769 vs 285 primes, 110 in common, e.g. 1201, 5569, 12721, 16921, 19441).
 
 **Theorem 5.1 (PROVED implication; infinitely many such primes CONDITIONAL on Dickson for two forms).** If
 
@@ -128,6 +128,6 @@ which misses 9. The two linear forms are admissible: at primes dividing 9240=2³
 - 3,028,437 edges at the latter primes; 1,964,805 have negative sign; no five-slice failures (reproduces known results, not new evidence for ES).
 - Root-1 failures: 285; first 16 are 409,1201,5569,8521,8641,9649,12289,12721,12841,15241,16921,19441,23761,23929,24481,27241.
 - Maximum depth over selected inputs is 7 (first attained at 7867); largest least root of a mixed-colour component is 17 (first attained at 196561).
-- Every edge at odd squares fails the five-slice test; all word edges at 131 and 241 fail the numerator-8 five-slice test.
+- Every edge at odd squares fails the five-slice test; all word edges at 131 and 241 fail the numerator-8 five-slice test. (R285 repair) This test means 8 | t, u, v, tu−1 or tv−1; it is an ad hoc control, not an established 8/n certificate criterion (only 8 | t, u, v is the SYNTHESIS_SPARKS9 Cor 1.2 two-line union for 8/n).
 
 A third implementation, `scripts/z43_astra_check.py`, compares direct residue-parent enumeration and divisor enumeration for every odd n≤2000 (24,389 edges), and checks 21,135 reconstructed unit-fraction certificates in exact rational arithmetic. It independently checks all 499 odd squares (17,372 edges), and complete components at eight actual four-form prime fixtures. No mismatch.

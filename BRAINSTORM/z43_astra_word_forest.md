@@ -6,7 +6,7 @@
 
 Positive words `tuv−u−v=n`, modulo u↔v and with loops removed, form a forest on endpoint integers: at v the only possible smaller neighbour is `−n mod v`. On unit vertices its edge sign is the product of the two vertex Jacobi symbols. A good word is therefore a bichromatic edge (n≡1 mod4). Increasing branches satisfy a continued-fraction recurrence `v_next=a v+v_prev`.
 
-This is not the old signed-solution graph: vertices here are endpoint integers of positive words; no signed denominator is involved. The endpoint encoding and sign identity are already SIGN_IDENTITY Lemma 1.1 / CONSTRUCTIVE_ES Prop 4.1(c); only the forest structure and its consequences appear unrecorded in the repository. DEDEKIND_ES gives a related Farey-graph view. External novelty was not investigated.
+This is not the old signed-solution graph: vertices here are endpoint integers of positive words; no signed denominator is involved. The endpoint encoding and sign identity are already SIGN_IDENTITY Lemma 1.1 / CONSTRUCTIVE_ES Prop 4.1(c); only the forest structure and its consequences appear unrecorded in the repository (R285 repair: the unique-parent fact is the line “for u ≤ v: v | n+u” in the proof of SIGN_IDENTITY Lemma 1.1; the forest is its immediate consequence). DEDEKIND_ES gives a related Farey-graph view. External novelty was not investigated.
 
 ## Construction and repair
 

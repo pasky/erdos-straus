@@ -1,5 +1,7 @@
 # R285 — hostile review of O275 (LOWER_TAIL_ASTRA.md, GPT-Astra lower-tail attack)
 
+**Repairs applied (R285, at parent request; author near context limit):** D1–D6 applied directly in LOWER_TAIL_ASTRA.md (§2 Attribution, Thm 3.1 proof, Thm 3.2 proof, §3 Scope, Prop 4.2 proof, §5, §6), BRAINSTORM/z43_astra_word_forest.md and reviews/agent-reports/AGENT_REPORT_O275.md, each marked "(R285 repair)". No mathematical content changed.
+
 Reviewer: R285 side agent, branch `side-agent/review-tail-astra` (merged `side-agent/lower-tail-astra` at dbb88f9b-era head).
 Scope: LOWER_TAIL_ASTRA.md §§1–6, BRAINSTORM/z43_astra_word_forest.md, AGENT_REPORT_O275.md, the author's self-review.
 Every lemma was re-derived by hand; all numerics were recomputed with reviewer-written code that does not reuse

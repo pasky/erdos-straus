@@ -6,7 +6,7 @@
 - **PROVED implication / CONDITIONAL infinite obstruction:** four admissible linear prime forms produce an exactly closed eight-vertex all-residue component. Any fixed finite root set, even with unlimited exploration, fails infinitely often under Dickson (§3).
 - **Adaptive repair also fails:** for simultaneous primes `p=2521+9240a`, `(p+11)/12=211+770a`, the least non-residue is **11 and isolated**. This uses only two prime forms; infinitude is CONDITIONAL on Dickson (§5).
 
-These are clean structural results and scoped negative theorems, **not lower-tail positivity or a new infinite ES family**. Only the unique-parent / forest structure appears absent from the repository; the endpoint encoding, sign identity and size bound already occur in SIGN_IDENTITY Lemma 1.1 (prime sign case: CONSTRUCTIVE_ES Prop 4.1(c)); DEDEKIND_ES gives a related Farey-graph view. External novelty was not checked. The obstruction mechanism is the existing n=1 shadow, extended to entire components.
+These are clean structural results and scoped negative theorems, **not lower-tail positivity or a new infinite ES family**. Only the unique-parent / forest structure appears absent from the repository; the endpoint encoding, sign identity and size bound already occur in SIGN_IDENTITY Lemma 1.1 (prime sign case: CONSTRUCTIVE_ES Prop 4.1(c)); DEDEKIND_ES gives a related Farey-graph view. External novelty was not checked. The obstruction mechanism is the existing n=1 shadow, extended to entire components. (R285 repair) The unique-parent fact is the line “for u ≤ v: v | n+u” in the proof of SIGN_IDENTITY Lemma 1.1, and root isolation in Thm 3.2 is the e-row computation of DISPROOF_AVENUES Prop 3.1.
 
 ## Work
 
@@ -22,7 +22,7 @@ Scripts: `scripts/z43_astra_forest.c`, `scripts/z43_astra_check.py`.
 - At 39,175 primes p≡1 (4): 3,028,437 edges, 1,964,805 negative edges; no five-slice failure (known census reproduced).
 - Root 1 fails at 285 primes; the least-non-residue component fails at 769. Maximum least mixed-component root is 17 at 196561 (EVIDENCE only).
 - Third implementation compares direct residue-parent and divisor enumeration on all odd n≤2000; checks 21,135 reconstructed certificates as exact rational identities; independently checks all squares and eight fixtures for each obstruction family.
-- Numerator-8 five-slice controls at 131,241: no hits. The 4-specific sign criterion is not asserted for numerator 8.
+- Numerator-8 five-slice controls at 131,241: no hits (R285 repair: test = 8 | t, u, v, tu−1 or tv−1; ad hoc control, not an 8/n certificate criterion). The 4-specific sign criterion is not asserted for numerator 8.
 - Commands: `cc -O2 -Wall -Wextra -std=c11 scripts/z43_astra_forest.c -o /tmp/z43-astra-forest`; run binary with `1000000`; `PYTHONPATH=scripts uv run python scripts/z43_astra_check.py`. All under 8 GB virtual-memory limit and timeout; single-core. Edge storage ≈101 MB; no large outputs retained.
 
 ## Status
