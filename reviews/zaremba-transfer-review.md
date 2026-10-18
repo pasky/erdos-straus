@@ -120,3 +120,56 @@ information about p" is an Assessment, fine. **SOUND (MINOR wording, D6).**
 From scratch (loop over (t, u ≤ v), `scripts/review_r276_lemmaC_numfree.py`): exceptions ≤ 2·10⁶ are exactly
 {1, 2, 3, 5, 6, 9, 11, 14, 15, 35, 105, 510} — 12 values, max 510. **SOUND.** Memo wording "odd squares are *not*
 exceptions here" is contradicted by 1 and 9 in that very list (should read "no odd square > 9"). MINOR (D8).
+
+## Numbered defects (continued; D1 above)
+
+**D2 (MAJOR, definitional; inherited from DEDEKIND_ES §2 R169 repair) — "r(p/A) = 1 + Σ_{i odd} a_i" is false for
+half of all A.** Location: ZAREMBA_TRANSFER Notation line; Thm A last line; Thm B proof; `scripts/z36_ladder.py`
+docstring/implementation (and `z36_lambda_witness.py`). Counterexample: 7/2 = 4 − 1/2 = [[4, 2]] has HJ length 2, but
+7/2 = [3; 2] gives 1 + 2 = 3. From scratch (`scripts/review_r276_hjformula.py`), over all coprime 0 < A < n < 400:
+24 258 of 48 516 pairs mismatch; the corrected formula **r(n/A) = 1 + Σ_{i odd} a_i − [s odd]** (canonical CF
+[a₀; …, a_s], a_s ≥ 2) has 0 mismatches (equivalently: use the expansion whose last index is even). Consequences:
+(i) Thm A and Thm B survive verbatim with "≤" (the formula is always ≥ the true length). (ii) The §2.2 ladder table is
+mis-measured: at n = 10009 the true |S₃|, |S₄|, |S₆|, |S₈| are 69, 263, 827, 1791 (table: 63, 229, 685, 1594 — exactly
+the formula values); QNR shares 0.70/0.73/0.53 (table 0.70/0.75/0.54); λ = 2 unchanged. The other rows must be
+recomputed; qualitative readings (polylog vs power) unaffected. (iii) Upstream: DEDEKIND_ES §2 ("(R169 repair:) …
+r(n/A) = 1 + Σ_{i odd} a_i") and the Cor 4.6 parenthetical carry the same error — the parent should route a repair to
+DEDEKIND_ES (the length-3 pattern [v−1; 1, t−2, 1, u−1] is correct only for u ≥ 3; for u = 2 the canonical CF is
+[v−1; 1, t−2, 2] with odd last index). Repair: state r via the HJ recursion (or the corrected formula), and rerun the
+ladder table with true HJ lengths.
+
+**D3 (MINOR→MAJOR for the SHARP claim) — RS dictionary overstated / mis-normalised.** Locations: §5.2 table rows 1, 3,
+4; AGENT_REPORT SHARP 1 ("same source … same obstruction … same conjectural shape"). Repairs: (a) label rows 1, 3, 4
+Assessment/analogy; (b) row 2: insert the exact Def-2.4 statement proved in this review (slice numerator sets X_T, X_A
+with families (4, 4m−1, 4m), (3, 8m−1, 8m)), and name RS Thm 2.18/Cor 2.19 as the closest RS analogue; (c) row 3: pair
+DEDEKIND 4.4 (CONJECTURE) with RS Conj 2.14/2.15, not with the PROVED Thm 2.8; (d) row 4: replace "dimension 0" by
+"BK-normalised exponent δ = 1/2 (≍ X log² X words of numerator ≤ X), i.e. exactly the BK threshold" — consistent with
+memo z36_density_threshold; (e) Question R: cite "proof of RS Thm 2.10 (Ψ₁ ⊆ Γ′_n ⊆ Ψ)" for Γ ⊆ Ψ.
+
+**D4 (MINOR) — §1 notation slips.** (a) "density q^{−o_κ(1)}" (§1.3, §6, memo) should be "density ≥ N^{−κ} = q^{−2κε}"
+(a fixed tiny power, not o(1)). (b) "1 − w ≤ κ/8" is the §5.1/(151) idealisation; in the Thm 8 proof the counting is at
+scale N∗ = N^{1/10} with M∗ ≥ 40M (Shk §5.4, Appendix), so the true threshold carries different constants — write
+"1 − w = O(κ)" or explain. (c) Zhang's g_j = [[2j, 1−4j²], [−1, 2j]] equals −T^{−2j}ST^{−2j}, not ±T^{2j}ST^{2j}
+(checked symbolically, `review_r276_dict.py` (d)); the "large HJ letters" remark then concerns letters −2j.
+
+**D5 (MINOR) — false "QNR restriction costs nothing except at 277".** Location §4 ZQ EVIDENCE, memo
+z36_chi_twist_window l. 27–28. 358/2259 primes < 2·10⁴ have QNR-min > Zaremba-min (357 cases 2 → 3). Repair: "the QNR
+restriction never pushes the minimum above 3 except at 277 (it raises 2 → 3 at 357 primes)".
+
+**D6 (MINOR) — Lemma D wording.** "exactly the length-3 HJ certificates of the multiples kp" → "the length-3 words of
+kp, k ≤ K, with p ∤ uv".
+
+**D7 (MINOR) — window conflict overstated.** §4 item 1: "incompatible" holds for per-interval (Burgess) input only;
+say so, and note averaged character-sum inputs are not excluded by this argument.
+
+**D8 (MINOR) — memo z36_numerator_free_rung**: "odd squares are not exceptions here" — 1 and 9 are; say "> 9".
+
+**D9 (MINOR) — §5.3 non sequitur.** "…which is why RS's counterexample does not contradict Shkredov/Zhang": there was
+never a conflict to explain — Zaremba's alphabet {1,…,M} has no reciprocity obstruction (RS p. 7, discussion after
+Cor 2.17), and Shkredov/Zhang assert nothing about 4ℤ⁺-alphabets. A sharper and simpler point: every 4ℤ⁺-alphabet
+semigroup has δ bounded away from 1 (all digits ≥ 4), so it can never meet the near-full-dimension threshold of §1.3;
+any growth proof for such alphabets needs a different counting step regardless of reciprocity.
+
+**Labels.** Every use of the 2026 preprints is labelled CONDITIONAL — checked: §1 (Assessment from sources), §4 item 3
+("CONDITIONAL on the preprints"), Theorem B (CONDITIONAL on ZQ_M, which is not a preprint consequence). No overclaim of
+ES found; "ES is not solved" stated. Theorem A PROVED: correct after D2.
