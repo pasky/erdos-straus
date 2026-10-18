@@ -24,3 +24,43 @@ max{10(κε)^{−1}, 100δ^{−60}}, and with κ ≥ 2^{−1656}, ε < 1/18 this
 contradicts itself in §1.3 vs §1.4. Repair: replace "M = 22000" by "M = 2^{2000}" everywhere, and add the one-line
 consistency check (threshold ⇒ M ≳ 2/κ). The qualitative conclusions of §4 ("negligible contribution") only get
 stronger.
+
+### Claim (1): the Rickards–Stange dictionary (§5, AGENT_REPORT SHARP 1)
+
+**Source check.** arXiv:2401.01860v3 downloaded; published as Duke Math. J. 174(15) (2025), doi
+10.1215/00127094-2025-0017 (Project Euclid / Colorado experts listing found by web search). Every cited statement
+matches the paper: Def 2.1/Prop 2.2 (Ψ = {γ ∈ Γ₁(4)_{≥0} : (a/b) = 1}); Def 2.4; Thm 2.5; Thm 2.8 (non-numerators of
+Ψ(2,3) = squares ∪ {3,6,7,10,12,15,18,19,27,31,34,55,63,99,115}, 15 values — counted); Prop 2.9 (δ(Ψ) = 1, not f.g.);
+Thm 2.10 (any ε > 0: f.g. Γ ⊆ SL₂(ℤ)_{≥0} with 1 − ε < δ < 1 and reciprocity obstructions); Thm 2.20 (BK alphabet
+local–global false; A = {4,…,128}, δ_A = 0.500890640842); Conj 2.15 (n > 10569, Ψ₁ = ⟨[[1,1],[0,1]],[[1,0],[4,1]]⟩,
+δ₁ ≈ 0.719); Conj 2.22 (v > 7968219670470). Proof mechanism of Thm 2.6: Lemma 4.1/4.3 (lattice line ux + vy = n, a
+run of ⌊n/8xy⌋ consecutive integers must contain both symbol values) + Lemma 5.2 via the explicit Pólya–Vinogradov
+bound of Frolenkov–Soundararajan — the author's "line + Pólya–Vinogradov" is accurate.
+Note: Thm 2.10's *statement* only gives Γ ⊆ SL₂(ℤ)_{≥0}; Γ ⊆ Ψ (as used in Question R) comes from its *proof*
+(Ψ₁ ⊆ Γ′_n ⊆ Ψ, RS p. 24). Cite "proof of Thm 2.10".
+
+**Is the dictionary exact?** Row by row (from-scratch checks in `scripts/review_r276_dict.py`):
+* Row 1 (Ψ preserves the Kronecker symbol ↔ Cor 4.1 genus character): **analogy, same mechanism** (Jacobi reciprocity
+  run along Euclid). Not equivalent statements: RS is a length-free invariance under a semigroup; Cor 4.1 is a
+  fixed-length formula mod 8. Neither implies the other as stated.
+* Row 2 (Thm 2.5 ↔ Prop 3.1/Thm 4.5): **can be made exact, and I did** (PROVED here). Let
+  X_T = {n ≡ 1 (4) : n = tuv − u − v with t, u, v ≥ 2, 4 | t} (the (A)3 slice numerators). Then X_T satisfies *both*
+  clauses of RS Def 2.4: (2) no square (Prop 3.1); (1) for every modulus m, X_T contains n ≡ 1 (mod m), namely
+  (t,u,v) = (4, 4m−1, 4m) gives n = 64m² − 24m + 1 ≡ 1 (mod 8m). Same for the 4 | A slice by reversal symmetry
+  (u ↔ v). Checked for m < 2000 (Jacobi symbol −1, n ≡ 1 mod 8m). So *the ES five-slice numerator sets exhibit a
+  reciprocity obstruction in the exact sense of RS Def 2.4* — except that Def 2.4 is formulated for semigroup orbits,
+  and the length-3 slice set is not (known to be) one. The closer RS analogue is Thm 2.18/Cor 2.19 (a
+  congruence-restricted alphabet with fixed tail has constant symbol), not Thm 2.5 (the Ψ invariance).
+* Row 3 (Thm 2.8 ↔ DEDEKIND 4.4): **shape analogy, label mismatch**. Thm 2.8 is a PROVED statement about a fat
+  (δ = 1) orbit; DEDEKIND 4.4 is a CONJECTURE about two fixed-length slices. The label-matched counterpart of 4.4 is
+  RS Conj 2.14/2.15 (thin, conjectured explicit exceptional set), not Thm 2.8.
+* Row 4 ("length-3 words: dimension 0"): **wrong normalisation**. In the BK/RS normalisation (#orbit points of norm
+  ≤ X ≍ X^{2δ}), the length-3 HJ words with numerator ≤ X number ≍ X log² X (from-scratch count: ratio to X log² X =
+  0.270, 0.311, 0.341 at X = 2·10³, 2·10⁴, 2·10⁵), i.e. **critical exponent δ = 1/2, exactly the BK threshold**, with a
+  log² excess. This also contradicts the author's own memo z36_density_threshold ("ES-five has effective dimension
+  w = 1/2 exactly"). Repair below (D3).
+* Row 5 (line + PV ↔ hyperbola, log² n points): SOUND.
+
+**Verdict (1): SOUND-AFTER-REPAIRS.** The source facts are right; "same source / same obstruction / same conjecture
+shape" (AGENT_REPORT SHARP 1) is an analogy at rows 1, 3, 4 and must be labelled Assessment; row 2 is exact at the
+level of RS Def 2.4 (my repair above). Question R is well posed (RS proof of Thm 2.10 gives Γ ⊆ Ψ with δ → 1).
