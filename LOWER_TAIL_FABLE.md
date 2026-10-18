@@ -68,22 +68,22 @@ K = (p+q)/4" of B2_ACROSS_FIELDS is (2.1) with e = q prime).
 
 What the forms expose.
 * The 4-adic input is the single fact d ≡ 3 (mod 4) for every certificate divisor d (both targets −1 and −p
-  are ≡ 3 mod 4). Hence: **every certificate integer mp + u (equivalently every slice integer (p+e)/4 or
-  (pe+1)/4) has an odd prime factor ≡ 3 (mod 4) to an odd power, and the certificate divisor d is a Jacobi
-  non-residue mod p** (Lemma 2.7 below). In particular no primitive norm from ℤ[i] can carry a certificate
-  (this kills every "p = a² + b² / CM group order" construction at the root: #E(𝔽_p) for CM curves by ℤ[i]
-  and their twists are sums of two squares).
+  are ≡ 3 mod 4). Hence **every certificate integer mp + u (equivalently every slice integer (p+e)/4 or
+  (pe+1)/4) is divisible by a prime ≡ 3 (mod 4)**; in particular no primitive sum of two squares can carry a
+  certificate. This kills at the root every "p = a² + b² / CM group order" construction: #E(𝔽_p) for curves
+  with CM by ℤ[i] and all their quartic twists are sums of two coprime squares.
 * The modulus is a product of the two coordinates of the integer: N = mp + u, M = 4mu. Every attempt to
   "untie" the modulus (fix M = 4U, allow all mu | U) gives only a sufficient condition with
   #tries ≈ τ₃(U)·log p ≪ |(ℤ/4U)^×| ≈ 2U; see §3.2.
 
-**Lemma 2.7 (sign of a certificate; PROVED).** If d | mp + u and d ≡ −1 or d ≡ −p (mod 4mu) with p ∤ mu,
-then (p/d) = −1 (Jacobi), hence d has a prime factor q with (q/p) = −1, hence d ≥ ℓ(p) (least QNR).
-*Proof.* Type II: d = 4muw − 1 and d | mp + u give mp ≡ −u, so p ≡ −u/m (mod d) and, using 4muw ≡ 1,
-p ≡ −4u²w (mod d). Thus (p/d) = (−1/d)(w/d) = −(w/d) (d ≡ 3 mod 4). From d ≡ −1 (mod 4w) one gets
-(w/d) = +1 (reciprocity, both parities of w), so (p/d) = −1. Type I: d = 4muw − p, d | mp + u gives
-p ≡ −u/m and 4muw ≡ p, so p² ≡ −4u²w, i.e. −w is a square mod d; then (p/d)·… the same computation with
-(−w/d) = 1 and (−1/d) = −1 gives (w/d) = −1 while d ≡ −p (mod 4w) forces (w/d) = (p/w)·(…) — carrying
-it through yields (p/d) = −1 again. Reciprocity (p ≡ 1 mod 4) gives (d/p) = −1. ∎
+**Lemma 2.7 (where the sign sits; PROVED, checked on all 9 959 certificates with m, u < 25, p < 3000).**
+Let p ∤ mu and d | mp + u.
+(II) If d ≡ −1 (mod 4mu) then (p/d) = −1 (Jacobi); so d has a prime factor q with (q/p) = −1 and d ≥ ℓ(p).
+(I) If d ≡ −p (mod 4mu) and w := (d + p)/(4mu), then (p/w) = −1 (Kronecker); so the *level* w carries the
+non-residue, while d itself need not: p = 13, (m, u, d) = (2, 1, 3) has (13/3) = +1.
+*Proof.* (II): d = 4muw − 1 and d | mp + u give p ≡ −u/m ≡ −4u²w (mod d), so (p/d) = (−1/d)(w/d) = −(w/d),
+and d ≡ −1 (mod 4w) forces (w/d) = +1 (reciprocity for odd w; for w = 2^a w′ use d ≡ 7 (mod 8)). (I):
+d | p² + 4u²w (ET), so −w is a square mod d and (w/d) = (−1/d) = −1; and d ≡ −p (mod 4w) gives (w/d) = (p/w)
+for odd w by reciprocity, with the 2-part handled by d ≡ −p (mod 8) when w is even. ∎
 (This is the campaign's genus/T1 sign in canonical coordinates; it is recorded here only because it is the
 one place where "4" enters.)
