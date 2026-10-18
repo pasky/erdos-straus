@@ -9,7 +9,7 @@ def st(vals, Ms, name):
     v = sum((a - b) ** 2 for a, b in zip(vals, Ms)) / N
     mn = min((a / b, int(p)) for a, b, p in zip(vals, Ms, [r[0] for r in rows]))
     zl = min(((a - b) / math.sqrt(2 * b), int(p)) for a, b, p in zip(vals, Ms, [r[0] for r in rows]))
-    print(f"{name}: mean {m:.2f}, mean main {mm:.2f}, var/2M {v/2/mm:.2f}, min ratio {mn[0]:.3f} at {mn[1]}, min z {zl[0]:.2f} at {zl[1]}")
+    print(f"{name}: mean {m:.2f}, mean main {mm:.2f}, meansq(count-M)/2M {v/2/mm:.2f}, min ratio {mn[0]:.3f} at {mn[1]}, min z {zl[0]:.2f} at {zl[1]}")
 st([r[1] for r in rows], [r[3] for r in rows], "(★)  R  vs M4★")
 st([r[2] for r in rows], [r[4] for r in rows], "b=1  N1 vs M4b1")
 st([r[1] + r[2] for r in rows], [r[3] + r[4] for r in rows], "union R+N1 vs sum")

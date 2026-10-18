@@ -174,8 +174,8 @@ M_BM the square column is 0 = 0).
 
 ### 3.2 Numerics for H⁻_BM (EVIDENCE; `scripts/z38_mbm.c`, `z38_hx.py`, `z38_zero_law.py`, `z38_zero_growth.py`)
 
-All primes 5 ≤ p ≤ 10⁶ (78 496) and all odd n ≤ 10⁶ (500 000) computed exactly (R*, M₀, M_BM, and M_BM8 := M_BM refined
-by the characters mod 8; M_BM8 also vanishes at squares and is mean-preserving). **T1 control: all 499 odd squares ≤ 10⁶ have
+All primes 5 ≤ p ≤ 10⁶ (78 496) and all odd n ≤ 10⁶ (500 000) computed (R* exactly; M₀, M_BM, and M_BM8 := M_BM refined
+by the characters mod 8, double-precision sums; M_BM8 also vanishes at squares and is mean-preserving). **T1 control: all 499 odd squares ≤ 10⁶ have
 R* = M_BM = M_BM8 = 0.** Primes p ≡ 1 (4), M = M_BM:
 
 | range | N | R = 0 | R < M/2 | min R/M | min (R − M)/√(2M) | sd of (R − M)/√(2M) | R > 2M |
@@ -193,11 +193,13 @@ R* = M_BM = M_BM8 = 0.** Primes p ≡ 1 (4), M = M_BM:
 * **Zero law (odd non-squares n ∈ [10⁵, 10⁶], M = M_BM8):** P(R* = 0 | M) / e^{−M/2} (swap-Poisson: R*/2 ~ Poi(M/2)) =
   1.6 (M ∈ [4, 10)), 1.8–2.1 ([10, 16)), 2.6–2.9 ([16, 22)), 5–15 ([22, 28), 9 zeros). Empirical decay of log P(0 | M) is
   ≈ −0.46 per unit M at M ≈ 11–19 and ≈ −0.29 at M ≈ 19–27: **the lower tail is fatter than Poisson and fattening** (the
-  overdispersion growth of O260/B1_LINE, now at fixed main term). Primes and composites have the same zero rate at equal M
-  (in [3·10⁵, 10⁶], M_BM8 ≥ 0.1L²: 3 of 17 zeros are prime, ≈ the prime share 14 %): no composite-specific obstruction.
+  overdispersion growth of O260/B1_LINE, now at fixed main term). Primes and composites show comparable zero rates at
+  equal M (small counts; see the M_BM8 table update below) — no sign of a composite-specific obstruction, though the
+  counts are too small to exclude one.
 * Zero-set growth over all odd non-squares ≤ K: Z(K) = 215, 445, 905, 1743, 3490 for K = 10⁴ … 10⁶ (local exponent
   0.66 → 0.58, decreasing), dominated by small-M composites (M_BM8 < 0.08L²). Restricted to M_BM8 ≥ 0.1L²: 8, 16, 23, 34, 51.
-* Reading (Assessment): H⁻_BM at fixed ε is a large-deviation statement P(R = 0 | M) summable along n. With M ≈ 0.15L²,
+* Reading (Assessment): finiteness of the zero set is heuristically tied to summability of P(R = 0 | M(n)) along n
+  (H⁻_BM itself concerns the larger event R < εM). With M ≈ 0.15L²,
   Poisson gives P ≈ e^{−0.075L²} (summable); the measured tail at 10⁶ is ≈ n^{−0.84} for typical n — still a power, slowly
   steepening. Whether log P(0 | M(n))/log n → −∞ (finitely many failures) is exactly the open question; nothing at 10⁶
   decides it.
@@ -239,8 +241,11 @@ R* = M_BM = M_BM8 = 0.** Primes p ≡ 1 (4), M = M_BM:
 a = (p + T)/S, and BL's inv_p = (−a/p) = (−xy/p) = χ_{−4xy}(p) at the rational point of every pair; χ_{−4xy}(−(4x + y)) = −1
 ((4x + y) | (4x)² + 4xy). So **(★) and b = 1 are the two shifts −(x + y) and −(4x + y) of the same pair lattice with the same
 Brauer character χ_{−4xy}**, and their BM main terms both vanish at squares.
-(c) (m/n, Schinzel; BL Rem 1.10.) On the c = 1 line m·uBC = n + u + B the Brauer character is again χ_{−4uB}
-(hits at primes < 6000 for m = 8, 12, 16: 6 210, all with (−uB/p) = −1). ∎
+(c) (m/n with 4 | m; BL Rem 1.10.) On the c = 1 line m·uBC = n + u + B the Brauer character is again χ_{−4uB}
+(hits at primes < 6000 for m = 8, 12, 16: 6 210, all with (−uB/p) = −1). The restriction 4 | m is needed (R-review:
+m = 3, p = 11, (u, B, C) = (1, 7, 1) is a hit with (−uB/p) = +1; BL's 2-adic Lemma 3.8 is for numerator 4).
+Domains: (a) for p ∤ ab; (b) for p ≡ 1 (4), pairs in the stated cutoff with p ∤ xy (for y = 1 arbitrarily large x is
+allowed and p | x can occur; there the Legendre symbol is 0 and the statement is void). ∎
 
 For the b = 1 line the bare M_BM diverges (the pairs y = 1 have target ≡ −1 (mod 4x) for every x); the natural main term
 keeps the mod-4 character as well: M4 := principal + χ_{−4} + χ_{−4xy} + χ_{−4}χ_{−4xy} (still mean-preserving and zero at
@@ -256,8 +261,8 @@ squares). EVIDENCE (`z38_b1.c`, `z38_b1_stats.py`):
 | | union (sum) | 36.8 | 32.1 | 1.84 | 0.155 (83449) | −3.03 |
 
 * The b = 1 line is close to swap-Poisson (var/2M ≈ 0.85–1.0), (★) is overdispersed (1.5–1.6).
-* The residuals R − M4★ and N₁ − M4b1 are **positively** correlated (0.21 at 10⁵–4·10⁵, 0.30 at 10⁴–10⁵): no anti-
-  correlation protects the union. The union's robustness (no failure ≤ 10⁸, B1_LINE) is explained by the doubled main term
+* The residuals R − M4★ and N₁ − M4b1 are **positively** correlated overall (see table): no global anti-correlation
+  protects the union (complementarity specifically at the rare zeros is not excluded by this statistic). The union's robustness (no failure ≤ 10⁸, B1_LINE) is explained by the doubled main term
   (P(0) ≈ e^{−M/2} with M doubled), not by a forced complementarity. The shared Brauer character makes the two main terms
   positively correlated too (both contain the same Legendre sum Σ(−xy/p)/φ(4xy) over overlapping pair sets).
 * Nothing forced: the union's minimum ratio is 0.155–0.167, a ≈ 3σ lower deviation, in line with the single lines.
@@ -266,9 +271,9 @@ squares). EVIDENCE (`z38_b1.c`, `z38_b1_stats.py`):
 mean M_BM ≈ 0.067L² (about half the 4/p value, as the bulk is (1/8)·Σ 2^{ω(m)}/φ(m) over m ≤ p/8), and the line fails at
 835 primes ≤ 10⁶ (largest 992 903), including 131 and 241 where M_BM = 0.56 and 0.46. So the H⁻ analogue fails at 131 and
 241 (as it must: 8/p has no solution at all there, PW Table 1), and fails throughout the range for the single slice. This is
-consistent: the BM factor is numerator-blind (same χ_{−4uB}), the only model-specific input of a proof via H⁻ would be H⁻
-itself. A proof of H⁻ by a "numerator-blind" method would have to give the 8/n lower tail too, which is FALSE at 131, 241 —
-any such method must see the size of the main term (≈ 0.5 there), i.e. it must be polylog-accurate (B3).
+consistent: the BM factor is numerator-blind (same χ_{−4uB}). Finite exceptions do not refute an eventual (p > p₀)
+numerator-blind hypothesis; what the control shows is that any argument proving H⁻ with an explicit p₀ must be accurate at
+the scale of the main term itself (≈ 0.5 at 131, 241; ≈ 12 at 10⁶ for 8/n), i.e. polylog-accurate (B3).
 
 ## 5. Honest assessment (goal 5)
 

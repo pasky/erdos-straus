@@ -8,10 +8,11 @@ orthogonality expansion 1[n ≡ −(u+B) (mod 4uB)] = φ(q)^{−1}Σ_χ χ(n)χ�
 2-integral, inv_p = (−uB/p) = χ_{−4uB}(p) for n = p. The elementary identity χ_{−4uB}(−(u+B)) = −1 ((u+B) | (u−B)² + 4uB)
 shows that the term of χ_{−4uB} in the expansion is −χ_{−4uB}(n)/φ(q) = (inv_∞·inv_p)/φ(q): principal + Brauer character
 = φ(q)^{−1}(1 + inv_∞ inv_p), the Borovoi–Rudnick / Colliot-Thélène–Xu density factor with Br/Br₀ = ℤ/2. The strong form
-"genus indicator = BM invariant" is refuted: the genus indicator uses all s(q) = 2^{ω_odd(uB)+2} real characters mod q, BL's
+"genus indicator = BM invariant" is refuted: the genus indicator uses all s(q) = 2^{ω_odd(uB)+2} real characters mod q (log₂ s(q) independent conditions), BL's
 class is exactly one of them (answering R277's "is BL's symbol a product of the genus characters?": it is a single one).
 The same holds on the full Type II family 4abcd − a − b = cn (character χ_{−4ab}, independent of c, d), and on BL Rem 1.10's
-numerators m (Schinzel), e.g. 8/n.
+numerators m with 4 | m (e.g. 8/n; false for m = 3). Interpretation as a BR factor is valid at integral points only;
+at non-hit rational points the invariants at ℓ | 2uB are dropped (heuristic density replacement).
 
 **Literature.** Bright–Loughran, arXiv:1908.02526, Thms 1.2, 1.6, Lemmas 3.4, 3.5, 3.8, Cor 1.3, Rem 1.10; Borovoi–Rudnick,
 Invent. Math. 119 (1995) (density with BM factor); Colliot-Thélène–Xu, Compositio 145 (2009). Campaign: PARITY_AUDIT Lemma 3.2
