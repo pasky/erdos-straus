@@ -19,31 +19,37 @@ LITERATURE_2026 (BL Thm 1.8/1.9, Lemma 3.10). Builds on LITERATURE_2026 §(iv), 
   Hasse mechanism in arithmetic geometry. Example: representations by ternary/quaternary forms (z31_quadratic_forms).
 
 ## (b) Pointwise status
-* Sums of three cubes: **OPEN for every individual k** beyond computation (Booker 33, Booker–Sutherland 42 and 3 —
-  agent B; computational). The fingerprint matches ES unusually well: one parameter k (F1), conjecturally only
+* Sums of three cubes: existence for **all** admissible k is open; individual k are settled by identities (e.g. k = c³ via
+  (t, −t, c); polynomial families for some k) or by computation (Booker 33, Booker–Sutherland 42 and a new solution for 3 —
+  agent B, details unverified). (R-O261 repair M5: the earlier "OPEN for every individual k" was false.) The fingerprint matches ES unusually well: one parameter k (F1), conjecturally only
   ρ log B solutions up to height B (F2: polylog), no local obstruction for k ≢ ±4 (9) (F4), no BM obstruction (CTW) though the
   Brauer group is non-trivial in general. Difference: X_k is expected to have infinitely many points of unbounded height
-  (smallest solutions astronomically large, e.g. 42), while U_p has finitely many, all of height O(p²) (BL Lemma 3.10;
-  (J)25: ES is a finite search). So ES is "three cubes with a box".
+  (smallest solutions astronomically large, e.g. 42), while U_p has finitely many (BL Lemma 3.10), of height polynomial in p
+  (R-O261 repair M5: not O(p²) — e.g. for p ≡ 1 (12), x = (p+3)/4, y = (px+2)/3, z = pxy/2 is an ES solution with z ~ p⁴/96;
+  (J)25's O(p²) bound is for certifying *moduli*, not solution heights). So ES is "three cubes with a box".
 * Homogeneous spaces: PROVED (strong approximation, power-size counts from Siegel mass / Hardy–Littlewood).
-* Conic log K3 (Harpaz): CONDITIONAL-type statements for families, via additive-combinatorial inputs (GTZ) on *linear forms with
-  bounded coefficients*.
+* Conic log K3 (Harpaz Thm 1.0.1): for a *specified* surface Y in his family, if seven explicit square classes are distinct and
+  independent then Y has an S-integral point — a genuine pointwise theorem under checkable hypotheses (R-O261 repair M4: not
+  merely "conditional-type"), proved by fibration into affine conics, 2-descent and Green–Tao–Ziegler.
 * Markoff-type: almost all k, not all (z31_markoff_chen).
 
 ## (c) Transfer to B2
 * **Strong approximation for groups: blocked by geometry.** U_n is not a homogeneous space of a simply connected semisimple
   group; its automorphism group is finite; no group acts transitively on integral points (thin_group_orbits §3). Strong
   approximation for the conic-bundle structure fails because BM does not control it (BL Thm 1.9).
-* **Harpaz/GTZ: blocked by F1/F3.** GTZ inputs need linear forms whose coefficients are bounded independently of the box;
-  at a single p, p is both a coefficient and the box size (LITERATURE_2026 §(iv), Assessment). Fibration methods produce
-  points *in some fibre*, i.e. some n, not a prescribed one.
-* **Three cubes: no mechanism to transfer** — it is the same open frontier. The precise lesson: "log K3 + no BM obstruction
-  + polylog expected count" is the regime where *no* pointwise existence theorem is known for any non-homogeneous family
-  (agent B found none; LITERATURE_AUTOMORPHIC likewise). The campaign's B2 is the ES face of this frontier.
+* **Harpaz/GTZ: not shown to apply.** Harpaz's output is S-integral (S a finite set of places, possibly containing primes),
+  without the positivity (real-component) constraint that ES needs (BL Thm 1.9: BM does not control strong approximation on U_n);
+  U_p is singular at the origin and was not checked against Harpaz's smooth snc hypotheses (LITERATURE_2026 §(iv)); and GTZ
+  inputs concern linear forms whose coefficients are bounded independently of the box, whereas at a single p, p is both a
+  coefficient and the box size (Assessment). Within a fibration, the existence of a good fibre is shown, not of a prescribed one.
+* **Three cubes: no mechanism to transfer** — it is the same open frontier. The lesson (Assessment): for "log K3 + no BM obstruction
+  + polylog expected count + positive integral points", neither agent B nor LITERATURE_AUTOMORPHIC found a pointwise existence
+  theorem; Harpaz's theorem is the nearest pointwise result, for S-integral points on conic log K3 surfaces under explicit
+  square-class hypotheses. The campaign's B2 is the ES face of this frontier.
 
 ## (d) Verdicts
 ES ⊂ "integral Hasse principle for log K3 families": **INSTANCE** (E6 is literally such a problem; BL places it there).
 Sums of three cubes: **ANALOGUE (closest sister: F1, F2, F4 matched; ES additionally finite)** — open, no mechanism.
 Homogeneous spaces/strong approximation: ANALOGUE, blocked (not homogeneous). Harpaz: ANALOGUE, blocked by F1/F3.
 Transfer: **NOT SHARP.** Recommendation: describe B2 externally as "the bounded-height integral Hasse principle on the
-Erdős–Straus log K3 fibre" — the community's name for the problem class, in which no pointwise mechanism exists.
+Erdős–Straus log K3 fibre" — the community's name for the problem class; for it no pointwise mechanism is known to us.
