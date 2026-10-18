@@ -26960,4 +26960,38 @@ def check_hl():
 check_hl()
 
 
+def check_hm():
+    # (hm) QUESTION_R (O267/R278): R278 from scratch — Thm 1.5 (Rickards–Stange's Kronecker character σ = (c/d) is the theta
+    # multiplier, multiplicative on non-negative Γ₁(4) products; classical / RS §7.3): theta law and multiplicativity tests;
+    # Prop 1.2 (192 283 ES words, formula exact), the corrected Cor 1.3 (t ≡ 3 (4) half false: prime examples 233, 401, ...),
+    # Prop 1.4 ((A)3 words, T1 sign), §4.1 (sign constant on the k | t slice iff 4 | k, k ≤ 16).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("QUESTION_R subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r278_theta.py"])
+    assert "(a) theta law tested 400 non+-1: 0 mismatch" in out, out[:600]
+    assert "(b) non-neg products 20000 mult failures 0 (a/b)!=(c/d) failures (b odd) 0" in out, out[:900]
+    assert "'w=-1,mult fails': 0, 'inconsistent': 0" in out, out
+    out = run(["review_r278_dict.py", "20000"])
+    assert "Prop1.2: words n=1(4): 192283; formula failures 0" in out, out[:600]
+    assert "prime examples: [(3, 5, 17, 233), (3, 5, 29, 401)" in out, out
+    assert "Prop1.4: (A)3 words t,u,v<200 with n=1(4): 480200; failures 0" in out, out
+    out = run(["review_r278_ksign.py", "20000"])
+    assert "constant for k in [4, 8, 12, 16]" in out, out
+    print(f"== (hm) QUESTION_R R278: theta multiplier law; ES-word dictionary (Prop 1.2/1.4); Cor 1.3 t ≡ 3 counterexamples; "
+          f"k | t sign constancy; seconds = {perf_counter() - t0:.1f}")
+
+
+check_hm()
+
+
 print("\nall checks passed")

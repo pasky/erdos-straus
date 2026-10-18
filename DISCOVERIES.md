@@ -1674,6 +1674,15 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Relayed to O268 (BM-corrected count; board finalist F4 forwarded there too).
    * verify.py (hl) re-runs R277's exact checks.
 
+99. **Question R: ES words as self-levelled SL₂ matrices; T1 is Rickards–Stange's reciprocity obstruction (the theta multiplier) on the ES slices; Question R stays open (QUESTION_R.md + BRAINSTORM/z37_*.md (O267, relay of (J)95); self-review plus hostile review `reviews/question-r-review.md` (R278): one FATAL (D5: Cor 1.3's t ≡ 3 (mod 4) half is false, e.g. the prime 233; corrected — nothing downstream used it). Novelty overclaim D1/D2: Thm 1.5 is in RS §7.3 and the classical Kubota/Hilbert-symbol cocycle, so it is not SHARP. GAPs D8/D9: CONJECTURE R-main is made precise, and Hypothesis TG is false as literally quantified, so it is restricted to Γ̃-digit sets. Minors. All repaired by the reviewer, marked (R278 repair).)**
+   * Prop 1.1 / 1.2 / 1.4 (PROVED; R278 checked 192 283 words). ES words ↔ self-levelled matrices [[A, n],[t, A*]] ∈ SL₂(ℤ) with A ≡ A* ≡ −1 (mod t). Their RS symbol is χ(w) = (2/n)^e J(−t, A_o). The (A)3 matrices lie in the opposite Γ₀(4) coset, and self-levelling forces (c/d) = 1 ⇒ (A/n) = −1, which is T1.
+   * Thm 1.5 (PROVED; classical, cf. RS §7.3): RS's Kronecker character σ = (c/d) is the theta multiplier. It is multiplicative on non-negative Γ₁(4) products, which is why Ψ is a semigroup and not a group. T1 is thus the positive-cone theta-multiplier obstruction (cf. the archimedean theme of (J)52/(J)55).
+   * Prop 2.1 (PROVED; = RS Lemmas 3.1/3.4): Question R for Γ⁺ ⟺ some Γ̃-numerator over n is a Jacobi non-residue. Prop 2.2 is conditional. Question R and Hypothesis TG (restricted) remain open.
+   * §3 reciprocity singular series M_R (EVIDENCE; R278 reproduced it exactly): exact at squares, it explains ≈ 33–54 % of the near-square deficit of (J)53/(J)55.
+   * §4.1: the sign on the k | t slice is constant iff 4 | k (PROVED one way; EVIDENCE for k ≤ 16), so the RS invariant does not separate numerator 4 from 8.
+   * Assessment: a model and a dictionary, not a lever on B2. Relayed to O269 (an ES-side metaplectic object).
+   * verify.py (hm) re-runs R278's checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
