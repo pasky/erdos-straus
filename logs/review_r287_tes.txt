@@ -1,0 +1,9 @@
+a = (g + w^2)/9 = (-1, 0)
+class primes with N != 1 (18): 0
+('cube', 1) fires 412/412, Type II 412
+('cube', 2) fires 209/412, Type II 209
+('cube', 3) fires 0/412, Type II 0
+('prime', 1) fires 412/412, Type II 412
+('prime', 2) fires 209/412, Type II 209
+('prime', 3) fires 134/412, Type II 134
+index gcd(k,72): {1: 1, 2: 2, 3: 3, 4: 4, 5: 1, 7: 1, 8: 8, 9: 9}

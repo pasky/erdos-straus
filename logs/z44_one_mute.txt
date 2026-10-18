@@ -1,0 +1,2 @@
+(a) primes q ≡ 1 (12) up to 1000000: 19564; each has a prime g ≡ 3 (4) with q primitive root; max least g = 179 (q = 432793)
+(b) q = 13, g = 11: all 78494 primes p <= 1000000 (p ≠ 11, 13) and odd squares (11, 13 ∤ m) solved; max exponent c = 9

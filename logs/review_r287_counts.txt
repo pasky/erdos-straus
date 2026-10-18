@@ -1,0 +1,2 @@
+least r histogram (first 6): [(3, 19611), (7, 9825), (11, 4948), (19, 2444), (23, 1191), (31, 624)] max r 131
+p = 1 (4) with p + 4 having no prime factor = 3 (4): 9841

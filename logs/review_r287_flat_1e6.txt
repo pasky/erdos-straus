@@ -1,0 +1,22 @@
+odd k=1: 78497 primes, 499 odd squares, 49 odd cubes OK; max Q over primes 3; shapes {'I': 79045}
+odd k=3: 78497 primes, 499 odd squares, 49 odd cubes OK; max Q over primes 3; shapes {'I': 79045}
+odd k=5: 78497 primes, 499 odd squares, 49 odd cubes OK; max Q over primes 3; shapes {'I': 79045}
+odd k=7: 78497 primes, 499 odd squares, 49 odd cubes OK; max Q over primes 3; shapes {'I': 79045}
+even k=2: all primes p=1(4) <= 1000000 solved Type II; max first-firing r 131; max theorem-r 131
+even k=4: all primes p=1(4) <= 1000000 solved Type II; max first-firing r 131; max theorem-r 131
+even k=6: all primes p=1(4) <= 1000000 solved Type II; max first-firing r 191; max theorem-r 251
+even k=8: all primes p=1(4) <= 1000000 solved Type II; max first-firing r 131; max theorem-r 131
+even k=12: all primes p=1(4) <= 1000000 solved Type II; max first-firing r 191; max theorem-r 251
+even k=2: shots firing at first 200 odd squares, 200 r's: 0
+even k=4: shots firing at first 200 odd squares, 200 r's: 0
+even k=6: shots firing at first 200 odd squares, 200 r's: 0
+fixed shot k=3 r=3: 78860 n solved, max Q 23, shapes {'II': 78860}
+fixed shot k=3 r=11: 78994 n solved, max Q 109, shapes {'II': 78994}
+fixed shot k=5 r=3: 78860 n solved, max Q 23, shapes {'II': 78860}
+fixed shot k=5 r=23: 79020 n solved, max Q 217, shapes {'II': 79020}
+fixed shot k=7 r=3: 78860 n solved, max Q 23, shapes {'II': 78860}
+fixed shot k=9 r=11: 78994 n solved, max Q 109, shapes {'II': 78994}
+
+real	0m42.054s
+user	0m41.988s
+sys	0m0.065s
