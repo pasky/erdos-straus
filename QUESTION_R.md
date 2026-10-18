@@ -22,10 +22,11 @@ R = [[1,1],[0,1]], L = [[1,0],[1,1]].
     condition on the glued residue, so it adds no structure beyond the χ-twist.
   - I2 twisted count via Weil/Salié on gluing boxes → works only for N ≥ n^{3/4} (window 3/8 vs 1/18); via Burgess →
     unavailable (isolated points below N = n^{1/2}).
-  - I3 σ-twisted BK circle method: σ is a semigroup character (Thm 1.5) and not cohomologous to a constant on the IFS,
-    so the σ-twisted transfer operator has spectral radius < 1 at s = δ (Ruelle–Perron–Frobenius) — this controls
-    twisted *averages* (density-one level), but the pointwise reciprocity term lives at denominators q | n (Prop 2.2(iii)).
-  - I4 analytic reciprocity series via L(1, χ_{tK+1}) on near-square families → refuted numerically (§3.3).
+  - I3 σ-twisted BK circle method: σ is a semigroup character (Thm 1.5); *if* σ is not cohomologous to a constant on
+    the IFS (fails e.g. when all generators have σ = −1: twisted operator = −ℒ), the σ-twisted transfer operator has
+    spectral radius < 1 at s = δ (Ruelle–Perron–Frobenius). Even then this controls total twisted counts, not
+    cancellation in a denominator fibre; no density-one or pointwise statement is claimed (self-review repair).
+  - I4 analytic reciprocity series via L(1, χ_{tK+1}) on near-square families → no detectable effect in a proxy test (§3.3).
   - I5 numerator 8 vs 4 → same invariant (§4.1), so reciprocity cannot separate them.
 
 ## 1. The exact dictionary (goal 1)
@@ -63,7 +64,7 @@ Compare RS Lemma 3.1: on Γ₁(4)_{≥0} one has (a/b) = (c/d). The ES (A)3 matr
 Γ₀(4) (a ≡ d ≡ 3), where the same computation gives the opposite sign, and self-levelling pins (c/d) = +1.
 
 **Exactness at RS Def 2.4 (R276, PROVED).** The (A)3 numerator set X_T and the 4 | A numerator set satisfy both clauses
-of RS Def 2.4 (every residue class mod m containing a square, here 1 mod m, is hit; no square is hit). The only gap to
+of RS Def 2.4 (some square residue — here 1 mod m — occurs modulo every m; no square occurs). The only gap to
 RS's setting is that these sets are not semigroup orbits.
 
 **Theorem 1.5 (RS's Kronecker character is the theta multiplier, a homomorphism of the positive semigroup only;
@@ -86,7 +87,10 @@ classical input).
 ## 2. Question R: what a proof needs, exactly (goal 2)
 
 Setting: Γ̃ ⊆ Γ₁(4)_{≥0} finitely generated, Zariski dense, Γ̃ ⊄ Ψ; Γ⁺ := Γ̃ ∩ Ψ (a subsemigroup by Thm 1.5, = ker σ|Γ̃);
-seed (x, y), y odd, (x/y) = −1. (RS Thm 2.10's Γ'_n = ⟨S_n⟩ ⊆ Ψ is of the form Γ⁺ for Γ̃ = ⟨S_n, g'⟩, g' ∈ Ψ'.)
+seed (x, y) non-negative coprime, y odd, (x/y) = −1. *(Self-review repair:)* Γ⁺ is **not** in general the RS
+semigroup Γ'_n = ⟨S_n⟩: e.g. for n = 4, Γ'₄ = ⟨T, L⁴⟩⁺ but g'² = [[49,20],[120,49]] ∈ ⟨T, L⁴, g'⟩ ∩ Ψ \ Γ'₄ for
+g' = [[5,2],[12,5]], and Γ⁺ need not be finitely generated. So everything below is about **Question R for Γ⁺**; for a
+finitely generated Γ ⊆ Ψ (the brief's version) membership in Γ is an *additional* alphabet constraint.
 R(n) = #{γ ∈ Γ̃_X : den γ(x, y) = n}, R⁺(n) likewise for Γ⁺, R_σ(n) = Σ σ(γ) over the same set (X a height cutoff).
 
 **Prop 2.1 (exact reduction; PROVED).** For γ ∈ Γ̃ with γ(x, y) = (a, n): (a/n) = σ(γ)(x/y) = −σ(γ). Hence
@@ -98,7 +102,7 @@ and R⁺ = 0 (RS Thm 2.5 for Γ⁺).
 So Question R, ZQ_M (ZAREMBA §4) and ES-five (DEDEKIND Cor 4.6) are **one problem type: "the structured numerator set
 G(n) ⊆ (ℤ/n)^* is not contained in the Jacobi residues"**, with G(n) =
 
-| problem | G(n) | |G(n)| | status |
+| problem | G(n) | size of G(n) | status |
 |---|---|---|---|
 | RS Thm 2.6 (Ψ, fat) | numerators on the line ux + vy = n (RS Lemma 4.1) | ≍ n/(8xy), an arithmetic progression | PROVED (PV) |
 | ES at L ≍ log p log log p (Thm A) | {A : Σ c_i(A/p) small} | > p/2 | PROVED (pigeonhole) |
@@ -106,42 +110,48 @@ G(n) ⊆ (ℤ/n)^* is not contained in the Jacobi residues"**, with G(n) =
 | ZQ_M (Zaremba, digits ≤ M) | Z_M ∩ Z_M^{−1}-type | ≍ n^{2w_M−1} | EVIDENCE only |
 | ES-five | L₃(n) (HJ length 3) | ≍ log² n | EVIDENCE only |
 
-**Prop 2.2 (major arcs and expansion are blind to Question R; PROVED in the stated form).** (i) For every modulus Q
-and every non-square class, the congruence data of Γ⁺-denominators do not distinguish n = m² from admissible
-non-squares: by RS Def 2.4(1) / Prop 2.12–2.13 (orbits with reciprocity obstruction admit squares mod every Q), any
-product of local densities 𝔖(n) = ∏_p σ_p(n) that is positive on admissible classes is positive at admissible m².
-(ii) Hence no asymptotic R⁺(n) ~ c·𝔖(n)·n^{2δ−1} can hold at all large admissible n; the true main term must carry a
-factor vanishing at squares, which is **not an Euler product** — it is `1 − ∏_p 1[n ∈ ℚ_p^{×2}]` (Hasse principle for
-squares), the product of local square indicators subtracted from 1.
+**Prop 2.2 (major arcs and expansion are blind to Question R; CONDITIONAL form, self-review repair).** (i) *Assume*
+the orbit exhibits a reciprocity obstruction in the sense of RS Def 2.4 (some square residue at every modulus, and
+arbitrarily large squares congruence-admissible — verified by RS for Ψ₁-orbits, Prop 2.12–2.13, and by R276 for the ES
+slice sets; it fails e.g. for seed (2, 3), whose denominators are 3 mod 4). Then any product of local densities
+𝔖(n) = ∏_p σ_p(n) that is positive on all admissible classes is positive at admissible m².
+(ii) Hence no asymptotic R⁺(n) ~ c·𝔖(n)·n^{2δ−1} can hold at all large admissible n; a correct main term must carry a
+factor vanishing at the admissible squares. The natural candidate (not proved to be the unique correction) is
+`1 − ∏_p 1[n ∈ ℚ_p^{×2}]` (Hasse principle for squares): 1 minus a product of local square indicators, not an Euler
+product.
 (iii) In the twisted count R_σ(n) = −Σ_{a∈G(n)} (a/n), the character has conductor = the squarefree kernel of n
-(up to 2): for n = m²k it is (·/k) on units mod m. So in a circle-method/expansion treatment the reciprocity term
-lives at denominators q | n of size up to n — the far "minor arcs" — and not on major arcs.
-*Proof.* (i) is RS's Def 2.4(1) as verified for Ψ₁-orbits in RS Prop 2.13 (and for ES slice sets by R276). (ii) follows
-from (i) and Prop 2.1 (R⁺(m²) = 0). (iii) Jacobi symbol (a/m²k) = (a/k) for gcd(a, m) = 1. ∎
+(up to 2): for n = m²k it is (·/k) on units mod m. *(Assessment only, self-review repair:)* for squarefree kernel k
+large this character has large conductor, suggesting that a circle-method treatment would meet the reciprocity term
+away from the major arcs; but for n = km² with k small (and at squares, where it is principal) the conductor is small,
+and identifying a numerator-character conductor with a denominator-arc parameter needs a Fourier analysis not done here.
+*Proof.* (i) is the assumption. (ii) follows from (i) and Prop 2.1 (R⁺(m²) = 0). (iii) Jacobi symbol (a/m²k) = (a/k)
+for gcd(a, m) = 1. ∎
 
 **Heuristic reciprocity singular series for thin orbits (CONJECTURE R-main, Assessment).** For Γ⁺ as above,
 `R⁺(n) = (1/2)·c_Γ 𝔖(n) n^{2δ−1}·(1 + ε_n·1[n ∈ □·D] + o(1))`, ε_n = −1 at the obstructed square classes (RS Table 1:
 n = m², with the 2-adic variants), where D is the finite set of 2-adic square classes. Reason: for n = m²k with k > 1,
-R_σ(n)/R(n) = −(1/R)Σ (a/k) → 0 because Γ̃-numerators over n equidistribute mod k (strong approximation for Γ̃ mod k
-plus primitivity), so the twisted count only survives when the character is principal. This is the RS analogue of the
+R_σ(n)/R(n) = −(1/R)Σ (a/k) → 0 *if* Γ̃-numerators over an exact denominator n equidistribute mod k (heuristic:
+strong approximation gives equidistribution of the orbit mod k, not of the fibre over a fixed n, and k may grow), so the twisted count only survives when the character is principal. This is the RS analogue of the
 factor (1 − 1_□) that their fat case gets from Pólya–Vinogradov: Σ_{k ≤ K} (ℓ(k)/n_o) = o(K) unless n_o = □.
 
 **What a growth/gluing proof would need (Assessment, precise).** Write G(n) ⊇ A ∩ B^{−1} (Shkredov Cor 16 with Γ̃-prefix
 and Γ̃-suffix sets, gluing scale N = n^{2ε}). By Prop 2.1 the full word P·M·S of a glued residue c has
 (c/n)·(x/y) = σ(P)σ(M)σ(S) when the cut points are Γ₁(4)-return times, so with P, S ∈ Ψ the middle window decides:
 σ(M) = −(c/n). Therefore:
-1. *Middle inside Γ (brief's ingredient (i))* is not an extra structural condition but **equivalent to a sign
-   condition on the glued residue**: σ(M) = +1 ⟺ (c/n) = −1 (plus the mod-4 return-time condition, a congruence
-   condition, and a bounded-gap condition for finite generation).
+1. *Middle inside Γ⁺ (brief's ingredient (i))* is **equivalent to a sign condition on the glued residue**:
+   σ(M) = +1 ⟺ (c/n) = −1 (plus the mod-4 return-time condition). For a finitely generated Γ ⊆ Ψ the middle must in
+   addition factor into Γ's generators — an alphabet constraint that the sign does not capture (self-review repair).
 2. *A main term vanishing at squares (ingredient (ii))* must come from a **twisted gluing count**
    `Σ_{c ∈ A∩B^{−1}} (c/n) = o(|A||B|/n)` for non-square n. Expansion in SL₂(ℤ/n) (Shk Lemma 14/15, Zhang Thm 3.6) holds
    at n = m² as well (strong approximation for Γ̃ at odd n), so it cannot give this (ZAREMBA §4 item 2; R276).
-3. *Errors.* With A = ∪ intervals of length N, a box I × J contains N²/n solutions of ab ≡ 1: for N < n^{1/2}
-   (Shkredov's regime, N < n^{1/9}) the solutions are isolated points and (c/n) on them is not a character sum over
-   any interval — Burgess does not apply at any N. For N ≥ n^{1/2} the twisted box count is a Salié-type
+3. *Errors (for the boxwise completion approach only).* With A = ∪ intervals of length N, a box I × J contains on
+   average N²/n solutions of ab ≡ 1 (an expected count, not a bound: mod 129599, [255, 509]² has 11 inverse pairs):
+   for N < n^{1/2} (Shkredov's regime, N < n^{1/9}) the solutions are typically isolated points and (c/n) on them is
+   not directly an interval character sum, so Burgess is not *directly* applicable (other Burgess-based strategies are
+   not excluded). For N ≥ n^{1/2} the twisted box count is a Salié-type
    incomplete sum, O(n^{1/2+o(1)}) per box (Weil), nontrivial only for N ≥ n^{3/4+o(1)}, i.e. ε ≥ 3/8, while the
-   middle-window step needs ε < 1/18. **The window conflict is therefore 3/8 vs 1/18** (not 1/8 vs 1/18 as in
-   ZAREMBA §4, which assumed the character could be summed over gluing intervals).
+   middle-window step needs ε < 1/18. **For this approach the window conflict is 3/8 vs 1/18** (ZAREMBA §4's 1/8
+   assumed the character could be summed over gluing intervals); it is a method threshold, not a universal barrier.
 4. *What would suffice (a precise open input).* "Hypothesis TG(ε₀, κ): for sets A = Λ₁ ∔ [N], B = Λ₂ ∔ [N] ⊆ ℤ/n with
    N = n^{2ε}, ε ≤ ε₀, and non-square n, Σ_{c∈A∩B^{−1}} (c/n) ≪ |A||B|N^{−κ}/n + n^{1−κ}." Under TG(1/18, κ) plus the
    Shkredov/Zhang machinery transported to Γ̃-digit sets (CONDITIONAL on the preprints and on that transport), the
@@ -217,7 +227,7 @@ from the factorisations of the N_t themselves).
 ## 4. Honest assessment (goal 4)
 
 **4.1 Numerator models (PROVED + EVIDENCE, `scripts/z37_numerators.py 20000`).** For k/n the (A)3-type slice is
-k·abc − a − b = n, i.e. length-3 words with k | t (k/n = 1/(abc) + 1/(acp) + 1/(bcp)). By Cor 1.3 the sign (A/n) is
+k·abc − a − b = n, i.e. length-3 words with k | t (k/n = 1/(abc) + 1/(acn) + 1/(bcn)). By Cor 1.3 the sign (A/n) is
 constant −1 on {4 | t}, hence on {k | t} whenever 4 | k; for k ≤ 16 and n ≡ 1 (4), n ≤ 2·10⁴, the sign is constant
 **exactly for k ∈ {4, 8, 12, 16}** and takes both values for every other k. So **the RS-type invariant does not
 distinguish numerator 4 from 8**: the 8-slice is a sub-slice of the 4-slice (t ≡ 0 mod 8 ⊂ t ≡ 0 mod 4) with the same
@@ -228,7 +238,8 @@ in the DEDEKIND §4.4 vanishing list); 215 primes p ≡ 1 (4) below 2·10⁴ hav
 to reciprocity — consistent with numerator blindness ((J)41).
 
 **4.2 Barrier screen.**
-* B1: everything in §1 is congruence data mod 8 per level (Cor 1.3) or mod 4 for Ψ — no covering content.
+* B1: the ES signs in §1 are congruence data mod 8 per level (Cor 1.3); Ψ-membership itself is not congruence data
+  (RS Prop 2.7) — no covering content either way.
 * B2: Prop 1.1 is B2 in RS coordinates (self-levelled matrices: modulus = entry c). Prop 2.1 shows that Question R is
   *also* a "structured numerator set vs Jacobi residues" problem, so RS-type thin orbits have their own B2: the sign of
   the glued residue is the sign of the middle window (§2 item 1).
