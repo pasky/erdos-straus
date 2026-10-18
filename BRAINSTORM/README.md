@@ -562,3 +562,9 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z27_small_exponent_windows | composite windows with U_m of tiny exponent | Linnik adversary (primorial modulus) on the menus Q(E): cap ≳ log p i.o. (R269 repair: was the pre-repair (log p)^{c log₃p}) | PROVED obstruction |
 | z27_smooth_shift_crt | (q−1) smooth ⇒ every ℓ-part visible | joint CRT law still invisible; smooth shifted primes with u → ∞ unknown | Assessment (dead) |
 | z27_large_sieve_sunits | large sieve over moduli for the S-unit box | S-units too sparse (M = P^{2H} ≫ Q²) | PROVED (negative) |
+| z32_bm_obstruction_map | BM/descent/exotic obstructions as disproof routes (O262) | no BM obstruction at any n (BL Thm 1.8); every ES counterexample is a non-BM integral failure; known non-BM failures are small-count accidents | literature + Assessment |
+| z32_shadow_principle | n = 1 shadow kills any finite slice set (O262 Prop 3.1) | p ≡ 1 (Q) + prime cofactors empties all slices of a finite Θ (Types I/II, six pair rows, e-slices); unifies (J)83 Thm 1.3, (J)90 Thm 4.2 | PROVED (existence CONDITIONAL on Dickson / H) |
+| z32_conspiracy_budget | how much a conspiracy prime can kill | k ≲ log p/log log p forced slices, share O(log L/L); congruence part saturates at ≈ 0.73; ≍ log³p untouchable | Assessment |
+| z32_numerator_ladder | sibling lotteries m/p (Type II), m = 4…24, all p ≤ 10⁸ | universal zero law P(0) ≈ exp(−0.535 μ^{0.91}) validated out of sample; NB falsified; one-constant crossover q_m (log p_last)³ ≈ 12 | EVIDENCE + Assessment |
+| z32_adversarial_search | adversarial primes 10¹⁸–10²⁵ | hardest p = 2054098191162848070241: 870 solutions in e ≤ 2047 (0.26 × controls); depression saturates | EVIDENCE |
+| z32_prime_T1 | the only conceivable disproof route | a "prime T1": a global invariant correlating ≍ log³p divisor events; none found | Assessment |

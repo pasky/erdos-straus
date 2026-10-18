@@ -1,0 +1,37 @@
+m=4 exceptions=0 largest=0 beyond1e6=0
+m=5 exceptions=0 largest=0 beyond1e6=0
+m=6 exceptions=13 largest=2521 beyond1e6=0
+m=7 exceptions=8 largest=12601 beyond1e6=0
+m=8 exceptions=21 largest=35569 beyond1e6=0
+m=9 exceptions=34 largest=24571 beyond1e6=0
+m=10 exceptions=82 largest=145441 beyond1e6=0
+m=11 exceptions=40 largest=43201 beyond1e6=0
+m=12 exceptions=169 largest=1998793 beyond1e6=3
+m=13 exceptions=98 largest=1174213 beyond1e6=2
+m=14 exceptions=240 largest=1901201 beyond1e6=4
+m=15 exceptions=275 largest=5125871 beyond1e6=5
+m=16 exceptions=446 largest=12895921 beyond1e6=20
+m=17 exceptions=264 largest=13549889 beyond1e6=8
+m=18 exceptions=1028 largest=28213921 beyond1e6=141
+m=19 exceptions=448 largest=12795361 beyond1e6=22
+m=20 exceptions=1162 largest=94965203 beyond1e6=171
+m=21 exceptions=1006 largest=44118901 beyond1e6=120
+m=22 exceptions=1964 largest=94170913 beyond1e6=423
+m=23 exceptions=1051 largest=30892681 beyond1e6=120
+m=24 exceptions=3739 largest=96577729 beyond1e6=1229
+mu-bin  units  primes  zeros  rate  (<=2)-rate
+[2,4) 31 406 86 2.12e-01 5.00e-01
+[4,6) 346 5247 507 9.66e-02 2.84e-01
+[6,8) 1087 20979 879 4.19e-02 1.56e-01
+[8,10) 1836 49827 894 1.79e-02 7.93e-02
+[10,12) 2583 94604 835 8.83e-03 4.13e-02
+[12,15) 5315 275383 857 3.11e-03 1.79e-02
+[15,20) 12273 1128320 825 7.31e-04 4.81e-03
+[20,25) 15040 2771578 317 1.14e-04 9.54e-04
+[25,30) 16244 4756094 94 1.98e-05 1.98e-04
+[30,40) 31648 13136059 30 2.28e-06 2.57e-05
+[40,50) 26270 12437291 2 1.61e-07 2.01e-06
+[50,70) 34096 20035166 0 0.00e+00 9.98e-08
+[70,100) 25814 18091954 0 0.00e+00 0.00e+00
+[100,150) 17733 17629329 0 0.00e+00 0.00e+00
+[150,1e+09) 16126 30214131 0 0.00e+00 0.00e+00

@@ -1,0 +1,20 @@
+~1e18 C0     n=8 meanS=   2134 minS= 1600 mean/C0=1.00 min/C0=0.75 W=3..3 share(e<=127)=0.55 minS/L^3=0.0219
+~1e18 D1     n=8 meanS=   1028 minS=  818 mean/C0=0.48 min/C0=0.38 W=3..7 share(e<=127)=0.43 minS/L^3=0.0115
+~1e18 D2     n=2 meanS=    918 minS=  736 mean/C0=0.43 min/C0=0.34 W=3..3 share(e<=127)=0.42 minS/L^3=0.0101
+~1e18 D3     n=4 meanS=   1302 minS= 1052 mean/C0=0.61 min/C0=0.49 W=15..19 share(e<=127)=0.40 minS/L^3=0.0148
+~1e18 D4     n=4 meanS=    778 minS=  734 mean/C0=0.36 min/C0=0.34 W=3..15 share(e<=127)=0.17 minS/L^3=0.0098
+~1e18 D4big  n=4 meanS=    676 minS=  612 mean/C0=0.32 min/C0=0.29 W=3..11 share(e<=127)=0.16 minS/L^3=0.0082
+~1e19 D2     n=2 meanS=    922 minS=  846 mean/C0=nan min/C0=nan W=3..3 share(e<=127)=0.26 minS/L^3=0.0107
+~1e21 C0     n=8 meanS=   3294 minS= 2378 mean/C0=1.00 min/C0=0.72 W=3..3 share(e<=127)=0.50 minS/L^3=0.0208
+~1e21 D1     n=8 meanS=   1139 minS=  966 mean/C0=0.35 min/C0=0.29 W=3..7 share(e<=127)=0.28 minS/L^3=0.0085
+~1e21 D2     n=1 meanS=   1222 minS= 1222 mean/C0=0.37 min/C0=0.37 W=7..7 share(e<=127)=0.40 minS/L^3=0.0108
+~1e21 D3     n=4 meanS=   1536 minS= 1214 mean/C0=0.47 min/C0=0.37 W=15..15 share(e<=127)=0.28 minS/L^3=0.0107
+~1e21 D4     n=4 meanS=   1070 minS=  870 mean/C0=0.32 min/C0=0.26 W=3..11 share(e<=127)=0.16 minS/L^3=0.0074
+~1e21 D4big  n=4 meanS=   1114 minS=  966 mean/C0=0.34 min/C0=0.29 W=3..19 share(e<=127)=0.13 minS/L^3=0.0080
+~1e22 D2     n=3 meanS=   1153 minS=  996 mean/C0=nan min/C0=nan W=3..11 share(e<=127)=0.22 minS/L^3=0.0080
+~1e25 C0     n=8 meanS=   3870 minS= 2400 mean/C0=1.00 min/C0=0.62 W=3..7 share(e<=127)=0.60 minS/L^3=0.0122
+~1e25 D1     n=8 meanS=   1717 minS= 1344 mean/C0=0.44 min/C0=0.35 W=3..7 share(e<=127)=0.30 minS/L^3=0.0070
+~1e25 D2     n=4 meanS=   1524 minS= 1216 mean/C0=0.39 min/C0=0.31 W=3..7 share(e<=127)=0.35 minS/L^3=0.0064
+~1e25 D3     n=4 meanS=   1950 minS= 1584 mean/C0=0.50 min/C0=0.41 W=15..19 share(e<=127)=0.39 minS/L^3=0.0083
+~1e25 D4     n=4 meanS=   1230 minS= 1130 mean/C0=0.32 min/C0=0.29 W=3..7 share(e<=127)=0.17 minS/L^3=0.0057
+RECORD (smallest S/C0-mean): 0.264 D4 2054098191162848070241 S = 870 W = 11 sol = ['II', 11]
