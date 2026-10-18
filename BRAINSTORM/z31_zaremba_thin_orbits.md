@@ -52,12 +52,15 @@ Zaremba theorems (Shkredov; X. Zhang), which the campaign had not seen, and an e
 The pointwise step in Shkredov/Zhang is: *a congruence modulo the fixed denominator q between two large structured sets*
 (numerators whose CF begins in the Cantor set, inverses of those whose CF ends in it), solved by growth/expansion in
 SL₂(ℤ/qℤ). Three inputs are essential, and B2 lacks each:
-* **Power-size sets (F2).** The two half-sets have ≍ (√q)^{2w_M} = q^{w_M} elements; their "gluing" congruence has expected
-  count q^{2w_M−1} → q^{1−O(1/M)}. Shkredov buys this by taking M large (w_M → 1). In ES the alphabet cannot be enlarged: the
-  ES digit set is fixed at HJ length 3 (dimension 0), so the halves have p^{o(1)} elements and the gluing count is ≍ log² p.
-  Growth theorems (Helfgott/BG) need sets of size ≥ q^{ε}; a set of size polylog in ℤ/pℤ has no growth input at all.
-  BLOCKED by F2 — not merely quantitatively: the ES digit set has no "M" knob (DEDEKIND_ES Cor 4.6: ES-five ⟺ λ(p) ≤ 3;
-  longer HJ words carry no certificate in that dictionary).
+* **Power-size gluing count (F2).** The two half-sets have ≍ (√q)^{2w_M} = q^{w_M} elements; their "gluing" congruence has
+  expected count q^{2w_M−1} → q^{1−O(1/M)}. Shkredov buys this by taking M large (w_M → 1). Growth/equidistribution arguments
+  produce a solution by showing the gluing count equals its expectation up to a *power-saving* relative error, so the
+  expected count must itself be a power. In ES-five the expected certificate count is ≍ log² p on average over p
+  (DEDEKIND_ES §5.3 — an average, not a pointwise count), and no alphabet knob exists to enlarge it (DEDEKIND_ES Cor 4.6:
+  ES-five ⟺ λ(p) ≤ 3; longer HJ words carry no certificate in that dictionary). (R-O261 repair M2: the earlier claim that the
+  ES "halves" have p^{o(1)} elements was unjustified — prefix sets of length-3 words with one unbounded letter can be of power
+  size; the obstruction is the final count, not the half-set sizes.) Status: Assessment — no demonstrated transfer, and no
+  proved size obstruction either.
 * **Fixed modulus (F3).** In Zaremba the gluing congruence is mod q and the exact denominator is automatic (a ∈ [1, q)). In the
   ES hyperbola form (E5) the exact height c = (Xε − u)/p is part of the target class X ≡ −1 (mod 4cu); in the CF form the
   modulus is fixed (p), but the price is that the admissible set is a finite-length word set — F3 has been traded for F2.
@@ -65,8 +68,9 @@ SL₂(ℤ/qℤ). Three inputs are essential, and B2 lacks each:
 * **Character condition (F6).** ES-five also needs (A/p) = −1. With a power-size set that equidistributes in ℤ/pℤ (as the
   growth methods give) a non-residue would plausibly come for free (Assessment, not checked against Shkredov's proof); with a
   polylog set it is the whole problem (T1: at squares no non-residue exists, so the condition is void).
-So the Shkredov–Zhang mechanism transfers to **"ES with a Zaremba-sized menu"** — e.g. ES-type statements whose certificate
-set at p has dimension > 1/2 — but no such menu is ES: every ES certificate set is a d₃-size divisor sum (critical).
+So the Shkredov–Zhang mechanism could at best address an **"ES with a Zaremba-sized menu"** (a certificate set with the
+specific Cantor/Ahlfors–David structure and a power-size count — dimension > 1/2 alone would not license the method), and no
+such menu is ES: every ES certificate count is a d₃-size divisor sum, critical on average (Assessment).
 
 **Sharp check of the brief's question ("Zaremba is a pointwise problem with polylog-ish counts").** It is not: at fixed M the
 per-q count is q^{2w_M − 1} (power; for M = 5, w_5 > 5/6 (BK p. 6, citing Jenkinson), so ≥ q^{2/3}). The polylog regime
