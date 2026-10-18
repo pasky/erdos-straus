@@ -8,5 +8,5 @@ for l in open('/tmp/z32/adv12.jsonl'):
 m0S = sum(r['S'] for r in g['C0'])/len(g['C0']); m0f = sum(r['fII'] for r in g['C0'])/len(g['C0'])
 for d, R in g.items():
     L = math.log(R[0]['p'])
-    print(f"{d}: n={len(R)} S/C0={sum(r["S"] for r in R)/len(R)/m0S:.2f}  fII/C0={sum(r['fII'] for r in R)/len(R)/m0f:.2f} "
+    print(f"{d}: n={len(R)} S/C0={sum(r['S'] for r in R)/len(R)/m0S:.2f}  fII/C0={sum(r['fII'] for r in R)/len(R)/m0f:.2f} "
           f"min fII/L^3={min(r['fII'] for r in R)/L**3:.4f}  min S={min(r['S'] for r in R)} min fII={min(r['fII'] for r in R)}")
