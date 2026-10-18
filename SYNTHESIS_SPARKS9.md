@@ -60,3 +60,52 @@ couples the two lines beyond sharing W; given W they are near-independent. The d
 σ (T1); the size W is itself a B2 lottery (each word is a divisor of a shifted integer p + u in the class −1 mod u). The
 numerator k enters only through "coordinate ≡ 0 (mod k)", which makes the k = 8 failures (131, 241) the same mechanism
 with a thinner sieve (π₈ < π₄): no 4-specific forcing is visible here. No route; closes (iv) negatively.
+
+(I2) Mandatory (ii), Thm K × BM class. Asked which piece of O269's E_t ± O_t is BL's class. Answer (§2): one odd quadratic
+character χ_{−t} ∈ O_t together with the principal character ∈ E_t — the level-coordinate twin of O268 Thm 1.1 (χ_{−4uB} at p).
+Construction attempt: use the BM layer as a positivity statement for an explicit coefficient (τ(N) − σ_{χ_{−t}}(N)) and try to
+prove it positive at every non-square. It IS positive at every non-square, trivially (least non-residue; Prop 2.2) — so the
+BM layer is pointwise free, and the whole difficulty is the class lottery inside the coset {χ_{−t} = −1} (index φ(t)/2).
+Barrier hypothesis met: "genus/sign data only" (Prop 10.3 / (J) theme "sign layer easy, size layer hard"), now proved in
+Thm-K coordinates. Hecke/Eisenstein positivity bounds σ_{χ_{−t}} = r_{−t}/w from BELOW, i.e. pushes against ES (O269 C6).
+
+## 2. Deep item 2: the BM layer of Theorem K is χ_{−t}, and it is pointwise free (mandatory (ii))
+
+Setting: 4 | t, N = tn + 1 (n odd), χ_{−t} = (−t/·) the Kronecker character, real and odd (χ_{−t}(−1) = −1), a character
+mod t. O269 Thm K (under review on side-agent/metaplectic-es): R_t(n) = D⁻_t(N) − β_t(n), D⁻_t(N) = #{d | N : d ≡ −1 (t)}.
+
+**Proposition 2.1 (PROVED, elementary).** (a) D⁻_t(N) ≤ #{d | N : χ_{−t}(d) = −1} = (τ(N) − σ_{χ_{−t}}(N))/2, where
+σ_χ(N) = Σ_{d|N} χ(d); the right side is > 0 iff N has a prime factor ℓ with (−t/ℓ) = −1 (ℓ inert in ℚ(√−t)).
+(b) Restricting the orthogonality expansion 1[d ≡ −1 (t)] = φ(t)⁻¹Σ_χ χ(−1)χ(d) to {1, χ_{−t}} gives the level-BM main term
+M^{lev}_t(n) := (τ(N) − σ_{χ_{−t}}(N))/φ(t) ≥ 0 (principal: in E_t; χ_{−t}: in O_t).
+(c) (T1 in level coordinates) For n = m² odd and every 4 | t: every prime ℓ | N = 1 + tm² has (−t/ℓ) = +1, so
+σ_{χ_{−t}}(N) = τ(N) and M^{lev}_t(m²) = 0 = D⁻_t(N).
+(d) σ_{χ_{−t}}(N) = R_{−t}(N)/w_{−t} for gcd(N, t) = 1 (Dirichlet: total number of representations of N by a system of
+binary forms of discriminant −t; here gcd(tn + 1, t) = 1 automatically).
+*Proof.* (a) χ_{−t}(d) = χ_{−t}(−1) = −1 for d ≡ −1 (t); the count of divisors with χ = −1 is (τ − σ)/2 since χ(d) = ±1 for
+d | N (gcd(N, t) = 1); if some prime ℓ | N has χ(ℓ) = −1 then d = ℓ counts, and conversely a divisor with χ = −1 has such a
+prime factor. (b) Orthogonality. (c) ℓ | 1 + tm² ⇒ −t ≡ (m⁻¹)² (mod ℓ). (d) Classical. ∎
+
+**Proposition 2.2 (the BM layer holds at every non-square; PROVED).** For odd n: ∃ t ≡ 0 (4) with M^{lev}_t(n) > 0 ⟺ n is
+not a perfect square. A witness: ℓ := the least prime with (n/ℓ) = −1, t := the least multiple of 4 with t ≡ −n⁻¹ (mod ℓ);
+then t ≤ 4ℓ, ℓ | tn + 1 and (−t/ℓ) = −1.
+*Proof.* ⇐: if n is not a square, the Jacobi-type symbol ℓ ↦ (n/ℓ) is a non-principal real character on primes (via
+reciprocity, a character mod 4n), so ℓ exists. t exists by CRT (ℓ odd, ℓ ∤ n), t ≤ 4ℓ. Then ℓ | tn + 1, and −t ≡ n⁻¹ (mod ℓ),
+so (−t/ℓ) = (n⁻¹/ℓ) = (n/ℓ) = −1. ⇒: Prop 2.1(c). ∎
+So the witness level is ≤ 4ℓ(n) ≪_ε n^{1/(4√e)+ε} (Burgess), ≪ (log n)² under GRH (Ankeny/Bach).
+Check (`scripts/s9_level_bm.py 200000 200`, `logs/s9_level_bm.txt`): all 99 776 odd non-squares ≤ 2·10⁵ — 0 witness failures
+(max ℓ = 71); 223 odd squares — no 4 | t ≤ 200 with an inert prime factor of tm² + 1. At the witness level an actual (★) word
+exists for 72.1 % of n (the class lottery, see below).
+
+**Reading (Assessment).** The two dual slicings of the one triple sum Σ 1[4uBC − u − B = n] put BL's class in two places:
+pair slicing (fix (u, B), sum over C): χ_{−4uB}(n) (O268 Thm 1.1); level slicing (fix t = 4C, sum over divisors): χ_{−t}(d)
+(Prop 2.1). In both, the BM layer alone is pointwise trivial at non-squares (here Prop 2.2; there "∃ uB with (−uB/p) = −1",
+quantified by O268 Thm 2.2). What remains is the position of a divisor d of N inside the coset {χ_{−t} = −1}, which consists of
+φ(t)/2 classes of which exactly one (−1) is good — the X part, i.e. all characters mod t other than 1, χ_{−t}. Hence:
+* an "explicit Dirichlet-coefficient positivity" route (σ_{χ_{−t}} = R_{−t}/w; Hecke/Eisenstein lower bounds for representation
+  numbers) controls only the BM layer, and in the wrong direction (it bounds M^{lev}_t from above);
+* the lower-tail question H⁻_BM is the class lottery inside a coset of size φ(t)/2, with no fixed-integer packaging: the
+  integers tn + 1 are pairwise almost coprime (gcd | t − t′; (J)89 Lemma 2.3), so any divisor-sum of one integer F(n) that
+  reproduces R(n) needs F divisible by essentially all tn + 1 (Assessment; B2 restated).
+Numerator check: for 8/n the same computation uses χ_{−t} with 8 | t and gives the same witness (any non-square), while 8/131,
+8/241 fail — the BM layer is numerator-blind, as it must be ((J)41).
