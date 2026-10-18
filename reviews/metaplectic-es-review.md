@@ -60,3 +60,55 @@ Mordell–Type II); the even/odd split is orthogonality. What Thm K adds is only
 Kronecker quotient at a torsion point (classical: Hecke; Borisov–Gunnells, see D9). *Repair:* in §7.1 and the
 report's SHARP 1, say "classical identity, new only as a packaging in the campaign"; promise 1/5 as stated is fine.
 
+## Claim 2 — Corollary K1 (T1 as exact E_t + O_t = 0 on 4 | t at squares; sizes; "where the main term lives")
+
+**Verdict: K1.1 SOUND (but tautological, D3); K1.2 numbers SOUND (reproduced exactly at 10⁵, D5 for 10⁶);
+the "Reading" (log² in weight 0, holomorphic part ≈ 0) GAP — normalisation-dependent (D4, MAJOR on an Assessment).**
+
+*K1.1 re-derived independently (no Jacobi symbol in n needed, any m):* let 4 | t and d | tm² + 1 with d ≡ −1 (t),
+d > 0. Then gcd(d, tm) = 1 and −t ≡ (m⁻¹)² (mod d), so (−t/d) = 1. But d ≡ 3 (4) gives (−1/d) = −1, and writing
+t = 4s: for s odd, (s/d) = (d/s)(−1)^{(s−1)/2·(d−1)/2} = (−1/s)(−1)^{(s−1)/2} = 1; for 2 | s, d ≡ −1 (8) so (2/d) = 1 and
+the same computation on the odd part gives 1. Hence (−t/d) = −1, contradiction. So D⁻_t(tm² + 1) = 0 for **every** m
+(odd or even), hence R_t(m²) = β_t(m²) = 0 (β_t ≠ 0 iff t − 1 | m² + 1, impossible for t − 1 ≡ 3 (4)). Since
+E_t + O_t = 2D⁻_t **identically** (definitions), "E_t + O_t = 0" is literally "D⁻_t = 0".
+From scratch (`scripts/review_r280_corK1.py`): (1a) 4 | t ≤ 64, 1 ≤ m ≤ 800 (odd and even): 0 numbers t m² + 1
+with a divisor ≡ −1 (t); (1b) every d ≡ −1 (t), d < 200t, 4 | t ≤ 400, has (−t/d) = −1: 0 exceptions.
+
+*K1.2 reproduced exactly (same script, 19 s):* odd squares 317², 319², 321², 323²: 𝔈 = 127, 124, 109, 139;
+𝔒 = −29, −50, −83, −81; 𝔒_{4|t} = −𝔈_{4|t} = −19, −11, −18, −16; 𝔒_{t≡3(4)} = −24, −47, −55, −43 (so the bulk of the
+square deficit is indeed at t ≡ 3 (4), not at 4 | t); N₋ = 0. First 12 primes > 10⁵: means 𝔈 = 115.92,
+𝔒 = 3.75, 𝔅 = 52.67 (author: "≈ 54"), R = 67.00 — matches the author's re-run.
+
+**D3 (MINOR) — K1.1 is a relabelling, and the proof is routed unnecessarily through (A/n).** Location: METAPLECTIC
+§1 Cor K1 item 1, report SHARP 2 ("T1 is an exact cancellation E_t + O_t = 0"), §7.2. E_t + O_t ≡ 2D⁻_t by
+definition, so the "weight-1 term equals minus the weight-0 term" carries no information beyond D⁻_t(tm²+1) = 0 (the
+classical (A)3 / Mordell obstruction; the author does say "Equivalently"). *Repair:* lead with "D⁻_t(tm² + 1) = 0
+for 4 | t, all m (classical); in the even/odd language this reads E_t + O_t = 0", use the direct Jacobi argument above
+(works for all m, no appeal to DEDEKIND Thm 4.5 / QUESTION_R Prop 1.4), and drop "exact cancellation" from the
+SHARP headline.
+
+**D4 (MAJOR, on an Assessment headline) — "log² main term in the weight-0 part, holomorphic part ≈ 0" depends on a
+non-modular renormalisation of size ≍ n.** Location: Cor K1 "Reading", §7.2, §7.4 ("B3 is visible as main term in
+weight 0, oscillation in weight 1"), report SHARP 2 and Results (1), z39_kronecker_levels barrier screen B3.
+The genuinely modular per-level pieces are ½(D⁻ + D⁺) (weight-0 Eisenstein data) and ½(D⁻ − D⁺) (exactly the
+Kronecker quotient, D1). Summed over the 2 ≤ t ≤ (n + 4)/4 levels these are ≈ +n/4 and ≈ −n/4 respectively (every
+level has the trivial divisors 1, N ≡ +1); e.g. at n = 100003, Σ_t ½(D⁻ − D⁺) = 𝔒 − #levels = 1 − 25000. The
+author's 𝔈, 𝔒 are obtained by moving the trivial divisors (±1 per level) between the two parts — a non-modular
+operation (Σ_N χ(N)qᴺ is not modular), on a sum truncated at an n-dependent level. After that renormalisation, "𝔒 ≈ 0
+on average, 𝔈 ≈ main term" is simply the statement that non-trivial divisors of tn + 1 are on average equally split
+between the classes +1 and −1 (mod t), which is elementary equidistribution, not an automorphic fact; with another
+symmetric renormalisation (e.g. interior divisors 2t − 1 ≤ d ≤ N/(2t − 1) on both sides) the same split appears for the
+same elementary reason. *Repair:* state the Reading as "after removing the trivial divisors 1, N at every level (an
+elementary, non-modular renormalisation of total size ≍ n, forced by the truncation t ≤ (n + 4)/4), the even part
+carries the log² and the odd part averages ≈ 0 — i.e. the non-trivial divisors are equidistributed between ±1 mod t";
+remove "B3 is visible as main term in weight 0, oscillation in weight 1" from §7 or attach this caveat; demote the
+corresponding clause of SHARP 2 to Assessment-with-caveat.
+
+**D5 (MINOR) — 10⁶ sizes corrected by a mean bias instead of the exact per-n correction.** Location: Cor K1 item 2
+("the 10⁶ ones are corrected by the stated mean bias"; "𝔒 = −97, −35, −19, −68 before the … t = 2 correction"). The
+t = 2 `elif` bias is exactly τ(2n + 1)/2 for each n (my script prints it), so the correction is trivially exact per n;
+applying a mean (3.92) to per-prime and per-square values is unnecessary noise, and leaving the squares uncorrected
+is inconsistent. Also "R ≈ 113 (115.9 × (6/5)² ≈ 167 …)" juxtaposes R with a scaling prediction for 𝔈 — confusing.
+*Repair:* subtract τ(2n+1)/2 from 𝔒 and add it to 𝔈 per n (no rerun needed, only τ(2n+1)), and reword the scaling
+sentence as "𝔈 ≈ 163 vs 115.9·(log 10⁶/log 10⁵)² ≈ 167".
+
