@@ -112,3 +112,46 @@ is inconsistent. Also "R ≈ 113 (115.9 × (6/5)² ≈ 167 …)" juxtaposes R wi
 *Repair:* subtract τ(2n+1)/2 from 𝔒 and add it to 𝔈 per n (no rerun needed, only τ(2n+1)), and reword the scaling
 sentence as "𝔈 ≈ 163 vs 115.9·(log 10⁶/log 10⁵)² ≈ 167".
 
+## Claim 3 — Prop S (Serre–Stark supports; T1 squares = supp θ; the five-slice failure set Z is not a weight-½ support)
+
+**Verdict: S(1), S(2) SOUND; S(3) SOUND as stated, and in fact PROVABLE UNCONDITIONALLY (D6: the SQ₅ conditional
+and the period bound are unnecessary); scope wording GAP-minor (D7).**
+
+*Serre–Stark.* The statement used (M_{1/2}(Γ₁(N)), 4 | N, is spanned by θ_{ψ,t} = Σ_{m∈ℤ} ψ(m)q^{tm²}, ψ even
+primitive, 4 r(ψ)² t | N) is Serre–Stark Theorem A (LNM 627); I could not access the paper in `sources/`, but this is
+the standard statement and the author uses nothing beyond it. On the class t₀·□ (t₀ squarefree) the coefficient of
+t₀m² is Σ_{k|m, t₀k² ∈ F} c ψ(m/k) — periodic in m. S(1) (support ⊂ finitely many square classes, ≪ X^{1/2} points
+up to X) and S(2) (θ(z) − θ(4z) = 2Σ_{m odd>0} q^{m²}, level 16; Z ∩ □ = odd squares because (A/m²) = +1 for every
+A prime to m) are correct.
+
+*Census re-done from scratch* (`scripts/review_r280_census.c`, C, enumerates all 1.3·10¹⁰ words with n ≤ 10⁸ and
+all length-2 certificates b | n + 1, 43 s; checked against brute force at n ≤ 3000): **Z \ □ = {105} for n ≤ 10⁸**
+(author/DEDEKIND: 10⁶); the interior-only zero set {N₋ = 0} \ □ = {5, 105} for n ≤ 10⁸; no odd square is
+certified; λ(105m²) ≤ 3 (indeed with an interior certificate) for every odd 3 ≤ m ≤ 975. So the author's period
+argument is correct and extends to periods M ≤ 974 — but see D6, which makes it moot.
+
+**D6 (MAJOR-positive: label upgrade; the CONDITIONAL is unnecessary) — S(3) holds unconditionally.**
+Location: METAPLECTIC §2 item 3, §7.3, z39_serre_stark_support item 3, report SHARP 3 and Labels ("PROVED for periods
+≤ 96, CONDITIONAL (SQ₅) in general"). *Proof.* Let ℓ be a prime with ℓ ≡ 3 (4) and (ℓ/105) = −1 (e.g. ℓ = 11, 19, 31,
+43, …; infinitely many by Dirichlet, being a union of classes mod 420). By quadratic reciprocity
+(−105/ℓ) = (−1/ℓ)(ℓ/105) = +1, so 105m² ≡ −1 (mod ℓ) has solutions m ≡ ±r_ℓ (mod ℓ) (r₁₁ = 3). For any odd m in such a
+class, n = 105m² has b = ℓ | n + 1, 2 ≤ ℓ ≤ (n + 1)/2, and (ℓ/n) = (ℓ/105)(ℓ/m)² = −1; n/ℓ = (n+1)/ℓ − 1/ℓ is an HJ
+length-2 certificate, so λ(n) ≤ 2 and n ∉ Z. Now if supp g = Z with period M on the class 105·□: M odd is excluded by
+parity (author); for M even pick ℓ ∤ M from the infinite list and, by CRT, m ≡ 1 (M), m ≡ r_ℓ (ℓ) — m is odd, a(105m²)
+≠ 0, but 105m² ∉ Z. Contradiction for **every** M, no census and no SQ₅ needed. (The same argument shows Z ∪ F is not
+a support for any finite F with 105 ∈ Z ∪ F.) Checked: `scripts/review_r280_propS_uncond.py` (symbol identities for
+ℓ < 200, certificate for all odd m < 20000 in the classes, 6 primes ℓ: 0 failures). *Repair:* replace the
+"M even ≤ 96 … census … Under SQ₅" sentences by the argument above and relabel S(3) PROVED (unconditional).
+Note this also slightly *weakens* the rhetorical point "105 is not metaplectic": the obstruction is not deep — Z
+misses entire residue classes of m on 105·□ for elementary reasons.
+
+**D7 (MINOR) — scope: "holomorphic modular form" must be kept in every restatement.** Location: §2 closing
+paragraph ("at weight ½, no success set can be a support"), §7.3 ("only square classes can be supports of weight-½
+forms"), memo Assessment ("no weight-½ object can certify non-square failures"), §7.3 "any non-square failure (105) is
+provably not metaplectic". Serre–Stark covers holomorphic forms (holomorphic at the cusps). Weight-½ *mock* theta
+functions, weakly holomorphic forms (e.g. η-quotients with poles at cusps) and harmonic Maass forms of weight ½ have
+supports of positive density, so "no weight-½ object" is false as written; and "105 is not metaplectic" overstates
+the exact-support statement (θ_{1,105} = Σ q^{105m²} contains 105). *Repair:* add "holomorphic" (and "exact
+support of Z") in each restatement; replace "provably not metaplectic" by "Z is not the exact support of any
+holomorphic weight-½ form".
+
