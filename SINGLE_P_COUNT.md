@@ -154,10 +154,10 @@ L(1, ψ)L(1, ψχ) of the same order as the main term for small u. Not pursued (
 
 **Conjecture 4.2 (CONJECTURE; stated for calibration, NOT a standard conjecture).** With M_loc,Y as in §3 and Y = Y(p) → ∞
 slowly, R(p) = M_loc,Y(p) + O((M_loc,Y(p))^{1/2+o(1)}) for all large primes p ≡ 1 (mod 4).
-It implies R(p) ≥ 1 for all large p **only together with** a lower bound M_loc,Y(p) → ∞, which is false along the
-square-mimicking primes unless Y grows (CONDITIONAL_ES Prop 7.3: with Y fixed, primes p ≡ 1 (mod lcm(≤ Y)) have the
-local data of a square at all Y-smooth moduli). It is consistent with T1 (both sides vanish at squares for the genus
-component; at squares the local term is 0 by Prop 2.2(b)). The data of §3 fit the error scale (sd ≈ 1.3√(2M)), but the
+It implies R(p) ≥ 1 for all large p **only together with** a lower bound M_loc,Y(p) → ∞ (a type-(L) statement about
+the local data of p; for Y = 0 this is Prop 4.1 under GRH; for growing Y not attempted). It is consistent with T1: at n = m²,
+every pair term of M_loc,Y vanishes (it would force a ≡ m² mod the Y-smooth part of q and a ∈ □ mod the rest, i.e. a ∈ □
+mod q, excluded by Prop 2.2(b)), as does R. The data of §3 fit the error scale (sd ≈ 1.3√(2M)), but the
 count is still Poisson-scale: Conjecture 4.2 is ES-(★)-strength in the sense of CONDITIONAL_ES §6 (X_slice), with an
 explicit main term. **Answer to goal (1): no named, standard conjecture was found that implies R(p) ≥ 1 (or N₁(p) ≥ 1,
 f_II(p) ≥ 1); what is new relative to CONDITIONAL_ES is the location of the missing statement — the order-≥3 characters,
