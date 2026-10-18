@@ -1,0 +1,17 @@
+k=18: min cell mu=75.7 (mu/L^3=0.0359), mean=157.3
+k=19: min cell mu=86.4 (mu/L^3=0.0350), mean=180.8
+k=20: min cell mu=104.0 (mu/L^3=0.0362), mean=205.6
+k=21: min cell mu=118.5 (mu/L^3=0.0358), mean=233.0
+k=22: min cell mu=138.6 (mu/L^3=0.0365), mean=262.9
+k=23: min cell mu=159.8 (mu/L^3=0.0370), mean=294.5
+k=24: min cell mu=182.7 (mu/L^3=0.0373), mean=328.9
+k=25: min cell mu=208.7 (mu/L^3=0.0378), mean=366.0
+k=26: min cell mu=229.2 (mu/L^3=0.0370), mean=395.4
+fit a=0.535 beta=0.91 mu~L3: E#[1e8,1e18)=1.8e-31  E#[1e18,inf)=3.28e-296
+fit a=0.535 beta=0.91 mu~L2: E#[1e8,1e18)=1.09e-30  E#[1e18,inf)=4.1e-133
+a-30% a=0.374 beta=0.91 mu~L3: E#[1e8,1e18)=6.67e-21  E#[1e18,inf)=1.99e-203
+a-30% a=0.374 beta=0.91 mu~L2: E#[1e8,1e18)=2.46e-20  E#[1e18,inf)=2.94e-89
+flatter a=0.400 beta=0.8 mu~L3: E#[1e8,1e18)=2.41e-10  E#[1e18,inf)=7.53e-84
+flatter a=0.400 beta=0.8 mu~L2: E#[1e8,1e18)=5.78e-10  E#[1e18,inf)=5.01e-37
+break-even beta* (a=0.535, mu~L3) for E#[1e18,inf)=1: 0.528
+break-even beta* (a=0.535, mu~L2) for E#[1e18,inf)=1: 0.594

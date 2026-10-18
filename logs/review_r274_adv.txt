@@ -1,0 +1,3 @@
+2054098191162848070241 p%4 = 1 BPSW(sympy) = True flint = 1 (S, S127, W, type) = (870, 160, 11, 'II')
+2286893395433206561 p%4 = 1 BPSW(sympy) = True flint = 1 (S, S127, W, type) = (612, 108, 11, 'I')
+1388097828639363841 p%4 = 1 BPSW(sympy) = True flint = 1 (S, S127, W, type) = (2168, 1008, 3, 'II')

@@ -1,0 +1,89 @@
+ALL: a=0.535 beta=0.91
+train p<2^18: a=0.530 beta=0.93
+   m=4: predicted 0.0 observed 0
+   m=5: predicted 0.0 observed 0
+   m=6: predicted 0.0 observed 0
+   m=7: predicted 0.0 observed 0
+   m=8: predicted 0.0 observed 0
+   m=9: predicted 0.0 observed 0
+   m=10: predicted 0.1 observed 0
+   m=11: predicted 0.1 observed 0
+   m=12: predicted 2.2 observed 13
+   m=13: predicted 0.7 observed 3
+   m=14: predicted 7.4 observed 15
+   m=15: predicted 6.0 observed 25
+   m=16: predicted 48.2 observed 66
+   m=17: predicted 11.0 observed 17
+   m=18: predicted 176.8 observed 310
+   m=19: predicted 34.6 observed 35
+   m=20: predicted 255.0 observed 354
+   m=21: predicted 178.2 observed 273
+   m=22: predicted 702.5 observed 730
+   m=23: predicted 162.8 observed 156
+   m=24: predicted 1499.9 observed 2023
+train p<2^20: a=0.514 beta=0.93
+   m=4: predicted 0.0 observed 0
+   m=5: predicted 0.0 observed 0
+   m=6: predicted 0.0 observed 0
+   m=7: predicted 0.0 observed 0
+   m=8: predicted 0.0 observed 0
+   m=9: predicted 0.0 observed 0
+   m=10: predicted 0.0 observed 0
+   m=11: predicted 0.0 observed 0
+   m=12: predicted 0.4 observed 3
+   m=13: predicted 0.1 observed 2
+   m=14: predicted 1.5 observed 3
+   m=15: predicted 1.2 observed 5
+   m=16: predicted 15.1 observed 19
+   m=17: predicted 5.5 observed 8
+   m=18: predicted 77.1 observed 132
+   m=19: predicted 21.9 observed 22
+   m=20: predicted 123.7 observed 160
+   m=21: predicted 80.4 observed 117
+   m=22: predicted 422.7 observed 408
+   m=23: predicted 147.4 observed 116
+   m=24: predicted 1007.6 observed 1204
+train p<2^22: a=0.524 beta=0.92
+   m=4: predicted 0.0 observed 0
+   m=5: predicted 0.0 observed 0
+   m=6: predicted 0.0 observed 0
+   m=7: predicted 0.0 observed 0
+   m=8: predicted 0.0 observed 0
+   m=9: predicted 0.0 observed 0
+   m=10: predicted 0.0 observed 0
+   m=11: predicted 0.0 observed 0
+   m=12: predicted 0.0 observed 0
+   m=13: predicted 0.0 observed 0
+   m=14: predicted 0.2 observed 0
+   m=15: predicted 0.1 observed 1
+   m=16: predicted 2.9 observed 3
+   m=17: predicted 0.8 observed 1
+   m=18: predicted 22.2 observed 45
+   m=19: predicted 4.3 observed 2
+   m=20: predicted 40.0 observed 50
+   m=21: predicted 23.5 observed 38
+   m=22: predicted 166.2 observed 172
+   m=23: predicted 44.4 observed 42
+   m=24: predicted 479.0 observed 565
+leave-one-m-out (all p):
+   m=4: a=0.535 b=0.91 predicted 0.0 observed 0
+   m=5: a=0.535 b=0.91 predicted 0.0 observed 0
+   m=6: a=0.535 b=0.91 predicted 0.0 observed 0
+   m=7: a=0.535 b=0.91 predicted 0.0 observed 0
+   m=8: a=0.535 b=0.91 predicted 0.1 observed 0
+   m=9: a=0.535 b=0.91 predicted 0.1 observed 0
+   m=10: a=0.535 b=0.91 predicted 6.3 observed 7
+   m=11: a=0.535 b=0.91 predicted 0.1 observed 0
+   m=12: a=0.535 b=0.91 predicted 17.9 observed 24
+   m=13: a=0.535 b=0.91 predicted 1.2 observed 3
+   m=14: a=0.535 b=0.91 predicted 72.8 observed 63
+   m=15: a=0.535 b=0.91 predicted 59.8 observed 86
+   m=16: a=0.535 b=0.91 predicted 73.1 observed 71
+   m=17: a=0.535 b=0.91 predicted 16.2 observed 17
+   m=18: a=0.551 b=0.90 predicted 400.8 observed 471
+   m=19: a=0.535 b=0.91 predicted 48.4 observed 35
+   m=20: a=0.535 b=0.91 predicted 632.4 observed 623
+   m=21: a=0.535 b=0.91 predicted 588.1 observed 600
+   m=22: a=0.546 b=0.90 predicted 912.7 observed 736
+   m=23: a=0.546 b=0.90 predicted 231.0 observed 156
+   m=24: a=0.540 b=0.91 predicted 2200.2 observed 2434

@@ -1,0 +1,43 @@
+m= 4 q1e-3=0.02794 median=0.0554 #exc=    0 last=        0 c0=nan
+m= 5 q1e-3=0.02676 median=0.0496 #exc=    0 last=        0 c0=nan
+m= 6 q1e-3=0.01464 median=0.0307 #exc=   13 last=     2521 c0=7.03
+m= 7 q1e-3=0.01602 median=0.0333 #exc=    8 last=    12601 c0=13.48
+m= 8 q1e-3=0.01020 median=0.0235 #exc=   21 last=    35569 c0=11.74
+m= 9 q1e-3=0.00950 median=0.0224 #exc=   34 last=    24571 c0=9.81
+m=10 q1e-3=0.00670 median=0.0171 #exc=   82 last=   145441 c0=11.26
+m=11 q1e-3=0.00785 median=0.0191 #exc=   40 last=    43201 c0=9.55
+m=12 q1e-3=0.00451 median=0.0128 #exc=  169 last=  1998793 c0=13.77
+m=13 q1e-3=0.00573 median=0.0155 #exc=   98 last=  1174213 c0=15.65
+m=14 q1e-3=0.00389 median=0.0114 #exc=  240 last=  1901201 c0=11.75
+m=15 q1e-3=0.00372 median=0.0114 #exc=  275 last=  5125871 c0=13.71
+m=16 q1e-3=0.00291 median=0.0098 #exc=  446 last= 12895921 c0=12.78
+m=17 q1e-3=0.00355 median=0.0110 #exc=  264 last= 13549889 c0=15.74
+m=18 q1e-3=0.00197 median=0.0076 #exc= 1028 last= 28213921 c0=9.94
+m=19 q1e-3=0.00280 median=0.0096 #exc=  448 last= 12795361 c0=12.29
+m=20 q1e-3=0.00168 median=0.0071 #exc= 1162 last= 94965203 c0=10.43
+m=21 q1e-3=0.00195 median=0.0075 #exc= 1006 last= 44118901 c0=10.66
+m=22 q1e-3=0.00134 median=0.0064 #exc= 1964 last= 94170913 c0=8.31
+m=23 q1e-3=0.00193 median=0.0075 #exc= 1051 last= 30892681 c0=9.90
+m=24 q1e-3=0.00098 median=0.0052 #exc= 3739 last= 96577729 c0=6.08
+geometric-mean c0 over m with last exception < 5e7: 11.59  range 7.03..15.74
+  m=4: predicted last exception ~ exp((11.59/q)^(1/3)) = 1.73e+03   (observed 0)
+  m=5: predicted last exception ~ exp((11.59/q)^(1/3)) = 1.93e+03   (observed 0)
+  m=6: predicted last exception ~ exp((11.59/q)^(1/3)) = 1.04e+04   (observed 2521)
+  m=7: predicted last exception ~ exp((11.59/q)^(1/3)) = 7.92e+03   (observed 12601)
+  m=8: predicted last exception ~ exp((11.59/q)^(1/3)) = 3.4e+04   (observed 35569)
+  m=9: predicted last exception ~ exp((11.59/q)^(1/3)) = 4.37e+04   (observed 24571)
+  m=10: predicted last exception ~ exp((11.59/q)^(1/3)) = 1.63e+05   (observed 145441)
+  m=11: predicted last exception ~ exp((11.59/q)^(1/3)) = 8.8e+04   (observed 43201)
+  m=12: predicted last exception ~ exp((11.59/q)^(1/3)) = 8.89e+05   (observed 1998793)
+  m=13: predicted last exception ~ exp((11.59/q)^(1/3)) = 3.1e+05   (observed 1174213)
+  m=14: predicted last exception ~ exp((11.59/q)^(1/3)) = 1.78e+06   (observed 1901201)
+  m=15: predicted last exception ~ exp((11.59/q)^(1/3)) = 2.2e+06   (observed 5125871)
+  m=16: predicted last exception ~ exp((11.59/q)^(1/3)) = 7.61e+06   (observed 12895921)
+  m=17: predicted last exception ~ exp((11.59/q)^(1/3)) = 2.75e+06   (observed 13549889)
+  m=18: predicted last exception ~ exp((11.59/q)^(1/3)) = 6.93e+07   (observed 28213921)
+  m=19: predicted last exception ~ exp((11.59/q)^(1/3)) = 9.33e+06   (observed 12795361)
+  m=20: predicted last exception ~ exp((11.59/q)^(1/3)) = 1.83e+08   (observed 94965203)
+  m=21: predicted last exception ~ exp((11.59/q)^(1/3)) = 7.26e+07   (observed 44118901)
+  m=22: predicted last exception ~ exp((11.59/q)^(1/3)) = 8.08e+08   (observed 94170913)
+  m=23: predicted last exception ~ exp((11.59/q)^(1/3)) = 7.81e+07   (observed 30892681)
+  m=24: predicted last exception ~ exp((11.59/q)^(1/3)) = 7.92e+09   (observed 96577729)

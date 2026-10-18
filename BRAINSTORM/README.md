@@ -584,3 +584,9 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z35_sophie_germain_burde | square levels d = k², Burde (O263 spark 4) | (ℓ/p)_4 = (k/ℓ)((ac_ℓ − be_ℓ)/ℓ), no p-only constraint; square-level excess = witness factorisation (2jk ± 1) | PROVED + EVIDENCE |
 | z35_cubic_jacobi | cubic Jacobi sums / 4p = L² + 27M² / Gauss periods | same as quartic: inert, selection rule with D = 27 | PROVED (by general props) |
 | z35_gaussian_qnr_linear_forms | T1 steering in ℤ[i] | squares' reps are i^jα² (all Gaussian symbols +1); [λ/π] = Legendre of the linear form cb − ea | PROVED (identity) |
+| z32_bm_obstruction_map | BM/descent/exotic obstructions as disproof routes (O262) | no BM obstruction at any n (BL Thm 1.8); every ES counterexample is a non-BM integral failure; known non-BM failures are small-count accidents | literature + Assessment |
+| z32_shadow_principle | n = 1 shadow kills any finite slice set (O262 Prop 3.1) | p ≡ 1 (Q) + prime cofactors empties all slices of a finite Θ (Types I/II, six pair rows, e-slices); unifies (J)83 Thm 1.3, (J)90 Thm 4.2 | PROVED (existence CONDITIONAL on Dickson / H) |
+| z32_conspiracy_budget | how much a conspiracy prime can kill | k ≲ log p/log log p forced slices, share O(log L/L); congruence part saturates at ≈ 0.73; ≍ log³p untouchable | Assessment |
+| z32_numerator_ladder | sibling lotteries m/p (Type II), m = 4…24, all p ≤ 10⁸ | universal zero law P(0) ≈ exp(−0.535 μ^{0.91}) validated out of sample; NB falsified; one-constant crossover q_m (log p_last)³ ≈ 12 | EVIDENCE + Assessment |
+| z32_adversarial_search | adversarial primes 10¹⁸–10²⁵ | hardest p = 2054098191162848070241: 870 solutions in e ≤ 2047 (0.26 × controls); depression saturates | EVIDENCE |
+| z32_prime_T1 | the only conceivable disproof route | a "prime T1": a global invariant correlating ≍ log³p divisor events; none found | Assessment |
