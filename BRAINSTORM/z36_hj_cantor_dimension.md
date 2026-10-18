@@ -11,13 +11,14 @@ threshold 1 − w ≤ κ/8 (memo z36_density_threshold).
 * L = c log p: |S_L| = p^{θ(c)} (`z36_ladder.py`): θ(1/2) = 0.30, 0.47, 0.59, 0.60, 0.61 and θ(1) = 0.74, 0.75, 0.83,
   0.84, 0.85 at p ≈ 10², 10³, 10⁴, 10⁵, 10⁶. Effective w = (1 + θ)/2 ≈ 0.80 (c = 1/2), 0.93 (c = 1) — Zaremba-like with
   M ≈ 3 resp. M ≈ 8 (w₃ ≈ 0.705, w₅ ≈ 0.837; Hensley/Jenkinson values from memory). The method needs w ≥ 1 − κ/8 with
-  κ ≥ 2^{−1656}: c astronomically large, and at that rung Theorem A (pigeonhole, c ≍ log log p) is already stronger.
-* So on the ES ladder the growth method's operating window is empty: below it counting is impossible (polylog sets),
-  above it counting already wins.
+  κ ≥ 2^{−1656}: c = C₀ astronomically large. Even granting the χ-twist, the method would give λ(p) ≤ C₀ log p, which
+  beats Theorem A (≈ 10 log p log log p) only for log log p ≳ C₀/10, and improves it by the log log factor only.
+* So on the ES ladder the growth method's operating window is above the rung L ≍ log p: below it the sets are too thin
+  (fixed L: polylog; this is where ES lives), and in it counting (Theorem A) already gets within a log log factor.
 
 ## Barrier screen
 B3 in Cantor language. T1 unaffected (all rungs void at squares).
 
 ## Assessment
 Assessment (EVIDENCE for θ). A clean way to state why the 2026 method cannot help ES: its window is
-[w ≥ 1 − κ/8], and on the ES ladder that window lies above the rung where trivial counting already succeeds.
+[w ≥ 1 − κ/8], which on the ES ladder lies at L ≥ C₀ log p, within a log log factor of what pigeonhole gives.

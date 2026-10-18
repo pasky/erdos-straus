@@ -34,7 +34,7 @@ denominators < t and > q/t); only the *critical* middle window [t, q/t] = [q^{1/
 * Coprimality / composite q: Lemma 20; Zhang §2 growth for arbitrary q.
 
 **1.3 The threshold, stated exactly (Assessment from the sources).** The method needs a window ε with
-`(1−w)/(2(κ+1−w)) ≲ ε ≤ ε₀`, i.e. **1 − w ≲ 2κε₀** — a *near-full-dimension* condition on the digit set, not merely
+`(1−w)/(2(κ+1−w)) ≲ ε ≤ ε₀`, i.e. **1 − w ≤ 2κε₀/(1 − 2ε₀) = κ/8** — a *near-full-dimension* condition on the digit set, not merely
 w > 1/2. Equivalently: each half set must have density ≥ N^{−κ} = q^{−2κε} in ℤ/q (condition (40) of Shk:
 |A|N^{κ/2} ≫ q^{1+o(1)}). The gluing count |A|²/q = q^{2w−1}·N^{2−2w} is then a power, but **a power-size count is not
 sufficient**: Zaremba with M = 5 (w₅ ≈ 0.837, count ≈ q^{0.67}) is out of reach of the method (Zhang Remark 1.3: "Lowering
