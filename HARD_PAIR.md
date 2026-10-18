@@ -9,6 +9,9 @@ Throughout p ≡ 1 (mod 4) is prime. Type A = López's b = 1 line (B1_LINE): cp 
 ## 0. Iteration log
 (I1) Read B1_LINE, ASTRA_BRIDGE §1–4, LATTICE_MEETING §1. Observation: Astra's source equation pm² + 1 = qs is
 López's dual-coordinate Type A equation cp + 1 = Qa (B1_LINE §5(c)) with c = m², minus the congruence Q ≡ −1 (mod 4c).
+(R271 repair: the special case m² | h ⟹ direct division to a target with "primitive a = 1, c = m²" is already in Astra,
+d7300f8 SQUARE_REMOVAL_OPERATIONS §3.3 "Second repair", where such sources are called relaxed, i.e. non-genuine. New here:
+general c, the slice residue c_q and the count N₁.)
 
 ## 1. Goal 1: Type A in Astra's coordinates (PROVED, elementary)
 
@@ -25,7 +28,8 @@ c_q ∈ [1, q − 1] be the least positive residue of −p⁻¹ (mod q).
     w = q ⟺ c_q | h, and N₁(p) = #{q ≡ 3 (4) : gcd(q, p) = 1, c_q | (q + 1)/4} (each such q gives one solution).
 (e) Slice q carries an Astra source ⟺ c_q is a square unit mod q; it then carries genuine sources (gcd(m, h) = 1).
     An Astra source is integral on arrival (Astra's x = sh/m² ∈ ℤ, i.e. "scalar removal") ⟺ m² | h ⟺ (c_q = m² and
-    c_q | h). (R-O264 repair: an earlier version said "⟺ c_q = m²"; false. Astra's own 193 source q = 79, m = 3,
+    c_q | h). For m > 1 such a source is never genuine (gcd(m, h) = m): these are Astra's relaxed sources (R271 repair).
+    (R-O264 repair: an earlier version said "⟺ c_q = m²"; false. Astra's own 193 source q = 79, m = 3,
     s = 22 has c_q = 9 = m² but h = 20, x = 440/9.)
 *Proof.* (a) c/(sh) + 1/(psh) + 1/(ph) = (pc + 1 + s)/(psh) = s(q + 1)/(psh) = 4/p; qs − pc = 1 gives the gcd.
 (b) Definition (ASTRA_BRIDGE Lemma 1.3). (c) gcd(c, s) = 1, so c | sh ⟺ c | h. If c | h put a = s, d = h/c: then
@@ -54,13 +58,14 @@ every split slice, and every p has split slices: any prime q ≡ 3 (4) with (q/p
 | c_q ∈ (ℤ/q)^{×2} | Astra source on slice q | B1 (local) |
 | c_q ≡ (2k)² (mod q) for some k ∣ h | Claude ES shot (2k, 1) ∈ L_ρ(q) (d = 1 locus) | B2 |
 | c_q ∣ h (as an integer) | Type A (b = 1) with López divisor q | B2 |
-| c_q = m², m² ∣ h | Astra source integral on arrival | B2 ∩ square |
+| c_q = m², m² ∣ h | Astra source integral on arrival (relaxed, non-genuine if m > 1; R271 repair) | B2 ∩ square |
 So Type A is Astra's source equation with the square condition on the twist dropped and an integrality condition
 imposed. Astra needs the class of c_q to be a square; Type A needs its least representative to divide h. These are
 different (one local, one archimedean/divisor) conditions on the same residue, and neither implies the other.
 *Check* (`scripts/z34_dict.py 100000 100000`, 64 s, `logs/z34_dict_full_1e5.txt`): all 4 783 primes p ≡ 1 (4) ≤ 10⁵.
 Type A by the pair form (B1_LINE Lemma 1.1): 75 658 solutions, each checked as an exact identity with c = c_q and c | h.
-Independently, the slice scan of all q ≡ 3 (4), q ≤ 2p (≥ the bound 4cd − 1 ≤ p + 4d ≤ (3p + 3)/2) gives exactly the same
+Independently, the slice scan of all q ≡ 3 (4), q ≤ 2p (≥ the bound 4cd − 1 ≤ p + 4d ≤ (3p + 3)/2; R271 repair: a = 1 is impossible since c(4d − p) = 2 has no
+solution for p ≡ 1 (4), hence q = (cp + 1)/a ≤ p + (p + 1)/a ≤ (3p + 1)/2) gives exactly the same
 slice set for every p (Thm 1.2(d)). An independent scan of Astra sources (m ≤ √((p+7)/12), all q | pm² + 1,
 q ≡ −1 (mod 4m²)) gives exactly the c-square subset (Thm 1.2(e)). Failures: 193, 2521, 66529 only. 53 716 Type A
 solutions sit on split slices (inside some L_ρ(q)) and 21 942 (29 %) on non-split slices (no Astra source there).
@@ -72,7 +77,8 @@ solutions sit on split slices (inside some L_ρ(q)) and 21 942 (29 %) on non-spl
 **2.1 Scores** (`scripts/z34_scores.c`, all 39 175 primes p ≡ 1 (4) ≤ 10⁶, 2.4 s; cross-checked against brute force for
 every p ≤ 1500 by `scripts/z34_check_scores.py`, 0 mismatches; output regenerable, not stored). Hardness orientation in brackets.
 * N₁(p): Type A solutions (B1_LINE Lemma 3.1) [small = hard];
-* f_II(p): Type II solutions, ordered, ET form 4abcd = a + b + pc (logic of `bs_prob_fII.c`) [small];
+* f_II(p): Type II solutions, ordered, ET form 4abcd = a + b + pc, normalised by gcd(a, c) = 1 (R271 repair: stated; e.g.
+  66529 has 36 unnormalised, 20 counted; Astra's normalisation gives the same counts at all fixtures) (logic of `bs_prob_fII.c`) [small];
 * m₀(p): least Type II window 4x − p (s7_window_lottery) [large];
 * S(p): distinct slices g carrying a lattice ES point (2k, 1), k | h (LATTICE_MEETING Prop 1.1; S = 0 ⟺ 𝓜(p) = ∅,
   reproducing its 25 empty primes ≤ 2·10⁴) [small];
@@ -115,7 +121,9 @@ in-sample and include the size-block effect.) Reading (Assessment, hypotheses on
 **2.4 Astra's fixture tests versus Claude's scores.** Checked against the Astra text (d7300f8, read-only). (R-O264 repair:
 scopes made precise; an earlier version called them "the same events".)
 * POSITIVE_ES_RESEARCH_RESET §3.2 "Exact test 4: at p = 193 … there is no primitive Type-II target with a = 1, even with
-  c and d unrestricted". ET a = 1 is Type A (by the a ↔ b symmetry). So Astra's 193 Type-II-descent obstruction is
+  c and d unrestricted". ET a = 1 is Type A (by the a ↔ b symmetry). (R271 repair: Astra's normalisation gcd(a, b, c) = 1, gcd(abd, p) = 1 is
+  automatic at a = 1: in Type A letters (cp + a + 1 = 4acd) p | a gives 1 ≡ 0 (mod p), and p | d forces
+  a ≡ −1 (mod p), impossible as a ≤ (p + 1)/3.) So Astra's 193 Type-II-descent obstruction is
   literally N₁(193) = 0 (Cor 1.3(iv)); its "complete tuples (2,5,1,5), (2,13,1,2)" are our f_II(193) = 4 (ordered).
 * TWIST_HEIGHT_COMPRESSION §3.2 "five permanently blocked anchors" at 2521: A = 631, …, 635 with k = 3, 7, 11, 15, 19
   are x = (p + m)/4 at the windows m = 3, …, 19. Astra excludes *every* ES solution containing A (all divisors of
@@ -135,7 +143,7 @@ failures have 11-smooth p − 1. For p ≡ 1 (4) prime and *odd* ℓ | p − 1, 
 So smooth p − 1 makes the primes dividing p − 1 residues. It does *not* make all small primes residues (at 193, 5, 11, 13 are
 non-residues; at 2521, 11 is). It does not give B1_LINE Prop 4.1's hypothesis M_σ | p − 1 either (M₃ = 72 ∤ 192). So the link
 to point-1 freezing is the same Assessment-level analogy as in B1_LINE §4, not a deduction (R-O264 repair).
-Size-matched comparison (controls = the non-smooth primes in the same 1001-prime window, p ∈ [2·10⁴, 10⁶]):
+(R271 repair: post hoc — the smooth cell was chosen because the fixtures lie in it.) Size-matched comparison (controls = the non-smooth primes in the same 1001-prime window, p ∈ [2·10⁴, 10⁶]):
 | | 11-smooth (310 primes) | 13-smooth (509) | matched controls |
 |---|---|---|---|
 | mean u: N₁ / f_II / m₀ / S / e₀ | 0.77 / 0.81 / 0.65 / 0.71 / 0.62 | 0.74 / 0.78 / 0.64 / 0.69 / 0.61 | 0.49–0.50 |

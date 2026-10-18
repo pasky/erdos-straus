@@ -1,5 +1,8 @@
 # R271 — hostile review of O264 (HARD_PAIR.md, side-agent/hard-pair)
 
+**Repairs applied** (author quiet after final commit cf54ce91): D1–D5 applied directly in HARD_PAIR.md, each marked
+'(R271 repair)'. All defects were MINOR; no claim or label changed.
+
 Reviewer branch side-agent/review-hard-pair. Merged side-agent/hard-pair at review start. From-scratch scripts:
 `scripts/review_r271_*.{c,py}` (no z34_* code reused). Astra text read only at d7300f8 via `git show`.
 
