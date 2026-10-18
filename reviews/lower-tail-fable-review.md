@@ -109,3 +109,56 @@ are not "2- or 3-cliques": there is no triangle at all — every component at ev
 3·10⁶ is 26.7, 44.6, 49.0, 57.3 against log² p = 64, 106, 159, 222 (ratio falling 0.42 → 0.26). (iii) G_p is
 exactly the word forest F_p of LOWER_TAIL_ASTRA Lemma 2.1 ((J)106, O275, run in parallel), which *proves* the forest
 structure (unique smaller neighbour r_v = −p mod v); the endpoint encoding itself is SIGN_IDENTITY Lemma 1.1.
+
+## Claim C — SHARP 1: the index calibration (§3.2, Assessment)
+
+**Verdict: GAP (framing; MAJOR D7 + arithmetic MINOR D8). The counting itself is right; the headline reading and the
+ladder statement are not.** (`scripts/review_r286_index.py`.)
+
+* Correct: the number of cells (m, u) with mu | U is Σ_{k|U} τ(k) = τ₃(U) (= 3^{ω(U)} for squarefree U), each cell
+  contributes ≈ log p divisor tries, and d ≡ −1 (mod 4U) is sufficient for every such cell. For H = squares,
+  [G : H] = 2^{ω(U)+O(1)} (the O(1) is the 2-part: 1 or 2 extra factors). So τ₃(U) ≫ [G : H] for squares — arithmetic SOUND.
+* **"tries ≪ group for every U (equality region only U | 24)" is false as stated**: the tries carry the factor log p, so
+  tries ≥ |G| = φ(4U) for all U up to ≈ log p·(log log)^{O(1)} — e.g. at p = 10⁹ every U in {1, 2, …, 120, 210, 2310}
+  has τ₃(U) log p > φ(4U). The crossover is a function of p, not the fixed set U | 24 (a constant that secretly
+  depends on the parameter).
+* **The ladder arithmetic is wrong for composite k.** [G : G^k] = Π_{cyclic factors C_n} gcd(k, n), which is
+  ≈ k^{π(y)/φ(k)} only for *prime* k. For U = Π_{q ≤ y} q, log₃[G : H_k] / π(y) → 0.50 (k = 3), 0.94 (k = 4), 1.13 (k = 6),
+  1.10 (k = 8), 1.44 (k = 12) — so for k = 6, 8, 12, 24 the index **exceeds** τ₃(U) = 3^{π(y)} (checked at y = 100,
+  10³, 10⁴), contradicting "[G : H] ≈ k^{π(y)/φ(k)} < 3^{π(y)}" for all k ≥ 3. The ladder is not monotone in k.
+  On the brief's question: **cubes are not borderline** (index 3^{π/2}, a factor 3^{π/2} below τ₃); the borderline
+  rung is **k = 4** (8^{π/2} = 2.83^π vs 3^π).
+* **The "explains why ES^□ had to be provable" reading is not supported (MAJOR D7).** ES^□'s proof (SYNTHESIS_SPARKS2
+  Prop 2.2) uses *no* pooling over cells mu | U and *no* square-coset target modulo 4U: it is the fixed-modulus-4 shot
+  g | n + 4Q² with Q free (one Dirichlet prime r ≡ 3 (4), (n/r) = −1, then solve 4Q² ≡ −n mod r). In the campaign's
+  (k, Q₁) phase diagram it is the slice k = 1 (DISCOVERIES l. 895), i.e. exactly the *other* provable category of §3.8
+  ("shot family infinite at a fixed modulus"). The count τ₃(U) log p vs 2^{ω(U)} plays no role in it, and "tries ≥ index"
+  is neither necessary nor sufficient for a hit (the author concedes the covering point for k ≥ 3, but the same
+  objection applies at k = 2). Repair: present the calibration as a heuristic *consistency* check, state that ES^□ is
+  proved by an infinite shot family at modulus 4 (not by the counted pooling), drop "had to be provable", and correct
+  the ladder (prime k only; k = 4 borderline; composite k ≥ 6 above the line).
+
+## Claim D — §2 "what the forms expose" and §3 mechanism audit (spot checks of PROVED items)
+
+**Verdict: mostly SOUND; one false PROVED statement (MAJOR D9).**
+
+* "Every certificate divisor is ≡ 3 (mod 4), so every certificate integer has a prime factor ≡ 3 (4); no primitive
+  sum of two squares carries a certificate": SOUND.
+* **"#E(𝔽_p) for curves with CM by ℤ[i] and all their quartic twists are sums of two coprime squares", and (§3.3)
+  "(a+b)² = p + 2ab … has no prime factor ≡ 3 (mod 4), hence carries no certificate": FALSE.** Direct point counts of
+  y² = x³ − Dx for all D mod p (`scripts/review_r286_cm.py`, 95 primes p ≡ 1 (4) < 1200): at 50 primes some ℤ[i]-CM order
+  has a prime factor ≡ 3 (4) (p = 13: #E = 18 = 3² + 3²; p = 37: 36), and (a+b)² has one at 60 primes (p = 29:
+  (5+2)² = 49; p = 13: 25 is fine but 37: (1+6)² = 49). The orders p + 1 ± 2a = (a ± 1)² + b² need not be primitive.
+  **Worse, such orders do carry certificates**: p = 229 = 2² + 15², #E = 234 (t = −4) = 229 + 5 has the Type II
+  certificate (m, u, d) = (1, 5, 39), 4/229 = 1/60 + 1/2290 + 1/2748; p = 349, #E = 360 = 349 + 11 has the Type I
+  certificate (1, 11, 3), 4/349 = 1/88 + 1/10560 + 1/335040; p = 1153, #E = 1170 likewise (all verified exactly and the
+  orders by point count). So "this kills at the root every 'p = a² + b² / CM group order' construction" is wrong; the
+  correct statement is only about *primitive* norms. Repair: restrict to primitive representations, delete the (a+b)²
+  example, and downgrade §3.3's CM bullet to "dead by B2 (lottery)", like the non-CM case.
+* f_II even (§3.5): SOUND under the ET ordered convention (y, z) — the involution u ↔ v has a fixed point only if
+  e | 2u, hence e | p (gcd(e, u) | p), forcing e ∈ {1, p}, both impossible for p ≡ 1 (4). Should state the
+  convention: for *unordered* solutions u ↔ v gives the same solution, and the parity statement is about certificates.
+* No Vieta (§3.6): SOUND — 4muwc = mp + u + c (II) and 4muwc = p(m + c) + u (I) are multilinear (each variable to
+  degree 1), and (4mwu − 1)(4mwc − 1) = 4m²wp + 1 checks.
+* §3.1 lattice remark, §3.4, §3.7: descriptive Assessments, nothing to falsify; the "u_i m_i < d for Klein-polygon
+  vertices" is standard.
