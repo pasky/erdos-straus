@@ -11,7 +11,7 @@ From-scratch scripts: `scripts/review_r274_*`. Labels as in DISCOVERIES.md. ES i
 |---|---|---|
 | 1 | §1–2 citations (BL Thms 1.6/1.8/1.9, Rem 1.10; Markoff; Lyczak; Mihnea–Dumitru 10¹⁸; PW) | SOUND-AFTER-REPAIRS (D1, D2, D3) |
 | 2 | Prop 3.1 (n = 1 shadow) | SOUND-AFTER-REPAIRS (statement true; proof has two small gaps D4, D5; existence clause D6; attribution D7) |
-| 3 | §4.1–4.3 ladder counts, zero law, crossover law | pending (counts SOUND so far) |
+| 3 | §4.1–4.3 ladder counts, zero law, crossover law | data SOUND (reproduced exactly from scratch); fit SOUND; out-of-sample wording GAP (D12: systematic under-prediction ×3–5 at the top μ, the extrapolation direction); crossover SOUND as EVIDENCE (D13 minor) |
 | 4 | §4.4 expected-failure numbers | GAP (numbers reproduce, but "every variant" bounds contradict the author's own log: D8; "worst case" is not one: D10) |
 | 5 | §4.5 heavy tails self-refuting | GAP (correct inside the one-parameter family only; the "only escape is non-monotone" conclusion is false: D9) |
 | 6 | §5 adversarial search, hardest prime | SOUND (numbers reproduce exactly; one MINOR in Reading 5: D11) |
@@ -185,3 +185,43 @@ the cheapest slices, so S/C0 for D4 is biased low *by construction* — the auth
 ℓ < r is a density-2^{−π(r)} condition, not p ≡ 1 (mod ∏ℓ); heuristically the least such prime has
 log p ≈ π(r)·log 2 ≈ 1.4·10⁵ for r = 2.8·10⁶, not 2.8·10⁶. The conclusion (out of reach) is unchanged. *Repair:*
 "log p ≳ π(2.8·10⁶) log 2 ≈ 1.4·10⁵ heuristically".
+
+## Claim 3 — §4.1–4.3 ladder (`scripts/review_r274_ladder.c`, `review_r274_zero_law.py`, `logs/review_r274_zero_law*.txt`)
+
+*Counts.* My counter enumerates p = m·abd − k with k | a + b (c = (a+b)/k, gcd(a,c) = 1, ordered (a,b)) — a
+different parametrisation from z32_ladder.c — and was checked against a direct (a,b,d)-loop for all primes < 600,
+m = 4, 5, 8, 12, 16. All 21 lotteries were recomputed to 10⁸ (≈ 12 min on 2 cores). **Every number in §4.1 is
+reproduced exactly**: m = 6: 13 (last 2521); 8: 21 (35 569); 10: 82 (145 441); 12: 169 (1 998 793); 16: 446
+(12 895 921; 445 ≤ 10⁷ plus 12 895 921, which I also confirmed with a separate run to 1.4·10⁷); 20: 1162 (94 965 203);
+24: 3739; m = 4, 5: none. The q_m, medians, c₀ values (7.03 … 15.74, geometric mean 11.59, m = 4 prediction 1.7·10³),
+the floor-test table (min f_II/L³ ∈ [0.0117, 0.0212] over 2¹⁴–2²⁶, 10⁻³-quantile 0.0213 → 0.0279, 10⁻⁴: 0.0187 →
+0.0235, median 0.0704 → 0.0554) and the hardest-cell μ/L³ = 0.035–0.038 are reproduced to all printed digits.
+
+*Zero law.* My binomial ML fit on the same units (206 442 units): **a = 0.540, β = 0.907** (author 0.535, 0.91).
+Restricting to units with μ ≥ 8, 12, 15, 20 gives β = 0.897, 0.892, 0.900, 0.873 and −ln P(μ = 229) = 69–74 (vs
+74.4): no sign of β collapsing toward the break-even 0.53–0.59. NB moment fit: m = 6, [2²⁴, 2²⁶): 48.2 predicted, 0
+observed; m = 8: 3.1 vs 0 ✓ (falsification stands).
+Calibration by μ-bin (global fit): obs/exp = 0.96–1.16 for μ < 35, but **2.1 at μ ∈ [35, 40) (9 vs 4.2) and 2.4 at
+[40, 50) (2 vs 0.8)**; Poisson tail P(≥ 11 | 5.07) = 0.015 for μ ≥ 35.
+
+**D12 (MAJOR, §4.2 "Out-of-sample … mildly optimistic, never off by more than one order of magnitude", "within a
+factor ≤ 7 for counts ≤ 5 (m = 12: 0.4 vs 3)"; AGENT_REPORT SHARP 1 "within ×1.5").** (i) Factually: the author's own
+log (train p < 2²⁰) has m = 13: 0.1 predicted vs 2 observed (×20; my refit 0.12 vs 2, ×16) and m = 12: 0.4 vs 3
+(×7.5 > 7). So "≤ 7" and "never off by more than one order of magnitude" are false. (ii) More importantly, the
+misfit is *systematic in the extrapolation direction*: on test units with μ ≥ 35 the law trained on p < 2¹⁸ / 2²⁰ /
+2²² predicts 2.0 / 2.8 / 3.9 zeros and **11 / 11 / 9 are observed** (Poisson tail 10⁻⁵ / 1.8·10⁻⁴ / 0.019). The
+law under-predicts zeros by ×3–5 at the largest μ where zeros are still seen, and §4.4 extrapolates from there to
+μ ≥ 229. This does not by itself move β much (restricted fits stay ≈ 0.87–0.90), and even a ×10⁵ correction leaves
+§4.4's numbers astronomically small; but it is exactly what the author's within-cell-heterogeneity caveat
+(`z32_lowdev.txt`) predicts, and it must be reported rather than summarised as "mildly optimistic". *Repair:* replace
+the out-of-sample sentence by the per-μ table (test μ ≥ 35: predicted ≈ 2–4, observed 9–11), say "under-predicts
+zeros at the top of the observed μ range by ×3–5 (significant)", drop "never off by more than one order of
+magnitude", and in §4.4 add a model-error factor (e.g. ×10–10³) to the quoted expectations.
+
+**D13 (MINOR, §4.3 crossover law).** (i) c₀ for m = 20, 22 uses last failures at 9.5·10⁷ / 9.4·10⁷, i.e. right-censored
+at the 10⁸ search limit; the "constant across m = 6…23" range should exclude or flag them (the author's own
+geometric mean already excludes them, the range statement does not). (ii) q_m is measured at [2²⁶, 10⁸] but
+compared with p_last ≈ 2.5·10³ … 10⁷ for most m; the m = 4 floor test shows q itself drifts (0.021 → 0.028 over
+2¹⁴–2²⁶), so c₀'s constancy is partly a statement about the drift of q. (iii) For m = 4, 5 the law predicts a last
+failure ≈ 1.7·10³ / 1.9·10³ and there are no failures at all: the law is not validated at the bottom of the ladder,
+which is where ES sits. All three are honest-labelling issues for an EVIDENCE claim; *repair:* state them.

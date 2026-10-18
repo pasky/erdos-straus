@@ -1,0 +1,10 @@
+units mu>=0: zeros=5326 a=0.540 beta=0.907  -lnP at mu=229 (m=4 at 1e8): 74.4
+units mu>=8: zeros=3854 a=0.554 beta=0.897  -lnP at mu=229 (m=4 at 1e8): 72.7
+units mu>=12: zeros=2125 a=0.564 beta=0.892  -lnP at mu=229 (m=4 at 1e8): 71.8
+units mu>=15: zeros=1268 a=0.549 beta=0.900  -lnP at mu=229 (m=4 at 1e8): 73.2
+units mu>=20: zeros=443 a=0.600 beta=0.873  -lnP at mu=229 (m=4 at 1e8): 69.0
+global fit, mu>=30: expected 26.76 observed 32  P(X>=obs)=1.78e-01
+global fit, mu>=35: expected 5.07 observed 11  P(X>=obs)=1.50e-02
+train<2^18, test mu>=35: expected 2.04 observed 11  P(X>=obs)=1.00e-05
+train<2^20, test mu>=35: expected 2.83 observed 11  P(X>=obs)=1.81e-04
+train<2^22, test mu>=35: expected 3.91 observed 9  P(X>=obs)=1.88e-02

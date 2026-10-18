@@ -1,0 +1,147 @@
+m=4: #exc=0 last=0 beyond1e6=0
+m=5: #exc=0 last=0 beyond1e6=0
+m=6: #exc=13 last=2521 beyond1e6=0
+m=7: #exc=8 last=12601 beyond1e6=0
+m=8: #exc=21 last=35569 beyond1e6=0
+m=9: #exc=34 last=24571 beyond1e6=0
+m=10: #exc=82 last=145441 beyond1e6=0
+m=11: #exc=40 last=43201 beyond1e6=0
+m=12: #exc=169 last=1998793 beyond1e6=3
+m=13: #exc=98 last=1174213 beyond1e6=2
+m=14: #exc=240 last=1901201 beyond1e6=4
+m=15: #exc=275 last=5125871 beyond1e6=5
+m=16: #exc=446 last=12895921 beyond1e6=20
+m=17: #exc=264 last=13549889 beyond1e6=8
+m=18: #exc=1028 last=28213921 beyond1e6=141
+m=19: #exc=448 last=12795361 beyond1e6=22
+m=20: #exc=1162 last=94965203 beyond1e6=171
+m=21: #exc=1006 last=44118901 beyond1e6=120
+m=22: #exc=1964 last=94170913 beyond1e6=423
+m=23: #exc=1051 last=30892681 beyond1e6=120
+m=24: #exc=3739 last=96577729 beyond1e6=1229
+
+ALL units: a=0.540 beta=0.907  (#units 206442)
+mu-bin  primes  zeros  expected(fit)  obs/exp
+[0,4) 406 86 74.3 1.16
+[4,6) 5247 507 467 1.09
+[6,8) 20979 879 876 1.00
+[8,10) 49827 894 935 0.96
+[10,12) 94604 835 814 1.03
+[12,15) 275383 857 896 0.96
+[15,20) 1128320 825 813 1.02
+[20,25) 2771578 317 318 1.00
+[25,30) 4756094 94 96.4 0.98
+[30,35) 6251970 21 21.7 0.97
+[35,40) 6884089 9 4.22 2.13
+[40,50) 12437291 2 0.824 2.43
+[50,70) 20035166 0 0.0241 0.00
+[70,1e+09) 65935414 0 2.09e-05 0.00
+
+train p<2^18: a=0.528 beta=0.929; test p>=2^18: m: predicted / observed
+   m=10: 0.14 / 0  ratio obs/pred = 0.00
+   m=11: 0.08 / 0  ratio obs/pred = 0.00
+   m=12: 2.34 / 13  ratio obs/pred = 5.56
+   m=13: 0.78 / 3  ratio obs/pred = 3.85
+   m=14: 7.67 / 15  ratio obs/pred = 1.96
+   m=15: 6.19 / 25  ratio obs/pred = 4.04
+   m=16: 49.62 / 66  ratio obs/pred = 1.33
+   m=17: 11.35 / 17  ratio obs/pred = 1.50
+   m=18: 181.44 / 310  ratio obs/pred = 1.71
+   m=19: 35.70 / 35  ratio obs/pred = 0.98
+   m=20: 261.62 / 354  ratio obs/pred = 1.35
+   m=21: 182.90 / 273  ratio obs/pred = 1.49
+   m=22: 718.03 / 730  ratio obs/pred = 1.02
+   m=23: 167.33 / 156  ratio obs/pred = 0.93
+   m=24: 1532.36 / 2023  ratio obs/pred = 1.32
+   test mu in [0,15): predicted 2.31e+03 observed 2769
+   test mu in [15,25): predicted 782 observed 1125
+   test mu in [25,35): predicted 64.1 observed 115
+   test mu in [35,1000000000.0): predicted 2.04 observed 11
+
+train p<2^20: a=0.516 beta=0.930; test p>=2^20: m: predicted / observed
+   m=12: 0.34 / 3  ratio obs/pred = 8.83
+   m=13: 0.12 / 2  ratio obs/pred = 16.29
+   m=14: 1.49 / 3  ratio obs/pred = 2.01
+   m=15: 1.20 / 5  ratio obs/pred = 4.17
+   m=16: 14.70 / 19  ratio obs/pred = 1.29
+   m=17: 5.31 / 8  ratio obs/pred = 1.51
+   m=18: 75.17 / 132  ratio obs/pred = 1.76
+   m=19: 21.32 / 22  ratio obs/pred = 1.03
+   m=20: 120.69 / 160  ratio obs/pred = 1.33
+   m=21: 78.39 / 117  ratio obs/pred = 1.49
+   m=22: 413.81 / 408  ratio obs/pred = 0.99
+   m=23: 144.10 / 116  ratio obs/pred = 0.81
+   m=24: 987.13 / 1204  ratio obs/pred = 1.22
+   test mu in [0,15): predicted 945 observed 1059
+   test mu in [15,25): predicted 835 observed 1015
+   test mu in [25,35): predicted 81.2 observed 114
+   test mu in [35,1000000000.0): predicted 2.83 observed 11
+
+train p<2^22: a=0.530 beta=0.915; test p>=2^22: m: predicted / observed
+   m=14: 0.21 / 0  ratio obs/pred = 0.00
+   m=15: 0.16 / 1  ratio obs/pred = 6.37
+   m=16: 3.01 / 3  ratio obs/pred = 1.00
+   m=17: 0.81 / 1  ratio obs/pred = 1.24
+   m=18: 22.81 / 45  ratio obs/pred = 1.97
+   m=19: 4.43 / 2  ratio obs/pred = 0.45
+   m=20: 41.04 / 50  ratio obs/pred = 1.22
+   m=21: 24.17 / 38  ratio obs/pred = 1.57
+   m=22: 168.98 / 172  ratio obs/pred = 1.02
+   m=23: 45.44 / 42  ratio obs/pred = 0.92
+   m=24: 485.18 / 565  ratio obs/pred = 1.16
+   test mu in [0,15): predicted 107 observed 132
+   test mu in [15,25): predicted 592 observed 680
+   test mu in [25,35): predicted 93.6 observed 98
+   test mu in [35,1000000000.0): predicted 3.91 observed 9
+
+NB moment-fitted m=6 [2^24,2^26): predicted zeros 48.23, observed 0, stretched-exp predicted 9.7e-14
+
+NB moment-fitted m=8 [2^24,2^26): predicted zeros 3.10, observed 0, stretched-exp predicted 9.47e-09
+
+crossover: q_m = 1e-3 quantile of f/L^3 over primes in [2^26, 1e8]; c0 = q_m (ln p_last)^3
+m=4: q=0.02794 median=0.0554 last=0 c0=nan
+m=5: q=0.02676 median=0.0496 last=0 c0=nan
+m=6: q=0.01464 median=0.0307 last=2521 c0=7.03
+m=7: q=0.01602 median=0.0333 last=12601 c0=13.48
+m=8: q=0.01020 median=0.0235 last=35569 c0=11.74
+m=9: q=0.00950 median=0.0224 last=24571 c0=9.81
+m=10: q=0.00670 median=0.0171 last=145441 c0=11.26
+m=11: q=0.00785 median=0.0191 last=43201 c0=9.55
+m=12: q=0.00451 median=0.0128 last=1998793 c0=13.77
+m=13: q=0.00573 median=0.0155 last=1174213 c0=15.65
+m=14: q=0.00389 median=0.0114 last=1901201 c0=11.75
+m=15: q=0.00372 median=0.0114 last=5125871 c0=13.71
+m=16: q=0.00291 median=0.0098 last=12895921 c0=12.78
+m=17: q=0.00355 median=0.0110 last=13549889 c0=15.74
+m=18: q=0.00197 median=0.0076 last=28213921 c0=9.94
+m=19: q=0.00280 median=0.0096 last=12795361 c0=12.29
+m=20: q=0.00168 median=0.0071 last=94965203 c0=10.43
+m=21: q=0.00195 median=0.0075 last=44118901 c0=10.66
+m=22: q=0.00134 median=0.0064 last=94170913 c0=8.31
+m=23: q=0.00193 median=0.0075 last=30892681 c0=9.90
+m=24: q=0.00098 median=0.0052 last=96577729 c0=6.08
+geo-mean c0 (last<5e7) = 11.59, range 7.03..15.74
+
+m=4 floor test: k, n, min f/L^3, q1e-3, q1e-4, median
+14 1612 0.0184 0.0213 0.0187 0.0704
+15 3030 0.0212 0.0232 0.0215 0.0674
+16 5709 0.0127 0.0189 0.0137 0.0659
+17 10749 0.0128 0.0193 0.0168 0.0642
+18 20390 0.0153 0.0216 0.0169 0.0626
+19 38635 0.0154 0.0228 0.0174 0.0614
+20 73586 0.0117 0.0234 0.0176 0.0602
+21 140336 0.0170 0.0243 0.0193 0.0592
+22 268216 0.0157 0.0253 0.0196 0.0582
+23 513708 0.0143 0.0263 0.0213 0.0574
+24 985818 0.0153 0.0269 0.0220 0.0567
+25 1894120 0.0158 0.0275 0.0231 0.0560
+26 1803646 0.0155 0.0279 0.0235 0.0554
+m=4 k=18: min cell mu=75.7  mu/L^3~0.0359
+m=4 k=19: min cell mu=86.4  mu/L^3~0.0350
+m=4 k=20: min cell mu=104.0  mu/L^3~0.0362
+m=4 k=21: min cell mu=118.5  mu/L^3~0.0358
+m=4 k=22: min cell mu=138.6  mu/L^3~0.0365
+m=4 k=23: min cell mu=159.8  mu/L^3~0.0370
+m=4 k=24: min cell mu=182.7  mu/L^3~0.0373
+m=4 k=25: min cell mu=208.7  mu/L^3~0.0378
+m=4 k=26: min cell mu=229.2  mu/L^3~0.0370
