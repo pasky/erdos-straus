@@ -118,7 +118,8 @@ equality iff every prime of U is ≡ 1 (3). (b) For a single shot prime g, the f
 "g | n + 4Q^k for some Q" is −n/4 ∈ (F_g^×)^k, of index i_k(g) = gcd(k, g − 1); with g ≡ 3 (4) forced by the shot,
 i_k(g) = gcd(k, 2)·gcd(k, (g − 1)/2).
 (c) Hence: i_k(g) = 1 is attainable (g = 3, or any g ≡ 3 (4) with (g−1)/2 prime to k) iff k is odd ⟹ ONE fixed shot
-prime covers all n prime to g (Thm 2.1 is the g = 3, mod-4 version); for k even the minimum is i_k(g) = 2, attained
+prime covers all n prime to g (the g = 3 shot is 4/n = 1/n + 1/x + Q^k/(nx), 3x = n + Q^k; Thm 2.1 uses the even
+simpler two-term identity 4x = n + Q^k, i.e. index 1 of odd k-th powers in (ℤ/4)^×); for k even the minimum is i_k(g) = 2, attained
 on a positive-density set of g, and the square class is decided by (n/g) — one Dirichlet prime (Thm 2.3). An index
 ≥ 3 at EVERY admissible g never occurs over ℤ for the k-ladder.
 
@@ -147,3 +148,38 @@ This matches TWO_POWER_LADDER (z41_stickelberger_dictionary): "BM layer and T1 a
   phase-diagram band ((J)43). The exponent k is orthogonal to all of them: replacing "square" by "k-th power" in any
   of these leaves the analysis unchanged for even k (the 2-part of every shot index is 2) and turns it into a
   covering for odd k (Thm 2.1 / §5).
+
+## 5. Deep push 1: one mute prime — the parity bit is the whole gap between a covering and an Artin problem
+
+Construction-first iteration: the k-ladder dropped B2's tie (rad Q | y) AND enlarged Q to all odd integers. Which of
+the two made odd k trivial? Shrink Q to the powers of ONE prime q and keep the exponent free.
+
+**Definition 5.0.** For an odd prime q ∤ n, ES^{⟨q⟩,*}(n): 4/n = 1/x + 1/y + 1/z, x, y ∈ ℤ_{>0}, den z a power of q
+(any exponent). With parity (den z an even power of q) it is ES^{({q})} of UNIT_ORBIT_ES §1.
+
+**Theorem 5.1 (PROVED, elementary; per q).** Suppose q ≡ 3 (4), or q ≡ 2 (3), or some prime g ≡ 3 (mod 4) has q as a
+primitive root. Then ES^{⟨q⟩,*}(n) holds for every n ≥ 2 prime to q, by a finite covering plus scaling.
+*Proof.* q ≡ 3 (4): n ≡ 3 (4) is ES; n ≡ 1 (4): 4x = n + q, 4/n = 1/(2x) + 1/(2x) + q/(nx), and q ∤ x (else q | n),
+so den z = q. q ≡ 2 (3): n ≡ 2 (3) is ES (3x = n + 1, 4/n = 1/n + 1/x + 1/(nx)); n ≡ 1 (3): 3x = n + q,
+4/n = 1/n + 1/x + q/(nx). Witness g: for g ∤ n pick c ∈ [0, g−2] with 4q^c ≡ −n (mod g) (q generates F_g^×) and apply
+UNIT_ORBIT_ES Prop 2.1's formulas with Q² → q^c (r = g ≡ 3 (4); its identity does not use the exponent): den z | q^c.
+Remaining n (divisible by 3, resp. g, or even): n = t^a·m with t ∈ {2, 3, g}; scale a solution for m > 1 by t^a
+(denominators stay q-powers), or use ES at t^a (t ≡ 3 (4) or t ∈ {2, 3}). ∎
+**CERTIFIED (`scripts/z44_one_mute.py 1000000 1000000`, log `logs/z44_one_mute.txt`).** Every prime q ≤ 10⁶ satisfies a
+hypothesis of Thm 5.1: the 19 564 primes q ≡ 1 (12) all have a witness g ≡ 3 (4) with q a primitive root, least g ≤ 179
+(q = 432 793). Exact check for q = 13, g = 11 (13 ≡ 2 is a primitive root mod 11): all 78 494 primes p ≤ 10⁶ (p ≠ 11, 13)
+and all odd squares ≤ 10⁶ prime to 143 solved, exponent c ≤ 9.
+*For all q:* Thm 5.1's last hypothesis is an Artin-in-progression statement; it holds for every non-square q under GRH
+(Lenstra, Invent. Math. 42 (1977), primitive roots in Chebotarev sets; the condition g ≡ 3 (4) is compatible since q
+must then be a non-residue mod g, (q/g) = (g/q) for q ≡ 1 (4)) — CONDITIONAL, citation-level; but it is never needed
+in practice, since a single witness per q proves the theorem for that q.
+
+**Proposition 5.2 (with parity the same shot is an Artin problem; PROVED reduction).** With parity (exponent 2c), the
+g-shot exists iff −n/4 ∈ ⟨q²⟩ ⊂ (F_g^×)²; if q is a primitive root mod g this is exactly (n/g) = −1. So
+ES^{({q})}(n) via g-shots needs a prime g ≡ 3 (4) with q primitive root mod g AND (n/g) = −1 (n-dependent): an Artin
+problem with an n-dependent Chebotarev condition (open unconditionally for a fixed q; FF_MUTE's function-field theorem
+is the case where Artin is Bilharz's theorem). T1 at squares: (m²/g) = 1 always, so no square is ever reached.
+**Reading (Assessment).** For ONE mute place, the parity normalisation is the entire difference between a finite
+covering (odd exponents allowed: index of ⟨q⟩ in F_g^× is 1 at one witness g) and an open Artin problem (even
+exponents: index ≥ 2, and the residual quadratic condition depends on n). This is (J)28's "orbit size" recalibration
+refined: orbit size matters only on the parity-constrained side; on the odd side one witness suffices for all n.
