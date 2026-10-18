@@ -1,0 +1,2 @@
+Prop5.1(a) checks 140287 violations 0
+Thm3.4: M = 6715353113788157820315734400000 primes tested 20 forced firings 0

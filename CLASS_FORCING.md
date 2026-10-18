@@ -284,3 +284,7 @@ most the characters mod 8; Prop 10.3 is stated for odd ℓ | t). The class w ≡
 * EVIDENCE (§7): forced (congruence) certificates cover 98–99.9 % of primes ≤ 10⁶ but never the class p ≡ 1 (M); the
   generated-subgroup relaxation never fails at primes (levels ≤ 200) and always fails at odd squares, factor by factor.
 * ES is not advanced; everything ends at B1 (congruence) or B2 (a divisor of one integer in a moving class).
+
+*Checks* (`scripts/z33_checks.py`, `logs/z33_checks.txt`): Prop 5.1(a) on 140 287 (p, d, ℓ) triples (p ≡ 1 (4) < 2·10⁴,
+d ≤ 60): 0 violations. Thm 3.4 with D = 6, B = 26 at the first 20 primes p ≡ 1 (mod M), all four lines (signed e-slices
+included): 0 forced firings.
