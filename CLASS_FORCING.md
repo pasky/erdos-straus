@@ -41,7 +41,7 @@ image of [p] in G/G_F, G_F := Gal(ℚ(ζ_t)/F), and is independent of [p] beyond
 matters.
 (c) *(Computation of F for the standard data.)* (i) n = ℓ an odd prime, a₁, …, a_k multiplicatively independent mod ℓ-th powers:
 Ω^{ab} = ℚ(ζ_ℓ), so the ℓ-th power residue symbols (a_i/p)_ℓ carry no information on [p] mod t beyond p mod ℓ (if ℓ | t).
-(ii) n = 4 (quartic symbols), Ω = ℚ(i, a^{1/4}), a ≠ ±□, a ≠ −4□² ·(□ a 4th power) : Ω^{ab} = ℚ(i, √a); information = (a/p)
+(ii) n = 4 (quartic symbols), Ω = ℚ(i, a^{1/4}), a ≠ ±□ : Ω^{ab} = ℚ(i, √a); information = (a/p)
 and p mod 4. (iii) Rédei fields (dihedral of order 8 over ℚ, containing ℚ(√a, √b)): Ω^{ab} = ℚ(√a, √b); information = two
 Legendre symbols. (iv) Smith's governing fields for 2^k-ranks are 2-extensions built over multiquadratic fields by iterated
 dihedral/Rédei steps; whenever Ω^{ab} is multiquadratic (which holds for the Rédei-type towers in (iii), and must be checked
@@ -176,7 +176,9 @@ phenomenon; at larger levels Σ(S) is a 2^{Ω}-point random subset of G — the 
 (the n-th power class of ℓ mod π); multiplied over ℓ | N it gives (N/π)_n = (4d/π)_n, i.e. N ≡ 4d (mod p) — again a
 total-product statement, now modulo p instead of modulo t.
 (c) The joint law of (ℓ mod t, Frob_ℓ in K_{n,d}) over primes ℓ is Chebotarev in ℚ(ζ_t)K_{n,d}, with ℚ(ζ_t) ∩ K_{n,d} ⊂
-K_{n,d}^{ab}, which is ℚ(ζ_n) for n an odd prime (Thm 2.1(c)(i)) and ℚ(i, √(−d)) ⊂ ℚ(ζ_{4d}) for n = 4 (d not ±□);
+K_{n,d}^{ab}, which is ℚ(ζ_n) for n an odd prime (Thm 2.1(c)(i)) and ℚ(i, √d) ⊂ ℚ(ζ_{4d}) for n = 4 (d not a square; for
+d = b², −4d = ((1 + i)√b)⁴ and K_{4,d} = ℚ(i, √b) is itself abelian: (p/ℓ)_4 = (b/ℓ) for ℓ ≡ 1 (4) — the Sophie-Germain exception, still
+only a quadratic character of ℓ);
 so the only class-mod-t information about ℓ carried by its power-residue data is χ_{−4d}(ℓ) and ℓ mod n.
 *Proof.* (a) ℓ | p + 4d ⟹ p ≡ −4d (mod ℓ), so (−4d/ℓ) = (p/ℓ) = (ℓ/p) (p ≡ 1 (4)), and (−4d/ℓ) = χ_{−4d}(ℓ) by QR.
 (b) The first statement is p ≡ −4d (mod ℓ); Kummer theory identifies (a/ℓ)_n with Frob_ℓ on a^{1/n}. (c) as Thm 2.1(b),(c). ∎
