@@ -4,7 +4,22 @@ Reviewer: R281 side agent. Branch reviewed: side-agent/exp-fifteen (merged into 
 From-scratch scripts: `scripts/review_r281_*.py`. Status: IN PROGRESS.
 
 ## Summary verdicts
-(filled in claim by claim below)
+| claim | verdict |
+|---|---|
+| §0 (I1) {2,3}-unit-square points (0,1), (3,0) | SOUND (C1) |
+| Lemma 1.1 ((0,1) window base-free) | SOUND (C2); wording D8, neighbourhood remark D7(ii) |
+| Lemma 1.2 ((3,0) cyclotomic descent) | SOUND (C3) |
+| §1.3 2D covering-tree EVIDENCE | SOUND as EVIDENCE, spot-checked (C14); scope D6, "iff" D7 |
+| Lemma 2.1 (C1)–(C3), Capelli | SOUND (C4, C5); D9 optional |
+| Theorem 2.2 (u ≡ 3 (8) sterile ∀D) | SOUND (C6) — the board's disputed all-D claim is now genuinely PROVED |
+| Lemma 2.2′ (39 solutions) | SOUND (C7), own bound proof + exhaustive check; D10 |
+| Remark 2.3 (argon refuted) | SOUND (C8) |
+| §2.4 u ≡ 7 (8) reduction | algebra SOUND; Ridout assessment wrong → GAP (C9; D1, D2) |
+| §2.4 EVIDENCE + 63 control | SOUND, reproduced and extended (C10) |
+| Lemma 3.1 (even D) | SOUND (C11) |
+| Computation 3.2 (II-d searches) | GAP: seeded "hits" are degenerate constant-gap artefacts (D3); grid D4, D5; negative result independently confirmed for D = 3 (C13) |
+
+No FATAL. 3 MAJOR (D1–D3; none touches a PROVED statement), 7 MINOR.
 
 ## Claim-by-claim
 
@@ -29,8 +44,8 @@ text does not say explicitly — see D7). Wording defect D8.
 ### C3. Lemma 1.2 ((3,0) cyclotomic descent) — SOUND
 Trivial and correct: Z^p + 1 = (Z + 1)Φ, 3 ≤ Z + 1 < n, scaling a solution of 4/(Z+1) by r = n/(Z+1). From-scratch:
 28 cases a ≤ 12, b ≤ 9, odd p | gcd(a,b), brute-force solution for Z + 1 scaled to an exact solution for n. It is a
-*reduction* (ES for n ⇐ ES for the smaller Pierpont number Z + 1), which in a covering tree is fine by well-founded
-induction; 4/(Z+1) is always solvable for Z + 1 ≥ 3 only if ES is known for Z + 1 — the text says "reducing to" ✓.
+*reduction* (ES for n ⇐ ES for the smaller Pierpont number Z + 1), fine in a covering tree by well-founded induction;
+the text correctly says "reducing to" ✓.
 Capelli remark: 15Y^D + 1 irreducible for all D ✓ (−1/15 ∉ ℚ^p for odd p; −1/15 ∉ −4ℚ⁴; ∉ ℚ² as < 0).
 
 ### C4. §2.1 Type II identity f·f′ = n + 4a²d — SOUND
