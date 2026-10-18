@@ -27273,4 +27273,34 @@ def check_hu():
 check_hu()
 
 
+def check_hv():
+    # (hv) POWER_LADDER_ES (O276/R287): R287 from scratch — the k-th power ladder ES_(k) is flat: odd k solved at every odd prime,
+    # odd square and odd cube ≤ 10^6 by the mod-4 identity (Q ≤ 3, Type I); even k = ES^□ (one prime r ≡ 3 (4), max theorem-r 131
+    # resp. 251); T1 control (no even-k shot at odd squares); fixed single shots for odd k (r = 3, 11, 23).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "review_r287_flat.py", "1000000"], capture_output=True, text=True, timeout=900,
+                       cwd=sdir, env=env)
+    assert r.returncode == 0, r.stderr[-2000:]
+    out = r.stdout
+    for k in (1, 3, 5, 7):
+        assert (f"odd k={k}: 78497 primes, 499 odd squares, 49 odd cubes OK; max Q over primes 3; shapes {{'I': 79045}}"
+                in out), (k, out[:1500])
+    for k, rr in ((2, 131), (4, 131), (6, 251), (8, 131), (12, 251)):
+        assert f"even k={k}: all primes p=1(4) <= 1000000 solved Type II;" in out and f"max theorem-r {rr}" in out, (k, out)
+    for k in (2, 4, 6):
+        assert f"even k={k}: shots firing at first 200 odd squares, 200 r's: 0" in out, (k, out)
+    assert "fixed shot k=3 r=3: 78860 n solved, max Q 23, shapes {'II': 78860}" in out, out[-1500:]
+    print(f"== (hv) POWER_LADDER_ES R287: odd-k rungs by mod-4 identity, even-k = ES^□, T1 on even rungs, fixed shots; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_hv()
+
+
 print("\nall checks passed")

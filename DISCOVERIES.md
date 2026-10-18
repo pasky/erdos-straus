@@ -1760,6 +1760,17 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * §3 mechanism audit: the PROVED spot-checks are SOUND (f_II even; every certificate divisor ≡ 3 (mod 4); no Vieta). No new mechanism. Fable independently reaches the campaign's conclusion that everything ends at a tied-modulus divisor event or at a pooled count below the group size.
    * verify.py (hu) re-runs R286's checks.
 
+108. **The k-th power relaxation ladder is flat: it carries exactly one bit, k mod 2 (POWER_LADDER_ES.md + BRAINSTORM/z44_*.md (O276, relay of (J)107); self-review (4 MAJOR repaired) plus hostile review `reviews/power-ladder-es-review.md` (R287): no FATAL, no MAJOR; 7 MINOR (D3: the "finite covering" made literal with Q ∈ {1, 3}; D7: "strictly between" holds only for solution sets); repaired by the reviewer, marked (R287 repair)).**
+   * Def 1.1: ES_(k)(n) means 4/n = 1/x + 1/y + Q^k/Z with gcd(Q, Z) = 1, Q odd and gcd(Q, n) = 1. Lowest terms are forced (Remark 1.2).
+   * Thm 2.1 (PROVED; odd k). The identity 4/n = 1/(2x) + 1/(2x) + Q^k/(nx), 4x = n + Q^k, with Q ≡ −n (mod 4), Q ∈ {1, 3}, solves every n. T1 is dead on these rungs: odd squares and cubes are solved with Type I shape. ES_{Q³} is a theorem for a trivial reason.
+   * Thm 2.3 (PROVED; even k): the rung is ES^□ again, via one Dirichlet prime r ≡ 3 (4) with (n/r) = −1 and r ≢ 1 mod the odd primes of k. T1 is intact. No rung lies strictly between ES^□ and ES in difficulty.
+   * Prop 3.1 (PROVED): [G : G^k] = gcd(k, 2)∏gcd(k, ℓ − 1). The relevant index is the single-modulus one, gcd(k, g − 1) (1 for odd k, 2 for even k). This corrects the pooled reading in (J)107 §3.2.
+   * Thm 5.1 (PROVED per q; CERTIFIED for q ≤ 10⁶, with witnesses g ≤ 179): ES with den z a power of a single prime q ("one mute prime"). Prop 5.2 gives an Artin-type sufficient route (CONDITIONAL).
+   * §6 (PROVED bits + EVIDENCE; R287 reproduced the table): TES over ℤ[ω] separates T1's order from the shot index. ES's ladder is flat because ord(T1) = 2 coincides with the unavoidable 2-part of every shot index. That is a coincidence of the prime 2.
+   * EVIDENCE (R287 reproduced it to 10⁶ from scratch): every odd prime, odd square and odd cube is solved on the odd rungs. All p ≡ 1 (4) are solved on the even rungs (max r 131 / 251). No even-rung shot fires at odd squares.
+   * Assessment: closes the power-ladder question. Relaxing the third denominator by a k-th power never gives an intermediate rung. No relay.
+   * verify.py (hv) re-runs R287's checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
