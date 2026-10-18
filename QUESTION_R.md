@@ -176,11 +176,13 @@ the main term (factor vanishing at squares), which is heuristic for ES (§3).
   densities predicts; M₀(m²) > 0.
 * *reciprocity model* M_R(n) = Σ_t Σ_{d | N_t, range, (d/n) = −1} ρ_R(t, e(d)), ρ_R = (#bad classes)/(#classes with
   character value −1): divisors are equidistributed **within their character class**. Equivalently, by orthogonality,
-  M_R keeps the principal character *and the real character J(−t, ·)* in the expansion of 1[d ≡ −1 (t)], i.e. the
-  level-t term is (τ − S_t)/(…) with S_t(N) = Σ_{d | N} χ_t(d) = Π_{r^e‖N}(1 + χ_t(r) + … + χ_t(r)^e) ≥ 0 — for N prime to
+  M_R keeps the principal character *and the real character J(−t, ·)* in the expansion of 1[d ≡ −1 (t)]. *Heuristic
+  reading (self-review repair: this ignores the range truncation and the 2-adic, valuation-dependent weights, so it is
+  not an identity for the implemented M_R):* without truncation the level-t term would be ∝ τ − S_t with S_t(N) = Σ_{d | N} χ_t(d) = Π_{r^e‖N}(1 + χ_t(r) + … + χ_t(r)^e) ≥ 0 — for N prime to
   the conductor, the number of ideals of norm N in ℚ(√−t) (Dirichlet; Assessment-level identification). **The reciprocity factor at level t is
-  "divisors minus binary-quadratic-form representations"**, and it vanishes exactly at clean levels (S_t = τ).
-  M_R(m²) = 0 identically (every level of a square is clean), for the trivial reason (d/m²) = 1.
+  "divisors minus binary-quadratic-form representations"**, zero exactly when S_t = τ. The implemented M_R is 0 at every
+  clean level, but can also vanish at unclean ones (e.g. t = 7, n = 149: the χ = −1 range divisors 18, 58 both have
+  ρ_R = 0, while τ(1044) = 18, S_t(1044) = 2). M_R(m²) = 0 identically (every level of a square is clean), for the trivial reason (d/m²) = 1.
 
 **3.2 Numerics (EVIDENCE; `scripts/z37_rss.c` (cross-checked against brute force at 1009, 9409, 10009),
 `scripts/z37_rss_sets.py`, `scripts/z37_rss_analyse.py`; levels t ≤ 3000; primes in [10⁶, 1.06·10⁶] and near-square
@@ -200,27 +202,30 @@ primes m² + K ∈ [4·10⁵, 4·10⁶]).** Ratios of pooled sums:
 
 gap = 1 − (N₋/M)/(generic N₋/M). Per-n standard errors of the share ≈ 0.012, so gaps carry ≈ ±0.02–0.03. Readings:
 (i) M_R is exact at squares by construction (M₀/W ≈ 1.10 at squares); (ii) at near-squares
-m² + K with T1-type levels (K = 1, 4, 8, 16, 24), M_R removes **≈ 35–55 %** of the deficit that the congruence model
-leaves; the remaining 7–15 % deficit relative to M_R is significant (≈ 3–7σ per family); (iii) K = 25, −3 show no
-deficit beyond noise; (iv) generic primes have N₋/M_R ≈ 1.05: divisors with χ = −1 land in the class −1 (mod t)
+m² + K with T1-type levels (K = 1, 4, 8, 16, 24), M_R removes **≈ 33–54 %** (41, 33, 37, 46, 54 % for K = 24, 16, 8, 4, 1) of the deficit
+that the congruence model leaves; the remaining 7–15 % deficit relative to M_R is significant (≈ 3–7σ per family);
+(iii) K = −3 shows no deficit; K = 25 shows a 4.4 % deficit relative to M_R that the reviewer estimates at ≈ 3.4σ
+(pooled-ratio SE 1.3 %; the script's per-n SE is not the SE of the pooled ratio), not explained by M_R or M₀; (iv) generic primes have N₋/M_R ≈ 1.05: divisors with χ = −1 land in the class −1 (mod t)
 slightly more often than equidistribution says.
 Same picture at t ≤ 300 (`/tmp` run, all 15 families): N₋/M_R = 1.035 generic, 0.93 (K = 24), 0.95 (16), 0.92 (8),
 0.97 (4, 12).
 
-**3.3 An analytic version that failed (EVIDENCE, negative).** Averaging S_t over the family p = m² + K
+**3.3 An analytic proxy that showed nothing (EVIDENCE, negative; self-review repair of "refuted").** Averaging S_t over the family p = m² + K
 (N_t = tm² + j, j = tK + 1) heuristically gives E[S_t] ∝ L(1, χ_{−t})L(1, χ_j)/L(1, χ_{−tj}), so the level-t bias
 should grow with L(1, χ_j). Test (`scripts/z37_level_L.py K 120`, 80 primes per family): square-j levels have mean
 per-divisor bias 0.78–1.00 (clean, as proved); on non-square j the mean bias is −0.04 to −0.08 and its Spearman
-correlation with a truncated L_R(1, χ_j) is −0.14 (K = 1), +0.13 (K = 24), +0.04 (K = 16): **no detectable L(1, χ_j)
-effect.** So the residual near-square deficit (open spark S2 of NEAR_SQUARE §5) is **not** a t-side divisor-character
-effect: given the χ-signature of the divisors of tn + 1, the χ = −1 divisors avoid the admissible class −1 (mod t) more
-than equidistribution predicts. This is the admissibility half (B2) again. A natural candidate is the u/v-side
+correlation with a truncated L_R(1, χ_j) is −0.14 (K = 1), +0.13 (K = 24), +0.04 (K = 16): **no detectable effect in
+this proxy.** Caveats: the statistic is normalised and range-truncated and is compared with one truncated L-factor, not
+with the full displayed expectation; and square j ensures cleanliness only under the gcd/2-adic conditions of
+THREE_SQUARES Lemma 1.4 (p = 37 = 6² + 1, t = 3, j = 4, word (3, 3, 5) has χ = −1). So this does not exclude t-side
+mechanisms. What §3.2 does show: given the χ-signature of the range divisors of tn + 1, near squares the χ = −1
+divisors land in the admissible class −1 (mod t) less often than within-class equidistribution predicts — an
+admissibility (B2) correlation. A natural candidate is the u/v-side
 cleanliness of NEAR_SQUARE §5 (K + u = s²), which a one-side model cannot see. (Assessment.)
 
 **3.4 Comparison with RS.** In RS the reciprocity factor is a sharp indicator 1 − 1_□(n) (Prop 2.2, CONJECTURE R-main):
 twisted counts with a non-principal character of small conductor equidistribute away. For ES the counts are only
-≍ log² n, and the factor is **per level and continuous**: τ(N_t) − S_t(N_t), which is exactly 0 at clean levels and
-positive otherwise, so near-squares (where many levels are clean: T1-type tK + 1 = c²) get a partial deficit and
+≍ log² n, and the factor is **per level and continuous** (heuristically τ(N_t) − S_t(N_t), exactly 0 at clean levels), so near-squares (where many levels are clean: T1-type tK + 1 = c²) get a partial deficit and
 squares a total one. The model explains the deficit only partly; it proves nothing at a single n (the factor is computed
 from the factorisations of the N_t themselves).
 
@@ -258,9 +263,9 @@ to reciprocity — consistent with numerator blindness ((J)41).
 2. an exact reduction of Question R to "some Γ̃-numerator over n is a non-residue" (Prop 2.1), with the precise missing
    input (twisted gluing count, Hypothesis TG) and the precise reason expansion cannot supply it (Prop 2.2: main terms
    that are Euler products cannot vanish at squares; the reciprocity term lives at denominators q | n);
-3. a reciprocity singular series for ES (§3) which is exact at squares and explains ≈ 35–55 % of the near-square
-   deficit; the rest is an admissibility (B2) correlation, and the natural analytic L(1, χ_{tK+1}) refinement is
-   refuted numerically.
+3. a reciprocity singular series for ES (§3) which is exact at squares and explains ≈ 33–54 % of the near-square
+   deficit; the rest is an admissibility (B2) correlation, and a proxy test of an analytic L(1, χ_{tK+1}) refinement
+   showed no effect.
 No pointwise theorem for any ES relaxation and no theorem in thin orbits (Question R remains open) was obtained.
 
 ## 5. Literature checked (2026-10-18; web search + arXiv PDFs in /tmp only)
