@@ -1,0 +1,1 @@
+squares 499 sumR 0 #Mg>0 0 #Mloc>0 0 #MQ>0 0
