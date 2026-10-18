@@ -1,14 +1,67 @@
 # R275 — hostile review of O265 (MODP_RECIPROCITY.md)
 
-Reviewer: side-agent/review-modp-recip. Author branch merged: side-agent/modp-reciprocity (head 95dbec07).
+Reviewer: side-agent/review-modp-recip. Author branch merged: side-agent/modp-reciprocity (head 2fee5357).
 From-scratch scripts: `scripts/review_r275_*.py`, logs `logs/review_r275_*.txt`. Author's scripts were NOT reused.
 **ES is not solved, here or anywhere.**
 
 ## Summary verdict per claim
-(filled in progressively)
+| Claim | Verdict |
+|---|---|
+| Prop 1.1 (three faces, bijection) | SOUND |
+| Prop 1.2(a) quadratic part | SOUND |
+| Prop 1.2(b) quartic part; Burde; q ≡ 3 (4) | SOUND (explanation of the 2-adic dependence slightly wrong, D1; misses w ≡ m⁻¹ (p), D4) |
+| Prop 1.2(c), Answer to goal (1) | SOUND (Assessment) |
+| Prop 2.1 | SOUND |
+| Prop 2.2 | SOUND (proof); Reading/verdict "no independence barrier can be proved" overclaims (D3) |
+| EVIDENCE 2.3 (A) hit rates vs quartic data | SOUND (reproduced) |
+| EVIDENCE 2.3 (B) "free, balanced quartic bit" | GAP → SOUND-AFTER-REPAIRS (D4: d ≤ 40 restriction unstated; bit = ((2/m)/p)_4, forced at m = 2k²) |
+| §3.1 (J)3/(J)78/(J)79 cover (a, b)-identities | SOUND-AFTER-REPAIRS (D5: only full certificates, not polynomial level + free witness) |
+| Lemma 3.2 | SOUND (can be strengthened, D6) |
+| Prop 3.3 | SOUND (whole-class only, as stated; D7 minor) |
+| EVIDENCE 3.4 | plausible; sterile windows re-checked |
+| Prop 4.1 | SOUND (D10: "What it forces" is Assessment) |
+| EVIDENCE 4.2 (square levels; witness factorisation) | SOUND (reproduced) |
+| Prop 5.1 | SOUND (all-divisor exhaustive check to 10⁶, 0 exceptions; D8 minor) |
+| Cor 5.2 | SOUND-AFTER-REPAIRS (D9: unprovable sentence labelled PROVED) |
+| Labels overall | mostly correct; D3, D4, D9 are label/scope overclaims |
+
+No FATAL defect. ES is not advanced by O265 (as the author says).
 
 ## Defects
-(filled in progressively)
+**MAJOR**
+* **D3** (§0 v1; §2 "Reading"; §6 Goal (2); AGENT_REPORT sharp 2). "No independence barrier can be proved at unbounded
+  level" does not follow from Prop 2.2, which only excludes pointwise independence; statistical independence (the useful
+  kind, and what EVIDENCE 2.3 tests) is untouched. Repair: "no pointwise independence holds at unbounded level; statistical
+  independence is open (EVIDENCE 2.3 supports it at fixed level d)".
+* **D4** (EVIDENCE 2.3 last sentences; §6 Goal (1) "the free bit is balanced"; z35_free_quartic_bit Assessment; AGENT_REPORT
+  spark 1). The 49.9/50.1 % count is over witnesses with d ≤ 40 only (unstated in the main file). Exact identity
+  w·m = c·p + 1 ⇒ (2w/p)_4 = ((2/m)/p)_4: the bit is the quartic symbol of the window, and at m = 2k² it is the Legendre symbol
+  (k/p) (forced: m = 2 fires for every p ≡ 5 (8) with bit +1; m = 8, 18 always −1; m = 32 always +1). Over all witnesses,
+  p ≤ 2·10⁵: 51.8/48.2 % (z ≈ 10.6). Repair: state the d ≤ 40 scope, add the identity to Prop 1.2(b), and replace "free,
+  balanced" by "equal to ((2/m)/p)_4; forced (by a quadratic, i.e. abelian, datum) on m = 2k², balanced on generic windows".
+  Still no quartic T1.
+* **D5** (§3.1, sentence "So every 'identity in a, b' (levels d, windows m, side numbers … chosen polynomially) …"). The cited
+  collapse theorems need the full ET family / full certificate polynomial (or rational); a polynomial level with a free
+  divisor witness is not covered (B2). Repair as in the §3 note.
+
+**MINOR**
+* **D1** (Prop 1.2(b), q ≡ 3 (4) and the script comment). The 2-adic dependence is only (−1)^{(p−1)/4} = [−1/λ]_4, i.e.
+  p mod 8, not "the primary-associate sign"; exact law (q/p)_4 = (−1)^{(p−1)/4}((a + bi)/(a − bi))^{(q+1)/4} in F_q[i] with
+  i ↦ a/b; for q ≡ 1 (4) no 2-adic data at all; q = 2 needs (a, b) mod 8. "16·rad(mdg)" can be "8·rad". Repair: insert the
+  explicit law (verified, §1 note).
+* **D2** (header notation, Prop 2.2). i ↦ i_p = a/b is reduction mod λ = a − bi, so χ_π as defined is the character of π̄.
+  Repair: define i_p := −a/b, or say "χ_π̄".
+* **D6** (Lemma 3.2). Hypothesis can be weakened to Jacobi (p/m′) = +1 and (v₂(m) even or p ≡ 1 (8)); the CRT/common-u
+  remark is unnecessary.
+* **D7** (Prop 3.3). "the class n ≡ 1 (mod M)" needs gcd(N₀, M) = 1.
+* **D8** (Prop 5.1 (ii) "roughly doubles" is heuristic inside PROVED; AGENT_REPORT/brief "iff" should be "if"; the 10⁶ check
+  covered only m = odd part of y and m = x — now supported for all divisors by this review; D = 27 with L, M even applies to
+  (L/2, M/2)).
+* **D9** (Cor 5.2 first sentence and the p^{−1/2+o(1)} count): Assessment/heuristic, not PROVED.
+* **D10** (Prop 4.1 "What it forces"): Assessment; the "−1 … lies in G²" sentence is imprecise (−1 ∉ G²).
+* **D11** (housekeeping). The author branch tracks `.pi/active.lock` (commit 95dbec07), which collides with every other
+  worktree's untracked lock on merge (I had to move mine aside). Repair: `git rm --cached .pi/active.lock` on the author
+  branch and add `.pi/` to .gitignore.
 
 ## Per-claim notes
 
