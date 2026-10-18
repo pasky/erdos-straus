@@ -163,8 +163,8 @@ q | Q is then counted exactly (term = 1[p ≡ a mod q], the hit itself). Own mea
 for primes p ≡ 1 (4) in (1000, 3000), 55.6 % of M_Q's mass and 50.3 % of the hits come from pairs with q | Q; at 409 and 577
 that exact part is 0 because those primes have no hits. The same Q also pushes tiny primes (13, 17, …: all pairs exact)
 to M_Q ≥ 2, which is why the global ranking has 409/577 on top. This is the R_sm caveat the author applies to the larger Q
-and to M_loc,30 but not to Q = 720720. What survives (my runs, `scripts/review_r277_stats.py`, `/tmp` reruns with smaller
-Q): within the window [p/2, 2p], rank of 577 is 1/65 for Q = 720720, 5040, 720 and 2/65 for Q = 240 (Q < p:
+and to M_loc,30 but not to Q = 720720. What survives (my runs, `scripts/review_r277_stats.py`, `scripts/review_r277_smallq.py` →
+`logs/review_r277_smallq.txt`): within the window [p/2, 2p], rank of 577 is 1/65 for Q = 720720, 5040, 720 and 2/65 for Q = 240 (Q < p:
 non-circular); 409 drops from 2/47 to 8/47 for Q ∈ {720, 240}. And M_gen alone (no circularity) ranks failures well inside
 windows: 5569 4/466, 9601 8/763, 83449 37/5438, 409 6/47. At 10⁶ (p > Q) M_Q still lowers the dispersion 1.52 → 1.26.
 *Repair:* drop "non-circular" for p < Q; state the exact-share figure; replace the global ranking by within-window ranks
