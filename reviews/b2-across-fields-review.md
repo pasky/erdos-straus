@@ -161,3 +161,42 @@ Defects:
 10. **MINOR (strengthening)** (§5 pattern table row M1 and memo 1 (c)): add the Elsholtz–Tao average bound as the rigorous
    reason M1 is unavailable for almost all p (with the Elsholtz–Tao statement verified in the source, or marked (memory)).
    Without it, "B2 lacks M1" rests on EVIDENCE at sampled p.
+
+## Claim (4) — the M1–M4 pattern table (§5; Assessment)
+
+**Verdict: GAP (Assessment is defensible in spirit, but M1 is defined ambiguously and the table's "B2 lacks M1 because F2"
+does not follow; one mechanism class is missing).** Not FATAL: the label is Assessment and no downstream claim depends on it.
+
+Search for a counterexample (pointwise existence, polylog or O(1) expected count, none of M1–M4):
+* **Fermat p = x² + y² via Thue's lemma / Minkowski** — final count exactly 8 (O(1)), pointwise for every p ≡ 1 (4). The
+  mechanism is a pigeonhole on ≍ p pairs (x, y) ∈ [0, √p]² against p residues: a *power-size auxiliary* count, not a power-size
+  count of the final objects. Likewise **Pell** (solutions of height ≤ X: ≍ log X; Dirichlet pigeonhole + unit group) and
+  **Gauss's class-number-one / one-class-genus representations** (row 3(i)). So "polylog final count ⇒ no M1" is false as a
+  principle: M1 can live on an auxiliary set. The table's M1 row reads "B2 lacks it because F2: ≍ (log p)²–(log p)³" —
+  but F2 is about the final certificate count. What actually blocks the Thue/Minkowski route for B2 is F3 (the exact height /
+  tied modulus; memo 12 (c)(1), SYNTHESIS_SPARKS8 Prop 1.5) and (J)85's sub-power windows — the memos know this, the §5 table
+  does not say it. These examples are all M1-auxiliary (+ M3 lattice), so the table is *not refuted*, but its "B2 lacks it
+  because" column is wrong for M1.
+* **Count-congruence mechanisms** — Chevalley–Warning, Erdős–Ginzburg–Ziv, Alon's Combinatorial Nullstellensatz,
+  Zagier's parity, Chen's "orbit sizes ≡ 0 (mod p)". These prove existence from a congruence on the number of solutions,
+  with no main term and no transitivity; final counts can be O(1). The table files Zagier and Chen under M3 ("homogeneity /
+  group action"), which mislabels them: Chen's Thm 1.2.5 is a degree congruence on Hurwitz spaces, used *together with* BGS's
+  giant component; Chevalley–Warning has no group action at all. Not a counterexample to "B2 offers none" (the campaign's T1
+  and (J)2 Thm 6.1 cover parity/involution routes), but the pattern as stated omits a whole class.
+* **Least witnesses under GRH** (M2) ✓; **2^k + p covering** (failure side) ✓ correctly used as the converse phenomenon.
+* I found no pointwise theorem with polylog *final and auxiliary* counts that avoids M2/M3/M4. So the qualitative message
+  ("every known pointwise theorem has a power-size count somewhere, a fixed-modulus character/group, a homogeneity, or object
+  freedom") survives.
+
+Defects:
+11. **MAJOR** (B2_ACROSS_FIELDS §5 pattern table, row M1, and the sentence "B2 offers none"): split M1 into
+   M1a "power-size count of the final objects" (Duke, ternary, Borwein–Choi, BGS, Shkredov/Zhang, HBP) and M1b "power-size
+   auxiliary set + pigeonhole/volume" (Thue, Minkowski, Dirichlet/Pell). B2 lacks M1a by F2 (and, per defect 10, provably for
+   almost all p); B2 lacks M1b only by F3/(J)85 (no fixed target class before the point is chosen; sub-power covering
+   windows). State this in the "B2 lacks it because" column.
+12. **MINOR** (same table, row M3): add **M5 count-congruence** (parity / mod-p count: Zagier, Chevalley–Warning, EGZ, Chen
+   Thm 1.2.5) with "B2 lacks it because: T1 (parity is +1-blind at odd squares: any count-congruence that holds at all n
+   ≡ 1 (4) must also hold at m², where the Type I/II count is 0) and (J)2 Thm 6.1 (finite-menu affine involutions barred,
+   conditional)". Move Zagier and Chen there.
+13. **MINOR** (row M1 "Graham"): Graham's 77-theorem is an inductive construction (n ↦ 2n + 2, 2n + 9 from a finite base),
+   not a power-size main term; it belongs to M4 only (where it is already listed).
