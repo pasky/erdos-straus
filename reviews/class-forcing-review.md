@@ -7,6 +7,8 @@ Reviewer scripts: `scripts/review_r272_*.py` (from scratch; author's z33 scripts
 |---|---|
 | Thm 2.1 (a)(b)(c)(i)–(iii), Table 2.2 | SOUND (D3 cosmetic) |
 | Thm 2.1(c)(iv) + bold summary + slogan | GAP → SOUND-AFTER-REPAIRS (D2) |
+| Lemma 3.1, Prop 3.2 | SOUND (D5, D6 minor) |
+| Thm 3.4 | SOUND (D4 minor; re-checked from scratch, 0 firings) |
 | Thm 6.1 + Hypothesis HC | **FATAL as stated** (HC is false; Thm 6.1's conclusion is false) — SOUND-AFTER-REPAIRS with the D1 repair |
 
 ## Defects
@@ -57,6 +59,35 @@ Table 2.2 recomputed from scratch (`scripts/review_r272_table22.py`): all 30 row
 **Thm 2.1 (a),(b),(c)(i)–(iii): SOUND (D3 cosmetic). (c)(iv) + slogan: GAP → SOUND-AFTER-REPAIRS (D2).**
 (c)(i) re-derived: Gal(ℚ(ζ_ℓ, a_i^{1/ℓ})/ℚ) = (ℤ/ℓ)^k ⋊ (ℤ/ℓ)^×, [u, v] = (u−1)v exhausts (ℤ/ℓ)^k for any u ≠ 1 (needs ℓ ≥ 3 and
 independence in ℚ(ζ_ℓ)^×/ℓ-th powers, which follows from independence in ℚ^× for ℓ odd). (ii) D₄ with commutator of order 2
-holds iff a ≠ ±□ and a ≠ −4□² type (the author's Sophie Germain remark covers −4b⁴; note also a = −b² gives
-ℚ(i, a^{1/4}) = ℚ(i, √b)·… of degree ≤ 4 — "a ≠ ±□" already excludes it). (iii) fine for genuinely dihedral Rédei fields
+needs a ≠ ±□ AND a ≠ −4b⁴ (the latter is the author's Sophie-Germain remark; it should be added to the hypothesis of (ii),
+not only to the remark, since then Ω = ℚ(i) is abelian). (iii) fine for genuinely dihedral Rédei fields
 (Q(√a, √b) biquadratic); degenerate a = b cases are cyclic quartic — say "biquadratic Q(√a,√b)" as hypothesis.
+
+## §3 — Lemma 3.1, Prop 3.2, Thm 3.4
+Re-derived. Lemma 3.1 is the product formula plus Dirichlet; Prop 3.2 ⟸ (Σ(s) ∪ Σ(s)·g_L ⊂ Σ(N) for every factorisation of
+L, since L itself is a divisor) and ⟹ (L prime is an abstract compatible configuration) are correct *for the abstract notion
+of "forced"* (note: realising "L prime" by an actual prime p in the class needs two linear forms prime simultaneously —
+that is exactly HC's job in §6, not Dirichlet's). Thm 3.4 re-proved: at p ≡ 1 (M), v_q(N_i(p)) = v_q(N_i(1)) for q ≤ B,
+t | 4·D! | M gives [N_i(p)] = [N_i(1)], so the forced set is ⊂ Σ(N_i(1)) and the three size arguments (4d−1 ∤ 4d+1;
+4c − 1 > c + 1; e | a + b ≤ (1+e)/4 + 1 < e) are right. **From-scratch check** (`scripts/review_r272_thm34.py`; forced set
+built directly from trial division, all four lines, signed e-slices with L in a, in b or in neither): 8 primes p ≡ 1 (M)
+each for (D, B) = (6, 26), (12, 50), (12, 5), (20, 82) (M up to ~10¹⁰⁶): **0 forced firings**; positive control (random
+p ≡ 1 (4) ~ 4·10¹², same code): 446 firings. Modulus/c-line question raised by the author: for c odd, cp + 1 is even and
+v₂(cp+1) = v₂(c+1) because 2^{e₂} > 16D(D+1) > c + 1; only odd divisors can be ≡ −1 (mod 4c), so the 2-part is harmless.
+q^{e_q} > 4D + 1 already suffices for Thm 3.4; the stronger q^{e_q} > 16D(D+1) ≥ t·N_i(1) is what Thm 6.1 needs (it makes the
+cofactor's class mod t constant along p = 1 + Mk: t | M/s_i). Say this explicitly.
+Verdicts: **Lemma 3.1 SOUND; Prop 3.2 SOUND (D5, D6 minor); Thm 3.4 SOUND (D4 minor).**
+
+**D4 (MINOR) — Thm 3.4 proof**: "Σ(s) ∪ Σ(s)·g_L is the set of classes of divisors of N₁" is false when the B-rough part of N₁
+is composite (e.g. B = 5, d = 12: N₁ = 49, forced set {1, 49} vs divisors {1, 7, 49}). Only "⊂" is needed and true. Repair:
+replace "is" by "is contained in". Also explain the role of 16D(D+1) as above.
+
+**D5 (MINOR) — Prop 3.2 / §3 preamble**: "s known from p mod M_B, e_q large" is false for the (positive-density) p with
+v_q(N) ≥ e_q. Repair: define s := ∏_{q ≤ B} q^{min(v_q(N), e_q)} (what p mod M_B actually reveals) and let the opaque cofactor
+absorb the rest; the criterion and the proof are unchanged (L = prime remains an admissible abstract completion once
+q^{e_q} | N, as the adversary may take v_q(N) = e_q). Lemma 3.1 also contains a garbled fragment "(for t ∤ … :".
+
+**D6 (MINOR, unproved assertion inside a PROVED item) — Prop 3.2, sentence "for |H| ≥ 3 and k ≥ 2 it can still fail for every
+choice of images (the adversary has k − 1 free coordinates)".** No proof, and the quantifier ("for every choice of images")
+is not what the parenthesis supports (it supports "for some choices"). Repair: delete, or state "for some image patterns"
+with an explicit example, labelled Assessment.
