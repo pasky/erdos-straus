@@ -27107,4 +27107,66 @@ def check_hp():
 check_hp()
 
 
+def check_hq():
+    # (hq) SYNTHESIS_SPARKS9 (O271/R282): R282 from scratch — Prop 2.2 (for every odd non-square n ≤ 10^6 some level 4 | t ≤ 4ℓ(n)
+    # has an inert prime factor of tn + 1, i.e. the BM layer is pointwise free; squares never), and the corrected dictionary
+    # Lemma 2.0 (BL's class at level points: χ_{−t} for p ≡ 1 (4), −χ_t for p ≡ 3 (4); own Hilbert symbols).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "lbm")
+        r = subprocess.run(["gcc", "-O2", "-o", exe, os.path.join(sdir, "review_r282_levelbm.c"), "-lm"],
+                           capture_output=True, text=True)
+        assert r.returncode == 0, r.stderr[-2000:]
+        r = subprocess.run([exe, "1000000"], capture_output=True, text=True, timeout=600)
+        assert r.returncode == 0, r.stderr[-1000:]
+    assert ("NMAX=1000000 odd nonsquares=499500 odd squares=500 failures=0 max_l=71 witness level carries (*) word: 366491 "
+            "(73.37%)") in r.stdout, r.stdout[-800:]
+    r = subprocess.run([sys.executable, "review_r282_blevel.py", "400", "60"], capture_output=True, text=True, timeout=600,
+                       cwd=sdir, env=env)
+    assert r.returncode == 0, r.stderr[-1500:]
+    assert "p==1 mod 4: points=2932  inv_p==chi_(-t)(d): 2928" in r.stdout, r.stdout
+    assert "p==3 mod 4: points=3060  inv_p==chi_(-t)(d): 1074  inv_p==-chi_t(d): 3052" in r.stdout, r.stdout
+    print(f"== (hq) SYNTH9 R282: BM layer pointwise free at levels 4 | t for all odd non-squares ≤ 10^6; level dictionary "
+          f"χ_(-t) / −χ_t by p mod 4; seconds = {perf_counter() - t0:.1f}")
+
+
+check_hq()
+
+
+def check_hr():
+    # (hr) TWO_POWER_LADDER (O272/R283): R283 from scratch — Stickelberger dictionary Thm 3.2 for m = 3, 4 (own ℤ[ω], ℤ[i]
+    # power-residue symbols: the forcing sees S = ∏ x_a^{a⁻¹}, 0 failures on ~18 000 pairs each, S ≠ D in thousands of cases);
+    # 2-group-level census to 10^5 (odd non-squares with no word at any 2-group level; no square has one).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("TWO_POWER subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r283_stickel.py"])
+    assert "m=3: pairs(l<20, q<60000, both 𝔮|q) = 18078; S-identity failures = 0; S!=D cases = 12070" in out, out[:800]
+    assert "m=4: pairs(l<20, q<60000, both 𝔮|q) = 18102; S-identity failures = 0; S!=D cases = 9091" in out, out[-800:]
+    out = run(["review_r283_census.py", "100000"])
+    assert "odd non-squares 3<=n<=X with no T2 word: 3755; odd squares with a T2 word: 0" in out, out[-800:]
+    assert "150 failing primes, 0 actually have a word; 150 hit primes, 0 actually have none" in out, out[-800:]
+    print(f"== (hr) TWO_POWER_LADDER R283: Stickelberger dictionary m = 3, 4; 2-group-level census to 10^5; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_hr()
+
+
 print("\nall checks passed")

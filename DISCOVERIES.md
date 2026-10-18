@@ -1715,6 +1715,27 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment: per the board's drop condition, the F1 lane yields proved subcases plus search bounds. These are thin-family results, not ES.
    * verify.py (hp) re-runs R281's checks.
 
+103. **Synthesis IX — the single-integer lower tail: the Brauer–Manin layer is pointwise free in level coordinates; no every-n theorem with a polylog main term exists for a natural problem; fixed-p variance arguments fail (SYNTHESIS_SPARKS9.md + BRAINSTORM/s9_*.md (O271); hostile review `reviews/synthesis-nine-review.md` (R282): no FATAL. MAJOR D1: "BL's class IS χ_{−t} in level coordinates" was unproved and holds only for p ≡ 1 (4); for p ≡ 3 (4) it is −χ_t, an even character — new Lemma 2.0. MAJOR D5: SHARP 2's "shared factor is |W(p)|" was a collider artefact; disjoint size controls leave a correlation of ≈ 0.35. Ten minors. Repaired by the reviewer, marked (R282 repair). AGENT_REPORT_O271 is superseded by the review on D1/D5.)**
+   * Prop 2.1 / 2.2 (PROVED; R282 reproduced it over all 499 500 odd non-squares ≤ 10⁶). For 4 | t, M^{lev}_t(n) = (τ(N) − σ_{χ_{−t}}(N))/φ(t) ≥ 0 with N = tn + 1, and it is 0 at squares. Some 4 | t ≤ 4ℓ(n) has M^{lev}_t(n) > 0 iff n is not a square, where ℓ(n) is the least odd prime with (n/ℓ) = −1. The reason: when ℓ | tn + 1, (−t/ℓ) = (n/ℓ). So the order-2 BL layer is pointwise free; the other genus characters and the higher-order layers still act.
+   * Cor 1.2 (PROVED): the k/n two-line union holds iff some solution of tuv − u − v = n has a coordinate ≡ 0 (mod k). EVIDENCE: (★) and b = 1 are positively correlated (+0.37 / +0.39), and when (★) fails, b = 1 is pushed down.
+   * Lemma 3.1 (PROVED): over a fixed group, the plain ℓ² certificate succeeds iff m̄² > (|G| − 1)V, and then it occupies every class. EVIDENCE: Janson / level-Poisson diagnostics show that the near-independent units are levels, with E[#hit levels] ≈ (0.44 → 0.97)·log p, which is critical. The far tail is fatter than the level-Poisson model.
+   * Literature map (Assessment; R282 checked Crocker 1971, Pan 2011, Erdős–Tetali 1990, Ghosh–Sarnak). No every-n theorem exists for a natural problem with a polylog main term. Such theorems are either designed sets or structural, and natural polylog problems have structured exceptions.
+   * s9_no_fixed_integer (Assessment + PROVED inequality): Hecke positivity pushes against ES. s9_fibration_level (Assessment): the fibration method over the level collapses.
+   * verify.py (hq) re-runs R282's checks.
+
+104. **The 2-power ladder: higher reciprocity does not free the next character layers; a Stickelberger dictionary explains why the BM layer and T1 are exactly the m = 2 coincidence (TWO_POWER_LADDER.md + BRAINSTORM/z41_*.md (O272, relay of (J)103); self-review (7 MAJOR repaired) plus hostile review `reviews/two-power-ladder-review.md` (R283): no FATAL or MAJOR; minors D1–D13 (general-m wording, composite levels 4q₁q₂, the cubic Hecke conductor divides 3q); repaired by the author, marked (R283 repair)).**
+   * Thm 3.2 (PROVED for m = 3, 4; R283 checked ~18 000 pairs each with its own power-residue symbols). For a split forced prime ℓ at a level prime 𝔮 | q, write x_a = (σ_aλ/𝔮)_m.
+     * The forcing ℓ | tn + 1 sees only the Stickelberger component S = (q/λ)_m = ∏ x_a^{a⁻¹}.
+     * The ES event needs the norm component D = ∏ x_a.
+     * S determines D exactly modulo μ_m^{gcd(2,m)}, and this is sharp by Kummer independence.
+     * For m = 2 we have S = D: that coincidence is the whole BM layer and the whole of T1. There is no odd-order BM layer.
+   * Thm 3.1 (PROVED, hypotheses ℓ ∤ m, 4 | lcm(M, m); it is (J)93 Thm 2.1 transported to level coordinates): along forced progressions, no congruence on the level determines a character layer beyond its quadratic part. EVIDENCE: Chebotarev frequencies 1/2, 1/4, 1/8 for the 4th/8th/16th-power parts.
+   * Prop 4.1 / 4.2 (PROVED): the 2-part is CHOOSABLE by choosing q (positive density), but choosable is not forced. Once a divisor is fixed, the level is the residue of −n⁻¹ mod d, which is the lottery itself.
+   * 2-group levels t = 2^k·F (EVIDENCE; R283 reproduced the census to 10⁵): they do not suffice. 1 298 primes ≤ 10⁶ have no word at any 2-group level (failure rate per decade 0.217 → 0.0069), and no square has one. Lemma 5.1 (PROVED): n = Dm² has no word at any level 4D | t.
+   * Cor 6.1 (PROVED, narrow): no family of n biases the cubic Dirichlet layer through the forcing congruence.
+   * Assessment: precise negative; route (b) is closed at every 2-power layer. No relay.
+   * verify.py (hr) re-runs R283's checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
