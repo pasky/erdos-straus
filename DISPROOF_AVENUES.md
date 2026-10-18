@@ -181,3 +181,47 @@ flat over 2¹⁸–2²⁷ (O154: class of one 0.034 at 10¹⁶). With the zero l
 * Caveat: pooling by cell mean hides within-cell heterogeneity (local factors at primes > 7): −log P(f ≤ 0.3 μ_cell)
   stops growing beyond μ ≈ 70 (`logs/z32_lowdev.txt`; pooled over m and p, so confounded). That is why §4.4's worst
   case uses the global minimum ratio, not the cell mean.
+
+## 5. Adversarial search at 10¹⁸–10²⁵ (EVIDENCE; primes are BPSW-probable, python-flint)
+
+**Engine (`scripts/z32_adv.py`).** For p ≡ 1 (4) it computes every Type I and Type II e-slice count for e ≤ E
+(N = (p+e)/4, resp. (pe+1)/4, factored by flint; pairs a ≤ b with ab | N, e | a + b, primitive as in
+bs_adv_count / R123), the least non-empty slice W(p), and one solution checked in exact rational arithmetic.
+Validation: Type II slices = bs_adv_count on three primes near 10¹² (e ≤ 31); summed over all e, both types =
+brute force over all x ≤ y ≤ z for every prime p ≡ 1 (4) < 260. The statistic is S(p) := Σ_{e≤2047} (X_e^I + X_e^II),
+the solutions in the 1024 cheapest complete families (≈ 7 s per prime at 10²⁵; total compute ≈ 10 CPU-minutes).
+
+**Designs (`scripts/z32_adv_run.py`, `logs/z32_adv.jsonl`, summary `logs/z32_adv_summary.txt`).** C0 random
+p ≡ 1 (24); D1 class of one p ≡ 1 (mod M_y), y = 37/43/53 at 10¹⁸/10²¹/10²⁵; D2 = D1 + (ℓ/p) = +1 for all
+y < ℓ ≤ 97; D3 = Prop 3.1 shadow on e = 3, 7, 11 (both types; six prime cofactors) with p ≡ 1 (mod M₂₃); D4 / D4big
+= the 4 lowest S(127) among 300 / 3000 D1 primes.
+
+| size | design | n | mean S / C0 | min S / C0 | W range | min S |
+|---|---|---|---|---|---|---|
+| 10¹⁸ | D1 | 8 | 0.48 | 0.38 | 3–7 | 818 |
+| 10¹⁸ | D3 | 4 | 0.61 | 0.49 | **15–19** | 1052 |
+| 10¹⁸ | D4big | 4 | 0.32 | 0.29 | 3–11 | **612** |
+| 10²¹ | D1 | 8 | 0.35 | 0.29 | 3–7 | 966 |
+| 10²¹ | D4 | 4 | 0.32 | **0.26** | 3–11 | 870 |
+| 10²⁵ | D1 | 8 | 0.44 | 0.35 | 3–7 | 1344 |
+| 10²⁵ | D2 | 4 | 0.39 | 0.31 | 3–7 | 1216 |
+| 10²⁵ | D4 | 4 | 0.32 | 0.29 | 3–7 | 1130 |
+
+(C0 mean S: 2134, 3294, 3870 at 10¹⁸, 10²¹, 10²⁵.)
+
+**Readings.**
+1. **No prime came close to failure.** The hardest prime found, by S relative to controls, is
+   p = 2054098191162848070241 (D4, ≈ 2·10²¹): S = 870 solutions in the cheap families alone (0.26 × controls),
+   W = 11. The smallest absolute S is 612 (D4big, ≈ 2·10¹⁸). Every prime has W ≤ 19.
+2. **The depression saturates.** mean S/C0 for the selected class-of-one designs is 0.32–0.36 at every size
+   10¹⁸–10²⁵; it does not grow with y (37 → 53) or with p. D2's extra square-mimicking adds ≈ 10 %.
+3. **Prop 3.1 works and buys nothing.** Killing e = 3, 7, 11 moves W exactly to the next admissible slice (15 or
+   19) and leaves S at 0.5–0.6 × controls — *higher* than plain D1, because the forced prime cofactors make the
+   numbers near (p+e) less smooth only at the killed shifts.
+4. **S overstates the depression of f.** At 10¹² (`logs/z32_adv_exact12.txt`, exact f_II from bs_adv_count): D1
+   has S/C0 = 0.63 but f_II/C0 = 0.80; D4 has S/C0 = 0.49 but f_II/C0 = 0.82. Class-of-one and selection act on the
+   small slices (the share of e ≤ 127 in S falls from ≈ 0.55 to ≈ 0.16), not on the bulk. So the realistic total
+   depression at 10¹⁸–10²⁵ is ≈ 0.7–0.8 (O154: 0.65–0.73 to 10¹⁶).
+5. "Profinite proximity to sterile points" is not constructible in this range: the sterile Mordell points of (J)70
+   need least quadratic non-residue r ≥ 2.8·10⁶, i.e. p ≡ □ modulo every prime < 2.8·10⁶ (log p ≳ 2.8·10⁶).
+   D2 (residue at every ℓ ≤ 97) is the feasible proxy; it behaves like D1.
