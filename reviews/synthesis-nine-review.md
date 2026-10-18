@@ -57,3 +57,27 @@ p ∤ t, p ∤ δ + 1), state "for n ≡ 1 (mod 4) BL's class at level t is χ_{
 
 **D2 (MINOR).** §2 Check: "odd squares … 223 squares … 499 squares" — these exclude n = 1 (224 / 500 odd squares ≤ 2·10⁵ / 10⁶).
 Say "odd squares > 1". Also "t ≤ 4ℓ" can be sharpened to t ≤ 4(ℓ − 1).
+
+## Claim B — Lemma 1.1, Cor 1.2 (k-union = some word coordinate ≡ 0 (mod k)), sign remark
+Verdict: **SOUND** (Lemma 1.1, Cor 1.2 hold for every n ≥ 1, not only odd n, and every k ≥ 2).
+
+**Re-derivation.** Lemma 1.1: (T, U, 1) ∈ W(cn) ⟺ U(T − 1) = cn + 1; with T = cs, c(n + s) = (cn + 1) + (cs − 1) and
+gcd(c, cs − 1) = 1 give cs − 1 | n + s; inverse as stated; U = cg − 1 ≥ 1 since (c, g) = (1, 1) forces n = −1. Cor 1.2: c = 1 line
+n + a + b = kabd ⟺ word (kd, a, b). b = 1 line cn + a + 1 = kacd ⟺ (kcd, a, 1) ∈ W(cn) ⟺ (Lemma 1.1, s = kd) (c, g, kd) ∈ W(n);
+conversely (t, u, kd) ∈ W(n) ↦ (c, a) = (t, tu − 1): cn + a + 1 = t(n + u) = t·v(tu − 1) = kacd since n + u = v(tu − 1). The
+side condition cs > 1 is automatic for k ≥ 2. u ↔ v symmetry of W(n) gives "k | v ⟺ k | u (for some word)". Correct.
+
+**From-scratch checks.** `scripts/review_r282_lines.py 300 12`: for ALL n ≤ 300 and 2 ≤ k ≤ 12, both lines decided from their
+original (a, b, c, d) definitions vs. word coordinates; Lemma 1.1 bijection for n < 120, c ≤ 6 — 0 mismatches (3 300 cases).
+`scripts/review_r282_k8.c` (own word enumeration): k = 8 union fails at 35 primes 3 ≤ p < 8000 (22 ≡ 1 (4)), i.e. 34 primes
+5 ≤ p < 8000 incl. 131, 241 — matches SPARKS8; k = 4: union never fails for p < 70 000, b = 1 fails exactly at 193, 2521, 66529.
+Sign remark ("4 | t ⇒ σ = −1" three-line proof): X = tu − 1 ≡ 3 (4); (X/n) = (n/X) by reciprocity for n ≡ 1 (4); n ≡ −t⁻¹… more
+precisely tn ≡ −1 (mod X)·?—not quite: XY = tn + 1 gives tn ≡ −1 (mod X), so (n/X) = (−t/X)·(t⁻²/X) = (−1/X)(t/X) = −(t/X);
+(t/X) = (4/X)(C/X) = (C/X) and X = 4Cu − 1 ≡ −1 (mod every odd prime power of C) — for C = 2^e C′, (2/X) = +1 as X ≡ −1 (8)
+when e ≥ 1, and (C′/X) = (X/C′)(−1)^{(C′−1)/2} = (−1/C′)·(−1)^{(C′−1)/2} = +1. Correct (the document's sketch elides the
+reciprocity sign for C′ but the conclusion holds).
+
+### Defects for Claim B
+**D3 (MINOR).** §1 "Checks": "the k = 8 union fails at exactly 34 primes < 8000" — p = 3 also fails; say "34 primes
+5 ≤ p < 8000" (as SPARKS8 does) or "35 odd primes < 8000".
+**D4 (MINOR).** Cor 1.2 is stated "for every odd n" but the proof never uses oddness (verified for all n ≤ 300); harmless.
