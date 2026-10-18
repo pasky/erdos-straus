@@ -43,6 +43,8 @@ let Q be the least positive integer with Q ≡ −n (mod 4) and gcd(Q, n) = 1 (s
 n ≡ 1 (4) and 3 ∤ n), and x = (n + Q^k)/4. Then
 `4/n = 1/(2x) + 1/(2x) + Q^k/(nx)    (distinct-denominator variant: 1/x = 1/(x+1) + 1/(x(x+1)))`
 with gcd(Q^k, nx) = 1, and the solution has Type I shape at every prime ℓ | n (ℓ ∤ 2x, v_ℓ(nx) = v_ℓ(n)).
+(R287 repair D2: the shape claim refers to the (2x, 2x) form; the distinct-denominator split can destroy it, e.g. n = 13,
+k = 5, x = 64: 4/13 = 1/65 + 1/4160 + 3⁵/832 has 13 to the first power in all three denominators.)
 In particular ES_(k)(p) holds at every prime p with Q ∈ {1, 3}; e.g. k = 3: 4/p = 2/(2x) + 27/(px), x = (p + 27)/4
 for p ≡ 1 (4), p ≠ 3.
 *Proof.* Q is odd, so Q^k ≡ Q ≡ −n (mod 4) (Q² ≡ 1 (8), k odd): x ∈ ℤ_{>0}. Then 1/x + Q^k/(nx) = (n + Q^k)/(nx) =
@@ -55,7 +57,9 @@ for m > 1 odd scale a solution for m by 2^a (Q odd keeps lowest terms); for m = 
 solution of Type I shape at every prime of m. The obstruction B5/T1 is absent, and — as B5 predicts for T1-free
 variants — the rung is a finite covering: the two classes n ≡ 1, 3 (mod 4) with the identity of Thm 2.1 (the
 coprimality side-condition gcd(Q, n) = 1 is the only further n-dependence: Q = 3 serves every n ≡ 1 (4) with 3 ∤ n,
-Q = 7 every n ≡ 1 (4) with 3 | n, 7 ∤ n, …; for primes Q ∈ {1, 3} always).
+Q = 7 every n ≡ 1 (4) with 3 | n, 7 ∤ n, …; for primes Q ∈ {1, 3} always). (R287 repair D3: with the least Q prime to n,
+Q is unbounded over composite n, so a literal finite covering is: n ≡ 3 (4): Q = 1; n ≡ 1 (4), 3 ∤ n: Q = 3; 3 | n: ES(3)
+(4/3 = 1/1 + 1/4 + 1/12) scaled by n/3; even n by scaling / ES(2^a).)
 *Mechanism (UNIT_ORBIT_ES Lemma 1.1(i) with w = k odd):* inv_q of the BL/Hilbert class at a prime q | Q equals the
 Legendre sign ((−y/x)/q), unconstrained, so a muted place with ODD exponent can absorb the anchor's ½.
 
@@ -88,7 +92,9 @@ ES_(k)(s); multiplying all denominators by n/s (prime to Q) gives ES_(k)(n). Eve
 (The same scaling shows ES^□ holds at every odd n > 1, not only at non-squares — the ledger's "non-square" is the
 scope of the Type II-shaped construction, which T1 genuinely forbids at squares.)
 
-**Reading (Assessment).** The k-th power ladder carries exactly one bit: k mod 2. Odd rungs are B1-trivial
+**Reading (Assessment).** The k-th power ladder carries exactly one bit: k mod 2. (R287 repair D1: one bit of MECHANISM —
+T1 present/absent, i.e. Type I/II-shaped finite covering vs. one Dirichlet prime + scaling; zero bits of TRUTH: by Cor 2.5
+all rungs coincide as predicates on n, all true at every n ≥ 2.) Odd rungs are B1-trivial
 (congruence covering, no T1); even rungs are ES^□ (one Dirichlet prime, T1 intact). No rung is "strictly between ES^□
 and ES" in difficulty: ES_(6) ⊂ ES_(2) ∩ ES_(3) is ES^□-like, ES_(2^a) is ES^□-like for all a. The headline candidate
 "pointwise ES_{Q³}" is TRUE but for a trivial reason, and does not interpolate towards ES. The difficulty of ES is not
@@ -208,13 +214,21 @@ terms, no further normalisation).
   ℓ = 73). Every admissible g has ℓ ≡ 1 (18) (N(10 + ω) = 91), so 9 | index for 9 | k at every shot prime.
   (Self-review repair: only the T1₃-divisibility bit and the index-parity bit are claimed; no complete classification of
   TES_(k) for k ∉ {1, 2, 3} or k prime to 6 is claimed — SPARKS2 Thm 3.5's cubic argument does not cover higher powers.)
+* **(R287 repair D5) Converse of the T1₃ bit (PROVED, relative to Hecke as SPARKS2 Cor 3.4).** If 3 ∤ k, TES_(k) has
+  Type II-shaped solutions at cubes, so T1₃ ⟺ 3 | k. *Proof.* Fix a class prime g of norm ℓ; H_k = (F_ℓ^×)^k has index
+  gcd(k, ℓ − 1) prime to 3 and the cubes have index 3, so every coset of H_k, in particular −18·H_k, contains a cube t³.
+  Take (Hecke) a prime π ≡ t (mod g), π ≡ 1 (mod 2), π ∤ 6; then −π³/18 ∈ H_k, the g-shot fires at n = π³ (Q odd prime to
+  6π by CRT) and SPARKS2 Prop 3.1 gives a Type II-shaped TES_(k)(π³) solution. ∎
 * **EVIDENCE (`scripts/z44_tes_ladder.py 3000`, log `logs/z44_tes_ladder.txt`; exact verification in O).** Fixed
   g = −8 + ω (N = 73). Over the 412 2-primary split primes π with N(π) ≤ 3000 and their cubes π³: k = 1 fires for
   412/412 primes AND 412/412 cubes (all Type II-shaped at π: T1₃ dead); k = 2 fires for 209/412 primes and 209/412
   cubes (≈ ½, cubes not obstructed); k = 3 fires for 134/412 primes (≈ ⅓) and 0/412 cubes (T1₃).
 * **Reading (Assessment).** TES_(2) is a T1-free rung (no mute-place T1₃) that a single fixed shot does not cover; finitely many fixed
   shots g₁, …, g_s never cover either (CRT: choose −n/18 a non-square mod every g_i). So "no T1 ⟹ finite covering"
-  is FALSE within fixed-modulus shot families as soon as T1's order and the shot index's prime differ. Whether
+  is FALSE within fixed-modulus shot families as soon as T1's order and the shot index's prime differ. (R287 repair D6:
+  proved only within the g-shot family of SPARKS2 Prop 3.1; R287 also checked the mod-9 x = y family 9x = 2Q^k − n
+  (ω/x + ω²/x = −1/x), which fires iff n/2 ∈ ((O/9)^×)^k, squares of index 2 — no cover either. Families with modulus
+  at 2 (F₄^× has odd order) or at λ are not excluded by the CRT argument.) Whether
   another identity family covers TES_(2) is OPEN (spark). Over ℤ the k-ladder is "flat" precisely because
   ord(T1) = 2 = the unavoidable 2-part of the shot index — a coincidence of the prime 2 (cf. z41_stickelberger:
   "BM layer and T1 are the m = 2 coincidence").
@@ -228,7 +242,9 @@ reciprocity step disappears. The shot prime must be r ≡ 3 (4); choose it ALSO 
 Then cubing is a bijection of F_r^×, so 4Q³ ≡ −n (mod r) is solvable for EVERY n prime to r — no condition on n, no
 dependence of r on n. Valuation side condition: v_q(z) = 2v_q(r+1) − 3v_q(Q) must be ≡ 0 (3) or ≥ 0; take
 gcd(Q, r+1) = 1 (CRT). So ONE FIXED prime (r = 3: 4/n = 1/x + 1/n + Q³/(nx), 3x = n + Q³, Q ≡ −n (3)) solves
-ES_(3)(n) for every n prime to 3, and r = 11 for 3 | n. The cubic-non-residue variant suggested in the brief
+ES_(3)(n) for every n prime to 3, and r = 11 for 3 | n. (R287 repair D4: r must not divide n — r = 11 fails at 33 | n;
+use r = 23 there (≡ 3 (4), ≢ 1 (3)), or scaling from ES(3). The valuation formula holds in the case v_q(r+1) < 3v_q(Q);
+otherwise v_q(z) ≥ 0.) The cubic-non-residue variant suggested in the brief
 (r ≡ 1 (3), p a cubic non-residue) is the WRONG direction: it raises the shot index from 1 to 3 (then one needs
 (−n/4 | r)₃ = 1 — a Chebotarev condition that also works, but is unnecessary).
 **EVIDENCE (`scripts/z44_ladder.py 1000000`, appended section, log `logs/z44_ladder_1e6.txt`).** Fixed shots

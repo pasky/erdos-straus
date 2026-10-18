@@ -2,7 +2,7 @@
 
 ## Idea
 Over ℤ, ord(T1) = 2 coincides with the unavoidable 2-part of the shot index gcd(k, g − 1) (g ≡ 3 (4)). Over ℤ[ω]
-(TES, order-3 T1₃) the two separate: T1₃ ⟺ 3 | k, shot index even ⟺ 2 | k.
+(TES, order-3 T1₃) the two separate: T1₃ ⟺ 3 | k (⟹ added by R287 repair D5, rel. Hecke), shot index even ⟺ 2 | k.
 
 ## Literature
 SYNTHESIS_SPARKS2 §3 (Prop 3.1 shots, Lemma 3.2 cubic mute lemma, Thm 3.3 T1₃, Thm 3.5 TES^{□₃}); TWISTED_T1 §3.

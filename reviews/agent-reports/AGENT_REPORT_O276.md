@@ -4,7 +4,7 @@
 side-agent/lower-tail-fable first, as instructed).
 
 ## SHARP:
-1. **The k-ladder is flat: it carries exactly one bit, k mod 2 (PROVED, elementary).** With the exact definition
+1. **The k-ladder is flat: it carries exactly one bit, k mod 2 (PROVED, elementary).** (R287 repair D1: one bit of mechanism; as predicates on n all rungs coincide — all true, Cor 2.5.) With the exact definition
    ES_(k)(n): 4/n = 1/x + 1/y + Q^k/Z, gcd(Q, Z) = 1, Q odd, gcd(Q, n) = 1 (lowest terms is forced — Remark 1.2):
    * odd k: 4/n = 1/(2x) + 1/(2x) + Q^k/(nx), 4x = n + Q^k, Q ≡ −n (mod 4) — a finite congruence covering, Q ∈ {1, 3}
      for every prime; T1 is DEAD (odd squares and cubes solved with Type I shape). ES_{Q³} is a theorem for a trivial reason.
@@ -18,7 +18,7 @@ side-agent/lower-tail-fable first, as instructed).
    any power of a single prime q, a witness g ≡ 3 (4) with q primitive root (or q ≡ 3 (4), or q ≡ 2 (3)) gives a finite
    covering for all n prime to q; every q ≤ 10⁶ has one (g ≤ 179). With even exponents (ES^{({q})}) the exact g-shot condition is
    −n/4 ∈ ⟨q²⟩_g; the natural sufficient route is Artin-type + (n/g) = −1 (Thm 5.1, Prop 5.2; not a proved necessity).
-3. **Order-3 variant separates T1's order from the shot index (PROVED bits + EVIDENCE).** For TES over ℤ[ω]: T1₃ ⟺ 3 | k,
+3. **Order-3 variant separates T1's order from the shot index (PROVED bits + EVIDENCE).** For TES over ℤ[ω]: T1₃ ⟺ 3 | k (R287 repair D5: ⟸ from Thm 3.3; ⟹ proved by R287, POWER_LADDER §6, rel. Hecke),
    index even ⟺ 2 | k. Fixed g = −8 + ω (norm 73): k = 1 fires 412/412 primes and 412/412 cubes; k = 2: 209/412 and
    209/412; k = 3: 134/412 primes, 0/412 cubes. TES_(2) is T1-free yet no finite set of fixed shots covers it — so
    "no T1 ⟹ covering" fails inside shot families once ord(T1) ≠ 2. ES's ladder is flat because ord(T1) = 2 = the

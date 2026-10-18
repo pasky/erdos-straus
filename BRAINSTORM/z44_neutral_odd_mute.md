@@ -18,6 +18,6 @@ None run (time); the rung contains ES^□, so pointwise existence at non-squares
 distinguish it (every rung containing ES^□ is solved at every n).
 
 ## Assessment
-Assessment only: a T1-bearing rung strictly between ES^□ and ES_(1) that is still trivially implied by ES^□; it adds
+Assessment only: a T1-bearing rung strictly between ES^□ and ES_(1) (R287 repair D7: as solution sets; as predicates on n all coincide) that is still trivially implied by ES^□; it adds
 nothing to provability. Recorded to close the "T1-preserving odd exponent" branch: any ladder that CONTAINS ES^□ is
 pointwise-trivial; only rungs inside ES^□ (box, fixed S, cap) can be informative.

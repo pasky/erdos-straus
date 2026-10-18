@@ -1,5 +1,9 @@
 # R287 — hostile review of POWER_LADDER_ES.md (O276, k-th power relaxation ladder)
 
+**Repairs applied** (author branch quiet since its final report commit 32fa2bfc): D1–D6 marked '(R287 repair)' in
+POWER_LADDER_ES.md (§2.1, §2.2, §6, §7) and AGENT_REPORT_O276.md; D5/D7 also in memos z44_tes_ladder, z44_neutral_odd_mute.
+Verdict: no FATAL, no MAJOR, 7 MINOR.
+
 Reviewer branch side-agent/review-power-ladder (merged side-agent/power-ladder-es @ 32fa2bfc). All checks below are
 from-scratch (scripts/review_r287_*.py, logs/review_r287_*.txt); the author's scripts were read only to learn the
 TES 2-primary normalisation convention.
