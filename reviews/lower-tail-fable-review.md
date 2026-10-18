@@ -162,3 +162,69 @@ ladder statement are not.** (`scripts/review_r286_index.py`.)
   degree 1), and (4mwu − 1)(4mwc − 1) = 4m²wp + 1 checks.
 * §3.1 lattice remark, §3.4, §3.7: descriptive Assessments, nothing to falsify; the "u_i m_i < d for Klein-polygon
   vertices" is standard.
+
+## Numbered defects
+
+* **D1 (MAJOR) — §2 (2.5) is false.** "Type II ⟺ p = e²k² − y² − e for some e ≡ 3 (4), k ≥ 1, y ≥ 0" fails at
+  p = 13, 37, 97, 181, 193 (and 3 more primes < 1000): e.g. 4/13 = 1/4 + 1/26 + 1/52 is Type II, but no (e, k, y) exists
+  (complete search: e ≤ p + 1 is forced). The derivation gives 4uv = e²s² − (u − v)² and hence p + e = w(e²s² − y²), which
+  is of the stated shape only when the level w is a square; at the failing primes every Type II certificate has non-square
+  w. The "equivalently p ∈ W − □, W = {X² − e : e | X}" reading is worse: with e = 2, X = (p+3)/2, y = (p+1)/2 it holds for
+  **every** n ≡ 1 (4), odd squares included (39/39 squares < 6400). *Repair:* "(2.5) Type II ⟺ p + e = w(e²k² − y²) for
+  some e ≡ 3 (4), k, w ≥ 1, y ≥ 0 with ek ≡ y (2), ek > y (the w = □ case is the stated form)", and delete the W − □ clause
+  (or keep e ≡ 3 (4) in W and add the factor w).
+* **D2 (MAJOR) — §2.8 / §2.9 / §4 / SHARP 3: "ES(p) ⟺ Legendre form" and "ES(p) ⟺ G_p has a bichromatic edge" are
+  proved only in the direction ⇐.** The ⟹ direction is ES ⟹ ES₅ (λ(p) ≤ 3), open in the ledger; 56 % of all solutions
+  for p < 3000 are outside the five-slice image. DEDEKIND_ES Cor 4.6 is misapplied (it characterises the five slices, and
+  only for p ≡ 1 (8)). *Repair:* replace ES(p) by ES₅(p) (five-slice ES) in §2.8, §2.9, §4 and SHARP 3; state
+  "ES(p) ⇐ (r, A)" as PROVED; delete "the whole content of ES is 'the infinite system {(A, −c)} covers the primes'"
+  (it is the content of ES₅).
+* **D3 (MAJOR) — §2.8 table.** Even A with odd r (3 062 of 6 096 QNR pairs, all Type I slices S1/S2 or S5) is missing;
+  row r ≡ 3 "extra condition: none" is false for even A (886 QR pairs) and its explicit formula fails on 1 404/2 338
+  even-A QNR pairs; row r ≡ 2 labelled "Type I branch" is Type II ((A)3, 4 | b) in 770/1 178 cases. *Repair:* restrict the
+  table to odd A and say so, add the even-A row ("(A/p) = −1 needed; S1 (4 | A) / S2 (4 | ab − 1) / S5 (4 | a)"), and
+  relabel r ≡ 2 as "Type I (4 | ab − 1) or Type II (4 | (A+1)/r)".
+* **D4 (MINOR) — §1, last Remark** "Every certificate (m, u, d) forces (p/d) = −1" contradicts Lemma 2.7(I) (p = 13,
+  (2, 1, 3)). *Repair:* "Every Type II certificate forces (p/d) = −1; every Type I certificate forces (p/w) = −1 and
+  (p/d) = −(p/mu)." (The latter identity is new here, PROVED in Claim A, 14 712/14 712 checks.)
+* **D5 (MINOR) — §2.9 census.** "Sporadic 2- or 3-cliques ({4,7,11} at 73, …)": no triangles exist; off-root components are
+  trees with 2–8 vertices; {4, 7, 11} is a path. "comp(1) has ≍ log² p vertices": not supported (ratio to log² p falls
+  0.42 → 0.26 from 3·10³ to 3·10⁶). *Repair:* "small trees (2–8 vertices)"; "|comp(1)| grows slowly (mean 27 at 3·10³,
+  57 at 3·10⁶ in samples); growth rate not determined".
+* **D6 (MINOR, attribution) — §2.9.** G_p is the word forest F_p of LOWER_TAIL_ASTRA Lemma 2.1 ((J)106, O275 parallel run),
+  which proves it is a forest; the encoding t | p + e, e | p + t is SIGN_IDENTITY Lemma 1.1. Spark 3 (edge-to-edge
+  mediant move) should be read against Astra's unique-parent map. *Repair:* add the cross-reference.
+* **D7 (MAJOR, framing) — §3.2 / §4 / SHARP 1.** The calibration does not "explain why ES^□ had to be provable": ES^□ is
+  proved by an infinite fixed-modulus-4 shot family (§3.8's second category), not by pooled counting against a square
+  coset. *Repair:* as in Claim C.
+* **D8 (MINOR) — §3.2 arithmetic.** (a) "tries ≪ group for every U (equality only U | 24)" ignores the log p factor —
+  the crossover U ≈ log p·(log log p)^{O(1)} depends on p; (b) "[G : H] ≈ k^{π(y)/φ(k)} < 3^{π(y)}" holds only for prime
+  k; for k = 6, 8, 12, 24 the index exceeds τ₃(U); k = 4 is the borderline rung, cubes are not.
+* **D9 (MAJOR) — §2 "What the forms expose" and §3.3, CM / (a+b)² claims are false** (Claim D): ℤ[i]-CM orders and
+  (a+b)² are not primitive in general, have prime factors ≡ 3 (4) at about half the primes, and CM orders *do* carry
+  certificates (p = 229, 349, 1153). *Repair:* restrict to primitive norms; CM orders are "dead by B2" only.
+* **D10 (MINOR, presentation) — §1 "Proof sketch"** omits that (4x − p)/(px) is reduced (gcd = 1 because p ∤ x), which the
+  two-unit-fraction criterion needs; one line.
+
+## Labels (§4)
+
+Thm 1.1, (1.3), (1.4), (2.1)–(2.3), (2.6), Lemma 2.7: PROVED — agreed. (2.5): currently false (D1); PROVED after repair.
+§2.8: "⇐" PROVED (relative to Thm 4.5's mod-8 cell check, re-verified here on all pairs incl. degenerate words); "⟹"
+must be removed or labelled as the open ES ⟹ ES₅ (D2). §2.9 dictionary: PROVED for ES₅. §2.9 census: EVIDENCE (numbers
+reproduced; descriptions D5). §3.2 calibration: Assessment, with D7/D8 repairs. §3.3 CM bullet: not PROVED (D9).
+No claim of ES (or of any case of it) is made; that is correct.
+
+## Summary
+
+| Claim | Verdict |
+|---|---|
+| SHARP 2: Thm 1.1 | SOUND |
+| SHARP 2: Lemma 2.7 | SOUND (sharpened: Type I (p/d) = −(p/mu)) |
+| §1–2 companion forms | SOUND except (2.5) and the W − □ clause: FALSE as stated (D1), SOUND-AFTER-REPAIRS |
+| SHARP 3: Legendre form | GAP — ⇐ SOUND, ⟹ unproved (= ES ⟹ ES₅) (D2); table defects (D3) |
+| SHARP 3: graph G_p | dictionary SOUND for ES₅; census reproduced; D5, D6 |
+| SHARP 1: index calibration | GAP (framing, D7) + arithmetic errors (D8); SOUND-AFTER-REPAIRS as an Assessment |
+| §3 PROVED spot-checks | f_II even, no-Vieta, "≡ 3 mod 4 divisor": SOUND; CM / (a+b)² kill: FALSE (D9) |
+
+No FATAL defect: nothing claimed about ES itself is wrong, and the core canonical form is correct. Five MAJOR
+(D1, D2, D3, D7, D9).
