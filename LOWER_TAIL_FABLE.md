@@ -88,6 +88,29 @@ for odd w by reciprocity, with the 2-part handled by d ≡ −p (mod 8) when w i
 (This is the campaign's genus/T1 sign in canonical coordinates; it is recorded here only because it is the
 one place where "4" enters.)
 
+### 2.8 The Legendre form (PROVED relative to DEDEKIND_ES Thm 4.5/Cor 4.6; odd branches re-proved here)
+
+> ES(p) ⟺ ∃ r ≥ 1 and a divisor A ≥ 2 of p + r with A ≡ −1 (mod r) and (A/p) = −1.
+
+Equivalently (HJ clothing): ∃ A with (A/p) = −1 such that the least positive residue of −p mod A divides
+A + 1 (then p/A = [[a, b, c]] with c = −p mod A, b = (A+1)/c, a = (p+c)/A). The "4" of ES has disappeared
+into the Legendre symbol. For odd A, r the sign is a 2-adic statement, (A/p) = −1 ⟺ A ≡ 3 (4) or r ≡ 3 (4)
+(reciprocity; checked on every odd pair with r ≤ 400, p < 3000, `z43_fable_hj.py`), which gives the
+four-branch decomposition by r mod 4:
+
+| r mod 4 | extra condition on A | explicit solution | campaign name |
+|---|---|---|---|
+| 3 | none | x = (p+r)/4, y = pAv(A+1)/(4r), z = pv(A+1)/(4r), v = (p+r)/A | e-slice with (u,c) = (A,1) |
+| 1 | A ≡ 3 (4), i.e. A ≡ −1 (mod 4r) | (★): Type II at (m,u) = (1,r), d = A | (★) |
+| 0 | none (sign automatic) | b = 1 line, r = 4d | López Type A |
+| 2 | (−r/A) = −1 | Type I branch | — |
+
+T1 control: for n = m² the symbol (A/m²) is never −1, so the form has no certificates, as it must.
+Assessment: this is the cleanest *covering-system* statement of ES at a prime — p must lie in a class
+−c (mod A) with c | A + 1 and a parity condition on (A, c) — and it shows that the whole content of ES is
+"the infinite system {(A, −c) : c | A+1} covers the primes", i.e. exactly the problem Mordell/ET posed, with
+no finite sub-system sufficing (B1). It was useful to me only as a lens; it is not a mechanism.
+
 ## 3. Mechanism audit (construction attempts, each with the barrier hypothesis it meets)
 
 Every item was first pushed as far as it goes constructively; the barrier is named only where the construction
