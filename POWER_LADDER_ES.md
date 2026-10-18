@@ -183,3 +183,27 @@ is the case where Artin is Bilharz's theorem). T1 at squares: (m²/g) = 1 always
 covering (odd exponents allowed: index of ⟨q⟩ in F_g^× is 1 at one witness g) and an open Artin problem (even
 exponents: index ≥ 2, and the residual quadratic condition depends on n). This is (J)28's "orbit size" recalibration
 refined: orbit size matters only on the parity-constrained side; on the odd side one witness suffices for all n.
+
+## 6. Deep push 2: the order-3 variant separates the two bits (T1 order vs shot index)
+
+Over ℤ two different "bits" coincide: the Brauer/T1 class has order 2, and the 2-part of every shot index
+gcd(k, g − 1) is 2 (g ≡ 3 (4)). The order-3 variant TES over O = ℤ[ω] (SYNTHESIS_SPARKS2 §3, Prop 3.1 shots
+g | n + 18D, g ≡ 10 + ω (18)) separates them. Define TES_(k) as TES with D = Q^k (Q odd, prime to 6n, Q^k/Z in lowest
+terms, no further normalisation).
+* **T1₃ bit (PROVED from SPARKS2 Lemma 3.2's computation):** the tame symbol at a mute q with v_q(z) = −w, q ∤ x is
+  (ωx/y)^w up to cubes — trivial for 3 | w, unconstrained otherwise. So 3 | k ⟹ T1₃ (Thm 3.3 applies verbatim:
+  no Type I/II-shaped solution at cubes); 3 ∤ k ⟹ no T1₃ constraint from the mute places.
+* **Index bit (PROVED, elementary):** for a fixed shot prime g of norm ℓ (≡ 1 (3), odd), the shot fires at n iff
+  −n/18 ∈ (O/g)^{×k}, index gcd(k, ℓ − 1), always even for even k. So k ≡ ±1 (6): ONE fixed g covers every n prime to
+  6g (a covering, like odd k over ℤ); k ≡ 0 (3): T1₃ + a cubic Chebotarev condition (SPARKS2 Thm 3.5); k ≡ ±2 (6):
+  NO T1₃, yet each fixed g fires only on the quadratic-residue half.
+* **EVIDENCE (`scripts/z44_tes_ladder.py 3000`, log `logs/z44_tes_ladder.txt`; exact verification in O).** Fixed
+  g = −8 + ω (N = 73). Over the 412 2-primary split primes π with N(π) ≤ 3000 and their cubes π³: k = 1 fires for
+  412/412 primes AND 412/412 cubes (all Type II-shaped at π: T1₃ dead); k = 2 fires for 209/412 primes and 209/412
+  cubes (≈ ½, cubes not obstructed); k = 3 fires for 134/412 primes (≈ ⅓) and 0/412 cubes (T1₃).
+* **Reading (Assessment).** TES_(2) is a T1-free rung that a single fixed shot does not cover; finitely many fixed
+  shots g₁, …, g_s never cover either (CRT: choose −n/18 a non-square mod every g_i). So "no T1 ⟹ finite covering"
+  is FALSE within fixed-modulus shot families as soon as T1's order and the shot index's prime differ. Whether
+  another identity family covers TES_(2) is OPEN (spark). Over ℤ the k-ladder is "flat" precisely because
+  ord(T1) = 2 = the unavoidable 2-part of the shot index — a coincidence of the prime 2 (cf. z41_stickelberger:
+  "BM layer and T1 are the m = 2 coincidence").
