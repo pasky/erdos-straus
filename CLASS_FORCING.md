@@ -11,7 +11,8 @@ Status labels as in DISCOVERIES.md. **ES is not solved.** Memos: BRAINSTORM/z33_
   forced small primes do the work by choosing d (CRT) — this is exactly the ET Type II congruence family d | (w+1)/4 (B1, §3.3).
 * v2 (attempt 3). "Non-abelian Frobenius data of p (cubic/quartic residue symbols, governing fields) is NOT congruence
   data — maybe it escapes B1." Result: it constrains the factors only through Kummer Frobenius classes whose shadow in the
-  ray class group mod t is quadratic (§5), and under a Hypothesis-H-with-Chebotarev it adds nothing at all (§6).
+  ray class group mod t is quadratic for residue/Rédei data (§5); (R272 repair) in general Frobenius data = congruence shadow
+  (B1, may cover whole classes) + non-abelian part, and only the latter is (conditionally, corrected HC) useless (§6).
 * v3 numerics (§7).
 
 ## 1. Setting: the four lines and the event

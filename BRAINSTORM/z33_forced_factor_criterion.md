@@ -11,4 +11,5 @@ for every (B, D) the forced rule on all four lines fails at every prime p ≡ 1 
 **Barrier screen.** B1 exactly; T1 automatically (forced ⟹ actual, which fails at squares).
 **Cheap numerics.** §7: F₁₀ certifies 98.1 % of primes ≤ 10⁶ (levels ≤ 200), F₃₀ 99.89 %; Haar failure density 1.8 % / 0.22 %;
 the excluded class p ≡ 1 (M) is never certified (Thm 3.4).
-**Assessment.** A clean, unconditional, explicit-class version of the B1 barrier for forced factors.
+**Assessment.** (R272 repair, attribution) the classical p ≡ 1 (mod M) obstruction (JOINT_BUDGET Prop 4.3, B1_LINE §4) in
+forced-factor language — an analogue of, not a specialisation of, LONGSHOT Thm 2.2 / POINTWISE_SIZE Thm C; low novelty.
