@@ -87,3 +87,86 @@ d | p² + 4u²w (ET), so −w is a square mod d and (w/d) = (−1/d) = −1; and
 for odd w by reciprocity, with the 2-part handled by d ≡ −p (mod 8) when w is even. ∎
 (This is the campaign's genus/T1 sign in canonical coordinates; it is recorded here only because it is the
 one place where "4" enters.)
+
+## 3. Mechanism audit (construction attempts, each with the barrier hypothesis it meets)
+
+Every item was first pushed as far as it goes constructively; the barrier is named only where the construction
+stops. "Lottery" below always means: a single fixed integer must have a divisor in a single class of a modulus
+tied to that integer (B2), with expected count polylog and no control of the fluctuation (B3).
+
+### 3.1 Thue / lattice (Fermat-style size argument)
+For a fixed d ≡ 3 (4) the certificate condition is a lattice statement: (u, m) ∈ L_d := {pu + m ≡ 0 (mod d)}
+with um | (d+1)/4 (Type II; Type I has um | (d+p)/4). L_d has covolume d and its Klein-polygon vertices
+(convergents of p/d) satisfy u_i m_i < d, so Minkowski/Dirichlet always supplies ≍ log d points with
+u m < d — the *size* half of a Fermat-type argument is free. What is not free: (i) the *sign* (every other
+convergent has pu ≡ +m), which is T1 (Zolotarev/HJ, DEDEKIND_ES §4); (ii) the *divisibility* um | (d+1)/4
+instead of um < d, a lottery of probability ≈ τ₃((d+1)/4)/d. Modification that would evade (ii): make
+(d+1)/4 have ≍ d divisor pairs — impossible (τ₃(A) ≤ A^{o(1)}). Verdict: the hyperbola condition is not a
+lattice condition; Thue gives the box, never the divisor. (B2, "tied modulus"; B5 for the sign.)
+
+### 3.2 Pooling at a fixed modulus; the index calibration
+Fix U and consider all cells mu | U with the *sufficient* condition d ≡ −1 (mod 4U). Tries:
+Σ_{mu | U} τ(mp + u) ≈ τ₃(U) log p; group: |(ℤ/4U)^×| ≈ 2U. Since τ₃(U) ≤ U^{o(1)}, tries ≪ group for
+every U (equality region only U | 24, the campaign's zero-sum levels). Pigeonhole then yields *collisions*
+d₁ ≡ d₂ between divisors of different integers, never a hit, and collisions are not certificates.
+**Calibration (new framing, Assessment).** The same count against a *coset target* −H, H ≤ (ℤ/4U)^×,
+is tries ≈ τ₃(U) log p versus [G : H]. For H = squares, [G : H] = 2^{ω(U)+O(1)} ≪ τ₃(U): counts beat the
+group, and that relaxation (ES^□ of (J)28) is indeed a theorem — there the argument is even simpler (one
+Dirichlet prime), but the calibration explains *why* it had to be provable. For ES the target is the
+2-element set {−1, −p}, H trivial, [G : H] = |G| ≫ tries. Intermediate relaxations (target −H with H = k-th
+powers, k ≥ 3) have [G : H] ≈ k^{π(y)/φ(k)} < 3^{π(y)} ≈ τ₃(U): the counting *allows* a hit, but a hit still
+needs a covering argument (tries must *cover* G/H, not merely exceed |G/H|), which needs the divisors of the
+pooled integers to equidistribute in G/H — unavailable for ~τ₃(U) specific integers near p. So the only
+provable member of the ladder is k = 2, where a single prime does the job. (B4; H-A hypothesis "fixed
+modulus" is exactly what makes tries ≪ group.)
+
+### 3.3 p's canonical data
+* p = a² + b² (Gaussian): every integer built as a primitive norm from ℤ[i] (including #E(𝔽_p) for CM by ℤ[i]
+  and its twists, and (a+b)² = p + 2ab) has no prime factor ≡ 3 (mod 4), hence carries no certificate (§2).
+  Norms from ℤ[√−2], ℤ[ω], real quadratic rings can be ≡ 3 (4), but the divisor class mod 4mu of a norm
+  N(α) is as uncontrolled as any (ideal divisors of (α) ↔ divisors of N(α), classes untouched). Dead by §2 / B2.
+* Pell / convergents of √p: x² − py² = u_i gives the cell (m, u) = (y², u_i) with N = x² a square; the divisors
+  of x² are d₁²·d₂ for d₁d₂ | x, no obstruction (75 ≡ 3 mod 4 divides 15²) and no forcing: lottery on the
+  factorisation of the convergent numerator x. The fundamental unit lives far outside the O(p²) search box.
+* ord_p(2) etc.: p | 2^t − 1 produces cells (m, u) = ((2^t − 1)/p, 1) with N = 2^t, whose only odd divisor is 1;
+  dead. More generally Fermat/Euler divisibilities put p into the *integer*, whereas certificates need p
+  *outside* the integer (gcd(mp + u, p) = 1).
+* #E(𝔽_p) for non-CM E: every N in the Hasse interval occurs for some E (Deuring), so "group orders" carry
+  no information beyond "integers near p"; the group structure E(𝔽_p) ≅ ℤ/n₁ × ℤ/n₂ constrains n₁ | p − 1,
+  not residue classes of divisors mod 4(1 − a_p). Dead (B2).
+
+### 3.4 Non-abelian Frobenius
+A prime certificate q at cell (m, u) is the pair of Frobenius conditions
+Frob_q|ℚ(ζ_{4mu}) = complex conjugation and Frob_p|ℚ(ζ_q) = −u/m. The second is the *exact* residue of p
+mod q, i.e. the statement that q divides the fixed integer mp + u — a factorisation, not a Chebotarev class
+of q in any field independent of p. Higher reciprocity relates only the quadratic layer of the two
+(TWO_POWER_LADDER Thm 3.2: S determines D modulo μ_m^{gcd(2,m)}). Nothing new beyond (J)93/(J)96/(J)104.
+
+### 3.5 Involutions / parity
+In canonical coordinates the only visible involution on Type II certificates is u ↔ v (the two p-divisible
+denominators), which is free for p ≡ 1 (4) (a fixed point would force e | p). So f_II(p) is even and the
+useful parity is f_II/2, which is 50/50 (board byproduct). A Zagier-type argument needs a superset S_p
+with an involution having an odd number of fixed points *because p is prime*, and a second involution whose
+fixed points are exactly certificates. Since certificates are divisor events of unforced parity, S_p would
+have to contain compensating non-certificate fixed points of controlled parity; no natural S_p was found,
+and INVOLUTION_ES already bars affine finite menus. Not pursued further.
+
+### 3.6 Descent / Vieta
+The certificate equation 4muwc = mp + u + c (Type II) and 4muwc = p(m + c) + u (Type I) is multilinear:
+each variable appears to degree 1, so there is no second root and no Vieta involution; for fixed (m, w) it is
+the hyperbola (4mwu − 1)(4mwc − 1) = 4m²wp + 1, whose integer points are exactly the divisor pairs. The only
+"quadratic" structure is the norm form p² + 4u²w = N(p + 2u√−w) (Type I), where descent = Gauss composition,
+already shown not to create points (COMPOSITION_ES). Dead.
+
+### 3.7 Algebraic identities in p and auxiliary data
+Any family (m, u, d) = polynomials in (p, params) with d ≡ −1 (mod 4mu) identically is a congruence covering
+(B1); with p = a² + b² or p = Q(x, y) it is the two-variable Mordell–Schinzel situation (POINTWISE_BINARYFORM
+Thm 3.2). The only identities that escaped B1 in the campaign (3·2^s + 1 etc.) use the *shape* of n to force
+an exponent budget, which has no analogue for a general prime.
+
+### 3.8 Summary of the audit
+Every construction ends at one of two places: (a) a single integer near p (or in a fixed AP mod p) must have a
+divisor in a single class of a modulus tied to it; or (b) a pooled family at a fixed modulus whose number of
+divisor-tries is τ₃(U) log p ≪ U. There is no third place. The provable relaxations are exactly those whose
+target is a coset of index ≤ 2^{O(ω)} (square multipliers) or whose shot family is infinite at a fixed
+modulus (mute primes); ES has neither.
