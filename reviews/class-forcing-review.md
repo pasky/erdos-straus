@@ -1,8 +1,17 @@
 # R272 — hostile review of O263 (CLASS_FORCING.md, branch side-agent/class-forcing @ ec15ff50)
 
 Reviewer scripts: `scripts/review_r272_*.py` (from scratch; author's z33 scripts not reused). ES is not solved.
+Repairs applied: none (author agent alive and awaiting review; defects to be forwarded).
 
-## Summary verdicts (filled in progressively)
+**Bottom line.** One FATAL (D1: Hypothesis HC is inconsistent and Thm 6.1's conclusion is false as stated — an abelian
+Frobenius condition at a prime > B can force a certificate; explicit counterexample Ω = ℚ(ζ₇), C = {p ≡ −4 (7)}), two MAJOR
+(D2: the "multiquadratic Ω^{ab} for governing fields" claim and the slogan "reciprocity forces parity, never class" are
+overclaims — the true content is "Frobenius data of p = congruence data of p + an independent non-abelian part"; D8: Cor 5.3's
+literal statement contradicts the injectivity caveat of WINDMILL 10.2/10.3 that it cites). All numerics of §7 and Table 2.2
+reproduce exactly from independent code. The overall negative verdict of §9 (route (b) gives nothing beyond B1/B2) survives
+after repairs; the bullet on Thm 6.1 and the slogan must be rephrased.
+
+## Summary verdicts
 | claim | verdict |
 |---|---|
 | Thm 2.1 (a)(b)(c)(i)–(iii), Table 2.2 | SOUND (D3 cosmetic) |
@@ -15,6 +24,9 @@ Reviewer scripts: `scripts/review_r272_*.py` (from scratch; author's z33 scripts
 | Thm 5.2 | SOUND |
 | Cor 5.3 | GAP → SOUND-AFTER-REPAIRS (D8 major: literal statement false, contradicts WINDMILL 10.2/10.3 R164 caveat) |
 | Thm 6.1 + Hypothesis HC | **FATAL as stated** (HC is false; Thm 6.1's conclusion is false) — SOUND-AFTER-REPAIRS with the D1 repair |
+| §7 EVIDENCE (census tiers, odd squares, Haar) | SOUND (exact reproduction; Haar figures need error bars) |
+| Novelty / attributions | D9 minor (Thm 3.4 is not a specialisation of LONGSHOT Thm 2.2 / POINTWISE Thm C) |
+| §9 verdict | SOUND-AFTER-REPAIRS (amend Thm 6.1 bullet per D1, slogan per D2, Cor 5.3 per D8) |
 
 ## Defects
 
