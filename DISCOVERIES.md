@@ -1658,6 +1658,22 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment (a subjective credence, per R274 D15): P(ES false) is small, and all of it is model risk. A disproof would need a "prime T1" — a global invariant correlating ≍ log³p divisor events. None was found.
    * verify.py (hk) re-runs R274's shadow-principle and adversarial-prime checks.
 
+98. **Route (a), counting at one prime: the genus split R = M_gen + X moves T1 into an explicit order-2 term; no standard conjecture implies ES (SINGLE_P_COUNT.md + BRAINSTORM/z30_*.md (O260); hostile review `reviews/single-p-count-review.md` (R277): no FATAL; every PROVED/CONDITIONAL statement re-derived and the numerics reproduced. Four MAJOR overclaims, all repaired by the reviewer and marked (R277 repair). D1: the square obstruction is moved into the explicit term, not removed, and the real obstruction — Poisson-scale lower-tail concentration — is untouched (|X| < M_gen fails at all 8 known (★)-failures). D2: GRH gives M_gen ≫ log log p, below the empirical |X| ≈ log p. D3: the Bright–Loughran dictionary is only an Assessment-level analogy. D4: the "most endangered primes" ranking was partly circular for p < Q. Minors D5–D8.)**
+   * Lemma 1.1 (PROVED; checked four ways): (★) R(p) = #{u, B, C : 4uBC − u − B = p} has exact pair, divisor and SL₂ forms.
+   * Lemma 2.1 / Prop 2.2 (PROVED; an identity, R277 checked it exactly three ways):
+     * R* = M_gen + X, where M_gen is the order-≤2 character part. It is explicit (n mod 8 and Legendre symbols), it is ≥ 0, and it vanishes at squares.
+     * X (characters of order ≥ 3) vanishes at squares too.
+     * So, for this count, T1 lives entirely in the order-2 layer, and the analogue of CONDITIONAL_ES's square-sensitivity obstruction moves into M_gen.
+   * Prop 4.1 (CONDITIONAL on GRH): M_gen(p) ≥ (1 − o(1)) log log p. It is non-trivial only for p ≡ 1 (8).
+   * Conjecture table §4.2 (Assessment). EH/BFI average over a box, whereas (★) needs a line. Selberg–Linnik, Hooley R* and Kuznetsov need complete Kloosterman sums, whereas at fixed p only divisor-restricted incomplete sums appear. Hardy–Littlewood-type single-N heuristics have power-size main terms. No conditional ES was found.
+   * Lemma 5.1 / 5.2 / Prop 6.1 (PROVED):
+     * The main term is uniform on the log-simplex, so there is no critical range.
+     * Per-pair bounded-order Fourier minorants are ≤ 0 when λ(4uB) ∤ k (except six pairs with uB ∈ {2, 6}).
+     * There is one Γ_∞ double coset per level, and θ never enters at fixed p.
+   * EVIDENCE: sd(R − M_loc) ≈ 1.3·√(2M) ≈ log p against M ≈ (log p)²/8. The genus part removes ≈ 25 % of the excess variance.
+   * Relayed to O268 (BM-corrected count; board finalist F4 forwarded there too).
+   * verify.py (hl) re-runs R277's exact checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
