@@ -25,8 +25,10 @@ approximation statement on one fixed surface U₁ with n-dependent open sets W_n
 * **BL Thm 1.2 / Cor 1.3 / Cor 1.4.** Natural-number solutions satisfy ∏_{p|n} (−u₁/u₃, −u₂/u₃)_p = −1; for n = p
   prime some u_i/u_j ∈ ℤ_p^× has (−u_i/u_j / p) = −1; for n an odd square the ET Prop 1.6 shapes are impossible
   (this is the campaign's T1). Thm 1.5: non-natural integer solutions have product +1.
-* **BL Thm 1.8 (1.4): for every n ∈ ℕ, (U_n(ℝ)₊ × ∏_p U_n(ℤ_p))^{Br} ≠ ∅.** So **there is no Brauer–Manin
-  obstruction to ES at any n** (this is the precise form of BL Thm 1.1). (1.5): the Br-set is a proper subset, so
+* **BL Thm 1.8 (1.4): for every n ≥ 2, (U_n(ℝ)₊ × ∏_p U_n(ℤ_p))^{Br} ≠ ∅.** So **there is no Brauer–Manin
+  obstruction to ES at any n ≥ 2** (this is the precise form of BL Thm 1.1). (R274 repair: BL write "n ∈ ℕ", but
+  the proof (§3.8) needs a prime p | n; at n = 1 the finite invariants are all trivial (BL Lemmas 3.5, 3.8) and
+  inv_∞ = −1 on U(ℝ)₊, so the Br-set is empty: n = 1 is BM-obstructed — Thm 1.2 with the empty product.) (1.5): the Br-set is a proper subset, so
   there *is* a BM obstruction to strong approximation (it is what Thm 1.2 records).
 * **BL Thm 1.9:** for every n, U_n(ℚ) → U_n(𝔸_ℚ)^{Br}_• does not have dense image (proved from U_n(ℤ) not being
   Zariski dense, by real considerations, plus finiteness of Br U_n / Br ℚ). So strong approximation on U_n fails
@@ -42,8 +44,9 @@ approximation statement on one fixed surface U₁ with n-dependent open sets W_n
 1. *Every* counterexample n to ES would be a failure of the integral Hasse principle for U_n(ℕ) that is **not**
    explained by Brauer–Manin (BL Thm 1.8 (1.4), PROVED). So no local or BM computation can ever produce a
    counterexample; a disproof must exhibit an *exotic* integral obstruction or a finite search failure.
-2. Such non-BM failures **do occur on the same ℚ-surface** for other models: m/n has natural-number failures with
-   no BM obstruction (Rem 1.10 version of Thm 1.8) — e.g. 8/n fails at n = 11, 17, 131, 241 and 15/n at 32 values up to
+2. Such non-BM failures **do occur on the same ℚ-surface** for other models (Assessment; R274 repair: BL Rem 1.10
+   states "versions of Thm 1.8" for m/n without hypotheses or proof, and small n ≤ m/3 are plausibly BM/real-obstructed,
+   so read this for the prime exceptions n > m only): m/n has natural-number failures presumably not explained by BM — e.g. 8/n fails at n = 11, 17, 131, 241 and 15/n at 32 values up to
    20521 (PW Table 1). These are all "lottery" failures at small n: few integral points, none positive.
 3. So the honest status is: the obstruction theory for U_n is exhausted by one ℤ/2 algebra, which never
    obstructs; the remaining question is purely the size of U_n(ℕ) ("counting"), which is ≍ log³n on average.
@@ -57,8 +60,8 @@ approximation statement on one fixed surface U₁ with n-dependent open sets W_n
 * Order-5 BM obstructions to integral HP (Lyczak, Ann. Inst. Fourier 2023); quadric surfaces (Mitankin et al.).
 * No *structural* obstruction "beyond BM" for integral points on log K3 surfaces is known that is not, at bottom,
   "the count of orbits/points is small" (Assessment). For U_n the count is the ES count f(n) itself.
-* Verification record: ES holds for all n ≤ 10¹⁸ (Mihnea–Dumitru, arXiv:2509.00128, 2025; extending Salez's
-  10¹⁷); web search 2026-10-18 found nothing newer. PW §6: m = 5 verified to 10¹⁸, m = 6, 7, 8 to 10¹³.
+* Verification record: ES holds for all n ≤ 10¹⁸ as reported by Mihnea–Dumitru (arXiv:2509.00128, 2025, unrefereed
+  preprint, cited by PW §6; extending Salez's 10¹⁷) (R274 repair: §4.5 is insensitive to 10¹⁸ vs 10¹⁷); web search 2026-10-18 found nothing newer. PW §6: m = 5 verified to 10¹⁸, m = 6, 7, 8 to 10¹³.
 
 **Conclusion of §§1–2 (Assessment).** There is no conceivable "obstruction-theoretic" disproof with present
 technology: BM is proved empty-of-content, and all known non-BM integral failures on comparable surfaces are
@@ -94,13 +97,17 @@ I {c,d}: (4cda − p)(4cdb − p) = p² + 4c²d; I {a,c}: b(4acd − p) = ap + c
 finite set of slices from the table. Let Q be a positive integer divisible by q_θ·N_θ(1) for every θ ∈ Θ (q_θ the class modulus 4ac, 4cd, …, e;
 N_θ(1) := 1 for the congruence rows). Let p be a prime with p ≡ 1 (mod Q) and such that, for every such θ,
 P_θ := N_θ(p)/N_θ(1) is prime. Then **no slice θ ∈ Θ contains a solution**.
-(Existence: the forms t ↦ 1 + Qt and t ↦ P_θ(1 + Qt) all take the value 1 at t = 0; adding to Q every prime
-≤ |Θ| + 1 makes the tuple admissible. So Dickson's conjecture gives infinitely many such p when Θ has no Type I
+(Existence: the forms t ↦ 1 + Qt and t ↦ P_θ(1 + Qt) all take the value 1 at t = 0, so the tuple is admissible
+(R274 repair: no extra primes needed; for e-slices also require e(1 + e) | Q so that the cofactor forms have integer
+coefficients; the I{c,d} form (Q²t² + 2Qt + N(1))/N(1) has discriminant 4Q²(1 − N(1)) < 0, hence is irreducible). So Dickson's conjecture gives infinitely many such p when Θ has no Type I
 {c,d} slice; Schinzel's H when it does.)
-*Proof.* N_θ(p) − N_θ(1) is a multiple of p − 1 (it is α(p − 1) or p² − 1), so N_θ(1) | N_θ(p) and
-P_θ = 1 + (N_θ(p) − N_θ(1))/N_θ(1) ≡ 1 (mod q_θ), because q_θ N_θ(1) | Q | p − 1.
-P_θ > N_θ(1), so the divisors of N_θ(p) are δ and δP_θ with δ | N_θ(1), and **every divisor is ≡ its shadow δ
-(mod q_θ)**. Also p ≡ 1 (mod q_θ), so every class condition is the one at p = 1. It remains to see that at p = 1 no
+*Proof.* For the pair rows N_θ(p) − N_θ(1) is α(p − 1) or p² − 1, so P_θ = 1 + (N_θ(p) − N_θ(1))/N_θ(1) ≡ 1
+(mod q_θ), because q_θ N_θ(1) | Q | p − 1. (R274 repair: for the e-rows the difference is (p − 1)/4 resp. e(p − 1)/4;
+there p + e = (1 + e)P_θ resp. pe + 1 = (1 + e)P_θ together with p ≡ 1 (mod e) give P_θ ≡ 1 (mod e) directly.)
+(R274 repair: P_θ > N_θ(1) need not hold — θ = II{a,d} = (1,3), p = 157 gives P = N(1) = 13 — and is not needed:)
+every divisor P_θ^i·m of N_θ(p) = N_θ(1)P_θ is ≡ its P_θ-free part m (mod q_θ), and complementary divisors map to
+(m, m′) with mm′ | N_θ(1); so **every divisor is ≡ a shadow δ | N_θ(1) (mod q_θ)**, with complementary pairs
+going to pairs whose product divides N_θ(1). Also p ≡ 1 (mod q_θ), so every class condition is the one at p = 1. It remains to see that at p = 1 no
 δ | N_θ(1) satisfies the class condition. All cases are elementary size checks:
 * II {a,c}: δ ≤ a + c < 4ac − 1, so δ ≢ −1 (mod 4ac). Same for I {a,c} (class −1 at p = 1).
 * II {c,d}, II {a,d}, I {c,d}, I {a,d}: N(1) = 1 + 4c²d (resp. 1 + 4a²d) ≡ 1 (mod q), so δ ≡ −1 forces its
@@ -110,12 +117,21 @@ P_θ > N_θ(1), so the divisors of N_θ(p) are δ and δP_θ with δ | N_θ(1), 
 * e-slices (e ≡ 3 mod 4, N(1) = (1 + e)/4): a ≡ δ₁, b ≡ δ₂ with δ₁δ₂ | N(1), so 2 ≤ δ₁ + δ₂ ≤ N(1) + 1 < e,
   and a + b ≢ 0 (mod e). ∎
 
-*Reading.* At p = 1 the ES equation 4/1 = 1/x + 1/y + 1/z has no positive solution (4 > 3): n = 1 is the
-**archimedean** exceptional point, as n = m² is the quadratic-character exceptional point of POINTWISE_SIZE Thm C.
+*Reading.* At p = 1 the ES equation 4/1 = 1/x + 1/y + 1/z has no positive solution (4 > 3): n = 1 is an
+exceptional point, as n = m² is the quadratic-character exceptional point of POINTWISE_SIZE Thm C. (R274 repair: in
+BL's language both are *Brauer–Manin*-obstructed points — n = 1 by Thm 1.2 with the empty product, n = m² by Cor 1.4 —
+while a prime n = p ≥ 2 is never BM-obstructed (Thm 1.8); so a "prime T1" (§6) would have to be a non-BM mechanism,
+unlike both templates.)
 Prop 3.1 says that a prime which is 1-adically close to 1 (p ≡ 1 mod Q) and whose finitely many slice integers are
 "1 times a prime" is, for those slices, indistinguishable from n = 1. It unifies (J)83 Thm 1.3 (windows ≤ M = Type
 II e-slices), (J)90 Thm 4.2 (b = 1 shifts ≤ σ), redteam-automorphic-2 Lemma 1.2.1 (one {c,d} slice), and B1_LINE's
 "T1 point 1" (Prop 4.1). Novelty is only in the uniform, row-by-row form (Assessment): the mechanism is B1_LINE §4's.
+(R274 repair, attribution: the closest precedents are CLASS_FORCING Thm 3.4 ("the forced rule never fires at the point
+n = 1": same shadow and size checks for b = 1 lines and e-slices, unconditional) and Thm 6.1 (R272-repaired; Ω = ℚ is
+Dickson), JOINT_BUDGET Prop 4.3, and redteam-automorphic-2 Thm 2.2(iii) (any finite Θ₀ of any rows fails i.o. under H).
+What is new here: the explicit pair rows in n = 1-shadow form, and Dickson instead of H when Θ has no I{c,d} slice.
+The congruence rows II{a,b}, I{a,b}, I{a,d} are killed by p ≡ 1 (mod q_θ) alone, unconditionally.
+Independent check: R274 `scripts/review_r274_shadow.py`, 19 slice sets, direct search, all 0.)
 
 *Check (EVIDENCE; `scripts/z32_shadow_check.py`, slices are counted by literal reconstruction of (a,b,c,d) from the
 divisors of N_θ(p) and the ET equation).* Θ = {II{1,1}, II{1,2}, II{2,1} as {a,c}; II{c,d} = (1,1); I{a,c} = (1,1);
