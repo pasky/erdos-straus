@@ -126,5 +126,81 @@ the square obstruction (Cor 1.4) is to strong approximation / prescribed-divisib
 The dictionary "BM-corrected heuristic = exactly M_gen-type main term" does not follow: BL impose ONE ℤ/2 condition per
 solution (for n = p: one Legendre symbol mod p, Cor 1.3), whereas M_gen's pair weight is the conjunction of 1 + ω_odd(uB)
 independent quadratic conditions with weight s(q) = 4·2^{ω_odd(uB)}; a Peyre/BM-corrected density multiplies by
-(1 ± 1) for one class, not by s(q). M_gen is a genus-theory refinement that implies (for hits) the BL condition; it is
-not the BM correction. No computation compares them.
+(1 ± 1) for one class, not by s(q). Every actual hit satisfies both conditions, but whether BL's single symbol is a product of the genus characters
+of Prop 2.2(a) on the c = 1 family was not computed (by the author or by me); M_gen is a genus-theory object, not the
+BM correction.
+
+## Numbered defects
+
+**No FATAL defects.** Every PROVED statement (Lemma 1.1, Lemma 2.1, Prop 2.2, Lemma 5.1, Lemma 5.2, Prop 6.1) and the
+CONDITIONAL Prop 4.1 survived re-derivation and from-scratch checks. The defects are about what the results mean.
+
+**D1 (MAJOR) — §0 bullet 2, §2 "Consequence", AGENT_REPORT SHARP 1: "the obstruction disappears" overstates.** The square
+obstruction is moved into (L), not removed (any split with M(m²) = 0 forces X(m²) = 0; what is new is that M_gen is
+explicit). The real obstruction — Poisson-scale pointwise concentration (CONDITIONAL_ES Prop 3.1(2)) — is untouched: the
+genus part removes only ≈ 24–27 % of the excess variance, (U) fails at all 8 known failures < 4·10⁵ (X = −M_gen there) and
+at 446 non-square n ≤ 30001. Also, CONDITIONAL_ES Prop 3.1 is about the Type-I slice S(p), not R; the R-analogue must be
+stated. *Repair:* in §0/§2/report say "removes the square obstruction from the X-bound (T1 moves into the explicit term
+M_gen); (U) remains a Poisson-scale lower-tail statement, false at the known failures, so only meaningful for p > p₀";
+add "the analogue for R of CONDITIONAL_ES Prop 3.1(3)".
+
+**D2 (MAJOR) — §0 last bullet / §4 "Answer to goal (1)" / report: "GRH does reach the order-2 half".** Prop 4.1 gives
+M_gen(p) ≥ (1−o(1)) log log p, but (L) is only useful with g(p) ≥ |X(p)| ≍ log p (sd(R − M_gen) ≈ 9.4 at 10⁶, my run).
+GRH reaches positivity of M_gen, not (L) at the needed strength. *Repair:* "GRH gives M_gen(p) ≫ log log p, which is below
+the empirical size ≈ log p of |X(p)|; (L) at the required polylog strength is open (Spark 2)". Also note Prop 4.1 is
+only non-trivial for p ≡ 1 (8) (p ≡ 5 (8) has the hit (1,2)).
+
+**D3 (MAJOR for the report, MINOR in the document) — Bright–Loughran dictionary.** "A BM-corrected counting heuristic for
+(★) is therefore exactly 'M_gen-type main term'" (AGENT_REPORT SHARP 1) is unsupported: BL's Br U_n/Br ℚ = ℤ/2 gives ONE
+ℤ/2 condition per solution (Thm 1.2, Cor 1.3) and no BM obstruction to existence for any n (Thm 1.8); M_gen imposes
+1 + ω_odd(uB) independent quadratic conditions per pair with weight s(q). *Repair:* "Assessment: both are order-2
+phenomena; M_gen is a genus-theory refinement; the exact relation (is BL's symbol a product of the genus characters on the
+c = 1 family?) is open (Spark 4)". Same softening for "i.e. a Brauer–Manin-type correction" in the §4.2 HL row.
+
+**D4 (MAJOR for the headline, EVIDENCE level) — §0, §3 "non-circular, bounded-modulus local main term", failure table,
+report SHARP 2: "577, 409 are the two most endangered primes".** For p < Q = 720720 "p mod Q" IS p, and every pair with
+q | Q is then counted exactly (term = 1[p ≡ a mod q], the hit itself). Own measurement (`scripts/review_r277_mq_exact.py`):
+for primes p ≡ 1 (4) in (1000, 3000), 55.6 % of M_Q's mass and 50.3 % of the hits come from pairs with q | Q; at 409 and 577
+that exact part is 0 because those primes have no hits. The same Q also pushes tiny primes (13, 17, …: all pairs exact)
+to M_Q ≥ 2, which is why the global ranking has 409/577 on top. This is the R_sm caveat the author applies to the larger Q
+and to M_loc,30 but not to Q = 720720. What survives (my runs, `scripts/review_r277_stats.py`, `/tmp` reruns with smaller
+Q): within the window [p/2, 2p], rank of 577 is 1/65 for Q = 720720, 5040, 720 and 2/65 for Q = 240 (Q < p:
+non-circular); 409 drops from 2/47 to 8/47 for Q ∈ {720, 240}. And M_gen alone (no circularity) ranks failures well inside
+windows: 5569 4/466, 9601 8/763, 83449 37/5438, 409 6/47. At 10⁶ (p > Q) M_Q still lowers the dispersion 1.52 → 1.26.
+*Repair:* drop "non-circular" for p < Q; state the exact-share figure; replace the global ranking by within-window ranks
+(or Q < p^{1/2}); credit M_gen's within-window ranks.
+
+**D5 (MINOR) — §4.2 table omits DFI/Bettin–Chandee bilinear Kloosterman fractions**, the most natural fixed-p tool (pair
+condition u | p+B, B | p+u). *Repair:* add a row: "power saving over the trivial box bound ≍ p^{2/3} vs box main term ≍ 1
+(Lemma 5.1) — fails for B3".
+
+**D6 (MINOR) — §3 last bullet / §4.2 / report: "sd(R − M_loc) ≈ 1.3·√(2M)".** The table's own numbers give
+√(var/(2M)) = √0.99 ≈ 1.0 for M_loc,30 and √1.01 for large-Q M_Q at 10⁶; 1.3 = √1.66 is against the *different* baseline
+2(M_loc − R_sm). My run at 10⁶: 1.23 (M_gen), 1.12 (M_Q, Q = 720720); absolute sd 9.4 / 8.6 ≈ 0.6–0.7·log p. *Repair:*
+state which main term and baseline (e.g. "sd ≈ 1.1–1.25·√(2M) for M_Q/M_gen, ≈ 0.65 log p"). Also Conj 4.2's "data fit"
+is at fixed Y = 30/100, not Y → ∞.
+
+**D7 (MINOR) — Lemma 5.2 "Consequence": "the genus part (k = 2) supports no positive per-pair minorant"** is false for
+q ∈ {8, 24} (pairs (1,2), (2,1), (1,6), (6,1), (2,3), (3,2), where (ℤ/q)^× has exponent 2). *Repair:* "for every pair with
+uB ∉ {2, 6}"; optionally strengthen to "the Fourier support must generate Ĝ".
+
+**D8 (MINOR) — Prop 2.2(a) "a function of the Legendre symbols … and of n mod 8 only".** M_gen(n) also depends on n through
+the pair range 𝒫(n) (size). *Repair:* "for fixed range 𝒫, …" or "a function of |n|, n mod 8 and the Legendre symbols".
+
+## Summary table
+
+| claim | verdict |
+|---|---|
+| Lemma 1.1 (three forms, R even) | SOUND (brute-force, primes < 300) |
+| Lemma 2.1 (genus split) | SOUND (exact ℚ check with brute-force real characters, odd n < 1600) |
+| Prop 2.2 (a)–(d), T1 in M_gen | SOUND (D8 wording) |
+| §2 "obstruction disappears" | SOUND-AFTER-REPAIRS (D1: relocated into (L); Poisson-scale (U) untouched) |
+| BL ↔ order-2 dictionary (Assessment) | GAP (D3: overclaimed "exactly") |
+| Prop 4.1 (GRH ⟹ M_gen ≥ (1−o(1)) log log p) | SOUND; its use overclaimed (D2) |
+| Conjecture 4.2 | SOUND (calibration only, correctly labelled) |
+| §4.2 table | SOUND-AFTER-REPAIRS (D5 omission; GRH row cites S(p)-analogue) |
+| Lemma 5.1 | SOUND |
+| Lemma 5.2 | SOUND; consequence D7 |
+| Prop 6.1 | SOUND |
+| §3/§4 numerics | figures reproduced exactly; interpretation SOUND-AFTER-REPAIRS (D4, D6) |
+| Labels | PROVED/CONDITIONAL/CONJECTURE correct; headline overclaims D1–D4 |
