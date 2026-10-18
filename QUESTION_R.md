@@ -241,3 +241,17 @@ to reciprocity — consistent with numerator blindness ((J)41).
    deficit; the rest is an admissibility (B2) correlation, and the natural analytic L(1, χ_{tK+1}) refinement is
    refuted numerically.
 No pointwise theorem for any ES relaxation and no theorem in thin orbits (Question R remains open) was obtained.
+
+## 5. Literature checked (2026-10-18; web search + arXiv PDFs in /tmp only)
+* Rickards–Stange arXiv:2401.01860v3 (Duke 2025), read in full: §3 (Lemma 3.1, Prop 3.2), §4 (Lemmas 4.1, 4.3), §5,
+  §7.3 (Γ'_n = ⟨S_n⟩, δ → 1; Lemma 7.7), §10 (groups; Question 10.1; "the place at infinity").
+* Shi–Shi–Whitehead–Williams-Tracy–Zhang, arXiv:2510.21702v2 (2026): reciprocity obstructions for octahedral, cubic,
+  square, triangular packings; their §1 suggests "lifting to metaplectic covers … would help to explain reciprocity
+  phenomena generally" — Thm 1.5 is an instance of exactly this for RS's Ψ.
+* Kadyrov–Kazin–Orynbassar–Shynarbek arXiv:2610.16530 (2026): cites RS; bounded CF in ℚ(√127); not relevant.
+* HKRS (Annals 2024); Kontorovich, Bull. AMS 63 (2026) survey "the rise and fall of the local-to-global conjecture";
+  K. Stange's research page (reciprocity obstructions as a current programme).
+* **No paper found that proves a local–global statement (even density one beyond what BK-type theorems give, or any
+  pointwise statement) for a thin orbit carrying a reciprocity obstruction**; Question R appears open and unaddressed.
+* Classical: theta transformation law (Shimura, Ann. Math. 97 (1973); Koblitz, GTM 97, Ch. IV §4); Kubota,
+  "On automorphic functions and the reciprocity law in a number field" (1969).
