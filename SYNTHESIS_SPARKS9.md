@@ -9,7 +9,6 @@ Notation. Words: W(n) = {(t, u, v) ∈ ℤ³_{≥1} : tuv − u − v = n} (equi
 words with 4 | t; R(p) = #(★)-words. b = 1 line (López Type A). M_BM = O268's BM-corrected singular series.
 
 ## 0. Iteration log
-(to be filled step by step)
 (I1) Mandatory (iv), union over ET sub-lines. Put both lines on ONE numerator-free set W(p) (Lemma 1.1 below; the word
 coordinates and the five-slice sign are DEDEKIND_ES Thm 4.5's, the line dictionary is SPARKS8 Prop 1.3 in word form). Tested the
 brief's "negative correlation" hope: it is false (corr +0.37–0.39), and the whole correlation is the shared size |W(p)|
@@ -93,9 +92,9 @@ then t ≤ 4ℓ, ℓ | tn + 1 and (−t/ℓ) = −1.
 reciprocity, a character mod 4n), so ℓ exists. t exists by CRT (ℓ odd, ℓ ∤ n), t ≤ 4ℓ. Then ℓ | tn + 1, and −t ≡ n⁻¹ (mod ℓ),
 so (−t/ℓ) = (n⁻¹/ℓ) = (n/ℓ) = −1. ⇒: Prop 2.1(c). ∎
 So the witness level is ≤ 4ℓ(n) ≪_ε n^{1/(4√e)+ε} (Burgess), ≪ (log n)² under GRH (Ankeny/Bach).
-Check (`scripts/s9_level_bm.py 200000 200`, `logs/s9_level_bm.txt`): all 99 776 odd non-squares ≤ 2·10⁵ — 0 witness failures
-(max ℓ = 71); 223 odd squares — no 4 | t ≤ 200 with an inert prime factor of tm² + 1. At the witness level an actual (★) word
-exists for 72.1 % of n (the class lottery, see below).
+Check (`scripts/s9_level_bm.py`, `logs/s9_level_bm.txt`): all 499 500 odd non-squares ≤ 10⁶ (all primes included) — 0 witness
+failures (max ℓ = 71); odd squares — no 4 | t ≤ 200 (m² ≤ 2·10⁵, 223 squares) resp. ≤ 40 (m² ≤ 10⁶, 499 squares) with an inert
+prime factor of tm² + 1. At the witness level an actual (★) word exists for 73.4 % of n (the class lottery, see below).
 
 **Reading (Assessment).** The two dual slicings of the one triple sum Σ 1[4uBC − u − B = n] put BL's class in two places:
 pair slicing (fix (u, B), sum over C): χ_{−4uB}(n) (O268 Thm 1.1); level slicing (fix t = 4C, sum over divisors): χ_{−t}(d)
@@ -173,3 +172,41 @@ carries a genuine positive dependence between level failures that pairwise stati
 Harris/FKG predicts for decreasing events (P(all fail) ≥ ∏ P(fail) — a LOWER bound on the failure probability, useless for ES);
 an upper bound à la Janson must pay for it through Δ, and the measured Δ is far too large (Prop 3.3). This sharpens the answer to
 (iii): near-independence is a pairwise statement, and the joint lower tail — the only thing ES needs — is where it fails.
+
+(I4) Mandatory (i), literature map: BRAINSTORM/s9_lower_tail_literature — no every-n theorem for a natural polylog problem;
+natural polylog problems have structured exceptions (Crocker 1971; Pan 2011, ≫ x^{1−ε} exceptions to p + 2^a + 2^b; Markoff).
+(I5) Mandatory (v), own cross-field: fibration over the level (s9_fibration_level: every fibre has the integral point (0, −n); ES =
+positivity + "a divisor has Frobenius c_∞ in ℚ(ζ_t)"; unbounded fibre obstruction groups vs Br = ℤ/2), disproof shapes
+(s9_disproof_class_layer: quadratic obstruction at all levels ⟹ square), thin-orbit growth at the BM level (s9_thin_orbit_bm),
+numerator ladder as thinning (s9_ladder_thinning).
+
+## 4. Screen of the remaining cross-combinations (one line each; memos carry the detail)
+| combination | where it stops | label |
+|---|---|---|
+| lower tail × literature | no natural every-n theorem at polylog scale; designed (M4) or structural (M3) only | literature + Assessment |
+| Thm K × BM class | BM = χ_{−t} ∈ O_t; free at non-squares; X part = class lottery in a coset of index φ(t)/2 | PROVED |
+| Thm K × Dirichlet positivity | positive coefficients (R_D/w) enter with a minus sign; no fixed-integer packaging | Assessment (+ PROVED inequality) |
+| variance × fixed group | ℓ² Fourier certifies iff m̄² > (|G| − 1)V, then all classes: phase-blind | PROVED |
+| variance × p-families × Janson | word-level Δ too large; level-level exponent ≈ log p (critical) and the joint tail fatter than level-Poisson | EVIDENCE + Assessment |
+| union × correlation | positive (+0.37), entirely through |W(p)|; no identity beyond "same set" | PROVED (reformulation) + EVIDENCE |
+| numerator ladder × thinning | order of magnitude right across k = 4…32, 1.7–7× under-prediction | EVIDENCE |
+| fibration over t × Schinzel | fibre obstruction groups unbounded; Schinzel makes tn + 1 prime (wrong way) | PROVED dictionary + Assessment |
+| Ghosh–Sarnak failures × reciprocity | quadratic obstruction at all levels ⟹ square; failures live in the class layer | PROVED |
+| thin-orbit growth × BM level | BM layer already free; class layer fails density | Assessment |
+
+## 5. Summary and assessment
+* **The BM layer is pointwise free in both slicings.** O268 put BL's class at χ_{−4uB}(p) (pair slicing); here it is χ_{−t}(d)
+  (level slicing, Prop 2.1), and Prop 2.2 proves the BM relaxation at every non-square with witness level ≤ 4·(least prime ℓ with
+  (n/ℓ) = −1). So H⁻_BM(ε) is entirely about the class position of a divisor inside the coset {χ_{−t} = −1}: one class out of
+  φ(t)/2. No explicit-coefficient positivity can help (the positive coefficients are representation numbers, with a minus sign).
+* **Variance at fixed p is impossible in the strong sense of Lemma 3.1** (phase-blind), and over p the exponent must exceed log p
+  (Lemma 3.2). The natural near-independent units are levels; their expected number is ≈ (0.44 → 0.97)·log p up to 3·10⁶ —
+  critical — and the joint tail is fatter than the level-Poisson model (Prop 3.4). Near-independence is pairwise; ES needs the
+  joint lower tail.
+* **The union is a 2-adic thinning of one numerator-free set W(p)** (Cor 1.2), positively correlated only through |W(p)|.
+  Numerators k act as thinner sieves on the same set; 8/131, 8/241 are the same mechanism.
+* No route. Every item ends at the class layer of B2 (one class inside a quadratic coset, at moving levels), at B6, or at
+  evidence. **ES is not solved; no infinite case for primes is claimed.**
+* T1 / 105 / 8-p controls: Prop 2.2 is exact at squares (both directions); Cor 1.2 and the union census reproduce the
+  k = 8 failures (34 primes < 8000 incl. 131, 241); 105 is not a square, so its BM layer is free (ℓ = 11, t = 20, 20·105 + 1 = 2101 = 11·191, (−20/11) = −1)
+  while ES-five fails at 105 (SQ₅): the BM layer does not decide.

@@ -1,2 +1,4 @@
 odd n <= 200000: 99776 non-squares, BM-witness failures 0, max least non-residue prime 71; witness level also an ES (★) level at 71973 (0.721)
 odd squares <= 200000: 223; squares with some 4 | t <= 200 having an inert prime factor: 0
+odd n <= 1000000: 499500 non-squares, BM-witness failures 0, max least non-residue prime 71; witness level also an ES (★) level at 366491 (0.734)
+odd squares <= 1000000: 499; squares with some 4 | t <= 40 having an inert prime factor: 0
