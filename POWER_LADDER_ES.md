@@ -33,3 +33,61 @@ numerator dividing a k-th power" = "numerator odd and prime to n", the same for 
 §2.2 below) the event is "n + 4Q^k has a divisor g ≡ 3 (mod 4)" with Q free; mod a prime g this asks
 −n/4 ∈ (F_g^×)^k, a coset of the k-th powers of index gcd(k, g − 1). That index — not [ (ℤ/4U)^× : k-th powers ]
 for a large pooled U — is what decides the rung (§3).
+
+## 2. The ladder collapses to the parity of k
+
+### 2.1 Odd k: a finite congruence covering mod 4
+
+**Theorem 2.1 (PROVED, elementary).** Let k ≥ 1 be odd. Then ES_(k)(n) holds for every n ≥ 2. Explicitly, for odd n
+let Q be the least positive integer with Q ≡ −n (mod 4) and gcd(Q, n) = 1 (so Q = 1 if n ≡ 3 (4); Q = 3 if
+n ≡ 1 (4) and 3 ∤ n), and x = (n + Q^k)/4. Then
+`4/n = 1/(2x) + 1/(2x) + Q^k/(nx)    (distinct-denominator variant: 1/x = 1/(x+1) + 1/(x(x+1)))`
+with gcd(Q^k, nx) = 1, and the solution has Type I shape at every prime ℓ | n (ℓ ∤ 2x, v_ℓ(nx) = v_ℓ(n)).
+In particular ES_(k)(p) holds at every prime p with Q ∈ {1, 3}; e.g. k = 3: 4/p = 2/(2x) + 27/(px), x = (p + 27)/4
+for p ≡ 1 (4), p ≠ 3.
+*Proof.* Q is odd, so Q^k ≡ Q ≡ −n (mod 4) (Q² ≡ 1 (8), k odd): x ∈ ℤ_{>0}. Then 1/x + Q^k/(nx) = (n + Q^k)/(nx) =
+4/n. If a prime q divides Q and x then q | 4x − Q^k = n, contradicting gcd(Q, n) = 1; so the third term is in lowest
+terms, den(z) = Q^k with Q odd and prime to n. Shape: ℓ | n, ℓ | x ⇒ ℓ | Q^k, impossible; ℓ odd. Even n = 2^a m:
+for m > 1 odd scale a solution for m by 2^a (Q odd keeps lowest terms); for m = 1, ES holds at 2^a
+(4/2 = 1/1 + 1/2 + 1/2; 4/2^a = 1/2^{a−1} + 1/2^a + 1/2^a for a ≥ 2). ∎
+
+**Corollary 2.2 (T1 dies at odd k; PROVED).** For odd k every odd square m² (and every odd cube m³) has an ES_(k)
+solution of Type I shape at every prime of m. The obstruction B5/T1 is absent, and — as B5 predicts for T1-free
+variants — the rung is a finite covering: the two classes n ≡ 1, 3 (mod 4) with the identity of Thm 2.1 (the
+coprimality side-condition gcd(Q, n) = 1 is the only n-dependence; a second class mod 3 handles 3 | n with Q = 7).
+*Mechanism (UNIT_ORBIT_ES Lemma 1.1(i) with w = k odd):* inv_q of the BL/Hilbert class at a prime q | Q equals the
+Legendre sign ((−y/x)/q), unconstrained, so a muted place with ODD exponent can absorb the anchor's ½.
+
+### 2.2 Even k: the rung is ES^□ again
+
+**Theorem 2.3 (PROVED, relative to Dirichlet's theorem only).** Let k = 2^a k′ with a ≥ 1, k′ odd. Then ES_(k)(n)
+holds for every odd non-square n, by ONE prime r: r ≡ 3 (mod 4), (n/r) = −1, and r ≢ 1 (mod ℓ) for every prime ℓ | k′.
+The solution has Type II shape at every prime of n.
+*Proof.* n ≡ 3 (4): ES (Q = 1, 4/n = 1/((n+1)/4) + 1/(n(n+1)/4) split). n ≡ 1 (4): n = n₀m², n₀ > 1 squarefree,
+n₀ ≡ 1 (4), so n₀ has a prime factor ≥ 5. Choose a class a mod 4n₀L (L = product of the odd primes of k′ not dividing
+n₀) with a ≡ 3 (4); a ≡ 2 (mod ℓ) for ℓ | L; for ℓ | n₀: a ≢ 0, 1 (mod ℓ) when ℓ | k′, with Legendre signs (a/ℓ)
+chosen so that (a/n₀) = −1 (possible: at ℓ = 3 the only admissible class 2 has sign −1, at ℓ ≥ 5 both signs occur
+among classes ≠ 0, 1 (4 is a residue ≢ 1), and n₀ has a prime ≥ 5 to fix the total sign). Dirichlet gives a prime
+r ≡ a, r ∤ m. Then (n/r) = (n₀/r) = (r/n₀) = −1, so −n/4 is a non-zero square mod r ((−1/r) = −1). As (r−1)/2 is odd
+and prime to k′, gcd(k, r−1) = 2 and (F_r^×)^k = (F_r^×)²: there is Q₀ with 4Q₀^k ≡ −n (mod r). Lift to Q ≡ Q₀ (mod r)
+with Q odd and gcd(Q, n(r+1)) = 1 (CRT; r ∤ 2n(r+1)). Put e = (n + 4Q^k)/r, x = (n + e)/4, y = n(r+1)/4,
+z = nx(r+1)/(4Q^k) (UNIT_ORBIT_ES Prop 2.1 with Q² → Q^k; its identity 4rx = n(r+1) + 4Q^k and the equation check
+do not use the exponent). A prime q | Q dividing x(r+1) would divide n(r+1) — excluded — so den(z) = Q^k. Shape as
+in Prop 2.1. ∎
+
+**Lemma 2.4 (T1 persists at even k; PROVED).** For even k every ES_(k) solution is an ES^□ solution (den(z) = (Q^{k/2})²),
+so SPARKS2 Lemma 2.1 applies: Σ_{ℓ|n} inv_ℓ = ½, and at n = m² (m odd) no ES_(k) solution has Type I/II shape at
+every prime of m. In the fixed-modulus-4 family, m² + 4Q^k = m² + (2Q^{k/2})² (coprime) has no prime factor ≡ 3 (4),
+so no finite covering by such shots exists (every class mod L containing an odd square is uncovered at that square).
+
+**Corollary 2.5 (every rung holds everywhere; PROVED).** For every k ≥ 1, ES_(k)(n) holds for every n ≥ 2.
+*Proof.* Odd k: Thm 2.1. Even k: write odd n > 1 as s^{2^j} with j maximal, so s > 1 is a non-square; Thm 2.3 gives
+ES_(k)(s); multiplying all denominators by n/s (prime to Q) gives ES_(k)(n). Even n: scale from the odd part / ES at 2^a. ∎
+(The same scaling shows ES^□ holds at every odd n > 1, not only at non-squares — the ledger's "non-square" is the
+scope of the Type II-shaped construction, which T1 genuinely forbids at squares.)
+
+**Reading (Assessment).** The k-th power ladder carries exactly one bit: k mod 2. Odd rungs are B1-trivial
+(congruence covering, no T1); even rungs are ES^□ (one Dirichlet prime, T1 intact). No rung is "strictly between ES^□
+and ES" in difficulty: ES_(6) ⊂ ES_(2) ∩ ES_(3) is ES^□-like, ES_(2^a) is ES^□-like for all a. The headline candidate
+"pointwise ES_{Q³}" is TRUE but for a trivial reason, and does not interpolate towards ES. The difficulty of ES is not
+in the exponent of the allowed denominator but in its SIZE (Q = 1), as (J)28's recalibration already said.
