@@ -9,7 +9,10 @@ where p/A = [a₀; a₁, a₂, …] is the regular CF. `λ(p) = min{ r(p/A) : (A
 (DEDEKIND_ES Cor 4.6, PROVED). `S_L(p) = {A ∈ (ℤ/p)^* : r(p/A) ≤ L}`.
 
 ## 0. Iteration log
-* cp0: merged O261; read Shkredov §§2, 4, 5.1 (arXiv PDF, pdftotext in /tmp, not committed) and Zhang §3 (Thm 3.6, (3.1)–(3.8)).
+* cp0: merged O261; read Shkredov §§2, 4, 5.1, Appendix and Zhang §3 (arXiv PDFs; excerpts in
+  `sources/lit2026g/z36_shkredov_zhang_method.txt`).
+* cp1: ladder numerics; Theorem A (then found to be known in substance: Chang Thm 5 / Larcher); Lemmas C, D; χ-twist
+  (Hypothesis ZQ, Theorem B, window conflict); Rickards–Stange found by search (§5); 7 memos `BRAINSTORM/z36_*`.
 
 ## 1. The method, extracted (read in the sources; page refs to the arXiv PDFs)
 
@@ -176,3 +179,21 @@ series". Neither ingredient exists. This is the same T1 location as §4 item 2, 
 δ_Γ > 1 − κ/8 (exists by RS Thm 2.10), is every sufficiently large admissible non-square prime a denominator of Γ(x, y)?
 A growth proof of this would be the first proof of a thin-orbit local–global statement *with* a reciprocity obstruction,
 i.e. of the structural type of ES-five; ES itself would still be the dimension-0 case, out of reach (§2–§4).
+
+## 6. Verdict (Assessment) and exact scope
+
+* **Method (§1).** The 2026 Zaremba proofs need half sets of density q^{−O(κ)} at the gluing scale (1 − w ≤ κ/8,
+  ε < 1/18) — "M1⁺", stronger than a power-size count.
+* **Ladder (§2, §4).** In CF coordinates ES-five is rung L = 3 of λ(p) ≤ L. Rung L ≍ log p log log p is a theorem by
+  pigeonhole (Thm A, known in substance). Rung L ≍ M log p would follow from ZQ_M (Thm B), which the 2026 method does not
+  give (window conflict; growth is blind to squares). The method's operating window lies at L ≥ C₀ log p; ES lives at
+  L = 3 with ≍ log² p certificates. Gap: Θ(log p) in L, from density ≍ 1 to count ≍ log² p. **No pointwise theorem for a
+  nontrivial ES relaxation below L ≍ log p log log p was obtained.**
+* **Structure (§3).** No product/alphabet structure substitutes for M1⁺: the region knob only certifies multiples kp
+  (Lemma D); the length-3 gluing is the degenerate origin-box case of Lemma 15.
+* **Dictionary (§5).** T1 is a Rickards–Stange reciprocity obstruction truncated to length 3; RS's proved local–global
+  (Ψ, fat) uses M1⁺ + a long character sum; their counterexample to BK shows the growth method must learn reciprocity in
+  the middle window before it can say anything about ES-shaped problems (Question R).
+* Numerical controls: Theorem A bound vs witnesses at all 78 495 primes 7 ≤ p ≤ 10⁶: 0 violations (worst
+  min over non-residues A < 200 of r(p/A) is 5, at p = 83639); no odd square ≤ 10⁶ has a Jacobi −1 residue A < 200
+  (`scripts/z36_lambda_witness.py 1000000`). ES is not solved; no infinite case of ES is claimed.
