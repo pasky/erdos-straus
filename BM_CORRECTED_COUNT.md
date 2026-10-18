@@ -5,6 +5,21 @@ CERTIFIED / EVIDENCE / CONJECTURE / Assessment). Scripts `scripts/z38_*`, memos 
 Builds on SINGLE_P_COUNT (O260: pair form, genus split R = M_gen + X, Prop 4.1), Bright–Loughran arXiv:1908.02526 (BL),
 PARITY_AUDIT Lemma 3.2 (χ-shadow), B1_LINE Lemma 1.2 (pair genus law), CONDITIONAL_ES Props 2.3, 3.1, 7.3.
 
+## 0. Summary
+* §1 (PROVED) **BL's quaternion class = one Kronecker character per pair.** At the rational point P_{u,B} of each (★)-pair,
+  inv_p α = χ_{−4uB}(p) = (−uB/p), and χ_{−4uB}(−(u+B)) = −1 identically; principal + χ_{−4uB} in the orthogonality expansion
+  is the Borovoi–Rudnick factor φ(q)^{−1}(1 + inv_∞ inv_p). O260's "genus indicator = BM invariant" is false (genus = all
+  s(q) real characters; BM = exactly one of them). Same on full Type II (χ_{−4ab}), the b = 1 line (χ_{−4xy}), m/n (§4).
+* §2 (PROVED) the BM-corrected singular series M_BM(p) = Σ(1 − (−uB/p))/φ(4uB) is ≥ 0, mean-preserving, 0 at squares, and
+  **≥ (3/(16π²) − o(1))(log p)² unconditionally** (Burgess; 1/(32π²) with PV); ∼ M₀ ∼ (3/(2π²))(log p)² under GRH
+  (board F4 obligation (i), derived).
+* §3 (PROVED) two-sided remainder bounds |R − M| ≤ (log p)^{O(1)} (incl. O260's H_X with M_gen) are false infinitely often
+  (Linnik). Exact conditional: (★)-ES for p > p₀ ⟸ H⁻_BM: R(p) ≥ εM_BM(p) — no other input; not refuted by T1; not implied
+  by any standard conjecture; ES-(★) in disguise up to ε. EVIDENCE to 10⁶ (all primes, all odd n): lower tail fatter than
+  swap-Poisson and fattening; Markoff (Ghosh–Sarnak) precedent: the analogous statement fails i.o. there.
+* §4 b = 1 / union: same Brauer character, residuals positively correlated (no complementarity); 8/n control passes.
+* **ES is not solved; no conditional theorem from a standard conjecture.**
+
 Notation (SINGLE_P_COUNT §1–2). For odd n ≥ 3, 𝒫(n) = {(u, B) ∈ ℕ² : gcd(u, B) = 1, u + B odd, 4uB − u − B ≤ n},
 q = 4uB, a = −(u + B) (a unit mod q), R*(n) = Σ_{𝒫(n)} 1[n ≡ a (mod q)] (= R(n), the (★) count, for n prime).
 (★) solutions give 4/n = 1/(uBC) + 1/(nBC) + 1/(nuC), C = (n + u + B)/(4uB).
