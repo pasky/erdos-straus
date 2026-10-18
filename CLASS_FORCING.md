@@ -265,7 +265,9 @@ difficulty is Type-II-prime-modulus, CONJECTURE PM-II). 193 and 66529 pass X2; 2
 
 *Limiting (Haar) failure density of the forced congruence rule* (`scripts/z33_haar_forced.py`, `logs/z33_haar_forced.txt`;
 4000 Haar-random p ≡ 1 (4) of size ≈ 10¹⁶ coprime to all primes ≤ max(B, D) + 1):
-F_{10,200}: 1.80 %; F_{30,200}: 0.22 %; F_{1000,200}: 0/4000 (max least level 17); F_{10,1000}: 1.10 %.
+F_{10,200}: 72/4000 = 1.80 % ± 0.21 %; F_{30,200}: 9/4000 = 0.22 % ± 0.07 %; F_{1000,200}: 0/4000 (max least level 17);
+F_{10,1000}: 44/4000 = 1.10 % ± 0.17 % (binomial s.e.; (R272 repair) error bars added). R272's independent sampler
+(`logs/review_r272_haar.txt`): 1.76 % (n = 20000), 0.13 % (26/20000), 0/4000, 0.82 % (33/4000) — consistent within ≈ 1.7σ.
 *Reading.* The forced mechanism (small forced primes + one forced element, i.e. Lemma 3.1/Prop 3.2 at its strongest) is an
 ET congruence covering. It certifies most primes — 98 % with only the primes 2, 3, 5, 7 — but provably never a full set:
 Thm 3.4 excludes the class p ≡ 1 (mod M) (Haar measure 1/φ(M), far below the sampling resolution for B = 1000), and Thm 6.1
@@ -276,20 +278,28 @@ existence mechanisms: what is forced is a congruence class of p, and the class p
 has χ_{−4d}(ℓ) = (−4d/ℓ) = (m²/ℓ) = 1, so all factors lie in ker χ_{−4d} ∌ −1 — the T1 obstruction in its "generated subgroup"
 form. At a prime the same factors have χ_{−4d}(ℓ) = (ℓ/p): T1 vs prime is visible factor by factor exactly through this link.
 
-**Corollary 5.3 (even perfect class-group knowledge of each factor gives only the χ-shadow; PROVED from WINDMILL Prop 10.3 /
-Remark 10.4).** Let K = ℚ(√−tp) and let the prime factors ℓ of tp + 1 (or of any line's N, via the divisor hypercube of a fixed
-principal ideal) correspond to ideals 𝔩. In 1 → (O/t)^×/im O^× → Cl_{(t)}(K) → Cl(K) → 1 the norm homomorphism
-Cl_{(t)}(K) → G sends the kernel, at every odd prime power ℓ^k ∥ t, onto the squares (norms x² + tpy² ≡ x² mod ℓ^k, ℓ | tp
-ramified). Hence knowing [𝔩] ∈ Cl(K) for every factor — the most that 2^∞-class-group methods (Rédei, Smith, Koymans–Pagano
-governing fields) could ever deliver — determines the odd-part class of ℓ mod t only modulo squares (the 2-part contributes at
-most the characters mod 8; Prop 10.3 is stated for odd ℓ | t). The class w ≡ −1 (mod t) lives in the G²-part, i.e. in the generators, not in the ideal classes. ∎
+**Corollary 5.3 (R272 repair, D8: restated; the first version contradicted the WINDMILL 10.2/10.3 injectivity caveat).**
+Let K = ℚ(√−tp), N = tp + 1 (the c-line; only here is a principal ideal (1 + √−tp) of norm N exhibited — the earlier
+"or of any line's N" is withdrawn), and let the prime factors ℓ of N correspond to ideals 𝔩 | (1 + √−tp).
+(i) (PROVED, WINDMILL Prop 10.3.) In 1 → (O/t)^×/im O^× → Cl_{(t)}(K) → Cl(K) → 1 the norm homomorphism Cl_{(t)}(K) → G sends
+the kernel, at every odd prime power ℓ^k ∥ t, onto the squares (norms x² + tpy² ≡ x² mod ℓ^k, ℓ | tp ramified, all squares
+occurring). Hence N𝔞 mod t is a class invariant on Cl(K) only modulo squares (odd part of t; at most the characters mod 8 at 2):
+no function F on Cl(K) satisfies F([𝔞]) = N𝔞 mod t for all ideals 𝔞 of a class beyond G/G².
+(ii) (Assessment.) Data about the factor classes that are invariants of Cl(K) as an abstract group / its 2^∞-structure (what
+Rédei / Smith / Koymans–Pagano methods produce: ranks, Artin pairings, Frobenius in governing fields) therefore yield only the
+χ-shadow of ℓ mod t; making "abstract class data" precise is not attempted.
+(iii) (PROVED, WINDMILL 10.2.) A concrete class on the divisor hypercube DOES determine the divisor: for m | N with m ≤ √N the
+form [m, 2, N/m] of discriminant −4tp is reduced, so its class determines m itself (R272 checked 15 312 such divisors). That is
+knowing the factorisation — B2. ∎
 
 ## 8. Construction attempts (iteration log, each with the barrier hypothesis it hit and the modification tried)
 * C1 total class → divisor: dies on realisability (N prime). Modification: individual factors (C2).
 * C2 forced small factors by choosing d (CRT): = ET Type II classes (§3.3), B1; dies at p ≡ 1 (M) (Thm 3.4). Modification:
   non-congruence data (C3).
-* C3 cubic/quartic/Eisenstein/Rédei/governing-field data of p: independent of classes beyond G/G² (Thm 2.1, Prop 5.1, Cor 5.3);
-  conditionally useless even in aggregate (Thm 6.1). Modification: data that act on the integer, not on p (C4).
+* C3 cubic/quartic/Eisenstein/Rédei/governing-field data of p: seen by [N] only through a quotient of p mod t
+  (congruence data; G/G²-type for (i)–(iii)), independent non-abelian part otherwise (Thm 2.1, Prop 5.1, Cor 5.3 as repaired);
+  the non-abelian part is conditionally useless at bounded levels at the point C|_{Ω₀} = 1 (Thm 6.1, R272 repair); the abelian
+  part is B1 and can cover whole classes. Modification: data that act on the integer, not on p (C4).
 * C4 algebraic factorisation of N forced by p's Gaussian/representation data (p = a² + b², p = x² + ny², 4d = poly(a, b)):
   N becomes a binary-form value; its factors are pushed INTO the genus subgroup (anti-forcing; JOINT_BUDGET Prop 4.2, near
   squares (J)53/(J)55), and finitely many polynomial families in (a, b) are barred by (J)3 (POINTWISE_BINARYFORM).
@@ -301,17 +311,24 @@ most the characters mod 8; Prop 10.3 is stated for odd ℓ | t). The class w ≡
   of Landau events; fails exactly when p imitates a square for finitely many binary-form representability tests (p + 4 a
   primitive sum of two squares, p + 8 = x² + 2y², …); 73 failures ≤ 10⁶. Sieve-accessible on average, not pointwise.
 
-## 9. Verdict (O263 checkpoint 1)
-* **Answer to route (b): no.** Reciprocity of any order, Rédei symbols, governing fields and Artin reciprocity for ray class
-  fields mod t determine, pointwise from p's own data, only (i) the full class of the total product N mod t — which is plain
-  congruence data — and (ii) for each individual prime factor ℓ the single quadratic link χ_{−4d}(ℓ) = (ℓ/p), which involves
-  the unknown ℓ. Class forcing beyond the χ-shadow is impossible in this scope (Thm 2.1, Prop 5.1, Thm 5.2, Cor 5.3, PROVED);
-  bounded-level forcing using any such data fails infinitely often (Thm 6.1, CONDITIONAL on HC), and the forced rules miss
-  the explicit class p ≡ 1 (mod M) unconditionally (Thm 3.4, PROVED).
-* Davenport/zero-sum cannot bridge parity and class: target constant η(G) ≥ (q − 3)/2 at prime levels against ≤ 1 forced
-  escaping factor (Lemma 4.1, Prop 4.2).
-* EVIDENCE (§7): forced (congruence) certificates cover 98–99.9 % of primes ≤ 10⁶ but never the class p ≡ 1 (M); the
-  generated-subgroup relaxation never fails at primes (levels ≤ 200) and always fails at odd squares, factor by factor.
+## 9. Verdict (O263 checkpoint 1; R272 repairs applied)
+* **Answer to route (b): no.** (R272 repair) Any Frobenius datum of p — residue symbols of any order, Rédei symbols,
+  governing fields, Artin reciprocity for ray class fields mod t — sees the class [N] ∈ G only through a quotient of p mod t,
+  i.e. congruence data, and is independent of [p] beyond it (Thm 2.1(b); for residue/Rédei data the quotient is G/G²-type plus
+  p mod n; for general governing fields its size was not determined). For each individual prime factor ℓ the only link to
+  p is χ_{−4d}(ℓ) = (ℓ/p), which involves the unknown ℓ (Prop 5.1), and no class is forbidden for a single large factor
+  (Thm 5.2). Abstract class-group data on the factors yield only the χ-shadow; concrete reduced forms on the divisor hypercube
+  determine the divisor itself, i.e. the factorisation (Cor 5.3 as restated). In short: reciprocity data of p = congruence
+  data of p plus an independent non-abelian part.
+* The congruence part is B1: the forced rules miss the explicit class p ≡ 1 (mod M) unconditionally (Thm 3.4, PROVED; the
+  classical p ≡ 1 (M) obstruction in forced-factor language), though they may cover other whole classes (e.g. p ≡ −4 (7)).
+  The non-abelian part adds nothing at bounded levels at the point C|_{Ω₀} = 1 (Thm 6.1, CONDITIONAL on the corrected HC;
+  the first version was FALSE, R272 D1).
+* Davenport/zero-sum cannot bridge parity and class: η(G) ≥ (q − 3)/2 at prime levels q ≡ 3 (4) against ≤ 1 forced escaping
+  factor per integer (Lemma 4.1, Prop 4.2).
+* EVIDENCE (§7, independently reproduced by R272): forced (congruence) certificates cover 98–99.9 % of primes ≤ 10⁶ but never
+  the class p ≡ 1 (M); the generated-subgroup relaxation never fails at primes (levels ≤ 200) and always fails at odd squares,
+  factor by factor.
 * ES is not advanced; everything ends at B1 (congruence) or B2 (a divisor of one integer in a moving class).
 
 *Checks* (`scripts/z33_checks.py`, `logs/z33_checks.txt`): Prop 5.1(a) on 140 287 (p, d, ℓ) triples (p ≡ 1 (4) < 2·10⁴,
