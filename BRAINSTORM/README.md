@@ -573,3 +573,14 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | z36_numerator_free_rung | drop χ, keep length 3 | = Lorenzini's (W) (known: (J)15, bsG_even_half); 12 exceptions ≤ 2·10⁶ | no new claim |
 | z36_hj_cantor_dimension | effective dimension of rungs | L = c log p: |S_L| = p^{θ(c)}, θ(1) ≈ 0.86 (true HJ lengths, R276); method window lies at L ≥ C₀ log p | EVIDENCE + Assessment |
 | z36_reciprocity_obstruction_home | thin-orbit home of T1 | Rickards–Stange (Duke 2025) reciprocity obstructions: ES slice numerator sets satisfy RS Def 2.4 exactly (PROVED, R276); mechanism/conjecture shape/δ = 1/2 analogies; proved fat case; Question R | Def 2.4 row PROVED, rest Assessment |
+### z35 — O265 mod-p power-residue reciprocity / Gaussian-representation certificates (deep file MODP_RECIPROCITY.md)
+| memo | idea | outcome | label |
+|---|---|---|---|
+| z35_modp_least_residue | b = 1 line with p as modulus: 4md − g = p, g \| m + 1 | target is additive (height one); quadratic content forced (T1 sign), quartic content = (a, b) mod parameters, an output | PROVED |
+| z35_nonabelian_inert_or_complete | does the non-abelian part of Frob_p (R272 D2) act? | inert for bounded witnesses (Chebotarev); complete at unbounded level (quartic χ_π at q ≡ 3 (4) determine π) | PROVED + EVIDENCE |
+| z35_free_quartic_bit | canonical quartic bit (2w/p)_4 of witnesses, p ≡ 5 (8): forced? | balanced 50.1/49.9 % on 5.6·10⁵ witnesses: no quartic T1 | EVIDENCE (negative) |
+| z35_gaussian_menus_closed | identities in a, b; √−1 lift menu X² + 1 = pN | polynomial (a, b) already closed by (J)3/(J)78/(J)79; √−1 menu T1-barred on whole classes (not on sectors/least lifts) | PROVED + EVIDENCE |
+| z35_anti_windows | divisors of representation coordinates as windows | exact Jacobi selection rule: odd y-divisors and odd x-divisors with (D/m) = +1 sterile, others permitted (forcing only via congruences of p); 0 exceptions to 10⁶ | PROVED + EVIDENCE |
+| z35_sophie_germain_burde | square levels d = k², Burde (O263 spark 4) | (ℓ/p)_4 = (k/ℓ)((ac_ℓ − be_ℓ)/ℓ), no p-only constraint; square-level excess = witness factorisation (2jk ± 1) | PROVED + EVIDENCE |
+| z35_cubic_jacobi | cubic Jacobi sums / 4p = L² + 27M² / Gauss periods | same as quartic: inert, selection rule with D = 27 | PROVED (by general props) |
+| z35_gaussian_qnr_linear_forms | T1 steering in ℤ[i] | squares' reps are i^jα² (all Gaussian symbols +1); [λ/π] = Legendre of the linear form cb − ea | PROVED (identity) |

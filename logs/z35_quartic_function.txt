@@ -1,0 +1,12 @@
+q=2: 12980 primes, 64 keys, conflicts 0
+q=3: 12980 primes, 64 keys, conflicts 0
+q=5: 12979 primes, 128 keys, conflicts 0
+q=7: 12980 primes, 384 keys, conflicts 0
+q=11: 12980 primes, 960 keys, conflicts 0
+q=13: 12979 primes, 1152 keys, conflicts 0
+q=17: 12979 primes, 2047 keys, conflicts 0
+q=19: 12980 primes, 2866 keys, conflicts 0
+q=23: 12980 primes, 4132 keys, conflicts 0
+q=29: 12979 primes, 5744 keys, conflicts 0
+q=31: 12980 primes, 6632 keys, conflicts 0
+q=37: 12979 primes, 7895 keys, conflicts 0

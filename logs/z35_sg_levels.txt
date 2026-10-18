@@ -1,0 +1,5 @@
+primes 39056 <= 1000000 levels 100 .. 400
+square rate 0.0107  (429616 trials)
+nsq,(d/p)=-1 rate 0.0091  (5674578 trials)
+nsq,(d/p)=+1 rate 0.0085  (5651662 trials)
+SG identity (p/l)_4=(k/l) and Burde on 32837 (p,k,l): violations 0

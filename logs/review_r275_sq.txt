@@ -1,0 +1,10 @@
+Prop 4.1: 26397 triples (p<=2e4, k<=11, l | p+4k^2), 0 violations
+EVIDENCE 4.2: 3591 primes p=1(4) in [900000,1000000], levels 100..400
+  sq  : 480/39501 = 1.215 %
+  ns+ : 5121/519705 = 0.985 %
+  ns- : 5489/521685 = 1.052 %
+  c=1 witness w=4d-1 divides p+4d, sq: 0.235 %
+  c=1 witness w=4d-1 divides p+4d, ns: 0.145 %
+  naive E#witnesses sum_c 1/phi(4cd-1) (w<=950000): sq 0.01270, ns 0.01083, ratio 1.173
+  c=1 term alone 1/phi(4d-1): sq 0.002159, ns 0.001479, ratio 1.460
+  observed ratio sq / all-nonsquare: 1.193

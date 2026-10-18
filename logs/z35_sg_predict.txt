@@ -1,0 +1,2 @@
+mean pred squares 0.01994
+mean pred nonsquares 0.01678
