@@ -1,0 +1,3 @@
+https://eudml.org/doc/143750
+Source metadata verified: William Duke and Rainer Schulze-Pillot, “Representation of integers by positive ternary quadratic forms and equidistribution of lattice points on ellipsoids,” Inventiones Mathematicae 99 (1990).
+The precise theorem text was not available in the page extraction inspected; no statement quote recorded here.

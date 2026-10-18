@@ -1,0 +1,3 @@
+https://arxiv.org/html/1511.04876v2
+Theorem 1.0.1: “Assume that the classes [-1],[Δ1,2],[Δ1,3],[Δ1,4],[Δ2,3],[Δ2,4],[Δ3,4] form seven distinct linearly independent classes in Q*/(Q*)². Then Y has an S-integral point.”
+Method context: fibration into affine conics, 2-descent/Selmer groups and Green–Tao–Ziegler; conditional hypotheses are explicit square-class independence.

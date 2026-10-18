@@ -1,0 +1,3 @@
+URL: https://arxiv.org/abs/math/0311421
+
+Abstract statement (theorem number not visible in source abstract): “There exists a constant b>0 such that if we r-color the integers in [2,b^r], then there exists a monochromatic set S such that ∑_{n∈S} 1/n=1.”

@@ -1,0 +1,16 @@
+Source: W. Y. Chen, arXiv:2011.12940 (Ann. Math. 199 (2024)), pp. 6-7, read 2026-10-18 by O261 agent
+Theorem 1.2.3 (Bourgain, Gamburd, Sarnak [BGS16a]). The following are true.
+(a) Let Ebgs denote the set of primes for which Γ does not act transitively on X∗ (p). For any ǫ > 0, we have
+#{p ∈ Ebgs | p ≤ x} = O(xǫ )
+(b) Let C(p) be the largest orbit of Γ on X∗ (p). Then for any ǫ > 0, we have
+|X∗ (p) − C(p)| ≤ pǫ
+Theorem 1.2.5 (See Theorem 5.5.4). For every p ≥ 3, every Out+ (Π)-orbit on Epi(Π, SL2 (Fp ))−2 / GL2 (Fp )
+has cardinality divisible by p. In particular, every Γ-orbit on X∗ (p) has cardinality divisible by p.
+
+In particular, every Γ-orbit must have size at least p, so combined with Theorem 1.2.3(b), this establishes
+Conjecture 1.2.2 for all but a finite (and in fact explictly bounded) set of primes:
+Theorem 1.2.6 (Main application; see Theorems 5.5.5, 5.5.7). The following are true.
+(a) The “exceptional” set Ebgs is finite and explicitly bounded.
+(b) For all primes p ∈
+/ Ebgs , X satisfies strong approximation at p.
+

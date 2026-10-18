@@ -1,0 +1,3 @@
+URL: https://fanchung.ucsd.edu/ron/papers/63_02_partitions.pdf
+
+Theorem statement (paper states this in its introduction; no numbered theorem): Every integer greater than 77 can be partitioned into distinct positive integers whose reciprocals sum to 1. The paper also notes 77 itself cannot be so partitioned.

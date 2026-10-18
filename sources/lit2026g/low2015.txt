@@ -1,0 +1,4 @@
+https://people.mpi-sws.org/~joel/publications/epad15abs.html
+Antonia Lechner, Joël Ouaknine, James Worrell, “On the Complexity of Linear Arithmetic with Divisibility,” LICS 2015, pp. 667–676. DOI: 10.1109/LICS.2015.68.
+
+Abstract: “if an existential sentence of Presburger arithmetic with divisibility is satisfiable then the smallest satisfying assignment has size at most exponential in the size of the formula, showing that the decision problem for such sentences is in NEXPTIME.”

@@ -1,0 +1,4 @@
+https://math.dartmouth.edu/~carlp/PDF/paper95.pdf
+W. R. Alford, A. Granville, C. Pomerance, “There are infinitely many Carmichael numbers,” Ann. of Math. (2) 139 (1994), no. 3, 703–722.
+
+Source abstract/title verified. The relevant group-theoretic subset-product theorem and its number were not legibly extracted from the linked scan in this research. UNVERIFIED; do not supply a theorem number or purported verbatim statement from memory.

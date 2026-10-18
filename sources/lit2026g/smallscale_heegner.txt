@@ -1,0 +1,2 @@
+https://arxiv.org/abs/1910.01360
+Peter Humphries and Maksym Radziwiłł, “Optimal Small Scale Equidistribution of Lattice Points on the Sphere, Heegner Points, and Closed Geodesics.” Abstract: “We also obtain analogous results for Heegner points and closed geodesics.” Their results include estimates for shrinking sets; this abstract does not assert uniform pointwise coverage of every discriminant.

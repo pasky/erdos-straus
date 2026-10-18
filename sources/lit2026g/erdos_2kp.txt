@@ -1,0 +1,3 @@
+URL: https://combinatorica.hu/~p_erdos/1981-21.pdf (retrospective account; original: P. Erdős, “On integers of the form 2^k+p and some related problems,” Summa Brasil. Math. 2 (1950), 113–123)
+
+Verified secondary-source statement: “Using covering congruences I proved that there is an arithmetic progression of odd numbers no term of which is of the form 2^k+p.” Original construction/result not independently inspected here.
