@@ -102,6 +102,37 @@ so one of them is a non-residue A. Finally r(p/A) ≤ 1 + Σ_{i odd} a_i(p/A) �
 rung where the certificate set has density ≫ 1 (M1⁺ trivially). The step false at m² is "#non-residues = (p−1)/2".
 Gap to ES: from L ≍ log p log log p (density 1/2) to L = 3 (count ≍ log² p) — the full B3 scale gap, now in one metric.
 
+**Attribution note (O273, board #2 Finalist 4; KNOWN — sharp constant).** The sharp form
+`λ(p) ≤ (6/π²) log p log log p + O(log p)` (explicit leading constant 6/π² in place of Theorem A's 10) is a corollary of
+C. Aistleitner, B. Borda, M. Hauke, *On the distribution of partial quotients of reduced fractions with fixed
+denominator*, arXiv:2210.14095 (read in v2 HTML by O273): **Thm 1** — for N ≥ 3, 0 < t ≤ (log N)^C, the proportion of
+a ∈ ℤ_N^* with |S(a/N) − (12/π²) log N log log N| ≥ t log N is ≪_C 1/t, S = Σ_{i≤r} a_i; **Thm 6** — the proportion with
+|D(a/N)| ≥ t log N is ≪_C 1/t (D the Dedekind sum); **identity (5)** (Barkan, Hickerson) — D(a/N) = −S_alt(a/N)/12 + O(1),
+S_alt = Σ(−1)^i a_i. Their convention: a/N = [0; a₁, …, a_r] with a_r > 1 (same as the c_i above).
+*Transfer (re-derived by O273).* Take N = p and an absolute t with both exceptional proportions < 1/4 (possible since the
+implied constants are absolute for, say, C = 1). The non-exceptional set has > (p − 1)/2 elements, hence contains a
+non-residue A. For it, Σ_{j even} c_j(A/p) = (S + S_alt)/2 ≤ ½[(12/π²) L log L + tL] + ½[12tL + O(1)] =
+(6/π²) L log L + O(L), L = log p; and by the Thm B formula r(p/A) ≤ 1 + Σ_{j even} c_j(A/p) (A/p = [0; a₀, a₁, …], so the
+odd-index digits of p/A are the even-index digits of A/p). Hence λ(p) ≤ (6/π²) log p log log p + O(log p). ∎
+The same argument gives *most* non-residues r(p/A) = (6/π²) L log L + O_t(L) up to an exceptional proportion O(1/t) —
+so 6/π² is also the typical constant (the λ bound is not sharpened by passing to the minimum, by this method).
+*Checks (EVIDENCE, `scripts/z42_abh_check.py`, all QNR A at p = 1009, 1013, 10007, 10009, 100049):* r(p/A) =
+1 + Σ_{j even} c_j − δ with δ ∈ {0, 1} in every case (so the Thm B inequality loses at most 1); |S_alt + 12D| ≤ 3
+(identity (5)); median r over QNR = 10, 11, 15, 15, 20 vs (6/π²)L log L = 8.1, 8.1, 12.4, 12.4, 17.1 (the O(L) term).
+So Theorem A above is a weaker-constant special case of ABH (and of Chang/Larcher in the log p log log p order); the
+campaign's proof stays as a self-contained elementary argument. No ES consequence: the gap to λ ≤ 3 is unchanged.
+
+**Convergent Legendre invariant (argon; Assessment — not new).** From a q_i ≡ (−1)^i ρ_i (mod p) (displayed in the
+proof of Thm A) one gets at once (a/p) = ((−1)^{i}/p)·(q_iρ_i/p) for every step i; for p ≡ 1 (4) simply
+(a/p) = (q_iρ_i/p), i.e. under the injection (a, i) ↦ (x, y, σ) of Thm A the non-residues a map into the pairs with
+(σxy/p) = −1 (EVIDENCE: 0 violations over all CF steps of all QNR at the five primes above, both p mod 4 classes).
+This is a one-line consequence of the standard convergent congruence and is the same genus-character observation that
+underlies DEDEKIND_ES Thm 4.5 / MP(p) (membership ⟺ (xy/p) = −1); we record it but do not claim it as new. Its only
+use argon proposed — a direct proof of λ(p) ≤ (6/π² + o(1)) L log L by restricting Thm A's hyperbola count to
+(σxy/p) = −1 with a character-sum (Pólya–Vinogradov/Burgess) estimate over hyperbolic regions, taking the minimum over
+QNR instead of Markov — is plausible but was not written out by O273 and would give only an o(L log L) remainder, weaker
+than ABH's O(L). Status of that route: CONJECTURE-level sketch, superseded by the ABH citation.
+
 ## 3. ES-five in the gluing language; the "alphabet knob" is vacuous
 
 **Lemma C (PROVED, elementary).** Let p be prime and t, u, v ≥ 2. Then `tuv − u − v = p` ⟺
