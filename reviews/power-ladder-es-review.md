@@ -105,3 +105,25 @@ Lenstra 1977 (Invent. Math. 42) was NOT accessible to me; the label CONDITIONAL 
 claim is never used (each q ≤ 10⁶ is certified). My own sanity check of non-vanishing of the density: the conditions are
 Frobenius ≠ 1 on ℚ(i) and on every ℚ(ζ_ℓ, q^{1/ℓ}); the only quadratic entanglement is ℚ(√q) ⊂ ℚ(ζ_q), and ℚ(i, √q) has
 group C₂ × C₂, so the two conditions at 2 are compatible — no obvious obstruction.
+
+### §6 TES_(k) — SOUND-AFTER-REPAIRS
+* T1₃ bit: with D = Q^k in lowest terms, v_q(z) = −k·v_q(Q) for every q | Q, so 3 | k ⇒ (N_q) of SPARKS2 §3 holds and
+  TES_(k) ⊂ TES^{□₃}; Thm 3.3 applies ✓. For 3 ∤ k the tame symbol (ωx/y)^w is unconstrained ✓ — but this proves only
+  "no T1₃ constraint FROM the mute places"; that T1₃ actually FAILS is proved only for k = 1, 2 by the exhibited Type
+  II-shaped solutions at cubes (table) — see D5.
+* Index bit: Prop 3.1 of SPARKS2 with D = Q^k fires iff Q^k ≡ −n/18 (mod g), O/g ≅ F_ℓ, index gcd(k, ℓ − 1) ✓. Every
+  class prime has ℓ ≡ 1 (18): N(g) ≡ N(10 + ω) = 91 ≡ 1 (mod 18) since g ≡ g₀ (18) ⇒ ḡ ≡ ḡ₀ (18) ✓; no inert or ramified
+  prime lies in the class (checked: p·unit ≢ 10 + ω). N(−8 + ω) = 73, 72 = 2³·3² ✓. Q may be taken rational odd (rational
+  Q cover F₇₃ and are ≡ 1 (mod 2O)), so D ≡ 1 (2) as SPARKS2 Prop 3.1 requires ✓. Lowest terms automatic: a = −1 for this
+  g, Z = −nx, and q | Q, q | x ⇒ q | ωna ⇒ q | n ✓ (verified in the script).
+* Table reproduced exactly; k = 3, cubes 0/412 is also forced by Cor 3.4 (18 never a cube mod a class prime).
+* "Finitely many fixed shots never cover TES_(2)" (CRT on quadratic classes at distinct g_i) ✓ for the g-shot family.
+  I also checked the other obvious fixed-modulus family, the x = y identity 9/n = ω/x + ω/x·ω + 2D/(nx) with
+  9x = 2D − n (ω/x + ω²/x = −1/x): it fires iff n/2 ∈ ((O/9)^×)^k; in (O/9)^× (order 54) the squares have index 2 and the
+  cubes index 27 (2 is not a cube — consistent with T1₃ at k = 3), so it does not cover TES_(2) either. So the author's
+  conclusion survives one more family, but the general wording overreaches (D6).
+
+### §7 the direct test — SOUND-AFTER-REPAIRS
+r = 3: y = n(r+1)/4 = n, e = (n + 4Q³)/3, x = (n + e)/4 = (n + Q³)/3 ✓; 1/x + Q³/(nx) = 3/n ✓; Q ≡ −n (3), odd, prime to n,
+lowest terms ✓; Type II ✓ (reproduced for all n ≤ 10⁶ prime to 3, k = 3, 5, 7). r = 11 for 3 | n ✓ (gcd(3, 10) = 1) —
+but see D4 for 33 | n. Cubic-residue direction (r ≡ 1 (3)) correctly identified as index 3, unnecessary.
