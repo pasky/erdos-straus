@@ -154,3 +154,27 @@ both are windows where −p mod m′ is confined to a fixed square class (−a²
 according to a Jacobi condition (a B1-type redistribution, the same mechanism as Lemma 3.2 with the opposite sign); N₀ and the
 convergent data (h, k) are neutral. (An earlier run with shifted controls m ± j showed spurious z ≈ 13 for N₀ — a residue-class
 artefact of the control, recorded as a caution.)
+
+## 4. Sophie-Germain levels d = k² and Burde's law (spark 4 of O263)
+
+**Proposition 4.1 (the quartic law at square levels; PROVED).** Let d = k², ℓ | p + 4k² prime, ℓ ∤ 2k.
+(a) ℓ ≡ 3 (4) ⟺ (ℓ/p) = −1 (CLASS_FORCING Prop 5.1(a): χ_{−4k²} = χ_{−4}).
+(b) For ℓ ≡ 1 (4), ℓ = c_ℓ² + e_ℓ² (c_ℓ odd): (p/ℓ)_4 = (k/ℓ) and, by Burde, (ℓ/p)_4 = (k/ℓ)·((a c_ℓ − b e_ℓ)/ℓ).
+*Proof.* (a) p ≡ −4k² (mod ℓ) and (−1/ℓ) = (ℓ/p) by QR. (b) −4 = (1 + i)⁴ is a 4th power mod ℓ ≡ 1 (4), so (p/ℓ)_4 =
+(−4k²/ℓ)_4 = (k²/ℓ)_4 = (k/ℓ). Burde (Prop 1.2(b)) since (p/ℓ) = 1. ∎ (`scripts/z35_sg_levels.py`: 32 837 triples (p, k, ℓ),
+p < 10⁶ (first 3000 primes > 1600), k ≤ 11: 0 violations of either identity.)
+*What it forces.* (b) links three things: the quadratic class of ℓ modulo k (via (k/ℓ) = (ℓ/k′)·sign, k′ the odd part — an
+element of G/G², G = (ℤ/4k²)^×), the quartic symbol (ℓ/p)_4 (a datum of p, but at the UNKNOWN ℓ), and the relative Gaussian
+angle term ((a c_ℓ − b e_ℓ)/ℓ) (a datum of the pair). There is no p-only constraint: for a witness w ≡ −1 (mod 4k²), multiplying
+(b) over ℓ | w gives (w/p)_4 = ∏_{ℓ≡1} (k/ℓ)((a c_ℓ − b e_ℓ)/ℓ) · ∏_{ℓ≡3} (ℓ/p)_4 — every factor involves ℓ. And the target
+class −1 mod k² beyond its quadratic shadow lies in G², invisible to (b). So the Sophie-Germain exception is still the
+χ-shadow (as CLASS_FORCING Prop 5.1(c) said), now with Burde's correction term made explicit; spark 4 closes negatively.
+
+**EVIDENCE 4.2 (square levels are favoured — by an abelian, not a quartic, mechanism).** `scripts/z35_sg_levels.py 1000000 100 400`
+(`logs/z35_sg_levels.txt`): 39 056 primes p ≡ 1 (4) < 10⁶, levels 100 ≤ d ≤ 400: hit rate 1.07 % at d = k² vs 0.91 % at
+non-squares with (d/p) = −1 and 0.85 % with (d/p) = +1 — squares are favoured although (k²/p) = +1 gives no forced odd
+factor (CLASS_FORCING Lemma 2.2(b)). Explanation (`scripts/z35_sg_predict.py`, `logs/z35_sg_predict.txt`): the naive
+per-level count Σ_c 1/φ(4cd − 1) is 0.0199 at squares vs 0.0168 at non-squares (ratio 1.19, observed 1.22): at d = k² the
+witnesses w = 4ck² − 1 with c = j² are differences of squares (2jk − 1)(2jk + 1), hence have more small factors and are hit
+more often. This is a Sophie-Germain-type algebraic factorisation of the *witness*, not of p — a congruence-level (B1)
+effect, and the quartic data of p do not modulate it (EVIDENCE 2.3 includes the square levels d = 1, 4, …, 36).
