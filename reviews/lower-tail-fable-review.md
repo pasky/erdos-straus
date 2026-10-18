@@ -41,3 +41,32 @@ Numerically 0 violations of either half of Lemma 2.7 on all certificates (from s
 (2.2) II and (2.3) II: count-level bijection with Type II certificates verified for every p < 400
 (`scripts/review_r286_forms.py`): #witnesses = #certificates at all 37 primes. (2.3) I follows from (1.3) by passing
 to the complementary divisor (ff′ = 4u²w + 1 ≡ 1 mod 4uw turns −p into −p⁻¹). (2.6) correct for prime e ≠ p.
+
+## Claim B — SHARP 3: Legendre form (§2.8) and mutual-shift graph (§2.9)
+
+**Verdict: GAP (MAJOR D2). The direction "(r, A) ⟹ ES(p)" is SOUND (re-proved with five explicit constructions,
+including all degenerate cases). The direction "ES(p) ⟹ ∃ (r, A)" is NOT proved — it is exactly the campaign's open
+five-slice statement ES₅ / λ(p) ≤ 3. The §2.8 table is incomplete and one row is wrong for even A (D3). §2.9: dictionary
+SOUND for ES₅ (not ES); census numbers reproduced; two descriptive errors (D5) and the graph is Astra's forest (D6).**
+
+*Dictionary.* For a pair (r, A) put a = (p+r)/A, b = (A+1)/r, c = r. Then p = abc − a − c, A = bc − 1, A* := ab − 1, and
+p/A = [[a, b, c]]; this is DEDEKIND_ES Lemma 1.1 with [[v, t, u]] = [[a, b, c]] (a, b, c ≥ 1 allowed). The five
+conditions of DEDEKIND_ES Thm 4.5 are 4 | A, 4 | A*, 4 | b, 4 | c, 4 | a. Reviewer's explicit solutions (derived
+independently, each an algebraic identity given p = abc − a − c):
+S1 (4 | A, D = A/4) 4/p = 1/(A*Dp) + 1/(aD) + 1/(A*aD); S2 (4 | A*, D = A*/4) 4/p = 1/(ADp) + 1/(cD) + 1/(AcD);
+S3 (b = 4w) 4/p = 1/(acw) + 1/(apw) + 1/(cpw); S4 (c = 4w) 4/p = 1/(wA*) + 1/(bpw) + 1/(bpwA*);
+S5 (a = 4w) 4/p = 1/(wA) + 1/(bpw) + 1/(bpwA).
+
+*From-scratch test* (`scripts/review_r286_legendre.py 3000 1200`). The set of pairs is finite and enumerated
+completely (A ≥ r − 1, and A = p + r forces r | p + 1, otherwise r ≤ p + 2): 11 655 pairs at the 211 primes
+p ≡ 1 (4) < 3000, 6 557 at the 188 non-square composites n ≡ 1 (4) < 1200, 369 at odd squares. On **every** pair,
+(A/n) = −1 (Jacobi) ⟺ some S_i applies, and every applicable S_i is an exact ES identity (0 failures; this
+re-verifies DK Thm 4.5 *including* the degenerate words a, b or c = 1, which Thm 4.5 itself does not cover — they are
+covered by DK Cor 4.6's R169 remark only for p ≡ 1 (8); for p ≡ 5 (8) the pair (r, A) = (1, 2) always exists and S2
+applies since a = (p+1)/2 ≡ 3 (4)). Every prime has a pair; no odd square does (T1 control). The 2-adic reading
+"(A/p) = −1 ⟺ A ≡ 3 (4) or r ≡ 3 (4)" for odd A, r: re-proved by reciprocity ((A/p) = (−r/A) and
+(r/A) = (−1/r)(−1)^{(r−1)(A−1)/4}) and 1 346/1 346 QNR odd pairs consistent. "r ≡ 0 (4): sign automatic" re-proved
+((r/A) = 1 because A ≡ −1 (mod r), A ≡ 3 (4)); 0 counterexamples.
+
+So "⇐" (each pair gives ES(p)) is SOUND, relative to nothing beyond the reviewer's identities S1–S5 plus Thm 4.5's
+mod-8 cell check (re-verified here on all pairs).
