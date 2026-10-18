@@ -1,0 +1,88 @@
+Source: I. D. Shkredov, arXiv:2603.14116v2 (24 Jun 2026), 'On some results of Korobov and Larcher and Zaremba's conjecture', pp.1-6 (pdftotext), read by O261 agent 2026-10-18. PREPRINT, unrefereed.
+Annotation.
+We prove, in particular, the well–known Zaremba conjecture from the theory of continued fractions
+for any prime denominator. More precisely, we show, firstly, that under some mild conditions, for any
+sufficiently large q, there exists a coprime to q such that all partial quotients of a/q are bounded by
+√
+Corollary 1. There is an absolute constant M ⩾ 2 such that for any prime (or square–free)
+number p there exists a, (a, p) = 1 such that
+a
+(5)
+= [0; c1 , . . . , cs ] ,
+cj ⩽ M ,
+j = 1, . . . , s .
+p
+Theorem 8. There is an absolute constant M such that for all M ⩾ M and any q ∈ Z there
+are at least
+q 2wM −1−o(1)
+
+(21)
+positive integers a, (a, q) = 1 with
+(22)
+Theorems 6, 7. The constant M in Theorem 8 is large, although computable; see the approximate
+calculations in Section 6. The main losses arise from the results concerning the growth in the
+modular group, where some methods of multiplicative combinatorics are used (namely, as we
+said above: the Bourgain–Gamburd machine, the affine sieve, and the Helfgott expansion result).
+Interestingly, our method would give a much better upper bound on M (though still far from
+M = 5), provided that uniform distribution results can be obtained for the set A−1 , where q
+is a prime number, A ⊆ Z/qZ is an arbitrary collection of intervals of length q 1/9−oM (1) , see
+estimates (151), (156) below. In particular, if we want to find only one a such that (22) holds,
+then the so–called first stage of the Bourgain–Gamburd machine is not required (but this is still
+necessary in the case of a general composite q). In other words, to prove Theorem 8 (but not
+Theorems 5, 6, 7) one does not in principle need the full power of multiplicative combinatorics
+(it works effectively with intervals of any size), and we can limit ourselves to working with
+The expected number of numerators a in (22) is q 2wM −1−o(1) similar to (16) and (19),
+see [21], [22], [29] or just Remark 36. The existence of q 1−o(1) such a is important for some
+applications see, for example, McMullen’s Conjecture 6.2 in [39]. In contrast to Theorems 6, 7
+in Theorem 8 our methods allow us to obtain a lower bound of the form q 1−O(1/M ) . This is, of
+course, worse than the lower bounds in (16) and (19) and cannot be explained by the technical
+
+--- Definition of Z (p. 4) ---
+(16) for the number a with small S(a). By Z denote the collection of all denominators q satisfying the conditions of Theorem 5. In other words, q ∈ Z if one of the following three conditions
+is satisfied:
+• q = pα1 1 . . . pαs s , where pj are sufficiently large primes.
+• q = p1 . . . ps , where pj are primes and q is sufficiently large.
+• q = pn , where p is any prime and n is a sufficiently large number.
+In particular, we assume that q is a sufficiently large number. Here and everywhere, by “sufficiently large” we mean the existence an absolute constant such that q (or other quantities)
+is greater than this constant. Note that the set Z has positive density (at least 6/π 2 , but not
+density equal to one, as in the “almost all” result of Bourgain and Kontorovich, see [7], [8]) and
+includes all sufficiently large primes. Finally, the important quantity wM is the the Hausdorff
+dimension of the set {α = [0; c1 , c2 , . . . ] ∈ [0, 1] : ∀cj ⩽ M }, see formula (27) below.
+--- Theorem 8 (p. 6) incl. (22) ---
+Theorem 8. There is an absolute constant M such that for all M ⩾ M and any q ∈ Z there
+are at least
+q 2wM −1−o(1)
+
+(21)
+positive integers a, (a, q) = 1 with
+(22)
+
+a
+= [0; c1 , . . . , cs ] ,
+q
+
+cj ⩽ 100M ,
+
+--- Theorem 12 (p. 8) ---
+Let M ⩾ 1 be an integer. Consider the set of real numbers FM , having all partial quotients
+bounded by M . It is well–known [23], that for any M the Lebesgue measure of the set FM is
+zero and its Hausdorff dimension wM := HD(FM ) is wM = 1 − O(1/M ), as M → ∞. Good
+bounds and asymptotic formulae on wM are contained in papers [19], [20]. In particular, in [20]
+Hensley obtained the following result.
+
+8
+
+I.D. SHKREDOV
+--- Lemma 13 (p. 8) ---
+Lemma 13. Let t ⩽ q. Then for some absolute constants c1 , c2 > 0 one has
+G
+G
+ZM (t) = I1 · · · IT ,
+c1 t2wM ⩽ T ⩽ c2 t2wM ,
+where Ij are some disjoint intervals and for all j ∈ [T ] the following holds
+
+
+8(M + 1)q
+2
+[q/t ] ⩽ |Ij | ⩽
++1 .

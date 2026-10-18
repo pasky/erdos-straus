@@ -1,0 +1,5 @@
+URL: https://arxiv.org/html/1911.07487v1
+
+“for any prime p there is a divisible by p number q = O(p^{30}) such that for a certain positive integer a coprime with q ...”
+
+More precise interpretation in the paper: q is the denominator, p | q, and a/q has all partial quotients bounded by an absolute constant; the paper's main theorem gives the bound on q and a finite alphabet.

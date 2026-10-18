@@ -1,0 +1,3 @@
+URL: https://arxiv.org/abs/2112.03726 (Theorem 2 visible in arXiv v2 PDF)
+
+“Theorem 2. If A ⊂ N has positive upper density (and hence certainly if A has positive density) then there is a finite S ⊂ A such that ∑_{n∈S} 1/n = 1.”

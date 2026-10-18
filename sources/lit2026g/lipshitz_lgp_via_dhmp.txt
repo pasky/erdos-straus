@@ -1,0 +1,17 @@
+Source: Défossez-Haase-Mansutti-Pérez, 'Integer programming with GCD constraints', arXiv:2308.13609 (SODA 2024), abstract + pp.2-3 (pdftotext), read by O261 agent 2026-10-18. Statement of Lipshitz's (Trans. AMS 235 (1978)) local-to-global principle as reported there.
+length. It was shown by Lipshitz [Trans. Am. Math. Soc., 235, pp. 271–283, 1978] that this theory adheres to a local-to-global principle in the following sense: a formula Φ is equi-satisfiable
+with a formula Ψ in this theory such that Ψ has a solution if and only if Ψ has a solution
+modulo every prime p. We show that in our fragment, only a polynomial number of primes of
+i=1 fi (x) | gi (x) for linear polynomials fi and gi , Lipshitz’ algorithm ﬁrst
+computes from Φ an equi-satisﬁable formula Ψ in so-called increasing form. Informally speaking, Ψ
+is in increasing form whenever Ψ is a system of divisibility constraints augmented with constraints
+imposing a total (semantic) ordering on the values of the variables in Ψ, and whenever the largest
+variable with respect to that ordering occurring in any non-trivial divisibility f | g implied by Ψ only
+appears in the right-hand side g. For instance, the system x < y ∧ x + 1 | y − 2 is in increasing form,
+but adding x + 1 | x + y results in a non-increasing system, since x + 1 | y − 2 ∧ x + 1 | x + y implies
+Returning to Lipshitz’ approach, the key property of existential Ldiv formulae in increasing form
+is that they enable appealing to a local-to-global property: Lipshitz shows that any Φ in increasing
+form has a solution over Z if and only if Φ has a solution in the p-adic integers Zp for every prime p
+belonging to a ﬁnite set of diﬃcult primes P+ (Φ), the other primes being “easy” in the sense that a
+p-adic solution for them always exists and that they do not inﬂuence the bit length of the minimal
+solution of Φ. In order to combine the p-adic solutions to an integer solution of Φ, Lipshitz invokes
