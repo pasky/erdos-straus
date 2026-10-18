@@ -24,7 +24,7 @@ B3: the theorem rung is exactly where the certificate set has positive density; 
 non-residues), and the proof's false-at-m² step is "#non-residues = (p − 1)/2"; B6 not involved (pointwise).
 
 ## Cheap numerics (`scripts/z36_ladder.py`, `scripts/z36_thmA_check.py`)
-At p ≈ 10⁶: |S₃| = 121, |S₈| = 19037, |S_{13}| = p^{0.85}, median r = 26 ≈ 1.9 log p; the inequality
+At p ≈ 10⁶ (true HJ lengths; R276 repair D2 — the first version used the false formula r = 1 + Σ_{i odd} a_i, which is only an upper bound): |S₃| = 143, |S₈| = 21761, |S_{13}| = p^{0.86}, median r = 25 ≈ 1.8 log p; the inequality
 #{(a, i) : c_i ≥ k} ≤ 2(p/k)(1 + log p) holds with ratio ≤ 0.51 at p = 11 … 10⁶; at 997² the same set sizes but no −1.
 
 ## Assessment

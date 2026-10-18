@@ -12,7 +12,7 @@ every even n ≥ 16 except 510). R174 checked to 10⁹.
 ## Content
 At each t the event is a B2 divisor event (tn + 1 has a divisor ≡ −1 (mod t) with cofactor ≥ 2t − 1); the t ≡ 0 (4)
 sub-union is the (★) line. With all t allowed the union is far more robust (12 exceptions ≤ 2·10⁶ vs 14 for (★) ≤ 10¹⁰),
-but no pointwise mechanism is known for odd n. T1: odd squares are *not* exceptions here (L₃(997²) has 97 words): the
+but no pointwise mechanism is known for odd n. T1: no odd square > 9 is an exception here (1 and 9 are; R276 repair D8) (L₃(997²) has 99 words): the
 character is what makes ES T1-bearing; the length is what makes it a lottery.
 
 ## Cheap numerics (`scripts/z36_numfree.py 2000000`)

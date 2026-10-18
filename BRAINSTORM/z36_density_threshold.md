@@ -7,7 +7,7 @@ arXiv:2605.02518v2) so that any ES transfer can be screened by one number. Detai
 ## Literature (read in the arXiv PDFs, 2026-10-18)
 * Shkredov Lemma 13 (Cantor structure Z_M(t) = ⊔ intervals of length ≥ q/t²), Cor 16 (|A ∩ B^{−1}| = |A||B|/q +
   O(√(|A||B|)N^{−κ}) for A, B = Λ ∔ [N]), §5.1 (t = q^{1/2−ε}, N = q^{2ε}, condition (132)–(133) ε ≫ 1/M), (151)/(156)
-  ε < 1/18, Appendix (158) M = 22000 for primes, κ ≥ 2^{−1656}.
+  ε < 1/18, Appendix (158) M = 2^{2000} for primes (R276 repair D1: was misread as 22000), κ ≥ 2^{−1656}.
 * Zhang Thm 3.6 ((a + 2j)(b + 2j) ≡ 1, j ≤ N = q^{2τ}; main term φ(q)|A||B|N/q², error q^ε|A||B|N^{1−η}), (3.8) τη > 1/M,
   Remark 1.3 ("Lowering this bound to 5 … requires a new idea"), Remark 1.4 (q-dependent generating set, |S| ≈ q^{2τ}).
 
@@ -15,7 +15,7 @@ arXiv:2605.02518v2) so that any ES transfer can be screened by one number. Detai
 Main term beats error iff |A|N^{κ} ≫ q (Shk (132)) with |A| ≍ q·t^{2w−2}: ε ≳ (1−w)/(2(κ+1−w)); the middle-window analysis
 needs ε ≤ ε₀ = 1/18. Together: **1 − w ≤ κ/8** (16(1 − w) ≤ 2κ at ε = 1/18), i.e. the half sets must have density ≥ q^{−O(κ)}.
 The campaign's barrier M1 ("power-size main term") is too weak a description: Zaremba with M = 5 has a power count
-q^{0.67} and is still out of reach. Sharpened: **M1⁺ — the two glued sets have density q^{−o_κ(1)} at the gluing scale.**
+q^{0.67} and is still out of reach. Sharpened: **M1⁺ — the two glued sets have density ≥ N^{−κ} = q^{−2κε} at the gluing scale** (a fixed tiny power; R276 repair D4a). Constants: 1 − w ≤ κ/8 is the §5.1/(151) idealisation; the Thm 8 proof counts at scale N^{1/10} with M∗ ≥ 40M, so in general 1 − w = O(κ) (R276 repair D4b).
 
 ## Barrier screen
 B3 (scale): ES-five has effective dimension w = 1/2 exactly (|S_{≤3} ∩ [scale t]| ≍ p/t); the threshold needs
