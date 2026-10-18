@@ -194,13 +194,13 @@ squares — a "reciprocity singular series". Neither ingredient exists. (Zaremba
 obstruction, RS p. 7, so there is no conflict between RS and Shkredov/Zhang to explain.)
 
 **Question R (spark; well-posed, open, one level closer to ES than Zaremba).** For a finitely generated Γ ⊆ Ψ with
-δ_Γ > 1 − κ/8 (exists by the *proof* of RS Thm 2.10, which gives Ψ₁ ⊆ Γ′_n ⊆ Ψ, RS p. 24; R276 repair D3e), is every sufficiently large admissible non-square prime a denominator of Γ(x, y)?
+δ_Γ > 1 − O(κ) (exists by the *proof* of RS Thm 2.10, which gives Ψ₁ ⊆ Γ′_n ⊆ Ψ, RS p. 24; R276 repair D3e), is every sufficiently large admissible non-square prime a denominator of Γ(x, y)?
 A growth proof of this would be the first proof of a thin-orbit local–global statement *with* a reciprocity obstruction,
 i.e. of the structural type of ES-five; ES itself would still be the critical (δ = 1/2, fixed-length) case, out of reach (§2–§4).
 
 ## 6. Verdict (Assessment) and exact scope
 
-* **Method (§1).** The 2026 Zaremba proofs need half sets of density q^{−O(κ)} at the gluing scale (1 − w ≤ κ/8,
+* **Method (§1).** The 2026 Zaremba proofs need half sets of density q^{−O(κ)} at the gluing scale (1 − w = O(κ), idealised κ/8;
   ε < 1/18) — "M1⁺", stronger than a power-size count.
 * **Ladder (§2, §4).** In CF coordinates ES-five is rung L = 3 of λ(p) ≤ L. Rung L ≍ log p log log p is a theorem by
   pigeonhole (Thm A, known in substance). Rung L ≍ M log p would follow from ZQ_M (Thm B), which the 2026 method does not
