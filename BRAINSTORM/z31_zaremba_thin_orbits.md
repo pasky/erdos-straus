@@ -62,16 +62,17 @@ SL₂(ℤ/qℤ). Three inputs are essential, and B2 lacks each:
   ES hyperbola form (E5) the exact height c = (Xε − u)/p is part of the target class X ≡ −1 (mod 4cu); in the CF form the
   modulus is fixed (p), but the price is that the admissible set is a finite-length word set — F3 has been traded for F2.
   (This trade is exactly SYNTHESIS_SPARKS8 Prop 1.4: linearising the Farey least-residue returns the window form.)
-* **Character condition (F6).** ES-five also needs (A/p) = −1. With a power-size Zaremba set this would be cheap (a set of
-  size q^{1−ε} cannot lie in the residues for structural reasons once it equidistributes in cosets); with a polylog set it is
-  the whole problem (T1: at squares the condition is void).
+* **Character condition (F6).** ES-five also needs (A/p) = −1. With a power-size set that equidistributes in ℤ/pℤ (as the
+  growth methods give) a non-residue would plausibly come for free (Assessment, not checked against Shkredov's proof); with a
+  polylog set it is the whole problem (T1: at squares no non-residue exists, so the condition is void).
 So the Shkredov–Zhang mechanism transfers to **"ES with a Zaremba-sized menu"** — e.g. ES-type statements whose certificate
 set at p has dimension > 1/2 — but no such menu is ES: every ES certificate set is a d₃-size divisor sum (critical).
 
 **Sharp check of the brief's question ("Zaremba is a pointwise problem with polylog-ish counts").** It is not: at fixed M the
 per-q count is q^{2w_M − 1} (power; for M = 5, w_5 > 5/6 (BK p. 6, citing Jenkinson), so ≥ q^{2/3}). The polylog regime
 is δ = 1/2 exactly, and **no thin-orbit local–global theorem at δ = 1/2 is known** (research agent found none; BK's own
-Conj 1.7 requires δ_A > 1/2; Hensley's δ > 1/2 conjecture was disproved by BK for congruence-obstructed alphabets).
+Conj 1.7 requires δ_A > 1/2 and admissibility; BK p. 3 show Hensley's Conj 1.3 ("D_A contains every large integer iff
+ δ_A > 1/2") false as stated, e.g. A = {2, 4, 6, 8, 10}, a failure traced to local (congruence) structure of Γ_A mod q, BK Remark 1.31).
 
 ## (d) Verdict: ANALOGUE (same shape "∃ numerator mod p with CF in a digit set", opposite digit regime).
 Not EQUIVALENT, not INSTANCE. Transfer verdict: **NOT SHARP** for ES; **SHARP as a fact the campaign should record**: as of
