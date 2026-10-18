@@ -45,3 +45,40 @@ Defects:
    hints at. Repair: one sentence.
 3. **MINOR** (§6 ledger): record arXiv version status (Shkredov v2 24 Jun 2026, Zhang v2 8 May 2026, latest as of
    2026-10-18; not withdrawn; unrefereed).
+
+## Claim (3) — PROVED dictionaries: Lemma 7.1 (z31_logic_divisibility) and Lemma 4.1 (z31_duke_equidistribution)
+
+**Verdict: Lemma 4.1 SOUND. Lemma 7.1 SOUND (as stated), but MINOR wording overreach in B2_ACROSS_FIELDS table row 7.**
+
+From-scratch script: `scripts/review_r273_dictionaries.py` (no reuse of scripts/o261/). Run:
+`PYTHONPATH=scripts uv run python scripts/review_r273_dictionaries.py 200000` (≈ 1 min).
+
+*Lemma 7.1.* Re-derived. (i) For w | p + 4d the largest variable must occur only on the right ⇒ d ≻ w; for 4d | w + 1 ⇒ w ≻ d;
+contradiction, so Φ_p is not in increasing form under any ordering. ✓ (ii) Local witnesses: d = 1, w = 3 (unit in ℤ_ℓ, ℓ ≠ 3) and
+d = 1, w = 7 (unit in ℤ₃); 4 | 4, 4 | 8. ✓ Trivially correct (any divisibility f | g with f a free variable is ℓ-adically solvable
+by making f a unit). Global: my search, with **no** a-priori bound on d (all d ≤ p, all divisors of p + 4d), finds E2 failing
+among p ≡ 1 (4), p ≤ 2·10⁵ at **exactly {193, 2521, 66529}** ✓, and independent brute force gives ES(193) = (50, 1380, 1331700),
+ES(2521) = (636, 69748, 131876031) ✓ (so E2-failure ≠ ES-failure, as the doc says). The author's d ≤ (p + 3)/8 is right
+(p + 4d odd ⇒ proper divisor w ≤ (p + 4d)/3, and w ≥ 4d − 1). The 10¹¹ census is (J)90's, not re-checked.
+
+*Lemma 4.1.* Re-derived by hand: ρ = (2k)⁻¹ mod g gives ρ² ≡ 1/(4k²) ≡ −p (mod g) because 4k²p ≡ −1; det γ = −gs + 2kρ = 1;
+γz = i√p·g/(1 − 2ki√p) = (−2kp + i√p)/m' ✓; z is the Heegner point of the primitive form (g, 2ρ, (ρ² + p)/g), disc −4p ✓.
+Ideal side: ℤ[√−p] is maximal (−p ≡ 3 mod 4); α = 1 + 2k√−p is primitive, so for each ℓ^e ‖ g | Nα only one prime above ℓ
+divides α and the ideal divisor of norm g exists and is unique: (g, √−p + ρ). ✓ Numerically: brute-force enumeration of *all*
+ideals I = c(aℤ + (b + √−p)ℤ) of ℤ[√−p] containing α (p < 1200, k ≤ 6) — every ideal divisor has c = 1, one ideal per divisor
+of Nα, and the norms ≡ −1 (mod 4k) coincide exactly with the shot moduli g (522 shots, 0 mismatches). I also re-derived the
+explicit ES triple of a shot, y = ph, x = (ph + (h/k)²)/g, z = p(h + pk²)/g (h = (g + 1)/4), and checked 4/p = 1/x + 1/y + 1/z
+exactly on all 522 shots — so "shot" is a genuine ES solution family. (J)36 re-check: p = 13, 37, 97 have no shot with
+k ≤ p + 2 (finite k-range evidence; the full claim is (J)36's).
+
+Defects:
+4. **MINOR** (B2_ACROSS_FIELDS table row 7 and §5 "its LGP fails"): Lipshitz's LGP is a *theorem* about increasing-form
+   systems; it cannot "fail". What Lemma 7.1 shows is that the naive local-global statement for Φ_p itself (no reduction to
+   increasing form) is false, and that this is unsurprising: local solvability of Φ_p is vacuous (any divisibility with a free
+   variable divisor is ℓ-adically solvable by a unit). Repair: "Φ_p is not in increasing form, and the naive LGP for Φ_p is
+   false (local solvability is vacuous; global fails at 193, 2521, 66529)". Also say explicitly that Lipshitz's procedure
+   *does* produce an equi-satisfiable increasing-form Ψ (by case splits), so "not increasing form" is not an obstruction to
+   decidability — memo 7 says this, the main doc table does not.
+5. **MINOR** (z31_duke Lemma 4.1 statement): the converse direction should state that g ≡ −1 (mod 4k) automatically gives
+   g ≡ 3 (mod 4), gcd(g, p) = 1, g ≠ 1, g ≠ Nα (since Nα ≡ 1 mod 4k) — all true, but these are the E4 side conditions and the
+   ⟸ direction silently needs them. One line.
