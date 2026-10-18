@@ -130,7 +130,7 @@ factor vanishing at the admissible squares. The natural candidate (not proved to
 `1 − ∏_p 1[n ∈ ℚ_p^{×2}]` (Hasse principle for squares): 1 minus a product of local square indicators, not an Euler
 product.
 (iii) In the twisted count R_σ(n) = −Σ_{a∈G(n)} (a/n), the character has conductor = the squarefree part of n (R278 repair: not the "kernel")
-(up to 2): for n = m²k it is (·/k) on units mod m. *(Assessment only, self-review repair:)* for squarefree kernel k
+(up to 2): for n = m²k it is (·/k) on units mod m. *(Assessment only, self-review repair:)* for squarefree part k
 large this character has large conductor, suggesting that a circle-method treatment would meet the reciprocity term
 away from the major arcs; but for n = km² with k small (and at squares, where it is principal) the conductor is small,
 and identifying a numerator-character conductor with a denominator-arc parameter needs a Fourier analysis not done here.
