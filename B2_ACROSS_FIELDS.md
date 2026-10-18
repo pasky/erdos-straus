@@ -115,8 +115,8 @@ have no central-limit behaviour for Bloom's Fourier step to exploit. Verdict ANA
 | M3 homogeneity / group action on solutions | strong approximation for groups, Chen/BGS, Zagier windmill | U_n not homogeneous; finite automorphism group; T1 parity |
 | M4 freedom to choose the objects | AGP Carmichael, Bloom/Croot, Graham's recursion, fibration methods | F1: p and K = (p+q)/4 are forced |
 The 2026 Zaremba theorems are the sharpest test of this pattern: a pointwise theorem in a CF/thin-orbit problem by growth
-(M1 + M2), whose ES analogue keeps M2 but provably has no M1 (the HJ-length-3 set is the only ES certificate set in that
-coordinate). This is a sharpened restatement of the campaign's B3 (scale) and B2 (tied modulus) barriers, not a new
+(M1 + M2), whose ES-five analogue keeps M2 but has no M1 (in that coordinate the ES-five certificate set is exactly the
+set of HJ-length ≤ 3 numerators, DEDEKIND_ES Cor 4.6, of size ≍ log² p). This is a sharpened restatement of the campaign's B3 (scale) and B2 (tied modulus) barriers, not a new
 obstruction theorem.
 
 **No field offered a SHARP transfer.** One spark for the parent (not pursued): if Shkredov–Zhang hold, is there any ES

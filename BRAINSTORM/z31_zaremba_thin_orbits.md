@@ -56,8 +56,8 @@ SL₂(ℤ/qℤ). Three inputs are essential, and B2 lacks each:
   count q^{2w_M−1} → q^{1−O(1/M)}. Shkredov buys this by taking M large (w_M → 1). In ES the alphabet cannot be enlarged: the
   ES digit set is fixed at HJ length 3 (dimension 0), so the halves have p^{o(1)} elements and the gluing count is ≍ log² p.
   Growth theorems (Helfgott/BG) need sets of size ≥ q^{ε}; a set of size polylog in ℤ/pℤ has no growth input at all.
-  BLOCKED by F2 — not merely quantitatively: the ES digit set has no "M" knob (DEDEKIND_ES Cor 4.6: longer HJ words are
-  not ES certificates).
+  BLOCKED by F2 — not merely quantitatively: the ES digit set has no "M" knob (DEDEKIND_ES Cor 4.6: ES-five ⟺ λ(p) ≤ 3;
+  longer HJ words carry no certificate in that dictionary).
 * **Fixed modulus (F3).** In Zaremba the gluing congruence is mod q and the exact denominator is automatic (a ∈ [1, q)). In the
   ES hyperbola form (E5) the exact height c = (Xε − u)/p is part of the target class X ≡ −1 (mod 4cu); in the CF form the
   modulus is fixed (p), but the price is that the admissible set is a finite-length word set — F3 has been traded for F2.
