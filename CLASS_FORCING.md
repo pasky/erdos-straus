@@ -100,3 +100,45 @@ seen only by p mod 4d itself. Last column: classes x ≡ 1 (4) (the possible [p]
 generated subgroup is not the subset-product set. **Criterion from total-product data alone: E(p + 4d, 4d) is forced iff
 [p] = −1 in G, which never happens for p ≡ 1 (4)** (it would need p ≡ 3 (4)); this is z29(b) in its strongest form: knowing
 the FULL class (not just characters) changes nothing.
+
+## 3. Individual factors: the strongest forced-factor lemma and the exact forced criterion
+
+Write N = s·L with s the B-smooth part (prime factors ≤ B, known from p mod M_B, M_B := ∏_{q ≤ B} q^{e_q}, e_q large) and L the
+B-rough cofactor (class g_L := [N]·[s]⁻¹ ∈ G known, factorisation unknown).
+
+**Lemma 3.1 (forced-factor lemma, strongest form; PROVED, trivial).** Let S be a multiset in an abelian group G with product g.
+For every homomorphism φ : G → A, Σ_{x∈S} φ(x) = φ(g). Consequently for every subgroup H ∌ g some x ∈ S lies outside H
+(for t ∤ … : "N ≡ a (mod t), a ∉ H ⟹ some prime factor ∉ H"; the case H = ker χ₋₄ is "N ≡ 3 (4) ⟹ a prime ≡ 3 (4)").
+Nothing more is forced: **(realisability)** for every multiset S′ ⊂ G with product g there are integers N′ ≡ N (mod t) whose
+prime factors have exactly the classes S′ — in particular N′ prime (S′ = {g}).
+*Proof.* Product formula; for realisability take primes in the prescribed classes (Dirichlet) and adjust nothing: their
+product has class g. ∎
+So the forced content of the total product on Σ is {1, g}, and with the smooth part known it is Σ(s) ∪ Σ(s)·g_L.
+
+**Proposition 3.2 (exact forced criterion; PROVED).** Call E(N, t) *forced by (p mod M)* if it holds for every abstract
+factorisation of L compatible with the known data (Lemma 3.1). Then
+  E(N, t) is forced  ⟺  −1 ∈ Σ(s) ∪ Σ(s)·g_L   (signed version: −1 ∈ Σ^±(s)·{1, g_L, g_L⁻¹}),
+and this is a condition on p mod lcm(t, M_B): a finite union of residue classes (B1). If in addition the images ā_i ∈ G/H of the
+k prime factors of L were known (a hypothetical input; §5 shows reciprocity does not supply it), forcing ⟺ for every lift
+(a_i) ∈ ∏ ā_i with ∏ a_i = g_L, −1 ∈ Σ(s)·Σ(a_1, …, a_k): a finite check, and for |H| ≥ 3 and k ≥ 2 it can still fail for every
+choice of images (the adversary has k − 1 free coordinates).
+*Proof.* ⟸: the subset product is realised by a divisor (a subset of the small primes, possibly times L). ⟹: L prime is
+compatible (Lemma 3.1), and then Σ(N) = Σ(s) ∪ Σ(s)·g_L exactly. ∎
+
+**3.3 Choosing d to force small factors is the ET Type II covering.** "Choose d from p's residue data so that N_d has forced
+factors in chosen cosets": the only forced factors are small primes q | N_d ⟺ d ≡ −p·4⁻¹ (mod q). A certificate built
+from them (Prop 3.2 with L unused) is a B-smooth w ≡ −1 (mod 4d) with w | p + 4d, i.e. **d | (w + 1)/4 and p ≡ −4d (mod w)**: a
+classical ET Type II residue class (B1). Using L as well gives the classes of Prop 3.2. Either way a finite congruence covering.
+
+**Theorem 3.4 (the forced rule never fires at the point n = 1; PROVED, unconditional).** Fix B, D. Let
+M := lcm(4D!, ∏_{q ≤ B} q^{e_q}) with q^{e_q} > 4D(D + 1). For every prime p ≡ 1 (mod M) and every line of §1 with level
+d, c ≤ D (resp. e ≤ D), the forced criterion of Prop 3.2 fails. Hence (Dirichlet) every "forced-factor" rule with bounded
+levels and bounded small primes misses infinitely many primes — namely a full residue class.
+*Proof.* p ≡ 1 (M) makes the smooth part of N and the class of L coincide with those of the integer N₁ obtained at "p = 1":
+p + 4d ↦ 1 + 4d, cp + 1 ↦ c + 1, (p + e)/4 ↦ (1 + e)/4, (pe + 1)/4 ↦ (e + 1)/4 (the exponents e_q exceed the valuations of
+these numbers; t | M). So Σ(s) ∪ Σ(s)·g_L is the set of classes of divisors of N₁. A divisor v of 1 + 4d with v ≡ −1 (mod 4d)
+satisfies v ≤ 4d + 1, so v = 4d − 1, and 4d − 1 | 4d + 1 ⟹ 4d − 1 | 2: impossible. Likewise c + 1 has no divisor ≡ −1 (mod 4c)
+(4c − 1 > c + 1), and ab | (1 + e)/4 with a ≡ −b (mod e) needs e | a + b ≤ (1 + e)/4 + 1 < e. ∎
+*Reading.* This is JOINT_BUDGET Prop 4.3's "modulo divisors of p − 1, p looks like 1, and 4/1 has no solution" made into a
+statement about forced factors; it is the b = 1 / c-line / e-slice specialisation of LONGSHOT_PIGEONHOLE Thm 2.2 and
+POINTWISE_SIZE Thm C, here with an exact, elementary proof and an explicit residue class (no density statement needed).
