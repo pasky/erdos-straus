@@ -4,19 +4,19 @@ Reviewer branch side-agent/review-power-ladder (merged side-agent/power-ladder-e
 from-scratch (scripts/review_r287_*.py, logs/review_r287_*.txt); the author's scripts were read only to learn the
 TES 2-primary normalisation convention.
 
-## Summary verdicts (filled in progressively)
+## Summary verdicts
 
 | Claim | Verdict |
 |---|---|
-| Def 1.1 / Remark 1.2 (exact definition, lowest terms forced) | (pending) |
-| Thm 2.1 / Cor 2.2 (odd k: mod-4 covering, T1 dead) | (pending) |
-| Thm 2.3 / Lemma 2.4 / Cor 2.5 (even k = ES^□; all n) | (pending) |
-| Prop 3.1 (index formula; repair of (J)107 §3.2) | (pending) |
-| §4 cap relation | (pending) |
-| Thm 5.1 / CERTIFIED / Prop 5.2 (one mute prime) | (pending) |
-| §6 TES_(k) bits + EVIDENCE table | (pending) |
-| §7 fixed shot r = 3, 11 | (pending) |
-| §2.3 / §7 numerics | (pending) |
+| Def 1.1 / Remark 1.2 (exact definition, lowest terms forced) | **SOUND** |
+| Thm 2.1 / Cor 2.2 (odd k: mod-4 covering, T1 dead) | **SOUND** (MINOR D2, D3) |
+| Thm 2.3 / Lemma 2.4 / Cor 2.5 (even k = ES^□; all n) | **SOUND** |
+| Prop 3.1 (index formula; repair of (J)107 §3.2) | **SOUND** (formula PROVED; repair is a fair Assessment) |
+| §4 cap relation | **SOUND** |
+| Thm 5.1 / CERTIFIED / Prop 5.2 (one mute prime) | **SOUND** (Lenstra not accessed; CONDITIONAL label adequate) |
+| §6 TES_(k) bits + EVIDENCE table | **SOUND-AFTER-REPAIRS** (MINOR D5, D6) |
+| §7 fixed shot r = 3, 11 | **SOUND-AFTER-REPAIRS** (MINOR D4) |
+| §2.3 / §7 numerics | **SOUND** (every number reproduced from scratch) |
 
 ## Numerical reproduction (from scratch)
 * `scripts/review_r287_flat.py 1000000` (42 s, `logs/review_r287_flat_1e6.txt`): own implementation, exact Fraction check of
