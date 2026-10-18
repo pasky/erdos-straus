@@ -1,5 +1,6 @@
 """O266: HJ-length ladder at fixed p.  For n (prime or odd square) compute r(n/A) for all A in [1,n), gcd(A,n)=1,
-via r(n/A) = 1 + sum_{i odd} a_i of the regular CF n/A = [a0; a1, ...].  Reports
+via the corrected formula (R276 repair) r(n/A) = 1 + sum_{i odd} a_i - [s odd] for the canonical regular CF
+n/A = [a0; a1, ..., a_s] (a_s >= 2); self-tested against the HJ recursion for n < 300 on every run.  Reports
   |S_L(n)| for L = 2..8 and at L = c*log n, QNR fraction inside S_L, lambda(n), median r, and the pigeonhole level
   L_half(n) = least L with |S_L| > (n-1)/2  (Theorem A rung).
 Usage: z36_ladder.py N1 N2 ...  (each n analysed fully; vectorised numpy, O(n log n)).
@@ -22,10 +23,27 @@ def hj_lengths(n):
             r += q
         if i >= 1:
             tot += q
+        last = np.where(alive, i, last) if i else np.zeros_like(A)
         x, y = np.where(alive, y, x), np.where(alive, x - q * np.where(alive, y, 0), 0)
         alive = y > 0
         i += 1
+    r -= (last % 2 == 1)            # R276 repair: drop 1 when the canonical CF has odd last index s
     return A, r, tot
+
+
+def hj_rec(n, A):
+    r = 0
+    while A:
+        b = -(-n // A); n, A = A, b * A - n; r += 1
+    return r
+
+
+def selftest():
+    for n in range(2, 300):
+        A, r, _ = hj_lengths(n)
+        for a, rr in zip(A.tolist(), r.tolist()):
+            if np.gcd(a, n) == 1:
+                assert rr == hj_rec(n, a), (n, a, rr, hj_rec(n, a))
 
 
 def jacobi_vec(A, n):
@@ -79,5 +97,6 @@ def analyse(n):
 
 
 if __name__ == "__main__":
+    selftest()
     for a in sys.argv[1:]:
         print(analyse(int(a)), flush=True)

@@ -3,12 +3,20 @@
 import sys, math
 
 def r_hj(n, a):
+    # true HJ length (R276 repair): 1 + sum_{i odd} a_i - [last index s odd]
     r, i, x, y = 1, 0, n, a
     while y:
         q = x // y
         if i % 2 == 1: r += q
         x, y = y, x - q * y; i += 1
+    return r - ((i - 1) % 2)
+
+def _hj_rec(n, A):
+    r = 0
+    while A:
+        b = -(-n // A); n, A = A, b * A - n; r += 1
     return r
+
 
 def jacobi(a, n):
     a %= n; res = 1
@@ -22,6 +30,7 @@ def jacobi(a, n):
     return res if n == 1 else 0
 
 N = int(sys.argv[1])
+assert all(r_hj(n, a) == _hj_rec(n, a) for n in range(2, 200) for a in range(1, n) if math.gcd(a, n) == 1)
 sieve = bytearray([1]) * (N + 1); sieve[0] = sieve[1] = 0
 for i in range(2, int(N ** 0.5) + 1):
     if sieve[i]: sieve[i * i::i] = bytearray(len(range(i * i, N + 1, i)))
