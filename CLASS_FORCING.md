@@ -250,9 +250,10 @@ form. At a prime the same factors have χ_{−4d}(ℓ) = (ℓ/p): T1 vs prime is
 **Corollary 5.3 (even perfect class-group knowledge of each factor gives only the χ-shadow; PROVED from WINDMILL Prop 10.3 /
 Remark 10.4).** Let K = ℚ(√−tp) and let the prime factors ℓ of tp + 1 (or of any line's N, via the divisor hypercube of a fixed
 principal ideal) correspond to ideals 𝔩. In 1 → (O/t)^×/im O^× → Cl_{(t)}(K) → Cl(K) → 1 the norm homomorphism
-Cl_{(t)}(K) → G sends the kernel onto G² (norms x² + tpy² ≡ x² mod t). Hence knowing [𝔩] ∈ Cl(K) for every factor — the most
-that 2^∞-class-group methods (Rédei, Smith, Koymans–Pagano governing fields) could ever deliver — determines ℓ mod t only in
-G/G². The class w ≡ −1 (mod t) lives in the G²-part, i.e. in the generators, not in the ideal classes. ∎
+Cl_{(t)}(K) → G sends the kernel, at every odd prime power ℓ^k ∥ t, onto the squares (norms x² + tpy² ≡ x² mod ℓ^k, ℓ | tp
+ramified). Hence knowing [𝔩] ∈ Cl(K) for every factor — the most that 2^∞-class-group methods (Rédei, Smith, Koymans–Pagano
+governing fields) could ever deliver — determines the odd-part class of ℓ mod t only modulo squares (the 2-part contributes at
+most the characters mod 8; Prop 10.3 is stated for odd ℓ | t). The class w ≡ −1 (mod t) lives in the G²-part, i.e. in the generators, not in the ideal classes. ∎
 
 ## 8. Construction attempts (iteration log, each with the barrier hypothesis it hit and the modification tried)
 * C1 total class → divisor: dies on realisability (N prime). Modification: individual factors (C2).
