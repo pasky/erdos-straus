@@ -1,0 +1,105 @@
+Source: M.-C. Chang, 'Partial quotients and equidistribution' (preprint, math.ucr.edu/~mcc/paper/141 Partial.pdf), pp. 1-5, pdftotext, read by O266 agent 2026-10-18.
+     PARTIAL QUOTIENTS AND DISTRIBUTION OF SEQUENCES
+
+
+                                        1
+                                      Mei-Chu Chang
+                                Department of Mathematics
+                                 University of California
+                                   Riverside, CA 92521
+                                    mcc@math.ucr.edu
+
+
+Abstract.
+   In this paper we establish average bounds on the partial quotients of fractions b/p, with
+p prime and b from a multiplicative subgroup of (Z/pZ)∗ . As a consequence, we obtain
+estimates for the partial quotients of b/p, for ’most’ primitive elements b. Our result
+improves upon earlier work due to G. Larcher. The behavior of the partial quotients of b/p
+is well known to be crucial to the statistical properties of the pseudo-congruential number
+generator (modp). As a corollary, estimates on their pair correlation are refined.
+
+§1. Introduction.
+   Let x ∈ [0, 1] be a real number with continued fraction [RS]
+                                          1
+                                    x= a + 1             = [a1 , a2 , . . . ].
+                                            1
+                                                     .
+                                                a 2 +.
+                                                     .
+Denote {ai (x)}i the partial quotients {a1 , a2 , · · · } ⊂ Z+ of x.
+   It was proven by G. Larcher [L] that given a modulus N , there exists
+1 ≤ b < N , (b, N ) = 1 such that
+                              X ³b´
+                                  ai     < c log N log log N.                                              (1.1)
+                                i
+                                     N
+1 partially supported by NSF.
+
+2000 Mathematics Subject Classification. 11K, 11L, 11J, 11B.
+Keywords:   partial quotients of continued fractions,                  distribution   of   sequences   modulo   1.
+
+
+
+
+                                                                                            Typeset by AMS-TEX
+                                                         1
+2                                            MEI-CHU CHANG
+
+The question whether one can remove the log log N factor in (1.1) is still open and would
+follow from an affirmative answer to Zaremba’s conjecture (see [Z1], p.69), stating that
+                                                            ³b´
+                                         min       max ai         < c,                                   (1.2)
+                                        (b,N )=1    i       N
+
+where c is an absolute constant (independent of N ). (See [Z2] and [C] for results related
+to the conjecture.)
+                 P
+   The quantity i ai (x) is important in the study of equidistributions.
+    For a sequence x1 , . . . , xN ∈ [0, 1]d , we define the discrepancy
+                                                  ¯                                ¯
+                                                  ¯ |{x1 , . . . , xN } ∩ J|       ¯
+                      D(x1 , . . . , xN ) = sup ¯¯                           − |J|¯¯,                    (1.3)
+   Our aim is to improve (1.12) See Theorem 5 , at least when p is prime, by removing
+               N
+the factors ϕ(ϕ(N )) .
+
+
+Proposition 1. Let G < Z∗p , with |G| > p7/8+ε . Then for M < (log p)c we have
+                             ¯n               ³x´    o¯¯
+                             ¯                               log p
+                             ¯ x ∈ G : max ai     > M ¯¯ < c       |G|.
+                             ¯          i      p              M
+
+
+
+    The next theorem is a direct consequence of Proposition 1.
+
+Theorem 2. Let G < Z∗p , with |G| > p7/8+ε . Then most elements x ∈ G satisfy
+      ¡ ¢
+max ai xp . log p.
+
+  Note that even for G = Z∗p , the bound c log p is the best result known (towards
+Zaremba’s conjecture). (See [Z2] and [C].)
+
+Theorem 3. For most primitive elements (mod p), we have max ai ( xp ) . log p.
+
+             P      ¡ ¢
+                      x
+    As for       i ai p   with x ∈ G, we have the following result.
+
+Theorem 4. Let G < Z∗p , with |G| > p7/8+ε . Then most elements x ∈ G satisfy
+
+                                         X        ³x´
+                                             ai         . c log p log log p.
+                                         i
+                                                   p
+                                      PARTIAL QUOTIENTS                                       5
+
+Theorem 5. For most primitive elements x (mod p), we have
+                                 X         ³x´
+                                      ai         . c log p log log p.
+                                  i
+                                            p
+
+
+
