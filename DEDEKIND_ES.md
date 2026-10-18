@@ -52,6 +52,15 @@ So **the Dedekind sum s(A,n) determines r − r' (the alternating sum of regular
 itself**. (R169 repair of a garbled sentence:) for the regular CF `n/A = [a₀; a₁, a₂, …]` one has
 `r(n/A) = 1 + Σ_{i odd} a_i`, so "r = 3" is the condition that the odd-indexed regular partial quotients sum to 2.
 That is the pattern `[v−1; 1, t−2, 1, u−1]`, or `[v−1; 2, u−1]` when t = 2 (entries 2 in [[·]] merge into the 1-strings).
+> **(R276 repair, O266 cp2 — correction of the R169 formula above.)** "r(n/A) = 1 + Σ_{i odd} a_i" is false for half of
+> all A: e.g. 7/2 = [[4, 2]] has r = 2, but 7/2 = [3; 2] gives 3 (R276: 24 258 of 48 516 coprime pairs 0 < A < n < 400
+> mismatch). Correct statement, for the canonical CF n/A = [a₀; a₁, …, a_s] with a_s ≥ 2:
+> **r(n/A) = 1 + Σ_{i odd} a_i − [s odd]** (equivalently: the R169 formula holds for the expansion of n/A whose last
+> index is even; it equals 1 + the number of L-steps of the Stern–Brocot path, whose last run has length a_s − 1). So
+> 1 + Σ_{i odd} a_i is only an upper bound. Consequently the length-3 pattern `[v−1; 1, t−2, 1, u−1]` is canonical only for
+> u ≥ 3; for u = 2 the canonical CF is `[v−1; 1, t−2, 2]` (e.g. [[5, 4, 2]] = 33/7 = [4; 1, 2, 2]), and for t = u = 2 it is
+> `[v−1; 3]`. The statements of §§1, 3, 4 (which use HJ words directly) are unaffected; §2's "r = 3 ⟺ odd-indexed quotients
+> sum to 2" holds for the even-last-index expansion.
 
 ## 3. T1 in Dedekind clothing: the X-slices force a quadratic non-residue (PROVED)
 
@@ -134,7 +143,7 @@ and the 40 cells with value +1 satisfy none. ∎ (Brute-force check, `scripts/dk
 21 430 357 length-3 words with n ≡ 1 (4), n ≤ 10⁶, 0 failures; 0 slice words at odd squares.)
 
 **Corollary 4.6 (a "least non-residue in the Farey metric" form of ES; PROVED).** For a prime p ≡ 1 (mod 8) let
-`λ(p) := min{ r(p/A) : (A/p) = −1 }` (the HJ length is 1 + the number of L-steps of the Stern–Brocot path, i.e. 1 + Σ_{i odd} a_i for the regular CF
+`λ(p) := min{ r(p/A) : (A/p) = −1 }` (the HJ length is 1 + the number of L-steps of the Stern–Brocot path, i.e. 1 + Σ_{i odd} a_i − [s odd] for the canonical regular CF [a₀; …, a_s] — R276 repair: the "i.e. 1 + Σ_{i odd} a_i" was false when s is odd, see §2
 — R169 repair of "number of left turns"; path from ∞
 to p/A). Then `λ(p) ≥ 2` (L₁ = {1}), and
 * `λ(p) = 2` ⟺ some divisor b of p+1 is a QNR ⟺ (p+1)/2 has a prime factor ≡ 3 (4) (since `(b/p) = (−1/b)` for
