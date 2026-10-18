@@ -7,6 +7,13 @@ disproves any case of ES. Memos: `BRAINSTORM/z32_*.md`. Scripts: `scripts/z32_*`
 
 * v0: read STATUS, (J)70/83/86/88/90, Bright–Loughran (BL, `sources/bright-loughran-1908.02526.pdf`), PW
   (`sources/pw.txt`), O154 (`BRAINSTORM/adv_stacked_primes.md`, `adv_new_drivers.md`).
+* v1: §1–2 obstruction map. §3 conspiracy: first tried "kill families by prime cofactors" row by row; noticed every
+  row's class condition at p ≡ 1 (Q) is the condition at n = 1 (B1_LINE §4's "T1 point 1"), giving the uniform
+  Prop 3.1; then priced the budget (§3.2).
+* v2: §4: first tried B1_LINE's negative-binomial tail on the numerator ladder — falsified (predicts 50 failures
+  where there are 0); replaced by a stretched-exponential zero law fitted on 21 sibling lotteries and tested out of
+  sample, plus a quantile crossover law; §4.5 heavy-tail self-refutation.
+* v3: §5 adversarial search to 10²⁵ (cheap, ≈ 10 CPU-min); §6 bottom line.
 
 ## 1. Local, Brauer–Manin and descent obstructions (literature map; quoted, not re-proved)
 
