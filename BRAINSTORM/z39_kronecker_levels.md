@@ -10,10 +10,12 @@ object behind each level and see where the log² main term and T1 sit.
 ## Result (PROVED, classical input)
 With X = q^{t−1}, Q = q^t, θ(x) = (x;Q)(Q/x;Q):
 Σ_{u,v≥2} q^{tuv−u−v} − Σ_{r,s≥0} q^{trs+r+s} = q^{t−2}[(Q;Q)²θ(X²)/θ(X)² − (1+X)/(1−X)].
-The theta quotient is Kronecker's F_{τ'}(z,z) = θ'(0)θ(2z)/θ(z)² at τ' = tτ, z = (t−1)τ'/t (a t-torsion point):
-a weight-1 holomorphic Eisenstein series (odd characters mod t). The partner quadrant plus the ES quadrant is the
+The theta quotient is (up to the Jacobi exponential normalisation, not carried out; the raw series has a −q^{2−t}
+term) Kronecker's F_{τ'}(z,z) = θ'(0)θ(2z)/θ(z)² at τ' = tτ, z = (t−1)τ'/t (a t-torsion point). PROVED: its
+coefficient content is the odd-character divisor sum on N = tn + 1 (weight-1 Eisenstein data), plus an elementary
+±2 per coefficient. The partner quadrant plus the ES quadrant is the
 even-character divisor sum = coefficients of a weight-0 Maass Eisenstein series at s = ½. Per level:
-R_t(n) = ½E_t(tn+1) + ½O_t(tn+1) − β_t(n), no cusp forms anywhere.
+R_t(n) = ½E_t(tn+1) + ½O_t(tn+1) − β_t(n), every term a Dirichlet-character divisor sum (no cusp forms).
 
 ## Literature
 Kronecker (1881); A. Weil, *Elliptic functions according to Eisenstein and Kronecker* (1976) Ch. VIII; D. Zagier,
@@ -37,5 +39,5 @@ a = c = 0 with no Appell–Lerch/mock part).
 `scripts/z39_split.py` (size split at primes ≈ 10⁵ and odd squares).
 
 ## Assessment
-PROVED exact dictionary, new to the campaign (classical ingredients). Explains *where* log² and T1 live; gives no
+Identity and coefficient formula PROVED (classical ingredients, new to the campaign); modular reading Assessment. Explains *where* log² and T1 live; gives no
 existence mechanism. Promise 1/5 as a route; useful as the correct automorphic normal form of R(n).

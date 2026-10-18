@@ -10,7 +10,7 @@ def EO(n):
         for d in divisors(N):
             r = d % t
             if r == t - 1: dm += 1
-            elif r == 1: dp += 1
+            if r == 1 % t: dp += 1  # not elif (t = 2)
         dp -= 2; E += (dm + dp) / 2; O += (dm - dp) / 2
     return E, O
 for K in Ks:

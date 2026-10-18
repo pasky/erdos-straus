@@ -7,8 +7,10 @@ Thm K makes every level a GL(2) Eisenstein object; the sum over levels is where 
 identify the automorphic home of the full count R(n) (and of N₋, by twisting).
 
 ## Statement (PROVED, trivial identity; reading Assessment)
-Σ_n R(n)q^n = Σ_{t,u,v≥2} q^{tuv−u−v} = Σ_{u,v≥2} q^{2uv−u−v}/(1 − q^{uv}), the value at x = y = q⁻¹ of
-K₃(x, y; q) = Σ_{t,u,v} x^u y^v q^{tuv}; K₃(1, 1; q) = Σ d₃(n)q^n (SL₃(ℤ) minimal-parabolic Eisenstein coefficients).
+Σ_n R(n)q^n = Σ_{t,u,v≥2} q^{tuv−u−v} = Σ_{u,v≥2} q^{2uv−u−v}/(1 − q^{uv}) (PROVED). Analogy only: with t, u, v ≥ 2 the
+unshifted series Σ q^{tuv} has coefficients d₃(n) − 3d₂(n) + 3 − 1[n = 1], and the specialisation x = y = q⁻¹ of
+Σ_{t,u,v≥1} x^u y^v q^{tuv} diverges (t = u = 1), so R is a boundary-truncated, additively shifted relative of
+Σ d₃(n)q^n (SL₃(ℤ) minimal-parabolic Eisenstein coefficients).
 Equivalently R(n) = #{(u, v) : uv | n + u + v, n ≥ 2uv − u − v} (SIGN_IDENTITY Lemma 1.1): a union of arithmetic
 progressions −(u+v) mod uv — the B1 covering picture — and the generating function is the corresponding sum of
 geometric series. So R is "d₃ with an additive shift −u − v", the GL(3) analogue of Kronecker's GL(2) identity

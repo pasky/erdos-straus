@@ -1,4 +1,5 @@
-"""z39: size split of R(n) (and N_-(n)) into the even (weight-0 Maass Eisenstein) and odd (weight-1 holomorphic
+"""Convention: sums over levels 2 <= t <= (n+4)/4 (R_t = 0 beyond; E_t, O_t individually are not).
+z39: size split of R(n) (and N_-(n)) into the even (weight-0 Maass Eisenstein) and odd (weight-1 holomorphic
 Eisenstein = Kronecker theta quotient) parts of METAPLECTIC_ES Thm K, at primes and at odd squares (T1 control).
 usage: python z39_split.py P0 count   -> one line per n: n kind R E/2 O/2 B Nminus
 """
@@ -25,7 +26,7 @@ def row(n):
                     R += 1
                     if jacobi_symbol(d, n) == -1:
                         Nm += 1
-            elif r == 1:
+            if r == 1 % t:  # not elif: for t = 2 the classes +1 and -1 coincide
                 dp += 1
         dp -= 2
         E += dm + dp

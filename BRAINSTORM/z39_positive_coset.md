@@ -10,16 +10,17 @@ congruence group-theoretically and match it with Thm K's even/odd split.
 1. γ ≡ −[[1, −n],[0, 1]] (mod c), i.e. **γ ∈ −Γ₁(c)**, and every element of the Γ_∞-double coset
    Γ_∞γΓ_∞ satisfies the same congruence (translations change a, d by multiples of c). So, unlike the Type II
    normalisation of `bsB_salie_duality` (where the congruence modulus moved under Γ_∞), here the self-level
-   condition is Γ_∞-bi-invariant: **level-t ES words = the positive elements with b = n of the single Bruhat cell
-   Γ_∞[[−1, ∗],[t, −1]]Γ_∞** — one term of each Kloosterman sum S(·, ·; t), the term (a, d) ≡ (−1, −1).
+   condition is Γ_∞-bi-invariant: **level-t ES words = the elements with b = n and a, d ≥ 2t − 1 of the single Bruhat cell
+   Γ_∞[[−1, ∗],[t, −1]]Γ_∞** (Γ_∞ = ⟨T⟩; mere positivity is not enough: [[3,5],[4,7]] is positive, self-levelled,
+   and is the boundary word (4, 1, 2)) — one term of each Kloosterman sum S(·, ·; t), the term (a, d) ≡ (−1, −1).
    The non-invariant datum is b = n itself; summing q^b over the cell gives the split indefinite theta of
    z39_kronecker_levels.
-2. The partner quadrant Q_t of Thm K is the cell of +I: positive γ ∈ Γ₁(t) with b = n. It is **never empty**:
+2. The partner quadrant Q_t of Thm K is the cell of +I: γ ∈ Γ₁(t) with b = n and a, d ≥ 1. It is **never empty**:
    [[1, n],[t, 1 + nt]] = [[1,0],[t,1]]·[[1,n],[0,1]] (lower × upper unipotent). Its analogue in −Γ₁(t),
    [[−1, n],[t, −1 − nt]], is not positive. So ES(n) at level t asks whether **positivity can be restored in the
    −I coset** — the archimedean theme of (J)52 in group form.
-3. The odd part O_t = D⁻ − D⁺ + 2 of Thm K is the signed count over the two cells ±Γ₁(t) (sign = the value of the
-   weight-1 parity character at −I, (−1)^k with k = 1); the even part E_t is the unsigned count. So the **weight-1
+3. The odd part O_t = D⁻ − D⁺ + 2 of Thm K is, up to the elementary ±2 and the boundary β_t, the signed count over the two cells ±Γ₁(t) (sign = the value of the
+   weight-1 parity character at −I, (−1)^k with k = 1); the even part E_t is the unsigned count (same corrections). So the **weight-1
    (holomorphic, Kronecker) part is exactly "−I-coset minus I-coset"**, and Cor K1.1 (T1 at 4 | t) says: at
    n = m² the −I cell has no positive element with b = m², i.e. the odd part equals minus the even part.
 4. Metaplectic version (relating to QUESTION_R Prop 1.4, *classical/RS* input per R278): on positive self-levelled

@@ -11,7 +11,8 @@ with k | t, QUESTION_R §4.1), which might explain numerator-8 exceptions (8/p: 
 1. **Symmetry no-go (PROVED, one line).** For a word w, AA* = tp + 1 ≡ 1 (mod p), so for p ≡ 1 (mod 4) the quartic
    residue characters satisfy χ₄(A*) = χ₄(A)⁻¹. The slice {k | t} is invariant under u ↔ v (A ↔ A*). On the 4 | t
    slice A is a non-residue, χ₄(A) = ±i, and the two orderings give i and −i: **no u↔v-symmetric quartic sign of A
-   exists on any slice**; only an ordered (e.g. smaller-divisor) bit can be tested.
+   exists on any slice** in the form χ₄(A); only an ordered (e.g. smaller-divisor) bit can be tested. Other quartic
+   invariants (of t, of products, Gaussian-integer data) are not excluded by this.
 2. **Smaller-divisor quartic bit (EVIDENCE, negative; `scripts/z39_quartic.py 20000 k`).** Primes p ≡ 1 (8) < 2·10⁴,
    i := a/b mod p for p = a² + b² (a odd): the bit χ₄(min(A, A*)) ∈ {i, −i} is constant on the slice only when the
    slice has very few words; among constant cases the value is i in 60/127 (k = 4), 134/264 (k = 8), 125/242
@@ -32,4 +33,4 @@ T1: the quadratic obstruction is unchanged; no quartic analogue. B3: numerator-8
 (QUESTION_R §4.1, (J)41). B2/B1/B4/B6: n/a.
 
 ## Assessment
-PROVED no-go (item 1) + EVIDENCE (item 2). Brief's question (3) answered negatively in this setting. Promise 0.
+PROVED no-go for χ₄(A) (item 1) + EVIDENCE (item 2). Brief's question (3) answered negatively in this setting. Promise 0.

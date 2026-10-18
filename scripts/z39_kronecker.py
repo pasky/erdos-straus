@@ -129,8 +129,8 @@ def split_at_primes(P0, cnt=30):
         for t in range(2, (n + 4) // 4 + 1):
             N = t * n + 1
             ds = divisors(N)
-            dm = sum(1 for d in ds if d % t == t - 1)
-            dp = sum(1 for d in ds if d % t == 1) - 2  # drop trivial divisors 1, N
+            dm = sum(1 for d in ds if d % t == (t - 1) % t)
+            dp = sum(1 for d in ds if d % t == 1 % t) - 2  # drop trivial divisors 1, N
             bnd = sum(1 for d in ds if d % t == t - 1 and (d <= t - 1 or N // d <= t - 1))
             E += (dm + dp) / 2
             O += (dm - dp) / 2
