@@ -20,6 +20,12 @@ From-scratch scripts: `scripts/review_r278_*.py`. Sources: RS arXiv:2401.01860v3
 * **CONJECTURE R-main**: **GAP** — not stated precisely (D8).
 * **Hypothesis TG**: **GAP / false as literally quantified** (D9: with unrestricted Λ₁, Λ₂ it fails by a planting
   construction; must be restricted to Γ̃-digit sets).
+* **§3 reciprocity series M_R** (EVIDENCE): numbers **reproduced exactly** by an independent implementation; label
+  SOUND; wording SOUND-AFTER-REPAIRS (D11, D12).
+* **§4.1** (sign constant on the k | t slice iff 4 | k, k ≤ 16): **SOUND** (PROVED direction 4 | k ⇒ constant; the
+  converse is EVIDENCE for k ≤ 16 and is labelled so in the memo).
+* **Labels overall**: one false PROVED item (Cor 1.3 t ≡ 3 half), one overclaimed novelty (Thm 1.5 "SHARP"), two
+  imprecise conjecture/hypothesis statements (R-main, TG). Everything else is correctly labelled.
 
 ## §1 Props 1.1–1.4 — re-derivation and checks (`scripts/review_r278_dict.py 20000`)
 * Prop 1.1: re-derived (AA* = t(tuv − u − v) + 1; converse a = cu − 1, d = cv − 1, u, v ≥ 2 ⟺ a, d ≥ 2c − 1). Checked
@@ -107,6 +113,41 @@ its citers" is literally true, but the content is a classical reformulation, not
   3 872; N = 16: 241 vs 945. So TG is only meaningful for Λ's coming from Γ̃-digit (Cantor) sets, and must say so.
 * "Distance to ES" paragraph: Assessment; consistent with R276 (δ = 1/2 with log² excess). No issue.
 
+## §3 and §4.1 — independent recomputation
+* `scripts/review_r278_rss.py` re-implements N₋, W, M_R, M₀ from the §3.1 definitions with a *different* factoring
+  method (linear sieve over t: q | tn + 1 ⟺ t ≡ −n⁻¹ (q)) and computes (d/n) directly (not via Prop 1.2). Brute-force
+  word enumeration agrees on 1009, 9409, 10009, 233, 4001. Agreement with the author's `z37_rss.c` (compiled into /tmp):
+  0 per-n mismatches on 219 generic primes (every 10th of the author's 2 183), all 132 (K = 1) and 163 (K = 25) primes,
+  69 squares.
+* Pooled ratios (`scripts/review_r278_rss_stats.py`, bootstrap SEs, 2 000 resamples):
+
+  | set | #n | N₋/W | N₋/M₀ | N₋/M_R | se | share of deficit removed by M_R | z vs generic |
+  |---|---|---|---|---|---|---|---|
+  | generic (1/10 sample) | 219 | 0.733 | 1.052 | 1.042 | 0.013 | — | — |
+  | K = 1 | 132 | 0.722 | 0.885 | 0.968 | 0.016 | 56 % | 3.7 |
+  | K = 4 | 131 | 0.700 | 0.889 | 0.956 | 0.014 | 47 % | 4.6 |
+  | K = 16 | 134 | 0.643 | 0.868 | 0.920 | 0.013 | 33 % | 6.8 |
+  | K = 24 | 76 | 0.568 | 0.790 | 0.891 | 0.020 | 42 % | 6.5 |
+  | K = 25 | 163 | 0.749 | 1.018 | 0.999 | 0.013 | — | 2.4 |
+  | squares (1/10) | 69 | 0 | 0 | M_R = 0 | | | |
+
+  The family rows coincide with the author's table to the printed digits; shares 33–56 % vs the author's 33–54 % (the
+  difference is only my 1/10 generic baseline, 1.042 vs 1.046). With the author's full generic set (SE ≈ 0.004) the
+  K = 25 residual is (1.046 − 0.999)/√(0.013² + 0.004²) ≈ 3.4σ, as stated; note it is the most extreme of 15
+  families, so the look-elsewhere-corrected significance is ≈ 2.5σ (two-sided p ≈ 7·10⁻⁴ × 15 ≈ 0.01).
+  M₀/W at squares: 1.10 on the full 684-square set (author's value, recomputed with their binary on my list), 1.05 on my
+  1/10 subsample — sampling variation only.
+* Truncation: levels t ≤ 3000 capture ≈ 85 % of words at n ≈ 10⁶ (all-levels brute force: n = 1 000 033: 128 words,
+  110 at t ≤ 3000; 1 000 037: 112/98; 1 000 081: 84/70). The table's "N₋" is the truncated count — stated in the
+  heading, but the column label invites reading it as the five-slice count.
+* §3.1 example t = 7, n = 149: N = 1044 = 2²·3²·29, range [13, 80], χ = −1 range divisors 18, 58, both with e = 1 and
+  class −2⁻¹ ≡ 3 (mod 7) where J(−7, a) = (3/7) = −1 ≠ s = +1, so ρ_R = 0 ✓; τ = 18 ✓; S_t = 2 only if the
+  2-factor uses (2/149) = −1 (i.e. S_t is the sum of (d/n), not of the conductor-4t character, which would give 6).
+  §3.3 example p = 37, word (3, 3, 5), A = 8: (8/37) = −1 ✓.
+* §4.1 (`scripts/review_r278_ksign.py 20000`): sign constant on the k | t slice exactly for k ∈ {4, 8, 12, 16} among
+  2 ≤ k ≤ 16 ✓; 215 primes p ≡ 1 (4) < 2·10⁴ without an 8 | t word, first 5, 13, 17, 29 ✓; 241 has neither a 4 | t nor
+  an 8 | t word ✓. Identity k/n = 1/(abc) + 1/(acn) + 1/(bcn) for kabc − a − b = n ✓.
+
 ## Defects
 **D1 (MAJOR, attribution/label) — Thm 1.5 and §4.3 item 1, memo z37_theta_multiplier, README z37 row ("SHARP
 candidate").** The homomorphism property on Γ₁(4)_{≥0} and Ψ = ker σ are in RS (Prop 7.3 proof via (3.0.1)); the text
@@ -154,6 +195,21 @@ as the residue sets produced by Γ̃-prefixes/suffixes (Shkredov's A, B for the 
 sumset, all sums distinct). Then also the claim "TG is false for squares (as it must be)" stays true, and the
 "proof of Question R would go through for δ > 1 − O(κ)" remains an Assessment conditional on the preprints *and* on
 the transport, as stated.
+
+**D10 (MINOR) — Prop 1.2 title / README row "per-level sign = character mod 4t".** For even A (t odd) the value at 2 is
+(2/n), not the Kronecker value (−t/2) (e.g. t = 3, n = 233: (2/233) = +1, (−3/2) = −1), and v₂(d) is not determined
+by d mod 4t. So the sign is J(−t, ·) of conductor | 4t on *odd* divisors, extended multiplicatively by (2/n) at 2. This
+is exactly the source of D5. *Repair:* say so in the title.
+
+**D11 (MINOR, naming) — §3.** M_R is not a singular series (no product of local densities; it is computed from the
+factorisations of the N_t and conditions on the χ-signature of the range divisors — admitted in §3.4/§4.2 B4). Calling
+it "reciprocity singular series" and saying it "explains 33–54 % of the deficit" overstates: it *decomposes* the
+deficit into a χ-signature part (≈ 33–56 %) and a class-placement part. *Repair:* "reciprocity-conditioned model";
+"the χ-signature of the range divisors accounts for ≈ 33–56 % of the deficit".
+
+**D12 (MINOR) — §3.2 table and (iii).** (a) Say "N₋ (levels t ≤ 3000, ≈ 85 % of words at n ≈ 10⁶)". (b) The K = 25
+3.4σ should mention it is the extreme of 15 families (≈ 2.5σ after look-elsewhere). (c) §3.1 "S_t(1044) = 2" uses
+(d/n) at 2, not the stated χ_t; add "(with the 2-factor (2/n))".
 
 **D4 (MINOR) — §5, 2510.21702 bullet.** Their metaplectic remark concerns SL(2, ℤ[i]) for the Apollonian superpacking.
 *Repair:* "…suggests (for SL(2, ℤ[i]) and the superpacking) …; Thm 1.5 is the classical SL(2, ℤ) analogue".
