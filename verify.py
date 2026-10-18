@@ -26994,4 +26994,55 @@ def check_hm():
 check_hm()
 
 
+def check_hn():
+    # (hn) BM_CORRECTED_COUNT (O268/R279): R279 from scratch — Thm 1.1 (Bright–Loughran's class at the (★) points P_{u,B}:
+    # inv_∞ = −1, inv_p = (−uB/p) = χ_{−4uB}(p), hits force χ = −1; own Hilbert symbols, 9440 points) and its Type II / m/n
+    # versions; Thm 2.2 numerics: M_BM(p) = Σ (1 − (−uB/p))/φ(4uB) has min M_BM/log²p = 0.0623 (at p = 17) over primes
+    # ≤ 2·10^5, vanishes at odd squares; (★) R = 0 exactly at the 14 primes listed (incl. 409, 577, ..., 102001).
+    from time import perf_counter
+    import math
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, ("BM_COUNT subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["review_r279_hilbert.py", "400"])
+    assert ("{'pts': 9440, 'recip': 9440, 'inf': 9440, 'off': 9440, 'two_int': 1806, 'two_ok': 1806, 'invp': 8632, "
+            "'hits': 372, 'hit_ok': 372, 'hit_alloff': 372, 'target': 9440, 'sq0': 808, 'nonhit_drop': 4168}") in out, out
+    assert "bad 0 []" in out, out
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "mbm")
+        r = subprocess.run(["gcc", "-O2", "-o", exe, os.path.join(sdir, "review_r279_mbm.c"), "-lm"],
+                           capture_output=True, text=True)
+        assert r.returncode == 0, r.stderr[-2000:]
+        r = subprocess.run([exe, "200000"], capture_output=True, text=True, timeout=900)
+        assert r.returncode == 0, r.stderr[-1000:]
+    rows, sq = [], []
+    for l in r.stdout.split("\n"):
+        s = l.split()
+        if not s:
+            continue
+        if s[0] == "SQ":
+            sq.append(int(s[2]))
+        else:
+            rows.append((int(s[0]), int(s[1]), float(s[2]), float(s[3])))
+    assert len(rows) == 17982 and len(sq) == 223 and sum(sq) == 0, (len(rows), len(sq))
+    m = min(rows, key=lambda t: t[3] / math.log(t[0]) ** 2)
+    assert m[0] == 17 and abs(m[3] / math.log(17) ** 2 - 0.0622890) < 1e-6, m
+    zeros = [t[0] for t in rows if t[1] == 0]
+    assert zeros == [7, 31, 79, 127, 199, 409, 577, 2719, 5569, 8191, 9601, 23929, 83449, 102001], zeros
+    print(f"== (hn) BM_CORRECTED_COUNT R279: BL class = χ_{{-4uB}} at (★) points (9440 Hilbert checks); min M_BM/log²p = 0.0623 "
+          f"(p ≤ 2·10^5); M_BM = R = 0 at squares; seconds = {perf_counter() - t0:.1f}")
+
+
+check_hn()
+
+
 print("\nall checks passed")
