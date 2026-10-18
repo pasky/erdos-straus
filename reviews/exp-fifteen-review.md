@@ -137,3 +137,14 @@ B = 15Y^D + 1 + 4da² ≥ 15Y^D + 1 > 0 on ℝ for D even. ✓ (Uses d > 0 and o
   and the root y₀ of a, any denominators ≤ DEN): see C13.
 * z40_seeded's c₀ = 63 seeds use the c₀ = 15 box (a ≤ 81, d ≤ 21, m₁ ≤ 36), which is not exhaustive for 4^J = 64
   (control only; MINOR).
+
+### C14. §1.3 Pierpont 2D covering-tree EVIDENCE — SOUND as EVIDENCE (spot-checked); framing defects D6, D7
+From-scratch `review_r281_pierpont_open.py` on the author's open-cell lists: L = 5040 (`lv2_5040.json`, 47 cells) and
+L = 20160 (`tree_w.json`, 496 cells): no open cell is reachable by Lemma 1.2 descent (odd p | gcd(a₀, b₀, L)), by a
+Lemma 1.1 window, or by a divisor class q | n with q admissible (q | 2^L − 1 and q | 3^L − 1, all such q < 2·10⁷ found);
+every open cell is a QNR modulo some admissible q ✓. Caveat: at L = 5040 the cell (5, 2522) is a QR modulo every
+admissible prime < 3000 and first fails at q = 13441 (still ≤ the stated Mmax 3·10⁴, so the claim stands, but the
+quoted list "97, 113, 127, 193, 211, …" is incomplete). All 44 cells of the divisor class 17 in `lv2_5040.json` verified.
+Tree densities in the text match `tree_w.json`'s log (7, 20, 32, 128, 496 open at L = 360 … 20160) ✓. I did not
+re-derive the ET-class cells (would need an independent ET-class enumerator); as the result is a non-discovery this is low
+risk.
