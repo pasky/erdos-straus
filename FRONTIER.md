@@ -445,7 +445,7 @@ technique has this profile.
   p ≡ 1 (8) (effective) ((J)66). ES is cap 0; cap 0 at a window is exactly the B2 event. The first genuinely pointwise
   positive mechanism of the campaign — for a relaxation.
 * Provable T1-bearing cousins: ES^{(S)} (|S| ≥ 4, unconditional), ES^□ (elementary), V_φ (GRH; unconditional with a
-  power-saving exceptional set), ES_(k) for all k ((J)108), M^□ for all M ≡ 0 (4) ((J)41) — see B-fin for why they don't
+  power-saving exceptional set), ES_(k) for every k (odd k: all n; even k: odd non-squares; (J)108), M^□ for all M ≡ 0 (4) ((J)41) — see B-fin for why they don't
   transfer.
 * Thin families: all 3·2^s + 1, 7·4^s + 9, 63·2^s + 1, 4^s + 105, 4^s + k (nine k) (PROVED, computer-assisted; §1). The
   II-ad u ≡ 3 (8) branch of 15·2^s + 1 is sterile for every root degree ((J)102).
