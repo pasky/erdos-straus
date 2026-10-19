@@ -1,0 +1,2007 @@
+[
+  {
+    "k": 4,
+    "n": 409,
+    "is_prime": true,
+    "edges": 19,
+    "unit_edges": 19,
+    "cut_edges": 4,
+    "R_k": 0,
+    "two_line_edges": 4,
+    "forest": {
+      "matching_coefficients": [
+        1,
+        19,
+        136,
+        490,
+        971,
+        1068,
+        625,
+        180,
+        20
+      ],
+      "zero_power": 395,
+      "reduced_characteristic_factorization": "(x**2 - 2)**2*(x**2 - x - 1)*(x**2 + x - 1)*(x**8 - 12*x**6 + 35*x**4 - 25*x**2 + 5)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            3,
+            5,
+            6,
+            10,
+            41,
+            46,
+            82,
+            83,
+            137,
+            205,
+            206,
+            410,
+            411
+          ],
+          "matching_coefficients": [
+            1,
+            14,
+            59,
+            95,
+            55,
+            10
+          ]
+        },
+        {
+          "vertices": [
+            4,
+            7,
+            32,
+            59
+          ],
+          "matching_coefficients": [
+            1,
+            3,
+            1
+          ]
+        },
+        {
+          "vertices": [
+            11,
+            20,
+            42
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "cut": {
+      "matching_coefficients": [
+        1,
+        4,
+        4,
+        1
+      ],
+      "zero_power": 405,
+      "reduced_characteristic_factorization": "(x - 1)*(x + 1)*(x**2 - x - 1)*(x**2 + x - 1)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            4,
+            7,
+            32,
+            59
+          ],
+          "matching_coefficients": [
+            1,
+            3,
+            1
+          ]
+        },
+        {
+          "vertices": [
+            11,
+            20
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "line": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 411,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "occupied_levels": []
+  },
+  {
+    "k": 4,
+    "n": 577,
+    "is_prime": true,
+    "edges": 22,
+    "unit_edges": 22,
+    "cut_edges": 9,
+    "R_k": 0,
+    "two_line_edges": 7,
+    "forest": {
+      "matching_coefficients": [
+        1,
+        22,
+        194,
+        901,
+        2420,
+        3844,
+        3494,
+        1624,
+        280
+      ],
+      "zero_power": 563,
+      "reduced_characteristic_factorization": "(x**2 - 2)**2*(x**2 - x - 1)*(x**2 + x - 1)*(x**8 - 15*x**6 + 72*x**4 - 126*x**2 + 70)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            3,
+            5,
+            17,
+            18,
+            20,
+            29,
+            34,
+            35,
+            116,
+            193,
+            289,
+            290,
+            578,
+            579
+          ],
+          "matching_coefficients": [
+            1,
+            15,
+            72,
+            126,
+            70
+          ]
+        },
+        {
+          "vertices": [
+            4,
+            7,
+            83
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        },
+        {
+          "vertices": [
+            6,
+            11,
+            28,
+            53
+          ],
+          "matching_coefficients": [
+            1,
+            3,
+            1
+          ]
+        },
+        {
+          "vertices": [
+            8,
+            15,
+            39
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "cut": {
+      "matching_coefficients": [
+        1,
+        9,
+        28,
+        36,
+        16
+      ],
+      "zero_power": 571,
+      "reduced_characteristic_factorization": "(x - 2)*(x - 1)*(x + 1)*(x + 2)*(x**2 - 2)**2",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            3,
+            5,
+            20,
+            29,
+            116
+          ],
+          "matching_coefficients": [
+            1,
+            4
+          ]
+        },
+        {
+          "vertices": [
+            4,
+            7,
+            83
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        },
+        {
+          "vertices": [
+            8,
+            15,
+            39
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        },
+        {
+          "vertices": [
+            11,
+            28
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "line": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 579,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "occupied_levels": []
+  },
+  {
+    "k": 4,
+    "n": 3361,
+    "is_prime": true,
+    "edges": 23,
+    "unit_edges": 23,
+    "cut_edges": 4,
+    "R_k": 2,
+    "two_line_edges": 2,
+    "forest": {
+      "matching_coefficients": [
+        1,
+        23,
+        200,
+        860,
+        1950,
+        2228,
+        1008
+      ],
+      "zero_power": 3351,
+      "reduced_characteristic_factorization": "(x - 2)*(x + 2)*(x**2 - 2)*(x**8 - 17*x**6 + 90*x**4 - 184*x**2 + 126)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            3,
+            19,
+            29,
+            41,
+            42,
+            57,
+            59,
+            82,
+            83,
+            116,
+            177,
+            1121,
+            1681,
+            1682,
+            3362,
+            3363
+          ],
+          "matching_coefficients": [
+            1,
+            17,
+            90,
+            184,
+            126
+          ]
+        },
+        {
+          "vertices": [
+            5,
+            9,
+            34,
+            99,
+            374
+          ],
+          "matching_coefficients": [
+            1,
+            4
+          ]
+        },
+        {
+          "vertices": [
+            14,
+            27,
+            125
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "cut": {
+      "matching_coefficients": [
+        1,
+        4,
+        4
+      ],
+      "zero_power": 3359,
+      "reduced_characteristic_factorization": "(x**2 - 2)**2",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            3,
+            29,
+            116
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        },
+        {
+          "vertices": [
+            5,
+            34,
+            99
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "line": {
+      "matching_coefficients": [
+        1,
+        1
+      ],
+      "zero_power": 3361,
+      "reduced_characteristic_factorization": "(x - 1)*(x + 1)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            5,
+            34
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "occupied_levels": [
+      {
+        "t": 20,
+        "N": 67221,
+        "factorization": {
+          "3": 2,
+          "7": 1,
+          "11": 1,
+          "97": 1
+        },
+        "coefficients": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "polynomial": "z**3 + z**2",
+        "real_rooted": true,
+        "divisors": [
+          99,
+          679
+        ],
+        "tau": 24,
+        "linear_expectation": "x - 11/12",
+        "character_matrix_expectation": "x**2 + 1"
+      }
+    ]
+  },
+  {
+    "k": 4,
+    "n": 193,
+    "is_prime": true,
+    "edges": 14,
+    "unit_edges": 14,
+    "cut_edges": 5,
+    "R_k": 4,
+    "two_line_edges": 2,
+    "forest": {
+      "matching_coefficients": [
+        1,
+        14,
+        56,
+        95,
+        72,
+        20
+      ],
+      "zero_power": 185,
+      "reduced_characteristic_factorization": "(x - 1)*(x + 1)*(x**2 - 2)*(x**6 - 11*x**4 + 21*x**2 - 10)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            3,
+            5,
+            13,
+            14,
+            15,
+            22,
+            39,
+            65,
+            97,
+            98,
+            194,
+            195
+          ],
+          "matching_coefficients": [
+            1,
+            13,
+            43,
+            52,
+            20
+          ]
+        },
+        {
+          "vertices": [
+            7,
+            10
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "cut": {
+      "matching_coefficients": [
+        1,
+        5,
+        4
+      ],
+      "zero_power": 191,
+      "reduced_characteristic_factorization": "(x - 2)*(x - 1)*(x + 1)*(x + 2)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            2,
+            5,
+            13,
+            15,
+            39
+          ],
+          "matching_coefficients": [
+            1,
+            4
+          ]
+        },
+        {
+          "vertices": [
+            7,
+            10
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "line": {
+      "matching_coefficients": [
+        1,
+        2
+      ],
+      "zero_power": 193,
+      "reduced_characteristic_factorization": "x**2 - 2",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            2,
+            5,
+            13
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "occupied_levels": [
+      {
+        "t": 8,
+        "N": 1545,
+        "factorization": {
+          "3": 1,
+          "5": 1,
+          "103": 1
+        },
+        "coefficients": [
+          0,
+          1,
+          1
+        ],
+        "polynomial": "z**2 + z",
+        "real_rooted": true,
+        "divisors": [
+          15,
+          103
+        ],
+        "tau": 8,
+        "linear_expectation": "x - 3/4",
+        "character_matrix_expectation": "x**2 + 1"
+      },
+      {
+        "t": 20,
+        "N": 3861,
+        "factorization": {
+          "3": 3,
+          "11": 1,
+          "13": 1
+        },
+        "coefficients": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "polynomial": "z**3 + z**2",
+        "real_rooted": true,
+        "divisors": [
+          39,
+          99
+        ],
+        "tau": 16,
+        "linear_expectation": "x - 7/8",
+        "character_matrix_expectation": "x**2 + 1"
+      }
+    ]
+  },
+  {
+    "k": 4,
+    "n": 2521,
+    "is_prime": true,
+    "edges": 18,
+    "unit_edges": 18,
+    "cut_edges": 2,
+    "R_k": 2,
+    "two_line_edges": 1,
+    "forest": {
+      "matching_coefficients": [
+        1,
+        18,
+        113,
+        328,
+        476,
+        332,
+        88
+      ],
+      "zero_power": 2511,
+      "reduced_characteristic_factorization": "(x - 1)*(x + 1)*(x**2 - 2)*(x**8 - 15*x**6 + 66*x**4 - 100*x**2 + 44)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            3,
+            13,
+            14,
+            26,
+            29,
+            87,
+            97,
+            194,
+            195,
+            841,
+            1261,
+            1262,
+            2522,
+            2523
+          ],
+          "matching_coefficients": [
+            1,
+            15,
+            66,
+            100,
+            44
+          ]
+        },
+        {
+          "vertices": [
+            21,
+            41,
+            62
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        },
+        {
+          "vertices": [
+            27,
+            98
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "cut": {
+      "matching_coefficients": [
+        1,
+        2
+      ],
+      "zero_power": 2521,
+      "reduced_characteristic_factorization": "x**2 - 2",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            2,
+            29,
+            87
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "line": {
+      "matching_coefficients": [
+        1,
+        1
+      ],
+      "zero_power": 2521,
+      "reduced_characteristic_factorization": "(x - 1)*(x + 1)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            2,
+            29
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "occupied_levels": [
+      {
+        "t": 44,
+        "N": 110925,
+        "factorization": {
+          "3": 2,
+          "5": 2,
+          "17": 1,
+          "29": 1
+        },
+        "coefficients": [
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        "polynomial": "z**4 + z**2",
+        "real_rooted": false,
+        "divisors": [
+          87,
+          1275
+        ],
+        "tau": 36,
+        "linear_expectation": "x - 17/18",
+        "character_matrix_expectation": "x**2 - 2*x/3 + 1"
+      }
+    ]
+  },
+  {
+    "k": 4,
+    "n": 5569,
+    "is_prime": true,
+    "edges": 27,
+    "unit_edges": 27,
+    "cut_edges": 8,
+    "R_k": 0,
+    "two_line_edges": 7,
+    "forest": {
+      "matching_coefficients": [
+        1,
+        27,
+        301,
+        1847,
+        6946,
+        16718,
+        25872,
+        24896,
+        13536,
+        3168
+      ],
+      "zero_power": 5553,
+      "reduced_characteristic_factorization": "(x - 1)*(x + 1)*(x**2 - 3)*(x**2 - 2)**4*(x**6 - 15*x**4 + 62*x**2 - 66)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            3,
+            5,
+            6,
+            9,
+            10,
+            14,
+            398,
+            557,
+            619,
+            1114,
+            1115,
+            1857,
+            2785,
+            2786,
+            5570,
+            5571
+          ],
+          "matching_coefficients": [
+            1,
+            17,
+            92,
+            190,
+            132
+          ]
+        },
+        {
+          "vertices": [
+            7,
+            17,
+            136,
+            164
+          ],
+          "matching_coefficients": [
+            1,
+            3
+          ]
+        },
+        {
+          "vertices": [
+            8,
+            39,
+            143
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        },
+        {
+          "vertices": [
+            11,
+            30,
+            558
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        },
+        {
+          "vertices": [
+            24,
+            47,
+            119
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        },
+        {
+          "vertices": [
+            40,
+            71
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "cut": {
+      "matching_coefficients": [
+        1,
+        8,
+        23,
+        28,
+        12
+      ],
+      "zero_power": 5563,
+      "reduced_characteristic_factorization": "(x - 1)*(x + 1)*(x**2 - 3)*(x**2 - 2)**2",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            7,
+            17,
+            136,
+            164
+          ],
+          "matching_coefficients": [
+            1,
+            3
+          ]
+        },
+        {
+          "vertices": [
+            8,
+            39,
+            143
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        },
+        {
+          "vertices": [
+            24,
+            47,
+            119
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        },
+        {
+          "vertices": [
+            40,
+            71
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "line": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 5571,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "occupied_levels": []
+  },
+  {
+    "k": 4,
+    "n": 9601,
+    "is_prime": true,
+    "edges": 26,
+    "unit_edges": 26,
+    "cut_edges": 4,
+    "R_k": 0,
+    "two_line_edges": 2,
+    "forest": {
+      "matching_coefficients": [
+        1,
+        26,
+        242,
+        1159,
+        3281,
+        5854,
+        6752,
+        5011,
+        2300,
+        590,
+        64
+      ],
+      "zero_power": 9583,
+      "reduced_characteristic_factorization": "(x - 1)**4*(x + 1)**4*(x**2 - x - 1)*(x**2 + x - 1)*(x**8 - 19*x**6 + 90*x**4 - 142*x**2 + 64)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            3,
+            9,
+            11,
+            14,
+            33,
+            97,
+            98,
+            99,
+            155,
+            178,
+            291,
+            686,
+            873,
+            1067,
+            3201,
+            4801,
+            4802,
+            9602,
+            9603
+          ],
+          "matching_coefficients": [
+            1,
+            20,
+            109,
+            232,
+            206,
+            64
+          ]
+        },
+        {
+          "vertices": [
+            13,
+            19,
+            253,
+            260
+          ],
+          "matching_coefficients": [
+            1,
+            3,
+            1
+          ]
+        },
+        {
+          "vertices": [
+            17,
+            21
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        },
+        {
+          "vertices": [
+            38,
+            51
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        },
+        {
+          "vertices": [
+            56,
+            87
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "cut": {
+      "matching_coefficients": [
+        1,
+        4,
+        5,
+        2
+      ],
+      "zero_power": 9597,
+      "reduced_characteristic_factorization": "(x - 1)**2*(x + 1)**2*(x**2 - 2)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            9,
+            155
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        },
+        {
+          "vertices": [
+            13,
+            19,
+            260
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        },
+        {
+          "vertices": [
+            56,
+            87
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "line": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 9603,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "occupied_levels": []
+  },
+  {
+    "k": 4,
+    "n": 9,
+    "is_prime": false,
+    "edges": 5,
+    "unit_edges": 4,
+    "cut_edges": 0,
+    "R_k": 0,
+    "two_line_edges": 0,
+    "forest": {
+      "matching_coefficients": [
+        1,
+        5,
+        6,
+        2
+      ],
+      "zero_power": 5,
+      "reduced_characteristic_factorization": "(x - 1)*(x + 1)*(x**4 - 4*x**2 + 2)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            5,
+            10,
+            11
+          ],
+          "matching_coefficients": [
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "vertices": [
+            3,
+            6
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "cut": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 11,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "line": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 11,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "occupied_levels": []
+  },
+  {
+    "k": 4,
+    "n": 25,
+    "is_prime": false,
+    "edges": 7,
+    "unit_edges": 7,
+    "cut_edges": 0,
+    "R_k": 0,
+    "two_line_edges": 0,
+    "forest": {
+      "matching_coefficients": [
+        1,
+        7,
+        11,
+        4
+      ],
+      "zero_power": 21,
+      "reduced_characteristic_factorization": "x**6 - 7*x**4 + 11*x**2 - 4",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            3,
+            9,
+            13,
+            14,
+            26,
+            27
+          ],
+          "matching_coefficients": [
+            1,
+            7,
+            11,
+            4
+          ]
+        }
+      ]
+    },
+    "cut": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 27,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "line": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 27,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "occupied_levels": []
+  },
+  {
+    "k": 4,
+    "n": 49,
+    "is_prime": false,
+    "edges": 11,
+    "unit_edges": 11,
+    "cut_edges": 0,
+    "R_k": 0,
+    "two_line_edges": 0,
+    "forest": {
+      "matching_coefficients": [
+        1,
+        11,
+        36,
+        42,
+        14
+      ],
+      "zero_power": 43,
+      "reduced_characteristic_factorization": "x**8 - 11*x**6 + 36*x**4 - 42*x**2 + 14",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            3,
+            5,
+            6,
+            10,
+            11,
+            17,
+            25,
+            26,
+            50,
+            51
+          ],
+          "matching_coefficients": [
+            1,
+            11,
+            36,
+            42,
+            14
+          ]
+        }
+      ]
+    },
+    "cut": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 51,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "line": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 51,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "occupied_levels": []
+  },
+  {
+    "k": 4,
+    "n": 169,
+    "is_prime": false,
+    "edges": 16,
+    "unit_edges": 16,
+    "cut_edges": 0,
+    "R_k": 0,
+    "two_line_edges": 0,
+    "forest": {
+      "matching_coefficients": [
+        1,
+        16,
+        81,
+        166,
+        144,
+        44
+      ],
+      "zero_power": 161,
+      "reduced_characteristic_factorization": "(x - 1)*(x + 1)*(x**8 - 15*x**6 + 66*x**4 - 100*x**2 + 44)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            3,
+            5,
+            6,
+            9,
+            10,
+            17,
+            19,
+            34,
+            35,
+            57,
+            85,
+            86,
+            170,
+            171
+          ],
+          "matching_coefficients": [
+            1,
+            15,
+            66,
+            100,
+            44
+          ]
+        },
+        {
+          "vertices": [
+            11,
+            18
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "cut": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 171,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "line": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 171,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "occupied_levels": []
+  },
+  {
+    "k": 4,
+    "n": 529,
+    "is_prime": false,
+    "edges": 19,
+    "unit_edges": 19,
+    "cut_edges": 0,
+    "R_k": 0,
+    "two_line_edges": 0,
+    "forest": {
+      "matching_coefficients": [
+        1,
+        19,
+        125,
+        364,
+        484,
+        240
+      ],
+      "zero_power": 521,
+      "reduced_characteristic_factorization": "(x**2 - 2)**2*(x**6 - 15*x**4 + 61*x**2 - 60)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            3,
+            5,
+            6,
+            9,
+            10,
+            11,
+            14,
+            38,
+            53,
+            54,
+            59,
+            106,
+            107,
+            177,
+            265,
+            266,
+            530,
+            531
+          ],
+          "matching_coefficients": [
+            1,
+            19,
+            125,
+            364,
+            484,
+            240
+          ]
+        }
+      ]
+    },
+    "cut": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 531,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "line": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 531,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "occupied_levels": []
+  },
+  {
+    "k": 4,
+    "n": 1089,
+    "is_prime": false,
+    "edges": 15,
+    "unit_edges": 9,
+    "cut_edges": 0,
+    "R_k": 0,
+    "two_line_edges": 0,
+    "forest": {
+      "matching_coefficients": [
+        1,
+        15,
+        76,
+        165,
+        175,
+        90,
+        18
+      ],
+      "zero_power": 1079,
+      "reduced_characteristic_factorization": "(x - 1)**2*(x + 1)**2*(x**4 - 8*x**2 + 6)*(x**4 - 5*x**2 + 3)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            5,
+            10,
+            109,
+            218,
+            545,
+            1090,
+            1091
+          ],
+          "matching_coefficients": [
+            1,
+            8,
+            6
+          ]
+        },
+        {
+          "vertices": [
+            3,
+            6,
+            42,
+            78,
+            219,
+            546
+          ],
+          "matching_coefficients": [
+            1,
+            5,
+            3
+          ]
+        },
+        {
+          "vertices": [
+            11,
+            110
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        },
+        {
+          "vertices": [
+            13,
+            29
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "cut": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 1091,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "line": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 1091,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "occupied_levels": []
+  },
+  {
+    "k": 4,
+    "n": 1097,
+    "is_prime": true,
+    "edges": 30,
+    "unit_edges": 30,
+    "cut_edges": 16,
+    "R_k": 12,
+    "two_line_edges": 10,
+    "forest": {
+      "matching_coefficients": [
+        1,
+        30,
+        329,
+        1741,
+        4938,
+        7889,
+        7104,
+        3360,
+        648
+      ],
+      "zero_power": 1083,
+      "reduced_characteristic_factorization": "(x - 1)**2*(x + 1)**2*(x**2 - 2)*(x**10 - 26*x**8 + 220*x**6 - 729*x**4 + 870*x**2 - 324)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            9,
+            10,
+            16,
+            18,
+            22,
+            23,
+            25,
+            55,
+            61,
+            100,
+            122,
+            123,
+            157,
+            183,
+            184,
+            220,
+            366,
+            367,
+            549,
+            550,
+            1098,
+            1099
+          ],
+          "matching_coefficients": [
+            1,
+            27,
+            246,
+            949,
+            1599,
+            1194,
+            324
+          ]
+        },
+        {
+          "vertices": [
+            5,
+            38,
+            58
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        },
+        {
+          "vertices": [
+            19,
+            62
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "cut": {
+      "matching_coefficients": [
+        1,
+        16,
+        91,
+        233,
+        286,
+        165,
+        36
+      ],
+      "zero_power": 1087,
+      "reduced_characteristic_factorization": "(x - 1)*(x + 1)*(x**4 - 5*x**2 + 3)*(x**6 - 10*x**4 + 23*x**2 - 12)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            3,
+            4,
+            6,
+            25,
+            55,
+            100,
+            183,
+            220,
+            366,
+            367
+          ],
+          "matching_coefficients": [
+            1,
+            10,
+            23,
+            12
+          ]
+        },
+        {
+          "vertices": [
+            2,
+            7,
+            16,
+            23,
+            157,
+            184
+          ],
+          "matching_coefficients": [
+            1,
+            5,
+            3
+          ]
+        },
+        {
+          "vertices": [
+            5,
+            58
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "line": {
+      "matching_coefficients": [
+        1,
+        6,
+        13,
+        12,
+        4
+      ],
+      "zero_power": 1091,
+      "reduced_characteristic_factorization": "(x - 1)**2*(x + 1)**2*(x**2 - 2)**2",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            6,
+            366
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        },
+        {
+          "vertices": [
+            2,
+            157
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        },
+        {
+          "vertices": [
+            3,
+            4,
+            100
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        },
+        {
+          "vertices": [
+            5,
+            58
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "occupied_levels": [
+      {
+        "t": 4,
+        "N": 4389,
+        "factorization": {
+          "3": 1,
+          "7": 1,
+          "11": 1,
+          "19": 1
+        },
+        "coefficients": [
+          0,
+          4,
+          0,
+          4
+        ],
+        "polynomial": "4*z**3 + 4*z",
+        "real_rooted": false,
+        "divisors": [
+          3,
+          7,
+          11,
+          19,
+          231,
+          399,
+          627,
+          1463
+        ],
+        "tau": 16,
+        "linear_expectation": "x - 1/2",
+        "character_matrix_expectation": "x**2 + 1"
+      },
+      {
+        "t": 92,
+        "N": 100925,
+        "factorization": {
+          "5": 2,
+          "11": 1,
+          "367": 1
+        },
+        "coefficients": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "polynomial": "z**3 + z",
+        "real_rooted": false,
+        "divisors": [
+          275,
+          367
+        ],
+        "tau": 12,
+        "linear_expectation": "x - 5/6",
+        "character_matrix_expectation": "x**2 + 1"
+      },
+      {
+        "t": 184,
+        "N": 201849,
+        "factorization": {
+          "3": 1,
+          "61": 1,
+          "1103": 1
+        },
+        "coefficients": [
+          0,
+          1,
+          1
+        ],
+        "polynomial": "z**2 + z",
+        "real_rooted": true,
+        "divisors": [
+          183,
+          1103
+        ],
+        "tau": 8,
+        "linear_expectation": "x - 3/4",
+        "character_matrix_expectation": "x**2 + 1"
+      }
+    ]
+  },
+  {
+    "k": 8,
+    "n": 131,
+    "is_prime": true,
+    "edges": 21,
+    "unit_edges": 21,
+    "cut_edges": 7,
+    "R_k": 0,
+    "two_line_edges": 0,
+    "forest": {
+      "matching_coefficients": [
+        1,
+        21,
+        139,
+        413,
+        614,
+        476,
+        184,
+        28
+      ],
+      "zero_power": 119,
+      "reduced_characteristic_factorization": "(x - 1)*(x + 1)*(x**4 - 4*x**2 + 2)*(x**8 - 16*x**6 + 53*x**4 - 50*x**2 + 14)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            9,
+            11,
+            12,
+            13,
+            19,
+            22,
+            23,
+            33,
+            34,
+            44,
+            45,
+            66,
+            67,
+            132,
+            133
+          ],
+          "matching_coefficients": [
+            1,
+            21,
+            139,
+            413,
+            614,
+            476,
+            184,
+            28
+          ]
+        }
+      ]
+    },
+    "cut": {
+      "matching_coefficients": [
+        1,
+        7,
+        13,
+        7
+      ],
+      "zero_power": 127,
+      "reduced_characteristic_factorization": "(x - 1)*(x + 1)*(x**4 - 6*x**2 + 7)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            6,
+            7,
+            22,
+            23,
+            66
+          ],
+          "matching_coefficients": [
+            1,
+            6,
+            7
+          ]
+        },
+        {
+          "vertices": [
+            3,
+            67
+          ],
+          "matching_coefficients": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "line": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 133,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "occupied_levels": []
+  },
+  {
+    "k": 8,
+    "n": 241,
+    "is_prime": true,
+    "edges": 15,
+    "unit_edges": 15,
+    "cut_edges": 6,
+    "R_k": 0,
+    "two_line_edges": 0,
+    "forest": {
+      "matching_coefficients": [
+        1,
+        15,
+        76,
+        168,
+        164,
+        56
+      ],
+      "zero_power": 233,
+      "reduced_characteristic_factorization": "(x**2 - 2)*(x**8 - 13*x**6 + 50*x**4 - 68*x**2 + 28)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            2,
+            3,
+            9,
+            11,
+            12,
+            22,
+            23,
+            27,
+            81,
+            121,
+            122,
+            242,
+            243
+          ],
+          "matching_coefficients": [
+            1,
+            13,
+            50,
+            68,
+            28
+          ]
+        },
+        {
+          "vertices": [
+            4,
+            7,
+            35
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "cut": {
+      "matching_coefficients": [
+        1,
+        6,
+        11,
+        6
+      ],
+      "zero_power": 237,
+      "reduced_characteristic_factorization": "(x - 1)*(x + 1)*(x**2 - 3)*(x**2 - 2)",
+      "nontrivial_components": [
+        {
+          "vertices": [
+            1,
+            11,
+            12,
+            22,
+            23
+          ],
+          "matching_coefficients": [
+            1,
+            4,
+            3
+          ]
+        },
+        {
+          "vertices": [
+            4,
+            7,
+            35
+          ],
+          "matching_coefficients": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "line": {
+      "matching_coefficients": [
+        1
+      ],
+      "zero_power": 243,
+      "reduced_characteristic_factorization": "1",
+      "nontrivial_components": []
+    },
+    "occupied_levels": []
+  }
+]
