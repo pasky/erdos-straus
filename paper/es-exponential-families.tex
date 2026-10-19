@@ -721,7 +721,9 @@ exponent classes (for the classes of $n$ this follows from
 Table~\ref{tab:ET}).  They cover every residue $s\bmod2520$ except
 $s\equiv0,840,1680\pmod{2520}$, all of which are $\equiv0\pmod{24}$
 (computer-checked coverage of $2520$ residues).  The thresholds in the table
-are at most $5$, and for $s<24$ with $24\mid s$, i.e.\ $s=0$, $4/64=1/32+1/64+1/64$.
+are at most $5$, and every $s\ge1$ below the threshold of its class lies in
+another class of the table without threshold (checked).  For $s=0$,
+$4/64=1/32+1/64+1/64$.
 \end{proof}
 \begin{table}[ht]
 \centering\small
@@ -766,4 +768,270 @@ get $A(A+1)=63\cdot2^{s-2}$; the odd one of the coprime factors $A,A+1$ is a
 divisor $\delta$ of $63$ and the other is $(63/\delta)2^{s-2}$, and of the six
 choices of $\delta$ only $\delta=63$, $2^{s-2}=64$ works.  The square $127^2$
 lies in the divisor class $D_{127}$, as it must by Lemma~\ref{lem:T1}.
+\end{remark}
+
+\subsection{The family $7\cdot4^s+9$}
+
+Here $7+9=4^2$, so $\mu=0$ is a unit-square point and
+Theorem~\ref{thm:sterile} applies.  For even $s\ge2$ one has
+$n\equiv121\pmod{840}$, so every member with even $s\ge2$ is Mordell-hard.
+The windows used are $m=7\cdot4^jt-9$ with $(j,t)\in\{(1,1),(1,4),(2,1),(2,6)\}$,
+i.e.\ $m\in\{19,103,663\}$.  For such a window and $s>j$,
+\[
+ x=\frac{n+m}4=7\cdot4^{j-1}\bigl(4^{s-j}+t\bigr),\qquad N=nx=4^{j-1}\cdot7\cdot n\cdot\bigl(4^{s-j}+t\bigr),
+\]
+and $4^{s-j}+t$ is split by (CY) or (SG): for $t=w^h$ and $h\mid s-j$, with
+$Y=4^{(s-j)/h}$, into $Y+w$ ($h=1$), $(Y+1)(Y^2-Y+1)$ ($h=3$, $w=1$),
+$(Y+1)(Y^2-Y+1)(Y^6-Y^3+1)$ ($h=9$, $w=1$); for $(j,t)=(1,1)$ and $s$ even,
+with $Y=2^{(s-2)/2}$, into $f_+f_-$, $f_\pm=2Y^2\pm2Y+1$.  A rule is a choice
+of $d_1,d_2$ among products of these pieces and of $2^i$ ($i\le 2j-2$), and it
+applies by Lemma~\ref{lem:window}(a) whenever $m\mid d_1+d_2$.
+
+\begin{theorem}[\status{proved}, computer-assisted; {\cite[Thm.~2.6]{Exp105}}]\label{thm:c7}
+For every $s\ge0$, $4/(7\cdot4^s+9)$ is a sum of three unit fractions.
+\end{theorem}
+
+\begin{proof}
+The $22$ window rules of Table~\ref{tab:c7w} and the $11$ ET/divisor
+classes of Table~\ref{tab:c7et} apply on the listed exponent classes; their
+union contains every residue modulo $9180=2^2\cdot3^3\cdot5\cdot17$
+(computer-checked), and all thresholds are $\le3$.  For $s\in\{1,2\}$ the
+rules apply directly, and for $s=0$, $4/16=1/8+1/12+1/24$.
+\end{proof}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lllllll}
+\toprule
+$m$ & $j$ & type & $Y$ & $d_1$ & $d_2$ & exponents $s$\\
+\midrule
+$19$ & $1$ & CY & $4^{s-1}$ & $1$ & $(Y+1)$ & $6\pmod{9}$ \\
+$19$ & $1$ & SG & $2^{(s-2)/2}$ & $f_-$ & $7$ & $18,26\pmod{36}$ \\
+$19$ & $1$ & SG & $2^{(s-2)/2}$ & $f_+$ & $7$ & $0,8\pmod{36}$ \\
+$19$ & $1$ & SG & $2^{(s-2)/2}$ & $1$ & $f_-$ & $8,32\pmod{36}$ \\
+$103$ & $1$ & CY & $4^{s-1}$ & $(Y+4)$ & $7$ & $44\pmod{51}$ \\
+$103$ & $1$ & CY & $4^{s-1}$ & $1$ & $n$ & $8\pmod{51}$ \\
+$103$ & $1$ & CY & $4^{s-1}$ & $1$ & $(Y+4)$ & $41\pmod{51}$ \\
+$103$ & $2$ & CY & $4^{s-2}$ & $1$ & $2\cdot 7\cdot n$ & $17\pmod{51}$ \\
+$103$ & $2$ & CY & $4^{s-2}$ & $2^{2}$ & $7\cdot n$ & $47\pmod{51}$ \\
+$103$ & $2$ & CY & $4^{s-2}$ & $2^{2}$ & $7\cdot (Y+1)$ & $38\pmod{51}$ \\
+$103$ & $2$ & CY & $4^{s-2}$ & $2$ & $(Y+1)$ & $32\pmod{51}$ \\
+$103$ & $2$ & CY$_{3}$ & $4^{(s-2)/3}$ & $1$ & $2\cdot 7\cdot n\cdot (Y^2-Y+1)$ & $128\pmod{153}$ \\
+$103$ & $2$ & CY$_{3}$ & $4^{(s-2)/3}$ & $2^{2}\cdot (Y^2-Y+1)$ & $7\cdot n$ & $137\pmod{153}$ \\
+$103$ & $2$ & CY$_{3}$ & $4^{(s-2)/3}$ & $2\cdot (Y^2-Y+1)$ & $7\cdot (Y+1)$ & $32,74\pmod{153}$ \\
+$103$ & $2$ & CY$_{3}$ & $4^{(s-2)/3}$ & $2^{2}$ & $7\cdot (Y^2-Y+1)$ & $29\pmod{153}$ \\
+$103$ & $2$ & CY$_{3}$ & $4^{(s-2)/3}$ & $2\cdot (Y+1)$ & $7\cdot (Y^2-Y+1)$ & $65,98\pmod{153}$ \\
+$103$ & $2$ & CY$_{3}$ & $4^{(s-2)/3}$ & $n\cdot (Y+1)$ & $2^{2}\cdot 7$ & $56\pmod{153}$ \\
+$103$ & $2$ & CY$_{3}$ & $4^{(s-2)/3}$ & $2$ & $n\cdot (Y^2-Y+1)$ & $11\pmod{153}$ \\
+$103$ & $2$ & CY$_{3}$ & $4^{(s-2)/3}$ & $(Y^2-Y+1)$ & $n$ & $20\pmod{153}$ \\
+$103$ & $2$ & CY$_{9}$ & $4^{(s-2)/9}$ & $1$ & $2\cdot 7\cdot n\cdot (Y+1)$ & $146,155\pmod{459}$ \\
+$103$ & $2$ & CY$_{9}$ & $4^{(s-2)/9}$ & $1$ & $7\cdot n\cdot (Y^2-Y+1)$ & $128,308\pmod{459}$ \\
+$663$ & $2$ & CY & $4^{s-2}$ & $2$ & $7\cdot (Y+6)$ & $10\pmod{12}$ \\
+\bottomrule
+\end{tabular}
+\caption{Window rules for $7\cdot4^s+9$: $x=(n+m)/4$,
+$y=nx(d_1+d_2)/(md_2)$, $z=nx(d_1+d_2)/(md_1)$ (Lemma~\ref{lem:window}(a));
+$f_\pm=2Y^2\pm2Y+1$.  CY$_h$ means the cyclotomic splitting of
+$4^{s-j}+1=Y^h+1$.  Each rule is valid for $s\ge2$ in its class (for
+$j=1$ also $s=1$ where applicable).}\label{tab:c7w}
+\end{table}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lll}
+\toprule
+class & condition on $n$ & exponents\\
+\midrule
+D$(11)$ & $11\mid n$ & $s\equiv 2\pmod{5}$ \\
+D$(541)$ & $541\mid n$ & $s\equiv 110\pmod{270}$ \\
+I3$(1,5,3)$ & $n\equiv17\ (20)$, $f\mid n^2+20$ & $s\equiv 1\pmod{2}$, $s\ge2$ \\
+I3$(1,11,3)$ & $n\equiv41\ (44)$, $f\mid n^2+44$ & $s\equiv 2,4\pmod{5}$, $s\ge2$ \\
+I3$(1,206,15)$ & $n\equiv809\ (824)$, $f\mid n^2+824$ & $s\equiv 50\pmod{102}$, $s\ge3$ \\
+I3$(5,19,119)$ & $n\equiv261\ (380)$, $f\mid n^2+1900$ & $s\equiv 14,50,86,122,158\pmod{180}$, $s\ge2$ \\
+II2$(1,2,31)$ & $n\equiv23\ (31)$ & $s\equiv 3\pmod{5}$ \\
+II2$(1,8,1887)$ & $n\equiv1855\ (1887)$ & $s\equiv 30\pmod{36}$ \\
+II2$(2,2,111)$ & $n\equiv79\ (111)$ & $s\equiv 12\pmod{18}$ \\
+II2$(7,2,671)$ & $n\equiv279\ (671)$ & $s\equiv 26\pmod{30}$ \\
+II2$(19,6,455)$ & $n\equiv436\ (455)$ & $s\equiv 4\pmod{6}$ \\
+\bottomrule
+\end{tabular}
+\caption{ET/divisor classes for $7\cdot4^s+9$; for I3 the modulus $f$ is the
+third parameter.}\label{tab:c7et}
+\end{table}
+
+\begin{remark}\label{rem:c7}
+The odd exponents are all handled by I3$(1,5,3)$; the work is in the even
+exponents.  The rule that reaches $\mu=0$ is the Sophie Germain window
+$m=19$ with $(d_1,d_2)=(f_+,7)$ on $s\equiv0,8\pmod{36}$: at the
+specialisation $Y=1/2$ one has $f_+=5/2$ and $7+5/2=19/2$.  By
+Lemma~\ref{lem:limitjacobi} below, only a piece with odd $2$-adic valuation
+at the limit can do this, and $f_\pm(1/2)\in\{5/2,1/2\}$ are such pieces.
+The tree that produced the certificate splits first on $s\bmod 36$ (the
+period of the $m=19$ rule) and then on the primes $17$, $5$, $3$; the
+certificate was replayed by two independent checkers in \cite{Exp105}.
+\end{remark}
+
+\subsection{The family $4^s+105$}
+Since $105=3\cdot5\cdot7\equiv1\pmod 8$, $n_s=4^s+105\equiv(2^s)^2\pmod{105}$ and
+$n_s\equiv1\pmod8$ for $s\ge2$: every member with $s\ge2$ lies in one of
+Mordell's six square classes modulo $840$, and $n_s$ is a square modulo every
+prime factor of the offset.  The family has the non-unit square points
+$4^2+105=11^2$, $4^3+105=13^2$, $4^4+105=19^2$ and $1+105\cdot4^2=41^2$
+($\mu=-2$), and a greedy search for an ET covering stalled near ``mixed''
+points of $\Zh$ that imitate different integer squares at different
+primes \cite[\S1.4]{SignFields}.  One cubic window class closes it.
+
+\begin{lemma}[\status{proved}; {\cite[Lemmas~1.0, 1.0$'$]{Sparks6}}]\label{lem:105class}
+Let $u\equiv32\pmod{151}$ be a positive integer, $n=256u^3+105$ and
+\[
+ x=64(u^3+1),\qquad A=\frac{64u^3+2u^2-2u+66}{151},\qquad y=nA,\qquad z=32n(u+1)A .
+\]
+Then $A\in\N$ and $4/n=1/x+1/y+1/z$.  If $s\equiv34\pmod{45}$ then
+$u:=4^{(s-4)/3}$ is such an integer and $n=4^s+105$.
+\end{lemma}
+
+\begin{proof}
+$4x-n=151$, so $4/n-1/x=151/(nx)$, and
+$1/y+1/z=(32u+33)/(32n(u+1)A)$; equality with $151/(64n(u^3+1))$ is
+$151A=2(32u+33)(u^2-u+1)$, which is the definition of $A$ expanded.  For
+$u\equiv32$, $32u+33\equiv1057=7\cdot151\equiv0\pmod{151}$, so
+$A\in\N$.  This is Lemma~\ref{lem:window}(a) with $m=151=4^4-105$,
+$N=nx$, $d_1=32(u+1)$ and $d_2=1$\,---\,more transparently,
+Lemma~\ref{lem:window}(b) with $d=x/(32(u+1))=2(u^2-u+1)$, a divisor of
+$x$ forced by $u^3+1=(u+1)(u^2-u+1)$.  For the second statement,
+$\ord_{151}(4)=15$, $(s-4)/3\equiv10\pmod{15}$ and $4^{10}\equiv32\pmod{151}$.
+\end{proof}
+
+\begin{theorem}[\status{proved}, computer-assisted; {\cite[Thm.~1.1]{Sparks6}}]\label{thm:105}
+For every $s\ge0$, $4/(4^s+105)$ is a sum of three unit fractions.
+\end{theorem}
+
+\begin{proof}
+The thirteen ET/divisor classes of Table~\ref{tab:105} cover every residue
+$s\bmod180$ except $s\equiv34\pmod{90}$ (computer-checked, or by hand from the
+table: the classes modulo $5$, $10$, $20$, $6$, $9$, $15$, $30$ leave
+$s\equiv34,124\pmod{180}$), and $s\equiv34\pmod{90}$ implies
+$s\equiv34\pmod{45}$, where Lemma~\ref{lem:105class} applies.  All moduli are
+odd and all coefficients are non-negative, so the classes apply for every
+$s\ge0$.
+\end{proof}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lll}
+\toprule
+class & condition on $n$ & exponents\\
+\midrule
+D$(11)$ & $11\mid n$ & $s\equiv 2\pmod{5}$ \\
+II2$(1,1,11)$ & $n\equiv7\ (11)$ & $s\equiv 0\pmod{5}$ \\
+II2$(1,3,11)$ & $n\equiv10\ (11)$ & $s\equiv 1\pmod{5}$ \\
+D$(41)$ & $41\mid n$ & $s\equiv 8\pmod{10}$ \\
+II2$(2,53,1271)$ & $n\equiv423\ (1271)$ & $s\equiv 9\pmod{10}$ \\
+II2$(3,22,527)$ & $n\equiv262\ (527)$ & $s\equiv 13\pmod{20}$ \\
+II2$(1,6,143)$ & $n\equiv119\ (143)$ & $s\equiv 24\pmod{30}$ \\
+II2$(1,2,151)$ & $n\equiv143\ (151)$ & $s\equiv 14\pmod{15}$ \\
+D$(13)$ & $13\mid n$ & $s\equiv 3\pmod{6}$ \\
+D$(19)$ & $19\mid n$ & $s\equiv 4\pmod{9}$ \\
+II2$(5,1,19)$ & $n\equiv14\ (19)$ & $s\equiv 1\pmod{9}$ \\
+II2$(2,5,39)$ & $n\equiv37\ (39)$ & $s\equiv 5\pmod{6}$ \\
+II2$(1,2,39)$ & $n\equiv31\ (39)$ & $s\equiv 1\pmod{6}$ \\
+\bottomrule
+\end{tabular}
+\caption{ET/divisor classes for $4^s+105$ (Theorem~\ref{thm:105}).}\label{tab:105}
+\end{table}
+
+\begin{remark}\label{rem:105}
+(i) The window class respects the odd-square obstruction locally: for
+$q=18837001$, a prime with $\ord_q(4)=45$, one has $\leg{n_s}q=-1$ for every
+$s\equiv34\pmod{45}$ \cite[review R246]{Sparks6}.  (ii) Whether
+ET and divisor classes alone cover $4^s+105$ is \status{open}: no point of
+the closure of the family is known to be sterile, the greedy search merely
+stalled (uncovered Haar measure $8.5\cdot10^{-8}$ of the exponent space,
+\status{evidence}).  So the theorem bypasses, and does not refute, a possible
+ET covering.  (iii) $4^s+105$ is not the first all-Mordell-hard family
+settled: $315\cdot2^m+1\equiv1\pmod{2520}$ for $m\ge3$ was settled by an ET
+covering in \cite{ExpCov}.  The new feature is a class whose divisor
+$2(u^2-u+1)$ moves with $n$.  The architecture\,---\,a finite exponent
+covering leaving one class, closed by an algebraic factorisation along that
+class\,---\,is Izotov's \cite{Izotov,FFK}.
+\end{remark}
+
+\subsection{The families $4^s+k$}
+\begin{theorem}[\status{proved}, computer-assisted; {\cite[Thm.~1.3]{SignFields}}]\label{thm:nine}
+For $k\in\{9,57,81,129,153,177,201,225,249\}$ and every $s\ge0$,
+$4/(4^s+k)$ is a sum of three unit fractions.
+\end{theorem}
+
+\begin{proof}
+For each $k$ the ET/divisor classes of Table~\ref{tab:nine} apply on the
+listed exponent classes for all $s\ge0$ (for I1$(1,679,19)$, $s\ge2$; the
+member $s=1$, $n=229$, of that class is covered by II2$(1,1,7)$), and their
+union is all residues modulo the stated period.
+\end{proof}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{llll}
+\toprule
+$k$ & class & condition on $n$ & exponents\\
+\midrule
+$9$ & D$(5)$ & $5\mid n$ & $s\equiv 0\pmod{2}$ \\
+ & II2$(2,2,15)$ & $n\equiv13\ (15)$ & $s\equiv 1\pmod{2}$ \\
+\midrule
+$57$ & II2$(2,2,15)$ & $n\equiv13\ (15)$ & $s\equiv 0\pmod{2}$ \\
+ & II2$(2,1,7)$ & $n\equiv5\ (7)$ & $s\equiv 1\pmod{3}$ \\
+ & II2$(1,1,7)$ & $n\equiv3\ (7)$ & $s\equiv 2\pmod{3}$ \\
+ & D$(11)$ & $11\mid n$ & $s\equiv 3\pmod{5}$ \\
+ & II2$(1,1,11)$ & $n\equiv7\ (11)$ & $s\equiv 2\pmod{5}$ \\
+ & II2$(1,1,31)$ & $n\equiv27\ (31)$ & $s\equiv 0\pmod{5}$ \\
+ & II2$(1,8,31)$ & $n\equiv30\ (31)$ & $s\equiv 1\pmod{5}$ \\
+ & II2$(7,9,2015)$ & $n\equiv251\ (2015)$ & $s\equiv 9\pmod{30}$ \\
+\midrule
+$81$ & D$(5)$ & $5\mid n$ & $s\equiv 1\pmod{2}$ \\
+ & II2$(1,2,15)$ & $n\equiv7\ (15)$ & $s\equiv 0\pmod{2}$ \\
+\midrule
+$129$ & D$(5)$ & $5\mid n$ & $s\equiv 0\pmod{2}$ \\
+ & II2$(2,2,15)$ & $n\equiv13\ (15)$ & $s\equiv 1\pmod{2}$ \\
+\midrule
+$153$ & II2$(1,2,15)$ & $n\equiv7\ (15)$ & $s\equiv 1\pmod{2}$ \\
+ & D$(7)$ & $7\mid n$ & $s\equiv 0\pmod{3}$ \\
+ & II2$(1,1,7)$ & $n\equiv3\ (7)$ & $s\equiv 1\pmod{3}$ \\
+ & D$(13)$ & $13\mid n$ & $s\equiv 2\pmod{6}$ \\
+\midrule
+$177$ & II2$(2,2,15)$ & $n\equiv13\ (15)$ & $s\equiv 0\pmod{2}$ \\
+ & II2$(1,1,7)$ & $n\equiv3\ (7)$ & $s\equiv 0\pmod{3}$ \\
+ & II2$(1,2,7)$ & $n\equiv6\ (7)$ & $s\equiv 1\pmod{3}$ \\
+ & II2$(1,2,39)$ & $n\equiv31\ (39)$ & $s\equiv 5\pmod{6}$ \\
+\midrule
+$201$ & D$(5)$ & $5\mid n$ & $s\equiv 1\pmod{2}$ \\
+ & II2$(1,2,15)$ & $n\equiv7\ (15)$ & $s\equiv 0\pmod{2}$ \\
+\midrule
+$225$ & II2$(2,1,7)$ & $n\equiv5\ (7)$ & $s\equiv 1\pmod{3}$ \\
+ & II2$(1,1,7)$ & $n\equiv3\ (7)$ & $s\equiv 2\pmod{3}$ \\
+ & II2$(1,2,39)$ & $n\equiv31\ (39)$ & $s\equiv 0\pmod{6}$ \\
+ & D$(17)$ & $17\mid n$ & $s\equiv 3\pmod{4}$ \\
+ & II2$(101,5,2019)$ & $n\equiv1918\ (2019)$ & $s\equiv 9\pmod{24}$ \\
+ & I1$(1,679,19)$ & $n\equiv2697\ (2716)$ & $s\equiv 21\pmod{24}$, $s\ge2$ \\
+\midrule
+$249$ & D$(5)$ & $5\mid n$ & $s\equiv 0\pmod{2}$ \\
+ & II2$(2,2,15)$ & $n\equiv13\ (15)$ & $s\equiv 1\pmod{2}$ \\
+\bottomrule
+\end{tabular}
+\caption{ET/divisor classes for $4^s+k$ (Theorem~\ref{thm:nine}).}\label{tab:nine}
+\end{table}
+
+\begin{remark}[scope]\label{rem:nine}
+By the elementary reduction \cite[Lemma~1.1]{SignFields}, $4^s+k$ with
+$s\ge2$ can meet Mordell's square classes only if $k\equiv9\pmod{24}$, which
+holds for all nine $k$ and for $33,105,273,297$ among $k\le300$.  For
+$k\in\{9,81,129,201,249\}$ no member with $s\ge2$ lies in a Mordell square
+class, so these cases are Mordell's theorem; $k=153$ is Mordell's theorem
+plus the divisor class $13\mid n$.  The genuinely new coverings are
+$k=57$, $177$, $225$.  The families $4^s+k$ have no integer unit-square
+points (Proposition~\ref{prop:intpoints}), so Theorem~\ref{thm:sterile} does
+not obstruct them; the covering is of Sierpi\'nski type.  For
+$k\in\{33,273,297\}$ ES for all $4^s+k$ is \status{open}: tree searches with
+ET classes, windows and sums-of-powers windows stall at uncovered measures
+$\approx10^{-7}$ near the square points $4^2+33=7^2$, $4^4+273=23^2$,
+$4^3+297=19^2$ \cite{SignFields,Sparks6,Exp105,ExpOpen}.
 \end{remark}
