@@ -35,8 +35,9 @@ those of the classical Type~II identity, but a prime $\ell\leq X$ is used
 together with a \emph{multiplier} $k\leq X^\kappa$, giving classes modulo
 $k\ell$.  Conditionally on $n\bmod\lcm(k)$ the hits at different primes are
 independent, and Bombieri--Vinogradov, Shiu's theorem and a Cauchy--Schwarz
-argument show that every conditional fibre has expected number of hits
-$\asymp(\log X)^3$, against $(\log X)^2$ for Vaughan's classes.  Instead of
+argument show that the expected number of hits is $\ll(\log X)^3$ in
+every conditional fibre and $\gg(\log X)^3$ in all but an exponentially
+rare set of fibres, against $(\log X)^2$ for Vaughan's classes.  Instead of
 the large sieve we count on $[1,N]$ an explicit nonnegative majorant made
 of congruence classes, namely a small-prime selector times an even
 Bonferroni truncation.  Its coefficient ledger costs
@@ -91,8 +92,9 @@ This is a report of a search, not a priority claim.
 For a prime $\ell\equiv3\pmod4$, every divisor pair of $(\ell+1)/4$
 forces a residue class modulo $\ell$ to consist of representable integers.
 On average over primes $\ell\leq X$ the mass of these classes is
-$\sum_\ell\omega(\ell)/\ell\asymp(\log X)^2$.  To turn mass $\mu$ at
-primes $\leq X$ into a saving $\e^{-c\mu}$, any sieve of this kind must
+$\sum_\ell\omega(\ell)/\ell\asymp(\log X)^2$.  Heuristically, to turn
+mass $\mu$ at primes $\leq X$ into a saving $\e^{-c\mu}$, a sieve of this
+kind must
 control intersections of about $\mu$ classes.  Such intersections have
 moduli of size up to $X^{O(\mu)}$, and this costs $\exp\{O(\mu\log X)\}$
 in the error terms.  With $t=\log X$ and $\mu\asymp t^{\mathcal B}$, the
@@ -106,8 +108,8 @@ $k\ell$ (Lemma~\ref{lem:identity}).  Conditionally on $n\bmod k$, such a
 class is a class modulo $\ell$.  Summed over $k$, the extra mass is the
 factor $\sum_k\varphi(k)/k^2\asymp\log K\asymp t$
 (Theorem~\ref{thm:supply}).  There is a difficulty: $L_K=\lcm\{k\leq K\}$
-satisfies $\log L_K\asymp K$, so $L_K$ is far larger than $N$, so one cannot split $[1,N]$
-into progressions modulo $L_K$ as \cite{LL} does.  We avoid any such
+satisfies $\log L_K\asymp K$.  Thus $L_K$ is far larger than $N$, and one
+cannot split $[1,N]$ into progressions modulo $L_K$ as \cite{LL} does.  We avoid any such
 splitting.  The majorant of Section~\ref{sec:assembly} is a fixed finite
 signed combination of congruence classes.  Its mean is computed exactly in
 a finite CRT probability space.  The fibres modulo $L_K$ appear only
@@ -122,11 +124,14 @@ nonnegative CRT majorant that is $\geq1$ on all integers avoiding a finite
 family of forced classes (the classes
 $\mathcal R(M)=\{-4D\bmod M:D\mid((M+1)/4)^2\}$ of
 Remark~\ref{rem:supply}, and the $(a,D)$ and Case~A classes in the
-notation of \cite{KA3}) and of selector classes $0\bmod p$, and that is used through
-$N\E\nu+\sum|{\rm coefficients}|$ with coefficient sum $<N$.  Every such
+notation of \cite{KA3}) and of selector classes $0\bmod p$, with all
+primes involved $\leq N^{O(1)}$ and no condition on the moduli, and that
+is used through $N\E\nu+\sum|{\rm coefficients}|$ with coefficient sum
+$<N$.  Every such
 majorant saves at most $C(\log N)^{3/4}$; see \cite[Cor.~4.2]{KA3} and
-\cite[Thm.~10.14]{SL}.  The majorant of Theorem~\ref{thm:assembly} is of
-this form.  These results do not cover large sieves of super-polynomial
+\cite[Thm.~10.14]{SL}; the Case~A part uses \cite[Prop.~1.4, \S7]{ET}.
+The majorant of Theorem~\ref{thm:assembly} is of this form, since its
+atoms are classes in $\mathcal R(k\ell)$.  These results do not cover large sieves of super-polynomial
 level, hybrid interval methods, or non-CRT inputs.  Nothing in this remark
 is used below.
 \end{remark}
@@ -153,7 +158,7 @@ analytic constants (Shiu, Brun--Titchmarsh, Bombieri--Vinogradov with a
 fixed exponent) and the lattice threshold $K_0$.  Then the void constant
 $c_v$ is chosen (Section~\ref{sec:void}), then the selector constant $B$
 in $y=Bt^3$, then the Bonferroni constant $D_B$, then the ledger constant
-$C_0$, and finally $\alpha$ in $t=\alpha(\log N)^{1/4}$.  Every later
+$C_L$, and finally $\alpha$ in $t=\alpha(\log N)^{1/4}$.  Every later
 ``sufficiently large'' threshold depends only on the constants already
 chosen, and none depends on a residue class, a subfamily of multipliers,
 a moment order, or $N$.  We write $A\ll B$ with constants that are
