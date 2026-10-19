@@ -2,7 +2,7 @@
 
 ## 0. Summary
 
-**PROVED.** The forest stopping time satisfies `r(p) ≤ H₄(p)` and `a_min(p) ≤ 2H₄(p)−1`, but it is not a reparametrisation of the window statistic: **for every H, infinitely many primes have simultaneously `a_min=3`, `λ=2`, and `H₄>H`**. There is an unconditional almost-all theorem, `H₄(p) ≤ h(p)` for every function `h(p)→∞`; this says nothing at a prescribed prime. **CERTIFIED:** 522,253 saved rows (517,362 distinct primes) pass independent primality, minimum-endpoint, least-nonresidue and fraction checks. The largest observed `H₄/log²p` is 1.612120 at `p=1002125860849`, with `H₄=1231`, `r=31`, but `a_min=3`. Four million additional prime draws supply tail statistics. No example refutes the proposed constant 2, let alone an unspecified big-O constant. **Assessment:** the forest removes factoring from verification, not the moving-class existence problem; neither GRH nor the data supplies an all-prime upper bound, and exponent 2 has no established sharpness argument.
+**PROVED.** The forest stopping time satisfies `r(p) ≤ H₄(p)` and `a_min(p) ≤ 2H₄(p)−1`, but it is not a reparametrisation of the window statistic: **for every H, infinitely many primes have simultaneously `a_min=3`, `λ=2`, and `H₄>H`**. There is an unconditional almost-all theorem, `H₄(p) ≤ h(p)` for every function `h(p)→∞`; this says nothing at a prescribed prime. **CERTIFIED:** 522,253 saved rows (517,362 distinct primes) pass independent primality, minimum-endpoint, least-nonresidue and fraction checks. The largest observed `H₄/log²p` is 1.612120 at `p=1002125860849`, with `H₄=1231`, `r=31`, but `a_min=3`. Four million additional prime draws supply tail statistics. No saved example refutes the proposed constant 2, let alone an unspecified big-O constant (R-z46 repair: see the hunt-censoring qualification in §3.4). **Assessment:** the forest removes factoring from verification, not the moving-class existence problem; neither GRH nor the data supplies an all-prime upper bound, and exponent 2 has no established sharpness argument.
 
 **Verdict: PARTIAL — the open implication is small nonresidues ⇒ an actual opposite-coloured parent edge in a growing endpoint box. Promise: 1/5. ES remains open.**
 
@@ -84,7 +84,7 @@ In particular no finite-valued function `f(a_min,λ)` bounds H₄ pointwise.
 p≡1 (M),       p≡−1 (q),       p≡−3 (s).
 ```
 
-This is a reduced CRT class modulo Mqs, so Dirichlet supplies infinitely many primes, which may be taken larger than Mqs. The z45 cutoff lemma gives H₄>H: at `2≤v≤H` the only possible parent is v−1, and an edge requires `v−1|2`, leaving v=2,3; their words have no 4-divisible slot when p≡1 (24).
+This is a reduced CRT class modulo Mqs, so Dirichlet supplies infinitely many primes, which may be taken larger than Mqs. **R-z46 repair (hypotheses):** q and s are fixed auxiliary primes before p varies; only p must take prime values in this final progression. No simultaneous-prime assertion or Dickson hypothesis is used. The z45 cutoff lemma gives H₄>H: at `2≤v≤H` the only possible parent is v−1, and an edge requires `v−1|2`, leaving v=2,3; their words have no 4-divisible slot when p≡1 (24).
 
 Since `s|(p+3)/4` and `s≡−1 (3)`, `Rat_3((p+3)/4)` contains −1; thus a_min=3. Since `q|p+1` and q≡3 (4), quadratic reciprocity gives `(q/p)=(−1/q)=−1`. Moreover `p/q=[[(p+1)/q,q]]` has HJ length 2. Length 1 is impossible for a QNR, so λ=2. ∎
 
@@ -208,6 +208,8 @@ Thus the upper limiting density of `{H₄>Y}` is at most B(Y). The reciprocal-pr
 ### 3.4 Adversarial experiment and exact checks
 
 **Protocol / CERTIFIED saved computations.** `scripts/z46_forest_h4_scan.c` uses 64-bit deterministic Miller–Rabin with the standard seven bases and 128-bit modular products. It scans parents without factoring, stopping at 10⁶ endpoints; zero saved prime is censored. Every saved row is independently checked in Python using SymPy primality, the **mutual-divisibility plus Legendre-colour** test (not the C five-slot condition), a complete scan below the returned H₄, and an integer cross-multiplication check of its reconstructed Egyptian-fraction identity. Least QNR is verified on every smaller prime. All scripts run under a 2,000,000 KiB virtual-memory cap and explicit timeouts. There is no dense mesh/array or Cartesian product over primes and endpoints.
+
+**R-z46 repair (hunt limitation).** In the C `hunt` mode, `h4=0` denotes no hit by the 10⁶-endpoint cap, but that value is neither counted as a tail exceedance nor retained (`h>=256` is false). The aggregate logs contain no censor counter. Thus the saved-row audit certifies all saved minima, not the absence of cap failures among the four million draws. The aggregate tail counts remain single-engine EVIDENCE with this unresolved omission risk. Before using this harness for adversarial falsification, a follow-up should make cap exhaustion fatal or explicitly count and retain it; no such script repair is included in this document-only review.
 
 **Protocol / EVIDENCE selection.** Samples are deliberately heterogeneous, not independent draws from one population:
 
