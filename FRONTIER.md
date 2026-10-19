@@ -358,3 +358,62 @@ for every fixed H, infinitely many p ≡ 1 (24) have every component meeting {1,
 non-residue also fails i.o. (p = 2521 + 9240a with (p + 11)/12 prime). For every M, infinitely many p ≡ 1 (8) have no window
 certificate with m ≤ M at any cap (CONDITIONAL on Dickson). *Rules out:* fixed finite root sets and bounded windows. *Does NOT
 rule out:* growing/p-dependent roots, Pell or class-group cycle data.
+
+## 4. What a proof would need — a five-minute screening checklist
+
+Screen an idea against every line *before* investing in it. Each line names the barrier that kills ideas failing it. Passing
+all lines is necessary, not sufficient; nothing proposed in this campaign has passed all of them.
+
+1. **It must fail at odd squares (T1/B5).** Name the step that is false at n = m². Equivalently the argument must use the
+   quadratic character of p essentially (in every solution of 4/p with p ≡ 1 (4), every denominator prime to p has a prime
+   factor ℓ with (ℓ/p) = −1; Lemma CT). Local/genus/spinor/Siegel–Weil/BM-type steps are all true at m²; they cannot carry
+   the argument. (Composite-n descent must be checked separately: ES(m²) is true via ES(m).)
+2. **It must fail for numerator 8 at 131 and 241** (and 8/11, 8/17; numerator blindness (J)41, (J)86). If every step works
+   for M/n with M ≡ 0 (4) uniformly and without a threshold, the argument proves false statements. Say where 4 enters
+   (candidate: the χ-fibre S₄ of (J)32) or which threshold p₀(M) the argument needs.
+3. **It must not be numerator-uniform in its laws** — no k-uniform transport, square law or recombination law (all refuted
+   on k/n models, (J)86, (J)88).
+4. **It must break the tied modulus (B2, PARITY_AUDIT Remark 3.1).** Identify the modulus of the class condition. If it is
+   fixed, find where the height dependence went (x ≡ y ≡ −1 mod 4C with C = (xy − 1)/4p); if it moves with the solution, say
+   which theorem controls divisors of *one* integer in a moving class with error below a (log p)² main term. No such theorem
+   is known. A fixed finite menu of slices fails infinitely often (CONDITIONAL on H, (I)8), as do fixed root sets and
+   bounded windows (CONDITIONAL on Dickson, (J)106, (J)83).
+5. **p must stay fixed throughout (B6/T7).** List every averaged variable in every cited estimate. Averages over p, over the
+   level/discriminant attached to p, over residues a, or over moduli q ≤ x^θ with n free do not reach one p.
+6. **Scale (B3).** If it is "main term ≥ 2·error", compute the main term: power-size main terms with ≤ p^{o(1)}-to-one
+   encodings are impossible for almost all p. The live regime is polylog main term with error below it at one integer.
+7. **One-sided only.** Any claimed two-sided asymptotic R(p) = M(p)(1 + o(1)), or |R − M| ≤ (log p)^{O(1)}, is false
+   infinitely often (Linnik, `BM_CORRECTED_COUNT` Prop 3.1).
+8. **Not congruence + factorisation shape (B1).** If the input is p mod M plus the factorisation shapes of fixed
+   polynomials in p (even with size comparisons against p^θ), it fails at a square-mimicking point under H. You need a
+   p-dependent growing family (E1) or non-quasi-polynomial primitives (E2) *and* control of their actual factorisations.
+9. **Class, not parity.** If the forcing comes from reciprocity, Chebotarev, Rédei or higher residue symbols, it delivers
+   only the quadratic layer of the divisor class (CLASS_FORCING Thm 2.1, TWO_POWER_LADDER Thms 3.1–3.2). ES needs the class
+   (−1 mod 4u, i.e. a coset of size φ(4u)/2 *inside* the BM-allowed half).
+10. **No pooling of large primes across shifts** (privacy, SS8 Lemma 2.3): a collision across jp + 1 or p + 4d involves only
+    primes ≤ the shift range, i.e. congruence data.
+11. **No signed detour** ((J)52, (J)89 Lemma 4.1): there is no signed → positive move; signed slices have the wrong
+    Legendre symbol.
+12. **No relaxation-then-transport without a transport theorem.** ES^□, ES^{(S)}, V_φ, capped ES^{(y,e)}, odd power rungs,
+    and ES at CF length ≍ log p log log p are theorems (or near-theorems) *because* they have fixed-modulus shots or
+    density; the power ladder is flat ((J)108) and ES is a finite O(p²) search with moving moduli ((J)25). Say how
+    certificates get back into the O(p²) box with cap 0.
+13. **No BM/local-global shortcut.** There is no BM obstruction at any n ≥ 2, so BM supplies nothing to prove; "BM is the
+    only obstruction on U_n" is literally ES(n) ((I)7). The BM main term is free pointwise ((J)103 Prop 2.2) — the problem
+    is the class inside the coset.
+14. **Run it on the test primes.** (★) fails at 14 primes p ≡ 1 (4) ≤ 10¹⁰: 409, 577, 5569, 9601, 23929, 83449, 102001,
+    329617, 712321, …, 8 813 281 (`BM_CORRECTED_COUNT.md` §3.2, `B1_LINE.md` §3.6); the b = 1 line fails at 193, 2521, 66529;
+    at p = 3361 the only Type II solutions are 1/850 + 1/(3361·25) + 1/(3361·170) and 1/841 + 1/(3361·290) + 1/(3361·8410), all
+    on non-split slices ((J)82; 3361 is conjecturally the only prime without a prime-modulus Type II certificate, PM-II,
+    exhaustive to 10⁸); at p = 5101441 the a = 1 slice has a single solution. A mechanism claiming that one fixed line or
+    grammar always succeeds must survive these (the board found an HJ grammar that traps at 193).
+15. **Square classes mod 840 and near-squares.** The hardest primes are in the Mordell classes and at bounded p − m²; T1
+    deforms there ((J)53, (J)55). Check the idea at p = m² + k with small k.
+16. **Thin-family wins do not transfer.** Forced-budget windows (Sophie Germain, moving-gap cubic) prove 3·2^s + 1 etc.;
+    at a general prime the side numbers are irreducible in ℚ[u, p] ((J)84), so an algebraic budget needs p = φ(u).
+
+**Minimal profile of a successful mechanism** (Assessment, distilled from the above and both boards): a single-integer
+statement at fixed p; uses the quadratic character of p (vanishes at squares); 4-specific or with an explicit threshold;
+controls the *class* of a divisor of one integer in a modulus tied to the solution; one-sided, with error below a
+(log p)² main term; not an average over any parameter attached to p. Board #2 (three labs) was unanimous that no known
+technique has this profile.
