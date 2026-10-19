@@ -13,8 +13,10 @@
 # Coverage: L = lcm of the rule periods in s; every residue s mod L is covered by a rule for all s >= S*; every
 # 0 <= s < S* is solved explicitly (by a rule evaluated at that s, or by an exhaustive divisor search).
 # Numerics: an exact solution is built from the covering rule and checked for every s <= SMAX.
-# Further finite checks of the paper: Theorem W's limit enumeration (Computation 5.6), the boxed equation of
-# Lemma 5.10, and the derived class tables (printed with --tables).
+# For ET classes the parameters (b, c, d, ...) must be integral too (= membership of n in the named class), and for
+# window rules (d1 + d2)/m must be integral, so the derived classes are exactly those stated in the paper.
+# Further finite checks of the paper: Theorem W's limit enumeration (Computation 5.8), the boxed equation of
+# Lemma 5.14, and the derived class tables (printed with --tables).
 # Usage: PYTHONPATH=scripts uv run python scripts/c1_expfam_verify.py [--tables] [--smax N]
 import sys, time
 from fractions import Fraction as Fr
@@ -83,10 +85,13 @@ class Fam:
         D, r = divmod(sigma * self.lb, omega); assert r == 0
         return self.c0 * self.B ** s0 * Y ** D + self.k
 
-    def add(self, label, s0, sigma, omega, x, y, z):
+    def add(self, label, s0, sigma, omega, x, y, z, extra=()):
+        """extra: further polynomials that must be integer-valued and positive where the rule is claimed (the ET
+        parameters b, c, d, ... -- i.e. membership of n in the named ET class -- resp. (d1+d2)/m for windows)."""
         n = self.nY(s0, sigma, omega)
         self.rules.append(dict(label=label, s0=s0, sigma=sigma, omega=omega, n=n,
-                               xyz=[cancel(expand(e)) for e in (x, y, z)]))
+                               xyz=[cancel(expand(e)) for e in (x, y, z)],
+                               extra=[cancel(expand(e)) for e in extra]))
 
     # ET classes: polynomial in n (sigma = 1, Y = B^s)
     def et(self, fam, *p):
@@ -95,30 +100,30 @@ class Fam:
             if p[0] not in DIV_ES:
                 sol = es_brute(p[0]); assert sol and check_sol(p[0], sol); DIV_ES[p[0]] = sol
             q, (xq, yq, zq) = p[0], DIV_ES[p[0]]
-            x, y, z = xq * n / q, yq * n / q, zq * n / q
+            x, y, z = xq * n / q, yq * n / q, zq * n / q; ex = [n / q]
         elif fam == 'II2':           # 4ad | f+1, n = -4a^2 d (mod f)
             a, d, f = p; assert (f + 1) % (4 * a * d) == 0
             c = (f + 1) // (4 * a * d); b = (n * c + a) / f
-            x, y, z = a * b * d, a * c * d * n, b * c * d * n
+            x, y, z = a * b * d, a * c * d * n, b * c * d * n; ex = [b]
         elif fam == 'I1':            # f | 4a^2 d + 1, n = -f (mod 4ad)
             a, d, f = p; assert (4 * a * a * d + 1) % f == 0
             e = (4 * a * a * d + 1) // f; b = (n * e + 1) / (4 * a * d); c = (n + f) / (4 * a * d)
-            x, y, z = a * b * d * n, a * c * d, b * c * d
+            x, y, z = a * b * d * n, a * c * d, b * c * d; ex = [b, c]
         elif fam == 'I2':            # (4ac, f) = 1, n = -f (4ac), n = -c/a (f)
             a, c, f = p; assert gcd(4 * a * c, f) == 1
             d = (n + f) / (4 * a * c); b = (n * a + c) / f
-            x, y, z = a * b * d * n, a * c * d, b * c * d
+            x, y, z = a * b * d * n, a * c * d, b * c * d; ex = [b, d]
         elif fam == 'II1':           # e | a+b, (e, 4ab) = 1, n = -e (mod 4ab)
             a, b, e = p; assert (a + b) % e == 0 and gcd(e, 4 * a * b) == 1
             c = (a + b) // e; d = (n + e) / (4 * a * b)
-            x, y, z = a * b * d, a * c * d * n, b * c * d * n
+            x, y, z = a * b * d, a * c * d * n, b * c * d * n; ex = [d]
         elif fam == 'I3':            # (4cd, f) = 1, n = -f (4cd), f | n^2 + 4c^2 d
             c, d, f = p; assert gcd(4 * c * d, f) == 1
             a = (n + f) / (4 * c * d); b = (n * n + 4 * c * c * d + n * f) / (4 * c * d * f)
-            x, y, z = a * b * d * n, a * c * d, b * c * d
+            x, y, z = a * b * d * n, a * c * d, b * c * d; ex = [a, b]
         else:
             raise ValueError(fam)
-        self.add('%s%s' % (fam, p), 0, 1, self.lb, x, y, z)
+        self.add('%s%s' % (fam, p), 0, 1, self.lb, x, y, z, extra=ex)
 
     # constant-gap window rule (Lemma 3.1): x = (n+m)/4, N = n x, d1, d2 | N, m | d1 + d2
     def window(self, label, s0, sigma, omega, m, d1, d2):
@@ -127,7 +132,7 @@ class Fam:
         for d in (d1, d2):
             assert cancel(N / d).is_polynomial(Y), (label, 'd does not divide N')
         y = N * (d1 + d2) / (m * d2); z = N * (d1 + d2) / (m * d1)
-        self.add(label, s0, sigma, omega, x, y, z)
+        self.add(label, s0, sigma, omega, x, y, z, extra=[d1, d2, (d1 + d2) / m])
 
     # z14-type window leaf ('W m j code w h' with relation eps, i), see EXP_105 section 2
     def z14(self, m, j, code, w, h, eps, i):
@@ -195,15 +200,16 @@ def analyse(fam, rule):
     assert expand(4 * x * y * z - n * (x * y + y * z + z * x)) == 0, rule['label']
     om = rule['omega']
     polys = [int_coeffs(R) for R in (x, y, z)]
+    conds_all = polys + [int_coeffs(R) for R in rule['extra']]
     # positivity threshold: every numerator > 0 for Y >= 2^(om*tpos)
     tpos = 0
-    for co, N in polys:
+    for co, N in conds_all:
         assert co[0] > 0, (rule['label'], 'leading coefficient')
         P = Poly(co, Y)
         while P.count_roots(Integer(2) ** (om * tpos), None) > 0 or P.eval(Integer(2) ** (om * tpos)) <= 0:
             tpos += 1
     tstar, T, conds = tpos, 1, []
-    for co, N in polys:
+    for co, N in conds_all:
         a, No = two_adic(N)
         tstar = max(tstar, -(-a // om))
         o = n_order(2 ** om, No) if No > 1 else 1
@@ -297,7 +303,8 @@ def fam_proth3():
     assert expand(K - (n + 11) / 4) == 0
     for (a, b, c) in ((0, 2, 1), (0, 0, 2), (0, 2, 0), (0, 1, 2)):
         d = 3 ** a * fp ** b * fm ** c
-        F.add('SG11 d=3^%d f+^%d f-^%d' % (a, b, c), 4, 4, 1, K, n * (K + d) / 11, n * K * (K + d) / (11 * d))
+        F.add('SG11 d=3^%d f+^%d f-^%d' % (a, b, c), 4, 4, 1, K, n * (K + d) / 11, n * K * (K + d) / (11 * d),
+              extra=[(K + d) / 11])
     n = 3 * Y + 1
     F.add('D7', 0, 1, 1, 2 * n / 7, 15 * n / 7, 30 * n)
     F.add('n=6 (7)', 0, 1, 1, 2 * (n + 1) / 7, 2 * n, 2 * n * (n + 1) / 7)
@@ -323,13 +330,13 @@ def fam_c6_k1():
     return F
 
 
-# Theorem 4.3: n = 63*2^s + 1
+# Theorem 4.4 / Lemma 4.3: n = 63*2^s + 1
 def fam_63():
     F = Fam('63*2^s+1', 63, 2, 1)
     n = 63 * Y ** 3 + 1; a, d = 5, 17
     b = (63 * Y ** 3 + 3 * Y ** 2 - 9 * Y + 28) / 340; c = (21 * Y + 64) / 340
     assert expand(c * n - (4 * a * b * c * d - a - b)) == 0
-    F.add('II-ad (a,d)=(5,17), Y=2^(s/3)', 0, 3, 1, a * b * d, a * c * d * n, b * c * d * n)
+    F.add('II-ad (a,d)=(5,17), Y=2^(s/3)', 0, 3, 1, a * b * d, a * c * d * n, b * c * d * n, extra=[b, c])
     for p in (('D', 5), ('II2', 1, 2, 15), ('II2', 2, 2, 15), ('II2', 5, 3, 119), ('II2', 5, 2, 39),
               ('II2', 1, 5, 19), ('I1', 1, 146, 39), ('D', 11), ('II2', 3, 1, 11), ('II2', 1, 1, 11), ('D', 29),
               ('II2', 1, 11, 87), ('D', 127), ('II2', 1, 32, 127), ('I1', 1, 86, 23), ('II1', 1, 254, 15),
@@ -338,7 +345,7 @@ def fam_63():
     return F
 
 
-# Theorem 4.5: n = 7*4^s + 9 (flattened 59-leaf tree of EXP_105, 35 distinct rules)
+# Theorem 4.6: n = 7*4^s + 9 (flattened 59-leaf tree of EXP_105: 33 distinct rules needed)
 C7 = [('D', 11), ('D', 541), ('I3', 1, 5, 3), ('I3', 1, 11, 3), ('I3', 1, 206, 15),
       ('I3', 5, 19, 119), ('II2', 1, 2, 31), ('II2', 1, 8, 1887), ('II2', 2, 2, 111), ('II2', 7, 2, 671),
       ('II2', 19, 6, 455)]
@@ -368,12 +375,12 @@ def fam_15():
     return F
 
 
-# Theorem 4.7: n = 4^s + 105 (13 ET/divisor classes + one cubic window class)
+# Theorem 4.9 / Lemma 4.8: n = 4^s + 105 (13 ET/divisor classes + one cubic window class)
 def fam_105():
     F = Fam('4^s+105', 1, 4, 105)
     u = Y; n = 256 * u ** 3 + 105; A = (64 * u ** 3 + 2 * u ** 2 - 2 * u + 66) / 151
     assert expand(4 * 64 * (u ** 3 + 1) - n - 151) == 0 and expand(151 * A - 2 * (32 * u + 33) * (u * u - u + 1)) == 0
-    F.add('W151 cubic, u=4^((s-4)/3)', 4, 3, 2, 64 * (u ** 3 + 1), n * A, 32 * n * (u + 1) * A)
+    F.add('W151 cubic, u=4^((s-4)/3)', 4, 3, 2, 64 * (u ** 3 + 1), n * A, 32 * n * (u + 1) * A, extra=[A])
     for p in (('D', 11), ('II2', 1, 1, 11), ('II2', 1, 3, 11), ('D', 41), ('II2', 2, 53, 1271), ('II2', 3, 22, 527),
               ('II2', 1, 6, 143), ('II2', 1, 2, 151), ('D', 13), ('D', 19), ('II2', 5, 1, 19), ('II2', 2, 5, 39),
               ('II2', 1, 2, 39)):
@@ -381,7 +388,7 @@ def fam_105():
     return F
 
 
-# Theorem 4.9: n = 4^s + k, nine k (z8 certificates)
+# Theorem 4.11: n = 4^s + k, nine k (z8 certificates)
 NINE = {9: [('D', 5), ('II2', 2, 2, 15)],
         57: [('II2', 2, 2, 15), ('II2', 2, 1, 7), ('II2', 1, 1, 7), ('D', 11), ('II2', 1, 1, 11), ('II2', 1, 1, 31),
              ('II2', 1, 8, 31), ('II2', 7, 9, 2015)],
@@ -401,7 +408,7 @@ def fam_nine(k):
 
 
 # ----------------------------------------------------------------------------------------------------------
-# Theorem 5.5 / Computation 5.6 (Theorem W): limit-level relations for constant-gap families through mu = 0.
+# Theorem 5.7 / Computation 5.8 (Theorem W): limit-level relations for constant-gap families through mu = 0.
 def thmW(c0, k):
     """all (w, m, e1, a1, e2, a2) with m = 4 c0 w^4 - k, 0 < m <= B(m), a1 a2 | M = 4^J + m (a_i odd),
     e_i = -2 delta_i + nu_i (2 delta_i in {0,1,2}, 2delta_1 + 2delta_2 <= 2, nu_i in {0, 2J}, nu_1 + nu_2 <= 2J),
@@ -415,7 +422,7 @@ def thmW(c0, k):
         return max(2 ** E * 4 ** J + 2 ** (2 * E + 2) * r * r, 2 ** E * 4 * r * r + 4 ** J)
     es = set()
     for t1 in (0, 1, 2):
-        for t2 in (0, 1, 2 - t1):
+        for t2 in range(0, 3 - t1):          # 2 delta_1 + 2 delta_2 <= 2
             for nu in ((0, 0), (2 * J, 0), (0, 2 * J)):
                 es.add((-t1 + nu[0], -t2 + nu[1]))
     hits, ws, w = [], [], 1
@@ -448,7 +455,7 @@ def irreducible_all_D(c0, k):
 
 
 def boxed():
-    """Lemma 5.10: all positive solutions of a(m1 m2 d - 4) = m1 + 16 m2; bounds a <= 81, m1 <= 100, m1 d <= 120."""
+    """Lemma 5.14: all positive solutions of a(m1 m2 d - 4) = m1 + 16 m2; bounds a <= 81, m1 <= 100, m1 d <= 120."""
     sols = []
     for a in range(1, 200):
         for m1 in range(1, 400):
@@ -480,7 +487,7 @@ def verify_obstructions():
     odd = [s for s in sols if s[0] % 2 and s[1] % 2]
     div15 = [(a, d, (4 * a * a * d + 1) // 15) for a, d, m1, m2 in odd if (4 * a * a * d + 1) % 15 == 0]
     assert div15 == [(1, 11, 3)] or set(div15) == {(1, 11, 3)}, div15
-    log('[OK] Lemma 5.10: a(m1 m2 d - 4) = m1 + 16 m2 has exactly %d positive solutions (%d with a, d odd, %d '
+    log('[OK] Lemma 5.14: a(m1 m2 d - 4) = m1 + 16 m2 has exactly %d positive solutions (%d with a, d odd, %d '
         'distinct odd pairs); 15 | 4a^2d+1 only for (a,d) = (1,11), quotient 3  (%.1fs)'
         % (len(sols), len(odd), len({(s[0], s[1]) for s in odd}), time.time() - t0))
 
