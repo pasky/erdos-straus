@@ -449,8 +449,9 @@ no single-prime lower-tail mechanism is known.
 *All internal; none externally refereed. "PROVED rel. X" = proved relative to the published theorems X.*
 
 **5.1 Unconditional, on average / almost all** (B6 applies to every item).
-* E(N) ≪ N exp(−c(log N)^{3/4}) (INTERNALLY PROVED; `paper/es-threequarter-note`), shift-uniform in short intervals and
-  progressions ((D)30), uniform in the numerator m ((D)31); 3/4 sharp for CRT architectures ((D)24, (D)27, (D)28).
+* E(N) ≪ N exp(−c(log N)^{3/4}) (INTERNALLY PROVED; `paper/es-threequarter-note`), shift-uniform in every interval of length H
+  and in progressions n ≡ b (mod q) for q ≤ exp(c′(log(H/q))^{3/4}) or q with all prime factors large ((D)30; large smooth q
+  open), uniform in the numerator m ((D)31); 3/4 sharp for CRT architectures ((D)24, (D)27, (D)28).
 * Σ_{p≤N} f_I(p) ≪ N log²N (PROVED rel. Kuznetsov/Petersson, Weil, twisted Weil, Selberg 3/16, λ₁ > 1/4; (D)32b;
   *needs expert scrutiny*).
 * m/n density transition at log N ≍ m^{1/3}: upper half Thm U (PROVED rel. BV, Shiu; ineffective), lower half Thm L′
@@ -458,7 +459,9 @@ no single-prime lower-tail mechanism is known.
 * Moving windows (board #2 slate, (J)105; PROVED rel. Henriot's erratum, Siegel–Walfisz, Mertens): for 0 < α < 1/6, all but
   O(X/L^{4/3−2α−ε}) primes p ≡ 1 (8) in [X, 2X] have a Type II solution at *every* forced prime window q ≡ 3 (8) in
   [L^α, 2L^α] (L = log X). Witness-location information; says nothing about hard primes.
-* Almost-all caps: #{p ≤ X : e*(p) > (log X)^A/4} ≤ X^{2/A+o(1)} (PROVED rel. Montgomery's large sieve, PNT in APs; (J)83).
+* Almost-all caps: for A > 1, #{p ≤ X : e*(p) > (log X)^A/4} ≤ X^{2/A+o(1)} — a power saving for A > 2; and
+  #{p ≤ X : e*(p) > p^ε} ≪_ε (log X)^{⌈4/ε⌉} (`CAP_BOUNDED.md` Thm 3.2; PROVED rel. Montgomery's large sieve, PNT in APs;
+  (J)83).
 
 **5.2 Unconditional, pointwise — for relaxations or thin families, not ES.**
 * The BM main term: M_BM(p) ≥ (3/(16π²) − o(1))(log p)² (Burgess) for every large prime; five-slice analogue
@@ -471,7 +474,8 @@ no single-prime lower-tail mechanism is known.
   p ≡ 1 (8) (effective) ((J)66). ES is cap 0; cap 0 at a window is exactly the B2 event. The first genuinely pointwise
   positive mechanism of the campaign — for a relaxation.
 * Provable T1-bearing cousins: ES^{(S)} (|S| ≥ 4, unconditional), ES^□ (elementary), V_φ (GRH; unconditional with a
-  power-saving exceptional set), ES_(k) for every k (odd k: all n; even k: odd non-squares; (J)108), M^□ for all M ≡ 0 (4) ((J)41) — see B-fin for why they don't
+  power-saving exceptional set), ES_(k) for every k and every n ≥ 2 ((J)108 Cor 2.5; the even-k construction itself works at odd non-squares and
+  extends by scaling), M^□ for all M ≡ 0 (4) ((J)41) — see B-fin for why they don't
   transfer.
 * Thin families: all 3·2^s + 1, 7·4^s + 9, 63·2^s + 1, 4^s + 105, 4^s + k (nine k) (PROVED, computer-assisted; §1). The
   II-ad u ≡ 3 (8) branch of 15·2^s + 1 is sterile for every root degree ((J)102).
@@ -489,8 +493,9 @@ no single-prime lower-tail mechanism is known.
 * Infinitely many 3·2^s + 1 etc. lie outside every finite ET covering ((J)22 Cor 1.5, (J)68).
 
 **5.4 Conditional implications toward ES** (each hypothesis is ES-strength or non-standard).
-* **H⁻_BM(ε, p₀) ⟹ ES** (§2.4; PROVED implication; no standard conjecture known to imply H⁻_BM).
-* Conjecture X_slice (∃ c, f: cf | p + c + f, f(p + c + f)/(cf) ≡ 1 (4)) ⟹ ES(p) (`CONDITIONAL_ES.md` Thm 6.1; X_slice is
+* **H⁻_BM(ε, p₀) ⟹ ES(p) for all sufficiently large primes p**; ES for all n then additionally needs a finite census below
+  the resulting threshold (§2.4; PROVED implication; no standard conjecture known to imply H⁻_BM).
+* Conjecture X_slice (∃ c, f: cf | p + c + f, f(p + c + f)/(cf) ≡ 1 (4)) ⟹ ES(p) for all sufficiently large primes p (`CONDITIONAL_ES.md` Thm 6.1; X_slice is stated for large p and is
   ES-strength, single-slice; EVIDENCE: solves every prime < 3000 and every Mordell-hard prime < 2·10⁶).
 * Caps, not ES: Hypothesis W (balanced lattice) ⟹ e*(p) ≤ (log log p)^{2+o(1)}; GRH + EQ ⟹ (log₂p)^{13/2+o(1)}; GRH + S ⟹
   (log₂p)^{9/2+o(1)} ((J)85, (J)91; EQ, S non-standard; GRH alone does not reach (log₂p)^{O(1)} this way).
@@ -515,7 +520,9 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * Weil / Selberg–Hooley / bilinear fixed-modulus savings → tied modulus; need p^{1−o(1)} saving → `PARITY_AUDIT` §2.
 * H-B, parity-breaking (Friedlander–Iwaniec) at fixed p → collapses into H-A → `PARITY_FIXED_P.md` (J)6, (J)87.
 * Fixed-p variance / Janson / level-Poisson second-moment → critical, far tail fatter than Poisson → (J)103 §3.
-* Exact positive identities (56 ES counts vs 54 classical functions; fixed-level Eisenstein identities) → none exists (T1) → (I)5, (J)7 Thm 9.1.
+* Exact identities: no linear relation between 56 ES counts and 54 classical functions (CERTIFIED, that finite dictionary); no
+  finite fixed-level Eisenstein-type identity certifies Type I/II counts (PROVED via T1) → (I)5, (J)7 Thm 9.1. Growing-level
+  identities remain open ((J)10: the T1-respecting W(n) identity exists, positivity is the spin event).
 * Automorphic normal form (theta quotient, weight ½, Serre–Stark) → Eisenstein-only, exact, but does not decide one integer → (J)101.
 * Dirichlet series / moments / Euler-product hardness laws → averages (B6) → `BRAINSTORM/anal_*`.
 
@@ -524,8 +531,8 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * Reciprocity / Chebotarev / Rédei / higher power residues to force the class → parity only → (J)93, (J)96, (J)104.
 * Non-abelian Frobenius, quartic data → inert on finite witness sets → (J)96, `MODP_RECIPROCITY.md`.
 * Pigeonhole across shifts j or d → privacy of large primes → SS8 Lemma 2.3.
-* Signed solutions then "move to positive" → no signed → positive move → (J)52, (J)89 Lemma 4.1.
-* Polynomial auxiliary budgets at a general prime; ℤ[√p] windows; p − 1 divisibility data → irreducibility / never Jacobi-forced / sterile point → (J)84.
+* Signed solutions then "reflect to positive" → no |d|- or square-class-preserving move; class-changing transfers are B2 → (J)52, (J)89 Lemma 4.1/Cor 4.2.
+* Polynomial auxiliary budgets at a general prime; near-square / CF-norm / A² − pB² windows (coprime cases); p − 1 divisibility data → irreducibility / never Jacobi-forced / sterile point → (J)84 (Props 4.2–4.3).
 * Class-group composition / slice-lattice walks (Astra bridge) → add reachability, never existence (3361) → (J)82.
 * Fixed roots, least-non-residue roots in the forest F_n → fail i.o. under Dickson → (J)106.
 * Bounded windows; balanced-lattice caps; GRH cap routes → bounded/slow cap is not ES; cap 0 is B2 → (J)83, (J)85, (J)91.
@@ -554,8 +561,12 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
    bound p^{2/5+o(1)} *by cancellation*, i.e. any non-trivial estimate for #{(x, y) : xy ≡ 1 (mod 4p), x ≡ y ≡ −1 (mod 4C),
    C = (xy − 1)/4p} in a range. *Why:* "the only lead not ruled out" (`PARITY_AUDIT` §2–3); even a weak power saving would be
    the first class-aware single-integer input of this shape.
-2. **Size of the root component.** In the forest F_p (edge uv ⇔ uv | p + u + v), prove |comp(1)| ≫ (log p)² unconditionally
-   (`LOWER_TAIL_FABLE.md` open questions). *Why:* it would isolate the χ_p-colouring as the sole remaining obstruction for ES₅.
+2. **Growing roots in the forest F_p** (edge uv ⇔ uv | p + u + v). Fixed roots and the least-non-residue root fail i.o. under
+   Dickson, and the component of 1 can be as small as 8 vertices i.o. (CONDITIONAL on Dickson, `LOWER_TAIL_ASTRA.md` Thms 3.1,
+   5.1) — so Fable's spark "|comp(1)| ≫ (log p)² unconditionally" is false under Dickson and the growth claim behind it was
+   retracted (`LOWER_TAIL_FABLE.md` §3, R286). Open: can p-dependent roots, or full reduction-cycle / Pell / class-group data,
+   force a bichromatic edge (Astra's open questions)? An almost-all size bound for comp(1) is a different, open question.
+   *Why:* the forest is the cleanest combinatorial form of ES₅.
 3. **Beyond the BM layer.** Control the class of the level divisor inside the coset {χ_{−t} = −1} at a single n, beyond the
    BM character: the coset has φ(t)/2 classes, exactly one (−1) good, and still contains the other genus characters, which
    can obstruct (the (★)-failure n = 7 at t = 12; (J)103 §2 Reading). *Why:* it is the next layer after the one proved free.
@@ -573,8 +584,10 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
    menus II-ac, I-ac, II-cd; two-base boundary at X = 2^t3^{t′}), 4^s + 297 (not attempted), 4^s + 33, 4^s + 273 ((J)102; routes
    board's champion lane). *Why:* concrete, finite-looking, and the only setting where forced-budget identities have beaten
    every ET covering.
-9. **Uniform multiplicity on the r-generic line** (`SIBLING.md` Conj 4.2; certified for 17 ≤ r < 2·10⁴) and **r = 17**.
-   *Why:* would give sterile points for every r and close the coverings line ((J)77).
+9. **Uniform multiplicity on the r-generic line** (`SIBLING.md` Conj 4.2; EVIDENCE: r ≤ 61 through depth 4, r = 19 through 6,
+   r = 17 through 7) and **r = 17**. Level-1 survival of a non-residue cell is CERTIFIED only for r < 2·10⁴ (and fails for
+   r ≤ 13). *Why:* Conj 4.2 on 17 ≤ r < 2^{21.44}, plus level-1 survival where not yet certified, would give sterile r-generic
+   points for every prime r ≥ 17 — a sharp threshold ((J)77).
 10. **F₃[T], CONJECTURE 0.2** (the thirds corner x*_c is uncovered). *Why:* the last open case of function-field sterility;
     a percolation/König question ((J)71, (J)72, (J)77).
 11. **Question R / restricted Hypothesis TG** (`QUESTION_R.md`, (J)99): self-levelled SL₂ words and the theta multiplier.
