@@ -1,0 +1,3 @@
+Theorem K checks: t=3..9, n<150, failures: 0
+E_8 ∩ primes < 2000 = [2, 3, 11, 17, 131, 241]
+p=3361: #solutions 15 Type I 13 Type II 2 [(841, 974690, 28266010), (850, 84025, 571370)]
