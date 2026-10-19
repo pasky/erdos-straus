@@ -1,0 +1,202 @@
+[
+  {
+    "q": 3,
+    "irreducibles": 3,
+    "solved": 3,
+    "failures": 0,
+    "solved_over_q": 1.0,
+    "solved_fraction": 1.0,
+    "generic_index_bits": 2,
+    "failure_index_bits": null,
+    "first_failure_low_to_high": null,
+    "compared_with_divisor_engine": 3,
+    "mismatches": 0
+  },
+  {
+    "q": 5,
+    "irreducibles": 10,
+    "solved": 8,
+    "failures": 2,
+    "solved_over_q": 1.6,
+    "solved_fraction": 0.8,
+    "generic_index_bits": 4,
+    "failure_index_bits": 1,
+    "first_failure_low_to_high": [
+      2,
+      0,
+      1
+    ],
+    "compared_with_divisor_engine": 10,
+    "mismatches": 0
+  },
+  {
+    "q": 7,
+    "irreducibles": 21,
+    "solved": 15,
+    "failures": 6,
+    "solved_over_q": 2.142857142857143,
+    "solved_fraction": 0.7142857142857143,
+    "generic_index_bits": 5,
+    "failure_index_bits": 3,
+    "first_failure_low_to_high": [
+      1,
+      0,
+      1
+    ],
+    "compared_with_divisor_engine": 21,
+    "mismatches": 0
+  },
+  {
+    "q": 11,
+    "irreducibles": 55,
+    "solved": 24,
+    "failures": 31,
+    "solved_over_q": 2.1818181818181817,
+    "solved_fraction": 0.43636363636363634,
+    "generic_index_bits": 6,
+    "failure_index_bits": 5,
+    "first_failure_low_to_high": [
+      1,
+      0,
+      1
+    ],
+    "compared_with_divisor_engine": 55,
+    "mismatches": 0
+  },
+  {
+    "q": 13,
+    "irreducibles": 78,
+    "solved": 27,
+    "failures": 51,
+    "solved_over_q": 2.076923076923077,
+    "solved_fraction": 0.34615384615384615,
+    "generic_index_bits": 7,
+    "failure_index_bits": 6,
+    "first_failure_low_to_high": [
+      2,
+      0,
+      1
+    ],
+    "compared_with_divisor_engine": 78,
+    "mismatches": 0
+  },
+  {
+    "q": 17,
+    "irreducibles": 136,
+    "solved": 34,
+    "failures": 102,
+    "solved_over_q": 2.0,
+    "solved_fraction": 0.25,
+    "generic_index_bits": 8,
+    "failure_index_bits": 7,
+    "first_failure_low_to_high": [
+      3,
+      0,
+      1
+    ],
+    "compared_with_divisor_engine": 136,
+    "mismatches": 0
+  },
+  {
+    "q": 19,
+    "irreducibles": 171,
+    "solved": 44,
+    "failures": 127,
+    "solved_over_q": 2.3157894736842106,
+    "solved_fraction": 0.2573099415204678,
+    "generic_index_bits": 8,
+    "failure_index_bits": 7,
+    "first_failure_low_to_high": [
+      1,
+      0,
+      1
+    ],
+    "compared_with_divisor_engine": 171,
+    "mismatches": 0
+  },
+  {
+    "q": 31,
+    "irreducibles": 465,
+    "solved": 79,
+    "failures": 386,
+    "solved_over_q": 2.5483870967741935,
+    "solved_fraction": 0.16989247311827957,
+    "generic_index_bits": 9,
+    "failure_index_bits": 9,
+    "first_failure_low_to_high": [
+      1,
+      0,
+      1
+    ],
+    "compared_with_divisor_engine": 0,
+    "mismatches": 0
+  },
+  {
+    "q": 61,
+    "irreducibles": 1830,
+    "solved": 145,
+    "failures": 1685,
+    "solved_over_q": 2.377049180327869,
+    "solved_fraction": 0.07923497267759563,
+    "generic_index_bits": 11,
+    "failure_index_bits": 11,
+    "first_failure_low_to_high": [
+      2,
+      0,
+      1
+    ],
+    "compared_with_divisor_engine": 0,
+    "mismatches": 0
+  },
+  {
+    "q": 101,
+    "irreducibles": 5050,
+    "solved": 236,
+    "failures": 4814,
+    "solved_over_q": 2.3366336633663365,
+    "solved_fraction": 0.04673267326732673,
+    "generic_index_bits": 13,
+    "failure_index_bits": 13,
+    "first_failure_low_to_high": [
+      2,
+      0,
+      1
+    ],
+    "compared_with_divisor_engine": 0,
+    "mismatches": 0
+  },
+  {
+    "q": 251,
+    "irreducibles": 31375,
+    "solved": 637,
+    "failures": 30738,
+    "solved_over_q": 2.537848605577689,
+    "solved_fraction": 0.020302788844621514,
+    "generic_index_bits": 15,
+    "failure_index_bits": 15,
+    "first_failure_low_to_high": [
+      1,
+      0,
+      1
+    ],
+    "compared_with_divisor_engine": 0,
+    "mismatches": 0
+  },
+  {
+    "q": 503,
+    "irreducibles": 126253,
+    "solved": 1250,
+    "failures": 125003,
+    "solved_over_q": 2.485089463220676,
+    "solved_fraction": 0.00990075483354851,
+    "generic_index_bits": 17,
+    "failure_index_bits": 17,
+    "first_failure_low_to_high": [
+      1,
+      0,
+      1
+    ],
+    "compared_with_divisor_engine": 0,
+    "mismatches": 0
+  }
+]
