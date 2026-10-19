@@ -30,7 +30,7 @@ Conversely every such triple gives `(tu−1)(tB−1)=tp+1`. Since `u,B≥1`, `p�
 
 Indeed Frobenius fixes the two roots when D is a square and interchanges them otherwise; thus the ratio belongs respectively to `F_ℓ*` or its quadratic-extension norm-one torus. A primitive divisor at index t therefore satisfies `ℓ≡(D/ℓ) (mod t)`. **The minus sign is an extra condition, not a conclusion of BHV.** Inertness plus exact rank t forces the *whole* class −1 mod t, genuinely stronger than quadratic parity alone.
 
-For ES take `D=p`, `P` odd, and `Q=(P²−p)/4`, with `p∤P`. These are legitimate nondegenerate Lucas pairs: `gcd(P,Q)=1`, Q is a nonzero integer, and the real roots have a ratio different from ±1. The desired prime certificate is obtained if
+For ES take `D=p` with p ≡ 1 (mod 4) (R-z45 repair: needed for `(P²−p)/4` to be an integer), `P` odd, and `Q=(P²−p)/4`, with `p∤P`. These are legitimate nondegenerate Lucas pairs: `gcd(P,Q)=1`, Q is a nonzero integer, and the real roots have a ratio different from ±1. The desired prime certificate is obtained if
 
 `ℓ | tp+1`, `r_ℓ(U(P,(P²−p)/4))=t`, and `(p/ℓ)=−1`.                         (PI)
 
