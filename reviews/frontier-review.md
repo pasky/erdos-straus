@@ -3,11 +3,6 @@
 Reviewer: side-agent/review-frontier. Documents: FRONTIER.md (as merged from side-agent/frontier-doc), AGENT_REPORT_O279.md.
 Status: IN PROGRESS.
 
-## Summary verdicts
-(to be filled)
-
-## Defects
-(to be filled)
 
 ## Task (2): the (★) main-term constants — RESOLVED (no inconsistency; FRONTIER's framing is wrong)
 
@@ -118,3 +113,85 @@ the author's own deep self-review already repaired 24 fidelity defects, the resi
   implications toward ES (§5.4) are from ES-strength hypotheses and are labelled so. PASS.
 * The one-paragraph summary's "every route … ends at one statement" is an unlabelled Assessment (it is the campaign's
   judgement, not a theorem). MINOR (m6).
+
+## Defects
+
+### MAJOR
+
+**M1 — §2.2 "Two normalisations of 'the main term'" paragraph; §7 item 16; §2.2 "M₀ … prime-averaged pair series".**
+FRONTIER says the repo does not reconcile 1/8 and 3/(2π²) and calls M₀ "the prime-averaged pair series". Both are wrong framing
+(task (2) above): (log p)²/8 = Σ_𝓡 1/m is the density for *arbitrary integers* n (zero Fourier frequency); for *primes* the
+singular series is Σ_𝓡 1/φ(m) = M₀ + O(L) ∼ (3/(2π²))L², because −u is a unit mod m. Both count *ordered* triples (u, B, C)
+(R(p) is even; distinct (★) solutions = R/2). Measured prime means (0.164 L² at 10⁶–10⁷) confirm 3/(2π²) + O(L); the quoted
+"observed R(p) = 44, 52, 68 vs (log p)²/8 = 42.4, 53.7, 66.3" is a three-point coincidence. M₀ is not "prime-averaged": it
+depends on p only through its size.
+*Repair:* replace the paragraph by the resolution (applied, marked R290 repair); delete §7 item 16 (replace by a one-line
+pointer to the resolution); in §4 item 6 add the integer-vs-prime density caution.
+
+**M2 — §3 B4 statement, first sentence.** "Covering certificates built from the prime factors below the modulus fail for a
+positive proportion of primes in every slice." LONGSHOT_PIGEONHOLE Thm 2.2 (as repaired by R135) concerns *transparent covering
+certificates TCC_θ*: residue information from prime factors < e plus one opaque cofactor, covering a coset of size
+≥ φ(e)e^{−θ}/2 with θ < 1/2 (R135 remark: every θ < 1); the failure set is a positive *lower relative density* inside
+p ≡ 1 (mod q₀), simultaneously for all e and both types. FRONTIER drops the coset-size hypothesis and the opaque-cofactor
+allowance; certificates that merely hit −1, or cover smaller cosets, are not excluded (the source says so explicitly).
+*Repair:* "Transparent covering certificates (residues of the prime factors below the modulus, plus one opaque cofactor)
+covering a coset of size ≥ φ(e)e^{−θ}/2 (θ < 1/2; R135: any θ < 1) fail, simultaneously in every e-slice of both types, for
+a set of primes of positive lower relative density (inside p ≡ 1 mod 8∏_{3≤ℓ≤Y}ℓ)." (applied)
+
+**M3 — §1 Parametrisations / T1: Type I/II defined only by "p divides exactly one (two) denominator(s)".** That gloss is
+correct for primes, but T1 is then stated for n = m², where under the gloss it is **false**: 4/9 = 1/3 + 1/18 + 1/18 (9 divides
+two denominators) and 4/9 = 1/4 + 1/6 + 1/36 (one). ET's definition (Elsholtz–Tao §1, checked in `sources/`) is: Type I if n | x
+and n is coprime to y, z; Type II if n | y, z and n is coprime to x. Since T1 is advertised as "the single most useful test in
+this document", a newcomer must get the definition right.
+*Repair:* give ET's coprimality definition, note it reduces to the gloss at primes, and add the 4/9 example. (applied)
+
+### MINOR
+
+**m1 — §3 B4 and §5.5, PH evidence.** Faithful to LONGSHOT_PIGEONHOLE but undersells and slightly misstates: the range < 10⁶
+is *exhaustive* over Mordell-hard primes (E = 2000), and 3529, 110881 are failures *at that E*. Repair (applied): "EVIDENCE:
+all Mordell-hard primes < 10⁶ except 3529, 110881 (e ≤ 2000), 300-prime samples after 10^k up to 10⁸ (e ≤ 5000), 14 selected
+hard primes ≤ 3.7·10⁷ (e ≤ 20000)".
+
+**m2 — §8 board memos.** `~/.pi/boards/…/memo.md` exist on this machine but are outside the repository (not git-tracked); a
+fresh external reader will not have them. Repair (applied): say so, and point to BOARD2_SLATE / STATUS as the in-repo record.
+
+**m3 — §4 lacks a B4 line.** Repair (applied): new item 17 "Covering certificates must use large prime factors".
+
+**m4 — §6 last bullet "none LIVE".** BRAINSTORM/README has one LIVE tag (bsE_et_casework_depth), an obstruction-side
+function-field result. Repair (applied): "none LIVE as an ES route".
+
+**m5 — One-paragraph summary.** "every route … ends at one statement" is the campaign's judgement. Repair (applied): mark
+"(Assessment)".
+
+**m6 — §2.4 "It needs p₀ ≥ 8.9·10⁶ (the (★) census)".** Correct, but note it is a necessary lower bound on p₀ (the largest
+known (★) failure is 8 813 281), not a value at which H⁻_BM is known to hold. Clarity only; not applied.
+
+### Outside FRONTIER (forward to the parent; not edited by me)
+* **X1 PARITY_AUDIT.md** Lemma 2.1 parenthetical "(M(p) reproduces … R(p) = 44, 52, 68 …)" and §1 table row E2 ("its heuristic
+  size (log p)²/8 is Lemma 2.1's M(p)"): 1/8 is the all-integer density; at primes the heuristic is 3/(2π²) (task (2)). The
+  lemma itself (an identity with E(p) the non-zero frequencies) is correct; at primes E(p) has mean ≈ +0.027L².
+* **X2 B1_LINE.md** Lemma 3.1 ("Haar main term (log p)²/8" for the b = 1 line; (log p)²/16 distinct for (★)) and Conj 3.5's
+  heuristic basis: same integer-vs-prime issue (w = 4cd − 1 is coprime to 4d, so primes have density 1/φ(w)). The NB model's
+  predicted failure counts are therefore pessimistic by construction — which is exactly what §3.6 observed. Suggest a note.
+* **X3 STATUS.md:170, DISCOVERIES.md:513** PH evidence wording (task (3)).
+
+## Summary verdicts (per claim / section)
+
+| claim | verdict |
+|---|---|
+| Banner, labels, honesty (ES unsolved; nothing externally refereed) | SOUND |
+| §1 landscape (verification, ET parametrisation, Elsholtz–Planitzer, T1, BL, exceptional set, thin families, 8/n) | SOUND-AFTER-REPAIRS (M3) |
+| §2.1 (★) forms, genus split, census | SOUND (forms re-derived; Thm-K-adjacent identities checked) |
+| §2.2 M_BM theorem, Linnik two-sided failure | SOUND |
+| §2.2 "two normalisations" paragraph / §7 item 16 | GAP → resolved (M1) |
+| §2.3 Theorem K | SOUND (verified from scratch t ≤ 9, n < 150) |
+| §2.4 H⁻_BM, honest reading, numerics, five-slice constants | SOUND |
+| §3 B1–B3, B5, B6, B-fin, tied modulus, reciprocity, privacy, positivity, numerator blindness, disproof, power ladder, M1a–M5, Dickson roots | SOUND |
+| §3 B4 | SOUND-AFTER-REPAIRS (M2, m1) |
+| §4 checklist | SOUND-AFTER-REPAIRS (m3; scope paragraph is correct) |
+| §5 partial / conditional results | SOUND (m1 for PH) |
+| §6 dead ends | SOUND (m4) |
+| §7 open problems | SOUND-AFTER-REPAIRS (item 16 superseded by M1) |
+| §8 pointers | SOUND (all files exist; m2) |
+
+No FATAL defect. No overclaim of ES or of any conditional ES theorem from a standard conjecture.
