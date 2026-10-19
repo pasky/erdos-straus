@@ -396,3 +396,147 @@ From $\varphi(k)/k^2=k^{-1}\sum_{d\mid k}\mu(d)/d$ and $k\equiv1\pmod4$,
 and $\sum_{d\ \mathrm{odd}}\mu(d)/d^2=8/\pi^2$.  For \eqref{eq:hremove}
 use $\varphi(k)/k^2\leq1/k$ and write $k=pm$.
 \end{proof}
+
+\section{Cubic supply in every fibre}\label{sec:supply}
+For $\J\subseteq\K(K)$ let $L_\J=\lcm_{k\in\J}k$.  For $(c,L_\J)=1$ and
+integers $u,v$ put
+\[
+ r_\J(u,v;c)=\#\{k\in\J:k\mid u+cv\}.
+\]
+If $(u,v)=1$ and $k\mid u+cv$ with $(c,k)=1$, then $(uv,k)=1$, so
+$(u,v)\in\Sset(k,c;H,z)$ whenever $H<u,v\leq z$.
+
+\begin{lemma}[weighted second incidence moment]\label{lem:wsecond}
+There is an absolute $C_2$ such that for $K\geq K_0$, $H=K^{10}$,
+$z\geq H^2$, every $\J\subseteq\K(K)$ and every $(c,L_\J)=1$,
+\begin{equation}\label{eq:wsecond}
+ \sum_{\substack{H<u,v\leq z\\(u,v)=1}}
+ \frac{2^{\omega(uv)}\,r_\J(u,v;c)^2}{\varphi(4uv)}
+ \leq C_2(\log z)^4(1+\log K)^3.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For coprime $u,v$ we have $\varphi(4uv)\geq2\varphi(u)\varphi(v)$.  This
+is an equality if $uv$ is odd.  If $u=2^am$ with $a\geq1$ and $m$ odd,
+then $\varphi(4u)=2^{a+1}\varphi(m)=4\varphi(u)$.  Expanding the square,
+a pair $k,k'\in\J$ contributes through the single condition
+$d=[k,k']\mid u+cv$, where $d\leq K^2$ and $(c,d)=1$.  For coprime $u,v$
+this condition forces $(v,d)=1$.  We may therefore drop $(u,v)=1$ but
+keep $(v,d)=1$, and then the residue $u\equiv-cv\pmod d$ is reduced.  Put
+$F(n)=2^{\omega(n)}n/\varphi(n)$, so that
+$2^{\omega(n)}/\varphi(n)=F(n)/n$.  The pair contributes at most
+\[
+ \frac12\sum_{\substack{H<v\leq z\\(v,d)=1}}\frac{F(v)}v
+ \sum_{\substack{H<u\leq z\\u\equiv-cv\ (d)}}\frac{F(u)}u .
+\]
+Now cover $(H,z]$ by boxes and take $d\geq2$.  In a box $(U,\frac{21}{20}U]$
+we apply \eqref{eq:Shiu}.  There $\sum_{p\leq V}F(p)/p=2\log\log V+O(1)$,
+and $\exp\{-\sum_{p\mid d}2/(p-1)\}\leq(\varphi(d)/d)^2$, because
+$\log(1-1/p)\geq-1/(p-1)$.  So the inner sum over one box is
+$\ll U^{-1}\cdot U(\log U)\varphi(d)^{-1}(\varphi(d)/d)^2=(\log U)\varphi(d)/d^2$.
+For $d=1$ the same bound $\ll\log U$ follows from the elementary estimate
+for $q=1$.  Summing over $O(\log z)$ boxes, the inner sum is
+$\ll(\log z)^2\varphi(d)/d^2$, uniformly in the residue.  For the outer
+sum, partial summation from $\sum_{n\leq V}F(n)\ll V\log V$ gives
+$\sum_{v\leq z}F(v)/v\ll(\log z)^2$.  Each pair therefore contributes
+$\ll(\log z)^4\varphi(d)/d^2$.  Finally, $\varphi(m)/m^2\leq1/m$ and
+$[k,k']=kk'/(k,k')$.  Writing $k=ga$, $k'=gb$ with $g=(k,k')$ and then
+dropping $(a,b)=1$,
+\[
+ \sum_{k,k'\leq K}\frac{\varphi([k,k'])}{[k,k']^2}
+ \leq\sum_{g\leq K}\frac1g\Bigl(\sum_{a\leq K/g}\frac1a\Bigr)^2
+ \leq\sum_{g\leq K}\frac{(1+\log(K/g))^2}g\ll(1+\log K)^3.\qedhere
+\]
+\end{proof}
+
+For $1\in\J\subseteq\K(K)$ and $(c,L_\J)=1$, and for a prime $\ell\in I_j$,
+let $f_{c;\J}(\ell)$ be the number of triples $(k,u,v)$ with $k\in\J$,
+$(u,v)\in\Sset(k,c;H,z_j)$ and $4uv\mid k\ell+1$.
+
+\begin{theorem}[supply]\label{thm:supply}
+There are $a_h,A_h>0$ and $X_h$, depending only on $\kappa$ and the
+absolute analytic constants, such that for every $X\geq X_h$, every
+$1\in\J\subseteq\K(K)$ and every $c$ with $(c,L_\J)=1$,
+\begin{equation}\label{eq:supply}
+ a_ht^2h(\J)\leq\sum_{X^{1/2}<\ell\leq X}\frac{f_{c;\J}(\ell)}{\ell}
+ \leq A_ht^2h(\J).
+\end{equation}
+\end{theorem}
+\begin{proof}
+Fix a block $(x,2x]$ with $z=x^{1/6}$, so that $4uv\leq4x^{1/3}$.  By
+\eqref{eq:floor}, $\Lambda\geq\frac12\log z=\frac1{12}\log x$.  For $k\in\J$
+and $(u,v)\in\Sset(k,c;H,z)$ we have $(k,4uv)=1$, and $4uv\mid k\ell+1$
+is the condition $\ell\equiv-k^{-1}\pmod{4uv}$, a reduced class.  Hence
+\[
+ \sum_{x<\ell\leq2x}f_{c;\J}(\ell)
+ =\sum_{k\in\J}\sum_{(u,v)\in\Sset(k,c;H,z)}
+ \bigl[\pi(2x;4uv,-k^{-1})-\pi(x;4uv,-k^{-1})\bigr].
+\]
+
+\emph{Upper bound} (for every block, the last one enlarged).
+By \eqref{eq:BT}, $\varphi(4uv)\geq2\varphi(u)\varphi(v)$ and
+\eqref{eq:latupper}, the sum is
+$\ll(x/\log x)\sum_{k\in\J}\varphi(k)k^{-2}(\log z)^2\ll x\log x\,h(\J)$.
+Divide by $x$ and sum over the $O(t)$ blocks.
+
+\emph{Lower bound} (full blocks).  Write each bracket as
+$(\li(2x)-\li(x))/\varphi(4uv)+E_x(4uv,-k^{-1})$.  Since
+$\li(2x)-\li(x)\geq x/\log(2x)$ and $\varphi(4uv)\leq4uv$,
+\eqref{eq:latlower} bounds the main terms below by
+\[
+ \frac{x}{\log2x}\sum_{k\in\J}\sum_{\Sset(k,c;H,z)}\frac1{4uv}
+ \geq\frac{x\Lambda^2h(\J)}{16\log2x}\gg x\,t\,h(\J).
+\]
+For the error terms, group the triples by $q=4uv$.  The triples with a
+given $(u,v)$ number $r_\J(u,v;c)$, and at a given $q$ they lie in
+distinct reduced classes, each with $|E_x|\leq E_x^*(q)$.  Put
+$W(q)=\sum_{4uv=q}r_\J(u,v;c)$, summed over coprime $H<u,v\leq z$.  There
+are at most $2^{\omega(q/4)}$ ordered coprime pairs with $uv=q/4$, so
+$W(q)^2\leq2^{\omega(q/4)}\sum_{4uv=q}r_\J(u,v;c)^2$ by Cauchy--Schwarz.
+By \eqref{eq:BT}, $E_x^*(q)\ll x/(\varphi(q)\log x)$ for $q\leq4x^{1/3}$.
+Lemma~\ref{lem:wsecond} gives
+\[
+ \sum_qW(q)^2E^*_x(q)\ll\frac x{\log x}
+ \sum_{\substack{H<u,v\leq z\\(u,v)=1}}
+ \frac{2^{\omega(uv)}r_\J(u,v;c)^2}{\varphi(4uv)}\ll x\,t^6,
+\]
+using $\log z\asymp\log x\asymp t$ and $\log K\leq\kappa t$.  By
+Cauchy--Schwarz and \eqref{eq:BV} with $R=26$,
+\[
+ \Bigl|\sum_{\rm triples}E_x\Bigr|\leq\sum_qW(q)E^*_x(q)
+ \leq\Bigl(\sum_qW(q)^2E^*_x(q)\Bigr)^{1/2}
+ \Bigl(\sum_{q\leq4x^{1/3}}E^*_x(q)\Bigr)^{1/2}\ll x\,t^{-10}.
+\]
+Since $1\in\J$ gives $h(\J)\geq1$, this is $o(x\,t\,h(\J))$.  Divide by
+$2x$ and sum over the $\asymp t$ full blocks.  No constant depends on $c$,
+$\J$ or $x$.
+\end{proof}
+
+The Bombieri--Vinogradov input is used through the maximum $E_x^*(q)$
+over all reduced classes.  Therefore \eqref{eq:supply} holds for every
+choice of $c$ and $\J$, including choices that depend on the data, with no
+averaging over $c$.  The multiplicity $W(q)$ can be as large as a power of
+$X$.  It is paid for in mean square by its own weight $1/\varphi(q)$,
+which is the role of Lemma~\ref{lem:wsecond}.
+
+\begin{corollary}[fibre masses]\label{cor:fibremass}
+Let $X\geq X_h$.  For every residue $c\bmod L_K$, reduced or not, put
+\[
+ \J_c=\{k\in\K(K):(k,c)=1\},\qquad
+ \mu_c=\sum_{X^{1/2}<\ell\leq X}\frac{f_c(\ell)}\ell,
+\]
+with $f_c$ as in \eqref{eq:fc}.  Then $f_c=f_{c;\J_c}$, and
+\begin{equation}\label{eq:fibremass}
+ a_ht^2h(\J_c)\leq\mu_c\leq A_ht^2h(\J_c)\leq C_ut^3
+\end{equation}
+with $C_u$ depending only on $\kappa$.
+\end{corollary}
+\begin{proof}
+An atom active in the fibre of $c$ has $k\mid u+cv$ with
+$(u,k)=1$.  Hence $c$ is a unit modulo $k$, that is, $k\in\J_c$, and
+$(u,v)\in\Sset(k,c;H,z_j)$.  Conversely, every triple counted by
+$f_{c;\J_c}(\ell)$ is an atom active in the fibre.  Moreover $1\in\J_c$
+and $(c,L_{\J_c})=1$, so Theorem~\ref{thm:supply} applies with
+$\J=\J_c$.  Finally $h(\J_c)\leq h(\K(K))\ll\log K\leq\kappa t$ by
+Lemma~\ref{lem:h}.
+\end{proof}
