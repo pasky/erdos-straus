@@ -506,7 +506,7 @@ no single-prime lower-tail mechanism is known.
 
 **5.5 Standing conjectures with evidence** (CONJECTURE; EVIDENCE ranges in brackets).
 SQ: for odd n, Type I ∪ Type II empty ⟺ n square [odd non-squares ≤ 10⁷]; SQ₅ (five slices; n ≠ 105) [10⁶]; SQ_± and 3SQ
-(exception-free companions, (J)52, (J)53); PH (full-coset covers) [3.7·10⁷]; PM-II (3361 only) [10⁸]; X_win: a_min(p) ≪ log p;
+(exception-free companions, (J)52, (J)53); PH (full-coset covers; sampled Mordell-hard primes, exceptions 3529, 110881 below 10⁶); PM-II (3361 only) [10⁸]; X_win: a_min(p) ≪ log p;
 U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [10¹¹]); López's union conjecture; CONJECTURE 0.2
 (F₃[T] sterile point x*_c); x** sterile (r = 13; certified through ES level 2.59·10¹⁰).
 
