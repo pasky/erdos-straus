@@ -1,0 +1,14 @@
+{
+  "prime_distances_and_zero_witnesses": 10732,
+  "composite_minima": 7668,
+  "complete_typeII_failures": 53,
+  "real_failures_with_verified_minimum_one": 31,
+  "parity_separation": {
+    "n": 2113,
+    "m": 43,
+    "K": 539,
+    "delta": 1,
+    "cap": "inf"
+  },
+  "rank_one_toy_checks": 264
+}
