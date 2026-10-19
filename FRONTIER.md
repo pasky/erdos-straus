@@ -226,3 +226,70 @@ reciprocity for the incoherent ternary collection).
 sieve, DI Thm 7, Kuznetsov with exceptional eigenvalues, Bombieri–Vinogradov, zero-density), says nothing at a single p.
 Concretely: Σ_{p≤N} f_I(p) ≪ N log²N ((D)32b) and the 3/4 exceptional-set bound are theorems *on average*; neither yields one
 prime. Fixed-p variance diagnostics were tried and fail ((J)103: "critical"). Use T7 against every cited estimate.
+
+**B-fin — ES is a finite search with moving moduli.** (J)23, (J)25, (J)28 (`UNIT_ORBIT_ES.md`, `FIXED_MODULUS_SHOTS.md`,
+`SYNTHESIS_SPARKS2.md`).
+* *Statement.* Every certifying modulus of ES(p) is O(p²); ES itself has **no infinite fixed-modulus shot family** (scoped
+  no-go, PROVED: for a fixed-coefficient affine Type II shot αp + β a divisor h certifies iff h ≡ −1 (mod 4M) with
+  M ∈ 𝓜(α, β), and every M ≥ √height/2; any fixed Chebotarev firing set admits only finitely many shots). By contrast the
+  T1-bearing cousins with infinitely many fixed-modulus shots are **theorems**: ES^{(S)} (4/n = 1/x + 1/y + Q²/Z, mute primes
+  S, |S| ≥ 4) for every n coprime to 2S, unconditionally (Gupta–Murty sieve); V_φ over ℤ[φ] under GRH; and ES^□ (third
+  denominator may carry an odd square) from ONE Dirichlet prime r ≡ 3 (4) with (n/r) = −1 (PROVED, elementary).
+* *Rules out:* "transport a proved cousin back": the cousins' search at fixed n is infinite with a fixed firing modulus; ES's is
+  finite (O(p²)) with moduli that move. A provable T1-bearing variant is by itself weak evidence about ES ((J)28).
+* *Does NOT rule out:* a mechanism that transports ES^{(S)}/V_φ certificates into the O(p²) box, or a new finite-search
+  mechanism. Neither is known. The gap is an exponent cap: a shot is an ES solution iff Q | (r+1)/4 instead of
+  rad(Q) | (r+1)/4 ((J)34).
+
+**Tied modulus / height-dependent target.** `PARITY_AUDIT.md` Lemma 2.1′, Assessment 2.2, Remark 3.1; (J)87.
+* *Statement.* Best known pointwise bound: |E(p)| = |R(p) − M(p)| ≪ p^{2/5+o(1)} (PROVED relative to ET Prop 1.7; divisor
+  bound, no cancellation), against M(p) ≍ (log p)². Weil on the modular hyperbola 𝓗 = {xy ≡ 1 (mod 4p)} has error p^{1/2+o(1)}
+  even for one box, and (★) is ≍ p height-sub-counts, so Weil does not even bound E(p). Remark 3.1 (Assessment): every result
+  beating Weil/Selberg–Hooley averages over a variable *independent of the modulus* (the residue, the moduli q ≤ x^θ with n
+  free, the sequence variable). At one p, either the averaged variable *is* the modulus of the class condition ((u,C), (u,B)
+  coordinates), or, on 𝓗 where x, y are free, the class condition depends on the height: x ≡ y ≡ −1 (mod 4C),
+  C = (xy − 1)/(4p). "These are two descriptions of one obstruction."
+* *Rules out* (as Assessment): H-B (parity-breaking à la Friedlander–Iwaniec at fixed p) with known inputs; it collapses into
+  H-A. Type II/bilinear fixed-modulus savings (Blomer–Pascadi, KMS, Bourgain–Garaev) need saving p^{1−o(1)} on unit
+  coefficients.
+* *Does NOT rule out:* cancellation on 𝓗 with a height-dependent target — "the only lead not ruled out". No lower bound for
+  the difficulty of (★) is proved; under an independent-incidence model the variance is ≈ M(p).
+
+**Reciprocity forces parity, never class; the Stickelberger m = 2 coincidence.** `CLASS_FORCING.md` Thms 2.1, 5.2 ((J)93);
+`TWO_POWER_LADDER.md` Thms 3.1, 3.2 ((J)104); (J)89, (J)96.
+* *Statement.* CLASS_FORCING Thm 2.1 (PROVED): on a fixed line with modulus t and G = (ℤ/t)^×, every character ψ(N) of the
+  total product is a function of p mod t — the forced quotient is all of G and **no reciprocity law (quadratic, cubic,
+  quartic, Eisenstein, Artin for ray class fields mod t) adds information about [N] ∈ G**; Frobenius in a finite Galois Ω sees
+  exactly the image of [p] in G/G_G. Thm 5.2 (PROVED, unconditional): for any Chebotarev class C compatible with p ≡ 1 (4),
+  any d and any a ∈ (ℤ/4d)^×, infinitely many p with Frob_p ∈ C have p + 4d with a prime factor ℓ ≡ a (mod 4d), ℓ arbitrarily
+  large — no class is forbidden for a single large factor. The one individual link is χ_{−4d}(ℓ) = (ℓ/p) (parity). Every
+  bounded-level forced rule with small primes fails on all four lines at every p ≡ 1 (mod M). Higher reciprocity:
+  TWO_POWER_LADDER Thm 3.2 (PROVED for m = 3, 4): the ES datum is the norm component D = ∏ x_a, forcing sees the
+  Stickelberger component S = ∏ x_a^{a⁻¹}; D is determined by S only modulo μ_m^{gcd(2,m)} (m = 3: S says nothing about D;
+  m = 4: D² = S², a free sign). Thm 3.1 (PROVED; ℓ ∤ m, 4 | lcm(M, m)): along forced progressions no congruence determines
+  a character layer beyond its quadratic part. For **m = 2, S = D** — that coincidence *is* the BM layer and T1 (Assessment);
+  there is no odd-order BM layer. 2-group levels alone do not suffice (1,298 primes ≤ 10⁶ have no word at any such level).
+* *Rules out:* getting the divisor *class* (as opposed to its quadratic parity) from reciprocity, Chebotarev, Rédei or
+  higher power-residue data, at bounded level or along forced progressions with one varying level prime.
+* *Does NOT rule out:* joint restrictions on *all* varying prime factors of tn + 1 simultaneously (the "full factor
+  multiset" realisation question, CLASS_FORCING §6); the general-m Stickelberger identity is not proved.
+
+**Privacy of large primes.** `SYNTHESIS_SPARKS8.md` Lemma 2.3 (PROVED): gcd(jp + 1, j′p + 1) | j − j′, so a prime ℓ > J
+divides at most one of jp + 1 (j ≤ J); likewise p + 4d (d ≤ D) for ℓ > 4D. *Reading (Assessment):* pigeonhole across shifts
+can only collide small primes ℓ ≤ J, i.e. congruence (B1) data, blind at the T1 point; the large prime factors that make the
+lottery succeed are private to one integer, so a deterministic mechanism must produce a divisor of ONE integer in ONE moving
+class (B2) with no cross-shift leverage. *Does NOT rule out:* mechanisms that never pool across shifts.
+
+**Positivity obstruction (and why positivity is not the bottleneck).** (J)52 (`SYNTHESIS_SPARKS4.md`), (J)84 Thm A
+(`JOINT_BUDGET.md`), (J)89 Lemma 4.1.
+* *Statement.* (J)84 Thm A (PROVED, elementary): with p a free variable and slice parameters polynomial in an auxiliary u,
+  every ES side number is (p-free content) × (irreducible in ℚ[u, p]); the only non-trivial input is d > 0 (a signed slice
+  d = −w² makes p² + 4c²d split identically). So a thin-family algebraic budget needs a relation p = φ(u) (irreducible top
+  part ⇒ the (J)79 collapse; variable-linear φ ⇒ a B2 event). Windows from ℤ[√p] always have (p/m) = +1 (never Jacobi-forced);
+  p is a non-square modulo every class modulus 4ab, so auxiliaries handing over divisors of p − 1 pin p to the sterile point.
+  (J)52 (PROVED): positive words ⟺ definite path forms; the three-bit law "certificate ⟺ χ·s_∞ = −1" holds for all words,
+  signed included; signed slices have (|d|/p) = +1, positive ones (d/p) = −1, and there is no signed → positive move.
+* *Rules out:* "drop positivity, solve the signed problem, then move back"; polynomial algebraic budgets at a general prime.
+* *Does NOT rule out:* anything about ES directly — the signed relaxation SQ_± is *just as much a lottery* (Assessment):
+  positivity is T1's anchor (the archimedean Hilbert factor), not the source of difficulty. Residual of Thm A: φ* reducible
+  of degree ≥ 2 in every variable.
