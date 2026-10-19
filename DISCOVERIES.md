@@ -1771,6 +1771,13 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment: closes the power-ladder question. Relaxing the third denominator by a k-th power never gives an intermediate rung. No relay.
    * verify.py (hv) re-runs R287's checks.
 
+109. **Consolidation C2: the 3/4 exceptional-set note hardened to submission grade (internal) — E(N) ≪ N exp(−c (log N)^{3/4}) survives two more independent hostile reviews (paper/es-threequarter-note.tex (O278; old version archived as paper/es-threequarter-note-v1.tex, which the mn-short, sieve-limits and subexp notes now cite); hostile reviews `reviews/threequarter-hardened-review-1.md` (R288, Claude Opus) and `reviews/threequarter-hardened-review-2.md` (R289, GPT Astra, independent; round 2 applied all nine minor repairs from both reviews): both SOUND, no FATAL or MAJOR).**
+   * Theorem 1.1 (PROVED relative to Montgomery–Vaughan Brun–Titchmarsh, Bombieri–Vinogradov and Shiu Thm 1, checked against the scanned source): E(N) := #{n ≤ N : 4/n has no solution} ≪ N exp(−c (log N)^{3/4}). κ = 1/480, and the constants are absolute and ineffective. R288 confirmed that the constants are independent of N, the fibre c, the subfamily J and the moment order. R289 reconstructed the argument cold.
+   * Literature check (O278, with independent web checks by R288): no improvement of Vaughan's exponent 2/3 for three summands was found. This covers Elsholtz–Tao 2013, Bloom–Elsholtz survey arXiv:2210.04496, Pomerance–Weingartner 2026 (also 2/3 at fixed m = 4), and erdosproblems #242. The note says "we are not aware of an earlier improvement". Vaughan 1970 itself was not accessible, so its statement is taken via ET and Bloom–Elsholtz.
+   * Changelog M1–M14 (wording, statement precision, attributions; the main theorem, exponent and scales are unchanged). Old item numbering in DISCOVERIES items 8–10 and CAMPAIGN_SUMMARY refers to v1; in the hardened note those results are Lemma 4.1, Thm 4.2 and §4.
+   * Status: an internally proved result that survived four internal reviews in total (two earlier and two now). It is not externally refereed, and no release is made.
+   * verify.py (hw) re-runs the reviewers' arithmetic, CRT, Bonferroni and Rankin checks.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

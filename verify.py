@@ -27303,4 +27303,27 @@ def check_hv():
 check_hv()
 
 
+def check_hw():
+    # (hw) ES_THREEQUARTER hardened note (O278/R288/R289): the two independent hostile reviews' from-scratch checks of the
+    # finite/arithmetic ingredients of E(N) ≪ N exp(−c (log N)^{3/4}) (paper/es-threequarter-note.tex) — identities, CRT
+    # independence, Bonferroni identities, lattice-sum toy ratios (EVIDENCE), Rankin pointwise inequality. (R288's heavy
+    # full-period CRT script review_r288_toy_crt.py is not run here: 4 GB / 140 s.)
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    for scr, tag in (("review_r288_arith.py", "ALL PASS"),
+                     ("review_r289_checks.py", "ALL ASSERTED CHECKS PASS")):
+        r = subprocess.run([sys.executable, scr], capture_output=True, text=True, timeout=900, cwd=sdir, env=env)
+        assert r.returncode == 0, (scr, r.stderr[-2000:])
+        assert tag in r.stdout and "FAIL" not in r.stdout.replace("PASS", ""), (scr, r.stdout[-1500:])
+    print(f"== (hw) THREEQUARTER R288/R289: arithmetic and CRT/Bonferroni/Rankin checks pass; seconds = {perf_counter() - t0:.1f}")
+
+
+check_hw()
+
+
 print("\nall checks passed")
