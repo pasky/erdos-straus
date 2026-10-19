@@ -1,0 +1,791 @@
+## Content from https://arxiv.org/html/2410.04189v2
+
+Title: Primes of the form 𝑝^2+𝑛⁢𝑞^2
+
+URL Source: https://arxiv.org/html/2410.04189v2
+
+Markdown Content:
+## Primes of the form p^{2}+nq^{2}
+
+Ben Green Address:Mathematical Institute, Andrew Wiles Building, Radcliffe Observatory Quarter, Woodstock Rd, Oxford OX2 6QW, UK Email address: [ben.green@maths.ox.ac.uk](mailto:ben.green@maths.ox.ac.uk)Mehtaab Sawhney Address:Department of Mathematics, Columbia University, New York, NY 10027 Email address: [m.sawhney@columbia.edu](mailto:m.sawhney@columbia.edu)
+
+###### Abstract.
+
+Suppose that n\equiv 0 or n\equiv 4~\mathrm{mod}~6. We show that there are infinitely many primes of the form p^{2}+nq^{2} with both p and q prime, and obtain an asymptotic for their number. In particular, when n=4 we verify the ‘Gaussian primes conjecture’ of Friedlander and Iwaniec.
+
+We study the problem using the method of Type I/II sums in the number field \mathbf{Q}(\sqrt{-n}). The main innovation is in the treatment of the Type II sums, where we make heavy use of two recent developments in the theory of Gowers norms in additive combinatorics: quantitative versions of so-called concatenation theorems, due to Kuca and to Kuca–Kravitz-Leng, and the quasipolynomial inverse theorem of Leng, Sah and the second author.
+
+###### Contents
+
+1.   [1 Introduction](https://arxiv.org/html/2410.04189v2#S1 "In Primes of the form 𝑝^2+𝑛⁢𝑞^2")
+2.   [2 Number fields and weight functions](https://arxiv.org/html/2410.04189v2#S2 "In Primes of the form 𝑝^2+𝑛⁢𝑞^2")
+3.   [3 Sieve setup-reduction to Type I and Type II statements](https://arxiv.org/html/2410.04189v2#S3 "In Primes of the form 𝑝^2+𝑛⁢𝑞^2")
+4.   [4 Gowers norms and main proof framework](https://arxiv.org/html/2410.04189v2#S4 "In Primes of the form 𝑝^2+𝑛⁢𝑞^2")
+5.   [5 Preliminaries on concatenation and Gowers–Peluse norms](https://arxiv.org/html/2410.04189v2#S5 "In Primes of the form 𝑝^2+𝑛⁢𝑞^2")
+6.   [6 Type I up to X^{1/2}/(\log X)^{A}](https://arxiv.org/html/2410.04189v2#S6 "In Primes of the form 𝑝^2+𝑛⁢𝑞^2")
+7.   [7 Type II estimates up to X^{1/2-o(1)}](https://arxiv.org/html/2410.04189v2#S7 "In Primes of the form 𝑝^2+𝑛⁢𝑞^2")
+8.   [8 Computing the asymptotic](https://arxiv.org/html/2410.04189v2#S8 "In Primes of the form 𝑝^2+𝑛⁢𝑞^2")
+9.   [A Properties of the Gowers and Gowers–Peluse norms](https://arxiv.org/html/2410.04189v2#A1 "In Primes of the form 𝑝^2+𝑛⁢𝑞^2")
+10.   [B Proof of concatenation estimates](https://arxiv.org/html/2410.04189v2#A2 "In Primes of the form 𝑝^2+𝑛⁢𝑞^2")
+11.   [C A large sieve bound in several dimensions](https://arxiv.org/html/2410.04189v2#A3 "In Primes of the form 𝑝^2+𝑛⁢𝑞^2")
+12.   [D Number-theoretic bounds](https://arxiv.org/html/2410.04189v2#A4 "In Primes of the form 𝑝^2+𝑛⁢𝑞^2")
+13.   [References](https://arxiv.org/html/2410.04189v2#bib "In Primes of the form 𝑝^2+𝑛⁢𝑞^2")
+
+## 1. Introduction
+
+Our main result establishes an asymptotic count for pairs of primes x and y such that x^{2}+ny^{2} is prime.
+
+###### Theorem 1.1.
+
+Suppose that n is a positive integer with n\equiv 0 or n\equiv 4~\mathrm{mod}~6. Let W\in C^{\infty}_{0}(\mathbf{R}^{2}). Let N>1 be a parameter. Then
+
+\sum_{x,y\in\mathbf{Z}}\Lambda(x)\Lambda(y)\Lambda(x^{2}+ny^{2})W\bigg(\frac{x}{N},\frac{y}{N}\bigg)=\kappa_{n}N^{2}\bigg(\int_{\mathbf{R}^{2}}W\bigg)+O_{W}\bigg(\frac{N^{2}(\log\log N)^{2}}{\log N}\bigg),
+
+where
+
+(1.1)\kappa_{n}:=\lim_{X\rightarrow\infty}\prod_{\begin{subarray}{c}p\leqslant X\\
+(-n\mid p)=1\end{subarray}}\frac{p(p-3)}{(p-1)^{2}}\prod_{\begin{subarray}{c}p\leqslant X\\
+(-n\mid p)\neq 1\end{subarray}}\frac{p}{(p-1)},
+
+with (\cdot\mid p) the Legendre symbol. In particular, if n\equiv 0 or n\equiv 4(\operatorname{mod}\,6) then there are infinitely many primes of the form x^{2}+ny^{2} with x,y prime.
+
+### 1.1. Prior results
+
+Famously, it was stated by Fermat and proven by Euler that every prime p\equiv 1(\operatorname{mod}\,4) can be written as x^{2}+y^{2}, and in particular there are infinitely many primes of the form x^{2}+y^{2}. Fermat also asked about prime values of x^{2}+ny^{2} for various n\geqslant 2, and made analogous conjectures when n=2,3,5. The first two of these were also proven by Euler, and the third by Lagrange. The book [[2](https://arxiv.org/html/2410.04189v2#bib.bib2)] (which inspired the title and some of the content of this paper) is devoted to primes of the form x^{2}+ny^{2} from an algebraic perspective, linking this to the development of central topics in number theory such as class field theory. We note in particular that it was shown by Weber in 1882 [[49](https://arxiv.org/html/2410.04189v2#bib.bib49)] that there are infinitely many primes of the form x^{2}+ny^{2} for any n\geqslant 1.
+
+Our main result falls into a long line of work considering refinements of such statements in which some restriction is placed on the coordinates x,y. Most of these have been concerned with the case n=1, that is to say with the form x^{2}+y^{2}. Work of Fouvry and Iwaniec [[9](https://arxiv.org/html/2410.04189v2#bib.bib9)] handled the case where x is prime. Celebrated work of Friedlander and Iwaniec [[11](https://arxiv.org/html/2410.04189v2#bib.bib11), [10](https://arxiv.org/html/2410.04189v2#bib.bib10)], showed that one may restrict x to be a perfect square (the first polynomial taking values in polynomially thin set shown to capture primes). This was refined in work of Heath–Brown and Li [[24](https://arxiv.org/html/2410.04189v2#bib.bib24)], to force x to be a square of a prime. Pratt [[46](https://arxiv.org/html/2410.04189v2#bib.bib46)] has proven that x may be forced to lie in a set where one excludes 3 digits from its decimal expansion. We also mention two recent works of Merikoski [[39](https://arxiv.org/html/2410.04189v2#bib.bib39), [38](https://arxiv.org/html/2410.04189v2#bib.bib38)]; in particular, in [[38](https://arxiv.org/html/2410.04189v2#bib.bib38)] the variable x is restricted to an arbitrary set S of integers satisfying |S\cap\{1,\dots N\}|\gg N^{1-\delta} for some \delta>0. The work of Fouvry and Iwaniec was generalised to x^{2}+ny^{2} for arbitrary n\geqslant 1 in [[22](https://arxiv.org/html/2410.04189v2#bib.bib22)].
+
+Short of proving that there are infinitely many primes of the form x^{2}+4 (with x prime), for parity reasons one cannot hope to show that there are infinitely many primes of the form x^{2}+y^{2} with _both_ x and y prime, and for related reasons (\operatorname{mod}\,6) one should restrict the search for primes of the form x^{2}+ny^{2} with x,y prime to the case n\in\{0,4\}(\operatorname{mod}\,6).
+
+Friedlander and Iwaniec [[13](https://arxiv.org/html/2410.04189v2#bib.bib13)] considered the problem in the case n=4 and proved a lower bound for the number of (x,y) with x prime, y having at most 7 prime factors, and x^{2}+4y^{2} prime.
+
+[Theorem 1.1](https://arxiv.org/html/2410.04189v2#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") uses relatively little about the specific form of the functions \Lambda(x),\Lambda(y), and similar techniques may be used for other problems connected with the coordinates of Gaussian primes. Perhaps the most interesting of these, which we will address in [[16](https://arxiv.org/html/2410.04189v2#bib.bib16)], is to give asymptotic counts for corners (x+iy,(x+d)+iy,x+i(y+d)) in the Gaussian primes.
+
+### 1.2. Outline of the argument
+
+For most of the rest of the introductory discussion we specialise to the case n=4. In this case, [Theorem 1.1](https://arxiv.org/html/2410.04189v2#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") is closely related to a statement involving Gaussian primes (that is to say primes in \mathbf{Z}[i]) using the fact that z=x+iy, y\neq 0, is a Gaussian prime if and only N_{\mathbf{Q}(i)/\mathbf{Q}}(z)=x^{2}+y^{2} is a rational prime. In particular, our main theorem implies that there are infinitely many Gaussian primes x+2iy with x,y prime.
+
+For the sake of this introductory discussion we will consider the problem of estimating
+
+(1.2)\sum_{x^{2}+4y^{2}\leqslant X}f(x)f^{\prime}(y)1_{x^{2}+4y^{2}\operatorname{prime}}.
+
+In the case f=f^{\prime}=\Lambda, this is a special case of [Theorem 1.1](https://arxiv.org/html/2410.04189v2#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") with N=X^{1/2}, W (a smooth approximation to) the cutoff 1_{u^{2}+nv^{2}\leqslant 1}, and with the von Mangoldt weight \Lambda(x^{2}+4y^{2}) (which is essentially always \log X) renormalised to 1.
+
+Much of our argument is relevant for fairly general f,f^{\prime}. Noting that [1.2](https://arxiv.org/html/2410.04189v2#S1.E2 "In 1.2. Outline of the argument ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") is bilinear in f and f^{\prime}, one can hope in any given situation of interest to write f,f^{\prime} as sums of relatively easily-understood ‘main terms’ plus error terms for which one hopes that the sum [1.2](https://arxiv.org/html/2410.04189v2#S1.E2 "In 1.2. Outline of the argument ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") is small. We are then left with the task of finding verifiable criteria on f,f^{\prime} which allow us to assert that ([1.2](https://arxiv.org/html/2410.04189v2#S1.E2 "Equation 1.2 ‣ 1.2. Outline of the argument ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2")) is small.
+
+The first key idea is to observe that [1.2](https://arxiv.org/html/2410.04189v2#S1.E2 "In 1.2. Outline of the argument ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") is a sum
+
+(1.3)\sum_{\gamma\in\mathbf{Z}[i]^{*}}w(\gamma),
+
+where here \mathbf{Z}[i]^{*} denotes the set of Gaussian primes and w:\mathbf{Z}[i]\rightarrow\mathbf{C} is defined by w(x+2iy)=f(x)f^{\prime}(y) and w(x+iy)=0 for y odd, and we assume throughout the following discussion that w(\gamma) is supported where |\gamma|^{2}\leqslant X.
+
+We then examine this sum over Gaussian primes using so-called Type I and Type II sums. For a general introduction to this technique over the rational integers, see for instance [[28](https://arxiv.org/html/2410.04189v2#bib.bib28), Chapter 13] (where the authors do not use the terms Type I/II sum, but the relevant sums are (13.16) and (13.17)) or the comprehensive recent analysis [[8](https://arxiv.org/html/2410.04189v2#bib.bib8)]. Adapting the relevant techniques from the rational integers \mathbf{Z} to the Gaussian integers \mathbf{Z}[i] presents only minor technical obstacles in our setting. See [[23](https://arxiv.org/html/2410.04189v2#bib.bib23), Section 3] for a very similar type of argument in the ring \mathbf{Z}[2^{1/3}], and [[25](https://arxiv.org/html/2410.04189v2#bib.bib25), [37](https://arxiv.org/html/2410.04189v2#bib.bib37)] for similar arguments in fields not necessarily enjoying unique factorisation.
+
+For the purposes of this discussion, Type I sums are roughly of the form
+
+(1.4)\sum_{\begin{subarray}{c}\ell\in\mathbf{Z}[i]\\
+|\ell|^{2}\sim L\end{subarray}}\Big|\sum_{\begin{subarray}{c}m\in\mathbf{Z}[i]\\
+\ell|m\end{subarray}}w(m)\Big|
+
+for some positive L\in\mathbf{R}, which we informally call the _level_.
+
+Type II sums are bilinear sums of the form
+
+(1.5)\sum_{\begin{subarray}{c}\ell,m\in\mathbf{Z}[i]\\
+|\ell|^{2}\sim L\end{subarray}}\alpha_{\ell}\beta_{m}w(\ell m),
+
+where here the coeffients \alpha_{\ell},\beta_{m} will satisfy reasonable boundedness conditions but can otherwise be fairly arbitrary.
+
+The estimates we seek for these sums are bounds of the form O(X(\log X)^{-B}) for some large B, which represent savings over the trivial bounds by large powers of \log X. If we have such bounds, we informally say that we have Type I (or Type II) information at level L. (Precise statements may be found in [Section 3](https://arxiv.org/html/2410.04189v2#S3 "3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2").)
+
+If one has Type I and Type II information at sufficient levels, it is possible to obtain asymptotics for sums over primes [1.3](https://arxiv.org/html/2410.04189v2#S1.E3 "In 1.2. Outline of the argument ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") by sieve methods, details of which may be found in [Section 3](https://arxiv.org/html/2410.04189v2#S3 "3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). Any such argument needs Type I/II information in sufficiently large ranges. The question of exactly what is necessary or sufficient for this purpose is rather complicated (and, over the integers, has been comprehensively addressed in the recent work [[8](https://arxiv.org/html/2410.04189v2#bib.bib8)]).
+
+We will use an argument of Duke, Friedlander, and Iwaniec [[4](https://arxiv.org/html/2410.04189v2#bib.bib4), Section 6] which (adapted to the Gaussian primes) shows that, at least for 1-bounded functions f,f^{\prime}, it is enough to have Type I information up to level X^{1/2-o(1)}, and Type II information up to X^{1/3-o(1)}.
+
+The task, then, is to obtain the relevant Type I and II information. We are able to do this under the assumption that appropriate _Gowers norms_ of f or f^{\prime} are small. The Gowers norms are central objects in modern additive combinatorics; see [Section 4.2](https://arxiv.org/html/2410.04189v2#S4.SS2 "4.2. Gowers norms ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") for an introduction. Assuming bounds for suitable Gowers norms of f or f^{\prime}, we are able to obtain Type I information up to level X^{1/2-o(1)} and Type II information for levels between X^{o(1)} and X^{1/2-o(1)}, which is sufficient for variants of the sieve arguments of Duke, Friedlander and Iwaniec to apply in order to show that [1.3](https://arxiv.org/html/2410.04189v2#S1.E3 "In 1.2. Outline of the argument ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") is small. One point to note here is that, while we have comfortably enough Type II information, the Type I range is just barely enough for the requirements of the Duke–Friedlander–Iwaniec sieve. Worse, the functions f and f^{\prime} of interest to us for our main theorem are not 1-bounded but come from the von Mangoldt function (with a suitable main term subtracted), and the most naïve application of the Duke–Friedlander–Iwaniec machinery fails to give a usable bound. To get around this issue we require an additional upper bound sieve (of dimension 3). We remark that obtaining Type I information at level X^{1/2} in our setting remains an interesting open question. In fact, even obtaining bounds at this level without the absolute values in [1.4](https://arxiv.org/html/2410.04189v2#S1.E4 "In 1.2. Outline of the argument ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") seems challenging. (A bound of this latter type would be interesting, being a simple case of what is called Type I 2 information. Sufficient information in this direction would allow one to obtain an arbitrary logarithmic savings in [Theorem 1.1](https://arxiv.org/html/2410.04189v2#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2").)
+
+The most novel part of our work lies in showing that the stated Type I and Type II information can indeed be obtained from suitable Gowers norm control on the functions f and f^{\prime}. Precise statements of these results are [Proposition 4.2](https://arxiv.org/html/2410.04189v2#S4.Thmtheorem2 "Proposition 4.2. ‣ 4.3. Type I and II sums with product weights and Gowers norms ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") and [Proposition 4.3](https://arxiv.org/html/2410.04189v2#S4.Thmtheorem3 "Proposition 4.3. ‣ 4.3. Type I and II sums with product weights and Gowers norms ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") respectively. The proof of [Proposition 4.3](https://arxiv.org/html/2410.04189v2#S4.Thmtheorem3 "Proposition 4.3. ‣ 4.3. Type I and II sums with product weights and Gowers norms ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") implicitly uses a large number of applications of the Cauchy-Schwarz inequality, organised via what are known as _concatenation_ theorems for Gowers-type norms. The first concatenation results were obtained by Tao and Ziegler [[48](https://arxiv.org/html/2410.04189v2#bib.bib48)], but those results are rather qualitative. More recently, starting with the work of Peluse and Prendiville [[44](https://arxiv.org/html/2410.04189v2#bib.bib44)] and Peluse [[43](https://arxiv.org/html/2410.04189v2#bib.bib43)], more quantitative variants have been developed. For our application, we need the very recent work of Kuca [[33](https://arxiv.org/html/2410.04189v2#bib.bib33)] and Kravitz–Kuca–Leng [[32](https://arxiv.org/html/2410.04189v2#bib.bib32)].
+
+In order to apply these results to prove Theorem [1.1](https://arxiv.org/html/2410.04189v2#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), we need to show that for suitable functions f and f^{\prime} related to the von Mangoldt function, the relevant Gowers norms are small. We work with f=f^{\prime}=\Lambda-\Lambda_{{\textnormal{Cram\'{e}r}}}, where \Lambda_{{\textnormal{Cram\'{e}r}}} is a certain low-complexity approximant to the von Mangoldt function defined in [1.6](https://arxiv.org/html/2410.04189v2#S1.E6 "In 1.4. Notation ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") below. Statements of this type were first shown in a series of works of the first author with Tao [[17](https://arxiv.org/html/2410.04189v2#bib.bib17), [19](https://arxiv.org/html/2410.04189v2#bib.bib19), [18](https://arxiv.org/html/2410.04189v2#bib.bib18)] and with Tao and Ziegler [[20](https://arxiv.org/html/2410.04189v2#bib.bib20)]. More recent work of Tao and Teräväinen [[47](https://arxiv.org/html/2410.04189v2#bib.bib47)] gave quantitative bounds relying on effective bounds for the inverse theorem for the Gowers norms established by Manners [[36](https://arxiv.org/html/2410.04189v2#bib.bib36)]. For our application, however, we need savings of large powers of \log X over the trivial bound. Bounds of this strength were only recently established by Leng [[34](https://arxiv.org/html/2410.04189v2#bib.bib34)], whose work relies on the quasipolynomial inverse theorem for the Gowers norms due to Leng, Sah and the second author [[35](https://arxiv.org/html/2410.04189v2#bib.bib35)].
+
+The final task of the paper is then to obtain the main term in [Theorem 1.1](https://arxiv.org/html/2410.04189v2#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") by evaluating [1.2](https://arxiv.org/html/2410.04189v2#S1.E2 "In 1.2. Outline of the argument ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") with f=f^{\prime}=\Lambda_{{\textnormal{Cram\'{e}r}}}. This is a task for classical methods of multiplicative number theory, the main input being the prime ideal theorem. However, it takes a little work to get all the details in order.
+
+In the above outline we had n=4. To deal with more general values of n, we use the field K=\mathbf{Q}(\sqrt{-n}) in place of the Gaussian field. In general, these fields do not enjoy unique factorisation and in the above discussion one must work with ideals rather than with elements of the ring of integers \mathcal{O}_{K}. In fact, for technical reasons related to units it is best to work in this language even in the Gaussian setting (which does have unique factorisation). The fact that not all ideals are principal creates some extra difficulties, but they turn out not to be too serious and are resolved in much the same way that similar difficulties were overcome in [[25](https://arxiv.org/html/2410.04189v2#bib.bib25), [37](https://arxiv.org/html/2410.04189v2#bib.bib37)] (for instance).
+
+### 1.3. Organization
+
+In [Section 2](https://arxiv.org/html/2410.04189v2#S2 "2. Number fields and weight functions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") we review some of the basic arithmetic of K=\mathbf{Q}(\sqrt{-n}) and recall some simple lemmas about the ring of integers \mathcal{O}_{K} and the ideals in this ring.
+
+In [Section 3](https://arxiv.org/html/2410.04189v2#S3 "3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), we develop the relevant sieve machinery allowing us to estimate sums over primes such as [1.3](https://arxiv.org/html/2410.04189v2#S1.E3 "In 1.2. Outline of the argument ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") using Type I/II information. Here we follow the arguments of Duke, Friedlander and Iwaniec rather closely, albeit in the number field setting. As explained above, we will additionally require the input of an upper bound sieve of dimension 3 in two variables.
+
+In [Section 4](https://arxiv.org/html/2410.04189v2#S4 "4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") we begin by giving a technical reduction of our main theorem, which is the form we shall actually prove; essentially, this consists in converting from Cartesian to polar coordinates. Then, we recall the definitions and basic properties of the Gowers U^{k}-norms, which will feature heavily in the paper from this point on. We will also give the outline proof of our main theorem, leaving the proof of the key Type I and II estimates, as well as the main input from analytic number theory, to later sections.
+
+In [Section 5](https://arxiv.org/html/2410.04189v2#S5 "5. Preliminaries on concatenation and Gowers–Peluse norms ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), we recall a variant of the Gowers norms due to Peluse [[43](https://arxiv.org/html/2410.04189v2#bib.bib43)], which we call the Gowers–Peluse norms. These are the appropriate generalisations of the Gowers norms needed for the concatenation machinery we will require. In this section we also state the main concatenation estimate of Kuca, Kravitz, and Leng [[32](https://arxiv.org/html/2410.04189v2#bib.bib32)].
+
+In [Section 6](https://arxiv.org/html/2410.04189v2#S6 "6. Type I up to 𝑋^{1/2}/(log𝑋)^𝐴 ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), we show that Type I information is controlled by Gowers norms and in [Section 7](https://arxiv.org/html/2410.04189v2#S7 "7. Type II estimates up to 𝑋^{1/2-𝑜(1)} ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") we do the same for Type II information.
+
+In [Section 8](https://arxiv.org/html/2410.04189v2#S8 "8. Computing the asymptotic ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), we complete the proof of [Theorem 1.1](https://arxiv.org/html/2410.04189v2#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") by evaluating the main term in the asymptotic.
+
+Finally, we provide four appendices. In [Appendix A](https://arxiv.org/html/2410.04189v2#A1 "Appendix A Properties of the Gowers and Gowers–Peluse norms ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), we prove various properties of Gowers box norms. In [Appendix B](https://arxiv.org/html/2410.04189v2#A2 "Appendix B Proof of concatenation estimates ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), we provide self-contained proofs of the main concatenation results. In [Appendix C](https://arxiv.org/html/2410.04189v2#A3 "Appendix C A large sieve bound in several dimensions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), we briefly provide details of the large sieve in higher dimensions. In [Appendix D](https://arxiv.org/html/2410.04189v2#A4 "Appendix D Number-theoretic bounds ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") we collect some standard arithmetic estimates.
+
+### 1.4. Notation
+
+There will be a small number of fixed objects throughout the paper, as follows:
+
+*   •
+n will always be the same n as in the main theorem, and we think of it as fixed;
+
+*   •
+K will always be \mathbf{Q}(\sqrt{-n}), regarded as embedded into \mathbf{C}, except in the self-contained [Section 3.1](https://arxiv.org/html/2410.04189v2#S3.SS1 "3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") where it could be any number field (but for our application will be \mathbf{Q}(\sqrt{-n}));
+
+*   •
+X is some positive integer parameter, which we will always assume sufficiently large in terms of n without further comment.
+
+For real N\geqslant 1 we write [N]=\{x\in\mathbf{Z}:1\leqslant x\leqslant N\} and [\pm N]=\{x\in\mathbf{Z}:-N\leqslant x\leqslant N\}.
+
+It is convenient to use a very minor modification of the von Mangoldt function which ignores the prime powers and is symmetric. Thus define \Lambda^{\prime}(n)=\log|n| if |n| is a prime, and \Lambda^{\prime}(n)=0 otherwise.
+
+As mentioned above, we will use a ‘low-complexity’ model for the primes, whose main task is to encode the fact that the primes are essentially supported only on residue classes coprime to q. Specifically, for x\in\mathbf{Z} and Q\in\mathbf{Z}^{+}, we define the Cramér model at level Q to be
+
+(1.6)\Lambda_{{\textnormal{Cram\'{e}r}},Q}(x)=\prod_{p\leqslant Q}\bigg(1-\frac{1}{p}\bigg)^{-1}1_{(x,p)=1}.
+
+Throughout the paper we take
+
+(1.7)Q:=\exp(\log^{1/10}(X^{1/2})).
+
+Note that this is the same choice made in [[47](https://arxiv.org/html/2410.04189v2#bib.bib47), Equation (1.1)] and in [[34](https://arxiv.org/html/2410.04189v2#bib.bib34), Section 5] if one takes N=X^{1/2} in those papers. This is the reason for the inclusion of X^{1/2} in [1.7](https://arxiv.org/html/2410.04189v2#S1.E7 "In 1.4. Notation ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), which otherwise looks peculiar. We will write \Lambda_{{\textnormal{Cram\'{e}r}}}=\Lambda_{{\textnormal{Cram\'{e}r}},Q} from now on.
+
+As is standard, we let e(\theta)=e^{2\pi i\theta}.
+
+We use standard asymptotic notation throughout. We use A\sim B to denote that B/2\leqslant A<2B (e.g. A lies within a factor of 2 of B). Given functions f=f(x) and g=g(x), we write f=O(g), f\ll g, g=\Omega(f), or g\gg f to mean that there is a constant C such that |f(x)|\leqslant Cg(x) for sufficiently large n. We write f\asymp g or f=\Theta(g) to mean that f\ll g and g\ll f, and write f=o(g) to mean f(x)/g(x)\to 0 as x\to\infty. Subscripts indicate dependence on parameters.
+
+From [Section 5](https://arxiv.org/html/2410.04189v2#S5 "5. Preliminaries on concatenation and Gowers–Peluse norms ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") onwards, we will use the language of probability measures on \mathbf{Z}. For us, this simply means a finitely-supported function \mu:\mathbf{Z}\rightarrow[0,1] with \sum_{x}\mu(x)=1. In this paper all our probability measures will be symmetric, meaning that \mu(x)=\mu(-x). The convolution \mu_{1}\ast\mu_{2} of two probability measures is defined by (\mu_{1}\ast\mu_{2})(x):=\sum_{y}\mu_{1}(y)\mu(x-y), and it is also a probability measure. If \mu_{1},\dots,\mu_{\ell} are probability measures then we write \mathop{\scalebox{1.5}{\raisebox{-0.86108pt}{$\ast$}}}_{i=1}^{\ell}\mu_{i} for \mu_{1}\ast\cdots\ast\mu_{\ell}. If \mu_{1}=\cdots=\mu_{\ell}=\mu, we write \mu^{(\ell)} for this measure. Given a (multi)set S\subseteq\mathbf{Z}, we let \operatorname{U}_{S} denote the uniform measure on this set. Finally, \delta_{0} denotes the delta-mass at 0, thus \delta_{0}(0)=1 and \delta_{0}(x)=0 for x\neq 0. Observe that \delta_{0} is an identity for convolution in the sense that \mu\ast\delta_{0}=\mu for any probability measure \mu. The notation \mathbb{E}_{x\sim\mu}f(x) means the same as \sum_{x}f(x)\mu(x).
+
+We remark that it is perhaps controversial to use the letter \mu for something other than the Möbius function in an analytic number theory paper. However, the Möbius function only appears in [Section 3](https://arxiv.org/html/2410.04189v2#S3 "3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") of our paper, where there are no probability measures, and so there should be no danger of confusion.
+
+When working in number fields, we will use the term _rational prime_ to mean a prime number in \mathbf{Z}. This is to distinguish from other uses of the word prime (prime ideals or prime elements of the ring of integers).
+
+Finally, if \ell\in\mathbf{Z} then we define the character \chi_{\infty}^{(\ell)}:\mathbf{C}^{*}\rightarrow\mathbf{C}^{*} by
+
+(1.8)\chi_{\infty}^{(\ell)}(z):=(z/|z|)^{\ell}.
+
+### 1.5. Acknowledgements
+
+We thank Sarah Peluse and Terry Tao for helpful conversations. We also thank Roger Heath-Brown, Emmanuel Kowalski and James Maynard for comments pertaining to the literature concerning the prime number theorem for ideals, and Noah Kravitz, James Leng, Jori Merikoski, Cédric Pilatte, Joni Teräväinen and Katharine Woo for comments on a draft of the paper.
+
+BG is supported by Simons Investigator Award 376201. This research was conducted during the period MS served as a Clay Research Fellow. Portions of this research were conducted while MS was visiting Oxford and Cambridge both of which provided excellent working conditions. Finally, the authors thank ICMS and the organisers of the workshop on Additive Combinatorics (July 2024) which provided the initial impetus for this collaboration.
+
+## 2. Number fields and weight functions
+
+In this section we collect some basic facts about number fields, particularly the imaginary quadratic field K=\mathbf{Q}(\sqrt{-n}). We also introduce the key notion of a weight function of product form, [Definition 2.2](https://arxiv.org/html/2410.04189v2#S2.Thmtheorem2 "Definition 2.2. ‣ 2. Number fields and weight functions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2").
+
+Given a number field K, denote by \mathcal{O}_{K} its ring of integers. This is a lattice satisfying \mathbf{Z}[\sqrt{-n}]\subseteq\mathcal{O}_{K}\subseteq\frac{1}{2n}\mathbf{Z}[\sqrt{-n}]. Note in particular that
+
+(2.1)(2n)\subseteq\mathbf{Z}[\sqrt{-n}],
+
+where (2n) is the ideal generated by 2n. Write \mathcal{O}^{*}_{K} for the units in \mathcal{O}_{K}. This will consist of \pm 1 unless the squarefree part of n is 1 (in which case \mathcal{O}_{K}^{*}=\{\pm 1,\pm i\}) or 3 (in which case \mathcal{O}_{K}^{*} consists of the sixth roots of unity).
+
+_Ideals._ Denote by \operatorname{Ideals}(\mathcal{O}_{K}) the semi-group of non-zero ideals in \mathcal{O}_{K} and by \operatorname{Ideals}^{0}(\mathcal{O}_{K}) the non-zero principal ideals. We will also encounter fractional ideals. If \alpha\in K^{*} then it is convenient to write (\alpha)=\alpha\mathcal{O}_{K} and call this the fractional ideal generated by \alpha. Note that if \alpha\in\mathcal{O}_{K}\setminus\{0\} then (\alpha) is a principal ideal, and all principal ideals are of this form.
+
+Fraktur letters \mathfrak{a},\mathfrak{b},\mathfrak{d} will always denote ideals in \mathcal{O}_{K}, with the letters \mathfrak{p},\mathfrak{q},\mathfrak{r} being reserved for prime ideals. We reserve the letter \mathfrak{c} for particular fixed choices of fractional ideals in K, as described in [Lemma 2.1](https://arxiv.org/html/2410.04189v2#S2.Thmtheorem1 "Lemma 2.1. ‣ 2. Number fields and weight functions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") below.
+
+Recall that we may define the norm N\mathfrak{a} of any non-zero fractional ideal \mathfrak{a}, and this takes values in \mathbf{Q}^{+}.
+
+_Ideal classes._ Denote by C(K) the ideal class group of K. We will denote elements of C(K) by g, and will write [g] for the set of ideals in \operatorname{Ideals}(\mathcal{O}_{K}) in the class represented by g. Sometimes it is necessary to consider fractional ideals and their classes in C(K). Indeed it will be convenient throughout the paper to fix some fractional ideal representatives of each class, as detailed in the following lemma.
+
+###### Lemma 2.1.
+
+Let K=\mathbf{Q}(\sqrt{-n}). We may choose fractional ideals \mathfrak{c}_{g}, \mathfrak{c}^{\prime}_{g} for g\in C(K) with the following properties:
+
+1.   (i)
+\mathfrak{c}_{g},\mathfrak{c}^{\prime}_{g} are in the ideal class corresponding to g;
+
+2.   (ii)
+\mathfrak{c}_{g}\mathfrak{c}^{\prime}_{g^{-1}}(which is principal) is generated by \gamma_{g}\in\mathbf{Q}, a positive rational of height O_{n}(1);
+
+3.   (iii)
+The set \Pi_{g}:=\{z\in K^{*}:(z)\mathfrak{c}_{g}\subseteq\mathcal{O}_{K}\} is a finite index sublattice of \mathbf{Z}[\sqrt{-n}], and similarly for \Pi^{\prime}_{g}:=\{z\in K^{*}:(z)\mathfrak{c}^{\prime}_{g}\subseteq\mathcal{O}_{K}\}.
+
+###### Proof.
+
+First of all, for each g\in C(K) pick some \mathfrak{b}_{g}\in[g] with norm \leqslant\frac{4}{\pi}\sqrt{n}; such ideals exist by the Minkowski bound. For each g, \mathfrak{b}_{g}\mathfrak{b}_{g^{-1}} is a principal ideal. Set \mathfrak{b}^{\prime}_{g^{-1}}:=\overline{\mathfrak{b}_{g}\mathfrak{b}_{g^{-1}}}\mathfrak{b}_{g^{-1}}. Then N\mathfrak{b}^{\prime}_{g^{-1}}\ll n^{3/2}, and \mathfrak{b}_{g}\mathfrak{b}^{\prime}_{g^{-1}}=(\mathfrak{b}_{g}\mathfrak{b}_{g^{-1}})\overline{\mathfrak{b}_{g}\mathfrak{b}_{g^{-1}}} is generated by a rational integer of magnitude \ll n^{2}. Now, for each g, take \mathfrak{c}_{g} to be the fractional ideal \frac{1}{M_{g}}\mathfrak{b}_{g}, where M_{g}=O_{n}(1) is an integer such that M_{g}\mathfrak{b}_{g}^{-1}\subseteq(2n). Such an M_{g} exists by clearing denominators in generators of \mathfrak{b}^{-1}_{g}. Define \mathfrak{c}^{\prime}_{g}=\frac{1}{M^{\prime}_{g}}\mathfrak{b}^{\prime}_{g} similarly. Properties (i) and (ii) are then immediate from the above discussion. (We remark that the key point in (ii) is that the generator \gamma_{g} lies in \mathbf{Q}, rather than merely in K; the second point is in a sense vacuous since there are only O_{n}(1) ideal classes, however the proof yields an explicit value for this constant if desired.)
+
+We turn to point (iii). It is clear that \Pi_{g} is an abelian group under addition. Also, since \mathfrak{c}_{g} has an integral basis, we see by clearing denominators that there is M=O_{n}(1) such that M,M\sqrt{-n}\in\Pi_{g}. In the other direction, note that by construction we have \mathfrak{c}_{g}^{-1}\subseteq(2n). Therefore if (z)\mathfrak{c}_{g}\subseteq\mathcal{O}_{K} then (z)=(z)\mathfrak{c}_{g}\mathfrak{c}_{g}^{-1}\subseteq\mathcal{O}_{K}\mathfrak{c}_{g}^{-1}\subseteq(2n)\subseteq\mathbf{Z}[\sqrt{-n}], the second inclusion being [2.1](https://arxiv.org/html/2410.04189v2#S2.E1 "In 2. Number fields and weight functions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). Hence \Pi_{g}\subseteq\mathbf{Z}[\sqrt{-n}], and the claim follows. ∎
+
+_Weight functions._ Throughout the paper we will be dealing with weight functions w on \operatorname{Ideals}(\mathcal{O}_{K}). In [Section 3.1](https://arxiv.org/html/2410.04189v2#S3.SS1 "3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") these can be quite general, but for most of the paper we will take K=\mathbf{Q}(\sqrt{-n}) and the weight functions will be of a special product form.
+
+###### Definition 2.2.
+
+Suppose that K=\mathbf{Q}(\sqrt{-n}). Suppose that f,f^{\prime}:\mathbf{Q}\rightarrow\mathbf{C} are two functions, both supported on \mathbf{Z}, and let \ell\in\mathbf{Z}. Then we define a function f\boxtimes_{\ell}f^{\prime} on ideals as follows:
+
+(2.2)f\boxtimes_{\ell}f^{\prime}(\mathfrak{a})=\sum_{(x+y\sqrt{-n})=\mathfrak{a}}\chi_{\infty}^{(\ell)}(x+y\sqrt{-n})f(x)f^{\prime}(y),
+
+where \chi_{\infty}^{(\ell)}(z)=(z/|z|)^{\ell}. Any function w:\operatorname{Ideals}(\mathcal{O}_{K})\rightarrow\mathbf{C} having this form is said to be in _product form_ with _frequency \ell_. We say that w is 1-bounded if f,f^{\prime} are.
+
+_Further facts about \mathbf{Q}(\sqrt{-n})_. The following further definitions and facts will be required only in [Section 8](https://arxiv.org/html/2410.04189v2#S8 "8. Computing the asymptotic ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). Factor
+
+(2.3)n=n_{*}r^{2}
+
+where n_{*} is squarefree and r\in\mathbf{N}. It is convenient to define a quantity \omega by
+
+(2.4)\omega:=\left\{\begin{array}[]{ll}1&\mbox{if $n_{*}\equiv 1,2(\operatorname{mod}\,4)$ and}\\
+\frac{1}{2}&\mbox{if $n_{*}\equiv 3(\operatorname{mod}\,4)$}.\end{array}\right.
+
+Then it is well-known that \mathcal{O}_{K}=\mathbf{Z}[\sqrt{-n_{*}}] if \omega=1, whereas \mathcal{O}_{K}=\mathbf{Z}[\frac{1}{2}(1+\sqrt{-n_{*}})] if \omega=\frac{1}{2} (which perhaps explains the notation). Recall that the discriminant \Delta is given by the formula
+
+(2.5)\Delta=-4\omega^{2}n_{*}.
+
+There is a real quadratic character (\Delta\mid\cdot) associated to the field, where the symbol here is the Kronecker symbol, which coincides with the Legendre symbol on odd primes p. This symbol determines the splitting type of a prime p; p splits, is inert or ramifies according to whether (\Delta\mid p)=1,-1,0 respectively. We also let h_{K} denote the class number of K. Finally we recall the class number formula, which in our setting and language states that
+
+(2.6)\frac{2\pi h_{K}}{|\mathcal{O}_{K}^{*}||\Delta|^{1/2}}=L(1,(\Delta|\,\cdot\,))=\prod_{p}\bigg(1-\frac{(\Delta|p)}{p}\bigg)^{-1}.
+
+## 3. Sieve setup-reduction to Type I and Type II statements
+
+In this section we detail the main sieve-theoretic parts of the argument which allow us to reduce to proving certain Type I/II estimates.
+
+### 3.1. The Duke–Friedlander–Iwaniec sieve in a number field
+
+Here we adapt the sieve arguments of Duke, Friedlander and Iwaniec to an arbitrary number field K. The generalisation is essentially completely routine and follows [[4](https://arxiv.org/html/2410.04189v2#bib.bib4), Section 6] very closely, with only minor technical modifications required to work with ideals rather than integers.
+
+###### Definition 3.1.
+
+Fix a weight function w:\operatorname{Ideals}(\mathcal{O}_{K})\rightarrow\mathbf{C}. Given a real number B\geqslant 1, w satisfies Type I (with savings (\log X)^{-B})) at L_{1} if given L\leqslant L_{1} then
+
+(3.1)\sum_{\mathfrak{d}:N\mathfrak{d}\sim L}\Big|\sum_{\mathfrak{d}|\mathfrak{a}}w(\mathfrak{a})\Big|\ll_{B}X(\log X)^{-B}\|w\|_{\infty}.
+
+We say that w satisfies Type II (with savings (\log X)^{-B}) between [L_{1},L_{2}] if given L\in[L_{1},L_{2}], and any 1-bounded sequences \alpha_{\mathfrak{a}},\beta_{\mathfrak{b}} then
+
+(3.2)\sum_{\mathfrak{a},\mathfrak{b}:N\mathfrak{a}\sim L}\alpha_{\mathfrak{a}}\beta_{\mathfrak{b}}w(\mathfrak{a}\mathfrak{b})\ll_{B}X(\log X)^{-B}\|w\|_{\infty}.
+
+Here is our formulation of Duke, Friedlander and Iwaniec’s sieve result in the number field setting.
+
+###### Lemma 3.2.
+
+Let A,C>1 be parameters, set B:=2A+4, and suppose C\geqslant B. Furthermore suppose that w:\operatorname{Ideals}(\mathcal{O}_{K})\rightarrow\mathbf{C} satisfies Type I (with savings (\log X)^{-B}) at X^{1/2}(\log X)^{-C} and Type II (with savings (\log X)^{-B}) between [(\log X)^{C},X^{3/8}]. Suppose that w is supported on ideals of norm \leqslant X. Then
+
+\sum_{\mathfrak{p}}w(\mathfrak{p})+\sum_{\mathfrak{p}_{1},\mathfrak{p}_{2}}w(\mathfrak{p}_{1}\mathfrak{p}_{2})\ll_{A,C}X(\log X)^{-A}\lVert w\rVert_{\infty},
+
+where the first sum ranges over prime ideals \mathfrak{p}, and the second sum ranges over pairs \mathfrak{p}_{1},\mathfrak{p}_{2} of prime ideals with N\mathfrak{p}_{i}\geqslant X^{1/2}e^{-(\log\log X)^{2}} for i=1,2.
+
+###### Proof.
+
+Since the statement is homogeneous in w, we may assume that w is 1-bounded. By adjusting implicit constants in the statement, we may assume that X is larger than an absolute constant depending on B. Let
+
+(3.3)D=X^{1/2}(\log X)^{-C},~u=(\log X)^{C}\text{ and }~z=X^{1/2}e^{-(\log\log X)^{2}}.
+
+We put a total ordering on the prime ideals in \mathcal{O}_{K} by declaring that \mathfrak{p}_{1}<\mathfrak{p}_{2} if N\mathfrak{p}_{1}<N\mathfrak{p}_{2}, and then ordering the prime ideals with the same norm arbitrarily. (The same technical device occurs in [[25](https://arxiv.org/html/2410.04189v2#bib.bib25), Section 4] or [[37](https://arxiv.org/html/2410.04189v2#bib.bib37), Section 6], for example.) Note that there are at most [K:\mathbf{Q}] prime ideals of a given norm. By an _up-set_ we mean a set I of prime ideals with the property that if \mathfrak{p}_{1}\in I, and if \mathfrak{p}_{2}>\mathfrak{p}_{1}, then \mathfrak{p}_{2}\in I. Since the prime ideals are well-ordered by <, every up-set is of the form I(\mathfrak{p}):=\{\mathfrak{p}^{\prime}:\mathfrak{p}^{\prime}\geqslant\mathfrak{p}\}. However, for technical reasons during the proof it is sometimes useful to consider up-sets specified in the form I(t):=\{\mathfrak{p}:N\mathfrak{p}\geqslant t\}, where t\in\mathbf{R}^{+}. There should hopefully be no confusion over which definition is being used at any given point.
+
+Let \mathcal{A}\subseteq\operatorname{Ideals}(\mathcal{O}_{K}) and let I be an up-set. We define
+
+S(\mathcal{A},I)=\sum_{\begin{subarray}{c}\mathfrak{a}\in\mathcal{A}\\
+\mathfrak{p}|\mathfrak{a}\implies\mathfrak{p}\in I\end{subarray}}w(\mathfrak{a}).
+
+Given a set \mathcal{A} of ideals and an ideal \mathfrak{d}, we denote by \mathcal{A}_{\mathfrak{d}} the subset of \mathcal{A} consisting of ideals divisible by \mathfrak{d}.
+
+Now note that if I_{1},I_{2} are up-sets with I_{1}\subseteq I_{2} then we have the _Buchstab identity_
+
+S(\mathcal{A},I_{1})=S(\mathcal{A},I_{2})-\sum_{\mathfrak{p}\in I_{2}\setminus I_{1}}S(\mathcal{A}_{\mathfrak{p}},I(\mathfrak{p})).
+
+To see this, observe that if w(\mathfrak{a}) appears in the sum S(\mathcal{A},I_{2}) but not in S(\mathcal{A},I_{1}) then \mathfrak{a} is divisible by a unique smallest prime ideal \mathfrak{p} with \mathfrak{p}\in I_{2}\setminus I_{1}. Of course, \mathfrak{a} lies in \mathcal{A}_{\mathfrak{p}}, and since \mathfrak{p} was chosen to be smallest, all other prime ideal divisors of \mathfrak{a} are \geqslant\mathfrak{p}, or in other words lie in I(\mathfrak{p}).
+
+For notational brevity take \mathcal{C}=\operatorname{Ideals}(\mathcal{O}_{K}). By two applications of the Buchstab identity we have
+
+\displaystyle S(\mathcal{C},I(z))\displaystyle=S(\mathcal{C},I(u))-\sum_{\mathfrak{p}\in I(u)\setminus I(z)}S(\mathcal{C}_{\mathfrak{p}},I(\mathfrak{p}))
+\displaystyle=S(\mathcal{C},I(u))-\sum_{\mathfrak{p}\in I(u)\setminus I(z)}\bigg(S(\mathcal{C}_{\mathfrak{p}},I(u))-\sum_{\mathfrak{q}\in I(u)\setminus I(\mathfrak{p})}S(\mathcal{C}_{\mathfrak{p}\mathfrak{q}},I(\mathfrak{q}))\bigg)
+(3.4)\displaystyle=S(\mathcal{C},I(u))-\sum_{u\leqslant N\mathfrak{p}<z}S(\mathcal{C}_{\mathfrak{p}},I(u))+\sum_{\begin{subarray}{c}N\mathfrak{p}\geqslant u\\
+N\mathfrak{q}<z\\
+\mathfrak{p}<\mathfrak{q}\end{subarray}}S(\mathcal{C}_{\mathfrak{p}\mathfrak{q}},I(\mathfrak{p})).
+
+Note that in the last step here, we switched the roles of \mathfrak{p} and \mathfrak{q}, and unpacked the definitions of the I() terms.
+
+On the other hand, note that z^{3}>X and recall that if w(\mathfrak{a}) is non-zero then N\mathfrak{a}\ll X. Therefore the sum S(\mathcal{C},I(z)) contains only two types of term w(\mathfrak{a}): those with \mathfrak{a} prime, and those with \mathfrak{a} a product of two prime ideals, both of norm \geqslant z. That is,
+
+(3.5)S(\mathcal{C},I(z))=\sum_{\mathfrak{p}:N\mathfrak{p}\geqslant z}w(\mathfrak{p})+\sum_{\mathfrak{p}_{1},\mathfrak{p}_{2}}w(\mathfrak{p}_{1}\mathfrak{p}_{2}),
+
+where the second sum is over \mathfrak{p}_{1},\mathfrak{p}_{2} with N\mathfrak{p}_{i}\geqslant z=X^{1/2}e^{-(\log\log X)^{2}}, that is to say the second sum here is exactly the one appearing in [Lemma 3.2](https://arxiv.org/html/2410.04189v2#S3.Thmtheorem2 "Lemma 3.2. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). The constraint N\mathfrak{p}\geqslant z will easily be removed by trivial bounds, so our task is to bound S(\mathcal{C},I(z)), which we shall do via [3.4](https://arxiv.org/html/2410.04189v2#S3.E4 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2").
+
+Step 1: Deploying Type I information.
+
+The first step is to bound the first two terms in ([3.4](https://arxiv.org/html/2410.04189v2#S3.E4 "Equation 3.4 ‣ Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2")), S(\mathcal{C},I(u))-\sum_{u\leqslant N\mathfrak{p}<z}S(\mathcal{C}_{\mathfrak{p}},I(u)), via Type I information, or in other words by use of [3.1](https://arxiv.org/html/2410.04189v2#S3.E1 "In Definition 3.1. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). Define P(u):=\prod_{\mathfrak{p}:N\mathfrak{p}<u}\mathfrak{p} and let \Pi_{u} be the set of all \mathfrak{a} with at most one prime factor of norm \geqslant u. Then, unwinding definitions, we have that
+
+(3.6)S(\mathcal{C},I(u))-\sum_{u\leqslant N\mathfrak{p}<z}S(\mathcal{C}_{\mathfrak{p}},I(u))=\sum_{(\mathfrak{a},P(u))=1}w(\mathfrak{a})\bigg(1-\sum_{\begin{subarray}{c}u\leqslant N\mathfrak{p}<z\\
+\mathfrak{p}|\mathfrak{a}\end{subarray}}1\bigg).
+
+Denote by \mu_{K} the Möbius function on (ideals of) K. Then we have
+
+\sum_{\begin{subarray}{c}\mathfrak{d}|(P(z),\mathfrak{a})\\
+\mathfrak{d}\in\Pi_{u}\end{subarray}}\mu_{K}(\mathfrak{d})=1_{(\mathfrak{a},P(u))=1}\cdot\bigg(1-\sum_{\begin{subarray}{c}u\leqslant N\mathfrak{p}<z\\
+\mathfrak{p}|\mathfrak{a}\end{subarray}}1\bigg).
+
+Substituting into [3.6](https://arxiv.org/html/2410.04189v2#S3.E6 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") yields
+
+(3.7)S(\mathcal{C},I(u))-\sum_{u\leqslant N\mathfrak{p}<z}S(\mathcal{C}_{\mathfrak{p}},I(u))=\sum_{\begin{subarray}{c}\mathfrak{d}|P(z)\\
+\mathfrak{d}\in\Pi_{u}\end{subarray}}\mu_{K}(\mathfrak{d})\sum_{\mathfrak{d}|\mathfrak{a}}w(\mathfrak{a}).
+
+We now break the sum into two parts based on where N\mathfrak{d}\leqslant D and else when N\mathfrak{d}>D. For the first of these we have that
+
+(3.8)\Big|\sum_{\begin{subarray}{c}\mathfrak{d}|P(z)\\
+N\mathfrak{d}\leqslant D\\
+\mathfrak{d}\in\Pi_{u}\end{subarray}}\mu_{K}(\mathfrak{d})\sum_{\mathfrak{d}|\mathfrak{a}}w(\mathfrak{a})\Big|\leqslant\sum_{N\mathfrak{d}\leqslant D}\Big|\sum_{\mathfrak{d}|\mathfrak{a}}w(\mathfrak{a})\Big|\ll X(\log X)^{-B+1}\ll X(\log X)^{-A};
+
+here we have applied dyadic summation in N\mathfrak{d} and the Type I estimate [3.1](https://arxiv.org/html/2410.04189v2#S3.E1 "In Definition 3.1. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") at each dyadic scale, and recall that w is 1-bounded.
+
+For the sum over N\mathfrak{d}>D, we use the trivial bound |w(\mathfrak{a})|\leqslant 1_{N\mathfrak{a}\leqslant X} (that is, w is 1-bounded on supported on ideals of norm \leqslant X), obtaining
+
+(3.9)\Big|\sum_{\begin{subarray}{c}\mathfrak{d}|P(z)\\
+N\mathfrak{d}>D\\
+\mathfrak{d}\in\Pi_{u}\end{subarray}}\mu_{K}(\mathfrak{d})\sum_{\mathfrak{d}|\mathfrak{a}}w(\mathfrak{a})\Big|\leqslant\sum_{\begin{subarray}{c}\mathfrak{d}|P(z)\\
+D<N\mathfrak{d}\leqslant X\\
+\mathfrak{d}\in\Pi_{u}\end{subarray}}\Big|\sum_{\begin{subarray}{c}N\mathfrak{a}\leqslant X\\
+\mathfrak{d}|\mathfrak{a}\end{subarray}}1\Big|\ll\sum_{\begin{subarray}{c}\mathfrak{d}|P(z)\\
+D<N\mathfrak{d}\leqslant X\\
+\mathfrak{d}\in\Pi_{u}\end{subarray}}\frac{X}{N\mathfrak{d}}.
+
+By dyadic decomposition, this is bounded above by
+
+(3.10)\ll X(\log X)\sup_{L\in[D,2X]}\sum_{\begin{subarray}{c}\mathfrak{d}|P(z)\\
+N\mathfrak{d}\sim L\\
+\mathfrak{d}\in\Pi_{u}\end{subarray}}\frac{1}{L}.
+
+Note that every \mathfrak{d} appearing in the sum here is squarefree (since it divides P(z)) and has at most one prime factor of norm \geqslant u. The product of the (distinct) prime divisors of \mathfrak{d} of norm <u must therefore have norm at least D/z, and therefore there must be at least t:=\lfloor\log(D/z)/\log u\rfloor of them. Using [Lemma D.3](https://arxiv.org/html/2410.04189v2#A4.Thmtheorem3 "Lemma D.3. ‣ Appendix D Number-theoretic bounds ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") and [Lemma D.4](https://arxiv.org/html/2410.04189v2#A4.Thmtheorem4 "Lemma D.4. ‣ Appendix D Number-theoretic bounds ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), this implies that
+
+\sum_{\begin{subarray}{c}\mathfrak{d}|P(z)\\
+N\mathfrak{d}\sim L\\
+\mathfrak{d}\in\Pi_{u}\end{subarray}}\frac{1}{L}\ll\frac{1}{L}\sum_{\begin{subarray}{c}\mathfrak{p}_{1}<\cdots<\mathfrak{p}_{t}\\
+N\mathfrak{p}_{i}<u\end{subarray}}\frac{L}{N(\mathfrak{p}_{1}\cdots\mathfrak{p}_{t})}\ll\frac{1}{t!}\big(\sum_{\mathfrak{p}:N\mathfrak{p}<u}\frac{1}{N\mathfrak{p}}\big)^{t}\ll\frac{(O_{K}(\log\log u))^{t}}{t!}\ll(\log X)^{-A-1}.
+
+Substituting into [3.10](https://arxiv.org/html/2410.04189v2#S3.E10 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), we see that the contribution to [3.7](https://arxiv.org/html/2410.04189v2#S3.E7 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") from the sum over N\mathfrak{d}>D is \ll X(\log X)^{-A}\|w\|_{\infty}. Combining with the estimate [3.8](https://arxiv.org/html/2410.04189v2#S3.E8 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") for the sum over N\mathfrak{d}\leqslant D, we obtain the bound
+
+(3.11)S(\mathcal{C},I(u))-\sum_{u\leqslant N\mathfrak{p}<z}S(\mathcal{C}_{\mathfrak{p}},I(u))\ll X(\log X)^{-B+1}\ll X(\log X)^{-A}.
+
+This concludes our analysis of the first two terms in ([3.4](https://arxiv.org/html/2410.04189v2#S3.E4 "Equation 3.4 ‣ Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2")) by the use of Type I sums.
+
+Step 2: Splitting the \mathfrak{p} variable.
+
+We now proceed to bounding the third term in [3.4](https://arxiv.org/html/2410.04189v2#S3.E4 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), that is to say \sum_{N\mathfrak{p}\geqslant u,N\mathfrak{q}<z,\mathfrak{p}<\mathfrak{q}}S(\mathcal{C}_{\mathfrak{p}\mathfrak{q}},I(\mathfrak{p})). Here, we will use the Type II estimate [3.2](https://arxiv.org/html/2410.04189v2#S3.E2 "In Definition 3.1. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), but first we make some preliminary manoeuvres aimed at decoupling the condition \mathfrak{p}<\mathfrak{q} into conditions on \mathfrak{p},\mathfrak{q} separately. We first estimate the contribution from large \mathfrak{p}. To this end set
+
+(3.12)y:=X^{3/8}.
+
+Then we have
+
+(3.13)\sum_{\begin{subarray}{c}N\mathfrak{p}\geqslant y\\
+N\mathfrak{q}<z\\
+\mathfrak{p}<\mathfrak{q}\end{subarray}}S(\mathcal{C}_{\mathfrak{p}\mathfrak{q}},I(\mathfrak{p}))=\sum_{\begin{subarray}{c}N\mathfrak{p}\geqslant y\\
+N\mathfrak{q}<z\\
+\mathfrak{p}<\mathfrak{q}\end{subarray}}w(\mathfrak{p}\mathfrak{q})\ll z^{2}\ll X(\log X)^{-A}.
+
+In the first step, we observed that the only ideal \mathfrak{a} of norm \ll X, divisible by \mathfrak{p} and \mathfrak{q} and with all other prime ideal factors in I(\mathfrak{p}), is \mathfrak{a}=\mathfrak{p}\mathfrak{q} itself. For the last step, we recall the choice [3.3](https://arxiv.org/html/2410.04189v2#S3.E3 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") of z. The estimate [3.13](https://arxiv.org/html/2410.04189v2#S3.E13 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") is clearly acceptable in [Lemma 3.2](https://arxiv.org/html/2410.04189v2#S3.Thmtheorem2 "Lemma 3.2. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). The remaining task is to estimate the contibution from smaller \mathfrak{p}, namely
+
+(3.14)\sum_{\begin{subarray}{c}u\leqslant N\mathfrak{p}<y\\
+N\mathfrak{q}<z\\
+\mathfrak{p}<\mathfrak{q}\end{subarray}}S(\mathcal{C}_{\mathfrak{p}\mathfrak{q}},I(\mathfrak{p})).
+
+Now we begin the decoupling manœuver in earnest. Set
+
+(3.15)M:=(\log X)^{1+B/2}
+
+and choose spacing points
+
+y=y_{0}>y_{1}>y_{2}>\cdots>y_{M}=u
+
+where y_{m}=y(u/y)^{m/M}. Then splitting according to the size of N\mathfrak{p} gives
+
+\displaystyle\sum_{\begin{subarray}{c}u\leqslant N\mathfrak{p}<y\\
+N\mathfrak{q}<z\\
+\mathfrak{p}<\mathfrak{q}\end{subarray}}\displaystyle S(\mathcal{C}_{\mathfrak{p}\mathfrak{q}},I(\mathfrak{p}))=\sum_{m=0}^{M-1}\sum_{\begin{subarray}{c}y_{m+1}\leqslant N\mathfrak{p}<y_{m}\\
+N\mathfrak{q}<z\\
+\mathfrak{p}<\mathfrak{q}\end{subarray}}S(\mathcal{C}_{\mathfrak{p}\mathfrak{q}},I(\mathfrak{p}))
+\displaystyle=\sum_{m=0}^{M-1}\sum_{\begin{subarray}{c}y_{m+1}\leqslant N\mathfrak{p},N\mathfrak{q}<y_{m}\\
+\mathfrak{p}<\mathfrak{q}\end{subarray}}S(\mathcal{C}_{\mathfrak{p}\mathfrak{q}},I(\mathfrak{p}))+\sum_{m=0}^{M-1}\sum_{y_{m+1}\leqslant N\mathfrak{p}<y_{m}\leqslant N\mathfrak{q}<z}S(\mathcal{C}_{\mathfrak{p}\mathfrak{q}},I(\mathfrak{p})).
+
+Applying (assuming here the conditions y_{m+1}\leqslant N\mathfrak{p}<y_{m}\leqslant N\mathfrak{q}<z, as in the right-hand sum) the Buchstab identity
+
+S(\mathcal{C}_{\mathfrak{p}\mathfrak{q}},I(\mathfrak{p}))=S(C_{\mathfrak{p}\mathfrak{q}},I(y_{m+1}))-\sum_{\mathfrak{r}\in I(y_{m+1})\setminus I(\mathfrak{p})}S(\mathcal{C}_{\mathfrak{p}\mathfrak{q}\mathfrak{r}},I(\mathfrak{r})),
+
+one confirms that
+
+(3.16)\sum_{\begin{subarray}{c}u\leqslant N\mathfrak{p}<y\\
+N\mathfrak{q}<z\\
+\mathfrak{p}<\mathfrak{q}\end{subarray}}S(\mathcal{C}_{\mathfrak{p}\mathfrak{q}},I(\mathfrak{p}))=\sum_{m=0}^{M-1}\sum_{i=1}^{3}E^{(i)}_{m},
+
+where
+
+E^{(1)}_{m}:=\sum_{\begin{subarray}{c}y_{m+1}\leqslant N\mathfrak{p}\\
+N\mathfrak{q}<y_{m}\\
+\mathfrak{p}<\mathfrak{q}\end{subarray}}S(\mathcal{C}_{\mathfrak{p}\mathfrak{q}},I(\mathfrak{p})),\qquad E^{(2)}_{m}:=\sum_{\begin{subarray}{c}y_{m+1}\leqslant N\mathfrak{p}<y_{m}\\
+y_{m}\leqslant N\mathfrak{q}<z\end{subarray}}S(\mathcal{C}_{\mathfrak{p}\mathfrak{q}},I(y_{m+1}))
+
+and
+
+E^{(3)}_{m}:=-\sum_{y_{m+1}\leqslant N\mathfrak{r}<N\mathfrak{p}<y_{m}\leqslant N\mathfrak{q}<z}S(C_{\mathfrak{p}\mathfrak{q}\mathfrak{r}},I(\mathfrak{r})).
+
+What has been achieved here is that the first and third types of sum E^{(1)}_{m} and E^{(3)}_{m} correspond to atypical factorization patterns (with two prime factors very close in norm) and can ultimately be bounded fairly trivially, whereas in the term E^{(2)}_{m} the conditions on \mathfrak{p},\mathfrak{q} are fully decoupled, which will allow us to relate these terms to Type II sums.
+
+We turn now to the actual estimations. Looking first at E^{(1)}_{m}, note that
+
+\displaystyle|E^{(1)}_{m}|\displaystyle\leqslant\sum_{\begin{subarray}{c}y_{m+1}\leqslant N\mathfrak{p},N\mathfrak{q}<y_{m}\\
+\mathfrak{p}<\mathfrak{q}\end{subarray}}\sum_{\mathfrak{p}\mathfrak{q}|\mathfrak{a}}|w(\mathfrak{a})|\ll X\sum_{\begin{subarray}{c}y_{m+1}\leqslant N\mathfrak{p},N\mathfrak{q}<y_{m}\\
+\mathfrak{p}<\mathfrak{q}\end{subarray}}(N\mathfrak{p}\mathfrak{q})^{-1}
+(3.17)\displaystyle\leqslant X\bigg(\sum_{y_{m+1}\leqslant N\mathfrak{p}<y_{m}}(N\mathfrak{p})^{-1}\bigg)^{2}\ll X\log^{2}(y_{m}/y_{m+1})\ll X(\log X)^{2}/M^{2}.
+
+The estimation of E^{(3)}_{m} is almost identical. Since an ideal \mathfrak{a} with N\mathfrak{a}\leqslant X has O(\log X) prime factors, each ideal \mathfrak{a} with \mathfrak{p}\mathfrak{r}|\mathfrak{a} is counted by \ll\log X choices of \mathfrak{q}, and so we have
+
+(3.18)|E^{(3)}_{m}|\ll(\log X)\sum_{y_{m+1}\leqslant N\mathfrak{r}<N\mathfrak{p}<y_{m}}\sum_{\mathfrak{p}\mathfrak{r}|\mathfrak{a}}|w(\mathfrak{a})|\ll X(\log X)^{3}/M^{2},
+
+finishing here in the same way as the estimation of E^{(1)}_{m}.
+
+Step 3: Deploying Type II information.
+
+We turn now to the heart of the matter, which is the estimation of E^{(2)}_{m} using Type II information. The key point is observing that E^{(2)}_{m}_is_ a Type II sum. Indeed we have
+
+(3.19)E^{(2)}_{m}=\sum_{\mathfrak{a},\mathfrak{b}}\alpha_{\mathfrak{a}}\beta_{\mathfrak{b}}w(\mathfrak{a}\mathfrak{b})
+
+with
+
+\alpha_{\mathfrak{a}}=1_{\mathfrak{a}\operatorname{prime}}1_{y_{m+1}\leqslant N\mathfrak{a}<y_{m}}\qquad\mbox{and}\qquad\beta_{\mathfrak{b}}=1_{N\mathfrak{b}\leqslant X}\sum_{\begin{subarray}{c}y_{m}\leqslant N\mathfrak{q}<z\\
+\mathfrak{q}|\mathfrak{b}\end{subarray}}1_{P^{-}(\mathfrak{b})\geqslant y_{m+1}},
+
+where P^{-}(\mathfrak{b}) denotes the norm of the smallest prime ideal factor of \mathfrak{b}. Clearly |\alpha_{\mathfrak{a}}|\leqslant 1, and |\beta_{\mathfrak{b}}| is at most the number of prime ideal divisors of \mathfrak{b}, which is \ll\log X. Note also that y_{m}/y_{m+1}=(y/u)^{1/M}<2, and so \alpha_{\mathfrak{a}} is already supported on a dyadic range of \mathfrak{a}, and so is of the form [3.2](https://arxiv.org/html/2410.04189v2#S3.E2 "In Definition 3.1. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") with L=y_{m}. Note (recalling the choice [3.12](https://arxiv.org/html/2410.04189v2#S3.E12 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") of y) that u\leqslant L\leqslant y=X^{3/8}, and so for all values of m our assumption on the Type II properties of w gives, from [3.19](https://arxiv.org/html/2410.04189v2#S3.E19 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), that
+
+(3.20)|E^{(2)}_{m}|\ll X(\log X)^{-B+1}.
+
+We have now proven all of the necessary estimates; let us conclude the proof of [Lemma 3.2](https://arxiv.org/html/2410.04189v2#S3.Thmtheorem2 "Lemma 3.2. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") by putting them together.
+
+From [3.16](https://arxiv.org/html/2410.04189v2#S3.E16 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), [3.17](https://arxiv.org/html/2410.04189v2#S3.E17 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), [3.18](https://arxiv.org/html/2410.04189v2#S3.E18 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), [3.20](https://arxiv.org/html/2410.04189v2#S3.E20 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") and the choice [3.15](https://arxiv.org/html/2410.04189v2#S3.E15 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") of M and the fact that B=2A+4, we have
+
+\sum_{\begin{subarray}{c}u\leqslant N\mathfrak{p}<y\\
+N\mathfrak{q}<z\\
+\mathfrak{p}<\mathfrak{q}\end{subarray}}S(\mathcal{C}_{\mathfrak{p}\mathfrak{q}},I(\mathfrak{p}))\ll X(\log X)^{3}M^{-1}+X(\log X)^{-B+1}M\ll X(\log X)^{-A}.
+
+The quantity on the left here arose as [3.14](https://arxiv.org/html/2410.04189v2#S3.E14 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). Together with [3.13](https://arxiv.org/html/2410.04189v2#S3.E13 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), this gives the bound
+
+\sum_{\begin{subarray}{c}N\mathfrak{p}\geqslant u\\
+N\mathfrak{q}<z\\
+\mathfrak{p}<\mathfrak{q}\end{subarray}}S(\mathcal{C}_{\mathfrak{p}\mathfrak{q}},I(\mathfrak{p}))\ll X(\log X)^{-A}.
+
+The quantity on the left here is the third term in [3.4](https://arxiv.org/html/2410.04189v2#S3.E4 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). Combining with the estimate [3.11](https://arxiv.org/html/2410.04189v2#S3.E11 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") for the first two terms in [3.4](https://arxiv.org/html/2410.04189v2#S3.E4 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), we obtain
+
+S(\mathcal{C},I(z))\ll X(\log X)^{-A}.
+
+Finally, from [3.5](https://arxiv.org/html/2410.04189v2#S3.E5 "In Proof. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") and the trivial bound |\sum_{\mathfrak{p}:N\mathfrak{p}<z}w(\mathfrak{p})|\ll z, we obtain the bound claimed in [Lemma 3.2](https://arxiv.org/html/2410.04189v2#S3.Thmtheorem2 "Lemma 3.2. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). ∎
+
+### 3.2. Bounding the sum over semiprimes
+
+For [Lemma 3.2](https://arxiv.org/html/2410.04189v2#S3.Thmtheorem2 "Lemma 3.2. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") to be useful for sums over primes, we need a way to estimate the term \sum_{\mathfrak{p}_{1},\mathfrak{p}_{2}}w(\mathfrak{p}_{1}\mathfrak{p}_{2}) involving almost equally-sized semiprimes. We do this now under an assumption on w suitable for our intended purpose (of proving [Theorem 1.1](https://arxiv.org/html/2410.04189v2#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2")). We remark that in the work of Ford and Maynard [[8](https://arxiv.org/html/2410.04189v2#bib.bib8), Theorem 4.16], they point to the fact that if one only achieves Type I information below 1/2 and w is not bounded then one may not deduce any result regarding primes. However the weight function underlying [[8](https://arxiv.org/html/2410.04189v2#bib.bib8), Theorem 4.16] places a substantial portion of weight on semiprimes; the role of the upper bound sieve is precisely to rule out this conspiracy.
+
+At this point we specialise to the case of imaginary quadratic fields K=\mathbf{Q}(\sqrt{-n}) and to weight functions of product form [2.2](https://arxiv.org/html/2410.04189v2#S2.E2 "In Definition 2.2. ‣ 2. Number fields and weight functions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2").
+
+###### Lemma 3.3.
+
+Let K=\mathbf{Q}(\sqrt{-n}). Suppose that w:\operatorname{Ideals}(\mathcal{O}_{K})\rightarrow\mathbf{C} is in product form [2.2](https://arxiv.org/html/2410.04189v2#S2.E2 "In Definition 2.2. ‣ 2. Number fields and weight functions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") for some frequency \ell\in\mathbf{Z}. Suppose moreover that f,f^{\prime} satisfy the pointwise bound
+
+(3.21)|f(x)|,|f^{\prime}(x)|\leqslant\Lambda_{{\textnormal{Cram\'{e}r}}}(x)+\Lambda^{\prime}(x).
+
+where \Lambda_{{\textnormal{Cram\'{e}r}}},\Lambda^{\prime} are defined to be zero on non-integer arguments. Let \eta, X^{-1/10}\leqslant\eta<\frac{1}{2}, be a parameter. Then
+
+\sum_{\begin{subarray}{c}\mathfrak{p}_{1},\mathfrak{p}_{2}\\
+N\mathfrak{p}_{1}\mathfrak{p}_{2}\leqslant X\\
+N\mathfrak{p}_{i}\geqslant\eta X^{1/2}\end{subarray}}\big|w(\mathfrak{p}_{1}\mathfrak{p}_{2})\big|\ll\frac{X\log(1/\eta)}{(\log X)^{2}}.
+
+###### Proof.
+
+We first dispense with the contribution from either \mathfrak{p}_{1} or \mathfrak{p}_{2} being generated by a rational prime. This is straightforward, since the number of such ideals with norm \leqslant M is \ll M^{1/2}. Using the trivial bound |w(\mathfrak{p}_{1}\mathfrak{p}_{2})|\leqslant\log^{2}X, the total contribution from these terms is \ll(X^{1/2}/\eta)^{3/2}\log^{2}X, which is acceptable by a large margin.
+
+It therefore suffices to establish for each fixed \mathfrak{p} not generated by a rational prime, and with \eta X^{1/2}\leqslant N\mathfrak{p}\leqslant X^{1/2}, that
+
+(3.22)\sum_{\mathfrak{q}:N\mathfrak{q}\leqslant X/N\mathfrak{p}}|w(\mathfrak{p}\mathfrak{q})|\ll\frac{X}{(N\mathfrak{p})\log X},
+
+where the sum is over prime ideals \mathfrak{q} not generated by a rational prime. Indeed, this implies the result using
+
+\sum_{\begin{subarray}{c}\mathfrak{p}_{1},\mathfrak{p}_{2}\\
+N\mathfrak{p}_{1}\mathfrak{p}_{2}\leqslant X\\
+N\mathfrak{p}_{i}\geqslant\eta X^{1/2}\end{subarray}}\big|w(\mathfrak{p}_{1}\mathfrak{p}_{2})\big|\ll\sum_{\eta X^{1/2}\leqslant N\mathfrak{p}\leqslant X^{1/2}}\sum_{q:N\mathfrak{q}\leqslant X/N\mathfrak{p}}|w(\mathfrak{p}\mathfrak{q})|
+
+and the fact that
+
+\sum_{\eta X^{1/2}\leqslant N\mathfrak{p}\leqslant X^{1/2}}(N\mathfrak{p})^{-1}\\
+\ll\frac{\log(1/\eta)}{\log X},
+
+where in these sums all ideals are prime but not generated by a rational prime.
+
+We turn to the proof of [3.22](https://arxiv.org/html/2410.04189v2#S3.E22 "In Proof. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). An important subtlety here is that, while w=f\boxtimes_{\ell}f^{\prime} is supported on principal ideals, the prime ideals \mathfrak{p} and \mathfrak{q} may not be principal. To deal with this, we use the representatives \mathfrak{c}_{g},\mathfrak{c}^{\prime}_{g} for the ideal classes as described in [Lemma 2.1](https://arxiv.org/html/2410.04189v2#S2.Thmtheorem1 "Lemma 2.1. ‣ 2. Number fields and weight functions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). Suppose that \mathfrak{p}\in[g] for some g\in\operatorname{Cl}(K). Since w is supported on principal ideals, we may restrict attention to \mathfrak{q}\in[g^{-1}]. Henceforth, write \mathfrak{c}=\mathfrak{c}_{g} and \mathfrak{c}^{\prime}=\mathfrak{c}^{\prime}_{g^{-1}}. Then by [Lemma 2.1](https://arxiv.org/html/2410.04189v2#S2.Thmtheorem1 "Lemma 2.1. ‣ 2. Number fields and weight functions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") we have \mathfrak{p}=(a+b\sqrt{-n})\mathfrak{c} for some a,b\in\mathbf{Z} and \mathfrak{q} is always of the form (x+y\sqrt{-n})\mathfrak{c}^{\prime} for some x,y\in\mathbf{Z}. Also, \mathfrak{c}\mathfrak{c^{\prime}}=(\gamma) for some rational \gamma of height O_{n}(1).
+
+The generators of \mathfrak{p}\mathfrak{q} are the numbers u\gamma(a+b\sqrt{-n})(x+y\sqrt{-n}), u\in\mathcal{O}^{*}_{K}. Writing the units u as \zeta_{j}+\zeta^{\prime}_{j}\sqrt{-n}, j=1,\dots,r, where \zeta_{j},\zeta^{\prime}_{j}\in\frac{1}{2n}\mathbf{Z}, one may compute that these numbers are a_{1,j}x+b_{1,j}y+(a_{2,j}x+b_{2,j}y)\sqrt{-n}, where a_{1,j}=\gamma(a\zeta_{j}-nb\zeta^{\prime}_{j}), b_{1,j}=-\gamma n(a\zeta^{\prime}_{j}+b\zeta_{j}), a_{2,j}=\gamma(a\zeta^{\prime}_{j}+b\zeta_{j}), and b_{2,j}=\gamma(a\zeta_{j}-nb\zeta^{\prime}_{j}). Note here that we have a_{i,j},b_{i,j}\in\frac{\gamma}{2n}\mathbf{Z} for all i,j. Thus from the assumption that w has the product form [2.2](https://arxiv.org/html/2410.04189v2#S2.E2 "In Definition 2.2. ‣ 2. Number fields and weight functions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") and the bound [3.21](https://arxiv.org/html/2410.04189v2#S3.E21 "In Lemma 3.3. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") we have
+
+(3.23)|w(\mathfrak{p}\mathfrak{q})|\leqslant\sum_{j=1}^{r}(\Lambda_{{\textnormal{Cram\'{e}r}}}+\Lambda^{\prime})(a_{1,j}x+b_{1,j}y)(\Lambda_{{\textnormal{Cram\'{e}r}}}+\Lambda^{\prime})(a_{2,j}x+b_{2,j}y).
+
+Here, \Lambda_{{\textnormal{Cram\'{e}r}}} and \Lambda^{\prime} take the value zero if the arguments are not integers. Observe also that
+
+(3.24)\frac{1}{n}(a_{1,j}^{2}n+b_{1,j}^{2})=a_{2,j}^{2}n+b_{2,j}^{2}=a_{1,j}b_{2,j}-a_{2,j}b_{1,j}=\gamma^{2}(a^{2}+nb^{2})\neq 0.
+
+Let W:=X^{1/100}. Then, recalling the definition [1.6](https://arxiv.org/html/2410.04189v2#S1.E6 "In 1.4. Notation ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), we have the pointwise bound \Lambda^{\prime}(x)\ll\Lambda_{{\textnormal{Cram\'{e}r}},W}(x) for W<|x|\ll X^{2}, and so from [3.23](https://arxiv.org/html/2410.04189v2#S3.E23 "In Proof. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") we have
+
+(3.25)|w(\mathfrak{p}\mathfrak{q})|\ll\sum_{j=1}^{r}\max_{Q_{1},Q_{2}\in\{Q,W\}}\Lambda_{{\textnormal{Cram\'{e}r}},Q_{1}}(a_{1,j}x+b_{1,j}y)\Lambda_{{\textnormal{Cram\'{e}r}},Q_{2}}(a_{2,j}x+b_{2,j}y).
+
+unless |a_{i,j}x+b_{i,j}y|\leqslant W for some i,j.
+
+We turn to the task of proving [3.22](https://arxiv.org/html/2410.04189v2#S3.E22 "In Proof. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). The constraint N\mathfrak{q}\leqslant X/N\mathfrak{p} is contained in the constraint |x|,|y|\ll(X/N\mathfrak{p})^{1/2} (note here that \mathfrak{c}^{\prime} is simply a fixed fractional ideal with norm \asymp_{n}1). The contribution from |a_{i,j}x+b_{i,j}y|\leqslant W will be negligible. We sum [3.25](https://arxiv.org/html/2410.04189v2#S3.E25 "In Proof. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") over all other x,y with |x|,|y|\ll(X/N\mathfrak{p})^{1/2}, ignoring any congruence conditions necessary for \mathfrak{q} to actually be an ideal in \mathcal{O}_{K}, as we may by the positivity of all the terms involved. In order for \mathfrak{q} to be a prime ideal, we must have N\mathfrak{q}=(x^{2}+ny^{2})N\mathfrak{c}^{\prime} equal to a rational prime or the square of a rational prime.
+
+Thus, writing \gamma^{\prime}:=N\mathfrak{c}^{\prime} and a_{1}=a_{1,j} etc, it is enough to prove that
+
+\sum_{|x|,|y|\ll(X/N\mathfrak{p})^{1/2}}1_{\operatorname{prime}}((x^{2}+ny^{2})\gamma^{\prime})\Lambda_{{\textnormal{Cram\'{e}r}},Q_{1}}(a_{1}x+b_{1}y)\Lambda_{{\textnormal{Cram\'{e}r}},Q_{2}}(a_{2}x+b_{2}y)\ll\frac{X}{(N\mathfrak{p})\log X},
+
+for any Q_{1},Q_{2}\in\{Q,W\}. (We omit the contribution from (x^{2}+ny^{2})\gamma^{\prime} the square of a prime, which is easily shown to be considerably smaller.) Since 1_{\operatorname{prime}}(t)\ll\frac{1}{\log X}\Lambda_{{\textnormal{Cram\'{e}r}},W}(t) for |t|>W, it is enough to prove that
+
+(3.26)\sum_{|x|,|y|\ll N}\Lambda_{{\textnormal{Cram\'{e}r}},W}((x^{2}+ny^{2})\gamma^{\prime})\Lambda_{{\textnormal{Cram\'{e}r}},Q_{1}}(a_{1}x+b_{1}y)\Lambda_{{\textnormal{Cram\'{e}r}},Q_{2}}(a_{2}x+b_{2}y)\ll N^{2}
+
+for any Q_{1},Q_{2}\in\{Q,W\}, where here we have omitted the negligible contribution from |(x^{2}+ny^{2})\gamma^{\prime}|\leqslant W, and now have written
+
+(3.27)N:=(X/N\mathfrak{p})^{1/2}.
+
+Note that since \eta X^{1/2}\leqslant N\mathfrak{p}\leqslant X^{1/2} we have X^{1/4}\ll N\ll X^{1/4}\eta^{-1/2}. Recalling that \eta^{-1}\ll X^{1/10}, it follows that N\leqslant X^{1/3}, so certainly W<N^{1/30}.
+
+The desired estimate [3.26](https://arxiv.org/html/2410.04189v2#S3.E26 "In Proof. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") is a standard type of sieve bound, but it is not easy to find a suitable reference because (a) the sieving ranges W,Q_{1},Q_{2} can be different, so the underlying sieve does not have a well-defined dimension; (b) we need to track uniformity in the parameters a_{i},b_{i}; and (c) there are two variables x,y. We have found an approach based on an application of the large sieve to be the most convenient. The result we need is [Lemma C.3](https://arxiv.org/html/2410.04189v2#A3.Thmtheorem3 "Lemma C.3. ‣ Appendix C A large sieve bound in several dimensions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), which is a 2-dimensional variant of [[28](https://arxiv.org/html/2410.04189v2#bib.bib28), Equation (7.38)]. Whilst generalising this kind of result from 1 to 2 or more dimensions presents no difficulty, we do not know of a reference for exactly what we need, and so we provide some details in [Appendix C](https://arxiv.org/html/2410.04189v2#A3 "Appendix C A large sieve bound in several dimensions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2").
+
+Returning to the proof of [3.26](https://arxiv.org/html/2410.04189v2#S3.E26 "In Proof. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), suppose that Q_{1}\leqslant Q_{2}\leqslant W (the other case Q_{2}\leqslant Q_{1}\leqslant W is essentially identical). For rational primes p, we define sets \Omega_{p} as follows. Denote by \mathcal{P}_{*} the set of primes dividing 2n, a^{2}+nb^{2} or the numerator or denominator of \gamma or \gamma^{\prime}. Note that \mathcal{P}_{*} is a set of O_{n}(1) primes, since (a^{2}+nb^{2})\gamma^{2}/\gamma^{\prime}=N\mathfrak{p} and \mathfrak{p} is a prime ideal.
+
+We will be using [Lemma C.3](https://arxiv.org/html/2410.04189v2#A3.Thmtheorem3 "Lemma C.3. ‣ Appendix C A large sieve bound in several dimensions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"); let us now define the sets of residues \Omega_{p} with which we will apply that result. If p\in\mathcal{P}_{*}, set
+
+\Omega_{p}=\emptyset.
+
+If p\notin\mathcal{P}_{*}, define \Omega_{p} as follows. For p\leqslant Q_{1}, define
+
+\Omega_{p}:=\{(u,v)\in(\mathbf{Z}/p\mathbf{Z})^{2}:(u^{2}+nv^{2})(a_{1}u+b_{1}v)(a_{2}u+b_{2}v)\equiv 0(\operatorname{mod}\,p)\};
+
+for Q_{1}<p\leqslant Q_{2} (which may be an empty range) define
+
+\Omega_{p}:=\{(u,v)\in(\mathbf{Z}/p\mathbf{Z})^{2}:(u^{2}+nv^{2})(a_{2}u+b_{2}v)\equiv 0(\operatorname{mod}\,p)\};
+
+for Q_{2}<p\leqslant W (which may also be an empty range) define
+
+\Omega_{p}:=\{(u,v)\in\mathbf{Z}/p\mathbf{Z}:u^{2}+nv^{2}\equiv 0(\operatorname{mod}\,p)\},
+
+and define \Omega_{p}=\emptyset for p>W. The purpose of making these definitions is that we have
+
+\displaystyle\Lambda_{{\textnormal{Cram\'{e}r}},W}((x^{2}+ny^{2})\gamma^{\prime})\Lambda_{{\textnormal{Cram\'{e}r}},Q_{1}}(a_{1}x+\displaystyle b_{1}y)\Lambda_{{\textnormal{Cram\'{e}r}},Q_{2}}(a_{2}x+b_{2}y)
+(3.28)\displaystyle\ll(\log Q_{1})(\log Q_{2})(\log W)\prod_{p}1_{\Omega_{p}^{c}}(x,y)
+
+(recall here that a_{1},a_{2},b_{1},b_{2}\in\frac{\gamma}{2n}\mathbf{Z}).
+
+In order that we may apply [Lemma C.3](https://arxiv.org/html/2410.04189v2#A3.Thmtheorem3 "Lemma C.3. ‣ Appendix C A large sieve bound in several dimensions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), we compute the densities \alpha_{p}=|\Omega_{p}|/p^{2} in the different ranges. Here, note that if p\notin\mathcal{P}_{*} then, from [3.24](https://arxiv.org/html/2410.04189v2#S3.E24 "In Proof. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), we have
+
+(3.29)p\nmid(a_{1}b_{2}-a_{2}b_{1})(na_{1}^{2}+b_{1}^{2})(na_{2}^{2}+b_{2}^{2}).
+
+From this, we may compute that
+
+(3.30)\alpha_{p}=\frac{1}{p}\big(d(p)+(-n\mid p)\big)+O\bigg(\frac{1}{p^{2}}\bigg),
+
+where d(p)=3 if p\leqslant Q_{1}, d(p)=2 if Q_{1}<p\leqslant Q_{2}, and d(p)=1 if Q_{2}<p\leqslant W. (Here d is essentially the dimension of the sieve on the corresponding ranges.) In particular, for all p we have \alpha_{p}\leqslant 4/p.
+
+Now we bound the sum \sum_{q\leqslant N^{1/2}}\mu^{2}(q)h(q) appearing in [Lemma C.3](https://arxiv.org/html/2410.04189v2#A3.Thmtheorem3 "Lemma C.3. ‣ Appendix C A large sieve bound in several dimensions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") from below. Recall that h is the multiplicative function satisfying h(p)=\alpha_{p}/(1-\alpha_{p}). To do this we use essentially Rankin’s trick, but it is instructive to phrase this in a probabilistic language. Define a random variable Z:=\prod_{p\leqslant W}Z_{p}, where the Z_{p} are independent random variables with Z_{p}=p with probability \alpha_{p}, and Z_{p}=1 otherwise. Thus for squarefree q we have
+
+\mathbb{P}(Z=q)=h(q)\prod_{p\leqslant W}(1-\alpha_{p}).
+
+We give an upper bound for the quantity in [C.2](https://arxiv.org/html/2410.04189v2#A3.E2 "In Lemma C.3. ‣ Appendix C A large sieve bound in several dimensions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). We have
+
+(3.31)\sum_{q\leqslant N^{1/2}}\mu^{2}(q)h(q)=\prod_{p\leqslant W}(1-\alpha_{p})^{-1}\mathbb{P}\big(Z\leqslant N^{1/2}\big).
+
+On the other hand,
+
+\mathbb{E}\log Z=\sum_{p\leqslant W}\mathbb{E}\log Z_{p}=\sum_{p\leqslant W}\alpha_{p}\log p\leqslant 4\sum_{p\leqslant W}\frac{\log p}{p}<\frac{\log N}{4}.
+
+By Markov’s inequality it follows that \mathbb{P}(Z>N^{1/2})<\frac{1}{2}, and so from [3.31](https://arxiv.org/html/2410.04189v2#S3.E31 "In Proof. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2")
+
+(3.32)\sum_{q\leqslant N^{1/2}}\mu^{2}(q)h(q)\geqslant\frac{1}{2}\prod_{p\leqslant W}(1-\alpha_{p})^{-1}.
+
+Now from [3.30](https://arxiv.org/html/2410.04189v2#S3.E30 "In Proof. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") we have (since the product of 1+O(p^{-2}) terms converges)
+
+(3.33)\prod_{p\leqslant W}(1-\alpha_{p})\asymp\prod_{p\leqslant W}\bigg(1-\frac{d(p)}{p}\bigg)\prod_{p\leqslant W}\bigg(1-\frac{(-n\mid p)}{p}\bigg).
+
+However we have
+
+\prod_{p\leqslant W}\bigg(1-\frac{(-n\mid p)}{p}\bigg)\asymp 1
+
+since L(1,(-n\mid\,\cdot\,))\neq 0. (See, e.g, [[42](https://arxiv.org/html/2410.04189v2#bib.bib42), Theorem 4.11] for a full discussion of the convergence of the infinite product here, which is only conditionally convergent.) Substituting into [3.33](https://arxiv.org/html/2410.04189v2#S3.E33 "In Proof. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") and recalling the definition of the dimension function d(\cdot) gives
+
+\prod_{p\leqslant W}(1-\alpha_{p})\asymp\prod_{p\leqslant W}\bigg(1-\frac{d(p)}{p}\bigg)\asymp\frac{1}{(\log Q_{1})(\log Q_{2})(\log W)}.
+
+From this, [3.32](https://arxiv.org/html/2410.04189v2#S3.E32 "In Proof. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), [3.28](https://arxiv.org/html/2410.04189v2#S3.E28 "Equation 3.28 ‣ Proof. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), and[C.3](https://arxiv.org/html/2410.04189v2#A3.Thmtheorem3 "Lemma C.3. ‣ Appendix C A large sieve bound in several dimensions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), we obtain the stated bound [3.26](https://arxiv.org/html/2410.04189v2#S3.E26 "In Proof. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). This concludes the proof of [Lemma 3.3](https://arxiv.org/html/2410.04189v2#S3.Thmtheorem3 "Lemma 3.3. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). ∎
+
+Combining [Lemmas 3.2](https://arxiv.org/html/2410.04189v2#S3.Thmtheorem2 "Lemma 3.2. ‣ 3.1. The Duke–Friedlander–Iwaniec sieve in a number field ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") and[3.3](https://arxiv.org/html/2410.04189v2#S3.Thmtheorem3 "Lemma 3.3. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") and taking A=4 immediately leads to the following, which is the only result from this section that we will need in what follows.
+
+###### Proposition 3.4.
+
+Fix C\geqslant 28. Let K=\mathbf{Q}(\sqrt{-n}), and suppose that w:\operatorname{Ideals}(\mathcal{O}_{K})\rightarrow\mathbf{C} is in product form [2.2](https://arxiv.org/html/2410.04189v2#S2.E2 "In Definition 2.2. ‣ 2. Number fields and weight functions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") with some frequency \ell\in\mathbf{Z}, and suppose moreover that f,f^{\prime} in that definition satisfy the pointwise bound |f(x)|,|f^{\prime}(x)|\leqslant(\Lambda_{{\textnormal{Cram\'{e}r}}}+\Lambda^{\prime})(x/2n). Define \tilde{w}(\mathfrak{a}):=w(\mathfrak{a})1_{N\mathfrak{a}\leqslant X}, and suppose that \tilde{w} satisfies Type I (with savings (\log X)^{-12}) at X^{1/2}(\log X)^{-C} and Type II (with savings (\log X)^{-12}) between [(\log X)^{C},X^{3/8}]. Then
+
+\sum_{\mathfrak{p}:N\mathfrak{p}\leqslant X}w(\mathfrak{p})\ll_{C}\frac{X(\log\log X)^{2}}{(\log X)^{2}}.
+
+## 4. Gowers norms and main proof framework
+
+We are now in a position to give the overview of the proof of Theorem [1.1](https://arxiv.org/html/2410.04189v2#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") in more detail, reducing it to the proof of three main results: [Propositions 4.2](https://arxiv.org/html/2410.04189v2#S4.Thmtheorem2 "Proposition 4.2. ‣ 4.3. Type I and II sums with product weights and Gowers norms ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), [4.3](https://arxiv.org/html/2410.04189v2#S4.Thmtheorem3 "Proposition 4.3. ‣ 4.3. Type I and II sums with product weights and Gowers norms ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), and[4.5](https://arxiv.org/html/2410.04189v2#S4.Thmtheorem5 "Proposition 4.5. ‣ 4.5. Evaluating the main term ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2").
+
+### 4.1. Reduction to polar coordinates
+
+We begin with an exercise in partial summation, reducing [Theorem 1.1](https://arxiv.org/html/2410.04189v2#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") to the following slightly more technical-looking statement, which removes the von Mangoldt weight on x^{2}+ny^{2} and replaces the rectangular cutoffs of [Theorem 1.1](https://arxiv.org/html/2410.04189v2#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") with a norm cutoff x^{2}+ny^{2}\leqslant X and an angular frequency; this may be thought of as conversion to a kind of polar coordinates. This is essential in order to bring in the prime ideal theorem ([Proposition 8.3](https://arxiv.org/html/2410.04189v2#S8.Thmtheorem3 "Proposition 8.3. ‣ 8.1. Hecke Größencharaktere on imaginary quadratic fields ‣ 8. Computing the asymptotic ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2")).
+
+Recall from [Section 1.4](https://arxiv.org/html/2410.04189v2#S1.SS4 "1.4. Notation ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") the definitions of \Lambda^{\prime} and of \chi_{\infty}^{(\ell)}.
+
+###### Proposition 4.1.
+
+Suppose that n\equiv 0 or 4~\mathrm{mod}~6. Let \ell\in\mathbf{Z}, |\ell|\leqslant(\log X)^{10} be a frequency. Then we have that
+
+\sum_{x,y\in\mathbf{Z}:x^{2}+ny^{2}\leqslant X}\chi_{\infty}^{(\ell)}(x+y\sqrt{-n})\Lambda^{\prime}(x)\Lambda^{\prime}(y)1_{x^{2}+ny^{2}\operatorname{prime}}=\frac{\pi\kappa_{n}1_{\ell=0}X}{\sqrt{n}\log X}+O\bigg(\frac{X(\log\log X)^{2}}{(\log X)^{2}}\bigg)
+
+where \kappa_{n} is the constant in [1.1](https://arxiv.org/html/2410.04189v2#S1.E1 "In Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2").
+
+###### Proof of [Theorem 1.1](https://arxiv.org/html/2410.04189v2#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), assuming [Proposition 4.1](https://arxiv.org/html/2410.04189v2#S4.Thmtheorem1 "Proposition 4.1. ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2").
+
+Let W\in C_{0}^{\infty}(\mathbf{R}^{2}) be as in the statement of [Theorem 1.1](https://arxiv.org/html/2410.04189v2#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). Rescaling N by a factor of O_{W}(1) if necessary, we may assume that W is supported on B_{10}(0). It is convenient to write \|W\| for the maximum L^{\infty}-norm of any partial derivative of W of order at most 3. Set \eta:=(\log N)^{-10} (say), and suppose that \eta\leqslant R\leqslant 10. Setting X=(RN)^{2} in the conclusion of [Proposition 4.1](https://arxiv.org/html/2410.04189v2#S4.Thmtheorem1 "Proposition 4.1. ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") gives
+
+(4.1)(2\log N)\sum_{x,y\in\mathbf{Z}}\Lambda^{\prime}(x)\Lambda^{\prime}(y)1_{x^{2}+ny^{2}\operatorname{prime}}\psi_{R,\ell}\bigg(\frac{x}{N},\frac{y}{N}\bigg)=\kappa_{n}N^{2}\bigg(\int_{\mathbf{R}^{2}}\psi_{R,\ell}\bigg)+O\bigg(\frac{N^{2}(\log\log N)^{2}}{\log N}\bigg),
+
+where
+
+\psi_{R,\ell}(r\cos 2\pi\theta,n^{1/2}r\sin 2\pi\theta):=1_{r\leqslant R}\cdot e(\ell\theta),
+
+and this is valid for |\ell|\leqslant(\log N)^{10}. Note that here we have replaced the factor \log RN which arises in [Proposition 4.1](https://arxiv.org/html/2410.04189v2#S4.Thmtheorem1 "Proposition 4.1. ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") by \log N; the error in doing this can be absorbed into the O(\cdot) term on the RHS of [4.1](https://arxiv.org/html/2410.04189v2#S4.E1 "In Proof of , assuming . ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2").
+
+For x^{2}+ny^{2}\geqslant\eta N^{2}, we have
+
+(4.2)W\bigg(\frac{x}{N},\frac{y}{N}\bigg)=-\int^{10}_{\eta}\sum_{\ell\in\mathbf{Z}}c(R,\ell)\psi_{R,\ell}\bigg(\frac{x}{N},\frac{y}{N}\bigg)dR,
+
+where the c(\cdot,\cdot) are defined in terms of the Fourier expansion
+
+\frac{\partial}{\partial R}W(R\cos 2\pi\theta,n^{1/2}R\sin 2\pi\theta)=\sum_{\ell\in\mathbf{Z}}c(R,\ell)e(\ell\theta).
+
+(To verify this, substitute \frac{x}{N}=r\cos 2\pi\theta, \frac{y}{N}=n^{1/2}r\sin 2\pi\theta.) We claim that
+
+(4.3)\int^{10}_{\eta}\sum_{|\ell|>(\log N)^{10}}|c(R,\ell)|dR\ll(\log N)^{-10}\|W\|
+
+and that
+
+(4.4)\int^{10}_{\eta}\sum_{\ell\in\mathbf{Z}}|c(R,\ell)|dR\ll\|W\|.
+
+To prove these statements, observe that
+
+(4.5)|c(R,\ell)|\ll|\ell|^{-2}\int^{1}_{0}\Big|\frac{\partial^{2}}{\partial\theta^{2}}\frac{\partial}{\partial R}W(R\cos 2\pi\theta,n^{1/2}R\sin 2\pi\theta)\Big|d\theta\ll|\ell|^{-2}\|W\|
+
+for \ell\neq 0. Here, the first bound follows by integrating the definition of Fourier transform twice by parts, and the second from the chain rule. We also have
+
+(4.6)|c(R,0)|\ll\|W\|.
+
+Using [4.5](https://arxiv.org/html/2410.04189v2#S4.E5 "In Proof of , assuming . ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") and[4.6](https://arxiv.org/html/2410.04189v2#S4.E6 "Equation 4.6 ‣ Proof of , assuming . ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") immediately leads to [4.3](https://arxiv.org/html/2410.04189v2#S4.E3 "In Proof of , assuming . ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") and[4.4](https://arxiv.org/html/2410.04189v2#S4.E4 "Equation 4.4 ‣ Proof of , assuming . ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2").
+
+From [4.2](https://arxiv.org/html/2410.04189v2#S4.E2 "In Proof of , assuming . ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") and[4.3](https://arxiv.org/html/2410.04189v2#S4.E3 "Equation 4.3 ‣ Proof of , assuming . ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") it follows that
+
+(4.7)W\Big(\frac{x}{N},\frac{y}{N}\Big)=-\int^{10}_{\eta}\sum_{|\ell|\leqslant(\log N)^{10}}c(R,\ell)\psi_{R,\ell}\Big(\frac{x}{N},\frac{y}{N}\Big)dR+O((\log N)^{-10}\|W\|).
+
+when x^{2}+ny^{2}\geqslant\eta N^{2}. Now consider
+
+(4.8)S:=(2\log N)\sum_{x,y\in\mathbf{Z}}\Lambda^{\prime}(x)\Lambda^{\prime}(y)1_{x^{2}+ny^{2}\operatorname{prime}}W\Big(\frac{x}{N},\frac{y}{N}\Big).
+
+The contribution to S from x^{2}+ny^{2}<\eta N^{2} is \ll N^{2}(\log N)^{-9}\|W\|_{\infty}. By [4.7](https://arxiv.org/html/2410.04189v2#S4.E7 "In Proof of , assuming . ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), the sum over the remaining range is
+
+\displaystyle-\int^{10}_{\eta}dR\sum_{|\ell|\leqslant(\log N)^{10}}c(R,\ell)\sum_{\begin{subarray}{c}x,y\in\mathbf{Z}\\
+x^{2}+ny^{2}\geqslant\eta N^{2}\end{subarray}}\Lambda^{\prime}(x)\Lambda^{\prime}(y)1_{x^{2}+ny^{2}\operatorname{prime}}\displaystyle\psi_{R,\ell}\Big(\frac{x}{N},\frac{y}{N}\Big)
+\displaystyle+O(N^{2}(\log N)^{-9}\|W\|).
+
+We now remove the condition x^{2}+ny^{2}\geqslant\eta N^{2} from the sums; the error in doing so is (crudely)
+
+\ll\eta N^{2}(\log N)^{2}\int^{10}_{\eta}dR\sum_{\ell\in\mathbf{Z}}|c(R,\ell)|\ll N^{2}(\log N)^{-8}\|W\|,
+
+by [4.4](https://arxiv.org/html/2410.04189v2#S4.E4 "In Proof of , assuming . ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). Therefore
+
+\displaystyle S=-(2\log N)\int^{10}_{\eta}dR\sum_{|\ell|\leqslant(\log N)^{10}}c(R,\ell)\sum_{x,y\in\mathbf{Z}}\Lambda^{\prime}(x)\Lambda^{\prime}(y)1_{x^{2}+ny^{2}\operatorname{prime}}\displaystyle\psi_{R,\ell}\Big(\frac{x}{N},\frac{y}{N}\Big)
+\displaystyle+O(N^{2}(\log N)^{-8}\|W\|).
+
+Applying [4.1](https://arxiv.org/html/2410.04189v2#S4.E1 "In Proof of , assuming . ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") and then [4.4](https://arxiv.org/html/2410.04189v2#S4.E4 "In Proof of , assuming . ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") gives
+
+\displaystyle S\displaystyle=-\int^{10}_{\eta}dR\sum_{|\ell|\leqslant(\log N)^{10}}c(R,\ell)\bigg(\kappa_{n}N^{2}\int\psi_{R,\ell}+O\bigg(\frac{N^{2}(\log\log N)^{2}}{\log N}\bigg)\bigg)
+\displaystyle\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad+O(N^{2}(\log N)^{-8}\|W\|)
+\displaystyle=-\int^{10}_{\eta}dR\sum_{|\ell|\leqslant(\log N)^{10}}c(R,\ell)\bigg(\kappa_{n}N^{2}\int_{\mathbf{R}^{2}}\psi_{R,\ell}\bigg)+O\bigg(\frac{N^{2}(\log\log N)^{2}}{\log N}\|W\|\bigg).
+
+Finally, comparing this with the integral of [4.7](https://arxiv.org/html/2410.04189v2#S4.E7 "In Proof of , assuming . ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") we see that
+
+(4.9)S=\kappa_{n}\bigg(\int_{\mathbf{R}^{2}}W\bigg)+O\bigg(\frac{N^{2}(\log\log N)^{2}}{\log N}\|W\|\bigg).
+
+Recall that S is given by [4.8](https://arxiv.org/html/2410.04189v2#S4.E8 "In Proof of , assuming . ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). To deduce [Theorem 1.1](https://arxiv.org/html/2410.04189v2#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), we add back in the contribution of prime powers to the two \Lambda^{\prime} terms and replace (2\log N)1_{x^{2}+ny^{2}\operatorname{prime}} with \Lambda(x^{2}+ny^{2}). The former replacement is trivial. The error in making the latter replacement is bounded by
+
+\ll(\log N)^{2}\!\!\!\sum_{\begin{subarray}{c}x^{2}+ny^{2}\leqslant N^{2}\\
+x,y,x^{2}+ny^{2}\operatorname{prime}\end{subarray}}\!\!\!W\Big(\frac{x}{N},\frac{y}{N}\Big)\log\bigg(\frac{x^{2}+ny^{2}}{N^{2}}\bigg)=-(\log N)^{2}\int^{N^{2}}_{1}\frac{dt}{t}\!\!\!\sum_{\begin{subarray}{c}x^{2}+ny^{2}\leqslant t\\
+x,y,x^{2}+ny^{2}\operatorname{prime}\end{subarray}}\!\!\!W\Big(\frac{x}{N},\frac{y}{N}\Big).
+
+The inner sum on the right is \ll t(\log N)^{-3}\|W\| by a standard upper bound sieve. (For instance, one could use [Lemma C.3](https://arxiv.org/html/2410.04189v2#A3.Thmtheorem3 "Lemma C.3. ‣ Appendix C A large sieve bound in several dimensions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") with k=2 and analyse as in [3.32](https://arxiv.org/html/2410.04189v2#S3.E32 "In Proof. ‣ 3.2. Bounding the sum over semiprimes ‣ 3. Sieve setup-reduction to Type I and Type II statements ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"), noting that in this case one has \alpha_{p}=\frac{4}{p}+O(\frac{1}{p^{2}}) for p with (-n\mid p)=1 and \alpha_{p}=\frac{2}{p}+O(\frac{1}{p^{2}}) for all p with (-n\mid p)=-1.) Thus we see that the error in passing from [4.9](https://arxiv.org/html/2410.04189v2#S4.E9 "In Proof of , assuming . ‣ 4.1. Reduction to polar coordinates ‣ 4. Gowers norms and main proof framework ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") to [Theorem 1.1](https://arxiv.org/html/2410.04189v2#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") is O(N^{2}\|W\|/\log N), which may be absorbed into the error term in [Theorem 1.1](https://arxiv.org/html/2410.04189v2#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). ∎
+
+### 4.2. Gowers norms
+
+The Gowers norms, introduced by Gowers [[14](https://arxiv.org/html/2410.04189v2#bib.bib14)], are a fundamental notion in additive combinatorics. A discussion of their basic properties may be found in many places; see for instance the introductions to [[35](https://arxiv.org/html/2410.04189v2#bib.bib35), [47](https://arxiv.org/html/2410.04189v2#bib.bib47)]. We briefly recall the definitions. Let f:\mathbf{Z}\rightarrow\mathbf{C} be a function with finite support. We first define, for h\in\mathbf{Q}, the difference operators
+
+(4.10)\Delta_{h}f(x)=f(x)\overline{f(x+h)}.
+
+(It is convenient for technical reasons later on to allow h\in\mathbf{Q}, but of course \Delta_{h}f will be zero unless h\in\mathbf{Z}). Now let k\geqslant 2 be a parameter. Then we first define
+
+(4.11)\|f\|^{2^{k}}_{U^{k}(\mathbf{Z})}:=\sum_{x,h_{1},\dots,h_{k}\in\mathbf{Z}}\Delta_{h_{1}}\cdots\Delta_{h_{k}}f(x).
+
+The Gowers U^{k}(\mathbf{Z})-norm \|f\|_{U^{k}(\mathbf{Z})} is then defined to be the unique non-negative 2^{k}-th root of this quantity. Given a real number N\geqslant 1, we then define
+
+(4.12)\|f\|_{U^{k}[N]}:=\|f\|_{U^{k}(\mathbf{Z})}/\|1_{[N]}\|_{U^{k}(\mathbf{Z})}.
+
+This definition will be relevant when f is supported on [\pm O(N)]. It is easy to see that this is completely equivalent to the definition given in, for instance, [[35](https://arxiv.org/html/2410.04189v2#bib.bib35), Definition 1.1], which is specifically geared to functions f which are supported on [N]. The normalising factor \|1_{[N]}\|_{U^{k}(\mathbf{Z})} has the effect that the maximum value of \|f\|_{U^{k}[N]} is exactly 1 if f is supported on [N]. For us, precise constants will never be relevant and it will suffice to know that
+
+(4.13)\|1_{[N]}\|_{U^{k}(\mathbf{Z})}^{2^{k}}\asymp_{k}N^{k+1},
+
+which is clear from the definition. That the Gowers norms are well-defined and are norms are well-known; proofs of this statement may be found in many places, for instance [[17](https://arxiv.org/html/2410.04189v2#bib.bib17), Appendix B.5]. We have the nesting property
+
+(4.14)\|f\|_{U^{2}[N]}\ll\|f\|_{U^{3}[N]}\ll\cdots\ll\|f\|_{U^{k}[N]}\ll\cdots
+
+Further properties of the Gowers norms relevant to our paper may be found in [Appendix A](https://arxiv.org/html/2410.04189v2#A1 "Appendix A Properties of the Gowers and Gowers–Peluse norms ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). As a final remark, we note that all Gowers norms in the main part of our paper are at scale X^{1/2}, where X is our main global parameter.
+
+### 4.3. Type I and II sums with product weights and Gowers norms
+
+In this section we state our two main results linking Gowers norms and Type I/II estimates for weight functions in product form. We begin with the Type I statement.
+
+###### Proposition 4.2.
+
+There is an absolute constant C_{\ref{prop:typei-to-gowers}} with the following property. Let \delta\in(0,1) be a parameter. Let w:\operatorname{Ideals}(\mathcal{O}_{K})\rightarrow\mathbf{C} be a weight function in product form [2.2](https://arxiv.org/html/2410.04189v2#S2.E2 "In Definition 2.2. ‣ 2. Number fields and weight functions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") with frequency \ell. Suppose that f,f^{\prime} are 1-bounded and supported on [\pm 2nX^{1/2}]. Suppose L\leqslant\delta^{C_{\ref{prop:typei-to-gowers}}}X^{1/2} and that
+
+(4.15)\sum_{\mathfrak{d}:N\mathfrak{d}\sim L}\Big|\sum_{\begin{subarray}{c}\mathfrak{d}|\mathfrak{a}\\
+N\mathfrak{a}\leqslant X\end{subarray}}w(\mathfrak{a})\Big|\geqslant\delta X.
+
+Then
+
+\|f\|_{U^{3}[X^{1/2}]},\|f^{\prime}\|_{U^{3}[X^{1/2}]}\gg\Big(\frac{\delta}{(|\ell|+1)\log X}\Big)^{O(1)}.
+
+Now we give the Type II statement.
+
+###### Proposition 4.3.
+
+There exists an absolute constant C_{\ref{prop:typeii-to-gowers}} and a (large) positive integer k such that the following holds. Let w:\operatorname{Ideals}(\mathcal{O}_{K})\rightarrow\mathbf{C} be a weight function in product form [2.2](https://arxiv.org/html/2410.04189v2#S2.E2 "In Definition 2.2. ‣ 2. Number fields and weight functions ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2") with frequency \ell, and suppose that f,f^{\prime} are 1-bounded and supported on [\pm 2nX^{1/2}]. Suppose that \delta^{-C_{\ref{prop:typeii-to-gowers}}}\ll L\leqslant X^{3/8}, and suppose that for some 1-bounded weights \alpha,\beta:\operatorname{Ideals}(\mathcal{O}_{K})\rightarrow\mathbf{C} we have
+
+(4.16)\Big|\sum_{\begin{subarray}{c}\mathfrak{a},\mathfrak{b}:N\mathfrak{a}\sim L\\
+N\mathfrak{a}\mathfrak{b}\leqslant X\end{subarray}}\alpha_{\mathfrak{a}}\beta_{\mathfrak{b}}w(\mathfrak{a}\mathfrak{b})\Big|\geqslant\delta X.
+
+Then we have
+
+\|f\|_{U^{k}[X^{1/2}]},\|f^{\prime}\|_{U^{k}[X^{1/2}]}\geqslant\Big(\frac{\delta}{(|\ell|+1)\log X}\Big)^{O(1)}.
+
+### 4.4. Approximations to \Lambda^{\prime} in Gowers norm
+
+Define \Lambda_{{\textnormal{Cram\'{e}r}}} as in [1.6](https://arxiv.org/html/2410.04189v2#S1.E6 "In 1.4. Notation ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2"). Extend the domain of definition to \mathbf{Q}, with the convention that \Lambda_{{\textnormal{Cram\'{e}r}}}(t)=0 if t\notin\mathbf{Z}. A crucial ingredient in our arguments is the fact that these functions are good approximants to \Lambda^{\prime} in the Gowers norms.
+
+###### Proposition 4.4.
+
+Fix A\geqslant 1 and k\geqslant 2. Then we have that
+
+\lVert(\Lambda^{\prime}-\Lambda_{{\textnormal{Cram\'{e}r}}})1_{[X^{1/2}]}\rVert_{U^{k}[X^{1/2}]}^{2^{k}}\ll_{A}(\log X)^{-A}.
+
+###### Proof.
+
+We will apply the results of [[47](https://arxiv.org/html/2410.04189v2#bib.bib47)] and [[34](https://arxiv.org/html/2410.04189v2#bib.bib34), Section 5], taking N=X^{1/2} in those papers. Note (cf. the comments following [1.7](https://arxiv.org/html/2410.04189v2#S1.E7 "In 1.4. Notation ‣ 1. Introduction ‣ Primes of the form 𝑝^2+𝑛⁢𝑞^2")) that our value of Q is precisely the same as the one in those papers. Let \Lambda_{{\textnormal{Siegel}}} be the Siegel model for the primes, introduced in [[47](https://arxiv.org/html/2410.04189v2#bib.bib47), Definition 2.1]; the definition in [[34](https://arxiv.org/html/2410.04189v2#bib.bib34), Section 5] is the same. Let q_{{\textnormal{Siegel}}} be the modulus of the character for which there is a Q-Siegel zero \beta, if one exists (again, see [[47](https://arxiv.org/html/2410.04189v2#bib.bib47), Definition 2.1] for the definition).
+
+Then by [[34](https://arxiv.org/html/2410.04189v2#bib.bib34), Theorem 7] (and ignoring the contribution of the prime powers to \Lambda, which is negligible) we have
+
+(4.17)\|(\Lambda^{\prime}-\Lambda_{{\textnormal{Siegel}}})1_{[X^{1/2}]}\|_{U^{k}[X^{1/2}]}\ll e^{-(\log X)^{c_{k}}}.
+
+On the other hand, by [[47](https://arxiv.org/html/2410.04189v2#bib.bib47), Theorem 2.5] we have
+
+(4.18)\|(\Lambda_{{\textnormal{Siegel}}}-\Lambda_{{\textnormal{Cram\'{e}r}},Q})1_{[X^{1/2}]}\|_{U^{k}[X^{1/2}]}\ll q_{{\textnormal{Siegel}}}^{-c_{k}},
+
+Note here that the exponent c in [[47](https
+
+..._Content truncated_...

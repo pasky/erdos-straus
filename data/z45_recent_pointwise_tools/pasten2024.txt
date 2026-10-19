@@ -1,0 +1,485 @@
+## Content from https://arxiv.org/html/2312.03566
+
+Title: The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶
+
+URL Source: https://arxiv.org/html/2312.03566
+
+Markdown Content:
+## The largest prime factor of n^{2}+1 and improvements on subexponential ABC Thanks:Supported by ANID Fondecyt Regular grant 1230507 from Chile.
+
+Hector Pasten Address: Departamento de Matemáticas, Pontificia Universidad Católica de Chile. Facultad de Matemáticas, 4860 Av. Vicuña Mackenna, Macul, RM, Chile Email address, H. Pasten: [hector.pasten@uc.cl](mailto:hector.pasten@uc.cl)Dedicado a la memoria de mi padre, quien siempre me apoyó en todo.
+
+Date: August 24, 2026
+
+###### Abstract.
+
+We combine transcendental methods and the modular approaches to the ABC conjecture to show that the largest prime factor of n^{2}+1 is at least of size (\log_{2}n)^{2}/\log_{3}n where \log_{k} is the k-th iterate of the logarithm. This gives a substantial improvement on the best available estimates, which are essentially of size \log_{2}n going back to work of Chowla in 1934. Using the same ideas, we also obtain significant progress on subexpoential bounds for the ABC conjecture, which in a case gives the first improvement on a result by Stewart and Yu dating back over two decades. Central to our approach is the connection between Shimura curves and the ABC conjecture developed by the author.
+
+###### Key words and phrases:
+
+Largest prime factor,
+
+ABC
+conjecture, linear forms in logarithms, Shimura curves
+
+###### 2020 Mathematics Subject Classification
+
+Primary: 11J25; Secondary: 11J86, 11G18
+
+## 1. Introduction
+
+For a non-zero integer n let \mathscr{P}(n) be the largest prime factor of n, with \mathscr{P}(\pm 1)=1. It is a classical problem to give lower bounds for \mathscr{P}(f(n)) where f is a non-linear integer polynomial. In 1934 Chowla [[2](https://arxiv.org/html/2312.03566#bib.bib2)] proved that there is a positive constant \kappa such that
+
+(1.1)\mathscr{P}(n^{2}+1)\geq\kappa\cdot\log_{2}n
+
+as n grows, where \log_{k} is the k-th iterate of the logarithm (for an iterated logarithm, we always assume that the argument is large enough for it to be defined.) Since then, this result has been generalized to all polynomials (see [[11](https://arxiv.org/html/2312.03566#bib.bib11)] and the references therein) but after 90 years only minor improvements on Chowla’s theorem are available: to the best of the author’s knowledge, the sharpest available estimate is obtained by the theory of linear forms in logarithms and it takes the form
+
+\mathscr{P}(n^{2}+1)\geq\kappa\cdot\frac{\log_{3}n}{\log_{4}n}\cdot\log_{2}n,
+
+see [[11](https://arxiv.org/html/2312.03566#bib.bib11)]. We prove a lower bound for \mathscr{P}(n^{2}+1) which is nearly the square of the previous bounds:
+
+###### Theorem 1.1.
+
+There is a constant \kappa>0 such that as n grows we have
+
+\mathscr{P}(n^{2}+1)\geq\kappa\cdot\frac{(\log_{2}n)^{2}}{\log_{3}n}.
+
+For a positive integer n let \mathrm{rad}(n) be its radical, that is, the largest squarefree divisor of n. The previous result is in fact a direct consequence of the next theorem:
+
+###### Theorem 1.2.
+
+There is a constant \kappa>0 such that as n grows we have
+
+\mathrm{rad}(n^{2}+1)\geq\exp\left(\kappa\cdot\frac{(\log_{2}n)^{2}}{\log_{3}n}\right).
+
+The proof of the previous theorems combines the theory of linear forms in logarithms with results from a modular approach to the ABC conjecture developed by the author using the theory of Shimura curves [[7](https://arxiv.org/html/2312.03566#bib.bib7)]. In particular, the methods pertain to both transcendental number theory and arithmetic geometry.
+
+More precisely, when we apply linear forms in logarithms to the problem we will separate those primes with large exponent in the factorization of n^{2}+1 from those with small exponent. Then, for each n, we construct an elliptic curve and we apply our results from [[7](https://arxiv.org/html/2312.03566#bib.bib7)] to this elliptic curve in order to give a good bound for the number of prime divisors of n^{2}+1 with large exponent. After this point we return to the bounds provided by linear forms in logarithms using this new input to conclude.
+
+The technique developed in this work is not limited to the previous two theorems. In fact, another application of our methods is that we can give improvements on the sharpest available subexponential bounds for the ABC conjecture. Let us recall the statement of the problem.
+
+###### Conjecture 1.3(The Masser–Oesterlé ABC conjecture).
+
+Let \epsilon>0. There is a number \kappa_{\epsilon}>0 depending only on \epsilon such that the following holds:
+
+Given a,b,c coprime positive integers with a+b=c, we have c\leq\kappa_{\epsilon}\cdot\mathrm{rad}(abc)^{1+\epsilon}.
+
+In what follows, let us write R=\mathrm{rad}(abc) where a,b,c are triples as in the statement of the ABC conjecture and the term “absolute constant” refers to a number independent of all parameters. At present, the best unconditional bound is due to Stewart–Yu [[14](https://arxiv.org/html/2312.03566#bib.bib14)] and it is of the form
+
+\log c\leq\kappa\cdot R^{1/3}(\log R)^{3}
+
+for certain absolute constant \kappa. See also [[12](https://arxiv.org/html/2312.03566#bib.bib12), [13](https://arxiv.org/html/2312.03566#bib.bib13), [6](https://arxiv.org/html/2312.03566#bib.bib6)] for other unconditional bounds. While all these bounds are exponential on R, under certain circumstances one can do better obtaining subexponential bounds:
+
+*   (i)(See [[8](https://arxiv.org/html/2312.03566#bib.bib8)] by the author.) Let \epsilon>0. There is a number \kappa_{\epsilon}>0 depending only on \epsilon such that if a\leq c^{1-\eta} for some number \eta>0, then
+
+\log c\leq\eta^{-1}\cdot\kappa_{\epsilon}\cdot\exp\left((1+\epsilon)\cdot\frac{\log_{3}R}{\log_{2}R}\cdot\log R\right). 
+*   (ii)(See [[14](https://arxiv.org/html/2312.03566#bib.bib14)] by Stewart and Yu.) Let q=\min\{\mathscr{P}(a),\mathscr{P}(b),\mathscr{P}(c)\}. Then for certain absolute constant \kappa>0 we have
+
+\log c\leq q\cdot\exp\left(\kappa\cdot\frac{\log_{3}R}{\log_{2}R}\cdot\log R\right). 
+
+Our method gives a substantial improvement on both bounds:
+
+###### Theorem 1.4.
+
+Let a,b,c vary over triples of coprime positive integers with a+b=c and write R=\mathrm{rad}(abc). Then we have the following bounds:
+
+*   (1)There is an absolute constant \kappa>0 such that if a\leq c^{1-\eta} for a number \eta>0, then
+
+\log c\leq\eta^{-1}\exp\left(\kappa\cdot\sqrt{(\log R)\log_{2}R}\right). 
+*   (2)Let q=\min\{\mathscr{P}(a),\mathscr{P}(b),\mathscr{P}(c)\}. There is an absolute constant \kappa>0 for which we have
+
+\log c\leq q\cdot\exp\left(\kappa\cdot\sqrt{(\log R)\log_{2}R}\right). 
+
+It is worth pointing out that item (2) of the previous theorem is the first improvement on Theorem 2 from [[14](https://arxiv.org/html/2312.03566#bib.bib14)] in more than two decades.
+
+Using item (2) of Theorem [1.4](https://arxiv.org/html/2312.03566#S1.Thmtheorem4 "Theorem 1.4. ‣ 1. Introduction ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") we also get the following improvement on the bound (7) of [[14](https://arxiv.org/html/2312.03566#bib.bib14)]:
+
+###### Corollary 1.5.
+
+There is an absolute constant \kappa>0 such that as x<y vary over coprime positive integers, we have
+
+\mathscr{P}(xy(x+y))\geq\kappa\cdot\frac{(\log_{2}y)^{2}}{\log_{3}y}.
+
+Namely, the bound (7) in [[14](https://arxiv.org/html/2312.03566#bib.bib14)] is
+
+\mathscr{P}(xy(x+y))\geq\kappa\cdot\frac{(\log_{2}y)\log_{3}y}{\log_{4}y}
+
+which in turn is an improvement of the earlier bound
+
+\mathscr{P}(xy(x+y))\geq\kappa\cdot\log_{2}y
+
+by van der Poorten, Schinzel, Shorey, and Tijdeman [[9](https://arxiv.org/html/2312.03566#bib.bib9)].
+
+As the reader will see, with some bookkeeping one can get explicit values for \kappa in Theorems [1.1](https://arxiv.org/html/2312.03566#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶"), [1.2](https://arxiv.org/html/2312.03566#S1.Thmtheorem2 "Theorem 1.2. ‣ 1. Introduction ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶"), and [1.4](https://arxiv.org/html/2312.03566#S1.Thmtheorem4 "Theorem 1.4. ‣ 1. Introduction ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") as well as Corollary [1.5](https://arxiv.org/html/2312.03566#S1.Thmtheorem5 "Corollary 1.5. ‣ 1. Introduction ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") that work for large enough values of the variables. We leave this task to the interested reader.
+
+## 2. Preliminaries
+
+### 2.1. Bounds coming from linear forms in logarithms
+
+We need estimates for approximation by finitely generated multiplicative groups due to Evertse and Györy (cf. Theorem 4.2.1 in [[3](https://arxiv.org/html/2312.03566#bib.bib3)]) that come from the theory of linear forms in logarithms and geometry of numbers.
+
+Let us first introduce the notation. Let k be a number field of degree d over \mathbb{Q}. If v is an archimedian place of k associated to an embedding \sigma:k\to\mathbb{C} (it could be real, or it could come in a complex conjugate pair), we define the v-adic norm on k
+
+|x|_{v}=|\sigma(x)|^{\epsilon_{v}}
+
+where |-| is the usual complex absolute value and \epsilon_{v}=1 if \sigma is real, and \epsilon_{v}=2 if \sigma is complex. On the other hand, if v is a non-archimedian place of k associated to a prime ideal \mathfrak{p} of O_{k}, we let \nu_{\mathfrak{p}} be the \mathfrak{p}-adic valuation on k and define the v-adic norm
+
+|x|_{v}=\mathrm{Norm}(\mathfrak{p})^{-\nu_{\mathfrak{p}}(x)}.
+
+In the case of k=\mathbb{Q} we simply write \nu_{p} for the p-adic valuation when p is a prime number.
+
+The height on k is defined by
+
+h(x)=\frac{1}{d}\sum_{v}\log\max\{1,|x|_{v}\}.
+
+Let \Gamma be a finitely generated multiplicative subgroup of k^{*} and let \{\xi_{1},...,\xi_{m}\}\subseteq\Gamma be a system of generators for \Gamma/\Gamma_{\rm tor} with m\geq 1. With these notation and assumptions, from Theorem 4.2.1 in [[3](https://arxiv.org/html/2312.03566#bib.bib3)] we get:
+
+###### Theorem 2.1(Approximation bound).
+
+There is a number K_{d} depending only on d such that the following holds:
+
+*   (i)(Archimedian bound) Let v be an archimedian place of k. For every \xi\in\Gamma different from 1 we have
+
+-\log|1-\xi|_{v}<K_{d}^{m}\cdot\left(\log\max\{e,h(\xi)\}\right)\prod_{j=1}^{m}h(\xi_{j}). 
+*   (ii)(Non-archimedian bound) Let v be a non-archimedian place of k associated with a prime ideal \mathfrak{p} of O_{k}. For every \xi\in\Gamma different from 1 we have
+
+-\log|1-\xi|_{v}<K_{d}^{m}\cdot\frac{\mathrm{Norm}(\mathfrak{p})}{\log\mathrm{Norm}(\mathfrak{p})}\left(\log\max\{e,\mathrm{Norm}(\mathfrak{p})h(\xi)\}\right)\prod_{j=1}^{m}h(\xi_{j}). 
+
+### 2.2. Bounds coming from the classical modular approach to Szpiro’s conjecture
+
+In [[6](https://arxiv.org/html/2312.03566#bib.bib6)] Murty and the author showed an unconditional partial result for Szpiro’s conjecture using classical modular forms.
+
+###### Theorem 2.2(Szpiro type bound, [[6](https://arxiv.org/html/2312.03566#bib.bib6)]).
+
+There is an absolute constant \kappa>0 such that for all elliptic curves E over \mathbb{Q} one has
+
+\log\Delta\leq\kappa\cdot N\log N
+
+where \Delta and N are the minimal discriminant and the conductor of E.
+
+The constant \kappa was made explicit in [[6](https://arxiv.org/html/2312.03566#bib.bib6)] and the result is strong enough to be useful in explicit computations with Diophantine equations; see [[6](https://arxiv.org/html/2312.03566#bib.bib6)] for the S-unit equation and [[4](https://arxiv.org/html/2312.03566#bib.bib4)] for other applications. See [[7](https://arxiv.org/html/2312.03566#bib.bib7)] for improvements.
+
+From the previous theorem one in particular gets:
+
+###### Corollary 2.3(Bounds for exponents of the minimal discriminant).
+
+There is an absolute constant \kappa>0 such that for all elliptic curves E over \mathbb{Q} and all primes p one has
+
+\nu_{p}(\Delta)\leq\kappa\cdot N\log N
+
+where \Delta and N are the minimal discriminant and the conductor of E.
+
+### 2.3. Bounds coming from Shimura curves
+
+In [[7](https://arxiv.org/html/2312.03566#bib.bib7)] the author developed a theory based on Shimura curve parametrizations of elliptic curves in order to obtain a new type of unconditional bounds for the ABC and Szpiro’s conjecture. Let us state the results that we need.
+
+###### Theorem 2.4(Bound for elliptic curves, Corollary 16.3 in [[7](https://arxiv.org/html/2312.03566#bib.bib7)]).
+
+Let S be a finite set of primes and let \epsilon>0. There is a number \kappa_{S,\epsilon} depending only on S and \epsilon such that the following holds:
+
+Let E be an elliptic curve over \mathbb{Q}, semistable outside of S, with minimal discriminant \Delta and conductor N. Then
+
+\prod_{p|N^{*}}\nu_{p}(\Delta)\leq\kappa_{S,\epsilon}\cdot N^{11/2+\epsilon}
+
+where N^{*} is the product of all the primes dividing N not in S.
+
+###### Theorem 2.5(Bound for ABC triples, Theorem 16.8 in [[7](https://arxiv.org/html/2312.03566#bib.bib7)]).
+
+Let \epsilon>0. There is a number \kappa_{\epsilon} depending only on \epsilon such that the following holds:
+
+For all coprime positive integers a,b,c with a+b=c we have
+
+\prod_{p|abc}\nu_{p}(abc)\leq\kappa_{\epsilon}\cdot\mathrm{rad}(abc)^{8/3+\epsilon}.
+
+For the convenience of the reader let us briefly sketch the main ideas in the proof of the previous two results.
+
+Let E be an elliptic curve defined over \mathbb{Q}. By the modularity theorem [[16](https://arxiv.org/html/2312.03566#bib.bib16), [15](https://arxiv.org/html/2312.03566#bib.bib15), [1](https://arxiv.org/html/2312.03566#bib.bib1)] there is a modular parametrization \varphi:X_{0}(N)\to E. By the Jacquet–Langlands correspondence, for each admissible factorization N=DM there is a Shimura curve parametrization \varphi_{DM}:X_{0}^{D}(M)\to E where in particular X_{0}(N)=X_{0}^{1}(N) and \varphi=\varphi_{D,M}. We assume that these parametrizations have minimal degree.
+
+The starting point is to prove a generalization of the Ribet–Takahashi formula [[10](https://arxiv.org/html/2312.03566#bib.bib10)] to obtain the formula
+
+\prod_{p|D}\nu_{p}(\Delta)=\gamma_{D,M}\cdot\frac{\deg\varphi}{\deg\varphi_{D,M}}
+
+with an error factor \gamma_{D,M} of controlled height (in the worst case, h(\gamma_{D,M})\leq(1+\epsilon)\log D), where \Delta is the minimal discriminant of E. It is important that this formula is _global_: the contribution of every prime is taken into account.
+
+If h(E) denotes the Faltings height of E and c is the Manin constant of \varphi, then pulling back a Néron differential of E via the parametrizations of E one deduces
+
+\frac{\deg\varphi}{\deg\varphi_{D,M}}=\frac{c^{2}\|f\|^{2}e^{2h(E)}}{\|f_{D,M}\|_{2}^{2}e^{2h(E)}}=\frac{c^{2}\|f\|^{2}}{\|f_{D,M}\|_{2}^{2}}
+
+where \|-\|_{2} is the Petersson norm, f is the Fourier normalized newform attached to E, and f_{D,M} is a quaternionic modular form defined on an integral model of X_{0}^{D}(M) which is Jacquet–Langalands correspondent associated to f.
+
+An important part of the work is to prove a uniform upper bound for the Manin constant c (fixing the set of primes of additive reduction). On the other hand, the upper bound \|f\|_{2}^{2}\ll_{\epsilon}N^{1+\epsilon} is known [[5](https://arxiv.org/html/2312.03566#bib.bib5)]. Since f_{D,M} extends to an integral model of X_{0}^{D}(M) one can use Arakelov theory to give a polynomial lower bound \|f_{D,M}\|_{2}^{2}\gg_{\epsilon}N^{-(5/3+\epsilon)}M^{-1}. For this it is crucial to have bounds for the Arakelov height of Heegner points in terms of L-functions (extensions of the Chowla–Selberg formula due to Yuan–Zhang [[17](https://arxiv.org/html/2312.03566#bib.bib17)] in the context of Colmez’s conjecture) and suitable zero-free regions for the relevant L-functions. Putting all together one finally arrives to
+
+\prod_{p|D}\nu_{p}(\Delta)\ll_{\epsilon}N^{8/3+\epsilon}DM=N^{11/3+\epsilon}.
+
+Theorem [2.4](https://arxiv.org/html/2312.03566#S2.Thmtheorem4 "Theorem 2.4 (Bound for elliptic curves, Corollary 16.3 in []). ‣ 2.3. Bounds coming from Shimura curves ‣ 2. Preliminaries ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") follows by varying the choice of M. Theorem [2.5](https://arxiv.org/html/2312.03566#S2.Thmtheorem5 "Theorem 2.5 (Bound for 𝐴⁢𝐵⁢𝐶 triples, Theorem 16.8 in []). ‣ 2.3. Bounds coming from Shimura curves ‣ 2. Preliminaries ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") follows by choosing E as a Frey–Hellegourach elliptic curve in which case one shows the stronger bound h(\gamma_{D,M})\leq\epsilon\log D.
+
+The following simple observation will be used a couple of times.
+
+###### Lemma 3.1.
+
+Consider a number A>e. The real function t\mapsto t\log(A/t) is increasing in the range 1\leq t\leq A/e.
+
+The next lemma does not give the best bound that the method allows, but it is enough for our purposes.
+
+###### Lemma 3.2.
+
+There is an absolute constant K>0 such that for all positive integers n we have
+
+\prod_{p|n^{2}+1}\nu_{p}(n^{2}+1)\leq K\cdot\mathrm{rad}(n^{2}+1)^{8}.
+
+###### Proof.
+
+Let n be a positive integer and consider the elliptic curve
+
+E:\quad y^{2}=x^{3}+3x+2n.
+
+Let \Delta and N be the minimal discriminant and the conductor of E. This Weierstrass equation is minimal except perhaps at 2 and 3 and it has (not necessarily minimal) discriminant
+
+-16(4\cdot 3^{3}+27(2n)^{2})=-1728(n^{2}+1).
+
+One checks that E has multiplicative reduction away from 2 and 3 (thus, N is squarefree except for uniformly bounded powers of 2 and 3) and that the minimal discriminant is
+
+\Delta=-2^{s}\cdot 3^{t}\cdot(n^{2}+1)
+
+where s and t are integers of uniformly bounded absolute value.
+
+By Corollary [2.3](https://arxiv.org/html/2312.03566#S2.Thmtheorem3 "Corollary 2.3 (Bounds for exponents of the minimal discriminant). ‣ 2.2. Bounds coming from the classical modular approach to Szpiro’s conjecture ‣ 2. Preliminaries ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") there is an absolute constant \kappa>0 such that
+
+\nu_{2}(n^{2}+1)\nu_{3}(n^{2}+1)\leq\kappa\cdot N^{2}(\log N)^{2}.
+
+Letting \epsilon>0 and choosing S=\{2,3\} we apply Theorem [2.4](https://arxiv.org/html/2312.03566#S2.Thmtheorem4 "Theorem 2.4 (Bound for elliptic curves, Corollary 16.3 in []). ‣ 2.3. Bounds coming from Shimura curves ‣ 2. Preliminaries ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") we get a number \kappa_{S,\epsilon} depending only on S and \epsilon such that
+
+\prod_{p|N^{*}}\nu_{p}(n^{2}+1)\leq\kappa_{S,\epsilon}\cdot N^{11/2+\epsilon}
+
+where N^{*} is the product of the primes dividing N other than 2 and 3. For a prime p\neq 2,3 we have that p divides N if and only if it divides \Delta, hence, if and only if it divides n^{2}+1. It follows that
+
+\prod_{p|n^{2}+1}\nu_{p}(n^{2}+1)\leq\kappa\cdot\kappa_{S,\epsilon}\cdot N^{15/2+\epsilon}.
+
+As S is fixed, one can choose \epsilon=1/2 to obtain
+
+\prod_{p|n^{2}+1}\nu_{p}(n^{2}+1)\leq K\cdot\mathrm{rad}(n^{2}+1)^{8}
+
+for certain absolute constant K>0, because \mathrm{rad}(n^{2}+1) and N agree except, perhaps, by a bounded power of 2 and 3 (this is because of the semi-stable reduction at primes p\neq 2,3). ∎
+
+###### Proof of Theorem [1.2](https://arxiv.org/html/2312.03566#S1.Thmtheorem2 "Theorem 1.2. ‣ 1. Introduction ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶").
+
+Let n be a sufficiently large positive integer and write i=\sqrt{-1}\in\mathbb{C}. We consider the equation
+
+(n+i)-(n-i)=2i
+
+in \mathbb{Z}[i]. This gives the equation
+
+1-\frac{n-i}{n+i}=\frac{2i}{n+i}
+
+in the quadratic number field k=\mathbb{Q}(i).
+
+Consider a factorization n+i=u\cdot\gamma_{1}^{e_{1}}\cdots\gamma_{r}^{e_{r}} with \gamma_{j} non-associated irreducible elements of \mathbb{Z}[i] and u\in\{\pm 1,\pm i\}. Then we have n-i=\bar{u}\cdot\bar{\gamma}_{1}^{e_{1}}\cdots\bar{\gamma}_{r}^{e_{r}} where the bar denotes complex conjugation.
+
+Let
+
+B=\exp\left(\sqrt{(\log R)\log_{2}R}\right)
+
+where R=\mathrm{rad}(n^{2}+1). In what follows we will use the fact that R grows as n grows —for instance, by Chowla’s result, although we don’t need a precise rate of growth.
+
+Define J=\{1,...,r\} and let I\subseteq J be the set of indices such that e_{j}>B. Let \xi_{j}=\bar{\gamma_{j}}/\gamma_{j} for j\in J and let \xi_{0}=\prod_{j\in J-I}\xi_{j}^{e_{j}}. Let w=\bar{u}/u. Then we have
+
+\frac{n-i}{n+i}=w\cdot\xi_{0}\cdot\prod_{j\in I}\xi_{j}^{e_{j}}.
+
+Let I_{0}=I\cup\{0\} and let \Gamma be the subgroup of k^{\times} generated by w and the \xi_{j} for j\in I_{0}. Let m=1+\#I=\#I_{0}. Then the elements \xi_{j} for j\in I_{0} generate \Gamma/\Gamma_{\rm tor} and we can write
+
+\frac{2i}{n+i}=1-\xi
+
+where (n-i)/(n+i)=\xi=w\cdot\xi_{0}\cdot\prod_{j\in I}\xi_{j}^{e_{j}}\in\Gamma. Item (i) in Theorem [2.1](https://arxiv.org/html/2312.03566#S2.Thmtheorem1 "Theorem 2.1 (Approximation bound). ‣ 2.1. Bounds coming from linear forms in logarithms ‣ 2. Preliminaries ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") (with d=2) gives an absolute constant K such that
+
+(3.1)\log n\leq-2\log\frac{2}{|n+i|}=-\log\left|1-\xi\right|^{2}\leq K^{m}\cdot(\log\max\{e,h(\xi)\})\prod_{j\in I_{0}}h(\xi_{j})
+
+where |-| is the usual absolute value on \mathbb{C}. Let us estimate the terms on the right of ([3.1](https://arxiv.org/html/2312.03566#S3.E1 "In Proof of Theorem . ‣ 3. The largest prime factor of 𝑛^2+1 ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶")). First we have
+
+h(\xi)=h\left(\frac{n-i}{n+i}\right)\leq\frac{1}{2}\log|n+i|^{2}=\log|n+i|
+
+so that
+
+(3.2)K^{m}\cdot(\log\max\{e,h(\xi)\})\leq(2K)^{m}\log_{2}n.
+
+On the other hand e_{j}\leq B for each j\in J-I, and recalling that the \gamma_{j} are non-associated irreducibles we get
+
+h(\xi_{0})\leq B\cdot h\left(\prod_{j\in J-I}\gamma_{j}\right)\leq\frac{B}{2}\log\prod_{j\in J}\mathrm{Norm}(\gamma_{j})\leq B\log\prod_{p|n^{2}+1}p
+
+which gives
+
+(3.3)h(\xi_{0})\leq B\cdot\log R.
+
+At this point we note from ([3.1](https://arxiv.org/html/2312.03566#S3.E1 "In Proof of Theorem . ‣ 3. The largest prime factor of 𝑛^2+1 ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶")), ([3.2](https://arxiv.org/html/2312.03566#S3.E2 "In Proof of Theorem . ‣ 3. The largest prime factor of 𝑛^2+1 ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶")), and ([3.3](https://arxiv.org/html/2312.03566#S3.E3 "In Proof of Theorem . ‣ 3. The largest prime factor of 𝑛^2+1 ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶")) that if m=1 (i.e. I=\emptyset) then
+
+\sqrt{\log n}\leq\frac{\log n}{\log_{2}n}\leq 2KB\log R<\exp\left(K^{\prime}\cdot\sqrt{(\log R)\log_{2}R}\right)
+
+for a suitable absolute constant K^{\prime}>0, and the result is proved. So we may assume m\geq 2.
+
+Let p_{j} be the prime number below the irreducible \gamma_{j}. Noticing that for j\in I we have h(\xi_{j})\leq\log p_{j} we get
+
+\prod_{j\in I}h(\xi_{j})\leq\prod_{j\in I}\log p_{j}\leq\left(\frac{\log R}{m-1}\right)^{m-1}
+
+where we used the arithmetic-geometric mean inequality. Putting this together with ([3.1](https://arxiv.org/html/2312.03566#S3.E1 "In Proof of Theorem . ‣ 3. The largest prime factor of 𝑛^2+1 ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶")), ([3.2](https://arxiv.org/html/2312.03566#S3.E2 "In Proof of Theorem . ‣ 3. The largest prime factor of 𝑛^2+1 ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶")), and ([3.3](https://arxiv.org/html/2312.03566#S3.E3 "In Proof of Theorem . ‣ 3. The largest prime factor of 𝑛^2+1 ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶")) we deduce
+
+(3.4)\sqrt{\log n}\leq\frac{\log n}{\log_{2}n}\leq(2K)^{m}B(\log R)\left(\frac{\log R}{m-1}\right)^{m-1}=2KB(\log R)\left(\frac{2K\cdot\log R}{m-1}\right)^{m-1}.
+
+Next, we note that
+
+e_{j}=\nu_{(\gamma_{j})}(n+i)\leq 2\nu_{p_{j}}(n^{2}+1).
+
+Therefore the condition e_{j}>B implies \nu_{p_{j}}(n^{2}+1)>B/2 and the number of indices j satisfying the former condition is m-1=\#I. This gives
+
+\prod_{j\in I}\nu_{p_{j}}(n^{2}+1)>(B/2)^{m-1}.
+
+On the other hand, by Lemma [3.2](https://arxiv.org/html/2312.03566#S3.Thmtheorem2 "Lemma 3.2. ‣ 3. The largest prime factor of 𝑛^2+1 ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") we have
+
+\prod_{p|n^{2}+1}\nu_{p}(n^{2}+1)\leq\kappa\cdot R^{8}
+
+for some absolute constant \kappa. This yields
+
+m-1<\frac{8\log R+\log\kappa}{\log(B/2)}<\kappa^{\prime}\cdot\frac{\log R}{\sqrt{(\log R)\log_{2}R}}=\kappa^{\prime}\cdot\sqrt{\frac{\log R}{\log_{2}R}}
+
+for a suitable absolute constant \kappa^{\prime}.
+
+Using Lemma [3.1](https://arxiv.org/html/2312.03566#S3.Thmtheorem1 "Lemma 3.1. ‣ 3. The largest prime factor of 𝑛^2+1 ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") with A=2K\log R, and since
+
+\kappa^{\prime}\cdot\sqrt{\frac{\log R}{\log_{2}R}}<\frac{2K}{e}\log R
+
+for R large enough, we deduce
+
+\left(\frac{2K\cdot\log R}{m-1}\right)^{m-1}\leq\left(\frac{2K}{\kappa^{\prime}}\sqrt{(\log R)\log_{2}R}\right)^{\kappa^{\prime}\sqrt{(\log R)/\log_{2}R}}\leq\exp\left(K^{\prime\prime}\cdot\sqrt{(\log R)\log_{2}R}\right)
+
+for a suitable absolute constant K^{\prime\prime}. Using this in ([3.4](https://arxiv.org/html/2312.03566#S3.E4 "In Proof of Theorem . ‣ 3. The largest prime factor of 𝑛^2+1 ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶")) we obtain
+
+\sqrt{\log n}\leq 2KB(\log R)B^{K^{\prime\prime}}.
+
+Thus, for a suitable absolute constant M>0 we obtain
+
+\log n\leq\exp\left(M\cdot\sqrt{(\log R)\log_{2}R}\right)
+
+and the result follows. ∎
+
+###### Proof of Theorem [1.1](https://arxiv.org/html/2312.03566#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶").
+
+Write R=\mathrm{rad}(n^{2}+1). By Theorem [1.2](https://arxiv.org/html/2312.03566#S1.Thmtheorem2 "Theorem 1.2. ‣ 1. Introduction ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") we have
+
+R\geq\exp\left(\kappa\cdot\frac{(\log_{2}n)^{2}}{\log_{3}n}\right).
+
+Write P=\mathscr{P}(n^{2}+1). By Chebyshev’s bound for the function \theta(x)=\sum_{p\leq x}\log p, we have
+
+R\leq\prod_{p\leq P}p\leq\exp(4P)
+
+which proves the result. ∎
+
+## 4. Subexponential ABC, case 1
+
+###### Proof of Theorem [1.4](https://arxiv.org/html/2312.03566#S1.Thmtheorem4 "Theorem 1.4. ‣ 1. Introduction ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") item (1).
+
+We keep the notation from the statement and assume that c is large enough. Note that R grows as c grows —for instance, by the finiteness of solutions of the S-unit equation. We can write
+
+\frac{a}{c}=1-\xi
+
+where \xi=b/c. Let \xi_{1},...,\xi_{r} be the different prime divisors of bc and let e_{j}=\nu_{\xi_{j}}(b/c) (possibly negative). Let
+
+B=\exp\left(\sqrt{(\log R)\log_{2}R}\right)
+
+and define J=\{1,2,...,r\} and I=\{j\in J:|e_{j}|>B\}. Let \xi_{0}=\prod_{j\in J-I}\xi_{j}^{e_{j}}, let I_{0}=I\cup\{0\}, and let m=\#I_{0}. Let \Gamma be the subgroup of \mathbb{Q}^{\times} generated by \xi_{j} for j\in I_{0}; in particular, \xi=b/c\in\Gamma.
+
+By item (1) in Theorem [2.1](https://arxiv.org/html/2312.03566#S2.Thmtheorem1 "Theorem 2.1 (Approximation bound). ‣ 2.1. Bounds coming from linear forms in logarithms ‣ 2. Preliminaries ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") we have
+
+\eta\cdot\log c\leq\log(c/a)=-\log\left|1-\xi\right|\leq K^{m}\cdot(\log\max\{e,h(\xi)\})\prod_{j\in I_{0}}h(\xi_{j})
+
+where |-| is the archimedian absolute value on \mathbb{Q} and K is an absolute constant.
+
+We have h(\xi)=h(b/c)=\log c\leq R^{K^{\prime}} for some absolute constant K^{\prime}, by applying any exponential bound for the ABC conjecture (such as the one in [[12](https://arxiv.org/html/2312.03566#bib.bib12)] which gives K^{\prime}=15.) On the other hand, we have h(\xi_{0})\leq B\log R, so we obtain
+
+(4.1)\eta\cdot\log c\leq K^{\prime}\cdot K^{m}B(\log R)^{2}\prod_{j\in I}h(\xi_{j}).
+
+If m=1 we have I=\emptyset thus obtaining
+
+\eta\cdot\log c\leq K^{\prime}KB(\log R)^{2}\leq\exp\left(2\sqrt{(\log R)\log_{2}R}\right)
+
+and the result follows. So we may assume that m\geq 2. From ([4.2](https://arxiv.org/html/2312.03566#S4.E2 "In Proof of Theorem item (1). ‣ 4. Subexponential 𝐴⁢𝐵⁢𝐶, case 1 ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶")) we get
+
+(4.2)\eta\cdot\log c\leq K^{\prime}\cdot K^{m}B(\log R)^{2}\left(\frac{1}{m-1}\log R\right)^{m-1}\leq K^{\prime}KB^{2}\left(\frac{K}{m-1}\log R\right)^{m-1}
+
+by applying the arithmetic-geometric mean inequality.
+
+Let us bound m. Fixing a small \epsilon>0, from Theorem [2.5](https://arxiv.org/html/2312.03566#S2.Thmtheorem5 "Theorem 2.5 (Bound for 𝐴⁢𝐵⁢𝐶 triples, Theorem 16.8 in []). ‣ 2.3. Bounds coming from Shimura curves ‣ 2. Preliminaries ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") we get
+
+B^{m-1}\leq\prod_{j\in I}|e_{j}|\leq\prod_{p|R}\nu_{p}(abc)\leq R^{3}
+
+from which it follows that
+
+m-1\leq\frac{3\log R}{\log B}=3\sqrt{\frac{\log R}{\log_{2}R}}.
+
+From Lemma [3.1](https://arxiv.org/html/2312.03566#S3.Thmtheorem1 "Lemma 3.1. ‣ 3. The largest prime factor of 𝑛^2+1 ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") we deduce
+
+\left(\frac{K}{m-1}\log R\right)^{m-1}\leq\left(\frac{K}{3}\sqrt{(\log R)\log_{2}R}\right)^{3\sqrt{(\log R)/\log_{2}R}}\leq B^{K^{\prime\prime}}
+
+for some absolute constant K^{\prime\prime}. Putting this together with ([4.2](https://arxiv.org/html/2312.03566#S4.E2 "In Proof of Theorem item (1). ‣ 4. Subexponential 𝐴⁢𝐵⁢𝐶, case 1 ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶")) we get
+
+\eta\cdot\log c\leq K^{\prime}KB^{2+K^{\prime\prime}}.
+
+The result follows from the definition of B. ∎
+
+## 5. Subexponential ABC, case 2
+
+###### Proof of Theorem [1.4](https://arxiv.org/html/2312.03566#S1.Thmtheorem4 "Theorem 1.4. ‣ 1. Introduction ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") item (2).
+
+By Theorem [1.4](https://arxiv.org/html/2312.03566#S1.Thmtheorem4 "Theorem 1.4. ‣ 1. Introduction ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") item (1) it suffices to assume c^{1/2}\leq a<b<c. For the sake of having a more symmetric formulation of the problem, let x,y,z\in\mathbb{Z} be the same numbers a,b,c up to sign and in some order, such that x+y+z=0. We may assume that q divides x and let us write the equation x+y+z=0 as
+
+-\frac{x}{z}=1-\xi
+
+where \xi=-y/z. Let p_{0} be a prime divisor of x (in particular, p_{0}\leq q) such that \nu_{p_{0}}(x) is maximal among the prime divisors of x. Then, since c^{1/2}\leq a<b<c we see that
+
+\frac{\log c}{2\log R}\leq\nu_{p_{0}}(x)\leq 2\nu_{p_{0}}(x)\log p_{0}\leq-2\log|1-\xi|_{p_{0}}.
+
+Let
+
+B=\exp\left(\sqrt{(\log R)\log_{2}R}\right).
+
+As in the proof of Theorem [1.2](https://arxiv.org/html/2312.03566#S1.Thmtheorem2 "Theorem 1.2. ‣ 1. Introduction ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") item (1), we may use Theorem [2.5](https://arxiv.org/html/2312.03566#S2.Thmtheorem5 "Theorem 2.5 (Bound for 𝐴⁢𝐵⁢𝐶 triples, Theorem 16.8 in []). ‣ 2.3. Bounds coming from Shimura curves ‣ 2. Preliminaries ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") to bound the number of prime divisors of xz with exponent larger than B. Then, using an argument very similar to that in the proof of Theorem [1.2](https://arxiv.org/html/2312.03566#S1.Thmtheorem2 "Theorem 1.2. ‣ 1. Introduction ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") item (1), but applying item (ii) of Theorem [2.1](https://arxiv.org/html/2312.03566#S2.Thmtheorem1 "Theorem 2.1 (Approximation bound). ‣ 2.1. Bounds coming from linear forms in logarithms ‣ 2. Preliminaries ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") (with v=p_{0}) instead of item (i), we deduce that there is some absolute constant K such that
+
+-\log|1-\xi|_{p_{0}}\leq p_{0}\cdot B^{K}\leq q\cdot B^{K}
+
+and the result follows. ∎
+
+###### Proof of Corollary [1.5](https://arxiv.org/html/2312.03566#S1.Thmtheorem5 "Corollary 1.5. ‣ 1. Introduction ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶").
+
+We take a=x, b=y and c=x+y. Since c<2b=2y we may express the desired lower bound for \mathscr{P}(xy(x+y)) in terms of c.
+
+We may assume q<(\log_{2}c)^{2}/\log_{3}c for otherwise the result directly holds. By item (2) of Theorem [1.4](https://arxiv.org/html/2312.03566#S1.Thmtheorem4 "Theorem 1.4. ‣ 1. Introduction ‣ The largest prime factor of 𝑛^2+1 and improvements on subexponential 𝐴⁢𝐵⁢𝐶") we get
+
+\log c\leq\exp\left(K\cdot\sqrt{(\log R)\log_{2}R}\right)
+
+for certain absolute constant K>0, where R=\mathrm{rad}(abc). This gives
+
+\log R\geq K^{\prime}\cdot\frac{(\log_{2}c)^{2}}{\log_{3}c}
+
+for certain absolute constant K^{\prime}. By Chebyshev’s bound we have \exp(4\mathscr{P}(abc))\geq R and the result follows. ∎
+
+## 6. Acknowledgments
+
+Supported by ANID Fondecyt Regular grant 1230507 from Chile. I thank Kálmán Györy and Cameron L. Stewart for valuable comments on these results. And I am particularly indebted to Samuel Le Fourn and M. Ram Murty for carefully reading an earlier version of this manuscript and suggesting several changes and corrections.
+
+## References
+
+*   [1] C. Breuil, B. Conrad, F. Diamond, R. Taylor, _On the modularity of elliptic curves over \mathbb{Q}: wild 3-adic exercises_. J. Amer. Math. Soc. 14 (2001), no. 4, 843-939. 
+*   [2] S. Chowla, _The Greatest Prime Factor of x^{2}+1_. J. London Math. Soc. 10 (1935), no. 2, 117-120. 
+*   [3] J.-H. Evertse, K. Györy, _Unit equations in Diophantine number theory_. Cambridge Studies in Advanced Mathematics, 146. Cambridge University Press, Cambridge, 2015. 
+*   [4] R. von Känel, B. Matschke, _Solving S-unit, Mordell, Thue, Thue-Mahler and generalized Ramanujan-Nagell equations via the Shimura-Taniyama conjecture_. Mem. Amer. Math. Soc. 286 (2023), no. 1419. 
+*   [5] M. R. Murty, _Bounds for congruence primes_. Automorphic forms, automorphic representations, and arithmetic (Fort Worth, TX, 1996), 177-192, Proc. Sympos. Pure Math., 66, Part 1, Amer. Math. Soc., Providence, RI, 1999. 
+*   [6] M. R. Murty, H. Pasten, _Modular forms and effective Diophantine approximation_. J. Number Theory 133 (2013), no. 11, 3739-3754. 
+*   [7] H. Pasten, _Shimura curves and the abc conjecture_. J. Number Theory 254 (2024), 214-335. 
+*   [8] H. Pasten, _On the arithmetic case of Vojta’s conjecture with truncated counting functions_. Preprint (2022) arXiv:2205.07841 
+*   [9] A. van der Poorten, A. Schinzel, T. Shorey, R. Tijdeman, _Applications of the Gel’fond-Baker method to Diophantine equations. Transcendence theory: advances and applications_. (Proc. Conf., Univ. Cambridge, Cambridge, 1976), pp. 59-77, Academic Press, London-New York, 1977. 
+*   [10] K. Ribet, S. Takahashi, _Parametrizations of elliptic curves by Shimura curves and by classical modular curves_. Elliptic curves and modular forms (Washington, DC, 1996). Proc. Nat. Acad. Sci. U.S.A. 94 (1997), no. 21, 11110-11114. 
+*   [11] T. Shorey, R. Tijdeman, _On the greatest prime factors of polynomials at integer points_. Compositio Math. 33 (1976), no. 2, 187-195. 
+*   [12] C. Stewart, R. Tijdeman, _On the Oesterlé-Masser conjecture_. Monatsh. Math. 102 (1986), no. 3, 251-257. 
+*   [13] C. Stewart, K. Yu, _On the abc conjecture_. Math. Ann. 291 (1991), no. 2, 225-230. 
+*   [14] C. Stewart, K. Yu, _On the abc conjecture. II_. Duke Math. J. 108 (2001), no. 1, 169-181. 
+*   [15] R. Taylor, A. Wiles, _Ring-theoretic properties of certain Hecke algebras_. Ann. of Math. (2) 141 (1995), no. 3, 553-572. 
+*   [16] A. Wiles, _Modular elliptic curves and Fermat’s last theorem_. Ann. of Math. (2) 141 (1995), no. 3, 443-551. 
+*   [17] X. Yuan, S.-W. Zhang, _On the averaged Colmez conjecture_. Ann. of Math. (2) 187 (2018), no. 2, 533-638.
+

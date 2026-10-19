@@ -1,0 +1,412 @@
+## Content from https://arxiv.org/html/2410.13403v3
+
+Title: Hilbert irreducibility for integral points on punctured linear algebraic groups
+
+URL Source: https://arxiv.org/html/2410.13403v3
+
+Markdown Content:
+Cedric Luger Address: Cedric Luger   
+Institut für Mathematik   
+Johannes Gutenberg-Universität Mainz   
+Staudingerweg 9, 55099 Mainz   
+Germany. Email address: [celuger@uni-mainz.de](mailto:celuger@uni-mainz.de)
+
+###### Abstract.
+
+Let K be a number field, let X be a smooth integral variety over K, and assume that there exists a finite set of finite places S of K such that the S-integral points on X are dense. Then the combined conjectures of Campana and Corvaja–Zannier predict that, for every closed subscheme Z of X of codimension at least two, there exists a finite extension L of K and a finite set of finite places T of L such that the T-integral points on (X\setminus Z)_{L} are not strongly thin. The main goal of the present paper is to show that this property holds for all connected linear algebraic groups. Our result builds mainly on recent work on a Hilbert irreducibility type theorem for connected algebraic groups, the purity of strong approximation for semi-simple simply connected quasi-split linear algebraic groups, and the relation between integral strong approximation and the Hilbert property.
+
+###### Key words and phrases:
+
+Integral points, ramified covers, Hilbert irreducibility, algebraic groups, strong approximation
+
+###### 2020 Mathematics Subject Classification
+
+14G99 (14G05, 14G40, 20G30)
+
+## 1. Introduction
+
+Integral points on algebraic varieties have been the object of extensive study in Diophantine geometry. A central theme is to understand how the geometry of a variety constrains the existence and distribution of its integral points.
+
+Beyond the question of existence, one may ask how “large” a set of integral points can be from an arithmetic perspective. In this direction, we follow [[CZ17](https://arxiv.org/html/2410.13403v3#bib.bibx16)] (see also [[CDJ+22](https://arxiv.org/html/2410.13403v3#bib.bibx7), Definition 1.2] and [[Lug26](https://arxiv.org/html/2410.13403v3#bib.bibx28), Definition 1.3]) and study the weak Hilbert property, which is a refined version of the usual Hilbert property, as defined in [[Ser92](https://arxiv.org/html/2410.13403v3#bib.bibx32), §3]. To give its definition, we call a morphism Y\to X of integral varieties a _finite cover_ if it is finite surjective separable. If X and Y are normal, a finite cover Y\to X is a _ramified cover_ if it is not étale.
+
+###### Definition 1.1.
+
+Let X be a normal integral variety over a field k. A subset \Omega\subseteq X(k) is _strongly thin_ in X if there is an integer n\geq 0 and a finite collection (\pi_{i}\colon Y_{i}\to X)_{i=1}^{n} of ramified covers such that
+
+\Omega\setminus\bigcup_{i=1}^{n}\pi_{i}(Y_{i}(k))
+
+is not Zariski dense in X.
+
+###### Definition 1.2.
+
+Let S be a finite set of finite places of a number field K and let X be a smooth integral variety over K. Let \mathcal{X} be an integral scheme that is dominant, separated, and of finite type over \mathcal{O}_{K,S} with generic fiber \mathcal{X}_{K}\cong X. We say that \mathcal{X} has the _weak Hilbert property over \mathcal{O}\_{K,S}_ if \mathcal{X}(\mathcal{O}_{K,S}) is not a strongly thin subset of X=\mathcal{X}_{K}. We say that X has the _weak Hilbert property over \mathcal{O}\_{K,S}_ if there exists an integral scheme \tilde{\mathcal{X}} that is dominant, separated, and of finite type over \mathcal{O}_{K,S}, has generic fiber \tilde{\mathcal{X}}_{K}\cong X, and has the weak Hilbert property over \mathcal{O}_{K,S}.
+
+For example, any smooth projective integral variety over a number field K with the Hilbert property has the weak Hilbert property over \mathcal{O}_{K,S} for any finite set of finite places S of K. This includes rational varieties by Hilbert’s irreducibility theorem, but also certain non-rational del Pezzo surfaces [[Dem20](https://arxiv.org/html/2410.13403v3#bib.bibx17), [Dem21](https://arxiv.org/html/2410.13403v3#bib.bibx18)], certain K3 surfaces [[CZ17](https://arxiv.org/html/2410.13403v3#bib.bibx16)], and abelian varieties with a dense set of rational points [[CDJ+22](https://arxiv.org/html/2410.13403v3#bib.bibx7)].
+
+For S a scheme, a _torus over S_ is a smooth affine group scheme T over S with geometrically connected fibers such that T is fppf locally isomorphic to \mathbb{G}_{m}^{n} for some integer n\geq 0. In [[Zan10](https://arxiv.org/html/2410.13403v3#bib.bibx36)] Zannier proved the weak Hilbert property for tori: given a suitable ramified covering, he constructed a torsion point which does not lift along the ramified covering to a rational point and then used Kummer theory to construct a dense subset of integral points which do not lift.
+
+Corvaja–Zannier asked whether the density of integral points on a variety implies the weak Hilbert property, possibly up to an extension of the base field:
+
+###### Conjecture 1.3([[CZ17](https://arxiv.org/html/2410.13403v3#bib.bibx16), Question-Conjecture 1bis]).
+
+Let S be a finite set of finite places of a number field K and let X be a smooth integral variety over K. Let \mathcal{X} be an integral scheme that is dominant separated of finite type over \mathcal{O}_{K,S} such that \mathcal{X}_{K}\cong X. If \mathcal{X}(\mathcal{O}_{K,S}) is Zariski dense in X, then there exists a finite field extension L/K and a finite set of finite places T of L such that X_{L} satisfies the weak Hilbert property over \mathcal{O}_{L,T}.
+
+This question has been answered positively in numerous cases. For examples, see [[Coc19](https://arxiv.org/html/2410.13403v3#bib.bibx11), [Dem20](https://arxiv.org/html/2410.13403v3#bib.bibx17), [Dem21](https://arxiv.org/html/2410.13403v3#bib.bibx18), [GCM23](https://arxiv.org/html/2410.13403v3#bib.bibx20), [Lug26](https://arxiv.org/html/2410.13403v3#bib.bibx28)]. The main result of this paper is a positive answer to Conjecture [1.3](https://arxiv.org/html/2410.13403v3#S1.Thmtheorem3 "Conjecture 1.3 ([, Question-Conjecture 1bis]). ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") for “punctured” linear algebraic groups, i.e., the complement of a closed subscheme of codimension at least 2 in a linear algebraic group:
+
+###### Theorem 1.4.
+
+Let G be a connected linear algebraic group over K and Z\subseteq G a closed subscheme of codimension at least 2. Then there exists a finite field extension L/K and a finite set of finite places T of L such that (G\setminus Z)_{L} satisfies the weak Hilbert property over \mathcal{O}_{L,T}.
+
+Theorem [1.4](https://arxiv.org/html/2410.13403v3#S1.Thmtheorem4 "Theorem 1.4. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") was first obtained and explained to us by Ariyan Javanpeykar and Julian Demeio in the case of tori. The proof for the toric case has three ingredients:
+
+*   •
+A product theorem for arithmetic schemes with the weak Hilbert property, established in our previous paper [[Lug26](https://arxiv.org/html/2410.13403v3#bib.bibx28)] (see also Theorem [2.2](https://arxiv.org/html/2410.13403v3#S2.Thmtheorem2 "Theorem 2.2 ([, Theorem 4.4]). ‣ 2. One point suffices ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups")),
+
+*   •
+Zannier’s _strong_ version of Hilbert irreducibility for tori [[Zan10](https://arxiv.org/html/2410.13403v3#bib.bibx36)], and
+
+*   •
+the approximation argument to prove potential density of integral points on punctured tori by Hassett–Tschinkel [[HT01](https://arxiv.org/html/2410.13403v3#bib.bibx25)], which they attribute to McKinnon.
+
+We expand the arguments of Demeio and Javanpeykar to all linear algebraic groups by using a recently established strong version of Hilbert irreducibility for connected algebraic groups [[Lug26](https://arxiv.org/html/2410.13403v3#bib.bibx28)], which builds on the work of Liu [[Liu22](https://arxiv.org/html/2410.13403v3#bib.bibx27)] and Corvaja–Demeio–Javanpeykar–Lombardo–Zannier [[CDJ+22](https://arxiv.org/html/2410.13403v3#bib.bibx7)]. Moreover, we use a combination of the work of Cao–Xu [[CX18](https://arxiv.org/html/2410.13403v3#bib.bibx15)], Cao–Liang–Xu [[CLX19](https://arxiv.org/html/2410.13403v3#bib.bibx10)], and Wei [[Wei21](https://arxiv.org/html/2410.13403v3#bib.bibx34)] on strong approximation with the work of Nakahara–Streeter [[NS24](https://arxiv.org/html/2410.13403v3#bib.bibx31)] and Moerman [[Moe24](https://arxiv.org/html/2410.13403v3#bib.bibx30)] on integral strong approximation and the Hilbert property. To properly combine these results, we introduce the property “(OPS)” (Definition [2.1](https://arxiv.org/html/2410.13403v3#S2.Thmtheorem1 "Definition 2.1. ‣ 2. One point suffices ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups")) for schemes. By definition, a scheme with this property that has an integral point inside the complement of closed subscheme of a given codimension admits a non-strongly-thin subset of integral points in this complement.
+
+This paper is motivated by a conjecture due to Campana [[Cam04](https://arxiv.org/html/2410.13403v3#bib.bibx6), Conjecture 9.20] which predicts that a variety over a number field admits a dense set of integral points if and only if it is “special” in the sense of [[Cam04](https://arxiv.org/html/2410.13403v3#bib.bibx6), Definition 2.1] (see also [[BJL25](https://arxiv.org/html/2410.13403v3#bib.bibx2), Definition 1.2]), and by the fact that smooth special varieties remain special after removing a closed subset of codimension at least 2 (see [[BJL25](https://arxiv.org/html/2410.13403v3#bib.bibx2), Theorem 1.21]). In particular, since Campana’s class of smooth special varieties is invariant under removing closed subsets of codimension at least 2, the same should hold for any property conjecturally equivalent to being special, such as “having a dense entire curve” or “having a potentially dense set of integral points”. Thus, as Corvaja–Zannier conjectured that the weak Hilbert property holds for any smooth integral variety with a dense set of integral points (Conjecture [1.3](https://arxiv.org/html/2410.13403v3#S1.Thmtheorem3 "Conjecture 1.3 ([, Question-Conjecture 1bis]). ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups")), the conjectures of Campana and Corvaja–Zannier predict the following “puncturing conjecture”:
+
+###### Conjecture 1.5.
+
+Let X be a smooth integral variety over a number field K. Then the following are equivalent.
+
+1.   (1)
+The variety X is special.
+
+2.   (2)
+There is a number field L/K, a finite set of finite places T of L, and a model \mathcal{X} for X_{L} over \mathcal{O}_{L,T} such that \mathcal{X}(\mathcal{O}_{L,T}) is dense.
+
+3.   (3)
+For every closed subscheme Z\subseteq X of codimension at least two, there is a number field L/K, a finite set of finite places T of L, and a model \mathcal{U} for (X\setminus Z)_{L} over \mathcal{O}_{L,T} such that \mathcal{U}(\mathcal{O}_{L,T}) is dense.
+
+4.   (4)
+There is a number field L and a finite set of finite places T of L such that X_{L} satisfies the weak Hilbert property over \mathcal{O}_{L,T}.
+
+5.   (5)
+For every closed subscheme Z\subseteq X of codimension at least two, there is a number field L and a finite set of finite places T of L such that (X\setminus Z)_{L} satisfies the weak Hilbert property over \mathcal{O}_{L,T}.
+
+Note that [(5)](https://arxiv.org/html/2410.13403v3#S1.I2.i5 "item (5) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") implies [(2)](https://arxiv.org/html/2410.13403v3#S1.I2.i2 "item (2) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups")-[(4)](https://arxiv.org/html/2410.13403v3#S1.I2.i4 "item (4) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"). The equivalence of [(1)](https://arxiv.org/html/2410.13403v3#S1.I2.i1 "item (1) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") and [(2)](https://arxiv.org/html/2410.13403v3#S1.I2.i2 "item (2) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") is Campana’s conjecture [[Cam04](https://arxiv.org/html/2410.13403v3#bib.bibx6), Conjecture 9.20], and the equivalence of [(2)](https://arxiv.org/html/2410.13403v3#S1.I2.i2 "item (2) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") and [(4)](https://arxiv.org/html/2410.13403v3#S1.I2.i4 "item (4) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") is Conjecture [1.3](https://arxiv.org/html/2410.13403v3#S1.Thmtheorem3 "Conjecture 1.3 ([, Question-Conjecture 1bis]). ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") for the variety X. The equivalence of [(1)](https://arxiv.org/html/2410.13403v3#S1.I2.i1 "item (1) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), [(2)](https://arxiv.org/html/2410.13403v3#S1.I2.i2 "item (2) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") and [(3)](https://arxiv.org/html/2410.13403v3#S1.I2.i3 "item (3) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") is again a special case of Campana’s conjectures by the aforementioned result that X\setminus Z is special. We note that part of this equivalence was also conjectured by Hassett–Tschinkel [[HT01](https://arxiv.org/html/2410.13403v3#bib.bibx25), Problem 2.13], albeit with the weaker assumption that X has only canonical singularities, in which case there are counterexamples given in [[BJL25](https://arxiv.org/html/2410.13403v3#bib.bibx2), Theorem E]. Finally, the equivalence of [(3)](https://arxiv.org/html/2410.13403v3#S1.I2.i3 "item (3) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") and [(5)](https://arxiv.org/html/2410.13403v3#S1.I2.i5 "item (5) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") is the natural extension of Conjecture [1.3](https://arxiv.org/html/2410.13403v3#S1.Thmtheorem3 "Conjecture 1.3 ([, Question-Conjecture 1bis]). ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") for the variety X\setminus Z.
+
+If G is a connected algebraic group, then G is special, satisfies [(4)](https://arxiv.org/html/2410.13403v3#S1.I2.i4 "item (4) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") by [[Lug26](https://arxiv.org/html/2410.13403v3#bib.bibx28)], and thus also satisfies [(2)](https://arxiv.org/html/2410.13403v3#S1.I2.i2 "item (2) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"). Our main result, Theorem [1.4](https://arxiv.org/html/2410.13403v3#S1.Thmtheorem4 "Theorem 1.4. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), is that connected linear algebraic groups satisfy [(5)](https://arxiv.org/html/2410.13403v3#S1.I2.i5 "item (5) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") and therefore shows that Conjecture [1.5](https://arxiv.org/html/2410.13403v3#S1.Thmtheorem5 "Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") holds for all linear algebraic groups. However, a complete proof of Conjecture [1.5](https://arxiv.org/html/2410.13403v3#S1.Thmtheorem5 "Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") remains elusive in the case of a general connected algebraic group, e.g., an abelian variety.
+
+###### Conventions.
+
+Throughout this paper, we let K denote a number field, S a finite set of finite places of K, and R=\mathcal{O}_{K,S} the ring of S-integral numbers of K. By an _arithmetic scheme_ over R we mean a scheme that is dominant separated of finite type over R with an integral generic fiber. (Note that, contrary to [[Lug26](https://arxiv.org/html/2410.13403v3#bib.bibx28)], we do not require an arithmetic scheme to be normal.) If X is an integral variety over K, by a _model_ of X over R we mean an integral arithmetic scheme \mathcal{X} over R with generic fiber \mathcal{X}_{K}\cong X.
+
+###### Acknowledgements.
+
+We gratefully acknowledge Ariyan Javanpeykar for constant support and many helpful discussions. We also thank Finn Bartsch, Manuel Blickle, and Boaz Moerman for helpful discussions. We are grateful to Olivier Wittenberg for explaining to us the relation between strong approximation and the integral Hilbert property, and also the relevance of the work of Cao–Liang–Xu [[CLX19](https://arxiv.org/html/2410.13403v3#bib.bibx10)] on strong approximation for punctured semi-simple simply connected groups. We are grateful to Ariyan Javanpeykar and Julian Demeio for allowing us to include and build on their initial argument for punctured tori. We thank the referee for carefully reading the manuscript and many valuable suggestions. This research was funded by the Studienstiftung des Deutschen Volkes (German Academic Scholarship Foundation). We gratefully acknowledge support by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) – Project-ID 444845124 – TRR 326.
+
+## 2. One point suffices
+
+In order to to verify part [(5)](https://arxiv.org/html/2410.13403v3#S1.I2.i5 "item (5) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") of Conjecture [1.5](https://arxiv.org/html/2410.13403v3#S1.Thmtheorem5 "Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") for certain varieties, we investigate arithmetic schemes for which the existence of one integral point in the complement of a closed subscheme implies the non-strongly-thinness of such points. We will say that such arithmetic schemes satisfy the property “(OPS)”, for “one point suffices”. If this property is obtained after an enlargement of S and preserved under further enlargements, we refer to it as “(OPSE)”, for “one point suffices after extension”.
+
+###### Definition 2.1.
+
+Let \mathcal{X} be an arithmetic scheme over R with \mathcal{X}_{K} normal and let c\geq 1 be an integer. We say that \mathcal{X} satisfies _(OPS) for codimension at least c over R_ if \mathcal{X}(R)\neq\emptyset and, for every closed subscheme \mathcal{Z}\subseteq\mathcal{X} such that \mathcal{Z}_{K}\subseteq\mathcal{X}_{K} is of codimension at least c and (\mathcal{X}\setminus\mathcal{Z})(R)\neq\emptyset, the set (\mathcal{X}\setminus\mathcal{Z})(R) is not strongly thin in \mathcal{X}_{K}. We say that \mathcal{X} satisfies _(OPSE) for codimension at least c_ if there exists a finite set of finite places S^{\prime} of K containing S such that, for every finite set of finite places S^{\prime\prime} of K containing S^{\prime}, the scheme \mathcal{X}_{\mathcal{O}_{K,S^{\prime\prime}}} satisfies (OPS) for codimension at least c.
+
+In the definition of (OPS) we require \mathcal{X}(R)\neq\emptyset to avoid tautologies for schemes without integral points. Note that, if (\mathcal{X}\setminus\mathcal{Z})(R) is not strongly thin in \mathcal{X}_{K}, then it is also not strongly thin in \mathcal{X}_{K}\setminus\mathcal{Z}_{K}, as can be seen by normalizing a given ramified cover of \mathcal{X}_{K}\setminus\mathcal{Z}_{K} in \mathcal{X}_{K}, which produces a ramified cover of \mathcal{X}_{K} by purity of the branch locus. Even though the property (OPS) will be stable under enlargements of S for all schemes that we consider in this paper, this might not be the case in general, which is why in the definition of (OPSE) we require (OPS) to hold for all enlargements S^{\prime\prime} of S^{\prime}. An arithmetic scheme satisfying (OPS) or (OPSE) for any codimension has a dense set of rational points, since the empty subscheme is of codimension \infty.
+
+Given a closed subscheme \mathcal{Z}\subseteq\mathcal{X} and a finite set of finite places S^{\prime} of K containing S, we have
+
+(\mathcal{X}_{\mathcal{O}_{K,S^{\prime}}}\setminus\mathcal{Z}_{\mathcal{O}_{K,S^{\prime}}})(\mathcal{O}_{K,S^{\prime}})=(\mathcal{X}\setminus\mathcal{Z})_{\mathcal{O}_{K,S^{\prime}}}(\mathcal{O}_{K,S^{\prime}})=(\mathcal{X}\setminus\mathcal{Z})(\mathcal{O}_{K,S^{\prime}})
+
+as subsets of \mathcal{X}_{K}(K); we make this identification tacitly when using the property (OPS) for \mathcal{X}_{\mathcal{O}_{K,S^{\prime}}}.
+
+In this section, we investigate integral points on products whose factors satisfy the property (OPSE). We use the following special case of a product theorem given in [[Lug26](https://arxiv.org/html/2410.13403v3#bib.bibx28)]:
+
+###### Theorem 2.2([[Lug26](https://arxiv.org/html/2410.13403v3#bib.bibx28), Theorem 4.4]).
+
+Let \mathcal{X},\mathcal{Y} be normal quasi-projective arithmetic schemes over R and define X=\mathcal{X}_{K},Y=\mathcal{Y}_{K}. Let p\colon X\times Y\to X denote the projection morphism. Let \Sigma\subseteq(\mathcal{X}\times\mathcal{Y})(R) be a subset. If p(\Sigma) is not strongly thin in X and, for every x\in p(\Sigma), the set \Sigma\cap(\{x\}\times Y) is not strongly thin in \{x\}\times Y, then \Sigma is not strongly thin in X\times Y.
+
+The following result shows that a punctured product of schemes satisfying (OPSE) admits a non-strongly-thin set of integral points, up to enlarging the base ring.
+
+###### Theorem 2.3.
+
+Let N\geq 1 be an integer, let \mathcal{X}=\mathcal{X}_{1}\times_{R}\ldots\times_{R}\mathcal{X}_{N} with each \mathcal{X}_{i} a normal quasi-projective arithmetic scheme over R satisfying (OPSE) for codimension at least c_{i}, and let c=\max_{i=1,\ldots,N}c_{i}. Let \mathcal{Z}\subseteq\mathcal{X} be a closed subscheme such that \mathcal{Z}_{K} is of codimension at least c in \mathcal{X}_{K}. Then there exists a finite set of finite places S^{\prime} of K containing S such that (\mathcal{X}\setminus\mathcal{Z})(\mathcal{O}_{K,S^{\prime}}) is not strongly thin in \mathcal{X}_{K}.
+
+###### Proof.
+
+Enlarging S if necessary, we may assume that each \mathcal{X}_{i,\mathcal{O}_{K,S^{\prime}}} satisfies (OPS) for codimension at least c_{i} for every finite set of finite places S^{\prime} containing S. We argue by induction on N. Assume that N=1. By the property (OPS), \mathcal{X}(K) is dense, so \mathcal{X}\setminus\mathcal{Z} admits a K-point p. Let S^{\prime}\supseteq S be a finite set of finite places such that p\in(\mathcal{X}\setminus\mathcal{Z})(\mathcal{O}_{K,S^{\prime}}). Since \mathcal{X}_{\mathcal{O}_{K,S^{\prime}}} satisfies (OPS) for codimension at least c and (\mathcal{X}\setminus\mathcal{Z})(\mathcal{O}_{K,S^{\prime}}) is non-empty, it follows that (\mathcal{X}\setminus\mathcal{Z})(\mathcal{O}_{K,S^{\prime}}) is not strongly thin in \mathcal{X}_{K}, as required.
+
+Now assume that N>1 and define \mathcal{X}^{\prime}=\mathcal{X}_{1}\times_{R}\ldots\times_{R}\mathcal{X}_{N-1}. Let \pi^{\prime}\colon\mathcal{X}\to\mathcal{X}^{\prime} be the projection onto \mathcal{X}^{\prime} and let \pi_{N}\colon\mathcal{X}\to\mathcal{X}_{N} be the projection onto the last factor. Let \pi^{\prime}_{K} and \pi_{N,K} denote the base change of \pi^{\prime} and \pi_{N} along \Spec K\to\Spec R.
+
+Since the \mathcal{X}_{i,K} are integral and have a dense set of K-rational points by the property (OPS), they are geometrically integral. By [[CLX19](https://arxiv.org/html/2410.13403v3#bib.bibx10), Proposition 3.5] and the faithful flatness of \pi^{\prime}_{K} and \pi_{N,K}, the codimension condition spreads out; more precisely, there exist dense opens U^{\prime}\subseteq\mathcal{X}^{\prime}_{K} and U_{N}\subseteq\mathcal{X}_{N,K} such that, for every x^{\prime}\in U^{\prime}(K) and for every x_{N}\in U_{N}(K), the codimension of (\pi^{\prime}_{K})^{-1}(x^{\prime})\cap\mathcal{Z}_{K} in (\pi^{\prime}_{K})^{-1}(x^{\prime}) and the codimension of (\pi_{N,K})^{-1}(x_{N})\cap\mathcal{Z}_{K} in (\pi_{N,K})^{-1}(x_{N}) are at least c.
+
+Since \mathcal{X}(K) is dense in \mathcal{X}, there exists a K-point p=(p^{\prime},p_{N})\in(\mathcal{X}\setminus\mathcal{Z})(K) such that p^{\prime}\in U^{\prime}(K) and p_{N}\in U_{N}(K). Let S^{\prime}\supseteq S be a finite set of finite places of K such that p\in(\mathcal{X}\setminus\mathcal{\mathcal{Z}})(\mathcal{O}_{K,S^{\prime}}) and define R^{\prime}=\mathcal{O}_{K,S^{\prime}}. Let \pi_{N,R^{\prime}} and \pi^{\prime}_{R^{\prime}} be the pullback of \pi_{N} and \pi^{\prime} along \Spec R^{\prime}\to\Spec R, respectively, identify \pi_{N,R^{\prime}}^{-1}(p_{N}) with \mathcal{X}^{\prime}_{R^{\prime}}, and write \mathcal{Z}^{\prime}\coloneqq\mathcal{Z}_{R^{\prime}}\cap\pi_{N,R^{\prime}}^{-1}(p_{N}). By the choice of p_{N}, the codimension of \mathcal{Z}^{\prime}_{K} in \mathcal{X}^{\prime}_{K} is at least c, so by the induction hypothesis, there exists a finite set of finite places S^{\prime\prime} of K containing S^{\prime} such that (\mathcal{X}^{\prime}\setminus\mathcal{Z}^{\prime})(\mathcal{O}_{K,S^{\prime\prime}}) is not strongly thin in \mathcal{X}^{\prime}_{K}. Define R^{\prime\prime}=\mathcal{O}_{K,S^{\prime\prime}} and
+
+\Gamma\coloneqq(\mathcal{X}^{\prime}_{R^{\prime}}\setminus\mathcal{Z}^{\prime})(R^{\prime\prime})\cap U^{\prime}(K),
+
+which is not strongly thin in \mathcal{X}^{\prime}_{K} since U^{\prime}\subseteq\mathcal{X}^{\prime}_{K} is a dense open. Let s\in\Gamma and let F_{s}\coloneqq(\pi^{\prime}_{R^{\prime\prime}})^{-1}(s)\cong\mathcal{X}_{N,R^{\prime\prime}}. Let T_{s}=\mathcal{Z}_{R^{\prime\prime}}\cap F_{s} be the intersection of F_{s} and \mathcal{Z}_{R^{\prime\prime}} in \mathcal{X}_{R^{\prime\prime}}.
+
+Note that F_{s,K}\cap\mathcal{Z}_{K} has codimension at least c in F_{s,K} by the choice of U^{\prime}, and that F_{s} satisfies (OPS) for codimension at least c_{N} (and thus for codimension at least c). Thus, since (s,p_{N})\in(F_{s}\setminus T_{s})(R^{\prime\prime}), we obtain that (F_{s}\setminus T_{s})(R^{\prime\prime}) is not strongly thin in F_{s,K}. Define
+
+\Sigma=\bigcup_{s\in\Gamma}(F_{s}\setminus T_{s})(R^{\prime\prime})\subseteq(\mathcal{X}\setminus\mathcal{Z})(R^{\prime\prime}).
+
+Since \Gamma=\pi^{\prime}(\Sigma) is not strongly thin in \mathcal{X}^{\prime}_{K} and, for every s\in\Gamma, the set
+
+\Sigma\cap(\{s\}\times\mathcal{X}_{N,K})=(F_{s}\setminus T_{s})(R^{\prime\prime})
+
+is not strongly thin in F_{s,K}=\{s\}\times\mathcal{X}_{N,K}, it follows from Theorem [2.2](https://arxiv.org/html/2410.13403v3#S2.Thmtheorem2 "Theorem 2.2 ([, Theorem 4.4]). ‣ 2. One point suffices ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") that \Sigma, and thus (\mathcal{X}\setminus\mathcal{Z})(R^{\prime\prime}), is not strongly thin in \mathcal{X}_{K}, as required. ∎
+
+One might ask whether Theorem [2.3](https://arxiv.org/html/2410.13403v3#S2.Thmtheorem3 "Theorem 2.3. ‣ 2. One point suffices ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") holds with R^{\prime\prime}=R under the assumption that (\mathcal{X}\setminus\mathcal{Z})(R) is dense in \mathcal{X}. Indeed, repeating the proof under this assumption still allows to find a point p=(p^{\prime},p_{N})\in(\mathcal{X}\setminus\mathcal{Z})(R) satisfying both p^{\prime}\in U^{\prime}(K) and p_{N}\in U_{N}(K). While the fiber \mathcal{X}^{\prime}\setminus\mathcal{Z}^{\prime} does admit an R-point, it is not clear why its set of R-points should be dense without enlarging R, so one would not be able to conclude that they are not strongly thin. However, the implication does hold if one assumes that \mathcal{X}^{\prime}=\mathcal{X}_{1}\times_{R}\ldots\times_{R}X_{N-1} satisfies (OPS) for codimension at least c: As \mathcal{Z}^{\prime} is of codimension at least c in \mathcal{X}’, the existence of an R-point would then ensure that R-points on \mathcal{X}^{\prime}\setminus\mathcal{Z}^{\prime} are not strongly thin, so we may choose R^{\prime\prime}=R in the proof.
+
+Since we are not able to show that a product of schemes with (OPS) again satisfies (OPS), the same arguments in the proof of Theorem [2.3](https://arxiv.org/html/2410.13403v3#S2.Thmtheorem3 "Theorem 2.3. ‣ 2. One point suffices ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") only show the following statement, in which we consider products of _two_ schemes:
+
+###### Theorem 2.4.
+
+Let c\geq 1 be an integer and let \mathcal{X}_{1} and \mathcal{X}_{2} be normal quasi-projective arithmetic schemes over R satisfying (OPS) for codimension at least c. Moreover, define \mathcal{X}=\mathcal{X}_{1}\times_{R}\mathcal{X}_{2} and let \mathcal{Z}\subseteq\mathcal{X} be a closed subscheme such that \mathcal{Z}_{K}\subseteq\mathcal{X}_{K} is of codimension at least c. If (\mathcal{X}\setminus\mathcal{Z})(R) is dense, then it is not strongly thin in \mathcal{X}_{K}.
+
+###### Proof.
+
+We adapt the arguments of the proof of Theorem [2.3](https://arxiv.org/html/2410.13403v3#S2.Thmtheorem3 "Theorem 2.3. ‣ 2. One point suffices ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"). Let \pi_{1} and \pi_{2} be the projection from \mathcal{X} to \mathcal{X}_{1} and \mathcal{X}_{2}, respectively, and let \pi_{1,K}, resp. \pi_{2,K}, denote their base changes along \Spec K\to\Spec R.
+
+Let i\in\{1,2\} and note that \mathcal{X}_{i,K} is integral with a dense set of K-rational points by the property (OPS), so it is geometrically integral. This shows that \mathcal{X}_{K} is also geometrically integral. Therefore, by [[CLX19](https://arxiv.org/html/2410.13403v3#bib.bibx10), Proposition 3.5] and the faithful flatness of \pi_{i,K}, there exists a dense open U_{i}\subseteq\mathcal{X}_{i,K} such that, for every x\in U_{i}(K), the codimension of (\pi_{i,K})^{-1}(x)\cap\mathcal{Z}_{K} in (\pi_{i,K})^{-1}(x) is at least c.
+
+By the density of (\mathcal{X}\setminus\mathcal{Z})(R), there exists a point p=(p_{1},p_{2})\in(\mathcal{X}\setminus\mathcal{Z})(R) with p_{1}\in U_{1}(K) and p_{2}\in U_{2}(K). Identify \pi_{2}^{-1}(p_{2}) with \mathcal{X}_{1} and let \mathcal{Z}_{1}\coloneqq\mathcal{Z}\cap\pi_{2}^{-1}(p_{2}). By the choice of p_{2}, the codimension of \mathcal{Z}_{1,K} in \mathcal{X}_{1,K} is at least c. Thus, since \mathcal{X}_{1} satisfies (OPS) for codimension at least c and (\mathcal{X}_{1}\setminus\mathcal{Z}_{1})(R)\ni p_{1} is non-empty, we obtain that (\mathcal{X}_{1}\setminus\mathcal{Z}_{1})(R) is not strongly thin in \mathcal{X}_{1,K}.
+
+Define
+
+\Gamma\coloneqq(\mathcal{X}_{1}\setminus\mathcal{Z}_{1})(R)\cap U_{1}(K),
+
+which is not strongly thin in \mathcal{X}_{1,K} since U_{1}\subseteq\mathcal{X}_{1,K} is a dense open. Let s\in\Gamma and let F_{s}\coloneqq(\pi_{1})^{-1}(s)\cong\mathcal{X}_{2}. Let T_{s}=\mathcal{Z}\cap F_{s} be the intersection of F_{s} and \mathcal{Z} in \mathcal{X}. Note that F_{s,K}\cap\mathcal{Z}_{K} has codimension at least c in F_{s,K} by the choice of U_{1}, and that F_{s} satisfies (OPS) for codimension at least c. Thus, since (s,p_{2})\in(F_{s}\setminus T_{s})(R), we obtain that (F_{s}\setminus T_{s})(R) is not strongly thin in F_{s,K}. Define
+
+\Sigma=\bigcup_{s\in\Gamma}(F_{s}\setminus T_{s})(R)\subseteq(\mathcal{X}\setminus\mathcal{Z})(R).
+
+Since \Gamma=\pi_{1}(\Sigma) is not strongly thin in \mathcal{X}^{\prime}_{K} and, for every s\in\Gamma, the set
+
+\Sigma\cap(\{s\}\times\mathcal{X}_{2,K})=(F_{s}\setminus T_{s})(R)
+
+is not strongly thin in F_{s,K}=\{s\}\times\mathcal{X}_{2,K}, it follows from Theorem [2.2](https://arxiv.org/html/2410.13403v3#S2.Thmtheorem2 "Theorem 2.2 ([, Theorem 4.4]). ‣ 2. One point suffices ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") that \Sigma, and thus (\mathcal{X}\setminus\mathcal{Z})(R), is not strongly thin in \mathcal{X}_{K}, as required. ∎
+
+## 3. The case of connected commutative group schemes
+
+Recall that R=\mathcal{O}_{K,S}. In this section we prove that connected commutative group schemes over R satisfy (OPS) under suitable conditions. Its main result is the following proposition.
+
+###### Proposition 3.1.
+
+Let \mathcal{G} be a connected commutative finite type group scheme over R and let
+
+0\longrightarrow H\longrightarrow\mathcal{G}_{K}\longrightarrow A\longrightarrow 0
+
+be an exact sequence of connected algebraic groups over K with H linear and A an abelian variety. Assume that \mathcal{G}(R) is dense in \mathcal{G}_{K} and that \mathcal{G}(R)\cap H(K) is dense in H. Then \mathcal{G} satisfies (OPS) for codimension at least \dim{\mathcal{G}_{K}}+1.
+
+We stress that \mathcal{G} satisfying (OPS) for codimension at least \dim G_{K}+1 is not an empty statement, as the codimension of the closed subscheme \mathcal{Z}\subseteq\mathcal{G} is taken in the generic fiber. In fact, the codimension of \mathcal{Z}_{K} in \mathcal{G}_{K} being at least \dim G_{K}+1 is equivalent to \mathcal{Z}_{K} being empty, which is equivalent to the image of \mathcal{Z} in \Spec R being a finite set of closed points by [[Gro66](https://arxiv.org/html/2410.13403v3#bib.bibx23), Corollaire 9.7.9]. If \mathcal{X} is a finite type R-scheme and \mathcal{Z}\subseteq\mathcal{X} is a closed subscheme whose image in \Spec R is a finite set of closed points, we say that \mathcal{Z} is a _vertical_ closed subscheme of \mathcal{X}.
+
+To prove Proposition [3.1](https://arxiv.org/html/2410.13403v3#S3.Thmtheorem1 "Proposition 3.1. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), we have to show that, given a vertical closed subscheme \mathcal{Z}\subseteq\mathcal{G}, the non-emptiness of (\mathcal{G}\setminus\mathcal{Z})(R) implies its non-strongly-thinness. We start by showing the existence of a dense subgroup of integral points, to which we may then apply a fibration theorem for the weak Hilbert property of algebraic groups given in [[Lug26](https://arxiv.org/html/2410.13403v3#bib.bibx28)]. For the existence of such a subgroup, we use an approximation argument given by Hassett–Tschinkel [[HT01](https://arxiv.org/html/2410.13403v3#bib.bibx25), Proposition 4.1], which they attribute to McKinnon:
+
+###### Lemma 3.2.
+
+Let \mathcal{G} be a finite type group scheme over R and let \mathcal{Z} be a vertical closed subscheme of \mathcal{G}. Then the following statements hold.
+
+1.   (1)
+For every point p\in(\mathcal{G}\setminus\mathcal{Z})(R), there exists an integer m\geq 1 such that the inclusion p\cdot\mathcal{G}(R)^{m}\subseteq(\mathcal{G}\setminus\mathcal{Z})(R) holds.
+
+2.   (2)
+Assume that \mathcal{G} is connected and \mathcal{G}(R) is dense. If (\mathcal{G}\setminus\mathcal{Z})(R) is non-empty, then it is dense.
+
+###### Proof.
+
+Since \mathcal{Z} is vertical, its image in \Spec R is finite. Let \mathfrak{p}_{1},\ldots,\mathfrak{p}_{n} be the primes lying under \mathcal{Z}. Let m_{i} be the order of the finite group \mathcal{G}(k(\mathfrak{p}_{i})) and let m denote the least common multiple of the m_{i}. Note that, for every g in \mathcal{G}(R)^{m}\subseteq\mathcal{G}(R), the element p\cdot g lies in (\mathcal{G}\setminus\mathcal{Z})(R). Indeed, for every i=1,\ldots,n, the image of p\cdot g in \mathcal{G}(k(\mathfrak{p}_{i})) equals the image of p, as g reduces to the identity element. This concludes the proof of [(1)](https://arxiv.org/html/2410.13403v3#S3.I1.i1 "item (1) ‣ Lemma 3.2. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups").
+
+To prove [(2)](https://arxiv.org/html/2410.13403v3#S3.I1.i2 "item (2) ‣ Lemma 3.2. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), let p\in(\mathcal{G}\setminus\mathcal{Z})(R). By [(1)](https://arxiv.org/html/2410.13403v3#S3.I1.i1 "item (1) ‣ Lemma 3.2. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") there exists an integer m\geq 1 such that p\cdot\mathcal{G}(R)^{m}\subseteq(\mathcal{G}\setminus\mathcal{Z})(R). Let [m]\colon\mathcal{G}_{K}\to\mathcal{G}_{K} denote the m-power map. By [[Spr98](https://arxiv.org/html/2410.13403v3#bib.bibx33), Lemma 4.4.12], the tangent map induced by [m] is the multiplication by m and thus surjective. Since \mathcal{G}_{K} is smooth over K[[DG70](https://arxiv.org/html/2410.13403v3#bib.bibx19), II.§5, Corollaire 2.3], it follows from [[BJ24](https://arxiv.org/html/2410.13403v3#bib.bibx1), Lemma 3.3] that [m] is dominant. Thus, by the density of \mathcal{G}(R), its image \mathcal{G}(R)^{m} under [m] is dense, so (\mathcal{G}\setminus\mathcal{Z})(R) contains the dense subset p\cdot\mathcal{G}(R)^{m} and is thus dense. ∎
+
+The proof of Proposition [3.1](https://arxiv.org/html/2410.13403v3#S3.Thmtheorem1 "Proposition 3.1. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") is now an application of the fibration results from [[Lug26](https://arxiv.org/html/2410.13403v3#bib.bibx28)].
+
+###### Proof of Proposition [3.1](https://arxiv.org/html/2410.13403v3#S3.Thmtheorem1 "Proposition 3.1. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups").
+
+Let \mathcal{Z}\subseteq\mathcal{G} be a closed subscheme with (\mathcal{G}\setminus\mathcal{Z})(R)\neq\emptyset and such that \mathcal{Z}_{K} is of codimension at least \dim{\mathcal{G}_{K}}+1 in \mathcal{G}_{K}, i.e. \mathcal{Z}_{K}=\emptyset, so \mathcal{Z} is a vertical closed subscheme of \mathcal{G}. Let p\in(\mathcal{G}\setminus\mathcal{Z})(R). By part [(1)](https://arxiv.org/html/2410.13403v3#S3.I1.i1 "item (1) ‣ Lemma 3.2. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") of Lemma [3.2](https://arxiv.org/html/2410.13403v3#S3.Thmtheorem2 "Lemma 3.2. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), we may choose m\geq 1 such that p\cdot\mathcal{G}(R)^{m}\subseteq(\mathcal{G}\setminus\mathcal{Z})(R). To prove the claim, it suffices to show that \Omega\coloneqq\mathcal{G}(R)^{m} is not strongly thin is \mathcal{G}_{K}, since we may compose ramified covers of \mathcal{G}_{K} with translation by p. Note that \Omega is dense in \mathcal{G}_{K} by part [(2)](https://arxiv.org/html/2410.13403v3#S3.I1.i2 "item (2) ‣ Lemma 3.2. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") of Lemma [3.2](https://arxiv.org/html/2410.13403v3#S3.Thmtheorem2 "Lemma 3.2. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") and, similarly, \Omega\cap H(K)\supseteq(\mathcal{G}(R)\cap H(K))^{m} is dense in H. Moreover, \Omega is a subgroup of \mathcal{G}(K) by the commutativity of \mathcal{G}. Thus, by [[Lug26](https://arxiv.org/html/2410.13403v3#bib.bibx28), Proposition 5.10], there exists a finitely generated subgroup \Omega^{\prime} of \Omega such that \Omega^{\prime} is dense in \mathcal{G} and \Omega^{\prime}\cap H(K) is dense in H. By [[Lug26](https://arxiv.org/html/2410.13403v3#bib.bibx28), Proposition 5.9], this implies that \Omega^{\prime}, is not strongly thin in \mathcal{G}_{K}, and thus \Omega is not strongly thin in \mathcal{G}_{K}. ∎
+
+###### Corollary 3.3.
+
+Let \mathcal{G} be either a linear connected commutative finite type group scheme over R or an abelian scheme over R. If \mathcal{G}_{K} is connected and \mathcal{G}(R) is dense, then \mathcal{G} satisfies (OPS) for codimension at least \dim{\mathcal{G}_{K}}+1.
+
+###### Proof.
+
+Apply Proposition [3.1](https://arxiv.org/html/2410.13403v3#S3.Thmtheorem1 "Proposition 3.1. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") to the obvious exact sequence, in which H=0 if \mathcal{G} is an abelian scheme, or A=0 if \mathcal{G} is linear. ∎
+
+###### Corollary 3.4.
+
+Let \mathcal{G} be a connected commutative finite type group scheme over R with \mathcal{G}_{K} connected and \mathcal{G}(K) dense. Then \mathcal{G} satisfies (OPSE) for codimension at least \dim{\mathcal{G}_{K}}+1.
+
+###### Proof.
+
+Note that \mathcal{G}_{K} is smooth over K by [[DG70](https://arxiv.org/html/2410.13403v3#bib.bibx19), II.§5, Corollaire 2.3]. Thus, by [[Con02](https://arxiv.org/html/2410.13403v3#bib.bibx12), Theorem 1.1], there exists an exact sequence
+
+0\longrightarrow H\longrightarrow\mathcal{G}_{K}\longrightarrow A\longrightarrow 0
+
+of connected algebraic groups over K with H linear and A an abelian variety. By assumption, \Omega\coloneqq\mathcal{G}(K) is dense in \mathcal{G}_{K}, and by [[Bor91](https://arxiv.org/html/2410.13403v3#bib.bibx4), Corollary 18.3], H(K)=\Omega\cap H(K) is dense in H. Thus, by [[Lug26](https://arxiv.org/html/2410.13403v3#bib.bibx28), Proposition 5.10], there exists a finitely generated dense subgroup \Omega^{\prime}\subseteq\Omega such that \Omega^{\prime}\cap H(K) is dense in H. Let R^{\prime}=\mathcal{O}_{K,S^{\prime}} for S^{\prime} a finite set of finite places of K containing S such that the generators of \Omega^{\prime} lie in \mathcal{G}(R^{\prime}), which implies that \Omega^{\prime}\subseteq\mathcal{G}(R^{\prime}). Let S^{\prime\prime} be any finite set of finite places of K containing S^{\prime} and define R^{\prime\prime}=\mathcal{O}_{K,S^{\prime\prime}}. Since \mathcal{G}(R^{\prime\prime})\supseteq\mathcal{G}(R^{\prime}), we see that \mathcal{G}(R^{\prime\prime})\supseteq\mathcal{G}(R^{\prime}) is dense in \mathcal{G}_{K} and \mathcal{G}(R^{\prime\prime})\cap H(K) is dense in H, so \mathcal{G}_{R^{\prime\prime}} satisfies (OPS) for codimension at least \dim\mathcal{G}_{K}+1 by Proposition [3.1](https://arxiv.org/html/2410.13403v3#S3.Thmtheorem1 "Proposition 3.1. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"). ∎
+
+###### Example 3.5.
+
+Let \mathcal{G}=\mathbb{G}_{\mathrm{m},{R}}^{4} and let \mathcal{Z}\subseteq\mathcal{G} be a closed subscheme.
+
+1.   (1)
+By Corollary [3.4](https://arxiv.org/html/2410.13403v3#S3.Thmtheorem4 "Corollary 3.4. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), each factor \mathbb{G}_{\mathrm{m},{R}} satisfies (OPSE) for codimension at least 2. Thus, if \mathcal{Z}_{K}\subseteq\mathcal{G}_{K} is of codimension at least 2, then by Theorem [2.3](https://arxiv.org/html/2410.13403v3#S2.Thmtheorem3 "Theorem 2.3. ‣ 2. One point suffices ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), there exists a finite set of finite places S^{\prime} containing S such that (\mathcal{G}\setminus\mathcal{Z})(\mathcal{O}_{K,S^{\prime}}) is not strongly thin in \mathcal{G}_{K}.
+
+2.   (2)
+Assume that (\mathcal{G}\setminus\mathcal{Z})(R) is dense and that \mathcal{Z}_{K}\subseteq\mathcal{G}_{K} is of codimension at least 3. Write \mathcal{G}\cong\mathbb{G}_{\mathrm{m},{R}}^{2}\times_{R}\mathbb{G}_{\mathrm{m},{R}}^{2}. Then \mathbb{G}_{\mathrm{m},{R}}^{2}(R) is dense in \mathbb{G}_{\mathrm{m},{K}}^{2}, so both factors satisfy (OPS) for codimension at least 3 by Corollary [3.3](https://arxiv.org/html/2410.13403v3#S3.Thmtheorem3 "Corollary 3.3. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"). Thus, (\mathcal{G}\setminus\mathcal{Z})(R) is already not strongly thin in \mathcal{G}_{K} by Theorem [2.4](https://arxiv.org/html/2410.13403v3#S2.Thmtheorem4 "Theorem 2.4. ‣ 2. One point suffices ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups").
+
+## 4. Proof of Theorem [1.4](https://arxiv.org/html/2410.13403v3#S1.Thmtheorem4 "Theorem 1.4. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups")
+
+In this section, we prove Theorem [1.4](https://arxiv.org/html/2410.13403v3#S1.Thmtheorem4 "Theorem 1.4. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), first for semisimple quasi-split linear algebraic groups and unipotent groups, and then in general by reducing to these cases. We first collect some results pertaining to strong approximation and the usual Hilbert property.
+
+### 4.1. Preliminaries on strong approximation and the Hilbert property
+
+Recall that an integral variety over a field k satisfies the Hilbert property if its set of k-rational points is not thin, and that a strongly thin set in a normal k-variety is thin:
+
+###### Definition 4.1.
+
+Let X be an integral variety over a field k. A subset \Omega\subseteq X(k) is _thin_ in X if there is an integer n\geq 0 and a finite collection (\pi_{i}\colon Y_{i}\to X)_{i=1}^{n} of finite covers of degree at least 2 such that
+
+\Omega\setminus\bigcup_{i=1}^{n}\pi_{i}(Y_{i}(k))
+
+is not dense in X.
+
+If U\subseteq X is a dense open and \Omega\subseteq U(k), then \Omega is thin in U if and only if \Omega is thin in X. Note that the “if” part of the same statement might fail if we replace “thin” by “strongly thin”.
+
+A classical argument due to Ekedahl (see [[Ser92](https://arxiv.org/html/2410.13403v3#bib.bibx32), Theorem 3.5.7]) shows that the Hilbert property is implied by the property “weak weak approximation” (see [[Ser92](https://arxiv.org/html/2410.13403v3#bib.bibx32), Definition 3.5.6]). In this subsection we illustrate that, similarly, the integral Hilbert property is implied by “strong approximation”, which is quickly derived from work due to Moerman [[Moe24](https://arxiv.org/html/2410.13403v3#bib.bibx30)] and Nakahara–Streeter [[NS24](https://arxiv.org/html/2410.13403v3#bib.bibx31)], and relate this to the properties (OPS) and (OPSE).
+
+Recall that the ring of _adeles_ of K is the subring \mathbb{A}_{K}\subseteq\prod_{v}K_{v}, where the product is taken over all finite places v of K, whose elements (\alpha_{v}) satisfy \alpha_{v}\in\mathcal{O}_{K,v} for all except finitely many v. For a finite set of finite places T of K, the ring \mathbb{A}_{K}^{T} of _adeles away from T_ is the subring \mathbb{A}_{K}^{T}=\prod_{v\notin T}\mathcal{O}_{K,v}\times\prod_{v\in T}K_{v} of \mathbb{A}_{K}. Moreover, one defines analogously the ring \mathbb{A}_{K,S} of _S-adeles_ and the ring \mathbb{A}_{K,S}^{T} of _S-adeles away from T_ as subrings of \prod_{v\notin S}K_{v}. Note that K embeds diagonally into \mathbb{A}_{K} and that \mathbb{A}_{K}, resp. \mathbb{A}_{K,S}, projects onto \mathbb{A}_{K}^{T}, resp. \mathbb{A}_{K,S}^{T}. In particular, given a variety X over K, there are natural maps X(K)\to X(\mathbb{A}_{K})\to X(\mathbb{A}_{K}^{T}) to the adelic points of X and the adelic points of X away from T. These spaces carry the adelic topology; see [[Con12](https://arxiv.org/html/2410.13403v3#bib.bibx13)] for more details on this and for the central equations of the following paragraph.
+
+A variety X over K is said to satisfy _strong approximation off T_ if the diagonal image of X(K) is dense in X(\mathbb{A}_{K}^{T}), see [[CTS21](https://arxiv.org/html/2410.13403v3#bib.bibx14), Definition 12.2.7]. If \mathcal{X} is a model of X over \mathcal{O}_{K,S}, it then follows that \mathcal{X}(\mathcal{O}_{K,S\cup T}) is dense in
+
+\mathcal{X}(\mathbb{A}_{K,S\cup T}^{T})=\mathcal{X}(\mathbb{A}_{K,S}^{T})=\prod_{v\notin S\cup T}\mathcal{X}(\mathcal{O}_{K,v})\times\prod_{v\in S\setminus T}\mathcal{X}(K_{v})\subseteq X(\mathbb{A}_{K}^{T}).
+
+For details, see the proof of Proposition [4.3](https://arxiv.org/html/2410.13403v3#S4.Thmtheorem3 "Proposition 4.3. ‣ 4.1. Preliminaries on strong approximation and the Hilbert property ‣ 4. Proof of Theorem ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"). If X is smooth, this property of \mathcal{X} is referred to as _integral strong approximation off T_ in [[MNS24](https://arxiv.org/html/2410.13403v3#bib.bibx29), Definition 2.21]; we will use the term integral strong approximation without the smoothness assumption. If S contains T and \mathcal{X} is normal, integral strong approximation off T is a special case of _Campana weak weak approximation_, as defined in [[NS24](https://arxiv.org/html/2410.13403v3#bib.bibx31), Definition 2.7]. Note that the definition given by Nakahara–Streeter requires \mathcal{X} to be flat over \mathcal{O}_{K,S}, which is satisfied here by [[Liu02](https://arxiv.org/html/2410.13403v3#bib.bibx26), Proposition 4.3.9] since \mathcal{X} is dominant over \mathcal{O}_{K,S} and \mathcal{O}_{K,S} is a Dedekind domain.
+
+If \mathcal{X} is normal, it is shown in [[NS24](https://arxiv.org/html/2410.13403v3#bib.bibx31), Theorem 1.1] that Campana weak weak approximation implies the _Campana Hilbert property_, which is the usual Hilbert property in our case. This theorem of Nakahara–Streeter has been further generalized by Moerman [[Moe24](https://arxiv.org/html/2410.13403v3#bib.bibx30), Theorem 1.1], where normality of \mathcal{X} is not required, which gives us the following proposition.
+
+###### Lemma 4.2.
+
+Let T be a finite set of finite places of K, let \mathcal{X} be an arithmetic scheme over \mathcal{O}_{K,S}, and assume that \mathcal{X} satisfies integral strong approximation off T, i.e., \mathcal{X}(\mathcal{O}_{K,S\cup T}) is dense in \mathcal{X}(\mathbb{A}_{K,S\cup T}^{T}). If \mathcal{X}(\mathcal{O}_{K,S\cup T}) is not empty, then it is not thin in \mathcal{X}_{K}.
+
+###### Proof.
+
+To see that this is a special case of [[Moe24](https://arxiv.org/html/2410.13403v3#bib.bibx30), Theorem 1.1], we write the integral points of \mathcal{X} using the notation of \mathcal{M}-points introduced in [[Moe24](https://arxiv.org/html/2410.13403v3#bib.bibx30), Definition 3.12]. By the universal property of fiber products, we may replace \mathcal{X} by \mathcal{X}_{\mathcal{O}_{K,S\cup T}} to assume that S contains T.
+
+Let \mathcal{X}\to\overline{\mathcal{X}} be an open immersion of arithmetic \mathcal{O}_{K,S}-schemes with \overline{\mathcal{X}} proper over \mathcal{O}_{K,S} and define \mathcal{D}=\overline{\mathcal{X}}\setminus\mathcal{X}. Let X,\overline{X},D denote the generic fiber of \mathcal{X},\overline{\mathcal{X}},\mathcal{D}, respectively. We consider the set of multiplicities \mathfrak{M}=\{(0)\} and define \mathcal{M}=((\mathcal{D}),\mathfrak{M}) and M=((D),\mathfrak{M}). Then \overline{X} is a proper variety over the PF field (K,\Spec\mathcal{O}_{K}) and the pair (\overline{\mathcal{X}},\mathcal{M}) is an integral model of the pair (\overline{X},M) over \Spec\mathcal{O}_{K,S} (see [[Moe24](https://arxiv.org/html/2410.13403v3#bib.bibx30), Definition 3.1 and Definition 3.4]). Moreover, for the pair (\overline{\mathcal{X}},\mathcal{M}), the set of \mathcal{M}-integral points is \mathcal{X}(\mathcal{O}_{K,S})[[Moe24](https://arxiv.org/html/2410.13403v3#bib.bibx30), §3.3, Example (1)] and the set of integral adelic \mathcal{M}-points is \mathcal{X}(\mathbb{A}_{K,S\cup T}^{T})[[Moe24](https://arxiv.org/html/2410.13403v3#bib.bibx30), Example 4.4].
+
+Our assumption now says that (\overline{\mathcal{X}},\mathcal{M}) admits an \mathcal{M}-integral point and that its \mathcal{M}-integral points are dense in its integral adelic \mathcal{M}-points, i.e., (\overline{\mathcal{X}},\mathcal{M}) satisfies integral \mathcal{M}-approximation off T[[Moe24](https://arxiv.org/html/2410.13403v3#bib.bibx30), Definition 4.8]. Therefore, by [[Moe24](https://arxiv.org/html/2410.13403v3#bib.bibx30), Theorem 1.1], we obtain that \mathcal{X}(\mathcal{O}_{K,S}) is not thin in \overline{X}, and thus not in X, as required. ∎
+
+###### Proposition 4.3.
+
+Let T be a finite set of finite places of K contained in S, let X be an integral K-variety satisfying strong approximation off T, and let \mathcal{X} be a model of X over \mathcal{O}_{K,S}. If \mathcal{X}(\mathcal{O}_{K,S}) is non-empty, then it is not thin in X.
+
+###### Proof.
+
+As \mathcal{X}(\mathcal{O}_{K,S}) is non-empty, \mathcal{X}(\mathbb{A}_{K,S}^{T}) is a non-empty open subset of X(\mathbb{A}_{K}^{T}). By strong approximation off T, the diagonal image of X(K) inside X(\mathbb{A}_{K}^{T}) is dense. Therefore, the intersection \mathcal{X}(\mathbb{A}_{K,S}^{T})\cap X(K) is dense in \mathcal{X}(\mathbb{A}_{K,S}^{T}). Since every K-point of X inside \mathcal{X}(\mathbb{A}_{K,S}^{T}) is S-integral, this shows that the diagonal image of \mathcal{X}(\mathcal{O}_{K,S}) in \mathcal{X}(\mathbb{A}_{K,S}^{T}) is dense. Thus, it follows from Lemma [4.2](https://arxiv.org/html/2410.13403v3#S4.Thmtheorem2 "Lemma 4.2. ‣ 4.1. Preliminaries on strong approximation and the Hilbert property ‣ 4. Proof of Theorem ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") that \mathcal{X}(\mathcal{O}_{K,S}) is not thin in X, as claimed. ∎
+
+If X is a variety over K and X satisfies strong approximation off a finite set of finite places T of K, it was asked by Wittenberg [[Wit18](https://arxiv.org/html/2410.13403v3#bib.bibx35), Question 2.11] if X\setminus Z satisfies strong approximation off T for every closed subscheme Z\subseteq X of codimension at least 2. If this condition is satisfied for a given normal integral variety X and \mathcal{X} is a model of X with an integral point over \mathcal{O}_{K,S}, then Proposition [4.3](https://arxiv.org/html/2410.13403v3#S4.Thmtheorem3 "Proposition 4.3. ‣ 4.1. Preliminaries on strong approximation and the Hilbert property ‣ 4. Proof of Theorem ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") implies that \mathcal{X} satisfies (OPS) for codimension at least 2.
+
+For T\neq\emptyset, a positive answer to Wittenberg’s question was given for X=\mathbb{A}_{K}^{n} by Cao–Xu [[CX18](https://arxiv.org/html/2410.13403v3#bib.bibx15), Proposition 3.6] and Wei [[Wei21](https://arxiv.org/html/2410.13403v3#bib.bibx34), Lemma 2.1], and for X a connected semi-simple simply connected quasi-split linear algebraic group by Cao–Liang–Xu [[CLX19](https://arxiv.org/html/2410.13403v3#bib.bibx10), Theorem 1.1]. The latter result has been further extended by Cao–Huang [[CH20](https://arxiv.org/html/2410.13403v3#bib.bibx9), Theorem 1.4] to semi-simple simply connected almost simple algebraic groups which are isotropic. As a direct corollary of these results on strong approximation and the work of Moerman and Nakahara–Streeter, we obtain the following.
+
+###### Corollary 4.4.
+
+Let \mathcal{G} be an arithmetic scheme over \mathcal{O}_{K,S} such that \mathcal{G}_{K} is a quasi-split semi-simple simply connected linear algebraic group over K or a unipotent group over K. If S\neq\emptyset and \mathcal{G}(\mathcal{O}_{K,S})\neq\emptyset, then \mathcal{G} satisfies (OPS) for codimension at least 2.
+
+###### Proof.
+
+Let \mathcal{Z}\subseteq\mathcal{G} be a closed subscheme such that \mathcal{Z}_{K}\subseteq\mathcal{G}_{K} is of codimension at least 2. Define \mathcal{X}=\mathcal{G}\setminus\mathcal{Z} and X=\mathcal{X}_{K} and assume that \mathcal{X}(\mathcal{O}_{K,S})\neq\emptyset. If \mathcal{G}_{K} is a semi-simple simply connected quasi-split linear algebraic group over K, then X satisfies strong approximation off S by [[CLX19](https://arxiv.org/html/2410.13403v3#bib.bibx10), Theorem 1.1]. If \mathcal{G}_{K} is a unipotent group over K, then it is isomorphic (as a variety) to \mathbb{A}_{K}^{n}, and thus X satisfies strong approximation off S by [[CX18](https://arxiv.org/html/2410.13403v3#bib.bibx15), Proposition 3.6] (see also [[Wei21](https://arxiv.org/html/2410.13403v3#bib.bibx34), Lemma 2.1]). Therefore, it follows from Proposition [4.3](https://arxiv.org/html/2410.13403v3#S4.Thmtheorem3 "Proposition 4.3. ‣ 4.1. Preliminaries on strong approximation and the Hilbert property ‣ 4. Proof of Theorem ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") (taking T=S) that \mathcal{X}(\mathcal{O}_{K,S}) is not thin in X and thus not thin in \mathcal{G}_{K}. ∎
+
+### 4.2. Application to linear algebraic groups
+
+Using universal coverings and a Chevalley–Weil type lifting arguments for integral points, we can drop the simply-connectedness assumption in Corollary [4.4](https://arxiv.org/html/2410.13403v3#S4.Thmtheorem4 "Corollary 4.4. ‣ 4.1. Preliminaries on strong approximation and the Hilbert property ‣ 4. Proof of Theorem ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") by replacing the property (OPS) with (OPSE).
+
+###### Proposition 4.5.
+
+Let \mathcal{G} be an arithmetic scheme over \mathcal{O}_{K,S} such that \mathcal{G}_{K} is a semi-simple quasi-split linear algebraic group over K or a unipotent group over K. Then \mathcal{G} satisfies (OPSE) for codimension at least 2.
+
+###### Proof.
+
+Let G=\mathcal{G}_{K}. Assume first that G is unipotent. Let S^{\prime}\neq\emptyset be a finite set of finite places of K containing S such that \mathcal{G}(\mathcal{O}_{K,S^{\prime}})\neq\emptyset. Then, by Corollary [4.4](https://arxiv.org/html/2410.13403v3#S4.Thmtheorem4 "Corollary 4.4. ‣ 4.1. Preliminaries on strong approximation and the Hilbert property ‣ 4. Proof of Theorem ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), the base change \mathcal{G}_{\mathcal{O}_{K,S^{\prime\prime}}} satisfies (OPS) for codimension at least 2 for every finite set of finite places S^{\prime\prime} of K containing S^{\prime}, i.e., \mathcal{G} satisfies (OPSE) for codimension at least 2.
+
+Now assume that G is semi-simple quasi-split. By [[CGP15](https://arxiv.org/html/2410.13403v3#bib.bibx8), Corollary A.4.11], there exists an isogeny \lambda\colon G^{\prime}\to G with G^{\prime} a connected semi-simple simply connected linear algebraic group over K. Enlarging S if necessary, there exists a model \mathcal{G}^{\prime} of G^{\prime} over R=\mathcal{O}_{K,S} such that \lambda extends to a finite étale morphism \bar{\lambda}\colon\mathcal{G}^{\prime}\to\mathcal{G}. Let S^{\prime} be any finite set of finite places of K containing S. To prove the claim, we may replace S by S^{\prime}, and \mathcal{G} and \mathcal{G}^{\prime} by \mathcal{G}_{\mathcal{O}_{K,S^{\prime}}} and \mathcal{G}_{\mathcal{O}_{K,S^{\prime}}} accordingly, and show that \mathcal{G} satisfies (OPS) for codimension at least 2.
+
+By [[Lug26](https://arxiv.org/html/2410.13403v3#bib.bibx28), Theorem 3.2], there exists a finite étale morphism \Spec T\to\Spec R such that \mathcal{G}(R) is contained in \bar{\lambda}(\mathcal{G}^{\prime}(T)). Let L denote the fraction field of T. We modify a standard application of Weil restriction of scalars, as used for example in the proofs of [[CZ17](https://arxiv.org/html/2410.13403v3#bib.bibx16), Proposition 1.5] or [[CDJ+22](https://arxiv.org/html/2410.13403v3#bib.bibx7), Theorem 3.9], to integral points to replace the T-integral points of \mathcal{G}^{\prime} by R-integral points of finitely many twists of \mathcal{G}^{\prime}. Consider the induced morphism of Weil restrictions
+
+\Res_{T/R}(\bar{\lambda}_{T})\colon\Res_{T/R}\mathcal{G}^{\prime}_{T}\to\Res_{T/R}\mathcal{G}_{T}.
+
+Since Weil restrictions are compatible with fiber products by the discussion following Lemma 1 of [[BLR90](https://arxiv.org/html/2410.13403v3#bib.bibx3), §7.6], we have that
+
+(\Res_{T/R}(\bar{\lambda}_{T}))_{K}=\Res_{L/K}(\lambda_{L})\colon\Res_{L/K}G^{\prime}_{L}\to\Res_{L/K}G_{L}.
+
+Let \Delta\colon\mathcal{G}\to\Res_{T/R}\mathcal{G}_{T} denote the diagonal embedding. Let \mathcal{G}_{1},\ldots,\mathcal{G}_{d} be the connected components of \mathcal{G}\times_{\Delta,\Res_{T/R}\mathcal{G}_{T}}\Res_{T/R}\mathcal{G}^{\prime}_{T} with \mathcal{G}_{i}(R)\neq\emptyset and define G_{i}=\mathcal{G}_{i,K}. Note that the natural morphisms \lambda_{i}\colon G_{i}\to G are finite étale and extend to the natural morphisms \bar{\lambda}_{i}\colon\mathcal{G}_{i}\to\mathcal{G}, so in particular, we have \lambda_{i}(\mathcal{G}_{i}(R))\subseteq\mathcal{G}(R). Since G_{i} is normal connected with a K-rational point, it is geometrically integral. Moreover, over the algebraic closure \overline{K} of K, each G_{i} is isomorphic to G^{\prime}_{\overline{K}}, with the base change of \lambda_{i} over \overline{K} being identified with \lambda_{\overline{K}}. In particular, the G_{i} are connected semi-simple simply connected linear algebraic groups over K. Quasi-splitness is invariant under isogeny, since the image of a Borel subgroup under a surjective homomorphism of linear algebraic groups is a Borel subgroup, see [[Spr98](https://arxiv.org/html/2410.13403v3#bib.bibx33), Corollary 6.2.8]. In particular, since G is quasi-split, so are the G_{i}. Thus, by Corollary [4.4](https://arxiv.org/html/2410.13403v3#S4.Thmtheorem4 "Corollary 4.4. ‣ 4.1. Preliminaries on strong approximation and the Hilbert property ‣ 4. Proof of Theorem ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), all \mathcal{G}_{i} satisfy (OPS) for codimension at least 2.
+
+Let \mathcal{Z}\subseteq\mathcal{G} be a closed subscheme with \mathcal{Z}_{K}\subseteq G of codimension at least 2 and such that (\mathcal{G}\setminus\mathcal{Z})(R)\neq\emptyset; we have to prove that (\mathcal{G}\setminus\mathcal{Z})(R) is not strongly thin in G. Let p\in(\mathcal{G}\setminus\mathcal{Z})(R). Since \mathcal{G}(R) is contained in \lambda(\mathcal{G}^{\prime}(T)), by the defining properties of Weil restriction, p lifts to an R-integral point of \Res_{T/R}\mathcal{G}^{\prime}_{T}, and thus to a point p^{\prime}\in\mathcal{G}_{i}(R) for some i. Let \mathcal{Z}^{\prime} denote the inverse image of \mathcal{Z} in \mathcal{G}_{i}. By [[Gro65](https://arxiv.org/html/2410.13403v3#bib.bibx22), Corollaire 6.1.4], \mathcal{Z}^{\prime}_{K}\subseteq G_{i} is of codimension at least 2. Since p^{\prime}\in(\mathcal{G}_{i}\setminus\mathcal{Z}^{\prime})(R) and \mathcal{G}_{i} satisfies (OPS) for codimension at least 2, the set (\mathcal{G}_{i}\setminus\mathcal{Z}^{\prime})(R) is not strongly thin in G_{i}. Moreover, its image under the finite étale morphism \lambda_{i} is contained in (\mathcal{G}\setminus\mathcal{Z})(R). By [[BSFP22](https://arxiv.org/html/2410.13403v3#bib.bibx5), Lemma 5.3(b)], this implies that (\mathcal{G}\setminus\mathcal{Z})(R) is not strongly thin in G, as required. ∎
+
+For the sake of clarity, we point out that Proposition [4.5](https://arxiv.org/html/2410.13403v3#S4.Thmtheorem5 "Proposition 4.5. ‣ 4.2. Application to linear algebraic groups ‣ 4. Proof of Theorem ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") says that connected semi-simple quasi-split linear algebraic groups and unipotent groups over K satisfy the “punctured integral Hilbert property”, i.e., part [(5)](https://arxiv.org/html/2410.13403v3#S1.I2.i5 "item (5) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") of Conjecture [1.5](https://arxiv.org/html/2410.13403v3#S1.Thmtheorem5 "Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), even without enlarging K. Combining this with Theorem [2.3](https://arxiv.org/html/2410.13403v3#S2.Thmtheorem3 "Theorem 2.3. ‣ 2. One point suffices ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") and Corollary [3.4](https://arxiv.org/html/2410.13403v3#S3.Thmtheorem4 "Corollary 3.4. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), we obtain the same result for products of those groups and 1-dimensional connected commutative algebraic groups with a dense set of rational points.
+
+###### Corollary 4.6.
+
+Let G=\prod_{i=1}^{N}G_{i} be an algebraic group over K with each G_{i} either isomorphic to \mathbb{G}_{\mathrm{a}}, \mathbb{G}_{\mathrm{m}}, a connected semi-simple quasi-split linear algebraic group, a unipotent group, or an elliptic curve over K. Let Z\subseteq G be a closed subscheme of codimension at least 2. If G(K) is dense, then there exists a finite set T of finite places of K such that G\setminus Z satisfies the weak Hilbert property over \mathcal{O}_{K,T}. In particular, G satisfies part [(5)](https://arxiv.org/html/2410.13403v3#S1.I2.i5 "item (5) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), and thus also [(2)](https://arxiv.org/html/2410.13403v3#S1.I2.i2 "item (2) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups")-[(4)](https://arxiv.org/html/2410.13403v3#S1.I2.i4 "item (4) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), of Conjecture [1.5](https://arxiv.org/html/2410.13403v3#S1.Thmtheorem5 "Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups").
+
+###### Proof.
+
+Let T be a finite set of finite places of K such that, for each i, there exists a normal quasi-projective model \mathcal{G}_{i} of G_{i} over \mathcal{O}_{K,T}, and \mathcal{G}_{i} is a commutative group scheme over \mathcal{O}_{K,T} for all i for which \dim G_{i}=1. For every index i for which G_{i} is not of dimension 1, it is semi-simple quasi-split or unipotent. Let R^{\prime}=\mathcal{O}_{K,T}, consider the model \mathcal{G}=\mathcal{G}_{i}\times_{R^{\prime}}\ldots\times_{R^{\prime}}\mathcal{G}_{N} of G over R^{\prime}, and let \mathcal{Z}\subseteq\mathcal{G} be the closure of Z in \mathcal{G}. By Corollary [3.4](https://arxiv.org/html/2410.13403v3#S3.Thmtheorem4 "Corollary 3.4. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") and Proposition [4.5](https://arxiv.org/html/2410.13403v3#S4.Thmtheorem5 "Proposition 4.5. ‣ 4.2. Application to linear algebraic groups ‣ 4. Proof of Theorem ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), each \mathcal{G}_{i} satisfies (OPSE) for codimension at least 2, so the claim follows from Theorem [2.3](https://arxiv.org/html/2410.13403v3#S2.Thmtheorem3 "Theorem 2.3. ‣ 2. One point suffices ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"). ∎
+
+We use the following descent argument to reduce the proof of Theorem [1.4](https://arxiv.org/html/2410.13403v3#S1.Thmtheorem4 "Theorem 1.4. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") to products of algebraic groups that satisfy (OPSE).
+
+###### Lemma 4.7.
+
+Let \varphi\colon X^{\prime}\to X be a smooth proper morphism of normal integral varieties over K and let c\geq 1 be an integer. Assume that, for every closed subscheme Z^{\prime}\subseteq X^{\prime} of codimension at least c, there is a number field L and a finite set of finite places T of L such that (X^{\prime}\setminus Z^{\prime})_{L} satisfies the weak Hilbert property over \mathcal{O}_{L,T}. Then, for every closed subscheme Z\subseteq X of codimension at least c, there is a number field L and a finite set of finite places T of L such that (X\setminus Z)_{L} satisfies the weak Hilbert property over \mathcal{O}_{L,T}.
+
+###### Proof.
+
+Let Z\subseteq X be a closed subscheme of codimension at least c. Let Z^{\prime}=\varphi^{-1}(Z). By [[Gro65](https://arxiv.org/html/2410.13403v3#bib.bibx22), Corollaire 6.1.4], Z^{\prime}\subseteq X^{\prime} has codimension at least c. By the assumption on X^{\prime}, there is a number field L, a finite set of finite places T of L, and a model \mathcal{U}^{\prime} of (X^{\prime}\setminus Z^{\prime})_{L} over \mathcal{O}_{L,T} such that \mathcal{U}^{\prime}(\mathcal{O}_{L,T}) is not strongly thin in \mathcal{U}^{\prime}_{L}. Enlarging T if necessary, there exists a model \mathcal{U} of (X\setminus Z)_{L} over \mathcal{O}_{L,T} such that the smooth proper morphism \varphi^{\prime}\colon\mathcal{U}_{L}^{\prime}\to\mathcal{U}_{L} induced by \varphi extends to a morphism \mathcal{U}^{\prime}\to\mathcal{U} over \mathcal{O}_{L,T}. In particular, the image \varphi^{\prime}(\mathcal{U}^{\prime}(\mathcal{O}_{L,T})) is contained in \mathcal{U}(\mathcal{O}_{L,T}). Since \mathcal{U}^{\prime}(\mathcal{O}_{L,T}) is not strongly thin in \mathcal{U}^{\prime}_{L}, it follows from [[BSFP22](https://arxiv.org/html/2410.13403v3#bib.bibx5), Lemma 5.3(b)] that the image \varphi^{\prime}(\mathcal{U}^{\prime}(\mathcal{O}_{L,T})), and thus \mathcal{U}(\mathcal{O}_{L,T}), is not strongly thin in \mathcal{U}_{L}=(X\setminus Z)_{L}. This shows that (X\setminus Z)_{L} satisfies the weak Hilbert property over \mathcal{O}_{L,T}. ∎
+
+Note that Lemma [4.7](https://arxiv.org/html/2410.13403v3#S4.Thmtheorem7 "Lemma 4.7. ‣ 4.2. Application to linear algebraic groups ‣ 4. Proof of Theorem ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") says in particular that condition [(5)](https://arxiv.org/html/2410.13403v3#S1.I2.i5 "item (5) ‣ Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") of Conjecture [1.5](https://arxiv.org/html/2410.13403v3#S1.Thmtheorem5 "Conjecture 1.5. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") descends along smooth proper morphisms. The same also holds for smooth surjective morphisms with geometrically integral generic fiber by [[BSFP22](https://arxiv.org/html/2410.13403v3#bib.bibx5), Lemma 5.3(a)].
+
+###### Proof of Theorem [1.4](https://arxiv.org/html/2410.13403v3#S1.Thmtheorem4 "Theorem 1.4. ‣ 1. Introduction ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups").
+
+By Mostow’s Theorem [[Hoc81](https://arxiv.org/html/2410.13403v3#bib.bibx24), §VIII, Theorem 4.3], there exists a unipotent group U and a reductive group P over K such that G is the semi-direct product of U and P. In particular, G is isomorphic to U\times P as a K-variety.
+
+Let \Rad(P) denote the radical of P and let P^{\der} denote the derived subgroup of P. By [[GD70](https://arxiv.org/html/2410.13403v3#bib.bibx21), Exposé XXII, Proposition 6.2.4], there exists an isogeny \Rad(P)\times P^{\der}\to P, which is in particular a finite étale cover. Since \Rad(P) is a torus, there exists a finite field extension L/K and an integer n\geq 0 such that \Rad(P)_{L}\cong\mathbb{G}_{\mathrm{m},{L}}^{n}. The derived subgroup P^{\der} of P is semi-simple, so by [[CGP15](https://arxiv.org/html/2410.13403v3#bib.bibx8), Corollary A.4.11] there exists a connected semi-simple simply connected linear algebraic group G^{\prime} over K and a finite étale cover G^{\prime}\to P^{\der}. Enlarging L if necessary, we may further assume that G^{\prime}_{L} is split. Define G^{\prime\prime}\coloneqq U_{L}\times\mathbb{G}_{\mathrm{m},{L}}^{n}\times G^{\prime}_{L} and note that we have a finite étale morphism G^{\prime\prime}\to G_{L}.
+
+We claim that the theorem holds for G^{\prime\prime}. Let Z^{\prime\prime}\subseteq G^{\prime\prime} be a closed subscheme of codimension at least 2. Let T\neq\emptyset be a finite set of finite places of L such that there exist normal quasi-projective models \mathcal{U} of U_{L} and \mathcal{G^{\prime}} of G^{\prime} over R^{\prime}\coloneqq\mathcal{O}_{L,T}. Let \mathcal{Z}^{\prime\prime} denote the closure of Z^{\prime\prime} in the model \mathcal{G}^{\prime\prime}\coloneqq\mathcal{U}\times_{R^{\prime}}\mathbb{G}_{\mathrm{m},{\mathcal{O}_{L,T}}}^{n}\times_{R^{\prime}}\mathcal{G^{\prime}} of G^{\prime\prime} over R^{\prime}. Since \mathbb{G}_{\mathrm{m},{R}} satisfies (OPSE) for codimension at least 2 by Corollary [3.4](https://arxiv.org/html/2410.13403v3#S3.Thmtheorem4 "Corollary 3.4. ‣ 3. The case of connected commutative group schemes ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") and \mathcal{U} and \mathcal{G}^{\prime\prime} satisfy (OPSE) for codimension at least 2 by Corollary [4.4](https://arxiv.org/html/2410.13403v3#S4.Thmtheorem4 "Corollary 4.4. ‣ 4.1. Preliminaries on strong approximation and the Hilbert property ‣ 4. Proof of Theorem ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), it follows from Theorem [2.3](https://arxiv.org/html/2410.13403v3#S2.Thmtheorem3 "Theorem 2.3. ‣ 2. One point suffices ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups") that there exists a finite set of finite places T^{\prime} of L containing T such that (\mathcal{G}^{\prime\prime}\setminus\mathcal{Z}^{\prime\prime})(\mathcal{O}_{L,T^{\prime}}) is not strongly thin in G^{\prime\prime}, i.e., the theorem holds for G^{\prime\prime}. By Lemma [4.7](https://arxiv.org/html/2410.13403v3#S4.Thmtheorem7 "Lemma 4.7. ‣ 4.2. Application to linear algebraic groups ‣ 4. Proof of Theorem ‣ Hilbert irreducibility for integral points on punctured linear algebraic groups"), this implies that it also holds for G. ∎
+
+## References
+
+*   [BJ24] Finn Bartsch and Ariyan Javanpeykar. Kobayashi–Ochiai’s finiteness theorem for orbifold pairs of general type. Journal of the Institute of Mathematics of Jussieu, pages 1–20, 04 2024. 
+*   [BJL25] Finn Bartsch, Ariyan Javanpeykar, and Aaron Levin. Symmetric products and puncturing Campana-special varieties. Proceedings of the London Mathematical Society, 131(6):e70108, 2025. 
+*   [BLR90] Siegfried Bosch, Werner Lütkebohmert, and Michel Raynaud. Néron models, volume 21 of Ergebnisse der Mathematik und ihrer Grenzgebiete (3) [Results in Mathematics and Related Areas (3)]. Springer-Verlag, Berlin, 1990. 
+*   [Bor91] Armand Borel. Linear algebraic groups, volume 126 of Graduate Texts in Mathematics. Springer-Verlag, New York, New York, second edition, 1991. 
+*   [BSFP22] Lior Bary-Soroker, Arno Fehm, and Sebastian Petersen. Hilbert properties under base change in small extensions. Annali Scuola Normale Superiore - Classe di Scienze, pages 9–9, 2022. 
+*   [Cam04] Frédéric Campana. Orbifolds, special varieties and classification theory. Ann. Inst. Fourier (Grenoble), 54(3):499–630, 2004. 
+*   [CDJ+22] Pietro Corvaja, Julian Lawrence Demeio, Ariyan Javanpeykar, Davide Lombardo, and Umberto Zannier. On the distribution of rational points on ramified covers of abelian varieties. Compos. Math., 158(11):2109–2155, 2022. 
+*   [CGP15] Brian Conrad, Ofer Gabber, and Gopal Prasad. Pseudo-reductive groups, volume 26 of New Mathematical Monographs. Cambridge University Press, Cambridge, second edition, 2015. 
+*   [CH20] Yang Cao and Zhizhong Huang. Arithmetic purity of strong approximation for semi-simple simply connected groups. Compos. Math., 156(12):2628–2649, 2020. 
+*   [CLX19] Yang Cao, Yongqi Liang, and Fei Xu. Arithmetic purity of strong approximation for homogeneous spaces. J. Math. Pures Appl. (9), 132:334–368, 2019. 
+*   [Coc19] Simone Coccia. The Hilbert property for integral points of affine smooth cubic surfaces. J. Number Theory, 200:353–379, 2019. 
+*   [Con02] Brian Conrad. A modern proof of Chevalley’s theorem on algebraic groups. J. Ramanujan Math. Soc., 17(1):1–18, 2002. 
+*   [Con12] Brian Conrad. Weil and Grothendieck approaches to adelic points. L’Enseignement Mathématique, 58(1):61–97, 2012. 
+*   [CTS21] Jean-Louis Colliot-Thélène and Alexei N Skorobogatov. The Brauer-Grothendieck group, volume 71. Springer, 2021. 
+*   [CX18] Yang Cao and Fei Xu. Strong approximation with Brauer-Manin obstruction for toric varieties. Ann. Inst. Fourier (Grenoble), 68(5):1879–1908, 2018. 
+*   [CZ17] Pietro Corvaja and Umberto Zannier. On the Hilbert property and the fundamental group of algebraic varieties. Math. Z., 286(1-2):579–602, 2017. 
+*   [Dem20] Julian Lawrence Demeio. Non-rational varieties with the Hilbert property. Int. J. Number Theory, 16(4):803–822, 2020. 
+*   [Dem21] Julian Lawrence Demeio. Elliptic fibrations and the Hilbert property. Int. Math. Res. Not. IMRN, (13):10260–10277, 2021. 
+*   [DG70] Michael Demazure and Peter Gabriel. Groupes algébriques. Number I in Advanced studies in pure mathematics. Masson et Cie, 1970. 
+*   [GCM23] Damián Gvirtz-Chen and Giacomo Mezzedimi. A Hilbert irreducibility theorem for Enriques surfaces. Trans. Amer. Math. Soc., 376(6):3867–3890, 2023. 
+*   [GD70] Alexander Grothendieck and Michel Demazure. Schémas en groupes. III: Structure des schémas en groupes réductifs, volume Vol. 153 of Lecture Notes in Mathematics. Springer-Verlag, Berlin-New York, 1970. Séminaire de Géométrie Algébrique du Bois Marie 1962/64 (SGA 3), Dirigé par M. Demazure et A. Grothendieck. 
+*   [Gro65] Alexander Grothendieck. Éléments de géométrie algébrique. IV. Étude locale des schémas et des morphismes de schémas. II. Inst. Hautes Études Sci. Publ. Math., (24):231, 1965. 
+*   [Gro66] Alexander Grothendieck. Éléments de géométrie algébrique. IV. Étude locale des schémas et des morphismes de schémas. III. Publications Mathématiques de l’IHÉS, 28:5–255, 1966. 
+*   [Hoc81] Gerhard P. Hochschild. Basic theory of algebraic groups and Lie algebras, volume 75 of Graduate Texts in Mathematics. Springer-Verlag, New York-Berlin, 1981. 
+*   [HT01] Brendan Hassett and Yuri Tschinkel. Density of integral points on algebraic varieties. In Rational points on algebraic varieties, volume 199 of Progr. Math., pages 169–197. Birkhäuser, Basel, 2001. 
+*   [Liu02] Qing Liu. Algebraic Geometry and Arithmetic Curves. Oxford University Press, 2002. 
+*   [Liu22] Fei Liu. On Hilbert’s irreducibility theorem for linear algebraic groups. Ann. Sc. Norm. Super. Pisa Cl. Sci. (5), 23(2):1053–1089, 2022. 
+*   [Lug26] Cedric Luger. Products of varieties with many integral points. International Journal of Number Theory, 22(03):519–546, 2026. 
+*   [MNS24] Vladimir Mitankin, Masahiro Nakahara, and Sam Streeter. Semi-integral Brauer-Manin obstruction and quadric orbifold pairs. Trans. Amer. Math. Soc., 377(6):4435–4480, 2024. 
+*   [Moe24] Boaz Moerman. Generalized Campana points and adelic approximation on toric varieties. arXiv:2407.03048, 2024. 
+*   [NS24] Masahiro Nakahara and Sam Streeter. Weak approximation and the Hilbert property for Campana points. Michigan Math. J., 74(2):227–252, 2024. 
+*   [Ser92] Jean-Pierre Serre. Topics in Galois theory, volume 1 of Research Notes in Mathematics. Jones and Bartlett Publishers, Boston, MA, 1992. Lecture notes prepared by Henri Damon, With a foreword by Darmon and the author. 
+*   [Spr98] T. A. Springer. Linear algebraic groups, volume 9 of Progress in Mathematics. Birkhäuser Boston, Inc., Boston, MA, second edition, 1998. 
+*   [Wei21] Da Sheng Wei. Strong approximation for a toric variety. Acta Math. Sin. (Engl. Ser.), 37(1):95–103, 2021. 
+*   [Wit18] Olivier Wittenberg. Rational points and zero-cycles on rationally connected varieties over number fields. In Algebraic geometry: Salt Lake City 2015, volume 97.2 of Proc. Sympos. Pure Math., pages 597–635. Amer. Math. Soc., Providence, RI, 2018. 
+*   [Zan10] Umberto Zannier. Hilbert irreducibility above algebraic groups. Duke Math. J., 153(2):397–425, 2010.
+

@@ -1,0 +1,614 @@
+## Content from https://arxiv.org/html/1310.7871v2
+
+Title: Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields
+
+URL Source: https://arxiv.org/html/1310.7871v2
+
+Markdown Content:
+August 24, 2026
+
+###### Abstract
+
+Using the techniques introduced in [[CZ1](https://arxiv.org/html/1310.7871v2#bib.bibx4)] we solve the non-split case of the geometric Lang-Vojta Conjecture for affine surfaces isomorphic to the complement of a conic and two lines in the projective plane. In this situation we deal with sections of an affine threefold fibered over a curve, whose boundary, in the natural projective completion, is a quartic bundle over the base whose fibers have three irreducible components. We prove that the image of each section has bounded degree in terms of the Euler Characteristic of the base curve.
+
+## 1 Introduction
+
+Lang-Vojta 1 1 1 In this paper we quote the main conjecture with both names of Serge Lang and Paul Vojta, following the notation of [[HS](https://arxiv.org/html/1310.7871v2#bib.bibx7)], Conjecture F.5.3.6. The conjecture is nevertheless the same as the one of [[CZ1](https://arxiv.org/html/1310.7871v2#bib.bibx4)] where it is denoted by _Vojta Conjecture_. One can easily see that the statement is actually implied by the more general Vojta Conjecture on the height bound [[Voj](https://arxiv.org/html/1310.7871v2#bib.bibx14)], but this reformulation uses some ideas of Lang and, therefore, we decided to attribute it to both authors. Conjecture (see [[Voj](https://arxiv.org/html/1310.7871v2#bib.bibx14)], [[CS](https://arxiv.org/html/1310.7871v2#bib.bibx3)], Chapter XV or [[HS](https://arxiv.org/html/1310.7871v2#bib.bibx7)], F.3.5 for a more basic introduction) is one of the most celebrated conjectures in Diophantine Geometry, generalizing to the logarithmic case the well known Bombieri-Lang’s Conjecture (see [[Lan](https://arxiv.org/html/1310.7871v2#bib.bibx8)]). The conjecture predicts degeneracy of S-integral points in varieties of log-general type and, in the dimension 2 case, reads as follows:
+
+###### Conjecture 1.1.
+
+Let \kappa be a number field, S a finite set of places containing the archimedean ones. Let X be a quasi-projective surface defined over \kappa and let \mathcal{X}\to\Spec{\mathcal{O}}_{\kappa,S} be a model of X over the S-integers. Then, if X is of logarithmic general type, \mathcal{X}({\mathcal{O}}_{\kappa,S}) is not Zariski dense.
+
+Here a quasi projective variety is said to be of log-general type if there exists a desingularization X_{1}\to X and a compactification \tilde{X} of X_{1} such that the boundary divisor D=\tilde{X}\setminus X_{1} has normal crossing singularities and K_{\tilde{X}}+D is big. If one starts with a presentation X=Y\setminus D for a projective Y, this is equivalent to the existence of a log-resolution Y^{\prime},D^{\prime} of the couple Y,D such that K_{Y^{\prime}}+D^{\prime} is big. Since the spectrum of the ring of S-integers has dimension 1, the model \mathcal{X} can be thought as an arithmetic threefold whose S-integral points correspond bijectively to sections of the structure map such that the image intersects the boundary over points of S. This geometric viewpoint can be carried over the so-called _geometric_ version of Lang-Vojta conjecture, i.e. where the number field is replaced by a function field of a curve. In these settings the conjecture becomes
+
+###### Conjecture 1.2(Lang-Vojta).
+
+Let \tilde{\mathcal{C}} be a smooth projective curve defined over an algebraically closed field \kappa of characteristic 0, and let S be a finite set of point of \tilde{\mathcal{C}}. Let X be a smooth affine surface defined over \kappa(\tilde{\mathcal{C}}). If X is of log-general type, then there exists a bound for the degree of images of each section \tilde{\mathcal{C}}\setminus S\to X in terms of the Euler Characteristic of \tilde{\mathcal{C}}\setminus S.
+
+The curve \mathcal{C}=\tilde{\mathcal{C}}\setminus S plays the role of the spectrum of the S-integers in Conjecture [1.1](https://arxiv.org/html/1310.7871v2#S1.ThmTh1 "Conjecture 1.1. ‣ 1 Introduction ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") while morphisms \tilde{\mathcal{C}}\setminus S\to X corresponds to integral points over the function field of the curve \tilde{\mathcal{C}}. Conjecture [1.2](https://arxiv.org/html/1310.7871v2#S1.ThmTh2 "Conjecture 1.2 (Lang-Vojta). ‣ 1 Introduction ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") asks for algebraic degeneracy of curves on surfaces of log-general type, i.e. for a bound of the degree depending on the genus and the number of points in the pullback of D. This property, after the work of Demailly [[Dem](https://arxiv.org/html/1310.7871v2#bib.bibx6)], is often called (weak) _algebraic hyperbolicity_.
+
+One of the most studied case is the one in which \tilde{X}=\mathbb{P}^{2}_{\mathbb{C}}, when Conjecture [1.2](https://arxiv.org/html/1310.7871v2#S1.ThmTh2 "Conjecture 1.2 (Lang-Vojta). ‣ 1 Introduction ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") predicts weak algebraic hyperbolicity for the complement of a plane curve of degree at least 4. In this situation the split case, i.e. when the divisor D and the surface \tilde{X} are defined over the ground field, is known when D has degree four and four irreducible components, and follows as an application of Stothers-Mason abc Theorem [[BM](https://arxiv.org/html/1310.7871v2#bib.bibx1)] and [[Vol](https://arxiv.org/html/1310.7871v2#bib.bibx15)]. In a different direction, and with different methods, the split case of the Conjecture has been proved in the case where D has degree at least five by work of Chen [[Che](https://arxiv.org/html/1310.7871v2#bib.bibx2)] and, independently, of Pacienza and Rousseau [[PR](https://arxiv.org/html/1310.7871v2#bib.bibx10)]. In [[CZ1](https://arxiv.org/html/1310.7871v2#bib.bibx4)], Corvaja and Zannier proved, among other things, the three components and degree four split case and state a possible generalization of their main theorem when the divisor D is not defined over the ground field. In this paper we deal with this situation that corresponds, geometrically, to the study of images of curves under sections of a fibered threefold.
+
+We note that recently, in [[CZ2](https://arxiv.org/html/1310.7871v2#bib.bibx5)], Corvaja and Zannier vastly generalize the results of [[CZ1](https://arxiv.org/html/1310.7871v2#bib.bibx4)] for affine surfaces admitting a finite dominant map to the two dimensional torus \mathbb{G}_{m}^{2}. We expect that an approach similar to the one presented here could lead to the extension of these results to the non-split case. It is also worth mentioning that the author in his Ph.D. Thesis [[Tur](https://arxiv.org/html/1310.7871v2#bib.bibx13)] completed the proof of Conjecture [1.2](https://arxiv.org/html/1310.7871v2#S1.ThmTh2 "Conjecture 1.2 (Lang-Vojta). ‣ 1 Introduction ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") in the split case for complements of very generic plane curves of degree at least four in \mathbb{P}^{2}. However the tools used in the proofs do not seem to extend to the non-split case.
+
+We will now describe precisely our result. Denote by \kappa an algebraically closed field of characteristic 0 over which all algebraic varieties will be defined. Let \mathcal{C} be an affine curve (by which we always mean an integral separated scheme of finite type over Spec(\kappa)) with normalization \tilde{\mathcal{C}}\setminus S, for a (unique) smooth complete curve \tilde{\mathcal{C}} and a finite subset S. The Euler characteristic of the affine curve \mathcal{C} is defined as
+
+\chi(\mathcal{C}):=\chi_{S}(\tilde{\mathcal{C}})=2g(\tilde{\mathcal{C}})-2+\sharp S,
+
+i.e. the Euler characteristic of the curve \tilde{\mathcal{C}}\setminus S.
+
+We recall briefly for the reader’s convenience the ideas of [[CZ1](https://arxiv.org/html/1310.7871v2#bib.bibx4)]. Given the affine surface X=\mathbb{P}^{2}\setminus D, where D is a divisor consisting of a conic and two lines in general position, one can assume that one of the lines is the line at infinity. In such a contest one is led to the study of affine curves in the complement of a line and a conic in the affine plane. Morphisms from an affine curve \tilde{\mathcal{C}}\setminus S to such a surface can be expressed as f:P\mapsto(u_{1}(P),y(P)), for a couple of rational functions u_{1},y of \tilde{\mathcal{C}}, with the property that the zeros and the poles of u_{1}, and the poles of y are contained in S. Using explicit equations for D, one can write down an equation satisfied by these functions and another unit u_{2} that looks as follows
+
+y^{2}=u_{1}^{2}+\lambda u_{1}+u_{2}+1.
+
+Bounding the degree of the morphism f is then equivalent to bound the height of solutions to the previous equation. Hence the problem relies on solving the equation in so-called S-units u_{1},u_{2} and S-integer y. For this the authors consider a specific differential form on the curve with respect to which the previous equation can be differentiated. Then one can prove that this new equation should have many zeros in common with the previous one and hence, using a gcd argument for S-units, its solutions have either bounded height or fulfill a dependence relation. In both cases one can conclude the proof of Conjecture [1.2](https://arxiv.org/html/1310.7871v2#S1.ThmTh2 "Conjecture 1.2 (Lang-Vojta). ‣ 1 Introduction ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields").
+
+We note, passim, that the differential equation obtained by the use of the differential form is of particular interest in the context of relating these results to hyperbolicity problems: notably this equation is strictly related with the problem of finding sections of logarithmic jet differentials, a feature which is essential in results obtained in the complex analytic case (see [[Mou](https://arxiv.org/html/1310.7871v2#bib.bibx9)] and [[Rou](https://arxiv.org/html/1310.7871v2#bib.bibx11)] for more details).
+
+Our goal in this paper is to generalize this situation to the so called non-split case, i.e. the case of Lang-Vojta Conjecture for the complement of a conic and two lines in \mathbb{P}^{2}, where now the divisor has field of definition strictly bigger than the ground field. As in the constant case, we are going to reduce the problem to solve a Diophantine equation and bound the height of its solutions using Corvaja and Zannier method. In our case, the equation that describes this setting reads as follows:
+
+y^{2}=u_{1}^{2}+\lambda(P)u_{1}+u_{2}+1.(1.1)
+
+Here again y is a S-integer, u_{1},u_{2} are S-units, and \lambda will be a rational function on the curve \tilde{\mathcal{C}}. We note that this equation is precisely the same considered in [[CZ1](https://arxiv.org/html/1310.7871v2#bib.bibx4)], where now the polynomial in the right hand side has non-constant coefficients. Geometrically, this corresponds to the data of an (affine) threefold X, fibered over the curve \mathcal{C}, where each fiber is isomorphic to \mathbb{P}^{2}\setminus D and D is a divisor consisting of a conic and two lines. Each solution of the equation ([1.1](https://arxiv.org/html/1310.7871v2#S1.E1 "In 1 Introduction ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) gives a section of the fibration X\to\mathcal{C}. This could be formalized using the theory of integral models, where S-integral points of a variety defined over a function field of a curve corresponds to sections of the structure map given by the model, such that the inverse image of the divisor D is supported on S. However we are not going to use this approach in this article.
+
+The situation we will consider is made explicit in the following diagram:
+
+(1.2)
+
+The parameter \lambda(P) will be a function depending on the divisor on the fiber over P and \sigma will be a section of the projection \pi. We observe that in [[CZ1](https://arxiv.org/html/1310.7871v2#bib.bibx4)], the morphisms considered by Corvaja and Zannier from the affine curve \mathcal{C}=\tilde{\mathcal{C}}\setminus S to \mathbb{P}^{2}\setminus D can bee seen as sections of the trivial (\mathbb{P}^{2}\setminus D)-bundle over the curve \mathcal{C}. Here the trivial bundle is replaced by a fibration, in which the divisor at infinity in the fibers is moving. Moreover, generalizing the situation of the constant case, the three irreducible components of the divisor D=D_{P} are not supposed to be in general position for every P\in\tilde{\mathcal{C}} (although we need some restriction on the “degeneracy” of the divisor).
+
+Our main result is the following
+
+###### Theorem 1.3.
+
+Let \tilde{\mathcal{C}},S,X as above. Let \sigma:\mathcal{C}\to X be a non constant section for the fibration \pi:X\to\mathcal{C}, where each fiber is isomorphic to \mathbb{P}^{2}\setminus D. Then there exist effectively computable constants C_{1},C_{2} such that, in a suitable projective embedding of X, the curves \sigma(\tilde{\mathcal{C}}) verify
+
+\deg\sigma(\tilde{\mathcal{C}})\leq C_{1}\cdot\chi_{S}(\tilde{\mathcal{C}})+C_{2}
+
+In section [3](https://arxiv.org/html/1310.7871v2#S3 "3 Affine threefolds ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") we are going to explicitly determined the constant C_{1}, C_{2} using one natural compactification of the affine variety we are considering. This will result in having the constants depending explicitly on the height of the rational function \lambda.
+
+### Acknowledgments.
+
+The results presented in this article are part of my Ph.D. thesis supervised by Pietro Corvaja: I take the opportunity to thank him for having introduced me to this fascinating problems, for his mathematical guidance and for several suggestion on this paper . I also thank Dan Abramovich, Pietro De Poi, Barbara Fantechi and Francesco Zucconi for stimulating discussions which helped to improve the presentation.
+
+### Notations.
+
+We now set the notation for the proofs and we will follow as much as possible the one introduced in [[CZ1](https://arxiv.org/html/1310.7871v2#bib.bibx4)]. From now on \tilde{\mathcal{C}} will be a smooth complete algebraic curve defined over \kappa of genus g=g(\tilde{\mathcal{C}}) and S\subset\tilde{\mathcal{C}} will be a finite set of points of \tilde{\mathcal{C}}. We shall denote by \mathcal{O}_{S} the ring \kappa\mathopen{[}\tilde{\mathcal{C}}\setminus S\mathclose{]} of regular functions on the affine curve \mathcal{C}=\tilde{\mathcal{C}}\setminus S and we will call it the ring of S-integers (elements of \mathcal{O}_{S} are just rational functions on \tilde{\mathcal{C}} with poles contained in the set S). The group of units \mathcal{O}_{S}^{*} is called the group of S-units, i.e. rational functions on \tilde{\mathcal{C}} with poles and zeros contained in S. As before we define the Euler characteristic of the affine curve \mathcal{C}=\tilde{\mathcal{C}}\setminus S as \chi_{S}(\tilde{\mathcal{C}})=\chi(\tilde{\mathcal{C}}\setminus S)=2g(\tilde{\mathcal{C}})-2+\sharp S.
+
+For any rational function a\in\kappa(\tilde{\mathcal{C}}) we define its height to be its degree as a morphism to \mathbb{P}^{1}. More explicitly, if we associate to each point v\in\tilde{\mathcal{C}} a discrete valuation of the function field \kappa(\tilde{\mathcal{C}}) trivial on \kappa and normalized, so that its value group is \mathbb{Z}, then the height of a can be expressed as
+
+H_{\tilde{\mathcal{C}}}(a):=\sum_{v\in\tilde{\mathcal{C}}}\,\max\{0,v(a)\},
+
+where we denoted the valuation with the same letter v. Given a dominant morphism of smooth irreducible projective curves \tilde{\mathcal{D}}\to\tilde{\mathcal{C}}, an element a\in\kappa(\tilde{\mathcal{C}}) can be viewed as a rational function on \tilde{\mathcal{D}} via the inclusion \kappa(\tilde{\mathcal{C}})\subset\kappa(\tilde{\mathcal{D}}) given by the morphism. The height of a with respect to \tilde{\mathcal{D}} verifies
+
+H_{\tilde{\mathcal{D}}}(a)=\mathopen{[}\kappa(\tilde{\mathcal{D}}):\kappa(\tilde{\mathcal{C}})\mathclose{]}\cdot H_{\tilde{\mathcal{C}}}(a).
+
+## 2 Configuration of a conic and two lines
+
+In this section we will analyze configurations of a conic and two lines in \mathbb{P}^{2}. Our aim is to prove that a moduli space for equivalence classes of these divisors is of dimension one.
+
+![Image 1: Refer to caption](https://arxiv.org/html/1310.7871v2/divisor.png)
+
+Figure 1: Configuration of a conic and two lines in general position
+
+Let D be the sum of a smooth conic D_{1} and two distinct lines D_{2},D_{3} in \mathbb{P}^{2} defined over \kappa. This divisor has at most five singular points, four of which lie on the conic, i.e. the four points of intersection between D_{1} and D_{2}+D_{3}; these points are distinct in the case when D_{1},D_{2},D_{3} are in general position, i.e. D has normal crossing singularities. We want to characterize completely isomorphism classes of such divisors.
+
+First we observe that each class possesses a representative with a fixed conic \kern 1.36664pt\overline{\kern-1.36664ptD_{1}} as component of degree two. Hence the problem can be reduced to study isomorphism classes of unordered couples of lines not tangent to \kern 1.36664pt\overline{\kern-1.36664ptD_{1}} whose intersection is not on the conic. One of such divisor is visible in figure [1](https://arxiv.org/html/1310.7871v2#S2.F1 "Figure 1 ‣ 2 Configuration of a conic and two lines ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields"). Secondly one can notice that the problem is equivalent to the study of classes of fourples of points on \mathbb{P}^{1}, via the isomorphism between the conic and \mathbb{P}^{1} (here we fix the ordering of the lines such that the line D_{2} is the one passing through the first two points, and the line D_{3} passes through the last two points): we say that two fourples are in the same class if the corresponding unordered couple of unordered couples of points coincide. This means precisely that the divisors consisting of the fixed conic \kern 1.36664pt\overline{\kern-1.36664ptD_{1}} and the lines D_{2} and D_{3} passing through the ordered points are isomorphic.
+
+A moduli space for our problem will therefore be represented by a scheme with a map from {\mathcal{M}}_{0,4}\cong\mathbb{G}_{m}\setminus\{1\}, where the last isomorphism is given by the cross-ratio. This follows form the easy observation that fourples with the same cross-ratio are in the same class. However, the map from {\mathcal{M}}_{0,4} will not be injective: as an example consider the following two fourples (P_{1},P_{2},P_{3},P_{4}) and (P_{2},P_{1},P_{3},P_{4}), which clearly are in the same class, since
+
+\{\{P_{1},P_{2}\},\{P_{3},P_{4}\}\}=\{\{P_{2},P_{1}\},\{P_{3},P_{4}\}\},
+
+but their cross-ratios are inverse of each other. Hence we expect the map from the moduli of fourples of points in \mathbb{P}^{1} to our moduli space to be many-to-one. To describe it more precisely we use the following basic lemma:
+
+###### Lemma 2.1.
+
+Let P=(P_{1},\dots,P_{4}) and Q=(Q_{1},\dots,Q_{4}) be two fourples such that \underline{P}\neq\underline{Q} in {\mathcal{M}}_{0,4}, i.e. they don’t have the same cross-ratio. Then, if they are in the same class, i.e. they represent the same divisor, then there exists a permutation \sigma such that, \underline{\sigma(P)}=(P_{\sigma(1)},\dots,P_{\sigma(4)})=\underline{Q}, as elements of {\mathcal{M}}_{0,4}.
+
+Hence we are reduced to calculate which permutations of four points give rise to isomorphic configurations of divisors. We can then consider the action of the permutation group S^{4} on an ordered set of four points in the projective line, i.e. an element of (\mathbb{P}^{1})^{4}; an easy case by case analysis shows that the subgroup of S^{4} under which a class of fourples is invariant is G=\langle(12),(13)(24),(14)(23)\rangle. Hence, by classic properties of the cross-ratio, the only non trivial action of G in {\mathcal{M}}_{0,4} comes from elements of the form (12)\cdot G. This corresponds precisely to the example made before, in which the first two points are flipped.
+
+In order to completely describe isomorphism classes of degree four and three components divisors in \mathbb{P}^{2} it is sufficient to define a map
+
+\lambda^{\prime}:\left\{\begin{matrix}\text{degree four and three}\\
+\text{components divisor in }\mathbb{P}^{2}\end{matrix}\right\}\longrightarrow\mathbb{P}^{1},
+
+constant on isomorphic divisors. By the description given above we obtain a natural 2:1 map, from the moduli space {\mathcal{M}}_{0,4} to the moduli space of degree four and three components divisors: this map simply associates to each fourple the two lines passing to the four points. With abuse of notation we indicate as \lambda^{\prime} the composition
+
+\lambda^{\prime}:{\mathcal{M}}_{0,4}\to\left\{\begin{matrix}\text{degree four and three}\\
+\text{components divisor in }\mathbb{P}^{2}\end{matrix}\right\}\to\mathbb{P}^{1},
+
+which is defined as
+
+\lambda^{\prime}(P_{1},P_{2},P_{3},P_{4})=\frac{\beta\left(P_{1},P_{2},P_{3},P_{4}\right)^{2}+1}{\beta\left(P_{1},P_{2},P_{3},P_{4}\right)}-2=\beta(P_{1},P_{2},P_{3},P_{4})+\dfrac{1}{\beta(P_{1},P_{2},P_{3},P_{4})}-2
+
+where \beta is the cross-ratio. We observe that the involution (12) inverts the cross-ratio hence the function \lambda^{\prime} is constant on fourples in the same class. The presence of the -2 in the formula comes from the fact that we want the zeros and the poles of \lambda^{\prime} to contain all the fourples corresponding to divisors which fail to be normal-crossing; these are precisely the ones in which the cross-ratio is either not defined, or takes values 0,\infty and 1.
+
+In our computation we will assume that the set S contains all the points where the fiber has boundary divisor defined by a fourple that is either a pole or a zero of \lambda^{\prime}. This will, in particular, allow us to apply Theorem [4.8](https://arxiv.org/html/1310.7871v2#S4.ThmTh8 "Theorem 4.8 (Zannier). ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") and to obtain a stronger result, given the fact that our final result will not depend on the negativeness or positiveness of the Euler characteristic of the base curve. Namely our bound on the degree of the curves will have a constant term depending on the height of \lambda but all the constants will not depend on the sign of the characteristic. At the same time, this is not a strong restriction because \lambda^{\prime} will be a datum of the variety we want to deal with and hence it does not depend on the method used for the proof (see next section for precise definition of \lambda and its role in the definition of the threefold X).
+
+With abuse of notation we will sometimes indicate the value \lambda^{\prime}(P_{1},\dots,P_{4}) as \lambda^{\prime}(D) where the configuration of D is defined by the points P_{1},\dots,P_{4} on the conic D_{1}.
+
+## 3 Affine threefolds
+
+We are interested in a specific class of affine threefolds fibered over affine curves which generalizes the trivial \mathbb{P}^{2}\setminus D-bundle considered in the split case. More in detail we will consider the following class of affine threefolds:
+
+> (\star)X is an affine threefold fibered over the affine curve \mathcal{C} such that the completion of the fibration is the trivial \mathbb{P}^{2}-bundle over \tilde{\mathcal{C}}. Every fiber \pi^{-1}(P) for a point P\in\tilde{\mathcal{C}} is of the form \mathbb{P}^{2}\setminus D_{P} where D_{P} is a divisor of \mathbb{P}^{2} of degree four consisting of an irreducible conic and two lines such that there are at least four distinct singular points. If the point P is in \mathcal{C} then the function \lambda^{\prime} is regular on D_{P}, i.e. D_{P} has normal crossing singularities.
+
+A picture of this situation can be seen in the diagram [1.2](https://arxiv.org/html/1310.7871v2#S1.E2 "In 1 Introduction ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields").
+
+###### Example 3.1.
+
+Consider a plane smooth affine curve \mathcal{C} in \mathbb{P}^{2}_{\mathbb{C}}. For each point P\in\mathcal{C} let t_{P} denote the tangent line to \mathcal{C} at P. This defines a fibration over \mathcal{C} in the following way: over a point P\in\mathcal{C} let \mathcal{X}_{P} be the complement in \mathbb{P}^{2} of the divisor formed by a fixed quadric D_{1}, the line at infinity D_{\infty} (assuming a choice of coordinate has been made) and the line D_{3,P}=t_{P}. A picture of this situation can be seen in Figure [2](https://arxiv.org/html/1310.7871v2#S3.F2 "Figure 2 ‣ Example 3.1. ‣ 3 Affine threefolds ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields").
+
+Figure 2: Fibered threefold
+
+![Image 2: Refer to caption](https://arxiv.org/html/1310.7871v2/threefold.png)
+
+The threefold
+
+\mathcal{X}=\bigcup_{P\in\mathcal{C}}\mathcal{X}_{P}\to\mathcal{C},
+
+can be seen as a surface defined over the function field of the completion of the normalization \tilde{\mathcal{C}} of \mathcal{C} where a point of the surface P\in\mathcal{X}(k(\tilde{\mathcal{C}})) corresponds to a section \sigma_{P}:\tilde{\mathcal{C}}\to\tilde{\mathcal{X}} such that \sigma_{P}^{-1}(D)\subset\tilde{\mathcal{C}}\setminus\mathcal{C}. In particular in the case in which the divisor
+
+D_{P}=D_{1}+D_{\infty}+D_{3,P}
+
+has normal crossing for all P\in\tilde{\mathcal{C}}\setminus S, being \deg D=4, each fiber is of log-general type. Therefore, Theorem [1.3](https://arxiv.org/html/1310.7871v2#S1.ThmTh3 "Theorem 1.3. ‣ 1 Introduction ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") can be applied giving a bound for the degree of images \sigma_{P}(\tilde{\mathcal{C}}) as expected by Conjecture [1.2](https://arxiv.org/html/1310.7871v2#S1.ThmTh2 "Conjecture 1.2 (Lang-Vojta). ‣ 1 Introduction ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields").
+
+It follows from the definition of the class (\star) that giving such a threefold is equivalent to giving a rational function
+
+\lambda:\tilde{\mathcal{C}}\dashrightarrow\mathbb{P}^{1},
+
+which associates to a point P\in\tilde{\mathcal{C}} a point of \mathbb{P}^{1} viewed as the value of the function \lambda^{\prime}(D_{P}), i.e. \lambda(P) specifies the isomorphism class of the divisor D_{P} in the fiber over P. More in detail each of the affine threefolds we are going to study can be described as follows: we can naturally embed X inside \tilde{X}:=\tilde{\mathcal{C}}\times\mathbb{P}^{2} and denote by p_{1}:\tilde{X}\to\tilde{\mathcal{C}} and p_{2}:\tilde{X}\to\mathbb{P}^{2} the two projections. Then the fibration X\to\mathcal{C} is uniquely determined by a line bundle \mu\in{\operatorname{Pic}}(\tilde{\mathcal{C}}) and the choice of a divisor D\in\lvert p_{1}^{*}(\mu)\otimes p_{2}^{*}({\mathcal{O}}_{\mathbb{P}^{2}}(4))\rvert, see diagram below.
+
+(3.1)
+
+We stress that this general construction does not guarantee that the threefold X belongs to the class (\star) since not every divisor in the linear system gives rise to a fibration where all the fibers D|_{\pi^{-1}(P)} have three components. Conversely, for each such a threefold, one can obtain a description as the one given above for a suitable section of {\mathcal{O}}_{\mathbb{P}^{2}}(4). This in particular implies that, if X belongs to (\star), on every fiber the divisor is determined, up to isomorphism, by the value of the function \lambda defined above, i.e. over every point P\in\mathcal{C} the fiber is uniquely specified by the value of \lambda^{\prime} on the singular points of D_{P}. In other words if X\to\mathcal{C} is one of the threefolds we are interested in, the datum of the map \lambda completely describes the geometry of X.
+
+In the following section we will prove that every threefold in the class (\star), characterized by a non constant rational map \lambda:\tilde{\mathcal{C}}\dashrightarrow\mathbb{P}^{1}, has images of sections with bounded degree in terms of the Euler Characteristic of the base curve.
+
+## 4 Sections of the fibered threefold
+
+From now on we will work on an affine algebraic variety of dimension three verifying condition (\star). We will denote by D_{P} the divisor defined on the fiber over the point P (or simply D where the point will be clear) and its three irreducible components will be indicated by D_{1} (the conic) and D_{2},D_{3} (the two lines). \lambda:\tilde{\mathcal{C}}\to\mathbb{P}^{1} will denote the morphism \lambda(P):=\lambda^{\prime}(D_{P}) and we will suppose that S contains all its zeros and poles. We begin by proving the following:
+
+###### Lemma 4.1.
+
+Let \tilde{\mathcal{C}},S as before and let \pi:X\to\mathcal{C} an affine threefold verifying the condition (\star). Let \sigma:\mathcal{C}\to X be a section of \pi. Then, possibly after passing to a cover of \mathcal{C} of degree 2, there exist S-units u_{1},u_{2}\in\mathcal{O}_{S}^{*} and an S-integer y\in\mathcal{O}_{S} satisfying
+
+y^{2}=u_{1}^{2}+\lambda u_{1}+u_{2}+1,(4.1)
+
+and such that \deg\sigma(\mathcal{C})\leq H_{\tilde{\mathcal{C}}}(u_{1})+H_{\tilde{\mathcal{C}}}(y).
+
+###### Proof.
+
+From condition (\star) it follows that, at most after choosing homogeneous coordinates, we can considered affine coordinates (x,y) in every fiber with respect to the line D_{2} that will be the line at infinity x_{0}=0. In this coordinate system the line D_{3} has equation x=0 and the conic D_{1} has equation y^{2}=x^{2}+\lambda x+1(by Tsen Theorem the equations of the two lines can always be chosen in the desired way. However it could happen that the conic cannot simultaneously be taken to have the former form. In this case we consider a double cover of \tilde{\mathcal{C}} where this holds and perform all the computation in the cover. This will affect only the numerical constants involved in the computation by, at most, a factor of 2). Now we turn our attention to the section \sigma:\tilde{\mathcal{C}}\setminus S\to X. In our setting \sigma can be written as
+
+\sigma(P)=(x(P),y(P),P)\in\pi^{-1}(P)\cong\mathbb{P}^{2}\setminus D_{P}.
+
+Now it is a general fact that such a morphisms has degree bounded by the height of its components: indeed the degree of \sigma is the number of intersection points with a generic hyperplane in a projective space where \sigma(\tilde{\mathcal{C}}) is embedded and this number is bounded by the sum of the heights of the components x and y. This proves that \deg\sigma(\mathcal{C})\leq H_{\tilde{\mathcal{C}}}(u_{1})+H_{\tilde{\mathcal{C}}}(y) where u_{1}:=x. The fact that the image \sigma(P) avoids the line D_{2} means that the function u_{1}:=x\in\mathcal{O}_{S}^{*} is a unit and y\in\mathcal{O}_{S} is a regular function on the affine curve \mathcal{C}. Moreover, the condition that the image of \sigma avoids also the conic D_{1} in every fiber means that we can define another S-unit u_{2} where
+
+u_{2}=y^{2}-u_{1}^{2}-\lambda u_{1}-1.
+
+Hence the units u_{1},u_{2} and the S-integer y verify equation ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) concluding the proof. ∎
+
+We will now work with equation ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) in order to describe its solutions. Our goal is to prove the following
+
+###### Theorem 4.2.
+
+With the notation above, every solution (y,u_{1},u_{2})\in\mathcal{O}_{S}\times(\mathcal{O}_{S}^{*})^{2} of equation ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) satisfies one of the following conditions:
+
+(i)
+a sub-sum on the right term of ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) vanishes;
+
+(ii)
+u_{1},u_{2} verify a multiplicative dependence relation of the form u_{1}^{r}\cdot u_{2}^{s}=\mu, where \mu\in\kappa^{*} is a scalar and r,s, are integers, non both zeros such that \max\{r,s\}\leq 5;
+
+(iii)
+
+the following bound holds:
+
+\max\{H_{\tilde{\mathcal{C}}}(u_{1}),H_{\tilde{\mathcal{C}}}(u_{2})\}\leq 2^{12}\big(58\chi_{S}(\tilde{\mathcal{C}})+28H_{\tilde{\mathcal{C}}}(\lambda)\big)+1H_{\tilde{\mathcal{C}}}(\lambda).
+
+We will now follow the proof, given by Corvaja and Zannier, of the constant case deepening the differences between our situation and the ideas of [[CZ1](https://arxiv.org/html/1310.7871v2#bib.bibx4)]. Firstly we observe that we can define a differential form on \tilde{\mathcal{C}} such that we can speak of derivatives of rational functions. In particular we have the following (this is Lemma 3.5 and Lemma 3.6 of [[CZ1](https://arxiv.org/html/1310.7871v2#bib.bibx4)])
+
+###### Lemma 4.3.
+
+There exists a differential form \omega\in\tilde{\mathcal{C}} and a finite set T\subset\tilde{\mathcal{C}} of cardinality \sharp T=\max\{0,2g(\tilde{\mathcal{C}})-2\} such that for every u\in\mathcal{O}_{S}^{*} there exists an (S\cup T)-integer \theta_{u}\in\mathcal{O}_{S\cup T} having only simple poles such that
+
+\frac{d(u)}{u}=\theta_{u}\cdot\omega\qquad\qquad H_{\tilde{\mathcal{C}}}(\theta_{u})\leq\chi_{S}(\tilde{\mathcal{C}}).(4.2)
+
+Moreover if a\in\mathcal{O}_{S} then there exists an a^{\prime}\in\mathcal{O}_{S\cup T} such that
+
+d(a)=a^{\prime}\cdot\omega\qquad\qquad H_{\tilde{\mathcal{C}}}(a^{\prime})\leq H_{\tilde{\mathcal{C}}}(a)+\chi_{S}(\tilde{\mathcal{C}}).
+
+For the proof of this lemma we refer again to [[CZ1](https://arxiv.org/html/1310.7871v2#bib.bibx4)]; we just notice that Lemma [4.3](https://arxiv.org/html/1310.7871v2#S4.ThmTh3 "Lemma 4.3. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") refers to the curve only, without any reference to the bundle, and hence can be applied in all the cases under consideration. From now on the differential form \omega and the finite set T will be fixed and, for a rational function a\in\kappa(\tilde{\mathcal{C}}) we will denote by a^{\prime} the only rational function such that d(a)=a^{\prime}\cdot\omega.
+
+We consider now the derivative of a polynomial A\in\kappa\mathopen{[}X,Y\mathclose{]} calculated in a point u_{1},u_{2} for some S-units u_{1},u_{2}. One can prove that (see [[CZ1](https://arxiv.org/html/1310.7871v2#bib.bibx4)] Lemma 3.7)
+
+(A(u_{1},u_{2}))^{\prime}=B(u_{1},u_{2}),
+
+where
+
+B(X,Y)=\frac{u_{1}^{\prime}}{u_{1}}\cdot X\,\frac{\partial A}{\partial X}(X,Y)+\frac{u_{2}^{\prime}}{u_{2}}\cdot Y\,\frac{\partial A}{\partial Y}(X,Y).
+
+We will use this identity in order to deal with equation ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")).
+
+###### Lemma 4.4.
+
+Let
+
+\displaystyle A(X,Y)\displaystyle=X^{2}+\lambda X+Y+1
+\displaystyle B(X,Y)\displaystyle=2\ \frac{u_{1}^{\prime}}{u_{1}}\ X^{2}+\lambda\,\bigg(\frac{u_{1}^{\prime}}{u_{1}}\,+\,\frac{\lambda^{\prime}}{\lambda}\bigg)\,X\,+\,\frac{u_{2}^{\prime}}{u_{2}}\ Y\,(4.3)
+
+polynomials in \mathcal{O}_{S\cup T}(\tilde{\mathcal{C}})\mathopen{[}X,Y\mathclose{]}, and let F(X)\in\mathcal{O}_{S\cup T}\mathopen{[}X\mathclose{]}, G(Y)\in\mathcal{O}_{S\cup T}\mathopen{[}Y\mathclose{]} be the resultants of A(X,Y),B(X,Y) with respect to Y and X, i.e. the polynomials
+
+\displaystyle F(\mathbf{X})=Res_{Y}(A,B)\displaystyle=\mathbf{X}^{2}\bigg(2\frac{u_{1}^{\prime}}{u_{1}}-\frac{u_{2}^{\prime}}{u_{2}}\bigg)+\mathbf{X}\bigg(\frac{u_{1}^{\prime}}{u_{1}}-\frac{u_{2}^{\prime}}{u_{2}}+\frac{\lambda^{\prime}}{\lambda}\bigg)\lambda-\frac{u_{2}^{\prime}}{u_{2}}(4.4)
+
+\displaystyle G(\mathbf{Y})=Res_{X}(A,B)\displaystyle=\mathbf{Y^{2}}\bigg(2\frac{u_{1}^{\prime}}{u_{1}}-\frac{u_{2}^{\prime}}{u_{2}}\bigg)^{2}+\mathbf{Y}\bigg[\bigg(\frac{u_{1}^{\prime}}{u_{1}}\bigg)^{2}(8-\lambda^{2})+\frac{u_{1}^{\prime}}{u_{1}}\frac{u_{2}^{\prime}}{u_{2}}(\lambda^{2}-4)+\lambda^{2}\frac{\lambda^{\prime}}{\lambda}\bigg(\frac{\lambda^{\prime}}{\lambda}-\frac{u_{2}^{\prime}}{u_{2}}\bigg)\bigg]+
+\displaystyle\qquad\qquad+\bigg(\frac{u_{1}^{\prime}}{u_{1}}\bigg)^{2}(4-\lambda^{2})+\lambda^{2}\bigg(\frac{\lambda^{\prime}}{\lambda}\bigg)^{2}.(4.5)
+
+Then for every solution (y,u_{1},u_{2})\in\mathcal{O}_{S}\times(\mathcal{O}_{S}^{*})^{2} of ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) we have
+
+\displaystyle y^{2}\displaystyle=A(u_{1},u_{2}),
+\displaystyle 2yy^{\prime}\displaystyle=B(u_{1},u_{2}).
+
+Moreover the S-integer y divides both F(u_{1}) and G(u_{2}) in the ring \mathcal{O}_{S\cup T}.
+
+###### Proof.
+
+Obviously equation ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) is exactly y^{2}=A(u_{1},u_{2}). Moreover A(u_{1},u_{2})^{\prime}=B(u_{1},u_{2}) so we have 2yy^{\prime}=B(u_{1},u_{2}) as wanted.
+
+For the second fact we observe that, for the general theory of resultants, F and G are linear combinations of A and B with coefficients that are polynomials in \mathcal{O}_{S\cup T}, concluding the proof. ∎
+
+Our next step is to factor the polynomials F(X),G(Y) in a suitable finite field extension of \kappa(\tilde{\mathcal{C}}); this extension will be a function field \kappa(\tilde{\mathcal{D}}) for a cover \tilde{\mathcal{D}}\to\tilde{\mathcal{C}}. Besides, we will estimate the Euler characteristic of the curve \tilde{\mathcal{D}}. From now on we will suppose that the leading and the constant term of the polynomial F(X),G(Y) are both non zero.
+
+###### Lemma 4.5.
+
+Given F,G,\tilde{\mathcal{C}},S,T as before, there exists a cover \tilde{\mathcal{D}}\to\tilde{\mathcal{C}}, of degree less or equal to four, such that the Euler characteristic of \tilde{\mathcal{D}}\setminus U verifies
+
+\chi_{U}(\tilde{\mathcal{D}})\leq 53\chi_{S}(\tilde{\mathcal{C}})+28H_{\tilde{\mathcal{C}}}(\lambda)+5\cdot max\{0,2g(\tilde{\mathcal{C}})-2\},(4.6)
+
+where U is the set formed by the pre-images of the zeros of the leading and constant coefficients of F and G and the pre-images of S and T.
+
+###### Proof.
+
+Our goal was to factor F(X) and G(X), so we define the cover p:\tilde{\mathcal{D}}\to\tilde{\mathcal{C}} by the property that \kappa(\tilde{\mathcal{D}}) is the splitting field of F(X)\cdot G(X) over \kappa(\tilde{\mathcal{C}}). From this definition it is straightforward that \deg p is at most four, because \kappa(\tilde{\mathcal{D}}) is generated over p^{*}(\kappa(\tilde{\mathcal{C}})) by the square roots of the discriminants of the two polynomials (recall that F(X) and G(X) both have degree 2).
+
+We will now bound the Euler characteristic of \tilde{\mathcal{D}}\setminus U via the Riemann-Hurwitz formula; for this goal we need an estimate of the ramification points of the cover p. First of all we notice that the ramification points are all contained in the zeros and poles of the discriminants; moreover at any point the ramification index is at most two. The poles are contained in S\cup T and the number of zeros of the discriminants is bounded by their heights. The discriminant of F(X) is
+
+Discr(F(X))=\bigg(\frac{u_{2}^{\prime}}{u_{2}}\bigg)^{2}(\lambda^{2}-4)+\bigg(\frac{u_{2}^{\prime}}{u_{2}}\bigg)\bigg(8\frac{u_{1}^{\prime}}{u_{1}}-2\frac{u_{1}^{\prime}}{u_{1}}\lambda^{2}-2\lambda\lambda^{\prime}\bigg)+\bigg(\lambda\frac{u_{1}^{\prime}}{u_{1}}+\lambda^{\prime 2}\bigg)^{2},(4.7)
+
+so its height (which can be estimated counting its possible poles) is bounded by
+
+\displaystyle H_{\tilde{\mathcal{C}}}(Discr(F(X)))\leq 2H_{\tilde{\mathcal{C}}}\bigg(\frac{u_{2}^{\prime}}{u_{2}}\bigg)+2H_{\tilde{\mathcal{C}}}\bigg(\frac{u_{1}^{\prime}}{u_{1}}\bigg)+2H_{\tilde{\mathcal{C}}}(\lambda^{\prime})+2H_{\tilde{\mathcal{C}}}(\lambda)\leq 6\chi_{S}(\tilde{\mathcal{C}})+4H_{\tilde{\mathcal{C}}}(\lambda).
+
+Analogously, we can look at the discriminant of G(X)
+
+\displaystyle Discr(G(X))\displaystyle=\bigg(\frac{u_{2}^{\prime}}{u_{2}}\bigg)^{2}\bigg[\bigg(\frac{u_{1}^{\prime}}{u_{1}}\bigg)^{2}\lambda^{2}(4-\lambda^{2})+\frac{u_{1}^{\prime}}{u_{1}}\lambda\lambda^{\prime}(8-2\lambda^{2})+\lambda^{\prime 2}(\lambda^{2}-4)\bigg]+
+\displaystyle+2\ \frac{u_{2}^{\prime}}{u_{2}}\bigg[\bigg(\frac{u_{1}^{\prime}}{u_{1}}\bigg)^{3}\lambda^{2}(4-\lambda^{2})\bigg(\frac{u_{1}^{\prime}}{u_{1}}\bigg)^{2}\lambda\lambda^{\prime}(\lambda^{2}-8)+\frac{u_{1}^{\prime}}{u_{1}}\lambda^{\prime 2}(4+\lambda^{2})-\lambda\lambda^{\prime}\bigg]+
+\displaystyle+\bigg(\frac{u_{1}^{\prime}}{u_{1}}\bigg)^{4}\lambda^{2}-2\bigg(\frac{u_{1}^{\prime}}{u_{1}}\bigg)^{2}\lambda^{2}\lambda^{\prime 2}+\lambda^{\prime 4}(4.8)
+
+and bound its height in the same way, obtaining that H_{\tilde{\mathcal{C}}}(Discr(G(X))) is bounded above by
+
+\displaystyle 2H_{\mathcal{C}}\bigg(\frac{u_{2}^{\prime}}{u_{2}}\bigg)+4H_{\tilde{\mathcal{C}}}\bigg(\frac{u_{1}^{\prime}}{u_{1}}\bigg)+4H_{\tilde{\mathcal{C}}}(\lambda^{\prime})+4H_{\tilde{\mathcal{C}}}(\lambda)\leq 10\chi_{S}(\tilde{\mathcal{C}})+8H_{\tilde{\mathcal{C}}}(\lambda).
+
+Therefore the number of ramification points is at most
+
+\sharp(S\cup T)+16\chi_{S}(\tilde{\mathcal{C}})+12H_{\tilde{\mathcal{C}}}(\lambda).
+
+We can now apply the Riemann-Hurwitz formula
+
+2g(\tilde{\mathcal{D}})-2=(\deg p)(2g(\tilde{\mathcal{C}})-2)+\sum_{P\in\tilde{\mathcal{D}}}(e_{P}-1).(4.9)
+
+Here e(P) is the ramification index of p at P and thus (e_{P}-1) is either zero or one. By above estimate of the ramification points of p we obtain that
+
+\sum_{P\in\tilde{\mathcal{D}}}(e_{P}-1)\leq\sharp(S\cup T)+16\chi_{S}(\tilde{\mathcal{C}})+12H_{\tilde{\mathcal{C}}}(\lambda).(4.10)
+
+Consider now the set U\subset\tilde{\mathcal{D}} introduced in the statement of the Lemma. We have that
+
+\sharp U\leq\mathopen{[}\kappa(\tilde{\mathcal{D}}):p^{\star}(\kappa(\tilde{\mathcal{C}}))\mathclose{]}\cdot\sharp p(U).
+
+From this inequality and from ([4.9](https://arxiv.org/html/1310.7871v2#S4.E9 "In Proof. ‣ Lemma 4.5. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) and ([4.10](https://arxiv.org/html/1310.7871v2#S4.E10 "In Proof. ‣ Lemma 4.5. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) the following holds:
+
+\displaystyle 2g(\tilde{\mathcal{D}})-2+\sharp U\displaystyle\leq(\deg p)\bigg(2g(\tilde{\mathcal{C}})-2+\sharp p(U)\bigg)+\sharp(S\cup T)+16\chi_{S}(\tilde{\mathcal{C}})+12H_{\tilde{\mathcal{C}}}(\lambda)
+\displaystyle=(\deg p)\bigg(2g(\tilde{\mathcal{C}})-2+\sharp(S\cup T)+\sharp(p(U)\setminus(S\cup T)\bigg)+\sharp(S\cup T)+16\chi_{S}(\tilde{\mathcal{C}})+12H_{\tilde{\mathcal{C}}}(\lambda)
+\displaystyle\leq 4\chi_{S\cup T}(\tilde{\mathcal{C}})+4\sharp(p(U)\setminus(S\cup T))+\sharp(S\cup T)+16\chi_{S}(\tilde{\mathcal{C}})+12H_{\tilde{\mathcal{C}}}(\lambda).
+
+We have to bound the number \sharp(p(U)\setminus(S\cup T)), but the points in the image of U that are not in S\cup T are precisely the zeros of the leading and constant terms in F(X) and G(X). Again we can estimate their number by looking at the height of these terms. We obtain that
+
+\displaystyle\sharp(p(U)\setminus(S\cup T))\displaystyle\leq H_{\tilde{\mathcal{C}}}\bigg(2\frac{u_{1}^{\prime}}{u_{1}}-\frac{u_{2}^{\prime}}{u_{2}}\bigg)+H_{\tilde{\mathcal{C}}}\bigg(\frac{u_{2}^{\prime}}{u_{2}}\bigg)+2H_{\tilde{\mathcal{C}}}\bigg(2\frac{u_{1}^{\prime}}{u_{1}}-\frac{u_{2}^{\prime}}{u_{2}}\bigg)+H_{\tilde{\mathcal{C}}}\bigg(\bigg(\frac{u_{1}^{\prime}}{u_{1}}\bigg)^{2}(4-\lambda^{2})+\lambda^{\prime 2}\bigg)
+\displaystyle\leq 4\chi_{S}(\tilde{\mathcal{C}})+H_{\tilde{\mathcal{C}}}\bigg(\bigg(\frac{u_{1}^{\prime}}{u_{1}}\bigg)^{2}(4-\lambda^{2})+\lambda^{\prime 2}\bigg)
+\displaystyle\leq 8\chi_{S}(\tilde{\mathcal{C}})+4H_{\tilde{\mathcal{C}}}(\lambda).
+
+Taking this into account we can return to the previous inequality to finish our proof:
+
+\displaystyle\chi_{U}(\tilde{\mathcal{D}})\displaystyle\leq 4\chi_{S\cup T}(\tilde{\mathcal{C}})+32\chi_{S}(\tilde{\mathcal{C}})+16H_{\tilde{\mathcal{C}}}(\lambda)+\sharp S+\sharp T+16\chi_{S}(\tilde{\mathcal{C}})+12H_{\tilde{\mathcal{C}}}(\lambda)
+\displaystyle\leq 52\chi_{S}(\tilde{\mathcal{C}})+28H_{\tilde{\mathcal{C}}}(\lambda)+5\sharp T+\sharp S
+\displaystyle\leq 53\chi_{S}(\tilde{\mathcal{C}})+28H_{\tilde{\mathcal{C}}}(\lambda)+5\max\{0,2g(\tilde{\mathcal{C}})-2\}.
+
+∎
+
+The next step in the proof of our main result is an application of a theorem by Corvaja and Zannier concerning the “greatest common divisor” of two rational functions on \tilde{\mathcal{C}} of the form a-1 and b-1 where a and b are units with respect to some specified finite set (in our case the set will be U). This result is the function field analogue of a theorem by the same authors obtained in the arithmetic case (see [[CZ1](https://arxiv.org/html/1310.7871v2#bib.bibx4)]) and it should be remarked that this result is linked to Lang-Vojta’s conjecture as pointed out by Silverman in [[Sil](https://arxiv.org/html/1310.7871v2#bib.bibx12)]. We will need a corollary of this deep theorem as stated in [[CZ1](https://arxiv.org/html/1310.7871v2#bib.bibx4)] (Corollary 2.3) which read as follows:
+
+###### Theorem 4.6(Corvaja and Zannier).
+
+Let a,b\in\mathcal{O}_{S}^{*} not both constant, and let H:=\max\{H(a),H(b)\}. Then
+
+(i)
+
+If a,b are multiplicatively independent, we have
+
+\sum_{v\notin S}\min\{v(1-a),v(1-b)\}\leq 3\sqrt[3]{2}(H(a),H(b)\chi(\mathcal{C}))^{\frac{1}{3}}\leq 3\sqrt[3]{2}(H^{2}\chi(\mathcal{C}))^{\frac{1}{3}}(4.11)
+
+(ii)
+
+If a,b are multiplicatively dependent, let a^{r}=\mu b^{s} be a generating relation. Then either \mu\neq 1 and \sum_{v\notin S}\min\{v(1-a),v(1-b)\}=0 or \mu=1 and
+
+\sum_{v\notin S}\min\{v(1-a),v(1-b)\}\leq\min\bigg\{\frac{H(a)}{\lvert s\rvert},\frac{H(b)}{\lvert r\rvert}\bigg\}\leq\frac{H}{\max\{\rvert r\lvert,\lvert s\rvert\}}(4.12)
+
+We are going to apply this theorem for a suitable choice of the units a and b: these units will be chosen in such a way that their heights will be “close” to the heights of u_{1},u_{2} and such that the sum appearing in the statement of Theorem [4.6](https://arxiv.org/html/1310.7871v2#S4.ThmTh6 "Theorem 4.6 (Corvaja and Zannier). ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") gives an upper bound for \sum_{v\in\tilde{\mathcal{D}}\setminus U}v(y). We begin by proving the following
+
+###### Lemma 4.7.
+
+Let (u_{1},u_{2},y) be a solution of equation ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) (recall that we are supposing that the leading and constant coefficients of F,G are both non zero). Let \tilde{\mathcal{D}},U as before. Then there exist U-units a,b\in\kappa(\tilde{\mathcal{D}}) such that
+
+\lvert\max\{H_{\tilde{\mathcal{D}}}(a),H_{\tilde{\mathcal{D}}}(b)\}-\max\{H_{\tilde{\mathcal{D}}}(u_{1}),H_{\tilde{\mathcal{D}}}(u_{2})\}\rvert\leq 32\cdot\chi_{S}(\tilde{\mathcal{C}})+8H_{\tilde{\mathcal{C}}}(\lambda)(4.13)
+
+and
+
+\sum_{v\in\tilde{\mathcal{D}}\setminus U}\min\{v(1-a),v(1-b)\}\geq\frac{1}{4}\cdot\sum_{v\in\tilde{\mathcal{D}}\setminus U}v(y).(4.14)
+
+Moreover, a=u_{1}\alpha^{-1}, b=u_{2}\beta^{-1} for suitable \alpha,\beta such that F(\alpha)=G(\beta)=0.
+
+###### Proof.
+
+Being the field \kappa(\tilde{\mathcal{D}}) defined as the splitting field for the polynomial F(X)\cdot G(X) we can write the two polynomials as
+
+\displaystyle F(X)\displaystyle=\bigg(2\frac{u_{1}^{\prime}}{u_{1}}-\frac{u_{2}^{\prime}}{u_{2}}\bigg)(X-\alpha)\cdot(X-\bar{\alpha}),
+\displaystyle G(X)\displaystyle=\bigg(2\frac{u_{1}^{\prime}}{u_{1}}-\frac{u_{2}^{\prime}}{u_{2}}\bigg)^{2}(X-\beta)\cdot(X-\bar{\beta}).
+
+We claim that the roots \alpha,\bar{\alpha} (resp. \beta,\bar{\beta}) of F (resp. G) are U-units. This follows from the definition of U (see Lemma [4.5](https://arxiv.org/html/1310.7871v2#S4.ThmTh5 "Lemma 4.5. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")), because the leading and constant coefficients of the two polynomials are U-units. We consider now the following polynomials obtained from F and G dividing by \alpha\bar{\alpha}\big(2\frac{u_{1}^{\prime}}{u_{1}}-\frac{u_{2}^{\prime}}{u_{2}}\big) and \beta\bar{\beta}\big(2\frac{u_{1}^{\prime}}{u_{1}}-\frac{u_{2}^{\prime}}{u_{2}}\big)^{2} respectively, i.e. the polynomials
+
+\displaystyle\overline{F}(X)\displaystyle:=(X\alpha^{-1}-1)(X\bar{\alpha}^{-1}-1)
+\displaystyle\overline{G}(X)\displaystyle:=(X\beta^{-1}-1)(X\bar{\beta}^{-1}-1).
+
+Now, by Lemma [4.4](https://arxiv.org/html/1310.7871v2#S4.ThmTh4 "Lemma 4.4. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields"), the U-integer y divides both F(u_{1}) and G(u_{2}), and hence it divides the polynomials \overline{F}(u_{1}) and \overline{G}(u_{2}) in the ring of U-integers. From this it follows that
+
+\sum_{v\in\tilde{\mathcal{D}}\setminus U}\min\{v(u_{1}\alpha^{-1}-1)+v(u_{1}\bar{\alpha}^{-1}-1),v(u_{2}\bar{\beta}^{-1}-1)+v(u_{2}\bar{\beta}^{-1}-1)\}\geq\displaystyle{\sum_{v\in\tilde{\mathcal{D}}\setminus U}v(y)}.
+
+We want to analyze the left-side term of the last inequality: observe that for every fourple of rational functions W_{1},W_{2},Z_{1},Z_{2} one has (we omit the valuations)
+
+\displaystyle\sum_{v}\min\{W_{1}+W_{2},Z_{1}+Z_{2}\}\displaystyle\leq\sum_{v}\min\{W_{1},Z_{1}\}+\sum_{v}\min\{W_{1},Z_{2}\}+\sum_{v}\min\{W_{2},Z_{1}\}+\sum_{v}\min\{W_{2},Z_{2}\}
+\displaystyle\leq 4\sum_{v}\min\{\tilde{W},\tilde{Z}\},
+
+for suitable \tilde{W}\in\{W_{1},W_{2}\} and \tilde{Z}\in\{Z_{1},Z_{2}\}. In our case we obtain that there exist U-units a\in\{u_{1}\alpha^{-1},u_{1}\bar{\alpha}^{-1}\} and b\in\{u_{2}\beta^{-1},u_{2}\bar{\beta}^{-1}\} such that:
+
+4\sum_{v\in\tilde{\mathcal{D}}\setminus U}\min\{v(a-1),v(b-1)\}\geq\sum_{v\in\tilde{\mathcal{D}}\setminus U}v(y),
+
+proving ([4.14](https://arxiv.org/html/1310.7871v2#S4.E14 "In Lemma 4.7. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")). Next we want to prove that the heights of these U-units a,b are “close” to the heights of u_{1},u_{2}. We observe that the difference appearing in the left side term of ([4.13](https://arxiv.org/html/1310.7871v2#S4.E13 "In Lemma 4.7. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) is bounded by the maximum of the \tilde{\mathcal{D}}-heights of the roots of F and G. Again we bound these heights by estimating their possible poles. It is then sufficient to observe that the poles of the roots \alpha,\bar{\alpha} (resp. \beta,\bar{\beta}) are either zeros of the leading coefficient or poles of the constant term of the polynomial F (resp. G). Hence
+
+\displaystyle\max\{H_{\tilde{\mathcal{D}}}(\alpha),H_{\tilde{\mathcal{D}}}(\bar{\alpha})\}\displaystyle\leq H_{\tilde{\mathcal{D}}}\bigg(2\frac{u_{1}^{\prime}}{u_{1}}-\frac{u_{2}^{\prime}}{u_{2}}\bigg)+H_{\tilde{\mathcal{D}}}\bigg(\frac{u_{2}^{\prime}}{u_{2}}\bigg)
+\displaystyle\leq 4H_{\tilde{\mathcal{C}}}\bigg(2\frac{u_{1}^{\prime}}{u_{1}}-\frac{u_{2}^{\prime}}{u_{2}}\bigg)+4H_{\tilde{\mathcal{C}}}\bigg(\frac{u_{2}^{\prime}}{u_{2}}\bigg)
+\displaystyle\leq 8\chi_{s}(\tilde{\mathcal{C}}).
+
+In the same way we get
+
+\displaystyle\max\{H_{\tilde{\mathcal{D}}}(\beta),H_{\tilde{\mathcal{D}}}(\bar{\beta})\}\displaystyle\leq H_{\tilde{\mathcal{D}}}\bigg(2\frac{u_{1}^{\prime}}{u_{1}}-\frac{u_{2}^{\prime}}{u_{2}}\bigg)^{2}+H_{\tilde{\mathcal{D}}}\bigg[\bigg(\frac{u_{1}^{\prime}}{u_{1}}\bigg)^{2}(4-\lambda^{2})+\lambda^{\prime 2}\bigg]
+\displaystyle\leq 4H_{\tilde{\mathcal{C}}}\bigg(2\frac{u_{1}^{\prime}}{u_{1}}-\frac{u_{2}^{\prime}}{u_{2}}\bigg)^{2}+4H_{\tilde{\mathcal{C}}}\bigg[\bigg(\frac{u_{1}^{\prime}}{u_{1}}\bigg)^{2}(4-\lambda^{2})+\lambda^{\prime 2}\bigg]
+\displaystyle\leq 32\chi_{s}(\tilde{\mathcal{C}})+8H_{\tilde{\mathcal{C}}}(\lambda).
+
+∎
+
+In order to apply Theorem [4.6](https://arxiv.org/html/1310.7871v2#S4.ThmTh6 "Theorem 4.6 (Corvaja and Zannier). ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") we need an upper bound for \sum_{v\in\tilde{\mathcal{D}}\setminus U}v(y) in terms of the heights of u_{1},u_{2}. This bound is obtained by an application of a theorem by U. Zannier in [[Zan](https://arxiv.org/html/1310.7871v2#bib.bibx16)] which reads as follows:
+
+###### Theorem 4.8(Zannier).
+
+Let \tilde{\mathcal{D}},U as before, m\geq 2 an integer, \theta_{1},\dots,\theta_{m}U-units such that no subsum of \theta_{1}+\dots+\theta_{m} vanishes. Then the U-integer \theta_{1}+\dots+\theta_{m} satisfies
+
+\sum_{v\in\tilde{\mathcal{D}}\setminus U}v(\theta_{1}+\dots+\theta_{m})\geq H_{\tilde{\mathcal{D}}}(\theta_{1}:\dots:\theta_{m})-\binom{m}{2}\chi_{U}(\tilde{\mathcal{D}}).
+
+We are going to apply this Theorem to the U-integer
+
+y=u_{1}^{2}+\lambda u_{1}+u_{2}+1,
+
+using the fact that
+
+\displaystyle H_{\tilde{\mathcal{D}}}(u_{1}^{2}:\lambda u_{1}:u_{2}:1)\displaystyle\geq\max\{2H_{\tilde{\mathcal{D}}}(u_{1}),H_{\tilde{\mathcal{D}}}(u_{1})+H_{\tilde{\mathcal{D}}}(\lambda),H_{\tilde{\mathcal{D}}}(u_{2})\}
+\displaystyle\geq\max\{H_{\tilde{\mathcal{D}}}(u_{1}),H_{\tilde{\mathcal{D}}}(u_{2})\}.
+
+In particular, assuming that no subsum of the right term of equation ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) vanishes, we obtained the following
+
+###### Lemma 4.9.
+
+For every solution (y,u_{1},u_{2}) of ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) such that no subsum of the right term vanishes, one has
+
+H_{\tilde{\mathcal{D}}}(y)\geq\sum_{v\in\tilde{\mathcal{D}}\setminus U}v(y)\geq\max\{H_{\tilde{\mathcal{D}}}(u_{1}),H_{\tilde{\mathcal{D}}}(u_{2})\}-6\chi_{U}(\tilde{\mathcal{D}}).
+
+Now we put together this last inequality with the results of Lemma [4.13](https://arxiv.org/html/1310.7871v2#S4.E13 "In Lemma 4.7. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") and we obtain that, for every solution of ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) there exist U-units a,b such that
+
+\sum_{v\in\tilde{\mathcal{D}}\setminus U}\min\{v(a-1),v(b-1)\}\geq\frac{1}{4}\bigg(\max\{H_{\tilde{\mathcal{D}}}(a),H_{\tilde{\mathcal{D}}}(b)\}-6\chi_{U}(\tilde{\mathcal{D}})-32\chi_{S}(\tilde{\mathcal{C}})-8H_{\tilde{\mathcal{C}}}(\lambda)\bigg)
+
+Using the fact that \chi_{S}(\tilde{\mathcal{C}})\leq\chi_{U}(\tilde{\mathcal{D}}) we obtain that
+
+\sum_{v\in\tilde{\mathcal{D}}\setminus U}\min\{v(a-1),v(b-1)\}\geq\frac{1}{4}\bigg(\max\{H_{\tilde{\mathcal{D}}}(a),H_{\tilde{\mathcal{D}}}(b)\}-38\chi_{S}(\tilde{\mathcal{C}})-8H_{\tilde{\mathcal{C}}}(\lambda)\bigg).(4.15)
+
+We can now apply Theorem [4.6](https://arxiv.org/html/1310.7871v2#S4.ThmTh6 "Theorem 4.6 (Corvaja and Zannier). ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") to deduce the following
+
+###### Proposition 4.10.
+
+Let (y,u_{1},u_{2})\in\mathcal{O}_{S}\times(\mathcal{O}_{S}^{*})^{2} be a solution of equation ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) such that no subsum of the right term vanishes, and the leading and constant term of the polynomials F,G are not zero. Let \tilde{\mathcal{D}},U be as defined in Lemma [4.5](https://arxiv.org/html/1310.7871v2#S4.ThmTh5 "Lemma 4.5. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") and a,b\in{\mathcal{O}}_{U}^{*} as defined in Lemma [4.7](https://arxiv.org/html/1310.7871v2#S4.ThmTh7 "Lemma 4.7. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields"). Then either
+
+\max\{H_{\tilde{\mathcal{C}}}(u_{1}),H_{\tilde{\mathcal{C}}}(u_{2})\}\leq 2^{12}\bigg(58\chi_{S}(\tilde{\mathcal{C}})+28H_{\tilde{\mathcal{C}}}(\lambda)\bigg)+16H_{\tilde{\mathcal{C}}}(\lambda)(4.16)
+
+or a,b verify a multiplicative dependence relation of the form
+
+a^{r}\cdot b^{s}=1
+
+for integers (r,s)\in\mathbb{Z}^{2}\setminus\{0\} with
+
+\max\{\lvert r\rvert,\lvert s\rvert\}\leq 5.(4.17)
+
+###### Proof.
+
+We suppose that inequality ([4.16](https://arxiv.org/html/1310.7871v2#S4.E16 "In Proposition 4.10. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) does not hold and we want to prove the dependence relation for a,b. In order to apply Corvaja and Zannier Theorem [4.6](https://arxiv.org/html/1310.7871v2#S4.ThmTh6 "Theorem 4.6 (Corvaja and Zannier). ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") we are going to show that the left-hand side of ([4.16](https://arxiv.org/html/1310.7871v2#S4.E16 "In Proposition 4.10. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) is greater than the right-hand side of ([4.11](https://arxiv.org/html/1310.7871v2#S4.E11 "In item (i) ‣ Theorem 4.6 (Corvaja and Zannier). ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")). Our starting point is
+
+\max\{H_{\tilde{\mathcal{C}}}(u_{1}),H_{\tilde{\mathcal{C}}}(u_{2})\}>2^{12}\cdot\bigg(58\cdot\chi_{S}(\tilde{\mathcal{C}})+28H_{\tilde{\mathcal{C}}}(\lambda)\bigg)+16H_{\tilde{\mathcal{C}}}(\lambda).
+
+From Lemma [4.5](https://arxiv.org/html/1310.7871v2#S4.ThmTh5 "Lemma 4.5. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") we know that
+
+\chi_{U}(\tilde{\mathcal{D}})\leq 58\cdot\chi_{S}(\tilde{\mathcal{C}})+28H_{\tilde{\mathcal{C}}}(\lambda)
+
+and so we obtain that
+
+\max\{H_{\tilde{\mathcal{C}}}(u_{1}),H_{\tilde{\mathcal{C}}}(u_{2})\}>2^{12}\chi_{U}(\tilde{\mathcal{D}})+16H_{\tilde{\mathcal{C}}}(\lambda).
+
+Remember that our aim is to apply Theorem [4.6](https://arxiv.org/html/1310.7871v2#S4.ThmTh6 "Theorem 4.6 (Corvaja and Zannier). ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") and so we need to work with the maximum of the heights of a,b. For this reason we apply ([4.13](https://arxiv.org/html/1310.7871v2#S4.E13 "In Lemma 4.7. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) which estimates the closeness of H(u_{i}) and H(a),H(b) and we get
+
+\displaystyle\max\{H_{\tilde{\mathcal{D}}}(a),H_{\tilde{\mathcal{D}}}(b)\}\displaystyle\geq\max\{H_{\tilde{\mathcal{D}}}(u_{1}),H_{\tilde{\mathcal{D}}}(u_{2})\}-32\chi_{S}(\tilde{\mathcal{C}})-8H_{\tilde{\mathcal{C}}}(\lambda)
+\displaystyle\geq\max\{H_{\tilde{\mathcal{D}}}(u_{1}),H_{\tilde{\mathcal{D}}}(u_{2})\}-32\chi_{U}(\tilde{\mathcal{D}})-8H_{\tilde{\mathcal{C}}}(\lambda).
+
+From these last two inequalities and the fact that H_{\tilde{\mathcal{C}}}\leq H_{\tilde{\mathcal{D}}}, we obtain the lower bound
+
+\max\{H_{\tilde{\mathcal{D}}}(a),H_{\tilde{\mathcal{D}}}(b)\}\geq(2^{12}-32)\chi_{U}(\tilde{\mathcal{D}})+8H_{\tilde{\mathcal{C}}}(\lambda).(4.18)
+
+In order to simplify the notation we put H=\max\{H_{\tilde{\mathcal{D}}}(a),H_{\tilde{\mathcal{D}}}(b)\} and \chi=\chi_{U}(\tilde{\mathcal{D}}). We claim that
+
+\sum_{v\in\tilde{\mathcal{D}}\setminus U}\min\{v(a-1),v(b-1)\}>3\cdot 2^{\frac{1}{3}}H^{\frac{2}{3}}\chi^{\frac{1}{3}}(4.19)
+
+To prove the claim we observe that, from ([4.15](https://arxiv.org/html/1310.7871v2#S4.E15 "In 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")), it is enough to show that
+
+\frac{1}{4}\big(H-38\chi-8H_{\tilde{\mathcal{C}}}(\lambda)\big)>3\cdot 2^{\frac{1}{3}}H^{\frac{2}{3}}\chi^{\frac{1}{3}}.
+
+We define the function
+
+f(t)=\frac{1}{4}\big(t-8H_{\tilde{\mathcal{C}}}(\lambda)\big)-3\cdot 2^{\frac{1}{3}}t^{\frac{2}{3}}\chi^{\frac{1}{3}}-38/4\chi
+
+and we notice that our claim is equivalent to f(H)>0. Now the function f is an increasing function for t\geq 2^{10}\chi+8H(\lambda), therefore it is enough to prove it for H=(2^{12}-32)\chi>2^{10}\chi. Hence the claim is equivalent to
+
+\frac{1}{4}(2^{12}-32)\chi-3\cdot 2^{\frac{1}{3}}(2^{12}-32)^{\frac{2}{3}}\chi>38/4\chi
+
+With some algebraic manipulations one gets
+
+\displaystyle\frac{1}{4}(2^{12}-32)\chi-3\cdot 2^{\frac{1}{3}}(2^{12}-32)^{\frac{2}{3}}\chi=
+\displaystyle 2^{\frac{10}{3}}(2^{7}-1)^{\frac{2}{3}}\bigg[\frac{1}{4}2^{\frac{5}{3}}((2^{7}-1)^{\frac{1}{3}}-3\cdot 2^{\frac{1}{3}}\bigg]\chi=
+\displaystyle 40\cdot 6\cdot\bigg[2^{-\frac{1}{3}}\cdot 2^{\frac{13}{6}}-3\cdot 2^{\frac{1}{3}}\bigg]\chi=
+\displaystyle 40\cdot 6\cdot\bigg[2^{\frac{1}{3}}(2^{\frac{5}{3}}-3)\bigg]\chi>40\chi
+
+which proves the claim. Now we can apply Theorem [4.6](https://arxiv.org/html/1310.7871v2#S4.ThmTh6 "Theorem 4.6 (Corvaja and Zannier). ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") which implies that a,b verify a multiplicative dependence relation of the form a^{r}b^{s}=1 for some integers r,s not both zero. The same Theorem gives the bound ([4.12](https://arxiv.org/html/1310.7871v2#S4.E12 "In item (ii) ‣ Theorem 4.6 (Corvaja and Zannier). ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) and hence, together with ([4.18](https://arxiv.org/html/1310.7871v2#S4.E18 "In Proof. ‣ Proposition 4.10. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) and ([4.15](https://arxiv.org/html/1310.7871v2#S4.E15 "In 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")), we obtain
+
+\frac{H}{\max\{\lvert r\rvert,\lvert s\rvert\}}>\frac{1}{4}H-10\chi>\frac{1}{5}H
+
+Therefore we get \max\{\lvert r\rvert,\lvert s\rvert\}\leq 5, as desired. ∎
+
+The conclusion of Proposition [4.10](https://arxiv.org/html/1310.7871v2#S4.ThmTh10 "Proposition 4.10. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") gives us a multiplicative relation of dependence between a,b instead of u_{1},u_{2}. However this relation is guaranteed by Lemma 3.14 in [[CZ1](https://arxiv.org/html/1310.7871v2#bib.bibx4)] which gives us the following result:
+
+###### Lemma 4.11([[CZ1](https://arxiv.org/html/1310.7871v2#bib.bibx4)]).
+
+In the previous notation, if a multiplicative relation of the form a^{r}\cdot b^{s}=\mu holds for a constant \mu\in\kappa, then either one between a and b is constant or u_{1},u_{2} satisfy a multiplicative dependence relation of the same type.
+
+Now we go back to Theorem [4.2](https://arxiv.org/html/1310.7871v2#S4.ThmTh2 "Theorem 4.2. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields"): here we should take care of the constant term of the polynomial G in a different way as in the constant case. In detail the vanishing of this term does not directly imply an explicit bound for the degree of the images f(\mathcal{C}) as in the split function field case; here we should apply again the whole machinery in order to explicitly find the unit u_{1} and so reduce the problem to equation y^{2}=\mu+u_{2}+1, which was already solved in the split case and gives the desired bound. For readability reasons we split the proof of Theorem [4.2](https://arxiv.org/html/1310.7871v2#S4.ThmTh2 "Theorem 4.2. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") in two cases: Lemma [4.12](https://arxiv.org/html/1310.7871v2#S4.ThmTh12 "Lemma 4.12. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") for the case in which the constant coefficient of G is not zero, and Lemma [4.13](https://arxiv.org/html/1310.7871v2#S4.ThmTh13 "Lemma 4.13. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") for the other case. Clearly the two lemmas together gives Theorem [4.2](https://arxiv.org/html/1310.7871v2#S4.ThmTh2 "Theorem 4.2. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields").
+
+###### Lemma 4.12.
+
+Suppose that the constant term of the polynomial G does not vanish, i.e., with the notation of [4.2](https://arxiv.org/html/1310.7871v2#S4.ThmTh2 "Theorem 4.2. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields"), every solution (y,u_{1},u_{2})\in\mathcal{O}_{S}\times(\mathcal{O}_{S}^{*})^{2} of equation ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields"))
+
+y^{2}=u_{1}^{2}+\lambda u_{1}+u_{2}+1
+
+satisfies also
+
+\bigg(\frac{u_{1}^{\prime}}{u_{1}}\bigg)^{2}(4-\lambda^{2})+\lambda^{2}\bigg(\frac{\lambda^{\prime}}{\lambda}\bigg)^{2}\neq 0.(4.20)
+
+Then one of the following conditions holds:
+
+(i)
+a sub-sum on the right term of ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) vanishes;
+
+(ii)
+u_{1},u_{2} verify a multiplicative dependence relation of the form u_{1}^{r}\cdot u_{2}^{s}=\mu, where \mu\in\kappa is a scalar and r,s, are integers, non both zeros such that \max\{r,s\}\leq 5;
+
+(iii)
+
+the following bound holds:
+
+\hskip-28.45274pt\max\{H_{\tilde{\mathcal{C}}}(u_{1}),H_{\tilde{\mathcal{C}}}(u_{2})\}\leq 2^{12}\cdot\big(58\cdot\chi_{S}(\tilde{\mathcal{C}})+28H_{\tilde{\mathcal{C}}}(\lambda)\big)+16H_{\tilde{\mathcal{C}}}(\lambda).
+
+###### Proof.
+
+We start assuming that (i), (ii) and (iii) are not satisfied and we are going to find a contradiction. First of all we note that, if (i) is not satisfied, no subsum of ([1.1](https://arxiv.org/html/1310.7871v2#S1.E1 "In 1 Introduction ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) can vanish. Moreover the polynomials F and G defined in [4.4](https://arxiv.org/html/1310.7871v2#S4.ThmTh4 "Lemma 4.4. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") could not be constant because the vanishing of their leading coefficients would imply some multiplicative relation between u_{1} and u_{2} which is excluded by (ii). The same is true for the constant coefficient of F (which is u_{2}^{\prime}/u_{2}): it cannot be zero otherwise u_{2} would be constant; moreover, by our assumptions, the same holds for the constant coefficient of G. Hence both F and G are non constant polynomials whose constant coefficients are not zero.
+
+Since we excluded the case where the leading and constant coefficients of F and G vanish, we can apply ([4.10](https://arxiv.org/html/1310.7871v2#S4.ThmTh10 "Proposition 4.10. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) and obtain a multiplicative relation between a=u_{1}\alpha^{-1} and b=u_{1}\beta^{-1}; this follows from the fact that inequality ([4.16](https://arxiv.org/html/1310.7871v2#S4.E16 "In Proposition 4.10. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) is excluded by (iii). From this relation, applying ([4.11](https://arxiv.org/html/1310.7871v2#S4.ThmTh11 "Lemma 4.11 ([]). ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")), we get that either a or b is constant or u_{1} and u_{2} verify a multiplicative relation of the same type. The former case would imply that the height of u_{1} (or u_{2}) would be the same as the height of \alpha (resp. \beta) so it would be lesser or equal than 8\chi_{S}(\tilde{\mathcal{C}}) (resp. 32\chi_{S}(\tilde{\mathcal{C}})); but this contradicts our assumption that (iii) does not hold and hence it is excluded. The latter case is precisely (ii) that was assumed to be false. In both cases we get a contradiction and this concludes the proof.
+
+∎
+
+###### Lemma 4.13.
+
+Suppose that the constant term of the polynomial G vanishes, i.e., with the notation of [4.2](https://arxiv.org/html/1310.7871v2#S4.ThmTh2 "Theorem 4.2. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields"), every solution (y,u_{1},u_{2})\in\mathcal{O}_{S}\times(\mathcal{O}_{S}^{*})^{2} of equation ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) satisfies also
+
+\bigg(\frac{u_{1}^{\prime}}{u_{1}}\bigg)^{2}(4-\lambda^{2})+\lambda^{2}\bigg(\frac{\lambda^{\prime}}{\lambda}\bigg)^{2}=0.(4.21)
+
+Then one of the following conditions holds:
+
+(i)
+(y,u_{1},u_{2}) satisfy an equation whose solutions verify conclusions of Theorem [4.2](https://arxiv.org/html/1310.7871v2#S4.ThmTh2 "Theorem 4.2. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields").
+
+(ii)
+u_{1},u_{2} verify a multiplicative dependence relation of the form u_{1}^{r}\cdot u_{2}^{s}=\mu, where \mu\in\kappa is a scalar and r,s, are integers, not both zero such that \max\{r,s\}\leq 5;
+
+###### Proof.
+
+The first trivial case is the case in which \lambda is constant which is excluded since we are assuming that the threefold defined by \lambda is not trivial. The second case is the case in which \lambda is a non constant S-unit. In this case we obtain, in the ring \mathcal{O}_{S}, the following identity (here we can enlarge S so that it contains every point for which \lambda=2):
+
+\bigg(\frac{u_{1}^{\prime}}{u_{1}}\bigg)^{2}=-\frac{\lambda^{2}}{4-\lambda^{2}}\bigg(\frac{\lambda^{\prime}}{\lambda}\bigg)^{2}.(4.22)
+
+Now we observe that, by Dirichlet Unit Theorem, the ring \mathcal{O}_{S}^{*} is finitely generated modulo constants, so every u_{1}\in\mathcal{O}_{S}^{*} is of the form \mu\cdot v_{1}^{a_{1}}\cdots v_{h}^{a_{h}} for some \mu\in\kappa and v_{1},\dots,v_{h}\in\mathcal{O}_{S}^{*}. Therefore we have
+
+\frac{u_{1}^{\prime}}{u_{1}}=\sum_{i=1}^{h}a_{i}\frac{v_{i}^{\prime}}{v_{i}}.
+
+Being \lambda\in\mathcal{O}_{S}^{*} the right-hand side of equation ([4.22](https://arxiv.org/html/1310.7871v2#S4.E22 "In Proof. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) could also be expressed in the v_{i} and their derivatives; in particular [4.22](https://arxiv.org/html/1310.7871v2#S4.E22 "In Proof. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") becomes an equation in the unknown a_{i} and this equation will have a unique (for given \lambda and S) solution in the a_{i}. Hence u_{1} will be uniquely determined up to a constant factor and therefore its height will be a constant. So we can assume that u_{1}=af for a constant a\in\kappa and a fixed S-unit f. This leads to consider equation y^{2}=a^{2}f^{2}+\lambda af+u_{2}+1. We claim that this case gives (i). The claim follows from a repetition of all the considerations done until now for equation ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")): we obtain the same estimates with different polynomials \tilde{F},\tilde{G}. Again we look at the vanishing of the constant and leading coefficients and this time we found that the case in which the constant coefficient of the new polynomial \tilde{G} vanishes gives us either u_{1}=0 or u_{1}=f where a=1. In both cases this reduces the problem to the equation y^{2}=\mu+u_{2}+1, where \mu is now fixed, which has already been treated in the split function field case and gives (i). The case in which the constant term of \tilde{G} is not zero is precisely one of the cases of (i) and this concludes the proof of the claim. ∎
+
+Finally we prove Theorem [1.3](https://arxiv.org/html/1310.7871v2#S1.ThmTh3 "Theorem 1.3. ‣ 1 Introduction ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") using the previous Theorem.
+
+###### Proof of Theorem [1.3](https://arxiv.org/html/1310.7871v2#S1.ThmTh3 "Theorem 1.3. ‣ 1 Introduction ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields").
+
+As in Lemma [4.1](https://arxiv.org/html/1310.7871v2#S4.ThmTh1 "Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields"), after possibly passing to a double cover of \tilde{\mathcal{C}}, a section
+
+\sigma:\tilde{\mathcal{C}}\setminus S\to X
+
+will be of the form
+
+\sigma:P\mapsto(u_{1}(P),y(P),P)
+
+where the S-unit u_{1} and the S-integer y verify equation ([4.1](https://arxiv.org/html/1310.7871v2#S4.E1 "In Lemma 4.1. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields")) for a S-unit u_{2}. In this setting we can apply Theorem [4.2](https://arxiv.org/html/1310.7871v2#S4.ThmTh2 "Theorem 4.2. ‣ 4 Sections of the fibered threefold ‣ Fibered Threefolds and Lang-Vojta’s Conjecture over Function Fields") and conclude that one of (i),(ii),(iii) holds. Let us analyze every case.
+
+*   •
+In the first case (i) we have that some sub-sum of u_{1}^{2}+\lambda(P)u_{1}+u_{2}+1 will vanish. Hence \sigma(\mathcal{C}) is either a line or a conic (recall that being \lambda non constant its height is at least one).
+
+*   •
+In the second case (ii) we have a multiplicative relation between the two S-units of the form u_{1}^{r}=u_{2}^{s}\cdot\mu for a scalar \mu\in\kappa and two integers r,s with absolute value lesser or equal than 5. From this it follows that \deg\sigma(\mathcal{C})\leq H_{\tilde{\mathcal{C}}}(u_{1})+H_{\tilde{\mathcal{C}}}(y)\leq 20.
+
+*   •
+In the last case (iii) we have \max\{H_{\tilde{\mathcal{C}}}(u_{1}),H_{\tilde{\mathcal{C}}}(u_{2})\} is bounded above by 2^{12}\cdot\big(58\cdot\chi_{S}(\tilde{\mathcal{C}})+28H_{\tilde{\mathcal{C}}}(\lambda)\big)+16H_{\tilde{\mathcal{C}}}(\lambda).
+
+In both cases this imply that there exist constants C_{1}\leq 2^{14}\cdot 58 and C_{2}\leq 2^{14}\cdot 28 that verify the conclusion of the Theorem. ∎
+
+## References
+
+*   [BM] W. D. Brownawell and D. W. Masser. Vanishing sums in function fields. Math. Proc. Cambridge Philos. Soc., 100(3):427–434, 1986. 
+*   [Che] Xi Chen. On algebraic hyperbolicity of log varieties. Commun. Contemp. Math., 6(4):513–559, 2004. 
+*   [CS] Gary Cornell and Joseph H. Silverman, editors. Arithmetic geometry. Springer-Verlag, New York, 1986. Papers from the conference held at the University of Connecticut, Storrs, Connecticut, July 30–August 10, 1984. 
+*   [CZ1] Pietro Corvaja and Umberto Zannier. Some cases of Vojta’s Conjecture on integral points over function fields. J. Algebraic Geometry, 17:195–333, December 2008. 
+*   [CZ2] Pietro Corvaja and Umberto Zannier. Algebraic hyperbolicity of ramified covers of \mathbb{G}^{2}_{m} (and integral points on affine subsets of \mathbb{P}_{2}). J. Differential Geom., 93(3):355–377, 2013. 
+*   [Dem] Jean-Pierre Demailly. Algebraic criteria for Kobayashi hyperbolic projective varieties and jet differentials, volume 62 of Proc. Sympos. Pure Math.Amer. Math. Soc., Providence, RI, 1997. 
+*   [HS] Marc Hindry and Joseph H. Silverman. Diophantine geometry, volume 201 of Graduate Texts in Mathematics. Springer-Verlag, New York, 2000. 
+*   [Lan] Serge Lang. Fundamentals of Diophantine Geometry. Springer, 1983. 
+*   [Mou] Christophe Mourougane. Families of hypersurfaces of large degree. Journal of the European Mathematical Society, pages 911–936, 2012. 
+*   [PR] Gianluca Pacienza and Erwan Rousseau. On the logarithmic Kobayashi conjecture. J. Reine Angew. Math., 611:221–235, 2007. 
+*   [Rou] Erwan Rousseau. Logarithmic vector fields and hyperbolicity. Nagoya Math. J., 195:21–40, 2009. 
+*   [Sil] Joseph H. Silverman. Generalized Greatest Common Divisors, Divisibility Sequences, and Vojta’s Conjecture for Blowups. Monatshefte f. Math., 145:333–350, July 2005. 
+*   [Tur] Amos Turchet. Geometric Lang-Vojta Conjecture in \mathbb{P}^{2}. PhD thesis, Università degli studi di Udine, 2014. 
+*   [Voj] Paul Vojta. Diophantine Approximations and Value Distribution Theory, volume 1239 of Lecture Notes in Mathematics. Springer Berlin Heidelberg, 1987. 
+*   [Vol] José Felipe Voloch. Diagonal equations over function fields. Bol. Soc. Brasil. Mat., 16(2):29–39, 1985. 
+*   [Zan] Umberto Zannier. Some remarks on the S-unit equation in function fields. Acta Arithmetica, 1(1):87–98, 1993. 
+
+Department of Mathematical Sciences, Chalmers University of Technology and the University of Gothenburg, SE-412 96 Gothenburg, Sweden
+
+E-mail address:tamos@chalmers.se
+

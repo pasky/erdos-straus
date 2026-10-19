@@ -1,0 +1,45 @@
+## Content from https://mathworld.wolfram.com/ZsigmondyTheorem.html
+
+Title: Zsigmondy Theorem
+
+URL Source: https://mathworld.wolfram.com/ZsigmondyTheorem.html
+
+Markdown Content:
+[Algebra](https://mathworld.wolfram.com/topics/Algebra.html)[Applied Mathematics](https://mathworld.wolfram.com/topics/AppliedMathematics.html)[Calculus and Analysis](https://mathworld.wolfram.com/topics/CalculusandAnalysis.html)[Discrete Mathematics](https://mathworld.wolfram.com/topics/DiscreteMathematics.html)[Foundations of Mathematics](https://mathworld.wolfram.com/topics/FoundationsofMathematics.html)[Geometry](https://mathworld.wolfram.com/topics/Geometry.html)[History and Terminology](https://mathworld.wolfram.com/topics/HistoryandTerminology.html)[Number Theory](https://mathworld.wolfram.com/topics/NumberTheory.html)[Probability and Statistics](https://mathworld.wolfram.com/topics/ProbabilityandStatistics.html)[Recreational Mathematics](https://mathworld.wolfram.com/topics/RecreationalMathematics.html)[Topology](https://mathworld.wolfram.com/topics/Topology.html)[Alphabetical Index](https://mathworld.wolfram.com/letters/)[New in MathWorld](https://mathworld.wolfram.com/whatsnew/)
+
+* * *
+
+The Zsigmondy theorem states that if ![Image 1: 1<=b<a](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline1.svg) and ![Image 2: (a,b)=1](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline2.svg) (i.e., ![Image 3: a](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline3.svg) and ![Image 4: b](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline4.svg) are [relatively prime](https://mathworld.wolfram.com/RelativelyPrime.html)), then ![Image 5: a^n-b^n](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline5.svg) has at least one [primitive prime factor](https://mathworld.wolfram.com/PrimitivePrimeFactor.html) with the following two possible exceptions:
+
+1. ![Image 6: 2^6-1^6](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline6.svg).
+
+2. ![Image 7: n=2](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline7.svg) and ![Image 8: a+b](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline8.svg) is a [power](https://mathworld.wolfram.com/Power.html) of 2.
+
+Similarly, if ![Image 9: a>b>=1](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline9.svg), then ![Image 10: a^n+b^n](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline10.svg) has at least one [primitive prime factor](https://mathworld.wolfram.com/PrimitivePrimeFactor.html) with the exception ![Image 11: 2^3+1^3=9](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline11.svg).
+
+A specific case of the theorem considers the ![Image 12: r](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline12.svg)th [Mersenne number](https://mathworld.wolfram.com/MersenneNumber.html)![Image 13: M_r=2^r-1](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline13.svg), then each of ![Image 14: M_2](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline14.svg), ![Image 15: M_3](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline15.svg), ![Image 16: M_4](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline16.svg), ... has a [prime factor](https://mathworld.wolfram.com/PrimeFactor.html) that does not occur as a factor of an earlier member of the sequence, _except_ for ![Image 17: M_6](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline17.svg). For example, ![Image 18: M_1](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline18.svg), ![Image 19: M_2](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline19.svg), ![Image 20: M_3](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline20.svg), ... have the factors 3, 7, 5, 31, (1), 127, 17, 73, 11, ![Image 21: 23·89](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline21.svg), ... (OEIS [A064078](http://oeis.org/A064078)) that do not occur in earlier ![Image 22: M_n](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline22.svg). These factors are sometimes called the Zsigmondy numbers ![Image 23: Zs(n,2,1)](https://mathworld.wolfram.com/images/equations/ZsigmondyTheorem/Inline23.svg).
+
+Zsigmondy's theorem is often useful, especially in [group theory](https://mathworld.wolfram.com/GroupTheory.html), where it is used to prove that various groups have distinct orders except when they are known to be the same (Montgomery 2001).
+
+* * *
+
+## See also
+
+[Mersenne Number](https://mathworld.wolfram.com/MersenneNumber.html)
+
+## Explore with Wolfram|Alpha
+
+## References
+
+Chabaud, F. and Vaudenay, S. "Links between Differential and Linear Cryptanalysis." In _Advances in Cryptology-EUROCRYPT '94_ (Ed. A.De Santis). Berlin, Germany: Springer-Verlag, pp.356-365, 1995.Montgomery, H. "Divisibility of Mersenne Numbers." 17 Sep 2001. [https://listserv.nodak.edu/cgi-bin/wa.exe?A2=ind0109&L=nmbrthry&P=1635](https://listserv.nodak.edu/cgi-bin/wa.exe?A2=ind0109&L=nmbrthry&P=1635).Ribenboim, P. _[The Little Book of Big Primes.](http://www.amazon.com/exec/obidos/ASIN/038797508X/ref=nosim/ericstreasuretro)_ New York: Springer-Verlag, p.27, 1991.Sloane, N.J.A. Sequence [A064078](http://oeis.org/A064078) in "The On-Line Encyclopedia of Integer Sequences."Zsigmondy, K. "Zur Theorie der Potenzreste." _Monatshefte für Math. u. Phys._**3**, 265-284, 1882.
+
+## Referenced on Wolfram|Alpha
+
+[Zsigmondy Theorem](https://www.wolframalpha.com/input/?i=zsigmondy+theorem "Zsigmondy Theorem")
+
+## Cite this as:
+
+[Weisstein, Eric W.](https://mathworld.wolfram.com/about/author.html) "Zsigmondy Theorem." From [_MathWorld_](https://mathworld.wolfram.com/)--A Wolfram Resource. [https://mathworld.wolfram.com/ZsigmondyTheorem.html](https://mathworld.wolfram.com/ZsigmondyTheorem.html)
+
+## Subject classifications
+

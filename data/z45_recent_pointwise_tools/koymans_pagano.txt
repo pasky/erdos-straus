@@ -1,0 +1,1010 @@
+## Content from https://arxiv.org/html/2412.01768v3
+
+Title: Hilbert’s tenth problem via additive combinatorics
+
+URL Source: https://arxiv.org/html/2412.01768v3
+
+Published Time: Mon, 24 Aug 2026 19:21:47 GMT
+
+Markdown Content:
+Peter Koymans ††thanks: Mathematisch Instituut, Universiteit Utrecht, Postbus 80.010, 3508 TA Utrecht, The Netherlands, p.h.koymans@uu.nl Carlo Pagano ††thanks: Department of Mathematics and Statistics, Montreal, Quebec H3G 1M8, Canada, carlein90@gmail.com Affiliation: Concordia University
+
+August 24, 2026
+
+###### Abstract
+
+For all infinite rings R that are finitely generated over \mathbb{Z}, we show that Hilbert’s tenth problem has a negative answer. This is accomplished by constructing elliptic curves E without rank growth in certain quadratic extensions L/K. To achieve such a result unconditionally, our key innovation is to use elliptic curves E with full rational 2-torsion which allows us to combine techniques from additive combinatorics with 2-descent.
+
+> _Wir müssen wissen   
+> Wir werden wissen_
+> 
+> 
+> David Hilbert
+
+## 1 Introduction
+
+### 1.1 History of the problem
+
+At the 1900 mathematical congress in Paris, Hilbert introduced his famous list of 23 problems. The tenth problem of his list is nowadays interpreted as asking for an algorithm to decide the solvability of Diophantine equations. Gödel dealt a major blow to this program in 1931 with his incompleteness theorems, although his results certainly did not rule out the existence of such an algorithm.
+
+In 1950, Julia Robinson proved that exponentiation is Diophantine conditional under a hypothesis that later became known as “J.R.”. One major ingredient in this step is the basic theory of Pell’s equation. Not much later, Davis, Putnam and Robinson [[5](https://arxiv.org/html/2412.01768v3#bib.bib5)] showed that the hypothesis J.R. implies that every recursively enumerable set is Diophantine, hence Hilbert’s tenth problem is unsolvable over the integers. Finally, Matiyasevich [[24](https://arxiv.org/html/2412.01768v3#bib.bib24)] proved J.R. using properties of Fibonacci numbers, thus settling Hilbert’s tenth problem in full. Because of the combined efforts of these four authors, this result became known as the MRDP theorem.
+
+Nevertheless, the field remained an active research area as the MRDP theorem only settles the case of integer polynomials and integer solutions, while it is natural to wonder what happens for other number-theoretic rings. One of the main difficulties was to find an appropriate substitute for Pell’s equation to show that exponentiation is Diophantine. Fairly early on researchers realized that algebraic groups of rank 1 could fulfill such a role, but rigorously establishing their existence has been a difficult problem. As it stands, results from the 1980s give a negative answer to Hilbert’s tenth problem for the ring of integers of the following number fields K:
+
+*   •
+K is totally real or a quadratic extension of a totally real field [[7](https://arxiv.org/html/2412.01768v3#bib.bib7), [6](https://arxiv.org/html/2412.01768v3#bib.bib6)],
+
+*   •
+[K:\mathbb{Q}]=4 and K is not totally real [[7](https://arxiv.org/html/2412.01768v3#bib.bib7)],
+
+*   •
+K has exactly one complex place [[34](https://arxiv.org/html/2412.01768v3#bib.bib34), [41](https://arxiv.org/html/2412.01768v3#bib.bib41), [46](https://arxiv.org/html/2412.01768v3#bib.bib46)],
+
+*   •
+K is contained in a number field L such that \mathbb{Z} is Diophantine over O_{L}[[40](https://arxiv.org/html/2412.01768v3#bib.bib40)].
+
+We also mention the recent works of Garcia-Fritz–Pasten [[11](https://arxiv.org/html/2412.01768v3#bib.bib11)], Kundu–Lei–Sprung [[23](https://arxiv.org/html/2412.01768v3#bib.bib23)] and Shnidman–Weiss [[43](https://arxiv.org/html/2412.01768v3#bib.bib43)], who give a negative answer for a large number of sextic fields. There are also related results on Diophantine stability in [[27](https://arxiv.org/html/2412.01768v3#bib.bib27)] and [[38](https://arxiv.org/html/2412.01768v3#bib.bib38)].
+
+### 1.2 Our results
+
+After the completion of the MRDP theorem, elliptic curves became a particularly natural candidate to replace the role of Pell’s equation. This was briefly suggested by Denef in [[6](https://arxiv.org/html/2412.01768v3#bib.bib6)]. A rigorous connection was first established by Poonen [[35](https://arxiv.org/html/2412.01768v3#bib.bib35)] and independently by Cornelissen–Pheidas–Zahidi [[3](https://arxiv.org/html/2412.01768v3#bib.bib3)]. These results were further strengthened by Shlapentokh [[42](https://arxiv.org/html/2412.01768v3#bib.bib42)] and Mazur–Rubin–Shlapentokh [[28](https://arxiv.org/html/2412.01768v3#bib.bib28)].
+
+However, these results came with one major downside: unlike Pell’s equation, it is not easy to show that there exists an elliptic curve of rank 1 over a given number field. In fact, only after the release of our initial preprint, this was shown to be true independently by Zywina [[48](https://arxiv.org/html/2412.01768v3#bib.bib48)] and the authors [[22](https://arxiv.org/html/2412.01768v3#bib.bib22)].
+
+However, assuming finiteness of the Tate–Shafarevich group, Mazur–Rubin [[26](https://arxiv.org/html/2412.01768v3#bib.bib26)] were able to use the aforementioned results to show that Hilbert’s tenth problem is undecidable for any infinite ring R that is finitely generated over \mathbb{Z}. Further conditional results were obtained by Murty–Pasten [[31](https://arxiv.org/html/2412.01768v3#bib.bib31)] and by Pasten [[33](https://arxiv.org/html/2412.01768v3#bib.bib33)]. We establish the same result unconditionally.
+
+###### Theorem 1.1.
+
+Let R be a finitely generated ring over \mathbb{Z} with |R|=\infty. Then Hilbert’s tenth problem has a negative answer for R.
+
+We prove Theorem [1.1](https://arxiv.org/html/2412.01768v3#S1.Thmlemma1 "Theorem 1.1. ‣ 1.2 Our results ‣ 1 Introduction ‣ Hilbert’s tenth problem via additive combinatorics") by proving the following conjecture of Denef and Lipshitz [[7](https://arxiv.org/html/2412.01768v3#bib.bib7)].
+
+###### Theorem 1.2.
+
+Let K be a number field. Then \mathbb{Z} is Diophantine over O_{K}.
+
+Eisenträger [[10](https://arxiv.org/html/2412.01768v3#bib.bib10)] proved in her PhD thesis that Theorem [1.2](https://arxiv.org/html/2412.01768v3#S1.Thmlemma2 "Theorem 1.2. ‣ 1.2 Our results ‣ 1 Introduction ‣ Hilbert’s tenth problem via additive combinatorics") implies Theorem [1.1](https://arxiv.org/html/2412.01768v3#S1.Thmlemma1 "Theorem 1.1. ‣ 1.2 Our results ‣ 1 Introduction ‣ Hilbert’s tenth problem via additive combinatorics"), so it remains to establish Theorem [1.2](https://arxiv.org/html/2412.01768v3#S1.Thmlemma2 "Theorem 1.2. ‣ 1.2 Our results ‣ 1 Introduction ‣ Hilbert’s tenth problem via additive combinatorics").
+
+Approximately two months after the release of our initial preprint, Alpöge–Bhargava–Ho–Shnidman [[1](https://arxiv.org/html/2412.01768v3#bib.bib1)] proved a rank growth result of similar strength as our Theorem [2.4](https://arxiv.org/html/2412.01768v3#S2.Thmlemma4 "Theorem 2.4. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics"). Their main result recovers our Theorem [1.1](https://arxiv.org/html/2412.01768v3#S1.Thmlemma1 "Theorem 1.1. ‣ 1.2 Our results ‣ 1 Introduction ‣ Hilbert’s tenth problem via additive combinatorics") and Theorem [1.2](https://arxiv.org/html/2412.01768v3#S1.Thmlemma2 "Theorem 1.2. ‣ 1.2 Our results ‣ 1 Introduction ‣ Hilbert’s tenth problem via additive combinatorics").
+
+### 1.3 Additive combinatorics
+
+Our main new insight is to bring additive combinatorics into this field. For now, let L/K be a quadratic extension. Our goal will be to construct an elliptic curve E over K with
+
+\displaystyle\mathrm{rk}\,E(L)=\mathrm{rk}\,E(K)>0.(1.1)
+
+In fact, we may and will later assume quite a bit more about L/K to aid with some of the technical arguments, see Theorem [2.4](https://arxiv.org/html/2412.01768v3#S2.Thmlemma4 "Theorem 2.4. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics") for a precise statement.
+
+Mazur–Rubin [[26](https://arxiv.org/html/2412.01768v3#bib.bib26)] conditionally construct elliptic curves satisfying ([1.1](https://arxiv.org/html/2412.01768v3#S1.E1 "In 1.3 Additive combinatorics ‣ 1 Introduction ‣ Hilbert’s tenth problem via additive combinatorics")) by taking an elliptic curve E and quadratic twisting it to control the 2-Selmer rank. In their work they take an elliptic curve with \mathrm{Gal}(K(E[2])/K)\cong S_{3} as large as possible. Then they rely on finiteness of Sha to go back to ranks.
+
+We instead perform 2-descent on elliptic curves with full rational 2-torsion. Let E be the elliptic curve
+
+y^{2}=(x-a_{1})(x-a_{2})(x-a_{3}).
+
+Our first idea is to consider the twist by t:=d(c-a_{1}d)(c-a_{2}d)(c-a_{3}d), so E^{t} has the equation
+
+ty^{2}=(x-a_{1})(x-a_{2})(x-a_{3}),
+
+which tautologically has the rational point (x,y)=(c/d,1/d^{2}). This point is readily seen to be non-torsion for all but finitely many twists t and hence the rank of E^{t} is positive. Thus, if we were able to show that the 2-Selmer rank of E^{t} over L equals 2+\mathrm{rk}\,E(K), then we would have unconditionally established equation ([1.1](https://arxiv.org/html/2412.01768v3#S1.E1 "In 1.3 Additive combinatorics ‣ 1 Introduction ‣ Hilbert’s tenth problem via additive combinatorics")). However, as the Selmer growth results in Morgan–Paterson [[30](https://arxiv.org/html/2412.01768v3#bib.bib30)] suggest, this is typically not possible so we have opted to prove instead that the 2-Selmer rank of E^{\alpha t} is 2, where \alpha is such that L=K(\sqrt{\alpha}).
+
+Our second idea is to take advantage of additive combinatorics. Indeed, in general it is exceptionally difficult to control Selmer ranks of polynomial twists; there are no distributional results known outside linear polynomials. However, the change of Selmer ranks is well understood for prime elements. Hence we consider the situation that d, c-a_{1}d, c-a_{2}d and c-a_{3}d are all prime elements. This is possible by recent work of Kai [[18](https://arxiv.org/html/2412.01768v3#bib.bib18)], which is a Green–Tao type result for number fields based on the earlier works [[13](https://arxiv.org/html/2412.01768v3#bib.bib13), [14](https://arxiv.org/html/2412.01768v3#bib.bib14), [15](https://arxiv.org/html/2412.01768v3#bib.bib15), [16](https://arxiv.org/html/2412.01768v3#bib.bib16)]. In fact, we only need an inverse theorem for the Gowers U^{3} norm, which is technically simpler and established previously in [[12](https://arxiv.org/html/2412.01768v3#bib.bib12)].
+
+### 1.4 Layout of the paper
+
+In Section [2](https://arxiv.org/html/2412.01768v3#S2 "2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics") we perform a standard reduction step to reduce the problem to establishing equation ([1.1](https://arxiv.org/html/2412.01768v3#S1.E1 "In 1.3 Additive combinatorics ‣ 1 Introduction ‣ Hilbert’s tenth problem via additive combinatorics")) for certain quadratic extensions L/K. This reduction step allows one to assume that K contains any given totally real field. We will use this flexibility merely to ensure that K itself has at least 32 real places, which we will take advantage of in Section [5](https://arxiv.org/html/2412.01768v3#S5 "5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics"). Moreover, unlike Mazur–Rubin [[26](https://arxiv.org/html/2412.01768v3#bib.bib26)] we reduce to the case where L/K is quadratic instead of cyclic. That this suffices was first noticed by Shlapentokh, see [[28](https://arxiv.org/html/2412.01768v3#bib.bib28), Theorem 4.8].
+
+The main result of Section [2](https://arxiv.org/html/2412.01768v3#S2 "2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics") is that Theorem [2.4](https://arxiv.org/html/2412.01768v3#S2.Thmlemma4 "Theorem 2.4. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics") implies Theorem [1.2](https://arxiv.org/html/2412.01768v3#S1.Thmlemma2 "Theorem 1.2. ‣ 1.2 Our results ‣ 1 Introduction ‣ Hilbert’s tenth problem via additive combinatorics"). The remainder of the paper is dedicated to establishing Theorem [2.4](https://arxiv.org/html/2412.01768v3#S2.Thmlemma4 "Theorem 2.4. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics").
+
+In Section [3](https://arxiv.org/html/2412.01768v3#S3 "3 Background theory ‣ Hilbert’s tenth problem via additive combinatorics") we develop some background theory. We perform 2-descent over general number fields, and give several results to compute the parity of 2-Selmer. Moreover, we construct suitable “starting” elliptic curves that we shall twist in the later sections. We end this section by giving a reasonable parametrization of H^{1}(G_{K},\mathbb{F}_{2}).
+
+In Section [4](https://arxiv.org/html/2412.01768v3#S4 "4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics") we define a transition process that computes the change in 2-Selmer rank of E^{\kappa} to E^{\kappa\pi}. Since this transition is rather delicate, we spend a great amount of time to carefully control the 2-Selmer rank of E^{\kappa} in Section [5](https://arxiv.org/html/2412.01768v3#S5 "5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics").
+
+After having suitably prepared our Selmer groups for our additive combinatorics arguments, we finish the argument in Section [5](https://arxiv.org/html/2412.01768v3#S5 "5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics"). At this stage a final obstacle arises as one can not independently prescribe c-a_{1}d, c-a_{2}d, c-a_{3}d modulo d. To work around this issue, we make use of infinite places to carefully control some terms arising from quadratic reciprocity.
+
+### Acknowledgements
+
+This project was initiated when the second author visited the first author at the Institute for Theoretical Studies (ETH Zürich), and both authors wish to thank the institute for its financial support and excellent working conditions. The first author gratefully acknowledges the support of Dr. Max Rössler, the Walter Haefner Foundation and the ETH Zürich Foundation. The first author also acknowledges the support of the Dutch Research Council (NWO) through the Veni grant “New methods in arithmetic statistics”.
+
+The manuscript was completed while the authors were at the workshop _Nilpotent counting problems in arithmetic statistics_ at AIM. We are very grateful to AIM and the organizers Brandon Alberts, Yuan Liu and Melanie Wood.
+
+The authors are deeply indebted to Efthymios Sofos, who answered many questions about additive combinatorics during the project. Without his constant support, the project would most likely not have come to be. We would also like to thank Gunther Cornelissen, Christopher Frei, Andrew Granville, Ben Green, Wataru Kai, Emmanuel Kowalski, Vivian Kuperberg, Jeff Lagarias and Alexander Smith for helpful conversations. We are also indebted to Hector Pasten for explaining us how to reduce Hilbert’s tenth problem to rank growth in quadratic extensions instead of general cyclic extensions.
+
+We would like to thank Adam Morgan for valuable feedback on Section [3](https://arxiv.org/html/2412.01768v3#S3 "3 Background theory ‣ Hilbert’s tenth problem via additive combinatorics"). Moreover, we are most grateful to him for the shared time at the Max Planck Institute in Bonn, where he explained to us how to control the 2-Selmer group with the transition process from Section [4](https://arxiv.org/html/2412.01768v3#S4 "4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics"). In particular, his excellent notes formed the basis of our Section [4](https://arxiv.org/html/2412.01768v3#S4 "4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics").
+
+Finally, we would like to express our admiration for the dedication of the anonymous referees. Their careful reading and their numerous suggestions have greatly improved this manuscript. In particular, their suggestions have led to several simplifications of the original arguments.
+
+## 2 Initial reductions
+
+In this section we reduce our main theorem to establishing a certain rank growth condition of elliptic curves. This reduction is standard in the literature, see for example [[26](https://arxiv.org/html/2412.01768v3#bib.bib26), Section 8]. We redo the arguments here as we are going to impose some extra conditions on the relevant extensions of number fields that will ease some future arguments. We start by recalling three well-known results.
+
+###### Lemma 2.1.
+
+Suppose K\subseteq L are number fields. Then:
+
+*   (i)
+If D_{1},D_{2}\subseteq O_{L} are Diophantine over O_{L}, then so is D_{1}\cap D_{2}.
+
+*   (ii)
+If D\subseteq O_{K} is Diophantine over O_{K}, and O_{K} is Diophantine over O_{L}, then D is Diophantine over O_{L}.
+
+*   (iii)
+If \mathbb{Z} is Diophantine over O_{L}, then \mathbb{Z} is Diophantine over O_{K}.
+
+###### Proof.
+
+See [[26](https://arxiv.org/html/2412.01768v3#bib.bib26), Lemma 8.3]. ∎
+
+###### Lemma 2.2.
+
+If M is a totally real number field, then \mathbb{Z} is Diophantine over O_{M}.
+
+###### Proof.
+
+This is the statement of [[6](https://arxiv.org/html/2412.01768v3#bib.bib6), Theorem]. ∎
+
+###### Lemma 2.3.
+
+If L/K is an extension of number fields and if there exists an elliptic curve E/K such that \mathrm{rk}\,E(K)=\mathrm{rk}\,E(L)>0, then O_{K} is Diophantine over O_{L}.
+
+###### Proof.
+
+See [[42](https://arxiv.org/html/2412.01768v3#bib.bib42), Theorem 1.9]. ∎
+
+Having stated these results, we will now perform our reduction step. Let us first state the theorem that we shall prove in the remaining sections of the paper.
+
+###### Theorem 2.4.
+
+Let K be a number field and set L:=K(i). Assume that K has at least 32 real places. Then there exists an elliptic curve E over K such that \mathrm{rk}\,E(K)=\mathrm{rk}\,E(L)>0.
+
+We shall prove Theorem [2.4](https://arxiv.org/html/2412.01768v3#S2.Thmlemma4 "Theorem 2.4. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics") in Section [5](https://arxiv.org/html/2412.01768v3#S5 "5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics"). In order to prove that Theorem [2.4](https://arxiv.org/html/2412.01768v3#S2.Thmlemma4 "Theorem 2.4. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics") implies Theorem [1.2](https://arxiv.org/html/2412.01768v3#S1.Thmlemma2 "Theorem 1.2. ‣ 1.2 Our results ‣ 1 Introduction ‣ Hilbert’s tenth problem via additive combinatorics"), we shall pass through the following intermediate result.
+
+###### Corollary 2.5.
+
+Let K be a number field and set L:=K(i). Assume that
+
+*   (i)
+L is Galois over \mathbb{Q},
+
+*   (ii)
+K has a real place,
+
+*   (iii)
+K contains K_{0}:=\mathbb{Q}(\sqrt{5},\sqrt{7},\sqrt{11},\sqrt{13},\sqrt{17},\sqrt{19}).
+
+Then there exists an elliptic curve E over K such that \mathrm{rk}\,E(K)=\mathrm{rk}\,E(L)>0.
+
+###### Proof that Theorem [2.4](https://arxiv.org/html/2412.01768v3#S2.Thmlemma4 "Theorem 2.4. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics") implies Corollary [2.5](https://arxiv.org/html/2412.01768v3#S2.Thmlemma5 "Corollary 2.5. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics").
+
+Let K be a number field, set L:=K(i) and assume that conditions (i),(ii),(iii) hold.
+
+Write \mathrm{C}_{G}(S) for the centralizer of a subset S inside a group G. Fix an embedding \sigma:K\rightarrow\mathbb{R} and extend it to \sigma_{1}:L\rightarrow\mathbb{C}. We will start by proving that
+
+\{\tau\in\mathrm{Gal}(L/\mathbb{Q}):\sigma_{1}(\tau(K))\subseteq\mathbb{R}\}=\mathrm{C}_{\mathrm{Gal}(L/\mathbb{Q})}(\mathrm{Gal}(L/K)).(2.1)
+
+Write \langle\rho\rangle=\mathrm{Gal}(L/K). Denoting complex conjugation by z\mapsto\bar{z}, we observe that \sigma_{1}\circ\rho=\overline{\sigma_{1}}. Hence if \tau\in\mathrm{C}_{\mathrm{Gal}(L/\mathbb{Q})}(\langle\rho\rangle), we have
+
+\overline{\sigma_{1}(\tau(\alpha))}=\sigma_{1}(\rho(\tau(\alpha)))=\sigma_{1}(\tau(\rho(\alpha)))=\sigma_{1}(\tau(\alpha))
+
+for all \alpha\in K, so \sigma_{1}(\tau(K))\subseteq\mathbb{R}. Conversely, if \sigma_{1}(\tau(K))\subseteq\mathbb{R}, then
+
+\sigma_{1}(\rho(\tau(\alpha)))=\overline{\sigma_{1}(\tau(\alpha))}=\sigma_{1}(\tau(\alpha))=\sigma_{1}(\tau(\rho(\alpha)))
+
+for all \alpha\in K, hence [\rho,\tau] must fix K. This implies [\rho,\tau]\in\mathrm{Gal}(L/K), therefore [\rho,\tau] is the identity (as the alternative [\rho,\tau]=\rho forces \rho to be the identity, contradiction). This proves equation ([2.1](https://arxiv.org/html/2412.01768v3#S2.E1 "In Proof that Theorem implies Corollary . ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics")).
+
+In order to apply Theorem [2.4](https://arxiv.org/html/2412.01768v3#S2.Thmlemma4 "Theorem 2.4. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics"), we need to show that K has at least 32 real places. Note that there is a 2-to-1 surjective map from \{\tau\in\mathrm{Gal}(L/\mathbb{Q}):\sigma_{1}(\tau(K))\subseteq\mathbb{R}\} to the set of real embeddings of K. Therefore, by equation ([2.1](https://arxiv.org/html/2412.01768v3#S2.E1 "In Proof that Theorem implies Corollary . ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics")), the number of real embeddings of K is exactly |\mathrm{C}_{\mathrm{Gal}(L/\mathbb{Q})}(\langle\rho\rangle)|/2. Let C be the conjugacy class of \rho in \mathrm{Gal}(L/\mathbb{Q}). Then C is contained in the normal subgroup \mathrm{Gal}(L/K_{0}), so |C|\leq[L:K_{0}]. By the orbit–stabilizer formula, |\mathrm{C}_{\mathrm{Gal}(L/\mathbb{Q})}(\langle\rho\rangle)|=|\mathrm{Gal}(L/\mathbb{Q})|/|C|\geq[L:\mathbb{Q}]/[L:K_{0}]=[K_{0}:\mathbb{Q}]=64. ∎
+
+We shall now prove that Corollary [2.5](https://arxiv.org/html/2412.01768v3#S2.Thmlemma5 "Corollary 2.5. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics") implies Theorem [1.2](https://arxiv.org/html/2412.01768v3#S1.Thmlemma2 "Theorem 1.2. ‣ 1.2 Our results ‣ 1 Introduction ‣ Hilbert’s tenth problem via additive combinatorics") (stated here again as Theorem [2.6](https://arxiv.org/html/2412.01768v3#S2.Thmlemma6 "Theorem 2.6. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics")). The remainder of this paper is dedicated to establishing Theorem [2.4](https://arxiv.org/html/2412.01768v3#S2.Thmlemma4 "Theorem 2.4. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics").
+
+###### Theorem 2.6.
+
+Let F be a number field. Then \mathbb{Z} is Diophantine over O_{F}.
+
+###### Proof that Corollary [2.5](https://arxiv.org/html/2412.01768v3#S2.Thmlemma5 "Corollary 2.5. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics") implies Theorem [2.6](https://arxiv.org/html/2412.01768v3#S2.Thmlemma6 "Theorem 2.6. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics").
+
+Let F be any number field. Define L to be the compositum of the normal closure of F together with K_{0}(i). Let K be any field such that L=K(i) and such that K has at least one real place. Then K must contain all totally real subfields of L, hence contains K_{0}. We conclude that O_{K} is Diophantine over O_{L} by Lemma [2.3](https://arxiv.org/html/2412.01768v3#S2.Thmlemma3 "Lemma 2.3. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics") and Corollary [2.5](https://arxiv.org/html/2412.01768v3#S2.Thmlemma5 "Corollary 2.5. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics") applied to L/K.
+
+Take M to be the intersection of all K that satisfy L=K(i) and have at least one real place. As we have just proven that O_{K} is Diophantine over O_{L} for all such K, then so is O_{M} by Lemma [2.1](https://arxiv.org/html/2412.01768v3#S2.Thmlemma1 "Lemma 2.1. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics")(i). Note that M is Galois over \mathbb{Q}, and since there exists a field K containing M with at least one real place, M must be totally real. So \mathbb{Z} is Diophantine over O_{M} by Lemma [2.2](https://arxiv.org/html/2412.01768v3#S2.Thmlemma2 "Lemma 2.2. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics"), and thus \mathbb{Z} is Diophantine over O_{L} by Lemma [2.1](https://arxiv.org/html/2412.01768v3#S2.Thmlemma1 "Lemma 2.1. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics")(ii). This implies that \mathbb{Z} is Diophantine over O_{F} by Lemma [2.1](https://arxiv.org/html/2412.01768v3#S2.Thmlemma1 "Lemma 2.1. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics")(iii). ∎
+
+## 3 Background theory
+
+### 3.1 Elliptic curves
+
+Given a field K and a_{1},a_{2},a_{3}\in K, we define
+
+\alpha:=a_{1}-a_{2},\quad\quad\beta:=a_{1}-a_{3},\quad\quad\gamma:=a_{2}-a_{3}.(3.1)
+
+Write (-,-)_{\mathrm{Weil}}:E[2]\times E[2]\rightarrow\mu_{2} for the Weil pairing.
+
+###### Lemma 3.1.
+
+Let K be a field of characteristic 0. Let a_{1},a_{2},a_{3}\in K be distinct and let E be the elliptic curve defined by
+
+E:y^{2}=(x-a_{1})(x-a_{2})(x-a_{3}).
+
+Let P_{1}=(a_{1},0) and P_{2}=(a_{2},0). Let \lambda_{i} be the homomorphism E[2]\rightarrow\mu_{2} given by P\mapsto(P,P_{i})_{\mathrm{Weil}}. Under the isomorphism (\lambda_{1},\lambda_{2}):H^{1}(G_{K},E[2])\cong(K^{\ast}/K^{\ast 2})^{2}, the Kummer map \delta:E(K)/2E(K)\xhookrightarrow{}H^{1}(G_{K},E[2])\cong(K^{\ast}/K^{\ast 2})^{2} is given explicitly by
+
+P=(x,y)\mapsto\begin{cases}(x-a_{1},x-a_{2})&\textup{if }P\neq P_{1},P_{2}\\
+(\alpha\beta,\alpha)&\textup{if }P=P_{1}\\
+(-\alpha,-\alpha\gamma)&\textup{if }P=P_{2}.\end{cases}
+
+###### Proof.
+
+See [[44](https://arxiv.org/html/2412.01768v3#bib.bib44), Proposition 1.4, Chapter 10]. ∎
+
+Throughout the paper we shall often implicitly identify H^{1}(G_{K},E[2]) with (K^{\ast}/K^{\ast 2})^{2}\cong H^{1}(G_{K},\mathbb{F}_{2})^{2}. Whenever we do so, the implicit identification used is (\lambda_{1},\lambda_{2}).
+
+In order to show that the rational point that we will construct later is not torsion, the following fact will be useful.
+
+###### Lemma 3.2.
+
+Let K be a number field and let E be an elliptic curve defined over K. For all but finitely many d\in K^{\ast}/K^{\ast 2}, we have
+
+E^{d}(K)^{\textup{tors}}=E^{d}(K)[2].
+
+###### Proof.
+
+Recall that for each d\in K^{\ast} the map
+
+(x,y)\mapsto(x,\sqrt{d}\cdot y)
+
+induces an injective group homomorphism \phi_{d}:E^{d}(K)\to E(\overline{K}). The image of \phi_{d} consists of the zero element together with those points (x,y)\in E(\overline{K}) satisfying x\in K and y\in K\sqrt{d}. Therefore, if we take d_{1},d_{2}\in K^{\ast} with different classes in K^{\ast}/K^{\ast 2}, we have that
+
+\text{im}(\phi_{d_{1}})\cap\text{im}(\phi_{d_{2}})=E(K)[2].
+
+Hence it suffices to show that
+
+\left|\bigcup_{d\in K^{\ast}/K^{\ast 2}}\text{im}(\phi_{d})^{\text{tors}}\right|<\infty.
+
+However, \bigcup_{d\in K^{\ast}/K^{\ast 2}}\text{im}(\phi_{d})^{\text{tors}}\subseteq E(\overline{K})^{\text{tors}} is a subset of bounded height and degree, thus we conclude with Northcott’s theorem. ∎
+
+###### Lemma 3.3.
+
+Let K be a number field, let d\in K^{\ast}/K^{\ast 2} be non-trivial and set L:=K(\sqrt{d}). Let E be an elliptic curve defined over K. Then
+
+\textup{rk}\,E(L)=\textup{rk}\,E(K)+\textup{rk}\,E^{d}(K).
+
+###### Proof.
+
+This is a standard result, which follows from decomposing E(L)\otimes_{\mathbb{Z}}\mathbb{Q} into its plus and minus part under the action of \mathrm{Gal}(L/K). ∎
+
+### 3.2 Root numbers
+
+The global root number w(E/K) is defined by
+
+w(E/K)=\prod_{v}w(E/K_{v}),
+
+where w(E/K_{v}) is the local root number. We shall not need the precise definition of this local root number as our next theorem provides a convenient way to calculate it.
+
+###### Theorem 3.4(Root number facts).
+
+Let E be an elliptic curve defined over a local field \mathcal{K} of characteristic 0. Let k be the residue field of \mathcal{K} and let v be the associated normalized valuation of \mathcal{K}. Then we have:
+
+*   (i)
+If E/\mathcal{K} has good reduction, then w(E/\mathcal{K})=+1.
+
+*   (ii)If E/\mathcal{K} has additive, potentially good reduction and \mathrm{char}(k)\geq 5, then
+
+w(E/\mathcal{K})=(-1)^{\lfloor\frac{v(\Delta)|k|}{12}\rfloor}. 
+*   (iii)
+If \mathcal{K} is archimedean, then w(E/\mathcal{K})=-1.
+
+###### Proof.
+
+See [[4](https://arxiv.org/html/2412.01768v3#bib.bib4), Theorem 2.3] or [[8](https://arxiv.org/html/2412.01768v3#bib.bib8), Theorem 3.1]. These statements were originally proven in Kobayashi [[21](https://arxiv.org/html/2412.01768v3#bib.bib21)] and Rohrlich [[39](https://arxiv.org/html/2412.01768v3#bib.bib39)]. ∎
+
+The relevance of these root number computations is that we can relate them to the parity of the 2-Selmer rank by our next theorem. Recall that \mathrm{Sel}^{2^{\infty}}(E/K):=\varinjlim_{n}\mathrm{Sel}^{2^{n}}(E/K). Define \mathrm{rk}_{2}(E/K) to be the \mathbb{Z}_{2}-corank of the 2^{\infty}-Selmer group.
+
+###### Theorem 3.5(2-parity).
+
+Let K be a number field and let E/K be an elliptic curve with E(K)[2]\cong\mathbb{F}_{2}^{2}. We have
+
+(-1)^{\mathrm{rk}_{2}(E/K)}=w(E/K).
+
+###### Proof.
+
+This was originally proven in [[9](https://arxiv.org/html/2412.01768v3#bib.bib9), Theorem 1.8] and generalized in [[2](https://arxiv.org/html/2412.01768v3#bib.bib2), Theorem 1.4]. ∎
+
+###### Corollary 3.6.
+
+Let K be a number field and let E/K be an elliptic curve. Suppose that E(K)[2]\cong\mathbb{F}_{2}^{2}. Then
+
+(-1)^{\dim_{\mathbb{F}_{2}}\mathrm{Sel}^{2}(E/K)}=w(E/K).
+
+###### Proof.
+
+In virtue of Theorem [3.5](https://arxiv.org/html/2412.01768v3#S3.Thmlemma5 "Theorem 3.5 (2-parity). ‣ 3.2 Root numbers ‣ 3 Background theory ‣ Hilbert’s tenth problem via additive combinatorics"), it suffices to prove that \dim_{\mathbb{F}_{2}}\mathrm{Sel}^{2}(E/K) and \mathrm{rk}_{2}(E/K) are congruent modulo 2, which we do below. We start with the exact sequences
+
+\displaystyle 0\to E(K)/2E(K)\to\mathrm{Sel}^{2}(E/K)\to\Sha(E/K)[2]\to 0
+\displaystyle 0\to E(K)\otimes_{\mathbb{Z}}\frac{\mathbb{Q}_{2}}{\mathbb{Z}_{2}}\to\mathrm{Sel}^{2^{\infty}}(E/K)\to\Sha(E/K)[2^{\infty}]\to 0.
+
+Write \Sha(E/K)_{\text{div}} for the largest divisible subgroup of \Sha(E/K). The second exact sequence implies that \mathrm{rk}_{2}(E/K)=\mathrm{rk}\,E(K)+\dim_{\mathbb{F}_{2}}\Sha(E/K)_{\text{div}}[2]. Recalling that E(K)[2]\cong\mathbb{F}_{2}^{2} by assumption and taking dimensions in the first exact sequence above gives
+
+\displaystyle\dim_{\mathbb{F}_{2}}\mathrm{Sel}^{2}(E/K)\displaystyle=\dim_{\mathbb{F}_{2}}E(K)[2]+\mathrm{rk}\,E(K)+\dim_{\mathbb{F}_{2}}\Sha(E/K)[2]
+\displaystyle=2+\mathrm{rk}\,E(K)+\dim_{\mathbb{F}_{2}}\Sha(E/K)_{\text{div}}[2]+\dim_{\mathbb{F}_{2}}\frac{\Sha(E/K)}{\Sha(E/K)_{\text{div}}}[2]
+\displaystyle=2+\mathrm{rk}_{2}(E/K)+\dim_{\mathbb{F}_{2}}\frac{\Sha(E/K)}{\Sha(E/K)_{\text{div}}}[2].
+
+By [[37](https://arxiv.org/html/2412.01768v3#bib.bib37), Corollary 12], the Poonen–Stoll class pairs trivially with itself. Then [[37](https://arxiv.org/html/2412.01768v3#bib.bib37), Theorem 8, 1 implies 3] shows that \dim_{\mathbb{F}_{2}}\frac{\Sha(E/K)}{\Sha(E/K)_{\text{div}}}[2] is even, which immediately gives the corollary. ∎
+
+Finally, we are ready to construct a starting curve that we will twist later. Since our methods are fairly flexible, we shall not need to demand too much on our starting curve. Given three distinct real numbers x_{1},x_{2},x_{3}, we define p(x_{1},x_{2},x_{3}) to be the unique permutation \sigma\in S_{3} such that
+
+x_{\sigma(1)}<x_{\sigma(2)}<x_{\sigma(3)}.
+
+Given a_{1},a_{2},a_{3}, we recall the notation \alpha=a_{1}-a_{2}, \beta=a_{1}-a_{3} and \gamma=a_{2}-a_{3}.
+
+###### Lemma 3.7.
+
+Let K be a number field with at least 25 real embeddings. Then there exist elements a_{1},a_{2},a_{3}\in O_{K} such that
+
+1.   (a)
+-1,\alpha,\beta,\gamma\in K^{\ast} are linearly independent in K^{\ast}/K^{\ast 2};
+
+2.   (b)there exist real embeddings \sigma_{1},\dots,\sigma_{24} such that for every f\in S_{3} there are precisely four indices i satisfying
+
+p(\sigma_{i}(a_{1}),\sigma_{i}(a_{2}),\sigma_{i}(a_{3}))=f; 
+3.   (c)the elliptic curve
+
+E:y^{2}=(x-a_{1})(x-a_{2})(x-a_{3})
+
+satisfies w(E/K)=+1. 
+
+###### Proof.
+
+Fix some real embeddings \sigma_{1},\dots,\sigma_{25}. There exist a_{1}^{\prime},a_{2}^{\prime},a_{3}^{\prime}\in O_{K} satisfying (b) as O_{K} is naturally a lattice of full rank inside K\otimes_{\mathbb{Z}}\mathbb{R} and thus meets every orthant.
+
+Let \widetilde{E} be the elliptic curve given by
+
+\widetilde{E}:y^{2}=(x-a_{1}^{\prime})(x-a_{2}^{\prime})(x-a_{3}^{\prime}).
+
+Write N for the product of finite bad places of \widetilde{E}. By the Mitsui prime ideal theorem (see [[29](https://arxiv.org/html/2412.01768v3#bib.bib29), Theorem, p. 35] or [[17](https://arxiv.org/html/2412.01768v3#bib.bib17), Theorem 1.2.1] for a more modern version), there exists an odd principal prime element \pi of good reduction that has the same sign as w(\widetilde{E}/K) at \sigma_{25}, is positive at all other real places and satisfies \pi\equiv 1\bmod 24N. Applying Hilbert reciprocity to the symbol (\pi,-1), we see that |O_{K}/\pi|\equiv 1\bmod 4 if w(\widetilde{E}/K)=+1 and |O_{K}/\pi|\equiv 3\bmod 4 if w(\widetilde{E}/K)=-1. We now take E:=\widetilde{E}^{\pi}, a_{1}:=\pi a_{1}^{\prime}, a_{2}:=\pi a_{2}^{\prime} and a_{3}:=\pi a_{3}^{\prime}.
+
+Because \widetilde{E} has good reduction at the prime (\pi), the \pi-adic valuation of \Delta_{\widetilde{E}} equals zero by [[44](https://arxiv.org/html/2412.01768v3#bib.bib44), Proposition 5.1, Chapter 7]. Then a direct inspection of the formula for \Delta_{E} shows that the \pi-adic valuation of \Delta_{E} equals 6. In particular, Theorem [3.4](https://arxiv.org/html/2412.01768v3#S3.Thmlemma4 "Theorem 3.4 (Root number facts). ‣ 3.2 Root numbers ‣ 3 Background theory ‣ Hilbert’s tenth problem via additive combinatorics") gives that w(E/K_{(\pi)})=-1. Since \widetilde{E} and E are isomorphic at all finite places of bad reduction for \widetilde{E} and are also isomorphic at all 2-adic and 3-adic places, it follows from Theorem [3.4](https://arxiv.org/html/2412.01768v3#S3.Thmlemma4 "Theorem 3.4 (Root number facts). ‣ 3.2 Root numbers ‣ 3 Background theory ‣ Hilbert’s tenth problem via additive combinatorics") that w(E/K)=+1.
+
+Since a_{1}^{\prime},a_{2}^{\prime},a_{3}^{\prime} satisfy (b) and since \pi is totally positive at \sigma_{1},\dots,\sigma_{24}, it follows that a_{1},a_{2},a_{3} also satisfy (b). Finally, (a) is in fact a consequence of (b). ∎
+
+## 4 Selmer ranks as transition processes
+
+Let K be a number field and let E/K be an elliptic curve with E(K)[2]\cong\mathbb{F}_{2}^{2}. The central result of this section is a description of 2-Selmer ranks of quadratic twists of E in terms of a transition process. We denote by \Omega_{K} the set of places of K. Take T to be any finite subset of \Omega_{K} containing all 2-adic places of K, all infinite places of K, all places of bad reduction of E and all places where \alpha, \beta or \gamma has non-zero valuation; for the definition of \alpha, \beta and \gamma, see equation ([3.1](https://arxiv.org/html/2412.01768v3#S3.E1 "In 3.1 Elliptic curves ‣ 3 Background theory ‣ Hilbert’s tenth problem via additive combinatorics")).
+
+To describe the Selmer rank as a transition process, we will introduce a sequence of Selmer structures. Let A be a finite G_{K}-module. For each v\in\Omega_{K}, we fix an embedding G_{K_{v}}\hookrightarrow G_{K} and we write I_{v} for the inertia subgroup of G_{K_{v}}. The embedding G_{K_{v}}\hookrightarrow G_{K} gives rise to a natural restriction map \textup{res}_{v}:H^{1}(G_{K},A)\rightarrow H^{1}(G_{K_{v}},A). Define
+
+H^{1}_{\text{nr}}(G_{K_{v}},A):=\ker\left(H^{1}(G_{K_{v}},A)\rightarrow H^{1}(I_{v},A)\right).
+
+A Selmer structure \mathcal{L}=(\mathcal{L}_{v})_{v\in\Omega_{K}} (in the language of [[32](https://arxiv.org/html/2412.01768v3#bib.bib32), Definition 8.7.8], this is called a collection of local conditions) is a collection of subgroups \mathcal{L}_{v}\subseteq H^{1}(G_{K_{v}},A) such that \mathcal{L}_{v}=H^{1}_{\text{nr}}(G_{K_{v}},A) for all but finitely many v. To a Selmer structure \mathcal{L}, we associate its Selmer group via the formula
+
+\mathrm{Sel}_{\mathcal{L}}(G_{K},A):=\ker\left(H^{1}(G_{K},A)\xrightarrow{\prod_{v}\textup{res}_{v}}\prod_{v\in\Omega_{K}}\frac{H^{1}(G_{K_{v}},A)}{\mathcal{L}_{v}}\right).
+
+Let n\in\mathbb{Z}_{\geq 0} and let v_{1},\dots,v_{n} be distinct places outside of T. For each 1\leq j\leq n, let \pi_{j} be an element of K_{v_{j}}^{\ast}/K_{v_{j}}^{\ast 2} with odd valuation (note that there are exactly two such choices) and write \boldsymbol{\pi}=(\pi_{j})_{1\leq j\leq n} for the resulting vector. For each integer 0\leq i\leq n, we define a Selmer structure \mathcal{L}_{i,\boldsymbol{\pi}}=(\mathcal{L}_{i,\boldsymbol{\pi},v})_{v\in\Omega_{K}} by
+
+\displaystyle\mathcal{L}_{i,\boldsymbol{\pi},v}=\begin{cases}\delta(E(K_{v}))&\text{if }v\in T\\
+\langle(\alpha\beta,\pi_{j}\alpha),(-\pi_{j}\alpha,-\alpha\gamma)\rangle&\text{if }v=v_{j}\text{ for some }j\in\{1,\dots,i\}\\
+H^{1}_{\text{nr}}(G_{K_{v}},E[2])&\text{otherwise.}\end{cases}(4.1)
+
+We shall see in Lemma [4.2](https://arxiv.org/html/2412.01768v3#S4.Thmlemma2 "Lemma 4.2. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics") that \langle(\alpha\beta,\pi_{j}\alpha),(-\pi_{j}\alpha,-\alpha\gamma)\rangle=\delta(E^{\pi_{j}}(K_{v})), which is the main motivation for defining the second line of equation ([4.1](https://arxiv.org/html/2412.01768v3#S4.E1 "In 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) as above.
+
+For 0\leq i\leq n-1, define
+
+n_{i}:=\dim_{\mathbb{F}_{2}}\mathrm{Sel}_{\mathcal{L}_{i+1,\boldsymbol{\pi}}}(G_{K},E[2])-\dim_{\mathbb{F}_{2}}\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}}(G_{K},E[2]).
+
+In order to study n_{i}, we introduce a second Selmer structure \mathcal{L}_{i,\boldsymbol{\pi}}^{\prime}=(\mathcal{L}_{i,\boldsymbol{\pi},v}^{\prime})_{v\in\Omega_{K}} through
+
+\mathcal{L}_{i,\boldsymbol{\pi},v}^{\prime}=\begin{cases}\delta(E(K_{v}))&\text{if }v\in T\\
+\langle(\alpha\beta,\pi_{j}\alpha),(-\pi_{j}\alpha,-\alpha\gamma)\rangle&\text{if }v=v_{j}\text{ for some }j\in\{1,\dots,i\}\\
+H^{1}(G_{K_{v}},E[2])&\text{if }v=v_{i+1}\\
+H^{1}_{\text{nr}}(G_{K_{v}},E[2])&\text{otherwise}\end{cases}
+
+and
+
+\displaystyle A_{v_{i+1}}:=\textup{res}_{v_{i+1}}\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}^{\prime}}(G_{K},E[2]).(4.2)
+
+As we shall now summarize, an important insight of Poonen–Rains [[36](https://arxiv.org/html/2412.01768v3#bib.bib36)] is that the local Tate pairing naturally comes from a certain quadratic form q_{E,v}:H^{1}(G_{K_{v}},E[2])\rightarrow\mathrm{Br}(K_{v})[2], which was first constructed by Zarhin [[47](https://arxiv.org/html/2412.01768v3#bib.bib47)]. We will then use this theory to show that A_{v_{i+1}} is a maximal isotropic subspace (see Proposition [4.6](https://arxiv.org/html/2412.01768v3#S4.Thmlemma6 "Proposition 4.6. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")).
+
+We start by recalling some basic properties of this construction. Let v\in\Omega_{K}. Identifying E[2] with its dual G_{K_{v}}-module through the Weil pairing, we see that local Tate duality induces an alternating non-degenerate bilinear pairing
+
+b_{E,v}:H^{1}(G_{K_{v}},E[2])\times H^{1}(G_{K_{v}},E[2])\to\text{Br}(K_{v})[2].
+
+###### Proposition 4.1.
+
+(a) For each place v of K, there exists a quadratic form
+
+q_{E,v}:H^{1}(G_{K_{v}},E[2])\to\textup{Br}(K_{v})[2]
+
+inducing the pairing b_{E,v}. Furthermore, \delta(E(K_{v})/2E(K_{v})) is a maximal isotropic subspace of the quadratic space (H^{1}(G_{K_{v}},E[2]),q_{E,v}).
+
+(b) There exists a quadratic form q_{E,K}:H^{1}(G_{K},E[2])\to\textup{Br}(K)[2] satisfying
+
+\textup{res}_{v}\circ q_{E,K}=q_{E,v}\circ\textup{res}_{v}.
+
+###### Proof.
+
+(a) The construction of the quadratic forms q_{E,v} and q_{E,K} can be found in [[36](https://arxiv.org/html/2412.01768v3#bib.bib36), Section 4.1]. The fact that it induces b_{E,v} is given in [[36](https://arxiv.org/html/2412.01768v3#bib.bib36), Corollary 4.7], while the last part is [[36](https://arxiv.org/html/2412.01768v3#bib.bib36), Proposition 4.11].
+
+(b) The forms q_{E,K} and q_{E,v} in [[36](https://arxiv.org/html/2412.01768v3#bib.bib36), Section 4.1] are constructed as connecting homomorphisms. Hence the desired claim follows from the fact that connecting homomorphisms commute with restriction to subgroups. ∎
+
+We will now use Proposition [4.1](https://arxiv.org/html/2412.01768v3#S4.Thmlemma1 "Proposition 4.1. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics") to prove several important equalities between the local conditions appearing in the definitions of \mathcal{L}_{i,\boldsymbol{\pi}} and \mathcal{L}_{i,\boldsymbol{\pi}}^{\prime}.
+
+###### Lemma 4.2.
+
+1.   (a)If v\in\Omega_{K} is odd, then
+
+\dim_{\mathbb{F}_{2}}H^{1}(G_{K_{v}},E[2])=\dim_{\mathbb{F}_{2}}H^{1}(G_{K_{v}},\mathbb{F}_{2}^{2})=2\dim_{\mathbb{F}_{2}}H^{1}(G_{K_{v}},\mathbb{F}_{2})=4.
+
+Moreover, we have
+
+\dim_{\mathbb{F}_{2}}H^{1}_{\textup{nr}}(G_{K_{v}},E[2])=2\dim_{\mathbb{F}_{2}}H^{1}_{\textup{nr}}(G_{K_{v}},\mathbb{F}_{2})=2. 
+2.   (b)If v\in\Omega_{K} is odd and of good reduction for E, then
+
+\delta(E(K_{v})/2E(K_{v}))=H^{1}_{\textup{nr}}(G_{K_{v}},E[2]). 
+3.   (c)If v\in\Omega_{K}-T and if \pi is a uniformizer for K_{v}, then
+
+\delta(E^{\pi}(K_{v})/2E^{\pi}(K_{v}))=\langle(\alpha\beta,\pi\alpha),(-\pi\alpha,-\alpha\gamma)\rangle. 
+4.   (d)If v\in\Omega_{K}-T and if \pi is a uniformizer for K_{v}, then
+
+\langle(\alpha\beta,\pi\alpha),(-\pi\alpha,-\alpha\gamma)\rangle\cap H^{1}_{\textup{nr}}(G_{K_{v}},E[2])=0. 
+
+###### Proof.
+
+The first half of part (a) is immediate from the explicit description of K_{v}^{\ast}/K_{v}^{\ast 2} for local fields K_{v}. The second half of part (a) follows from the isomorphism E[2]\cong\mathbb{F}_{2}^{2} as Galois modules and the fact \dim_{\mathbb{F}_{2}}H^{1}_{\textup{nr}}(G_{K_{v}},\mathbb{F}_{2})=1. Part (b) follows from [[36](https://arxiv.org/html/2412.01768v3#bib.bib36), Remark 4.12 and Proposition 4.13].
+
+As for part (c), we start by observing that \delta(E^{\pi}(K_{v})/2E^{\pi}(K_{v})) is a maximal isotropic subspace of q_{E^{\pi},v} by Proposition [4.1](https://arxiv.org/html/2412.01768v3#S4.Thmlemma1 "Proposition 4.1. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(a). Therefore it follows from part (a) that
+
+\dim_{\mathbb{F}_{2}}\delta(E^{\pi}(K_{v})/2E^{\pi}(K_{v}))=2.
+
+Inspecting valuations and using that v\not\in T, we see that \dim_{\mathbb{F}_{2}}\langle(\alpha\beta,\pi\alpha),(-\pi\alpha,-\alpha\gamma)\rangle=2. Since (\alpha\beta,\pi\alpha) and (-\pi\alpha,-\alpha\gamma) are inside \delta(E^{\pi}(K_{v})/2E^{\pi}(K_{v})) by Lemma [3.1](https://arxiv.org/html/2412.01768v3#S3.Thmlemma1 "Lemma 3.1. ‣ 3.1 Elliptic curves ‣ 3 Background theory ‣ Hilbert’s tenth problem via additive combinatorics"), part (c) follows. Part (d) is a direct consequence of inspecting valuations. ∎
+
+We now describe the initial state of the transition process, which is another important motivation for the definition of \mathcal{L}_{i,\boldsymbol{\pi}}.
+
+###### Lemma 4.3.
+
+We have
+
+\mathrm{Sel}_{\mathcal{L}_{0,\boldsymbol{\pi}}}(G_{K},E[2])=\mathrm{Sel}^{2}(E/K).
+
+###### Proof.
+
+Unwind the definitions and then use Lemma [4.2](https://arxiv.org/html/2412.01768v3#S4.Thmlemma2 "Lemma 4.2. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(b) for v\not\in T. ∎
+
+For v\in\Omega_{K} and x\in\frac{K_{v}^{\ast}}{K_{v}^{\ast 2}}, we have a natural isomorphism E^{x}[2]\to E[2] as G_{K_{v}}-modules. Thus, after applying this natural identification, the quadratic forms q_{E^{x},v} and q_{E,v} have the same cohomology group as source. The following establishes that these forms actually coincide.
+
+###### Proposition 4.4([[19](https://arxiv.org/html/2412.01768v3#bib.bib19), Lemma 5.2]).
+
+Let v\in\Omega_{K} and x\in\frac{K_{v}^{\ast}}{K_{v}^{\ast 2}}. Then q_{E,v}=q_{E^{x},v}.
+
+We will also use the following version of Poitou–Tate duality. We write M^{\vee}=\mathrm{Hom}(M,\overline{K}^{\ast}) for the dual module, and we write \mathcal{L}^{\vee} for the dual Selmer structure.
+
+###### Theorem 4.5([[25](https://arxiv.org/html/2412.01768v3#bib.bib25), Theorem 2.3.4]).
+
+Let \mathcal{L} and \mathcal{F} be Selmer structures such that \mathcal{L}_{v}\subseteq\mathcal{F}_{v} for all v\in\Omega_{K}. Let S be a finite set of places such that \mathcal{L}_{v}=\mathcal{F}_{v} for all v\not\in S. Then the images of \mathrm{Sel}_{\mathcal{F}}(G_{K},M) and \mathrm{Sel}_{\mathcal{L}^{\vee}}(G_{K},M^{\vee}) are orthogonal complements under the pairing
+
+\bigoplus_{v\in S}\mathcal{F}_{v}/\mathcal{L}_{v}\times\bigoplus_{v\in S}\mathcal{L}_{v}^{\vee}/\mathcal{F}_{v}^{\vee}\rightarrow\mathbb{Q}/\mathbb{Z}
+
+given by the sum of the local Tate pairings over S.
+
+###### Proposition 4.6.
+
+Let 0\leq i\leq n-1. Then A_{v_{i+1}} is a maximal isotropic subspace of the quadratic space (H^{1}(G_{K_{v_{i+1}}},E[2]),q_{E,v_{i+1}}).
+
+###### Proof.
+
+We apply Theorem [4.5](https://arxiv.org/html/2412.01768v3#S4.Thmlemma5 "Theorem 4.5 ([, Theorem 2.3.4]). ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics") with \mathcal{F}:=\mathcal{L}_{i,\boldsymbol{\pi}}^{\prime} and \mathcal{L}:=(\mathcal{L}_{v})_{v\in\Omega_{K}} given by
+
+\mathcal{L}_{v}:=\begin{cases}\mathcal{L}_{i,\boldsymbol{\pi},v}^{\prime}&\text{if }v\neq v_{i+1},\\
+0&\text{if }v=v_{i+1}.\end{cases}
+
+Note that \mathcal{L}^{\vee}=\mathcal{F}: this follows from Proposition [4.1](https://arxiv.org/html/2412.01768v3#S4.Thmlemma1 "Proposition 4.1. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(a) for all v different from v_{i+1} and holds by construction at v=v_{i+1}. Then Theorem [4.5](https://arxiv.org/html/2412.01768v3#S4.Thmlemma5 "Theorem 4.5 ([, Theorem 2.3.4]). ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics") gives that A_{v_{i+1}} equals its own orthogonal complement under b_{E,v_{i+1}}.
+
+It now suffices to show that q_{E,v_{i+1}} vanishes on A_{v_{i+1}}. We claim that
+
+q_{E,v}(\mathcal{L}_{i,\boldsymbol{\pi},v}^{\prime})=0(4.3)
+
+for all v\in\Omega_{K}-\{v_{i+1}\}. If v\in T, this follows from the definition of \mathcal{L}_{i,\boldsymbol{\pi},v}^{\prime} and Proposition [4.1](https://arxiv.org/html/2412.01768v3#S4.Thmlemma1 "Proposition 4.1. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(a). If v\not\in T\cup\{v_{1},\dots,v_{i+1}\}, then the claim follows once more by the definition of \mathcal{L}_{i,\boldsymbol{\pi},v}^{\prime}, Lemma [4.2](https://arxiv.org/html/2412.01768v3#S4.Thmlemma2 "Lemma 4.2. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(b) and Proposition [4.1](https://arxiv.org/html/2412.01768v3#S4.Thmlemma1 "Proposition 4.1. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(a). For v\in\{v_{1},\dots,v_{i}\}, Lemma [4.2](https://arxiv.org/html/2412.01768v3#S4.Thmlemma2 "Lemma 4.2. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(c) gives
+
+\mathcal{L}_{i,\boldsymbol{\pi},v}^{\prime}=\delta\left(\frac{E^{\pi_{i}}(K_{v})}{2E^{\pi_{i}}(K_{v})}\right).
+
+Therefore the desired conclusion follows immediately from Proposition [4.1](https://arxiv.org/html/2412.01768v3#S4.Thmlemma1 "Proposition 4.1. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(a) (applied to the quadratic twist E^{\pi_{i}}) and Proposition [4.4](https://arxiv.org/html/2412.01768v3#S4.Thmlemma4 "Proposition 4.4 ([, Lemma 5.2]). ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics"). We have now proven the claim ([4.3](https://arxiv.org/html/2412.01768v3#S4.E3 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")).
+
+Let c\in\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}^{\prime}}(G_{K},E[2]). Invoking Proposition [4.1](https://arxiv.org/html/2412.01768v3#S4.Thmlemma1 "Proposition 4.1. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(b) and equation ([4.3](https://arxiv.org/html/2412.01768v3#S4.E3 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")), we conclude that q_{E,K}(c) is an element of \text{Br}(K)[2] that restricts trivially at all v different from v_{i+1}. Therefore Hilbert reciprocity shows that q_{E,K}(c) restricts trivially also at v_{i+1}. Applying once more Proposition [4.1](https://arxiv.org/html/2412.01768v3#S4.Thmlemma1 "Proposition 4.1. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(b), we conclude that q_{E,v_{i+1}}(\textup{res}_{v_{i+1}}(c))=0, as desired. ∎
+
+We deduce from Lemma [4.2](https://arxiv.org/html/2412.01768v3#S4.Thmlemma2 "Lemma 4.2. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(a) and Proposition [4.6](https://arxiv.org/html/2412.01768v3#S4.Thmlemma6 "Proposition 4.6. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics") that
+
+\displaystyle\dim_{\mathbb{F}_{2}}A_{v_{i+1}}=2.(4.4)
+
+The additional quadratic structure was heavily used in the work of Klagsbrun–Mazur–Rubin [[19](https://arxiv.org/html/2412.01768v3#bib.bib19), [20](https://arxiv.org/html/2412.01768v3#bib.bib20)]. The following key fact follows also from [[20](https://arxiv.org/html/2412.01768v3#bib.bib20), Proposition 7.2(iii)], but we opt for a self-contained proof for the reader’s convenience.
+
+###### Lemma 4.7.
+
+Let 0\leq i\leq n-1. Then we have
+
+n_{i}=\begin{cases}2&\textup{if }\dim_{\mathbb{F}_{2}}\textup{res}_{v_{i+1}}(\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}}(G_{K},E[2]))=0\textup{ and }A_{v_{i+1}}=\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}}\\
+-2&\textup{if }\dim_{\mathbb{F}_{2}}\textup{res}_{v_{i+1}}(\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}}(G_{K},E[2]))=2\\
+0&\textup{otherwise.}\end{cases}
+
+###### Proof.
+
+Write \overline{\textup{res}_{v_{i+1}}} for the composition of \textup{res}_{v_{i+1}} with the natural quotient map going from H^{1}(G_{K_{v_{i+1}}},E[2]) to H^{1}(G_{K_{v_{i+1}}},E[2])/\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}}. Let us start by recording the observation
+
+\mathrm{Sel}_{\mathcal{L}_{i+1,\boldsymbol{\pi}}}(G_{K},E[2])=\ker\left(\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}^{\prime}}(G_{K},E[2])\xrightarrow{\overline{\textup{res}_{v_{i+1}}}}\frac{H^{1}(G_{K_{v_{i+1}}},E[2])}{\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}}}\right)(4.5)
+
+that we will use repeatedly.
+
+Recalling that A_{v_{i+1}}=\textup{res}_{v_{i+1}}\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}^{\prime}}(G_{K},E[2]) by definition (see ([4.2](https://arxiv.org/html/2412.01768v3#S4.E2 "In 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics"))), we also record the observations
+
+\displaystyle\textup{res}_{v_{i+1}}(\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}}(G_{K},E[2]))\displaystyle=A_{v_{i+1}}\cap H^{1}_{\text{nr}}(G_{K_{v_{i+1}}},E[2])(4.6)
+\displaystyle\textup{res}_{v_{i+1}}(\mathrm{Sel}_{\mathcal{L}_{i+1,\boldsymbol{\pi}}}(G_{K},E[2]))\displaystyle=A_{v_{i+1}}\cap\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}},(4.7)
+
+which follow directly from unwinding the definitions of the various Selmer structures.
+
+By first using equation ([4.6](https://arxiv.org/html/2412.01768v3#S4.E6 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) and then equation ([4.4](https://arxiv.org/html/2412.01768v3#S4.E4 "In 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")), we obtain
+
+\dim_{\mathbb{F}_{2}}\textup{res}_{v_{i+1}}(\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}}(G_{K},E[2]))\leq\dim_{\mathbb{F}_{2}}A_{v_{i+1}}=2.
+
+We now examine the three possible cases for the value of this dimension. Suppose first that
+
+\dim_{\mathbb{F}_{2}}\textup{res}_{v_{i+1}}(\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}}(G_{K},E[2]))=2.(4.8)
+
+Since \dim_{\mathbb{F}_{2}}H^{1}_{\text{nr}}(G_{K_{v_{i+1}}},E[2])=2=\dim_{\mathbb{F}_{2}}A_{v_{i+1}} by the second part of Lemma [4.2](https://arxiv.org/html/2412.01768v3#S4.Thmlemma2 "Lemma 4.2. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(a) and equation ([4.4](https://arxiv.org/html/2412.01768v3#S4.E4 "In 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")), equation ([4.8](https://arxiv.org/html/2412.01768v3#S4.E8 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) and equation ([4.6](https://arxiv.org/html/2412.01768v3#S4.E6 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) imply the equalities
+
+\textup{res}_{v_{i+1}}(\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}}(G_{K},E[2]))=A_{v_{i+1}}=H^{1}_{\text{nr}}(G_{K_{v_{i+1}}},E[2]).(4.9)
+
+In particular, the first equality in ([4.9](https://arxiv.org/html/2412.01768v3#S4.E9 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) combined with the definition ([4.2](https://arxiv.org/html/2412.01768v3#S4.E2 "In 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) implies the equality \mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}}(G_{K},E[2])=\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}^{\prime}}(G_{K},E[2]). Therefore equation ([4.5](https://arxiv.org/html/2412.01768v3#S4.E5 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) yields
+
+\mathrm{Sel}_{\mathcal{L}_{i+1,\boldsymbol{\pi}}}(G_{K},E[2])=\ker\left(\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}}(G_{K},E[2])\xrightarrow{\overline{\textup{res}_{v_{i+1}}}}\frac{H^{1}(G_{K_{v_{i+1}}},E[2])}{\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}}}\right).(4.10)
+
+Moreover, by equation ([4.9](https://arxiv.org/html/2412.01768v3#S4.E9 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")), the image of \mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}}(G_{K},E[2]) under \overline{\textup{res}_{v_{i+1}}} is
+
+\frac{\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}}A_{v_{i+1}}}{\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}}}.
+
+Since \mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}} intersects H^{1}_{\text{nr}}(G_{K_{v_{i+1}}},E[2]) trivially by Lemma [4.2](https://arxiv.org/html/2412.01768v3#S4.Thmlemma2 "Lemma 4.2. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(d) and since we have A_{v_{i+1}}=H^{1}_{\text{nr}}(G_{K_{v_{i+1}}},E[2]) by equation ([4.9](https://arxiv.org/html/2412.01768v3#S4.E9 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")), it follows from equation ([4.4](https://arxiv.org/html/2412.01768v3#S4.E4 "In 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) that n_{i}=-2.
+
+Suppose now that
+
+\dim_{\mathbb{F}_{2}}\textup{res}_{v_{i+1}}(\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}}(G_{K},E[2]))=0.(4.11)
+
+We will distinguish two further cases, namely A_{v_{i+1}}=\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}} or A_{v_{i+1}}\neq\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}}.
+
+Suppose that A_{v_{i+1}}=\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}}. Then equation ([4.5](https://arxiv.org/html/2412.01768v3#S4.E5 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) shows that
+
+\mathrm{Sel}_{\mathcal{L}_{i+1,\boldsymbol{\pi}}}(G_{K},E[2])=\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}^{\prime}}(G_{K},E[2]).(4.12)
+
+Since A_{v_{i+1}}=\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}} intersects H^{1}_{\text{nr}}(G_{K_{v_{i+1}}},E[2]) trivially by Lemma [4.2](https://arxiv.org/html/2412.01768v3#S4.Thmlemma2 "Lemma 4.2. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(d), we deduce from equation ([4.6](https://arxiv.org/html/2412.01768v3#S4.E6 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) that \mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}}(G_{K},E[2]) equals the subspace of \mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}^{\prime}}(G_{K},E[2]) that restricts trivially at v_{i+1}. Hence we have n_{i}=2 by equations ([4.4](https://arxiv.org/html/2412.01768v3#S4.E4 "In 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) and ([4.12](https://arxiv.org/html/2412.01768v3#S4.E12 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")).
+
+Now suppose that A_{v_{i+1}}\neq\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}}. We have
+
+A_{v_{i+1}}\cap H_{\text{nr}}^{1}(G_{K_{v_{i+1}}},E[2])=\{0\}(4.13)
+
+by equations ([4.6](https://arxiv.org/html/2412.01768v3#S4.E6 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) and ([4.11](https://arxiv.org/html/2412.01768v3#S4.E11 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")). Observe that \mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}} intersects H^{1}_{\text{nr}}(G_{K_{v_{i+1}}},E[2]) trivially by Lemma [4.2](https://arxiv.org/html/2412.01768v3#S4.Thmlemma2 "Lemma 4.2. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(d), and observe moreover that A_{v_{i+1}}, \mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}} and H^{1}_{\text{nr}}(G_{K_{v_{i+1}}},E[2]) are all maximal isotropic subspaces of H^{1}(G_{K_{v_{i+1}}},E[2]) (for A_{v_{i+1}}, see Proposition [4.6](https://arxiv.org/html/2412.01768v3#S4.Thmlemma6 "Proposition 4.6. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics"), while the other two spaces are of the shape \delta(E^{x}(K_{v})/2E^{x}(K_{v})) for some quadratic twist E^{x} of E by Lemma [4.2](https://arxiv.org/html/2412.01768v3#S4.Thmlemma2 "Lemma 4.2. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics") and are thus maximal isotropic by Proposition [4.1](https://arxiv.org/html/2412.01768v3#S4.Thmlemma1 "Proposition 4.1. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(a) and Proposition [4.4](https://arxiv.org/html/2412.01768v3#S4.Thmlemma4 "Proposition 4.4 ([, Lemma 5.2]). ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")). Combining this with equation ([4.13](https://arxiv.org/html/2412.01768v3#S4.E13 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")), we see that [[19](https://arxiv.org/html/2412.01768v3#bib.bib19), Proposition 2.4] yields
+
+\dim_{\mathbb{F}_{2}}A_{v_{i+1}}\cap\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}}\equiv 0\bmod 2.
+
+However, the left hand side is strictly smaller than 2 since A_{v_{i+1}}\neq\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}} by assumption (and both spaces are 2-dimensional). Therefore the left hand side has to be equal to 0, i.e.
+
+A_{v_{i+1}}\cap\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}}=\{0\}.(4.14)
+
+We conclude that
+
+\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}}(G_{K},E[2])=\ker\left(\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}^{\prime}}(G_{K},E[2])\xrightarrow{\textup{res}_{v_{i+1}}}H^{1}(G_{K_{v_{i+1}}},E[2])\right)=\mathrm{Sel}_{\mathcal{L}_{i+1,\boldsymbol{\pi}}}(G_{K},E[2]),
+
+where the first equality follows from equations ([4.13](https://arxiv.org/html/2412.01768v3#S4.E13 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) and ([4.6](https://arxiv.org/html/2412.01768v3#S4.E6 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) and the second equality follows from equations ([4.14](https://arxiv.org/html/2412.01768v3#S4.E14 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) and ([4.7](https://arxiv.org/html/2412.01768v3#S4.E7 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")). In particular, we have n_{i}=0 as desired.
+
+It remains to consider the case
+
+\dim_{\mathbb{F}_{2}}\textup{res}_{v_{i+1}}(\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}}(G_{K},E[2]))=1.
+
+By equation ([4.6](https://arxiv.org/html/2412.01768v3#S4.E6 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")), this may be rephrased as
+
+\dim_{\mathbb{F}_{2}}A_{v_{i+1}}\cap H^{1}_{\text{nr}}(G_{K_{v_{i+1}}},E[2])=1.(4.15)
+
+Recall that \mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}} intersects H^{1}_{\text{nr}}(G_{K_{v_{i+1}}},E[2]) trivially by Lemma [4.2](https://arxiv.org/html/2412.01768v3#S4.Thmlemma2 "Lemma 4.2. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(d). Combining this with equation ([4.15](https://arxiv.org/html/2412.01768v3#S4.E15 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")), we obtain from [[19](https://arxiv.org/html/2412.01768v3#bib.bib19), Proposition 2.4] the congruence
+
+\dim_{\mathbb{F}_{2}}A_{v_{i+1}}\cap\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}}\equiv 1\bmod 2.
+
+Therefore the above dimension must be exactly equal to 1. Thus, \mathrm{Sel}_{\mathcal{L}_{i+1,\boldsymbol{\pi}}}(G_{K},E[2]) equals the inverse image of the 1-dimensional space A_{v_{i+1}}\cap\mathcal{L}_{i+1,\boldsymbol{\pi},v_{i+1}} under the map
+
+\textup{res}_{v_{i+1}}:\mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}^{\prime}}(G_{K},E[2])\twoheadrightarrow A_{v_{i+1}}.
+
+At the same time \mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}}(G_{K},E[2]) equals the inverse image of A_{v_{i+1}}\cap H_{\text{nr}}^{1}(G_{K_{v_{i+1}}},E[2]) under the same map, which is also 1-dimensional by equation ([4.15](https://arxiv.org/html/2412.01768v3#S4.E15 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")). Hence the two spaces \mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}}(G_{K},E[2]) and \mathrm{Sel}_{\mathcal{L}_{i+1,\boldsymbol{\pi}}}(G_{K},E[2]) are both subspaces in \mathrm{Sel}_{\mathcal{L}_{i,\boldsymbol{\pi}}^{\prime}}(G_{K},E[2]) of codimension 1 and hence they must have the same dimension. We conclude that n_{i}=0, as desired. ∎
+
+The final step in the transition process is completely predictable because of the 2-torsion elements of E.
+
+###### Lemma 4.9.
+
+Let d\in K^{\ast}/K^{\ast 2}. Assume that
+
+d\in K_{v}^{\ast 2}\quad\textup{ for all }v\in T.(4.16)
+
+Let v_{1},\dots,v_{r} be the set of places v\in\Omega_{K} such that v(d) is odd; note that v_{1},\dots,v_{r}\not\in T by ([4.16](https://arxiv.org/html/2412.01768v3#S4.E16 "In Lemma 4.9. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")). We assume that r\geq 1. Then we have
+
+\dim_{\mathbb{F}_{2}}\mathrm{Sel}^{2}(E^{d}/K)=2+\dim_{\mathbb{F}_{2}}\mathrm{Sel}_{\mathcal{L}_{r-1,(d,\dots,d)}}(G_{K},E[2]).
+
+###### Proof.
+
+We define the Selmer structure \mathcal{L}_{d}=(\mathcal{L}_{d,v})_{v\in\Omega_{K}} by
+
+\mathcal{L}_{d,v}:=\delta(E^{d}(K_{v})).
+
+Recall that \mathrm{Sel}^{2}(E^{d}/K)=\mathrm{Sel}_{\mathcal{L}_{d}}(G_{K},E[2]) by definition. We remark that
+
+\displaystyle\mathcal{L}_{d,v}=\delta(E^{d}(K_{v}))=\begin{cases}\delta(E(K_{v}))&\text{if }v\in T\\
+\langle(\alpha\beta,d\alpha),(-d\alpha,-\alpha\gamma)\rangle&\text{if }v\in\{v_{1},\dots,v_{r}\}\\
+H^{1}_{\text{nr}}(G_{K_{v}},E[2])&\text{if }v\not\in T\cup\{v_{1},\dots,v_{r}\}.\end{cases}(4.17)
+
+The first row follows from the isomorphism E\cong E^{d} locally at K_{v}, which is a consequence of our assumption ([4.16](https://arxiv.org/html/2412.01768v3#S4.E16 "In Lemma 4.9. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")). The second and third row follow from respectively Lemma [4.2](https://arxiv.org/html/2412.01768v3#S4.Thmlemma2 "Lemma 4.2. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(c) and Lemma [4.2](https://arxiv.org/html/2412.01768v3#S4.Thmlemma2 "Lemma 4.2. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(b).
+
+Set \boldsymbol{\pi}:=(d,\dots,d). By comparing equation ([4.1](https://arxiv.org/html/2412.01768v3#S4.E1 "In 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) with equation ([4.17](https://arxiv.org/html/2412.01768v3#S4.E17 "In Proof. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")), it follows that \mathcal{L}_{d,v}=\mathcal{L}_{r,\boldsymbol{\pi},v} for all v\in\Omega_{K}. Therefore we certainly have
+
+\mathrm{Sel}^{2}(E^{d}/K)=\mathrm{Sel}_{\mathcal{L}_{r,\boldsymbol{\pi}}}(G_{K},E[2]),
+
+so it suffices to show that n_{r-1}=2.
+
+We know that A_{v_{r}} has dimension 2 by equation ([4.4](https://arxiv.org/html/2412.01768v3#S4.E4 "In 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")). However, it also contains (the restrictions of) (\alpha\beta,d\alpha) and (-d\alpha,-\alpha\gamma) as these are in \mathrm{Sel}^{2}(E^{d}/K) by Lemma [3.1](https://arxiv.org/html/2412.01768v3#S3.Thmlemma1 "Lemma 3.1. ‣ 3.1 Elliptic curves ‣ 3 Background theory ‣ Hilbert’s tenth problem via additive combinatorics") and hence in \mathrm{Sel}_{\mathcal{L}_{r,\boldsymbol{\pi}}}(G_{K},E[2]). Since r\geq 1, it follows that \textup{res}_{v_{r}}(\alpha\beta,d\alpha) and \textup{res}_{v_{r}}(-d\alpha,-\alpha\gamma) are linearly independent by inspecting valuations at v_{r} (recall that v_{r}\not\in T by ([4.16](https://arxiv.org/html/2412.01768v3#S4.E16 "In Lemma 4.9. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics"))). Therefore A_{v_{r}} is equal to the span of (\alpha\beta,d\alpha) and (-d\alpha,-\alpha\gamma), which is \mathcal{L}_{r,\boldsymbol{\pi},v_{r}}. Thus we obtain the equality n_{r-1}=2 from Remark [4.8](https://arxiv.org/html/2412.01768v3#S4.Thmlemma8 "Remark 4.8. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")(a) and Lemma [4.7](https://arxiv.org/html/2412.01768v3#S4.Thmlemma7 "Lemma 4.7. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics"), as desired. ∎
+
+## 5 Proof of Theorem [2.4](https://arxiv.org/html/2412.01768v3#S2.Thmlemma4 "Theorem 2.4. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics")
+
+In this section we combine the material from Section [3](https://arxiv.org/html/2412.01768v3#S3 "3 Background theory ‣ Hilbert’s tenth problem via additive combinatorics") and [4](https://arxiv.org/html/2412.01768v3#S4 "4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics") to prove Theorem [2.4](https://arxiv.org/html/2412.01768v3#S2.Thmlemma4 "Theorem 2.4. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics"). For the remainder of the paper, we fix a number field K satisfying the conditions of Theorem [2.4](https://arxiv.org/html/2412.01768v3#S2.Thmlemma4 "Theorem 2.4. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics"), so K has at least 32 real places and we set L:=K(i).
+
+### 5.1 First steps
+
+Let a_{1}, a_{2}, a_{3}, E, \sigma_{1},\dots,\sigma_{24} be as in Lemma [3.7](https://arxiv.org/html/2412.01768v3#S3.Thmlemma7 "Lemma 3.7. ‣ 3.2 Root numbers ‣ 3 Background theory ‣ Hilbert’s tenth problem via additive combinatorics"). Let \alpha, \beta, \gamma be as in equation ([3.1](https://arxiv.org/html/2412.01768v3#S3.E1 "In 3.1 Elliptic curves ‣ 3 Background theory ‣ Hilbert’s tenth problem via additive combinatorics")). We will twist E. Define
+
+T:=\{v\in\Omega_{K}:v\mid 6\Delta_{E}\infty\text{ or }v(\alpha)\neq 0\text{ or }v(\beta)\neq 0\text{ or }v(\gamma)\neq 0\}.
+
+In the next two subsections, we will find t\in K^{\ast}/K^{\ast 2} satisfying
+
+\displaystyle\dim_{\mathbb{F}_{2}}\,\mathrm{Sel}^{2}(E^{t}/K)=2,\quad\mathrm{rk}\,E^{-t}(K)>0.(5.1)
+
+Because E^{t} has full rational 2-torsion, we have the inequality
+
+\mathrm{rk}\,E^{t}(K)+2\leq\dim_{\mathbb{F}_{2}}\,\mathrm{Sel}^{2}(E^{t}/K).
+
+Hence it follows from the first part of equation ([5.1](https://arxiv.org/html/2412.01768v3#S5.E1 "In 5.1 First steps ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")) that \mathrm{rk}\,E^{t}(K)=0. Combining this with the second part of equation ([5.1](https://arxiv.org/html/2412.01768v3#S5.E1 "In 5.1 First steps ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")) and Lemma [3.3](https://arxiv.org/html/2412.01768v3#S3.Thmlemma3 "Lemma 3.3. ‣ 3.1 Elliptic curves ‣ 3 Background theory ‣ Hilbert’s tenth problem via additive combinatorics") (applied to E^{-t} and d=-1) we deduce that \mathrm{rk}\,E^{-t}(K)=\mathrm{rk}\,E^{-t}(L)>0. Hence Theorem [2.4](https://arxiv.org/html/2412.01768v3#S2.Thmlemma4 "Theorem 2.4. ‣ 2 Initial reductions ‣ Hilbert’s tenth problem via additive combinatorics") holds with E^{-t} being our witness.
+
+We will establish ([5.1](https://arxiv.org/html/2412.01768v3#S5.E1 "In 5.1 First steps ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")) with two reduction steps. The first reduction step gives sufficient conditions on t (see Definition [5.1](https://arxiv.org/html/2412.01768v3#S5.Thmlemma1 "Definition 5.1. ‣ 5.1 First steps ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")) to ensure that
+
+\dim_{\mathbb{F}_{2}}\,\mathrm{Sel}^{2}(E^{t}/K)=2.
+
+The second reduction step finds sufficient conditions on \kappa (see Definition [5.3](https://arxiv.org/html/2412.01768v3#S5.Thmlemma3 "Definition 5.3. ‣ 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics") for a precise statement) that will allow us to construct t through additive combinatorics. Specifically, t will take the shape
+
+t=\kappa q_{1}q_{2}q_{3}q_{3}q_{4},
+
+where \kappa is an auxiliary twist to arrange the Selmer group favorably, and q_{1},q_{2},q_{3},q_{4} are constructed through additive combinatorics to ensure that equation ([5.1](https://arxiv.org/html/2412.01768v3#S5.E1 "In 5.1 First steps ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")) holds. Finally, we finish the proof by showing that an auxiliary twist \kappa exists.
+
+###### Definition 5.1.
+
+We say that an element t\in K^{\ast}/K^{\ast 2} is a suitable twist if there exists \kappa\in K^{\ast}/K^{\ast 2} and prime elements q_{1},q_{2},q_{3},q_{4} such that, denoting by \mathfrak{p}_{1},\dots,\mathfrak{p}_{s} the primes where \kappa has odd valuation and putting T^{\prime}:=T\cup\{\mathfrak{p}_{1},\dots,\mathfrak{p}_{s}\}, then
+
+1.   (P1)
+t\in K_{v}^{\ast 2} for all places v\in T;
+
+2.   (P2)
+we have t=\kappa q_{1}q_{2}q_{3}q_{4} and the elements q_{1},q_{2},q_{3},q_{4} are pairwise coprime and also coprime to T^{\prime};
+
+3.   (P3)there exists a basis
+
+(z_{1},z_{2}),(z_{3},z_{4}),(z_{5},z_{6}),(z_{7},z_{8}),(z_{9},z_{10}),(z_{11},z_{12})
+
+of \mathrm{Sel}_{\mathcal{L}_{s,(t,\dots,t)}}(G_{K},E[2]) such that
+
+\displaystyle\prod_{v\in T^{\prime}}(z_{1},q_{1})_{v}=\prod_{v\in T^{\prime}}(z_{4},q_{1})_{v}=-1
+\displaystyle\prod_{v\in T^{\prime}}(z_{5},q_{2})_{v}=\prod_{v\in T^{\prime}}(z_{8},q_{2})_{v}=-1
+\displaystyle\prod_{v\in T^{\prime}}(z_{9},q_{3})_{v}=\prod_{v\in T^{\prime}}(z_{12},q_{3})_{v}=-1
+\displaystyle\prod_{v\in T^{\prime}}(z_{i},q_{1})_{v}=1\quad\textup{ for }i\in\{1,\dots,12\}-\{1,4\}
+\displaystyle\prod_{v\in T^{\prime}}(z_{i},q_{2})_{v}=1\quad\textup{ for }i\in\{5,\dots,12\}-\{5,8\}
+\displaystyle\prod_{v\in T^{\prime}}(z_{i},q_{3})_{v}=1\quad\textup{ for }i\in\{9,\dots,12\}-\{9,12\}; 
+4.   (P4)
+we have \mathrm{rk}\,E^{-t}(K)>0.
+
+Property (P3) serves two distinct roles. Firstly, we will use this property to understand how q_{1},q_{2},q_{3} behave in the transition process from Lemma [4.7](https://arxiv.org/html/2412.01768v3#S4.Thmlemma7 "Lemma 4.7. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics"). In fact, we will show that the dimension drops by 2 in each case. Secondly, (P3) imposes merely congruences on q_{1},q_{2},q_{3} modulo T^{\prime}. This is very convenient, as Theorem [A.7](https://arxiv.org/html/2412.01768v3#A1.Thmlemma7 "Theorem A.7. ‣ Appendix A Additive combinatorics ‣ Hilbert’s tenth problem via additive combinatorics") does allow us to prescribe such congruence conditions, but does not allow for control on mutual Legendre symbols (q_{i}/q_{j}). Condition (P3) carefully sets up a situation where we can understand the change of Selmer rank without having knowledge of these Legendre symbols.
+
+###### Theorem 5.2.
+
+Let t\in K^{\ast}/K^{\ast 2} be suitable. Then t satisfies equation ([5.1](https://arxiv.org/html/2412.01768v3#S5.E1 "In 5.1 First steps ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")).
+
+###### Proof.
+
+Because t is suitable, (P4) holds. This is exactly the second part of equation ([5.1](https://arxiv.org/html/2412.01768v3#S5.E1 "In 5.1 First steps ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")), and thus we need to show that
+
+\dim_{\mathbb{F}_{2}}\,\mathrm{Sel}^{2}(E^{t}/K)=2.(5.2)
+
+By (P1) and (P2), we have that
+
+\{v\in\Omega_{K}:v\text{ finite},v(t)\equiv 1\bmod 2\}=\{\mathfrak{p}_{1},\dots,\mathfrak{p}_{s},(q_{1}),(q_{2}),(q_{3}),(q_{4})\}.
+
+We claim that
+
+\displaystyle\mathrm{Sel}_{\mathcal{L}_{s+1,(t,\dots,t)}}(G_{K},E[2])=\langle(z_{5},z_{6}),(z_{7},z_{8}),(z_{9},z_{10}),(z_{11},z_{12})\rangle.(5.3)
+
+To this end, we apply Hilbert reciprocity to obtain the relations
+
+\prod_{v\in\Omega_{K}}(z_{i},q_{1})_{v}=1
+
+for all i\in\{1,\dots,12\}. Using that v(z_{i}) is even for all v\not\in T^{\prime}, we deduce that (z_{i},q_{1})_{v}=1 for all v\not\in T^{\prime}\cup\{(q_{1})\}. Therefore (P3) reveals the identity
+
+(z_{i},q_{1})_{(q_{1})}=\begin{cases}-1&\text{if }i\in\{1,4\}\\
+1&\text{otherwise.}\end{cases}(5.4)
+
+Now note that (z_{i},q_{1})_{(q_{1})} detects precisely whether \mathrm{res}_{(q_{1})}(z_{i}) is the trivial class or the unique non-trivial unramified class \epsilon. Combining this with equation ([5.4](https://arxiv.org/html/2412.01768v3#S5.E4 "In Proof. ‣ 5.1 First steps ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")) we conclude that
+
+\mathrm{res}_{(q_{1})}((z_{1},z_{2}))=(\epsilon,1),\quad\mathrm{res}_{(q_{1})}((z_{3},z_{4}))=(1,\epsilon),\quad\mathrm{res}_{(q_{1})}((z_{2i+1},z_{2i+2}))=(1,1)(5.5)
+
+for all i\in\{2,3,4,5\}. Hence Lemma [4.7](https://arxiv.org/html/2412.01768v3#S4.Thmlemma7 "Lemma 4.7. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics") implies that n_{s}=-2. Moreover, from equation ([5.5](https://arxiv.org/html/2412.01768v3#S5.E5 "In Proof. ‣ 5.1 First steps ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")), we visibly have that (z_{5},z_{6}), (z_{7},z_{8}), (z_{9},z_{10}) and (z_{11},z_{12}) are in \mathrm{Sel}_{\mathcal{L}_{s+1,(t,\dots,t)}}(G_{K},E[2]). Since these elements are linearly independent, we deduce equation ([5.3](https://arxiv.org/html/2412.01768v3#S5.E3 "In Proof. ‣ 5.1 First steps ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")).
+
+Proceeding in this way, one successively shows that
+
+\mathrm{Sel}_{\mathcal{L}_{s+2,(t,\dots,t)}}(G_{K},E[2])=\langle(z_{9},z_{10}),(z_{11},z_{12})\rangle
+
+and that
+
+\dim_{\mathbb{F}_{2}}\,\mathrm{Sel}_{\mathcal{L}_{s+3,(t,\dots,t)}}(G_{K},E[2])=0(5.6)
+
+for all suitable t.
+
+Note that equation ([4.16](https://arxiv.org/html/2412.01768v3#S4.E16 "In Lemma 4.9. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics")) holds thanks to our assumption (P1). Therefore the hypotheses of Lemma [4.9](https://arxiv.org/html/2412.01768v3#S4.Thmlemma9 "Lemma 4.9. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics") are satisfied (note that the condition r\geq 1 is clearly satisfied in our case). Then equation ([5.2](https://arxiv.org/html/2412.01768v3#S5.E2 "In Proof. ‣ 5.1 First steps ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")) is an immediate consequence of equation ([5.6](https://arxiv.org/html/2412.01768v3#S5.E6 "In Proof. ‣ 5.1 First steps ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")) and Lemma [4.9](https://arxiv.org/html/2412.01768v3#S4.Thmlemma9 "Lemma 4.9. ‣ 4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics"). ∎
+
+Thanks to Theorem [5.2](https://arxiv.org/html/2412.01768v3#S5.Thmlemma2 "Theorem 5.2. ‣ 5.1 First steps ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics"), it remains to establish the existence of a suitable t.
+
+### 5.2 Application of additive combinatorics
+
+We will now construct a suitable t in two steps. First, we shall assume that a certain auxiliary twist \kappa has certain good properties. Under this assumption, we will apply Kai’s work [[18](https://arxiv.org/html/2412.01768v3#bib.bib18)] to find such t. The construction of \kappa is delicate and relies on the material in Section [4](https://arxiv.org/html/2412.01768v3#S4 "4 Selmer ranks as transition processes ‣ Hilbert’s tenth problem via additive combinatorics") in an essential way. This construction will occupy the entirety of Subsection [5.3](https://arxiv.org/html/2412.01768v3#S5.SS3 "5.3 Construction of an auxiliary twist ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics").
+
+By the second part of Lemma [3.7](https://arxiv.org/html/2412.01768v3#S3.Thmlemma7 "Lemma 3.7. ‣ 3.2 Root numbers ‣ 3 Background theory ‣ Hilbert’s tenth problem via additive combinatorics"), we fix six infinite places \tau_{1},\dots,\tau_{6} of K among \sigma_{1},\dots,\sigma_{24} with
+
+\displaystyle\tau_{1}(a_{2})<\tau_{1}(a_{1})<\tau_{1}(a_{3}),\quad\quad\displaystyle\tau_{2}(a_{1})<\tau_{2}(a_{2})<\tau_{2}(a_{3})(5.7)
+\displaystyle\tau_{3}(a_{2})<\tau_{3}(a_{3})<\tau_{3}(a_{1}),\quad\quad\displaystyle\tau_{4}(a_{1})<\tau_{4}(a_{3})<\tau_{4}(a_{2})(5.8)
+\displaystyle\tau_{5}(a_{2})<\tau_{5}(a_{1})<\tau_{5}(a_{3}),\quad\quad\displaystyle\tau_{6}(a_{1})<\tau_{6}(a_{2})<\tau_{6}(a_{3}).(5.9)
+
+###### Definition 5.3.
+
+We say that \kappa\in K^{\ast}/K^{\ast 2} is an auxiliary twist if
+
+1.   (K1)
+\kappa has even valuation at all finite places in T, and is non-trivial locally at \tau_{4},\tau_{5},\tau_{6}, but trivial at \tau_{1},\tau_{2},\tau_{3};
+
+2.   (K2)writing \mathfrak{p}_{1},\dots,\mathfrak{p}_{s} for the primes where \kappa has odd valuation, there exists \boldsymbol{\pi}=(\pi_{i})_{1\leq i\leq s} such that \mathrm{Sel}_{\mathcal{L}_{s,\boldsymbol{\pi}}}(G_{K},E[2]) has a basis
+
+(z_{1},z_{2}),(z_{3},z_{4}),(z_{5},z_{6}),(z_{7},z_{8}),(z_{9},z_{10}),(z_{11},z_{12})
+
+such that the signs of z_{i} at \tau_{1},\dots,\tau_{6} are given by the table
+
+\begin{array}[]{| c | c | c | c | c | c | c |}\hline\cr&\tau_{1}&\tau_{2}&\tau_{3}&\tau_{4}&\tau_{5}&\tau_{6}\\
+\hline\cr\text{im}(\delta)&(-,+)&(+,-)&(-,+)&(+,-)&(-,+)&(+,-)\\
+\hline\cr z_{1}&-&+&+&+&+&+\\
+\hline\cr z_{2}&+&+&+&+&+&+\\
+\hline\cr z_{3}&+&+&+&+&+&+\\
+\hline\cr z_{4}&+&-&+&+&+&+\\
+\hline\cr z_{5}&+&+&-&+&+&+\\
+\hline\cr z_{6}&+&+&+&+&+&+\\
+\hline\cr z_{7}&+&+&+&+&+&+\\
+\hline\cr z_{8}&+&+&+&-&+&+\\
+\hline\cr z_{9}&+&+&+&+&-&+\\
+\hline\cr z_{10}&+&+&+&+&+&+\\
+\hline\cr z_{11}&+&+&+&+&+&+\\
+\hline\cr z_{12}&+&+&+&+&+&-\\
+\hline\cr\end{array}(5.10) 
+
+For the reader’s convenience, we have added the image \delta(E(K_{\tau_{j}})) of the local Kummer map at each real place \tau_{j} in the second row of ([5.10](https://arxiv.org/html/2412.01768v3#S5.E10 "In item 
+                    
+                      
+                        
+                        
+                          (
+                          
+                            ⁢
+                            K
+                            2
+                          
+                          ) ‣ Definition 5.3. ‣ 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")). This image can be directly computed by using the explicit formula from Lemma [3.1](https://arxiv.org/html/2412.01768v3#S3.Thmlemma1 "Lemma 3.1. ‣ 3.1 Elliptic curves ‣ 3 Background theory ‣ Hilbert’s tenth problem via additive combinatorics"). In particular, one may check that the pair (z_{2i+1},z_{2i+2}) satisfies the Selmer conditions at each \tau_{j}.
+
+We will now give some motivation for (K2). Write N for the product of all odd prime ideals in T. In order to construct suitable t, we shall soon choose the primes q_{1},q_{2},q_{3} in such a way that
+
+q_{1}\equiv q_{2}\equiv q_{3}\equiv 1\bmod 8N\mathfrak{p}_{1}\cdots\mathfrak{p}_{s}
+
+and that q_{1},q_{2},q_{3} are positive at all real places except \{\tau_{1},\dots,\tau_{6}\}. Then the sum over v\in T^{\prime} in (P3) will simplify to a sum over just v\in\{\tau_{1},\dots,\tau_{6}\}. With the further sign choices we shall make for q_{1},q_{2},q_{3} at \tau_{1},\dots,\tau_{6} in ([5.13](https://arxiv.org/html/2412.01768v3#S5.E13 "In item 
+                    
+                      
+                        
+                        
+                          (
+                          
+                            ⁢
+                            I
+                            I
+                            I
+                          
+                          ) ‣ Construction of a convex region ‣ 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")), we will see that the table ([5.10](https://arxiv.org/html/2412.01768v3#S5.E10 "In item 
+                    
+                      
+                        
+                        
+                          (
+                          
+                            ⁢
+                            K
+                            2
+                          
+                          ) ‣ Definition 5.3. ‣ 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")) is constructed exactly to give back (P3).
+
+We are now ready to phrase our last reduction step, after which it remains to construct an auxiliary twist \kappa in Subsection [5.3](https://arxiv.org/html/2412.01768v3#S5.SS3 "5.3 Construction of an auxiliary twist ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics").
+
+###### Theorem 5.4.
+
+Assume that there exists an auxiliary twist \kappa. Then there exists a suitable t\in K^{\ast}/K^{\ast 2}.
+
+###### Proof.
+
+We will proceed in four steps, aiming to eventually apply Theorem [A.7](https://arxiv.org/html/2412.01768v3#A1.Thmlemma7 "Theorem A.7. ‣ Appendix A Additive combinatorics ‣ Hilbert’s tenth problem via additive combinatorics"). In our first step, we construct four affine linear polynomials L_{1},L_{2},L_{3},L_{4}. In the second step, we construct a convex region \Omega\subseteq\mathbb{R}^{2n}. In the third step we estimate the volume of \Omega\cap[-H,H]^{2n}. Finally, we apply Theorem [A.7](https://arxiv.org/html/2412.01768v3#A1.Thmlemma7 "Theorem A.7. ‣ Appendix A Additive combinatorics ‣ Hilbert’s tenth problem via additive combinatorics") and verify the properties (P1), (P2), (P3) and (P4) in the fourth step.
+
+#### Construction of affine linear polynomials
+
+Fix an auxiliary twist \kappa. Then, by (K1) and strong approximation, there exists an integral representative of \kappa coprime to 8N. We also fix such an integral representative, which by abuse of notation we also denote by \kappa.
+
+Writing h for the class number of K, we let m be a generator of the ideal 8N^{h}. Write \lambda\in O_{K} for an element coprime to \kappa and the finite places in T such that \lambda reduces to the inverse of \kappa modulo 8N and satisfies \mathrm{res}_{\mathfrak{p}_{i}}(\lambda\kappa)=\pi_{i} for all 1\leq i\leq s. We define affine linear polynomials L_{1},L_{2},L_{3},L_{4}\in O_{K}[X,Y] by
+
+\displaystyle L_{1}(X,Y)\displaystyle:=m^{2}\kappa X+a_{1}m^{2}\kappa(m^{2}\kappa Y+\lambda)+1
+\displaystyle L_{2}(X,Y)\displaystyle:=m^{2}\kappa X+a_{2}m^{2}\kappa(m^{2}\kappa Y+\lambda)+1
+\displaystyle L_{3}(X,Y)\displaystyle:=m^{2}\kappa X+a_{3}m^{2}\kappa(m^{2}\kappa Y+\lambda)+1
+\displaystyle L_{4}(X,Y)\displaystyle:=m^{2}\kappa Y+\lambda.
+
+Since the a_{i} are distinct, it follows immediately that the L_{i}(X,Y) are pairwise K-linearly independent.
+
+We identify O_{K} with the group \mathbb{Z}^{n} to reinterpret the L_{i} as linear polynomials \mathbb{Z}^{2n}\rightarrow O_{K}. In order to show that the main term in Theorem [A.7](https://arxiv.org/html/2412.01768v3#A1.Thmlemma7 "Theorem A.7. ‣ Appendix A Additive combinatorics ‣ Hilbert’s tenth problem via additive combinatorics") dominates, we need to check that the p-adic densities \beta_{p}^{O_{K}}(L_{1},L_{2},L_{3},L_{4}) there do not vanish. We will do this now.
+
+###### Lemma 5.5.
+
+For every prime \mathfrak{p} of O_{K}, there exist u,v\in O_{K} such that
+
+L_{1}(u,v)L_{2}(u,v)L_{3}(u,v)L_{4}(u,v)\not\equiv 0\bmod\mathfrak{p}.
+
+###### Proof.
+
+For primes \mathfrak{p} dividing m\kappa, we may pick u=v=0. It remains to verify the lemma for primes \mathfrak{p}\nmid m\kappa. In particular, \mathfrak{p}\nmid 6, so the residue field O_{K}/\mathfrak{p} is \mathbb{F}_{q} for some q\geq 5. Since m^{2}\kappa is a unit in \mathbb{F}_{q}, each L_{i} cuts out a line in \mathbb{F}_{q}\times\mathbb{F}_{q}, leaving at least q^{2}-4q>0 possibilities for (u,v)\bmod\mathfrak{p}. ∎
+
+#### Construction of a convex region
+
+We will now construct a convex set \Omega to which we apply Theorem [A.7](https://arxiv.org/html/2412.01768v3#A1.Thmlemma7 "Theorem A.7. ‣ Appendix A Additive combinatorics ‣ Hilbert’s tenth problem via additive combinatorics"). We define \Omega\subseteq\mathbb{R}^{2n} through the simultaneous conditions:
+
+1.   (I)for all real embeddings \tau of K not equal to \tau_{1},\dots,\tau_{6} and all k\in\{1,2,3\}
+
+\displaystyle\tau\left(L_{k}(X,Y)\right)>0.(5.11)
+
+Here we note that \tau\circ L_{k} is an affine \mathbb{Z}-linear map \mathbb{Z}^{2n}\rightarrow\mathbb{R}, which extends uniquely to an affine \mathbb{R}-linear map \mathbb{R}^{2n}\rightarrow\mathbb{R}. From now on we shall frequently extend linear maps \mathbb{Z}^{2n}\rightarrow\mathbb{R} uniquely to \mathbb{R}^{2n}\rightarrow\mathbb{R} without further mention; 
+2.   (II)for all real embeddings \tau of K not equal to \tau_{1},\dots,\tau_{6}
+
+\displaystyle\tau\left(L_{4}(X,Y)\right)\tau(\kappa)>0;(5.12) 
+3.   (III)for j\in\{1,\dots,6\} and k\in\{1,2,3\}, the sign of \tau_{j}\left(L_{k}(X,Y)\right) is precisely the entry (k,j) in the table
+
+\begin{array}[]{| c | c | c | c | c | c | c |}\hline\cr&\tau_{1}&\tau_{2}&\tau_{3}&\tau_{4}&\tau_{5}&\tau_{6}\\
+\hline\cr L_{1}(X,Y)&-&-&+&+&+&+\\
+\hline\cr L_{2}(X,Y)&-&-&-&-&+&+\\
+\hline\cr L_{3}(X,Y)&+&+&-&+&-&-\\
+\hline\cr\end{array}(5.13) 
+4.   (IV)for all j\in\{1,\dots,6\}
+
+\tau_{j}\left(L_{4}(X,Y)\right)>0. 
+
+#### Volume computation
+
+In order to show that the main term in Theorem [A.7](https://arxiv.org/html/2412.01768v3#A1.Thmlemma7 "Theorem A.7. ‣ Appendix A Additive combinatorics ‣ Hilbert’s tenth problem via additive combinatorics") dominates, we also need to asymptotically estimate the volume of \Omega\cap[-H,H]^{2n}. We start with a general lemma on volumes. Write \mu for the Lebesgue measure.
+
+###### Lemma 5.6.
+
+Let \ell\geq k\geq 1 be integers, let A:\mathbb{R}^{\ell}\twoheadrightarrow\mathbb{R}^{k} be a surjective linear operator, and let (c_{1},\ldots,c_{k})\in\mathbb{R}^{k}. Then there exists a positive real number C such that
+
+\mu\left(A^{-1}\left(\prod_{i=1}^{k}(c_{i},\infty)\right)\cap[-H,H]^{\ell}\right)\sim CH^{\ell}
+
+as H\rightarrow\infty.
+
+###### Proof.
+
+It will be convenient to fix a linear operator B:\mathbb{R}^{\ell}\twoheadrightarrow\mathbb{R}^{\ell-k} such that the linear operator T:=(A,B):\mathbb{R}^{\ell}\rightarrow\mathbb{R}^{\ell} is an isomorphism. Defining
+
+\mathcal{D}(H):=T^{-1}\left(\prod_{i=1}^{k}(c_{i},\infty)\times\mathbb{R}^{\ell-k}\right)\cap[-H,H]^{\ell},
+
+our task is then to give an asymptotic formula for \mu(\mathcal{D}(H)). Changing c_{1} to 0 changes the volume by only O(H^{\ell-1}), since the difference is contained in a parallelepiped of side lengths bounded by O(1),O(H),\dots,O(H). Similarly, we may assume that all the c_{i} are 0. Let \mathcal{R}(H) denote the region thus obtained, i.e.
+
+\mathcal{R}(H):=T^{-1}\left(\prod_{i=1}^{k}(0,\infty)\times\mathbb{R}^{\ell-k}\right)\cap[-H,H]^{\ell}.
+
+Then \mathcal{R}(H)=H\mathcal{R}(1), so its volume is H^{\ell} times the volume of \mathcal{R}(1), which is positive since a linear change of coordinates transforms \mathcal{R}(1) into the intersection of (0,\infty)^{k}\times\mathbb{R}^{\ell-k} with a neighborhood of 0. ∎
+
+We use Lemma [5.6](https://arxiv.org/html/2412.01768v3#S5.Thmlemma6 "Lemma 5.6. ‣ Volume computation ‣ 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics") with \ell=2n and k equal to twice the number of real places of K. It is however not obvious that the region \Omega can be given by k linear inequalities, as it is a priori only defined through 2k linear inequalities. We will start by establishing a general lemma granting linear independence of the resulting set of linear forms. We write L_{i}^{\text{hom}} for the homogeneous part of the affine linear polynomial L_{i}.
+
+###### Lemma 5.7.
+
+For each real place \tau\in\Omega_{K}, fix a 2-element subset I_{\tau}\subseteq\{1,2,3,4\}. Then \{\tau\circ L_{i}^{\textup{hom}}:\tau\textup{ real},i\in I_{\tau}\}\subseteq\mathrm{Hom}_{\mathbb{Q}\textup{-linear}}(K,\mathbb{R}) is an \mathbb{R}-linearly independent set.
+
+###### Proof.
+
+The four forms L_{i}^{\text{hom}} are pairwise K-linearly independent, so the L_{i}^{\text{hom}} for i\in I_{\tau} define an isomorphism K^{2}\rightarrow K^{2}. Applying \otimes_{K}K_{\tau} and taking the product over all real places \tau gives an isomorphism \prod_{\tau}K_{\tau}^{2}\rightarrow\prod_{\tau}K_{\tau}^{2}. Composing with the projections onto the various K_{\tau}\cong\mathbb{R} on the right gives \mathbb{R}-linearly independent maps. Pre-composing with the product of two copies of the surjection K_{\mathbb{R}}:=K\otimes\mathbb{R}\twoheadrightarrow\prod_{\tau}K_{\tau} gives the \mathbb{R}-linear extensions K_{\mathbb{R}}^{2}\rightarrow\mathbb{R} of the maps \tau\circ L_{i}^{\text{hom}} so the latter are \mathbb{R}-linearly independent too. ∎
+
+Let
+
+c:=m^{2}\kappa X+1,\quad\quad d:=m^{2}\kappa(m^{2}\kappa Y+\lambda).
+
+Then observe that L_{i}(X,Y)=c+a_{i}d for i\in\{1,2,3\} and d=m^{2}\kappa L_{4}(X,Y). We shall now use (K1) to rewrite the defining inequalities of \Omega as k linear inequalities, namely 2 for each real place \tau of K, given by two linear forms M_{\tau,1} and M_{\tau,2}. In order to construct M_{\tau,1} and M_{\tau,2}, we will now distinguish two cases.
+
+Firstly, suppose that the real place is \tau_{\ell} for \ell\in\{1,\dots,6\}. Then we will construct M_{\tau_{\ell},1} and M_{\tau_{\ell},2} via the following lemma.
+
+###### Lemma 5.8.
+
+Let \ell\in\{1,\dots,6\}. Let I_{\ell} be \{1,3\} if \ell\in\{1,3,5\} and \{2,3\} if \ell\in\{2,4,6\} and define i_{0} to be the unique element of \{1,2,3\}-I_{\ell}. Assume that the sign of \tau_{\ell}(L_{i}(X,Y)) is precisely the (i,\ell) entry in the table ([5.13](https://arxiv.org/html/2412.01768v3#S5.E13 "In item 
+                    
+                      
+                        
+                        
+                          (
+                          
+                            ⁢
+                            I
+                            I
+                            I
+                          
+                          ) ‣ Construction of a convex region ‣ 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")) for all i\in I_{\ell}. Then the sign of \tau_{\ell}(L_{i_{0}}(X,Y)) is also the (i_{0},\ell) entry in the table ([5.13](https://arxiv.org/html/2412.01768v3#S5.E13 "In item 
+                    
+                      
+                        
+                        
+                          (
+                          
+                            ⁢
+                            I
+                            I
+                            I
+                          
+                          ) ‣ Construction of a convex region ‣ 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")), and moreover \tau_{\ell}(L_{4}(X,Y))>0.
+
+###### Proof.
+
+Appealing to (K1) and d=m^{2}\kappa L_{4}(X,Y), we see that (IV) is equivalent to \tau_{\ell}(d)>0 for \ell\in\{1,2,3\} and \tau_{\ell}(d)<0 for \ell\in\{4,5,6\}. If \{i,j,k\}=\{1,2,3\}, the condition \tau_{\ell}(a_{i})<\tau_{\ell}(a_{j})<\tau_{\ell}(a_{k}) implies
+
+\displaystyle\tau_{\ell}(c+a_{i}d)<\tau_{\ell}(c+a_{j}d)<\tau_{\ell}(c+a_{k}d)(5.14)
+
+for \ell\in\{1,2,3\}, and
+
+\displaystyle\tau_{\ell}(c+a_{k}d)<\tau_{\ell}(c+a_{j}d)<\tau_{\ell}(c+a_{i}d)(5.15)
+
+for \ell\in\{4,5,6\}.
+
+Keeping the inequalities ([5.14](https://arxiv.org/html/2412.01768v3#S5.E14 "In Proof. ‣ Volume computation ‣ 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")) and ([5.15](https://arxiv.org/html/2412.01768v3#S5.E15 "In Proof. ‣ Volume computation ‣ 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")) in mind and the orderings ([5.7](https://arxiv.org/html/2412.01768v3#S5.E7 "In 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")), ([5.8](https://arxiv.org/html/2412.01768v3#S5.E8 "In 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")), ([5.9](https://arxiv.org/html/2412.01768v3#S5.E9 "In 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")), the lemma is now a direct verification. ∎
+
+If I_{\ell}=\{1,3\}, we choose M_{\tau_{\ell},1}:=\tau_{\ell}\circ L_{1}^{\text{hom}} and M_{\tau_{\ell},2}:=\tau_{\ell}\circ L_{3}^{\text{hom}}. If I_{\ell}=\{2,3\}, we choose M_{\tau_{\ell},1}:=\tau_{\ell}\circ L_{2}^{\text{hom}} and M_{\tau_{\ell},2}:=\tau_{\ell}\circ L_{3}^{\text{hom}}.
+
+Secondly, suppose that the real place is \tau with \tau\neq\tau_{\ell} for all \ell\in\{1,\dots,6\}. In this case, we can also rewrite, for each given infinite place, the combined four inequalities from ([5.11](https://arxiv.org/html/2412.01768v3#S5.E11 "In item 
+                    
+                      
+                        
+                        
+                          (
+                          I
+                          ) ‣ Construction of a convex region ‣ 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")) and ([5.12](https://arxiv.org/html/2412.01768v3#S5.E12 "In item 
+                    
+                      
+                        
+                        
+                          (
+                          
+                            ⁢
+                            I
+                            I
+                          
+                          ) ‣ Construction of a convex region ‣ 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")) as two inequalities. Indeed, pick i\in\{1,2,3\} with \tau(a_{i}) minimal. Note that \tau(c+a_{i}d)>0 then forces \tau(c+a_{j}d)>0 for all j\in\{1,2,3\} because \tau(d)>0 by ([5.12](https://arxiv.org/html/2412.01768v3#S5.E12 "In item 
+                    
+                      
+                        
+                        
+                          (
+                          
+                            ⁢
+                            I
+                            I
+                          
+                          ) ‣ Construction of a convex region ‣ 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")). Then we take M_{\tau,1}=\tau\circ L_{i}^{\text{hom}} and M_{\tau,2}=\tau\circ L_{4}^{\text{hom}}.
+
+The linear forms \{M_{\tau,1}:\tau\in\Omega_{K}^{\text{real}}\}\cup\{M_{\tau,2}:\tau\in\Omega_{K}^{\text{real}}\} are linearly independent by Lemma [5.7](https://arxiv.org/html/2412.01768v3#S5.Thmlemma7 "Lemma 5.7. ‣ Volume computation ‣ 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics"), so the resulting linear operator A is surjective. By Lemma [5.6](https://arxiv.org/html/2412.01768v3#S5.Thmlemma6 "Lemma 5.6. ‣ Volume computation ‣ 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics"), we conclude that there is some C>0
+
+\displaystyle\mu\left(\Omega\cap[-H,H]^{2n}\right)\sim CH^{2n}\quad\quad\text{as }H\rightarrow\infty.(5.16)
+
+#### Application of Kai’s theorem
+
+We now apply Theorem [A.7](https://arxiv.org/html/2412.01768v3#A1.Thmlemma7 "Theorem A.7. ‣ Appendix A Additive combinatorics ‣ Hilbert’s tenth problem via additive combinatorics") to \Omega and the linear polynomials L_{1},L_{2},L_{3},L_{4}. Recall that the linear forms L_{j}^{\text{hom}} are pairwise linearly independent. Therefore the cokernel condition from Theorem [A.7](https://arxiv.org/html/2412.01768v3#A1.Thmlemma7 "Theorem A.7. ‣ Appendix A Additive combinatorics ‣ Hilbert’s tenth problem via additive combinatorics") holds. Moreover, the volume assumption in Theorem [A.7](https://arxiv.org/html/2412.01768v3#A1.Thmlemma7 "Theorem A.7. ‣ Appendix A Additive combinatorics ‣ Hilbert’s tenth problem via additive combinatorics") is satisfied thanks to equation ([5.16](https://arxiv.org/html/2412.01768v3#S5.E16 "In Volume computation ‣ 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics")). Observe that the leading constant in Theorem [A.7](https://arxiv.org/html/2412.01768v3#A1.Thmlemma7 "Theorem A.7. ‣ Appendix A Additive combinatorics ‣ Hilbert’s tenth problem via additive combinatorics") is positive by Lemma [5.5](https://arxiv.org/html/2412.01768v3#S5.Thmlemma5 "Lemma 5.5. ‣ Construction of affine linear polynomials ‣ 5.2 Application of additive combinatorics ‣ 5 Proof of Theorem ‣ Hilbert’s tenth problem via additive combinatorics").
+
+We now claim that the asymptotic from Theorem [A.7](https://arxiv.org/html/2412.01768v3#A1.Thmlemma7 "Theorem A.7. ‣ Appendix A Additive combinatorics ‣ Hilbert’s tenth problem via additive combinatorics") remains valid upon replacing the function \Lambda^{O_{K}}(L_{i}(x,y)) by \Lambda^{
+
+..._Content truncated_...

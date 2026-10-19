@@ -1,0 +1,583 @@
+## Content from https://arxiv.org/html/2402.17995
+
+Title: Improved Bounds for Szemerédi’s Theorem
+
+URL Source: https://arxiv.org/html/2402.17995
+
+Markdown Content:
+## Improved Bounds for Szemerédi’s Theorem Thanks:Leng was supported by NSF Graduate Research Fellowship Grant No.DGE-2034835. Sah and Sawhney were supported by NSF Graduate Research Fellowship Program DGE-2141064.
+
+James Leng Address:Department of Mathematics, UCLA, Los Angeles, CA 90095, USA Email address: [jamesleng@math.ucla.edu](mailto:jamesleng@math.ucla.edu)Ashwin Sah  and Mehtaab Sawhney Address:Department of Mathematics, Massachusetts Institute of Technology, Cambridge, MA 02139, USA Email address: [{asah,msawhney}@mit.edu](mailto:%7Basah,msawhney%7D@mit.edu)
+
+###### Abstract.
+
+Let r_{k}(N) denote the size of the largest subset of [N]=\{1,\ldots,N\} with no k-term arithmetic progression. We show that for k\geq 5, there exists c_{k}>0 such that
+
+r_{k}(N)\ll N\exp(-(\log\log N)^{c_{k}}).
+
+Our proof is a consequence of recent quasipolynomial bounds on the inverse theorem for the Gowers U^{k}-norm as well as the density increment strategy of Heath-Brown and Szemerédi as reformulated by Green and Tao.
+
+## 1. Introduction
+
+Let [N]=\{1,\ldots,N\} and r_{k}(N) denote the size of the largest S\subseteq[N] such that S has no k-term arithmetic progressions. The first nontrivial upper bound on r_{3}(N) came from work of Roth [[20](https://arxiv.org/html/2402.17995#bib.bib20)] which proved
+
+r_{3}(N)\ll N(\log\log N)^{-1}.
+
+A long series of works improved this bound, including works of Heath-Brown [[14](https://arxiv.org/html/2402.17995#bib.bib14)], Szemerédi [[26](https://arxiv.org/html/2402.17995#bib.bib26)], Bourgain [[4](https://arxiv.org/html/2402.17995#bib.bib4), [5](https://arxiv.org/html/2402.17995#bib.bib5)], Sanders [[22](https://arxiv.org/html/2402.17995#bib.bib22), [21](https://arxiv.org/html/2402.17995#bib.bib21)], Bloom [[1](https://arxiv.org/html/2402.17995#bib.bib1)], and Bloom and Sisask [[2](https://arxiv.org/html/2402.17995#bib.bib2)]. In breakthrough work, Kelley and Meka [[15](https://arxiv.org/html/2402.17995#bib.bib15)] very recently proved
+
+r_{3}(N)\ll N\exp(-c(\log N)^{1/12});
+
+the constant 1/12 was refined to 1/9 in work of Bloom and Sisask [[3](https://arxiv.org/html/2402.17995#bib.bib3)].
+
+For higher k, a long-standing conjecture of Erdős and Turán stated that r_{k}(N)=o(N). In seminal works, Szemerédi [[24](https://arxiv.org/html/2402.17995#bib.bib24), [25](https://arxiv.org/html/2402.17995#bib.bib25)] first established the estimate r_{4}(N)=o(N) and then established his eponymous theorem that
+
+r_{k}(N)=o(N).
+
+Due to uses of van der Waerden theorem and the regularity lemma (which was introduced in this work), Szemerédi’s density saving was exceedingly small. In breakthrough work, Gowers [[6](https://arxiv.org/html/2402.17995#bib.bib6), [7](https://arxiv.org/html/2402.17995#bib.bib7)] introduced higher order Fourier analysis and proved the first “reasonable” bounds for Szemerédi’s theorem:
+
+r_{k}(N)<N(\log\log N)^{-2^{-2^{k+9}}}.
+
+The only improvement to this result for k\geq 4 was work of Green and Tao [[9](https://arxiv.org/html/2402.17995#bib.bib9), [13](https://arxiv.org/html/2402.17995#bib.bib13)] which ultimately established that
+
+r_{4}(N)\ll N(\log N)^{-c},
+
+and recent work of the authors [[17](https://arxiv.org/html/2402.17995#bib.bib17)] which proved
+
+r_{5}(N)\ll N\exp(-(\log\log N)^{c}).
+
+Our main result is an extension of this bound for all k\geq 5.
+
+###### Theorem 1.1.
+
+Fix k\geq 5. There is c_{k}\in(0,1) such that
+
+r_{k}(N)\ll N\exp(-(\log\log N)^{c_{k}}).
+
+### 1.1. Proof outline and techniques
+
+#### 1.1.1. Local and global inverse theorems
+
+The primary input to our result will be the main result of recent work of the authors [[18](https://arxiv.org/html/2402.17995#bib.bib18)], i.e., quasipolynomial bounds on the inverse theorem for the Gowers U^{k+1}-norm. Given an inverse theorem, the deduction of Szemerédi’s theorem via a standard density increment strategy is essentially folklore and was recorded in work of Green and Tao [[11](https://arxiv.org/html/2402.17995#bib.bib11)] (although, prior to [[18](https://arxiv.org/html/2402.17995#bib.bib18)] the resulting bounds would be far from matching those of Gowers [[7](https://arxiv.org/html/2402.17995#bib.bib7)]). However, if one naively follows this script using [[18](https://arxiv.org/html/2402.17995#bib.bib18)], one obtains a bound of N\exp(-(\log\log\log N)^{-\Omega_{k}(1)}) which is weaker than the work of Gowers [[7](https://arxiv.org/html/2402.17995#bib.bib7)]. Furthermore, Gowers’s argument makes use of a “local” inverse theorem that in fact gives a slightly stronger correlation compared to the bound given for the “global” inverse theorem in [[18](https://arxiv.org/html/2402.17995#bib.bib18)] (namely, polynomial versus quasipolynomial). Thus, this global nature of [[18](https://arxiv.org/html/2402.17995#bib.bib18)] must be exploited. Additionally, use of global inverse theorems necessitates understanding of nilsequences and polynomial sequences on nilpotent Lie groups, as opposed to merely polynomials as in the work of Gowers [[7](https://arxiv.org/html/2402.17995#bib.bib7)].
+
+#### 1.1.2. Schmidt-type decomposition problems
+
+This is done via the improved density increment strategy of Heath-Brown [[14](https://arxiv.org/html/2402.17995#bib.bib14)] and Szemerédi [[26](https://arxiv.org/html/2402.17995#bib.bib26)] which involves extracting a set of functions to correlate with instead of simply one and using this to give a multiplicative density increment. Such a strategy was given a robust formulation in work of Green and Tao [[9](https://arxiv.org/html/2402.17995#bib.bib9)] on four-term progressions; in particular, their reformulation avoided the explicit Fourier-analytic formulas used in [[14](https://arxiv.org/html/2402.17995#bib.bib14), [26](https://arxiv.org/html/2402.17995#bib.bib26)] and thus is applicable to the higher order setting. The strategy here runs smoothly given the inverse theorem, modulo resolving a certain Schmidt-type problem for nilsequences. In particular, given a polynomial sequence g(n) with g(0)=\mathrm{id}_{G} on a nilmanifold G/\Gamma of degree k with complexity M and dimension d, one needs to prove that
+
+\min_{1\leq n\leq N}d_{G/\Gamma}(\mathrm{id}_{G},g(n)\Gamma)\ll M^{O_{k}(d^{O_{k}(1)})}N^{-1/d^{O_{k}(1)}}.
+
+In particular, the polynomial dependence on dimension within the exponent is key.
+
+We in fact require a certain slightly stronger result (decomposing [N] into long arithmetic progressions P such that the diameters of the sets \{g(n)\Gamma\colon n\in P\} are small), which is the heart of the matter for this work. When the underlying nilpotent group G is abelian, this is easily deduced from a result of Schmidt [[23](https://arxiv.org/html/2402.17995#bib.bib23)] (see Lemma[2.3](https://arxiv.org/html/2402.17995#S2.Thmtheorem3 "Lemma 2.3. ‣ 2. Schmidt’s problem for nilsequences ‣ Improved Bounds for Szemerédi’s Theorem"), or [[9](https://arxiv.org/html/2402.17995#bib.bib9), Section 6] in the quadratic case).
+
+For general degree 2 nilmanifolds such a problem was implicitly solved in work of Green and Tao [[9](https://arxiv.org/html/2402.17995#bib.bib9)] and for degree 3 nilmanifolds it was essentially solved in recent work of the authors [[17](https://arxiv.org/html/2402.17995#bib.bib17)]. More precisely, [[17](https://arxiv.org/html/2402.17995#bib.bib17)] essentially proves that given a list of bracket expressions (a_{i}n\lfloor b_{i}n\rfloor\lfloor c_{i}n\rfloor)_{1\leq i\leq d} that
+
+\min_{1\leq n\leq N}\lVert a_{i}n\lfloor b_{i}n\rfloor\lfloor c_{i}n\rfloor\rVert_{\mathbb{R}/\mathbb{Z}}\leq N^{-1/d^{O(1)}}
+
+and via an explicit computation with fundamental domains on degree 3 nilmanifolds one may reduce to such a situation. The proof given in [[17](https://arxiv.org/html/2402.17995#bib.bib17)] relies on the fact that 3 is sufficiently small and in particular that it is possible to reduce to a situation in which there are no “nested integer part operations” as one attempts to solve the “bracket Schmidt” problem in one go.
+
+#### 1.1.3. Iterative Schmidt refinement
+
+The key observation required for our work, at least at a heuristic level, is a procedure for solving such “bracket Schmidt” problems even when there are nested brackets. As a simple example, consider bracket expressions (a_{i}n\lfloor b_{i}n\lfloor c_{i}n\rfloor\rfloor)_{1\leq i\leq d}. We will solve the Schmidt problem via iteratively “reducing” the number of brackets from the inside-out (at the cost of passing to subprogressions). In particular, using Dirichlet’s theorem, one can break [N] into arithmetic progressions P each of length N^{1/d^{O(1)}} such that when restricted to each arithmetic progression, every function \lfloor c_{i}n\rfloor is a linear function (i.e., it is a _locally linear function_ on each P). Since the only locally linear functions on a progression agree with genuinely linear functions, we can replace \lfloor c_{i}n\rfloor by d_{i,P}n+e_{i,P} and reduce to considering the bracket expression a_{i}n\lfloor b_{i}n(d_{i,P}n+e_{i,P})\rfloor when restricted to P. One can then iterate this argument on the “inner quadratics” b_{i}n(d_{i,P}n+e_{i,P}) (essentially using abelian Schmidt as discussed above for degree 2 in this case). We may find a decomposition into long arithmetic progressions Q such that \lfloor b_{i}n(d_{i,P}n+e_{i,P})\rfloor is locally quadratic (and hence agrees with a global quadratic) on each Q. Thus, restricted to any such Q, our original functions a_{i}n\lfloor b_{i}n\lfloor c_{i}n\rfloor\rfloor agrees with a genuine cubic. Finally, we can decompose these progressions Q into ones where the cubics are approximately constant ~\mathrm{mod}~1 (using abelian Schmidt for degree 3). While in theory this approach can be made to work for all such bracket Schmidt problems, this however necessitates working with bracket functions and rather quickly becomes messy to handle.
+
+This procedure can be adapted to work with polynomial sequences on nilmanifolds directly due to an unpublished observation of Green and Tao. This is the approach we take in the present work. The crucial point is that given a polynomial sequence g(n) with respect to a group G given a filtration G_{0}=G_{1}\geqslant G_{2}\geqslant\cdots\geqslant G_{k}\geqslant\mathrm{Id}_{G}, the polynomial sequence g(n)~\mathrm{mod}~G_{2} is a standard polynomial. Thus one can apply Schmidt to a standard polynomial and therefore (after passing to long subprogressions) one may factor g(n)~\mathrm{mod}~G_{2}=\varepsilon(n)\cdot\gamma(n) where \varepsilon is smooth and \gamma lies in the lattice \Gamma~\mathrm{mod}~G_{2}. One may then lift \varepsilon,\gamma from G~\mathrm{mod}~G_{2} to \widetilde{\varepsilon},\widetilde{\gamma} on G and analyze the polynomial sequence \widetilde{\varepsilon}^{-1}g\widetilde{\gamma}^{-1} which now lives in the group G_{2}. One can iterate this procedure and inductively reduce G_{2} to G_{3} and so on, which allows us to solve the Schmidt problem for our nilmanifold. We remark that this procedure is an induction on the length of the filtration whereas the (closely related) approach taken in [[11](https://arxiv.org/html/2402.17995#bib.bib11)] is phrased as an induction on dimension. This difference is crucial for getting bounds in which the exponent depends polynomially on dimension.
+
+### 1.2. Organization and notation
+
+All definitions regarding nilsequences and associated complexity will be exactly as in [[18](https://arxiv.org/html/2402.17995#bib.bib18), Sections 3–4]. We refer the reader to that paper for all such definitions; we will only require degree filtrations in this paper.
+
+We use standard asymptotic notation. Given functions f=f(n) and g=g(n), we write f=O(g), f\ll g, g=\Omega(f), or g\gg f to mean that there is a constant C such that |f(n)|\leq Cg(n) for sufficiently large n. We write f\asymp g or f=\Theta(g) to mean that f\ll g and g\ll f, and write f=o(g) or g=\omega(f) to mean f(n)/g(n)\to 0 as n\to\infty. Subscripts on asymptotic notation indicate dependence of the bounds on those parameters. We will use the notation [x]=\{1,2\ldots,\lfloor x\rfloor\}. In this paper x=\lfloor x\rfloor+\{x\} where \{x\}\in[0,1) and \lfloor x\rfloor\in\mathbb{Z}; we remark this is different than in [[18](https://arxiv.org/html/2402.17995#bib.bib18)]. We write \lVert x\rVert_{\mathbb{R}/\mathbb{Z}}=\operatorname{dist}(x,\mathbb{Z}) for x\in\mathbb{R}. Furthermore throughout this paper we abusively write \log for \max(\log(\cdot),e^{e}); this is to avoid trivial issues with small numbers.
+
+Finally, in terms of organization, in Section[2](https://arxiv.org/html/2402.17995#S2 "2. Schmidt’s problem for nilsequences ‣ Improved Bounds for Szemerédi’s Theorem") we solve the Schmidt problem for nilsequences and in Section[3](https://arxiv.org/html/2402.17995#S3 "3. Completing the proof ‣ Improved Bounds for Szemerédi’s Theorem") we prove Theorem[1.1](https://arxiv.org/html/2402.17995#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Improved Bounds for Szemerédi’s Theorem").
+
+### Acknowledgments
+
+The third author thanks Mark Sellke and Dmitrii Zakharov for helpful and motivating conversations. We thank Ben Green for helpful comments on the manuscript. We thank Zach Hunter for various minor corrections.
+
+## 2. Schmidt’s problem for nilsequences
+
+In this section, we prove that given a list of nilsequences on [N], one can decompose [N] into a controlled set of arithmetic progressions such that the nilsequences are almost constant on these sequences.
+
+###### Lemma 2.1.
+
+Consider nilmanifolds G_{i}/\Gamma_{i} for 1\leq i\leq T, each given a degree k filtration, having complexity bounded by M, dimension bounded by d, and for each 1\leq i\leq T let g_{i}(n) be a polynomial sequence with respect to the specified degree k-filtration on G_{i}.
+
+We may decompose [N] into disjoint arithmetic progressions \mathcal{P}_{1},\ldots,\mathcal{P}_{L} such that following conditions hold:
+
+*   •
+N/L\geq N^{\Omega_{k}(1/(Td)^{O_{k}(1)})}/2;
+
+*   •We have
+
+\max_{\begin{subarray}{c}1\leq i\leq T\\
+1\leq j\leq L\end{subarray}}\max_{n,n^{\prime}\in\mathcal{P}_{j}}d_{G_{i}/\Gamma_{i}}(g_{i}(n)\Gamma_{i},g_{i}(n^{\prime})\Gamma_{i})\leq M^{O_{k}(d^{O_{k}(1)})}\cdot N^{-\Omega_{k}(1/(Td)^{O_{k}(1)})}. 
+
+The key ingredient in this proof is a result of Schmidt [[23](https://arxiv.org/html/2402.17995#bib.bib23)] regarding finding small fractional parts of polynomials. We will need a version of this result with explicit quantification; this is explicitly stated in work of the authors [[17](https://arxiv.org/html/2402.17995#bib.bib17), Proposition 3.7] although the argument is essentially verbatim from a paper of Green and Tao [[9](https://arxiv.org/html/2402.17995#bib.bib9), Appendix A] generalized from quadratics to all degrees.
+
+###### Proposition 2.2.
+
+Fix an integer k\geq 1. There exist c_{k}>0 such that the following holds. Let \alpha_{1},\ldots,\alpha_{d} be real numbers. Then
+
+\min_{1\leq n\leq N}\max_{1\leq i\leq d}\lVert\alpha_{i}n^{k}\rVert_{\mathbb{R}/\mathbb{Z}}\ll_{k}dN^{-c_{k}/d^{2}}.
+
+As stated this result is for pure monomial phases and only provides a single point with small fractional part. This statement however can be “upgraded” via a straightforward iterative argument which is implicit in say [[9](https://arxiv.org/html/2402.17995#bib.bib9), Proposition 6.4] (where the quadratic case is handled).
+
+###### Lemma 2.3.
+
+Fix an integer k\geq 0. Consider polynomials Q_{1},\ldots,Q_{d} of degree k. Then there exist disjoint arithmetic progressions \mathcal{P}_{1},\ldots,\mathcal{P}_{L} such that following conditions hold:
+
+*   •
+N/L\geq N^{\Omega_{k}(1/d^{O_{k}(1)})}/2
+
+*   •We have
+
+\max_{\begin{subarray}{c}1\leq i\leq d\\
+1\leq j\leq L\end{subarray}}\max_{n,n^{\prime}\in\mathcal{P}_{j}}\lVert Q_{i}(n)-Q_{i}(n^{\prime})\rVert_{\mathbb{R}/\mathbb{Z}}\leq 2\cdot N^{-\Omega_{k}(1/d^{O_{k}(1)})}. 
+
+###### Proof.
+
+We proceed by induction on k. The case k=0 is trivial as Q_{j}(\cdot) are constant. Furthermore we may assume that N\geq\exp(d^{\Omega_{k}(1)}) else we may break [N] into singleton arithmetic progressions.
+
+Let Q_{j}(n)=\sum_{\ell=0}^{k}\alpha_{j,\ell}n^{\ell}. Applying Proposition[2.2](https://arxiv.org/html/2402.17995#S2.Thmtheorem2 "Proposition 2.2. ‣ 2. Schmidt’s problem for nilsequences ‣ Improved Bounds for Szemerédi’s Theorem"), there exists D\leq N^{1/2} such that
+
+\max_{1\leq j\leq d}\lVert\alpha_{j,k}D^{k}\rVert_{\mathbb{R}/\mathbb{Z}}\ll_{k}dN^{-c_{k}/(2d^{2})}=:\tau.
+
+We break [N] into arithmetic progressions of common difference D and with lengths between 2^{-1}\tau^{-1/(2k)} and \tau^{-1/(2k)}. Label these progressions \mathcal{R}_{1},\ldots,\mathcal{R}_{L^{\prime}} with starting points s_{i} for 1\leq i\leq L^{\prime}. We have
+
+Q_{j}(Dn+s_{i})=\alpha_{j,k}D^{k}n^{k}+Q_{j,i}(n)
+
+for appropriately defined polynomials Q_{j,i}(n) of degree at most k-1. Note that for n,n^{\prime}\in[\tau^{-1/(2k)}], we have
+
+\displaystyle\lVert Q_{j}(Dn+s_{i})-Q_{j}(Dn^{\prime}+s_{i})\rVert_{\mathbb{R}/\mathbb{Z}}\displaystyle=\lVert\alpha_{j,k}D^{k}(n^{k}-(n^{\prime})^{k})+Q_{j,i}(n)-Q_{j,i}(n^{\prime})\rVert_{\mathbb{R}/\mathbb{Z}}
+\displaystyle\leq 2\tau^{-1/2}\cdot\lVert\alpha_{j,k}D^{k}\rVert_{\mathbb{R}/\mathbb{Z}}+\lVert Q_{j,i}(n)-Q_{j,i}(n^{\prime})\rVert_{\mathbb{R}/\mathbb{Z}}
+\displaystyle\leq 2\tau^{1/2}+\lVert Q_{j,i}(n)-Q_{j,i}(n^{\prime})\rVert_{\mathbb{R}/\mathbb{Z}}.
+
+The result now follows by induction applied to each Q_{j,i}(n) for 1\leq i\leq L^{\prime} on the interval [\tau^{-1/(2k)}] and using these decompositions to split the \mathcal{R}_{i} into our final decomposition. Letting N^{\prime}=\tau^{-1/(2k)}, the number of arithmetic progressions resulting is bounded by
+
+(2N/N^{\prime})\cdot 2(N^{\prime})^{1-c_{1}/d^{c_{2}}}\leq 2N^{1-\Omega_{k}(1/d^{O_{k}(1)})},
+
+where c_{1},c_{2} are the implicit constants for the inductive hypothesis k-1. The result follows. ∎
+
+We next require the following lemma controlling coefficients of polynomials which live in a restricted range ~\mathrm{mod}~1. It will be convenient to recall the smoothness norm of a polynomial P(n)=\sum_{i=0}^{k}\alpha_{i}\binom{n}{i} which is defined as
+
+\lVert P\rVert_{C^{\infty}[N]}:=\max_{1\leq i\leq k}N^{i}\lVert\alpha_{i}\rVert_{\mathbb{R}/\mathbb{Z}}.
+
+###### Lemma 2.4.
+
+Fix an integer k\geq 1. There exists c_{k}>0 such that if \varepsilon\in(0,c_{k}) and N\geq c_{k}^{-1} then the following holds. Consider a polynomial P(n)=\sum_{i=0}^{k}\alpha_{i}\binom{n}{i}. Suppose that for n,n^{\prime}\in[N], we have \lVert P(n)-P(n^{\prime})\rVert_{\mathbb{R}/\mathbb{Z}}\leq\varepsilon. Then
+
+\lVert P\rVert_{C^{\infty}[N]}\ll_{k}\varepsilon.
+
+###### Proof.
+
+Note that
+
+\bigg|\sum_{n=1}^{N}e(P(n))\bigg|\geq N/2.
+
+By a quantitative version of Weyl’s inequality, which may be found in Green and Tao [[12](https://arxiv.org/html/2402.17995#bib.bib12), Proposition 4.3], there exists q\in\mathbb{N} with q\ll_{k}1 such that
+
+\lVert qP\rVert_{C^{\infty}[N]}\ll_{k}1.
+
+Let 1\leq t\leq\lfloor N/(2k)\rfloor be an integer and note that
+
+\alpha_{k}\cdot t^{k}=\sum_{i=0}^{k}(-1)^{k-i}\binom{k}{i}\cdot P(t\cdot i+1).
+
+Via the triangle inequality, we therefore have
+
+\lVert\alpha_{k}\cdot t^{k}\rVert_{\mathbb{R}/\mathbb{Z}}\leq 2^{k-1}\varepsilon.
+
+Take t to be a prime between \lfloor N/(2C)\rfloor and \lfloor N/C\rfloor where C is a sufficiently large absolute constant in terms of k. Combining this with the estimate \lVert q\alpha_{k}\rVert_{\mathbb{R}/\mathbb{Z}}\ll_{k}N^{-k} implies that \lVert\alpha_{k}\rVert_{\mathbb{R}/\mathbb{Z}}\ll_{k}\varepsilon\cdot N^{-k}. The result then follows by induction on k and applying the result for the degree (k-1) polynomial P^{\prime}(n)=\sum_{i=0}^{k-1}\alpha_{i}\binom{n}{i}. ∎
+
+With this we are in position to deduce the result for nilsequences along the lines sketched in Section[1.1.3](https://arxiv.org/html/2402.17995#S1.SS1.SSS3 "1.1.3. Iterative Schmidt refinement ‣ 1.1. Proof outline and techniques ‣ 1. Introduction ‣ Improved Bounds for Szemerédi’s Theorem").
+
+###### Proof of Lemma[2.1](https://arxiv.org/html/2402.17995#S2.Thmtheorem1 "Lemma 2.1. ‣ 2. Schmidt’s problem for nilsequences ‣ Improved Bounds for Szemerédi’s Theorem").
+
+Consider the degree k filtration of the group G_{i}, G_{i,0}=G_{i,1}\geqslant G_{i,2}\geqslant\cdots\geqslant G_{i,k}\geqslant\mathrm{Id}_{G_{i}}. We say the group G_{i} has a degree k filtration of type t if G_{i,t}=G_{i} (i.e., the first (t+1) groups in the filtration match). We prove the result by backwards induction on t assuming that all groups G_{i} have degree k filtrations of type t; note that the result is trivial when t=k+1 and we aim to prove the claim when t=1. So, consider the case where the filtration has type t for some 1\leq t\leq k and suppose that we already know cases of larger type.
+
+Let \mathcal{X}_{i}=\{X_{i,1},\ldots,X_{i,\dim(G_{i})}\} denote the Mal’cev basis for G_{i}. By the classification of polynomial sequences (see [[10](https://arxiv.org/html/2402.17995#bib.bib10), Lemma 6.7]), we have
+
+g_{i}(n)=\exp\bigg(\sum_{j=1}^{\dim(G_{i})}P_{i,j}(n)\cdot X_{i,j}\bigg)
+
+where if X_{i,j}\in(\mathcal{X}_{i}\cap\log(G_{i,\ell}))\setminus(\mathcal{X}_{i}\cap\log(G_{i,\ell+1})) then the degree of polynomial P_{i,j}(n) is bounded by \ell.
+
+We consider the polynomials P_{i,j}(n) for 1\leq i\leq T and 1\leq j\leq\dim(G_{i})-\dim(G_{i,t+1}). The degrees of P_{i,j}(n) are all at most t\leq k and the total number of polynomials number consideration is bounded by T\cdot d. By applying Lemma[2.3](https://arxiv.org/html/2402.17995#S2.Thmtheorem3 "Lemma 2.3. ‣ 2. Schmidt’s problem for nilsequences ‣ Improved Bounds for Szemerédi’s Theorem"), there exists a decomposition of [N] into arithmetic progressions \mathcal{P}_{1},\ldots,\mathcal{P}_{L} such that:
+
+*   •
+N/L\geq N^{\Omega_{k}(1/(dT)^{O_{k}(1)})}/2
+
+*   •We have
+
+\max_{\begin{subarray}{c}1\leq i\leq T\\
+1\leq j\leq\dim(G_{i})-\dim(G_{i,t+1})\end{subarray}}\max_{1\leq s\leq L}\max_{n,n^{\prime}\in\mathcal{P}_{s}}\lVert P_{i,j}(n)-P_{i,j}(n^{\prime})\rVert_{\mathbb{R}/\mathbb{Z}}\leq 2\cdot N^{-\Omega_{k}(1/(dT)^{O_{k}(1)})}. 
+
+We break the progressions \mathcal{P}_{s} into two classes: the first class (s\in\mathcal{S}) if the progression has length bounded by \sqrt{N/L} and the second class (s\in\mathcal{L}) otherwise. For progressions which are short, we break each such progression into singletons; after this there are at most L+\sqrt{N/L}\cdot L\leq 2\sqrt{NL} progressions which is qualitatively identical to before. For each s\in\mathcal{L}, we write \mathcal{P}_{s}=\{a_{s}n+b_{s}\}_{n\in[|\mathcal{P}_{s}|]} where |\mathcal{P}_{s}| denotes the length of the progression.
+
+Using the second condition above and applying Lemma[2.4](https://arxiv.org/html/2402.17995#S2.Thmtheorem4 "Lemma 2.4. ‣ 2. Schmidt’s problem for nilsequences ‣ Improved Bounds for Szemerédi’s Theorem"), we see that for each long progression \mathcal{P}_{s}, we have for all i,j that
+
+P_{i,j}(a_{s}n+b_{s})=P_{i,j,s,\mathrm{small}}(n)+P_{i,j,s,\mathrm{int}}(n)
+
+where:
+
+*   •
+\deg(P_{i,j,s,\mathrm{int}}),\deg(P_{i,j,s,\mathrm{small}})\leq\deg(P_{i,j})
+
+*   •
+P_{i,j,s,\mathrm{int}} maps \mathbb{Z}\to\mathbb{Z}
+
+*   •If P_{i,j,s,\mathrm{small}}(n)=\sum_{r=0}^{t}\alpha_{i,j,s,\mathrm{small},r}\binom{n}{r} then
+
+|\alpha_{i,j,s,\mathrm{small},r}|\leq 2N^{-r}\cdot N^{-\Omega_{k}(1/(dT)^{O_{k}(1)})}
+
+for 1\leq r\leq t and |\alpha_{i,j,s,\mathrm{small},0}|\leq 1. 
+
+We have implicitly used |\mathcal{P}_{s}|\geq\sqrt{N/L}\geq N^{\Omega_{k}(1/(dT)^{O_{k}(1)}}) for s\in\mathcal{L} here.
+
+The key trick is to now “reduce” the polynomial sequence g_{i} to one which lives in G_{i,t+1}. Define
+
+*   •
+\varepsilon_{i,s}(n)=\exp\Big(\sum_{j=1}^{\dim(G_{i})-\dim(G_{i,t+1})}P_{i,j,s,\mathrm{small}}(n)\cdot X_{i,j}\Big)
+
+*   •
+\gamma_{i,s}(n)=\prod_{j=1}^{\dim(G_{i})-\dim(G_{i,t+1})}\exp(X_{i,j})^{P_{i,j,s,\mathrm{int}}(n)}
+
+*   •
+g_{i,s}^{\prime}(n)=\varepsilon_{i,s}(n)^{-1}\cdot g(a_{s}n+b_{s})\cdot\gamma_{i,s}(n)^{-1}
+
+Note that \varepsilon_{i,s}, \gamma_{i,s} are polynomial sequences with respect to the filtration given on G_{i} by the classification of polynomial sequences (see [[10](https://arxiv.org/html/2402.17995#bib.bib10), Lemma 6.7]) and the fact that the set of polynomial sequences form a group. Therefore g_{i,s}^{\prime} is also seen to be a polynomial sequence. The crucial point, however, is that by the Baker–Campbell–Hausdorff formula, we have that g_{i,s}^{\prime} only takes on values in G_{i,t+1}. (We are using the assumption on type that G_{i}=G_{0,i}=G_{t,i}, so any commutator is in G_{2t,i}\leqslant G_{t+1,i} since t\geq 1.)
+
+Therefore we may inductively apply the claim for each long progression \mathcal{P}_{s}, to the polynomials g_{i,s}^{\prime} on G_{i,t+1} where we take the filtration on G_{i} intersected with G_{i,t+1} (note that the filtration is still degree k). The corresponding Mal’cev basis is given by taking the last \dim(G_{i,t+1}) elements of \mathcal{X}_{i}. By induction therefore we may break each long \mathcal{P}_{s} into L_{s} such progressions \mathcal{P}_{s,r} where L_{s}\leq|\mathcal{P}_{s}|^{1-\Omega_{k}(1/(Td)^{O_{k}(1)})} and such that
+
+\max_{\begin{subarray}{c}s\in\mathcal{L}\\
+1\leq r\leq L_{s}\end{subarray}}\max_{n,n^{\prime}\in\mathcal{P}_{s,r}}d_{G_{i}/\Gamma_{i}}(g_{i,s}^{\prime}(n)\Gamma_{i},g_{i,s}^{\prime}(n^{\prime})\Gamma_{i})\leq M^{O_{k}(d^{O_{k}(1)})}\cdot N^{-\Omega_{k}(1/d^{O_{k}(1)})}.
+
+Here we are using [[16](https://arxiv.org/html/2402.17995#bib.bib16), Lemma B.9] to compare distances between G_{i} and G_{i,t+1}.
+
+Furthermore note that \gamma_{i,s} takes values only in \Gamma by the definition of a Mal’cev basis and that for n,n^{\prime}\in[|\mathcal{P}_{s}|] we have
+
+d_{G_{i}}(\varepsilon_{i,s}(n),\mathrm{id}_{G_{i}})\leq M^{O_{k}(d^{O_{k}(1)})}\text{ and }d_{G_{i}}(\varepsilon_{i,s}(n),\varepsilon_{i,s}(n^{\prime}))\leq M^{O_{k}(d^{O_{k}(1)})}\cdot N^{-\Omega_{k}(1/(dT)^{O_{k}(1)})}.
+
+This is due to our bounds on the smoothness norm of P_{i,j,s,\mathrm{small}} and [[16](https://arxiv.org/html/2402.17995#bib.bib16), Lemma B.3].
+
+It therefore follows by [[16](https://arxiv.org/html/2402.17995#bib.bib16), Lemma B.4] that for any s,r we have
+
+\displaystyle\max_{n,n^{\prime}\in\mathcal{P}_{s,r}}\displaystyle d_{G_{i}/\Gamma_{i}}(g_{i}(a_{s}n+b_{s})\Gamma_{i},g_{i}(a_{s}n^{\prime}+b_{s})\Gamma_{i})
+\displaystyle=\max_{n,n^{\prime}\in\mathcal{P}_{s,r}}d_{G_{i}/\Gamma_{i}}(\varepsilon_{i,s}(n)g_{i,s}^{\prime}(n)\Gamma_{i},\varepsilon_{i,s}(n^{\prime})g_{i,s}^{\prime}(n^{\prime})\Gamma_{i})
+\displaystyle\leq\max_{n,n^{\prime}\in\mathcal{P}_{s,r}}d_{G_{i}/\Gamma_{i}}(\varepsilon_{i,s}(n)g_{i,s}^{\prime}(n)\Gamma_{i},\varepsilon_{i,s}(n)g_{i,s}^{\prime}(n^{\prime})\Gamma_{i})
+\displaystyle\qquad\qquad+\max_{n,n^{\prime}\in\mathcal{P}_{s,r}}d_{G_{i}/\Gamma_{i}}(\varepsilon_{i,s}(n)g_{i,s}^{\prime}(n^{\prime})\Gamma_{i},\varepsilon_{i,s}(n^{\prime})g_{i,s}^{\prime}(n^{\prime})\Gamma_{i})
+\displaystyle\leq M^{O_{k}(d^{O_{k}(1)})}\big(\max_{n,n^{\prime}\in\mathcal{P}_{s,r}}d_{G_{i}/\Gamma_{i}}(g_{i,s}^{\prime}(n)\Gamma_{i},g_{i,s}^{\prime}(n^{\prime})\Gamma_{i})+\max_{n,n^{\prime}\in\mathcal{P}_{s,r}}d_{G_{i}}(\varepsilon_{i,s}(n),\varepsilon_{i,s}(n^{\prime}))\big)
+\displaystyle\leq M^{O_{k}(d^{O_{k}(1)})}\cdot N^{-\Omega_{k}(1/(dT)^{O_{k}(1)})}
+
+which completes the inductive step (our final decomposition is composed of all elements of the short \mathcal{P}_{s} indexed by s\in\mathcal{S} and all \mathcal{P}_{s,r} arising from the long progressions indexed by s\in\mathcal{L}). We are done, noting that the number of inductive steps (hence the decay in parameters) is bounded in terms of k. ∎
+
+## 3. Completing the proof
+
+We are now run the Heath-Brown [[14](https://arxiv.org/html/2402.17995#bib.bib14)] and Szemerédi [[26](https://arxiv.org/html/2402.17995#bib.bib26)] density increment strategy as reformulated by Green and Tao [[9](https://arxiv.org/html/2402.17995#bib.bib9)]. In the first subsection we recall a number of preliminaries for the proof and in the second subsection we prove Theorem[1.1](https://arxiv.org/html/2402.17995#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Improved Bounds for Szemerédi’s Theorem"). Our treatment at this point is quite close to that of [[9](https://arxiv.org/html/2402.17995#bib.bib9)] and we borrow certain elements from the density increment portion of [[19](https://arxiv.org/html/2402.17995#bib.bib19)] as well.
+
+### 3.1. Preliminaries for density increment
+
+We first recall the definition of the Gowers U^{s}-norm over the integers.
+
+###### Definition 3.1.
+
+Given f\colon\mathbb{Z}/N\mathbb{Z}\to\mathbb{C} and s\geq 1, we define
+
+\lVert f\rVert_{U^{s}(\mathbb{Z}/N\mathbb{Z})}^{2^{s}}=\mathbb{E}_{x,h_{1},\ldots,h_{s}\in\mathbb{Z}/N\mathbb{Z}}\Delta_{h_{1},\ldots,h_{s}}f(x)
+
+where \Delta_{h}f(x)=f(x)\overline{f(x+h)} is the multiplicative discrete derivative (extended to vectors h in the natural way).
+
+Given a natural number N and a function f\colon[N]\to\mathbb{C}, we choose a number \widetilde{N}\geq 2^{s}N and define \widetilde{f}\colon\mathbb{Z}/\widetilde{N}\mathbb{Z}\to\mathbb{C} via \widetilde{f}(x)=f(x) for x\in[N] and 0 otherwise. Then
+
+\lVert f\rVert_{U^{s}[N]}:=\lVert\widetilde{f}\rVert_{U^{s}(\mathbb{Z}/\widetilde{N}\mathbb{Z})}/\lVert\mathbbm{1}_{[N]}\rVert_{U^{s}(\mathbb{Z}/\widetilde{N}\mathbb{Z})}.
+
+One can check that this definition does not depend on the choice of \widetilde{N}. This is well known to be a seminorm for s\geq 1 and a norm for s\geq 2.
+
+As mentioned, the main input for our result will be the following improved bound for the U^{s}-norm inverse theorem given as [[18](https://arxiv.org/html/2402.17995#bib.bib18), Theorem 1.2].
+
+###### Theorem 3.2.
+
+Fix \delta\in(0,1/2). Suppose that f\colon[N]\to\mathbb{C} is 1-bounded and
+
+\lVert f\rVert_{U^{s+1}[N]}\geq\delta.
+
+Then there exists a nilmanifold G/\Gamma of degree s, complexity at most M, and dimension at most d as well as a function F on G/\Gamma which is at most K-Lipschitz such that
+
+|\mathbb{E}_{n\in[N]}[f(n)\overline{F(g(n)\Gamma)}]|\geq\varepsilon,
+
+where we may take
+
+d\leq\log(1/\delta)^{O_{s}(1)}\emph{and}\varepsilon^{-1},K,M\leq\exp(\log(1/\delta)^{O_{s}(1)}).
+
+We now define the k-fold linear operator corresponding to counting k-term arithmetic progressions. Given functions f_{i}\colon[N]\to\mathbb{C}, define
+
+\Lambda_{k}(f_{1},\ldots,f_{k})=\mathbb{E}_{x,y\in\{0,\ldots,N\}}\prod_{j=1}^{k}f_{j}(x+(j-1)y)
+
+where f_{i} are extended by 0 outside of [N]. We also write
+
+\Lambda_{k}(f):=\Lambda_{k}(f,\ldots,f).
+
+We have the following basic inequalities regarding the operator \Lambda_{k}. The proof is by now standard and hence is omitted (see [[9](https://arxiv.org/html/2402.17995#bib.bib9), Lemma 3.2] and [[8](https://arxiv.org/html/2402.17995#bib.bib8), Theorem 3.2]).
+
+###### Lemma 3.3.
+
+Consider functions f_{i}\colon[N]\to\mathbb{C} for 1\leq i\leq k. Then we have
+
+\displaystyle\Lambda_{k}(f_{1},\ldots,f_{k})\displaystyle\leq\min_{1\leq i\leq k}\lVert f_{i}\rVert_{L^{1}[N]}\cdot\prod_{j\neq i}\lVert f_{j}\rVert_{L^{\infty}[N]},
+\displaystyle\Lambda_{k}(f_{1},\ldots,f_{k})\displaystyle\ll_{k}\min_{1\leq i\leq k}\lVert f_{i}\rVert_{U^{k-1}[N]}\cdot\prod_{j\neq i}\lVert f_{j}\rVert_{L^{\infty}[N]}.
+
+We next define factors and the factor induced by function g with a resolution K.
+
+###### Definition 3.4.
+
+We define a _factor_\mathcal{B} of [N] to be a partition [N]=\bigsqcup_{B\in\mathcal{B}}B. We define \mathcal{B}(x) for x\in[N] to be the part of \mathcal{B} that contains x. We say \mathcal{B}^{\prime} refines \mathcal{B} if every part of \mathcal{B} can be written as a disjoint union of parts of \mathcal{B}^{\prime}. We define a _join_ of a sequence of factors to be the partition (discarding empty parts)
+
+\mathcal{B}_{1}\vee\cdots\vee\mathcal{B}_{d}:=\{B_{1}\cap\cdots\cap B_{d}\colon B_{i}\in\mathcal{B}_{i}\}.
+
+Next given a function g\colon[N]\to\mathbb{R} and a resolution K, we define the factor induced by g of resolution K to be
+
+\mathcal{B}_{g,K}=\bigsqcup_{j\in\mathbb{Z}}\{x\in[N]\colon g(x)\in[j/K,(j+1)/K).
+
+Finally, given a factor \mathcal{B}, we define \Pi_{\mathcal{B}}f by
+
+\Pi_{\mathcal{B}}f(x)=\mathbb{E}_{y\in\mathcal{B}(x)}f(y).
+
+A technical annoyance is that one may potentially have a large set of points near the cutoffs when defining \mathcal{B}_{g,K}. We define a notion of regularity capturing when a function g avoids such issues, which is related to an idea introduced by Bourgain [[4](https://arxiv.org/html/2402.17995#bib.bib4)] with regards to Bohr sets.
+
+###### Definition 3.5.
+
+The factor \mathcal{B}_{g,K} is C-regular if
+
+\sup_{r>0}\bigg(\frac{1}{2r}\frac{1}{N}\big|\{x\in[N]\colon\lVert K\cdot g(x)\rVert_{\mathbb{R}/\mathbb{Z}}\leq r\big\}|\bigg)\leq C.
+
+It turns out to be easy to obtain “regular” factors; a useful trick (motivated by the proof of [[10](https://arxiv.org/html/2402.17995#bib.bib10), Corollary 2.3]) is to consider a random shift of g and then apply the Hardy–-Littlewood maximal inequality. Given a function g and resolution K, we define the maximal function
+
+M_{g,K}(t):=\sup_{r>0}\frac{1}{2r}\frac{1}{N}\big|\{x\in[N]\colon\lVert K\cdot g(x)-t\rVert_{\mathbb{R}/\mathbb{Z}}\leq r\}\big|.
+
+The Hardy–Littlewood maximal inequality (on the torus \mathbb{R}/\mathbb{Z}) implies that
+
+\mathbb{E}_{t\in[0,1]}[M_{g,K}(t)]=O(1).
+
+Therefore we have the following elementary fact which will prove useful.
+
+###### Fact 3.6.
+
+There exists a constant C=C_{\ref{fct:maximal}}>0 such that the following holds. Given a function g\colon[N]\to\mathbb{R} and a resolution K, there exists a shift t\in[0,1/K) such that \mathcal{B}_{g-t,K} is C-regular.
+
+### 3.2. Constructing factor approximation and density increment
+
+The key claim which we need to prove Theorem[1.1](https://arxiv.org/html/2402.17995#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Improved Bounds for Szemerédi’s Theorem") is the following density increment lemma, phrased as a trichotomy.
+
+###### Lemma 3.7.
+
+Fix an integer k\geq 5 and a constant c>0. Consider a function f\colon[N]\to[0,1] such that \mathbb{E}_{n\in[N]}f(n)=\delta. There exist c^{\prime}=c^{\prime}(c,k) and C=C(c,k) such that one of the following always holds:
+
+*   •
+N\leq\exp(\exp(\log(1/\delta)^{C}));
+
+*   •
+|\Lambda_{k}(f)-\Lambda_{k}(\delta\cdot\mathbbm{1}_{[N]})|\leq c\delta^{k};
+
+*   •There exists an arithmetic progression \mathcal{P}\subseteq[N] of length at least N^{1/\exp(\log(1/\delta)^{C})} such that
+
+\mathbb{E}_{n\in\mathcal{P}}f(n)\geq(1+c^{\prime})\delta. 
+
+We prove Theorem[1.1](https://arxiv.org/html/2402.17995#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Improved Bounds for Szemerédi’s Theorem") given Lemma[3.7](https://arxiv.org/html/2402.17995#S3.Thmtheorem7 "Lemma 3.7. ‣ 3.2. Constructing factor approximation and density increment ‣ 3. Completing the proof ‣ Improved Bounds for Szemerédi’s Theorem"); this is the standard density increment strategy.
+
+###### Proof of Theorem[1.1](https://arxiv.org/html/2402.17995#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Improved Bounds for Szemerédi’s Theorem") given Lemma[3.7](https://arxiv.org/html/2402.17995#S3.Thmtheorem7 "Lemma 3.7. ‣ 3.2. Constructing factor approximation and density increment ‣ 3. Completing the proof ‣ Improved Bounds for Szemerédi’s Theorem").
+
+Suppose A\subseteq[N] has no k-term arithmetic progressions. We iteratively increase the density of A; set A=A_{1}, N=N_{1} and \delta=\delta_{1} and we iteratively define A_{i}\subseteq[N_{i}], and \delta_{i}=|A_{i}|/N_{i}.
+
+If N_{i}\leq\exp(\exp(\log(1/\delta_{i})^{C})), we immediately terminate. Otherwise, note that as A_{i} is free of k-term arithmetic progressions, we have that
+
+|\Lambda_{k}(\mathbbm{1}_{A_{i}})-\Lambda_{k}(\delta_{i}\cdot\mathbbm{1}_{[N_{i}]})|\geq\delta_{i}^{k}\cdot|\Lambda_{k}(\mathbbm{1}_{[N_{i}]})|-|A_{i}|\cdot N_{i}^{-2}\gg_{k}\delta_{i}^{k}
+
+where we have used that N_{i}\geq\exp(\exp(\log(1/\delta_{i})^{C}))\gg\delta_{i}^{-k}. Therefore, the third case in Lemma[3.7](https://arxiv.org/html/2402.17995#S3.Thmtheorem7 "Lemma 3.7. ‣ 3.2. Constructing factor approximation and density increment ‣ 3. Completing the proof ‣ Improved Bounds for Szemerédi’s Theorem") occurs and there exists \mathcal{P}_{i+1} such that
+
+|A_{i}\cap\mathcal{P}_{i+1}|/|\mathcal{P}_{i+1}|\geq(1+c^{\prime})\delta_{i}
+
+and |\mathcal{P}_{i+1}|\geq N_{i}^{1/\exp(\log(1/\delta_{i})^{C})}. We now rescale the arithmetic progression \mathcal{P}_{i+1} to [|\mathcal{P}_{i+1}|]=:[N_{i+1}], which sends A_{i}\cap\mathcal{P}_{i+1} to a new set A_{i+1}, and then we continue the iteration.
+
+Note that at every iteration the density \delta_{i} increases by a multiplicative factor of at least (1+c^{\prime}), so we must terminate in at most O_{k}(\log(1/\delta)) iterations. Thus there exists an index j\leq O_{k}(\log(1/\delta)) such that
+
+N^{1/\exp(O_{k}(\log(1/\delta)^{C+1}))}\leq N_{j}\leq\exp(\exp(\log(1/\delta_{j})^{C}))\leq\exp(\exp(\log(1/\delta)^{C})).
+
+This implies that
+
+\log N\leq\exp(O_{k}(\log(1/\delta)^{O_{k}(1)}))
+
+and thus
+
+\delta\leq\exp(-(\log\log N)^{\Omega_{k}(1)}).\qed
+
+In order to prove Lemma[3.7](https://arxiv.org/html/2402.17995#S3.Thmtheorem7 "Lemma 3.7. ‣ 3.2. Constructing factor approximation and density increment ‣ 3. Completing the proof ‣ Improved Bounds for Szemerédi’s Theorem"), we first iterate Theorem[3.2](https://arxiv.org/html/2402.17995#S3.Thmtheorem2 "Theorem 3.2. ‣ 3.1. Preliminaries for density increment ‣ 3. Completing the proof ‣ Improved Bounds for Szemerédi’s Theorem") to obtain the following result.
+
+###### Lemma 3.8.
+
+Fix a parameter \eta\in(0,1/2) and k\geq 5. There exists a constant C=C_{k}>0 such that the following statement holds. If N\geq\exp(\log(1/\eta)^{C}) and f\colon[N]\to\mathbb{R} is 1-bounded then there exist functions h_{1},\ldots,h_{T}\colon[N]\to\mathbb{R} and d,M,K\geq 1 such that:
+
+*   •
+\mathcal{B}=\bigvee_{1\leq i\leq T}\mathcal{B}_{h_{i},K} satisfies \lVert f-\Pi_{\mathcal{B}}f\rVert_{U^{k-1}[N]}\leq\eta;
+
+*   •
+T,M,K\leq\exp(\log(1/\eta)^{C}) and d\leq\log(1/\eta)^{C};
+
+*   •
+h_{i}=F_{i}(g_{i}(n)\Gamma_{i}) is a nilsequence where g_{i}(n) takes values in a group G_{i} which is given a degree (k-2) filtration, G_{i}/\Gamma_{i} has complexity bounded by M and dimension bounded by d, and F_{i}\colon G_{i}/\Gamma_{i}\to\mathbb{R} is M-Lipschitz;
+
+*   •
+\mathcal{B}_{h_{i},K} is C-regular for 1\leq i\leq T.
+
+###### Proof.
+
+The proof follows via applying Theorem[3.2](https://arxiv.org/html/2402.17995#S3.Thmtheorem2 "Theorem 3.2. ‣ 3.1. Preliminaries for density increment ‣ 3. Completing the proof ‣ Improved Bounds for Szemerédi’s Theorem") repeatedly. We begin the iteration by setting \mathcal{B}_{0}=[N] (i.e., the trivial partition). At each stage we will construct h_{i+1} and then set \mathcal{B}_{i+1}=\mathcal{B}_{i}\vee\mathcal{B}_{h_{i+1},K} with K=\lceil\exp(\log(1/\eta)^{O_{k}(1)})\rceil, where the implicit constant is chosen sufficiently large.
+
+Step 1: If \lVert f-\Pi_{\mathcal{B}_{i}}f\rVert_{U^{k-1}[N]}\leq\eta, we terminate.
+
+Step 2: If \lVert f-\Pi_{\mathcal{B}_{i}}f\rVert_{U^{k-1}[N]}>\eta, by Theorem[3.2](https://arxiv.org/html/2402.17995#S3.Thmtheorem2 "Theorem 3.2. ‣ 3.1. Preliminaries for density increment ‣ 3. Completing the proof ‣ Improved Bounds for Szemerédi’s Theorem"), there exists a nilsequence F_{i+1}(g_{i+1}(n)\Gamma_{i+1}) such that
+
+\big|\mathbb{E}_{n\in[N]}[(f-\Pi_{\mathcal{B}_{i}}f)(n)\overline{F_{i+1}(g_{i+1}(n)\Gamma_{i+1}})]\big|\geq\exp(-\log(1/\eta)^{O_{k}(1)})
+
+and where G_{i+1}/\Gamma_{i+1} has complexity bounded by \exp(\log(1/\eta)^{O_{k}(1)}), dimension bounded by \log(1/\eta)^{O_{k}(1)}, F_{i+1}\colon G_{i+1}/\Gamma_{i+1}\to\mathbb{C} is \exp(\log(1/\eta)^{O_{k}(1)})-Lipschitz, G_{i+1} has been given a degree (k-2) filtration, and where g_{i+1}(n) is a polynomial sequence with respect to this filtration. Taking either the real or imaginary part of F_{i+1}, we may assume that F_{i+1}\colon G_{i+1}/\Gamma_{i+1}\to\mathbb{R} and thus that
+
+\big|\mathbb{E}_{n\in[N]}[(f-\Pi_{\mathcal{B}_{i}}f)(n)F_{i+1}(g_{i+1}(n)\Gamma_{i+1})]\big|\geq\exp(-\log(1/\eta)^{O_{k}(1)}).
+
+Note that for any t\in[0,1/K), this implies that
+
+\displaystyle\bigg|\mathbb{E}_{n\in[N]}\bigg[(f-\Pi_{\mathcal{B}_{i}}f)(n)\displaystyle\frac{\lfloor K(F_{i+1}(g_{i+1}(n)\Gamma_{i+1})+t)\rfloor}{K}\bigg]\bigg|
+\displaystyle\geq\big|\mathbb{E}_{n\in[N]}[(f-\Pi_{\mathcal{B}_{i}}f)(n)F_{i+1}(g_{i+1}(n)\Gamma_{i+1})]\big|-2/K
+\displaystyle\geq\exp(-\log(1/\eta)^{O_{k}(1)})
+
+given that the implicit constant defining K is chosen sufficiently large. Recall here \lfloor x\rfloor is defined in the standard manner that x=\lfloor x\rfloor+\{x\} where \lfloor x\rfloor\in\mathbb{Z} and \{x\}\in[0,1). We then take t\in[0,1/K), such that \mathcal{B}_{F_{i+1}(g_{i+1}(n)\Gamma_{i+1})+t,K} is C-regular; this exists for C larger than an absolute constant by Fact[3.6](https://arxiv.org/html/2402.17995#S3.Thmtheorem6 "Fact 3.6. ‣ 3.1. Preliminaries for density increment ‣ 3. Completing the proof ‣ Improved Bounds for Szemerédi’s Theorem").
+
+Set h_{i+1}(n):=F_{i+1}(g_{i+1}(n)\Gamma_{i+1})+t. Note that
+
+\frac{\lfloor K(F_{i+1}(g_{i+1}(n)\Gamma_{i+1})+t)\rfloor}{K}
+
+is measurable with respect to \mathcal{B}_{h_{i+1},K} by construction and it is bounded by \exp(\log(1/\eta)^{O_{k}(1)}). Therefore since \Pi_{\mathcal{B}_{h_{i+1},K}} is self-adjoint we have
+
+\displaystyle\mathbb{E}_{n\in[N]}[|\Pi_{\mathcal{B}_{h_{i+1},K}}(f-\Pi_{\mathcal{B}_{i}}f)(n)|]
+\displaystyle\qquad\quad\geq(1+\lVert F_{i+1}\rVert_{L^{\infty}(G_{i+1}/\Gamma_{i+1})})^{-1}\cdot\bigg|\mathbb{E}_{n\in[N]}\bigg[(f-\Pi_{\mathcal{B}_{i}}f)(n)\frac{\lfloor K(F_{i+1}(g_{i+1}(n)\Gamma_{i+1})+t)\rfloor}{K}\bigg]\bigg|
+\displaystyle\qquad\quad\geq\exp(-\log(1/\eta)^{O_{k}(1)}).
+
+Step 3: We now return back to Step 1 and keep on iterating this procedure until it terminates. This completes the proof modulo showing that the iteration terminates in a small number of steps. To show this, note that
+
+\displaystyle\lVert\Pi_{\mathcal{B}_{h_{i+1},K}}(f-\Pi_{\mathcal{B}_{i}}f)\rVert_{L^{1}[N]}\displaystyle\leq\lVert\Pi_{\mathcal{B}_{h_{i+1},K}}(f-\Pi_{\mathcal{B}_{i}}f)\rVert_{L^{2}[N]}=\lVert\Pi_{\mathcal{B}_{h_{i+1},K}}\Pi_{\mathcal{B}_{i+1}}(f-\Pi_{\mathcal{B}_{i}}f)\rVert_{L^{2}[N]}
+\displaystyle\leq\lVert\Pi_{\mathcal{B}_{i+1}}(f-\Pi_{\mathcal{B}_{i}}f)\rVert_{L^{2}[N]}=\lVert\Pi_{\mathcal{B}_{i+1}}f-\Pi_{\mathcal{B}_{i}}f\rVert_{L^{2}[N]}
+\displaystyle=(\lVert\Pi_{\mathcal{B}_{i+1}}f\rVert_{L^{2}[N]}^{2}-\lVert\Pi_{\mathcal{B}_{i}}f\rVert_{L^{2}[N]}^{2})^{1/2}.
+
+The final equality is the Pythagorean theorem with respect to projections (this follows from e.g.[[19](https://arxiv.org/html/2402.17995#bib.bib19), Lemma 4.3(iv)]). We deduce
+
+\lVert\Pi_{\mathcal{B}_{i+1}}f\rVert_{L^{2}[N]}^{2}-\lVert\Pi_{\mathcal{B}_{i}}f\rVert_{L^{2}[N]}^{2}\geq\exp(-\log(1/\eta)^{O_{k}(1)}).
+
+Since for all i we have \lVert\Pi_{\mathcal{B}_{i}}f\rVert_{L^{2}[N]}\leq\lVert f\rVert_{L^{2}[N]}\leq 1, there are at most \exp(\log(1/\eta)^{O_{k}(1)}) iterations as desired. ∎
+
+We now complete the proof of Lemma[3.7](https://arxiv.org/html/2402.17995#S3.Thmtheorem7 "Lemma 3.7. ‣ 3.2. Constructing factor approximation and density increment ‣ 3. Completing the proof ‣ Improved Bounds for Szemerédi’s Theorem") and therefore the proof of Theorem[1.1](https://arxiv.org/html/2402.17995#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ Improved Bounds for Szemerédi’s Theorem"). The first part of the proof is finding a density increment on a factor derived from nilsequences, which is essentially identical to that of [[9](https://arxiv.org/html/2402.17995#bib.bib9), Lemma 5.8]. In the second part, we apply our nilsequence Schmidt-type result Lemma[2.1](https://arxiv.org/html/2402.17995#S2.Thmtheorem1 "Lemma 2.1. ‣ 2. Schmidt’s problem for nilsequences ‣ Improved Bounds for Szemerédi’s Theorem") to find a long arithmetic progression with density increment.
+
+###### Proof of Lemma[3.7](https://arxiv.org/html/2402.17995#S3.Thmtheorem7 "Lemma 3.7. ‣ 3.2. Constructing factor approximation and density increment ‣ 3. Completing the proof ‣ Improved Bounds for Szemerédi’s Theorem").
+
+Without loss of generality, we may assume that c is smaller than an absolute constant. Furthermore we may assume that N\geq\exp(\exp(\log(1/\delta)^{\Omega(1)})) (where the implicit constant may depend on c,k) and |\Lambda_{k}(f)-\Lambda_{k}(\delta\cdot\mathbbm{1}_{[N]})|\geq c\delta^{k}.
+
+Step 1: Increment on a factor. By applying Lemma[3.8](https://arxiv.org/html/2402.17995#S3.Thmtheorem8 "Lemma 3.8. ‣ 3.2. Constructing factor approximation and density increment ‣ 3. Completing the proof ‣ Improved Bounds for Szemerédi’s Theorem"), there exists a factor \mathcal{B} (derived from nilsequences of appropriate complexity, with parameters below) such that
+
+\lVert\Pi_{\mathcal{B}}f-f\rVert_{U^{k-1}[N]}\leq c^{\ast}\delta^{k}
+
+where we choose c^{\ast} sufficiently small in terms of c. Via telescoping and the second inequality in Lemma[3.3](https://arxiv.org/html/2402.17995#S3.Thmtheorem3 "Lemma 3.3. ‣ 3.1. Preliminaries for density increment ‣ 3. Completing the proof ‣ Improved Bounds for Szemerédi’s Theorem"), we have
+
+|\Lambda_{k}(f)-\Lambda_{k}(\Pi_{\mathcal{B}}f)|\leq c\delta^{k}/2
+
+as long as c^{\ast} was chosen appropriately, and therefore
+
+|\Lambda_{k}(\Pi_{\mathcal{B}}f)-\Lambda_{k}(\delta\cdot\mathbbm{1}_{[N]})|\geq c\delta^{k}/2.
+
+Take c^{\prime}=\min(c,1)/(10k)^{5}. Let g=\min(\Pi_{\mathcal{B}}f,(1+c^{\prime})\delta). The crucial claim is that if \Omega^{\prime}=\{n\in[N]\colon g(n)\neq\Pi_{\mathcal{B}}f(n)\}=\{n\in[N]\colon\Pi_{\mathcal{B}}f(n)>(1+c^{\prime})\delta\} then \Omega^{\prime} must have sufficiently large measure. To see this note that:
+
+\displaystyle|\Lambda_{k}(\Pi_{\mathcal{B}}f)-\Lambda_{k}(g)|\displaystyle\leq k\lVert\Pi_{\mathcal{B}}f-g\rVert_{L^{1}[N]}\leq k\mathbb{P}_{n\in[N]}[n\in\Omega^{\prime}],
+\displaystyle|\Lambda_{k}(\delta\mathbbm{1}_{[N]})-\Lambda_{k}(g)|\displaystyle\leq k(1+c^{\prime})^{k-1}\delta^{k-1}\lVert\delta\mathbbm{1}_{[N]}-g\rVert_{L^{1}[N]},
+\displaystyle\lVert g-\delta\mathbbm{1}_{[N]}\rVert_{L^{1}[N]}\displaystyle\leq\mathbb{P}_{n\in[N]}[n\in\Omega^{\prime}]+\lVert\delta\mathbbm{1}_{[N]}-\Pi_{\mathcal{B}}f\rVert_{L^{1}[N]}.
+
+The first and second inequality follow from the first part of Lemma[3.3](https://arxiv.org/html/2402.17995#S3.Thmtheorem3 "Lemma 3.3. ‣ 3.1. Preliminaries for density increment ‣ 3. Completing the proof ‣ Improved Bounds for Szemerédi’s Theorem") and telescoping while the final inequality follows from the triangle inequality. We simplify the inequalities slightly; as \mathbb{E}_{n\in[N]}[\delta\mathbbm{1}_{[N]}]=\mathbb{E}_{n\in[N]}[f]=\mathbb{E}_{n\in[N]}[\Pi_{\mathcal{B}}f], we have
+
+\displaystyle\lVert\delta\mathbbm{1}_{[N]}-\Pi_{\mathcal{B}}f\rVert_{L^{1}[N]}\displaystyle=2\lVert\max(\Pi_{\mathcal{B}}f-\delta\mathbbm{1}_{[N]},0)\rVert_{L^{1}[N]}\leq 2c^{\prime}\delta+2\mathbb{P}_{n\in[N]}[n\in\Omega^{\prime}].
+
+Given this and using the upper bound on c^{\prime}, we deduce
+
+\displaystyle|\Lambda_{k}(\Pi_{\mathcal{B}}f)-\Lambda_{k}(g)|\displaystyle\leq k\lVert\Pi_{\mathcal{B}}f-g\rVert_{L^{1}[N]}\leq k\mathbb{P}_{n\in[N]}[n\in\Omega^{\prime}],
+\displaystyle|\Lambda_{k}(\delta\mathbbm{1}_{[N]})-\Lambda_{k}(g)|\displaystyle\leq 2k\delta^{k-1}\lVert\delta\mathbbm{1}_{[N]}-g\rVert_{L^{1}[N]},
+\displaystyle\lVert g-\delta\mathbbm{1}_{[N]}\rVert_{L^{1}[N]}\displaystyle\leq 3\mathbb{P}_{n\in[N]}[n\in\Omega^{\prime}]+2c^{\prime}\delta.
+
+Therefore
+
+\displaystyle c\delta^{k}/2\displaystyle\leq|\Lambda_{k}(\delta\cdot\mathbbm{1}_{[N]})-\Lambda_{k}(\Pi_{\mathcal{B}}f)|\leq|\Lambda_{k}(\delta\cdot\mathbbm{1}_{[N]})-\Lambda_{k}(g)|+|\Lambda_{k}(\Pi_{\mathcal{B}}f)-\Lambda_{k}(g)|
+\displaystyle\leq k\mathbb{P}_{n\in[N]}[n\in\Omega^{\prime}]+2k\delta^{k-1}\lVert\delta\mathbbm{1}_{[N]}-g\rVert_{L^{1}[N]}\leq 7k\mathbb{P}_{n\in[N]}[n\in\Omega^{\prime}]+4kc^{\prime}\delta^{k};
+
+thus we have \mathbb{P}_{n\in[N]}[n\in\Omega^{\prime}]\geq c\delta^{k}/(20k).
+
+Step 2: Increment on a progression. We are now in position to apply the nilsequence Schmidt-type result Lemma[2.1](https://arxiv.org/html/2402.17995#S2.Thmtheorem1 "Lemma 2.1. ‣ 2. Schmidt’s problem for nilsequences ‣ Improved Bounds for Szemerédi’s Theorem"). Recall that we applied Lemma[3.8](https://arxiv.org/html/2402.17995#S3.Thmtheorem8 "Lemma 3.8. ‣ 3.2. Constructing factor approximation and density increment ‣ 3. Completing the proof ‣ Improved Bounds for Szemerédi’s Theorem") to find \mathcal{B}, and hence we may write \mathcal{B}=\bigvee_{1\leq i\leq T}\mathcal{B}_{h_{i},K} where:
+
+*   •
+T,M,K\leq\exp(\log(1/\delta)^{C}) and d\leq\log(1/\delta)^{C};
+
+*   •
+h_{i}=F_{i}(g_{i}(n)\Gamma_{i}) is a nilsequence where g_{i}(n) takes values in a group G_{i} which is given a degree (k-2) filtration, G_{i}/\Gamma_{i} has complexity bounded by M and dimension bounded by d, and F_{i}\colon G_{i}/\Gamma_{i}\to\mathbb{R} is M-Lipschitz;
+
+*   •
+\mathcal{B}_{h_{i},K} is C-regular for 1\leq i\leq T.
+
+Here C is a slightly larger value than the constant C_{k} in Lemma[3.8](https://arxiv.org/html/2402.17995#S3.Thmtheorem8 "Lemma 3.8. ‣ 3.2. Constructing factor approximation and density increment ‣ 3. Completing the proof ‣ Improved Bounds for Szemerédi’s Theorem"), depending only on k.
+
+We now apply Lemma[2.1](https://arxiv.org/html/2402.17995#S2.Thmtheorem1 "Lemma 2.1. ‣ 2. Schmidt’s problem for nilsequences ‣ Improved Bounds for Szemerédi’s Theorem") to g_{i}(n) for 1\leq i\leq T. We obtain a decomposition of [N] into arithmetic progressions \mathcal{P}_{1},\ldots,\mathcal{P}_{L} such that
+
+*   •
+N/L\geq N^{-1/\exp(\log(1/\delta)^{O_{k}(1)})};
+
+*   •We have
+
+\max_{\begin{subarray}{c}1\leq i\leq T\\
+1\leq j\leq L\end{subarray}}\max_{n,n^{\prime}\in\mathcal{P}_{j}}d_{G_{i}/\Gamma_{i}}(g_{i}(n)\Gamma_{i},g_{i}(n^{\prime})\Gamma_{i})\leq\exp(\log(1/\delta)^{O_{k}(1)})\cdot N^{-1/\exp(\log(1/\delta)^{O_{k}(1)})}. 
+
+We now consider \mathcal{P}_{j} which intersect \Omega^{\prime}. Call a progression in the decomposition _crossing_ if it intersects \Omega^{\prime} and [N]\setminus\Omega^{\prime} and a progression _contained_ if it is fully within in \Omega^{\prime}. Since \Omega^{\prime} is measurable in terms of \mathcal{B}, for a progression to be crossing it must “cross a boundary” defining \mathcal{B}_{h_{i},K} for at least one 1\leq i\leq T. If a progression \mathcal{P}_{j} crosses one of these boundaries defined by h_{i} then all points in \mathcal{P}_{j} map close to this boundary, since the function F_{i} is M-Lipschitz. In particular, by regularity of each \mathcal{B}_{h_{i},K}, the measure (with respect to the uniform distribution on [N]) of improper progressions is bounded by
+
+\ll_{k}T\cdot\exp(\log(1/\delta)^{O_{k}(1)})\cdot N^{-1/\exp(\log(1/\delta)^{O_{k}(1)})}=\exp(\log(1/\delta)^{O_{k}(1)})\cdot N^{-1/\exp(\log(1/\delta)^{O_{k}(1)})}.
+
+Let \Omega^{\ast} denote the union of all the contained progressions which have length at least N^{\prime}=cc^{\prime}\delta^{k+1}/(400k)\cdot N/L (hence certainly \Omega^{\ast}\subseteq\Omega^{\prime}). Let \mathcal{I} be the set of all 1\leq i\leq L so that \mathcal{P}_{i} either has length at most N^{\prime} or is crossing. We easily see that
+
+\displaystyle 0\displaystyle\leq\mathbb{P}_{n\in[N]}[n\in\Omega^{\prime}]-\mathbb{P}_{n\in[N]}[n\in\Omega^{\ast}]\leq\sum_{i\in\mathcal{I}}\mathbb{P}_{n\in[N]}[n\in\mathcal{P}_{i}]\leq cc^{\prime}\delta^{k+1}/(200k);
+
+in the final inequality we have used that N\geq\exp(\log(1/\delta)^{\Omega(1)}) for a sufficiently large implicit constant.
+
+Finally, this implies that
+
+\displaystyle\mathbb{E}_{n\in\Omega^{\ast}}[f]\displaystyle=\frac{\mathbb{E}_{n\in[N]}[f\cdot\mathbbm{1}_{n\in\Omega^{\ast}}]}{\mathbb{P}_{n\in[N]}[n\in\Omega^{\ast}]}\geq\frac{\mathbb{E}_{n\in[N]}[f\cdot\mathbbm{1}_{n\in\Omega^{\prime}}]-cc^{\prime}\delta^{k+1}/(200k)}{\mathbb{P}_{n\in[N]}[n\in\Omega^{\prime}]}
+\displaystyle\geq\frac{\mathbb{E}_{n\in[N]}[f\cdot\mathbbm{1}_{n\in\Omega^{\prime}}]}{\mathbb{P}_{n\in[N]}[n\in\Omega^{\prime}]}-\frac{cc^{\prime}\delta^{k+1}/(200k)}{c\delta^{k}/(20k)}
+\displaystyle=\frac{\mathbb{E}_{n\in[N]}[\Pi_{\mathcal{B}}f\cdot\mathbbm{1}_{n\in\Omega^{\prime}}]}{\mathbb{P}_{n\in[N]}[n\in\Omega^{\prime}]}-c^{\prime}\delta/10
+\displaystyle\geq(1+c^{\prime})\delta-c^{\prime}\delta/10\geq(1+c^{\prime}/2)\delta.
+
+By pigeonhole, this implies that there exists a contained arithmetic progression \mathcal{P}_{i} having length at least cc^{\prime}\delta^{k+1}/(400k)\cdot N/L\geq N^{-1/\exp(\log(1/\delta)^{O_{k}(1)})} on which the density of f is at least (1+c^{\prime}/2)\delta. Adjusting the value of c^{\prime}, this completes the proof. ∎
+
+## References
+
+*   [1] T.F. Bloom, _A quantitative improvement for Roth’s theorem on arithmetic progressions_, J. Lond. Math. Soc. (2) 93 (2016), 643–663. 
+*   [2] T.F. Bloom and O.Sisask, _Breaking the logarithmic barrier in Roth’s theorem on arithmetic progressions_, arXiv:2007.03528. 
+*   [3] T.F. Bloom and O.Sisask, _An improvement to the Kelley-Meka bounds on three-term arithmetic progressions_, arXiv:2309.02353. 
+*   [4] J.Bourgain, _On triples in arithmetic progression_, Geom. Funct. Anal. 9 (1999), 968–984. 
+*   [5] J.Bourgain, _Roth’s theorem on progressions revisited_, J. Anal. Math. 104 (2008), 155–192. 
+*   [6] W.T. Gowers, _A new proof of Szemerédi’s theorem for arithmetic progressions of length four_, Geom. Funct. Anal. 8 (1998), 529–551. 
+*   [7] W.T. Gowers, _Arithmetic progressions in sparse sets_, Current developments in mathematics, 2000, Int. Press, Somerville, MA, 2001, pp.149–196. 
+*   [8] W.T. Gowers, _A new proof of Szemerédi’s theorem_, Geom. Funct. Anal. 11 (2001), 465–588. 
+*   [9] B.Green and T.Tao, _New bounds for Szemerédi’s theorem. II. A new bound for r\_{4}(N)_, Analytic number theory, Cambridge Univ. Press, Cambridge, 2009, pp.180–204. 
+*   [10] B.Green and T.Tao, _An arithmetic regularity lemma, an associated counting lemma, and applications_, An irregular mind, Bolyai Soc. Math. Stud., vol.21, János Bolyai Math. Soc., Budapest, 2010, pp.261–334. 
+*   [11] B.Green and T.Tao, _Yet another proof of Szemerédi’s theorem_, An irregular mind, Bolyai Soc. Math. Stud., vol.21, János Bolyai Math. Soc., Budapest, 2010, pp.335–342. 
+*   [12] B.Green and T.Tao, _The quantitative behaviour of polynomial orbits on nilmanifolds_, Ann. of Math. (2) 175 (2012), 465–540. 
+*   [13] B.Green and T.Tao, _New bounds for Szemerédi’s theorem, III: a polylogarithmic bound for r\_{4}(N)_, Mathematika 63 (2017), 944–1040. 
+*   [14] D.R. Heath-Brown, _Integer sets containing no arithmetic progressions_, J. London Math. Soc. (2) 35 (1987), 385–394. 
+*   [15] Z.Kelley and R.Meka, _Strong bounds for 3-progressions_, arXiv:2302.05537. 
+*   [16] J.Leng, _Efficient Equidistribution of Nilsequences_, arXiv:2312.10772. 
+*   [17] J.Leng, A.Sah, and M.Sawhney, _Improved bounds for five-term arithmetic progressions_, arXiv:2312.10776. 
+*   [18] J.Leng, A.Sah, and M.Sawhney, _Quasipolynomial bounds for the inverse theorem for the Gowers U^{s+1}[N]-norm_, arXiv:2402.17994. 
+*   [19] S.Peluse and S.Prendiville, _A polylogarithmic bound in the nonlinear Roth theorem_, Int. Math. Res. Not. IMRN (2022), 5658–5684. 
+*   [20] K.F. Roth, _On certain sets of integers. II_, J. London Math. Soc. 29 (1954), 20–26. 
+*   [21] T.Sanders, _On Roth’s theorem on progressions_, Ann. of Math. (2) 174 (2011), 619–636. 
+*   [22] T.Sanders, _On certain other sets of integers_, J. Anal. Math. 116 (2012), 53–82. 
+*   [23] W.M. Schmidt, _Small fractional parts of polynomials_, Regional Conference Series in Mathematics, No. 32, American Mathematical Society, Providence, RI, 1977. 
+*   [24] E.Szemerédi, _On sets of integers containing no four elements in arithmetic progression_, Number Theory (Colloq., János Bolyai Math. Soc., Debrecen, 1968), Colloq. Math. Soc. János Bolyai, vol.2, North-Holland, Amsterdam-London, 1970, pp.197–204. 
+*   [25] E.Szemerédi, _On sets of integers containing no k elements in arithmetic progression_, Acta Arith. 27 (1975), 199–245. 
+*   [26] E.Szemerédi, _Integer sets containing no arithmetic progressions_, Acta Math. Hungar. 56 (1990), 155–158.
+

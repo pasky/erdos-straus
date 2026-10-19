@@ -1,0 +1,852 @@
+## Content from https://arxiv.org/html/2310.19357v2
+
+Title: Improved bounds for the two-point logarithmic Chowla conjecture
+
+URL Source: https://arxiv.org/html/2310.19357v2
+
+Markdown Content:
+###### Abstract.
+
+Let \lambda be the Liouville function, defined as \lambda(n):=(-1)^{\Omega(n)} where \Omega(n) is the number of prime factors of n with multiplicity. In 2021, Helfgott and Radziwiłł proved that
+
+\sum_{n\leqslant x}\frac{1}{n}\lambda(n)\lambda(n+1)\ll\frac{\log x}{(\log\log x)^{1/2}},
+
+improving earlier results by Tao and Teräväinen. We prove that
+
+\sum_{n\leqslant x}\frac{1}{n}\lambda(n)\lambda(n+1)\ll(\log x)^{1-c}
+
+for some absolute constant c>0. This appears to be best possible with current methods.
+
+###### Contents
+
+1.   [1 Introduction](https://arxiv.org/html/2310.19357v2#S1 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+    1.   [1.1 Background](https://arxiv.org/html/2310.19357v2#S1.SS1 "In 1. Introduction ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    2.   [1.2 Proof outline](https://arxiv.org/html/2310.19357v2#S1.SS2 "In 1. Introduction ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    3.   [1.3 Structure of the paper](https://arxiv.org/html/2310.19357v2#S1.SS3 "In 1. Introduction ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+
+2.   [Acknowledgements](https://arxiv.org/html/2310.19357v2#Sx1 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+    1.   [1.4 Symbols and notation](https://arxiv.org/html/2310.19357v2#Sx1.SS4 "In Acknowledgements ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+
+3.   [2 Main theorem and consequences](https://arxiv.org/html/2310.19357v2#S2 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+    1.   [2.1 Main parameters](https://arxiv.org/html/2310.19357v2#S2.SS1 "In 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    2.   [2.2 Statement of the main theorem](https://arxiv.org/html/2310.19357v2#S2.SS2 "In 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    3.   [2.3 Proof of the two-point logarithmic Chowla bound](https://arxiv.org/html/2310.19357v2#S2.SS3 "In 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+
+4.   [3 Reformulations of the main theorem](https://arxiv.org/html/2310.19357v2#S3 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+    1.   [3.1 Centred sum](https://arxiv.org/html/2310.19357v2#S3.SS1 "In 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    2.   [3.2 Reduction to an eigenvalue bound](https://arxiv.org/html/2310.19357v2#S3.SS2 "In 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+
+5.   [4 Approach via non-backtracking operators](https://arxiv.org/html/2310.19357v2#S4 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+    1.   [4.1 Adjacency and non-backtracking operators](https://arxiv.org/html/2310.19357v2#S4.SS1 "In 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    2.   [4.2 The Ihara-Bass formula](https://arxiv.org/html/2310.19357v2#S4.SS2 "In 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    3.   [4.3 Integers with many prime factors](https://arxiv.org/html/2310.19357v2#S4.SS3 "In 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    4.   [4.4 Eigenvalues of localised matrices](https://arxiv.org/html/2310.19357v2#S4.SS4 "In 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+
+6.   [5 High trace bound for the non-backtracking operator](https://arxiv.org/html/2310.19357v2#S5 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+    1.   [5.1 Statement of the high trace bound](https://arxiv.org/html/2310.19357v2#S5.SS1 "In 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    2.   [5.2 Expanding the trace as a sum over walks](https://arxiv.org/html/2310.19357v2#S5.SS2 "In 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+
+7.   [6 Overview of the proof of the high trace bound](https://arxiv.org/html/2310.19357v2#S6 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+8.   [7 Definition of the set Y_{\!L}](https://arxiv.org/html/2310.19357v2#S7 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+9.   [8 Single and repeated primes](https://arxiv.org/html/2310.19357v2#S8 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+    1.   [8.1 Single, lit and unlit indices](https://arxiv.org/html/2310.19357v2#S8.SS1 "In 8. Single and repeated primes ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    2.   [8.2 Walks with many unlit indices](https://arxiv.org/html/2310.19357v2#S8.SS2 "In 8. Single and repeated primes ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+
+10.   [9 Cancellation from single primes](https://arxiv.org/html/2310.19357v2#S9 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+    1.   [9.1 Cancellation over arithmetic progressions](https://arxiv.org/html/2310.19357v2#S9.SS1 "In 9. Cancellation from single primes ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    2.   [9.2 Cancellation over Y_{\!L}](https://arxiv.org/html/2310.19357v2#S9.SS2 "In 9. Cancellation from single primes ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+
+11.   [10 Predictable walks](https://arxiv.org/html/2310.19357v2#S10 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+    1.   [10.1 Predictable words](https://arxiv.org/html/2310.19357v2#S10.SS1 "In 10. Predictable walks ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    2.   [10.2 Counting predictable words](https://arxiv.org/html/2310.19357v2#S10.SS2 "In 10. Predictable walks ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    3.   [10.3 Contribution of predictable walks](https://arxiv.org/html/2310.19357v2#S10.SS3 "In 10. Predictable walks ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+
+12.   [11 Triangular systems of divisibility constraints](https://arxiv.org/html/2310.19357v2#S11 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+    1.   [11.1 Constraints](https://arxiv.org/html/2310.19357v2#S11.SS1 "In 11. Triangular systems of divisibility constraints ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    2.   [11.2 Triangular systems of constraints](https://arxiv.org/html/2310.19357v2#S11.SS2 "In 11. Triangular systems of divisibility constraints ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+
+13.   [12 Unpredictable walks](https://arxiv.org/html/2310.19357v2#S12 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+    1.   [12.1 Structure of unpredictable words](https://arxiv.org/html/2310.19357v2#S12.SS1 "In 12. Unpredictable walks ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    2.   [12.2 Triangular systems for unpredictable walks](https://arxiv.org/html/2310.19357v2#S12.SS2 "In 12. Unpredictable walks ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    3.   [12.3 Contribution of unpredictable walks](https://arxiv.org/html/2310.19357v2#S12.SS3 "In 12. Unpredictable walks ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+
+14.   [13 Prohibited progressions and the combinatorial sieve](https://arxiv.org/html/2310.19357v2#S13 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+    1.   [13.1 Primitive prohibited sequences](https://arxiv.org/html/2310.19357v2#S13.SS1 "In 13. Prohibited progressions and the combinatorial sieve ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    2.   [13.2 Cut-off function for the combinatorial sieve](https://arxiv.org/html/2310.19357v2#S13.SS2 "In 13. Prohibited progressions and the combinatorial sieve ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+    3.   [13.3 Proof of the high trace bound](https://arxiv.org/html/2310.19357v2#S13.SS3 "In 13. Prohibited progressions and the combinatorial sieve ‣ Improved bounds for the two-point logarithmic Chowla conjecture")
+
+15.   [A The non-backtracking operator](https://arxiv.org/html/2310.19357v2#A1 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+16.   [B Combinatorial sieve for composite moduli](https://arxiv.org/html/2310.19357v2#A2 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+17.   [C Sum without divisibility conditions](https://arxiv.org/html/2310.19357v2#A3 "In Improved bounds for the two-point logarithmic Chowla conjecture")
+18.   [References](https://arxiv.org/html/2310.19357v2#bib "In Improved bounds for the two-point logarithmic Chowla conjecture")
+
+## 1. Introduction
+
+### 1.1. Background
+
+Let \lambda:\mathbb{N}\to\{-1,+1\} be the Liouville function, defined by \lambda(n):=(-1)^{\Omega(n)} where \Omega(n) is the number of prime factors of n, counted with multiplicity. Its statistical properties are closely connected with the distribution of primes. Indeed, the bounds \frac{1}{x}\sum_{n\leqslant x}\lambda(n)=o_{x\to\infty}(1) and
+
+\sum_{n\leqslant x}\lambda(n)\ll_{\varepsilon}x^{1/2+\varepsilon}
+
+are equivalent to the Prime Number Theorem and the Riemann Hypothesis respectively, by elementary arguments. These two examples are consistent with the Liouville pseudorandomness principle, a heuristic which suggests that \lambda should statistically behave like a sequence of independent random variables taking the values -1 and +1 with probability 1/2.
+
+For higher-degree correlations, a well-known conjecture of Chowla[[5](https://arxiv.org/html/2310.19357v2#bib.bib14)] asserts that, for any k\geqslant 1 and distinct integers h_{1},\ldots,h_{k}, one has
+
+(1)\frac{1}{x}\sum_{n\leqslant x}\lambda(n+h_{1})\lambda(n+h_{2})\cdots\lambda(n+h_{k})=o_{x\to\infty}(1).
+
+This can be regarded as a multiplicative analogue of the Hardy-Littlewood prime k-tuple conjecture, which predicts an asymptotic formula for correlations of the von Mangoldt function \Lambda. Chowla’s conjecture is subject to the _parity problem_, a major obstacle in analytic number theory (see [[8](https://arxiv.org/html/2310.19357v2#bib.bib16), Section 16.4] for more details). It is open for all k\geqslant 2.
+
+Yet, in recent years, remarkable progress has been made on weaker variants of Chowla’s conjecture.
+
+In 2015, Matomäki, Radziwiłł and Tao proved that [1](https://arxiv.org/html/2310.19357v2#S1.E1 "In 1.1. Background ‣ 1. Introduction ‣ Improved bounds for the two-point logarithmic Chowla conjecture") holds _on average_ over h_{1},\ldots,h_{k}, for every fixed k\geqslant 2[[14](https://arxiv.org/html/2310.19357v2#bib.bib6)]. A crucial ingredient in their proof was the groundbreaking work of Matomäki and Radziwiłł[[16](https://arxiv.org/html/2310.19357v2#bib.bib7)] on sums of multiplicative functions over short intervals.
+
+One year later, Tao proved a _logarithmic_ version of Chowla’s conjecture for k=2[[25](https://arxiv.org/html/2310.19357v2#bib.bib5)]. This means that the regular average \tfrac{1}{x}\sum_{n\leqslant x}f(n) is replaced by the logarithmic average \frac{1}{\log x}\sum_{n\leqslant x}\frac{1}{n}f(n). Fixing (h_{0},h_{1})=(0,1) for simplicity, Tao’s result thus reads
+
+(2)\frac{1}{\log x}\sum_{n\leqslant x}\frac{1}{n}\lambda(n)\lambda(n+1)=o_{x\to\infty}(1).
+
+Tao’s proof [[25](https://arxiv.org/html/2310.19357v2#bib.bib5)], which used a novel _entropy decrement argument_, was a key step in his resolution of the Erdős discrepancy problem [[24](https://arxiv.org/html/2310.19357v2#bib.bib10)]. From his paper[[25](https://arxiv.org/html/2310.19357v2#bib.bib5)], it is possible (see [[11](https://arxiv.org/html/2310.19357v2#bib.bib2)]) to extract the explicit bound
+
+(3)\sum_{n\leqslant x}\frac{1}{n}\lambda(n)\lambda(n+1)\ll\frac{\log x}{(\log\log\log\log x)^{1/5}}.
+
+The logarithmic version of Chowla’s conjecture [1](https://arxiv.org/html/2310.19357v2#S1.E1 "In 1.1. Background ‣ 1. Introduction ‣ Improved bounds for the two-point logarithmic Chowla conjecture") was later proved for all _odd_ k\geqslant 3 by Tao and Teräväinen[[23](https://arxiv.org/html/2310.19357v2#bib.bib4)]. The two authors gave a different proof of that result in [[21](https://arxiv.org/html/2310.19357v2#bib.bib11)]. For _even_ k\geqslant 4, the logarithmically averaged Chowla conjecture is still open. The methods of their paper[[21](https://arxiv.org/html/2310.19357v2#bib.bib11)] can be used to obtain the following quantitative refinement of [3](https://arxiv.org/html/2310.19357v2#S1.E3 "In 1.1. Background ‣ 1. Introduction ‣ Improved bounds for the two-point logarithmic Chowla conjecture"): for some small absolute constant c>0,
+
+(4)\sum_{n\leqslant x}\frac{1}{n}\lambda(n)\lambda(n+1)\ll\frac{\log x}{(\log\log\log x)^{c}}.
+
+In 2021, Helfgott and Radziwiłł[[10](https://arxiv.org/html/2310.19357v2#bib.bib1)] proved the substantial quantitative improvement
+
+(5)\sum_{n\leqslant x}\frac{1}{n}\lambda(n)\lambda(n+1)\ll\frac{\log x}{(\log\log x)^{1/2}}.
+
+They used a very different combinatorial approach, studying the eigenvalues of a certain weighted graph defined in terms of divisibility by small primes. A high-level exposition of their proof is given by Helfgott[[12](https://arxiv.org/html/2310.19357v2#bib.bib3)].
+
+In this paper, we improve the approach of Helfgott and Radziwiłł[[10](https://arxiv.org/html/2310.19357v2#bib.bib1)] to prove the following bound.
+
+###### Theorem 1.1(Logarithmic two-point Chowla correlations).
+
+For some absolute constant c>0,
+
+\sum_{n\leqslant x}\frac{1}{n}\lambda(n)\lambda(n+1)\ll(\log x)^{1-c}.
+
+It appears that saving a fixed power of the logarithm is the best that is achievable with current techniques. Ultimately, our proof relies on the work of Matomäki and Radziwiłł[[16](https://arxiv.org/html/2310.19357v2#bib.bib7)] on multiplicative functions in short intervals, where the current state of the art only allows to save a small power of \log x. The exploitation of multiplicativity using an idea of Tao[[25](https://arxiv.org/html/2310.19357v2#bib.bib5)] also separately appears to limit our saving to a small power of \log x, because a typical integer has O(\log x) divisors.
+
+The methods of this paper should generalise to a wider class of multiplicative functions through appropriate modifications. The complete multiplicativity of \lambda is only used in [Proposition 3.1](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem1 "Proposition 3.1. ‣ 3.1. Centred sum ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture") and in the proof that [Theorem 2.4](https://arxiv.org/html/2310.19357v2#S2.Thmtheorem4 "Theorem 2.4. ‣ 2.2. Statement of the main theorem ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture") implies [Theorem 1.1](https://arxiv.org/html/2310.19357v2#S1.Thmtheorem1 "Theorem 1.1 (Logarithmic two-point Chowla correlations). ‣ 1.1. Background ‣ 1. Introduction ‣ Improved bounds for the two-point logarithmic Chowla conjecture"). The only other property of \lambda we use is that it is 1-bounded (for [Sections 2](https://arxiv.org/html/2310.19357v2#S2 "2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture") and[3](https://arxiv.org/html/2310.19357v2#S3 "3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture")), but a weaker \ell^{p} bound would suffice.
+
+Our proof also yields an improved bound for the _unweighted_ two-point correlations (i.e.without logarithmic averaging) at _almost all scales_; see [Remark 2.8](https://arxiv.org/html/2310.19357v2#S2.Thmtheorem8 "Remark 2.8 (Two-point Chowla at almost all scales). ‣ 2.3. Proof of the two-point logarithmic Chowla bound ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture").
+
+### 1.2. Proof outline
+
+In this section, we give a very short description of the overall strategy. Fuller explanations are given along the way, at various points in the paper.
+
+Using the multiplicativity of \lambda, Tao[[25](https://arxiv.org/html/2310.19357v2#bib.bib5)] showed that the problem of bounding \sum_{n\leqslant x}\frac{1}{n}\lambda(n)\lambda(n+1) reduces to bounding
+
+\mathbb{E}_{p\in P}\sum_{n\leqslant x}\lambda(n)\lambda(n+p)\left(\mathbf{1}_{p\mid n}-\frac{1}{p}\right),
+
+where P\subset[1,\exp(\sqrt{\log x})] is a set of primes.
+
+Helfgott and Radziwiłł[[10](https://arxiv.org/html/2310.19357v2#bib.bib1)] interpreted the above expression as the matrix product \bm{\lambda}^{\!\top}\!A\bm{\lambda} where \bm{\lambda}:=(\lambda(1),\ldots,\lambda(x))^{\top} and A is the matrix with entries
+
+A_{mn}:=\begin{cases}\mathbf{1}_{p\mid n}-\frac{1}{p}&\text{if }\left|m-n\right|=p\in P,\\
+0&\text{otherwise.}\end{cases}
+
+Hence, it is sufficient to bound the eigenvalues of the matrix A, or the eigenvalues of its restriction A|_{X} to some very dense subset X\subset\{1,\ldots,x\}. Using a high trace method, Helfgott and Radziwiłł[[10](https://arxiv.org/html/2310.19357v2#bib.bib1)] managed to obtain the bound \big(\hskip-1.0pt\sum_{p\in P}1/p\big)^{1/2+o(1)} for the largest eigenvalue of such a matrix, which is essentially the best possible. Since \sum_{p\in P}1/p\ll\log\log x, this approach cannot yield a saving better than a power of \log\log x over the trivial bound for two-point Chowla correlations.
+
+In our new approach, we replace the average over primes p\in P with an average over integers d=p_{1}\cdots p_{k} that are products of k primes, where k\asymp\log\log x. By Tao’s argument, we need to bound
+
+\mathbb{E}_{d\in D_{k}}\sum_{n\leqslant x}\lambda(n)\lambda(n+d)\prod_{p\mid d}\left(\mathbf{1}_{p\mid n}-\frac{1}{p}\right)
+
+where D_{k} is a set of integers with k prime factors. Following the strategy of Helfgott and Radziwiłł[[10](https://arxiv.org/html/2310.19357v2#bib.bib1)], it is sufficient to bound the eigenvalues of the matrix \widetilde{A}|_{X} where \widetilde{A} is the matrix defined by
+
+\widetilde{A}_{mn}:=\begin{cases}\prod_{p\mid d}\left(\mathbf{1}_{p\mid n}-\frac{1}{p}\right)&\text{if }\left|m-n\right|=d\in D_{k},\\
+0&\text{otherwise;}\end{cases}
+
+and X is a large subset of \{1,\ldots,x\}. We prove that all eigenvalues of \widetilde{A}|_{X} are bounded by
+
+\bigg(\sum_{d\in D_{k}}\frac{1}{d}\bigg)^{1/2+o(1)}
+
+in absolute value. Since k\gg\log\log x, we can choose D_{k} so that \sum_{d\in D_{k}}1/d\gg(\log x)^{c}, which produces the exponential improvement in [Theorem 1.1](https://arxiv.org/html/2310.19357v2#S1.Thmtheorem1 "Theorem 1.1 (Logarithmic two-point Chowla correlations). ‣ 1.1. Background ‣ 1. Introduction ‣ Improved bounds for the two-point logarithmic Chowla conjecture").
+
+Unfortunately, working with products of multiple primes rather than single primes introduces new difficulties throughout the argument. It is handling all of these new difficulties which is the key new contribution of our work. We are forced to rework and generalise all the arguments of [[10](https://arxiv.org/html/2310.19357v2#bib.bib1)] with the result that our paper is essentially self-contained.
+
+One particular new difficulty is in [Section 12](https://arxiv.org/html/2310.19357v2#S12 "12. Unpredictable walks ‣ Improved bounds for the two-point logarithmic Chowla conjecture") where we wish to bound the number of solutions to systems of divisibility constraints. In the prior work this was a linear system, and so could be bounded by a simple lattice point argument. In our situation this now becomes a polynomial system, and to handle it we require a much more involved argument based on the structure of what we call _unpredictable words_. Another novel feature of our work is the use of _non-backtracking operators_; these considerably simplify certain technical aspects of the proof.
+
+### 1.3. Structure of the paper
+
+We now give a broad overview of the structure of the paper. The reader may wish to refer to [Fig.1](https://arxiv.org/html/2310.19357v2#S1.F1 "In 1.3. Structure of the paper ‣ 1. Introduction ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), which depicts the main propositions of the paper along with their logical dependencies. The paper is designed to be as self-contained as possible. In particular, no prior familiarity with [[10](https://arxiv.org/html/2310.19357v2#bib.bib1)] is needed.
+
+Figure 1. Dependency graph for the proof of [Theorem 1.1](https://arxiv.org/html/2310.19357v2#S1.Thmtheorem1 "Theorem 1.1 (Logarithmic two-point Chowla correlations). ‣ 1.1. Background ‣ 1. Introduction ‣ Improved bounds for the two-point logarithmic Chowla conjecture") (main propositions only).
+
+We begin by reducing [Theorem 1.1](https://arxiv.org/html/2310.19357v2#S1.Thmtheorem1 "Theorem 1.1 (Logarithmic two-point Chowla correlations). ‣ 1.1. Background ‣ 1. Introduction ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), our bound for two-point logarithmic Chowla correlations, to [Theorem 2.4](https://arxiv.org/html/2310.19357v2#S2.Thmtheorem4 "Theorem 2.4. ‣ 2.2. Statement of the main theorem ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), an estimate that involves an additional average over products of many primes. This reduction, carried out in [Section 2](https://arxiv.org/html/2310.19357v2#S2 "2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), follows the clever manipulations of Tao[[25](https://arxiv.org/html/2310.19357v2#bib.bib5)].
+
+The proof of [Theorem 2.4](https://arxiv.org/html/2310.19357v2#S2.Thmtheorem4 "Theorem 2.4. ‣ 2.2. Statement of the main theorem ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture") begins with [Proposition 3.1](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem1 "Proposition 3.1. ‣ 3.1. Centred sum ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), which replaces the double sum in [Theorem 2.4](https://arxiv.org/html/2310.19357v2#S2.Thmtheorem4 "Theorem 2.4. ‣ 2.2. Statement of the main theorem ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture") with a more convenient ‘centred’ version. The proof of [Proposition 3.1](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem1 "Proposition 3.1. ‣ 3.1. Centred sum ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture") relies on an exponential sum estimate of Matomäki, Radziwiłł and Tao[[14](https://arxiv.org/html/2310.19357v2#bib.bib6)].
+
+Following the approach of Helfgott and Radziwiłł[[10](https://arxiv.org/html/2310.19357v2#bib.bib1)], our task reduces to proving [Proposition 3.4](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem4 "Proposition 3.4 (Spectral radius of restriction). ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), a bound on the eigenvalues of a certain symmetric matrix (denoted \widetilde{A}|_{X} in the preceding section).
+
+The high trace method cannot be applied directly to this matrix, due to the excessive contribution of ‘backtracking walks’ that repeatedly visit integers with a very large number of prime factors. Helfgott and Radziwiłł[[10](https://arxiv.org/html/2310.19357v2#bib.bib1)] overcame this obstacle by introducing smooth weights to discard such integers. Unfortunately, this method creates considerable technical difficulties, which would be even more severe in our setting.
+
+Instead, we replace our matrix with a related _non-backtracking matrix_, which is no longer symmetric. We relate its spectral properties to those of the original matrix using a fundamental identity for non-backtracking operators, known as the _Ihara-Bass formula_ ([Proposition 4.5](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem5 "Proposition 4.5 (Ihara-Bass formula). ‣ 4.2. The Ihara-Bass formula ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture")).
+
+As a result, it suffices to prove [Proposition 4.7](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem7 "Proposition 4.7 (Spectral tail bound for 𝑀_𝑌). ‣ 4.2. The Ihara-Bass formula ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), a tail estimate on the eigenvalues of the non-backtracking matrix. In turn, this spectral tail estimate follows from [Proposition 5.3](https://arxiv.org/html/2310.19357v2#S5.Thmtheorem3 "Proposition 5.3 (High trace bound for 𝑀_𝑌). ‣ 5.1. Statement of the high trace bound ‣ 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), which bounds the trace of a high power of the non-backtracking matrix.
+
+The proof of this high trace bound is technically involved, occupying [Sections 7](https://arxiv.org/html/2310.19357v2#S7 "7. Definition of the set 𝑌_𝐿 ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), [8](https://arxiv.org/html/2310.19357v2#S8 "8. Single and repeated primes ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), [9](https://arxiv.org/html/2310.19357v2#S9 "9. Cancellation from single primes ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), [10](https://arxiv.org/html/2310.19357v2#S10 "10. Predictable walks ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), [11](https://arxiv.org/html/2310.19357v2#S11 "11. Triangular systems of divisibility constraints ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), [12](https://arxiv.org/html/2310.19357v2#S12 "12. Unpredictable walks ‣ Improved bounds for the two-point logarithmic Chowla conjecture") and[13](https://arxiv.org/html/2310.19357v2#S13 "13. Prohibited progressions and the combinatorial sieve ‣ Improved bounds for the two-point logarithmic Chowla conjecture"). To guide the reader, we provide a detailed overview of this part of the argument in [Section 6](https://arxiv.org/html/2310.19357v2#S6 "6. Overview of the proof of the high trace bound ‣ Improved bounds for the two-point logarithmic Chowla conjecture").
+
+## Acknowledgements
+
+The author is supported by the Oxford Mathematical Institute and a Saven European Scholarship. I wish to express my deep gratitude to James Maynard, whose guidance, encouragement, and continuous discussions have played a vital role in the successful completion of this work. Furthermore, I am grateful to Ben Green, Jad Hamdan, Harald Helfgott, Mayank Pandey, Joni Teräväinen, and the PhD students and postdocs of the Oxford analytic number theory group for enriching discussions. I would like to thank Jon Keating for encouraging me to persevere with the non-backtracking approach, and for providing useful references on the Ihara zeta function.
+
+### 1.4. Symbols and notation
+
+For ease of reading, we provide a table showing the main parameters, their size and a reference to where they are introduced.
+
+The following table contains most of the other symbols used repeatedly in the paper.
+
+We write f\ll g or f=O(g) if |f|\leqslant Cg for some absolute constant C>0. The notation f\asymp g means that f\ll g and g\ll f.
+
+If a,b\in\mathbb{Z}, we write \llbracket a,b\rrbracket:=\mathbb{Z}\cap[a,b] (=\emptyset if a>b), and we call a set of this form a _discrete interval_. Its length, or size, is its cardinality (b-a+1 if a\leqslant b). For n\in\mathbb{N}, we write \llbracket n\rrbracket:=\{1,2,\ldots,n\}.
+
+If A\subset\mathbb{R}, we write \pm A for \{\sigma a:\sigma\in\{\pm 1\},\,a\in A\}.
+
+In this paper, the term _arithmetic progression_ always refers to a ‘two-sided infinite’ arithmetic progression of the form a+q\mathbb{Z} for some a\in\mathbb{Z} and q\in\mathbb{N}. The modulus q of an arithmetic progression R=a+q\mathbb{Z} is denoted by q_{R}.
+
+For n\in\mathbb{Z}, we write \omega(n) for the number of distinct prime factors of n. If \mathcal{P} is a set of primes, we let \omega_{\mathcal{P}}(n) be the number of primes in \mathcal{P} that divide n. Euler’s totient function and the divisor sum function are denoted by \varphi and \sigma_{1}, respectively. The p-adic valuation of n\in\mathbb{N} is denoted by \nu_{p}(n).
+
+If A=(a_{m,n})_{m,n\in I} is a square matrix with complex entries indexed by a set I, and J\subset I, we write A|_{J} for the restriction of A to the rows and columns indexed by J. The conjugate transpose of A is denoted by A^{*}. The operator norm of A is \left\|A\right\|_{\mathrm{op}}:=\sup_{\left\|x\right\|_{2}=1}\left\|Ax\right\|_{2}. The spectral radius of A is the largest absolute value of an eigenvalue of A. The eigenvalues of a matrix are always counted with multiplicity.
+
+## 2. Main theorem and consequences
+
+### 2.1. Main parameters
+
+To state our main theorem, we need to introduce some parameters. We will use the following notation throughout the paper.
+
+###### Notation 2.1(\varepsilon_{1}, H, H_{0}).
+
+Let \varepsilon_{1}>0 be a sufficiently small constant. Let H\in\mathbb{N} be sufficiently large in terms of \varepsilon_{1}. Let H_{0}:=\exp\!\big((\log H)^{1-\varepsilon_{1}}\big).
+
+###### Definition 2.2(J, \mathcal{P}_{i}, V_{i}, V).
+
+Let J be an integer satisfying 1\leqslant J\leqslant\varepsilon_{1}^{2}\log\log H.
+
+For 1\leqslant j\leqslant J, let \mathcal{P}_{j} be the set of all primes p such that
+
+C^{2j-2}<\frac{\log p}{\log H_{0}}<C^{2j-1},
+
+where C:=\exp\!\big(\varepsilon_{1}(\log\log H)/(2J)\big).
+
+For each 1\leqslant j\leqslant J, we define V_{j}:=\sum_{p\in\mathcal{P}_{j}}1/p, and we let V:=\max_{1\leqslant j\leqslant J}V_{j}. \triangleleft
+
+We establish simple estimates concerning the sets \mathcal{P}_{j} and the associated parameters V_{j}, which will be used repeatedly in the sequel.
+
+###### Lemma 2.3.
+
+The sets \mathcal{P}_{j} and parameters V_{j} satisfy the following properties:
+
+1.   (a)
+\mathcal{P}_{1},\ldots,\mathcal{P}_{J} are disjoint subsets of (H_{0},H);
+
+2.   (b)
+if (p_{1},\ldots,p_{J})\in\mathcal{P}_{1}\times\cdots\times\mathcal{P}_{J}, then p_{1}p_{2}\cdots p_{J}<H and p_{1}p_{2}\cdots p_{i}<p_{i+1}^{1/10} for all 1\leqslant i<J;
+
+3.   (c)
+\varepsilon_{1}^{-1}\ll V\asymp\displaystyle\frac{\varepsilon_{1}\log\log H}{J}\ll\varepsilon_{1}\log\log H;
+
+4.   (d)
+V_{1}V_{2}\cdots V_{J}\asymp V^{J}\ll(\log H)^{c_{0}(\varepsilon_{1})} where c_{0}(\varepsilon_{1}):=\varepsilon_{1}^{2}\log(\frac{1}{2\varepsilon_{1}}). Moreover, in the special case where {J=\lfloor\varepsilon_{1}^{2}\log\log H\rfloor}, we have V^{J}\asymp_{\varepsilon_{1}}(\log H)^{c_{0}(\varepsilon_{1})}.
+
+###### Proof.
+
+Let C:=\exp\!\big(\varepsilon_{1}(\log\log H)/(2J)\big); note that C\geqslant 20. Since \mathcal{P}_{j} is the set of all primes in the interval
+
+\Big(\exp\!\left(C^{2j-2}\log H_{0}\right),\ \exp\!\left(C^{2j-1}\log H_{0}\right)\Big),
+
+property [Item a](https://arxiv.org/html/2310.19357v2#S2.I1.i1 "In Lemma 2.3. ‣ 2.1. Main parameters ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture") is clear. If (p_{1},\ldots,p_{J})\in\mathcal{P}_{1}\times\cdots\times\mathcal{P}_{J}, then for all i\in\llbracket J\rrbracket we have
+
+p_{1}p_{2}\cdots p_{i}<\exp\!\bigg(\sum_{1\leqslant j\leqslant i}C^{2j-1}\log H_{0}\bigg)\leqslant\exp\!\Big(2C^{2i-1}\log H_{0}\Big)\leqslant\exp\!\bigg(\frac{C^{2i}}{10}\log H_{0}\bigg).
+
+The right-hand side is \leqslant p_{i+1}^{1/10} if i<J, and equals H^{1/10} if i=J. This proves [Item b](https://arxiv.org/html/2310.19357v2#S2.I1.i2 "In Lemma 2.3. ‣ 2.1. Main parameters ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture").
+
+By Mertens’ second estimate, we have
+
+V_{j}=\frac{\varepsilon_{1}\log\log H}{2J}+O\!\left(\frac{1}{\log H_{0}}\right),
+
+which implies property [Item c](https://arxiv.org/html/2310.19357v2#S2.I1.i3 "In Lemma 2.3. ‣ 2.1. Main parameters ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture") and the bounds
+
+V_{1}V_{2}\cdots V_{J}\asymp V^{J}\asymp\bigg(\frac{\varepsilon_{1}\log\log H}{2J}\bigg)^{J}.
+
+Finally, since J\leqslant\varepsilon_{1}^{2}\log\log H and the function x\mapsto(A/x)^{x} is increasing on [0,A/e], property[Item d](https://arxiv.org/html/2310.19357v2#S2.I1.i4 "In Lemma 2.3. ‣ 2.1. Main parameters ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture") follows. ∎
+
+### 2.2. Statement of the main theorem
+
+Our bound for the two-point logarithmic Chowla correlations is a consequence of the following key estimate.
+
+###### Theorem 2.4.
+
+Let N be an integer such that \log N\geqslant(\log H)^{2.001}. Then
+
+(6)\sum_{(p_{1},\ldots,p_{J})\in\mathcal{P}_{1}\times\cdots\times\mathcal{P}_{J}}\,\sum_{\begin{subarray}{c}n\in(N,2N]\\
+p_{1}\cdots p_{J}\mid n\end{subarray}}\lambda(n)\lambda(n+p_{1}\cdots p_{J})\leqslant e^{O(J)}(V_{1}\cdots V_{J})^{1/2}N.
+
+### 2.3. Proof of the two-point logarithmic Chowla bound
+
+###### Notation 2.7(\mathcal{D}, I_{\mkern-1.0muN}, \mathcal{P}).
+
+To shorten the expressions, we define \mathcal{D}\subset(H_{0},H) to be the set of all products p_{1}p_{2}\cdots p_{J} with p_{j}\in\mathcal{P}_{j} for all j\in\llbracket J\rrbracket. We also write I_{\mkern-1.0muN}:=\mathbb{N}\cap(N,2N] and \mathcal{P}:=\bigsqcup_{j=1}^{J}\mathcal{P}_{j}.
+
+With this notation, we can rewrite the double sum in [6](https://arxiv.org/html/2310.19357v2#S2.E6 "In Theorem 2.4. ‣ 2.2. Statement of the main theorem ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture") as
+
+\sum_{d\in\mathcal{D}}\sum_{\begin{subarray}{c}n\in I_{\mkern-1.0muN}\\
+d\mid n\end{subarray}}\lambda(n)\lambda(n+d).
+
+We now show how a bound on this expression implies a bound on the two-point logarithmic Chowla conjecture. This step is due to Tao [[25](https://arxiv.org/html/2310.19357v2#bib.bib5)], and crucially relies on the multiplicativity of \lambda. Together with the proof of [Proposition 3.1](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem1 "Proposition 3.1. ‣ 3.1. Centred sum ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), this is the only place where the multiplicativity of \lambda is used – the rest of the paper will only use that \lambda is 1-bounded.
+
+###### Proof of [Theorem 1.1](https://arxiv.org/html/2310.19357v2#S1.Thmtheorem1 "Theorem 1.1 (Logarithmic two-point Chowla correlations). ‣ 1.1. Background ‣ 1. Introduction ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), assuming [Theorem 2.4](https://arxiv.org/html/2310.19357v2#S2.Thmtheorem4 "Theorem 2.4. ‣ 2.2. Statement of the main theorem ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture").
+
+Let \varepsilon_{1}, H and H_{0} be as in [Notation 2.1](https://arxiv.org/html/2310.19357v2#S2.Thmtheorem1 "Notation 2.1 (𝜀_1, 𝐻, 𝐻_0). ‣ 2.1. Main parameters ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture"). In particular, \varepsilon_{1}>0 is a sufficiently small absolute constant, and H is chosen sufficiently large in terms of\varepsilon_{1}. Choose J:=\lfloor\varepsilon_{1}^{2}\log\log H\rfloor. Let (\mathcal{P}_{j}), (V_{j}) and V be as in [Definition 2.2](https://arxiv.org/html/2310.19357v2#S2.Thmtheorem2 "Definition 2.2 (𝐽, 𝒫_𝑖, 𝑉_𝑖, 𝑉). ‣ 2.1. Main parameters ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture"). Thus, by [Lemma 2.3](https://arxiv.org/html/2310.19357v2#S2.Thmtheorem3 "Lemma 2.3. ‣ 2.1. Main parameters ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture"),
+
+(8)V^{J}\asymp_{\varepsilon_{1}}(\log H)^{\varepsilon_{1}^{2}\log(\frac{1}{2\varepsilon_{1}})}.
+
+Finally, let x:=\exp\!\big((\log H)^{6}\big).
+
+For any d\in\mathcal{D}, since \lambda is completely multiplicative and \lambda^{2}=1, we may rewrite the logarithmic Chowla average as
+
+\sum_{n\leqslant x}\frac{1}{n}\lambda(n)\lambda(n+1)=\sum_{n\leqslant x}\frac{1}{n}\lambda(dn)\lambda(dn+d)=d\sum_{\begin{subarray}{c}m\leqslant dx\\
+d\mid m\end{subarray}}\frac{1}{m}\lambda(m)\lambda(m+d).
+
+Dividing by d and summing over all d\in\mathcal{D} yields
+
+(9)V_{1}\cdots V_{J}\sum_{n\leqslant x}\frac{1}{n}\lambda(n)\lambda(n+1)=\sum_{d\in\mathcal{D}}\,\sum_{\begin{subarray}{c}m\leqslant dx\\
+d\mid m\end{subarray}}\frac{1}{m}\lambda(m)\lambda(m+d).
+
+We now apply [Theorem 2.4](https://arxiv.org/html/2310.19357v2#S2.Thmtheorem4 "Theorem 2.4. ‣ 2.2. Statement of the main theorem ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture") in a dyadic fashion to bound the right-hand side of [9](https://arxiv.org/html/2310.19357v2#S2.E9 "In Proof of , assuming . ‣ 2.3. Proof of the two-point logarithmic Chowla bound ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture").
+
+For every N such that \log N\geqslant(\log H)^{3}=\sqrt{\log x}, by [Theorem 2.4](https://arxiv.org/html/2310.19357v2#S2.Thmtheorem4 "Theorem 2.4. ‣ 2.2. Statement of the main theorem ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), we know that
+
+(10)\sum_{d\in\mathcal{D}}\sum_{\begin{subarray}{c}n\in I_{\mkern-1.0muN}\\
+d\mid n\end{subarray}}\lambda(n)\lambda(n+d)\leqslant e^{O(J)}V^{J/2}N.
+
+Moreover, when {\log N\leqslant\sqrt{\log x}}, trivially bounding \left|\lambda\right|\leqslant 1 we have
+
+(11)\sum_{d\in\mathcal{D}}\sum_{\begin{subarray}{c}n\in I_{\mkern-1.0muN}\\
+d\mid n\end{subarray}}\lambda(n)\lambda(n+d)\ll V^{J}N.
+
+By a suitable dyadic decomposition, [10](https://arxiv.org/html/2310.19357v2#S2.E10 "In Proof of , assuming . ‣ 2.3. Proof of the two-point logarithmic Chowla bound ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture") and[11](https://arxiv.org/html/2310.19357v2#S2.E11 "Equation 11 ‣ Proof of , assuming . ‣ 2.3. Proof of the two-point logarithmic Chowla bound ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture") together give, for all M\geqslant 1, the bound
+
+(12)\sum_{d\in\mathcal{D}}\sum_{\begin{subarray}{c}m\leqslant M\\
+d\mid m\end{subarray}}\lambda(m)\lambda(m+d)\ll V^{J}\min\!\big(M,e^{\sqrt{\log x}}\big)+e^{O(J)}V^{J/2}M.
+
+By partial summation (and using [8](https://arxiv.org/html/2310.19357v2#S2.E8 "In Proof of , assuming . ‣ 2.3. Proof of the two-point logarithmic Chowla bound ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture")), the estimate [12](https://arxiv.org/html/2310.19357v2#S2.E12 "In Proof of , assuming . ‣ 2.3. Proof of the two-point logarithmic Chowla bound ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture") implies that
+
+(13)\sum_{d\in\mathcal{D}}\sum_{\begin{subarray}{c}m\leqslant x\\
+d\mid m\end{subarray}}\frac{1}{m}\lambda(m)\lambda(m+d)\leqslant e^{O(J)}V^{J/2}\log x.
+
+This is almost the expression in [9](https://arxiv.org/html/2310.19357v2#S2.E9 "In Proof of , assuming . ‣ 2.3. Proof of the two-point logarithmic Chowla bound ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), up to an error
+
+(14)\Bigg|\sum_{d\in\mathcal{D}}\,\sum_{\begin{subarray}{c}x<m\leqslant dx\\
+d\mid m\end{subarray}}\frac{1}{m}\lambda(m)\lambda(m+d)\Bigg|\leqslant\sum_{d\in\mathcal{D}}\,\sum_{\begin{subarray}{c}x<m\leqslant dx\\
+d\mid m\end{subarray}}\frac{1}{m}\ll\sum_{d\in\mathcal{D}}\frac{\log(d)}{d}\ll V^{J}\log H.
+
+Hence, by [13](https://arxiv.org/html/2310.19357v2#S2.E13 "In Proof of , assuming . ‣ 2.3. Proof of the two-point logarithmic Chowla bound ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), [9](https://arxiv.org/html/2310.19357v2#S2.E9 "Equation 9 ‣ Proof of , assuming . ‣ 2.3. Proof of the two-point logarithmic Chowla bound ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture") and[14](https://arxiv.org/html/2310.19357v2#S2.E14 "Equation 14 ‣ Proof of , assuming . ‣ 2.3. Proof of the two-point logarithmic Chowla bound ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), we conclude that
+
+\sum_{n\leqslant x}\frac{1}{n}\lambda(n)\lambda(n+1)\ll\frac{1}{V^{J}}\left(e^{O(J)}V^{J/2}\log x+V^{J}\log H\right).
+
+By [8](https://arxiv.org/html/2310.19357v2#S2.E8 "In Proof of , assuming . ‣ 2.3. Proof of the two-point logarithmic Chowla bound ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), this is \ll(\log x)^{1-c} for some constant c>0 depending only on \varepsilon_{1}, as desired. ∎
+
+## 3. Reformulations of the main theorem
+
+### 3.1. Centred sum
+
+The bound in [Theorem 2.4](https://arxiv.org/html/2310.19357v2#S2.Thmtheorem4 "Theorem 2.4. ‣ 2.2. Statement of the main theorem ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture") turns out to be easier to prove if the divisibility term \mathbf{1}_{p_{1}\mid n}\cdots\mathbf{1}_{p_{J}\mid n} is replaced by the ‘centred’ product \big(\mathbf{1}_{p_{1}\mid n}-\frac{1}{p_{1}}\big)\cdots\big(\mathbf{1}_{p_{J}\mid n}-\frac{1}{p_{J}}\big). The following proposition shows that working with either of these two expressions is equivalent up to a small error.
+
+###### Proposition 3.1.
+
+Let N be an integer such that \log N\geqslant(\log H)^{2}. Let
+
+S_{1}:=\sum_{n\in I_{\mkern-1.0muN}}\sum_{\begin{subarray}{c}d\in\mathcal{D}\\
+d\mid n\end{subarray}}\lambda(n)\lambda(n+d)\quad\text{and}\quad S_{2}:=\sum_{n\in I_{\mkern-1.0muN}}\sum_{d\in\mathcal{D}}\lambda(n)\lambda(n+d)\prod_{p\mid d}\bigg(\mathbf{1}_{p\mid n}-\frac{1}{p}\bigg).
+
+Then
+
+\left|S_{1}-S_{2}\right|\ll\frac{N}{(\log H)^{1/2500}}.
+
+[Proposition 3.1](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem1 "Proposition 3.1. ‣ 3.1. Centred sum ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture") is proved in [Appendix C](https://arxiv.org/html/2310.19357v2#A3 "Appendix C Sum without divisibility conditions ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), using the circle method and crucially relying on an estimate of Matomäki, Radziwiłł and Tao[[14](https://arxiv.org/html/2310.19357v2#bib.bib6)]. We will now focus on the centred expression S_{2}.
+
+### 3.2. Reduction to an eigenvalue bound
+
+To prove our main theorem, we analyse the spectral properties of a matrix whose entries correspond to the coefficients \prod_{p\mid d}\big(\mathbf{1}_{p\mid n}-\frac{1}{p}\big) appearing in S_{2}. This key step effectively suppresses the role of the Liouville function in the problem.
+
+###### Definition 3.2(w_{Y}, A_{Y}).
+
+For any set Y\subset\mathbb{Z}, let w_{Y}:I_{\mkern-1.0muN}\times I_{\mkern-1.0muN}\to\mathbb{R} be the function defined by
+
+w_{Y}(m,n):=\begin{cases}\prod_{p\mid d}\left(\mathbf{1}_{p\mid n}-\frac{1}{p}\right)&\text{if }|m-n|=d\in\mathcal{D}\text{ and }m,n\in Y,\\
+\,{0}&\text{otherwise.}\end{cases}
+
+Define A_{Y} to be the real symmetric matrix 2 2 2 Note that the entries of A_{Y} are indexed by the elements of I_{\mkern-1.0muN}, rather than \{1,\ldots,N\}.A_{Y}:=(w_{Y}(m,n))_{m,n\in I_{\mkern-1.0muN}}. \triangleleft
+
+In this section, we take Y=\mathbb{Z} (so the condition m,n\in Y can be omitted). The general definition of A_{Y} will be useful later: by analysing A_{Y} for a different, more technical choice of Y (introduced in [Definition 7.4](https://arxiv.org/html/2310.19357v2#S7.Thmtheorem4 "Definition 7.4 (𝒴, 𝑌_𝐿). ‣ 7. Definition of the set 𝑌_𝐿 ‣ Improved bounds for the two-point logarithmic Chowla conjecture")), we will obtain spectral information that ultimately applies to A_{\mathbb{Z}}.
+
+As a consequence of this analysis, almost all eigenvalues of A_{\mathbb{Z}} are bounded by e^{O(J)}V^{J/2} in absolute value.3 3 3 This follows from [Proposition 3.4](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem4 "Proposition 3.4 (Spectral radius of restriction). ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture") via Cauchy’s interlacing theorem. In fact, we prove a stronger result—[Proposition 3.4](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem4 "Proposition 3.4 (Spectral radius of restriction). ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture")—which, combined with [Proposition 3.1](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem1 "Proposition 3.1. ‣ 3.1. Centred sum ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), yields our main theorem. To state it, we introduce the following notation.
+
+###### Notation 3.3.
+
+Given a matrix A=(a_{m,n})_{m,n\in I_{\mkern-1.0muN}} and a subset X\subset I_{\mkern-1.0muN}, we write A|_{X} for the principal submatrix (a_{m,n})_{m,n\in X} obtained by deleting all rows and columns at indices not in X.
+
+###### Proposition 3.4(Spectral radius of restriction).
+
+Let N be an integer such that \log N\geqslant(\log H)^{2.001}.
+
+Then, there is a subset X\subset I_{\mkern-1.0muN} with \left|I_{\mkern-1.0muN}\setminus X\right|\ll e^{-JV/3}N such that all eigenvalues of (A_{\mathbb{Z}})|_{X} are bounded in absolute value by e^{O(J)}V^{J/2}.
+
+###### Proof of [Theorem 2.4](https://arxiv.org/html/2310.19357v2#S2.Thmtheorem4 "Theorem 2.4. ‣ 2.2. Statement of the main theorem ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), assuming [Proposition 3.4](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem4 "Proposition 3.4 (Spectral radius of restriction). ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture").
+
+Let S_{1} and S_{2} be as in [Proposition 3.1](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem1 "Proposition 3.1. ‣ 3.1. Centred sum ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture"). Our goal is to show that S_{1}\leqslant e^{O(J)}V^{J/2}N. By [Proposition 3.1](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem1 "Proposition 3.1. ‣ 3.1. Centred sum ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), it suffices to prove the same bound for S_{2}.
+
+Let \bm{\lambda}:=(\lambda(n))_{n\in I_{\mkern-1.0muN}} be the vector of Liouville function values. Up to a negligible error, we can express S_{2} in terms of the matrix A_{\mathbb{Z}} as:
+
+S_{2}=\sum_{\begin{subarray}{c}m,n\in I_{\mkern-1.0muN}\\
+m<n\end{subarray}}\lambda(m)\lambda(n)w_{\mathbb{Z}}(m,n)+O(H^{2})=\frac{1}{2}\bm{\lambda}^{\!\top}\!A_{\mathbb{Z}}\,\bm{\lambda}+O(H^{2}).
+
+To exploit [Proposition 3.4](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem4 "Proposition 3.4 (Spectral radius of restriction). ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), we restrict A_{\mathbb{Z}} to the subset X\subset I_{\mkern-1.0muN} and write \bm{\lambda}|_{X}:=(\lambda(n))_{n\in X}. Since \left|\lambda\right|\leqslant 1, we have
+
+(16)S_{2}=\frac{1}{2}(\bm{\lambda}|_{X})^{\!\top}\!(A_{\mathbb{Z}})|_{X}(\bm{\lambda}|_{X})+O\Bigg(H^{2}+\sum_{n\in I_{\mkern-1.0muN}\setminus X}\sum_{d\in\mathcal{D}}\prod_{p\mid d}\bigg(\mathbf{1}_{p\mid n}+\frac{1}{p}\bigg)\Bigg).
+
+By [Proposition 3.4](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem4 "Proposition 3.4 (Spectral radius of restriction). ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), the operator norm of (A_{\mathbb{Z}})|_{X} is bounded by e^{O(J)}V^{J/2}, as this is a real symmetric matrix. Therefore, by Cauchy-Schwarz,
+
+\big\lvert(\bm{\lambda}|_{X})^{\!\top}\!(A_{\mathbb{Z}})|_{X}(\bm{\lambda}|_{X})\big\rvert\leqslant\left\|\bm{\lambda}|_{X}\right\|_{2}\left\|(A_{\mathbb{Z}})|_{X}(\bm{\lambda}|_{X})\right\|_{2}\leqslant e^{O(J)}V^{J/2}\left\|\bm{\lambda}|_{X}\right\|_{2}^{2}\leqslant e^{O(J)}V^{J/2}N,
+
+which gives the desired bound for the main term in [16](https://arxiv.org/html/2310.19357v2#S3.E16 "In Proof of , assuming . ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture").
+
+It remains treat the error term. By the AM-GM inequality,
+
+\sum_{d\in\mathcal{D}}\prod_{p\mid d}\bigg(\mathbf{1}_{p\mid n}+\frac{1}{p}\bigg)=\prod_{j=1}^{J}\big(\omega_{\mathcal{P}_{j}}(n)+V_{j}\big)\leqslant\left(\frac{\omega_{\mathcal{P}}(n)}{J}+V\right)^{J}.
+
+Hence, by Cauchy-Schwarz,
+
+\sum_{n\in I_{\mkern-1.0muN}\setminus X}\sum_{d\in\mathcal{D}}\prod_{p\mid d}\bigg(\mathbf{1}_{p\mid n}+\frac{1}{p}\bigg)\leqslant\left|I_{\mkern-1.0muN}\setminus X\right|^{1/2}\Bigg(V^{2J}\sum_{n\in I_{\mkern-1.0muN}}\left(\frac{\omega_{\mathcal{P}}(n)/V+J}{J}\right)^{2J}\Bigg)^{1/2}.
+
+Since (a/k)^{k}\leqslant e^{a} for any a\geqslant 0 and k\in\mathbb{N}, we have
+
+\sum_{n\in I_{\mkern-1.0muN}}\left(\frac{\omega_{\mathcal{P}}(n)/V+J}{J}\right)^{2J}\leqslant e^{O(J)}\sum_{n\in I_{\mkern-1.0muN}}e^{2\omega_{\mathcal{P}}(n)/V}\leqslant e^{O(J)}N
+
+using [[17](https://arxiv.org/html/2310.19357v2#bib.bib12), Lemma(3.10)] for the last inequality. Recalling that \left|I_{\mkern-1.0muN}\setminus X\right|\ll e^{-JV/3}N, we conclude that
+
+\sum_{n\in I_{\mkern-1.0muN}\setminus X}\sum_{d\in\mathcal{D}}\prod_{p\mid d}\bigg(\mathbf{1}_{p\mid n}+\frac{1}{p}\bigg)\ll e^{O(J)}V^{J}e^{-JV/6}N.
+
+By part [Item c](https://arxiv.org/html/2310.19357v2#S2.I1.i3 "In Lemma 2.3. ‣ 2.1. Main parameters ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture") of [Lemma 2.3](https://arxiv.org/html/2310.19357v2#S2.Thmtheorem3 "Lemma 2.3. ‣ 2.1. Main parameters ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), and since \varepsilon_{1} is assumed to be sufficiently small, this is \ll e^{-JV/8}N. Thus, the error term in [16](https://arxiv.org/html/2310.19357v2#S3.E16 "In Proof of , assuming . ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture") is negligible compared to our main term bound. ∎
+
+## 4. Approach via non-backtracking operators
+
+In the previous section, we reduced the proof of our main theorem to understanding the spectral properties of the matrix A_{\mathbb{Z}} from [Definition 3.2](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem2 "Definition 3.2 (𝑤_𝑌, 𝐴_𝑌). ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture"). This matrix can be viewed as the weighted adjacency matrix of a certain weighted graph. To make the analysis more accessible to the trace method, we instead consider a related object: the _non-backtracking matrix_ of this graph. We then use the _Ihara-Bass formula_ to transfer spectral information back to the original adjacency matrix.
+
+### 4.1. Adjacency and non-backtracking operators
+
+We now introduce the necessary definitions and notation for working with weighted graphs and their associated linear operators.
+
+###### Definition 4.2.
+
+A _weighted graph_ G is a triple (V,E,w) where
+
+*   •
+V is a finite set of vertices,
+
+*   •
+E\subseteq\binom{V}{2} is the set of edges,
+
+*   •
+w:E\to\mathbb{R} is a real-valued weight function.
+
+The corresponding set of _directed edges_ is defined as
+
+\vec{E}:=\{(x,y)\in V^{2}:\{x,y\}\in E\}.
+
+For any (x,y)\in\vec{E}, we define its weight as w(x,y):=w(\{x,y\}). For pairs (x,y)\notin\vec{E}, we set w(x,y):=0. Note that this implies w(x,y)=w(y,x) and w(x,x)=0. \triangleleft
+
+###### Notation 4.3.
+
+For any set S, we write L(S) for the \mathbb{C}-vector space freely generated by S. Thus, L(V) and L(\vec{E}) are \mathbb{C}-vector spaces with bases V and \vec{E} respectively, and we denote their corresponding basis vectors by x for x\in V and \overrightarrow{\texttt{xy}} for (x,y)\in\vec{E}.
+
+###### Definition 4.4.
+
+The _adjacency operator_ A:L(V)\to L(V) is the linear map defined for each basis vector x of L(V) by
+
+A(\texttt{x}):=\sum_{y\in V}w(x,y)\,\texttt{y}.
+
+The _non-backtracking operator_ M:L(\vec{E})\to L(\vec{E}) acts on a basis vector \vec{\texttt{xy}} (where (x,y)\in\vec{E}) as
+
+M(\overrightarrow{\texttt{xy}}):=\sum_{\begin{subarray}{c}(y,z)\in\vec{E}\\
+z\neq x\end{subarray}}w(y,z)\,\overrightarrow{\texttt{yz}}
+
+and extends linearly to L(\vec{E}). \triangleleft
+
+We will sometimes identify these operators with their matrices in the natural bases of L(V) and L(\vec{E}), respectively. Note that A is symmetric, while M is usually not.
+
+### 4.2. The Ihara-Bass formula
+
+The _Ihara-Bass formula_ establishes a remarkable connection between the characteristic polynomial of the non-backtracking operator and a deformed characteristic polynomial of the adjacency operator. This formula originates from the work of Ihara[[13](https://arxiv.org/html/2310.19357v2#bib.bib26)], who proved it in an algebraic setting corresponding to regular graphs, and was later extended by Bass[[1](https://arxiv.org/html/2310.19357v2#bib.bib25)] to the general unweighted case. The paper by Stark and Terras[[20](https://arxiv.org/html/2310.19357v2#bib.bib27)] is a recommended source for a transparent and elegant proof.
+
+In our setting, we require a version of the Ihara-Bass formula applicable to weighted graphs. We have identified three papers that seem to have derived such an extension independently[[6](https://arxiv.org/html/2310.19357v2#bib.bib19), [7](https://arxiv.org/html/2310.19357v2#bib.bib22), [27](https://arxiv.org/html/2310.19357v2#bib.bib20)]. We state below a formulation adapted to our notation.
+
+###### Proposition 4.5(Ihara-Bass formula).
+
+Let G=(V,E,w) be a weighted graph, with adjacency and non-backtracking operators A and M. Define the linear maps {D_{u},O_{u}:L(V)\to L(V)} for each basis vector x by
+
+(17)D_{u}(\text{{{x}}}):=\sum_{y\in V}\frac{w(x,y)^{2}}{1-u^{2}w(x,y)^{2}}\text{{{x}}}\quad\text{and}\quad O_{u}(\text{{{x}}}):=u\sum_{y\in V}\frac{w(x,y)^{3}}{1-u^{2}w(x,y)^{2}}\text{{{y}}},
+
+where u\in\mathbb{C} is a parameter chosen such that all denominators are non-zero. Then,4 4 4 In the formula [18](https://arxiv.org/html/2310.19357v2#S4.E18 "In Proposition 4.5 (Ihara-Bass formula). ‣ 4.2. The Ihara-Bass formula ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), the same letter I denotes the identity operator on L(\vec{E}) on the left-hand side, and the identity operator on L(V) on the right-hand side.
+
+(18)\det(I-uM)=\det\!\big(I-uA+u^{2}(D_{u}-O_{u})\big)\prod_{\{x,y\}\in E}\big(1-u^{2}w(x,y)^{2}\big).
+
+We detail in [Appendix A](https://arxiv.org/html/2310.19357v2#A1 "Appendix A The non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture") how [Proposition 4.5](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem5 "Proposition 4.5 (Ihara-Bass formula). ‣ 4.2. The Ihara-Bass formula ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture") can be derived from the results in[[6](https://arxiv.org/html/2310.19357v2#bib.bib19)], where the notation differs slightly from ours.
+
+The Ihara-Bass formula will be applied to the graph whose edges are weighted by the function w_{Y} from [Definition 3.2](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem2 "Definition 3.2 (𝑤_𝑌, 𝐴_𝑌). ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture").
+
+###### Definition 4.6(G_{Y}, M_{Y}, D_{Y,u}, O_{Y,u}).
+
+For any set Y\subset\mathbb{Z}, we define G_{Y} to be the weighted graph with vertex set I_{\mkern-1.0muN} and weight function w_{Y}.5 5 5 The edge set of G_{Y} is defined to be the set of all \{m,n\}\subset I_{\mkern-1.0muN} with w_{Y}(m,n)\neq 0.
+
+We write A_{Y} and M_{Y} for the adjacency and non-backtracking operators associated to G_{Y}.6 6 6 Note that this definition of A_{Y} is consistent with the one in [Definition 3.2](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem2 "Definition 3.2 (𝑤_𝑌, 𝐴_𝑌). ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture"). In addition, we denote by D_{Y,u} and O_{Y,u} the operators D_{u} and O_{u} from [Proposition 4.5](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem5 "Proposition 4.5 (Ihara-Bass formula). ‣ 4.2. The Ihara-Bass formula ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), specialised to the weighted graph G_{Y}. \triangleleft
+
+We now state a central proposition, which provides a bound for almost all eigenvalues of the non-backtracking operator M_{Y}, for some well-chosen set Y. Recall that eigenvalues are always counted with multiplicity.
+
+###### Proposition 4.7(Spectral tail bound for M_{Y}).
+
+Let N be an integer such that \log N\geqslant(\log H)^{2.001}.
+
+Then, there exists a set Y\subset\mathbb{Z} with the following properties.
+
+1.   (1)
+\left|I_{\mkern-1.0muN}\setminus Y\right|\ll H_{0}^{-1/3}N.
+
+2.   (2)
+All but \leqslant N/H^{3} eigenvalues of M_{Y} have absolute value at most e^{O(J)}V^{J/2}.
+
+The plan for the rest of this section is to use the Ihara-Bass formula to relate the spectrum of M_{Y} to that of the adjacency operator A_{Y}. This will allow us to prove [Proposition 3.4](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem4 "Proposition 3.4 (Spectral radius of restriction). ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture") assuming [Proposition 4.7](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem7 "Proposition 4.7 (Spectral tail bound for 𝑀_𝑌). ‣ 4.2. The Ihara-Bass formula ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture"). The proof of [Proposition 4.7](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem7 "Proposition 4.7 (Spectral tail bound for 𝑀_𝑌). ‣ 4.2. The Ihara-Bass formula ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture") will occupy the rest of the paper.
+
+### 4.3. Integers with many prime factors
+
+As explained in [Remark 3.5](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem5 "Remark 3.5. ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), the integers n\in I_{\mkern-1.0muN} with an unusually large number of prime factors in \mathcal{P} are responsible for large eigenvalues of the adjacency operator A_{Y} (which disappear when passing to the non-backtracking operator M_{Y}). To handle these large eigenvalues, we study the restriction of A_{Y}, D_{Y,u}, and O_{Y,u} to the integers not having much more than the typical number of prime factors from \mathcal{P}.
+
+###### Definition 4.9.
+
+Let I_{\mkern-1.0muN}^{\mathrm{typ}} be the set of integers n\in I_{\mkern-1.0muN} such that \omega_{\mathcal{P}}(n)\leqslant 2JV. \triangleleft
+
+[Lemma 4.11](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem11 "Lemma 4.11. ‣ 4.3. Integers with many prime factors ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture") shows that the matrices D_{Y,u} and O_{Y,u}, when restricted to I_{\mkern-1.0muN}^{\mathrm{typ}}, have small operator norms, uniformly in u\in[-1/2,1/2]. It relies on the following elementary bound.
+
+###### Lemma 4.10(\ell_{1}-\ell_{\infty} bound).
+
+Let A\in M_{n}(\mathbb{C}) be a matrix with entries (a_{ij})_{1\leqslant i,j\leqslant n}. Then
+
+\left\|A\right\|_{\mathrm{op}}^{2}\leqslant\bigg(\!\max_{i}\sum_{j=1}^{n}|a_{ij}|\bigg)\bigg(\!\max_{j}\sum_{i=1}^{n}|a_{ij}|\bigg).
+
+###### Proof.
+
+By Cauchy-Schwarz, for any v\in\mathbb{C}^{n} we have
+
+\left\|Av\right\|_{2}^{2}\leqslant\sum_{i=1}^{n}\bigg(\sum_{j=1}^{n}|a_{ij}|\bigg)\bigg(\sum_{j=1}^{n}|a_{ij}||v_{j}|^{2}\bigg)\leqslant\bigg(\!\max_{i}\sum_{j=1}^{n}|a_{ij}|\bigg)\bigg(\!\max_{j}\sum_{i=1}^{n}|a_{ij}|\bigg)\left\|v\right\|_{2}^{2},
+
+which gives the claimed operator norm bound. ∎
+
+###### Lemma 4.11.
+
+Let Y\subset\mathbb{Z} be any set. Then, for any u\in[-1/2,1/2],
+
+\big\|{D_{Y,u}|_{I_{\mkern-1.0muN}^{\mathrm{typ}}}\big\|}_{\mathrm{op}},\big\|{O_{Y,u}|_{I_{\mkern-1.0muN}^{\mathrm{typ}}}\big\|}_{\mathrm{op}}\leqslant e^{O(J)}V^{J}.
+
+###### Proof.
+
+We apply the simple \ell_{1}-\ell_{\infty} bound given by [Lemma 4.10](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem10 "Lemma 4.10 (ℓ_1-ℓ_∞ bound). ‣ 4.3. Integers with many prime factors ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture"). Uniformly in u\in[-1/2,1/2], using that \left\|w_{Y}\right\|_{\infty}\leqslant 1, we get
+
+\big\|{D_{Y,u}|_{I_{\mkern-1.0muN}^{\mathrm{typ}}}\big\|}_{\mathrm{op}},\big\|{O_{Y,u}|_{I_{\mkern-1.0muN}^{\mathrm{typ}}}\big\|}_{\mathrm{op}}\ll\max_{m\in I_{\mkern-1.0muN}^{\mathrm{typ}}}\sum_{n\in I_{\mkern-1.0muN}^{\mathrm{typ}}}\left|w_{Y}(m,n)\right|.
+
+By the AM-GM inequality, for any m\in I_{\mkern-1.0muN}^{\mathrm{typ}}, we have
+
+\sum_{n\in I_{\mkern-1.0muN}^{\mathrm{typ}}}\left|w_{Y}(m,n)\right|\ll\sum_{d\in\mathcal{D}}\prod_{p\mid d}\left(\mathbf{1}_{p\mid m}+\frac{1}{p}\right)=\prod_{j=1}^{J}\big(\omega_{\mathcal{P}_{j}}(m)+V_{j}\big)\leqslant\left(\frac{\omega_{\mathcal{P}}(m)}{J}+V\right)^{J}.
+
+Since \omega_{\mathcal{P}}(m)\leqslant 2JV by definition of I_{\mkern-1.0muN}^{\mathrm{typ}}, the claimed bound follows. ∎
+
+Intuitively, [Lemma 4.11](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem11 "Lemma 4.11. ‣ 4.3. Integers with many prime factors ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture") indicates that the terms D_{Y,u} and O_{Y,u} in the Ihara-Bass formula [18](https://arxiv.org/html/2310.19357v2#S4.E18 "In Proposition 4.5 (Ihara-Bass formula). ‣ 4.2. The Ihara-Bass formula ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture") should constitute only a small perturbation to the characteristic polynomial of A_{Y}, once we restrict to I_{\mkern-1.0muN}^{\mathrm{typ}}. Moreover, this restriction should only affect a few eigenvalues, since the condition \omega_{\mathcal{P}}(n)\leqslant 2JV is satisfied by most integers n\in I_{\mkern-1.0muN}.
+
+To make these ideas precise, we employ a topological argument together with Cauchy’s interlacing theorem. The following lemma will be used to handle eigenvalues occurring with multiplicity greater than one.
+
+###### Lemma 4.12.
+
+Let P\in\mathbb{C}[X] be a non-zero polynomial. Suppose that, for x\in[0,1],
+
+P(x)=f_{1}(x)f_{2}(x)\cdots f_{n}(x)g(x)
+
+where f_{i}:[0,1]\to\mathbb{C} are Lipschitz continuous functions and g:[0,1]\to\mathbb{C} is a continuous function. If each f_{i} has a root in (0,1), then P has at least n roots in (0,1), counting multiplicities.
+
+###### Proof.
+
+Let x_{0}\in(0,1) be a point such that f_{i}(x_{0})=0 for all i in a subset I\subset\{1,\ldots,n\}. It suffices to show that P^{(k)}(x_{0})=0 for all 0\leqslant k<\left|I\right|. We prove this by induction on k. Suppose that P(x_{0})=P^{\prime}(x_{0})=\cdots=P^{(k-1)}(x_{0})=0 for some 0\leqslant k<|I|. By Taylor expansion,
+
+P^{(k)}(x_{0})=k!\lim_{x\to x_{0}}\frac{P(x)}{(x-x_{0})^{k}}=k!g(x_{0})\prod_{i\notin I}f_{i}(x_{0})\cdot\lim_{x\to x_{0}}(x-x_{0})^{|I|-k}\prod_{i\in I}\frac{f_{i}(x)}{x-x_{0}}.
+
+Since each f_{i} is Lipschitz continuous, the last product remains bounded as x\to x_{0}, and thus P^{(k)}(x_{0})=0 as desired. ∎
+
+Using [Lemmas 4.11](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem11 "Lemma 4.11. ‣ 4.3. Integers with many prime factors ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture") and[4.12](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem12 "Lemma 4.12. ‣ 4.3. Integers with many prime factors ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), we can now relate the eigenvalues of the restricted adjacency matrix A_{Y}|_{I_{\mkern-1.0muN}^{\mathrm{typ}}} to those of the non-backtracking matrix M_{Y} via the Ihara-Bass formula.
+
+To do this, we require two classical facts on eigenvalues of Hermitian matrices. For any Hermitian matrix M\in M_{n}(\mathbb{C}), write {\lambda_{1}(M)\geqslant\ldots\geqslant\lambda_{n}(M)} for the eigenvalues of M in descending order.
+
+###### Lemma 4.13(Weyl inequalities).
+
+Let A,B\in M_{n}(\mathbb{C}) be Hermitian matrices. Then
+
+\lambda_{i+h}(A)+\lambda_{n-h}(B)\leqslant\lambda_{i}(A+B)\leqslant\lambda_{i-h}(A)+\lambda_{h+1}(B)
+
+for all 1\leqslant i\leqslant n and 0\leqslant h\leqslant\min(i-1,n-i).
+
+###### Proof.
+
+This is [[3](https://arxiv.org/html/2310.19357v2#bib.bib18), Theorem III.2.1]. ∎
+
+###### Lemma 4.14(Cauchy’s interlacing theorem).
+
+Let A\in M_{n}(\mathbb{C}) be a Hermitian matrix and let B be the matrix obtained by deleting r rows of A and the r corresponding columns, for some r<n. Then
+
+\lambda_{i+r}(A)\leqslant\lambda_{i}(B)\leqslant\lambda_{i}(A)
+
+for all 1\leqslant i\leqslant n-r.
+
+###### Proof.
+
+This is [[3](https://arxiv.org/html/2310.19357v2#bib.bib18), Corollary III.1.5]. ∎
+
+###### Lemma 4.15.
+
+Let C\geqslant 1 be a sufficiently large constant. Let Y\subset\mathbb{Z} be any set and let k\geqslant 1.
+
+If the restricted adjacency matrix A_{Y}|_{I_{\mkern-1.0muN}^{\mathrm{typ}}} has at least k eigenvalues larger than 2C^{J}V^{J/2} in absolute value, then the non-backtracking matrix M_{Y} must have at least k eigenvalues larger than C^{J}V^{J/2} in absolute value.
+
+###### Proof.
+
+Since A_{Y}|_{I_{\mkern-1.0muN}^{\mathrm{typ}}} is real and symmetric, its eigenvalues are real. We treat the case of positive eigenvalues, the negative case being similar.
+
+Suppose that A_{Y}|_{I_{\mkern-1.0muN}^{\mathrm{typ}}} has at least k positive eigenvalues larger than 2C^{J}V^{J/2}. By the Weyl inequalities ([Lemma 4.13](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem13 "Lemma 4.13 (Weyl inequalities). ‣ 4.3. Integers with many prime factors ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture")), the k largest eigenvalues of the perturbed matrix
+
+\big(A_{Y}-u(D_{Y,u}-O_{Y,u})\big)\big|_{I_{\mkern-1.0muN}^{\mathrm{typ}}}
+
+are bounded below by
+
+(19)2C^{J}V^{J/2}-u\big\|{D_{Y,u}|_{I_{\mkern-1.0muN}^{\mathrm{typ}}}\big\|}_{\mathrm{op}}-u\big\|{O_{Y,u}|_{I_{\mkern-1.0muN}^{\mathrm{typ}}}\big\|}_{\mathrm{op}}.
+
+By [Lemma 4.11](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem11 "Lemma 4.11. ‣ 4.3. Integers with many prime factors ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), the expression [19](https://arxiv.org/html/2310.19357v2#S4.E19 "In Proof. ‣ 4.3. Integers with many prime factors ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture") is greater than C^{J}V^{J/2} for every u\in[-V^{-J/2},V^{-J/2}], provided C is sufficiently large. Hence, by Cauchy’s interlacing theorem ([Lemma 4.14](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem14 "Lemma 4.14 (Cauchy’s interlacing theorem). ‣ 4.3. Integers with many prime factors ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture")), the unrestricted matrix
+
+A_{Y}-u(D_{Y,u}-O_{Y,u})
+
+has at least k eigenvalues greater than C^{J}V^{J/2}, for every u\in[-V^{-J/2},V^{-J/2}].
+
+Let \mathcal{H}_{N} denote the space of N\times N Hermitian matrices, equipped with the operator norm. For A\in\mathcal{H}_{N}, let \lambda_{1}(A)\geqslant\ldots\geqslant\lambda_{N}(A) be the eigenvalues of A. The Weyl inequalities ([Lemma 4.13](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem13 "Lemma 4.13 (Weyl inequalities). ‣ 4.3. Integers with many prime factors ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture")) imply that each \lambda_{i} is a 1-Lipschitz function on \mathcal{H}_{N}. Since the map u\mapsto A_{Y}-u(D_{Y,u}-O_{Y,u})\in\mathcal{H}_{N} is smooth over -1<u<1, the function
+
+f_{i}(u):=1-u\lambda_{i}\big(A_{Y}-u(D_{Y,u}-O_{Y,u})\big)
+
+is Lipschitz on [-1/2,1/2], for every 1\leqslant i\leqslant N.
+
+For each i, we have f_{i}(0)=1. Moreover, for 1\leqslant i\leqslant k, we have f_{i}(C^{-J}V^{-J/2})<0 by our lower bound on the k largest eigenvalues of A_{Y}-u(D_{Y,u}-O_{Y,u}). Therefore, the functions f_{1},\ldots,f_{k} each have a root in the interval (0,C^{-J}V^{-J/2}).
+
+By the Ihara-Bass formula ([Proposition 4.5](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem5 "Proposition 4.5 (Ihara-Bass formula). ‣ 4.2. The Ihara-Bass formula ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture")), for |u|<1 we have the identity
+
+\det(I-uM_{Y})=\prod_{i=1}^{N}f_{i}(u)\cdot g(u),
+
+where g is a continuous function that can be written down explicitly. Applying [Lemma 4.12](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem12 "Lemma 4.12. ‣ 4.3. Integers with many prime factors ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), we conclude that \det(I-uM_{Y}) has at least k roots in (0,C^{-J}V^{-J/2}), counting multiplicities. In other words, M_{Y} has at least k eigenvalues greater than C^{J}V^{J/2}, as desired. ∎
+
+### 4.4. Eigenvalues of localised matrices
+
+A key feature of our adjacency matrix A_{Y} is that its non-zero entries lie close to the diagonal. The next lemma states that, if such a Hermitian matrix has a very small number of large eigenvalues, it is possible to delete a small number of rows and columns to obtain a matrix without any large eigenvalue.
+
+###### Lemma 4.16.
+
+Let N\geqslant 10H^{3}. Let A=(a_{m,n})_{m,n\in I_{\mkern-1.0muN}} be a Hermitian matrix such that a_{m,n}=0 whenever {|m-n|\geqslant H}.
+
+Let \alpha>0, and suppose that A has \leqslant N/H^{3} eigenvalues with absolute value \geqslant\alpha. Then, there is a subset E\subset I_{\mkern-1.0muN} with \left|I_{\mkern-1.0muN}\setminus E\right|\ll N/H such that every eigenvalue of A|_{E} has absolute value \leqslant\alpha.
+
+###### Proof.
+
+Consider a sequence of disjoint discrete intervals
+
+B_{1},\ldots,B_{q}\subset I_{\mkern-1.0muN},
+
+each of length |B_{i}|=H^{2}. We define this sequence such that for each i, B_{i} is separated from B_{i+1} by a gap of size exactly H. Choosing q to be maximal with these properties, we have q\asymp N/H^{2} and
+
+(20)\left|I_{\mkern-1.0muN}\setminus\bigsqcup_{i=1}^{q}B_{i}\right|\ll qH+H^{2}\ll N/H.
+
+Since B_{1},\ldots,B_{q} have pairwise distance \geqslant H, the property of A in the statement implies that the principal submatrix A^{\prime}:=A|_{\bigsqcup_{1\leqslant i\leqslant q}B_{i}} is block-diagonal, with blocks (A|_{B_{i}})_{1\leqslant i\leqslant q}.
+
+Let \mathcal{I} be the set of all indices i such that A|_{B_{i}} has an eigenvalue whose absolute value is >\alpha. Then, defining
+
+E:=\bigsqcup_{\begin{subarray}{c}1\leqslant i\leqslant q\\
+i\notin\mathcal{I}\end{subarray}}B_{i},
+
+the matrix A|_{E} has no eigenvalue with absolute value >\alpha.
+
+By [20](https://arxiv.org/html/2310.19357v2#S4.E20 "In Proof. ‣ 4.4. Eigenvalues of localised matrices ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), we have
+
+\left|I_{\mkern-1.0muN}\setminus E\right|\ll|\mathcal{I}|H^{2}+N/H.
+
+Observe moreover that |\mathcal{I}|\leqslant N/H^{3}. Indeed, A has \leqslant N/H^{3} eigenvalues with absolute value \geqslant\alpha, so by Cauchy’s interlacing theorem ([Lemma 4.14](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem14 "Lemma 4.14 (Cauchy’s interlacing theorem). ‣ 4.3. Integers with many prime factors ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture")) the same holds for its principal submatrix A^{\prime}. This implies the desired bound \left|I_{\mkern-1.0muN}\setminus E\right|\ll N/H. ∎
+
+We can now prove that [Proposition 4.7](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem7 "Proposition 4.7 (Spectral tail bound for 𝑀_𝑌). ‣ 4.2. The Ihara-Bass formula ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture") implies [Proposition 3.4](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem4 "Proposition 3.4 (Spectral radius of restriction). ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture"). We remark that [Lemma 4.16](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem16 "Lemma 4.16. ‣ 4.4. Eigenvalues of localised matrices ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture") will not be applied directly to A_{Y}, but rather to its restriction to I_{\mkern-1.0muN}^{\mathrm{typ}}. This is because A_{Y} admits large eigenvalues arising from integers outside I_{\mkern-1.0muN}^{\mathrm{typ}} (see [Remark 3.5](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem5 "Remark 3.5. ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture")), in greater number than allowed by [Lemma 4.16](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem16 "Lemma 4.16. ‣ 4.4. Eigenvalues of localised matrices ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture").
+
+###### Proof of [Proposition 3.4](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem4 "Proposition 3.4 (Spectral radius of restriction). ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), assuming [Proposition 4.7](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem7 "Proposition 4.7 (Spectral tail bound for 𝑀_𝑌). ‣ 4.2. The Ihara-Bass formula ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture").
+
+Let Y\subset\mathbb{Z} be the set provided by [Proposition 4.7](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem7 "Proposition 4.7 (Spectral tail bound for 𝑀_𝑌). ‣ 4.2. The Ihara-Bass formula ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture"). In particular,
+
+(21)\left|I_{\mkern-1.0muN}\setminus Y\right|\ll H_{0}^{-1/3}N.
+
+In addition, all but \leqslant N/H^{3} eigenvalues of the non-backtracking matrix M_{Y} have absolute value at most e^{O(J)}V^{J/2}. By [Lemma 4.15](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem15 "Lemma 4.15. ‣ 4.3. Integers with many prime factors ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), the same holds for the restricted adjacency matrix A_{Y}|_{I_{\mkern-1.0muN}^{\mathrm{typ}}}.
+
+Applying [Lemma 4.16](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem16 "Lemma 4.16. ‣ 4.4. Eigenvalues of localised matrices ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture") to A_{Y}|_{I_{\mkern-1.0muN}^{\mathrm{typ}}}, we obtain a subset E\subset I_{\mkern-1.0muN} with
+
+(22)|I_{\mkern-1.0muN}\setminus E|\ll N/H
+
+such that all eigenvalues of A_{Y}|_{I_{\mkern-1.0muN}^{\mathrm{typ}}\cap E} are \leqslant e^{O(J)}V^{J/2}. In other words, defining X:=I_{\mkern-1.0muN}^{\mathrm{typ}}\cap E\cap Y, all eigenvalues of A_{\mathbb{Z}}|_{X} are \leqslant e^{O(J)}V^{J/2}.
+
+By [[17](https://arxiv.org/html/2310.19357v2#bib.bib12), Eq.(1.11)], we have
+
+(23)\big\lvert I_{\mkern-1.0muN}\setminus I_{\mkern-1.0muN}^{\mathrm{typ}}\big\rvert=\sum_{n\in I_{\mkern-1.0muN}}\mathbf{1}_{\omega_{\mathcal{P}}(n)>2JV}\ll e^{-JV/3}N.
+
+Combining [21](https://arxiv.org/html/2310.19357v2#S4.E21 "In Proof of , assuming . ‣ 4.4. Eigenvalues of localised matrices ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), [22](https://arxiv.org/html/2310.19357v2#S4.E22 "Equation 22 ‣ Proof of , assuming . ‣ 4.4. Eigenvalues of localised matrices ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture") and[23](https://arxiv.org/html/2310.19357v2#S4.E23 "Equation 23 ‣ Proof of , assuming . ‣ 4.4. Eigenvalues of localised matrices ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), we conclude that
+
+\left|I_{\mkern-1.0muN}\setminus X\right|\ll\big(H_{0}^{-1/3}+H^{-1}+e^{-JV/3}\big)N\ll e^{-JV/3}N,
+
+as J,V\ll\log\log H\asymp\log\log H_{0} by part [Item c](https://arxiv.org/html/2310.19357v2#S2.I1.i3 "In Lemma 2.3. ‣ 2.1. Main parameters ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture") of [Lemma 2.3](https://arxiv.org/html/2310.19357v2#S2.Thmtheorem3 "Lemma 2.3. ‣ 2.1. Main parameters ‣ 2. Main theorem and consequences ‣ Improved bounds for the two-point logarithmic Chowla conjecture"). This proves [Proposition 3.4](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem4 "Proposition 3.4 (Spectral radius of restriction). ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture"). ∎
+
+## 5. High trace bound for the non-backtracking operator
+
+The high trace method is a standard technique to control the eigenvalues of square matrices: if M is Hermitian and \mathrm{Tr}(M^{k})\leqslant C for some k\in 2\mathbb{N}, then every eigenvalue of M satisfies |\lambda_{i}(M)|\leqslant C^{1/k}, because \mathrm{Tr}(M^{k}) is the k-th moment of the eigenvalues of M. A similar idea can be used to control the tail of the spectrum of general square matrices.
+
+###### Lemma 5.1(Schur’s inequality).
+
+Let A\in M_{n}(\mathbb{C}) be a matrix with eigenvalues \lambda_{1}(A),\ldots,\lambda_{n}(A). Then
+
+(24)\sum_{i=1}^{n}\left|\lambda_{i}(A)\right|^{2}\leqslant\mathrm{Tr}(A^{*}A).
+
+###### Proof.
+
+Observe that \mathrm{Tr}(A^{*}A)=\sum_{1\leqslant i,j\leqslant n}|a_{ij}|^{2}, where (a_{ij}) are the entries of A. As a result, the inequality [24](https://arxiv.org/html/2310.19357v2#S5.E24 "In Lemma 5.1 (Schur’s inequality). ‣ 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture") holds when A is triangular. Since every square matrix is unitarily similar to a triangular matrix, the general case follows. ∎
+
+### 5.1. Statement of the high trace bound
+
+In [Proposition 5.3](https://arxiv.org/html/2310.19357v2#S5.Thmtheorem3 "Proposition 5.3 (High trace bound for 𝑀_𝑌). ‣ 5.1. Statement of the high trace bound ‣ 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), we state a suitable high trace bound for the non-backtracking operator M_{Y}. We then deduce the spectral tail bound ([Proposition 4.7](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem7 "Proposition 4.7 (Spectral tail bound for 𝑀_𝑌). ‣ 4.2. The Ihara-Bass formula ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture")) from it. To effectively bound the number of large eigenvalues of M_{Y}, the power k in the high trace method must be sufficiently large. In our setting, this requires taking a power that is logarithmic in H.
+
+###### Notation 5.2.
+
+We define K:=\lfloor\log H\rfloor.
+
+###### Proposition 5.3(High trace bound for M_{Y}).
+
+Let N be an integer such that \log N\geqslant(\log H)^{2.001}.
+
+Then, there exists a set Y\subset\mathbb{Z} with \left|I_{\mkern-1.0muN}\setminus Y\right|\ll H_{0}^{-1/3}N, such that the non-backtracking operator M_{Y} associated to the weighted graph G_{Y} satisfies the high trace bound
+
+(25)\mathrm{Tr}\big[\big((M_{Y})^{K}\big)^{*}(M_{Y})^{K}\big]\leqslant e^{O(JK)}V^{JK}N.
+
+###### Proof of [Proposition 4.7](https://arxiv.org/html/2310.19357v2#S4.Thmtheorem7 "Proposition 4.7 (Spectral tail bound for 𝑀_𝑌). ‣ 4.2. The Ihara-Bass formula ‣ 4. Approach via non-backtracking operators ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), assuming [Proposition 5.3](https://arxiv.org/html/2310.19357v2#S5.Thmtheorem3 "Proposition 5.3 (High trace bound for 𝑀_𝑌). ‣ 5.1. Statement of the high trace bound ‣ 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture").
+
+Let Y\subset\mathbb{Z} be the set given in [Proposition 5.3](https://arxiv.org/html/2310.19357v2#S5.Thmtheorem3 "Proposition 5.3 (High trace bound for 𝑀_𝑌). ‣ 5.1. Statement of the high trace bound ‣ 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture"). Let (\lambda_{i})_{i\in I} be the (complex) eigenvalues of M_{Y}. By the high trace bound [25](https://arxiv.org/html/2310.19357v2#S5.E25 "In Proposition 5.3 (High trace bound for 𝑀_𝑌). ‣ 5.1. Statement of the high trace bound ‣ 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture") and Schur’s inequality ([Lemma 5.1](https://arxiv.org/html/2310.19357v2#S5.Thmtheorem1 "Lemma 5.1 (Schur’s inequality). ‣ 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture")), these satisfy
+
+\sum_{i\in I}|\lambda_{i}|^{2K}\leqslant\mathrm{Tr}\big[\big((M_{Y})^{K}\big)^{*}(M_{Y})^{K}\big]\leqslant e^{O(JK)}V^{JK}N,
+
+using that the eigenvalues of (M_{Y})^{K} are the K-th powers of the eigenvalues of M_{Y}. By Markov’s inequality, this implies that the number of eigenvalues \lambda_{i} with \left|\lambda_{i}\right|\geqslant C^{J}V^{J/2} is at most
+
+e^{O(JK)}C^{-2JK}N.
+
+Since K\asymp\log H, this number can be made smaller than N/H^{3}, provided that C is chosen to be a sufficiently large absolute constant. ∎
+
+The rest of this paper is devoted to the proof of [Proposition 5.3](https://arxiv.org/html/2310.19357v2#S5.Thmtheorem3 "Proposition 5.3 (High trace bound for 𝑀_𝑌). ‣ 5.1. Statement of the high trace bound ‣ 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture"). Henceforth, we fix an integer N such that
+
+(26)\log N\geqslant(\log H)^{2.001}.
+
+In particular, we have the useful bound
+
+(27)H^{JK}\ll_{\varepsilon}N^{\varepsilon},
+
+which follows from [26](https://arxiv.org/html/2310.19357v2#S5.E26 "In 5.1. Statement of the high trace bound ‣ 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture") and the estimates J\leqslant\log\log H and K\asymp\log H.
+
+### 5.2. Expanding the trace as a sum over walks
+
+To prove [Proposition 5.3](https://arxiv.org/html/2310.19357v2#S5.Thmtheorem3 "Proposition 5.3 (High trace bound for 𝑀_𝑌). ‣ 5.1. Statement of the high trace bound ‣ 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), we work on the physical side, computing the trace directly by expanding the matrix product.
+
+###### Lemma 5.4.
+
+Let Y\subset\mathbb{Z}, and let M_{Y} be the non-backtracking operator associated to G_{Y}. Then
+
+(28)\mathrm{Tr}\big[\big((M_{Y})^{K}\big)^{*}(M_{Y})^{K}\big]\ll H\!\!\!\!\!\sum_{\begin{subarray}{c}d_{1},\ldots,d_{2K}\in\pm\mathcal{D}\\
+d_{i+1}=-d_{i}\iff i=K\end{subarray}}\Bigg\lvert\sum_{\begin{subarray}{c}n\in I_{\mkern-1.0muN}\\
+n+b_{i}\in Y\,\text{for }0\leqslant i\leqslant 2K\end{subarray}}\prod_{i=1}^{2K}\prod_{p\mid d_{i}}\left(\mathbf{1}_{p\mid n+b_{i}}-\frac{1}{p}\right)\Bigg\rvert\,+\,N,
+
+where b_{i}:=\sum_{1\leqslant k\leqslant i}d_{k} for 0\leqslant i\leqslant 2K.
+
+###### Proof.
+
+We use the formula for \mathrm{Tr}[(M^{K})^{*}M^{K}] given in [Lemma A.2](https://arxiv.org/html/2310.19357v2#A1.Thmtheorem2 "Lemma A.2. ‣ Appendix A The non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), which applies to the non-backtracking operator M of a general weighted graph. This gives
+
+(29)\mathrm{Tr}\big[\big((M_{Y})^{K}\big)^{*}(M_{Y})^{K}\big]=\sum_{\begin{subarray}{c}n_{-1},n_{0},n_{1},\ldots,n_{2K}\in I_{\mkern-1.0muN}\\
+(n_{-1},n_{0},\ldots,n_{K})\in\mathrm{nbw}(G_{Y})\\
+(n_{K},n_{K+1},\ldots,n_{2K},n_{-1})\in\mathrm{nbw}(G_{Y})\\
+(n_{0},n_{K-1})=(n_{2K},n_{K+1})\end{subarray}}\prod_{i=1}^{2K}w_{Y}(n_{i-1},n_{i}),
+
+where \mathrm{nbw}(G_{Y}) denotes the set of non-backtracking walks in G_{Y} (see [Definition A.1](https://arxiv.org/html/2310.19357v2#A1.Thmtheorem1 "Definition A.1. ‣ Appendix A The non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture")).
+
+We rewrite this expression in terms of n_{0} and the increments d_{i}:=n_{i}-n_{i-1} for 0\leqslant i\leqslant 2K. Since we only need an upper bound, we can apply the triangle inequality and keep only the sum over n_{0} inside the absolute value:
+
+(30)\mathrm{Tr}\big[\big((M_{Y})^{K}\big)^{*}(M_{Y})^{K}\big]\leqslant\sum_{\begin{subarray}{c}d_{0},\ldots,d_{2K}\in\pm\mathcal{D}\\
+d_{i+1}\neq-d_{i}\text{ for }0\leqslant i<K\\
+d_{i+1}\neq-d_{i}\text{ for }K<i<2K\\
+d_{K+1}=-d_{K}\end{subarray}}\Bigg\lvert\sum_{\begin{subarray}{c}n_{0}\in I_{\mkern-1.0muN}\\
+n_{0}-d_{0}\in I_{\mkern-1.0muN}\end{subarray}}\prod_{i=1}^{2K}w_{Y}\bigg(n_{0}+\sum_{j=1}^{i-1}d_{j},\,n_{0}+\sum_{j=1}^{i}d_{j}\bigg)\Bigg\rvert,
+
+with the convention that w_{Y}(m,n)=0 if m\notin I_{\mkern-1.0muN} or n\notin I_{\mkern-1.0muN}. In passing from [29](https://arxiv.org/html/2310.19357v2#S5.E29 "In Proof. ‣ 5.2. Expanding the trace as a sum over walks ‣ 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture") to [30](https://arxiv.org/html/2310.19357v2#S5.E30 "In Proof. ‣ 5.2. Expanding the trace as a sum over walks ‣ 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture"), we have dropped the conditions n_{0}=n_{2K} and n_{2K-1}\neq n_{-1}, which can be expressed in terms of the increments d_{i} alone (independently of n_{0}).
+
+If n_{0}\in I_{\mkern-1.0muN}, the requirement that n_{0}-d_{0}\in I_{\mkern-1.0muN} is automatically satisfied unless n_{0} lies within distance O(H) of the boundary of I_{\mkern-1.0muN}. Likewise, for each 1\leqslant i\leqslant 2K, the implicit condition {n_{0}+\sum_{j=1}^{i}d_{j}\in I_{\mkern-1.0muN}} can only fail if n_{0} lies within distance O(KH) of the boundary. Discarding all these conditions trivially, we incur an error of size \ll KH(2H)^{2K+1}, which is at most O(N) by[27](https://arxiv.org/html/2310.19357v2#S5.E27 "In 5.1. Statement of the high trace bound ‣ 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture").
+
+Expanding the formula for w_{Y} (see [Definition 3.2](https://arxiv.org/html/2310.19357v2#S3.Thmtheorem2 "Definition 3.2 (𝑤_𝑌, 𝐴_𝑌). ‣ 3.2. Reduction to an eigenvalue bound ‣ 3. Reformulations of the main theorem ‣ Improved bounds for the two-point logarithmic Chowla conjecture")), the trace [30](https://arxiv.org/html/2310.19357v2#S5.E30 "In Proof. ‣ 5.2. Expanding the trace as a sum over walks ‣ 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture") is thus bounded by
+
+\sum_{\begin{subarray}{c}d_{0},\ldots,d_{2K}\in\pm\mathcal{D}\\
+d_{i+1}=-d_{i}\iff i=K\end{subarray}}\Bigg\lvert\sum_{\begin{subarray}{c}n_{0}\in I_{\mkern-1.0muN}\end{subarray}}\prod_{i=1}^{2K}\prod_{p\mid d_{i}}\left(\mathbf{1}_{p\mid n_{0}+\sum_{j=1}^{i-1}d_{j}}-\frac{1}{p}\right)\prod_{i=0}^{2K}\mathbf{1}_{Y}\bigg(n_{0}+\sum_{j=1}^{i}d_{j}\bigg)\Bigg\rvert+O(N).
+
+Notice that the summand is independent of the variable d_{0}, which ranges over \ll\left|\mathcal{D}\right|\ll H values. The lemma follows. ∎
+
+## 6. Overview of the proof of the high trace bound
+
+This section serves purely as motivation and is separate from the actual proof. Our aim here is to outline the strategy for bounding the right-hand side of [28](https://arxiv.org/html/2310.19357v2#S5.E28 "In Lemma 5.4. ‣ 5.2. Expanding the trace as a sum over walks ‣ 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture"). We will also explain why the two technical assumptions that appear there – the non-backtracking condition d_{i+1}\neq-d_{i} (for almost all i) and the restriction of the vertices n+b_{i} to a well-chosen set Y – are essential to our arguments.
+
+Let us first examine the situation without these hypotheses. For each (i,j)\in\llbracket 2K\rrbracket\times\llbracket J\rrbracket, let d_{ij} be the unique prime in \mathcal{P}_{j} dividing d_{i}. Ignoring the two technical hypotheses, the right-hand side of[28](https://arxiv.org/html/2310.19357v2#S5.E28 "In Lemma 5.4. ‣ 5.2. Expanding the trace as a sum over walks ‣ 5. High trace bound for the non-backtracking operator ‣ Improved bounds for the two-point logarithmic Chowla conjecture") essentially reduces to
+
+(31)\sum_{d_{1},\ldots,d_{2K}\in\pm\mathcal{D}}\Bigg\lvert\sum_{n\in I_{\mkern-1.0muN}}\prod_{i=1}^{2K}\prod_{j=1}^{J}\bigg(\mathbf{1}_{d_{ij}\mid n+b_{i}}-\frac{1}{d_{ij}}\bigg)\Bigg\rvert.
+
+The basic idea is that the factors \mathbf{1}_{d_{ij}\mid n+b_{i}}-\frac{1}{d_{ij}} should generate significant cancellation in the inner sum because, for a random integer n\in I_{\mkern-1.0muN}, the event d_{ij}\mid n+b_{i} occurs with probability almost exactly 1/d_{ij}. One must be careful, however: these factors are not independent whenever they involve the same prime, and these dependencies can prevent cancellation.
+
+With this in mind, we call a prime p\in\mathcal{P} a _single prime_ for the tuple (d_{1},\dots,d_{2K}) if there is exactly one pair (i,j)\in\llbracket 2K\rrbracket\times\llbracket J\rrbracket such that p=d_{ij}. If a tuple has at least one single prime, then the inner sum in [31](https://arxiv.org/html/2310.19357v2#S6.E31 "In 6. Overview of the proof of the high trace bound ‣ Improved bounds for the two-point logarithmic Chowla conjecture") exhibits almost perfect cancellation, by the Chinese Remainder Theorem (since N>d_{1}\cdots d_{2K}). Thus, we only need to consider the tuples for which every prime appearing in the array (d_{ij}) is repeated at least twice.
+
+In this situation, we cannot hope to obtain cancellation. We may therefore use the triangle inequality and trivially bound |\mathbf{1}_{d_{ij}\mid n+b_{i}}-\frac{1}{d_{ij}}|\leqslant\mathbf{1}_{d_{ij}\mid n+b_{i}}+\frac{1}{d_{ij}}. Expanding the resulting product, we are reduced to bounding
+
+(32)\sum_{\begin{subarray}{c}d_{1},\ldots,d_{2K}\in\pm\mathcal{D}\\
+p\mid\prod d_{i}\,\Rightarrow\,p^{2}\mid\prod d_{i}\end{subarray}}\sum_{n\in I_{\mkern-1.0muN}}\prod_{(i,j)\in\mathcal{L}}\mathbf{1}_{d_{ij}\mid n+b_{i}}\prod_{(i,j)\in{\kern 0.40974pt}\mathcal{U}}\frac{1}{d_{ij}},
+
+for every partition \llbracket 2K\rrbracket\times\llbracket J\rrbracket=\mathcal{L}\sqcup{\kern 0.50003pt}\mathcal{U} of the index set into two sets \mathcal{L} and {\kern 0.50003pt}\mathcal{U}. The pairs (i,j)\in\mathcal{L} are called _lit indices_, while those in {\kern 0.50003pt}\mathcal{U} are called _unlit indices_.
+
+Heuristically, we might expect each factor \mathbf{1}_{d_{ij}\mid n+b_{i}} to behave like 1/d_{ij} on average, in which case we would obtain a strong bound from the fact that each prime occurs at least twice. Indeed, the common contribution of all factors corresponding to a repeated prime p would then be at most O(1/p^{2}) on average, which is very small since all primes in \mathcal{P} are larger than H_{0}. A more precise implementation of this idea shows that the expression [32](https://arxiv.org/html/2310.19357v2#S6.E32 "In 6. Overview of the proof of the high trace bound ‣ Improved bounds for the two-point logarithmic Chowla conjecture") is negligible whenever the set {\kern 0.50003pt}\mathcal{U} of unlit indices is somewhat large. We may thus assume that nearly all pairs (i,j)\in\llbracket 2K\rrbracket\times\llbracket J\rrbracket lie in\mathcal{L}.
+
+The ‘enemy scenario’ is therefore when the factors \mathbf{1}_{d_{ij}\mid n+b_{i}} conspire so that their product is, on average over d_{1},\ldots,d_{2K} and n, significantly larger than the product of 1/d_{ij}. To rule it out, we must analyse the joint behaviour of these indicator functions.
+
+Recall that b_{i}:=\sum_{1\leqslant k\leqslant i}d_{k}. If a prime p is repeated twice at lit indices, say p=d_{i_{1}j}=d_{i_{2}j} with i_{1}<i_{2}, then the congruences p\mid n+b_{i_{1}} and p\mid n+b_{i_{2}} imply that
+
+(33)p\ \Big|\sum_{i_{1}<k<i_{2}}d_{k}=\sum_{i_{1}<k<i_{2}}\sigma_{k}\prod_{j=1}^{J}d_{kj},
+
+where \sigma_{k}\in\{\pm 1\} is the sign of d_{k}. By considering all pairs of lit indices corresponding to each repeated prime, we obtain a large system of such divisibility relations. Intuitively, this system of constraints should considerably limit the number of admissible choices for the primes d_{ij}, and hence the number of tuples (d_{1},\dots,d_{2K}) contributing significantly to [32](https://arxiv.org/html/2310.19357v2#S6.E32 "In 6. Overview of the proof of the high trace bound ‣ Improved bounds for the two-point logarithmic Chowla conjecture").7 7 7 Note that the techniques of Helfgott and Radziwiłł[[10](https://arxiv.org/html/2310.19357v2#bib.bib1)] cannot be applied here as the right-hand side of [33](https://arxiv.org/html/2310.19357v2#S6.E33 "In 6. Overview of the proof of the high trace bound ‣ Improved bounds for the two-point logarithmic Chowla conjecture") is a polynomial expression in the primes d_{ij}, rather than a linear combination with small coefficients, as soon as J>1.
+
+The shape of the divisibility constraints is determined by the partition of the index set \llbracket 2K\rrbracket\times\llbracket J\rrbracket according to repetitions of the same prime, and the signs \sigma_{k}. Therefore, to organise our analysis, we first fix the shape, and then consider the number of possible assignments of prime values to the variables which satisfy that system of divisibility constraints.8 8 8 That is, if we have a partition of \llbracket 2K\rrbracket\times\llbracket J\rrbracket, we look for values d_{ij} satisfying the constraints {d_{i_{1}j_{1}}=d_{i_{2}j_{2}}\mid\sum_{i_{1}<k<i_{2}}d_{k}}for all (i_{1},j_{1}),(i_{2},j_{2})\in\mathcal{L} in the same part of the partition. The number of possible shapes is very large (more than exponential in JK). We might hope that this is balanced by there being very few assignments that satisfy the associated divisibility system, and therefore that the total contribution is acceptably small.
+
+Unfortunately, certain shapes do yield systems with many solutions, so we cannot expect a strong uniform bound that applies to every shape. Our two-step strategy is therefore as follows. First, obtain a good bound that holds for most shapes. Second, show that the remaining shapes are rare enough that their total contribution is acceptable.
+
+It is not necessary to obtain an optimal bound for the number of solutions to divisibility systems. Roughly speaking, it suffices to show that the system determines the values of at least K^{0.01} of the primes d_{ij} based on the values of the remaining primes. We do so by extracting a reasonably large ‘triangular’ subsystem of divisibility constraints which is clearly non-degenerate, via a careful combinatorial analysis.
+
+This combinatorial argument, however, fails for certain degenerate shapes. This failure becomes critical because some of these shapes are not sufficiently rare to be handled by the second step of our strategy. Our two technical assumptions are introduced precisely to preclude these problematic configurations.
+
+The first such issue arises from backtracking walks. When d_{i+1}=-d_{i} for many i, many sums of the form \sum_{i_{1}<k<i_{2}}d_{k} vanish, rendering the corresponding divisibility constraints ([33](https://arxiv.org/html/2310.19357v2#S6.E33 "Equation 33 ‣ 6. Overview of the proof of the high trace bound ‣ Improved bounds for the two-point logarithmic Chowla conjecture")) trivial. Moreover, the contribution of these backtracking walks to the trace is genuinely excessive (reflecting the existence of large eigenvalues of the adjacency operator), meaning that the simplistic expression[31](https://arxiv.org/html/2310.19357v2#S6.E31 "In 6. Overview of the proof of the high trace bound ‣ Improved bounds for the two-point logarithmic Chowla conjecture") cannot possibly satisfy the desired bound. This explains the use of the non-backtracking operator throughout, which eliminates this class of degenerate shapes from the outset.
+
+The second class of problematic shapes roughly corresponds to walks that involve too few distinct primes. In this case, we can only extract a small triangular subsystem, which is insufficient to compensate for the large number of combinatorial arrangements of those primes into long walks. To discard these shapes, we restrict the vertices n+b_{i} to lie in a well-chosen set Y. The set Y (defined precisely in [Section 7](https://arxiv.org/html/2310.19357v2#S7 "7. Definition of the set 𝑌_𝐿 ‣ Improved bounds for the two-point logarithmic Chowla conjecture")) is chosen so that every such pathological walk visits at least one vertex outside of Y. Although working with Y introduces significant technicalities,9 9 9 Notably, using single primes to obtain cancellation over Y rather than over I_{\mkern-1.0muN} requires a highly technical analysis based on a _combinatorial sieve_ for composite moduli. this device removes the second type of degeneracies that our combinatorial methods cannot handle.
+
+With the non-backtracking condition and the restriction to Y in place, a large triangular subsystem can be extracted for all shapes satisfying a generic _unpredictability_ assumption. The first step of the strategy is then complete: the contribution from these unpredictable shapes is negligible.
+
+Finally, we analyse the remaining _predictable_ shapes, for which no large triangular subsystem can be found. We show that, while these shapes yield the main term in the trace, they are sufficiently rare that their contribution is admissible, which concludes 
+
+..._Content truncated_...

@@ -1,0 +1,921 @@
+## Content from https://arxiv.org/html/2207.05674
+
+Title: The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I
+
+URL Source: https://arxiv.org/html/2207.05674
+
+Markdown Content:
+\DeclareBibliographyCategory
+
+Smib \addtocategory Smib Smi22b
+
+Date: August 24, 2026
+
+###### Abstract.
+
+In this paper and its sequel, we develop a technique for finding the distribution of \ell^{\infty}-Selmer groups in degree \ell twist families of Galois modules over number fields. Given an elliptic curve E over a number field satisfying certain technical conditions, this technique can be used to show that 100\% of the quadratic twists of E have rank at most 1. Given a prime \ell and a number field F not containing \mu_{2\ell}, this method also shows that the \ell^{\infty}-class groups in the family of degree \ell cyclic extensions of F have a distribution consistent with the Cohen–Lenstra–Gerth heuristics.
+
+For this work, we develop the theory of the fixed point Selmer group, which serves as the base layer of the \ell^{\infty}-Selmer group. This first paper gives a technique for finding the distribution of \ell^{\infty}-Selmer groups in certain families of twists where the fixed point Selmer group is stable. In the sequel paper, we will give a technique for controlling fixed point Selmer groups.
+
+###### Contents
+
+1.   [1 Introduction](https://arxiv.org/html/2207.05674#S1 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I")
+2.   [2 Notation](https://arxiv.org/html/2207.05674#S2 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I")
+3.   [3 Ramification sections and symbols](https://arxiv.org/html/2207.05674#S3 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I")
+4.   [4 Selmer groups in twist families](https://arxiv.org/html/2207.05674#S4 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I")
+5.   [5 Bilinear character sums](https://arxiv.org/html/2207.05674#S5 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I")
+6.   [6 Regridding](https://arxiv.org/html/2207.05674#S6 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I")
+7.   [7 Algebra and combinatorics for grids](https://arxiv.org/html/2207.05674#S7 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I")
+8.   [8 Manipulating higher Selmer groups in grids](https://arxiv.org/html/2207.05674#S8 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I")
+9.   [References](https://arxiv.org/html/2207.05674#bib "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I")
+
+## 1. Introduction
+
+The aim of this paper and its sequel [[34](https://arxiv.org/html/2207.05674#bib.bibx34)] is to give a method for finding the distribution of \ell^{\infty}-Selmer groups in degree \ell twist families of Galois modules over number fields for a given prime \ell. Such Selmer groups contain a base layer that we call the fixed point Selmer group, with 2-Selmer groups holding this role in the case \ell=2. The main goal of this paper is to prove Theorem [4.18](https://arxiv.org/html/2207.05674#S4.Thmthm18 "Theorem 4.18. ‣ 4.2. The distribution of higher Selmer groups ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), which controls the distribution of \ell^{\infty}-Selmer groups in certain special families of twists where the fixed point Selmer group is stable. The goal of [[34](https://arxiv.org/html/2207.05674#bib.bibx34)] is to study fixed point Selmer groups in natural twist families and break these natural families into subsets of twists where Theorem [4.18](https://arxiv.org/html/2207.05674#S4.Thmthm18 "Theorem 4.18. ‣ 4.2. The distribution of higher Selmer groups ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") can be applied.
+
+The advantage of splitting our work in this way is that it prioritizes the theory allowing us to control higher Selmer groups, which is the crux of this project. This work appears in Sections [7](https://arxiv.org/html/2207.05674#S7 "7. Algebra and combinatorics for grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") and [8.1](https://arxiv.org/html/2207.05674#S8.SS1 "8.1. Algebraic results ‣ 8. Manipulating higher Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") of this paper. The disadvantage of this arrangement is that we can only state and prove the overarching theorem of this project in the second part; it appears as [[34](https://arxiv.org/html/2207.05674#bib.bibx34), Theorem 2.14]. This pair of papers developed out of the revision of the preprint [[33](https://arxiv.org/html/2207.05674#bib.bibx33)] and constitute the final form of that work.
+
+We will start by listing some of the consequences of the overarching theorem of this project. The proof that [[34](https://arxiv.org/html/2207.05674#bib.bibx34), Theorem 2.14] implies these results will be given in [[34](https://arxiv.org/html/2207.05674#bib.bibx34), Section 3].
+
+### 1.1. Ranks of elliptic curves in twist families
+
+Choose an abelian variety A over a number field F. Given an integer n>1, the n-Selmer group
+
+\textup{Sel}^{n}(A/F)
+
+is a certain effectively calculable finite abelian group that contains the quotient A(F)/nA(F) of the Mordell–Weil group as a subgroup. Defining the n-Selmer rank r_{n}(A/F) to be the maximal integer r so that there is some injection
+
+(\mathbb{Z}/n\mathbb{Z})^{r}\hookrightarrow\textup{Sel}^{n}(A/F)\big/\text{im}\left(A(F)_{\text{tors}}\right),
+
+it is clear that the rank of A is no larger than r_{n}(A/F).
+
+Given a prime \ell, the \ell-power Selmer ranks of A/F form a nonincreasing sequence
+
+r_{\ell}(A/F)\geq r_{\ell^{2}}(A/F)\geq r_{\ell^{3}}(A/F)\geq\dots.
+
+We define the _\ell^{\infty}-Selmer corank_ r_{\ell^{\infty}}(A/F) to be the limit of this sequence. If the Shafarevich–Tate conjecture holds for A/F, it would follow that
+
+\rank(A/F)=r_{\ell^{\infty}}(A/F)
+
+for every prime \ell. Without this assumption, we still have the inequality
+
+\rank(A/F)\leq r_{\ell^{\infty}}(A/F).
+
+Given nonzero d in F, we take A^{d}/F to be the quadratic twist of A associated to the field extension F(\sqrt{d})/F. In the case that A is an elliptic curve over F with Weierstrass form
+
+y^{2}=x^{3}+ax+b,
+
+the curve A^{d} has Weierstrass form
+
+y^{2}=x^{3}+d^{2}ax+d^{3}b.
+
+In a 1979 paper [[12](https://arxiv.org/html/2207.05674#bib.bibx12)], Goldfeld conjectured that, among the quadratic twists of a given elliptic curve A/\mathbb{Q},
+
+*   •
+50\% have analytic rank 0,
+
+*   •
+50\% have analytic rank 1, and
+
+*   •
+0\% have any higher analytic rank.
+
+Here, the analytic rank r_{\textup{an}}(A/\mathbb{Q}) of the elliptic curve A/\mathbb{Q} is the order of vanishing of the L-function associated to A at s=1. This invariant is known as the analytic rank because, under the Birch and Swinnerton-Dyer conjecture, it is expected to equal the actual rank of the elliptic curve A/\mathbb{Q}.
+
+One major goal of this pair of papers is to prove an analogue of Goldfeld’s conjecture for 2^{\infty}-Selmer coranks. For technical reasons, we need to place certain restrictions on the elliptic curves we consider. These restrictions vary depending on the structure of the 2-torsion subgroup A(\mathbb{Q})[2] of A(\mathbb{Q}).
+
+###### Assumption 1.1.
+
+An elliptic curve A/\mathbb{Q} obeys this assumption if one of the following holds:
+
+1.   (1)
+A(\mathbb{Q})[2]=0; or
+
+2.   (2)A(\mathbb{Q})[2]\cong\mathbb{Z}/2\mathbb{Z}\, and, writing \phi:A\rightarrow A_{0} for the unique \mathbb{Q}-isogeny of degree 2, we have
+
+\mathbb{Q}(A_{0}[2])\neq\mathbb{Q}\quad\text{and}\quad\mathbb{Q}(A_{0}[2])\neq\mathbb{Q}(A[2]);\,\,\text{ or} 
+3.   (3)
+A(\mathbb{Q})[2]\cong(\mathbb{Z}/2\mathbb{Z})^{2}\, and A has no cyclic degree 4 isogeny defined over \mathbb{Q}.
+
+By [[6](https://arxiv.org/html/2207.05674#bib.bibx6), Theorem 1], most elliptic curves over \mathbb{Q} satisfy A(\mathbb{Q})_{\text{tor}}=0 and hence satisfy this assumption. Our main result for the ranks of elliptic curves is the following.
+
+###### Theorem 1.2.
+
+Suppose A/\mathbb{Q} is an elliptic curve satisfying Assumption [1.1](https://arxiv.org/html/2207.05674#S1.Thmthm1 "Assumption 1.1. ‣ 1.1. Ranks of elliptic curves in twist families ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). Then, for r\geq 0,
+
+\lim_{H\rightarrow\infty}\frac{\#\left\{d\in\mathbb{Z}^{\neq 0}\,:\,\,|d|\leq H\,\,\text{ and }\,\,r_{2^{\infty}}\left(A^{d}/\mathbb{Q}\right)=r\right\}}{2H}\,=\,\begin{cases}1/2&\text{ for }\,r=0\\
+1/2&\text{ for }\,r=1\\
+0&\text{ for }\,r\geq 2.\end{cases}
+
+###### Remark 1.3.
+
+A more precise version of the zero-density portion of this theorem is the following: given A/\mathbb{Q} satisfying Assumption [1.1](https://arxiv.org/html/2207.05674#S1.Thmthm1 "Assumption 1.1. ‣ 1.1. Ranks of elliptic curves in twist families ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), there are positive constants c,C>0 so, for H>C, we have
+
+\frac{\#\left\{d\in\mathbb{Z}\,:\,\,0<|d|\leq H\,\text{ and }\,r_{2^{\infty}}\left(A^{d}/\mathbb{Q}\right)\geq 2\right\}}{2H}\,\leq\,\exp\left(-c\cdot\left(\log\log\log H\right)^{1/2}\right).
+
+It is conjectured that the left hand side of this expression can be bounded by H^{-1/4+\epsilon}[[30](https://arxiv.org/html/2207.05674#bib.bibx30), Section 3.3], which is about two logarithms better than the saving term we prove.
+
+Our results for 2^{\infty}-Selmer coranks are a consequence of our results on the distribution of 2^{k}-Selmer groups, which use the following transition probabilities.
+
+###### Definition 1.4.
+
+Given n\geq j\geq 0, take
+
+P^{\text{Alt}}(j\,|\,n)
+
+to be the probability that a uniformly selected alternating n\times n matrix with entries in \mathbb{F}_{2} has kernel of dimension exactly j. This probability is zero unless j and n have the same parity. A formula for this probability appears in [[34](https://arxiv.org/html/2207.05674#bib.bibx34), Section 2].
+
+We will also define
+
+\displaystyle P^{\text{Alt}}(j\,|\,\infty)=\lim_{n\rightarrow\infty}\tfrac{1}{2}\left(P^{\text{Alt}}(j\,|\,2n)+P^{\text{Alt}}(j\,|\,2n+1)\right).
+
+This averaged limit accounts for the fact that P^{\text{Alt}}(j\,|\,n) is 0 if j and n have different parities.
+
+###### Theorem 1.5.
+
+Suppose A/\mathbb{Q} is an elliptic curve that fits into either case (1) or (3) of Assumption [1.1](https://arxiv.org/html/2207.05674#S1.Thmthm1 "Assumption 1.1. ‣ 1.1. Ranks of elliptic curves in twist families ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). Given any nonincreasing sequence
+
+r_{2}\geq r_{4}\geq\dots\geq r_{2^{k}}\geq\dots
+
+of nonnegative integers, we have
+
+\displaystyle\lim_{H\rightarrow\infty}\frac{\#\{d\in\mathbb{Z}^{\neq 0}\,:\,\,|d|<H\,\text{ and }\,r_{2^{k}}(A^{d})=r_{2^{k}}\,\text{ for all }k\geq 1\}}{2H}
+\displaystyle\qquad=P^{\textup{Alt}}(r_{2}\,|\,\infty)\cdot\prod_{k=2}^{\infty}P^{\textup{Alt}}(r_{2^{k}}\,|\,r_{2^{k-1}})
+
+To put it another way, as d varies, the sequence (r_{2}(A^{d}),r_{4}(A^{d}),\dots) behaves like a time-homogeneous Markov chain. We give a representation of this Markov chain in the left part of Figure [1.1](https://arxiv.org/html/2207.05674#S1.F1 "Figure 1.1 ‣ 1.1. Ranks of elliptic curves in twist families ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). The probability of starting in an even state is 50\%, and the probability of starting in an odd state is 50\%. The absorbing states of this process are 0 and 1, and we derive the first and third cases of Theorem [1.2](https://arxiv.org/html/2207.05674#S1.Thmthm2 "Theorem 1.2. ‣ 1.1. Ranks of elliptic curves in twist families ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") as a consequence.
+
+The appearance of alternating matrices in these transition probabilities is explained by the fact that the Cassels–Tate pairing for Selmer groups of elliptic curves is alternating. Indeed, this theorem is consistent with the Cassels–Tate pairings being uniformly distributed among all alternating possibilities, in the sense of Heuristic [4.16](https://arxiv.org/html/2207.05674#S4.Thmthm16 "Heuristic 4.16. ‣ 4.2. The distribution of higher Selmer groups ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). We also note that this result is consistent with the heuristics given in [[1](https://arxiv.org/html/2207.05674#bib.bibx1)], with the group \textup{Sel}^{2^{\infty}}A^{d} having the distribution predicted by [[1](https://arxiv.org/html/2207.05674#bib.bibx1), Conjecture 1.3] as d varies.
+
+Figure 1.1. Diagrams for the Markov chains that model 2^{k}-Selmer ranks (on the left) and 2^{k}-class ranks (on the right). Each diagram omits infinitely many possible higher-rank states. 
+
+###### Remark 1.6.
+
+The variant of Theorem [1.5](https://arxiv.org/html/2207.05674#S1.Thmthm5 "Theorem 1.5. ‣ 1.1. Ranks of elliptic curves in twist families ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") that applies to elliptic curves satisfying Assumption [1.1](https://arxiv.org/html/2207.05674#S1.Thmthm1 "Assumption 1.1. ‣ 1.1. Ranks of elliptic curves in twist families ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") (2) will be given as [[34](https://arxiv.org/html/2207.05674#bib.bibx34), Theorem 1.4].
+
+Neither the restriction to abelian varieties of dimension 1 nor the restriction to the base field \mathbb{Q} are necessary to prove a result like Theorem [1.5](https://arxiv.org/html/2207.05674#S1.Thmthm5 "Theorem 1.5. ‣ 1.1. Ranks of elliptic curves in twist families ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). However, the required technical conditions become more complicated when these restrictions are removed. For some examples with higher dimensional abelian varieties, see [[34](https://arxiv.org/html/2207.05674#bib.bibx34), Section 3].
+
+### 1.2. Class groups and Cohen–Lenstra–Gerth heuristics
+
+The simplest case of our results for class groups gives the distribution of 2-primary class torsion of imaginary quadratic fields.
+
+###### Notation 1.7.
+
+Given an imaginary quadratic field K, take r_{2}(K)\geq r_{4}(K)\geq\dots to be the unique sequence of nonnegative integers satisfying
+
+\textup{Cl}\,K[2^{\infty}]\,\cong\,(\mathbb{Z}/2\mathbb{Z})^{r_{2}(K)-r_{4}(K)}\oplus(\mathbb{Z}/4\mathbb{Z})^{r_{4}(K)-r_{8}(K)}\oplus\dots
+
+and \lim_{k\rightarrow\infty}r_{2^{k}}(K)=0.
+
+As before, we need some notation for our probability distribution. We have no alternating restriction this time, which will be consistent with the fact that every class group is finite.
+
+###### Definition 1.8.
+
+For n\geq j\geq 0, take
+
+P^{\text{Mat}}(j\,|\,n)
+
+to be the probability that a uniformly selected n\times n matrix with entries in \mathbb{F}_{2} has kernel of rank exactly j.
+
+We also use the notation
+
+\displaystyle P^{\text{Mat}}(j\,|\,\infty)=\lim_{n\rightarrow\infty}P^{\text{Mat}}(j\,|\,n).
+
+###### Theorem 1.9.
+
+Given any nonincreasing sequence
+
+r_{4}\geq r_{8}\geq\dots\geq r_{2^{k}}\geq\dots
+
+of nonnegative integers, we have
+
+\displaystyle\lim_{H\rightarrow\infty}\frac{\#\left\{d\in\mathbb{Z}^{>0}\,:\,\,d<H\,\text{ and }\,r_{2^{k}}\left(\mathbb{Q}\left(\sqrt{-d}\right)\right)=r_{2^{k}}\,\text{ for }\,k\geq 2\right\}}{H}
+\displaystyle\qquad=P^{\textup{Mat}}(r_{4}\,|\,\infty)\cdot\prod_{k=3}^{\infty}P^{\textup{Mat}}(r_{2^{k}}\,|\,r_{2^{k-1}}).
+
+The distribution of sequences of 2^{k}-class ranks is again given by a Markov chain, and we give a representation of this Markov chain in the right part of Figure [1.1](https://arxiv.org/html/2207.05674#S1.F1 "Figure 1.1 ‣ 1.1. Ranks of elliptic curves in twist families ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). The distribution for 4-class ranks was calculated by Fouvry and Klüners in [[8](https://arxiv.org/html/2207.05674#bib.bibx8)]. Theorem [1.9](https://arxiv.org/html/2207.05674#S1.Thmthm9 "Theorem 1.9. ‣ 1.2. Class groups and Cohen–Lenstra–Gerth heuristics ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") is consistent with what is predicted by Gerth’s extension of the Cohen-Lenstra heuristic for the distribution of class groups [[11](https://arxiv.org/html/2207.05674#bib.bibx11), [3](https://arxiv.org/html/2207.05674#bib.bibx3)]. It is the third major result towards proving this heuristic for imaginary quadratic fields, after the result of Davenport-Heilbronn on 3-torsion [[5](https://arxiv.org/html/2207.05674#bib.bibx5)] and the result of Fouvry and Klüners on 4-class ranks.
+
+We note that \textup{Cl}\,\mathbb{Q}(\sqrt{-d})[2] has unbounded average size by Gauss’s genus theory, which is why we remove it from consideration above. A similar consideration explains our notation below.
+
+###### Notation 1.10.
+
+Take F to be a number field, take \ell to be a rational prime, and take K to be a degree \ell Galois extension of F. Then \textup{Cl}\,K is a \textup{Gal}(K/F) module, and we take (\textup{Cl}\,K[\ell^{\infty}])^{\textup{Gal}(K/F)} to be the submodule of \textup{Cl}\,K[\ell^{\infty}] fixed by \textup{Gal}(K/F).
+
+Take \xi to be the image of x in the quotient ring
+
+\mathbb{Z}_{\ell}[x]\big/\left(1+x+\dots+x^{\ell-1}\right).
+
+Take \langle\xi\rangle to be the multiplicative group generated by \xi. This group has order \ell, so we may choose some isomorphism from \langle\xi\rangle to \textup{Gal}(K/F). Under this isomorphism,
+
+\textup{Cl}\,K[\ell^{\infty}]/(\textup{Cl}\,K[\ell^{\infty}])^{\textup{Gal}(K/F)}
+
+is a \mathbb{Z}_{\ell}[\xi] module. Writing \omega=\zeta-1, there is a unique sequence of nonnegative integers
+
+r_{\omega}(K)\geq r_{\omega^{2}}(K)\geq\dots
+
+with limit zero for which there is some isomorphism
+
+\textup{Cl}\,K[\ell^{\infty}]/(\textup{Cl}\,K[\ell^{\infty}])^{\textup{Gal}(K/F)}\,\cong\,(R/\omega R)^{r_{\omega}(K)-r_{\omega^{2}}(K)}\oplus(R/\omega^{2}R)^{r_{\omega^{2}}(K)-r_{\omega^{3}}(K)}\oplus\dots,
+
+where R is taken to be \mathbb{Z}_{\ell}[\xi]. This defines the sequence of \omega^{k}-class ranks of our field extension.
+
+For this more general situation, we will need more general notation for our distribution.
+
+###### Definition 1.11.
+
+Choose an integer u and a rational prime \ell. Given nonnegative integers n\geq j\geq 0, and also supposing n\geq u, take
+
+P^{\text{Mat}}_{u,\ell}(j\,|\,n)
+
+to be the probability that a uniformly selected (n-u)\times n matrix with entries in \mathbb{F}_{\ell} has kernel of rank exactly j. In the case that n<u, we take this probability to be 0. A formula for this probability appears in [[34](https://arxiv.org/html/2207.05674#bib.bibx34), Section 2].
+
+We also use the notation
+
+\displaystyle P^{\text{Mat}}_{u,\ell}(j\,|\,\infty)=\lim_{n\rightarrow\infty}P^{\text{Mat}}_{u,\ell}(j\,|\,n).
+
+###### Theorem 1.12.
+
+Take F to be a number field with r_{1} real embeddings and r_{2} conjugate pairs of complex embeddings. Take \ell to be a rational prime such that
+
+\mu_{2\ell}\not\subset F.
+
+If \ell=2, take r_{1}^{\prime} to be an integer satisfying 0\leq r_{1}^{\prime}\leq r_{1}. If \ell>2, take r_{1}^{\prime}=r_{1}. We define
+
+u=-r_{2}-r_{1}^{\prime}.
+
+For H>0, define
+
+X_{F,\ell,r_{1}^{\prime}}(H)\,=\,\Big\{K/F\text{ Gal. of deg. }\ell\,:\,\,|\Delta_{K}|\leq H,\,\,K/F\text{ splits at exactly }r_{1}^{\prime}\text{ real places}\Big\},
+
+where \Delta_{K} denotes the discriminant of K/\mathbb{Q}.
+
+Then, given any nonincreasing sequence of integers
+
+r_{\omega}\geq r_{\omega^{2}}\geq\dots\geq r_{\omega^{k}}\geq\dots,
+
+we have
+
+\displaystyle\lim_{H\rightarrow\infty}\frac{\#\left\{K\in X_{F,\ell,r_{1}^{\prime}}(H)\,:\,\,r_{\omega^{k}}(K)=r_{\omega^{k}}\,\text{ for }\,k\geq 1\right\}}{\#X_{F,\ell,r_{1}^{\prime}}(H)}
+\displaystyle\qquad=P^{\textup{Mat}}_{u,\ell}(r_{\omega}\,|\,\infty)\cdot\prod_{k=2}^{\infty}P^{\textup{Mat}}_{u,\ell}(r_{\omega^{k}}\,|\,r_{\omega^{k-1}}).
+
+This theorem verifies Gerth’s supplement to the Cohen–Lenstra heuristic in the sense codified by Wittman in [[37](https://arxiv.org/html/2207.05674#bib.bibx37)]. Conditionally on GRH, this result was previously known for Galois extensions of \mathbb{Q} due to work of Koymans and Pagano [[23](https://arxiv.org/html/2207.05674#bib.bibx23)]. This work used the method of [[33](https://arxiv.org/html/2207.05674#bib.bibx33)] and built off base-case work of Klys that was also conditional on GRH [[20](https://arxiv.org/html/2207.05674#bib.bibx20)].
+
+### 1.3. An overview of the method
+
+#### 1.3.1. 2-Selmer groups in quadratic twist families
+
+Given an abelian variety A over a number field F, and given d in F^{\times}, we find that the 2-torsion subgroups of A and A^{d} are isomorphic over F. More generally, given a module N acted on continuously by the absolute Galois group G_{F} of F, and given a continuous homomorphism \chi:G_{F}\to\pm 1, we can define the quadratic twist N^{\chi} of N, and we find that there is an equivariant isomorphism
+
+(1.1)N^{\chi}[2]\cong N[2]
+
+of the 2-torsion submodules of these Galois modules.
+
+The isomorphism ([1.1](https://arxiv.org/html/2207.05674#S1.E1 "In 1.3.1. 2-Selmer groups in quadratic twist families ‣ 1.3. An overview of the method ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I")) may be exploited to study the distribution of 2-Selmer groups in quadratic twist families of a given Galois module. This was first done by Heath-Brown, who found the distribution of 2-Selmer ranks in the quadratic twist family of the congruent number curve A\colon y^{2}=x^{3}-x over \mathbb{Q}[[15](https://arxiv.org/html/2207.05674#bib.bibx15)]. This method was adapted to the study of 4-class ranks of families of quadratic fields by Fouvry and Klüners [[8](https://arxiv.org/html/2207.05674#bib.bibx8)]. Heath–Brown’s result was later generalized to quadratic twist families of elliptic curves obeying Assumption [1.1](https://arxiv.org/html/2207.05674#S1.Thmthm1 "Assumption 1.1. ‣ 1.1. Ranks of elliptic curves in twist families ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") (3) by Kane [[18](https://arxiv.org/html/2207.05674#bib.bibx18)].
+
+Other previous results on the distribution of 2-Selmer groups apply to less natural families of twists. This includes the work of Gerth [[11](https://arxiv.org/html/2207.05674#bib.bibx11)], Swinnerton–Dyer [[35](https://arxiv.org/html/2207.05674#bib.bibx35)], and Klagsbrun, Mazur, and Rubin [[19](https://arxiv.org/html/2207.05674#bib.bibx19)]. The families appearing in these three papers are quite different, but they share one crucial element: in each of the families, twists are built up from the sets of primes where they are ramified. This idea reappears in our work as the notion of a _grid of twists_. Over \mathbb{Q}, a grid is defined from a collection of disjoint sets of rational primes X_{1},\dots,X_{r}, and consists of the squarefree integers in the set
+
+\big\{p_{1}\cdot p_{2}\cdot\dots\cdot p_{r}\,:\,\,(p_{1},\dots,p_{r})\in X\big\},
+
+where we have taken the notation X=\prod_{i\leq r}X_{i}. One key step in our work is gridding, where we carve the set of twists up to a given height into grids where the distribution of 2-Selmer ranks can be calculated.
+
+###### Remark 1.13.
+
+Note that N[2] is the submodule of N fixed under the automorphism -1. More generally, given an equivariant automorphism \zeta of N, we may consider the submodule N[\zeta-1] of points in N fixed by \zeta. If we then consider a twist N^{\chi} of N corresponding to some homomorphism \chi in \textup{Hom}(G_{F},\langle\zeta\rangle), there will be an equivariant isomorphism.
+
+N^{\chi}[\zeta-1]\cong N[\zeta-1]
+
+between the submodules of fixed points of \zeta. The analogue of the 2-Selmer group of N in this more general context is the \zeta-1-Selmer group of N, which we will also refer to as the fixed point Selmer group since it consists of cocycle classes valued in the fixed points of \zeta on N. If \zeta has order a power of \ell, we find that the \ell^{\infty}-Selmer groups in this twist family can often be controlled by similar methods to the 2^{\infty}-Selmer groups in the quadratic twist family, so we expand the scope of this paper to include such examples.
+
+#### 1.3.2. Moving to higher Selmer groups
+
+For simplicity at this point, we will focus on the case of quadratic twist families.
+
+The key innovation of our work is that the isomorphism ([1.1](https://arxiv.org/html/2207.05674#S1.E1 "In 1.3.1. 2-Selmer groups in quadratic twist families ‣ 1.3. An overview of the method ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I")) has analogues for higher powers of 2, and that these can be used to study higher Selmer groups. To be explicit, choose a sequence of homomorphisms \chi_{1},\chi_{2},\dots in \textup{Hom}(G_{F},\pm 1). Then we find that the G_{F}-module N^{\chi_{1}\cdot\chi_{2}}[4] can be constructed as an explicit subquotient of
+
+N^{\chi_{1}}[4]\oplus N^{\chi_{2}}[4]\oplus N[4],
+
+that N^{\chi_{1}\cdot\chi_{2}\cdot\chi_{3}}[8] can be constructed as an explicit subquotient of
+
+N^{\chi_{1}\cdot\chi_{2}}[8]\oplus N^{\chi_{1}\cdot\chi_{3}}[8]\oplus N^{\chi_{2}\cdot\chi_{3}}[8]\oplus N^{\chi_{1}}[8]\oplus N^{\chi_{2}}[8]\oplus N^{\chi_{3}}[8]\oplus N[8],
+
+and so on. The work needed to prove these results can be found in Section [7](https://arxiv.org/html/2207.05674#S7 "7. Algebra and combinatorics for grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), the only section of this paper entirely devoid of number theory. In particular, see Example [7.16](https://arxiv.org/html/2207.05674#S7.Thmthm16 "Example 7.16. ‣ 7.2. Interesting submodules of 𝑁(𝑋) ‣ 7. Algebra and combinatorics for grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I").
+
+It should be clear that these relations can be applied fruitfully to grids of twists. Choose an abelian variety A/\mathbb{Q}, and take X=\prod_{i\leq r}X_{i} to be the grid of twists considered above. Suppose that
+
+\textup{Sel}^{2}A^{d}\cong\textup{Sel}^{2}A^{d^{\prime}}
+
+under the standard isomorphism of A^{d}[2] and A^{d^{\prime}}[2] for any d,d^{\prime} in the grid. Then, supposing k\leq r, and supposing some other technical assumptions are satisfied, we find that the 2^{k}-Selmer groups of A^{d} for every d in the grid can be reconstructed from the 2^{k}-Selmer groups over a certain sparse subset Y of X. This can be proved using the method of Lemma [8.5](https://arxiv.org/html/2207.05674#S8.Thmthm5 "Lemma 8.5. ‣ 8.1. Algebraic results ‣ 8. Manipulating higher Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I").
+
+#### 1.3.3. The three parts of forcing equidistribution
+
+This observation about 2^{k}-Selmer groups in grids still leaves us far away from proving an equidistribution result like Theorem [1.5](https://arxiv.org/html/2207.05674#S1.Thmthm5 "Theorem 1.5. ‣ 1.1. Ranks of elliptic curves in twist families ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). Without further work, if the 2^{k}-Selmer ranks of the A^{d} have a lopsided distribution over Y, the same can be true for the whole grid. To prove an equidistribution result, we need to arrange it so that, however the 2^{k}-Selmer groups behave over Y, the result will still be an equidistributed set of 2^{k}-Selmer groups. The process of forcing equidistribution breaks into an algebraic part, an analytic part, and a combinatorial part.
+
+The algebraic part is given as Theorem [8.12](https://arxiv.org/html/2207.05674#S8.Thmthm12 "Theorem 8.12. ‣ 8.1. Algebraic results ‣ 8. Manipulating higher Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). In this result, we show that the behavior of higher Selmer groups in a grid partially depends on a symbol \left[\overline{\mathfrak{p}}_{a},\,\overline{\mathfrak{p}}_{b}\right] defined for certain primes \overline{\mathfrak{p}}_{a},\overline{\mathfrak{p}}_{b} of \overline{\mathbb{Q}}. The symbol encodes information about how \overline{\mathfrak{p}}_{a} behaves at \overline{\mathfrak{p}}_{b} relative to a fixed number field; we will define this object formally in Section [3](https://arxiv.org/html/2207.05674#S3 "3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I").
+
+The analytic part is the bilinear equidistribution result for symbols appearing in Section [5](https://arxiv.org/html/2207.05674#S5 "5. Bilinear character sums ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). This is a result we end up using three times: in addition to its application towards forcing equidistribution of higher Selmer ranks, it also appears in the regridding of Section [6](https://arxiv.org/html/2207.05674#S6 "6. Regridding ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") and in our calculations for the distribution of fixed point Selmer ranks in [[34](https://arxiv.org/html/2207.05674#bib.bibx34)]. However, it is only the application towards forcing equidistribution that requires the full strength of this result, in the form of Corollary [8.18](https://arxiv.org/html/2207.05674#S8.Thmthm18 "Corollary 8.18. ‣ 8.2. The proof of Theorem ‣ 8. Manipulating higher Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I").
+
+Combining these two ideas gives us substantial control on how the Selmer groups over X behave relative to the Selmer groups over Y. We need to engineer this control so that, no matter how the Selmer groups over Y behave, the result is an approximately equidistributed collection of Selmer groups over the whole grid X. This is the role that the combinatorial result Proposition [7.9](https://arxiv.org/html/2207.05674#S7.Thmthm9 "Proposition 7.9. ‣ 7.1. The zero-sums-in-lines condition ‣ 7. Algebra and combinatorics for grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") fills.
+
+### 1.4. The organization of this paper
+
+Figure 1.2. An approximate dependency diagram for the proof of [[34](https://arxiv.org/html/2207.05674#bib.bibx34), Theorem 2.14]. The dashed line separates the sections of this paper on the left from the sections of [[34](https://arxiv.org/html/2207.05674#bib.bibx34)] on the right.
+
+After going through some necessary notation in Section [2](https://arxiv.org/html/2207.05674#S2 "2. Notation ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), we introduce the notions of classes, spins, and symbols of primes in Section [3](https://arxiv.org/html/2207.05674#S3 "3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). These objects suffice to calculate the fixed point Selmer group of a twist coming from a grid, as we will show with Propositions [4.6](https://arxiv.org/html/2207.05674#S4.Thmthm6 "Proposition 4.6. ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") and [4.8](https://arxiv.org/html/2207.05674#S4.Thmthm8 "Proposition 4.8. ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") after defining twistable modules, Selmer groups, and grids. Given a twist \chi in the grid, we call the collection of twists in the grid whose classes, spins, and symbols all agree with those of \chi the grid class of \chi.
+
+We will control higher Selmer ranks by controlling certain pairings derived from the Cassels–Tate pairing on a specified grid class. We develop this theory in Section [4.1](https://arxiv.org/html/2207.05674#S4.SS1 "4.1. Dual Selmer groups and the Cassels–Tate pairing ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") and give a heuristic for how these pairings are distributed in Section [4.2](https://arxiv.org/html/2207.05674#S4.SS2 "4.2. The distribution of higher Selmer groups ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). This section ends with Theorem [4.18](https://arxiv.org/html/2207.05674#S4.Thmthm18 "Theorem 4.18. ‣ 4.2. The distribution of higher Selmer groups ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), the main result of this paper, which gives a sufficient set of conditions on the grid class for our heuristic to hold.
+
+In Section [5](https://arxiv.org/html/2207.05674#S5 "5. Bilinear character sums ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), we prove an equidistribution result for symbols \left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right] for pairs of primes (\overline{\mathfrak{p}},\overline{\mathfrak{q}}) taken from a large product X_{1}\times X_{2}.
+
+As mentioned above, our algebraic methods for manipulating higher Selmer groups requires a grid of twists with isomorphic fixed point Selmer groups. When proving Theorem [4.18](https://arxiv.org/html/2207.05674#S4.Thmthm18 "Theorem 4.18. ‣ 4.2. The distribution of higher Selmer groups ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), we run into the problem that the grid class of a twist is usually not a grid. Our solution to this is to carve the given grid class into smaller grids, a process we complete in Section [6](https://arxiv.org/html/2207.05674#S6 "6. Regridding ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). This section also reduces the scope of Theorem [4.18](https://arxiv.org/html/2207.05674#S4.Thmthm18 "Theorem 4.18. ‣ 4.2. The distribution of higher Selmer groups ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") to the behavior of a single matrix coefficient of the Cassels–Tate pairing.
+
+In the self-contained Section [7](https://arxiv.org/html/2207.05674#S7 "7. Algebra and combinatorics for grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), we introduce the algebra and combinatorics needed to mainpulate Selmer groups in grids of twists. We then apply this theory in Section [8](https://arxiv.org/html/2207.05674#S8 "8. Manipulating higher Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") to finish the proof of Theorem [4.18](https://arxiv.org/html/2207.05674#S4.Thmthm18 "Theorem 4.18. ‣ 4.2. The distribution of higher Selmer groups ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I").
+
+### Acknowledgements
+
+This work was largely done while I was a graduate student at Harvard University. I would like to thank my advisors, Noam Elkies and Mark Kisin, for their support there. I also would like to thank Dorian Goldfeld, Andrew Granville, Melanie Matchett Wood, and Shou-Wu Zhang for their encouragement and guidance from outside the Harvard mathematics department.
+
+I want to acknowledge Dimitris Koukoulopoulos, Peter Koymans, Adam Morgan, Jesse Thorner, and David Yang for specific insights that had a major impact on this work.
+
+I would like to thank the many people who have had comments on previous versions of this work, including Brandon Alberts, Robin Ammon, Alex Bartel, Magnus Carlson, Stephanie Chan, Brian Conrad, Andrea Gallese, Kenz Kallal, Seoyoung Kim, Zev Klagsbrun, Alison Miller, Djordjo Milovic, Sebastian Monnet, Evan O’Dorney, Carlo Pagano, Sun Woo Park, Ross Paterson, Manami Roy, Ye Tian, John Voight, Jiuya Wang, Ariel Weiss, Boya Wen, and Xiuwu Zhu.
+
+I would like to thank George Boxer, Jordan Ellenberg, Wei Ho, Barry Mazur, Morgan Opie, Hector Pasten, Bjorn Poonen, Karl Rubin, Peter Sarnak, Geoffrey Smith, Richard Taylor, Frank Thorne, Nicholas Triantafillou, Ila Varma, Xinyi Yuan, and the participants in the virtual 2022 learning seminar for helpful discussions over the course of this project.
+
+This research was partially conducted during the period the author served as a Clay Research Fellow. Previously, the author was supported in part by National Science Foundation grant DMS-2002011.
+
+## 2. Notation
+
+Fix an algebraic closure \overline{\mathbb{Q}} of \mathbb{Q}. All the number fields appearing in this paper will be taken to lie inside this field. For any integer m\geq 1, \mu_{m} will denote the group of m^{th} roots of unity inside \overline{\mathbb{Q}}.
+
+Given a characteristic-0 field K with fixed algebraic closure \overline{K}, we take G_{K} to be the absolute Galois group \textup{Gal}(\overline{K}/K). In particular, for a number field F, we have G_{F}=\textup{Gal}(\overline{\mathbb{Q}}/F).
+
+For us, the places of a given number field are its primes and its archimedean absolute value functions. For each place v of a number field F, F_{v} will denote the completion of F at v. We take \mathcal{O}_{F} to be the ring of integers of F.
+
+Given a prime \overline{\mathfrak{p}} of \overline{\mathbb{Q}}, we take G_{F,\overline{\mathfrak{p}}} to be the associated decomposition group of G_{F}, I_{F,\overline{\mathfrak{p}}} to be the associated inertia subgroup, and I^{\text{w}}_{F,\overline{\mathfrak{p}}} to be the associated wild inertia subgroup. We similarly can define the decomposition group G_{F,\overline{v}} for an archimedean place \overline{v} of \overline{F}.
+
+Given a place v of F, we will take G_{v} to be equal to G_{F,\overline{v}} for some place \overline{v} of \overline{F} over v, with I_{v} defined similarly. We will use this notation in cases where the specific choice of \overline{v} does not matter.
+
+Given F and a prime \mathfrak{p}, we fix a Frobenius element \textup{Frob}_{F}\,\overline{\mathfrak{p}} inside G_{F,\overline{\mathfrak{p}}}. This will be any element whose image in G_{F,\overline{\mathfrak{p}}}/I_{F,\overline{\mathfrak{p}}} induces the Frobenius endomorphism on the residue field of \overline{\mathbb{Q}}_{\overline{\mathfrak{p}}}. This definition determines the element up to an element of I_{F,\overline{\mathfrak{p}}}.
+
+Take \widehat{\mathbb{Z}}(1) to be the inverse limit {\varprojlim}_{m\geq 1}\,\mu_{m}. Fix once and for all a topological generator \overline{\zeta} of \widehat{\mathbb{Z}}(1).
+
+With this fixed, given F and \overline{\mathfrak{p}}, we choose an element \textup{Tine}_{F}\,\overline{\mathfrak{p}} in I_{F,\overline{\mathfrak{p}}} so that, for any \alpha\in\mathcal{O}_{F} divisible by \mathfrak{p}=\overline{\mathfrak{p}}\cap F but not by \mathfrak{p}^{2}, and given any positive integer m indivisible by \mathfrak{p}, the ratio
+
+\frac{(\textup{Tine}_{F}\,\overline{\mathfrak{p}})(\alpha^{1/m})}{\alpha^{1/m}}
+
+equals the image of \overline{\zeta} in \mu_{m}.
+
+With \overline{\zeta} fixed, this definition determines \textup{Tine}_{F}\,\overline{\mathfrak{p}} up to an element of I^{\text{w}}_{F,\overline{\mathfrak{p}}}. As suggested by the notation, \textup{Tine}_{F}\,\overline{\mathfrak{p}} is a generator for the tame inertia group I_{F,\overline{\mathfrak{p}}}/I^{\text{w}}_{F,\overline{\mathfrak{p}}}.
+
+Given a finite discrete G_{F}-module M, we take M(1) to be the Tate twist M\otimes_{\widehat{\mathbb{Z}}}\widehat{\mathbb{Z}}(1) and M(-1) to be the Tate twist
+
+M(-1)=\textup{Hom}_{\widehat{\mathbb{Z}}}\left(\widehat{\mathbb{Z}}(1),\,M\right).
+
+We also define M^{\vee} to be the twisted Pontryagin dual \textup{Hom}_{\widehat{\mathbb{Z}}}(M,\mathbb{Q}/\mathbb{Z})(1).
+
+Given a topological group G and a discrete G-module M, we take H^{i}(G,M) to be the continuous cochain cohomology group for i\geq 0, which we define as a quotient of the set of continuous i-cocycles Z^{i}(G,M). The term M^{G} will denote the set of invariants of M under G, making it synonymous with H^{0}(G,M), and the term M_{G} will denote the set of coinvariants of M. Given \sigma\in G, we take M^{\sigma} and M_{\sigma} as alternative notation for M^{\langle\sigma\rangle} and M_{\langle\sigma\rangle}.
+
+## 3. Ramification sections and symbols
+
+Our first major result about \omega-Selmer groups is Proposition [4.6](https://arxiv.org/html/2207.05674#S4.Thmthm6 "Proposition 4.6. ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). This proposition generalizes the following result, which can be found in Monsky’s appendix to [[15](https://arxiv.org/html/2207.05674#bib.bibx15)].
+
+###### Proposition 3.1.
+
+Take A to be the elliptic curve over \mathbb{Q} with Weierstrass form y^{2}=x^{3}-x. Choose an integer r\geq 1 and two collections of r distinct odd primes p_{1},\dots,p_{r} and q_{1},\dots,q_{r}. Suppose
+
+*   •
+The primes p_{i} and q_{i} are equal mod 8 for all i\leq r, and
+
+*   •We have an equality
+
+\left(\frac{p_{i}}{p_{j}}\right)=\left(\frac{q_{i}}{q_{j}}\right)
+
+of Legendre symbols for all i<j\leq r. 
+
+Then, taking d=p_{1}\cdot\dots\cdot p_{r} and e=q_{1}\cdot\dots\cdot q_{r}, the 2-Selmer groups of the quadratic twists A^{d} and A^{e} are isomorphic.
+
+The proof of Proposition [3.1](https://arxiv.org/html/2207.05674#S3.Thmthm1 "Proposition 3.1. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") relies on the fact that A[2] is isomorphic to (\mathbb{Z}/2\mathbb{Z})^{2} as a G_{\mathbb{Q}}-module. To handle more complicated Galois modules in Proposition [4.6](https://arxiv.org/html/2207.05674#S4.Thmthm6 "Proposition 4.6. ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), we need to find an appropriate replacement for the Legendre symbols appearing above. The goal of this section is to develop the theory of this replacement for the Legendre symbol, with the Legendre symbol itself reappearing in Example [3.14](https://arxiv.org/html/2207.05674#S3.Thmthm14 "Example 3.14. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). We will turn to the fundamental definitions and results for Selmer groups in the next section.
+
+###### Definition 3.2.
+
+Given a number field F, a discrete G_{F} module M, and a set of places \mathscr{V} of F and its subfields, we define the set of cocycle classes unramified away from \mathscr{V} as the kernel
+
+\mathscr{S}_{M/F}(\mathscr{V})=\ker\left(H^{1}(G_{F},M)\to\prod_{v\,\nmid\,\mathscr{V}}H^{1}(I_{v},M)\right).
+
+###### Definition 3.3.
+
+Choose a tuple (K/F,\mathscr{V}_{0},e_{0}) consisting of
+
+1.   (1)
+A Galois extension of number fields K/F,
+
+2.   (2)
+A finite set of places \mathscr{V}_{0} of F, and
+
+3.   (3)
+An integer e_{0}\geq 1.
+
+We assume that K contains \mu_{e_{0}} and that \mathscr{V}_{0} contains all archimedean places, all primes dividing e_{0}, and all places where K/F ramifies. We then call (K/F,\mathscr{V}_{0},e_{0}) a _starting tuple_.
+
+###### Definition 3.4.
+
+Choose a starting tuple (K/F,\mathscr{V}_{0},e_{0}). We take \textup{Mod}(K/F,e_{0}) to be the full subcategory of the category of finite \textup{Gal}(K/F)-modules whose objects are the modules of exponent dividing e_{0}.
+
+Given a prime \overline{\mathfrak{p}} of \overline{\mathbb{Q}} not dividing any prime in \mathscr{V}_{0}, and given M in \textup{Mod}(K/F,e_{0}), we can define a natural _ramification-measuring_ homomorphism
+
+(3.1)\mathfrak{R}_{\overline{\mathfrak{p}},M}:H^{1}(G_{F},M)\xrightarrow{\hskip 8.19447pt}M(-1)^{G_{F,\overline{\mathfrak{p}}}}
+
+taking \phi\in H^{1}(G_{F},M) to the map in \textup{Hom}\big(\widehat{\mathbb{Z}}(1),M\big) sending \overline{\zeta} to \phi(\textup{Tine}_{F}\,\overline{\mathfrak{p}}). This definition does not depend on the choice of \overline{\zeta}. We need to check that this homomorphism is fixed by the action of G_{F,\overline{\mathfrak{p}}}, but this follows from the identity
+
+(3.2)\textup{Frob}_{F}\,\overline{\mathfrak{p}}\cdot\textup{Tine}_{F}\,\overline{\mathfrak{p}}\cdot(\textup{Frob}_{F}\,\overline{\mathfrak{p}})^{-1}=\textup{Tine}_{F}\,\overline{\mathfrak{p}}^{a}\quad\text{mod }I_{F,\overline{\mathfrak{p}}}^{e_{0}}\cdot I^{w}_{F,\overline{\mathfrak{p}}},
+
+where a\in(\mathbb{Z}/e_{0}\mathbb{Z})^{\times} is chosen so \textup{Frob}_{F}\,\overline{\mathfrak{p}}(\zeta)=\zeta^{a} for all \zeta in \mu_{e_{0}}.
+
+Taking \mathfrak{p}=\overline{\mathfrak{p}}\cap F, the maps \mathfrak{R}_{\overline{\mathfrak{p}}} fit an exact sequence
+
+(3.3)0\to\mathscr{S}_{M/F}(\mathscr{V}_{0})\to\mathscr{S}_{M/F}(\mathscr{V}_{0}\cup\{\mathfrak{p}\})\xrightarrow{\,\,\,\mathfrak{R}_{\overline{\mathfrak{p}}}\,\,\,}M(-1)^{G_{F,\overline{\mathfrak{p}}}}
+
+for any M in \textup{Mod}(K/F,e_{0}). If the final map in this sequence is surjective for every M in \textup{Mod}(K/F,e_{0}) and every \overline{\mathfrak{p}} not over \mathscr{V}_{0}, we call (K/F,\mathscr{V}_{0},e_{0}) an _unpacked starting tuple_.
+
+Our definition of an unpacked starting tuple invokes Galois cohomology, but we can check that a tuple is unpacked using more elementary algebraic number theory. This starts with the following definition.
+
+###### Notation 3.5.
+
+Given a starting tuple (K/F,\mathscr{V}_{0},e_{0}), choose a subfield E of K containing F so that \textup{Gal}(K/E) is cyclic, and choose a prime \mathfrak{p} of E that is inert in K/E and that is not over any place in \mathscr{V}_{0}. Given \alpha_{\mathfrak{p}} in E^{\times}, we say that \alpha_{\mathfrak{p}} is an approximate generator for \mathfrak{p} if there is an integral ideal \mathfrak{a} of E divisible only by primes over \mathscr{V}_{0} and a fractional ideal \mathfrak{b} of E so that
+
+(\alpha_{\mathfrak{p}})=\mathfrak{p}\mathfrak{a}\mathfrak{b}^{e_{0}}.
+
+If such an \alpha_{\mathfrak{p}} can be found for all E and \mathfrak{p}, we say that the tuple (K/F,\mathscr{V}_{0},e_{0})_has approximate generators_.
+
+###### Definition 3.6.
+
+Fix a starting tuple (K/F,\mathscr{V}_{0},e_{0}). Given any set of places \mathscr{V} of F, define K(\mathscr{V}) to be the maximal abelian extension of K of exponent dividing e_{0} ramified only over places in \mathscr{V}. Choose a prime \overline{\mathfrak{p}} of \overline{\mathbb{Q}} not over \mathscr{V}_{0}, and take E to be the minimal extension of F so that K/E is inert at \overline{\mathfrak{p}}\cap E. Take E(\mathscr{V}_{0}) to be the maximal abelian extension of E of exponent dividing e_{0} ramified only over places in \mathscr{V}_{0}.
+
+Then we define the _class of \overline{\mathfrak{p}}_ with respect to (K/F,\mathscr{V}_{0},e_{0}) to be the set of all primes \overline{\mathfrak{p}}^{\prime} of \overline{\mathbb{Q}} not over any prime of \mathscr{V}_{0} for which
+
+\textup{Frob}_{F}\,\overline{\mathfrak{p}}^{\prime}\equiv\textup{Frob}_{F}\,\overline{\mathfrak{p}}\,\text{ mod }G_{E(\mathscr{V}_{0})}.
+
+We denote the class of \overline{\mathfrak{p}} by \left[\overline{\mathfrak{p}}\right].
+
+We define an equivalence relation \sim on \textup{Gal}(K(\mathscr{V}_{0})/F) by saying \sigma\sim\tau if there are primes \overline{\mathfrak{p}},\overline{\mathfrak{q}} in the same class so \textup{Frob}_{F}\,\overline{\mathfrak{p}} restricts to \sigma and \textup{Frob}_{F}\,\overline{\mathfrak{q}} restricts to \tau. We then define \mathscr{C} to be the quotient \textup{Gal}(K(\mathscr{V}_{0})/F)/\sim.
+
+###### Remark 3.7.
+
+Given M in \textup{Mod}(K/F,e_{0}) and \phi in \mathscr{S}_{M/F}(\mathscr{V}_{0}), and given \sigma and \tau in the same class of \textup{Gal}(K(\mathscr{V}_{0})/F)/\sim, we see that the coinvariant groups M_{\sigma} and M_{\tau} are equal and that \phi(\sigma) equals \phi(\tau) in this group of coinvariants.
+
+###### Notation 3.8.
+
+Fix a starting tuple (K/F,\mathscr{V}_{0},e_{0}). Given a prime \overline{\mathfrak{p}} of \overline{\mathbb{Q}} not over \mathscr{V}_{0}, we take E(\overline{\mathfrak{p}}) to be the minimal extension of F so that K/E(\overline{\mathfrak{p}}) is inert at \overline{\mathfrak{p}}\cap E(\overline{\mathfrak{p}}).
+
+Suppose this tuple has approximate generators. For each prime \overline{\mathfrak{p}} of \overline{\mathbb{Q}} not over \mathscr{V}_{0}, choose some approximate generator \alpha_{\overline{\mathfrak{p}}}\in E(\overline{\mathfrak{p}})^{\times} for \overline{\mathfrak{p}}\cap E(\overline{\mathfrak{p}}). We call this collection an _assignment of approximate generators_ if, for every pair of primes \overline{\mathfrak{p}},\overline{\mathfrak{p}}^{\prime} of \overline{\mathbb{Q}} lying in the same class with respect to the starting tuple, the ratio \alpha_{\overline{\mathfrak{p}}}\cdot\alpha_{\overline{\mathfrak{p}}^{\prime}}^{-1} lies in (E(\overline{\mathfrak{p}})_{w})^{e_{0}} for every place w over a place in \mathscr{V}_{0}. By class field theory and the definition of a class, we see that an assignment of approximate generators can be found so long as the starting tuple has approximate generators.
+
+###### Proposition 3.9.
+
+A given starting tuple (K/F,\mathscr{V}_{0},e_{0}) is unpacked if and only if it has approximate generators.
+
+###### Proof.
+
+Choose a prime \overline{\mathfrak{p}} of \overline{\mathbb{Q}} not over \mathscr{V}_{0}, and take E=E(\overline{\mathfrak{p}}) to be the field defined in Notation [3.8](https://arxiv.org/html/2207.05674#S3.Thmthm8 "Notation 3.8. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). Take M_{0}=\mathbb{Z}[G_{F}]\otimes_{\mathbb{Z}[G_{E}]}\mu_{e_{0}}, and take m_{0}\in M_{0}(-1)^{G_{F,\overline{\mathfrak{p}}}} to be the homomorphism taking \overline{\zeta} to [1]\otimes\zeta, where \zeta is the image of \overline{\zeta} in \mu_{e_{0}}. Given any M in \text{Mod}(K/F,e_{0}) and m in M(-1)^{G_{F,\overline{\mathfrak{p}}}}, we see there is a unique G_{F}-equivariant homomorphism \rho:M_{0}\to M so that the Tate twisted morphism \rho(-1) takes m_{0} to m. So we find that the final map in ([3.3](https://arxiv.org/html/2207.05674#S3.E3 "In Definition 3.4. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I")) is surjective for all M in this category if and only if there is some
+
+\phi_{\overline{\mathfrak{p}}}\in\mathscr{S}_{M_{0}/F}(\mathscr{V}_{0}\cup\{\overline{\mathfrak{p}}\cap F\})
+
+with \mathfrak{R}_{\overline{\mathfrak{p}}}(\phi_{\overline{\mathfrak{p}}})=m_{0}.
+
+By Shapiro’s lemma and Hilbert 90, we have isomorphisms
+
+H^{1}(G_{F},M_{0})\cong H^{1}(G_{E},\mu_{e_{0}})\cong E^{\times}/(E^{\times})^{e_{0}},
+
+and we find that a given \phi_{\overline{\mathfrak{p}}} satisfies the above conditions if and only if any/every lift of the corresponding element in E^{\times}/(E^{\times})^{e_{0}} to E^{\times} is an approximate generator for \overline{\mathfrak{p}}\cap E. This gives the proposition. ∎
+
+The proof of Proposition [3.9](https://arxiv.org/html/2207.05674#S3.Thmthm9 "Proposition 3.9. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") gives a method for constructing sections to \mathfrak{R}_{\overline{\mathfrak{p}},M} from approximate generators. These particular sections turn out to have some nice properties that we isolate with the following definition.
+
+###### Definition 3.10.
+
+Given a starting tuple (K/F,\mathscr{V}_{0},e_{0}), a _ramification section_\mathfrak{B} is a collection of homomorphisms
+
+\mathfrak{B}_{\overline{\mathfrak{p}},M}:M(-1)^{G_{F,\overline{\mathfrak{p}}}}\xrightarrow{\hskip 8.19447pt}\mathscr{S}_{M}(\mathscr{V}_{0}\cup\{\mathfrak{p}\})
+
+indexed by primes \overline{\mathfrak{p}} of \overline{\mathbb{Q}} not over \mathscr{V}_{0} and objects M in \textup{Mod}(K/F,e_{0}) so that
+
+1.   (1)
+The map \mathfrak{B}_{\overline{\mathfrak{p}},M} is a section for \mathfrak{R}_{\overline{\mathfrak{p}},M}, i.e. \mathfrak{R}_{\overline{\mathfrak{p}},M}\circ\mathfrak{B}_{\overline{\mathfrak{p}},M} is the identity on M(-1)^{G_{F,\overline{\mathfrak{p}}}} for every \overline{\mathfrak{p}} and M.
+
+2.   (2)
+For every fixed \overline{\mathfrak{p}}, the collection of maps \mathfrak{B}_{\overline{\mathfrak{p}},M} defines a natural transformation.
+
+3.   (3)Given any primes \overline{\mathfrak{p}} and \overline{\mathfrak{p}}^{\prime} in the same class, any object M, and any m in M(-1)^{G_{F,\overline{\mathfrak{p}}}}, the difference
+
+\mathfrak{B}_{\overline{\mathfrak{p}},M}(m)-\mathfrak{B}_{\overline{\mathfrak{p}}^{\prime},M}(m)
+
+is trivial when restricted to G_{v} for all v in \mathscr{V}_{0}. 
+
+Choose an unpacked starting tuple (K/F,\mathscr{V}_{0},e_{0}), and choose an assignment of approximate generators (\alpha_{\overline{\mathfrak{p}}})_{\overline{\mathfrak{p}}}. Choose a prime \overline{\mathfrak{p}} of \overline{\mathbb{Q}} not over \mathscr{V}_{0} and take E=E(\overline{\mathfrak{p}}) as in Notation [3.8](https://arxiv.org/html/2207.05674#S3.Thmthm8 "Notation 3.8. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). Take M_{0}=\mathbb{Z}[G_{F}]\otimes_{\mathbb{Z}[G_{E}]}\mu_{e_{0}}, and take m_{0}\in M_{0}(-1) to be the homomorphism taking \overline{\zeta} to [1]\otimes\zeta, where \zeta is the image of \overline{\zeta} in \mu_{e_{0}}. Using the method of the proof of Proposition [3.9](https://arxiv.org/html/2207.05674#S3.Thmthm9 "Proposition 3.9. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), we may associate \alpha_{\overline{\mathfrak{p}}} to an element \phi_{\overline{\mathfrak{p}}} in H^{1}(G_{F},M_{0}) with \mathfrak{R}_{\overline{\mathfrak{p}}}(\phi_{\overline{\mathfrak{p}}})=m_{0}. If \overline{\mathfrak{p}}^{\prime} is in \left[\overline{\mathfrak{p}}\right], we may also define \phi_{\overline{\mathfrak{p}}^{\prime}} in H^{1}(G_{F},M_{0}). We find that the difference \phi_{\overline{\mathfrak{p}}}-\phi_{\overline{\mathfrak{p}}^{\prime}} is trivial at every place in \mathscr{V}_{0}; indeed, this is equivalent to the compatibility of \alpha_{\overline{\mathfrak{p}}} and \alpha_{\overline{\mathfrak{p}}^{\prime}} given as part of Notation [3.8](https://arxiv.org/html/2207.05674#S3.Thmthm8 "Notation 3.8. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I").
+
+Now, given M in \text{Mod}(K/F,e_{0}) and m in M(-1)^{G_{F,\overline{\mathfrak{p}}}}, we define \mathfrak{B}_{\overline{\mathfrak{p}},M}(m) to equal \rho(\phi_{\overline{\mathfrak{p}}}), where \rho is the unique equivariant homomorphism from M_{0} to M for which the Tate twisted morphism \rho(-1) takes m_{0} to m. This is a natural transformation: given a morphism \beta:M\to M^{\prime} in \text{Mod}(K/F,e_{0}), we see that \beta\circ\rho is the unique morphism whose Tate twist takes m_{0} to \beta(m), so
+
+\mathfrak{B}_{\overline{\mathfrak{p}},M^{\prime}}(\beta(m))=\beta\left(\mathfrak{B}_{\overline{\mathfrak{p}},M}(m)\right).
+
+A similar argument shows that \mathfrak{B}_{\overline{\mathfrak{p}},M} is a homomorphism, and it is now straightforward to check that the collection of maps \mathfrak{B}_{\overline{\mathfrak{p}}} define a ramification section. By using the naturality condition, we can also check that any ramification section may be constructed in this way from some assignment of approximate generators.
+
+We summarize the above work with the following proposition.
+
+###### Proposition 3.11.
+
+Given a starting tuple (K/F,\mathscr{V}_{0},e_{0}), the following are equivalent:
+
+1.   (1)
+There is a ramification section \mathfrak{B} defined with respect to the starting tuple.
+
+2.   (2)
+The starting tuple is unpacked.
+
+3.   (3)For every M in \textup{Mod}(K/F,e_{0}), we have
+
+\ker\left(\mathscr{S}_{M/F}(\mathscr{V}_{0})\to\prod_{v\in\mathscr{V}_{0}}H^{1}(G_{v},M)\right)\,=\,\ker\left(H^{1}(G_{F},M)\to\prod_{v\text{ of }F}H^{1}(G_{v},M)\right). 
+4.   (4)
+The starting tuple has approximate generators.
+
+###### Proof.
+
+We see from the above work that (1), (2), and (4) are equivalent, so we just need to prove (3) is equivalent to the others. But, from Poitou–Tate duality, we see that the equality of kernels of condition (3) holds for a given M and prime \overline{\mathfrak{p}} if and only if the map \mathfrak{R}_{\overline{\mathfrak{p}},M^{\vee}}. This suffices to show that (2) and (3) are equivalent. ∎
+
+Our methods generally require that we work with unpacked starting tuples. Fortunately, this is not much of a burden.
+
+###### Proposition 3.12.
+
+Choose a starting tuple (K/F,\mathscr{V}_{0},e_{0}), and take \textup{Cl}\,\,K to be the class group of K. Then there is a set of places \mathscr{V} of F of cardinality at most [K:F]+\log_{2}\left(\#\textup{Cl}\,\,K\right) so that (K/F,\mathscr{V}_{0}\cup\mathscr{V},e_{0}) is an unpacked starting tuple.
+
+###### Proof.
+
+For \sigma in \textup{Gal}(K/F), choose a prime \overline{\mathfrak{p}}_{\sigma} of \overline{\mathbb{Q}} not over \mathscr{V}_{0} such that \textup{Frob}_{F}\,\overline{\mathfrak{p}} projects to \sigma. Also choose a minimal set of generators A for the abelian group \textup{Cl}\,\,K/e_{0}\textup{Cl}\,\,K, and choose a prime \mathfrak{p}_{a} of K whose ideal class projects to a for each a\in A. Take
+
+\mathscr{V}=\big\{\overline{\mathfrak{p}}_{\sigma}\cap F\,:\,\,\sigma\in\textup{Gal}(K/F)\big\}\cup\big\{\mathfrak{p}_{a}\cap F\,:\,\,a\in A\big\}.
+
+This set has cardinality bounded by [K:F]+\log_{2}\left(\#\textup{Cl}\,\,K\right). To check that this choice gives an unpacked tuple, we use Condition (3) of Proposition [3.11](https://arxiv.org/html/2207.05674#S3.Thmthm11 "Proposition 3.11. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). First, given an unramified element \phi in H^{1}(G_{K},\frac{1}{e_{0}}\mathbb{Z}/\mathbb{Z}), if \phi is trivial at \textup{Frob}_{F}\,(\mathfrak{p}_{a}\cap F) for each a in A, we can use Artin reciprocity to conclude that \phi is trivial. From the inflation-restriction exact sequence, we can conclude that
+
+\displaystyle\ker\left(\mathscr{S}_{M/F}(\mathscr{V}_{0})\to\prod_{v\in\mathscr{V}_{0}\cup\mathscr{V}}H^{1}(G_{v},M)\right)
+\displaystyle\qquad=\,\,\ker\left(H^{1}(\textup{Gal}(K/F),M)\to\prod_{v\in\mathscr{V}_{0}\cup\mathscr{V}}H^{1}(G_{v},M)\right).
+
+From triviality at the \overline{\mathfrak{p}}_{\sigma}, we see that a cocycle class in the second kernel must be trivial on restriction to any cyclic subgroup of \textup{Gal}(K/F). Since \mathscr{V}_{0} contains all places where K/F is ramified, we thus find that any class in this second kernel has trivial restriction to G_{v} for every place v of F. So the conditions of Proposition [3.11](https://arxiv.org/html/2207.05674#S3.Thmthm11 "Proposition 3.11. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") hold for (K/F,\mathscr{V}_{0}\cup\mathscr{V},e_{0}). ∎
+
+For the rest of the section, we fix an unpacked starting tuple (K/F,\mathscr{V}_{0},e_{0}) and an assignment of approximate generators (\alpha_{\overline{\mathfrak{p}}})_{\overline{\mathfrak{p}}}, and we take \mathfrak{B} to be the ramification section associated to (\alpha_{\overline{\mathfrak{p}}})_{\overline{\mathfrak{p}}}.
+
+###### Definition 3.13.
+
+Choose primes \overline{\mathfrak{p}},\overline{\mathfrak{q}} of \overline{\mathbb{Q}} not over places of \mathscr{V}_{0}. We define E(\overline{\mathfrak{p}}) and E(\overline{\mathfrak{q}}) as in Notation [3.8](https://arxiv.org/html/2207.05674#S3.Thmthm8 "Notation 3.8. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). For any \tau in G_{F}, define the composite field
+
+L_{\tau}=L_{\tau}(\overline{\mathfrak{p}},\overline{\mathfrak{q}})=E(\overline{\mathfrak{p}})\cdot\tau E(\overline{\mathfrak{q}}),
+
+take \mathfrak{p}_{\tau}=\overline{\mathfrak{p}}\cap L_{\tau}(\overline{\mathfrak{p}},\overline{\mathfrak{q}}), and take m_{\tau} to be the maximal divisor of e_{0} such that \mu_{m_{\tau}} is a subgroup of L_{\tau}^{\times}. Given any \beta_{1},\beta_{2}\in L^{\times}_{\tau}, we can consider the order m_{\tau} Hilbert symbol (\beta_{1},\beta_{2})_{m_{\tau},\mathfrak{p}_{\tau}} evaluated in the local field (L_{\tau})_{\mathfrak{p}_{\tau}}, with our conventions as in [[27](https://arxiv.org/html/2207.05674#bib.bibx27), Section V.3].
+
+With this setup, we define the _symbol_ of \overline{\mathfrak{p}} and \overline{\mathfrak{q}} to be the function
+
+\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right]:G_{F}\to\mu_{e_{0}}
+
+given by
+
+\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right](\tau)\,=\,\left(\alpha_{\overline{\mathfrak{p}}},\,\tau\alpha_{\overline{\mathfrak{q}}}\right)_{m_{\tau},\mathfrak{p}_{\tau}}\,\,\text{ for }\,\tau\in G_{F}.
+
+###### Example 3.14.
+
+Restricting to the case that K=F=\mathbb{Q} and e_{0}=2, we find that (\mathbb{Q}/\mathbb{Q},\{2,\infty\},2) is an unpacked starting tuple. One possible assignment of approximate generators takes a prime \overline{\mathfrak{p}} of \overline{\mathbb{Q}} not over 2 to the unique positive generator for the ideal \overline{\mathfrak{p}}\cap\mathbb{Q}. Given distinct odd rational primes p and q and any primes \overline{\mathfrak{p}} and \overline{\mathfrak{q}} in \overline{\mathbb{Q}} dividing these primes, we find that
+
+\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right](\tau)=\left(\frac{q}{p}\right)\quad\text{for all }\tau\in G_{\mathbb{Q}},
+
+where the right term is a Legendre symbol.
+
+###### Remark 3.15.
+
+The symbol \left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right] depends on the choice of assignment of approximate generators, but this dependence is superficial. To explain this, take \mathscr{V}_{0}^{\prime} to be a set of places of F containing \mathscr{V}_{0}, and take \left[\,\,,\,\right]^{\prime} to be a symbol defined with respect to some assignment of approximate generators for (K/F,\mathscr{V}_{0}^{\prime},e_{0}). Define \mathscr{C} as in Definition [3.6](https://arxiv.org/html/2207.05674#S3.Thmthm6 "Definition 3.6. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). Then we find that there is some function
+
+f:\mathscr{C}\times\mathscr{C}\to\text{Map}(G_{F},\mu_{e_{0}})
+
+such that, for any primes \overline{\mathfrak{p}},\overline{\mathfrak{q}} of \overline{\mathbb{Q}} not over \mathscr{V}_{0}^{\prime} with \overline{\mathfrak{p}}\cap F\neq\overline{\mathfrak{q}}\cap F, we have
+
+\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right]=\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right]^{\prime}\cdot f\left(\textup{Frob}_{F}\,\overline{\mathfrak{p}},\,\textup{Frob}_{F}\,\overline{\mathfrak{q}}\right).
+
+That is, the ratio between these symbols is determined by the class of \overline{\mathfrak{p}} and \overline{\mathfrak{q}} over (K/F,\mathscr{V}_{0}^{\prime},e_{0}). We can also determine the ratio between \left[\overline{\mathfrak{p}},\,\overline{\mathfrak{p}}\right] and \left[\overline{\mathfrak{p}},\,\overline{\mathfrak{p}}\right]^{\prime} just from the class of \overline{\mathfrak{p}}.
+
+It would be nice to package the same information in a more canonical invariant, but none of the alternatives the author has considered have been satisfactory.
+
+We list some basic properties of the symbol.
+
+###### Proposition 3.16.
+
+Take \overline{\mathfrak{p}},\overline{\mathfrak{q}} and \overline{\mathfrak{p}}^{\prime},\overline{\mathfrak{q}}^{\prime} to be primes of \overline{\mathbb{Q}} not over places in \mathscr{V}_{0} satisfying \left[\overline{\mathfrak{p}}\right]=\left[\overline{\mathfrak{p}}^{\prime}\right] and \left[\overline{\mathfrak{q}}\right]=\left[\overline{\mathfrak{q}}^{\prime}\right]. Define E(\overline{\mathfrak{q}}) as before, and choose \tau in G_{F}.
+
+1.   (1)
+For \sigma\in G_{E(\overline{\mathfrak{q}})}, we have \left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right](\tau\sigma)=\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right](\tau).
+
+2.   (2)For \sigma\in G_{K}, we have
+
+\left[\sigma\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right](\tau)=\left[\overline{\mathfrak{p}},\,\sigma\overline{\mathfrak{q}}\right](\tau)=\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right](\tau). 
+3.   (3)Suppose \overline{\mathfrak{p}}\cap K\neq\overline{\mathfrak{q}}\cap K. Then
+
+\tau\big(\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right](1)\big)=\left[\tau\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right](\tau). 
+4.   (4)We have
+
+\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right](\tau)\cdot\left[\overline{\mathfrak{p}},\,\tau\overline{\mathfrak{q}}\right](1)^{-1}\,=\,\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}^{\prime}\right](\tau)\cdot\left[\overline{\mathfrak{p}},\,\tau\overline{\mathfrak{q}}^{\prime}\right](1)^{-1}. 
+5.   (5)Suppose \overline{\mathfrak{p}}\cap K\neq\overline{\mathfrak{q}}\cap K and \overline{\mathfrak{p}}^{\prime}\cap K\neq\overline{\mathfrak{q}}^{\prime}\cap K. Then
+
+\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right](1)\cdot\left[\overline{\mathfrak{q}},\,\overline{\mathfrak{p}}\right](1)^{-1}\,=\,\left[\overline{\mathfrak{p}}^{\prime},\,\overline{\mathfrak{q}}^{\prime}\right](1)\cdot\left[\overline{\mathfrak{q}}^{\prime},\,\overline{\mathfrak{p}}^{\prime}\right](1)^{-1}. 
+
+###### Proof.
+
+Part (1) is immediate, and part (2) follows from the fact that \sigma\overline{\mathfrak{p}} and \sigma\overline{\mathfrak{q}} are in the classes of \overline{\mathfrak{p}} and \overline{\mathfrak{q}}, respectively. For part (3), we note that \tau gives an isomorphism between the local fields (L_{1}(\overline{\mathfrak{p}},\overline{\mathfrak{q}}))_{\mathfrak{p}_{1}} and (\tau L_{1}(\overline{\mathfrak{p}},\overline{\mathfrak{q}}))_{\tau\mathfrak{p}_{1}}, so we have an identity of Hilbert symbols
+
+\tau\left(\alpha_{\overline{\mathfrak{p}}},\,\alpha_{\overline{\mathfrak{q}}}\right)_{m_{1},\mathfrak{p}_{1}}=\left(\tau\alpha_{\overline{\mathfrak{p}}},\,\tau\alpha_{\overline{\mathfrak{q}}}\right)_{m_{1},\tau\mathfrak{p}_{1}}.
+
+The part follows since \tau\alpha_{\overline{\mathfrak{q}}} and \alpha_{\tau\overline{\mathfrak{p}}}^{-1}\tau\alpha_{\overline{\mathfrak{p}}} are both unramified at \tau\mathfrak{p}_{1}. Part (4) is similar to (2), and part (5) follows from Hilbert reciprocity. ∎
+
+In particular, we see that a symbol \left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right] can be determined from the classes \left[\overline{\mathfrak{p}}\right] and \left[\overline{\mathfrak{q}}\right] together with the value of the symbol on any set of representatives for the collection of double cosets G_{E(\overline{\mathfrak{p}})}\backslash G_{F}/G_{E(\overline{\mathfrak{q}})}. However, this is as far as we can push it, as we have the following proposition.
+
+###### Proposition 3.17.
+
+Choose primes \overline{\mathfrak{p}}_{0} and \overline{\mathfrak{q}} of \overline{\mathbb{Q}} not over places in \mathscr{V}_{0}. Choose a set of representatives B in G_{F} for G_{E(\overline{\mathfrak{p}}_{0})}\backslash G_{F}/G_{E(\overline{\mathfrak{q}})}, and choose any \zeta_{\tau}\in\mu_{m_{\tau}} for each \tau\in B, where m_{\tau} is defined as in Definition [3.13](https://arxiv.org/html/2207.05674#S3.Thmthm13 "Definition 3.13. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I").
+
+Then there is a prime \overline{\mathfrak{p}} in the class of \overline{\mathfrak{p}}_{0} not dividing \overline{\mathfrak{q}}\cap F so
+
+[\overline{\mathfrak{p}},\overline{\mathfrak{q}}](\tau)=\zeta_{\tau}\quad\text{for all }\,\tau\in B.
+
+We will prove this in Section [3.1](https://arxiv.org/html/2207.05674#S3.SS1 "3.1. The double coset formula ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I").
+
+###### Notation 3.18.
+
+Given classes \left[\overline{\mathfrak{p}}_{0}\right] and \left[\overline{\mathfrak{q}}_{0}\right], we take \left[\left[\overline{\mathfrak{p}}_{0}\right],\,\left[\overline{\mathfrak{q}}_{0}\right]\right] to be the set of all functions of the form \left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right] for some \overline{\mathfrak{p}} in \left[\overline{\mathfrak{p}}_{0}\right] and \overline{\mathfrak{q}} in \left[\overline{\mathfrak{q}}_{0}\right] with \overline{\mathfrak{p}}\cap F\neq\overline{\mathfrak{q}}\cap F. If we take B and m_{\tau} as in Proposition [3.17](https://arxiv.org/html/2207.05674#S3.Thmthm17 "Proposition 3.17. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), we see that this set has size
+
+\#\left[\left[\overline{\mathfrak{p}}_{0}\right],\,\left[\overline{\mathfrak{q}}_{0}\right]\right]=\prod_{\tau\in B}m_{\tau}.
+
+Our main interest in symbols lies in the fact that they may be used to encode local behavior of ramification sections, as per the following proposition.
+
+###### Proposition 3.19.
+
+Choose primes \overline{\mathfrak{p}},\overline{\mathfrak{q}} of \overline{\mathbb{Q}} not over \mathscr{V}_{0}, and choose primes \overline{\mathfrak{p}}^{\prime} in \left[\overline{\mathfrak{p}}\right] and \overline{\mathfrak{q}}^{\prime} in \left[\overline{\mathfrak{q}}^{\prime}\right]. Suppose \overline{\mathfrak{p}}\cap F\neq\overline{\mathfrak{q}}\cap F and \overline{\mathfrak{p}}^{\prime}\cap F\neq\overline{\mathfrak{q}}\cap F. Then the following conditions are equivalent:
+
+1.   (1)There is an identity of symbols
+
+\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right]=\left[\overline{\mathfrak{p}}^{\prime},\,\overline{\mathfrak{q}}^{\prime}\right]. 
+2.   (2)For every M in \textup{Mod}(K/F,e_{0}) and m in M(-1)^{G_{F,\overline{\mathfrak{q}}}},
+
+\mathfrak{B}_{\overline{\mathfrak{q}},M}(m)\left(\textup{Frob}_{F}\,\overline{\mathfrak{p}}\right)\,=\,\mathfrak{B}_{\overline{\mathfrak{q}}^{\prime},M}(m)\left(\textup{Frob}_{F}\,\overline{\mathfrak{p}}^{\prime}\right)\,\,\text{ in }\,\,M_{G_{F,\overline{\mathfrak{p}}}}. 
+
+###### Proof.
+
+This is an immediate consequence of Proposition [3.22](https://arxiv.org/html/2207.05674#S3.Thmthm22 "Proposition 3.22. ‣ 3.1. The double coset formula ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), which we will prove in Section [3.1](https://arxiv.org/html/2207.05674#S3.SS1 "3.1. The double coset formula ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). ∎
+
+The symbol \left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right] can be interpreted as a description of how \overline{\mathfrak{p}}\cap F behaves at the prime \overline{\mathfrak{q}}\cap F over the extension K/F. Given this interpretation, it is perhaps counterintuitive that the symbol \left[\overline{\mathfrak{p}},\,\overline{\mathfrak{p}}\right] should encode anything at all. But while it is true that \left[\overline{\mathfrak{p}},\,\overline{\mathfrak{p}}\right](1) is fully determined by the class of \overline{\mathfrak{p}}, as can be shown by an application of Hilbert reciprocity, this is not necessarily true for \left[\overline{\mathfrak{p}},\,\overline{\mathfrak{p}}\right](\tau) for \tau outside G_{E(\overline{\mathfrak{p}})}. Intuitively, this can be explained by saying this symbol describes how \overline{\mathfrak{p}}\cap K behaves at \tau\overline{\mathfrak{p}}\cap K, which is a more reasonable thing to describe than how \overline{\mathfrak{p}}\cap F behaves at itself.
+
+The symbol \left[\overline{\mathfrak{p}},\,\overline{\mathfrak{p}}\right] is a generalization of the notion of the spin of a prime ideal, a definition that was first introduced in [[9](https://arxiv.org/html/2207.05674#bib.bibx9)] and studied in more depth in [[21](https://arxiv.org/html/2207.05674#bib.bibx21)]. Following this work, we call \left[\overline{\mathfrak{p}},\,\overline{\mathfrak{p}}\right] the _spin_ of \overline{\mathfrak{p}}. As per Remark [3.15](https://arxiv.org/html/2207.05674#S3.Thmthm15 "Remark 3.15. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), the dependence of this definition on a choice of assignment of approximate generators, while irritating, is ultimately superficial.
+
+The analogue of Proposition [3.19](https://arxiv.org/html/2207.05674#S3.Thmthm19 "Proposition 3.19. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") for spins is the following:
+
+###### Proposition 3.20.
+
+Choose primes \overline{\mathfrak{p}} and \overline{\mathfrak{p}}^{\prime} of \overline{\mathbb{Q}} not over any place in \mathscr{V}_{0}. We assume that \left[\overline{\mathfrak{p}}\right]=\left[\overline{\mathfrak{p}}^{\prime}\right]. Then the following conditions are equivalent:
+
+1.   (1)There is an identity of spins
+
+\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{p}}\right]=\left[\overline{\mathfrak{p}}^{\prime},\,\overline{\mathfrak{p}}^{\prime}\right]. 
+2.   (2)For all M in \textup{Mod}(K/F,e_{0}) and m in M(-1)^{G_{F,\overline{\mathfrak{p}}}},
+
+\mathfrak{B}_{\overline{\mathfrak{p}},M}(m)\left(\textup{Frob}_{F}\,\overline{\mathfrak{p}}\right)\,=\,\mathfrak{B}_{\overline{\mathfrak{p}}^{\prime},M}(m)\left(\textup{Frob}_{F}\,\overline{\mathfrak{p}}^{\prime}\right)\,\,\text{ in }\,(M/\textup{im }m)_{G_{F,\overline{\mathfrak{p}}}}.
+
+Here, \textup{im }m denotes the image of m\in M(-1) in M. 
+
+###### Proof.
+
+This is also an immediate consequence of Proposition [3.22](https://arxiv.org/html/2207.05674#S3.Thmthm22 "Proposition 3.22. ‣ 3.1. The double coset formula ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). ∎
+
+### 3.1. The double coset formula
+
+This subsection gives an explicit method for computing terms of the form \mathfrak{B}_{\overline{\mathfrak{q}},M}(m)\left(\textup{Frob}_{F}\,\overline{\mathfrak{p}}\right). This will be used heavily in [[34](https://arxiv.org/html/2207.05674#bib.bibx34)], but is only used in this first part to prove Propositions [3.19](https://arxiv.org/html/2207.05674#S3.Thmthm19 "Proposition 3.19. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), [3.20](https://arxiv.org/html/2207.05674#S3.Thmthm20 "Proposition 3.20. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), and [3.17](https://arxiv.org/html/2207.05674#S3.Thmthm17 "Proposition 3.17. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), so the reader might consider continuing to Section [4](https://arxiv.org/html/2207.05674#S4 "4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") at this point.
+
+It is convenient to introduce a slight variant of the symbols defined above.
+
+###### Definition 3.21.
+
+Fix an unpacked starting tuple (K/F,\mathscr{V}_{0},e_{0}) and an assignment of approximate generators (\alpha_{\overline{\mathfrak{p}}})_{\overline{\mathfrak{p}}} for this tuple, and take \mathfrak{B} to be the ramification section associated to (\alpha_{\overline{\mathfrak{p}}})_{\overline{\mathfrak{p}}}.
+
+Given a prime \overline{\mathfrak{q}} of \overline{\mathbb{Q}}, take E(\overline{\mathfrak{q}}) as in Notation [3.8](https://arxiv.org/html/2207.05674#S3.Thmthm8 "Notation 3.8. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), and take \psi_{\overline{\mathfrak{q}}} to be the image of \alpha_{\overline{\mathfrak{q}}} under the natural isomorphism
+
+E(\overline{\mathfrak{q}})^{\times}/(E(\overline{\mathfrak{q}})^{\times})^{e_{0}}\xrightarrow{\,\,\,\sim\,\,\,}H^{1}(G_{E(\overline{\mathfrak{q}})},\,\mu_{e_{0}}).
+
+We may evaluate \psi_{\overline{\mathfrak{q}}} at an element \sigma of G_{E(\overline{\mathfrak{q}})}; after accounting for coboundaries, this will be a well-defined element in (\mu_{e_{0}})_{\sigma}. With this in mind, given primes \overline{\mathfrak{p}},\overline{\mathfrak{q}} of \overline{\mathbb{Q}} not over \mathscr{V}_{0}, we may define an _alternative symbol_ by
+
+\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right]^{\prime}=\psi_{\overline{\mathfrak{q}}}\left(\textup{Frob}_{E(\overline{\mathfrak{q}})}\,\overline{\mathfrak{p}}\right)\in(\mu_{e_{0}})_{G_{E(\overline{\mathfrak{p}})\cdot E(\overline{\mathfrak{q}})}}.
+
+Take m to be the maximal divisor of e_{0} so \mu_{m} lies in the composite field E(\overline{\mathfrak{p}})\cdot E(\overline{\mathfrak{q}}). Note that there is an isomorphism
+
+(\mu_{e_{0}})_{G_{E(\overline{\mathfrak{p}})\cdot E(\overline{\mathfrak{q}})}}\xrightarrow{\,\,\,\sim\,\,\,}\mu_{m}
+
+given by raising to the e_{0}/m power. Using this isomorphism, the identity
+
+\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right]^{\prime}=\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right](1)^{m/e_{0}}\quad\text{if }\,\overline{\mathfrak{p}}\cap K\neq\overline{\mathfrak{q}}\cap K
+
+between the alternative symbol and the original symbol follows from the definitions.
+
+If \overline{\mathfrak{p}}\cap K equals \overline{\mathfrak{q}}\cap K, the alternative symbol \left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right]^{\prime} depends on the choice of \textup{Frob}_{E(\overline{\mathfrak{q}})}{\overline{\mathfrak{p}}}. As such, it encodes no information about the primes \overline{\mathfrak{p}} and \overline{\mathfrak{q}}. Such symbols appear only transiently in our calculations.
+
+Choose primes \overline{\mathfrak{p}},\overline{\mathfrak{q}} of \overline{\mathbb{Q}} not over \mathscr{V}_{0}. For convenience, take E=E(\overline{\mathfrak{p}}) and L=E(\overline{\mathfrak{q}}), and take B to be a set of representatives for the collection of double cosets G_{L}\backslash G_{F}/G_{E}. If \overline{\mathfrak{p}}\cap F=\overline{\mathfrak{q}}\cap F, we will assume that \overline{\mathfrak{p}}=\overline{\mathfrak{q}} and that B contains 1.
+
+###### Proposition 3.22.
+
+Choose M in \textup{Mod}(K/F,e_{0}), and choose m\in M(-1)^{G_{L}}. Then, in the group of coinvariants M_{G_{E}}, we have
+
+(3.4)\mathfrak{B}_{\overline{\mathfrak{q}},M}(m)(\textup{Frob}_{F}\,\overline{\mathfrak{p}})=\sum_{\tau\in B}\tau^{-1}\left(m\left(\left[\tau\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right]^{\prime}\right)\right).
+
+Here, we evaluate m at \left[\tau\overline{\mathfrak{q}},\,\overline{\mathfrak{p}}\right]^{\prime} by evaluating at any element in \widehat{\mathbb{Z}}(1) whose image in \mu_{e_{0}} maps to \left[\tau\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right]^{\prime} in (\mu_{e_{0}})_{G_{\tau E+L}}.
+
+###### Proof.
+
+Since ramification sections are natural transformations, it suffices to consider the case where M=\mathbb{Z}[G_{F}]\otimes_{\mathbb{Z}[G_{L}]}\mu_{e_{0}} and m is the map taking \overline{\zeta} to [1]\otimes(\overline{\zeta})_{e_{0}}, where (\overline{\zeta})_{e_{0}} is the image of \overline{\zeta} in \mu_{e_{0}}. Shapiro’s isomorphism gives an isomorphism between H^{1}(G_{E},\mu_{e_{0}}) and H^{1}(G_{F},M), and we defined \mathfrak{B}_{\overline{\mathfrak{q}},M}(m) to correspond to the map \psi_{\overline{\mathfrak{q}}} under this isomorphism, where \psi_{\overline{\mathfrak{q}}} is defined as in Definition [3.21](https://arxiv.org/html/2207.05674#S3.Thmthm21 "Definition 3.21. ‣ 3.1. The double coset formula ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I").
+
+We can apply the double coset formula [[28](https://arxiv.org/html/2207.05674#bib.bibx28), Proposition I.5.6] to calculate
+
+\textup{res}_{G_{E}}\mathfrak{B}_{\overline{\mathfrak{q}},M}(m)=\sum_{\tau\in B}\textup{cor}_{G_{E}}^{G_{\tau^{-1}L}\cap G_{E}}\circ\tau^{-1}\circ\textup{res}^{G_{L}}_{G_{L}\cap G_{\tau E}}([1]\otimes\psi_{\overline{\mathfrak{q}}}),
+
+with res and cor denoting restriction and corestriction. The group G_{\tau^{-1}E\cdot L} is a normal subgroup in G_{L}, and the quotient G_{L}/G_{\tau^{-1}E\cdot L} is cyclic. Corestriction behaves well for such extensions: if G is a profinite subgroup and H is an open subgroup so G/H is cyclic, and if \phi lies in H^{1}(H,N) for a G module N, we have
+
+\textup{cor}_{G}^{H}\phi(\sigma)=\phi\left(\sigma^{[G:H]}\right)\quad\text{in }\,N_{\sigma}.
+
+Applying this and the previous identity at \textup{Frob}_{F}\,\overline{\mathfrak{p}} gives
+
+\mathfrak{B}_{\overline{\mathfrak{q}},M}(m)(\textup{Frob}_{F}\,\overline{\mathfrak{p}})\equiv\sum_{\tau\in B}[\tau^{-1}]\otimes\psi_{\overline{\mathfrak{q}}}\left(\tau\cdot\textup{Frob}_{\tau^{-1}L}\,\overline{\mathfrak{p}}\cdot\tau^{-1}\right)\,\text{ mod }\,\left(\textup{Frob}_{F}\,\overline{\mathfrak{p}}-1\right)M,
+
+which gives ([3.4](https://arxiv.org/html/2207.05674#S3.E4 "In Proposition 3.22. ‣ 3.1. The double coset formula ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I")). ∎
+
+To prove Proposition [3.17](https://arxiv.org/html/2207.05674#S3.Thmthm17 "Proposition 3.17. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), the following result extending a special case of Proposition [3.19](https://arxiv.org/html/2207.05674#S3.Thmthm19 "Proposition 3.19. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") will be useful.
+
+###### Proposition 3.23.
+
+Choose primes \overline{\mathfrak{p}}, \overline{\mathfrak{p}}^{\prime}, and \overline{\mathfrak{q}} of \overline{\mathbb{Q}}. We assume none of these primes are over places in \mathscr{V}_{0}, that neither \overline{\mathfrak{p}}\cap F nor \overline{\mathfrak{p}}^{\prime}\cap F equals \overline{\mathfrak{q}}\cap F, and that \left[\overline{\mathfrak{p}}\right]=\left[\overline{\mathfrak{p}}^{\prime}\right]. Take E=E(\overline{\mathfrak{p}}) as in Notation [3.8](https://arxiv.org/html/2207.05674#S3.Thmthm8 "Notation 3.8. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I").
+
+Then the following conditions are equivalent:
+
+1.   (1)There is an identity of symbols
+
+\left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right]=\left[\overline{\mathfrak{p}}^{\prime},\,\overline{\mathfrak{q}}\right]. 
+2.   (2)For all M in \textup{Mod}(K/F,e_{0}) and m in M(-1)^{G_{F,\overline{\mathfrak{p}}}}, the difference
+
+\mathfrak{B}_{\overline{\mathfrak{p}},M}(m)-\mathfrak{B}_{\overline{\mathfrak{p}}^{\prime},M}(m)
+
+has trivial restriction to G_{F,\overline{\mathfrak{q}}}. 
+3.   (3)For all M in \textup{Mod}(K/F,e_{0}) and m in M(-1)^{G_{F,\overline{\mathfrak{q}}}},
+
+\mathfrak{B}_{\overline{\mathfrak{q}},M}(m)\left(\textup{Frob}_{F}\,\overline{\mathfrak{p}}\right)\,=\,\mathfrak{B}_{\overline{\mathfrak{q}},M}(m)\left(\textup{Frob}_{F}\,\overline{\mathfrak{p}}^{\prime}\right)\,\,\text{ in }\,\,M_{G_{F,\overline{\mathfrak{p}}}}. 
+4.   (4)Take \mathfrak{q} to be \overline{\mathfrak{q}}\,\cap K, and take E(\mathscr{V}_{0}\cup\{\mathfrak{q}\}) to be the maximal abelian extension of K of exponent dividing e_{0} that is ramified only over places in \mathscr{V}_{0}\cup\{\mathfrak{q}\}. Then
+
+\textup{Frob}_{F}\,\overline{\mathfrak{p}}\equiv\textup{Frob}_{F}\,\overline{\mathfrak{p}}^{\prime}\quad\textup{mod }\,G_{E(\mathscr{V}_{0}\cup\{\mathfrak{q}\})}. 
+
+###### Proof.
+
+The equivalence of (1) and (2) follows from Proposition [3.19](https://arxiv.org/html/2207.05674#S3.Thmthm19 "Proposition 3.19. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I").
+
+The equivalence of condition (2) and condition (3) follows from Poitou–Tate duality. Specifically, we find that the condition of (2) holds for a given M if and only if the condition of (3) holds for M^{\vee}.
+
+To show that (3) implies (4), take M=\textup{Gal}(E(\mathscr{V}_{0}\cup\{\mathfrak{q}\})/E(\mathscr{V}_{0})). Considered with the conjugation action, this is an object in \textup{Mod}(K/F,e_{0}). Take m\in M(-1) to be the element taking \overline{\zeta} to the image of \textup{Tine}_{F}\,\overline{\mathfrak{q}} in this Galois group. This element is invariant under G_{F,\overline{\mathfrak{q}}}, as can be seen from ([3.2](https://arxiv.org/html/2207.05674#S3.E2 "In Definition 3.4. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I")). Then \mathfrak{B}_{\overline{\mathfrak{q}},M}(m) is a class of cocycles
+
+\mathfrak{B}_{\overline{\mathfrak{q}},M}(m):\textup{Gal}(K(\mathscr{V}_{0}\cup\{\mathfrak{q}\})/F)\,\xrightarrow{\hskip 8.19447pt}\,\textup{Gal}(K(\mathscr{V}_{0}\cup\{\mathfrak{q}\})/K(\mathscr{V}_{0}))
+
+that all take \textup{Tine}_{F}\,\overline{\mathfrak{q}} to itself. The cocycle condition forces \tau\textup{Tine}_{F}\,\overline{\mathfrak{q}}\tau^{-1} to map to itself for all \tau\in G_{F}; since these elements generate M, we see that any cocycle in this class restricts to the identity on M. Then condition (3) and the cocycle condition imply that \textup{Frob}_{F}\,\overline{\mathfrak{p}}\left(\textup{Frob}_{F}\,\overline{\mathfrak{p}}^{\prime}\right)^{-1} maps to 0 in M_{G_{F,\overline{\mathfrak{p}}}}=M, which is equivalent to (4).
+
+Now suppose (4) holds and we wish to show (1). From Artin reciprocity applied to E(\mathscr{V}_{0}\cup\{\mathfrak{q}\})/E, we find that the approximate generators \alpha_{\overline{\mathfrak{p}}} and \alpha_{\overline{\mathfrak{p}}^{\prime}} can be rechosen so their ratio is locally an e_{0}^{th} power at every place over \mathscr{V}_{0}\cup\{\mathfrak{q}\}. From condition (3) of Proposition [3.11](https://arxiv.org/html/2207.05674#S3.Thmthm11 "Proposition 3.11. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), we thus have that \alpha_{\overline{\mathfrak{p}}}/\alpha_{\overline{\mathfrak{p}}^{\prime}} is locally an e_{0}^{th} power at every place dividing \mathfrak{q}, and this condition implies (1). ∎
+
+###### Proof of Proposition [3.17](https://arxiv.org/html/2207.05674#S3.Thmthm17 "Proposition 3.17. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I").
+
+Take E=E(\overline{\mathfrak{p}}_{0}), take \mathfrak{q}=\overline{\mathfrak{q}}\cap F, and define K(\mathscr{V}_{0}), E(\mathscr{V}_{0}), and E(\mathscr{V}_{0}\cup\{\mathfrak{q}\}) as in Definition [3.6](https://arxiv.org/html/2207.05674#S3.Thmthm6 "Definition 3.6. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). From Shapiro’s lemma, we know that (K/E,\mathscr{V}_{0}^{\prime},e_{0}) is unpacked, where \mathscr{V}_{0}^{\prime} is the set of places above \mathscr{V}_{0}. Note that the map taking \tau to \tau\overline{\mathfrak{q}}\cap E is a bijection between B and the primes of E dividing \overline{\mathfrak{q}}\cap F. Taking C=\tfrac{1}{e_{0}}\mathbb{Z}/\mathbb{Z}, we find that the ramificaiton-measuring homomorphism defines an isomorphism
+
+\mathscr{S}_{C/E}\left(\mathscr{V}_{0}^{\prime}\cup\{\tau\overline{\mathfrak{q}}\cap E\,:\,\,\tau\in B\}\right)/\mathscr{S}_{C/E}\left(\mathscr{V}_{0}^{\prime}\right)\xrightarrow{\,\,\,\sim\,\,\,}\prod_{\tau\in B}C(-1)^{G_{E,\tau\overline{\mathfrak{q}}}}.
+
+From this isomorphism, we get the identity
+
+\big[E(\mathscr{V}_{0}\cup\{\mathfrak{q}\})\,:\,\,E(\mathscr{V}_{0})\big]=\prod_{\tau\in B}m_{\tau},
+
+where the m_{\tau} are defined as in Definition [3.13](https://arxiv.org/html/2207.05674#S3.Thmthm13 "Definition 3.13. ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). The result then follows from Proposition [3.23](https://arxiv.org/html/2207.05674#S3.Thmthm23 "Proposition 3.23. ‣ 3.1. The double coset formula ‣ 3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") and the Chebotarev density theorem. ∎
+
+## 4. Selmer groups in twist families
+
+###### Definition 4.1.
+
+Fix a rational prime \ell and a positive integer k_{0}. Taking \mathbb{Z}_{\ell}[x] to be the polynomial ring over \mathbb{Z}_{\ell}, we take \xi to be the image of x in the quotient ring
+
+\mathbb{Z}_{\ell}[x]\Big/\left(1+x^{\ell^{k_{0}-1}}+x^{2\cdot\ell^{k_{0}-1}}+\dots+x^{(\ell-1)\cdot\ell^{k_{0}-1}}\right).
+
+We will write this quotient ring as \mathbb{Z}_{\ell}[\xi] and will endow it with the trivial G_{\mathbb{Q}} action. Take \omega=\xi-1, and note that \omega is a uniformizer for the discrete valuation ring \mathbb{Z}_{\ell}[\xi]. Finally, write \FFF=\langle\xi\rangle for the multiplicative group generated by \xi. This is a cyclic group of order \ell^{k_{0}}.
+
+Now fix a number field F. A _twistable module_ consists of
+
+*   •
+A discrete topological \mathbb{Z}_{\ell}[\xi]-module N isomorphic as a topological group to some positive power of \mathbb{Q}_{\ell}/\mathbb{Z}_{\ell} and
+
+*   •
+A continuous action of G_{F} on N commuting with \xi whose restriction to I_{v} is trivial for all but finitely many places v of F.
+
+Given \chi in \textup{Hom}_{\text{cont}}(G_{F},\langle\xi\rangle) and a twistable module N, we define the twist N^{\chi} as a twistable module isomorphic to N under a (typically non-equivariant) isomorphism
+
+\beta_{\chi}:N^{\chi}\to N
+
+of topological \mathbb{Z}_{\ell}[\xi] modules, with the action of G_{F} on N^{\chi} defined so
+
+\beta_{\chi}(\sigma n)=\chi(\sigma)\sigma\beta_{\chi}(n)
+
+for all \sigma\in G_{F} and n\in N^{\chi}.
+
+###### Definition 4.2.
+
+Take N to be a twistable module defined over F with respect to \xi. Given a finite Galois extension K/F and a finite set of places \mathscr{V}_{0} of F, we say that N is unpacked by (K/F,\mathscr{V}_{0}) if (K/F,\mathscr{V}_{0},\#\FFF) is an unpacked starting tuple, if G_{K} acts trivially on N[\omega], and if I_{v} acts trivially on N for v outside \mathscr{V}_{0}.
+
+###### Definition 4.3.
+
+Choose a twistable module N over F, and choose (K/F,\mathscr{V}_{0}) unpacking N. For v\in\mathscr{V}_{0} and \chi\in\textup{Hom}_{\text{cont}}(G_{v},\FFF), fix an \ell-divisible subgroup W_{v}(\chi) of H^{1}(G_{v},N^{\chi}) that is fixed under the automorphism \xi. We call the collection of groups \left(W_{v}(\chi)\right)_{v,\chi} a _set of local conditions_ for N at the places in \mathscr{V}_{0}.
+
+For v a place of F outside \mathscr{V}_{0} and \chi\in\textup{Hom}_{\text{cont}}(G_{v},\,\FFF), we define a subgroup
+
+W_{v}(\chi)\subseteq H^{1}(G_{v},N^{\chi})
+
+to equal H^{1}_{\textup{ur}}(G_{v},N^{\chi}) in the case that \chi is trivial on I_{v}, and to equal 0 in the case that \chi is nontrivial on I_{v}. We call these the _automatic local conditions_.
+
+With this set, given \chi\in\textup{Hom}_{\text{cont}}(G_{F},\,\FFF), we define the _Selmer group_ of N^{\chi} by
+
+\textup{Sel}\left(N^{\chi},(W_{v})_{v\in\mathscr{V}_{0}}\right)=\ker\left(H^{1}(G_{F},N^{\chi})\to\prod_{v\text{ of }F}H^{1}(G_{v},N^{\chi})\Big/W_{v}\left(\textup{res}_{G_{v}\,}\chi\right)\right).
+
+We will write this group as \textup{Sel}\,N^{\chi} if the local conditions at the places in \mathscr{V}_{0} are clear.
+
+For k\geq 1, we take \textup{Sel}^{\omega^{k}}N^{\chi} to be the preimage of \textup{Sel}\,N^{\chi} in H^{1}\left(G_{F},N^{\chi}\left[\omega^{k}\right]\right). Given j\leq k, we take \omega^{j}\textup{Sel}^{\omega^{k}}N^{\chi} to be the image of \textup{Sel}^{\omega^{k}}N^{\chi} in \textup{Sel}^{\omega^{k-j}}N^{\chi} under the projection
+
+\omega^{j}\colon N^{\chi}\left[\omega^{k}\right]\to N^{\chi}\left[\omega^{k-j}\right].
+
+We note that \omega^{k-1}\textup{Sel}^{\omega^{k}}N^{\chi} always contains the image of H^{0}(G_{F},N^{\chi}[\omega]) under the connecting map corresponding to
+
+0\to N^{\chi}[\omega]\to N^{\chi}\left[\omega^{2}\right]\xrightarrow{\,\,\cdot\omega\,\,}N^{\chi}[\omega]\to 0.
+
+We call this the _rational torsion portion_ of the Selmer group of N^{\chi}. For each k\geq 1, we define the \omega^{k}-Selmer rank of N^{\chi} by
+
+r_{\omega^{k}}(N^{\chi})=\dim\omega^{k-1}\textup{Sel}^{\omega^{k}}N^{\chi}\Big/\text{im}\,H^{0}(G_{F},N^{\chi}[\omega]).
+
+With these definitions set, we now show that Theorems [1.5](https://arxiv.org/html/2207.05674#S1.Thmthm5 "Theorem 1.5. ‣ 1.1. Ranks of elliptic curves in twist families ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") and [1.12](https://arxiv.org/html/2207.05674#S1.Thmthm12 "Theorem 1.12. ‣ 1.2. Class groups and Cohen–Lenstra–Gerth heuristics ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") reduce to theorems about the distribution of Selmer groups in twist families of twistable modules.
+
+###### Example 4.4.
+
+Take A/F to be an abelian variety of positive dimension over a number field. Given a continuous homomorphism \chi\colon G_{F}\to\pm 1, take A^{\chi}/F to be the corresponding quadratic twist. The torsion submodule
+
+N=A[2^{\infty}]
+
+is then a twistable module, and we see that N^{\chi}=A^{\chi}[2^{\infty}]. This twistable module is decorated with the local conditions
+
+W_{v}(\chi)=\ker\big(H^{1}(G_{v},N)\to H^{1}(G_{v},A)\big)
+
+for each place v of F. So long as \mathscr{V}_{0} contains the primes of bad reduction of A, the archimedean primes, and the primes dividing 2, these local conditions agree with the automatic local conditions for v outside \mathscr{V}_{0}.
+
+The usual 2^{\infty}-Selmer group on A^{\chi} is then equal to the 2^{\infty}-Selmer group of N^{\chi}, and r_{2^{k}}(N^{\chi}) equals the 2^{k}-Selmer rank of A^{\chi} over F as defined in Section [1.1](https://arxiv.org/html/2207.05674#S1.SS1 "1.1. Ranks of elliptic curves in twist families ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I").
+
+###### Example 4.5.
+
+Choose a rational prime \ell, and define \mathbb{Z}_{\ell}[\xi] as in Definition [4.1](https://arxiv.org/html/2207.05674#S4.Thmthm1 "Definition 4.1. ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I") with k_{0}=1. Consider
+
+N=\mathbb{Q}_{\ell}[\xi]/\mathbb{Z}_{\ell}[\xi]
+
+endowed with the trivial G_{F}-action. This is a \mathbb{Z}_{\ell}[\xi]-module and hence a twistable module.
+
+Choose a cyclic degree \ell extension L/F and take \chi:\textup{Gal}(L/F)\to\langle\xi\rangle to be a nontrivial character. We endow N^{\chi} with local conditions
+
+W_{v}(\chi)=\begin{cases}\text{inf}_{\,G_{v}}^{\,G_{v}/I_{v}}\left(H^{1}(G_{v}/I_{v},N^{\chi})\right)&\text{ if }L/F\text{ is unramified at }v\\
+0&\text{ otherwise.}\end{cases}
+
+Then, from [[25](https://arxiv.org/html/2207.05674#bib.bibx25), Proposition 7.4], we find there is an injection
+
+(4.1)\left(\textup{Cl}\,^{*}L\big/(\textup{Cl}\,^{*}L)^{\textup{Gal}(L/F)}\right)[\ell^{\infty}]\hookrightarrow\textup{Sel}\,N^{\chi}
+
+of \mathbb{Z}_{\ell}[\xi] modules, where \textup{Cl}\,^{*}L=\textup{Hom}(\textup{Cl}\,\,L,\mathbb{Q}/\mathbb{Z}) is the dual class group of L, and where \xi acts on \textup{Cl}\,\,L by \chi^{-1}(\xi). The map ([4.1](https://arxiv.org/html/2207.05674#S4.E1 "In Example 4.5. ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I")) is defined by using the Shapiro isomorphism to pass from \textup{Cl}\,^{*}L[\ell^{\infty}] to the Selmer group of (\mathbb{Q}_{\ell}/\mathbb{Z}_{\ell})[\textup{Gal}(L/F)] and then mapping to \textup{Sel}\,N using the natural surjection from (\mathbb{Q}_{\ell}/\mathbb{Z}_{\ell})[\textup{Gal}(L/F)] to N. Note that we have an equivariant perfect pairing
+
+\textup{Cl}\,^{*}L\big/(\textup{Cl}\,^{*}L)^{\textup{Gal}(L/F)}\times\textup{Cl}\,\,L\big/(\textup{Cl}\,\,L)^{\textup{Gal}(L/F)}\to\mathbb{Q}/\mathbb{Z}
+
+given by (x,y)\mapsto x\cdot(1-\sigma)y, where \cdot denotes the evaluation pairing, so we find that \textup{Cl}\,^{*}L\big/(\textup{Cl}\,^{*}L)^{\textup{Gal}(L/F)} and \textup{Cl}\,\,L\big/(\textup{Cl}\,\,L)^{\textup{Gal}(L/F)} are (typically non-canonically) isomorphic as \mathbb{Z}_{\ell}[\xi] modules.
+
+We will show in [[34](https://arxiv.org/html/2207.05674#bib.bibx34)] that the cokernel of ([4.1](https://arxiv.org/html/2207.05674#S4.E1 "In Example 4.5. ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I")) vanishes for all but a negligible portion of fields L in the set X_{F,\ell,r_{1}^{\prime}}(H) defined in Theorem [1.12](https://arxiv.org/html/2207.05674#S1.Thmthm12 "Theorem 1.12. ‣ 1.2. Class groups and Cohen–Lenstra–Gerth heuristics ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), so we may study the distribution of these Selmer groups to understand the distribution of the quotients \textup{Cl}\,L[\ell^{\infty}]/(\textup{Cl}\,L[\ell^{\infty}])^{\textup{Gal}(L/F)}.
+
+Returning to the general situation of Definition [4.1](https://arxiv.org/html/2207.05674#S4.Thmthm1 "Definition 4.1. ‣ 4. Selmer groups in twist families ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"), it is clear that N[\omega] is the subset of N fixed by the automorphism \xi. For this reason, we sometimes refer to \textup{Sel}^{\omega}\,N^{\chi} as the _fixed point Selmer group_ of the twist N^{\chi}. Since this subset is fixed by \xi, we see that the restriction
+
+\beta_{\chi}:N^{\chi}[\omega]\to N[\omega]
+
+is G_{F}-equivariant. As a result, we may think of the fixed point Selmer group of any twist N^{\chi} as a subgroup of H^{1}(G_{F},N[\omega]) via \beta_{\chi}. More specifically, taking \mathscr{V} to be the set of places where \chi ramifies, we see that this Selmer group maps to a subgroup of \mathscr{S}_{N[\omega]/F}(\mathscr{V}_{0}\cup\mathscr{V}) cut out by certain local conditions. This allows us to control the fixed point Selmer group using the methods of Section [3](https://arxiv.org/html/2207.05674#S3 "3. Ramification sections and symbols ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families I"). One result is the following.
+
+###### Proposition 4.6.
+
+Fix a twistable module N defined over F with respect to \FFF, fix (K/F,\mathscr{V}_{0}) unpacking N, fix a set of local conditions at \mathscr{V}_{0}, and fix a ramification section \mathfrak{B}. Fix a positive integer r and fix h_{i}\in\FFF(-1)^{\times} for i\leq r, where \FFF(-1)^{\times} is the set of generators for \FFF(-1). Also fix a homomorphism \chi_{0}\in\textup{Hom}(G_{F},\FFF) that is unramified away from the places in \mathscr{V}_{0}.
+
+Choose primes \overline{\mathfrak{p}}_{1},\dots,\overline{\mathfrak{p}}_{r} and \overline{\mathfrak{p}}_{1}^{\prime},\dots,\overline{\mathfrak{p}}^{\prime}_{r} of \overline{\mathbb{Q}} not over \mathscr{V}_{0}. We assume that the primes \overline{\mathfrak{p}}_{1}\cap F,\dots\overline{\mathfrak{p}}_{r}\cap F are distinct and that \textup{Frob}_{F}\,\overline{\mathfrak{p}}_{i} acts trivially on \FFF(-1) for each i\leq r, and we make the analogous assumptions for \overline{\mathfrak{p}}_{1}^{\prime},\dots,\overline{\mathfrak{p}}_{r}^{\prime}.
+
+Taking
+
+\chi=\chi_{0}+\sum_{i\leq r}\mathfrak{B}_{\overline{\mathfrak{p}}_{i},\FFF}(h_{i})\quad\text{and}\quad\chi^{\prime}=\chi_{0}+\sum_{i\leq r}\mathfrak{B}_{\overline{\mathfrak{p}}^{\prime}_{i},\FFF}(h_{i}),
+
+we find that \textup{Sel}^{\omega}N^{\chi} is isomorphic to \textup{Sel}^{\omega}N^{\chi^{\prime}} if
+
+1.   (1)
+The class \left[\overline{\mathfrak{p}}_{i}\right] equals \left[\overline{\mathfrak{p}}_{i}^{\prime}\right] for all i\leq r,
+
+2.   (2)
+The spin \left[\overline{\mathfrak{p}}_{i},\,\overline{\mathfrak{p}}_{i}\right] equals \left[\overline{\mathfrak{p}}_{i}^{\prime},\,\overline{\mathfrak{p}}_{i}^{\prime}\right] for all i\leq r, and
+
+3.   (3)
+The symbol \left[\overline{\mathfrak{p}}_{i},\,\overline{\mathfrak{p}}_{j}\right] equals \left[\overline{\mathfrak{p}}_{i}^{\prime},\,\overline{\mathfrak{p}}_{j}^{\prime}\rig
+
+..._Content truncated_...

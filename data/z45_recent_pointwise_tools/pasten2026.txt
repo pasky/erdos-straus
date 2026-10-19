@@ -1,0 +1,191 @@
+## Content from https://arxiv.org/html/2609.01327v1
+
+Title: An improvement on the largest prime factor of 𝑛^2+1
+
+URL Source: https://arxiv.org/html/2609.01327v1
+
+Published Time: Wed, 02 Sep 2026 01:08:41 GMT
+
+Markdown Content:
+## An improvement on the largest prime factor of n^{2}+1 Thanks:H.P. was supported by ANID Fondecyt Regular grant 1230507 from Chile.
+
+Hector Pasten Address: Departamento de Matemáticas, Pontificia Universidad Católica de Chile. Facultad de Matemáticas, 4860 Av. Vicuña Mackenna, Macul, RM, Chile Email address, H. Pasten: [hector.pasten@uc.cl](mailto:hector.pasten@uc.cl)
+
+Date: September 1, 2026
+
+###### Abstract.
+
+The study of the largest prime factor in polynomial sequences can be traced back at least to the late 19th century in the work of Störmer. Mahler (1933) and Chowla (1934) proved that the largest prime factor of n^{2}+1 grows at least as fast as \log_{2}n. In 2023 we improved this to (\log_{2}n)^{2}/\log_{3}n. In this note we show the lower bound (\log_{2}n)^{2}/\log_{4}n, and that when this bound is nearly sharp it also holds for many prime factors of n^{2}+1.
+
+###### Key words and phrases:
+
+Largest prime factor, linear forms in logarithms, Shimura curves
+
+###### 2020 Mathematics Subject Classification
+
+Primary: 11N32; Secondary: 11J86, 11G18
+
+## 1. Introduction
+
+The study of the prime factorization of integers of the form n^{2}+1 has a long history. In the late 19th century, Störmer [[9](https://arxiv.org/html/2609.01327v1#bib.bib9), [10](https://arxiv.org/html/2609.01327v1#bib.bib10)] investigated the growth of the largest prime factor of quadratic sequences, in particular, of n^{2}+1. Let us write P(m) for the largest prime factor of a positive integer m and \log_{k} for the k-th iterated logarithm (whenever it is defined). In the early 1930’s, Chowla [[1](https://arxiv.org/html/2609.01327v1#bib.bib1)] and Mahler [[5](https://arxiv.org/html/2609.01327v1#bib.bib5)] independently proved
+
+P(n^{2}+1)\gg\log_{2}n
+
+as n grows. This bound remained the best result until the work of Haristoy [[4](https://arxiv.org/html/2609.01327v1#bib.bib4)] (after techniques of Stewart–Yu [[8](https://arxiv.org/html/2609.01327v1#bib.bib8)] based on linear forms in logarithms) where the estimate
+
+P(n^{2}+1)\gg\frac{\log_{3}n}{\log_{4}n}\log_{2}n
+
+was established. Note that this still has the form (\log_{2}n)^{1+o(1)}. In 2023 we used the theory of Shimura curves [[6](https://arxiv.org/html/2609.01327v1#bib.bib6)] and linear forms in logarithms to obtain the substantial improvement [[7](https://arxiv.org/html/2609.01327v1#bib.bib7)]:
+
+(1.1)P(n^{2}+1)\gg\frac{(\log_{2}n)^{2}}{\log_{3}n}.
+
+Our main result is a “hybrid” bound from which one can easily deduce an improvement of the previous bound. For this, let \mathrm{rad}(m) be the radical of m\neq 0, that is, the largest squarefree divisor of m. For a positive integer n, let P_{n}=P(n^{2}+1) and R_{n}=\mathrm{rad}(n^{2}+1).
+
+###### Theorem 1.1.
+
+As n grows, we have
+
+(\log_{2}n)^{2}\ll\log(R_{n})\log_{2}(P_{n}).
+
+From here we obtain:
+
+###### Corollary 1.2.
+
+As n grows, we have
+
+P_{n}\gg\frac{(\log_{2}n)^{2}}{\log_{4}n}.
+
+This result improves ([1.1](https://arxiv.org/html/2609.01327v1#S1.E1 "In 1. Introduction ‣ An improvement on the largest prime factor of 𝑛^2+1")) by a factor of (\log_{3}n)/\log_{4}n.
+
+To deduce Corollary [1.2](https://arxiv.org/html/2609.01327v1#S1.Thmtheorem2 "Corollary 1.2. ‣ 1. Introduction ‣ An improvement on the largest prime factor of 𝑛^2+1") from Theorem [1.1](https://arxiv.org/html/2609.01327v1#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ An improvement on the largest prime factor of 𝑛^2+1") one first notes that Chebyshev’s bound for primes gives
+
+\log R_{n}\leq\sum_{p\leq P_{n}}\log p\ll P_{n}
+
+from where one deduces
+
+(\log_{2}n)^{2}\ll P_{n}\log_{2}(P_{n}),
+
+and finally one inverts to extract P_{n}.
+
+One might ask what would happen in the hypothetical scenario in which the bound of Corollary [1.2](https://arxiv.org/html/2609.01327v1#S1.Thmtheorem2 "Corollary 1.2. ‣ 1. Introduction ‣ An improvement on the largest prime factor of 𝑛^2+1") is (nearly) sharp. It turns out that in that case the same bound would hold for many prime factors of n^{2}+1.
+
+###### Corollary 1.3.
+
+There is an absolute constant \kappa>0 such that for all n\gg 1 we have
+
+\#\left\{p\,|\,n^{2}+1:p>\kappa\frac{(\log_{2}n)^{2}}{\log_{2}P_{n}}\right\}\gg\frac{(\log_{2}n)^{2}}{(\log P_{n})\log_{2}P_{n}}.
+
+In particular, if an integer n satisfies P_{n}\leq A(\log_{2}n)^{B} for fixed constants A>0 and B\geq 2, then there are at least
+
+\gg_{A,B}\frac{(\log_{2}n)^{2}}{(\log_{3}n)\log_{4}n}
+
+prime divisors p of n^{2}+1 satisfying
+
+p\gg_{A,B}\frac{(\log_{2}n)^{2}}{\log_{4}n}.
+
+The deduction of this corollary from Theorem [1.1](https://arxiv.org/html/2609.01327v1#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ An improvement on the largest prime factor of 𝑛^2+1") is presented in Section [2](https://arxiv.org/html/2609.01327v1#S2 "2. Proofs ‣ An improvement on the largest prime factor of 𝑛^2+1").
+
+The results in this note are discussed for the polynomial n^{2}+1 for historical reasons and because in this case the arguments are cleaner than for other polynomials (essentially, because \mathbb{Z}[i] is a UFD). But the main ideas of Section [2](https://arxiv.org/html/2609.01327v1#S2 "2. Proofs ‣ An improvement on the largest prime factor of 𝑛^2+1") can be reused in the context of the arguments of [[2](https://arxiv.org/html/2609.01327v1#bib.bib2)] to get similar results for all irreducible quadratic polynomials and for cubic polynomials of the form ax^{3}+b. We do not pursue that direction here because the adaptation, after the methods of [[2](https://arxiv.org/html/2609.01327v1#bib.bib2)] and the ideas presented here, is mostly routine.
+
+The use of AI is described in the Acknowledgements section.
+
+## 2. Proofs
+
+###### Proof of Theorem [1.1](https://arxiv.org/html/2609.01327v1#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ An improvement on the largest prime factor of 𝑛^2+1").
+
+The proof follows the ideas from [[7](https://arxiv.org/html/2609.01327v1#bib.bib7)].
+
+Factor
+
+n+i=u\prod_{j=1}^{r}\gamma_{j}^{e_{j}}
+
+in \mathbb{Z}[i], with the \gamma_{j} pairwise non-associated Gaussian primes. For B>2, let
+
+I=\{j:e_{j}>B\},\qquad m=1+\#I,
+
+and let p_{j} be the rational prime below \gamma_{j}.
+
+Let \gamma_{0} be the part of the factorization of n+i coming from the primes \gamma_{j} with j\notin I. Let w=\bar{u}/u and \xi_{j}=\bar{\gamma}_{j}/\gamma_{j} where the bar denotes complex conjugation. Then
+
+\xi:=\frac{n-i}{n+i}=w\xi_{0}\prod_{j\in I}\xi_{j}^{e_{j}}
+
+belongs to the multiplicative subgroup of \mathbb{Q}(i)^{\times} generated by the \xi_{j} modulo torsion.
+
+We observe that
+
+1-\xi=1-\frac{n-i}{n+i}=\frac{2i}{n+i}.
+
+From Theorem 4.2.1 in [[3](https://arxiv.org/html/2609.01327v1#bib.bib3)] (a consequence of the theory of linear forms in logarithms) we obtain:
+
+\log\frac{|n+i|}{2}=-\log\left|1-\xi\right|\leq C^{m}\left(\log\max\{2,h(\xi)\}\right)\max\{1,h(\xi_{0})\}\prod_{j\in I}h(\xi_{j})
+
+for an absolute constant C>1. Since h(\xi)\ll\log n, and we also have h(\xi_{0})\ll B\log R_{n} and h(\xi_{j})\ll\log p_{j}, we deduce
+
+\sqrt{\log n}\leq\frac{\log n}{\log_{2}n}\leq K^{m}B(\log R_{n})\prod_{j\in I}\log p_{j}\leq B(\log R_{n})(K\log P_{n})^{m}
+
+for an absolute constant K>1 and n\gg 1. We will bound m in terms of the choice of B.
+
+Lemma 3.2 from [[7](https://arxiv.org/html/2609.01327v1#bib.bib7)] (which comes from the theory of Shimura curves of [[6](https://arxiv.org/html/2609.01327v1#bib.bib6)]) gives
+
+(B/2)^{m-1}\leq\prod_{p|n^{2}+1}v_{p}(n^{2}+1)\ll R_{n}^{8}
+
+where v_{p}(N) is the exponent of p in the prime factorization of N. (The bound has B/2 instead of B because the exponents e_{j} come from the factorization of n+i in \mathbb{Z}[i], not n^{2}+1 in \mathbb{Z}.)
+
+Hence
+
+m\ll 1+\frac{\log R_{n}}{\log B}.
+
+Choosing B=\exp(\sqrt{(\log R_{n})\log_{2}P_{n}}) we get
+
+m\ll\sqrt{(\log R_{n})/\log_{2}P_{n}}
+
+hence
+
+\log_{2}n\ll\log B+\log_{2}R_{n}+m\log_{2}P_{n}\ll\sqrt{(\log R_{n})\log_{2}P_{n}}+\log_{2}R_{n}+\sqrt{(\log R_{n})\log_{2}P_{n}}
+
+and the result follows. ∎
+
+###### Proof of Corollary [1.3](https://arxiv.org/html/2609.01327v1#S1.Thmtheorem3 "Corollary 1.3. ‣ 1. Introduction ‣ An improvement on the largest prime factor of 𝑛^2+1").
+
+Let T be a parameter to be chosen later. Let D_{n}(T) be the number of primes p>T that divide n^{2}+1. Then
+
+\log R_{n}\leq\sum_{p\leq T}\log p+\sum_{\begin{subarray}{c}p>T\\
+p|n^{2}+1\end{subarray}}\log p\leq 2T+D_{n}(T)\log P_{n}
+
+by Chebyshev’s bound. Theorem [1.1](https://arxiv.org/html/2609.01327v1#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ An improvement on the largest prime factor of 𝑛^2+1") gives
+
+\log R_{n}\geq c\cdot\frac{(\log_{2}n)^{2}}{\log_{2}P_{n}}
+
+as n grows, for a suitable absolute constant c>0. Hence
+
+2T+D_{n}(T)\log P_{n}\geq c\cdot\frac{(\log_{2}n)^{2}}{\log_{2}P_{n}}
+
+and we deduce
+
+D_{n}(T)\geq c\cdot\frac{(\log_{2}n)^{2}}{(\log P_{n})\log_{2}P_{n}}-\frac{2T}{\log P_{n}}.
+
+The result follows by choosing
+
+T=(c/3)\frac{(\log_{2}n)^{2}}{\log_{2}P_{n}}
+
+provided that n\gg 1. ∎
+
+## 3. Acknowledgements
+
+Supported by ANID Fondecyt Regular grant 1230507 from Chile.
+
+Corollary [1.2](https://arxiv.org/html/2609.01327v1#S1.Thmtheorem2 "Corollary 1.2. ‣ 1. Introduction ‣ An improvement on the largest prime factor of 𝑛^2+1") and its initial proof were first obtained in an autonomous way by the AI model ChatGPT-5.6 Sol Pro after a single prompt in July 2026. Theorem [1.1](https://arxiv.org/html/2609.01327v1#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ An improvement on the largest prime factor of 𝑛^2+1") was subsequently discovered by the author from interactions with the same AI model. The proof presented here is due to the author. Claude Opus 5 was used for proofreading an earlier version of the manuscript. The author takes full responsibility for the content of the paper.
+
+## References
+
+*   [1] S. Chowla, _The greatest prime factor of x^{2}+1_. J. London Math. Soc. 10 (1935), 117–120. 
+*   [2] J. Cuevas Barrientos, H. Pasten, _On the greatest prime factor of polynomial values and subexponential Szpiro in families_. Preprint (2025) arXiv:2504.15971 
+*   [3] J.-H. Evertse, K. Györy, _Unit Equations in Diophantine Number Theory_. Cambridge Studies in Advanced Mathematics, Cambridge University Press, 2016. 
+*   [4] J. Haristoy, _Équations diophantiennes exponentielles_. PhD, University of Strasbourg I (Louis Pasteur), 2003. 
+*   [5] K. Mahler, _Über den grössten Primteiler der Polynome x^{2}\mp 1_. Archiv Math. og Naturv. 41 (1933), 3–8. 
+*   [6] H. Pasten, _Shimura curves and the abc conjecture_. J. Number Theory 254 (2024), 214–335. 
+*   [7] H. Pasten, _The largest prime factor of n^{2}+1 and improvements on subexponential ABC_. Invent. Math. 236 (2024), 373–385. 
+*   [8] C. L. Stewart, K. Yu, _On the abc conjecture II_. Duke Math. J. 108 (2001), 169–181. 
+*   [9] C. Störmer, _Quelques théorèmes sur l’équation de Pell x^{2}-Dy^{2}=\pm 1 et leurs applications_. Skrifter Videnskabsselskabet (Christiania), Mat.-Naturv. Kl. I (1897). 
+*   [10] C. Störmer, _Sur une équation indeterminée_. C. R. Acad. Sci. Paris 127 (1898), 752–754.
+

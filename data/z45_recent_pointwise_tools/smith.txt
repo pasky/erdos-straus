@@ -1,0 +1,990 @@
+## Content from https://arxiv.org/html/2207.05143
+
+Title: The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II
+
+URL Source: https://arxiv.org/html/2207.05143
+
+Markdown Content:
+\DeclareBibliographyCategory
+
+Smia \addtocategory Smia Smi22a
+
+Date: August 24, 2026
+
+###### Abstract.
+
+We continue the investigation of the distribution of \ell^{\infty}-Selmer groups in degree \ell twist families of Galois modules over number fields begun in [[32](https://arxiv.org/html/2207.05143#bib.bibx32)]. Building off the work on higher Selmer groups in that part, we find conditions under which we can compute the distribution of the \ell^{\infty}-Selmer groups for a given degree \ell twist family. Along the way, we show that the average rank in the quadratic twist family of any given abelian variety over a number field is bounded.
+
+###### Contents
+
+1.   [1 Introduction](https://arxiv.org/html/2207.05143#S1 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")
+2.   [2 Main results](https://arxiv.org/html/2207.05143#S2 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")
+3.   [3 Examples and non-examples](https://arxiv.org/html/2207.05143#S3 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")
+4.   [4 Tamagawa ratios and cofavored submodules](https://arxiv.org/html/2207.05143#S4 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")
+5.   [5 Local conditions for \omega-Selmer groups in grids](https://arxiv.org/html/2207.05143#S5 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")
+6.   [6 Ignorable pairs](https://arxiv.org/html/2207.05143#S6 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")
+7.   [7 Moments of sizes of \omega-Selmer groups in grids](https://arxiv.org/html/2207.05143#S7 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")
+8.   [8 Gridding](https://arxiv.org/html/2207.05143#S8 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")
+9.   [9 Rough bounds for moments of sizes of \omega-Selmer groups](https://arxiv.org/html/2207.05143#S9 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")
+10.   [10 Finding the distribution of Selmer ranks](https://arxiv.org/html/2207.05143#S10 "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")
+11.   [References](https://arxiv.org/html/2207.05143#bib "In The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")
+
+## 1. Introduction
+
+In the first part of this two-part paper [[32](https://arxiv.org/html/2207.05143#bib.bibx32)], the author developed a method for controlling 2^{\infty}-Selmer groups in the quadratic twist family of a given Galois module N over a number field. The main result of that paper gave the distribution of 2^{\infty}-Selmer groups in certain collections of twists known as grid classes subject to stringent conditions on the 2-Selmer groups for the twists in the grid class.
+
+The goal of this second part is to translate the results of [[32](https://arxiv.org/html/2207.05143#bib.bibx32)] into results on the distribution of 2^{\infty}-Selmer groups in more natural families of twists. To this end, our main task is to find the distribution of 2-Selmer groups in natural twist families. In the process of finding the distribution of 2-Selmer groups, we will carve the natural families into grids of twists, a step that is also necessary to apply the results of [[32](https://arxiv.org/html/2207.05143#bib.bibx32)].
+
+Like [[32](https://arxiv.org/html/2207.05143#bib.bibx32)], the results of this paper also apply to non-quadratic twist families. The methods that allow us to control the 2-Selmer groups in quadratic twist families allow us to control the _fixed point Selmer group_ in more general contexts. To elaborate, choose some prime power \ell^{k_{0}}, and take \xi to be the image of x in the quotient ring
+
+(1.1)\mathbb{Z}_{\ell}[x]\Big/\left(1+x^{\ell^{k_{0}-1}}+x^{2\cdot\ell^{k_{0}-1}}+\dots+x^{(\ell-1)\cdot\ell^{k_{0}-1}}\right).
+
+If we are given a Galois module N over the number field F whose ring of continuous G_{F}-equivariant endomorphisms contains \mathbb{Z}_{\ell}[\xi], and if we are given \chi in \textup{Hom}_{\text{cont}}(G_{F},\langle\xi\rangle), we may construct the twist N^{\chi} of N by \chi. Taking \omega=\xi-1, there is an equivariant isomorphism
+
+N^{\chi}[\omega]\cong N[\omega]
+
+between the submodules of N and N^{\chi} fixed by \xi. This isomorphism gives us control over the \omega-Selmer groups in the twist family of N. Since N[\omega] is the collection of fixed points of \xi, we also refer to this Selmer group as the fixed point Selmer group. For a quadratic twist family, \xi is -1, and the fixed point Selmer group is the 2-Selmer group. A major goal of this paper is to find the distribution of fixed point Selmer groups in natural twist families of Galois modules.
+
+Our interest in fixed point Selmer groups is driven by our interest in higher Selmer groups, and this is largely reflected in the main results of this paper. But our results on fixed point Selmer groups can be applied fruitfully without use of the higher theory. One such application is to prove the following boundedness result.
+
+###### Theorem 1.1.
+
+Take \ell to be a rational prime, take F to be a number field, and take A to be an abelian variety over F. For any H>0, take X(H) to be the set of cyclic degree \ell extensions K of F for which the absolute discriminant of K is at most H.
+
+Then there are real numbers c,C>0 depending on A/F and \ell so, for any m>0 and H>C satisfying m<c\cdot\log\log\log H, we have
+
+\sum_{K\in X(H)}\exp\left(m\cdot\rank(A/K)\right)\,\leq\,\exp(Cm^{2})\cdot\#X(H).
+
+In the quadratic case, similar boundedness results have been proved for most elliptic curves over \mathbb{Q} with full rational 2-torsion [[10](https://arxiv.org/html/2207.05143#bib.bibx10)] and for abelian varieties for which A[3] has a filtration over F with 1-dimensional factors [[3](https://arxiv.org/html/2207.05143#bib.bibx3)]. Our unconditional result is a consequence of Theorem [2.6](https://arxiv.org/html/2207.05143#S2.Thmthm6 "Theorem 2.6. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), as we will see in Example [3.9](https://arxiv.org/html/2207.05143#S3.Thmthm9 "Example 3.9. ‣ 3.3. A general construction for twistable modules ‣ 3. Examples and non-examples ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II").
+
+Now, in some twist families, the average \omega-Selmer rank grows without bound as more and more twists are considered. If we wish to prove distributional results for the \omega-Selmer ranks in such families, we need to have a strategy for dealing with this complication. Our strategy is to reduce the scope of our results to _favored twists_, which we will fully define in Section [2](https://arxiv.org/html/2207.05143#S2 "2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") but which we will define in a simple case now.
+
+###### Example 1.2([[12](https://arxiv.org/html/2207.05143#bib.bibx12), [11](https://arxiv.org/html/2207.05143#bib.bibx11)]).
+
+Given an abelian variety A/\mathbb{Q} and a nonzero integer d, we take A^{d} to be the quadratic twist of A corresponding to \mathbb{Q}(\sqrt{d}). We will also take r_{2^{k}}(A) to be the 2^{k}-Selmer rank of A as defined in [[32](https://arxiv.org/html/2207.05143#bib.bibx32)].
+
+Choose rational numbers a,b such that b and a^{2}-4b are nonzero, and consider the ratioinal elliptic curves
+
+A\colon y^{2}=x(x^{2}+ax+b)\quad\text{and}\quad A_{0}\colon y^{2}=x(x^{2}-2ax+(a^{2}-4b)).
+
+Note that there is a rational isogeny of degree 2 from A to A_{0}.
+
+Take
+
+K=\mathbb{Q}(\sqrt{a^{2}-4b})\quad\text{and}\quad K_{0}=\mathbb{Q}(\sqrt{b}).
+
+Given a squarefree integer d, we call d _favored_ with respect to A if, among the odd prime divisors p of d where A has good reduction, the number of primes at which K_{0}/\mathbb{Q} splits is no larger than the number of primes at which K/\mathbb{Q} splits.
+
+The natural density of favored d in the set of squarefree integers is 1/2. On the half which is not favored, the 2-Selmer ranks do not have a nice distribution.
+
+###### Proposition 1.3([[12](https://arxiv.org/html/2207.05143#bib.bibx12)]).
+
+Take A, K, and K_{0} as in Example [1.2](https://arxiv.org/html/2207.05143#S1.Thmthm2 "Example 1.2 ([]). ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), and choose \epsilon>0. We assume K and K_{0} are distinct nontrivial extensions of \mathbb{Q}. Then
+
+\lim_{H\to\infty}\frac{\#\left\{d\in\mathbb{Z}^{\neq 0}\,:\,\,|d|\leq H,\,\,d\,\text{ is not favored, and }\,\,r_{2}(A^{d})>(\log\log H)^{1/2-\epsilon}\right\}}{\#\left\{d\in\mathbb{Z}^{\neq 0}\,:\,\,|d|\leq H,\,\,d\,\text{ is not favored }\right\}}=1.
+
+However, the distribution of 2-Selmer ranks among the favored twists is the same as the distribution of 2-Selmer ranks in the family of twists of an elliptic curve with no rational 2-torsion.
+
+###### Theorem 1.4(Cf. [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Theorem 1.5]).
+
+Take A/\mathbb{Q}, K, and K_{0} as in Example [1.2](https://arxiv.org/html/2207.05143#S1.Thmthm2 "Example 1.2 ([]). ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"). We assume K and K_{0} are distinct nontrivial extensions of \mathbb{Q}.
+
+Define P^{\textup{Alt}} as in [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Definition 1.4]. Then, given k\geq 1 and any nonincreasing sequence
+
+r_{2}\geq r_{4}\geq r_{8}\geq\dots
+
+of nonnegative integers, we have
+
+\displaystyle\lim_{H\rightarrow\infty}\frac{\#\{d\in\mathbb{Z}^{\neq 0}\,:\,\,|d|\leq H,\,\,d\,\text{ is favored and }\,r_{2^{k}}(A^{d})=r_{2^{k}}\text{ for all }k\geq 1\}}{H}
+\displaystyle\qquad=P^{\textup{Alt}}(r_{2}\,|\,\infty)\cdot\prod_{k=2}^{\infty}P^{\textup{Alt}}(r_{2^{k}}\,|\,r_{2^{k-1}}).
+
+Even though Theorem [1.4](https://arxiv.org/html/2207.05143#S1.Thmthm4 "Theorem 1.4 (Cf. [, Theorem 1.5]). ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") only applies to favored d, it still can be used to find the distribution of 2^{\infty}-Selmer coranks for the full twist family of A. Specifically, we find that any d that is not favored with respect to A is favored with respect to the isogenous curve A_{0}. We also find that a negligible set of d is favored for both A and A_{0}. Since r_{2^{\infty}}(A_{0}^{d})=r_{2^{\infty}}(A^{d}), we can find the distribution of 2^{\infty}-Selmer coranks across the full twist family of A by applying Theorem [1.4](https://arxiv.org/html/2207.05143#S1.Thmthm4 "Theorem 1.4 (Cf. [, Theorem 1.5]). ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") to both A and A_{0}. This proves the second case of [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Theorem 1.2].
+
+The notion of a favored twist generalizes substantially, and the natural extension of the divide-and-conquer approach seen above allows us to prove Theorem [1.1](https://arxiv.org/html/2207.05143#S1.Thmthm1 "Theorem 1.1. ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II").
+
+Once we restrict to favored twists, the distribution of fixed point Selmer ranks is still affected by the structure of the Galois module N. Our main result, Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), puts a number of technical conditions on N and its submodules. A module that does not satisfy these conditions will have a distinct distribution of \omega-Selmer groups in its favored twist family compared to any module that satisfies these conditions. We hope that future work will give us more information about the wide variety of distributions that can appear if these technical conditions do not hold.
+
+### 1.1. Our method
+
+We introduced the notion of a grid in [[32](https://arxiv.org/html/2207.05143#bib.bibx32)]. To briefly recap, a grid is defined from a product space \prod_{s\in S}X_{s} together with some auxiliary data, where the X_{s} are finite sets of primes of \overline{\mathbb{Q}} obeying some mild conditions. From the auxiliary data, we may associate any point (\overline{\mathfrak{p}}_{s})_{s\in S} in this product space with a twist \chi. As we proved in [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Proposition 4.8], the group \textup{Sel}^{\omega}N^{\chi} can be calculated from the classes \left[\overline{\mathfrak{p}}_{s}\right] for all s\in S, the spins \left[\overline{\mathfrak{p}}_{s},\,\overline{\mathfrak{p}}_{s}\right] for all s\in S, and the symbols \left[\overline{\mathfrak{p}}_{s},\,\overline{\mathfrak{p}}_{t}\right] for all distinct s,t\in S. We reprove this result in an explicit form in Section [5.2](https://arxiv.org/html/2207.05143#S5.SS2 "5.2. Explicit local conditions ‣ 5. Local conditions for 𝜔-Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II").
+
+Using this, we may express a given moment of the size of \textup{Sel}^{\omega}N^{\chi} for \chi varying in a grid of twists as a sum of terms defined from classes, spins, and symbols. When a given term in this sum involves a symbol \left[\overline{\mathfrak{p}}_{s},\,\overline{\mathfrak{p}}_{t}\right], we can often prove that the term has negligble contribution to the overall sum either by using the Chebotarev density theorem or by using the bilinear equidistribution result for symbols proved as [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Theorem 5.2]. Once we remove the terms proved to be negligible using this method, the remaining terms can be controlled using linear algebra.
+
+Our need to invoke the Chebotarev density theorem and the bilinear equidistribution result pressures us to consider grids where the collections of primes X_{s} are large relative to their height. But our need to carve natural families of twists into such grids pressures us in the opposite direction. Fortunately, there is a middle ground that works. We give one possible specification for such grids in Section [8](https://arxiv.org/html/2207.05143#S8 "8. Gridding ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II").
+
+### 1.2. An overview of this paper
+
+Section [2](https://arxiv.org/html/2207.05143#S2 "2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") gives the necessary notation to state Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), the main result for the distribution of \ell^{\infty}-Selmer groups in twist families of this two-part paper. This result is proved by combining the results on \omega-Selmer groups of this paper with the results for higher Selmer groups in [[32](https://arxiv.org/html/2207.05143#bib.bibx32)].
+
+Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") is largely interesting for its applications to class groups and Selmer groups of abelian varieties. We go through some of these applications in Section [3](https://arxiv.org/html/2207.05143#S3 "3. Examples and non-examples ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"). This is where the theorems mentioned in the introduction to [[32](https://arxiv.org/html/2207.05143#bib.bibx32)] are all proved.
+
+Section [4](https://arxiv.org/html/2207.05143#S4 "4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") explores why the average \omega-Selmer rank in families of unfavored twists tends to infinity. This involves certain terms known as Tamagawa ratios, which also appear in the definition of cofavored submodules. The moments of sizes of Selmer groups in grids can be expressed as sums over the cofavored submodules of the powers of N, so we need to have a classification of these submodules. Using the technical conditions appearing in Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), we are able to find such a classification.
+
+Sections [5](https://arxiv.org/html/2207.05143#S5 "5. Local conditions for 𝜔-Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), [6](https://arxiv.org/html/2207.05143#S6 "6. Ignorable pairs ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), and [7](https://arxiv.org/html/2207.05143#S7 "7. Moments of sizes of 𝜔-Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") all concern the moments of the sizes of the \omega-Selmer group in grids of twists. Section [5](https://arxiv.org/html/2207.05143#S5 "5. Local conditions for 𝜔-Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") gives the initial reduction of such a moment to a sum of terms involving spins and symbols. In Section [6](https://arxiv.org/html/2207.05143#S6 "6. Ignorable pairs ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), the terms that cannot be proved to be negligible using analytic number theory are classified and roughly estimated. Section [7](https://arxiv.org/html/2207.05143#S7 "7. Moments of sizes of 𝜔-Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") then gives a more precise estimate for these moments under the conditions of Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II").
+
+The highly analytic Section [8](https://arxiv.org/html/2207.05143#S8 "8. Gridding ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") carves natural families of twists into grids where the estimates of the previous three sections apply. In Section [9](https://arxiv.org/html/2207.05143#S9 "9. Rough bounds for moments of sizes of 𝜔-Selmer groups ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), we use this work to give rough upper bounds for the moments of sizes of \omega-Selmer groups in natural twist families. These estimates are refined in Section [10](https://arxiv.org/html/2207.05143#S10 "10. Finding the distribution of Selmer ranks ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), where the work in [[32](https://arxiv.org/html/2207.05143#bib.bibx32)] is incorporated to prove the main result of this project, Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II").
+
+### Acknowledgements
+
+This project benefited from the input and support of many mathematicians, including those I have enumerated in the acknowledgements section of [[32](https://arxiv.org/html/2207.05143#bib.bibx32)]. I am grateful to all of them.
+
+This research was partially conducted during the period the author served as a Clay Research Fellow. Previously, the author was supported in part by National Science Foundation grant DMS-2002011.
+
+## 2. Main results
+
+The goal of this section is to give the precise form of our main theorems. We start by recalling the definitions of twistable modules and their Selmer groups from [[32](https://arxiv.org/html/2207.05143#bib.bibx32)]. We retain our notational conventions from that paper.
+
+###### Notation 2.1.
+
+Fix a power \ell^{k_{0}} of a rational prime, take \mathbb{Z}_{\ell}[\xi] to be the corresponding quotient ring ([1.1](https://arxiv.org/html/2207.05143#S1.E1 "In 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")), and take \omega=\xi-1 and \FFF=\langle\xi\rangle. Also choose a number field F.
+
+A _twistable module_ N is then a discrete nonzero G_{F}-module isomorphic as a group to some finite power of \mathbb{Q}_{\ell}/\mathbb{Z}_{\ell} together with an action of \mathbb{Z}_{\ell}[\xi] on N that commutes with G_{F}. Given such a module and a continuous homomorphism \chi\in\textup{Hom}_{\text{cont}}(G_{F},\FFF), we may define a twist N^{\chi} of N as in [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Definition 4.1] .
+
+Fix some twistable module N, and take \mathscr{V}_{0} to be a finite set of places of F containing the archimedean places and the places dividing \ell. We assume that the action of G_{F} on N is ramified only at primes in \mathscr{V}_{0}.
+
+For v\in\mathscr{V}_{0} and \chi\in\textup{Hom}_{\text{cont}}(G_{v},\FFF), fix an \ell-divisible subgroup W_{v}(\chi) of H^{1}(G_{v},N^{\chi}). We call the collection of groups \left(W_{v}(\chi)\right)_{v\in\mathscr{V}_{0}} a _set of local conditions_ for N at the places in \mathscr{V}_{0}.
+
+Setting the local conditions W_{v} at the remaining places as in [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Definition 4.3], the Selmer group of N^{\chi} is defined by
+
+\textup{Sel}\left(N^{\chi},(W_{v})_{v\in\mathscr{V}_{0}}\right)=\ker\left(H^{1}(G_{F},N^{\chi})\to\prod_{v\text{ of }F}H^{1}(G_{v},N^{\chi})\Big/W_{v}\left(\textup{res}_{G_{v}\,}\chi\right)\right).
+
+We will write this group as \textup{Sel}\,N^{\chi} if the local conditions at the places in \mathscr{V}_{0} are clear.
+
+For k\geq 1, we take \textup{Sel}^{\omega^{k}}N^{\chi} to be the portion of H^{1}\left(G_{F},N^{\chi}\left[\omega^{k}\right]\right) mapping into \textup{Sel}\,N^{\chi}. We can refer to \textup{Sel}^{\omega}N^{\chi} as either an \omega-Selmer group or as a fixed point Selmer group. For each k\geq 1, we define
+
+r_{\omega^{k}}(N^{\chi})=\dim\omega^{k-1}\textup{Sel}^{\omega^{k}}N^{\chi}\Big/\text{im}\,H^{0}(G_{F},N^{\chi}[\omega]),
+
+with the image being taken under the connecting map corresponding to the exact sequence 0\to N^{\chi}[\omega]\to N^{\chi}[\omega^{2}]\to N^{\chi}[\omega]\to 0.
+
+We recall from [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Definition 4.9] that we have a notion of the dual twistable module N^{\vee} to N.
+
+###### Definition 2.2.
+
+Given F, \mathbb{Z}_{\ell}[\xi], and \mathscr{V}_{0} as above, we define the set of _admissible twists_ to be the set of continuous homomorphisms \chi:G_{F}\to\FFF so that, for every prime \mathfrak{p} of F outside \mathscr{V}_{0}, the homomorphism \chi is ramified at \mathfrak{p} only if its image in \textup{Hom}(G_{F},\FFF/\ell\FFF) is ramified at \mathfrak{p}. We denote this set by \mathbb{X}_{F}. If \xi has order \ell, every continuous homomorphism \chi:G_{F}\to\FFF is an admissible twist.
+
+We represent the ramification of an element \chi of \mathbb{X}_{F} using the squarefree ideal
+
+\mathfrak{h}_{F}(\chi)=\prod_{\begin{subarray}{c}\mathfrak{p}\not\in\mathscr{V}_{0}\\
+\chi\text{ is ramified at }\mathfrak{p}\end{subarray}}\mathfrak{p}.
+
+There are many possible ways to order these ideals. Writing N_{F/\mathbb{Q}} for the norm from F to \mathbb{Q}, we settle for the height function
+
+h_{F}(\chi)=N_{F/\mathbb{Q}}(\mathfrak{h}_{F}(\chi)).
+
+For H>0, we take \mathbb{X}_{F}(H) to be the set of admissible twists of height at most H.
+
+###### Remark 2.3.
+
+We restrict our attention to admissible twists because, outside this case, we do not have a result like [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Proposition 4.8] to determine the \omega-Selmer group of a twist from classes, spins, and symbols.
+
+###### Definition 2.4.
+
+Take T to be a G_{F}-submodule of N[\omega]. Given \chi\in\mathbb{X}_{F}, we define the Tamagawa ratio \mathcal{T}_{N,T}(\chi) by
+
+\mathcal{T}_{N,T}(\chi)=\prod_{\mathfrak{p}|\mathfrak{h}_{F}(\chi)}\frac{\#H^{0}(G_{\mathfrak{p}},\,N/T[\omega])}{\#H^{0}(G_{\mathfrak{p}},\,N[\omega])}.
+
+Tamagawa ratios give lower bounds for the size of the \omega-Selmer group of N^{\chi}. Specifically, we have the following.
+
+###### Proposition 2.5.
+
+Suppose N is a twistable module with local conditions defined with respect to F, \mathscr{V}_{0}, and \mathbb{Z}_{\ell}[\xi]. Then there is a c>0 so that, given any G_{F}-submodule T of N[\omega], and given \chi\in\mathbb{X}_{F}, we have
+
+\#\textup{Sel}^{\omega}N^{\chi}\geq c\cdot\mathcal{T}_{N,T}(\chi).
+
+We will prove this result in Section [4](https://arxiv.org/html/2207.05143#S4 "4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II").
+
+The next theorem shows that the bound of Proposition [2.5](https://arxiv.org/html/2207.05143#S2.Thmthm5 "Proposition 2.5. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") tends to be fairly sharp.
+
+###### Theorem 2.6.
+
+Suppose N is a twistable module with local conditions defined with respect to F, \mathscr{V}_{0}, and \mathbb{Z}_{\ell}[\xi]. Then there is C>0 depending on F, N, and \mathscr{V}_{0} so that, given any H>30, and given any positive integer g satisfying
+
+(\#N[\omega])^{200g}\leq\log\log H,
+
+we have
+
+\sum_{\begin{subarray}{c}\chi\in\mathbb{X}_{F}(H)\end{subarray}}\left(\frac{\#\textup{Sel}^{\omega}(N^{\chi})}{\max_{T}\mathcal{T}_{N,T}(\chi)}\right)^{g}\leq\exp\left(Cg^{2}\right)\cdot\#\mathbb{X}_{F}(H).
+
+We will prove this theorem in Section [9](https://arxiv.org/html/2207.05143#S9 "9. Rough bounds for moments of sizes of 𝜔-Selmer groups ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II").
+
+###### Definition 2.7.
+
+With N fixed as above, we call a twist \chi\in\mathbb{X}_{F} a _favored twist_ of N if, for any G_{F}-submodule T of N[\omega], we have \mathcal{T}_{N,T}(\chi)\leq 1. We denote the set of favored twists for N by \mathbb{X}^{\textup{fav}}_{F,N}, and we write those of height at most H by \mathbb{X}^{\textup{fav}}_{F,N}(H). We call N _potentially favored_ if
+
+\lim_{H\to\infty}\frac{\#\mathbb{X}^{\textup{fav}}_{F,N}(H)}{\#\mathbb{X}_{F}(H)}>0.
+
+This condition may be checked using the algebra of N; see Definition [4.1](https://arxiv.org/html/2207.05143#S4.Thmthm1 "Definition 4.1. ‣ 4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II").
+
+Take F_{1}=F(\mu_{\ell^{k_{0}}}), where \ell^{k_{0}} is the order of \xi. We call a G_{F}-submodule T of N[\omega]_cofavored_ if, for every \sigma in G_{F_{1}}, we have
+
+\dim H^{0}\big(\langle\sigma\rangle,\,(N/T)[\omega]\big)=\dim H^{0}\big(\langle\sigma\rangle,\,N[\omega]\big).
+
+If the only cofavored submodules of N[\omega] are 0 and N[\omega], we call N _uncofavored_.
+
+###### Remark 2.8.
+
+By the Hermite–Minkowski theorem, there are only finitely many isomorphism classes of G_{F}-modules of order \#N[\omega] so that the action of G_{F} is unramified outside \mathscr{V}_{0}. In particular, there is a finite collection T_{1},\dots,T_{k} of G_{F}-submodules of N so that, for any other G_{F}-submodule T of N, there is i\leq k so (N/T)[\omega] is isomorphic to (N/T_{i})[\omega]. For any admissible twist \chi, there is some i\leq k so \chi is a favored twist for N/T_{i}.
+
+###### Definition 2.9.
+
+Given an equivariant endomorphism \phi of N[\omega], we say that \phi _commutes with the connecting maps_ if, for all \sigma\in G_{F_{1}}, the connecting map
+
+(2.1)\delta_{\sigma}:H^{0}\big(\langle\sigma\rangle,\,N[\omega]\big)\to H^{1}\big(\langle\sigma\rangle,\,N[\omega]\big)
+
+corresponding to the exact sequence
+
+(2.2)0\to N[\omega]\to N[\omega^{2}]\xrightarrow{\,\,\omega\,\,}N[\omega]\to 0
+
+satisfies
+
+\phi\circ\delta_{\sigma}=\delta_{\sigma}\circ\phi.
+
+Multiplication by any given element in \FFF_{\ell}^{\times} defines an automorphism of N[\omega] that commutes with the connecting map. If N[\omega] has extra automorphisms beyond these, it will have a noticeable impact on the distribution of \omega-Selmer groups in its twist family.
+
+Similarly, we can consider the connecting map
+
+\delta_{\sigma}^{\vee}:H^{0}\big(\langle\sigma\rangle,\,N^{\vee}[\omega]\big)\to H^{1}\big(\langle\sigma\rangle,\,N^{\vee}[\omega]\big)
+
+corresponding to the exact sequence
+
+0\to N^{\vee}[\omega]\to N^{\vee}[\omega^{2}]\xrightarrow{\,\,\omega\,\,}N^{\vee}[\omega]\to 0.
+
+If there is an equivariant isomorphism \phi:N[\omega]\to N^{\vee}[\omega] satisfying
+
+\phi\circ\delta_{\sigma}=\delta_{\sigma}^{\vee}\circ\phi.
+
+for all \sigma\in G_{F_{1}}, we say that N[\omega] has self-dual structure. Otherwise, we say it lacks self-dual structure.
+
+###### Definition 2.10.
+
+With \FFF and \mathscr{V}_{0} fixed as above, a choice of _local twists_ is a tuple (\chi_{v})_{v\in\mathscr{V}_{0}} of homomorphisms \chi_{v}\in\textup{Hom}_{\text{cont}}(G_{v},\FFF) indexed by v\in\mathscr{V}_{0} that is globally represented in the sense that some homomorphism \chi\in\textup{Hom}_{\text{cont}}(G_{F},\FFF) restricts to \chi_{v} on G_{v} for each v in \mathscr{V}_{0}. By the Grunwald–Wang theorem [[36](https://arxiv.org/html/2207.05143#bib.bibx36)], the hypothesis that (\chi_{v})_{v\in\mathscr{V}_{0}} is globally represented is automatically satisfied unless \ell=2 and \xi has order at least 8.
+
+Given a choice of local twists (\chi_{v})_{v\in\mathscr{V}_{0}}, we define \mathbb{X}_{F}((\chi_{v})_{v\in\mathscr{V}_{0}}) to be the set of \chi in \mathbb{X}_{F} whose restriction to G_{v} equals \chi_{v} for each v in \mathscr{V}_{0}. We similarly define \mathbb{X}_{F}(H,(\chi_{v})_{v\in\mathscr{V}_{0}}) and \mathbb{X}^{\textup{fav}}_{F,N}(H,(\chi_{v})_{v\in\mathscr{V}_{0}}).
+
+Given an element \phi\in H^{1}(G_{F},N[\omega]), we call \phi a _universal \omega-Selmer element_ if, for every \chi in \mathbb{X}_{F}((\chi_{v})_{v\in\mathscr{V}_{0}}), the image of \phi in H^{1}(G_{F},N^{\chi}[\omega]) is in the \omega-Selmer group of N^{\chi}. More algebraically, given (\chi_{v})_{v}, the set of universal Selmer elements is the kernel of the map
+
+H^{1}\big(G_{F},\,N[\omega]\big)\to\prod_{v\in\mathscr{V}_{0}}H^{1}\big(G_{v},\,N[\omega]\big)/W_{v,1}(\chi_{v})\times\prod_{\sigma\in G_{F_{1}}}H^{1}\big(\langle\sigma\rangle,\,N[\omega]\big),
+
+where W_{v,1}(\chi_{v}) is defined as the portion of H^{1}(G_{v},N[\omega]) that maps into W_{v}(\chi_{v}).
+
+###### Remark 2.11.
+
+Given any twist \chi in \mathbb{X}_{F}(H,(\chi_{v})_{v\in\mathscr{V}_{0}}) ramified at some place outside \mathscr{V}_{0}, we have
+
+(2.3)r_{\omega}(N^{\chi})-r_{\omega}\left((N^{\vee})^{\chi}\right)=\sum_{v\in\mathscr{V}_{0}}\left(\dim W_{v,1}(\chi_{v})-\dim H^{0}(G_{v},N[\omega])\right).
+
+This formula follows Poitou-Tate duality and the global Euler-Poincaré characteristic formula of Tate. This particular statement is a special case of [[22](https://arxiv.org/html/2207.05143#bib.bibx22), Theorem 8.7.9], which is itself a generalization of a formula of Wiles [[38](https://arxiv.org/html/2207.05143#bib.bibx38)]. We note that, in the enumeration of places, each pair of complex embeddings of F corresponds to one place in \mathscr{V}_{0}.
+
+Our main results give the distribution of \ell^{\infty}-Selmer groups for twists of the twistable module N in families \mathbb{X}^{\textup{fav}}_{F,N}(H,(\chi_{v})_{v\in\mathscr{V}_{0}}) as H tends to infinity. The distribution of these groups depends on the structure of N. We work out what these distributions are in two contrasting cases. The first case will be relevant to the study of class groups, and the latter case will be relevant to the study of Selmer groups of abelian varieties.
+
+###### Case 2.12.
+
+Take N to be a twistable module with local conditions defined with respect to F, \mathscr{V}_{0}, and \mathbb{Z}_{\ell}[\xi]. Choose a set of local twists (\chi_{v})_{v\in\mathscr{V}_{0}}. We say that N is in the _non-self-dual case_ if
+
+*   •
+N is potentially favored, is uncofavored, and lacks self-dual structure;
+
+*   •
+The only automorphisms of N[\omega] that commute with connecting maps are those in \FFF_{\ell}^{\times}; and
+
+*   •
+Neither N nor N^{\vee} has any nonzero universal \omega-Selmer element with respect to the local twists (\chi_{v})_{v\in\mathscr{V}_{0}}.
+
+Given N in this case, take u to be the sum on the right hand side of ([2.3](https://arxiv.org/html/2207.05143#S2.E3 "In Remark 2.11. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")). Given n\geq j\geq\max(u,0), we define P(j\,|\,n) to be the probability that an (n-u)\times n matrix with coefficients selected uniformly at random from \FFF_{\ell} has kernel of dimension j. Explicitly, we have
+
+P(j\,|\,n)=\ell^{-j(j-u)}\cdot\prod_{k=1}^{j-u}\frac{1-\ell^{-k-n+j}}{1-\ell^{-k}}\cdot\prod_{k=1}^{j}(1-\ell^{-k})^{-1}\cdot\prod_{k=1}^{n}(1-\ell^{-k}).
+
+If we instead have n\geq j\geq 0 with j<u, we define P(j\,|\,n) to be zero.
+
+We then take
+
+P(j\,|\,\infty)=\lim_{n\to\infty}P(j\,|\,n),
+
+which, for j\geq\max(u,0), equals
+
+\ell^{-j(j-u)}\cdot\prod_{k=1}^{j-u}\left(1-\ell^{-k}\right)^{-1}\cdot\prod_{k=1}^{j}(1-\ell^{-k})^{-1}\cdot\prod_{k=1}^{\infty}(1-\ell^{-k}).
+
+###### Case 2.13.
+
+Take N to be a twistable module with local conditions defined with respect to F, \mathscr{V}_{0}, and \mathbb{Z}_{\ell}[\xi]. Choose a set of local twists (\chi_{v})_{v\in\mathscr{V}_{0}}. We say that N is in the _alternating case_ if
+
+*   •
+\FFF has order 2, so \xi=-1;
+
+*   •
+N is potentially favored and is uncofavored;
+
+*   •
+N has alternating structure, in the sense of [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Definition 4.10];
+
+*   •
+The only automorphism of N[\omega] that commutes with the connecting maps is the identity; and
+
+*   •
+N has no nonzero universal \omega-Selmer element with respect to the local twists (\chi_{v})_{v\in\mathscr{V}_{0}}.
+
+Given N in this case, and given integers n\geq j\geq 0, we define P(j\,|\,n) to be the probability that an alternating n\times n matrix with coefficients selected uniformly at random from \FFF_{2} has kernel of dimension j. If j and n have different parities, this equals 0. Otherwise,
+
+P(j\,|\,n)=2^{\frac{-j(j-1)}{2}}\cdot\prod_{k=1}^{j}\frac{1-2^{-n-j+k}}{1-2^{-k}}\cdot\prod_{k=1}^{\frac{n-j}{2}}\left(1-2^{-2k+1}\right).
+
+The dependence on the parity of n lends some subtlety to our definition of P(j\,|\,\infty). Define a map \varepsilon:G_{F}\to\FFF_{2} by
+
+(2.4)\varepsilon(\sigma)=\dim H^{0}\left(\langle\sigma\rangle,\,N[\omega]\right)\,\,\text{ mod }2.
+
+If this map is a homomorphism, we say that N is in the _parity-invariant subcase_. Under this assumption, the parity of r_{\omega}(N^{\chi}) does not depend on the choice of \chi in \mathbb{X}_{F}\left((\chi_{v})_{v\in\mathscr{V}_{0}}\right); see Section [10.1](https://arxiv.org/html/2207.05143#S10.SS1 "10.1. Parity of Selmer ranks in the alternating case ‣ 10. Finding the distribution of Selmer ranks ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"). In this subcase, take b\in\{0,1\} to match the parity of r_{\omega}(N^{\chi}) and define
+
+P(j\,|\,\infty)=\lim_{n\to\infty}P(j\,|\,2n+b).
+
+Otherwise, we say N is in the _non-parity-invariant subcase_, and we take
+
+\displaystyle P(j\,|\,\infty)\,=\,\lim_{n\to\infty}\tfrac{1}{2}P(j\,|\,2n+j)\,=\,\tfrac{1}{2}\cdot 2^{\frac{-j(j-1)}{2}}\cdot\prod_{k=1}^{j}\left(1-2^{-k}\right)^{-1}\cdot\prod_{k=0}^{\infty}\left(1-2^{-2k-1}\right).
+
+We can now state the main result of this project.
+
+###### Theorem 2.14.
+
+Choose a twistable module N and local twists (\chi_{v})_{v} satisfying the conditions either of the non-self-dual case or alternating case, and take P(j\,|\,n) to be the transition probabilities corresponding to the case of N. There are then real numbers c,C>0 determined by N, \mathscr{V}_{0}, and F so that, for any H>C, we have the following:
+
+Given a nonincreasing sequence of nonnegative integers r_{\omega}\geq r_{\omega^{2}}\geq\dots, define an empirical probability
+
+P_{\leq H}(r_{\omega},r_{\omega}^{2},\dots)\,=\,\frac{\#\left\{\chi\in\mathbb{X}^{\textup{fav}}_{F,N}(H,\,(\chi_{v})_{v})\,:\,\,r_{\omega^{k}}(N^{\chi})=r_{\omega^{k}}\,\text{ for all }\,k\geq 1\right\}}{\#\mathbb{X}^{\textup{fav}}_{F,N}(H,\,(\chi_{v})_{v})}
+
+and a theoretical probability
+
+P_{\textup{th}}(r_{\omega},r_{\omega}^{2},\dots)=P(r_{\omega}\,|\,\infty)\cdot\prod_{k\geq 1}P(r_{\omega^{k+1}}\,|\,r_{\omega^{k}}).
+
+Then
+
+\sum_{r_{\omega}\geq r_{\omega^{2}}\geq\dots}\Big|P_{\leq H}(r_{\omega},r_{\omega}^{2},\dots)\,-\,P_{\textup{th}}(r_{\omega},r_{\omega^{2}},\dots)\Big|\,\leq\,\exp\left(-c\cdot(\log\log\log H)^{1/2}\right),
+
+where the sum is over all nonincreasing sequence of nonnegative integers.
+
+## 3. Examples and non-examples
+
+The two principal applications of Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") are to finding the distribution of \textup{Cl}\,K[\ell^{\infty}] as K varies in a family of degree \ell extensions of a fixed number field F and to finding the distribution of 2^{\infty}-Selmer groups in the quadratic twist families of most elliptic curves over F. Before we prove Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), we show how it may be applied to these two examples and some other problems. We will also give some relevant examples where the theorem cannot be applied.
+
+### 3.1. Quadratic twists of elliptic curves
+
+Take F to be a number field, and take A to be an elliptic curve over F with Weierstrass form y^{2}=x^{3}+ax+b. We are interested in the 2^{\infty}-Selmer groups for the family of elliptic curves
+
+\{A^{d}\colon y^{2}=x^{3}+d^{2}ax+d^{3}b\,:\,\,d\in F^{\times}\}.
+
+As in [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Example 4.4], these are the Selmer groups associated to twists of the twistable module N=A[2^{\infty}] with the Bloch–Kato local conditions. This example has alternating structure.
+
+To apply Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), we must check that the other conditions of Case [2.13](https://arxiv.org/html/2207.05143#S2.Thmthm13 "Case 2.13. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") are satisfied. The condition on universal \omega-Selmer elements is always satisfied, leaving three conditions; N must be potentially favored, it must be cofavored, and N[\omega] may not have extra automorphisms commuting with the connecting maps.
+
+So take K=F(A[2]) to be the minimal extension of F such that G_{F(A[2])} acts trivially on A[2]. We may then find c_{1},c_{2},c_{3} in K for which
+
+x^{3}+ax+b=(x-c_{1})(x-c_{2})(x-c_{3}).
+
+Take e_{1} to be the point (c_{1},0), and take e_{2} to be the point (c_{2},0). These generate the 2-torsion of E. The connecting map
+
+A[2]\rightarrow H^{1}(G_{K},A[2])
+
+corresponding to the short exact sequence 0\to A[2]\to A[4]\to A[2]\to 0 may be given explicitly in the form
+
+\displaystyle e_{1}\mapsto e_{1}\cdot\chi_{c_{1}-c_{2}}+e_{2}\cdot\chi_{(c_{3}-c_{1})\cdot(c_{2}-c_{1})}
+\displaystyle e_{2}\mapsto e_{1}\cdot\chi_{(c_{3}-c_{2})\cdot(c_{1}-c_{2})}+e_{2}\cdot\chi_{c_{2}-c_{1}},
+
+where \chi_{c}:G_{K}\rightarrow\FFF_{2} denotes the quadratic character associated to K(\sqrt{c})/K; this calculation can be done directly, and is the content of [[30](https://arxiv.org/html/2207.05143#bib.bibx30), Proposition X.1.4].
+
+We now split into cases.
+
+###### Example 3.1.
+
+Suppose K=F. In this case, N is automatically potentially favored. We find that N is uncofavored if and only if none of the isogenous curves
+
+A/\langle e_{1}\rangle,\quad A/\langle e_{2}\rangle,\quad A/\langle e_{1}+e_{2}\rangle
+
+has full rational two torsion. This is equivalent to the condition that E has no rational cyclic 4-isogeny. Given the above form of the connecting map, this condition is equivalent to saying that none of
+
+(3.1)(c_{3}-c_{1})\cdot(c_{2}-c_{1}),\quad(c_{3}-c_{2})\cdot(c_{1}-c_{2}),\quad(c_{1}-c_{3})\cdot(c_{2}-c_{3})
+
+are in (F^{\times})^{2}. If E is not uncofavored, there is then c\in F\backslash\{0,\pm 1\} and d in F^{\times} such that E is isomorphic to a curve with equation
+
+y^{2}=x(x-d)(x-dc^{2}).
+
+We now check for a nonidentity automorphism commuting with the connecting maps. From Remark [4.6](https://arxiv.org/html/2207.05143#S4.Thmthm6 "Remark 4.6. ‣ 4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), we can restrict our attention to the isomorphism T sending e_{1} to e_{2} to e_{1}+e_{2} back to e_{1}. We calculate that this commutes with the connecting maps if and only if all three entries in ([3.1](https://arxiv.org/html/2207.05143#S3.E1 "In Example 3.1. ‣ 3.1. Quadratic twists of elliptic curves ‣ 3. Examples and non-examples ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) are all in -(F^{\times})^{2}. In the case that c_{1}=0 and c_{2}=1, this gives that -c_{3} and c_{3}-1 are both squares in F. In other words, there are z_{0},z_{1} in F satisfying
+
+(3.2)z_{0}^{2}+z_{1}^{2}=-1
+
+so c_{3}=-z_{0}^{2}. If this conic has no points over F, as is true if F is any totally real field, then the condition of no extra automorphisms is automatically satisfied. Otherwise, any exception will be isomorphic to a curve of the form
+
+(3.3)y^{2}=x(x-d)(x+dz_{0}^{2})
+
+where d is in F^{\times} and z_{0}\in F\backslash\{0,\pm 1\} satisfies ([3.2](https://arxiv.org/html/2207.05143#S3.E2 "In Example 3.1. ‣ 3.1. Quadratic twists of elliptic curves ‣ 3. Examples and non-examples ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) for some z_{1} in F.
+
+Outside these two exceptional families, we find that the technical conditions on Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") are satisfied. We therefore find that case (3) of [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Theorem 1.5] holds.
+
+###### Example 3.2.
+
+Suppose K/F is a \mathbb{Z}/3\mathbb{Z} extension. The only proper G_{F}-submodule of A[2] is 0, so N is potentially favored and uncofavored, leaving just the condition on automorphisms. The automorphism T defined above is G_{F}-equivariant, so the condition fails if and only if there are d,z_{0},z_{1} in K so that ([3.2](https://arxiv.org/html/2207.05143#S3.E2 "In Example 3.1. ‣ 3.1. Quadratic twists of elliptic curves ‣ 3. Examples and non-examples ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) is satisfied and E is isomorphic over K to the curve with Weierstrass form ([3.3](https://arxiv.org/html/2207.05143#S3.E3 "In Example 3.1. ‣ 3.1. Quadratic twists of elliptic curves ‣ 3. Examples and non-examples ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")). This is again impossible if F is totally real, as K is totally real in this case.
+
+However, there are curves that fail the condition. To give a particular example, take F to be a number field containing \mathbb{Q}(\mu_{3}), and take b to be any element of F^{\times} that is not a cube. Then, if we consider the elliptic curve
+
+A:y^{2}=x^{3}+b,
+
+we find that the extension K/F is of degree 3, and the map T commutes with the connecting maps. We do not need to check for an isomorphism with a curve of the form ([3.3](https://arxiv.org/html/2207.05143#S3.E3 "In Example 3.1. ‣ 3.1. Quadratic twists of elliptic curves ‣ 3. Examples and non-examples ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) to prove this, as this curve has CM by \mathbb{Z}[\mu_{3}]. Taking \xi to be a primitive third root of unity, we see that the automorphism corresponding to \xi either equals T or T^{2}. To check that this curve is an exception using our condition, we note that A is isomorphic over K to the curve with equation
+
+y^{2}=x\left(x-(\xi-1)\sqrt[3]{b}\right)\left(x-(\xi^{2}-1)\sqrt[3]{b}\right),
+
+which corresponds to the solution z_{0}=\xi, z_{1}=\xi^{2} of ([3.2](https://arxiv.org/html/2207.05143#S3.E2 "In Example 3.1. ‣ 3.1. Quadratic twists of elliptic curves ‣ 3. Examples and non-examples ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")).
+
+###### Example 3.3.
+
+If K/F is an S_{3} extension, then every condition is clearly satisfied, and we may always apply Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II").
+
+From these last two calculations, we see that Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") yields [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Theorem 1.5] in case (1).
+
+###### Example 3.4.
+
+If K/F is quadratic, the automorphism T is non-equivariant, so we only need to check the potentially favored and uncofavored conditions. We will replace our notation with the notation of Example [1.2](https://arxiv.org/html/2207.05143#S1.Thmthm2 "Example 1.2 ([]). ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), so we are considering a pair of isogenous elliptic curves
+
+A\colon y^{2}=x(x^{2}+ax+b)\quad\text{and}\quad A_{0}\colon y^{2}=x(x^{2}-2ax+(a^{2}-4b))
+
+with a,b in F for which b is nonzero and a^{2}-4b is outside F^{2}.
+
+We find that A is potentially favored if G_{F} acts nontrivially on A_{0}[2], which happens if b is outside (F^{\times})^{2}. If A is not potentially favored, we may instead consider the curve A_{0}, which fits into the K=F case. Next, we see that A is uncofavored if and only if F(A[2])\neq F(A_{0}[2]), which is equivalent to the condition that ba^{2}-4b^{2} is not in (F^{\times})^{2}.
+
+If neither b nor ba^{2}-4b^{2} are squares, we find that the main theorem applies to A. So Theorem [1.4](https://arxiv.org/html/2207.05143#S1.Thmthm4 "Theorem 1.4 (Cf. [, Theorem 1.5]). ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") follows from Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II").
+
+###### Remark 3.5.
+
+Using the methods of this paper, one could find the distribution 2-Selmer ranks in the family of favored twists for some of the exceptional cases listed above without too much difficulty. For every exceptional curve, the first or second moment of the size of the 2-Selmer group in the twist family is notably larger than for a non-exceptional curve. To give a concrete example, the average size of the 2-Selmer group for the curve with equation
+
+dy^{2}=x(x-1)(x-4)
+
+over \mathbb{Q} is larger than the average size of the 2-Selmer group for the curve with equation
+
+dy^{2}=x(x-1)(x+1)
+
+as d varies through the squarefree integers.
+
+A more difficult question is whether the results on higher Selmer groups can be generalized to these exceptional cases. The author is hopeful that future research will shed some light on these examples.
+
+### 3.2. Quadratic twists of abelian varieties
+
+Generalizing from elliptic curves, we may ask about the 2^{\infty}-Selmer groups in the quadratic twist family of an abelian variety A/F of dimension g>1. To define an alternating structure on A[2^{\infty}] using the Weil pairing, we need to choose a self-dual isogeny \lambda:A\to A^{\vee} of odd degree over F, where A^{\vee} denotes the dual abelian variety to A. Any such self-dual isogeny arises from a symmetric line bundle \mathscr{L} on A defined over \overline{F}, but might not arise from a line bundle defined over F. However, the obstruction to the existence of this bundle is given by an element c_{\lambda} of the 2-Selmer group of A[[26](https://arxiv.org/html/2207.05143#bib.bibx26), [25](https://arxiv.org/html/2207.05143#bib.bibx25)], and this Selmer element is universal across the quadratic twist family of A[[17](https://arxiv.org/html/2207.05143#bib.bibx17)]. The technical conditions force us to assume that c_{\lambda}=0 and hence that \lambda comes from a symmetric line bundle defined over F.
+
+From the existence of this symmetric line bundle, we can conclude that there is a quadratic refinement q:A[2]\to\pm 1 of the Weil pairing on A[2] induced by \lambda[[20](https://arxiv.org/html/2207.05143#bib.bibx20), p. 314f.]. Taking K=F(A[2]), we must have that \textup{Gal}(K/F) is a subgroup of the orthogonal group O(q) of automorphisms of A[2] preserving this quadratic form.
+
+###### Example 3.6.
+
+In the case that \textup{Gal}(K/F) equals O(q), we find that the technical conditions are all satisfied. We start by noting that, in this case, H^{1}(\textup{Gal}(K/F),A[2]) is nonzero if and only if g=3 and q has Arf invariant 0[[24](https://arxiv.org/html/2207.05143#bib.bibx24), Theorems 4.2 - 5.2]. In the one exceptional case, we find there is \sigma in G_{F} such that the restriction of the nontrivial cocycle class to H^{1}(\langle\sigma\rangle,A[2]) is nonzero; specifically, in the notation of the final paragraph of [[24](https://arxiv.org/html/2207.05143#bib.bibx24), p. 417], we see that the restriction of the derivation \delta to the subgroup of S_{8} generated by the element (12)(34)(56)(78) is nontrivial. In all cases, there are no nonzero universal 2-Selmer elements.
+
+Given v\in A[2] satisfying q(v)=1, the map
+
+w\mapsto w+(q(v+w)-q(w)-1)v
+
+defines an element in O(q) known as a transvection. Using these transvections and the fact that g>1, we may show that any submodule of A[2] closed under O(q) contains a nonzero singular element v, and can conclude from [[24](https://arxiv.org/html/2207.05143#bib.bibx24), Theorem 1.3] that T=A[2]. The potentially favored and uncofavored conditions hold. Another application of transvections shows that the only equivariant automorphism of A[2] is the identity.
+
+Since the technical conditions are all satisfied, we find that the 2^{\infty}-Selmer groups of quadratic twists of abelian varieties in this case have the same distribution as the 2^{\infty}-Selmer groups of elliptic curves in \textup{Gal}(K/F)=S_{3} case.
+
+This previous example may be considered the most generic case where our theorem applies for quadratic twist families of abelian varieties. A more concrete example comes from the Jacobians of odd degree hyperelliptic curves.
+
+###### Example 3.7.
+
+Choose g>1 and choose a degree 2g+1 polynomial
+
+f(x)=a_{2g+1}x^{2g+1}+a_{2g}x^{2g}+\dots+a_{0}
+
+with coefficients in F and no repeated roots. Consider the hyperelliptic curve C with equation y^{2}=f(x), and take A to be the Jacobian of C with the standard principal polarization. Take P_{1},\dots,P_{2g+1} to be the points on this curve where y=0, take P_{0} to be the point at \infty, and write P_{i}-P_{0} as e_{i}. Then e_{1},\dots,e_{2g+1} generate A[2] subject to the unique relation e_{1}+\dots+e_{2g+1}=0[[27](https://arxiv.org/html/2207.05143#bib.bibx27)]. From this, we find that K equals the splitting field of the polynomial f, and that \textup{Gal}(K/F) is necessarily a subgroup of S_{2g+1}.
+
+In the maximal case where \textup{Gal}(K/F)=S_{2g+1}, we may apply [[24](https://arxiv.org/html/2207.05143#bib.bibx24), Theorem 5.1] to show there are no universal nonzero 2-Selmer elements. The other technical conditions are easily checked.
+
+Using the Chabauty–Coleman method, one can go from bounds on the rank of the Jacobian of a curve of genus >1 to bounds on the number of rational points on the curve. One concrete application of these methods and Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") is the following.
+
+###### Theorem 3.8.
+
+Choose g>1, and choose a polynomial f(x)=a_{2g+1}x^{2g+1}+\dots+a_{0} with rational coefficients. Taking K to be the splitting field for f over \mathbb{Q}, we assume that \textup{Gal}(K/\mathbb{Q}) is isomorphic to S_{2g+1}. Given a positive integer d, take C_{d} to be the hyperelliptic curve with equation dy^{2}=f(x) over \mathbb{Q}. Take N to be the maximal odd integer dividing the conductor of C_{1}, and choose a positive integer b coprime to 2N. Then we have the following:
+
+*   •Suppose the Jacobian of C_{b} has even 2-Selmer rank. Then 100\% of the C_{d} with d equal to b mod 8N have 1 rational point, and we have
+
+\lim_{H\to\infty}\,H^{-1}\cdot\sum_{\begin{subarray}{c}0<d<H\\
+d\equiv b\textup{ mod }8N\end{subarray}}\big(\#C_{d}(\mathbb{Q})-1\big)=0. 
+*   •Suppose the Jacobian of C_{b} has odd 2-Selmer rank. Then 100\% of the C_{d} with d equal to b mod 8N have at most 3 rational points, and we have
+
+\lim_{H\to\infty}\,H^{-1}\cdot\sum_{\begin{subarray}{c}0<d<H\\
+d\equiv b\textup{ mod }8N\end{subarray}}\max\big(0,\,\#C_{d}(\mathbb{Q})-3\big)=0. 
+
+###### Proof.
+
+Take A to be the Jacobian of C_{1}, and choose a positive integer d equal to b mod 8N. The Jacobian of C_{d} is then identified with the quadratic twist A^{d} of A associated to \mathbb{Q}(\sqrt{d}). From the above discussion, we see that Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") applies to the 2^{\infty}-Selmer groups of the quadratic twists of A. We can calculate that this example is in the parity-invariant subcase, so the 2-Selmer parity of A^{d} equals the 2-Selmer parity of A^{b}; see [[39](https://arxiv.org/html/2207.05143#bib.bibx39)] for more details. With this set, the bounds on rational points for 100\% of d follow from [[34](https://arxiv.org/html/2207.05143#bib.bibx34), Theorem 1.1].
+
+From Theorems [2.6](https://arxiv.org/html/2207.05143#S2.Thmthm6 "Theorem 2.6. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") and [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), we also can prove an estimate
+
+\sum_{\begin{subarray}{c}d<H\\
+\text{rank}(A^{d}/\mathbb{Q})>1\end{subarray}}7^{\text{ rank}(A^{d}/\mathbb{Q})}=o(H)
+
+for H>0. The result on the average of \#C_{d}(\mathbb{Q}) then follows from [[29](https://arxiv.org/html/2207.05143#bib.bibx29), Theorem 1].
+
+∎
+
+A stronger result than this can be proved if the abc conjecture is assumed; see [[5](https://arxiv.org/html/2207.05143#bib.bibx5), Corollary 1].
+
+### 3.3. A general construction for twistable modules
+
+Suppose |\FFF|=\ell. A versatile method for constructing twistable modules is to start with a Galois module N_{0} over F isomorphic to some finite power of \mathbb{Q}_{\ell}/\mathbb{Z}_{\ell} as an abelian group and consider the tensor product N=N_{0}\otimes\mathbb{Z}_{\ell}[\xi].
+
+###### Example 3.9.
+
+Choose \mathbb{Z}_{\ell}[\xi] so \xi has order \ell. In the case that N=A[\ell^{\infty}] for an abelian variety A/F, we can construct an abelian variety (A\otimes\mathbb{Z}[\xi])^{\chi} over F for any \chi\in\mathbb{X}_{F}. This abelian variety has dimension (\ell-1)\dim A, and its \ell^{\infty}-torsion is isomorphic to (N\otimes\mathbb{Z}_{\ell}[\xi]])^{\chi} over F. In the case that \ell=2, this variety is just the quadratic twist of A by \chi. See e.g. [[16](https://arxiv.org/html/2207.05143#bib.bibx16)] for background on this construction.
+
+Assuming \chi is nontrivial, we also have an identity,
+
+(3.4)\text{rank}(A/K)=\text{rank}(A/F)+\text{rank}\left((A\otimes\mathbb{Z}[\xi])^{\chi}/F\right),
+
+where K/F is the cyclic extension associated to \chi. This motivates the study of the Selmer groups of the twists of A\otimes\mathbb{Z}_{\ell}[\xi].
+
+From Remark [2.8](https://arxiv.org/html/2207.05143#S2.Thmthm8 "Remark 2.8. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), we know there we can find finitely submodules T_{1},\dots,T_{k} of N\otimes\mathbb{Z}_{\ell}[\xi] so that every \chi\in\mathbb{X}_{F} favors some (N\otimes Zlz)/T_{i}. Giving these modules the usual local conditions associated to an abelian variety, we also have
+
+\text{rank}\big((A\otimes\mathbb{Z}[\xi])^{\chi}/F\big)\,\leq\,(\ell-1)\cdot r_{\omega}\big(((N\otimes\mathbb{Z}[\xi])/T_{i})^{\chi}\big).
+
+for all i\leq k. From this relation, we see that Theorem [1.1](https://arxiv.org/html/2207.05143#S1.Thmthm1 "Theorem 1.1. ‣ 1. Introduction ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") follows from Theorem [2.6](https://arxiv.org/html/2207.05143#S2.Thmthm6 "Theorem 2.6. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II").
+
+The non-self-dual case of Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") cannot apply to this example, as every polarization of A over F will either lead to self-dual structure for N[\omega] or have a kernel that can be manipulated to give a proper nonzero cofavored submodule of N[\omega]. So suppose N has alternating structure. In this case, the Cassels–Tate pairings indexed by even numbers for the twists of N are symmetric rather than alternating for \ell odd; see [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Remark 4.14]. We cannot control the diagonal entries of the matrices corresponding to these pairings, which is why Case [2.13](https://arxiv.org/html/2207.05143#S2.Thmthm13 "Case 2.13. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") included the assumption \#\FFF=2.
+
+However, if N otherwise obeys the conditions of the alternating case, our methods apply without adjustment to find the distribution of the Cassels–Tate pairings indexed by odd integers. Just from these pairings, we can show that
+
+\text{rank}(A/K)-\text{rank}(A/F)\leq\ell-1
+
+for 100\% of the cyclic degree \ell extensions K of F.
+
+In contrast to the quadratic extensions, we expect that \text{rank}(A/K) should equal \text{rank}(A/F) for 100\% of the cyclic degree \ell extensions K of F for \ell odd. See [[4](https://arxiv.org/html/2207.05143#bib.bibx4), Conjecture 1.2] for precise conjectures for elliptic curves over \mathbb{Q}. To prove such a zero density result using our methods would require some control on the diagonal terms for the Cassels–Tate pairings indexed by even numbers.
+
+###### Example 3.10.
+
+Choose a nonzero element m in F. If F contains \mu_{3}, the 3^{\infty} torsion of the elliptic curve A:y^{2}=x^{3}+m is a twistable module that satisfies the conditions of the alternating case besides \#\FFF=2. Using our methods, we could show that the elliptic curves with Weierstrass form y^{2}=x^{3}+md^{2} have 3^{\infty}-Selmer corank at most 1 for 100\% of integers d in F, where we are ordering d by the norm of the radical of the ideal (d).
+
+Unfortunately, our method completely fails if F does not contain \mu_{3}, as an order 3 automorphism of A is only defined over \mathbb{Q}(\mu_{3}). We can adjust our methods to handle non-equivariant automorphisms \xi, and we can still control \omega-Selmer groups in this non-equivariant case. However, twice the \omega-Selmer rank is no longer an upper bound for the rank of the eliptic curve. All we can say is that the rank of y^{2}=x^{3}+md^{2} is at most the sum of the \omega-Selmer ranks of this curve and the isogenous curve y^{2}=x^{3}-27md^{2}. Our trick to focus on favored twists no longer works, and it is unclear how to adjust our methods to say anything interesting about this family.
+
+###### Example 3.11.
+
+A simple example of the twisting construction is given by the twistable module N=\mathbb{Q}_{\ell}[\xi]/\mathbb{Z}_{\ell}[\xi] with a trivial G_{F} action, where \xi has order \ell. In [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Example 4.5], we saw that we could decorate this twistable module with local conditions so, given a cyclic degree \ell extension K/F and a nontrivial character \chi:\textup{Gal}(K/F)\to\mu_{\ell}, we had an injection
+
+\left(\textup{Cl}\,^{*}L\big/(\textup{Cl}\,^{*}L)^{\textup{Gal}(L/F)}\right)[\ell^{\infty}]\hookrightarrow\textup{Sel}\,N^{\chi}.
+
+A condition for this map to be an isomorphism is given in [[18](https://arxiv.org/html/2207.05143#bib.bibx18), Proposition 7.4]. Using Proposition [8.5](https://arxiv.org/html/2207.05143#S8.Thmthm5 "Proposition 8.5. ‣ 8.1. Grids of ideals ‣ 8. Gridding ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), we find that the set of twists not satisfying this condition in the families considered in [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Theorem 1.11] is negligible.
+
+We now check when the technical conditions apply in this example. The potentially favored, uncofavored, and no extra automorphisms conditions are automatic since N[\omega] is 1-dimensional. There are also no universal \omega-Selmer elements. So this example satisfies the conditions for Case [2.12](https://arxiv.org/html/2207.05143#S2.Thmthm12 "Case 2.12. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") if it lacks self-dual structure.
+
+If F does not contain \mu_{\ell}, then N[\omega] and N[\omega]^{\vee} are nonisomorphic, so there is no self-dual structure. So suppose F contains \mu_{\ell}. If \ell is odd, we find that N[\omega^{2}] is isomorphic to (\mathbb{Z}/\ell\mathbb{Z})^{2} as a G_{F}-module, so N[\omega^{2}] is isomorphic to N[\omega^{2}]^{\vee} and there is self-dual structure. However, if \ell is even, we see that N[\omega^{2}] is isomorphic to \mathbb{Z}/4\mathbb{Z}, so the isomorphism between N[\omega] and N[\omega]^{\vee} only commutes with the connecting map if F contains \mu_{4}.
+
+This accounts for the technical conditions on [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Theorem 1.11]. The translation from the set X_{F,\ell,r_{1}^{\prime}}(H) to sets of the form \mathbb{X}_{F}(H^{\prime},(\chi_{v})_{v}) is straightforward. For any non-archimedean v\in\mathscr{V}_{0}, we find that the preimage of W_{v}(\chi_{v}) in H^{1}(G_{v},N[\omega]) has cardinality \ell. For archimedean places, we find this preimage has order \ell if v is real and \chi_{v} ramifies at v, and otherwise has order 1. So, given \chi in \mathbb{X}_{F}((\chi_{v})_{v}), we find that
+
+r_{\omega}(N^{\chi})-r_{\omega}((N^{\vee})^{\chi})=-r_{2}-r_{1}^{\prime}
+
+by ([2.3](https://arxiv.org/html/2207.05143#S2.E3 "In Remark 2.11. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")), where r_{2} equals the number of conjugate pairs of complex places, and r_{1}^{\prime} equals the number of real places v where \chi_{v} is trivial. With this calculated, [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Theorem 1.11] follows.
+
+We note that the \ell^{\infty}-portion of the class groups of the Galois degree \ell extensions of F have a different distribution if F contains \mu_{2\ell}. For example, we can use the methods of this paper to show that the \omega-portion of the class group has larger moments in this case. In our estimation, it should be challenging but possible to adjust the methods of this paper and [[32](https://arxiv.org/html/2207.05143#bib.bibx32)] to compute the distribution of class groups in the presence of extra roots of unity.
+
+###### Remark 3.12.
+
+Given a number field L and an integer m\geq 1, the \ell^{\infty}-torsion of the algebraic K-group K_{2m}\mathscr{O}_{L} of the roots of unity of L can be identified with the Selmer group of the Tate twist \mathbb{Q}_{\ell}/\mathbb{Z}_{\ell}(m+1) over L endowed with a certain reasonable set of local conditions; see [[37](https://arxiv.org/html/2207.05143#bib.bibx37), Theorem 7.2]. Because of this, one should be able to find distributional results for these groups that are analogous to our results for class groups, with Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") applying whenever \mu_{2\ell} does not lie in F. For other work on the heuristics of these K-groups, see [[9](https://arxiv.org/html/2207.05143#bib.bibx9)].
+
+## 4. Tamagawa ratios and cofavored submodules
+
+Proposition [2.5](https://arxiv.org/html/2207.05143#S2.Thmthm5 "Proposition 2.5. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") claimed that large Tamagawa ratios lead to large \omega-Selmer groups. Our first goal is to prove this result.
+
+###### Proof of Proposition [2.5](https://arxiv.org/html/2207.05143#S2.Thmthm5 "Proposition 2.5. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II").
+
+Take T and \chi as in the proposition, and take \mathscr{V}_{1} to be the set of primes dividing \mathfrak{h}_{F}(\chi). The group
+
+(4.1)\ker\left(H^{1}(G_{F},T)\to\prod_{v\in\mathscr{V}_{0}}H^{1}(G_{v},N[\omega])\times\prod_{v\in\mathscr{V}_{1}}H^{1}(G_{v},N^{\chi})\times\prod_{v\not\in\mathscr{V}_{0}\cup\mathscr{V}_{1}}H^{1}(I_{v},N[\omega])\right)
+
+maps into \textup{Sel}^{\omega}N^{\chi} with kernel equal to the image H^{0}(G_{F},N[\omega]/T) under the connecting map. For v in \mathscr{V}_{1}, we have an exact sequence
+
+\displaystyle 0\to\displaystyle H^{0}(G_{v},T)\to H^{0}(G_{v},N^{\chi})\to H^{0}(G_{v},N^{\chi}/T)
+\displaystyle\to\displaystyle H^{1}(G_{v},T)\to H^{1}(G_{v},N^{\chi}),
+
+so
+
+\displaystyle\#\ker\big(H^{1}(G_{v},T)\to H^{1}(G_{v},N^{\chi})\big)\displaystyle=\,\frac{\#H^{0}(G_{v},N^{\chi}/T)\cdot\#H^{0}(G_{v},T)}{\#H^{0}(G_{v},N^{\chi})}
+\displaystyle=\,\frac{\#H^{0}(G_{v},N/T[\omega])\cdot\#H^{0}(G_{v},T)}{\#H^{0}(G_{v},N[\omega])}.
+
+We then can use the global Euler-Poincaré characteristic formula of Tate [[22](https://arxiv.org/html/2207.05143#bib.bibx22), Section 8.7.9] to say that ([4.1](https://arxiv.org/html/2207.05143#S4.E1 "In Proof of Proposition . ‣ 4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) has cardinality at least
+
+c\cdot\prod_{v\in\mathscr{V}_{1}}\frac{\#H^{0}(G_{v},N/T[\omega])}{\#H^{0}(G_{v},N[\omega])},
+
+where c is some positive number that does not depend on the choice of \chi. This gives the proposition. ∎
+
+This proposition forced us to restrict our attention to favored twists in Theorem [2.14](https://arxiv.org/html/2207.05143#S2.Thmthm14 "Theorem 2.14. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"). But this proposition is not the end of the importance of Tamagawa ratios in our work. Given a potentially-favored twistable module N, the average size of \textup{Sel}^{\omega}N^{\chi} as \chi varies through \mathbb{X}^{\textup{fav}}_{F,N} tends towards a certain sum indexed by the submodules T of N[\omega] that have Tamagawa ratio exactly 1. In particular, twistable modules with more cofavored submodules tend to have \omega-Selmer groups of larger average size.
+
+This led to our restriction to uncofavored modules. But this only gives control over the first moment of the \omega-Selmer groups in this family. For k>1, if the twistable module N^{\oplus k} has extra cofavored submodules beyond the obvioius ones, we find that the k-moments of the sizes of the \omega-Selmer groups in this family are larger than would be seen for a family without extra cofavored modules. The main goal for the rest of this section is to show how one can control the collection of cofavored submodules in these powers.
+
+Throughout this section, we fix F, \mathbb{Z}_{\ell}[\xi], and a Galois extension K of F containing \mu_{\ell^{k_{0}}} where \ell^{k_{0}} is the order of \xi. All twistable modules referenced will be defined with respect to F and \mathbb{Z}_{\ell}[\xi], and the \omega^{2}-torsion of all referenced modules will be acted on trivially by G_{K}. We will take G_{0}=\textup{Gal}(K/F(\mu_{\ell^{k_{0}}})).
+
+###### Definition 4.1.
+
+Given a twistable module N, we call N _potentially favored_ if
+
+*   •For any G_{F}-submodule T of N[\omega], we have
+
+(4.2)\sum_{\sigma\in G_{0}}\dim H^{0}(\langle\sigma\rangle,\,N[\omega])\geq\sum_{\sigma\in G_{0}}\dim H^{0}(\langle\sigma\rangle,\,(N/T)[\omega]),
+
+and 
+*   •There is some function
+
+w:G_{0}\rightarrow\mathbb{R}
+
+so that, for any G_{F}-submodule T of N[\omega], we either have
+
+\sum_{\sigma\in G_{0}}w(\sigma)\cdot\dim H^{0}(\langle\sigma\rangle,\,N[\omega])\,>\,\sum_{\sigma\in G_{0}}w(\sigma)\cdot\dim H^{0}(\langle\sigma\rangle,\,(N/T)[\omega])
+
+or
+
+\dim H^{0}(\langle\sigma\rangle,\,N[\omega])=\dim H^{0}(\langle\sigma\rangle,\ (N/T)[\omega])\quad\text{for all }\,\sigma\in G_{0}. 
+
+We call the set of functions w that obey the second property the _superlatives_ for N.
+
+We will prove that this definition of potentially favored is equivalent to Definition [2.7](https://arxiv.org/html/2207.05143#S2.Thmthm7 "Definition 2.7. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") in Proposition [8.11](https://arxiv.org/html/2207.05143#S8.Thmthm11 "Proposition 8.11. ‣ 8.3. The joint distribution of Frobenius elements ‣ 8. Gridding ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II").
+
+###### Definition 4.2.
+
+Given an exact sequence
+
+0\rightarrow\mathbb{Z}^{m}\rightarrow\mathbb{Z}^{n}\rightarrow\mathbb{Z}^{n-m}\rightarrow 0,
+
+we get an associated sequence of twistable modules
+
+0\rightarrow N^{\oplus m}\rightarrow N^{\oplus n}\rightarrow N^{\oplus n-m}\rightarrow 0
+
+by tensoring with N. We call any such exact sequence a _basic exact sequence_.
+
+I would like to thank David Yang for his help in finding the following proposition.
+
+###### Proposition 4.3.
+
+Suppose N_{1} and N_{2} are twistable modules. Then, if N_{1} and N_{2} are potentially favored, and if w:G_{0}\rightarrow\mathbb{R}^{+} is a superlative for both, then N_{1}\oplus N_{2} is potentially favored and has w as a superlative.
+
+###### Proof.
+
+Take N_{1}, N_{2}, and w as in the statement of the proposition, and take T to be a submodule of N_{1}\oplus N_{2}. Taking the quotient of the exact sequence
+
+0\rightarrow N_{1}\xrightarrow{\iota}N_{1}\oplus N_{2}\xrightarrow{\pi}N_{2}\rightarrow 0
+
+by T gives the exact sequence
+
+0\rightarrow N_{1}/\iota^{-1}(T)\rightarrow(N_{1}\oplus N_{2})/T\rightarrow N_{2}/\pi(T)\rightarrow 0.
+
+Here, \iota and \pi are the obvious injection and projection.
+
+The long exact sequence associated to this short exact sequence gives
+
+\displaystyle\dim H^{0}(\langle\sigma\rangle,\,(N_{1}\oplus N_{2})/T[\omega])
+\displaystyle\qquad\leq\dim H^{0}(\langle\sigma\rangle,\,N_{1}/\iota^{-1}(T)[\omega])+\dim H^{0}(\langle\sigma\rangle,\,N_{2}/\pi(T)[\omega])
+
+for all \sigma in G_{0}. Then
+
+\displaystyle\sum_{\sigma\in G_{0}}w(\sigma)\cdot\dim H^{0}(\langle\sigma\rangle,\,(N_{1}\oplus N_{2})/T[\omega])
+\displaystyle\,\,\,\leq\sum_{\sigma\in G_{0}}w(\sigma)\cdot\dim H^{0}(\langle\sigma\rangle,\,N_{1}/\iota^{-1}(T)[\omega])\,+\,\sum_{\sigma\in G_{0}}w(\sigma)\cdot\dim H^{0}(\langle\sigma\rangle,\,N_{2}/\pi(T)[\omega])
+\displaystyle\,\,\,\leq\sum_{\sigma\in G_{0}}w(\sigma)\cdot\dim H^{0}(\langle\sigma\rangle,\,N_{1}[\omega])\,+\,\sum_{\sigma\in G_{0}}w(\sigma)\cdot\dim H^{0}(\langle\sigma\rangle,\,N_{2}[\omega])
+\displaystyle\,\,\,=\sum_{\sigma\in G_{0}}w(\sigma)\cdot\dim H^{0}(\langle\sigma\rangle,\,(N_{1}\oplus N_{2})[\omega]).
+
+If the first and last entries in this sequence are equal, the positivity of w forces
+
+\dim H^{0}(\langle\sigma\rangle,\,(N_{1}\oplus N_{2})/T[\omega])=\dim H^{0}(\langle\sigma\rangle,\,(N_{1}\oplus N_{2})[\omega])\quad\text{for }\,\sigma\in G_{0}.
+
+So w is is a superlative for N_{1}\oplus N_{2}. Applying this argument for the superlative 1+\epsilon w with \epsilon approaching zero shows that N_{1}\oplus N_{2} is potentially favored, giving the proposition. ∎
+
+###### Remark 4.4.
+
+Given a twistable module N, a nonnegative integer a, and a G_{F}-submodule T of N^{\oplus a}[\omega], we see that the logic of the above proposition gives that there is some sequence of G_{F}-submodules T_{1},\dots,T_{j} of N[\omega] and some sequence of nonnegative integers a_{1},\dots,a_{j} with sum a so that
+
+\dim H^{0}(\langle\sigma\rangle,N^{\oplus a}/T[\omega])\,\leq\,\sum_{i\leq j}a_{i}\cdot\dim H^{0}(\langle\sigma\rangle,N/T_{i}[\omega])\quad\text{for all }\,\sigma\in G_{0}.
+
+This gives a useful upper bound for the function \sigma\mapsto\dim H^{0}(\langle\sigma\rangle,\,N^{\oplus a}/T[\omega]) in the case that T is not cofavored.
+
+Given \sigma\in G_{0} and twistable modules N_{1} and N_{2}, we can consider the connecting maps \delta_{\sigma,N_{1}} and \delta_{\sigma,N_{2}} as defined in ([2.1](https://arxiv.org/html/2207.05143#S2.E1 "In Definition 2.9. ‣ 2. Main results ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")). Given a G_{F}-equivariant homomorphism \phi:N_{1}[\omega]\to N_{2}[\omega], we say that \phi commutes with the connecting maps if
+
+(4.3)\phi\circ\delta_{\sigma,N_{1}}=\delta_{\sigma,N_{2}}\circ\phi
+
+for all \sigma in G_{0}.
+
+###### Proposition 4.5.
+
+Take N_{1} and N_{2} to be potentially favored modules sharing some superlative w. Suppose the only cofavored submodules of N_{i} are 0 and N_{i}[\omega] for i=1,2. Then the cofavored submodules of N_{1}\oplus N_{2} are 0, 0\oplus N_{2}[\omega], (N_{1}\oplus N_{2})[\omega], and those modules of the form
+
+\left\{(x,\beta(x))\,:\,\,x\in N_{1}[\omega]\right\},
+
+where \beta:N_{1}[\omega]\rightarrow N_{2}[\omega] is an equivariant homomorphism commuting with the connecting maps.
+
+###### Proof.
+
+Choose a cofavored submodule T of N_{1}\oplus N_{2}, and consider the standard exact sequence
+
+0\rightarrow N_{2}\xrightarrow{\iota}N_{1}\oplus N_{2}\xrightarrow{\pi}N_{1}\rightarrow 0.
+
+From the argument of the previous proposition, we see that \iota^{-1}(T) is cofavored in N_{2} and \pi(T) is cofavored in N_{1}. If \iota^{-1}(T) is nonzero, it is N_{2}[\omega], and we find that T is either 0\oplus N_{2}[\omega] or (N_{1}\oplus N_{2})[\omega]. So we assume it is zero.
+
+If \pi(T) is also zero, T is zero, so we can assume \pi(T) is N_{1}[\omega]. Then T is the graph of an equivariant homomorphism \beta:N_{1}[\omega]\rightarrow N_{2}[\omega].
+
+Following the logic of the previous proposition we find that, since T is cofavored, the connecting map
+
+(4.4)H^{0}\big(\langle\sigma\rangle,\,N_{1}[\omega]\big)\,\xrightarrow{\,\hskip 8.19447pt}\,H^{1}\big(\langle\sigma\rangle,\,N_{2}[\omega]\big)
+
+corresponding to the sequence
+
+0\rightarrow N_{2}[\omega]\rightarrow((N_{1}\oplus N_{2})/T)[\omega]\rightarrow N_{1}[\omega]\rightarrow 0
+
+is zero for \sigma in G_{0}. More explicitly, for x\in H^{0}(\langle\sigma\rangle,N_{1}[\omega]), this means the cocycle on \langle\sigma\rangle defined by
+
+\sigma\mapsto\beta\big((\sigma-1)\tfrac{1}{\omega}x\big)-(\sigma-1)\tfrac{1}{\omega}\beta(x)
+
+is a coboundary. But this is equivalent to \beta commuting with the connecting maps.
+
+Conversely, we find that the graph of any G_{F}-homomorphism \beta that commutes with the connecting maps is cofavored in N_{1}\oplus N_{2}, and we have the proposition. ∎
+
+###### Remark 4.6.
+
+Given N_{1} and N_{2} satisfying the conditions of this proposition, we find that the nonzero homomorphisms from N_{1}[\omega] to N_{2}[\omega] that commute with the connecting maps are all isomorphisms, as the kernel and images of these maps are cofavored. In particular, the set of G_{F} endomorphisms of N_{1}[\omega] that commute with connecting maps form a finite division ring and hence a finite field of characteristic \ell by Wedderburn’s theorem. The set of G_{F} homomorphisms from N_{1}[\omega] to N_{2}[\omega] that commute with connecting maps is then either 0 or a one-dimensional vector space over this field.
+
+Under some technical assumptions, we can now classify the cofavored submodules of direct sums of potentially favored modules.
+
+###### Proposition 4.7.
+
+Take N_{1},\dots,N_{r} to be potentially favored modules sharing some superlative. Suppose we have the following:
+
+*   •
+For i\leq r, the only cofavored submodules of N_{i} are 0 and N_{i}[\omega];
+
+*   •
+For i\leq r, the only G_{F}-automorphisms of N_{i}[\omega] that commute with the connecting maps are those in \FFF_{\ell}^{\times}; and
+
+*   •
+For i,j\leq r with i\neq j, there is no G_{F}-isomorphism of N_{i}[\omega] and N_{j}[\omega] that commutes with the connecting maps.
+
+Then, for a_{1},\dots,a_{r} nonnegative integers, the cofavored submodules of
+
+(4.5)N_{1}^{\oplus a_{1}}\oplus\dots\oplus N_{r}^{\oplus a_{r}}
+
+are those of the form
+
+(4.6)A_{1}\otimes N_{1}[\omega]\oplus\dots\oplus A_{r}\otimes N_{r}[\omega],
+
+where A_{i} is a vector subspace of \FFF_{\ell}^{a_{i}} for i\leq r.
+
+###### Proof.
+
+We work by induction on \sum_{i}a_{i}. From Proposition [4.5](https://arxiv.org/html/2207.05143#S4.Thmthm5 "Proposition 4.5. ‣ 4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), the result holds for this sum at most two. Now take a\geq 3, and suppose every cofavored submodule of ([4.5](https://arxiv.org/html/2207.05143#S4.E5 "In Proposition 4.7. ‣ 4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) takes the form ([4.6](https://arxiv.org/html/2207.05143#S4.E6 "In Proposition 4.7. ‣ 4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) for \sum_{i}a_{i}<a. Then suppose \sum_{i}a_{i}=a, and take T to be a cofavored submodule of ([4.5](https://arxiv.org/html/2207.05143#S4.E5 "In Proposition 4.7. ‣ 4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")).
+
+Choose any direct sum of basic exact sequences
+
+(4.7)0\rightarrow\bigoplus_{i}N_{i}^{\oplus b_{i}}\xrightarrow{\,\,\iota\,\,}\bigoplus_{i}N_{i}^{\oplus a_{i}}\xrightarrow{\,\,\pi\,\,}\bigoplus_{i}N_{i}^{\oplus a_{i}-b_{i}}\rightarrow 0.
+
+with \sum_{i}a_{i}>\sum_{i}b_{i}>0. We claim that we can assume that \iota^{-1}(T) is zero and that
+
+(4.8)\pi(T)=\bigoplus_{i}N_{i}^{\oplus a_{i}-b_{i}}[\omega].
+
+First, suppose \iota^{-1}(T) is nonzero. It is cofavored, and hence can be written in the form ([4.6](https://arxiv.org/html/2207.05143#S4.E6 "In Proposition 4.7. ‣ 4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) by the induction step. There is then some other direct sum of basic exact sequences
+
+(4.9)0\rightarrow\bigoplus_{i}N_{i}^{\oplus c_{i}}\xrightarrow{\,\,\iota_{c}\,\,}\bigoplus_{i}N_{i}^{\oplus a_{i}}\xrightarrow{\,\,\pi_{c}\,\,}\bigoplus_{i}N_{i}^{\oplus a_{i}-c_{i}}\rightarrow 0
+
+with \sum_{i}c_{i}>0 so that
+
+\bigoplus_{i}N_{i}^{\oplus c_{i}}[\omega]=\iota^{-1}_{c}(T).
+
+The module \pi_{c}(T) is cofavored, and hence expressible in the form ([4.6](https://arxiv.org/html/2207.05143#S4.E6 "In Proposition 4.7. ‣ 4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")). T equals its preimage in \bigoplus_{i}N_{i}^{\oplus a_{i}}[\omega], and is hence also expressible in this form.
+
+Now suppose ([4.8](https://arxiv.org/html/2207.05143#S4.E8 "In Proof. ‣ 4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) fails to hold. The module \pi(T) is cofavored, and hence expressible in the form ([4.6](https://arxiv.org/html/2207.05143#S4.E6 "In Proposition 4.7. ‣ 4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")). The same holds for the preimage \pi^{-1}(\pi(T))[\omega]. We now choose ([4.9](https://arxiv.org/html/2207.05143#S4.E9 "In Proof. ‣ 4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) so that
+
+\iota_{c}\left(\bigoplus_{i}N_{i}^{\oplus c_{i}}\right)=\pi^{-1}(\pi(T))[\omega]\supseteq T.
+
+Because ([4.8](https://arxiv.org/html/2207.05143#S4.E8 "In Proof. ‣ 4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) does not hold, we have that \sum_{i}a_{i}>\sum_{i}c_{i}, so \iota_{c}^{-1}(T) is expressible in the form ([4.6](https://arxiv.org/html/2207.05143#S4.E6 "In Proposition 4.7. ‣ 4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) by the induction step. But T=\iota_{c}(\iota_{c}^{-1}(T)), and hence is also expressible in this form.
+
+We have now reduced to the case where, given any direct sum of basic exact sequences ([4.7](https://arxiv.org/html/2207.05143#S4.E7 "In Proof. ‣ 4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) satisfying \sum_{i}a_{i}>\sum_{i}b_{i}>0, we have \iota^{-1}(T)=0 and ([4.8](https://arxiv.org/html/2207.05143#S4.E8 "In Proof. ‣ 4. Tamagawa ratios and cofavored submodules ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")). But in this case, we must have
+
+\displaystyle\dim T=\sum_{i}\displaystyle(b_{i}-a_{i})\cdot\dim N_{i}[\omega]
+\displaystyle\text{for all }\,b_{1},\dots,b_{r}\geq 0\,\,\text{so that}\,\,\sum_{i}a_{i}>\sum_{i}b_{i}>0.
+
+Since \sum_{i}a_{i} is at least 3 and the \dim N_{i} are all positive, it is easy to prove that this statement cannot hold. We have thus proved the proposition. ∎
+
+## 5. Local conditions for \omega-Selmer groups in grids
+
+In [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Section 4], we showed that the \omega-Selmer group for a given twist N^{\chi} could be calculated in terms of the classes, spins, and symbols of the primes dividing \mathfrak{h}(\chi). To prove our distributional results about \omega-Selmer groups, we need to make this result more explicit. This starts with a reconsideration of symbols.
+
+### 5.1. Involution spins
+
+Our terminology will come from Section 3 of [[32](https://arxiv.org/html/2207.05143#bib.bibx32)], and will in particular involve the alternative symbols defined in Section 3.1.
+
+Most of the identities we need for the symbols \left[\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right] appear in [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Proposition 3.15]. These are easily adapted to alternative symbols. In particular, given \tau\in G_{F} and primes \overline{\mathfrak{p}},\overline{\mathfrak{q}} of \overline{\mathbb{Q}} not over \mathscr{V}_{0} satisfying \tau\overline{\mathfrak{p}}\cap K\neq\overline{\mathfrak{q}}\cap K, we can determine the quotient
+
+(5.1)\left[\tau\overline{\mathfrak{p}},\,\overline{\mathfrak{q}}\right]^{\prime}\big/\tau\left(\left[\tau^{-1}\overline{\mathfrak{q}},\,\overline{\mathfrak{p}}\right]^{\prime}\right)
+
+just from \tau, the class of \overline{\mathfrak{p}}, and the class of \overline{\mathfrak{q}}.
+
+There is a subtle supplement to this result that turns out to be important.
+
+###### Proposition 5.1.
+
+Choose any unacked starting tuple (K/F,\mathscr{V}_{0},e_{0}), and choose a ramification section for the starting tuple. Take \overline{\mathfrak{p}} and \overline{\mathfrak{p}}_{0} to be primes in the same class, and define E=E(\overline{\mathfrak{p}}) to be the minimal extension of F so K/E is inert at E\cap\overline{\mathfrak{p}} as above. Choose \tau in G_{F} outside G_{E} so that
+
+G_{E}\cdot\tau\cdot G_{E}\,=\,G_{E}\cdot\tau^{-1}\cdot G_{E}.
+
+Then
+
+\left[\tau\overline{\mathfrak{p}},\,\overline{\mathfrak{p}}\right]^{\prime}\big/\left[\tau\overline{\mathfrak{p}}_{0},\,\overline{\mathfrak{p}}_{0}\right]^{\prime}\in\left((\mu_{e_{0}})_{G_{E+\tau E}}\right)^{2}.
+
+###### Proof.
+
+We first note that it suffices to consider the case where e_{0}=2. We also claim that we can reduce to the case where K/F is a quadratic extension. To prove this, take \sigma=\textup{Frob}_{F}\,\overline{\mathfrak{p}}, and find integers j,k so we have
+
+\sigma^{k}\tau=\tau^{-1}\sigma^{j}\,\text{ in }\,\textup{Gal}(K/F).
+
+By replacing \tau with \sigma^{k}\tau, we may as well assume that
+
+\tau^{2}=\sigma^{j+k}.
+
+Then \sigma^{j+k} is in both G_{E} and G_{\tau E}, but \tau is in neither. Taking K^{\prime}=E+\tau E, we see \tau is a nontrivial involution on K^{\prime}, and we take F^{\prime} to be the subfield fixed by this involution. We can then calculate \left[\tau\overline{\mathfrak{p}},\,\overline{\mathfrak{p}}\right]^{\prime} with respect to the tuple (K/F,\mathscr{V}_{0},2) by calculating it with respect to the tuple (K^{\prime}/F^{\prime},\mathscr{V}_{0}^{\prime},2), where \mathscr{V}_{0}^{\prime} is the set of places of F^{\prime} over \mathscr{V}_{0}.
+
+Having made these reductions, the result follows from the theory of theta groups [[18](https://arxiv.org/html/2207.05143#bib.bibx18), Proposition 8.1]. ∎
+
+### 5.2. Explicit local conditions
+
+Take N to be a twistable module defined with respect to F and \FFF, choose (K/F,\mathscr{V}_{0}) unpacking N, and choose an associated ramification section \mathfrak{B}. Take X=\prod_{s\in S}X_{s} to be a grid of ideals in the sense of [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Definition 4.7]. In particular, we assume the primes in X_{s} share a class \left[X_{s}\right]. Taking \textup{Gal}(K(\mathscr{V}_{0})/F)/\sim to be the set of equivalence classes considered in [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Definition 3.6], we choose \sigma_{s} in \textup{Gal}(K(\mathscr{V}_{0})/F) so \textup{Frob}_{F}\,\overline{\mathfrak{p}} lies in the class of \sigma_{s} in \textup{Gal}(K(\mathscr{V}_{0})/F)/\sim for every \overline{\mathfrak{p}} in X_{s}. We assume that \sigma_{s} acts trivially on \mu_{\ell^{k_{0}}}, where \ell^{k_{0}} is the order of \xi.
+
+Fix \kappa in \FFF(-1)^{\times} and choose a unit \gamma_{s}\in(\mathbb{Z}/\#\FFF\mathbb{Z})^{\times} for each s\in S. Also choose some \chi_{0}\in\textup{Hom}_{\text{cont}}(G_{F},\FFF) that is ramified only at places in \mathscr{V}_{0}. With this auxiliary data fixed, we associate a homomorphism \chi(x)\in\mathbb{X}_{F} to a given x\in X using the formula
+
+\chi(x)=\chi_{0}+\sum_{s\in S}\mathfrak{B}_{\pi_{s}(x),\,\FFF}(\gamma_{s}\kappa).
+
+Recall that \mathscr{S}_{N[\omega]/F}(\mathscr{V}_{0}) denotes the cocycle classes in H^{1}(G_{F},N[\omega]) that are unramified away from \mathscr{V}_{0}. Following [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Definition 4.7], define
+
+\mathscr{M}=\mathscr{M}(N)=\mathscr{S}_{N[\omega]/F}(\mathscr{V}_{0})\oplus\bigoplus_{s\in S}N[\omega]^{\sigma_{s}}.
+
+If we now choose m=(\phi_{0},\,(n_{s})_{s}) in \mathscr{M}, we may consider the sum
+
+\Psi_{x,N}(m)=\phi_{0}+\sum_{s\in S}\mathfrak{B}_{\pi_{s}(x),\,N[\omega]}(\gamma_{s}n_{s}\cdot\kappa).
+
+Here, we have identified N[\omega]\otimes\FFF with N[\omega] via the isomorphism sending n\otimes\xi to n for n\in N[\omega]. We take \mathscr{M}_{0} to be the subset of such tuples for which \Psi_{x}(m) obeys the local conditions at each v\in\mathscr{V}_{0} for any (or equivalently every) \chi(x). Following the logic of [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Proposition 4.8], we also see that \Psi_{x}(m) obeys the local condition at \pi_{s}(x) if and only if
+
+a_{s,x}(m)\,:=\,(\Psi_{x}(m)-\chi(x)\cup n_{s})\big(\textup{Frob}_{F}\,\pi_{s}(x)\big)-\delta_{\sigma_{s}}(n_{s})
+
+is 0 in N[\omega]_{\sigma_{s}}, where \delta_{\sigma_{s}}(n_{s}) denotes (\sigma_{s}-1)\omega^{-1}n_{s} evaluated in N[\omega^{2}]. This uses the fact that \delta_{\sigma_{s}}(n_{s}) only depends on the image of \sigma_{s} in \textup{Gal}(K(\mathscr{V}_{0})/F)/\sim, which follows from [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Remark 3.7].
+
+Given \sigma,\tau\in G_{F}, take B(\sigma,\tau) to be a set of representatives of the collection of double cosets \langle\sigma G_{K}\rangle\backslash G_{F}/\langle\tau G_{K}\rangle. We assume this set of representatives contains 1. Applying [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Proposition 3.22] gives
+
+(5.2)\displaystyle a_{s,x}(m)\,=\,\displaystyle\phi_{0}(\sigma_{s})-\delta_{\sigma_{s}}(n_{s})-n_{s}\cdot\chi_{0}(\sigma_{s})
+\displaystyle\qquad+\,\,\sum_{t}\sum_{\tau\in B(\sigma_{t},\sigma_{s})}\gamma_{t}\left(\tau^{-1}n_{t}-n_{s}\right)\kappa\left(\left[\tau\pi_{s}(x),\,\pi_{t}(x)\right]^{\prime}\right).
+
+As a general rule, the proportion of x\in X for which \Psi_{x}(m) is a Selmer element is smaller for choices of (n_{s})_{s} where the submodule of N[\omega] generated by the (n_{s})_{s} is large. The following definition helps make this more precise.
+
+###### Definition 5.2.
+
+Define the _ramification subspace_ Q=\mathbf{Q}((n_{s})_{s}) associated to (n_{s})_{s} to be the submodule of N[\omega] spanned by all elements of the form \tau_{1}n_{s}-\tau_{2}n_{t} with s,t\in S and \tau_{1},\tau_{2}\in G_{F}.
+
+If \phi\in H^{1}(G_{F},N^{\chi(x)}) is parameterized by m=(\phi_{0},(n_{s})_{s}), we also write \mathbf{Q}(\phi) and \mathbf{Q}(m) for \mathbf{Q}((n_{s})_{s}).
+
+With this definition set, we see that a necessary condition for the \Psi_{x}(m) to obey the local condition at \pi_{s}(x) is that
+
+(5.3)\phi_{0}(\sigma_{s})-\delta_{\sigma_{s}}(n_{s})-n_{s}\cdot\chi_{0}(\sigma_{s})\,\equiv\,0\,\,\text{ mod }\,Q+(\sigma_{s}-1)N[\omega].
+
+In particular, if [X_{s}]=[X_{t}], we must have
+
+\delta_{\sigma_{s}}(n_{s}-n_{t})\,\equiv 0\,\,\text{ mod }\,Q+(\sigma_{s}-1)N[\omega].
+
+In other words, n_{s}-n_{t} must lie in the image of the map (N/Q)[\omega]^{\sigma_{s}}\to Q^{\sigma_{s}} coming from the long exact sequence associated to
+
+0\to N[\omega]/Q\to(N/Q)[\omega]\to Q\to 0.
+
+Given any submodule Q of N[\omega], we take \mathscr{M}_{1}(Q) to be the subspace of elements in \mathscr{M}_{0} satisfying the condition ([5.3](https://arxiv.org/html/2207.05143#S5.E3 "In 5.2. Explicit local conditions ‣ 5. Local conditions for 𝜔-Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) for every s\in S. We then take
+
+\mathscr{M}_{1}=\bigcup_{Q}\,\left\{m\in\mathscr{M}_{1}(Q)\,:\,\,\mathbf{Q}(m)=Q\right\}.
+
+### 5.3. The main character sum
+
+We take the notation
+
+\mathscr{R}=\bigoplus_{s\in S}(N[\omega]^{\vee})^{\sigma_{s}}.
+
+We then define a pairing
+
+\big\langle\,,\,\big\rangle_{x}\,\colon\,\mathscr{R}\,\times\,\mathscr{M}\to\tfrac{1}{\ell}\mathbb{Z}/\mathbb{Z}
+
+by
+
+\big\langle\,(r_{s})_{s},\,m)\big\rangle_{x}=\sum_{s}\text{lg}\left(\gamma_{s}\cdot r_{s}\big(a_{s,x}(m)\big)\right),
+
+where lg is the homomorphism taking the image of \overline{\zeta} in \mu_{\ell} to 1/\ell and where the pairing between \FFF and \mu_{\ell} takes \xi\otimes\alpha to \alpha for \alpha in \mu_{\ell}. The \omega-Selmer group of N^{\chi(x)} then satisfies
+
+\#\textup{Sel}^{\omega}N^{\chi(x)}=\frac{1}{\#\mathscr{R}}\sum_{m\in\mathscr{M}_{1}}\sum_{r\in\mathscr{R}}\exp\left(2\pi i\big\langle r,\,m\big\rangle_{x}\right).
+
+We are interested in the average size of the \omega-Selmer group of N^{\chi(x)} as x varies through X, which can be calculated as
+
+(5.4)\frac{1}{\#X}\sum_{x\in X}\#\textup{Sel}^{\omega}N^{\chi(x)}=\frac{1}{\#X\cdot\#\mathscr{R}}\sum_{m\in\mathscr{M}_{1}}\sum_{r\in\mathscr{R}}\sum_{x\in X}\exp\left(2\pi i\big\langle r,\,m\big\rangle_{x}\right).
+
+For fixed (r,m), the inner sum
+
+(5.5)\frac{1}{\#X}\sum_{x\in X}\exp\left(2\pi i\big\langle r,\,m\big\rangle_{x}\right)
+
+can behave one of three ways:
+
+1.   (1)
+(Invariant pairs) The pairing \langle r,\,m\rangle_{x} does not depend on the choice of x, and ([5.5](https://arxiv.org/html/2207.05143#S5.E5 "In 5.3. The main character sum ‣ 5. Local conditions for 𝜔-Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) has magnitude 1.
+
+2.   (2)
+(Ignorable pairs) The pairing depends on x, and ([5.5](https://arxiv.org/html/2207.05143#S5.E5 "In 5.3. The main character sum ‣ 5. Local conditions for 𝜔-Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) can be proved to be negligible using analytic number theoretic techniques.
+
+3.   (3)
+(Uncontrolled pairs) The pairing depends on x, and ([5.5](https://arxiv.org/html/2207.05143#S5.E5 "In 5.3. The main character sum ‣ 5. Local conditions for 𝜔-Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) cannot be controlled.
+
+Our approach to estimating ([5.4](https://arxiv.org/html/2207.05143#S5.E4 "In 5.3. The main character sum ‣ 5. Local conditions for 𝜔-Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) is to approximate this sum over all invariant pairs. The sum over invariant pairs turns out to be substantially larger than |X| times the total number of uncontrolled pairs, and the ignorable pairs also contribute negligibly by definition, so we find that this simple approximation suffices for our applications.
+
+Our first goal is to be able to distinguish these types of pairs. The following proposition is essential.
+
+###### Notation 5.3.
+
+For \sigma in G_{F\left(\mu_{|\FFF|}\right)}, note that the map \tau\mapsto\tau^{-1} defines an involution on the collection of double cosets \langle\sigma G_{K}\rangle\backslash G_{F}/\langle\sigma G_{K}\rangle, and hence also an involution on the set of representatives B(\sigma,\sigma). We take B_{\text{fixed}}(\sigma) to be the subset of B(\sigma,\sigma) fixed by this involution, and we take B_{1/2}(\sigma) to be a set of representatives from the collection of orbits in B(\sigma,\sigma)\backslash B_{\text{fixed}}(\sigma) under the group generated by this involution. We will also fix some total order on the set S.
+
+###### Proposition 5.4.
+
+With all notation as above, choose s\in S, choose x_{0t}\in X_{t} for all t\neq s, and take L to be the line X_{s}\times\prod_{t\neq s}\{x_{0t}\}. Fix \phi_{0}, (n_{s})_{s}, and (r_{s})_{s} as above. Then there is some C_{0} in \tfrac{1}{\ell}\mathbb{Z}/\mathbb{Z} so, for all x\in L, we have
+
+\displaystyle\big\langle\,(r_{s})_{s},\,(\phi_{0},\,\displaystyle(n_{s})_{s})\big\rangle_{x}
+\displaystyle=\,C_{0}\displaystyle-\,\sum_{\begin{subarray}{c}s,t\in S\\
+s<t\end{subarray}}\,\sum_{\tau\in B(\sigma_{s},\sigma_{t})}\textup{lg}\left(\gamma_{s}\gamma_{t}\left(\tau r_{t}-r_{s}\right)\cdot\left(\tau n_{t}-n_{s}\right)\cdot\kappa\left(\left[\tau^{-1}\pi_{s}(x),\,\pi_{t}(x)\right]^{\prime}\right)\right)
+\displaystyle-\,\sum_{s\in S}\sum_{\tau\in B_{1/2}(\sigma_{s})}\textup{lg}\left(\gamma_{s}^{2}\left(\tau r_{s}-r_{s}\right)\cdot\left(\tau n_{s}-n_{s}\right)\cdot\kappa\left(\left[\tau^{-1}\pi_{s}(x),\,\pi_{s}(x)\right]^{\prime}\right)\right)
+\displaystyle-\,\sum_{s\in S}\sum_{\tau\in B_{\textup{fixed}}(\sigma_{s})}\textup{lg}\left(A\,\gamma_{s}^{2}\,(\tau r_{s}-r_{s})\cdot(\tau n_{s}-n_{s})\cdot\kappa\left(\left[\tau^{-1}\pi_{s}(x),\,\pi_{s}(x)\right]^{\prime}\right)\right),
+
+where A=1/2 if \ell is odd and is otherwise 0.
+
+###### Proof.
+
+Given s,t in S with s<t, and given \tau\in B(\sigma_{s},\sigma_{t}), we combine the (t,\tau^{-1}) term of r_{s}(a_{s,x}(\phi_{0},(n_{s})_{s})) with the (s,\tau) term of r_{t}(a_{t,x}(\phi_{0},(n_{s})_{s})) using the fact that ([5.1](https://arxiv.org/html/2207.05143#S5.E1 "In 5.1. Involution spins ‣ 5. Local conditions for 𝜔-Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) is determined by classes to get
+
+C-\textup{lg}\left(\gamma_{s}\gamma_{t}\left(\tau r_{t}-r_{s}\right)\cdot\left(\tau n_{t}-n_{s}\right)\cdot\kappa\left(\left[\tau^{-1}\pi_{s}(x),\,\pi_{t}(x)\right]^{\prime}\right)\right)
+
+for C some constant not depending on x. This similarly works for combining the (s,(s,\tau)) term with the (s,(s,\tau^{-1})) term for \tau in B_{1/2}(\sigma_{s}); by halving, it can also handle \tau from B_{\text{fixed}}(\sigma_{s}) in the case \ell>2.
+
+This just leaves the case of \ell=2, where we may simply apply Proposition [5.1](https://arxiv.org/html/2207.05143#S5.Thmthm1 "Proposition 5.1. ‣ 5.1. Involution spins ‣ 5. Local conditions for 𝜔-Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II") to handle the terms corresponding to \tau in B_{\text{fixed}}(\sigma_{s}). ∎
+
+## 6. Ignorable pairs
+
+We keep all notation as in Section [5.2](https://arxiv.org/html/2207.05143#S5.SS2 "5.2. Explicit local conditions ‣ 5. Local conditions for 𝜔-Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"). In addition, we partition S into three sets S_{\textup{sm}}, S_{\textup{med}}, and S_{\textup{lg}} indexing small, medium, and large sets of primes. In practice, S_{\textup{lg}} will be far larger than S_{\textup{sm}}\cup S_{\textup{med}}.
+
+Given s and t in S, we have two methods of controlling the distribution of the symbol \left[\overline{\mathfrak{p}}_{s},\,\overline{\mathfrak{p}}_{t}\right] as \overline{\mathfrak{p}}_{s} and \overline{\mathfrak{p}}_{t} vary through X_{s} and X_{t}. First, if neither X_{s} nor X_{t} is small, we can control this symbol using the bilinear estimate for symbols given in [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Section 5]. On the other hand, if one of these sets is small but the other is large, we can control this symbol using the Chebotarev density theorem.
+
+Using Proposition [5.4](https://arxiv.org/html/2207.05143#S5.Thmthm4 "Proposition 5.4. ‣ 5.3. The main character sum ‣ 5. Local conditions for 𝜔-Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II"), we can identify when one of these strategies suffices to control the sum ([5.5](https://arxiv.org/html/2207.05143#S5.E5 "In 5.3. The main character sum ‣ 5. Local conditions for 𝜔-Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")). This leads to the following definition.
+
+###### Definition 6.1.
+
+We say that \big((r_{s})_{s},\,(\phi_{0},(n_{s})_{s})\big) is _bilinearly ignorable_ if there are distinct indices in S_{\textup{med}}\cup S_{\textup{lg}} and some \tau_{0}\in G_{F} so that
+
+(6.1)(\tau_{0}r_{s}-r_{t})\cdot(\tau_{0}n_{s}-n_{t})\neq 0.
+
+We say that it is _ignorable by Chebotarev_ if it is not bilinearly ignorable and there is some s\in S_{\textup{lg}}, t\in S_{\textup{sm}}, and \tau_{0}\in G_{F} so ([6.1](https://arxiv.org/html/2207.05143#S6.E1 "In Definition 6.1. ‣ 6. Ignorable pairs ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) holds and for which we also have
+
+(6.2)(\tau r_{s}-r_{s})\cdot(\tau n_{s}-n_{s})=0\quad\text{for all }\,\tau\in G_{F}.
+
+We call the pair unignorable if it is neither bilinearly ignorable nor ignorable by Chebotarev.
+
+We note that the condition ([6.2](https://arxiv.org/html/2207.05143#S6.E2 "In Definition 6.1. ‣ 6. Ignorable pairs ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) is needed because the Chebotarev density theorem is likely insufficient to control spins; see [[13](https://arxiv.org/html/2207.05143#bib.bibx13)]. The flexible coefficients allowed by [[32](https://arxiv.org/html/2207.05143#bib.bibx32), Proposition 5.9] make this condition unnecessary for bilinearly ignorable pairs.
+
+###### Notation 6.2.
+
+Take c_{\textup{bilin}} to be the maximum value taken by the expression ([5.5](https://arxiv.org/html/2207.05143#S5.E5 "In 5.3. The main character sum ‣ 5. Local conditions for 𝜔-Selmer groups in grids ‣ The distribution of ℓ^∞-Selmer groups in degree ℓ twist families II")) among pairs that are bilinearly ignorable. If there is no such pair, take c_{\textup{bilin}}=0. Similarly, take c_{\textup{Cheb}} to be the maximum value of this expression among pairs that are ignorable by Chebotarev. If there is no such pair, take c_{\textup{Cheb}}=0.
+
+### 6.1. Characterizing unignorable pairs
+
+The basic principle of our characterization of unignorable pairs is that, outside of an irrelevant set of (n_{s})_{s}, if (r_{s})_{s} is chosen so (n_{s})_{s},(r_{s})_{s} defines an unignorable pair, there is an alternating homomorphism \Gamma:Q\to Q
+
+..._Content truncated_...

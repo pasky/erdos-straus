@@ -1,0 +1,322 @@
+{
+  "meridian_relation_determinant": 2,
+  "solutions_and_lifts": [
+    {
+      "m": 4,
+      "n": 9,
+      "unordered_solutions": 6,
+      "twists": [
+        1,
+        3,
+        6
+      ],
+      "first": {
+        "xyz": [
+          3,
+          10,
+          90
+        ],
+        "twist": 3,
+        "ABC": [
+          "10",
+          "3",
+          "1/3"
+        ]
+      },
+      "twist_outside_bad_primes": null,
+      "all_twists_ramify_outside_2mn": false
+    },
+    {
+      "m": 4,
+      "n": 131,
+      "unordered_solutions": 32,
+      "twists": [
+        1,
+        3,
+        11,
+        33,
+        131,
+        393,
+        655,
+        1441,
+        4323,
+        5371
+      ],
+      "first": {
+        "xyz": [
+          33,
+          4324,
+          18692652
+        ],
+        "twist": 131,
+        "ABC": [
+          "4324",
+          "33",
+          "1/131"
+        ]
+      },
+      "twist_outside_bad_primes": {
+        "xyz": [
+          33,
+          4326,
+          6233766
+        ],
+        "twist": 393
+      },
+      "all_twists_ramify_outside_2mn": false,
+      "independent_xy_count": 32
+    },
+    {
+      "m": 8,
+      "n": 131,
+      "unordered_solutions": 0,
+      "twists": [],
+      "first": null,
+      "twist_outside_bad_primes": null,
+      "all_twists_ramify_outside_2mn": false,
+      "independent_xy_count": 0
+    },
+    {
+      "m": 4,
+      "n": 241,
+      "unordered_solutions": 8,
+      "twists": [
+        1,
+        3,
+        1687,
+        2651,
+        7471,
+        7953
+      ],
+      "first": {
+        "xyz": [
+          62,
+          2139,
+          1030998
+        ],
+        "twist": 7471,
+        "ABC": [
+          "69",
+          "2",
+          "1/241"
+        ]
+      },
+      "twist_outside_bad_primes": {
+        "xyz": [
+          62,
+          2139,
+          1030998
+        ],
+        "twist": 7471
+      },
+      "all_twists_ramify_outside_2mn": false,
+      "independent_xy_count": 8
+    },
+    {
+      "m": 8,
+      "n": 241,
+      "unordered_solutions": 0,
+      "twists": [],
+      "first": null,
+      "twist_outside_bad_primes": null,
+      "all_twists_ramify_outside_2mn": false,
+      "independent_xy_count": 0
+    },
+    {
+      "m": 4,
+      "n": 193,
+      "unordered_solutions": 6,
+      "twists": [
+        2,
+        5,
+        965,
+        1930,
+        5018,
+        5597
+      ],
+      "first": {
+        "xyz": [
+          50,
+          1380,
+          1331700
+        ],
+        "twist": 1930,
+        "ABC": [
+          "138",
+          "5",
+          "1/193"
+        ]
+      },
+      "twist_outside_bad_primes": {
+        "xyz": [
+          50,
+          1380,
+          1331700
+        ],
+        "twist": 1930
+      },
+      "all_twists_ramify_outside_2mn": false
+    },
+    {
+      "m": 4,
+      "n": 409,
+      "unordered_solutions": 15,
+      "twists": [
+        1,
+        2,
+        5,
+        2863,
+        4499,
+        5317,
+        5726,
+        8589,
+        8998,
+        10634,
+        24131
+      ],
+      "first": {
+        "xyz": [
+          104,
+          6084,
+          4976712
+        ],
+        "twist": 5317,
+        "ABC": [
+          "234",
+          "4",
+          "2/409"
+        ]
+      },
+      "twist_outside_bad_primes": {
+        "xyz": [
+          104,
+          6084,
+          4976712
+        ],
+        "twist": 5317
+      },
+      "all_twists_ramify_outside_2mn": false
+    },
+    {
+      "m": 4,
+      "n": 577,
+      "unordered_solutions": 18,
+      "twists": [
+        1,
+        2,
+        5,
+        7,
+        29,
+        2885,
+        4039,
+        16733,
+        42121,
+        42698,
+        45583,
+        58277
+      ],
+      "first": {
+        "xyz": [
+          145,
+          27890,
+          466683370
+        ],
+        "twist": 2885,
+        "ABC": [
+          "5578",
+          "29",
+          "1/577"
+        ]
+      },
+      "twist_outside_bad_primes": {
+        "xyz": [
+          145,
+          27890,
+          466683370
+        ],
+        "twist": 2885
+      },
+      "all_twists_ramify_outside_2mn": false
+    },
+    {
+      "m": 4,
+      "n": 3361,
+      "unordered_solutions": 15,
+      "twists": [
+        5,
+        29,
+        43693,
+        57137,
+        87386,
+        97469,
+        171411,
+        184855,
+        265519,
+        339461,
+        379793,
+        581453
+      ],
+      "first": {
+        "xyz": [
+          841,
+          942210,
+          91836266490
+        ],
+        "twist": 97469,
+        "ABC": [
+          "32490",
+          "29",
+          "1/3361"
+        ]
+      },
+      "twist_outside_bad_primes": {
+        "xyz": [
+          841,
+          942210,
+          91836266490
+        ],
+        "twist": 97469
+      },
+      "all_twists_ramify_outside_2mn": true,
+      "independent_xy_count": 15
+    }
+  ],
+  "numerator8_bm_adeles": [
+    {
+      "m": 8,
+      "p": 131,
+      "p_adic_point": [
+        "-131/254",
+        "1",
+        "1"
+      ],
+      "global_twist_for_smooth_BM_and_finite_descent": 262,
+      "alpha_at_p": -1,
+      "positive_real_point": [
+        "393/8",
+        "393/8",
+        "393/8"
+      ],
+      "other_finite_places": "(-262,0,0), alpha=+1; torsor class=262",
+      "not_certified": "Brauer-Manin orthogonality on the covering Y_d"
+    },
+    {
+      "m": 8,
+      "p": 241,
+      "p_adic_point": [
+        "-1687/1872",
+        "1",
+        "7"
+      ],
+      "global_twist_for_smooth_BM_and_finite_descent": 3374,
+      "alpha_at_p": -1,
+      "positive_real_point": [
+        "723/8",
+        "723/8",
+        "723/8"
+      ],
+      "other_finite_places": "(-3374,0,0), alpha=+1; torsor class=3374",
+      "not_certified": "Brauer-Manin orthogonality on the covering Y_d"
+    }
+  ]
+}

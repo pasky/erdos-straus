@@ -1,0 +1,1052 @@
+## Content from https://arxiv.org/html/1908.08816
+
+Title: On the largest prime factor of 𝑛^2+1
+
+URL Source: https://arxiv.org/html/1908.08816
+
+Markdown Content:
+Jori Merikoski Address: Department of Mathematics and Statistics, University of Turku, FI-20014 University of Turku, Finland Email address: [jori.e.merikoski@utu.fi](mailto:jori.e.merikoski@utu.fi)
+
+###### Abstract.
+
+We show that the largest prime factor of n^{2}+1 is infinitely often greater than n^{1.279}. This improves the result of de la Bretèche and Drappeau (2020) who obtained this with 1.2182 in place of 1.279. The main new ingredients in the proof are a new Type II estimate and using this estimate by applying Harman’s sieve method. To prove the Type II estimate we use the bounds of Deshouillers and Iwaniec on linear forms of Kloosterman sums. We also show that conditionally on Selberg’s eigenvalue conjecture the exponent 1.279 may be increased to 1.312.
+
+###### Contents
+
+1.   [1 Introduction](https://arxiv.org/html/1908.08816#S1 "In On the largest prime factor of 𝑛^2+1")
+2.   [2 The sieve](https://arxiv.org/html/1908.08816#S2 "In On the largest prime factor of 𝑛^2+1")
+3.   [3 Type II information](https://arxiv.org/html/1908.08816#S3 "In On the largest prime factor of 𝑛^2+1")
+4.   [4 Remarks on the arithmetic information](https://arxiv.org/html/1908.08816#S4 "In On the largest prime factor of 𝑛^2+1")
+5.   [References](https://arxiv.org/html/1908.08816#bib "In On the largest prime factor of 𝑛^2+1")
+
+## 1. Introduction
+
+An outstanding open problem in number theory is to prove that there are infinitely many primes of the form n^{2}+1. To approximate this we may consider the largest prime factor of integers of the form n^{2}+1, as was done by Chebyshev already in the 19th century (cf. the introduction in [[7](https://arxiv.org/html/1908.08816#bib.bib7)] for the prehistory of this problem). In 1967 Hooley [[7](https://arxiv.org/html/1908.08816#bib.bib7)] proved that the largest prime factor of n^{2}+1 is infinitely often at least n^{1.10014\dots} by applying the Weil bound for Kloosterman sums. Deshouillers and Iwaniec [[2](https://arxiv.org/html/1908.08816#bib.bib2)] showed in 1982 that the largest prime factor of n^{2}+1 is at least n^{1.202468\dots} infinitely often. Their improvement came as an application of their bounds for linear forms of Kloosterman sums [[3](https://arxiv.org/html/1908.08816#bib.bib3)]. In 2020 de la Bretèche and Drappeau [[1](https://arxiv.org/html/1908.08816#bib.bib1)] improved the exponent to 1.2182 by making use of the result of Kim and Sarnak [[10](https://arxiv.org/html/1908.08816#bib.bib10), Appendix 2] towards Selberg’s eigenvalue conjecture.
+
+We will show a new Type II estimate (Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") below) and use this by applying Harman’s sieve method to improve the previous results:
+
+###### Theorem 1.
+
+The largest prime factor of n^{2}+1 is greater than n^{1.279} for infinitely many integers n.
+
+We also obtain a new conditional result (improving the exponent \sqrt{3/2}-\epsilon\geq 1.2247 of Deshouillers and Iwaniec [[2](https://arxiv.org/html/1908.08816#bib.bib2), Section 8]):
+
+###### Theorem 2.
+
+Assuming Selberg’s eigenvalue conjecture the exponent 1.279 in Theorem [1](https://arxiv.org/html/1908.08816#Thmtheorem1 "Theorem 1. ‣ 1. Introduction ‣ On the largest prime factor of 𝑛^2+1") may be increased to 1.312.
+
+### 1.1. Sketch of the proof
+
+Similarly as in [[1](https://arxiv.org/html/1908.08816#bib.bib1)], [[2](https://arxiv.org/html/1908.08816#bib.bib2)], and [[7](https://arxiv.org/html/1908.08816#bib.bib7)], we will use Chebyshev’s device to detect large prime factors, that is, we use the elementary fact that
+
+\displaystyle\sum_{m}\Lambda(m)\sum_{\begin{subarray}{c}\ell\sim x\\
+\ell^{2}+1\equiv 0\,\,(m)\end{subarray}}1=\sum_{\begin{subarray}{c}\ell\sim x\end{subarray}}\sum_{m|\ell^{2}+1}\Lambda(m)=\sum_{\begin{subarray}{c}\ell\sim x\end{subarray}}\log(\ell^{2}+1)=2x\log x+O(x)
+
+so that if P_{x} denotes the largest prime factor of \ell^{2}+1 for \ell\sim x, then
+
+\displaystyle\sum_{p\leq P_{x}}\log p\sum_{\begin{subarray}{c}\ell\sim x\\
+\ell^{2}+1\equiv 0\,\,(p)\end{subarray}}1\geq(2+o(1))x\log x.
+
+Hence, to get a lower bound for P_{x} we require upper bounds for sums of the type
+
+(1.1)\displaystyle\sum_{p\sim P}\sum_{\begin{subarray}{c}\ell\sim x\\
+\ell^{2}+1\equiv 0\,\,(p)\end{subarray}}1,
+
+where P\leq x^{\varpi} with \varpi corresponding to the exponent in Theorem [1](https://arxiv.org/html/1908.08816#Thmtheorem1 "Theorem 1. ‣ 1. Introduction ‣ On the largest prime factor of 𝑛^2+1").
+
+Deshouillers and Iwaniec [[2](https://arxiv.org/html/1908.08816#bib.bib2)] use a linear sieve upper bound for the sum ([1.1](https://arxiv.org/html/1908.08816#S1.E1 "In 1.1. Sketch of the proof ‣ 1. Introduction ‣ On the largest prime factor of 𝑛^2+1")), and the main point in their work is to obtain strong Type I information, that is, asymptotic formulas for sums of the form
+
+\displaystyle\sum_{d\leq D}\lambda_{d}\sum_{\begin{subarray}{c}m\sim P\\
+m\equiv 0\,\,(d)\end{subarray}}\sum_{\begin{subarray}{c}\ell\sim x\\
+\ell^{2}+1\equiv 0\,\,(m)\end{subarray}}1,
+
+where \lambda_{d} are bounded coefficients. The level of distribution obtained in [[2](https://arxiv.org/html/1908.08816#bib.bib2), Section 7] is D=x^{1-\epsilon}P^{-1/2}, which improved the level D=x^{1-\epsilon}P^{-3/4} in Hooley’s work [[7](https://arxiv.org/html/1908.08816#bib.bib7)] (the conditions m\sim P and \ell\sim x need to be replaced by smooth coefficients but let us ignore this detail for the moment). De la Bretèche and Drappeau [[1](https://arxiv.org/html/1908.08816#bib.bib1)] improve the level of distribution to D=x^{1/(2-4\theta)-\epsilon}P^{-\theta/(1-2\theta)}, where \theta\geq 0 is any admissible exponent in the Ramanujan-Selberg conjecture. Note that from Selberg’s 3/16-Theorem we know \theta=1/4 is admissible which gives the same the level of distribution as in the work of Deshouillers and Iwaniec [[2](https://arxiv.org/html/1908.08816#bib.bib2)]. The exponent 1.2182 in [[1](https://arxiv.org/html/1908.08816#bib.bib1)] follows from using the result of Kim and Sarnak [[10](https://arxiv.org/html/1908.08816#bib.bib10)] that \theta=7/64 is admissible.
+
+We will use a combination of Harman’s sieve method [[6](https://arxiv.org/html/1908.08816#bib.bib6)] and the linear sieve to give an improved upper bound for ([1.1](https://arxiv.org/html/1908.08816#S1.E1 "In 1.1. Sketch of the proof ‣ 1. Introduction ‣ On the largest prime factor of 𝑛^2+1")) for some ranges of P (see the beginning of Section [2.4](https://arxiv.org/html/1908.08816#S2.SS4 "2.4. Buchstab decompositions ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") for a heuristic explanation of Harman’s sieve). Our sieve has similarities also to the sieve used by Duke, Friedlander, and Iwaniec in [[4](https://arxiv.org/html/1908.08816#bib.bib4)]. For the sieve we need to obtain Type II information, that is, an asymptotic formula for sums of the form
+
+(1.2)\displaystyle\sum_{\begin{subarray}{c}m\sim M\\
+n\sim N\end{subarray}}a_{m}b_{n}\sum_{\begin{subarray}{c}\ell\sim x\\
+\ell^{2}+1\equiv 0\,\,(mn)\end{subarray}}1,
+
+where MN=P and a_{m} and b_{n} are bounded coefficients. Type II sums of this form are also considered in the works Iwaniec [[8](https://arxiv.org/html/1908.08816#bib.bib8)], Lemke Oliver [[11](https://arxiv.org/html/1908.08816#bib.bib11)] and more recently in [[1](https://arxiv.org/html/1908.08816#bib.bib1), Théorème 5.2], but they are not applied to the problem of the largest prime factor of n^{2}+1. Our Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") gives an improvement on [[1](https://arxiv.org/html/1908.08816#bib.bib1), Théorème 5.2]. The proof of our Type II estimate is given in Section [3](https://arxiv.org/html/1908.08816#S3 "3. Type II information ‣ On the largest prime factor of 𝑛^2+1"). The sieve argument is carried out in Section [2](https://arxiv.org/html/1908.08816#S2 "2. The sieve ‣ On the largest prime factor of 𝑛^2+1"), using the Type I information proved in [[1](https://arxiv.org/html/1908.08816#bib.bib1)].
+
+Our proof of the Type II information is inspired by the arguments in [[2](https://arxiv.org/html/1908.08816#bib.bib2)] and [[4](https://arxiv.org/html/1908.08816#bib.bib4)]. The key ingredient in the proof is an estimate for linear forms of Kloosterman sums of the form
+
+(1.3)\displaystyle\sum_{r}\sum_{\begin{subarray}{c}m\sim\bm{M}\\
+n\sim\bm{N}\end{subarray}}A_{m,r}B_{n,r}\sum_{(c,r)=1}g(m,n,c,r)S(m\overline{r},\pm n;c),
+
+for some nice smooth function g. Unfortunately both of the coefficients A_{m,r} and B_{n,r} depend on r, so that we are unable to make use of the average over the ‘level variable’ r (cf. [[3](https://arxiv.org/html/1908.08816#bib.bib3), Theorem 10] for such a result). Similarly as the results in [[1](https://arxiv.org/html/1908.08816#bib.bib1)], our Type II information will depend on the smallest eigenvalue \lambda_{1}(r)=1/4-\theta_{r}^{2} for the Hecke congruence subgroups \Gamma_{0}(r) (cf. [[3](https://arxiv.org/html/1908.08816#bib.bib3), Section 1] for precise definitions). Selberg’s eigenvalue conjecture famously states that \lambda_{1}(\Gamma)\geq 1/4 for any congruence subgroup \Gamma. The current best lower bound is the result of Kim and Sarnak [[10](https://arxiv.org/html/1908.08816#bib.bib10), Appendix 2] that \lambda_{1}(\Gamma)\geq 1/4-(7/64)^{2}, which we will apply with the estimate of Deshouillers and Iwaniec [[3](https://arxiv.org/html/1908.08816#bib.bib3), Theorem 9] to obtain a bound for the sum ([1.3](https://arxiv.org/html/1908.08816#S1.E3 "In 1.1. Sketch of the proof ‣ 1. Introduction ‣ On the largest prime factor of 𝑛^2+1")) individually for each r.
+
+For a more detailed sketch of the proof of the Type II estimate we refer to the begininning of Section [3](https://arxiv.org/html/1908.08816#S3 "3. Type II information ‣ On the largest prime factor of 𝑛^2+1"). Unfortunately we can handle Type II sums only in the range P<x^{153/128}, so that for x^{153/128}<P<x^{\varpi} we cannot improve on the upper bound of [[1](https://arxiv.org/html/1908.08816#bib.bib1)]. Note that even for P=x^{1+\epsilon} a good upper bound for ([1.1](https://arxiv.org/html/1908.08816#S1.E1 "In 1.1. Sketch of the proof ‣ 1. Introduction ‣ On the largest prime factor of 𝑛^2+1")) is highly nontrivial, in fact, for P=x^{1+\epsilon} the linear sieve upper bound is off by a factor of 4+O(\epsilon).
+
+In the last section we outline some open problems whose resolution would lead to further progress on the largest prime factor of n^{2}+1.
+
+### 1.2. Notations
+
+We use the following asymptotic notations: for functions f and g with g positive, we write f\ll g or f=\mathcal{O}(g) if there is a constant C such that |f|\leq Cg. The notation f\asymp g means g\ll f\ll g. The constant may depend on some parameter, which is indicated in the subscript (e.g. \ll_{\epsilon}). We write f=o(g) if f/g\to 0 for large values of the variable. For variables we write n\sim N meaning N<n\leq 2N.
+
+It is convenient for us to define
+
+\displaystyle A\prec\mkern-5.0mu\prec B
+
+to mean A\,\ll_{\epsilon}x^{\epsilon}B. A typical bound we use is \tau_{k}(n)\prec\mkern-5.0mu\prec 1 for n\ll x, where \tau_{k} is the k-fold divisor function. We say that an arithmetic function f is divisor bounded if |f(n)|\ll\tau_{k}(n) for some k.
+
+We let \eta>0 denote a sufficiently small constant, which may be different from place to place. For example, A\ll x^{-\eta}B means that the bound holds for some \eta>0.
+
+For a statement E we denote by 1_{E} the characteristic function of that statement. For a set A we use 1_{A} to denote the characteristic function of A.
+
+We also define P(w):=\prod_{p\leq w}p, where the product is over primes.
+
+We let e(x):=e^{2\pi ix} and e_{q}(x):=e(x/q) for any integer q\geq 1. For integers a,b, and q\geq 1 with (b,q)=1 we define e_{q}(a/b):=e(a\overline{b}/q). For Kloosterman sums we use the standard notation
+
+\displaystyle S(a,b;c):=\sum_{\begin{subarray}{c}n\,\,(c)\\
+(n,c)=1\end{subarray}}e_{c}(an+b/n).
+
+### 1.3. Acknowledgements
+
+I am grateful to my supervisor Kaisa Matomäki for useful discussions, comments, and support. I also express my gratitude to Emmanuel Kowalski for helpful discussions. I also wish to thank Philippe Michel for bringing the article [[1](https://arxiv.org/html/1908.08816#bib.bib1)] to my attention. I am also grateful for the anonymous referee for comments. During the work the author was funded by UTUGS Graduate School.
+
+## 2. The sieve
+
+In this section we will state the arithmetical information (Propositions [3](https://arxiv.org/html/1908.08816#Thmtheorem3 "Proposition 3. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") and [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") below) and apply them with Harman’s sieve method [[6](https://arxiv.org/html/1908.08816#bib.bib6)] and the linear sieve to give a proof of Theorem [1](https://arxiv.org/html/1908.08816#Thmtheorem1 "Theorem 1. ‣ 1. Introduction ‣ On the largest prime factor of 𝑛^2+1"). We also sketch the proof of Theorem [2](https://arxiv.org/html/1908.08816#Thmtheorem2 "Theorem 2. ‣ 1. Introduction ‣ On the largest prime factor of 𝑛^2+1") by indicating how the proof of Theorem [1](https://arxiv.org/html/1908.08816#Thmtheorem1 "Theorem 1. ‣ 1. Introduction ‣ On the largest prime factor of 𝑛^2+1") needs to be modified.
+
+### 2.1. Set up
+
+Our notations will be mostly similar to those of [[2](https://arxiv.org/html/1908.08816#bib.bib2)]. For x\geq 1, let b denote a non-negative C^{\infty}-smooth function, supported on [x,2x], whose derivatives satisfy for all j\geq 0
+
+\displaystyle b^{(j)}(x)\ll_{j}x^{-j}.
+
+For any integer d\geq 1, define
+
+\displaystyle|\mathcal{A}_{d}|\,\,:=\sum_{n^{2}+1\equiv 0\,\,(d)}b(n)\quad\quad\text{and}\quad\quad X:=\int b(\xi)\,d\xi.
+
+If P_{x} denotes the greatest prime factor of \prod_{x\leq n\leq 2x}(n^{2}+1), then by using the Chebysev-Hooley method similarly as in [[2](https://arxiv.org/html/1908.08816#bib.bib2), Section 2] we find
+
+(2.1)\displaystyle S(x):=\sum_{x<p\leq P_{x}}|\mathcal{A}_{p}|\log p=X\log x+O(x).
+
+Therefore, we require an upper bound of S(x) to get a lower bound for P_{x}. We first split the sum using a smooth dyadic partition of unity similarly as in [[2](https://arxiv.org/html/1908.08816#bib.bib2), Section 3]
+
+\displaystyle S(x)=\sum_{\begin{subarray}{c}x\leq P\leq P_{x}\\
+P=2^{j}x\end{subarray}}S(x,P)+O(x),
+
+where
+
+\displaystyle S(x,P)=\sum_{P\leq p\leq 4P}\psi_{P}(p)|\mathcal{A}_{p}|\log p
+
+for some C^{\infty}-smooth functions \psi_{P} supported on [P,4P] satisfying \psi_{P}^{(\ell)}(\xi)\ll_{\ell}P^{-\ell} for all \ell\geq 0.
+
+Compared to [[1](https://arxiv.org/html/1908.08816#bib.bib1)] and [[2](https://arxiv.org/html/1908.08816#bib.bib2)], we will improve on their upper bound for S(x,P) but only for x\leq P<x^{153/128}. This is because only in this range we are able to prove a new bilinear estimate (Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")). To see how to use this new arithmetic information, we first note that in [[1](https://arxiv.org/html/1908.08816#bib.bib1)] and [[2](https://arxiv.org/html/1908.08816#bib.bib2)] the upper bound for S(x) is obtained by using the linear sieve. Since the linear sieve is neutral with respect to applications of Buchstab’s identity, we may apply Buchstab’s indentity as we please to obtain Type II sums which we now have an asymptotic formula instead of just upper and lower bounds of the linear sieve, thus improving on the linear sieve bound. A similar principle also appears in the sieve of Duke, Friedlander, and Iwaniec in [[4](https://arxiv.org/html/1908.08816#bib.bib4)]. By applying Harman’s sieve method the use of the linear sieve can be completely avoided in some ranges (cf. [[6](https://arxiv.org/html/1908.08816#bib.bib6), Sections 3.5 and 3.8] for further discussion on the relation between Harman’s sieve and the linear sieve).
+
+For P\geq x^{153/128} we are unable to obtain new information and we just apply the same argument as in [[2](https://arxiv.org/html/1908.08816#bib.bib2), Section 8] to get an upper bound for S(x,P). In the end we sum over the dyadic ranges x\leq P\leq x^{\varpi} to determine the largest \varpi for which we can show that
+
+\displaystyle\sum_{x<p\leq x^{\varpi}}|\mathcal{A}_{p}|\log p\leq(1-\epsilon)X\log x.
+
+As usual with Harman’s sieve method, we have to calculate numerical upper bounds for multi-dimensional integrals. These integrals are computed using Python 3.7, and the links to the codes can be found at the end of this section.
+
+### 2.2. Arithmetic information
+
+Let us define
+
+\displaystyle\rho(m):=|\{\nu\in\mathbb{Z}/m\mathbb{Z}:\,\,\nu^{2}+1\equiv 0\,\,(m)\}|.
+
+We say that an arithmetic function f(n) is divisor bounded if |f(n)|\ll\tau_{k}(n) for some k\geq 1. From the work of de la Bretèche and Drappeau we know the following linear estimate [[1](https://arxiv.org/html/1908.08816#bib.bib1), Section 8.4] (it is stated there for bounded coefficients \lambda_{d} but the same holds also for coefficients which are divisor bounded since the saving in the error term is a power of x).
+
+###### Proposition 3.
+
+_(Type I information, de la Bretèche-Drappeau)._ Let \theta=7/64. Let x\leq P=x^{\alpha}\leq x^{2-\eta} and
+
+\displaystyle D:=x^{1/(2-4\theta)-\eta}P^{-\theta/(1-2\theta)}=x^{(1-2\theta\alpha)/(2-4\theta)-\eta}=x^{(32-7\alpha)/50-\eta}.
+
+Suppose that D\ll x^{2-\eta}/P. Let \lambda_{d} be any divisor bounded coefficients. Then
+
+\displaystyle\sum_{d\leq D}\lambda_{d}\sum_{m\equiv 0\,\,(d)}|\mathcal{A}_{m}|\psi_{P}(m)\log m=X\sum_{d\leq D}\lambda_{d}\sum_{m\equiv 0\,\,(d)}\frac{\rho(m)}{m}\psi_{P}(m)\log m+O(x^{1-\eta}).
+
+In Section [3](https://arxiv.org/html/1908.08816#S3 "3. Type II information ‣ On the largest prime factor of 𝑛^2+1") we will show the following bilinear estimate which improves on [[1](https://arxiv.org/html/1908.08816#bib.bib1), Théorème 5.2]:
+
+###### Proposition 4.
+
+_(Type II information)._ Let \theta=7/64. Let P=x^{\alpha} for some \alpha\geq 1, and let MN=P for M,N\geq 1. Let a_{m} and b_{n} be divisor bounded coefficients such that b_{n} is supported on square-free integers. Then
+
+\displaystyle\sum_{\begin{subarray}{c}m\sim M\\
+n\sim N\end{subarray}}a_{m}b_{n}|\mathcal{A}_{mn}|\psi_{P}(mn)\log mn=X\sum_{\begin{subarray}{c}m\sim M\\
+n\sim N\end{subarray}}\frac{a_{m}b_{n}\rho(mn)}{mn}\psi_{P}(mn)\log mn+O(x^{1-\eta}).
+
+if one of the following holds:   
+_(i)_
+
+\displaystyle x^{\alpha-1+\eta}\ll N\ll x^{(2-2\theta-\alpha)/3-\eta}=x^{(57-32\alpha)/96-\eta}.
+
+_(ii)_ _(Duke-Friedlander-Iwaniec+de la Bretèche-Drappeau)_ b_{n} is supported on primes and
+
+\displaystyle x^{2(\alpha-1)+\eta}\ll N\ll x^{(4-(3+2\theta)\alpha)/(3-6\theta)}=x^{(128-103\alpha)/75-\eta}.
+
+### 2.3. Fundamental Proposition
+
+For integers d\geq 1 denote
+
+(2.2)\displaystyle S(\mathcal{A}(P)_{d},z):=\sum_{\begin{subarray}{c}(n,P(z))=1\end{subarray}}|\mathcal{A}_{dn}|\psi_{P}(dn)\log(dn),
+
+so that (denoting \mathcal{A}(P)=\mathcal{A}(P)_{1} when d=1)
+
+\displaystyle S(x,P)=S(\mathcal{A}(P),2\sqrt{P}).
+
+Let us also define the expected value of S(\mathcal{A}(P)_{d},z)
+
+(2.3)\displaystyle S(\mathcal{B}(P)_{d},z):=X\sum_{(n,P(z))=1}\frac{\rho(dn)}{dn}\psi_{P}(dn)\log(dn).
+
+For d=1 denote \mathcal{B}(P)=\mathcal{B}(P)_{1}.
+
+For the next Proposition we note that (2-2\theta-\alpha)/3>2(\alpha-1) exactly if \alpha<249/224=1.11\dots We can combine Propositions [3](https://arxiv.org/html/1908.08816#Thmtheorem3 "Proposition 3. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") and [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") by using a variant of the argument in [[6](https://arxiv.org/html/1908.08816#bib.bib6), Chapter 3] to get
+
+###### Proposition 5.
+
+_(Fundamental Proposition I)._ Let P=x^{\alpha} for 1\leq\alpha<249/224-2\eta. Let D be as in Proposition [3](https://arxiv.org/html/1908.08816#Thmtheorem3 "Proposition 3. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") and set
+
+\displaystyle U:=Dx^{1-\alpha-\eta}=x^{(1-2\theta\alpha)/(2-4\theta)-\alpha+1-2\eta},
+
+and
+
+\displaystyle\sigma:=\max\bigg\{\frac{2-2\theta-\alpha}{3}-\eta,\frac{4-(3+2\theta)\alpha}{3-6\theta}-\eta\bigg\}.
+
+Let \lambda_{u} be divisor-bounded coefficients. Then
+
+\displaystyle\sum_{u\leq U}\lambda_{u}S(\mathcal{A}(P)_{u},x^{\sigma})=\sum_{u\leq U}\lambda_{u}S(\mathcal{B}(P)_{u},x^{\sigma})+O(x^{1-\eta}).
+
+###### Proof.
+
+Using the Möbius function to detect (n,P(x^{\sigma}))=1, we have
+
+\displaystyle\sum_{u\leq U}\lambda_{u}S(\mathcal{A}(P)_{u},x^{\sigma})\displaystyle=\sum_{u\leq U}\sum_{d|P(x^{\sigma})}\sum_{n}\lambda_{u}\mu(d)|\mathcal{A}_{udn}|\psi_{P}(udn)\log(udn)
+\displaystyle=\Sigma_{I}(\mathcal{A}(P))+\Sigma_{II}(\mathcal{A}(P)),
+
+where
+
+\displaystyle\Sigma_{I}(\mathcal{A})\displaystyle:=\sum_{u\leq U}\sum_{\begin{subarray}{c}d|P(x^{\sigma})\\
+d\leq x^{\alpha-1+\eta}\end{subarray}}\sum_{n}\lambda_{u}\mu(d)|\mathcal{A}_{udn}|\psi_{P}(udn)\log(udn)\quad\quad\text{and}
+\displaystyle\Sigma_{II}(\mathcal{A})\displaystyle:=\sum_{u\leq U}\sum_{\begin{subarray}{c}d|P(x^{\sigma})\\
+d>x^{\alpha-1+\eta}\end{subarray}}\sum_{n}\lambda_{u}\mu(d)|\mathcal{A}_{udn}|\psi_{P}(udn)\log(udn).
+
+Similarly, we can write
+
+\displaystyle\sum_{u\leq U}\lambda_{u}S(\mathcal{B}(P)_{u},x^{\sigma})=\Sigma_{I}(\mathcal{B}(P))+\Sigma_{II}(\mathcal{B}(P)).
+
+For the first pair of sums, since du\leq x^{\alpha-1+\eta}U=D, we have by Proposition [3](https://arxiv.org/html/1908.08816#Thmtheorem3 "Proposition 3. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")
+
+\displaystyle\Sigma_{I}(\mathcal{A}(P))=\Sigma_{I}(\mathcal{B}(P))+O(x^{1-\eta}).
+
+In the second pair of sums we have (writing d=q_{1}q_{2}\cdots q_{k})
+
+\displaystyle\Sigma_{II}(\mathcal{A}(P))=\sum_{k\ll\log x}(-1)^{k}\sum_{u\leq U}\sum_{\begin{subarray}{c}q_{k}<\cdots<q_{1}\leq x^{\sigma}\\
+q_{1}\cdots q_{k}>x^{\alpha-1+\eta}\end{subarray}}\lambda_{u}|\mathcal{A}_{uq_{1}\cdots q_{k}n}|\psi_{P}(uq_{1}\cdots q_{k}n)\log(uq_{1}\cdots q_{k}n).
+
+For every q_{1}\cdots q_{k} there exists a unique \ell\leq k such that
+
+\displaystyle q_{1}\cdots q_{\ell}\geq x^{\alpha-1+\eta}\quad\quad\text{and}\quad\quad q_{1}\cdots q_{\ell-1}<x^{\alpha-1+\eta}.
+
+Hence, writing n^{\prime}:=q_{1}\cdots q_{\ell} and m:=unq_{\ell+1}\cdots q_{k}, and using Perron’s formula to remove the cross-condition q_{\ell}<q_{\ell+1} (cf. [[6](https://arxiv.org/html/1908.08816#bib.bib6), Chapter 3.2]), we can partition \Sigma_{II}(\mathcal{A}(P)) into
+
+\displaystyle\sum_{k\ll\log x}(-1)^{k}\sum_{\ell\leq k}\sum_{m}\sum_{\begin{subarray}{c}n^{\prime}=q_{1}\cdots q_{\ell}\geq x^{\alpha-1+\eta}\\
+q_{1}\cdots q_{\ell-1}<x^{\alpha-1+\eta}\\
+q_{\ell}<\cdots<q_{1}\leq x^{\sigma}\end{subarray}}a_{m}b_{n^{\prime}}|\mathcal{A}_{mn^{\prime}}|\psi_{P}(mn^{\prime})\log mn^{\prime}
+
+with b_{n^{\prime}} supported on square-free integers. A similar partition applies to \Sigma_{II}(\mathcal{B}(P)).
+
+If \ell=1, then x^{\alpha-1+\eta}\leq q_{1}\leq x^{\sigma}, so that we have an asymptotic formula by combining Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")(i) and (ii) if \alpha<2671/2496, and for \alpha\geq 2671/2496 simply using part (i).
+
+If \ell>1, then we have q_{1}\cdots q_{\ell}\leq x^{\alpha-1+\eta}q_{\ell}\leq x^{(2-2\theta-\alpha)/3-\eta} (since q_{\ell}<q_{1}<x^{\alpha-1+\eta} and 2(\alpha-1)<(2-2\theta-\alpha)/3-3\eta for \alpha<249/224-2\eta), so that we may apply Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")(i) to get an asymptotic formula. Summing over \ell and k we obtain
+
+\displaystyle\Sigma_{II}(\mathcal{A}(P))=\Sigma_{II}(\mathcal{B}(P))+O(x^{1-\eta}).
+
+∎
+
+We note that (2-2\theta-\alpha)/3>\alpha-1 precisely if \alpha<153/128. By a similar argument we obtain the following variant of the previous proposition
+
+###### Proposition 6.
+
+_(Fundamental Proposition II)._ Let P=x^{\alpha} for 1\leq\alpha<153/128-2\eta. Let D be as in Proposition [3](https://arxiv.org/html/1908.08816#Thmtheorem3 "Proposition 3. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") and set
+
+\displaystyle U:=Dx^{1-\alpha-\eta}=x^{(1-2\theta\alpha)/(2-4\theta)-\alpha+1-2\eta},
+
+and
+
+\displaystyle\gamma:=\frac{2-2\theta-\alpha}{3}-\alpha+1-2\eta.
+
+Let \lambda_{u} be divisor-bounded coefficients. Then
+
+\displaystyle\sum_{u\leq U}\lambda_{u}S(\mathcal{A}(P)_{u},x^{\gamma})=\sum_{u\leq U}\lambda_{u}S(\mathcal{B}(P)_{u},x^{\gamma})+O(x^{1-\eta}).
+
+###### Proof.
+
+The only difference to the proof of Proposition [5](https://arxiv.org/html/1908.08816#Thmtheorem5 "Proposition 5. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") is that this time in \Sigma_{II}(\mathcal{A}(P)) combining
+
+\displaystyle q_{1}\cdots q_{\ell}\geq x^{\alpha-1+\eta}\quad\quad\text{and}\quad\quad q_{1}\cdots q_{\ell-1}<x^{\alpha-1+\eta}
+
+with q_{\ell}<x^{\gamma} we get q_{1}\cdots q_{\ell}<x^{\alpha-1+\eta+\gamma}<x^{(2-2\theta-\alpha)/3-\eta}, so that we may use Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")(i) to get an asymptotic formula. ∎
+
+We also need a lemma for transforming sums over almost-primes into integrals which can be evaluated numerically. Let \omega(u) denote the Buchstab function (cf. [[6](https://arxiv.org/html/1908.08816#bib.bib6), Chapter 1] for the properties below, for instance), so that by the Prime Number Theorem for y^{\epsilon}<z<y
+
+(2.4)\displaystyle\sum_{y<n\leq 2y}1_{(n,P(z))=1}=(1+o(1))\omega\left(\frac{\log y}{\log z}\right)\frac{y}{\log z}.
+
+Note that for 1<u\leq 2 we have \omega(u)=1/u. In the numerical computations we will use the following bounds for the Buchstab function (cf. [[9](https://arxiv.org/html/1908.08816#bib.bib9), Lemma 20])
+
+(2.5)\displaystyle\omega(u)\,\begin{cases}=0,&u<1\\
+=1/u,&1\leq u<2\\
+=(1+\log(u-1))/u,&2\leq u<3\\
+\leq 0.5644,&3\leq u<4\\
+\leq 0.5617,&u\geq 4\\
+\geq 0.5607,&u\geq 2.47.\end{cases}
+
+In the lemma below we assume that the range \mathcal{U}\subset[x^{\eta},Px^{-\eta}]^{k} is sufficiently well-behaved, e.g. an intersection of sets of the type \{\bm{u}:u_{i}<u_{j}\} or \{\bm{u}:V<f(u_{1},\dots,u_{k})<W\} for some polynomial f and some fixed V,W.
+
+###### Lemma 7.
+
+Let \mathcal{U}\subset[x^{\eta},Px^{-\eta}]^{k} and P=x^{\alpha}. Then
+
+\displaystyle\sum_{(q_{1},\dots,q_{k})\in\mathcal{U}}S(\mathcal{B}(P)_{q_{1},\dots,q_{k}},q_{k})=(1+o(1))X\int\psi_{P}(u)\frac{du}{u}\alpha\int\omega(\alpha,\bm{\beta})\frac{d\beta_{1}\cdots d\beta_{k}}{\beta_{1}\cdots\beta_{k-1}\beta_{k}^{2}},
+
+where the integral is over the range \{\bm{\beta}:\,(x^{\beta_{1}},\dots,x^{\beta_{k}})\in\mathcal{U}\}, and
+
+\displaystyle\omega(\alpha,\bm{\beta}):=\omega\bigg(\frac{\alpha-\beta_{1}-\cdots-\beta_{k}}{\beta_{k}}\bigg).
+
+###### Proof.
+
+By definition the left-hand side in the lemma is equal to
+
+\displaystyle\sum_{(q_{1},\dots,q_{k})\in\mathcal{U}}X\sum_{m}1_{(m,P(q_{k}))=1}\frac{\rho(q_{1}\cdots q_{k}m)}{q_{1}\cdots q_{k}m}\psi_{P}(q_{1}\cdots q_{k}m)\log(q_{1}\cdots q_{k}m).
+
+Note that the function \rho(m) is multiplicative and \rho(p)=2\cdot 1_{p\equiv 1\,(4)} for primes p>2. Hence, for (m,P(x^{\eta}))=1 we can replace \rho(m) by 1 with negligible error by equidistribution of primes in arithmetic progressions. Therefore, by ([2.4](https://arxiv.org/html/1908.08816#S2.E4 "In 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")) and by the Prime Number Theorem we have
+
+\displaystyle\sum_{(q_{1},\dots,q_{k})\in\mathcal{U}}S(\mathcal{B}(P)_{q_{1},\dots,q_{k}},q_{k})
+\displaystyle=\sum_{(q_{1},\dots,q_{k})\in\mathcal{U}}X\sum_{m}1_{(m,P(q_{k}))=1}\frac{1}{q_{1}\cdots q_{k}m}\psi_{P}(q_{1}\cdots q_{k}m)\log(q_{1}\cdots q_{k}m)
+\displaystyle=(1+o(1))X\int\psi_{P}(u)\log u\frac{du}{u}\sum_{(q_{1},\dots,q_{k})\in\mathcal{U}}\frac{1}{q_{1}\cdots q_{k}\log q_{k}}\omega\left(\frac{\log(P/(q_{1}\cdots q_{k}))}{\log q_{k}}\right)
+\displaystyle=(1+o(1))X\int\psi_{P}(u)\log u\frac{du}{u}
+\displaystyle\hskip 60.0pt\sum_{(n_{1},\dots,n_{k})\in\mathcal{U}}\frac{1}{n_{1}\cdots n_{k}(\log n_{1})\dots(\log n_{k-1})\log^{2}n_{k}}\omega\left(\frac{\log(P/(n_{1}\cdots n_{k}))}{\log n_{k}}\right)
+\displaystyle=(1+o(1))X\int\psi_{P}(u)\log u\frac{du}{u}
+\displaystyle\hskip 60.0pt\int_{\mathcal{U}}\omega\left(\frac{\log(P/(u_{1}\cdots u_{k}))}{\log u_{k}}\right)\frac{du_{1}\cdots du_{k}}{u_{1}\cdots u_{k}(\log u_{1})\dots(\log u_{k-1})\log^{2}u_{k}}
+\displaystyle=(1+o(1))X\int\psi_{P}(u)\frac{du}{u}\alpha\int\omega(\alpha,\bm{\beta})\frac{d\beta_{1}\cdots d\beta_{k}}{\beta_{1}\cdots\beta_{k-1}\beta_{k}^{2}}
+
+by the change of variables u_{j}=x^{\beta_{j}} and by inserting \log u=(1+o(1))\alpha\log x. ∎
+
+For the linear sieve (cf. [[5](https://arxiv.org/html/1908.08816#bib.bib5), Chapter 11]) we let F(s),f(s) denote the continuous solution to the system of delay-differential equations
+
+\displaystyle\begin{cases}(sF(s))^{\prime}=f(s-1)\\
+(sf(s))^{\prime}=F(s-1)\end{cases}
+
+with the initial condition
+
+\displaystyle\begin{cases}sF(s)=2e^{\gamma},&\text{if}\,\,1\leq s\leq 3\\
+sf(s)=0,&\text{if}\,\,s\leq 2.\end{cases}.
+
+Here \gamma is the Euler-Mascheroni constant. We require the following
+
+###### Lemma 8.
+
+_(Linear sieve upper bound)._ Let D be as in Proposition [3](https://arxiv.org/html/1908.08816#Thmtheorem3 "Proposition 3. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1"). For P=x^{\alpha} and for any x^{\eta}<z<D we have
+
+\displaystyle S(\mathcal{A}(P),z)\leq(1+o(1))X\int\psi_{P}(u)\frac{du}{u}\frac{\alpha\log x}{e^{\gamma}\log z}F\bigg(\frac{\log D}{\log z}\bigg).
+
+###### Proof.
+
+Let \lambda_{d} denote the sieve weights of the upper bound linear sieve [[5](https://arxiv.org/html/1908.08816#bib.bib5), Chapter 11]) with level of distribution D. Then
+
+\displaystyle S(\mathcal{A}(P),z)\leq\sum_{\begin{subarray}{c}d\leq D\\
+d|P(z)\end{subarray}}\lambda_{d}\sum_{m\equiv 0\,\,(d)}|\mathcal{A}_{m}|\psi_{P}(m)\log m=X\sum_{d\leq D}\lambda_{d}\sum_{\begin{subarray}{c}d\leq D\\
+d|P(z)\end{subarray}}\frac{\rho(m)}{m}\psi_{P}(m)\log m+O(x^{1-\eta})
+
+by Proposition [3](https://arxiv.org/html/1908.08816#Thmtheorem3 "Proposition 3. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1"). The sum on the right-hand side can now be evaluated by using [[5](https://arxiv.org/html/1908.08816#bib.bib5), Theorem 11.12] and the same argument as in [[2](https://arxiv.org/html/1908.08816#bib.bib2), Section 8], which leads to the result. ∎
+
+### 2.4. Buchstab decompositions
+
+The general idea of Harman’s sieve is to use Buchstab’s identity to decompose the sum S(\mathcal{C}(P),2\sqrt{P}) (in parallel for \mathcal{C}(P)=\mathcal{A}(P) and \mathcal{C}(P)=\mathcal{B}(P)) into a sum of the form \sum_{k}\epsilon_{k}S_{k}(\mathcal{C}(P)), where \epsilon_{k}\in\{-1,1\}, and S_{k}(\mathcal{C}(P))\geq 0 are sums over almost-primes. Since we are interested in an upper bound, for \mathcal{C}(P)=\mathcal{A}(P) we can insert the trivial estimate S_{k}(\mathcal{A}(P))\geq 0 for any k such that the sign \epsilon_{k}=-1; these sums are said to be discarded. For the remaining k we will obtain an asymptotic formula by using Propositions [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") and [5](https://arxiv.org/html/1908.08816#Thmtheorem5 "Proposition 5. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") (in some cases with \epsilon_{k}=1 we will use the linear sieve upper bound (Lemma [8](https://arxiv.org/html/1908.08816#Thmtheorem8 "Lemma 8. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")) but let us ignore this for now). That is, if \mathcal{K} is the set of indices that are discarded, then
+
+\displaystyle S(\mathcal{A}(P),2\sqrt{P})\displaystyle=\sum_{k}\epsilon_{k}S_{k}(\mathcal{A}(P))\leq\sum_{k\notin\mathcal{K}}\epsilon_{k}S_{k}(\mathcal{A}(P))
+\displaystyle=(1+o(1))\sum_{k\notin\mathcal{K}}\epsilon_{k}S_{k}(\mathcal{B}(P))=(1+o(1))S(\mathcal{B}(P),2\sqrt{P})+\sum_{k\in\mathcal{K}}S_{k}(\mathcal{B}(P)).
+
+By the Prime Number Theorem we have
+
+\displaystyle S(\mathcal{B}(P),2\sqrt{P})=(1+o(1))X\int\psi_{P}(u)\frac{du}{u}.
+
+The remaining sum \sum_{k\in\mathcal{K}}S_{k}(\mathcal{B}(P)) we can estimate using Lemma [7](https://arxiv.org/html/1908.08816#Thmtheorem7 "Lemma 7. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1"). Thus, we will obtain an upper bound of the form
+
+(2.6)\displaystyle S(\mathcal{A}(P),2\sqrt{P})\leq(1+G(\alpha))X\int\psi_{P}(u)\frac{du}{u}
+
+for some non-negative function G measuring the deficiency at range P=x^{\alpha}.
+
+To relax the notations we will ignore factors of x^{\eta} in the ranges of variables in this section, since their contribution to G(\alpha) will be O(\eta) which can be made arbitrarily small.
+
+We separate into five cases, 1\leq\alpha\leq 758/733,758/733\leq\alpha<249/224, 249/224\leq\alpha<182/157, 182/157\leq\alpha<153/128, and \alpha>153/128.
+
+#### 2.4.1. Case 1\leq\alpha<758/733
+
+Let
+
+\displaystyle\sigma:=\frac{4-(3+2\theta)\alpha}{3-6\theta}-\eta
+
+(for \alpha<758/733 part (ii) of Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") is stronger than (i)). Define \xi by setting (recall Proposition [5](https://arxiv.org/html/1908.08816#Thmtheorem5 "Proposition 5. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1"))
+
+\displaystyle U=Dx^{1-\alpha-\eta}=x^{(1-2\theta\alpha)/(2-4\theta)-\alpha+1-2\eta}=:x^{\xi},
+
+Let \mathcal{C}\in\{\mathcal{A},\mathcal{B}\}. By Buchstab’s identity we have
+
+\displaystyle S(\mathcal{C}(P),2\sqrt{P})=S(\mathcal{C}(P),x^{\sigma})-\sum_{x^{\sigma}<q\leq 2\sqrt{P}}S(\mathcal{C}(P)_{q},q).
+
+By Proposition [5](https://arxiv.org/html/1908.08816#Thmtheorem5 "Proposition 5. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") we have an asymptotic formula for the first term. In the second sum we note that the implicit variable in S(\mathcal{C}(P)_{q},q) (cf. n in ([2.2](https://arxiv.org/html/1908.08816#S2.E2 "In 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")) and ([2.3](https://arxiv.org/html/1908.08816#S2.E3 "In 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1"))) is of size x^{\alpha}/q, so that for q\gg x^{\alpha-2\sigma} the implicit variable runs over primes of size <x^{2\sigma}. Hence
+
+\displaystyle\sum_{x^{\alpha-2\sigma}\ll q\leq U}S(\mathcal{C}(P)_{q},q)=\sum_{x^{\alpha-2\sigma}\ll q\leq U}S(\mathcal{C}(P)_{q},x^{\sigma}),
+
+so that we have an asymptotic formula by Proposition [5](https://arxiv.org/html/1908.08816#Thmtheorem5 "Proposition 5. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") in this range. We note that this range is non-trivial precisely if
+
+\displaystyle\alpha<758/733=1.034\dots.
+
+The remaining part we just discard, which by Lemma [7](https://arxiv.org/html/1908.08816#Thmtheorem7 "Lemma 7. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") gives us a deficiency
+
+(2.7)\displaystyle\alpha\int_{\sigma}^{\alpha-2\sigma}\omega(\alpha/\beta-1)\frac{d\beta}{\beta^{2}}+\alpha\int_{\xi}^{\alpha/2}\omega(\alpha/\beta-1)\frac{d\beta}{\beta^{2}}.
+
+#### 2.4.2. Case 758/733\leq\alpha<249/224
+
+Let
+
+\displaystyle\sigma:=\max\bigg\{\frac{2-2\theta-\alpha}{3}-\eta,\frac{4-(3+2\theta)\alpha}{3-6\theta}-\eta\bigg\}.
+
+By Buchstab’s identity we have
+
+\displaystyle S(\mathcal{C}(P),2\sqrt{P})=S(\mathcal{C}(P),x^{\sigma})-\sum_{x^{\sigma}<q\leq 2\sqrt{P}}S(\mathcal{C}(P)_{q},q).
+
+By Proposition [5](https://arxiv.org/html/1908.08816#Thmtheorem5 "Proposition 5. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") we have an asymptotic formula for the first term. The second sum we just discard, which by Lemma [7](https://arxiv.org/html/1908.08816#Thmtheorem7 "Lemma 7. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") gives us a deficiency
+
+\displaystyle\alpha\int_{\sigma}^{\alpha/2}\omega(\alpha/\beta-1)\frac{d\beta}{\beta^{2}}.
+
+Summing over the dyadic ranges x<P=2^{j}x<x^{249/224} we obtain
+
+\displaystyle\sum_{\begin{subarray}{c}x\leq P\leq x^{249/224}\\
+P=2^{j}x\end{subarray}}S(x,P)\leq(25/224+G_{1}+G_{2}+o(1))X\log x,
+
+where by ([2.7](https://arxiv.org/html/1908.08816#S2.E7 "In 2.4.1. Case 1≤𝛼<758/733 ‣ 2.4. Buchstab decompositions ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1"))
+
+\displaystyle G_{1}:=\int_{1}^{758/733}\alpha\bigg(\int_{\sigma}^{\alpha-2\sigma}\omega(\alpha/\beta-1)\frac{d\beta}{\beta^{2}}+\int_{\xi}^{\alpha/2}\omega(\alpha/\beta-1)\frac{d\beta}{\beta^{2}}\bigg)d\alpha<0.01745
+
+and
+
+\displaystyle G_{2}:=\int_{758/733}^{249/224}\alpha\int_{\sigma}^{\alpha/2}\omega(\alpha/\beta-1)\frac{d\beta}{\beta^{2}}d\alpha<0.11478.
+
+#### 2.4.3. Case 249/224\leq\alpha<182/157
+
+From here on we let \sigma:=(2-2\theta-\alpha)/3 (for \alpha\geq 249/224 part (i) of Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") is stronger than (ii)). Recall that in Proposition [6](https://arxiv.org/html/1908.08816#Thmtheorem6 "Proposition 6. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")
+
+\displaystyle\gamma:=\frac{2-2\theta-\alpha}{3}-\alpha+1-2\eta.
+
+By applying Buchstab’s identity we get
+
+\displaystyle S(\mathcal{A}(P),2\sqrt{P})\displaystyle=S(\mathcal{A}(P),x^{\gamma})-\sum_{x^{\gamma}<q\leq 2\sqrt{P}}S(\mathcal{A}(P)_{q},q).
+
+For the first term we have an asymptotic formula by Proposition [6](https://arxiv.org/html/1908.08816#Thmtheorem6 "Proposition 6. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1"). In the second sum we get an asymptotic formula by Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")(i) in the part x^{\alpha-1}<q<x^{\sigma}. We discard the part with x^{\sigma}<q<x^{\alpha/2}, which gives us a deficiency
+
+\displaystyle\alpha\int_{\sigma}^{\alpha/2}\omega(\alpha/\beta-1)\frac{d\beta}{\beta^{2}}.
+
+For the remaining part x^{\gamma}<q\leq x^{\alpha-1} we apply Buchstab’s identity twice to get
+
+\displaystyle-\sum_{x^{\gamma}<q\leq x^{\alpha-1}}S(\mathcal{A}(P)_{q},q)=-\sum_{x^{\gamma}<q\leq x^{\alpha-1}}\displaystyle S(\mathcal{A}(P)_{q},x^{\gamma})+\sum_{x^{\gamma}<q_{2}<q_{1}\leq x^{\alpha-1}}S(\mathcal{A}(P)_{q_{1}q_{2}},x^{\gamma})
+\displaystyle-\sum_{x^{\gamma}<q_{3}<q_{2}<q_{1}\leq x^{\alpha-1}}S(\mathcal{A}(P)_{q_{1}q_{2}q_{3}},q_{3}).
+
+Since \alpha<182/157, we have x^{2(\alpha-1)}<U so that for the first two sums we have an asymptotic formula by Proposition [6](https://arxiv.org/html/1908.08816#Thmtheorem6 "Proposition 6. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1"). In the last sum we use Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")(i) to get an asymptotic formula whenever any combination of q_{1},q_{2},q_{3} is in the Type II range [x^{\alpha-1},x^{\sigma}] and we discard the rest. Thus,
+
+\displaystyle\sum_{\begin{subarray}{c}x^{249/224}\leq P\leq x^{182/157}\\
+P=2^{j}x\end{subarray}}S(x,P)\leq\bigg(\frac{182}{157}-\frac{249}{224}+G_{3}+G_{4}+o(1)\bigg)X\log x,
+
+where
+
+\displaystyle G_{3}:=\int_{249/224}^{182/157}\alpha\int_{\sigma}^{\alpha/2}\omega(\alpha/\beta-1)\frac{d\beta}{\beta^{2}}d\alpha<0.093754.
+
+and
+
+\displaystyle G_{4}:=\int f_{4}(\alpha,\bm{\beta})\alpha\omega\bigg(\frac{\alpha-\beta_{1}-\beta_{2}-\beta_{3}}{\beta_{3}}\bigg)\frac{d\beta_{1}d\beta_{2}d\beta_{3}}{\beta_{1}\beta_{2}\beta_{3}^{2}}d\alpha<0.0057
+
+with f_{4} the characteristic function of the four dimensional set
+
+\displaystyle\bigg\{\frac{249}{224}<\alpha\displaystyle<\frac{182}{157},\,\gamma<\beta_{3}<\beta_{2}<\beta_{1}<\alpha-1
+\displaystyle\beta_{1}+\beta_{2},\,\beta_{1}+\beta_{3},\,\beta_{2}+\beta_{3},\,\beta_{1}+\beta_{2}+\beta_{3}\notin[\alpha-1,\sigma]\bigg\}
+
+#### 2.4.4. Case 182/157\leq\alpha<153/128
+
+By applying Buchstab’s identity we get
+
+\displaystyle S(\mathcal{A}(P),2\sqrt{P})\displaystyle=S(\mathcal{A}(P),x^{\alpha-1})-\sum_{x^{\alpha-1}<q\leq 2\sqrt{P}}S(\mathcal{A}(P)_{q},q)
+\displaystyle\leq S(\mathcal{A}(P),x^{\alpha-1})-\sum_{x^{\alpha-1}<q\leq x^{\sigma}}S(\mathcal{A}(P)_{q},q).
+
+For the first term we use the linear sieve upper bound (Lemma [8](https://arxiv.org/html/1908.08816#Thmtheorem8 "Lemma 8. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")), while for the second term we have an asymptotic formula by Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1"). Hence, by Lemmata [7](https://arxiv.org/html/1908.08816#Thmtheorem7 "Lemma 7. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") and [8](https://arxiv.org/html/1908.08816#Thmtheorem8 "Lemma 8. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") we get an upper bound
+
+\displaystyle S(\mathcal{A}(P),2\sqrt{P})\leq(G_{5}(\alpha)-G_{6}(\alpha)+o(1))X\int\psi_{P}(u)\frac{du}{u},
+
+so that
+
+\displaystyle\sum_{\begin{subarray}{c}x^{182/157}\leq P\leq x^{153/128}\\
+P=2^{j}x\end{subarray}}S(x,P)\leq(G_{5}-G_{6}+o(1))X\log x,
+
+where
+
+\displaystyle G_{5}:=e^{-\gamma}\int_{182/157}^{153/128}\frac{\alpha}{\alpha-1}F\bigg(\frac{1-2\theta\alpha}{(2-4\theta)(\alpha-1)}\bigg)d\alpha=4(1-2\theta)\int_{182/157}^{153/128}\frac{\alpha}{1-2\theta\alpha}d\alpha<0.17877
+
+and
+
+\displaystyle G_{6}:=\int_{182/157}^{153/128}\alpha\int_{\alpha-1}^{\sigma}\omega(\alpha/\beta-1)\frac{d\beta}{\beta^{2}}d\alpha>0.016329.
+
+#### 2.4.5. Case \alpha>153/128
+
+In the range P\geq x^{153/128} we do not have any new information, so that just using the linear sieve upper bound (Lemma [8](https://arxiv.org/html/1908.08816#Thmtheorem8 "Lemma 8. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")) we obtain
+
+(2.8)\displaystyle\sum_{\begin{subarray}{c}x^{153/128}\leq P\leq x^{\varpi}\\
+P=2^{j}x\end{subarray}}S(x,P)\leq\bigg(4(1-2\theta)\int_{153/128}^{\varpi}\frac{\alpha}{1-2\theta\alpha}d\alpha+o(1)\bigg)X\log x.
+
+### 2.5. Conclusion of the proof of Theorem [1](https://arxiv.org/html/1908.08816#Thmtheorem1 "Theorem 1. ‣ 1. Introduction ‣ On the largest prime factor of 𝑛^2+1")
+
+Summing over the estimates we get
+
+\displaystyle\sum_{\begin{subarray}{c}x\leq P\leq x^{153/128}\\
+P=2^{j}x\end{subarray}}S(x,P)\leq(25/157+G+o(1))X\log x,
+
+where
+
+\displaystyle 25/157+G=25/157+G_{1}+G_{2}+G_{3}+G_{4}+G_{5}-G_{6}<0.553361
+
+Combining this with ([2.8](https://arxiv.org/html/1908.08816#S2.E8 "In 2.4.5. Case 𝛼>153/128 ‣ 2.4. Buchstab decompositions ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")), we have
+
+\displaystyle\frac{1}{X\log x}\sum_{\begin{subarray}{c}x\leq P\leq x^{1.279}\\
+P=2^{j}x\end{subarray}}S(x,P)<0.553361+4(1-2\theta)\int_{153/128}^{1.279}\frac{\alpha}{1-2\theta\alpha}d\alpha=0.997\dots<1,
+
+which proves Theorem [1](https://arxiv.org/html/1908.08816#Thmtheorem1 "Theorem 1. ‣ 1. Introduction ‣ On the largest prime factor of 𝑛^2+1") since otherwise we reach a contradiction with the asymptotic ([2.1](https://arxiv.org/html/1908.08816#S2.E1 "In 2.1. Set up ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")). ∎
+
+The Python 3.7 codes for computations of the Buchstab integrals are available at: G_{1}http://codepad.org/e2RiL3TM G_{2}http://codepad.org/i2BOT07g G_{3}http://codepad.org/vMlImNKm G_{4}http://codepad.org/DOxewic3 G_{6}http://codepad.org/IKZNttfN
+
+### 2.6. Proof of Theorem [2](https://arxiv.org/html/1908.08816#Thmtheorem2 "Theorem 2. ‣ 1. Introduction ‣ On the largest prime factor of 𝑛^2+1")
+
+The sieve follows the same recipe as the proof of Theorem [1](https://arxiv.org/html/1908.08816#Thmtheorem1 "Theorem 1. ‣ 1. Introduction ‣ On the largest prime factor of 𝑛^2+1"). Assuming Selberg’s conjecture we may set \theta=0, so that D=x^{1/2}, U=x^{3/2-\alpha}=x^{\xi}, and \sigma=(2-\alpha)/3. The reader will verify that now the ranges corresponding to the five ranges in the proof of Theorem 1 are 1\leq\alpha<17/16, 17/16\leq\alpha<8/7, 8/7\leq\alpha<7/6, 7/6<\alpha<5/4 and \alpha\geq 5/4. By a similar application of Buchstab’s identities we get
+
+\displaystyle\sum_{\begin{subarray}{c}x\leq P\leq x^{5/4}\\
+P=2^{j}x\end{subarray}}S(x,P)\leq(1/6+F+o(1))X\log x,
+
+where
+
+\displaystyle 1/6+F=1/6+F_{1}+F_{2}+F_{3}+F_{4}+F_{5}-F_{6}<0.679914
+
+with
+
+\displaystyle F_{1}\displaystyle:=\int_{1}^{17/16}\alpha\bigg(\int_{\sigma}^{\alpha-2\sigma}\omega(\alpha/\beta-1)\frac{d\beta}{\beta^{2}}+\int_{\xi}^{\alpha/2}\omega(\alpha/\beta-1)\frac{d\beta}{\beta^{2}}\bigg)d\alpha<0.0287
+\displaystyle F_{2}\displaystyle:=\int_{17/16}^{8/7}\alpha\int_{\sigma}^{\alpha/2}\omega(\alpha/\beta-1)\frac{d\beta}{\beta^{2}}d\alpha<0.08622
+\displaystyle F_{3}\displaystyle:=\int_{8/7}^{7/6}\alpha\int_{\sigma}^{\alpha/2}\omega(\alpha/\beta-1)\frac{d\beta}{\beta^{2}}d\alpha<0.03107
+\displaystyle F_{4}\displaystyle:=\int f_{4}(\alpha,\bm{\beta})\alpha\omega\bigg(\frac{\alpha-\beta_{1}-\beta_{2}-\beta_{3}}{\beta_{3}}\bigg)\frac{d\beta_{1}d\beta_{2}d\beta_{3}}{\beta_{1}\beta_{2}\beta_{3}^{2}}d\alpha<0.00011
+\displaystyle F_{5}\displaystyle:=4\int_{7/6}^{5/4}\alpha d\alpha=29/72
+\displaystyle F_{6}\displaystyle:=\int_{7/6}^{5/4}\alpha\int_{\alpha-1}^{\sigma}\omega(\alpha/\beta-1)\frac{d\beta}{\beta^{2}}d\alpha>0.035631
+
+with f_{4} the characteristic function of the four dimensional set
+
+\displaystyle\bigg\{8/7<\alpha\displaystyle<7/6,\,\gamma<\beta_{3}<\beta_{2}<\beta_{1}<\alpha-1
+\displaystyle\beta_{1}+\beta_{2},\,\beta_{1}+\beta_{3},\,\beta_{2}+\beta_{3},\,\beta_{1}+\beta_{2}+\beta_{3}\notin[\alpha-1,\sigma]\bigg\}.
+
+We also have by the linear sieve (Lemma [8](https://arxiv.org/html/1908.08816#Thmtheorem8 "Lemma 8. ‣ 2.3. Fundamental Proposition ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1"))
+
+\displaystyle\sum_{\begin{subarray}{c}x^{5/4}\leq P\leq x^{\varpi}\\
+P=2^{j}x\end{subarray}}S(x,P)\leq\bigg(4\int_{5/4}^{\varpi}\alpha d\alpha+o(1)\bigg)X\log x.
+
+Combining the two estimates we have
+
+\displaystyle\frac{1}{X\log x}\sum_{\begin{subarray}{c}x\leq P\leq x^{1.312}\\
+P=2^{j}x\end{subarray}}S(x,P)<0.679914+4\int_{5/4}^{1.312}\alpha d\alpha=0.997\dots<1,
+
+which implies Theorem [2](https://arxiv.org/html/1908.08816#Thmtheorem2 "Theorem 2. ‣ 1. Introduction ‣ On the largest prime factor of 𝑛^2+1"). ∎
+
+## 3. Type II information
+
+In this section we give a proof of Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1"). Let us first give a non-rigorous sketch of the argument.
+
+### 3.1. Sketch of the argument
+
+Similarly as in [[8](https://arxiv.org/html/1908.08816#bib.bib8)] and [[11](https://arxiv.org/html/1908.08816#bib.bib11)], in [[1](https://arxiv.org/html/1908.08816#bib.bib1), Théorème 5.2] de la Bretèche and Drappeau obtain asymptotic formulas for Type II sums by using the dispersion method of Linnik (cf. [[1](https://arxiv.org/html/1908.08816#bib.bib1), Section 8.3.3]).
+
+Our argument is more direct. We begin by applying the Poisson summation formula to evaluate |\mathcal{A}_{mn}|. For simplicity, let us assume that (m,n)=1 in the Type II sum in Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1"). Then by the Poisson summation formula (Lemma [10](https://arxiv.org/html/1908.08816#Thmtheorem10 "Lemma 10. ‣ 3.3. Preliminaries ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1")) we can reduce the claim to showing that for H=x^{\epsilon}P/x and for any bounded coefficients c_{h} we have
+
+\displaystyle\frac{1}{H}\sum_{1\leq|h|\leq H}c_{h}\sum_{\begin{subarray}{c}m\sim M\\
+n\sim N\\
+(m,n)=1\end{subarray}}a_{m}b_{n}\sum_{\begin{subarray}{c}\nu\,\,(mn)\\
+\nu^{2}+1\equiv 0\,\,(mn)\end{subarray}}e_{mn}(-h\nu)\,\ll x^{1-\eta}.
+
+When we apply Cauchy-Schwarz we would like to simplify matters by keeping the sum over \nu^{2}+1\equiv 0\,(mn) ‘outside’ while keeping the sum over n ‘inside’. To facilitate this, recall that b_{n} is supported on square-free integers. Hence, if we denote
+
+\displaystyle Q:=Q(m):=\prod_{\begin{subarray}{c}2\leq p\leq 2N\\
+p\equiv 1,2\,\,(4)\\
+p\,\nmid\,m\end{subarray}}p,
+
+then by the Chinese Remainder theorem we have (for (m,n)=1)
+
+\displaystyle\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,\,(mn)\end{subarray}}e_{mn}(-h\nu)=\frac{\rho(n)}{\rho(Q)}\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,\,(mQ)\end{subarray}}e_{mn}(-h\nu).
+
+Let \psi_{M}(m) denote a C^{\infty}-smooth majorant of 1_{m\sim M}. By the Cauchy-Schwarz inequality and by expanding the square afterwards we obtain
+
+\displaystyle\sum_{m\sim M}\displaystyle a_{m}\frac{1}{\rho(Q)}\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,\,(mQ)\end{subarray}}\frac{1}{H}\sum_{1\leq|h|\leq H}c_{h}\sum_{\begin{subarray}{c}n\sim N\\
+(m,n)=1\end{subarray}}b_{n}\rho(n)e_{mn}(-h\nu)
+\displaystyle\prec\mkern-5.0mu\prec M^{1/2}\bigg(\sum_{m}\psi_{M}(m)\frac{1}{H^{2}}\sum_{1\leq|h_{1}|,|h_{2}|\leq H}c_{h_{1}}\overline{c_{h_{2}}}\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N\\
+(m,n_{1}n_{2})=1\end{subarray}}b_{n_{1}}\overline{b_{n_{2}}}
+\displaystyle\hskip 100.0pt\frac{\rho(n_{1})\rho(n_{2})}{\rho(Q)}\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,\,(mQ)\end{subarray}}e_{mn_{1}}(-h_{1}\nu)e_{mn_{2}}(h_{2}\nu)\bigg)^{1/2}
+\displaystyle\prec\mkern-5.0mu\prec M^{1/2}\bigg(\frac{1}{H^{2}}\sum_{1\leq|h_{1}|,|h_{2}|\leq H}c_{h_{1}}\overline{c_{h_{2}}}\sum_{n_{0}\ll N}\rho(n_{0})\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N/n_{0}\\
+(n_{1},n_{2})=1\end{subarray}}b_{n_{0}n_{1}}\overline{b_{n_{0}n_{2}}}
+\displaystyle\hskip 70.0pt\sum_{(m,n_{0}n_{1}n_{2})=1}\psi_{M}(m)\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,\,(mn_{0}n_{1}n_{2})\end{subarray}}e_{mn_{0}n_{1}n_{2}}((h_{2}n_{1}-h_{1}n_{2})\nu)\bigg)^{1/2}
+
+by denoting n_{0}=(n_{1},n_{2}) and by using the Chinese Remainder Theorem to collapse the sum over \nu^{2}+1\equiv 0\,\,(mQ) back to a sum over \nu^{2}+1\equiv 0\,\,(mn_{0}n_{1}n_{2}).
+
+In the diagonal part h_{1}n_{2}-h_{2}n_{1}=0 we use a trivial estimate to get aboud
+
+\displaystyle\prec\mkern-5.0mu\prec M^{1/2}\bigg(\frac{1}{H^{2}}HNM\bigg)^{1/2}\ll MN^{1/2}H^{-1/2}\ll x^{1/2}P^{1/2}N^{-1/2}<x^{1-\eta},
+
+since H>P/x and N\gg x^{\alpha-1+\eta}.
+
+For the off-diagonal h_{1}n_{2}-h_{2}n_{1}\neq 0 we can introduce Kloosterman sums by a similar argument as in [[2](https://arxiv.org/html/1908.08816#bib.bib2), Section 5] to get a sum of the type
+
+\displaystyle\sum_{r}\sum_{\begin{subarray}{c}m\sim\bm{M}\\
+n\sim\bm{N}\end{subarray}}A_{m,r}B_{n,r}\sum_{(c,r)=1}g(m,n,c,r)S(m\overline{r},\pm n;c)
+
+where g(m,n,c,r) is a C^{\infty}-smooth function. Here r corresponds to n_{0}n_{1}n_{2}, n corresponds to h_{1}n_{2}-h_{2}n_{1}, and m is the frequency parameter that arises from completing an incomplete Kloosterman sum by using Lemma [11](https://arxiv.org/html/1908.08816#Thmtheorem11 "Lemma 11. ‣ 3.3. Preliminaries ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1"). Unfortunately both of the coefficients A_{m,r} and B_{n,r} depend on r, so that we are unable to make use of the average over the ‘level variable’ r (as in [[3](https://arxiv.org/html/1908.08816#bib.bib3), Theorem 10]). By combining the bound \theta\leq 7/64 of Kim and Sarnak [[10](https://arxiv.org/html/1908.08816#bib.bib10), Appendix 2] with the estimate of Deshouillers and Iwaniec [[3](https://arxiv.org/html/1908.08816#bib.bib3), Theorem 9] we can bound
+
+\displaystyle\sum_{\begin{subarray}{c}m\sim\bm{M}\\
+n\sim\bm{N}\end{subarray}}A_{m,r}B_{n,r}\sum_{(c,r)=1}g(m,n,c,r)S(m\overline{r},\pm n;c)
+
+for each r individually, which gives a sufficient bound as long as N\ll x^{(2-2\theta-\alpha)/3} for \theta=7/64.
+
+### 3.2. Sizes of various quantities in the proof
+
+In the proof of Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")(i) below there will appear numerous quantities. Here we have collected their sizes and relations to one another:
+
+\displaystyle P=x^{\alpha},\quad\quad MN=P,\quad\quad x^{\alpha-1+\eta}\ll N\ll x^{(2-2\theta-\alpha)/3-\eta}=x^{(57-32\alpha)/96-\eta},
+\displaystyle H=x^{\epsilon}P/x,\quad\quad k\ll M,\quad\quad 1\ll R,S\ll\frac{P^{1/2}N^{1/2}}{k^{1/2}n_{0}^{1/2}},
+\displaystyle T=x^{\epsilon}\frac{S\delta N^{2}}{Rn_{0}},\quad\quad H_{1},H_{2}\ll H,\quad\quad\varrho=\delta k^{2}n_{0}n_{1}n_{2}\asymp\delta N^{2}/n_{0},
+\displaystyle\bm{M}\ll T,\quad\quad\bm{N}\ll\frac{HN}{kn_{0}},\quad\quad\text{and}\quad\quad C\ll S.
+
+### 3.3. Preliminaries
+
+We have collected here some basic estimates which will be needed in the proof.
+
+###### Lemma 9.
+
+Let L\geq 1. For any integer q\neq 0 we have
+
+\displaystyle\sum_{1\leq\ell\leq L}(\ell,q)\leq\tau(q)L.
+
+###### Proof.
+
+We have
+
+\displaystyle\sum_{1\leq\ell\leq L}(\ell,q)\leq\sum_{d|q}\sum_{1\leq\ell\leq L}1_{d|\ell}\leq\tau(q)L.
+
+∎
+
+The following lemma is easily proved from [[2](https://arxiv.org/html/1908.08816#bib.bib2), Lemma 1] by using integration by parts multiple times.
+
+###### Lemma 10.
+
+_(Truncated Poisson summation formula)._ Let \psi be a fixed C^{\infty}-smooth compactly supported function and let x\gg 1. Let q\geq 1 be an integer. Then for any A,\epsilon>0
+
+\displaystyle\sum_{n\equiv a\,(q)}\psi\bigg(\frac{n}{x}\bigg)=\frac{1}{q}\int\psi\bigg(\frac{\xi}{x}\bigg)d\xi+\frac{x}{q}\sum_{1\leq|h|\leq x^{\epsilon}q/x}\widehat{\psi}\bigg(\frac{hx}{q}\bigg)e\bigg(-\frac{ah}{q}\bigg)+O_{A,\epsilon,\psi}(x^{-A}),
+
+where \hat{f}(h):=\int f(\xi)e(h\xi)d\xi is the Fourier transform.
+
+Applying the above lemma we immediately infer
+
+###### Lemma 11.
+
+_(Completion of sums)._ Let \psi be a fixed C^{\infty}-smooth compactly supported function and let x\gg 1. Let q\geq 1 be an integer. Suppose that F:\mathbb{N}\to\mathbb{C} is a q-periodic function. Then for any A,\epsilon>0
+
+\displaystyle\sum_{n}\psi\bigg(\frac{n}{x}\bigg)F(n)=\frac{x}{q}\sum_{0\leq|h|\leq x^{\epsilon}q/x}\widehat{\psi}\bigg(\frac{hx}{q}\bigg)\sum_{a\in\mathbb{Z}/q\mathbb{Z}}F(a)e_{q}(-ah)+O_{A,\epsilon,\psi}\bigg(x^{-A}\sum_{a\in\mathbb{Z}/q\mathbb{Z}}|F(a)|\bigg).
+
+To state the next lemma, for any sequence a_{m} and any M>0 define the \ell^{2}-norm
+
+\displaystyle\|a_{M}\|_{2}:=\bigg(\sum_{m\sim M}|a_{m}|^{2}\bigg)^{1/2}.
+
+Let \lambda_{1}(q) denote the smallest eigenvalue of the Laplacian on \Gamma_{0}(q)\backslash\mathbb{H} (cf. [[3](https://arxiv.org/html/1908.08816#bib.bib3), Section 1] for precise definitions). The Selberg eigenvalue conjecture famously states that for every congruence subgroup \Gamma the smallest eigenvalue \lambda_{1}(\Gamma) is at least 1/4. The current best result towards this is the result of Kim and Sarnak [[10](https://arxiv.org/html/1908.08816#bib.bib10), Proposition 2 in Appendix 2] which gives the lower bound \lambda_{1}(\Gamma)\geq 1/4-(7/64)^{2}. By combining this with [[3](https://arxiv.org/html/1908.08816#bib.bib3), Theorem 9] of Deshouillers and Iwaniec, we get
+
+###### Lemma 12.
+
+_(Deshouillers-Iwaniec + Kim-Sarnak)._ Let \theta=7/64, and let r be a positive integer. Let C,M,N>0 and let g(m,n,c) be a C^{\infty}-smooth function, supported in
+
+\displaystyle[M,2M]\times[N,2N]\times[C,2C]
+
+and satisfying
+
+\displaystyle\bigg|\frac{\partial^{j+k+\ell}}{\partial m^{j}\partial n^{k}\partial c^{\ell}}g(m,n,c)\bigg|\ll M^{-j}N^{-k}C^{-\ell}\quad\text{for}\,\,0\leq j,k,\ell\leq 2.
+
+Then for any coefficients a_{m} and b_{n} we have
+
+\displaystyle\sum_{\begin{subarray}{c}m,n,c\\
+(c,r)=1\end{subarray}}a_{m}b_{n}g(m,n,c)S(m\overline{r},\pm n;c)\prec\mkern-5.0mu\prec\displaystyle\bigg(1+\frac{\sqrt{r}C}{\sqrt{MN}}\bigg)^{2\theta}\,\mathcal{L}\,\|a_{M}\|_{2}\|b_{N}\|_{2},
+
+where
+
+\displaystyle\mathcal{L}=\frac{(\sqrt{r}C+\sqrt{MN}+\sqrt{M}C)(\sqrt{r}C+\sqrt{MN}+\sqrt{N}C)}{\sqrt{r}C+\sqrt{MN}}.
+
+To apply the above lemma we need an upper bound for the average value of \|b_{N}\|_{2}:
+
+###### Lemma 13.
+
+Let H_{1},H_{2},N,K\gg 1 and H_{1}\geq H_{2}. Then
+
+\displaystyle S:=\sum_{k_{1},k_{2}\sim K}\bigg(\sum_{n\sim N}\bigg|\sum_{\begin{subarray}{c}h_{1}\sim H_{1}\\
+h_{2}\sim H_{2}\end{subarray}}1_{h_{1}k_{2}-h_{2}k_{1}=n}\bigg|^{2}\bigg)^{1/2}\,\ll N^{1/2}\max\{KH_{1},K^{3/2}H_{1}^{1/2}\}.
+
+###### Proof.
+
+If H_{1}\geq K, then trivially S\ll N^{1/2}KH_{1}, since the number of solutions (h_{1},h_{2}) to h_{1}k_{2}-h_{2}k_{1}=n is bounded by \ll H_{1}/k_{1}+1\ll H_{1}/K. If H_{1}<K, then by the Cauchy-Schwarz inequality
+
+\displaystyle S\displaystyle\ll K\bigg(\sum_{\begin{subarray}{c}h_{1},h_{1}^{\prime}\sim H_{1}\\
+h_{2},h_{2}^{\prime}\sim H_{2}\end{subarray}}\sum_{\begin{subarray}{c}k_{1},k_{2}\sim K\\
+h_{1}k_{2}-h_{2}k_{1}\sim N\end{subarray}}1_{k_{2}(h_{1}-h_{1}^{\prime})=k_{1}(h_{2}-h_{2}^{\prime})}\bigg)^{1/2}
+\displaystyle\ll KH_{1}\bigg(\sum_{\begin{subarray}{c}|\ell_{1}|\ll H_{1}\\
+|\ell_{2}|\ll H_{2}\end{subarray}}\max_{\begin{subarray}{c}h_{1}\sim H_{1}\\
+\begin{subarray}{c}h_{2}\sim H_{2}\end{subarray}\end{subarray}}\sum_{\begin{subarray}{c}k_{1},k_{2}\sim K\\
+h_{2}k_{1}-h_{1}k_{2}\sim N\end{subarray}}1_{n_{2}\ell_{1}=n_{1}\ell_{2}}\bigg)^{1/2}
+\displaystyle\ll KH_{1}\bigg(\max_{\begin{subarray}{c}h_{1}\sim H_{1}\\
+\begin{subarray}{c}h_{2}\sim H_{2}\end{subarray}\end{subarray}}\sum_{n\sim N}\sum_{\begin{subarray}{c}k_{1},k_{2}\sim K\end{subarray}}1_{h_{1}k_{2}-h_{2}k_{1}=n}\bigg)^{1/2}\ll KH_{1}\bigg(N\frac{K}{H_{1}}\bigg)^{1/2}=N^{1/2}K^{3/2}H_{1}^{1/2}.
+
+∎
+
+For the proof of Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")(ii) we require the following lemma of de la Bretèche and Drappeau [[1](https://arxiv.org/html/1908.08816#bib.bib1), Lemme 8.3, part 1.] (applied with r=d=1 and D=-1), which makes explicit the dependence on \theta of the result of Duke, Friedlander and Iwaniec [[4](https://arxiv.org/html/1908.08816#bib.bib4), Proposition 4] (for \theta=1/4 they give essentially the same result).
+
+###### Lemma 14.
+
+Let \theta=7/64 and fix an integer q\geq 1. Suppose that |h|\leq q, M\gg 1, and let \psi be a fixed C^{\infty}-smooth compactly supported function. Then
+
+\displaystyle\sum_{(m,q)=1}\psi(m/M)\sum_{\nu^{2}+1\equiv 0\,\,(mq)}e_{mq}(h\nu)\,\prec\mkern-5.0mu\prec|h|\,+\,(q,h)^{\theta}q^{1/2-\theta}M^{1/2+\theta}.
+
+### 3.4. Evaluation of |\mathcal{A}_{mn}| by Poisson Summation
+
+We are now in place to begin the proof of Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1"). We will first show part (i) and in the end part (ii). By the Truncated Poisson summation formula (Lemma [10](https://arxiv.org/html/1908.08816#Thmtheorem10 "Lemma 10. ‣ 3.3. Preliminaries ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1")) we have for any \epsilon>0
+
+\displaystyle|\mathcal{A}_{mn}|\displaystyle=\sum_{\ell^{2}+1\equiv 0\,\,(mn)}b(\ell)=\sum_{\begin{subarray}{c}\nu\,\,(mn)\\
+\nu^{2}+1\equiv 0\,\,(mn)\end{subarray}}\sum_{\ell\equiv\nu\,\,(mn)}b(\ell)
+\displaystyle=\frac{\rho(mn)}{mn}X+r(\mathcal{A},mn)+O_{A,\epsilon}(x^{-A}),
+
+where, for \psi(z):=b(xz) and H:=x^{\epsilon}P/x, we have
+
+\displaystyle r(\mathcal{A},mn)=\frac{x}{mn}\sum_{1\leq|h|\leq H}\widehat{\psi}(hx/mn)\sum_{\begin{subarray}{c}\nu\,\,(mn)\\
+\nu^{2}+1\equiv 0\,\,(mn)\end{subarray}}e_{mn}(-h\nu).
+
+The smooth ‘cross-conditions’ \widehat{\psi}(hx/mn) and \psi_{P}(mn)\log mn may be removed by applying Mellin transform (similarly as one can use Perron’s formula to remove cross-conditions as in [[6](https://arxiv.org/html/1908.08816#bib.bib6), Chapter 3.2]). Hence, Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") follows once we show
+
+###### Proposition 15.
+
+Let c_{h} be any bounded coefficients. Adopting the assumptions of Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1"), for H:=x^{\epsilon}P/x we have
+
+(3.1)\displaystyle\Sigma(M,N):=\frac{1}{H}\sum_{1\leq|h|\leq H}c_{h}\sum_{\begin{subarray}{c}m\sim M\\
+n\sim N\end{subarray}}a_{m}b_{n}\sum_{\begin{subarray}{c}\nu\,\,(mn)\\
+\nu^{2}+1\equiv 0\,\,(mn)\end{subarray}}e_{mn}(-h\nu)\,\ll x^{1-\eta}.
+
+Our proof of Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")(i) actually gives the following general bound, which we state only in the case H\ll N for simplicity.
+
+###### Proposition 16.
+
+Let M,N,H\geq 1 with H\ll N and let a_{m}, b_{n} and c_{h} be divisor-bounded coefficients. Assume that b_{n} is supported on square-free integers. Then
+
+\displaystyle\frac{1}{H}\sum_{1\leq|h|\leq H}c_{h}\displaystyle\sum_{\begin{subarray}{c}m\sim M\\
+n\sim N\end{subarray}}a_{m}b_{n}\sum_{\begin{subarray}{c}\nu\,\,(mn)\\
+\nu^{2}+1\equiv 0\,\,(mn)\end{subarray}}e_{mn}(-h\nu)
+\displaystyle\prec\mkern-5.0mu\prec\frac{MN^{1/2}}{H^{1/2}}+\sqrt{HMN}+H^{1/2}M^{1/4}N+M^{3/4}N^{1/2}+\frac{M^{3/4+\theta/2}N^{3/2+\theta/2}}{H^{1/2+\theta/2}}.
+
+### 3.5. Application of the Cauchy-Schwarz inequality
+
+Let us write k=(m,n) and make the change of variables m\mapsto km and n\mapsto kn to get
+
+\displaystyle\Sigma(M,N)=\sum_{k\ll N}\Sigma_{k}(M,N)
+
+for
+
+\displaystyle\Sigma_{k}(M,N):=\sum_{\begin{subarray}{c}m\sim M/k\end{subarray}}a_{km}\frac{1}{H}\sum_{1\leq|h|\leq H}c_{h}\sum_{\begin{subarray}{c}n\sim N/k\\
+(n,km)=1\end{subarray}}b_{kn}\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,\,(k^{2}mn)\end{subarray}}e_{k^{2}mn}(-h\nu).
+
+We will show that \Sigma_{k}(M,N)\prec\mkern-5.0mu\prec x^{1-\eta}/k (in the first pass the reader may wish to restrict to the case k=1). Before applying the Cauchy-Schwarz inequality we note that by the Chinese Remainder Theorem for any coprime integers a,b the solutions to \nu^{2}+1\equiv 0\,(ab) are in one-to-one correspondence to the solutions to the pair of equations \alpha^{2}+1\equiv 0\,(a),\,\beta^{2}+1\equiv 0\,(b). Thus, denoting
+
+\displaystyle Q=Q(km):=\prod_{\begin{subarray}{c}2\leq p\leq 2N\\
+p\equiv 1,2\,\,(4)\\
+p\,\nmid\,km\end{subarray}}p,
+
+we have
+
+\displaystyle\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,\,(k^{2}mn)\end{subarray}}e_{k^{2}mn}(-h\nu)=\frac{\rho(n)}{\rho(Q)}\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,\,(k^{2}mQ)\end{subarray}}e_{k^{2}mn}(-h\nu)
+
+by using the fact that b_{n} is supported on square-free integers. Inserting this and applying the Cauchy-Schwarz inequality we get
+
+\displaystyle\Sigma_{k}(M,N)\prec\mkern-5.0mu\prec\displaystyle\frac{\sqrt{M}}{\sqrt{k}}\bigg(\sum_{m}\psi_{M}(km)\frac{1}{\rho(Q)}\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,\,(k^{2}mQ)\end{subarray}}\bigg|\frac{1}{H}\sum_{h}c_{h}\sum_{\begin{subarray}{c}n\sim N\\
+(n,m)=1\end{subarray}}b_{kn}\rho(n)e_{k^{2}mn}(-h\nu)\bigg|^{2}\bigg)^{1/2}
+(3.2)\displaystyle=\displaystyle\frac{\sqrt{M}}{\sqrt{k}}\bigg(\frac{1}{H^{2}}\sum_{1\leq|h_{1}|,|h_{2}|\leq H}c_{h_{1}}\overline{c_{h_{2}}}\sum_{m}\psi_{M}(km)\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N/k\\
+(n_{1}n_{2},m)=1\end{subarray}}b_{kn_{1}}\overline{b_{kn_{2}}}
+\displaystyle\hskip 100.0pt\frac{\rho(n_{1})\rho(n_{2})}{\rho(Q)}\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,\,(k^{2}mQ)\end{subarray}}e_{k^{2}mn_{1}}(-h_{1}\nu)e_{k^{2}mn_{2}}(h_{2}\nu)\bigg)^{1/2}.
+
+Denote n_{0}:=(n_{1},n_{2}), and make the change of variables n_{j}\mapsto n_{0}n_{j} in the above sum. Since n_{0}n_{1}n_{2} is square-free and coprime to km, by the Chinese Remainder Theorem we obtain
+
+\displaystyle\frac{\rho(n_{0}n_{1})\rho(n_{0}n_{2})}{\rho(Q)}\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,\,(k^{2}mQ)\end{subarray}}\displaystyle e_{k^{2}mn_{0}n_{2}}(h_{2}\nu)e_{k^{2}mn_{0}n_{1}}(-h_{1}\nu)
+\displaystyle=\frac{\rho(n_{0}n_{1})\rho(n_{0}n_{2})}{\rho(Q)}\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,\,(k^{2}mQ)\end{subarray}}e_{k^{2}mn_{0}n_{1}n_{2}}((h_{2}n_{1}-h_{1}n_{2})\nu)
+\displaystyle=\rho(n_{0})\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,\,(k^{2}mn_{0}n_{1}n_{2})\end{subarray}}e_{k^{2}mn_{0}n_{1}n_{2}}((h_{2}n_{1}-h_{1}n_{2})\nu).
+
+Hence, we obtain \Sigma(M,N)_{k}^{2}\prec\mkern-5.0mu\prec(M/k)\cdot\Xi_{k}(M,N), where
+
+\displaystyle\Xi_{k}(M,N):=\frac{1}{H^{2}}\displaystyle\sum_{1\leq|h_{1}|,|h_{2}|\leq H}c_{h_{1}}\overline{c_{h_{2}}}\sum_{n_{0}\ll N}\rho(n_{0})\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N/kn_{0}\\
+(n_{1},n_{2})=1\end{subarray}}b_{kn_{0}n_{1}}\overline{b_{kn_{0}n_{2}}}
+\displaystyle\sum_{(m,n_{0}n_{1}n_{2})=1}\psi_{M}(km)\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,\,(k^{2}mn_{0}n_{1}n_{2})\end{subarray}}e_{k^{2}mn_{0}n_{1}n_{2}}((h_{2}n_{1}-h_{1}n_{2})\nu).
+
+We immediately note that the contribution from the diagonal h_{1}n_{2}-h_{1}n_{2}=0 to \Xi_{k}(M,N) is trivially bounded by
+
+\displaystyle\prec\mkern-5.0mu\prec\frac{M}{kH^{2}}\sum_{n_{0}\ll N}\sum_{1\leq|h_{1}|,|h_{2}|\leq 2H}\sum_{n_{1},n_{2}\ll N/kn_{0}}1_{h_{1}n_{2}=h_{2}n_{1}}\prec\mkern-5.0mu\prec\frac{MN}{kH},
+
+which contributes to \Sigma_{k}(M,N) at most
+
+(3.3)\displaystyle\prec\mkern-5.0mu\prec\frac{1}{k}M^{1/2}\bigg(\frac{MN}{H}\bigg)^{1/2}=\frac{MN^{1/2}}{kH^{1/2}}\ll\frac{1}{k}x^{1/2}P^{1/2}N^{-1/2}\ll x^{1-\eta}/k
+
+by using H=x^{\epsilon}P/x and the assumption N\gg x^{\alpha-1+\eta}. Therefore, we may assume below that h_{1}n_{2}-h_{2}n_{1}\neq 0.
+
+### 3.6. Introducing Kloosterman sums
+
+We expand the condition (m,n_{0}n_{1}n_{2})=1 by using the Möbius function to get
+
+\displaystyle\sum_{(m,n_{0}n_{1}n_{2})=1}=\sum_{\delta|n_{0}n_{1}n_{2}}\mu(\delta)\sum_{\begin{subarray}{c}m\\
+\delta|m\end{subarray}}.
+
+In the first pass the reader may wish to pretend that \delta=1 below. Let us denote \ell:=mk^{2}n_{0}n_{1}n_{2}, so that the condition \delta|m can be written as \delta k^{2}n_{0}n_{1}n_{2}|\ell and
+
+\displaystyle\Xi_{k}(M,N)=\displaystyle\frac{1}{H^{2}}\sum_{1\leq|h_{1}|,|h_{2}|\leq H}c_{h_{1}}\overline{c_{h_{2}}}\sum_{n_{0}\ll N}\rho(n_{0})\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N/kn_{0}\\
+(n_{1},n_{2})=1\\
+h_{1}n_{2}-h_{2}n_{1}\neq 0\end{subarray}}b_{kn_{0}n_{1}}\overline{b_{kn_{0}n_{2}}}\sum_{\delta|n_{0}n_{1}n_{2}}\mu(\delta)
+\displaystyle\sum_{\ell\equiv 0\,\,(\delta k^{2}n_{0}n_{1}n_{2})}\psi_{M}\bigg(\frac{\ell}{kn_{0}n_{1}n_{2}}\bigg)\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,(\ell)\end{subarray}}e_{\ell}((h_{2}n_{1}-h_{1}n_{2})\nu)+O(MN/kH).
+
+The variable \ell is of size PN/kn_{0}. To proceed we require the following Lemma of Gauss (cf. [[2](https://arxiv.org/html/1908.08816#bib.bib2), Lemma 2]):
+
+###### Lemma 17.
+
+If the equation \nu^{2}+1\equiv 0\,\,(\ell) has a solution, then \ell has a representation as a sum of two squares
+
+\displaystyle\ell=r^{2}+s^{2},\quad(r,s)=1,\quad r,s>0.
+
+Furthermore, there is a one-to-one correspondence between such representations and the solutions to \nu^{2}+1\equiv 0\,\,(\ell), and we have
+
+\displaystyle\frac{\nu}{\ell}\equiv\frac{r}{s(r^{2}+s^{2})}-\frac{\overline{r}}{s}\mod 1.
+
+Applying this lemma we get
+
+\displaystyle e_{\ell}\bigg((h_{2}n_{1}-h_{1}n_{2})\nu\bigg)=e_{s}\bigg(\frac{h_{1}n_{2}-h_{2}n_{1}}{r}\bigg)\bigg(1+O\bigg(\frac{Hr}{Ps}\bigg)\bigg).
+
+The contribution from the O-term to \Sigma_{k}(M,N) is trivially bounded by
+
+(3.4)\displaystyle\frac{\sqrt{M}}{\sqrt{k}}\bigg(\frac{H}{P}\sum_{n_{0}\ll N}\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N/kn_{0}\end{subarray}}\sum_{\delta|n_{0}n_{1}n_{2}}\max_{t}\sum_{s\ll(PN/kn_{0})^{1/2}}\frac{1}{s}\sum_{\begin{subarray}{c}r\ll(PN/kn_{0})^{1/2}\\
+r\equiv t\,(\delta k^{2}n_{0}n_{1}n_{2})\end{subarray}}r\bigg)^{1/2}
+\displaystyle\prec\mkern-5.0mu\prec\frac{\sqrt{M}}{\sqrt{k}}\bigg(\frac{H}{P}\sum_{n_{0}\ll N}\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N/kn_{0}\end{subarray}}\sum_{\delta|n_{0}n_{1}n_{2}}\frac{P^{1/2}N^{1/2}}{(n_{0}k)^{1/2}}\bigg(\frac{P^{1/2}N^{1/2}}{k^{5/2}\delta n_{0}^{3/2}n_{1}n_{2}}+1\bigg)\bigg)^{1/2}
+\displaystyle\prec\mkern-5.0mu\prec\frac{1}{k}(M^{1/2}H^{1/2}N^{1/2}+M^{1/2}H^{1/2}N^{5/4}P^{-1/4})
+(3.5)\displaystyle=\frac{x^{\epsilon/2}}{k}(Px^{-1/2}+P^{3/4}N^{3/4}x^{-1/2})\ll x^{1-\eta}/k
+
+since from the assumptions it follows that \alpha<3/2-\eta and N<x^{2-\alpha-\eta}.
+
+Hence, we have \Xi_{k}(M,N)=\widetilde{\Xi_{k}}(M,N)+O(\mathcal{E}), where (M/k)^{1/2}\mathcal{E}^{1/2}<x^{1-\eta}/k and
+
+\displaystyle\widetilde{\Xi_{k}}(M,N):=\frac{1}{H^{2}}\sum_{1\leq|h_{1}|,|h_{2}|\leq H}c_{h_{1}}\overline{c_{h_{2}}}\displaystyle\sum_{n_{0}\ll N}\rho(n_{0})\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N/kn_{0}\\
+(n_{1},n_{2})=1\\
+h_{1}n_{2}-h_{2}n_{1}\neq 0\end{subarray}}b_{kn_{0}n_{1}}\overline{b_{kn_{0}n_{2}}}\sum_{\delta|n_{0}n_{1}n_{2}}\mu(\delta)
+\displaystyle\sum_{\begin{subarray}{c}r,s>0\\
+(r,s)=1\\
+r^{2}\equiv-s^{2}\,(\delta k^{2}n_{0}n_{1}n_{2})\end{subarray}}\psi_{M}\bigg(\frac{r^{2}+s^{2}}{kn_{0}n_{1}n_{2}}\bigg)e_{s}\bigg(\frac{h_{1}n_{2}-h_{2}n_{1}}{r}\bigg).
+
+### 3.7. Completing the sum
+
+By a smooth dyadic partition of unity for the variables r and s, we can split \widetilde{\Xi_{k}}(M,N) into \ll\log^{2}x sums of the form
+
+\displaystyle\Psi_{k}(R,S):=\frac{1}{H^{2}}\sum_{1\leq|h_{1}|,|h_{2}|\leq H}c_{h_{1}}\overline{c_{h_{2}}}\displaystyle\sum_{n_{0}\ll N}\rho(n_{0})\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N/kn_{0}\\
+(n_{1},n_{2})=1\\
+h_{1}n_{2}-h_{2}n_{1}\neq 0\end{subarray}}b_{kn_{0}n_{1}}\overline{b_{kn_{0}n_{2}}}\sum_{\delta|n_{0}n_{1}n_{2}}\mu(\delta)
+\displaystyle\sum_{\begin{subarray}{c}(r,s)=1\\
+r^{2}\equiv-s^{2}\,(\delta k^{2}n_{0}n_{1}n_{2})\end{subarray}}g(r,s,n_{0}n_{1}n_{2})e_{s}\bigg(\frac{h_{1}n_{2}-h_{2}n_{1}}{r}\bigg).
+
+where
+
+\displaystyle g(r,s,n_{0}n_{1}n_{2}):=\psi_{R}(r)\psi_{S}(s)\psi_{M}\bigg(\frac{r^{2}+s^{2}}{kn_{0}n_{1}n_{2}}\bigg)
+
+with \psi_{R}(r) (similarly for \psi_{S}(s)) a C^{\infty}-smooth function supported on [R,2R] and satisfying \psi_{R}^{(i)}(r)\ll_{i}R^{-i} for all i\geq 0, where
+
+\displaystyle 1\ll R,S\ll\frac{P^{1/2}N^{1/2}}{k^{1/2}n_{0}^{1/2}}\quad\text{and}\quad\max\{R,S\}\gg\frac{P^{1/2}N^{1/2}}{k^{1/2}n_{0}^{1/2}}.
+
+For each R and S we can now complete the sum over r by using the Poisson summation formula (Lemma [11](https://arxiv.org/html/1908.08816#Thmtheorem11 "Lemma 11. ‣ 3.3. Preliminaries ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1")), similarly as in [[2](https://arxiv.org/html/1908.08816#bib.bib2), Section 5]. The modulus of the sum is of size S\delta k^{2}n_{0}n_{1}n_{2}\asymp S\delta N^{2}/n_{0}, and the length of the sum is R, so that for
+
+\displaystyle T:=x^{\epsilon}\frac{S\delta N^{2}}{Rn_{0}}
+
+we get by Lemma [11](https://arxiv.org/html/1908.08816#Thmtheorem11 "Lemma 11. ‣ 3.3. Preliminaries ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1")
+
+\displaystyle\sum_{\begin{subarray}{c}r\\
+(r,s)=1\\
+r^{2}\equiv-s^{2}\,(\delta k^{2}n_{0}n_{1}n_{2})\end{subarray}}g(r,s,n_{0}n_{1}n_{2})e_{s}\bigg(\frac{h_{1}n_{2}-h_{2}n_{1}}{r}\bigg)+O_{A,\epsilon}(x^{-A})
+(3.6)\displaystyle\hskip 25.0pt=\frac{x^{\epsilon}}{T}\sum_{|t|\leq T}G(t,s,n_{0}n_{1}n_{2})\sum_{\begin{subarray}{c}u\,(s\delta k^{2}n_{0}n_{1}n_{2})\\
+(u,s)=1\\
+u^{2}\equiv-s^{2}\,(\delta k^{2}n_{0}n_{1}n_{2})\end{subarray}}e_{s}\bigg(\frac{h_{1}n_{2}-h_{2}n_{1}}{u}\bigg)e_{s\delta k^{2}n_{0}n_{1}n_{2}}(-tu),
+
+where
+
+\displaystyle G(t,s,n_{0}n_{1}n_{2})=\frac{RT}{x^{\epsilon}s\delta k^{2}n_{0}n_{1}n_{2}}\widehat{f}_{s,n_{0},n_{1},n_{2}}(tR/s\delta k^{2}n_{0}n_{1}n_{2})
+
+for
+
+\displaystyle f_{s,n_{0},n_{1},n_{2}}(x):=g(Rx,s,n_{0}n_{1}n_{2})
+
+(so that the function G is bounded). By writing u=\alpha s+\beta\delta k^{2}n_{0}n_{1}n_{2} (note that (u,s)=1 implies (s,\delta k^{2}n_{0}n_{1}n_{2})=1) the right-hand side in ([3.6](https://arxiv.org/html/1908.08816#S3.E6 "In 3.7. Completing the sum ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1")) is equal to
+
+\displaystyle\frac{x^{\epsilon}}{T}\sum_{|t|\leq T}G(t,s,n_{0}n_{1}n_{2})\sum_{\alpha^{2}+1\equiv 0\,(\delta k^{2}n_{0}n_{1}n_{2})}e_{\delta k^{2}n_{0}n_{1}n_{2}}(-t\alpha)\sum_{\begin{subarray}{c}\beta\,(s)\\
+(\beta,s)=1\end{subarray}}e_{s}\bigg(\frac{h_{1}n_{2}-h_{2}n_{1}}{\delta k^{2}n_{0}n_{1}n_{2}\beta}-t\beta\bigg).
+
+The contribution from t=0 to \Psi_{k}(R,S) is by a standard bound for Ramanujan’s sums bounded by (using Lemma [9](https://arxiv.org/html/1908.08816#Thmtheorem9 "Lemma 9. ‣ 3.3. Preliminaries ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1"))
+
+\displaystyle\prec\mkern-5.0mu\prec\frac{1}{TH^{2}}\sum_{h_{1},h_{2}}\sum_{n_{0}\ll N}\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N/kn_{0}\\
+(n_{1},n_{2})=1\\
+h_{1}n_{2}-h_{2}n_{1}\neq 0\end{subarray}}\sum_{s}(h_{1}n_{2}-h_{2}n_{1},s)\prec\mkern-5.0mu\prec\sum_{n_{0}\ll N}\frac{SN^{2}}{Tk^{2}n_{0}^{2}}\ll P^{1/2}N^{1/2}k^{-2}.
+
+The contribution from this to \Sigma_{k}(M,N) is
+
+(3.7)\displaystyle\prec\mkern-5.0mu\prec M^{1/2}P^{1/4}N^{1/4}/k=P^{3/4}N^{-1/4}/k\ll x^{1-\eta}/k
+
+since N\gg x^{\alpha-1+\eta}\gg x^{3\alpha-4+\eta} for \alpha<3/2.
+
+Therefore, the sum \Psi_{k}(R,S) is up to a negligible error term equal to a sum of Kloosterman sums of the form
+
+\displaystyle\widetilde{\Psi_{k}}(R,S):=\frac{x^{\epsilon}}{TH^{2}}\sum_{1\leq|h_{1}|,|h_{2}|\leq H}c_{h_{1}}\overline{c_{h_{2}}}\sum_{n_{0}\ll N}\rho(n_{0})\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N/kn_{0}\\
+(n_{1},n_{2})=1\\
+h_{1}n_{2}-h_{2}n_{1}\neq 0\end{subarray}}b_{n_{0}n_{1}}\overline{b_{n_{0}n_{2}}}\sum_{\delta|n_{0}n_{1}n_{2}}\mu(\delta)
+\displaystyle\sum_{\alpha^{2}+1\equiv 0\,(\delta k^{2}n_{0}n_{1}n_{2})}\sum_{1\leq|t|\leq T}e_{\delta k^{2}n_{0}n_{1}n_{2}}(-t\alpha)\sum_{(s,\delta k^{2}n_{0}n_{1}n_{2})=1}G(t,s,n_{0}n_{1}n_{2})S(-t\overline{\delta k^{2}n_{0}n_{1}n_{2}},h_{1}n_{2}-h_{2}n_{1};s).
+
+### 3.8. Application of the Deshouillers-Iwaniec bound
+
+We split the sum over h_{1} and h_{2} dyadically to parts with h_{1}\sim H_{2} and h_{2}\sim H_{2}. By symmetry we may assume H_{1}\geq H_{2}. We now fix n_{0},n_{1},n_{2},\delta,\alpha, and write
+
+\displaystyle\varrho:=\delta k^{2}n_{0}n_{1}n_{2}\asymp\delta N^{2}/n_{0}
+
+and (denoting m:=t and n:=h_{1}n_{2}-h_{1}n_{2})
+
+\displaystyle A_{m}=A_{m}(\varrho,\alpha):=e_{\varrho}(-m\alpha)\quad\text{and}\quad B_{n}=B_{n}(n_{1},n_{2}):=\sum_{\begin{subarray}{c}h_{1}\sim H_{1}\\
+h_{2}\sim H_{2}\\
+n=h_{1}n_{2}-h_{2}n_{1}\end{subarray}}c_{h_{1}}\overline{c_{h_{2}}}.
+
+Since t\neq 0\neq h_{1}n_{2}-n_{2}h_{1}, by a smooth dyadic decomposition in the variables m and n we can partition \widetilde{\Psi_{k}}(R,S) into \ll\log^{2}x sums of the form
+
+\displaystyle\Upsilon_{k}:=\frac{1}{TH^{2}}\sum_{n_{0}\ll N}\rho(n_{0})\sum_{n_{1},n_{2}\sim N/kn_{0}}\sum_{\begin{subarray}{c}\delta|n_{0}n_{1}n_{2}\end{subarray}}\max_{\alpha\,(\varrho)}\bigg|\sum_{\begin{subarray}{c}m,n,c\\
+(c,\varrho)=1\end{subarray}}A_{m}B_{n}F(m,n,c)S(m\overline{\varrho},\pm n;c)\bigg|,
+
+where it is easily verified that F satisfies the assumptions of Lemma [12](https://arxiv.org/html/1908.08816#Thmtheorem12 "Lemma 12. ‣ 3.3. Preliminaries ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1") in the range
+
+\displaystyle(m,n,c)\in[\bm{M},2\bm{M}]\times[\bm{N},2\bm{N}]\times[C,2C]
+
+for
+
+\displaystyle\bm{M}\ll T=x^{\epsilon}\frac{S\delta N^{2}}{Rn_{0}},\quad\bm{N}\ll HN/kn_{0},\quad\text{and}\quad C\ll S\ll\frac{P^{1/2}N^{1/2}}{k^{1/2}n_{0}^{1/2}}.
+
+By Lemma [12](https://arxiv.org/html/1908.08816#Thmtheorem12 "Lemma 12. ‣ 3.3. Preliminaries ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1") we get for \theta:=7/64
+
+\displaystyle\bigg|\sum_{\begin{subarray}{c}m,n,c\\
+(c,\varrho)=1\end{subarray}}A_{m}B_{n}F(m,n,c)S(m\overline{\varrho},\pm n;c)\bigg|\prec\mkern-5.0mu\prec\bigg(1+\frac{\sqrt{\varrho}C}{\sqrt{\bm{M}\bm{N}}}\bigg)^{2\theta}\mathcal{L}\,\|A_{\bm{M}}\|_{2}\|B_{\bm{N}}\|_{2}
+
+for
+
+\displaystyle\mathcal{L}\displaystyle=\frac{(\sqrt{\varrho}C+\sqrt{\bm{M}\bm{N}}+\sqrt{\bm{M}}C)(\sqrt{\varrho}C+\sqrt{\bm{M}\bm{N}}+\sqrt{\bm{N}}C)}{\sqrt{\varrho}C+\sqrt{\bm{M}\bm{N}}}
+\displaystyle=\sqrt{\varrho}C+\sqrt{\bm{M}\bm{N}}+\sqrt{\bm{M}}C+\sqrt{\bm{N}}C+\frac{\sqrt{\bm{M}\bm{N}}C^{2}}{\sqrt{\varrho}C+\sqrt{\bm{M}\bm{N}}}
+\displaystyle\ll\sqrt{\varrho}C+\sqrt{\bm{M}}C+\sqrt{\bm{M}\bm{N}}\ll\sqrt{\delta/n_{0}}NS+\sqrt{T}S+\sqrt{THN/kn_{0}},
+
+where the last bound follows from \bm{N}\ll\varrho. We have \|A_{\bm{M}}\|_{2}\,\ll\sqrt{\bm{M}}, and by Lemma [13](https://arxiv.org/html/1908.08816#Thmtheorem13 "Lemma 13. ‣ 3.3. Preliminaries ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1")
+
+\displaystyle\sum_{n_{1},n_{2}\sim N/kn_{0}}\|B_{\bm{N}}\|_{2}\,\ll\sqrt{\bm{N}}\max\bigg\{\frac{NH_{1}}{kn_{0}},\frac{N^{3/2}H_{1}^{1/2}}{k^{3/2}n_{0}^{3/2}}\bigg\}.
+
+Hence, by using H\ll N we have
+
+\displaystyle\Upsilon_{k}\displaystyle\prec\mkern-5.0mu\prec\,\max_{\delta}\sum_{n_{0}\ll N}\frac{1}{TH^{2}}\bigg(1+\frac{\sqrt{\varrho}C}{\sqrt{\bm{M}\bm{N}}}\bigg)^{2\theta}(\sqrt{\delta/n_{0}}NS+\sqrt{T}S+\sqrt{THN/kn_{0}})
+\displaystyle\hskip 200.0pt\cdot\sqrt{\bm{M}\bm{N}}\max\bigg\{\frac{NH_{1}}{kn_{0}},\frac{N^{3/2}H_{1}^{1/2}}{k^{3/2}n_{0}^{3/2}}\bigg\}
+\displaystyle\prec\mkern-5.0mu\prec\,\max_{\delta}\sum_{n_{0}\ll N}\frac{1}{TH^{2}}\bigg(1+\frac{\sqrt{k\delta}NS}{\sqrt{THN}}\bigg)^{2\theta}(\sqrt{\delta/n_{0}}NS+\sqrt{T}S+\sqrt{THN/kn_{0}})\sqrt{T}\frac{HN^{2}}{k^{3/2}n_{0}^{3/2}}
+\displaystyle\ll\max_{\delta}\sum_{n_{0}\ll N}\frac{1}{kn_{0}^{3/2}}\bigg(1+\frac{\sqrt{\delta}NS}{\sqrt{THN}}\bigg)^{2\theta}\bigg(\frac{\sqrt{\delta/n_{0}}SN^{3}}{\sqrt{T}H}+\frac{SN^{2}}{H}+\frac{N^{5/2}}{\sqrt{Hn_{0}}}\bigg),
+
+since the first bound is increasing as a function of \bm{M} and \bm{N}. Inserting T=x^{\epsilon}S\delta N^{2}/Rn_{0} we obtain
+
+\displaystyle\Upsilon_{k}\displaystyle\prec\mkern-5.0mu\prec\sum_{n_{0}\ll N}\frac{1}{kn_{0}^{3/2}}\bigg(1+\frac{\sqrt{n_{0}RS}}{\sqrt{HN}}\bigg)^{2\theta}\bigg(\frac{\sqrt{RS}N^{2}}{H}+\frac{SN^{2}}{H}+\frac{N^{5/2}}{\sqrt{H}}\bigg)
+\displaystyle\prec\mkern-5.0mu\prec\frac{1}{k}\bigg(1+\frac{\sqrt{P}}{\sqrt{H}}\bigg)^{2\theta}\bigg(\frac{P^{1/2}N^{5/2}}{H}+\frac{N^{5/2}}{\sqrt{H}}\bigg),
+
+since R,S\ll P^{1/2}N^{1/2}n_{0}^{-1/2}. By using H=x^{\epsilon}P/x this yields
+
+(3.8)\displaystyle\Upsilon_{k}\prec\mkern-5.0mu\prec\frac{x^{1+\theta}N^{5/2}}{kP^{1/2}},
+
+so that the contribution to \Sigma_{k}(M,N) is
+
+(3.9)\displaystyle\prec\mkern-5.0mu\prec M^{1/2}x^{1/2+\theta/2}N^{5/4}P^{-1/4}/k=x^{1/2+\theta/2}P^{1/4}N^{3/4}/k\ll x^{1-\eta}/k
+
+by using the assumption N\ll x^{(2-2\theta-\alpha)/3-\eta}.
+
+### 3.9. Proof of Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")(i)
+
+By combining the bounds ([3.3](https://arxiv.org/html/1908.08816#S3.E3 "In 3.5. Application of the Cauchy-Schwarz inequality ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1")), ([3.5](https://arxiv.org/html/1908.08816#S3.E5 "In 3.6. Introducing Kloosterman sums ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1")), ([3.7](https://arxiv.org/html/1908.08816#S3.E7 "In 3.7. Completing the sum ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1")), and ([3.9](https://arxiv.org/html/1908.08816#S3.E9 "In 3.8. Application of the Deshouillers-Iwaniec bound ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1")) we obtain \Sigma_{k}(M,N)\ll x^{1-\eta}/k. Summing over k\ll M we get \Sigma(M,N)\ll x^{1-\eta}, which by Section [3.4](https://arxiv.org/html/1908.08816#S3.SS4 "3.4. Evaluation of |𝒜_{𝑚⁢𝑛}| by Poisson Summation ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1") proves Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")(i). ∎
+
+### 3.10. Proof of Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")(ii)
+
+We need to prove ([3.1](https://arxiv.org/html/1908.08816#S3.E1 "In Proposition 15. ‣ 3.4. Evaluation of |𝒜_{𝑚⁢𝑛}| by Poisson Summation ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1")) under the assumptions in Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")(ii). We use a similar argument as in [[4](https://arxiv.org/html/1908.08816#bib.bib4), Section 5] with Lemma [14](https://arxiv.org/html/1908.08816#Thmtheorem14 "Lemma 14. ‣ 3.3. Preliminaries ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1"). Inserting the condition (m,n)=1 to \Sigma(M,N) gives an error term (since b_{n} are supported on primes)
+
+\displaystyle\prec\mkern-5.0mu\prec\sum_{n\sim N}\sum_{m\sim M}1_{n|m}\prec\mkern-5.0mu\prec M\ll x^{1-\eta},
+
+so that we may restrict to the part (m,n)=1. Applying the Cauchy-Schwarz inequality similarly as in Section [3.5](https://arxiv.org/html/1908.08816#S3.SS5 "3.5. Application of the Cauchy-Schwarz inequality ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1") but with the sum over h ‘outside’ we get \Sigma(M,N)\prec\mkern-5.0mu\prec M^{1/2}\cdot\Xi(M,N)^{1/2} for
+
+\displaystyle\Xi(M,N):=\frac{1}{H}\sum_{1\leq|h|\leq H}\displaystyle\sum_{n_{0}\ll N}\rho(n_{0})\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N/n_{0}\\
+(n_{1},n_{2})=1\end{subarray}}b_{n_{0}n_{1}}\overline{b_{n_{0}n_{2}}}
+\displaystyle\sum_{(m,n_{0}n_{1}n_{2})=1}\psi_{M}(m)\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,\,(mn_{0}n_{1}n_{2})\end{subarray}}e_{mn_{0}n_{1}n_{2}}(h(n_{1}-n_{2})\nu).
+
+The diagonal part n_{1}=n_{2} is bounded by \prec\mkern-5.0mu\prec MN, whose contribution to \Sigma(M,N) is at most \prec\mkern-5.0mu\prec MN^{1/2}<x^{1-\eta} by using N\gg x^{2(\alpha-1)+\eta}. For the remaining part \Xi_{0}(M,N) with n_{0}=1 we use Lemma [14](https://arxiv.org/html/1908.08816#Thmtheorem14 "Lemma 14. ‣ 3.3. Preliminaries ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1") with q=n_{1}n_{2} to get
+
+\displaystyle\Xi_{0}(M,N):=\displaystyle\frac{1}{H}\sum_{1\leq|h|\leq H}\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N\\
+(n_{1},n_{2})=1\end{subarray}}b_{n_{1}}\overline{b_{n_{2}}}\sum_{(m,n_{1}n_{2})=1}\psi_{M}(m)\sum_{\begin{subarray}{c}\nu^{2}+1\equiv 0\,\,(mn_{1}n_{2})\end{subarray}}e_{mn_{1}n_{2}}(h(n_{1}-n_{2})\nu)
+\displaystyle\ll\displaystyle\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N\\
+(n_{1},n_{2})=1\end{subarray}}\frac{1}{H}\sum_{1\leq|h|\leq H}\bigg(HN+(n_{1}n_{2},h(n_{1}-n_{2}))^{\theta}N^{1-2\theta}M^{1/2+\theta}\bigg)
+\displaystyle\prec\mkern-5.0mu\prec\displaystyle\,HN^{3}+M^{1/2+\theta}N^{3-2\theta}
+
+by computing the sum over h with Lemma [9](https://arxiv.org/html/1908.08816#Thmtheorem9 "Lemma 9. ‣ 3.3. Preliminaries ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1"). The contribution from this to \Sigma(M,N) is bounded by
+
+\displaystyle\prec\mkern-5.0mu\prec M^{1/2}H^{1/2}N^{3/2}+M^{3/4+\theta/2}N^{3/2-\theta}=x^{\epsilon/2}PNx^{-1/2}+P^{3/4+\theta/2}N^{3/4-3\theta/2}\ll x^{1-\eta},
+
+since N\ll x^{(4-(3+2\theta)\alpha)/(3-6\theta)-\eta}<x^{3/2-\alpha-\eta}. Hence, \Sigma(M,N)\ll x^{1-\eta}. ∎
+
+## 4. Remarks on the arithmetic information
+
+For \alpha=1+o(1) Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1")(i) gives Type II information for N\ll x^{1/3-2\theta/3-\eta}, while part (ii) works for N\ll x^{1/3-\eta}. The reason for this discrepancy is that we were unable to use the average over the level variable r in Section [3.8](https://arxiv.org/html/1908.08816#S3.SS8 "3.8. Application of the Deshouillers-Iwaniec bound ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1"). If we could use the average over r, we expect that the dependency on the parameter \theta would be same as in [[1](https://arxiv.org/html/1908.08816#bib.bib1), Lemme 8.3, part 3.], that is, M^{\theta}Q^{-\theta}, where Q corresponds to N^{2} (note that by a more careful argument we know that the coefficient c_{h} is a nice smooth function of h). Therefore, instead of ([3.8](https://arxiv.org/html/1908.08816#S3.E8 "In 3.8. Application of the Deshouillers-Iwaniec bound ‣ 3. Type II information ‣ On the largest prime factor of 𝑛^2+1")), our bound for \Upsilon_{k} would read xM^{\theta}N^{5/2-2\theta}P^{-1/2}/k, which yields
+
+###### Conjecture 1.
+
+Suppose that \alpha<3/2-\eta. Let H=x^{\epsilon}P/x and let c_{h}=\psi(h/H) for some fixed compactly supported C^{\infty}-smooth function \psi. Then for b_{n} supported on square-free integers we have
+
+\displaystyle\Sigma(M,N)\prec\mkern-5.0mu\prec x^{1/2}M^{1/2}+x^{1/2}M^{1/4+\theta/2}N^{1-\theta}+x^{1-\eta}.
+
+This gives a bound \Sigma(M,N)\ll x^{1-\eta} as soon as
+
+\displaystyle x^{\alpha-1+\eta}\ll N\ll x^{(2-(1+2\theta)\alpha)/(3-6\theta)-\eta}.
+
+Note that this is better than the combined bound of Proposition [4](https://arxiv.org/html/1908.08816#Thmtheorem4 "Proposition 4. ‣ 2.2. Arithmetic information ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") parts (i) and (ii), and for \alpha=1+o(1) the upper limit is x^{1/3-\eta}. Assuming the above bound with \theta=7/64 we can improve the exponent in Theorem [1](https://arxiv.org/html/1908.08816#Thmtheorem1 "Theorem 1. ‣ 1. Introduction ‣ On the largest prime factor of 𝑛^2+1") from 1.279 to 1.286.
+
+The main reason why the Type II estimate is restricted to small values of P is that we have to use the Cauchy-Schwarz inequality, which means that all savings are essentially halved. Therefore, for large P one should attempt to obtain some other type of arithmetical information where the Cauchy-Schwarz inequality is not necessary, eg. an asymptotic for Type I 2 sums
+
+\displaystyle\sum_{d\leq D_{2}}\lambda_{d}\sum_{\begin{subarray}{c}m\sim M,\,\,n\sim N\\
+mn\equiv 0\,(d)\end{subarray}}|\mathcal{A}_{mn}|\psi_{P}(mn)\log mn
+
+where the most important range would be M=N=\sqrt{P}. Even for D_{2}=1 this is an open problem.
+
+Currently we have an asymptotic formula for S(x,P) only in the range P=x^{1+o(1)} (this follows already from the work of Duke, Friedlander, and Iwaniec [[4](https://arxiv.org/html/1908.08816#bib.bib4)]). To get an asymptotic formula for S(x,P) with P up to x^{1+\beta} for some fixed \beta>0 it seems that we would need to handle also Type I 3 sums of the form
+
+\displaystyle\sum_{d\leq D_{3}}\lambda_{d}\sum_{\begin{subarray}{c}\ell\sim L,\,\,m\sim M,\,\,n\sim N\\
+\ell mn\equiv 0\,(d)\end{subarray}}|\mathcal{A}_{\ell mn}|\psi_{P}(\ell mn)\log\ell mn.
+
+This is because in Section [2.4.1](https://arxiv.org/html/1908.08816#S2.SS4.SSS1 "2.4.1. Case 1≤𝛼<758/733 ‣ 2.4. Buchstab decompositions ‣ 2. The sieve ‣ On the largest prime factor of 𝑛^2+1") the sums that we cannot handle are
+
+\displaystyle\sum_{x^{\sigma}<q\leq x^{\alpha-2\sigma}}S(\mathcal{A}(P)_{q},q)\quad\quad\text{and}\quad\quad\sum_{U<q\leq x^{\alpha/2}}S(\mathcal{A}(P)_{q},q),
+
+where the first sum corresponds to a sum of three primes all of size x^{\alpha/3+O(\beta)}, and the second sum is a sum over two primes of size x^{\alpha/2+O(\beta)}.
+
+## References
+
+*   [1] R. de la Bretèche and S. Drappeau. Niveau de répartition des polynômes quadratiques et crible majorant pour les entiers friables. J. Eur. Math. Soc. (JEMS), 22(5):1577–1624, 2020. 
+*   [2] J.-M. Deshouillers and H. Iwaniec. On the greatest prime factor of n^{2}+1. Ann. Inst. Fourier (Grenoble), 32(4):1–11 (1983), 1982. 
+*   [3] J.-M. Deshouillers and H. Iwaniec. Kloosterman sums and Fourier coefficients of cusp forms. Invent. Math., 70(2):219–288, 1982/83. 
+*   [4] W. Duke, J. B. Friedlander, and H. Iwaniec. Equidistribution of roots of a quadratic congruence to prime moduli. Ann. of Math. (2), 141(2):423–441, 1995. 
+*   [5] J. Friedlander and H. Iwaniec. Opera de cribro, volume 57 of American Mathematical Society Colloquium Publications. American Mathematical Society, Providence, RI, 2010. 
+*   [6] G. Harman. Prime-detecting sieves, volume 33 of London Mathematical Society Monographs Series. Princeton University Press, Princeton, NJ, 2007. 
+*   [7] C. Hooley. On the greatest prime factor of a quadratic polynomial. Acta Math., 117:281–299, 1967. 
+*   [8] H. Iwaniec. Almost-primes represented by quadratic polynomials. Invent. Math., 47(2):171–188, 1978. 
+*   [9] C. Jia. Almost all short intervals containing prime numbers. Acta Arith., 76(1):21–84, 1996. 
+*   [10] H. H. Kim. Functoriality for the exterior square of {\rm GL}_{4} and the symmetric fourth of {\rm GL}_{2}. J. Amer. Math. Soc., 16(1):139–183, 2003. With appendix 1 by Dinakar Ramakrishnan and appendix 2 by Kim and Peter Sarnak. 
+*   [11] R. J. Lemke Oliver. Almost-primes represented by quadratic polynomials. Acta Arith., 151(3):241–261, 2012.
+

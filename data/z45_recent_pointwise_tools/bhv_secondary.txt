@@ -1,0 +1,359 @@
+## Content from https://arxiv.org/html/1304.6413
+
+Title: On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁
+
+URL Source: https://arxiv.org/html/1304.6413
+
+Markdown Content:
+## On the Diophantine equation NX^{2}+2^{L}3^{M}=Y^{N}
+
+Helen G. Grundman ††thanks: Department of Mathematics, Bryn Mawr College, Bryn Mawr, PA 19010
+
+August 24, 2026
+
+###### Abstract
+
+We prove that the Diophantine equation NX^{2}+2^{L}3^{M}=Y^{N} has no solutions (N,X,Y,L,M) in positive integers with N>1 and \gcd(NX,Y)=1, generalizing results of Luca, Wang and Wang, and Luca and Soydan. Our proofs use results of Bilu, Hanrot, and Voutier on defective Lehmer pairs.
+
+## 1 Introduction
+
+In this work, we prove the following theorem.
+
+###### Theorem 1.
+
+The equation
+
+NX^{2}+2^{L}3^{M}=Y^{N},(1)
+
+has no solution with N, X, Y, L, M\in\mathbb{Z}^{+}, N>1, and \gcd(NX,Y)=1.
+
+Equation([1](https://arxiv.org/html/1304.6413#S1.E1 "In Theorem 1. ‣ 1 Introduction ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")) is a variation of the equation NX^{2}+2^{K}=Y^{N} studied by Wang and Wang[[8](https://arxiv.org/html/1304.6413#bib.bib8)] and by Luca and Soydan[[5](https://arxiv.org/html/1304.6413#bib.bib5)] and of the equation X^{2}+2^{L}3^{M}=Y^{N} studied by Luca[[4](https://arxiv.org/html/1304.6413#bib.bib4)]. Our proofs draw upon ideas from each of these papers.
+
+We begin by showing that it suffices to prove Theorem[1](https://arxiv.org/html/1304.6413#Thmthm1 "Theorem 1. ‣ 1 Introduction ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁") in the case where N is square-free, and by reviewing a needed result on Lehmer pairs. In Section[2](https://arxiv.org/html/1304.6413#S2 "2 Even Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁"), we prove the special case of Theorem[1](https://arxiv.org/html/1304.6413#Thmthm1 "Theorem 1. ‣ 1 Introduction ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁") in which both of the exponents L and M are assumed to be even. Then in Section[3](https://arxiv.org/html/1304.6413#S3 "3 Odd Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁"), we prove the remaining cases, thus completing the proof of Theorem[1](https://arxiv.org/html/1304.6413#Thmthm1 "Theorem 1. ‣ 1 Introduction ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁").
+
+###### Lemma 2.
+
+If there exists a solution to NX^{2}+2^{L}3^{M}=Y^{N} as in Theorem[1](https://arxiv.org/html/1304.6413#Thmthm1 "Theorem 1. ‣ 1 Introduction ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁"), then there exists a solution with the same values of L and M, but with N square-free.
+
+###### Proof.
+
+Suppose that (N,X,Y,L,M)=(n,x,y,\ell,m) is a solution to NX^{2}+2^{L}3^{M}=Y^{N}, with n, x, y, \ell, m\in\mathbb{Z}^{+}, n>1, and \gcd(nx,y)=1. Note that \ell, m>0 implies that \gcd(n,6)=1.
+
+Let n=uv^{2}, with u, v\in\mathbb{Z}^{+} and u square-free. Suppose that u=1. Then (N,X,Y,L,M)=(n,vx,y,\ell,m) is a solution to X^{2}+2^{L}3^{M}=Y^{N} with N, X, Y, L, M\in\mathbb{Z}^{+}, N>1, and \gcd(X,Y)=1. By[[4](https://arxiv.org/html/1304.6413#bib.bib4), Theorem 2.1], this implies that n=N=3 or 4, contradicting that \gcd(n,6)=1. Thus u>1.
+
+Now, note that u(vx)^{2}+2^{\ell}3^{m}=y^{n}=(y^{v^{2}})^{u}, and so (N,X,Y,L,M)=(u,vx,y^{v^{2}},\ell,m) is a solution to([1](https://arxiv.org/html/1304.6413#S1.E1 "In Theorem 1. ‣ 1 Introduction ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")) with \gcd(NX,Y)=\gcd(uvx,y^{v^{2}})=1, and N=u>1. ∎
+
+A key element in our proofs is the theory of Lehmer sequences and defective Lehmer pairs, which we now briefly describe. For a more detailed introduction, see[[7](https://arxiv.org/html/1304.6413#bib.bib7)].
+
+A pair of algebraic integers (\gamma,\delta) is called a Lehmer pair if \gamma\delta\in\mathbb{Z}-\{0\}, (\gamma+\delta)^{2}\in\mathbb{Z}-\{0\}, \gcd(\gamma\delta,(\gamma+\delta)^{2})=1, and \frac{\gamma}{\delta} is not a root of unity. Given a Lehmer pair, (\gamma,\delta), and s\in\mathbb{Z}^{+}, define
+
+L_{s}(\gamma,\delta)=\left\{\begin{array}[]{ll}\frac{\gamma^{s}-\delta^{s}}{\gamma-\delta_{\ }},&\mbox{ if $s$ is odd,}\\
+\frac{\gamma^{s}-\delta^{s}}{\gamma^{2}-\delta^{2}},&\mbox{ if $s$ is even.}\end{array}\right.
+
+The Lehmer pair (\gamma,\delta) is s-defective if, for each p\mid L_{s}(\gamma,\delta),
+
+p\mid(\gamma^{2}-\delta^{2})^{2}L_{1}(\gamma,\delta)\dots L_{s-1}(\gamma,\delta).
+
+We need the following lemma[[7](https://arxiv.org/html/1304.6413#bib.bib7), Theorem 1(ii)].
+
+###### Lemma 3(Voutier).
+
+Let s\in\mathbb{Z}^{+} such that 6<s\leq 30 and s\neq 8, 10, or 12. If (\gamma,\delta) is an s-defective Lehmer pair, then for some k\in\{0,1,2,3\}, i^{k}\gamma is one of the values listed in Table[1](https://arxiv.org/html/1304.6413#S1.T1 "Table 1 ‣ 1 Introduction ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁").
+
+Table 1: Possible values of i^{k}\gamma in Lemma[3](https://arxiv.org/html/1304.6413#Thmthm3 "Lemma 3 (Voutier). ‣ 1 Introduction ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁"). 
+
+## 2 Even Exponents
+
+In this section, we prove the following special case of Theorem[1](https://arxiv.org/html/1304.6413#Thmthm1 "Theorem 1. ‣ 1 Introduction ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁").
+
+###### Theorem 4.
+
+The equation
+
+NX^{2}+2^{2L}3^{2M}=Y^{N},
+
+has no solution with N, X, Y, L, M\in\mathbb{Z}^{+}, N>1, and \gcd(NX,Y)=1.
+
+###### Proof.
+
+Suppose that (N,X,Y,L,M)=(n,x,y,\ell,m) is a solution to NX^{2}+2^{2L}3^{2M}=Y^{N}, with n, x, y, \ell, m\in\mathbb{Z}^{+}, n>1, and \gcd(nx,y)=1. It follows immediately that y>1 and nx^{2}\equiv y^{n}\pmod{6}. Since \gcd(nx,y)=1, we have
+
+n\equiv y\equiv\pm 1\pmod{6}\hskip 10.84006pt\mbox{and}\hskip 10.84006ptx\equiv\pm 1\pmod{6}.
+
+By Lemma[2](https://arxiv.org/html/1304.6413#Thmthm2 "Lemma 2. ‣ 1 Introduction ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁"), we may assume that n is square-free.
+
+We now apply the following lemma, proved by Heuberger and Le[[3](https://arxiv.org/html/1304.6413#bib.bib3)] and adapted to this form by Wang and Wang[[8](https://arxiv.org/html/1304.6413#bib.bib8)].
+
+###### Lemma 5(Heuberger & Le).
+
+Let d\in\mathbb{Z} be square-free such that d>1, and let k\in\mathbb{Z} be odd such that k>1 and \gcd(d,k)=1. Let h(-4d) denote the number of classes of primitive binary quadratic forms of discriminant -4d. If the equation
+
+X^{2}+dY^{2}=k^{Z},\hskip 14.45377ptX,Y,Z\in\mathbb{Z},\hskip 14.45377pt\gcd(X,Y)=1,\hskip 14.45377ptZ>0
+
+has a solution, (X,Y,Z), then there exist X_{1}, Y_{1}, Z_{1}, t\in\mathbb{Z}^{+} and \lambda_{1}, \lambda_{2}\in\{+1,-1\}, such that
+
+X_{1}^{2}+dY_{1}^{2}=k^{Z_{1}},\hskip 18.06749pt\gcd(X_{1},Y_{1})=1,
+
+Z=Z_{1}t,\hskip 18.06749ptZ_{1}\mid h(-4d),\hskip 18.06749pt\text{and}
+
+X+Y\sqrt{-d}=\lambda_{1}(X_{1}+\lambda_{2}Y_{1}\sqrt{-d})^{t}.
+
+By the lemma, since \left(2^{\ell}3^{m}\right)^{2}+nx^{2}=y^{n}, with n>1 square-free, y>1 odd, and \gcd(nx,y)=1, there exist X_{1}, Y_{1}, Z_{1}, t\in\mathbb{Z}^{+} and \lambda_{1}, \lambda_{2}\in\{+1,-1\}, such that
+
+X_{1}^{2}+nY_{1}^{2}=y^{Z_{1}},\hskip 18.06749pt\gcd(X_{1},Y_{1})=1,(2)
+
+n=Z_{1}t,\hskip 18.06749ptZ_{1}\mid h(-4n),\hskip 18.06749pt\text{and}(3)
+
+2^{\ell}3^{m}+x\sqrt{-n}=\lambda_{1}(X_{1}+\lambda_{2}Y_{1}\sqrt{-n})^{t}.(4)
+
+Note that, since \gcd(n,6)=1, \gcd(t,6)=\gcd(Z_{1},6)=1. Thus t is odd and y^{Z_{1}}\equiv y\equiv n\equiv\pm 1\pmod{6}. For ease in notation, let t=2t_{1}+1.
+
+Expanding([4](https://arxiv.org/html/1304.6413#S2.E4 "In Proof. ‣ 2 Even Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")) and taking the absolute value of the real and imaginary parts of each side yields
+
+2^{\ell}3^{m}=\left|\sum_{j=0}^{t_{1}}\binom{t}{2j}X_{1}^{t-2j}(-nY_{1}^{2})^{j}\right|=X_{1}\left|\sum_{j=0}^{t_{1}}\binom{t}{2j}X_{1}^{t-2j-1}(-nY_{1}^{2})^{j}\right|,(5)
+
+and
+
+x=Y_{1}\left|\sum_{j=0}^{t_{1}}\binom{t}{2j+1}X_{1}^{t-2j-1}(-nY_{1}^{2})^{j}\right|.(6)
+
+By equation([5](https://arxiv.org/html/1304.6413#S2.E5 "In Proof. ‣ 2 Even Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")), 2 and 3 are the only possible prime divisors of X_{1}. By equation([6](https://arxiv.org/html/1304.6413#S2.E6 "In Proof. ‣ 2 Even Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")) and \gcd(x,6)=1, \gcd(6,Y_{1})=1. Thus Y_{1}\equiv\pm 1\pmod{6}.
+
+By equation([2](https://arxiv.org/html/1304.6413#S2.E2 "In Proof. ‣ 2 Even Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")), X_{1}^{2}+n\equiv n\pmod{6}, and so X_{1}\equiv 0\pmod{6}.
+
+Rewriting equation([5](https://arxiv.org/html/1304.6413#S2.E5 "In Proof. ‣ 2 Even Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")) as 2^{\ell}3^{m}=X_{1}|\mathcal{S}|, with
+
+\mathcal{S}=\sum_{j=0}^{t_{1}}\binom{t}{2j}X_{1}^{t-2j-1}(-nY_{1}^{2})^{j},
+
+we have
+
+\mathcal{S}\equiv\binom{t}{t-1}(-nY_{1}^{2})^{t_{1}}\equiv\pm 1\pmod{6}.
+
+But then, \gcd(\mathcal{S},6)=1 and so X_{1}=2^{\ell}3^{m} and |\mathcal{S}|=1.
+
+Let \gamma=X_{1}+Y_{1}\sqrt{-n} and let \delta=-X_{1}+Y_{1}\sqrt{-n}.
+
+###### Lemma 6.
+
+The pair (\gamma,\delta) is a t-defective Lehmer pair.
+
+###### Proof.
+
+An easy calculation shows that \gamma\delta=-X_{1}^{2}-nY_{1}^{2}=-y^{Z_{1}} and (\gamma+\delta)^{2}=-4nY_{1}^{2}, each of which is nonzero. Suppose that p is prime such that p\mid\gcd(\gamma\delta,(\gamma+\delta)^{2}). Then, since \gcd(n,y)=1 and y is odd, p\mid Y_{1}. Additionally, p\mid(y^{Z_{1}}-nY_{1}^{2}) and so p\mid X_{1}. But \gcd(X_{1},Y_{1})=1, and thus \gcd(\gamma\delta,(\gamma+\delta)^{2})=1. Note that since n>1, \gcd(n,6)=1, and n is square-free, the only roots of unity in \mathbb{Q}(\sqrt{-n}) are \pm 1. Thus, \frac{\gamma}{\delta} is not a root of unity. Therefore, (\gamma,\delta) is a Lehmer pair.
+
+Finally, by equations([4](https://arxiv.org/html/1304.6413#S2.E4 "In Proof. ‣ 2 Even Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")) and([5](https://arxiv.org/html/1304.6413#S2.E5 "In Proof. ‣ 2 Even Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")),
+
+|L_{t}(\gamma,\delta)|=\left|\frac{\gamma^{t}-\delta^{t}}{\gamma-\delta}\right|=\left|\frac{2\Re(\gamma^{t})}{2\Re(\gamma)}\right|=\frac{X_{1}|\mathcal{S}|}{X_{1}}=1.
+
+Thus, (\gamma,\delta) is a t-defective Lehmer pair. ∎
+
+By the work of Bilu, Hanrot, and Voutier[[1](https://arxiv.org/html/1304.6413#bib.bib1), Theorem 1.4], since there exists a t-defective Lehmer pair, we have that t\leq 30. Then, using Lemma[3](https://arxiv.org/html/1304.6413#Thmthm3 "Lemma 3 (Voutier). ‣ 1 Introduction ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁") with the fact that \gcd(t,6)=1, it follows that t\in\{1,5\}.
+
+If t=5, then
+
+\mathcal{S}=\sum_{j=0}^{2}\binom{5}{2j}(2^{\ell}3^{m})^{5-2j-1}(-nY_{1}^{2})^{j}=2^{4\ell}3^{4m}-10\cdot 2^{2\ell}3^{2m}nY_{1}^{2}+5n^{2}Y_{1}^{4}.
+
+Since \mathcal{S}=\pm 1 and n and Y_{1} are both odd, \pm 1=\mathcal{S}\equiv 5n^{2}Y_{1}^{4}\equiv 5\pmod{8}, which is impossible.
+
+Thus, t=1. So, by equation([3](https://arxiv.org/html/1304.6413#S2.E3 "In Proof. ‣ 2 Even Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")), Z_{1}=n and, hence, n\mid h(-4n). But, since n is greater than 1 and square-free, by[[8](https://arxiv.org/html/1304.6413#bib.bib8), Lemma 3], n>h(-4n), a contradiction. ∎
+
+## 3 Odd Exponents
+
+In this section, we prove the remaining cases of Theorem[1](https://arxiv.org/html/1304.6413#Thmthm1 "Theorem 1. ‣ 1 Introduction ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁"), as described in the following theorem.
+
+###### Theorem 7.
+
+The equation
+
+NX^{2}+2^{L}3^{M}=Y^{N},
+
+has no solution with N, X, Y, L, M\in\mathbb{Z}^{+}, N>1, \gcd(NX,Y)=1, and L and M not both even.
+
+We begin with a basic computational lemma.
+
+###### Lemma 8.
+
+Let t_{1}\in\mathbb{Z} and let t=2t_{1}+1. Then
+
+\sum_{j=0}^{t_{1}}\binom{t}{2j+1}=2^{t-1}\hskip 21.68121pt\mbox{and}\hskip 21.68121pt\sum_{j=0}^{t_{1}}\binom{t}{2j+1}(-1)^{j}=\pm 2^{t_{1}}.
+
+###### Proof.
+
+First, let f(t)=\sum_{j=0}^{t_{1}}\binom{t}{2j+1} and let g(t)=\sum_{j=0}^{t_{1}}\binom{t}{2j}. Then f(t)+g(t)=(1+1)^{t} and -f(t)+g(t)=(1-1)^{t}. Solving these for f(t) yields the first result.
+
+Next, let f_{1}(t)=\sum_{j=0}^{t_{1}}\binom{t}{2j+1}(-1)^{j}=-i\sum_{j=0}^{t_{1}}\binom{t}{2j+1}(i)^{2j+1} and g_{1}(t)=-i\sum_{j=0}^{t_{1}}\binom{t}{2j}(i)^{2j}. Then f_{1}(t)+g_{1}(t)=-i(1+i)^{t} and -f_{1}(t)+g_{1}(t)=-i(1-i)^{t}. Solving for f_{1}(t) completes the proof. ∎
+
+###### Proof of Theorem[7](https://arxiv.org/html/1304.6413#Thmthm7 "Theorem 7. ‣ 3 Odd Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁").
+
+Suppose that (N,X,Y,L,M)=(n,x,y,\ell,m) is a solution to NX^{2}+2^{L}3^{M}=Y^{N}, with n, x, y, \ell, m\in\mathbb{Z}^{+}, n>1, \gcd(nx,y)=1, and either \ell or m odd.
+
+Since \ell and m are nonzero, nx^{2}\equiv y^{n}\pmod{6}. This with \gcd(nx,y)=1 yields
+
+n\equiv y\equiv\pm 1\pmod{6}\hskip 10.84006pt\mbox{and}\hskip 10.84006ptx\equiv\pm 1\pmod{6}.
+
+Since n>1, this implies that, in fact, n\geq 5.
+
+Let \ell=2k+e and m=2k^{\prime}+e^{\prime} with k, k^{\prime}\geq 0 and e, e^{\prime}\in\{0,1\}. Set w=2^{e}3^{e^{\prime}}\in\{1,2,3,6\}. By assumption, \ell and m cannot both be even. Hence, w\in\{2,3,6\}.
+
+Set a=2^{k}3^{k^{\prime}}\sqrt{w}+x\sqrt{-n} and b=2^{k}3^{k^{\prime}}\sqrt{w}-x\sqrt{-n}. Then ab=y^{n}. Letting E=\mathbb{Q}(\sqrt{w},\sqrt{-n}) and F=\mathbb{Q}(\sqrt{-wn}), we have a, b\in\mathcal{O}_{E} and a^{2}, b^{2}\in\mathcal{O}_{F}.
+
+Suppose that there exists a prime ideal \mathfrak{p}\subseteq\mathcal{O}_{E} such that \mathfrak{p}\mid a\mathcal{O}_{E} and \mathfrak{p}\mid b\mathcal{O}_{E}. Then, since \mathfrak{p}\mid ab\mathcal{O}_{E}, \mathfrak{p}\mid y\mathcal{O}_{E} and, since \mathfrak{p}\mid(a+b)\mathcal{O}_{E} and w\mathcal{O}_{E}\mid 6\mathcal{O}_{E}, \mathfrak{p}\mid 6\mathcal{O}_{E}. But this is not possible, since y is relatively prime to 6 in \mathbb{Z}. Hence a\mathcal{O}_{E} and b\mathcal{O}_{E} are relatively prime in \mathcal{O}_{E}. It follows easily that a^{2}\mathcal{O}_{F} and b^{2}\mathcal{O}_{F} are relatively prime in \mathcal{O}_{F}.
+
+Now, (a^{2}\mathcal{O}_{F})(b^{2}\mathcal{O}_{F})=y^{2n}\mathcal{O}_{F}=(y\mathcal{O}_{F})^{2n}. By the unique factorization of ideals in \mathcal{O}_{F}, there exists an ideal I\subseteq\mathcal{O}_{F} such that a^{2}\mathcal{O}_{F}=I^{2n}. Let s be the order of the ideal class of I in the class group of \mathcal{O}_{F}. Then there exists \alpha\in\mathcal{O}_{F} such that I^{s}=\alpha\mathcal{O}_{F}. Since a^{2}\mathcal{O}_{F} is principal, we have s\mid 2n, and so 2n=st for some t\in\mathbb{Z}^{+}. Further, a^{2}\mathcal{O}_{F}=I^{2n}=(I^{s})^{t}=\alpha^{t}\mathcal{O}_{F}, and so there exists a unit \varepsilon\in\mathcal{O}_{F} such that a^{2}=\varepsilon\alpha^{t}. Since F=\mathbb{Q}(\sqrt{-wn}) with wn square-free and n\geq 5, \varepsilon=\pm 1.
+
+Suppose t is even, so t=2t_{0} for some t_{0}\in\mathbb{Z}^{+}. Then
+
+\left(\frac{a}{\alpha^{t_{0}}}\right)^{2}=\varepsilon=\pm 1.
+
+But, as is easily verified, E does not contain a square root of -1. So \varepsilon=1 and a=\pm\alpha^{t_{0}}\in F, contradicting the definition of a. Thus t is odd and so s is even. Further, since t\mid 2n, \gcd(t,6)=1.
+
+Replacing \alpha with -\alpha, if necessary, we may assume, without loss of generality, that \varepsilon=1. Thus a^{2}=\alpha^{t}.
+
+Suppose that t=1. Then s=2n and so 2n\mid h_{F}, the class number of \mathcal{O}_{F}. In particular, 2n\leq h_{F}. Let d=disc(\mathcal{O}_{F}). Then d=-wn or d=-4wn. By the class number formula and a basic bound on L(1,\chi_{d})[[6](https://arxiv.org/html/1304.6413#bib.bib6)], we have
+
+h_{F}=\frac{\sqrt{|d|}}{\pi}L(1,\chi_{d})\leq\frac{\sqrt{|d|}}{\pi}\left(2+\log{|d|}\vphantom{\sqrt{d}}\right)=\frac{2\sqrt{|d|}}{\pi}\left(1+\log{\sqrt{|d|}}\right).
+
+Thus, since |d|\leq 4wn\leq 24n,
+
+2n\leq h_{F}\leq\frac{2\sqrt{|d|}}{\pi}\left(1+\log{\sqrt{|d|}}\right)\leq\frac{2\sqrt{24n}}{\pi}\left(1+\log{\sqrt{24n}}\right)
+
+and so
+
+\frac{\sqrt{24}}{\pi\sqrt{n}}\left(1+\log{\sqrt{24n}}\right)\geq 1.
+
+Since \frac{\sqrt{24}}{\pi\sqrt{51}}\left(1+\log{\sqrt{24\cdot 51}}\right)<1 and \frac{\sqrt{24}}{\pi\sqrt{n}}\left(1+\log{\sqrt{24n}}\right) is a decreasing function of n, for n\geq 1, we have a contradiction for n>50.
+
+For n\leq 50 or, equivalently, wn\leq 300, we consult a class number table (for example[[2](https://arxiv.org/html/1304.6413#bib.bib2), Table 4]) to find that h_{F}\leq 22. Since 2n\leq h_{F}, we have n\leq 11 and so wn\leq 66. Again consulting the table, we have h_{F}\leq 8 and so n\leq 4, a contradiction.
+
+Thus, t\neq 1.
+
+Since t is odd, there exists t_{1}\in\mathbb{Z}^{+}, such that t=2t_{1}+1. Define \gamma=\frac{a}{\alpha^{t_{1}}}\in E. Note that
+
+\gamma^{2}=\frac{a^{2}}{\alpha^{2t_{1}}}=\frac{\alpha^{t}}{\alpha^{2t_{1}}}=\alpha,
+
+and therefore, \gamma\in\mathcal{O}_{E}.
+
+Let A, B\in\mathbb{Q} such that
+
+\alpha=A+B\sqrt{-wn}
+
+and note that since \alpha^{t}=a^{2}, A, B\neq 0. Let A_{1}, B_{1}, C_{1}, D_{1}\in\mathbb{Q} such that \gamma=A_{1}\sqrt{w}+B_{1}\sqrt{-n}+C_{1}\sqrt{-wn}+D_{1}. A simple calculation, using \gamma^{2}=\alpha, yields that either A_{1}=B_{1}=0 or C_{1}=D_{1}=0. If the former holds, then \gamma\in\mathcal{O}_{F} and I^{s/2}=\gamma\mathcal{O}_{F}, contrary to the definition of s. Thus
+
+\gamma=A_{1}\sqrt{w}+B_{1}\sqrt{-n}.
+
+Expanding \gamma^{2}=\alpha and equating real and imaginary parts yields
+
+A=A_{1}^{2}w-B_{1}^{2}n\hskip 28.90755pt\mbox{and}\hskip 28.90755ptB=2A_{1}B_{1}.(7)
+
+Since B\neq 0, we have A_{1}, B_{1}\neq 0.
+
+Now, unless w=3 and n\equiv 1\pmod{4}, \mathcal{O}_{F}=\mathbb{Z}[\sqrt{-wn}]. So A, B\in\mathbb{Z}. Further, considering the possible integral bases for E, in this case, A_{1}\in\mathbb{Z} and 2B_{1}\in\mathbb{Z}. But, by equation([7](https://arxiv.org/html/1304.6413#S3.E7 "In Proof of Theorem . ‣ 3 Odd Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")), B_{1}^{2}n=A_{1}^{2}w-A\in\mathbb{Z} and so B_{1}\in\mathbb{Z}.
+
+If we do have w=3 and n\equiv 1\pmod{4}, then \mathcal{O}_{F}=\mathbb{Z}[\frac{1+\sqrt{-3n}}{2}] and \mathcal{O}_{E}=\mathbb{Z}[\sqrt{3},\frac{\sqrt{3}+\sqrt{-n}}{2}]. So we have 2A, 2B, 2A_{1}, 2B_{1}\in\mathbb{Z}. Further, equation([7](https://arxiv.org/html/1304.6413#S3.E7 "In Proof of Theorem . ‣ 3 Odd Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")) implies that A, B\in\mathbb{Z} if and only if A_{1}, B_{1}\in\mathbb{Z}.
+
+Expanding 2^{t}a^{2}=(2\alpha)^{t}, equating real and imaginary parts, yields
+
+2^{\ell+t}3^{m}-2^{t}nx^{2}=(2A)\sum_{j=0}^{t_{1}}\binom{t}{2j}(2A)^{t-2j-1}(2B)^{2j}(-wn)^{j}(8)
+
+and
+
+2^{k+t+1}3^{k^{\prime}}x=(2B)\sum_{j=0}^{t_{1}}\binom{t}{2j+1}(2A)^{t-2j-1}(2B)^{2j}(-wn)^{j}.(9)
+
+By equation([8](https://arxiv.org/html/1304.6413#S3.E8 "In Proof of Theorem . ‣ 3 Odd Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")), 3\nmid 2A.
+
+Suppose that 3\nmid 2Bw. From the definition of w, 3\nmid w implies that k^{\prime}\neq 0. So, reducing equation([9](https://arxiv.org/html/1304.6413#S3.E9 "In Proof of Theorem . ‣ 3 Odd Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")) modulo 3 yields
+
+0\equiv\sum_{j=0}^{t_{1}}\binom{t}{2j+1}(\pm 1)^{j}\pmod{3},
+
+which is impossible, by Lemma[8](https://arxiv.org/html/1304.6413#Thmthm8 "Lemma 8. ‣ 3 Odd Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁"). Thus 3\mid 2Bw.
+
+Let \delta=\overline{\gamma}=A_{1}\sqrt{w}-B_{1}\sqrt{-n}. Then \gamma\delta=A_{1}^{2}w+B_{1}^{2}n\in\mathbb{Q}\cap\mathcal{O}_{E}=\mathbb{Z}. Since (\gamma\delta)^{2t}=(ab)^{2}=y^{2n} and 2\nmid y, we have 2\nmid\gamma\delta.
+
+Recall that if A_{1}, B_{1}\notin\mathbb{Z}, then w=3, n\equiv 1\pmod{4}, and 2A_{1}\equiv 2B_{1}\equiv 1\pmod{2}. Thus 4\gamma\delta=(2A_{1})^{2}w+(2B_{1})^{2}n\equiv 3+n\pmod{8}. Since 2\nmid\gamma\delta implies that 8\nmid(2\gamma)(2\delta), we have n\not\equiv 5\pmod{8}. Thus, if A_{1}, B_{1}\notin\mathbb{Z}, n\equiv 1\pmod{8}.
+
+Now,
+
+\gamma^{t}=\left(\frac{a}{\alpha^{t_{1}}}\right)^{t}=\frac{a^{2t_{1}+1}}{\left(\alpha^{t}\right)^{t_{1}}}=\frac{a^{2t_{1}+1}}{a^{2t_{1}}}=a.
+
+It follows that \delta^{t}=b. Further,
+
+\frac{\gamma^{t}+\delta^{t}}{\gamma+\delta}=\sum_{j=0}^{t-1}(-\gamma)^{j}\delta^{t-j-1}\in\mathbb{Z},
+
+since it is an algebraic integer fixed by every automorphism of E. Thus, since \gamma^{t}+\delta^{t}=a+b=2^{k+1}3^{k^{\prime}}\sqrt{w}, we find that, in \mathbb{Z},
+
+\left(\frac{\gamma+\delta}{\sqrt{w}}\right)\left|\left(\frac{\gamma^{t}+\delta^{t}}{\sqrt{w}}\right).\right.
+
+Simplifying yields 2A_{1}\mid 2^{k+1}3^{k^{\prime}}.
+
+###### Lemma 9.
+
+(\gamma,\delta) is a 2t-defective Lehmer pair.
+
+###### Proof.
+
+First recall that \gamma\delta\in\mathbb{Z} and, since 2\nmid\gamma\delta, \gamma\delta\neq 0. Further, (\gamma+\delta)^{2}=4A_{1}^{2}w\in\mathbb{Z}-\{0\}. Suppose that p\in\mathbb{Z} is prime such that p\mid\gcd(\gamma\delta,(\gamma+\delta)^{2}). Then, since 2A_{1}\mid 2^{k+1}3^{k^{\prime}}, p=2 or p=3. But (\gamma\delta)^{2t}=(ab)^{2}=y^{2n} and \gcd(y,6)=1. Hence no such p exists and therefore \gcd(\gamma\delta,(\gamma+\delta)^{2})=1. Note that \frac{\gamma}{\delta}\in F, in which the only roots of unity are \pm 1. It follows that \frac{\gamma}{\delta} is not a root of unity, since A_{1}, B_{1}\neq 0. Thus, (\gamma,\delta) is a Lehmer pair.
+
+Now suppose that p is a prime divisor of L_{2t}(\gamma,\delta). Then, since
+
+\displaystyle L_{2t}(\gamma,\delta)\displaystyle=\frac{\gamma^{2t}-\delta^{2t}}{\gamma^{2}-\delta^{2}}=\frac{(\gamma^{t}-\delta^{t})(\gamma^{t}+\delta^{t})}{(\gamma-\delta)(\gamma+\delta)}=L_{t}(\gamma,\delta)\frac{a+b}{\gamma+\delta}
+\displaystyle=L_{t}(\gamma,\delta)\frac{2^{k+1}3^{k^{\prime}}\sqrt{w}}{2A_{1}\sqrt{w}}=\frac{2^{k+1}3^{k^{\prime}}}{2A_{1}}L_{t}(\gamma,\delta),
+
+we have that p=2, p=3, or p\mid L_{t}(\gamma,\delta).
+
+Also, (\gamma^{2}-\delta^{2})^{2}=-16A_{1}^{2}B_{1}^{2}wn=-4B^{2}wn. Since 3|2Bw, 3|(\gamma^{2}-\delta^{2})^{2}. Further, if A_{1}, B_{1}\in\mathbb{Z}, then 2|(\gamma^{2}-\delta^{2})^{2}. If, instead, A_{1}, B_{1}\notin\mathbb{Z}, then w=3 and n\equiv 1\pmod{8}. Thus,
+
+4L_{3}(\gamma,\delta)=4\frac{\gamma^{3}-\delta^{3}}{\gamma-\delta}=9(2A_{1})^{2}-(2B_{1})^{2}n\equiv 9-1\equiv 0\pmod{8},
+
+and so 2\mid L_{3}(\gamma,\delta). Hence, in any case, p\mid(\gamma^{2}-\delta^{2})^{2}L_{1}(\gamma,\delta)\dots L_{2t-1}(\gamma,\delta). Thus (\gamma,\delta) is a 2t-defective Lehmer pair. ∎
+
+By Bilu, Hanrot, and Voutier[[1](https://arxiv.org/html/1304.6413#bib.bib1), Theorem 1.4], since there exists a 2t-defective Lehmer pair, 2t\leq 30. Then, by Lemma[3](https://arxiv.org/html/1304.6413#Thmthm3 "Lemma 3 (Voutier). ‣ 1 Introduction ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁"), the only candidates for \gamma with 2t>12 are of the form \gamma=i^{k}(\sqrt{3}\pm\sqrt{-n})/2 with n\equiv 5\pmod{8}. But in each of these cases, A_{1}, B_{1}\notin\mathbb{Z} which, as shown above, implies that n\equiv 1\pmod{8}. Thus, 2t\leq 12. Finally, since t\geq 5 is odd, t=5.
+
+Expanding a^{2}=\alpha^{5} and equating real and imaginary parts, we find
+
+2^{\ell}3^{m}-nx^{2}=A\sum_{j=0}^{2}\binom{5}{2j}A^{5-2j-1}B^{2j}(-wn)^{j}(10)
+
+and
+
+2^{k+1}3^{k^{\prime}}x=B\sum_{j=0}^{2}\binom{5}{2j+1}A^{5-2j-1}B^{2j}(-wn)^{j}.(11)
+
+Similarly, expanding a=\gamma^{5} yields
+
+2^{k}3^{k^{\prime}}=A_{1}\left(A_{1}^{4}w^{2}-10A_{1}^{2}B_{1}^{2}wn+5B_{1}^{4}n^{2}\right)(12)
+
+and
+
+x=B_{1}\left(5A_{1}^{4}w^{2}-10A_{1}^{2}B_{1}^{2}wn+B_{1}^{4}n^{2}\right).(13)
+
+Suppose, first, that A_{1}, B_{1}\in\mathbb{Z}. Since B=2A_{1}B_{1}, 2|B. By equation([10](https://arxiv.org/html/1304.6413#S3.E10 "In Proof of Theorem . ‣ 3 Odd Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")), \gcd(A,6)=1 and so, by equation([11](https://arxiv.org/html/1304.6413#S3.E11 "In Proof of Theorem . ‣ 3 Odd Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")), 2^{k+1}\mid B. To see that 3^{k^{\prime}}\mid B, suppose that k^{\prime}>0 and 3\nmid B. Reducing equation([11](https://arxiv.org/html/1304.6413#S3.E11 "In Proof of Theorem . ‣ 3 Odd Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")),
+
+0=B(5A^{4}-10A^{2}B^{2}wn+B^{4}w^{2}n^{2})\equiv B(-1-wn+w^{2})\pmod{3}.
+
+Thus, 3\nmid w and so w=2. Hence, 0\equiv Bn\pmod{3}, a contradiction. Therefore, if k^{\prime}>0, 3\mid B. Since 3\nmid 5A^{4}, equation([11](https://arxiv.org/html/1304.6413#S3.E11 "In Proof of Theorem . ‣ 3 Odd Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")) implies that 3^{k^{\prime}}\mid B.
+
+By equation([13](https://arxiv.org/html/1304.6413#S3.E13 "In Proof of Theorem . ‣ 3 Odd Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")), \gcd(B_{1},6)=1. Since B=2A_{1}B_{1} and 2^{k+1}3^{k^{\prime}}\mid B, we have 2^{k}3^{k^{\prime}}\mid A_{1}. Hence, by equation([12](https://arxiv.org/html/1304.6413#S3.E12 "In Proof of Theorem . ‣ 3 Odd Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")),
+
+A_{1}^{4}w^{2}-10A_{1}^{2}B_{1}^{2}wn+5B_{1}^{4}n^{2}=\pm 1.
+
+If k>0, then 2\mid A_{1}, and reducing modulo 8 yields a contradiction. If k=0, then we have 2\mid w and 2\nmid A_{1}. Again, reducing modulo 8 yields a contradiction, since 2wn\equiv 4\pmod{8}.
+
+Now suppose that A_{1}, B_{1}\notin\mathbb{Z}. Then we have w=3, n\equiv 1\pmod{8}, and (2A_{1})^{2}\equiv(2B_{1})^{2}\equiv 1\pmod{8}. Equation([13](https://arxiv.org/html/1304.6413#S3.E13 "In Proof of Theorem . ‣ 3 Odd Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")) becomes
+
+\displaystyle 32x\displaystyle=(2B_{1})\left[5(2A_{1})^{4}w^{2}-10(2A_{1})^{2}(2B_{1})^{2}wn+(2B_{1})^{4}n^{2}\right]
+\displaystyle=(2B_{1})\left[4((2A_{1})^{2}w)^{2}+((2A_{1})^{2}w-(2B_{1})^{2}n)^{2}-8(2A_{1})^{2}(2B_{1})^{2}wn\right].
+
+Since 2B_{1} is odd, this implies that
+
+4((2A_{1})^{2}w)^{2}+((2A_{1})^{2}w-(2B_{1})^{2}n)^{2}-8(2A_{1})^{2}(2B_{1})^{2}wn\equiv 0\pmod{32}.(14)
+
+Reducing each term: since (2A_{1})^{4}w^{2}\equiv 1\pmod{8}, we have that 4((2A_{1})^{2}w)^{2}\equiv 4\pmod{32}; since (2A_{1})^{2}w-(2B_{1})^{2}n\equiv 2\pmod{8}, ((2A_{1})^{2}w-(2B_{1})^{2}n)^{2}\equiv 4\pmod{32}; and since -(2A_{1})^{2}(2B_{1})^{2}wn\equiv 5\pmod{8}, -8(2A_{1})^{2}(2B_{1})^{2}wn\equiv 8\pmod{32}. Thus, reducing congruence([14](https://arxiv.org/html/1304.6413#S3.E14 "In Proof of Theorem . ‣ 3 Odd Exponents ‣ On the Diophantine equation 𝑁⁢𝑋^2+2^𝐿⁢3^𝑀=𝑌^𝑁")), we find 0\equiv 4+4+8\equiv 16\pmod{32}, a contradiction, which completes the proof. ∎
+
+## References
+
+*   [1] Y. Bilu, G. Hanrot, and P.M. Voutier, “Existence of primitive divisors of Lucas and Lehmer numbers, with appendix by M. Mignotte”, J. Reine Angew. Math.539 (2001) 75–122. 
+*   [2] Z.I. Borevich and I.R. Shafarevich, Number Theory, Academic Press, New York, 1966. 
+*   [3] C. Heuberger and M.H. Le, “On the generalized Ramanujan-Nagell equation x^{2}+D=p^{z}”, J. Number Theory 78 (1999), no. 3, 312–331. 
+*   [4] F. Luca, “On the equation x^{2}+2^{a}3^{b}=y^{n}”, Int. J. Math. Math. Sci.29 (2002), no. 4, 239–244. 
+*   [5] F. Luca and G. Soydan, “On the Diophantine equation 2^{m}+nx^{2}=y^{n}”, Journal of Number Theory 132 (2012), 2604–2609. 
+*   [6] W. Narkiewicz, Elementary and Analytic Theory of Algebraic Numbers, 3rd ed., Springer, New York, 2004. 
+*   [7] P.M. Voutier, “Primitive divisors of Lucas and Lehmer sequences”, Math. Comp.64 (1995) 869–888. 
+*   [8] Y. Wang and T. Wang, “On the Diophantine equation nx^{2}+2^{2m}=y^{n}”, J. Number Theory 131 (2011) 1486–1491.
+

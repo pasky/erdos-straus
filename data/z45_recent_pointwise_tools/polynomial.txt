@@ -1,0 +1,404 @@
+## Content from https://arxiv.org/html/2504.15971
+
+Title: On the greatest prime factor of polynomial values and subexponential Szpiro in families
+
+URL Source: https://arxiv.org/html/2504.15971
+
+Markdown Content:
+## On the greatest prime factor of polynomial values and subexponential Szpiro in families Thanks:H.P. was supported by ANID Fondecyt Regular grant 1230507 from Chile.
+
+José Cuevas Barrientos Address: Departamento de Matemáticas, Pontificia Universidad Católica de Chile. Facultad de Matemáticas, 4860 Av. Vicuña Mackenna, Macul, RM, Chile Email address, J. Cuevas Barrientos: [josecuevasbtos@uc.cl](mailto:josecuevasbtos@uc.cl)Hector Pasten Address: Departamento de Matemáticas, Pontificia Universidad Católica de Chile. Facultad de Matemáticas, 4860 Av. Vicuña Mackenna, Macul, RM, Chile Email address, H. Pasten: [hector.pasten@uc.cl](mailto:hector.pasten@uc.cl)
+
+Date: August 24, 2026
+
+###### Abstract.
+
+Combining a modular approach to the abc conjecture developed by the second author with the classical method of linear forms in logarithms, we obtain improved unconditional bounds for two classical problems. First, for Szpiro’s conjecture when the relevant elliptic curves are members of a one-parameter family (an elliptic surface). And secondly, for the problem of giving lower bounds for the greatest prime factor of polynomial values, in the case of quadratic and cubic polynomials. The latter extends earlier work by the second author for the polynomial n^{2}+1.
+
+###### Key words and phrases:
+
+Greatest prime factor, polynomial values, linear forms in logarithms, Shimura curves.
+
+###### 2020 Mathematics Subject Classification
+
+Primary: 11N32; Secondary: 11J86, 11G05, 11G18.
+
+## 1. Introduction
+
+### 1.1. Main results
+
+A common theme in the study of the multiplicative properties of polynomial values is the problem of giving lower bounds for the radical and the prime divisors of such values. We focus on two concrete problems in this context: Szpiro’s conjecture (which concerns lower bound for the radical of the discriminant of elliptic curves) and giving lower bounds for the greatest prime divisor of polynomial values.
+
+Regarding Szpiro’s conjecture, the strongest available bound comes from the theory of modular forms. On the other hand, for the problem of the greatest prime factor of polynomials, the classical approach is based on the theory of linear forms in logarithms, see sections [1.2](https://arxiv.org/html/2504.15971#S1.SS2 "1.2. Szpiro’s conjecture ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families") and [1.3](https://arxiv.org/html/2504.15971#S1.SS3 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). Building on ideas of [[12](https://arxiv.org/html/2504.15971#bib.bib18)] that concern the greatest prime factor of n^{2}+1 as well as some partial progress on the abc conjecture, we combine these two techniques in order to get stronger bounds in both problems. In order to state our main results, let us introduce some notation.
+
+For an elliptic curve E over \mathbb{Q} we let h(E) be the Faltings height of E. For a non-zero integer m, let P(m) be the greatest prime factor of m. The symbol \log_{k}^{*}(t) denotes the k-th iterate of the logarithm whenever it is defined and takes a value \geq 1, otherwise we define it as 1.
+
+Regarding Szpiro’s conjecture, we prove:
+
+###### Theorem 1.1.
+
+Let A,B\in\mathbb{Z}[t] be polynomials, coprime over \mathbb{Q}, not both constant, and such that the discriminant D=-16(4A^{3}+27B^{2})\in\mathbb{Z}[t] is not the zero polynomial. Consider the elliptic surface (on the parameter t) of affine Weierstrass equation
+
+(1.1)E_{t}\colon\qquad y^{2}=x^{3}+A(t)x+B(t).
+
+Let \Sigma\subseteq\mathbb{Z} be the finite set of integers n such that the fibre E_{n} is not an elliptic curve. There is a constant \kappa>0 depending only on A(t) and B(t), such that for every n\in\mathbb{Z}\setminus\Sigma one has
+
+\log|\Delta_{n}|\ll h(E_{n})\leq\exp\mathopen{}\left(\kappa\sqrt{(\log N_{n})\log^{*}_{2}N_{n}}\right)\mathclose{},
+
+where N_{n} is the conductor and \Delta_{n} is the minimal discriminant of E_{n}.
+
+###### Corollary 1.2(Subexponential bound for Szpiro’s conjecture).
+
+With the notation of Theorem [1.1](https://arxiv.org/html/2504.15971#S1.Thmtheorem1 "Theorem 1.1. ‣ 1.1. Main results ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), if \Delta_{n} is the minimal discriminant of E_{n} for n\in\mathbb{Z}\setminus\Sigma, then for every \epsilon>0 one has
+
+\log\lvert\Delta_{n}\rvert\ll h(E_{n})\ll_{\epsilon}N_{n}^{\epsilon}.
+
+On the other hand, regarding the largest prime factor of polynomial values, we prove:
+
+###### Theorem 1.3.
+
+Let f(x)\in\mathbb{Z}[x] be a quadratic polynomial with two complex roots or a cubic of the form f(x)=(ax+b)^{3}+c with a,c\neq 0. Then we have
+
+\rad(f(n))\geq\exp\left(\kappa_{f}\cdot\frac{(\log^{*}_{2}n)^{2}}{\log^{*}_{3}n}\right)
+
+for certain constant \kappa_{f}>0 depending only on f, and
+
+P(f(n))\gg_{f}\frac{(\log^{*}_{2}n)^{2}}{\log^{*}_{3}n}.
+
+Here, as usual, for a non-zero integer m we let its radical \rad(m) be the largest positive squarefree divisor of m. In the next subsections we provide further discussion on the context of these results.
+
+### 1.2. Szpiro’s conjecture
+
+It is a conjecture by Szpiro [[19](https://arxiv.org/html/2504.15971#bib.bib30)] that there is a constant c>0 such that for every elliptic curve E over \mathbb{Q} with minimal discriminant \Delta_{E} and conductor N_{E}, one has \lvert\Delta_{E}\rvert\leq N_{E}^{c}. This problem remains open and it is deep; for instance, it implies a form of the abc conjecture.
+
+There is also a related problem known as the _height conjecture_[[3](https://arxiv.org/html/2504.15971#bib.bib4)]. This conjecture predicts that for every elliptic curve E over \mathbb{Q} one has h(E)\ll\log N_{E}. The height conjecture implies Szpiro’s conjecture because \log|\Delta_{E}|\ll h(E), see [[3](https://arxiv.org/html/2504.15971#bib.bib4), [15](https://arxiv.org/html/2504.15971#bib.bib24)]. Conversely, Szpiro’s conjecture implies a form of the abc, and the abc conjecture implies the height conjecture (see [[10](https://arxiv.org/html/2504.15971#bib.bib15)] for further discussion).
+
+At present, the strongest unconditional results towards the height conjecture and Szpiro’s conjecture are due to Murty and the second author [[10](https://arxiv.org/html/2504.15971#bib.bib15)]: the result is the exponential bound h(E)\ll N_{E}\log N_{E}.
+
+For some restricted families of elliptic curves one has stronger bounds. For instance, the results in [[16](https://arxiv.org/html/2504.15971#bib.bib26)] imply that when E is the Frey curve attached to an abc triple one has h(E)\ll_{\epsilon}N_{E}^{1/3+\epsilon}, but this bound is exponential too. Theorem 1.4 in [[12](https://arxiv.org/html/2504.15971#bib.bib18)] implies a _subexponential bound_; namely, there is a constant \kappa>0 such that
+
+h(E)\ll_{\eta}\exp\mathopen{}\left(\kappa\sqrt{(\log N_{E})\log_{2}N_{E}}\right)\mathclose{},
+
+for Frey curves E attached to abc triples with a\leq c^{1-\eta} for any fixed \eta>0. Theorem [1.1](https://arxiv.org/html/2504.15971#S1.Thmtheorem1 "Theorem 1.1. ‣ 1.1. Main results ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families") establishes the same bound for elliptic curves varying in a one-parameter family, that is, for fibres of an elliptic surface.
+
+### 1.3. The greatest prime factor
+
+It is a classical problem to study the growth of P(f(n)) for a given polynomial f(x)\in\mathbb{Z}[x]. This theme can be traced back at least to the works of Störmer [[17](https://arxiv.org/html/2504.15971#bib.bib27)] and [[18](https://arxiv.org/html/2504.15971#bib.bib28)] in the late 19th century. Mahler [[9](https://arxiv.org/html/2504.15971#bib.bib13)] in 1933 and Chowla [[1](https://arxiv.org/html/2504.15971#bib.bib1)] in 1934 proved
+
+(1.2)P(f(n))\gg\log^{*}_{2}n
+
+for the polynomial f(n)=n^{2}+1. This bound was later established for quadratic polynomials f(n) by Schinzel [[13](https://arxiv.org/html/2504.15971#bib.bib20)], and for cubic polynomials by Keates [[6](https://arxiv.org/html/2504.15971#bib.bib9)], as long as f has at least two complex roots. After a sequence of further articles, the bound ([1.2](https://arxiv.org/html/2504.15971#S1.E2 "In 1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families")) was established for all f(x)\in\mathbb{Z}[x] with at least two complex roots, see [[14](https://arxiv.org/html/2504.15971#bib.bib22)] and the references therein.
+
+In 2001, Stewart and Yu obtained the following bound for _reducible_ quadratic polynomials f(x) (see the equation (7) in page 171 of [[16](https://arxiv.org/html/2504.15971#bib.bib26)])
+
+(1.3)P(f(n))\gg(\log^{*}_{2}n)\frac{\log^{*}_{3}n}{\log^{*}_{4}n}.
+
+A similar bound was obtained by Haristoy [[5](https://arxiv.org/html/2504.15971#bib.bib8)] in 2003 for certain binary forms which, in particular, implies ([1.3](https://arxiv.org/html/2504.15971#S1.E3 "In 1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families")) for all quadratic polynomials with two complex roots. Finally, in 2006 the bound ([1.3](https://arxiv.org/html/2504.15971#S1.E3 "In 1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families")) was proved in full generality by Győry and Yu, see Cor. 5 in [[4](https://arxiv.org/html/2504.15971#bib.bib6)].
+
+Theorem [1.3](https://arxiv.org/html/2504.15971#S1.Thmtheorem3 "Theorem 1.3. ‣ 1.1. Main results ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families") gives a substantial improvement in the quadratic and cubic cases.
+
+This result is a generalization of the bounds obtained in [[12](https://arxiv.org/html/2504.15971#bib.bib18)] by the second author, where the same estimate is proved for the polynomial f(n)=n^{2}+1 as well as for all reducible quadratic polynomials with two complex roots (see Cor.1.5 in [[12](https://arxiv.org/html/2504.15971#bib.bib18)]). Therefore, the new results in the quadratic case concern irreducible polynomials.
+
+In a different direction, many authors have considered the problem of giving lower bounds for P(f(n)) for at least one value of n on an interval. In this case better bounds are obtained, see for instance [[14](https://arxiv.org/html/2504.15971#bib.bib22)]. We note, however, that the problem that we consider here concerns bounds valid for _every_ sufficiently large value of n. This makes a difference as, in practice, it can happen that P(f(n_{0})) is small for a certain n_{0} although for neighboring values of n one has that P(f(n)) is large. For instance, the following example was found by Luca [[8](https://arxiv.org/html/2504.15971#bib.bib12)]:
+
+\begin{array}[]{cr}n&P(n^{2}+1)\\
+\hline\cr 24\,208\,141&119\,529\,857\\
+24\,208\,142&121\,140\,377\\
+24\,208\,143&67\,749\,617\,053\\
+24\,208\,144&89\\
+24\,208\,145&5\,218\,192\,121\\
+24\,208\,146&586\,034\,332\,757\,317\\
+24\,208\,147&58\,603\,438\,117\,361\\
+24\,208\,148&117\,206\,885\,917\,981\\
+24\,208\,149&2\,292\,977\,009\\
+24\,208\,150&127\,793\,609\\
+\end{array}
+
+Previous works on lower bounds for P(f(n)) mainly used linear forms in complex and p-adic logarithms as explained, for instance, in section 9.6 of [[2](https://arxiv.org/html/2504.15971#bib.bib2)]. Instead, we follow an approach inspired in [[12](https://arxiv.org/html/2504.15971#bib.bib18)] which takes as a new input estimates from [[11](https://arxiv.org/html/2504.15971#bib.bib17)] and [[10](https://arxiv.org/html/2504.15971#bib.bib15)] that build on the theory of Shimura curves and modularity of elliptic curves. At a technical level, our new contribution has two main aspects: on the one hand, we construct new elliptic curves tailored to the particular polynomials under consideration, and on the other hand, we introduce to the problem some tools from algebraic number theory to deal with number fields with more complicated arithmetic — in [[12](https://arxiv.org/html/2504.15971#bib.bib18)], only the field \mathbb{Q}(i) is necessary. We mention that, unlike [[12](https://arxiv.org/html/2504.15971#bib.bib18)], we are able to deal with the case of cubic polynomials, not only quadratic. Leaving open the possibility for further work, we proved the criterion given below in Theorem[1.4](https://arxiv.org/html/2504.15971#S1.Thmtheorem4 "Theorem 1.4. ‣ 1.4. The methods ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families") in more generality (not only the quadratic and cubic cases) as a tool for obtaining improved lower bounds on \rad(f(n)) and P(f(n)).
+
+### 1.4. The methods
+
+For a prime p let \nu_{p} be the p-adic valuation on \mathbb{Z}. As a key tool for proving our main results, we establish the following general criterion for obtaining lower bounds for radicals of polynomial values:
+
+###### Theorem 1.4.
+
+Let F(x)\in\mathbb{Z}[x] be a polynomial with at least two different complex roots that satisfies the following property: there exists a constant \mu:=\mu(F)>0 such that for all but finitely many n\in\mathbb{Z} we have
+
+(1.4)\prod_{p\mid F(n)}\nu_{p}(F(n))\ll_{F}\rad(F(n))^{\mu}.
+
+Then there exists a constant \kappa:=\kappa(F)>0 such that for all n\in\mathbb{Z} we have
+
+\log|n|\leq\exp\mathopen{}\big(\kappa\sqrt{(\log^{*}\rad F(n))\log^{*}_{2}\rad F(n)}\big)\mathclose{}.
+
+Given an elliptic curve E over \mathbb{Q} we let D_{E} and N_{E} be the absolute value of its minimal discriminant and the conductor of E respectively. In order to deduce Theorem [1.1](https://arxiv.org/html/2504.15971#S1.Thmtheorem1 "Theorem 1.1. ‣ 1.1. Main results ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families") we verify Condition ([1.4](https://arxiv.org/html/2504.15971#S1.E4 "In Theorem 1.4. ‣ 1.4. The methods ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families")) using the following results coming from the theory of modular forms and Shimura curves respectively.
+
+###### Theorem 1.5(Thm.7.1 in [[10](https://arxiv.org/html/2504.15971#bib.bib15)]).
+
+There is an absolute and effective constant \kappa>0 with the following property: for each elliptic curve E over \mathbb{Q} one has
+
+\log(D_{E})\leq\kappa\cdot N_{E}\log N_{E}.
+
+###### Theorem 1.6(Cor.16.3 in [[11](https://arxiv.org/html/2504.15971#bib.bib17)]).
+
+Let S be a finite set of prime numbers and let \epsilon>0 be a positive real number. There is a constant \kappa:=\kappa(S,\epsilon)>0 with the following property:
+
+For each elliptic curve E over \mathbb{Q} which is semistable outside of S we have
+
+\prod_{\begin{subarray}{c}p\mid N_{E}\\
+p\notin S\end{subarray}}\nu_{p}(D_{E})\leq\kappa\cdot N_{E}^{11/2+\epsilon}.
+
+Regarding Theorem [1.3](https://arxiv.org/html/2504.15971#S1.Thmtheorem3 "Theorem 1.3. ‣ 1.1. Main results ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), we will see that it follows from Theorem [1.1](https://arxiv.org/html/2504.15971#S1.Thmtheorem1 "Theorem 1.1. ‣ 1.1. Main results ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families") after a suitable construction of elliptic curves.
+
+## 2. Preliminaries
+
+### 2.1. Linear forms in logarithms
+
+Let K be a number field of degree g and for \alpha\in K let h(\alpha) be its height normalized to \mathbb{Q}. Given a nonzero ideal \mathfrak{a}\subseteq\mathcal{O}_{K}, we define the (absolute) norm as \numnorm\mathfrak{a}=|\mathcal{O}_{K}/\mathfrak{a}|. For an infinite place v\in M_{K}^{\infty}, we define \numnorm(v):=2, and for a finite place v\in M_{K}^{0} induced by a prime ideal \mathfrak{p}, we denote \numnorm(v):=\numnorm\mathfrak{p}. We need the following result coming from the theory of linear forms in logarithms, which builds on earlier work by Matveev and Yu (see Thm.4.2.1 in [[2](https://arxiv.org/html/2504.15971#bib.bib2)]).
+
+###### Theorem 2.1.
+
+Let K be a number field, \Gamma\leq K^{\times} be a finitely generated multiplicative subgroup and \xi_{1},\dots,\xi_{m} be a system of generators for \Gamma/\Gamma_{\rm tors}. Then, for any place v\in M_{K} and every \xi\in\Gamma-\{1\} we have
+
+-\log\mathopen{}\lvert 1-\xi\rvert_{v}<\kappa^{m}\cdot\frac{\numnorm(v)}{\log\numnorm(v)}\log\max\left\{e,\numnorm(v)h(\xi)\right\}\prod_{j=1}^{m}h(\xi_{j}),
+
+where \kappa is an effectively computable constant depending only on g=[K:\mathbb{Q}].
+
+### 2.2. Algebraic integers of controlled height
+
+As a technical tool for the proof of Theorem[1.4](https://arxiv.org/html/2504.15971#S1.Thmtheorem4 "Theorem 1.4. ‣ 1.4. The methods ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), we will need the following proposition to compare the height of an element in an ideal to its norm.
+
+###### Proposition 2.2.
+
+There is an effectively computable constant c>0 (depending only on K) with the following property: Given any nonzero ideal \mathfrak{a}\subseteq\mathcal{O}_{K} there exists an element \gamma\in\mathfrak{a}\setminus\{0\} such that
+
+h(\gamma)\leq c\log\numnorm\mathfrak{a}.
+
+Moreover, if \mathfrak{a} is principal, we may choose \gamma to be a generator of \mathfrak{a}.
+
+###### Proof.
+
+By geometry of numbers, we have such a bound with h(\gamma) replaced by the norm of \gamma (see for instance [[7](https://arxiv.org/html/2504.15971#bib.bib11)]). Then the result follows from Lemma 3 of [[4](https://arxiv.org/html/2504.15971#bib.bib6)] (or Prop.4.3.12 of [[2](https://arxiv.org/html/2504.15971#bib.bib2)]). ∎
+
+## 3. The main criterion: lower bounds for the radical
+
+In this section we prove Theorem[1.4](https://arxiv.org/html/2504.15971#S1.Thmtheorem4 "Theorem 1.4. ‣ 1.4. The methods ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families").
+
+Let \alpha_{1}t-\beta_{1} and \alpha_{2}t-\beta_{2} be two non-proportial linear factors of F(t) with \alpha_{j},\beta_{j} algebraic integers. Let K:=\mathbb{Q}(\alpha_{1},\alpha_{2},\beta_{1},\beta_{2}) and let g:=[K:\mathbb{Q}]. We define the polynomial
+
+G(t):=(\alpha_{1}t-\beta_{1})(\alpha_{2}t-\beta_{2})\in\mathcal{O}_{K}[t].
+
+In this section, \kappa_{1},\kappa_{2},... will denote some auxiliary positive constants depending only on F.
+
+From now on, n denotes an integer in \mathbb{Z} and the constants \kappa_{j} are independent of n. We also define
+
+\omega:=\alpha_{2}(\alpha_{1}n-\beta_{1})-\alpha_{1}(\alpha_{2}n-\beta_{2})=\alpha_{1}\beta_{2}-\alpha_{2}\beta_{1},
+
+which is a non-zero element of O_{K} independent of n.
+
+### 3.1. From ideals to integers
+
+Let \mathfrak{p}_{1},...,\mathfrak{p}_{r} be the prime ideals dividing \alpha_{1}\alpha_{2}G(n). Then, as fractional ideals, we have
+
+\left(\frac{\alpha_{1}(\alpha_{2}n-\beta_{2})}{\alpha_{2}(\alpha_{1}n-\beta_{1})}\right)=\prod_{j=1}^{r}\mathfrak{p}^{e_{j}}
+
+for certain integer exponents e_{j}. Let \mathbf{h} be the class number of K and for each j, we choose a generator \xi_{j} of \mathfrak{p}_{j}^{\mathbf{h}} satisfying the bound in Proposition[2.2](https://arxiv.org/html/2504.15971#S2.Thmtheorem2 "Proposition 2.2. ‣ 2.2. Algebraic integers of controlled height ‣ 2. Preliminaries ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). Then we get
+
+(\xi)=\prod_{j=1}^{r}(\xi_{j})^{e_{j}}
+
+where
+
+\xi:=\left(\frac{\alpha_{1}(\alpha_{2}n-\beta_{2})}{\alpha_{2}(\alpha_{1}n-\beta_{1})}\right)^{\mathbf{h}}.
+
+Therefore, there is a unit u\in\mathcal{O}_{K}^{\times} such that \xi=u\xi_{1}^{e_{1}}\cdots\xi_{r}^{e_{r}}.
+
+Let \{\eta_{1},\dots,\eta_{s}\} be a basis for the units \mathcal{O}_{K}^{\times} modulo torsion, where s=\mathrm{rank}\,(\mathcal{O}_{K}^{\times}). Let J:=\{1,\dots,r\} and J^{\prime}:=\{1,\dots,s\}. Then we have
+
+\xi=\left(1-\frac{\omega}{\alpha_{2}(\alpha_{1}n-\beta_{1})}\right)^{\mathbf{h}}=\zeta\cdot\prod_{i\in J^{\prime}}\eta_{i}^{e^{\prime}_{i}}\cdot\prod_{j\in J}\xi_{j}^{e_{j}},
+
+where \zeta\in K^{\times} is a root of unity and the e^{\prime}_{i} are the integer exponents.
+
+### 3.2. Choosing factors
+
+Set
+
+B:=\exp\mathopen{}\left(\sqrt{(\log^{*}R)\log^{*}_{2}R}\right),
+
+where R:=\rad F(n). Let I:=\{j\in J:|e_{j}|>B\} and define
+
+\xi_{0}:=\prod_{j\in J-I}\xi_{j}^{e_{j}}.
+
+Set I_{0}:=I\cup\{0\} and m:=|I_{0}|.
+
+Pick any archimedian absolute value |-| on K. As \omega, \alpha_{1}, \alpha_{2} and \beta_{1} are all fixed, all the chosen absolute value of q:=\kappa_{1}/(\alpha_{2}(\alpha_{1}n-\beta_{1})) is less than \kappa_{1}/|n| as |n| grows, and therefore
+
+|1-\xi|=|1-(1-q)^{\mathbf{h}}|<\frac{\kappa_{2}}{|n|},\quad n\neq 0.
+
+Consider the subgroup \Gamma\leq K^{\times} generated by the roots of unity in K, the element \xi_{0}, and the elements \eta_{i} for i\in J^{\prime} and \xi_{j} for j\in I. By Theorem[2.1](https://arxiv.org/html/2504.15971#S2.Thmtheorem1 "Theorem 2.1. ‣ 2.1. Linear forms in logarithms ‣ 2. Preliminaries ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), as |n| grows we have
+
+(3.1)\displaystyle\kappa_{3}\log|n|<\log|n|-\log\kappa_{2}\displaystyle\leq-\log|1-\xi|
+\displaystyle\leq\kappa_{3}^{m+s}\left(\log^{*}h(\xi)\right)\prod_{j\in J^{\prime}}h(\eta_{j})\cdot\prod_{i\in I_{0}}h(\xi_{i})
+\displaystyle\leq\kappa_{4}^{m}\left(\log^{*}h(\xi)\right)\prod_{i\in I_{0}}h(\xi_{i})
+
+because the choice of the elements \eta_{1},...,\eta_{s} only depend on K, and m\geq 1.
+
+Notice that as |n| grows
+
+h(\xi)={\mathbf{h}}\cdot h\left(\frac{\alpha_{1}(\alpha_{2}n-\beta_{2})}{\alpha_{2}(\alpha_{1}n-\beta_{1})}\right)\leq\kappa_{5}\log|n|
+
+and we deduce
+
+\kappa_{3}\log|n|\leq\kappa_{6}^{m}(\log^{*}_{2}|n|)\prod_{i\in I_{0}}h(\xi_{i}).
+
+Hence,
+
+\frac{\log|n|}{\log^{*}_{2}|n|}\leq\kappa_{7}^{m}\prod_{i\in I_{0}}h(\xi_{i}).
+
+### 3.3. Proof of the lower bound for the radical
+
+Continuing with the previous argument, in this section we conclude the proof of Theorem [1.4](https://arxiv.org/html/2504.15971#S1.Thmtheorem4 "Theorem 1.4. ‣ 1.4. The methods ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families").
+
+Let p_{j} be the prime number below \mathfrak{p}. By choice of the \xi_{j} we have
+
+h(\xi_{j})\leq\kappa_{8}\log p_{j}
+
+for j=1,...,r. Regarding h(\xi_{0}), we have
+
+h(\xi_{0})\leq\sum_{j\in J-I}h(\xi_{j}^{e_{j}})\leq B\sum_{j\in J-I}h(\xi_{j})\leq\kappa_{8}B\log R
+
+where we recall that R=\rad F(n). Hence
+
+(3.2)\frac{\log|n|}{\log^{*}_{2}|n|}\leq\kappa_{9}^{m}B(\log R)\prod_{i\in I}\log p_{i}.
+
+If I=\emptyset so that m=1, then
+
+\frac{\log|n|}{\log^{*}_{2}|n|}\leq\kappa_{10}B(\log R)
+
+which gives \log|n|\leq B^{\kappa_{11}} as desired. So we may assume m\geq 2, that is, I non-empty.
+
+The arithmetic-geometric mean inequality gives
+
+\prod_{i\in I}\log p_{i}\leq\left(\frac{\log R}{m-1}\right)^{m-1}\leq(\log R)^{m-1}
+
+and from ([3.2](https://arxiv.org/html/2504.15971#S3.E2 "In 3.3. Proof of the lower bound for the radical ‣ 3. The main criterion: lower bounds for the radical ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families")) we get
+
+(3.3)\frac{\log|n|}{\log^{*}_{2}|n|}\leq\kappa_{12}^{m}B(\log R)^{m}.
+
+From assumption ([1.4](https://arxiv.org/html/2504.15971#S1.E4 "In Theorem 1.4. ‣ 1.4. The methods ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families")) and the definition of the index set I (whose cardinality is m-1), we deduce that
+
+(\kappa_{13}B)^{m-1}\leq R^{\kappa_{14}}
+
+from which it follows that
+
+m\leq\kappa_{15}\frac{\log^{*}R}{\log^{*}B}=\kappa_{15}\sqrt{\frac{\log^{*}R}{\log^{*}_{2}R}}.
+
+Using this in ([3.3](https://arxiv.org/html/2504.15971#S3.E3 "In 3.3. Proof of the lower bound for the radical ‣ 3. The main criterion: lower bounds for the radical ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families")) we get
+
+\sqrt{\log|n|}\leq\frac{\log|n|}{\log^{*}_{2}|n|}\leq B\exp\left(\kappa_{16}(\log^{*}_{2}R)\sqrt{\frac{\log^{*}R}{\log^{*}_{2}R}}\right)\leq B^{\kappa_{17}}
+
+which concludes the proof of Theorem [1.4](https://arxiv.org/html/2504.15971#S1.Thmtheorem4 "Theorem 1.4. ‣ 1.4. The methods ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families").
+
+## 4. Bounds for Szpiro’s conjecture
+
+The following result is well-known, but we could not find a convenient reference.
+
+###### Lemma 4.1.
+
+Let \pi\colon X\to\mathbb{P}^{1}_{\mathbb{C}} be a non-isotrivial elliptic surface over \mathbb{C}. Then it has at least three bad fibres.
+
+###### Proof.
+
+Let T\subseteq\mathbb{P}^{1}_{\mathbb{C}} be the points supporting the bad fibres and let S:=\mathbb{P}^{1}_{\mathbb{C}}\setminus T. As the j-invariant is non-constant, \#T\geq 1. Suppose, by contradiction, that \#T\leq 2, then the (topological) universal cover of S is \mathbb{C}.
+
+Let \Gamma\leq\PSL_{2}(\mathbb{Z}) be a congruence subgroup and let Y_{\Gamma} be the corresponding open modular curve over \mathbb{C}. Taking \Gamma sufficiently small we may assume that Y_{\Gamma} has no elliptic points and, thus, it is hyperbolic. There is an étale cover S^{\prime}\to S with a classifying map S^{\prime}\to Y_{\Gamma} which is non-constant as the elliptic surface is non-isotrivial. But since \mathbb{C} is the universal cover of S, we get a non-constant map \mathbb{C}\to S^{\prime}, which contradicts the hyperbolicity of Y_{\Gamma}. ∎
+
+###### Lemma 4.2.
+
+Let f,g\in\mathbb{C}[t] be coprime, not both constant. Then f^{2}+g^{3} is non-constant.
+
+###### Proof.
+
+For otherwise, we would get a non-constant morphism \mathbb{P}^{1}_{\mathbb{C}}\to E, where E is the complex elliptic curve given by y^{2}=x^{3}+1. This is not possible, by the Riemann-Hurwitz formula. ∎
+
+Finally, we can prove our subexponential bounds for the height conjecture.
+
+###### Proof of Theorem [1.1](https://arxiv.org/html/2504.15971#S1.Thmtheorem1 "Theorem 1.1. ‣ 1.1. Main results ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families").
+
+By Lemma [4.2](https://arxiv.org/html/2504.15971#S4.Thmtheorem2 "Lemma 4.2. ‣ 4. Bounds for Szpiro’s conjecture ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families") the discriminant D(t) is non-constant.
+
+Let \rho\in\mathbb{Z} be the resultant of A(t) and B(t). Since A,B are coprime over \mathbb{Q}, we have \rho\neq 0. For every n\in\mathbb{Z} we get that \gcd(A(n),B(n)) divides \rho, so the equation defining E_{n} is _quasiminimal_: there is a constant \tau\geq 1 independent of n such that D(n) divides \tau|\Delta_{n}|. Furthermore, E_{n} is semistable outside the primes dividing \rho; in particular R(n) divides \rho N_{n} where R(n)=\rad(D(n)).
+
+By coprimality of A(t) and B(t), Tate’s algorithm gives at least one fibre of multiplicative reduction (a zero of D(t)). Thus, the elliptic surface defined by ([1.1](https://arxiv.org/html/2504.15971#S1.E1 "In Theorem 1.1. ‣ 1.1. Main results ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families")) is non-isotrivial and it has at least two bad fibres in the affine chart t\in\mathbb{A}^{1}\subseteq\mathbb{P}^{1}, by Lemma [4.1](https://arxiv.org/html/2504.15971#S4.Thmtheorem1 "Lemma 4.1. ‣ 4. Bounds for Szpiro’s conjecture ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). This means that D(t)\in\mathbb{Z}[t] has at least two different complex zeros and Theorem [1.4](https://arxiv.org/html/2504.15971#S1.Thmtheorem4 "Theorem 1.4. ‣ 1.4. The methods ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families") gives
+
+\log|n|\leq\exp\mathopen{}\left(\kappa\sqrt{(\log R(n))\log^{*}_{2}R(n)}\right)\mathclose{},
+
+which applies thanks to Theorems [1.6](https://arxiv.org/html/2504.15971#S1.Thmtheorem6 "Theorem 1.6 (Cor. 16.3 in []). ‣ 1.4. The methods ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families") and [1.5](https://arxiv.org/html/2504.15971#S1.Thmtheorem5 "Theorem 1.5 (Thm. 7.1 in []). ‣ 1.4. The methods ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families") (the second one for the primes of additive reduction of E_{n}); here we used the fact that D(n) divides \tau|\Delta_{n}|.
+
+As R(n) divides \rho N_{n} and
+
+h(E_{n})\asymp\log\max\{|A(n)|^{3},|B(n)|^{2}\}\asymp\log|n|
+
+(see [[15](https://arxiv.org/html/2504.15971#bib.bib24)]), the result follows. ∎
+
+In this section we prove Theorem [1.3](https://arxiv.org/html/2504.15971#S1.Thmtheorem3 "Theorem 1.3. ‣ 1.1. Main results ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families").
+
+### 5.1. Quadratic case
+
+Let f(x)=ax^{2}+bx+c\in\mathbb{Z}[x] be a quadratic polynomial. Let \delta:=b^{2}-4ac be its discriminant. Consider the curve E defined by the Weierstrass equation
+
+(5.1)E\colon\quad y^{2}=x^{3}-3\delta x-2\delta(2an+b).
+
+Theorem [1.3](https://arxiv.org/html/2504.15971#S1.Thmtheorem3 "Theorem 1.3. ‣ 1.1. Main results ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families") in the quadratic case follows from Theorem [1.1](https://arxiv.org/html/2504.15971#S1.Thmtheorem1 "Theorem 1.1. ‣ 1.1. Main results ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families") with A(n)=-3\delta and B(n)=2\delta(2an+b). Indeed, with these choices one has
+
+D(n)=-6912\delta^{2}af(n)
+
+and noticing that the Weierstrass equation is quasi-minimal and semistable at each p\nmid 6\delta (see [[20](https://arxiv.org/html/2504.15971#bib.bib32)]) we deduce from Theorem [1.1](https://arxiv.org/html/2504.15971#S1.Thmtheorem1 "Theorem 1.1. ‣ 1.1. Main results ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families") that
+
+\log n\ll\log|D(n)|\ll\exp\left(\kappa\sqrt{(\log^{*}R(n))\log^{*}_{2}R(n)}\right)
+
+where R(n)=\rad(f(n)). This proves the desired lower bound for R(n).
+
+By classical estimates on prime numbers, for every integer M>1 one has
+
+4^{P(M)}\geq\prod_{p\leq P(M)}p\geq\rad(M)
+
+and the lower bound for P(f(n)) follows.
+
+### 5.2. Cubic case
+
+The cubic case of Theorem [1.3](https://arxiv.org/html/2504.15971#S1.Thmtheorem3 "Theorem 1.3. ‣ 1.1. Main results ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families") is proved exactly as the quadratic case, using the family of elliptic curves
+
+E_{n}:\quad y^{2}=x^{3}+3c(an+b)x+2c^{2}.
+
+Here one chooses A(n)=3c(an+b) and B(n)=2c^{2}, which gives the discriminant
+
+D(n)=-1728c^{3}\cdot f(n)
+
+where f(x)=(ax+b)^{3}+c. Then one concludes by applying Theorem [1.1](https://arxiv.org/html/2504.15971#S1.Thmtheorem1 "Theorem 1.1. ‣ 1.1. Main results ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families").
+
+## Acknowledgments
+
+H.P. was supported by ANID Fondecyt Regular grant 1230507 from Chile. We are grateful to Cameron L.Stewart for suggesting the generalization to quadratic polynomials, and to Kálmán Györy for comments on a first version of Section[4](https://arxiv.org/html/2504.15971#S4 "4. Bounds for Szpiro’s conjecture ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families").
+
+## References
+
+*   [1]S. Chowla (1934)The greatest prime factor of x^{2}+1. J. London Math. Soc.10, pp.117–120. External Links: [Document](https://dx.doi.org/10.1112/jlms/s1-10.1.117)Cited by: [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p1.1 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [2]J.-H. Evertse and K. Györy (2016)Unit equations in diophantine number theory. Cambridge Studies in Advanced Mathematics, Cambridge University Press. Cited by: [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p6.1 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), [§2.1](https://arxiv.org/html/2504.15971#S2.SS1.p1.1 "2.1. Linear forms in logarithms ‣ 2. Preliminaries ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), [§2.2](https://arxiv.org/html/2504.15971#S2.SS2.p2.1.1 "Proof. ‣ 2.2. Algebraic integers of controlled height ‣ 2. Preliminaries ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [3]G. Frey Links between solutions of A-B=C and elliptic curves. pp.31–62. External Links: [Document](https://dx.doi.org/10.1007/BFb0086544)Cited by: [§1.2](https://arxiv.org/html/2504.15971#S1.SS2.p2.1 "1.2. Szpiro’s conjecture ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [4]K. Győry and K. Yu (2006)Bounds for the solutions of S-unit equations and decomposable form equations. Acta Arithmetica 123, pp.9–41. External Links: [Document](https://dx.doi.org/10.4064/aa123-1-2)Cited by: [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p2.2 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), [§2.2](https://arxiv.org/html/2504.15971#S2.SS2.p2.1.1 "Proof. ‣ 2.2. Algebraic integers of controlled height ‣ 2. Preliminaries ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [5]J. Haristoy (2003)ÉQuations diophantiennes exponentielles. PhD, University of Strasbourg I (Louis Pasteur). Cited by: [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p2.2 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [6]M. Keates (1969)On the greatest prime factor of a polynomial. Proc. Edinburgh Math. Soc.16, pp.301–303. External Links: [Document](https://dx.doi.org/10.1017/S0013091500012967)Cited by: [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p1.2 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [7]S. Lang (1970)Algebraic number theory. Addison-Wesley. Cited by: [§2.2](https://arxiv.org/html/2504.15971#S2.SS2.p2.1.1 "Proof. ‣ 2.2. Algebraic integers of controlled height ‣ 2. Preliminaries ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [8]F. Luca (2004)Primitive divisors of lucas sequences and prime factors of x^{2}+1 and x^{4}+1. Acta Acad. Paed. Agriensis, Sectio Math.31, pp.19–24. External Links: [Link](http://real.mtak.hu/id/eprint/142317)Cited by: [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p5.1 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [9]K. Mahler (1933)ÜBer den grössten primteiler der polynome x^{2}\mp 1. Archiv Math. og. Naturv.41, pp.3–8. Cited by: [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p1.1 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [10]M. R. Murty and H. Pasten (2013)Modular forms and effective diophantine approximation. J. Number Th.133, pp.3739–3754. External Links: [Document](https://dx.doi.org/10.1016/j.jnt.2013.05.006)Cited by: [§1.2](https://arxiv.org/html/2504.15971#S1.SS2.p2.1 "1.2. Szpiro’s conjecture ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), [§1.2](https://arxiv.org/html/2504.15971#S1.SS2.p3.1 "1.2. Szpiro’s conjecture ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p6.1 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), [Theorem 1.5](https://arxiv.org/html/2504.15971#S1.Thmtheorem5 "Theorem 1.5 (Thm. 7.1 in []). ‣ 1.4. The methods ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [11]H. Pasten (2024)Shimura curves and the abc conjecture. J. Number Theory 254, pp.214–335. External Links: [Document](https://dx.doi.org/10.1016/j.jnt.2023.07.002)Cited by: [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p6.1 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), [Theorem 1.6](https://arxiv.org/html/2504.15971#S1.Thmtheorem6 "Theorem 1.6 (Cor. 16.3 in []). ‣ 1.4. The methods ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [12]H. Pasten (2024)The largest prime factor of n^{2}+1 and improvements on subexponential ABC. Invent. math.236, pp.373–385. External Links: [Document](https://dx.doi.org/10.1007/s00222-024-01244-6)Cited by: [§1.1](https://arxiv.org/html/2504.15971#S1.SS1.p2.1 "1.1. Main results ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), [§1.2](https://arxiv.org/html/2504.15971#S1.SS2.p4.1 "1.2. Szpiro’s conjecture ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p4.1 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p6.1 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [13]A. Schinzel (1967)On two theorems of gelfond and some of their applications. Acta Arithmetica 13, pp.177–236. External Links: [Link](https://eudml.org/doc/204826)Cited by: [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p1.2 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [14]T. N. Shorey and R. Tijdeman (1976)On the greatest prime factors of polynomials at integer points. Comp. Math.33, pp.187–195. External Links: [Link](https://www.numdam.org/item/CM_1976__33_2_187_0/)Cited by: [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p1.2 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p5.1 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [15]J. H. Silverman Heights and elliptic curves. pp.253–265. External Links: [Document](https://dx.doi.org/10.1007/BFb0086544)Cited by: [§1.2](https://arxiv.org/html/2504.15971#S1.SS2.p2.1 "1.2. Szpiro’s conjecture ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), [§4](https://arxiv.org/html/2504.15971#S4.p9.2.1 "Proof of Theorem . ‣ 4. Bounds for Szpiro’s conjecture ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [16]C. L. Stewart and K. Yu (2001)On the abc conjecture ii. Duke Math. J.108, pp.169–181. External Links: [Document](https://dx.doi.org/10.1215/S0012-7094-01-10815-6)Cited by: [§1.2](https://arxiv.org/html/2504.15971#S1.SS2.p4.1 "1.2. Szpiro’s conjecture ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"), [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p2.1 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [17]C. Störmer (1897)Quelques théorèmes sur l’équation de pell x^{2}-Dy^{2}=\pm 1 et leurs applications. Skrifter Videnskabs-selskabet (Christiania), Mat.-Naturv. Kl.I. Cited by: [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p1.1 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [18]C. Störmer (1898)Sur une équation indeterminée. C. R. Acad. Sci. Paris 127, pp.752–754. Cited by: [§1.3](https://arxiv.org/html/2504.15971#S1.SS3.p1.1 "1.3. The greatest prime factor ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [19]L. Szpiro (1990)Discriminant et conducteur des courbes elliptiques. pp.7–18. Cited by: [§1.2](https://arxiv.org/html/2504.15971#S1.SS2.p1.1 "1.2. Szpiro’s conjecture ‣ 1. Introduction ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families"). 
+*   [20]J. Tate Algorithm for determining the type of a singular fiber in an elliptic pencil. pp.33–52. External Links: [Document](https://dx.doi.org/10.1007/BFb0097582)Cited by: [§5.1](https://arxiv.org/html/2504.15971#S5.SS1.p2.2 "5.1. Quadratic case ‣ 5. The greatest prime factor of polynomial values ‣ On the greatest prime factor of polynomial values and subexponential Szpiro in families").
+

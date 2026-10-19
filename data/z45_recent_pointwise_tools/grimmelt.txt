@@ -1,0 +1,916 @@
+## Content from https://arxiv.org/html/2505.00493
+
+Title: On the greatest prime factor and uniform equidistribution of quadratic polynomials
+
+URL Source: https://arxiv.org/html/2505.00493
+
+Published Time: Mon, 24 Aug 2026 20:53:23 GMT
+
+Markdown Content:
+Lasse Grimmelt Address:Mathematical Institute, University of Oxford   
+Radcliffe Observatory Quarter, Woodstock Rd   
+Oxford OX2 6GG   
+UK Email address: [lasse.grimmelt@maths.ox.ac.uk](mailto:lasse.grimmelt@maths.ox.ac.uk)Jori Merikoski Address:Mathematical Institute, University of Oxford   
+Radcliffe Observatory Quarter, Woodstock Rd   
+Oxford OX2 6GG   
+UK Email address: [jori.merikoski@maths.ox.ac.uk](mailto:jori.merikoski@maths.ox.ac.uk)
+
+###### Abstract.
+
+We show that the greatest prime factor of n^{2}+h is at least n^{1.312} infinitely often. This gives an unconditional proof for the range previously known under the Selberg eigenvalue conjecture. Furthermore, we get uniformity in h\leq n^{1+o(1)} under a natural hypothesis on real characters. The same uniformity is obtained for the equidistribution of the roots of quadratic congruences modulo primes. We also prove a variant of the divisor problem for ax^{2}+by^{3}, which was used by the second author to give a conditional result about primes of that shape.
+
+###### 2020 Mathematics Subject Classification
+
+11N32, 11N75 primary
+
+###### Contents
+
+1.   [1 Introduction](https://arxiv.org/html/2505.00493#S1 "In On the greatest prime factor and uniform equidistribution of quadratic polynomials")
+2.   [2 Technical result](https://arxiv.org/html/2505.00493#S2 "In On the greatest prime factor and uniform equidistribution of quadratic polynomials")
+3.   [3 Parametrisation of symmetric matrices](https://arxiv.org/html/2505.00493#S3 "In On the greatest prime factor and uniform equidistribution of quadratic polynomials")
+4.   [4 Upper bounds for automorphic kernels](https://arxiv.org/html/2505.00493#S4 "In On the greatest prime factor and uniform equidistribution of quadratic polynomials")
+5.   [5 Proof of Theorem](https://arxiv.org/html/2505.00493#S5 "In On the greatest prime factor and uniform equidistribution of quadratic polynomials")
+6.   [6 Proof of Theorem](https://arxiv.org/html/2505.00493#S6 "In On the greatest prime factor and uniform equidistribution of quadratic polynomials")
+7.   [7 Proof of Theorems and](https://arxiv.org/html/2505.00493#S7 "In On the greatest prime factor and uniform equidistribution of quadratic polynomials")
+8.   [8 A divisor problem for ax^{2}+by^{3}](https://arxiv.org/html/2505.00493#S8 "In On the greatest prime factor and uniform equidistribution of quadratic polynomials")
+9.   [References](https://arxiv.org/html/2505.00493#bib "In On the greatest prime factor and uniform equidistribution of quadratic polynomials")
+
+## 1. Introduction
+
+We consider quadratic polynomials of the shape an^{2}+h and apply [[5](https://arxiv.org/html/2505.00493#bib.bib5)] by the authors, to obtain new results about their greatest prime factor, the equidistribution of their roots to prime moduli, and a certain divisor problem which is used in a recent work of the second author [[9](https://arxiv.org/html/2505.00493#bib.bib9)].
+
+A famous conjecture of Landau states that there are infinitely many primes of the form n^{2}+1. As an approximation, we consider the greatest prime factor of quadratic polynomials an^{2}+h and show the following theorem that improves upon [[8](https://arxiv.org/html/2505.00493#bib.bib8)] by the second author and [[10](https://arxiv.org/html/2505.00493#bib.bib10)] by Pascadi in two aspects. First, we obtain unconditionally the exponent 1.312 that was previously known under the Selberg eigenvalue conjecture. Second, we get uniformity in the shift h under an assumption involving the Legendre symbol (\tfrac{x}{p}). To state the assumption, we define
+
+\displaystyle\varrho_{a,h}(k):=\#\{\nu\in{\mathbb{Z}}/k{\mathbb{Z}}:a\nu^{2}+h\equiv 0\,\,(\mathrm{mod}\,{k})\}.
+
+This is a multiplicative function with \varrho_{a,h}(p)=1+(\frac{-ah}{p}) for \gcd(a,p)=1. In contrast to all previous works, the proof is independent of progress towards the Selberg eigenvalue conjecture – any fixed spectral gap would give the same quality of result.
+
+###### Theorem 1.1.
+
+There exists some small \varepsilon>0 such that the following holds for all X>\varepsilon^{-1}. Let 1\leq h\leq X^{1+\varepsilon} be square-free and let 1\leq a\leq X^{\varepsilon} with \gcd(a,h)=1. Suppose that for any X^{\varepsilon}<Y<Z\leq X^{2} we have
+
+\displaystyle\sum_{Y\leq p<Z}\frac{\log p}{p}\varrho_{a,h}(p)\leq(1+\varepsilon)\log Z/Y+1/\varepsilon.
+
+Then there exists n\in[X,2X] such that the greatest prime factor of an^{2}+h is greater than X^{1.312}.
+
+For ah\leq X^{\varepsilon^{2}} the hypothesis can be shown unconditionally by the classical zero-free region, since a possible Siegel zeros would help to make the sum small. It seems likely that this hypothesis is a fundamental obstruction, as its contraposition means that the an^{2}+h have more small prime factors than expected. We will not pursue this issue here, as our focus is the application of the automorphic methods developed in [[5](https://arxiv.org/html/2505.00493#bib.bib5)].
+
+In similar spirit, we can also obtain uniformity in h for the equidistribution of roots of quadratic congruences to prime moduli, generalising the work of Duke, Friedlander, and Iwaniec [[4](https://arxiv.org/html/2505.00493#bib.bib4)]. We again need to include the distribution of \varrho_{a,h}(p) in the statement. However, here the issue is of opposite nature and the theorem becomes trivial if \varrho_{a,h}(p) is 0 almost always, i.e. if there is a Siegel zero for the real character (\frac{-ah}{\cdot}).
+
+###### Theorem 1.2.
+
+Let 1\leq h\leq X^{1+o(1)} be square-free and let 1\leq a\leq X^{o(1)} with \gcd(a,h)=1. Then for any 0\leq\alpha<\beta\leq 1 we have
+
+\displaystyle\#\Bigl\{(p,\nu):p\leq X,\,a\nu^{2}+h\equiv 0\,\,(\mathrm{mod}\,{p}),\,\frac{\nu}{p}\in(\alpha,\beta]\Bigr\}=(\beta-\alpha)\sum_{p\leq X}\varrho_{a,h}(p)+o\bigl(\pi(X)\bigr).
+
+Finally, in Section [8](https://arxiv.org/html/2505.00493#S8 "8. A divisor problem for 𝑎⁢𝑥^2+𝑏⁢𝑦^3 ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") we state and prove a technical variant of the divisor problem for the binary polynomial ax^{2}+by^{3}. This was used by the second author [[9](https://arxiv.org/html/2505.00493#bib.bib9)] to show the following result about primes of the shape ax^{2}+by^{3}, conditional to the hypothesis that certain Hecke eigenvalues exhibit square-root cancellation along the values of binary cubic forms. As is discussed in [[9](https://arxiv.org/html/2505.00493#bib.bib9), Section 1.2.3], a naive application of [[4](https://arxiv.org/html/2505.00493#bib.bib4)] does not provide a sufficient divisor function estimate for an asymptotic formula.
+
+###### Theorem 1.3.
+
+Let a,b>0 be coprime integers. Assume that [[9](https://arxiv.org/html/2505.00493#bib.bib9), Conjecture \mathrm{C}_{a}(\varepsilon)] holds for all \varepsilon>0. Then
+
+\displaystyle\sum_{x\leq X^{1/2}}\sum_{y\leq X^{1/3}}\Lambda(ax^{2}+by^{3})=(1+o(1))X^{5/6}.
+
+### 1.1. Uniform equidistribution estimates
+
+By sieve methods, distribution of prime numbers may be reduced to so-called Type I and Type II sums. The main technical results of this paper are the following two theorems that provide highly uniform asymptotics for the distribution of the roots of quadratic congruences. Theorems [1.1](https://arxiv.org/html/2505.00493#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") and [1.2](https://arxiv.org/html/2505.00493#S1.Thmtheorem2 "Theorem 1.2. ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") are quick consequences of these by the sieve arguments in [[8](https://arxiv.org/html/2505.00493#bib.bib8)] and [[4](https://arxiv.org/html/2505.00493#bib.bib4)]. It is convenient for us to define A\prec\mathrel{\mkern-5.0mu}\prec B to mean |A|\leq X^{o(1)}B. We let \theta denote the best exponent towards the Selberg eigenvalue conjecture, so that by the work of Kim and Sarnak [[7](https://arxiv.org/html/2505.00493#bib.bib7)]\theta\leq 7/64.
+
+###### Theorem 1.4(Type I estimate).
+
+Let 1\leq D\leq K\leq X^{2} and D\leq X^{1/2}. Let h be square-free with 1\leq h\prec\mathrel{\mkern-5.0mu}\prec X^{2} and let 1\leq a\prec\mathrel{\mkern-5.0mu}\prec 1 with \gcd(a,h)=1. Let \psi_{1},\psi_{2}:{\mathbb{R}}\to{\mathbb{C}} be smooth functions supported on [1,2] and [-1,1], resp., such that for all J\geq 0 we have \psi_{i}^{(J)}\prec\mathrel{\mkern-5.0mu}\prec_{J}1. Then
+
+\displaystyle\sum_{d\leq D}\bigg|\sum_{k\equiv 0\,\,(\mathrm{mod}\,{d})}\psi_{1}\Bigl(\frac{k}{K}\Bigr)\Bigl(\displaystyle\sum_{a\ell^{2}+h\equiv 0\,\,(\mathrm{mod}\,{k})}\psi_{2}\Bigl(\frac{\ell}{X}\Bigr)-\frac{\varrho_{a,h}(k)}{k}X\int_{\mathbb{R}}\psi_{2}(u)\mathrm{d}u\Bigr)\bigg|
+\displaystyle\prec\mathrel{\mkern-5.0mu}\prec\,D^{1/2}X^{1/2}(D^{1/2}+h^{1/4})\Bigl(1+\frac{X}{D(D+h^{1/2})}\Bigr)^{\theta}.
+
+###### Theorem 1.5(Type II estimate).
+
+Let M\geq N with MN\geq X and M\leq X. Let h be square-free with 1\leq h\prec\mathrel{\mkern-5.0mu}\prec X^{2} and let 1\leq a\prec\mathrel{\mkern-5.0mu}\prec 1 with \gcd(a,h)=1. Let \psi be a smooth function supported on [-1,1] such that for all J\geq 0 we have \psi^{(J)}\prec\mathrel{\mkern-5.0mu}\prec_{J}1. Suppose that \alpha_{m},\beta_{n} are bounded coefficients with \beta_{n} supported on square-free integers. Then
+
+\displaystyle\sum_{\begin{subarray}{c}m\sim M\end{subarray}}\displaystyle\sum_{n\sim N}\alpha_{m}\beta_{n}\Bigl(\sum_{a\ell^{2}+h\equiv 0\,\,(\mathrm{mod}\,{mn})}\psi\Bigl(\frac{\ell}{X}\Bigr)-\frac{\varrho_{a,h}(mn)}{mn}X\int_{\mathbb{R}}\psi(u)\mathrm{d}u\Bigr)
+\displaystyle\prec\mathrel{\mkern-5.0mu}\prec\,M^{1/2}X^{1/2}+M^{1/4}N^{1/2}X^{1/2}(N^{1/2}+h^{1/8})\bigg(1+\frac{X}{M^{1/2}N(N+h^{1/4})}\bigg)^{\theta}.
+
+For h\prec\mathrel{\mkern-5.0mu}\prec D^{2} and h\prec\mathrel{\mkern-5.0mu}\prec N^{4}, the Type I and Type II bounds respectively simplify to
+
+\displaystyle DX^{1/2}\Bigl(1+\frac{X}{D^{2}}\Bigr)^{\theta}\quad\text{and}\quad M^{1/2}X^{1/2}+M^{1/4}NX^{1/2}\bigg(1+\frac{X}{M^{1/2}N^{2}}\bigg)^{\theta},
+
+which are independent of h. In the critical ranges for the proof of Theorem [1.1](https://arxiv.org/html/2505.00493#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") we have precisely D\leq X^{1/2-o(1)} and N\leq X^{1/4-o(1)}, which ultimately allows us to take h\leq X^{1+o(1)}, and the bounds are then non-trivial as long as we have a spectral gap \theta<1/2. Our Type I and II estimates remain non-trivial also for larger h<X^{2} and one could in this range lower bound the size of the largest prime divisor by X^{\varpi} for some \varpi=\varpi(h)>1 with \varpi\to 1 as h\to X^{2}. We do not pursue this here further.
+
+### 1.2. Outline of the proof
+
+We consider Theorem [1.1](https://arxiv.org/html/2505.00493#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") for a=1 in this sketch. Similar to the work of the second author [[8](https://arxiv.org/html/2505.00493#bib.bib8)], a combination of Chebyshev’s method and Harman’s sieve leads us to consider the distribution of the roots of \ell^{2}+h\equiv 0\,\,(\mathrm{mod}\,{k}) in a narrow window \ell\sim X in {\mathbb{Z}}/k{\mathbb{Z}} with X<K. More precisely, we want to evaluate asymptotically
+
+\displaystyle(\text{Type I sums})\displaystyle\sum_{d\sim D}\lambda_{d}\sum_{\begin{subarray}{c}k\sim K\\
+k\equiv 0\,\,(\mathrm{mod}\,{d})\end{subarray}}\sum_{\begin{subarray}{c}\ell\sim X\\
+\ell^{2}+h\equiv 0\,\,(\mathrm{mod}\,{k})\end{subarray}}1\quad\text{and}
+\displaystyle(\text{Type II sums})\displaystyle\sum_{m\sim M}\alpha_{m}\sum_{\begin{subarray}{c}n\sim N\end{subarray}}\beta_{n}\sum_{\begin{subarray}{c}\ell\sim X\\
+\ell^{2}+h\equiv 0\,\,(\mathrm{mod}\,{mn})\end{subarray}}1,\quad\quad
+
+for as wide range of D and N as possible, see Theorems [1.4](https://arxiv.org/html/2505.00493#S1.Thmtheorem4 "Theorem 1.4 (Type I estimate). ‣ 1.1. Uniform equidistribution estimates ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") and [1.5](https://arxiv.org/html/2505.00493#S1.Thmtheorem5 "Theorem 1.5 (Type II estimate). ‣ 1.1. Uniform equidistribution estimates ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials"). The case of Type II sums may be reduced to a more complicated variant of the Type I sums by an application of Cauchy-Schwarz, and so we shall first focus on Type I sums in this sketch.
+
+We note that all previous results only consider bounded h. Hooley [[6](https://arxiv.org/html/2505.00493#bib.bib6)] estimated the Type I sums by using the Gauss correspondence to connect them to Kloosterman sums and bounding them with Weil bound. Combining this with an upper bound sieve, Hooley obtained the exponent 1.1 in Theorem [1.1](https://arxiv.org/html/2505.00493#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials"). Deshouillers and Iwaniec [[2](https://arxiv.org/html/2505.00493#bib.bib2)] improved this to 1.2 by making use of sums of Kloosterman sums [[3](https://arxiv.org/html/2505.00493#bib.bib3)], which was improved to 1.2182 by de la Bretèche and Drappeau [[1](https://arxiv.org/html/2505.00493#bib.bib1)] by sharpening the dependency on exceptional eigenvalue. In the work of the second author [[8](https://arxiv.org/html/2505.00493#bib.bib8)] Harman’s sieve and Type II sums were introduced to the proof, improving the exponent to 1.279 unconditionally and 1.312 conditional to Selberg’s eigenvalue conjecture. Finally, the dependency on the exceptional eigenvalue was recently improved by Pascadi [[10](https://arxiv.org/html/2505.00493#bib.bib10)] who achieved 1.3. The last two results assume that h=1.
+
+In this article, we will take a different approach to estimating such sums, originating in the work of Duke, Friedlander, and Iwaniec [[4](https://arxiv.org/html/2505.00493#bib.bib4)]. Following their approach, we consider symmetric matrices \mathfrak{g} of determinant h
+
+\displaystyle\det( \gf)=\det\matrixquantity(\lx@physics@matrix m & \ell\\ \ell& k\endlx@physics@matrix)=mk-\ell^{2}=h.
+
+The modular group \operatorname{SL}_{2}({\mathbb{Z}}) acts on symmertic matrices via \mathfrak{g}\mapsto\gamma\mathfrak{g}\gamma^{t}, and the congruence k\equiv 0\,\,(\mathrm{mod}\,{d}) is preserved by the Hecke congruence subgroup \Gamma_{0}(d). For a fixed modulus d the sum can be parametrized as an average over a Poincaré type series with a smooth weight F encoding k\sim K and \ell\sim L, that is,
+
+\displaystyle\sum_{\begin{subarray}{c}k\sim K\\
+k\equiv 0\,\,(\mathrm{mod}\,{d})\end{subarray}}\sum_{\begin{subarray}{c}\ell\sim X\\
+\ell^{2}+h\equiv 0\,\,(\mathrm{mod}\,{k})\end{subarray}}1=\sum_{z\in\Lambda_{h}}\sum_{\tau\in\Gamma_{0}(d)\backslash\operatorname{SL}_{2}({\mathbb{Z}})}\alpha_{d,h}(\tau z)\sum_{\gamma\in\Gamma_{0}(d)}F(\gamma\tau z).
+
+Here z ranges over the Heegner points \Lambda_{h} in the upper half-plane \mathcal{H} and for each z the weight \alpha_{d,h}(\tau z) restricts \tau to d^{o(1)} cosets. In [[4](https://arxiv.org/html/2505.00493#bib.bib4)] such sums are estimated by using the spectral theory of automorphic forms for each fixed \tau, z, and d separately. This is costly if h is large since \#\Lambda_{h}=h^{1/2+o(1)}. Therefore, to get uniformity in h, we make use of the averages over z, \tau, as well as d.
+
+In [[5](https://arxiv.org/html/2505.00493#bib.bib5)] the authors proved a result (cf. Theorem [2.1](https://arxiv.org/html/2505.00493#S2.Thmtheorem1 "Theorem 2.1. ‣ 2. Technical result ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") below) that allows one to count sums of this shape. More generally, given a smooth function F:\operatorname{SL}_{2}({\mathbb{R}})\to{\mathbb{C}} and functions \alpha_{1},\alpha_{2}:\operatorname{SL}_{2}({\mathbb{R}})\to{\mathbb{C}} supported on some finite sets, we can estimate the _weighted average discrepancy_\langle\alpha_{1}|\Delta_{d}F|\alpha_{2}\rangle defined by
+
+\displaystyle\langle\alpha_{1}|\Delta_{d}F|\alpha_{2}\rangle=\sum_{\tau_{1},\tau_{2}}\overline{\alpha(\tau_{1})}\alpha(\tau_{2})\Bigg(\sum_{\gamma\in\Gamma_{0}(d)}F(\tau_{1}^{-1}\gamma\tau_{2})-\frac{1}{|\Gamma_{0}(d)\backslash\operatorname{SL}_{2}({\mathbb{R}})|}\int_{\operatorname{SL}_{2}({\mathbb{R}})}F(\mathrm{g})\mathrm{d}\mathrm{g}\Bigg).
+
+Note that we have to normalize the symmetric matrices \mathfrak{g} by a factor of h^{-1/2} to get determinant 1. Letting \alpha_{1}=I denote the point weight at the identity \smallmatrixquantity(\lx@physics@smallmatrix 1 & \\ & 1\endlx@physics@smallmatrix), Theorem [2.1](https://arxiv.org/html/2505.00493#S2.Thmtheorem1 "Theorem 2.1. ‣ 2. Technical result ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") then says that for any choice of Z_{0}Z_{1}Z_{2}=Xh^{-1/2} we have
+
+(1.1)\displaystyle\langle I|\Delta_{d}F|\alpha_{d,h}\rangle\prec\mathrel{\mkern-5.0mu}\prec(Xh^{-1/2})^{1/2}Z_{0}^{\theta}\sqrt{\langle I|\Delta_{d}k_{1}|I\rangle\langle\alpha_{d,h}|\Delta_{d}k_{2}|\alpha_{d,h}\rangle},
+
+where k_{i}:\operatorname{SL}_{2}({\mathbb{R}})\to[0,1] are certain functions supported on matrices of size Z_{i}^{2}. Applying Cauchy-Schwarz on d we get
+
+\displaystyle\sum_{d\sim D}\bigl|\langle I|\Delta_{d}F|\alpha_{d,h}\rangle\bigr|\prec\mathrel{\mkern-5.0mu}\prec(Xh^{-1/2})^{1/2}Z_{0}^{\theta}\sqrt{\sum_{d\sim D}\langle I|\Delta_{d}k_{1}|I\rangle\sum_{d\sim D}\langle\alpha_{d,h}|\Delta_{d}k_{2}|\alpha_{d,h}\rangle},
+
+and the goal is to bound the right-hand side by absorbing the sum over d via a divisor bound. We emphasise that in this argument the existing divisor switching symmetry for the d variable is fully preserved throughout the application of spectral methods. This is the reason that ultimately allows us to remove the dependency on exceptional eigenvalues here as well as for the Type II sums.
+
+As usual after Cauchy-Schwarz, we need to consider diagonal and off-diagonal contributions when bounding the terms \sum_{d}\langle\alpha_{i}|\Delta_{d}k_{i}|\alpha_{i}\rangle. The new kernels \langle\alpha_{i}|\Delta_{d}k_{i}|\alpha_{i}\rangle may be written explicitly in terms of a sum over certain pairs of integer matrices (\mathrm{g}_{1},\mathrm{g}_{2}) with a congruence condition of the shape
+
+(1.2)\displaystyle F(\mathrm{g}_{1},\mathrm{g}_{2})\equiv 0\,\,(\mathrm{mod}\,{d}),
+
+for some polynomial F in the entries of the matrices \mathrm{g}_{1} and \mathrm{g}_{2}. The diagonal is then given by the set of pairs (\mathrm{g}_{1},\mathrm{g}_{2}) where F(\mathrm{g}_{1},\mathrm{g}_{2})=0 over {\mathbb{Z}}. There the congruence ([1.2](https://arxiv.org/html/2505.00493#S1.E2 "In 1.2. Outline of the proof ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")) is fulfilled trivially and the sum over d results in a factor of D. However, we can make use of the fact that the diagonal is a sparse subset. In the off-diagonal, the congruence condition ([1.2](https://arxiv.org/html/2505.00493#S1.E2 "In 1.2. Outline of the proof ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")) is non-trivial and we can use a divisor bound to absorb the d summation. For the Type I sums we are then able to show that essentially (cf. Propositions [4.1](https://arxiv.org/html/2505.00493#S4.Thmtheorem1 "Proposition 4.1. ‣ 4.1. Heegner points ‣ 4. Upper bounds for automorphic kernels ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") and [4.2](https://arxiv.org/html/2505.00493#S4.Thmtheorem2 "Proposition 4.2. ‣ 4.2. Lower triangular orbits ‣ 4. Upper bounds for automorphic kernels ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials"))
+
+\displaystyle\sum_{d\sim D}\langle\alpha_{d,h}|\Delta_{d}k_{2}|\alpha_{d,h}\rangle\displaystyle\prec\mathrel{\mkern-5.0mu}\prec Dh^{1/2}+hZ_{2}
+\displaystyle\sum_{d\sim D}\langle I|\Delta_{d}k_{1}|I\rangle\displaystyle\prec\mathrel{\mkern-5.0mu}\prec D+Z_{1}+\frac{K}{X}.
+
+Choosing Z_{1}=D and Z_{2}=Dh^{-1/2} balances the terms and gives (for h\ll D^{2})
+
+\displaystyle\sum_{d\sim D}\alpha_{d}\langle I|\Delta_{d}F|\alpha_{d,h}\rangle\prec\mathrel{\mkern-5.0mu}\prec DX^{1/2}\Bigl(1+\frac{X}{D^{2}}\Bigr)^{\theta}.
+
+This is non-trivial in the range D<X^{1/2}. It is noteworthy that, while in the new kernel we subtract the main term \int(\cdots)\mathrm{d}g by the definition of \Delta_{d}, we do not make any use of this and simply drop the integral by positivity. The new ranges Z_{i}^{2} are too short for us to show cancellation.
+
+For the Type II sums, we apply Cauchy-Schwarz to smoothen m, which gives us a sum over pairs of symmetric matrices with the same top left entry m, and congruence conditions modulo n_{1} and n_{2}, respectively. We give a parametrisation for such pairs in Lemma [3.2](https://arxiv.org/html/2505.00493#S3.Thmtheorem2 "Lemma 3.2. ‣ 3.2. Type II sums ‣ 3. Parametrisation of symmetric matrices ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials"). In place of \alpha_{1}=I we then need to consider more general weights \beta_{n_{1},n_{2}} that are sums over lower triangular matrices. Roughly speaking, for \beta_{n_{1},n_{2}} being the indicator of matrices \smallmatrixquantity(\lx@physics@smallmatrix 1 & \\ x & 1\endlx@physics@smallmatrix) with x=n_{1}v\,\overline{n_{1}} for v\leq V:=X/M and n_{1}\overline{n_{1}}\equiv 1\,\,(\mathrm{mod}\,{n_{2}}), we need to bound weighted average discrepancy of the shape
+
+\displaystyle\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N\\
+\gcd(n_{1},n_{2})=1\end{subarray}}\langle\beta_{n_{1},n_{2}}|\Delta_{n_{1}n_{2}}F|\alpha_{h,n_{1}n_{2}}\rangle.
+
+This is achieved by Theorem [2.1](https://arxiv.org/html/2505.00493#S2.Thmtheorem1 "Theorem 2.1. ‣ 2. Technical result ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") combined with Propositions [4.1](https://arxiv.org/html/2505.00493#S4.Thmtheorem1 "Proposition 4.1. ‣ 4.1. Heegner points ‣ 4. Upper bounds for automorphic kernels ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") and [4.2](https://arxiv.org/html/2505.00493#S4.Thmtheorem2 "Proposition 4.2. ‣ 4.2. Lower triangular orbits ‣ 4. Upper bounds for automorphic kernels ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials"), where the kernel associated to \alpha_{h,d} is bounded similarly to the Type I case. For practical purposes we get for the other kernel
+
+\displaystyle\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N\\
+\gcd(n_{1},n_{2})=1\end{subarray}}\langle\beta_{n_{1},n_{2}}|\Delta_{n_{1}n_{2}}k_{1}|\beta_{n_{1},n_{2}}\rangle\prec\mathrel{\mkern-5.0mu}\prec VN^{2}+V^{2}Z_{1}^{1/2}.
+
+Choosing Z_{1}=N^{2}/V^{2}, for MN=X^{\alpha} this suffices for the Type II range X^{\alpha-1}<N<X^{(2-\alpha)/3}. This range was obtained in [[8](https://arxiv.org/html/2505.00493#bib.bib8)] under Selberg’s eigenvalue conjecture and for the fixed choice h=1.
+
+To compare with the classical approach, if we applied sums of Kloosterman sums and the Kuznetsov formula, we would have to provide an exceptional spectral large sieve bound for
+
+\displaystyle\sum_{d\leq D}\sum_{\lambda_{j}=1/4-\nu_{j}^{2}}^{\Gamma_{0}(d)}Z^{2\nu_{j}}\bigg|\sum_{n\leq N}a_{n,d}\varrho_{j}(n)\bigg|^{2}.
+
+Here the coefficients a_{n,d} are intricately entangled with the level d, especially in the case of Type II sums. In [[8](https://arxiv.org/html/2505.00493#bib.bib8)] the results of Deshouillers and Iwaniec [[3](https://arxiv.org/html/2505.00493#bib.bib3)] and de la Bretèche and Drappeau [[1](https://arxiv.org/html/2505.00493#bib.bib1)] were used as a black box and the coefficients a_{n,d} are essentially treated as arbitrary in some cases. For coefficients a_{n,d} which do not depend on the level d, Deshouillers and Iwaniec [[3](https://arxiv.org/html/2505.00493#bib.bib3)] improve the dependency on the exceptional eigenvalue by a divisor switching argument for the sums of Kloosterman sums. However, our divisor switching completely in physical space turns out to be more effective. Recently, Pascadi [[10](https://arxiv.org/html/2505.00493#bib.bib10)] improved the spectral large sieve for a fixed modulus when a_{n,d} are exponential phases e(n\theta_{d}), or more general dispersion type coefficients. From the perspective of the spectral large sieve, our application of [[5](https://arxiv.org/html/2505.00493#bib.bib5)] allows us to fully capture the entanglement of a_{n,d} with the level d.
+
+We have restricted to the case of a negative discriminant, that is, a,h\geq 1. It would be interesting to consider positive discriminants, combining our ideas with the approach in [[11](https://arxiv.org/html/2505.00493#bib.bib11)].
+
+### 1.3. Notations
+
+We follow standard asymptotic Vinogradov and Landau notations. It is convenient for us to define A\prec\mathrel{\mkern-5.0mu}\prec B to mean |A|\leq X^{o(1)}B, where X is the largest scale in the given context. For example, for n\leq X we will frequently use the divisor bound d(n)\prec\mathrel{\mkern-5.0mu}\prec 1.
+
+For matrices we use the notations from [[5](https://arxiv.org/html/2505.00493#bib.bib5)]. We let \mathrm{G}=\operatorname{SL}_{2}({\mathbb{R}}) and denote the subgroups
+
+\displaystyle\mathrm{N}:=\displaystyle\bigg\{\mathrm{n}[x]=\matrixquantity(\lx@physics@matrix 1&x \\ & 1\endlx@physics@matrix):x\in{\mathbb{R}}\bigg\}
+\displaystyle\mathrm{A}:=\displaystyle\bigg\{\mathrm{a}[y]=\matrixquantity(\lx@physics@matrix\sqrt{y }& \\ & 1/\sqrt{y}\endlx@physics@matrix):y\in(0,\infty)\bigg\}
+\displaystyle\mathrm{K}:=\displaystyle\bigg\{\mathrm{k}[\theta]=\matrixquantity(\lx@physics@matrix\cos\theta& \sin\theta\\ -\sin\theta& \cos\theta\endlx@physics@matrix):\theta\in{\mathbb{R}}/2\pi{\mathbb{Z}}\bigg\}
+
+We denote \mathrm{g}=\smallmatrixquantity(\lx@physics@smallmatrix a & b \\ c& d\endlx@physics@smallmatrix)\in\mathrm{G} and use fraktur symbols for symmetric matrices \mathfrak{g}=\smallmatrixquantity(\lx@physics@smallmatrix \aa& \bb\\ \bb& \cc\endlx@physics@smallmatrix).
+
+## 2. Technical result
+
+We now import a technical result from [[5](https://arxiv.org/html/2505.00493#bib.bib5)] that bounds the weighted average discrepancy as in ([1.1](https://arxiv.org/html/2505.00493#S1.E1 "In 1.2. Outline of the proof ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")). Recall the Hecke congruence subgroup of level q\geq 1
+
+\displaystyle\Gamma=\Gamma_{0}(q):=\Bigl\{\matrixquantity(\lx@physics@matrix a & b \\ c& d\endlx@physics@matrix)\in\operatorname{SL}_{2}({\mathbb{Z}}):c\equiv 0\,\,(\mathrm{mod}\,{q})\Bigr\}.
+
+We let \Gamma act on the Lie group \mathrm{G}:=\operatorname{SL}_{2}({\mathbb{R}}) by multiplication from the left \mathrm{g}\mapsto\gamma\mathrm{g}. Given a compactly supported function F:\mathrm{G}\to{\mathbb{C}} we construct the _automorphic kernel function_\mathcal{K}_{q}F:\mathrm{G}\times\mathrm{G}\to{\mathbb{C}} via
+
+(2.1)\displaystyle(\mathcal{K}_{q}F)(\tau_{1},\tau_{2})\displaystyle=\sum_{\gamma\in\Gamma}F(\tau_{1}^{-1}\gamma\tau_{2}).
+
+If F is a smooth bump function and its support is large and not too skewed compared to the level q, we expect that the sum over \Gamma is well approximated by the corresponding integral over \mathrm{G} against the Haar measure \mathrm{d}\mathrm{g}, normalized by the volume of the fundamental domain \Gamma\backslash\mathrm{G}. We then define the local discrepancy
+
+\displaystyle\Delta_{q}F(\tau_{1},\tau_{2})\displaystyle:=\mathcal{K}_{q}F(\tau_{1},\tau_{2})-\frac{1}{|\Gamma_{0}(q)\backslash\mathrm{G}|}\int_{\mathrm{G}}F(\mathrm{g})\mathrm{d}\mathrm{g}.
+
+We let \mathcal{L}(\mathrm{G}) denote the set of linear functionals C(\mathrm{G})\to{\mathbb{C}}. For \alpha\in\mathcal{L}(\mathrm{G}) we will denote the image of f\in C(\mathrm{G}) by \langle f\rangle_{\alpha}:=\alpha(f)\in{\mathbb{C}}.
+
+###### Definition 1(Compactly supported linear functional).
+
+We define the set of compactly supported linear functionals via
+
+\displaystyle\mathcal{L}_{c}(\mathrm{G}):=\bigcup_{K\subseteq\mathrm{G}\,\text{compact}}\bigcup_{c>0}\Bigl\{\alpha\in\mathcal{L}(\mathrm{G}):|\langle f\rangle_{\alpha}|\leq c\sup_{\mathrm{g}\in K}|f(\mathrm{g})|\text{ for all }f\in C(\mathrm{G})\Bigr\}.
+
+In this paper we are interested only in functionals given by weighted sums f\mapsto\sum_{\tau\in T}\alpha(\tau)f(\tau) for some finite set T\subseteq\mathrm{G} and weight \alpha:T\to{\mathbb{C}}. For any \alpha\in\mathcal{L}(\mathrm{G}) we define the complex conjugate by
+
+\displaystyle\langle f\rangle_{\overline{\alpha}}=\overline{\langle\overline{f}\rangle_{\alpha}}.
+
+###### Definition 2(Sesquilinear form induced by a binary function).
+
+For any F\in C(\mathrm{G}\times\mathrm{G}) we define the sesquilinear form \mathcal{L}_{c}(\mathrm{G})\times\mathcal{L}_{c}(\mathrm{G})\to{\mathbb{C}}
+
+\displaystyle\langle\alpha_{1}|F|\alpha_{2}\rangle:=\langle\langle F\rangle_{\overline{\alpha_{1}}}\rangle_{\alpha_{2}},
+
+where \overline{\alpha_{1}} acts on the left variable of F(\mathrm{g}_{1},\mathrm{g}_{2}) and \alpha_{2} acts on the right variable.
+
+Restriction to \mathcal{L}_{c}(\mathrm{G}) means that this is well-defined, that is, \langle F\rangle_{\overline{\alpha_{1}}} defines a continuous function in the second variable, and we have \langle F\rangle_{\overline{\alpha_{1}}}\rangle_{\alpha_{2}}=\langle\langle F\rangle_{\alpha_{2}}\rangle_{\overline{\alpha_{1}}}, where in both expressions \overline{\alpha_{1}} acts on the left variable and \alpha_{2} acts on the right variable. This may be viewed as a tensor product of \overline{\alpha_{1}} and \alpha_{2}, that is, for F(\tau_{1},\tau_{2})=\overline{f_{1}(\tau_{1})}f_{2}(\tau_{2}) we have
+
+\displaystyle\langle\alpha_{1}|F|\alpha_{2}\rangle=\overline{\langle f_{1}\rangle_{\alpha_{1}}}\langle f_{2}\rangle_{\alpha_{2}}.
+
+For the proof of Theorem [1.3](https://arxiv.org/html/2505.00493#S1.Thmtheorem3 "Theorem 1.3. ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") we require Hecke operators, for Theorems [1.1](https://arxiv.org/html/2505.00493#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") and [1.2](https://arxiv.org/html/2505.00493#S1.Thmtheorem2 "Theorem 1.2. ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") this is not needed. For any integer h\geq 1 we denote the set of Hecke orbits
+
+(2.2)\displaystyle H_{h}=\Bigl\{\matrixquantity(\lx@physics@matrix e & f \\ & g\endlx@physics@matrix):\quad eg=h,\quad f\in{\mathbb{Z}}/g{\mathbb{Z}}\Bigr\}
+
+and recall that the set of all integer matrices with determinant h may be parametrised by \operatorname{SL}_{2}({\mathbb{Z}}) as a disjoint union
+
+\displaystyle\mathrm{M}_{2,h}({\mathbb{Z}})=\bigsqcup_{\sigma\in H_{h}}\operatorname{SL}_{2}({\mathbb{Z}})\sigma=\bigsqcup_{\sigma\in H_{h}}h\sigma^{-1}\operatorname{SL}_{2}({\mathbb{Z}}).
+
+We then define the Hecke operator acting on f:\mathrm{G}\to{\mathbb{C}} by
+
+(2.3)\displaystyle\mathcal{T}_{h}f(g):=\frac{1}{\sqrt{h}}\sum_{\sigma\in H_{h}}f\bigl(\tfrac{1}{\sqrt{h}}\sigma g\bigr).
+
+For any function f:\mathrm{G}\times\mathrm{G}\to{\mathbb{C}} we define the two variables Hecke operators
+
+\displaystyle(\mathcal{T}_{h_{1},h_{2}}f)(\mathrm{g}_{1},\mathrm{g}_{2})=(\mathcal{T}_{h_{1}})_{\mathrm{g}_{1}}(\mathcal{T}_{h_{2}})_{\mathrm{g}_{2}}f(\mathrm{g}_{1},\mathrm{g}_{2}),
+
+where (\mathcal{T}_{h})_{\mathrm{g}_{i}} is the Hecke operator \mathcal{T}_{h} acting on the \mathrm{g}_{i} coordinate.
+
+We define for any R>0 and \mathrm{g}=\smallmatrixquantity(\lx@physics@smallmatrix a &b \\ c& d\endlx@physics@smallmatrix)\in\mathrm{G} the R-skewed hyperbolic size
+
+\displaystyle u_{R}(\mathrm{g}):=\tfrac{1}{4}(a^{2}+(b/R)^{2}+(cR)^{2}+d^{2}-2).
+
+We denote \theta=\theta(\Gamma):=\max\{0,\operatorname{Re}(\sqrt{1/4-\lambda_{1}(\Gamma)})\} with \lambda_{1}(\Gamma) denoting the smallest positive eigenvalue of the hyperbolic Laplacian for \Gamma. The Selberg eigenvalue conjecture states that we have \theta=0 and the best unconditional bound for congruence subgroups is \theta\leq 7/64 by Kim and Sarnak [[7](https://arxiv.org/html/2505.00493#bib.bib7)]. The following is Theorem 8.1 in [[5](https://arxiv.org/html/2505.00493#bib.bib5)].
+
+###### Theorem 2.1.
+
+Let q\geq 1 and let \mathbf{X},\mathbf{Y}>0 and \delta\in(0,1) and suppose that \mathbf{X}/\mathbf{Y}>\delta. let f(x,y) be a smooth function, supported on [-1,1]\times[1,2] and satisfying \partial_{x}^{J_{1}}\partial_{y}^{J_{2}}f\ll_{J_{1},J_{2}}\delta^{-J_{1}-J_{2}}. Denote F:\mathrm{G}\to{\mathbb{C}},\,F(\smallmatrixquantity(\lx@physics@smallmatrix a & b \\ c& d\endlx@physics@smallmatrix)):=f(\frac{x}{\mathbf{X}},\frac{y}{\mathbf{Y}}) with y=1/(c^{2}+d^{2}) and x=y(ac+bd). Let H\geq 1 and let \beta(h) be complex coefficients supported on h\leq H. Let \alpha_{1},\alpha_{2,h}\in\mathcal{L}_{c}(\mathrm{G}).
+
+Then for any choice Z_{0}Z_{1}Z_{2}\geq\mathbf{X}/\mathbf{Y}+1 with Z_{0},Z_{1},Z_{2}\geq 1 we have
+
+\displaystyle\sum_{\begin{subarray}{c}\gcd(h,q)=1\end{subarray}}\beta(h)\langle\alpha_{1}|\mathcal{T}_{h,1}\Delta_{q}F|\alpha_{2,h}\rangle\ll\displaystyle\,q^{o(1)}\delta^{-O(1)}(\mathbf{X}/\mathbf{Y})^{1/2+o(1)}H^{1/2}Z_{0}^{\theta}\,\langle\alpha_{1}|\Delta_{q}k_{Z_{1}^{2},\mathbf{X}}|\alpha_{1}\rangle^{1/2}
+\displaystyle\times\bigg(\,\sum_{h\leq H}|\beta(h)|^{2}\langle\alpha_{2,h}|\Delta_{q}k_{Z_{2}^{2},1}|\alpha_{2,h}\rangle\bigg)^{1/2},
+
+for certain smooth functions k_{Y,R}:\mathrm{G}\to[0,1] which satisfy
+
+\displaystyle k_{Y,R}(\mathrm{g})\leq\frac{\mathbf{1}\{u_{R}(\mathrm{g})\leq Y\}}{\sqrt{1+u_{R}(\mathrm{g})}}.
+
+Even though the original weight function F factorizes through the upper half-plane \mathcal{H}\cong\mathrm{G}/\mathrm{K}, using the group \mathrm{G} as the ambient space is illuminating. Indeed, after Cauchy-Schwarz we get two automorphic kernel functions, one that lives properly on \mathrm{G} and one that lives on \mathrm{K}\backslash\mathrm{G}/\mathrm{K}.
+
+## 3. Parametrisation of symmetric matrices
+
+The counting problems we are interested in are related to symmetric matrices with congruence conditions. In this section, building up on [[4](https://arxiv.org/html/2505.00493#bib.bib4), Section 2], we parametrise these by Hecke congruence subgroups.
+
+### 3.1. The base case
+
+Define the set of symmetric integer matrices with determinant h
+
+\displaystyle\mathrm{S}_{h}:=\Bigl\{\mathfrak{g}=\matrixquantity(\lx@physics@matrix \aa& \bb\\ \bb& \cc\endlx@physics@matrix)\in\mathrm{M}_{2,h}({\mathbb{Z}}):\,\mathfrak{a},\mathfrak{c}>0\Bigr\}
+
+and define for a,d\geq 1, \gcd(a,h)=1
+
+\displaystyle\mathrm{S}_{a,h}(d):=\Bigl\{\matrixquantity(\lx@physics@matrix \aa& \bb\\ \bb& \cc\endlx@physics@matrix)\in\mathrm{S}_{ah}:\mathfrak{c}\equiv 0\,\,(\mathrm{mod}\,{ad}),\,\mathfrak{b}\equiv 0\,\,(\mathrm{mod}\,{a}),\,\mathfrak{a},\mathfrak{c}>0\Bigr\}.
+
+By dividing \mathfrak{b}^{2}-\mathfrak{a}\mathfrak{c}=ah throughout by a, we see that \mathrm{S}_{a,h}(d) corresponds bijectively to the set
+
+\displaystyle\Bigl\{(m,\ell,k)\in{\mathbb{Z}}^{3}:a\ell^{2}-mk=h,\quad k\equiv 0\,\,(\mathrm{mod}\,{d}),\,m,k>0\Bigr\},
+
+with (\mathfrak{a},\mathfrak{b},\mathfrak{c})=(m,a\ell,ak). Thus, for the smooth weights that appear in the proofs, we have under this identification F(m,\ell,k)=F(\mathfrak{a},\mathfrak{b}/a,\mathfrak{c}/a).
+
+We can identify \mathrm{S}_{h} with the set of points in the upper half-plane \mathcal{H}
+
+\displaystyle\{z=\frac{\mathfrak{b}+i\sqrt{h}}{\mathfrak{c}}\in\mathcal{H}:\mathfrak{a},\mathfrak{b},\mathfrak{c}\in{\mathbb{Z}},\,\mathfrak{b}^{2}+h=\mathfrak{a}\mathfrak{c}\}.
+
+In this way, the usual action of \gamma\in\operatorname{SL}_{2}({\mathbb{Z}}) on \mathcal{H} by Möbius transformations corresponds to the action on \mathrm{S}_{h} defined by
+
+\displaystyle\mathfrak{g}\mapsto\gamma\diamond\mathfrak{g}:=\gamma\mathfrak{g}\gamma^{t}.
+
+We let \mathcal{F}\subseteq\mathcal{H} denote the standard fundamental domain for \operatorname{SL}_{2}({\mathbb{Z}})\backslash\mathcal{H}. We will denote the set of Heegner points of discriminant h by
+
+\displaystyle\Lambda_{h}:=\bigl\{z=\frac{\mathfrak{b}+i\sqrt{h}}{\mathfrak{c}}\in\mathcal{F}:\mathfrak{a},\mathfrak{b},\mathfrak{c}\in{\mathbb{Z}},\,\mathfrak{b}^{2}+h=\mathfrak{a}\mathfrak{c}\Bigr\}.
+
+Then
+
+(3.1)\displaystyle\Lambda_{h}\subseteq\Bigl\{\frac{\mathfrak{b}+i\sqrt{h}}{\mathfrak{c}}:\mathfrak{a},\mathfrak{b},\mathfrak{c}\in{\mathbb{Z}},\,\mathfrak{b}^{2}+h=\mathfrak{a}\mathfrak{c},\quad\mathfrak{c}\leq 2\sqrt{h},\quad|\mathfrak{b}|\leq\frac{\mathfrak{c}}{2}\Bigr\}.
+
+In particular, this implies that \#\Lambda_{h}\leq h^{1/2+o(1)}. With this, a set of representatives for \mathrm{S}_{h} acted upon by \operatorname{SL}_{2}({\mathbb{Z}}) is given by \sqrt{h}\,\sigma\sigma^{t} with
+
+\displaystyle\sigma\in\mathrm{L}_{h}:=\Bigl\{\sigma=\smallmatrixquantity(\lx@physics@smallmatrix\ast& \ast\\ 0 &\ast\endlx@physics@smallmatrix)\in\operatorname{SL}_{2}({\mathbb{R}}):\sigma i\in\Lambda_{h}\Bigr\}.
+
+For \tau=\smallmatrixquantity(\lx@physics@smallmatrix\ast& \ast\\ c_0 & d_0\endlx@physics@smallmatrix)\in\operatorname{SL}_{2}({\mathbb{Z}}) and \mathfrak{g}=\smallmatrixquantity(\lx@physics@smallmatrix\aa& \bb\\ \bb& \cc\endlx@physics@smallmatrix)\in\mathrm{S}_{h} we have
+
+(3.2)\displaystyle\mathfrak{c}(\tau\diamond\mathfrak{g})=c_{0}^{2}\mathfrak{a}+2c_{0}d_{0}\mathfrak{b}+d_{0}^{2}\mathfrak{c}.
+
+For z=\mathrm{g}i corresponding to the symmetric matrix \mathfrak{g}=\mathrm{g}\mathrm{g}^{t}, we denote by abuse of notation \mathfrak{c}(z)=\mathfrak{c}(\mathfrak{g}) and similarly for \mathfrak{a} and \mathfrak{b}.
+
+For any q\geq 1 the congruences \mathfrak{c}\equiv 0\,\,(\mathrm{mod}\,{aq}) and \mathfrak{b}\equiv 0\,\,(\mathrm{mod}\,{a}) are fixed by the action of the Hecke congruence subgroup \Gamma_{0}(q) of level q=ad. The above discussion gives the following parametrisation.
+
+###### Lemma 3.1.
+
+Let \gcd(a,h)=1. Let \Gamma=\Gamma_{0}(q) with q=ad and let \Gamma_{z} denote the stabilizer of a point z\in\mathcal{H}. Let T_{q}=\Gamma\backslash\operatorname{SL}_{2}({\mathbb{Z}}). Then the determinant normalised set (ah)^{-1/2}\mathrm{S}_{a,h}(d) can be written as a disjoint union by
+
+\displaystyle(ah)^{-1/2}\mathrm{S}_{a,h}(d)=\bigsqcup_{\sigma\in\mathrm{L}_{ah}}\bigsqcup_{\begin{subarray}{c}\tau\in T_{q}\\
+\mathfrak{c}(\tau\sigma i)\equiv 0\,\,(\mathrm{mod}\,{q})\\
+\mathfrak{b}(\tau\sigma i)\equiv 0\,\,(\mathrm{mod}\,{a})\end{subarray}}\Gamma_{\sigma i}\backslash\Gamma\,\tau\sigma\,\diamond\,\smallmatrixquantity(\lx@physics@smallmatrix 1 & \\ & 1\endlx@physics@smallmatrix).
+
+### 3.2. Type II sums
+
+We now consider a certain set of pairs of symmetric matrices that appear with the Type II sums after an application of Cauchy-Schwarz. We reduce them to \mathrm{S}_{a,h} from the previous subsection. For \gcd(n_{1},n_{2})=1 consider
+
+\displaystyle\mathrm{S}^{(2)}_{a,h}(s,n_{1},n_{2})=\{(\mathfrak{g}_{1},\mathfrak{g}_{2})\in\mathrm{S}_{a,h}(sn_{1})\times\mathrm{S}_{a,h}(sn_{2}):\mathfrak{a}_{1}=\mathfrak{a}_{2},\mathfrak{b}_{1}\equiv\mathfrak{b}_{2}\,\,(\mathrm{mod}\,{s\mathfrak{a}_{1}})\}.
+
+We now show that one can make \mathfrak{g}_{1} and \mathfrak{g}_{2} equal under the action of lower triangular matrices \mathrm{n}[x]^{t}=\smallmatrixquantity(\lx@physics@smallmatrix 1 & \\x & 1\endlx@physics@smallmatrix). By the definition of the action, we have
+
+\displaystyle\mathrm{n}[x]^{t}\diamond\mathfrak{g}=\matrixquantity(\lx@physics@matrix 1 & \\ x&1 \endlx@physics@matrix)\matrixquantity(\lx@physics@matrix \aa& \bb\\ \bb& \cc\endlx@physics@matrix)\matrixquantity(\lx@physics@matrix 1 & x\\ &1 \endlx@physics@matrix)=\matrixquantity(\lx@physics@matrix \aa& \bb+ x\aa\\ \bb+ x\aa& \ast\endlx@physics@matrix).
+
+Denote \mathfrak{a}=\mathfrak{a}_{1}=\mathfrak{a}_{2}. The divisibility condition \mathfrak{c}_{i}\equiv 0\,\,(\mathrm{mod}\,{asn_{i}}) is fixed for x_{i}\equiv 0\,\,(\mathrm{mod}\,{asn_{i}}). Recall that \gcd(n_{1},n_{2})=1, \mathfrak{b}_{1}\equiv\mathfrak{b}_{2}\,\,(\mathrm{mod}\,{s\mathfrak{a}}), \mathfrak{b}_{1}\equiv\mathfrak{b}_{2}\equiv 0\,\,(\mathrm{mod}\,{a}), and by \gcd(a,h)=1 we have \gcd(a,\mathfrak{a}sn_{i})=1. Thus, by Bezout, there exist x_{i}\equiv 0\,\,(\mathrm{mod}\,{asn_{i}}) such that \mathrm{n}[x_{1}]^{t}\diamond\mathfrak{g}_{1}=\mathrm{n}[x_{2}]^{t}\diamond\mathfrak{g}_{2}. Moreover, denoting x_{j}=asn_{j}u_{j}, the equality \mathrm{n}[x_{1}]^{t}\diamond\mathfrak{g}_{1}=\mathrm{n}[x_{2}]^{t}\diamond\mathfrak{g}_{2} is invariant under (u_{1},u_{2})\mapsto(u_{1}+n_{2},u_{2}+n_{1}). We summarise our findings in the following parametrisation.
+
+###### Lemma 3.2.
+
+Let \gcd(a,h)=\gcd(n_{1},n_{2})=1 and define
+
+\displaystyle U={\mathbb{Z}}^{2}/(n_{2},n_{1}){\mathbb{Z}},\text{ where }(n_{2},n_{1}){\mathbb{Z}}=\{(n_{2}k,n_{1}k):k\in{\mathbb{Z}}\}.
+
+Then we have a disjoint union
+
+\displaystyle\mathrm{S}^{(2)}_{a,h}(s,n_{1},n_{2})=\bigsqcup_{(u_{1},u_{2})\in U}\Bigl\{(\mathrm{n}[asn_{1}u_{1}]^{t}\diamond\mathfrak{g},\mathrm{n}[asn_{2}u_{2}]^{t}\diamond\mathfrak{g}):\mathfrak{g}\in\mathrm{S}_{a,h}(sn_{1}n_{2})\Bigr\}.
+
+### 3.3. Cubic discriminants
+
+The proof of Theorem [1.3](https://arxiv.org/html/2505.00493#S1.Thmtheorem3 "Theorem 1.3. ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") involves discrimants of the form by^{3}. The following lemma shows how one can use the Hecke orbits from ([2.2](https://arxiv.org/html/2505.00493#S2.E2 "In 2. Technical result ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")) and S_{a,h} to parametrise symmetric matrices with determinant hy^{2} where y|h.
+
+###### Lemma 3.3.
+
+Let y|h, \gcd(a,h)=1, and suppose that \gcd(h,y^{2}) is square-free. Let \Gamma=\Gamma_{0}(q) with q=ad and let \Gamma_{z} denote the stabilizer of a point z\in\mathcal{H}. Suppose that \gcd(y,q)=1. Then the set \mathrm{S}_{a,hy^{2}}(d) can be written as a disjoint union by
+
+\displaystyle\mathrm{S}_{a,hy^{2}}(d)=\bigsqcup_{\sigma\in H_{y}}(y\sigma^{-1})\diamond\mathrm{S}_{a,h}(d).
+
+###### Proof.
+
+It suffices to show that for any \mathfrak{g}=\smallmatrixquantity(\lx@physics@smallmatrix \aa& \bb\\ \bb& \cc\endlx@physics@smallmatrix)\in\mathrm{S}_{a,hy^{2}}(d) there exists a unique \sigma\in H_{y} such that
+
+\displaystyle(y^{-1}\sigma)\diamond\matrixquantity(\lx@physics@matrix \aa& \bb\\ \bb& \cc\endlx@physics@matrix)\in\mathrm{S}_{a,h}(d).
+
+We compute for \sigma=\smallmatrixquantity(\lx@physics@smallmatrix e & f \\ & g\endlx@physics@smallmatrix) with eg=y and f\,\,(\mathrm{mod}\,{g})
+
+\displaystyle(y^{-1}\sigma)\diamond\matrixquantity(\lx@physics@matrix \aa& \bb\\ \bb& \cc\endlx@physics@matrix)=y^{-2}\matrixquantity(\lx@physics@matrix e^2 \aa+ 2 e f \bb+ f^2 \cc& y \bb+g f \cc\\ y \bb+g f \cc& g^2 \cc\endlx@physics@matrix)=:\matrixquantity(\lx@physics@matrix \aa' & \bb' \\ \bb' & \cc'\endlx@physics@matrix).
+
+This is a matrix with real entries and determinant h. If we show that the entries are integral, then the congruence conditions \mathfrak{b}^{\prime}\equiv 0\,\,(\mathrm{mod}\,{a}) and \mathfrak{c}^{\prime}\equiv 0\,\,(\mathrm{mod}\,{ad}) follow since \mathfrak{b}\equiv 0\,\,(\mathrm{mod}\,{a}), \mathfrak{c}\equiv 0\,\,(\mathrm{mod}\,{ad}), and \gcd(y,ad)=1.
+
+We first show that the matrix can be in S_{a,h}(d) only if e|y is the maximal divisor such that e^{2}|\mathfrak{c}. Indeed, if ey_{1}|y satisfies (ey_{1})^{2}|\mathfrak{c}, then y_{1}^{2}|\mathfrak{c}^{\prime}. By y_{1}|h and \mathfrak{b}^{\prime 2}-\mathfrak{a}^{\prime}\mathfrak{c}^{\prime}=h this implies y_{1}|\mathfrak{b}^{\prime}. But then, since \mathfrak{b}^{\prime 2}-\mathfrak{a}^{\prime}\mathfrak{c}^{\prime}=h, we have y_{1}^{2}|h. This contradicts the assumption that \gcd(h,y^{2}) is square-free.
+
+Assume now that e|y is maximal such that e^{2}|\mathfrak{c}. We complete the proof of the Lemma by showing that there is a unique f\,\,(\mathrm{mod}\,{g}) that satisfies
+
+\displaystyle\begin{cases}e^{2}\mathfrak{a}+2ef\mathfrak{b}+f^{2}\mathfrak{c}\equiv 0&\,\,(\mathrm{mod}\,{y^{2}})\\
+y\mathfrak{b}+gf\mathfrak{c}\equiv 0&\,\,(\mathrm{mod}\,{y^{2}})\\
+g^{2}\mathfrak{c}\equiv 0&\,\,(\mathrm{mod}\,{y^{2}}).\end{cases}
+
+The third congruence is satisfied by g=y/e and e^{2}|c. Denoting y=ey_{1}, \mathfrak{b}=e\mathfrak{b}_{1}, \mathfrak{c}=e^{2}\mathfrak{c}_{1}, the first two congruence conditions are equivalent to
+
+(3.3)\displaystyle\begin{cases}\mathfrak{a}+2f\mathfrak{b}_{1}+f^{2}\mathfrak{c}_{1}\equiv 0&\,\,(\mathrm{mod}\,{g^{2}})\\
+\mathfrak{b}_{1}+f\mathfrak{c}_{1}\equiv 0&\,\,(\mathrm{mod}\,{g}).\end{cases}
+
+By g|y|h we have
+
+\displaystyle\mathfrak{b}_{1}^{2}-\mathfrak{a}_{1}\mathfrak{c}_{1}=g^{2}h\equiv 0\,\,(\mathrm{mod}\,{g^{3}}).
+
+and by the maximality of e we have that (\mathfrak{c}_{1},g) is square-free. Therefore,
+
+\displaystyle\mathfrak{c}_{1}(f+\frac{\mathfrak{b}_{1}}{\mathfrak{c}_{1}})^{2}=\mathfrak{c}_{1}^{2}+2\mathfrak{b}_{1}f+\frac{\mathfrak{b}_{1}^{2}}{\mathfrak{c}_{1}}\equiv 2f\mathfrak{b}_{1}+f^{2}\mathfrak{c}_{1}+\mathfrak{a}\,\,(\mathrm{mod}\,{g^{2}}),
+
+where we made use of the fact that \frac{\mathfrak{b}_{1}}{\mathfrak{c}_{1}} is well defined \,\,(\mathrm{mod}\,{g}), since (g,\mathfrak{c}_{1})|\mathfrak{b}_{1}. Thus, f\equiv-\frac{\mathfrak{b}_{1}}{\mathfrak{c}_{1}}\,\,(\mathrm{mod}\,{g}) is the unique solution to the pair of equations ([3.3](https://arxiv.org/html/2505.00493#S3.E3 "In Proof. ‣ 3.3. Cubic discriminants ‣ 3. Parametrisation of symmetric matrices ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")). ∎
+
+## 4. Upper bounds for automorphic kernels
+
+In this section we bound the kernels that arise from an application of Theorem [2.1](https://arxiv.org/html/2505.00493#S2.Thmtheorem1 "Theorem 2.1. ‣ 2. Technical result ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials"). By making use of an average over the level q, we obtain the essentially optimal bounds. We need two types of bounds. The first considers functionals defined by averages over Heegner points (cf. Lemma [3.1](https://arxiv.org/html/2505.00493#S3.Thmtheorem1 "Lemma 3.1. ‣ 3.1. The base case ‣ 3. Parametrisation of symmetric matrices ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")), and the second functionals defined by averages over lower-triangular matrices (cf. Lemma [3.2](https://arxiv.org/html/2505.00493#S3.Thmtheorem2 "Lemma 3.2. ‣ 3.2. Type II sums ‣ 3. Parametrisation of symmetric matrices ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")).
+
+### 4.1. Heegner points
+
+Recall the definition ([2.1](https://arxiv.org/html/2505.00493#S2.E1 "In 2. Technical result ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")) of the automoprhic kernel \mathcal{K}_{q}F for the group \Gamma_{0}(q), and that we use A\prec\mathrel{\mkern-5.0mu}\prec B to mean |A|\leq X^{o(1)}B, where X is the largest scale in the given context
+
+###### Proposition 4.1.
+
+Let h,Q,Z\geq 1. For \Gamma=\Gamma_{0}(q) and T_{q}=\Gamma\backslash\operatorname{SL}_{2}({\mathbb{Z}}), let \alpha_{q}=\alpha_{q,h} be the linear functional defined by
+
+\displaystyle\langle f\rangle_{\alpha_{q}}:=\sum_{\sigma\in\mathrm{L}_{h}}\frac{1}{|\Gamma_{\sigma i}|}\sum_{\begin{subarray}{c}\tau\in T_{q}\\
+\end{subarray}}\alpha_{q}(\tau\sigma)f(\tau\sigma),\quad\alpha_{q}(\mathrm{g}):=\mathbf{1}_{\mathfrak{c}(\mathrm{g})\equiv 0\,\,(\mathrm{mod}\,{q})}.
+
+Then for k_{Z,1}:\mathrm{G}\to{\mathbb{C}} as in Theorem [2.1](https://arxiv.org/html/2505.00493#S2.Thmtheorem1 "Theorem 2.1. ‣ 2. Technical result ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")
+
+\displaystyle\sum_{\begin{subarray}{c}q\sim Q\\
+\gcd(h,q^{2})\,\mathrm{square-free}\end{subarray}}\langle\alpha_{q}|\mathcal{K}_{q}k_{Z,1}|\alpha_{q}\rangle\prec\mathrel{\mkern-5.0mu}\prec Qh^{1/2}+hZ^{1/2}.
+
+###### Proof.
+
+By abuse of notation for u>0 we denote k_{Z,1}(u)=\mathbf{1}_{|u|\leq Z}(1+u)^{-1/2}. Recall the point pair invariant u(w,z)=\frac{|w-z|^{2}}{4\operatorname{Im}w\operatorname{Im}z} so that u_{1}(\mathrm{g})=u(\mathrm{g}i,i) and thus k_{Z,1}(\mathrm{g})=k_{Z,1}(u(\mathrm{g}i,i)). We have by denoting \mathrm{g}=\tau_{2}^{-1}\gamma\tau_{1}\in\operatorname{SL}_{2}({\mathbb{Z}}) and \tau=\tau_{2}
+
+\displaystyle\langle\alpha_{q}|\mathcal{K}_{q}k_{Z,1}|\alpha_{q}\rangle=\displaystyle\sum_{\begin{subarray}{c}\tau_{1},\tau_{2}\in T_{q}\\
+z_{1},z_{2}\in\Lambda_{h}\end{subarray}}\sum_{\gamma\in\Gamma}\alpha_{q}(\tau_{1}z_{1})\alpha_{q}(\tau_{2}z_{2})k_{Z,1}\bigl(u(\gamma\tau_{1}z_{1},\tau_{2}z_{2})\bigr)
+\displaystyle=\displaystyle\sum_{\begin{subarray}{c}\tau_{1},\tau_{2}\in T_{q}\\
+z_{1},z_{2}\in\Lambda_{h}\end{subarray}}\sum_{\gamma\in\Gamma}\alpha_{q}(\tau_{1}z_{1})\alpha_{q}(\tau_{2}z_{2})k_{Z,1}\bigl(u(\tau_{2}^{-1}\gamma\tau_{1}z_{1},z_{2})\bigr)
+\displaystyle=\displaystyle\sum_{z_{1},z_{2}\in\Lambda_{h}}\sum_{\mathrm{g}\in\operatorname{SL}_{2}({\mathbb{Z}})}k_{Z,1}\bigl(u(\mathrm{g}z_{1},z_{2})\bigr)\sum_{\tau\in T_{q}}\alpha_{q}(\tau\mathrm{g}z_{1})\alpha_{q}(\tau z_{2})
+\displaystyle=\displaystyle\sum_{z_{2}\in\Lambda_{h}}\sum_{w_{1}\in\mathcal{S}_{h}}k_{Z,1}\bigl(u(w_{1},z_{2})\bigr)\sum_{\tau\in T_{q}}\alpha_{q}(\tau w_{1})\alpha_{q}(\tau z_{2}),
+
+since \mathrm{g}z_{1}=w_{1} ranges over the entire set \mathcal{S}_{h}. We shall below identify w_{1}\cong(\mathfrak{a}_{1},\mathfrak{b}_{1},\mathfrak{c}_{1}) and z_{2}\cong(\mathfrak{a}_{2},\mathfrak{b}_{2},\mathfrak{c}_{2}).
+
+#### 4.1.1. Diagonal
+
+The contribution from w_{1}=z_{2} is bounded by
+
+\displaystyle\sum_{\begin{subarray}{c}q\sim Q\\
+\gcd(h,q^{2})\,\mathrm{square-free}\end{subarray}}\sum_{z_{2}\in\Lambda_{h}}k_{Z,1}\bigl(u(z_{2},z_{2})\bigr)\sum_{\tau\in T_{q}}\alpha_{q}(\tau z_{2})\alpha_{q}(\tau z_{2})\prec\mathrel{\mkern-5.0mu}\prec Qh^{1/2},
+
+since for any z_{2}\in\Lambda_{h} we have \sum_{\tau\in T_{q}}\alpha_{q}(\tau z_{2})\ll\gcd(\mathfrak{a}_{2},\mathfrak{b}_{2},\mathfrak{c}_{2},q)d(q). Note that \gcd(\mathfrak{a}_{2},\mathfrak{b}_{2},\mathfrak{c}_{2},q)=1 for \mathfrak{b}_{2}^{2}-\mathfrak{a}_{2}\mathfrak{c}_{2}=h by the assumption that \gcd(h,q^{2}) is square-free.
+
+#### 4.1.2. Off-diagonal w_{1}\neq z_{2}
+
+We choose a set of projective representatives (c_{0},d_{0})\in\mathbb{P}^{1}_{q} for \tau=\smallmatrixquantity(\lx@physics@smallmatrix\ast& \ast\\ c_0 & d_0\endlx@physics@smallmatrix)\in T_{q} and recall that for z=(\mathfrak{a},\mathfrak{b},\mathfrak{c}) we have by ([3.2](https://arxiv.org/html/2505.00493#S3.E2 "In 3.1. The base case ‣ 3. Parametrisation of symmetric matrices ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials"))
+
+\displaystyle\mathfrak{c}(\tau z)=c_{0}^{2}\mathfrak{a}+2c_{0}d_{0}\mathfrak{b}+d_{0}^{2}\mathfrak{c}.
+
+Therefore, the sum over \tau is bounded by \ll d(q) times the indicator that for some (c_{0},d_{0})\in\mathbb{P}^{1}_{q} we have
+
+(4.1)\displaystyle(c_{0}^{2},2c_{0}d_{0},d_{0}^{2})(\mathfrak{a}_{j},\mathfrak{b}_{j},\mathfrak{c}_{j})^{t}\equiv 0\,\,(\mathrm{mod}\,{q})\quad\text{for both $j\in\{1,2\}$.}
+
+Denoting the cross-product
+
+\displaystyle(\mathfrak{a}_{1},\mathfrak{b}_{1},\mathfrak{c}_{1})\times(\mathfrak{a}_{2},\mathfrak{b}_{2},\mathfrak{c}_{2})=\mathbf{u}=(u_{1},u_{2},u_{3}),
+
+the condition ([4.1](https://arxiv.org/html/2505.00493#S4.E1 "In 4.1.2. Off-diagonal 𝑤_1≠𝑧_2 ‣ 4.1. Heegner points ‣ 4. Upper bounds for automorphic kernels ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")) can happen only if \mathbf{u}\equiv\lambda(c_{0}^{2},2c_{0}d_{0},d_{0}^{2}) for some \lambda\in{\mathbb{Z}}/q{\mathbb{Z}} and (c_{0},d_{0})\in\mathbb{P}^{1}_{q}. Define a quartic form in the six variables \mathfrak{a}_{j},\mathfrak{b}_{j},\mathfrak{c}_{j} by F(w_{1},z_{2})=u_{2}^{2}-2u_{1}u_{3}. Then our condition implies
+
+\displaystyle F(w_{1},z_{2})\equiv 0\,\,(\mathrm{mod}\,{q}).
+
+Importantly, for w_{1}\neq z_{2} we have that F(w_{1},z_{2})\neq 0 over {\mathbb{R}}. Indeed, the form being zero means that for some (c_{0},d_{0})\in\mathbb{P}^{1}_{{\mathbb{R}}} we have \mathbf{u}\equiv\lambda(c_{0}^{2},2c_{0}d_{0},d_{0}^{2}) for some \lambda\in{\mathbb{R}}. Since w_{1}\neq z_{2} implies that w_{1} and z_{2} are not linearily dependent (by non-homogenuity of \mathfrak{b}^{2}-\mathfrak{a}\mathfrak{c}=h), we have \lambda\neq 0 and we would get
+
+\displaystyle(c_{0}^{2},2c_{0}d_{0},d_{0}^{2})(\mathfrak{a}_{j},\mathfrak{b}_{j},\mathfrak{c}_{j})^{t}=0.
+
+This is impossible, since by \mathfrak{a}_{j}\mathfrak{c}_{j}-\mathfrak{b}_{j}^{2}=h>0 the above defines a positive definite binary quadratic form in (c_{0},d_{0}).
+
+Therefore, for w_{1}\neq z_{2} we have
+
+\displaystyle\sum_{\tau\in T_{q}}\alpha_{q}(\tau w_{1})\alpha_{q}(\tau z_{2})\ll\gcd(\mathfrak{a}_{2},\mathfrak{b}_{2},\mathfrak{c}_{2},q)d(q)\mathbf{1}_{0\neq F(w_{1},z_{2})\equiv 0\,\,(\mathrm{mod}\,{q})}\prec\mathrel{\mkern-5.0mu}\prec\mathbf{1}_{0\neq F(w_{1},z_{2})\equiv 0\,\,(\mathrm{mod}\,{q})},
+
+again using the assumption that \gcd(h,q^{2}) is square-free. Since the kernel is supported on |u|\leq Z, we can restrict summation to
+
+\displaystyle u(w_{1},z_{2})=\displaystyle\frac{|w_{1}-z_{2}|^{2}}{4\operatorname{Im}w_{1}\operatorname{Im}z_{2}}=\frac{(\frac{\mathfrak{b}_{1}}{\mathfrak{c}_{1}}-\frac{\mathfrak{b}_{2}}{\mathfrak{c}_{2}})^{2}+h(\frac{1}{\mathfrak{c}_{1}}-\frac{1}{\mathfrak{c}_{2}})^{2}}{4h\frac{1}{\mathfrak{c}_{1}}\frac{1}{\mathfrak{c}_{2}}}
+\displaystyle=\displaystyle\frac{\mathfrak{c}_{1}\mathfrak{c}_{2}}{4h}(\frac{\mathfrak{b}_{1}}{\mathfrak{c}_{1}}-\frac{\mathfrak{b}_{2}}{\mathfrak{c}_{2}})^{2}+\frac{\mathfrak{c}_{1}\mathfrak{c}_{2}}{4}(\frac{1}{\mathfrak{c}_{1}}-\frac{1}{\mathfrak{c}_{2}})^{2}\leq Z.
+
+Therefore, absorbing the sum over q|F(w_{1},z_{2})\neq 0 by a divisor bound and recalling ([3.1](https://arxiv.org/html/2505.00493#S3.E1 "In 3.1. The base case ‣ 3. Parametrisation of symmetric matrices ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")), it suffices to count the number of solutions to
+
+\displaystyle\mathbf{v}=\displaystyle(\mathfrak{a}_{1},\mathfrak{a}_{2},\mathfrak{b}_{1},\mathfrak{b}_{2},\mathfrak{c}_{1},\mathfrak{c}_{2})\in{\mathbb{Z}}^{6}:\quad\mathfrak{b}_{j}^{2}+h=\mathfrak{a}_{j}\mathfrak{c}_{j},
+\displaystyle 1\leq\mathfrak{c}_{2}\leq 2\sqrt{h},\quad|\mathfrak{b}_{2}|<\mathfrak{c}_{2},\quad\mathfrak{c}_{1}\ll Z\mathfrak{c}_{2},\quad|\mathfrak{b}_{1}|\ll Z\sqrt{h},
+
+weighted by (1+u(w_{1},z_{1}))^{-1/2}. We consider three cases depending on which term dominates the weight (1+u(w_{1},z_{1}))^{-1/2}. The contribution from \mathfrak{c}_{1}\leq 10\mathfrak{c}_{2} is bounded by \prec\mathrel{\mkern-5.0mu}\prec h. The contribution from \mathfrak{c}_{1}>10\mathfrak{c}_{2} and |\mathfrak{b}_{1}|\leq 10\mathfrak{c}_{1} is bounded by
+
+\displaystyle\sum_{\mathfrak{c}_{2}\ll\sqrt{h}}\sum_{\begin{subarray}{c}0\leq\mathfrak{b}_{2}\leq\mathfrak{c}_{2}\\
+\mathfrak{b}_{2}^{2}+h\equiv 0\,\,(\mathrm{mod}\,{\mathfrak{c}_{2}})\end{subarray}}\sum_{10\mathfrak{c}_{2}<\mathfrak{c}_{1}\ll Z\mathfrak{c}_{2}}\sum_{\begin{subarray}{c}|\mathfrak{b}_{1}|\leq 10\mathfrak{c}_{1}\\
+\mathfrak{b}_{1}^{2}+h\equiv 0\,\,(\mathrm{mod}\,{\mathfrak{c}_{1}})\end{subarray}}\frac{1}{1+\mathfrak{c}_{1}/\sqrt{\mathfrak{c}_{1}\mathfrak{c}_{2}}}\prec\mathrel{\mkern-5.0mu}\prec\sum_{\mathfrak{c}_{2}\ll\sqrt{h}}\sum_{10\mathfrak{c}_{2}<\mathfrak{c}_{1}\ll Z\mathfrak{c}_{2}}\frac{\sqrt{\mathfrak{c}_{2}}}{\sqrt{\mathfrak{c}_{1}}}\prec\mathrel{\mkern-5.0mu}\prec hZ^{1/2}.
+
+Finally, the contribution from \mathfrak{c}_{1}>10\mathfrak{c}_{2} and |\mathfrak{b}_{1}|>10\mathfrak{c}_{1}
+
+\displaystyle\sum_{\mathfrak{c}_{2}\ll\sqrt{h}}\sum_{\begin{subarray}{c}0\leq\mathfrak{b}_{2}\leq\mathfrak{c}_{2}\\
+\mathfrak{b}_{2}^{2}+h\equiv 0\,\,(\mathrm{mod}\,{\mathfrak{c}_{2}})\end{subarray}}\sum_{\mathfrak{c}_{1}\ll Z\mathfrak{c}_{2}}\sum_{10\leq B\ll\frac{Z\sqrt{h}}{\mathfrak{c}_{1}}}\sum_{\begin{subarray}{c}B\mathfrak{c}_{1}\leq|\mathfrak{b}_{1}|\leq(B+1)\mathfrak{c}_{1}\\
+\mathfrak{b}_{1}^{2}+h\equiv 0\,\,(\mathrm{mod}\,{\mathfrak{c}_{1}})\end{subarray}}\frac{1}{1+|\mathfrak{b}_{1}|\sqrt{\mathfrak{c}_{2}}/\sqrt{h\mathfrak{c}_{1}}}
+\displaystyle\prec\mathrel{\mkern-5.0mu}\prec\sum_{\mathfrak{c}_{2}\ll\sqrt{h}}\sum_{\mathfrak{c}_{1}\ll Z\mathfrak{c}_{2}}\sum_{B\ll\frac{Z\sqrt{h}}{\mathfrak{c}_{1}}}\frac{\sqrt{h}}{B\sqrt{\mathfrak{c}_{1}\mathfrak{c}_{2}}}\prec\mathrel{\mkern-5.0mu}\prec hZ^{1/2}.
+
+∎
+
+### 4.2. Lower triangular orbits
+
+For Type II sums we require the following technical proposition. The appearing functional is motivated by Lemma [3.2](https://arxiv.org/html/2505.00493#S3.Thmtheorem2 "Lemma 3.2. ‣ 3.2. Type II sums ‣ 3. Parametrisation of symmetric matrices ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") with the identification v=n_{2}u_{2}-n_{1}u_{1} so that u_{1}\equiv-v\overline{n_{1}}\,\,(\mathrm{mod}\,{n_{2}}). Since we sum over \gamma\in\Gamma_{0}(sn_{1}n_{2}), it does not matter which representative for \overline{n_{1}} we choose, as will be clear in the proof after the change of variables to \mathrm{g}^{\prime}=\smallmatrixquantity(\lx@physics@smallmatrix a' & b' \\ c' & d'\endlx@physics@smallmatrix).
+
+###### Proposition 4.2.
+
+Let D,N_{0},N_{1},N_{2},T,V,Z\geq 1 and R>0. Let \beta_{s,n_{1},n_{2}} be the linear functional defined by
+
+\displaystyle\langle f\rangle_{\beta_{s,n_{1},n_{2}}}:=\mathbf{1}_{\gcd(n_{1},n_{2})=1}\sum_{|v|\leq V}f(\mathrm{n}[-sn_{1}v\,\overline{n_{1}}]^{t}),
+
+where \overline{n_{1}}n_{1}\equiv 1\,\,(\mathrm{mod}\,{n_{2}}). Then denoting s=dn_{0}t^{2} we have
+
+\displaystyle\sum_{t\leq T}\displaystyle\sum_{n_{0}\leq N_{0}}\sum_{n_{1}\leq N_{1}}\sum_{n_{2}\leq N_{2}}\sum_{\begin{subarray}{c}d|n_{0}n_{1}n_{2}\\
+d>D\end{subarray}}\langle\beta_{s,n_{1},n_{2}}|\mathcal{K}_{sn_{1}n_{2}}k_{Z,R}|\beta_{s,n_{1},n_{2}}\rangle
+\displaystyle\prec\mathrel{\mkern-5.0mu}\prec N_{0}TV(1+R)(N_{1}N_{2}+N_{1}V+N_{2}V)+V^{2}\bigl((DR)^{-1}+Z^{1/2}\bigr).
+
+The reader may want to pretend in the first pass that t=n_{0}=d=1, which is the generic case as these variables arise from dealing with certain gcd conditions in the proof of Theorem [1.5](https://arxiv.org/html/2505.00493#S1.Thmtheorem5 "Theorem 1.5 (Type II estimate). ‣ 1.1. Uniform equidistribution estimates ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials"). In that case and assuming N_{1}=N_{2}, the bound simplifies to
+
+\displaystyle V^{2}(R^{-1}+Z^{1/2})+(1+R)(V^{2}N+VN^{2}).
+
+###### Proof.
+
+We want to estimate for \gcd(n_{1},n_{2})=1
+
+\displaystyle K(s,n_{1},n_{2}):\displaystyle=\langle\beta_{s,n_{1},n_{2}}|\mathcal{K}_{sn_{1}n_{2}}k_{Z,R}|\beta_{s,n_{1},n_{2}}\rangle
+\displaystyle=\sum_{|v|,|v^{\prime}|\leq V}\sum_{\gamma\in\Gamma}k_{Z,R}(\mathrm{n}[sn_{1}v^{\prime}\overline{n_{1}}]^{t}\gamma\mathrm{n}[-sn_{1}v\overline{n_{1}}]^{t}),
+
+where \Gamma=\Gamma_{0}(sn_{1}n_{2}) and
+
+\displaystyle k_{Z,R}(\mathrm{g})\ll\frac{\mathbf{1}\{|a|+|b|/R+R|c|+|d|\leq Z^{1/2}\}}{1+|a|+|b|/R+R|c|+|d|}.
+
+We now rewrite the congruences coming from the group \Gamma. We have
+
+\displaystyle\mathrm{n}[sn_{1}v^{\prime}\overline{n_{1}}]^{t}\gamma\mathrm{n}[-sn_{1}v\overline{n_{1}}]^{t}\displaystyle=\matrixquantity(\lx@physics@matrix 1 &\\s n_1 v' \overline{n_1} & 1\endlx@physics@matrix)\matrixquantity(\lx@physics@matrix a_0 & b_0 \\ c_0 s n_1 n_2 & d_0\endlx@physics@matrix)\matrixquantity(\lx@physics@matrix 1 & \\ -sn_1 v\overline{n_1} & 1\endlx@physics@matrix)=\matrixquantity(\lx@physics@matrix a' & b' \\ c' & d'\endlx@physics@matrix)=:\mathrm{g}^{\prime}\in\operatorname{SL}_{2}({\mathbb{Z}})
+
+with
+
+\displaystyle a^{\prime}\displaystyle=a_{0}-b_{0}sn_{1}v\overline{n_{1}},\quad\quad b^{\prime}=b_{0},\quad\quad d^{\prime}=d_{0}+b_{0}sn_{1}v^{\prime}\overline{n_{1}},
+\displaystyle c^{\prime}\displaystyle=c_{0}sn_{1}n_{2}-d_{0}sn_{1}v\overline{n_{1}}+a_{0}sn_{1}v^{\prime}\overline{n_{1}}-b_{0}s^{2}n_{1}^{2}vv^{\prime}\overline{n_{1}}^{2}.
+
+Thus, we deduce that \mathrm{g}^{\prime} and v,v^{\prime} satisfy the congruence conditions
+
+\displaystyle c^{\prime}\displaystyle\equiv 0\,\,(\mathrm{mod}\,{sn_{1}})
+\displaystyle v^{\prime}a^{\prime}-vd^{\prime}-c^{\prime}/s+svv^{\prime}b^{\prime}\displaystyle\equiv 0\,\,(\mathrm{mod}\,{n_{2}})
+
+Similar to the previous section, our goal is to absorb the moduli sn_{1} and n_{2} by a divisor bound, but we can only do so if the integers they divide are non-zero. We therefore split into four parts depending on whether c^{\prime}\neq 0 or c^{\prime}=0 and v^{\prime}a^{\prime}-vd^{\prime}-c^{\prime}/s+svv^{\prime}b^{\prime}\neq 0 or v^{\prime}a^{\prime}-vd^{\prime}-c^{\prime}/s+svv^{\prime}b^{\prime}=0, to get
+
+\displaystyle K(s,n_{1},n_{2})=\sum_{\epsilon_{1},\epsilon_{2}\in\{=,\neq\}}K_{\epsilon_{1},\epsilon_{2}}(s,n_{1},n_{2}).
+
+#### 4.2.1. Off-diagonal
+
+We separate b^{\prime}\neq 0 and b^{\prime}=0 to get K_{\neq,\neq}=K_{\neq,\neq,\neq}+K_{\neq,\neq,=}. For b^{\prime}\neq 0 we have b^{\prime}c^{\prime}\neq 0 and a^{\prime}d^{\prime}\neq 1. Using the divisor bound first for n_{2} and then for sn_{1}, we have
+
+\displaystyle K_{\neq,\neq,\neq}=\sum_{t\leq T}\sum_{n_{0}\leq N_{0}}\sum_{n_{1}\leq N_{1}}\sum_{n_{2}\leq N_{2}}\sum_{\begin{subarray}{c}d|n_{0}n_{1}n_{2}\\
+d>D\end{subarray}}K_{\neq,\neq,\neq}(dn_{0}t^{2},n_{1},n_{2})\prec\mathrel{\mkern-5.0mu}\prec V^{2}\sum_{\begin{subarray}{c}a^{\prime}d^{\prime}-b^{\prime}c^{\prime}=1\\
+a^{\prime}d^{\prime}\neq 1\end{subarray}}k_{Z,R}(\mathrm{g}^{\prime}).
+
+We can thus absorb the b^{\prime},c^{\prime} by a divisor bound to get a contribution
+
+\displaystyle\prec\mathrel{\mkern-5.0mu}\prec V^{2}\sum_{a^{\prime},d^{\prime}}\frac{\mathbf{1}\{|a^{\prime}|+|d^{\prime}|\leq Z^{1/2}\}}{|a^{\prime}|+|d^{\prime}|}\prec\mathrel{\mkern-5.0mu}\prec V^{2}Z^{1/2}.
+
+For those terms with b^{\prime}=0 we have a^{\prime}d^{\prime}=1 and the congruences become
+
+\displaystyle c^{\prime}\displaystyle\equiv 0\,\,(\mathrm{mod}\,{sn_{1}})
+\displaystyle v^{\prime}-v\pm c^{\prime}/s\displaystyle\equiv 0\,\,(\mathrm{mod}\,{n_{2}}).
+
+The part with b^{\prime}=0 contributes
+
+\displaystyle K_{\neq,\neq,=}=\displaystyle\sum_{t\leq T}\sum_{n_{0}\leq N_{0}}\sum_{n_{1}\leq N_{1}}\sum_{n_{2}\leq N_{2}}\sum_{\begin{subarray}{c}d|n_{0}n_{1}n_{2}\\
+d>D\end{subarray}}K_{\neq,\neq,=}(dn_{0}t^{2},n_{1},n_{2})
+\displaystyle=\displaystyle\sum_{t\leq T}\sum_{n_{0}\leq N_{0}}\sum_{n_{1}\leq N_{1}}\sum_{n_{2}\leq N_{2}}\sum_{\begin{subarray}{c}d|n_{0}n_{1}n_{2}\\
+d>D\end{subarray}}\sum_{|v|,|v^{\prime}|\leq V}\sum_{\begin{subarray}{c}0\neq c^{\prime}\equiv 0\,\,(\mathrm{mod}\,{sn_{1}})\\
+0\neq v^{\prime}-v\pm c^{\prime}/s\equiv 0\,\,(\mathrm{mod}\,{n_{2}})\end{subarray}}\frac{\mathbf{1}\{1\leq|c^{\prime}|\leq Z^{1/2}/R\}}{|c^{\prime}|R}
+\displaystyle\leq\displaystyle\sum_{t\leq T}\sum_{n_{0}\leq N_{0}}\sum_{n_{1}\leq N_{1}}\sum_{n_{2}\leq N_{2}}\sum_{\begin{subarray}{c}d|n_{0}n_{1}n_{2}\\
+d>D\end{subarray}}\sum_{|v|,|v^{\prime}|\leq V}\sum_{\begin{subarray}{c}0\neq c^{\prime\prime}\equiv 0\,\,(\mathrm{mod}\,{t^{2}n_{0}n_{1}})\\
+0\neq v^{\prime}-v\pm c^{\prime\prime}(n_{0}t^{2})\equiv 0\,\,(\mathrm{mod}\,{n_{2}})\end{subarray}}\frac{\mathbf{1}\{1\leq|c^{\prime\prime}|\leq Z^{1/2}/RD\}}{|c^{\prime\prime}|DR},
+
+where we have denoted c^{\prime}=dc^{\prime\prime} and used d>D. Using the divisor bound to absorb d, n_{2}, and then n_{0},n_{1},t, we get
+
+\displaystyle K_{\neq,\neq,=}\prec\mathrel{\mkern-5.0mu}\prec V^{2}\sum_{\begin{subarray}{c}c^{\prime\prime}\end{subarray}}\frac{\mathbf{1}\{1\leq|c|\leq Z^{1/2}/RD\}}{|c|DR}\prec\mathrel{\mkern-5.0mu}\prec\frac{V^{2}}{DR}.
+
+#### 4.2.2. Pseudo-diagonal 1
+
+We note consider c^{\prime}=0. Denoting d_{2}=\gcd(n_{2},d),d_{1}=d/d_{2}, and by absorbing n_{2}^{\prime}=n_{2}/d_{2} by the divisor bound, we have
+
+\displaystyle K_{=,\neq}\displaystyle=\sum_{t\leq T}\sum_{n_{0}\leq N_{0}}\sum_{n_{1}\leq N_{1}}\sum_{\begin{subarray}{c}n_{2}\leq N_{2}\end{subarray}}\sum_{d|n_{0}n_{1}n_{2}}K_{=,\neq}(dn_{0}t^{2},n_{1},n_{2})
+\displaystyle\prec\mathrel{\mkern-5.0mu}\prec\sum_{t\leq T}\sum_{n_{0}\leq N_{0}}\sum_{n_{1}\leq N_{1}}\sum_{\begin{subarray}{c}d_{2}\leq N_{2}\end{subarray}}\sum_{d_{1}|n_{0}n_{1}}K_{=,\neq}(d_{1}d_{2}n_{0}t^{2},n_{1},d_{2}).
+
+Since c^{\prime}=0 and d_{2}|s, the remaining congruence condition for d_{2} is of the form
+
+\displaystyle v^{\prime}a^{\prime}-vd^{\prime}\equiv 0\,\,(\mathrm{mod}\,{d_{2}}).
+
+Again since c^{\prime}=0, we have a^{\prime}d^{\prime}=1 and proceed by splitting up depending on whether v^{\prime}=v or not to get K_{=,\neq,=}+K_{=,\neq,\neq}.
+
+We estimate the part with v=v^{\prime} crudely by
+
+\displaystyle K_{=,\neq,=}\displaystyle\prec\mathrel{\mkern-5.0mu}\prec\sum_{t\leq T}\sum_{n_{0}\leq N_{0}}\sum_{n_{1}\leq N_{1}}\sum_{\begin{subarray}{c}d_{2}\leq N_{2}\\
+\gcd(d_{2},rn_{0}n_{1})=1\end{subarray}}\sum_{d_{1}|n_{0}n_{1}}\sum_{\begin{subarray}{c}|v|,|v^{\prime}|\leq V\\
+v^{\prime}=v\end{subarray}}\sum_{b^{\prime}}\frac{\mathbf{1}\{|b^{\prime}|\leq RZ^{1/2}\}}{1+|b^{\prime}|/R}
+\displaystyle\prec\mathrel{\mkern-5.0mu}\prec TN_{0}N_{1}N_{2}V(1+R).
+
+For v\neq v^{\prime} we can absorb d_{2}|(v^{\prime}-v) by a divisor bound to get
+
+\displaystyle K_{=,\neq,\neq}\displaystyle\prec\prec\sum_{t\leq T}\sum_{n_{0}\leq N_{0}}\sum_{n_{1}\leq N_{1}}\sum_{d_{1}|n_{0}n_{1}}\sum_{\begin{subarray}{c}|v|,|v^{\prime}|\leq V\end{subarray}}\sum_{b^{\prime}}\frac{\mathbf{1}\{|b^{\prime}|\leq RZ^{1/2}\}}{1+|b^{\prime}|/R}\prec\mathrel{\mkern-5.0mu}\prec TN_{0}N_{1}V^{2}(1+R).
+
+#### 4.2.3. Pseudo-diagonal 2
+
+We now consider v^{\prime}a^{\prime}-vd^{\prime}-c^{\prime}/s+svv^{\prime}b^{\prime}=0. By denoting d_{1}=\gcd(d,n_{1}),d_{2}=d/d_{1}, and by absorbing n_{1}/d_{1} by a divisor bound we get
+
+\displaystyle K_{\neq,=}\displaystyle=\sum_{t\leq T}\sum_{n_{0}\leq N_{0}}\sum_{n_{1}\leq N_{1}}\sum_{\begin{subarray}{c}n_{2}\leq N_{2}\\
+\gcd(n_{2},tn_{0}n_{1})=1\end{subarray}}\sum_{d|n_{0}n_{1}n_{2}}K_{\neq,=}(dn_{0}t^{2},n_{1},n_{2})
+\displaystyle\prec\mathrel{\mkern-5.0mu}\prec\sum_{t\leq T}\sum_{n_{0}\leq N_{0}}\sum_{d_{1}\leq N_{1}}\sum_{\begin{subarray}{c}n_{2}\leq N_{2}\\
+\gcd(n_{2},tn_{0}n_{1})=1\end{subarray}}\sum_{d_{2}|n_{0}n_{2}}K_{\neq,=}(d_{1}d_{2}n_{0}t^{2},d_{1},n_{2}).
+
+By definition we have
+
+\displaystyle K_{\neq,=}(s,d_{1},n_{2})=\sum_{v,v^{\prime}\leq V}\sum_{\begin{subarray}{c}a^{\prime}d^{\prime}-b^{\prime}c^{\prime}=1\\
+sv^{\prime}a^{\prime}-svd^{\prime}-c^{\prime}+s^{2}vv^{\prime}b^{\prime}=0\\
+0\neq c^{\prime}\equiv 0\,\,(\mathrm{mod}\,{sd_{1}})\end{subarray}}\frac{\mathbf{1}\{|a^{\prime}|+|b^{\prime}|/R+R|c^{\prime}|+|d^{\prime}|\leq Z^{1/2}\}}{1+|a^{\prime}|+|b^{\prime}|/R+R|c^{\prime}|+|d|^{\prime}}.
+
+We substitute the equation c^{\prime}=sv^{\prime}a^{\prime}-svd^{\prime}+s^{2}vv^{\prime}b^{\prime} into the determinant equation to get
+
+\displaystyle a^{\prime}d^{\prime}-(sv^{\prime}a^{\prime}-svd^{\prime}+s^{2}vv^{\prime}b^{\prime})b^{\prime}=1,
+
+which gives
+
+\displaystyle(a^{\prime}+svb^{\prime})(d^{\prime}-sv^{\prime}b^{\prime})=1.
+
+Then a^{\prime}=\pm 1-svb^{\prime},d^{\prime}=\pm 1+svb^{\prime} and we get c^{\prime}=\pm s(v^{\prime}-v)+s^{2}vv^{\prime}b^{\prime}. Now, sd_{1}|c^{\prime} implies that d_{1}|(v^{\prime}-v). We again separate v=v^{\prime} and v\neq v^{\prime} to get K_{\neq,=,=}+K_{\neq,=,\neq}.
+
+The part where v=v^{\prime} contributes
+
+\displaystyle K_{\neq,=,=}\prec\mathrel{\mkern-5.0mu}\prec TN_{0}N_{1}N_{2}\sum_{b^{\prime}}\frac{\mathbf{1}\{|b^{\prime}|\leq RZ^{1/2}\}}{1+|b^{\prime}|/R}\prec\mathrel{\mkern-5.0mu}\prec TN_{0}N_{1}N_{2}V(1+R).
+
+For the part where v\neq v^{\prime} we can absorb d_{1}|(v-v^{\prime}) by a divisor bound to get
+
+\displaystyle K_{\neq,=,\neq}\prec\mathrel{\mkern-5.0mu}\prec TN_{0}N_{2}V^{2}\sum_{b^{\prime}}\frac{\mathbf{1}\{|b^{\prime}|\leq RZ^{1/2}\}}{1+|b^{\prime}|/R}\prec\mathrel{\mkern-5.0mu}\prec TN_{0}N_{2}V^{2}(1+R).
+
+#### 4.2.4. Diagonal
+
+Lastly, we consider c^{\prime}=sv^{\prime}a^{\prime}-svd^{\prime}-c^{\prime}+s^{2}vv^{\prime}b^{\prime}=0. We have by the divisor bound for d and crude estimates
+
+\displaystyle K_{=,=}\displaystyle=\sum_{t\leq T}\sum_{n_{0}\leq N_{0}}\sum_{n_{1}\leq N_{1}}\sum_{\begin{subarray}{c}n_{2}\leq N_{2}\\
+\gcd(n_{2},tn_{0}n_{1})=1\end{subarray}}\sum_{d|n_{0}n_{1}n_{2}}K_{=,=}(s,n_{1},n_{2})
+\displaystyle\prec\mathrel{\mkern-5.0mu}\prec\sum_{t\leq T}\sum_{n_{0}\leq N_{0}}\sum_{n_{1}\leq N_{1}}\sum_{\begin{subarray}{c}n_{2}\leq N_{2}\end{subarray}}\sum_{d|n_{0}n_{1}n_{2}}\sum_{v,v^{\prime}\leq V}\sum_{\begin{subarray}{c}a^{\prime}d^{\prime}-b^{\prime}c^{\prime}=1\\
+sv^{\prime}a^{\prime}-svd^{\prime}-c^{\prime}+s^{2}vv^{\prime}b^{\prime}=0\\
+c^{\prime}=0\end{subarray}}\frac{\mathbf{1}\{|a^{\prime}|+R|b^{\prime}|+|c^{\prime}|/R+|d^{\prime}|\leq Z^{1/2}\}}{|a^{\prime}|+R|b^{\prime}|+|c^{\prime}|/R+|d|^{\prime}}
+\displaystyle\prec\mathrel{\mkern-5.0mu}\prec\sum_{t\leq T}\sum_{n_{0}\leq N_{0}}\sum_{n_{1}\leq N_{1}}\sum_{\begin{subarray}{c}n_{2}\leq N_{2}\end{subarray}}\sum_{d|n_{0}n_{1}n_{2}}\sum_{b^{\prime}}\frac{\mathbf{1}\{|b^{\prime}|/R\leq Z^{1/2}\}}{1+|b^{\prime}|/R}\sum_{\begin{subarray}{c}a^{\prime}d^{\prime}=1\end{subarray}}\sum_{\begin{subarray}{c}v,v^{\prime}\leq V\\
+sv^{\prime}a^{\prime}-svd^{\prime}+s^{2}vv^{\prime}b^{\prime}=0\end{subarray}}1
+\displaystyle\prec\mathrel{\mkern-5.0mu}\prec TN_{0}N_{1}N_{2}V\sum_{b^{\prime}}\frac{\mathbf{1}\{|b^{\prime}|R\leq Z^{1/2}\}}{1+|b^{\prime}|R}\prec\mathrel{\mkern-5.0mu}\prec TN_{0}N_{1}N_{2}V(1+R).
+
+∎
+
+## 5. Proof of Theorem [1.4](https://arxiv.org/html/2505.00493#S1.Thmtheorem4 "Theorem 1.4 (Type I estimate). ‣ 1.1. Uniform equidistribution estimates ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")
+
+We may assume that for some small \eta>0 we have K>X^{1-\eta}, since otherwise the claim is trivial by applying Poisson summation on \ell. Similarly, we may assume that K\leq DX^{1+\eta} since otherwise the claim is trivial by switcing to the complementary divisor m=\frac{a\ell^{2}+h}{k} and applying Poisson summation on \ell modulo dm.
+
+Let X_{1}=X and X_{2}=K^{1/(1-\eta)}>X_{1}. Noting that the claim follows for X=X_{2} trivially by the Poisson summation formula, it suffices to bound
+
+\displaystyle\sum_{d\leq D}\bigg|\sum_{k\equiv 0\,\,(\mathrm{mod}\,{d})}\psi_{1}\Bigl(\frac{k}{K}\Bigr)\Bigl(\sum_{a\ell^{2}+h\equiv 0\,\,(\mathrm{mod}\,{k})}\psi_{2}\Bigl(\frac{\ell}{X}\Bigr)-\frac{X}{X_{2}}\psi_{2}\Bigl(\frac{\ell}{X_{2}}\Bigr)\Bigr)\bigg|.
+
+Normalising by \sqrt{ah}, we denote for real symmetric \mathfrak{g}=\smallmatrixquantity(\lx@physics@smallmatrix\aa& \bb\\ \bb& \cc\endlx@physics@smallmatrix) with determinant 1
+
+\displaystyle F_{\diamond,j}(\mathfrak{g})=\psi_{1}\Bigl(\frac{\mathfrak{c}\sqrt{ah}}{aK}\Bigr)\frac{X}{X_{j}}\psi_{2}\Bigl(\frac{\mathfrak{b}\sqrt{ah}}{aX_{j}}\Bigr),
+
+and define F_{j}:\operatorname{SL}_{2}({\mathbb{R}})\to{\mathbb{C}} by F_{j}(\mathrm{g})=F_{\diamond,j}(\mathrm{g}\mathrm{g}^{t}), where \mathfrak{a}=a_{0}^{2}+b_{0}^{2},\mathfrak{b}=a_{0}c_{0}+b_{0}d_{0},\mathfrak{c}=c_{0}^{2}+d_{0}^{2} for \mathrm{g}=\smallmatrixquantity(\lx@physics@smallmatrix a_0 & b_0 \\ c_0 & d_0\endlx@physics@smallmatrix). Then the Iwasawa coordinates are y=\frac{1}{\mathfrak{c}} and x=\frac{\mathfrak{b}}{\mathfrak{c}}, and F_{j} is supported on
+
+\displaystyle\mathbf{X}_{j}\displaystyle=X^{o(1)}\frac{X_{j}}{K}\quad\quad\mathbf{Y}=X^{o(1)}\frac{h^{1/2}}{a^{1/2}}\frac{1}{K},\quad\quad\frac{\mathbf{X}_{j}}{\mathbf{Y}}=X^{o(1)}\frac{X_{j}a^{1/2}}{h^{1/2}}=X^{o(1)}\frac{X_{j}}{h^{1/2}}
+
+Define the linear functional \alpha=\alpha_{d,a,h} by
+
+(5.1)\displaystyle\langle f\rangle_{\alpha}=\sum_{\sigma\in\mathrm{L}_{h}}\frac{1}{|\Gamma_{\sigma i}|}\sum_{\begin{subarray}{c}\tau\in T_{q}\\
+\end{subarray}}\alpha_{d,a}(\tau\sigma)f(\tau\sigma),\quad\alpha_{d,a}(\mathrm{g}):=\mathbf{1}_{\begin{subarray}{c}\mathfrak{c}(\mathrm{g})\equiv 0\,\,(\mathrm{mod}\,{ad})\\
+\mathfrak{b}(\mathrm{g})\equiv 0\,\,(\mathrm{mod}\,{a})\end{subarray}}.
+
+We also let I denote the linear functional \langle f\rangle_{I}=f(I).
+
+By Lemma [3.1](https://arxiv.org/html/2505.00493#S3.Thmtheorem1 "Lemma 3.1. ‣ 3.1. The base case ‣ 3. Parametrisation of symmetric matrices ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") and by inserting the corresponding integrals over \mathrm{G} which match exactly, we have
+
+\displaystyle\sum_{k\equiv 0\,\,(\mathrm{mod}\,{d})}\psi_{1}\Bigl(\frac{k}{K}\Bigr)\Bigl(\sum_{a\ell^{2}+h\equiv 0\,\,(\mathrm{mod}\,{k})}\psi_{2}\Bigl(\frac{\ell}{X}\Bigr)-\frac{X}{X_{2}}\psi_{2}\Bigl(\frac{\ell}{X_{2}}\Bigr)\Bigr)\Bigr)=\langle I|\Delta_{ad}F_{1}|\alpha_{d,a,h}\rangle-\langle I|\Delta_{ad}F_{2}|\alpha_{d,a,h}\rangle.
+
+We can now apply Theorem [2.1](https://arxiv.org/html/2505.00493#S2.Thmtheorem1 "Theorem 2.1. ‣ 2. Technical result ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") to bound each of the terms. We only do the calculations for j=1, for the case j=2 we get better bounds thanks to the factor X/X_{2}<1. Recalling that h\leq X^{2+o(1)}, we apply Theorem [2.1](https://arxiv.org/html/2505.00493#S2.Thmtheorem1 "Theorem 2.1. ‣ 2. Technical result ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") with \delta^{-1}\prec\mathrel{\mkern-5.0mu}\prec 1, \Gamma=\Gamma_{0}(ad), Xh^{-1/2}=Z_{0}Z_{1}Z_{2}=Z, and use Cauchy-Schwarz on d to get
+
+\displaystyle\sum_{d\leq D}\Bigl|\langle I|\Delta_{ad}F_{1}|\alpha_{d,a,h}\rangle\Bigr|\prec\mathrel{\mkern-5.0mu}\prec Z^{1/2}Z_{0}^{\theta}\sqrt{K_{1}K_{2}},
+
+where by positivity we have
+
+\displaystyle K_{1}\displaystyle=\sum_{d\leq D}\langle I|\Delta_{ad}k_{Z_{1}^{2},\mathbf{X}}|I\rangle\leq\sum_{q\leq aD}\langle I|\mathcal{K}_{q}k_{Z_{1}^{2},\mathbf{X}}|I\rangle.
+\displaystyle K_{2}\displaystyle=\sum_{d\leq D}\langle\alpha_{d,a,h}|\Delta_{ad}k_{Z_{2}^{2},1}|\alpha_{d,a,h}\rangle\leq\sum_{q\leq aD}\langle\alpha_{q}|\mathcal{K}_{q}k_{Z_{2}^{2},1}|\alpha_{q}\rangle,
+
+where the functionals \alpha_{q} are as in Proposition [4.1](https://arxiv.org/html/2505.00493#S4.Thmtheorem1 "Proposition 4.1. ‣ 4.1. Heegner points ‣ 4. Upper bounds for automorphic kernels ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials"). By Proposition [4.2](https://arxiv.org/html/2505.00493#S4.Thmtheorem2 "Proposition 4.2. ‣ 4.2. Lower triangular orbits ‣ 4. Upper bounds for automorphic kernels ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") with q=n_{1} and D=N_{0}=N_{2}=T=V=1, we get
+
+(5.2)\displaystyle K_{1}\prec\mathrel{\mkern-5.0mu}\prec D(1+\mathbf{X})+\mathbf{X}^{-1}+Z_{1}.
+
+By Proposition [4.1](https://arxiv.org/html/2505.00493#S4.Thmtheorem1 "Proposition 4.1. ‣ 4.1. Heegner points ‣ 4. Upper bounds for automorphic kernels ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") we get
+
+(5.3)\displaystyle K_{2}\prec\mathrel{\mkern-5.0mu}\prec Dh^{1/2}+hZ_{2}.
+
+The result follows by choosing Z_{1}=D and Z_{2}=1+Dh^{-1/2} so that Z_{0}=1+X^{o(1)}\frac{X}{D(h^{1/2}+D)}. Recall that at the beginning we reduced to the case K\leq DX^{1+\eta} so that K_{1}\prec\mathrel{\mkern-5.0mu}\prec D+Z_{1} once we let \eta=o(1). ∎
+
+## 6. Proof of Theorem [1.5](https://arxiv.org/html/2505.00493#S1.Thmtheorem5 "Theorem 1.5 (Type II estimate). ‣ 1.1. Uniform equidistribution estimates ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")
+
+In the first pass the reader may wish to focus on the generic case where t=n_{0}=d=1 below. We may assume that for some small \eta>0 we have MN>X^{1-\eta}, since otherwise the claim is trivial by applying Poisson summation on \ell. We denote X_{1}=X, X_{2}=(MN)^{1/(1-\eta)}, \psi_{j}(u)=\frac{X}{X_{j}}\psi(u/X_{j}) for j=1,2 and \Psi=\psi_{1}-\psi_{2}. Note again that the claim is trivial for X=X_{2} by Poisson summation on \ell. Denoting t=\gcd(m,n) and making substitutions (m,n)\mapsto(tm,tn), it suffices to bound
+
+\displaystyle A(M,N):=\displaystyle\sum_{t\leq 2N}\sum_{\begin{subarray}{c}m\sim M/t\end{subarray}}\sum_{\begin{subarray}{c}n\sim N/t\\
+\gcd(n,mt)=1\end{subarray}}\alpha_{mt}\beta_{nt}\sum_{a\ell^{2}+h\equiv 0\,\,(\mathrm{mod}\,{mnt^{2}})}\Psi(\ell).
+
+We now wish to apply Cauchy-Schwarz analogously to [[8](https://arxiv.org/html/2505.00493#bib.bib8), Section 3.5]. Denoting
+
+\displaystyle Q=Q_{m,t}=\prod_{\begin{subarray}{c}p\leq 2N\\
+p\,\nmid\,mt\\
+\varrho_{a,h}(p)\neq 0\end{subarray}}p
+
+and using the fact that \beta_{n} are supported on square-free integers, we have by the Chinese remainder theorem
+
+\displaystyle A(M,N)=\displaystyle\sum_{\begin{subarray}{c}t\leq 2N\\
+m\sim M/t\end{subarray}}\alpha_{mt}\frac{1}{\varrho_{a,h}(Q)}\sum_{\begin{subarray}{c}\ell_{0}\,\,(\mathrm{mod}\,{mt^{2}Q})\\
+a\ell_{0}^{2}+h\equiv 0\,\,(\mathrm{mod}\,{mt^{2}Q})\end{subarray}}\sum_{\begin{subarray}{c}n\sim N/t\\
+\gcd(n,mt)=1\end{subarray}}\beta_{nt}\varrho_{a,h}(n)\sum_{\ell\equiv\ell_{0}\,\,(\mathrm{mod}\,{mnt^{2}})}\Psi(\ell).
+
+Applying Cauchy-Schwarz on t,m,\ell_{0} we get
+
+(6.1)\displaystyle A(M,N)\prec\mathrel{\mkern-5.0mu}\prec M^{1/2}B(M,N)^{1/2},
+
+where, by the same argument as in [[8](https://arxiv.org/html/2505.00493#bib.bib8), Section 3.5] and another application of the Chinese remainder theorem,
+
+\displaystyle B(M,N)=\displaystyle\sum_{t\leq 2N}\sum_{n_{0}\leq 2N}\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N/tn_{0}\\
+\gcd(n_{1},n_{2})=1\end{subarray}}\beta_{n_{0}n_{1}t}\overline{\beta_{n_{0}n_{2}t}}\varrho_{a,h}(n_{0})
+\displaystyle\times\sum_{\gcd(m,n_{0}n_{1}n_{2})=1}\psi\big(\frac{mt}{M}\big)\sum_{\begin{subarray}{c}a\ell_{j}^{2}+h\equiv 0\,\,(\mathrm{mod}\,{mn_{0}n_{j}t^{2}})\\
+\ell_{1}\equiv\ell_{2}\,\,(\mathrm{mod}\,{mn_{0}t^{2}})\end{subarray}}\Psi(\ell_{1})\Psi(\ell_{2}).
+
+It then suffices to show that
+
+(6.2)\displaystyle B(M,N)\prec\mathrel{\mkern-5.0mu}\prec X+\frac{XN}{M}(N+h^{1/4})\bigg(1+\frac{X^{2}}{MN^{2}(N^{2}+h^{1/2})}\bigg)^{\theta}.
+
+We write B=B_{=}+B_{\neq} to separate the diagonal \ell_{1}=\ell_{2} and the off-diagonal \ell_{1}\neq\ell_{2}.
+
+### 6.1. Diagonal contribution \ell_{1}=\ell_{2}
+
+By absorbing t,n_{0},n_{1},n_{2},m with a divisor bound, we get
+
+\displaystyle B_{=}(M,N)\prec\mathrel{\mkern-5.0mu}\prec\sum_{\ell}\Psi(\ell)^{2}\prec\mathrel{\mkern-5.0mu}\prec X.
+
+### 6.2. Off-diagonal contribution
+
+By expanding the coprimality condition for m with the Möbius function, we have
+
+\displaystyle B_{\neq}(M,N)=\displaystyle\sum_{tn_{0}\leq 2N}\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N/tn_{0}\\
+\gcd(n_{1},n_{2})=1\end{subarray}}\beta_{n_{0}n_{1}t}\overline{\beta_{n_{0}n_{2}t}}\varrho_{a,h}(n_{0})\sum_{\begin{subarray}{c}d\\
+d|n_{0}n_{1}n_{2}\end{subarray}}\mu(d)
+\displaystyle\times\sum_{m}\psi(\frac{mdt}{M})\sum_{\begin{subarray}{c}a\ell_{j}^{2}+h\equiv 0\,\,(\mathrm{mod}\,{mdn_{0}n_{j}t^{2}})\\
+\ell_{1}\equiv\ell_{2}\,\,(\mathrm{mod}\,{mdn_{0}t^{2}})\\
+\ell_{1}\neq\ell_{2}\end{subarray}}\Psi(\ell_{1})\Psi(\ell_{2}).
+
+Applying Lemma [3.2](https://arxiv.org/html/2505.00493#S3.Thmtheorem2 "Lemma 3.2. ‣ 3.2. Type II sums ‣ 3. Parametrisation of symmetric matrices ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") we get for s=dn_{0}t^{2}
+
+\displaystyle\sum_{m}\psi(\frac{mdt}{M})\sum_{\begin{subarray}{c}a\ell_{j}^{2}+h\equiv 0\,\,(\mathrm{mod}\,{smn_{j}})\\
+\ell_{1}\equiv\ell_{2}\,\,(\mathrm{mod}\,{ms})\end{subarray}}\Psi(\ell_{1})\Psi(\ell_{2})=\sum_{(u_{1},u_{2})\in U}\sum_{\mathfrak{g}\in\mathrm{S}_{a,h}(sn_{1}n_{2})}f_{2}(\mathrm{n}[asn_{1}u_{1}]^{t}\diamond\mathfrak{g},\mathrm{n}[asn_{2}u_{2}]^{t}\diamond\mathfrak{g}),
+
+where
+
+\displaystyle f_{2}(\mathfrak{g}_{1},\mathfrak{g}_{2})\displaystyle=\Psi(\mathfrak{b}_{1}/a)\Psi(\mathfrak{b}_{2}/a)\psi(\frac{\mathfrak{a}_{1}dt}{M})=\sum_{i,j\in\{1,2\}}(-1)^{i+j}f_{ij}(\mathfrak{g}_{1},\mathfrak{g}_{2}),
+\displaystyle f_{ij}(\mathfrak{g}_{1},\mathfrak{g}_{2})\displaystyle=\psi_{i}(\mathfrak{b}_{1}/a)\psi_{j}(\mathfrak{b}_{2}/a)\psi(\frac{\mathfrak{a}_{1}dt}{M})
+
+We now transform this sum for application of Theorem [2.1](https://arxiv.org/html/2505.00493#S2.Thmtheorem1 "Theorem 2.1. ‣ 2. Technical result ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials"). Let v=n_{2}u_{2}-n_{1}u_{1}. The first step is to use Fourier inversion to relax a smooth cross-condition between v and \mathfrak{g}. Before this we need to truncate the sum over v. We claim that it is supported on
+
+(6.3)\displaystyle|v|\leq V_{ij}:=10\frac{\max\{X_{i},X_{j}\}}{Mn_{0}t}.
+
+Indeed, we have
+
+\displaystyle\mathfrak{g}_{2}=\mathrm{n}[asn_{2}u_{2}-asn_{1}u_{1}]^{t}\diamond\mathfrak{g}_{1}
+
+where \mathrm{n}[x]^{t} maps \mathfrak{b}_{1}\mapsto\mathfrak{b}_{1}+x\mathfrak{a}_{1}. Then, for i\leq j and \mathfrak{a}_{1}=\mathfrak{a}_{2}, we have F_{ij}(\mathfrak{g}_{1},\mathfrak{g}_{2})=0 for |x|>10\frac{dtX_{j}}{M} and vice versa for i\geq j. The truncation ([6.3](https://arxiv.org/html/2505.00493#S6.E3 "In 6.2. Off-diagonal contribution ‣ 6. Proof of Theorem ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")) follows. We apply Fourier inversion to get
+
+\displaystyle f_{ij}(\mathrm{n}[asn_{1}u_{1}]^{t}\diamond\mathfrak{g},\mathrm{n}[asn_{2}u_{2}]^{t}\diamond\mathfrak{g})\displaystyle=\int_{\mathbb{R}}\frac{X^{2}}{X_{i}X_{j}}\frac{V_{ij}}{(1+|\xi|V_{ij})^{2}}f_{ij,\xi}(\mathrm{n}[asn_{1}u_{1}]^{t}\diamond\mathfrak{g})e(asv\xi)\mathrm{d}\xi,
+
+where
+
+(6.4)\displaystyle f_{ij,\xi}(\mathfrak{g}):=\frac{X_{i}X_{j}}{X^{2}}\frac{(1+|\xi|V_{ij})^{2}}{V_{ij}}\int_{\mathbb{R}}f_{ij}(\mathfrak{g},\mathrm{n}[u]^{t}\diamond\mathfrak{g})e(-\xi u)\mathrm{d}u
+
+satisfies by integration by parts uniformly in \xi
+
+\displaystyle|f_{ij,\xi}(\mathfrak{g})|\ll 1.
+
+Observe that u_{1}\equiv-v\overline{n_{1}}\,\,(\mathrm{mod}\,{n_{2}}). The choice of representative for \overline{n_{1}} does not matter once we sum over \mathfrak{g}\in\mathrm{S}_{a,h}(sn_{1}n_{2}). By \ell_{1}\neq\ell_{2} we have v\ \neq 0. Thus, we arrive at
+
+\displaystyle\sum_{m}\psi(\frac{mdr}{M})\sum_{\begin{subarray}{c}a\ell_{j}^{2}+h\equiv 0\,\,(\mathrm{mod}\,{mdn_{0}n_{j}r^{2}})\\
+\ell_{1}\equiv\ell_{2}\,\,(\mathrm{mod}\,{mdn_{0}r^{2}})\\
+\ell_{1}\neq\ell_{2}\end{subarray}}\Psi(\ell_{1})\Psi(\ell_{2})
+\displaystyle=\displaystyle\int_{{\mathbb{R}}}\sum_{i,j\in\{1,2\}}(-1)^{i+j}\frac{X^{2}}{X_{i}X_{j}}\frac{V_{ij}}{(1+|\xi|V_{ij})^{2}}\Bigg(\sum_{1\leq|v|\leq V_{ij}}e(asv\xi)\sum_{\mathfrak{g}\in\mathrm{S}_{a,h}(sn_{1}n_{2})}f_{ij,\xi}(\mathrm{n}[-asn_{1}v\overline{n_{1}}]^{t}\diamond\mathfrak{g})\Bigg)\mathrm{d}\xi.
+
+This has brought our counting problem into the right shape for an application of Theorem [2.1](https://arxiv.org/html/2505.00493#S2.Thmtheorem1 "Theorem 2.1. ‣ 2. Technical result ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") and we next show that the smooth weight is admissible for this. We normalise the weight by \sqrt{ah} to \operatorname{SL}_{2}({\mathbb{R}}) by defining
+
+\displaystyle F_{ij,\xi}(\mathrm{g})=f_{ij,\xi}(\sqrt{ah}\,\mathrm{g}\mathrm{g}^{t}),
+
+which is supported on \mathrm{g}\mathrm{g}^{t}=\smallmatrixquantity(\lx@physics@smallmatrix\aa& \bb\\ \bb& \cc\endlx@physics@smallmatrix) with \mathfrak{a}\mathfrak{c}-\mathfrak{b}^{2}=1 satisfying
+
+\displaystyle x\displaystyle=\frac{\mathfrak{b}}{\mathfrak{c}}=\frac{\mathfrak{a}\mathfrak{b}}{\mathfrak{b}^{2}+1}=X^{o(1)}\frac{\mathfrak{a}}{\mathfrak{b}}=X^{o(1)}\frac{M}{adtX_{i}}=\mathbf{X}_{i}
+\displaystyle y\displaystyle=\frac{1}{\mathfrak{c}}=\frac{\mathfrak{a}}{\mathfrak{b}^{2}+1}=X^{o(1)}\frac{\mathfrak{a}}{\mathfrak{b}^{2}}=X^{o(1)}\frac{\sqrt{h}M}{a^{3/2}dtX^{2}_{i}}=\mathbf{Y}_{i}.
+
+Then
+
+\displaystyle\mathbf{X}_{i}/\mathbf{Y}_{i}=X^{o(1)}X_{i}a^{1/2}h^{-1/2}=X^{o(1)}X_{i}h^{-1/2}.
+
+The derivative hypothesis in Theorem [2.1](https://arxiv.org/html/2505.00493#S2.Thmtheorem1 "Theorem 2.1. ‣ 2. Technical result ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") follows from differentiating under the integration in ([6.4](https://arxiv.org/html/2505.00493#S6.E4 "In 6.2. Off-diagonal contribution ‣ 6. Proof of Theorem ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")), and is uniform in \xi. Note also that it suffices to bound the supremum over \xi since \int_{{\mathbb{R}}}\frac{V_{ij}}{(1+|\xi|V_{ij})^{2}}\mathrm{d}\xi\ll 1.
+
+We define the linear functionals \alpha=\alpha_{sn_{1}n_{2},a,h} (being very similar to the one in the proof of Proposition [1.4](https://arxiv.org/html/2505.00493#S1.Thmtheorem4 "Theorem 1.4 (Type I estimate). ‣ 1.1. Uniform equidistribution estimates ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")) by
+
+\displaystyle\langle f\rangle_{\alpha}=\sum_{\sigma\in\mathrm{L}_{h}}\frac{1}{|\Gamma_{\sigma i}|}\sum_{\begin{subarray}{c}\tau\in T_{q}\\
+\end{subarray}}\alpha_{sn_{1}n_{2},a}(\tau\sigma)f(\tau\sigma),\quad\alpha_{sn_{1}n_{2},a}(\mathrm{g}):=\mathbf{1}_{\begin{subarray}{c}\mathfrak{c}(\mathrm{g})\equiv 0\,\,(\mathrm{mod}\,{sn_{1}n_{2}a})\\
+\mathfrak{b}(\mathrm{g})\equiv 0\,\,(\mathrm{mod}\,{a})\end{subarray}}.
+
+We define the linear functionals \beta=\beta_{as,n_{1},n_{2},\xi} by
+
+\displaystyle\langle f\rangle_{\beta}=\sum_{1\leq|v|\leq V_{ij}}e(asv\xi)f(\mathrm{n}[asn_{1}v\overline{n_{1}}]^{t}).
+
+By the parametrisation in Lemma [3.1](https://arxiv.org/html/2505.00493#S3.Thmtheorem1 "Lemma 3.1. ‣ 3.1. The base case ‣ 3. Parametrisation of symmetric matrices ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials"), we then have
+
+\displaystyle\sum_{|v|\leq V_{ij}}e(asv\xi)\sum_{\mathfrak{g}\in\mathrm{S}_{a,h}(sn_{1}n_{2})}f_{ij,\xi}(\mathrm{n}[-asn_{1}v\overline{n_{1}}]^{t}\diamond\mathfrak{g})=\langle\beta|\mathcal{K}_{asn_{1}n_{2}}F_{ij}|\alpha\rangle.
+
+We can now apply Theorem [2.1](https://arxiv.org/html/2505.00493#S2.Thmtheorem1 "Theorem 2.1. ‣ 2. Technical result ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") with \Gamma=\Gamma_{0}(asn_{1}n_{2}). The main terms \int_{\mathrm{G}}(\cdots)\mathrm{d}\mathrm{g} match exactly for i,j\in\{1,2\} and it suffices to bound \langle\beta|\Delta_{asn_{1}n_{2}}F_{ij}|\alpha\rangle separately for each i,j\in\{1,2\}. The error term for i=j=1 dominates (thanks to the factor \frac{X^{2}}{X_{i}X_{j}}), so we restrict to that case. Together with an application of Cauchy-Schwarz on the t,n_{0},d variables, we get for Z_{0}Z_{1}Z_{2}=\mathbf{X}_{1}/\mathbf{Y}_{1}
+
+(6.5)\displaystyle\sum_{tn_{0}\leq 2N}\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N/tn_{0}\\
+\gcd(n_{1},n_{2})=1\end{subarray}}\sum_{d|n_{0}n_{1}n_{2}}\Bigl|\langle\beta|\Delta_{asn_{1}n_{2}}F_{11}|\alpha\rangle\Bigr|\prec\mathrel{\mkern-5.0mu}\prec_{a}(\mathbf{X}_{1}/\mathbf{Y}_{1})^{1/2}Z_{0}^{\theta}\sqrt{K_{1}K_{2}}.
+
+We estimate K_{1} by Proposition [4.2](https://arxiv.org/html/2505.00493#S4.Thmtheorem2 "Proposition 4.2. ‣ 4.2. Lower triangular orbits ‣ 4. Upper bounds for automorphic kernels ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") with Z_{1}=\frac{MN^{2}}{X}. This gives
+
+\displaystyle K_{1}\leq\displaystyle\sum_{tn_{0}\leq 2N}\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N/tn_{0}\\
+\gcd(n_{1},n_{2})=1\end{subarray}}\sum_{d|n_{0}n_{1}n_{2}}\langle\beta_{s,n_{1},n_{2}}|\mathcal{K}_{sn_{1}n_{2}}k_{Z_{1}^{2},\mathbf{X}}|\beta_{s,n_{1},n_{2}}\rangle
+\displaystyle\prec\mathrel{\mkern-5.0mu}\prec\displaystyle\frac{X}{M}N^{2}+\frac{X^{2}}{M^{2}}Z_{1}\prec\mathrel{\mkern-5.0mu}\prec\frac{X}{M}N^{2}.
+
+For K_{2} we apply Proposition [4.1](https://arxiv.org/html/2505.00493#S4.Thmtheorem1 "Proposition 4.1. ‣ 4.1. Heegner points ‣ 4. Upper bounds for automorphic kernels ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") with Z_{2}=1+N^{2}h^{-1/2}, getting by the divisor bound
+
+\displaystyle K_{2}\leq\displaystyle\sum_{tn_{0}\leq 2N}\sum_{\begin{subarray}{c}n_{1},n_{2}\sim N/tn_{0}\\
+\gcd(n_{1},n_{2})=1\end{subarray}}\sum_{d|n_{0}n_{1}n_{2}}\langle\alpha_{sn_{1}n_{2},a,h}|\mathcal{K}_{asn_{1}n_{2}}k_{Z_{2},1}|\alpha_{sn_{1}n_{2},a,h}\rangle
+\displaystyle\prec\mathrel{\mkern-5.0mu}\prec\displaystyle\sum_{q\leq aN^{2}}\langle\alpha_{q,h}|\mathcal{K}_{q}k_{Z_{2},1}|\alpha_{q,h}\rangle\prec\mathrel{\mkern-5.0mu}\prec N^{2}h^{1/2}+hZ_{2}\prec\mathrel{\mkern-5.0mu}\prec N^{2}h^{1/2}+h.
+
+Plugging the bounds for K_{1} and K_{2} into ([6.5](https://arxiv.org/html/2505.00493#S6.E5 "In 6.2. Off-diagonal contribution ‣ 6. Proof of Theorem ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")) with \mathbf{X}_{1}/\mathbf{Y}_{1}=X^{1+o(1)}h^{-1/2} and
+
+\displaystyle Z_{0}=1+X^{o(1)}\frac{X}{h^{1/2}Z_{1}Z_{2}}=1+X^{o(1)}\frac{X^{2}}{MN^{2}(N^{2}+h^{1/2})},
+
+we get ([6.2](https://arxiv.org/html/2505.00493#S6.E2 "In 6. Proof of Theorem ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")). This completes the proof of Theorem [1.5](https://arxiv.org/html/2505.00493#S1.Thmtheorem5 "Theorem 1.5 (Type II estimate). ‣ 1.1. Uniform equidistribution estimates ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials"). ∎
+
+## 7. Proof of Theorems [1.1](https://arxiv.org/html/2505.00493#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") and [1.2](https://arxiv.org/html/2505.00493#S1.Thmtheorem2 "Theorem 1.2. ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials")
+
+We now state two corollaries to Theorems [1.4](https://arxiv.org/html/2505.00493#S1.Thmtheorem4 "Theorem 1.4 (Type I estimate). ‣ 1.1. Uniform equidistribution estimates ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") and [1.5](https://arxiv.org/html/2505.00493#S1.Thmtheorem5 "Theorem 1.5 (Type II estimate). ‣ 1.1. Uniform equidistribution estimates ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") that give explicit Type I and Type II ranges for h\leq X^{1+\varepsilon}. We get power saving in the full range as soon as there is a spectral gap, that is, if \theta<1/2. This makes our main theorems independent of progress towards the Selberg eigenvalue conjecture.
+
+###### Corollary 7.1(Explicit Type I information).
+
+Let \eta,\varepsilon>0 be small, Let K\leq X^{2} and D\leq X^{1/2-\eta}. Let h be square-free with h\leq X^{1+\varepsilon} and let a\leq X^{o(1)} with \gcd(a,h)=1. Let \psi_{1},\psi_{2} be smooth functions supported on [1,2] and [-1,1], resp., such that for all J\geq 0 we have \psi_{i}^{(J)}\prec\mathrel{\mkern-5.0mu}\prec_{J}1. Then
+
+\displaystyle\sum_{d\leq D}\bigg|\sum_{k\equiv 0\,\,(\mathrm{mod}\,{d})}\psi_{1}\Bigl(\frac{k}{K}\Bigr)\Bigl(\sum_{a\ell^{2}+h\equiv 0\,\,(\mathrm{mod}\,{k})}\psi_{2}\Bigl(\frac{\ell}{X}\Bigr)-\frac{\varrho_{a,h}(k)X\widehat{\psi_{2}}(0)}{k}\Bigr)\bigg|\displaystyle\prec\mathrel{\mkern-5.0mu}\prec X^{1-(1-2\theta)\eta+\varepsilon/4}
+
+###### Corollary 7.2(Explicit Type II information).
+
+Let \eta,\varepsilon>0 be small and let M\geq N\geq 1 with MN=X^{\alpha} satisfy
+
+\displaystyle X^{\alpha-1+2\eta}\leq N\leq X^{(2-\alpha)/3-\frac{4}{3}\eta}.
+
+Let h be square-free with 1\leq h\leq X^{1+\varepsilon} and let a\leq X^{o(1)} with \gcd(a,h)=1. Let \psi be a smooth function supported [-1,1], such that for all J\geq 0 we have \psi^{(J)}\prec\mathrel{\mkern-5.0mu}\prec_{J}1. Suppose that \alpha_{m},\beta_{n} are divisor bounded coefficients with \beta_{n} is supported on square-free integers. Then
+
+\displaystyle\sum_{\begin{subarray}{c}m\sim M\\
+n\sim N\end{subarray}}\alpha_{m}\beta_{n}\Bigl(\sum_{a\ell^{2}+h\equiv 0\,\,(\mathrm{mod}\,{mn})}\psi\Bigl(\frac{\ell}{X}\Bigr)-\frac{\varrho_{a,h}(mn)X\widehat{\psi}(0)}{mn}\Bigr)\prec\mathrel{\mkern-5.0mu}\prec X^{1-(1-2\theta)\eta+\varepsilon/8}.
+
+We obtain precisely the Type I and Type II ranges that were obtained in [[8](https://arxiv.org/html/2505.00493#bib.bib8)] under the assumption of Selberg’s eigenvalue conjecture. By the calculations in [[8](https://arxiv.org/html/2505.00493#bib.bib8), proof of Theorem 2], Theorem [1.1](https://arxiv.org/html/2505.00493#S1.Thmtheorem1 "Theorem 1.1. ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") follows. The assumption on \varrho_{a,h}(p) ensures that the sieve dimension is \leq 1+\varepsilon in the application of the linear sieve and Harman’s sieve in [[8](https://arxiv.org/html/2505.00493#bib.bib8)].
+
+Similarly, by exactly the same sieve argument as in [[4](https://arxiv.org/html/2505.00493#bib.bib4)], these imply Theorem [1.2](https://arxiv.org/html/2505.00493#S1.Thmtheorem2 "Theorem 1.2. ‣ 1. Introduction ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials"). The sieve argument in [[4](https://arxiv.org/html/2505.00493#bib.bib4)] works unchanged as there a two-dimensional sieve is used to bound the small contribution from the discarded ranges.
+
+## 8. A divisor problem for ax^{2}+by^{3}
+
+We recall the set-up in [[9](https://arxiv.org/html/2505.00493#bib.bib9)]. Let a,b>0 be coprime integers and let \delta=\delta(X):=(\log X)^{-c} for some fixed large c>0. Let f,f_{1},f_{2} denote non-negative non-zero smooth functions supported in [1,1+\delta] and satisfying the derivative bounds f^{(J)},f_{1}^{(J)},f_{2}^{(J)}\ll_{J}\delta^{-J} for all J\geq 0. For A\in(\delta X^{1/2},X^{1/2}] and B\in(\delta X^{1/3},X^{1/3}] we define the sequences \mathcal{A}=(a_{n}), \mathcal{B}=(b_{n}), and their difference \mathcal{W}=(w_{n}) by
+
+\displaystyle a_{n}\displaystyle:=a_{n}(a,b,f_{1},f_{2},A,B)=\sum_{n=ax^{2}+by^{3}}f_{1}(\tfrac{x}{A})f_{2}(\tfrac{y}{B}),
+\displaystyle b_{n}\displaystyle:=b_{n}(a,b,f,f_{1},f_{2},A,B,W)=f(\tfrac{n}{X})\frac{AB\widehat{f_{1}}(0)\widehat{f_{2}}(0)}{X\widehat{f}(0)}
+\displaystyle w_{n}\displaystyle:=a_{n}-b_{n}
+
+Then we have the following proposition, which is a dyadic version of the divisor problem d(ax^{2}+by^{3}) along multiples of a modulus d of size up to X^{1/4-o(1)}.
+
+###### Proposition 8.1(Type I 2 information up to 1/4).
+
+Let a,b>0 be coprime integers and let \eta>0 be sufficiently small. For any K\leq X^{3/4} we have
+
+\displaystyle\sum_{d\leq X^{1/4-\eta}}\bigg|\sum_{k\equiv 0\,\,(\mathrm{mod}\,{d})}\mu^{2}(k)f(\tfrac{k}{K})\sum_{n}w_{kn}\bigg|\ll X^{5/6-\eta^{3}}.
+
+We first reduce the proof to the following technical version, which restricts to a good set of y at the cost of slightly increasing b. For the good set of y we show a version with stronger power saving.
+
+###### Proposition 8.2.
+
+Denote \varrho_{a,by^{3}}(d):=\#\{x\in{\mathbb{Z}}/d{\mathbb{Z}}:ax^{2}+by^{3}\equiv 0\,\,(\mathrm{mod}\,{d})\}. Let b\leq A^{O(\eta^{2})}, D<B^{1-\eta}, and B^{3}\leq A^{2+O(\eta^{2})}. Then we have
+
+\displaystyle\sum_{d\sim D}\sum_{\begin{subarray}{c}y\sim B\\
+\gcd(y,ab)=1\end{subarray}}\mu^{2}(y)\displaystyle\bigg|\sum_{\begin{subarray}{c}k\equiv 0\,\,(\mathrm{mod}\,{d})\end{subarray}}f(\tfrac{k}{K})\bigg(\sum_{\begin{subarray}{c}ax^{2}+by^{3}\equiv 0\,\,(\mathrm{mod}\,{k})\end{subarray}}f_{1}(\tfrac{x}{A})-\frac{A\widehat{f_{1}}(0)\varrho_{a,by^{3}}(d)}{d}\bigg)\bigg|
+\displaystyle\ll A^{O(\eta^{2})}\bigg(1+\frac{A}{BD(B^{1/2}+D)}\bigg)^{\theta}\bigg(A^{1/2}BD+A^{1/2}B^{5/4}D^{1/2}\bigg).
+
+We need the following lemma to show that the main terms match.
+
+###### Lemma 8.3.
+
+For d\leq B^{1-\eta} square-free and a,b>0 co-prime we have
+
+\displaystyle\sum_{y}f_{2}(\tfrac{y}{B})\varrho_{a,by^{3}}(d)\displaystyle=\frac{B\widehat{f_{2}}(0)}{d}\sum_{y\,\,(\mathrm{mod}\,{d})}\varrho_{a,by^{3}}(d)+O(B^{\eta^{2}}d^{1/2+o(1)})
+\displaystyle=B\widehat{f_{2}}(0)+O(B^{\eta^{2}}d^{1/2+o(1)}).
+
+###### Proof.
+
+By the truncated Poisson summation formula (cf. [[9](https://arxiv.org/html/2505.00493#bib.bib9), Section 5]) we have
+
+\displaystyle\sum_{y}f_{2}(\tfrac{y}{B})\varrho_{a,by^{3}}(d)=\frac{B\widehat{f_{2}}(0)}{d}\sum_{y\,\,(\mathrm{mod}\,{d})}\varrho_{a,b,y}(d)+O(B^{\eta^{2}}E)+O_{\eta}(X^{-100}),
+
+where for H=X^{\eta^{2}}d/B we get by the Weil bound (cf. [[9](https://arxiv.org/html/2505.00493#bib.bib9), Section 5])
+
+\displaystyle E\displaystyle=\frac{1}{H}\sum_{\begin{subarray}{c}0<|h|\leq H\end{subarray}}\bigg|\sum_{\begin{subarray}{c}x,y\,\,(\mathrm{mod}\,{d})\\
+ax^{2}+by^{3}\equiv 0\,\,(\mathrm{mod}\,{d})\end{subarray}}e_{d}(hy)\bigg|\ll d^{1/2+o(1)}.\qed
+
+###### Proof of Proposition [8.1](https://arxiv.org/html/2505.00493#S8.Thmtheorem1 "Proposition 8.1 (Type I2 information up to 1/4). ‣ 8. A divisor problem for 𝑎⁢𝑥^2+𝑏⁢𝑦^3 ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") assuming Proposition [8.2](https://arxiv.org/html/2505.00493#S8.Thmtheorem2 "Proposition 8.2. ‣ 8. A divisor problem for 𝑎⁢𝑥^2+𝑏⁢𝑦^3 ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials").
+
+With an application of Lemma [8.3](https://arxiv.org/html/2505.00493#S8.Thmtheorem3 "Lemma 8.3. ‣ 8. A divisor problem for 𝑎⁢𝑥^2+𝑏⁢𝑦^3 ‣ On the greatest prime factor and uniform equidistribution of quadratic polynomials") and expanding the \mu(k)^{2} via Möbius function, trivially bounding the contribution from square-divisors larger than X^{\eta^{2}}, it suffices to show that
+
+\displaystyle\sum_{d\sim D}\sum_{y\leq B}\displaystyle\bigg|\sum_{\begin{subarray}{c}k\equiv 0\,\,(\mathrm{mod}\,{d})\end{subarray}}f(\tfrac{k}{K})\bigg(\sum_{\begin{subarray}{c}ax^{2}+by^{3}\equiv 0\,\,(\mathrm{mod}\,{k})\end{subarray}}f_{1}(\tfrac{x}{A})-\frac{A\widehat{f_{1}}(0)\varrho_{a,by^{3}}(d)}{d}\bigg)\bigg|\ll_{a,b}X^{5/6-2\eta^{3}}.
+
+We can divide the congruence throughout by \gcd(a,y^{3}), and modify a,b,B,D,K accordingly. It then suffices to show the same bound for
+
+\displaystyle\sum_{d\sim D}\sum_{\begin{subarray}{c}y\leq B\\
+\gcd(y,a)=1\end{subarray}}\displaystyle\bigg|\sum_{\begin{subarray}{c}k\equiv 0\,\,(\mathrm{mod}\,{d})\end{subarray}}f(\tfrac{k}{K})\bigg(\sum_{\begin{subarray}{c}ax^{2}+by^{3}\equiv 0\,\,(\mathrm{mod}\,{k})\end{subarray}}f_{1}(\tfrac{x}{A})-\frac{A\widehat{f_{1}}(0)\varrho_{a,by^{3}}(d)}{d}\bigg)\bigg|.
+
+We split y=y_{0}y_{1}y_{2}, where y_{2}|y is the largest square-free divisor such that \gcd(y_{2},bdy_{0}y_{1})=1, y_{0}|(bd)^{\infty}, and y_{1} is powerful. Then the above is bounded by
+
+\displaystyle\sum_{d\sim D}\sum_{\begin{subarray}{c}y_{0}y_{1}\leq B\\
+\gcd(y_{0}y_{1},a)=1\\
+y_{0}|(bd)^{\infty}\\
+y_{1}\,\text{powerful}\end{subarray}}\displaystyle\sum_{\begin{subarray}{c}y_{2}\leq B/y_{0}y_{1}\\
+\gcd(y_{2},abdy_{0}y_{1})=1\end{subarray}}\mu^{2}(y_{2})
+\displaystyle\times\bigg|\sum_{\begin{subarray}{c}k\equiv 0\,\,(\mathrm{mod}\,{d})\end{subarray}}f(\tfrac{k}{K})\bigg(\sum_{\begin{subarray}{c}ax^{2}+by_{0}^{3}y_{1}^{3}y_{2}^{3}\equiv 0\,\,(\mathrm{mod}\,{k})\end{subarray}}f_{1}(\tfrac{x}{A})-\frac{A\widehat{f_{1}}(0)\varrho_{a,by_{0}^{3}y_{1}^{3}y_{2}^{3}}(d)}{d}\bigg)\bigg|.
+
+The contribution from the part where y_{0}y_{1}>X^{\eta^{2}} is small by crude bounds, and for y_{0}y_{1}\leq X^{\eta} we may absorb y_{0}^{3}y
+
+..._Content truncated_...

@@ -1,0 +1,1006 @@
+## Content from https://arxiv.org/html/2109.06291
+
+Title: The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero
+
+URL Source: https://arxiv.org/html/2109.06291
+
+Markdown Content:
+Terence Tao Address: Department of Mathematics, University of California, Los Angeles, CA 90095-1555,USA Email address: [tao@math.ucla.edu](mailto:tao@math.ucla.edu)Joni Teräväinen Address: Mathematical Institute, University of Oxford, Oxford, UK Address: Department of Mathematics and Statistics, University of Turku, Turku, Finland Email address: [joni.p.teravainen@gmail.com](mailto:joni.p.teravainen@gmail.com)
+
+###### Abstract.
+
+Assuming that Siegel zeros exist, we prove a hybrid version of the Chowla and Hardy–Littlewood prime tuples conjectures. Thus, for an infinite sequence of natural numbers x, and any distinct integers h_{1},\dots,h_{k},h^{\prime}_{1},\dots,h^{\prime}_{\ell}, we establish an asymptotic formula for
+
+\sum_{n\leq x}\Lambda(n+h_{1})\cdots\Lambda(n+h_{k})\lambda(n+h_{1}^{\prime})\cdots\lambda(n+h_{\ell}^{\prime})
+
+for any 0\leq k\leq 2 and \ell\geq 0. Specializing to either \ell=0 or k=0, we deduce the previously known results on the Hardy–Littlewood (or twin primes) conjecture and the Chowla conjecture under the existence of Siegel zeros, due to Heath-Brown and Chinis, respectively. The range of validity of our asymptotic formula is wider than in these previous results.
+
+###### 2020 Mathematics Subject Classification
+
+11N37, 11N36
+
+## 1 Introduction
+
+### 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes
+
+Let \lambda\colon\mathbb{N}\to\{-1,+1\} denote the Liouville function. We have the following well known conjecture of Chowla [[3](https://arxiv.org/html/2109.06291#bib.bib3)]:
+
+###### Conjecture 1.1(Chowla’s conjecture).
+
+Let h^{\prime}_{1},\dots,h^{\prime}_{\ell} be distinct fixed natural numbers for some fixed \ell\geq 1. Then 1 1 1 See Section [2](https://arxiv.org/html/2109.06291#S2 "2 Notation ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") for our conventions on asymptotic notation.
+
+\mathbb{E}_{n\leq x}\lambda(n+h^{\prime}_{1})\cdots\lambda(n+h^{\prime}_{\ell})=o(1)
+
+as x\to\infty.
+
+Here and in the sequel, n is understood to range over natural numbers, and we use the averaging notation \mathbb{E}_{n\in A}f(n)\coloneqq\frac{1}{|A|}\sum_{n\in A}f(n) for any set A of a finite cardinality |A|. The reasons for the primes in the notation h^{\prime}_{1},\dots,h^{\prime}_{\ell} is for compatibility with Conjecture [1.3](https://arxiv.org/html/2109.06291#S1.Thmtheorem3 "Conjecture 1.3 (Hardy–Littlewood–Chowla conjecture). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") below.
+
+For \ell=1 Chowla’s conjecture is equivalent to the prime number theorem, but the conjecture is open for all \ell\geq 2, although a slightly weaker “logarithmically averaged” conjecture is known to hold for \ell=2[[27](https://arxiv.org/html/2109.06291#bib.bib27)] or for odd \ell[[28](https://arxiv.org/html/2109.06291#bib.bib28), [29](https://arxiv.org/html/2109.06291#bib.bib29)]. All the discussion here concerning the Liouville function \lambda has a counterpart for the Möbius function \mu, but for simplicity of exposition we restrict attention to the Liouville function here.
+
+The analogous conjecture for the von Mangoldt function \Lambda\colon\mathbb{N}\to\mathbb{R}^{+} is the well known _prime tuples conjecture_ of Hardy and Littlewood [[10](https://arxiv.org/html/2109.06291#bib.bib10)]:
+
+###### Conjecture 1.2(Hardy–Littlewood prime tuples conjecture).
+
+Let h_{1},\dots,h_{k} be distinct fixed natural numbers for some fixed k\geq 0. Then
+
+\mathbb{E}_{n\leq x}\Lambda(n+h_{1})\cdots\Lambda(n+h_{k})={\mathfrak{S}}+o(1)
+
+as x\to\infty, where the _singular series_{\mathfrak{S}} is defined by the formula
+
+(1.1){\mathfrak{S}}\coloneqq\prod_{p}\beta_{p},
+
+the local factors \beta_{p} are defined by
+
+(1.2)\beta_{p}\coloneqq\mathbb{E}_{n\in\mathbb{Z}/p\mathbb{Z}}\Lambda_{p}(n+h_{1})\cdots\Lambda_{p}(n+h_{k})=\left(1-\frac{1}{p}\right)^{-k}\left(1-\frac{|\{h_{1},\ldots,h_{k}\}\pmod{p}|}{p}\right)
+
+and \Lambda_{p}\colon\mathbb{Z}/p\mathbb{Z}\to\mathbb{R}^{+} is the local von Mangoldt function \Lambda_{p}(n)\coloneqq\frac{p}{p-1}1_{n\neq 0\ (p)}. (In this paper we adopt the convention that the empty product is equal to 1.)
+
+It is not difficult to show the asymptotic
+
+(1.3)\beta_{p}=1+O\left(\frac{1}{p^{2}}\right),
+
+so the product in ([1.1](https://arxiv.org/html/2109.06291#S1.E1 "In Conjecture 1.2 (Hardy–Littlewood prime tuples conjecture). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) converges, though it could vanish if the h_{1},\dots,h_{k} cover a complete set of residues modulo p for some prime p. Conjecture [1.2](https://arxiv.org/html/2109.06291#S1.Thmtheorem2 "Conjecture 1.2 (Hardy–Littlewood prime tuples conjecture). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") is trivial for k=0 and equivalent to the prime number theorem for k=1, but is open for all other values of k, with the k=2 case already implying the notorious twin prime conjecture.
+
+It is natural to unify Conjecture [1.1](https://arxiv.org/html/2109.06291#S1.Thmtheorem1 "Conjecture 1.1 (Chowla’s conjecture). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") and Conjecture [1.2](https://arxiv.org/html/2109.06291#S1.Thmtheorem2 "Conjecture 1.2 (Hardy–Littlewood prime tuples conjecture). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") as follows.
+
+###### Conjecture 1.3(Hardy–Littlewood–Chowla conjecture).
+
+Let k,\ell\geq 0, and let h_{1},\dots,h_{k}, h^{\prime}_{1},\dots,h^{\prime}_{\ell} be distinct fixed natural numbers. Then
+
+\mathbb{E}_{n\leq x}\Lambda(n+h_{1})\cdots\Lambda(n+h_{k})\lambda(n+h^{\prime}_{1})\cdots\lambda(n+h^{\prime}_{\ell})={\mathfrak{S}}+o(1)
+
+as x\to\infty, where {\mathfrak{S}} is defined by ([1.1](https://arxiv.org/html/2109.06291#S1.E1 "In Conjecture 1.2 (Hardy–Littlewood prime tuples conjecture). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) when \ell=0 and is equal to zero otherwise.
+
+Clearly Conjectures [1.1](https://arxiv.org/html/2109.06291#S1.Thmtheorem1 "Conjecture 1.1 (Chowla’s conjecture). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero"), [1.2](https://arxiv.org/html/2109.06291#S1.Thmtheorem2 "Conjecture 1.2 (Hardy–Littlewood prime tuples conjecture). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") correspond to the special cases k=0 and \ell=0 respectively of Conjecture [1.3](https://arxiv.org/html/2109.06291#S1.Thmtheorem3 "Conjecture 1.3 (Hardy–Littlewood–Chowla conjecture). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero"). One could also generalize this conjecture by replacing the forms n+h_{j},n+h^{\prime}_{j^{\prime}} by more general linear forms a_{j}n+b_{j},a^{\prime}_{j^{\prime}}n+b^{\prime}_{j^{\prime}}, no two of which are scalar multiples of each other, but we do not do so here in order to simplify the notation.
+
+Only the k+\ell\leq 1 cases of Conjecture [1.3](https://arxiv.org/html/2109.06291#S1.Thmtheorem3 "Conjecture 1.3 (Hardy–Littlewood–Chowla conjecture). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") are currently known, even if one assumes the generalized Riemann hypothesis, though see [[26](https://arxiv.org/html/2109.06291#bib.bib26)] for some recent progress in the function field case, and the recent works [[15](https://arxiv.org/html/2109.06291#bib.bib15)], [[16](https://arxiv.org/html/2109.06291#bib.bib16)] for some progress on an averaged version of this conjecture. On the other hand, it turns out (perhaps surprisingly) that some progress on this conjecture can be made under an opposing hypothesis, namely the existence of a Siegel zero. We use the notational conventions from Heath-Brown’s work [[11](https://arxiv.org/html/2109.06291#bib.bib11)]:
+
+###### Definition 1.4(Siegel zero).
+
+A _Siegel zero_\beta is a real number associated to a primitive quadratic Dirichlet character \chi of conductor q_{\chi} such that L(\beta,\chi)=0 and
+
+\beta=1-\frac{1}{\eta\log q_{\chi}}
+
+for some \eta\geq 10 (which we call the _quality_ of the zero).
+
+The lower bound on \eta is mostly in order to ensure that \log\log\eta is positive; the precise numerical value of the lower bound is not important. From Siegel’s theorem we have the (ineffective) upper bound
+
+(1.4)\eta\ll_{\varepsilon}q_{\chi}^{\varepsilon}
+
+on the quality of a Siegel zero for any \varepsilon>0.
+
+There are prior results in the literature towards Conjecture [1.3](https://arxiv.org/html/2109.06291#S1.Thmtheorem3 "Conjecture 1.3 (Hardy–Littlewood–Chowla conjecture). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") in the presence of a Siegel zero when only either the von Mangoldt function or the Liouville function appears in the correlation. These results are due to Heath-Brown [[11](https://arxiv.org/html/2109.06291#bib.bib11)] in the case of two-point correlations of the von Mangoldt function, and due to Chinis [[2](https://arxiv.org/html/2109.06291#bib.bib2)] in the case of the Chowla conjecture (with previous work by Germán and Katái [[6](https://arxiv.org/html/2109.06291#bib.bib6)] on the two-point case). We can summarize them as follows:
+
+###### Theorem 1.5(Prior results on Hardy–Littlewood–Chowla given a Siegel zero).
+
+Suppose that one has a Siegel zero \beta with associated conductor q_{\chi} and quality \eta.
+
+*   (i)[[11](https://arxiv.org/html/2109.06291#bib.bib11), Theorem 1] For any distinct fixed natural numbers h_{1},h_{2}, one has
+
+\mathbb{E}_{n\leq x}\Lambda(n+h_{1})\Lambda(n+h_{2})={\mathfrak{S}}+O\left(\frac{1}{\log\log\eta}\right)
+
+uniformly for all q^{250}_{\chi}\leq x\leq q_{\chi}^{300}, where {\mathfrak{S}} is defined by ([1.1](https://arxiv.org/html/2109.06291#S1.E1 "In Conjecture 1.2 (Hardy–Littlewood prime tuples conjecture). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")). 
+*   (ii)[[6](https://arxiv.org/html/2109.06291#bib.bib6), Theorem 2] One has
+
+\mathbb{E}_{n\leq x}\lambda(n)\lambda(n+1)\ll\frac{1}{\log\log\eta}+\epsilon(x)
+
+for q^{10}_{\chi}\leq x\leq q_{\chi}^{(\log\log\eta)/3}, where \epsilon(x) is a quantity that goes to zero as x\to\infty (uniformly in the choice of Siegel zero). 
+*   (iii)[[2](https://arxiv.org/html/2109.06291#bib.bib2), Theorem 1.2] For any distinct fixed natural numbers h^{\prime}_{1},\dots,h^{\prime}_{\ell}, one has
+
+\mathbb{E}_{n\leq x}\lambda(n+h^{\prime}_{1})\cdots\lambda(n+h^{\prime}_{\ell})\ll\frac{1}{(\log\log\eta)^{1/2}\log^{1/12}\eta}
+
+for q^{10}_{\chi}\leq x\leq q_{\chi}^{(\log\log\eta)/3}. 
+
+The main result of this paper is the following common generalization and strengthening of these results.
+
+###### Theorem 1.6(New results on Hardy–Littlewood–Chowla given a Siegel zero).
+
+Let 0\leq k\leq 2 and \ell\geq 0, and let h_{1},\dots,h_{k}, h^{\prime}_{1},\dots,h^{\prime}_{\ell} be fixed distinct natural numbers. Suppose that one has a Siegel zero \beta with associated conductor q_{\chi} and quality \eta. Let 0<\varepsilon_{0}<1 be fixed, and let x lie in the range
+
+(1.5)q_{\chi}^{10k+\frac{1}{2}+\varepsilon_{0}}\leq x\leq q_{\chi}^{\eta^{1/2}}.
+
+Then we have
+
+(1.6)\mathbb{E}_{n\leq x}\Lambda(n+h_{1})\cdots\Lambda(n+h_{k})\lambda(n+h^{\prime}_{1})\cdots\lambda(n+h^{\prime}_{\ell})={\mathfrak{S}}+O\left(\frac{1}{\log^{\frac{1}{10\max(1,k)}}\eta}\right)
+
+where {\mathfrak{S}} is as in Conjecture [1.3](https://arxiv.org/html/2109.06291#S1.Thmtheorem3 "Conjecture 1.3 (Hardy–Littlewood–Chowla conjecture). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero").
+
+Note that Theorem [1.6](https://arxiv.org/html/2109.06291#S1.Thmtheorem6 "Theorem 1.6 (New results on Hardy–Littlewood–Chowla given a Siegel zero). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") improves the dependence on the quality \eta of Siegel zero, and also allows for correlations that involve both the von Mangoldt function \Lambda and the Liouville function \lambda, so long as the former function appears at most two times. This latter restriction is an inherent limitation of our current state of knowledge of correlations for functions like the divisor function \tau\coloneqq 1*1; in particular, k-point correlations \mathbb{E}_{n\leq x}\tau(n+h_{1})\cdots\tau(n+h_{k}) are currently only well understood when k\leq 2.
+
+As a direct corollary to Theorem [1.6](https://arxiv.org/html/2109.06291#S1.Thmtheorem6 "Theorem 1.6 (New results on Hardy–Littlewood–Chowla given a Siegel zero). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero"), we can state the following strengthening of previous results.
+
+###### Corollary 1.8.
+
+Suppose that one has a Siegel zero \beta with associated conductor q_{\chi} and quality \eta. Let 0<\varepsilon_{0}<1 be fixed.
+
+*   (i)For any distinct fixed natural numbers h_{1},h_{2}, one has
+
+\mathbb{E}_{n\leq x}\Lambda(n+h_{1})\Lambda(n+h_{2})={\mathfrak{S}}+O\left(\frac{1}{\log^{1/20}\eta}\right)
+
+uniformly for all q_{\chi}^{41/2+\varepsilon_{0}}\leq x\leq q_{\chi}^{\eta^{1/2}}, where {\mathfrak{S}} is defined by ([1.1](https://arxiv.org/html/2109.06291#S1.E1 "In Conjecture 1.2 (Hardy–Littlewood prime tuples conjecture). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")). 
+*   (ii)For any distinct fixed natural numbers h^{\prime}_{1},\dots,h^{\prime}_{\ell}, one has
+
+\mathbb{E}_{n\leq x}\lambda(n+h^{\prime}_{1})\cdots\lambda(n+h^{\prime}_{\ell})\ll\frac{1}{\log^{1/{10}}\eta}
+
+uniformly for all q^{1/2+\varepsilon_{0}}_{\chi}\leq x\leq q_{\chi}^{\eta^{1/2}}. 
+*   (iii)For any fixed integer h\neq 0, one has
+
+\displaystyle\mathbb{E}_{|h|<p\leq x}\lambda(p+h)\ll\frac{1}{\log^{1/{10}}\eta}
+
+uniformly for all q_{\chi}^{21/2+\varepsilon_{0}}\leq x\leq q_{\chi}^{\eta^{1/2}}. 
+
+Corollary [1.8](https://arxiv.org/html/2109.06291#S1.Thmtheorem8 "Corollary 1.8. ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")(ii) can further be applied to strengthen Chinis’s result [[2](https://arxiv.org/html/2109.06291#bib.bib2), Corollary 1.1] on Sarnak’s conjecture on Möbius disjointness being true at infinitely many scales under the assumption of Siegel zeros. Applying Corollary [1.8](https://arxiv.org/html/2109.06291#S1.Thmtheorem8 "Corollary 1.8. ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") and Sarnak’s argument for the implication from Chowla’s conjecture to Sarnak’s conjecture (as in [[2](https://arxiv.org/html/2109.06291#bib.bib2)]), we see that, under the hypotheses of Corollary [1.8](https://arxiv.org/html/2109.06291#S1.Thmtheorem8 "Corollary 1.8. ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero"), for any fixed deterministic f:\mathbb{N}\to\mathbb{C} we have
+
+\displaystyle\sum_{n\leq x}\lambda(n)f(n)=o(x)
+
+in the range q_{\chi}^{1/2+\varepsilon_{0}}\leq x\leq q_{\chi}^{\eta^{1/2}}. This improves on the range q_{\chi}^{10}\leq x\leq q_{\chi}^{\log\log\eta/3} in [[2](https://arxiv.org/html/2109.06291#bib.bib2)].
+
+Corollary [1.8](https://arxiv.org/html/2109.06291#S1.Thmtheorem8 "Corollary 1.8. ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")(iii) relates to the conjecture (considered in e.g. [[23](https://arxiv.org/html/2109.06291#bib.bib23)], [[25](https://arxiv.org/html/2109.06291#bib.bib25)], [[15](https://arxiv.org/html/2109.06291#bib.bib15)], [[16](https://arxiv.org/html/2109.06291#bib.bib16)]) that \sum_{|h|<p\leq x}\lambda(p+h)=o(\pi(x)), proving it for infinitely many x under the existence of infinitely many Siegel zeros (of arbitrarily high quality).
+
+We lastly note that, after the submission of this paper, Matomäki and Merikoski [[17](https://arxiv.org/html/2109.06291#bib.bib17)] proved a quantitatively stronger version of Corollary [1.8](https://arxiv.org/html/2109.06291#S1.Thmtheorem8 "Corollary 1.8. ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")(i).
+
+### 1.2 Overview of proof
+
+The general strategy for proving results such as Theorem [1.6](https://arxiv.org/html/2109.06291#S1.Thmtheorem6 "Theorem 1.6 (New results on Hardy–Littlewood–Chowla given a Siegel zero). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") is now well known: in the presence of a Siegel zero (and for x comparable in log-scale to q_{\chi}), the function \lambda ‘‘pretends’’2 2 2 Following [[8](https://arxiv.org/html/2109.06291#bib.bib8)], we informally say that one arithmetic function f “pretends” to be another g if they are often close to each other when evaluated at rough numbers. to be like the Dirichlet character \chi, and the von Mangoldt function \Lambda=\mu*\log similarly “pretends” to be like \chi*\log, so the correlation in ([1.6](https://arxiv.org/html/2109.06291#S1.E6 "In Theorem 1.6 (New results on Hardy–Littlewood–Chowla given a Siegel zero). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) is of comparable complexity to the average
+
+\mathbb{E}_{n\leq x}(\chi*\log)(n+h_{1})\cdots(\chi*\log)(n+h_{k})\chi(n+h^{\prime}_{1})\cdots\chi(n+h^{\prime}_{\ell})
+
+(in practice we also have to insert some sieve weights to account for the fact that not all numbers are rough). This is a twisted and weighted version of the divisor correlation
+
+\mathbb{E}_{n\leq x}\tau(n+h_{1})\cdots\tau(n+h_{k})
+
+which, as previously mentioned, is well understood for k\leq 2, basically because the Weil bounds for Kloosterman sums ensure that \tau has level of distribution at least 2/3, the key point being that this is larger than 1/2. The twist by \chi introduces the need to estimate character sums such as
+
+\mathbb{E}_{n\leq x}\chi(n+h_{1})\cdots\chi(n+h_{k})\chi(n+h^{\prime}_{1})\cdots\chi(n+h^{\prime}_{\ell})
+
+which can be adequately controlled by the Weil estimates for character sums since we are in the regime x\gg q_{\chi}^{1/2}.
+
+To make this strategy rigorous, we will approximate the functions \Lambda,\lambda by a series of more tractable approximants that involve the exceptional character \chi (as well as the scale x). We will do this by executing the following steps in order:
+
+*   (i)
+Replace the Liouville function \lambda with an approximant \lambda_{{\textnormal{Siegel}}}, which is a completely multiplicative function that agrees with \lambda at small primes and agrees with \chi at large primes. (This step was also performed in [[6](https://arxiv.org/html/2109.06291#bib.bib6)], [[2](https://arxiv.org/html/2109.06291#bib.bib2)].)
+
+*   (ii)
+Replace the von Mangoldt function \Lambda with an approximant \Lambda_{\textnormal{Siegel}}, which is the Dirichlet convolution \chi*\log multiplied by a Selberg sieve weight \nu to essentially restrict that convolution to almost primes. (This step essentially also appears in [[11](https://arxiv.org/html/2109.06291#bib.bib11)].)
+
+*   (iii)
+Replace \lambda_{{\textnormal{Siegel}}} with a more complicated truncation \lambda_{\textnormal{Siegel}}^{\sharp} which has the structure of a “Type I sum”, and which agrees with \lambda_{\textnormal{Siegel}} on numbers that have a “typical” factorization.
+
+*   (iv)
+Replace the approximant \Lambda_{\textnormal{Siegel}} with a more complicated approximant \Lambda_{\textnormal{Siegel}}^{\sharp} which has the structure of a “Type I sum”. (This step is inspired by a similar Type I approximation to the divisor function \tau (and its higher order generalizations) recently introduced in [[19](https://arxiv.org/html/2109.06291#bib.bib19)], [[18](https://arxiv.org/html/2109.06291#bib.bib18)].)
+
+*   (v)
+Now that all terms in the correlation have been replaced with tractable Type I sums, use standard Euler product calculations and Fourier analysis, similar in spirit to the proof of the pseudorandomness of the Selberg sieve majorant for the primes in [[9](https://arxiv.org/html/2109.06291#bib.bib9), Appendix D], to evaluate the correlation to high accuracy.
+
+More succinctly, the proof of Theorem [1.6](https://arxiv.org/html/2109.06291#S1.Thmtheorem6 "Theorem 1.6 (New results on Hardy–Littlewood–Chowla given a Siegel zero). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") proceeds by justifying all of the following approximations:
+
+(1.7)\begin{split}&\mathbb{E}_{n\leq x}\Lambda(n+h_{1})\cdots\Lambda(n+h_{k})\lambda(n+h^{\prime}_{1})\cdots\lambda(n+h^{\prime}_{\ell})\\
+&\quad\stackrel{{\scriptstyle(i)}}{{\approx}}\mathbb{E}_{n\leq x}\Lambda(n+h_{1})\cdots\Lambda(n+h_{k})\lambda_{\textnormal{Siegel}}(n+h^{\prime}_{1})\cdots\lambda_{\textnormal{Siegel}}(n+h^{\prime}_{\ell})\\
+&\quad\stackrel{{\scriptstyle(ii)}}{{\approx}}\mathbb{E}_{n\leq x}\Lambda_{\textnormal{Siegel}}(n+h_{1})\cdots\Lambda_{\textnormal{Siegel}}(n+h_{k})\lambda_{\textnormal{Siegel}}(n+h^{\prime}_{1})\cdots\lambda_{\textnormal{Siegel}}(n+h^{\prime}_{\ell})\\
+&\quad\stackrel{{\scriptstyle(iii)}}{{\approx}}\mathbb{E}_{n\leq x}\Lambda_{\textnormal{Siegel}}(n+h_{1})\cdots\Lambda_{\textnormal{Siegel}}(n+h_{k})\lambda_{\textnormal{Siegel}}^{\sharp}(n+h^{\prime}_{1})\cdots\lambda_{\textnormal{Siegel}}^{\sharp}(n+h^{\prime}_{\ell})\\
+&\quad\stackrel{{\scriptstyle(iv)}}{{\approx}}\mathbb{E}_{n\leq x}\Lambda_{\textnormal{Siegel}}^{\sharp}(n+h_{1})\cdots\Lambda_{\textnormal{Siegel}}^{\sharp}(n+h_{k})\lambda_{\textnormal{Siegel}}^{\sharp}(n+h^{\prime}_{1})\cdots\lambda_{\textnormal{Siegel}}^{\sharp}(n+h^{\prime}_{\ell})\\
+&\quad\stackrel{{\scriptstyle(v)}}{{\approx}}{\mathfrak{S}}\end{split}
+
+where the precise meaning of the symbol \approx is given in ([2.11](https://arxiv.org/html/2109.06291#S2.E11 "In 2.4 Scales ‣ 2 Notation ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) below.
+
+The steps (i)-(v) are executed in Sections [4](https://arxiv.org/html/2109.06291#S4 "4 First step: replacing the Liouville function with a Siegel model ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")–[8](https://arxiv.org/html/2109.06291#S8 "8 Fifth step: Computing the Type I correlations ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") respectively. Interestingly, the hypothesis k\leq 2 is only used in step (iv) of this process.
+
+Steps (i) and (ii) of the strategy rely ultimately on the well known phenomenon that in the presence of a Siegel zero, one has \chi(p)=-1 for most primes p that are comparable to the conductor q_{\chi} in log-scale. Traditionally, such phenomena are justified using complex-analytic methods, and in particular by exploiting the Deuring–Heilbronn phenomenon. It turns out that an alternate approach relying almost entirely on elementary methods leads instead to significantly superior dependence on the quality \eta of the zero; see Proposition [3.5](https://arxiv.org/html/2109.06291#S3.Thmtheorem5 "Proposition 3.5. ‣ 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero"). This eventually enables us to obtain a wider x range in Theorem [1.6](https://arxiv.org/html/2109.06291#S1.Thmtheorem6 "Theorem 1.6 (New results on Hardy–Littlewood–Chowla given a Siegel zero). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") than in previous results.
+
+Step (iii) involves splitting \lambda_{{\textnormal{Siegel}}}, which is a kind of character-twisted divisor sum, into two parts as \lambda_{\textnormal{Siegel}}^{\sharp}+\lambda_{{\textnormal{Siegel}}}^{\flat}, where \lambda_{\textnormal{Siegel}}^{\sharp} accounts for the small divisors (with a smooth truncation) and \lambda_{{\textnormal{Siegel}}}^{\flat} accounts for the large divisors. It turns out that \lambda_{{\textnormal{Siegel}}}^{\flat} has a negligible contribution to the correlation (basically because smooth numbers become extremely rare at large scales). This is shown by first constructing a majorant for \lambda_{{\textnormal{Siegel}}}^{\flat} (in Lemma [6.1](https://arxiv.org/html/2109.06291#S6.Thmtheorem1 "Lemma 6.1. ‣ 6 Third step: replacing the Liouville Siegel model with a Type I approximant ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) that after some Euler product computations is seen to be small ‘‘on average’’ in a suitable sense.3 3 3 It would probably be possible to execute steps (ii) and (iii) in the opposite order, but that would offer no noteworthy simplifications, as we would still need to construct a majorant for \lambda_{{\textnormal{Siegel}}}^{\flat}.
+
+Steps (iv) and (v) morally speaking amount to computing correlations such as
+
+(1.8)\displaystyle\mathbb{E}_{n\leq x,n=a(q)}(\chi*\log(n))(\chi*\log(n+h))
+
+with power-saving error term (for 1\leq a\leq q\leq x^{\delta} for a small \delta>0), as well as correlations of the form
+
+(1.9)\displaystyle\mathbb{E}_{n\leq x}f(n+h_{1})\cdots f(n+h_{k}),
+
+where f(n)=\sum_{d\mid n,d\leq x^{\delta}}b_{d} is a Type I sum with explicit coefficients b_{d}. However, both of these tasks are rather tedious as such; the first correlation ([1.8](https://arxiv.org/html/2109.06291#S1.E8 "In 1.2 Overview of proof ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) has secondary main terms of order O(\frac{1}{\log x}) times the main term (cf., [[4](https://arxiv.org/html/2109.06291#bib.bib4)]), and we would need a fully explicit asymptotic in terms of h,a,q; meanwhile, evaluating the second correlation ([1.9](https://arxiv.org/html/2109.06291#S1.E9 "In 1.2 Overview of proof ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) with the Goldston–Yıldırım approach [[7](https://arxiv.org/html/2109.06291#bib.bib7)] leads to some tricky contour integrals. We therefore smoothen \Lambda_{{\textnormal{Siegel}}} by inserting a smooth partition of unity; the smoothness of the resulting functions makes handling error terms easier, just as in the smoothed approach to Goldston–Yıldırım type correlations in [[9](https://arxiv.org/html/2109.06291#bib.bib9), Appendix D]. We can also avoid explicitly obtaining asymptotics for sums such as ([1.8](https://arxiv.org/html/2109.06291#S1.E8 "In 1.2 Overview of proof ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) by using the Dirichlet hyperbola method, although the main ingredient for evaluating such correlations (namely Kloosterman sum bounds) is still needed. Our use of smooth weights does still necessitate some lengthy yet standard Fourier-analytic computations, but the arithmetic input is easier than in a direct approach involving an evaluation of ([1.8](https://arxiv.org/html/2109.06291#S1.E8 "In 1.2 Overview of proof ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")), ([1.9](https://arxiv.org/html/2109.06291#S1.E9 "In 1.2 Overview of proof ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")).
+
+### 1.3 Acknowledgments
+
+TT was supported by a Simons Investigator grant, the James and Carol Collins Chair, the Mathematical Analysis & Application Research Fund Endowment, and by NSF grant DMS-1764034. JT was supported by a Titchmarsh Fellowship and Academy of Finland grant no. 340098.
+
+The authors thank Kaisa Matomäki and Jori Merikoski for pointing out a slight correction to the proof of Proposition [3.5](https://arxiv.org/html/2109.06291#S3.Thmtheorem5 "Proposition 3.5. ‣ 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") in an earlier version of this paper. The authors would also like to thank the referee for helpful comments and suggestions.
+
+## 2 Notation
+
+### 2.1 Asymptotic notation
+
+For the rest of the paper, we let k,\ell,h_{1},\dots,h_{k},h^{\prime}_{1},\dots,h^{\prime}_{\ell},\varepsilon_{0},\beta,\chi,q_{\chi},\eta,x be as in Theorem [1.6](https://arxiv.org/html/2109.06291#S1.Thmtheorem6 "Theorem 1.6 (New results on Hardy–Littlewood–Chowla given a Siegel zero). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero"), save that we will not require the hypothesis k\leq 2 except in Section [5](https://arxiv.org/html/2109.06291#S5 "5 Second step: replacing the von Mangoldt function with a Siegel model ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero"), and that we do not impose the restriction ([1.5](https://arxiv.org/html/2109.06291#S1.E5 "In Theorem 1.6 (New results on Hardy–Littlewood–Chowla given a Siegel zero). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) on x>1 before Section [4](https://arxiv.org/html/2109.06291#S4 "4 First step: replacing the Liouville function with a Siegel model ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero"). We use the asymptotic notation X\ll Y, Y\gg X, or X=O(Y) to denote the bound |X|\leq CY where C is a constant which is allowed to depend on the “fixed” quantities k,\ell,h_{1},\dots,h_{k},h^{\prime}_{1},\dots,h^{\prime}_{\ell},\varepsilon_{0}; we permit the constants to be ineffective. Thus for instance the singular series {\mathfrak{S}} in Conjecture [1.3](https://arxiv.org/html/2109.06291#S1.Thmtheorem3 "Conjecture 1.3 (Hardy–Littlewood–Chowla conjecture). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") obeys the bound {\mathfrak{S}}=O(1). If we need the constant C to depend on additional parameters, we will indicate this by subscripts, for instance X\ll_{A}Y denotes the bound |X|\leq C_{A}Y where C_{A} depends on the parameter A as well as the fixed quantities. We write X\asymp Y for X\ll Y\ll X.
+
+By shrinking \varepsilon_{0} if necessary, we may assume that \varepsilon_{0} is sufficiently small depending on k,\ell. We will also assume that \eta is sufficiently large depending on the fixed quantities, since otherwise the claim follows from standard upper bound sieves (such as Lemma [3.2](https://arxiv.org/html/2109.06291#S3.Thmtheorem2 "Lemma 3.2 (Sieve upper bound). ‣ 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")). By ([1.4](https://arxiv.org/html/2109.06291#S1.E4 "In 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")), this also means that q_{\chi} (and hence x) is also sufficiently large depending on the fixed quantities.
+
+### 2.2 Indicator and exponential functions
+
+If S is a sentence, we use 1_{S} to denote its indicator, thus 1_{S}=1 when S is true and 1_{S}=0 otherwise. If E is a set, we use 1_{E} to denote the indicator function 1_{E}(n)\coloneqq 1_{n\in E}.
+
+In addition to the notation e(\theta)\coloneqq e^{2\pi i\theta}, we also write e_{q}(a)\coloneqq e(a/q)=e^{2\pi ia/q} for natural numbers q and a\in\mathbb{Z}/q\mathbb{Z}. We also write \|\theta\|_{\mathbb{R}/\mathbb{Z}} for the distance of \theta to the nearest integer.
+
+### 2.3 Primes and prime factorization
+
+Unless otherwise specified, all sums and products will be over the natural numbers \mathbb{N}=\{1,2,\dots\}, with the exception of sums and products involving the variable p (or p^{\prime}, p_{1}, etc.), which will be over primes. We define an _exceptional prime_ to be a prime p^{*} such that \chi(p^{*})\neq-1; sums over p^{*} (or p^{*}_{1}, etc.) will always be understood to be over exceptional primes.
+
+If n is a natural number and p is a prime, we let n_{(p)} denote the largest power of p dividing n, thus from the fundamental theorem of arithmetic
+
+(2.1)n=\prod_{p}n_{(p)}.
+
+For any threshold z>1, we may therefore factor a natural number n as
+
+(2.2)n=n_{(\leq z)}n_{(>z)}
+
+where the z-smooth and z-rough components n_{(\leq z)},n_{(>z)} of n are defined as
+
+\displaystyle n_{(\leq z)}\displaystyle\coloneqq\prod_{p\leq z}n_{(p)}
+\displaystyle n_{(>z)}\displaystyle\coloneqq\prod_{p>z}n_{(p)}.
+
+For a prime p, we let
+
+\mathbb{N}_{(p)}\coloneqq\{n_{(p)}:n\in\mathbb{N}\}=\{1,p,p^{2},\dots\}
+
+denote the multiplicative semigroup generated by p, and similarly for a threshold z>1 we write
+
+\displaystyle\mathbb{N}_{(\leq z)}\displaystyle\coloneqq\{n_{(\leq z)}:n\in\mathbb{N}\}
+\displaystyle\mathbb{N}_{(>z)}\displaystyle\coloneqq\{n_{(>z)}:n\in\mathbb{N}\}
+
+for the multiplicative semigroups of z-smooth and z-rough numbers respectively.
+
+If d_{1},\dots,d_{m} are natural numbers, we use (d_{1},\dots,d_{m}) and [d_{1},\dots,d_{m}] to denote their greatest common divisor and least common multiple, respectively. We use d\ (q) to denote the reduction of d to \mathbb{Z}/q\mathbb{Z}, and q|d to denote the assertion that q divides d (or equivalently d=0\ (q)).
+
+A function g:\mathbb{N}^{m}\to\mathbb{C} of m natural numbers d_{1},\dots,d_{m} is _multiplicative_ if one has
+
+g(d_{1}d^{\prime}_{1},\ldots,d_{m}d^{\prime}_{m})=g(d_{1},\ldots,d_{m})g(d^{\prime}_{1},\ldots,d^{\prime}_{m})
+
+whenever (d_{1}\cdots d_{m},d^{\prime}_{1}\cdots d^{\prime}_{m})=1. Observe the _Euler product identity_
+
+(2.3)\sum_{d_{1},\dots,d_{m}}g(d_{1},\dots,d_{m})=\prod_{p}E_{p}
+
+whenever the left-hand side is absolutely convergent, where the Euler factors E_{p} are defined as
+
+E_{p}\coloneqq\sum_{d_{1},\dots,d_{m}\in\mathbb{N}_{(p)}}g(d_{1},\dots,d_{m}).
+
+We observe the localized form
+
+(2.4)\sum_{d_{1},\dots,d_{m}\in\mathbb{N}_{(\leq z)}}g(d_{1},\dots,d_{m})=\prod_{p\leq z}E_{p}
+
+of the Euler product identity for any threshold z>0; in particular, if g is non-negative, then
+
+(2.5)\sum_{d_{1},\dots,d_{m}\leq z}g(d_{1},\dots,d_{m})\leq\prod_{p\leq z}E_{p}.
+
+We will frequently rely on Dirichlet convolution
+
+f*g(n)\coloneqq\sum_{d|n}f(d)g\left(\frac{n}{d}\right).
+
+We let pointwise product take precedence over convolution, thus for instance
+
+f_{1}f_{2}*f_{3}f_{4}=(f_{1}f_{2})*(f_{3}f_{4}).
+
+From ([2.2](https://arxiv.org/html/2109.06291#S2.E2 "In 2.3 Primes and prime factorization ‣ 2 Notation ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) we observe the identity
+
+(2.6)f=f_{(\leq z)}*f_{(>z)}
+
+for any multiplicative function f and any threshold z>1, where
+
+\displaystyle f_{(\leq z)}\displaystyle=f1_{\mathbb{N}_{(\leq z)}}
+\displaystyle f_{(>z)}\displaystyle=f1_{\mathbb{N}_{(>z)}}
+
+are the restrictions of f to z-smooth and z-rough numbers respectively. Thus for instance 1_{(\leq z)}=1_{\mathbb{N}_{(\leq z)}}. Observe that this splitting respects Dirichlet convolutions, in the sense that
+
+(2.7)(f*g)_{(\leq z)}=f_{(\leq z)}*g_{(\leq z)};\quad(f*g)_{(>z)}=f_{(>z)}*g_{(>z)}
+
+for any f,g\colon\mathbb{N}\to\mathbb{C}.
+
+### 2.4 Scales
+
+We will make frequent use of the scales
+
+(2.8)R\coloneqq x^{1/\log^{\frac{1}{5\max(1,k)}}\eta}
+
+and
+
+(2.9)D\coloneqq x^{\frac{\varepsilon_{0}}{10(k+\ell)}}.
+
+We will also occasionally need the auxiliary scale
+
+(2.10)R_{0}\coloneqq x^{1/\sqrt{\log\eta}}.
+
+The reader may wish to keep in mind the hierarchy of scales
+
+1<\log\eta\ll\log q_{\chi}\ll\log x<R_{0}<R<D<x.
+
+which follows easily from ([1.4](https://arxiv.org/html/2109.06291#S1.E4 "In 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")). The conductor q_{\chi} lies between \log x and x^{2} but can be either smaller or larger than R_{0}, R, or D.
+
+We adopt the notation
+
+\log_{z}y\coloneqq\frac{\log y}{\log z}
+
+for the logarithm of y to base z for any y,z>0, and use the notation X\approx Y as an abbreviation for
+
+(2.11)X=Y+O\left(\frac{1}{\log^{\frac{1}{10\max(1,k)}}\eta}\right).
+
+Thus for instance the estimate ([1.6](https://arxiv.org/html/2109.06291#S1.E6 "In Theorem 1.6 (New results on Hardy–Littlewood–Chowla given a Siegel zero). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) can be abbreviated to
+
+\mathbb{E}_{n\leq x}\Lambda(n+h_{1})\cdots\Lambda(n+h_{k})\lambda(n+h^{\prime}_{1})\cdots\lambda(n+h^{\prime}_{\ell})\approx{\mathfrak{S}}.
+
+The scales R_{0},R,D have been chosen so that certain combinations of these scales with x,\eta,q_{\chi} that will arise in our calculations are negligible with respect to the relation \approx. More precisely, we observe for future reference that thanks to ([1.5](https://arxiv.org/html/2109.06291#S1.E5 "In Theorem 1.6 (New results on Hardy–Littlewood–Chowla given a Siegel zero). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")), ([2.8](https://arxiv.org/html/2109.06291#S2.E8 "In 2.4 Scales ‣ 2 Notation ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")), ([2.9](https://arxiv.org/html/2109.06291#S2.E9 "In 2.4 Scales ‣ 2 Notation ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")), ([2.10](https://arxiv.org/html/2109.06291#S2.E10 "In 2.4 Scales ‣ 2 Notation ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")), ([1.4](https://arxiv.org/html/2109.06291#S1.E4 "In 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) we have relations
+
+(2.12)\displaystyle\log_{D}x\asymp\log_{x}D\displaystyle\asymp 1
+(2.13)\displaystyle\log_{D}R\asymp\log_{x}R=\log^{-\frac{1}{5\max(1,k)}}\eta\displaystyle\approx 0
+(2.14)\displaystyle(\log_{R}^{k}x)\log_{R}R_{0}=\log^{\frac{k}{5\max(1,k)}-\frac{1}{2}}\eta\displaystyle\approx 0
+(2.15)\displaystyle\frac{\log_{R}^{k}x}{\log^{k}\eta}=\log^{\frac{k}{5\max(1,k)}-k}\eta\displaystyle\approx 0
+(2.16)\displaystyle\frac{R^{2k}D^{2(k+\ell)}q_{\chi}^{4k+1/2}x^{\varepsilon_{0}}}{x}\leq x^{\frac{2k}{\log^{1/(5\max(1,k))}\eta}+\frac{2(k+\ell)\varepsilon_{0}}{10(k+\ell)}+\frac{4k+1/2}{10k+\frac{1}{2}+\varepsilon_{0}}+\varepsilon_{0}-1}\displaystyle\approx 0
+(2.17)\displaystyle(\log_{R}^{O(1)}x)\exp(-\sqrt{\log\eta}/2)=(\log^{O(1)}\eta)\exp(-\sqrt{\log\eta}/2)\displaystyle\approx 0
+(2.18)\displaystyle q_{\chi}^{-\frac{\varepsilon_{0}}{4}}\log^{O(1)}x\leq x^{-\frac{\varepsilon_{0}}{4(10k+\frac{1}{2}+\varepsilon_{0})}}\log^{O(1)}x\displaystyle\approx 0
+
+as well as the estimate
+
+(2.19)\exp\left(-\frac{1}{8}\log_{R}D\right)=\exp\left(-\frac{\varepsilon_{0}\log^{1/5\max(1,k)}\eta}{80(k+\ell)}\right)\ll_{A}\log^{-A}\eta
+
+for all A>0. Also, for k=1,2, we note for future reference that
+
+(2.20)\begin{split}\frac{(\sqrt{x}R^{2})^{\frac{3}{2}(k-1)}D^{2(k+\ell)}q_{\chi}^{9/2}}{x^{1-2\varepsilon_{0}}}&\ll x^{\frac{3}{4}(k-1)+\frac{9}{2}\frac{1}{10k}+3\varepsilon_{0}-1}\\
+&\ll x^{-\varepsilon_{0}}\\
+&\approx 0\end{split}
+
+since \frac{3}{4}(k-1)+\frac{9}{2}\frac{1}{10k}\leq 1-\frac{1}{40}<1 for k=1,2.
+
+### 2.5 The Selberg sieve
+
+We fix a smooth function \psi\colon\mathbb{R}\to\mathbb{R} supported on [-1,1] that equals to 1 on [-1/2,1/2], and define the smooth cutoffs
+
+(2.21)\psi_{\leq z}(n)\coloneqq\psi(\log_{z}n)
+
+and
+
+(2.22)\psi_{>z}(n)\coloneqq 1-\psi(\log_{z}n)
+
+for any z>1. We then define the _Selberg sieve_ 4 4 4 Here we use the Selberg sieve with smoothed coefficients, which was implicitly introduced by Goldston and Yıldırım; see for instance [[9](https://arxiv.org/html/2109.06291#bib.bib9), Appendix D] for further discussion. Other sieve approximants to 1_{(>z)} could be used as a substitute for this sieve if desired; for instance the beta sieve was used in place of a Selberg sieve in the recent work [[17](https://arxiv.org/html/2109.06291#bib.bib17)], which appeared subsequently to the initial release of this paper.
+
+(2.23)\nu(n)\coloneqq\left(\sum_{d|n}\mu(d)\psi_{\leq R}(d)\right)^{2}.
+
+Note that \nu is an upper bound sieve for 1_{(>R)}, thus
+
+(2.24)1_{(>R)}(n)\leq\nu(n)
+
+for all natural numbers n.
+
+## 3 Tools
+
+In this section we collect some (mostly standard) estimates on various arithmetic functions which will be used in our main argument.
+
+### 3.1 Multiplicative number theory bounds
+
+We recall the crude _divisor bound_
+
+(3.1)\tau(n)\ll_{\varepsilon}n^{\varepsilon}
+
+for any n\geq 1 and \varepsilon>0; see e.g., [[20](https://arxiv.org/html/2109.06291#bib.bib20), (2.20)].
+
+From the Euler product formula
+
+\zeta(s)=\prod_{p}\left(1-\frac{1}{p^{s}}\right)^{-1}
+
+and the fact that \zeta has a simple pole at s=1 with residue 1 and no zeroes in \{s:|s-1|\leq\frac{1}{2}\}, we see that
+
+(3.2)\prod_{p}\left(1-\frac{1}{p^{s}}\right)=(1+O(|s-1|))(s-1)
+
+whenever s is a complex number with \textnormal{Re}s>1 and |s-1|<\frac{1}{2}.
+
+From Mertens’ theorem we easily verify that
+
+(3.3)\sum_{p\leq z}\frac{\min(\sigma\log_{R}p,1)}{p}\ll\log(1+\sigma\log_{R}z)
+
+for any \sigma>0 and R,z\geq 1, as can be seen by verifying the cases \sigma\log_{R}z<1 and \sigma\log_{R}z\geq 1 separately; in exponential form we thus have
+
+(3.4)\prod_{p\leq z}\left(1+O\left(\frac{\min(\sigma\log_{R}p,1)}{p}\right)\right)\leq(1+\sigma\log_{R}z)^{O(1)}.
+
+Mertens’ theorem also gives (by dyadic decomposition) the bounds
+
+(3.5)\sum_{p\geq y}\frac{1}{p^{1+1/\log z}}=\sum_{p\geq y}\frac{\exp(-\log_{z}p)}{p}\asymp\frac{\exp(-\log_{z}y)}{\log_{z}y}
+
+and
+
+(3.6)\prod_{p\leq z}(1-\frac{m}{p})\asymp_{m}\log^{-m}z
+
+for any y\geq z\geq 2 and m\geq 1. In particular
+
+(3.7)\prod_{p}\left(1+O\left(\frac{1}{p^{1+1/\log z}}\right)\right)\ll\log^{O(1)}z.
+
+We recall an elementary inequality of Landreau [[14](https://arxiv.org/html/2109.06291#bib.bib14)] that allows one to upper bound the divisor function \tau by a Type I sum:
+
+###### Lemma 3.1(Landreau’s inequality).
+
+*   (i)If n is a natural number and y>z>1, then we can factor
+
+(3.8)n=n_{(>z)}n_{1}\cdots n_{m}
+
+where n_{1},\dots,n_{m}\leq y lie in \mathbb{N}_{(\leq z)} and 0\leq m\leq 1+\log_{y/z}n. Also, n_{(>z)} is the product of at most \log_{z}n primes. 
+*   (ii)If \varepsilon>0, then
+
+(3.9)\tau(n)\ll_{\varepsilon}\sum_{d|n:d\leq n^{\varepsilon}}\tau(d)^{O_{\varepsilon}(1)}
+
+for all n\geq 1. In particular, by ([2.9](https://arxiv.org/html/2109.06291#S2.E9 "In 2.4 Scales ‣ 2 Notation ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")), one has
+
+(3.10)\tau(n)\ll\sum_{d|n:d\leq D}\tau(d)^{O(1)}
+
+for n\ll x. 
+
+###### Proof.
+
+Observe from the greedy algorithm that any number in \mathbb{N}_{(\leq z)} is either greater than y, or contains a factor between y/z and y. Iterating this fact, we can factor n_{(\leq z)}=n_{1}\cdots n_{m} where n_{1},\dots,n_{m}\leq y and all but at most one of the n_{1},\dots,n_{m} are greater than or equal to y/z. This gives the bound m\leq 1+\log_{y/z}n. Since n_{(>z)} is the product of primes greater than z, the total number of primes is at most \log_{z}n. This gives (i).
+
+For (ii), we apply (i) with y=n^{\varepsilon} and z=n^{\varepsilon/2} and use ([2.12](https://arxiv.org/html/2109.06291#S2.E12 "In 2.4 Scales ‣ 2 Notation ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) to obtain the factorization ([3.8](https://arxiv.org/html/2109.06291#S3.E8 "In item (i) ‣ Lemma 3.1 (Landreau’s inequality). ‣ 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) with n_{(>n^{\varepsilon/2})} the product of O_{\varepsilon}(1) primes, m=O_{\varepsilon}(1), and n_{1},\dots,n_{m}\leq n^{\varepsilon}. Using the elementary inequality \tau(ab)\leq\tau(a)\tau(b), we conclude that
+
+\tau(n)\ll\tau(n_{1})\cdots\tau(n_{m})
+
+and hence by the pigeonhole principle
+
+\tau(n)\ll\tau(d)^{m}
+
+for d equal to one of the n_{1},\dots,n_{m}. The claim (ii) follows. ∎
+
+We also record a standard sieve upper bound, which can easily be deduced from the fundamental lemma of sieve theory (or the large sieve):
+
+###### Lemma 3.2(Sieve upper bound).
+
+Suppose that for every prime p\leq x there is a natural number 0\leq\omega(p)\ll 1, and let E be a subset of \{n:n\leq x\} which avoids at least \omega(p) residue classes modulo p for each p\leq x. Then we have
+
+\mathbb{E}_{n\leq x}1_{E}(n)\ll\prod_{p\leq x}\left(1-\frac{\omega(p)}{p}\right).
+
+###### Proof.
+
+We may assume that \omega(p)<p for all p, since otherwise E is empty and the claim is trivial (of course, this assumption is only non-trivial for the very small primes p=O(1)). By Mertens’ theorem the contribution of the primes x^{1/100}<p\leq x to the right-hand is \asymp 1, so we may replace the product \prod_{p\leq x} here with \prod_{p\leq x^{1/100}}.
+
+Let g be the multiplicative function g(d)\coloneqq\prod_{p|d:p\leq x^{1/100}}\frac{\omega(p)}{p}. By the fundamental lemma of sieve theory (see [[12](https://arxiv.org/html/2109.06291#bib.bib12), Lemma 6.3]) we can find weights \lambda^{+}_{d}\in[-1,1] for all d\leq\sqrt{x} such that
+
+(3.11)1_{n=1}\leq\sum_{d|n}\lambda^{+}_{d}
+
+for all natural numbers n, and
+
+(3.12)\sum_{d\leq x^{1/2}}\lambda^{+}_{d}g(d)\ll\prod_{p\leq x^{1/100}}\left(1-g(p)\right).
+
+For each d\leq x^{1/2}, let E_{d} be the set formed by removing the \omega(p) residue classes modulo p from \{n:n\leq x\} for all p|d. Then from ([3.11](https://arxiv.org/html/2109.06291#S3.E11 "In Proof. ‣ 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) (with n replaced by \prod_{p\leq x^{1/100}:n\not\in E_{p}}p) we have the pointwise bound
+
+1_{E}\leq\sum_{d\leq x^{1/2}}\lambda^{+}_{d}1_{E_{d}}
+
+and thus
+
+\mathbb{E}_{n\leq x}1_{E}(n)\leq\sum_{d\leq x^{1/2}}\lambda^{+}_{d}\mathbb{E}_{n\leq x}1_{E_{d}}(n).
+
+From the Chinese remainder theorem we have
+
+\mathbb{E}_{n\leq x}1_{E_{d}}(n)=g(d)+O\left(\frac{1}{x}\right)
+
+and thus by ([3.12](https://arxiv.org/html/2109.06291#S3.E12 "In Proof. ‣ 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero"))
+
+\mathbb{E}_{n\leq x}1_{E_{d}}(n)\ll\prod_{p\leq x^{1/100}}\left(1-\frac{\omega(p)}{p}\right)+\frac{1}{x^{1/2}}.
+
+By Mertens’ theorem ([3.6](https://arxiv.org/html/2109.06291#S3.E6 "In 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")), the second term on the right-hand side is certainly dominated by the former, and the claim follows. ∎
+
+We also record the following easy consequence of the Chinese remainder theorem.
+
+###### Lemma 3.3(Chinese remainder theorem).
+
+Let d_{1},\dots,d_{k^{\prime}} be natural numbers for some 2\leq k^{\prime}\leq k+\ell, and set d\coloneqq[d_{1},\dots,d_{k^{\prime}}].
+
+*   (i)
+If (d_{i},d_{j}) does not divide h_{i}-h_{j} for some 1\leq i<j\leq k^{\prime}, then \prod_{j=1}^{k^{\prime}}1_{d_{j}|n+h_{j}} vanishes for all n.
+
+*   (ii)
+If instead (d_{i},d_{j}) divides h_{i}-h_{j} for all 1\leq i<j\leq k^{\prime}, then there is a unique residue class a\ (d) such that \prod_{j=1}^{k^{\prime}}1_{d_{j}|n+h_{j}}=1_{n=a\ (d)}. Furthermore, a=-h_{j}\ (d_{j}) for all j=1,\dots,k^{\prime}, and d\asymp d_{1}\cdots d_{k^{\prime}}.
+
+###### Proof.
+
+All the claims are immediate except for the existence of the residue class a in part (ii) (the final part of (ii) following from the general relation \frac{d_{1}\cdots d_{k^{\prime}}}{[d_{1},\dots,d_{k^{\prime}}]}|\prod_{1\leq i<j\leq k^{\prime}}(d_{i},d_{j})). By the Chinese remainder theorem we may assume that the d_{i} are all powers of a single prime p. Then we have d=d_{i} for some 1\leq i\leq k^{\prime}, and the claim follows by setting a\coloneqq-h_{i}. ∎
+
+### 3.2 Some Fourier analysis
+
+Recall the _Fourier inversion formula_: if g\colon\mathbb{R}\to\mathbb{C} is a Schwartz function, then one has
+
+(3.13)g(u)=\int_{\mathbb{R}}e^{-itu}f(t)\ dt
+
+for all u\in\mathbb{R}, where the Fourier transform f\colon\mathbb{R}\to\mathbb{C} of g is another Schwartz function defined by the formula
+
+f(t)\coloneqq\frac{1}{2\pi}\int_{\mathbb{R}}e^{itu}g(u)\ du.
+
+As a special case of this, if \varphi\colon\mathbb{R}\to\mathbb{C} is a function such that u\mapsto e^{u}\varphi(u) is Schwartz, then
+
+e^{u}\varphi(u)=\int_{\mathbb{R}}e^{-itu}f(t)\ dt
+
+for all u\in\mathbb{R}, where
+
+f(t)\coloneqq\frac{1}{2\pi}\int_{\mathbb{R}}e^{(1+it)u}\varphi(u)\ du.
+
+In particular, for any real n,z>0 we have
+
+(3.14)\varphi(\log_{z}n)=\int_{\mathbb{R}}\frac{1}{n^{\frac{1+it}{\log z}}}f(t)\ dt.
+
+Evaluating this formula at n=1 we conclude that
+
+(3.15)\varphi(0)=\int_{\mathbb{R}}f(t)\ dt
+
+and if one differentiates at n=1 instead one obtains the variant identity
+
+(3.16)-\varphi^{\prime}(0)=\int_{\mathbb{R}}(1+it)f(t)\ dt.
+
+As an application of these Fourier representations, we give an analogue of Lemma [3.2](https://arxiv.org/html/2109.06291#S3.Thmtheorem2 "Lemma 3.2 (Sieve upper bound). ‣ 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") for the Selberg sieve \nu (cf., [[22](https://arxiv.org/html/2109.06291#bib.bib22), Lemma 3], [[24](https://arxiv.org/html/2109.06291#bib.bib24), Proposition 14]):
+
+###### Lemma 3.4(Selberg sieve concentrates on almost primes).
+
+Let 0\leq\ell^{\prime}\leq\ell, and let 1\leq d_{1},\dots,d_{k},d^{\prime}_{1},\dots,d^{\prime}_{\ell^{\prime}}\leq x be integers. Then
+
+(3.17)\begin{split}&\mathbb{E}_{n\leq x}\prod_{j=1}^{k}\nu(n+h_{j})1_{d_{j}|n+h_{j}}\prod_{j^{\prime}=1}^{\ell^{\prime}}1_{d^{\prime}_{j^{\prime}}|n+h^{\prime}_{j^{\prime}}}\\
+&\quad\ll_{A}\frac{\tau(d_{1}\cdots d_{k}d^{\prime}_{1}\cdots d^{\prime}_{\ell^{\prime}})^{O(1)}}{d_{1}\cdots d_{k}d^{\prime}_{1}\cdots d^{\prime}_{\ell^{\prime}}\log^{k}R}\int_{1}^{\infty}\left(\prod_{p|d_{1}\cdots d_{k}}\min(\sigma\log_{R}p,1)\right)\frac{d\sigma}{\sigma^{A}}+\frac{R^{2k}}{x}\end{split}
+
+for any A>0.
+
+The \frac{R^{2k}}{x} error term is negligible in practice. The \sigma variable of integration is technical and as a first approximation the reader is invited to replace \sigma with 1 (and delete the integral). The key feature of this estimate are the factors of \min(\sigma\log_{R}p,1), which make the left-hand side of ([3.17](https://arxiv.org/html/2109.06291#S3.E17 "In Lemma 3.4 (Selberg sieve concentrates on almost primes). ‣ 3.2 Some Fourier analysis ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) small when d_{1},\dots,d_{k} have one or more small prime factors. With further effort one could obtain a more precise asymptotic for the left-hand side of ([3.17](https://arxiv.org/html/2109.06291#S3.E17 "In Lemma 3.4 (Selberg sieve concentrates on almost primes). ‣ 3.2 Some Fourier analysis ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) (in the spirit of [[9](https://arxiv.org/html/2109.06291#bib.bib9), Theorem D.3]) but we will not need to do so here.
+
+###### Proof.
+
+It is convenient to relabel by writing k^{\prime}\coloneqq k+\ell^{\prime} and h_{k+j}\coloneqq h^{\prime}_{j}, d_{k+j}\coloneqq d^{\prime}_{j} for j=1,\dots,\ell^{\prime}. By Lemma [3.3](https://arxiv.org/html/2109.06291#S3.Thmtheorem3 "Lemma 3.3 (Chinese remainder theorem). ‣ 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") we may assume that (d_{i},d_{j})|h_{i}-h_{j} for all 1\leq i<j\leq k^{\prime}. In particular, if we set d\coloneqq[d_{1},\dots,d_{k}] and d^{\prime}\coloneqq[d_{1},\dots,d_{k^{\prime}}], then d\asymp d_{1}\cdots d_{k} and d^{\prime}\asymp d_{1}\cdots d_{k^{\prime}}.
+
+By ([2.23](https://arxiv.org/html/2109.06291#S2.E23 "In 2.5 The Selberg sieve ‣ 2 Notation ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")), the left-hand side of ([3.17](https://arxiv.org/html/2109.06291#S3.E17 "In Lemma 3.4 (Selberg sieve concentrates on almost primes). ‣ 3.2 Some Fourier analysis ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) may be expanded as
+
+\sum_{d^{\prime}_{1},d^{\prime\prime}_{1},\dots,d^{\prime}_{k},d^{\prime\prime}_{k}}\mathbb{E}_{n\leq x}\prod_{j=1}^{k}\mu\psi_{\leq R}(d^{\prime}_{j})\mu\psi_{\leq R}(d^{\prime\prime}_{j})\prod_{j=1}^{k^{\prime}}1_{d^{*}_{j}|n+h_{j}}
+
+where d_{j}^{*}\coloneqq[d_{j},d^{\prime}_{j},d^{\prime\prime}_{j}] for j=1,\dots,k and d_{j}^{*}\coloneqq d_{j} for j=k+1,\dots,k^{\prime}. From Lemma [3.3](https://arxiv.org/html/2109.06291#S3.Thmtheorem3 "Lemma 3.3 (Chinese remainder theorem). ‣ 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") we see that the average \mathbb{E}_{n\leq x}\prod_{j=1}^{k^{\prime}}1_{d^{*}_{j}|n+h_{j}} vanishes unless (d^{*}_{i},d^{*}_{j})|h_{i}-h_{j} for all 1\leq i<j\leq k^{\prime}, in which case it is equal to \frac{1}{[d^{*}_{1},\dots,d^{*}_{k^{\prime}}]}+O(\frac{1}{x}). The contribution of the error O(\frac{1}{x}) is of size O(\frac{R^{2k}}{x}), so it suffices to show that
+
+\displaystyle\sum_{d^{\prime}_{1},d^{\prime\prime}_{1},\dots,d^{\prime}_{k},d^{\prime\prime}_{k}}\frac{\prod_{j=1}^{k}\mu\psi_{\leq R}(d^{\prime}_{j})\mu\psi_{\leq R}(d^{\prime}_{j})\prod_{1\leq i<j\leq k^{\prime}}1_{(d^{*}_{i},d^{*}_{j})|h_{i}-h_{j}}}{[d^{*}_{1},\dots,d^{*}_{k^{\prime}}]}
+\displaystyle\ll_{A}\int_{1}^{\infty}\frac{\tau(d^{\prime\prime})^{O(1)}}{d^{\prime}\log^{k}R}\prod_{p|d}\min(\sigma\log_{R}p,1)\ \frac{d\sigma}{\sigma^{A}}.
+
+We can expand the left-hand side using ([3.14](https://arxiv.org/html/2109.06291#S3.E14 "In 3.2 Some Fourier analysis ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) and Fubini’s theorem as
+
+\int_{\mathbb{R}^{2k}}\sum_{d^{\prime}_{1},d^{\prime\prime}_{1},\dots,d^{\prime}_{k},d^{\prime\prime}_{k}}\frac{\prod_{j=1}^{k}\mu(d^{\prime}_{j})\mu(d^{\prime\prime}_{j})\prod_{1\leq i<j\leq k^{\prime}}1_{(d^{*}_{i},d^{*}_{j})|h_{i}-h_{j}}}{[d^{*}_{1},\dots,d^{*}_{k^{\prime}}]\prod_{j=1}^{k}(d^{\prime}_{j})^{\frac{1+it^{\prime}_{j}}{\log R}}(d^{\prime\prime}_{j})^{\frac{1+it^{\prime\prime}_{j}}{\log R}}}\ \prod_{j=1}^{k}f(t^{\prime}_{j})f(t^{\prime\prime}_{j})\,dt^{\prime}_{j}dt^{\prime\prime}_{j}
+
+for some Schwartz function f. Changing variables using the substitution \sigma\coloneqq 1+\sum_{j=1}^{k}|t^{\prime}_{j}|+|t^{\prime\prime}_{j}|, and using the rapid decay of f and the triangle inequality, it will suffice to establish the pointwise bound
+
+\sum_{d^{\prime}_{1},d^{\prime\prime}_{1},\dots,d^{\prime}_{k},d^{\prime\prime}_{k}}\frac{\prod_{j=1}^{k}\mu(d^{\prime}_{j})\mu(d^{\prime\prime}_{j})\prod_{1\leq i<j\leq k^{\prime}}1_{(d^{*}_{i},d^{*}_{j})|h_{i}-h_{j}}}{[d^{*}_{1},\dots,d^{*}_{k^{\prime}}]\prod_{j=1}^{k}(d^{\prime}_{j})^{\frac{1+it^{\prime}_{j}}{\log R}}(d^{\prime\prime}_{j})^{\frac{1+it^{\prime\prime}_{j}}{\log R}}}\ll\sigma^{O(1)}\frac{\tau(d^{\prime})^{O(1)}}{d^{\prime}\log^{k}R}\prod_{p|d}\min(\sigma\log_{R}p,1)
+
+for all t^{\prime}_{1},\dots,t^{\prime\prime}_{k}\in\mathbb{R}.
+
+By ([2.3](https://arxiv.org/html/2109.06291#S2.E3 "In 2.3 Primes and prime factorization ‣ 2 Notation ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) and the fact that \mu is supported on square-free numbers, the left-hand side factors as an Euler product \prod_{p}E_{p} where
+
+E_{p}\coloneqq F_{p}\left(\frac{1+it^{\prime}_{1}}{\log R},\frac{1+it^{\prime\prime}_{1}}{\log R},\dots,\frac{1+it^{\prime}_{k}}{\log R},\frac{1+it^{\prime\prime}_{k}}{\log R}\right)
+
+and
+
+F_{p}(z^{\prime}_{1},z^{\prime\prime}_{1},\dots,z^{\prime}_{k},z^{\prime\prime}_{k})\coloneqq\sum_{d^{\prime}_{1},d^{\prime\prime}_{1},\dots,d^{\prime}_{k},d^{\prime\prime}_{k}\in\{1,p\}}\frac{\prod_{j=1}^{k}\mu(d^{\prime}_{j})\mu(d^{\prime\prime}_{j})\prod_{1\leq i<j\leq k^{\prime}}1_{((d^{*}_{i})_{(p)},(d^{*}_{j})_{(p)})|h_{i}-h_{j}}}{[d^{*}_{1},\dots,d^{*}_{k^{\prime}}]_{(p)}\prod_{j=1}^{k}(d^{\prime}_{j})^{z^{\prime}_{j}}(d^{\prime\prime}_{j})^{z^{\prime\prime}_{j}}}.
+
+From the triangle inequality we have
+
+(3.18)E_{p}=1+O\left(\frac{1}{p^{1+\frac{1}{\log R}}}\right)
+
+when d^{\prime}_{(p)}=1 and
+
+(3.19)E_{p}\ll\frac{1}{d^{\prime}_{(p)}}
+
+when d^{\prime}_{(p)}>1, hence by ([3.5](https://arxiv.org/html/2109.06291#S3.E5 "In 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) we have
+
+\prod_{p>R}E_{p}d^{\prime}_{(p)}\ll\tau(d^{\prime})^{O(1)}.
+
+Now let p\leq R and d^{\prime}_{(p)}>1. Then from the triangle inequality we have
+
+F_{p}(z^{\prime}_{1},z^{\prime\prime}_{1},\dots,z^{\prime}_{k},z^{\prime\prime}_{k})\ll\frac{1}{d^{\prime}_{(p)}}
+
+whenever z^{\prime}_{1},z^{\prime\prime}_{1},\dots,z^{\prime}_{k},z^{\prime\prime}_{k} are complex numbers of size O(\frac{1}{\log p}), while from the cancellation in the Möbius coefficients \mu(d^{\prime}_{j}),\mu(d^{\prime\prime}_{j}) and the hypothesis (d_{i},d_{j})|h_{i}-h_{j} for all 1\leq i<j\leq k^{\prime} we see that
+
+F_{p}(0,\dots,0)=0.
+
+From the Cauchy integral formula (in the case \sigma\log_{R}p\leq 1) or ([3.19](https://arxiv.org/html/2109.06291#S3.E19 "In Proof. ‣ 3.2 Some Fourier analysis ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) (otherwise) we have
+
+E_{p}d^{\prime}_{(p)}\ll\min(\sigma\log_{R}p,1).
+
+Finally, suppose that p\leq R and d^{\prime}_{(p)}=1. Then from the triangle inequality we have
+
+F_{p}(z^{\prime}_{1},z^{\prime\prime}_{1},\dots,z^{\prime}_{k},z^{\prime\prime}_{k})=1+O\left(\frac{1}{p}\right)
+
+whenever z^{\prime}_{1},z^{\prime\prime}_{1},\dots,z^{\prime}_{k},z^{\prime\prime}_{k} are complex numbers of size O(\frac{1}{\log p}), while from noting that the conditions ((d^{*}_{i})_{(p)},(d^{*}_{j})_{(p)})|h_{i}-h_{j} permit d^{\prime}_{j},d^{\prime\prime}_{j} to equal p for h_{j} in at most one residue class a\ (p), we have
+
+\displaystyle F_{p}(0,\dots,0)\displaystyle=1+\sum_{a\in\mathbb{Z}/p\mathbb{Z}}\frac{\sum_{d^{\prime}_{j},d^{\prime\prime}_{j}\in\{1,p\}\hbox{ when }h_{j}=a\ (p)}\prod_{h_{j}=a\ (p)}\mu(d^{\prime}_{j})\mu(d^{\prime\prime}_{j})-1}{p}
+\displaystyle=1+\sum_{a\in\mathbb{Z}/p\mathbb{Z}}\frac{(1-1)^{2\#\{j=1,\dots,k:h_{j}=a\ (p)\}}-1}{p}
+\displaystyle=1-\frac{\#\{h_{j}\ (p):j=1,\dots,k\}}{p}
+\displaystyle=\beta_{p}\left(1-\frac{1}{p}\right)^{k}
+
+thanks to ([1.2](https://arxiv.org/html/2109.06291#S1.E2 "In Conjecture 1.2 (Hardy–Littlewood prime tuples conjecture). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")). From the Cauchy integral formula (in the case \sigma\log p\leq\log R) or ([3.18](https://arxiv.org/html/2109.06291#S3.E18 "In Proof. ‣ 3.2 Some Fourier analysis ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) (otherwise) we thus have
+
+E_{p}=E_{p}d^{\prime}_{(p)}=\beta_{p}\left(1-\frac{1}{p}\right)^{k}+O\left(\frac{\min(\sigma\log_{R}p,1)}{p}\right),
+
+and hence by ([1.3](https://arxiv.org/html/2109.06291#S1.E3 "In 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero"))
+
+E_{p}d^{\prime}_{(p)}\ll\left(1-\frac{k}{p}\right)\left(1+O\left(\frac{\min(\sigma\log_{R}p,1)}{p}\right)+O\left(\frac{1}{p^{2}}\right)\right).
+
+From Mertens’ theorem ([3.4](https://arxiv.org/html/2109.06291#S3.E4 "In 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) we have
+
+\prod_{p\leq R}\left(1+O\left(\frac{\min(\sigma\log_{R}p,1)}{p}\right)+O\left(\frac{1}{p^{2}}\right)\right)\ll\sigma^{O(1)}.
+
+Putting all this together, we see that
+
+\prod_{p}E_{p}d^{\prime}_{(p)}\ll\sigma^{O(1)}\tau(d^{\prime})^{O(1)}\prod_{p\leq R:p\nmid d^{\prime}}\left(1-\frac{k}{p}\right)\prod_{p\leq R:p|d}\min(\sigma\log_{R}p,1)
+
+and hence by Mertens’ theorem ([3.6](https://arxiv.org/html/2109.06291#S3.E6 "In 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero"))
+
+\prod_{p}E_{p}d^{\prime}_{(p)}\ll\frac{\sigma^{O(1)}\tau(d^{\prime\prime})^{O(1)}}{\log^{k}R}\prod_{p\leq R:p|d}\min(\sigma\log_{R}p,1).
+
+From ([2.1](https://arxiv.org/html/2109.06291#S2.E1 "In 2.3 Primes and prime factorization ‣ 2 Notation ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) we have
+
+\prod_{p}d^{\prime\prime}{(p)}=d^{\prime}\asymp d_{1}\cdots d_{k^{\prime}},
+
+and the claim follows. ∎
+
+### 3.3 Elementary consequences of a Siegel zero
+
+Recall from Section [2](https://arxiv.org/html/2109.06291#S2 "2 Notation ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") that we use p^{*} to denote primes that are _exceptional_ in the sense that \chi(p^{*})\neq-1. It is a well known phenomenon that exceptional primes become rare at scales comparable in log-scale to q_{\chi}. For instance, in [[11](https://arxiv.org/html/2109.06291#bib.bib11), Lemma 3] it was shown that 5 5 5 Strictly speaking, these results only claim to control the set where \chi(p^{*})=1, ignoring the relatively small number of primes where \chi(p^{*})=0, but it is not difficult to modify the arguments to also include the latter set.
+
+(3.20)\sum_{p^{*}\leq q_{\chi}^{500}}\frac{\log p^{*}}{p^{*}}\ll\frac{\log q_{\chi}}{\sqrt{\log\eta}}
+
+while in [[6](https://arxiv.org/html/2109.06291#bib.bib6)] it was shown more generally that
+
+(3.21)\sum_{p^{*}\leq x}\frac{\log p^{*}}{p^{*}}\ll\exp\left(\log_{q_{\chi}}x\right)\frac{\log q_{\chi}}{\sqrt{\log\eta}}
+
+for q_{\chi}^{10}\leq x\leq q_{\chi}^{\log\log\eta/3}. In fact we can do better:
+
+###### Proposition 3.5.
+
+Let \varepsilon>0. Then for any x\geq q_{\chi}^{\frac{1+\varepsilon}{2}}, one has
+
+(3.22)\sum_{q_{\chi}^{\frac{1+\varepsilon}{2}}<p^{*}\leq x}\frac{1}{p^{*}}\ll_{\varepsilon}\frac{\log_{q_{\chi}}x}{\eta}
+
+and for any natural number m\geq 2, we have
+
+(3.23)\sum_{q_{\chi}^{\frac{1+\varepsilon}{2m}}<p^{*}\leq q_{\chi}^{\frac{1+\varepsilon}{2(m-1)}}}\frac{1}{p^{*}}\ll_{\varepsilon}\frac{m}{\eta^{1/m}}.
+
+The first bound is non-trivial for x as large as q_{\chi}^{\eta^{1-\varepsilon_{0}}}, while the second bound is non-trivial for primes p^{*} as small as q_{\chi}^{1/\log^{1-\varepsilon_{0}}\eta}. It is not difficult to recover ([3.21](https://arxiv.org/html/2109.06291#S3.E21 "In 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) (and hence ([3.20](https://arxiv.org/html/2109.06291#S3.E20 "In 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero"))) from the above proposition by taking a suitable linear combination of ([3.22](https://arxiv.org/html/2109.06291#S3.E22 "In Proposition 3.5. ‣ 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) and ([3.23](https://arxiv.org/html/2109.06291#S3.E23 "In Proposition 3.5. ‣ 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) for m\leq\sqrt{\log\eta}, and using Mertens’ theorem to control the contribution of exceptional primes p^{*}\leq q_{\chi}^{10/\sqrt{\log\eta}} (say); we leave the details to the interested reader.
+
+###### Proof.
+
+For any x\geq q_{\chi}^{\frac{1+\varepsilon}{2}} we have from [[20](https://arxiv.org/html/2109.06291#bib.bib20), Exercise 11.2.3(g)] that
+
+\sum_{n\leq x}\frac{1*\chi(n)}{n}=(\log x+\gamma)L(1,\chi)+L^{\prime}(1,\chi)+O_{\varepsilon}(q_{\chi}^{-\varepsilon/10}).
+
+From Siegel’s theorem we have L(1,\chi)\gg_{\varepsilon}q_{\chi}^{-\varepsilon/10}, and hence
+
+(3.24)\sum_{n\leq x}\frac{1*\chi(n)}{n}=L(1,\chi)\left(\log x+\frac{L^{\prime}}{L}(1,\chi)+O_{\varepsilon}(1)\right).
+
+From [[20](https://arxiv.org/html/2109.06291#bib.bib20), Theorem 11.4] we also have \frac{L^{\prime}}{L}(1,\chi)\asymp\eta\log q_{\chi}. Thus, ([3.24](https://arxiv.org/html/2109.06291#S3.E24 "In Proof. ‣ 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) gives
+
+(3.25)\displaystyle\sum_{n\leq q_{\chi}^{\frac{1+\varepsilon}{2}}}\frac{1*\chi(n)}{n}\gg L(1,\chi)\eta\log q_{\chi},
+
+while applying ([3.24](https://arxiv.org/html/2109.06291#S3.E24 "In Proof. ‣ 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) with x replaced by q_{\chi}^{\frac{1+\varepsilon}{2}},xq_{\chi}^{\frac{1+\varepsilon}{2}} and subtracting we obtain
+
+(3.26)\sum_{q_{\chi}^{\frac{1+\varepsilon}{2}}<n\leq xq_{\chi}^{\frac{1+\varepsilon}{2}}}\frac{1*\chi(n)}{n}=L(1,\chi)(\log x+O_{\varepsilon}(1)).
+
+On the other hand, from the non-negativity and multiplicativity of 1*\chi we have
+
+\sum_{q_{\chi}^{\frac{1+\varepsilon}{2}}<n\leq xq_{\chi}^{\frac{1+\varepsilon}{2}}}\frac{1*\chi(n)}{n}\geq\left(\sum_{n\leq q_{\chi}^{\frac{1+\varepsilon}{2}}}\frac{1*\chi(n)}{n}\right)\left(\sum_{q_{\chi}^{\frac{1+\varepsilon}{2}}<p\leq x}\frac{1*\chi(p)}{p}\right).
+
+Since 1*\chi(p) is non-negative and is at least one when p is exceptional, the first claim ([3.22](https://arxiv.org/html/2109.06291#S3.E22 "In Proposition 3.5. ‣ 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) follows.
+
+In a similar vein, since any n\leq q_{\chi}^{10} has \leq\binom{20m}{m} representations in the form n^{\prime}p_{1}\cdots p_{m} with q_{\chi}^{(1+\varepsilon)/2}<p_{1}<p_{2}<\cdots<p_{m}, we have for any natural number m\geq 2 that
+
+\displaystyle\sum_{q_{\chi}^{\frac{1+\varepsilon}{2}}<n\leq q_{\chi}^{10}}\frac{1*\chi(n)}{n}
+\displaystyle\geq\binom{20m}{m}^{-1}\sum_{n<q_{\chi}^{\frac{1+\varepsilon}{2}}}\frac{1*\chi(n)}{n}\sum_{q_{\chi}^{\frac{1+\varepsilon}{2m}}<p_{1}<\cdots<p_{m}\leq q_{\chi}^{\frac{1+\varepsilon}{2(m-1)}}:p_{1},\dots,p_{m}\nmid n}\frac{1*\chi(p_{1})}{p_{1}}\cdots\frac{1*\chi(p_{m})}{p_{m}}
+\displaystyle\geq\binom{20m}{m}^{-1}\sum_{n<q_{\chi}^{\frac{1+\varepsilon}{2}}}\frac{1*\chi(n)}{n}\sum_{q_{\chi}^{\frac{1+\varepsilon}{2m}}<p^{*}_{1}<\cdots<p^{*}_{m}\leq q_{\chi}^{\frac{1+\varepsilon}{2(m-1)}}:p^{*}_{1},\cdots,p^{*}_{m}\nmid n}\frac{1}{p_{1}^{*}\cdots p_{m}^{*}}
+\displaystyle=\binom{20m}{m}^{-1}\sum_{n<q_{\chi}^{\frac{1+\varepsilon}{2}}}\frac{1*\chi(n)}{n}\ \frac{\sum_{q_{\chi}^{\frac{1+\varepsilon}{2m}}<p^{*}_{1},\dots,p^{*}_{m}\leq q_{\chi}^{\frac{1+\varepsilon}{2(m-1)}}:p^{*}_{1},\dots,p^{*}_{m}\nmid n,\hbox{ distinct}}\frac{1}{p_{1}^{*}\cdots p_{m}^{*}}}{m!}.
+
+Observe that once n<q_{\chi}^{(1+\varepsilon)/2} and some of the exceptional primes p^{*}_{1},\dots,p^{*}_{j}, j<m have been chosen, the restrictions that the exceptional prime p^{*}_{j+1} be distinct from p^{*}_{1},\dots,p^{*}_{j} and not divide n only excludes at most 2m primes p^{*}_{j+1} from the range q_{\chi}^{\frac{1+\varepsilon}{2m}}<p^{*}_{j+1}\leq q_{\chi}^{\frac{1+\varepsilon}{2(m-1)}}, since n has at most m factors in this range. Thus we have
+
+\sum_{q_{\chi}^{\frac{1+\varepsilon}{2}}<n\leq q_{\chi}^{10}}\frac{1*\chi(n)}{n}\geq\binom{20m}{m}^{-1}\left(\sum_{n<q_{\chi}^{\frac{1+\varepsilon}{2}}}\frac{1*\chi(n)}{n}\right)\frac{\left(\sideset{}{{}^{\ast}}{\sum}_{q_{\chi}^{\frac{1+\varepsilon}{2m}}<p^{*}\leq q_{\chi}^{\frac{1+\varepsilon}{2(m-1)}}}\frac{1}{p^{*}}\right)^{m}}{m!},
+
+where the asterisk in the sum means that we are allowed to delete the 2m largest terms from the sum (or delete the sum entirely, i.e. replace it by zero, if there are fewer than 2m terms in all). The estimates ([3.25](https://arxiv.org/html/2109.06291#S3.E25 "In Proof. ‣ 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")), ([3.26](https://arxiv.org/html/2109.06291#S3.E26 "In Proof. ‣ 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) then give
+
+\sideset{}{{}^{\ast}}{\sum}_{q_{\chi}^{\frac{1+\varepsilon}{2m}}<p^{*}\leq q_{\chi}^{\frac{1+\varepsilon}{2(m-1)}}}\frac{1}{p^{*}}\ll_{\varepsilon}\left(\frac{\binom{20m}{m}m!L(1,\chi)\log q_{\chi}}{L(1,\chi)\eta\log q_{\chi}}\right)^{1/m}\ll\frac{m}{\eta^{1/m}}.
+
+One can reinstate the top 2m terms from the sum on the left-hand side, since their contribution is \ll m/q_{\chi}^{1/(2m)}\ll m\eta^{-1/m} by the Siegel bound ([1.4](https://arxiv.org/html/2109.06291#S1.E4 "In 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")). The claim ([3.23](https://arxiv.org/html/2109.06291#S3.E23 "In Proposition 3.5. ‣ 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) follows. ∎
+
+###### Corollary 3.6.
+
+Let q_{\chi}^{(1+\varepsilon)/2}\leq x\leq q_{\chi}^{\eta^{1/2}}. We have
+
+\sum_{R_{0}\leq p^{*}\leq x}\frac{1}{p^{*}}\ll\exp(-\sqrt{\log\eta}/2)
+
+and
+
+\sum_{p^{*}}\frac{\min(\log^{0.1}\eta\log_{R}p^{*},1)}{(p^{*})^{1+\frac{1}{\log x}}}\ll\frac{1}{\log^{0.3}\eta}.
+
+This bound will be used in steps (i), (ii) of the main argument.
+
+###### Proof.
+
+From ([3.22](https://arxiv.org/html/2109.06291#S3.E22 "In Proposition 3.5. ‣ 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) (with \varepsilon=1) and ([1.5](https://arxiv.org/html/2109.06291#S1.E5 "In Theorem 1.6 (New results on Hardy–Littlewood–Chowla given a Siegel zero). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) we have
+
+\sum_{q_{\chi}<p^{*}\leq x}\frac{1}{p^{*}}\ll\frac{\sqrt{\eta}}{\eta}\ll\exp(-\sqrt{\log\eta}/2)
+
+and from ([3.23](https://arxiv.org/html/2109.06291#S3.E23 "In Proposition 3.5. ‣ 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) we similarly have
+
+\sum_{q_{\chi}^{\frac{1}{m}}<p^{*}\leq q_{\chi}^{\frac{1}{m-1}}}\frac{1}{p^{*}}\ll\frac{m}{\eta^{1/m}}
+
+for all m\geq 2. Summing over 2\leq m\leq\sqrt{\log\eta}+1, we obtain the first claim.
+
+Now we prove the second claim. The contribution of those p^{*} with p^{*}\geq x^{\log^{0.1}\eta} is acceptable by ([3.5](https://arxiv.org/html/2109.06291#S3.E5 "In 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")), while the contribution of those p^{*} with p^{*}\leq R^{1/\log^{0.4}\eta} is also acceptable by ([3.3](https://arxiv.org/html/2109.06291#S3.E3 "In 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")). Thus it remains to show that
+
+\sum_{R^{1/\log^{0.4}\eta}<p^{*}<x^{\log^{0.1}\eta}}\frac{1}{p^{*}}\ll\frac{1}{\log^{0.3}\eta}.
+
+The contribution of those p^{*} with q_{\chi}<p^{*}<x^{\log^{0.1}\eta} is acceptable by ([3.22](https://arxiv.org/html/2109.06291#S3.E22 "In Proposition 3.5. ‣ 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) (for \varepsilon=1), ([1.5](https://arxiv.org/html/2109.06291#S1.E5 "In Theorem 1.6 (New results on Hardy–Littlewood–Chowla given a Siegel zero). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")), while the contribution of those p^{*} with R^{1/\log^{0.4}\eta}<p^{*}\leq q_{\chi} is acceptable by ([3.23](https://arxiv.org/html/2109.06291#S3.E23 "In Proposition 3.5. ‣ 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) (for \varepsilon=1 and 2\leq m\ll\log^{0.5}\eta, say) and ([2.8](https://arxiv.org/html/2109.06291#S2.E8 "In 2.4 Scales ‣ 2 Notation ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")). ∎
+
+### 3.4 Consequences of the Weil bound for character sums
+
+Let f\colon\mathbb{Z}\to\mathbb{Z} be a polynomial of degree O(1). If p is a prime we have the standard Weil bounds
+
+\sum_{n\in\mathbb{Z}/p\mathbb{Z}}\chi_{p}(f(n))e_{p}(an)\ll p^{1/2}
+
+uniformly for all integers a whenever f is not a constant multiple of perfect square modulo p, where \chi_{p} is the quadratic character modulo p; see [[30](https://arxiv.org/html/2109.06291#bib.bib30)] (or [[21](https://arxiv.org/html/2109.06291#bib.bib21)]). When f is a constant multiple of a perfect square, we can of course use the trivial bound of O(p). Since the exceptional modulus q_{\chi} is a fundamental discriminant, it is of the form 2^{j}p_{1}\cdots p_{m} for some j\leq 3 and distinct odd primes p_{1},\dots,p_{m}, and so from the Chinese remainder theorem we obtain the bounds
+
+\sum_{n\in\mathbb{Z}/q_{\chi}\mathbb{Z}}\chi(f(n))e_{q_{\chi}}(an)\ll\tau(q_{\chi})^{O(1)}q_{\chi}^{1/2}d^{1/2}
+
+uniformly in a, where d is the largest factor of q_{\chi} for which f is a constant multiple of a perfect square modulo d. Applying ([3.1](https://arxiv.org/html/2109.06291#S3.E1 "In 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) and completion of sums (see [[12](https://arxiv.org/html/2109.06291#bib.bib12), Lemma 12.1]), we conclude that
+
+\sum_{n\in I}\chi(f(n))\ll_{\varepsilon}q_{\chi}^{1/2+\varepsilon}d^{1/2}
+
+for any interval I of length at most q_{\chi} and any \varepsilon>0; by subdividing longer intervals into intervals of length q_{\chi}, plus a remainder, we conclude that
+
+(3.27)\sum_{n\in I}\chi(f(n))\ll_{\varepsilon}q_{\chi}^{1/2+\varepsilon}d^{1/2}\left(\frac{|I|}{q_{\chi}}+1\right)
+
+for any interval I and any \varepsilon>0.
+
+This gives us the following bounds:
+
+###### Lemma 3.7.
+
+Let d_{1},\dots,d_{k+\ell} be natural numbers. Let I be an interval in [1,x]. Let J be a non-empty subset of \{1,\dots,k+\ell\}, and for each j\in J, let d^{\prime}_{j} be a factor of d_{j}. Then
+
+\mathbb{E}_{n\leq x}1_{I}(n)\left(\prod_{j=1}^{k+\ell}1_{d_{j}|n+h_{j}}\right)\prod_{j\in J}\chi\left(\frac{n+h_{j}}{d^{\prime}_{j}}\right)\ll_{\varepsilon}q_{\chi}^{1/2+\varepsilon}(d_{1}\cdots d_{k+\ell},q_{\chi})^{1/2}\left(\frac{1}{q_{\chi}d_{1}\cdots d_{k+\ell}}+\frac{1}{x}\right)
+
+for any \varepsilon>0, where we use the notation h_{k+j}\coloneqq h^{\prime}_{j} for j=1,\dots,\ell.
+
+This bound will be used in step (v) of the main argument, to dispose of any “Type I sum” contributions that are twisted by one or more factors of the exceptional character \chi.
+
+###### Proof.
+
+By Lemma [3.3](https://arxiv.org/html/2109.06291#S3.Thmtheorem3 "Lemma 3.3 (Chinese remainder theorem). ‣ 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") we may assume that (d_{i},d_{j})|h_{i}-h_{j} for all 1\leq i<j\leq k+\ell and replace the conditions d_{j}|n+h_{j} with n=a\ (d) where
+
+d\coloneqq[d_{1},\dots,d_{k+\ell}]\asymp d_{1}\cdots d_{k+\ell}
+
+and
+
+a=-h_{j}\ (d_{j})
+
+for j=1,\dots,k+\ell. Our task is now equivalent to showing that
+
+\sum_{n:dn+a\in I}\prod_{j\in J}\chi\left(\frac{dn+a+h_{j}}{d^{\prime}_{j}}\right)\ll_{\varepsilon}q_{\chi}^{1/2+\varepsilon}(d,q_{\chi})^{1/2}\left(\frac{x}{q_{\chi}d}+1\right).
+
+We can write the left-hand side as
+
+\sum_{n:dn+a\in I}\chi(f(n))
+
+where
+
+f(n)\coloneqq\prod_{j\in J}\frac{dn+a+h_{j}}{d^{\prime}_{j}}.
+
+Suppose that there is a prime p not dividing d such that f is a constant multiple of a square modulo p. Then the roots -\frac{a+h_{j}}{d}\ (p) of f must experience a repetition, and hence p divides h_{i}-h_{j} for some 1\leq i<j\leq k+\ell. Since the h_{1},\dots,h_{k+\ell} are fixed, this forces p=O(1). From the Chinese remainder theorem (and the fact that q_{\chi} is a fundamental discriminant), we conclude that the largest factor d^{\prime} of q_{\chi} for which f is a constant multiple of a square modulo d^{\prime} is O((d,q_{\chi})). The claim now follows from ([3.27](https://arxiv.org/html/2109.06291#S3.E27 "In 3.4 Consequences of the Weil bound for character sums ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")). ∎
+
+### 3.5 Consequences of Kloosterman sum bounds
+
+We recall 6 6 6 For the applications in this paper one could also proceed using the weaker but more elementary bounds of Kloosterman [[13](https://arxiv.org/html/2109.06291#bib.bib13)], as the important thing is that we gain a power savings over the trivial bound of q, at the cost of degrading the numerical exponent 10k in ([1.5](https://arxiv.org/html/2109.06291#S1.E5 "In Theorem 1.6 (New results on Hardy–Littlewood–Chowla given a Siegel zero). ‣ 1.1 The Hardy–Littlewood–Chowla conjecture and Siegel zeroes ‣ 1 Introduction ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) somewhat. We leave the details of this variant of the argument to the interested reader. Estermann’s form [[5](https://arxiv.org/html/2109.06291#bib.bib5)]
+
+\left|\sum_{x\in\mathbb{Z}/q\mathbb{Z}:(x,q)=1}e_{q}(u_{1}x+u_{2}x^{*})\right|\leq\tau(q)q^{1/2}(u_{1},u_{2},q)^{1/2}
+
+of the Weil bound for Kloosterman sums, where x^{*} is the inverse of x in \mathbb{Z}/q\mathbb{Z} and u_{1},u_{2} are arbitrary integers. From this and a simple change of variables we see that
+
+(3.28)|\mathbb{E}_{n_{1},n_{2}\in\mathbb{Z}}1_{wn_{1}n_{2}=a\ (q)}e_{q}(u_{1}n_{1}+u_{2}n_{2})|\leq\tau(q)q^{-3/2}(u_{1},u_{2},q)^{1/2}
+
+for any natural number q and integers w,a,u_{1},u_{2} with (w,q)=(a,q)=1, where we use the averaging notation
+
+\mathbb{E}_{n_{1},n_{2}\in\mathbb{Z}}f(n_{1},n_{2})\coloneqq\frac{1}{L^{2}}\sum_{n_{1}=1}^{L}\sum_{n_{2}=1}^{L}f(n_{1},n_{2})
+
+whenever f\colon\mathbb{Z}^{2}\to\mathbb{C} is a periodic function with some period L (thus, f(n_{1}+Lm_{1},n_{2}+Lm_{2})=f(n_{1},n_{2}) for all integers n_{1},n_{2},m_{1},m_{2}).
+
+We will need to extend the bound ([3.28](https://arxiv.org/html/2109.06291#S3.E28 "In 3.5 Consequences of Kloosterman sum bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) to the case where a shares a common factor with q, and where we also insert a periodic weight:
+
+###### Lemma 3.8(Fourier coefficients on a hyperbola).
+
+Let q be a natural number, and let a,u_{1},u_{2} be integers. Let q_{0} be a factor of q such that (a,q)|q_{0}. Let f\colon\mathbb{Z}^{2}\to\mathbb{C} be a 1-bounded 7 7 7 A function f is 1-bounded if |f(x)|\leq 1 for all x in the domain of f. function with period q_{0}. Then
+
+|\mathbb{E}_{n_{1},n_{2}\in\mathbb{Z}}f(n_{1},n_{2})1_{n_{1}n_{2}=a\ (q)}e_{q}(u_{1}n_{1}+u_{2}n_{2})|\leq\tau(q_{0})^{2}q_{0}^{3/2}\tau(q)q^{-3/2}(u_{1},u_{2},q)^{1/2}.
+
+The factor \tau(q_{0})^{2}q_{0}^{3/2} can be improved somewhat, but we will not attempt to optimize it here. This bound will be needed in step (iv) of the main argument, in order to dispose of the non-Type I portion \Lambda_{\textnormal{Siegel}}^{\flat} to the Siegel approximant \Lambda_{\textnormal{Siegel}}.
+
+###### Proof.
+
+If n_{1}n_{2}=a\ (q), then from considering the prime factorisations of n_{1},n_{2},a,q we see that (n_{1},q_{0}),(n_{2},q_{0}) must be factors of (a,q) and hence of q_{0}; also, we have ((n_{1},q_{0})(n_{2},q_{0}),q)=(a,q_{0})=(a,q). Thus there are at most \tau(q_{0})^{2} possible choices for (n_{1},q),(n_{2},q), and by the triangle inequality it suffices to show that
+
+(3.29)|\mathbb{E}_{n_{1},n_{2}\in\mathbb{Z}}f(n_{1},n_{2})1_{n_{1}n_{2}=a\ (q)}e_{q}(u_{1}n_{1}+u_{2}n_{2})|\leq q_{0}^{3/2}\tau(q)q^{-3/2}(u_{1},u_{2},q)^{1/2}.
+
+under the additional hypothesis that f is supported in the region where (n_{1},q_{0})=q_{1}, (n_{2},q_{0})=q_{2} for some factors q_{1},q_{2} of q_{0} with
+
+(3.30)(q_{1}q_{2},q)=(a,q).
+
+In particular, if we write q^{\prime}\coloneqq\frac{q}{(a,q)}, then the quantity w=\frac{q_{1}q_{2}}{(a,q)} is a primitive element of \mathbb{Z}/q^{\prime}\mathbb{Z}. Making the change of variables n_{1}=q_{1}n^{\prime}_{1}, n_{2}=q_{2}n^{\prime}_{2}, we can now rewrite the left-hand side of ([3.29](https://arxiv.org/html/2109.06291#S3.E29 "In Proof. ‣ 3.5 Consequences of Kloosterman sum bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) as
+
+\frac{1}{q_{1}q_{2}}|\mathbb{E}_{n^{\prime}_{1},n^{\prime}_{2}\in\mathbb{Z}}f(q_{1}n^{\prime}_{1},q_{2}n^{\prime}_{2})1_{wn^{\prime}_{1}n^{\prime}_{2}=\frac{a}{(a,q)}\ (q^{\prime})}e_{q}(u_{1}q_{1}n_{1}+u_{2}q_{2}n_{2})|.
+
+By Fourier inversion and the Plancherel formula we have
+
+f(q_{1}n^{\prime}_{1},q_{2}n^{\prime}_{2})=\sum_{k_{1}\in\mathbb{Z}/(q_{0}/q_{1})\mathbb{Z}}\sum_{k_{2}\in\mathbb{Z}/(q_{0}/q_{2})\mathbb{Z}}c_{k_{1},k_{2}}e_{q_{0}}(k_{1}q_{1}n^{\prime}_{1}+k_{2}q_{2}n^{\prime}_{2})
+
+where the coefficients c_{k_{1},k_{2}} obey the bound
+
+\sum_{k_{1}\in\mathbb{Z}/(q_{0}/q_{1})\mathbb{Z}}\sum_{k_{2}\in\mathbb{Z}/(q_{0}/q_{2})\mathbb{Z}}|c_{k_{1},k_{2}}|^{2}\leq 1,
+
+and hence by Cauchy–Schwarz
+
+\sum_{k_{1}\in\mathbb{Z}/(q_{0}/q_{1})\mathbb{Z}}\sum_{k_{2}\in\mathbb{Z}/(q_{0}/q_{2})\mathbb{Z}}|c_{k_{1},k_{2}}|\leq\frac{q_{0}}{q_{1}^{1/2}q_{2}^{1/2}}.
+
+Thus by the triangle inequality and pigeonhole principle, we can bound the left-hand side of ([3.29](https://arxiv.org/html/2109.06291#S3.E29 "In Proof. ‣ 3.5 Consequences of Kloosterman sum bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) by
+
+\frac{q_{0}}{q^{3/2}_{1}q^{3/2}_{2}}\left|\mathbb{E}_{n^{\prime}_{1},n^{\prime}_{2}\in\mathbb{Z}}1_{wn^{\prime}_{1}n^{\prime}_{2}=\frac{a}{(a,q)}\ (q^{\prime})}e_{q}\left(\left(u_{1}+k_{1}\frac{q}{q_{0}}\right)q_{1}n_{1}+\left(u_{2}+k_{2}\frac{q}{q_{0}}\right)q_{2}n_{2}\right)\right|
+
+for some integers k_{1},k_{2}. Since 1_{wn^{\prime}_{1}n^{\prime}_{2}=\frac{a}{(a,q)}\ (q^{\prime})} is a q^{\prime}-periodic function of n^{\prime}_{1},n^{\prime}_{2}, this expression vanishes unless the integers (u_{1}+k_{1}\frac{q}{q_{0}})q_{1}, (u_{2}+k_{2}\frac{q}{q_{0}})q_{2} are divisible by q/q^{\prime}=(a,q). Since w and \frac{a}{(a,q)} are both primitive in \mathbb{Z}/q^{\prime}\mathbb{Z}, we may then apply ([3.28](https://arxiv.org/html/2109.06291#S3.E28 "In 3.5 Consequences of Kloosterman sum bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) and bound the left-hand side of ([3.29](https://arxiv.org/html/2109.06291#S3.E29 "In Proof. ‣ 3.5 Consequences of Kloosterman sum bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) by
+
+\frac{q_{0}}{q^{3/2}_{1}q^{3/2}_{2}}(q^{\prime})^{-3/2}\left(\left(u_{1}+k_{1}\frac{q}{q_{0}}\right)\frac{q_{1}}{(a,q)},\left(u_{2}+k_{2}\frac{q}{q_{0}}\right)\frac{q_{2}}{(a,q)},q^{\prime}\right)^{1/2}
+
+which we can rewrite as
+
+\frac{q_{0}}{q^{3/2}_{1}q^{3/2}_{2}}(a,q)q^{-3/2}d^{1/2}
+
+where
+
+d\coloneqq\left(\left(u_{1}+k_{1}\frac{q}{q_{0}}\right)q_{1},\left(u_{2}+k_{2}\frac{q}{q_{0}}\right)q_{2},q\right).
+
+By construction, we have
+
+\left(u_{1}+k_{1}\frac{q}{q_{0}}\right)q_{1}=\left(u_{2}+k_{2}\frac{q}{q_{0}}\right)q_{2}=q=0\ (d)
+
+and hence by taking suitable linear combinations
+
+u_{1}q_{0}q_{1}q_{2}=u_{2}q_{0}q_{1}q_{2}=qq_{0}q_{1}q_{2}=0\ (d).
+
+We conclude in particular that d|q_{0}q_{1}q_{2}(u_{1},u_{2},q), and the claim follows (noting from ([3.30](https://arxiv.org/html/2109.06291#S3.E30 "In Proof. ‣ 3.5 Consequences of Kloosterman sum bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) that (a,q)\leq q_{1}q_{2}). ∎
+
+From Lemma [3.8](https://arxiv.org/html/2109.06291#S3.Thmtheorem8 "Lemma 3.8 (Fourier coefficients on a hyperbola). ‣ 3.5 Consequences of Kloosterman sum bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") and the Fourier inversion formula one can express the periodic function f(n_{1},n_{2})1_{n_{1}n_{2}=a\ (q)} as a linear combination of Fourier phases e_{q}(u_{1}n_{1}+u_{2}n_{2}) with good bounds on the Fourier coefficients. However, the contribution of those terms in which one of u_{1},u_{2} is divisible by q (or by a very large factor of q) will be inconvenient to handle. We therefore perform the following substitute expansion:
+
+###### Lemma 3.9(Modified Fourier expansion).
+
+Let q be a natural number, and let a be an integer. Let q_{0} be a factor of q such that (a,q)|q_{0}. Let f\colon\mathbb{Z}^{2}\to\mathbb{C} be a 1-bounded function with period q_{0}. Define q^{\prime}_{0}\coloneqq(q_{0}(a,q),q). Then we have
+
+\displaystyle f(n_{1},n_{2})1_{n_{1}n_{2}=a\ (q)}\displaystyle=\frac{\alpha q^{\prime}_{0}}{q}f(n_{1},n_{2})1_{n_{1}n_{2}=a\ (q^{\prime}_{0})}1_{(n_{1}n_{2},q)=(a,q)}
+\displaystyle\quad+\sum_{u_{1},u_{2}\in\mathbb{Z}/q\mathbb{Z}:\frac{q}{q_{0}}\nmid u_{1},u_{2}}c_{u_{1},u_{2}}e_{q}(u_{1}n_{1}+u_{2}n_{2})
+
+where \alpha is the quantity
+
+\alpha\coloneqq\prod_{p|\frac{q}{q^{\prime}_{0}};p\nmid\frac{q^{\prime}_{0}}{(a,q)}}\frac{p}{p-1}
+
+and the coefficients c_{u_{1},u_{2}} obey the bounds
+
+|c_{u_{1},u_{2}}|\leq 2\tau(q_{0})^{2}q_{0}^{3/2}\tau(q)q^{-3/2}(u_{1},u_{2},q)^{1/2}.
+
+###### Proof.
+
+We may assume without loss of generality that 1\leq a\leq q. Let {\mathcal{A}} denote the collection of those 1\leq a^{\prime}\leq q such that a^{\prime}=a\ (q^{\prime}_{0}) and (a^{\prime},q)=(a,q). From Lemma [3.8](https://arxiv.org/html/2109.06291#S3.Thmtheorem8 "Lemma 3.8 (Fourier coefficients on a hyperbola). ‣ 3.5 Consequences of Kloosterman sum bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") we see that the Fourier coefficient
+
+(3.31)\mathbb{E}_{n_{1},n_{2}\in\mathbb{Z}}f(n_{1},n_{2})(1_{n_{1}n_{2}=a\ (q)}-1_{n_{1}n_{2}=a^{\prime}\ (q)})e_{q}(u_{1}n_{1}+u_{2}n_{2})
+
+for u_{1},u_{2}\in\mathbb{Z}/q\mathbb{Z} is bounded in magnitude by 2\tau(q_{0})^{2}q_{0}^{3/2}\tau(q)q^{-3/2}(u_{1},u_{2},q)^{1/2} for any a^{\prime}\in{\mathcal{A}}. We claim furthermore that this Fourier coefficient vanishes whenever one of u_{1},u_{2} is divisible by q/q_{0}. Indeed, suppose for instance that u_{2} is divisible by q/q_{0}, so that n_{2}\mapsto f(n_{1}n_{2})e_{q}(u_{1}n_{1}+u_{2}n_{2}) is q_{0}-periodic for any n_{1}. To obtain the vanishing of ([3.31](https://arxiv.org/html/2109.06291#S3.E31 "In Proof. ‣ 3.5 Consequences of Kloosterman sum bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")), it suffices to show that
+
+(3.32)\sum_{n_{2}\in\mathbb{Z}/q\mathbb{Z}:n_{2}=a_{2}\ (q_{0})}1_{n_{1}n_{2}=a\ (q)}=\sum_{n_{2}\in\mathbb{Z}/q\mathbb{Z}:n_{2}=a_{2}\ (q_{0})}1_{n_{1}n_{2}=a^{\prime}\ (q)}
+
+for any integers n_{1},a_{2}. But since (a^{\prime},q)=(a,q), we can write a^{\prime}=wa\ (q) for some primitive w\in\mathbb{Z}/q\mathbb{Z}; since a^{\prime}=a\ ((q_{0}(a,q),q)) we have w=1\ ((q_{0},q/(a,q))); as we have the freedom to adjust w by an arbitrary multiple of q/(a,q) we may in fact assume that w=1\ (q_{0}). The claim ([3.32](https://arxiv.org/html/2109.06291#S3.E32 "In Proof. ‣ 3.5 Consequences of Kloosterman sum bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) then follows after applying the change of variables n_{2}\mapsto wn_{2} on the right-hand side. We argue similarly if u_{1} is divisible by q/q_{0} instead of u_{2}.
+
+Averaging in a^{\prime}, we conclude that the Fourier coefficient
+
+\mathbb{E}_{n_{1},n_{2}\in\mathbb{Z}}f(n_{1},n_{2})(1_{n_{1}n_{2}=a\ (q)}-\mathbb{E}_{a^{\prime}\in{\mathcal{A}}}1_{n_{1}n_{2}=a^{\prime}\ (q)})e_{q}(u_{1}n_{1}+u_{2}n_{2})
+
+is bounded in magnitude by 2\tau(q_{0})^{2}q_{0}^{3/2}\tau(q)q^{-3/2}(u_{1},u_{2},q)^{1/2}, and vanishes whenever u_{1} or u_{2} vanish in \mathbb{Z}/q\mathbb{Z}. To establish the claim, it now suffices by the Fourier inversion formula to obtain the identity
+
+\mathbb{E}_{a^{\prime}\in{\mathcal{A}}}1_{n=a^{\prime}\ (q)}=\frac{\alpha q^{\prime}_{0}}{q}1_{n=a\ (q^{\prime}_{0})}1_{(n,q)=(a,q)}
+
+for any integer n. By the Chinese remainder theorem, it suffices to establish this identity at each prime p, that is to say it suffices to show that
+
+\mathbb{E}_{a^{\prime}=a\ (p^{j_{0}}):(a^{\prime},p^{j})=(a,p^{j})}1_{n=a^{\prime}\ (p^{j})}=\frac{\alpha_{p}p^{j_{0}}}{p^{j}}1_{n=a\ (p^{j_{0}})}1_{(n,p^{j})=(a,p^{j})}
+
+whenever p is a prime, 0\leq j_{0}\leq j, and a is an integer with (a,p^{j})|p^{j_{0}}, where \alpha_{p}\coloneqq\frac{p}{p-1} if j>j_{0} and (a,p^{j})=p^{j_{0}}, and \alpha_{p}=1 otherwise. But this follows by a direct case analysis:
+
+*   •
+If j=j_{0}, then the conditions (a^{\prime},p^{j})=(a,p^{j}) and (n,p^{j})=(a,p^{j}) are redundant, \alpha_{p}=1, a^{\prime} is restricted to a single residue class mod p^{j}, and both sides are equal to 1_{n=a\ (p^{j_{0}})}.
+
+*   •
+If j<j_{0} and (a,p^{j})<p^{j_{0}}, then the conditions (a^{\prime},p^{j})=(a,p^{j}) and (n,p^{j})=(a,p^{j}) are redundant, \alpha_{p}=1, a^{\prime} is restricted to p^{j-j_{0}} residue classes mod p^{j}, and both sides are equal to \frac{1}{p^{j-j_{0}}}1_{n=a\ (p^{j_{0}})}.
+
+*   •
+If j<j_{0} and (a,p^{j})=p^{j_{0}}, then \alpha_{p}=\frac{p}{p-1}, a^{\prime} is restricted to \frac{p-1}{p}p^{j-j_{0}} residue classes mod p^{j}, and both sides are equal to \frac{p}{p-1}\frac{1}{p^{j-j_{0}}}1_{n=a\ (p^{j_{0}})}.
+
+∎
+
+## 4 First step: replacing the Liouville function with a Siegel model
+
+We now execute step (i) of the strategy outlined in the introduction. From ([2.6](https://arxiv.org/html/2109.06291#S2.E6 "In 2.3 Primes and prime factorization ‣ 2 Notation ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) we have the splitting
+
+\lambda=\lambda_{(\leq R)}*\lambda_{(>R)}.
+
+In view of Corollary [3.6](https://arxiv.org/html/2109.06291#S3.Thmtheorem6 "Corollary 3.6. ‣ 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero"), we expect \lambda to resemble the exceptional character \chi on the rough numbers \mathbb{N}_{(>R)}. It is therefore natural to introduce the Siegel approximant
+
+(4.1)\lambda_{\textnormal{Siegel}}\coloneqq\lambda_{(\leq R)}*\chi_{(>R)},
+
+thus \lambda_{\textnormal{Siegel}} is the completely multiplicative function that agrees with \lambda for primes p\leq R and agrees with \chi for primes p>R. Similar approximants were also introduced in [[6](https://arxiv.org/html/2109.06291#bib.bib6)], [[2](https://arxiv.org/html/2109.06291#bib.bib2)]. Clearly \lambda, \lambda_{\textnormal{Siegel}} are both bounded by 1:
+
+(4.2)|\lambda(n)|,|\lambda_{\textnormal{Siegel}}(n)|\leq 1.
+
+The error between \lambda and \lambda_{\textnormal{Siegel}} can be controlled by exceptional primes and by rough numbers:
+
+###### Lemma 4.1(Error bound between \lambda and \lambda_{\textnormal{Siegel}}).
+
+For any natural number n\leq 2x, one has
+
+(4.3)\lambda(n)-\lambda_{\textnormal{Siegel}}(n)\ll\sum_{p^{*}|n,R<p^{*}\leq x/R}1+\sum_{d\leq 2R:d|n}1_{(\geq x/R)}(n/d).
+
+###### Proof.
+
+If n is not divisible by any exceptional prime p^{*}>R, then we have \lambda(n)=\lambda_{\textnormal{Siegel}}(n) since \lambda,\lambda_{\textnormal{Siegel}} agree on every prime dividing n. Clearly ([4.3](https://arxiv.org/html/2109.06291#S4.E3 "In Lemma 4.1 (Error bound between 𝜆 and 𝜆_\"Siegel\"). ‣ 4 First step: replacing the Liouville function with a Siegel model ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) holds in this case. If n is divisible by an exceptional R<p^{*}\leq x/R, then the first term on the right-hand side of ([4.3](https://arxiv.org/html/2109.06291#S4.E3 "In Lemma 4.1 (Error bound between 𝜆 and 𝜆_\"Siegel\"). ‣ 4 First step: replacing the Liouville function with a Siegel model ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) is at least one, and the claim ([4.3](https://arxiv.org/html/2109.06291#S4.E3 "In Lemma 4.1 (Error bound between 𝜆 and 𝜆_\"Siegel\"). ‣ 4 First step: replacing the Liouville function with a Siegel model ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) then follows from ([4.2](https://arxiv.org/html/2109.06291#S4.E2 "In 4 First step: replacing the Liouville function with a Siegel model ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")).
+
+The only remaining case is if n is divisible by an exceptional prime p^{*}\geq x/R, so n=p^{*}d for some d\leq 2R. Since n/d=p^{*}\geq x/R is prime, the second term on the right-hand side of ([4.3](https://arxiv.org/html/2109.06291#S4.E3 "In Lemma 4.1 (Error bound between 𝜆 and 𝜆_\"Siegel\"). ‣ 4 First step: replacing the Liouville function with a Siegel model ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) is at least one, and the claim ([4.3](https://arxiv.org/html/2109.06291#S4.E3 "In Lemma 4.1 (Error bound between 𝜆 and 𝜆_\"Siegel\"). ‣ 4 First step: replacing the Liouville function with a Siegel model ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) again follows from ([4.2](https://arxiv.org/html/2109.06291#S4.E2 "In 4 First step: replacing the Liouville function with a Siegel model ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")). ∎
+
+In this section we establish
+
+###### Proposition 4.2(Replacing \lambda with a Siegel model).
+
+We have
+
+\displaystyle\mathbb{E}_{n\leq x}\Lambda(n+h_{1})\cdots\Lambda(n+h_{k})\lambda(n+h^{\prime}_{1})\cdots\lambda(n+h^{\prime}_{\ell})
+\displaystyle\quad\approx\mathbb{E}_{n\leq x}\Lambda(n+h_{1})\cdots\Lambda(n+h_{k})\lambda_{\textnormal{Siegel}}(n+h^{\prime}_{1})\cdots\lambda_{\textnormal{Siegel}}(n+h^{\prime}_{\ell}).
+
+From ([4.2](https://arxiv.org/html/2109.06291#S4.E2 "In 4 First step: replacing the Liouville function with a Siegel model ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) and the triangle inequality, it suffices to show that
+
+\mathbb{E}_{n\leq x}\Lambda(n+h_{1})\cdots\Lambda(n+h_{k})|\lambda(n+h^{\prime}_{j^{\prime}})-\lambda_{\textnormal{Siegel}}(n+h^{\prime}_{j^{\prime}})|\approx 0
+
+for each 1\leq j^{\prime}\leq\ell. Applying Lemma [4.1](https://arxiv.org/html/2109.06291#S4.Thmtheorem1 "Lemma 4.1 (Error bound between 𝜆 and 𝜆_\"Siegel\"). ‣ 4 First step: replacing the Liouville function with a Siegel model ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero"), it suffices to show the bounds
+
+(4.4)\sum_{R<p^{*}\leq x/R}\mathbb{E}_{n\leq x}\Lambda(n+h_{1})\cdots\Lambda(n+h_{k})1_{p^{*}|n+h^{\prime}_{j^{\prime}}}\approx 0
+
+and
+
+(4.5)\sum_{d\leq 2R}\mathbb{E}_{n\leq x}\Lambda(n+h_{1})\cdots\Lambda(n+h_{k})1_{d|n+h^{\prime}_{j^{\prime}}}1_{(\geq x/R)}\left(\frac{n+h^{\prime}_{j^{\prime}}}{d}\right)\approx 0.
+
+We begin with ([4.4](https://arxiv.org/html/2109.06291#S4.E4 "In 4 First step: replacing the Liouville function with a Siegel model ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")). For n\leq x and 1\leq j\leq k, the quantity \Lambda(n+h_{j}) is bounded by \log(2x)1_{(\geq\sqrt{2x})}(n+h_{j}) unless we are in the exceptional case where n+h_{j} is of the form p^{i} for some prime p<\sqrt{2x} (cf. the sieve of Eratosthenes). The contribution of such exceptional cases can easily be shown to be \approx 0, so it suffices to show that
+
+(\log^{k}x)\sum_{R<p^{*}\leq x/R}\mathbb{E}_{n\leq x}1_{(\geq\sqrt{2x})}(n+h_{1})\cdots 1_{(\geq\sqrt{2x})}(n+h_{k})1_{p^{*}|n+h^{\prime}_{j^{\prime}}}\approx 0.
+
+Let p^{*} be as in the above sum. Changing variables, we have
+
+\displaystyle\mathbb{E}_{n\leq x}1_{(\geq\sqrt{2x})}(n+h_{1})\cdots 1_{(\geq\sqrt{2x})}(n+h_{k})1_{p^{*}|n+h^{\prime}_{j^{\prime}}}
+\displaystyle\ll\frac{1}{p^{*}}\mathbb{E}_{n\leq 2x/p^{*}}1_{(\geq\sqrt{2x})}(p^{*}n+h_{1}-h^{\prime}_{j^{\prime}})\cdots 1_{(\geq\sqrt{2x})}(p^{*}n+h_{k}-h^{\prime}_{j^{\prime}}).
+
+Let C_{0} be a sufficiently large constant depending on h_{1},\dots,h_{k},h^{\prime}_{j^{\prime}}. Then for any prime C_{0}<p\leq\sqrt{2x} other than p^{*}, the support set of 1_{(\geq\sqrt{2x})}(p^{*}n+h_{1}-h^{\prime}_{j^{\prime}})\cdots 1_{(\geq\sqrt{2x})}(p^{*}n+h_{k}-h^{\prime}_{j^{\prime}}) excludes k residue classes modulo p. Thus by 8 8 8 One could also use Lemma [3.4](https://arxiv.org/html/2109.06291#S3.Thmtheorem4 "Lemma 3.4 (Selberg sieve concentrates on almost primes). ‣ 3.2 Some Fourier analysis ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") here instead if desired to give a comparable estimate. Lemma [3.2](https://arxiv.org/html/2109.06291#S3.Thmtheorem2 "Lemma 3.2 (Sieve upper bound). ‣ 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") we have
+
+\mathbb{E}_{n\leq x}1_{(\geq\sqrt{2x})}(n+h_{1})\cdots 1_{(\geq\sqrt{2x})}(n+h_{k})1_{p|n+h^{\prime}_{j^{\prime}}}\ll\frac{1}{p^{*}}\prod_{C_{0}<p\leq\min(2x/p^{*},\sqrt{2x}):p\neq p^{*}}\left(1-\frac{k}{p}\right)
+
+and hence by Mertens’ theorem ([3.6](https://arxiv.org/html/2109.06291#S3.E6 "In 3.1 Multiplicative number theory bounds ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) and the bound p_{*}\leq x/R
+
+(\log^{k}x)\mathbb{E}_{n\leq x}1_{(\geq\sqrt{2x})}(n+h_{1})\cdots 1_{(\geq\sqrt{2x})}(n+h_{k})1_{p^{*}|n+h^{\prime}_{j^{\prime}}}\ll\frac{\log^{k}_{R}x}{p^{*}}.
+
+The claim ([4.4](https://arxiv.org/html/2109.06291#S4.E4 "In 4 First step: replacing the Liouville function with a Siegel model ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")) now follows from Corollary [3.6](https://arxiv.org/html/2109.06291#S3.Thmtheorem6 "Corollary 3.6. ‣ 3.3 Elementary consequences of a Siegel zero ‣ 3 Tools ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero") and ([2.17](https://arxiv.org/html/2109.06291#S2.E17 "In 2.4 Scales ‣ 2 Notation ‣ The Hardy–Littlewood–Chowla conjecture in the presence of a Siegel zero")).
+
+Now we prove ([4.5](https://arxiv.org/
+
+..._Content truncated_...

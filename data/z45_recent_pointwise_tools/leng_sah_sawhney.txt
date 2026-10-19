@@ -1,0 +1,17227 @@
+## Content from https://arxiv.org/html/2402.17994
+
+Title: Quasipolynomial bounds on the inverse theorem for the Gowers 𝑈^{𝑠+1}⁢[𝑁]-norm
+
+URL Source: https://arxiv.org/html/2402.17994
+
+Markdown Content:
+arXiv is now an independent nonprofit!
+Learn more
+×
+Back to arXiv
+Why HTML?
+Report Issue
+Back to Abstract
+Download PDF
+Abstract.
+1Introduction
+2Conventions on nilmanifolds
+3Various complexity notions
+4Proof outline
+5Efficient equidistribution theory of nilsequences
+6Setup for Sunflower and Linearization Iteration
+7On a Cauchy–Schwarz Argument of Gowers
+8Sunflower Step
+9Linearization Step
+10Setup for extracting a 
+(
+1
+,
+𝑠
+−
+1
+)
+-nilsequence
+11Extracting a 
+(
+1
+,
+𝑠
+−
+1
+)
+-nilsequence
+12Symmetrization argument
+AOn approximate homomorphisms
+BMiscellaneous deferred results
+CNilcharacters
+References
+License: arXiv.org perpetual non-exclusive license
+arXiv:2402.17994v3 [math.CO] 10 Aug 2024
+Quasipolynomial bounds on the inverse theorem for the Gowers 
+𝑈
+𝑠
++
+1
+​
+[
+𝑁
+]
+-norm
+James Leng
+Department of Mathematics, UCLA, Los Angeles, CA 90095, USA
+jamesleng@math.ucla.edu
+Ashwin Sah
+Mehtaab Sawhney
+Department of Mathematics, Massachusetts Institute of Technology, Cambridge, MA 02139, USA
+{asah,msawhney}@mit.edu
+Abstract.
+
+We prove quasipolynomial bounds on the inverse theorem for the Gowers 
+𝑈
+𝑠
++
+1
+​
+[
+𝑁
+]
+-norm. The proof is modeled after work of Green, Tao, and Ziegler and uses as a crucial input recent work of the first author regarding the equidistribution of nilsequences. In a companion paper, this result will be used to improve the bounds on Szemerédi’s theorem.
+
+1.Introduction
+
+We recall the definition of the Gowers 
+𝑈
+𝑠
+-norm on 
+ℤ
+/
+𝑁
+​
+ℤ
+ and 
+[
+𝑁
+]
+. Throughout we let 
+[
+𝑁
+]
+=
+{
+1
+,
+…
+,
+𝑁
+}
+.
+
+Definition 1.1.
+
+Given 
+𝑓
+:
+ℤ
+/
+𝑁
+​
+ℤ
+→
+ℂ
+ and 
+𝑠
+≥
+1
+, we define
+
+	
+∥
+𝑓
+∥
+𝑈
+𝑠
+​
+(
+ℤ
+/
+𝑁
+​
+ℤ
+)
+2
+𝑠
+=
+𝔼
+𝑥
+,
+ℎ
+1
+,
+…
+,
+ℎ
+𝑠
+∈
+ℤ
+/
+𝑁
+​
+ℤ
+​
+Δ
+ℎ
+1
+,
+…
+,
+ℎ
+𝑠
+​
+𝑓
+​
+(
+𝑥
+)
+	
+
+where 
+Δ
+ℎ
+​
+𝑓
+​
+(
+𝑥
+)
+=
+𝑓
+⁡
+(
+𝑥
+)
+​
+𝑓
+⁡
+(
+𝑥
++
+ℎ
+)
+¯
+ is the multiplicative discrete derivative (extended to lists by composition). Given a natural number 
+𝑁
+ and a function 
+𝑓
+:
+[
+𝑁
+]
+→
+ℂ
+, we choose a number 
+𝑁
+~
+≥
+2
+𝑠
+​
+𝑁
+ and define 
+𝑓
+~
+:
+ℤ
+/
+𝑁
+~
+​
+ℤ
+→
+ℂ
+ via 
+𝑓
+~
+​
+(
+𝑥
+)
+=
+𝑓
+​
+(
+𝑥
+)
+ for 
+𝑥
+∈
+[
+𝑁
+]
+ and 
+0
+ otherwise. Then
+
+	
+∥
+𝑓
+∥
+𝑈
+𝑠
+​
+[
+𝑁
+]
+:=
+∥
+𝑓
+~
+∥
+𝑈
+𝑠
+​
+(
+ℤ
+/
+𝑁
+~
+​
+ℤ
+)
+/
+∥
+𝟙
+[
+𝑁
+]
+∥
+𝑈
+𝑠
+​
+(
+ℤ
+/
+𝑁
+~
+​
+ℤ
+)
+.
+	
+Remark.
+
+This is known to be well-defined and independent of 
+𝑁
+~
+, and a norm if 
+𝑠
+≥
+2
+; see [27, Lemma B.5].
+
+Our main result is quasi-polynomial bounds on the inverse theorem for the Gowers 
+𝑈
+𝑠
++
+1
+-norm over the integers. This builds on earlier work [43, Section 8] of the first author which handled the case of the 
+𝑈
+4
+-norm.
+
+Theorem 1.2.
+
+Fix 
+𝛿
+∈
+(
+0
+,
+1
+/
+2
+)
+. Suppose that 
+𝑓
+:
+[
+𝑁
+]
+→
+ℂ
+ is 
+1
+-bounded and
+
+	
+∥
+𝑓
+∥
+𝑈
+𝑠
++
+1
+​
+[
+𝑁
+]
+≥
+𝛿
+.
+	
+
+Then there exists a nilmanifold 
+𝐺
+/
+Γ
+ of degree 
+𝑠
+, complexity at most 
+𝑀
+, and dimension at most 
+𝑑
+ as well as a function 
+𝐹
+ on 
+𝐺
+/
+Γ
+ which is at most 
+𝐾
+-Lipschitz such that
+
+	
+|
+𝔼
+𝑛
+∈
+[
+𝑁
+]
+​
+[
+𝑓
+⁡
+(
+𝑛
+)
+​
+𝐹
+⁡
+(
+𝑔
+⁡
+(
+𝑛
+)
+​
+Γ
+)
+¯
+]
+|
+≥
+𝜀
+,
+	
+
+where we may take
+
+	
+𝑑
+≤
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+𝑠
+​
+(
+1
+)
+​
+​
+𝑎
+​
+𝑛
+​
+𝑑
+​
+𝜀
+−
+1
+,
+𝐾
+,
+𝑀
+≤
+exp
+⁡
+(
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+𝑠
+​
+(
+1
+)
+)
+.
+	
+Remark.
+
+Throughout this paper, we will abusively write 
+log
+ for 
+max
+⁡
+(
+log
+⁡
+(
+⋅
+)
+,
+𝑒
+𝑒
+)
+; this is to avoid issues with small numbers.
+
+We have not formally defined a nilmanifold or notions of complexity; our definition is identical to that in work of Green and Tao [29] and will be recalled precisely in Sections 2 and 3.
+
+In the companion paper to this work [46], we will use Theorem 1.2 in order to improve the long standing bounds of Gowers [16, 18] on Szemerédi’s theorem.
+
+Theorem 1.3 (Theorem 1.1 in [46]).
+
+Let 
+𝑟
+𝑘
+​
+(
+𝑁
+)
+ denote the size of the largest 
+𝑆
+⊆
+[
+𝑁
+]
+ such that 
+𝑆
+ has no 
+𝑘
+-term arithmetic progressions. For 
+𝑘
+≥
+5
+, there is 
+𝑐
+𝑘
+∈
+(
+0
+,
+1
+)
+ such that
+
+	
+𝑟
+𝑘
+​
+(
+𝑁
+)
+≪
+𝑁
+​
+exp
+⁡
+(
+−
+(
+log
+⁡
+log
+⁡
+𝑁
+)
+𝑐
+𝑘
+)
+.
+	
+1.1.History and previous results
+
+A long standing conjecture of Erdős and Turán [13] stated that 
+𝑟
+𝑘
+​
+(
+𝑁
+)
+=
+𝑜
+​
+(
+𝑁
+)
+. In full generality, this conjecture remained open until a combinatorial tour de force of Szemerédi [54, 55] which established the Erdős and Turán conjecture.
+
+Theorem 1.4.
+
+For 
+𝑘
+≥
+3
+, we have that
+
+	
+𝑟
+𝑘
+​
+(
+𝑁
+)
+=
+𝑜
+𝑘
+​
+(
+𝑁
+)
+.
+	
+
+Due to uses of the van der Waerden theorem and the regularity lemma (which was introduced in this work), Szemerédi’s density saving over the trivial bound was exceedingly small. In particular, Szemerédi’s result provided no improvement on known bounds for van der Waerden’s theorem which was part of Erdős and Turán’s original motivation.
+
+The first result in the effort to prove reasonable bounds for 
+𝑟
+𝑘
+​
+(
+𝑁
+)
+, e.g. giving a density saving of at least a finite iterated logarithmic type, came from work of Roth [50] which proved
+
+	
+𝑟
+3
+​
+(
+𝑁
+)
+≪
+𝑁
+​
+(
+log
+⁡
+log
+⁡
+𝑁
+)
+−
+1
+.
+	
+
+Being based on Fourier analysis, the methods used in this paper did not obviously generalize to 
+𝑘
+≥
+4
+. An estimate for 
+𝑟
+𝑘
+​
+(
+𝑁
+)
+ which was “reasonable” would have to wait until pioneering work of Gowers [16, 18].
+
+The starting point of work of Gowers [16, 18] is noting via an iterative application of the Cauchy–Schwarz inequality that if a set 
+𝐴
+ of density 
+𝛿
+ in 
+[
+𝑁
+]
+ has no 
+(
+𝑠
++
+2
+)
+-term arithmetic progressions then 
+∥
+𝑓
+∥
+𝑈
+𝑠
++
+1
+​
+[
+𝑁
+]
+≥
+𝛿
+𝑂
+𝑠
+​
+(
+1
+)
+ where 
+𝑓
+ is a shifted indicator function of the set. In doing so, Gowers provided the correct notion of “psuedorandomness” generalizing Fourier coefficients which was suitable for understanding arithmetic patterns in subsets of the integers and therefore created “higher order Fourier analysis”. The key technical ingredient in work of Gowers was a certain “local inverse theorem” for the 
+𝑈
+𝑠
++
+1
+​
+[
+𝑁
+]
+-norm. Gowers proved that given a 
+1
+-bounded function 
+𝑓
+ such that 
+∥
+𝑓
+∥
+𝑈
+𝑠
++
+1
+​
+[
+𝑁
+]
+≥
+𝛿
+, there exists a decomposition of 
+[
+𝑁
+]
+ into arithmetic progressions of length roughly 
+𝑁
+𝑐
+𝑠
+ and a 
+1
+-bounded function 
+𝑔
+ which is constant along these arithmetic progressions such that
+
+	
+𝔼
+𝑥
+∈
+[
+𝑁
+]
+​
+𝑓
+​
+(
+𝑥
+)
+​
+𝑔
+⁡
+(
+𝑥
+)
+¯
+≥
+𝛿
+𝑂
+𝑠
+​
+(
+1
+)
+;
+	
+
+i.e., 
+𝑓
+ correlates with 
+𝑔
+. This result, coupled with the density increment strategy as introduced by Roth [50], provided the bound
+
+	
+𝑟
+𝑘
+​
+(
+𝑁
+)
+≪
+𝑁
+​
+(
+log
+⁡
+log
+⁡
+𝑁
+)
+−
+𝑐
+𝑘
+	
+
+for Szemerédi’s theorem. These bounds have remained the best known for general 
+𝑘
+ until this work. For the sake of comparison, a long sequence of works have attacked the special case of 
+𝑘
+=
+3
+, culminating in a recent breakthrough work of Kelley and Meka [41] which proved
+
+	
+𝑟
+3
+​
+(
+𝑁
+)
+≪
+𝑁
+​
+exp
+⁡
+(
+−
+𝑐
+​
+(
+log
+⁡
+𝑁
+)
+1
+/
+12
+)
+;
+	
+
+the constant 
+1
+/
+12
+ was refined to 
+1
+/
+9
+ in work of Bloom and Sisask [5]. The only other improvements to the bound of Gowers were due to works of Green and Tao [25, 30] which ultimately established that
+
+	
+𝑟
+4
+​
+(
+𝑁
+)
+≪
+𝑁
+​
+(
+log
+⁡
+𝑁
+)
+−
+𝑐
+,
+	
+
+and very recent work of the authors [45] which handled the case 
+𝑘
+=
+5
+ of Theorem 1.3.
+
+Notice however that the “local inverse theorem” of Gowers only gives correlations on arithmetic progressions of length 
+𝑁
+𝑐
+𝑠
+ and that the converse of this result is not true. In particular, a function may have small 
+𝑈
+𝑠
++
+1
+​
+[
+𝑁
+]
+-norm and still correlate with a function which is constant on progressions of length 
+𝑁
+𝑐
+𝑠
+. To construct such an example, break 
+[
+𝑁
+]
+ into consecutive segments of length 
+𝑁
+ and include each segment with probability 
+1
+/
+2
+; while this set with high probability has large “local correlations” it has polynomially small Gowers norm. To obtain a full inverse result (analogous to the quality of Freiman’s theorem, say), one must carefully pin down the global structure as well. Such a task is not straightforward, since the natural generalization of Fourier characters to exponentials of polynomials does not suffice.
+
+A crucial development in the theory towards the inverse conjecture for the Gowers norm was the discovery of the role of nilpotent Lie groups. In groundbreaking work, Furstenberg [14] gave an alternate proof of Szemerédi based on ergodic theory; this work naturally led to seeking to understand certain nonconventional ergodic averages. In works of Conze and Lesigne [11] and Furstenberg and Weiss [15] regarding nonconventional ergodic averages, nilmanifolds 
+𝐺
+/
+Γ
+ where 
+𝐺
+ is nilpotent and 
+Γ
+ is a discrete cocompact subgroup were brought to the forefront. Host and Kra [38] and independently Ziegler [62], proved convergence of such nonconventional ergodic averages. Crucial to these works was establishing that such averages are controlled by projections on certain characteristic factors which naturally give rise to nilmanifolds. The role of nilsequences (derived from polynomial sequences on nilmanifolds) was further highlighted in work of Bergelson, Host, and Kra [3].
+
+The statement of the inverse conjecture (without the given quantification) we will prove was first formulated in work of Green and Tao [27]. Conditional on this inverse conjecture and that the Möbius function does not correlate with nilsequences, Green and Tao were able to prove asymptotic counts for all linear patterns in the primes of “finite complexity”, vastly generalizing the celebrated Green–Tao theorem [24]. Both of these conjectures were resolved; the second being resolved in work of Green and Tao [28] while the first was resolved in work of Green, Tao, and Ziegler [34]. We remark the cases 
+𝑠
+=
+2
+ and 
+𝑠
+=
+3
+ of the inverse conjecture were proven earlier by Green and Tao [23] and Green, Tao, and Ziegler [32] respectively. A crucial ingredient in the cases 
+𝑠
+≥
+3
+ was work of Green and Tao [29] on the equidistribution behavior of polynomial orbits on nilmanifolds. An alternative approach to the inverse conjecture was initiated by Szegedy [53], involving the development of the theory of nilspaces by Camarena and Szegedy [6]; a detailed treatment of these papers was given by Candela [8, 7]. This nilspace approach has been further developed in works of Gutman, Manners, and Varjú[36, 35, 37]. Both of these approaches to the inverse theorem, however, at least formally, gave no bounds on the complexity or dimension of the nilsequences with which the function correlates in the cases 
+𝑠
+≥
+4
+. A third approach due to Manners [47] will be discussed later in this section.
+
+We remark that the study of the inverse conjecture for the Gowers norm makes sense beyond the setting of functions on the interval or on the cyclic group 
+ℤ
+/
+𝑁
+​
+ℤ
+. Work of Bergelson, Tao, and Ziegler [4] and Tao and Ziegler [59, 60] resolved the analogue of the inverse conjecture for the Gowers norm over 
+𝔽
+𝑝
+𝑛
+. Candela and Szegedy [10] gave a version of the inverse conjecture for the Gowers norm over all compact abelian groups. This final work falls within the context of giving proofs which, broadly speaking, attempt to handle various abelian groups in a uniform manner. There has been substantial further work in this rough direction including works of Jamneshan and Tao [40], Jamneshan, Shalom, and Tao [39], and Candela, González-Sánchez, and Szegedy [9].
+
+The inverse theorem has had numerous further applications within additive combinatorics; we highlight just two. First, Tao and Ziegler [61] gave an asymptotic for the number of polynomial patterns 
+𝑥
++
+𝑃
+1
+​
+(
+𝑦
+)
+,
+…
+,
+𝑥
++
+𝑃
+𝑗
+​
+(
+𝑦
+)
+ in the primes where 
+𝑃
+1
+​
+(
+0
+)
+=
+⋯
+=
+𝑃
+𝑗
+​
+(
+0
+)
+=
+0
+ with top degree terms 
+𝑃
+1
+,
+…
+,
+𝑃
+𝑗
+ being distinct. Second, works of Green and Tao [26] and Altman [2, 1] used the inverse conjecture in combination with an arithmetic regularity lemma to establish the true complexity conjectures of Gowers and Wolf [21].
+
+Due to its importance in the theory of additive patterns, establishing quantitative bounds on the inverse theorem for the Gowers norm has been seen as a central problem in additive combinatorics, with Green suggesting it as “perhaps the biggest open question in the subject” [22, Problem 56]. For the case of 
+𝑠
+=
+2
+, work of Green and Tao [23] gave quantitative bounds for the inverse theorem over the integers and work of Sanders [51] combined with the strategy in [23] proves Theorem 1.2 for the case of 
+𝑠
+=
+2
+. For general 
+𝑠
+, until roughly five years ago no quantitative bounds were known for the inverse theorem and this was considered a major open problem. This state of affairs was substantially improved in remarkable work of Manners [47] which proves a version of the inverse theorem where, in the notation of Theorem 1.2,
+
+	
+𝑑
+≤
+𝛿
+−
+𝑂
+𝑠
+​
+(
+1
+)
+​
+ and 
+​
+𝜀
+−
+1
+,
+𝐾
+,
+𝑀
+≤
+exp
+⁡
+(
+exp
+⁡
+(
+𝛿
+−
+𝑂
+𝑠
+​
+(
+1
+)
+)
+)
+.
+	
+
+This result was subsequently used as a crucial input in work of Tao and Teräväinen [57] to give an effective result for the counts of linear equations in the primes. We remark that a quantitative version of the inverse conjecture over finite fields of high characteristic was proven in work of Gowers and Milićević [20, 19].
+
+At the highest level, the quantitative proofs of Manners [47] and Gowers and Milićević [20, 19] examine when the iterated derivatives of a function are 
+0
+ with positive probability. Deriving useful information from this hypothesis over finite fields and the integers are very different problems but fundamentally one glues information from higher derivatives together into information regarding lower derivatives iteratively.
+
+Our proof instead operates via induction on 
+𝑠
+ and attempts to glue degree 
+(
+𝑠
+−
+1
+)
+ nilmanifolds into a degree 
+𝑠
+ one exactly as in work of Green, Tao, and Ziegler [34]. Our proof in fact is very closely modeled on their work and borrows large sections of their work essentially verbatim. In fact, we believe that the proof in [34], if appropriately quantified, itself yields a bound involving 
+𝑂
+⁡
+(
+𝑠
+2
+)
+ many iterated exponentials. The primary improvement of our proof over theirs stems from the use of improved quantitative equidistribution results on nilmanifolds [43, 42] rather than the results of [29]. The reason we obtain quasi-polynomial bounds is that our proof, even though it inducts on 
+𝑠
+, gives quasi-polynomial bounds for each step of the induction. Since an iterated composition of finitely many quasi-polynomial functions is still quasi-polynomial, it follows that our bounds should remain quasi-polynomial. In contrast, we believe that the proof in [34], appropriately quantified, results in adding 
+𝑂
+⁡
+(
+𝑡
+)
+ iterated exponentials in each step 
+𝑡
+ of the induction, which when iterated totals 
+𝑂
+⁡
+(
+𝑠
+2
+)
+ iterated exponentials. Here the results of [43, 42] play a crucial role in eliminating the logarithms accumulated in the induction step. We further remark that the case 
+𝑠
+=
+3
+ of the main theorem (e.g. the 
+𝑈
+4
+-inverse theorem) of the strength in Theorem 1.2 was proven earlier by the first author in [43, Section 8] and may useful stepping stone for reading this paper (although this paper is logically independent).
+
+1.2.Organization of the paper I
+
+We briefly discuss the next three sections of the paper. In Section 2, we define a number of basic notions regarding nilmanifold and set various conventions which will be used throughout the paper. Our conventions differ in various extremely minor ways from those in the work of Green, Tao, and Ziegler [34] but we record them explicitly to recall a number of definitions which will be used throughout the paper. In Section 3, we set various complexity notions that will be given throughout the paper. In the case of nilmanifolds which are given a degree filtration (as is the case in Theorem 1.2), our conventions match those of Green and Tao [29]. Given these notions in hand, we will be in position to outline the main proof in greater detail in Section 4.
+
+Acknowledgements
+
+The first author thanks Terence Tao for advisement. The authors thank Ben Green and Terence Tao for useful discussions regarding [34, 31]. The authors are grateful to Dan Altman, Ben Green, and Zach Hunter for comments. Finally the authors are especially grateful to Sarah Peluse for exceptionally detailed and useful comments on the manuscript.
+
+2.Conventions on nilmanifolds
+
+We will recall a large portion of setup regarding nilsequences. In order to discuss this in a quantitative manner, various complexity notions are required which are formally defined in Section 3. This section contains little more than bare definitions; a number of these concepts are developed and motivated in a beautiful manner in [34, Section 6].
+
+2.1.Basic group theory
+
+We briefly record various basic group theory notations which will be used throughout the paper; our notation is identical to that of [34, Section 3].
+
+Given a group 
+𝐺
+ and a subset 
+𝐴
+, we define 
+⟨
+𝐴
+⟩
+ to be the subgroup generated by the subset 
+𝐴
+. Given a collection of subgroups 
+(
+𝐻
+𝑖
+)
+𝑖
+∈
+𝐼
+ in 
+𝐺
+, we define 
+⋁
+𝑖
+∈
+𝐼
+𝐻
+𝑖
+ to be the smallest subgroup containing all the 
+𝐻
+𝑖
+. Given 
+ℎ
+,
+𝑘
+∈
+𝐺
+, we denote the commutator of 
+ℎ
+ and 
+𝑘
+ to be
+
+	
+[
+ℎ
+,
+𝑘
+]
+=
+ℎ
+−
+1
+​
+𝑘
+−
+1
+​
+ℎ
+​
+𝑘
+.
+	
+
+Given a sequence of elements 
+𝑔
+1
+,
+…
+,
+𝑔
+𝑟
+∈
+𝐺
+, we define the set of 
+(
+𝑟
+−
+1
+)
+-fold commutators inductively. The 
+0
+-fold commutators of the set 
+𝑔
+𝑖
+ is simply 
+𝑔
+𝑖
+. For 
+𝑟
+>
+1
+, an 
+(
+𝑟
+−
+1
+)
+-fold commutator is 
+[
+𝑤
+,
+𝑤
+′
+]
+ where 
+𝑤
+ and 
+𝑤
+′
+ are 
+(
+𝑠
+−
+1
+)
+-fold and 
+(
+𝑠
+′
+−
+1
+)
+-fold commutators of 
+𝑔
+𝑖
+1
+,
+…
+,
+𝑔
+𝑖
+𝑠
+ and 
+𝑔
+𝑖
+1
+′
+,
+…
+,
+𝑔
+𝑖
+𝑠
+′
+′
+ respectively with 
+{
+𝑖
+1
+,
+…
+,
+𝑖
+𝑠
+}
+∪
+{
+𝑖
+1
+′
+,
+…
+,
+𝑖
+𝑠
+′
+′
+}
+=
+{
+1
+,
+…
+,
+𝑟
+}
+ and 
+𝑠
++
+𝑠
+′
+=
+𝑟
+. For instance, 
+[
+[
+𝑔
+3
+,
+𝑔
+4
+]
+,
+[
+𝑔
+1
+,
+𝑔
+2
+]
+]
+ and 
+[
+𝑔
+1
+,
+[
+𝑔
+3
+,
+[
+𝑔
+2
+,
+𝑔
+4
+]
+]
+]
+ are 
+3
+-fold commutators of 
+𝑔
+1
+, 
+𝑔
+2
+, 
+𝑔
+3
+, and 
+𝑔
+4
+.
+
+We let 
+𝐻
+⩽
+𝐺
+ denote that 
+𝐻
+ is a subgroup of 
+𝐺
+. Given 
+𝐻
+,
+𝐾
+⩽
+𝐺
+, we denote the commutator subgroup
+
+	
+[
+𝐻
+,
+𝐾
+]
+=
+⟨
+[
+ℎ
+,
+𝑘
+]
+:
+ℎ
+∈
+𝐻
+,
+𝑘
+∈
+𝐾
+⟩
+.
+	
+
+The following pair of elementary lemmas will be used throughout the paper to verify various commutator identities; the first is [34, Lemma 3.1].
+
+Lemma 2.1.
+
+Let 
+𝐻
+=
+⟨
+𝐴
+⟩
+ and 
+𝐾
+=
+⟨
+𝐵
+⟩
+ be normal subgroups of a nilpotent group 
+𝐺
+. Then 
+[
+𝐻
+,
+𝐾
+]
+ is also normal and is generated by the 
+(
+𝑖
++
+𝑗
+−
+1
+)
+-fold iterated commutators of 
+𝑎
+1
+,
+…
+,
+𝑎
+𝑖
+,
+𝑏
+1
+,
+…
+,
+𝑏
+𝑗
+ over all choices of 
+𝑎
+1
+,
+…
+,
+𝑎
+𝑖
+∈
+𝐴
+, 
+𝑏
+1
+,
+…
+,
+𝑏
+𝑗
+∈
+𝐵
+ and 
+𝑖
+,
+𝑗
+≥
+1
+.
+
+This implies (see [34, p. 1242]) that for families 
+(
+𝐻
+𝑖
+)
+𝑖
+∈
+𝐼
+, 
+(
+𝐾
+𝑗
+)
+𝑗
+∈
+𝐽
+ which are normal in a nilpotent group 
+𝐺
+,
+
+	
+[
+⋁
+𝑖
+∈
+𝐼
+𝐻
+𝑖
+,
+⋁
+𝑗
+∈
+𝐽
+𝐾
+𝑗
+]
+=
+⋁
+𝑖
+∈
+𝐼
+,
+𝑗
+∈
+𝐽
+[
+𝐻
+𝑖
+,
+𝐾
+𝑗
+]
+.
+	
+
+We next require that normality and various filtration conditions can be checked at the level of generators.
+
+Lemma 2.2.
+
+Suppose 
+𝐾
+⩽
+𝐻
+ with 
+𝐻
+=
+⟨
+𝐴
+⟩
+,
+𝐾
+=
+⟨
+𝐵
+⟩
+ where 
+𝐴
+=
+𝐴
+−
+1
+ and 
+𝐵
+=
+𝐵
+−
+1
+. Then:
+
+• 
+
+If 
+[
+𝑎
+,
+𝑏
+]
+∈
+𝐾
+ for all 
+𝑎
+∈
+𝐴
+ and 
+𝑏
+∈
+𝐵
+ then 
+𝐾
+ is normal in 
+𝐻
+.
+
+• 
+
+Suppose 
+𝐿
+⩽
+𝐾
+∩
+𝐻
+ is a normal subgroup with respect to both 
+𝐾
+ and 
+𝐻
+, and suppose for 
+𝑎
+∈
+𝐴
+, 
+𝑏
+∈
+𝐵
+, we have 
+[
+𝑎
+,
+𝑏
+]
+∈
+𝐿
+. Then 
+[
+𝐻
+,
+𝐾
+]
+⩽
+𝐿
+.
+
+Remark.
+
+Suppose we wish to prove that 
+(
+𝐺
+𝑖
+)
+𝑖
+∈
+𝐼
+ forms an 
+𝐼
+-filtration (see Definition 2.3). This lemma implies that it suffices to check the commutator filtration conditions simply at the level of generators: if for each 
+𝑖
+,
+𝑗
+∈
+𝐼
+ we know 
+[
+𝑔
+𝑖
+,
+𝑔
+𝑗
+]
+∈
+𝐺
+𝑖
++
+𝑗
+ for all generators 
+𝑔
+𝑖
+ for 
+𝐺
+𝑖
+ and 
+𝑔
+𝑗
+ for 
+𝐺
+𝑗
+, then we can deduce that 
+𝐺
+𝑖
++
+𝑗
+ is normal in 
+𝐺
+𝑖
+ using the first bullet point above, and then deduce that 
+[
+𝐺
+𝑖
+,
+𝐺
+𝑗
+]
+⩽
+𝐺
+𝑖
++
+𝑗
+ using the second bullet point above.
+
+Proof.
+
+For 
+𝑎
+∈
+𝐴
+,
+𝑏
+∈
+𝐵
+ we have 
+[
+𝑎
+,
+𝑏
+]
+∈
+𝐾
+ hence 
+𝑎
+−
+1
+​
+𝑏
+−
+1
+​
+𝑎
+∈
+𝐾
+. Since 
+𝐵
+=
+𝐵
+−
+1
+ generates 
+𝐾
+, we find 
+𝑎
+−
+1
+​
+𝐾
+​
+𝑎
+⩽
+𝐾
+. Since 
+𝐴
+ generates 
+𝐻
+, we deduce that 
+𝐾
+ is normal in 
+𝐻
+.
+
+For the second item, note that
+
+	
+[
+𝑥
+​
+𝑦
+,
+𝑧
+]
+=
+𝑦
+−
+1
+​
+[
+𝑥
+,
+𝑧
+]
+​
+𝑦
+⋅
+[
+𝑦
+,
+𝑧
+]
+​
+ and 
+​
+[
+𝑥
+,
+𝑧
+​
+𝑦
+]
+=
+[
+𝑥
+,
+𝑦
+]
+⋅
+𝑦
+−
+1
+​
+[
+𝑥
+,
+𝑧
+]
+​
+𝑦
+.
+	
+
+Repeatedly expanding 
+[
+ℎ
+,
+𝑘
+]
+ for 
+ℎ
+∈
+𝐻
+,
+𝑘
+∈
+𝐾
+ into generators proves the result. ∎
+
+Finally, and most importantly, we will require the following versions of the Baker–Campbell–Hausdorff formula (see [34, (3.2)]). Given 
+𝑔
+1
+,
+𝑔
+2
+ in a nilpotent group 
+𝐺
+ and 
+𝑛
+1
+,
+𝑛
+2
+∈
+ℕ
+, we have
+
+(2.1)		
+𝑔
+1
+𝑛
+1
+​
+𝑔
+2
+𝑛
+2
+=
+𝑔
+2
+𝑛
+2
+​
+𝑔
+1
+𝑛
+1
+​
+∏
+𝑎
+𝑔
+𝑎
+𝑃
+𝑎
+​
+(
+𝑛
+1
+,
+𝑛
+2
+)
+	
+
+where 
+𝑔
+𝑎
+ ranges over all iterated commutators of 
+𝑔
+1
+ and 
+𝑔
+2
+ with at least 
+1
+ copy of each and 
+𝑃
+𝑎
+​
+(
+𝑛
+1
+,
+𝑛
+2
+)
+:
+ℤ
+×
+ℤ
+→
+ℤ
+ is a polynomial in 
+𝑛
+1
+ and 
+𝑛
+2
+. Furthermore if 
+𝑔
+𝑎
+ involves 
+𝑑
+1
+ copies of 
+𝑔
+1
+ and 
+𝑑
+2
+ copies of 
+𝑔
+2
+ we have that 
+𝑃
+𝑎
+ has degree at most 
+𝑑
+1
+ in 
+𝑛
+1
+ and degree at most 
+𝑑
+2
+ in 
+𝑛
+2
+. Here the 
+𝑎
+ have been ordered in some arbitrary manner.
+
+If 
+𝐺
+ is a connected, simply connected nilpotent Lie group, then we denote the Lie algebra of 
+𝐺
+ as 
+log
+⁡
+𝐺
+ and let 
+exp
+:
+log
+⁡
+𝐺
+→
+𝐺
+ denote the exponential map while 
+log
+:
+𝐺
+→
+log
+⁡
+𝐺
+ is the inverse (the exponential map being a homeomorphism in this situation). When we refer to nilpotent Lie groups, they will henceforth be connected and simply connected. For 
+𝑔
+∈
+𝐺
+ and 
+𝑡
+∈
+ℝ
+, we define
+
+	
+𝑔
+𝑡
+=
+exp
+⁡
+(
+𝑡
+​
+log
+⁡
+𝑔
+)
+.
+	
+
+The Baker–Campbell–Hausdorff formula also implies that
+
+	
+exp
+⁡
+(
+𝑡
+1
+​
+log
+⁡
+𝑔
+1
++
+𝑡
+2
+​
+log
+⁡
+𝑔
+2
+)
+=
+𝑔
+1
+𝑡
+1
+​
+𝑔
+2
+𝑡
+2
+​
+∏
+𝑎
+𝑔
+𝑎
+𝑅
+𝑎
+​
+(
+𝑡
+1
+,
+𝑡
+2
+)
+	
+
+where 
+𝑔
+𝑎
+ ranges over all iterated commutators of 
+𝑔
+1
+ and 
+𝑔
+2
+ with at least 
+1
+ copy of each and 
+𝑅
+𝑎
+ is a polynomial with rational coefficients satisfying identical degree constraints to 
+𝑃
+𝑎
+. Finally we require the following, most standard version, of the Baker–Campbell–Hausdorff formula which states that if 
+𝑋
+,
+𝑌
+∈
+log
+⁡
+𝐺
+, then
+
+	
+exp
+⁡
+(
+𝑋
+)
+​
+exp
+⁡
+(
+𝑌
+)
+=
+exp
+⁡
+(
+𝑋
++
+𝑌
++
+1
+2
+​
+[
+𝑋
+,
+𝑌
+]
++
+⋯
+)
+	
+
+where the remaining terms in the expansion are iterated commutators in 
+𝑋
+ and 
+𝑌
+ with all higher terms having at least one “copy” of 
+𝑋
+ and 
+𝑌
+ within them. In particular, this implies that
+
+(2.2)		
+exp
+⁡
+(
+−
+𝑋
+)
+​
+exp
+⁡
+(
+−
+𝑌
+)
+​
+exp
+⁡
+(
+𝑋
+)
+​
+exp
+⁡
+(
+𝑌
+)
+=
+exp
+⁡
+(
+[
+𝑋
+,
+𝑌
+]
++
+⋯
+)
+	
+
+where are all higher order terms have at least one copy of 
+𝑋
+ and 
+𝑌
+ in them and are 
+𝑟
+-fold commutators with 
+𝑟
+≥
+3
+. In all versions of Baker–Campbell–Hausdorff, it is important for us that nilpotency means these expressions are finite.
+
+2.2.Filtrations
+
+We next require the notion of an ordering and an associated filtration (see [34, Definition 6.7]).
+
+Definition 2.3.
+
+An ordering 
+𝐼
+=
+(
+𝐼
+,
+⪯
+,
++
+,
+0
+)
+ is a set 
+𝐼
+ with a distinguished element 
+0
+, binary operation 
++
+:
+𝐼
+×
+𝐼
+→
+𝐼
+, and a partial order 
+⪯
+ on 
+𝐼
+ such that
+
+• 
+
++
+ is associative and commutative with 
+0
+ acting as an identity element;
+
+• 
+
+⪯
+ has 
+0
+ as the minimal element;
+
+• 
+
+For all 
+𝑖
+,
+𝑗
+,
+𝑘
+∈
+𝐼
+, if 
+𝑖
+⪯
+𝑗
+ then 
+𝑖
++
+𝑘
+⪯
+𝑗
++
+𝑘
+;
+
+• 
+
+The initial segments 
+{
+𝑖
+∈
+𝐼
+:
+𝑖
+⪯
+𝑑
+}
+ are finite for all 
+𝑑
+.
+
+We define the following three orderings, with addition being the standard addition:
+
+• 
+
+The degree ordering is given by the standard ordering on 
+ℕ
+, denoted 
+𝐼
+=
+ℕ
+ for short;
+
+• 
+
+The degree-rank ordering is given by 
+{
+(
+𝑑
+,
+𝑟
+)
+∈
+ℕ
+2
+:
+0
+≤
+𝑟
+≤
+𝑑
+}
+ with the ordering that 
+(
+𝑑
+′
+,
+𝑟
+′
+)
+⪯
+(
+𝑑
+,
+𝑟
+)
+ if 
+𝑑
+′
+<
+𝑑
+ or 
+𝑑
+′
+=
+𝑑
+ and 
+𝑟
+′
+≤
+𝑟
+, denoted 
+𝐼
+=
+DR
+ for short;
+
+• 
+
+The multidegree ordering is given by 
+ℕ
+𝑘
+ with 
+(
+𝑖
+1
+′
+,
+…
+,
+𝑖
+𝑘
+′
+)
+⪯
+(
+𝑖
+1
+,
+…
+,
+𝑖
+𝑘
+)
+ when 
+𝑖
+𝑗
+′
+≤
+𝑖
+𝑗
+ for all 
+1
+≤
+𝑗
+≤
+𝑘
+, denoted 
+𝐼
+=
+ℕ
+𝑘
+ for short.
+
+An 
+𝐼
+-filtration of 
+𝐺
+ is a collection of subgroups 
+𝐺
+𝐼
+=
+(
+𝐺
+𝑖
+)
+𝑖
+∈
+𝐼
+ such that 
+𝐺
+0
+=
+𝐺
+ and:
+
+• 
+
+(Nesting) If 
+𝑖
+,
+𝑗
+∈
+𝐼
+ are such that 
+𝑖
+⪯
+𝑗
+ then 
+𝐺
+𝑖
+⩾
+𝐺
+𝑗
+;
+
+• 
+
+(Commutator) For 
+𝑖
+,
+𝑗
+∈
+𝐼
+, we have 
+[
+𝐺
+𝑖
+,
+𝐺
+𝑗
+]
+⩽
+𝐺
+𝑖
++
+𝑗
+.
+
+We say that a filtered group 
+𝐺
+ has degree 
+≤
+𝑑
+ (for 
+𝑑
+∈
+𝐼
+) if 
+𝐺
+𝑖
+ is trivial for 
+𝑖
+⋠
+𝑑
+. 
+𝐺
+ has degree 
+⊆
+𝐽
+ for a downset 
+𝐽
+ if 
+𝐺
+𝑖
+ is trivial whenever 
+𝑖
+∉
+𝐽
+.
+
+Note that the commutator condition implies nested subgroups are normal within each other. We next define degree, degree-rank, and multidegree filtrations.
+
+Definition 2.4.
+
+Given 
+𝑑
+∈
+ℕ
+, we say a group 
+𝐺
+ is given a degree filtration of degree 
+𝑑
+ if:
+
+• 
+
+𝐺
+ is given a 
+ℕ
+-filtration 
+(
+𝐺
+𝑖
+)
+𝑖
+∈
+ℕ
+ with degree 
+≤
+𝑑
+;
+
+• 
+
+𝐺
+0
+=
+𝐺
+1
+.
+
+Given 
+(
+𝑑
+,
+𝑟
+)
+∈
+ℕ
+2
+ with 
+0
+≤
+𝑟
+≤
+𝑑
+, 
+𝐺
+ is given a degree-rank filtration of degree-rank 
+(
+𝑑
+,
+𝑟
+)
+ if:
+
+• 
+
+𝐺
+ is given a 
+DR
+-filtration 
+(
+𝐺
+𝑖
+)
+𝑖
+∈
+DR
+ with degree 
+≤
+(
+𝑑
+,
+𝑟
+)
+;
+
+• 
+
+𝐺
+(
+0
+,
+0
+)
+=
+𝐺
+(
+1
+,
+0
+)
+ and 
+𝐺
+(
+𝑖
+,
+0
+)
+=
+𝐺
+(
+𝑖
+,
+1
+)
+ for 
+𝑖
+≥
+1
+. (We also let 
+𝐺
+(
+𝑖
+,
+𝑗
+)
+=
+𝐺
+(
+𝑖
++
+1
+,
+0
+)
+ for 
+𝑗
+>
+𝑖
+.)
+
+The associated degree filtration with respect to this degree-rank filtration is 
+(
+𝐺
+(
+𝑖
+,
+0
+)
+)
+𝑖
+≥
+0
+.
+
+Given 
+(
+𝑑
+1
+,
+…
+,
+𝑑
+𝑘
+)
+∈
+ℕ
+𝑘
+, 
+𝐺
+ is given a multidegree filtration of multidegree 
+𝐽
+ (where 
+𝐽
+⊆
+ℕ
+𝑘
+ is a downset) if:
+
+• 
+
+𝐺
+ is given a 
+ℕ
+𝑘
+-filtration 
+(
+𝐺
+𝑖
+)
+𝑖
+∈
+ℕ
+𝑘
+ with degree 
+⊆
+𝐽
+;
+
+• 
+
+𝐺
+0
+→
+=
+⋁
+𝑖
+=
+1
+𝑘
+𝐺
+𝑒
+𝑖
+→
+.
+
+The associated degree filtration with respect to the multidegree filtration is 
+(
+⋁
+|
+𝑖
+→
+|
+=
+𝑖
+𝐺
+𝑖
+→
+)
+𝑖
+≥
+0
+. Here 
+|
+𝑖
+→
+|
+=
+𝑖
+1
++
+…
++
+𝑖
+𝑘
+.
+
+Remark.
+
+This definition imposes some additional equalities of subgroups in order to say a group is given a degree-rank filtration versus a 
+DR
+-filtration (for example). In particular, the concept of “degree-rank” filtration and 
+DR
+-filtration are distinct. The difference is minor, but causes a number of technical checks to be required, most notably in Appendix C. We will almost exclusively operate with these additional conditions; this is so that we can invoke equidistribution theory safely.
+
+We now define polynomial sequences of an 
+𝐼
+-filtered group. The notion of a polynomial sequence for a group 
+𝐺
+ given a degree-rank filtration will be the same as treating this ordering as a 
+DR
+-filtration; the same applies for degree and multidegree filtrations.
+
+Definition 2.5.
+
+Given 
+𝑔
+:
+𝐻
+→
+𝐺
+ a map between groups (not necessarily a homomorphism) and 
+ℎ
+∈
+𝐻
+, we define the derivative 
+∂
+ℎ
+𝑔
+:
+𝐻
+→
+𝐺
+ via 
+∂
+ℎ
+𝑔
+⁡
+(
+𝑛
+)
+=
+𝑔
+⁡
+(
+ℎ
+​
+𝑛
+)
+​
+𝑔
+​
+(
+𝑛
+)
+−
+1
+ for all 
+𝑛
+∈
+𝐻
+. If 
+𝐻
+,
+𝐺
+ are 
+𝐼
+-filtered, we say that this map 
+𝑔
+ is polynomial if for all 
+𝑚
+≥
+0
+ and 
+𝑖
+1
+,
+…
+,
+𝑖
+𝑚
+∈
+𝐼
+, we have
+
+	
+∂
+ℎ
+1
+⋯
+∂
+ℎ
+𝑚
+𝑔
+(
+𝑛
+)
+∈
+𝐺
+𝑖
+1
++
+⋯
++
+𝑖
+𝑚
+	
+
+for all choices of 
+ℎ
+𝑗
+∈
+𝐻
+𝑖
+𝑗
+ and 
+𝑛
+∈
+𝐻
+0
+. The space of all polynomial maps with respect to this data is denoted 
+poly
+⁡
+(
+𝐻
+𝐼
+→
+𝐺
+𝐼
+)
+.
+
+We will require various general properties of polynomial sequences established in [34, Appendix B]. We will only consider 
+𝐻
+=
+ℤ
+𝑘
+ for 
+𝑘
+≥
+1
+ and the following 
+𝐼
+-filtrations on 
+𝐻
+.
+
+Definition 2.6.
+
+We define the following filtrations on 
+𝐻
+=
+ℤ
+𝑘
+:
+
+• 
+
+The (domain) degree filtration is with 
+𝐼
+=
+ℕ
+ the degree ordering and 
+𝐻
+0
+=
+𝐻
+1
+=
+ℤ
+𝑘
+, and 
+𝐻
+𝑖
+=
+{
+0
+}
+ for 
+𝑖
+≥
+2
+;
+
+• 
+
+The (domain) multidegree filtration is with 
+𝐼
+=
+ℕ
+𝑘
+ the multidegree ordering, 
+𝐻
+0
+→
+=
+ℤ
+𝑘
+, 
+𝐻
+𝑒
+→
+𝑖
+=
+ℤ
+​
+𝑒
+→
+𝑖
+ for 
+𝑖
+∈
+[
+𝑘
+]
+, and 
+𝐻
+𝑣
+→
+=
+{
+0
+}
+ otherwise, where 
+𝑒
+→
+𝑖
+ forms the standard basis of 
+ℤ
+𝑘
+;
+
+• 
+
+The (domain) degree-rank filtration is with 
+𝐼
+=
+DR
+ the degree-rank ordering and 
+𝐻
+(
+0
+,
+0
+)
+=
+𝐻
+(
+1
+,
+0
+)
+=
+ℤ
+𝑘
+ and 
+𝐻
+(
+𝑑
+,
+𝑟
+)
+=
+{
+0
+}
+ otherwise.
+
+We now define the notion of a nilmanifold, which is essentially a compact quotient of a filtered nilpotent Lie group.
+
+Definition 2.7.
+
+We define an 
+𝐼
+-filtered nilmanifold 
+𝐺
+/
+Γ
+ to be the data of a connected, simply connected nilpotent Lie group 
+𝐺
+ with 
+𝐼
+-filtration (of Lie subgroups) and discrete cocompact subgroup 
+Γ
+⩽
+𝐺
+ which is rational with respect to 
+𝐺
+𝐼
+ (i.e., 
+Γ
+𝑖
+:=
+Γ
+∩
+𝐺
+𝑖
+ is cocompact in 
+𝐺
+𝑖
+ for all 
+𝑖
+∈
+𝐼
+). We say it has degree 
+≤
+𝑑
+ or 
+⊆
+𝐽
+ if 
+𝐺
+ has degree 
+≤
+𝑑
+ or 
+⊆
+𝐽
+.
+
+If 
+𝐼
+=
+ℕ
+ and the 
+𝐼
+-filtration is furthermore a degree filtration with degree 
+≤
+𝑑
+, then 
+𝐺
+/
+Γ
+ is a degree 
+𝑑
+ nilmanifold. If 
+𝐼
+=
+DR
+ and the 
+𝐼
+-filtration is furthermore a degree-rank filtration with degree 
+≤
+(
+𝑑
+,
+𝑟
+)
+, then 
+𝐺
+/
+Γ
+ is a degree-rank 
+(
+𝑑
+,
+𝑟
+)
+ nilmanifold. Finally if 
+𝐼
+=
+ℕ
+𝑘
+ and the 
+𝐼
+-filtration is furthermore a multidegree filtration with degree 
+⊆
+𝐽
+, then 
+𝐺
+/
+Γ
+ is a multidegree 
+𝐽
+ nilmanifold.
+
+Remark.
+
+Note that 
+Γ
+ can naturally be given the structure of an 
+𝐼
+-filtered group 
+Γ
+𝐼
+.
+
+We finally (very occasionally) will require the lower central series of a group 
+𝐺
+.
+
+Definition 2.8.
+
+Given a nilpotent group 
+𝐺
+, define the lower central series inductively via 
+𝐺
+(
+0
+)
+=
+𝐺
+(
+1
+)
+=
+𝐺
+ and 
+𝐺
+(
+𝑖
++
+1
+)
+=
+[
+𝐺
+,
+𝐺
+(
+𝑖
+)
+]
+. The step of 
+𝐺
+ is the minimal 
+𝑗
+ such that 
+𝐺
+(
+𝑗
++
+1
+)
+=
+Id
+𝐺
+.
+
+2.3.Horizontal tori and Taylor coefficients
+
+The next notion, that of a horizontal character, plays a vital role when discussing the equidistribution of nilsequences.
+
+Definition 2.9.
+
+Given a connected, simply connected nilpotent group 
+𝐺
+ and a discrete, cocompact subgroup 
+Γ
+, a horizontal character 
+𝜂
+ is a continuous homomorphism 
+𝜂
+:
+𝐺
+→
+ℝ
+ such that 
+𝜂
+⁡
+(
+Γ
+)
+⊆
+ℤ
+. We say a horizontal character is nontrivial when 
+𝜂
+ is not identically zero.
+
+Remark.
+
+Throughout the literature on nilmanifolds, horizontal characters are continuous homomorphisms 
+𝜂
+:
+𝐺
+→
+ℝ
+/
+ℤ
+ such that 
+𝜂
+ annihilates 
+Γ
+. It is straightforward to prove (via using Mal’cev bases) that these two notions are identical up to taking 
+mod
+​
+1
+. The reason we operate with the above definition is that the kernel of 
+𝜂
+ as defined is then a subspace of 
+𝐺
+/
+[
+𝐺
+,
+𝐺
+]
+≃
+ℝ
+dim
+(
+𝐺
+)
+−
+dim
+(
+[
+𝐺
+,
+𝐺
+]
+)
+.
+
+We next require the notion of horizontal tori with respect to a degree-rank filtration. These tori will play a starring role in Sections 8, 9, and 10; our definition is exactly that of [34, Definition 9.6].
+
+Definition 2.10.
+
+Let 
+𝐺
+ be a degree-rank filtered nilpotent Lie group with filtration 
+𝐺
+DR
+=
+(
+𝐺
+(
+𝑑
+,
+𝑟
+)
+)
+(
+𝑑
+,
+𝑟
+)
+∈
+DR
+. Given a subgroup 
+Γ
+ of 
+𝐺
+, we define various horizontal tori for 
+𝑖
+≥
+1
+ as
+
+	
+Horiz
+𝑖
+⁡
+(
+𝐺
+)
+	
+:
+=
+𝐺
+(
+𝑖
+,
+1
+)
+/
+𝐺
+(
+𝑖
+,
+2
+)
+,
+	
+	
+Horiz
+𝑖
+⁡
+(
+Γ
+)
+	
+:
+=
+(
+Γ
+∩
+𝐺
+(
+𝑖
+,
+1
+)
+)
+/
+(
+Γ
+∩
+𝐺
+(
+𝑖
+,
+2
+)
+)
+,
+	
+	
+Horiz
+𝑖
+⁡
+(
+𝐺
+/
+Γ
+)
+	
+:
+=
+Horiz
+𝑖
+⁡
+(
+𝐺
+)
+/
+Horiz
+𝑖
+⁡
+(
+Γ
+)
+.
+	
+
+Given a polynomial sequence 
+𝑔
+∈
+poly
+⁡
+(
+ℤ
+DR
+→
+𝐺
+DR
+)
+ we define the 
+𝑖
+-th horizontal Taylor coefficient to be
+
+	
+Taylor
+𝑖
+⁡
+(
+𝑔
+)
+	
+:
+=
+∂
+1
+⋯
+∂
+1
+𝑔
+(
+𝑛
+)
+mod
+𝐺
+(
+𝑖
+,
+2
+)
+∈
+Horiz
+𝑖
+(
+𝐺
+)
+,
+	
+	
+Taylor
+𝑖
+⁡
+(
+𝑔
+​
+Γ
+)
+	
+:
+=
+Taylor
+𝑖
+⁡
+(
+𝑔
+)
+​
+mod
+​
+Horiz
+𝑖
+⁡
+(
+Γ
+)
+∈
+Horiz
+𝑖
+⁡
+(
+𝐺
+/
+Γ
+)
+,
+	
+
+where we take 
+𝑖
+ iterated derivatives.
+
+We also require the notion of 
+𝑖
+-th horizontal characters.
+
+Definition 2.11.
+
+Consider a nilmanifold 
+𝐺
+/
+Γ
+ with a degree-rank filtration. A continuous homomorphism 
+𝜂
+:
+𝐺
+(
+𝑖
+,
+1
+)
+→
+ℝ
+ is an 
+𝑖
+-th horizontal character if 
+𝜂
+⁡
+(
+𝐺
+(
+𝑖
+,
+2
+)
+)
+=
+0
+ and 
+𝜂
+⁡
+(
+𝐺
+(
+𝑖
+,
+1
+)
+∩
+Γ
+)
+⊆
+ℤ
+.
+
+The name Taylor coefficient is also used in the context of Taylor coefficients of polynomial factorizations. The following elementary lemma relates these two notions; we remark that a very closely related proof appears in [26, Lemma A.8].
+
+Lemma 2.12.
+
+Let 
+𝐺
+ be given a degree-rank filtration of degree-rank 
+(
+𝑑
+,
+𝑟
+)
+ and consider a sequence 
+𝑔
+∈
+poly
+⁡
+(
+ℤ
+DR
+→
+𝐺
+DR
+)
+. Then we may write 
+𝑔
+⁡
+(
+𝑛
+)
+=
+∏
+𝑖
+=
+0
+𝑑
+𝑔
+𝑖
+(
+𝑛
+𝑖
+)
+ for elements 
+𝑔
+𝑖
+∈
+𝐺
+(
+𝑖
+,
+0
+)
+ and for 
+1
+≤
+𝑖
+≤
+𝑑
+ we have
+
+	
+Taylor
+𝑖
+⁡
+(
+𝑔
+)
+=
+𝑔
+𝑖
+​
+mod
+​
+𝐺
+(
+𝑖
+,
+2
+)
+.
+	
+Proof.
+
+The representation of 
+𝑔
+⁡
+(
+𝑛
+)
+ in the specified product form follows immediately from the existence of Taylor expansion, see [34, Lemma B.9].
+
+We next prove 
+Taylor
+𝑗
+⁡
+(
+𝑔
+)
+=
+𝑔
+𝑗
+​
+mod
+​
+𝐺
+(
+𝑗
+,
+2
+)
+ for each 
+1
+≤
+𝑗
+≤
+𝑑
+ individually. Notice that it suffices to consider 
+𝑔
+~
+​
+(
+𝑛
+)
+ which is 
+𝑔
+⁡
+(
+𝑛
+)
+​
+mod
+​
+𝐺
+(
+𝑗
+,
+2
+)
+, i.e., we consider the group 
+𝐺
+/
+𝐺
+(
+𝑗
+,
+2
+)
+ with quotiented filtration. This group is easily seen to be at most 
+𝑗
+-step nilpotent and furthermore 
+[
+𝐺
+(
+𝑖
+,
+1
+)
+/
+𝐺
+(
+𝑗
+,
+2
+)
+,
+𝐺
+(
+𝑗
+−
+𝑖
+,
+1
+)
+/
+𝐺
+(
+𝑗
+,
+2
+)
+]
+=
+Id
+𝐺
+/
+𝐺
+(
+𝑗
+,
+2
+)
+ for 
+0
+≤
+𝑖
+≤
+𝑗
+ (one should check the cases 
+𝑗
+=
+1
+ and 
+𝑖
+∈
+{
+0
+,
+𝑗
+}
+ manually). Let 
+𝐺
+~
+𝑖
+=
+𝐺
+(
+𝑖
+,
+1
+)
+/
+𝐺
+(
+𝑗
+,
+2
+)
+ for 
+0
+≤
+𝑖
+≤
+𝑗
+ and note 
+𝐺
+~
+0
+=
+𝐺
+~
+1
+.
+
+We see that 
+𝐺
+~
+0
+⩾
+⋯
+⩾
+𝐺
+~
+𝑗
+ is an 
+ℕ
+-filtration for 
+𝐺
+~
+0
+ with 
+[
+𝐺
+~
+𝑖
+,
+𝐺
+~
+𝑗
+−
+𝑖
+]
+=
+Id
+𝐺
+~
+0
+ for all 
+0
+≤
+𝑖
+≤
+𝑗
+. Note that 
+𝑔
+~
+​
+(
+𝑛
+)
+=
+∏
+𝑖
+=
+0
+𝑗
+𝑔
+~
+𝑖
+(
+𝑛
+𝑖
+)
+ where 
+𝑔
+~
+𝑖
+ is 
+𝑔
+𝑖
+​
+mod
+​
+𝐺
+(
+𝑗
+,
+2
+)
+.
+
+It suffices to prove the claim that 
+𝑔
+~
+​
+(
+𝑛
++
+1
+)
+​
+𝑔
+~
+​
+(
+𝑛
+)
+−
+1
+=
+∏
+𝑖
+=
+0
+𝑗
+−
+1
+(
+𝑔
+~
+𝑖
+′
+)
+(
+𝑛
+𝑖
+)
+ with 
+𝑔
+~
+𝑖
+′
+∈
+𝐺
+~
+𝑖
++
+1
+ and 
+𝑔
+~
+𝑗
+−
+1
+′
+=
+𝑔
+~
+𝑗
+. If this is the case, then we may modify the filtration 
+𝐺
+~
+0
+⩾
+𝐺
+~
+1
+⩾
+⋯
+⩾
+𝐺
+~
+𝑗
+ by stripping off the top group, which maintains the necessary inductive properties. Iterating this procedure 
+𝑗
+ times we obtain the desired Taylor equality.
+
+This claim is a consequence of the Taylor expansion for general polynomial sequences and the Baker–Campbell–Hausdorff formula and counting the depths of nested commutators. The crucial reason that 
+𝑔
+~
+𝑗
+−
+1
+′
+=
+𝑔
+~
+𝑗
+ is that any “higher order” terms which arise in the Baker–Campbell–Hausdorff formula and could contribute are in fact annhilated due to 
+[
+𝐺
+~
+𝑖
+,
+𝐺
+~
+𝑗
+−
+𝑖
+]
+=
+id
+𝐺
+~
+0
+ for 
+0
+≤
+𝑖
+≤
+𝑗
+. ∎
+
+We also have the following linearity of the 
+𝑖
+-th Taylor coefficients.
+
+Lemma 2.13.
+
+Assume the setup of Lemma 2.12. We have
+
+	
+Taylor
+𝑖
+⁡
+(
+𝑔
+​
+ℎ
+)
+=
+Taylor
+𝑖
+⁡
+(
+𝑔
+)
++
+Taylor
+𝑖
+⁡
+(
+ℎ
+)
+	
+
+and if
+
+	
+𝑔
+⁡
+(
+𝑛
+)
+=
+exp
+⁡
+(
+∑
+𝑖
+=
+0
+𝑑
+𝑔
+𝑖
+​
+(
+𝑛
+𝑖
+)
+)
+	
+
+for 
+𝑔
+𝑖
+∈
+log
+⁡
+(
+𝐺
+𝑖
+)
+ we have
+
+	
+Taylor
+𝑖
+⁡
+(
+𝑔
+)
+=
+exp
+⁡
+(
+𝑔
+𝑖
+)
+​
+mod
+​
+𝐺
+(
+𝑖
+,
+2
+)
+.
+	
+Remark 2.14.
+
+Note that 
+𝐺
+(
+𝑖
+,
+1
+)
+/
+𝐺
+(
+𝑖
+,
+2
+)
+ is abelian and hence additive notation may be used when considering Taylor coefficients.
+
+Proof.
+
+The first claim follows from Lemma 2.12, the Baker–Campbell–Hausdorff formula, and the commutator relationship that 
+[
+𝐺
+(
+𝑖
+,
+0
+)
+,
+𝐺
+(
+𝑗
+−
+𝑖
+,
+0
+)
+]
+=
+[
+𝐺
+(
+𝑖
+,
+1
+)
+,
+𝐺
+(
+𝑗
+−
+𝑖
+,
+1
+)
+]
+⊆
+𝐺
+(
+𝑗
+,
+2
+)
+. (Note that this is using 
+𝐺
+(
+0
+,
+0
+)
+=
+𝐺
+(
+0
+,
+1
+)
+=
+𝐺
+(
+1
+,
+0
+)
+ in the case 
+𝑖
+=
+0
+.)
+
+For the second claim, suppose that
+
+	
+𝑔
+⁡
+(
+𝑛
+)
+=
+exp
+⁡
+(
+∑
+𝑖
+=
+0
+𝑑
+𝑔
+𝑖
+​
+(
+𝑛
+𝑖
+)
+)
+=
+∏
+𝑖
+=
+0
+𝑠
+(
+𝑔
+𝑖
+′
+)
+(
+𝑛
+𝑖
+)
+.
+	
+
+Via iterated applications of the Baker–Campbell–Hausdorff formula and the commutator relationship that 
+[
+𝐺
+(
+𝑖
+,
+0
+)
+,
+𝐺
+(
+𝑗
+−
+𝑖
+,
+0
+)
+]
+=
+[
+𝐺
+(
+𝑖
+,
+1
+)
+,
+𝐺
+(
+𝑗
+−
+𝑖
+,
+1
+)
+]
+⊆
+𝐺
+(
+𝑗
+,
+2
+)
+, we see that 
+𝑔
+𝑗
+′
+=
+exp
+⁡
+(
+𝑔
+𝑗
+)
+​
+mod
+​
+𝐺
+(
+𝑗
+,
+2
+)
+ and the result follows. ∎
+
+2.4.Vertical tori and nilcharacters
+
+Given a polynomial sequence 
+𝑔
+ on an 
+𝐼
+-filtered Lie group with 
+𝐼
+=
+ℕ
+, we can define a sequence of vectors by considering a smooth vector-valued function 
+𝐹
+ on 
+𝐺
+/
+Γ
+ and looking at 
+𝐹
+⁡
+(
+𝑔
+⁡
+(
+𝑛
+)
+​
+Γ
+)
+. However, we will be particularly interested in those which “have a Fourier coefficient” with respect to various subgroups of the center.
+
+Definition 2.15.
+
+Consider a nilmanifold 
+𝐺
+/
+Γ
+ and a function 
+𝐹
+:
+𝐺
+/
+Γ
+→
+ℂ
+. Given a connected, simply connected subgroup 
+𝑇
+ of the center 
+𝑍
+⁡
+(
+𝐺
+)
+ which is rational (i.e., 
+Γ
+∩
+𝑇
+ is cocompact in 
+𝑇
+) and a continuous homomorphism 
+𝜂
+:
+𝑇
+→
+ℝ
+ such that 
+𝜂
+⁡
+(
+𝑇
+∩
+Γ
+)
+⊆
+ℤ
+, if
+
+	
+𝐹
+⁡
+(
+𝑔
+​
+𝑥
+)
+=
+𝑒
+⁡
+(
+𝜂
+⁡
+(
+𝑔
+)
+)
+​
+𝐹
+​
+(
+𝑥
+)
+​
+​
+𝑓
+​
+𝑜
+​
+𝑟
+​
+𝑎
+​
+𝑙
+​
+𝑙
+​
+𝑔
+∈
+𝑇
+	
+
+we say that 
+𝐹
+ has a 
+𝑇
+-vertical character (or 
+𝑇
+-vertical frequency) 
+𝜂
+.
+
+Remark.
+
+Note that 
+𝑇
+/
+(
+Γ
+∩
+𝑇
+)
+ is isomorphic to a torus and thus one can modify functions under consideration to have vertical characters via appropriate Fourier decomposition.
+
+A particular case which will arise frequently in our applications comes from the fact that given a filtration satisfying the conditions of Definition 2.4, we have that the “bottom group” is contained in the center. For example, a group 
+𝐺
+ given a degree filtration of degree 
+𝑑
+ satisfies 
+[
+𝐺
+,
+𝐺
+𝑑
+]
+=
+[
+𝐺
+1
+,
+𝐺
+𝑑
+]
+=
+Id
+𝐺
+ hence 
+𝐺
+𝑑
+⩽
+𝑍
+⁡
+(
+𝐺
+)
+. One special class of functions with a vertical frequency which will be of particular importance is that of nilcharacters.
+
+Definition 2.16.
+
+A nilcharacter of degree 
+𝑑
+ and output dimension 
+𝐷
+ is the following data. Consider an 
+𝐼
+-filtered nilmanifold 
+𝐺
+/
+Γ
+ of degree 
+𝑑
+ such that 
+[
+𝐺
+,
+𝐺
+𝑑
+]
+=
+Id
+𝐺
+ and an 
+𝐼
+-filtered abelian group 
+𝐻
+. Let 
+𝑔
+∈
+poly
+⁡
+(
+𝐻
+𝐼
+→
+𝐺
+𝐼
+)
+ and consider function 
+𝐹
+:
+𝐺
+/
+Γ
+→
+ℂ
+𝐷
+ such that:
+
+• 
+
+∥
+𝐹
+⁡
+(
+𝑥
+)
+∥
+2
+=
+1
+ for all 
+𝑥
+∈
+𝐺
+/
+Γ
+ pointwise;
+
+• 
+
+𝐹
+⁡
+(
+𝑔
+𝑑
+​
+𝑥
+)
+=
+𝑒
+⁡
+(
+𝜂
+⁡
+(
+𝑔
+𝑑
+)
+)
+​
+𝐹
+​
+(
+𝑥
+)
+ for all 
+𝑔
+𝑑
+∈
+𝐺
+𝑑
+ where 
+𝜂
+ is some continuous homomorphism 
+𝐺
+𝑑
+→
+ℝ
+ such that 
+𝜂
+⁡
+(
+Γ
+∩
+𝐺
+𝑑
+)
+⊆
+ℤ
+.
+
+The values of the nilcharacter are given by 
+𝜒
+:
+𝐻
+→
+ℂ
+𝐷
+ where 
+𝜒
+⁡
+(
+𝑛
+)
+=
+𝐹
+⁡
+(
+𝑔
+⁡
+(
+𝑛
+)
+​
+Γ
+)
+ for 
+𝑛
+∈
+𝐻
+.
+
+Remark.
+
+We work with vector-valued nilcharacters for precisely the same topological reason given in [34, p. 1254].
+
+2.5.Additional miscellaneous conventions
+
+We end this section with a brief discussion of various miscellaneous conventions. Throughout the paper we use 
+{
+⋅
+}
+ to denote the map 
+ℝ
+→
+(
+−
+1
+/
+2
+,
+1
+/
+2
+]
+ (or 
+ℝ
+/
+ℤ
+→
+(
+−
+1
+/
+2
+,
+1
+/
+2
+]
+, abusively) which takes the representative 
+mod
+​
+1
+ closest to 
+0
+. Furthermore given 
+𝑥
+∈
+ℝ
+/
+ℤ
+ and 
+𝑦
+∈
+ℝ
+ we will treat 
+𝑥
+−
+𝑦
+∈
+ℝ
+/
+ℤ
+ in the obvious manner. As used above, we let 
+𝑒
+:
+ℝ
+/
+ℤ
+→
+ℂ
+ denote the exponential function 
+𝑒
+⁡
+(
+𝑥
+)
+=
+exp
+⁡
+(
+2
+​
+𝜋
+​
+𝑖
+​
+𝑥
+)
+, which is lifted to 
+ℝ
+ in the obvious manner.
+
+We use standard asymptotic notation. Given functions 
+𝑓
+=
+𝑓
+⁡
+(
+𝑛
+)
+ and 
+𝑔
+=
+𝑔
+⁡
+(
+𝑛
+)
+, we write 
+𝑓
+=
+𝑂
+⁡
+(
+𝑔
+)
+, 
+𝑓
+≪
+𝑔
+, 
+𝑔
+=
+Ω
+⁡
+(
+𝑓
+)
+, or 
+𝑔
+≫
+𝑓
+ to mean that there is a constant 
+𝐶
+ such that 
+|
+𝑓
+⁡
+(
+𝑛
+)
+|
+≤
+𝐶
+​
+𝑔
+​
+(
+𝑛
+)
+ for sufficiently large 
+𝑛
+. We write 
+𝑓
+≍
+𝑔
+ or 
+𝑓
+=
+Θ
+⁡
+(
+𝑔
+)
+ to mean that 
+𝑓
+≪
+𝑔
+ and 
+𝑔
+≪
+𝑓
+, and write 
+𝑓
+=
+𝑜
+⁡
+(
+𝑔
+)
+ or 
+𝑔
+=
+𝜔
+⁡
+(
+𝑓
+)
+ to mean 
+𝑓
+⁡
+(
+𝑛
+)
+/
+𝑔
+⁡
+(
+𝑛
+)
+→
+0
+ as 
+𝑛
+→
+∞
+. Subscripts indicate dependence on parameters.
+
+Finally in various arguments throughout the paper it will be convenient to denote appropriately bounded functions as 
+𝑏
+⁡
+(
+𝑛
+)
+ or 
+𝑏
+⁡
+(
+𝑛
+1
+,
+…
+,
+𝑛
+𝑘
+)
+, and 
+𝐵
+⁡
+(
+𝑛
+)
+,
+𝐵
+⁡
+(
+𝑛
+1
+,
+…
+,
+𝑛
+𝑘
+)
+ when vector-valued. When using such notation, the functions 
+𝑏
+,
+𝐵
+ may change from line to line and within a line may refer to different functions.
+
+3.Various complexity notions
+3.1.Rationality of bases and Lipschitz norms
+
+We will now discuss the definitions chosen for complexity of nilmanifolds. We start by defining first- and second-kind coordinates given a basis 
+𝒳
+ for 
+log
+⁡
+𝐺
+.
+
+Definition 3.1.
+
+Consider a connected, simply connected nilpotent Lie group 
+𝐺
+ of dimension 
+𝑑
+. Given a basis 
+𝒳
+=
+{
+𝑋
+1
+,
+…
+,
+𝑋
+𝑑
+}
+ of 
+log
+⁡
+𝐺
+ and 
+𝑔
+∈
+𝐺
+, there exists 
+(
+𝑡
+1
+,
+…
+,
+𝑡
+𝑑
+)
+∈
+ℝ
+𝑑
+ such that
+
+	
+𝑔
+=
+exp
+⁡
+(
+𝑡
+1
+​
+𝑋
+1
++
+𝑡
+2
+​
+𝑋
+2
++
+⋯
++
+𝑡
+𝑑
+​
+𝑋
+𝑑
+)
+.
+	
+
+We define Mal’cev coordinates of first-kind 
+𝜓
+exp
+=
+𝜓
+exp
+,
+𝒳
+:
+𝐺
+→
+ℝ
+𝑑
+ for 
+𝑔
+ relative to 
+𝒳
+ by
+
+	
+𝜓
+exp
+​
+(
+𝑔
+)
+:=
+(
+𝑡
+1
+,
+…
+,
+𝑡
+𝑑
+)
+.
+	
+
+Given 
+𝑔
+∈
+𝐺
+ there also exists 
+(
+𝑢
+1
+,
+…
+,
+𝑢
+𝑑
+)
+∈
+ℝ
+𝑑
+ such that
+
+	
+𝑔
+=
+exp
+(
+𝑢
+1
+𝑋
+1
+)
+⋯
+exp
+(
+𝑢
+𝑑
+𝑋
+𝑑
+)
+,
+	
+
+and we define the Mal’cev coordinates of second-kind 
+𝜓
+=
+𝜓
+𝒳
+:
+𝐺
+→
+ℝ
+𝑑
+ for 
+𝑔
+ relative to 
+𝒳
+ by
+
+	
+𝜓
+⁡
+(
+𝑔
+)
+:=
+(
+𝑢
+1
+,
+…
+,
+𝑢
+𝑑
+)
+.
+	
+
+Note that the above definition does not account for the cocompact subgroup 
+Γ
+. The next set of definitions account for how “rational” 
+𝒳
+ is with respect to itself and 
+Γ
+.
+
+Definition 3.2.
+
+The height of a number 
+𝑥
+ is 
+max
+⁡
+(
+|
+𝑎
+|
+,
+|
+𝑏
+|
+)
+ if 
+𝑥
+=
+𝑎
+/
+𝑏
+ with 
+gcd
+⁡
+(
+𝑎
+,
+𝑏
+)
+=
+1
+ and 
+∞
+ if 
+𝑥
+ is irrational.
+
+Definition 3.3.
+
+Given a nilmanifold 
+𝐺
+/
+Γ
+ of dimension 
+𝑑
+, consider a basis 
+𝒳
+=
+{
+𝑋
+1
+,
+…
+,
+𝑋
+𝑑
+}
+ of 
+𝔤
+=
+log
+⁡
+𝐺
+. 
+𝒳
+ is said to be a weak basis of rationality 
+𝑄
+ with respect to 
+Γ
+ if:
+
+• 
+
+There exist rationals 
+𝑐
+𝑖
+​
+𝑗
+​
+𝑘
+ of height at most 
+𝑄
+ such that
+
+	
+[
+𝑋
+𝑖
+,
+𝑋
+𝑗
+]
+=
+∑
+𝑘
+𝑐
+𝑖
+​
+𝑗
+​
+𝑘
+​
+𝑋
+𝑘
+;
+	
+• 
+
+There exists integer 
+1
+≤
+𝑞
+≤
+𝑄
+ such that
+
+	
+𝑞
+⋅
+ℤ
+𝑑
+⊆
+𝜓
+exp
+,
+𝒳
+​
+(
+Γ
+)
+⊆
+𝑞
+−
+1
+⋅
+ℤ
+𝑑
+.
+	
+
+𝒳
+ is a Mal’cev basis of 
+log
+⁡
+𝐺
+ with respect to 
+Γ
+ of rationality 
+𝑄
+ if:
+
+• 
+
+There exist rationals 
+𝑐
+𝑖
+​
+𝑗
+​
+𝑘
+ of height at most 
+𝑄
+ such that
+
+	
+[
+𝑋
+𝑖
+,
+𝑋
+𝑗
+]
+=
+∑
+𝑘
+𝑐
+𝑖
+​
+𝑗
+​
+𝑘
+​
+𝑋
+𝑘
+;
+	
+• 
+
+𝜓
+𝒳
+​
+(
+Γ
+)
+=
+ℤ
+𝑑
+.
+
+We say that 
+𝒳
+ has the degree 
+𝑘
+ nesting property if there exist 
+ℓ
+1
+≤
+⋯
+≤
+ℓ
+𝑘
+ such that if 
+𝔤
+𝑡
+=
+span
+ℝ
+⁡
+(
+𝑋
+ℓ
+𝑡
++
+1
+,
+…
+,
+𝑋
+𝑚
+)
+ then 
+[
+𝔤
+,
+𝔤
+]
+⊆
+𝔤
+1
+, 
+[
+𝔤
+,
+𝔤
+ℓ
+]
+⊆
+𝔤
+ℓ
++
+1
+ and 
+[
+𝔤
+,
+𝔤
+𝑘
+]
+=
+0
+.
+
+Finally we say that a Mal’cev basis is adapted to a sequence of nesting subgroups 
+𝐺
+=
+𝐺
+0
+⩾
+𝐺
+1
+⩾
+𝐺
+2
+⩾
+⋯
+⩾
+𝐺
+ℓ
+⩾
+Id
+𝐺
+ if
+
+	
+span
+ℝ
+⁡
+(
+{
+𝑋
+𝑗
+:
+𝑑
+−
+dim
+(
+𝐺
+𝑖
+)
+<
+𝑗
+≤
+𝑑
+}
+)
+=
+log
+⁡
+𝐺
+𝑖
+	
+
+for 
+1
+≤
+𝑖
+≤
+ℓ
+.
+
+We next state the definition of the Lipschitz property for a function on 
+𝐺
+/
+Γ
+.
+
+Definition 3.4.
+
+We define a metric 
+𝑑
+=
+𝑑
+𝐺
+,
+𝒳
+ on 
+𝐺
+ by
+
+	
+𝑑
+(
+𝑥
+,
+𝑦
+)
+:=
+inf
+{
+∑
+𝑖
+=
+1
+𝑛
+min
+(
+∥
+𝜓
+(
+𝑥
+𝑖
+𝑥
+𝑖
++
+1
+−
+1
+)
+∥
+,
+∥
+𝜓
+(
+𝑥
+𝑖
++
+1
+𝑥
+𝑖
+−
+1
+)
+∥
+)
+:
+𝑛
+∈
+ℕ
+,
+𝑥
+1
+,
+…
+,
+𝑥
+𝑛
++
+1
+∈
+𝐺
+,
+𝑥
+1
+=
+𝑥
+,
+𝑥
+𝑛
++
+1
+=
+𝑦
+}
+,
+	
+
+where 
+∥
+⋅
+∥
+ denotes the 
+ℓ
+∞
+-norm on 
+ℝ
+𝑚
+, and define a metric on 
+𝐺
+/
+Γ
+ by
+
+	
+𝑑
+⁡
+(
+𝑥
+​
+Γ
+,
+𝑦
+​
+Γ
+)
+=
+inf
+𝛾
+,
+𝛾
+′
+∈
+Γ
+𝑑
+⁡
+(
+𝑥
+​
+𝛾
+,
+𝑦
+​
+𝛾
+′
+)
+.
+	
+
+Furthermore, for any function 
+𝐹
+:
+𝐺
+/
+Γ
+→
+ℂ
+ we define
+
+	
+∥
+𝐹
+∥
+Lip
+:=
+∥
+𝐹
+∥
+∞
++
+sup
+𝑥
+≠
+𝑦
+∈
+𝐺
+/
+Γ
+|
+𝐹
+⁡
+(
+𝑥
+)
+−
+𝐹
+⁡
+(
+𝑦
+)
+|
+𝑑
+⁡
+(
+𝑥
+,
+𝑦
+)
+.
+	
+
+Given a function 
+𝐹
+:
+𝐺
+/
+Γ
+→
+ℂ
+𝐷
+ such that 
+𝐹
+=
+(
+𝐹
+1
+,
+…
+,
+𝐹
+𝐷
+)
+ we define
+
+	
+∥
+𝐹
+∥
+Lip
+:=
+max
+1
+≤
+𝑖
+≤
+𝐷
+⁡
+∥
+𝐹
+𝑖
+∥
+Lip
+.
+	
+Remark.
+
+Note that the metric on 
+𝐺
+ is right-invariant. We may omit the subscript 
+𝒳
+ for the distance function when clear from context.
+
+3.2.Complexity of nilmanifolds
+
+We now define the complexity of a nilmanifold with respect to either a degree or a degree-rank filtration.
+
+Definition 3.5.
+
+Let 
+𝑠
+≥
+1
+ be an integer and let 
+𝑀
+≥
+1
+. A nilmanifold 
+𝐺
+/
+Γ
+ of degree 
+𝑠
+, dimension 
+𝑑
+, and complexity at most 
+𝑀
+ consists of a degree 
+𝑠
+ filtration of 
+𝐺
+ along with a Mal’cev basis 
+𝒳
+=
+{
+𝑋
+1
+,
+…
+,
+𝑋
+𝑑
+}
+ of 
+log
+⁡
+𝐺
+ which satisfies the following:
+
+• 
+
+{
+𝑋
+1
+,
+…
+,
+𝑋
+𝑑
+}
+ is a Mal’cev basis for 
+log
+⁡
+𝐺
+ with respect to 
+Γ
+ of rationality at most 
+𝑀
+;
+
+• 
+
+𝒳
+ is adapted to the sequence of subgroups 
+(
+𝐺
+𝑖
+)
+𝑖
+∈
+ℕ
+.
+
+Analogously a nilmanifold 
+𝐺
+/
+Γ
+ of degree-rank 
+(
+𝑠
+,
+𝑟
+)
+, dimension 
+𝑑
+, and complexity at most 
+𝑀
+ consists of a degree-rank 
+(
+𝑠
+,
+𝑟
+)
+ filtration of 
+𝐺
+ along with a Mal’cev basis 
+𝒳
+=
+{
+𝑋
+1
+,
+…
+,
+𝑋
+𝑑
+}
+ of 
+log
+⁡
+𝐺
+ which satisfies the following:
+
+• 
+
+{
+𝑋
+1
+,
+…
+,
+𝑋
+𝑑
+}
+ is a Mal’cev basis for 
+log
+⁡
+𝐺
+ with respect to 
+Γ
+ of rationality at most 
+𝑀
+;
+
+• 
+
+𝒳
+ is adapted to the sequence of subgroups 
+(
+𝐺
+𝑖
+)
+𝑖
+∈
+DR
+.
+
+Remark.
+
+The only difference in complexity for a degree versus degree-rank filtration is that we require the Mal’cev basis to be adapted with respect to the appropriate filtration. This definition unfortunately does not extend to the case of multidegree filtrations since the set of subgroups do not nest in a total order. Furthermore note that a degree-rank nilmanifold of complexity 
+𝑀
+ is also a degree nilmanifold of the same complexity by taking the associated degree filtration.
+
+Finally, whenever discussing the complexity of nilmanifolds, this is always with respect to a given Mal’cev basis 
+𝒳
+. We will abusively write phrases such as “nilmanifold 
+𝐺
+/
+Γ
+ of complexity 
+𝑀
+” throughout the paper; such a statement should always be understood with a corresponding implicitly provided adapted Mal’cev basis of the Lie algebra.
+
+Remark.
+
+We will also in passing require the notion of a degree 
+0
+ nilmanifold. A degree 
+0
+ nilmanifold is simply the trivial group 
+Id
+𝐺
+. All scalar-valued functions on degree 
+0
+ nilmanifolds are constants and the Lipschitz norm is defined to be the absolute value of this constant.
+
+We will next need the notion of a rational subgroup with respect to a Mal’cev basis; this will be crucial when giving the definition of complexity with respect to a multidegree filtration.
+
+Definition 3.6.
+
+A closed, connected subgroup 
+𝐺
+′
+⩽
+𝐺
+ is 
+𝑄
+-rational with respect to a basis 
+𝒳
+=
+{
+𝑋
+1
+,
+…
+,
+𝑋
+𝑚
+}
+ of 
+log
+⁡
+𝐺
+ if 
+log
+⁡
+𝐺
+′
+ has a basis 
+𝒳
+′
+=
+{
+𝑋
+1
+′
+,
+…
+,
+𝑋
+𝑚
+′
+′
+}
+ where 
+𝑋
+𝑖
+′
+=
+∑
+𝑗
+=
+1
+𝑚
+𝑐
+𝑖
+​
+𝑗
+​
+𝑋
+𝑗
+ for 
+1
+≤
+𝑖
+≤
+𝑚
+′
+ with 
+𝑐
+𝑖
+​
+𝑗
+∈
+ℚ
+ having heights bounded by 
+𝑄
+.
+
+We will repeatedly use the following fact about rational subgroups without further comment.
+
+Fact 3.7.
+
+Suppose 
+𝐺
+ is a connected, simply connected nilpotent Lie group of step 
+𝑠
+ and dimension 
+𝑑
+ with a discrete cocompact subgroup 
+Γ
+. Suppose that 
+𝐺
+/
+Γ
+ has a weak basis 
+𝒳
+ of rationality at most 
+𝑄
+. Let 
+𝐻
+1
+,
+…
+,
+𝐻
+𝑗
+ be subgroups which are each 
+𝑄
+-rational and normal in 
+𝐺
+. Then
+
+	
+𝐻
+=
+⋁
+𝑖
+=
+1
+𝑗
+𝐻
+𝑖
+	
+
+is an 
+𝑂
+𝑠
+​
+(
+𝑄
+𝑂
+𝑠
+​
+(
+𝑑
+𝑂
+𝑠
+​
+(
+1
+)
+)
+)
+-rational subgroup.
+
+Proof.
+
+Let 
+𝒳
+𝑖
+ denote the underlying basis of 
+𝐻
+𝑖
+ witnessing low height. By applying Baker–Campbell–Hausdorff, we have that 
+log
+⁡
+𝐻
+ is spanned by taking all 
+(
+≤
+𝑠
+)
+-fold commutators of elements in 
+𝒳
+𝑖
+ (possibly for different 
+𝑖
+). Each such element of the Lie algebra is easily seen to be a 
+𝑂
+𝑠
+​
+(
+𝑄
+𝑂
+𝑠
+​
+(
+𝑑
+𝑂
+𝑠
+​
+(
+1
+)
+)
+)
+-rational combination of 
+𝒳
+ (using the weak basis property of 
+𝒳
+). Taking a subset of these commutators which forms a basis of 
+log
+⁡
+𝐻
+ gives the desired result. ∎
+
+We are now in position to define the complexity of a multidegree nilsequence. This definition is admittedly rather artificial but is designed to be the most flexible given various lemmas scattered throughout the literature.
+
+Definition 3.8.
+
+Consider a downset 
+𝐽
+ with respect to the multidegree ordering on 
+ℕ
+𝑘
+. Consider a group 
+𝐺
+ with a multidegree filtration of degree 
+⊆
+𝐽
+. Recall the associated degree filtration
+
+	
+𝐺
+𝑖
+=
+⋁
+𝑣
+→
+:
+|
+𝑣
+→
+|
+=
+𝑖
+𝐺
+𝑣
+→
+	
+
+and define the associated degree to be 
+sup
+𝑣
+→
+∈
+𝐽
+|
+𝑣
+→
+|
+. We say a multidegree 
+𝐽
+ nilmanifold 
+𝐺
+/
+Γ
+ of dimension 
+𝑑
+ with Mal’cev basis 
+𝒳
+ has complexity at most 
+𝑀
+ if:
+
+• 
+
+{
+𝑋
+1
+,
+…
+,
+𝑋
+𝑑
+}
+ is a Mal’cev basis for 
+log
+⁡
+𝐺
+ with respect to 
+Γ
+ of rationality at most 
+𝑀
+;
+
+• 
+
+𝒳
+ is adapted to the sequence of subgroups 
+(
+𝐺
+𝑖
+)
+𝑖
+∈
+ℕ
+;
+
+• 
+
+𝐺
+𝑣
+→
+ is an 
+𝑀
+-rational subgroup for all 
+𝑣
+→
+∈
+ℕ
+𝑘
+.
+
+We next note the trivial fact that complexity is bounded appropriately with respect to taking direct products; we implicitly invoke this when handling the complexity of direct products.
+
+Fact 3.9.
+
+Consider nilmanifolds 
+𝐺
+/
+Γ
+, 
+𝐻
+/
+Γ
+′
+ given degree 
+𝑠
+ filtrations 
+(
+𝐺
+𝑖
+)
+𝑖
+≥
+0
+, 
+(
+𝐻
+𝑖
+)
+𝑖
+≥
+0
+ and adapted Mal’cev bases 
+𝒳
+,
+𝒳
+′
+ each of complexity at most 
+𝑀
+. Then 
+(
+𝐺
+×
+𝐻
+)
+/
+(
+Γ
+×
+Γ
+′
+)
+ has complexity at most 
+𝑀
+ with respect to the Mal’cev basis
+
+	
+𝒳
+∗
+=
+{
+(
+𝑋
+,
+0
+)
+:
+𝑋
+∈
+𝒳
+}
+∪
+{
+(
+0
+,
+𝑋
+′
+)
+:
+𝑋
+′
+∈
+𝒳
+′
+}
+.
+	
+
+𝒳
+∗
+ may be adapted to the degree 
+𝑠
+ filtration 
+𝐺
+𝑖
+×
+𝐻
+𝑖
+ by creating an ordering with suffixes
+
+		
+{
+(
+𝑋
+𝑗
+,
+0
+)
+:
+𝑋
+𝑗
+∈
+𝒳
+,
+0
+≤
+dim
+(
+𝐺
+)
+−
+𝑗
+<
+dim
+(
+𝐺
+𝑖
+)
+}
+∪
+{
+(
+0
+,
+𝑋
+𝑗
+′
+)
+:
+𝑋
+𝑗
+′
+∈
+𝒳
+′
+,
+0
+≤
+dim
+(
+𝐻
+)
+−
+𝑗
+<
+dim
+(
+𝐻
+𝑖
+)
+}
+.
+	
+
+Furthermore given 
+𝐹
+:
+𝐺
+/
+Γ
+→
+ℂ
+ and 
+𝐹
+′
+:
+𝐻
+/
+Γ
+′
+→
+ℂ
+ which are 
+𝑀
+-Lipschitz,
+
+	
+𝐹
+~
+​
+(
+(
+𝑔
+,
+ℎ
+)
+​
+(
+Γ
+×
+Γ
+′
+)
+)
+:=
+𝐹
+⁡
+(
+𝑔
+​
+Γ
+)
+​
+𝐹
+′
+​
+(
+ℎ
+​
+Γ
+′
+)
+	
+
+is 
+3
+​
+𝑀
+2
+-Lipschitz on 
+(
+𝐺
+×
+𝐻
+)
+/
+(
+Γ
+×
+Γ
+′
+)
+. Analogous statements hold for degree-rank filtrations and multidegree filtrations.
+
+We finally end by noting that quotients by normal subgroups of bounded rationality have appropriate complexity.
+
+Lemma 3.10.
+
+Consider a nilmanifold 
+𝐺
+/
+Γ
+ with 
+𝐺
+ given a degree 
+𝑠
+ filtration 
+(
+𝐺
+𝑖
+)
+ and of complexity at most 
+𝑀
+ with respect to an adapted Mal’cev basis 
+𝒳
+.
+
+Suppose that 
+𝐻
+ is a normal subgroup of 
+𝐺
+ which is 
+𝑀
+-rational with respect to 
+𝒳
+. Then the quotient nilmanifold 
+(
+𝐺
+/
+𝐻
+)
+/
+(
+Γ
+/
+(
+Γ
+∩
+𝐻
+)
+)
+ may be given an adapted Mal’cev basis 
+𝒳
+∗
+, where the degree 
+𝑠
+ filtration is 
+(
+𝐺
+𝑖
+/
+(
+𝐺
+𝑖
+∩
+𝐻
+)
+)
+, which is an 
+𝑀
+𝑂
+𝑠
+​
+(
+𝑑
+𝑂
+𝑠
+​
+(
+1
+)
+)
+-rational combination of
+
+	
+𝒳
+′
+=
+{
+𝑋
+​
+mod
+​
+log
+⁡
+𝐻
+:
+𝑋
+∈
+𝒳
+}
+.
+	
+
+Analogous statements hold for degree-rank filtrations and multidegree filtrations. Finally if 
+𝐻
+⩽
+𝑍
+⁡
+(
+𝐺
+)
+ and 
+𝐹
+ is an 
+𝑀
+-Lipschitz function on 
+𝐺
+/
+Γ
+ which is 
+𝐻
+-invariant then 
+𝐹
+ descends to 
+(
+𝐺
+/
+𝐻
+)
+/
+(
+Γ
+/
+(
+Γ
+∩
+𝐻
+)
+)
+ and is 
+𝑀
+𝑂
+𝑠
+​
+(
+𝑑
+𝑂
+𝑠
+​
+(
+1
+)
+)
+-Lipschitz with respect to 
+𝒳
+∗
+.
+
+Proof.
+
+We may find a subset 
+𝑆
+ such that
+
+	
+𝒳
+′
+=
+{
+𝑋
+𝑖
+mod
+log
+𝐻
+:
+𝑋
+𝑖
+∈
+𝒳
+,
+𝑖
+∈
+𝑆
+}
+	
+
+is a basis for 
+log
+⁡
+(
+𝐺
+/
+𝐻
+)
+. Since 
+𝐻
+ is 
+𝑀
+-rational with respect to 
+𝒳
+, it follows from Cramer’s rule that for 
+𝑗
+∉
+𝑆
+, 
+𝑋
+𝑗
+​
+mod
+​
+log
+⁡
+𝐻
+ is a 
+𝑀
+𝑂
+𝑠
+​
+(
+𝑑
+𝑂
+𝑠
+​
+(
+1
+)
+)
+-combination of 
+𝑋
+𝑖
+​
+mod
+​
+log
+⁡
+𝐻
+ with 
+𝑖
+∈
+𝑆
+ . Hence, 
+𝒳
+′
+ is a weak Mal’cev basis for 
+(
+𝐺
+/
+𝐻
+)
+/
+(
+Γ
+/
+(
+Γ
+∩
+𝐻
+)
+)
+ of rationality 
+𝑀
+𝑂
+𝑠
+​
+(
+𝑑
+𝑂
+𝑠
+​
+(
+1
+)
+)
+. By [42, Lemma B.11], we may find a Mal’cev basis adapted to 
+(
+𝐺
+/
+𝐻
+)
+/
+(
+Γ
+/
+(
+Γ
+∩
+𝐻
+)
+)
+ with complexity 
+𝑀
+𝑂
+𝑠
+​
+(
+𝑑
+𝑂
+𝑠
+​
+(
+1
+)
+)
+. Now, if 
+𝐻
+⩽
+𝑍
+⁡
+(
+𝐺
+)
+ and 
+𝐹
+ is 
+𝑀
+-Lipschitz on 
+𝐺
+/
+Γ
+ which is 
+𝐻
+-invariant, it follows trivially that 
+𝐹
+ descends to a function 
+𝐹
+¯
+ on 
+(
+𝐺
+/
+𝐻
+)
+/
+(
+Γ
+/
+(
+Γ
+∩
+𝐻
+)
+)
+. The Lipschitz bounds for 
+𝐹
+¯
+ follow from [42, Lemma B.3]. ∎
+
+3.3.Size of vertical and horizontal characters
+
+We now define the size of vertical and horizontal characters. We first define the size of a horizontal character.
+
+Definition 3.11.
+
+Given a nilmanifold 
+𝐺
+/
+Γ
+ and a Mal’cev basis 
+𝒳
+, note that any horizontal character 
+𝜂
+:
+𝐺
+→
+ℝ
+ can be expressed in the form
+
+	
+𝜂
+⁡
+(
+𝑔
+)
+=
+𝑘
+⋅
+𝜓
+⁡
+(
+𝑔
+)
+	
+
+for some 
+𝑘
+∈
+ℤ
+dim
+(
+𝐺
+)
+. We define the size of the horizontal character as 
+∥
+𝑘
+∥
+∞
+.
+
+We next define the size of an 
+𝑖
+-th horizontal character.
+
+Definition 3.12.
+
+Consider a nilmanifold 
+𝐺
+/
+Γ
+ with 
+𝐺
+ given a degree-rank filtration of degree-rank 
+(
+𝑠
+,
+𝑟
+)
+ and a Mal’cev basis 
+𝒳
+=
+{
+𝑋
+1
+,
+…
+,
+𝑋
+dim
+(
+𝐺
+)
+}
+ adapted to the degree-rank filtration. Note that any 
+𝑖
+-th horizontal character 
+𝜂
+𝑖
+:
+𝐺
+(
+𝑖
+,
+1
+)
+→
+ℝ
+ can be expressed in the form
+
+	
+𝜂
+𝑖
+​
+(
+𝑔
+)
+=
+𝑘
+⋅
+𝜓
+⁡
+(
+𝑔
+)
+	
+
+with 
+𝑘
+∈
+ℤ
+dim
+(
+𝐺
+)
+ for some 
+𝑘
+ which is nonzero only on coordinates between 
+dim
+(
+𝐺
+)
+−
+dim
+(
+𝐺
+(
+𝑖
+,
+1
+)
+)
+<
+𝑗
+≤
+dim
+(
+𝐺
+)
+−
+dim
+(
+𝐺
+(
+𝑖
+,
+2
+)
+)
+. We define the size of the 
+𝑖
+-th horizontal character as 
+∥
+𝑘
+∥
+∞
+.
+
+We finally define the size of a vertical character.
+
+Definition 3.13.
+
+Consider a nilmanifold 
+𝐺
+/
+Γ
+ with 
+𝐺
+ given a degree filtration of degree 
+𝑘
+ and a Mal’cev basis 
+𝒳
+=
+{
+𝑋
+1
+,
+…
+,
+𝑋
+dim
+(
+𝐺
+)
+}
+ adapted to the degree filtration. Consider a continuous vertical character 
+𝜉
+:
+𝑇
+→
+ℝ
+ from a rational subgroup 
+𝑇
+⩽
+𝑍
+⁡
+(
+𝐺
+)
+. We define the height of 
+𝜉
+ as
+
+	
+sup
+𝑥
+≠
+𝑦
+∈
+𝑇
+/
+(
+Γ
+∩
+𝑇
+)
+|
+𝜉
+⁡
+(
+𝑥
+)
+−
+𝜉
+⁡
+(
+𝑦
+)
+|
+𝑑
+𝐺
+​
+(
+𝑥
+​
+Γ
+,
+𝑦
+​
+Γ
+)
+;
+	
+
+this will be denoted as 
+|
+𝜉
+|
+.
+
+Remark.
+
+We now justify the terminology “height” given for the complexity of a vertical character. Suppose that 
+𝐺
+/
+Γ
+ has complexity 
+𝑀
+ (given 
+𝒳
+) with respect to a degree filtration of degree 
+𝑑
+ and 
+𝑇
+ is 
+𝑄
+-rational. We have that 
+𝑇
+ has a Mal’cev basis which is a 
+(
+𝑄
+​
+𝑀
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+⁡
+(
+1
+)
+)
+-rational combination of 
+𝒳
+ by [42, Lemma B.12]; denote this 
+𝒳
+′
+. By [42, Lemma B.9], we have that for 
+𝑥
+,
+𝑦
+∈
+𝑇
+,
+
+	
+𝑑
+𝐺
+,
+𝒳
+​
+(
+𝑥
+​
+Γ
+,
+𝑦
+​
+Γ
+)
+≤
+(
+𝑄
+​
+𝑀
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+⁡
+(
+1
+)
+)
+​
+𝑑
+𝑇
+,
+𝒳
+′
+​
+(
+𝑥
+⁡
+(
+Γ
+∩
+𝑇
+)
+,
+𝑦
+⁡
+(
+Γ
+∩
+𝑇
+)
+)
+≤
+(
+𝑄
+​
+𝑀
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+⁡
+(
+1
+)
+)
+​
+𝑑
+𝐺
+,
+𝒳
+​
+(
+𝑥
+​
+Γ
+,
+𝑦
+​
+Γ
+)
+.
+	
+
+With respect to 
+𝒳
+′
+=
+{
+𝑋
+1
+′
+,
+…
+,
+𝑋
+dim
+(
+𝑇
+)
+′
+}
+, we have that 
+𝜉
+ is an integer vector and the definition of height is equivalent up to a multiplicative factor of 
+(
+𝑄
+​
+𝑀
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+⁡
+(
+1
+)
+)
+ to the height of this vector.
+
+3.4.Correlation
+
+We will also require the notion of a sequence being biased of some order.
+
+Definition 3.14.
+
+A function 
+𝑓
+:
+[
+𝑁
+]
+→
+ℂ
+𝐷
+ is 
+𝑠
+-biased of correlation 
+𝜂
+, complexity 
+𝑀
+, and dimension 
+𝑑
+ if there exists a nilmanifold 
+𝐺
+/
+Γ
+ with a degree 
+𝑠
+ filtration such that 
+𝐺
+ has dimension at most 
+𝑑
+, 
+𝐺
+/
+Γ
+ has complexity at most 
+𝑀
+, and there exists an 
+𝑀
+-Lipschitz function 
+𝐹
+ and a polynomial sequence 
+𝑔
+∈
+poly
+⁡
+(
+ℤ
+ℕ
+→
+𝐺
+ℕ
+)
+ such that
+
+	
+∥
+𝔼
+𝑛
+∈
+[
+𝑁
+]
+​
+[
+𝑓
+⁡
+(
+𝑛
+)
+​
+𝐹
+⁡
+(
+𝑔
+⁡
+(
+𝑛
+)
+​
+Γ
+)
+¯
+]
+∥
+∞
+≥
+𝜂
+.
+	
+
+We will denote this as 
+𝑓
+∈
+Corr
+⁡
+(
+𝑠
+,
+𝜂
+,
+𝑀
+,
+𝑑
+)
+.
+
+3.5.Miscellaneous complexity notions
+
+We will also require the following definition regarding smoothness norms of polynomial sequences.
+
+Definition 3.15.
+
+Given 
+𝑣
+→
+∈
+ℕ
+𝑘
+ and 
+𝑛
+→
+∈
+ℕ
+𝑘
+, we define
+
+	
+(
+𝑛
+→
+𝑣
+→
+)
+=
+∏
+𝑖
+=
+1
+𝑘
+(
+𝑛
+𝑖
+𝑣
+𝑖
+)
+.
+	
+
+Any polynomial sequence 
+𝑔
+:
+ℤ
+𝑘
+→
+ℝ
+ can be expressed uniquely as
+
+	
+𝑔
+⁡
+(
+𝑛
+→
+)
+=
+∑
+ℓ
+→
+∈
+ℕ
+𝑘
+𝛼
+ℓ
+→
+​
+(
+𝑛
+→
+ℓ
+→
+)
+	
+
+with 
+𝛼
+ℓ
+→
+∈
+ℝ
+. We define
+
+	
+∥
+𝑔
+∥
+𝐶
+∞
+​
+[
+𝑁
+]
+:=
+max
+ℓ
+→
+≠
+0
+→
+⁡
+𝑁
+|
+ℓ
+→
+|
+⋅
+∥
+𝛼
+ℓ
+→
+∥
+ℝ
+/
+ℤ
+	
+
+where 
+|
+ℓ
+→
+|
+=
+∑
+𝑗
+=
+1
+𝑘
+ℓ
+𝑗
+.
+
+Remark.
+
+Note that the above definition is only sensitive to the values of 
+𝑔
+​
+mod
+​
+1
+.
+
+We now define when a polynomial sequence is rational and smooth.
+
+Definition 3.16.
+
+Consider a nilmanifold 
+𝐺
+/
+Γ
+ given either a degree, degree-rank, or multidegree filtration with Mal’cev basis 
+𝒳
+ and 
+𝑔
+ a domain 
+ℤ
+𝑘
+ polynomial sequence on 
+𝐺
+ with respect to the given filtration. We say that 
+𝑔
+ is 
+(
+𝑀
+,
+𝑁
+)
+-smooth if:
+
+• 
+
+𝑑
+𝐺
+,
+𝒳
+​
+(
+𝑔
+⁡
+(
+0
+→
+)
+,
+id
+𝐺
+)
+≤
+𝑀
+;
+
+• 
+
+𝑑
+𝐺
+,
+𝒳
+​
+(
+𝑔
+⁡
+(
+𝑣
+→
+)
+,
+𝑔
+⁡
+(
+𝑣
+→
++
+𝑒
+→
+𝑖
+)
+)
+≤
+𝑀
+⋅
+𝑁
+−
+1
+ for 
+𝑣
+→
+∈
+[
+𝑁
+]
+𝑘
+ and 
+1
+≤
+𝑖
+≤
+𝑘
+.
+
+We say that 
+𝑔
+ is 
+𝑀
+-rational if there is 
+1
+≤
+𝑚
+≤
+𝑀
+ such that for all 
+𝑛
+→
+∈
+ℕ
+𝑘
+ we have that
+
+	
+𝜓
+𝒳
+​
+(
+𝑔
+⁡
+(
+𝑛
+→
+)
+)
+∈
+1
+𝑚
+⋅
+ℤ
+dim
+(
+𝐺
+)
+.
+	
+4.Proof outline
+
+We are now in position to discuss the proof of Theorem 1.2; as our proof is closely modeled on that of Green, Tao, and Ziegler [34], the announcement of [33] may prove a useful starting point for certain readers. For various parts of this outline we will restrict to the case of the 
+𝑈
+5
+-inverse theorem and discuss the proof as if the analysis were performed with bracket polynomials.
+
+4.1.Induction on degree and additive quadruples
+
+Suppose that 
+𝑓
+:
+[
+𝑁
+]
+→
+ℂ
+ is 
+1
+-bounded such that
+
+	
+∥
+𝑓
+∥
+𝑈
+5
+​
+[
+𝑁
+]
+≥
+𝛿
+.
+	
+
+Via the inductive definition of the Gowers norm, we have for 
+𝛿
+𝑂
+⁡
+(
+1
+)
+​
+𝑁
+ values of 
+ℎ
+∈
+[
+𝑁
+]
+ that
+
+	
+∥
+Δ
+ℎ
+​
+𝑓
+∥
+𝑈
+4
+​
+[
+𝑁
+]
+≥
+𝛿
+𝑂
+⁡
+(
+1
+)
+.
+	
+
+Call this set of indices 
+𝐻
+. Applying Theorem 1.2 inductively (when converted to bracket polynomials; see e.g. [45, Proposition 1.4]) we may choose 
+𝑑
+1
+,
+𝑑
+2
+,
+𝑑
+3
+≤
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+⁡
+(
+1
+)
+ and coefficients 
+𝑎
+𝑖
+,
+ℎ
+ etc. such that
+
+	
+|
+𝔼
+𝑛
+∈
+[
+𝑁
+]
+Δ
+ℎ
+𝑓
+(
+𝑛
+)
+⋅
+𝑒
+(
+	
+∑
+𝑖
+=
+1
+𝑑
+1
+𝑎
+𝑖
+,
+ℎ
+​
+𝑛
+​
+[
+𝑏
+𝑖
+,
+ℎ
+​
+𝑛
+]
+​
+[
+𝑐
+𝑖
+,
+ℎ
+​
+𝑛
+]
++
+∑
+𝑖
+=
+1
+𝑑
+2
+𝑑
+𝑖
+,
+ℎ
+​
+𝑛
+2
+​
+[
+𝑒
+𝑖
+,
+ℎ
+​
+𝑛
+]
++
+∑
+𝑖
+=
+1
+𝑑
+3
+𝑓
+𝑖
+,
+ℎ
+​
+𝑛
+​
+[
+𝑔
+𝑖
+,
+ℎ
+​
+𝑛
+]
+	
+		
+OPEN
++
+𝑗
+ℎ
+​
+𝑛
+3
++
+ℓ
+ℎ
+​
+𝑛
+2
++
+𝑚
+ℎ
+​
+𝑛
+)
+|
+≥
+exp
+⁡
+(
+−
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+⁡
+(
+1
+)
+)
+;
+	
+
+we have padded with extra coefficients to make the dimensions 
+𝑑
+𝑖
+ not 
+ℎ
+-dependent. Set
+
+	
+𝐺
+ℎ
+​
+(
+𝑛
+)
+¯
+=
+𝑒
+⁡
+(
+∑
+𝑖
+=
+1
+𝑑
+1
+𝑎
+𝑖
+,
+ℎ
+​
+𝑛
+​
+[
+𝑏
+𝑖
+,
+ℎ
+​
+𝑛
+]
+​
+[
+𝑐
+𝑖
+,
+ℎ
+​
+𝑛
+]
++
+∑
+𝑖
+=
+1
+𝑑
+2
+𝑑
+𝑖
+,
+ℎ
+​
+𝑛
+2
+​
+[
+𝑒
+𝑖
+,
+ℎ
+​
+𝑛
+]
++
+∑
+𝑖
+=
+1
+𝑑
+3
+𝑓
+𝑖
+,
+ℎ
+​
+𝑛
+​
+[
+𝑔
+𝑖
+,
+ℎ
+​
+𝑛
+]
++
+𝑗
+ℎ
+​
+𝑛
+3
++
+ℓ
+ℎ
+​
+𝑛
+2
++
+𝑚
+ℎ
+​
+𝑛
+)
+.
+	
+
+For the sake of clarity, we will let 
+𝐿
+ℎ
+​
+(
+𝑛
+)
+ denote terms of degree 
+≤
+2
+ which are possibly 
+ℎ
+-dependent. We have
+
+	
+|
+𝔼
+𝑛
+∈
+[
+𝑁
+]
+​
+Δ
+ℎ
+​
+𝑓
+​
+(
+𝑛
+)
+⋅
+𝑒
+⁡
+(
+∑
+𝑖
+=
+1
+𝑑
+1
+𝑎
+𝑖
+,
+ℎ
+​
+𝑛
+​
+[
+𝑏
+𝑖
+,
+ℎ
+​
+𝑛
+]
+​
+[
+𝑐
+𝑖
+,
+ℎ
+​
+𝑛
+]
++
+∑
+𝑖
+=
+1
+𝑑
+2
+𝑑
+𝑖
+,
+ℎ
+​
+𝑛
+2
+​
+[
+𝑒
+𝑖
+,
+ℎ
+​
+𝑛
+]
++
+𝑗
+ℎ
+​
+𝑛
+3
++
+𝐿
+ℎ
+​
+(
+𝑛
+)
+)
+|
+≥
+exp
+⁡
+(
+−
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+⁡
+(
+1
+)
+)
+.
+	
+
+The first crucial step, via a Cauchy–Schwarz argument due to Gowers [16] (see [32, Proposition 6.1] or Lemma 7.2) is that for many additive quadruples 
+(
+ℎ
+1
+,
+ℎ
+2
+,
+ℎ
+3
+,
+ℎ
+4
+)
+, i.e. 
+ℎ
+1
++
+ℎ
+2
+=
+ℎ
+3
++
+ℎ
+4
+, we have
+
+	
+|
+𝔼
+𝑛
+∈
+[
+𝑁
+]
+​
+𝐺
+ℎ
+1
+​
+(
+𝑛
+)
+​
+𝐺
+ℎ
+2
+​
+(
+𝑛
++
+ℎ
+1
+−
+ℎ
+4
+)
+​
+𝐺
+ℎ
+3
+​
+(
+𝑛
+)
+¯
+​
+𝐺
+ℎ
+4
+​
+(
+𝑛
++
+ℎ
+1
+−
+ℎ
+4
+)
+¯
+|
+≥
+exp
+⁡
+(
+−
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+⁡
+(
+1
+)
+)
+.
+	
+4.2.Sunflower and linearization for the top degree-rank
+
+Via bracket polynomial manipulations, we see that the “top degree-rank” term of the above expression is
+
+	
+∑
+𝑖
+=
+1
+𝑑
+1
+(
+𝑎
+𝑖
+,
+ℎ
+1
+​
+𝑛
+​
+[
+𝑏
+𝑖
+,
+ℎ
+1
+​
+𝑛
+]
+​
+[
+𝑐
+𝑖
+,
+ℎ
+1
+​
+𝑛
+]
++
+𝑎
+𝑖
+,
+ℎ
+2
+​
+𝑛
+​
+[
+𝑏
+𝑖
+,
+ℎ
+2
+​
+𝑛
+]
+​
+[
+𝑐
+𝑖
+,
+ℎ
+2
+​
+𝑛
+]
+−
+𝑎
+𝑖
+,
+ℎ
+3
+​
+𝑛
+​
+[
+𝑏
+𝑖
+,
+ℎ
+3
+​
+𝑛
+]
+​
+[
+𝑐
+𝑖
+,
+ℎ
+3
+​
+𝑛
+]
+−
+𝑎
+𝑖
+,
+ℎ
+4
+​
+𝑛
+​
+[
+𝑏
+𝑖
+,
+ℎ
+4
+​
+𝑛
+]
+​
+[
+𝑐
+𝑖
+,
+ℎ
+4
+​
+𝑛
+]
+)
+.
+	
+
+The heart of the proof is demonstrating that these “top degree-rank terms line up” in an appropriate sense across a dense additive tuples in 
+𝐻
+. Such a conclusion is at least plausible since for generic coefficients the associated bracket polynomial equidistributes
+mod
+​
+1
+, which would violate the given condition on 
+𝐺
+ℎ
+1
+​
+(
+𝑛
+)
+​
+𝐺
+ℎ
+2
+​
+(
+𝑛
++
+ℎ
+1
+−
+ℎ
+4
+)
+​
+𝐺
+ℎ
+3
+​
+(
+𝑛
+)
+¯
+​
+𝐺
+ℎ
+4
+​
+(
+𝑛
++
+ℎ
+1
+−
+ℎ
+4
+)
+¯
+. One possibility where the top degree-rank term is exactly zero is when we can write 
+𝑎
+𝑖
+,
+ℎ
+1
+=
+𝑎
+𝑖
+​
+ℎ
+1
+, 
+𝑏
+𝑖
+,
+ℎ
+1
+=
+𝑏
+𝑖
+∗
+, 
+𝑐
+𝑖
+,
+ℎ
+1
+=
+𝑐
+𝑖
+∗
+. The heart of the matter is that, up to controlled modifications, this is the only way for that to occur in a robust sense.
+
+The first modification is that we can replace in the above example the expression 
+𝑎
+𝑖
+,
+ℎ
+1
+=
+𝑎
+𝑖
+​
+ℎ
+1
+ with 
+𝑎
+𝑖
+,
+ℎ
+1
+=
+Θ
+𝑖
+​
+{
+Θ
+𝑖
+′
+​
+ℎ
+1
+}
+ or more generally a bracket linear form. The second modification is that we may not get a description that respects the presented structure of the sum. Instead the coordinates of the bracket linear form may only appear in these “fixed”, “fixed”, “bracket linear” triples after a linear change of variables. We prove the existence of this structure in two steps, as in [34]. The first step proves that the bracket form is “fixed”, “fixed”, “
+ℎ
+-dependent” and the second step then proves that the “
+ℎ
+-dependent” part in fact has a bracket linear structure. These steps will fall under the names sunflower and linearization respectively.
+
+4.3.Degree-rank iteration
+
+Once we have learned this refined form for 
+∑
+𝑖
+=
+1
+𝑑
+1
+𝑎
+𝑖
+,
+ℎ
+​
+𝑛
+​
+[
+𝑏
+𝑖
+,
+ℎ
+​
+𝑛
+]
+​
+[
+𝑐
+𝑖
+,
+ℎ
+​
+𝑛
+]
+, we iterate and then learn the refined form for the next highest degree-rank term 
+∑
+𝑖
+=
+1
+𝑑
+2
+𝑑
+𝑖
+,
+ℎ
+​
+𝑛
+2
+​
+[
+𝑒
+𝑖
+,
+ℎ
+​
+𝑛
+]
+, and then finally we learn the refined form for 
+𝑗
+ℎ
+​
+𝑛
+3
+. Given these refined forms, Green, Tao, and Ziegler prove that the top degree terms in fact have the form of a multidegree 
+(
+1
+,
+3
+)
+ nilsequence (in variables 
+ℎ
+ and 
+𝑛
+). Finally given such a correlation, a symmetrization argument as in [34] concludes the proof. We remark here that while terms such as 
+𝑎
+𝑖
+,
+ℎ
+ and 
+𝑒
+𝑖
+,
+ℎ
+ correspond to Taylor coefficients on the top degree horizontal torus, terms such as 
+𝑑
+𝑖
+,
+ℎ
+ belong to the second horizontal torus, and 
+𝑗
+ℎ
+ to the third horizontal torus. Furthermore to handle terms of the form 
+∑
+𝑖
+=
+1
+𝑑
+2
+𝑑
+𝑖
+,
+ℎ
+​
+𝑛
+2
+​
+[
+𝑒
+𝑖
+,
+ℎ
+​
+𝑛
+]
+ correctly we must realize such terms via a degree-rank 
+(
+3
+,
+2
+)
+ nilmanifold, hence the need for the finer degree-rank notion.
+
+4.4.Nilcharacters and horizontal tori
+
+We now make this description more precise in terms of nilcharacters and horizontal tori. Let 
+𝐹
+⁡
+(
+𝑔
+ℎ
+​
+(
+𝑛
+)
+​
+Γ
+)
+=
+𝐺
+ℎ
+​
+(
+𝑛
+)
+ be a nilcharacter of degree-rank 
+(
+𝑠
+,
+𝑟
+)
+; here 
+𝑒
+⁡
+(
+𝑎
+​
+𝑛
+​
+[
+𝑏
+​
+𝑛
+]
+​
+[
+𝑐
+​
+𝑛
+]
+)
+ should be thought of as an “almost” degree-rank 
+(
+3
+,
+3
+)
+ nilcharacter and 
+𝑒
+⁡
+(
+𝑎
+​
+𝑛
+​
+[
+𝑏
+​
+𝑛
+2
+]
+)
+ as an “almost” degree-rank 
+(
+3
+,
+2
+)
+ nilcharacter. The sunflower step proves that the nilsequence 
+𝐹
+​
+(
+𝑔
+ℎ
+​
+(
+𝑛
+)
+​
+Γ
+)
+ can be realized as a bracket polynomial whose top degree-rank part is a sum of terms with 
+(
+𝑟
+−
+1
+)
+ iterated brackets where each term consists of 
+(
+𝑟
+−
+1
+)
+ 
+ℎ
+-independent phases of 
+𝑔
+ℎ
+, and possibly one 
+ℎ
+-dependent phase of 
+𝑔
+ℎ
+. Here, “phase” will correspond to components of the Taylor coefficients of 
+𝑔
+ℎ
+, 
+Taylor
+𝑖
+⁡
+(
+𝑔
+ℎ
+)
+. This corresponds to showing that the 
+𝑖
+-th horizontal torus 
+𝐺
+(
+𝑖
+,
+1
+)
+/
+𝐺
+(
+𝑖
+,
+2
+)
+ contains vector spaces 
+𝑉
+𝑖
+,
+Dep
+⩽
+𝑉
+𝑖
+ such that:
+
+• 
+
+Taylor
+𝑖
+⁡
+(
+𝑔
+ℎ
+)
+−
+Taylor
+𝑖
+⁡
+(
+𝑔
+ℎ
+′
+)
+∈
+𝑉
+𝑖
+,
+Dep
+ and 
+Taylor
+𝑖
+⁡
+(
+𝑔
+ℎ
+)
+∈
+𝑉
+𝑖
+;
+
+• 
+
+If 
+𝑖
+1
++
+⋯
++
+𝑖
+𝑟
+=
+𝑠
+, then 
+[
+𝑣
+𝑖
+1
+,
+𝑣
+𝑖
+2
+,
+…
+,
+𝑣
+𝑖
+𝑟
+]
+=
+0
+ whenever 
+𝑣
+𝑖
+𝑗
+∈
+𝑉
+𝑖
+𝑗
+ and there are at least two indices 
+𝑗
+ such that 
+𝑣
+𝑖
+𝑗
+∈
+𝑉
+𝑖
+𝑗
+,
+Dep
+.
+
+Here we have implicitly descended an iterated commutator to the vector spaces 
+𝐺
+(
+𝑖
+,
+1
+)
+/
+𝐺
+(
+𝑖
+,
+2
+)
+ which corresponds to a multilinear form in this case. Such a result is proven via combining quantitative equidistribution theory of nilsequences [43, 42] with a “Furstenberg–Weiss argument” as in [32, 34, 43]; see [56] for further examples of the Furstenberg–Weiss argument.
+
+The linearization step then proves that the remaining 
+ℎ
+-dependent phases are “bracket linear” in 
+ℎ
+. In practice, we require an additional case that the 
+ℎ
+-dependent phase may be a petal phase: a top degree-rank term with the petal phase can be realized as a “lower order term”, or more precisely a bracket phase with at most 
+(
+𝑟
+−
+2
+)
+ iterated brackets or of total degree at most 
+𝑠
+−
+1
+. Thus, the statement we ultimately prove is that we may decompose a subspace of the 
+𝑖
+-th horizontal torus into the sum of three linearly disjoint vector spaces 
+𝑊
+𝑖
+,
+∗
+, 
+𝑊
+𝑖
+,
+Lin
+, and 
+𝑊
+𝑖
+,
+Pet
+ such that:
+
+	
+Taylor
+𝑖
+⁡
+(
+𝑔
+ℎ
+)
+	
+∈
+𝑊
+𝑖
+,
+∗
++
+𝑊
+𝑖
+,
+Lin
++
+𝑊
+𝑖
+,
+Pet
+,
+	
+	
+Taylor
+𝑖
+⁡
+(
+𝑔
+ℎ
+)
+−
+Taylor
+𝑖
+⁡
+(
+𝑔
+ℎ
+′
+)
+	
+∈
+𝑊
+𝑖
+,
+Lin
++
+𝑊
+𝑖
+,
+Pet
+,
+	
+
+and the projection of 
+Taylor
+𝑖
+⁡
+(
+𝑔
+ℎ
+)
+ onto 
+𝑊
+𝑖
+,
+Lin
+ is bracket linear. In addition, we require that if 
+𝑖
+1
++
+⋯
++
+𝑖
+𝑟
+=
+𝑠
+, then 
+[
+𝑣
+𝑖
+1
+,
+𝑣
+𝑖
+2
+,
+…
+,
+𝑣
+𝑖
+𝑟
+]
+=
+0
+ whenever 
+𝑣
+𝑖
+∈
+𝑊
+𝑖
+,
+∗
++
+𝑊
+𝑖
+,
+Lin
++
+𝑊
+𝑖
+,
+Pet
+ and either 
+𝑣
+𝑖
+𝑗
+∈
+𝑊
+𝑖
+𝑗
+,
+Pet
+ for at least one index 
+𝑗
+ or 
+𝑣
+𝑖
+𝑗
+∈
+𝑊
+𝑖
+𝑗
+,
+Lin
+ for at least two distinct indices 
+𝑗
+. Thus even though we have not improved our understanding of the Taylor coefficients on 
+𝑊
+𝑖
+,
+Pet
+ we have the improved the vanishing of the top degree-rank commutator bracket on this vector space. The linearization step is proved by a combination of quantitative equidistribution theory of nilmanifolds [43, 42] and inverse sumset theory. We refer the reader to [43] for a simpler case of the argument given here.
+
+4.5.Quantitative bounds
+
+The heart of this paper is performing the sunflower and linearization steps efficiently. Green, Tao, and Ziegler [34] accomplish this (when unwinding the correspondence between nilmanifolds and bracket polynomials) via iteratively learning relations between the coefficients 
+𝑎
+𝑖
+,
+ℎ
+,
+𝑏
+𝑖
+,
+ℎ
+,
+𝑐
+𝑖
+,
+ℎ
+ and performing a dimension reduction argument.1 Furthermore, the underlying equidistribution theorem used in the work of Green, Tao, and Ziegler [34], proven in work of Green and Tao [29], relies on an induction on dimension argument. The use of any induction on dimension argument essentially immediately results in 
+𝑂
+⁡
+(
+𝑠
+)
+ iterated logarithms and thus must be avoided.
+
+The use of induction on dimension in the equidistribution theorem was avoided in work of the first author [43, 42]. The key point in Sections 8 and 9 therefore is to perform the sunflower and linearization steps without any use of induction on dimension. The precise details, while mainly utilizing elementary linear algebra, require a bit of precision. This argument, extending the case of the 
+𝑈
+4
+-inverse theorem from [43], demonstrates that a dimension-independent number of applications of equidistribution theory is sufficient to derive the necessary decrease in degree-rank. (Note that the argument in [34] morally uses that one can in fact assume that there are no “short linear relations” between various coefficients, but such a result necessitates exponential in dimension dependencies in the exponent.) Another crucial point in our work is that the length of the associated bracket linear form that is obtained not “very long”. This is, by now, a standard consequence of the quasi-polynomial bounds of Sanders [52] towards the polynomial Bogolyubov conjecture.
+
+We finally remark that the quantitative equidistribution theorem we use is slightly different than the one derived in work of the first author [43, 42]. The work of the first author is most naturally phrased as factoring ill-distributed polynomial sequences into a smooth part, a rational part, and a polynomial sequence which (up to taking a certain quotient) lives in a lower step nilmanifold. For our purposes, it is critical to instead lower the degree of the nilmanifold. This is most easily seen from the above bracket polynomial example where we are attempting to linearize a function of the form
+
+	
+𝑒
+⁡
+(
+∑
+𝑖
+=
+1
+𝑑
+3
+𝑓
+𝑖
+,
+ℎ
+​
+𝑛
+​
+[
+𝑔
+𝑖
+,
+ℎ
+​
+𝑛
+]
++
+𝑗
+ℎ
+​
+𝑛
+3
++
+ℓ
+ℎ
+​
+𝑛
+2
++
+𝑚
+ℎ
+​
+𝑛
+)
+.
+	
+
+At this step we wish to linearize 
+𝑗
+ℎ
+​
+𝑛
+3
+ instead of handling the terms 
+𝑓
+𝑖
+,
+ℎ
+​
+𝑛
+​
+[
+𝑔
+𝑖
+,
+ℎ
+​
+𝑛
+]
+; the 
+𝑗
+ℎ
+​
+𝑛
+3
+ term, while having the highest degree, does not correspond to the highest step part of the nilmanifold. This phenomenon only occurs when proving the 
+𝑈
+𝑠
++
+1
+-inverse theorem for 
+𝑠
+≥
+4
+. Thus a crucial ingredient in our work is bootstrapping, as a black box, the efficient version of equidistribution with respect to step in order to obtain an efficient version of equidistribution with respect to degree; this is Theorem 5.4.
+
+4.6.Organization of the paper II
+
+In Section 5 we prove the necessary quantitative equidistribution theorem with respect to degree. In Section 6, we perform the setup and give various definitions which will be used to perform the sunflower and linearization steps. In Section 7, we derive that many additive quadruples exhibit a bias. In Section 8 we perform the sunflower step while in Section 9 we perform the linearization step. In Sections 10 and 11 we then convert information regarding the Taylor coefficients into correlation with a multidegree 
+(
+1
+,
+𝑠
+−
+1
+)
+ nilsequence and a nilsequence of lower degree-rank. Iterating this argument we eventually obtain correlation with a mutltidegree 
+(
+1
+,
+𝑠
+−
+1
+)
+ nilsequence. In Section 12, we symmetrize this nilsequence to obtain Theorem 1.2.
+
+Appendix A collects certain standard results regarding approximate homomorphisms (this is ultimately where work of Sanders [52] is invoked). In Appendix B, we collect a number of miscellaneous propositions which are deferred throughout the paper. Finally in Appendix C we collect a number of propositions regarding nilcharacters.
+
+5.Efficient equidistribution theory of nilsequences
+
+In order to state the primary equidistribution input of this paper we will need the notion of when an element in 
+𝐺
+/
+[
+𝐺
+,
+𝐺
+]
+ and a horizontal character are orthogonal.
+
+Definition 5.1.
+
+Consider a nilmanifold 
+𝐺
+/
+Γ
+, a horizontal character 
+𝜂
+:
+𝐺
+→
+ℝ
+, and 
+𝑤
+∈
+𝐺
+/
+[
+𝐺
+,
+𝐺
+]
+. We say that 
+𝜂
+ and 
+𝑤
+ are orthogonal if 
+𝜂
+⁡
+(
+𝑤
+)
+=
+0
+.
+
+The primary equidistribution input into our results will be the following result of the first author [42, Theorem 3]. This result is ultimately the driving force of this paper.
+
+Theorem 5.2.
+
+Fix an integer 
+ℓ
+≥
+1
+, 
+𝛿
+∈
+(
+0
+,
+1
+/
+10
+)
+, 
+𝑀
+,
+𝑑
+≥
+1
+, and 
+𝐹
+:
+𝐺
+/
+Γ
+→
+ℂ
+. Suppose that 
+𝐺
+ is a dimension 
+𝑑
+, at most 
+𝑠
+-step connected, simply connected nilpotent Lie group with a given degree 
+𝑘
+ filtration, and the nilmanifold 
+𝐺
+/
+Γ
+ is complexity at most 
+𝑀
+ with respect to this filtration. Let 
+𝑔
+ be a polynomial sequence on 
+𝐺
+ with respect to this filtration.
+
+Furthermore suppose that 
+∥
+𝐹
+∥
+Lip
+≤
+1
+ and 
+𝐹
+ has 
+𝐺
+(
+𝑠
+)
+-vertical frequency 
+𝜉
+ such that the height of 
+𝜉
+ is bounded by 
+𝑀
+/
+𝛿
+. Suppose that 
+𝑁
+≥
+(
+𝑀
+/
+𝛿
+)
+Ω
+𝑘
+,
+ℓ
+​
+(
+𝑑
+Ω
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+ and
+
+	
+|
+𝔼
+𝑛
+→
+∈
+[
+𝑁
+]
+ℓ
+​
+𝐹
+​
+(
+𝑔
+⁡
+(
+𝑛
+→
+)
+​
+Γ
+)
+|
+≥
+𝛿
+.
+	
+
+There exists an integer 
+0
+≤
+𝑟
+≤
+dim
+(
+𝐺
+/
+[
+𝐺
+,
+𝐺
+]
+)
+ such that:
+
+• 
+
+We have horizontal characters 
+𝜂
+1
+,
+…
+,
+𝜂
+𝑟
+:
+𝐺
+→
+ℝ
+ with heights bounded by 
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+,
+ℓ
+​
+(
+𝑑
+𝑂
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+;
+
+• 
+
+For all 
+1
+≤
+𝑖
+≤
+𝑟
+, we have 
+∥
+𝜂
+𝑖
+∘
+𝑔
+∥
+𝐶
+∞
+​
+[
+𝑁
+]
+≤
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+,
+ℓ
+​
+(
+𝑑
+𝑂
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+
+• 
+
+For any 
+𝑤
+1
+,
+…
+,
+𝑤
+𝑠
+∈
+𝐺
+/
+[
+𝐺
+,
+𝐺
+]
+ such that 
+𝑤
+𝑖
+ are orthogonal to all of 
+𝜂
+1
+,
+…
+,
+𝜂
+𝑟
+, we have
+
+	
+𝜉
+⁡
+(
+[
+[
+[
+𝑤
+1
+,
+𝑤
+2
+]
+,
+𝑤
+3
+]
+,
+…
+,
+𝑤
+𝑠
+]
+)
+=
+0
+.
+	
+Remark 5.3.
+
+Note that 
+𝐺
+(
+𝑠
+)
+ (and in fact any group in the lower central series) is seen to be 
+𝑂
+𝑠
+,
+𝑘
+​
+(
+𝑀
+𝑂
+𝑠
+,
+𝑘
+​
+(
+1
+)
+)
+-rational due to Lemma 2.1. This guarantees that the height definition used in [42] and here are compatible.
+
+Remark.
+
+Let 
+𝑊
+=
+⋂
+𝑖
+=
+1
+𝑟
+ker
+⁡
+(
+𝜂
+𝑖
+)
+. The crucial property of the lemma output is that
+
+	
+𝐺
+~
+:=
+𝑊
+/
+ker
+⁡
+(
+𝜉
+)
+	
+
+is trivially seen to be at most 
+(
+𝑠
+−
+1
+)
+-step nilpotent. (Note that if 
+𝐺
+ is abelian then we have that 
+𝐺
+~
+ is trivial.) This is due to the fact that defining 
+𝑊
+=
+𝑊
+0
+=
+𝑊
+1
+ and 
+𝑊
+𝑗
+=
+[
+𝑊
+1
+,
+𝑊
+𝑗
+−
+1
+]
+ for 
+𝑗
+≥
+2
+ yields 
+𝑊
+(
+𝑠
+)
+⩽
+𝐺
+(
+𝑠
+)
+ and 
+𝜉
+⁡
+(
+𝑊
+(
+𝑠
+)
+)
+=
+0
+. Additionally, the statement in [42, Theorem 3] assumes 
+𝐺
+ is exactly 
+𝑠
+-step nilpotent and 
+𝜉
+ is nonzero. In the case when 
+𝐺
+ is strictly less than 
+𝑠
+-step nilpotent, taking no horizontal characters (i.e., 
+𝑊
+=
+𝐺
+) gives the desired statement. Furthermore when 
+𝜉
+ is zero we may similarly take no horizontal characters and note that the final statement is vacuous.
+
+The following variant of Theorem 5.2 will essentially be the primary equidistribution tool in our paper. For the sake of argumentation, we first prove the result in the case when the vertical frequency considered lives on a 
+1
+-dimensional torus and then bootstrap to the general case.
+
+This theorem and its proof are motivated by [34, Lemma E.11]. The key point is that Theorem 5.2 allows us to give a procedure that relies on an induction on step rather than an induction on dimension. The main technical issue is at each stage we pass to a quotient group given by quotienting the kernel of a certain vertical character and thus we must iteratively “lift” these factorizations.
+
+Theorem 5.4.
+
+Let 
+ℓ
+≥
+1
+ be an integer, 
+𝛿
+∈
+(
+0
+,
+1
+/
+10
+)
+, 
+𝑀
+≥
+1
+, and 
+𝐹
+:
+𝐺
+/
+Γ
+→
+ℂ
+. Suppose that 
+𝐺
+ is dimension 
+𝑑
+, is 
+𝑠
+-step nilpotent with a given degree 
+𝑘
+ filtration, and the nilmanifold 
+𝐺
+/
+Γ
+ is complexity at most 
+𝑀
+ with respect to this filtration.
+
+Suppose that 
+𝑇
+⩽
+𝑍
+⁡
+(
+𝐺
+)
+ is a 
+1
+-dimensional subgroup of the center which is 
+𝑀
+-rational with respect to 
+𝐺
+. Further suppose that 
+𝐹
+ has a nonzero 
+𝑇
+-vertical character 
+𝜉
+ with 
+|
+𝜉
+|
+≤
+𝑀
+/
+𝛿
+, 
+∥
+𝐹
+∥
+Lip
+≤
+𝑀
+, 
+𝑁
+≥
+(
+𝑀
+/
+𝛿
+)
+Ω
+𝑘
+,
+ℓ
+​
+(
+𝑑
+Ω
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+, and 
+𝑔
+ is a polynomial sequence with respect to the degree 
+𝑘
+ filtration such that 
+𝑔
+⁡
+(
+0
+)
+=
+id
+𝐺
+. Then if
+
+	
+|
+𝔼
+𝑛
+→
+∈
+[
+𝑁
+]
+ℓ
+​
+𝐹
+​
+(
+𝑔
+⁡
+(
+𝑛
+→
+)
+​
+Γ
+)
+|
+≥
+𝛿
+	
+
+there exists a factorization
+
+	
+𝑔
+=
+𝜀
+​
+𝑔
+′
+​
+𝛾
+	
+
+such that:
+
+• 
+
+𝜀
+⁡
+(
+0
+)
+=
+𝑔
+′
+​
+(
+0
+)
+=
+𝛾
+⁡
+(
+0
+)
+=
+id
+𝐺
+;
+
+• 
+
+𝑔
+′
+ lives in an 
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+,
+ℓ
+​
+(
+𝑑
+𝑂
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+-rational subgroup 
+𝐻
+ such that 
+𝐻
+∩
+𝑇
+=
+Id
+𝐺
+;
+
+• 
+
+𝛾
+ is an 
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+,
+ℓ
+​
+(
+𝑑
+𝑂
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+-rational polynomial sequence;
+
+• 
+
+𝜀
+ is an 
+(
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+,
+ℓ
+​
+(
+𝑑
+𝑂
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+,
+𝑁
+)
+-smooth polynomial sequence.
+
+Proof.
+
+The proof proceeds by iteratively “simplifying” 
+𝑔
+ to live on successively lower-step nilmanifolds. We treat 
+ℓ
+ as constant and allow implicit constants to depend on 
+ℓ
+.
+
+Step 1: Iteration setup. We will define a sequence of parameters 
+𝑀
+𝑖
+,
+𝛿
+𝑖
+ and 
+𝑄
+𝑖
+,
+𝑁
+𝑖
+,
+𝑣
+𝑖
+ (where the domain of 
+𝑛
+→
+ at stage 
+𝑖
+ will be 
+𝑣
+𝑖
++
+𝑄
+𝑖
+⋅
+[
+𝑁
+𝑖
+]
+ℓ
+) satisfying:
+
+	
+𝑀
+𝑖
++
+1
+≤
+(
+𝑀
+𝑖
+/
+𝛿
+𝑖
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+,
+𝛿
+𝑖
++
+1
+≥
+(
+𝛿
+𝑖
+/
+𝑀
+𝑖
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+;
+	
+	
+𝑄
+𝑖
++
+1
+≤
+𝑄
+𝑖
+⋅
+(
+𝑀
+𝑖
+/
+𝛿
+𝑖
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+,
+𝑁
+𝑖
++
+1
+≥
+𝑁
+𝑖
+⋅
+(
+𝛿
+𝑖
+/
+𝑀
+𝑖
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+,
+𝑄
+𝑖
++
+1
+⋅
+𝑁
+𝑖
++
+1
++
+∥
+𝑣
+𝑖
++
+1
+∥
+∞
+≤
+𝑁
+.
+	
+
+During the iteration, we have a sequence of nilpotent Lie groups
+
+	
+𝐺
+0
+,
+𝐺
+1
+,
+…
+,
+𝐺
+𝑡
+,
+…
+	
+
+such that 
+𝐺
+𝑡
+ is at most 
+(
+𝑠
+−
+𝑡
+)
+-step nilpotent with associated lattice 
+Γ
+𝑡
+ and is complexity at most 
+𝑀
+𝑡
+. This in particular will imply that there are at most 
+𝑠
+ stages in the iteration. We also maintain a sequence of subgroups
+
+	
+𝐾
+0
+,
+…
+,
+𝐾
+𝑡
+,
+…
+	
+
+which are 
+𝑀
+𝑡
+-rational subgroups of 
+𝐺
+.
+
+We will define homomorphisms 
+𝜋
+𝑡
++
+1
+:
+𝐺
+𝑡
+→
+𝐺
+𝑡
+/
+ker
+⁡
+(
+𝜉
+𝑡
+)
+=
+:
+𝐺
+~
+𝑡
++
+1
+, where 
+𝜉
+𝑡
+ is a 
+𝐺
+(
+𝑠
+−
+𝑡
+)
+𝑡
+-frequency (recall 
+𝐻
+(
+𝑖
+)
+ denotes the lower central series filtration of a group 
+𝐻
+). 
+𝐺
+𝑡
++
+1
+ will be an appropriately rational subgroup of 
+𝐺
+~
+𝑡
++
+1
+. We will always maintain the invariant that 
+ker
+(
+𝜉
+𝑡
+)
+∩
+(
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑇
+)
+)
+=
+Id
+𝐺
+𝑡
+. We will furthermore maintain that the function 
+𝐹
+𝑡
+ has a 
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑇
+)
+-character given by descending 
+𝜉
+ on 
+𝐺
+ via 
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+.
+
+We inductively maintain the following pair of relations:
+
+• 
+
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝐾
+𝑡
+)
+=
+𝐺
+𝑡
+;
+
+• 
+
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑔
+𝑡
+)
+=
+𝑔
+~
+𝑡
+;
+
+where 
+𝑔
+𝑡
+ and 
+𝑔
+~
+𝑡
+ are polynomial sequences living in 
+𝐾
+𝑡
+ and 
+𝐺
+𝑡
+ respectively.
+
+The iteration terminates when 
+𝐺
+𝑡
+∩
+(
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑇
+)
+)
+=
+Id
+𝐺
+𝑡
+. Before termination note that 
+𝐺
+𝑡
+∩
+(
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑇
+)
+)
+=
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑇
+)
+ since 
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑇
+)
+ is 
+1
+-dimensional. Note that this in particular ensures that before the termination of the iteration, 
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑇
+)
+ is well-defined even though 
+𝜋
+𝑗
+ is not fully defined on the image of 
+𝜋
+𝑗
+−
+1
+! Using the invariant that 
+ker
+(
+𝜉
+𝑡
+)
+∩
+(
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑇
+)
+)
+=
+Id
+𝐺
+𝑡
+ we also have that 
+𝜉
+ (defined on 
+𝑇
+) naturally descends to 
+𝐺
+𝑡
+. We define 
+𝐽
+𝑡
+=
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑇
+)
+.
+
+Furthermore at each stage of the iteration we have that
+
+	
+𝑔
+𝑡
+=
+𝜀
+𝑡
++
+1
+⋅
+𝑔
+𝑡
++
+1
+⋅
+𝛾
+𝑡
++
+1
+	
+
+where:
+
+• 
+
+𝜀
+𝑡
++
+1
+ and 
+𝛾
+𝑡
++
+1
+ are polynomial sequences lying in 
+𝐾
+𝑡
+;
+
+• 
+
+𝑔
+𝑡
++
+1
+ is a polynomial sequence lying in 
+𝐾
+𝑡
++
+1
+;
+
+• 
+
+𝛾
+𝑡
++
+1
+ is 
+𝑀
+𝑡
++
+1
+-rational;
+
+• 
+
+𝜀
+𝑡
++
+1
+ is 
+(
+𝑀
+𝑡
++
+1
+,
+𝑁
+)
+-smooth.
+
+Finally, in each stage of the iteration we will maintain a function 
+𝐹
+𝑡
+:
+𝐺
+𝑡
+/
+Γ
+𝑡
+→
+ℂ
+ such that
+
+	
+|
+𝔼
+𝑛
+→
+∈
+𝑣
+𝑡
++
+𝑄
+𝑡
+⋅
+[
+𝑁
+𝑡
+]
+ℓ
+​
+[
+𝐹
+𝑡
+​
+(
+𝑔
+𝑡
+~
+​
+(
+𝑛
+→
+)
+​
+Γ
+𝑡
+)
+]
+|
+≥
+𝛿
+𝑡
+.
+	
+
+Throughout the iterations, nilmanifolds at stage 
+𝑖
+ will have complexity bounded by 
+𝑀
+𝑖
+, 
+𝐹
+𝑖
+ is 
+𝑀
+𝑖
+-Lipschitz, and various horizontal and vertical characters constructed will have size and height bounded by 
+𝑀
+𝑖
+. The starting conditions are 
+𝐺
+0
+=
+𝐺
+, 
+Γ
+0
+=
+Γ
+, 
+𝑀
+0
+=
+𝑀
+, 
+𝐹
+0
+=
+𝐹
+, 
+𝑁
+0
+=
+𝑁
+, 
+𝑣
+0
+=
+0
+, 
+𝑄
+0
+=
+1
+, 
+𝛿
+0
+=
+𝛿
+, 
+𝐾
+0
+=
+𝐺
+ (and 
+𝐽
+0
+=
+𝑇
+), and 
+𝑔
+0
+=
+𝑔
+~
+0
+=
+𝑔
+.
+
+Step 2: Applying equidistribution. We now run a single step of the iteration. We have
+
+	
+|
+𝔼
+𝑛
+→
+∈
+𝑣
+𝑡
++
+𝑄
+𝑡
+⋅
+[
+𝑁
+𝑡
+]
+ℓ
+​
+[
+𝐹
+𝑡
+​
+(
+𝑔
+~
+𝑡
+​
+(
+𝑛
+)
+​
+Γ
+𝑡
+)
+]
+|
+≥
+𝛿
+𝑡
+.
+	
+
+By definition, we have that 
+𝐹
+𝑡
+ has a 
+𝐽
+𝑡
+-frequency (a descent of 
+𝜉
+); this is not sufficient to apply Theorem 5.2. We perform an additional Fourier-analytic step to obtain a 
+𝐺
+(
+𝑠
+−
+𝑡
+)
+𝑡
+-vertical frequency. Since 
+𝐹
+𝑡
+ is 
+𝑀
+𝑡
+-Lipschitz, via [42, Lemma A.6] we may write
+
+	
+𝐹
+𝑡
+​
+(
+𝑧
+​
+Γ
+𝑡
+)
+=
+∑
+|
+𝜉
+′
+|
+≤
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+𝐹
+𝜉
+′
+,
+𝑡
+​
+(
+𝑧
+​
+Γ
+𝑡
+)
++
+𝜏
+⁡
+(
+𝑧
+​
+Γ
+𝑡
+)
+	
+
+such that
+
+• 
+
+𝐹
+𝜉
+′
+,
+𝑡
+ has 
+𝐺
+(
+𝑠
+−
+𝑡
+)
+𝑡
+-vertical frequency 
+𝜉
+′
+;
+
+• 
+
+∥
+𝜏
+∥
+∞
+≤
+𝛿
+𝑡
+/
+2
+;
+
+• 
+
+𝐹
+𝜉
+′
+,
+𝑡
+ is 
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+-Lipschitz on 
+𝐺
+𝑡
+/
+Γ
+𝑡
+.
+
+Given this representation, recall that 
+𝐹
+𝑡
+ has 
+𝜉
+ (appropriately descended) as a 
+𝐽
+𝑡
+-vertical frequency. We abusively write this as 
+𝜉
+. Therefore
+
+	
+𝐹
+𝑡
+​
+(
+𝑧
+​
+Γ
+𝑡
+)
+	
+=
+∫
+𝑔
+∈
+𝐽
+𝑡
+/
+Γ
+𝑡
+𝑒
+⁡
+(
+−
+𝜉
+⁡
+(
+𝑔
+)
+)
+​
+𝐹
+𝑡
+​
+(
+𝑧
+​
+𝑔
+​
+Γ
+𝑡
+)
+​
+𝑑
+​
+𝐽
+𝑡
+​
+(
+𝑔
+)
+	
+		
+=
+∑
+|
+𝜉
+′
+|
+≤
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+∫
+𝑔
+∈
+𝐽
+𝑡
+/
+Γ
+𝑡
+𝑒
+⁡
+(
+−
+𝜉
+⁡
+(
+𝑔
+)
+)
+​
+𝐹
+𝜉
+′
+,
+𝑡
+​
+(
+𝑧
+​
+𝑔
+​
+Γ
+𝑡
+)
+​
+𝑑
+​
+𝐽
+𝑡
+​
+(
+𝑔
+)
++
+∫
+𝑔
+∈
+𝐽
+𝑡
+/
+Γ
+𝑡
+𝑒
+⁡
+(
+−
+𝜉
+⁡
+(
+𝑔
+)
+)
+​
+𝜏
+​
+(
+𝑧
+​
+𝑔
+​
+Γ
+𝑡
+)
+​
+𝑑
+​
+𝐽
+𝑡
+​
+(
+𝑔
+)
+	
+		
+=
+∑
+|
+𝜉
+′
+|
+≤
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+𝐹
+~
+𝜉
+′
+,
+𝑡
+​
+(
+𝑧
+​
+Γ
+𝑡
+)
++
+∫
+𝑔
+∈
+𝐽
+𝑡
+/
+Γ
+𝑡
+𝑒
+⁡
+(
+−
+𝜉
+⁡
+(
+𝑔
+)
+)
+​
+𝜏
+​
+(
+𝑧
+​
+𝑔
+​
+Γ
+𝑡
+)
+​
+𝑑
+​
+𝐽
+𝑡
+​
+(
+𝑔
+)
+,
+	
+
+where 
+𝑑
+​
+𝐽
+𝑡
+ represents the Haar measure on 
+𝐽
+𝑡
+/
+Γ
+𝑡
+. Thus 
+𝐹
+𝑡
+ may be decomposed into a sum of functions with 
+𝐺
+(
+𝑠
+−
+𝑡
+)
+𝑡
+-vertical characters up to an 
+𝐿
+∞
+ error of 
+𝛿
+𝑡
+/
+2
+. Furthermore, each vertical character 
+𝜉
+′
+ in question must agree with 
+𝜉
+ on 
+𝐽
+𝑡
+∩
+𝐺
+(
+𝑠
+−
+𝑡
+)
+𝑡
+. If not, then the corresponding integral in the second line will average to 
+0
+ and we may remove it.
+
+Applying Pigeonhole, there exists 
+|
+𝜉
+′
+|
+≤
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+ such that
+
+(5.1)		
+|
+𝔼
+𝑛
+→
+∈
+𝑣
+𝑡
++
+𝑄
+𝑡
+⋅
+[
+𝑁
+𝑡
+]
+ℓ
+​
+[
+𝐹
+~
+𝜉
+′
+,
+𝑡
+​
+(
+𝑔
+~
+𝑡
+​
+(
+𝑛
+→
+)
+​
+Γ
+𝑡
+)
+]
+|
+≥
+(
+𝛿
+𝑡
+/
+𝑀
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+.
+	
+
+We have the following trichotomy:
+
+• 
+
+𝜉
+′
+ is nonzero and 
+𝐽
+𝑡
+∩
+𝐺
+(
+𝑠
+−
+𝑡
+)
+𝑡
+=
+𝐽
+𝑡
+;
+
+• 
+
+𝜉
+′
+ is nonzero and 
+𝐽
+𝑡
+∩
+𝐺
+(
+𝑠
+−
+𝑡
+)
+𝑡
+=
+Id
+𝐺
+𝑡
+;
+
+• 
+
+𝜉
+′
+=
+0
+ in 
+𝐺
+(
+𝑠
+−
+𝑡
+)
+𝑡
+^
+.
+
+We define 
+𝜋
+𝑡
++
+1
+:
+𝐺
+𝑡
+→
+𝐺
+𝑡
+/
+ker
+⁡
+(
+𝜉
+′
+)
+=
+:
+𝐺
+~
+𝑡
++
+1
+ (in particular we let 
+𝜉
+𝑡
++
+1
+=
+𝜉
+′
+). Let 
+Γ
+~
+𝑡
++
+1
+:=
+Γ
+𝑡
+/
+(
+Γ
+𝑡
+∩
+ker
+⁡
+(
+𝜉
+′
+)
+)
+=
+𝜋
+𝑡
++
+1
+​
+(
+Γ
+𝑡
+)
+. We now apply Theorem 5.2 to (5.1), obtaining horizontal characters 
+𝜂
+1
+,
+…
+,
+𝜂
+𝑟
+:
+𝐺
+𝑡
+→
+ℝ
+. Let their common kernel be 
+𝐻
+∗
+ and let 
+𝐺
+𝑡
++
+1
+=
+𝜋
+𝑡
++
+1
+​
+(
+𝐻
+∗
+)
+⩽
+𝐺
+~
+𝑡
++
+1
+. Note that in the case when 
+𝐺
+𝑡
+ is abelian, we do not necessarily have that 
+𝜂
+𝑖
+ are trivial on 
+ker
+⁡
+(
+𝜉
+′
+)
+. However replacing 
+𝐻
+∗
+ by 
+𝐻
+∗
+​
+ker
+⁡
+(
+𝜉
+′
+)
+ (and abusively referring to this as 
+𝐻
+∗
+), we may then replace 
+𝜂
+𝑖
+ by 
+𝜂
+𝑖
+′
+ which instead cutout 
+𝐻
+∗
+​
+ker
+⁡
+(
+𝜉
+′
+)
+ and note that 
+𝜂
+𝑖
+′
+ may be taken to be 
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+-height integer combination of 
+𝜂
+𝑖
+. We abusively rename these characters as 
+𝜂
+𝑖
+ and then proceed with the proof in this edge abelian case.
+
+By applying [42, Lemma A.1], we obtain a factorization of 
+𝑔
+~
+𝑡
+​
+(
+𝑄
+𝑡
+​
+𝑛
++
+𝑣
+𝑡
+)
+ into three nilsequences which are “smooth”, supported on a rational subgroup, and “rational”. We may change variables and then apply 
+𝜋
+𝑡
++
+1
+ to obtain
+
+	
+𝜋
+𝑡
++
+1
+​
+(
+𝑔
+~
+𝑡
+)
+=
+:
+𝜀
+𝑡
++
+1
+∗
+​
+𝑔
+𝑡
++
+1
+∗
+​
+𝛾
+𝑡
++
+1
+∗
+	
+
+where:
+
+• 
+
+𝑔
+𝑡
++
+1
+∗
+∈
+𝐺
+𝑡
++
+1
+, and 
+𝐺
+𝑡
++
+1
+ is at most 
+(
+𝑠
+−
+𝑡
+−
+1
+)
+-step nilpotent. Furthermore 
+𝐺
+𝑡
++
+1
+ is trivially seen to be 
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+-rational with respect to 
+𝐺
+~
+𝑡
++
+1
+;
+
+• 
+
+𝛾
+𝑡
++
+1
+∗
+ is an 
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+-rational polynomial sequence within 
+𝐺
+~
+𝑡
++
+1
+;
+
+• 
+
+𝜀
+𝑡
++
+1
+∗
+ is 
+(
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+,
+𝑁
+)
+-smooth.
+
+We remark that changing variables is easily seen to not affect the smoothness and rationality in a substantial manner due to the bounds on 
+𝑄
+𝑡
+. We can see that the step of 
+𝐺
+𝑡
++
+1
+ decreases appropriately.
+
+Step 3: Lifting the factorization data. Note that 
+𝐺
+𝑡
++
+1
+ can be defined via a set of horizontal characters 
+𝜂
+1
+′
+,
+…
+,
+𝜂
+𝑟
+′
+′
+ of 
+𝐺
+~
+𝑡
++
+1
+ such that
+
+	
+𝐺
+𝑡
++
+1
+=
+{
+𝑥
+∈
+𝐺
+~
+𝑡
++
+1
+:
+𝜂
+𝑖
+′
+​
+(
+𝑥
+)
+=
+0
+​
+ for all 
+​
+1
+≤
+𝑖
+≤
+𝑟
+′
+}
+	
+
+and we let 
+Γ
+𝑡
++
+1
+=
+𝐺
+𝑡
++
+1
+∩
+Γ
+~
+𝑡
++
+1
+. Note that the 
+𝜂
+𝑖
+′
+ are the natural descentions of 
+𝜂
+𝑖
+ as we have 
+𝜂
+𝑖
+ are trivial on 
+ker
+⁡
+(
+𝜉
+′
+)
+; this is precisely why we earlier modified the characters in the abelian case.
+
+We define
+
+	
+𝐾
+𝑡
++
+1
+=
+{
+𝑥
+∈
+𝐾
+𝑡
+:
+𝜂
+𝑖
+′
+(
+𝜋
+𝑡
++
+1
+∘
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑥
+)
+)
+=
+0
+ for all 
+1
+≤
+𝑖
+≤
+𝑟
+′
+}
+.
+	
+
+The trivial (but key) point is that 
+𝜋
+𝑡
++
+1
+∘
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝐾
+𝑡
++
+1
+)
+⩽
+𝐺
+𝑡
++
+1
+. The key issue is noting that the map is well-defined; this is because 
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝐾
+𝑡
+)
+⩽
+𝐺
+𝑡
+ by induction so that we are allowed to apply 
+𝜋
+𝑡
++
+1
+ to any such values. We further see that 
+𝜋
+𝑡
++
+1
+∘
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝐾
+𝑡
++
+1
+)
+=
+𝐺
+𝑡
++
+1
+ because 
+𝜋
+𝑡
++
+1
+∘
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝐾
+𝑡
+)
+=
+𝜋
+𝑡
++
+1
+(
+𝐺
+𝑡
+)
+=
+𝐺
+~
+𝑡
++
+1
+ and 
+𝐾
+𝑡
++
+1
+ is the subgroup of 
+𝐾
+𝑡
+ such that the image under 
+𝜋
+𝑡
++
+1
+∘
+⋯
+∘
+𝜋
+1
+ is precisely in the intersection of kernels defining 
+𝐺
+𝑡
++
+1
+ within 
+𝐺
+~
+𝑡
++
+1
+.
+
+Recall by induction that
+
+	
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑔
+𝑡
+)
+=
+𝑔
+~
+𝑡
+	
+
+and thus
+
+	
+𝜋
+𝑡
++
+1
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑔
+𝑡
+)
+=
+𝜀
+𝑡
++
+1
+∗
+𝑔
+𝑡
++
+1
+∗
+𝛾
+𝑡
++
+1
+∗
+.
+	
+
+Applying 
+𝜂
+𝑖
+′
+, we find that that there exists a nonzero integer 
+𝑇
+𝑖
+≤
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+ such that
+
+(5.2)		
+∥
+𝑇
+𝑖
+⋅
+𝜂
+𝑖
+′
+(
+𝜋
+𝑡
++
+1
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑔
+𝑡
+)
+)
+∥
+𝐶
+∞
+​
+[
+𝑁
+]
+≤
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+.
+	
+
+We now claim that 
+𝜂
+𝑖
+′
+(
+𝜋
+𝑡
++
+1
+∘
+⋯
+∘
+𝜋
+1
+(
+⋅
+)
+)
+ is a horizontal character on 
+𝐾
+𝑡
+. It is a homomorphism since the 
+𝜋
+𝑖
+ are homomorphisms and it is well-defined by the above. In addition, we may inductively show that 
+𝜋
+𝑡
++
+1
+∘
+⋯
+∘
+𝜋
+1
+(
+Γ
+∩
+𝐾
+𝑡
+)
+=
+Γ
+~
+𝑡
++
+1
+ and 
+𝜋
+𝑡
++
+1
+∘
+⋯
+∘
+𝜋
+1
+(
+Γ
+∩
+𝐾
+𝑡
++
+1
+)
+=
+Γ
+𝑡
++
+1
+. Hence 
+𝜂
+𝑖
+′
+(
+𝜋
+𝑡
++
+1
+∘
+⋯
+∘
+𝜋
+1
+(
+Γ
+∩
+𝐾
+𝑡
+)
+)
+⩽
+ℤ
+, which verifies the property of being a horizontal character. That the horizontal character has appropriately bounded height is an immediate consequence of induction and the fact that 
+|
+𝜉
+′
+|
+≤
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+.
+
+Now we use this data to construct the required factorization. By applying [42, Lemma A.1] with the horizontal characters 
+𝑇
+𝑖
+⋅
+𝜂
+𝑖
+′
+(
+𝜋
+𝑡
++
+1
+∘
+⋯
+∘
+𝜋
+1
+)
+ defined on 
+𝐾
+𝑡
+ with the hypotheses (5.2), we may write
+
+	
+𝑔
+𝑡
+=
+𝜀
+𝑡
++
+1
+′
+​
+𝑔
+𝑡
++
+1
+′
+​
+𝛾
+𝑡
++
+1
+′
+	
+
+where:
+
+• 
+
+𝑔
+𝑡
++
+1
+′
+ takes values in 
+𝐾
+𝑡
++
+1
+;
+
+• 
+
+𝜀
+𝑡
++
+1
+′
+ and 
+𝛾
+𝑡
++
+1
+′
+ take values in 
+𝐾
+𝑡
+;
+
+• 
+
+𝛾
+𝑡
++
+1
+′
+ is an 
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+-rational polynomial sequence;
+
+• 
+
+𝜀
+𝑡
++
+1
+′
+ is 
+(
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+,
+𝑁
+)
+-smooth.
+
+Then 
+𝑄
+′
+ denote the least common multiple of the periods of the 
+ℓ
+ different directions for 
+𝛾
+𝑡
++
+1
+′
+​
+Γ
+; note that such periods exist and we have 
+𝑄
+′
+≤
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+ by [42, Lemma B.14]. Divide 
+𝑣
+𝑡
++
+𝑄
+𝑡
+⋅
+[
+𝑁
+𝑡
+]
+ℓ
+ into boxes of common difference 
+𝑄
+𝑡
+​
+𝑄
+′
+. By Pigeonhole there exists 
+𝑣
+′
+ such that
+
+	
+|
+𝔼
+𝑛
+→
+∈
+𝑣
+′
++
+𝑄
+′
+​
+𝑄
+𝑡
+⋅
+[
+𝑁
+𝑡
+/
+𝑄
+′
+]
+ℓ
+​
+[
+𝐹
+~
+𝜉
+′
+,
+𝑡
+​
+(
+𝑔
+~
+𝑡
+​
+(
+𝑛
+→
+)
+​
+Γ
+𝑡
+)
+]
+|
+≥
+(
+𝛿
+𝑡
+/
+𝑀
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+.
+	
+
+Note that
+
+	
+𝑔
+~
+𝑡
+=
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑔
+𝑡
+)
+=
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝜀
+𝑡
++
+1
+′
+)
+⋅
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑔
+𝑡
++
+1
+′
+)
+⋅
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝛾
+𝑡
++
+1
+′
+)
+.
+	
+
+Since the differences we are considering are divisible by 
+𝑄
+′
+, there is 
+𝛾
+Rep
+ such that
+
+	
+𝛾
+Rep
+−
+1
+​
+𝛾
+𝑡
++
+1
+′
+​
+(
+𝑣
+′
++
+𝑄
+′
+​
+𝑄
+𝑡
+⋅
+𝑛
+→
+)
+∈
+Γ
+	
+
+for all 
+𝑛
+→
+∈
+ℤ
+ℓ
+, where 
+𝛾
+Rep
+∈
+𝐾
+𝑡
+ and 
+𝑑
+𝐺
+​
+(
+𝛾
+Rep
+,
+id
+𝐺
+)
+≤
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+. Since 
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+Γ
+∩
+𝐾
+𝑡
+)
+⩽
+Γ
+𝑡
+ we have that
+
+	
+|
+𝔼
+𝑛
+→
+∈
+𝑣
+′
++
+𝑄
+′
+​
+𝑄
+𝑡
+⋅
+[
+𝑁
+𝑡
+/
+𝑄
+′
+]
+ℓ
+[
+𝐹
+~
+𝜉
+′
+,
+𝑡
+(
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝜀
+𝑡
++
+1
+′
+𝛾
+Rep
+)
+⋅
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝛾
+Rep
+−
+1
+𝑔
+𝑡
++
+1
+′
+𝛾
+Rep
+)
+Γ
+𝑡
+)
+]
+|
+≥
+(
+𝛿
+𝑡
+/
+𝑀
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+.
+	
+
+Step 4: Completing the induction. The first key polynomial sequence we shall define is
+
+	
+𝑔
+𝑡
++
+1
+=
+𝛾
+Rep
+−
+1
+⋅
+𝑔
+𝑡
++
+1
+′
+⋅
+𝛾
+Rep
+.
+	
+
+Note that 
+𝐾
+𝑡
++
+1
+ is normal within 
+𝐾
+𝑡
+ and since 
+𝛾
+Rep
+∈
+𝐾
+𝑡
+ we have that 
+𝑔
+𝑡
++
+1
+ takes on values in 
+𝐾
+𝑡
++
+1
+ as desired. Further let 
+𝜀
+𝑡
++
+1
+=
+𝜀
+𝑡
++
+1
+′
+⋅
+𝛾
+Rep
+ and 
+𝛾
+𝑡
++
+1
+=
+𝛾
+Rep
+−
+1
+⋅
+𝛾
+𝑡
++
+1
+′
+; these are trivially seen to lie in 
+𝐾
+𝑡
+ and have the necessary rationality and smoothness properties due to the above analysis.
+
+We now break 
+[
+𝑁
+𝑡
+/
+𝑄
+′
+]
+ℓ
+ into a collection of boxes of length 
+𝑁
+𝑡
++
+1
+≥
+𝑁
+𝑡
+/
+𝑄
+′
+⋅
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+−
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+. There exists a box such that
+
+	
+|
+𝔼
+𝑛
+→
+∈
+𝑣
+′′
++
+𝑄
+′
+​
+𝑄
+𝑡
+⋅
+[
+𝑁
+𝑡
++
+1
+]
+ℓ
+[
+𝐹
+~
+𝜉
+′
+,
+𝑡
+(
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝜀
+𝑡
++
+1
+′
+⋅
+𝛾
+Rep
+)
+⋅
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑔
+𝑡
++
+1
+)
+Γ
+𝑡
+)
+]
+|
+≥
+(
+𝛿
+𝑡
+/
+𝑀
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+.
+	
+
+Taking 
+𝑁
+𝑡
++
+1
+ sufficiently small, we may replace the initial “smooth” polynomial sequence 
+𝜀
+𝑡
++
+1
+∗
+ by 
+𝜀
+∗
+∈
+𝐾
+𝑡
+ where 
+𝑑
+𝐺
+​
+(
+𝜀
+∗
+,
+id
+𝐺
+)
+≤
+(
+𝑀
+𝑡
+/
+𝛿
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+ such that
+
+	
+|
+𝔼
+𝑛
+→
+∈
+𝑣
+′′
++
+𝑄
+′
+​
+𝑄
+𝑡
+⋅
+[
+𝑁
+𝑡
++
+1
+]
+ℓ
+[
+𝐹
+~
+𝜉
+′
+,
+𝑡
+(
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝜀
+∗
+)
+⋅
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑔
+𝑡
++
+1
+)
+Γ
+𝑡
+)
+]
+|
+≥
+(
+𝛿
+𝑡
+/
+𝑀
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+.
+	
+
+The new function 
+𝐹
+𝑡
++
+1
+ is given by descending 
+𝑔
+↦
+𝐹
+~
+𝜉
+′
+,
+𝑡
+(
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝜀
+∗
+)
+⋅
+𝑔
+Γ
+𝑡
+)
+ from 
+𝐺
+𝑡
+ to 
+𝐺
+~
+𝑡
++
+1
+ (and later we may implicitly restrict to 
+𝐺
+𝑡
++
+1
+). Explicitly, for 
+𝑔
+∈
+𝐺
+𝑡
+ we have
+
+	
+𝐹
+~
+𝜉
+′
+,
+𝑡
+(
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝜀
+∗
+)
+𝑔
+Γ
+𝑡
++
+1
+)
+=
+𝐹
+𝑡
++
+1
+(
+𝜋
+𝑡
++
+1
+(
+𝑔
+)
+Γ
+~
+𝑡
++
+1
+)
+	
+
+which is possible because 
+𝐹
+~
+𝜉
+′
+,
+𝑡
+ has vertical frequency 
+𝜉
+′
+. Therefore we have
+
+(5.3)		
+|
+𝔼
+𝑛
+→
+∈
+𝑣
+′′
++
+𝑄
+′
+​
+𝑄
+𝑡
+⋅
+[
+𝑁
+𝑡
++
+1
+]
+ℓ
+[
+𝐹
+𝑡
++
+1
+(
+𝜋
+𝑡
++
+1
+∘
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑔
+𝑡
++
+1
+(
+𝑛
+→
+)
+)
+Γ
+~
+𝑡
++
+1
+)
+]
+|
+≥
+(
+𝛿
+𝑡
+/
+𝑀
+𝑡
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+.
+	
+
+We let
+
+	
+𝑔
+~
+𝑡
++
+1
+:=
+𝜋
+𝑡
++
+1
+∘
+𝜋
+𝑡
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑔
+𝑡
++
+1
+)
+	
+
+and we may replace 
+Γ
+~
+𝑡
++
+1
+ with 
+Γ
+𝑡
++
+1
+=
+Γ
+~
+𝑡
++
+1
+∩
+𝐺
+𝑡
++
+1
+ in (5.3).
+
+We now check that 
+ker
+⁡
+(
+𝜉
+′
+)
+∩
+𝐽
+𝑡
+=
+id
+𝐺
+𝑡
+, which is one of the invariants we are maintaining (we take 
+𝜉
+𝑡
+=
+𝜉
+′
+). We will have to distinguish between cases:
+
+• 
+
+If 
+𝜉
+′
+ is nonzero and 
+𝐽
+𝑡
+∩
+𝐺
+(
+𝑠
+−
+𝑡
+)
+𝑡
+=
+𝐽
+𝑡
+ note that 
+ker
+⁡
+(
+𝜉
+′
+)
+∩
+𝐽
+𝑡
+=
+Id
+𝐺
+𝑡
+. This is due to the fact that 
+𝜉
+′
+ restricted to 
+𝐽
+𝑡
+ is (the descended version of) 
+𝜉
+ which is nonzero as given.
+
+• 
+
+If 
+𝜉
+′
+ is nonzero and 
+𝐽
+𝑡
+∩
+𝐺
+(
+𝑠
+−
+𝑡
+)
+𝑡
+=
+Id
+𝐺
+𝑡
+ then note that 
+ker
+⁡
+(
+𝜉
+′
+)
+∩
+𝐽
+𝑡
+⩽
+𝐽
+𝑡
+∩
+𝐺
+(
+𝑠
+−
+𝑡
+)
+𝑡
+=
+Id
+𝐺
+𝑡
+.
+
+• 
+
+If 
+𝜉
+′
+=
+0
+ then note that as 
+𝜉
+ (appropriately descended) was nonzero we have that 
+𝐽
+𝑡
+∩
+𝐺
+(
+𝑠
+−
+𝑡
+)
+𝑡
+=
+Id
+𝐺
+𝑡
+ is forced in this case. The result then follows as in the previous step.
+
+Now, if 
+𝐺
+𝑡
++
+1
+∩
+𝜋
+𝑡
++
+1
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑇
+)
+=
+𝜋
+𝑡
++
+1
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑇
+)
+ then we continue with the iteration and do not terminate. If we have reached termination, we therefore have that 
+𝐺
+𝑡
++
+1
+∩
+𝜋
+𝑡
++
+1
+∘
+⋯
+𝜋
+1
+(
+𝑇
+)
+=
+Id
+𝐺
+𝑡
++
+1
+. We claim that this implies that 
+𝐾
+𝑡
++
+1
+∩
+𝑇
+=
+Id
+𝐺
+ (and therefore we may take the output group to be 
+𝐻
+=
+𝐾
+𝑡
++
+1
+). For the sake of contradiction, instead suppose 
+𝑇
+⩽
+𝐾
+𝑡
++
+1
+ (since 
+𝑇
+ is 
+1
+-dimensional). Applying 
+𝜋
+𝑡
++
+1
+∘
+⋯
+∘
+𝜋
+1
+ we have that
+
+	
+𝜋
+𝑡
++
+1
+∘
+⋯
+∘
+𝜋
+1
+(
+𝑇
+)
+⩽
+𝜋
+𝑡
++
+1
+∘
+⋯
+∘
+𝜋
+1
+(
+𝐾
+𝑡
++
+1
+)
+=
+𝐺
+𝑡
++
+1
+	
+
+which contradicts the termination condition.
+
+Finally, note that if 
+𝐺
+𝑡
++
+1
+∩
+𝜋
+𝑡
++
+1
+∘
+⋯
+𝜋
+1
+(
+𝑇
+)
+=
+𝜋
+𝑡
++
+1
+∘
+⋯
+𝜋
+1
+(
+𝑇
+)
+ then 
+𝐹
+𝑡
++
+1
+ when viewed as a function on 
+𝐺
+𝑡
++
+1
+/
+Γ
+𝑡
++
+1
+ is seen to have a nonzero 
+𝜋
+𝑡
++
+1
+∘
+⋯
+𝜋
+1
+(
+𝑇
+)
+ vertical character (which is given by descending 
+𝜉
+ on 
+𝐺
+ in through 
+𝜋
+𝑡
++
+1
+∘
+⋯
+𝜋
+1
+ in the obvious manner), so one can continue in the iteration in this case.
+
+Step 5: Fixing the value at 
+0
+. To see that this completes the proof, if the iteration terminates at some stage 
+𝑡
+ then note that
+
+	
+𝑔
+=
+𝜀
+1
+⋯
+𝜀
+𝑡
+⋅
+𝑔
+𝑡
+⋅
+𝛾
+𝑡
+⋯
+𝛾
+1
+.
+	
+
+Using that the product of smooth sequences are appropriately smooth and analogously for rational sequences allows us to deduce the necessary outputs. However, we have not guaranteed that the values of the factorization are the 
+id
+𝐺
+ at 
+0
+. For this, let 
+𝑔
+𝑡
+​
+(
+0
+)
+=
+{
+𝑔
+𝑡
+​
+(
+0
+)
+}
+​
+[
+𝑔
+𝑡
+​
+(
+0
+)
+]
+ with 
+[
+𝑔
+𝑡
+​
+(
+0
+)
+]
+∈
+𝐾
+𝑡
+∩
+Γ
+ and 
+𝑑
+𝐺
+​
+(
+{
+𝑔
+𝑡
+​
+(
+0
+)
+}
+,
+id
+𝐺
+)
+≤
+(
+𝑀
+/
+𝜀
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+. We then have that
+
+	
+𝑔
+=
+𝜀
+1
+⋯
+𝜀
+𝑡
+⋅
+{
+𝑔
+𝑡
+(
+0
+)
+}
+⋅
+(
+{
+𝑔
+𝑡
+(
+0
+)
+}
+−
+1
+𝑔
+𝑡
+[
+𝑔
+𝑡
+(
+0
+)
+]
+−
+1
+)
+⋅
+[
+𝑔
+𝑡
+(
+0
+)
+]
+⋅
+𝛾
+𝑡
+⋯
+𝛾
+1
+.
+	
+
+As 
+𝑔
+⁡
+(
+0
+)
+=
+0
+, we have that 
+𝜏
+=
+[
+𝑔
+𝑡
+(
+0
+)
+]
+⋅
+𝛾
+𝑡
+(
+0
+)
+⋅
+⋯
+𝛾
+1
+(
+0
+)
+ satisfies 
+𝑑
+𝐺
+​
+(
+𝜏
+,
+id
+𝐺
+)
+≤
+(
+𝑀
+/
+𝜀
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+ and 
+𝜏
+ is 
+(
+𝑀
+/
+𝜀
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+-rational. Thus
+
+	
+𝑔
+=
+𝜀
+1
+⋯
+𝜀
+𝑡
+⋅
+{
+𝑔
+𝑡
+(
+0
+)
+}
+𝜏
+⋅
+(
+𝜏
+−
+1
+{
+𝑔
+𝑡
+(
+0
+)
+}
+−
+1
+𝑔
+𝑡
+[
+𝑔
+𝑡
+(
+0
+)
+]
+−
+1
+𝜏
+)
+⋅
+𝜏
+−
+1
+[
+𝑔
+𝑡
+(
+0
+)
+]
+⋅
+𝛾
+𝑡
+⋅
+𝛾
+1
+	
+
+and note that 
+(
+𝜏
+−
+1
+​
+{
+𝑔
+𝑡
+​
+(
+0
+)
+}
+−
+1
+​
+𝑔
+𝑡
+​
+[
+𝑔
+𝑡
+​
+(
+0
+)
+]
+−
+1
+​
+𝜏
+)
+ takes value in the conjugated subgroup 
+𝜏
+−
+1
+​
+𝐾
+𝑡
+​
+𝜏
+ which is 
+(
+𝑀
+/
+𝜀
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+-rational by [42, Lemma B.15]. Note however that despite modifying the output group 
+𝐻
+ via conjugation, we have 
+𝜏
+−
+1
+​
+𝐾
+𝑡
+​
+𝜏
+∩
+𝑇
+=
+𝜏
+−
+1
+​
+𝐾
+𝑡
+​
+𝜏
+∩
+𝜏
+−
+1
+​
+𝑇
+​
+𝜏
+=
+Id
+𝐺
+ as desired. ∎
+
+We now remove the assumption of a 
+1
+-dimensional vertical torus via a reduction to this case.
+
+Corollary 5.5.
+
+Let 
+ℓ
+≥
+1
+ be an integer, 
+𝛿
+∈
+(
+0
+,
+1
+/
+10
+)
+, 
+𝑀
+≥
+1
+, and 
+𝐹
+:
+𝐺
+/
+Γ
+→
+ℂ
+. Suppose that 
+𝐺
+ is dimension 
+𝑑
+, is 
+𝑠
+-step nilpotent with a given degree 
+𝑘
+ filtration, and the nilmanifold 
+𝐺
+/
+Γ
+ is complexity at most 
+𝑀
+ with respect to this filtration.
+
+Suppose that 
+𝑇
+⩽
+𝑍
+⁡
+(
+𝐺
+)
+ is a subgroup of the center which is 
+𝑀
+-rational. Further suppose that 
+𝐹
+ has a nonzero 
+𝑇
+-vertical character 
+𝜉
+ with 
+|
+𝜉
+|
+≤
+𝑀
+/
+𝛿
+, 
+∥
+𝐹
+∥
+Lip
+≤
+𝑀
+, 
+𝑁
+≥
+(
+𝑀
+/
+𝛿
+)
+Ω
+𝑘
+,
+ℓ
+​
+(
+𝑑
+Ω
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+, and 
+𝑔
+ is a polynomial sequence with respect to the degree 
+𝑘
+ filtration. Then if
+
+	
+|
+𝔼
+𝑛
+→
+∈
+[
+𝑁
+]
+ℓ
+​
+𝐹
+​
+(
+𝑔
+⁡
+(
+𝑛
+→
+)
+​
+Γ
+)
+|
+≥
+𝛿
+	
+
+there exists a factorization
+
+	
+𝑔
+=
+𝜀
+​
+𝑔
+′
+​
+𝛾
+	
+
+such that:
+
+• 
+
+𝑔
+′
+ lives in an 
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+,
+ℓ
+​
+(
+𝑑
+𝑂
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+-rational subgroup 
+𝐻
+ such that 
+𝜉
+⁡
+(
+𝐻
+∩
+𝑇
+)
+=
+0
+;
+
+• 
+
+𝛾
+ is an 
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+,
+ℓ
+​
+(
+𝑑
+𝑂
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+-rational polynomial sequence;
+
+• 
+
+𝜀
+ is an 
+(
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+,
+ℓ
+​
+(
+𝑑
+𝑂
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+,
+𝑁
+)
+-smooth polynomial sequence.
+
+Furthermore if 
+𝑔
+⁡
+(
+0
+)
+=
+id
+𝐺
+ then we may take 
+𝜀
+⁡
+(
+0
+)
+=
+𝑔
+′
+​
+(
+0
+)
+=
+𝛾
+⁡
+(
+0
+)
+=
+id
+𝐺
+.
+
+Proof.
+
+We first reduce to the case where 
+𝑔
+⁡
+(
+0
+)
+=
+id
+𝐺
+ as is standard. We factor 
+𝑔
+​
+(
+0
+)
+=
+{
+𝑔
+​
+(
+0
+)
+}
+​
+[
+𝑔
+​
+(
+0
+)
+]
+ such that 
+[
+𝑔
+⁡
+(
+0
+)
+]
+∈
+Γ
+ and 
+𝜓
+𝐺
+(
+{
+𝑔
+(
+0
+)
+}
+)
+∈
+[
+0
+,
+1
+)
+dim
+(
+𝐺
+)
+. Replacing 
+𝐹
+ by 
+𝐹
+(
+{
+𝑔
+(
+0
+)
+}
+⋅
+)
+ and 
+𝑔
+ by 
+{
+𝑔
+⁡
+(
+0
+)
+}
+−
+1
+​
+𝑔
+​
+[
+𝑔
+⁡
+(
+0
+)
+]
+−
+1
+ we may clearly reduce to the case where 
+𝑔
+⁡
+(
+0
+)
+=
+id
+𝐺
+ at the cost of replacing 
+𝑀
+ by 
+𝑀
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+ which leaves the conclusion unchanged.
+
+Using Lemma 3.10 to bound the complexity of 
+𝐺
+/
+ker
+⁡
+(
+𝜉
+)
+ and noting that 
+𝐹
+ descends to an 
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+-Lipschitz function on 
+𝐺
+/
+ker
+⁡
+(
+𝜉
+)
+, by Theorem 5.4 we have that
+
+	
+(
+𝑔
+​
+mod
+​
+ker
+⁡
+(
+𝜉
+)
+)
+=
+𝜀
+​
+𝑔
+′
+​
+𝛾
+	
+
+where 
+𝜀
+,
+𝑔
+′
+,
+𝛾
+ satisfy:
+
+• 
+
+𝜀
+⁡
+(
+0
+)
+=
+𝑔
+′
+​
+(
+0
+)
+=
+𝛾
+⁡
+(
+0
+)
+=
+id
+𝐺
+/
+ker
+⁡
+(
+𝜉
+)
+;
+
+• 
+
+𝑔
+′
+ lives in an 
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+,
+ℓ
+​
+(
+𝑑
+𝑂
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+-rational subgroup 
+𝐻
+ such that 
+𝐻
+∩
+(
+𝑇
+/
+ker
+⁡
+(
+𝜉
+)
+)
+=
+id
+𝐺
+/
+ker
+⁡
+(
+𝜉
+)
+;
+
+• 
+
+𝛾
+ is an 
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+,
+ℓ
+​
+(
+𝑑
+𝑂
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+-rational polynomial sequence;
+
+• 
+
+𝜀
+ is an 
+(
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+,
+ℓ
+​
+(
+𝑑
+𝑂
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+,
+𝑁
+)
+-smooth polynomial sequence.
+
+We now “lift” this factorization. Consider the Mal’cev basis 
+𝒳
+′
+ for 
+𝐺
+/
+ker
+⁡
+(
+𝜉
+)
+. For each element 
+𝑋
+𝑖
+′
+∈
+𝒳
+′
+ we may lift to 
+𝑍
+𝑖
+∈
+log
+⁡
+𝐺
+ such that:
+
+• 
+
+exp
+⁡
+(
+𝑋
+𝑖
+′
+)
+=
+exp
+⁡
+(
+𝑍
+𝑖
+)
+​
+mod
+​
+ker
+⁡
+(
+𝜉
+)
+;
+
+• 
+
+𝑑
+𝐺
+​
+(
+exp
+⁡
+(
+𝑍
+𝑖
+)
+,
+id
+𝐺
+)
+≤
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+;
+
+• 
+
+𝑍
+𝑖
+ is an 
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+​
+(
+𝑑
+𝑂
+𝑘
+​
+(
+1
+)
+)
+-rational combination of the elements of 
+𝒳
+.
+
+Writing 
+𝜀
+ as
+
+	
+𝜀
+⁡
+(
+𝑛
+→
+)
+=
+exp
+⁡
+(
+∑
+|
+𝑖
+→
+|
+≤
+𝑘
+𝜀
+𝑖
+→
+​
+(
+𝑛
+→
+𝑖
+→
+)
+)
+	
+
+where 
+𝜀
+𝑖
+→
+∈
+log
+⁡
+(
+𝐺
+|
+𝑖
+→
+|
+/
+(
+ker
+⁡
+(
+𝜉
+)
+∩
+𝐺
+|
+𝑖
+→
+|
+)
+)
+, we lift via the above mapping on 
+𝒳
+′
+ to
+
+	
+𝜀
+~
+​
+(
+𝑛
+)
+=
+exp
+⁡
+(
+∑
+|
+𝑖
+→
+|
+≤
+𝑘
+𝜀
+~
+𝑖
+→
+​
+(
+𝑛
+→
+𝑖
+→
+)
+)
+	
+
+where 
+𝜀
+~
+𝑖
+→
+∈
+log
+⁡
+(
+𝐺
+|
+𝑖
+→
+|
+)
+ and analogously for 
+𝑔
+′
+,
+𝛾
+.
+
+We easily see that 
+𝜀
+~
+ is an 
+(
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+,
+ℓ
+​
+(
+𝑑
+𝑂
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+,
+𝑁
+)
+-smooth polynomial sequence, that 
+𝛾
+~
+ is an 
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+,
+ℓ
+​
+(
+𝑑
+𝑂
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+-rational polynomial sequence, and that 
+𝑔
+~
+′
+ takes values in the subgroup 
+𝐻
+′
+=
+exp
+⁡
+(
+log
+⁡
+(
+𝐻
+)
++
+log
+⁡
+(
+ker
+⁡
+(
+𝜉
+)
+)
+)
+. Furthermore 
+𝐻
+′
+ is seen to be 
+(
+𝑀
+/
+𝛿
+)
+𝑂
+𝑘
+,
+ℓ
+​
+(
+𝑑
+𝑂
+𝑘
+,
+ℓ
+​
+(
+1
+)
+)
+-rational and 
+𝜉
+⁡
+(
+𝐻
+′
+∩
+𝑇
+)
+=
+0
+. Finally note that 
+𝜀
+~
+​
+mod
+​
+ker
+⁡
+(
+𝜉
+)
+=
+𝜀
+ and analogously for 
+𝑔
+~
+′
+,
+𝛾
+~
+. Therefore
+
+	
+𝑔
+⋅
+(
+𝜀
+~
+​
+𝑔
+~
+′
+​
+𝛾
+~
+)
+−
+1
+≡
+id
+𝐺
+​
+mod
+​
+ker
+⁡
+(
+𝜉
+)
+	
+
+as polynomial sequences. Thus
+
+	
+𝑔
+=
+𝑔
+⋅
+(
+𝜀
+~
+​
+𝑔
+~
+′
+​
+𝛾
+~
+)
+−
+1
+⋅
+(
+𝜀
+~
+​
+𝑔
+~
+′
+⋅
+𝛾
+~
+)
+=
+𝜀
+~
+⋅
+(
+(
+𝑔
+⋅
+(
+𝜀
+~
+​
+𝑔
+~
+′
+​
+𝛾
+~
+)
+−
+1
+)
+⋅
+𝑔
+~
+′
+)
+⋅
+𝛾
+~
+	
+
+gives the desired factorization noting that 
+ker
+⁡
+(
+𝜉
+)
+⩽
+𝐻
+′
+ and 
+ker
+⁡
+(
+𝜉
+)
+ is central and therefore 
+𝑔
+⋅
+(
+𝜀
+~
+​
+𝑔
+~
+′
+​
+𝛾
+~
+)
+−
+1
+ may be commuted to the right. ∎
+
+6.Setup for Sunflower and Linearization Iteration
+
+We now set up the iteration which will take up the bulk of the following four sections. The idea is to inductively assume the statement of Theorem 1.2 for 
+𝑠
+−
+1
+ (i.e., the quantitative inverse theorem for the 
+𝑈
+𝑠
+​
+[
+𝑁
+]
+-norm) and the remaining goal is to prove it for 
+𝑠
+. The key step is to show that for many 
+ℎ
+∈
+[
+𝑁
+]
+, 
+Δ
+ℎ
+​
+𝑓
+ correlates with a multidegree 
+(
+1
+,
+𝑠
+−
+1
+)
+ nilcharacter; this is a quantitative version of [34, Theorem 7.1]. For the remainder of the analysis until Section 12 we will be concerned with the notion of a correlation structure, which can be thought of as refining the notion in Definition 3.14 with intermediate bracket information.
+
+Definition 6.1.
+
+A correlation structure associated to the function 
+𝑓
+:
+[
+𝑁
+]
+→
+ℂ
+ with parameters 
+𝜌
+, 
+𝑀
+, 
+𝑑
+, and 
+𝐷
+ and degree-rank 
+(
+𝑠
+−
+1
+,
+𝑟
+∗
+)
+ is the following data:
+
+• 
+
+A subset 
+𝐻
+⊆
+[
+𝑁
+]
+ such that 
+|
+𝐻
+|
+≥
+𝜌
+​
+𝑁
+;
+
+• 
+
+A multidegree 
+(
+1
+,
+𝑠
+−
+1
+)
+ nilcharacter 
+𝜒
+⁡
+(
+ℎ
+,
+𝑛
+)
+ that lives on a nilmanifold 
+𝐺
+∗
+/
+Γ
+∗
+ where 
+𝜒
+ has a 
+𝐺
+(
+1
+,
+𝑠
+−
+1
+)
+∗
+-vertical frequency 
+𝜂
+∗
+. Furthermore 
+𝐺
+∗
+/
+Γ
+∗
+ has dimension bounded by 
+𝑑
+ and complexity bounded by 
+𝑀
+, the function 
+𝐹
+∗
+ underlying 
+𝜒
+ is 
+𝑀
+-Lipschitz, 
+𝜂
+∗
+ has height bounded by 
+𝑀
+, and the output dimension of 
+𝜒
+ is bounded by 
+𝐷
+. We let 
+𝑔
+⁡
+(
+ℎ
+,
+𝑛
+)
+ denote the underlying polynomial sequence of 
+𝜒
+;
+
+• 
+
+A collection of degree-rank 
+(
+𝑠
+−
+1
+,
+𝑟
+∗
+)
+ nilcharacters 
+𝜒
+ℎ
+​
+(
+𝑛
+)
+ which live on 
+𝐺
+/
+Γ
+ where every 
+𝜒
+ℎ
+ has the same 
+𝐺
+(
+𝑠
+−
+1
+,
+𝑟
+∗
+)
+-vertical frequency 
+𝜂
+. Furthermore 
+𝐺
+/
+Γ
+ has dimension bounded by 
+𝑑
+ and complexity bounded by 
+𝑀
+ (with Mal’cev basis 
+𝒳
+), the function underlying 
+𝜒
+ℎ
+ is 
+𝑀
+-Lipschitz, 
+𝜂
+ has height bounded by 
+𝑀
+, and 
+𝜒
+ℎ
+ has output dimension bounded by 
+𝐷
+. We let 
+𝑔
+ℎ
+​
+(
+𝑛
+)
+ denote the polynomial sequence underlying 
+𝜒
+ℎ
+. Finally, the function underlying 
+𝜒
+ℎ
+, which we will denote 
+𝐹
+, is independent of 
+ℎ
+;
+
+• 
+
+The polynomial sequences satisfy 
+𝑔
+ℎ
+​
+(
+0
+)
+=
+id
+𝐺
+;
+
+• 
+
+For all 
+ℎ
+∈
+𝐻
+ we have
+
+	
+Δ
+ℎ
+​
+𝑓
+​
+(
+𝑛
+)
+⊗
+𝜒
+⁡
+(
+ℎ
+,
+𝑛
+)
+¯
+⊗
+𝜒
+ℎ
+​
+(
+𝑛
+)
+¯
+∈
+Corr
+⁡
+(
+𝑠
+−
+2
+,
+𝜌
+,
+𝑀
+,
+𝑑
+)
+.
+	
+
+If the input function 
+𝑓
+ we are considering for the proof of Theorem 1.2 satisfies
+
+	
+∥
+𝑓
+∥
+𝑈
+𝑠
++
+1
+​
+[
+𝑁
+]
+≥
+𝛿
+,
+	
+
+then our proof will always maintain bounds of the form
+
+	
+𝜌
+−
+1
+,
+𝑀
+,
+𝐷
+≤
+exp
+⁡
+(
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+𝑠
+​
+(
+1
+)
+)
+​
+ and 
+​
+𝑑
+≤
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+𝑠
+​
+(
+1
+)
+	
+
+on intermediate correlation structures, although the precise dependence may decay over roughly 
+𝑠
+ stages (wherein we reduce 
+𝑟
+∗
+ from 
+𝑠
+−
+1
+ to 
+0
+).
+
+To get started, we first note that given a function 
+𝑓
+ with large 
+𝑈
+𝑠
++
+1
+-norm we may associate to it a correlation structure of degree-rank 
+(
+𝑠
+−
+1
+,
+𝑠
+−
+1
+)
+; this is little more than chasing definitions and applying induction.
+
+Lemma 6.2.
+
+Fix 
+𝛿
+∈
+(
+0
+,
+1
+/
+2
+)
+ and 
+𝑠
+≥
+2
+. Assume Theorem 1.2 for 
+𝑠
+−
+1
+. Let 
+𝑓
+:
+[
+𝑁
+]
+→
+ℂ
+ be a 
+1
+-bounded function such that
+
+	
+∥
+𝑓
+∥
+𝑈
+𝑠
++
+1
+​
+[
+𝑁
+]
+≥
+𝛿
+.
+	
+
+Then there exists a degree-rank 
+(
+𝑠
+−
+1
+,
+𝑠
+−
+1
+)
+ correlation structure associated to 
+𝑓
+ with parameters 
+𝜌
+, 
+𝑀
+, 
+𝑑
+, and 
+𝐷
+ such that
+
+	
+𝜌
+−
+1
+,
+𝑀
+,
+𝐷
+≤
+exp
+⁡
+(
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+𝑠
+​
+(
+1
+)
+)
+​
+​
+𝑎
+​
+𝑛
+​
+𝑑
+​
+𝑑
+≤
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+𝑠
+​
+(
+1
+)
+.
+	
+Proof.
+
+Note that 
+∥
+𝑓
+∥
+𝑈
+𝑠
++
+1
+​
+[
+𝑁
+]
+≥
+𝛿
+ implies that
+
+	
+𝔼
+ℎ
+∈
+[
+𝑁
+]
+​
+∥
+Δ
+ℎ
+​
+𝑓
+∥
+𝑈
+𝑠
+​
+[
+𝑁
+]
+2
+𝑠
+≥
+𝛿
+𝑂
+𝑠
+​
+(
+1
+)
+;
+	
+
+this implicitly uses that 
+∥
+Δ
+ℎ
+​
+𝑓
+∥
+𝑈
+𝑠
+​
+[
+𝑁
+]
+=
+∥
+Δ
+−
+ℎ
+​
+𝑓
+∥
+𝑈
+𝑠
+​
+[
+𝑁
+]
+ and that 
+Δ
+ℎ
+​
+𝑓
+ is identically zero for 
+|
+ℎ
+|
+>
+𝑁
+.
+
+Therefore there exists 
+𝐻
+⊆
+[
+𝑁
+]
+ with 
+|
+𝐻
+|
+≥
+𝛿
+𝑂
+𝑠
+​
+(
+1
+)
+​
+𝑁
+ such that
+
+	
+∥
+Δ
+ℎ
+​
+𝑓
+∥
+𝑈
+𝑠
+​
+[
+𝑁
+]
+2
+𝑠
+≥
+𝛿
+𝑂
+𝑠
+​
+(
+1
+)
+	
+
+for 
+ℎ
+∈
+𝐻
+.
+
+By induction on Theorem 1.2, we may assume that for all such 
+ℎ
+∈
+𝐻
+ there exists 
+𝐺
+ℎ
+/
+Γ
+ℎ
+ with degree 
+𝑠
+−
+1
+ filtration and an associated polynomial sequence 
+𝑔
+ℎ
+​
+(
+⋅
+)
+ such that
+
+	
+𝔼
+ℎ
+∈
+[
+𝑁
+]
+​
+[
+Δ
+ℎ
+​
+𝑓
+​
+(
+𝑛
+)
+​
+𝐹
+ℎ
+​
+(
+𝑔
+ℎ
+​
+(
+𝑛
+)
+​
+Γ
+)
+¯
+]
+≥
+𝜌
+	
+
+where 
+𝐺
+ℎ
+/
+Γ
+ℎ
+ has complexity bounded by 
+𝑀
+ and dimension bounded by 
+𝑑
+. We may take
+
+	
+𝑀
+,
+𝜌
+−
+1
+≤
+exp
+⁡
+(
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+𝑠
+​
+(
+1
+)
+)
+​
+ and 
+​
+𝑑
+≤
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+𝑠
+​
+(
+1
+)
+.
+	
+
+Note that via writing 
+𝑔
+ℎ
+​
+(
+0
+)
+=
+{
+𝑔
+ℎ
+​
+(
+0
+)
+}
+​
+[
+𝑔
+ℎ
+​
+(
+0
+)
+]
+ where 
+𝜓
+𝐺
+ℎ
+(
+{
+𝑔
+ℎ
+(
+0
+)
+}
+)
+∈
+[
+0
+,
+1
+)
+dim
+(
+𝐺
+ℎ
+)
+ and 
+[
+𝑔
+ℎ
+​
+(
+0
+)
+]
+∈
+Γ
+ℎ
+, we have that
+
+	
+𝐹
+ℎ
+​
+(
+𝑔
+ℎ
+​
+(
+𝑛
+)
+​
+Γ
+)
+	
+=
+𝐹
+ℎ
+​
+(
+{
+𝑔
+ℎ
+​
+(
+0
+)
+}
+​
+{
+𝑔
+ℎ
+​
+(
+0
+)
+}
+−
+1
+​
+𝑔
+ℎ
+​
+(
+𝑛
+)
+​
+[
+𝑔
+ℎ
+​
+(
+0
+)
+]
+−
+1
+⋅
+[
+𝑔
+ℎ
+​
+(
+0
+)
+]
+​
+Γ
+)
+	
+		
+=
+𝐹
+ℎ
+​
+(
+{
+𝑔
+ℎ
+​
+(
+0
+)
+}
+​
+{
+𝑔
+ℎ
+​
+(
+0
+)
+}
+−
+1
+​
+𝑔
+ℎ
+​
+(
+𝑛
+)
+​
+[
+𝑔
+ℎ
+​
+(
+0
+)
+]
+−
+1
+​
+Γ
+)
+	
+
+Note that 
+𝑔
+ℎ
+′
+​
+(
+𝑛
+)
+=
+{
+𝑔
+ℎ
+​
+(
+0
+)
+}
+−
+1
+​
+𝑔
+ℎ
+​
+(
+𝑛
+)
+​
+[
+𝑔
+ℎ
+​
+(
+0
+)
+]
+−
+1
+ has 
+𝑔
+ℎ
+′
+​
+(
+0
+)
+=
+id
+𝐺
+ℎ
+ and 
+𝐹
+ℎ
+′
+=
+𝐹
+ℎ
+(
+{
+𝑔
+ℎ
+(
+0
+)
+}
+⋅
+)
+ is appropriately Lipschitz (as 
+{
+𝑔
+ℎ
+​
+(
+0
+)
+}
+ has appropriately bounded coordinates by [42, Lemma B.2]). Therefore without loss we may assume that 
+𝑔
+ℎ
+​
+(
+0
+)
+=
+id
+𝐺
+ for all 
+ℎ
+∈
+𝐻
+.
+
+Next note that there are only 
+𝑂
+𝑠
+​
+(
+𝑀
+)
+𝑂
+𝑠
+​
+(
+𝑑
+𝑂
+⁡
+(
+1
+)
+)
+ nilmanifolds of dimension at most 
+𝑑
+ with degree 
+(
+𝑠
+−
+1
+)
+ filtration of complexity bounded by 
+𝑀
+ (up to isomorphism). This follows from Lie’s third theorem on the correspondence between Lie algebras and connected, simply connected Lie groups and counting the total possible number of different structure constants and filtration choices for the Lie algebra. Therefore by Pigeonhole we may assume, at the cost of decreasing the size of set 
+𝐻
+ by a multiplicative factor of 
+𝑂
+𝑠
+​
+(
+𝑀
+)
+𝑂
+𝑠
+​
+(
+−
+𝑑
+𝑂
+⁡
+(
+1
+)
+)
+, that 
+𝐺
+ℎ
+/
+Γ
+ℎ
+=
+𝐺
+/
+Γ
+ (and the corresponding filtration) is independent of 
+ℎ
+∈
+𝐻
+.
+
+We next remove the dependence on 
+ℎ
+ for the function 
+𝐹
+ℎ
+. Let 
+𝛾
+ be a parameter to be chosen later; by applying Lemma B.3 we may write
+
+	
+𝐹
+ℎ
+​
+(
+𝑔
+​
+Γ
+)
+=
+∑
+𝑗
+∈
+𝐼
+𝜏
+𝑗
+​
+(
+𝑔
+​
+Γ
+)
+2
+⋅
+𝐹
+ℎ
+​
+(
+𝑔
+​
+Γ
+)
+	
+
+where 
+|
+𝐼
+|
+≤
+(
+1
+/
+𝛾
+)
+𝑂
+𝑠
+​
+(
+𝑑
+𝑂
+𝑠
+​
+(
+1
+)
+)
+, every 
+𝑔
+​
+Γ
+ is supported on at most 
+2
+𝑂
+𝑠
+​
+(
+𝑑
+)
+ many terms, and 
+𝜏
+𝑗
+ are 
+(
+𝑀
+/
+𝛾
+)
+𝑂
+𝑠
+​
+(
+𝑑
+𝑂
+𝑠
+​
+(
+1
+)
+)
+-Lipschitz. Furthermore each 
+𝜏
+𝑗
+ is supported on a width 
+2
+​
+𝛾
+ cube near the origin (in Mal’cev coordinates); see the third item of Lemma B.3 for a precise description. Since 
+𝐹
+ is an 
+𝑀
+-Lipschitz function, and choosing 
+𝛾
+ to be sufficiently small with respect to 
+(
+𝜌
+/
+𝑀
+)
+𝑂
+𝑠
+​
+(
+𝑑
+𝑂
+𝑠
+​
+(
+1
+)
+)
+, we find that
+
+	
+sup
+𝑔
+∈
+𝐺
+|
+𝐹
+ℎ
+​
+(
+𝑔
+​
+Γ
+)
+−
+∑
+𝑗
+∈
+𝐼
+𝑎
+𝑗
+​
+𝜏
+𝑗
+​
+(
+𝑔
+​
+Γ
+)
+2
+|
+≤
+𝜌
+/
+2
+	
+
+by taking 
+𝑎
+𝑗
+ to be the mean of 
+𝐹
+ℎ
+ on the support of 
+𝜏
+𝑗
+. Note that 
+|
+𝑎
+𝑗
+|
+≤
+𝑀
+. Pigeonholing over 
+𝑗
+∈
+𝐼
+ and decreasing 
+𝜌
+ and the size of 
+𝐻
+ by appropriate factors of 
+𝑂
+𝑠
+​
+(
+𝑀
+)
+𝑂
+𝑠
+​
+(
+−
+𝑑
+𝑂
+𝑠
+​
+(
+1
+)
+)
+, we may assume that 
+𝐹
+ℎ
+=
+𝐹
+ for all 
+ℎ
+∈
+𝐻
+.
+
+We finally want to replace 
+𝐹
+ by a nilcharacter with a vertical frequency and the claimed output dimension bound. We first give 
+𝐺
+ a degree-rank 
+(
+𝑠
+−
+1
+,
+𝑠
+−
+1
+)
+ filtration induced by its degree 
+𝑠
+−
+1
+ filtration. This is done via [34, Example 6.11] (i.e., 
+𝐺
+(
+𝑑
+,
+𝑟
+)
+ is generated by iterated commutators which either have filtration depths adding to greater than 
+𝑑
+ or adding to exactly 
+𝑑
+ with at least 
+𝑟
+ participating elements). Lemma 2.1 guarantees each subgroup is 
+𝑀
+𝑂
+𝑠
+​
+(
+𝑑
+𝑂
+𝑠
+​
+(
+1
+)
+)
+-rational. Via [42, Lemma B.11], we may give 
+𝐺
+ a Mal’cev basis adapted to this degree-rank 
+(
+𝑠
+−
+1
+,
+𝑠
+−
+1
+)
+ filtration with complexity 
+𝑀
+𝑂
+𝑠
+​
+(
+𝑑
+𝑂
+𝑠
+​
+(
+1
+)
+)
+.
+
+Via Fourier expansion (see [42, Lemma A.6]) and the triangle inequality we may additionally assume that 
+𝐹
+ has a vertical 
+𝐺
+(
+𝑠
+−
+1
+,
+𝑠
+−
+1
+)
+-frequency 
+𝜂
+ 2 with height at most 
+𝑂
+𝑠
+​
+(
+𝑀
+/
+𝜌
+)
+𝑂
+𝑠
+​
+(
+𝑑
+𝑂
+𝑠
+​
+(
+1
+)
+)
+=
+exp
+⁡
+(
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+𝑠
+​
+(
+1
+)
+)
+. Given 
+𝐹
+, there exists a nilcharacter 
+𝐹
+𝜂
+ by Lemma B.4 with vertical frequency 
+𝜂
+, output dimension bounded by 
+2
+𝑂
+𝑠
+​
+(
+𝑑
+)
+, and such that each coordinate is 
+𝑂
+𝑠
+​
+(
+𝑀
+)
+𝑂
+𝑠
+​
+(
+𝑑
+𝑂
+𝑠
+​
+(
+1
+)
+)
+-Lipschitz. The function 
+(
+𝐹
+/
+(
+2
+​
+∥
+𝐹
+∥
+∞
+)
+,
+𝐹
+𝜂
+⋅
+1
+−
+|
+𝐹
+/
+(
+2
+​
+∥
+𝐹
+∥
+∞
+)
+|
+2
+)
+ demonstrates that without loss of generality, we may assume 
+𝐹
+ is a coordinate of a nilcharacter.
+
+To complete the deduction, we take 
+𝐺
+∗
+/
+Γ
+∗
+ to be the trivial nilmanifold and 
+𝑔
+⁡
+(
+ℎ
+,
+𝑛
+)
+ to be a constant sequence. ∎
+
+The heart of this paper is the following quantification of [34, Theorem 7.2], the proof of which is the goal of the next few sections culminating in Section 11.2.
+
+Lemma 6.3.
+
+Fix 
+𝑠
+≥
+2
+ and 
+1
+≤
+𝑟
+∗
+≤
+𝑠
+−
+1
+. Suppose 
+𝑓
+:
+[
+𝑁
+]
+→
+ℂ
+ is a 
+1
+-bounded function and 
+𝑁
+≥
+exp
+⁡
+(
+Ω
+𝑠
+​
+(
+(
+𝑑
+​
+log
+⁡
+(
+𝑀
+​
+𝐷
+/
+𝜌
+)
+)
+Ω
+𝑠
+​
+(
+1
+)
+)
+)
+.
+
+Furthermore suppose that there exists a degree-rank 
+(
+𝑠
+−
+1
+,
+𝑟
+∗
+)
+ correlation structure associated to 
+𝑓
+ with parameters 
+𝜌
+, 
+𝑀
+, 
+𝑑
+, and 
+𝐷
+. Then there exists a degree-rank 
+(
+𝑠
+−
+1
+,
+𝑟
+∗
+−
+1
+)
+ correlation structure associated to 
+𝑓
+ with parameters 
+𝜌
+′
+, 
+𝑀
+′
+, 
+𝑑
+′
+, and 
+𝐷
+′
+ such that
+
+	
+𝜌
+′
+−
+1
+,
+𝑀
+′
+,
+𝐷
+′
+≤
+exp
+⁡
+(
+𝑂
+𝑠
+​
+(
+(
+𝑑
+​
+log
+⁡
+(
+𝑀
+​
+𝐷
+/
+𝜌
+)
+)
+𝑂
+𝑠
+​
+(
+1
+)
+)
+)
+​
+​
+𝑎
+​
+𝑛
+​
+𝑑
+​
+𝑑
+′
+≤
+𝑂
+𝑠
+​
+(
+(
+𝑑
+​
+log
+⁡
+(
+𝑀
+​
+𝐷
+/
+𝜌
+)
+)
+𝑂
+𝑠
+​
+(
+1
+)
+)
+.
+	
+
+Combining Lemma 6.3 along with the observation that degree-rank 
+(
+𝑠
+−
+1
+,
+0
+)
+ nilmanifolds induce a degree 
+(
+𝑠
+−
+2
+)
+ filtration (coming from the groups 
+𝐺
+(
+𝑖
+,
+0
+)
+), we immediately obtain the following. In particular, these can now be “hidden” inside the nilmanifolds implicit in 
+Corr
+⁡
+(
+⋅
+,
+⋅
+,
+⋅
+,
+⋅
+)
+.
+
+Theorem 6.4.
+
+Fix 
+𝛿
+∈
+(
+0
+,
+1
+/
+2
+)
+ and 
+𝑠
+≥
+2
+. Assume Theorem 1.2 for 
+𝑠
+−
+1
+. Let 
+𝑓
+:
+[
+𝑁
+]
+→
+ℂ
+ be a 
+1
+-bounded function such that
+
+	
+∥
+𝑓
+∥
+𝑈
+𝑠
++
+1
+​
+[
+𝑁
+]
+≥
+𝛿
+.
+	
+
+Then the following data exists:
+
+• 
+
+A subset 
+𝐻
+⊆
+[
+𝑁
+]
+ of size at least 
+𝜌
+​
+𝑁
+;
+
+• 
+
+A multidegree 
+(
+1
+,
+𝑠
+−
+1
+)
+ nilcharacter 
+𝜒
+⁡
+(
+ℎ
+,
+𝑛
+)
+ which lives on a nilmanifold 
+𝐺
+∗
+/
+Γ
+∗
+ where 
+𝜒
+ has a 
+𝐺
+(
+1
+,
+𝑠
+−
+1
+)
+∗
+-vertical frequency 
+𝜂
+∗
+. Furthermore 
+𝐺
+∗
+/
+Γ
+∗
+ has dimension bounded by 
+𝑑
+ and complexity bounded by 
+𝑀
+, the function underlying 
+𝜒
+ is 
+𝑀
+-Lipschitz, 
+𝜂
+∗
+ has height bounded by 
+𝑀
+, and the output dimension of 
+𝜒
+ is bounded by 
+𝐷
+;
+
+• 
+
+For all 
+ℎ
+∈
+𝐻
+ we have that
+
+	
+Δ
+ℎ
+​
+𝑓
+​
+(
+𝑛
+)
+⊗
+𝜒
+⁡
+(
+ℎ
+,
+𝑛
+)
+¯
+∈
+Corr
+⁡
+(
+𝑠
+−
+2
+,
+𝜌
+,
+𝑀
+,
+𝑑
+)
+.
+	
+
+Furthermore, we can find such data satisfying
+
+	
+𝜌
+−
+1
+,
+𝑀
+,
+𝐷
+≤
+exp
+⁡
+(
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+𝑠
+​
+(
+1
+)
+)
+​
+​
+𝑎
+​
+𝑛
+​
+𝑑
+​
+𝑑
+≤
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+𝑠
+​
+(
+1
+)
+.
+	
+Remark.
+
+The case when 
+𝑁
+ is small (i.e., 
+𝑁
+≤
+exp
+⁡
+(
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+𝑠
+​
+(
+1
+)
+)
+) is handled via noting that 
+∥
+Δ
+ℎ
+​
+𝑓
+∥
+𝐿
+2
+​
+[
+𝑁
+]
+≥
+exp
+⁡
+(
+log
+⁡
+(
+1
+/
+𝛿
+)
+𝑂
+𝑠
+​
+(
+1
+)
+)
+⋅
+𝑁
+−
+𝑂
+⁡
+(
+1
+)
+ for many 
+ℎ
+ and then applying Fourier analysis. Such an analysis always loses factors of 
+𝑁
+ and thus is only useful in this crude edge case. We will not comment further on such issues.
+
+7.On a Cauchy–Schwarz Argument of Gowers
+
+The proof of Lemma 6.3 is performed in a sequence of stages. We first deduce that the functions correlating with 
+Δ
+ℎ
+​
+𝑓
+ are not arbitrary. Indeed for many additive quadruples 
+(
+ℎ
+1
+,
+ℎ
+2
+,
+ℎ
+3
+,
+ℎ
+4
+)
+ we have that the associated tensor product of 
+𝜒
+ℎ
+​
+(
+𝑛
+)
+ exhibits correlation with a degree 
+(
+𝑠
+−
+2
+)
+ nilsequence.
+
+We first need the following elementary Fourier-analytic lemma which converts correlation on long progressions to correlation with a major-arc Fourier phase; this is essentially [32, Lemma 3.5(ii)].
+
+Lemma 7.1.
+
+Let 
+𝛿
+∈
+(
+0
+,
+1
+/
+2
+)
+. Suppose that 
+𝑔
+:
+[
+𝑁
+]
+→
+ℂ
+ is 
+1
+-bounded and there exists an arithmetic progression 
+𝑃
+ of length 
+𝛿
+​
+𝑁
+ with common difference 
+𝑞
+ within 
+[
+𝑁
+]
+ such that
+
+	
+|
+𝔼
+𝑛
+∈
+𝑃
+​
+𝑔
+​
+(
+𝑛
+)
+|
+≥
+𝛿
+.
+	
+
+Then there exists 
+Θ
+∈
+ℝ
+ such that 
+∥
+𝑞
+​
+Θ
+∥
+ℝ
+/
+ℤ
+≤
+𝛿
+−
+𝑂
+⁡
+(
+1
+)
+​
+𝑁
+−
+1
+ and
+
+	
+|
+𝔼
+𝑛
+∈
+[
+𝑁
+]
+​
+𝑒
+​
+(
+Θ
+​
+𝑛
+)
+​
+𝑔
+​
+(
+𝑛
+)
+|
+≥
+𝛿
+𝑂
+⁡
+(
+1
+
+..._Content truncated_...

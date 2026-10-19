@@ -1,0 +1,1482 @@
+## Content from https://arxiv.org/html/2302.05537
+
+Title: Strong Bounds for 3-Progressions
+
+URL Source: https://arxiv.org/html/2302.05537
+
+Markdown Content:
+Zander Kelley ††thanks:  Department of Computer Science, University of Illinois at Urbana-Champaign. Supported by NSF grant CCF-1814788, and CAREER award 2047310. Email: awk2@illinois.edu Raghu Meka ††thanks:  Department of Computer Science, University of California, Los Angeles. Supported by NSF AF 2007682. Email: raghum@cs.ucla.edu.
+
+###### Abstract
+
+We show that for some constant \beta>0, any subset A of integers \{1,\ldots,N\} of size at least 2^{-O((\log N)^{\beta})}\cdot N contains a non-trivial three-term arithmetic progression. Previously, three-term arithmetic progressions were known to exist only for sets of size at least N/(\log N)^{1+c} for a constant c>0.
+
+Our approach is first to develop new analytic techniques for addressing some related questions in the finite-field setting and then to apply some analogous variants of these same techniques, suitably adapted for the more complicated setting of integers.
+
+## 1 Introduction
+
+A 3-progression is a triple of integers of the form (a,a+b,a+2b), and it is said to be nontrivial if b\neq 0. It is straightforward to check that a triple (x,z,y) is of this form if and only if x+y=2z, and that, in this case, the progression is trivial only if x=y. We consider the problem of finding a nontrivial 3-progression within a set A\subseteq[N]\subseteq\mathbb{Z}, where we assume only that the set A has somewhat large density inside [N]. Regarding this problem, we prove the following.
+
+###### Theorem 1.1.
+
+The following holds for some absolute constant exponent \beta>0. Suppose A\subseteq[N] has density \delta=|A|/N. Then, either A contains a nontrivial 3-progression, or else
+
+\delta\leq 2^{-\Omega(\log(N)^{\beta})}.
+
+In [[Rot53](https://arxiv.org/html/2302.05537#bib.bibx28)], Roth proved a statement of the same form: that dense enough sets A\subseteq[N] must contain a nontrivial 3-progression, for density threshold \delta\approx 1/\log\log N. This was improved by Heath-Brown and Szemerédi to \delta\approx 1/\log(N)^{c} for some small c>0[[HB87](https://arxiv.org/html/2302.05537#bib.bibx21), [Sze90](https://arxiv.org/html/2302.05537#bib.bibx38)]. This bound was further refined in the works of Bourgain, and Sanders [[Bou99](https://arxiv.org/html/2302.05537#bib.bibx6), [Bou08](https://arxiv.org/html/2302.05537#bib.bibx7), [San12a](https://arxiv.org/html/2302.05537#bib.bibx31)] where it is shown that one can take c=1/2, c=2/3, and then c=3/4. Sanders then obtained a density-threshold of the form \delta\approx(\log\log N)^{6}/\log N[[San11](https://arxiv.org/html/2302.05537#bib.bibx30)].1 1 1 See also the work of Bloom and Sisask [[BS19](https://arxiv.org/html/2302.05537#bib.bibx8)], which obtains a comparable result by some different methods which are closely related to the approach taken here. This was further sharpened by a factor (\log\log N)^{2} by Bloom and then again by another factor \log\log N by Schoen [[Blo16](https://arxiv.org/html/2302.05537#bib.bibx5), [Sch21](https://arxiv.org/html/2302.05537#bib.bibx34)]. The best bound previously available is due to Bloom and Sisask [[BS20](https://arxiv.org/html/2302.05537#bib.bibx9)], who show that a set A\subseteq[N] with no 3-progressions must have density
+
+\delta\leq O\left(\frac{1}{\log(N)^{1+c}}\right)
+
+for some small c>0. We also refer to [Appendix A](https://arxiv.org/html/2302.05537#A1 "Appendix A Comparison with prior approaches and other measures of additive pseudorandomness ‣ Strong Bounds for 3-Progressions") for a more detailed discussion of some previous approaches and how our methods relate to them.
+
+In the other direction, it was shown by Behrend 2 2 2[[Beh46](https://arxiv.org/html/2302.05537#bib.bibx2)]. See also the works of Elkin [[Elk10](https://arxiv.org/html/2302.05537#bib.bibx15)], Green and Wolf [[GW10](https://arxiv.org/html/2302.05537#bib.bibx20)], and O’Bryant [[O’B11](https://arxiv.org/html/2302.05537#bib.bibx27)] for some refinements. that for infinitely many values N there are indeed subsets A\subseteq[N] of density roughly \delta\approx 2^{-\log(N)^{1/2}} which have no nontrivial 3-progressions.
+
+More specifically, we establish the following.
+
+###### Theorem 1.2.
+
+Suppose A\subseteq[N] has density at least 2^{-d}. Then the number of triples (x,y,z)\in A^{3} with x+y=2z is at least
+
+2^{-O(d^{12})}N^{2}.
+
+Since there are only |A|\leq N trivial 3-progressions, we do indeed obtain a nontrivial 3-progression, unless \log N\leq{O(d^{12})}.
+
+We also consider a similar problem where A\subseteq\mathbb{F}_{q}^{n} is a subset of a vector space over some finite field. In this setting, we prove the following.
+
+###### Theorem 1.3.
+
+Suppose A\subseteq\mathbb{F}_{q}^{n} has density at least 2^{-d}. Then the number of triples (x,y,z)\in A^{3} with x+y=2z is at least
+
+q^{-O(d^{9})}|\mathbb{F}_{q}^{n}|^{2}.
+
+As a standalone result, we point out that this theorem is strictly worse than the state-of-the-art bound, which can be obtained from algebraic techniques pioneered by [[CLP17](https://arxiv.org/html/2302.05537#bib.bibx12)] and [[EG17](https://arxiv.org/html/2302.05537#bib.bibx14)], which gave a strong resolution to the cap-set problem. Indeed, Fox and Lovász obtain strong bounds for Green’s “arithmetic removal lemma” by combining the algebraic results of [[KSS18](https://arxiv.org/html/2302.05537#bib.bibx24)] with some additional combinatorial arguments. In particular, their results imply the following.
+
+###### Theorem 1.4(Special case of Theorem 3 in [[FL17](https://arxiv.org/html/2302.05537#bib.bibx16)]).
+
+Suppose A\subseteq\mathbb{F}_{q}^{n} has density at least 2^{-d}. Then the number of triples (x,y,z)\in A^{3} with x+y=2z is at least q^{-O(d)}|\mathbb{F}_{q}^{n}|^{2}.
+
+Instead, our interest in [Theorem 1.3](https://arxiv.org/html/2302.05537#S1.Thmthm3 "Theorem 1.3. ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions") is that we can obtain it using purely analytic techniques and that these same techniques can then be slightly modified and extended to prove [Theorem 1.2](https://arxiv.org/html/2302.05537#S1.Thmthm2 "Theorem 1.2. ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions"). Partially for expository reasons, we devote a substantial portion of this paper to first addressing the finite field case. This will allow us to present most of the key ideas needed to prove our main theorem while ignoring additional complications arising in the setting A\subseteq\mathbb{Z}. We also remark that techniques based on additive combinatorics have found several applications within computer science (going all the way back to the paper of [[CFL83](https://arxiv.org/html/2302.05537#bib.bibx10)] who used Behrend’s construction for a communication protocol to more recent applications such as [[BKM22](https://arxiv.org/html/2302.05537#bib.bibx4)]). We believe the new analytic techniques will have other applications.
+
+### 1.1 Structural Results in the Finite Field Setting
+
+This section highlights a structural result in the finite field setting that follows from our analytic techniques but is not known to follow from algebraic methods. To describe it, we recall the notation for sumsets:
+
+A+B:=\left\{a+b\>:\>a\in A,b\in B\right\}.
+
+For a set A\subseteq\mathbb{F}_{q}^{n}, we also use the notation \textnormal{Span}^{*}(A) to denote the minimal affine subspace containing A – that is, \textnormal{Span}^{*}(A) refers to the common intersection of all affine subspaces containing A, which is itself an affine subspace.
+
+The following structural result says that for any dense set A\subseteq\mathbb{F}_{q}^{n}, there is a reasonably large subset A^{\prime}\subseteq A, which is tightly contained in its own span (in a specific technical sense).
+
+###### Lemma 1.5(A large subset tightly contained in its own span).
+
+Fix a parameter \tau\in\left[0,\tfrac{1}{2}\right]. Suppose that A\subseteq\mathbb{F}_{q}^{n} has size |A|\geq 2^{-d}|\mathbb{F}_{q}^{n}|. Then, there is a subset A^{\prime}\subseteq A with
+
+1.   i.
+\frac{|A^{\prime}|}{|\textnormal{Span}^{*}(A^{\prime})|}\geq\frac{|A|}{|\mathbb{F}_{q}^{n}|} and
+
+2.   ii.
+\textnormal{Codim}(\textnormal{Span}^{*}(A^{\prime}))\leq O(d^{5}\log(1/\tau)^{4})
+
+such that |A^{\prime}+A^{\prime}|\geq(1-\tau)|\textnormal{Span}^{*}(A^{\prime})|.
+
+Taken together, conditions (i) and (ii) roughly say simply that A^{\prime} is large: for example, they imply that |A^{\prime}|\geq q^{-O(d^{5}\log(1/\tau)^{4})}|\mathbb{F}_{q}^{n}|. However, we are additionally guaranteed (by (i)) that the density of A^{\prime} inside its span is no worse than the original density of A inside \mathbb{F}_{q}^{n}. To unpack the conclusion, let us write \textnormal{Span}^{*}(A^{\prime})=:V+\theta for some linear subspace V and some shift \theta\in\mathbb{F}_{q}^{n}. Also let B:=A^{\prime}-\theta. Clearly, we have \textnormal{Span}(B)=V. That is, B is contained in V, and it also “eventually” generates V: for instance we can surely say that \left\{c_{1}b_{1}+c_{2}b_{2}\cdots+c_{n}b_{n}\>:\>c_{i}\in\mathbb{F}_{q},b_{i}\in B\right\}=V. On the other hand, we can compare this to our conclusion, which says that merely taking
+
+B+B=\left\{b_{1}+b_{2}\>:\>b_{1},b_{2}\in B\right\}
+
+is already enough to generate all but a tiny fraction of V: we have |B+B|\geq(1-\tau)|V| and so |V\setminus(B+B)|\leq\tau|V|.
+
+We proceed to compare this result with some related results in the literature: Specifically, Sanders’ quasipolynomial Bogolyubov–Ruzsa lemma (specialized to the finite field setting) and the critical technical lemma underlying its proof.
+
+Let us first consider what we’ll call the Bogolyubov–Ruzsa Problem. We recall the notation for sumsets: 2A denotes A+A and tA denotes the set of all sums a_{1}+a_{2}+\ldots+a_{t} with a_{i}\in A.
+
+###### Problem 1.6(Bogolyubov-Ruzsa Problem over \mathbb{F}_{p}^{n}).
+
+Let A\subseteq\mathbb{F}_{p}^{n} be a set of points in a vector space over a prime field. Fix t\in\mathbb{N} and assume that |A+A|\leq K|A|. Find (or rather, prove the existence of) an affine subspace V which is as large as possible and contained in tA.
+
+Note that any sufficiently dense set (i.e., one of size |A|\geq K^{-1}|\mathbb{F}_{p}^{n}|) trivially satisfies |A+A|\leq|\mathbb{F}_{q}^{n}|\leq K|A|, so to solve the Bogolyubov-Ruzsa problem one must at least handle the special case of finding a large subspace in tA for all dense sets A. Furthermore, solving the problem in this special case is sufficient to obtain very similar parameters for the general case. The reduction can be summarized as follows: for any t\leq O(1), a set A\subseteq\mathbb{F}_{p}^{n} with |A+A|\leq K|A| can be embedded by some linear map \phi from \mathbb{F}_{p}^{n} into \mathbb{F}_{p}^{m} in such way that
+
+*   •
+\phi is injective on A (and indeed, even on tA),
+
+*   •
+|\phi(A)|\geq K^{-O(1)}|\mathbb{F}_{p}^{m}|, and
+
+*   •
+The set t\phi(A)=\phi(tA) contains an affine subspace V\subseteq\mathbb{F}_{p}^{m} only if the preimage \phi^{-1}(V) is an affine subspace in \mathbb{F}_{p}^{n}.
+
+For a more detailed explanation, see, e.g., the nice description given in [[Lov15](https://arxiv.org/html/2302.05537#bib.bibx25)]. In light of this reduction to the dense case, we restrict our attention to the following.3 3 3 We note that the reduction from the more general Bogolyubov-Ruzsa problem for vector spaces over prime fields \mathbb{F}_{p} to the more specific Bogolyubov problem over \mathbb{F}_{p} uses the fact that subspaces in \mathbb{F}_{p}^{n} can be precisely characterized as those subsets which are closed under addition – i.e., additive subgroups. However, it is sensible to consider the Bogolyubov problem itself over general finite fields \mathbb{F}_{q}.
+
+###### Problem 1.7(Bogolyubov Problem over \mathbb{F}_{q}^{n}).
+
+Let A\subseteq\mathbb{F}_{q}^{n}. Fix t\in\mathbb{N} and assume that |A|\geq 2^{-d}|\mathbb{F}_{q}^{n}|. Find an affine subspace V which is as large as possible and contained in tA.
+
+Regarding this problem, Sanders proves the following.
+
+###### Theorem 1.8([[San12b](https://arxiv.org/html/2302.05537#bib.bibx32)]).
+
+Suppose A\subseteq\mathbb{F}_{q}^{n} has size |A|\geq 2^{-d}|\mathbb{F}_{q}^{n}|. Then there is an affine subspace V\subseteq 4A of codimension at most O(d^{4}) in \mathbb{F}_{q}^{n}.
+
+Sanders’ approach to the Bogolyubov Problem for 4A is first to address what we’ll call the Approximate Bogolyubov Problem for 2A:
+
+###### Problem 1.9(Approximate Bogolyubov Problem over \mathbb{F}_{q}^{n}).
+
+Let A\subseteq\mathbb{F}_{q}^{n}. Fix t\in\mathbb{N} and assume that |A|\geq 2^{-d}|\mathbb{F}_{q}^{n}|. Find an affine subspace V which is as large as possible and is “mostly” contained in tA, in the sense that
+
+|V\cap(tA)|\geq(1-\tau)|V|
+
+for some \tau as small as possible.
+
+The connection between the Approximate Bogolyubov Problem for tA and the Exact Bogolyubov Problem for 2tA is due to the following simple claim.
+
+###### Claim 1.10.
+
+Suppose B\subseteq\mathbb{F}_{q}^{n} is a set with a large intersection with some linear subspace V: |B\cap V|>\frac{1}{2}|V|. Then B+B contains V.
+
+###### Proof.
+
+Let x\in V. We may trivially write x=(x+y)-y for any element y\in V. Consider doing so for a uniformly random choice of y\in V. By a union bound, the chance that the events x+y\in B and -y\in B occur simultaneously is nonzero. ∎
+
+Sanders provides the following solution to the Approximate Bogolyubov Problem for sumsets 2A over \mathbb{F}_{q}^{n}.
+
+###### Theorem 1.11([[San12b](https://arxiv.org/html/2302.05537#bib.bibx32)]).
+
+Suppose A\subseteq\mathbb{F}_{q}^{n} has size |A|\geq 2^{-d}|\mathbb{F}_{q}^{n}|. Then for any \tau\geq 2^{-d}, there is an affine subspace V of codimension at most O(d^{4}/\tau^{2}) with
+
+|V\cap(A+A)|\geq(1-\tau)|V|.
+
+It is useful to compare this with our structural result above, [Lemma 1.5](https://arxiv.org/html/2302.05537#S1.Thmthm5 "Lemma 1.5 (A large subset tightly contained in its own span). ‣ 1.1 Structural Results in the Finite Field Setting ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions"), which accomplishes something similar in spirit. Indeed, given A we may find A^{\prime}\subseteq A and consider its container V:=\textnormal{Span}^{*}(A^{\prime}), which in our case has codimension O(d^{5}\log(1/\tau)^{4}). We note that 2V is again an affine subspace of the same size as V (2V is just a translate of V) which contains A^{\prime}+A^{\prime}, and that
+
+|2V\cap(A+A)|\geq|2V\cap(A^{\prime}+A^{\prime})|=|A^{\prime}+A^{\prime}|\geq(1-\tau)|2V|.
+
+Thus, our result can also be understood as a solution to the Approximate Bogolyubov Problem for 2A; compared with Sanders’ solution, we obtain codimension which is moderately worse in terms of its dependence of the density parameter d in exchange for substantially improved dependence on the error parameter \tau. This answers a question posed by Hatami, Hosseini, and Lovett in [[HHL18](https://arxiv.org/html/2302.05537#bib.bibx22)] – they ask whether it is possible to obtain codimension d^{O(1)}\log(1/\tau)^{O(1)} for the Approximate Bogolyubov Problem for 2A, and we confirm that indeed it is.
+
+We can also answer a related question posed by Schoen and Sisask in Section 9 of [[SS16](https://arxiv.org/html/2302.05537#bib.bibx37)]: they ask whether it is possible to obtain codimension d^{O(1)} for the Exact Bogolyubov Problem for 3A, as Sanders does for 4A. The following result confirms this.
+
+###### Corollary 1.12(Direct corollary of [Lemma 1.5](https://arxiv.org/html/2302.05537#S1.Thmthm5 "Lemma 1.5 (A large subset tightly contained in its own span). ‣ 1.1 Structural Results in the Finite Field Setting ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions")).
+
+Suppose A\subseteq\mathbb{F}_{q}^{n} has size |A|\geq 2^{-d}|\mathbb{F}_{q}^{n}|. Then, there is a subset A^{\prime}\subseteq A with size
+
+|A^{\prime}|\geq q^{-O(d^{9})}|\mathbb{F}_{q}^{n}|
+
+such that A^{\prime}+A^{\prime}+A^{\prime} is an affine subspace.
+
+###### Proof.
+
+We apply [Lemma 1.5](https://arxiv.org/html/2302.05537#S1.Thmthm5 "Lemma 1.5 (A large subset tightly contained in its own span). ‣ 1.1 Structural Results in the Finite Field Setting ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions") with parameter \tau set slightly smaller than 2^{-d}. We consider the resulting subset A^{\prime} and affine subspace \textnormal{Span}^{*}(A^{\prime}), which we write as V+\theta for some linear subspace V and some shift \theta. Consider the set B:=A^{\prime}-\theta\subseteq V. We argue that 3B=V, which proves that 3A^{\prime}=V+3\theta. Indeed, if 3B\neq V, then there is some x\in V such that the set x-B does not intersect with B+B. However, x-B is a set in V of size |x-B|=|B|\geq 2^{-d}|V|, and we also have |B+B|\geq(1-\tau)|V|, so this is not possible. ∎
+
+### 1.2 A robust structural lemma
+
+The structural result given in the previous section is in fact a special case of a more analytically robust variant which we proceed to describe. We recall the notation
+
+R_{A}(x):=\left|\left\{(a_{1},a_{2})\in A^{2}\>:\>a_{1}+a_{2}=x\right\}\right|,
+
+which counts the number of “representations” of x as a sum of two elements of A. We also consider the alternative normalization
+
+r_{A}(x):=\frac{R_{A}(x)}{|A|^{2}}
+
+which is normalized as a distribution function on \mathbb{F}_{q}^{n} – that is, \sum_{x\in\mathbb{F}_{q}^{n}}r_{A}(x)=1. Recall that [Lemma 1.5](https://arxiv.org/html/2302.05537#S1.Thmthm5 "Lemma 1.5 (A large subset tightly contained in its own span). ‣ 1.1 Structural Results in the Finite Field Setting ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions") says that for any dense set A\subseteq\mathbb{F}_{q}^{n}, there is a reasonably large subset A^{\prime}\subseteq A which is tightly contained in its own span, in the sense that
+
+|A^{\prime}+A^{\prime}|\geq(1-\tau)|\textnormal{Span}^{*}(A^{\prime})|.
+
+For the sake of clarity let us write \textnormal{Span}^{*}(A^{\prime})=V+\theta where V is a linear subspace. We have of course that |V|=|\textnormal{Span}^{*}(A^{\prime})|. Note that the distribution r_{A^{\prime}}(x) is supported on the affine subspace 2\textnormal{Span}^{*}(A^{\prime})=V+2\theta. Our robust variant of [Lemma 1.5](https://arxiv.org/html/2302.05537#S1.Thmthm5 "Lemma 1.5 (A large subset tightly contained in its own span). ‣ 1.1 Structural Results in the Finite Field Setting ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions") states that in fact the distribution r_{A^{\prime}}(x) is very close to the uniform distribution on V+2\theta. The fact that the support of r_{A^{\prime}}, i.e. A^{\prime}+A^{\prime}, is large follows as a corollary.
+
+To state this result we need the following notion for measuring closeness of distributions. In what follows, a “distribution” \pi:\Omega\rightarrow\mathbb{R} is a nonnegative function on \Omega with \sum_{x\in\Omega}\pi(x)=1.
+
+###### Definition 1.13.
+
+Given k\geq 1 and two distributions \pi,\pi^{\prime}:\Omega\rightarrow\mathbb{R}, define the k-norm divergence of \pi from \pi^{\prime} as the quantity
+
+\left(\frac{\sum_{x\in\Omega}|\pi(x)-\pi^{\prime}(x)|^{k}}{\sum_{x\in\Omega}\pi^{\prime}(x)^{k}}\right)^{1/k}.
+
+In the case that \pi^{\prime} corresponds to some flat distribution \pi^{\prime}(x)=\frac{\mathbbm{1}_{S}(x)}{|S|}, uniform over some subset S\subseteq\Omega, and \pi is supported on S, this can be equivalently expressed as
+
+\left(\E_{x\in S}\left|\frac{\pi(x)}{\pi^{\prime}(x)}-1\right|^{k}\right)^{1/k}.
+
+###### Lemma 1.14(A robust variant of [Lemma 1.5](https://arxiv.org/html/2302.05537#S1.Thmthm5 "Lemma 1.5 (A large subset tightly contained in its own span). ‣ 1.1 Structural Results in the Finite Field Setting ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions")).
+
+Fix a constant \varepsilon\in(0,1) and a parameter k\geq 1. Suppose that A\subseteq\mathbb{F}_{q}^{n} has size |A|\geq 2^{-d}|\mathbb{F}_{q}^{n}|. Then, there is a subset A^{\prime}\subseteq A with
+
+1.   i.
+\frac{|A^{\prime}|}{|\textnormal{Span}^{*}(A^{\prime})|}\geq\frac{|A|}{|\mathbb{F}_{q}^{n}|} and
+
+2.   ii.
+\textnormal{Codim}(\textnormal{Span}^{*}(A^{\prime}))\leq O_{\varepsilon}(d^{5}k^{4})
+
+such that the distribution r_{A^{\prime}}(x) has k-norm divergence at most \varepsilon from the uniform distribution on 2\textnormal{Span}^{*}(A^{\prime}).
+
+We note that [Lemma 1.5](https://arxiv.org/html/2302.05537#S1.Thmthm5 "Lemma 1.5 (A large subset tightly contained in its own span). ‣ 1.1 Structural Results in the Finite Field Setting ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions") does indeed follow as a special case by invoking [Lemma 1.14](https://arxiv.org/html/2302.05537#S1.Thmthm14 "Lemma 1.14 (A robust variant of ). ‣ 1.2 A robust structural lemma ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions") e.g. with \varepsilon=1/2. This is because, if \pi is a distribution supported on some set B\subseteq B^{\prime}, and |B^{\prime}\setminus B|\geq\tau|B^{\prime}|, then the k-norm divergence from \pi to the uniform distribution on B^{\prime} is at least \tau^{1/k}.
+
+## 2 Technical introduction
+
+The techniques and applications considered in this work are centered around the following question. Let A,B, and C be subsets of a finite abelian group G of size N, each with size at least 2^{-d}N. We ask: what sort of generic “pseudorandom” conditions on the sets A,B,C are sufficient to ensure that the number of solutions to the equation a+b=c, with (a,b,c)\in A\times B\times C, is off by only a small multiplicative factor (1\pm\varepsilon) from the the “expected” number, |A||B||C|/N?
+
+We are particularly concerned with the following three conditions on a set A\subseteq G, which each attempts to quantify the “additive pseudorandomness” of A in some capacity. For concreteness, we will first state the three conditions – spreadness, regularity, and self-regularity – in the counting measure. However, we will shortly return to restate each of them using alternative normalization conventions which will greatly increase their interpretability. We recall some standard notations for the number of “representations” of x as a sum or difference of elements of some sets A and B: R_{A,B}(x):=\left|\left\{(a,b)\in(A\times B)\>:\>a+b=x\right\}\right|, R_{A,B}^{-}(x):=\left|\left\{(a,b)\in(A\times B)\>:\>a-b=x\right\}\right|, R_{A}(x):=R_{A,A}(x), and R_{A}^{-}(x):=R_{A,A}^{-}(x).
+
+###### Definition 2.1((\gamma,r)-spread).
+
+Let A be a subset of \mathbb{F}_{q}^{n}. For \gamma,r\geq 1, we say A is (\gamma,r)-spread if,
+
+\frac{|A\cap V|}{|V|}\leq\frac{\gamma|A|}{|\mathbb{F}_{q}^{n}|}.
+
+for all affine subspaces V\subseteq\mathbb{F}_{q}^{n} of codimension at most r.
+
+Our first condition – spreadness – applies only to the case G=\mathbb{F}_{q}^{n}; however, we will eventually return to consider possible substitutes for when we are working in a different group.4 4 4 Specifically, we will consider some alternatives where a Bohr set, or a generalized arithmetic progression, instead plays the role of the subspace. Spreadness is important to us because it is easy to obtain, for instance, by a density-increment argument.
+
+###### Definition 2.2((\gamma,k)-regular).
+
+Let A be a subset of a finite abelian group G. For \gamma,k\geq 1, We say that A is (\gamma,k)-regular if
+
+\sum_{a\in A}R_{B,C}(a)\leq\frac{\gamma|A||B||C|}{|G|}
+
+for all sets B,C\subseteq G with size at least |B|,|C|\geq 2^{-k}|G|.
+
+###### Definition 2.3((\gamma,k)-self-regular).
+
+We say that A\subseteq G is (\gamma,k)-self-regular if
+
+\sum_{x\in G}R_{A}^{-}(x)^{k}\leq\frac{\gamma|A|^{2k}}{|G|^{k-1}}.
+
+Our latter two conditions – regularity and self-regularity – apply to general finite abelian groups. In contrast to spreadness, regularity is important to us because it is useful to have, although it is not clear that it is easy to obtain.
+
+We can summarize the overall argument for our structural result, [Lemma 1.14](https://arxiv.org/html/2302.05537#S1.Thmthm14 "Lemma 1.14 (A robust variant of ). ‣ 1.2 A robust structural lemma ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions"), into three steps:
+
+1.   1.
+One can use density increments to obtain spreadness. This follows from a simple greedy argument and is formalized in [Proposition 2.15](https://arxiv.org/html/2302.05537#S2.Thmthm15 "Proposition 2.15. ‣ 2.4 The density-increment framework: completing the proof of ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions").
+
+2.   2.
+One can (informally speaking) obtain regularity from spreadness. This is a core ingredient of our approach and is formalized in [Theorem 2.8](https://arxiv.org/html/2302.05537#S2.Thmthm8 "Theorem 2.8 (Structure vs. Pseudorandomness in 𝔽_𝑞^𝑛 – simplified combination of and ). ‣ 2.2 Regularity from spreadness; Upper-bounds from regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions").
+
+3.   3.
+One can obtain strong _two-sided_ bounds on the number of solutions to a+b=c from regularity. This is formalized in [Theorem 2.11](https://arxiv.org/html/2302.05537#S2.Thmthm11 "Theorem 2.11 (Strong two-sided bounds from self-regularity). ‣ 2.3 Strong two-sided bounds from self-regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions").
+
+Points 2 and 3 above can be considered the two main technical contributions of our work. Taken together, they give the following answer to the central question described above (for the setting G=\mathbb{F}_{q}^{n}). To control the number of solutions to a+b+c=0 with a,b,c\in A,B,C, to within a factor (1\pm O(\varepsilon)) of the expected number |A||B||C|/|G|, it suffices that any two of the three sets are (1+\varepsilon,\textnormal{poly}(d,1/\varepsilon))-spread.
+
+### 2.1 Density formulation
+
+We take a moment to switch to a more “analytic” language for expressing the three conditions introduced above which both eases their interpretability and clarifies their importance for controlling the number of solutions to a+b=c. Here in the introduction, we avoid an extended discussion of details regarding, e.g., normalization conventions (a more detailed description can be found in [Section 3](https://arxiv.org/html/2302.05537#S3 "3 Preliminaries ‣ Strong Bounds for 3-Progressions")). However, we highlight the following key points.
+
+*   •
+We use the notation \|f\|_{k}:=\left(\E_{x\in G}|f(x)|^{k}\right)^{1/k} for k\geq 1 and functions f:G\rightarrow\mathbb{R}, as well as \|f\|_{\infty}:=\max_{x\in G}|f(x)|.
+
+*   •
+We consider density functions on G, which are simply nonnegative functions F:G\rightarrow\mathbb{R} with \|F\|_{1}=1.
+
+*   •
+Given a set A\subseteq G, we abuse notation and let A(x) denote the density function which corresponds to the uniform density on A. Under this normalization, a set of size |A|=2^{-d}|G| has corresponding density function A(x) with \|A\|_{\infty}=2^{d}.
+
+*   •
+Given density functions A(x) and B(x), we consider both the convolution(A*B)(x) and the cross-correlation(A\star B)(x), both of which are again density functions. Indeed, they are the density functions that are proportional to the representation-counting functions R_{A,B}(x) and R_{B,A}^{-}(x).
+
+Finally, let us introduce the following notations relevant to capturing the spreadness and regularity conditions. For nonnegative f:\mathbb{F}_{q}^{n}\rightarrow\mathbb{R}, we define
+
+\|f\|_{\perp,r}:=\max_{\begin{subarray}{c}V\subseteq\mathbb{F}_{q}^{n}\\
+\textnormal{Codim}(V)\leq r\end{subarray}}\left\langle V,f\right\rangle,(1)
+
+where the maximization is quantified over affine subspaces V\subseteq\mathbb{F}_{q}^{n} of codimension at most r. For nonnegative f:G\rightarrow\mathbb{R}, we define
+
+\|f\|_{*,k}:=\max_{\begin{subarray}{c}B,C\subseteq G\\
+\|B\|_{\infty},\|C\|_{\infty}\leq 2^{k}\end{subarray}}\left\langle B*C,f\right\rangle,(2)
+
+where the maximization is quantified over subsets B,C\subseteq G of sizes |B|,|C|\geq 2^{-k}|G|. We can restate each of our three conditions above in the density formulation.
+
+###### Definition 2.4(Spreadness – density formulation).
+
+We say that A\subseteq\mathbb{F}_{q}^{n} is (\gamma,r)-spread if
+
+\|A\|_{\perp,r}\leq\gamma.
+
+###### Definition 2.5(Regularity – density formulation).
+
+We say that A is (\gamma,k)-regular if
+
+\|A\|_{*,k}\leq\gamma.
+
+###### Definition 2.6(Self-regularity – density formulation).
+
+We say that A is (\gamma,k)-self-regular if
+
+\|A\star A\|_{k}\leq\gamma.
+
+Generally, for all three conditions, we are most interested in the regime where \gamma=1+\varepsilon and \varepsilon is a small constant.
+
+### 2.2 Regularity from spreadness; Upper-bounds from regularity
+
+We can also restate our central question in the density formulation as follows.
+
+###### Question 2.7.
+
+Let A,B,C\subseteq G. Suppose that the corresponding density functions satisfy the (min-)entropy deficit condition \|A\|_{\infty},\|B\|_{\infty},\|C\|_{\infty}\leq 2^{d}. What sort of generic pseudorandom conditions on A(x),B(x),C(x) are sufficient to ensure that
+
+\left\langle A*B,C\right\rangle=1\pm O(\varepsilon),
+
+where \varepsilon is some small constant?
+
+We note that (basically by definition) imposing the condition of (1+\varepsilon,d)-regularity on the set A is sufficient to obtain good upper bounds for this question (and also necessary if we wish to avoid imposing any further conditions on the sets B and C beyond the given constraints on their sizes) as we have \left\langle A*B,C\right\rangle=\left\langle A,B\star C\right\rangle. Thus, if this quantity is at least 1+\varepsilon then the fact that \|A\|_{*,d}\geq 1+\varepsilon is witnessed by the convolution of C with -B.
+
+Our first main technical result says that spread sets are regular.
+
+###### Theorem 2.8(Structure vs. Pseudorandomness in \mathbb{F}_{q}^{n} – simplified combination of [Theorem 4.6](https://arxiv.org/html/2302.05537#S4.Thmthm6 "Theorem 4.6. ‣ 4.1 Sifting lemma ‣ 4 Proof of , and Sifting ‣ Strong Bounds for 3-Progressions") and [Theorem 4.10](https://arxiv.org/html/2302.05537#S4.Thmthm10 "Theorem 4.10. ‣ 4.2 Sifting for general convolutions ‣ 4 Proof of , and Sifting ‣ Strong Bounds for 3-Progressions")).
+
+Suppose A\subseteq\mathbb{F}_{q}^{n} has size |A|\geq 2^{-d}|\mathbb{F}_{q}^{n}|. If \|A\|_{*,k}\geq 1+\varepsilon, then \|A\|_{\perp,r}\geq 1+\frac{\varepsilon}{8} for some r\leq O_{\varepsilon}(k^{7}d). Similarly, if \|A\star A\|_{k}\geq 1+\varepsilon, then \|A\|_{\perp,r}\geq 1+\frac{\varepsilon}{4}. for some r\leq O_{\varepsilon}(k^{4}d^{4}).
+
+We can offer a couple of different interpretations of this result. Firstly we can interpret it analytically as follows. Suppose the density function A(x) has a deviation upwards from the uniform density function, which can be detected, or “witnessed”, by some convolution of two large sets (i.e., by a density corresponding to a rather weak additive structure). Then, the above theorem says that this deviation can be witnessed almost as well by the uniform density over a reasonably large affine subspace (i.e., a set with a very strict additive structure). Alternatively, we can interpret the contrapositive in the well-known structure vs. pseudorandomness paradigm. Specifically, we have the following dichotomy: a given set A is either pseudorandom, in the sense that it is (1+\varepsilon,k)-regular, or it has some non-negligible amount of additive structure which can be detected by some large affine subspace V,
+
+\left\langle V,A\right\rangle\geq 1+\frac{\varepsilon}{8},
+
+and we obtain the resulting density increment of A onto V:
+
+\frac{|A\cap V|}{|V|}\geq\left(1+\frac{\varepsilon}{8}\right)\frac{|A|}{|\mathbb{F}_{q}^{n}|}.
+
+We give the following quick summary of the proof of [Theorem 2.8](https://arxiv.org/html/2302.05537#S2.Thmthm8 "Theorem 2.8 (Structure vs. Pseudorandomness in 𝔽_𝑞^𝑛 – simplified combination of and ). ‣ 2.2 Regularity from spreadness; Upper-bounds from regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions") which is intended for experts. Alternatively, a more detailed overview can be found in [Appendix B](https://arxiv.org/html/2302.05537#A2 "Appendix B Detailed account of the proof of ‣ Strong Bounds for 3-Progressions"), which in particular gives some additional discussion of the tools involved, as well as an account of how the proof is arrived at “naturally” as the result of a sequence of observations.
+
+For brevity, we discuss only the most important claim made in [Theorem 2.8](https://arxiv.org/html/2302.05537#S2.Thmthm8 "Theorem 2.8 (Structure vs. Pseudorandomness in 𝔽_𝑞^𝑛 – simplified combination of and ). ‣ 2.2 Regularity from spreadness; Upper-bounds from regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions"): that \|A\star A\|_{k}\geq 1+\Omega(1) implies \|A\|_{\perp,r}\geq 1+\Omega(1) for some r\leq O(k^{4}d^{4}). We will establish the stronger claim \|A\star A\|_{\perp,r}\geq 1+\Omega(1), which is sufficient. Our starting point is the following consequence of Sanders’ invariance lemma.5 5 5 By this we mean the result one obtains by combining the Croot-Sisask lemma with Chang’s inequality – an idea which first appeared in the work of Sanders [[San12b](https://arxiv.org/html/2302.05537#bib.bibx32)]. See [Lemma C.3](https://arxiv.org/html/2302.05537#A3.Thmthm3 "Lemma C.3 (Sanders’ invariance lemma, restated). ‣ C.2 Sanders’ invariance lemma ‣ Appendix C Sanders’ invariance lemma ‣ Strong Bounds for 3-Progressions") for the specific form of the result used here.
+
+###### Proposition 2.9.
+
+Let k\geq 1 and \varepsilon\in[2^{-k},1]. For any bounded function f:\mathbb{F}_{q}^{n}\rightarrow[0,1], we have
+
+\|f\|_{\perp,k^{4}/\varepsilon^{2}}\geq\|f\|_{*,k}-O(\varepsilon).
+
+Suppose \|A\star A\|_{k}\geq 1+2\varepsilon for some small constant \varepsilon, and consider the super-level set indicator
+
+f(x):=\mathbbm{1}\!\!\left((A\star A)(x)\geq 1+\varepsilon\right).
+
+Our plan is to argue that \|f\|_{*,k^{\prime}}\geq 1-\frac{\varepsilon}{8} for some k^{\prime}\leq O(kd). From this it follows that
+
+\|A\star A\|_{\perp,O(k^{4}d^{4})}\geq(1+\varepsilon)\|f\|_{\perp,O(k^{4}d^{4})}\geq(1+\varepsilon)(1-\tfrac{\varepsilon}{4})\geq 1+\Omega(1),
+
+as desired. To argue that we indeed have \|f\|_{*,k^{\prime}}\approx 1 for some value k^{\prime} which is not too large, we develop the following tool (which is applicable more generally to any finite abelian group G).
+
+###### Lemma 2.10(Sifting lemma).
+
+Suppose A\subseteq G has size |A|=\delta|G|. Fix a nonnegative function h:G\rightarrow\mathbb{R}_{\geq 0} and an integer k\geq 2. Let D(x) denote the unique density function which is proportional to (A\star A)(x)^{k}, and suppose that \left\langle D,h\right\rangle=\eta.
+
+Then there is a subset A^{\prime}\subseteq A with \left\langle A^{\prime}\star A^{\prime},h\right\rangle\leq 2\cdot\eta and \frac{|A^{\prime}|}{|G|}\geq\tfrac{1}{2}\cdot\delta^{k}.
+
+Applying this to h:=1-f shows that \|f\|_{*,O(kd)}\approx 1. This completes the argument; it remains only to prove the sifting lemma and work out the quantitative details – this is done in [Section 4.1](https://arxiv.org/html/2302.05537#S4.SS1 "4.1 Sifting lemma ‣ 4 Proof of , and Sifting ‣ Strong Bounds for 3-Progressions"). We remark briefly that the sifting lemma can be seen as an extension of Schoen’s “Pre-BSG” lemma – this is discussed in more detail in [Section B.3](https://arxiv.org/html/2302.05537#A2.SS3 "B.3 The Pre-BSG Lemma and the sifting lemma ‣ Appendix B Detailed account of the proof of ‣ Strong Bounds for 3-Progressions").
+
+### 2.3 Strong two-sided bounds from self-regularity
+
+We have seen that spreadness is sufficient to give good upper bounds for our central question, [Question 2.7](https://arxiv.org/html/2302.05537#S2.Thmthm7 "Question 2.7. ‣ 2.2 Regularity from spreadness; Upper-bounds from regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions"). However, for applications, typically, one is more interested in lower bounds – in particular, in settings where we would like to establish the existence of solutions. For this we turn to the following: our second main technical contribution, which says that if A and B are both self-regular, then A*B is near-uniform.
+
+###### Theorem 2.11(Strong two-sided bounds from self-regularity).
+
+Let A,B be subsets of a finite abelian group G. Suppose that A and B are both (1+\varepsilon,\lceil k/\varepsilon\rceil)-self-regular for some \varepsilon\in[0,\frac{1}{4}] and some even integer k\geq 2. Then
+
+\|A*B-1\|_{k}\leq 2\varepsilon.
+
+In particular, \left\langle A*B,C\right\rangle=1\pm O(\varepsilon) for any set C of size |C|\geq 2^{-k}|G|.
+
+###### Proof.
+
+Our first step is to apply the following claim, which can be proved without much trouble by a slightly nontrivial application of Cauchy–Schwarz.
+
+###### Proposition 2.12(Decoupling inequality).
+
+Let A,B be density functions on a finite abelian group G. For even integers k\in\mathbb{N} we have
+
+\|A*B-1\|_{k}\leq\|A\star A-1\|_{k}^{1/2}\|B\star B-1\|_{k}^{1/2}.
+
+So, it suffices to show that both \|A\star A-1\|_{k}\leq 2\varepsilon and \|B\star B-1\|_{k}\leq 2\varepsilon; without loss of generality let us consider A. We argue that the near-uniformity of A\star A follows from an upper bound on \|A\star A\|_{k^{\prime}} (with k^{\prime}:=\lceil k/\varepsilon\rceil). This follows by combining two simple claims.
+
+###### Proposition 2.13(Positive correlation for spectrally positive functions – restatement of [Corollary 5.5](https://arxiv.org/html/2302.05537#S5.Thmthm5 "Corollary 5.5 (Positive correlation for spectrally positive functions). ‣ 5.2 Spectral Positivity ‣ 5 Spectral positivity and 𝑘-norm inequalities for convolutions ‣ Strong Bounds for 3-Progressions")).
+
+Let G be a finite abelian group, and let f_{1},f_{2},\ldots,f_{t} be some real-valued functions on G which are “spectrally positive.” That is, each of the Fourier coefficients \widehat{f_{i}}(\alpha) is real and non-negative. Then, for uniformly random x\in G,
+
+\E[f_{1}(x)f_{2}(x)\cdots f_{t}(x)]\geq\E[f_{1}(x)]\E[f_{2}(x)]\cdots\E[f_{t}(x)]\geq 0.
+
+###### Proposition 2.14(Odd moments – reformulation of [Proposition 5.7](https://arxiv.org/html/2302.05537#S5.Thmthm7 "Proposition 5.7. ‣ 5.2 Spectral Positivity ‣ 5 Spectral positivity and 𝑘-norm inequalities for convolutions ‣ Strong Bounds for 3-Progressions")).
+
+Let Z be a real-valued random variable. We use the notation \|Z\|_{k}:=\E\left[|Z|^{k}\right]^{1/k}. Suppose Z has non-negative odd moments: that is, \E\left[Z^{t}\right]\geq 0 for all odd integers t\in\mathbb{N}. If \|1+Z\|_{k^{\prime}}\leq 1+\varepsilon for some integer k^{\prime} and some \varepsilon\in[0,\frac{1}{4}], then \|Z\|_{k}\leq 2\varepsilon for any even integer k\leq\varepsilon k^{\prime}.
+
+Our density function (A\star A)(x) is indeed spectrally positive, and so is its centering, F:=A\star A-1. From this we see that A\star A has non-negative odd central moments:
+
+\E\big((A\star A)(x)-1\big)^{t}=F(x)^{t}\geq 0
+
+for all odd t\in\mathbb{N}. Since we have assumed the upper bound \|A\star A\|_{k^{\prime}}\leq 1+\varepsilon, we obtain the desired two-sided bound \|A\star A-1\|_{k}\leq 2\varepsilon. This proves the first claim. For the second claim, we can write
+
+\displaystyle\left\langle A*B,C\right\rangle\displaystyle=\left\langle 1,C\right\rangle+\left\langle A*B-1,C\right\rangle=1+\left\langle A*B-1,C\right\rangle,
+
+and use a Hölder inequality to estimate
+
+\left|\left\langle A*B-1,C\right\rangle\right|\leq\|A*B-1\|_{k}\|C\|_{1+\frac{1}{k-1}}\leq\|A*B-1\|_{k}\|C\|_{\infty}^{1/k}\|C\|_{1}^{1-1/k}\\
+=\|A*B-1\|_{k}\|C\|_{\infty}^{1/k}\leq 2\|A*B-1\|_{k}.\qed
+
+We remark that it is always possible, for generic density functions D, to infer some kind of bound on \|D-1\|_{k} from an upper bound \|D\|_{k}\leq 1+\varepsilon. However, this generic bound degrades rapidly as k increases: consider, for example, a density function which is uniform over some subset of G of size (1-\varepsilon)|G|. In this case we have
+
+\|D\|_{k^{\prime}}\leq\|D\|_{\infty}=\frac{1}{1-\varepsilon}\approx 1+\varepsilon
+
+for any k^{\prime}, and yet
+
+\|D-1\|_{k}\geq\varepsilon^{1/k}.
+
+So, for our arguments above, it was quite important that there are no self-convolutions which are shaped in such a way. More specifically: self-convolutions A\star A which have deviations downwards from 1 must also have deviations upwards from 1 of comparable strength, as measured by the k-norm, for (roughly speaking) any choice of k. This is what allows us to efficiently convert our upper bound from [Theorem 2.8](https://arxiv.org/html/2302.05537#S2.Thmthm8 "Theorem 2.8 (Structure vs. Pseudorandomness in 𝔽_𝑞^𝑛 – simplified combination of and ). ‣ 2.2 Regularity from spreadness; Upper-bounds from regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions") into a lower bound. It is interesting to contrast this situation with the discussion surrounding [Question A.3](https://arxiv.org/html/2302.05537#A1.Thmthm3 "Question A.3. ‣ Appendix A Comparison with prior approaches and other measures of additive pseudorandomness ‣ Strong Bounds for 3-Progressions") in the appendix. Specifically, we discuss a formal setting where one can obtain strong upper-control on the quantity \left\langle A*B,C\right\rangle from the density-increment method, but it is impossible to obtain any nontrivial lower bound \left\langle A*B,C\right\rangle>0.
+
+A review of all the steps. We recall that, as a result of the combination of all of our observations, one can infer from the starting assumption \left\langle A*B,C\right\rangle\leq 1-\Omega(1) that either A or B must have a density increment onto some large affine subspace V. Now that we have seen everything needed for this, we offer the following summary listing all the steps in one place.
+
+*   •
+Infer by Hölder that \|A*B-1\|_{k}\geq\Omega(1), for k\geq d, as witnessed by C.
+
+*   •
+Argue that k-norm distance to uniform is maximized by considering self-convolutions:   
+\|A*B-1\|_{k}\leq\|A\star A-1\|_{k}^{1/2}\|B\star B-1\|_{k}^{1/2}. Conclude that either \|A\star A-1\|_{k}\geq\Omega(1) or \|B\star B-1\|_{k}\geq\Omega(1); Suppose \|A\star A-1\|_{k}\geq\Omega(1).
+
+*   •
+Argue by spectral positivity that the presence of deviations of A\star A downwards from 1 entails the presence of deviations upwards from 1 of comparable strength. More concretely: argue that (upon increasing k slightly) we have \|A\star A\|_{k}\geq 1+\Omega(1).
+
+*   •Use sifting to find a convolution A^{\prime}\star A^{\prime} witnessing \|f\|_{*,O(dk)}\approx 1, where
+
+f:=\mathbbm{1}\!\!\left(A\star A\geq 1+\Omega(1)\right). 
+*   •
+Use Sanders’ invariance lemma (which is itself powered by the Croot-Sisask lemma and Chang’s inequality) to deduce that \|f\|_{\perp,O(d^{4}k^{4})}\approx 1.
+
+*   •
+Conclude that \left\langle V,A\star A\right\rangle\geq 1+\Omega(1) for some V.
+
+*   •
+Conclude that \left\langle V^{\prime},A\right\rangle\geq 1+\Omega(1) for some V^{\prime}=V+a.
+
+Let us now outline our plan for the remainder of the paper.
+
+In [Section 2.4](https://arxiv.org/html/2302.05537#S2.SS4 "2.4 The density-increment framework: completing the proof of ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions"), we discuss the well-known density-increment framework and describe how it can be used to find a large subset A^{\prime}\subseteq A which is spread relative to its span. We use this to complete the proof our main result for finite field setting: the structural lemma, [Lemma 1.14](https://arxiv.org/html/2302.05537#S1.Thmthm14 "Lemma 1.14 (A robust variant of ). ‣ 1.2 A robust structural lemma ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions").
+
+In the middle part of the paper, we develop our main tools used to prove [Theorem 2.8](https://arxiv.org/html/2302.05537#S2.Thmthm8 "Theorem 2.8 (Structure vs. Pseudorandomness in 𝔽_𝑞^𝑛 – simplified combination of and ). ‣ 2.2 Regularity from spreadness; Upper-bounds from regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions") and [Theorem 2.11](https://arxiv.org/html/2302.05537#S2.Thmthm11 "Theorem 2.11 (Strong two-sided bounds from self-regularity). ‣ 2.3 Strong two-sided bounds from self-regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions"): “sifting” and “spectral positivity,” respectively. Both tools apply to general finite abelian groups G. We also establish some “local” variants of these techniques in preparation for later when we will consider subsets A\subseteq\mathbb{Z}, as well as subsets of cyclic groups.
+
+*   •
+In [Section 3](https://arxiv.org/html/2302.05537#S3 "3 Preliminaries ‣ Strong Bounds for 3-Progressions"), we go over some definitions and conventions related to normalization, convolutions, and Fourier analysis.
+
+*   •
+In [Section 4](https://arxiv.org/html/2302.05537#S4 "4 Proof of , and Sifting ‣ Strong Bounds for 3-Progressions"), we prove the “sifting lemma” ([Lemma 4.4](https://arxiv.org/html/2302.05537#S4.Thmthm4 "Lemma 4.4 (Sifting lemma – density formulation). ‣ 4.1 Sifting lemma ‣ 4 Proof of , and Sifting ‣ Strong Bounds for 3-Progressions")) and use is to finish the proof of [Theorem 2.8](https://arxiv.org/html/2302.05537#S2.Thmthm8 "Theorem 2.8 (Structure vs. Pseudorandomness in 𝔽_𝑞^𝑛 – simplified combination of and ). ‣ 2.2 Regularity from spreadness; Upper-bounds from regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions").
+
+*   •
+In [Section 5](https://arxiv.org/html/2302.05537#S5 "5 Spectral positivity and 𝑘-norm inequalities for convolutions ‣ Strong Bounds for 3-Progressions"), we develop the simple tools needed to prove [Theorem 2.11](https://arxiv.org/html/2302.05537#S2.Thmthm11 "Theorem 2.11 (Strong two-sided bounds from self-regularity). ‣ 2.3 Strong two-sided bounds from self-regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions"). These include various k-norm inequalities for convolutions and self-convolutions, the latter of which relies on the notion of spectral positivity.
+
+In the final part of the paper, we consider the setting A\subseteq[N]\subseteq\mathbb{Z}.
+
+*   •
+In [Section 6](https://arxiv.org/html/2302.05537#S6 "6 Finding a 3-progression in 𝐴⊆[𝑁] – an overview ‣ Strong Bounds for 3-Progressions"), we give an overview of our plan to establish the existence of many 3-progressions in the integer case, discussing what changes must be made to our approach which handles the finite field case. Most notably, we consider some potential replacements for the notion of “spreadness”, where some kind of approximate subgroup, such as a generalized arithmetic progression of bounded rank or a Bohr set of bounded rank, instead plays the role of the subspace of bounded codimension.
+
+*   •
+In [Section 7](https://arxiv.org/html/2302.05537#S7 "7 Preliminaries for 3-progressions in the integers ‣ Strong Bounds for 3-Progressions"), we go over some definitions and basic properties related to generalized progressions, Bohr sets, and Freiman homomorphisms. We also introduce a potentially new device related to the notion of a Freiman homomorphism which we call a “safe” set.
+
+*   •
+In [Section 8](https://arxiv.org/html/2302.05537#S8 "8 Proof of and ‣ Strong Bounds for 3-Progressions"), we complete our proof that dense sets A\subset[N] have many 3-progressions, which relies on tools including sifting, spectral positivity, safe sets, as well as a translation-invariance lemma which is due to Schoen and Sisask.
+
+### 2.4 The density-increment framework: completing the proof of [Lemma 1.14](https://arxiv.org/html/2302.05537#S1.Thmthm14 "Lemma 1.14 (A robust variant of ). ‣ 1.2 A robust structural lemma ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions")
+
+In this section we prove our main result for the finite field setting by combining [Theorem 2.8](https://arxiv.org/html/2302.05537#S2.Thmthm8 "Theorem 2.8 (Structure vs. Pseudorandomness in 𝔽_𝑞^𝑛 – simplified combination of and ). ‣ 2.2 Regularity from spreadness; Upper-bounds from regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions") and [Theorem 2.11](https://arxiv.org/html/2302.05537#S2.Thmthm11 "Theorem 2.11 (Strong two-sided bounds from self-regularity). ‣ 2.3 Strong two-sided bounds from self-regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions") with the well-known density-increment approach.
+
+Let us argue that spreadness is a property that is easy to obtain. Before we begin, we discuss the notion of relative spreadness. For a set A\subseteq\mathbb{F}_{q}^{n} contained within some linear subspace V of codimension s, let us say that A is spread relative to V if, upon embedding
+
+A\subseteq V\cong\mathbb{F}_{q}^{n-s},
+
+the set is spread in the sense of [Definition 2.1](https://arxiv.org/html/2302.05537#S2.Thmthm1 "Definition 2.1 ((𝛾,𝑟)-spread). ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions"). Additionally, suppose that A is contained in some affine subspace V^{\prime}, which can be uniquely described as V^{\prime}=V+\theta for some linear subspace V and some \theta\in V^{\perp}. Let us say that A is spread relative to V^{\prime} if A-\theta is spread relative to V.
+
+Now, given a set A\subseteq\mathbb{F}_{q}^{n} of density at least 2^{-d}, we can find a large set A^{\prime} which is spread (relative to the ambient space \textnormal{Span}^{*}(A^{\prime})) by the following simple greedy algorithm. Let A_{0}:=A. We proceed to describe a nested sequence of subsets A_{i}\subseteq A_{i-1}; let V_{i}=\textnormal{Span}^{*}(A_{i}). If the current set A_{i} is not (1+\varepsilon,r) spread (relative to its container V_{i}), then there must be an affine subspace V^{\prime}\subseteq V_{i}, which has codimension at most r inside V_{i}, such that
+
+\frac{|A_{i}\cap V^{\prime}|}{|V^{\prime}|}>\left(1+\varepsilon\right)\frac{|A_{i}|}{|V_{i}|}.
+
+We then pass to the subset A_{i+1}:=A_{i}\cap V^{\prime}. Since we begin with a set with density \delta_{0}\geq 2^{-d}, and the density of A_{i} in V_{i} increases by at least a factor (1+\varepsilon) on every iteration, we must have density
+
+\delta_{i}\geq(1+\varepsilon)^{i}\cdot 2^{-d}.
+
+after i iterations. However, density cannot exceed 1 at any point. Thus, in the case of \varepsilon\in[0,1], this process must terminate within some number t\leq d/\varepsilon iterations; by definition, this means that the final set A_{t} is (1+\varepsilon,r)-spread inside its own span. To summarize, by this simple argument, we have proved the following.
+
+###### Proposition 2.15.
+
+Let \varepsilon\in[0,1]. Suppose A\subseteq\mathbb{F}_{q}^{n} has size |A|\geq 2^{-d}|\mathbb{F}_{q}^{n}|. Then, for some linear subspace V\subseteq\mathbb{F}_{q}^{n} of codimension s\leq rd/\varepsilon, and some shift \theta\in V^{\perp}, the subset A^{\prime}:=A\cap(V+\theta) satisfies the following:
+
+1.   1.
+\frac{|A^{\prime}|}{|V|}\geq\frac{|A|}{|\mathbb{F}_{q}^{n}|}, and
+
+2.   2.
+The set A^{\prime}-\theta\subseteq V is (1+\varepsilon,r)-spread inside V\cong\mathbb{F}_{q}^{n-s} in the sense of [Definition 2.1](https://arxiv.org/html/2302.05537#S2.Thmthm1 "Definition 2.1 ((𝛾,𝑟)-spread). ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions").
+
+We remark that it is somewhat more common to frame the structure vs. pseudorandomness approach as a sort of “branching process”, where at each step, our current set is either pseudorandom and therefore (possibly by a lengthy argument) satisfactory, or we find a density increment and then repeat this argument recursively. Inspired by [[BK12](https://arxiv.org/html/2302.05537#bib.bibx3)] and [[ALWZ20](https://arxiv.org/html/2302.05537#bib.bibx1)], we find it clarifying to insist that we do all of our density-incrementing up front and then argue that the resulting (spread) set must be satisfactory. Ultimately, though, there does not seem to be a tangible advantage arising from either viewpoint.
+
+Next, we argue that spreadness of A and B implies near-uniformity of A*B (simply by combining [Theorem 2.8](https://arxiv.org/html/2302.05537#S2.Thmthm8 "Theorem 2.8 (Structure vs. Pseudorandomness in 𝔽_𝑞^𝑛 – simplified combination of and ). ‣ 2.2 Regularity from spreadness; Upper-bounds from regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions") with [Theorem 2.11](https://arxiv.org/html/2302.05537#S2.Thmthm11 "Theorem 2.11 (Strong two-sided bounds from self-regularity). ‣ 2.3 Strong two-sided bounds from self-regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions")).
+
+###### Proposition 2.16(Near-uniformity from spreadness).
+
+We have the following for some absolute constant c\geq 1. Suppose A,B\subseteq\mathbb{F}_{q}^{n} are two sets each of size at least 2^{-d}|\mathbb{F}_{q}^{n}|, where d\geq 1. Let r\in\mathbb{N}, \varepsilon\in[0,\frac{1}{4}], and k\geq 1 be such that
+
+r\geq d^{4}k^{4}/\varepsilon^{c}.
+
+If \|A\|_{\perp,r}\leq 1+\varepsilon and \|B\|_{\perp,r}\leq 1+\varepsilon, then
+
+\|A*B-1\|_{k}\leq O(\varepsilon).
+
+###### Proof.
+
+We argue by the contrapositive. Let \eta\in[0,1], and suppose that
+
+\|A*B-1\|_{k}\geq\eta.
+
+By [Theorem 2.11](https://arxiv.org/html/2302.05537#S2.Thmthm11 "Theorem 2.11 (Strong two-sided bounds from self-regularity). ‣ 2.3 Strong two-sided bounds from self-regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions"), this means that either \|A\star A\|_{k^{\prime}}\geq 1+\Omega(\eta) or \|B\star B\|_{k^{\prime}}\geq 1+\Omega(\eta) for some k^{\prime}\leq O(k/\eta); without loss of generality suppose \|A\star A\|_{k^{\prime}}\geq 1+\Omega(\eta). We use [Theorem 2.8](https://arxiv.org/html/2302.05537#S2.Thmthm8 "Theorem 2.8 (Structure vs. Pseudorandomness in 𝔽_𝑞^𝑛 – simplified combination of and ). ‣ 2.2 Regularity from spreadness; Upper-bounds from regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions") (or rather, the more specific [Theorem 4.6](https://arxiv.org/html/2302.05537#S4.Thmthm6 "Theorem 4.6. ‣ 4.1 Sifting lemma ‣ 4 Proof of , and Sifting ‣ Strong Bounds for 3-Progressions")) to infer that
+
+\|A\|_{\perp,r}\geq 1+\Omega(\eta)
+
+for some r\leq M(\eta)\cdot d^{4}k^{4}, where M(\eta)\leq\textnormal{poly}(1/\eta). Since \eta\in[0,1] was arbitrary, the result follows. ∎
+
+By combining the two claims above we easily obtain our structural lemma stated in the introduction, [Lemma 1.14](https://arxiv.org/html/2302.05537#S1.Thmthm14 "Lemma 1.14 (A robust variant of ). ‣ 1.2 A robust structural lemma ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions").
+
+###### Proof of [Lemma 1.14](https://arxiv.org/html/2302.05537#S1.Thmthm14 "Lemma 1.14 (A robust variant of ). ‣ 1.2 A robust structural lemma ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions").
+
+We are given a constant \varepsilon, a parameter k\geq 1, and a set |A|\geq 2^{-d}|\mathbb{F}_{q}^{n}|. Changing \varepsilon and d only slightly, we may assume d\geq 1 and \varepsilon\leq 1/4.
+
+We set a parameter r\in\mathbb{N} to be some constant factor larger than k^{4}d^{4}/\varepsilon^{c}. We invoke [Proposition 2.15](https://arxiv.org/html/2302.05537#S2.Thmthm15 "Proposition 2.15. ‣ 2.4 The density-increment framework: completing the proof of ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions") and consider the subset A^{\prime}=A\cap(V+\theta) which is (1+\varepsilon,r)-spread relative to its span, V+\theta, an affine subspace with codimension at most rd/\varepsilon=O(d^{5}k^{4}/\varepsilon^{c+1}) in \mathbb{F}_{q}^{n}. By our choice of r, we may apply [Proposition 2.16](https://arxiv.org/html/2302.05537#S2.Thmthm16 "Proposition 2.16 (Near-uniformity from spreadness). ‣ 2.4 The density-increment framework: completing the proof of ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions"). So, the distribution
+
+r_{A^{\prime}-\theta}(x):=\frac{R_{A-\theta}(x)}{|A|^{2}}
+
+has k-norm divergence from the uniform distribution on V bounded by O(\varepsilon). Equivalently, r_{A^{\prime}}(x) has O(\varepsilon) divergence from the uniform distribution on V+2\theta. Since \varepsilon\in[0,\frac{1}{2}] was arbitrary the result follows. ∎
+
+Furthermore, our lower bound for 3-progressions in the finite field setting also follows as a direct consequence of [Lemma 1.14](https://arxiv.org/html/2302.05537#S1.Thmthm14 "Lemma 1.14 (A robust variant of ). ‣ 1.2 A robust structural lemma ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions").
+
+###### Proof of [Theorem 1.3](https://arxiv.org/html/2302.05537#S1.Thmthm3 "Theorem 1.3. ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions") from [Lemma 1.14](https://arxiv.org/html/2302.05537#S1.Thmthm14 "Lemma 1.14 (A robust variant of ). ‣ 1.2 A robust structural lemma ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions").
+
+Suppose A\subseteq\mathbb{F}_{q}^{n} has size |A|\geq 2^{-d}|\mathbb{F}_{q}^{n}|. If q is even, we clearly have |A|^{2} solutions to x+y=2z, since 2z=0 for all z. So, let us assume that q is odd. We seek to lower bound the number of 3-progressions in A, which is to say the quantity
+
+\sum_{z\in A}R_{A}(2z).
+
+Our plan is to invoke [Lemma 1.14](https://arxiv.org/html/2302.05537#S1.Thmthm14 "Lemma 1.14 (A robust variant of ). ‣ 1.2 A robust structural lemma ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions"), with \varepsilon=1/4 and k=d+1, to obtain a nice subset A^{\prime}, and then we will count only the solutions to x+y=2z with x,y,z\in A^{\prime}, and ignore the rest. For the sake of clarity let us write \textnormal{Span}^{*}(A)=V+\theta where V is a linear subspace, and consider instead the translated set B:=A^{\prime}-\theta\subseteq V, noting that translating an entire set does not change the number of solutions to x+y=2z with x,y,z in the set.
+
+[Lemma 1.14](https://arxiv.org/html/2302.05537#S1.Thmthm14 "Lemma 1.14 (A robust variant of ). ‣ 1.2 A robust structural lemma ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions") tells us that the distribution r_{B}(x) has k-norm divergence at most 1/4 from the uniform distribution on V. This in particular means that the number of points x\in V where
+
+r_{B}(x)\leq\frac{1}{2|V|}
+
+is at most 2^{-k}|V|. Now using the fact that q is odd, we note that the dilation map z\mapsto 2z is a permutation of V, and so
+
+\sum_{z\in B}r_{B}(2z)\geq\left(|B|-2^{-k}|V|\right)\frac{1}{2|V|}\geq\frac{2^{-d}}{4},
+
+where we have used that fact that |B|\geq 2^{-d}|V| and that k=d+1. Overall, we see that
+
+\displaystyle\sum_{z\in A}R_{A}(2z)\displaystyle\geq\sum_{z\in B}R_{B}(2z)
+\displaystyle\geq 2^{-O(d)}|B|^{2}
+\displaystyle\geq q^{-O(d^{5}k^{4})}|\mathbb{F}_{q}^{n}|^{2}
+\displaystyle=q^{-O(d^{9})}|\mathbb{F}_{q}^{n}|^{2}.\qed
+
+## 3 Preliminaries
+
+### 3.1 Densities and normalization
+
+###### Definition 3.1.
+
+For an arbitrary finite set \Omega, a density function on \Omega is simply a non-negative function D:\Omega\rightarrow\mathbb{R}_{\geq 0} normalized so that
+
+\E_{x\in\Omega}D(x)=1
+
+.
+
+*   •Let A\subseteq\Omega be a subset of size |A|=\delta|\Omega|. Abusing notation, we also write
+
+A(x):=\frac{\mathbbm{1}_{A}(x)}{\delta}=\begin{cases}1/\delta&\text{ for }x\in A\\
+0&\text{ otherwise}\\
+\end{cases}
+
+to denote the (re-normalized) indicator function of A. Under this normalization, A(x) is a density function. 
+*   •For any two functions f,g:\Omega\rightarrow\mathbb{R} we define \left\langle f,g\right\rangle:=\E_{x\in\Omega}f(x)g(x). For any set A we have the probabilistic interpretation
+
+\left\langle A,g\right\rangle=\E_{x\in\Omega}A(x)g(x)=\E_{a\in A}g(a).
+
+We can also apply this more generally to an arbitrary density function B. Let b\sim B denote a random variable in \Omega whose probability distribution is proportional to B. Then \langle B,g\rangle has the interpretation
+
+\left\langle B,g\right\rangle=\E_{x\in\Omega}B(x)g(x)=\E_{b\sim B}g(b).
+
+Occasionally it will be useful to allow more generally for complex-valued functions f,g (which can appear e.g. during some intermediate calculations involving Fourier expansions of real-valued functions, even if the resulting quantity must be also real). In this case we insist on the convention
+
+\left\langle f,g\right\rangle=\E_{x\in\Omega}\overline{f(x)}g(x)
+
+so that at least when B(x) is real-valued and g(x) is complex-valued we still have
+
+\left\langle B,g\right\rangle=\E_{x}B(x)g(x)=\E_{b\sim B}g(b). 
+*   •For k\geq 1, we use the notation
+
+\left\|f\right\|_{k}=\left(\E_{x\in\Omega}\left|f(x)\right|^{k}\right)^{1/k},
+
+and
+
+\left\|f\right\|_{\infty}=\max_{x\in\Omega}\left|f(x)\right|. 
+*   •It is a consequence of Jensen’s inequality that for 1\leq k\leq k^{\prime} and any function f we have
+
+\|f\|_{k}\leq\|f\|_{k^{\prime}}. 
+
+### 3.2 Convolutions
+
+*   •We specialize the finite set \Omega from above to be a finite abelian group G. Given two functions f,g:G\rightarrow\mathbb{R}, we define their convolution with the following normalization:
+
+(f*g)(x):=\E_{y\in G}f(y)g(x-y)=\E_{y\in G}f(x-y)g(y)=\frac{1}{|G|}\sum_{\begin{subarray}{c}y,z\in G\\
+y+z=x\end{subarray}}f(y)g(z). 
+*   •For a density function B, we can interpret B*g as
+
+(B*g)(x):=\E_{y\in G}B(y)g(x-y)=\E_{b\sim B}g(x-b). 
+*   •For two real-valued function f,g, we define the cross-correlation f\star g as the convolution of f(-x) with g:
+
+(f\star g)(x):=\E_{y\in G}f(-y)g(x-y)=\E_{y\in G}f(y)g(x+y),
+
+and we have
+
+(B\star g)(x)=\E_{b\sim B}g(x+b). 
+*   •
+If A,B are densities corresponding to (independent) random variables a,b, then as a consequence of our normalization conventions, A*B is again a density. Indeed, it is the density corresponding to the random variable a+b\in G. Similarly, A\star B is the density corresponding to the random variable b-a\in G.
+
+*   •
+We note the identity \left\langle f*g,h\right\rangle=\left\langle f,g\star h\right\rangle.
+
+### 3.3 Fourier analysis on finite abelian groups
+
+*   •
+
+Let \left\{e_{\alpha}(\cdot)\>:\>\alpha\in G\right\} denote the set of characters of the finite abelian group G. Each character is a function from G to the set of complex numbers of modulus 1. The product of two characters is again a character: For \alpha,\beta\in G, e_{\alpha}\cdot e_{\beta}=e_{\alpha+\beta}. Beyond this, the main important properties of the characters (for the development of the Fourier expansion) are
+
+    1.   (i)
+orthogonality: \left\langle e_{\alpha},e_{\beta}\right\rangle=\E_{x\in G}\overline{e_{\alpha}(x)}e_{\beta}(x)=\E_{x\in G}e_{\alpha}(-x)e_{\beta}(x)=\mathbbm{1}\!\!\left(\alpha=\beta\right), and
+
+    2.   (ii)
+symmetry: e_{\alpha}(x)=e_{x}(\alpha).
+
+In the case that the group G is presented explicitly as G=\mathbb{Z}_{N_{1}}\times\mathbb{Z}_{N_{2}}\times\cdots\times\mathbb{Z}_{N_{r}} we can consider the following concrete description:
+
+e_{\alpha}(x):=\textnormal{exp}\left(2\pi i\sum_{j=1}^{r}\frac{\alpha_{j}x_{j}}{N_{j}}\right).
+
+*   •For a set A\subseteq G, we define the fourier coefficients
+
+\widehat{A}(\alpha):=\left\langle A,e_{\alpha}\right\rangle=\E_{a\in A}e_{\alpha}(a). 
+*   •
+Note that \widehat{A}(-\alpha)=\left\langle A,e_{-\alpha}\right\rangle=\overline{\left\langle A,e_{\alpha}\right\rangle}=\overline{\widehat{A}(\alpha)}.
+
+*   •For a function f:G\rightarrow\mathbb{R}, we define the fourier coefficients
+
+\widehat{f}(\alpha):=\left\langle f,e_{\alpha}\right\rangle=\E_{y\in G}f(y)e_{\alpha}(y). 
+*   •We can express any function by its fourier expansion
+
+f(x)=\sum_{\alpha\in G}\widehat{f}(\alpha)e_{\alpha}(-x). ###### Proof.
+
+\displaystyle\sum_{\alpha}\left(\E_{y}f(y)e_{\alpha}(y)\right)e_{\alpha}(-x)\displaystyle=\sum_{y}\E_{\alpha}f(y)e_{\alpha}(y)e_{\alpha}(-x)
+\displaystyle=\sum_{y}f(y)\E_{\alpha}e_{y}(\alpha)e_{x}(-\alpha)
+\displaystyle=\sum_{y}f(y)\mathbbm{1}\!\!\left(y=x\right)
+\displaystyle=f(x).\qed  
+*   •
+
+We have the following fourier-analytic identities for real-valued functions A(x),B(x),f(x). In general they can all be verified, with no creativity required, by the following process: express any function appearing by its Fourier expansion, expand any products of sums appearing into a sum of products, and then use the identity \E_{x\in G}e_{\alpha}(x)=\mathbbm{1}\!\!\left(\alpha=0\right) to evaluate any expectations.
+
+    1.   1.
+\left\langle A,f\right\rangle=\sum_{\alpha}\widehat{A}(-\alpha)\widehat{f}(\alpha)=\sum_{\alpha}\widehat{A}(\alpha)\widehat{f}(-\alpha)
+
+    2.   2.
+(A*B)(x)=\sum_{\alpha}\widehat{A}(\alpha)\widehat{B}(\alpha)e_{\alpha}(-x)
+
+    3.   3.
+(A\star B)(x)=\sum_{\alpha}\widehat{A}(-\alpha)\widehat{B}(\alpha)e_{\alpha}(-x)
+
+    4.   4.
+(A\star A)(x)=\sum_{\alpha}|\widehat{A}(\alpha)|^{2}e_{\alpha}(-x)
+
+    5.   5.
+\|A\|_{2}^{2}=\left\langle A,A\right\rangle=\sum_{\alpha}|\widehat{A}(\alpha)|^{2}
+
+    6.   6.
+\|A\star A\|_{2}^{2}=\sum_{\alpha}|\widehat{A}(\alpha)|^{4}
+
+## 4 Proof of [Theorem 2.8](https://arxiv.org/html/2302.05537#S2.Thmthm8 "Theorem 2.8 (Structure vs. Pseudorandomness in 𝔽_𝑞^𝑛 – simplified combination of and ). ‣ 2.2 Regularity from spreadness; Upper-bounds from regularity ‣ 2 Technical introduction ‣ Strong Bounds for 3-Progressions"), and Sifting
+
+### 4.1 Sifting lemma
+
+It will be convenient to set aside the following generic argument.
+
+###### Proposition 4.1(Weighted pigeonhole principle, or “first-moment method”).
+
+Fix some nonnegative numbers g_{1},g_{2},\ldots g_{m} and h_{1},h_{2},\ldots,h_{m}, with \sum_{i}h_{i}>0. Let
+
+\eta:=\frac{\sum_{i=1}^{m}g_{i}}{\sum_{i=1}^{m}h_{i}}
+
+and
+
+\mu(h):=\frac{1}{m}\sum_{i=1}^{m}h_{i}.
+
+1.   (i)
+There exists a choice of j\in[m] with \frac{g_{j}}{h_{j}}\leq\eta (and not of the form \frac{0}{0}).
+
+2.   (ii)Furthermore, there exists a choice of j with both
+
+\frac{g_{j}}{h_{j}}\leq 2\eta\text{ and }h_{j}\geq\tfrac{1}{2}\mu(h) 
+3.   (iii)More generally, suppose that H,\tau>0 are such that
+
+\sum_{i\>:\>h_{i}\geq H}h_{i}\geq\tau\sum_{i}h_{i}.
+
+Then there is a choice of j with both
+
+\frac{g_{j}}{h_{j}}\leq\frac{\eta}{\tau}\text{ and }h_{j}\geq H. 
+
+###### Proof.
+
+The degenerate case \eta=0 is easy to handle: we simply pick the largest value h_{j}. So suppose \eta\neq 0 and consider the first claim. We discard any indices i where both g_{i}=h_{i}=0, noting that this does not change the value of \sum_{i}g_{i} or \sum_{i}h_{i}. Consider the equality \sum_{i}g_{i}=\eta\sum_{i}h_{i}. If the desired conclusion does not hold, we have g_{i}>\eta h_{i} for all i, and so \sum_{i}(g_{i}-\eta h_{i})>0, a contradiction. For the second claim, we apply the first claim to the modified sequence
+
+h_{i}^{\prime}:=h_{i}\cdot\mathbbm{1}\!\!\left(h_{i}\geq\mu/2\right).
+
+For the final claim, we apply the first claim to the modified sequence
+
+h_{i}^{\prime\prime}:=h_{i}\cdot\mathbbm{1}\!\!\left(h_{i}\geq H\right).\qed
+
+In preparation to make some combinatorial arguments we briefly switch to the counting measure. This also allows us to also handle finite subsets A of infinite groups G, noting that summations such as \sum_{x\in G}R_{A}(x) are sensible because R_{A} is finitely supported.
+
+###### Lemma 4.2(Sifting lemma – counting formulation).
+
+Consider
+
+*   •
+a finite subset A of an abelian group G,
+
+*   •
+a function f:G\rightarrow\mathbb{R}_{\geq 0}, and
+
+*   •
+an integer k\geq 2.
+
+There is a subset A^{\prime}\subseteq A with
+
+\frac{1}{|A^{\prime}|^{2}}\sum_{a,b\in A^{\prime}}f(a-b)\leq 2\cdot\frac{\sum_{x}R_{A}^{-}(x)^{k}f(x)}{\sum_{x}R_{A}^{-}(x)^{k}}
+
+and
+
+|A^{\prime}|\geq\tfrac{1}{2}\cdot\frac{\sum_{x}R_{A}^{-}(x)^{k}}{|A|^{k}}.
+
+Specifically, A^{\prime} is of the form
+
+A^{\prime}(s):=A\cap(A+s_{1})\cap\cdots\cap(A+s_{k-1})
+
+for some s=(s_{1},s_{2},\cdots,s_{k-1})\in G^{k-1}.
+
+###### Proof.
+
+For s\in G^{k-1}, let
+
+A^{\prime}(s):=A\cap(A+s_{1})\cap(A+s_{2})\cap\cdots\cap(A+s_{k-1}).
+
+We wish to understand the quantity
+
+\frac{\sum_{a,b\in A^{\prime}(s)}f(a-b)}{|A^{\prime}(s)|^{2}}
+
+for various choices of s. Define
+
+g(s):=\sum_{a,b\in A^{\prime}(s)}f(a-b)
+
+and
+
+h(s):=|A^{\prime}(s)|^{2}.
+
+We would like to apply the weighted pigeonhole principle to find a suitable choice of s, and so we need to compute \sum_{s}g(s) and \sum_{s}h(s). Before we start the computation we point out ahead-of-time the following combinatorial identities:
+
+R_{A}^{-}(a-b)=|A\cap(A+a-b)|=|(A-a)\cap(A-b)|=\sum_{t\in G}\mathbbm{1}_{A-a}(t)\mathbbm{1}_{A-b}(t)=\sum_{t\in G}\mathbbm{1}_{A+t}(a)\mathbbm{1}_{A+t}(b).
+
+We have
+
+\displaystyle\sum_{x}R_{A}^{-}(x)^{k}f(x)\displaystyle=\sum_{a,b\in A}R_{A}^{-}(a-b)^{k-1}f(a-b)
+\displaystyle=\sum_{a,b\in A}\left(\sum_{t}\mathbbm{1}_{A+t}(a)\mathbbm{1}_{A+t}(b)\right)^{k-1}f(a-b)
+\displaystyle=\sum_{a,b\in A}\sum_{s_{1},\ldots s_{k-1}}\left(\prod_{j=1}^{k-1}\mathbbm{1}_{A+s_{j}}(a)\right)\cdot\left(\prod_{j=1}^{k-1}\mathbbm{1}_{A+s_{j}}(b)\right)\cdot f(a-b)
+\displaystyle=\sum_{s_{1},\ldots s_{k-1}}\sum_{a,b\in A}\left(\mathbbm{1}_{\bigcap_{j=1}^{k-1}(A+s_{j})}(a)\right)\cdot\left(\mathbbm{1}_{\bigcap_{j=1}^{k-1}(A+s_{j})}(b)\right)\cdot f(a-b)
+\displaystyle=\sum_{s_{1},\ldots,s_{k-1}}\sum_{a,b\in A^{\prime}(s)}f(a-b)
+\displaystyle=\sum_{s}g(s).
+
+A special case of this same calculation (with f\equiv 1) also gives
+
+\sum_{x}R_{A}^{-}(x)^{k}=\sum_{s}h(s)=\sum_{s}|A^{\prime}(s)|^{2}.
+
+Thus we have
+
+\eta:=\frac{\sum_{s}g(s)}{\sum_{s}h(s)}=\frac{\sum_{x}R(x)^{k}f(x)}{\sum_{x}R(x)^{k}}.
+
+We remark that in the case that G is finite and A is a dense subset of size |A|=\delta|G|, we can obtain a quite satisfactory conclusion already by applying part (ii) of the weighted pigeonhole principle. Indeed, for uniformly random s\in G^{k-1}, we have average size
+
+\E_{s}|A^{\prime}(s)|^{2}=\E_{s}h(s)=\frac{1}{|G|^{k-1}}\sum_{x}R_{A}^{-}(x)^{k}=\frac{1}{|G|^{k-2}}\E_{x}R_{A}^{-}(x)^{k}=\delta^{2k}|G|^{2}\E_{x}(A\star A)(x)^{k}\geq\delta^{2k}|G|^{2}.
+
+However, we consider the following argument which is better in general. We wish to determine a value M which is as large as possible and also satisfies
+
+\sum_{s\>:\>|A^{\prime}(s)|\geq M}|A^{\prime}(s)|^{2}\geq\tfrac{1}{2}\cdot\sum_{s}|A^{\prime}(s)|^{2}.
+
+For any choice of M we have
+
+\displaystyle\sum_{s\>:\>|A^{\prime}(s)|\leq M}|A^{\prime}(s)|^{2}\displaystyle\leq M\cdot\sum_{s}|A^{\prime}(s)|
+\displaystyle=M\cdot\sum_{s}\sum_{a\in A}\mathbbm{1}_{A+s_{1}}(a)\cdot\mathbbm{1}_{A+s_{2}}(a)\cdots\mathbbm{1}_{A+s_{k-1}}(a)
+\displaystyle=M\cdot\sum_{a\in A}\sum_{s}\mathbbm{1}_{A-a}(s_{1})\cdot\mathbbm{1}_{A-a}(s_{2})\cdots\mathbbm{1}_{A-a}(s_{k-1})
+\displaystyle=M\cdot|A|^{k}.
+
+This shows that we may take
+
+M=\tfrac{1}{2}\cdot\frac{\sum_{s}|A^{\prime}(s)|^{2}}{|A|^{k}}=\tfrac{1}{2}\cdot\frac{\sum_{x}R_{A}^{-}(x)^{k}}{|A|^{k}}.
+
+We conclude by part (iii) of the weighted pigeonhole principle. ∎
+
+###### Proof of the extended Pre-BSG Lemma ([Lemma B.8](https://arxiv.org/html/2302.05537#A2.Thmthm8 "Lemma B.8 (Extended Pre-BSG Lemma). ‣ B.3 The Pre-BSG Lemma and the sifting lemma ‣ Appendix B Detailed account of the proof of ‣ Strong Bounds for 3-Progressions")).
+
+We apply the sifting lemma straightforwardly to the sub-level set indicator
+
+f(x)=\mathbbm{1}\!\!\left(R_{A}^{-}(x)\leq c\cdot\kappa^{\frac{1}{k-1}}\cdot|A|\right),
+
+where
+
+\kappa=\frac{\sum_{x}R_{A}^{-}(x)^{k}}{|A|^{k+1}}.
+
+We check that
+
+\sum_{x}R_{A}^{-}(x)^{k}f(x)\leq c^{k-1}\cdot\kappa\cdot|A|^{k-1}\sum_{x}R_{A}^{-}(x)=c^{k-1}\cdot\kappa\cdot|A|^{k+1},
+
+so indeed
+
+\frac{\sum_{x}R_{A}^{-}(x)^{k}f(x)}{\sum_{x}R_{A}^{-}(x)^{k}}=\frac{\sum_{x}R_{A}^{-}(x)^{k}f(x)}{\kappa|A|^{k+1}}\leq c^{k-1}.
+
+We also have
+
+|A^{\prime}|\geq\tfrac{1}{2}\cdot\frac{\sum_{x}R_{A}^{-}(x)^{k}}{|A|^{k}}=\tfrac{1}{2}\cdot\frac{\kappa|A|^{k+1}}{|A|^{k}}=\tfrac{1}{2}\cdot\kappa\cdot|A|.\qed
+
+We proceed to state a density formulation of the sifting lemma for subsets A\subseteq G of a finite groups G with of |A|=\delta|G|. We use the notation
+
+D^{\wedge k}(x):=\left(\frac{D(x)}{\|D\|_{k}}\right)^{k}
+
+to denote the unique density function proportional to D^{k}. We also point out the translation
+
+\frac{\sum_{x\in G}R_{A}^{-}(x)^{k}}{|A|^{k}}=\frac{|A|^{k}}{|G|^{k}}\sum_{x\in G}(A\star A)(x)^{k}=\frac{|A|^{k}}{|G|^{k-1}}\E_{x}(A\star A)(x)^{k}=\delta^{k}\cdot|G|\cdot\|A\star A\|_{k}^{k}.
+
+###### Lemma 4.4(Sifting lemma – density formulation).
+
+Consider
+
+*   •
+a set A\subseteq G of size |A|=\delta|G|,
+
+*   •
+a function f:G\rightarrow\mathbb{R}_{\geq 0}, and
+
+*   •
+an integer k\geq 2.
+
+There is a subset A^{\prime}\subseteq A with
+
+\left\langle A^{\prime}\star A^{\prime},f\right\rangle\leq 2\cdot\left\langle(A\star A)^{\wedge k},f\right\rangle
+
+and
+
+\frac{|A^{\prime}|}{|G|}\geq\tfrac{1}{2}\cdot\delta^{k}\cdot\|A\star A\|_{k}^{k}\geq\tfrac{1}{2}\cdot\delta^{k}.
+
+One can easily derive a formulation of the extended Pre-BSG Lemma for the dense setting which corresponds e.g. to either part of [Proposition B.4](https://arxiv.org/html/2302.05537#A2.Thmthm4 "Proposition B.4 (Compressions escape sub-level sets). ‣ B.2 Finding a robust witness ‣ Appendix B Detailed account of the proof of ‣ Strong Bounds for 3-Progressions"). We consider the following formulation which is tailored specifically to our intended application.
+
+###### Corollary 4.5(Sifting a robust witness).
+
+Suppose that A\subseteq G has size |A|\geq 2^{-d}|G|, and
+
+\|A\star A\|_{k}\geq 1+\varepsilon
+
+for some k\geq 1 and \varepsilon>0. Consider
+
+S:=\left\{x\in G\>:\>(A\star A)\leq 1+\varepsilon/2\right\}.
+
+Let \overline{\varepsilon}=\min\{1,\varepsilon\}. There is a subset A^{\prime}\subseteq A with
+
+\left\langle A^{\prime}\star A^{\prime},\mathbbm{1}_{S}\right\rangle\leq\frac{\overline{\varepsilon}}{2^{4}}
+
+and
+
+\frac{|A^{\prime}|}{|G|}\geq\begin{cases}2^{-O(dk)}\cdot\varepsilon^{O(d/\varepsilon)}&\textnormal{ when }\varepsilon<1/2\\
+2^{-O(dk)}&\textnormal{ when }\varepsilon\geq 1/2.\end{cases}
+
+###### Proof.
+
+Apply the sifting lemma with f:=\mathbbm{1}_{S} and
+
+k^{\prime}=\begin{cases}\lceil k+2\lg(32/\varepsilon)/\varepsilon\rceil&\textnormal{ when }\varepsilon<1/2\\
+\lceil k+20\rceil&\textnormal{ when }\varepsilon\geq 1/2.\qed\end{cases}
+
+The point of the quantity \overline{\varepsilon}=\min\{1,\varepsilon\} is that for all \varepsilon\geq 0, \lambda\geq 1 we have
+
+\left(1+\frac{\varepsilon}{\lambda}\right)\left(1-\frac{\overline{\varepsilon}}{4\lambda}\right)\geq 1+\frac{\varepsilon}{2\lambda}.
+
+So A^{\prime}\star A^{\prime} above is a robust witness to A\star A\gg 1+\varepsilon/4 with some room to spare: for
+
+f:=\mathbbm{1}\!\!\left(A\star A\geq 1+\varepsilon/2\right)
+
+we have
+
+\left\langle A^{\prime}\star A^{\prime},A\star A\right\rangle\geq\left(1+\frac{\varepsilon}{2}\right)\left\langle A^{\prime}\star A^{\prime},f\right\rangle\geq\left(1+\frac{\varepsilon}{2}\right)\left(1-\frac{\overline{\varepsilon}}{2^{3}}\right)\geq 1+\frac{\varepsilon}{2^{2}}.
+
+###### Theorem 4.6.
+
+Let A\subseteq\mathbb{F}_{q}^{n} be a set of size |A|\geq 2^{-d}|\mathbb{F}_{q}^{n}|, where d\geq 1. Suppose that
+
+\|A\star A\|_{k}\geq 1+\varepsilon
+
+for some k\geq 1. We have
+
+\|A\|_{\perp,r}\geq 1+\frac{\varepsilon}{4}
+
+for some
+
+r=\begin{cases}O(d^{4}k^{4})&\textnormal{ when }\varepsilon\geq 1/2\\
+O(d^{4}k^{4}/\varepsilon^{2}+d^{4}\lg(1/\varepsilon)^{4}/\varepsilon^{6})&\textnormal{ when }\varepsilon<1/2.\end{cases}
+
+In either case we also have the related conclusion
+
+\max_{\begin{subarray}{c}W\subseteq\mathbb{F}_{q}^{n}\\
+\textnormal{dim}(W)\leq r\end{subarray}}\|P_{W}A-1\|_{2}^{2}\geq\frac{\varepsilon}{4}
+
+where P_{W}A:=W^{\perp}*A.
+
+We note that the latter conclusion here is (qualitatively) stronger for small \varepsilon. Indeed, we have \|P_{W}A\|_{2}^{2}=1+\|P_{W}A-1\|_{2}^{2}, and in light of the alternative characterization
+
+\|A\|_{\perp,r}=\max_{\begin{subarray}{c}W\subseteq\mathbb{F}_{q}^{n}\\
+\textnormal{dim}(W)\leq r\end{subarray}}\|P_{W}A\|_{\infty},
+
+we have the lower bound
+
+\|A\|_{\perp,r}\geq\|P_{W}A\|_{\infty}\geq\|P_{W}A\|_{2}\geq\sqrt{1+\frac{\varepsilon}{4}}\approx 1+\frac{\varepsilon}{8}
+
+for some small subspace W.
+
+###### Proof.
+
+In the case \varepsilon\leq\frac{1}{2}, we replace k by \max\{k,\lg(1/\varepsilon)/\varepsilon\} for convenience, noting that \|A\star A\|_{k} does not decrease as a result. We consider
+
+f:=\mathbbm{1}\!\!\left(A\star A\geq 1+\tfrac{\varepsilon}{2}\right)
+
+and (using [Corollary 4.5](https://arxiv.org/html/2302.05537#S4.Thmthm5 "Corollary 4.5 (Sifting a robust witness). ‣ 4.1 Sifting lemma ‣ 4 Proof of , and Sifting ‣ Strong Bounds for 3-Progressions")) we sift a robust witness A^{\prime}\star A^{\prime} with
+
+\left\langle A^{\prime}\star A^{\prime},f\right\rangle\geq 1-\frac{\overline{\varepsilon}}{2^{4}}.
+
+and density |A^{\prime}|/|G|\geq 2^{-O(dk)}. We apply Sanders’ invariance lemma ([Lemma C.3](https://arxiv.org/html/2302.05537#A3.Thmthm3 "Lemma C.3 (Sanders’ invariance lemma, restated). ‣ C.2 Sanders’ invariance lemma ‣ Appendix C Sanders’ invariance lemma ‣ Strong Bounds for 3-Progressions")) to obtain a linear subspace V with
+
+\left\langle V*A^{\prime}\star A^{\prime},f\right\rangle\geq\left\langle A^{\prime}\star A^{\prime},f\right\rangle-\frac{\overline{\varepsilon}}{2^{4}}\geq 1-\frac{\overline{\varepsilon}}{2^{3}}
+
+and codimension r\leq O(d^{4}k^{4}/\overline{\varepsilon}^{2}). We conclude that
+
+\left\langle V*A^{\prime}\star A^{\prime},A\star A\right\rangle\geq\left(1+\frac{\varepsilon}{2}\right)\left\langle V*A^{\prime}\star A^{\prime},f\right\rangle\geq\left(1+\frac{\varepsilon}{2}\right)\left(1-\frac{\overline{\varepsilon}}{2^{3}}\right)\geq 1+\frac{\varepsilon}{4}.
+
+This gives
+
+\left\langle V^{\prime},A\star A\right\rangle\geq 1+\frac{\varepsilon}{4}
+
+for some affine subspace V^{\prime} and
+
+\left\langle V^{\prime},A\right\rangle\geq 1+\frac{\varepsilon}{4}
+
+for some V^{\prime\prime}=V^{\prime}+a. This proves the first claim.
+
+To prove the latter claim, we depart from the argument above when we reach
+
+\left\langle V*A^{\prime}\star A^{\prime},A\star A\right\rangle\geq 1+\frac{\varepsilon}{4}.
+
+It is pleasant, although not ultimately crucial, to interpret this quantity Fourier-analytically. Letting W=V^{\perp}, we can express
+
+\left\langle V*A^{\prime}\star A^{\prime},A\star A\right\rangle=\sum_{\alpha\in W}|\widehat{A^{\prime}}(\alpha)|^{2}|\widehat{A}(\alpha)|^{2}=1+\sum_{\begin{subarray}{c}\alpha\in W\\
+\alpha\neq 0\end{subarray}}|\widehat{A^{\prime}}(\alpha)|^{2}|\widehat{A}(\alpha)|^{2},
+
+and so we have
+
+\sum_{\begin{subarray}{c}\alpha\in W\\
+\alpha\neq 0\end{subarray}}|\widehat{A^{\prime}}(\alpha)|^{2}|\widehat{A}(\alpha)|^{2}\geq\frac{\varepsilon}{4}.
+
+Using the trivial bound |\widehat{A^{\prime}}(\alpha)|\leq 1 we infer
+
+\sum_{\begin{subarray}{c}\alpha\in W\\
+\alpha\neq 0\end{subarray}}|\widehat{A}(\alpha)|^{2}\geq\frac{\varepsilon}{4},
+
+and indeed this quantity is the same as \|P_{W}A-1\|_{2}^{2}. ∎
+
+### 4.2 Sifting for general convolutions
+
+We now address the problem of obtaining \|A\|_{\perp,r}\geq 1+\frac{\varepsilon}{8} from an assumption \|A\|_{*,k}\geq 1+\varepsilon. To begin with we have by definition that \left\langle A,B*C\right\rangle\geq 1+\varepsilon for some large sets |B|,|C|\geq 2^{-k}|G|. We argue that
+
+\left\langle A,B*C\right\rangle=\left\langle A\star B,C\right\rangle\leq 2^{k/k^{\prime}}\|A\star B\|_{k^{\prime}}
+
+for any choice of k^{\prime}. Choosing k^{\prime}=4\lg(e)k/\overline{\varepsilon} gives
+
+\|A\star B\|_{k^{\prime}}\geq 2^{-k/k^{\prime}}(1+\varepsilon)\geq\left(1-\frac{\overline{\varepsilon}}{4}\right)(1+\varepsilon)\geq 1+\frac{\varepsilon}{2}.
+
+At this point we argue roughly as before – we just need a variant of the sifting lemma for general convolutions A\star B.
+
+###### Lemma 4.7(Sifting general convolutions).
+
+Consider
+
+*   •
+an abelian group G,
+
+*   •
+two finite sets A,B\subseteq G,
+
+*   •
+a function f:G\rightarrow\mathbb{R}_{\geq 0}, and
+
+*   •
+an integer k\geq 2.
+
+There are subsets A^{\prime}\subseteq A and B^{\prime}\subseteq B with
+
+\frac{1}{|A^{\prime}||B^{\prime}|}\sum_{a\in A^{\prime}}\sum_{b\in B^{\prime}}f(a-b)\leq 2\cdot\frac{\sum_{x}R_{A,B}^{-}(x)^{k}f(x)}{\sum_{x}R_{A,B}^{-}(x)^{k}}
+
+and
+
+|A^{\prime}|\geq\tfrac{1}{4}\cdot\frac{\sum_{x}R_{A,B}^{-}(x)^{k}}{|B|^{k}},
+
+|B^{\prime}|\geq\tfrac{1}{4}\cdot\frac{\sum_{x}R_{A,B}^{-}(x)^{k}}{|A|^{k}},
+
+Specifically, A^{\prime} and B^{\prime} are of the form
+
+A^{\prime}(s):=A\cap(A+s_{1})\cap\cdots\cap(A+s_{k-1}),
+
+B^{\prime}(s):=B\cap(B+s_{1})\cap\cdots\cap(B+s_{k-1})
+
+for some s=(s_{1},s_{2},\cdots s_{k-1})\in G^{k-1}.
+
+To prove this we will need one more form of the weighted pigeonhole principle.
+
+###### Proposition 4.8(Continuation of [Proposition 4.1](https://arxiv.org/html/2302.05537#S4.Thmthm1 "Proposition 4.1 (Weighted pigeonhole principle, or “first-moment method”). ‣ 4.1 Sifting lemma ‣ 4 Proof of , and Sifting ‣ Strong Bounds for 3-Progressions")).
+
+Under the hypotheses of [Proposition 4.1](https://arxiv.org/html/2302.05537#S4.Thmthm1 "Proposition 4.1 (Weighted pigeonhole principle, or “first-moment method”). ‣ 4.1 Sifting lemma ‣ 4 Proof of , and Sifting ‣ Strong Bounds for 3-Progressions"),
+
+1.   (iv)Suppose that I\subseteq[m] and \tau>0 are such that
+
+\sum_{i\in I}h_{i}\geq\tau\sum_{i}h_{i}.
+
+Then there is a choice of j with both
+
+\frac{g_{j}}{h_{j}}\leq\frac{\eta}{\tau}\text{ and }j\in I. 
+
+###### Proof.
+
+Consider the modified sequence h_{i}^{\prime}:=h_{i}\cdot\mathbbm{1}\!\!\left(i\in I\right). ∎
+
+###### Proof of [Lemma 4.7](https://arxiv.org/html/2302.05537#S4.Thmthm7 "Lemma 4.7 (Sifting general convolutions). ‣ 4.2 Sifting for general convolutions ‣ 4 Proof of , and Sifting ‣ Strong Bounds for 3-Progressions").
+
+For s\in G^{k-1}, let
+
+A^{\prime}(s):=A\cap(A+s_{1})\cap\cdots\cap(A+s_{k-1}),
+
+B^{\prime}(s):=B\cap(B+s_{1})\cap\cdots\cap(B+s_{k-1})
+
+Note that
+
+R_{A,B}^{-}(a-b)=|A\cap(B+a-b)|=|(A-a)\cap(B-b)|=\sum_{t\in G}\mathbbm{1}_{A-a}(t)\mathbbm{1}_{B-b}(t)=\sum_{t\in G}\mathbbm{1}_{A+t}(a)\mathbbm{1}_{B+t}(b).
+
+We express
+
+\displaystyle\sum_{x}R_{A,B}^{-}(x)^{k}f(x)\displaystyle=\sum_{a\in A}\sum_{b\in B}\left(\sum_{t}\mathbbm{1}_{A+t}(a)\mathbbm{1}_{B+t}(b)\right)^{k-1}f(a-b)
+\displaystyle=\sum_{s}\sum_{a\in A}\sum_{b\in B}\left(\mathbbm{1}_{\bigcap_{j=1}^{k-1}(A+s_{j})}(a)\right)\cdot\left(\mathbbm{1}_{\bigcap_{j=1}^{k-1}(B+s_{j})}(b)\right)\cdot f(a-b)
+\displaystyle=:\sum_{s}\Phi_{f}(s).
+
+We apply the weighted pigeonhole principle to the ratio
+
+\frac{\Phi_{f}(s)}{\Phi_{1}(s)}.
+
+to find a suitable choice of s. Specifically, we apply variant (iv) with some index-set of the form
+
+S=\left\{s\>:\>|A^{\prime}(s)|\geq M_{A}\textnormal{ and }|B^{\prime}(s)|\geq M_{B}\right\}.
+
+For any choice of M_{A},M_{B} we can estimate
+
+\sum_{s\>:\>s\not\in S}\Phi_{1}(s)=\sum_{s\>:\>s\not\in S}|A^{\prime}(s)||B^{\prime}(s)|\leq M_{A}\sum_{s}|B^{\prime}(s)|+M_{B}\sum_{s}|A^{\prime}(s)|=M_{A}|B|^{k}+M_{B}|A|^{k}.
+
+Choosing
+
+M_{A}:=\tfrac{1}{4}\cdot\frac{\sum_{s}\Phi_{s}(s)}{|B|^{k}}=\tfrac{1}{4}\cdot\frac{\sum_{x}R_{A,B}^{-}(x)^{k}}{|B|^{k}},
+
+M_{B}:=\tfrac{1}{4}\cdot\frac{\sum_{s}\Phi_{s}(s)}{|A|^{k}}=\tfrac{1}{4}\cdot\frac{\sum_{x}R_{A,B}^{-}(x)^{k}}{|A|^{k}}
+
+is sufficient to ensure that
+
+\sum_{s\in S}\Phi_{1}(s)\geq\frac{1}{2}\cdot\sum_{s}\Phi_{1}(s).\qed
+
+The size guarantees here for A^{\prime} and B^{\prime} have a pleasant interpretation in the density formulation. Let G be a finite group and let A\subseteq G be a set of size |A|=\delta|G|. We have the translation
+
+\frac{\sum_{x}R_{A,B}^{-}(x)^{k}}{|B|^{k}}=\frac{|A|^{k}}{|G|^{k}}\sum_{x}(A\star B)(x)^{k}=\delta^{k}\cdot\|A\star B\|_{k}^{k}\cdot|G|\geq\delta^{k}\cdot|G|.
+
+###### Lemma 4.9(Sifting general convolutions – density formulation).
+
+Consider
+
+*   •
+a finite abelian group G,
+
+*   •
+two sets A,B\subseteq G of sizes |A|=\delta_{A}|G|, |B|=\delta_{B}|G|.
+
+*   •
+a function f:G\rightarrow\mathbb{R}_{\geq 0}, and
+
+*   •
+an integer k\geq 2.
+
+There are subsets A^{\prime}\subseteq A and B^{\prime}\subseteq B with
+
+\left\langle A^{\prime}\star B^{\prime},f\right\rangle\leq 2\cdot\left\langle(A\star B)^{\wedge k},f\right\rangle
+
+and
+
+\frac{|A^{\prime}|}{|G|}\geq\tfrac{1}{4}\cdot\delta_{A}^{k}\cdot\|A\star B\|_{k}^{k}\geq\tfrac{1}{4}\cdot\delta_{A}^{k},
+
+\frac{|B^{\prime}|}{|G|}\geq\tfrac{1}{4}\cdot\delta_{B}^{k}\cdot\|A\star B\|_{k}^{k}\geq\tfrac{1}{4}\cdot\delta_{B}^{k}.
+
+###### Theorem 4.10.
+
+Let A\subseteq\mathbb{F}_{q}^{n} be a set of size |A|\geq 2^{-d}|\mathbb{F}_{q}^{n}|, where d\geq 1. Suppose that
+
+\|A\|_{*,k}\geq 1+\varepsilon
+
+for some k\geq 1. We have
+
+\|A\|_{\perp,r}\geq 1+\frac{\varepsilon}{8}
+
+for some
+
+r=\begin{cases}O(dk^{7})&\textnormal{ when }\varepsilon\geq 1\\
+O(dk^{7}/\varepsilon^{6}+dk^{3}\lg(2/\varepsilon)^{4}/\varepsilon^{6})&\textnormal{ when }\varepsilon<1.\end{cases}
+
+###### Proof.
+
+It follows from \|A\|_{*,k}\geq 1+\varepsilon that for p=4\lg(e)k/\overline{\varepsilon}+\lg(2/\overline{\varepsilon})/\overline{\varepsilon} we have \|A\star B\|_{p}\geq 1+\frac{\varepsilon}{2} for some set of size |B|\geq 2^{-k}|\mathbb{F}_{q}^{n}|. From here we argue similarly as in the proof of [Theorem 4.6](https://arxiv.org/html/2302.05537#S4.Thmthm6 "Theorem 4.6. ‣ 4.1 Sifting lemma ‣ 4 Proof of , and Sifting ‣ Strong Bounds for 3-Progressions"). This time we suppress some quantitative details. Let f:=\mathbbm{1}\!\!\left(A\star B\geq 1+\varepsilon/4\right). We sift A\star B to find a convolution A^{\prime}\star B^{\prime} witnessing \left\langle A^{\prime}\star B^{\prime},f\right\rangle\approx 1 with |A^{\prime}|\geq 2^{-O(dp)}|\mathbb{F}_{q}^{n}| and |B^{\prime}|\geq 2^{-O(kp)}|\mathbb{F}_{q}^{n}|. We apply Sanders’ invariance lemma to find a linear subspace V with \left\langle V*A^{\prime}\star B^{\prime},f\right\rangle\approx 1 and codimension r\leq O(dp\cdot k^{3}p^{3}/\overline{\varepsilon}^{2})=O(dk^{3}p^{4}/\overline{\varepsilon}^{2}). We conclude that \left\langle V^{\prime},A\star B\right\rangle\geq 1+\frac{\varepsilon}{8} for some translate V^{\prime} of V and \left\langle V^{\prime\prime},A\right\rangle\geq 1+\frac{\varepsilon}{8} for some translate V^{\prime\prime}=V^{\prime}+b. ∎
+
+### 4.3 Local variants
+
+We proceed to give some local variants of the statements above which will be needed for setting A\subseteq[N]\subseteq\mathbb{Z}.
+
+###### Lemma 4.11(Sifting lemma – a local variant).
+
+Consider
+
+*   •
+a finite abelian group G,
+
+*   •
+a set A\subseteq G.
+
+*   •
+some additional subsets B,C\subseteq G,
+
+*   •
+a function f:G\rightarrow\mathbb{R}_{\geq 0}, and
+
+*   •
+an integer k\geq 1.
+
+There is some choice of s=(s_{1},s_{2},\ldots,s_{k})\in G^{k} giving rise to subsets B^{\prime}\subseteq B and C^{\prime}\subseteq C of the form
+
+*   •
+B^{\prime}=B\cap(A-s_{1})\cap(A-s_{2})\cap\cdots\cap(A-s_{k}) and
+
+*   •
+C^{\prime}=C\cap(s_{1}-A)\cap(s_{2}-A)\cap\cdots\cap(s_{k}-A)
+
+which satisfy
+
+\frac{1}{|B^{\prime}||C^{\prime}|}\sum_{b\in B^{\prime}}\sum_{c\in C^{\prime}}f(b+c)\leq 2\cdot\frac{\sum_{x}R_{B,C}(x)R_{A}^{-}(x)^{k}f(x)}{\sum_{x}R_{B,C}(x)R_{A}^{-}(x)^{k}}
+
+and
+
+|B^{\prime}||C^{\prime}|\geq\tfrac{1}{2}\cdot\frac{\sum_{x}R_{B,C}(x)R_{A}^{-}(x)^{k}}{|G|^{k}}.
+
+###### Proof.
+
+We express
+
+\displaystyle\sum_{x\in G}R_{B,C}(x)R_{A}^{-}(x)^{k}\cdot f(x)\displaystyle=\sum_{b\in B}\sum_{c\in C}R_{A}^{-}(b+c)^{k}\cdot f(b+c)
+\displaystyle=\sum_{b\in B}\sum_{c\in C}|A\cap(A+b+c)|^{k}\cdot f(b+c)
+\displaystyle=\sum_{b\in B}\sum_{c\in C}|(A-b)\cap(A+c)|^{k}\cdot f(b+c)
+\displaystyle=\sum_{b\in B}\sum_{c\in C}\left(\sum_{t}\mathbbm{1}_{A-b}(t)\mathbbm{1}_{A+c}(t)\right)^{k}\cdot f(b+c)
+\displaystyle=\sum_{b\in B}\sum_{c\in C}\left(\sum_{t}\mathbbm{1}_{A-t}(b)\mathbbm{1}_{t-A}(c)\right)^{k}\cdot f(b+c)
+\displaystyle=\sum_{s}\sum_{b\in B}\sum_{c\in C}\left(\prod_{j=1}^{k}\mathbbm{1}_{A-s_{j}}(b)\right)\cdot\left(\prod_{j=1}^{k}\mathbbm{1}_{s_{j}-A}(c)\right)\cdot f(b+c)
+\displaystyle=:\sum_{s}\Phi_{f}(s).
+
+We then apply variant (ii) of the weighted pigeonhole principle to the ratio
+
+\frac{\Phi_{f}(s)}{\Phi_{1}(s)}
+
+to find an appropriate choice of s. ∎
+
+We need the following notation.
+
+###### Definition 4.12(Weighted k-(semi)norm).
+
+For a density D on an arbitrary finite set \Omega, and k\geq 1, we use the notation
+
+\|f\|_{k,D}:=\left\langle D,|f|^{k}\right\rangle^{1/k}=\left(\E_{x\sim D}|f(x)|^{k}\right)^{1/k}.
+
+###### Corollary 4.13(Sifting a local robust witness).
+
+Consider
+
+*   •
+a finite abelian group G of size N,
+
+*   •
+a subset A\subseteq G of size |A|=2^{-d}N,
+
+*   •
+some additional subsets B,C\subseteq G, and
+
+*   •
+k\geq 1,\varepsilon\in[0,1].
+
+Suppose that
+
+\|A\star A\|_{k,B*C}\geq 1+2\varepsilon,
+
+and define the sublevel-set indicator function
+
+f(x):=\mathbbm{1}\!\!\left(\big(A\star A\big)(x)\leq 1+\varepsilon\right).
+
+For any integer k^{\prime}\geq k, there are subsets B^{\prime}\subseteq B and C^{\prime}\subseteq C with
+
+\left\langle B^{\prime}*C^{\prime},f\right\rangle\leq 2\cdot\left(\frac{1+\varepsilon}{1+2\varepsilon}\right)^{k^{\prime}}\leq 2\cdot 2^{-\varepsilon k^{\prime}/2}
+
+and
+
+\frac{|B^{\prime}||C^{\prime}|}{|B||C|}\geq\tfrac{1}{2}\cdot 2^{-2dk^{\prime}}.
+
+In particular,
+
+\frac{|B^{\prime}|}{|B|},\frac{|C^{\prime}|}{|C|}\geq\tfrac{1}{2}\cdot 2^{-2dk^{\prime}}.
+
+###### Proof.
+
+We straightforwardly apply [Lemma 4.11](https://arxiv.org/html/2302.05537#S4.Thmthm11 "Lemma 4.11 (Sifting lemma – a local variant). ‣ 4.3 Local variants ‣ 4 Proof of , and Sifting ‣ Strong Bounds for 3-Progressions") – it remains to interpret the result. We have
+
+\displaystyle\left\langle B^{\prime}*C^{\prime},f\right\rangle\displaystyle\leq 2\cdot\frac{\sum_{x}R_{B,C}(x)R_{A}^{-}(x)^{k}f(x)}{\sum_{x}R_{B,C}(x)R_{A}^{-}(x)^{k}}
+\displaystyle=2\cdot\frac{\E_{x}\big(B*C\big)(x)\big(A\star A\big)(x)^{k^{\prime}}f(x)}{\left\langle B*C,(A\star A)^{k^{\prime}}\right\rangle}
+\displaystyle\leq 2\cdot\frac{\E_{x}\big(B*C\big)(x)(1+\varepsilon)^{k^{\prime}}}{(1+2\varepsilon)^{k^{\prime}}}
+\displaystyle=2\cdot\left(\frac{1+\varepsilon}{1+2\varepsilon}\right)^{k^{\prime}}
+
+and
+
+\displaystyle|B^{\prime}||C^{\prime}|\displaystyle\geq\frac{1}{2|G|^{k^{\prime}}}\sum_{x}R_{B,C}(x)R_{A}^{-}(x)^{k^{\prime}}
+\displaystyle=\frac{1}{2|G|^{k^{\prime}}}\cdot|G|\cdot\frac{|B||C|}{|G|}\cdot\frac{|A|^{2k^{\prime}}}{|G|^{k^{\prime}}}\cdot\left\langle B*C,(A\star A)^{k^{\prime}}\right\rangle
+\displaystyle\geq\frac{1}{2|G|^{k^{\prime}}}\cdot|G|\cdot\frac{|B||C|}{|G|}\cdot\frac{|A|^{2k^{\prime}}}{|G|^{k^{\prime}}}
+\displaystyle=\tfrac{1}{2}\cdot 2^{-dk^{\prime}}|B||C|,
+
+where we have used that
+
+\left\langle B*C,(A\star A)^{k^{\prime}}\right\rangle=\|A\star A\|_{k^{\prime},B*C}^{k^{\prime}}\geq\|A\star A\|_{k,B*C}^{k}\geq 1
+
+by assumption. ∎
+
+## 5 Spectral positivity and k-norm inequalities for convolutions
+
+### 5.1 A decoupling inequality for convolutions
+
+###### Proposition 5.1(Fourier interpretation of k-norms).
+
+For any function f:G\rightarrow\mathbb{R} and any even k\in\mathbb{N},
+
+\|f\|_{k}^{k}=\E_{x\in G}f(x)^{k}=\sum_{\begin{subarray}{c}(\alpha_{1},\alpha_{2},\ldots,\alpha_{k})\in G^{k}\\
+\alpha_{1}+\alpha_{2}+\cdots+\alpha_{k}=0\end{subarray}}\prod_{j=1}^{k}\widehat{f}(\alpha_{j}).
+
+###### Proof.
+
+Expand the expression \left(\sum_{\alpha}\widehat{f}(\alpha)e_{\alpha}(-x)\right)^{k} and take the expectation. ∎
+
+###### Lemma 5.2(Decoupling inequality).
+
+Let A,B be density functions on a finite abelian group G. For even integers k\in\mathbb{N} we have
+
+\|A*B-1\|_{k}\leq\|A\star A-1\|_{k}^{1/2}\|B\star B-1\|_{k}^{1/2}.
+
+In particular,
+
+\|A*A-1\|_{k}\leq\|A\star A-1\|_{k}.
+
+###### Proof.
+
+We note that for any density A, A*1=1*A\equiv 1. So, the claimed inequality is the same as
+
+\left\|(A-1)*(B-1)\right\|_{k}\leq\|(A-1)\star(A-1)\|_{k}^{1/2}\|(B-1)\star(B-1)\|_{k}^{1/2}.
+
+We prove more generally that for any functions f,g,
+
+\left\|f*g\right\|_{k}\leq\|f\star f\|_{k}^{1/2}\|g\star g\|_{k}^{1/2}.
+
+By re-scaling, it suffices 6 6 6 One can check the degenerate case \|f\star f\|_{k}=0 separately. This case occurs only when f\equiv 0, which can be seen by the calculation \|f\star f\|_{k}^{2}\geq\|f\star f\|_{2}^{2}=\sum_{\alpha}|\widehat{f}(\alpha)|^{4}. to prove this for \|f\star f\|_{k}=\|g\star g\|_{k}=1. We have
+
+\displaystyle\E_{x}\left(f*g\right)(x)^{k}\displaystyle=\E_{x}\left(\sum_{\alpha}\widehat{f}(\alpha)\widehat{g}(\alpha)e_{\alpha}(-x)\right)^{k}
+\displaystyle\leq\sum_{\begin{subarray}{c}\alpha_{1},\alpha_{2},\ldots,\alpha_{k}\\
+\alpha_{1}+\alpha_{2}+\cdots+\alpha_{k}=0\end{subarray}}\left|\prod_{i=1}^{k}\widehat{f}(\alpha_{i})\cdot\prod_{i=1}^{k}\widehat{g}(\alpha_{i})\right|
+\displaystyle\leq\sum_{\alpha}\left(\frac{1}{2}\prod_{i=1}^{k}|\widehat{f}(\alpha_{i})|^{2}+\frac{1}{2}\prod_{i=1}^{k}|\widehat{g}(\alpha_{i})|^{2}\right)
+\displaystyle=\frac{1}{2}\left\|f\star f\right\|_{k}^{k}+\frac{1}{2}\left\|g\star g\right\|_{k}^{k}
+\displaystyle=1.\qed
+
+We remark that this inequality has appeared before in other works. For example, it is a special case of Lemma 13 in [[Shk17](https://arxiv.org/html/2302.05537#bib.bibx35)].
+
+### 5.2 Spectral Positivity
+
+###### Definition 5.3.
+
+Suppose f:G\rightarrow\mathbb{R} is a function such that \widehat{f}(\alpha) is real and nonnegative for all \alpha\in G. We say that such functions are “spectrally positive”, and we use the notation
+
+f\succeq 0
+
+to denote the fact that f is such a function.
+
+We note that any self-convolution f\star f is spectrally positive:
+
+(f\star f)(x)=\sum_{\alpha\in G}|\widehat{f}(\alpha)|^{2}e_{\alpha}(-x)\succeq 0,
+
+and conversely that any spectrally positive function f(x)=\sum_{\alpha}\widehat{f}(\alpha)e_{\alpha}(-x) can be expressed as a self-convolution g\star g, where
+
+g(x):=\sum_{\alpha}\sqrt{\widehat{f}(\alpha)}e_{\alpha}(-x).
+
+###### Proposition 5.4.
+
+The set \left\{f\>:\>f\succeq 0\right\} enjoys the following two closure properties.
+
+*   •(Closure under multiplication.) Suppose f,g\succeq 0. Then
+
+h(x):=f(x)\cdot g(x)\succeq 0. 
+*   •(Closure under centering.) Suppose f\succeq 0, and that D is a symmetric 7 7 7 By this we mean that D(-x)\equiv D(x). density function. Then
+
+h(x):=f(x)-(D*f)(x)\succeq 0.
+
+In particular, by letting D\equiv 1,
+
+f-\E[f]\succeq 0. 
+
+###### Proof.
+
+For the first claim, simply express f and g by their Fourier expansions and expand the product:
+
+\left(\sum_{\beta}\widehat{f}(\beta)e_{\beta}(-x)\right)\left(\sum_{\beta^{\prime}}\widehat{g}(\beta^{\prime})e_{\beta^{\prime}}(-x)\right)=\sum_{\alpha}\left(\sum_{\beta+\beta^{\prime}=\alpha}\widehat{f}(\beta)\widehat{g}(\beta^{\prime})\right)e_{\alpha}(-x)\succeq 0.
+
+For the second claim we first note that since D is a density, for any \alpha we have
+
+|\widehat{D}(\alpha)|=\left|\E_{x\sim D}e_{\alpha}(x)\right|\leq\E_{x\sim D}\left|e_{\alpha}(x))\right|=1;
+
+in fact, this applies more generally to any function D with \|D\|_{1}\leq 1. Then we compute
+
+f(x)-(D*f)(x)=\sum_{\alpha}\widehat{f}(\alpha)(1-\widehat{D}(\alpha))e_{\alpha}(-x)\succeq 0,
+
+where we have used that D(-x)=D(x) and so D has Fourier coefficients \widehat{D}(\alpha)\in\mathbb{R}. ∎
+
+###### Corollary 5.5(Positive correlation for spectrally positive functions).
+
+Suppose
+
+f_{1},f_{2},\ldots,f_{k}\succeq 0
+
+are some spectrally positive functions on G. Then
+
+\E[f_{1}f_{2}\cdots f_{k}]\geq\E[f_{1}]\E[f_{2}]\cdots\E[f_{k}].
+
+###### Proof.
+
+In light of the closure property for multiplication, it suffices to verify this for just two functions. Let f,g\succeq 0. Write g\equiv(g-\E[g])+\E[g], and express
+
+\left\langle f,g\right\rangle=\left\langle f,g-\E[g]\right\rangle+\E[f]\cdot\E[g].
+
+We note that the function F(x):=f(x)\cdot(g(x)-\E[g]) is spectrally positive. In particular,
+
+\left\langle f,g-\E[g]\right\rangle=\E[F]=\widehat{F}(0)\geq 0.\qed
+
+###### Corollary 5.6(Odd central moments).
+
+Consider a spectrally positive density D on G. The odd central moments of D are non-negative. That is,
+
+\E_{x\in G}(D(x)-1)^{k}\geq 0
+
+for all odd integers k\in\mathbb{N} (and hence for all k\in\mathbb{N}).
+
+###### Proof.
+
+F(x):=D(x)-1\succeq 0. Also, F(x)^{k}=F(x)F(x)\cdots F(x)\succeq 0; in particular \E[F]\geq 0. Alternatively, consider this as a special case of [Corollary 5.5](https://arxiv.org/html/2302.05537#S5.Thmthm5 "Corollary 5.5 (Positive correlation for spectrally positive functions). ‣ 5.2 Spectral Positivity ‣ 5 Spectral positivity and 𝑘-norm inequalities for convolutions ‣ Strong Bounds for 3-Progressions"). ∎
+
+The utility of this is due to the following.
+
+###### Proposition 5.7.
+
+For a real-valued random variable X and k\geq 1, we use the notation
+
+\|X\|_{k}:=\left(\E|X|^{k}\right)^{1/k}.
+
+Suppose X is such that
+
+*   •
+\E(X-1)^{k}\geq 0 for all odd k\in\mathbb{N}, and
+
+*   •
+\|X-1\|_{k_{0}}\geq\varepsilon for some even k_{0}\geq 2 and some \varepsilon\in[0,\frac{1}{2}].
+
+Then, for any integer k^{\prime}\geq 2k_{0}/\varepsilon,
+
+\|X\|_{k^{\prime}}\geq 4^{-1/k^{\prime}}(1+\varepsilon)\geq 1+\frac{\varepsilon}{2}.
+
+We note that one can infer a statement of this sort already from the following observation: for any odd k\geq k_{0} we have
+
+\E(X-1)^{k}=\E|(X-1)_{+}|^{k}-\E|(X-1)_{-}|^{k}\geq 0
+
+and
+
+\E|X-1|^{k}=\E|(X-1)_{+}|^{k}+\E|(X-1)_{-}|^{k}\geq\varepsilon^{k},
+
+so it follows that
+
+\E|(X-1)_{+}|^{k}\geq\frac{\varepsilon^{k}}{2}.
+
+From here one can get a reasonable lower bound on some \|X\|_{k^{\prime}} e.g. by a basic pruning argument analogous to the proof of the Paley–Zygmund inequality. However, to obtain nicer constants we give a somewhat different proof which can be found in the appendix (see [Appendix D](https://arxiv.org/html/2302.05537#A4 "Appendix D Odd moments ‣ Strong Bounds for 3-Progressions")).
+
+### 5.3 Local variants
+
+We proceed to give some local variants of the statements above which will be needed for setting A\subseteq[N]\subseteq\mathbb{Z}. We recall the notation from [Definition 4.12](https://arxiv.org/html/2302.05537#S4.Thmthm12 "Definition 4.12 (Weighted 𝑘-(semi)norm). ‣ 4.3 Local variants ‣ 4 Proof of , and Sifting ‣ Strong Bounds for 3-Progressions"),
+
+\|f\|_{k,D}:=\left\langle D,|f|^{k}\right\rangle^{1/k}=\left(\E_{x\sim D}|f(x)|^{k}\right)^{1/k}.
+
+###### Lemma 5.8(Local decoupling inequality).
+
+Let G be a finite abelian group, and suppose D is a spectrally-positive density function on G. Let (T_{\theta}D)(x):=D(x-\theta) be some translate of D. For arbitrary real-valued functions f,g on G, and for all even k\in\mathbb{N}, we have
+
+\|f*g\|_{k,T_{\theta}D}^{2}\leq\|f\star f\|_{k,D}\|g\star g\|_{k,D}.
+
+In particular, if A is a density function then
+
+\|A*A-1\|_{k,T_{\theta}D}\leq\|A\star A-1\|_{k,D}.
+
+###### Proof.
+
+We have
+
+\displaystyle\left\langle T_{\theta}D,(f*g)^{k}\right\rangle\displaystyle=\sum_{\gamma}\widehat{D}(\gamma)e_{\gamma}(\theta)\sum_{\beta_{1}+\beta_{2}+\cdots+\beta_{k}=\gamma}\prod_{i=1}^{k}\widehat{f}(\beta_{i})\widehat{g}(\beta_{i})
+\displaystyle\leq\sum_{\gamma}\sum_{\beta_{1}+\beta_{2}+\cdots+\beta_{k}=\gamma}\widehat{D}(\gamma)\prod_{i=1}^{k}|\widehat{f}(\beta_{i})|\ |\widehat{g}(\beta_{i})|
+\displaystyle\leq\sum_{\gamma}\sum_{\beta_{1}+\beta_{2}+\cdots+\beta_{k}=\gamma}\widehat{D}(\gamma)\left(\frac{\eta}{2}\prod_{i=1}^{k}\left|\widehat{f}(\beta_{i})\right|^{2}+\frac{1}{2\eta}\prod_{i=1}^{k}\left|\widehat{g}(\beta_{i})\right|^{2}\right)
+\displaystyle=\frac{\eta}{2}\left\langle D,(f\star f)^{k}\right\rangle+\frac{1}{2\eta}\left\langle D,(g\star g)^{k}\right\rangle
+
+for any choice of \eta>0. Optimizing over \eta, we conclude that
+
+\left\langle T_{\theta}D,(f*g)^{k}\right\rangle\leq\sqrt{\left\langle D,(f\star f)^{k}\right\rangle}\sqrt{\left\langle D,(g\star g)^{k}\right\rangle}.\qed
+
+###### Lemma 5.9(Lower bounds from upper bounds – local variant).
+
+If
+
+\|A\star A-1\|_{k,D}\geq\varepsilon
+
+for some \varepsilon\in[0,\frac{1}{2}] and spectrally-positive density D, then
+
+\|A\star A\|_{k^{\prime},D}\geq 1+\frac{\varepsilon}{2}
+
+for some k^{\prime}\leq O(k/\varepsilon).
+
+###### Proof.
+
+Let k be an integer. We note that
+
+D\cdot(A\star A-1)^{k}=D\cdot((A-1)\star(A-1))^{k}
+
+is a spectrally-positive function on G. In particular,
+
+\E_{x\sim D}((A\star A)(x)-1)^{k}=\E_{x\in G}D(x)((A\star A)(x)-1)^{k}\geq 0.
+
+So, we may apply [Proposition 5.7](https://arxiv.org/html/2302.05537#S5.Thmthm7 "Proposition 5.7. ‣ 5.2 Spectral Positivity ‣ 5 Spectral positivity and 𝑘-norm inequalities for convolutions ‣ Strong Bounds for 3-Progressions") to the random variable X:=(A\star A)(x) where x\sim D. ∎
+
+## 6 Finding a 3-progression in A\subseteq[N] – an overview
+
+We describe how to modify our approach above to address the 3-progression problem in the setting A\subseteq[N]\subseteq\mathbb{Z}. We recall our result regarding this problem.
+
+###### Theorem 6.1([Theorem 1.2](https://arxiv.org/html/2302.05537#S1.Thmthm2 "Theorem 1.2. ‣ 1 Introduction ‣ Strong Bounds for 3-Progressions"), restated).
+
+Suppose A\subseteq[N] has density \mu\geq 2^{-d}. Then the number of triples (x,y,z)\in A^{3} with x+y=2z is at least
+
+2^{-O(d^{12})}\c
+
+..._Content truncated_...
