@@ -366,11 +366,17 @@ $[2^{\omega t^*},\infty)$.
 \end{lemma}
 
 \begin{proof}
-For $\omega t\ge a$ we have $R_1(2^{\omega t})\equiv R_1(0)\pmod{2^a}$, and
+If some numerator has non-positive leading coefficient, the rule applies at
+only finitely many $s$ (take $T=1$ and $t^*$ beyond them).  Otherwise all
+numerators are eventually positive and $t^*$ exists.  For $\omega t\ge a$ we
+have $R_1(2^{\omega t})\equiv R_1(0)\pmod{2^a}$, and
 $R_1(2^{\omega t})\bmod N'$ is periodic in $t$ with period
-$\ord_{N'}(2^\omega)$.  Positivity holds for all $t\ge t^*$ by the choice of
-$t^*$.
+$\ord_{N'}(2^\omega)$.
 \end{proof}
+When a rule is named after an ET class or a window, we require in addition
+that the parameters of that class (resp.\ $(d_1+d_2)/m$) be integers; the
+same argument applies to them, and the exponent classes listed in our
+tables are those on which the named class genuinely applies.
 
 So the set of exponents at which a rule applies is, up to finitely many
 $s$, a finite union of residue classes $s\equiv u\pmod{\sigma T}$.  The
@@ -657,7 +663,9 @@ point $\mu=0$: the class $s\equiv0\pmod{40}$ ($X\equiv6$) lies in Step~1.
 By Theorem~\ref{thm:sterile} no finite set of classes polynomial in $n$ could
 do this.  The two classes $X\equiv\pm1\pmod{11}$ that Step~1 misses are the
 neighbourhoods of the integer point $X=\pm1$, where $48X^4+1=7^2$ is a
-square; Step~2 handles them through $61$.  (A rule polynomial in $X$ with
+square; those members with $12\nmid s$ are handled by the classes modulo $7$
+and $15$ of Step~2 (e.g.\ $s=4$, $n=49$, by $7\mid n$), and those with
+$12\mid s$ through $61$.  (A rule polynomial in $X$ with
 integrality depending only on $X\bmod 33$ cannot be valid on a class
 containing $X=\pm1$, by the odd-square argument applied to the integer
 $49$, \cite[\S4.3]{MenuSterility}.)
@@ -760,8 +768,9 @@ positivity needs $s$ large.}\label{tab:63}
 \end{table}
 
 \begin{remark}\label{rem:63}
-Since $n_s\equiv1\pmod{168}$ and $n_s\equiv3\cdot2^s+1\pmod5$, $n_s$ lies in a
-Mordell square class modulo $840$ (namely $169$) iff $4\mid s$; Mordell's
+For $s\ge3$ we have $n_s\equiv1\pmod{168}$ and $n_s\equiv3\cdot2^s+1\pmod5$,
+so $n_s$ lies in a Mordell square class modulo $840$ (namely $169$) iff
+$4\mid s$; Mordell's
 identities already handle $s\not\equiv0\pmod4$.  The essential content of
 Theorem~\ref{thm:63} is the neighbourhood $s\equiv0\pmod{840}$ of $\mu=0$.
 The only squares in the family are $n_0=8^2$ and $n_8=127^2$: if
@@ -1204,8 +1213,9 @@ Lemma~\ref{lem:magnitude} bounds $m$.
 \end{proof}
 
 \begin{computation}[\status{computer-assisted}]\label{comp:W}
-For $(c_0,k)\in\{(15,1),(31,33),(7,57),(63,1),(47,17),(55,9)\}$ the
-hypotheses of Theorem~\ref{thm:W} hold (Capelli: $k/c_0$ is not a $p$-th
+For each $(c_0,k)$ in
+$\{(15,1),(31,33),(7,57),(63,1),(47,17),(55,9)\}$ the hypotheses of
+Theorem~\ref{thm:W} hold (Capelli: $k/c_0$ is not a $p$-th
 power for odd $p$ and not in $4\Q^4$), and the enumeration over all odd $w$
 with $0<m\le B(m)$ ($w\le3,5,9,5,5,5$ respectively; $B(m)$ decreases in
 $m$), all $a_1,a_2$ and all admissible $(e_1,e_2)$\,---\,without imposing the
@@ -1328,8 +1338,10 @@ moving-gap binomial menus.  We treat the menu (BI) of \S\ref{sec:forced}
 Lemma~\ref{lem:63class} for $63\cdot2^s+1$.
 
 \begin{lemma}[limit conditions for (BI); \status{proved}; {\cite[Lemma~2.1]{Exp15}}]\label{lem:iiadlimit}
-Suppose a Type~II root family through $\mu=0$ of $n=15Y^D+1$ has $a,d\in\N$
-constant and $b,c\in\Q[Y]$, and put $f=4abd-n$, $f'=4acd-1$, so that
+Suppose a Type~II root family through $\mu=0$ of $n=15Y^D+1$ has
+$(x,y,z)=(abd,acdn,bcdn)$ with $a,d\in\N$ constant and $b,c\in\Q[Y]$
+integer-valued and positive on $C$ \textup{(}the menu \textup{(BI)} of
+\S\ref{sec:forced}\textup{)}, and put $f=4abd-n$, $f'=4acd-1$, so that
 $ff'=n+4a^2d$ by \eqref{eq:binom}.  If $f$ and $f'$ are both non-constant,
 then
 \begin{enumerate}
@@ -1405,6 +1417,16 @@ $(a,d)=(1,11)$ and $K/15=3$, which is not a $p$-th power with $p\ge3$.  This
 contradicts (C1).
 \end{proof}
 
+\begin{remark}[the integrality hypothesis]\label{rem:iiadhyp}
+The hypothesis that $b$ and $c$ themselves are integer-valued is part of
+the menu and is not implied by integrality of $x,y,z$: the substitution
+$(a,b,c,d)\mapsto(a/h,b/h,c/h,h^2d)$ preserves $x,y,z$, and applied with
+$h=5$ to Lemma~\ref{lem:63class} it gives integral constants $a=1$,
+$d=425$ but $b(1)=c(1)=1/20$.  Theorem~\ref{thm:iiad3} is therefore a
+statement about the menu (BI) as defined, not about all Type~II families
+with two constant parameters.
+\end{remark}
+
 \begin{remark}[what remains open for $15\cdot2^s+1$]\label{rem:15open}
 (i) The branch $u\equiv7\pmod8$ of (BI) is \status{open}.  Writing
 $4a^2d=2^Ea_1^2d_1$ ($a_1d_1$ odd), $E\ge3$, a solution needs $15u^p-1$ to
@@ -1430,11 +1452,14 @@ no rule through $\mu=0$ is known.
 
 \subsection{Open problems}\label{sec:open}
 \begin{problem}
-Prove ES for every $15\cdot2^s+1$, i.e.\ find a rule through $\mu=0$, or prove
-that every rule polynomial in a root $2^{s/D}$ misses $\mu=0$.  The second
-alternative would need a sterility theorem for moving-gap families, beyond
-Theorem~\ref{thm:W}; the first, by Theorem~\ref{thm:iiad3}, a (BI) family on
-the branch $u\equiv7\pmod8$ or a different menu.
+Prove ES for every $15\cdot2^s+1$ with $60\mid s$.  A natural strategy is to
+find a rule through $\mu=0$ (valid on all large multiples of some $L$) and to
+cover the remaining multiples of $60$ by further classes; a rule through
+$\mu=0$ would, by Theorem~\ref{thm:iiad3}, have to be a (BI) family on the
+branch $u\equiv7\pmod8$ or come from a different menu.  Conversely, a proof
+that every rule polynomial in a root $2^{s/D}$ misses $\mu=0$ would need a
+sterility theorem for moving-gap families beyond Theorem~\ref{thm:W}; it
+would not show that ES fails.
 \end{problem}
 \begin{problem}
 Decide $4^s+33$, $4^s+273$, $4^s+297$ and the unit-square families
