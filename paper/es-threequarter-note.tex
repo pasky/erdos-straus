@@ -602,9 +602,10 @@ $\e^s-1\leq(\e-1)s$ on $[0,1]$,
 \[
  \E(\e^{yZ}\mid S_y=1)=\prod_{\substack{y<p\leq K\\p\mid L_K}}
  \Bigl(1+\frac{\e^{y/p}-1}p\Bigr)
- \leq\exp\Bigl\{(\e-1)y\sum_{n>y}n^{-2}\Bigr\}\leq\e^{\e},
+ \leq\exp\Bigl\{(\e-1)y\sum_{n>y}n^{-2}\Bigr\}\leq\e^{4},
 \]
-and therefore $\Prob(Z>\eta\mid S_y=1)\leq\e^{\e-\eta y}$ for every $\eta>0$.
+using $\sum_{n>y}n^{-2}\leq1/\lfloor y\rfloor\leq2/y$.  Therefore
+$\Prob(Z>\eta\mid S_y=1)\leq\e^{4-\eta y}$ for every $\eta>0$.
 
 By \eqref{eq:hfull} there are absolute $a_0>0$ and $K_1$ with
 $h(\K(K))\geq a_0\log K$ for $K\geq K_1$.  On $S_y=1$ no prime $p\leq y$
@@ -623,7 +624,7 @@ Lemma~\ref{lem:CRT} and Corollary~\ref{cor:fibremass},
  \qquad a_v=\frac{a_ha_0\kappa}4 .
 \]
 Choose $B_0=2a_v/\eta$.  For $B\geq B_0$, averaging over $c$ gives
-$\Prob(H_X=0\mid S_y=1)\leq\e^{-a_vt^3}+\e^{\e-2a_vt^3}\leq\e^{-a_vt^3/2}$
+$\Prob(H_X=0\mid S_y=1)\leq\e^{-a_vt^3}+\e^{4-2a_vt^3}\leq\e^{-a_vt^3/2}$
 for large $X$.  Take $c_v=a_v/2$.
 \end{proof}
 A Markov bound for $Z$ would be far too weak here.  The exponential moment
@@ -632,3 +633,134 @@ saving.  The price is the expansion of $S_y$ into $2^{\pi(y)}$ classes,
 which is affordable.  Revealing $c$ is an operation inside the CRT
 computation only.  It does not expand anything into the $L_K$ progressions
 modulo $L_K$.
+
+\section{Bonferroni assembly on the integers}\label{sec:assembly}
+\begin{lemma}[even Bonferroni majorant]\label{lem:Bonferroni}
+For an even integer $r\geq0$ and an integer $h\geq0$ let
+$Q_r(h)=\sum_{j=0}^r(-1)^j\binom hj$.  Then $Q_r(0)=1$,
+$Q_r(h)=\binom{h-1}r\geq0$ for $h\geq1$, and
+\begin{equation}\label{eq:Bonferroni}
+ \ind_{h=0}\leq Q_r(h)\leq\ind_{h=0}+\binom h{r+1}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For $h\geq1$, Pascal's rule telescopes the sum to $(-1)^r\binom{h-1}r$.
+This vanishes for $h\leq r$, and for $h\geq r+1$ it is at most
+$\frac h{r+1}\binom{h-1}r=\binom h{r+1}$.
+\end{proof}
+
+\begin{theorem}[assembly]\label{thm:assembly}
+Let $B\geq B_0$ be fixed and $y=Bt^3$.  There are constants
+$c_a,D_B,C_L>0$ and a threshold $X_a$, depending only on $\kappa$ and $B$,
+with the following property.  For $X\geq X_a$, let $r$ be the least even
+integer $\geq D_Bt^3$ and put
+\begin{equation}\label{eq:majorant}
+ \nu_X(n)=S_y(n)\,Q_r(H_X(n)).
+\end{equation}
+Then $\nu_X\geq0$ on $\mathbb Z$, and $\nu_X(n)\geq1$ for every
+non-representable $n$ with $(n,P_y)=1$.  Moreover $\E\nu_X\leq\e^{-c_at^3}$,
+and for every real $N\geq1$
+\begin{equation}\label{eq:integermean}
+ \sum_{1\leq n\leq N}\nu_X(n)\leq N\e^{-c_at^3}+\e^{C_Lt^4}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+\emph{Mean.}  By \eqref{eq:Bonferroni}, Lemma~\ref{lem:void} and
+Theorem~\ref{thm:moments}, using $m!\geq(m/\e)^m$,
+\[
+ \E(Q_r(H_X)\mid S_y=1)\leq\e^{-c_vt^3}
+ +\frac{\E((H_X)_{r+1}\mid S_y=1)}{(r+1)!}
+ \leq\e^{-c_vt^3}+\Bigl(\frac{\e C_ut^3}{r+1}\Bigr)^{r+1}.
+\]
+Choose $D_B>\e C_u$ with $D_B\log(D_B/(\e C_u))\geq2c_v$.  The function
+$m\mapsto m\log(m/(\e C_ut^3))$ is increasing for $m\geq C_ut^3$, and
+$r+1\geq D_Bt^3$, so the last term is at most $\e^{-2c_vt^3}$.  Since
+$\E\nu_X=\Prob(S_y=1)\E(Q_r(H_X)\mid S_y=1)$, this gives
+$\E\nu_X\leq\e^{-c_at^3}$ with $c_a=c_v/2$ for large $X$.  The
+nonnegativity and the lower bound for non-representable $n$ follow from
+Lemma~\ref{lem:Bonferroni} and $H_X(n)=0$ (Section~\ref{sec:atoms}).
+
+\emph{Expansion into classes.}  For every integer $n$,
+\[
+ \binom{H_X(n)}j=\sum_{\substack{\mathcal B\subseteq\A_X\\|\mathcal B|=j}}
+ \prod_{A\in\mathcal B}\ind_{E_A}(n),
+\]
+so that
+\[
+ \nu_X(n)=\sum_{d\mid P_y}\sum_{j=0}^r\sum_{|\mathcal B|=j}
+ (-1)^j\mu(d)\,\ind_{d\mid n}\prod_{A\in\mathcal B}\ind_{E_A}(n).
+\]
+Each product is the indicator of the empty set or of a single class
+modulo $q=\lcm(d,k_A\ell_A:A\in\mathcal B)$, and $q$ divides $\mathcal M$.
+Hence $\E\nu_X$ is exactly the sum of the coefficients divided by these
+moduli.  The number of terms, which bounds the absolute coefficient sum, is
+\[
+ T_{\rm abs}\leq2^{\pi(y)}\sum_{j=0}^r\binom{|\A_X|}j
+ \leq2^{\pi(y)}(r+1)|\A_X|^r .
+\]
+For a crude inventory, an atom is determined by $k\leq K$, $\ell\leq X$
+and $u,v\leq X^{1/6}$, so $|\A_X|\leq KX^{4/3}\leq\e^{(4/3+\kappa)t}$.
+With $r\leq D_Bt^3+2$ and $\pi(y)\leq y=Bt^3$,
+\begin{equation}\label{eq:termcount}
+ \log T_{\rm abs}\leq Bt^3\log2+\log(r+1)+r(4/3+\kappa)t\leq C_Lt^4
+\end{equation}
+for a suitable $C_L=C_L(\kappa,B)$ and large $X$.  The exponent is
+$O(rt)$ and not $O(r)$: every factor $\binom{\cdot}{j}$ costs a choice
+of atoms among $\e^{O(t)}$.
+
+\emph{Counting.}  For every modulus $q\geq1$ and every class $a\bmod q$,
+\[
+ \#\{1\leq n\leq N:n\equiv a\ (q)\}=N/q+\theta,\qquad|\theta|\leq1 .
+\]
+This also holds when $q>N$.  Summing over the terms with their signed
+coefficients gives
+$\sum_{n\leq N}\nu_X(n)=N\E\nu_X+O^*(T_{\rm abs})$, where $|O^*(T)|\leq T$.
+This proves \eqref{eq:integermean}.
+\end{proof}
+No prime-counting estimate enters at scale $N$, and the residue classes
+modulo $L_K$ are never enumerated: the term moduli are at most
+$P_y(KX)^r=\e^{O(t^4)}$, while $L_K$ itself plays a role only in the
+computation of $\E\nu_X$.
+
+\section{Proof of Theorem~\ref{thm:main}}\label{sec:all}
+\begin{proof}[Primes]
+Let $N$ be large, $L=\log N$, and take $t=\alpha L^{1/4}$ and $X=\e^t$,
+where $\alpha>0$ is fixed with $C_L\alpha^4\leq1/2$.  Every
+non-representable prime $p>y$ satisfies $\nu_X(p)\geq1$.  By
+\eqref{eq:integermean},
+\[
+ E_{\rm pr}(N)\leq y+N\e^{-c_a\alpha^3L^{3/4}}+\e^{C_L\alpha^4L}
+ \leq B\alpha^3L^{3/4}+N\e^{-c_a\alpha^3L^{3/4}}+N^{1/2}.
+\]
+This is $\ll N\exp\{-c_a\alpha^3L^{3/4}\}$.  Enlarging the constant covers
+bounded $N\geq3$.
+\end{proof}
+
+\begin{proof}[All denominators]
+If $p\mid n$ and $4/p=\sum_i1/x_i$, then $4/n=\sum_i1/((n/p)x_i)$.  Hence
+every prime factor of a non-representable $n$ is non-representable, and
+the non-representable integers lie in the multiplicative semigroup
+generated by the non-representable primes (together with $1$).
+
+By the prime case there are $c_0>0$ and $x_0\geq\e$ with
+$E_{\rm pr}(x)\leq x\e^{-c_0(\log x)^{3/4}}$ for $x\geq x_0$.  Fix
+$0<\eta_0<c_0$, put $L=\log x$ and $\delta=\eta_0L^{-1/4}$, and assume $x$
+is so large that $\delta<1/4$.  Rankin's trick gives
+\begin{equation}\label{eq:Rankin}
+ E(x)\leq\sum_{\substack{n\ \text{non-repr.}}}\Bigl(\frac xn\Bigr)^{1-\delta}
+ \leq x^{1-\delta}\prod_{\substack{p\leq x\\p\ \text{non-repr.}}}
+ (1-p^{-1+\delta})^{-1}.
+\end{equation}
+The prime powers $p^a$ with $a\geq2$ contribute $O(\sum_pp^{-3/2})=O(1)$ to
+the logarithm of the product, and the primes below $x_0$ contribute
+$O_{x_0}(1)$.  By partial summation,
+\[
+ \sum_{\substack{x_0<p\leq x\\p\ \text{non-repr.}}}p^{-1+\delta}
+ \leq\e^{\delta L-c_0L^{3/4}}+\int_{\log x_0}^{L}\e^{\delta s-c_0s^{3/4}}\,ds .
+\]
+For $s\leq L$ we have $\delta s=\eta_0sL^{-1/4}\leq\eta_0s^{3/4}$.  So the
+first term is at most $1$, and the integral is at most
+$\int_0^\infty\e^{-(c_0-\eta_0)s^{3/4}}ds<\infty$.  The product in
+\eqref{eq:Rankin} is therefore bounded uniformly in $x$, and
+$E(x)\ll x^{1-\delta}=x\exp\{-\eta_0(\log x)^{3/4}\}$.
+\end{proof}
