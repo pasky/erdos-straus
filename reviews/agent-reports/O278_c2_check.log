@@ -1,0 +1,20 @@
+[PASS] A identity 4/n = 1/(suw)+1/(nsvw)+1/(nuvw) (400 random atoms)
+[PASS] B same-ell projections distinct across all multipliers (6032 atoms, 0 collisions)
+[PASS] B' control: without 4H^2>K collisions do occur (24624 collisions)
+[PASS] C fibre void P(H=0|c,S)=prod(1-f_c/ell) (|A|=22, M=33822270, maxdev=1.1e-16)
+[PASS] C fibre factorial moments = m! e_m(p) <= mu_c^m (m<=4)
+[PASS] D even Bonferroni: Q_r(h)=C(h-1,r), 1_{h=0}<=Q_r<=1_{h=0}+C(h,r+1) 
+[PASS] E exact expansion count == direct sum (N=10000) (3213)
+[PASS] E |sum - N E nu| <= T_abs (N=10000) (err=-0.93, T_abs=316)
+[PASS] E exact expansion count == direct sum (N=123457) (39679)
+[PASS] E |sum - N E nu| <= T_abs (N=123457) (err=0.78, T_abs=316)
+[PASS] F lattice lower ratio >= 1/4 (toy H=30,z=2500) (min 0.606, max 0.718)
+[PASS] F lattice upper ratio bounded (toy) (max 1.512)
+[PASS] G h(K)-(2/pi^2)log K bounded ([0.7528, 0.7547, 0.7548, 0.7548])
+[PASS] G removal bound sum_{p|k} phi(k)/k^2 <= (1+log K)/p 
+[PASS] G sum phi([k,k'])/[k,k']^2 / (1+log K)^3 bounded ([0.1368, 0.1213, 0.1063])
+[PASS] K exp(-sum 2/(p-1)) ≍ (phi(d)/d)^2 (ratio in [0.410,1.000])
+[PASS] L phi(4uv) >= 2 phi(u)phi(v) for coprime u,v 
+[PASS] M identity classes mod M = {-4D : D | A^2}, (tau-1)/2<=F<=tau (M<1600)
+[PASS] N weighted 2nd moment / (log z)^4(1+log K)^3 bounded (toy) ([0.0037, 0.0021, 0.0014])
+ALL PASS

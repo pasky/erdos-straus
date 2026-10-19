@@ -146,3 +146,30 @@ places where I disagree or tighten.
 
 I found **no gap**. Label recommendation: keep "internally proved; not
 externally refereed".
+
+### 2.4 From-scratch numerical sanity checks
+
+`scripts/c2_threequarter_check.py` (log in `reviews/agent-reports/O278_c2_check.log`).
+I wrote it independently of `reviews/es-threequarter-note-check.py` and
+`scripts/es34_blind_audit_checks.py`. It runs under a 2 GB RLIMIT_AS and
+finishes in about 2 minutes. **ALL PASS (19 checks).**
+
+| label | what is checked | result |
+|---|---|---|
+| A | the identity, exactly with Fractions | 400 random atoms |
+| B | same-ℓ distinctness across all multipliers (K=13, H=2, z=⌊√x⌋) | 0 collisions among 6032 atoms |
+| B′ | negative control: dropping `4H²>K` | collisions appear, as expected |
+| C | exact enumeration of `Z/𝓜Z`, 𝓜 = 3.4·10⁷ (K=9, selector y=3, three primes) | per fibre, `P(H=0|c,S) = Π(1−f_c/ℓ)` (dev 1e−16) and `E(H)_m = m! e_m ≤ μ_c^m` for m ≤ 4 |
+| D | even Bonferroni identities | r ≤ 30, h < 120 |
+| E | exact transfer: direct `Σ_{n≤N} S_y Q_r(H)` equals the term-by-term class count, and `|Σ − N·Eν| ≤ T_abs` | N = 10⁴ and 123457 |
+| F | lattice sums at toy H=30, z=2500 | lower ratio 0.61–0.72 ≥ 1/4; upper ratio ≤ 1.51 |
+| G | `h(K) − (2/π²)log K` | → 0.7548 |
+| G | removal bound | holds |
+| G | pair-lcm sum `/(1+log K)³` | 0.14 → 0.11 |
+| K | `exp(−Σ2/(p−1))/(φ(d)/d)²` for d ≤ 3·10⁴ | in [0.41, 1] |
+| L | `φ(4uv) ≥ 2φ(u)φ(v)` | holds |
+| M | identity classes mod M equal `{−4D : D|A²}`, and `(τ−1)/2 ≤ F ≤ τ` | M < 1600 |
+| N | weighted second moment `/(log z)^4(1+log K)^3` (toy) | small and decreasing |
+
+These checks cover algebra and finite probability only. They are not
+asymptotic evidence.
