@@ -173,3 +173,57 @@ finishes in about 2 minutes. **ALL PASS (19 checks).**
 
 These checks cover algebra and finite probability only. They are not
 asymptotic evidence.
+
+## 3. Edits to the note (goal 3) — changelog
+
+New file: `paper/es-threequarter-note.tex` (13 pp, previously 22 pp;
+clean pdflatex, no overfull boxes or undefined references). The old version
+is archived verbatim, plus a banner, as `paper/es-threequarter-note-v1.tex`
+/ `.pdf` (= `ace654cf`).
+
+**Downstream citations.** `es-mn-short-note`, `sieve-limits-note` and
+`es-subexp-note` cite statements of the 3/4 note *by number*. Their
+`[TQ]` bibitems now point to v1. Only the bibitem text changed; all three
+PDFs were rebuilt.
+
+### 3.1 Changes flagged for the hostile reviewers
+
+Each of the following changes the mathematical presentation. **None
+changes a statement, exponent or parameter.**
+
+| # | change | what to check |
+|---|---|---|
+| M1 | **The atom family no longer has the cutoff `ω(uv) ≤ D log log X`** (it is the old `𝒜′_X` of Cor 5.3 in v1). D, T_X, low-ω Lemma 3.3, congestion Lemma 4.1, pruned Thm 4.2 and the unused hypothesis (4.2) H_kBV are deleted. | Every statement still used holds for the uncut family. v1 Cor 5.3 already asserted this. Check the inventory, distinctness and supply in particular. |
+| M2 | **The residue-profile Lemma 6.1, the Euler Lemma 6.2 and the ordered-atom replay are deleted.** Thm 5.1 (moments) has only the conditional-independence proof. | v1 itself said these were not load-bearing (checkpoint 1). Check that nothing else used them, e.g. `μ_X ≍ t³` (not used). |
+| M3 | Old Thm 5.2 (unpruned supply) is now **Thm 4.2**, stated for the general data `1∈J`, `(c,L_J)=1`. Its upper half is proved inline (BT + Lemma 3.1) and no longer by reference to the pruned theorem. | The upper bound `(x/log x)·Σ_k φ(k)k^{−2}(log z)² ≪ x log x h(J)`. |
+| M4 | Cor 4.3 now states and proves the **exact identity `f_c = f_{c;J_c}`** (both directions). v1 proved containment plus an upper bound. | Both inclusions. |
+| M5 | **Void lemma:** the exponential-moment constant `C_Z` is made explicit as `e^4`, using `Σ_{n>y}n^{−2} ≤ 2/y`. In my draft I had first written `e^e`, which is false for small y; this is now fixed. | Arithmetic. |
+| M6 | **Lemma 4.1 (weighted moment):** the comparison `exp(−Σ_{p|d}2/(p−1)) ≤ (φ(d)/d)²` is now an exact inequality (from `log(1−1/p) ≥ −1/(p−1)`) instead of `≍`. | Direction of the inequality (only the upper bound is needed). |
+| M7 | Selector range: v1 had `2 ≤ y < X^{1/2}`; now `2 ≤ y < K`. This is needed so that `ℓ > K > y` in Lemma 2.2(2). It is harmless because `y = Bt³ < K` eventually. | Consistency. |
+| M8 | The prime count uses `+y` and no longer `+K+y`: only `(p,P_y)=1` is needed (blind audit B4). | — |
+| M9 | Assembly: the ledger constant `C_0` is merged into `C_L` (`α` chosen with `C_Lα⁴ ≤ 1/2`). The `q_max ≤ N^{1/2}` remark is dropped, since it was never needed. | — |
+| M10 | BV: one sentence now says how the π/li two-endpoint form follows from Davenport's ψ-form. | Standard. |
+| M11 | Attribution: the identity is the classical Type II criterion (ET Prop 2.7, credited there to Vaughan). | — |
+| M12 | New intro material: background with exact literature statements (Vaughan, ET, BE survey, PW Thm 1.3, Elsholtz k-term exponents, LL); a heuristic explanation of 2/3 vs 3/4; why `L_K ≫ N` blocks LL's splitting and how the CRT majorant avoids it; and Remark 1.2, which cites the **internal** cap theorems (KA3 Cor 4.2, SL Thm 10.14), labelled as internal and unrefereed. | The scope wording of Remark 1.2 against KA3/SL. |
+| M13 | Remarks 9.1–9.3: comparison with Vaughan (labelled heuristic, following PW/LL because Vaughan's paper is not accessible); the ℛ(M) supply computation (from old §10); the m/n extension, mentioned only as internal and not claimed here. | The ℛ(M) bijection; the m/n wording against DISCOVERIES (D)… Thm A. |
+| M14 | Internal-process material (notes §§, review files, three checkpoints, "internally proved" inside the theorem) is removed from the body. A short Status paragraph and the date line keep the label. | The label is not weakened: "Internally proved; not externally refereed." |
+
+### 3.2 Unchanged
+
+The theorem, the exponent 3/4, κ < 1/240 (fixed at 1/480), `H=K^10`,
+`z=x^{1/6}`, `y=Bt³`, `r ≍ t³`, the ledger `e^{O(t⁴)}`, BV at R=26, and
+the ineffectivity.
+
+## 4. Verdict and label
+
+* Literature: no prior improvement of Vaughan's 2/3 was found (§1).
+* Audit: no load-bearing gap (§2). The proof is now about 8 pages of
+  self-contained argument, with standard inputs BT, BV and Shiu Thm 1. The
+  Shiu statement was checked against the scan.
+* Label: **unchanged** — "internally proved; not externally refereed".
+  I recommend this C2 version as the one to give an external expert.
+* Suggested for the parent (not done, to avoid ledger conflicts):
+  * DISCOVERIES (A) items 8–10 cite "Lemma 5.1 / Thm 5.2 / Cor 5.3" of the
+    note. These are now v1 numbering; in C2 they are Lemma 4.1, Thm 4.2,
+    and (absorbed into) §4.
+  * CAMPAIGN_SUMMARY l. 1354 says "§5"; this should be §4 in C2.
