@@ -21,9 +21,10 @@ This is an independent mathematical audit, not external refereeing or a claim th
 - Sections 1–2, identity and conditional independence: **SOUND** (core statements).
 - Section 3, analytic inputs and lattice sums: **SOUND**.
 - Section 4, weighted incidence moment and uniform cubic supply: **SOUND**.
-- Sections 5–6, moments and conditioned void: pending.
-- Section 7, Bonferroni and coefficient ledger: pending.
-- Section 8, primes and Rankin transfer: pending.
+- Section 5, factorial moments: **SOUND**.
+- Section 6, conditioned void: **SOUND**.
+- Section 7, Bonferroni and coefficient ledger: **SOUND**.
+- Section 8, primes and Rankin transfer: **SOUND**.
 - Section 9 and introductory comparison/cap remarks: pending.
 
 ## Detailed checks
@@ -70,6 +71,30 @@ From-scratch script: `scripts/review_r289_checks.py`; raw output: `reviews/three
 
 **Limit:** toy lattice/incidence parameters are not `H=K^10,z≥H²`; the script explicitly labels their ratios EVIDENCE only. It neither tests BV/Shiu asymptotically nor certifies the unknown constants or thresholds.
 
+### Section 5: factorial moments — SOUND
+
+For each positive-probability fibre, `H=Σ I_ℓ` with genuinely independent Bernoulli variables. Expanding the falling factorial produces ordered **distinct-prime** tuples, and independence gives products of the means. Dropping distinctness increases the sum to `(Σ p_ℓ)^m`. The uniform upper supply bound applies to *every* fibre, not only reduced ones, so averaging gives `(C_u t³)^m` without a factor counting fibres, without an m-dependent constant, and without replacing a moment by a power of an average. If m exceeds the number of large primes the left side is zero. Thus there is no hidden restriction at the subsequently chosen `m≈t³`.
+
+### Section 6: conditioned void — SOUND
+
+The selector is needed: there is no assertion that the bad fibres are exponentially rare under the unconditioned measure. Under `S_y=1`, prime divisibility at supported primes above y remains independent with probabilities `1/p`. For `Z=Σ 1_{p|c}/p`, the logarithm of its exponential moment at parameter y is at most `(e−1)y Σ_{n>y} n^(−2)≤2(e−1)<4`. Exponential Markov then gives `P(Z>η | S_y=1)≤exp(4−ηy)`.
+
+Every removed multiplier has a prime factor counted by Z, so the union bound for weighted multiplier mass gives `h(J_c)≥(a_0−2Z)log K`. This is an inequality, not an assumption of disjoint removed multiplier sets. On `Z≤a_0/4`, `log floor(X^κ)≥κt/2` for sufficiently large X yields `μ_c≥a_v t³`. The exact Bernoulli product gives the void bound `exp(−μ_c)`. Taking `B≥2a_v/η` makes the bad-fibre tail small enough, and the two exponentials are absorbed by halving `a_v`. The order of choices is noncircular; the analytic supply is independent of B, and for each fixed B the required `Bt³<K` holds eventually.
+
+### Section 7: Bonferroni, signed expansion, interval transfer — SOUND
+
+The even partial sum is exactly `binom(h−1,r)` for positive h; for `h≥r+1`, its ratio to `binom(h,r+1)` is `(r+1)/h≤1`. This controls the truncation by a single factorial moment, with no alternating-series convergence assumption. A constant `D_B>e C_u` satisfying `D_B log(D_B/(e C_u))≥2c_v` exists. For `m=r+1` the logarithm of the factorial tail bound is at most `−2c_vt³`. The upper moment base is independent of m, so no hidden `exp(O(m log m))` remains.
+
+The subset expansion of `binom(H_X,j)` is valid for a sum of indicator functions even when their events are dependent. Each intersection, including the selector congruence, is either empty or a single congruence modulo the lcm; incompatible products contribute zero to both sides. The CRT mean is therefore exactly the signed sum of reciprocals of those moduli. The crude inventory `|A_X|≤KX^(4/3)` is valid. For large X the supply also ensures the atom set is nonempty, as needed by the bound `(r+1)|A_X|^r`. With `r=O(t³)`, the number of raw terms is `exp(O(t⁴))`; this bounds the absolute coefficient sum even before combining repeated classes. The selector costs only `exp(O(t³))`.
+
+Each class has count `N/q+θ`, `|θ|≤1`, for all positive real N, regardless of whether `q>N`. Triangle inequality is applied to the **signed coefficients**, so their negative signs do not invalidate the upper bound. The huge modulus `L_K` incurs no omitted rounding cost: no class sum indexed by all its fibres is performed on `[1,N]`.
+
+### Section 8: exponent, prime passage, Rankin — SOUND
+
+Taking `t=α(log N)^(1/4)` after fixing the ledger constants, with `C_Lα⁴≤1/2`, gives an error at most `N^(1/2)` and a main term `N exp(−c_aα³(log N)^(3/4))`. Both the ledger error and `y=O((log N)^(3/4))` are smaller than this main term for large N. Only exceptional primes above y need to be majorized, so adding y, rather than K, is correct. No statement about distribution of primes near N enters.
+
+A representation scales from any prime divisor to its multiple. Therefore the exceptional integers form a subset of the semigroup on exceptional primes, including 1; equality is neither asserted nor needed. In Rankin's product, the higher powers have a uniformly convergent logarithmic contribution for `δ<1/4`. For the first powers, partial summation gives the displayed endpoint plus an integral after dropping a nonpositive lower endpoint and the factor `1−δ≤1`. The key inequality is `δs=η_0 s L^(−1/4)≤η_0 s^(3/4)` for `0≤s≤L`. Thus the entire Euler product is bounded independently of x, not merely by a power of log x, and the exponent `3/4` survives. Constants depending on the fixed x_0 are still absolute (ineffective). Bounded N is harmless after increasing the outer constant.
+
 ## Numbered defects
 
-None entered yet; this is not a final clean bill of health.
+Final wording/citation audit still in progress; no load-bearing defect found.
