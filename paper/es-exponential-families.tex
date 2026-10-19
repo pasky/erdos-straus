@@ -896,9 +896,9 @@ $1/y+1/z=(32u+33)/(32n(u+1)A)$; equality with $151/(64n(u^3+1))$ is
 $151A=2(32u+33)(u^2-u+1)$, which is the definition of $A$ expanded.  For
 $u\equiv32$, $32u+33\equiv1057=7\cdot151\equiv0\pmod{151}$, so
 $A\in\N$.  This is Lemma~\ref{lem:window}(a) with $m=151=4^4-105$,
-$N=nx$, $d_1=32(u+1)$ and $d_2=1$\,---\,more transparently,
-Lemma~\ref{lem:window}(b) with $d=x/(32(u+1))=2(u^2-u+1)$, a divisor of
-$x$ forced by $u^3+1=(u+1)(u^2-u+1)$.  For the second statement,
+$N=nx$, $d_1=1$ and $d_2=32(u+1)$, a divisor of $x$ forced by
+$u^3+1=(u+1)(u^2-u+1)$; equivalently Lemma~\ref{lem:window}(b) with
+$d=x/(32(u+1))=2(u^2-u+1)$.  For the second statement,
 $\ord_{151}(4)=15$, $(s-4)/3\equiv10\pmod{15}$ and $4^{10}\equiv32\pmod{151}$.
 \end{proof}
 
@@ -908,9 +908,8 @@ For every $s\ge0$, $4/(4^s+105)$ is a sum of three unit fractions.
 
 \begin{proof}
 The thirteen ET/divisor classes of Table~\ref{tab:105} cover every residue
-$s\bmod180$ except $s\equiv34\pmod{90}$ (computer-checked, or by hand from the
-table: the classes modulo $5$, $10$, $20$, $6$, $9$, $15$, $30$ leave
-$s\equiv34,124\pmod{180}$), and $s\equiv34\pmod{90}$ implies
+$s\bmod180$ except $s\equiv34,124\pmod{180}$, i.e.\ except $s\equiv34\pmod{90}$
+(computer-checked), and $s\equiv34\pmod{90}$ implies
 $s\equiv34\pmod{45}$, where Lemma~\ref{lem:105class} applies.  All moduli are
 odd and all coefficients are non-negative, so the classes apply for every
 $s\ge0$.
@@ -964,9 +963,10 @@ $4/(4^s+k)$ is a sum of three unit fractions.
 
 \begin{proof}
 For each $k$ the ET/divisor classes of Table~\ref{tab:nine} apply on the
-listed exponent classes for all $s\ge0$ (for I1$(1,679,19)$, $s\ge2$; the
-member $s=1$, $n=229$, of that class is covered by II2$(1,1,7)$), and their
-union is all residues modulo the stated period.
+listed exponent classes for all $s\ge0$ (for I1$(1,679,19)$ the threshold
+$s\ge2$ is below the least member $s=21$ of its class), and their union
+contains all residues modulo the least common multiple of the periods
+($2$, $30$, $2$, $2$, $6$, $6$, $2$, $24$, $2$ respectively).
 \end{proof}
 
 \begin{table}[ht]
@@ -1034,4 +1034,236 @@ $k\in\{33,273,297\}$ ES for all $4^s+k$ is \status{open}: tree searches with
 ET classes, windows and sums-of-powers windows stall at uncovered measures
 $\approx10^{-7}$ near the square points $4^2+33=7^2$, $4^4+273=23^2$,
 $4^3+297=19^2$ \cite{SignFields,Sparks6,Exp105,ExpOpen}.
+\end{remark}
+
+\section{Limits of the method}\label{sec:limits}
+
+\subsection{Constant-gap and constant-ratio families at a unit-square point}
+Throughout this subsection $c_0$ is odd, $k\equiv1\pmod8$, $c_0+k=4^J$
+\textup{(}so $J\ge1$, and $c_0\equiv7\pmod8$ if $J\ge2$\textup{)}, and
+$n_s=c_0\,2^s+k$.
+
+\begin{definition}\label{def:rootfamily}
+A \emph{root family through $\mu=0$} consists of $D\ge1$, a set
+$C=\{s\equiv0\pmod L,\ s\ge s_1\}$ with $D\mid L$, and $x,y,z\in\Q[Y]$ with
+$4xyz=n(xy+yz+zx)$ identically, where $n=n(Y)=c_0Y^D+k$, such that
+$x,y,z$ take positive integer values at $Y=2^{s/D}$ for every $s\in C$.  It
+has \emph{constant gap} $m$ if $4x-n=m\in\Z$, and \emph{constant ratio} $t$
+if $x=tn$ with $t\in\N$ (up to permuting $x,y,z$).
+\end{definition}
+
+Every rule of Definition~\ref{def:rule} whose exponent class contains all
+large multiples of some $P$ is, after shrinking the class and rescaling
+$Y$, a root family through $\mu=0$ (a shift $Y\mapsto 2^{-r/D}Y$ with
+$D\mid r$ is absorbed into the coefficients).  Rational functions of $Y$
+give nothing new: if $R=A/B\in\Q(Y)$ takes integer values at infinitely many
+$Y=2^{s/D}$, then the remainder of $A$ modulo $B$ vanishes (cf.\ the end of
+the proof of Lemma~\ref{lem:reduce}).  Families involving other exponentials
+($3^s$, \dots), coefficients depending on $s$, or several unrelated roots are
+\emph{not} covered by what follows.  The constant-gap families include all
+windows of \S\ref{sec:forced} with any splitting of any piece (cyclotomic,
+Aurifeuillean, Sophie Germain, splittings by fixed primes, sub-products
+mixing pieces, the piece $n$ itself) and composite $m$; constant-ratio
+families are the Type~I shapes with $x/n$ fixed.
+
+\begin{lemma}[reduction to polynomial divisors; \status{proved}]\label{lem:reduce}
+Given a constant-gap root family with gap $m$, put $N=n\,x\in\Q[Y]$.  After
+shrinking $C$ there are $d_1,d_2,d_3\in\Q[Y]$ with positive leading
+coefficients, integer-valued and positive on $C$, such that
+$d_1d_2d_3=N$ and $m\mid d_1(Y)+d_2(Y)$ for $Y=2^{s/D}$, $s\in C$.
+\end{lemma}
+
+\begin{proof}
+Note that $m\ge1$, since $4/n-1/x=1/y+1/z>0$ on $C$, and that $m$ is odd,
+since $n$ is.  On $C$ we have
+$m/N=1/y+1/z$.  Write $y/z=U/V$ with $U,V\in\Z[Y]$ coprime in $\Q[Y]$ and
+with positive leading coefficients, and let $R\ne0$ be their resultant, so
+that $\gcd(U(Y),V(Y))\mid R$ for every integer $Y$.  For every prime
+$p\mid R$, $\min(v_p(U(Y)),v_p(V(Y)))\le v_p(R)$ is determined by $Y$ modulo
+$p^{v_p(R)+1}$.  Shrinking $C$ so that $Y=2^{s/D}\equiv1$ modulo a high power
+of every odd $p\mid R$ and $Y\equiv0$ modulo a high power of $2$, the integer
+$h:=\gcd(U(Y),V(Y))$ is constant on $C$.  Then $y':=U(Y)/h$ and
+$z':=V(Y)/h$ are the coprime parts of $y,z$: $y=gy'$, $z=gz'$ with
+$g=\gcd(y,z)$.  From $mgy'z'=N(y'+z')$ and $\gcd(y'z',y'+z')=1$ we get
+$y'z'\mid N(Y)$ and $mg=(N(Y)/(y'z'))(y'+z')$.  For an odd prime $p\mid m$
+we have $Y\equiv1\pmod p$ on (a shrunk) $C$, so $n\equiv c_0+k=4^J$ and
+$n+m\equiv4^J\pmod p$, whence $p\nmid N(Y)=n(n+m)/4$; so $m\mid y'+z'$.
+Put $d_1=U/h$, $d_2=V/h\in\Q[Y]$.  Finally $d_1d_2$ divides $N$ in $\Q[Y]$:
+write $N=Qd_1d_2+R_0$ with $\deg R_0<\deg d_1d_2$; then
+$R_0(Y)/(d_1d_2)(Y)=N(Y)/(d_1d_2)(Y)-Q(Y)$ lies in $\frac1e\Z$ for a fixed $e$
+and tends to $0$, so $R_0(Y)=0$ for infinitely many $Y$ and $R_0=0$.  Put
+$d_3=N/(d_1d_2)$; it is integer-valued on $C$ because $y'z'\mid N(Y)$, and
+it has positive leading coefficient because $N,d_1,d_2$ do.
+\end{proof}
+
+Write $\rho_i:=d_i(1)$.  By Lemma~\ref{lem:special} $\rho_i\in\Z[1/2]$ and
+$d_i(0)\in\Z_{(2)}$.  Every irreducible factor of $N=n(n+m)/4$ with positive
+leading coefficient is positive on $[0,\infty)$, because $n$ and $n+m$ have
+no root there; hence $\rho_i>0$.  Write $\rho_i=2^{e_i}a_i$ with $a_i$ an odd
+positive integer.
+
+\begin{lemma}[Jacobi at the limit; \status{proved}]\label{lem:limitjacobi}
+In Lemma~\ref{lem:reduce}, $a_1a_2a_3=M:=4^J+m$, $m\mid\rho_1+\rho_2$ in
+$\Z[1/2]$, and necessarily $m\equiv3\pmod8$ and $e_1-e_2$ is odd.
+\end{lemma}
+
+\begin{proof}
+$\rho_1\rho_2\rho_3=N(1)=n(1)(n(1)+m)/4=4^{J-1}M$, which gives the first
+claim.  For a prime power $p^v\,\|\,m$ we have $d_1+d_2\in p^v\Z_{(p)}$ on
+$C$, so $\rho_1+\rho_2\in p^v\Z_p$ by Lemma~\ref{lem:special}.  Since
+$n\equiv k\equiv1\pmod4$, $m=4x-n\equiv3\pmod4$.  Every prime $q\mid M$ is odd
+and satisfies $-m\equiv4^J\pmod q$, so $\leg mq=\leg{-1}q$ and, by
+reciprocity ($m\equiv3\pmod4$), $\leg qm=\leg mq\leg{-1}q=1$.  Hence
+$\leg{a_i}m=1$ (note $\gcd(M,m)=\gcd(4^J,m)=1$), and $\rho_1\equiv-\rho_2$
+gives $\leg2m^{e_1-e_2}=\leg{-1}m=-1$.  So $\leg2m=-1$, i.e.\ $m\equiv3\pmod
+8$, and $e_1-e_2$ is odd.
+\end{proof}
+
+This is the window analogue of the odd-square obstruction: every piece is
+``square-like'' at the limit except powers of $2$, and only an odd power of
+$2$ can produce the non-residue $-1$ modulo $m$.
+
+\begin{lemma}[$2$-adic size of the limits; \status{proved}]\label{lem:twoadic}
+Assume $n=c_0Y^D+k$ is irreducible in $\Q[Y]$.  Write $d_i=\lambda_i\,X_i\,
+n^{\varepsilon_i}$ with $\lambda_i\in\Q$, $X_i$ a monic divisor of $x$ of
+degree $\delta_iD$, and $\varepsilon_i\in\{0,1\}$ \textup{(}so
+$\varepsilon_1+\varepsilon_2+\varepsilon_3=1$ and
+$\delta_1+\delta_2+\delta_3=1$\textup{)}.  Then each $d_i(0)$ is a $2$-adic
+unit and
+\[
+  e_i=-2\delta_i+2J\varepsilon_i .
+\]
+\end{lemma}
+
+\begin{proof}
+$N(0)=k(k+m)/4$, and $k+m\equiv4\pmod8$ by Lemma~\ref{lem:limitjacobi}, so
+$N(0)$ is a $2$-adic unit; the $d_i(0)\in\Z_{(2)}$ multiply to it, so each is
+a unit, and $e_i=v_2(d_i(1)/d_i(0))$, independent of $\lambda_i$.  For a
+monic $P$ with roots $\alpha$ in $\overline{\Q}_2$,
+$P(1)/P(0)=\prod_\alpha(1-\alpha)/(-\alpha)$.  The roots of $x$ satisfy
+$\alpha^D=-(k+m)/c_0$, so $v_2(\alpha)=2/D>0$, $v_2(1-\alpha)=0$, and each
+contributes $-2/D$; this gives $v_2(X_i(1)/X_i(0))=-2\delta_i$.  For $n$,
+$v_2(n(1)/n(0))=v_2(4^J/k)=2J$.
+\end{proof}
+
+\begin{lemma}[Capelli at the $2$-adic place; \status{proved}]\label{lem:capelli}
+If some $\delta_i=\frac12$ \textup{(}i.e.\ $x$ has a monic divisor of degree
+exactly $D/2$\textup{)} and $c_0$ is fourth-power-free, then $4\mid D$ and
+$m=4c_0w^4-k$ for an odd integer $w\ge1$.
+\end{lemma}
+
+\begin{proof}
+Up to a constant, $x=Y^D+K$ with $K=(k+m)/c_0>0$, $v_2(K)=2$, and $x$ is
+reducible.  By Capelli's theorem \cite[Ch.~VI, Thm.~9.1]{Lang}, $-K$ is a
+$p$-th power in $\Q$ for a prime $p\mid D$, or $4\mid D$ and $-K\in-4\Q^4$.
+The first is impossible for $p=2$ ($-K<0$) and for odd $p$ ($p\nmid
+v_2(K)=2$).  So $K=4\beta^4$ with $\beta=w/u\in\Q_{>0}$ in lowest terms; as
+$v_2(\beta)=0$, $w$ and $u$ are odd, and $(k+m)u^4=4c_0w^4$ forces $u^4\mid
+c_0$, so $u=1$.
+\end{proof}
+
+\begin{lemma}[magnitude; \status{proved}]\label{lem:magnitude}
+Let $e:=|e_1-e_2|\le E$ and $r:=M/m$.  Then
+\[
+ m\le B:=\max\bigl(2^E4^J+2^{2E+2}r^2,\ 2^{E+2}r^2+4^J\bigr).
+\]
+\end{lemma}
+
+\begin{proof}
+By symmetry let $e_1\ge e_2$, and put $u=2^ea_1$, $v=a_2$; then $m\mid u+v$
+and $u+v>0$.  If $u\ge v$, then $u\ge m/2$, so $a_1\ge m/2^{e+1}$ and
+$a_2a_3=M/a_1\le2^{e+1}r$.  Multiplying $u\equiv-v\pmod m$ by $a_2a_3$ gives
+$m\mid2^eM+a_2^2a_3$, and $M\equiv4^J\pmod m$, so $m$ divides the positive
+integer $2^e4^J+a_2^2a_3\le2^E4^J+2^{2E+2}r^2$.  If $v>u$, then $a_2>m/2$,
+$a_1a_3<2r$, and multiplying by $a_1a_3$ gives $m\mid2^ea_1^2a_3+4^J\le
+2^{E+2}r^2+4^J$.
+\end{proof}
+
+\begin{theorem}[Theorem W; \status{proved} up to the finite enumeration of Computation~\ref{comp:W}; {\cite[Thm.~W]{ExpOpen}}]\label{thm:W}
+Let $c_0$ be odd and fourth-power-free, $k\equiv1\pmod8$, $c_0+k=4^J$, and
+assume $c_0Y^D+k$ is irreducible in $\Q[Y]$ for every $D\ge1$.  If a
+constant-gap root family through $\mu=0$ exists, then there are an odd
+$w\ge1$ with $m=4c_0w^4-k\in(0,B]$ \textup{(}$B$ as in
+Lemma~\ref{lem:magnitude} with $E=2J+2$\textup{)}, odd divisors $a_1,a_2$ with
+$a_1a_2\mid M=4^J+m$, and $e_i=-2\delta_i+2J\varepsilon_i$ with
+$2\delta_i\in\{0,1,2\}$, $\delta_1+\delta_2\le1$, $\varepsilon_i\in\{0,1\}$,
+$\varepsilon_1+\varepsilon_2\le1$, such that $m\mid2^{e_1}a_1+2^{e_2}a_2$ in
+$\Z[1/2]$.
+\end{theorem}
+
+\begin{proof}
+Lemmas~\ref{lem:reduce}--\ref{lem:twoadic} give $d_i$, $\rho_i=2^{e_i}a_i$ with
+$e_i=-2\delta_i+2J\varepsilon_i$.  Since $e_i\in\Z$, $2\delta_i\in\Z$; with
+$0\le\delta_i\le1$ this gives $2\delta_i\in\{0,1,2\}$.  By
+Lemma~\ref{lem:limitjacobi}, $e_1-e_2$ is odd, so some $2\delta_i$ is odd,
+i.e.\ $\delta_i=\frac12$, and Lemma~\ref{lem:capelli} gives $m=4c_0w^4-k$
+with $w$ odd.  As $-2\le e_i\le2J$, $|e_1-e_2|\le2J+2$, and
+Lemma~\ref{lem:magnitude} bounds $m$.
+\end{proof}
+
+\begin{computation}[\status{computer-assisted}; script function \texttt{thmW}]\label{comp:W}
+For $(c_0,k)\in\{(15,1),(31,33),(7,57),(63,1),(47,17),(55,9)\}$ the
+hypotheses of Theorem~\ref{thm:W} hold (Capelli: $k/c_0$ is not a $p$-th
+power for odd $p$ and not in $4\Q^4$), and the enumeration over all odd $w$
+with $0<m\le B(m)$ ($w\le3,5,9,5,5,5$ respectively; $B(m)$ decreases in
+$m$), all $a_1,a_2$ and all admissible $(e_1,e_2)$\,---\,without imposing the
+parity of $e_1-e_2$\,---\,finds \emph{no} relation.  Positive controls: for
+$(3,1)$, $(7,9)$, $(23,41)$, $(39,25)$ the same enumeration finds relations
+exactly at $m=11$, $19$, $51$, $131$, the Sophie Germain windows that do
+reach $\mu=0$; for $(7,9)$ the relations include $(\rho_1,\rho_2)=(5/2,7)$,
+the specialisation of the rule $(d_1,d_2)=(f_+,7)$ of Remark~\ref{rem:c7}.
+\end{computation}
+
+\begin{corollary}[constant ratio; \status{proved}]\label{cor:ratio}
+Under the hypotheses of Theorem~\ref{thm:W} \textup{(}irreducibility of $n$
+suffices\textup{)}, no root family with $x=tn$, $t\in\N$, exists.
+\end{corollary}
+
+\begin{proof}
+Then $\varepsilon:=4t-1\equiv3\pmod 4$ and $\varepsilon/(tn)=1/y+1/z$.  The
+proof of Lemma~\ref{lem:reduce} applies with $m$ replaced by $\varepsilon$
+and $N$ by $tn$ (an odd $p\mid\varepsilon$ does not divide $t$, and
+$tn\equiv t4^J\pmod p$ near $\mu=0$), and gives $d_1d_2d_3=tn$ with
+$\varepsilon\mid d_1+d_2$.  As $n$ is irreducible, $d_i=\lambda_in^{\varepsilon_i}$
+with $\lambda_1\lambda_2\lambda_3=t$.  By Lemma~\ref{lem:special},
+$\lambda_ik^{\varepsilon_i}=d_i(0)\in\Z_{(2)}$, so $v_2(\lambda_i)\ge0$,
+and $\lambda_i4^{J\varepsilon_i}=d_i(1)\in\Z[1/2]$, so the odd parts of the
+$\lambda_i$ are positive integers dividing $t$.  For an odd prime $q\mid t$,
+$\varepsilon\equiv-1\pmod q$, so $\leg\varepsilon q=\leg{-1}q$ and
+$\leg q\varepsilon=1$.  If $t$ is odd, all $\lambda_i$ are odd; if $t$ is
+even, $\varepsilon\equiv7\pmod8$ and $\leg2\varepsilon=1$.  In both cases
+$\leg{\rho_1\rho_2}\varepsilon=1$, contradicting $\rho_1\equiv-\rho_2\pmod
+\varepsilon$ and $\leg{-1}\varepsilon=-1$.
+\end{proof}
+
+\begin{corollary}[\status{proved}, with Computation~\ref{comp:W}]\label{cor:nocover}
+The families $15\cdot2^s+1$, $31\cdot4^s+33$, $7\cdot4^s+57$, $63\cdot4^s+1$,
+$47\cdot4^s+17$ and $55\cdot4^s+9$ admit no exponent covering by finitely
+many ET classes, divisor classes, and rules that are constant-gap or
+constant-ratio root families \textup{(}of any degrees $D$\textup{)}.
+\end{corollary}
+
+\begin{proof}
+By Lemma~\ref{lem:compact} some rule of a finite covering applies on all
+large multiples of some $P$ (for the $4^s$ families: all large even
+multiples, i.e.\ all large multiples of $2P$ in the base-$2$ exponent).
+It is not an ET or divisor class (proof of Theorem~\ref{thm:sterile}), and
+not a constant-gap or constant-ratio root family (Theorem~\ref{thm:W},
+Computation~\ref{comp:W}, Corollary~\ref{cor:ratio}).
+\end{proof}
+
+\begin{remark}[scope and history]\label{rem:Wscope}
+(i) Theorem~\ref{thm:W} is about the \emph{menu}; it does not say that ES
+fails for any member.  It explains why the Sophie Germain mechanism works
+for $(3,1)$ and $(7,9)$ but cannot work for $(15,1)$ or $(63,1)$, and
+\emph{moving-gap} families (\S\ref{sec:forced}, (BI)) are not covered:
+Lemma~\ref{lem:63class} is such a family, so for $63\cdot2^s+1$ the
+obstruction of Corollary~\ref{cor:nocover} is real but not an obstruction
+to ES.  (ii) Earlier versions of these results covered only windows with
+unsplit pieces \cite[Prop.~2.7, Cor.~2.8]{Exp105} or restricted Sophie
+Germain menus \cite[Props.~4.1, 4.3]{MenuSterility}; Theorem~\ref{thm:W}
+contains them.  (iii) An analogue at the non-unit square point of
+$4^s+297$ ($4^3+297=19^2$) holds for windows $m$ with $19\nmid m$ and for
+constant ratio; for $19\mid m$ it is \status{open}
+\cite[Prop.~4.1]{ExpOpen}.
 \end{remark}
