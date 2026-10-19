@@ -114,3 +114,9 @@ dichotomy, ultraproduct transfer, and larger program-synthesis runs.
   The board does *not* claim B2 is necessary for ES. All three seats converged that the missing object is a
   **propagation law** (one exception ⟹ many, cf. AMPLIFY_EXCEPTION.md criteria) or a **single global object
   whose positivity is proved without counting**. None was produced.
+* **Q3 refuted (`Q3_PIVOT.md`).** **CERTIFIED:** at p = 7 909 441 and 8 604 961 the union of q = 3 pivot components
+  through p·U₃ is closed: 57 and 76 vertices, and no member has all three denominators divisible by 3. Two
+  implementations in Q3_PIVOT agree, and the parent re-verified with a third, from-scratch BFS
+  (`/tmp/q3chk/chk.py`, not kept), which also reaches targets at 1321 and 409. ES holds at both primes, which lie
+  below the verified bound 10¹⁷. Fixed-q pivot rewriting is therefore non-universal for q = 2, 3 and 5 (q = 5:
+  board #3 data). Correction to the board: some spine exits are Type I, not exclusively Type II.
