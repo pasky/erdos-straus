@@ -191,8 +191,9 @@ families.
 Each family has $O(\log X)$ members up to $X$, so these theorems say
 nothing about ES for primes in general; a finite set of thin identity
 classes misses almost all primes of any residue class (see
-\cite[Prop.~5.1]{MenuSterility}).  The members $s\le 50$ or so are already
-covered by the numerical verifications \cite{Salez,MD}.  Each family lies
+\cite[Prop.~5.1]{MenuSterility}).  The members below $10^{18}$ (for instance $s\le53$ for
+$63\cdot2^s+1$, $s\le29$ for $4^s+k$) are already covered by the numerical
+verifications \cite{Salez,MD}.  Each family lies
 in a finite union of residue classes, and several of our families are
 settled by Mordell's identities for most $s$; we say where the new content
 lies.  We found no prior work on ES for exponential families (searches of
@@ -205,8 +206,9 @@ searches; see \cite{Audit}); this is not a claim of priority.
 statement about finitely many explicit residues and identities) is done by
 the script \texttt{scripts/c1\_expfam\_verify.py}
 (Appendix~\ref{app:script}), which uses only exact arithmetic and imports
-nothing from the search code; the original certificates were in addition
-checked by two independent reviewers' programs each.  \status{Evidence}
+nothing from the search code; the original certificates (all except that
+of Proposition~\ref{prop:15half}, which is new here) were in addition checked
+by two independent reviewers' programs each.  \status{Evidence}
 means a computation that supports but does not prove a statement.
 \status{Open} and \status{Conjecture} are not results.
 
@@ -428,10 +430,10 @@ follows.  Write $\nu(\ell)$ for the point of $\prod_q\Z_q$ with odd
 components $c_0b^\ell+k\in\Z[1/2]$ and $2$-component $k$.
 
 \begin{proposition}[\status{proved}; {\cite[Cor.~1.5]{ExpCov}, \cite[Lemma~3.1]{ExpNearSq}, \cite[Lemma~1.2]{SignFields}}]\label{prop:intpoints}
-Let $k\equiv1\pmod 8$, $b\in\{2,4\}$, and $c_0$ odd.  For $\ell\in\Z$,
-$\nu(\ell)$ is a square of a unit at every prime iff $\ell=0$ and
-$c_0+k=4^J$ for some $J\ge1$.  For $c_0\equiv2\pmod 4$ and $b=4$ there is no
-such $\ell$.
+Let $k\equiv1\pmod 8$ and $b\in\{2,4\}$.  If $c_0$ is odd, then for
+$\ell\in\Z$ the point $\nu(\ell)$ is a square of a unit at every prime iff
+$\ell=0$ and $c_0+k=4^J$ for some $J\ge1$.  If $c_0\equiv2\pmod 4$ and $b=4$,
+there is no such $\ell$.
 \end{proposition}
 
 \begin{proof}
@@ -444,8 +446,8 @@ $\ell=-a<0$, the odd components are $(c_0+kb^{a})/b^{a}$; this is a unit
 square everywhere iff $b^a(c_0+kb^a)$ is a perfect square with
 $c_0+kb^a$ a power of $2$; but $c_0+kb^a$ is odd and $>1$.  For
 $c_0\equiv2\pmod4$, $b=4$: $N=c_0b^\ell+k$ is odd for $\ell\ge1$, and
-$c_0+k\equiv3\pmod 4$ is not a power of $4$; the case $\ell<0$ is as
-before ($c_0+k4^a$ is odd).
+$c_0+k\equiv3\pmod 4$ is not a power of $2$; for $\ell=-a<0$ we would need
+$c_0+k4^a$ to be a perfect square, but it is $\equiv2\pmod4$.
 \end{proof}
 
 \begin{remark}[non-integer points; \status{open}]\label{rem:EH}
@@ -539,10 +541,10 @@ factors of $x$; powers of $2$ up to $2^{v_2(c_04^{j-1})}$ may be added.
 A rule with $D\ge2$ applies on a set of exponents $\{s\equiv u\pmod P\}$.
 This set of integers $n_s$ is contained in a residue class of $n$ (for
 instance modulo $2^P-1$), which by Theorem~\ref{thm:sterile} may well be
-square-like.  There is no contradiction: Lemma~\ref{lem:T1} concerns
+square-like.  There is no contradiction: Theorem~\ref{thm:sterile} concerns
 identities whose coordinates are polynomials in $n$, while a rule is
-polynomial in $Y=n_s$'s root, $Y=((n-k)/(c_0b^{s_0}))^{1/D}$, and is only
-asserted on the thin family.  If a member of the class is a square, the
+polynomial in the root $Y=((n-k)/(c_0b^{s_0}))^{1/D}$ and is only asserted on
+the thin family.  If a member of the class is a square, the
 rule simply solves it.
 \end{remark}
 
