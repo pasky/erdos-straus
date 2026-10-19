@@ -1,0 +1,520 @@
+[
+  {
+    "case": "full8_11",
+    "histogram": {
+      "1": 2,
+      "None": 1
+    },
+    "rows": [
+      {
+        "coordinate": 2,
+        "distance": 1
+      },
+      {
+        "coordinate": 3,
+        "distance": 1
+      },
+      {
+        "coordinate": 4,
+        "distance": null
+      }
+    ]
+  },
+  {
+    "case": "full8_17",
+    "histogram": {
+      "1": 2,
+      "None": 1,
+      "3": 1
+    },
+    "rows": [
+      {
+        "coordinate": 3,
+        "distance": 1
+      },
+      {
+        "coordinate": 4,
+        "distance": null
+      },
+      {
+        "coordinate": 5,
+        "distance": 3
+      },
+      {
+        "coordinate": 6,
+        "distance": 1
+      }
+    ]
+  },
+  {
+    "case": "full8_131",
+    "histogram": {
+      "1": 13,
+      "3": 4,
+      "2": 1,
+      "None": 6,
+      "15": 1,
+      "5": 2,
+      "4": 1,
+      "10": 1,
+      "9": 1,
+      "6": 1,
+      "18": 1,
+      "13": 1
+    },
+    "rows": [
+      {
+        "coordinate": 17,
+        "distance": 1
+      },
+      {
+        "coordinate": 18,
+        "distance": 1
+      },
+      {
+        "coordinate": 19,
+        "distance": 1
+      },
+      {
+        "coordinate": 20,
+        "distance": 1
+      },
+      {
+        "coordinate": 21,
+        "distance": 1
+      },
+      {
+        "coordinate": 22,
+        "distance": 1
+      },
+      {
+        "coordinate": 23,
+        "distance": 1
+      },
+      {
+        "coordinate": 24,
+        "distance": 1
+      },
+      {
+        "coordinate": 25,
+        "distance": 3
+      },
+      {
+        "coordinate": 26,
+        "distance": 2
+      },
+      {
+        "coordinate": 27,
+        "distance": 1
+      },
+      {
+        "coordinate": 28,
+        "distance": null
+      },
+      {
+        "coordinate": 29,
+        "distance": 15
+      },
+      {
+        "coordinate": 30,
+        "distance": 3
+      },
+      {
+        "coordinate": 31,
+        "distance": 1
+      },
+      {
+        "coordinate": 32,
+        "distance": 5
+      },
+      {
+        "coordinate": 33,
+        "distance": 1
+      },
+      {
+        "coordinate": 34,
+        "distance": null
+      },
+      {
+        "coordinate": 35,
+        "distance": 4
+      },
+      {
+        "coordinate": 36,
+        "distance": 10
+      },
+      {
+        "coordinate": 37,
+        "distance": 9
+      },
+      {
+        "coordinate": 38,
+        "distance": 6
+      },
+      {
+        "coordinate": 39,
+        "distance": 3
+      },
+      {
+        "coordinate": 40,
+        "distance": 1
+      },
+      {
+        "coordinate": 41,
+        "distance": 18
+      },
+      {
+        "coordinate": 42,
+        "distance": 1
+      },
+      {
+        "coordinate": 43,
+        "distance": null
+      },
+      {
+        "coordinate": 44,
+        "distance": 3
+      },
+      {
+        "coordinate": 45,
+        "distance": 5
+      },
+      {
+        "coordinate": 46,
+        "distance": null
+      },
+      {
+        "coordinate": 47,
+        "distance": 13
+      },
+      {
+        "coordinate": 48,
+        "distance": null
+      },
+      {
+        "coordinate": 49,
+        "distance": null
+      }
+    ]
+  },
+  {
+    "case": "full8_241",
+    "histogram": {
+      "1": 7,
+      "None": 26,
+      "2": 5,
+      "9": 3,
+      "10": 1,
+      "7": 3,
+      "6": 2,
+      "3": 4,
+      "5": 5,
+      "4": 3,
+      "19": 1
+    },
+    "rows": [
+      {
+        "coordinate": 31,
+        "distance": 1
+      },
+      {
+        "coordinate": 32,
+        "distance": null
+      },
+      {
+        "coordinate": 33,
+        "distance": 1
+      },
+      {
+        "coordinate": 34,
+        "distance": 2
+      },
+      {
+        "coordinate": 35,
+        "distance": 1
+      },
+      {
+        "coordinate": 36,
+        "distance": null
+      },
+      {
+        "coordinate": 37,
+        "distance": 9
+      },
+      {
+        "coordinate": 38,
+        "distance": 1
+      },
+      {
+        "coordinate": 39,
+        "distance": 10
+      },
+      {
+        "coordinate": 40,
+        "distance": null
+      },
+      {
+        "coordinate": 41,
+        "distance": null
+      },
+      {
+        "coordinate": 42,
+        "distance": 2
+      },
+      {
+        "coordinate": 43,
+        "distance": 9
+      },
+      {
+        "coordinate": 44,
+        "distance": 2
+      },
+      {
+        "coordinate": 45,
+        "distance": null
+      },
+      {
+        "coordinate": 46,
+        "distance": 7
+      },
+      {
+        "coordinate": 47,
+        "distance": null
+      },
+      {
+        "coordinate": 48,
+        "distance": null
+      },
+      {
+        "coordinate": 49,
+        "distance": 6
+      },
+      {
+        "coordinate": 50,
+        "distance": null
+      },
+      {
+        "coordinate": 51,
+        "distance": 7
+      },
+      {
+        "coordinate": 52,
+        "distance": 3
+      },
+      {
+        "coordinate": 53,
+        "distance": null
+      },
+      {
+        "coordinate": 54,
+        "distance": null
+      },
+      {
+        "coordinate": 55,
+        "distance": 5
+      },
+      {
+        "coordinate": 56,
+        "distance": 2
+      },
+      {
+        "coordinate": 57,
+        "distance": 9
+      },
+      {
+        "coordinate": 58,
+        "distance": null
+      },
+      {
+        "coordinate": 59,
+        "distance": null
+      },
+      {
+        "coordinate": 60,
+        "distance": null
+      },
+      {
+        "coordinate": 61,
+        "distance": null
+      },
+      {
+        "coordinate": 62,
+        "distance": null
+      },
+      {
+        "coordinate": 63,
+        "distance": 5
+      },
+      {
+        "coordinate": 64,
+        "distance": null
+      },
+      {
+        "coordinate": 65,
+        "distance": 1
+      },
+      {
+        "coordinate": 66,
+        "distance": 5
+      },
+      {
+        "coordinate": 67,
+        "distance": null
+      },
+      {
+        "coordinate": 68,
+        "distance": 4
+      },
+      {
+        "coordinate": 69,
+        "distance": 2
+      },
+      {
+        "coordinate": 70,
+        "distance": 5
+      },
+      {
+        "coordinate": 71,
+        "distance": 3
+      },
+      {
+        "coordinate": 72,
+        "distance": null
+      },
+      {
+        "coordinate": 73,
+        "distance": 19
+      },
+      {
+        "coordinate": 74,
+        "distance": 1
+      },
+      {
+        "coordinate": 75,
+        "distance": null
+      },
+      {
+        "coordinate": 76,
+        "distance": 4
+      },
+      {
+        "coordinate": 77,
+        "distance": 4
+      },
+      {
+        "coordinate": 78,
+        "distance": 3
+      },
+      {
+        "coordinate": 79,
+        "distance": null
+      },
+      {
+        "coordinate": 80,
+        "distance": null
+      },
+      {
+        "coordinate": 81,
+        "distance": null
+      },
+      {
+        "coordinate": 82,
+        "distance": null
+      },
+      {
+        "coordinate": 83,
+        "distance": null
+      },
+      {
+        "coordinate": 84,
+        "distance": 3
+      },
+      {
+        "coordinate": 85,
+        "distance": 6
+      },
+      {
+        "coordinate": 86,
+        "distance": 5
+      },
+      {
+        "coordinate": 87,
+        "distance": null
+      },
+      {
+        "coordinate": 88,
+        "distance": 1
+      },
+      {
+        "coordinate": 89,
+        "distance": 7
+      },
+      {
+        "coordinate": 90,
+        "distance": null
+      }
+    ]
+  },
+  {
+    "case": "star_409",
+    "histogram": {
+      "None": 8,
+      "1": 1,
+      "2": 1
+    },
+    "rows": [
+      {
+        "coordinate": 1,
+        "distance": null
+      },
+      {
+        "coordinate": 2,
+        "distance": null
+      },
+      {
+        "coordinate": 3,
+        "distance": null
+      },
+      {
+        "coordinate": 4,
+        "distance": 1
+      },
+      {
+        "coordinate": 5,
+        "distance": null
+      },
+      {
+        "coordinate": 6,
+        "distance": null
+      },
+      {
+        "coordinate": 7,
+        "distance": null
+      },
+      {
+        "coordinate": 8,
+        "distance": null
+      },
+      {
+        "coordinate": 9,
+        "distance": 2
+      },
+      {
+        "coordinate": 10,
+        "distance": null
+      }
+    ]
+  },
+  {
+    "case": "full15_8",
+    "histogram": {
+      "None": 1
+    },
+    "rows": [
+      {
+        "coordinate": 1,
+        "distance": null
+      }
+    ]
+  }
+]

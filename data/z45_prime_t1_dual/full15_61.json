@@ -1,0 +1,137 @@
+[
+  {
+    "N": 93025,
+    "modulus": 14,
+    "target": 3,
+    "primes": [
+      5,
+      61
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 7,
+    "x": 5
+  },
+  {
+    "N": 133956,
+    "modulus": 29,
+    "target": 11,
+    "primes": [
+      2,
+      3,
+      61
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 29,
+    "x": 6
+  },
+  {
+    "N": 182329,
+    "modulus": 44,
+    "target": 13,
+    "primes": [
+      7,
+      61
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 11,
+    "x": 7
+  },
+  {
+    "N": 238144,
+    "modulus": 59,
+    "target": 43,
+    "primes": [
+      2,
+      61
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 21,
+    "budget_modulus": 59,
+    "x": 8
+  },
+  {
+    "N": 301401,
+    "modulus": 74,
+    "target": 43,
+    "primes": [
+      3,
+      61
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 15,
+    "budget_modulus": 37,
+    "x": 9
+  },
+  {
+    "N": 372100,
+    "modulus": 89,
+    "target": 13,
+    "primes": [
+      2,
+      5,
+      61
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 89,
+    "x": 10
+  },
+  {
+    "N": 450241,
+    "modulus": 104,
+    "target": 57,
+    "primes": [
+      11,
+      61
+    ],
+    "kind": "quadratic",
+    "conductor": 52,
+    "quadratic": [
+      -52
+    ],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 13,
+    "x": 11
+  },
+  {
+    "N": 535824,
+    "modulus": 119,
+    "target": 101,
+    "primes": [
+      2,
+      3,
+      61
+    ],
+    "kind": "quadratic",
+    "conductor": 119,
+    "quadratic": [
+      -119
+    ],
+    "witness": null,
+    "divisor_count": 45,
+    "budget_modulus": 119,
+    "x": 12
+  }
+]

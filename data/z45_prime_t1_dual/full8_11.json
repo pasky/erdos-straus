@@ -1,0 +1,52 @@
+[
+  {
+    "N": 484,
+    "modulus": 5,
+    "target": 3,
+    "primes": [
+      2,
+      11
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 5,
+    "x": 2
+  },
+  {
+    "N": 1089,
+    "modulus": 13,
+    "target": 6,
+    "primes": [
+      3,
+      11
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 13,
+    "x": 3
+  },
+  {
+    "N": 1936,
+    "modulus": 21,
+    "target": 19,
+    "primes": [
+      2,
+      11
+    ],
+    "kind": "quadratic",
+    "conductor": 7,
+    "quadratic": [
+      -7
+    ],
+    "witness": null,
+    "divisor_count": 15,
+    "budget_modulus": 7,
+    "x": 4
+  }
+]

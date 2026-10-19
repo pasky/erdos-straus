@@ -1,0 +1,54 @@
+full8 11 {'budget': 2, 'quadratic': 1} control 19 {'hit': 2, 'budget': 2, 'height': 1}
+full8 17 {'budget': 3, 'quadratic': 1} control 29 {'hit': 1, 'budget': 5, 'quadratic': 1}
+full8 131 {'budget': 27, 'quadratic': 6} control 149 {'hit': 6, 'budget': 24, 'quadratic': 6, 'height': 1}
+full8 241 {'budget': 34, 'quadratic': 26} control 251 {'hit': 5, 'budget': 47, 'quadratic': 10, 'higher': 1}
+full15 1 {} control 7 {'hit': 1}
+full15 2 {} control 11 {'hit': 1, 'budget': 1}
+full15 3 {} control 11 {'hit': 1, 'budget': 1}
+full15 4 {} control 29 {'hit': 3, 'budget': 1}
+full15 8 {'quadratic': 1} control 11 {'hit': 1, 'budget': 1}
+full15 16 {'quadratic': 1, 'budget': 1} control 29 {'hit': 3, 'budget': 1}
+full15 17 {'budget': 2} control 37 {'hit': 2, 'budget': 3}
+full15 19 {'budget': 2} control 37 {'hit': 2, 'budget': 3}
+full15 23 {'quadratic': 2, 'budget': 1} control 41 {'hit': 1, 'budget': 5}
+full15 31 {'budget': 3, 'quadratic': 1} control 37 {'hit': 2, 'budget': 3}
+full15 34 {'budget': 4} control 41 {'hit': 1, 'budget': 5}
+full15 47 {'budget': 5, 'quadratic': 1} control 59 {'hit': 5, 'height': 1, 'budget': 2}
+full15 53 {'quadratic': 3, 'budget': 4} control 67 {'hit': 3, 'budget': 5, 'quadratic': 1}
+full15 61 {'budget': 6, 'quadratic': 2} control 73 {'hit': 3, 'budget': 6, 'higher': 1}
+full15 79 {'budget': 6, 'quadratic': 4} control 97 {'hit': 3, 'budget': 10}
+full15 113 {'quadratic': 6, 'budget': 9} control 127 {'hit': 3, 'budget': 11, 'higher': 1, 'height': 1, 'quadratic': 1}
+full15 122 {'budget': 14, 'quadratic': 2} control 127 {'hit': 3, 'budget': 11, 'higher': 1, 'height': 1, 'quadratic': 1}
+full15 137 {'budget': 11, 'quadratic': 6, 'higher': 1} control 149 {'hit': 6, 'budget': 11, 'quadratic': 2, 'higher': 1}
+full15 151 {'quadratic': 7, 'budget': 13} control 157 {'hit': 5, 'budget': 14, 'higher': 1, 'quadratic': 1}
+full15 197 {'budget': 18, 'quadratic': 8} control 211 {'budget': 18, 'quadratic': 8, 'hit': 1, 'height': 1}
+full15 226 {'quadratic': 8, 'budget': 22} control 251 {'hit': 2, 'budget': 31, 'quadratic': 1}
+full15 233 {'quadratic': 9, 'budget': 22} control 251 {'hit': 2, 'budget': 31, 'quadratic': 1}
+full15 271 {'budget': 28, 'quadratic': 7, 'higher': 1} control 281 {'hit': 6, 'quadratic': 3, 'budget': 26, 'higher': 2, 'height': 1}
+full15 541 {'quadratic': 24, 'budget': 48} control 557 {'hit': 4, 'budget': 48, 'quadratic': 22}
+full15 1103 {'quadratic': 46, 'budget': 100, 'higher': 1} control 1109 {'hit': 9, 'budget': 125, 'higher': 3, 'quadratic': 11}
+full15 1171 {'quadratic': 51, 'budget': 104, 'higher': 1} control 1187 {'hit': 3, 'budget': 113, 'quadratic': 42}
+full15 1367 {'budget': 127, 'quadratic': 54, 'higher': 1} control 1399 {'budget': 140, 'hit': 6, 'quadratic': 37, 'higher': 3}
+full15 4201 {'quadratic': 161, 'budget': 390, 'higher': 9} control 4283 {'hit': 10, 'quadratic': 121, 'budget': 437, 'height': 1, 'higher': 2}
+full15 6301 {'quadratic': 266, 'budget': 573, 'higher': 1} control 6397 {'hit': 11, 'budget': 751, 'higher': 21, 'quadratic': 69, 'height': 1}
+full15 12601 {'quadratic': 441, 'budget': 1209, 'higher': 30} control 12757 {'hit': 22, 'budget': 1503, 'quadratic': 147, 'higher': 27, 'height': 2}
+full15 16831 {'budget': 1677, 'quadratic': 535, 'higher': 32} control 16871 {'hit': 12, 'budget': 1940, 'quadratic': 259, 'higher': 39}
+full15 20521 {'quadratic': 740, 'budget': 1955, 'higher': 41} control 20857 {'hit': 19, 'budget': 2276, 'quadratic': 396, 'higher': 90}
+star 409 {'quadratic': 8, 'budget': 2} control 433 {'hit': 5, 'quadratic': 4, 'budget': 1}
+star 577 {'quadratic': 8, 'budget': 4} control 601 {'hit': 1, 'quadratic': 7, 'budget': 4}
+star 5569 {'quadratic': 28, 'budget': 8, 'higher': 1} control 5689 {'quadratic': 19, 'hit': 6, 'budget': 12}
+star 9601 {'quadratic': 33, 'budget': 15, 'higher': 1} control 9697 {'quadratic': 24, 'hit': 4, 'budget': 20, 'higher': 1}
+star 23929 {'quadratic': 46, 'budget': 30, 'higher': 1} control 24337 {'hit': 4, 'quadratic': 47, 'budget': 26, 'higher': 1}
+star 83449 {'quadratic': 99, 'budget': 42, 'higher': 3} control 84649 {'quadratic': 86, 'hit': 7, 'budget': 50, 'higher': 2}
+star 102001 {'quadratic': 102, 'budget': 53, 'higher': 4} control 103969 {'quadratic': 88, 'hit': 7, 'budget': 64, 'higher': 2}
+star 329617 {'quadratic': 172, 'budget': 106, 'higher': 9} control 330097 {'quadratic': 167, 'hit': 11, 'budget': 100, 'higher': 9}
+star 712321 {'quadratic': 282, 'budget': 132, 'higher': 8} control 720361 {'quadratic': 245, 'hit': 20, 'budget': 150, 'higher': 9}
+star 1134241 {'quadratic': 310, 'budget': 207, 'higher': 15} control 1134649 {'hit': 17, 'quadratic': 311, 'budget': 191, 'higher': 13}
+star 1724209 {'quadratic': 421, 'budget': 218, 'higher': 17} control 1724857 {'hit': 15, 'quadratic': 376, 'budget': 255, 'higher': 10}
+star 1726201 {'quadratic': 416, 'budget': 225, 'higher': 16} control 1754617 {'quadratic': 375, 'hit': 14, 'budget': 252, 'higher': 21}
+star 5212561 {'quadratic': 720, 'budget': 388, 'higher': 33} control 5216137 {'quadratic': 645, 'hit': 11, 'budget': 447, 'higher': 39}
+star 8813281 {'quadratic': 911, 'budget': 551, 'higher': 22} control 8975377 {'quadratic': 839, 'hit': 25, 'budget': 597, 'higher': 37}
+b1 193 {'quadratic': 16, 'budget': 8} control 241 {'hit': 2, 'quadratic': 20, 'budget': 7, 'higher': 1}
+b1 2521 {'quadratic': 238, 'budget': 73, 'higher': 4} control 2593 {'hit': 6, 'quadratic': 231, 'budget': 82, 'higher': 5}
+b1 66529 {'quadratic': 6440, 'budget': 1777, 'higher': 99} control 67273 {'hit': 12, 'quadratic': 5830, 'budget': 2392, 'higher': 175}
+validated independent brute-force decisions for 297 (m,n) inputs

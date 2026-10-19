@@ -1,0 +1,1063 @@
+[
+  {
+    "N": 55815841,
+    "modulus": 7,
+    "target": 5,
+    "primes": [
+      31,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 7,
+    "x": 31
+  },
+  {
+    "N": 59474944,
+    "modulus": 15,
+    "target": 13,
+    "primes": [
+      2,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 15,
+    "quadratic": [
+      -15
+    ],
+    "witness": null,
+    "divisor_count": 33,
+    "budget_modulus": 15,
+    "x": 32
+  },
+  {
+    "N": 63250209,
+    "modulus": 23,
+    "target": 5,
+    "primes": [
+      3,
+      11,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 23,
+    "x": 33
+  },
+  {
+    "N": 67141636,
+    "modulus": 31,
+    "target": 21,
+    "primes": [
+      2,
+      17,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 31,
+    "x": 34
+  },
+  {
+    "N": 71149225,
+    "modulus": 39,
+    "target": 28,
+    "primes": [
+      5,
+      7,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 13,
+    "x": 35
+  },
+  {
+    "N": 75272976,
+    "modulus": 47,
+    "target": 19,
+    "primes": [
+      2,
+      3,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 47,
+    "quadratic": [
+      -47
+    ],
+    "witness": null,
+    "divisor_count": 75,
+    "budget_modulus": 47,
+    "x": 36
+  },
+  {
+    "N": 79512889,
+    "modulus": 55,
+    "target": 48,
+    "primes": [
+      37,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 5,
+    "x": 37
+  },
+  {
+    "N": 83868964,
+    "modulus": 63,
+    "target": 40,
+    "primes": [
+      2,
+      19,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 63,
+    "x": 38
+  },
+  {
+    "N": 88341201,
+    "modulus": 71,
+    "target": 44,
+    "primes": [
+      3,
+      13,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 71,
+    "x": 39
+  },
+  {
+    "N": 92929600,
+    "modulus": 79,
+    "target": 77,
+    "primes": [
+      2,
+      5,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 79,
+    "quadratic": [
+      -79
+    ],
+    "witness": null,
+    "divisor_count": 63,
+    "budget_modulus": 79,
+    "x": 40
+  },
+  {
+    "N": 97634161,
+    "modulus": 87,
+    "target": 37,
+    "primes": [
+      41,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 87,
+    "quadratic": [
+      -87
+    ],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 29,
+    "x": 41
+  },
+  {
+    "N": 102454884,
+    "modulus": 95,
+    "target": 43,
+    "primes": [
+      2,
+      3,
+      7,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 81,
+    "budget_modulus": 95,
+    "x": 42
+  },
+  {
+    "N": 107391769,
+    "modulus": 103,
+    "target": 40,
+    "primes": [
+      43,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 103,
+    "x": 43
+  },
+  {
+    "N": 112444816,
+    "modulus": 111,
+    "target": 52,
+    "primes": [
+      2,
+      11,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 45,
+    "budget_modulus": 37,
+    "x": 44
+  },
+  {
+    "N": 117614025,
+    "modulus": 119,
+    "target": 103,
+    "primes": [
+      3,
+      5,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 119,
+    "quadratic": [
+      -119
+    ],
+    "witness": null,
+    "divisor_count": 45,
+    "budget_modulus": 119,
+    "x": 45
+  },
+  {
+    "N": 122899396,
+    "modulus": 127,
+    "target": 90,
+    "primes": [
+      2,
+      23,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 127,
+    "x": 46
+  },
+  {
+    "N": 128300929,
+    "modulus": 135,
+    "target": 13,
+    "primes": [
+      47,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 15,
+    "quadratic": [
+      -15
+    ],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 5,
+    "x": 47
+  },
+  {
+    "N": 133818624,
+    "modulus": 143,
+    "target": 15,
+    "primes": [
+      2,
+      3,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 143,
+    "quadratic": [
+      -143
+    ],
+    "witness": null,
+    "divisor_count": 81,
+    "budget_modulus": 143,
+    "x": 48
+  },
+  {
+    "N": 139452481,
+    "modulus": 151,
+    "target": 120,
+    "primes": [
+      7,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 15,
+    "budget_modulus": 151,
+    "x": 49
+  },
+  {
+    "N": 145202500,
+    "modulus": 159,
+    "target": 34,
+    "primes": [
+      2,
+      5,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 159,
+    "quadratic": [
+      -159
+    ],
+    "witness": null,
+    "divisor_count": 45,
+    "budget_modulus": 53,
+    "x": 50
+  },
+  {
+    "N": 151068681,
+    "modulus": 167,
+    "target": 67,
+    "primes": [
+      3,
+      17,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 167,
+    "x": 51
+  },
+  {
+    "N": 157051024,
+    "modulus": 175,
+    "target": 68,
+    "primes": [
+      2,
+      13,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 45,
+    "budget_modulus": 25,
+    "x": 52
+  },
+  {
+    "N": 163149529,
+    "modulus": 183,
+    "target": 37,
+    "primes": [
+      53,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 183,
+    "quadratic": [
+      -183
+    ],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 61,
+    "x": 53
+  },
+  {
+    "N": 169364196,
+    "modulus": 191,
+    "target": 165,
+    "primes": [
+      2,
+      3,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 191,
+    "quadratic": [
+      -191
+    ],
+    "witness": null,
+    "divisor_count": 63,
+    "budget_modulus": 191,
+    "x": 54
+  },
+  {
+    "N": 175695025,
+    "modulus": 199,
+    "target": 78,
+    "primes": [
+      5,
+      11,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 199,
+    "x": 55
+  },
+  {
+    "N": 182142016,
+    "modulus": 207,
+    "target": 166,
+    "primes": [
+      2,
+      7,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 63,
+    "budget_modulus": 207,
+    "x": 56
+  },
+  {
+    "N": 188705169,
+    "modulus": 215,
+    "target": 23,
+    "primes": [
+      3,
+      19,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 43,
+    "x": 57
+  },
+  {
+    "N": 195384484,
+    "modulus": 223,
+    "target": 71,
+    "primes": [
+      2,
+      29,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 223,
+    "quadratic": [
+      -223
+    ],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 223,
+    "x": 58
+  },
+  {
+    "N": 202179961,
+    "modulus": 231,
+    "target": 103,
+    "primes": [
+      59,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 231,
+    "quadratic": [
+      -231
+    ],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 7,
+    "x": 59
+  },
+  {
+    "N": 209091600,
+    "modulus": 239,
+    "target": 119,
+    "primes": [
+      2,
+      3,
+      5,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 239,
+    "quadratic": [
+      -239
+    ],
+    "witness": null,
+    "divisor_count": 135,
+    "budget_modulus": 239,
+    "x": 60
+  },
+  {
+    "N": 216119401,
+    "modulus": 247,
+    "target": 119,
+    "primes": [
+      61,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 247,
+    "quadratic": [
+      -247
+    ],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 13,
+    "x": 61
+  },
+  {
+    "N": 223263364,
+    "modulus": 255,
+    "target": 103,
+    "primes": [
+      2,
+      31,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 15,
+    "quadratic": [
+      -15
+    ],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 5,
+    "x": 62
+  },
+  {
+    "N": 230523489,
+    "modulus": 263,
+    "target": 71,
+    "primes": [
+      3,
+      7,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 45,
+    "budget_modulus": 263,
+    "x": 63
+  },
+  {
+    "N": 237899776,
+    "modulus": 271,
+    "target": 23,
+    "primes": [
+      2,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 271,
+    "quadratic": [
+      -271
+    ],
+    "witness": null,
+    "divisor_count": 39,
+    "budget_modulus": 271,
+    "x": 64
+  },
+  {
+    "N": 245392225,
+    "modulus": 279,
+    "target": 238,
+    "primes": [
+      5,
+      13,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 31,
+    "x": 65
+  },
+  {
+    "N": 253000836,
+    "modulus": 287,
+    "target": 166,
+    "primes": [
+      2,
+      3,
+      11,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 81,
+    "budget_modulus": 287,
+    "x": 66
+  },
+  {
+    "N": 260725609,
+    "modulus": 295,
+    "target": 78,
+    "primes": [
+      67,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 295,
+    "quadratic": [
+      -295
+    ],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 5,
+    "x": 67
+  },
+  {
+    "N": 268566544,
+    "modulus": 303,
+    "target": 277,
+    "primes": [
+      2,
+      17,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 45,
+    "budget_modulus": 101,
+    "x": 68
+  },
+  {
+    "N": 276523641,
+    "modulus": 311,
+    "target": 165,
+    "primes": [
+      3,
+      23,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 311,
+    "x": 69
+  },
+  {
+    "N": 284596900,
+    "modulus": 319,
+    "target": 37,
+    "primes": [
+      2,
+      5,
+      7,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 81,
+    "budget_modulus": 29,
+    "x": 70
+  },
+  {
+    "N": 292786321,
+    "modulus": 327,
+    "target": 220,
+    "primes": [
+      71,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 109,
+    "x": 71
+  },
+  {
+    "N": 301091904,
+    "modulus": 335,
+    "target": 68,
+    "primes": [
+      2,
+      3,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 335,
+    "quadratic": [
+      -335
+    ],
+    "witness": null,
+    "divisor_count": 105,
+    "budget_modulus": 335,
+    "x": 72
+  },
+  {
+    "N": 309513649,
+    "modulus": 343,
+    "target": 243,
+    "primes": [
+      73,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 7,
+    "x": 73
+  },
+  {
+    "N": 318051556,
+    "modulus": 351,
+    "target": 67,
+    "primes": [
+      2,
+      37,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 117,
+    "x": 74
+  },
+  {
+    "N": 326705625,
+    "modulus": 359,
+    "target": 234,
+    "primes": [
+      3,
+      5,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 359,
+    "quadratic": [
+      -359
+    ],
+    "witness": null,
+    "divisor_count": 45,
+    "budget_modulus": 359,
+    "x": 75
+  },
+  {
+    "N": 335475856,
+    "modulus": 367,
+    "target": 34,
+    "primes": [
+      2,
+      19,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 45,
+    "budget_modulus": 367,
+    "x": 76
+  },
+  {
+    "N": 344362249,
+    "modulus": 375,
+    "target": 193,
+    "primes": [
+      7,
+      11,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 5,
+    "x": 77
+  },
+  {
+    "N": 353364804,
+    "modulus": 383,
+    "target": 352,
+    "primes": [
+      2,
+      3,
+      13,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 81,
+    "budget_modulus": 383,
+    "x": 78
+  },
+  {
+    "N": 362483521,
+    "modulus": 391,
+    "target": 120,
+    "primes": [
+      79,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 391,
+    "quadratic": [
+      -391
+    ],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 23,
+    "x": 79
+  },
+  {
+    "N": 371718400,
+    "modulus": 399,
+    "target": 271,
+    "primes": [
+      2,
+      5,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 399,
+    "quadratic": [
+      -399
+    ],
+    "witness": null,
+    "divisor_count": 81,
+    "budget_modulus": 399,
+    "x": 80
+  },
+  {
+    "N": 381069441,
+    "modulus": 407,
+    "target": 15,
+    "primes": [
+      3,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 407,
+    "quadratic": [
+      -407
+    ],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 37,
+    "x": 81
+  },
+  {
+    "N": 390536644,
+    "modulus": 415,
+    "target": 158,
+    "primes": [
+      2,
+      41,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 415,
+    "quadratic": [
+      -415
+    ],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 5,
+    "x": 82
+  },
+  {
+    "N": 400120009,
+    "modulus": 423,
+    "target": 301,
+    "primes": [
+      83,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 47,
+    "quadratic": [
+      -47
+    ],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 47,
+    "x": 83
+  },
+  {
+    "N": 409819536,
+    "modulus": 431,
+    "target": 13,
+    "primes": [
+      2,
+      3,
+      7,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 135,
+    "budget_modulus": 431,
+    "x": 84
+  },
+  {
+    "N": 419635225,
+    "modulus": 439,
+    "target": 148,
+    "primes": [
+      5,
+      17,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 439,
+    "x": 85
+  },
+  {
+    "N": 429567076,
+    "modulus": 447,
+    "target": 283,
+    "primes": [
+      2,
+      43,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 149,
+    "x": 86
+  },
+  {
+    "N": 439615089,
+    "modulus": 455,
+    "target": 418,
+    "primes": [
+      3,
+      29,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 455,
+    "quadratic": [
+      -455
+    ],
+    "witness": null,
+    "divisor_count": 27,
+    "budget_modulus": 7,
+    "x": 87
+  },
+  {
+    "N": 449779264,
+    "modulus": 463,
+    "target": 90,
+    "primes": [
+      2,
+      11,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 63,
+    "budget_modulus": 463,
+    "x": 88
+  },
+  {
+    "N": 460059601,
+    "modulus": 471,
+    "target": 217,
+    "primes": [
+      89,
+      241
+    ],
+    "kind": "budget",
+    "conductor": null,
+    "quadratic": [],
+    "witness": null,
+    "divisor_count": 9,
+    "budget_modulus": 157,
+    "x": 89
+  },
+  {
+    "N": 470456100,
+    "modulus": 479,
+    "target": 344,
+    "primes": [
+      2,
+      3,
+      5,
+      241
+    ],
+    "kind": "quadratic",
+    "conductor": 479,
+    "quadratic": [
+      -479
+    ],
+    "witness": null,
+    "divisor_count": 135,
+    "budget_modulus": 479,
+    "x": 90
+  }
+]

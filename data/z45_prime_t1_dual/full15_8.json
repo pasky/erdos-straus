@@ -1,0 +1,19 @@
+[
+  {
+    "N": 64,
+    "modulus": 7,
+    "target": 6,
+    "primes": [
+      2
+    ],
+    "kind": "quadratic",
+    "conductor": 7,
+    "quadratic": [
+      -7
+    ],
+    "witness": null,
+    "divisor_count": 7,
+    "budget_modulus": 7,
+    "x": 1
+  }
+]

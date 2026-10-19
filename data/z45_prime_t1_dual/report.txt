@@ -1,0 +1,102 @@
+full8 failure {'budget': 66, 'quadratic': 34} control {'hit': 14, 'budget': 78, 'height': 2, 'quadratic': 17, 'higher': 1}
+11 3 {'budget': 2, 'quadratic': 1} best [[-7, 1]] control 19 []
+17 4 {'budget': 3, 'quadratic': 1} best [[-15, 1]] control 29 [[-7, 1]]
+131 33 {'budget': 27, 'quadratic': 6} best [[-23, 1]] control 149 [[-7, 3]]
+241 60 {'budget': 34, 'quadratic': 26} best [[-15, 3]] control 251 [[-47, 1]]
+full15 failure {'quadratic': 2386, 'budget': 6354, 'higher': 118} control {'hit': 156, 'budget': 7533, 'height': 9, 'quadratic': 1123, 'higher': 192}
+1 0 {} best [] control 7 []
+2 0 {} best [] control 11 []
+3 0 {} best [] control 11 []
+4 0 {} best [] control 29 []
+8 1 {'quadratic': 1} best [[-7, 1]] control 11 []
+16 2 {'quadratic': 1, 'budget': 1} best [[-7, 1]] control 29 []
+17 2 {'budget': 2} best [] control 37 []
+19 2 {'budget': 2} best [] control 37 []
+23 3 {'quadratic': 2, 'budget': 1} best [[-7, 1]] control 41 []
+31 4 {'budget': 3, 'quadratic': 1} best [[-11, 1]] control 37 []
+34 4 {'budget': 4} best [] control 41 []
+47 6 {'budget': 5, 'quadratic': 1} best [[-11, 1]] control 59 []
+53 7 {'quadratic': 3, 'budget': 4} best [[-7, 1]] control 67 [[-7, 1]]
+61 8 {'budget': 6, 'quadratic': 2} best [[-52, 1]] control 73 []
+79 10 {'budget': 6, 'quadratic': 4} best [[-43, 1]] control 97 []
+113 15 {'quadratic': 6, 'budget': 9} best [[-7, 2]] control 127 [[-7, 1]]
+122 16 {'budget': 14, 'quadratic': 2} best [[-52, 1]] control 127 [[-7, 1]]
+137 18 {'budget': 11, 'quadratic': 6, 'higher': 1} best [[-7, 1]] control 149 [[-7, 2]]
+151 20 {'quadratic': 7, 'budget': 13} best [[-7, 1]] control 157 [[-11, 1]]
+197 26 {'budget': 18, 'quadratic': 8} best [[-7, 2]] control 211 [[-7, 2]]
+226 30 {'quadratic': 8, 'budget': 22} best [[-7, 4]] control 251 [[-11, 1]]
+233 31 {'quadratic': 9, 'budget': 22} best [[-7, 4]] control 251 [[-11, 1]]
+271 36 {'budget': 28, 'quadratic': 7, 'higher': 1} best [[-43, 1]] control 281 [[-7, 3]]
+541 72 {'quadratic': 24, 'budget': 48} best [[-7, 6]] control 557 [[-7, 6]]
+1103 147 {'quadratic': 46, 'budget': 100, 'higher': 1} best [[-7, 11]] control 1109 [[-11, 5]]
+1171 156 {'quadratic': 51, 'budget': 104, 'higher': 1} best [[-7, 13]] control 1187 [[-7, 10]]
+1367 182 {'budget': 127, 'quadratic': 54, 'higher': 1} best [[-7, 13]] control 1399 [[-52, 3]]
+4201 560 {'quadratic': 161, 'budget': 390, 'higher': 9} best [[-7, 35]] control 4283 [[-11, 19]]
+6301 840 {'quadratic': 266, 'budget': 573, 'higher': 1} best [[-7, 53]] control 6397 [[-56, 12]]
+12601 1680 {'quadratic': 441, 'budget': 1209, 'higher': 30} best [[-7, 103]] control 12757 [[-56, 24]]
+16831 2244 {'budget': 1677, 'quadratic': 535, 'higher': 32} best [[-11, 69]] control 16871 [[-7, 134]]
+20521 2736 {'quadratic': 740, 'budget': 1955, 'higher': 41} best [[-7, 163]] control 20857 [[-7, 165]]
+star failure {'quadratic': 3556, 'budget': 1981, 'higher': 130} control {'hit': 147, 'quadratic': 3233, 'budget': 2169, 'higher': 144}
+409 10 {'quadratic': 8, 'budget': 2} best [[-8, 3]] control 433 [[-3, 2]]
+577 12 {'quadratic': 8, 'budget': 4} best [[-4, 4]] control 601 [[-3, 3]]
+5569 37 {'quadratic': 28, 'budget': 8, 'higher': 1} best [[-4, 10]] control 5689 [[-4, 10]]
+9601 49 {'quadratic': 33, 'budget': 15, 'higher': 1} best [[-4, 12]] control 9697 [[-4, 10]]
+23929 77 {'quadratic': 46, 'budget': 30, 'higher': 1} best [[-4, 17]] control 24337 [[-4, 19]]
+83449 144 {'quadratic': 99, 'budget': 42, 'higher': 3} best [[-4, 31]] control 84649 [[-4, 28]]
+102001 159 {'quadratic': 102, 'budget': 53, 'higher': 4} best [[-4, 25]] control 103969 [[-4, 34]]
+329617 287 {'quadratic': 172, 'budget': 106, 'higher': 9} best [[-4, 52]] control 330097 [[-4, 55]]
+712321 422 {'quadratic': 282, 'budget': 132, 'higher': 8} best [[-4, 76]] control 720361 [[-4, 77]]
+1134241 532 {'quadratic': 310, 'budget': 207, 'higher': 15} best [[-4, 92]] control 1134649 [[-4, 90]]
+1724209 656 {'quadratic': 421, 'budget': 218, 'higher': 17} best [[-4, 121]] control 1724857 [[-4, 107]]
+1726201 657 {'quadratic': 416, 'budget': 225, 'higher': 16} best [[-4, 114]] control 1754617 [[-4, 111]]
+5212561 1141 {'quadratic': 720, 'budget': 388, 'higher': 33} best [[-4, 188]] control 5216137 [[-4, 197]]
+8813281 1484 {'quadratic': 911, 'budget': 551, 'higher': 22} best [[-4, 242]] control 8975377 [[-4, 244]]
+b1 failure {'quadratic': 6694, 'budget': 1858, 'higher': 103} control {'hit': 20, 'quadratic': 6081, 'budget': 2481, 'higher': 181}
+193 24 {'quadratic': 16, 'budget': 8} best [[-4, 12]] control 241 [[-4, 14]]
+2521 315 {'quadratic': 238, 'budget': 73, 'higher': 4} best [[-4, 136]] control 2593 [[-4, 142]]
+66529 8316 {'quadratic': 6440, 'budget': 1777, 'higher': 99} best [[-4, 3090]] control 67273 [[-4, 3123]]
+FULL8 11 quadratic rows [(4, 21, [-7])]
+first budget {'N': 484, 'modulus': 5, 'target': 3, 'primes': [2, 11], 'kind': 'budget', 'conductor': None, 'quadratic': [], 'witness': None, 'divisor_count': 9, 'budget_modulus': 5, 'x': 2}
+FULL8 17 quadratic rows [(4, 15, [-15])]
+first budget {'N': 2601, 'modulus': 7, 'target': 5, 'primes': [3, 17], 'kind': 'budget', 'conductor': None, 'quadratic': [], 'witness': None, 'divisor_count': 9, 'budget_modulus': 7, 'x': 3}
+FULL8 131 quadratic rows [(28, 93, [-31]), (34, 141, [-47]), (43, 213, [-71]), (46, 237, [-79]), (48, 253, [-23]), (49, 261, [-87])]
+first budget {'N': 4959529, 'modulus': 5, 'target': 3, 'primes': [17, 131], 'kind': 'budget', 'conductor': None, 'quadratic': [], 'witness': None, 'divisor_count': 9, 'budget_modulus': 5, 'x': 17}
+FULL8 241 quadratic rows [(32, 15, [-15]), (36, 47, [-47]), (40, 79, [-79]), (41, 87, [-87]), (45, 119, [-119]), (47, 135, [-15]), (48, 143, [-143]), (50, 159, [-159]), (53, 183, [-183]), (54, 191, [-191]), (58, 223, [-223]), (59, 231, [-231]), (60, 239, [-239]), (61, 247, [-247]), (62, 255, [-15]), (64, 271, [-271]), (67, 295, [-295]), (72, 335, [-335]), (75, 359, [-359]), (79, 391, [-391]), (80, 399, [-399]), (81, 407, [-407]), (82, 415, [-415]), (83, 423, [-47]), (87, 455, [-455]), (90, 479, [-479])]
+first budget {'N': 55815841, 'modulus': 7, 'target': 5, 'primes': [31, 241], 'kind': 'budget', 'conductor': None, 'quadratic': [], 'witness': None, 'divisor_count': 9, 'budget_modulus': 7, 'x': 31}
+HIGHER full15 137 {'N': 9928801, 'modulus': 208, 'target': 177, 'primes': [23, 137], 'kind': 'higher', 'conductor': 208, 'quadratic': [], 'witness': None, 'divisor_count': 9, 'budget_modulus': 13, 'x': 23}
+HIGHER star 5569 {'N': 5582, 'modulus': 52, 'target': 51, 'primes': [2791], 'kind': 'higher', 'conductor': 13, 'quadratic': [], 'witness': None, 'divisor_count': 2, 'budget_modulus': 13, 'u': 13}
+HIGHER b1 66529 {'N': 66641, 'modulus': 112, 'target': 111, 'primes': [103, 647], 'kind': 'higher', 'conductor': 16, 'quadratic': [], 'witness': None, 'divisor_count': 4, 'budget_modulus': 7, 'd': 28}
+FOREST
+409 1 15 14 0 4 {'1': 15} nonunit 0
+1201 1 11 10 0 5 {'1': 11} nonunit 0
+5569 1 18 17 0 8 {'1': 18} nonunit 0
+8521 1 10 9 0 19 {'1': 10} nonunit 0
+8641 1 18 17 0 14 {'1': 18} nonunit 0
+9649 1 20 19 0 7 {'1': 20} nonunit 0
+12289 1 22 21 0 7 {'1': 22} nonunit 0
+12721 1 8 7 0 12 {'1': 8} nonunit 0
+12841 1 14 13 0 10 {'1': 14} nonunit 0
+15241 1 10 9 0 13 {'1': 10} nonunit 0
+16921 1 8 7 0 8 {'1': 8} nonunit 0
+19441 1 8 7 0 9 {'1': 8} nonunit 0
+23761 1 16 15 0 16 {'1': 16} nonunit 0
+23929 1 18 17 0 21 {'1': 18} nonunit 0
+24481 1 8 7 0 12 {'1': 8} nonunit 0
+27241 1 23 22 0 20 {'1': 23} nonunit 0
+49681 1 8 7 0 15 {'1': 8} nonunit 0
+61561 1 8 7 0 21 {'1': 8} nonunit 0
+104161 1 8 7 0 17 {'1': 8} nonunit 0
+229321 1 8 7 0 30 {'1': 8} nonunit 0
+1201 11 1 0 0 5 {'-1': 1} nonunit 0
+2521 11 1 0 0 2 {'-1': 1} nonunit 0
+3361 11 1 0 0 4 {'-1': 1} nonunit 0
+5569 13 1 0 0 8 {'-1': 1} nonunit 0
+7561 13 1 0 0 19 {'-1': 1} nonunit 0
+9769 13 1 0 0 12 {'-1': 1} nonunit 0
+105 1 5 4 0 0 {'1': 5} nonunit 1
+169 1 16 15 0 0 {'1': 16} nonunit 0
+433 1 20 19 12 14 {'1': 11, '-1': 9} nonunit 0
+1249 1 25 24 3 5 {'1': 22, '-1': 3} nonunit 0
+12781 1 39 38 25 28 {'1': 18, '-1': 21} nonunit 0
+2521 1 16 15 2 2 {'1': 14, '-1': 2} nonunit 0
+3361 1 18 17 2 4 {'1': 16, '-1': 2} nonunit 0

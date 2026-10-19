@@ -1,0 +1,873 @@
+[
+  {
+    "n": 409,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      10,
+      41,
+      46,
+      82,
+      83,
+      137,
+      205,
+      206,
+      410,
+      411
+    ],
+    "component_edges": 14,
+    "component_good": 0,
+    "all_edges": 19,
+    "all_good": 4,
+    "component_colours": {
+      "1": 15
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 1201,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      14,
+      45,
+      86,
+      401,
+      601,
+      602,
+      1202,
+      1203
+    ],
+    "component_edges": 10,
+    "component_good": 0,
+    "all_edges": 17,
+    "all_good": 5,
+    "component_colours": {
+      "1": 11
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 5569,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      9,
+      10,
+      14,
+      398,
+      557,
+      619,
+      1114,
+      1115,
+      1857,
+      2785,
+      2786,
+      5570,
+      5571
+    ],
+    "component_edges": 17,
+    "component_good": 0,
+    "all_edges": 27,
+    "all_good": 8,
+    "component_colours": {
+      "1": 18
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 8521,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      9,
+      947,
+      2841,
+      4261,
+      4262,
+      8522,
+      8523
+    ],
+    "component_edges": 9,
+    "component_good": 0,
+    "all_edges": 39,
+    "all_good": 19,
+    "component_colours": {
+      "1": 10
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 8641,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      29,
+      30,
+      43,
+      58,
+      67,
+      129,
+      149,
+      201,
+      298,
+      299,
+      2881,
+      4321,
+      4322,
+      8642,
+      8643
+    ],
+    "component_edges": 17,
+    "component_good": 0,
+    "all_edges": 32,
+    "all_good": 14,
+    "component_colours": {
+      "1": 18
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 9649,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      10,
+      25,
+      38,
+      50,
+      193,
+      254,
+      386,
+      965,
+      1930,
+      1931,
+      3217,
+      4825,
+      4826,
+      9650,
+      9651
+    ],
+    "component_edges": 19,
+    "component_good": 0,
+    "all_edges": 31,
+    "all_good": 7,
+    "component_colours": {
+      "1": 20
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 12289,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      10,
+      14,
+      17,
+      51,
+      241,
+      251,
+      723,
+      878,
+      1229,
+      1366,
+      2458,
+      2459,
+      4097,
+      6145,
+      6146,
+      12290,
+      12291
+    ],
+    "component_edges": 21,
+    "component_good": 0,
+    "all_edges": 31,
+    "all_good": 7,
+    "component_colours": {
+      "1": 22
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 12721,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      4241,
+      6361,
+      6362,
+      12722,
+      12723
+    ],
+    "component_edges": 7,
+    "component_good": 0,
+    "all_edges": 27,
+    "all_good": 12,
+    "component_colours": {
+      "1": 8
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 12841,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      9,
+      26,
+      38,
+      338,
+      494,
+      1427,
+      4281,
+      6421,
+      6422,
+      12842,
+      12843
+    ],
+    "component_edges": 13,
+    "component_good": 0,
+    "all_edges": 28,
+    "all_good": 10,
+    "component_colours": {
+      "1": 14
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 15241,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      74,
+      206,
+      5081,
+      7621,
+      7622,
+      15242,
+      15243
+    ],
+    "component_edges": 9,
+    "component_good": 0,
+    "all_edges": 31,
+    "all_good": 13,
+    "component_colours": {
+      "1": 10
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 16921,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      5641,
+      8461,
+      8462,
+      16922,
+      16923
+    ],
+    "component_edges": 7,
+    "component_good": 0,
+    "all_edges": 20,
+    "all_good": 8,
+    "component_colours": {
+      "1": 8
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 19441,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      6481,
+      9721,
+      9722,
+      19442,
+      19443
+    ],
+    "component_edges": 7,
+    "component_good": 0,
+    "all_edges": 20,
+    "all_good": 9,
+    "component_colours": {
+      "1": 8
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 23761,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      26,
+      89,
+      109,
+      110,
+      218,
+      219,
+      267,
+      914,
+      7921,
+      11881,
+      11882,
+      23762,
+      23763
+    ],
+    "component_edges": 15,
+    "component_good": 0,
+    "all_edges": 32,
+    "all_good": 16,
+    "component_colours": {
+      "1": 16
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 23929,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      9,
+      10,
+      62,
+      386,
+      2393,
+      2659,
+      4786,
+      4787,
+      7977,
+      11965,
+      11966,
+      23930,
+      23931
+    ],
+    "component_edges": 17,
+    "component_good": 0,
+    "all_edges": 44,
+    "all_good": 21,
+    "component_colours": {
+      "1": 18
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 24481,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      8161,
+      12241,
+      12242,
+      24482,
+      24483
+    ],
+    "component_edges": 7,
+    "component_good": 0,
+    "all_edges": 29,
+    "all_good": 12,
+    "component_colours": {
+      "1": 8
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 27241,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      9,
+      14,
+      27,
+      53,
+      98,
+      106,
+      115,
+      218,
+      257,
+      278,
+      395,
+      514,
+      1009,
+      1946,
+      3027,
+      9081,
+      13621,
+      13622,
+      27242,
+      27243
+    ],
+    "component_edges": 22,
+    "component_good": 0,
+    "all_edges": 49,
+    "all_good": 20,
+    "component_colours": {
+      "1": 23
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 49681,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      16561,
+      24841,
+      24842,
+      49682,
+      49683
+    ],
+    "component_edges": 7,
+    "component_good": 0,
+    "all_edges": 32,
+    "all_good": 15,
+    "component_colours": {
+      "1": 8
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 61561,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      20521,
+      30781,
+      30782,
+      61562,
+      61563
+    ],
+    "component_edges": 7,
+    "component_good": 0,
+    "all_edges": 38,
+    "all_good": 21,
+    "component_colours": {
+      "1": 8
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 104161,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      34721,
+      52081,
+      52082,
+      104162,
+      104163
+    ],
+    "component_edges": 7,
+    "component_good": 0,
+    "all_edges": 29,
+    "all_good": 17,
+    "component_colours": {
+      "1": 8
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 229321,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      76441,
+      114661,
+      114662,
+      229322,
+      229323
+    ],
+    "component_edges": 7,
+    "component_good": 0,
+    "all_edges": 48,
+    "all_good": 30,
+    "component_colours": {
+      "1": 8
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 1201,
+    "root": 11,
+    "vertices": [
+      11
+    ],
+    "component_edges": 0,
+    "component_good": 0,
+    "all_edges": 17,
+    "all_good": 5,
+    "component_colours": {
+      "-1": 1
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 2521,
+    "root": 11,
+    "vertices": [
+      11
+    ],
+    "component_edges": 0,
+    "component_good": 0,
+    "all_edges": 18,
+    "all_good": 2,
+    "component_colours": {
+      "-1": 1
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 3361,
+    "root": 11,
+    "vertices": [
+      11
+    ],
+    "component_edges": 0,
+    "component_good": 0,
+    "all_edges": 23,
+    "all_good": 4,
+    "component_colours": {
+      "-1": 1
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 5569,
+    "root": 13,
+    "vertices": [
+      13
+    ],
+    "component_edges": 0,
+    "component_good": 0,
+    "all_edges": 27,
+    "all_good": 8,
+    "component_colours": {
+      "-1": 1
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 7561,
+    "root": 13,
+    "vertices": [
+      13
+    ],
+    "component_edges": 0,
+    "component_good": 0,
+    "all_edges": 28,
+    "all_good": 19,
+    "component_colours": {
+      "-1": 1
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 9769,
+    "root": 13,
+    "vertices": [
+      13
+    ],
+    "component_edges": 0,
+    "component_good": 0,
+    "all_edges": 31,
+    "all_good": 12,
+    "component_colours": {
+      "-1": 1
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 105,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      53,
+      106,
+      107
+    ],
+    "component_edges": 4,
+    "component_good": 0,
+    "all_edges": 5,
+    "all_good": 0,
+    "component_colours": {
+      "1": 5
+    },
+    "nonunit_edges": 1
+  },
+  {
+    "n": 169,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      9,
+      10,
+      17,
+      19,
+      34,
+      35,
+      57,
+      85,
+      86,
+      170,
+      171
+    ],
+    "component_edges": 15,
+    "component_good": 0,
+    "all_edges": 16,
+    "all_good": 0,
+    "component_colours": {
+      "1": 16
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 433,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      5,
+      7,
+      8,
+      14,
+      15,
+      22,
+      29,
+      31,
+      32,
+      62,
+      63,
+      87,
+      145,
+      217,
+      218,
+      434,
+      435
+    ],
+    "component_edges": 19,
+    "component_good": 12,
+    "all_edges": 23,
+    "all_good": 14,
+    "component_colours": {
+      "1": 11,
+      "-1": 9
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 1249,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      9,
+      10,
+      11,
+      25,
+      26,
+      50,
+      51,
+      60,
+      66,
+      74,
+      125,
+      126,
+      139,
+      250,
+      251,
+      417,
+      625,
+      626,
+      1250,
+      1251
+    ],
+    "component_edges": 24,
+    "component_good": 3,
+    "all_edges": 26,
+    "all_good": 5,
+    "component_colours": {
+      "1": 22,
+      "-1": 3
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 12781,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      7,
+      8,
+      11,
+      12,
+      14,
+      15,
+      17,
+      22,
+      47,
+      54,
+      68,
+      77,
+      78,
+      83,
+      92,
+      147,
+      154,
+      166,
+      167,
+      188,
+      203,
+      272,
+      581,
+      752,
+      913,
+      914,
+      1162,
+      1163,
+      1598,
+      1826,
+      1827,
+      4261,
+      6391,
+      6392,
+      12782,
+      12783
+    ],
+    "component_edges": 38,
+    "component_good": 25,
+    "all_edges": 43,
+    "all_good": 28,
+    "component_colours": {
+      "1": 18,
+      "-1": 21
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 2521,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      13,
+      14,
+      26,
+      29,
+      87,
+      97,
+      194,
+      195,
+      841,
+      1261,
+      1262,
+      2522,
+      2523
+    ],
+    "component_edges": 15,
+    "component_good": 2,
+    "all_edges": 18,
+    "all_good": 2,
+    "component_colours": {
+      "1": 14,
+      "-1": 2
+    },
+    "nonunit_edges": 0
+  },
+  {
+    "n": 3361,
+    "root": 1,
+    "vertices": [
+      1,
+      2,
+      3,
+      19,
+      29,
+      41,
+      42,
+      57,
+      59,
+      82,
+      83,
+      116,
+      177,
+      1121,
+      1681,
+      1682,
+      3362,
+      3363
+    ],
+    "component_edges": 17,
+    "component_good": 2,
+    "all_edges": 23,
+    "all_good": 4,
+    "component_colours": {
+      "1": 16,
+      "-1": 2
+    },
+    "nonunit_edges": 0
+  }
+]
