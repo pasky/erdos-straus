@@ -34,3 +34,25 @@ Independent complete-period certificate results:
 
 The period checks test class membership, not just accidental integrality of the three final coordinates. No missing residue, wrong threshold, negative denominator, or nonintegral parameter was found. These checks establish the all-exponent claims through exact identities plus periodicity; representative evaluations are only supplementary diagnostics.
 
+## Claim 4: Theorem W and its non-covering corollaries — SOUND
+
+I checked the entire reduction rather than assuming that a finite computation proves the unrestricted statement:
+
+1. Taking coprime polynomial U,V for y/z and shrinking the exponent neighbourhood makes their numerical gcd constant (bounded by a nonzero resultant). Integer divisibility plus polynomial division then forces N/(d1d2) to be a polynomial: its proper remainder is a discrete rational number tending to zero. The crucial gcd(N,m)=1 follows separately at each odd prime dividing m from n→4^J. This removes a possible gap between numerical divisors and polynomial divisors.
+2. The specialisations rho_i=d_i(1)>0 are dyadic rationals. Positivity at 1 is valid because each real factor of n(n+m) has no nonnegative root and has positive leading coefficient. The odd parts multiply to M=4^J+m. Reciprocity gives (a_i/m)=1 and hence (2/m)^(e1−e2)=−1. Therefore m≡3 mod 8 and e1−e2 is odd.
+3. Since N(0) is a 2-adic unit and all d_i(0) are 2-integral, each is a unit. Every root of x has valuation 2/D, so its contribution to v2(X_i(1)/X_i(0)) is exactly −2/D. Thus e_i=−2delta_i+2J epsilon_i. This argument remains valid for arbitrarily split factors and arbitrarily large D; it is not an unjustified transfer of a small-degree factorization pattern. Integer e_i forces 2delta_i∈{0,1,2}, and odd difference forces a half-degree divisor.
+4. Capelli excludes odd prime powers by v2(K)=2 and squares by sign; reducibility must be the exceptional K=4beta^4, 4|D case. Fourth-power-freeness of c0 clears beta's denominator. The magnitude bound follows from multiplying the budget congruence by the complementary odd factors; both divisibility targets are strictly positive, and B(m) decreases for m>0.
+5. `scripts/review_r292_obstructions.py` derives a coarse bound at the first positive odd-w candidate, enumerates divisor triples and degree allocations independently, and filters by the exact bound. It confirms w=[1,3], [1,3,5], [3,5,7,9], [1,3,5], [1,3,5], [1,3,5] respectively and NO relation for all six excluded pairs. Positive controls give exactly m=11,19,51,131. Universal irreducibility follows from an odd-prime valuation ±1 and v2(k/(4c0))=−2; the code also checks factorization/valuation identities through D=16 as diagnostics, not as a universal proof.
+6. The constant-ratio argument is sound for t∈N: the lambda_i have nonnegative 2-valuations and integer odd parts dividing t. Jacobi symbols then contradict rho1≡−rho2. Eventual periodicity and the finite-cover lemma make the passage to no finite covering legitimate.
+
+Minor scope clarification, D2 (MINOR): the abstract/Main Theorem say “constant ratio x/n” without t∈N, whereas Definition 5.1 and Corollary 5.9 impose t∈N. This is repairable without weakening the claim: for rational t, integrality of tn near zero implies t4^J∈Z[1/2] and tk∈Z_(2), hence the denominator of t has neither an odd prime factor nor a factor 2. Positivity gives t∈N. Add this one-line reduction.
+
+## Claim 5: moving-gap branch exclusion (Lemmas 5.13–5.14, Theorem 5.15) — SOUND
+
+The Capelli reduction to K=15u^p is correct: an odd K cannot have K/15∈4Q^4, and a denominator v of u would satisfy v^p|15, forcing v=1. The positivity and 2-adic-root arguments really give integer X=f(1), X'=f'(1), not just dyadic rational limits. The congruences mod the odd part of ad use the explicitly stated integrality of b,c; that hypothesis must not be dropped.
+
+I re-derived all four P≤4 bounding cases in Lemma 5.14 and independently enumerated with different bounds d≤21, m1≤36, a≤81. There are exactly 39 solutions, 31 with a,d odd, and the only relevant pair is (1,11) with K/15=3, not a p-th power for p≥3. The u≡3 mod 8 branch is excluded for all D; the even-parameter branch remains genuinely open.
+
+The Ridout discussion is a compressed side remark rather than a proved lemma here. Its intended implication can be recovered from (X,X')≥(q−16,q−1) for q>16, yielding 2^E a1≳u^(p/2), and then |u−15^(−1/p)|_2≲u^(−1−epsilon). The exceptional q≤16 regime is an S-unit/Thue finiteness argument, not furnished in the paper. Recommend spelling out that reduction or only referring to the source note; no uniformity in p or effective bound is claimed.
+
+
