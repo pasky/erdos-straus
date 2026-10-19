@@ -59,30 +59,30 @@ The paper's text "(there $n\equiv3,5\pmod 7$)" and the hand argument are correct
 
 | claim | verdict | notes |
 |---|---|---|
-| Table 1 / Lemma 2.1 | **SOUND** | compared line by line with ET arXiv v6 Prop. 1.9 and the \S10 parametrisations (sources/elsholtz-tao-1107.1010.pdf): classes, side conditions and coordinates agree (I1 b=(ne+1)/(4ad) = ET's ((n+f)/4ad)e\u2212a). Both equivalences and positivity for all n\u22651 re-derived. |
-| Lemma 2.2 (i),(ii) | **SOUND** | re-derived step by step (Type I: e=(a+b)/c, 4abd=ne+1, e\u22613 (4), (q/e)=1 vs (ab/e)=\u22121 \u21d2 2|ab \u21d2 e\u22617 (8); Type II: e=4abd\u2212n, ce=a+b, same chain; gcd(ab,e)=1 because p|e,a \u21d2 p|n). Only gcd(ab,n)=1 is used in (ii) (hypothesis gcd(abd,n)=1 is stronger than needed \u2014 harmless). Brute force (`review_r291_limits.py` (1)): no Type I/II point with a,b,c<45 for every odd square 9..841; positive controls 17,33,41,57,65,73 do have points. ET's own \u00a74 indeed omits Type II ("we omit the details") \u2014 attribution correct. |
-| Cor 2.3 | **SOUND** | the gcd bookkeeping per family re-derived (I1: 4ad\u00b7c=n+f; II1: 4ab\u00b7d=n+e; II2: fb=nc+a; II3: 4ad\u00b7b=n+e). Brute force: 458\u202f065 pairs (admissible \u03ba with entries \u22648,8,39; odd t<400 with gcd(t,P_\u03ba)=1): t\u00b2 never in the class. |
+| Table 1 / Lemma 2.1 | **SOUND** | compared line by line with ET arXiv v6 Prop. 1.9 and the \S10 parametrisations (sources/elsholtz-tao-1107.1010.pdf): classes, side conditions and coordinates agree (I1 b=(ne+1)/(4ad) = ET's ((n+f)/4ad)e−a). Both equivalences and positivity for all n≥1 re-derived. |
+| Lemma 2.2 (i),(ii) | **SOUND** | re-derived step by step (Type I: e=(a+b)/c, 4abd=ne+1, e≡3 (4), (q/e)=1 vs (ab/e)=−1 ⇒ 2|ab ⇒ e≡7 (8); Type II: e=4abd−n, ce=a+b, same chain; gcd(ab,e)=1 because p|e,a ⇒ p|n). Only gcd(ab,n)=1 is used in (ii) (hypothesis gcd(abd,n)=1 is stronger than needed — harmless). Brute force (`review_r291_limits.py` (1)): no Type I/II point with a,b,c<45 for every odd square 9..841; positive controls 17,33,41,57,65,73 do have points. ET's own §4 indeed omits Type II ("we omit the details") — attribution correct. |
+| Cor 2.3 | **SOUND** | the gcd bookkeeping per family re-derived (I1: 4ad·c=n+f; II1: 4ab·d=n+e; II2: fb=nc+a; II3: 4ad·b=n+e). Brute force: 458 065 pairs (admissible κ with entries ≤8,8,39; odd t<400 with gcd(t,P_κ)=1): t² never in the class. |
 | Lemma 2.5 (rule period), 2.6 (compactness) | SOUND | standard. |
-| Thm 2.7 (sterility) | **SOUND** | CRT choice of t checked (t\u22612^J mod M', t\u00b2\u2261k mod 2^a, t\u22611 at the other primes of P_\u03ba); M(\u03ba) | M so t\u00b2 is in the class; divisor-class case correct. No Mordell/Schinzel dependence remains. |
-| Prop 2.8 (integer unit-square points) | SOUND | all three cases (\u2113>0, \u2113=0, \u2113<0) and the c\u2080\u22612 (4) case re-derived. |
-| Rem 2.9 / screen for 4^s+105 | SOUND (as EVIDENCE/certified screen) | `review_r291_misc.py`: the 28 primes q<3\u00b710\u2076 with ord_q(4)|360 give a witness (q|n_s or (n_s/q)=\u22121) for every s mod 360. |
-| Lemma 3.1 window (a),(b) | **SOUND** | (b) valuation case split re-derived; gcd(m,d)=1 follows from gcd(m,x)=1, d|x\u00b2. |
-| (SG),(CY),(BI) | SOUND | (BI) expansion (4abd\u2212n)(4acd\u22121)=4ad(4abcd\u2212b\u2212cn)+n checked; CY: \u03a3_{e|h}\u03c6(2e)=h for odd h. |
+| Thm 2.7 (sterility) | **SOUND** | CRT choice of t checked (t≡2^J mod M', t²≡k mod 2^a, t≡1 at the other primes of P_κ); M(κ) | M so t² is in the class; divisor-class case correct. No Mordell/Schinzel dependence remains. |
+| Prop 2.8 (integer unit-square points) | SOUND | all three cases (ℓ>0, ℓ=0, ℓ<0) and the c₀≡2 (4) case re-derived. |
+| Rem 2.9 / screen for 4^s+105 | SOUND (as EVIDENCE/certified screen) | `review_r291_misc.py`: the 28 primes q<3·10⁶ with ord_q(4)|360 give a witness (q|n_s or (n_s/q)=−1) for every s mod 360. |
+| Lemma 3.1 window (a),(b) | **SOUND** | (b) valuation case split re-derived; gcd(m,d)=1 follows from gcd(m,x)=1, d|x². |
+| (SG),(CY),(BI) | SOUND | (BI) expansion (4abd−n)(4acd−1)=4ad(4abcd−b−cn)+n checked; CY: Σ_{e|h}φ(2e)=h for odd h. |
 | Lemma 3.3 specialisation | SOUND | both directions; the worked example (15/4, 5/2, 1/2, 55/8) checked. |
 
 ### D. Section 5.1: Theorem W and its lemma chain
 
 | claim | verdict | notes |
 |---|---|---|
-| Remark after Def 5.1 (rules \u2192 root families; rational functions) | SOUND | shift: on all large multiples of P one has \u03c3|P, \u03c3|s\u2080, so Y=2^{-\u03c9t\u2080}\u00b7Y' with Y'=2^{s/D}; remainder argument correct. |
-| Lemma 5.2 (reduction) | **SOUND** | resultant \u21d2 constant gcd h on a shrunk C; m odd, gcd(m,N(Y))=1 near \u03bc=0 (n\u2261n+m\u22614^J mod p); polynomial divisibility by vanishing remainder (bounded denominators, R\u2080/(d\u2081d\u2082)\u21920). |
-| Lemma 5.3 (Jacobi at the limit) | **SOUND** | \u03c1\u2081\u03c1\u2082\u03c1\u2083=4^{J\u22121}M; (q/m)=1 for q|M by reciprocity with m\u22613 (4); (2/m)^{e\u2081\u2212e\u2082}=\u22121. |
-| Lemma 5.4 (2-adic size) | **SOUND** | v\u2082(k+m)=2 since m\u22613 (8); roots of x have v\u2082=2/D; e_i=\u22122\u03b4_i+2J\u03b5_i. |
-| Lemma 5.5 (Capelli) | **SOUND** | Lang, Algebra VI Thm 9.1 is exactly Capelli's criterion (X^n\u2212a irreducible iff a\u2209K^p for p|n and a\u2209\u22124K\u2074 if 4|n); application re-derived (\u2212K<0 excludes p=2, v\u2082(K)=2 excludes odd p, u\u2074|c\u2080 \u21d2 u=1). |
+| Remark after Def 5.1 (rules → root families; rational functions) | SOUND | shift: on all large multiples of P one has σ|P, σ|s₀, so Y=2^{-ωt₀}·Y' with Y'=2^{s/D}; remainder argument correct. |
+| Lemma 5.2 (reduction) | **SOUND** | resultant ⇒ constant gcd h on a shrunk C; m odd, gcd(m,N(Y))=1 near μ=0 (n≡n+m≡4^J mod p); polynomial divisibility by vanishing remainder (bounded denominators, R₀/(d₁d₂)→0). |
+| Lemma 5.3 (Jacobi at the limit) | **SOUND** | ρ₁ρ₂ρ₃=4^{J−1}M; (q/m)=1 for q|M by reciprocity with m≡3 (4); (2/m)^{e₁−e₂}=−1. |
+| Lemma 5.4 (2-adic size) | **SOUND** | v₂(k+m)=2 since m≡3 (8); roots of x have v₂=2/D; e_i=−2δ_i+2Jε_i. |
+| Lemma 5.5 (Capelli) | **SOUND** | Lang, Algebra VI Thm 9.1 is exactly Capelli's criterion (X^n−a irreducible iff a∉K^p for p|n and a∉−4K⁴ if 4|n); application re-derived (−K<0 excludes p=2, v₂(K)=2 excludes odd p, u⁴|c₀ ⇒ u=1). |
 | Lemma 5.6 (magnitude) | **SOUND** | both cases re-derived; note r=M/m is not an integer (harmless). |
-| Thm 5.7 (Thm W) | **SOUND** | assembly correct (some \u03b4_i=\u00bd with i\u2208{1,2} because 2J\u03b5_i is even). |
-| Computation 5.8 | **SOUND (re-computed)** | own enumeration (`review_r291_limits.py` (3)): hypotheses hold (c\u2080 4th-power-free; k/c\u2080 not a p-th power, not in 4Q\u2074); w_max = 3,5,9,5,5,5 exactly as stated; **no relation** for the six families (parity of e\u2081\u2212e\u2082 not imposed); controls give m = 11, 19, 51, 131 and (5/2, 7) for (7,9). (My first run reported 8 \"relations\" for (7,57) \u2014 all at w=1, m=28\u221257=\u221229<0, i.e. outside the theorem; the paper correctly restricts to 0<m.) |
-| Cor 5.9 (constant ratio) | **SOUND** | \u03bb_i \u2208 Z_(2)\u2229Z[1/2]=Z; t odd/even cases re-derived. |
+| Thm 5.7 (Thm W) | **SOUND** | assembly correct (some δ_i=½ with i∈{1,2} because 2Jε_i is even). |
+| Computation 5.8 | **SOUND (re-computed)** | own enumeration (`review_r291_limits.py` (3)): hypotheses hold (c₀ 4th-power-free; k/c₀ not a p-th power, not in 4Q⁴); w_max = 3,5,9,5,5,5 exactly as stated; **no relation** for the six families (parity of e₁−e₂ not imposed); controls give m = 11, 19, 51, 131 and (5/2, 7) for (7,9). (My first run reported 8 \"relations\" for (7,57) — all at w=1, m=28−57=−29<0, i.e. outside the theorem; the paper correctly restricts to 0<m.) |
+| Cor 5.9 (constant ratio) | **SOUND** | λ_i ∈ Z_(2)∩Z[1/2]=Z; t odd/even cases re-derived. |
 | Cor 5.10 (no covering) | SOUND | via Lemma 2.6 + the Remark after Def 5.1. |
 
 So the whole chain re-derives without gaps under its stated hypotheses (polynomial x,y,z in a single
