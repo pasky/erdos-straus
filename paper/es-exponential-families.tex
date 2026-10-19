@@ -136,8 +136,8 @@ $n=63\cdot2^s+1$ and every $n=7\cdot4^s+9$ ($s\ge0$).  None of these
 families admits a finite covering by Elsholtz--Tao classes and divisor
 classes (Theorem~\ref{thm:sterile}).
 \item[(b)] \textup{(Theorems~\ref{thm:105}, \ref{thm:nine})} It holds for
-every $n=4^s+k$, $s\ge0$, for
-$k\in\{9,57,81,105,129,153,177,201,225,249\}$.
+every $n=4^s+k$, $s\ge0$, for $k\in\{9,57,81,105,129,\allowbreak
+153,177,201,225,249\}$.
 \item[(c)] \textup{(Proposition~\ref{prop:15half})} It holds for every
 $n=15\cdot2^s+1$ with $60\nmid s$.
 \item[(d)] \textup{(Theorem~\ref{thm:W}, Corollary~\ref{cor:ratio})} For
@@ -956,7 +956,7 @@ class\,---\,is Izotov's \cite{Izotov,FFK}.
 \end{remark}
 
 \subsection{The families $4^s+k$}
-\begin{theorem}[\status{proved}, computer-assisted; {\cite[Thm.~1.3]{SignFields}}]\label{thm:nine}
+\begin{theorem}[\status{proved}, computer-assisted; \cite{SignFields}]\label{thm:nine}
 For $k\in\{9,57,81,129,153,177,201,225,249\}$ and every $s\ge0$,
 $4/(4^s+k)$ is a sum of three unit fractions.
 \end{theorem}
@@ -1201,13 +1201,14 @@ with $w$ odd.  As $-2\le e_i\le2J$, $|e_1-e_2|\le2J+2$, and
 Lemma~\ref{lem:magnitude} bounds $m$.
 \end{proof}
 
-\begin{computation}[\status{computer-assisted}; script function \texttt{thmW}]\label{comp:W}
+\begin{computation}[\status{computer-assisted}]\label{comp:W}
 For $(c_0,k)\in\{(15,1),(31,33),(7,57),(63,1),(47,17),(55,9)\}$ the
 hypotheses of Theorem~\ref{thm:W} hold (Capelli: $k/c_0$ is not a $p$-th
 power for odd $p$ and not in $4\Q^4$), and the enumeration over all odd $w$
 with $0<m\le B(m)$ ($w\le3,5,9,5,5,5$ respectively; $B(m)$ decreases in
 $m$), all $a_1,a_2$ and all admissible $(e_1,e_2)$\,---\,without imposing the
-parity of $e_1-e_2$\,---\,finds \emph{no} relation.  Positive controls: for
+parity of $e_1-e_2$\,---\,finds \emph{no} relation (function \texttt{thmW} of
+the script).  Positive controls: for
 $(3,1)$, $(7,9)$, $(23,41)$, $(39,25)$ the same enumeration finds relations
 exactly at $m=11$, $19$, $51$, $131$, the Sophie Germain windows that do
 reach $\mu=0$; for $(7,9)$ the relations include $(\rho_1,\rho_2)=(5/2,7)$,
@@ -1453,3 +1454,124 @@ $X=2^t3^{t'}$ is handled by the rules of Theorem~\ref{thm:proth3}, and
 $8X^3+1$ factors), but a covering of the remaining two-dimensional exponent
 space was not found \cite[\S1]{Exp15}.
 \end{problem}
+
+\appendix
+\section{The verification script}\label{app:script}
+\sloppy
+The script \texttt{scripts/c1\_expfam\_verify.py} (about 500 lines, sympy and
+the Python standard library only; run time a few seconds) re-verifies every
+certificate of this note from the data printed here.  For every family it
+builds each rule as explicit polynomials $x,y,z\in\Q[Y]$ (ET classes from
+Table~\ref{tab:ET}; windows from $m,d_1,d_2$ by Lemma~\ref{lem:window}; the
+classes of Theorem~\ref{thm:proth3}, Lemmas~\ref{lem:63class},
+\ref{lem:105class} verbatim) and then:
+\begin{enumerate}
+\item checks the identity $4xyz=n(xy+yz+zx)$ in $\Q[Y]$ symbolically;
+\item \emph{derives} the exact set of exponent residues on which the rule
+applies, by Lemma~\ref{lem:ruleperiod}: one full period of
+$R_1(2^{\omega t})\bmod N$ for each coordinate, beyond the $2$-adic and
+positivity threshold $t^*$ (positivity: no real root of a numerator in
+$[2^{\omega t^*},\infty)$, by exact Sturm counting, and positive leading
+coefficient);
+\item checks that the derived classes cover every residue modulo their
+least common multiple (excluding $s\equiv0\pmod{60}$ for $15\cdot2^s+1$), and
+that every $s$ below the largest threshold is solved by a rule evaluated at
+that $s$, or else by an exhaustive divisor search (needed only for
+$s=0$ in four families);
+\item builds the solution from the covering rule and checks it exactly for
+every $s\le1000$ (every $s\le600$ for the nine $4^s+k$);
+\item runs the finite enumeration of Computation~\ref{comp:W} with its
+positive controls, the irreducibility hypothesis of Theorem~\ref{thm:W}
+(Capelli), and the enumeration of Lemma~\ref{lem:boxed}.
+\end{enumerate}
+The exponent tables of this note were printed from the classes derived in
+step~(2) (helper \texttt{scripts/c1\_tables.py}); a transcript is in
+\texttt{data/c1/verify\_tables.txt}.  The second certificate for
+$3\cdot2^m+1$ of Remark~\ref{rem:proth3}(ii) is also re-verified.  The
+original certificates were checked, in addition, by the authors' checkers
+and by two independent reviewers' programs each (for example
+\texttt{review\_r251\_proth3.py} and \texttt{review\_r252\_proth3.py} for
+Theorem~\ref{thm:proth3}, \texttt{review\_r257\_cert63.py} and
+\texttt{review\_r258\_cert63.py} for Theorem~\ref{thm:63},
+\texttt{review\_r253\_cert.py} and \texttt{review\_r254\_cert.py} for
+Theorem~\ref{thm:c7}, \texttt{review\_r245\_cert.py} and
+\texttt{review\_r246\_cert105.py} for Theorem~\ref{thm:105},
+\texttt{review\_r235\_cert.py} and \texttt{review\_r236\_cert.py} for
+Theorem~\ref{thm:nine}, and \texttt{review\_r257\_thmW.py},
+\texttt{review\_r258\_thmW.py} for Computation~\ref{comp:W}); the
+certificate of Proposition~\ref{prop:15half} is new and has so far been
+checked only by the script above.
+
+\fussy
+\section*{Acknowledgements and provenance}
+This is an internal draft consolidating reviewed entries (J)22, (J)62,
+(J)69, (J)74, (J)75, (J)80 and (J)102 of the project ledger
+\texttt{DISCOVERIES.md}, with the repairs recorded in the corresponding
+hostile reviews.  No external referee has checked it.
+
+\begin{thebibliography}{99}
+\bibitem{BH} A.~Bert\'ok and L.~Hajdu, A Hasse-type principle for
+exponential Diophantine equations and its applications, Math.\ Comp.\ 85
+(2016), 849--860; arXiv:1407.6499 (abstract consulted).
+\bibitem{ET} C.~Elsholtz and T.~Tao, Counting the number of solutions to the
+Erd\H{o}s--Straus equation on unit fractions, J.\ Aust.\ Math.\ Soc.\ 94
+(2013), 50--105; arXiv:1107.1010v6.
+\bibitem{FFK} M.~Filaseta, C.~Finch and M.~Kozek, On powers associated with
+Sierpi\'nski numbers, Riesel numbers and Polignac's conjecture, J.\ Number
+Theory 128 (2008), 1916--1940.
+\bibitem{Izotov} A.~S.~Izotov, A note on Sierpi\'nski numbers, Fibonacci
+Quart.\ 33 (1995), 206--207 (not accessed; described in \cite[pp.~3--4]{FFK}).
+\bibitem{Lang} S.~Lang, \emph{Algebra}, revised 3rd ed., Graduate Texts in
+Mathematics 211, Springer, New York, 2002.
+\bibitem{MD} S.~Mihnea and B.~C.~Dumitru, Further verification and empirical
+evidence for the Erd\H{o}s--Straus conjecture, arXiv:2509.00128 (2025).
+\bibitem{Mordell} L.~J.~Mordell, \emph{Diophantine Equations}, Academic
+Press, London--New York, 1969 (not accessed; cited via \cite{ET}).
+\bibitem{Rav} Y.~Rav, On the representation of rational numbers as a sum of
+a fixed number of unit fractions, J.\ Reine Angew.\ Math.\ 222 (1966),
+207--213 (not accessed).
+\bibitem{Ridout} D.~Ridout, Rational approximations to algebraic numbers,
+Mathematika 4 (1957), 125--131 (not accessed).
+\bibitem{Salez} S.~E.~Salez, The Erd\H{o}s--Straus conjecture: new modular
+equations and checking up to $N=10^{17}$, arXiv:1406.6307 (2014).
+\bibitem{Schinzel} A.~Schinzel, On sums of three unit fractions with
+polynomial denominators, Funct.\ Approx.\ Comment.\ Math.\ 28 (2000),
+187--194 (not accessed; cited via \cite{ET}).
+\bibitem{Sierpinski} W.~Sierpi\'nski, Sur un probl\`eme concernant les
+nombres $k\cdot2^n+1$, Elem.\ Math.\ 15 (1960), 73--74 (not accessed;
+described in \cite[\S1]{FFK}).
+\bibitem{Yamamoto} K.~Yamamoto, On the Diophantine equation
+$4/n=1/x+1/y+1/z$, Mem.\ Fac.\ Sci.\ Kyushu Univ.\ Ser.\ A 19 (1965), 37--47.
+\bibitem{CovNote} Companion note in this repository,
+\emph{Finite congruence coverings for the Erd\H{o}s--Straus equation and
+sterile profinite points}, \texttt{paper/es-coverings-note.tex}.
+\bibitem{ExpCov} Companion note in this repository,
+\texttt{EXPONENT\_COVERING.md} (ledger (J)22); reviewed in
+\texttt{reviews/exponent-covering-review.md},
+\texttt{reviews/exponent-covering-review-2.md}.
+\bibitem{SignFields} Companion note in this repository,
+\texttt{SIGN\_FIELDS.md} (ledger (J)62); reviewed in
+\texttt{reviews/sign-fields-review.md}, \texttt{-review-2.md}.
+\bibitem{ExpNearSq} Companion note in this repository,
+\texttt{EXP\_NEAR\_SQUARE.md} (ledger (J)68).
+\bibitem{Sparks6} Companion note in this repository,
+\texttt{SYNTHESIS\_SPARKS6.md} (ledger (J)69); reviewed in
+\texttt{reviews/synthesis-six-review.md}, \texttt{-review-2.md}.
+\bibitem{MenuSterility} Companion note in this repository,
+\texttt{MENU\_STERILITY.md} (ledger (J)74); reviewed in
+\texttt{reviews/menu-sterility-review.md}, \texttt{-review-2.md}.
+\bibitem{Exp105} Companion note in this repository, \texttt{EXP\_105.md}
+(ledger (J)75); reviewed in \texttt{reviews/exp-105-review.md},
+\texttt{-review-2.md}.
+\bibitem{MenuLadder} Companion note in this repository,
+\texttt{MENU\_LADDER.md} (ledger (J)76); reviewed in
+\texttt{reviews/menu-ladder-review.md}.
+\bibitem{ExpOpen} Companion note in this repository, \texttt{EXP\_OPEN.md}
+(ledger (J)80); reviewed in \texttt{reviews/exp-open-review.md},
+\texttt{-review-2.md}.
+\bibitem{Exp15} Companion note in this repository, \texttt{EXP\_15.md}
+(ledger (J)102); reviewed in \texttt{reviews/exp-fifteen-review.md}.
+\bibitem{Audit} Novelty audit, \texttt{reviews/novelty-audit-2026-10e.md},
+\S2 (zbMATH Open list of all $70$ Erd\H{o}s--Straus documents; web searches).
+\end{thebibliography}
+\end{document}
