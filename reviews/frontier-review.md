@@ -68,3 +68,53 @@ Source of truth: `LONGSHOT_PIGEONHOLE.md` §3 Table 3.1, reading 5, and Conj 5.1
 * FRONTIER (§3 B4, §5.5) says "EVIDENCE on *sampled* Mordell-hard primes ≥ 10⁶, exceptions below 10⁶: 3529, 110881": faithful
   to the source but undersells that the < 10⁶ range is exhaustive and should say the exceptions are relative to e ≤ 2000.
   MINOR (defect m-PH below).
+
+## Task (1): fidelity sweep
+
+Method: every labelled statement in FRONTIER.md checked against its cited source (three parallel research-mode sweeps over
+§§1–2, §3, §4–8, each reporting mismatches; every reported mismatch then re-checked by me), plus my own spot checks of the
+highest-risk items, with from-scratch code where computable:
+* Theorem K (METAPLECTIC_ES; FRONTIER §2.3): K2 R_t(n) = D_t⁻(tn+1) − β_t(n) and the theta-quotient identity (K1′) verified
+  for t = 3…9, n < 150 by brute force / exact power series (`scripts/review_r290_spot.py`, 0 failures).
+* E₈ ∩ primes < 2000 = {2, 3, 11, 17, 131, 241} (§1, AMPLIFY_EXCEPTION Thm 2.5): reproduced exactly.
+* p = 3361 (§4 item 14): exactly 2 Type II solutions, the two listed (15 solutions total, 13 Type I): reproduced.
+* §4 item 1 / Lemma CT ("every denominator prime to p has a prime factor ℓ with (ℓ/p) = −1"): no violation in all 3 498
+  solutions of 4/p, p ≡ 1 (4), p < 1500 (`scripts/review_r290_ct.py`).
+* Arithmetic of all quoted constants: 3/(16π²) = 0.0190, 1/(32π²), 3/(2π²) = 0.152, 45/(8π²) = 0.570, 45/(32π²), 15/(64π²),
+  2^{21.44} ≈ 2.8·10⁶; 8/131 = 1/20 + 1/131 + 9/2620; 8/121 = 1/18 + 1/99 + 1/2178 — all correct.
+* Elsholtz–Planitzer (§1): checked against arXiv:1805.02945 Theorem 3 and its proof: for m = 4, f(4,n) ≥ exp((log 6 + o(1))
+  log log n) on a density-one set — matches FRONTIER (LITERATURE_2026 had it only second-hand; now confirmed first-hand).
+* Census claims (14 (★) failures ≤ 10¹⁰; b = 1 failures 193, 2521, 66529 ≤ 10¹¹; CERTIFIED ≤ 10⁸ by two engines, ≤ 10¹⁰
+  by one): match DISCOVERIES (J)89/(J)90 and B1_LINE §3.6. Not re-run.
+* Reported-but-rejected: a sweep flagged "3/4 note: three reviews incl. a blind audit" (§1) as contradicted by
+  `reviews/wave32-sec76-review.md` defect 1. Rejected: that review (2026-09-06) predates the blind audit
+  `reviews/es-threequarter-blind-audit.md` (2026-10-01, SOUND); DISCOVERIES (B)11 lists exactly the three reviews. FRONTIER
+  is faithful.
+
+Mismatches found are listed as defects below (M1–M3, m1–m6). Everything else in the sweep matched source + repairs; given that
+the author's own deep self-review already repaired 24 fidelity defects, the residual rate is low.
+
+## Task (4): usefulness of §4 and §6
+
+* §4 is honestly scoped (the "Scope (read this)" paragraph correctly says the lines are screens for mapped classes of
+  arguments, not necessary conditions for every proof). Each line has a pointer; the pointers resolve. Items 1, 4, 5, 6, 7, 8,
+  9, 12 are the load-bearing ones and are correctly stated.
+* Missing / under-represented barrier: **B4 (covering certificates / pigeonhole / large fibres)** appears in §3 but has no
+  checklist line (items 8 and 10 touch it only obliquely). A newcomer proposing "cover the target coset from the prime
+  factors of N_e" will not be stopped by §4. See m4.
+* Missing from §4: the **ordered/unordered and integer-vs-prime density** pitfall (the very discrepancy flagged in §2.2): a
+  newcomer computing an expected count for (★) at primes with Σ1/m will be off by 12/π². Fold into item 6 (see M1 repair).
+* §6 (dead ends): spot-checked ≈ 15 of ≈ 35 one-liners against pointers (GRH-by-character p^{1−o(1)} = CONDITIONAL_ES Prop
+  3.1.1; 56×54 identity rank, (I)5/DISCOVERIES:474, CERTIFIED with finite scope stated; Linnik; privacy; signed reflection
+  scoped to |d|-preserving; brainstorm "promise ≤ 2/5" = README "nothing scored above 2"). Fair and appropriately hedged
+  ("do not repeat without a new ingredient"). Minor: "none LIVE" — the README has one LIVE tag (bsE_et_casework_depth), an
+  obstruction-side function-field result, not an ES route; harmless but could say "none LIVE as an ES route".
+
+## Task (5): honesty
+
+* "ES is not solved — not here, not anywhere" is the first boxed statement; "none of it is externally refereed" in the label
+  paragraph; §5 header repeats "All internal; none externally refereed." PASS.
+* No statement claims ES or a case of ES for all large primes, conditionally on a standard conjecture or otherwise. The only
+  implications toward ES (§5.4) are from ES-strength hypotheses and are labelled so. PASS.
+* The one-paragraph summary's "every route … ends at one statement" is an unlabelled Assessment (it is the campaign's
+  judgement, not a theorem). MINOR (m6).
