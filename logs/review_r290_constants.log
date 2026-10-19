@@ -1,0 +1,18 @@
+N=1000000 W=200000 L=log(mid)=13.9108 L^2=193.51
+  L^2/8 = 24.189   3/(2pi^2) L^2 = 29.410
+  M_int (sum 1/m)   = 23.654  /L^2 = 0.1222
+  M_phi (sum 1/phi) = 29.456  /L^2 = 0.1522
+  M0 (pairs 1/phi(4uB)) = 28.925  /L^2 = 0.1495
+  mean R over all n          : 25.723  (count 200000, /L^2 = 0.1329, zeros 132)
+  mean R over odd n          : 25.602  (count 100000, /L^2 = 0.1323, zeros 73)
+  mean R over primes         : 31.910  (count 14440, /L^2 = 0.1649, zeros 1)
+  mean R over primes 1 mod 4 : 32.258  (count 7254, /L^2 = 0.1667, zeros 1)
+N=10000000 W=200000 L=log(mid)=16.1280 L^2=260.11
+  L^2/8 = 32.514   3/(2pi^2) L^2 = 39.533
+  M_int (sum 1/m)   = 31.851  /L^2 = 0.1224
+  M_phi (sum 1/phi) = 39.533  /L^2 = 0.1520
+  M0 (pairs 1/phi(4uB)) = 39.002  /L^2 = 0.1499
+  mean R over all n          : 34.238  (count 200000, /L^2 = 0.1316, zeros 34)
+  mean R over odd n          : 34.117  (count 100000, /L^2 = 0.1312, zeros 19)
+  mean R over primes         : 42.384  (count 12391, /L^2 = 0.1629, zeros 0)
+  mean R over primes 1 mod 4 : 42.710  (count 6213, /L^2 = 0.1642, zeros 0)
