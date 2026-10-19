@@ -15,7 +15,7 @@ interpretation, not a theorem. Everything PROVED here is *internally* reviewed (
 is externally refereed.** Pointers like (J)100 are entries in the ledger `DISCOVERIES.md`.
 
 **One-paragraph summary.** After ~280 tasks, a dozen phases and two advisory boards with seats from three labs, every route the
-campaign or its sibling (`../erdos-straus-astra`) tried ends at one statement: *a single specific integer, determined by p,
+campaign or its sibling (`../erdos-straus-astra`) tried ends (Assessment, R290 repair) at one statement: *a single specific integer, determined by p,
 must have a divisor in a residue class whose modulus is itself part of the solution* ("B2", the tied-modulus divisor
 event), with only polylog(p) expected winners. In counting form this is a **one-sided lower tail at one integer**,
 R(p) ≥ ε·M_BM(p), where the main term M_BM(p) ≫ (log p)² is now an unconditional theorem and the odd-square obstruction
@@ -37,8 +37,10 @@ II separately); min f_II/log³p ≈ 0.012 (STATUS, phase (I)). Adversarial searc
 approached failure: the hardest relative to controls, p = 2054098191162848070241, still has 870 solutions on its cheapest 1024
 e-slices alone (0.26× controls); the smallest absolute count seen was 612 (`DISPROOF_AVENUES.md:246–290`, EVIDENCE).
 
-**Parametrisations (Elsholtz–Tao, ET = J. Aust. Math. Soc. 94 (2013)).** For a prime p every solution is Type I (p divides
-exactly one denominator) or Type II (two). In divisor form (`CONDITIONAL_ES.md` §1, PROVED):
+**Parametrisations (Elsholtz–Tao, ET = J. Aust. Math. Soc. 94 (2013)).** ET call a solution (x, y, z) of 4/n Type I if n | x and n is coprime to y, z, and Type II if
+n | y, z and n is coprime to x; for a prime p every solution is Type I (p divides exactly one denominator) or Type II (two).
+(R290 repair: for composite n the coprimality matters — 4/9 = 1/3 + 1/18 + 1/18 = 1/4 + 1/6 + 1/36 are neither type, and T1
+below is false for the naive "n divides one/two denominators" reading.) In divisor form (`CONDITIONAL_ES.md` §1, PROVED):
 * Type I ⟺ f | p² + 4c²d with f ≡ −p (mod 4cd); Type II ⟺ ff′ − 4c²dp = 1 with f ≡ f′ ≡ −1 (mod 4cd).
 * e-slice form: ES(p) ⟺ ∃ e ≡ −p (mod 4) with −1 ∈ {ab⁻¹ mod e : ab | N}, N = (p+e)/4 (Type II) or (pe+1)/4 (Type I).
 * Counts: Σ_{p≤N} f(p) is ≍ N log²N up to a log log N (ET Thm 1.1); the average of f(n) over all n is ≍ log³n; for almost
@@ -117,10 +119,15 @@ failing is *not* ES failing.
   R(p) ≥ exp((log 2/L_Lin − o(1)) log p/log log p), so every bound |R − M| ≤ (log p)^{O(1)} fails infinitely often (in the
   harmless direction). Only a one-sided statement can be true.
 
-*Two normalisations of "the main term".* `PARITY_AUDIT.md` Lemma 2.1 writes R(p) = M(p) + E(p) with the trial-count main term
-M(p) = Σ_𝓡 1/(4uC − 1) = (log p)²/8 + O(log p) (PROVED); `BM_CORRECTED_COUNT` uses the prime-averaged pair series M₀ ∼ 0.152
-(log p)². These are different expansions; the repo does not reconcile the constants (1/8 vs 3/(2π²)), and nothing below
-depends on the constant. Observed R(p) = 44, 52, 68 at p ≈ 10⁸, 10⁹, 10¹⁰ (EVIDENCE).
+*Two normalisations of "the main term" — reconciled (R290 repair; `reviews/frontier-review.md` task (2)).* `PARITY_AUDIT.md`
+Lemma 2.1 writes R(p) = M(p) + E(p) with M(p) = Σ_𝓡 1/(4uC − 1) = (log p)²/8 + O(log p) (PROVED): the zero Fourier frequency,
+i.e. the density for *arbitrary integers* n. For *primes*, −u is a unit mod m = 4uC − 1, so the density is 1/φ(m), and
+Σ_𝓡 1/φ(m) ∼ (1/8)∏_{ℓ odd}(1 + ℓ⁻²)(log p)² = (3/(2π²))(log p)² — the same constant as BM_CORRECTED's M₀ = Σ_𝒫 1/φ(4uB)
+(which depends on p only through its size). Both count *ordered* triples (u, B, C) (R(p) is even; distinct (★) solutions
+are R/2). So 1/8 is right for the all-integer average, 3/(2π²) for primes; at primes E(p) has mean ≈ +0.027(log p)².
+EVIDENCE (R290, from scratch, windows of 2·10⁵ at 10⁶ and 10⁷): mean R over primes = 0.165, 0.163 × (log p)² (≈ M₀ + 0.2 log p);
+mean R over all n = 0.133, 0.132 × (log p)² (≈ Σ1/m + 0.15 log p). Individual values (R(p) = 44, 52, 68 at p ≈ 10⁸, 10⁹, 10¹⁰)
+fluctuate by ± ~15 and support neither constant. Nothing below depends on the constant.
 
 ### 2.3 The exact theta-quotient normal form (PROVED; `METAPLECTIC_ES.md` Thm K, (J)101)
 
@@ -209,12 +216,15 @@ in Waves Y–AC. A barrier "with known technology" is an Assessment about method
   multiplicity encodings, families of size p^{o(1)} with unrestricted auxiliaries. This is exactly where §2 sits.
 
 **B4 — deterministic pigeonhole / large fibres.** `LONGSHOT_PIGEONHOLE.md` Thm 2.2, `LONGSHOT_FIBRED.md` Thm 3.1.
-* *Statement.* Covering certificates built from the prime factors below the modulus fail for a positive proportion of primes
-  in every slice (PROVED relative to classical inputs); pigeonhole collisions give only signed solutions. Algebraic/orbit
+* *Statement.* Transparent covering certificates (residues of the prime factors below the modulus, plus one opaque cofactor)
+  covering a coset of size ≥ φ(e)e^{−θ}/2 (θ < 1/2; R135 remark: any θ < 1) fail, simultaneously in every e-slice of both
+  types, for a set of primes of positive lower relative density inside p ≡ 1 (mod 8∏_{3≤ℓ≤Y}ℓ) (PROVED relative to classical
+  inputs; certificates that merely hit −1 or cover smaller cosets are not excluded; R290 repair); pigeonhole collisions give only signed solutions. Algebraic/orbit
   recipes with bounded covolume ratio: the fibre factor cancels and B3 returns (PROVED relative to the counting theorems).
 * *Scope:* transparent coset-covering certificates; arithmetic-group orbits with a covolume count.
 * *Does NOT rule out:* CONJECTURE PH (`LONGSHOT_PIGEONHOLE.md` Conj 5.1: for every large p some e ≡ −p (mod 4) with
-  φ(e) ≥ 40 has a full-coset cover; EVIDENCE on *sampled* Mordell-hard primes ≥ 10⁶, exceptions below 10⁶: 3529, 110881) —
+  φ(e) ≥ 40 has a full-coset cover; EVIDENCE: all Mordell-hard primes < 10⁶ except 3529, 110881 (e ≤ 2000), 300-prime samples
+  after 10^k up to 10⁸ (e ≤ 5000), 14 selected hard primes ≤ 3.7·10⁷ (e ≤ 20000); R290 repair) —
   open, and by Thm 2.2 not easier than the lottery it replaces (Assessment).
 
 **B5 = T1 — the odd-square test.** ET Prop 1.6; `PARITY_AUDIT.md` Lemma 3.2; (J)13 (T1 = Kudla's Diff-parity = Hilbert
@@ -408,6 +418,8 @@ has passed all lines.
    an averaged input is fine only if the step that recovers the prescribed p is identified.
 6. **Scale (B3).** If it is "main term ≥ 2·error", compute the main term: power-size main terms with ≤ p^{o(1)}-to-one
    encodings are impossible for almost all p. The live regime is polylog main term with error below it at one integer.
+   (R290 repair) Use the prime density 1/φ(m), not 1/m, when computing an expected count at a prime: for (★) this is
+   3/(2π²) vs 1/8 times (log p)² (§2.2).
 7. **One-sided only.** Any claimed two-sided asymptotic R(p) = M(p)(1 + o(1)), or |R − M| ≤ (log p)^{O(1)}, is false
    infinitely often (Linnik, `BM_CORRECTED_COUNT` Prop 3.1).
 8. **Not congruence + factorisation shape (B1).** If the input is p mod M plus the factorisation shapes of fixed
@@ -438,6 +450,10 @@ has passed all lines.
     deforms there ((J)53, (J)55). Check the idea at p = m² + k with small k.
 16. **Thin-family wins do not transfer.** Forced-budget windows (Sophie Germain, moving-gap cubic) prove 3·2^s + 1 etc.;
     at a general prime the side numbers are irreducible in ℚ[u, p] ((J)84), so an algebraic budget needs p = φ(u).
+17. **Covering certificates must use large prime factors (B4; R290 repair).** If the plan is to cover the target coset −K_e
+    from the prime factors of N_e(p), certificates built from the factors below e (plus one opaque cofactor) fail on a
+    positive-density set of primes (`LONGSHOT_PIGEONHOLE.md` Thm 2.2); collisions/pigeonhole give only signed solutions. Say
+    which theorem controls the residues of the large prime factors — that is the lottery (B2) again.
 
 **Profile that passes all the screens** (Assessment, distilled from the above and both boards; not a theorem): a single-integer
 statement at fixed p; uses the quadratic character of p (vanishes at squares); 4-specific or with an explicit threshold;
@@ -507,7 +523,8 @@ no single-prime lower-tail mechanism is known.
 
 **5.5 Standing conjectures with evidence** (CONJECTURE; EVIDENCE ranges in brackets).
 SQ: for odd n, Type I ∪ Type II empty ⟺ n square [odd non-squares ≤ 10⁷]; SQ₅ (five slices; n ≠ 105) [10⁶]; SQ_± and 3SQ
-(exception-free companions, (J)52, (J)53); PH (full-coset covers; sampled Mordell-hard primes, exceptions 3529, 110881 below 10⁶); PM-II (3361 only) [10⁸]; X_win: a_min(p) ≪ log p;
+(exception-free companions, (J)52, (J)53); PH (full-coset covers; all Mordell-hard primes < 10⁶ except 3529, 110881 at e ≤ 2000,
+samples to 10⁸, 14 hard primes ≤ 3.7·10⁷; R290 repair); PM-II (3361 only) [10⁸]; X_win: a_min(p) ≪ log p;
 U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [10¹¹]); López's union conjecture; CONJECTURE 0.2
 (F₃[T] sterile point x*_c); x** sterile (r = 13; certified through ES level 2.59·10¹⁰).
 
@@ -552,7 +569,7 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * Amplifying one exception (transport, congruence recombination, non-congruential lifts) → isolated / T1-blocked / collapse to B2 → (J)86, (J)88.
 * Cross-field net (13 fields) → no sharp transfer; pattern M1a–M5 → (J)94.
 * Boards: Davenport forcing, √−2 norm shifts, clean-side norm towers, one-child lemma, W_binom, HJ grammars (trap at 193), CEGAR, Λ-damped counts, iso-modulus packets, Fermat splitting, consecutive blocks, mod-8 escape → each refuted or a restatement → `~/.pi/boards/20261018-es-routes/memo.md` §dead, `…-es-lowertail/memo.md` §dead.
-* 51 brainstorm memos (logic, LLL/Janson, Markoff/Ghosh–Sarnak, tropical, p-adic, motivic, Maynard–Tao, entropy decrement, Kahn–Kalai, …) → none LIVE, promise ≤ 2/5 → `BRAINSTORM/README.md`.
+* 51 brainstorm memos (logic, LLL/Janson, Markoff/Ghosh–Sarnak, tropical, p-adic, motivic, Maynard–Tao, entropy decrement, Kahn–Kalai, …) → none LIVE as an ES route (the one LIVE tag is an obstruction-side function-field result; R290 repair), promise ≤ 2/5 → `BRAINSTORM/README.md`.
 
 ## 7. Open sub-problems that are well-posed and plausibly tractable
 
@@ -602,8 +619,8 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
     image; `LOWER_TAIL_FABLE.md`.) *Why:* decides whether the cleaner Legendre-form/forest picture loses anything.
 15. **A "prime T1"** for disproof ((J)97): a global invariant at one prime forcing all ≍ (log p)³ events into the wrong
     class — or a proof that none exists beyond squares. *Why:* the only conceivable disproof shape.
-16. *Housekeeping (small):* reconcile the (★) main-term constants (log p)²/8 (`PARITY_AUDIT` Lemma 2.1, trial expansion) and
-    3/(2π²)(log p)² (`BM_CORRECTED_COUNT` Thm 2.2, prime-averaged pair series); the repo states both without comparison.
+16. *(Housekeeping item resolved, R290 repair:* the (★) constants (log p)²/8 and 3/(2π²)(log p)² are the all-integer and the
+    prime densities of the same ordered count; see §2.2 and `reviews/frontier-review.md` task (2).)
 
 ## 8. Pointers into the repository
 
@@ -613,7 +630,8 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
   `METAPLECTIC_ES.md` (Theorem K), `SYNTHESIS_SPARKS9.md` (level coordinates, BM layer free), `BOARD2_SLATE.md` (five-slice
   constant 45/(8π²), ABH, moving windows), `LOWER_TAIL_ASTRA.md` (forest), `LOWER_TAIL_FABLE.md` (two-target form), board
   memos `~/.pi/boards/20261018-es-lowertail/memo.md` and `…/20261018-es-routes/memo.md` (note: the lower-tail memo's
-  five-slice constants are superseded by BOARD2_SLATE).
+  five-slice constants are superseded by BOARD2_SLATE; R290 repair: these memos are outside the repository and may be
+  unavailable to an external reader — BOARD2_SLATE and STATUS record their outcomes).
 * **§3 barriers:** `POINTWISE_SIZE.md` (B1), `reviews/redteam-automorphic.md` §4 and `reviews/redteam-automorphic-2.md` §2–3
   (T1–T8, B2, hatches H-A…H-G), `CONDITIONAL_ES.md` (B3, X_slice), `LONGSHOT_PIGEONHOLE.md` / `LONGSHOT_FIBRED.md` (B4),
   `PARITY_AUDIT.md` (tied modulus), `CLASS_FORCING.md`, `TWO_POWER_LADDER.md`, `SYNTHESIS_SPARKS8.md` (privacy, b = 1 line),

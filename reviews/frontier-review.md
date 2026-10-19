@@ -1,7 +1,11 @@
 # R290 — hostile review of O279 FRONTIER.md
 
 Reviewer: side-agent/review-frontier. Documents: FRONTIER.md (as merged from side-agent/frontier-doc), AGENT_REPORT_O279.md.
-Status: IN PROGRESS.
+Status: COMPLETE (round 1). **Overall: SOUND-AFTER-REPAIRS; no FATAL; 3 MAJOR, 6 MINOR; no overclaim.**
+
+**Repairs applied** (author quiet — no commits on side-agent/frontier-doc after the O279 report): M1, M2, M3, m1, m2, m3, m4, m5
+applied directly to FRONTIER.md, each marked "(R290 repair)" (11 markers). m6 not applied (clarity only). X1–X3 are in other
+files and are forwarded to the parent, not edited.
 
 
 ## Task (2): the (★) main-term constants — RESOLVED (no inconsistency; FRONTIER's framing is wrong)
