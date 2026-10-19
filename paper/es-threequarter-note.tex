@@ -55,8 +55,10 @@ integers $x_1,x_2,x_3$, not necessarily distinct, with
 The Erd\H{o}s--Straus conjecture asserts that every $n\geq2$ is
 representable.  Put
 \[
- E(N)=\#\{1\leq n\leq N:n\text{ not representable}\},\qquad
- E_{\rm pr}(N)=\#\{p\leq N\text{ prime}:p\text{ not representable}\}.
+ \begin{aligned}
+ E(N)&=\#\{1\leq n\leq N:n\text{ not representable}\},\\
+ E_{\rm pr}(N)&=\#\{p\leq N\text{ prime}:p\text{ not representable}\}.
+ \end{aligned}
 \]
 (Here $n=1$ is not representable; this is irrelevant for a density bound.)
 
@@ -200,8 +202,10 @@ Since $\kappa<1/240$, for all sufficiently large $X$ every block satisfies
 
 Let $\A_X$ be the set of quadruples $A=(k,\ell,u,v)$ with
 \begin{equation}\label{eq:atomdef}
- k\in\K(K),\quad \ell\in I_j\text{ prime for some }j,\quad H<u,v\leq z_j,
- \quad (u,v)=(uv,k)=1,\quad 4uv\mid k\ell+1.
+ \begin{gathered}
+ k\in\K(K),\quad \ell\in I_j\text{ prime for some }j,\quad H<u,v\leq z_j,\\
+ (u,v)=(uv,k)=1,\quad 4uv\mid k\ell+1.
+ \end{gathered}
 \end{equation}
 Divisibility forces $\ell\equiv3\pmod4$.  To each atom $A$ attach the class
 \begin{equation}\label{eq:cylinder}
@@ -362,11 +366,13 @@ $1/\varphi(m)=m^{-1}\sum_{d\mid m}\mu^2(d)/\varphi(d)$.  If $d\mid u$ and
 $u\equiv a\pmod k$ with $(a,k)=1$, then $(d,k)=1$.  By \eqref{eq:apone} for
 $d\leq H$, and the bound $\sum_{m\leq z/d}1/m\leq1+\log z$ for $d>H$,
 \[
+ \begin{aligned}
  \sum_{\substack{H<u\leq z\\u\equiv a\ (k)}}\frac1{\varphi(u)}
- \ll\frac\Lambda k\sum_d\frac{\mu^2(d)}{d\varphi(d)}
+ &\ll\frac\Lambda k\sum_d\frac{\mu^2(d)}{d\varphi(d)}
  +\frac1H\sum_{d\leq H}\frac{\mu^2(d)}{\varphi(d)}
- +(1+\log z)\sum_{d>H}\frac1{d\varphi(d)}
- \ll\frac\Lambda k+\frac{\log H}H+\frac{\Lambda}{\sqrt H},
+ +(1+\log z)\sum_{d>H}\frac1{d\varphi(d)}\\
+ &\ll\frac\Lambda k+\frac{\log H}H+\frac{\Lambda}{\sqrt H},
+ \end{aligned}
 \]
 using $\varphi(d)\gg\sqrt d$.  In the same way
 $\sum_{H<v\leq z,(v,k)=1}1/\varphi(v)\ll\frac{\varphi(k)}k\Lambda
@@ -621,8 +627,8 @@ Lemma~\ref{lem:CRT} and Corollary~\ref{cor:fibremass},
 \[
  \Prob(H_X=0\mid c,S_y=1)=\prod_\ell\Bigl(1-\frac{f_c(\ell)}\ell\Bigr)
  \leq\e^{-\mu_c}\leq\e^{-a_ht^2h(\J_c)}\leq\e^{-a_vt^3},
- \qquad a_v=\frac{a_ha_0\kappa}4 .
 \]
+where $a_v=a_ha_0\kappa/4$.
 Choose $B_0=2a_v/\eta$.  For $B\geq B_0$, averaging over $c$ gives
 $\Prob(H_X=0\mid S_y=1)\leq\e^{-a_vt^3}+\e^{4-2a_vt^3}\leq\e^{-a_vt^3/2}$
 for large $X$.  Take $c_v=a_v/2$.
@@ -672,11 +678,11 @@ Theorem~\ref{thm:moments}, using $m!\geq(m/\e)^m$,
  +\frac{\E((H_X)_{r+1}\mid S_y=1)}{(r+1)!}
  \leq\e^{-c_vt^3}+\Bigl(\frac{\e C_ut^3}{r+1}\Bigr)^{r+1}.
 \]
-Choose $D_B>\e C_u$ with $D_B\log(D_B/(\e C_u))\geq2c_v$.  The function
-$m\mapsto m\log(m/(\e C_ut^3))$ is increasing for $m\geq C_ut^3$, and
-$r+1\geq D_Bt^3$, so the last term is at most $\e^{-2c_vt^3}$.  Since
-$\E\nu_X=\Prob(S_y=1)\E(Q_r(H_X)\mid S_y=1)$, this gives
-$\E\nu_X\leq\e^{-c_at^3}$ with $c_a=c_v/2$ for large $X$.  The
+Choose $D_B>\e C_u$ with $D_B\log(D_B/(\e C_u))\geq2c_v$.  The
+function $m\mapsto m\log(m/(\e C_ut^3))$ is increasing for $m\geq C_ut^3$, and
+$r+1\geq D_Bt^3$, so the last term is at most $\e^{-2c_vt^3}$.
+Multiplying by $\Prob(S_y=1)\leq1$ gives $\E\nu_X\leq\e^{-c_at^3}$ with
+$c_a=c_v/2$ for large $X$.  The
 nonnegativity and the lower bound for non-representable $n$ follow from
 Lemma~\ref{lem:Bonferroni} and $H_X(n)=0$ (Section~\ref{sec:atoms}).
 
@@ -764,3 +770,92 @@ $\int_0^\infty\e^{-(c_0-\eta_0)s^{3/4}}ds<\infty$.  The product in
 \eqref{eq:Rankin} is therefore bounded uniformly in $x$, and
 $E(x)\ll x^{1-\delta}=x\exp\{-\eta_0(\log x)^{3/4}\}$.
 \end{proof}
+
+\section{Remarks}\label{sec:remarks}
+\begin{remark}[comparison with Vaughan's argument]\label{rem:vaughan}
+Vaughan uses the classes of Lemma~\ref{lem:identity} with $k=1$ and
+Montgomery's large sieve with prime moduli (we follow the account in
+\cite{PW}, \cite{LL}; the following balance is heuristic).  With $k=1$ only, the mass
+in \eqref{eq:supply} is $\asymp t^2$.  The large sieve gains
+$\exp\{c\mu\}$ only at levels $Q$ with $\log Q\gtrsim\mu\log X$.  Since
+$Q\leq N^{1/2}$, this forces $t^3\lesssim\log N$ and gives
+$(\log N)^{2/3}$.  Here the extra factor $h(\K(K))\asymp\log K\asymp t$
+in the mass is paid for by the same kind of budget: the Bonferroni degree
+is $r\asymp\mu$ and each degree costs a factor $\e^{O(t)}$ in
+\eqref{eq:termcount}.  The balance becomes $t^4\asymp\log N$.  Using the
+multipliers in the large sieve directly, as in \cite{LL}, would require
+splitting $[1,N]$ modulo $L_K$, which is impossible once $\log L_K\asymp K$
+exceeds $\log N$.  This is why \cite{LL} is limited to $K\ll\log N$ and to
+a gain of $(\log\log N)^{1/3}$.
+\end{remark}
+
+\begin{remark}[total identity-class supply]\label{rem:supply}
+For $M\equiv3\pmod4$ put $A=(M+1)/4$ and
+$\mathcal R(M)=\{-uv^{-1}\bmod M:uvw=A\}$, the set of classes forced by
+Lemma~\ref{lem:identity} with $k\ell$ replaced by $M$.  Then
+$\mathcal R(M)=\{-4D\bmod M:D\mid A^2\}$.  Indeed $-uv^{-1}\equiv-4u^2w$
+because $4uvw\equiv1$, so one may take $D=u^2w$.  Conversely, if
+$p^e\Vert A$ and $p^d\Vert D$, give $u$, $w$, $v$ the exponents
+$\lfloor d/2\rfloor$, $d-2\lfloor d/2\rfloor$ and the remainder.
+Divisors $D<A$ give distinct classes, since $0<4D<M$, so
+$\frac12(\tau(A^2)-1)\leq|\mathcal R(M)|\leq\tau(A^2)$.  From
+$\tau(n^2)=\sum_{d^2\mid n}\mu(d)\tau_3(n/d^2)$ and
+$\sum_{m\leq x}\tau_3(m)\sim\frac12x\log^2x$ one gets
+$\sum_{M\leq Q,\,M\equiv3\,(4)}|\mathcal R(M)|/M\asymp(\log Q)^3$.  So the
+supply of all identity classes, over all moduli and with distinct
+residues, has exponent three, and the multipliers of this note reach
+that order of magnitude.  Combined with the heuristic balance above, this
+explains the value $3/4$.  The rigorous statement that $3/4$ cannot be
+beaten by majorants of the type used here is the internal result quoted
+in Remark~\ref{rem:limit}.
+\end{remark}
+
+\begin{remark}[numerator $m$]
+The argument transfers to $m/n$ for fixed $m\geq4$.  The identity becomes
+$k\ell+1=m\,uvw$ with $(k,m)=1$, and the moduli become $muv$.  This gives
+$E_m(N)\ll N\exp\{-c(\log N)^{3/4}m^{-1/4}\}$ with absolute $c$.  That
+extension is recorded in internal working notes and is not part of the
+claims of this note.
+\end{remark}
+
+\begin{thebibliography}{99}
+\bibitem[BE]{BE}
+T.~F. Bloom and C.~Elsholtz, Egyptian fractions, survey,
+arXiv:2210.04496, 2022.
+\bibitem[D]{Davenport}
+H.~Davenport, \emph{Multiplicative Number Theory}, 3rd ed., revised by
+H.~L. Montgomery, Graduate Texts in Mathematics 74, Springer, 2000.
+\bibitem[El]{Elsholtz}
+C.~Elsholtz, Sums of $k$ unit fractions, \emph{Trans. Amer. Math. Soc.}
+\textbf{353} (2001), 3209--3227.
+\bibitem[ET]{ET}
+C.~Elsholtz and T.~Tao, Counting the number of solutions to the
+Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math. Soc.}
+\textbf{94} (2013), 50--105; arXiv:1107.1010.
+\bibitem[KA3]{KA3}
+Internal working document \texttt{EXCEPTIONAL\_KARY3.md}: the $3/4$ cap
+for coefficient-sum CRT majorants without the $(\log\log N)^{3/4}$ loss,
+2026.  Internally reviewed, unrefereed.
+\bibitem[LL]{LL}
+Internal note \texttt{paper/vaughan-loglog-note.tex}: a logarithmic
+improvement of Vaughan's bound for the Erd\H{o}s--Straus exceptional set,
+2026.  Internally reviewed, unrefereed.
+\bibitem[MV]{MV}
+H.~L. Montgomery and R.~C. Vaughan, The large sieve, \emph{Mathematika}
+\textbf{20} (1973), 119--134.
+\bibitem[PW]{PW}
+C.~Pomerance and A.~Weingartner, Exceptions to the
+Erd\H{o}s--Straus--Schinzel conjecture, arXiv:2511.16817, 2025.
+\bibitem[S]{Shiu}
+P.~Shiu, A Brun--Titchmarsh theorem for multiplicative functions,
+\emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.
+\bibitem[SL]{SL}
+Internal note \texttt{paper/sieve-limits-note.tex} (version 4): sieve
+limits for the Erd\H{o}s--Straus exceptional set, 2026.  Internally
+reviewed, unrefereed.
+\bibitem[V]{Vaughan}
+R.~C. Vaughan, On a problem of Erd\H{o}s, Straus and Schinzel,
+\emph{Mathematika} \textbf{17} (1970), 193--198,
+doi:10.1112/S0025579300002886.
+\end{thebibliography}
+\end{document}
