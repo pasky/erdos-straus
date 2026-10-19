@@ -212,7 +212,9 @@ in Waves Y–AC. A barrier "with known technology" is an Assessment about method
   in every slice (PROVED relative to classical inputs); pigeonhole collisions give only signed solutions. Algebraic/orbit
   recipes with bounded covolume ratio: the fibre factor cancels and B3 returns (PROVED relative to the counting theorems).
 * *Scope:* transparent coset-covering certificates; arithmetic-group orbits with a covolume count.
-* *Does NOT rule out:* CONJECTURE PH (full-coset covers exist for every large p; EVIDENCE to 3.7·10⁷) — open, not a route.
+* *Does NOT rule out:* CONJECTURE PH (`LONGSHOT_PIGEONHOLE.md` Conj 5.1: for every large p some e ≡ −p (mod 4) with
+  φ(e) ≥ 40 has a full-coset cover; EVIDENCE on *sampled* Mordell-hard primes ≥ 10⁶, exceptions below 10⁶: 3529, 110881) —
+  open, and by Thm 2.2 not easier than the lottery it replaces (Assessment).
 
 **B5 = T1 — the odd-square test.** ET Prop 1.6; `PARITY_AUDIT.md` Lemma 3.2; (J)13 (T1 = Kudla's Diff-parity = Hilbert
 reciprocity for the incoherent ternary collection).
@@ -227,8 +229,8 @@ reciprocity for the incoherent ternary collection).
 
 **B6 = T7 — the average leak.** Any estimate averaged over p, or over a level/discriminant attached to p (spectral large
 sieve, DI Thm 7, Kuznetsov with exceptional eigenvalues, Bombieri–Vinogradov, zero-density), says nothing at a single p.
-Concretely: Σ_{p≤N} f_I(p) ≪ N log²N ((D)32b) and the 3/4 exceptional-set bound are theorems *on average*; neither yields one
-prime. Fixed-p variance diagnostics were tried and fail ((J)103: "critical"). Use T7 against every cited estimate.
+Concretely: Σ_{p≤N} f_I(p) ≪ N log²N ((D)32b) and the 3/4 exceptional-set bound are theorems *on average*; neither establishes
+ES for a prescribed prime. Fixed-p variance diagnostics were tried and fail ((J)103: "critical"). Use T7 against every cited estimate.
 
 **B-fin — ES is a finite search with moving moduli.** (J)23, (J)25, (J)28 (`UNIT_ORBIT_ES.md`, `FIXED_MODULUS_SHOTS.md`,
 `SYNTHESIS_SPARKS2.md`).
@@ -288,17 +290,24 @@ class (B2) with no cross-shift leverage. *Does NOT rule out:* mechanisms that ne
 * *Statement.* (J)84 Thm A (PROVED, elementary): with p a free variable and slice parameters polynomial in an auxiliary u,
   every ES side number is (p-free content) × (irreducible in ℚ[u, p]); the only non-trivial input is d > 0 (a signed slice
   d = −w² makes p² + 4c²d split identically). So a thin-family algebraic budget needs a relation p = φ(u) (irreducible top
-  part ⇒ the (J)79 collapse; variable-linear φ ⇒ a B2 event). Windows from ℤ[√p] always have (p/m) = +1 (never Jacobi-forced);
-  p is a non-square modulo every class modulus 4ab, so auxiliaries handing over divisors of p − 1 pin p to the sterile point.
+  part ⇒ the (J)79 collapse; variable-linear φ ⇒ a B2 event). Prop 4.2: windows m with p + m = c·w² are Jacobi-forced iff
+  (c/p) = −1; so near-square windows m = w² − p, CF norms |P_k² − pQ_k²| (gcd(Q_k, m) = 1) and m | A² − pB² (gcd(B, m) = 1) have
+  (p/m) = +1 and are never forced (general c is not excluded, but then c supplies the non-residue; CF/Pell data used as other
+  coordinates is not covered). p is a non-square modulo every class modulus 4ab (Prop 4.3), so auxiliaries handing over
+  divisors of p − 1 pin p to the sterile point locally.
   (J)52 (PROVED): positive words ⟺ definite path forms; the three-bit law "certificate ⟺ χ·s_∞ = −1" holds for all words,
-  signed included; signed slices have (|d|/p) = +1, positive ones (d/p) = −1, and there is no signed → positive move.
-* *Rules out:* "drop positivity, solve the signed problem, then move back"; polynomial algebraic budgets at a general prime.
+  signed included. (J)89 Lemma 4.1 (PROVED; p ≡ 1 (4), gcd(p, cd) = 1, Type I divisibility): signed slices have (|d|/p) = +1,
+  positive ones (d/p) = −1; hence no move preserving |d| (or its square class mod p) takes signed points to positive ones
+  (Cor 4.2), and there is no Vieta-type involution.
+* *Rules out:* "solve the signed problem, then reflect back" by |d|-preserving moves; polynomial algebraic budgets at a
+  general prime. A transfer that changes the square class of d is not excluded — it must find a non-residue *and* produce the
+  divisor in the new class, i.e. B2 again (Assessment).
 * *Does NOT rule out:* anything about ES directly — the signed relaxation SQ_± is *just as much a lottery* (Assessment):
   positivity is T1's anchor (the archimedean Hilbert factor), not the source of difficulty. Residual of Thm A: φ* reducible
   of degree ≥ 2 in every variable.
 
 **Numerator blindness; numerator models with real exceptions.** (J)41 (`SYNTHESIS_SPARKS3.md`), (J)46/(J)49, (J)86
-(`AMPLIFY_EXCEPTION.md` §5), (J)88 (`NONCONG_LIFTS.md`).
+(`AMPLIFY_EXCEPTION.md` Thm 2.5), (J)88 (`NONCONG_LIFTS.md`).
 * *Statement.* (J)41 Thm 1.1 (PROVED): for every M ≡ 0 (4) the □-relaxation M^□(n) holds at every odd non-square n prime to
   M (one Dirichlet prime), and the M-shot mechanism keeps T1 exactly. Yet M/p fails at 278 known pairs (M ∈ {8, 12, 16, 20,
   24}; CERTIFIED), e.g. 8/131 has no unit-fraction solution but 8/131 = 1/20 + 1/131 + 9/2620. Threshold-robust form (relative
@@ -319,19 +328,23 @@ class (B2) with no cross-shift leverage. *Does NOT rule out:* mechanisms that ne
 * *Statement.* BL Thm 1.8 (PROVED, literature): (U_n(ℝ)₊ × ∏_p U_n(ℤ_p))^{Br} ≠ ∅ for every n ≥ 2. So a counterexample is a
   non-BM integral failure. The "n = 1 shadow" (CONDITIONAL on Dickson/H): primes p ≡ 1 (mod Q) with prime slice cofactors
   empty any *finite* set of ET slices. EVIDENCE: a universal zero law across the numerator ladder m = 4…24,
-  P(f = 0) ≈ exp(−0.535 μ^{0.91}) by local cell mean μ (underpredicts top-μ zeros by ×3–5); adversarial primes at 10¹⁸–10²⁵
-  stay far from failure (≥ 612 solutions on cheap slices).
+  P(f = 0) ≈ exp(−0.535 μ^{0.91}) by local cell mean μ (underpredicts top-μ zeros by ×3–5); adversarial BPSW-probable primes at
+  10¹⁸–10²⁵ stay far from failure (at least 612 solutions on the cheap slices).
 * *Assessment.* P(ES false) "well under 10⁻³", all of it model risk (a floor/mixture or a global non-congruential mechanism);
   model-internal estimates are < 10⁻³⁰. A disproof would need a **"prime T1"**: a global invariant forcing all ≍ (log p)³
   divisor events into the wrong class at one prime. None is known; T1 itself exists only because squares make every relevant
   prime a residue.
 * *Does NOT rule out:* non-BM Hasse failures in principle — the Markoff precedent (§2.4) shows they occur at the same scale.
 
-**The power ladder is flat.** (J)108 (`POWER_LADDER_ES.md`). ES_(k): 4/n = 1/x + 1/y + Q^k/Z (Q odd, coprime conditions).
-Odd k: trivial for every n by 4/n = 1/(2x) + 1/(2x) + Q^k/(nx), 4x = n + Q^k, Q ∈ {1, 3} (PROVED; T1 dead). Even k: the rung
-is ES^□ again (one Dirichlet prime; T1 intact). **No rung lies strictly between ES^□ and ES** (for solution sets). Reason
-(PROVED bits + Assessment): the relevant single-modulus index is gcd(k, g − 1) ∈ {1, 2}; ES's ladder is flat because
-ord(T1) = 2 coincides with the unavoidable 2-part of every shot index — "a coincidence of the prime 2" (over ℤ[ω], TES
+**The power ladder is flat.** (J)108 (`POWER_LADDER_ES.md`). ES_(k): 4/n = 1/x + 1/y + Q^k/Z with Q odd, gcd(Q, n) = 1 and
+**gcd(Q, Z) = 1** (lowest terms are essential: without them every rung is the same, Remark 1.2). Odd k (Thm 2.1, PROVED): for
+odd n take the least Q ≡ −n (mod 4) prime to n and 4x = n + Q^k: 4/n = 1/(2x) + 1/(2x) + Q^k/(nx); at primes Q ∈ {1, 3}; all
+n by a finite covering plus scaling; T1 is dead (odd squares get Type I-shaped solutions). Even k (Thm 2.3): one Dirichlet
+prime r ≡ 3 (4) with (n/r) = −1, chosen with r ≢ 1 modulo the odd primes of k, as for ES^□; T1 intact for this Type II-shaped
+construction. By scaling every rung holds for every n ≥ 2 (Cor 2.5) — the ladder carries one bit of *mechanism* (k mod 2) and
+zero bits of truth; **no rung is strictly between ES^□ and ES in difficulty** (Assessment). Reason (PROVED bits + Assessment):
+the relevant single-modulus index is i_k(g) = gcd(k, g − 1), which the construction makes 1 (odd k) or 2 (even k) by choosing
+the prime; the ladder is flat because ord(T1) = 2 coincides with the unavoidable 2-part of every shot index — "a coincidence of the prime 2" (over ℤ[ω], TES
 separates the two). *Rules out:* climbing from ES^□ to ES through intermediate power relaxations. *By-product:* the variant whose third
 numerator may be a power of one fixed prime q (4/n = 1/x + 1/y + q^c/Z, "one mute prime") holds for every n prime to q, PROVED
 per q under an elementary hypothesis on q (Thm 5.1; checked for all q ≤ 10⁶; all non-square q under GRH).
@@ -341,22 +354,25 @@ fields surveyed). Every pointwise existence theorem surveyed uses at least one i
 
 | input | used by (examples) | B2 lacks it because |
 |---|---|---|
-| M1a power-size count of final objects | Duke, ternary forms, 290-thm, Bourgain–Gamburd–Sarnak, Shkredov/Zhang Zaremba | count ≍ (log p)²–(log p)³ |
+| M1a power-size count of final objects | Duke, ternary forms, 290-thm, Bourgain–Gamburd–Sarnak, Shkredov/Zhang Zaremba (claimed) | count ≍ (log p)²–(log p)³ |
 | M1b power-size auxiliary set + pigeonhole/volume | Thue/Minkowski (p = x² + y²), Dirichlet/Pell | target class depends on the exact height; covering needs sub-power windows ((J)85) |
 | M2 fixed-modulus character/group event | least QNR / primitive roots under GRH, Lipshitz LGP | tied modulus (fixed only in CF coordinates, where M1 fails) |
 | M3 homogeneity / group action | strong approximation for groups, BGS, one-class genera | U_n not homogeneous; finite automorphism group |
 | M5 count congruence (parity / mod-p count) | Zagier windmill, Chevalley–Warning, EGZ | T1: count is 0 at odd squares, so the congruence must see the quadratic character (finite-menu affine involutions barred, (J)2, CONDITIONAL) |
 | M4 freedom to choose objects | AGP Carmichael, Bloom/Croot, fibration methods | p and K = (p+q)/4 are forced |
 
-The sharpest test is Zaremba (2026, Shkredov; Zhang — unrefereed preprints): pointwise by M1 + M2; ES₅ keeps M2 but has only
+The sharpest test is Zaremba, *claimed* proved pointwise in 2026 (Shkredov arXiv:2603.14116, every prime/squarefree q; X. Zhang
+arXiv:2605.02518, all q, building on Shkredov's framework — unrefereed; only the statements were checked here, not the
+proofs): pointwise by M1 + M2; ES₅ keeps M2 but has only
 ≍ log²p certificates (the quadratic non-residues A with HJ-length(p/A) ≤ 3). Known-in-substance: λ(p) ≤ (6/π²) log p log log p
 + O(log p) (Aistleitner–Borda–Hauke attribution, (J)105), with ES₅ ⟺ λ(p) ≤ 3; the Zaremba method reaches ES only at CF length
-≍ log p log log p, a known relaxation ((J)95). Literature check ((J)103, Assessment): **no every-n theorem exists for any natural
+≍ log p log log p, a known relaxation ((J)95). Literature survey ((J)103, Assessment): **no every-n theorem was found for any natural
 problem with a polylog main term.**
 
 **Rooted constructions and bounded windows die under Dickson.** (J)106 (`LOWER_TAIL_ASTRA.md`), (J)83 (`CAP_BOUNDED.md`).
 The positive-word endpoint graph F_n (edge uv iff uv | n + u + v) is a **forest** (each v > 1 has at most one smaller
-neighbour, −n mod v; PROVED), and five-slice certificates are exactly its bichromatic edges (χ_n-colouring). Under Dickson,
+neighbour, −n mod v; PROVED), and, for unit endpoints and n ≡ 1 (4) (automatic at primes p > 3), five-slice certificates are exactly its
+bichromatic edges (χ_n-colouring). Under Dickson,
 for every fixed H, infinitely many p ≡ 1 (24) have every component meeting {1,…,H} monochromatic; rooting at the least
 non-residue also fails i.o. (p = 2521 + 9240a with (p + 11)/12 prime). For every M, infinitely many p ≡ 1 (8) have no window
 certificate with m ≤ M at any cap (CONDITIONAL on Dickson). *Rules out:* fixed finite root sets and bounded windows. *Does NOT
