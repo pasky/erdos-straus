@@ -92,6 +92,8 @@ class Fam:
     def et(self, fam, *p):
         n = self.nY(0, 1, self.lb)
         if fam == 'D':
+            if p[0] not in DIV_ES:
+                sol = es_brute(p[0]); assert sol and check_sol(p[0], sol); DIV_ES[p[0]] = sol
             q, (xq, yq, zq) = p[0], DIV_ES[p[0]]
             x, y, z = xq * n / q, yq * n / q, zq * n / q
         elif fam == 'II2':           # 4ad | f+1, n = -4a^2 d (mod f)
@@ -224,18 +226,21 @@ def eval_rule(rule, A, t):
     return tuple(out)
 
 
-def verify_family(fam, smax=SMAX, expect_L=None):
+def verify_family(fam, smax=SMAX, expect_L=None, exclude=None):
+    """exclude = (P, R): residues s mod P in R are NOT claimed (partial theorem)."""
+    exc = (lambda s: exclude is not None and s % exclude[0] in exclude[1])
     t0 = time.time()
     infos = [analyse(fam, r) for r in fam.rules]
     for r, A in zip(fam.rules, infos):
         assert A['V'], ('rule never valid', r['label'])
     # s-period of each rule and coverage
-    L = 1
+    L = 1 if exclude is None else exclude[0]
     for r, A in zip(fam.rules, infos):
         L = lcm(L, r['sigma'] * A['T'])
     Sstar = max(r['s0'] + r['sigma'] * A['tstar'] for r, A in zip(fam.rules, infos))
     cover = {}
     for rho in range(L):
+        if exc(rho): continue
         for idx, (r, A) in enumerate(zip(fam.rules, infos)):
             if (rho - r['s0']) % r['sigma']: continue
             t = ((rho - r['s0']) // r['sigma']) % A['T']
@@ -247,6 +252,7 @@ def verify_family(fam, smax=SMAX, expect_L=None):
     # small s: some rule at exactly this s, else brute force
     direct = []
     for s in range(Sstar):
+        if exc(s): continue
         n = fam.c0 * fam.B ** s + fam.k
         ok = False
         for r, A in zip(fam.rules, infos):
@@ -257,6 +263,7 @@ def verify_family(fam, smax=SMAX, expect_L=None):
             sol = es_brute(n); assert sol and check_sol(n, sol), (fam.name, s); direct.append(s)
     # numerics: build the solution from the covering rule for every Sstar <= s <= smax
     for s in range(Sstar, smax + 1):
+        if exc(s): continue
         r = fam.rules[cover[s % L]]; A = infos[cover[s % L]]
         t = (s - r['s0']) // r['sigma']
         assert (s - r['s0']) % r['sigma'] == 0 and t >= A['tstar']
@@ -267,6 +274,8 @@ def verify_family(fam, smax=SMAX, expect_L=None):
         assert sol is not None and check_sol(n, sol), (fam.name, s, r['label'])
     if expect_L is not None:
         assert L == expect_L, (fam.name, L)
+    if exclude is not None:
+        log('     (partial: residues s mod %d in %s are excluded and NOT claimed)' % exclude)
     log('[OK] %-14s %2d rules (%2d used), coverage period L = %d, all s >= %d covered; s < %d: %s; '
         'exact solutions checked for s <= %d  (%.1fs)' % (fam.name, len(fam.rules), len(used), L, Sstar, Sstar,
         ('brute force at s = %s' % direct) if direct else 'all by rules', smax, time.time() - t0))
@@ -347,6 +356,15 @@ def fam_c7_k9():
     F = Fam('7*4^s+9', 7, 4, 9)
     for w in C7W: F.z14(*w)
     for p in C7: F.et(*p)
+    return F
+
+
+# Proposition 5.12: n = 15*2^s + 1 for every s not divisible by 60 (ET/divisor classes only)
+def fam_15():
+    F = Fam('15*2^s+1', 15, 2, 1)
+    for p in (('II2', 1, 1, 7), ('II2', 2, 1, 7), ('II2', 2, 5, 39), ('D', 31), ('II2', 1, 8, 31), ('II2', 1, 3, 11),
+              ('II2', 1, 5, 99), ('D', 11), ('II2', 3, 1, 11), ('II2', 1, 3, 287), ('II2', 1, 24, 287)):
+        F.et(*p)
     return F
 
 
@@ -476,4 +494,5 @@ if __name__ == '__main__':
     verify_family(fam_c7_k9())
     verify_family(fam_105())
     for k in NINE: verify_family(fam_nine(k), smax=min(SMAX, 600))
+    verify_family(fam_15(), exclude=(60, {0}))
     log('total %.1fs' % (time.time() - T0))

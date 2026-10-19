@@ -10,7 +10,7 @@
 [OK] Theorem W positive control (c0,k)=(39,25): relations only at m = [131], e.g. (1, 131, 6, 1, -1, 3)
 [OK] Lemma 5.10: a(m1 m2 d - 4) = m1 + 16 m2 has exactly 39 positive solutions (31 with a, d odd, 20 distinct odd pairs); 15 | 4a^2d+1 only for (a,d) = (1,11), quotient 3  (0.1s)
 ES solutions used by divisor classes: {5: (2, 5, 10), 7: (2, 28, 28), 11: (3, 66, 66), 13: (4, 26, 52), 17: (5, 34, 170), 19: (5, 190, 190), 29: (8, 116, 232), 41: (11, 164, 1804), 61: (16, 488, 976), 127: (32, 8128, 8128), 541: (136, 36788, 73576)}
-[OK] 3*2^s+1        10 rules (10 used), coverage period L = 120, all s >= 4 covered; s < 4: brute force at s = [0]; exact solutions checked for s <= 1000  (0.2s)
+[OK] 3*2^s+1        10 rules (10 used), coverage period L = 120, all s >= 4 covered; s < 4: brute force at s = [0]; exact solutions checked for s <= 1000  (0.3s)
       SG11 d=3^0 f+^2 f-^1                     s mod 40    in [0, 12]  (s >= 4)
       SG11 d=3^0 f+^0 f-^2                     s mod 40    in [8, 36]  (s >= 4)
       SG11 d=3^0 f+^2 f-^0                     s mod 40    in [16, 28]  (s >= 4)
@@ -143,4 +143,17 @@ ES solutions used by divisor classes: {5: (2, 5, 10), 7: (2, 28, 28), 11: (3, 66
 [OK] 4^s+249         2 rules ( 2 used), coverage period L = 2, all s >= 0 covered; s < 0: all by rules; exact solutions checked for s <= 600  (0.1s)
       D(5,)                                    s mod 2     in [0]  (s >= 0)
       II2(2, 2, 15)                            s mod 2     in [1]  (s >= 0)
-total 3.0s
+     (partial: residues s mod 60 in {0} are excluded and NOT claimed)
+[OK] 15*2^s+1       11 rules (11 used), coverage period L = 60, all s >= 0 covered; s < 0: all by rules; exact solutions checked for s <= 1000  (0.2s)
+      II2(1, 1, 7)                             s mod 3     in [1]  (s >= 0)
+      II2(2, 1, 7)                             s mod 3     in [2]  (s >= 0)
+      II2(2, 5, 39)                            s mod 12    in [9]  (s >= 0)
+      D(31,)                                   s mod 5     in [1]  (s >= 0)
+      II2(1, 8, 31)                            s mod 5     in [2]  (s >= 0)
+      II2(1, 3, 11)                            s mod 10    in [4]  (s >= 0)
+      II2(1, 5, 99)                            s mod 10    in [8]  (s >= 0)
+      D(11,)                                   s mod 10    in [3]  (s >= 0)
+      II2(3, 1, 11)                            s mod 10    in [5]  (s >= 0)
+      II2(1, 3, 287)                           s mod 60    in [39]  (s >= 0)
+      II2(1, 24, 287)                          s mod 60    in [30]  (s >= 0)
+total 3.3s
